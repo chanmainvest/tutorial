@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Lesson 01: Mastering the TI BA II Plus Financial Calculator - Investment Tutorial</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a2e;
+            --heading: #16213e;
+            --accent: #0f3460;
+            --accent-light: #e8eef7;
+            --border: #d4d4d8;
+            --code-bg: #f4f4f5;
+            --sidebar-bg: #f8f9fa;
+            --link: #0f3460;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .sidebar .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .sidebar .nav-section h3 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 4px 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 2px;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px 50px;
+            max-width: 900px;
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-toggle button {
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .content-area {
+            margin-top: 60px;
+        }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        h1 { font-size: 2rem; color: var(--heading); margin: 30px 0 15px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; color: var(--heading); margin: 25px 0 12px; }
+        h3 { font-size: 1.2rem; color: var(--heading); margin: 20px 0 10px; }
+        h4 { font-size: 1.05rem; color: var(--heading); margin: 15px 0 8px; }
+
+        p { margin-bottom: 12px; }
+
+        ul, ol { margin: 10px 0 15px 25px; }
+        li { margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+        th { background: var(--accent-light); font-weight: 600; }
+
+        pre { background: var(--code-bg); padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9em; }
+        p code { background: var(--code-bg); padding: 2px 6px; border-radius: 3px; }
+
+        blockquote { border-left: 4px solid var(--accent); padding: 10px 20px; margin: 15px 0; background: var(--accent-light); }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+
+        a { color: var(--link); }
+
+        img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-buttons a {
+            padding: 8px 16px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-buttons a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 20;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .top-bar { left: 0; padding: 10px 20px; }
+            .content-area { margin-top: 50px; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <h2>Investment Tutorial</h2>
+            <div class="nav-section"><h3>Home</h3><a href="index.html">Course Overview</a></div><div class="nav-section"><h3>Level 1: Foundation</h3><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div><div class="nav-section"><h3>Level 2: Intermediate</h3><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div><div class="nav-section"><h3>Level 3: Advanced</h3><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div><div class="nav-section"><h3>Level 4: Sophisticated</h3><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div><div class="nav-section"><h3>Level 5: Expert</h3><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div><div class="nav-section"><h3>Side Lessons</h3><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div>
+        </nav>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <span style="font-weight:600;color:var(--accent);">Side Lesson 01: Mastering the TI BA II Plus Financial Calculator</span>
+                <div class="lang-toggle">
+                    <button class="active" onclick="switchLang('en')">EN</button>
+                    <button onclick="switchLang('hk')">HK</button>
+                    <button onclick="switchLang('tw')">TW</button>
+                    <button onclick="switchLang('cn')">CN</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div id="content-en" class="lang-content active">
+                    <h1>Side Lesson 01: Mastering the TI BA II Plus Financial Calculator</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+Every finance professional and serious investor needs to speak the language of time value of money fluently. The TI BA II Plus is the industry-standard financial calculator used by CFA candidates, financial analysts, and investment bankers worldwide. While spreadsheets can do these calculations, understanding how to work a financial calculator builds intuition about how money moves through time. You cannot fake this skill in a job interview, a client meeting, or a certification exam.
+</p>
+<p>
+More importantly, the calculator forces you to think about cash flow sign conventions, compounding frequency, and the relationship between present and future values in a way that simply plugging numbers into a spreadsheet formula does not. When you truly understand what each key does, you understand the math behind every loan, every bond, every investment decision.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>The Five TVM Keys</h4>
+<p>
+The heart of the TI BA II Plus is the five Time Value of Money (TVM) keys across the third row:
+</p>
+<ul><li><strong>N</strong> -- The number of compounding periods. Not years, not months, but periods. If you have a 30-year mortgage with monthly payments, N = 360.</li>
+<li><strong>I/Y</strong> -- The interest rate per year (expressed as a percentage, not a decimal). The calculator automatically divides this by P/Y to get the periodic rate.</li>
+<li><strong>PV</strong> -- Present Value. The value of money today, or the starting amount. Typically entered as negative when it represents money you pay out.</li>
+<li><strong>PMT</strong> -- Payment. The periodic cash flow that occurs at regular intervals. Negative when you pay it, positive when you receive it.</li>
+<li><strong>FV</strong> -- Future Value. The value of money at the end of the time horizon. Negative when you pay it out, positive when you receive it.</li>
+<p>
+</ul>
+The fundamental rule: <strong>you must enter at least four of the five variables, then compute the fifth.</strong> The calculator solves for the unknown.
+</p>
+<h4>The Sign Convention</h4>
+<p>
+This is where most beginners stumble. The TI BA II Plus uses a cash flow sign convention:
+</p>
+<ul><li><strong>Negative (-)</strong> = money leaving your pocket (outflows)</li>
+<li><strong>Positive (+)</strong> = money coming into your pocket (inflows)</li>
+<p>
+</ul>
+Think of it from your perspective as the investor or borrower:
+</p>
+<ul><li>If you invest $1,000 today, PV = -1000 (money leaves you)</li>
+<li>If you receive $1,500 in five years, FV = 1500 (money comes to you)</li>
+<li>If you make monthly loan payments, PMT = -500 (money leaves you)</li>
+<li>If you receive monthly rental income, PMT = 2000 (money comes to you)</li>
+<p>
+</ul>
+If you get the signs wrong, you will either get an error or a wrong answer. Every single time you enter a TVM problem, ask yourself: "Is this money going out or coming in?"
+</p>
+<h4>P/Y and C/Y Settings</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[I/Y]</strong> to access the P/Y (Payments per Year) and C/Y (Compounding periods per Year) settings.
+</p>
+<ul><li><strong>P/Y</strong> -- How many payments occur per year. Set to 12 for monthly, 4 for quarterly, 2 for semi-annual, 1 for annual.</li>
+<li><strong>C/Y</strong> -- How many times interest compounds per year. Usually matches P/Y, but not always.</li>
+<p>
+</ul>
+<strong>Critical habit:</strong> Always check your P/Y setting before starting a new problem. A wrong P/Y setting is the single most common source of calculator errors. Many professionals keep P/Y = 1 at all times and manually adjust N and I/Y, which avoids confusion.
+</p>
+<p>
+<strong>Reset approach:</strong> Press [2ND] [+/-] (which is the RESET function) and press ENTER to clear everything back to factory defaults (P/Y = 1, C/Y = 1).
+</p>
+<h4>Basic TVM Examples</h4>
+<p>
+<strong>Example 1: Future Value of a Lump Sum</strong>
+You invest $10,000 today at 8% annual return for 20 years. What will it be worth?
+</p>
+<ul><li>N = 20</li>
+<li>I/Y = 8</li>
+<li>PV = -10000 (money leaving you)</li>
+<li>PMT = 0</li>
+<li>CPT FV = 46,609.57</li>
+<p>
+</ul>
+<strong>Example 2: Monthly Mortgage Payment</strong>
+You borrow $300,000 for 30 years at 6.5% annual interest with monthly payments.
+</p>
+<ul><li>Set P/Y = 12</li>
+<li>N = 360 (30 x 12)</li>
+<li>I/Y = 6.5</li>
+<li>PV = 300000 (money coming to you from the bank)</li>
+<li>FV = 0 (loan fully repaid)</li>
+<li>CPT PMT = -1,896.20 (you pay this each month)</li>
+<p>
+</ul>
+<strong>Example 3: Required Return</strong>
+You can buy a bond for $950 that pays $50 per year for 10 years and returns $1,000 at maturity. What is the yield?
+</p>
+<ul><li>Set P/Y = 1</li>
+<li>N = 10</li>
+<li>PV = -950 (you pay this)</li>
+<li>PMT = 50 (you receive this annually)</li>
+<li>FV = 1000 (you receive this at maturity)</li>
+<li>CPT I/Y = 5.66%</li>
+<p>
+</ul>
+</p>
+<h4>NPV and IRR Functions</h4>
+<p>
+Press <strong>[CF]</strong> to enter the Cash Flow worksheet.
+</p>
+<p>
+<strong>Entering Cash Flows:</strong>
+</p>
+<li>CF0 = initial investment (usually negative)</li>
+<li>C01 = first cash flow, F01 = frequency of that cash flow</li>
+<li>C02 = second cash flow, F02 = frequency, and so on</li>
+<li>Use the down arrow to move through entries</li>
+<p>
+<strong>Computing NPV:</strong>
+</p>
+<li>After entering cash flows, press [NPV]</li>
+<li>Enter I = discount rate (as a percentage)</li>
+<li>Press the down arrow, then CPT to compute NPV</li>
+<p>
+<strong>Computing IRR:</strong>
+</p>
+<li>After entering cash flows, press [IRR]</li>
+<li>Press CPT to compute IRR</li>
+<p>
+<strong>Example: Project Evaluation</strong>
+A project requires $50,000 upfront and generates $15,000 per year for 5 years.
+</p>
+<ul><li>CF0 = -50000</li>
+<li>C01 = 15000, F01 = 5</li>
+<li>NPV at I = 10%: press [NPV], I = 10, down arrow, CPT = $6,861.80</li>
+<li>IRR: press [IRR], CPT = 15.24%</li>
+<p>
+</ul>
+Since NPV > 0 and IRR > required return of 10%, the project is acceptable.
+</p>
+<h4>Bond Calculations</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[9]</strong> to access the Bond worksheet.
+</p>
+<p>
+Key inputs:
+</p>
+<ul><li><strong>SDT</strong> -- Settlement date (when you buy the bond)</li>
+<li><strong>CPN</strong> -- Annual coupon rate (as a percentage)</li>
+<li><strong>RDT</strong> -- Redemption date (maturity date)</li>
+<li><strong>RV</strong> -- Redemption value (usually 100 for par)</li>
+<li><strong>ACT/360</strong> -- Day count convention</li>
+<li><strong>2/Y or 1/Y</strong> -- Semi-annual or annual coupon frequency</li>
+<li><strong>YLD</strong> -- Yield to maturity</li>
+<li><strong>PRI</strong> -- Clean price</li>
+<p>
+</ul>
+You can enter either YLD or PRI and compute the other.
+</p>
+<p>
+<strong>Example: Bond Pricing</strong>
+A bond with 5% coupon, semi-annual payments, matures in 10 years, market yield is 6%.
+</p>
+<p>
+Using TVM keys (simpler approach):
+</p>
+<ul><li>Set P/Y = 2</li>
+<li>N = 20 (10 years x 2)</li>
+<li>I/Y = 6</li>
+<li>PMT = 25 (1000 x 5% / 2)</li>
+<li>FV = 1000</li>
+<li>CPT PV = -925.61 (the price you pay)</li>
+<p>
+</ul>
+</p>
+<h4>Amortization Worksheet</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[PV]</strong> to access the amortization worksheet after solving a TVM loan problem.
+</p>
+<ul><li>P1 = starting period</li>
+<li>P2 = ending period</li>
+<li>BAL = remaining balance after P2</li>
+<li>PRN = total principal paid between P1 and P2</li>
+<li>INT = total interest paid between P1 and P2</li>
+<p>
+</ul>
+This is invaluable for understanding how much of each payment goes to principal versus interest over the life of a loan.
+</p>
+<h4>Statistical Functions</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[7]</strong> to access the Data worksheet. Press <strong>[2ND]</strong> then <strong>[8]</strong> for the Stat worksheet.
+</p>
+<p>
+You can enter data points and compute:
+</p>
+<ul><li>Mean (average)</li>
+<li>Sample standard deviation (Sx)</li>
+<li>Population standard deviation (sigma x)</li>
+<li>Linear regression statistics</li>
+<p>
+</ul>
+While not as commonly tested as TVM, these functions are useful for quick portfolio return and risk calculations.
+</p>
+<h4>Key Shortcuts and Tips</h4>
+<li><strong>Clear TVM:</strong> Press [2ND] then [FV] (which is CLR TVM) before every new problem.</li>
+<li><strong>Clear all worksheets:</strong> Press [2ND] then [CE/C] (which is CLR Work) when in a worksheet.</li>
+<li><strong>Change sign:</strong> Use the [+/-] key to toggle between positive and negative.</li>
+<li><strong>Store and recall:</strong> Use [STO] and [RCL] with number keys 0-9 to store intermediate results.</li>
+<li><strong>Chain calculations:</strong> After computing one value, you can change one or two inputs and recompute without re-entering everything.</li>
+<li><strong>Decimal places:</strong> Press [2ND] then [.] (FORMAT), then enter the number of decimal places you want displayed (0-9). Press ENTER.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"I can just use Excel, so I don't need a calculator."</strong>
+Excel is powerful, but it does not build intuition. When you manually set up a TVM problem on a calculator, you are forced to think about what each variable means, what the sign should be, and how many periods are involved. This understanding transfers directly to building better spreadsheet models and catching errors in other people's work.
+</p>
+<p>
+<strong>"N always equals the number of years."</strong>
+No. N is the number of compounding periods. A 5-year loan with monthly payments has N = 60, not 5. A 10-year bond with semi-annual coupons has N = 20, not 10. Always match N to the payment frequency.
+</p>
+<p>
+<strong>"I/Y is the periodic interest rate."</strong>
+No. I/Y is the annual interest rate. The calculator divides it by P/Y internally to get the periodic rate. If you have a monthly problem with P/Y = 12 and the annual rate is 6%, you enter I/Y = 6, not 0.5.
+</p>
+<p>
+<strong>"The sign doesn't matter as long as the magnitude is right."</strong>
+The sign is everything. If PV and FV have the same sign, the calculator thinks money flows in the same direction at both times, which makes no sense for most problems and will produce an error or a wrong answer.
+</p>
+<p>
+<strong>"BGN mode is rarely used."</strong>
+BGN (Begin) mode matters whenever payments occur at the start of each period rather than the end. Annuities due (like rent or insurance premiums paid in advance) require BGN mode. Forgetting to switch between BGN and END is a common exam mistake. Check the display -- if you see "BGN" in the upper right, you are in begin mode.
+</p>
+<p>
+<strong>"NPV and IRR always give the same accept/reject decision."</strong>
+For independent projects with conventional cash flows (one outflow followed by inflows), they agree. But for mutually exclusive projects or non-conventional cash flows (multiple sign changes), NPV and IRR can conflict. Always trust NPV when they disagree.
+</p>
+<p>
+<strong>"A higher IRR always means a better project."</strong>
+IRR has limitations: it assumes reinvestment at the IRR itself, it can produce multiple solutions with non-conventional cash flows, and it does not account for project scale. A project with 50% IRR on a $100 investment is not necessarily better than 20% IRR on a $1,000,000 investment.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: My calculator gives me an "Error 5" when I try to compute I/Y. What's wrong?</strong>
+A: Error 5 means "no solution exists." This almost always means your signs are wrong. Check that PV and FV/PMT have opposite signs. If you are investing money (PV is negative), then you should receive money back (FV or PMT should be positive), or vice versa.
+</p>
+<p>
+<strong>Q: Should I keep P/Y at 1 or change it for each problem?</strong>
+A: Many experienced users keep P/Y = 1 at all times. When you do this, you manually adjust N (multiply years by frequency) and I/Y (divide annual rate by frequency). This approach avoids the confusion of forgetting to change P/Y back. Others prefer to set P/Y to match the problem. Either approach works, but be consistent.
+</p>
+<p>
+<strong>Q: How do I compute the yield to maturity on a bond that pays semi-annual coupons?</strong>
+A: Set P/Y = 2, enter N = (years to maturity x 2), PV = -(current price), PMT = (annual coupon / 2), FV = 1000 (or par value), then CPT I/Y. The result is the annual YTM (the calculator adjusts for the semi-annual compounding internally).
+</p>
+<p>
+<strong>Q: What's the difference between the CF worksheet and the TVM keys?</strong>
+A: The TVM keys handle level annuities (equal, regular payments). The CF worksheet handles uneven cash flows. Use TVM for loans, standard bonds, and regular savings. Use CF for project evaluation, uneven income streams, and any situation where cash flows change from period to period.
+</p>
+<p>
+<strong>Q: How do I handle a problem where payments start in the future (deferred annuity)?</strong>
+A: Break it into two steps. First, calculate the PV of the annuity as of the date payments begin. Then discount that PV back to today using a separate TVM calculation. The calculator does not have a built-in deferred annuity function.
+</p>
+<p>
+<strong>Q: Can I compute Modified Duration or Convexity on this calculator?</strong>
+A: The bond worksheet gives you duration (Macaulay) and modified duration directly. After entering bond details and computing price or yield, scroll down to see DUR (duration). For convexity, you would need to calculate it manually or use the stored memory registers.
+</p>
+<p>
+<strong>Q: What is the difference between ordinary annuity and annuity due on this calculator?</strong>
+A: Press [2ND] then [PMT] to toggle between END (ordinary annuity -- payments at end of period) and BGN (annuity due -- payments at beginning of period). The display shows "BGN" when in begin mode. Most problems assume END mode unless stated otherwise.
+</p>
+<p>
+<strong>Q: How accurate is the calculator compared to Excel?</strong>
+A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds most spreadsheet calculations for financial problems. Any differences you see are typically due to rounding in the display, not calculation errors.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Your Calculator Is Your Best Friend: Mastering the TI BA II Plus"</h3>
+<p>
+<strong>Target Length:</strong> 15-20 minutes
+<strong>Tone:</strong> Encouraging, practical, demystifying
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+</p>
+<p>
+<strong>Sam:</strong> Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+</p>
+<p>
+<strong>[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]</strong>
+</p>
+<p>
+<strong>Alex:</strong> So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+</p>
+<p>
+<strong>Sam:</strong> Can you walk through what each one means in plain English?
+</p>
+<p>
+<strong>Alex:</strong> Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+</p>
+<p>
+<strong>[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+</p>
+<p>
+<strong>Alex:</strong> This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+</p>
+<p>
+<strong>Sam:</strong> And when you get money back in the future?
+</p>
+<p>
+<strong>Alex:</strong> That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+</p>
+<p>
+<strong>[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What happens if you mess up the signs?
+</p>
+<p>
+<strong>Alex:</strong> You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing "Error 5" with a red X]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+</p>
+<p>
+<strong>[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+</p>
+<p>
+<strong>Sam:</strong> That is the power of compound interest right there. Your money more than quadrupled.
+</p>
+<p>
+<strong>Alex:</strong> In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+</p>
+<p>
+<strong>[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, let us try something people actually deal with. Mortgages.
+</p>
+<p>
+<strong>Alex:</strong> Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+</p>
+<p>
+<strong>[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+</p>
+<p>
+<strong>Sam:</strong> And this tells the calculator that payments happen twelve times a year?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+</p>
+<p>
+<strong>Sam:</strong> Wait, the loan amount is positive?
+</p>
+<p>
+<strong>Alex:</strong> Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+</p>
+<p>
+<strong>Sam:</strong> That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+</p>
+<p>
+<strong>Alex:</strong> FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing -1,896.20]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+</p>
+<p>
+<strong>Alex:</strong> Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+</p>
+<p>
+<strong>[VISUAL: Split screen showing calculator and a pie chart of first year payments]</strong>
+</p>
+<p>
+<strong>Alex:</strong> In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+</p>
+<p>
+<strong>Sam:</strong> So in the first year, eighty-five percent of your payment is just interest?
+</p>
+<p>
+<strong>Alex:</strong> Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+</p>
+<p>
+<strong>[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]</strong>
+</p>
+<p>
+<strong>Sam:</strong> This is why people say the first few years of a mortgage are "expensive."
+</p>
+<p>
+<strong>Alex:</strong> Now let us shift gears to something every investor needs. NPV and IRR.
+</p>
+<p>
+<strong>[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+</p>
+<p>
+<strong>Sam:</strong> So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+</p>
+<p>
+<strong>Alex:</strong> Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+</p>
+<p>
+<strong>[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]</strong>
+</p>
+<p>
+<strong>Alex:</strong> NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+</p>
+<p>
+<strong>Sam:</strong> And IRR?
+</p>
+<p>
+<strong>Alex:</strong> Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+</p>
+<p>
+<strong>[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Do NPV and IRR always agree?
+</p>
+<p>
+<strong>Alex:</strong> For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+</p>
+<p>
+<strong>[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Let us do bonds. That is where I see a lot of people struggle.
+</p>
+<p>
+<strong>Alex:</strong> Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+</p>
+<p>
+<strong>[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+</p>
+<p>
+<strong>Alex:</strong> Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+</p>
+<p>
+<strong>[VISUAL: Calculator keystrokes with annotations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+</p>
+<p>
+<strong>Sam:</strong> It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+</p>
+<p>
+<strong>Alex:</strong> And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+</p>
+<p>
+<strong>[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What about finding the yield when you know the price?
+</p>
+<p>
+<strong>Alex:</strong> Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+</p>
+<p>
+<strong>Alex:</strong> Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+</p>
+<p>
+<strong>[VISUAL: Numbered list appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+</p>
+<p>
+<strong>Sam:</strong> What about number four?
+</p>
+<p>
+<strong>Alex:</strong> Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+</p>
+<p>
+<strong>[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Any advice for people preparing for the CFA or other exams?
+</p>
+<p>
+<strong>Alex:</strong> Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+</p>
+<p>
+<strong>Sam:</strong> Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+</p>
+<p>
+<strong>[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 01</strong>
+</p>
+                </div>
+                <div id="content-hk" class="lang-content">
+                    <p>
+<!-- 此檔案需要翻譯為香港繁體中文 -->
+<!-- This file needs translation to HK Traditional Chinese -->
+</p>
+<h1>Side Lesson 01: Mastering the TI BA II Plus Financial Calculator</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+Every finance professional and serious investor needs to speak the language of time value of money fluently. The TI BA II Plus is the industry-standard financial calculator used by CFA candidates, financial analysts, and investment bankers worldwide. While spreadsheets can do these calculations, understanding how to work a financial calculator builds intuition about how money moves through time. You cannot fake this skill in a job interview, a client meeting, or a certification exam.
+</p>
+<p>
+More importantly, the calculator forces you to think about cash flow sign conventions, compounding frequency, and the relationship between present and future values in a way that simply plugging numbers into a spreadsheet formula does not. When you truly understand what each key does, you understand the math behind every loan, every bond, every investment decision.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>The Five TVM Keys</h4>
+<p>
+The heart of the TI BA II Plus is the five Time Value of Money (TVM) keys across the third row:<ul><li><strong>N</strong> -- The number of compounding periods. Not years, not months, but periods. If you have a 30-year mortgage with monthly payments, N = 360.</li></ul><ul><li><strong>I/Y</strong> -- The interest rate per year (expressed as a percentage, not a decimal). The calculator automatically divides this by P/Y to get the periodic rate.</li></ul><ul><li><strong>PV</strong> -- Present Value. The value of money today, or the starting amount. Typically entered as negative when it represents money you pay out.</li></ul><ul><li><strong>PMT</strong> -- Payment. The periodic cash flow that occurs at regular intervals. Negative when you pay it, positive when you receive it.</li></ul><ul><li><strong>FV</strong> -- Future Value. The value of money at the end of the time horizon. Negative when you pay it out, positive when you receive it.</li></ul>
+</p>
+<p>
+The fundamental rule: <strong>you must enter at least four of the five variables, then compute the fifth.</strong> The calculator solves for the unknown.
+</p>
+<h4>The Sign Convention</h4>
+<p>
+This is where most beginners stumble. The TI BA II Plus uses a cash flow sign convention:<ul><li><strong>Negative (-)</strong> = money leaving your pocket (outflows)</li></ul><ul><li><strong>Positive (+)</strong> = money coming into your pocket (inflows)</li></ul>
+</p>
+<p>
+Think of it from your perspective as the investor or borrower:<ul><li>If you invest $1,000 today, PV = -1000 (money leaves you)</li></ul><ul><li>If you receive $1,500 in five years, FV = 1500 (money comes to you)</li></ul><ul><li>If you make monthly loan payments, PMT = -500 (money leaves you)</li></ul><ul><li>If you receive monthly rental income, PMT = 2000 (money comes to you)</li></ul>
+</p>
+<p>
+If you get the signs wrong, you will either get an error or a wrong answer. Every single time you enter a TVM problem, ask yourself: "Is this money going out or coming in?"
+</p>
+<h4>P/Y and C/Y Settings</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[I/Y]</strong> to access the P/Y (Payments per Year) and C/Y (Compounding periods per Year) settings.<ul><li><strong>P/Y</strong> -- How many payments occur per year. Set to 12 for monthly, 4 for quarterly, 2 for semi-annual, 1 for annual.</li></ul><ul><li><strong>C/Y</strong> -- How many times interest compounds per year. Usually matches P/Y, but not always.</li></ul>
+</p>
+<p>
+<strong>Critical habit:</strong> Always check your P/Y setting before starting a new problem. A wrong P/Y setting is the single most common source of calculator errors. Many professionals keep P/Y = 1 at all times and manually adjust N and I/Y, which avoids confusion.
+</p>
+<p>
+<strong>Reset approach:</strong> Press [2ND] [+/-] (which is the RESET function) and press ENTER to clear everything back to factory defaults (P/Y = 1, C/Y = 1).
+</p>
+<h4>Basic TVM Examples</h4>
+<p>
+<strong>Example 1: Future Value of a Lump Sum</strong>
+You invest $10,000 today at 8% annual return for 20 years. What will it be worth?<ul><li>N = 20</li></ul><ul><li>I/Y = 8</li></ul><ul><li>PV = -10000 (money leaving you)</li></ul><ul><li>PMT = 0</li></ul><ul><li>CPT FV = 46,609.57</li></ul>
+</p>
+<p>
+<strong>Example 2: Monthly Mortgage Payment</strong>
+You borrow $300,000 for 30 years at 6.5% annual interest with monthly payments.<ul><li>Set P/Y = 12</li></ul><ul><li>N = 360 (30 x 12)</li></ul><ul><li>I/Y = 6.5</li></ul><ul><li>PV = 300000 (money coming to you from the bank)</li></ul><ul><li>FV = 0 (loan fully repaid)</li></ul><ul><li>CPT PMT = -1,896.20 (you pay this each month)</li></ul>
+</p>
+<p>
+<strong>Example 3: Required Return</strong>
+You can buy a bond for $950 that pays $50 per year for 10 years and returns $1,000 at maturity. What is the yield?<ul><li>Set P/Y = 1</li></ul><ul><li>N = 10</li></ul><ul><li>PV = -950 (you pay this)</li></ul><ul><li>PMT = 50 (you receive this annually)</li></ul><ul><li>FV = 1000 (you receive this at maturity)</li></ul><ul><li>CPT I/Y = 5.66%</li></ul>
+</p>
+<h4>NPV and IRR Functions</h4>
+<p>
+Press <strong>[CF]</strong> to enter the Cash Flow worksheet.
+</p>
+<p>
+<strong>Entering Cash Flows:</strong>
+</p>
+<li>CF0 = initial investment (usually negative)</li>
+<li>C01 = first cash flow, F01 = frequency of that cash flow</li>
+<li>C02 = second cash flow, F02 = frequency, and so on</li>
+<li>Use the down arrow to move through entries</li>
+<p>
+<strong>Computing NPV:</strong>
+</p>
+<li>After entering cash flows, press [NPV]</li>
+<li>Enter I = discount rate (as a percentage)</li>
+<li>Press the down arrow, then CPT to compute NPV</li>
+<p>
+<strong>Computing IRR:</strong>
+</p>
+<li>After entering cash flows, press [IRR]</li>
+<li>Press CPT to compute IRR</li>
+<p>
+<strong>Example: Project Evaluation</strong>
+A project requires $50,000 upfront and generates $15,000 per year for 5 years.<ul><li>CF0 = -50000</li></ul><ul><li>C01 = 15000, F01 = 5</li></ul><ul><li>NPV at I = 10%: press [NPV], I = 10, down arrow, CPT = $6,861.80</li></ul><ul><li>IRR: press [IRR], CPT = 15.24%</li></ul>
+</p>
+<p>
+Since NPV > 0 and IRR > required return of 10%, the project is acceptable.
+</p>
+<h4>Bond Calculations</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[9]</strong> to access the Bond worksheet.
+</p>
+<p>
+Key inputs:<ul><li><strong>SDT</strong> -- Settlement date (when you buy the bond)</li></ul><ul><li><strong>CPN</strong> -- Annual coupon rate (as a percentage)</li></ul><ul><li><strong>RDT</strong> -- Redemption date (maturity date)</li></ul><ul><li><strong>RV</strong> -- Redemption value (usually 100 for par)</li></ul><ul><li><strong>ACT/360</strong> -- Day count convention</li></ul><ul><li><strong>2/Y or 1/Y</strong> -- Semi-annual or annual coupon frequency</li></ul><ul><li><strong>YLD</strong> -- Yield to maturity</li></ul><ul><li><strong>PRI</strong> -- Clean price</li></ul>
+</p>
+<p>
+You can enter either YLD or PRI and compute the other.
+</p>
+<p>
+<strong>Example: Bond Pricing</strong>
+A bond with 5% coupon, semi-annual payments, matures in 10 years, market yield is 6%.
+</p>
+<p>
+Using TVM keys (simpler approach):<ul><li>Set P/Y = 2</li></ul><ul><li>N = 20 (10 years x 2)</li></ul><ul><li>I/Y = 6</li></ul><ul><li>PMT = 25 (1000 x 5% / 2)</li></ul><ul><li>FV = 1000</li></ul><ul><li>CPT PV = -925.61 (the price you pay)</li></ul>
+</p>
+<h4>Amortization Worksheet</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[PV]</strong> to access the amortization worksheet after solving a TVM loan problem.<ul><li>P1 = starting period</li></ul><ul><li>P2 = ending period</li></ul><ul><li>BAL = remaining balance after P2</li></ul><ul><li>PRN = total principal paid between P1 and P2</li></ul><ul><li>INT = total interest paid between P1 and P2</li></ul>
+</p>
+<p>
+This is invaluable for understanding how much of each payment goes to principal versus interest over the life of a loan.
+</p>
+<h4>Statistical Functions</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[7]</strong> to access the Data worksheet. Press <strong>[2ND]</strong> then <strong>[8]</strong> for the Stat worksheet.
+</p>
+<p>
+You can enter data points and compute:<ul><li>Mean (average)</li></ul><ul><li>Sample standard deviation (Sx)</li></ul><ul><li>Population standard deviation (sigma x)</li></ul><ul><li>Linear regression statistics</li></ul>
+</p>
+<p>
+While not as commonly tested as TVM, these functions are useful for quick portfolio return and risk calculations.
+</p>
+<h4>Key Shortcuts and Tips</h4>
+<li><strong>Clear TVM:</strong> Press [2ND] then [FV] (which is CLR TVM) before every new problem.</li>
+<li><strong>Clear all worksheets:</strong> Press [2ND] then [CE/C] (which is CLR Work) when in a worksheet.</li>
+<li><strong>Change sign:</strong> Use the [+/-] key to toggle between positive and negative.</li>
+<li><strong>Store and recall:</strong> Use [STO] and [RCL] with number keys 0-9 to store intermediate results.</li>
+<li><strong>Chain calculations:</strong> After computing one value, you can change one or two inputs and recompute without re-entering everything.</li>
+<li><strong>Decimal places:</strong> Press [2ND] then [.] (FORMAT), then enter the number of decimal places you want displayed (0-9). Press ENTER.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"I can just use Excel, so I don't need a calculator."</strong>
+Excel is powerful, but it does not build intuition. When you manually set up a TVM problem on a calculator, you are forced to think about what each variable means, what the sign should be, and how many periods are involved. This understanding transfers directly to building better spreadsheet models and catching errors in other people's work.
+</p>
+<p>
+<strong>"N always equals the number of years."</strong>
+No. N is the number of compounding periods. A 5-year loan with monthly payments has N = 60, not 5. A 10-year bond with semi-annual coupons has N = 20, not 10. Always match N to the payment frequency.
+</p>
+<p>
+<strong>"I/Y is the periodic interest rate."</strong>
+No. I/Y is the annual interest rate. The calculator divides it by P/Y internally to get the periodic rate. If you have a monthly problem with P/Y = 12 and the annual rate is 6%, you enter I/Y = 6, not 0.5.
+</p>
+<p>
+<strong>"The sign doesn't matter as long as the magnitude is right."</strong>
+The sign is everything. If PV and FV have the same sign, the calculator thinks money flows in the same direction at both times, which makes no sense for most problems and will produce an error or a wrong answer.
+</p>
+<p>
+<strong>"BGN mode is rarely used."</strong>
+BGN (Begin) mode matters whenever payments occur at the start of each period rather than the end. Annuities due (like rent or insurance premiums paid in advance) require BGN mode. Forgetting to switch between BGN and END is a common exam mistake. Check the display -- if you see "BGN" in the upper right, you are in begin mode.
+</p>
+<p>
+<strong>"NPV and IRR always give the same accept/reject decision."</strong>
+For independent projects with conventional cash flows (one outflow followed by inflows), they agree. But for mutually exclusive projects or non-conventional cash flows (multiple sign changes), NPV and IRR can conflict. Always trust NPV when they disagree.
+</p>
+<p>
+<strong>"A higher IRR always means a better project."</strong>
+IRR has limitations: it assumes reinvestment at the IRR itself, it can produce multiple solutions with non-conventional cash flows, and it does not account for project scale. A project with 50% IRR on a $100 investment is not necessarily better than 20% IRR on a $1,000,000 investment.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: My calculator gives me an "Error 5" when I try to compute I/Y. What's wrong?</strong>
+A: Error 5 means "no solution exists." This almost always means your signs are wrong. Check that PV and FV/PMT have opposite signs. If you are investing money (PV is negative), then you should receive money back (FV or PMT should be positive), or vice versa.
+</p>
+<p>
+<strong>Q: Should I keep P/Y at 1 or change it for each problem?</strong>
+A: Many experienced users keep P/Y = 1 at all times. When you do this, you manually adjust N (multiply years by frequency) and I/Y (divide annual rate by frequency). This approach avoids the confusion of forgetting to change P/Y back. Others prefer to set P/Y to match the problem. Either approach works, but be consistent.
+</p>
+<p>
+<strong>Q: How do I compute the yield to maturity on a bond that pays semi-annual coupons?</strong>
+A: Set P/Y = 2, enter N = (years to maturity x 2), PV = -(current price), PMT = (annual coupon / 2), FV = 1000 (or par value), then CPT I/Y. The result is the annual YTM (the calculator adjusts for the semi-annual compounding internally).
+</p>
+<p>
+<strong>Q: What's the difference between the CF worksheet and the TVM keys?</strong>
+A: The TVM keys handle level annuities (equal, regular payments). The CF worksheet handles uneven cash flows. Use TVM for loans, standard bonds, and regular savings. Use CF for project evaluation, uneven income streams, and any situation where cash flows change from period to period.
+</p>
+<p>
+<strong>Q: How do I handle a problem where payments start in the future (deferred annuity)?</strong>
+A: Break it into two steps. First, calculate the PV of the annuity as of the date payments begin. Then discount that PV back to today using a separate TVM calculation. The calculator does not have a built-in deferred annuity function.
+</p>
+<p>
+<strong>Q: Can I compute Modified Duration or Convexity on this calculator?</strong>
+A: The bond worksheet gives you duration (Macaulay) and modified duration directly. After entering bond details and computing price or yield, scroll down to see DUR (duration). For convexity, you would need to calculate it manually or use the stored memory registers.
+</p>
+<p>
+<strong>Q: What is the difference between ordinary annuity and annuity due on this calculator?</strong>
+A: Press [2ND] then [PMT] to toggle between END (ordinary annuity -- payments at end of period) and BGN (annuity due -- payments at beginning of period). The display shows "BGN" when in begin mode. Most problems assume END mode unless stated otherwise.
+</p>
+<p>
+<strong>Q: How accurate is the calculator compared to Excel?</strong>
+A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds most spreadsheet calculations for financial problems. Any differences you see are typically due to rounding in the display, not calculation errors.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Your Calculator Is Your Best Friend: Mastering the TI BA II Plus"</h3>
+<p>
+<strong>Target Length:</strong> 15-20 minutes
+<strong>Tone:</strong> Encouraging, practical, demystifying
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+</p>
+<p>
+<strong>Sam:</strong> Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+</p>
+<p>
+<strong>[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]</strong>
+</p>
+<p>
+<strong>Alex:</strong> So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+</p>
+<p>
+<strong>Sam:</strong> Can you walk through what each one means in plain English?
+</p>
+<p>
+<strong>Alex:</strong> Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+</p>
+<p>
+<strong>[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+</p>
+<p>
+<strong>Alex:</strong> This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+</p>
+<p>
+<strong>Sam:</strong> And when you get money back in the future?
+</p>
+<p>
+<strong>Alex:</strong> That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+</p>
+<p>
+<strong>[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What happens if you mess up the signs?
+</p>
+<p>
+<strong>Alex:</strong> You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing "Error 5" with a red X]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+</p>
+<p>
+<strong>[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+</p>
+<p>
+<strong>Sam:</strong> That is the power of compound interest right there. Your money more than quadrupled.
+</p>
+<p>
+<strong>Alex:</strong> In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+</p>
+<p>
+<strong>[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, let us try something people actually deal with. Mortgages.
+</p>
+<p>
+<strong>Alex:</strong> Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+</p>
+<p>
+<strong>[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+</p>
+<p>
+<strong>Sam:</strong> And this tells the calculator that payments happen twelve times a year?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+</p>
+<p>
+<strong>Sam:</strong> Wait, the loan amount is positive?
+</p>
+<p>
+<strong>Alex:</strong> Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+</p>
+<p>
+<strong>Sam:</strong> That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+</p>
+<p>
+<strong>Alex:</strong> FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing -1,896.20]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+</p>
+<p>
+<strong>Alex:</strong> Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+</p>
+<p>
+<strong>[VISUAL: Split screen showing calculator and a pie chart of first year payments]</strong>
+</p>
+<p>
+<strong>Alex:</strong> In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+</p>
+<p>
+<strong>Sam:</strong> So in the first year, eighty-five percent of your payment is just interest?
+</p>
+<p>
+<strong>Alex:</strong> Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+</p>
+<p>
+<strong>[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]</strong>
+</p>
+<p>
+<strong>Sam:</strong> This is why people say the first few years of a mortgage are "expensive."
+</p>
+<p>
+<strong>Alex:</strong> Now let us shift gears to something every investor needs. NPV and IRR.
+</p>
+<p>
+<strong>[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+</p>
+<p>
+<strong>Sam:</strong> So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+</p>
+<p>
+<strong>Alex:</strong> Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+</p>
+<p>
+<strong>[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]</strong>
+</p>
+<p>
+<strong>Alex:</strong> NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+</p>
+<p>
+<strong>Sam:</strong> And IRR?
+</p>
+<p>
+<strong>Alex:</strong> Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+</p>
+<p>
+<strong>[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Do NPV and IRR always agree?
+</p>
+<p>
+<strong>Alex:</strong> For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+</p>
+<p>
+<strong>[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Let us do bonds. That is where I see a lot of people struggle.
+</p>
+<p>
+<strong>Alex:</strong> Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+</p>
+<p>
+<strong>[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+</p>
+<p>
+<strong>Alex:</strong> Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+</p>
+<p>
+<strong>[VISUAL: Calculator keystrokes with annotations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+</p>
+<p>
+<strong>Sam:</strong> It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+</p>
+<p>
+<strong>Alex:</strong> And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+</p>
+<p>
+<strong>[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What about finding the yield when you know the price?
+</p>
+<p>
+<strong>Alex:</strong> Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+</p>
+<p>
+<strong>Alex:</strong> Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+</p>
+<p>
+<strong>[VISUAL: Numbered list appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+</p>
+<p>
+<strong>Sam:</strong> What about number four?
+</p>
+<p>
+<strong>Alex:</strong> Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+</p>
+<p>
+<strong>[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Any advice for people preparing for the CFA or other exams?
+</p>
+<p>
+<strong>Alex:</strong> Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+</p>
+<p>
+<strong>Sam:</strong> Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+</p>
+<p>
+<strong>[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 01</strong>
+</p>
+                </div>
+                <div id="content-tw" class="lang-content">
+                    <p>
+<!-- 此檔案需要翻譯為台灣繁體中文 -->
+<!-- This file needs translation to TW Traditional Chinese -->
+</p>
+<h1>Side Lesson 01: Mastering the TI BA II Plus Financial Calculator</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+Every finance professional and serious investor needs to speak the language of time value of money fluently. The TI BA II Plus is the industry-standard financial calculator used by CFA candidates, financial analysts, and investment bankers worldwide. While spreadsheets can do these calculations, understanding how to work a financial calculator builds intuition about how money moves through time. You cannot fake this skill in a job interview, a client meeting, or a certification exam.
+</p>
+<p>
+More importantly, the calculator forces you to think about cash flow sign conventions, compounding frequency, and the relationship between present and future values in a way that simply plugging numbers into a spreadsheet formula does not. When you truly understand what each key does, you understand the math behind every loan, every bond, every investment decision.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>The Five TVM Keys</h4>
+<p>
+The heart of the TI BA II Plus is the five Time Value of Money (TVM) keys across the third row:<ul><li><strong>N</strong> -- The number of compounding periods. Not years, not months, but periods. If you have a 30-year mortgage with monthly payments, N = 360.</li></ul><ul><li><strong>I/Y</strong> -- The interest rate per year (expressed as a percentage, not a decimal). The calculator automatically divides this by P/Y to get the periodic rate.</li></ul><ul><li><strong>PV</strong> -- Present Value. The value of money today, or the starting amount. Typically entered as negative when it represents money you pay out.</li></ul><ul><li><strong>PMT</strong> -- Payment. The periodic cash flow that occurs at regular intervals. Negative when you pay it, positive when you receive it.</li></ul><ul><li><strong>FV</strong> -- Future Value. The value of money at the end of the time horizon. Negative when you pay it out, positive when you receive it.</li></ul>
+</p>
+<p>
+The fundamental rule: <strong>you must enter at least four of the five variables, then compute the fifth.</strong> The calculator solves for the unknown.
+</p>
+<h4>The Sign Convention</h4>
+<p>
+This is where most beginners stumble. The TI BA II Plus uses a cash flow sign convention:<ul><li><strong>Negative (-)</strong> = money leaving your pocket (outflows)</li></ul><ul><li><strong>Positive (+)</strong> = money coming into your pocket (inflows)</li></ul>
+</p>
+<p>
+Think of it from your perspective as the investor or borrower:<ul><li>If you invest $1,000 today, PV = -1000 (money leaves you)</li></ul><ul><li>If you receive $1,500 in five years, FV = 1500 (money comes to you)</li></ul><ul><li>If you make monthly loan payments, PMT = -500 (money leaves you)</li></ul><ul><li>If you receive monthly rental income, PMT = 2000 (money comes to you)</li></ul>
+</p>
+<p>
+If you get the signs wrong, you will either get an error or a wrong answer. Every single time you enter a TVM problem, ask yourself: "Is this money going out or coming in?"
+</p>
+<h4>P/Y and C/Y Settings</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[I/Y]</strong> to access the P/Y (Payments per Year) and C/Y (Compounding periods per Year) settings.<ul><li><strong>P/Y</strong> -- How many payments occur per year. Set to 12 for monthly, 4 for quarterly, 2 for semi-annual, 1 for annual.</li></ul><ul><li><strong>C/Y</strong> -- How many times interest compounds per year. Usually matches P/Y, but not always.</li></ul>
+</p>
+<p>
+<strong>Critical habit:</strong> Always check your P/Y setting before starting a new problem. A wrong P/Y setting is the single most common source of calculator errors. Many professionals keep P/Y = 1 at all times and manually adjust N and I/Y, which avoids confusion.
+</p>
+<p>
+<strong>Reset approach:</strong> Press [2ND] [+/-] (which is the RESET function) and press ENTER to clear everything back to factory defaults (P/Y = 1, C/Y = 1).
+</p>
+<h4>Basic TVM Examples</h4>
+<p>
+<strong>Example 1: Future Value of a Lump Sum</strong>
+You invest $10,000 today at 8% annual return for 20 years. What will it be worth?<ul><li>N = 20</li></ul><ul><li>I/Y = 8</li></ul><ul><li>PV = -10000 (money leaving you)</li></ul><ul><li>PMT = 0</li></ul><ul><li>CPT FV = 46,609.57</li></ul>
+</p>
+<p>
+<strong>Example 2: Monthly Mortgage Payment</strong>
+You borrow $300,000 for 30 years at 6.5% annual interest with monthly payments.<ul><li>Set P/Y = 12</li></ul><ul><li>N = 360 (30 x 12)</li></ul><ul><li>I/Y = 6.5</li></ul><ul><li>PV = 300000 (money coming to you from the bank)</li></ul><ul><li>FV = 0 (loan fully repaid)</li></ul><ul><li>CPT PMT = -1,896.20 (you pay this each month)</li></ul>
+</p>
+<p>
+<strong>Example 3: Required Return</strong>
+You can buy a bond for $950 that pays $50 per year for 10 years and returns $1,000 at maturity. What is the yield?<ul><li>Set P/Y = 1</li></ul><ul><li>N = 10</li></ul><ul><li>PV = -950 (you pay this)</li></ul><ul><li>PMT = 50 (you receive this annually)</li></ul><ul><li>FV = 1000 (you receive this at maturity)</li></ul><ul><li>CPT I/Y = 5.66%</li></ul>
+</p>
+<h4>NPV and IRR Functions</h4>
+<p>
+Press <strong>[CF]</strong> to enter the Cash Flow worksheet.
+</p>
+<p>
+<strong>Entering Cash Flows:</strong>
+</p>
+<li>CF0 = initial investment (usually negative)</li>
+<li>C01 = first cash flow, F01 = frequency of that cash flow</li>
+<li>C02 = second cash flow, F02 = frequency, and so on</li>
+<li>Use the down arrow to move through entries</li>
+<p>
+<strong>Computing NPV:</strong>
+</p>
+<li>After entering cash flows, press [NPV]</li>
+<li>Enter I = discount rate (as a percentage)</li>
+<li>Press the down arrow, then CPT to compute NPV</li>
+<p>
+<strong>Computing IRR:</strong>
+</p>
+<li>After entering cash flows, press [IRR]</li>
+<li>Press CPT to compute IRR</li>
+<p>
+<strong>Example: Project Evaluation</strong>
+A project requires $50,000 upfront and generates $15,000 per year for 5 years.<ul><li>CF0 = -50000</li></ul><ul><li>C01 = 15000, F01 = 5</li></ul><ul><li>NPV at I = 10%: press [NPV], I = 10, down arrow, CPT = $6,861.80</li></ul><ul><li>IRR: press [IRR], CPT = 15.24%</li></ul>
+</p>
+<p>
+Since NPV > 0 and IRR > required return of 10%, the project is acceptable.
+</p>
+<h4>Bond Calculations</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[9]</strong> to access the Bond worksheet.
+</p>
+<p>
+Key inputs:<ul><li><strong>SDT</strong> -- Settlement date (when you buy the bond)</li></ul><ul><li><strong>CPN</strong> -- Annual coupon rate (as a percentage)</li></ul><ul><li><strong>RDT</strong> -- Redemption date (maturity date)</li></ul><ul><li><strong>RV</strong> -- Redemption value (usually 100 for par)</li></ul><ul><li><strong>ACT/360</strong> -- Day count convention</li></ul><ul><li><strong>2/Y or 1/Y</strong> -- Semi-annual or annual coupon frequency</li></ul><ul><li><strong>YLD</strong> -- Yield to maturity</li></ul><ul><li><strong>PRI</strong> -- Clean price</li></ul>
+</p>
+<p>
+You can enter either YLD or PRI and compute the other.
+</p>
+<p>
+<strong>Example: Bond Pricing</strong>
+A bond with 5% coupon, semi-annual payments, matures in 10 years, market yield is 6%.
+</p>
+<p>
+Using TVM keys (simpler approach):<ul><li>Set P/Y = 2</li></ul><ul><li>N = 20 (10 years x 2)</li></ul><ul><li>I/Y = 6</li></ul><ul><li>PMT = 25 (1000 x 5% / 2)</li></ul><ul><li>FV = 1000</li></ul><ul><li>CPT PV = -925.61 (the price you pay)</li></ul>
+</p>
+<h4>Amortization Worksheet</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[PV]</strong> to access the amortization worksheet after solving a TVM loan problem.<ul><li>P1 = starting period</li></ul><ul><li>P2 = ending period</li></ul><ul><li>BAL = remaining balance after P2</li></ul><ul><li>PRN = total principal paid between P1 and P2</li></ul><ul><li>INT = total interest paid between P1 and P2</li></ul>
+</p>
+<p>
+This is invaluable for understanding how much of each payment goes to principal versus interest over the life of a loan.
+</p>
+<h4>Statistical Functions</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[7]</strong> to access the Data worksheet. Press <strong>[2ND]</strong> then <strong>[8]</strong> for the Stat worksheet.
+</p>
+<p>
+You can enter data points and compute:<ul><li>Mean (average)</li></ul><ul><li>Sample standard deviation (Sx)</li></ul><ul><li>Population standard deviation (sigma x)</li></ul><ul><li>Linear regression statistics</li></ul>
+</p>
+<p>
+While not as commonly tested as TVM, these functions are useful for quick portfolio return and risk calculations.
+</p>
+<h4>Key Shortcuts and Tips</h4>
+<li><strong>Clear TVM:</strong> Press [2ND] then [FV] (which is CLR TVM) before every new problem.</li>
+<li><strong>Clear all worksheets:</strong> Press [2ND] then [CE/C] (which is CLR Work) when in a worksheet.</li>
+<li><strong>Change sign:</strong> Use the [+/-] key to toggle between positive and negative.</li>
+<li><strong>Store and recall:</strong> Use [STO] and [RCL] with number keys 0-9 to store intermediate results.</li>
+<li><strong>Chain calculations:</strong> After computing one value, you can change one or two inputs and recompute without re-entering everything.</li>
+<li><strong>Decimal places:</strong> Press [2ND] then [.] (FORMAT), then enter the number of decimal places you want displayed (0-9). Press ENTER.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"I can just use Excel, so I don't need a calculator."</strong>
+Excel is powerful, but it does not build intuition. When you manually set up a TVM problem on a calculator, you are forced to think about what each variable means, what the sign should be, and how many periods are involved. This understanding transfers directly to building better spreadsheet models and catching errors in other people's work.
+</p>
+<p>
+<strong>"N always equals the number of years."</strong>
+No. N is the number of compounding periods. A 5-year loan with monthly payments has N = 60, not 5. A 10-year bond with semi-annual coupons has N = 20, not 10. Always match N to the payment frequency.
+</p>
+<p>
+<strong>"I/Y is the periodic interest rate."</strong>
+No. I/Y is the annual interest rate. The calculator divides it by P/Y internally to get the periodic rate. If you have a monthly problem with P/Y = 12 and the annual rate is 6%, you enter I/Y = 6, not 0.5.
+</p>
+<p>
+<strong>"The sign doesn't matter as long as the magnitude is right."</strong>
+The sign is everything. If PV and FV have the same sign, the calculator thinks money flows in the same direction at both times, which makes no sense for most problems and will produce an error or a wrong answer.
+</p>
+<p>
+<strong>"BGN mode is rarely used."</strong>
+BGN (Begin) mode matters whenever payments occur at the start of each period rather than the end. Annuities due (like rent or insurance premiums paid in advance) require BGN mode. Forgetting to switch between BGN and END is a common exam mistake. Check the display -- if you see "BGN" in the upper right, you are in begin mode.
+</p>
+<p>
+<strong>"NPV and IRR always give the same accept/reject decision."</strong>
+For independent projects with conventional cash flows (one outflow followed by inflows), they agree. But for mutually exclusive projects or non-conventional cash flows (multiple sign changes), NPV and IRR can conflict. Always trust NPV when they disagree.
+</p>
+<p>
+<strong>"A higher IRR always means a better project."</strong>
+IRR has limitations: it assumes reinvestment at the IRR itself, it can produce multiple solutions with non-conventional cash flows, and it does not account for project scale. A project with 50% IRR on a $100 investment is not necessarily better than 20% IRR on a $1,000,000 investment.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: My calculator gives me an "Error 5" when I try to compute I/Y. What's wrong?</strong>
+A: Error 5 means "no solution exists." This almost always means your signs are wrong. Check that PV and FV/PMT have opposite signs. If you are investing money (PV is negative), then you should receive money back (FV or PMT should be positive), or vice versa.
+</p>
+<p>
+<strong>Q: Should I keep P/Y at 1 or change it for each problem?</strong>
+A: Many experienced users keep P/Y = 1 at all times. When you do this, you manually adjust N (multiply years by frequency) and I/Y (divide annual rate by frequency). This approach avoids the confusion of forgetting to change P/Y back. Others prefer to set P/Y to match the problem. Either approach works, but be consistent.
+</p>
+<p>
+<strong>Q: How do I compute the yield to maturity on a bond that pays semi-annual coupons?</strong>
+A: Set P/Y = 2, enter N = (years to maturity x 2), PV = -(current price), PMT = (annual coupon / 2), FV = 1000 (or par value), then CPT I/Y. The result is the annual YTM (the calculator adjusts for the semi-annual compounding internally).
+</p>
+<p>
+<strong>Q: What's the difference between the CF worksheet and the TVM keys?</strong>
+A: The TVM keys handle level annuities (equal, regular payments). The CF worksheet handles uneven cash flows. Use TVM for loans, standard bonds, and regular savings. Use CF for project evaluation, uneven income streams, and any situation where cash flows change from period to period.
+</p>
+<p>
+<strong>Q: How do I handle a problem where payments start in the future (deferred annuity)?</strong>
+A: Break it into two steps. First, calculate the PV of the annuity as of the date payments begin. Then discount that PV back to today using a separate TVM calculation. The calculator does not have a built-in deferred annuity function.
+</p>
+<p>
+<strong>Q: Can I compute Modified Duration or Convexity on this calculator?</strong>
+A: The bond worksheet gives you duration (Macaulay) and modified duration directly. After entering bond details and computing price or yield, scroll down to see DUR (duration). For convexity, you would need to calculate it manually or use the stored memory registers.
+</p>
+<p>
+<strong>Q: What is the difference between ordinary annuity and annuity due on this calculator?</strong>
+A: Press [2ND] then [PMT] to toggle between END (ordinary annuity -- payments at end of period) and BGN (annuity due -- payments at beginning of period). The display shows "BGN" when in begin mode. Most problems assume END mode unless stated otherwise.
+</p>
+<p>
+<strong>Q: How accurate is the calculator compared to Excel?</strong>
+A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds most spreadsheet calculations for financial problems. Any differences you see are typically due to rounding in the display, not calculation errors.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Your Calculator Is Your Best Friend: Mastering the TI BA II Plus"</h3>
+<p>
+<strong>Target Length:</strong> 15-20 minutes
+<strong>Tone:</strong> Encouraging, practical, demystifying
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+</p>
+<p>
+<strong>Sam:</strong> Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+</p>
+<p>
+<strong>[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]</strong>
+</p>
+<p>
+<strong>Alex:</strong> So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+</p>
+<p>
+<strong>Sam:</strong> Can you walk through what each one means in plain English?
+</p>
+<p>
+<strong>Alex:</strong> Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+</p>
+<p>
+<strong>[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+</p>
+<p>
+<strong>Alex:</strong> This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+</p>
+<p>
+<strong>Sam:</strong> And when you get money back in the future?
+</p>
+<p>
+<strong>Alex:</strong> That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+</p>
+<p>
+<strong>[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What happens if you mess up the signs?
+</p>
+<p>
+<strong>Alex:</strong> You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing "Error 5" with a red X]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+</p>
+<p>
+<strong>[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+</p>
+<p>
+<strong>Sam:</strong> That is the power of compound interest right there. Your money more than quadrupled.
+</p>
+<p>
+<strong>Alex:</strong> In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+</p>
+<p>
+<strong>[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, let us try something people actually deal with. Mortgages.
+</p>
+<p>
+<strong>Alex:</strong> Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+</p>
+<p>
+<strong>[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+</p>
+<p>
+<strong>Sam:</strong> And this tells the calculator that payments happen twelve times a year?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+</p>
+<p>
+<strong>Sam:</strong> Wait, the loan amount is positive?
+</p>
+<p>
+<strong>Alex:</strong> Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+</p>
+<p>
+<strong>Sam:</strong> That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+</p>
+<p>
+<strong>Alex:</strong> FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing -1,896.20]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+</p>
+<p>
+<strong>Alex:</strong> Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+</p>
+<p>
+<strong>[VISUAL: Split screen showing calculator and a pie chart of first year payments]</strong>
+</p>
+<p>
+<strong>Alex:</strong> In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+</p>
+<p>
+<strong>Sam:</strong> So in the first year, eighty-five percent of your payment is just interest?
+</p>
+<p>
+<strong>Alex:</strong> Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+</p>
+<p>
+<strong>[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]</strong>
+</p>
+<p>
+<strong>Sam:</strong> This is why people say the first few years of a mortgage are "expensive."
+</p>
+<p>
+<strong>Alex:</strong> Now let us shift gears to something every investor needs. NPV and IRR.
+</p>
+<p>
+<strong>[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+</p>
+<p>
+<strong>Sam:</strong> So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+</p>
+<p>
+<strong>Alex:</strong> Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+</p>
+<p>
+<strong>[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]</strong>
+</p>
+<p>
+<strong>Alex:</strong> NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+</p>
+<p>
+<strong>Sam:</strong> And IRR?
+</p>
+<p>
+<strong>Alex:</strong> Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+</p>
+<p>
+<strong>[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Do NPV and IRR always agree?
+</p>
+<p>
+<strong>Alex:</strong> For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+</p>
+<p>
+<strong>[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Let us do bonds. That is where I see a lot of people struggle.
+</p>
+<p>
+<strong>Alex:</strong> Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+</p>
+<p>
+<strong>[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+</p>
+<p>
+<strong>Alex:</strong> Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+</p>
+<p>
+<strong>[VISUAL: Calculator keystrokes with annotations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+</p>
+<p>
+<strong>Sam:</strong> It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+</p>
+<p>
+<strong>Alex:</strong> And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+</p>
+<p>
+<strong>[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What about finding the yield when you know the price?
+</p>
+<p>
+<strong>Alex:</strong> Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+</p>
+<p>
+<strong>Alex:</strong> Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+</p>
+<p>
+<strong>[VISUAL: Numbered list appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+</p>
+<p>
+<strong>Sam:</strong> What about number four?
+</p>
+<p>
+<strong>Alex:</strong> Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+</p>
+<p>
+<strong>[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Any advice for people preparing for the CFA or other exams?
+</p>
+<p>
+<strong>Alex:</strong> Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+</p>
+<p>
+<strong>Sam:</strong> Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+</p>
+<p>
+<strong>[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 01</strong>
+</p>
+                </div>
+                <div id="content-cn" class="lang-content">
+                    <p>
+<!-- 此文件需要翻译为简体中文 -->
+<!-- This file needs translation to Simplified Chinese -->
+</p>
+<h1>Side Lesson 01: Mastering the TI BA II Plus Financial Calculator</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+Every finance professional and serious investor needs to speak the language of time value of money fluently. The TI BA II Plus is the industry-standard financial calculator used by CFA candidates, financial analysts, and investment bankers worldwide. While spreadsheets can do these calculations, understanding how to work a financial calculator builds intuition about how money moves through time. You cannot fake this skill in a job interview, a client meeting, or a certification exam.
+</p>
+<p>
+More importantly, the calculator forces you to think about cash flow sign conventions, compounding frequency, and the relationship between present and future values in a way that simply plugging numbers into a spreadsheet formula does not. When you truly understand what each key does, you understand the math behind every loan, every bond, every investment decision.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>The Five TVM Keys</h4>
+<p>
+The heart of the TI BA II Plus is the five Time Value of Money (TVM) keys across the third row:<ul><li><strong>N</strong> -- The number of compounding periods. Not years, not months, but periods. If you have a 30-year mortgage with monthly payments, N = 360.</li></ul><ul><li><strong>I/Y</strong> -- The interest rate per year (expressed as a percentage, not a decimal). The calculator automatically divides this by P/Y to get the periodic rate.</li></ul><ul><li><strong>PV</strong> -- Present Value. The value of money today, or the starting amount. Typically entered as negative when it represents money you pay out.</li></ul><ul><li><strong>PMT</strong> -- Payment. The periodic cash flow that occurs at regular intervals. Negative when you pay it, positive when you receive it.</li></ul><ul><li><strong>FV</strong> -- Future Value. The value of money at the end of the time horizon. Negative when you pay it out, positive when you receive it.</li></ul>
+</p>
+<p>
+The fundamental rule: <strong>you must enter at least four of the five variables, then compute the fifth.</strong> The calculator solves for the unknown.
+</p>
+<h4>The Sign Convention</h4>
+<p>
+This is where most beginners stumble. The TI BA II Plus uses a cash flow sign convention:<ul><li><strong>Negative (-)</strong> = money leaving your pocket (outflows)</li></ul><ul><li><strong>Positive (+)</strong> = money coming into your pocket (inflows)</li></ul>
+</p>
+<p>
+Think of it from your perspective as the investor or borrower:<ul><li>If you invest $1,000 today, PV = -1000 (money leaves you)</li></ul><ul><li>If you receive $1,500 in five years, FV = 1500 (money comes to you)</li></ul><ul><li>If you make monthly loan payments, PMT = -500 (money leaves you)</li></ul><ul><li>If you receive monthly rental income, PMT = 2000 (money comes to you)</li></ul>
+</p>
+<p>
+If you get the signs wrong, you will either get an error or a wrong answer. Every single time you enter a TVM problem, ask yourself: "Is this money going out or coming in?"
+</p>
+<h4>P/Y and C/Y Settings</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[I/Y]</strong> to access the P/Y (Payments per Year) and C/Y (Compounding periods per Year) settings.<ul><li><strong>P/Y</strong> -- How many payments occur per year. Set to 12 for monthly, 4 for quarterly, 2 for semi-annual, 1 for annual.</li></ul><ul><li><strong>C/Y</strong> -- How many times interest compounds per year. Usually matches P/Y, but not always.</li></ul>
+</p>
+<p>
+<strong>Critical habit:</strong> Always check your P/Y setting before starting a new problem. A wrong P/Y setting is the single most common source of calculator errors. Many professionals keep P/Y = 1 at all times and manually adjust N and I/Y, which avoids confusion.
+</p>
+<p>
+<strong>Reset approach:</strong> Press [2ND] [+/-] (which is the RESET function) and press ENTER to clear everything back to factory defaults (P/Y = 1, C/Y = 1).
+</p>
+<h4>Basic TVM Examples</h4>
+<p>
+<strong>Example 1: Future Value of a Lump Sum</strong>
+You invest $10,000 today at 8% annual return for 20 years. What will it be worth?<ul><li>N = 20</li></ul><ul><li>I/Y = 8</li></ul><ul><li>PV = -10000 (money leaving you)</li></ul><ul><li>PMT = 0</li></ul><ul><li>CPT FV = 46,609.57</li></ul>
+</p>
+<p>
+<strong>Example 2: Monthly Mortgage Payment</strong>
+You borrow $300,000 for 30 years at 6.5% annual interest with monthly payments.<ul><li>Set P/Y = 12</li></ul><ul><li>N = 360 (30 x 12)</li></ul><ul><li>I/Y = 6.5</li></ul><ul><li>PV = 300000 (money coming to you from the bank)</li></ul><ul><li>FV = 0 (loan fully repaid)</li></ul><ul><li>CPT PMT = -1,896.20 (you pay this each month)</li></ul>
+</p>
+<p>
+<strong>Example 3: Required Return</strong>
+You can buy a bond for $950 that pays $50 per year for 10 years and returns $1,000 at maturity. What is the yield?<ul><li>Set P/Y = 1</li></ul><ul><li>N = 10</li></ul><ul><li>PV = -950 (you pay this)</li></ul><ul><li>PMT = 50 (you receive this annually)</li></ul><ul><li>FV = 1000 (you receive this at maturity)</li></ul><ul><li>CPT I/Y = 5.66%</li></ul>
+</p>
+<h4>NPV and IRR Functions</h4>
+<p>
+Press <strong>[CF]</strong> to enter the Cash Flow worksheet.
+</p>
+<p>
+<strong>Entering Cash Flows:</strong>
+</p>
+<li>CF0 = initial investment (usually negative)</li>
+<li>C01 = first cash flow, F01 = frequency of that cash flow</li>
+<li>C02 = second cash flow, F02 = frequency, and so on</li>
+<li>Use the down arrow to move through entries</li>
+<p>
+<strong>Computing NPV:</strong>
+</p>
+<li>After entering cash flows, press [NPV]</li>
+<li>Enter I = discount rate (as a percentage)</li>
+<li>Press the down arrow, then CPT to compute NPV</li>
+<p>
+<strong>Computing IRR:</strong>
+</p>
+<li>After entering cash flows, press [IRR]</li>
+<li>Press CPT to compute IRR</li>
+<p>
+<strong>Example: Project Evaluation</strong>
+A project requires $50,000 upfront and generates $15,000 per year for 5 years.<ul><li>CF0 = -50000</li></ul><ul><li>C01 = 15000, F01 = 5</li></ul><ul><li>NPV at I = 10%: press [NPV], I = 10, down arrow, CPT = $6,861.80</li></ul><ul><li>IRR: press [IRR], CPT = 15.24%</li></ul>
+</p>
+<p>
+Since NPV > 0 and IRR > required return of 10%, the project is acceptable.
+</p>
+<h4>Bond Calculations</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[9]</strong> to access the Bond worksheet.
+</p>
+<p>
+Key inputs:<ul><li><strong>SDT</strong> -- Settlement date (when you buy the bond)</li></ul><ul><li><strong>CPN</strong> -- Annual coupon rate (as a percentage)</li></ul><ul><li><strong>RDT</strong> -- Redemption date (maturity date)</li></ul><ul><li><strong>RV</strong> -- Redemption value (usually 100 for par)</li></ul><ul><li><strong>ACT/360</strong> -- Day count convention</li></ul><ul><li><strong>2/Y or 1/Y</strong> -- Semi-annual or annual coupon frequency</li></ul><ul><li><strong>YLD</strong> -- Yield to maturity</li></ul><ul><li><strong>PRI</strong> -- Clean price</li></ul>
+</p>
+<p>
+You can enter either YLD or PRI and compute the other.
+</p>
+<p>
+<strong>Example: Bond Pricing</strong>
+A bond with 5% coupon, semi-annual payments, matures in 10 years, market yield is 6%.
+</p>
+<p>
+Using TVM keys (simpler approach):<ul><li>Set P/Y = 2</li></ul><ul><li>N = 20 (10 years x 2)</li></ul><ul><li>I/Y = 6</li></ul><ul><li>PMT = 25 (1000 x 5% / 2)</li></ul><ul><li>FV = 1000</li></ul><ul><li>CPT PV = -925.61 (the price you pay)</li></ul>
+</p>
+<h4>Amortization Worksheet</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[PV]</strong> to access the amortization worksheet after solving a TVM loan problem.<ul><li>P1 = starting period</li></ul><ul><li>P2 = ending period</li></ul><ul><li>BAL = remaining balance after P2</li></ul><ul><li>PRN = total principal paid between P1 and P2</li></ul><ul><li>INT = total interest paid between P1 and P2</li></ul>
+</p>
+<p>
+This is invaluable for understanding how much of each payment goes to principal versus interest over the life of a loan.
+</p>
+<h4>Statistical Functions</h4>
+<p>
+Press <strong>[2ND]</strong> then <strong>[7]</strong> to access the Data worksheet. Press <strong>[2ND]</strong> then <strong>[8]</strong> for the Stat worksheet.
+</p>
+<p>
+You can enter data points and compute:<ul><li>Mean (average)</li></ul><ul><li>Sample standard deviation (Sx)</li></ul><ul><li>Population standard deviation (sigma x)</li></ul><ul><li>Linear regression statistics</li></ul>
+</p>
+<p>
+While not as commonly tested as TVM, these functions are useful for quick portfolio return and risk calculations.
+</p>
+<h4>Key Shortcuts and Tips</h4>
+<li><strong>Clear TVM:</strong> Press [2ND] then [FV] (which is CLR TVM) before every new problem.</li>
+<li><strong>Clear all worksheets:</strong> Press [2ND] then [CE/C] (which is CLR Work) when in a worksheet.</li>
+<li><strong>Change sign:</strong> Use the [+/-] key to toggle between positive and negative.</li>
+<li><strong>Store and recall:</strong> Use [STO] and [RCL] with number keys 0-9 to store intermediate results.</li>
+<li><strong>Chain calculations:</strong> After computing one value, you can change one or two inputs and recompute without re-entering everything.</li>
+<li><strong>Decimal places:</strong> Press [2ND] then [.] (FORMAT), then enter the number of decimal places you want displayed (0-9). Press ENTER.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"I can just use Excel, so I don't need a calculator."</strong>
+Excel is powerful, but it does not build intuition. When you manually set up a TVM problem on a calculator, you are forced to think about what each variable means, what the sign should be, and how many periods are involved. This understanding transfers directly to building better spreadsheet models and catching errors in other people's work.
+</p>
+<p>
+<strong>"N always equals the number of years."</strong>
+No. N is the number of compounding periods. A 5-year loan with monthly payments has N = 60, not 5. A 10-year bond with semi-annual coupons has N = 20, not 10. Always match N to the payment frequency.
+</p>
+<p>
+<strong>"I/Y is the periodic interest rate."</strong>
+No. I/Y is the annual interest rate. The calculator divides it by P/Y internally to get the periodic rate. If you have a monthly problem with P/Y = 12 and the annual rate is 6%, you enter I/Y = 6, not 0.5.
+</p>
+<p>
+<strong>"The sign doesn't matter as long as the magnitude is right."</strong>
+The sign is everything. If PV and FV have the same sign, the calculator thinks money flows in the same direction at both times, which makes no sense for most problems and will produce an error or a wrong answer.
+</p>
+<p>
+<strong>"BGN mode is rarely used."</strong>
+BGN (Begin) mode matters whenever payments occur at the start of each period rather than the end. Annuities due (like rent or insurance premiums paid in advance) require BGN mode. Forgetting to switch between BGN and END is a common exam mistake. Check the display -- if you see "BGN" in the upper right, you are in begin mode.
+</p>
+<p>
+<strong>"NPV and IRR always give the same accept/reject decision."</strong>
+For independent projects with conventional cash flows (one outflow followed by inflows), they agree. But for mutually exclusive projects or non-conventional cash flows (multiple sign changes), NPV and IRR can conflict. Always trust NPV when they disagree.
+</p>
+<p>
+<strong>"A higher IRR always means a better project."</strong>
+IRR has limitations: it assumes reinvestment at the IRR itself, it can produce multiple solutions with non-conventional cash flows, and it does not account for project scale. A project with 50% IRR on a $100 investment is not necessarily better than 20% IRR on a $1,000,000 investment.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: My calculator gives me an "Error 5" when I try to compute I/Y. What's wrong?</strong>
+A: Error 5 means "no solution exists." This almost always means your signs are wrong. Check that PV and FV/PMT have opposite signs. If you are investing money (PV is negative), then you should receive money back (FV or PMT should be positive), or vice versa.
+</p>
+<p>
+<strong>Q: Should I keep P/Y at 1 or change it for each problem?</strong>
+A: Many experienced users keep P/Y = 1 at all times. When you do this, you manually adjust N (multiply years by frequency) and I/Y (divide annual rate by frequency). This approach avoids the confusion of forgetting to change P/Y back. Others prefer to set P/Y to match the problem. Either approach works, but be consistent.
+</p>
+<p>
+<strong>Q: How do I compute the yield to maturity on a bond that pays semi-annual coupons?</strong>
+A: Set P/Y = 2, enter N = (years to maturity x 2), PV = -(current price), PMT = (annual coupon / 2), FV = 1000 (or par value), then CPT I/Y. The result is the annual YTM (the calculator adjusts for the semi-annual compounding internally).
+</p>
+<p>
+<strong>Q: What's the difference between the CF worksheet and the TVM keys?</strong>
+A: The TVM keys handle level annuities (equal, regular payments). The CF worksheet handles uneven cash flows. Use TVM for loans, standard bonds, and regular savings. Use CF for project evaluation, uneven income streams, and any situation where cash flows change from period to period.
+</p>
+<p>
+<strong>Q: How do I handle a problem where payments start in the future (deferred annuity)?</strong>
+A: Break it into two steps. First, calculate the PV of the annuity as of the date payments begin. Then discount that PV back to today using a separate TVM calculation. The calculator does not have a built-in deferred annuity function.
+</p>
+<p>
+<strong>Q: Can I compute Modified Duration or Convexity on this calculator?</strong>
+A: The bond worksheet gives you duration (Macaulay) and modified duration directly. After entering bond details and computing price or yield, scroll down to see DUR (duration). For convexity, you would need to calculate it manually or use the stored memory registers.
+</p>
+<p>
+<strong>Q: What is the difference between ordinary annuity and annuity due on this calculator?</strong>
+A: Press [2ND] then [PMT] to toggle between END (ordinary annuity -- payments at end of period) and BGN (annuity due -- payments at beginning of period). The display shows "BGN" when in begin mode. Most problems assume END mode unless stated otherwise.
+</p>
+<p>
+<strong>Q: How accurate is the calculator compared to Excel?</strong>
+A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds most spreadsheet calculations for financial problems. Any differences you see are typically due to rounding in the display, not calculation errors.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Your Calculator Is Your Best Friend: Mastering the TI BA II Plus"</h3>
+<p>
+<strong>Target Length:</strong> 15-20 minutes
+<strong>Tone:</strong> Encouraging, practical, demystifying
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+</p>
+<p>
+<strong>Sam:</strong> Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+</p>
+<p>
+<strong>[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]</strong>
+</p>
+<p>
+<strong>Alex:</strong> So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+</p>
+<p>
+<strong>Sam:</strong> Can you walk through what each one means in plain English?
+</p>
+<p>
+<strong>Alex:</strong> Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+</p>
+<p>
+<strong>[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+</p>
+<p>
+<strong>Alex:</strong> This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+</p>
+<p>
+<strong>Sam:</strong> And when you get money back in the future?
+</p>
+<p>
+<strong>Alex:</strong> That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+</p>
+<p>
+<strong>[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What happens if you mess up the signs?
+</p>
+<p>
+<strong>Alex:</strong> You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing "Error 5" with a red X]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+</p>
+<p>
+<strong>[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+</p>
+<p>
+<strong>Sam:</strong> That is the power of compound interest right there. Your money more than quadrupled.
+</p>
+<p>
+<strong>Alex:</strong> In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+</p>
+<p>
+<strong>[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, let us try something people actually deal with. Mortgages.
+</p>
+<p>
+<strong>Alex:</strong> Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+</p>
+<p>
+<strong>[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+</p>
+<p>
+<strong>Sam:</strong> And this tells the calculator that payments happen twelve times a year?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+</p>
+<p>
+<strong>Sam:</strong> Wait, the loan amount is positive?
+</p>
+<p>
+<strong>Alex:</strong> Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+</p>
+<p>
+<strong>Sam:</strong> That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+</p>
+<p>
+<strong>Alex:</strong> FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+</p>
+<p>
+<strong>[VISUAL: Calculator screen showing -1,896.20]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+</p>
+<p>
+<strong>Alex:</strong> Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+</p>
+<p>
+<strong>[VISUAL: Split screen showing calculator and a pie chart of first year payments]</strong>
+</p>
+<p>
+<strong>Alex:</strong> In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+</p>
+<p>
+<strong>Sam:</strong> So in the first year, eighty-five percent of your payment is just interest?
+</p>
+<p>
+<strong>Alex:</strong> Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+</p>
+<p>
+<strong>[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]</strong>
+</p>
+<p>
+<strong>Sam:</strong> This is why people say the first few years of a mortgage are "expensive."
+</p>
+<p>
+<strong>Alex:</strong> Now let us shift gears to something every investor needs. NPV and IRR.
+</p>
+<p>
+<strong>[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+</p>
+<p>
+<strong>Sam:</strong> So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+</p>
+<p>
+<strong>Alex:</strong> Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+</p>
+<p>
+<strong>[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]</strong>
+</p>
+<p>
+<strong>Alex:</strong> NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+</p>
+<p>
+<strong>Sam:</strong> And IRR?
+</p>
+<p>
+<strong>Alex:</strong> Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+</p>
+<p>
+<strong>[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Do NPV and IRR always agree?
+</p>
+<p>
+<strong>Alex:</strong> For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+</p>
+<p>
+<strong>[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Let us do bonds. That is where I see a lot of people struggle.
+</p>
+<p>
+<strong>Alex:</strong> Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+</p>
+<p>
+<strong>[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+</p>
+<p>
+<strong>Alex:</strong> Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+</p>
+<p>
+<strong>[VISUAL: Calculator keystrokes with annotations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+</p>
+<p>
+<strong>Sam:</strong> It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+</p>
+<p>
+<strong>Alex:</strong> And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+</p>
+<p>
+<strong>[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What about finding the yield when you know the price?
+</p>
+<p>
+<strong>Alex:</strong> Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+</p>
+<p>
+<strong>Alex:</strong> Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+</p>
+<p>
+<strong>[VISUAL: Numbered list appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+</p>
+<p>
+<strong>Sam:</strong> What about number four?
+</p>
+<p>
+<strong>Alex:</strong> Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+</p>
+<p>
+<strong>[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Any advice for people preparing for the CFA or other exams?
+</p>
+<p>
+<strong>Alex:</strong> Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+</p>
+<p>
+<strong>Sam:</strong> Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+</p>
+<p>
+<strong>[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 01</strong>
+</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Restore language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang && savedLang !== 'en') {
+            switchLang(savedLang);
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === savedLang) btn.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Investment Tutorial</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a2e;
+            --heading: #16213e;
+            --accent: #0f3460;
+            --accent-light: #e8eef7;
+            --border: #d4d4d8;
+            --code-bg: #f4f4f5;
+            --sidebar-bg: #f8f9fa;
+            --link: #0f3460;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .sidebar .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .sidebar .nav-section h3 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 4px 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 2px;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px 50px;
+            max-width: 900px;
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-toggle button {
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .content-area {
+            margin-top: 60px;
+        }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        h1 { font-size: 2rem; color: var(--heading); margin: 30px 0 15px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; color: var(--heading); margin: 25px 0 12px; }
+        h3 { font-size: 1.2rem; color: var(--heading); margin: 20px 0 10px; }
+        h4 { font-size: 1.05rem; color: var(--heading); margin: 15px 0 8px; }
+
+        p { margin-bottom: 12px; }
+
+        ul, ol { margin: 10px 0 15px 25px; }
+        li { margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+        th { background: var(--accent-light); font-weight: 600; }
+
+        pre { background: var(--code-bg); padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9em; }
+        p code { background: var(--code-bg); padding: 2px 6px; border-radius: 3px; }
+
+        blockquote { border-left: 4px solid var(--accent); padding: 10px 20px; margin: 15px 0; background: var(--accent-light); }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+
+        a { color: var(--link); }
+
+        img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-buttons a {
+            padding: 8px 16px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-buttons a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 20;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .top-bar { left: 0; padding: 10px 20px; }
+            .content-area { margin-top: 50px; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <h2>Investment Tutorial</h2>
+            <div class="nav-section"><h3>Home</h3><a href="index.html">Course Overview</a></div><div class="nav-section"><h3>Level 1: Foundation</h3><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div><div class="nav-section"><h3>Level 2: Intermediate</h3><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div><div class="nav-section"><h3>Level 3: Advanced</h3><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div><div class="nav-section"><h3>Level 4: Sophisticated</h3><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div><div class="nav-section"><h3>Level 5: Expert</h3><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div><div class="nav-section"><h3>Side Lessons</h3><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div>
+        </nav>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <span style="font-weight:600;color:var(--accent);">Home</span>
+                <div class="lang-toggle">
+                    <button class="active" onclick="switchLang('en')">EN</button>
+                    <button onclick="switchLang('hk')">HK</button>
+                    <button onclick="switchLang('tw')">TW</button>
+                    <button onclick="switchLang('cn')">CN</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div id="content-en" class="lang-content active">
+                    <h1>Investment Tutorial: From Beginner to Professional</h1>
+<p>
+A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Based on CFA curriculum knowledge, structured for retail investors with a YouTube-ready teaching format.
+</p>
+<h2>Course Philosophy</h2>
+<ul><li><strong>Macro context -> Strategy concept -> Tactical execution</strong></li>
+<li>Progressive skill-building with forward/backward references</li>
+<li>Each lesson includes reading material AND a two-host YouTube script</li>
+<li>Visual explanations via animations (Python/JS/emoji-art)</li>
+<li>Available in English, Hong Kong Chinese, Taiwan Chinese, and Mainland Chinese</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>Core Course (52 Weeks, 1 hour per week)</h2>
+<h3>Level 1: Foundation (Weeks 1-12) - Beginner</h3>
+<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>1</td><td><a href="course/week01_why_invest.md">Why Invest? The Time Value of Money</a></td><td>Understanding why $1 today is worth more than $1 tomorrow, and why investing is not optional</td></tr>
+<tr><td>2</td><td><a href="course/week02_index_funds_etfs.md">Index Funds and ETFs</a></td><td>The simplest, most effective way to start investing - buying the whole market</td></tr>
+<tr><td>3</td><td><a href="course/week03_risk_and_return.md">Understanding Risk and Return</a></td><td>The fundamental tradeoff: why higher returns always come with higher risk</td></tr>
+<tr><td>4</td><td><a href="course/week04_sixty_forty.md">The 60/40 Portfolio</a></td><td>The classic balanced portfolio and why it has been the default for decades</td></tr>
+<tr><td>5</td><td><a href="course/week05_bonds.md">Bonds - Your Portfolio's Shock Absorber</a></td><td>How bonds work, why they matter, and their role in portfolio stability</td></tr>
+<tr><td>6</td><td><a href="course/week06_gold_commodities.md">Gold and Commodities as Diversifiers</a></td><td>Why alternative assets reduce portfolio volatility when stocks and bonds move together</td></tr>
+<tr><td>7</td><td><a href="course/week07_rebalancing.md">Portfolio Rebalancing</a></td><td>The discipline of selling winners and buying losers to maintain your target allocation</td></tr>
+<tr><td>8</td><td><a href="course/week08_financial_statements.md">Reading Financial Statements - Basics</a></td><td>Income statement, balance sheet, and cash flow - the three lenses into a company</td></tr>
+<tr><td>9</td><td><a href="course/week09_market_indexes.md">Understanding Market Indexes</a></td><td>How indexes are built, what they measure, and why they drive trillions in flows</td></tr>
+<tr><td>10</td><td><a href="course/week10_economic_cycles.md">Economic Cycles and Your Portfolio</a></td><td>How expansion, peak, contraction, and trough affect different asset classes</td></tr>
+<tr><td>11</td><td><a href="course/week11_behavioral_biases.md">Behavioral Biases - Your Brain vs Your Money</a></td><td>The psychological traps that cause investors to buy high and sell low</td></tr>
+<tr><td>12</td><td><a href="course/week12_first_portfolio.md">Building Your First Portfolio</a></td><td>Putting it all together: choosing assets, setting allocation, and getting started</td></tr></tbody></table>
+<h3>Level 2: Intermediate (Weeks 13-24)</h3>
+<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>13</td><td><a href="course/week13_long_short.md">Long and Short Trading</a></td><td>Making money when prices fall - the concept of shorting and its role in hedging</td></tr>
+<tr><td>14</td><td><a href="course/week14_pair_trading.md">Pair Trading Fundamentals</a></td><td>Exploiting relative value by going long one stock and short another in the same sector</td></tr>
+<tr><td>15</td><td><a href="course/week15_multi_asset.md">Multi-Asset Allocation</a></td><td>Moving beyond stocks and bonds to include REITs, commodities, and international exposure</td></tr>
+<tr><td>16</td><td><a href="course/week16_sector_rotation.md">Business Cycles and Sector Rotation</a></td><td>Tilting your portfolio based on where we are in the economic cycle</td></tr>
+<tr><td>17</td><td><a href="course/week17_performance_metrics.md">Performance Metrics - Volatility, Drawdowns, Sharpe</a></td><td>Measuring portfolio quality beyond just returns</td></tr>
+<tr><td>18</td><td><a href="course/week18_interest_rates.md">Interest Rates and Market Returns</a></td><td>How rates affect every asset class - the most important macro variable</td></tr>
+<tr><td>19</td><td><a href="course/week19_corporate_finance.md">Corporate Finance - What Makes Companies Tick</a></td><td>Capital structure, dividends, buybacks, and their signals to investors</td></tr>
+<tr><td>20</td><td><a href="course/week20_earnings_cashflow.md">Earnings Analysis and Cash Flow</a></td><td>Separating real profitability from accounting illusions</td></tr>
+<tr><td>21</td><td><a href="course/week21_equity_valuation.md">Equity Valuation - P/E, P/B, and DCF</a></td><td>The three fundamental approaches to deciding if a stock is cheap or expensive</td></tr>
+<tr><td>22</td><td><a href="course/week22_currency_international.md">Currency and International Diversification</a></td><td>Why global exposure matters and how FX risk affects your returns</td></tr>
+<tr><td>23</td><td><a href="course/week23_factor_investing.md">Factor Investing Introduction</a></td><td>Value, momentum, quality, size - the systematic drivers of returns</td></tr>
+<tr><td>24</td><td><a href="course/week24_multi_strategy.md">Building a Multi-Strategy Portfolio</a></td><td>Combining strategies that work in different market environments</td></tr></tbody></table>
+<h3>Level 3: Advanced (Weeks 25-36)</h3>
+<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>25</td><td><a href="course/week25_intro_options.md">Introduction to Options</a></td><td>Calls, puts, and why options are the most versatile tool in finance</td></tr>
+<tr><td>26</td><td><a href="course/week26_options_as_orders.md">Options as Conditional Orders</a></td><td>Using puts as limit buys and calls as limit sells - getting paid to wait</td></tr>
+<tr><td>27</td><td><a href="course/week27_covered_calls.md">Covered Calls for Income</a></td><td>Generating yield from stocks you already own by selling upside</td></tr>
+<tr><td>28</td><td><a href="course/week28_cash_secured_puts.md">Cash-Secured Puts for Entry</a></td><td>Getting paid to buy stocks at prices you'd happily pay anyway</td></tr>
+<tr><td>29</td><td><a href="course/week29_option_greeks.md">Option Greeks - Delta, Theta, Vega</a></td><td>Understanding the forces that move option prices</td></tr>
+<tr><td>30</td><td><a href="course/week30_spreads_condors.md">Credit Spreads and Iron Condors</a></td><td>Defined-risk strategies for generating income in range-bound markets</td></tr>
+<tr><td>31</td><td><a href="course/week31_yield_curves.md">Fixed Income Deep Dive - Yield Curves</a></td><td>What the shape of the yield curve tells us about the economy and future rates</td></tr>
+<tr><td>32</td><td><a href="course/week32_duration_convexity.md">Duration and Convexity</a></td><td>Measuring and managing interest rate risk in bond portfolios</td></tr>
+<tr><td>33</td><td><a href="course/week33_credit_analysis.md">Credit Analysis and Bond Selection</a></td><td>Evaluating corporate and government credit quality - when spread means risk</td></tr>
+<tr><td>34</td><td><a href="course/week34_rate_sensitivity.md">Interest Rate Sensitivity Across Assets</a></td><td>How rate changes ripple through equities, bonds, real estate, and commodities</td></tr>
+<tr><td>35</td><td><a href="course/week35_advanced_fsa.md">Advanced Financial Statement Analysis</a></td><td>Stock compensation, off-balance-sheet items, and earnings quality detection</td></tr>
+<tr><td>36</td><td><a href="course/week36_income_portfolio.md">Building an Income-Generating Portfolio</a></td><td>Combining dividends, bonds, covered calls, and REITs for steady cash flow</td></tr></tbody></table>
+<h3>Level 3: Advanced (Weeks 25-36) - Options and Fixed Income</h3>
+<h3>Level 4: Sophisticated (Weeks 37-46)</h3>
+<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>37</td><td><a href="course/week37_options_leverage.md">Options Leverage Strategies</a></td><td>Using options for magnified returns with defined risk</td></tr>
+<tr><td>38</td><td><a href="course/week38_leaps.md">LEAPS and Long-Term Options</a></td><td>Leveraged long-term bets with time on your side</td></tr>
+<tr><td>39</td><td><a href="course/week39_futures.md">Futures Markets Introduction</a></td><td>How futures work, margin mechanics, and accessing macro exposures</td></tr>
+<tr><td>40</td><td><a href="course/week40_vix_volatility.md">Trading the VIX and Volatility</a></td><td>Volatility as an asset class - contango, term structure, and mean reversion</td></tr>
+<tr><td>41</td><td><a href="course/week41_risk_management.md">Risk Management Like a Pro</a></td><td>Position sizing, stop losses, risk budgets, and the 2% rule</td></tr>
+<tr><td>42</td><td><a href="course/week42_var_risk_models.md">Portfolio Risk Models - VaR and Beyond</a></td><td>Quantifying tail risk and understanding what can go wrong</td></tr>
+<tr><td>43</td><td><a href="course/week43_active_management.md">Active Portfolio Management</a></td><td>Alpha, tracking error, information ratio - the math of active investing</td></tr>
+<tr><td>44</td><td><a href="course/week44_microstructure.md">Market Microstructure and Execution</a></td><td>How orders flow, spreads form, and execution costs eat your returns</td></tr>
+<tr><td>45</td><td><a href="course/week45_quant_methods.md">Quantitative Methods for Investors</a></td><td>Regression, time series, and statistical tools for better decisions</td></tr>
+<tr><td>46</td><td><a href="course/week46_backtesting.md">Backtesting and Strategy Validation</a></td><td>How to test ideas honestly without fooling yourself</td></tr></tbody></table>
+<h3>Level 5: Expert (Weeks 47-52)</h3>
+<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>47</td><td><a href="course/week47_tail_risk.md">Tail Risk Hedging</a></td><td>Protecting against black swans - portfolio insurance that pays when everything else breaks</td></tr>
+<tr><td>48</td><td><a href="course/week48_structured_products.md">Structured Products and Defined Outcomes</a></td><td>Buffered ETFs, structured notes - pre-packaged option strategies for retail</td></tr>
+<tr><td>49</td><td><a href="course/week49_vol_arbitrage.md">Volatility Arbitrage and Term Structure</a></td><td>Exploiting the VIX curve and variance risk premium</td></tr>
+<tr><td>50</td><td><a href="course/week50_factor_tilts.md">Factor Tilts and Alternative Risk Premia</a></td><td>Building a portfolio that harvests multiple systematic return sources</td></tr>
+<tr><td>51</td><td><a href="course/week51_managed_futures.md">Managed Futures and Trend Following</a></td><td>Crisis alpha - strategies that profit when traditional assets crash</td></tr>
+<tr><td>52</td><td><a href="course/week52_integration.md">Portfolio Integration - Putting It All Together</a></td><td>Combining everything into a professional-grade, all-weather portfolio</td></tr></tbody></table>
+<hr>
+<h2>Side Lessons (15-30 minutes each)</h2>
+<table><thead><tr><th>#</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>1</td><td><a href="course/side01_calculator.md">TI BA II Plus Calculator Guide</a></td><td>Master the CFA calculator - TVM, NPV, IRR, bonds, and amortization</td></tr>
+<tr><td>2</td><td><a href="course/side02_10k_filing.md">How to Read a 10-K Filing</a></td><td>Navigating SEC filings to find what actually matters</td></tr>
+<tr><td>3</td><td><a href="course/side03_etf_mechanics.md">Understanding ETF Mechanics</a></td><td>Creation/redemption, tracking error, and why ETF structure matters</td></tr>
+<tr><td>4</td><td><a href="course/side04_tax_efficiency.md">Tax-Efficient Investing</a></td><td>Tax-loss harvesting, asset location, and keeping more of what you earn</td></tr>
+<tr><td>5</td><td><a href="course/side05_dca_vs_lump.md">Dollar Cost Averaging vs Lump Sum</a></td><td>The math and psychology behind two common investment approaches</td></tr>
+<tr><td>6</td><td><a href="course/side06_inflation.md">Inflation and Real Returns</a></td><td>Why nominal returns lie and how to think in real terms</td></tr>
+<tr><td>7</td><td><a href="course/side07_reits.md">REITs and Real Estate Investing</a></td><td>Accessing real estate returns without buying property</td></tr>
+<tr><td>8</td><td><a href="course/side08_fund_fees.md">Understanding Mutual Fund Fees</a></td><td>Expense ratios, loads, 12b-1 fees - the silent return killers</td></tr>
+<tr><td>9</td><td><a href="course/side09_crypto.md">Crypto and Digital Assets Overview</a></td><td>Bitcoin, Ethereum, and digital assets in portfolio context</td></tr>
+<tr><td>10</td><td><a href="course/side10_dividends.md">Dividend Investing Strategy</a></td><td>Building a portfolio around cash-flowing stocks</td></tr>
+<tr><td>11</td><td><a href="course/side11_retirement_accounts.md">Retirement Accounts - 401k, IRA, Roth</a></td><td>Tax-advantaged accounts and how to use each one optimally</td></tr>
+<tr><td>12</td><td><a href="course/side12_esg.md">ESG and Sustainable Investing</a></td><td>What ESG means for returns and risk - separating hype from substance</td></tr>
+<tr><td>13</td><td><a href="course/side13_ipos.md">IPOs and Special Situations</a></td><td>New listings, spin-offs, and event-driven opportunities</td></tr>
+<tr><td>14</td><td><a href="course/side14_private_markets.md">Private Markets for Retail Investors</a></td><td>Accessing private equity and debt through public market vehicles</td></tr>
+<tr><td>15</td><td><a href="course/side15_trading_psychology.md">The Psychology of Trading</a></td><td>Managing emotions, building discipline, and developing a process</td></tr>
+<tr><td>16</td><td><a href="course/side16_market_history.md">Market History - Crashes and Recoveries</a></td><td>What past crises teach us about surviving the next one</td></tr>
+<tr><td>17</td><td><a href="course/side17_fed_policy.md">Understanding Fed Policy</a></td><td>How the Federal Reserve moves markets and what to watch for</td></tr>
+<tr><td>18</td><td><a href="course/side18_global_markets.md">Global Markets - Developed vs Emerging</a></td><td>Opportunities and risks beyond US borders</td></tr>
+<tr><td>19</td><td><a href="course/side19_correlation_math.md">Correlation and Diversification Math</a></td><td>The math behind why diversification works (and when it fails)</td></tr>
+<tr><td>20</td><td><a href="course/side20_greeks_deep_dive.md">The Option Greeks Deep Dive</a></td><td>Gamma, rho, charm, and second-order Greeks for serious traders</td></tr>
+<tr><td>21</td><td><a href="course/side21_margin_leverage.md">Understanding Margin and Leverage</a></td><td>How borrowing amplifies returns and risk - mechanics and dangers</td></tr>
+<tr><td>22</td><td><a href="course/side22_commodities.md">Commodities Trading Basics</a></td><td>Oil, natural gas, agricultural - understanding physical markets</td></tr>
+<tr><td>23</td><td><a href="course/side23_technical_analysis.md">Technical Analysis Basics</a></td><td>Chart patterns, moving averages, and support/resistance</td></tr>
+<tr><td>24</td><td><a href="course/side24_monitoring_tools.md">Portfolio Monitoring and Rebalancing Tools</a></td><td>Software and spreadsheets for tracking your portfolio</td></tr>
+<tr><td>25</td><td><a href="course/side25_hedge_funds.md">Hedge Fund Strategies Explained</a></td><td>Long/short equity, global macro, event-driven - what hedge funds actually do</td></tr>
+<tr><td>26</td><td><a href="course/side26_market_liquidity.md">Understanding Market Liquidity</a></td><td>Why liquidity matters more than you think - QE, QT, and funding stress</td></tr>
+<tr><td>27</td><td><a href="course/side27_watchlist_screening.md">Building a Watchlist and Screening Stocks</a></td><td>Systematic approaches to finding investment candidates</td></tr>
+<tr><td>28</td><td><a href="course/side28_monte_carlo.md">Monte Carlo Simulation for Retirement</a></td><td>Using probability to plan your financial future</td></tr>
+<tr><td>29</td><td><a href="course/side29_currency_hedging.md">Currency Hedging for Global Portfolios</a></td><td>When and how to hedge foreign currency exposure</td></tr>
+<tr><td>30</td><td><a href="course/side30_wheel_strategy.md">The Wheel Strategy - Options Income Machine</a></td><td>Systematically selling puts and covered calls in a repeating cycle</td></tr></tbody></table>
+<hr>
+<h2>Animations</h2>
+<p>
+Visual animations are stored in <code>course/animation/</code> and referenced from lesson files. Each animation is a self-contained Python or JavaScript file that generates visual explanations of key concepts.
+</p>
+<h2>Translations</h2>
+<p>
+All course materials are available in four languages:
+</p>
+<ul><li><strong>English</strong>: <code>course/</code> (primary)</li>
+<li><strong>Hong Kong Chinese</strong>: <code>course_hk/</code></li>
+<li><strong>Taiwan Chinese</strong>: <code>course_tw/</code></li>
+<li><strong>Mainland Chinese</strong>: <code>course_cn/</code></li>
+<p>
+</ul>
+</p>
+<h2>Website</h2>
+<p>
+A static website at <code>docs/</code> serves all course content with a language toggle button (EN/HK/TW/CN). Run the build script to regenerate after editing markdown files.
+</p>
+<hr>
+<h2>License</h2>
+<p>
+MIT License - see <a href="LICENSE">LICENSE</a>
+</p>
+                </div>
+                <div id="content-hk" class="lang-content">
+                    <p><em>Translation coming soon...</em></p>
+                </div>
+                <div id="content-tw" class="lang-content">
+                    <p><em>Translation coming soon...</em></p>
+                </div>
+                <div id="content-cn" class="lang-content">
+                    <p><em>Translation coming soon...</em></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Restore language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang && savedLang !== 'en') {
+            switchLang(savedLang);
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === savedLang) btn.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Lesson 02: Reading a 10-K Filing Like a Pro - Investment Tutorial</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a2e;
+            --heading: #16213e;
+            --accent: #0f3460;
+            --accent-light: #e8eef7;
+            --border: #d4d4d8;
+            --code-bg: #f4f4f5;
+            --sidebar-bg: #f8f9fa;
+            --link: #0f3460;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .sidebar .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .sidebar .nav-section h3 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 4px 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 2px;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px 50px;
+            max-width: 900px;
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-toggle button {
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .content-area {
+            margin-top: 60px;
+        }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        h1 { font-size: 2rem; color: var(--heading); margin: 30px 0 15px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; color: var(--heading); margin: 25px 0 12px; }
+        h3 { font-size: 1.2rem; color: var(--heading); margin: 20px 0 10px; }
+        h4 { font-size: 1.05rem; color: var(--heading); margin: 15px 0 8px; }
+
+        p { margin-bottom: 12px; }
+
+        ul, ol { margin: 10px 0 15px 25px; }
+        li { margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+        th { background: var(--accent-light); font-weight: 600; }
+
+        pre { background: var(--code-bg); padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9em; }
+        p code { background: var(--code-bg); padding: 2px 6px; border-radius: 3px; }
+
+        blockquote { border-left: 4px solid var(--accent); padding: 10px 20px; margin: 15px 0; background: var(--accent-light); }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+
+        a { color: var(--link); }
+
+        img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-buttons a {
+            padding: 8px 16px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-buttons a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 20;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; padding: 20px; }
+            .top-bar { left: 0; padding: 10px 20px; }
+            .content-area { margin-top: 50px; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <h2>Investment Tutorial</h2>
+            <div class="nav-section"><h3>Home</h3><a href="index.html">Course Overview</a></div><div class="nav-section"><h3>Level 1: Foundation</h3><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div><div class="nav-section"><h3>Level 2: Intermediate</h3><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div><div class="nav-section"><h3>Level 3: Advanced</h3><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div><div class="nav-section"><h3>Level 4: Sophisticated</h3><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div><div class="nav-section"><h3>Level 5: Expert</h3><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div><div class="nav-section"><h3>Side Lessons</h3><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div>
+        </nav>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <span style="font-weight:600;color:var(--accent);">Side Lesson 02: Reading a 10-K Filing Like a Pro</span>
+                <div class="lang-toggle">
+                    <button class="active" onclick="switchLang('en')">EN</button>
+                    <button onclick="switchLang('hk')">HK</button>
+                    <button onclick="switchLang('tw')">TW</button>
+                    <button onclick="switchLang('cn')">CN</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div id="content-en" class="lang-content active">
+                    <h1>Side Lesson 02: Reading a 10-K Filing Like a Pro</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+The 10-K is the single most important document a public company produces. It is the annual report filed with the Securities and Exchange Commission, and unlike the glossy annual report mailed to shareholders, the 10-K is a legal document. Management signs it under penalty of perjury. The company's auditors attest to the financial statements within it. Every claim is supposed to be accurate, complete, and not misleading.
+</p>
+<p>
+If you want to understand what a company actually does, how it makes money, what risks it faces, and whether its financial statements are trustworthy, the 10-K is where you start. Professional investors, analysts, and portfolio managers read these filings cover to cover. Retail investors who skip them are flying blind.
+</p>
+<p>
+The 10-K is also the great equalizer. Hedge fund analysts with Bloomberg terminals and six-figure research budgets read the same 10-K that is freely available to every individual investor. The information is identical. The difference is in the skill of interpretation -- and that is exactly what this lesson will help you develop.
+</p>
+<p>
+Learning to read a 10-K efficiently -- knowing where to look, what matters, and what to skim -- is a foundational skill that separates informed investors from speculators. It is also a skill that improves with practice. Your tenth 10-K will be dramatically easier to read than your first, because you will recognize the patterns, know which sections deserve close attention, and develop a sense for what looks normal versus what looks concerning.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>Where to Find 10-K Filings</h4>
+<p>
+All public company filings are available for free on the SEC's EDGAR database at sec.gov/edgar. You can also find them on company investor relations pages, financial data providers like Bloomberg or FactSet, and free services like annualreports.com. The filing is typically available within 60 days of a company's fiscal year-end for large accelerated filers.
+</p>
+<p>
+Related filings you should know:
+</p>
+<ul><li><strong>10-Q</strong> -- Quarterly report (less detailed than 10-K, filed three times per year)</li>
+<li><strong>8-K</strong> -- Current report for material events (filed as needed, often the first signal of important changes)</li>
+<li><strong>DEF 14A</strong> -- Proxy statement (executive compensation, board details, shareholder vote items)</li>
+<li><strong>S-1</strong> -- Registration statement for IPOs (the first comprehensive disclosure a newly public company makes)</li>
+<li><strong>Form 4</strong> -- Insider trading report (filed when officers, directors, or 10%+ shareholders buy or sell company stock)</li>
+<li><strong>Schedule 13D/13G</strong> -- Filed when an investor acquires 5% or more of a company's outstanding shares</li>
+<p>
+</ul>
+<strong>Filing deadlines:</strong> Large accelerated filers (public float above $700 million) must file the 10-K within 60 days of fiscal year-end. Accelerated filers (public float between $75 million and $700 million) have 75 days. Non-accelerated filers (smaller companies) have 90 days. Companies that cannot meet their deadline file an NT 10-K (Notification of Late Filing) requesting a 15-day extension. A late filing is itself an informational signal worth noting.
+</p>
+<p>
+<strong>Fiscal year vs. calendar year:</strong> Not all companies use a calendar year (ending December 31) as their fiscal year. Retailers often use a fiscal year ending in late January or early February (after the holiday shopping season). Some companies use fiscal years ending in June, September, or other months. Apple's fiscal year ends in late September. Microsoft's ends in June. Always check the fiscal year-end date to properly interpret timing-sensitive data like seasonal revenue patterns.
+</p>
+<h4>The Structure of a 10-K</h4>
+<p>
+A standard 10-K has four main parts with multiple items:
+</p>
+<p>
+<strong>Part I: The Business</strong>
+</p>
+<ul><li><strong>Item 1: Business</strong> -- What the company does, its products and services, competitive landscape, regulatory environment, and number of employees. This is your "company overview" section. Read this first when analyzing a company for the first time.</li>
+<li><strong>Item 1A: Risk Factors</strong> -- A comprehensive list of risks the company faces. These are ordered roughly by significance. This section has grown dramatically over the years and can run 20-40 pages. Do not skip it. The specific risks listed here often foreshadow future problems. Generic boilerplate risks (earthquakes, pandemics) matter less than company-specific risks (customer concentration, regulatory changes, technology obsolescence).</li>
+<li><strong>Item 1B: Unresolved Staff Comments</strong> -- SEC comments on prior filings that remain unresolved. If this section has content, pay attention -- it means the SEC has concerns about the company's disclosures.</li>
+<li><strong>Item 1C: Cybersecurity</strong> -- Added in 2023, this requires companies to disclose their cybersecurity risk management, strategy, and governance processes.</li>
+<li><strong>Item 2: Properties</strong> -- Where the company operates. Useful for understanding geographic diversification and whether the company owns or leases its key facilities.</li>
+<li><strong>Item 3: Legal Proceedings</strong> -- Pending lawsuits and regulatory actions. Material litigation can represent significant financial risk.</li>
+<li><strong>Item 4: Mine Safety Disclosures</strong> -- Only relevant for mining companies.</li>
+<p>
+</ul>
+<strong>Part II: Financial Information</strong>
+</p>
+<ul><li><strong>Item 5: Market for Common Equity</strong> -- Stock exchange listing, dividend history, and share repurchase activity.</li>
+<li><strong>Item 6: Reserved</strong> -- Previously contained selected financial data (5-year summary). Now reserved after SEC rule changes.</li>
+<li><strong>Item 7: Management's Discussion and Analysis (MD&A)</strong> -- This is arguably the most important section of the entire 10-K. Management explains the financial results in their own words. They discuss revenue trends, cost drivers, liquidity, capital allocation priorities, and known trends that may affect future performance. Read this section carefully and critically.</li>
+<li><strong>Item 7A: Quantitative and Qualitative Disclosures About Market Risk</strong> -- Exposure to interest rate risk, foreign currency risk, and commodity price risk. Often includes sensitivity analysis.</li>
+<li><strong>Item 8: Financial Statements and Supplementary Data</strong> -- The audited financial statements: Income Statement, Balance Sheet, Cash Flow Statement, Statement of Stockholders' Equity, and the Notes to Financial Statements. The notes are where the real detail lives.</li>
+<li><strong>Item 9: Changes in and Disagreements with Accountants</strong> -- If the company changed auditors or had disagreements, this is a red flag.</li>
+<li><strong>Item 9A: Controls and Procedures</strong> -- Management's assessment of internal controls over financial reporting. If there is a "material weakness," this is a serious concern.</li>
+<p>
+</ul>
+<strong>Part III: Governance</strong>
+</p>
+<ul><li><strong>Item 10: Directors and Corporate Governance</strong> -- Board composition and governance structure.</li>
+<li><strong>Item 11: Executive Compensation</strong> -- Often incorporated by reference to the proxy statement.</li>
+<li><strong>Item 12: Security Ownership</strong> -- Who owns the stock (insiders, institutions).</li>
+<li><strong>Item 13: Certain Relationships and Related Transactions</strong> -- Deals between the company and its insiders.</li>
+<li><strong>Item 14: Principal Accountant Fees</strong> -- How much the company pays its auditor.</li>
+<p>
+</ul>
+<strong>Part IV: Exhibits</strong>
+</p>
+<ul><li><strong>Item 15: Exhibits and Financial Statement Schedules</strong> -- Key contracts, the CEO/CFO certifications (Sarbanes-Oxley Section 302 and 906), and subsidiary lists.</li>
+<p>
+</ul>
+</p>
+<h4>The Financial Statements in Detail</h4>
+<p>
+The four core statements:
+</p>
+<li><strong>Income Statement (Statement of Operations)</strong> -- Revenue minus expenses equals net income. Look at revenue growth, gross margins, operating margins, and net margins over time. Compare to competitors. Pay special attention to whether growth is organic (from existing operations) or inorganic (from acquisitions). The MD&A section usually breaks this down.</li>
+<li><strong>Balance Sheet (Statement of Financial Position)</strong> -- Assets equal liabilities plus equity. Focus on cash and equivalents, debt levels (short-term and long-term), goodwill and intangibles (signs of past acquisitions), and the debt-to-equity ratio. Watch for large intangible asset balances that may be subject to impairment if business conditions deteriorate.</li>
+<li><strong>Cash Flow Statement</strong> -- Operating, investing, and financing activities. Many analysts consider this the most reliable statement because cash is harder to manipulate than earnings. A company can report profits while burning cash -- this is a warning sign. Calculate free cash flow (operating cash flow minus capital expenditures) to see how much cash the business truly generates after maintaining its asset base.</li>
+<li><strong>Statement of Stockholders' Equity</strong> -- Shows how equity changed during the year through net income, dividends, share issuance, buybacks, and other comprehensive income. Large accumulated other comprehensive losses (AOCI) can indicate unrealized investment losses, foreign currency translation effects, or pension liability adjustments that do not appear on the income statement but affect the balance sheet.</li>
+<p>
+<strong>Pro tip:</strong> Always look at three years of financial statements side by side. The 10-K provides two years of balance sheet data and three years of income statement and cash flow data. Trends tell you far more than any single year's numbers. A company with declining margins for three consecutive years is in a fundamentally different position than one with stable or expanding margins, even if the current year's absolute numbers look similar.
+</p>
+<h4>The Footnotes: Where the Secrets Live</h4>
+<p>
+The notes to financial statements are not optional reading. They contain:
+</p>
+<ul><li><strong>Revenue recognition policies</strong> -- How the company decides when to count revenue. Changes here can inflate or deflate earnings.</li>
+<li><strong>Lease obligations</strong> -- Both on and off-balance-sheet commitments.</li>
+<li><strong>Debt details</strong> -- Maturity schedules, interest rates, covenants, and variable-rate exposure.</li>
+<li><strong>Stock-based compensation</strong> -- The real cost of employee equity awards.</li>
+<li><strong>Pension obligations</strong> -- Assumptions about return rates and discount rates that can dramatically affect reported liabilities.</li>
+<li><strong>Segment reporting</strong> -- Breaks the business into operating segments with separate revenue and profit figures. Essential for understanding a diversified company.</li>
+<li><strong>Subsequent events</strong> -- Things that happened after the balance sheet date but before the filing.</li>
+<li><strong>Contingent liabilities</strong> -- Potential obligations from lawsuits, warranties, or guarantees.</li>
+<p>
+</ul>
+</p>
+<h4>The Auditor's Report: Your First Stop</h4>
+<p>
+Before diving into the financial statements, check the auditor's report. This is typically a two to three page letter near the beginning of Item 8.
+</p>
+<p>
+<strong>Key elements:</strong>
+</p>
+<ul><li><strong>Opinion type</strong> -- "Unqualified" (clean) means the auditor believes the statements are fairly presented. "Qualified" means there is a specific exception. "Adverse" means serious problems. "Disclaimer" means the auditor could not form an opinion. Anything other than unqualified requires immediate attention.</li>
+<li><strong>Going concern language</strong> -- If the auditor includes a paragraph about "substantial doubt about the entity's ability to continue as a going concern," this is a critical warning. The auditor is saying the company might not survive the next twelve months.</li>
+<li><strong>Critical Audit Matters (CAMs)</strong> -- Required since 2019 for large filers, CAMs highlight areas of the audit that were especially challenging, required significant auditor judgment, or involved complex accounting estimates. These often point to the most subjective and potentially problematic areas of the financial statements. Read every CAM and think about what it implies.</li>
+<li><strong>The audit firm itself</strong> -- While the Big Four (Deloitte, PwC, EY, KPMG) audit most large companies, smaller companies may use regional or smaller firms. A large company switching from a Big Four firm to a smaller firm can be a yellow flag, as it may indicate disagreements or cost-cutting in areas that should not be cut.</li>
+<p>
+</ul>
+</p>
+<h4>Red Flags to Watch For</h4>
+<p>
+These patterns in a 10-K warrant deeper investigation:
+</p>
+<li><strong>Revenue growing faster than cash from operations</strong> -- The company may be booking revenue it has not collected yet.</li>
+<li><strong>Accounts receivable growing faster than revenue</strong> -- Customers may not be paying, or the company may be stuffing the channel.</li>
+<li><strong>Frequent changes in accounting policies</strong> -- May indicate attempts to manage earnings.</li>
+<li><strong>Related party transactions</strong> -- Deals with insiders can be self-serving.</li>
+<li><strong>Auditor change</strong> -- Especially if the previous auditor raised concerns.</li>
+<li><strong>Material weakness in internal controls</strong> -- The company cannot reliably produce accurate financials.</li>
+<li><strong>Growing gap between GAAP and non-GAAP earnings</strong> -- Excessive "adjustments" can mask poor performance.</li>
+<li><strong>Rising goodwill relative to total assets</strong> -- Indicates the company overpaid for acquisitions.</li>
+<li><strong>Off-balance-sheet arrangements</strong> -- Special purpose entities or variable interest entities that obscure true leverage.</li>
+<li><strong>Vague or changing language in risk factors</strong> -- New risks appearing or familiar risks being described more urgently.</li>
+<li><strong>Inventory growing faster than revenue</strong> -- The company may be overproducing or struggling to sell its goods. Excess inventory can lead to future write-downs.</li>
+<li><strong>Significant "other income" or one-time gains inflating earnings</strong> -- If a large portion of net income comes from asset sales, insurance proceeds, or other non-operating items, core profitability may be weaker than it appears.</li>
+<h4>How to Read a 10-K Efficiently</h4>
+<p>
+You do not need to read every word. Here is a professional's approach:
+</p>
+<li><strong>Start with Item 1 (Business)</strong> if you are new to the company. Skip if you already know the business model.</li>
+<li><strong>Go to Item 7 (MD&A)</strong> for management's narrative on financial performance.</li>
+<li><strong>Review Item 8 (Financial Statements)</strong> -- focus on trends over 2-3 years, not single-year numbers.</li>
+<li><strong>Read the footnotes</strong> -- especially revenue recognition, debt, and segment data.</li>
+<li><strong>Scan Item 1A (Risk Factors)</strong> for company-specific risks, not boilerplate.</li>
+<li><strong>Check Item 9A (Controls)</strong> for any material weaknesses.</li>
+<li><strong>Check the auditor's report</strong> for the opinion type, going concern language, and Critical Audit Matters.</li>
+<li><strong>Compare to the prior year's 10-K</strong> -- what changed? Use the SEC's filing comparison tools or diff tools to spot changes in language.</li>
+<p>
+<strong>Building a research template:</strong> Consider creating a standard template or checklist that you fill out for every 10-K you read. Include fields for: business model summary, revenue breakdown, margin trends, debt maturity profile, key risk factors, management quality assessment, and your overall investment thesis. This forces disciplined analysis and creates a record you can refer back to.
+</p>
+<p>
+<strong>Cross-referencing with the earnings call transcript:</strong> After reading the 10-K, read the most recent earnings call transcript. Compare what management said verbally to what is in the filing. Discrepancies between the two can be informative -- management may be more candid or more evasive on the call than in the legally reviewed 10-K. Pay special attention to analyst questions that management deflects or refuses to answer directly.
+</p>
+<p>
+<strong>Reading competitor 10-Ks:</strong> Once you have read a company's 10-K, read the 10-K of its closest competitor. This gives you a baseline for comparison. Are margins higher or lower? Is revenue growing faster or slower? Are the risk factors similar or different? Competitive analysis is vastly easier when you have the raw filings side by side.
+</p>
+<p>
+<strong>Using the SEC's EDGAR search tools:</strong> The SEC provides a full-text search across all filings at efts.sec.gov/LATEST/search-index. You can search for specific terms within a company's filings or across all companies. This is invaluable for tracking industry-wide trends (search for "tariff" across all 10-Ks to see which companies are discussing trade risk), finding comparable disclosures, or identifying companies exposed to specific issues. Advanced EDGAR users also leverage XBRL (eXtensible Business Reporting Language) data, which provides financial data in a structured, machine-readable format that enables automated analysis and comparison.
+</p>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"The 10-K and the annual report are the same thing."</strong>
+No. The glossy annual report is a marketing document. The 10-K is a legal filing. The annual report often includes portions of the 10-K but adds management letters, photographs, and forward-looking hype. Always read the actual 10-K filed with the SEC.
+</p>
+<p>
+<strong>"If the auditor gave a clean opinion, the financials are definitely accurate."</strong>
+An unqualified (clean) audit opinion means the auditor believes the financial statements are presented fairly in accordance with GAAP. It does not mean the company is healthy, profitable, or well-managed. It also does not guarantee the absence of fraud -- auditors perform testing, not forensic investigations. Enron received clean audit opinions right up until it collapsed.
+</p>
+<p>
+<strong>"Non-GAAP earnings are more accurate than GAAP earnings."</strong>
+Companies often present "adjusted" or non-GAAP earnings that exclude stock-based compensation, restructuring charges, or amortization of intangibles. Sometimes these adjustments are reasonable and provide better insight into recurring profitability. Other times, companies exclude real, recurring costs to make their earnings look better. Always compare GAAP and non-GAAP side by side and question every adjustment.
+</p>
+<p>
+<strong>"I only need to read the most recent 10-K."</strong>
+Trends matter more than snapshots. Reading three years of 10-Ks reveals whether margins are improving or deteriorating, whether risk factor language is becoming more urgent, and whether management's promises from prior years actually materialized. At minimum, compare the current 10-K to last year's.
+</p>
+<p>
+<strong>"Small companies have simpler 10-Ks that are easier to read."</strong>
+Small-cap 10-Ks are often less polished and harder to parse than large-cap filings. Large companies have armies of lawyers and accountants crafting their disclosures. Small companies may have less professional presentations, but the information is still there -- and sometimes the rough edges make problems easier to spot.
+</p>
+<p>
+<strong>"Risk factors are just legal boilerplate to protect the company from lawsuits."</strong>
+While there is some boilerplate (natural disasters, regulatory changes), many risk factors are genuinely informative. When a company adds a new risk factor or significantly expands an existing one, pay attention. The company is legally warning you about something specific.
+</p>
+<p>
+<strong>"The balance sheet tells you how much a company is worth."</strong>
+The balance sheet shows book value, which is based on historical cost and accounting rules, not market value. Many of a company's most valuable assets -- brand reputation, customer relationships, intellectual property developed internally, talented employees -- do not appear on the balance sheet at all. Book value and market value can differ by orders of magnitude, especially for technology and service companies.
+</p>
+<p>
+<strong>"If revenue is growing, the company must be doing well."</strong>
+Revenue growth is meaningless without context. A company can grow revenue by cutting prices (compressing margins), acquiring other companies (adding debt), offering extended payment terms (inflating receivables), or changing revenue recognition policies (pulling forward future revenue). Always pair revenue growth with margin trends, cash flow, and return on invested capital.
+</p>
+<p>
+<strong>"I can trust the analyst reports, so I do not need to read the 10-K myself."</strong>
+Analyst reports are useful, but they are secondary sources. Analysts have their own biases, conflicts of interest (investment banking relationships), and limited time. They cannot cover every detail in a 300-page filing. By reading the 10-K yourself, you develop independent judgment and may spot details that analysts missed or de-emphasized. The best investors combine their own primary research (reading filings) with secondary sources (analyst reports, industry research).
+</p>
+<p>
+<strong>"GAAP earnings are always conservative and reliable."</strong>
+GAAP (Generally Accepted Accounting Principles) provides a framework, but it involves significant management judgment in areas like revenue recognition timing, asset impairment testing, useful life estimates for depreciation, and allowance for doubtful accounts. Two companies in the same industry can report very different GAAP earnings on similar underlying economics depending on how aggressively or conservatively management applies accounting standards. This is why reading the accounting policies in the footnotes is essential.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: How long does it take to read a 10-K?</strong>
+A: A full read-through of a large-cap 10-K can take 3-6 hours. With practice and a focused approach (MD&A, financials, footnotes, risk factors), you can extract the key information in 1-2 hours. For companies you follow regularly, the incremental read of each new 10-K takes less time because you already know the business.
+</p>
+<p>
+<strong>Q: What is a "going concern" opinion and should it scare me?</strong>
+A: A going concern opinion means the auditor has substantial doubt about the company's ability to continue operating for the next twelve months. This is a very serious warning. It does not mean the company will definitely fail, but it means the auditor -- who has access to internal financial information -- has significant concerns. Companies with going concern opinions can sometimes recover, especially if they secure additional financing, but investors should treat this as a major red flag requiring deep investigation before investing.
+</p>
+<p>
+<strong>Q: How do I spot channel stuffing in a 10-K?</strong>
+A: Channel stuffing is when a company pushes excess inventory to distributors to inflate revenue. Look for accounts receivable growing significantly faster than revenue, rising inventory at distributors (sometimes mentioned in the MD&A), increasing sales returns or allowances, and revenue spikes at quarter-end followed by weak starts to the next quarter. Also check the cash flow statement -- if cash from operations is consistently below net income, the company may be booking revenue it has not collected.
+</p>
+<p>
+<strong>Q: What are the most important financial ratios to calculate from 10-K data?</strong>
+A: Start with these five: (1) Revenue growth rate year-over-year. (2) Operating margin (operating income divided by revenue) to understand profitability. (3) Free cash flow (operating cash flow minus capital expenditures) to see real cash generation. (4) Debt-to-EBITDA ratio to assess leverage. (5) Return on invested capital (ROIC) to measure how efficiently the company uses its capital. Track these over three or more years to identify trends.
+</p>
+<p>
+<strong>Q: What is the difference between a 10-K and a 10-K/A?</strong>
+A: The /A suffix means "amendment." A 10-K/A is a corrected or updated version of a previously filed 10-K. This can be routine (adding information that was incorporated by reference) or concerning (restating financial results). Always read the reason for the amendment.
+</p>
+<p>
+<strong>Q: How do I compare 10-Ks across companies in the same industry?</strong>
+A: Focus on the same line items: revenue growth, margins, return on equity, debt levels, and cash flow generation. Segment reporting is especially useful because it lets you compare specific business lines. Also compare risk factors -- a risk that one company discloses but its competitor does not may indicate different exposure levels or different disclosure philosophies.
+</p>
+<p>
+<strong>Q: What is an NT 10-K?</strong>
+A: NT stands for "Notification of Late Filing." If a company cannot file its 10-K on time, it files an NT 10-K requesting a 15-day extension. Late filings can indicate accounting problems, internal control issues, or significant events requiring additional disclosure. This is a yellow flag.
+</p>
+<p>
+<strong>Q: Should I read the 10-K before or after the earnings call?</strong>
+A: Read the 10-K first, or at least skim the MD&A and financial statements. This gives you context for management's commentary on the earnings call. You will ask better questions and catch discrepancies between the written filing and verbal statements.
+</p>
+<p>
+<strong>Q: What tools can help me read 10-Ks more efficiently?</strong>
+A: The SEC's EDGAR full-text search lets you search across filings. Calcbench and similar services extract structured financial data. AI-powered tools can summarize sections, but always verify their output against the source. For tracking changes year over year, some services offer red-line comparisons of consecutive filings.
+</p>
+<p>
+<strong>Q: How important are the CEO and CFO certifications at the end?</strong>
+A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO personally liable for the accuracy of the financial statements. These carry criminal penalties. While they do not guarantee honesty, they raise the stakes significantly for executives who might otherwise be tempted to misrepresent their company's financial position.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Decoding the 10-K: How to Read the Most Important Document in Investing"</h3>
+<p>
+<strong>Target Length:</strong> 18-22 minutes
+<strong>Tone:</strong> Detective-like, revealing, methodical
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+</p>
+<p>
+<strong>Sam:</strong> I would hope so, but I think most retail investors never open one.
+</p>
+<p>
+<strong>Alex:</strong> Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+</p>
+<p>
+<strong>[VISUAL: EDGAR website homepage with search bar highlighted]</strong>
+</p>
+<p>
+<strong>Sam:</strong> First things first -- where do you find these?
+</p>
+<p>
+<strong>Alex:</strong> SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free. No subscription, no paywall, no sign-up required.
+</p>
+<p>
+<strong>Sam:</strong> Can you also find them on the company's website?
+</p>
+<p>
+<strong>Alex:</strong> Yes, most companies have an "Investor Relations" section with links to their SEC filings. But I recommend using EDGAR directly because it is the primary source, it is standardized, and you can use the SEC's search tools to compare filings across companies.
+</p>
+<p>
+<strong>[VISUAL: EDGAR search results page showing multiple filing types: 10-K, 10-Q, 8-K, DEF 14A. The 10-K is highlighted.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What about the 10-Q? How is that different?
+</p>
+<p>
+<strong>Alex:</strong> The 10-Q is the quarterly report -- filed three times per year for the first three quarters. The fourth quarter data is included in the annual 10-K. The 10-Q is less detailed than the 10-K: it has unaudited financials and a shorter MD&A. But it is useful for tracking developments between annual reports. If a company's situation is changing rapidly, the 10-Qs will show it.
+</p>
+<p>
+<strong>[VISUAL: Calendar showing filing schedule: Q1 10-Q in May, Q2 10-Q in August, Q3 10-Q in November, Annual 10-K in February/March. The 8-K shown as occurring "anytime" for material events.]</strong>
+</p>
+<p>
+<strong>[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]</strong>
+</p>
+<p>
+<strong>Alex:</strong> A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+</p>
+<p>
+<strong>Sam:</strong> What do you read first?
+</p>
+<p>
+<strong>Alex:</strong> If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+</p>
+<p>
+<strong>[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]</strong>
+</p>
+<p>
+<strong>Alex:</strong> But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+</p>
+<p>
+<strong>Sam:</strong> Why MD&A specifically?
+</p>
+<p>
+<strong>Alex:</strong> Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+</p>
+<p>
+<strong>[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> So it is like getting management's narrative on the financial story.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+</p>
+<p>
+<strong>[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+</p>
+<p>
+<strong>Sam:</strong> The footnotes? Those pages and pages of small print?
+</p>
+<p>
+<strong>Alex:</strong> I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+</p>
+<p>
+<strong>[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What specifically should people look for in the footnotes?
+</p>
+<p>
+<strong>Alex:</strong> Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+</p>
+<p>
+<strong>[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, what about risk factors? Item 1A?
+</p>
+<p>
+<strong>Alex:</strong> Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+</p>
+<p>
+<strong>[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+</p>
+<p>
+<strong>Sam:</strong> Let us talk about red flags. What patterns should make an investor nervous?
+</p>
+<p>
+<strong>Alex:</strong> I have a checklist I run through every time.
+</p>
+<p>
+<strong>[VISUAL: Red flag checklist appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+</p>
+<p>
+<strong>Sam:</strong> Like they are counting revenue from deals that have not actually been paid for?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+</p>
+<p>
+<strong>[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+</p>
+<p>
+<strong>Sam:</strong> That is basically the company saying "our numbers might not be right."
+</p>
+<p>
+<strong>Alex:</strong> Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+</p>
+<p>
+<strong>[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> How do you read a 10-K efficiently? What is the workflow?
+</p>
+<p>
+<strong>Alex:</strong> Here is my process. On a first read, I spend about two hours.
+</p>
+<p>
+<strong>[VISUAL: Workflow diagram with time allocations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+</p>
+<p>
+<strong>Sam:</strong> Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+</p>
+<p>
+<strong>Alex:</strong> People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+</p>
+<p>
+<strong>[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]</strong>
+</p>
+<p>
+<strong>Sam:</strong> One more thing -- how do you track changes over time?
+</p>
+<p>
+<strong>Alex:</strong> Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+</p>
+<p>
+<strong>[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]</strong>
+</p>
+<p>
+<strong>Alex:</strong> These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+</p>
+<p>
+<strong>Sam:</strong> It is like forensic reading.
+</p>
+<p>
+<strong>Alex:</strong> That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+</p>
+<p>
+<strong>[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]</strong>
+</p>
+<p>
+<strong>Sam:</strong> One more thing -- what about the proxy statement? Is that part of the 10-K?
+</p>
+<p>
+<strong>Alex:</strong> The proxy statement -- Form DEF 14A -- is a separate filing, but it complements the 10-K. It contains executive compensation details, board member backgrounds, and information about shareholder proposals. The 10-K often "incorporates by reference" the proxy for items like executive comp, which means the 10-K points you to the proxy rather than repeating the information.
+</p>
+<p>
+<strong>[VISUAL: Two documents side by side. "10-K: Financial and operational detail" and "DEF 14A (Proxy): Governance, compensation, board." Arrow showing 10-K referencing the proxy for Items 10-14.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Executive compensation is worth studying because it reveals management's incentives. If the CEO is compensated based on revenue growth, they will pursue revenue growth -- even if it destroys profitability. If bonuses are tied to adjusted earnings, management is incentivized to adjust more aggressively. The proxy tells you what behavior management is being rewarded for.
+</p>
+<p>
+<strong>Sam:</strong> So you are basically asking: does management's pay structure align with shareholder interests?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Look for red flags like excessive perquisites, guaranteed bonuses regardless of performance, or short vesting periods on stock options. And look for positive signs like significant personal stock ownership, long vesting periods, and performance metrics tied to return on capital or free cash flow rather than revenue.
+</p>
+<p>
+<strong>[VISUAL: Two columns. Red flags: "Golden parachutes, guaranteed bonuses, minimal stock ownership." Green flags: "Performance-based comp, significant personal ownership, long vesting."]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, check the proxy for compensation alignment, and watch for red flags that suggest something is off.
+</p>
+<p>
+<strong>Alex:</strong> And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+</p>
+<p>
+<strong>[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls | Proxy: Compensation Alignment"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+</p>
+<p>
+<strong>Alex:</strong> And start a simple filing. A company like Apple or Coca-Cola that you already know. Get comfortable with the structure first. Then graduate to more complex filings where the real detective work begins.
+</p>
+<p>
+<strong>Sam:</strong> Great advice.
+</p>
+<p>
+<strong>Alex:</strong> See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 02</strong>
+</p>
+                </div>
+                <div id="content-hk" class="lang-content">
+                    <p>
+<!-- 此檔案需要翻譯為香港繁體中文 -->
+<!-- This file needs translation to HK Traditional Chinese -->
+</p>
+<h1>Side Lesson 02: Reading a 10-K Filing Like a Pro</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+The 10-K is the single most important document a public company produces. It is the annual report filed with the Securities and Exchange Commission, and unlike the glossy annual report mailed to shareholders, the 10-K is a legal document. Management signs it under penalty of perjury. The company's auditors attest to the financial statements within it. Every claim is supposed to be accurate, complete, and not misleading.
+</p>
+<p>
+If you want to understand what a company actually does, how it makes money, what risks it faces, and whether its financial statements are trustworthy, the 10-K is where you start. Professional investors, analysts, and portfolio managers read these filings cover to cover. Retail investors who skip them are flying blind.
+</p>
+<p>
+Learning to read a 10-K efficiently -- knowing where to look, what matters, and what to skim -- is a foundational skill that separates informed investors from speculators.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>Where to Find 10-K Filings</h4>
+<p>
+All public company filings are available for free on the SEC's EDGAR database at sec.gov/edgar. You can also find them on company investor relations pages, financial data providers like Bloomberg or FactSet, and free services like annualreports.com. The filing is typically available within 60 days of a company's fiscal year-end for large accelerated filers.
+</p>
+<p>
+Related filings you should know:<ul><li><strong>10-Q</strong> -- Quarterly report (less detailed than 10-K, filed three times per year)</li></ul><ul><li><strong>8-K</strong> -- Current report for material events (filed as needed)</li></ul><ul><li><strong>DEF 14A</strong> -- Proxy statement (executive compensation, board details)</li></ul><ul><li><strong>S-1</strong> -- Registration statement for IPOs</li></ul>
+</p>
+<h4>The Structure of a 10-K</h4>
+<p>
+A standard 10-K has four main parts with multiple items:
+</p>
+<p>
+<strong>Part I: The Business</strong><ul><li><strong>Item 1: Business</strong> -- What the company does, its products and services, competitive landscape, regulatory environment, and number of employees. This is your "company overview" section. Read this first when analyzing a company for the first time.</li></ul><ul><li><strong>Item 1A: Risk Factors</strong> -- A comprehensive list of risks the company faces. These are ordered roughly by significance. This section has grown dramatically over the years and can run 20-40 pages. Do not skip it. The specific risks listed here often foreshadow future problems. Generic boilerplate risks (earthquakes, pandemics) matter less than company-specific risks (customer concentration, regulatory changes, technology obsolescence).</li></ul><ul><li><strong>Item 1B: Unresolved Staff Comments</strong> -- SEC comments on prior filings that remain unresolved. If this section has content, pay attention -- it means the SEC has concerns about the company's disclosures.</li></ul><ul><li><strong>Item 1C: Cybersecurity</strong> -- Added in 2023, this requires companies to disclose their cybersecurity risk management, strategy, and governance processes.</li></ul><ul><li><strong>Item 2: Properties</strong> -- Where the company operates. Useful for understanding geographic diversification and whether the company owns or leases its key facilities.</li></ul><ul><li><strong>Item 3: Legal Proceedings</strong> -- Pending lawsuits and regulatory actions. Material litigation can represent significant financial risk.</li></ul><ul><li><strong>Item 4: Mine Safety Disclosures</strong> -- Only relevant for mining companies.</li></ul>
+</p>
+<p>
+<strong>Part II: Financial Information</strong><ul><li><strong>Item 5: Market for Common Equity</strong> -- Stock exchange listing, dividend history, and share repurchase activity.</li></ul><ul><li><strong>Item 6: Reserved</strong> -- Previously contained selected financial data (5-year summary). Now reserved after SEC rule changes.</li></ul><ul><li><strong>Item 7: Management's Discussion and Analysis (MD&A)</strong> -- This is arguably the most important section of the entire 10-K. Management explains the financial results in their own words. They discuss revenue trends, cost drivers, liquidity, capital allocation priorities, and known trends that may affect future performance. Read this section carefully and critically.</li></ul><ul><li><strong>Item 7A: Quantitative and Qualitative Disclosures About Market Risk</strong> -- Exposure to interest rate risk, foreign currency risk, and commodity price risk. Often includes sensitivity analysis.</li></ul><ul><li><strong>Item 8: Financial Statements and Supplementary Data</strong> -- The audited financial statements: Income Statement, Balance Sheet, Cash Flow Statement, Statement of Stockholders' Equity, and the Notes to Financial Statements. The notes are where the real detail lives.</li></ul><ul><li><strong>Item 9: Changes in and Disagreements with Accountants</strong> -- If the company changed auditors or had disagreements, this is a red flag.</li></ul><ul><li><strong>Item 9A: Controls and Procedures</strong> -- Management's assessment of internal controls over financial reporting. If there is a "material weakness," this is a serious concern.</li></ul>
+</p>
+<p>
+<strong>Part III: Governance</strong><ul><li><strong>Item 10: Directors and Corporate Governance</strong> -- Board composition and governance structure.</li></ul><ul><li><strong>Item 11: Executive Compensation</strong> -- Often incorporated by reference to the proxy statement.</li></ul><ul><li><strong>Item 12: Security Ownership</strong> -- Who owns the stock (insiders, institutions).</li></ul><ul><li><strong>Item 13: Certain Relationships and Related Transactions</strong> -- Deals between the company and its insiders.</li></ul><ul><li><strong>Item 14: Principal Accountant Fees</strong> -- How much the company pays its auditor.</li></ul>
+</p>
+<p>
+<strong>Part IV: Exhibits</strong><ul><li><strong>Item 15: Exhibits and Financial Statement Schedules</strong> -- Key contracts, the CEO/CFO certifications (Sarbanes-Oxley Section 302 and 906), and subsidiary lists.</li></ul>
+</p>
+<h4>The Financial Statements in Detail</h4>
+<p>
+The four core statements:
+</p>
+<li><strong>Income Statement (Statement of Operations)</strong> -- Revenue minus expenses equals net income. Look at revenue growth, gross margins, operating margins, and net margins over time. Compare to competitors.</li>
+<li><strong>Balance Sheet (Statement of Financial Position)</strong> -- Assets equal liabilities plus equity. Focus on cash and equivalents, debt levels (short-term and long-term), goodwill and intangibles (signs of past acquisitions), and the debt-to-equity ratio.</li>
+<li><strong>Cash Flow Statement</strong> -- Operating, investing, and financing activities. Many analysts consider this the most reliable statement because cash is harder to manipulate than earnings. A company can report profits while burning cash -- this is a warning sign.</li>
+<li><strong>Statement of Stockholders' Equity</strong> -- Shows how equity changed during the year through net income, dividends, share issuance, buybacks, and other comprehensive income.</li>
+<h4>The Footnotes: Where the Secrets Live</h4>
+<p>
+The notes to financial statements are not optional reading. They contain:<ul><li><strong>Revenue recognition policies</strong> -- How the company decides when to count revenue. Changes here can inflate or deflate earnings.</li></ul><ul><li><strong>Lease obligations</strong> -- Both on and off-balance-sheet commitments.</li></ul><ul><li><strong>Debt details</strong> -- Maturity schedules, interest rates, covenants, and variable-rate exposure.</li></ul><ul><li><strong>Stock-based compensation</strong> -- The real cost of employee equity awards.</li></ul><ul><li><strong>Pension obligations</strong> -- Assumptions about return rates and discount rates that can dramatically affect reported liabilities.</li></ul><ul><li><strong>Segment reporting</strong> -- Breaks the business into operating segments with separate revenue and profit figures. Essential for understanding a diversified company.</li></ul><ul><li><strong>Subsequent events</strong> -- Things that happened after the balance sheet date but before the filing.</li></ul><ul><li><strong>Contingent liabilities</strong> -- Potential obligations from lawsuits, warranties, or guarantees.</li></ul>
+</p>
+<h4>Red Flags to Watch For</h4>
+<p>
+These patterns in a 10-K warrant deeper investigation:
+</p>
+<li><strong>Revenue growing faster than cash from operations</strong> -- The company may be booking revenue it has not collected yet.</li>
+<li><strong>Accounts receivable growing faster than revenue</strong> -- Customers may not be paying, or the company may be stuffing the channel.</li>
+<li><strong>Frequent changes in accounting policies</strong> -- May indicate attempts to manage earnings.</li>
+<li><strong>Related party transactions</strong> -- Deals with insiders can be self-serving.</li>
+<li><strong>Auditor change</strong> -- Especially if the previous auditor raised concerns.</li>
+<li><strong>Material weakness in internal controls</strong> -- The company cannot reliably produce accurate financials.</li>
+<li><strong>Growing gap between GAAP and non-GAAP earnings</strong> -- Excessive "adjustments" can mask poor performance.</li>
+<li><strong>Rising goodwill relative to total assets</strong> -- Indicates the company overpaid for acquisitions.</li>
+<li><strong>Off-balance-sheet arrangements</strong> -- Special purpose entities or variable interest entities that obscure true leverage.</li>
+<li><strong>Vague or changing language in risk factors</strong> -- New risks appearing or familiar risks being described more urgently.</li>
+<h4>How to Read a 10-K Efficiently</h4>
+<p>
+You do not need to read every word. Here is a professional's approach:
+</p>
+<li><strong>Start with Item 1 (Business)</strong> if you are new to the company. Skip if you already know the business model.</li>
+<li><strong>Go to Item 7 (MD&A)</strong> for management's narrative on financial performance.</li>
+<li><strong>Review Item 8 (Financial Statements)</strong> -- focus on trends over 2-3 years, not single-year numbers.</li>
+<li><strong>Read the footnotes</strong> -- especially revenue recognition, debt, and segment data.</li>
+<li><strong>Scan Item 1A (Risk Factors)</strong> for company-specific risks, not boilerplate.</li>
+<li><strong>Check Item 9A (Controls)</strong> for any material weaknesses.</li>
+<li><strong>Compare to the prior year's 10-K</strong> -- what changed? Use the SEC's filing comparison tools or diff tools to spot changes in language.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"The 10-K and the annual report are the same thing."</strong>
+No. The glossy annual report is a marketing document. The 10-K is a legal filing. The annual report often includes portions of the 10-K but adds management letters, photographs, and forward-looking hype. Always read the actual 10-K filed with the SEC.
+</p>
+<p>
+<strong>"If the auditor gave a clean opinion, the financials are definitely accurate."</strong>
+An unqualified (clean) audit opinion means the auditor believes the financial statements are presented fairly in accordance with GAAP. It does not mean the company is healthy, profitable, or well-managed. It also does not guarantee the absence of fraud -- auditors perform testing, not forensic investigations. Enron received clean audit opinions right up until it collapsed.
+</p>
+<p>
+<strong>"Non-GAAP earnings are more accurate than GAAP earnings."</strong>
+Companies often present "adjusted" or non-GAAP earnings that exclude stock-based compensation, restructuring charges, or amortization of intangibles. Sometimes these adjustments are reasonable and provide better insight into recurring profitability. Other times, companies exclude real, recurring costs to make their earnings look better. Always compare GAAP and non-GAAP side by side and question every adjustment.
+</p>
+<p>
+<strong>"I only need to read the most recent 10-K."</strong>
+Trends matter more than snapshots. Reading three years of 10-Ks reveals whether margins are improving or deteriorating, whether risk factor language is becoming more urgent, and whether management's promises from prior years actually materialized. At minimum, compare the current 10-K to last year's.
+</p>
+<p>
+<strong>"Small companies have simpler 10-Ks that are easier to read."</strong>
+Small-cap 10-Ks are often less polished and harder to parse than large-cap filings. Large companies have armies of lawyers and accountants crafting their disclosures. Small companies may have less professional presentations, but the information is still there -- and sometimes the rough edges make problems easier to spot.
+</p>
+<p>
+<strong>"Risk factors are just legal boilerplate to protect the company from lawsuits."</strong>
+While there is some boilerplate (natural disasters, regulatory changes), many risk factors are genuinely informative. When a company adds a new risk factor or significantly expands an existing one, pay attention. The company is legally warning you about something specific.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: How long does it take to read a 10-K?</strong>
+A: A full read-through of a large-cap 10-K can take 3-6 hours. With practice and a focused approach (MD&A, financials, footnotes, risk factors), you can extract the key information in 1-2 hours. For companies you follow regularly, the incremental read of each new 10-K takes less time because you already know the business.
+</p>
+<p>
+<strong>Q: What is the difference between a 10-K and a 10-K/A?</strong>
+A: The /A suffix means "amendment." A 10-K/A is a corrected or updated version of a previously filed 10-K. This can be routine (adding information that was incorporated by reference) or concerning (restating financial results). Always read the reason for the amendment.
+</p>
+<p>
+<strong>Q: How do I compare 10-Ks across companies in the same industry?</strong>
+A: Focus on the same line items: revenue growth, margins, return on equity, debt levels, and cash flow generation. Segment reporting is especially useful because it lets you compare specific business lines. Also compare risk factors -- a risk that one company discloses but its competitor does not may indicate different exposure levels or different disclosure philosophies.
+</p>
+<p>
+<strong>Q: What is an NT 10-K?</strong>
+A: NT stands for "Notification of Late Filing." If a company cannot file its 10-K on time, it files an NT 10-K requesting a 15-day extension. Late filings can indicate accounting problems, internal control issues, or significant events requiring additional disclosure. This is a yellow flag.
+</p>
+<p>
+<strong>Q: Should I read the 10-K before or after the earnings call?</strong>
+A: Read the 10-K first, or at least skim the MD&A and financial statements. This gives you context for management's commentary on the earnings call. You will ask better questions and catch discrepancies between the written filing and verbal statements.
+</p>
+<p>
+<strong>Q: What tools can help me read 10-Ks more efficiently?</strong>
+A: The SEC's EDGAR full-text search lets you search across filings. Calcbench and similar services extract structured financial data. AI-powered tools can summarize sections, but always verify their output against the source. For tracking changes year over year, some services offer red-line comparisons of consecutive filings.
+</p>
+<p>
+<strong>Q: How important are the CEO and CFO certifications at the end?</strong>
+A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO personally liable for the accuracy of the financial statements. These carry criminal penalties. While they do not guarantee honesty, they raise the stakes significantly for executives who might otherwise be tempted to misrepresent their company's financial position.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Decoding the 10-K: How to Read the Most Important Document in Investing"</h3>
+<p>
+<strong>Target Length:</strong> 18-22 minutes
+<strong>Tone:</strong> Detective-like, revealing, methodical
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+</p>
+<p>
+<strong>Sam:</strong> I would hope so, but I think most retail investors never open one.
+</p>
+<p>
+<strong>Alex:</strong> Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+</p>
+<p>
+<strong>[VISUAL: EDGAR website homepage with search bar highlighted]</strong>
+</p>
+<p>
+<strong>Sam:</strong> First things first -- where do you find these?
+</p>
+<p>
+<strong>Alex:</strong> SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free.
+</p>
+<p>
+<strong>[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]</strong>
+</p>
+<p>
+<strong>Alex:</strong> A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+</p>
+<p>
+<strong>Sam:</strong> What do you read first?
+</p>
+<p>
+<strong>Alex:</strong> If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+</p>
+<p>
+<strong>[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]</strong>
+</p>
+<p>
+<strong>Alex:</strong> But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+</p>
+<p>
+<strong>Sam:</strong> Why MD&A specifically?
+</p>
+<p>
+<strong>Alex:</strong> Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+</p>
+<p>
+<strong>[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> So it is like getting management's narrative on the financial story.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+</p>
+<p>
+<strong>[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+</p>
+<p>
+<strong>Sam:</strong> The footnotes? Those pages and pages of small print?
+</p>
+<p>
+<strong>Alex:</strong> I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+</p>
+<p>
+<strong>[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What specifically should people look for in the footnotes?
+</p>
+<p>
+<strong>Alex:</strong> Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+</p>
+<p>
+<strong>[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, what about risk factors? Item 1A?
+</p>
+<p>
+<strong>Alex:</strong> Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+</p>
+<p>
+<strong>[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+</p>
+<p>
+<strong>Sam:</strong> Let us talk about red flags. What patterns should make an investor nervous?
+</p>
+<p>
+<strong>Alex:</strong> I have a checklist I run through every time.
+</p>
+<p>
+<strong>[VISUAL: Red flag checklist appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+</p>
+<p>
+<strong>Sam:</strong> Like they are counting revenue from deals that have not actually been paid for?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+</p>
+<p>
+<strong>[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+</p>
+<p>
+<strong>Sam:</strong> That is basically the company saying "our numbers might not be right."
+</p>
+<p>
+<strong>Alex:</strong> Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+</p>
+<p>
+<strong>[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> How do you read a 10-K efficiently? What is the workflow?
+</p>
+<p>
+<strong>Alex:</strong> Here is my process. On a first read, I spend about two hours.
+</p>
+<p>
+<strong>[VISUAL: Workflow diagram with time allocations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+</p>
+<p>
+<strong>Sam:</strong> Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+</p>
+<p>
+<strong>Alex:</strong> People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+</p>
+<p>
+<strong>[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]</strong>
+</p>
+<p>
+<strong>Sam:</strong> One more thing -- how do you track changes over time?
+</p>
+<p>
+<strong>Alex:</strong> Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+</p>
+<p>
+<strong>[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]</strong>
+</p>
+<p>
+<strong>Alex:</strong> These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+</p>
+<p>
+<strong>Sam:</strong> It is like forensic reading.
+</p>
+<p>
+<strong>Alex:</strong> That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+</p>
+<p>
+<strong>[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, and watch for red flags that suggest something is off.
+</p>
+<p>
+<strong>Alex:</strong> And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+</p>
+<p>
+<strong>[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+</p>
+<p>
+<strong>Alex:</strong> Great advice. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 02</strong>
+</p>
+                </div>
+                <div id="content-tw" class="lang-content">
+                    <p>
+<!-- 此檔案需要翻譯為台灣繁體中文 -->
+<!-- This file needs translation to TW Traditional Chinese -->
+</p>
+<h1>Side Lesson 02: Reading a 10-K Filing Like a Pro</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+The 10-K is the single most important document a public company produces. It is the annual report filed with the Securities and Exchange Commission, and unlike the glossy annual report mailed to shareholders, the 10-K is a legal document. Management signs it under penalty of perjury. The company's auditors attest to the financial statements within it. Every claim is supposed to be accurate, complete, and not misleading.
+</p>
+<p>
+If you want to understand what a company actually does, how it makes money, what risks it faces, and whether its financial statements are trustworthy, the 10-K is where you start. Professional investors, analysts, and portfolio managers read these filings cover to cover. Retail investors who skip them are flying blind.
+</p>
+<p>
+Learning to read a 10-K efficiently -- knowing where to look, what matters, and what to skim -- is a foundational skill that separates informed investors from speculators.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>Where to Find 10-K Filings</h4>
+<p>
+All public company filings are available for free on the SEC's EDGAR database at sec.gov/edgar. You can also find them on company investor relations pages, financial data providers like Bloomberg or FactSet, and free services like annualreports.com. The filing is typically available within 60 days of a company's fiscal year-end for large accelerated filers.
+</p>
+<p>
+Related filings you should know:<ul><li><strong>10-Q</strong> -- Quarterly report (less detailed than 10-K, filed three times per year)</li></ul><ul><li><strong>8-K</strong> -- Current report for material events (filed as needed)</li></ul><ul><li><strong>DEF 14A</strong> -- Proxy statement (executive compensation, board details)</li></ul><ul><li><strong>S-1</strong> -- Registration statement for IPOs</li></ul>
+</p>
+<h4>The Structure of a 10-K</h4>
+<p>
+A standard 10-K has four main parts with multiple items:
+</p>
+<p>
+<strong>Part I: The Business</strong><ul><li><strong>Item 1: Business</strong> -- What the company does, its products and services, competitive landscape, regulatory environment, and number of employees. This is your "company overview" section. Read this first when analyzing a company for the first time.</li></ul><ul><li><strong>Item 1A: Risk Factors</strong> -- A comprehensive list of risks the company faces. These are ordered roughly by significance. This section has grown dramatically over the years and can run 20-40 pages. Do not skip it. The specific risks listed here often foreshadow future problems. Generic boilerplate risks (earthquakes, pandemics) matter less than company-specific risks (customer concentration, regulatory changes, technology obsolescence).</li></ul><ul><li><strong>Item 1B: Unresolved Staff Comments</strong> -- SEC comments on prior filings that remain unresolved. If this section has content, pay attention -- it means the SEC has concerns about the company's disclosures.</li></ul><ul><li><strong>Item 1C: Cybersecurity</strong> -- Added in 2023, this requires companies to disclose their cybersecurity risk management, strategy, and governance processes.</li></ul><ul><li><strong>Item 2: Properties</strong> -- Where the company operates. Useful for understanding geographic diversification and whether the company owns or leases its key facilities.</li></ul><ul><li><strong>Item 3: Legal Proceedings</strong> -- Pending lawsuits and regulatory actions. Material litigation can represent significant financial risk.</li></ul><ul><li><strong>Item 4: Mine Safety Disclosures</strong> -- Only relevant for mining companies.</li></ul>
+</p>
+<p>
+<strong>Part II: Financial Information</strong><ul><li><strong>Item 5: Market for Common Equity</strong> -- Stock exchange listing, dividend history, and share repurchase activity.</li></ul><ul><li><strong>Item 6: Reserved</strong> -- Previously contained selected financial data (5-year summary). Now reserved after SEC rule changes.</li></ul><ul><li><strong>Item 7: Management's Discussion and Analysis (MD&A)</strong> -- This is arguably the most important section of the entire 10-K. Management explains the financial results in their own words. They discuss revenue trends, cost drivers, liquidity, capital allocation priorities, and known trends that may affect future performance. Read this section carefully and critically.</li></ul><ul><li><strong>Item 7A: Quantitative and Qualitative Disclosures About Market Risk</strong> -- Exposure to interest rate risk, foreign currency risk, and commodity price risk. Often includes sensitivity analysis.</li></ul><ul><li><strong>Item 8: Financial Statements and Supplementary Data</strong> -- The audited financial statements: Income Statement, Balance Sheet, Cash Flow Statement, Statement of Stockholders' Equity, and the Notes to Financial Statements. The notes are where the real detail lives.</li></ul><ul><li><strong>Item 9: Changes in and Disagreements with Accountants</strong> -- If the company changed auditors or had disagreements, this is a red flag.</li></ul><ul><li><strong>Item 9A: Controls and Procedures</strong> -- Management's assessment of internal controls over financial reporting. If there is a "material weakness," this is a serious concern.</li></ul>
+</p>
+<p>
+<strong>Part III: Governance</strong><ul><li><strong>Item 10: Directors and Corporate Governance</strong> -- Board composition and governance structure.</li></ul><ul><li><strong>Item 11: Executive Compensation</strong> -- Often incorporated by reference to the proxy statement.</li></ul><ul><li><strong>Item 12: Security Ownership</strong> -- Who owns the stock (insiders, institutions).</li></ul><ul><li><strong>Item 13: Certain Relationships and Related Transactions</strong> -- Deals between the company and its insiders.</li></ul><ul><li><strong>Item 14: Principal Accountant Fees</strong> -- How much the company pays its auditor.</li></ul>
+</p>
+<p>
+<strong>Part IV: Exhibits</strong><ul><li><strong>Item 15: Exhibits and Financial Statement Schedules</strong> -- Key contracts, the CEO/CFO certifications (Sarbanes-Oxley Section 302 and 906), and subsidiary lists.</li></ul>
+</p>
+<h4>The Financial Statements in Detail</h4>
+<p>
+The four core statements:
+</p>
+<li><strong>Income Statement (Statement of Operations)</strong> -- Revenue minus expenses equals net income. Look at revenue growth, gross margins, operating margins, and net margins over time. Compare to competitors.</li>
+<li><strong>Balance Sheet (Statement of Financial Position)</strong> -- Assets equal liabilities plus equity. Focus on cash and equivalents, debt levels (short-term and long-term), goodwill and intangibles (signs of past acquisitions), and the debt-to-equity ratio.</li>
+<li><strong>Cash Flow Statement</strong> -- Operating, investing, and financing activities. Many analysts consider this the most reliable statement because cash is harder to manipulate than earnings. A company can report profits while burning cash -- this is a warning sign.</li>
+<li><strong>Statement of Stockholders' Equity</strong> -- Shows how equity changed during the year through net income, dividends, share issuance, buybacks, and other comprehensive income.</li>
+<h4>The Footnotes: Where the Secrets Live</h4>
+<p>
+The notes to financial statements are not optional reading. They contain:<ul><li><strong>Revenue recognition policies</strong> -- How the company decides when to count revenue. Changes here can inflate or deflate earnings.</li></ul><ul><li><strong>Lease obligations</strong> -- Both on and off-balance-sheet commitments.</li></ul><ul><li><strong>Debt details</strong> -- Maturity schedules, interest rates, covenants, and variable-rate exposure.</li></ul><ul><li><strong>Stock-based compensation</strong> -- The real cost of employee equity awards.</li></ul><ul><li><strong>Pension obligations</strong> -- Assumptions about return rates and discount rates that can dramatically affect reported liabilities.</li></ul><ul><li><strong>Segment reporting</strong> -- Breaks the business into operating segments with separate revenue and profit figures. Essential for understanding a diversified company.</li></ul><ul><li><strong>Subsequent events</strong> -- Things that happened after the balance sheet date but before the filing.</li></ul><ul><li><strong>Contingent liabilities</strong> -- Potential obligations from lawsuits, warranties, or guarantees.</li></ul>
+</p>
+<h4>Red Flags to Watch For</h4>
+<p>
+These patterns in a 10-K warrant deeper investigation:
+</p>
+<li><strong>Revenue growing faster than cash from operations</strong> -- The company may be booking revenue it has not collected yet.</li>
+<li><strong>Accounts receivable growing faster than revenue</strong> -- Customers may not be paying, or the company may be stuffing the channel.</li>
+<li><strong>Frequent changes in accounting policies</strong> -- May indicate attempts to manage earnings.</li>
+<li><strong>Related party transactions</strong> -- Deals with insiders can be self-serving.</li>
+<li><strong>Auditor change</strong> -- Especially if the previous auditor raised concerns.</li>
+<li><strong>Material weakness in internal controls</strong> -- The company cannot reliably produce accurate financials.</li>
+<li><strong>Growing gap between GAAP and non-GAAP earnings</strong> -- Excessive "adjustments" can mask poor performance.</li>
+<li><strong>Rising goodwill relative to total assets</strong> -- Indicates the company overpaid for acquisitions.</li>
+<li><strong>Off-balance-sheet arrangements</strong> -- Special purpose entities or variable interest entities that obscure true leverage.</li>
+<li><strong>Vague or changing language in risk factors</strong> -- New risks appearing or familiar risks being described more urgently.</li>
+<h4>How to Read a 10-K Efficiently</h4>
+<p>
+You do not need to read every word. Here is a professional's approach:
+</p>
+<li><strong>Start with Item 1 (Business)</strong> if you are new to the company. Skip if you already know the business model.</li>
+<li><strong>Go to Item 7 (MD&A)</strong> for management's narrative on financial performance.</li>
+<li><strong>Review Item 8 (Financial Statements)</strong> -- focus on trends over 2-3 years, not single-year numbers.</li>
+<li><strong>Read the footnotes</strong> -- especially revenue recognition, debt, and segment data.</li>
+<li><strong>Scan Item 1A (Risk Factors)</strong> for company-specific risks, not boilerplate.</li>
+<li><strong>Check Item 9A (Controls)</strong> for any material weaknesses.</li>
+<li><strong>Compare to the prior year's 10-K</strong> -- what changed? Use the SEC's filing comparison tools or diff tools to spot changes in language.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"The 10-K and the annual report are the same thing."</strong>
+No. The glossy annual report is a marketing document. The 10-K is a legal filing. The annual report often includes portions of the 10-K but adds management letters, photographs, and forward-looking hype. Always read the actual 10-K filed with the SEC.
+</p>
+<p>
+<strong>"If the auditor gave a clean opinion, the financials are definitely accurate."</strong>
+An unqualified (clean) audit opinion means the auditor believes the financial statements are presented fairly in accordance with GAAP. It does not mean the company is healthy, profitable, or well-managed. It also does not guarantee the absence of fraud -- auditors perform testing, not forensic investigations. Enron received clean audit opinions right up until it collapsed.
+</p>
+<p>
+<strong>"Non-GAAP earnings are more accurate than GAAP earnings."</strong>
+Companies often present "adjusted" or non-GAAP earnings that exclude stock-based compensation, restructuring charges, or amortization of intangibles. Sometimes these adjustments are reasonable and provide better insight into recurring profitability. Other times, companies exclude real, recurring costs to make their earnings look better. Always compare GAAP and non-GAAP side by side and question every adjustment.
+</p>
+<p>
+<strong>"I only need to read the most recent 10-K."</strong>
+Trends matter more than snapshots. Reading three years of 10-Ks reveals whether margins are improving or deteriorating, whether risk factor language is becoming more urgent, and whether management's promises from prior years actually materialized. At minimum, compare the current 10-K to last year's.
+</p>
+<p>
+<strong>"Small companies have simpler 10-Ks that are easier to read."</strong>
+Small-cap 10-Ks are often less polished and harder to parse than large-cap filings. Large companies have armies of lawyers and accountants crafting their disclosures. Small companies may have less professional presentations, but the information is still there -- and sometimes the rough edges make problems easier to spot.
+</p>
+<p>
+<strong>"Risk factors are just legal boilerplate to protect the company from lawsuits."</strong>
+While there is some boilerplate (natural disasters, regulatory changes), many risk factors are genuinely informative. When a company adds a new risk factor or significantly expands an existing one, pay attention. The company is legally warning you about something specific.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: How long does it take to read a 10-K?</strong>
+A: A full read-through of a large-cap 10-K can take 3-6 hours. With practice and a focused approach (MD&A, financials, footnotes, risk factors), you can extract the key information in 1-2 hours. For companies you follow regularly, the incremental read of each new 10-K takes less time because you already know the business.
+</p>
+<p>
+<strong>Q: What is the difference between a 10-K and a 10-K/A?</strong>
+A: The /A suffix means "amendment." A 10-K/A is a corrected or updated version of a previously filed 10-K. This can be routine (adding information that was incorporated by reference) or concerning (restating financial results). Always read the reason for the amendment.
+</p>
+<p>
+<strong>Q: How do I compare 10-Ks across companies in the same industry?</strong>
+A: Focus on the same line items: revenue growth, margins, return on equity, debt levels, and cash flow generation. Segment reporting is especially useful because it lets you compare specific business lines. Also compare risk factors -- a risk that one company discloses but its competitor does not may indicate different exposure levels or different disclosure philosophies.
+</p>
+<p>
+<strong>Q: What is an NT 10-K?</strong>
+A: NT stands for "Notification of Late Filing." If a company cannot file its 10-K on time, it files an NT 10-K requesting a 15-day extension. Late filings can indicate accounting problems, internal control issues, or significant events requiring additional disclosure. This is a yellow flag.
+</p>
+<p>
+<strong>Q: Should I read the 10-K before or after the earnings call?</strong>
+A: Read the 10-K first, or at least skim the MD&A and financial statements. This gives you context for management's commentary on the earnings call. You will ask better questions and catch discrepancies between the written filing and verbal statements.
+</p>
+<p>
+<strong>Q: What tools can help me read 10-Ks more efficiently?</strong>
+A: The SEC's EDGAR full-text search lets you search across filings. Calcbench and similar services extract structured financial data. AI-powered tools can summarize sections, but always verify their output against the source. For tracking changes year over year, some services offer red-line comparisons of consecutive filings.
+</p>
+<p>
+<strong>Q: How important are the CEO and CFO certifications at the end?</strong>
+A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO personally liable for the accuracy of the financial statements. These carry criminal penalties. While they do not guarantee honesty, they raise the stakes significantly for executives who might otherwise be tempted to misrepresent their company's financial position.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Decoding the 10-K: How to Read the Most Important Document in Investing"</h3>
+<p>
+<strong>Target Length:</strong> 18-22 minutes
+<strong>Tone:</strong> Detective-like, revealing, methodical
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+</p>
+<p>
+<strong>Sam:</strong> I would hope so, but I think most retail investors never open one.
+</p>
+<p>
+<strong>Alex:</strong> Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+</p>
+<p>
+<strong>[VISUAL: EDGAR website homepage with search bar highlighted]</strong>
+</p>
+<p>
+<strong>Sam:</strong> First things first -- where do you find these?
+</p>
+<p>
+<strong>Alex:</strong> SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free.
+</p>
+<p>
+<strong>[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]</strong>
+</p>
+<p>
+<strong>Alex:</strong> A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+</p>
+<p>
+<strong>Sam:</strong> What do you read first?
+</p>
+<p>
+<strong>Alex:</strong> If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+</p>
+<p>
+<strong>[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]</strong>
+</p>
+<p>
+<strong>Alex:</strong> But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+</p>
+<p>
+<strong>Sam:</strong> Why MD&A specifically?
+</p>
+<p>
+<strong>Alex:</strong> Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+</p>
+<p>
+<strong>[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> So it is like getting management's narrative on the financial story.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+</p>
+<p>
+<strong>[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+</p>
+<p>
+<strong>Sam:</strong> The footnotes? Those pages and pages of small print?
+</p>
+<p>
+<strong>Alex:</strong> I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+</p>
+<p>
+<strong>[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What specifically should people look for in the footnotes?
+</p>
+<p>
+<strong>Alex:</strong> Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+</p>
+<p>
+<strong>[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, what about risk factors? Item 1A?
+</p>
+<p>
+<strong>Alex:</strong> Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+</p>
+<p>
+<strong>[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+</p>
+<p>
+<strong>Sam:</strong> Let us talk about red flags. What patterns should make an investor nervous?
+</p>
+<p>
+<strong>Alex:</strong> I have a checklist I run through every time.
+</p>
+<p>
+<strong>[VISUAL: Red flag checklist appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+</p>
+<p>
+<strong>Sam:</strong> Like they are counting revenue from deals that have not actually been paid for?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+</p>
+<p>
+<strong>[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+</p>
+<p>
+<strong>Sam:</strong> That is basically the company saying "our numbers might not be right."
+</p>
+<p>
+<strong>Alex:</strong> Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+</p>
+<p>
+<strong>[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> How do you read a 10-K efficiently? What is the workflow?
+</p>
+<p>
+<strong>Alex:</strong> Here is my process. On a first read, I spend about two hours.
+</p>
+<p>
+<strong>[VISUAL: Workflow diagram with time allocations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+</p>
+<p>
+<strong>Sam:</strong> Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+</p>
+<p>
+<strong>Alex:</strong> People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+</p>
+<p>
+<strong>[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]</strong>
+</p>
+<p>
+<strong>Sam:</strong> One more thing -- how do you track changes over time?
+</p>
+<p>
+<strong>Alex:</strong> Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+</p>
+<p>
+<strong>[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]</strong>
+</p>
+<p>
+<strong>Alex:</strong> These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+</p>
+<p>
+<strong>Sam:</strong> It is like forensic reading.
+</p>
+<p>
+<strong>Alex:</strong> That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+</p>
+<p>
+<strong>[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, and watch for red flags that suggest something is off.
+</p>
+<p>
+<strong>Alex:</strong> And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+</p>
+<p>
+<strong>[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+</p>
+<p>
+<strong>Alex:</strong> Great advice. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 02</strong>
+</p>
+                </div>
+                <div id="content-cn" class="lang-content">
+                    <p>
+<!-- 此文件需要翻译为简体中文 -->
+<!-- This file needs translation to Simplified Chinese -->
+</p>
+<h1>Side Lesson 02: Reading a 10-K Filing Like a Pro</h1>
+<hr>
+<h2>PART 1: READING SECTION</h2>
+<hr>
+<h3>Why This Is Important</h3>
+<p>
+The 10-K is the single most important document a public company produces. It is the annual report filed with the Securities and Exchange Commission, and unlike the glossy annual report mailed to shareholders, the 10-K is a legal document. Management signs it under penalty of perjury. The company's auditors attest to the financial statements within it. Every claim is supposed to be accurate, complete, and not misleading.
+</p>
+<p>
+If you want to understand what a company actually does, how it makes money, what risks it faces, and whether its financial statements are trustworthy, the 10-K is where you start. Professional investors, analysts, and portfolio managers read these filings cover to cover. Retail investors who skip them are flying blind.
+</p>
+<p>
+Learning to read a 10-K efficiently -- knowing where to look, what matters, and what to skim -- is a foundational skill that separates informed investors from speculators.
+</p>
+<hr>
+<h3>What You Need to Know</h3>
+<h4>Where to Find 10-K Filings</h4>
+<p>
+All public company filings are available for free on the SEC's EDGAR database at sec.gov/edgar. You can also find them on company investor relations pages, financial data providers like Bloomberg or FactSet, and free services like annualreports.com. The filing is typically available within 60 days of a company's fiscal year-end for large accelerated filers.
+</p>
+<p>
+Related filings you should know:<ul><li><strong>10-Q</strong> -- Quarterly report (less detailed than 10-K, filed three times per year)</li></ul><ul><li><strong>8-K</strong> -- Current report for material events (filed as needed)</li></ul><ul><li><strong>DEF 14A</strong> -- Proxy statement (executive compensation, board details)</li></ul><ul><li><strong>S-1</strong> -- Registration statement for IPOs</li></ul>
+</p>
+<h4>The Structure of a 10-K</h4>
+<p>
+A standard 10-K has four main parts with multiple items:
+</p>
+<p>
+<strong>Part I: The Business</strong><ul><li><strong>Item 1: Business</strong> -- What the company does, its products and services, competitive landscape, regulatory environment, and number of employees. This is your "company overview" section. Read this first when analyzing a company for the first time.</li></ul><ul><li><strong>Item 1A: Risk Factors</strong> -- A comprehensive list of risks the company faces. These are ordered roughly by significance. This section has grown dramatically over the years and can run 20-40 pages. Do not skip it. The specific risks listed here often foreshadow future problems. Generic boilerplate risks (earthquakes, pandemics) matter less than company-specific risks (customer concentration, regulatory changes, technology obsolescence).</li></ul><ul><li><strong>Item 1B: Unresolved Staff Comments</strong> -- SEC comments on prior filings that remain unresolved. If this section has content, pay attention -- it means the SEC has concerns about the company's disclosures.</li></ul><ul><li><strong>Item 1C: Cybersecurity</strong> -- Added in 2023, this requires companies to disclose their cybersecurity risk management, strategy, and governance processes.</li></ul><ul><li><strong>Item 2: Properties</strong> -- Where the company operates. Useful for understanding geographic diversification and whether the company owns or leases its key facilities.</li></ul><ul><li><strong>Item 3: Legal Proceedings</strong> -- Pending lawsuits and regulatory actions. Material litigation can represent significant financial risk.</li></ul><ul><li><strong>Item 4: Mine Safety Disclosures</strong> -- Only relevant for mining companies.</li></ul>
+</p>
+<p>
+<strong>Part II: Financial Information</strong><ul><li><strong>Item 5: Market for Common Equity</strong> -- Stock exchange listing, dividend history, and share repurchase activity.</li></ul><ul><li><strong>Item 6: Reserved</strong> -- Previously contained selected financial data (5-year summary). Now reserved after SEC rule changes.</li></ul><ul><li><strong>Item 7: Management's Discussion and Analysis (MD&A)</strong> -- This is arguably the most important section of the entire 10-K. Management explains the financial results in their own words. They discuss revenue trends, cost drivers, liquidity, capital allocation priorities, and known trends that may affect future performance. Read this section carefully and critically.</li></ul><ul><li><strong>Item 7A: Quantitative and Qualitative Disclosures About Market Risk</strong> -- Exposure to interest rate risk, foreign currency risk, and commodity price risk. Often includes sensitivity analysis.</li></ul><ul><li><strong>Item 8: Financial Statements and Supplementary Data</strong> -- The audited financial statements: Income Statement, Balance Sheet, Cash Flow Statement, Statement of Stockholders' Equity, and the Notes to Financial Statements. The notes are where the real detail lives.</li></ul><ul><li><strong>Item 9: Changes in and Disagreements with Accountants</strong> -- If the company changed auditors or had disagreements, this is a red flag.</li></ul><ul><li><strong>Item 9A: Controls and Procedures</strong> -- Management's assessment of internal controls over financial reporting. If there is a "material weakness," this is a serious concern.</li></ul>
+</p>
+<p>
+<strong>Part III: Governance</strong><ul><li><strong>Item 10: Directors and Corporate Governance</strong> -- Board composition and governance structure.</li></ul><ul><li><strong>Item 11: Executive Compensation</strong> -- Often incorporated by reference to the proxy statement.</li></ul><ul><li><strong>Item 12: Security Ownership</strong> -- Who owns the stock (insiders, institutions).</li></ul><ul><li><strong>Item 13: Certain Relationships and Related Transactions</strong> -- Deals between the company and its insiders.</li></ul><ul><li><strong>Item 14: Principal Accountant Fees</strong> -- How much the company pays its auditor.</li></ul>
+</p>
+<p>
+<strong>Part IV: Exhibits</strong><ul><li><strong>Item 15: Exhibits and Financial Statement Schedules</strong> -- Key contracts, the CEO/CFO certifications (Sarbanes-Oxley Section 302 and 906), and subsidiary lists.</li></ul>
+</p>
+<h4>The Financial Statements in Detail</h4>
+<p>
+The four core statements:
+</p>
+<li><strong>Income Statement (Statement of Operations)</strong> -- Revenue minus expenses equals net income. Look at revenue growth, gross margins, operating margins, and net margins over time. Compare to competitors.</li>
+<li><strong>Balance Sheet (Statement of Financial Position)</strong> -- Assets equal liabilities plus equity. Focus on cash and equivalents, debt levels (short-term and long-term), goodwill and intangibles (signs of past acquisitions), and the debt-to-equity ratio.</li>
+<li><strong>Cash Flow Statement</strong> -- Operating, investing, and financing activities. Many analysts consider this the most reliable statement because cash is harder to manipulate than earnings. A company can report profits while burning cash -- this is a warning sign.</li>
+<li><strong>Statement of Stockholders' Equity</strong> -- Shows how equity changed during the year through net income, dividends, share issuance, buybacks, and other comprehensive income.</li>
+<h4>The Footnotes: Where the Secrets Live</h4>
+<p>
+The notes to financial statements are not optional reading. They contain:<ul><li><strong>Revenue recognition policies</strong> -- How the company decides when to count revenue. Changes here can inflate or deflate earnings.</li></ul><ul><li><strong>Lease obligations</strong> -- Both on and off-balance-sheet commitments.</li></ul><ul><li><strong>Debt details</strong> -- Maturity schedules, interest rates, covenants, and variable-rate exposure.</li></ul><ul><li><strong>Stock-based compensation</strong> -- The real cost of employee equity awards.</li></ul><ul><li><strong>Pension obligations</strong> -- Assumptions about return rates and discount rates that can dramatically affect reported liabilities.</li></ul><ul><li><strong>Segment reporting</strong> -- Breaks the business into operating segments with separate revenue and profit figures. Essential for understanding a diversified company.</li></ul><ul><li><strong>Subsequent events</strong> -- Things that happened after the balance sheet date but before the filing.</li></ul><ul><li><strong>Contingent liabilities</strong> -- Potential obligations from lawsuits, warranties, or guarantees.</li></ul>
+</p>
+<h4>Red Flags to Watch For</h4>
+<p>
+These patterns in a 10-K warrant deeper investigation:
+</p>
+<li><strong>Revenue growing faster than cash from operations</strong> -- The company may be booking revenue it has not collected yet.</li>
+<li><strong>Accounts receivable growing faster than revenue</strong> -- Customers may not be paying, or the company may be stuffing the channel.</li>
+<li><strong>Frequent changes in accounting policies</strong> -- May indicate attempts to manage earnings.</li>
+<li><strong>Related party transactions</strong> -- Deals with insiders can be self-serving.</li>
+<li><strong>Auditor change</strong> -- Especially if the previous auditor raised concerns.</li>
+<li><strong>Material weakness in internal controls</strong> -- The company cannot reliably produce accurate financials.</li>
+<li><strong>Growing gap between GAAP and non-GAAP earnings</strong> -- Excessive "adjustments" can mask poor performance.</li>
+<li><strong>Rising goodwill relative to total assets</strong> -- Indicates the company overpaid for acquisitions.</li>
+<li><strong>Off-balance-sheet arrangements</strong> -- Special purpose entities or variable interest entities that obscure true leverage.</li>
+<li><strong>Vague or changing language in risk factors</strong> -- New risks appearing or familiar risks being described more urgently.</li>
+<h4>How to Read a 10-K Efficiently</h4>
+<p>
+You do not need to read every word. Here is a professional's approach:
+</p>
+<li><strong>Start with Item 1 (Business)</strong> if you are new to the company. Skip if you already know the business model.</li>
+<li><strong>Go to Item 7 (MD&A)</strong> for management's narrative on financial performance.</li>
+<li><strong>Review Item 8 (Financial Statements)</strong> -- focus on trends over 2-3 years, not single-year numbers.</li>
+<li><strong>Read the footnotes</strong> -- especially revenue recognition, debt, and segment data.</li>
+<li><strong>Scan Item 1A (Risk Factors)</strong> for company-specific risks, not boilerplate.</li>
+<li><strong>Check Item 9A (Controls)</strong> for any material weaknesses.</li>
+<li><strong>Compare to the prior year's 10-K</strong> -- what changed? Use the SEC's filing comparison tools or diff tools to spot changes in language.</li>
+<hr>
+<h3>Common Misconceptions</h3>
+<p>
+<strong>"The 10-K and the annual report are the same thing."</strong>
+No. The glossy annual report is a marketing document. The 10-K is a legal filing. The annual report often includes portions of the 10-K but adds management letters, photographs, and forward-looking hype. Always read the actual 10-K filed with the SEC.
+</p>
+<p>
+<strong>"If the auditor gave a clean opinion, the financials are definitely accurate."</strong>
+An unqualified (clean) audit opinion means the auditor believes the financial statements are presented fairly in accordance with GAAP. It does not mean the company is healthy, profitable, or well-managed. It also does not guarantee the absence of fraud -- auditors perform testing, not forensic investigations. Enron received clean audit opinions right up until it collapsed.
+</p>
+<p>
+<strong>"Non-GAAP earnings are more accurate than GAAP earnings."</strong>
+Companies often present "adjusted" or non-GAAP earnings that exclude stock-based compensation, restructuring charges, or amortization of intangibles. Sometimes these adjustments are reasonable and provide better insight into recurring profitability. Other times, companies exclude real, recurring costs to make their earnings look better. Always compare GAAP and non-GAAP side by side and question every adjustment.
+</p>
+<p>
+<strong>"I only need to read the most recent 10-K."</strong>
+Trends matter more than snapshots. Reading three years of 10-Ks reveals whether margins are improving or deteriorating, whether risk factor language is becoming more urgent, and whether management's promises from prior years actually materialized. At minimum, compare the current 10-K to last year's.
+</p>
+<p>
+<strong>"Small companies have simpler 10-Ks that are easier to read."</strong>
+Small-cap 10-Ks are often less polished and harder to parse than large-cap filings. Large companies have armies of lawyers and accountants crafting their disclosures. Small companies may have less professional presentations, but the information is still there -- and sometimes the rough edges make problems easier to spot.
+</p>
+<p>
+<strong>"Risk factors are just legal boilerplate to protect the company from lawsuits."</strong>
+While there is some boilerplate (natural disasters, regulatory changes), many risk factors are genuinely informative. When a company adds a new risk factor or significantly expands an existing one, pay attention. The company is legally warning you about something specific.
+</p>
+<hr>
+<h3>Q&A Section</h3>
+<p>
+<strong>Q: How long does it take to read a 10-K?</strong>
+A: A full read-through of a large-cap 10-K can take 3-6 hours. With practice and a focused approach (MD&A, financials, footnotes, risk factors), you can extract the key information in 1-2 hours. For companies you follow regularly, the incremental read of each new 10-K takes less time because you already know the business.
+</p>
+<p>
+<strong>Q: What is the difference between a 10-K and a 10-K/A?</strong>
+A: The /A suffix means "amendment." A 10-K/A is a corrected or updated version of a previously filed 10-K. This can be routine (adding information that was incorporated by reference) or concerning (restating financial results). Always read the reason for the amendment.
+</p>
+<p>
+<strong>Q: How do I compare 10-Ks across companies in the same industry?</strong>
+A: Focus on the same line items: revenue growth, margins, return on equity, debt levels, and cash flow generation. Segment reporting is especially useful because it lets you compare specific business lines. Also compare risk factors -- a risk that one company discloses but its competitor does not may indicate different exposure levels or different disclosure philosophies.
+</p>
+<p>
+<strong>Q: What is an NT 10-K?</strong>
+A: NT stands for "Notification of Late Filing." If a company cannot file its 10-K on time, it files an NT 10-K requesting a 15-day extension. Late filings can indicate accounting problems, internal control issues, or significant events requiring additional disclosure. This is a yellow flag.
+</p>
+<p>
+<strong>Q: Should I read the 10-K before or after the earnings call?</strong>
+A: Read the 10-K first, or at least skim the MD&A and financial statements. This gives you context for management's commentary on the earnings call. You will ask better questions and catch discrepancies between the written filing and verbal statements.
+</p>
+<p>
+<strong>Q: What tools can help me read 10-Ks more efficiently?</strong>
+A: The SEC's EDGAR full-text search lets you search across filings. Calcbench and similar services extract structured financial data. AI-powered tools can summarize sections, but always verify their output against the source. For tracking changes year over year, some services offer red-line comparisons of consecutive filings.
+</p>
+<p>
+<strong>Q: How important are the CEO and CFO certifications at the end?</strong>
+A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO personally liable for the accuracy of the financial statements. These carry criminal penalties. While they do not guarantee honesty, they raise the stakes significantly for executives who might otherwise be tempted to misrepresent their company's financial position.
+</p>
+<hr>
+<h2>PART 2: YOUTUBE SCRIPT</h2>
+<hr>
+<h3>"Decoding the 10-K: How to Read the Most Important Document in Investing"</h3>
+<p>
+<strong>Target Length:</strong> 18-22 minutes
+<strong>Tone:</strong> Detective-like, revealing, methodical
+</p>
+<hr>
+<p>
+<strong>[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+</p>
+<p>
+<strong>Sam:</strong> I would hope so, but I think most retail investors never open one.
+</p>
+<p>
+<strong>Alex:</strong> Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+</p>
+<p>
+<strong>[VISUAL: EDGAR website homepage with search bar highlighted]</strong>
+</p>
+<p>
+<strong>Sam:</strong> First things first -- where do you find these?
+</p>
+<p>
+<strong>Alex:</strong> SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free.
+</p>
+<p>
+<strong>[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]</strong>
+</p>
+<p>
+<strong>Alex:</strong> A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+</p>
+<p>
+<strong>Sam:</strong> What do you read first?
+</p>
+<p>
+<strong>Alex:</strong> If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+</p>
+<p>
+<strong>[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]</strong>
+</p>
+<p>
+<strong>Alex:</strong> But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+</p>
+<p>
+<strong>Sam:</strong> Why MD&A specifically?
+</p>
+<p>
+<strong>Alex:</strong> Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+</p>
+<p>
+<strong>[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> So it is like getting management's narrative on the financial story.
+</p>
+<p>
+<strong>Alex:</strong> Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+</p>
+<p>
+<strong>[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+</p>
+<p>
+<strong>Sam:</strong> The footnotes? Those pages and pages of small print?
+</p>
+<p>
+<strong>Alex:</strong> I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+</p>
+<p>
+<strong>[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> What specifically should people look for in the footnotes?
+</p>
+<p>
+<strong>Alex:</strong> Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+</p>
+<p>
+<strong>[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Okay, what about risk factors? Item 1A?
+</p>
+<p>
+<strong>Alex:</strong> Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+</p>
+<p>
+<strong>[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]</strong>
+</p>
+<p>
+<strong>Alex:</strong> If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+</p>
+<p>
+<strong>Sam:</strong> Let us talk about red flags. What patterns should make an investor nervous?
+</p>
+<p>
+<strong>Alex:</strong> I have a checklist I run through every time.
+</p>
+<p>
+<strong>[VISUAL: Red flag checklist appearing one by one]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+</p>
+<p>
+<strong>Sam:</strong> Like they are counting revenue from deals that have not actually been paid for?
+</p>
+<p>
+<strong>Alex:</strong> Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+</p>
+<p>
+<strong>[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+</p>
+<p>
+<strong>Sam:</strong> That is basically the company saying "our numbers might not be right."
+</p>
+<p>
+<strong>Alex:</strong> Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+</p>
+<p>
+<strong>[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]</strong>
+</p>
+<p>
+<strong>Sam:</strong> How do you read a 10-K efficiently? What is the workflow?
+</p>
+<p>
+<strong>Alex:</strong> Here is my process. On a first read, I spend about two hours.
+</p>
+<p>
+<strong>[VISUAL: Workflow diagram with time allocations]</strong>
+</p>
+<p>
+<strong>Alex:</strong> Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+</p>
+<p>
+<strong>Sam:</strong> Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+</p>
+<p>
+<strong>Alex:</strong> People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+</p>
+<p>
+<strong>[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]</strong>
+</p>
+<p>
+<strong>Sam:</strong> One more thing -- how do you track changes over time?
+</p>
+<p>
+<strong>Alex:</strong> Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+</p>
+<p>
+<strong>[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]</strong>
+</p>
+<p>
+<strong>Alex:</strong> These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+</p>
+<p>
+<strong>Sam:</strong> It is like forensic reading.
+</p>
+<p>
+<strong>Alex:</strong> That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+</p>
+<p>
+<strong>[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, and watch for red flags that suggest something is off.
+</p>
+<p>
+<strong>Alex:</strong> And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+</p>
+<p>
+<strong>[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls"]</strong>
+</p>
+<p>
+<strong>Sam:</strong> Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+</p>
+<p>
+<strong>Alex:</strong> Great advice. See you in the next one.
+</p>
+<p>
+<strong>[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]</strong>
+</p>
+<hr>
+<p>
+<strong>END OF SIDE LESSON 02</strong>
+</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Restore language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang && savedLang !== 'en') {
+            switchLang(savedLang);
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === savedLang) btn.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>
