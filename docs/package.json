@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Static site generator for investment tutorial course",
   "scripts": {
-    "build": "node build.js"
+    "build": "node ../scripts/build.js"
   }
 }

@@ -47,10 +47,12 @@ Every lesson (core and side) follows this structure:
 
 ## Build & Development
 
-- **Website**: `cd docs && node build.js` — generates static HTML from all markdown files with language toggle (EN/HK/TW/CN). No external dependencies needed (uses built-in markdown parser).
+- **Website**: `node scripts/build.js` — generates static HTML from all markdown files with language toggle (EN/HK/TW/CN). No external dependencies needed (uses built-in markdown parser).
 - **Animations**: Python scripts in `course/animation/` using matplotlib — run individually (e.g., `python course/animation/week01_compound_growth.py`) to generate PNG visualizations
-- **Translation**: `python translate.py` creates placeholder translations in course_hk/, course_tw/, course_cn/. Use `python translate.py --check` to see translation status. Financial terminology mappings are in the script.
-- **Regeneration**: After editing any markdown file, re-run `node docs/build.js` to rebuild the website. Translations are automatically picked up if present.
+- **Translation status**: `py -3 scripts/translate.py --check` to see what needs translation.
+- **Auto-translate**: `node scripts/translate-batch.js --locale all` — translates via Claude API. Requires `ANTHROPIC_API_KEY` env var and `cd scripts && npm install` first.
+- **Full pipeline**: `bash scripts/build-all.sh` — checks translations, auto-translates if API key set, rebuilds website.
+- **Regeneration**: After editing any markdown file, re-run `node scripts/build.js` to rebuild the website.
 
 ## Language & Terminology Notes
 
