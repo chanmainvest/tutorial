@@ -4,31 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 44: Market Microstructure - Chanma Investment Tutorial</title>
+    <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
-:root {
-    --bg: #fafbfc;
+:root, html[data-theme="light"] {
+    --bg: #faf7f2;
     --text: #2d3748;
+    --muted: #718096;
     --heading: #1a202c;
     --accent: #1e3a5f;
     --accent-hover: #2c5282;
     --accent-light: #e8f0fe;
     --border: #e2e8f0;
     --card-bg: #ffffff;
-    --code-bg: #f7fafc;
+    --code-bg: #f3efe7;
     --nav-bg: #1e3a5f;
     --nav-text: #ffffff;
     --nav-hover: #2c5282;
-    --breadcrumb-bg: #f1f5f9;
+    --breadcrumb-bg: #f1ece2;
     --footer-bg: #1e3a5f;
     --footer-text: #e2e8f0;
-    --success: #38a169;
-    --warning: #d69e2e;
     --gold: #c5a44e;
+    --row-stripe: #f8f4eb;
     --shadow: 0 1px 3px rgba(0,0,0,0.08);
     --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+    --menu-bg: #ffffff;
+    --menu-border: #e2e8f0;
+    --menu-text: #2d3748;
+    --menu-hover: #f1ece2;
+    --menu-sub-bg: #f8f4eb;
+}
+
+html[data-theme="dark"] {
+    --bg: #0f1724;
+    --text: #d6dee8;
+    --muted: #8a98a8;
+    --heading: #f1f5f9;
+    --accent: #c5a44e;
+    --accent-hover: #d8bb6c;
+    --accent-light: rgba(197,164,78,0.12);
+    --border: #1f2a3a;
+    --card-bg: #16202f;
+    --code-bg: #0b121d;
+    --nav-bg: #0a0f1a;
+    --nav-text: #f5e9c8;
+    --nav-hover: rgba(197,164,78,0.18);
+    --breadcrumb-bg: #131b29;
+    --footer-bg: #0a0f1a;
+    --footer-text: #c8cfdb;
+    --gold: #c5a44e;
+    --row-stripe: #131b29;
+    --shadow: 0 1px 3px rgba(0,0,0,0.45);
+    --shadow-lg: 0 6px 20px rgba(0,0,0,0.6);
+    --menu-bg: #131b29;
+    --menu-border: #1f2a3a;
+    --menu-text: #d6dee8;
+    --menu-hover: rgba(197,164,78,0.12);
+    --menu-sub-bg: #0f1724;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color-scheme: light dark; }
 
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
@@ -36,6 +72,7 @@ body {
     color: var(--text);
     background: var(--bg);
     font-size: 17px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* --- Top Navigation Bar --- */
@@ -54,7 +91,7 @@ body {
     align-items: center;
     padding: 0 24px;
     min-height: 56px;
-    gap: 0;
+    gap: 12px;
 }
 
 .nav-brand {
@@ -64,7 +101,7 @@ body {
     color: var(--nav-text);
     text-decoration: none;
     letter-spacing: -0.3px;
-    margin-right: 32px;
+    margin-right: auto;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -72,87 +109,19 @@ body {
 }
 
 .nav-brand .brand-icon {
+    color: var(--gold);
     font-size: 1.4rem;
 }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex: 1;
-}
-
-.nav-dropdown {
-    position: relative;
-}
-
-.nav-link, .dropdown-trigger {
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    color: var(--nav-text);
-    text-decoration: none;
-    padding: 16px 14px;
-    font-size: 0.88rem;
-    font-weight: 500;
-    background: none;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    transition: background 0.15s;
-}
-
-.nav-link:hover, .dropdown-trigger:hover {
-    background: var(--nav-hover);
-}
-
-.arrow { font-size: 0.7rem; }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--card-bg);
-    min-width: 320px;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border);
-    border-radius: 0 0 6px 6px;
-    z-index: 200;
-    max-height: 480px;
-    overflow-y: auto;
-}
-
-.nav-dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 10px 16px;
-    color: var(--text);
-    text-decoration: none;
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.85rem;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.1s;
-}
-
-.dropdown-content a:hover {
-    background: var(--accent-light);
-    color: var(--accent);
-}
-
-.dropdown-content a:last-child { border-bottom: none; }
-
-/* Language selector in nav */
-.lang-selector {
-    margin-left: auto;
+/* Right-side controls cluster */
+.nav-controls {
     display: flex;
     align-items: center;
     gap: 6px;
 }
+
+/* Country flag selector — uses Twemoji for cross-platform rendering */
+.lang-selector { display: flex; align-items: center; gap: 4px; }
 
 .lang-btn {
     background: none;
@@ -160,30 +129,175 @@ body {
     border-radius: 4px;
     cursor: pointer;
     padding: 4px 6px;
-    font-size: 1.3rem;
     line-height: 1;
     transition: all 0.15s;
     opacity: 0.7;
+    display: inline-flex;
+    align-items: center;
+    color: var(--nav-text);
 }
-
+.lang-btn img.emoji,
+.lang-btn .flag-text {
+    width: 22px; height: 22px;
+    vertical-align: middle;
+    font-size: 1.05rem;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.lang-btn .flag-text {
+    width: auto; height: auto;
+    padding: 0 4px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+}
 .lang-btn:hover { opacity: 1; }
-
 .lang-btn.active {
     border-color: var(--gold);
     opacity: 1;
-    background: rgba(255,255,255,0.15);
+    background: rgba(197,164,78,0.18);
 }
 
-/* Mobile hamburger */
+/* Theme toggle */
+.theme-toggle {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 8px;
+    color: var(--nav-text);
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(197,164,78,0.4);
+}
+.theme-toggle .icon-light { display: none; }
+.theme-toggle .icon-dark { display: inline; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
+html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+
+/* Hamburger button (always visible) */
 .hamburger {
-    display: none;
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: var(--nav-text);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: all 0.15s;
+}
+.hamburger:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(197,164,78,0.4);
+}
+.hamburger.open { background: rgba(197,164,78,0.18); border-color: var(--gold); }
+
+/* --- Slide-out menu panel --- */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 199;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 340px;
+    max-width: 88vw;
+    height: 100vh;
+    background: var(--menu-bg);
+    border-left: 1px solid var(--menu-border);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+.menu-panel.open { transform: translateX(0); }
+
+.menu-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--menu-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--menu-sub-bg);
+}
+.menu-title {
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+.menu-close {
     background: none;
     border: none;
-    color: var(--nav-text);
-    font-size: 1.5rem;
     cursor: pointer;
-    padding: 8px;
-    margin-left: auto;
+    color: var(--menu-text);
+    font-size: 1.4rem;
+    padding: 0 6px;
+    line-height: 1;
+}
+
+.menu-body { padding: 8px 0 20px; }
+
+.menu-link, .menu-sublink, .menu-trigger {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 20px;
+    color: var(--menu-text);
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    font: inherit;
+    font-size: 0.92rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--menu-border);
+    transition: background 0.12s;
+}
+.menu-link:hover, .menu-sublink:hover, .menu-trigger:hover {
+    background: var(--menu-hover);
+    color: var(--accent);
+}
+.menu-link.menu-top { font-weight: 700; }
+
+.menu-trigger { justify-content: space-between; font-weight: 600; }
+.menu-trigger .caret { transition: transform 0.2s ease; color: var(--muted); }
+.menu-trigger[aria-expanded="true"] .caret { transform: rotate(90deg); color: var(--accent); }
+
+.menu-sub {
+    background: var(--menu-sub-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+.menu-group.open .menu-sub { max-height: 1200px; }
+
+.menu-sublink {
+    padding-left: 38px;
+    font-size: 0.86rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--menu-border);
 }
 
 /* --- Breadcrumb --- */
@@ -192,23 +306,16 @@ body {
     border-bottom: 1px solid var(--border);
     padding: 10px 24px;
 }
-
 .breadcrumb-inner {
     max-width: 1100px;
     margin: 0 auto;
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: 0.85rem;
-    color: #718096;
+    color: var(--muted);
 }
-
-.breadcrumb-inner a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
+.breadcrumb-inner a { color: var(--accent); text-decoration: none; }
 .breadcrumb-inner a:hover { text-decoration: underline; }
-
-.bc-sep { color: #a0aec0; margin: 0 4px; }
+.bc-sep { color: var(--muted); margin: 0 4px; opacity: 0.6; }
 
 /* --- Main Content --- */
 .main-wrap {
@@ -217,12 +324,9 @@ body {
     padding: 36px 24px 60px;
 }
 
-.content-area { }
-
 .lang-content { display: none; }
 .lang-content.active { display: block; }
 
-/* Typography */
 h1 {
     font-size: 2rem;
     color: var(--heading);
@@ -231,7 +335,6 @@ h1 {
     letter-spacing: -0.5px;
     line-height: 1.3;
 }
-
 h2 {
     font-size: 1.45rem;
     color: var(--heading);
@@ -240,14 +343,12 @@ h2 {
     border-bottom: 2px solid var(--accent-light);
     font-weight: 700;
 }
-
 h3 {
     font-size: 1.2rem;
     color: var(--heading);
     margin: 24px 0 10px;
     font-weight: 700;
 }
-
 h4 {
     font-size: 1.05rem;
     color: var(--heading);
@@ -256,7 +357,6 @@ h4 {
 }
 
 p { margin-bottom: 14px; }
-
 ul, ol { margin: 10px 0 18px 28px; }
 li { margin-bottom: 6px; }
 
@@ -269,14 +369,13 @@ table {
     box-shadow: var(--shadow);
     border-radius: 6px;
     overflow: hidden;
+    background: var(--card-bg);
 }
-
 th, td {
     padding: 10px 14px;
     border: 1px solid var(--border);
     text-align: left;
 }
-
 th {
     background: var(--accent);
     color: white;
@@ -285,8 +384,10 @@ th {
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
+html[data-theme="dark"] th { color: #0f1724; }
+tr:nth-child(even) td { background: var(--row-stripe); }
 
-tr:nth-child(even) { background: #f8fafc; }
+.glossary-table th:first-child { width: 28%; }
 
 pre {
     background: var(--code-bg);
@@ -296,14 +397,13 @@ pre {
     margin: 16px 0;
     border: 1px solid var(--border);
     font-size: 0.88rem;
+    color: var(--text);
 }
-
 code {
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     font-size: 0.9em;
 }
-
-p code {
+p code, li code {
     background: var(--code-bg);
     padding: 2px 6px;
     border-radius: 3px;
@@ -359,28 +459,23 @@ img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
     box-shadow: var(--shadow);
     max-width: 45%;
 }
-
 .nav-btn:hover {
     background: var(--accent);
-    color: white;
+    color: var(--bg);
     border-color: var(--accent);
     box-shadow: var(--shadow-lg);
 }
-
 .nav-btn .btn-label {
     font-size: 0.75rem;
-    color: #a0aec0;
+    color: var(--muted);
     display: block;
     font-weight: 400;
 }
-
 .nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
-
+html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 .nav-btn-text { display: flex; flex-direction: column; }
-
 .nav-btn.next { text-align: right; margin-left: auto; }
 .nav-btn.next .nav-btn-text { align-items: flex-end; }
-
 .nav-placeholder { flex: 1; }
 
 /* --- Site Footer --- */
@@ -393,61 +488,170 @@ img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
     font-size: 0.82rem;
     margin-top: 40px;
 }
-
 .site-footer a { color: var(--gold); }
 
 /* --- Mobile --- */
-@media (max-width: 768px) {
-    .nav-menu { display: none; }
-    .nav-menu.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 56px;
-        left: 0;
-        right: 0;
-        background: var(--nav-bg);
-        box-shadow: var(--shadow-lg);
-        padding-bottom: 8px;
-    }
-    .nav-menu.open .nav-dropdown { width: 100%; }
-    .nav-menu.open .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: rgba(0,0,0,0.1);
-        border-radius: 0;
-        max-height: 300px;
-    }
-    .nav-menu.open .dropdown-content a {
-        color: var(--nav-text);
-        border-bottom-color: rgba(255,255,255,0.1);
-        padding-left: 32px;
-    }
-    .hamburger { display: block; }
-    .lang-selector { margin-left: 0; padding: 8px 14px; }
+@media (max-width: 640px) {
+    .nav-inner { padding: 0 14px; gap: 6px; }
+    .nav-brand { font-size: 0.95rem; }
+    .nav-brand .brand-text-long { display: none; }
+    .lang-btn { padding: 3px 4px; }
+    .lang-btn img.emoji, .lang-btn .flag-text { width: 18px; height: 18px; font-size: 0.85rem; }
     .main-wrap { padding: 20px 16px 40px; }
     h1 { font-size: 1.5rem; }
     .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+    .menu-panel { width: 86vw; }
 }
 </style>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
     <nav class="top-nav">
         <div class="nav-inner">
             <a href="index.html" class="nav-brand">
                 <span class="brand-icon">&#9670;</span>
-                Chanma Investment
+                <span class="brand-text-long">Chanma Investment</span>
             </a>
-            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-            <div class="nav-menu">
-                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
-                <div class="lang-selector">
-                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
-                </div>
+            <div class="nav-controls">
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
+                    <span class="icon-dark">&#9789;</span>
+                    <span class="icon-light">&#9728;</span>
+                </button>
+                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
         </div>
     </nav>
+
+    <div class="menu-overlay" aria-hidden="true"></div>
+    <aside id="site-menu" class="menu-panel" aria-label="Site navigation">
+        <div class="menu-header">
+            <span class="menu-title">Course Navigation</span>
+            <button class="menu-close" onclick="toggleMenu(false)" aria-label="Close menu">&#10005;</button>
+        </div>
+        <div class="menu-body">
+            <a href="index.html" class="menu-link menu-top">Home</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 1: Foundation</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">Level 1: Foundation Overview</a>
+<a href="week01.html" class="menu-sublink">Week 1: Why invest</a>
+<a href="week02.html" class="menu-sublink">Week 2: Index funds etfs</a>
+<a href="week03.html" class="menu-sublink">Week 3: Risk and return</a>
+<a href="week04.html" class="menu-sublink">Week 4: Sixty forty</a>
+<a href="week05.html" class="menu-sublink">Week 5: Bonds</a>
+<a href="week06.html" class="menu-sublink">Week 6: Gold commodities</a>
+<a href="week07.html" class="menu-sublink">Week 7: Rebalancing</a>
+<a href="week08.html" class="menu-sublink">Week 8: Financial statements</a>
+<a href="week09.html" class="menu-sublink">Week 9: Market indexes</a>
+<a href="week10.html" class="menu-sublink">Week 10: Economic cycles</a>
+<a href="week11.html" class="menu-sublink">Week 11: Behavioral biases</a>
+<a href="week12.html" class="menu-sublink">Week 12: First portfolio</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 2: Intermediate</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">Level 2: Intermediate Overview</a>
+<a href="week13.html" class="menu-sublink">Week 13: Long short</a>
+<a href="week14.html" class="menu-sublink">Week 14: Pair trading</a>
+<a href="week15.html" class="menu-sublink">Week 15: Multi asset</a>
+<a href="week16.html" class="menu-sublink">Week 16: Sector rotation</a>
+<a href="week17.html" class="menu-sublink">Week 17: Performance metrics</a>
+<a href="week18.html" class="menu-sublink">Week 18: Interest rates</a>
+<a href="week19.html" class="menu-sublink">Week 19: Corporate finance</a>
+<a href="week20.html" class="menu-sublink">Week 20: Earnings cashflow</a>
+<a href="week21.html" class="menu-sublink">Week 21: Equity valuation</a>
+<a href="week22.html" class="menu-sublink">Week 22: Currency international</a>
+<a href="week23.html" class="menu-sublink">Week 23: Factor investing</a>
+<a href="week24.html" class="menu-sublink">Week 24: Multi strategy</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 3: Advanced</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">Level 3: Advanced Overview</a>
+<a href="week25.html" class="menu-sublink">Week 25: Intro options</a>
+<a href="week26.html" class="menu-sublink">Week 26: Options as orders</a>
+<a href="week27.html" class="menu-sublink">Week 27: Covered calls</a>
+<a href="week28.html" class="menu-sublink">Week 28: Cash secured puts</a>
+<a href="week29.html" class="menu-sublink">Week 29: Option greeks</a>
+<a href="week30.html" class="menu-sublink">Week 30: Spreads condors</a>
+<a href="week31.html" class="menu-sublink">Week 31: Yield curves</a>
+<a href="week32.html" class="menu-sublink">Week 32: Duration convexity</a>
+<a href="week33.html" class="menu-sublink">Week 33: Credit analysis</a>
+<a href="week34.html" class="menu-sublink">Week 34: Rate sensitivity</a>
+<a href="week35.html" class="menu-sublink">Week 35: Advanced fsa</a>
+<a href="week36.html" class="menu-sublink">Week 36: Income portfolio</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 4: Sophisticated</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">Level 4: Sophisticated Overview</a>
+<a href="week37.html" class="menu-sublink">Week 37: Options leverage</a>
+<a href="week38.html" class="menu-sublink">Week 38: Leaps</a>
+<a href="week39.html" class="menu-sublink">Week 39: Futures</a>
+<a href="week40.html" class="menu-sublink">Week 40: Vix volatility</a>
+<a href="week41.html" class="menu-sublink">Week 41: Risk management</a>
+<a href="week42.html" class="menu-sublink">Week 42: Var risk models</a>
+<a href="week43.html" class="menu-sublink">Week 43: Active management</a>
+<a href="week44.html" class="menu-sublink">Week 44: Microstructure</a>
+<a href="week45.html" class="menu-sublink">Week 45: Quant methods</a>
+<a href="week46.html" class="menu-sublink">Week 46: Backtesting</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 5: Expert</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">Level 5: Expert Overview</a>
+<a href="week47.html" class="menu-sublink">Week 47: Tail risk</a>
+<a href="week48.html" class="menu-sublink">Week 48: Structured products</a>
+<a href="week49.html" class="menu-sublink">Week 49: Vol arbitrage</a>
+<a href="week50.html" class="menu-sublink">Week 50: Factor tilts</a>
+<a href="week51.html" class="menu-sublink">Week 51: Managed futures</a>
+<a href="week52.html" class="menu-sublink">Week 52: Integration</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Side Lessons</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">Side 1: Calculator</a>
+<a href="side02.html" class="menu-sublink">Side 2: 10k filing</a>
+<a href="side03.html" class="menu-sublink">Side 3: Etf mechanics</a>
+<a href="side04.html" class="menu-sublink">Side 4: Tax efficiency</a>
+<a href="side05.html" class="menu-sublink">Side 5: Dca vs lump</a>
+<a href="side06.html" class="menu-sublink">Side 6: Inflation</a>
+<a href="side07.html" class="menu-sublink">Side 7: Reits</a>
+<a href="side08.html" class="menu-sublink">Side 8: Fund fees</a>
+<a href="side09.html" class="menu-sublink">Side 9: Crypto</a>
+<a href="side10.html" class="menu-sublink">Side 10: Dividends</a>
+<a href="side11.html" class="menu-sublink">Side 11: Retirement accounts</a>
+<a href="side12.html" class="menu-sublink">Side 12: Esg</a>
+<a href="side13.html" class="menu-sublink">Side 13: Ipos</a>
+<a href="side14.html" class="menu-sublink">Side 14: Private markets</a>
+<a href="side15.html" class="menu-sublink">Side 15: Trading psychology</a>
+<a href="side16.html" class="menu-sublink">Side 16: Market history</a>
+<a href="side17.html" class="menu-sublink">Side 17: Fed policy</a>
+<a href="side18.html" class="menu-sublink">Side 18: Global markets</a>
+<a href="side19.html" class="menu-sublink">Side 19: Correlation math</a>
+<a href="side20.html" class="menu-sublink">Side 20: Greeks deep dive</a>
+<a href="side21.html" class="menu-sublink">Side 21: Margin leverage</a>
+<a href="side22.html" class="menu-sublink">Side 22: Commodities</a>
+<a href="side23.html" class="menu-sublink">Side 23: Technical analysis</a>
+<a href="side24.html" class="menu-sublink">Side 24: Monitoring tools</a>
+<a href="side25.html" class="menu-sublink">Side 25: Hedge funds</a>
+<a href="side26.html" class="menu-sublink">Side 26: Market liquidity</a>
+<a href="side27.html" class="menu-sublink">Side 27: Watchlist screening</a>
+<a href="side28.html" class="menu-sublink">Side 28: Monte carlo</a>
+<a href="side29.html" class="menu-sublink">Side 29: Currency hedging</a>
+<a href="side30.html" class="menu-sublink">Side 30: Wheel strategy</a>
+</div></div>
+<a href="glossary.html" class="menu-link">Glossary</a>
+<a href="disclaimer.html" class="menu-link">Disclaimer</a>
+<a href="faq.html" class="menu-link">FAQ</a>
+        </div>
+    </aside>
 
     <div class="breadcrumb-bar">
         <div class="breadcrumb-inner"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <a href="level4.html">Level 4: Sophisticated</a> <span class="bc-sep">&#8250;</span> <span>Week 44: Microstructure</span></div>
@@ -6075,29 +6279,28 @@ v     v
 
     <footer class="page-footer">
         <div class="nav-buttons">
-            <a href="week43.html" class="nav-btn prev">
-            <span style="font-size:1.2rem">&#8592;</span>
-            <span class="nav-btn-text">
-                <span class="btn-label">Previous</span>
-                <span>Week 43: Active management</span>
-            </span>
-        </a>
-            <a href="week45.html" class="nav-btn next">
-            <span class="nav-btn-text">
-                <span class="btn-label">Next</span>
-                <span>Week 45: Quant methods</span>
-            </span>
-            <span style="font-size:1.2rem">&#8594;</span>
-        </a>
+            <a href="week43.html" class="nav-btn prev"><span style="font-size:1.2rem">&#8592;</span><span class="nav-btn-text"><span class="btn-label">Previous</span><span>Week 43: Active management</span></span></a>
+            <a href="week45.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">Next</span><span>Week 45: Quant methods</span></span><span style="font-size:1.2rem">&#8594;</span></a>
         </div>
     </footer>
 
     <footer class="site-footer">
-        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="glossary.html">Glossary</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
         <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
     </footer>
 
     <script>
+// --- Theme handling (must run before paint to avoid flash) ---
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('preferred-theme', theme); } catch(e) {}
+}
+function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+// --- Language switching ---
 function switchLang(lang) {
     document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
     var el = document.getElementById('content-' + lang);
@@ -6106,28 +6309,68 @@ function switchLang(lang) {
         btn.classList.remove('active');
         if (btn.dataset.lang === lang) btn.classList.add('active');
     });
-    localStorage.setItem('preferred-lang', lang);
+    try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
 }
 
-// Restore language preference
-(function() {
-    var saved = localStorage.getItem('preferred-lang');
+// --- Hamburger menu ---
+function toggleMenu(force) {
+    var panel = document.querySelector('.menu-panel');
+    var overlay = document.querySelector('.menu-overlay');
+    var btn = document.querySelector('.hamburger');
+    if (!panel || !overlay || !btn) return;
+    var open = (typeof force === 'boolean') ? force : !panel.classList.contains('open');
+    panel.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function setupMenuTriggers() {
+    document.querySelectorAll('.menu-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var group = btn.parentElement;
+            var open = !group.classList.contains('open');
+            group.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    });
+}
+
+// --- Init on DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', function() {
+    setupMenuTriggers();
+
+    var saved = null;
+    try { saved = localStorage.getItem('preferred-lang'); } catch(e) {}
     if (saved && saved !== 'en') switchLang(saved);
-})();
 
-// Mobile menu toggle
-function toggleMenu() {
-    document.querySelector('.nav-menu').classList.toggle('open');
-}
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') toggleMenu(false);
+    });
 
-// Close menu when clicking outside
-document.addEventListener('click', function(e) {
-    var menu = document.querySelector('.nav-menu');
-    var hamburger = document.querySelector('.hamburger');
-    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
-        menu.classList.remove('open');
+    var overlay = document.querySelector('.menu-overlay');
+    if (overlay) overlay.addEventListener('click', function() { toggleMenu(false); });
+
+    // Twemoji upgrade — replaces emoji with high-quality SVGs so flags render
+    // consistently on Windows / Linux where the system font may show letters.
+    if (typeof twemoji !== 'undefined') {
+        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
     }
 });
+
+// Apply saved theme as early as possible (script in <head>)
+(function() {
+    try {
+        var t = localStorage.getItem('preferred-theme');
+        if (!t) {
+            t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+})();
 </script>
 </body>
 </html>

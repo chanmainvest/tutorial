@@ -211,3 +211,7 @@ __marimo__/
 
 # Claude Code session state
 .claude/
+
+# Per-commit session transcripts (see CLAUDE.md > Session History) — these
+# files are intentionally checked in despite the global *.log rule above.
+!session_history/*.log
