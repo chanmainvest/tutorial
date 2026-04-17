@@ -1,405 +1,402 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 7: REITs and Real Estate Investing
+# 附錄課第七課：房地產信託基金與房地產投資
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Real estate has long been considered one of the foundational asset classes for building wealth. But not everyone can -- or should -- buy rental properties or commercial buildings. Real Estate Investment Trusts (REITs) offer a way to gain exposure to real estate markets without the headaches of being a landlord. In this lesson, we explore how REITs work, the different types available, their tax treatment, and how they fit into a diversified portfolio.
-
----
-
-### a) Why This Is Important
-
-Real estate represents a massive portion of global wealth. According to various estimates, the total value of global real estate exceeds $300 trillion, dwarfing the combined value of all publicly traded stocks and bonds. Yet many individual investors have little or no exposure to this asset class beyond their primary residence.
-
-Understanding REITs matters for several reasons:
-
-**Portfolio Diversification.** Real estate returns have historically shown moderate correlation with stocks and bonds. Adding REITs to a portfolio can improve risk-adjusted returns through diversification. During certain market environments -- particularly periods of rising inflation -- REITs have outperformed traditional stocks and bonds.
-
-**Income Generation.** REITs are required by law to distribute at least 90% of their taxable income to shareholders. This makes them one of the highest-yielding equity investments available. For retirees or income-focused investors, REITs can provide a meaningful stream of cash flow.
-
-**Inflation Protection.** Real estate values and rents tend to rise with inflation over time. Property owners can raise rents as the general price level increases, providing a natural hedge against purchasing power erosion. This characteristic makes REITs particularly valuable during inflationary periods.
-
-**Accessibility.** Before REITs existed, investing in commercial real estate required significant capital, industry expertise, and willingness to manage properties directly. REITs democratized real estate investing by allowing anyone with a brokerage account to buy shares in professionally managed real estate portfolios.
-
-**Scale of the Market.** The U.S. REIT market alone has a market capitalization exceeding $1 trillion. Globally, the listed real estate market is even larger. Ignoring this asset class means missing a significant portion of the investable universe.
-
-Whether you are building a retirement portfolio, seeking income, or simply trying to understand the full range of investment options, REITs deserve your attention. They are not a magic bullet, but they fill a role that stocks and bonds alone cannot.
+房地產長期以來被視為積累財富的基礎資產類別之一。但並非所有人都能——或應該——購置出租物業或商業樓宇。房地產信託基金（REITs）提供了一種在無需承擔業主煩惱的情況下，獲得房地產市場投資回報的方式。本課將探討房地產信託基金的運作原理、不同類型、稅務處理，以及如何融入分散投資組合。
 
 ---
 
-### b) What You Need to Know
+### a) 為何重要
 
-#### What Is a REIT?
+房地產在全球財富中佔據龐大份額。根據各方估計，全球房地產總值超過300萬億美元，遠超所有上市股票和債券的合計市值。然而，許多個人投資者除自住物業外，幾乎沒有或完全沒有這類資產的投資。
 
-A Real Estate Investment Trust (REIT) is a company that owns, operates, or finances income-producing real estate. Congress created REITs in 1960 to give everyday investors access to large-scale, income-producing real estate -- the same way mutual funds give access to diversified stock portfolios.
+了解房地產信託基金的重要性體現在以下幾方面：
 
-To qualify as a REIT, a company must meet several requirements:
+**投資組合分散。** 房地產回報歷來與股票和債券呈現中等相關性。將房地產信託基金加入投資組合，可透過分散投資提升風險調整後回報。在某些市場環境下——尤其是通脹上升期間——房地產信託基金的表現優於傳統股票和債券。
 
-- Invest at least 75% of total assets in real estate, cash, or U.S. Treasuries.
-- Derive at least 75% of gross income from rents, interest on mortgages, or real estate sales.
-- Pay at least 90% of taxable income as shareholder dividends each year.
-- Be structured as a corporation, trust, or association.
-- Be managed by a board of directors or trustees.
-- Have at least 100 shareholders after its first year.
-- Have no more than 50% of shares held by five or fewer individuals (the "5/50 rule").
+**收入來源。** 房地產信託基金依法須將至少90%的應課稅收入分派給股東。這使其成為收益率最高的股票類投資之一。對於退休人士或以收入為重心的投資者而言，房地產信託基金可提供可觀的現金流。
 
-The 90% distribution requirement is the most distinctive feature. It means REITs pass most of their earnings directly to investors rather than retaining them for reinvestment. This creates high dividend yields but also means REITs often need to raise external capital (through issuing new shares or taking on debt) to fund growth.
+**通脹保護。** 房地產價值和租金通常隨通脹上升。物業持有人可隨整體物價水平上升而調高租金，從而提供對抗購買力侵蝕的天然對沖。這一特性使房地產信託基金在通脹時期尤具價值。
 
-#### Types of REITs
+**普及性。** 在房地產信託基金出現之前，投資商業房地產需要大量資本、行業專業知識，以及直接管理物業的意願。房地產信託基金令房地產投資大眾化，使任何持有證券賬戶的人均可購買由專業人士管理的房地產組合的股份。
 
-REITs can be categorized in several ways. The most fundamental distinction is between equity REITs, mortgage REITs, and hybrid REITs.
+**市場規模。** 僅美國的房地產信託基金市場，市值便超過1萬億美元。全球上市房地產市場規模更為龐大。忽視這一資產類別，意味著錯失可投資範疇中的重要組成部分。
 
-**Equity REITs** own and operate income-producing properties. They make money primarily through collecting rent. Equity REITs represent the vast majority of the REIT market -- roughly 90% of all publicly traded REITs. When most people think of REITs, they are thinking of equity REITs.
-
-Examples of equity REIT property sectors include:
-
-- **Office:** Buildings leased to corporate tenants. Examples include Boston Properties and Vornado Realty Trust.
-- **Retail:** Shopping malls, strip centers, and outlet centers. Examples include Simon Property Group and Realty Income.
-- **Residential:** Apartment complexes and single-family rental homes. Examples include AvalonBay Communities and Equity Residential.
-- **Industrial:** Warehouses, distribution centers, and logistics facilities. Examples include Prologis and Duke Realty.
-- **Healthcare:** Hospitals, senior housing, medical office buildings. Examples include Welltower and Ventas.
-- **Data Centers:** Facilities that house servers and networking equipment. Examples include Equinix and Digital Realty.
-- **Cell Towers:** Wireless communication infrastructure. Examples include American Tower and Crown Castle.
-- **Self-Storage:** Storage unit facilities. Examples include Public Storage and Extra Space Storage.
-- **Specialty:** Timberland, farmland, casinos, outdoor advertising, and other niche properties.
-
-**Mortgage REITs (mREITs)** do not own physical properties. Instead, they invest in mortgages and mortgage-backed securities. They make money from the interest earned on these financial instruments, often using significant leverage to amplify returns. Mortgage REITs tend to be more volatile and interest-rate sensitive than equity REITs. Examples include Annaly Capital Management and AGNC Investment.
-
-**Hybrid REITs** combine elements of both equity and mortgage REITs, owning properties while also investing in mortgages. These are relatively uncommon today.
-
-#### How REITs Are Valued
-
-Valuing REITs differs from valuing typical stocks. The most important metrics include:
-
-**Funds From Operations (FFO).** Traditional earnings per share (EPS) is not ideal for REITs because it includes depreciation -- a non-cash charge that may not reflect the actual decline in property value. FFO adds depreciation back to earnings, providing a clearer picture of a REIT's cash-generating ability. Price-to-FFO is the REIT equivalent of the price-to-earnings ratio.
-
-**Adjusted Funds From Operations (AFFO).** AFFO refines FFO by subtracting recurring capital expenditures needed to maintain the properties. It is considered a more accurate measure of a REIT's sustainable cash flow and its ability to pay dividends.
-
-**Net Asset Value (NAV).** This estimates the market value of all properties minus liabilities. Comparing a REIT's share price to its NAV per share tells you whether the REIT is trading at a premium or discount to the underlying value of its real estate.
-
-**Dividend Yield.** Because REITs distribute most of their income, dividend yield is a critical metric. However, a very high yield can be a warning sign -- it may indicate the market expects the dividend to be cut.
-
-**Occupancy Rate.** The percentage of a REIT's leasable space that is currently rented. Higher occupancy generally means more stable income.
-
-**Debt-to-Equity Ratio.** REITs often use leverage to acquire properties. Excessive debt can amplify losses during downturns. Conservative investors prefer REITs with moderate leverage.
-
-#### Tax Treatment of REITs
-
-REIT taxation is an area that trips up many investors:
-
-- **REIT dividends are generally taxed as ordinary income**, not at the lower qualified dividend rate. This is because REITs do not pay corporate income tax on the earnings they distribute -- the tax is passed through to shareholders.
-- Under the Tax Cuts and Jobs Act of 2017, investors can deduct 20% of REIT dividend income through the Qualified Business Income (QBI) deduction. This effectively reduces the top tax rate on REIT dividends from 37% to 29.6% for eligible taxpayers.
-- **Capital gains distributions** from REITs (when a REIT sells a property at a profit and distributes the gain) are taxed at the long-term capital gains rate.
-- **Return of capital distributions** reduce your cost basis rather than being immediately taxable. You pay tax later when you sell the shares.
-
-Because of their unfavorable tax treatment (compared to qualified dividends), REITs are often best held in tax-advantaged accounts like IRAs or 401(k)s, where the tax drag is eliminated.
-
-#### REITs vs. Direct Real Estate
-
-Many investors debate whether to invest in REITs or buy physical property. Each approach has distinct advantages:
-
-**Advantages of REITs over direct real estate:**
-
-- Liquidity: You can buy and sell REIT shares in seconds. Selling a physical property takes months.
-- Diversification: A single REIT may own hundreds of properties across many geographic regions.
-- Professional management: REITs employ experienced real estate professionals.
-- Low minimum investment: You can buy a single share for as little as $20-$100.
-- No tenant headaches: No midnight phone calls about broken plumbing.
-- Transparency: Public REITs file regular financial reports with the SEC.
-
-**Advantages of direct real estate over REITs:**
-
-- Leverage: You can purchase a $300,000 property with a $60,000 down payment, magnifying returns. REIT investors cannot use the same degree of personal leverage.
-- Tax benefits: Direct property owners can deduct mortgage interest, property taxes, depreciation, and many operating expenses. They can also use 1031 exchanges to defer capital gains taxes.
-- Control: You decide which properties to buy, how to improve them, and when to sell.
-- Forced appreciation: You can increase a property's value through renovations and better management.
-- Stable pricing: You do not see your property's value fluctuate daily on a stock ticker, which can reduce emotional decision-making.
-
-#### Correlation to Stocks and Bonds
-
-REITs have historically shown a moderate correlation to the broad stock market. Over the long term, the correlation between REITs and the S&P 500 has been approximately 0.5 to 0.7. This means REITs move somewhat in tandem with stocks but not perfectly so.
-
-In the short term, correlations can spike -- particularly during market crises when all asset classes tend to move together. During the 2008 financial crisis, REITs fell even more sharply than the broader stock market.
-
-REITs tend to have a low to moderate correlation with bonds, making them useful diversifiers in a traditional stock-and-bond portfolio. They also tend to perform relatively well during periods of moderate inflation, though rising interest rates can create headwinds because higher rates increase borrowing costs and make REIT dividends less attractive relative to bond yields.
-
-#### Major REIT ETFs and Index Funds
-
-For most individual investors, the simplest way to invest in REITs is through index funds or ETFs:
-
-- **Vanguard Real Estate ETF (VNQ):** Tracks the MSCI US Investable Market Real Estate 25/50 Index. One of the largest and most popular REIT ETFs with very low expense ratio (0.12%).
-- **Schwab U.S. REIT ETF (SCHH):** Tracks the Dow Jones Equity All REIT Capped Index. Even lower expense ratio (0.07%).
-- **iShares Core U.S. REIT ETF (USRT):** Tracks the FTSE Nareit Equity REITs Index. Expense ratio of 0.08%.
-- **Vanguard Global ex-U.S. Real Estate ETF (VNQI):** Provides exposure to international REITs for global diversification.
-- **iShares Mortgage Real Estate ETF (REM):** Focuses specifically on mortgage REITs, for investors who want mREIT exposure.
-
-#### How Much to Allocate to REITs
-
-There is no single correct answer, but common guidelines include:
-
-- Many financial advisors suggest a REIT allocation of 5-15% of a diversified portfolio.
-- Some target-date funds include 5-10% in REITs.
-- If you already own significant direct real estate (rental properties), you may want less REIT exposure to avoid overconcentration in real estate.
-- If your only real estate exposure is your primary home, adding REITs provides diversification into commercial and multi-family properties.
-
-Remember that the broad stock market already includes REITs. If you own a total stock market index fund, you already have some REIT exposure (roughly 3-4% of the S&P 500 is real estate). A dedicated REIT allocation overweights this sector.
-
-#### REIT Performance Through Market Cycles
-
-Understanding how REITs have performed during different market environments helps set realistic expectations:
-
-**During the 2008-2009 Financial Crisis:** REITs were among the hardest-hit asset classes, falling roughly 68% from peak to trough. Many REITs had taken on excessive leverage during the real estate boom, and the collapse of the housing market dragged down all real estate-related assets. The lesson: REITs with high leverage carry significant downside risk during credit crunches.
-
-**During the 2010-2019 Recovery:** REITs delivered strong returns as real estate values recovered, interest rates remained low, and occupancy rates improved. Industrial REITs and data center REITs were particularly strong performers during this decade, benefiting from the growth of e-commerce and cloud computing.
-
-**During COVID-19 (2020):** REIT performance varied dramatically by sector. Hotel and retail REITs crashed as lockdowns emptied shopping malls and hotels. Data center, cell tower, and industrial (warehouse) REITs thrived as the pandemic accelerated digitalization and e-commerce. This episode demonstrated that "REITs" are not a monolithic asset class -- sector selection matters enormously.
-
-**During the 2022-2023 Interest Rate Hikes:** REITs underperformed as the Federal Reserve rapidly raised interest rates. Higher rates increased borrowing costs for REITs and made their dividend yields less competitive relative to Treasury bonds. Office REITs faced additional headwinds from the work-from-home trend.
-
-The overarching lesson is that REITs are not a set-it-and-forget-it investment. They are cyclical, interest-rate sensitive, and sector-specific. Within a diversified portfolio, these characteristics can be beneficial, but investors should not expect smooth returns.
-
-#### Risks Specific to REITs
-
-Beyond general market risk, REITs face several unique risks:
-
-- **Interest rate risk:** Rising rates increase borrowing costs and make REIT dividends less attractive relative to bonds.
-- **Leverage risk:** REITs often use significant debt to acquire properties. High leverage amplifies both gains and losses.
-- **Concentration risk:** A REIT focused on a single property type or geographic area is vulnerable to localized downturns.
-- **Tenant risk:** REITs depend on tenants paying rent. Economic downturns, tenant bankruptcies, or failure to re-lease space can reduce income.
-- **Obsolescence risk:** Structural changes in how people work, shop, and live can make certain property types less valuable. Enclosed shopping malls and traditional office buildings have faced significant headwinds from e-commerce and remote work.
-- **Development risk:** REITs that build new properties face construction cost overruns, permitting delays, and the risk that the property is completed just as market conditions deteriorate.
-- **Management risk:** Unlike a passive index fund, each REIT is actively managed. Poor capital allocation decisions by management can destroy shareholder value.
+無論是構建退休投資組合、尋求收入，還是單純了解所有投資選項，房地產信託基金都值得關注。它並非萬靈丹，但能填補股票和債券單獨無法承擔的角色。
 
 ---
 
-### c) Common Misconceptions
+### b) 需要了解的知識
 
-**Misconception 1: "REITs are just like owning rental property."**
-While REITs invest in real estate, the experience is very different from owning property directly. REIT shares trade on stock exchanges and experience daily price volatility. You have no control over which properties are bought or sold. You cannot use personal leverage or take advantage of direct real estate tax benefits like 1031 exchanges. REITs behave more like stocks than like physical real estate in the short term.
+#### 何謂房地產信託基金？
 
-**Misconception 2: "REITs always protect against inflation."**
-REITs have historically provided some inflation protection over long periods because rents tend to rise with inflation. However, in the short term, rising inflation often leads to rising interest rates, which can hurt REIT prices. The relationship between REITs and inflation is more nuanced than the simple narrative suggests.
+房地產信託基金（REIT）是擁有、運營或融資收益性房地產的公司。美國國會於1960年創立房地產信託基金，旨在讓普通投資者獲得大型收益性房地產的投資渠道——與互惠基金讓人們投資分散股票組合的理念相同。
 
-**Misconception 3: "Higher REIT dividend yield is always better."**
-A very high yield often signals that the market expects trouble -- perhaps a dividend cut, declining property values, or excessive leverage. Some of the highest-yielding REITs have turned out to be the worst investments. Always investigate why the yield is high before investing.
+要符合房地產信託基金資格，公司須符合以下條件：
 
-**Misconception 4: "Non-traded REITs are safer because they don't fluctuate."**
-Non-traded REITs are not listed on exchanges, so you do not see daily price movements. But the lack of price transparency does not mean the underlying value is stable. Non-traded REITs often have high fees, limited liquidity, and less regulatory oversight. The smooth reported returns can be an illusion masking real volatility.
+- 至少75%的總資產投資於房地產、現金或美國國債。
+- 至少75%的總收入來自租金、按揭利息或房地產銷售。
+- 每年至少將90%的應課稅收入以股息形式分派給股東。
+- 採用企業、信託或協會形式組建。
+- 由董事會或受託人管理。
+- 首年後至少擁有100名股東。
+- 五名或以下個人持有的股份不超過50%（「5/50規則」）。
 
-**Misconception 5: "REITs are only for income investors."**
-While REITs do provide substantial income through dividends, total return (price appreciation plus dividends) is what matters. Over long periods, equity REITs have delivered total returns comparable to the broad stock market. Growth-oriented investors should not dismiss REITs simply because they are associated with income investing.
+90%的分派要求是最具特色的規定。它意味著房地產信託基金將大部分盈利直接轉交給投資者，而非留作再投資。這造就了高股息收益率，但也意味著房地產信託基金通常需要透過外部融資（發行新股或舉債）來資助增長。
 
-**Misconception 6: "All REITs are the same."**
-A data center REIT and a shopping mall REIT have very different risk profiles, growth prospects, and sensitivities to economic factors. Lumping all REITs together is like saying all stocks are the same. Sector selection within REITs can have a significant impact on returns.
+#### 房地產信託基金的類型
+
+房地產信託基金可按多種方式分類。最根本的區別在於股權型房地產信託基金、按揭型房地產信託基金和混合型房地產信託基金。
+
+**股權型房地產信託基金**擁有並經營收益性物業，主要透過收取租金賺取收入。股權型房地產信託基金佔房地產信託基金市場的絕大多數——約佔所有上市房地產信託基金的90%。大多數人提到房地產信託基金時，通常指的就是股權型房地產信託基金。
+
+股權型房地產信託基金的物業類型包括：
+
+- **辦公樓：** 租賃給企業客戶的樓宇。例子包括Boston Properties和Vornado Realty Trust。
+- **零售：** 購物中心、社區商場和奧特萊斯。例子包括Simon Property Group和Realty Income。
+- **住宅：** 公寓大廈和單戶出租住宅。例子包括AvalonBay Communities和Equity Residential。
+- **工業：** 貨倉、配送中心和物流設施。例子包括Prologis和Duke Realty。
+- **醫療：** 醫院、長者住房、醫療辦公樓。例子包括Welltower和Ventas。
+- **數據中心：** 存放伺服器和網絡設備的設施。例子包括Equinix和Digital Realty。
+- **手機信號塔：** 無線通信基礎設施。例子包括American Tower和Crown Castle。
+- **自助儲存：** 儲存設施。例子包括Public Storage和Extra Space Storage。
+- **特殊類型：** 林地、農地、賭場、戶外廣告及其他利基物業。
+
+**按揭型房地產信託基金（mREITs）** 並不持有實物物業，而是投資於按揭貸款和按揭抵押證券。它們透過這些金融工具的利息賺取收入，通常使用大量槓桿來放大回報。按揭型房地產信託基金往往比股權型房地產信託基金更具波動性，且對利率更為敏感。例子包括Annaly Capital Management和AGNC Investment。
+
+**混合型房地產信託基金**結合股權型和按揭型兩種方式，同時持有物業並投資按揭。這類基金在當今市場較為罕見。
+
+#### 如何評估房地產信託基金
+
+評估房地產信託基金的方法與一般股票有所不同。最重要的指標包括：
+
+**每基金單位可分派收入（FFO）。** 傳統每股盈利（EPS）並不適合房地產信託基金，因為它包含折舊——一種非現金支出，未必反映物業的實際貶值。FFO將折舊加回盈利，從而更清晰地呈現房地產信託基金的現金創造能力。市盈率（P/FFO）即為房地產信託基金版本的市盈率（P/E）。
+
+**調整後每基金單位可分派收入（AFFO）。** AFFO在FFO基礎上，扣減維持物業所需的定期資本開支，被認為是更準確衡量房地產信託基金可持續現金流及其派息能力的指標。
+
+**資產淨值（NAV）。** 這是所有物業市值減去負債的估計值。將房地產信託基金的股價與每股資產淨值比較，可判斷基金是以溢價還是折讓於其持有房地產的內在價值交易。
+
+**股息收益率。** 由於房地產信託基金分派大部分收入，股息收益率是關鍵指標。然而，收益率過高可能是警示信號——可能反映市場預期股息將被削減。
+
+**出租率。** 房地產信託基金可出租空間中目前已出租的百分比。出租率越高，收入通常越穩定。
+
+**負債股本比率。** 房地產信託基金通常使用槓桿來收購物業。過度舉債可能在市況下行時放大虧損。保守型投資者偏好槓桿適中的房地產信託基金。
+
+#### 房地產信託基金的稅務處理
+
+房地產信託基金的稅務處理是令許多投資者混淆的領域：
+
+- **房地產信託基金股息通常按普通收入稅率徵稅**，而非較低的合資格股息稅率。這是因為房地產信託基金對其分派的盈利無需繳納企業所得稅——稅務責任轉移至股東。
+- 根據2017年《減稅與就業法案》，投資者可透過合資格商業收入（QBI）扣減，對房地產信託基金股息收入扣減20%。這實際上將符合資格納稅人的房地產信託基金股息最高稅率從37%降至29.6%。
+- 房地產信託基金的**資本增益分派**（即房地產信託基金出售物業獲利並分派增益時）按長期資本增益稅率徵稅。
+- **資本返還分派**會降低您的成本基礎，而非即時應課稅。您在出售股份時才需繳稅。
+
+由於稅務處理相對不利（與合資格股息相比），房地產信託基金通常最適合持有於個人退休賬戶（IRA）或401(k)等稅務優惠賬戶，以消除稅務拖累。
+
+#### 房地產信託基金與直接持有房地產的比較
+
+許多投資者爭論應投資房地產信託基金還是購買實物物業。兩種方式各有明顯優勢：
+
+**房地產信託基金相對直接持有房地產的優勢：**
+
+- 流動性：您可在數秒內買賣房地產信託基金股份。出售實物物業則需數個月。
+- 分散投資：單一房地產信託基金可能持有多個地區的數百個物業。
+- 專業管理：房地產信託基金聘用經驗豐富的房地產專業人士。
+- 最低投資額低：您只需約20至100美元便可購買一股。
+- 無租戶煩惱：無需深夜接聽有關水管爆裂的電話。
+- 透明度：上市房地產信託基金定期向證券交易委員會提交財務報告。
+
+**直接持有房地產相對房地產信託基金的優勢：**
+
+- 槓桿：您可以60,000美元首期購入30萬美元的物業，從而放大回報。房地產信託基金投資者無法使用同等程度的個人槓桿。
+- 稅務優惠：直接物業持有人可扣減按揭利息、物業稅、折舊及許多營運開支。他們亦可使用1031交換以遞延資本增益稅。
+- 控制權：您自行決定購買哪些物業、如何改善，以及何時出售。
+- 強迫增值：您可透過翻新和優化管理來提升物業價值。
+- 穩定定價：您不會在股票報價機上看到物業價值的每日波動，有助減少情緒化決策。
+
+#### 與股票和債券的相關性
+
+房地產信託基金歷來與大市股票呈中等相關性。長期來看，房地產信託基金與標普500指數的相關性約為0.5至0.7。這意味著房地產信託基金與股票走向有一定關聯，但並非完全同步。
+
+短期而言，相關性可能急升——尤其在市場危機期間，所有資產類別往往同步波動。2008年金融危機期間，房地產信託基金的跌幅甚至超過大市股票。
+
+房地產信託基金與債券的相關性通常為低至中等，使其成為傳統股債組合的有效分散工具。在溫和通脹期間，房地產信託基金的表現往往相對較好，但利率上升可能帶來阻力，因為較高的利率會增加借貸成本，並令房地產信託基金的股息相對於債券收益率的吸引力下降。
+
+#### 主要房地產信託基金交易所買賣基金和指數基金
+
+對大多數個人投資者而言，投資房地產信託基金最簡便的方式是透過指數基金或交易所買賣基金：
+
+- **Vanguard房地產交易所買賣基金（VNQ）：** 追蹤MSCI美國可投資市場房地產25/50指數。最大且最受歡迎的房地產信託基金交易所買賣基金之一，費用比率極低（0.12%）。
+- **Schwab美國房地產信託基金交易所買賣基金（SCHH）：** 追蹤道瓊斯股票全部房地產信託基金上限指數。費用比率更低（0.07%）。
+- **iShares核心美國房地產信託基金交易所買賣基金（USRT）：** 追蹤富時Nareit股權房地產信託基金指數。費用比率為0.08%。
+- **Vanguard全球（美國除外）房地產交易所買賣基金（VNQI）：** 提供國際房地產信託基金投資，實現全球分散投資。
+- **iShares按揭型房地產信託基金交易所買賣基金（REM）：** 專注於按揭型房地產信託基金，適合希望獲得按揭型房地產信託基金敞口的投資者。
+
+#### 房地產信託基金的配置比例
+
+沒有單一正確答案，但常見建議包括：
+
+- 許多財務顧問建議在分散投資組合中配置5%至15%的房地產信託基金。
+- 部分目標日期基金包含5%至10%的房地產信託基金。
+- 如果您已持有大量直接房地產（出租物業），則可能需要減少房地產信託基金的配置，以避免過度集中於房地產。
+- 如果您唯一的房地產投資是自住物業，增加房地產信託基金可提供對商業及多戶住宅物業的分散投資。
+
+請注意，大市股票指數已包含房地產信託基金。若您持有全市場指數基金，您已有一定的房地產信託基金敞口（約佔標普500指數的3%至4%）。專項配置房地產信託基金將令該板塊的比重超過市場比重。
+
+#### 不同市場周期中的房地產信託基金表現
+
+了解房地產信託基金在不同市場環境下的表現，有助設立合理預期：
+
+**2008至2009年金融危機期間：** 房地產信託基金是跌幅最慘烈的資產類別之一，從高峰至谷底下跌約68%。許多房地產信託基金在房地產繁榮期間承受了過多槓桿，樓市崩潰拖累所有房地產相關資產。教訓是：高槓桿的房地產信託基金在信貸緊縮期間面臨重大下行風險。
+
+**2010至2019年復甦期間：** 隨著房地產價值回升、利率維持低位及出租率改善，房地產信託基金錄得強勁回報。工業類和數據中心類房地產信託基金在這十年間表現尤為突出，受惠於電子商貿和雲端運算的增長。
+
+**2020年新冠疫情期間：** 不同板塊的房地產信託基金表現大相徑庭。由於封城措施令購物中心和酒店門可羅雀，酒店和零售類房地產信託基金急劇下跌。數據中心、手機信號塔和工業（貨倉）類房地產信託基金則蓬勃發展，因為疫情加速了數字化和電子商貿的進程。這一事件表明，「房地產信託基金」並非鐵板一塊的資產類別——板塊選擇至關重要。
+
+**2022至2023年加息期間：** 隨著美聯儲大幅加息，房地產信託基金表現遜色。較高的利率增加了房地產信託基金的借貸成本，並令其股息收益率相對於國債的競爭力下降。辦公樓類房地產信託基金還面臨在家工作趨勢帶來的額外阻力。
+
+總體教訓是，房地產信託基金並非一勞永逸的投資。它們具有周期性、對利率敏感，且因板塊而異。在分散投資組合中，這些特性可帶來好處，但投資者不應期望回報平穩。
+
+#### 房地產信託基金的特有風險
+
+除一般市場風險外，房地產信託基金還面臨若干特有風險：
+
+- **利率風險：** 利率上升會增加借貸成本，並令房地產信託基金股息相對於債券的吸引力下降。
+- **槓桿風險：** 房地產信託基金通常使用大量舉債來收購物業。高槓桿既放大收益，也放大虧損。
+- **集中風險：** 專注於單一物業類型或地區的房地產信託基金容易受局部市況下行影響。
+- **租戶風險：** 房地產信託基金依賴租戶支付租金。經濟下行、租戶破產或無法重新出租空間，均可能減少收入。
+- **淘汰風險：** 人們工作、購物和生活方式的結構性變化，可能令某些物業類型貶值。封閉式購物中心和傳統辦公樓均因電子商貿和遙距工作而面臨重大阻力。
+- **開發風險：** 興建新物業的房地產信託基金面臨建築成本超支、審批延誤，以及物業落成時恰逢市場條件惡化的風險。
+- **管理風險：** 與被動指數基金不同，每個房地產信託基金均由人主動管理。管理層錯誤的資本配置決策可能損害股東價值。
 
 ---
 
-### d) Common Questions and Answers
+### c) 常見誤解
 
-**Q: Should I invest in individual REITs or REIT index funds?**
-A: For most investors, REIT index funds or ETFs are the better choice. They provide instant diversification across dozens or hundreds of REITs, have low fees, and require no expertise in evaluating individual properties or management teams. Individual REIT investing requires understanding specific property markets, lease structures, management quality, and capital allocation decisions.
+**誤解一：「房地產信託基金就像直接持有出租物業。」**
+雖然房地產信託基金投資於房地產，但其體驗與直接持有物業截然不同。房地產信託基金股份在證券交易所上市買賣，每日價格波動。您對購買或出售哪些物業沒有任何控制權。您無法使用個人槓桿或享受直接房地產稅務優惠（如1031交換）。短期而言，房地產信託基金的行為更像股票，而非實物房地產。
 
-**Q: Are REITs good investments during rising interest rate environments?**
-A: Rising interest rates have historically created short-term headwinds for REITs. Higher rates increase borrowing costs, and REIT dividends become less attractive relative to bond yields. However, if rates are rising because the economy is strong, the positive effects of economic growth (higher rents, better occupancy) can offset the negative effects of higher rates. The relationship is complex and depends on why rates are rising.
+**誤解二：「房地產信託基金總能抵禦通脹。」**
+長期而言，由於租金通常隨通脹上升，房地產信託基金歷來提供一定的通脹保護。然而，短期內，通脹上升往往導致利率上升，可能損害房地產信託基金的價格。房地產信託基金與通脹的關係比簡單說法更為複雜。
 
-**Q: Where should I hold REITs -- taxable account or retirement account?**
-A: Because REIT dividends are taxed as ordinary income (not at the lower qualified dividend rate), REITs are generally more tax-efficient when held in tax-advantaged accounts like IRAs or 401(k)s. However, this is not an absolute rule. If your tax bracket is low or if you benefit from the QBI deduction, holding REITs in a taxable account may be acceptable.
+**誤解三：「房地產信託基金股息收益率越高越好。」**
+收益率過高往往是市場預期出現問題的信號——可能是削減股息、物業價值下跌或過度槓桿。部分收益率最高的房地產信託基金結果證明是最差的投資。投資前務必調查收益率高企的原因。
 
-**Q: How do I research a specific REIT before investing?**
-A: Start with the key financial metrics: Funds From Operations (FFO) per share and its growth trend, the payout ratio (dividends as a percentage of FFO), the debt-to-equity ratio, and the occupancy rate for the REIT's properties. Then look at qualitative factors: the quality and location of the properties, the creditworthiness of major tenants, the management team's track record, and the REIT's strategy for growth. Finally, compare the REIT's valuation (Price-to-FFO) to its peers in the same property sector. Morningstar, Nareit.com, and the REIT's own investor relations website are good starting points.
+**誤解四：「非上市房地產信託基金因不會波動而更安全。」**
+非上市房地產信託基金不在交易所掛牌，因此您看不到每日價格波動。但缺乏價格透明度並不代表基本價值穩定。非上市房地產信託基金通常收費高昂、流動性有限，且監管監督較少。平滑的申報回報可能是掩蓋真實波動性的假象。
 
-**Q: What is the difference between a REIT and a real estate fund?**
-A: A REIT is a specific legal structure with defined requirements (90% income distribution, 75% assets in real estate, etc.). A real estate fund is a broader term that can include mutual funds or ETFs that invest in REITs, private real estate partnerships, or direct property investments. A real estate mutual fund might invest in REITs, real estate operating companies, and other real estate-related securities without itself being a REIT.
+**誤解五：「房地產信託基金只適合收入型投資者。」**
+雖然房地產信託基金確實透過股息提供可觀收入，但重要的是總回報（價格升值加股息）。長期來看，股權型房地產信託基金的總回報與大市股票相當。以增長為導向的投資者不應僅因為房地產信託基金與收入投資掛鉤而對其不屑一顧。
 
-**Q: Can REITs go bankrupt?**
-A: Yes. REITs are corporations and can go bankrupt like any other company. During the 2008 financial crisis, General Growth Properties -- one of the largest mall REITs -- filed for bankruptcy. Excessive leverage, poor property selection, or secular decline in a property type can all lead to REIT failures. Diversification through index funds mitigates this risk.
+**誤解六：「所有房地產信託基金都一樣。」**
+數據中心房地產信託基金與購物中心房地產信託基金的風險狀況、增長前景及對經濟因素的敏感度截然不同。將所有房地產信託基金混為一談，就如說所有股票都一樣。房地產信託基金內的板塊選擇對回報有重大影響。
 
-**Q: How do REITs perform during recessions?**
-A: REIT performance during recessions varies by sector. Defensive sectors like healthcare, self-storage, and cell towers tend to hold up better because demand for their services is less cyclical. Cyclical sectors like hotels, office buildings, and retail can suffer significantly during economic downturns as vacancies rise and rents decline. As a broad asset class, REITs typically decline during recessions but recover afterward.
+---
 
-**Q: What about international REITs?**
-A: Many countries have adopted REIT-like structures, including the UK, Japan, Australia, Singapore, and several European nations. International REITs provide geographic diversification and exposure to different real estate markets. However, they add currency risk and may have different regulatory frameworks. A small allocation to international REITs (through funds like VNQI) can complement a domestic REIT portfolio.
+### d) 常見問答
+
+**問：我應該投資個別房地產信託基金還是房地產信託基金指數基金？**
+答：對大多數投資者而言，房地產信託基金指數基金或交易所買賣基金是更佳選擇。它們即時提供數十至數百個房地產信託基金的分散投資，費用低廉，且無需具備評估個別物業或管理團隊的專業知識。投資個別房地產信託基金需要了解特定物業市場、租約結構、管理質素及資本配置決策。
+
+**問：在加息環境下，房地產信託基金是好的投資嗎？**
+答：歷史上，利率上升曾在短期內給房地產信託基金帶來阻力。較高的利率增加借貸成本，且房地產信託基金股息相對於債券收益率的吸引力下降。然而，如果利率上升是因為經濟強勁，經濟增長的正面效應（租金上升、出租率改善）可能抵消較高利率的負面影響。這種關係很複雜，取決於利率上升的原因。
+
+**問：我應該在應稅賬戶還是退休賬戶中持有房地產信託基金？**
+答：由於房地產信託基金股息按普通收入稅率（而非較低的合資格股息稅率）徵稅，房地產信託基金通常在個人退休賬戶（IRA）或401(k)等稅務優惠賬戶中持有時稅務效益更高。然而，這並非絕對規則。如果您的稅率較低，或者您可受惠於QBI扣減，在應稅賬戶中持有房地產信託基金或許也可接受。
+
+**問：投資特定房地產信託基金前如何進行研究？**
+答：從關鍵財務指標入手：每基金單位可分派收入（FFO）及其增長趨勢、派息比率（股息佔FFO的百分比）、負債股本比率，以及房地產信託基金物業的出租率。然後考察定性因素：物業的質素和位置、主要租戶的信用狀況、管理團隊的往績，以及房地產信託基金的增長策略。最後，將房地產信託基金的估值（P/FFO）與同一物業板塊的同行進行比較。晨星公司、Nareit.com及房地產信託基金本身的投資者關係網站是良好的起點。
+
+**問：房地產信託基金與房地產基金有何分別？**
+答：房地產信託基金是具有特定要求（分派90%收入、75%資產投資於房地產等）的特定法律架構。房地產基金是一個更廣泛的術語，可包括投資於房地產信託基金的互惠基金或交易所買賣基金、私人房地產合夥企業，或直接物業投資。房地產互惠基金可能投資於房地產信託基金、房地產營運公司及其他房地產相關證券，而其本身並非房地產信託基金。
+
+**問：房地產信託基金會破產嗎？**
+答：會。房地產信託基金是公司，與任何其他公司一樣可能破產。2008年金融危機期間，美國最大購物中心房地產信託基金之一的General Growth Properties申請破產保護。過度槓桿、物業選擇失誤或某類物業的長期衰退，均可能導致房地產信託基金失敗。透過指數基金進行分散投資可降低此類風險。
+
+**問：房地產信託基金在衰退期間表現如何？**
+答：房地產信託基金在衰退期間的表現因板塊而異。醫療、自助儲存和手機信號塔等防禦性板塊往往較能抵禦衰退，因為其服務需求的周期性較弱。酒店、辦公樓和零售等周期性板塊在經濟下行期間可能遭受重創，原因是空置率上升、租金下跌。作為整體資產類別，房地產信託基金通常在衰退期間下跌，但其後會復甦。
+
+**問：國際房地產信託基金呢？**
+答：許多國家已採納類似房地產信託基金的架構，包括英國、日本、澳洲、新加坡及多個歐洲國家。國際房地產信託基金提供地域分散及不同房地產市場的投資機會。然而，它們增加了匯率風險，且可能受不同監管框架規範。少量配置國際房地產信託基金（透過VNQI等基金）可作為本地房地產信託基金組合的補充。
 
 ---
 
 ## YouTube Script
 
-**Side Lesson 7: REITs and Real Estate Investing**
+**附錄課第七課：房地產信託基金與房地產投資**
 
 ---
 
-**Alex:** Welcome back, everyone. Today we are tackling REITs -- Real Estate Investment Trusts. Sam, have you ever thought about investing in real estate?
+**Horace：** 歡迎回來，各位。今天我們來談談房地產信託基金（REITs）。Stella，你有沒有想過投資房地產？
 
-**Sam:** Definitely. I mean, who has not heard the advice to buy property? But honestly, I do not have hundreds of thousands of dollars lying around for a down payment. And being a landlord sounds exhausting.
+**Stella：** 當然有。我是說，誰沒聽過「買樓」的建議呢？但老實說，我沒有幾十萬港幣閒置來付首期。而且做業主聽起來真的很累人。
 
-**Alex:** You are not alone. That is exactly why REITs exist. They let you invest in real estate without buying a single building.
+**Horace：** 你並不孤單。這正是房地產信託基金存在的原因。它讓你在不用購入任何樓宇的情況下投資房地產。
 
 [VISUAL: Split screen -- left side shows a person stressed out dealing with tenant complaints and property repairs; right side shows someone calmly buying REIT shares on a phone app]
 
-**Sam:** Okay, so what exactly is a REIT?
+**Stella：** 好，那麼房地產信託基金究竟是什麼？
 
-**Alex:** A REIT is a company that owns or finances income-producing real estate. Congress created them back in 1960. Think of it like a mutual fund, but instead of holding stocks, it holds real estate -- office buildings, apartments, shopping centers, warehouses, you name it.
+**Horace：** 房地產信託基金是一家擁有或融資收益性房地產的公司。美國國會於1960年創立了這一制度。把它想像成一隻互惠基金，但持有的不是股票，而是房地產——辦公大樓、公寓、購物中心、貨倉，應有盡有。
 
-**Sam:** So I buy shares in this company, and I own a tiny piece of all those buildings?
+**Stella：** 所以我買入這家公司的股份，就等於持有所有這些樓宇的一小部分？
 
-**Alex:** Exactly. And here is the key feature that makes REITs special. By law, they must distribute at least 90% of their taxable income to shareholders as dividends.
+**Horace：** 正是。而這裡有一個令房地產信託基金特別的關鍵規定。根據法律，它們必須將至少90%的應課稅收入以股息形式分派給股東。
 
 [ANIMATION: A building generates rental income. 90% of that income flows out as dividends to shareholders. Only 10% stays with the company.]
 
-**Sam:** Ninety percent! That is a huge payout. Why would they agree to give away that much money?
+**Stella：** 九成！這是非常大的分派比例。為何他們會同意派出這麼多錢？
 
-**Alex:** Because in exchange for distributing 90%, the REIT does not pay corporate income tax on those distributions. It is a trade-off. The REIT avoids double taxation, and investors get substantial income.
+**Horace：** 因為作為分派90%的交換條件，房地產信託基金無需就這些分派繳納企業所得稅。這是一種取捨。房地產信託基金避免了雙重課稅，而投資者則獲得可觀的收入。
 
-**Sam:** So where does the REIT get money to buy new properties if it is giving away 90% of its income?
+**Stella：** 那麼，如果房地產信託基金要把90%的收入派出去，它從哪裡籌集資金來購買新物業？
 
-**Alex:** Great question. REITs typically fund growth by issuing new shares or taking on debt. They cannot just reinvest profits like a normal company. This is why you will see REITs frequently raising capital in the markets.
+**Horace：** 問得好。房地產信託基金通常透過發行新股或舉債來資助增長。它們不能像普通公司那樣將盈利留作再投資。這就是為何你會看到房地產信託基金頻繁在市場上融資。
 
-**Sam:** Got it. Now, are all REITs the same?
+**Stella：** 明白了。那麼，所有房地產信託基金都一樣嗎？
 
-**Alex:** Not at all. There are three main types. First, equity REITs -- these actually own and operate properties. They collect rent. This is the most common type, about 90% of all publicly traded REITs.
+**Horace：** 完全不一樣。主要有三種類型。首先是股權型房地產信託基金——這些基金實際上擁有並經營物業，透過收取租金賺取收入。這是最常見的類型，約佔所有上市房地產信託基金的90%。
 
 [VISUAL: Infographic showing three categories -- Equity REITs (own buildings), Mortgage REITs (own loans), Hybrid REITs (own both)]
 
-**Sam:** What about the other types?
+**Stella：** 其他類型呢？
 
-**Alex:** Mortgage REITs, or mREITs, do not own buildings. They invest in mortgages and mortgage-backed securities. They make money from the interest on those loans. They tend to be more volatile and very sensitive to interest rate changes.
+**Horace：** 按揭型房地產信託基金（mREITs）不持有樓宇，而是投資於按揭貸款和按揭抵押證券，透過這些貸款的利息賺取收入。它們往往波動性更大，且對利率變動非常敏感。
 
-**Sam:** And hybrid REITs?
+**Stella：** 混合型房地產信託基金呢？
 
-**Alex:** They combine both approaches -- owning some properties and some mortgages. But hybrids are pretty rare these days. Most REITs focus on one approach or the other.
+**Horace：** 它們結合兩種方式——同時持有一些物業和一些按揭。但混合型基金在當今市場相當罕見。大多數房地產信託基金專注於其中一種方式。
 
-**Sam:** Within equity REITs, I imagine there are different property types?
+**Stella：** 在股權型房地產信託基金內，我想有不同的物業類型？
 
-**Alex:** Absolutely, and this is where it gets interesting. There are office REITs, retail REITs that own shopping malls and stores, residential REITs with apartment buildings, industrial REITs with warehouses and distribution centers, healthcare REITs, and some newer categories that have really taken off.
+**Horace：** 絕對如此，而且這正是有趣之處。有辦公樓類、持有購物中心和商店的零售類、持有公寓大廈的住宅類、持有貨倉和配送中心的工業類、醫療類，以及一些近年真正興起的新類別。
 
 [ANIMATION: A wheel diagram showing different REIT sectors -- office, retail, residential, industrial, healthcare, data centers, cell towers, self-storage, specialty -- with icons for each]
 
-**Sam:** Which newer categories are you talking about?
+**Stella：** 你說的新類別是哪些？
 
-**Alex:** Data centers and cell towers have become huge. Think about it -- Equinix and Digital Realty own the buildings that house the servers running the internet. American Tower and Crown Castle own the cell towers your phone connects to. These infrastructure-type REITs have been some of the best performers over the past decade.
+**Horace：** 數據中心和手機信號塔已變得舉足輕重。想想看——Equinix和Digital Realty擁有存放運行互聯網的伺服器的建築。American Tower和Crown Castle則擁有你手機連接的信號塔。這些基礎設施類房地產信託基金在過去十年是表現最佳的投資之一。
 
-**Sam:** I never would have thought of cell towers as real estate.
+**Stella：** 我從來沒有想過手機信號塔也是房地產。
 
-**Alex:** Most people do not. But the REIT structure works perfectly for them -- they own physical assets that generate predictable rental income from long-term contracts with wireless carriers.
+**Horace：** 大多數人都沒有。但房地產信託基金的架構非常適合它們——它們持有能夠從與無線運營商的長期合約中產生可預期租金收入的實物資產。
 
-**Sam:** So how do I figure out if a REIT is a good investment? Can I just look at the P/E ratio like a regular stock?
+**Stella：** 那我如何判斷一個房地產信託基金是否值得投資？我可以像普通股票一樣看市盈率嗎？
 
-**Alex:** Actually, no. Traditional P/E ratios do not work well for REITs because of depreciation. Buildings get depreciated on the financial statements, which lowers reported earnings. But unlike a machine that actually wears out, well-maintained buildings often increase in value over time.
+**Horace：** 實際上不行。傳統市盈率不適合房地產信託基金，因為折舊的緣故。樓宇在財務報表上會被折舊，這會降低申報盈利。但與真正會磨損的機器不同，維護良好的樓宇往往會隨時間升值。
 
 [VISUAL: Side-by-side comparison -- a factory machine losing value over time vs. a well-maintained building appreciating over time, with depreciation accounting being the same for both]
 
-**Sam:** So the accounting makes the REIT look like it is earning less than it actually is?
+**Stella：** 所以會計處理令房地產信託基金看起來盈利比實際少？
 
-**Alex:** Exactly. That is why the REIT industry uses a metric called Funds From Operations, or FFO. It takes net income and adds back depreciation to give you a clearer picture of actual cash generation.
+**Horace：** 正是。這就是為何房地產信託基金行業使用一個叫做「每基金單位可分派收入」（FFO）的指標。它將折舊加回淨利潤，從而更清晰地呈現實際現金創造能力。
 
-**Sam:** So I should look at Price-to-FFO instead of Price-to-Earnings?
+**Stella：** 所以我應該看P/FFO而不是市盈率？
 
-**Alex:** Yes. And even better, look at Adjusted FFO, or AFFO, which subtracts the capital expenditures needed to maintain the properties. AFFO is the closest thing to true free cash flow for a REIT.
+**Horace：** 對。更好的做法是看調整後每基金單位可分派收入（AFFO），即在FFO基礎上扣減維持物業所需的資本開支。AFFO最接近房地產信託基金的真實自由現金流。
 
-**Sam:** What kind of returns have REITs delivered historically?
+**Stella：** 房地產信託基金的歷史回報如何？
 
-**Alex:** Over the long term, equity REITs have delivered total returns -- that is dividends plus price appreciation -- that are roughly comparable to the broad stock market. Sometimes slightly higher, sometimes slightly lower, depending on the time period you examine.
+**Horace：** 長期而言，股權型房地產信託基金的總回報——即股息加上價格升值——與大市股票大致相當。視乎所考察的時期，有時略高，有時略低。
 
 [ANIMATION: Line graph showing the growth of $10,000 invested in REITs vs. the S&P 500 over 30 years, with the two lines weaving around each other, ending at similar points]
 
-**Sam:** If returns are similar, why bother adding REITs to a portfolio?
+**Stella：** 如果回報相若，為何還要在投資組合中加入房地產信託基金？
 
-**Alex:** Diversification. REITs do not move in perfect lockstep with the stock market. The correlation is moderate -- roughly 0.5 to 0.7 historically. That means adding REITs to a stock portfolio can reduce overall volatility and improve risk-adjusted returns.
+**Horace：** 分散投資。房地產信託基金不會與股票市場完全同步波動。歷史上，相關性為中等——約0.5至0.7。這意味著在股票投資組合中加入房地產信託基金，可降低整體波動性並提升風險調整後回報。
 
-**Sam:** What about inflation? I have heard real estate is a good inflation hedge.
+**Stella：** 那通脹方面呢？我聽說房地產是很好的對沖通脹工具。
 
-**Alex:** It can be, over the long term. Property owners can raise rents as prices rise. But there is a catch -- if inflation leads to higher interest rates, that creates headwinds for REITs in the short term. Higher rates increase borrowing costs and make REIT dividends less attractive compared to bonds.
+**Horace：** 長期來看確實如此。物業持有人可隨物價上升而調高租金。但有一個問題——如果通脹導致利率上升，短期內對房地產信託基金會造成阻力。較高的利率增加借貸成本，並令房地產信託基金股息相對於債券的吸引力下降。
 
-**Sam:** So it is not a simple inflation hedge.
+**Stella：** 所以這不是簡單的通脹對沖工具。
 
-**Alex:** Right. Over decades, REITs tend to keep up with or beat inflation. Over months or quarters, the relationship is messier.
+**Horace：** 正確。幾十年來看，房地產信託基金往往能跟上甚至超越通脹。但以月份或季度計算，這種關係則較為複雜。
 
 [VISUAL: Chart showing REIT performance during different inflation regimes -- moderate inflation periods showing positive returns, high inflation with rapidly rising rates showing mixed results]
 
-**Sam:** Now let us talk about taxes. You mentioned REITs distribute 90% of income. How is that taxed?
+**Stella：** 現在說說稅務方面。你提到房地產信託基金分派90%的收入。這些收入如何課稅？
 
-**Alex:** This is important because it is different from regular stock dividends. Most REIT dividends are taxed as ordinary income, not at the lower qualified dividend rate.
+**Horace：** 這很重要，因為它與普通股票股息有所不同。大多數房地產信託基金股息按普通收入稅率徵稅，而非較低的合資格股息稅率。
 
-**Sam:** Ouch. So if I am in a high tax bracket, that could really eat into my returns.
+**Stella：** 這很痛苦。如果我屬於高稅率階層，這可能會大幅蠶食我的回報。
 
-**Alex:** It could. But there is some relief. The Tax Cuts and Jobs Act created a 20% deduction on qualified REIT dividends through the QBI deduction. So the effective top rate drops from 37% to about 29.6%.
+**Horace：** 確實如此。但有一些緩解措施。《減稅與就業法案》透過QBI扣減，為合資格的房地產信託基金股息提供20%的扣減。因此，實際最高稅率從37%降至約29.6%。
 
-**Sam:** Still higher than the 20% rate on qualified dividends from regular stocks, though.
+**Stella：** 但仍然高於普通股票合資格股息20%的稅率。
 
-**Alex:** Correct. Which is why many advisors recommend holding REITs in tax-advantaged accounts like IRAs or 401(k)s. In those accounts, you do not pay taxes on the dividends until you withdraw the money -- or ever, in the case of a Roth IRA.
+**Horace：** 正確。這就是為何許多顧問建議在個人退休賬戶（IRA）或401(k)等稅務優惠賬戶中持有房地產信託基金。在這些賬戶中，您直至提款時才需就股息繳稅——或者在Roth IRA的情況下，完全無需繳稅。
 
 [VISUAL: Two columns -- "Taxable Account" showing REIT dividends taxed at ordinary income rates, "Tax-Advantaged Account" showing REIT dividends growing tax-deferred or tax-free]
 
-**Sam:** What about investing in actual physical property versus REITs? Is one better?
+**Stella：** 那投資實物物業與房地產信託基金相比如何？哪個更好？
 
-**Alex:** Neither is universally better. They are different tools for different situations. Direct real estate gives you leverage -- you can put 20% down and control a $300,000 asset. It gives you tax deductions for mortgage interest and depreciation. And you have control over your investment.
+**Horace：** 沒有哪個普遍更優。它們是針對不同情況的不同工具。直接持有房地產給你帶來槓桿——你可以用20%首期控制一個30萬美元的資產。它提供按揭利息和折舊的稅務扣減。而且你對自己的投資有控制權。
 
-**Sam:** But you also have to deal with tenants and maintenance and vacancy.
+**Stella：** 但你也要應對租戶、維修和空置。
 
-**Alex:** Exactly. REITs give you instant diversification, professional management, liquidity, and zero headaches. But you give up the leverage and tax benefits of direct ownership. For most investors, especially those who are not real estate professionals, REITs are the more practical choice.
+**Horace：** 正是。房地產信託基金提供即時分散投資、專業管理、流動性，且無任何煩惱。但你放棄了直接持有的槓桿和稅務優惠。對大多數投資者而言，尤其是非房地產專業人士，房地產信託基金是更實際的選擇。
 
-**Sam:** If I want to invest in REITs, should I pick individual ones or go with an index fund?
+**Stella：** 如果我想投資房地產信託基金，應該選擇個別基金還是指數基金？
 
-**Alex:** For most people, a REIT index fund or ETF is the way to go. The Vanguard Real Estate ETF, ticker VNQ, is one of the most popular. It holds over 150 REITs, charges an expense ratio of just 0.12%, and gives you broad exposure to the entire U.S. REIT market.
+**Horace：** 對大多數人而言，房地產信託基金指數基金或交易所買賣基金是首選。Vanguard房地產交易所買賣基金，代碼VNQ，是最受歡迎的之一。它持有超過150個房地產信託基金，費用比率僅為0.12%，讓你全面投資整個美國房地產信託基金市場。
 
 [VISUAL: Table showing top REIT ETFs -- VNQ, SCHH, USRT -- with expense ratios, number of holdings, and dividend yields]
 
-**Sam:** How much of my portfolio should be in REITs?
+**Stella：** 我的投資組合中應配置多少房地產信託基金？
 
-**Alex:** Common recommendations range from 5% to 15%. Keep in mind that if you already own a total stock market index fund, you already have about 3-4% in REITs. A dedicated allocation would add to that.
+**Horace：** 常見建議為5%至15%。請注意，如果您已持有全市場指數基金，您已有約3%至4%的房地產信託基金。專項配置將在此基礎上增加。
 
-**Sam:** And if I already own rental properties?
+**Stella：** 如果我已持有出租物業呢？
 
-**Alex:** Then you might want less REIT exposure to avoid being overweight in real estate. Your total real estate allocation -- direct plus REITs -- is what matters.
+**Horace：** 那麼你可能需要減少房地產信託基金的配置，以避免房地產比重過高。你的整體房地產配置——直接持有加上房地產信託基金——才是重點所在。
 
-**Sam:** One more thing -- I have seen ads for non-traded REITs. What are those about?
+**Stella：** 還有一件事——我見過非上市房地產信託基金的廣告。那是怎麼一回事？
 
-**Alex:** Be very careful there. Non-traded REITs are not listed on stock exchanges. They often have high fees, limited liquidity -- meaning you cannot easily sell your shares -- and less transparency. The fact that you do not see daily price fluctuations does not mean they are less risky. It just means the risk is hidden.
+**Horace：** 這方面要非常謹慎。非上市房地產信託基金不在股票交易所掛牌。它們通常收費高昂、流動性有限——意味著你難以輕易出售股份——而且透明度較低。看不到每日價格波動，並不代表它們風險更低，只是風險被隱藏了。
 
 [VISUAL: Warning icon with bullet points about non-traded REIT risks: high fees (7-10% upfront), illiquidity, lack of transparency, potential conflicts of interest]
 
-**Sam:** That sounds like a trap for unsophisticated investors.
+**Stella：** 這聽起來像是針對缺乏經驗投資者的陷阱。
 
-**Alex:** It can be. Stick with publicly traded REITs or REIT index funds. They offer better liquidity, lower fees, more transparency, and easier tax reporting.
+**Horace：** 確實如此。堅持選擇上市房地產信託基金或房地產信託基金指數基金。它們提供更好的流動性、更低費用、更高透明度，以及更簡便的稅務申報。
 
-**Sam:** Before we wrap up, I want to ask about risk. Are there specific dangers with REITs that I should watch for?
+**Stella：** 在總結之前，我想問問風險方面。房地產信託基金有什麼特別需要警惕的危險？
 
-**Alex:** Absolutely. The biggest risk is leverage. REITs often use a lot of debt to buy properties. In good times, leverage amplifies returns. In bad times, it amplifies losses. During the 2008 crisis, heavily leveraged REITs were devastated -- some lost 80% or more of their value. Always check a REIT's debt-to-equity ratio before investing.
+**Horace：** 當然。最大的風險是槓桿。房地產信託基金通常大量舉債來購買物業。在好的時候，槓桿放大回報。在壞的時候，它放大虧損。2008年危機期間，高槓桿的房地產信託基金損失慘重——有些損失了80%甚至更多的價值。投資前務必查看房地產信託基金的負債股本比率。
 
 [VISUAL: Leverage amplification diagram. A REIT with 50% debt: property values rise 20%, equity rises 40% (amplified). Property values fall 20%, equity falls 40% (amplified the wrong way). High leverage makes both directions more extreme.]
 
-**Sam:** What about the risk that a specific property type becomes obsolete?
+**Stella：** 那特定物業類型被淘汰的風險呢？
 
-**Alex:** That is structural risk, and it is very real. Think about enclosed shopping malls. Twenty years ago, mall REITs were considered blue-chip investments. Then e-commerce reshaped retail, and many malls saw declining foot traffic, store closures, and falling rents. The COVID pandemic accelerated this trend. Similarly, traditional office REITs are now facing questions about remote work permanently reducing demand for office space.
+**Horace：** 這是結構性風險，而且非常真實。想想封閉式購物中心。二十年前，商場房地產信託基金被視為藍籌投資。然後電子商貿重塑了零售業，許多商場人流下降、商店相繼關閉、租金下跌。新冠疫情加速了這一趨勢。同樣地，傳統辦公樓房地產信託基金現在也面臨遙距工作是否會永久減少辦公室需求的疑問。
 
-**Sam:** So sector selection within REITs matters a lot.
+**Stella：** 所以房地產信託基金內的板塊選擇非常重要。
 
-**Alex:** It matters enormously. Data center REITs and cell tower REITs have thrived because they are on the right side of technological trends. Enclosed mall REITs and some office REITs have struggled because they are on the wrong side. When you buy a broad REIT index fund, you get exposure to all sectors, which provides some protection. But if you pick individual REITs, you are making a bet on a specific property type's future.
+**Horace：** 極為重要。數據中心和手機信號塔類房地產信託基金蓬勃發展，因為它們站在科技趨勢的正確一邊。封閉式商場和部分辦公樓類房地產信託基金則步履維艱，因為它們站在了錯誤的一邊。當你購買廣泛的房地產信託基金指數基金時，你獲得所有板塊的投資，提供一定保護。但如果你選擇個別房地產信託基金，你就是在押注特定物業類型的未來。
 
-**Sam:** What about interest rates? We touched on this, but can you give a concrete example?
+**Stella：** 那利率方面呢？我們稍有提及，你能給一個具體例子嗎？
 
-**Alex:** Sure. In 2022, the Federal Reserve raised interest rates aggressively -- from near zero to over 5% in about 18 months. During that period, the Vanguard Real Estate ETF (VNQ) fell about 26%. The mechanism is straightforward: higher rates make borrowing more expensive for REITs, and higher bond yields make REIT dividends less competitive. Investors selling REITs to buy suddenly attractive Treasury bonds pushed prices down.
+**Horace：** 當然。2022年，美聯儲大幅加息——在約18個月內從接近零升至超過5%。在此期間，Vanguard房地產交易所買賣基金（VNQ）下跌了約26%。機制很簡單：較高的利率令房地產信託基金的借貸成本上升，而較高的債券收益率令房地產信託基金的股息競爭力下降。投資者出售房地產信託基金轉買突然變得具吸引力的國債，推低了價格。
 
 [ANIMATION: See-saw diagram. On one side: REIT dividend yield at 4%. On the other side: Treasury bond yield rising from 1% to 5%. As Treasury yields rise, the REIT side goes down because investors shift money to the "safer" option with now-comparable yield.]
 
-**Sam:** So REITs are essentially competing with bonds for income-seeking investors.
+**Stella：** 所以房地產信託基金本質上是在與債券競爭，爭奪尋求收入的投資者。
 
-**Alex:** That is a useful way to think about it. When bonds yield 1%, a 4% REIT yield is very attractive. When bonds yield 5%, that same 4% REIT yield has to compete with a much safer alternative.
+**Horace：** 這是一個有用的思考方式。當債券收益率為1%時，4%的房地產信託基金收益率非常吸引。當債券收益率為5%時，同樣4%的房地產信託基金收益率就要與一個安全得多且現在收益相近的替代品競爭了。
 
-**Sam:** Let me summarize what I have learned. REITs let me invest in real estate without buying property. They must pay out 90% of income as dividends. There are equity REITs that own buildings and mortgage REITs that own loans. I should use FFO instead of P/E to value them. REIT dividends are taxed as ordinary income, so they are better held in tax-advantaged accounts. Leverage and interest rates are the biggest risk factors. Sector selection matters because different property types face different structural trends. And for most investors, a low-cost REIT index fund like VNQ is the simplest approach.
+**Stella：** 讓我總結一下我學到的東西。房地產信託基金讓我在不購買物業的情況下投資房地產。它們必須將90%的收入以股息形式分派。有擁有樓宇的股權型房地產信託基金，也有持有貸款的按揭型房地產信託基金。我應該用FFO而非市盈率來估值。房地產信託基金股息按普通收入稅率徵稅，因此更適合持有於稅務優惠賬戶。槓桿和利率是最大的風險因素。板塊選擇很重要，因為不同物業類型面臨不同的結構性趨勢。對大多數投資者而言，低成本的房地產信託基金指數基金（如VNQ）是最簡單的方式。
 
-**Alex:** Perfect summary. REITs are not exotic or complicated -- they are simply another tool in the diversification toolkit. A modest allocation can add income and diversification to any portfolio.
+**Horace：** 完美的總結。房地產信託基金並不神秘或複雜——它們只是分散投資工具箱中的另一種工具。適度配置可為任何投資組合增添收入和分散效果。
 
 [ANIMATION: Final graphic showing a diversified portfolio pie chart with stocks, bonds, and a REIT slice highlighted, with text: "REITs: Diversification through real estate without the landlord headaches"]
 
-**Sam:** Thanks, Alex. Next time, we will look at something that affects every fund investor but often gets overlooked -- fees.
+**Stella：** 謝謝你，Horace（陳馬）。下一課，我們將探討一個影響每位基金投資者但往往被忽視的話題——費用。
 
-**Alex:** That is right. Understanding fees can literally save you hundreds of thousands of dollars over a lifetime. See you in the next lesson.
+**Horace：** 沒錯。了解費用對你一生的財富積累可能意味著數十萬港幣的差距。下課見。
 
 ---
 
-*End of Side Lesson 7*
+*附錄課第七課完*

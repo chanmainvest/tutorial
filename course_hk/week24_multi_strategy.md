@@ -1,980 +1,968 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 24: Building a Multi-Strategy Portfolio
+# 第24週：構建多策略投資組合
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何這一點至關重要
 
-You have spent the last 23 weeks building an investment education from the ground up. You understand asset classes, risk and return, diversification, bonds, equities, valuation, international investing, and factor exposure. Now comes the most important step: putting it all together into a coherent portfolio that reflects your goals, your risk tolerance, and your investment philosophy.
+過去23週，你從零開始建立了投資知識體系。你已掌握資產類別、風險與回報、分散投資、債券、股票、估值、國際投資及因子投資等知識。現在，最重要的一步來了：將所有知識融會貫通，構建一個能反映你目標、風險承受能力及投資理念的連貫投資組合。
 
-The difference between knowing individual investment concepts and actually building a portfolio is like the difference between knowing how to play individual notes on a piano and being able to play a complete piece of music. The notes are essential, but the magic is in how they combine.
+了解個別投資概念與真正構建投資組合之間的差距，就如同懂得彈奏個別音符與能夠演奏一首完整樂曲之間的差距。音符固然不可或缺，但真正的魔法在於它們如何組合在一起。
 
-A multi-strategy portfolio matters because:
+多策略投資組合之所以重要，原因如下：
 
-1. **No single strategy works all the time.** Value investing has multi-year drawdowns. Momentum crashes at market turning points. Bonds suffer when interest rates rise. International stocks trail domestic stocks for decades. By combining strategies, you ensure that when one approach is struggling, another is contributing positively. This is the essence of robust portfolio construction.
+1. **沒有任何單一策略能持續奏效。** 價值投資有長達數年的回撤。動量策略在市場轉捩點時會急劇下跌。當利率上升時，債券會受到衝擊。國際股票可能連續數十年跑輸本地股票。透過組合多種策略，你能確保當某一策略表現欠佳時，另一策略正在作出正面貢獻。這正是穩健投資組合構建的精髓。
 
-2. **Behavioral resilience comes from design.** The most common reason investors fail is not that they choose bad investments -- it is that they abandon good investments at bad times. A portfolio designed with multiple complementary strategies is easier to hold through turbulence because not everything is going down at once. This dramatically reduces the temptation to panic-sell.
+2. **行為韌性源於設計。** 投資者失敗最常見的原因，並非選擇了差劣的投資，而是在錯誤的時機放棄了良好的投資。一個以多種互補策略設計的投資組合，在市場波動時更易於持守，因為並非所有持倉都在同時下跌。這大大減少了恐慌拋售的衝動。
 
-3. **Risk management becomes systematic.** Instead of hoping for the best, you can deliberately allocate risk across different strategies, asset classes, and geographies. Risk budgeting -- deciding in advance how much risk each strategy contributes -- gives you a structured framework for portfolio decisions.
+3. **風險管理變得系統化。** 你無需抱著僥倖心態，而是可以刻意地將風險分配至不同策略、資產類別及地域。風險預算——預先決定每項策略承擔多少風險——為你提供了一個作出投資組合決策的結構性框架。
 
-4. **It prepares you for the real world.** Markets are complex, unpredictable, and constantly evolving. A portfolio built on a single strategy or a single set of assumptions is fragile. A multi-strategy portfolio is antifragile -- it is designed to perform reasonably well across a wide range of future scenarios, even ones you have not imagined.
+4. **它讓你為現實世界做好準備。** 市場複雜、難以預測，且不斷演變。建立在單一策略或單一假設之上的投資組合是脆弱的。多策略投資組合則是反脆弱的——它的設計目標是在各種未來情境下都能表現合理，即使是你未曾預想到的情境。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. The Core Principle: Combining Uncorrelated Strategies
+#### 1. 核心原則：組合不相關的策略
 
-The mathematical foundation of multi-strategy investing is simple: when you combine strategies that do not move in lockstep, the combined portfolio has better risk-adjusted returns than any individual strategy.
+多策略投資的數學基礎十分簡單：當你組合並非同步波動的策略時，整體投資組合的風險調整後回報將優於任何單一策略。
 
 ```
-THE POWER OF UNCORRELATED STRATEGIES
+不相關策略的威力
 ======================================
 
-Strategy A: Expected return 8%, Volatility 15%
-Strategy B: Expected return 8%, Volatility 15%
-Correlation between A and B: 0.2
+策略甲：預期回報8%，波動性15%
+策略乙：預期回報8%，波動性15%
+甲與乙的相關係數：0.2
 
-Portfolio (50/50 A and B):
-Expected return: 8% (same)
-Volatility: ~11% (LOWER!)
+投資組合（各佔50%）：
+預期回報：8%（不變）
+波動性：約11%（更低！）
 
-WHY THIS WORKS:
-When A has a bad year, B is often having a
-decent year (because correlation is low).
-The losses in A are partially offset by B.
-The result: same return, much less pain.
+原理：
+當甲表現欠佳時，乙往往表現不俗
+（因為相關性低）。
+甲的虧損部分被乙抵消。
+結果：相同回報，痛苦大幅減少。
 
-KEY MATH:
-Portfolio Vol = sqrt(w_A^2 * vol_A^2 +
-                     w_B^2 * vol_B^2 +
-                     2 * w_A * w_B * vol_A * vol_B * corr)
+關鍵公式：
+投資組合波動性 = sqrt(w_甲^2 * vol_甲^2 +
+                      w_乙^2 * vol_乙^2 +
+                      2 * w_甲 * w_乙 * vol_甲 * vol_乙 * 相關係數)
 
-With corr < 1.0, portfolio vol < weighted average vol
-The lower the correlation, the greater the benefit.
+當相關係數 < 1.0，投資組合波動性 < 加權平均波動性
+相關性越低，獲益越大。
 ```
 
-**Visualizing the Diversification Benefit:**
+**直觀呈現分散化效益：**
 
 ```
-THE DIVERSIFICATION EFFECT
+分散化效應
 ============================
 
-Number of         Portfolio Volatility
-Uncorrelated      (as % of single
-Strategies        strategy volatility)
-----------        --------------------
-1                 100%
-2                 ~75%
-4                 ~55%
-8                 ~40%
-16                ~30%
+不相關策略數目     投資組合波動性
+               （佔單一策略波動性的百分比）
+----------     --------------------
+1              100%
+2              約75%
+4              約55%
+8              約40%
+16             約30%
 
-Adding uncorrelated strategies has diminishing
-returns -- the first few additions matter most.
+新增不相關策略的邊際效益遞減——
+最初幾個新增策略的效果最為顯著。
 
-IMPORTANT: Strategies must be GENUINELY uncorrelated.
-Adding ten stock-picking strategies that all buy
-large US stocks does NOT provide diversification.
-True diversification comes from fundamentally
-different return drivers.
+重要提示：策略必須是「真正」不相關的。
+新增十個均買入美國大型股的選股策略
+並不能提供分散化效果。
+真正的分散化來自根本不同的回報驅動因素。
 ```
 
 ---
 
-#### 2. The Core-Satellite Approach
+#### 2. 核心衛星策略
 
-The most practical framework for building a multi-strategy portfolio is the core-satellite model.
+構建多策略投資組合最實用的框架是核心衛星模型。
 
 ```
-CORE-SATELLITE PORTFOLIO STRUCTURE
+核心衛星投資組合結構
 ====================================
 
         +-----------------------------------+
         |                                   |
-        |           CORE (60-80%)           |
+        |         核心（60-80%）            |
         |                                   |
-        |   Broad market index funds        |
-        |   Low cost, high diversification  |
-        |   Passive, buy-and-hold           |
-        |   Provides market beta            |
+        |   廣泛市場指數基金                 |
+        |   低成本，高分散度                 |
+        |   被動，長期持有                   |
+        |   提供市場貝塔敞口                 |
         |                                   |
         +-----------------------------------+
        /            |              \
       /             |               \
 +----------+  +----------+  +----------+
-| Satellite|  | Satellite|  | Satellite|
-|  (5-15%) |  |  (5-15%) |  |  (5-15%) |
+|  衛星    |  |  衛星    |  |  衛星    |
+| （5-15%）|  | （5-15%）|  | （5-15%）|
 |          |  |          |  |          |
-| Factor   |  | Int'l    |  | Tactical |
-| Tilts    |  | Overweig.|  | Income   |
+| 因子     |  | 國際市場 |  | 策略性   |
+| 傾斜     |  | 超配     |  | 收益     |
 +----------+  +----------+  +----------+
 
-CORE PURPOSE:
-- Captures broad market returns reliably
-- Ultra-low cost (0.03-0.05% expense ratio)
-- Requires minimal maintenance
-- Provides the foundation of your wealth building
+核心的作用：
+- 可靠捕捉廣泛市場回報
+- 超低成本（管理費比率0.03-0.05%）
+- 所需維護極少
+- 構成財富積累的基礎
 
-SATELLITE PURPOSE:
-- Adds incremental return potential
-- Provides diversification beyond the core
-- Can express your investment views
-- Allows for factor exposure, income, or alternatives
+衛星的作用：
+- 增加潛在的額外回報
+- 提供超越核心的分散化效果
+- 可表達你的投資觀點
+- 允許獲取因子敞口、收益或另類資產
 ```
 
-**Why Core-Satellite Works:**
+**核心衛星策略的優勢：**
 
 ```
-ADVANTAGES OF CORE-SATELLITE
+核心衛星策略的優點
 ==============================
 
-1. SIMPLICITY
-   The core is easy to manage -- buy and hold
-   a total market index. Complexity is contained
-   in the satellites, which are smaller and
-   more manageable.
+1. 簡單易行
+   核心部分易於管理——買入並持有
+   全市場指數。複雜性集中於
+   衛星部分，而衛星規模較小，
+   管理更為方便。
 
-2. COST EFFICIENCY
-   Most of your money is in ultra-low-cost index
-   funds. Only the satellite portion pays higher
-   fees for specialized strategies.
+2. 成本效益高
+   大部分資金投放於超低成本指數
+   基金。只有衛星部分才為專門策略
+   支付較高費用。
 
-3. RISK CONTROL
-   Even if a satellite strategy performs poorly,
-   it is only 5-15% of your portfolio. The core
-   protects you from catastrophic mistakes in
-   the satellites.
+3. 風險可控
+   即使某項衛星策略表現不佳，
+   它也只佔整體投資組合的5-15%。
+   核心部分保護你免受衛星策略
+   出現重大失誤的衝擊。
 
-4. FLEXIBILITY
-   You can add, remove, or adjust satellites
-   without disrupting the core. This allows
-   you to evolve your portfolio as you learn
-   more and as market conditions change.
+4. 靈活調整
+   你可以增加、移除或調整衛星，
+   而不會影響核心。這讓你能夠
+   隨著學習深入和市場環境變化，
+   不斷優化投資組合。
 
-5. TAX EFFICIENCY
-   The core has low turnover and minimal tax
-   consequences. Trading and rebalancing are
-   concentrated in the satellites, which can be
-   placed in tax-advantaged accounts.
+5. 稅務效益高
+   核心部分換手率低，稅務影響
+   極少。交易及再平衡集中在
+   衛星部分，可放置於稅務優惠
+   賬戶中。
 ```
 
 ---
 
-#### 3. Allocation Across Strategies
+#### 3. 跨策略資產配置
 
-How do you decide how much to allocate to each strategy? There are several frameworks:
+如何決定每項策略的配置比重？以下是幾個常用框架：
 
 ```
-ALLOCATION FRAMEWORK 1: EQUAL WEIGHT
+配置框架一：等權重
 ======================================
 
-Allocate equally across all strategies.
-Simple, no forecasting required, works
-surprisingly well in practice.
+對所有策略平均配置。
+操作簡單，無需預測，
+在實踐中出人意料地有效。
 
-Example with 5 strategies:
-- Broad US Stocks:        20%
-- International Developed: 20%
-- Emerging Markets:        20%
-- US Bonds:               20%
-- Real Assets/TIPS:       20%
+以5項策略為例：
+- 美國廣泛股票：       20%
+- 已發展市場國際股票：  20%
+- 新興市場股票：       20%
+- 美國債券：           20%
+- 實物資產/通脹保值債券：20%
 
-PRO: Maximum diversification, no prediction needed
-CON: May give too much to strategies you are less
-     confident about
+優點：最大化分散效果，毋須預測
+缺點：可能對信心較低的策略
+      配置過多
 
 
-ALLOCATION FRAMEWORK 2: RISK PARITY
+配置框架二：風險平價
 ======================================
 
-Allocate so each strategy contributes equally
-to total portfolio risk (not equal dollar amounts).
+配置時讓每項策略對整體投資組合風險
+作出相等貢獻（而非等額配置）。
 
-Since bonds are less volatile than stocks,
-risk parity puts MORE money in bonds and
-LESS in stocks to equalize risk contributions.
+由於債券的波動性低於股票，
+風險平價策略在債券的配置上
+投入更多資金，在股票上投入較少，
+以均衡各策略的風險貢獻。
 
-Example:
-- Stocks (vol ~15%):  allocate ~35%
-- Bonds (vol ~5%):    allocate ~55%
-- Real Assets (~10%): allocate ~10%
+示例：
+- 股票（波動性約15%）：配置約35%
+- 債券（波動性約5%）： 配置約55%
+- 實物資產（約10%）：  配置約10%
 
-Each contributes roughly 1/3 of portfolio risk.
+每項策略各貢獻約三分之一的投資組合風險。
 
-PRO: True risk diversification
-CON: Heavy bond allocation may feel wrong,
-     requires leverage to reach equity-like returns
+優點：真正的風險分散化
+缺點：大量債券配置或感覺不妥，
+      需借助槓桿才能達到接近股票的回報
 
 
-ALLOCATION FRAMEWORK 3: GOALS-BASED
+配置框架三：目標導向
 ======================================
 
-Allocate based on what each bucket of money
-needs to accomplish.
+根據每個資金池的用途進行配置。
 
-- Safety Bucket (2-3 year expenses): Cash, short bonds
-- Income Bucket (ongoing needs): Bonds, dividend stocks
-- Growth Bucket (long-term wealth): Stocks, factor tilts
-- Aspirational Bucket (optional): High-conviction ideas
+- 安全池（2-3年支出）：現金、短期債券
+- 收益池（持續需求）：債券、派息股票
+- 增長池（長期財富）：股票、因子傾斜
+- 進取池（可選）：高信念度投資
 
-PRO: Intuitive, tied to real financial goals
-CON: Boundaries between buckets can be arbitrary
+優點：直觀易懂，與真實財務目標掛鉤
+缺點：各池之間的界限可能存在主觀性
 
 
-ALLOCATION FRAMEWORK 4: CONVICTION-WEIGHTED
+配置框架四：信念加權
 =============================================
 
-Allocate more to strategies where you have
-higher confidence in the expected return.
+對信心較高的策略配置更多資金。
 
-- High conviction:  15-25% each
-- Medium conviction: 10-15% each
-- Low conviction:    5-10% each
+- 高信念度：各佔15-25%
+- 中信念度：各佔10-15%
+- 低信念度：各佔5-10%
 
-PRO: Reflects your genuine beliefs
-CON: Confidence can be misplaced
+優點：反映你的真實判斷
+缺點：信心可能被誤置
 ```
 
 ---
 
-#### 4. Rebalancing Between Strategies
+#### 4. 跨策略再平衡
 
-Rebalancing is the process of returning your portfolio to target weights after market movements cause drift.
+再平衡是在市場波動導致投資組合偏離目標配置後，將其恢復至目標比重的過程。
 
 ```
-REBALANCING MECHANICS
+再平衡操作
 ======================
 
-Starting Allocation:      After Market Movement:
-- US Stocks:    60%       - US Stocks:    68% (stocks up)
-- Int'l Stocks: 25%       - Int'l Stocks: 22%
-- Bonds:        15%       - Bonds:        10% (bonds down)
+初始配置：               市場波動後：
+- 美國股票：  60%         - 美國股票：  68%（股市上漲）
+- 國際股票：  25%         - 國際股票：  22%
+- 債券：      15%         - 債券：      10%（債市下跌）
 
-Rebalancing Action:
-- SELL US Stocks (reduce 68% to 60%)
-- BUY Int'l Stocks (increase 22% to 25%)
-- BUY Bonds (increase 10% to 15%)
+再平衡操作：
+- 賣出美國股票（從68%降至60%）
+- 買入國際股票（從22%升至25%）
+- 買入債券（從10%升至15%）
 
-This forces you to systematically:
-- Sell what has gone UP (sell high)
-- Buy what has gone DOWN (buy low)
+這迫使你系統性地：
+- 賣出已上漲的資產（高位賣出）
+- 買入已下跌的資產（低位買入）
 
-This is a DISCIPLINED VALUE STRATEGY
-built into portfolio maintenance.
+這是嵌入投資組合日常維護中的
+紀律性價值投資策略。
 ```
 
-**Rebalancing Approaches:**
+**再平衡方法：**
 
 ```
-REBALANCING METHODS
+再平衡方式
 ====================
 
-METHOD 1: CALENDAR-BASED
-- Rebalance on a fixed schedule (annually, quarterly)
-- Simple to implement and remember
-- Annual rebalancing is sufficient for most investors
-- Best day: your birthday, tax time, or any consistent date
+方式一：定期再平衡
+- 按固定時間表再平衡（每年或每季）
+- 操作簡單，易於記憶
+- 對大多數投資者而言，每年再平衡已足夠
+- 最佳時機：生日、報稅季，或任何固定日期
 
-METHOD 2: THRESHOLD-BASED
-- Rebalance when any asset class drifts beyond a band
-  (e.g., 5 percentage points from target)
-- More responsive to large market moves
-- May trigger rebalancing at better times
-- Requires monitoring
+方式二：閾值再平衡
+- 當任何資產類別偏離目標超過一定幅度時再平衡
+  （例如偏離5個百分點）
+- 對大幅市場波動的反應更靈敏
+- 可能在更佳時機觸發再平衡
+- 需要定期監察
 
-METHOD 3: HYBRID
-- Check quarterly, but only rebalance if drift
-  exceeds a threshold (e.g., 5% relative drift)
-- Balances responsiveness with simplicity
-- Most practical for active investors
+方式三：混合方式
+- 按季度檢視，但只在偏差超過閾值時再平衡
+  （例如相對偏差超過5%）
+- 在靈敏度與簡易性之間取得平衡
+- 對積極投資者而言最為實用
 
-REBALANCING FREQUENCY COMPARISON:
+再平衡頻率比較：
 
-Frequency       Turnover    Tax Cost    Benefit
----------       --------    --------    -------
-Monthly         High        High        Marginal over quarterly
-Quarterly       Moderate    Moderate    Good balance
-Semi-annually   Low         Low         Solid results
-Annually        Very Low    Very Low    Most practical for most
-Never           Zero        Zero        Portfolio drifts, risk
-                                        increases over time
+頻率      換手率  稅務成本  效益
+-----    ------  ------  -------
+每月     高      高      比每季稍好，幅度有限
+每季     中      中      平衡良好
+每半年   低      低      效果穩健
+每年     極低    極低    對大多數人最實用
+從不     零      零      投資組合持續偏移，
+                         風險不斷上升
 
-VERDICT: Annual rebalancing captures most of the
-benefit with minimal cost and effort.
+結論：每年再平衡一次，以最小成本
+和精力獲取再平衡的大部分效益。
 ```
 
-**Rebalancing in Practice -- Cash Flow Rebalancing:**
+**再平衡實踐——現金流再平衡：**
 
 ```
-SMART REBALANCING WITH CASH FLOWS
+善用現金流進行智慧再平衡
 ===================================
 
-Instead of selling assets to rebalance,
-direct new investments to the most
-underweight asset class.
+與其賣出資產來再平衡，
+不如將新增投資導向配置比重
+最低的資產類別。
 
-Monthly savings: $1,000
+每月儲蓄：1,000港元
 
-Month     Portfolio State          Direct New Money To:
------     ---------------          -------------------
-Jan       Stocks overweight         Bonds
-Feb       Bonds overweight          Stocks
-Mar       Close to target           Split evenly
-Apr       Int'l underweight         Int'l stocks
-May       Stocks overweight         Bonds + Int'l
+月份     投資組合狀態              新資金方向
+-----    ---------------          -------------------
+一月     股票超配                  債券
+二月     債券超配                  股票
+三月     接近目標配置              平均分配
+四月     國際股票低配              國際股票
+五月     股票超配                  債券及國際股票
 
-ADVANTAGES:
-- No selling = no capital gains taxes
-- No transaction costs from selling
-- Automatically buys low
-- Works beautifully during accumulation phase
+優點：
+- 無需賣出 = 無需繳付資本增值稅
+- 無需因賣出而支付交易成本
+- 自動低位買入
+- 在積累期效果極佳
 
-This is the #1 most underrated rebalancing technique.
+這是最被低估的再平衡技巧，排名第一。
 ```
 
 ---
 
-#### 5. Risk Budgeting Introduction
+#### 5. 風險預算簡介
 
-Risk budgeting is a framework for thinking about how much risk each strategy contributes to your total portfolio risk.
+風險預算是一個思考框架，用於衡量每項策略對整體投資組合風險的貢獻程度。
 
 ```
-RISK BUDGETING CONCEPT
+風險預算概念
 ========================
 
-Think of your total portfolio risk as a "budget"
-that you allocate across strategies.
+把你的整體投資組合風險視為一個「預算」，
+將其分配至各項策略。
 
-Total Risk Budget: 100 units
+總風險預算：100個單位
 
-Traditional 60/40 Portfolio:
-- US Stocks (60% allocation):  ~90 risk units
-- Bonds (40% allocation):      ~10 risk units
+傳統60/40投資組合：
+- 美國股票（60%配置）：約90個風險單位
+- 債券（40%配置）：    約10個風險單位
 
-Even though bonds are 40% of the portfolio,
-they only contribute ~10% of the risk!
-The stocks completely dominate.
+即使債券佔投資組合40%，
+它卻只貢獻約10%的風險！
+股票完全主導了風險。
 
-THIS MEANS: A 60/40 portfolio is effectively
-a 90/10 portfolio in risk terms.
+這意味著：從風險角度看，60/40投資組合
+實際上更像是一個90/10的投資組合。
 
-RISK-AWARE ALLOCATION:
+風險意識型配置：
 ========================
 
-If you want each strategy to contribute
-equally to risk, the allocation shifts:
+若你希望每項策略對風險的貢獻相等，
+配置比重需作如下調整：
 
-Equal Risk Contribution:
-- Stocks (~15% vol): allocate ~30% --> ~50 risk units
-- Bonds (~5% vol):   allocate ~50% --> ~30 risk units
-- Alternatives:      allocate ~20% --> ~20 risk units
+等風險貢獻：
+- 股票（波動性約15%）：配置約30% --> 約50個風險單位
+- 債券（波動性約5%）： 配置約50% --> 約30個風險單位
+- 另類資產：           配置約20% --> 約20個風險單位
 
-Now risk is genuinely diversified.
+如此，風險才真正得到分散。
 ```
 
-**Simple Risk Budget Exercise:**
+**簡單風險預算練習：**
 
 ```
-YOUR RISK BUDGET WORKSHEET
+你的風險預算工作表
 ============================
 
-Step 1: Estimate your total portfolio volatility target
-        Conservative: 7-10%
-        Moderate:     10-13%
-        Aggressive:   13-18%
+第一步：估算你的整體投資組合目標波動性
+        保守型：7-10%
+        穩健型：10-13%
+        進取型：13-18%
 
-Step 2: List your strategies and their volatilities
-        US Stocks:              ~15%
-        Int'l Developed:        ~16%
-        Emerging Markets:       ~22%
-        US Bonds:               ~5%
-        Int'l Bonds:            ~8%
-        Real Estate (REITs):    ~18%
-        Factor Tilts:           ~17%
+第二步：列出你的策略及其各自的波動性
+        美國股票：              約15%
+        已發展市場國際股票：    約16%
+        新興市場股票：          約22%
+        美國債券：              約5%
+        國際債券：              約8%
+        房地產（房地產信託基金）：約18%
+        因子傾斜：              約17%
 
-Step 3: Adjust allocations so total portfolio vol
-        matches your target
+第三步：調整配置比重，使整體投資組合
+        波動性符合你的目標
 
-Example for a 10% target volatility:
-- US Stocks:         35%  (contributes ~5.3%)
-- Int'l Developed:   15%  (contributes ~2.4%)
-- Emerging Markets:   5%  (contributes ~1.1%)
-- US Bonds:          30%  (contributes ~1.5%)
-- REITs:              5%  (contributes ~0.9%)
-- Factor Tilts:      10%  (contributes ~1.7%)
-                    ----
-Total portfolio vol: ~10% (accounting for correlations)
+以目標波動性10%為例：
+- 美國股票：        35%  （貢獻約5.3%）
+- 已發展市場國際：  15%  （貢獻約2.4%）
+- 新興市場：         5%  （貢獻約1.1%）
+- 美國債券：        30%  （貢獻約1.5%）
+- 房地產信託基金：   5%  （貢獻約0.9%）
+- 因子傾斜：        10%  （貢獻約1.7%）
+                   ----
+整體投資組合波動性：約10%（已計及各策略相關性）
 
-Note: The exact volatility depends on correlations
-between strategies. This is approximate.
+備注：確切的波動性取決於各策略之間的相關性，
+以上數據為估算值。
 ```
 
 ---
 
-#### 6. Sample Multi-Strategy Portfolios
+#### 6. 多策略投資組合示例
 
-Here are several model portfolios that demonstrate multi-strategy principles:
+以下幾個示範投資組合展示了多策略原則的應用：
 
 ```
-PORTFOLIO 1: THE SIMPLE STARTER
+投資組合一：簡易入門型
 =================================
-For investors just beginning, seeking simplicity.
+適合剛起步、追求簡單的投資者。
 
-- 50% US Total Stock Market (VTI)
-- 20% International Stock Market (VXUS)
-- 30% US Total Bond Market (BND)
+- 50% 美國全市場股票（VTI）
+- 20% 國際股票市場（VXUS）
+- 30% 美國全市場債券（BND）
 
-Number of funds: 3
-Expense ratio: ~0.05%
-Expected return: ~6-7%
-Expected volatility: ~10%
-Rebalance: Annually
+基金數目：3隻
+管理費比率：約0.05%
+預期回報：約6-7%
+預期波動性：約10%
+再平衡：每年一次
 
-PHILOSOPHY: Capture global market returns cheaply.
-No factor tilts, no alternatives. Just broad
-diversification at rock-bottom cost. This is
-better than 90% of professionally managed portfolios.
+投資理念：以極低成本捕捉全球市場回報。
+無因子傾斜，無另類資產，只有廣泛分散化。
+這比90%的專業管理投資組合表現更佳。
 
 
-PORTFOLIO 2: THE FACTOR-TILTED
+投資組合二：因子傾斜型
 ================================
-For investors who understand factor premiums
-and want incremental returns.
+適合理解因子溢價並希望
+獲取額外回報的投資者。
 
-CORE (70%):
-- 35% US Total Stock Market (VTI)
-- 20% International Developed (VEA)
-- 15% US Aggregate Bond (BND)
+核心（70%）：
+- 35% 美國全市場股票（VTI）
+- 20% 已發展市場國際股票（VEA）
+- 15% 美國綜合債券（BND）
 
-SATELLITES (30%):
-- 10% US Small Value (VBR or AVUV)
-- 10% International Value (EFV or AVDV)
-- 5%  US Momentum (MTUM)
-- 5%  US Quality (QUAL)
+衛星（30%）：
+- 10% 美國小型價值股（VBR或AVUV）
+- 10% 國際價值股（EFV或AVDV）
+- 5%  美國動量股（MTUM）
+- 5%  美國優質股（QUAL）
 
-Number of funds: 7
-Expense ratio: ~0.10%
-Expected return: ~7-8%
-Expected volatility: ~11%
-Rebalance: Semi-annually
+基金數目：7隻
+管理費比率：約0.10%
+預期回報：約7-8%
+預期波動性：約11%
+再平衡：每半年一次
 
-PHILOSOPHY: Broad market core plus systematic
-factor tilts targeting value, size, momentum,
-and quality premiums.
+投資理念：廣泛市場核心加上系統性因子傾斜，
+目標鎖定價值、規模、動量及優質因子溢價。
 
 
-PORTFOLIO 3: THE ALL-WEATHER
+投資組合三：全天候型
 ==============================
-Designed to perform reasonably in any environment.
+設計目標是在任何市場環境下
+都能取得合理表現。
 
-- 30% US Stocks (VTI)
-- 15% International Stocks (VXUS)
-- 25% Long-Term US Bonds (VGLT)
-- 15% TIPS (VTIP)
-- 7.5% Gold (GLD or IAU)
-- 7.5% Commodities (DJP or PDBC)
+- 30% 美國股票（VTI）
+- 15% 國際股票（VXUS）
+- 25% 美國長期國債（VGLT）
+- 15% 通脹保值債券（VTIP）
+- 7.5% 黃金（GLD或IAU）
+- 7.5% 大宗商品（DJP或PDBC）
 
-Number of funds: 6
-Expense ratio: ~0.15%
-Expected return: ~5-6%
-Expected volatility: ~7-8%
-Rebalance: Annually
+基金數目：6隻
+管理費比率：約0.15%
+預期回報：約5-6%
+預期波動性：約7-8%
+再平衡：每年一次
 
-PHILOSOPHY: Based on Ray Dalio's concept.
-No single economic environment dominates.
-Works in growth, recession, inflation, deflation.
-Lower returns but much smoother ride.
+投資理念：源自瑞·達利歐的概念。
+無任何單一經濟環境主導表現。
+適用於增長、衰退、通脹、通縮等環境。
+回報較低但波動更為平穩。
 
 
-PORTFOLIO 4: THE GLOBAL MULTI-STRATEGY
+投資組合四：全球多策略型
 ========================================
-For experienced investors seeking maximum
-diversification across strategies.
+適合希望跨策略實現最大分散化
+的資深投資者。
 
-CORE EQUITIES (50%):
-- 25% US Broad Market (VTI)
-- 15% International Developed (VEA)
-- 10% Emerging Markets (VWO)
+核心股票（50%）：
+- 25% 美國廣泛市場（VTI）
+- 15% 已發展市場國際股票（VEA）
+- 10% 新興市場股票（VWO）
 
-FACTOR SATELLITES (20%):
-- 7%  US Small Value (VBR)
-- 7%  International Small Value (AVDV)
-- 6%  Multi-Factor (LRGF)
+因子衛星（20%）：
+- 7%  美國小型價值股（VBR）
+- 7%  國際小型價值股（AVDV）
+- 6%  多因子（LRGF）
 
-FIXED INCOME (20%):
-- 10% US Aggregate Bond (BND)
-- 5%  TIPS (VTIP)
-- 5%  International Bond Hedged (BNDX)
+固定收益（20%）：
+- 10% 美國綜合債券（BND）
+- 5%  通脹保值債券（VTIP）
+- 5%  國際債券（已對沖）（BNDX）
 
-REAL ASSETS (10%):
-- 5%  REITs (VNQ)
-- 5%  Commodities/Gold (GLD)
+實物資產（10%）：
+- 5%  房地產信託基金（VNQ）
+- 5%  大宗商品/黃金（GLD）
 
-Number of funds: 11
-Expense ratio: ~0.12%
-Expected return: ~7-8%
-Expected volatility: ~10%
-Rebalance: Semi-annually with threshold triggers
+基金數目：11隻
+管理費比率：約0.12%
+預期回報：約7-8%
+預期波動性：約10%
+再平衡：每半年一次，配合閾值觸發
 
-PHILOSOPHY: Maximum diversification across geography,
-asset class, and factor exposure. Complex but robust.
+投資理念：跨地域、資產類別及因子敞口實現
+最大程度的分散化。結構複雜但穩健。
 ```
 
 ---
 
-#### 7. Reviewing Key Concepts from Level 1-2
+#### 7. 複習第一及第二階段的關鍵概念
 
-This is a good moment to review the foundational concepts that underpin everything we have discussed:
+此刻正是回顧支撐我們所有討論的基礎概念的好時機：
 
 ```
-CONCEPT REVIEW: THE BUILDING BLOCKS
+概念複習：構建積木
 =====================================
 
-FROM LEVEL 1 (Weeks 1-12):
+第一階段（第1-12週）：
 
-1. RISK AND RETURN
-   Higher expected returns require accepting
-   higher risk. There is no free lunch...
-   except diversification.
+1. 風險與回報
+   較高的預期回報需要承受較高的風險。
+   沒有免費午餐……
+   唯一例外是分散化。
 
-2. DIVERSIFICATION
-   Don't put all eggs in one basket.
-   Combine assets with low correlations.
-   Works across stocks, bonds, countries, factors.
+2. 分散化
+   切勿把所有雞蛋放在同一個籃子裡。
+   組合低相關性資產。
+   適用於股票、債券、國家及因子等不同維度。
 
-3. COMPOUND INTEREST
-   Time is your greatest asset. Starting early
-   matters more than starting big. A dollar
-   invested at 8% doubles in 9 years.
+3. 複利效應
+   時間是你最強大的資產。早開始比大額投入更重要。
+   以8%回報計算，一美元的投資9年後翻倍。
 
-4. ASSET ALLOCATION
-   How you split between stocks and bonds
-   explains ~90% of portfolio return variation.
-   Stock selection is secondary.
+4. 資產配置
+   股票與債券之間的配置比例，
+   解釋了投資組合回報變動的約90%。
+   選股是次要的。
 
-5. INDEX INVESTING
-   Most active managers underperform their benchmark.
-   Low-cost index funds outperform most alternatives.
-   Costs matter enormously over long periods.
+5. 指數投資
+   大多數主動管理基金的表現跑輸基準。
+   低成本指數基金的表現優於大多數替代方案。
+   長期而言，成本至關重要。
 
-6. BEHAVIORAL FINANCE
-   Your brain is wired to make investing mistakes.
-   Fear, greed, overconfidence, and anchoring
-   lead to systematic errors. Automate when possible.
+6. 行為財務學
+   你的大腦天生容易在投資時犯錯。
+   恐懼、貪婪、過度自信及錨定效應
+   導致系統性錯誤。盡可能自動化執行。
 
-FROM LEVEL 2 (Weeks 13-24):
+第二階段（第13-24週）：
 
-7. BOND MECHANICS
-   Duration, yield curves, credit risk.
-   Bonds are not just "safe" -- they have
-   their own risk-return dynamics.
+7. 債券機制
+   存續期、收益率曲線、信用風險。
+   債券並非只是「安全資產」——
+   它們有自身獨特的風險回報動態。
 
-8. EQUITY VALUATION
-   P/E, P/B, EV/EBITDA, DCF.
-   Price is what you pay, value is what you get.
-   Always know what you are paying for.
+8. 股票估值
+   市盈率、市賬率、企業價值/息稅折舊攤銷前盈利、
+   現金流折現模型。
+   價格是你付出的，價值是你獲得的。
+   始終清楚自己在為何付費。
 
-9. INTERNATIONAL DIVERSIFICATION
-   Home bias costs you returns and increases risk.
-   Currency is a separate source of risk and return.
-   Go global.
+9. 國際分散化
+   本土偏好令你損失回報並增加風險。
+   貨幣是獨立的風險與回報來源。
+   放眼全球。
 
-10. FACTOR INVESTING
-    Value, momentum, quality, size, low volatility.
-    Returns have systematic drivers beyond market beta.
-    Factor diversification is as important as
-    stock diversification.
+10. 因子投資
+    價值、動量、優質、規模、低波動性。
+    超越市場貝塔的系統性回報驅動因素。
+    因子分散化與股票分散化同等重要。
 
-11. PORTFOLIO CONSTRUCTION
-    Core-satellite, risk budgeting, rebalancing.
-    The whole is greater than the sum of its parts.
-    Design beats selection.
+11. 投資組合構建
+    核心衛星策略、風險預算、再平衡。
+    整體大於各部分之和。
+    設計勝於選擇。
 ```
 
 ---
 
-#### 8. The Implementation Checklist
+#### 8. 實施清單
 
 ```
-BUILDING YOUR MULTI-STRATEGY PORTFOLIO
+構建你的多策略投資組合
 =========================================
 
-STEP 1: DEFINE YOUR OBJECTIVES
-- Time horizon (5 years? 20 years? 40 years?)
-- Return target (what growth rate do you need?)
-- Risk tolerance (what maximum drawdown can you handle?)
-- Income needs (do you need cash flow from the portfolio?)
-- Tax situation (taxable, tax-deferred, tax-free accounts?)
+第一步：明確你的目標
+- 投資期限（5年？20年？40年？）
+- 回報目標（你需要什麼增長率？）
+- 風險承受能力（你能承受的最大回撤是多少？）
+- 收益需求（你是否需要投資組合提供現金流？）
+- 稅務狀況（應課稅、稅務遞延或免稅賬戶？）
 
-STEP 2: CHOOSE YOUR CORE
-- US Total Market index fund
-- International index fund
-- Bond index fund
-- Keep it simple: 2-4 holdings for the core
+第二步：選擇你的核心
+- 美國全市場指數基金
+- 國際指數基金
+- 債券指數基金
+- 保持簡單：核心持有2-4隻基金
 
-STEP 3: SELECT YOUR SATELLITES (if any)
-- Factor tilts (value, momentum, quality)
-- Regional overweights (emerging markets, specific countries)
-- Alternative strategies (real assets, commodities)
-- Maximum 3-5 satellite positions to start
+第三步：選擇衛星策略（如有需要）
+- 因子傾斜（價值、動量、優質）
+- 地區超配（新興市場、特定國家）
+- 另類策略（實物資產、大宗商品）
+- 初期最多設置3-5個衛星部位
 
-STEP 4: SET TARGET ALLOCATIONS
-- Write down your target percentages
-- Set rebalancing thresholds (e.g., +/- 5%)
-- Choose a rebalancing frequency (annually recommended)
+第四步：設定目標配置比重
+- 以書面記錄你的目標百分比
+- 設定再平衡閾值（例如±5%）
+- 選擇再平衡頻率（建議每年一次）
 
-STEP 5: IMPLEMENT TAX-EFFICIENTLY
-- Place high-turnover strategies in tax-advantaged accounts
-- Place tax-efficient index funds in taxable accounts
-- Use tax-loss harvesting where appropriate
+第五步：以稅務高效方式執行
+- 將高換手率策略置於稅務優惠賬戶
+- 將稅務效益高的指數基金置於應課稅賬戶
+- 在適當情況下進行稅務損失收割
 
-STEP 6: DOCUMENT YOUR PLAN
-- Write an Investment Policy Statement (IPS)
-- Include: objectives, allocation, rebalancing rules,
-  review schedule
-- The IPS is your anchor in stormy markets
+第六步：書面記錄你的計劃
+- 撰寫投資政策聲明（IPS）
+- 內容包括：目標、資產配置、再平衡規則、
+  檢視時間表
+- 投資政策聲明是你在市場風暴中的錨
 
-STEP 7: REVIEW AND MAINTAIN
-- Annual portfolio review (not daily!)
-- Rebalance as needed
-- Re-evaluate only when life circumstances change
-  (not when markets move)
+第七步：定期檢視與維護
+- 每年審查投資組合（而非每天！）
+- 按需要進行再平衡
+- 只有在人生環境改變時才重新評估
+  （而非因市場波動而調整）
 ```
 
 ---
 
-#### 9. Common Implementation Mistakes
+#### 9. 常見實施錯誤
 
 ```
-MISTAKES TO AVOID
+應避免的錯誤
 ==================
 
-1. OVER-DIVERSIFICATION (DIWORSIFICATION)
-   More than 10-12 holdings in a personal portfolio
-   creates complexity without meaningful additional
-   diversification. You spend more time managing
-   and rebalancing than investing.
+1. 過度分散（分散化適得其反）
+   個人投資組合持有超過10-12隻基金，
+   只會增加複雜性而不能帶來有意義的
+   額外分散效果。你花更多時間管理，
+   而非投資。
 
-2. CONSTANT TINKERING
-   The urge to "optimize" by making frequent
-   changes destroys returns through transaction
-   costs, taxes, and behavioral errors. Build your
-   portfolio, set your rules, and STEP AWAY.
+2. 頻繁調整
+   不斷「優化」投資組合的衝動，
+   會透過交易成本、稅務及行為錯誤
+   蠶食你的回報。建立好你的投資組合，
+   設定好你的規則，然後不要輕舉妄動。
 
-3. CHASING LAST YEAR'S WINNER
-   Adding a new strategy because it performed
-   well recently is performance chasing at the
-   strategy level. By the time you add it,
-   the best performance may be over.
+3. 追逐去年的贏家
+   因為某策略近期表現良好而將其加入組合，
+   是策略層面的表現追逐行為。等你加入時，
+   最佳表現期可能已經過去。
 
-4. IGNORING COSTS
-   A strategy with a 2% expected premium that
-   costs 1% in fees and 0.5% in taxes delivers
-   only 0.5% net. Always think in NET-OF-COST
-   terms.
+4. 忽視成本
+   一項策略預期溢價2%，若收取1%費用
+   及0.5%稅務成本，實際淨回報僅0.5%。
+   務必以扣除成本後的淨回報作思考基礎。
 
-5. NOT HAVING A WRITTEN PLAN
-   Without a written investment policy statement,
-   you WILL make emotional decisions during market
-   stress. Write down your plan in advance.
+5. 沒有書面計劃
+   若沒有書面投資政策聲明，
+   你在市場壓力下必然會作出情緒化決定。
+   預先把你的計劃寫下來。
 
-6. COMPARING TO THE WRONG BENCHMARK
-   A multi-strategy portfolio should not be
-   compared to the S&P 500. A diversified portfolio
-   WILL underperform an all-stock portfolio in
-   strong stock markets. That is by design.
+6. 與錯誤的基準作比較
+   多策略投資組合不應與標準普爾500指數比較。
+   在股市強勁時期，分散化投資組合
+   必然跑輸全股票投資組合。這是刻意設計的結果。
 
-7. ABANDONING STRATEGIES DURING DRAWDOWNS
-   Every strategy has bad periods. If you abandon
-   value after 3 years of underperformance, you
-   will miss the recovery. The premium exists
-   BECAUSE it is painful to hold through drawdowns.
+7. 在回撤期間放棄策略
+   每項策略都有表現欠佳的時期。若你在價值投資
+   連續3年跑輸後放棄，就會錯過隨後的反彈。
+   溢價的存在，正是因為持守它是痛苦的。
 ```
 
 ---
 
-#### 10. Putting It In Perspective -- What Really Matters
+#### 10. 放眼大局——真正重要的是什麼
 
 ```
-INVESTMENT DECISIONS RANKED BY IMPACT
+投資決策按影響力排序
 =======================================
 
-HIGHEST IMPACT:
-1. Savings rate (how much you invest)
-2. Time in the market (how long you invest)
-3. Asset allocation (stocks vs. bonds split)
-4. Cost management (fees, taxes, expenses)
+影響力最高：
+1. 儲蓄率（你投入多少）
+2. 持倉時間（你投資多久）
+3. 資產配置（股票與債券的比例）
+4. 成本管理（費用、稅務、開支）
 
-MODERATE IMPACT:
-5. International diversification
-6. Factor tilts
-7. Rebalancing discipline
-8. Tax-loss harvesting
+影響力中等：
+5. 國際分散化
+6. 因子傾斜
+7. 再平衡紀律
+8. 稅務損失收割
 
-LOW IMPACT:
-9. Individual stock selection
-10. Market timing
-11. Specific fund choice within an asset class
-12. Precise allocation percentages
+影響力較低：
+9. 個股選擇
+10. 擇時入市
+11. 同一資產類別內的具體基金選擇
+12. 精確的配置百分比
 
-Most investors spend 80% of their time on
-items 9-12, which have the least impact.
+大多數投資者把80%的時間花在
+第9-12項上，而這些對結果影響最微。
 
-Spend your energy on items 1-4, and you will
-build more wealth than 95% of investors.
+把精力集中在第1-4項，
+你將比95%的投資者積累更多財富。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "A multi-strategy portfolio is just over-complicated indexing."**
+**誤解一：「多策略投資組合不過是過度複雜化的指數投資。」**
 
-Reality: A well-constructed multi-strategy portfolio goes beyond simple indexing by deliberately combining strategies with different return drivers. The core may be index funds (for good reason -- they are excellent), but the satellite strategies add factor exposure, alternative risk premiums, or tactical elements that a simple three-fund portfolio does not capture. The goal is not complexity for its own sake -- it is assembling return streams that complement each other across different market environments.
+事實：一個構建良好的多策略投資組合，透過刻意組合具有不同回報驅動因素的策略，超越了簡單的指數投資。核心部分可以是指數基金（這是有充分理由的——它們表現卓越），但衛星策略增加了因子敞口、另類風險溢價或策略性元素，這是簡單的三基金投資組合無法捕捉的。目標並非為了複雜而複雜——而是組合在不同市場環境下能相互補充的回報來源。
 
-**Misconception 2: "I need to find the 'optimal' allocation."**
+**誤解二：「我需要找到『最優』配置。」**
 
-Reality: There is no optimal allocation because it depends on the future, which is unknown. The difference between a 60/40 and a 65/35 portfolio is negligible over long periods. What matters far more is picking a reasonable allocation and sticking with it through thick and thin. An imperfect portfolio held with discipline will outperform a "perfect" portfolio that you cannot maintain because you panic and sell during downturns.
+事實：不存在最優配置，因為它取決於未來，而未來是未知的。60/40與65/35投資組合之間的差異，在長期來看可以忽略不計。更重要的是選定一個合理的配置，並在各種環境下堅持執行。一個以紀律持守的不完美投資組合，其表現將優於因你在市場下跌時恐慌賣出而無法維持的「完美」投資組合。
 
-**Misconception 3: "Rebalancing always improves returns."**
+**誤解三：「再平衡必然提升回報。」**
 
-Reality: Rebalancing primarily controls risk, not enhances return. In a persistently trending market, rebalancing can actually reduce returns because you are selling winners and buying losers that keep losing. However, rebalancing prevents your portfolio from becoming dangerously concentrated in whatever has performed best, which protects you from the inevitable reversal. Think of rebalancing as insurance, not as a return booster.
+事實：再平衡主要是控制風險，而非提升回報。在持續趨勢性市場中，再平衡實際上可能降低回報，因為你在賣出贏家並買入持續下跌的輸家。然而，再平衡防止你的投資組合過度集中在表現最佳的資產上，從而保護你免受必然到來的反轉衝擊。把再平衡視作保險，而非回報提升器。
 
-**Misconception 4: "More strategies means more diversification."**
+**誤解四：「策略越多，分散化越好。」**
 
-Reality: Adding truly uncorrelated strategies improves diversification. But adding strategies that are closely correlated with existing holdings adds complexity without benefit. Five different US large-cap stock funds are not diversification. Diversification comes from fundamentally different return drivers: stocks vs. bonds, domestic vs. international, value vs. momentum, financial assets vs. real assets.
+事實：增加真正不相關的策略能改善分散化效果。但增加與現有持倉高度相關的策略，只會增加複雜性而無實質效益。五隻不同的美國大型股基金並非分散化。真正的分散化來自根本不同的回報驅動因素：股票與債券、本地與國際、價值與動量、金融資產與實物資產。
 
-**Misconception 5: "I should wait for the perfect time to implement my portfolio."**
+**誤解五：「我應該等待最佳時機才實施我的投資組合。」**
 
-Reality: The perfect time is now. Research consistently shows that lump-sum investing outperforms dollar-cost averaging approximately two-thirds of the time, because markets go up more often than they go down. If you have a lump sum, invest it according to your target allocation. If you are investing monthly from income, start immediately. Market timing destroys more wealth than it creates.
+事實：最佳時機就是現在。研究一致顯示，一次性投資在約三分之二的情況下跑贏平均成本法，因為市場上漲的時間多於下跌。若你持有一筆資金，按目標配置立即投資。若你每月從收入中投資，即刻開始。擇時入市摧毀的財富遠多於它所創造的。
 
-**Misconception 6: "Once I build my portfolio, I never need to change it."**
+**誤解六：「一旦構建好投資組合，就無需再作任何改變。」**
 
-Reality: Your portfolio should evolve as your life circumstances change. As you approach retirement, you should generally reduce equity exposure and increase bonds and cash. If you receive a windfall, your risk tolerance may change. If a new low-cost investment vehicle becomes available, you might switch to it. The key is to change for the right reasons (life changes, not market movements) and to change deliberately, not reactively.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: I am just starting out with $5,000. Is a multi-strategy portfolio realistic?**
-
-A: At $5,000, keep it simple. A single target-date fund or a three-fund portfolio (US stocks, international stocks, bonds) is the best approach. You do not need factor tilts, alternative strategies, or complex satellite positions. As your portfolio grows beyond $50,000-$100,000, you can begin adding complexity. The most important thing at $5,000 is to start investing, not to build the perfect portfolio.
-
-**Q2: How many funds do I actually need?**
-
-A: For most investors, 3-7 funds capture the vast majority of diversification benefits. A three-fund portfolio (US stocks, international stocks, US bonds) is genuinely excellent. Adding small value, a factor tilt, and perhaps TIPS or real estate gets you to 5-7 funds and captures almost everything discussed in this course. Beyond 10-12 funds, you are adding complexity with minimal diversification benefit.
-
-**Q3: Should I use target-date funds instead of building my own portfolio?**
-
-A: Target-date funds are an excellent choice for investors who want a professionally managed, automatically rebalancing, age-appropriate allocation in a single fund. The main trade-offs are: slightly higher expense ratios (0.10-0.15% vs. 0.03-0.05% for individual index funds), less control over specific allocations, and no ability to add factor tilts or tax-loss harvest. If simplicity and automation are priorities, a target-date fund is a great solution.
-
-**Q4: How do I handle tax-loss harvesting in a multi-strategy portfolio?**
-
-A: Tax-loss harvesting involves selling an investment at a loss to offset gains elsewhere, then buying a similar (but not "substantially identical") investment to maintain exposure. In a multi-strategy portfolio, you can harvest losses in underperforming satellites while keeping your overall factor and geographic exposure intact. For example, if your small-value fund is down, sell it and buy a different small-value fund from a different provider. The wash-sale rule requires you to wait 30 days before buying back the same fund.
-
-**Q5: What is the role of cash in a multi-strategy portfolio?**
-
-A: Cash serves several purposes. First, it provides an emergency fund (3-6 months of expenses) separate from your investment portfolio. Second, a small cash allocation (2-5%) within the portfolio provides liquidity for rebalancing without selling other assets. Third, in high-interest-rate environments, money market funds and short-term Treasuries can earn meaningful returns with zero risk. Cash is often overlooked but is a genuine portfolio tool.
-
-**Q6: How do I know if my portfolio is working?**
-
-A: Do not measure success by whether you beat the S&P 500. A diversified multi-strategy portfolio will underperform a pure stock portfolio in strong bull markets and outperform in bear markets. Instead, measure success by: (1) whether you are on track to meet your financial goals, (2) whether portfolio volatility matches your risk tolerance, (3) whether you can sleep at night during market turbulence, and (4) whether you are maintaining your investment discipline (rebalancing, saving consistently, not panic-selling).
-
-**Q7: Should I use a robo-advisor to implement my multi-strategy portfolio?**
-
-A: Robo-advisors (like Betterment, Wealthfront) automate many multi-strategy portfolio features: diversified allocation, automatic rebalancing, tax-loss harvesting, and age-appropriate risk management. They charge 0.25% annually for these services. For investors who want a hands-off approach with solid multi-strategy principles, robo-advisors are a reasonable option. The trade-off is less customization and the ongoing fee, which adds up over decades.
-
-**Q8: How often should I check my portfolio?**
-
-A: Checking your portfolio daily adds stress without adding value. Most studies show that investors who check less frequently earn higher returns because they are less likely to react emotionally to short-term movements. Check quarterly to ensure nothing has gone seriously wrong, and do a thorough review annually to rebalance and reassess your allocation. In between, direct your energy toward earning more income and saving more -- those have a far greater impact than portfolio tweaks.
-
-**Q9: What if I want to add individual stock picks to my multi-strategy portfolio?**
-
-A: Individual stock selection can fit within the satellite portion of a core-satellite portfolio. Limit it to 5-10% of your total portfolio -- enough to satisfy the itch to pick stocks without risking your financial future. Apply the valuation frameworks from Week 21, be honest about whether you have an edge, and keep careful track of your results versus a benchmark. Most individual stock pickers underperform after costs and taxes, but if it keeps you engaged with investing, a small allocation can be worthwhile.
-
-**Q10: What is the single most important takeaway from this entire course?**
-
-A: If you only remember one thing, let it be this: invest early, invest consistently, diversify broadly, keep costs low, and do not panic when markets fall. The vast majority of wealth building comes from these simple principles, not from clever strategies or perfect timing. Every concept in this course -- from compound interest to factor investing to multi-strategy portfolios -- is ultimately in service of this core truth: patient, disciplined, diversified investing works. The enemy is not the market -- it is your own impatience and emotion.
+事實：你的投資組合應隨人生環境的改變而演進。隨著接近退休，通常應降低股票敞口，增加債券及現金。若獲得一筆意外之財，你的風險承受能力可能改變。若有新的低成本投資工具面世，你可以考慮轉換。關鍵是基於正確理由（人生改變，而非市場波動）作出改變，並以深思熟慮而非被動反應的方式進行。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Animated intro with title "Week 24: Building a Multi-Strategy Portfolio" with puzzle pieces coming together to form a complete picture]
+**問題一：我剛起步，只有5,000港元。多策略投資組合對我來說切實際嗎？**
 
-**Alex:** Welcome to the final lesson of Level 2. We have covered an enormous amount of ground over these 24 weeks, from the basics of compound interest all the way to factor investing and international diversification. Now we are going to bring it all together into something practical: building a portfolio that actually works in the real world.
+解答：在5,000港元的起步階段，保持簡單最重要。單一目標日期基金或三基金投資組合（美國股票、國際股票、債券）是最佳選擇。你不需要因子傾斜、另類策略或複雜的衛星部位。當你的投資組合增長至50,000至100,000港元以上時，再考慮逐步增加複雜性。在5,000港元階段，最重要的是開始投資，而非構建完美投資組合。
 
-**Sam:** I have to say, Alex, I feel like I have learned more about investing in these 24 weeks than in the previous several years of casual reading. But I am also a bit overwhelmed. There are so many strategies, so many asset classes, so many considerations. How do I actually put it all together?
+**問題二：我究竟需要多少隻基金？**
 
-**Alex:** That is exactly what today is about. And here is the liberating truth: you do not need to implement every concept we have discussed. A simple, well-designed portfolio using just three or four funds will serve most investors better than a complex portfolio they cannot maintain. The goal is not to build the most sophisticated portfolio -- it is to build one that you will actually stick with through thick and thin.
+解答：對大多數投資者而言，3至7隻基金已能捕捉絕大部分的分散化效益。三基金投資組合（美國股票、國際股票、美國債券）已相當出色。加上小型價值股、因子傾斜，以及可能的通脹保值債券或房地產，你便可組成5至7隻基金，幾乎涵蓋本課程討論的所有要點。超過10至12隻基金，則是以極少的額外分散化效益換取更多複雜性。
+
+**問題三：我應該使用目標日期基金，而非自行構建投資組合嗎？**
+
+解答：目標日期基金對於希望在單一基金內獲得專業管理、自動再平衡及適合年齡配置方案的投資者而言，是絕佳選擇。主要取捨在於：管理費比率略高（0.10-0.15%對比單一指數基金的0.03-0.05%）、對具體配置的控制較少，以及無法增加因子傾斜或進行稅務損失收割。若簡單性和自動化是優先考量，目標日期基金是一個理想的解決方案。
+
+**問題四：如何在多策略投資組合中進行稅務損失收割？**
+
+解答：稅務損失收割是指賣出虧損投資以抵消其他地方的盈利，然後買入類似（但非「基本相同」）的投資以維持敞口。在多策略投資組合中，你可以在表現欠佳的衛星基金上收割損失，同時保持整體的因子及地域敞口不變。例如，若你的小型價值股基金出現虧損，可賣出它，然後買入另一家基金公司的不同小型價值股基金。按洗售規則，你需在30天後才可買回同一只基金。
+
+**問題五：現金在多策略投資組合中扮演什麼角色？**
+
+解答：現金有多種用途。首先，它提供緊急備用金（相當於3至6個月支出），獨立於你的投資組合之外。其次，投資組合內小額的現金配置（2至5%）提供流動性，讓你在無需賣出其他資產的情況下進行再平衡。第三，在高利率環境下，貨幣市場基金及短期國債可在零風險下獲取可觀回報。現金往往被忽視，但它確實是一種投資組合工具。
+
+**問題六：如何判斷我的投資組合是否運作良好？**
+
+解答：不要以是否跑贏標準普爾500指數來衡量成功。在股市強勁的牛市期間，分散化多策略投資組合必然跑輸純股票投資組合，而在熊市期間則跑贏。應以以下標準衡量成功：（一）你是否正按軌跡實現財務目標；（二）投資組合的波動性是否符合你的風險承受能力；（三）在市場動盪期間你是否能安然入睡；以及（四）你是否保持投資紀律（定期再平衡、持續儲蓄、不恐慌賣出）。
+
+**問題七：我應該使用智能投顧來實施多策略投資組合嗎？**
+
+解答：智能投顧（如Betterment、Wealthfront）將許多多策略投資組合功能自動化，包括：分散化配置、自動再平衡、稅務損失收割，以及符合年齡的風險管理。它們每年收取0.25%的費用提供上述服務。對於希望以免操心方式應用穩健多策略原則的投資者而言，智能投顧是一個合理選擇。取捨在於可客製化程度較低，且持續費用在數十年後累積效應顯著。
+
+**問題八：我應該多久查看一次投資組合？**
+
+解答：每天查看投資組合只會徒增壓力而無助於提升回報。大多數研究顯示，查看頻率越低的投資者往往獲得越高的回報，因為他們較少對短期波動作出情緒性反應。每季查看一次，確保沒有出現嚴重問題；每年作一次全面檢視，以進行再平衡及重新評估配置。在此期間，把精力放在增加收入和提升儲蓄率上——這對財富積累的影響遠大於調整投資組合。
+
+**問題九：若我想在多策略投資組合中加入個股選擇，應如何處理？**
+
+解答：個股選擇可以納入核心衛星投資組合的衛星部分。將其限制在整體投資組合的5至10%以內——足以滿足選股的慾望，同時不至於危及你的財務前途。應用第21週的估值框架，誠實評估你是否具備優勢，並仔細追蹤你相對於基準的實際表現。大多數個人投資者在扣除成本及稅務後表現跑輸，但若這能讓你對投資保持熱情，小額配置是值得的。
+
+**問題十：整個課程最重要的一個啟示是什麼？**
+
+解答：若你只記得一件事，讓它成為：盡早投資、持續投資、廣泛分散、保持低成本，以及當市場下跌時不要恐慌。絕大部分財富積累來自這些簡單原則，而非聰明的策略或完美的擇時。本課程的每一個概念——從複利效應到因子投資再到多策略投資組合——最終都服務於這個核心真理：耐心、紀律、分散化的投資是有效的。真正的敵人不是市場——而是你自己的急躁和情緒。
+
+---
+
+## YouTube劇本
+
+[VISUAL: Animated intro with title "第24週：構建多策略投資組合" with puzzle pieces coming together to form a complete picture]
+
+**Horace（陳馬）：** 歡迎來到第二階段的最後一課。過去24週，我們走過了漫長的旅程，從複利基礎，一路講到因子投資和國際分散化。今天，我們要把所有知識融會貫通，轉化為一些真正實用的東西：構建一個在現實世界中切實有效的投資組合。
+
+**Stella（小魚）：** 陳馬，我必須說，這24週學到的投資知識，比我之前好幾年零散閱讀所學到的還要多。但我同時也感到有點不知所措。策略太多，資產類別太多，需要考慮的因素也太多。我到底該如何把這一切整合在一起？
+
+**Horace（陳馬）：** 這正是今天要討論的核心。而這裡有一個讓人釋懷的真相：你不必把我們討論過的每個概念都付諸實施。一個只用三到四隻基金、設計簡單的投資組合，對大多數投資者而言，效果往往優於一個他們根本無法堅持的複雜投資組合。目標不是構建最複雜的投資組合——而是構建一個你在任何市況下都能真正堅守的組合。
 
 [VISUAL: Complex chart with many overlapping lines and indicators, then transitioning to a simple, clean portfolio chart with just a few components -- visual metaphor for simplicity outperforming complexity]
 
-**Sam:** That is reassuring. So where do we start?
+**Stella（小魚）：** 這讓我安心多了。那我們從哪裡開始？
 
-**Alex:** We start with the most powerful concept in portfolio construction: combining strategies that do not move in lockstep. This is the core principle behind everything we are going to discuss today.
+**Horace（陳馬）：** 我們從投資組合構建中最強大的概念開始：組合並非同步波動的策略。這是我們今天所有討論背後的核心原則。
 
-**Sam:** You mean diversification?
+**Stella（小魚）：** 你是說分散化？
 
-**Alex:** Diversification, yes, but at a higher level. We are not just talking about owning lots of stocks. We are talking about combining entire strategies -- stock investing, bond investing, international investing, factor investing -- that respond to different economic forces. When one strategy is struggling, another is likely performing well.
+**Horace（陳馬）：** 分散化，是的，但要在更高層次上理解它。我們不只是在討論持有大量股票。我們說的是組合整個策略——股票投資、債券投資、國際投資、因子投資——這些策略對不同的經濟力量作出反應。當一個策略表現欠佳時，另一個策略往往正在表現良好。
 
 [ANIMATION: animation/week24_multi_strategy.py - Animated visualization showing four individual strategy lines (US stocks, international stocks, bonds, and factor tilts) each exhibiting their own ups and downs. Then the animation shows these combining into a single portfolio line that is smoother and more consistent than any individual component. The animation highlights specific periods where one strategy's loss was offset by another's gain.]
 
-**Sam:** So it is like having a team of players where each one excels in different conditions?
+**Stella（小魚）：** 就像一支隊伍，每個隊員在不同環境下都各有所長？
 
-**Alex:** Perfect analogy. You do not want five sprinters -- you want a sprinter, a distance runner, a swimmer, a cyclist, and a climber. Whatever the terrain, someone on your team can handle it.
+**Horace（陳馬）：** 比喻得太好了。你不需要五個短跑運動員——你需要一個短跑手、一個長跑手、一個游泳運動員、一個單車手和一個攀岩者。無論賽道如何，你的隊伍中總有人能應對。
 
-**Sam:** Okay, so how do I structure this team?
+**Stella（小魚）：** 好的，那我該如何組建這支隊伍？
 
-**Alex:** The framework I recommend is called core-satellite. Your portfolio has a core -- the foundation -- and satellites -- the specialized positions that complement the core.
+**Horace（陳馬）：** 我推薦的框架叫做核心衛星策略。你的投資組合有一個核心——基礎部分——以及衛星——補充核心的專門部位。
 
-[VISUAL: Solar system diagram with a large sun in the center labeled "CORE: Broad Market Index Funds (60-80%)" and smaller planets orbiting labeled as satellites: "Factor Tilts," "International Overweight," "Real Assets," "Income"]
+[VISUAL: Solar system diagram with a large sun in the center labeled "核心：廣泛市場指數基金（60-80%）" and smaller planets orbiting labeled as satellites: "因子傾斜," "國際超配," "實物資產," "收益"]
 
-**Alex:** The core is simple: broad market index funds. US total stock market, international stock market, and a bond index. These three funds alone give you exposure to thousands of stocks and bonds around the world at a cost of about 0.04% per year. This core captures the single most reliable source of investment returns -- market beta.
+**Horace（陳馬）：** 核心很簡單：廣泛市場指數基金。美國全市場股票、國際股票市場和債券指數。這三隻基金本身就能讓你以每年約0.04%的成本，投資全球數以千計的股票和債券。這個核心捕捉了投資回報中最可靠的來源——市場貝塔。
 
-**Sam:** And the satellites?
+**Stella（小魚）：** 那衛星呢？
 
-**Alex:** Satellites are where you add incremental strategies. Maybe a value factor tilt, an emerging markets overweight, a small-cap allocation, or a real estate position. Each satellite is typically 5 to 15 percent of the portfolio, small enough that a bad outcome does not derail you, but large enough to make a meaningful contribution.
+**Horace（陳馬）：** 衛星是你增添額外策略的地方。也許是價值因子傾斜、新興市場超配、小型股配置，或房地產信託基金。每個衛星通常佔投資組合的5至15%——小到即使出現不利結果也不會令你脫軌，但大到足以作出有意義的貢獻。
 
-**Sam:** How many satellites should I have?
+**Stella（小魚）：** 我應該設多少個衛星？
 
-**Alex:** For most people, two to four satellites is plenty. Remember, each satellite adds a fund to manage, a rebalancing decision, and a potential behavioral temptation. More complexity means more opportunity for mistakes. I would rather see someone with three funds held with iron discipline than fifteen funds managed with anxiety.
+**Horace（陳馬）：** 對大多數人來說，兩到四個衛星已綽綽有餘。記住，每增加一個衛星，就多了一隻需要管理的基金、一個再平衡決策，以及一個潛在的行為誘惑。複雜性越高，犯錯的機會就越多。我寧願看到有人以三隻基金、鋼鐵般的紀律去執行，也不希望看到有人拿著十五隻基金卻焦慮不安地管理。
 
 [VISUAL: Three model portfolio pie charts displayed side by side:
-Simple (3 funds): 50% US Stocks, 20% Int'l, 30% Bonds
-Moderate (6 funds): 35% US Stocks, 20% Int'l, 15% Bonds, 10% Small Value, 10% Int'l Value, 10% Quality/Momentum
-Advanced (10 funds): More granular breakdown with multiple satellites]
+簡易型（3隻基金）：50%美國股票、20%國際股票、30%債券
+穩健型（6隻基金）：35%美國股票、20%國際股票、15%債券、10%小型價值股、10%國際價值股、10%優質/動量股
+進階型（10隻基金）：更細緻的多個衛星分解]
 
-**Sam:** Can you walk me through a specific example?
+**Stella（小魚）：** 你能給我一個具體的例子嗎？
 
-**Alex:** Sure. Let us build a moderate multi-strategy portfolio step by step.
+**Horace（陳馬）：** 當然。讓我們一步一步構建一個穩健的多策略投資組合。
 
-**Alex:** Start with the core. I will use 35% US total stock market and 20% international developed stocks. That is 55% in equities, broadly diversified globally. For bonds, 15% in a US aggregate bond fund. That is my 70% core.
+**Horace（陳馬）：** 從核心開始。我會用35%的美國全市場股票和20%的已發展市場國際股票。這樣有55%投放在股票上，在全球範圍內廣泛分散。債券方面，15%放在美國綜合債券基金。這就是我的70%核心。
 
-**Sam:** And the 30% in satellites?
+**Stella（小魚）：** 那剩下的30%衛星部分呢？
 
-**Alex:** I will add 10% in US small-value stocks -- this captures the size and value factor premiums, which have been the strongest combination historically. Another 10% in international value stocks -- factor premiums exist globally, and international value has been compelling. And 5% in momentum and 5% in quality -- together, these four factor satellites diversify across the major return drivers.
+**Horace（陳馬）：** 我會加入10%的美國小型價值股——這能捕捉規模和價值因子溢價，歷史上這是最強勁的組合。再加10%的國際價值股——因子溢價在全球範圍內都存在，國際價值股近期表現引人注目。另外加5%的動量股和5%的優質股——這四個因子衛星合在一起，實現了跨主要回報驅動因素的分散化。
 
 [VISUAL: The portfolio being built piece by piece, with each allocation appearing as a block being stacked, showing the running total and what each piece contributes]
 
-**Sam:** How is that different from just owning the total stock market?
+**Stella（小魚）：** 這與單純持有全市場指數基金有何不同？
 
-**Alex:** In a broad market index, your returns come almost entirely from one factor: market beta. In this portfolio, you have market beta from the core, plus value, size, momentum, and quality exposure from the satellites. These additional factors have historically added 2 to 4 percent per year in aggregate, though not consistently. More importantly, because the factors respond to different conditions, the portfolio tends to be more resilient.
+**Horace（陳馬）：** 在廣泛市場指數中，你的回報幾乎完全來自單一因子：市場貝塔。在這個投資組合中，你從核心獲得市場貝塔，再從衛星中獲得價值、規模、動量和優質因子敞口。這些額外因子歷史上累計增加了每年約2至4個百分點的回報，雖然並非每年如此。更重要的是，由於這些因子對不同環境的反應各異，投資組合往往更具韌性。
 
-**Sam:** What about bonds? We only have 15%. Is that enough?
+**Stella（小魚）：** 債券方面呢？我們只有15%，這樣夠嗎？
 
-**Alex:** For a long-term investor in the accumulation phase -- saving for retirement that is 20-plus years away -- 15% in bonds is reasonable. Bonds serve as ballast during stock market crashes. In 2008, stocks fell about 37%, but bonds rose about 5%. That bond allocation cushioned the blow and provided rebalancing fuel -- you could sell bonds at a gain and buy stocks at fire-sale prices.
+**Horace（陳馬）：** 對於處於積累期的長期投資者——距離退休還有20年以上的人——15%的債券配置是合理的。債券在股市崩盤期間充當壓艙石。2008年，股票跌幅約37%，但債券卻上漲約5%。那部分債券配置緩衝了衝擊，並提供了再平衡的彈藥——你可以在高位賣出債券，以低廉價格買入股票。
 
-**Sam:** Speaking of rebalancing, how does that work in practice?
+**Stella（小魚）：** 說到再平衡，實際操作上是怎樣的呢？
 
-**Alex:** Rebalancing is simply bringing your portfolio back to target weights. Markets will push your allocation off target. If stocks have a great year, your 55% equity allocation might drift to 63%. You would sell some stocks and buy some bonds to get back to 55/15.
+**Horace（陳馬）：** 再平衡就是把你的投資組合恢復至目標比重。市場會讓你的配置偏離目標。若股票大漲，你55%的股票配置可能飄升至63%。你就賣出部分股票，買入一些債券，回到55/15的比例。
 
-**Sam:** That feels counterintuitive -- selling what is doing well and buying what is not.
+**Stella（小魚）：** 這感覺有點違反直覺——賣出表現好的，買入表現不好的。
 
-**Alex:** It is counterintuitive, and that is exactly why it works. Rebalancing forces you to systematically sell high and buy low. It is a disciplined value strategy embedded in your portfolio maintenance. Studies show that rebalanced portfolios have similar returns to unrebalanced ones but significantly lower risk.
+**Horace（陳馬）：** 的確違反直覺，而這正是它有效的原因。再平衡迫使你系統性地高賣低買。這是一個嵌入投資組合日常維護中的紀律性價值投資策略。研究顯示，定期再平衡的投資組合與從不再平衡的投資組合回報相近，但風險顯著更低。
 
 [VISUAL: Two portfolio performance charts side by side -- one rebalanced annually, one never rebalanced. The rebalanced portfolio shows similar final value but a much smoother ride with smaller drawdowns]
 
-**Alex:** My recommendation is to rebalance annually. Pick a date -- your birthday, New Year's Day, whatever you will remember -- and review your allocation. If anything has drifted more than five percentage points from target, bring it back.
+**Horace（陳馬）：** 我的建議是每年再平衡一次。選定一個日期——你的生日、元旦，任何你能記住的日期——然後審查你的配置。若任何資產類別偏離目標超過五個百分點，就把它拉回來。
 
-**Sam:** What about rebalancing with new money? I remember you mentioned that in the reading.
+**Stella（小魚）：** 用新資金進行再平衡呢？我記得你在閱讀材料中提過這個方法。
 
-**Alex:** Yes, cash flow rebalancing is the most underrated technique. Instead of selling overweight positions to rebalance, simply direct your monthly savings to whatever is most underweight. If stocks have run up and your bond allocation is low, put your next few monthly contributions into bonds. No selling means no capital gains taxes and no transaction costs. It is the most elegant way to rebalance during the accumulation phase.
+**Horace（陳馬）：** 是的，現金流再平衡是最被低估的技巧。與其賣出超配部位來再平衡，不如直接把每月儲蓄導向配置比重最低的資產。若股票已大漲，你的債券配置偏低，就把接下來幾個月的供款投入債券。無需賣出，就沒有資本增值稅，也沒有交易成本。這是積累期最優雅的再平衡方式。
 
 [VISUAL: Monthly cash flow arrows being directed to different portfolio components based on which is most underweight, shown as a bar chart where the shortest bars receive the new money]
 
-**Sam:** Brilliant. Now, let me ask about something you mentioned briefly -- risk budgeting. What is that?
+**Stella（小魚）：** 太妙了。現在，讓我問一下你簡短提過的一個概念——風險預算。那是什麼？
 
-**Alex:** Risk budgeting is a way of thinking about your portfolio in terms of risk contributions rather than dollar allocations. Here is why it matters. In a traditional 60/40 portfolio, stocks are 60% of the dollars but about 90% of the risk. Bonds are 40% of the dollars but only about 10% of the risk.
+**Horace（陳馬）：** 風險預算是一種思考框架，著眼於各策略對風險的貢獻，而非資金配置。原因如下。在傳統的60/40投資組合中，股票佔60%的資金，但卻承擔了約90%的風險。債券佔40%的資金，卻只承擔約10%的風險。
 
-**Sam:** So the portfolio is really not as balanced as it looks.
+**Stella（小魚）：** 所以這個投資組合其實沒有表面上看起來那麼平衡。
 
-**Alex:** Exactly. In risk terms, it is more like 90/10. If you want genuine risk diversification, you need to think about how much risk each component contributes, not just how many dollars are in each bucket.
+**Horace（陳馬）：** 正是。從風險角度來看，它更像是90/10。若你想要真正的風險分散，你需要思考每個部分的風險貢獻，而非只看投入多少資金。
 
 [VISUAL: Two versions of the same 60/40 portfolio -- one shown by dollar allocation (60/40 split), the other shown by risk contribution (roughly 90/10 split), demonstrating how misleading dollar allocations can be]
 
-**Alex:** You do not need to do complex math. Just be aware that stocks dominate the risk in most portfolios. If you want to meaningfully reduce risk, you need to either reduce stock allocation significantly or add strategies that genuinely diversify equity risk -- like trend following, managed futures, or gold, which have low or negative correlation with stocks.
+**Horace（陳馬）：** 你不需要做複雜的數學計算。只需意識到股票在大多數投資組合中主導了風險。若你想有意義地降低風險，你要麼大幅減少股票配置，要麼增加能真正分散股票風險的策略——例如趨勢跟蹤、管理期貨或黃金，這些與股票的相關性低甚至呈負相關。
 
-**Sam:** Let us zoom out. What are the biggest mistakes people make when building a multi-strategy portfolio?
+**Stella（小魚）：** 讓我們放大視野。人們在構建多策略投資組合時，最常犯哪些錯誤？
 
-**Alex:** Number one is over-tinkering. You build a beautiful portfolio, and then every week you read something that makes you want to adjust. Maybe emerging markets had a bad quarter, so you want to reduce that allocation. Maybe a new factor ETF launched, so you want to add it. Every change has a cost -- financial and psychological. Set your portfolio, write down your rules, and step away.
+**Horace（陳馬）：** 第一個是過度調整。你構建了一個漂亮的投資組合，然後每週都讀到一些令你想調整的內容。也許新興市場上季表現欠佳，你想減少那部分配置。也許有新的因子交易所買賣基金上市，你想把它加進去。每一次改變都有代價——財務上和心理上的。設定好你的投資組合，寫下你的規則，然後放手。
 
-**Sam:** How do you resist the urge to tinker?
+**Stella（小魚）：** 如何抵制調整的衝動？
 
-**Alex:** Write an Investment Policy Statement. It is a short document -- one or two pages -- that spells out your investment goals, your target allocation, your rebalancing rules, and crucially, your reasons for each decision. When markets get volatile and you feel the urge to change something, read your IPS. Nine times out of ten, it will remind you that you already thought this through and the right action is to do nothing.
+**Horace（陳馬）：** 撰寫投資政策聲明。這是一份簡短的文件——一兩頁——清楚說明你的投資目標、目標配置、再平衡規則，以及關鍵的是每個決定背後的原因。當市場動盪，你感到想要改變什麼的衝動時，重新閱讀你的投資政策聲明。十之八九，它會提醒你你已經深思熟慮過這一切，而正確的行動是按兵不動。
 
 [VISUAL: Sample one-page Investment Policy Statement template with sections for goals, allocation, rebalancing rules, and "What I will NOT do" commitments]
 
-**Sam:** What about the mistake of chasing last year's winner?
+**Stella（小魚）：** 追逐去年贏家的錯誤又如何？
 
-**Alex:** This is the biggest behavioral trap in multi-strategy investing. You see that momentum outperformed last year, so you add a big momentum allocation. Then value outperforms the next year, and you switch. You are always buying after the best performance and selling after the worst. This is a recipe for chronic underperformance.
+**Horace（陳馬）：** 這是多策略投資中最大的行為陷阱。你看到動量策略去年跑贏大市，於是大幅增加動量配置。然後價值策略在下一年跑贏，你又轉換。你永遠在最佳表現後才買入，在最差表現後才賣出。這是長期跑輸的配方。
 
-**Sam:** It is performance chasing at the strategy level instead of the stock level.
+**Stella（小魚）：** 這是策略層面的表現追逐，而非股票層面的。
 
-**Alex:** Exactly. And it is just as destructive. The solution is the same: set your allocations based on long-term principles, not recent performance, and commit to maintaining them.
+**Horace（陳馬）：** 完全正確。而它的破壞力同樣巨大。解決方案是一樣的：根據長期原則而非近期表現設定你的配置，並承諾維持它。
 
 [VISUAL: Cartoon showing an investor constantly switching strategies, always arriving just after the peak performance, with a running tally of returns showing worse and worse results]
 
-**Sam:** Okay, I want to make sure we cover the big-picture takeaways from the entire course. If someone has only been listening to this episode, what do they absolutely need to know?
+**Stella（小魚）：** 好的，我想確保我們涵蓋整個課程的大局觀要點。若有人只聽了這一集，他們絕對需要知道什麼？
 
-**Alex:** Let me give you the five principles that matter more than everything else combined.
+**Horace（陳馬）：** 讓我告訴你五個比其他一切加起來都更重要的原則。
 
-**Alex:** Principle one: Start early and invest consistently. Compound interest is the most powerful force in wealth building. A dollar invested at age 25 is worth roughly ten times more at retirement than a dollar invested at age 45. Do not wait for the perfect time or the perfect portfolio. Start now.
+**Horace（陳馬）：** 原則一：盡早開始，持續投資。複利是財富積累中最強大的力量。在25歲投入的一元，到退休時的價值大約是45歲投入的一元的十倍。不要等待完美的時機或完美的投資組合。現在就開始。
 
 [VISUAL: Compound growth chart showing two investors -- one starting at 25, one at 35, both saving $500/month at 8% returns. The early starter has roughly twice as much at 65 despite only 10 more years of contributions.]
 
-**Sam:** The early start advantage is staggering.
+**Stella（小魚）：** 早開始的優勢真的令人震驚。
 
-**Alex:** Principle two: Keep costs low. Every dollar you pay in fees is a dollar that is not compounding for you. A 1% annual fee does not sound like much, but over 30 years, it can reduce your final wealth by 25-30%. Use low-cost index funds for your core, and only pay higher fees for satellite strategies where you have a clear reason.
+**Horace（陳馬）：** 原則二：保持低成本。你支付的每一分費用，都是不能為你複利增長的金錢。每年1%的費用聽起來不多，但30年下來，可能讓你的最終財富減少25至30%。核心部分使用低成本指數基金，只在有明確理由的衛星策略上才支付較高費用。
 
-**Sam:** Index funds for the win.
+**Stella（小魚）：** 指數基金才是王道。
 
-**Alex:** Principle three: Diversify broadly. Across asset classes -- stocks and bonds. Across geographies -- domestic and international. Across factors -- value, momentum, quality. Across time -- dollar-cost averaging for regular investments. Diversification is the only true free lunch in investing. Take full advantage of it.
+**Horace（陳馬）：** 原則三：廣泛分散化。跨資產類別——股票和債券。跨地域——本地和國際。跨因子——價值、動量、優質。跨時間——對定期投資採用平均成本法。分散化是投資中唯一真正的免費午餐。充分利用它。
 
-**Sam:** And it protects you from the unknown.
+**Stella（小魚）：** 它也保護你免受未知風險的衝擊。
 
-**Alex:** Exactly. We do not know what the next crisis will look like. We do not know which country or factor will lead. Diversification is humility expressed as a portfolio.
+**Horace（陳馬）：** 正是。我們不知道下一場危機是什麼樣子的。我們不知道哪個國家或哪個因子會領跑。分散化是以投資組合形式表達的謙遜態度。
 
-[VISUAL: Shield graphic with "DIVERSIFICATION" written on it, deflecting various threats labeled: "recession," "currency crash," "factor drawdown," "regional crisis," "inflation spike"]
+[VISUAL: Shield graphic with "分散化" written on it, deflecting various threats labeled: "經濟衰退," "貨幣崩潰," "因子回撤," "地區危機," "通脹急升"]
 
-**Alex:** Principle four: Control your behavior. The stock market's average return is around 10% per year, but the average investor earns far less -- studies suggest 4-6% -- because they buy high and sell low, chase performance, and react to headlines. Your investment plan is only as good as your ability to stick with it. Automate everything you can: contributions, rebalancing, reinvestment.
+**Horace（陳馬）：** 原則四：控制你的行為。股市的平均年回報約為10%，但普通投資者的實際回報遠低於此——研究顯示約為4至6%——因為他們高買低賣、追逐表現、對新聞頭條作出反應。你的投資計劃只有在你能堅持執行的情況下才有價值。盡量自動化一切：供款、再平衡、股息再投資。
 
-**Sam:** The plan does not matter if you cannot follow it.
+**Stella（小魚）：** 計劃本身沒用，關鍵在於能否執行。
 
-**Alex:** Principle five: Keep it simple. Three to seven well-chosen funds in the right allocation, rebalanced once a year, with consistent contributions. That is genuinely all you need. Adding complexity beyond this requires expertise, discipline, and time that most people do not have. There is no shame in simplicity -- in fact, simplicity is the mark of investment wisdom.
+**Horace（陳馬）：** 原則五：保持簡單。三到七隻精心選擇的基金，以正確的比例配置，每年再平衡一次，持續定期供款。這真的就是你所需要的一切。在此基礎上增加複雜性，需要大多數人並不具備的專業知識、紀律和時間。追求簡單沒有什麼可羞愧的——事實上，簡單正是投資智慧的標誌。
 
-[VISUAL: Five golden rules displayed as pillars holding up a roof labeled "Financial Security": Start Early, Low Costs, Diversify, Control Behavior, Keep It Simple]
+[VISUAL: Five golden rules displayed as pillars holding up a roof labeled "財務安全": 盡早開始、低成本、分散化、控制行為、保持簡單]
 
-**Sam:** Those five principles seem like they would get you 90% of the way there.
+**Stella（小魚）：** 這五個原則聽起來能讓你走完90%的路程。
 
-**Alex:** More like 95%. The other 5% -- the factor tilts, the tax optimization, the satellite strategies -- that is incremental improvement. Important for large portfolios and serious investors, but not essential for building wealth. If all you do is save 15-20% of your income, invest it in a three-fund portfolio of index funds, and rebalance once a year, you will be wealthier than the vast majority of people.
+**Horace（陳馬）：** 甚至95%。其餘的5%——因子傾斜、稅務優化、衛星策略——那是邊際改善。對大型投資組合和認真的投資者而言固然重要，但對積累財富而言並非必要。只要你把收入的15至20%儲蓄起來，投入由指數基金組成的三基金投資組合，每年再平衡一次，你的財富將超越絕大多數人。
 
-**Sam:** That is simultaneously simple and profound.
+**Stella（小魚）：** 這既簡單又深刻。
 
-**Alex:** The best investment strategies always are. Complexity is often the enemy of returns, because it creates more opportunities for mistakes and higher costs.
+**Horace（陳馬）：** 最好的投資策略永遠如此。複雜性往往是回報的敵人，因為它製造了更多犯錯的機會和更高的成本。
 
-[VISUAL: Comparison table showing "Simple 3-Fund Portfolio" vs. "Complex 15-Fund Portfolio" over 30 years, with the simple portfolio winning due to lower costs and fewer behavioral mistakes]
+[VISUAL: Comparison table showing "簡易三基金投資組合" vs. "複雜十五基金投資組合" over 30 years, with the simple portfolio winning due to lower costs and fewer behavioral mistakes]
 
-**Sam:** Before we end, can we talk about what comes next? This is the end of Level 2. What should I be working on?
+**Stella（小魚）：** 在結束之前，我們能談談接下來的方向嗎？這是第二階段的結尾。我應該繼續努力的方向是什麼？
 
-**Alex:** There are several paths forward. First, implement what you have learned. If you do not have a portfolio yet, build one this week. If you have a portfolio, review it against the principles we have discussed and make any needed adjustments. Second, continue learning. Topics like options, alternative investments, private markets, and advanced tax strategies await in Level 3. Third, and most importantly, be patient. Wealth building is a marathon, not a sprint. The first few years feel slow, but compound growth is exponential -- the last ten years of a thirty-year investment journey produce more wealth than the first twenty.
+**Horace（陳馬）：** 前路有幾個方向。首先，把你學到的知識付諸實施。若你還沒有投資組合，這個星期就動手構建一個。若你已有投資組合，按我們討論過的原則審視它，並作出任何必要的調整。其次，繼續學習。期權、另類投資、私募市場和進階稅務策略等主題，將在第三階段等待你。第三，也是最重要的，保持耐心。財富積累是一場馬拉松，而非短跑。最初幾年感覺進展緩慢，但複利增長是指數式的——30年投資旅程中的最後十年，所積累的財富往往多於前二十年。
 
-**Sam:** That compound growth curve is the ultimate motivator.
+**Stella（小魚）：** 那條複利增長曲線是最終極的動力。
 
-**Alex:** It really is. And here is one final thought. The biggest risk in investing is not market crashes, or picking the wrong stocks, or even high fees. The biggest risk is never starting. Every day you wait is a day of compound growth you will never get back. So take what you have learned, build a portfolio you can believe in, and trust the process.
+**Horace（陳馬）：** 確實如此。最後說一句話。投資最大的風險不是市場崩盤、選錯股票，甚至不是高昂費用。最大的風險是永遠不開始。你每等待一天，就是永遠失去一天的複利增長。所以，運用你所學到的知識，構建一個你真心信賴的投資組合，然後相信這個過程。
 
-[ANIMATION: animation/week24_multi_strategy.py - Final animation showing a long-term wealth accumulation path. Starting with a small amount, the portfolio grows through consistent contributions and market returns. Various market events are labeled along the way (corrections, crashes, recoveries), but the upward trend is clear. The animation ends with a large final portfolio value and the text "The process works. Trust it."]
+[ANIMATION: animation/week24_multi_strategy.py - Final animation showing a long-term wealth accumulation path. Starting with a small amount, the portfolio grows through consistent contributions and market returns. Various market events are labeled along the way (corrections, crashes, recoveries), but the upward trend is clear. The animation ends with a large final portfolio value and the text "過程是有效的。相信它。"]
 
-**Sam:** Alex, thank you for this incredible journey. Twenty-four weeks of knowledge packed into one course.
+**Stella（小魚）：** 陳馬，感謝你帶領我們走過這段精彩的旅程。二十四週的知識，濃縮在一個課程裡。
 
-**Alex:** Thank you, Sam, and thank you to everyone who has been following along. Remember: invest early, invest consistently, diversify broadly, keep costs low, and control your behavior. Those five principles will serve you for a lifetime. Until next time.
+**Horace（陳馬）：** 感謝你，小魚，也感謝所有一直跟隨我們的朋友。記住：盡早投資、持續投資、廣泛分散、保持低成本、控制你的行為。這五個原則將伴你終身受用。下次見！
 
-**Sam:** See you all in Level 3! Thanks for watching!
+**Stella（小魚）：** 第三階段見！感謝大家收看！
 
 [VISUAL: End screen with complete course summary, subscribe button, and congratulatory message for completing Levels 1 and 2. Links to all previous lessons displayed.]
 

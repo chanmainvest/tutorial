@@ -642,243 +642,243 @@ A: LEAPS are more sensitive to interest rates than short-dated options (they hav
 
 [VISUAL: Opening title card -- "Week 38: LEAPS and Long-Term Options" with a calendar showing months stretching into the future]
 
-**Alex**: Welcome back. Last week we covered options leverage, and I mentioned that there is a way to get leverage with much less time pressure. That brings us to today's topic: LEAPS. Sam, have you heard of LEAPS before?
+**Horace**: Welcome back. Last week we covered options leverage, and I mentioned that there is a way to get leverage with much less time pressure. That brings us to today's topic: LEAPS. Stella, have you heard of LEAPS before?
 
-**Sam**: I know the acronym -- Long-Term Equity Anticipation Securities. They are just options with really long expiration dates, right? One to two years out?
+**Stella**: I know the acronym -- Long-Term Equity Anticipation Securities. They are just options with really long expiration dates, right? One to two years out?
 
-**Alex**: That is the basic definition, yes. But they are much more than just "long options." LEAPS change the entire dynamic of how options work in your portfolio. The time factor -- which is usually the enemy of option buyers -- becomes much more manageable. Let me show you why that matters.
+**Horace**: That is the basic definition, yes. But they are much more than just "long options." LEAPS change the entire dynamic of how options work in your portfolio. The time factor -- which is usually the enemy of option buyers -- becomes much more manageable. Let me show you why that matters.
 
 [VISUAL: Side-by-side comparison of theta decay curves for 30-day option vs 2-year LEAPS]
 
-**Alex**: Look at these two theta decay curves. The 30-day option loses value rapidly -- almost half its value in the final two weeks. The 2-year LEAPS? It barely moves for the first year. The daily theta on a 2-year LEAPS is about one-fifth of a 30-day option of the same strike.
+**Horace**: Look at these two theta decay curves. The 30-day option loses value rapidly -- almost half its value in the final two weeks. The 2-year LEAPS? It barely moves for the first year. The daily theta on a 2-year LEAPS is about one-fifth of a 30-day option of the same strike.
 
-**Sam**: So the time decay is there, but it is slow enough that your thesis has time to play out.
+**Stella**: So the time decay is there, but it is slow enough that your thesis has time to play out.
 
-**Alex**: Exactly. And that is the single biggest advantage. With short-dated options, you need to be right about direction AND timing. With LEAPS, timing becomes much less critical. If you believe NVIDIA will benefit from AI spending over the next 18 months, a LEAPS call lets you express that view without needing NVIDIA to rally next week.
+**Horace**: Exactly. And that is the single biggest advantage. With short-dated options, you need to be right about direction AND timing. With LEAPS, timing becomes much less critical. If you believe NVIDIA will benefit from AI spending over the next 18 months, a LEAPS call lets you express that view without needing NVIDIA to rally next week.
 
 [ANIMATION: animation/week38_leaps_decay.py -- Animated visualization of theta decay over time for options at different expirations. The animation starts with four option premium bars representing 3-month, 6-month, 12-month, and 24-month options. A simulated clock advances day by day. As time passes, each bar shrinks at its own rate -- the 3-month option shrinks rapidly and hits zero quickly, the 6-month follows, while the 12-month and 24-month bars barely move initially. The animation clearly shows the non-linear acceleration of theta decay, with the curve steepening dramatically in the final 60-90 days. Key milestones are labeled: "theta begins accelerating" at 90 days, "danger zone" at 30 days.]
 
-**Sam**: That animation makes it so clear. The decay is almost invisible for the 2-year option during the first year. It is the final few months where things get aggressive.
+**Stella**: That animation makes it so clear. The decay is almost invisible for the 2-year option during the first year. It is the final few months where things get aggressive.
 
-**Alex**: Right, and that is why LEAPS traders have a critical rule: roll your LEAPS when they reach six to nine months to expiration. You want to exit before that steep part of the curve.
+**Horace**: Right, and that is why LEAPS traders have a critical rule: roll your LEAPS when they reach six to nine months to expiration. You want to exit before that steep part of the curve.
 
-**Sam**: Got it. So what are the main ways people use LEAPS?
+**Stella**: Got it. So what are the main ways people use LEAPS?
 
-**Alex**: There are three primary strategies. The first and most important is stock replacement.
+**Horace**: There are three primary strategies. The first and most important is stock replacement.
 
 [VISUAL: Slide titled "Deep ITM LEAPS as Stock Replacement"]
 
-**Alex**: The idea is simple. Instead of buying 100 shares of Apple at $185 for $18,500, you buy a deep in-the-money LEAPS call -- say a $140 strike call expiring in two years -- for about $52 per share, or $5,200.
+**Horace**: The idea is simple. Instead of buying 100 shares of Apple at $185 for $18,500, you buy a deep in-the-money LEAPS call -- say a $140 strike call expiring in two years -- for about $52 per share, or $5,200.
 
-**Sam**: That is 72% less capital. But how closely does it track the stock?
+**Stella**: That is 72% less capital. But how closely does it track the stock?
 
-**Alex**: With a delta of 0.88, it moves 88 cents for every dollar Apple moves. It is not a perfect substitute, but it is close. And here is the key math.
+**Horace**: With a delta of 0.88, it moves 88 cents for every dollar Apple moves. It is not a perfect substitute, but it is close. And here is the key math.
 
 [VISUAL: Comparison table showing stock vs LEAPS returns at various Apple price points]
 
-**Alex**: If Apple goes to $220, a 19% gain, your stock position makes $3,500. Your LEAPS makes about $2,800. Less in absolute dollars, but that is a 54% return on $5,200 of capital. Meanwhile, you had $13,300 freed up. Put that in Treasury bills at 4.5% and you earn another $600 a year.
+**Horace**: If Apple goes to $220, a 19% gain, your stock position makes $3,500. Your LEAPS makes about $2,800. Less in absolute dollars, but that is a 54% return on $5,200 of capital. Meanwhile, you had $13,300 freed up. Put that in Treasury bills at 4.5% and you earn another $600 a year.
 
-**Sam**: So the LEAPS gives me most of the upside, uses way less capital, and the freed capital earns a return. What is the catch?
+**Stella**: So the LEAPS gives me most of the upside, uses way less capital, and the freed capital earns a return. What is the catch?
 
-**Alex**: Several catches. First, you miss dividends. Apple pays about $100 a year on 100 shares -- small for Apple, but it can be significant for higher-yielding stocks. Second, if Apple drops, you lose a higher percentage on the LEAPS than on the stock, because of leverage. And third, there is the extrinsic value -- the $7 per share of time premium. That decays over time.
+**Horace**: Several catches. First, you miss dividends. Apple pays about $100 a year on 100 shares -- small for Apple, but it can be significant for higher-yielding stocks. Second, if Apple drops, you lose a higher percentage on the LEAPS than on the stock, because of leverage. And third, there is the extrinsic value -- the $7 per share of time premium. That decays over time.
 
-**Sam**: How much does that extrinsic value matter?
+**Stella**: How much does that extrinsic value matter?
 
-**Alex**: Let us calculate it. Seven dollars per share of extrinsic value over two years is $3.50 per year, or about 1.9% of the stock price annually. If you compare that to margin interest -- which is 5-8% per year -- it is actually quite reasonable. And if the freed capital earns 4.5%, you are more than covering the extrinsic value cost.
+**Horace**: Let us calculate it. Seven dollars per share of extrinsic value over two years is $3.50 per year, or about 1.9% of the stock price annually. If you compare that to margin interest -- which is 5-8% per year -- it is actually quite reasonable. And if the freed capital earns 4.5%, you are more than covering the extrinsic value cost.
 
 [VISUAL: Cost comparison chart -- LEAPS extrinsic value vs margin interest vs freed capital return]
 
-**Sam**: That makes sense in a high interest rate environment. What about when rates are low?
+**Stella**: That makes sense in a high interest rate environment. What about when rates are low?
 
-**Alex**: Great question. When rates were near zero in 2020-2021, the LEAPS strategy was less attractive because the freed capital earned nothing. The break-even interest rate for this to work is roughly the extrinsic value cost plus missed dividends divided by the freed capital. For most stocks, that is around 3-4%. Below that, just buy the stock.
+**Horace**: Great question. When rates were near zero in 2020-2021, the LEAPS strategy was less attractive because the freed capital earned nothing. The break-even interest rate for this to work is roughly the extrinsic value cost plus missed dividends divided by the freed capital. For most stocks, that is around 3-4%. Below that, just buy the stock.
 
-**Sam**: OK, let us talk about the second strategy. You mentioned the "poor man's covered call."
+**Stella**: OK, let us talk about the second strategy. You mentioned the "poor man's covered call."
 
-**Alex**: Yes, this is one of my favorite strategies.
+**Horace**: Yes, this is one of my favorite strategies.
 
 [VISUAL: Diagram showing PMCC structure -- long deep ITM LEAPS plus short near-term OTM call]
 
-**Alex**: A traditional covered call requires you to buy 100 shares and sell a call against it. On Microsoft at $400, that is $40,000 of capital to generate maybe $600 per month in premium. The poor man's covered call replaces the stock with a deep ITM LEAPS.
+**Horace**: A traditional covered call requires you to buy 100 shares and sell a call against it. On Microsoft at $400, that is $40,000 of capital to generate maybe $600 per month in premium. The poor man's covered call replaces the stock with a deep ITM LEAPS.
 
-**Sam**: So instead of $40,000 in stock, I buy a LEAPS for maybe $7,000 to $8,000?
+**Stella**: So instead of $40,000 in stock, I buy a LEAPS for maybe $7,000 to $8,000?
 
-**Alex**: Exactly. You buy a $340 strike LEAPS call for $72 per share -- $7,200 total. Then you sell the same monthly $410 call for $6, collecting $600 per month. Same income, but on $7,200 of capital instead of $40,000.
+**Horace**: Exactly. You buy a $340 strike LEAPS call for $72 per share -- $7,200 total. Then you sell the same monthly $410 call for $6, collecting $600 per month. Same income, but on $7,200 of capital instead of $40,000.
 
-**Sam**: That is the same $600 monthly income on 82% less capital. The return on capital jumps from 1.5% per month to over 8% per month!
+**Stella**: That is the same $600 monthly income on 82% less capital. The return on capital jumps from 1.5% per month to over 8% per month!
 
-**Alex**: In percentage terms, yes. But I need to be careful here because the risk profile is different.
+**Horace**: In percentage terms, yes. But I need to be careful here because the risk profile is different.
 
 [VISUAL: Risk comparison for traditional CC vs PMCC]
 
-**Alex**: With the traditional covered call, if Microsoft drops 30%, you lose about $12,000 on the stock minus the premiums collected. Your position still exists -- you still own the shares. With the PMCC, if Microsoft drops 30%, your LEAPS might lose 70-80% of its value. The position could be nearly wiped out.
+**Horace**: With the traditional covered call, if Microsoft drops 30%, you lose about $12,000 on the stock minus the premiums collected. Your position still exists -- you still own the shares. With the PMCC, if Microsoft drops 30%, your LEAPS might lose 70-80% of its value. The position could be nearly wiped out.
 
-**Sam**: So the higher percentage returns come with higher percentage risk.
+**Stella**: So the higher percentage returns come with higher percentage risk.
 
-**Alex**: Exactly. The PMCC is more capital-efficient but not inherently safer. You need to be comfortable with the idea that your LEAPS can lose most of its value in a severe downturn.
+**Horace**: Exactly. The PMCC is more capital-efficient but not inherently safer. You need to be comfortable with the idea that your LEAPS can lose most of its value in a severe downturn.
 
-**Sam**: How do you manage it on an ongoing basis?
+**Stella**: How do you manage it on an ongoing basis?
 
-**Alex**: There are three key management actions.
+**Horace**: There are three key management actions.
 
 [VISUAL: Three management pillars for PMCC]
 
-**Alex**: First, managing the short call. If the stock rallies and your short call goes in-the-money, you roll it up and out -- close the current one, open a new one at a higher strike with a later expiration, ideally for a credit.
+**Horace**: First, managing the short call. If the stock rallies and your short call goes in-the-money, you roll it up and out -- close the current one, open a new one at a higher strike with a later expiration, ideally for a credit.
 
-**Sam**: What if I cannot roll for a credit?
+**Stella**: What if I cannot roll for a credit?
 
-**Alex**: Then you have two choices. Take the assignment -- close the LEAPS and the short call simultaneously, locking in the maximum profit of the spread. Or roll for a small debit if you still want the position. Never roll for a large debit -- that destroys the income strategy's economics.
+**Horace**: Then you have two choices. Take the assignment -- close the LEAPS and the short call simultaneously, locking in the maximum profit of the spread. Or roll for a small debit if you still want the position. Never roll for a large debit -- that destroys the income strategy's economics.
 
-**Alex**: Second management action: rolling the LEAPS. When the LEAPS reaches six to nine months to expiration, you sell it and buy a new one further out. You want to do this before theta accelerates.
+**Horace**: Second management action: rolling the LEAPS. When the LEAPS reaches six to nine months to expiration, you sell it and buy a new one further out. You want to do this before theta accelerates.
 
-**Sam**: And the third?
+**Stella**: And the third?
 
-**Alex**: Adjusting strike width. If the stock has moved significantly, your LEAPS might be very deep ITM or moving toward ATM. If it is getting too close to ATM, consider rolling to a deeper strike to maintain the stock-like characteristics.
+**Horace**: Adjusting strike width. If the stock has moved significantly, your LEAPS might be very deep ITM or moving toward ATM. If it is getting too close to ATM, consider rolling to a deeper strike to maintain the stock-like characteristics.
 
-**Sam**: Let us talk about selecting the right LEAPS. How do I choose the strike and expiration?
+**Stella**: Let us talk about selecting the right LEAPS. How do I choose the strike and expiration?
 
 [VISUAL: LEAPS selection decision tree]
 
-**Alex**: For stock replacement, your target delta is 0.80 to 0.90. This usually means a strike 15-25% below the current stock price. Go deeper and you are paying too much (nearly stock price). Go shallower and you are getting too much leverage and extrinsic value.
+**Horace**: For stock replacement, your target delta is 0.80 to 0.90. This usually means a strike 15-25% below the current stock price. Go deeper and you are paying too much (nearly stock price). Go shallower and you are getting too much leverage and extrinsic value.
 
-**Sam**: And for expiration?
+**Stella**: And for expiration?
 
-**Alex**: Always buy the longest available expiration. Time value is not linear -- a two-year LEAPS does not cost twice as much extrinsic value as a one-year. The per-day cost of time is lower the longer you go. This means buying a two-year LEAPS and rolling once is cheaper than buying two consecutive one-year LEAPS.
+**Horace**: Always buy the longest available expiration. Time value is not linear -- a two-year LEAPS does not cost twice as much extrinsic value as a one-year. The per-day cost of time is lower the longer you go. This means buying a two-year LEAPS and rolling once is cheaper than buying two consecutive one-year LEAPS.
 
 [VISUAL: Chart comparing extrinsic value per day for different expirations]
 
-**Sam**: That is an important insight. Let me make sure I understand. If a 1-year LEAPS has $7 of extrinsic value and a 2-year has $10, I am paying $10 for two years versus $14 for two consecutive 1-year positions. I save $4.
+**Stella**: That is an important insight. Let me make sure I understand. If a 1-year LEAPS has $7 of extrinsic value and a 2-year has $10, I am paying $10 for two years versus $14 for two consecutive 1-year positions. I save $4.
 
-**Alex**: Exactly. That $4 savings is real money, especially when you are rolling positions year after year. Over a decade of stock replacement using LEAPS, the savings from buying longer duration add up to many thousands of dollars.
+**Horace**: Exactly. That $4 savings is real money, especially when you are rolling positions year after year. Over a decade of stock replacement using LEAPS, the savings from buying longer duration add up to many thousands of dollars.
 
-**Sam**: What about LEAPS on ETFs? Is that a good idea?
+**Stella**: What about LEAPS on ETFs? Is that a good idea?
 
-**Alex**: LEAPS on broad market ETFs like SPY and QQQ are one of my favorite applications.
+**Horace**: LEAPS on broad market ETFs like SPY and QQQ are one of my favorite applications.
 
 [VISUAL: LEAPS on SPY example with capital allocation diagram]
 
-**Alex**: Consider this. You want $100,000 of S&P 500 exposure. You can buy 200 shares of SPY at $500 each. Or you can buy 2 deep ITM LEAPS calls for about $19,000 and invest the remaining $81,000 in Treasury bills.
+**Horace**: Consider this. You want $100,000 of S&P 500 exposure. You can buy 200 shares of SPY at $500 each. Or you can buy 2 deep ITM LEAPS calls for about $19,000 and invest the remaining $81,000 in Treasury bills.
 
-**Sam**: And the math works because...
+**Stella**: And the math works because...
 
-**Alex**: The LEAPS costs about $3,000 in extrinsic value over two years, or $1,500 per year. You miss about $1,400 in dividends per year. Total cost: $2,900 per year. But $81,000 in T-bills at 4.5% earns $3,645 per year. You are actually ahead by $745 per year.
+**Horace**: The LEAPS costs about $3,000 in extrinsic value over two years, or $1,500 per year. You miss about $1,400 in dividends per year. Total cost: $2,900 per year. But $81,000 in T-bills at 4.5% earns $3,645 per year. You are actually ahead by $745 per year.
 
-**Sam**: So in a high-rate environment, LEAPS on SPY actually make you money compared to owning the ETF outright?
+**Stella**: So in a high-rate environment, LEAPS on SPY actually make you money compared to owning the ETF outright?
 
-**Alex**: Yes, with the caveat that you have slightly less upside capture (delta 0.85 instead of 1.00) and you have to manage the position -- rolling, monitoring, paying attention to bid-ask spreads. It is not truly passive like owning SPY.
+**Horace**: Yes, with the caveat that you have slightly less upside capture (delta 0.85 instead of 1.00) and you have to manage the position -- rolling, monitoring, paying attention to bid-ask spreads. It is not truly passive like owning SPY.
 
-**Sam**: What about the tax angle?
+**Stella**: What about the tax angle?
 
 [VISUAL: Tax comparison slide]
 
-**Alex**: Big advantage for LEAPS. If you hold a LEAPS for more than 12 months, the gain qualifies for long-term capital gains treatment. Currently that is 20% versus 37% for short-term gains. On a $5,000 profit, that is $850 more in your pocket after taxes with LEAPS.
+**Horace**: Big advantage for LEAPS. If you hold a LEAPS for more than 12 months, the gain qualifies for long-term capital gains treatment. Currently that is 20% versus 37% for short-term gains. On a $5,000 profit, that is $850 more in your pocket after taxes with LEAPS.
 
-**Sam**: That is a significant difference. Buy a 2-year LEAPS, hold it for 13 months, sell it, and you get the favorable tax rate.
+**Stella**: That is a significant difference. Buy a 2-year LEAPS, hold it for 13 months, sell it, and you get the favorable tax rate.
 
-**Alex**: Exactly. And this is another reason to buy the longest duration available. It gives you more time to qualify for long-term capital gains.
+**Horace**: Exactly. And this is another reason to buy the longest duration available. It gives you more time to qualify for long-term capital gains.
 
-**Sam**: What are the biggest mistakes people make with LEAPS?
+**Stella**: What are the biggest mistakes people make with LEAPS?
 
-**Alex**: Let me give you the top five.
+**Horace**: Let me give you the top five.
 
 [VISUAL: "Top 5 LEAPS Mistakes" list appearing one by one]
 
-**Alex**: Number one: buying ATM LEAPS for stock replacement. This is wrong because all the premium is extrinsic value. You want deep ITM so most of your premium is intrinsic and will not decay.
+**Horace**: Number one: buying ATM LEAPS for stock replacement. This is wrong because all the premium is extrinsic value. You want deep ITM so most of your premium is intrinsic and will not decay.
 
-**Sam**: Because intrinsic value is real value -- it does not evaporate with time.
+**Stella**: Because intrinsic value is real value -- it does not evaporate with time.
 
-**Alex**: Exactly. Number two: forgetting to roll. Traders buy a 2-year LEAPS, put it in their portfolio, and forget about it. Eighteen months later, it is a 6-month option with rapidly accelerating theta. Set calendar reminders.
+**Horace**: Exactly. Number two: forgetting to roll. Traders buy a 2-year LEAPS, put it in their portfolio, and forget about it. Eighteen months later, it is a 6-month option with rapidly accelerating theta. Set calendar reminders.
 
-**Alex**: Number three: ignoring implied volatility when buying. LEAPS have high vega, meaning they are very sensitive to IV changes. If you buy when IV is elevated -- say after a market crash when VIX is at 35 -- you are overpaying. When IV normalizes, your LEAPS loses value from vega even if the stock goes up.
+**Horace**: Number three: ignoring implied volatility when buying. LEAPS have high vega, meaning they are very sensitive to IV changes. If you buy when IV is elevated -- say after a market crash when VIX is at 35 -- you are overpaying. When IV normalizes, your LEAPS loses value from vega even if the stock goes up.
 
-**Sam**: So I should buy LEAPS when IV is low?
+**Stella**: So I should buy LEAPS when IV is low?
 
-**Alex**: Ideally, yes. Or at least be aware of the IV environment. Check the IV rank or IV percentile before buying.
+**Horace**: Ideally, yes. Or at least be aware of the IV environment. Check the IV rank or IV percentile before buying.
 
-**Alex**: Number four: over-leveraging. Just because LEAPS give you leverage does not mean you should lever up your entire portfolio. Use LEAPS to replace stock positions you would hold anyway, not to speculate with five times more exposure than you would normally take.
+**Horace**: Number four: over-leveraging. Just because LEAPS give you leverage does not mean you should lever up your entire portfolio. Use LEAPS to replace stock positions you would hold anyway, not to speculate with five times more exposure than you would normally take.
 
-**Sam**: And number five?
+**Stella**: And number five?
 
-**Alex**: Treating LEAPS as if they were stock. They are not. They expire. They have time decay. They do not pay dividends. They can lose 100% of their value. Always have a management plan: when will you roll, when will you close, what are your exit criteria?
+**Horace**: Treating LEAPS as if they were stock. They are not. They expire. They have time decay. They do not pay dividends. They can lose 100% of their value. Always have a management plan: when will you roll, when will you close, what are your exit criteria?
 
-**Sam**: This has been incredibly informative. LEAPS seem like a genuinely useful tool for long-term investors who understand the trade-offs.
+**Stella**: This has been incredibly informative. LEAPS seem like a genuinely useful tool for long-term investors who understand the trade-offs.
 
-**Alex**: They are. But the key word there is "understand." Do not use LEAPS until you can explain the extrinsic value cost, the rolling mechanics, and the risk profile. Paper trade a few positions first. Track them for a few months. Then start small with real capital.
+**Horace**: They are. But the key word there is "understand." Do not use LEAPS until you can explain the extrinsic value cost, the rolling mechanics, and the risk profile. Paper trade a few positions first. Track them for a few months. Then start small with real capital.
 
 [VISUAL: Summary slide with three key takeaways]
 
-**Sam**: Before we wrap up, can we walk through a real LEAPS management scenario from start to finish? I think that would really solidify the concepts.
+**Stella**: Before we wrap up, can we walk through a real LEAPS management scenario from start to finish? I think that would really solidify the concepts.
 
-**Alex**: Great idea. Let us trace a full lifecycle.
+**Horace**: Great idea. Let us trace a full lifecycle.
 
 [VISUAL: Timeline graphic showing LEAPS lifecycle over 18 months]
 
-**Alex**: January 2025. You decide to use a LEAPS to get exposure to Amazon, which is trading at $190. You buy a $150 strike call expiring in January 2027 -- that is 24 months out. Premium is $52 per share. Delta is 0.84.
+**Horace**: January 2025. You decide to use a LEAPS to get exposure to Amazon, which is trading at $190. You buy a $150 strike call expiring in January 2027 -- that is 24 months out. Premium is $52 per share. Delta is 0.84.
 
-**Sam**: So $5,200 total investment. Intrinsic value is $40, extrinsic is $12.
+**Stella**: So $5,200 total investment. Intrinsic value is $40, extrinsic is $12.
 
-**Alex**: Correct. Your breakeven at expiration is $202. But remember, you plan to manage this actively, not hold to expiration.
+**Horace**: Correct. Your breakeven at expiration is $202. But remember, you plan to manage this actively, not hold to expiration.
 
-**Sam**: What happens in month three?
+**Stella**: What happens in month three?
 
-**Alex**: March 2025. Amazon has risen to $205. Your LEAPS is now worth $62. That is $10 of profit, a 19% return in three months. The stock moved 7.9%, so you captured about 2.4x the stock's return on a percentage basis. Your delta is now 0.89 -- deeper ITM. Everything is working.
+**Horace**: March 2025. Amazon has risen to $205. Your LEAPS is now worth $62. That is $10 of profit, a 19% return in three months. The stock moved 7.9%, so you captured about 2.4x the stock's return on a percentage basis. Your delta is now 0.89 -- deeper ITM. Everything is working.
 
-**Sam**: Do you take profits?
+**Stella**: Do you take profits?
 
-**Alex**: Not yet. Your thesis was for Amazon to appreciate over 12-18 months. Three months is too early to exit unless you have a specific reason to doubt the thesis.
+**Horace**: Not yet. Your thesis was for Amazon to appreciate over 12-18 months. Three months is too early to exit unless you have a specific reason to doubt the thesis.
 
-**Sam**: OK, month six.
+**Stella**: OK, month six.
 
-**Alex**: June 2025. Amazon has pulled back to $185. Your LEAPS is now worth $44. You are down $8 from your purchase price, a 15% loss. Delta has dropped to 0.78.
+**Horace**: June 2025. Amazon has pulled back to $185. Your LEAPS is now worth $44. You are down $8 from your purchase price, a 15% loss. Delta has dropped to 0.78.
 
 [VISUAL: P&L chart showing the fluctuation]
 
-**Sam**: That 2.6% stock decline turned into a 15% LEAPS decline. The leverage is working against me now.
+**Stella**: That 2.6% stock decline turned into a 15% LEAPS decline. The leverage is working against me now.
 
-**Alex**: Yes, but notice -- your LEAPS still has 18 months of life, plenty of time for the thesis to play out. If you had bought a 3-month option in January, it would be expiring right now with the stock below your breakeven. You would have lost most of your investment. The time buffer is saving you.
+**Horace**: Yes, but notice -- your LEAPS still has 18 months of life, plenty of time for the thesis to play out. If you had bought a 3-month option in January, it would be expiring right now with the stock below your breakeven. You would have lost most of your investment. The time buffer is saving you.
 
-**Sam**: What about month twelve? That is when rolling becomes relevant, right?
+**Stella**: What about month twelve? That is when rolling becomes relevant, right?
 
-**Alex**: January 2026. Amazon is at $210. Your LEAPS, now with 12 months to expiration, is worth $67. Profit: $15 per share, 29% return. Delta is 0.90. But here is where you need to start thinking about the roll.
+**Horace**: January 2026. Amazon is at $210. Your LEAPS, now with 12 months to expiration, is worth $67. Profit: $15 per share, 29% return. Delta is 0.90. But here is where you need to start thinking about the roll.
 
-**Sam**: Why? You said roll at six to nine months.
+**Stella**: Why? You said roll at six to nine months.
 
-**Alex**: True, but I also want to highlight the tax angle. You have now held the LEAPS for 12 months. If you sell now, your $1,500 profit qualifies for long-term capital gains -- 20% tax rate instead of 37%. That is $255 saved versus selling at month eleven.
+**Horace**: True, but I also want to highlight the tax angle. You have now held the LEAPS for 12 months. If you sell now, your $1,500 profit qualifies for long-term capital gains -- 20% tax rate instead of 37%. That is $255 saved versus selling at month eleven.
 
 [VISUAL: Tax calendar showing 12-month threshold]
 
-**Sam**: So the ideal window is: hold past 12 months for tax purposes, but roll before 6 months to expiration for theta purposes.
+**Stella**: So the ideal window is: hold past 12 months for tax purposes, but roll before 6 months to expiration for theta purposes.
 
-**Alex**: You have got it. In this case, you have months 12 through 18 as your sweet spot for rolling. Let us say you decide to roll in month 15 -- April 2026. Amazon is at $215. Your current LEAPS, now with 9 months left, is worth $70. You sell it for $7,000.
+**Horace**: You have got it. In this case, you have months 12 through 18 as your sweet spot for rolling. Let us say you decide to roll in month 15 -- April 2026. Amazon is at $215. Your current LEAPS, now with 9 months left, is worth $70. You sell it for $7,000.
 
-**Sam**: And buy a new one?
+**Stella**: And buy a new one?
 
-**Alex**: You buy a new January 2028 LEAPS, $170 strike, for $58 per share -- $5,800. This one has delta 0.86, 22 months to expiration, and puts you right back in the optimal zone.
+**Horace**: You buy a new January 2028 LEAPS, $170 strike, for $58 per share -- $5,800. This one has delta 0.86, 22 months to expiration, and puts you right back in the optimal zone.
 
 [VISUAL: Roll transaction summary showing sale and purchase]
 
-**Alex**: Your net cash flow on the roll: +$7,000 from selling minus $5,800 for buying equals $1,200 in your pocket. Plus you captured the long-term capital gain on the original position. And you now have a fresh LEAPS with low theta decay and plenty of time.
+**Horace**: Your net cash flow on the roll: +$7,000 from selling minus $5,800 for buying equals $1,200 in your pocket. Plus you captured the long-term capital gain on the original position. And you now have a fresh LEAPS with low theta decay and plenty of time.
 
-**Sam**: That is a beautiful illustration of the full lifecycle. The discipline of rolling, the tax planning, the theta management -- it all comes together.
+**Stella**: That is a beautiful illustration of the full lifecycle. The discipline of rolling, the tax planning, the theta management -- it all comes together.
 
-**Alex**: And this is why I say LEAPS are not set-and-forget. They reward active, thoughtful management. The investor who does this well captures most of the stock's upside with a fraction of the capital, pays reasonable costs for the leverage, and maintains defined risk throughout.
+**Horace**: And this is why I say LEAPS are not set-and-forget. They reward active, thoughtful management. The investor who does this well captures most of the stock's upside with a fraction of the capital, pays reasonable costs for the leverage, and maintains defined risk throughout.
 
-**Sam**: One more question. What if Amazon had dropped to $140 instead? Below the strike price?
+**Stella**: One more question. What if Amazon had dropped to $140 instead? Below the strike price?
 
-**Alex**: That is the nightmare scenario. Your LEAPS would be out of the money. With 12 months to expiration, it might still be worth $8-12 depending on IV. Your loss would be about $40-44 per share, or $4,000-4,400 -- a 77-85% loss on the LEAPS.
+**Horace**: That is the nightmare scenario. Your LEAPS would be out of the money. With 12 months to expiration, it might still be worth $8-12 depending on IV. Your loss would be about $40-44 per share, or $4,000-4,400 -- a 77-85% loss on the LEAPS.
 
-**Sam**: Compared to a stock loss of $50 per share, or $5,000.
+**Stella**: Compared to a stock loss of $50 per share, or $5,000.
 
-**Alex**: Right. You lost less in dollar terms with the LEAPS ($4,400 max versus $5,000 on stock), and your loss was capped -- it could not get worse than $5,200, your total premium. Meanwhile, the stock could have dropped to $100 for a $9,000 loss. The LEAPS floor saved you from the worst outcomes. But the percentage loss was devastating, which is the leverage at work.
+**Horace**: Right. You lost less in dollar terms with the LEAPS ($4,400 max versus $5,000 on stock), and your loss was capped -- it could not get worse than $5,200, your total premium. Meanwhile, the stock could have dropped to $100 for a $9,000 loss. The LEAPS floor saved you from the worst outcomes. But the percentage loss was devastating, which is the leverage at work.
 
-**Sam**: So even in the worst case, the LEAPS framework holds up -- you lose less in dollars, more in percentage, but your risk was defined from day one.
+**Stella**: So even in the worst case, the LEAPS framework holds up -- you lose less in dollars, more in percentage, but your risk was defined from day one.
 
-**Alex**: Exactly. That is the trade-off, and it is a trade-off you should make consciously before entering the position.
+**Horace**: Exactly. That is the trade-off, and it is a trade-off you should make consciously before entering the position.
 
-**Sam**: Can you give us the three key takeaways?
+**Stella**: Can you give us the three key takeaways?
 
-**Alex**: One: LEAPS are a capital-efficient alternative to stock ownership, not a replacement. They have costs and risks that stocks do not. Two: For stock replacement, use deep ITM LEAPS with delta 0.80 or higher. Most of your premium should be intrinsic value. Three: Always roll at six to nine months before expiration, and always have a management plan.
+**Horace**: One: LEAPS are a capital-efficient alternative to stock ownership, not a replacement. They have costs and risks that stocks do not. Two: For stock replacement, use deep ITM LEAPS with delta 0.80 or higher. Most of your premium should be intrinsic value. Three: Always roll at six to nine months before expiration, and always have a management plan.
 
-**Sam**: Perfect. Next week, we are shifting gears to a completely different market -- futures. See you then!
+**Stella**: Perfect. Next week, we are shifting gears to a completely different market -- futures. See you then!
 
 [VISUAL: End card -- "Next Week: Week 39 -- Futures Markets Introduction"]
 

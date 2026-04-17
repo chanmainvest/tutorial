@@ -228,47 +228,47 @@ A10: The biggest mistake is selecting stocks based on premium size rather than f
 
 **[VISUAL: A spinning wheel graphic with three segments labeled "Sell Put," "Hold Stock," and "Sell Call," with dollar signs appearing at each transition]**
 
-**Alex:** Sam, everyone on investing forums talks about "running the wheel." It sounds too good to be true. What is it?
+**Horace:** Stella, everyone on investing forums talks about "running the wheel." It sounds too good to be true. What is it?
 
-**Sam:** The Wheel is an options income strategy that combines two things we have already covered: selling cash-secured puts and selling covered calls. You cycle between them in a repeating loop.
+**Stella:** The Wheel is an options income strategy that combines two things we have already covered: selling cash-secured puts and selling covered calls. You cycle between them in a repeating loop.
 
 **[ANIMATION: Circular flow diagram: "Sell Cash-Secured Put" -> "Get Assigned Stock" -> "Sell Covered Call" -> "Stock Gets Called Away" -> back to "Sell Cash-Secured Put." Dollar signs float off at each step]**
 
-**Alex:** So you collect premium at every step?
+**Horace:** So you collect premium at every step?
 
-**Sam:** Exactly. That is the beauty of it. Your capital is always working. When you do not own the stock, your cash earns put premium. When you own the stock, your shares earn call premium. Let me walk through a complete cycle.
+**Stella:** Exactly. That is the beauty of it. Your capital is always working. When you do not own the stock, your cash earns put premium. When you own the stock, your shares earn call premium. Let me walk through a complete cycle.
 
-**Alex:** Let us do it.
+**Horace:** Let us do it.
 
-**Sam:** Phase one. You like Stock XYZ trading at fifty dollars. You sell a forty-seven-fifty put expiring in thirty days and collect one dollar and twenty cents in premium. That is one hundred twenty dollars per contract.
+**Stella:** Phase one. You like Stock XYZ trading at fifty dollars. You sell a forty-seven-fifty put expiring in thirty days and collect one dollar and twenty cents in premium. That is one hundred twenty dollars per contract.
 
 **[ANIMATION: Stock chart showing XYZ at $50. A horizontal line appears at $47.50 labeled "Put Strike." Premium of $1.20 ($120) floats into a cash register]**
 
-**Alex:** And I need forty-seven hundred fifty in cash as collateral, right?
+**Horace:** And I need forty-seven hundred fifty in cash as collateral, right?
 
-**Sam:** Right. Now two things can happen. If the stock stays above forty-seven fifty, the put expires worthless. You keep the one hundred twenty dollars and do it again. That is a two-point-five percent return in thirty days.
+**Stella:** Right. Now two things can happen. If the stock stays above forty-seven fifty, the put expires worthless. You keep the one hundred twenty dollars and do it again. That is a two-point-five percent return in thirty days.
 
 **[VISUAL: Calendar showing 30 days with $120 earned. Annualized return calculation: 2.5% x 12 = 30%]**
 
-**Alex:** Thirty percent annualized? That seems amazing.
+**Horace:** Thirty percent annualized? That seems amazing.
 
-**Sam:** Hold on, we will get to the reality check. First, let us see what happens if the stock drops below forty-seven fifty.
+**Stella:** Hold on, we will get to the reality check. First, let us see what happens if the stock drops below forty-seven fifty.
 
 **[ANIMATION: Stock price line declining below $47.50. 100 shares materialize in the portfolio. Cash decreases by $4,750. Cost basis label shows $46.30 ($47.50 - $1.20 premium)]**
 
-**Sam:** You are assigned one hundred shares at forty-seven fifty. But because you already collected one twenty in premium, your effective cost basis is forty-six thirty. You bought the stock below where it was trading AND got paid to do it.
+**Stella:** You are assigned one hundred shares at forty-seven fifty. But because you already collected one twenty in premium, your effective cost basis is forty-six thirty. You bought the stock below where it was trading AND got paid to do it.
 
-**Alex:** So far so good. Now what?
+**Horace:** So far so good. Now what?
 
-**Sam:** Phase three. You own the stock, so you sell a covered call. The stock is at forty-seven, and you sell a fifty-dollar call for eighty cents. That is eighty dollars in premium.
+**Stella:** Phase three. You own the stock, so you sell a covered call. The stock is at forty-seven, and you sell a fifty-dollar call for eighty cents. That is eighty dollars in premium.
 
 **[ANIMATION: Stock chart with shares shown in portfolio. A horizontal line appears at $50 labeled "Call Strike." Premium of $0.80 ($80) floats into cash register]**
 
-**Sam:** Again, two outcomes. If the stock stays below fifty, the call expires worthless. You keep the eighty dollars, your cost basis drops to forty-five fifty, and you sell another call.
+**Stella:** Again, two outcomes. If the stock stays below fifty, the call expires worthless. You keep the eighty dollars, your cost basis drops to forty-five fifty, and you sell another call.
 
-**Alex:** And if the stock rises above fifty?
+**Horace:** And if the stock rises above fifty?
 
-**Sam:** Your shares are called away at fifty dollars. Let us calculate the total profit.
+**Stella:** Your shares are called away at fifty dollars. Let us calculate the total profit.
 
 **[ANIMATION: Profit calculation building step by step:
 Shares sold at: $50.00
@@ -278,55 +278,55 @@ Plus call premium: $80
 Total profit: $450
 On $4,750 capital over ~60 days = 9.5% or ~58% annualized]**
 
-**Alex:** Four hundred fifty dollars on forty-seven fifty in capital. That is incredible. But you said there is a reality check?
+**Horace:** Four hundred fifty dollars on forty-seven fifty in capital. That is incredible. But you said there is a reality check?
 
-**Sam:** A big one. Those numbers assume everything goes perfectly. Let me show you what actually happens when the stock drops after assignment.
+**Stella:** A big one. Those numbers assume everything goes perfectly. Let me show you what actually happens when the stock drops after assignment.
 
 **[ANIMATION: Stock chart showing assignment at $47.50, then stock declining to $40. Red loss bar growing as stock falls. Cost basis at $46.30 with stock at $40 = unrealized loss of $630]**
 
-**Sam:** You are assigned at forty-seven fifty with a cost basis of forty-six thirty. Then the stock drops to forty. You are now sitting on a six-hundred-thirty dollar unrealized loss. You cannot sell a call above your cost basis because the stock is too far below it.
+**Stella:** You are assigned at forty-seven fifty with a cost basis of forty-six thirty. Then the stock drops to forty. You are now sitting on a six-hundred-thirty dollar unrealized loss. You cannot sell a call above your cost basis because the stock is too far below it.
 
-**Alex:** So what do you do?
+**Horace:** So what do you do?
 
-**Sam:** You sell calls at a strike just above your cost basis, but the premium is tiny because the strike is so far from the current price. A forty-seven call with the stock at forty might only pay twenty to thirty cents.
+**Stella:** You sell calls at a strike just above your cost basis, but the premium is tiny because the strike is so far from the current price. A forty-seven call with the stock at forty might only pay twenty to thirty cents.
 
 **[VISUAL: Options chain showing low premiums for out-of-the-money calls when stock is well below strike]**
 
-**Sam:** At thirty cents per month, it takes over twenty months of call selling to bring your cost basis down to the stock price. Meanwhile, the stock might drop further.
+**Stella:** At thirty cents per month, it takes over twenty months of call selling to bring your cost basis down to the stock price. Meanwhile, the stock might drop further.
 
-**Alex:** So the risk is real. This is not free money.
+**Horace:** So the risk is real. This is not free money.
 
-**Sam:** Not at all. The Wheel Strategy has the same downside risk as owning the stock. If the stock drops fifty percent, you lose fifty percent minus whatever premium you collected. Which might be three to five percent.
+**Stella:** Not at all. The Wheel Strategy has the same downside risk as owning the stock. If the stock drops fifty percent, you lose fifty percent minus whatever premium you collected. Which might be three to five percent.
 
 **[VISUAL: Risk comparison showing: Buy-and-hold loss on 50% drop = -50%. Wheel loss on same drop = -45% to -47% (after premiums). Small difference highlighted]**
 
-**Alex:** So stock selection is everything.
+**Horace:** So stock selection is everything.
 
-**Sam:** Absolutely. Let me show you what makes a good wheel stock versus a bad one.
+**Stella:** Absolutely. Let me show you what makes a good wheel stock versus a bad one.
 
 **[ANIMATION: Two columns appearing. "Good Wheel Stocks": Strong fundamentals, Moderate volatility (25-45% IV), High options liquidity, $20-$100 price range, No upcoming binary events. "Bad Wheel Stocks": Declining business, Extreme volatility (>60% IV), Low options volume, Meme stocks or SPACs, Pending earnings or FDA decisions]**
 
-**Sam:** The stocks that generate the fattest premiums are often the riskiest. A biotech stock might offer five percent premium per month, but it could also drop forty percent on an FDA rejection. The best wheel stocks are boring, profitable companies with moderate volatility.
+**Stella:** The stocks that generate the fattest premiums are often the riskiest. A biotech stock might offer five percent premium per month, but it could also drop forty percent on an FDA rejection. The best wheel stocks are boring, profitable companies with moderate volatility.
 
-**Alex:** How about strike and expiration selection?
+**Horace:** How about strike and expiration selection?
 
-**Sam:** For puts, I target a delta of about negative zero-point-two to negative zero-point-three. That means the put has roughly a twenty to thirty percent chance of being in the money at expiration.
+**Stella:** For puts, I target a delta of about negative zero-point-two to negative zero-point-three. That means the put has roughly a twenty to thirty percent chance of being in the money at expiration.
 
 **[VISUAL: Options chain with delta column highlighted. Puts with delta of -0.20 to -0.30 are highlighted in a green band]**
 
-**Sam:** For expiration, thirty to forty-five days is the sweet spot. Time decay, or theta, accelerates fastest in the final thirty days. You want to sell into that acceleration.
+**Stella:** For expiration, thirty to forty-five days is the sweet spot. Time decay, or theta, accelerates fastest in the final thirty days. You want to sell into that acceleration.
 
 **[ANIMATION: Theta decay curve showing option value over time. The curve is flat early and drops steeply in the final 30 days. The 30-45 day selling zone is highlighted]**
 
-**Alex:** And for covered calls?
+**Horace:** And for covered calls?
 
-**Sam:** Similar approach. Delta of zero-point-two-five to zero-point-three-five, thirty to forty-five days to expiration. But the critical rule is: never sell a call with a strike below your cost basis. If the stock bounces and gets called away below your cost basis, you lock in a permanent loss.
+**Stella:** Similar approach. Delta of zero-point-two-five to zero-point-three-five, thirty to forty-five days to expiration. But the critical rule is: never sell a call with a strike below your cost basis. If the stock bounces and gets called away below your cost basis, you lock in a permanent loss.
 
 **[VISUAL: Red warning box with text: "NEVER sell calls below your cost basis. This locks in losses that cannot be recovered"]**
 
-**Alex:** Let me ask about realistic returns. What should I actually expect?
+**Horace:** Let me ask about realistic returns. What should I actually expect?
 
-**Sam:** Let me give you honest numbers.
+**Stella:** Let me give you honest numbers.
 
 **[ANIMATION: Three scenarios showing annualized returns:
 Bull market: 8-12% (calls cap upside, miss big rallies)
@@ -334,70 +334,70 @@ Sideways market: 15-25% (sweet spot, premiums collected consistently)
 Bear market: -10 to -30% (assignment losses exceed premiums)
 Average across cycles: 10-20%]**
 
-**Sam:** In a sideways market, the wheel shines. You collect premium cycle after cycle without major losses. In a bull market, it is decent but you miss some upside because your calls cap gains. In a bear market, you lose money, but less than a buy-and-hold investor because of the premium cushion.
+**Stella:** In a sideways market, the wheel shines. You collect premium cycle after cycle without major losses. In a bull market, it is decent but you miss some upside because your calls cap gains. In a bear market, you lose money, but less than a buy-and-hold investor because of the premium cushion.
 
-**Alex:** So ten to twenty percent over time?
+**Horace:** So ten to twenty percent over time?
 
-**Sam:** For experienced practitioners on quality stocks, yes. But that is pre-tax. Premium income is taxed as short-term capital gains.
+**Stella:** For experienced practitioners on quality stocks, yes. But that is pre-tax. Premium income is taxed as short-term capital gains.
 
 **[VISUAL: Pre-tax vs post-tax return comparison. 15% pre-tax -> 10-11% after tax at 30% rate. Arrow pointing to "Run in IRA for tax-free compounding"]**
 
-**Sam:** This is why many wheel traders run the strategy in a Roth IRA. All that premium income compounds tax-free.
+**Stella:** This is why many wheel traders run the strategy in a Roth IRA. All that premium income compounds tax-free.
 
-**Alex:** What about a pro tip for managing the strategy?
+**Horace:** What about a pro tip for managing the strategy?
 
-**Sam:** Close your options early. Do not wait for expiration.
+**Stella:** Close your options early. Do not wait for expiration.
 
 **[ANIMATION: Timeline showing option sold for $1.20. After 15 days, value drops to $0.30. "Buy to close" action takes $0.90 profit. Remaining 15 days are freed up for a new cycle]**
 
-**Sam:** When the option has lost fifty to seventy-five percent of its value, buy it back and start a new cycle. You capture most of the premium in half the time, freeing your capital for the next trade. This can increase your annual number of cycles from twelve to eighteen or more.
+**Stella:** When the option has lost fifty to seventy-five percent of its value, buy it back and start a new cycle. You capture most of the premium in half the time, freeing your capital for the next trade. This can increase your annual number of cycles from twelve to eighteen or more.
 
-**Alex:** That is smart. More cycles, more income.
+**Horace:** That is smart. More cycles, more income.
 
-**Sam:** Exactly. You are trading a small amount of remaining premium for significantly more time to redeploy capital.
+**Stella:** Exactly. You are trading a small amount of remaining premium for significantly more time to redeploy capital.
 
-**Alex:** Let me see if I have the complete picture. Sell a put on a stock I like. If assigned, sell a covered call above my cost basis. If called away, sell another put. Repeat.
+**Horace:** Let me see if I have the complete picture. Sell a put on a stock I like. If assigned, sell a covered call above my cost basis. If called away, sell another put. Repeat.
 
-**Sam:** That is the wheel. But let me give you three golden rules.
+**Stella:** That is the wheel. But let me give you three golden rules.
 
 **[ANIMATION: Three golden rules appearing as stone tablets]**
 
-**Sam:** Rule one: only wheel stocks you would happily own for a year or more. If you would not want to hold it through a thirty percent drawdown, do not sell puts on it.
+**Stella:** Rule one: only wheel stocks you would happily own for a year or more. If you would not want to hold it through a thirty percent drawdown, do not sell puts on it.
 
-**Alex:** Treat it like stock picking first, options second.
+**Horace:** Treat it like stock picking first, options second.
 
-**Sam:** Rule two: never commit more than five to ten percent of your portfolio to a single wheel position. Run five to ten wheels across different sectors for diversification.
+**Stella:** Rule two: never commit more than five to ten percent of your portfolio to a single wheel position. Run five to ten wheels across different sectors for diversification.
 
 **[VISUAL: Portfolio pie chart showing 5-10 wheel positions across different sectors, each representing 5-10% of the portfolio]**
 
-**Sam:** Rule three: be patient during drawdowns. When the stock drops after assignment, keep selling covered calls above your cost basis. It might take months to recover, but the premium income steadily lowers your break-even. Do not panic sell and do not sell calls below your cost basis.
+**Stella:** Rule three: be patient during drawdowns. When the stock drops after assignment, keep selling covered calls above your cost basis. It might take months to recover, but the premium income steadily lowers your break-even. Do not panic sell and do not sell calls below your cost basis.
 
-**Alex:** What if the stock fundamentally breaks? Like the company is actually failing?
+**Horace:** What if the stock fundamentally breaks? Like the company is actually failing?
 
-**Sam:** That is the exception. If the business is deteriorating, not just the stock price, cut your losses and wheel a different stock. The wheel only works on fundamentally sound companies going through temporary price weakness. It does not fix a broken business.
+**Stella:** That is the exception. If the business is deteriorating, not just the stock price, cut your losses and wheel a different stock. The wheel only works on fundamentally sound companies going through temporary price weakness. It does not fix a broken business.
 
 **[VISUAL: Decision tree: "Stock declined after assignment" -> "Are fundamentals still solid?" -> Yes: "Keep selling calls, be patient" -> No: "Sell stock, redeploy capital to better candidate"]**
 
-**Alex:** One last thing. How does this compare to just buying dividend stocks for income?
+**Horace:** One last thing. How does this compare to just buying dividend stocks for income?
 
-**Sam:** Great question.
+**Stella:** Great question.
 
 **[VISUAL: Comparison table:
 Dividend Income: 3-4% yield, passive, no options knowledge needed, tax-advantaged qualified dividends
 Wheel Income: 10-20% yield, active management required, options knowledge needed, short-term capital gains tax
 Risk: Similar (both have full equity downside)]**
 
-**Sam:** The wheel generates significantly more income but requires active management and options knowledge. Dividends are passive and tax-advantaged. Many investors do both: hold dividend stocks in one part of the portfolio and run the wheel in another.
+**Stella:** The wheel generates significantly more income but requires active management and options knowledge. Dividends are passive and tax-advantaged. Many investors do both: hold dividend stocks in one part of the portfolio and run the wheel in another.
 
-**Alex:** That makes sense. One final question. What is the single most important thing for someone about to start their first wheel?
+**Horace:** That makes sense. One final question. What is the single most important thing for someone about to start their first wheel?
 
-**Sam:** Pick the stock first, not the options. Spend eighty percent of your time on stock selection and twenty percent on options mechanics. If you pick a great stock, even mediocre options execution will produce decent results. If you pick a bad stock, even perfect options execution cannot save you.
+**Stella:** Pick the stock first, not the options. Spend eighty percent of your time on stock selection and twenty percent on options mechanics. If you pick a great stock, even mediocre options execution will produce decent results. If you pick a bad stock, even perfect options execution cannot save you.
 
 **[VISUAL: Emphasis graphic showing "Stock Selection = 80% of Success" and "Options Execution = 20% of Success"]**
 
-**Alex:** Stock first, options second. Got it. Thanks Sam. I feel like I really understand the wheel now, including the risks.
+**Horace:** Stock first, options second. Got it. Thanks Stella. I feel like I really understand the wheel now, including the risks.
 
-**Sam:** That is the most important part. The premium income is real, but so is the equity risk. Respect both sides and the wheel can be a powerful addition to your investment toolkit.
+**Stella:** That is the most important part. The premium income is real, but so is the equity risk. Respect both sides and the wheel can be a powerful addition to your investment toolkit.
 
 **[VISUAL: Summary card showing the complete wheel cycle diagram with key parameters: Strike delta 0.20-0.30, Expiration 30-45 days, Close at 50-75% profit, Never sell calls below cost basis, 5-10% max per position, Run in IRA if possible]**
 

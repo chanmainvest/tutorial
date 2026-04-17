@@ -3,392 +3,1268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Investment Tutorial</title>
+    <title>Chanma Investment Tutorial: From Beginner to Professional - Chanma Investment Tutorial</title>
     <style>
-        :root {
-            --bg: #ffffff;
-            --text: #1a1a2e;
-            --heading: #16213e;
-            --accent: #0f3460;
-            --accent-light: #e8eef7;
-            --border: #d4d4d8;
-            --code-bg: #f4f4f5;
-            --sidebar-bg: #f8f9fa;
-            --link: #0f3460;
-            --success: #059669;
-            --warning: #d97706;
-        }
+:root {
+    --bg: #fafbfc;
+    --text: #2d3748;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f7fafc;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1f5f9;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --gold: #c5a44e;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg);
-        }
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+}
 
-        .layout {
-            display: flex;
-            min-height: 100vh;
-        }
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
 
-        .sidebar {
-            width: 280px;
-            background: var(--sidebar-bg);
-            border-right: 1px solid var(--border);
-            padding: 20px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 10;
-        }
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 0;
+}
 
-        .sidebar h2 {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
-        }
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-        .sidebar .nav-section {
-            margin-bottom: 15px;
-        }
+.nav-brand .brand-icon {
+    font-size: 1.4rem;
+}
 
-        .sidebar .nav-section h3 {
-            font-size: 0.85rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
 
-        .sidebar a {
-            display: block;
-            padding: 4px 8px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.85rem;
-            border-radius: 4px;
-            margin-bottom: 2px;
-        }
+.nav-dropdown {
+    position: relative;
+}
 
-        .sidebar a:hover, .sidebar a.active {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
+.nav-link, .dropdown-trigger {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s;
+}
 
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 30px 50px;
-            max-width: 900px;
-        }
+.nav-link:hover, .dropdown-trigger:hover {
+    background: var(--nav-hover);
+}
 
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 280px;
-            right: 0;
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 10px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 5;
-        }
+.arrow { font-size: 0.7rem; }
 
-        .lang-toggle {
-            display: flex;
-            gap: 5px;
-        }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 320px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    z-index: 200;
+    max-height: 480px;
+    overflow-y: auto;
+}
 
-        .lang-toggle button {
-            padding: 5px 12px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: white;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
 
-        .lang-toggle button:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+.dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
 
-        .lang-toggle button.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
+.dropdown-content a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
 
-        .content-area {
-            margin-top: 60px;
-        }
+.dropdown-content a:last-child { border-bottom: none; }
 
-        .lang-content { display: none; }
-        .lang-content.active { display: block; }
+/* Language selector in nav */
+.lang-selector {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        h1 { font-size: 2rem; color: var(--heading); margin: 30px 0 15px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
-        h2 { font-size: 1.5rem; color: var(--heading); margin: 25px 0 12px; }
-        h3 { font-size: 1.2rem; color: var(--heading); margin: 20px 0 10px; }
-        h4 { font-size: 1.05rem; color: var(--heading); margin: 15px 0 8px; }
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+}
 
-        p { margin-bottom: 12px; }
+.lang-btn:hover { opacity: 1; }
 
-        ul, ol { margin: 10px 0 15px 25px; }
-        li { margin-bottom: 5px; }
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
 
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
-        th { background: var(--accent-light); font-weight: 600; }
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
 
-        pre { background: var(--code-bg); padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
-        code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9em; }
-        p code { background: var(--code-bg); padding: 2px 6px; border-radius: 3px; }
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
 
-        blockquote { border-left: 4px solid var(--accent); padding: 10px 20px; margin: 15px 0; background: var(--accent-light); }
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #718096;
+}
 
-        hr { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+.breadcrumb-inner a {
+    color: var(--accent);
+    text-decoration: none;
+}
 
-        a { color: var(--link); }
+.breadcrumb-inner a:hover { text-decoration: underline; }
 
-        img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; }
+.bc-sep { color: #a0aec0; margin: 0 4px; }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
 
-        .nav-buttons a {
-            padding: 8px 16px;
-            background: var(--accent-light);
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
+.content-area { }
 
-        .nav-buttons a:hover {
-            background: var(--accent);
-            color: white;
-        }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
 
-        .hamburger {
-            display: none;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 20;
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
+/* Typography */
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
 
-        @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; padding: 20px; }
-            .top-bar { left: 0; padding: 10px 20px; }
-            .content-area { margin-top: 50px; }
-            .hamburger { display: block; }
-        }
-    </style>
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) { background: #f8fafc; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+p code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+
+.nav-btn-text { display: flex; flex-direction: column; }
+
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: 8px;
+    }
+    .nav-menu.open .nav-dropdown { width: 100%; }
+    .nav-menu.open .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.1);
+        border-radius: 0;
+        max-height: 300px;
+    }
+    .nav-menu.open .dropdown-content a {
+        color: var(--nav-text);
+        border-bottom-color: rgba(255,255,255,0.1);
+        padding-left: 32px;
+    }
+    .hamburger { display: block; }
+    .lang-selector { margin-left: 0; padding: 8px 14px; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+}
+</style>
 </head>
 <body>
-    <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
-
-    <div class="layout">
-        <nav class="sidebar">
-            <h2>Investment Tutorial</h2>
-            <div class="nav-section"><h3>Home</h3><a href="index.html">Course Overview</a></div><div class="nav-section"><h3>Level 1: Foundation</h3><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div><div class="nav-section"><h3>Level 2: Intermediate</h3><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div><div class="nav-section"><h3>Level 3: Advanced</h3><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div><div class="nav-section"><h3>Level 4: Sophisticated</h3><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div><div class="nav-section"><h3>Level 5: Expert</h3><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div><div class="nav-section"><h3>Side Lessons</h3><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div>
-        </nav>
-
-        <main class="main-content">
-            <div class="top-bar">
-                <span style="font-weight:600;color:var(--accent);">Home</span>
-                <div class="lang-toggle">
-                    <button class="active" onclick="switchLang('en')">EN</button>
-                    <button onclick="switchLang('hk')">HK</button>
-                    <button onclick="switchLang('tw')">TW</button>
-                    <button onclick="switchLang('cn')">CN</button>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                Chanma Investment
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="nav-menu">
+                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
                 </div>
             </div>
+        </div>
+    </nav>
 
-            <div class="content-area">
-                <div id="content-en" class="lang-content active">
-                    <h1>Investment Tutorial: From Beginner to Professional</h1>
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><span>Chanma Investment Tutorial</span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Chanma Investment Tutorial: From Beginner to Professional</h1>
 <p>
-A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Based on CFA curriculum knowledge, structured for retail investors with a YouTube-ready teaching format.
+Welcome to a comprehensive 52-week investment education course designed to take you from foundational concepts to professional-grade portfolio management.
 </p>
-<h2>Course Philosophy</h2>
-<ul><li><strong>Macro context -> Strategy concept -> Tactical execution</strong></li>
-<li>Progressive skill-building with forward/backward references</li>
-<li>Each lesson includes reading material AND a two-host YouTube script</li>
-<li>Visual explanations via animations (Python/JS/emoji-art)</li>
-<li>Available in English, Hong Kong Chinese, Taiwan Chinese, and Mainland Chinese</li>
+<hr>
+<h2>What You Will Learn</h2>
+<p>
+This course distills the core knowledge of the CFA (Chartered Financial Analyst) curriculum and restructures it for practical use by retail investors. Over 52 weeks, you will progress through five levels of increasing sophistication, building each new skill on the foundation of the previous one.
+</p>
+<p>
+By the end of this course, you will be able to:
+</p>
+<ul><li>Build and manage a diversified multi-asset portfolio</li>
+<li>Read and interpret financial statements with confidence</li>
+<li>Use options for income generation and risk management</li>
+<li>Understand fixed income, yield curves, and credit analysis</li>
+<li>Apply quantitative methods to evaluate and backtest strategies</li>
+<li>Construct an all-weather portfolio that performs across market cycles</li>
 <p>
 </ul>
 </p>
 <hr>
-<h2>Core Course (52 Weeks, 1 hour per week)</h2>
-<h3>Level 1: Foundation (Weeks 1-12) - Beginner</h3>
-<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>1</td><td><a href="course/week01_why_invest.md">Why Invest? The Time Value of Money</a></td><td>Understanding why $1 today is worth more than $1 tomorrow, and why investing is not optional</td></tr>
-<tr><td>2</td><td><a href="course/week02_index_funds_etfs.md">Index Funds and ETFs</a></td><td>The simplest, most effective way to start investing - buying the whole market</td></tr>
-<tr><td>3</td><td><a href="course/week03_risk_and_return.md">Understanding Risk and Return</a></td><td>The fundamental tradeoff: why higher returns always come with higher risk</td></tr>
-<tr><td>4</td><td><a href="course/week04_sixty_forty.md">The 60/40 Portfolio</a></td><td>The classic balanced portfolio and why it has been the default for decades</td></tr>
-<tr><td>5</td><td><a href="course/week05_bonds.md">Bonds - Your Portfolio's Shock Absorber</a></td><td>How bonds work, why they matter, and their role in portfolio stability</td></tr>
-<tr><td>6</td><td><a href="course/week06_gold_commodities.md">Gold and Commodities as Diversifiers</a></td><td>Why alternative assets reduce portfolio volatility when stocks and bonds move together</td></tr>
-<tr><td>7</td><td><a href="course/week07_rebalancing.md">Portfolio Rebalancing</a></td><td>The discipline of selling winners and buying losers to maintain your target allocation</td></tr>
-<tr><td>8</td><td><a href="course/week08_financial_statements.md">Reading Financial Statements - Basics</a></td><td>Income statement, balance sheet, and cash flow - the three lenses into a company</td></tr>
-<tr><td>9</td><td><a href="course/week09_market_indexes.md">Understanding Market Indexes</a></td><td>How indexes are built, what they measure, and why they drive trillions in flows</td></tr>
-<tr><td>10</td><td><a href="course/week10_economic_cycles.md">Economic Cycles and Your Portfolio</a></td><td>How expansion, peak, contraction, and trough affect different asset classes</td></tr>
-<tr><td>11</td><td><a href="course/week11_behavioral_biases.md">Behavioral Biases - Your Brain vs Your Money</a></td><td>The psychological traps that cause investors to buy high and sell low</td></tr>
-<tr><td>12</td><td><a href="course/week12_first_portfolio.md">Building Your First Portfolio</a></td><td>Putting it all together: choosing assets, setting allocation, and getting started</td></tr></tbody></table>
-<h3>Level 2: Intermediate (Weeks 13-24)</h3>
-<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>13</td><td><a href="course/week13_long_short.md">Long and Short Trading</a></td><td>Making money when prices fall - the concept of shorting and its role in hedging</td></tr>
-<tr><td>14</td><td><a href="course/week14_pair_trading.md">Pair Trading Fundamentals</a></td><td>Exploiting relative value by going long one stock and short another in the same sector</td></tr>
-<tr><td>15</td><td><a href="course/week15_multi_asset.md">Multi-Asset Allocation</a></td><td>Moving beyond stocks and bonds to include REITs, commodities, and international exposure</td></tr>
-<tr><td>16</td><td><a href="course/week16_sector_rotation.md">Business Cycles and Sector Rotation</a></td><td>Tilting your portfolio based on where we are in the economic cycle</td></tr>
-<tr><td>17</td><td><a href="course/week17_performance_metrics.md">Performance Metrics - Volatility, Drawdowns, Sharpe</a></td><td>Measuring portfolio quality beyond just returns</td></tr>
-<tr><td>18</td><td><a href="course/week18_interest_rates.md">Interest Rates and Market Returns</a></td><td>How rates affect every asset class - the most important macro variable</td></tr>
-<tr><td>19</td><td><a href="course/week19_corporate_finance.md">Corporate Finance - What Makes Companies Tick</a></td><td>Capital structure, dividends, buybacks, and their signals to investors</td></tr>
-<tr><td>20</td><td><a href="course/week20_earnings_cashflow.md">Earnings Analysis and Cash Flow</a></td><td>Separating real profitability from accounting illusions</td></tr>
-<tr><td>21</td><td><a href="course/week21_equity_valuation.md">Equity Valuation - P/E, P/B, and DCF</a></td><td>The three fundamental approaches to deciding if a stock is cheap or expensive</td></tr>
-<tr><td>22</td><td><a href="course/week22_currency_international.md">Currency and International Diversification</a></td><td>Why global exposure matters and how FX risk affects your returns</td></tr>
-<tr><td>23</td><td><a href="course/week23_factor_investing.md">Factor Investing Introduction</a></td><td>Value, momentum, quality, size - the systematic drivers of returns</td></tr>
-<tr><td>24</td><td><a href="course/week24_multi_strategy.md">Building a Multi-Strategy Portfolio</a></td><td>Combining strategies that work in different market environments</td></tr></tbody></table>
-<h3>Level 3: Advanced (Weeks 25-36)</h3>
-<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>25</td><td><a href="course/week25_intro_options.md">Introduction to Options</a></td><td>Calls, puts, and why options are the most versatile tool in finance</td></tr>
-<tr><td>26</td><td><a href="course/week26_options_as_orders.md">Options as Conditional Orders</a></td><td>Using puts as limit buys and calls as limit sells - getting paid to wait</td></tr>
-<tr><td>27</td><td><a href="course/week27_covered_calls.md">Covered Calls for Income</a></td><td>Generating yield from stocks you already own by selling upside</td></tr>
-<tr><td>28</td><td><a href="course/week28_cash_secured_puts.md">Cash-Secured Puts for Entry</a></td><td>Getting paid to buy stocks at prices you'd happily pay anyway</td></tr>
-<tr><td>29</td><td><a href="course/week29_option_greeks.md">Option Greeks - Delta, Theta, Vega</a></td><td>Understanding the forces that move option prices</td></tr>
-<tr><td>30</td><td><a href="course/week30_spreads_condors.md">Credit Spreads and Iron Condors</a></td><td>Defined-risk strategies for generating income in range-bound markets</td></tr>
-<tr><td>31</td><td><a href="course/week31_yield_curves.md">Fixed Income Deep Dive - Yield Curves</a></td><td>What the shape of the yield curve tells us about the economy and future rates</td></tr>
-<tr><td>32</td><td><a href="course/week32_duration_convexity.md">Duration and Convexity</a></td><td>Measuring and managing interest rate risk in bond portfolios</td></tr>
-<tr><td>33</td><td><a href="course/week33_credit_analysis.md">Credit Analysis and Bond Selection</a></td><td>Evaluating corporate and government credit quality - when spread means risk</td></tr>
-<tr><td>34</td><td><a href="course/week34_rate_sensitivity.md">Interest Rate Sensitivity Across Assets</a></td><td>How rate changes ripple through equities, bonds, real estate, and commodities</td></tr>
-<tr><td>35</td><td><a href="course/week35_advanced_fsa.md">Advanced Financial Statement Analysis</a></td><td>Stock compensation, off-balance-sheet items, and earnings quality detection</td></tr>
-<tr><td>36</td><td><a href="course/week36_income_portfolio.md">Building an Income-Generating Portfolio</a></td><td>Combining dividends, bonds, covered calls, and REITs for steady cash flow</td></tr></tbody></table>
-<h3>Level 3: Advanced (Weeks 25-36) - Options and Fixed Income</h3>
-<h3>Level 4: Sophisticated (Weeks 37-46)</h3>
-<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>37</td><td><a href="course/week37_options_leverage.md">Options Leverage Strategies</a></td><td>Using options for magnified returns with defined risk</td></tr>
-<tr><td>38</td><td><a href="course/week38_leaps.md">LEAPS and Long-Term Options</a></td><td>Leveraged long-term bets with time on your side</td></tr>
-<tr><td>39</td><td><a href="course/week39_futures.md">Futures Markets Introduction</a></td><td>How futures work, margin mechanics, and accessing macro exposures</td></tr>
-<tr><td>40</td><td><a href="course/week40_vix_volatility.md">Trading the VIX and Volatility</a></td><td>Volatility as an asset class - contango, term structure, and mean reversion</td></tr>
-<tr><td>41</td><td><a href="course/week41_risk_management.md">Risk Management Like a Pro</a></td><td>Position sizing, stop losses, risk budgets, and the 2% rule</td></tr>
-<tr><td>42</td><td><a href="course/week42_var_risk_models.md">Portfolio Risk Models - VaR and Beyond</a></td><td>Quantifying tail risk and understanding what can go wrong</td></tr>
-<tr><td>43</td><td><a href="course/week43_active_management.md">Active Portfolio Management</a></td><td>Alpha, tracking error, information ratio - the math of active investing</td></tr>
-<tr><td>44</td><td><a href="course/week44_microstructure.md">Market Microstructure and Execution</a></td><td>How orders flow, spreads form, and execution costs eat your returns</td></tr>
-<tr><td>45</td><td><a href="course/week45_quant_methods.md">Quantitative Methods for Investors</a></td><td>Regression, time series, and statistical tools for better decisions</td></tr>
-<tr><td>46</td><td><a href="course/week46_backtesting.md">Backtesting and Strategy Validation</a></td><td>How to test ideas honestly without fooling yourself</td></tr></tbody></table>
-<h3>Level 5: Expert (Weeks 47-52)</h3>
-<table><thead><tr><th>Week</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>47</td><td><a href="course/week47_tail_risk.md">Tail Risk Hedging</a></td><td>Protecting against black swans - portfolio insurance that pays when everything else breaks</td></tr>
-<tr><td>48</td><td><a href="course/week48_structured_products.md">Structured Products and Defined Outcomes</a></td><td>Buffered ETFs, structured notes - pre-packaged option strategies for retail</td></tr>
-<tr><td>49</td><td><a href="course/week49_vol_arbitrage.md">Volatility Arbitrage and Term Structure</a></td><td>Exploiting the VIX curve and variance risk premium</td></tr>
-<tr><td>50</td><td><a href="course/week50_factor_tilts.md">Factor Tilts and Alternative Risk Premia</a></td><td>Building a portfolio that harvests multiple systematic return sources</td></tr>
-<tr><td>51</td><td><a href="course/week51_managed_futures.md">Managed Futures and Trend Following</a></td><td>Crisis alpha - strategies that profit when traditional assets crash</td></tr>
-<tr><td>52</td><td><a href="course/week52_integration.md">Portfolio Integration - Putting It All Together</a></td><td>Combining everything into a professional-grade, all-weather portfolio</td></tr></tbody></table>
-<hr>
-<h2>Side Lessons (15-30 minutes each)</h2>
-<table><thead><tr><th>#</th><th>Title</th><th>Summary</th></tr></thead><tbody><tr><td>1</td><td><a href="course/side01_calculator.md">TI BA II Plus Calculator Guide</a></td><td>Master the CFA calculator - TVM, NPV, IRR, bonds, and amortization</td></tr>
-<tr><td>2</td><td><a href="course/side02_10k_filing.md">How to Read a 10-K Filing</a></td><td>Navigating SEC filings to find what actually matters</td></tr>
-<tr><td>3</td><td><a href="course/side03_etf_mechanics.md">Understanding ETF Mechanics</a></td><td>Creation/redemption, tracking error, and why ETF structure matters</td></tr>
-<tr><td>4</td><td><a href="course/side04_tax_efficiency.md">Tax-Efficient Investing</a></td><td>Tax-loss harvesting, asset location, and keeping more of what you earn</td></tr>
-<tr><td>5</td><td><a href="course/side05_dca_vs_lump.md">Dollar Cost Averaging vs Lump Sum</a></td><td>The math and psychology behind two common investment approaches</td></tr>
-<tr><td>6</td><td><a href="course/side06_inflation.md">Inflation and Real Returns</a></td><td>Why nominal returns lie and how to think in real terms</td></tr>
-<tr><td>7</td><td><a href="course/side07_reits.md">REITs and Real Estate Investing</a></td><td>Accessing real estate returns without buying property</td></tr>
-<tr><td>8</td><td><a href="course/side08_fund_fees.md">Understanding Mutual Fund Fees</a></td><td>Expense ratios, loads, 12b-1 fees - the silent return killers</td></tr>
-<tr><td>9</td><td><a href="course/side09_crypto.md">Crypto and Digital Assets Overview</a></td><td>Bitcoin, Ethereum, and digital assets in portfolio context</td></tr>
-<tr><td>10</td><td><a href="course/side10_dividends.md">Dividend Investing Strategy</a></td><td>Building a portfolio around cash-flowing stocks</td></tr>
-<tr><td>11</td><td><a href="course/side11_retirement_accounts.md">Retirement Accounts - 401k, IRA, Roth</a></td><td>Tax-advantaged accounts and how to use each one optimally</td></tr>
-<tr><td>12</td><td><a href="course/side12_esg.md">ESG and Sustainable Investing</a></td><td>What ESG means for returns and risk - separating hype from substance</td></tr>
-<tr><td>13</td><td><a href="course/side13_ipos.md">IPOs and Special Situations</a></td><td>New listings, spin-offs, and event-driven opportunities</td></tr>
-<tr><td>14</td><td><a href="course/side14_private_markets.md">Private Markets for Retail Investors</a></td><td>Accessing private equity and debt through public market vehicles</td></tr>
-<tr><td>15</td><td><a href="course/side15_trading_psychology.md">The Psychology of Trading</a></td><td>Managing emotions, building discipline, and developing a process</td></tr>
-<tr><td>16</td><td><a href="course/side16_market_history.md">Market History - Crashes and Recoveries</a></td><td>What past crises teach us about surviving the next one</td></tr>
-<tr><td>17</td><td><a href="course/side17_fed_policy.md">Understanding Fed Policy</a></td><td>How the Federal Reserve moves markets and what to watch for</td></tr>
-<tr><td>18</td><td><a href="course/side18_global_markets.md">Global Markets - Developed vs Emerging</a></td><td>Opportunities and risks beyond US borders</td></tr>
-<tr><td>19</td><td><a href="course/side19_correlation_math.md">Correlation and Diversification Math</a></td><td>The math behind why diversification works (and when it fails)</td></tr>
-<tr><td>20</td><td><a href="course/side20_greeks_deep_dive.md">The Option Greeks Deep Dive</a></td><td>Gamma, rho, charm, and second-order Greeks for serious traders</td></tr>
-<tr><td>21</td><td><a href="course/side21_margin_leverage.md">Understanding Margin and Leverage</a></td><td>How borrowing amplifies returns and risk - mechanics and dangers</td></tr>
-<tr><td>22</td><td><a href="course/side22_commodities.md">Commodities Trading Basics</a></td><td>Oil, natural gas, agricultural - understanding physical markets</td></tr>
-<tr><td>23</td><td><a href="course/side23_technical_analysis.md">Technical Analysis Basics</a></td><td>Chart patterns, moving averages, and support/resistance</td></tr>
-<tr><td>24</td><td><a href="course/side24_monitoring_tools.md">Portfolio Monitoring and Rebalancing Tools</a></td><td>Software and spreadsheets for tracking your portfolio</td></tr>
-<tr><td>25</td><td><a href="course/side25_hedge_funds.md">Hedge Fund Strategies Explained</a></td><td>Long/short equity, global macro, event-driven - what hedge funds actually do</td></tr>
-<tr><td>26</td><td><a href="course/side26_market_liquidity.md">Understanding Market Liquidity</a></td><td>Why liquidity matters more than you think - QE, QT, and funding stress</td></tr>
-<tr><td>27</td><td><a href="course/side27_watchlist_screening.md">Building a Watchlist and Screening Stocks</a></td><td>Systematic approaches to finding investment candidates</td></tr>
-<tr><td>28</td><td><a href="course/side28_monte_carlo.md">Monte Carlo Simulation for Retirement</a></td><td>Using probability to plan your financial future</td></tr>
-<tr><td>29</td><td><a href="course/side29_currency_hedging.md">Currency Hedging for Global Portfolios</a></td><td>When and how to hedge foreign currency exposure</td></tr>
-<tr><td>30</td><td><a href="course/side30_wheel_strategy.md">The Wheel Strategy - Options Income Machine</a></td><td>Systematically selling puts and covered calls in a repeating cycle</td></tr></tbody></table>
-<hr>
-<h2>Animations</h2>
+<h2>Course Structure</h2>
 <p>
-Visual animations are stored in <code>course/animation/</code> and referenced from lesson files. Each animation is a self-contained Python or JavaScript file that generates visual explanations of key concepts.
+The course is organized into <strong>five progressive levels</strong>, each building on the last:
 </p>
-<h2>Translations</h2>
+<h3>Level 1: Foundation (Weeks 1-12)</h3>
+<p>
+Start with the fundamentals -- why investing matters, how markets work, and how to build your first portfolio. No prior knowledge required. You will learn about ETFs, bonds, risk and return, behavioral biases, and the basics of reading financial statements.
+</p>
+<h3>Level 2: Intermediate (Weeks 13-24)</h3>
+<p>
+Expand your toolkit with multi-asset allocation, sector rotation, performance metrics, equity valuation, and factor investing. You will learn to analyze companies, understand interest rates, and combine multiple strategies.
+</p>
+<h3>Level 3: Advanced (Weeks 25-36)</h3>
+<p>
+Enter the world of options and fixed income. Learn to use covered calls, cash-secured puts, and credit spreads for income. Dive deep into yield curves, duration, credit analysis, and advanced financial statement analysis.
+</p>
+<h3>Level 4: Sophisticated (Weeks 37-46)</h3>
+<p>
+Master options leverage, LEAPS, futures, volatility trading, and professional risk management. Learn about VaR models, active portfolio management, market microstructure, and strategy backtesting.
+</p>
+<h3>Level 5: Expert (Weeks 47-52)</h3>
+<p>
+Bring it all together with tail risk hedging, structured products, volatility arbitrage, managed futures, and complete portfolio integration. Graduate with the skills to build a professional-grade, all-weather portfolio.
+</p>
+<hr>
+<h2>Side Lessons</h2>
+<p>
+In addition to the 52-week core curriculum, <strong>30 side lessons</strong> cover practical topics that complement the main course: calculator usage, 10-K filings, ETF mechanics, tax efficiency, retirement accounts, the wheel strategy, and more.
+</p>
+<hr>
+<h2>How to Use This Course</h2>
+<ul><li><strong>One lesson per week</strong> -- each lesson is designed for roughly one hour of study</li>
+<li><strong>Read the article first</strong>, then watch the corresponding YouTube video for reinforcement</li>
+<li><strong>Side lessons</strong> can be taken in any order whenever you need them</li>
+<li><strong>Start from Level 1</strong> even if you have some investment experience -- the structured progression ensures no gaps in your foundation</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>About the Instructor</h2>
+<p>
+<strong>Horace (陳馬)</strong> is an experienced retail trader who has spent years studying the markets, from CFA-level curriculum to hands-on portfolio management. This course represents his organized study notes and practical insights, structured into a teachable format with the help of AI.
+</p>
+<p>
+<strong>Stella (小魚)</strong> joins as the student co-host in the YouTube series, asking the questions that viewers are thinking and keeping the explanations grounded and accessible.
+</p>
+<hr>
+<h2>Course Philosophy</h2>
+<ul><li><strong>Macro context first</strong> -- understand the big picture before diving into tactics</li>
+<li><strong>Progressive skill-building</strong> -- each week builds on what came before</li>
+<li><strong>Practical focus</strong> -- theory matters, but only when it leads to better decisions</li>
+<li><strong>No shortcuts</strong> -- understand the "why" behind every strategy, not just the "how"</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>Available Languages</h2>
 <p>
 All course materials are available in four languages:
 </p>
-<ul><li><strong>English</strong>: <code>course/</code> (primary)</li>
-<li><strong>Hong Kong Chinese</strong>: <code>course_hk/</code></li>
-<li><strong>Taiwan Chinese</strong>: <code>course_tw/</code></li>
-<li><strong>Mainland Chinese</strong>: <code>course_cn/</code></li>
+<ul><li>English</li>
+<li>Hong Kong Chinese (繁體中文 - 港式)</li>
+<li>Taiwan Chinese (繁體中文 - 台式)</li>
+<li>Mainland Chinese (簡體中文)</li>
 <p>
 </ul>
 </p>
-<h2>Website</h2>
+<hr>
 <p>
-A static website at <code>docs/</code> serves all course content with a language toggle button (EN/HK/TW/CN). Run the build script to regenerate after editing markdown files.
+<em>This course is provided under the MIT License and is free for everyone. See the <a href="disclaimer.html">Disclaimer</a> for important legal information.</em>
+</p>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>陳馬投資教程：由零開始到專業水平</h1>
+<p>
+歡迎參加這個全面的52週投資教育課程，帶領你從基礎概念逐步晉升至專業級別的投資組合管理。
 </p>
 <hr>
-<h2>License</h2>
+<h2>你將學到什麼</h2>
 <p>
-MIT License - see <a href="LICENSE">LICENSE</a>
+本課程提煉了特許財務分析師（CFA）課程的核心知識，並針對散戶投資者的實際需求重新整理。在52週內，你將循序漸進地經歷五個層次，以前一個層次的技能為基礎，不斷深化學習。
 </p>
-                </div>
-                <div id="content-hk" class="lang-content">
-                    <p><em>Translation coming soon...</em></p>
-                </div>
-                <div id="content-tw" class="lang-content">
-                    <p><em>Translation coming soon...</em></p>
-                </div>
-                <div id="content-cn" class="lang-content">
-                    <p><em>Translation coming soon...</em></p>
-                </div>
+<p>
+完成本課程後，你將能夠：
+</p>
+<ul><li>建立並管理多元化的多資產投資組合</li>
+<li>自信地閱讀及解讀財務報表</li>
+<li>運用期權進行收益生成及風險管理</li>
+<li>理解固定收益、收益率曲線及信用分析</li>
+<li>應用量化方法評估及回測策略</li>
+<li>建構能在各種市場周期中表現穩健的全天候投資組合</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>課程架構</h2>
+<p>
+本課程分為<strong>五個循序漸進的層次</strong>，每個層次均建立在上一個層次的基礎之上：
+</p>
+<h3>第一層次：基礎篇（第1至12週）</h3>
+<p>
+從基本概念出發——了解投資的重要性、市場運作原理，以及如何建立你的第一個投資組合。無需任何預備知識。你將學習交易所買賣基金、債券、風險與回報、行為偏誤，以及閱讀財務報表的基礎知識。
+</p>
+<h3>第二層次：進階篇（第13至24週）</h3>
+<p>
+拓展你的工具箱，涵蓋多資產配置、板塊輪動、績效指標、股票估值及因子投資。你將學習如何分析公司、了解利率，以及整合多種策略。
+</p>
+<h3>第三層次：高階篇（第25至36週）</h3>
+<p>
+進入期權與固定收益的世界。學習運用備兌認購期權、現金擔保認沽期權及信用利差策略創造收益。深入探討收益率曲線、存續期、信用分析，以及進階財務報表分析。
+</p>
+<h3>第四層次：精通篇（第37至46週）</h3>
+<p>
+掌握期權槓桿、長期期權、期貨、波動率指數交易及專業風險管理。學習風險值模型、主動式投資組合管理、市場微觀結構及策略回測。
+</p>
+<h3>第五層次：專家篇（第47至52週）</h3>
+<p>
+融會貫通，涵蓋尾部風險對沖、結構性產品、波動性套利、管理期貨及完整投資組合整合。完成課程後，你將具備建立專業級全天候投資組合的能力。
+</p>
+<hr>
+<h2>補充課堂</h2>
+<p>
+除52週核心課程外，<strong>30堂補充課堂</strong>涵蓋各種實用題目，與主課程相輔相成：計算器使用、10-K申報文件、交易所買賣基金機制、稅務效益、退休賬戶、滾輪策略等。
+</p>
+<hr>
+<h2>使用指南</h2>
+<ul><li><strong>每週一課</strong>——每課設計約需一小時學習</li>
+<li><strong>先閱讀文章</strong>，再觀看對應的YouTube影片加以鞏固</li>
+<li><strong>補充課堂</strong>可按需要隨時以任何順序學習</li>
+<li><strong>從第一層次開始</strong>，即使你已有一定投資經驗——循序漸進的結構確保你的基礎不存在任何缺口</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>關於導師</h2>
+<p>
+<strong>Horace（陳馬）</strong>是一位經驗豐富的散戶交易者，多年來深耕市場研究，從特許財務分析師課程到實戰投資組合管理均有涉獵。本課程正是他整理多年學習筆記與實戰心得的成果，並借助人工智能協助，整理成系統化的教學形式。
+</p>
+<p>
+<strong>Stella（小魚）</strong>在YouTube系列中擔任學生共同主持，提出觀眾心中的疑問，讓講解保持貼地易懂。
+</p>
+<hr>
+<h2>課程理念</h2>
+<ul><li><strong>宏觀視野先行</strong>——先掌握大局，再深入細節</li>
+<li><strong>循序漸進</strong>——每週在前週基礎上持續累積</li>
+<li><strong>注重實踐</strong>——理論固然重要，但只有能帶來更好決策的理論才有意義</li>
+<li><strong>不走捷徑</strong>——深入理解每個策略背後的「為什麼」，而非只學「怎麼做」</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>可用語言</h2>
+<p>
+所有課程材料均提供四種語言版本：
+</p>
+<ul><li>英文</li>
+<li>香港中文（繁體中文——港式）</li>
+<li>台灣中文（繁體中文——台式）</li>
+<li>中國大陸中文（簡體中文）</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<em>本課程依據MIT授權條款提供，免費向所有人開放。請參閱<a href="disclaimer.html">免責聲明</a>了解重要法律資訊。</em>
+</p>
+<hr>
+<h2>第二部分：YouTube腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 陳馬投資教程：由零開始到專業水平｜課程概覽
+</p>
+<p>
+<strong>目標播放時長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（導師）：經驗豐富的散戶交易者，憑多年市場經驗講解概念</li>
+<li><strong>Stella</strong>（學生）：剛大學畢業、正在學習如何投資儲蓄的新手，提出觀眾心中的疑問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[片頭序幕]</strong>
+</p>
+<p>
+[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
+</p>
+<p>
+<strong>Horace：</strong> 大家好，我係Horace，歡迎收看陳馬投資教程——一個免費的52週課程，帶你由投資零基礎，一步步晉升至管理專業級別的投資組合。
+</p>
+<p>
+<strong>Stella：</strong> 我係Stella。我剛剛大學畢業，有一筆儲蓄放喺銀行戶口，心裡知道應該做些更聰明的安排。但老實說，每次嘗試學投資，都會被各種術語同相互矛盾的意見搞到一頭霧水。
+</p>
+<p>
+<strong>Horace：</strong> 這正正就係這個課程存在的原因。我花了多年時間研究市場——特許財務分析師課程、數十年的交易經驗、無數書籍和研究報告。某個時刻我意識到，如果把我所有的筆記好好整理，可以成為一套完整的投資教育。所以我們就建立了這個課程。
+</p>
+<p>
+<strong>Stella：</strong> 這個課程適合哪些人？
+</p>
+<p>
+<strong>Horace：</strong> 任何想認真了解投資的人。完全的新手從第一層次開始，一步一步建立基礎。但即使你已經投資一段時間，我都建議你從早期層次開始——你可能會驚訝地發現自己的基礎存在一些缺口。
+</p>
+<hr>
+<p>
+<strong>[第一節：課程架構]</strong>
+</p>
+<p>
+[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
+</p>
+<p>
+<strong>Horace：</strong> 課程分為五個層次，橫跨52週。把它想像成一個金字塔。
+</p>
+<p>
+<strong>Stella：</strong> 跟我介紹一下各個層次吧。
+</p>
+<p>
+<strong>Horace：</strong> 第一層次是基礎篇——十二週，涵蓋投資的意義、交易所買賣基金、風險與回報、債券、黃金、再平衡、財務報表，以及如何建立你的第一個投資組合。到第12週，你將建立起一個真實的、多元化的投資組合。
+</p>
+<p>
+<strong>Stella：</strong> 而那只是個開始？
+</p>
+<p>
+<strong>Horace：</strong> 第二層次是進階篇——你將學習好淡倉交易、多資產配置、板塊輪動、績效指標、股票估值及因子投資。到第24週，你已經擁有了認真投資者的思維模式。
+</p>
+<p>
+<strong>Stella：</strong> 然後就到期權了？
+</p>
+<p>
+<strong>Horace：</strong> 第三層次涵蓋期權與固定收益。但我們教的期權，不是投機工具。我們把它當作強化版的落單工具——備兌認購期權用來創造收益，現金擔保認沽期權用於低位建倉，信用利差策略用於限定風險的交易。再加上對債券、收益率曲線及信用分析的深入探討。
+</p>
+<p>
+<strong>Stella：</strong> 第四層次呢？
+</p>
+<p>
+<strong>Horace：</strong> 那就更精深了——期權槓桿、長期期權、期貨、波動率指數交易、專業風險管理、回測。這些是把普通投資者同認真投資者區分開來的工具。
+</p>
+<p>
+<strong>Stella：</strong> 第五層次是總結篇？
+</p>
+<p>
+<strong>Horace：</strong> 六週的時間把所有知識融會貫通。尾部風險對沖、結構性產品、波動性套利、管理期貨，以及最終整合——建立你的全天候投資組合。
+</p>
+<hr>
+<p>
+<strong>[第二節：這個課程有何不同]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 市面上有很多投資課程。這個有什麼特別？
+</p>
+<p>
+<strong>Horace：</strong> 三點。第一，循序漸進的結構。每週都建立在前一週的基礎之上。你不會在未了解風險之前就接觸期權；你不會在未理解因子為何物之前就學習因子投資。
+</p>
+<p>
+<strong>Stella：</strong> 第二點？
+</p>
+<p>
+<strong>Horace：</strong> 以真正的課程體系為基礎。特許財務分析師課程是投資專業人士的黃金標準。我們提取了這套知識體系，重新為散戶投資者整理——保留嚴謹性，去除不相關的部分。
+</p>
+<p>
+<strong>Stella：</strong> 第三點？
+</p>
+<p>
+<strong>Horace：</strong> 完全免費。MIT授權條款。隨意使用、分享、二次開發。筆記已經寫好，研究已經完成。沒有理由把它鎖在付費牆後面。
+</p>
+<hr>
+<p>
+<strong>[第三節：如何使用這個課程]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 大家應該怎樣學習這個課程？
+</p>
+<p>
+<strong>Horace：</strong> 每週一課。先閱讀文章——那裡有完整的材料，包括公式、表格和圖表。然後看影片加以鞏固。我們還有30堂補充課堂，涵蓋實用題目，例如計算器使用、稅務效益、退休賬戶及特定策略。隨時有需要就去看。
+</p>
+<p>
+<strong>Stella：</strong> 如果大家有問題呢？
+</p>
+<p>
+<strong>Horace：</strong> 歡迎加入我們的Patreon。那裡我們會做問答環節和深度討論。
+</p>
+<p>
+<strong>Stella：</strong> 我已經迫不及待想開始了。我們就進入第1週吧。
+</p>
+<p>
+<strong>Horace：</strong> 第1週見。
+</p>
+<p>
+<strong>[完]</strong>
+</p>
             </div>
-        </main>
-    </div>
+            <div id="content-tw" class="lang-content">
+                <h1>陳馬投資教學：從入門到專業</h1>
+<p>
+歡迎來到這個全面的52週投資教育課程，旨在帶您從基礎概念進階到專業級投資組合管理。
+</p>
+<hr>
+<h2>您將學到什麼</h2>
+<p>
+本課程濃縮了CFA（特許金融分析師）考試課程的核心知識，並針對散戶投資者的實際需求重新架構。在52週的學習過程中，您將逐步提升至五個層次，每項新技能都建立在前一個技能的基礎上。
+</p>
+<p>
+完成本課程後，您將能夠：
+</p>
+<ul><li>建立並管理多元資產的投資組合</li>
+<li>有信心地閱讀並解讀財務報表</li>
+<li>運用選擇權進行收益生成與風險管理</li>
+<li>理解固定收益、殖利率曲線與信用分析</li>
+<li>應用量化方法評估並回測策略</li>
+<li>建構能在各種市場週期中表現穩健的全天候投資組合</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>課程架構</h2>
+<p>
+課程分為<strong>五個循序漸進的等級</strong>，每個等級都奠基於前一個等級：
+</p>
+<h3>第一級：基礎篇（第1-12週）</h3>
+<p>
+從基本觀念開始——為什麼投資很重要、市場如何運作，以及如何建立您的第一個投資組合。不需要任何先備知識。您將學習指數股票型基金、債券、風險與報酬、行為偏誤，以及閱讀財務報表的基礎。
+</p>
+<h3>第二級：進階篇（第13-24週）</h3>
+<p>
+擴展您的工具箱，涵蓋多資產配置、類股輪動、績效指標、股票估值與因子投資。您將學會分析公司、理解利率，並整合多種策略。
+</p>
+<h3>第三級：高階篇（第25-36週）</h3>
+<p>
+進入選擇權與固定收益的世界。學習如何運用掩護性買權、現金擔保賣權與信用價差來創造收益。深入探討殖利率曲線、存續期間、信用分析與進階財務報表分析。
+</p>
+<h3>第四級：精通篇（第37-46週）</h3>
+<p>
+掌握選擇權槓桿、長期期權、期貨、波動率交易與專業風險管理。學習VaR模型、積極型投資組合管理、市場微結構與策略回測。
+</p>
+<h3>第五級：專家篇（第47-52週）</h3>
+<p>
+融會貫通，涵蓋尾部風險避險、結構性商品、波動率套利、管理型期貨，以及完整的投資組合整合。畢業後您將具備建立專業級全天候投資組合的能力。
+</p>
+<hr>
+<h2>補充課程</h2>
+<p>
+除了52週核心課程外，<strong>30堂補充課程</strong>涵蓋實用主題，與主課程相輔相成：計算機使用、10-K申報表、指數股票型基金機制、稅務效率、退休帳戶、滾輪策略等。
+</p>
+<hr>
+<h2>如何使用本課程</h2>
+<ul><li><strong>每週一堂課</strong>——每堂課設計約需一小時學習</li>
+<li><strong>先閱讀文章</strong>，再觀看對應的YouTube影片加強記憶</li>
+<li><strong>補充課程</strong>可依需要隨時以任意順序學習</li>
+<li><strong>從第一級開始</strong>，即使您已有一些投資經驗——循序漸進的課程架構確保您的基礎沒有缺口</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>關於講師</h2>
+<p>
+<strong>Horace（陳馬）</strong> 是一位經驗豐富的散戶交易者，多年來深入研究市場，從CFA課程到實際投資組合管理皆有涉獵。本課程是他有系統整理的學習筆記與實戰心得，在AI的協助下構建成可傳授的教學形式。
+</p>
+<p>
+<strong>Stella（小魚）</strong> 在YouTube系列中擔任學生主持人，提出觀眾心中的疑問，讓說明保持貼近生活、易於理解。
+</p>
+<hr>
+<h2>課程理念</h2>
+<ul><li><strong>先建立宏觀背景</strong>——在深入戰術之前，先理解大局</li>
+<li><strong>循序漸進建立技能</strong>——每週都建立在前一週的基礎上</li>
+<li><strong>注重實務應用</strong>——理論很重要，但只有當它能帶來更好的決策時才有意義</li>
+<li><strong>沒有捷徑</strong>——理解每個策略背後的「為什麼」，而不只是「怎麼做」</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>提供語言</h2>
+<p>
+所有課程資料提供四種語言版本：
+</p>
+<ul><li>英文</li>
+<li>香港中文（繁體中文 - 港式）</li>
+<li>台灣中文（繁體中文 - 台式）</li>
+<li>中國大陸中文（簡體中文）</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<em>本課程依MIT授權條款提供，對所有人免費開放。重要法律資訊請參閱<a href="disclaimer.html">免責聲明</a>。</em>
+</p>
+<hr>
+<h2>第二部分：YouTube腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 陳馬投資教學：從入門到專業 | 課程總覽
+</p>
+<p>
+<strong>目標時長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老師）：資深散戶交易者，從多年市場經驗中分享概念</li>
+<li><strong>Stella</strong>（學生）：剛大學畢業，正在學習如何投資她的積蓄，提出觀眾心中的問題</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[片頭序列]</strong>
+</p>
+<p>
+[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
+</p>
+<p>
+<strong>Horace：</strong> 大家好。我是Horace，歡迎來到陳馬投資教學——一個免費的52週課程，將帶您從對投資一無所知，到能夠管理專業級的投資組合。
+</p>
+<p>
+<strong>Stella：</strong> 我是Stella。我剛大學畢業，有一些存款放在銀行帳戶裡，我知道我應該更聰明地運用這些錢。但說實話，每次我想學投資，就會被一堆術語和互相矛盾的建議搞得不知所措。
+</p>
+<p>
+<strong>Horace：</strong> 這正是這門課存在的原因。我花了多年研究市場——CFA課程、數十年的交易經驗、無數的書籍和研究報告。在某個時刻，我意識到如果把所有筆記好好整理，可以成為一套完整的投資教育。所以這就是我們建立的東西。
+</p>
+<p>
+<strong>Stella：</strong> 這門課適合哪些人？
+</p>
+<p>
+<strong>Horace：</strong> 任何想要真正理解投資的人。完全的初學者可以從第一級開始逐步建立。但即使您已經投資一段時間，我也鼓勵您從早期的等級開始——您可能會驚訝地發現自己基礎上的缺口。
+</p>
+<hr>
+<p>
+<strong>[第一段：課程架構]</strong>
+</p>
+<p>
+[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
+</p>
+<p>
+<strong>Horace：</strong> 課程分為五個等級，涵蓋52週。可以把它想成一個金字塔。
+</p>
+<p>
+<strong>Stella：</strong> 帶我了解一下各個等級吧。
+</p>
+<p>
+<strong>Horace：</strong> 第一級是基礎篇——十二週，涵蓋為什麼投資很重要、指數型基金、風險與報酬、債券、黃金、再平衡、財務報表，以及建立您的第一個投資組合。到第12週，您將會建立起一個真實的多元化投資組合並開始運作。
+</p>
+<p>
+<strong>Stella：</strong> 那只是開始而已？
+</p>
+<p>
+<strong>Horace：</strong> 第二級是進階篇——您將學習多空交易、多資產配置、類股輪動、績效指標、股票估值與因子投資。到第24週，您將以嚴謹投資者的眼光思考問題。
+</p>
+<p>
+<strong>Stella：</strong> 然後是選擇權？
+</p>
+<p>
+<strong>Horace：</strong> 第三級涵蓋選擇權與固定收益。但我們不把選擇權當作投機工具來教。我們把它們當作進階的委託類型——用掩護性買權創造收益、用現金擔保賣權建立部位、用信用價差進行有限風險交易。此外還深入探討債券、殖利率曲線與信用分析。
+</p>
+<p>
+<strong>Stella：</strong> 第四級呢？
+</p>
+<p>
+<strong>Horace：</strong> 那是更精深的領域——選擇權槓桿、長期期權、期貨、波動率指數交易、專業風險管理、回測。這些工具區分了普通投資者與認真投資者。
+</p>
+<p>
+<strong>Stella：</strong> 第五級是最終的收尾？
+</p>
+<p>
+<strong>Horace：</strong> 六週將所有內容融合在一起。尾部風險避險、結構性商品、波動率套利、管理型期貨，以及最終整合——建立您的全天候投資組合。
+</p>
+<hr>
+<p>
+<strong>[第二段：這門課有什麼不同]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 市面上有很多投資課程。這門課有什麼不同？
+</p>
+<p>
+<strong>Horace：</strong> 有三點。第一，它是循序漸進架構的。每週都建立在前一週的基礎上。您不會在不理解風險的情況下就跳入選擇權。您不會在不理解什麼是因子的情況下就學習因子投資。
+</p>
+<p>
+<strong>Stella：</strong> 第二點呢？
+</p>
+<p>
+<strong>Horace：</strong> 它以真正的課程為基礎。CFA考試是投資專業人士的黃金標準。我們吸收了這套知識體系，並針對散戶投資者重新整理——保留嚴謹性，刪去不相關的部分。
+</p>
+<p>
+<strong>Stella：</strong> 第三點？
+</p>
+<p>
+<strong>Horace：</strong> 它是免費的。MIT授權。使用它、分享它、在它的基礎上繼續發展。筆記已經寫好了，研究已經完成了。沒有理由把它鎖在付費牆後面。
+</p>
+<hr>
+<p>
+<strong>[第三段：如何使用本課程]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 大家應該怎麼使用這門課？
+</p>
+<p>
+<strong>Horace：</strong> 每週一堂課。先閱讀文章——那裡有完整的資料，包括公式、表格和圖表。然後觀看影片加強記憶。我們還有30堂補充課程，涵蓋實用主題，如計算機使用、稅務效率、退休帳戶和特定策略。有需要時隨時可以學習這些課程。
+</p>
+<p>
+<strong>Stella：</strong> 如果大家有問題呢？
+</p>
+<p>
+<strong>Horace：</strong> 加入我們的Patreon。那是我們進行問答和深入討論的地方。
+</p>
+<p>
+<strong>Stella：</strong> 我已經迫不及待想開始了。讓我們直接進入第一週吧。
+</p>
+<p>
+<strong>Horace：</strong> 第一週見。
+</p>
+<p>
+<strong>[結束]</strong>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>陈马投资教学：从入门到专业</h1>
+<p>
+欢迎来到这套全面的52周投资教育课程，旨在带您从基础概念进阶到专业级投资组合管理。
+</p>
+<hr>
+<h2>您将学到什么</h2>
+<p>
+本课程提炼了CFA（特许金融分析师）课程的核心知识，并将其重构为零售投资者的实用内容。在52周内，您将经历五个难度递增的层级，每项新技能都建立在前一项的基础之上。
+</p>
+<p>
+完成本课程后，您将能够：
+</p>
+<ul><li>构建并管理多元化的多资产投资组合</li>
+<li>自信地阅读和解读财务报表</li>
+<li>运用期权进行收益创造和风险管理</li>
+<li>理解固定收益、收益率曲线和信用分析</li>
+<li>运用量化方法评估和回测策略</li>
+<li>构建能在各种市场周期中表现稳健的全天候投资组合</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>课程结构</h2>
+<p>
+本课程分为<strong>五个递进层级</strong>，每级都建立在上一级的基础之上：
+</p>
+<h3>第一级：基础（第1-12周）</h3>
+<p>
+从基础知识开始——为什么投资很重要、市场如何运作，以及如何构建您的第一个投资组合。无需任何先验知识。您将学习交易所交易基金、债券、风险与收益、行为偏差，以及阅读财务报表的基础知识。
+</p>
+<h3>第二级：中级（第13-24周）</h3>
+<p>
+扩展您的工具箱，涵盖多资产配置、板块轮动、业绩指标、股票估值和因子投资。您将学习如何分析公司、理解利率，并将多种策略结合运用。
+</p>
+<h3>第三级：进阶（第25-36周）</h3>
+<p>
+进入期权和固定收益的世界。学习运用备兑看涨期权、现金担保看跌期权和信用价差来获取收益。深入研究收益率曲线、久期、信用分析和高级财务报表分析。
+</p>
+<h3>第四级：高阶（第37-46周）</h3>
+<p>
+掌握期权杠杆、长期期权、期货、波动率交易和专业风险管理。学习VaR模型、主动投资组合管理、市场微观结构和策略回测。
+</p>
+<h3>第五级：专家（第47-52周）</h3>
+<p>
+融会贯通，涵盖尾部风险对冲、结构性产品、波动率套利、管理期货和完整的投资组合整合。毕业时，您将具备构建专业级全天候投资组合的技能。
+</p>
+<hr>
+<h2>补充课程</h2>
+<p>
+除52周核心课程外，<strong>30节补充课程</strong>涵盖与主课程相辅相成的实用主题：计算器使用、10-K报告、交易所交易基金机制、税务效率、退休账户、车轮策略等。
+</p>
+<hr>
+<h2>如何使用本课程</h2>
+<ul><li><strong>每周一课</strong>——每课设计约需一小时学习</li>
+<li><strong>先阅读文章</strong>，然后观看对应的YouTube视频加深理解</li>
+<li><strong>补充课程</strong>可按任意顺序在需要时随时学习</li>
+<li><strong>从第一级开始</strong>，即使您已有一定的投资经验——结构化的递进学习可确保您的基础没有漏洞</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>关于讲师</h2>
+<p>
+<strong>Horace（陈马）</strong> 是一位经验丰富的零售投资者，多年来深入研究市场，从CFA级别课程到实际投资组合管理均有涉猎。本课程是他整理的学习笔记和实践心得，借助人工智能构建成可教授的格式。
+</p>
+<p>
+<strong>Stella（小鱼）</strong> 作为YouTube系列的学生联合主持人加入，提出观众心中的疑问，使讲解更加务实易懂。
+</p>
+<hr>
+<h2>课程理念</h2>
+<ul><li><strong>宏观背景优先</strong>——在深入战术之前先理解大局</li>
+<li><strong>循序渐进的技能培养</strong>——每周都在前一周的基础上构建</li>
+<li><strong>注重实践</strong>——理论很重要，但只有在能促成更好决策时才有意义</li>
+<li><strong>不走捷径</strong>——理解每种策略背后的"为什么"，而不仅仅是"如何做"</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>可用语言</h2>
+<p>
+所有课程材料提供四种语言版本：
+</p>
+<ul><li>英文</li>
+<li>香港中文（繁體中文 - 港式）</li>
+<li>台湾中文（繁體中文 - 台式）</li>
+<li>大陆中文（简体中文）</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<em>本课程依据MIT许可协议提供，对所有人免费开放。请参阅<a href="disclaimer.html">免责声明</a>以获取重要法律信息。</em>
+</p>
+<hr>
+<h2>第二部分：YouTube脚本</h2>
+<hr>
+<p>
+<strong>视频标题：</strong> 陈马投资教学：从入门到专业 | 课程概览
+</p>
+<p>
+<strong>目标时长：</strong> 约5分钟
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（教师）：经验丰富的零售投资者，以多年市场经验讲解概念</li>
+<li><strong>Stella</strong>（学生）：刚从大学毕业，正在学习如何投资储蓄，提出观众心中的疑问</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[INTRO SEQUENCE]</strong>
+</p>
+<p>
+[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
+</p>
+<p>
+<strong>Horace：</strong> 欢迎。我是Horace（陈马），这是陈马投资教学——一套免费的52周课程，将带您从对投资一无所知，到管理专业级投资组合。
+</p>
+<p>
+<strong>Stella：</strong> 我是Stella（小鱼）。我刚刚大学毕业，有一些存款放在银行账户里，我知道应该更聪明地利用它们。但说实话，每次我尝试学习投资，都会被各种术语和相互矛盾的建议搞得不知所措。
+</p>
+<p>
+<strong>Horace：</strong> 这正是本课程存在的原因。我花了多年时间研究市场——CFA课程、数十年的交易经验、无数书籍和研究报告。在某个时刻，我意识到我所有的笔记，如果整理得当，可以构成一套完整的投资教育。所以这就是我们构建的内容。
+</p>
+<p>
+<strong>Stella：</strong> 这门课程适合哪些人？
+</p>
+<p>
+<strong>Horace：</strong> 任何想要真正理解投资的人。完全的初学者从第一级开始，逐步提升。但即使您已经投资了一段时间，我也建议您从早期级别开始——您可能会对自己基础中的漏洞感到惊讶。
+</p>
+<hr>
+<p>
+<strong>[SEGMENT 1: COURSE STRUCTURE]</strong>
+</p>
+<p>
+[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
+</p>
+<p>
+<strong>Horace：</strong> 本课程分为五个层级，共52周。把它想象成一座金字塔。
+</p>
+<p>
+<strong>Stella：</strong> 带我了解一下各个层级吧。
+</p>
+<p>
+<strong>Horace：</strong> 第一级是基础——十二周，涵盖为什么投资很重要、指数基金、风险与收益、债券、黄金、再平衡、财务报表，以及构建您的第一个投资组合。到第12周时，您将拥有一个真实、多元化的投资组合并开始运作。
+</p>
+<p>
+<strong>Stella：</strong> 而那仅仅是开始？
+</p>
+<p>
+<strong>Horace：</strong> 第二级是中级——您将学习多空交易、多资产配置、板块轮动、业绩指标、股票估值和因子投资。到第24周时，您将像一个认真的投资者那样思考。
+</p>
+<p>
+<strong>Stella：</strong> 然后是期权？
+</p>
+<p>
+<strong>Horace：</strong> 第三级涵盖期权和固定收益。但我们不把期权当作投机工具来教。我们将其作为增强型订单类型来教——用备兑看涨期权获取收益，用现金担保看跌期权建仓，用信用价差进行有限风险交易。另外还深入研究债券、收益率曲线和信用分析。
+</p>
+<p>
+<strong>Stella：</strong> 第四级呢？
+</p>
+<p>
+<strong>Horace：</strong> 那是进入高阶的地方——期权杠杆、长期期权、期货、波动率指数交易、专业风险管理、回测。这些工具将普通投资者与认真的投资者区分开来。
+</p>
+<p>
+<strong>Stella：</strong> 第五级是最终综合？
+</p>
+<p>
+<strong>Horace：</strong> 六周时间把所有内容融会贯通。尾部风险对冲、结构性产品、波动率套利、管理期货，以及最终整合——构建您的全天候投资组合。
+</p>
+<hr>
+<p>
+<strong>[SEGMENT 2: WHAT MAKES THIS COURSE DIFFERENT]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 市面上有很多投资课程。这门课有什么不同？
+</p>
+<p>
+<strong>Horace：</strong> 三点。第一，结构是循序渐进的。每周都建立在前一周的基础上。您不会在不理解风险的情况下直接跳入期权。您不会在不理解因子是什么的情况下学习因子投资。
+</p>
+<p>
+<strong>Stella：</strong> 第二点？
+</p>
+<p>
+<strong>Horace：</strong> 基于真实课程。CFA项目是投资专业人士的黄金标准。我们吸取了那些知识体系，并为零售投资者重新整理——保留了严谨性，但删去了不相关的部分。
+</p>
+<p>
+<strong>Stella：</strong> 第三点？
+</p>
+<p>
+<strong>Horace：</strong> 免费。MIT许可协议。使用它、分享它、在它基础上构建。笔记已经写好，研究已经完成。没有理由将其锁在付费墙后面。
+</p>
+<hr>
+<p>
+<strong>[SEGMENT 3: HOW TO USE THIS COURSE]</strong>
+</p>
+<p>
+<strong>Stella：</strong> 人们应该如何使用这门课程？
+</p>
+<p>
+<strong>Horace：</strong> 每周一课。先阅读文章——那会给您提供包含公式、表格和图表的完整材料。然后观看视频加深理解。我们还有30节补充课程，涵盖实用主题，如计算器使用、税务效率、退休账户和具体策略。需要时随时学习。
+</p>
+<p>
+<strong>Stella：</strong> 如果大家有问题呢？
+</p>
+<p>
+<strong>Horace：</strong> 在Patreon上加入我们。那是我们进行问答和深入讨论的地方。
+</p>
+<p>
+<strong>Stella：</strong> 我很期待开始。让我们直接进入第一周吧。
+</p>
+<p>
+<strong>Horace：</strong> 那里见。
+</p>
+<p>
+<strong>[END]</strong>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="nav-buttons">
+            <span class="nav-placeholder"></span>
+            <a href="level1.html" class="nav-btn next">
+            <span class="nav-btn-text">
+                <span class="btn-label">Next</span>
+                <span>Level 1: Foundation Overview</span>
+            </span>
+            <span style="font-size:1.2rem">&#8594;</span>
+        </a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+    </footer>
 
     <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('content-' + lang).classList.add('active');
-            document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            localStorage.setItem('preferred-lang', lang);
-        }
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    localStorage.setItem('preferred-lang', lang);
+}
 
-        // Restore language preference
-        const savedLang = localStorage.getItem('preferred-lang');
-        if (savedLang && savedLang !== 'en') {
-            switchLang(savedLang);
-            document.querySelectorAll('.lang-toggle button').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase() === savedLang) btn.classList.add('active');
-            });
-        }
-    </script>
+// Restore language preference
+(function() {
+    var saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') switchLang(saved);
+})();
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
 </body>
 </html>

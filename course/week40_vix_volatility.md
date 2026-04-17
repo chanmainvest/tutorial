@@ -763,159 +763,159 @@ A: This is the textbook mean-reversion trade, and it has merit. When VIX is abov
 
 [VISUAL: Opening title card -- "Week 40: Trading the VIX and Volatility" with a gauge meter swinging from green (calm) to red (panic)]
 
-**Alex**: Welcome to Week 40. Today we are covering what I consider the most fascinating and most dangerous corner of financial markets: the VIX and volatility trading. Sam, what do you know about the VIX?
+**Horace**: Welcome to Week 40. Today we are covering what I consider the most fascinating and most dangerous corner of financial markets: the VIX and volatility trading. Stella, what do you know about the VIX?
 
-**Sam**: I know it is called the "fear gauge." It goes up when the market goes down. I see it on CNBC all the time. And I know there are products that let you trade it. That is about the extent of my knowledge.
+**Stella**: I know it is called the "fear gauge." It goes up when the market goes down. I see it on CNBC all the time. And I know there are products that let you trade it. That is about the extent of my knowledge.
 
-**Alex**: That is more than most people know, but there is a LOT more going on under the surface. Let us start with what VIX actually measures.
+**Horace**: That is more than most people know, but there is a LOT more going on under the surface. Let us start with what VIX actually measures.
 
 [VISUAL: VIX definition slide with formula conceptually illustrated]
 
-**Alex**: The VIX measures the market's expectation of how much the S&P 500 will move over the next 30 days, expressed as an annualized volatility percentage. When VIX is at 20, the market expects the S&P to move about 1.26% per day.
+**Horace**: The VIX measures the market's expectation of how much the S&P 500 will move over the next 30 days, expressed as an annualized volatility percentage. When VIX is at 20, the market expects the S&P to move about 1.26% per day.
 
-**Sam**: How do you get 1.26% from 20?
+**Stella**: How do you get 1.26% from 20?
 
-**Alex**: Divide VIX by the square root of 252, which is the number of trading days in a year. Twenty divided by 15.87 equals 1.26%. So at VIX 20, the market expects daily S&P moves of about 63 points when the S&P is at 5,000.
+**Horace**: Divide VIX by the square root of 252, which is the number of trading days in a year. Twenty divided by 15.87 equals 1.26%. So at VIX 20, the market expects daily S&P moves of about 63 points when the S&P is at 5,000.
 
-**Sam**: And higher VIX means larger expected moves.
+**Stella**: And higher VIX means larger expected moves.
 
-**Alex**: Right. VIX at 40 -- which we saw during COVID -- implies 2.5% daily moves. That is 126 points per day on the S&P. VIX at 80, which we briefly touched in March 2020, implies 5% daily moves. That is absolute chaos.
+**Horace**: Right. VIX at 40 -- which we saw during COVID -- implies 2.5% daily moves. That is 126 points per day on the S&P. VIX at 80, which we briefly touched in March 2020, implies 5% daily moves. That is absolute chaos.
 
 [VISUAL: VIX level reference chart with historical events marked]
 
-**Sam**: So where does VIX normally sit?
+**Stella**: So where does VIX normally sit?
 
-**Alex**: The long-term average is about 19-20. In calm bull markets, it trades between 12 and 16. During corrections, 25-35. During panics, 35-80. And here is the most important property of VIX.
+**Horace**: The long-term average is about 19-20. In calm bull markets, it trades between 12 and 16. During corrections, 25-35. During panics, 35-80. And here is the most important property of VIX.
 
 [VISUAL: VIX time series chart from 1990-2025 with mean line at 19.5]
 
-**Alex**: VIX always comes back. It is one of the most mean-reverting quantities in all of finance. When VIX spikes to 50, it has historically reverted halfway back to its average within about 35 trading days. When VIX is crushed down to 10, it has historically drifted back up within a few months.
+**Horace**: VIX always comes back. It is one of the most mean-reverting quantities in all of finance. When VIX spikes to 50, it has historically reverted halfway back to its average within about 35 trading days. When VIX is crushed down to 10, it has historically drifted back up within a few months.
 
-**Sam**: So it is like a spring? It always wants to return to about 18-20?
+**Stella**: So it is like a spring? It always wants to return to about 18-20?
 
-**Alex**: That is a great analogy. And this mean reversion is the foundation of almost every volatility strategy. But before we get to strategies, I need to explain the VIX term structure, because this is where most people get confused and lose money.
+**Horace**: That is a great analogy. And this mean reversion is the foundation of almost every volatility strategy. But before we get to strategies, I need to explain the VIX term structure, because this is where most people get confused and lose money.
 
 [ANIMATION: animation/week40_vix_term_structure.py -- Animated visualization of the VIX futures term structure. The animation shows a horizontal axis representing futures expiration months (1-8 months out) and a vertical axis showing VIX levels. Two scenarios are animated sequentially. First, a contango curve is drawn, showing spot VIX at 14 rising to about 20 at 8 months out, with labels explaining why each month is more expensive. Second, the curve transforms into a backwardation curve during a simulated market sell-off, with spot VIX jumping to 35 and the curve inverting. A rolling indicator shows how a VIX futures ETF would roll positions daily, selling low front-month contracts and buying higher next-month contracts in contango, clearly illustrating the negative roll yield.]
 
-**Sam**: OK, that animation was really eye-opening. In contango, the front-month VIX future is cheaper than the next month. So when an ETF rolls -- sells the expiring contract and buys the next one -- it is selling low and buying high every single day.
+**Stella**: OK, that animation was really eye-opening. In contango, the front-month VIX future is cheaper than the next month. So when an ETF rolls -- sells the expiring contract and buys the next one -- it is selling low and buying high every single day.
 
-**Alex**: Exactly. And this is why VXX, the most popular VIX product, has lost over 99.99% of its value since inception. Not because of a few bad trades -- because of the daily contango roll. It is designed to lose money.
+**Horace**: Exactly. And this is why VXX, the most popular VIX product, has lost over 99.99% of its value since inception. Not because of a few bad trades -- because of the daily contango roll. It is designed to lose money.
 
 [VISUAL: VXX price chart from inception showing dramatic decline on logarithmic scale]
 
-**Sam**: Then why does VXX even exist? Who would buy it?
+**Stella**: Then why does VXX even exist? Who would buy it?
 
-**Alex**: It is useful as a very short-term hedge. If you think the market is going to sell off this week, buying VXX gives you leveraged exposure to VIX upside. Hold it for two or three days during a sell-off, sell it for a profit. The key words are "very short-term." Days, not weeks. Certainly not months or years.
+**Horace**: It is useful as a very short-term hedge. If you think the market is going to sell off this week, buying VXX gives you leveraged exposure to VIX upside. Hold it for two or three days during a sell-off, sell it for a profit. The key words are "very short-term." Days, not weeks. Certainly not months or years.
 
-**Sam**: What about UVXY? That is the leveraged version, right?
+**Stella**: What about UVXY? That is the leveraged version, right?
 
-**Alex**: UVXY provides 1.5x daily exposure to VIX short-term futures. It loses money even faster than VXX in contango -- roughly 80-90% per year. It has gone through numerous reverse splits because the share price keeps approaching zero. UVXY is a tool for day traders and very short-term hedgers, nothing more.
+**Horace**: UVXY provides 1.5x daily exposure to VIX short-term futures. It loses money even faster than VXX in contango -- roughly 80-90% per year. It has gone through numerous reverse splits because the share price keeps approaching zero. UVXY is a tool for day traders and very short-term hedgers, nothing more.
 
 [VISUAL: UVXY chart showing reverse splits and continuous decline]
 
-**Sam**: OK, what about the other side? Products that profit when VIX is calm?
+**Stella**: OK, what about the other side? Products that profit when VIX is calm?
 
-**Alex**: This brings us to what might be the most important story in volatility trading: short volatility strategies and Volmageddon.
+**Horace**: This brings us to what might be the most important story in volatility trading: short volatility strategies and Volmageddon.
 
 [VISUAL: "Volmageddon: February 5, 2018" title card with dramatic styling]
 
-**Sam**: I have heard the name but do not know the details.
+**Stella**: I have heard the name but do not know the details.
 
-**Alex**: Let me set the stage. In 2017, VIX averaged about 11 -- historically low. The market was incredibly calm, with the S&P 500 rallying steadily. An entire cottage industry grew up around selling volatility. The idea was simple: VIX is in contango, so products that are short VIX futures earn the contango roll as income.
+**Horace**: Let me set the stage. In 2017, VIX averaged about 11 -- historically low. The market was incredibly calm, with the S&P 500 rallying steadily. An entire cottage industry grew up around selling volatility. The idea was simple: VIX is in contango, so products that are short VIX futures earn the contango roll as income.
 
-**Sam**: So you just sit there and collect money as VIX futures roll down?
+**Stella**: So you just sit there and collect money as VIX futures roll down?
 
-**Alex**: That is how it was marketed. The most popular product was XIV, an inverse VIX ETN issued by Credit Suisse. It had $1.9 billion in assets. It held a short position in front-month VIX futures. In calm markets, it made money consistently. Retail traders were calling it "free money."
+**Horace**: That is how it was marketed. The most popular product was XIV, an inverse VIX ETN issued by Credit Suisse. It had $1.9 billion in assets. It held a short position in front-month VIX futures. In calm markets, it made money consistently. Retail traders were calling it "free money."
 
 [VISUAL: XIV price chart showing steady rise through 2017]
 
-**Sam**: I can sense where this is going.
+**Stella**: I can sense where this is going.
 
-**Alex**: February 2, 2018, a Friday. The jobs report showed rising wages, sparking inflation fears. The S&P dropped 2.1%. VIX rose from 13 to 17. A notable move, but nothing extraordinary. Many short vol traders shrugged it off.
+**Horace**: February 2, 2018, a Friday. The jobs report showed rising wages, sparking inflation fears. The S&P dropped 2.1%. VIX rose from 13 to 17. A notable move, but nothing extraordinary. Many short vol traders shrugged it off.
 
-**Alex**: Monday, February 5. The selling continued. By the afternoon, the S&P was down about 4%. But here is what made this different. As VIX rose, the inverse VIX products -- XIV, SVXY -- were losing value. And the way these products are structured, when they lose value, they need to BUY VIX futures to rebalance their positions.
+**Horace**: Monday, February 5. The selling continued. By the afternoon, the S&P was down about 4%. But here is what made this different. As VIX rose, the inverse VIX products -- XIV, SVXY -- were losing value. And the way these products are structured, when they lose value, they need to BUY VIX futures to rebalance their positions.
 
-**Sam**: So their losses force them to buy the very thing that is going up?
+**Stella**: So their losses force them to buy the very thing that is going up?
 
-**Alex**: Exactly. And this created a death spiral. VIX rises, XIV sells off, XIV must buy VIX futures to rebalance, that buying pushes VIX higher, which makes XIV sell off more, which requires more buying...
+**Horace**: Exactly. And this created a death spiral. VIX rises, XIV sells off, XIV must buy VIX futures to rebalance, that buying pushes VIX higher, which makes XIV sell off more, which requires more buying...
 
 [VISUAL: Feedback loop diagram with arrows showing the vicious cycle]
 
-**Sam**: A feedback loop. The selling feeds on itself.
+**Stella**: A feedback loop. The selling feeds on itself.
 
-**Alex**: By the end of that day, VIX had gone from about 17 to 37. XIV lost 96% of its value. In ONE DAY. Credit Suisse terminated the product entirely. $1.9 billion in investor value -- gone. SVXY lost over 90%. Some retail traders who were short VIX futures lost their entire accounts and ended up owing money to their brokers.
+**Horace**: By the end of that day, VIX had gone from about 17 to 37. XIV lost 96% of its value. In ONE DAY. Credit Suisse terminated the product entirely. $1.9 billion in investor value -- gone. SVXY lost over 90%. Some retail traders who were short VIX futures lost their entire accounts and ended up owing money to their brokers.
 
 [VISUAL: VIX chart from Feb 5, 2018 showing the intraday spike]
 
-**Sam**: That is devastating. And you are saying this was not a true black swan?
+**Stella**: That is devastating. And you are saying this was not a true black swan?
 
-**Alex**: It was entirely predictable. The product structure guaranteed this would happen eventually. The only question was when VIX would move enough to trigger the cascade. Academics and risk managers had warned about it. The mathematical certainty of eventual destruction was baked into the product design.
+**Horace**: It was entirely predictable. The product structure guaranteed this would happen eventually. The only question was when VIX would move enough to trigger the cascade. Academics and risk managers had warned about it. The mathematical certainty of eventual destruction was baked into the product design.
 
-**Sam**: So is short volatility always a bad idea?
+**Stella**: So is short volatility always a bad idea?
 
-**Alex**: No, not always. But it requires immense respect for tail risk. Let me explain when and how it can work.
+**Horace**: No, not always. But it requires immense respect for tail risk. Let me explain when and how it can work.
 
 [VISUAL: "Short Vol Done Right" framework slide]
 
-**Alex**: Rule one: defined risk only. Never sell naked VIX futures or naked straddles. Use spreads that cap your maximum loss. If you sell a VIX put spread, your loss is limited to the width of the spread minus the premium received.
+**Horace**: Rule one: defined risk only. Never sell naked VIX futures or naked straddles. Use spreads that cap your maximum loss. If you sell a VIX put spread, your loss is limited to the width of the spread minus the premium received.
 
-**Sam**: What about SVXY? Did not it survive Volmageddon?
+**Stella**: What about SVXY? Did not it survive Volmageddon?
 
-**Alex**: Barely. SVXY lost over 90% but continued to exist. ProShares restructured it from -1x to -0.5x VIX exposure. At half the leverage, another Volmageddon-style event would lose about 50% instead of 90%+. Still painful but not terminal. Some traders use SVXY for tactical short vol exposure with small position sizes.
+**Horace**: Barely. SVXY lost over 90% but continued to exist. ProShares restructured it from -1x to -0.5x VIX exposure. At half the leverage, another Volmageddon-style event would lose about 50% instead of 90%+. Still painful but not terminal. Some traders use SVXY for tactical short vol exposure with small position sizes.
 
-**Sam**: How small?
+**Stella**: How small?
 
-**Alex**: No more than 5-10% of your portfolio, and only when you have a specific thesis about declining volatility. If VIX has spiked to 35 and you see signs of calming -- VIX declining for several days, the term structure flattening -- a small SVXY position can capture the mean reversion. But you must accept that a further spike could cost you 40-50% of that allocation.
+**Horace**: No more than 5-10% of your portfolio, and only when you have a specific thesis about declining volatility. If VIX has spiked to 35 and you see signs of calming -- VIX declining for several days, the term structure flattening -- a small SVXY position can capture the mean reversion. But you must accept that a further spike could cost you 40-50% of that allocation.
 
 [VISUAL: Position sizing diagram for vol trades]
 
-**Sam**: Let us talk about the other side -- using volatility as a hedge.
+**Stella**: Let us talk about the other side -- using volatility as a hedge.
 
-**Alex**: This is where I think volatility becomes truly valuable for long-term investors.
+**Horace**: This is where I think volatility becomes truly valuable for long-term investors.
 
 [VISUAL: Portfolio insurance concept diagram]
 
-**Alex**: Think of long volatility as fire insurance for your house. You pay a premium every year, and most years your house does not burn down. But when it does, the insurance pays off enormously. In portfolio terms, you spend 1-2% of your portfolio per year on VIX call options or SPX put spreads. Most quarters, they expire worthless. But when a crash comes, they can pay 5-20x your investment, offsetting a huge chunk of your stock losses.
+**Horace**: Think of long volatility as fire insurance for your house. You pay a premium every year, and most years your house does not burn down. But when it does, the insurance pays off enormously. In portfolio terms, you spend 1-2% of your portfolio per year on VIX call options or SPX put spreads. Most quarters, they expire worthless. But when a crash comes, they can pay 5-20x your investment, offsetting a huge chunk of your stock losses.
 
-**Sam**: Let me make sure I understand the math. I have a $500,000 portfolio and spend $10,000 per year on VIX calls. In a normal year, I lose $10,000 -- that is a 2% drag. But in a crash year, those VIX calls might be worth $50,000 to $100,000?
+**Stella**: Let me make sure I understand the math. I have a $500,000 portfolio and spend $10,000 per year on VIX calls. In a normal year, I lose $10,000 -- that is a 2% drag. But in a crash year, those VIX calls might be worth $50,000 to $100,000?
 
-**Alex**: Exactly. In March 2020, VIX went from 14 to 82. VIX calls bought when VIX was at 14 returned 10-50x depending on the strike and expiration. A $10,000 allocation could have turned into $100,000 to $500,000. Against a portfolio that might have lost $150,000 in the crash, that hedge dramatically softened the blow.
+**Horace**: Exactly. In March 2020, VIX went from 14 to 82. VIX calls bought when VIX was at 14 returned 10-50x depending on the strike and expiration. A $10,000 allocation could have turned into $100,000 to $500,000. Against a portfolio that might have lost $150,000 in the crash, that hedge dramatically softened the blow.
 
 [VISUAL: 2020 crash portfolio comparison -- hedged vs unhedged]
 
-**Sam**: But the 2% annual drag in normal years adds up.
+**Stella**: But the 2% annual drag in normal years adds up.
 
-**Alex**: It does. Over a decade of normal markets, you would spend $100,000 on hedges that mostly expire worthless. That is a significant cost. This is why I do not recommend continuous hedging for most investors. Instead, be tactical.
+**Horace**: It does. Over a decade of normal markets, you would spend $100,000 on hedges that mostly expire worthless. That is a significant cost. This is why I do not recommend continuous hedging for most investors. Instead, be tactical.
 
-**Sam**: What do you mean by tactical?
+**Stella**: What do you mean by tactical?
 
-**Alex**: Buy long vol hedges when they are cheap -- when VIX is below 13-14 and the term structure is in steep contango. This is when insurance is on sale. Do not buy hedges when VIX is already at 25 -- the insurance is expensive because the "fire" might already be burning.
+**Horace**: Buy long vol hedges when they are cheap -- when VIX is below 13-14 and the term structure is in steep contango. This is when insurance is on sale. Do not buy hedges when VIX is already at 25 -- the insurance is expensive because the "fire" might already be burning.
 
 [VISUAL: VIX level and corresponding hedge cost chart]
 
-**Alex**: Also, use time-limited positions. Buy 60-90 day VIX calls or SPX put spreads. If no spike occurs within that window, close or let them expire and wait for the next opportunity.
+**Horace**: Also, use time-limited positions. Buy 60-90 day VIX calls or SPX put spreads. If no spike occurs within that window, close or let them expire and wait for the next opportunity.
 
-**Sam**: What about the mean reversion trade you mentioned? Selling volatility when VIX is high?
+**Stella**: What about the mean reversion trade you mentioned? Selling volatility when VIX is high?
 
-**Alex**: This is the textbook post-spike trade. When VIX has been above 30 for a week or two and you see it starting to decline, you can sell VIX put spreads or buy SVXY to capture the reversion toward the mean.
+**Horace**: This is the textbook post-spike trade. When VIX has been above 30 for a week or two and you see it starting to decline, you can sell VIX put spreads or buy SVXY to capture the reversion toward the mean.
 
 [VISUAL: VIX mean reversion after major spikes -- historical examples]
 
-**Alex**: Historically, after every major VIX spike above 40, VIX has reverted below 25 within 30-60 trading days. That reversion is very profitable for short vol positions entered at the right time.
+**Horace**: Historically, after every major VIX spike above 40, VIX has reverted below 25 within 30-60 trading days. That reversion is very profitable for short vol positions entered at the right time.
 
-**Sam**: But you said timing is crucial. How do I know the spike has peaked?
+**Stella**: But you said timing is crucial. How do I know the spike has peaked?
 
-**Alex**: You never know for certain, which is why you use defined risk and small positions. But there are signals. One, VIX has declined for 2-3 consecutive days after the spike. Two, the term structure has moved from backwardation back toward flat or contango. Three, credit spreads in the bond market are tightening. Four, the VIX of VIX, VVIX, is declining from extreme levels.
+**Horace**: You never know for certain, which is why you use defined risk and small positions. But there are signals. One, VIX has declined for 2-3 consecutive days after the spike. Two, the term structure has moved from backwardation back toward flat or contango. Three, credit spreads in the bond market are tightening. Four, the VIX of VIX, VVIX, is declining from extreme levels.
 
-**Sam**: None of those are guarantees.
+**Stella**: None of those are guarantees.
 
-**Alex**: Correct. Which is why you never make the mean reversion trade your entire portfolio. Five to ten percent allocation, defined risk, with a plan to exit if VIX spikes again.
+**Horace**: Correct. Which is why you never make the mean reversion trade your entire portfolio. Five to ten percent allocation, defined risk, with a plan to exit if VIX spikes again.
 
-**Sam**: Can you put this all together? What does a balanced volatility approach look like?
+**Stella**: Can you put this all together? What does a balanced volatility approach look like?
 
 [VISUAL: "Balanced Volatility Framework" summary slide]
 
-**Alex**: Here is my framework for incorporating volatility into a portfolio.
+**Horace**: Here is my framework for incorporating volatility into a portfolio.
 
 First, understand that volatility is a tool, not a core holding. Your core portfolio should be stocks and bonds. Vol is a satellite allocation.
 
@@ -927,27 +927,27 @@ Fourth, never hold VXX, UVXY, or similar products for more than a few days. Neve
 
 Fifth, stress test every volatility position assuming VIX goes to 80 (long vol) or VIX goes to 10 and stays there for 6 months (short vol). If your portfolio cannot survive the extreme scenario, reduce the position.
 
-**Sam**: That is a really well-structured approach. What about someone who just wants to understand VIX without trading it?
+**Stella**: That is a really well-structured approach. What about someone who just wants to understand VIX without trading it?
 
-**Alex**: VIX is still valuable as an indicator even if you never trade a vol product. When VIX drops below 12, be cautious -- the market is complacent and a spike is likely within the next few months. When VIX is above 30, be a buyer of stocks -- historically, buying when VIX is elevated produces above-average forward returns.
+**Horace**: VIX is still valuable as an indicator even if you never trade a vol product. When VIX drops below 12, be cautious -- the market is complacent and a spike is likely within the next few months. When VIX is above 30, be a buyer of stocks -- historically, buying when VIX is elevated produces above-average forward returns.
 
 [VISUAL: SPY forward returns sorted by VIX level at time of purchase]
 
-**Sam**: So high VIX is actually a buy signal for stocks?
+**Stella**: So high VIX is actually a buy signal for stocks?
 
-**Alex**: On average, yes. The best time to buy stocks is when everyone else is terrified. VIX above 30 has historically preceded above-average 12-month stock returns. VIX below 12 has preceded below-average returns. It is not a perfect timing tool, but it is a useful contrarian indicator.
+**Horace**: On average, yes. The best time to buy stocks is when everyone else is terrified. VIX above 30 has historically preceded above-average 12-month stock returns. VIX below 12 has preceded below-average returns. It is not a perfect timing tool, but it is a useful contrarian indicator.
 
-**Sam**: This has been one of the most educational episodes we have done. The VIX is so much more complex than just a "fear gauge."
+**Stella**: This has been one of the most educational episodes we have done. The VIX is so much more complex than just a "fear gauge."
 
-**Alex**: It is an entire world unto itself. And here is my final thought: the reason most people lose money trading volatility is that they treat it like a directional stock trade. Buy VXX, hope it goes up. Short UVXY, hope it goes down. Volatility does not work that way. It has unique dynamics -- term structure, contango, mean reversion, feedback loops -- that require unique strategies. Respect those dynamics, size appropriately, and volatility can be a powerful addition to your toolkit.
+**Horace**: It is an entire world unto itself. And here is my final thought: the reason most people lose money trading volatility is that they treat it like a directional stock trade. Buy VXX, hope it goes up. Short UVXY, hope it goes down. Volatility does not work that way. It has unique dynamics -- term structure, contango, mean reversion, feedback loops -- that require unique strategies. Respect those dynamics, size appropriately, and volatility can be a powerful addition to your toolkit.
 
 [VISUAL: Three key takeaways on screen]
 
-**Sam**: Three final takeaways?
+**Stella**: Three final takeaways?
 
-**Alex**: One: VIX products like VXX and UVXY are designed to lose money over time due to contango. Never hold them as long-term positions. Two: short volatility strategies produce steady income but carry catastrophic tail risk -- Volmageddon proved this definitively. Always use defined risk and small positions. Three: volatility mean-reverts strongly, creating opportunities to buy insurance when it is cheap (VIX below 14) and sell it when it is expensive (VIX above 30). Tactical, not perpetual.
+**Horace**: One: VIX products like VXX and UVXY are designed to lose money over time due to contango. Never hold them as long-term positions. Two: short volatility strategies produce steady income but carry catastrophic tail risk -- Volmageddon proved this definitively. Always use defined risk and small positions. Three: volatility mean-reverts strongly, creating opportunities to buy insurance when it is cheap (VIX below 14) and sell it when it is expensive (VIX above 30). Tactical, not perpetual.
 
-**Sam**: Thank you, Alex. That wraps up our four-week deep dive into derivatives and volatility. These are powerful tools that reward knowledge and punish ignorance. Take the time to understand them before you trade them.
+**Stella**: Thank you, Horace. That wraps up our four-week deep dive into derivatives and volatility. These are powerful tools that reward knowledge and punish ignorance. Take the time to understand them before you trade them.
 
 [VISUAL: End card -- "End of Week 40" with a montage of key visuals from Weeks 37-40]
 

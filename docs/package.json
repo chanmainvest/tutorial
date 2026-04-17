@@ -1,8 +1,0 @@
-{
-  "name": "investment-tutorial-site",
-  "version": "1.0.0",
-  "description": "Static site generator for investment tutorial course",
-  "scripts": {
-    "build": "node ../scripts/build.js"
-  }
-}

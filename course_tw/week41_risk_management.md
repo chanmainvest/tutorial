@@ -1,1074 +1,1052 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 41: Portfolio Risk Management
+# 第41週：投資組合風險管理
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-### a) Why This Is Important
+### a) 為何重要
 
-Risk management is the single most important skill separating investors who survive from those who do not. It is not glamorous, it does not generate cocktail-party stories, and it rarely appears in headlines. But every catastrophic investment failure -- from Long-Term Capital Management to individual traders blowing up their accounts -- can be traced to a failure of risk management, not a failure of analysis.
+風險管理是區分能夠存活的投資人與無法存活的投資人之間，最重要的單一技能。它不光鮮亮麗，不會產生在雞尾酒派對上值得炫耀的故事，也很少出現在新聞頭條。但每一場災難性的投資失敗——從長期資本管理公司到個人交易員爆倉——都可以追溯到風險管理的失敗，而非分析能力的失敗。
 
-Understanding risk management is critical because:
+理解風險管理至關重要，原因如下：
 
-- **Position sizing determines your survival**: A brilliant trade thesis is worthless if you bet too much on it. The 2% rule, Kelly criterion, and other sizing frameworks exist because mathematically, even a strategy with 60% win rate will go bankrupt if positions are too large. Most retail investors have no systematic position sizing method at all, which means their survival is a matter of luck, not skill.
-- **Stop-loss strategies protect capital from catastrophic draws**: Without a predefined exit plan, human psychology takes over. Investors hold losers hoping for recovery (loss aversion) and sell winners too early (disposition effect). A disciplined stop-loss strategy removes emotion from the most critical decision: when to exit a losing position.
-- **Risk budgeting turns vague diversification into a precise framework**: Saying "do not put all your eggs in one basket" is useless advice without quantification. Risk budgeting allocates specific risk limits across asset classes, strategies, and time horizons. It answers the question: "How much can I afford to lose in each area before it threatens my overall financial plan?"
-- **Scenario analysis prepares you for events the market says are impossible**: Markets consistently underestimate the probability of extreme events. Scenario analysis forces you to ask: "What happens to my portfolio if the S&P drops 40% in two months? What if interest rates spike 300 basis points? What if my largest holding goes to zero?" If you cannot answer these questions, you do not understand your portfolio.
-- **Risk management is a process, not a product**: You cannot buy risk management. It is not an ETF, a hedge fund, or a software tool. It is a daily discipline of measuring, monitoring, and adjusting exposures. The best investors in the world -- Renaissance Technologies, Bridgewater, Citadel -- spend more time on risk management than on idea generation.
+- **部位規模決定你的存活能力**：一個精彩的交易論點，若你押注過重，就毫無價值。2%法則、凱利公式及其他規模框架之所以存在，是因為在數學上，即使一個策略的勝率高達60%，若部位過大，也終將破產。大多數散戶投資人完全沒有系統性的部位規模方法，這意味著他們的存活純粹是運氣，而非技能。
+- **停損策略能保護資本免受災難性回撤**：沒有預先設定的退出計畫，人類心理就會接管一切。投資人會因損失趨避而持有虧損部位，期待回本；也會因處置效應而過早賣出獲利部位。紀律嚴明的停損策略，能在最關鍵的決策——何時退出虧損部位——中排除情緒干擾。
+- **風險預算將模糊的分散投資轉化為精確的框架**：「不要把雞蛋放在同一個籃子裡」這樣的建議，若沒有量化，毫無用處。風險預算在資產類別、策略和時間軸上配置具體的風險限額，它回答了這個問題：「在威脅到我整體財務計畫之前，我在每個領域能承受多少損失？」
+- **情境分析能讓你為市場認為不可能發生的事件做好準備**：市場持續低估極端事件的發生機率。情境分析迫使你問：「若標普500指數在兩個月內下跌40%，我的投資組合會怎樣？若利率急升300個基點呢？若我最大的持倉歸零呢？」若你無法回答這些問題，代表你並不了解自己的投資組合。
+- **風險管理是一個過程，而非一項產品**：你無法購買風險管理。它不是一支指數股票型基金、一個避險基金或一套軟體工具。它是每日衡量、監控和調整曝險部位的紀律。全球頂尖的投資機構——文藝復興科技、橋水基金、城堡投資——花在風險管理上的時間，遠多於花在投資點子發掘上的時間。
 
-This lesson will teach you the core frameworks of professional risk management, adapted for individual investors. You will learn how to size positions, set stops, budget risk, run scenario analyses, and build a risk management process that protects your capital while allowing it to grow.
+本課程將教你核心的專業風險管理框架，並為個人投資人量身調整。你將學習如何規模部位、設定停損、預算風險、執行情境分析，並建立一套既能保護資本又能使其成長的風險管理流程。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知識
 
-#### 1. Position Sizing: The 2% Rule
+#### 1. 部位規模：2%法則
 
-Position sizing is the process of determining how many shares, contracts, or dollars to allocate to a single trade or investment. It is arguably the most impactful decision you make as an investor, yet most people give it almost no thought.
+部位規模是決定在單一交易或投資中，要配置多少股票、合約或資金的過程。這可以說是你作為投資人所做的最具影響力的決策，然而大多數人對此幾乎毫不用心。
 
-The 2% Rule states: never risk more than 2% of your total portfolio on any single trade.
-
-```
-THE 2% RULE -- MECHANICS
-
-Portfolio value: $100,000
-Maximum risk per trade: 2% = $2,000
-
-EXAMPLE: Buying stock XYZ at $50 with a stop-loss at $45
-  Risk per share: $50 - $45 = $5
-  Maximum shares: $2,000 / $5 = 400 shares
-  Position size: 400 x $50 = $20,000 (20% of portfolio)
-
-  NOTE: The position SIZE is 20%, but the RISK is only 2%.
-  These are different concepts.
-
-EXAMPLE: Buying stock ABC at $200 with a stop-loss at $180
-  Risk per share: $200 - $180 = $20
-  Maximum shares: $2,000 / $20 = 100 shares
-  Position size: 100 x $200 = $20,000 (20% of portfolio)
-
-EXAMPLE: Buying stock DEF at $30 with a stop-loss at $27
-  Risk per share: $30 - $27 = $3
-  Maximum shares: $2,000 / $3 = 666 shares
-  Position size: 666 x $30 = $19,980 (20% of portfolio)
-
-KEY INSIGHT:
-  The tighter your stop-loss, the more shares you can buy.
-  The wider your stop-loss, the fewer shares you can buy.
-  But the dollar risk stays constant at $2,000.
-```
-
-Why 2%? Because it ensures survival through losing streaks.
+2%法則規定：任何單一交易的風險，永遠不得超過投資組合總值的2%。
 
 ```
-SURVIVAL ANALYSIS: WHY 2% WORKS
+2%法則——操作機制
 
-Starting portfolio: $100,000
-Risk per trade: 2% ($2,000)
+投資組合價值：$100,000
+每筆交易最大風險：2% = $2,000
 
-Consecutive       Portfolio      Cumulative
-Losses            Value          Drawdown
+範例一：以$50買進股票XYZ，停損設在$45
+  每股風險：$50 - $45 = $5
+  最大股數：$2,000 / $5 = 400股
+  部位規模：400 x $50 = $20,000（投資組合的20%）
+
+  注意：部位規模是20%，但風險只有2%。
+  這是兩個不同的概念。
+
+範例二：以$200買進股票ABC，停損設在$180
+  每股風險：$200 - $180 = $20
+  最大股數：$2,000 / $20 = 100股
+  部位規模：100 x $200 = $20,000（投資組合的20%）
+
+範例三：以$30買進股票DEF，停損設在$27
+  每股風險：$30 - $27 = $3
+  最大股數：$2,000 / $3 = 666股
+  部位規模：666 x $30 = $19,980（投資組合的20%）
+
+核心洞見：
+  停損設得越緊，你能買的股數越多。
+  停損設得越寬，你能買的股數越少。
+  但美元風險始終維持在$2,000。
+```
+
+為何是2%？因為它能確保你在連續虧損中存活下來。
+
+```
+存活分析：為何2%有效
+
+起始投資組合：$100,000
+每筆交易風險：2%（$2,000）
+
+連續虧損次數    投資組合價值    累積回撤
 ────────────────────────────────────────────
-  1               $98,000        -2.0%
-  2               $96,040        -4.0%
-  3               $94,119        -5.9%
-  5               $90,392        -9.6%
- 10               $81,707       -18.3%
- 15               $73,857       -26.1%
- 20               $66,761       -33.2%
+    1            $98,000        -2.0%
+    2            $96,040        -4.0%
+    3            $94,119        -5.9%
+    5            $90,392        -9.6%
+   10            $81,707       -18.3%
+   15            $73,857       -26.1%
+   20            $66,761       -33.2%
 
-After 20 CONSECUTIVE losses (extraordinarily rare
-for any reasonable strategy), you still have 66.8%
-of your capital. Recovery is entirely feasible.
+連續虧損20次（對任何合理策略而言都極為罕見）後，
+你仍保留了66.8%的資本，完全有能力復元。
 
-COMPARE WITH 10% RISK PER TRADE:
+與每筆交易風險10%相比：
 
-Consecutive       Portfolio      Cumulative
-Losses            Value          Drawdown
+連續虧損次數    投資組合價值    累積回撤
 ────────────────────────────────────────────
-  1               $90,000       -10.0%
-  2               $81,000       -19.0%
-  3               $72,900       -27.1%
-  5               $59,049       -41.0%
- 10               $34,868       -65.1%
- 15               $20,589       -79.4%
- 20               $12,158       -87.8%
+    1            $90,000       -10.0%
+    2            $81,000       -19.0%
+    3            $72,900       -27.1%
+    5            $59,049       -41.0%
+   10            $34,868       -65.1%
+   15            $20,589       -79.4%
+   20            $12,158       -87.8%
 
-After 10 consecutive losses, you have lost 65%.
-Recovery requires a 186% gain. Effectively impossible
-for most strategies. You are financially destroyed.
+連續虧損10次後，你已虧損65%。
+回本需要186%的報酬，對大多數策略而言幾乎不可能。
+你在財務上已被摧毀。
 ```
 
 ```
-POSITION SIZING DECISION TREE
+部位規模決策樹
 
-     Start: What is my total portfolio value?
+     開始：我的投資組合總值是多少？
             |
             v
-     Calculate: 2% of portfolio = MAX RISK PER TRADE
+     計算：投資組合的2% = 每筆交易最大風險
             |
             v
-     Determine: Where is my stop-loss for this trade?
+     確定：這筆交易的停損設在哪裡？
             |
-            +--> Stop-loss set by technical analysis
-            |    (support level, moving average, etc.)
+            +--> 由技術分析設定停損
+            |    （支撐位、移動平均線等）
             |
-            +--> Stop-loss set by maximum acceptable
-            |    loss (e.g., 10% below entry)
+            +--> 由最大可接受損失設定停損
+            |    （例如：入場價以下10%）
             |
-            +--> Stop-loss set by volatility
-                 (e.g., 2x ATR below entry)
-            |
-            v
-     Calculate: Risk per share = Entry - Stop-loss
+            +--> 由波動性設定停損
+                 （例如：入場價以下2倍ATR）
             |
             v
-     Calculate: Shares = Max risk / Risk per share
+     計算：每股風險 = 入場價 - 停損價
             |
             v
-     CHECK: Does position size exceed 25% of portfolio?
+     計算：股數 = 最大風險 / 每股風險
             |
-       +--->YES: Reduce to 25% maximum position
-       |         (your stop is probably too tight)
+            v
+     檢查：部位規模是否超過投資組合的25%？
+            |
+       +--->是：縮減至最大25%上限
+       |         （你的停損可能設得太緊了）
        |
-       +--->NO: Proceed with calculated size
+       +--->否：按計算規模進行
 ```
 
-#### 2. The Kelly Criterion
+#### 2. 凱利公式
 
-The Kelly criterion is a mathematical formula for optimal bet sizing that maximizes long-term growth rate. It was developed by John Kelly at Bell Labs in 1956 and later adopted by gamblers and investors.
+凱利公式是一個用於最佳押注規模的數學公式，能使長期成長率最大化。它由約翰·凱利在1956年於貝爾實驗室研發，後來被賭徒和投資人採用。
 
 ```
-THE KELLY CRITERION
+凱利公式
 
-Full Kelly formula:
+完整凱利公式：
   f* = (bp - q) / b
 
-Where:
-  f* = fraction of capital to risk
-  b  = odds received on the bet (reward-to-risk ratio)
-  p  = probability of winning
-  q  = probability of losing (1 - p)
+其中：
+  f* = 應投入資本的比例
+  b  = 押注所獲得的賠率（報酬風險比）
+  p  = 獲勝機率
+  q  = 失敗機率（1 - p）
 
-EXAMPLE: Stock trade with 60% win rate, 1.5:1 reward/risk
+範例：勝率60%、報酬風險比1.5:1的股票交易
   f* = (1.5 x 0.60 - 0.40) / 1.5
   f* = (0.90 - 0.40) / 1.5
   f* = 0.50 / 1.5
-  f* = 0.333 (33.3% of capital)
+  f* = 0.333（資本的33.3%）
 
-KELLY FRACTION FOR COMMON SCENARIOS:
+常見情境下的凱利比例：
 
-Win Rate    Reward:Risk    Full Kelly    Half Kelly
+勝率    報酬:風險    完整凱利    半凱利
 ──────────────────────────────────────────────────────
-  50%          1:1           0.0%          0.0%
-  50%          2:1          16.7%          8.3%
-  55%          1:1          10.0%          5.0%
-  55%          1.5:1        18.3%          9.2%
-  60%          1:1          20.0%         10.0%
-  60%          1.5:1        33.3%         16.7%
-  60%          2:1          40.0%         20.0%
-  65%          1:1          30.0%         15.0%
-  70%          1:1          40.0%         20.0%
+ 50%      1:1          0.0%       0.0%
+ 50%      2:1         16.7%       8.3%
+ 55%      1:1         10.0%       5.0%
+ 55%      1.5:1       18.3%       9.2%
+ 60%      1:1         20.0%      10.0%
+ 60%      1.5:1       33.3%      16.7%
+ 60%      2:1         40.0%      20.0%
+ 65%      1:1         30.0%      15.0%
+ 70%      1:1         40.0%      20.0%
 
-CRITICAL WARNING:
-  Full Kelly is EXTREMELY aggressive.
-  It maximizes long-term growth but produces enormous
-  drawdowns -- often 50-80% peak-to-trough.
+重要警告：
+  完整凱利極為激進。
+  它能最大化長期成長率，但會產生巨大的
+  回撤——通常為峰值至谷值的50-80%。
   
-  NEVER use full Kelly. Use HALF KELLY or less.
-  Half Kelly achieves 75% of the growth rate with
-  dramatically less drawdown.
+  永遠不要使用完整凱利，應使用半凱利或更保守的比例。
+  半凱利能獲得75%的成長率，同時大幅降低回撤。
 
-  Even half Kelly is aggressive for most investors.
-  Many professionals use quarter Kelly (f*/4).
+  即使是半凱利，對大多數投資人而言仍偏激進。
+  許多專業人士使用四分之一凱利（f*/4）。
 ```
 
 ```
-KELLY VS. FIXED FRACTION: COMPARISON OVER TIME
+凱利與固定比例：長期比較
 
-Scenario: Strategy with 55% win rate, 1.5:1 reward/risk
-Starting capital: $100,000 | 500 trades
+情境：勝率55%、報酬風險比1.5:1的策略
+起始資本：$100,000 | 交易500次
 
-                Full Kelly    Half Kelly    2% Fixed
-                (18.3%)       (9.2%)        Fraction
+                完整凱利    半凱利      2%固定
+                (18.3%)    (9.2%)     比例法則
 ──────────────────────────────────────────────────────
-Final value     $2,450,000    $890,000      $340,000
-Max drawdown    -72%          -42%          -24%
-Worst streak    -62%          -35%          -18%
-Recovery time   148 trades    62 trades     28 trades
-Growth rate     6.3%/trade    4.7%/trade    2.5%/trade
+最終價值       $2,450,000  $890,000   $340,000
+最大回撤          -72%       -42%       -24%
+最惡劣連虧        -62%       -35%       -18%
+回本時間       148次交易   62次交易   28次交易
+每筆成長率        6.3%       4.7%       2.5%
 
-KEY TAKEAWAY:
-  Full Kelly has the highest terminal value but the
-  drawdowns are psychologically unbearable. A 72%
-  drawdown means watching $100,000 become $28,000
-  before it recovers.
+核心結論：
+  完整凱利的最終價值最高，但回撤在心理上令人難以承受。
+  72%的回撤意味著眼睜睜看著$100,000縮水至$28,000，
+  然後才等到復元。
 
-  Half Kelly is a strong compromise.
+  半凱利是一個強而有力的折衷方案。
   
-  The 2% fixed rule is the most conservative and the
-  most survivable. For investors who cannot tolerate
-  large drawdowns, it is the correct choice.
+  2%固定法則最為保守，也最能確保存活。
+  對於無法承受大幅回撤的投資人，這是正確的選擇。
 ```
 
-#### 3. Stop-Loss Strategies
+#### 3. 停損策略
 
-A stop-loss is a predetermined price at which you will exit a losing position. It removes the most dangerous variable in investing: your emotions during a drawdown.
+停損是一個預先設定的價格，當虧損達到該價格時你將退出部位。它消除了投資中最危險的變數：你在回撤期間的情緒。
 
 ```
-STOP-LOSS TYPES
+停損類型
 
-1. FIXED PERCENTAGE STOP
-   Exit if position declines X% from entry price.
+1. 固定百分比停損
+   若部位自入場價下跌X%，即退出。
    
-   Entry: $100 | Stop: 10% below = $90
+   入場價：$100 | 停損：以下10% = $90
    
-   Pros: Simple, easy to implement
-   Cons: Does not account for stock volatility
-         A volatile stock might trigger stops
-         on normal fluctuations
+   優點：簡單，易於執行
+   缺點：未考量股票波動性
+         波動劇烈的股票可能在
+         正常波動中就觸發停損
    
-   Best for: Long-term investors with broad positions
+   最適用於：持有廣泛部位的長期投資人
 
-2. VOLATILITY-BASED STOP (ATR STOP)
-   Exit if position declines by N x ATR below entry.
-   ATR = Average True Range (measure of daily volatility)
+2. 波動性停損（ATR停損）
+   若部位跌至入場價以下N倍ATR即退出。
+   ATR = 平均真實區間（每日波動性的衡量指標）
    
-   Entry: $100 | ATR: $3 | Multiplier: 2x
-   Stop: $100 - (2 x $3) = $94
+   入場價：$100 | ATR：$3 | 倍數：2倍
+   停損：$100 - (2 x $3) = $94
    
-   Pros: Adapts to stock's normal movement patterns
-         Volatile stocks get wider stops
-         Calm stocks get tighter stops
-   Cons: Requires ATR calculation
+   優點：能適應股票的正常波動模式
+         波動大的股票獲得較寬的停損
+         波動小的股票獲得較緊的停損
+   缺點：需要計算ATR
    
-   Best for: Active traders, technical analysts
+   最適用於：積極交易者、技術分析師
 
-3. SUPPORT-BASED STOP
-   Exit if position breaks below a key support level.
+3. 支撐位停損
+   若部位跌破關鍵支撐位即退出。
    
-   Entry: $100 | Key support: $92 | Stop: $91
-   (Just below support to avoid stop-hunting)
+   入場價：$100 | 關鍵支撐：$92 | 停損：$91
+   （設在支撐位略下方，以避免被獵殺停損）
    
-   Pros: Based on market structure, not arbitrary levels
-   Cons: Requires chart reading skill
-         Support levels are subjective
+   優點：基於市場結構，而非任意設定的水平
+   缺點：需要看圖技巧
+         支撐位具有主觀性
    
-   Best for: Swing traders, technical traders
+   最適用於：波段交易者、技術交易者
 
-4. TRAILING STOP
-   Stop-loss that moves up as the stock rises,
-   but never moves down.
+4. 追蹤停損
+   停損隨股價上漲而上移，但永遠不會下移。
    
-   Entry: $100 | Trailing stop: 15%
-   Stock hits $120: Stop moves to $102
-   Stock hits $140: Stop moves to $119
-   Stock drops to $119: TRIGGERED -- exit
+   入場價：$100 | 追蹤停損：15%
+   股價漲至$120：停損移至$102
+   股價漲至$140：停損移至$119
+   股價跌至$119：觸發——退出
    
-   Pros: Locks in profits as stock rises
-         Never limits upside
-   Cons: Can be stopped out by normal pullbacks
-         in an uptrend
+   優點：隨股價上漲鎖定利潤
+         永遠不限制上漲空間
+   缺點：在上升趨勢中的正常回檔可能被觸發
    
-   Best for: Trend followers, momentum traders
+   最適用於：趨勢跟隨者、動能交易者
 
-5. TIME-BASED STOP
-   Exit if the trade has not worked within N days/weeks.
+5. 時間停損
+   若交易在N天/週內未見成效即退出。
    
-   Example: "If this stock has not moved up 5% within
-   30 days, I will exit regardless of price."
+   範例：「若這支股票在30天內未能上漲5%，
+   無論價格如何，我將退出。」
    
-   Pros: Prevents capital from being tied up in
-         dead money positions
-   Cons: Good trades sometimes take time to develop
+   優點：防止資本被套牢在毫無起色的部位上
+   缺點：好的交易有時需要時間才能發酵
    
-   Best for: Catalyst-driven trades, options trades
+   最適用於：催化劑驅動的交易、選擇權交易
 ```
 
 ```
-STOP-LOSS PLACEMENT DIAGRAM
+停損設置示意圖
 
-Price
+價格
   |
   |  .....
-  | .     ..        <-- Stock peaks at $115
+  | .     ..        <-- 股價在$115達到峰值
   |.       ..
   |         .
-  |          ..     <-- Current price: $108
+  |          ..     <-- 當前價格：$108
   |           .
-  |................ <-- Entry price: $100
+  |................ <-- 入場價：$100
   |
-  |  ============= <-- RESISTANCE-TURNED-SUPPORT: $97
+  |  ============= <-- 阻力轉支撐：$97
   |
-  |  ------------- <-- STOP-LOSS PLACEMENT: $95
-  |                    (below support to avoid
-  |                     stop-hunting by market makers)
+  |  ------------- <-- 停損設置：$95
+  |                    （設在支撐位以下，以避免
+  |                     被造市商獵殺停損）
   |
-  |  ============= <-- NEXT SUPPORT: $88
+  |  ============= <-- 下一支撐：$88
   |
-  +---------------------------------------------> Time
+  +---------------------------------------------> 時間
 
-STOP-HUNTING:
-  Market makers and algorithms know where common
-  stop-loss levels cluster (round numbers, obvious
-  support levels). They may push prices briefly below
-  these levels to trigger stops, then buy the shares
-  at lower prices.
+獵殺停損：
+  造市商和演算法知道常見的停損水平聚集在哪裡
+  （整數關卡、明顯的支撐位）。他們可能短暫地
+  將價格推至這些水平以下，觸發停損後，再以
+  更低的價格買入這些股票。
   
-  DEFENSE: Place stops 1-3% below the obvious level,
-  not exactly at it. Use mental stops (manual exit)
-  instead of automatic stop orders for large positions.
+  防禦方法：將停損設在明顯水平以下1-3%，
+  而非精確設在該水平。大型部位可使用心理停損
+  （手動退出）而非自動停損單。
 ```
 
-#### 4. Risk Budgeting
+#### 4. 風險預算
 
-Risk budgeting is the process of allocating a total portfolio risk budget across different investments, asset classes, or strategies. It answers the question: "How much risk am I willing to accept in each area?"
+風險預算是將投資組合的總風險預算，配置到不同投資、資產類別或策略的過程。它回答了這個問題：「我願意在每個領域承受多少風險？」
 
 ```
-RISK BUDGETING FRAMEWORK
+風險預算框架
 
-Step 1: Define total portfolio risk tolerance
-  Maximum acceptable drawdown: 20%
-  This is your TOTAL RISK BUDGET
+步驟一：定義投資組合總風險承受度
+  最大可接受回撤：20%
+  這是你的總風險預算
 
-Step 2: Allocate risk across asset classes
+步驟二：在各資產類別間分配風險
   ┌─────────────────────────────────────────────┐
-  │           TOTAL RISK BUDGET: 20%            │
+  │           總風險預算：20%                   │
   │                                             │
   │  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-  │  │  Equities │  │  Bonds   │  │  Alts    │  │
-  │  │  12%      │  │  4%      │  │  4%      │  │
-  │  │  risk     │  │  risk    │  │  risk    │  │
+  │  │  股票    │  │  債券    │  │  另類    │  │
+  │  │  12%     │  │  4%      │  │  資產    │  │
+  │  │  風險    │  │  風險    │  │  4%風險  │  │
   │  └──────────┘  └──────────┘  └──────────┘  │
   │                                             │
-  │  Sum of component risks <= Total budget     │
-  │  (accounting for correlations, sum can be   │
-  │   higher because diversification reduces    │
-  │   combined risk)                            │
+  │  各組成部分的風險總和 <= 總預算              │
+  │  （考量相關性後，總和可能高於20%，           │
+  │   因為分散投資能降低合併風險）               │
   └─────────────────────────────────────────────┘
 
-Step 3: Subdivide within each asset class
-  Equities (12% risk budget):
+步驟三：在各資產類別內細分
+  股票（12%風險預算）：
     ┌─────────────────────────────────────────┐
-    │  US Large Cap    5% risk    (42%)       │
-    │  US Small Cap    3% risk    (25%)       │
-    │  Int'l Dev       2% risk    (17%)       │
-    │  Emerging Mkts   2% risk    (17%)       │
+    │  美國大型股    5%風險    (42%)           │
+    │  美國小型股    3%風險    (25%)           │
+    │  國際已開發市場  2%風險    (17%)         │
+    │  新興市場      2%風險    (17%)           │
     └─────────────────────────────────────────┘
 
-Step 4: Convert risk budget to position size
-  To achieve 5% risk contribution from US Large Cap:
-  - US Large Cap historical volatility: 16%
-  - Position size = Risk budget / Volatility
-  - Position size = 5% / 16% = 31.25% of portfolio
+步驟四：將風險預算轉換為部位規模
+  若要達成美國大型股5%的風險貢獻：
+  - 美國大型股歷史波動性：16%
+  - 部位規模 = 風險預算 / 波動性
+  - 部位規模 = 5% / 16% = 31.25%（佔投資組合）
   
-  To achieve 2% risk contribution from Emerging Mkts:
-  - EM historical volatility: 22%
-  - Position size = 2% / 22% = 9.1% of portfolio
+  若要達成新興市場2%的風險貢獻：
+  - 新興市場歷史波動性：22%
+  - 部位規模 = 2% / 22% = 9.1%（佔投資組合）
 ```
 
 ```
-RISK BUDGET ALLOCATION: PRACTICAL EXAMPLE
+風險預算配置：實務範例
 
-Portfolio: $500,000
-Maximum drawdown tolerance: 15% ($75,000)
+投資組合：$500,000
+最大回撤承受度：15%（$75,000）
 
-Asset Class       Risk     Allocation    Dollar      Max Expected
-                  Budget   Weight        Amount      Loss
+資產類別      風險     配置比重    金額        預期最大
+              預算                             損失
+──────────────────────────────────────────────────────────────
+美國股票      6%       40%        $200,000    $30,000
+國際股票      3%       15%        $75,000     $15,000
+美國債券      2%       25%        $125,000    $10,000
+不動產        2%       10%        $50,000     $10,000
+另類資產      2%       10%        $50,000     $10,000
+──────────────────────────────────────────────────────────────
+合計          15%      100%       $500,000    $75,000
+
+注意：各項風險預算加總為15%，等於總預算。
+實務上，由於各資產類別之間的相關性並非完全正相關，
+實際投資組合風險將低於15%，從而提供安全邊際。
+
+相關性帶來的效益：
+  若所有資產完全正相關：
+    投資組合風險 = 15%（各部分總和）
+  以一般相關性（平均0.3-0.6）計算：
+    投資組合風險 = 約10-12%
+  分散投資效益 = 降低3-5%的風險
+```
+
+#### 5. 情境分析
+
+情境分析是建構可能的未來情境，並估算投資組合在各情境下表現的過程。與風險值及其他統計指標不同，情境分析不依賴歷史模式的重複——它迫使你想像具體的事件，並追蹤其後果。
+
+```
+情境分析框架
+
+步驟一：定義情境（3至5個不同情境）
+
+  情境一：基本情境（機率50%）
+    GDP成長2-3%，通膨2-3%，利率穩定
+    標普500：+8-12%，債券：+3-5%
+    
+  情境二：衰退（機率15%）
+    GDP萎縮2-4%，失業率上升至6%以上
+    標普500：-25至-35%，債券：+8-15%
+    
+  情境三：停滯性通膨（機率10%）
+    GDP成長0-1%，通膨5-7%，利率上升
+    標普500：-15至-25%，債券：-5至-10%
+    
+  情境四：繁榮（機率20%）
+    GDP成長4%以上，盈餘大幅成長，利率穩定
+    標普500：+20-30%，債券：+1-3%
+    
+  情境五：危機（機率5%）
+    金融體系壓力，信用凍結
+    標普500：-40至-50%，債券：-5至+20%
+    （取決於危機性質）
+
+步驟二：估算各情境對投資組合的影響
+
+步驟三：確認——最糟情況是否能夠承受？
+  若否：降低風險直至最糟情況可以承受
+  若是：預期報酬是否令人滿意？
+```
+
+```
+情境分析：操作範例
+
+投資組合：$400,000
+  60% 美國股票（$240,000）
+  25% 美國債券（$100,000）
+  10% 不動產投資信託（$40,000）
+   5% 黃金（$20,000）
+
+                  股票      債券     不動產     黃金     投資組合
+情境              報酬      報酬     投資信託   報酬     報酬
+                                    報酬
 ──────────────────────────────────────────────────────────────────
-US Equities       6%       40%           $200,000    $30,000
-Int'l Equities    3%       15%           $75,000     $15,000
-US Bonds          2%       25%           $125,000    $10,000
-Real Estate       2%       10%           $50,000     $10,000
-Alternatives      2%       10%           $50,000     $10,000
-──────────────────────────────────────────────────────────────────
-TOTAL             15%      100%          $500,000    $75,000
+基本情境(50%)    +10%      +4%      +8%        +2%      +7.7%
+                +$24,000  +$4,000  +$3,200    +$400    +$31,600
 
-Note: Individual risk budgets sum to 15%, which equals
-the total budget. In practice, due to imperfect
-correlations between asset classes, the actual portfolio
-risk will be LESS than 15%. This provides a safety margin.
+衰退(15%)        -30%      +12%     -25%       +15%     -16.5%
+                -$72,000  +$12,000 -$10,000   +$3,000  -$67,000
 
-CORRELATION BENEFIT:
-  If all assets were perfectly correlated:
-    Portfolio risk = 15% (sum of parts)
-  With typical correlations (0.3-0.6 average):
-    Portfolio risk = ~10-12%
-  The diversification benefit = 3-5% risk reduction
-```
+停滯性通膨(10%)  -20%      -8%      -15%       +25%     -13.7%
+                -$48,000  -$8,000  -$6,000    +$5,000  -$57,000
 
-#### 5. Scenario Analysis
+繁榮(20%)        +25%      +2%      +20%       -5%      +17.3%
+                +$60,000  +$2,000  +$8,000    -$1,000  +$69,000
 
-Scenario analysis is the process of constructing plausible future states of the world and estimating how your portfolio would perform in each. Unlike VaR and other statistical measures, scenario analysis does not rely on historical patterns repeating -- it forces you to imagine specific events and trace their consequences.
+危機(5%)         -45%      +5%      -40%       +30%     -27.1%
+                -$108,000 +$5,000  -$16,000   +$6,000  -$113,000
 
-```
-SCENARIO ANALYSIS FRAMEWORK
-
-Step 1: Define scenarios (3-5 distinct scenarios)
-
-  SCENARIO 1: BASE CASE (50% probability)
-    GDP growth 2-3%, inflation 2-3%, rates stable
-    S&P 500: +8-12%, Bonds: +3-5%
-    
-  SCENARIO 2: RECESSION (15% probability)
-    GDP contracts 2-4%, unemployment rises to 6%+
-    S&P 500: -25 to -35%, Bonds: +8-15%
-    
-  SCENARIO 3: STAGFLATION (10% probability)
-    GDP growth 0-1%, inflation 5-7%, rates rise
-    S&P 500: -15 to -25%, Bonds: -5 to -10%
-    
-  SCENARIO 4: BOOM (20% probability)
-    GDP growth 4%+, earnings surge, rates stable
-    S&P 500: +20-30%, Bonds: +1-3%
-    
-  SCENARIO 5: CRISIS (5% probability)
-    Financial system stress, credit freeze
-    S&P 500: -40 to -50%, Bonds: -5 to +20%
-    (depends on nature of crisis)
-
-Step 2: Estimate portfolio impact in each scenario
-
-Step 3: Check -- is the worst case survivable?
-  If NO: reduce risk until worst case is survivable
-  If YES: is the expected return acceptable?
-```
-
-```
-SCENARIO ANALYSIS: WORKED EXAMPLE
-
-Portfolio: $400,000
-  60% US Equities ($240,000)
-  25% US Bonds ($100,000)
-  10% REITs ($40,000)
-  5% Gold ($20,000)
-
-                  Equities  Bonds    REITs    Gold     PORTFOLIO
-Scenario          Return    Return   Return   Return   Return
-──────────────────────────────────────────────────────────────────
-Base case (50%)   +10%      +4%      +8%      +2%      +7.7%
-                  +$24,000  +$4,000  +$3,200  +$400    +$31,600
-
-Recession (15%)   -30%      +12%     -25%     +15%     -16.5%
-                  -$72,000  +$12,000 -$10,000 +$3,000  -$67,000
-
-Stagflation (10%) -20%      -8%      -15%     +25%     -13.7%
-                  -$48,000  -$8,000  -$6,000  +$5,000  -$57,000
-
-Boom (20%)        +25%      +2%      +20%     -5%      +17.3%
-                  +$60,000  +$2,000  +$8,000  -$1,000  +$69,000
-
-Crisis (5%)       -45%      +5%      -40%     +30%     -27.1%
-                  -$108,000 +$5,000  -$16,000 +$6,000  -$113,000
-
-EXPECTED VALUE = Sum of (probability x return):
+預期價值 = 各情境（機率 x 報酬）的加總：
   = (0.50 x 7.7%) + (0.15 x -16.5%) + (0.10 x -13.7%)
     + (0.20 x 17.3%) + (0.05 x -27.1%)
   = 3.85% - 2.48% - 1.37% + 3.46% - 1.36%
-  = +2.1% expected return
+  = +2.1% 預期報酬
 
-WORST CASE ANALYSIS:
-  Crisis scenario: -27.1% = -$113,000
-  Is this survivable? For a 45-year-old with
-  a $120,000 salary and 20-year horizon: YES
-  For a 68-year-old retiree depending on the
-  portfolio for income: PROBABLY NOT
+最糟情況分析：
+  危機情境：-27.1% = -$113,000
+  這是否能夠承受？對一位年薪$120,000、
+  距退休尚有20年的45歲投資人而言：可以
+  對一位依賴投資組合作為收入的68歲退休人士而言：
+  很可能無法承受
 
-  If not survivable, reduce equity allocation
-  until worst case is within tolerance.
+  若無法承受，請降低股票配置，
+  直至最糟情況在可承受範圍內。
 ```
 
-#### 6. The Risk Management Process
+#### 6. 風險管理流程
 
-Risk management is not something you do once and forget. It is a continuous process that must be integrated into your daily, weekly, and monthly investing routine.
+風險管理不是一次性的工作。它是一個持續的過程，必須融入你每日、每週和每月的投資例行作業中。
 
 ```
-THE RISK MANAGEMENT PROCESS
+風險管理流程
 
   ┌──────────────────────────────────────────────────────┐
   │                                                      │
   │     ┌──────────┐                                     │
-  │     │ IDENTIFY  │  What risks does my portfolio      │
-  │     │ RISKS     │  face? Market, credit, liquidity,  │
-  │     └─────┬─────┘  concentration, currency, etc.     │
+  │     │ 識別風險  │  我的投資組合面臨哪些風險？         │
+  │     │          │  市場風險、信用風險、流動性風險、    │
+  │     └─────┬─────┘  集中度風險、匯率風險等。          │
   │           │                                          │
   │           v                                          │
   │     ┌──────────┐                                     │
-  │     │ MEASURE   │  How large are these risks?        │
-  │     │ RISKS     │  Use volatility, VaR, stress       │
-  │     └─────┬─────┘  tests, correlation analysis.      │
+  │     │ 衡量風險  │  這些風險有多大？                   │
+  │     │          │  使用波動性、風險值、壓力測試、      │
+  │     └─────┬─────┘  相關性分析。                      │
   │           │                                          │
   │           v                                          │
   │     ┌──────────┐                                     │
-  │     │ SET       │  How much risk am I willing        │
-  │     │ LIMITS    │  to take? Define position limits,  │
-  │     └─────┬─────┘  drawdown limits, sector limits.   │
+  │     │ 設定上限  │  我願意承擔多少風險？               │
+  │     │          │  定義部位上限、回撤上限、            │
+  │     └─────┬─────┘  類股上限。                        │
   │           │                                          │
   │           v                                          │
   │     ┌──────────┐                                     │
-  │     │ MONITOR   │  Are my current exposures within   │
-  │     │ EXPOSURES │  limits? Track positions daily.    │
-  │     └─────┬─────┘  Check correlations monthly.      │
+  │     │ 監控曝險  │  我目前的曝險是否在上限以內？       │
+  │     │          │  每日追蹤部位，                     │
+  │     └─────┬─────┘  每月檢查相關性。                  │
   │           │                                          │
   │           v                                          │
   │     ┌──────────┐                                     │
-  │     │ ADJUST    │  When limits are breached or       │
-  │     │ & RESPOND │  conditions change, rebalance,     │
-  │     └─────┬─────┘  hedge, or reduce exposure.        │
+  │     │ 調整與    │  當超過上限或情況改變時，           │
+  │     │ 因應      │  進行再平衡、避險或降低曝險。       │
+  │     └─────┬─────┘                                    │
   │           │                                          │
   │           v                                          │
   │     ┌──────────┐                                     │
-  │     │ REVIEW    │  What worked? What did not?        │
-  │     │ & LEARN   │  Update models and assumptions     │
-  │     └─────┬─────┘  based on actual results.          │
+  │     │ 回顧與    │  哪些有效？哪些無效？               │
+  │     │ 學習      │  根據實際結果更新模型和假設。       │
+  │     └─────┬─────┘                                    │
   │           │                                          │
-  │           └──────────> (back to IDENTIFY)             │
+  │           └──────────> （返回識別風險）               │
   │                                                      │
   └──────────────────────────────────────────────────────┘
 ```
 
 ```
-RISK MANAGEMENT CHECKLIST: INDIVIDUAL INVESTOR
+風險管理清單：個人投資人
 
-DAILY (5 minutes):
-  [ ] Check portfolio value and daily P&L
-  [ ] Check if any positions are near stop-loss levels
-  [ ] Check major market indicators (S&P, VIX, 10Y yield)
-  [ ] Check for breaking news on held positions
+每日（5分鐘）：
+  [ ] 查看投資組合價值及當日損益
+  [ ] 確認是否有任何部位接近停損水平
+  [ ] 查看主要市場指標（標普500、波動率指數、10年期殖利率）
+  [ ] 查看持倉的重大新聞
 
-WEEKLY (30 minutes):
-  [ ] Review all open positions and their status
-  [ ] Check position sizes vs. risk limits
-  [ ] Review sector and geographic concentration
-  [ ] Check correlation of recent returns
-  [ ] Verify stop-losses are current and appropriate
+每週（30分鐘）：
+  [ ] 審視所有未平倉部位及其狀況
+  [ ] 確認部位規模符合風險上限
+  [ ] 審視類股和地區集中度
+  [ ] 確認近期報酬的相關性
+  [ ] 驗證停損是否為最新且適當
 
-MONTHLY (2 hours):
-  [ ] Calculate portfolio risk metrics (volatility,
-      max drawdown, Sharpe ratio)
-  [ ] Run scenario analysis on current portfolio
-  [ ] Review risk budget allocation vs. targets
-  [ ] Assess whether any positions should be trimmed
-      or added to
-  [ ] Compare realized risk to expected risk
-  [ ] Document any risk events and lessons learned
+每月（2小時）：
+  [ ] 計算投資組合風險指標（波動性、最大回撤、夏普比率）
+  [ ] 對當前投資組合執行情境分析
+  [ ] 審視風險預算配置是否符合目標
+  [ ] 評估是否有任何部位應予以縮減或加碼
+  [ ] 比較實際風險與預期風險
+  [ ] 記錄任何風險事件及學到的教訓
 
-QUARTERLY (4 hours):
-  [ ] Full portfolio risk review
-  [ ] Re-run correlation analysis (correlations change)
-  [ ] Update scenario analysis with new assumptions
-  [ ] Review and update risk budget allocations
-  [ ] Stress test against historically extreme events
-  [ ] Review whether the overall risk level is
-      appropriate for your current life situation
+每季（4小時）：
+  [ ] 完整投資組合風險審視
+  [ ] 重新執行相關性分析（相關性會隨時間改變）
+  [ ] 以新假設更新情境分析
+  [ ] 審視並更新風險預算配置
+  [ ] 以歷史上的極端事件進行壓力測試
+  [ ] 審視整體風險水平是否符合你當前的人生處境
 ```
 
-#### 7. Concentration Risk
+#### 7. 集中度風險
 
-One of the most dangerous and underappreciated risks for individual investors is concentration -- having too much of the portfolio in a single stock, sector, or asset class.
+對個人投資人而言，最危險且最容易被低估的風險之一，就是集中度——在單一股票、類股或資產類別上配置過多資金。
 
 ```
-CONCENTRATION RISK GUIDELINES
+集中度風險準則
 
-MAXIMUM POSITION SIZES (as % of total portfolio):
+最大部位規模（佔投資組合總值百分比）：
 
-  Single stock:           5-10%
-  Single sector:         20-25%
-  Single country:        30-40%  (ex. home country)
-  Single asset class:    50-60%
-  Single strategy:       30-40%
+  單一股票：          5-10%
+  單一類股：         20-25%
+  單一國家：         30-40%（本國除外）
+  單一資產類別：     50-60%
+  單一策略：         30-40%
   
-  EXCEPTIONS:
-  Employer stock:        Maximum 10%
-  (You already have income risk from your employer.
-   Adding portfolio risk doubles down on one company.)
+  例外情況：
+  雇主股票：         最多10%
+  （你已因雇主而承受收入集中風險，
+   追加投資組合風險等於對同一家公司加倍押注。）
   
-  Your home:             Maximum 40% of net worth
-  (Hard to diversify, but recognized as unavoidable)
+  自有住宅：         最多佔淨資產的40%
+  （難以分散，但被認為是無可避免的）
 
-CONCENTRATION WARNING SIGNS:
+集中度風險警示信號：
 
   ┌───────────────────────────────────────────────┐
-  │  RED FLAGS:                                   │
+  │  紅色警旗：                                   │
   │                                               │
-  │  > 20% in one stock (excluding home)          │
-  │  > 40% in one sector                          │
-  │  > 70% in one country                         │
-  │  > 80% in one asset class                     │
-  │  > 50% in correlated positions                │
-  │  Your employer stock exceeds 15%              │
-  │  One position's daily P&L dominates the       │
-  │    entire portfolio's daily P&L               │
+  │  > 單一股票超過20%（不含住宅）               │
+  │  > 單一類股超過40%                           │
+  │  > 單一國家超過70%                           │
+  │  > 單一資產類別超過80%                       │
+  │  > 高度相關部位超過50%                       │
+  │  > 雇主股票超過15%                           │
+  │  > 單一部位的每日損益主導整個                │
+  │      投資組合的每日損益                       │
   └───────────────────────────────────────────────┘
 
-REAL-WORLD DISASTERS FROM CONCENTRATION:
+集中度造成真實災難的案例：
 
-  Enron employees: 62% of 401k in Enron stock
-    Result: $2 billion in retirement savings lost
+  安隆員工：62%的401k退休金投入安隆股票
+    結果：損失20億美元的退休儲蓄
     
-  Bear Stearns employees: Stock went from $170 to $2
-    Many employees had majority of net worth in stock
+  貝爾斯登員工：股價從$170跌至$2
+    許多員工的大部分淨資產都在公司股票上
     
-  Tech workers in 2000-2002: Large RSU/option holdings
-    NASDAQ dropped 78%. Many lost 90%+ of net worth.
+  2000-2002年科技業員工：大量限制型股票與選擇權持倉
+    那斯達克指數下跌78%，許多人損失逾90%的淨資產。
 ```
 
-#### 8. Correlation and the Illusion of Diversification
+#### 8. 相關性與分散投資的假象
 
-Diversification only works when assets are not highly correlated. During crises, correlations tend to increase -- precisely when diversification is needed most.
+分散投資唯有在資產之間相關性不高的情況下才能發揮作用。然而在危機期間，相關性往往升高——恰恰是最需要分散效果的時候。
 
 ```
-CORRELATION BEHAVIOR IN DIFFERENT MARKETS
+不同市場環境下的相關性行為
 
-             Normal Market          Crisis Market
-             Correlations           Correlations
+                 正常市場相關性      危機市場相關性
 ─────────────────────────────────────────────────────
-Stocks/Bonds   -0.2 to +0.3         -0.5 to +0.6
-                                     (can flip either way)
+股票/債券      -0.2至+0.3           -0.5至+0.6
+                                    （可能朝任一方向翻轉）
 
-US/Int'l        +0.5 to +0.7         +0.8 to +0.95
-Stocks                               (convergence)
+美股/國際股票   +0.5至+0.7           +0.8至+0.95
+                                    （趨向收斂）
 
-Large/Small     +0.7 to +0.8         +0.90 to +0.98
-Cap                                  (convergence)
+大型股/小型股   +0.7至+0.8           +0.90至+0.98
+                                    （趨向收斂）
 
-Stocks/Gold     -0.1 to +0.1         -0.3 to +0.5
-                                     (unreliable)
+股票/黃金       -0.1至+0.1           -0.3至+0.5
+                                    （不可靠）
 
-Stocks/REITs    +0.5 to +0.7         +0.8 to +0.95
-                                     (convergence)
+股票/           +0.5至+0.7           +0.8至+0.95
+不動產投資信託                       （趨向收斂）
 
-KEY INSIGHT: During crises, most "diversified"
-portfolios turn out to be far less diversified than
-expected. The only reliable diversifiers are:
+核心洞見：在危機期間，大多數「分散」的投資組合
+往往遠不如預期中分散。唯一可靠的分散工具是：
 
-1. Cash (always uncorrelated, but zero real return)
-2. Long-dated US Treasuries (usually negative
-   correlation in equity crashes, but NOT guaranteed)
-3. Managed futures/trend following (historically
-   negative correlation in equity crashes)
-4. Long volatility (by design, profits from crashes)
+1. 現金（始終不相關，但實質報酬為零）
+2. 長天期美國公債（在股市崩盤時通常呈負相關，
+   但並非保證）
+3. 管理期貨/趨勢跟隨策略（歷史上在股市崩盤時
+   呈負相關）
+4. 做多波動率（本質上，在崩盤時受益）
 
-THE DIVERSIFICATION ILLUSION:
+分散投資的假象：
 
-   Calm markets:                Crisis:
+   平靜市場：                   危機時：
    ┌────┐ ┌────┐ ┌────┐        ┌────────────────┐
-   │ US │ │Int'l│ │ EM │        │                │
-   │+8% │ │+6% │ │+10%│        │  ALL: -30%     │
-   │    │ │    │ │    │        │  to -45%       │
+   │美股 │ │國際股│ │新興│        │                │
+   │+8% │ │+6% │ │+10%│        │  全部：-30%    │
+   │    │ │    │ │    │        │  至-45%        │
    └────┘ └────┘ └────┘        │                │
-   "Diversified!"              └────────────────┘
-                               "Where did my
-                                diversification go?"
+   「已分散！」                  └────────────────┘
+                               「我的分散效果
+                                跑哪去了？」
 ```
 
-#### 9. Drawdown Management
+#### 9. 回撤管理
 
-Drawdowns -- peak-to-trough declines in portfolio value -- are the most psychologically painful aspect of investing. Understanding drawdown math is essential because the recovery math is asymmetric.
+回撤——投資組合價值從峰值到谷值的下跌——是投資中心理上最痛苦的一環。理解回撤的數學至關重要，因為回本的數學是不對稱的。
 
 ```
-DRAWDOWN AND RECOVERY: THE ASYMMETRY PROBLEM
+回撤與回本：不對稱問題
 
-Drawdown    Required Recovery     Recovery Time
-            to Break Even         (at 10%/year)
+回撤       回本所需報酬      回本時間
+                             （以年報酬10%計）
 ─────────────────────────────────────────────────
-  -5%         +5.3%                6 months
- -10%        +11.1%                1.1 years
- -15%        +17.6%                1.7 years
- -20%        +25.0%                2.3 years
- -25%        +33.3%                3.0 years
- -30%        +42.9%                3.7 years
- -40%        +66.7%                5.4 years
- -50%       +100.0%                7.3 years
- -60%       +150.0%               10.0 years
- -75%       +300.0%               15.0 years
- -90%       +900.0%               25.0 years
+  -5%         +5.3%           6個月
+ -10%        +11.1%           1.1年
+ -15%        +17.6%           1.7年
+ -20%        +25.0%           2.3年
+ -25%        +33.3%           3.0年
+ -30%        +42.9%           3.7年
+ -40%        +66.7%           5.4年
+ -50%       +100.0%           7.3年
+ -60%       +150.0%          10.0年
+ -75%       +300.0%          15.0年
+ -90%       +900.0%          25.0年
 
-KEY INSIGHT:
-  A 50% loss requires a 100% gain to recover.
-  A 75% loss requires a 300% gain.
+核心洞見：
+  虧損50%需要100%的報酬才能回本。
+  虧損75%需要300%的報酬。
   
-  This is why risk management focuses on avoiding
-  large drawdowns. Once you are down 50%+, the math
-  of recovery works against you so severely that
-  many investors never recover within their lifetime.
+  這正是風險管理著重於避免大幅回撤的原因。
+  一旦虧損超過50%，回本的數學對你極為不利，
+  許多投資人在有生之年再也無法回本。
 
-MAXIMUM DRAWDOWN GUIDELINES BY INVESTOR TYPE:
+依投資人類型劃分的最大回撤準則：
 
-  Conservative (retiree, near retirement):    10-15%
-  Moderate (mid-career, balanced risk):       15-25%
-  Aggressive (young, high income, long horizon): 25-35%
-  Very aggressive (speculative allocation):   35-50%
+  保守型（退休或接近退休者）：      10-15%
+  穩健型（職涯中段、平衡風險）：    15-25%
+  積極型（年輕、高收入、長期）：    25-35%
+  非常積極型（投機性配置）：        35-50%
   
-  No investor should accept a maximum drawdown
-  greater than 50% on their total portfolio.
+  任何投資人都不應在整體投資組合上
+  接受超過50%的最大回撤。
 ```
 
-#### 10. Risk as Process: Building Your Risk Framework
+#### 10. 風險即流程：建立你的風險框架
 
 ```
-BUILDING A PERSONAL RISK MANAGEMENT FRAMEWORK
+建立個人風險管理框架
 
-STEP 1: KNOW YOUR RISK CAPACITY
+步驟一：了解你的風險承受能力
   ┌─────────────────────────────────────────────┐
-  │  FINANCIAL CAPACITY:                        │
-  │  - Time horizon: _____ years                │
-  │  - Income stability: high / medium / low    │
-  │  - Emergency fund: _____ months of expenses │
-  │  - Portfolio as % of net worth: _____%      │
-  │  - Dependents: _____                        │
+  │  財務承受能力：                             │
+  │  - 投資時間軸：_____ 年                     │
+  │  - 收入穩定性：高 / 中 / 低                │
+  │  - 緊急備用金：_____ 個月生活費            │
+  │  - 投資組合佔淨資產的比例：_____%          │
+  │  - 需扶養人數：_____                        │
   │                                             │
-  │  EMOTIONAL CAPACITY:                        │
-  │  - Can I sleep with a 20% drawdown?  Y/N   │
-  │  - Can I sleep with a 30% drawdown?  Y/N   │
-  │  - Have I experienced a bear market? Y/N    │
-  │  - Did I panic-sell in past drawdowns? Y/N  │
+  │  心理承受能力：                             │
+  │  - 我能在20%的回撤下安眠嗎？  是/否        │
+  │  - 我能在30%的回撤下安眠嗎？  是/否        │
+  │  - 我曾經歷過空頭市場嗎？      是/否        │
+  │  - 我在過去的回撤中恐慌賣出嗎？是/否        │
   │                                             │
-  │  YOUR RISK CAPACITY = minimum of financial  │
-  │  and emotional capacity. If you can afford  │
-  │  a 30% drawdown but cannot sleep through    │
-  │  it, your capacity is lower than 30%.       │
+  │  你的風險承受能力 = 財務與心理承受能力的    │
+  │  較低者。若你能承受30%的回撤，但無法安眠， │
+  │  你的承受能力就低於30%。                    │
   └─────────────────────────────────────────────┘
 
-STEP 2: SET SPECIFIC LIMITS (write them down)
-  Maximum portfolio drawdown: _____%
-  Maximum single position risk: _____%
-  Maximum sector concentration: _____%
-  Maximum correlated exposure: _____%
-  Minimum cash/liquidity reserve: _____%
+步驟二：設定具體上限（寫下來）
+  投資組合最大回撤：_____%
+  單一部位最大風險：_____%
+  類股最大集中度：_____%
+  相關性最大曝險：_____%
+  最低現金/流動性準備：_____%
 
-STEP 3: IMPLEMENT SYSTEMS
-  - Set stop-losses on all active positions
-  - Set calendar reminders for weekly/monthly reviews
-  - Use a spreadsheet or portfolio tracker
-  - Write down your rules and review them when
-    emotions run high
+步驟三：建立系統
+  - 為所有活躍部位設定停損
+  - 設定每週/每月審視的行事曆提醒
+  - 使用試算表或投資組合追蹤工具
+  - 將你的規則寫下來，在情緒高漲時重新閱讀
 
-STEP 4: REVIEW AND ADAPT
-  - Quarterly: Are my limits still appropriate?
-  - After major events: What did I learn?
-  - Annually: Has my risk capacity changed?
+步驟四：審視與調整
+  - 每季：我的上限是否仍然適當？
+  - 重大事件後：我學到了什麼？
+  - 每年：我的風險承受能力是否改變？
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Diversification is all the risk management I need."**
+**迷思一：「分散投資就是我所需要的全部風險管理。」**
 
-Diversification is necessary but far from sufficient. As we saw, correlations spike during crises, which means your "diversified" portfolio of US stocks, international stocks, REITs, and high-yield bonds may all decline 25-40% simultaneously. True risk management requires position sizing, stop-losses, risk budgeting, and scenario analysis in addition to diversification. Diversification is one tool in the toolbox, not the entire toolbox.
+分散投資是必要條件，但遠遠不夠。如前所述，危機期間相關性急升，這意味著你那由美國股票、國際股票、不動產投資信託和高收益債券組成的「分散」投資組合，可能全部同時下跌25-40%。真正的風險管理除了分散投資之外，還需要部位規模管理、停損、風險預算和情境分析。分散投資是工具箱中的一項工具，而非整個工具箱。
 
-**Misconception 2: "Stop-losses guarantee I will not lose more than X%."**
+**迷思二：「停損保證我不會損失超過X%。」**
 
-Stop-loss orders become market orders once triggered, and in fast-moving markets, the execution price can be far below your stop price. This is called slippage. During the 2010 Flash Crash, many stop-loss orders were filled 20-40% below the stop price. During overnight gaps (stock opens 15% lower than the previous close due to bad earnings), your stop-loss at 10% below entry is irrelevant -- you will be filled at the open price. Stop-losses are risk management tools, not risk elimination tools.
+停損單一旦觸發便轉為市價單，在快速波動的市場中，成交價格可能遠低於你的停損價格，這稱為滑價。在2010年的閃電崩盤期間，許多停損單的成交價比停損價低了20-40%。發生跳空（因財報不佳，股票以比前一收盤價低15%的價格開盤），你設在入場價以下10%的停損毫無意義——你會以開盤價成交。停損是風險管理工具，而非風險消除工具。
 
-**Misconception 3: "The Kelly criterion tells me exactly how much to bet."**
+**迷思三：「凱利公式精確告訴我應該押注多少。」**
 
-Kelly requires precise knowledge of your win rate and reward-to-risk ratio, which in investing are estimates, not known quantities. A small error in estimating your edge can lead to dramatically wrong position sizes. If you think your win rate is 60% but it is actually 50%, full Kelly will tell you to bet aggressively on what is actually a zero-edge strategy. This is why practitioners use half Kelly or less -- it provides a buffer against estimation error.
+凱利公式需要精確知道你的勝率和報酬風險比，而在投資中這些都是估計值，而非已知量。高估優勢的一個小誤差，就可能導致截然錯誤的部位規模。若你認為勝率是60%，實際卻是50%，完整凱利會建議你激進押注一個實際上毫無優勢的策略。這正是實務工作者使用半凱利或更保守比例的原因——它提供了對估計誤差的緩衝。
 
-**Misconception 4: "Risk management reduces returns."**
+**迷思四：「風險管理會降低報酬。」**
 
-In the short term, yes -- limiting position sizes means you capture less of your best ideas. But in the long term, risk management increases compound returns because it prevents the catastrophic drawdowns that destroy compounding. A strategy that returns 15% per year with a -60% max drawdown will underperform a strategy that returns 10% per year with a -20% max drawdown over a 20-year period, because the recovery time from -60% destroys several years of compounding.
+短期而言確實如此——限制部位規模意味著你從最佳投資標的中獲取的收益較少。但長期而言，風險管理能提升複利報酬，因為它能防止破壞複利效應的災難性回撤。一個年報酬15%、最大回撤-60%的策略，在20年的期間內，表現將落後於一個年報酬10%、最大回撤-20%的策略，因為從-60%回本所需的時間，會摧毀數年的複利效果。
 
-**Misconception 5: "I do not need stop-losses on long-term investments."**
+**迷思五：「長期投資不需要停損。」**
 
-This depends on your definition of "long-term." If you have a 30-year horizon and are investing in broad index funds, position-level stop-losses may indeed be unnecessary because you are accepting interim drawdowns in exchange for long-term returns. But if "long-term" means holding individual stocks for years, stop-losses are critical. Enron, Bear Stearns, Lehman Brothers, and Wirecard were all long-term holdings for many investors who watched them go to zero. Individual stocks can go to zero; indexes generally do not.
+這取決於你對「長期」的定義。若你有30年的時間軸，且投資的是廣泛的指數基金，部位層面的停損確實可能不必要，因為你是以接受中間的回撤，換取長期報酬。但若「長期」意味著持有個別股票數年，停損則至關重要。安隆、貝爾斯登、雷曼兄弟和Wirecard，都曾是許多投資人的長期持倉，他們眼看著這些股票歸零。個別股票可以歸零，指數通常不會。
 
-**Misconception 6: "Risk equals volatility."**
+**迷思六：「風險等於波動性。」**
 
-Volatility is one measure of risk, but it is not risk itself. The true risks that destroy investors are permanent loss of capital, liquidity crises (unable to sell when you need to), concentration blowups, and behavioral mistakes (panic selling at the bottom). A stock that goes from $100 to $80 to $120 has high volatility but produced a positive outcome. A stock that goes from $100 to $95 to $90 to $0 has low volatility but destroyed your capital. Focus on the risks that actually destroy wealth, not just the ones that are easy to measure.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: Should I use the 2% rule for long-term buy-and-hold investments?**
-
-A: The 2% rule is primarily designed for active trading where stop-losses are used. For long-term buy-and-hold investments, the concept still applies but is adapted differently. Instead of defining risk as "distance to stop-loss," define risk as "maximum acceptable loss on this position." If you are willing to accept a 30% decline on a stock (holding through a bear market), then the 2% rule would size the position at 2% / 30% = 6.7% of your portfolio. This ensures that even if the stock drops 30%, your total portfolio impact is limited to 2%.
-
-**Q2: How do I set a stop-loss on a stock that I own for dividend income?**
-
-A: Dividend stocks present a dilemma because selling eliminates the income stream. Consider a "soft stop" approach: if the stock declines 20% from your purchase price, conduct a full review. Has the dividend been cut? Has the business fundamentally deteriorated? If yes, sell. If the dividend is secure and the business is sound, the decline may be a buying opportunity. However, set a "hard stop" at a level where the decline would indicate fundamental distress -- typically 30-40% below entry. If a dividend stock declines 40%, something is almost certainly wrong regardless of the dividend yield.
-
-**Q3: How do I handle risk for options positions?**
-
-A: For options, risk your premium. If you buy a call option for $3 per share ($300 total), your maximum risk is $300. Apply the 2% rule to the premium, not the underlying stock value. For sold options, risk is potentially much larger. For a sold put at a $50 strike, your maximum risk is $5,000 per contract (if stock goes to zero). Size sold options positions so that the maximum loss is within your 2% risk budget.
-
-**Q4: How often should I rebalance to manage risk?**
-
-A: Rebalancing frequency depends on how far your portfolio drifts from targets. Calendar-based rebalancing (quarterly or semi-annually) is simple but arbitrary. Threshold-based rebalancing (rebalance when any allocation drifts more than 5 percentage points from target) is more efficient. In practice, checking monthly and rebalancing when thresholds are breached is a reasonable compromise. Over-rebalancing incurs transaction costs and taxes; under-rebalancing allows risk drift.
-
-**Q5: What is the biggest risk management mistake individual investors make?**
-
-A: The single biggest mistake is not having a risk management plan at all. Most individual investors buy stocks or funds based on tips, articles, or recent performance, with no predefined exit strategy, no position sizing methodology, no risk budget, and no scenario analysis. They are flying blind. The second biggest mistake is having a plan but abandoning it during market stress -- selling everything after a 20% decline because "this time is different," when their plan said to hold through drawdowns.
-
-**Q6: How do I account for risk in assets I cannot easily sell, like real estate or private investments?**
-
-A: Illiquid assets should be included in your risk budget at their estimated value, with the additional recognition that you cannot quickly reduce the position if conditions deteriorate. This means illiquid assets should have a larger risk allocation to account for the inability to exit. If your real estate holding represents 30% of your net worth and you cannot sell it quickly, you should reduce risk in your liquid portfolio to compensate. Treat illiquidity as an additional risk factor, not just a minor inconvenience.
-
-**Q7: Should my risk management approach change as I age?**
-
-A: Absolutely. As your time horizon shortens, your capacity to recover from large drawdowns diminishes. A 30-year-old with a -40% drawdown has 30+ years to recover. A 65-year-old with a -40% drawdown may never recover within their spending lifetime. Gradually reduce your maximum drawdown tolerance as you age: 35-40% maximum in your 20s-30s, 25-30% in your 40s-50s, 15-20% in your 60s, and 10-15% in retirement. This translates directly into lower equity allocations and tighter stop-losses over time.
+波動性是風險的一種衡量指標，但它本身並不是風險。真正摧毀投資人的風險，是資本的永久損失、流動性危機（需要變現時卻無法賣出）、集中度爆倉，以及行為錯誤（在底部恐慌賣出）。一支股票從$100跌到$80再漲回$120，波動性高，但產生了正報酬。一支股票從$100跌到$95再到$90最終歸零，波動性低，卻摧毀了你的資本。請聚焦於真正摧毀財富的風險，而非只是那些容易衡量的風險。
 
 ---
 
+### d) 常見問題與解答
+
+**問題一：2%法則適用於長期買進持有的投資嗎？**
+
+答：2%法則主要是為使用停損的積極交易所設計的。對於長期買進持有的投資，概念仍然適用，但方式有所不同。與其將風險定義為「與停損的距離」，不如將其定義為「該部位的最大可接受損失」。若你願意接受一支股票30%的跌幅（在空頭市場中持有不動），2%法則會將部位規模設定為2%/30%=6.7%的投資組合。這確保即使股票下跌30%，對整體投資組合的影響也僅限於2%。
+
+**問題二：我持有的股票是為了股利收入，如何為它設定停損？**
+
+答：股利股票帶來兩難，因為賣出就失去了收入來源。可以考慮「軟性停損」的方式：若股票自購入價下跌20%，進行全面審視。股利是否已遭削減？基本面是否已根本惡化？若是，則賣出。若股利依然穩定、基本面良好，下跌可能是加碼的機會。然而，請設定一個「硬性停損」，一旦達到該水平，就代表出現根本性困境——通常是入場價以下30-40%。若一支股利股下跌40%，無論股利殖利率如何，幾乎可以確定出了問題。
+
+**問題三：如何管理選擇權部位的風險？**
+
+答：對於選擇權，你的風險是你支付的權利金。若你以每股$3（總計$300）買進買權，你的最大風險就是$300。請將2%法則套用在權利金上，而非標的股票的市值。對於已賣出的選擇權，風險可能大得多。若賣出一個履約價$50的賣權，每口合約的最大風險是$5,000（若股票歸零）。請規模賣出選擇權部位，使最大損失在你2%的風險預算之內。
+
+**問題四：我應多久進行再平衡以管理風險？**
+
+答：再平衡頻率取決於你的投資組合偏離目標的程度。以日曆為基礎的再平衡（每季或每半年）簡單但任意。以閾值為基礎的再平衡（當任何配置偏離目標超過5個百分點時再平衡）更為有效。實務上，每月檢查、在超過閾值時進行再平衡是合理的折衷方案。過度再平衡會產生交易成本和稅負；再平衡不足則會讓風險漂移。
+
+**問題五：個人投資人最常犯的風險管理錯誤是什麼？**
+
+答：最大的單一錯誤，是根本沒有風險管理計畫。大多數個人投資人根據消息、文章或近期表現買入股票或基金，沒有預先設定的退出策略、沒有部位規模方法論、沒有風險預算，也沒有情境分析。他們在黑暗中飛行。第二大錯誤是有計畫卻在市場壓力下放棄它——在下跌20%後把所有東西全部賣掉，因為「這次不一樣」，而他們的計畫本來是要撐過回撤。
+
+**問題六：如何將風險納入房地產或私人投資等難以變現的資產？**
+
+答：流動性低的資產應以其估計價值納入你的風險預算，並額外認識到你無法在情況惡化時迅速縮減部位。這意味著流動性低的資產應分配更大的風險額度，以反映無法退出的特性。若你的房地產持倉佔淨資產30%且無法迅速出售，你應降低流動性投資組合中的風險以補償。請將流動性不足視為額外的風險因素，而非只是小小的不便。
+
+**問題七：隨著年齡增長，我的風險管理方式應如何調整？**
+
+答：絕對應該調整。隨著投資時間軸縮短，從大幅回撤中復元的能力也隨之降低。一位30歲的投資人若遭受-40%的回撤，有超過30年的時間可以復元。一位65歲的投資人若遭受-40%的回撤，在他的消費生命週期內可能再也無法回本。請隨著年齡增長，逐步降低最大回撤承受度：20-30歲最大35-40%，40-50歲最大25-30%，60歲最大15-20%，退休後最大10-15%。這直接轉化為隨年齡降低的股票配置比例，以及更緊的停損設定。
+
 ---
 
-## YouTube Script
+---
 
-**Week 41: Portfolio Risk Management**
+## YouTube 腳本
 
-[VISUAL: Title card -- "Portfolio Risk Management: How to Survive and Thrive"]
+**第41週：投資組合風險管理**
 
-**Alex**: Today we are going to talk about the most important topic in all of investing, and I guarantee it is not what most people think.
+[VISUAL: 標題卡——「投資組合風險管理：如何存活並茁壯成長」]
 
-**Sam**: Let me guess -- it is not about finding the next hot stock?
+**Horace**：今天我們要聊的，是整個投資領域中最重要的議題，而且我保證，這絕對不是大多數人想的那樣。
 
-**Alex**: Not even close. It is about risk management. Every legendary investor -- Warren Buffett, Ray Dalio, Howard Marks, George Soros -- they all say the same thing. The first rule of investing is do not lose money. The second rule is do not forget rule one.
+**Stella**：讓我猜猜——不是關於找下一支熱門股？
 
-**Sam**: That sounds like a cliche, though. Everyone says "do not lose money." How do you actually do it?
+**Horace**：差遠了。是風險管理。每一位傳奇投資人——巴菲特、瑞·達利歐、霍華·馬克斯、喬治·索羅斯——他們都說同樣的話。投資第一條法則：不要虧錢。第二條法則：不要忘記第一條。
 
-**Alex**: That is exactly what we are going to cover. Risk management is a system -- a set of tools and processes that keep you in the game long enough for your good ideas to work. Let me start with the single most impactful concept: position sizing.
+**Stella**：這聽起來像老生常談。每個人都說「不要虧錢」。實際上要怎麼做到？
 
-[VISUAL: "Position Sizing: The 2% Rule" slide]
+**Horace**：這正是我們今天要討論的。風險管理是一套系統——一組工具和流程，讓你在市場上撐得夠久，好讓你的好點子發揮作用。讓我從最具影響力的概念開始：部位規模。
 
-**Alex**: Position sizing is deciding how much of your portfolio to put into any single investment. And here is the thing -- most retail investors do this completely wrong or do not do it at all.
+[VISUAL: 「部位規模：2%法則」投影片]
 
-**Sam**: What do they do instead?
+**Horace**：部位規模是決定要把投資組合的多少資金投入任何單一投資的過程。問題在於——大多數散戶投資人的做法完全錯誤，或者根本就沒想過這件事。
 
-**Alex**: They typically do one of three things. First, equal weighting -- just divide the portfolio into however many stocks they want to own. Ten stocks, ten percent each. Second, conviction weighting -- they put 30% into their best idea, 20% into the next, and so on. Third, and most common, random sizing -- they buy some number of shares that "feels right" with no methodology at all.
+**Stella**：那他們通常怎麼做？
 
-**Sam**: And those are all wrong?
+**Horace**：他們通常做三件事之一。第一，等比重——不管持有幾支股票，就平均分配，十支股票各10%。第二，依信心配重——把30%放在最看好的，20%放在次看好的，以此類推。第三，也是最常見的，隨機規模——買一個「感覺對了」的股數，毫無方法論可言。
 
-**Alex**: They are all missing the key insight. Position sizing should be based on risk, not conviction or arbitrary allocation.
+**Stella**：這些方法都有問題嗎？
 
-[ANIMATION: animation/week41_position_sizing.py -- Animated comparison of three portfolios over 100 trades. Portfolio A uses the 2% rule with consistent 2% risk per trade. Portfolio B uses aggressive 10% risk per trade. Portfolio C uses random sizing between 1-15%. The underlying strategy is identical with a 55% win rate and 1.5:1 reward-to-risk ratio. The animation shows all three portfolio equity curves simultaneously, with Portfolio B experiencing a devastating drawdown around trade 40 that nearly wipes it out, Portfolio C showing erratic volatile performance, and Portfolio A showing steady upward growth with manageable drawdowns. Running statistics show maximum drawdown, current drawdown, and total return for each.]
+**Horace**：這些方法都忽略了一個核心洞見。部位規模應該基於風險，而非信心或任意的配置比例。
 
-**Sam**: That is incredibly clear. Portfolio B -- the aggressive one -- nearly went to zero even though the underlying strategy was profitable.
+[ANIMATION: animation/week41_position_sizing.py——動態比較三個投資組合在100次交易中的表現。投資組合A採用2%法則，每筆交易固定承擔2%的風險。投資組合B每筆交易承擔激進的10%風險。投資組合C採用1-15%之間的隨機規模。三個投資組合的底層策略完全相同，勝率55%，報酬風險比1.5:1。動畫同時顯示三條投資組合的資本曲線，投資組合B在第40筆交易附近出現毀滅性的回撤，幾乎全軍覆沒；投資組合C表現起伏不定；投資組合A穩步向上，回撤控制在可接受範圍。同步顯示各投資組合的最大回撤、當前回撤和總報酬的即時統計數據。]
 
-**Alex**: Exactly. The strategy had a genuine edge. Fifty-five percent win rate, 1.5 to 1 reward-to-risk. That is a good strategy. But with 10% risk per trade, a normal losing streak was enough to nearly destroy the account. Portfolio A, using the 2% rule, captured the same edge but survived the drawdowns.
+**Stella**：這真的太清楚了。投資組合B——那個激進的——幾乎歸零，即使底層策略是有獲利能力的。
 
-**Sam**: OK, walk me through the 2% rule mechanically.
+**Horace**：正是。這個策略具有真正的優勢，勝率55%、報酬風險比1.5:1，是一個好策略。但每筆交易冒10%的風險，一段正常的連虧就足以幾乎摧毀帳戶。投資組合A採用2%法則，捕捉到相同的優勢，但撐過了回撤。
 
-**Alex**: Here is how it works. Take your total portfolio value. Calculate 2% of it -- that is your maximum risk per trade. Then determine where your stop-loss is. The distance between your entry price and your stop-loss, in dollars per share, is your risk per share. Divide your maximum risk by the risk per share, and you get the number of shares to buy.
+**Stella**：好，請具體說明2%法則的操作方式。
 
-[VISUAL: Step-by-step calculation example on screen]
+**Horace**：操作方式如下。取投資組合的總價值，計算其2%——這是你每筆交易的最大風險。接著確定你的停損設在哪裡。入場價與停損價之間每股的差距，就是每股風險。將最大風險除以每股風險，得出應買的股數。
 
-**Alex**: Say your portfolio is $100,000. Two percent is $2,000 maximum risk. You want to buy a stock at $50 with a stop-loss at $45. That is $5 risk per share. Two thousand divided by five equals 400 shares. You would buy 400 shares at $50, which is a $20,000 position -- 20% of your portfolio.
+[VISUAL: 螢幕上顯示逐步計算範例]
 
-**Sam**: Wait -- 20% in one stock? That seems aggressive.
+**Horace**：假設投資組合為$100,000，2%是$2,000的最大風險。你想以$50買入一支股票，停損設在$45，這代表每股風險$5。$2,000除以$5等於400股。你會買入400股，以$50計算是$20,000的部位——佔投資組合的20%。
 
-**Alex**: But notice -- the POSITION is 20%, but the RISK is only 2%. If you are wrong and the stock hits your stop-loss at $45, you lose $2,000. Two percent of your portfolio. Completely survivable. The key distinction is between position size and risk. They are not the same thing.
+**Stella**：等一下——單一股票佔20%？那感覺很激進耶。
 
-**Sam**: What if I have a wider stop-loss?
+**Horace**：但請注意——部位是20%，風險卻只有2%。如果你判斷錯誤，股票觸及$45的停損，你損失$2,000——投資組合的2%，完全可以承受。關鍵的區別在於部位規模和風險是兩回事，不能混為一談。
 
-**Alex**: Then you buy fewer shares. Same stock at $50, but your stop is at $40 -- that is $10 risk per share. Two thousand divided by ten equals 200 shares. Your position is now $10,000 -- only 10% of the portfolio. The wider the stop, the smaller the position. The risk stays constant.
+**Stella**：如果停損設得比較寬呢？
 
-[VISUAL: Table showing different stop distances and resulting position sizes]
+**Horace**：那你就買更少的股數。同樣是$50的股票，但停損設在$40——每股風險$10。$2,000除以$10等於200股，部位變成$10,000，只佔投資組合的10%。停損越寬，部位越小，但風險始終不變。
 
-**Sam**: That makes a lot of sense. The stop-loss determines the position size, not the other way around.
+[VISUAL: 表格顯示不同停損距離與對應的部位規模]
 
-**Alex**: Exactly right. Now let me explain why 2% specifically. It is about surviving losing streaks.
+**Stella**：這很有道理。停損的位置決定了部位規模，而不是反過來。
 
-**Sam**: How bad can losing streaks get?
+**Horace**：說得完全正確。現在讓我解釋為什麼偏偏是2%，這和度過連虧有關。
 
-**Alex**: Worse than you think. Even with a 60% win rate, there is about a 1% chance of losing 10 trades in a row over any 200-trade period. If you risk 2% per trade, ten consecutive losses takes you down about 18%. Painful, but totally recoverable. If you risk 10% per trade, ten consecutive losses takes you down 65%. You now need a 186% gain just to break even. You are effectively dead.
+**Stella**：連虧可以有多嚴重？
 
-[VISUAL: Side-by-side drawdown comparison table]
+**Horace**：比你想像的還嚴重。即使勝率60%，在任何200筆交易的期間內，連輸10筆的機率大約是1%。如果每筆交易風險2%，連虧10筆讓你虧損約18%，痛苦，但完全可以回本。如果每筆交易風險10%，連虧10筆讓你虧損65%，光是回本就需要186%的報酬，等同於在財務上判了死刑。
 
-**Sam**: OK, I am sold on the 2% rule. But I have heard of something called the Kelly criterion that supposedly tells you the mathematically optimal bet size. Is that better?
+[VISUAL: 並排顯示回撤比較表]
 
-**Alex**: The Kelly criterion is fascinating and important, but dangerous in practice. Let me explain.
+**Stella**：好，我完全接受2%法則了。但我聽說過一個叫凱利公式的東西，號稱能告訴你數學上最佳的押注規模，那個更好嗎？
 
-[VISUAL: Kelly criterion formula on screen]
+**Horace**：凱利公式既迷人又重要，但在實務上很危險，讓我來解釋。
 
-**Alex**: The Kelly formula calculates the fraction of your capital that maximizes long-term growth rate, given your edge. It takes into account both your win rate and your reward-to-risk ratio. For a strategy with a 60% win rate and 1.5 to 1 payoff, Kelly says to risk 33% of your capital per trade.
+[VISUAL: 螢幕上顯示凱利公式]
 
-**Sam**: Thirty-three percent? That is insanely aggressive.
+**Horace**：凱利公式計算的是在給定優勢下，能使長期成長率最大化的資本配置比例。它同時考量了你的勝率和報酬風險比。對於勝率60%、報酬1.5:1的策略，凱利公式建議每筆交易冒33%的資本風險。
 
-**Alex**: It is. And here is the catch -- full Kelly is mathematically optimal for growth, but it produces drawdowns of 50-80% along the way. No human being can tolerate that. The standard practice is to use half Kelly, which gives you 75% of the growth rate with dramatically less drawdown. Or quarter Kelly for even more conservative sizing.
+**Stella**：三十三%？那也太激進了吧。
 
-**Sam**: But there is another problem, right? You have to know your exact win rate and payoff ratio.
+**Horace**：確實。而且問題在這裡——完整凱利在數學上對成長率是最優的，但過程中會產生50-80%的回撤。沒有人能承受這種痛苦。標準做法是使用半凱利，它能帶來75%的成長率，同時大幅降低回撤。或者更保守的四分之一凱利。
 
-**Alex**: That is the fatal flaw. Kelly requires PRECISE inputs. In gambling, you know the odds exactly. In investing, you are estimating. If you think your win rate is 60% but it is really 50%, full Kelly will have you risking 33% per trade on a strategy with zero edge. You will blow up.
+**Stella**：但還有另一個問題，對吧？你必須精確知道你的勝率和報酬比。
 
-[VISUAL: Sensitivity analysis showing how small changes in estimated win rate dramatically change Kelly sizing]
+**Horace**：這是致命的弱點。凱利需要精確的輸入值。在賭博中，賠率是精確已知的；在投資中，你只是在估算。若你以為勝率是60%，實際上是50%，完整凱利會叫你對一個毫無優勢的策略激進下注，結果就是爆倉。
 
-**Alex**: This is why the 2% rule is safer for most investors. It does not require you to know your edge precisely. It simply limits the damage from any single trade. Use Kelly as a theoretical framework for thinking about bet sizing, but use the 2% rule as your practical daily tool.
+[VISUAL: 敏感度分析，顯示估計勝率的小幅變動如何大幅改變凱利建議的規模]
 
-**Sam**: Let me transition to stop-losses. You keep mentioning them as part of position sizing. What are the main types?
+**Horace**：這正是為什麼2%法則對大多數投資人更安全。它不要求你精確知道自己的優勢，只是限制任何單筆交易所能造成的損害。把凱利公式當作思考押注規模的理論框架，但在日常實務中使用2%法則。
 
-[VISUAL: "Stop-Loss Strategies" section header]
+**Stella**：我們來談談停損吧。你一直提到它是部位規模的一部分，主要有哪些類型？
 
-**Alex**: There are five main types, and each one has its place. First is the fixed percentage stop. You simply sell if the stock drops a certain percentage below your entry. Ten percent is common. Simple but inflexible -- it does not account for different stocks having different volatilities.
+[VISUAL: 「停損策略」章節標題]
 
-**Sam**: A volatile biotech stock might routinely swing 10% in a week.
+**Horace**：主要有五種類型，各有其適用場合。第一是固定百分比停損，若股票自入場價下跌某個百分比就賣出，10%是常見的設定。簡單但缺乏彈性——它不考量不同股票有不同的波動性。
 
-**Alex**: Exactly. That is why the second type -- the volatility-based stop -- is often better. You use the stock's Average True Range, or ATR, which measures its normal daily movement. A typical stop is set at 2 times ATR below the entry price. So a calm utility stock with a $0.50 ATR gets a $1 stop, while a volatile tech stock with a $5 ATR gets a $10 stop.
+**Stella**：一支波動劇烈的生技股，可能每週就會正常波動10%。
 
-[VISUAL: Two stocks side by side showing different ATR values and resulting stop placement]
+**Horace**：正是。這就是為什麼第二種類型——波動性停損——通常更好。你使用股票的「平均真實區間」（ATR），它衡量股票正常的每日波動幅度。典型的停損設在入場價以下2倍ATR。如此一來，波動小的公用事業股ATR$0.50，停損設$1；波動大的科技股ATR$5，停損設$10。
 
-**Sam**: The stop adjusts to the stock's natural movement. I like that.
+[VISUAL: 並排顯示兩支股票，分別顯示不同ATR值和對應的停損設置]
 
-**Alex**: Third is the support-based stop. You identify a key support level on the chart and place your stop just below it. If the stock breaks support, the technical picture has changed and you exit. This requires chart-reading ability but is probably the most widely used method among professional traders.
+**Stella**：停損會配合股票自身的正常波動來調整，我喜歡這個概念。
 
-**Sam**: What about trailing stops?
+**Horace**：第三是支撐位停損，你在K線圖上找出關鍵支撐位，將停損設在略低於支撐位的地方。若股票跌破支撐，技術面已改變，你就退出。這需要看圖的能力，但可能是專業交易者最廣泛使用的方法。
 
-**Alex**: That is number four. A trailing stop moves up as the stock rises but never moves down. If you set a 15% trailing stop on a stock you bought at $100, and it goes to $140, your stop is now at $119. If the stock then drops to $119, you are sold out with a 19% gain instead of riding it back down.
+**Stella**：那追蹤停損呢？
 
-[ANIMATION: animation/week41_trailing_stop.py -- Animated chart showing a stock price rising from $100 to $160 over several months with pullbacks along the way. A trailing stop line (15% below peak) is shown moving up alongside the price. The animation pauses at key moments to highlight how the stop adjusts: it rises when the stock makes new highs but stays flat during pullbacks. Eventually the stock reverses and crosses the trailing stop line, triggering a sell. Annotations show the entry price, the highest price reached, the trailing stop level, and the final gain captured.]
+**Horace**：那是第四種。追蹤停損隨著股票上漲而上移，但永遠不會下移。如果你對以$100買進的股票設定15%的追蹤停損，股票漲到$140，你的停損就移到$119。股票若跌回$119，你帶著19%的獲利出場，而不是眼睜睜看它跌回去。
 
-**Sam**: That is elegant. You never cap your upside, but you protect against major reversals.
+[ANIMATION: animation/week41_trailing_stop.py——動態K線圖，顯示一支股票在數月內從$100上漲至$160，期間有數次回檔。一條追蹤停損線（峰值以下15%）隨價格一同上移，在關鍵節點暫停，標註停損如何調整：股票創新高時上移，回檔時維持不動。最終股票反轉跌穿追蹤停損線，觸發賣出。標注顯示入場價、歷史最高價、追蹤停損水平，以及最終鎖定的獲利幅度。]
 
-**Alex**: The final type is the time-based stop. You exit if the trade has not worked within a certain number of days or weeks. This is especially useful for catalyst-driven trades. If you bought before an earnings report expecting a breakout and nothing happened after two weeks, exit and deploy your capital elsewhere.
+**Stella**：這很優雅。上漲空間永無上限，但能防止大幅回吐。
 
-**Sam**: Let us move to risk budgeting. How do I think about my total portfolio risk?
+**Horace**：最後一種是時間停損，若交易在特定天數或週數內未見成效就退出。這對催化劑驅動的交易特別有用。若你在財報前買入，預期突破卻兩週後還毫無動靜，就退出，把資金部署到別的地方。
 
-[VISUAL: "Risk Budgeting" section header]
+**Stella**：我們來聊風險預算吧。要怎麼思考整個投資組合的風險？
 
-**Alex**: Risk budgeting starts with one number: your maximum acceptable drawdown. What is the largest peak-to-trough decline you can tolerate -- financially AND emotionally?
+[VISUAL: 「風險預算」章節標題]
 
-**Sam**: How do I figure that out?
+**Horace**：風險預算從一個數字出發：你的最大可接受回撤。你能承受多大的峰值到谷值跌幅——無論是財務上還是心理上？
 
-**Alex**: Financially, it depends on your time horizon and income. If you are 30 years old with a stable job, you can probably tolerate a 30% drawdown because you have decades to recover and ongoing income to invest. If you are 65 and retired, a 30% drawdown might force you to sell at the bottom because you need the money for living expenses.
+**Stella**：我要如何判斷這個數字？
 
-**Sam**: And the emotional side?
+**Horace**：財務面取決於你的時間軸和收入。若你30歲且工作穩定，可能能承受30%的回撤，因為你有幾十年可以回本，還有持續的收入可以投入。若你65歲且已退休，30%的回撤可能迫使你在最低點賣出，因為你需要錢支付生活開銷。
 
-**Alex**: Here is a brutal truth. Most people overestimate their emotional risk tolerance. In a survey, everyone says they can handle a 20% decline. But when their $500,000 portfolio drops to $400,000, they cannot sleep. They check their phone at 3 AM. They argue with their spouse. They eventually panic-sell at the bottom. If you have never experienced a real bear market, be conservative in estimating your emotional capacity. Use a maximum drawdown that is 10 percentage points below what you think you can handle.
+**Stella**：那心理層面呢？
 
-[VISUAL: Risk capacity assessment framework]
+**Horace**：這裡有一個殘酷的事實。大多數人高估了自己的心理風險承受能力。調查中，每個人都說能承受20%的跌幅。但當他們的$500,000投資組合縮水到$400,000時，他們睡不著覺，凌晨三點還在看手機，跟伴侶爭吵，最終在最低點恐慌賣出。如果你從未親身經歷過真正的空頭市場，請保守估計你的心理承受能力，把你認為自己能承受的最大回撤降低10個百分點。
 
-**Alex**: Once you have your maximum drawdown, you allocate it across asset classes. This is your risk budget. If your total budget is 20%, you might allocate 12% to equities, 4% to bonds, and 4% to alternatives. Then you size your positions within each bucket so that the worst-case loss for each bucket stays within its allocation.
+[VISUAL: 風險承受能力評估框架]
 
-**Sam**: How do I translate a risk budget into actual position sizes?
+**Horace**：一旦你確定了最大回撤，就把它分配給各資產類別，這就是你的風險預算。若總預算是20%，你可以分配12%給股票、4%給債券、4%給另類資產。然後在每個類別內規模部位，確保每個類別最糟情況下的損失不超過其分配額度。
 
-**Alex**: Divide the risk budget by the asset's expected volatility. If you allocate 5% of risk to US large cap stocks, and US large cap has roughly 16% historical volatility, your position size should be about 5% divided by 16%, which is 31% of your portfolio. For emerging markets with 22% volatility and a 2% risk allocation, the position would be 2% divided by 22%, about 9% of the portfolio.
+**Stella**：要如何把風險預算轉換成實際的部位規模？
 
-[VISUAL: Risk budget allocation table with calculations]
+**Horace**：將風險預算除以資產的預期波動性。若你分配5%的風險給美國大型股，而美國大型股的歷史波動性大約是16%，你的部位規模應該是5%除以16%，約佔投資組合的31%。對於波動性22%、分配2%風險預算的新興市場，部位就是2%除以22%，約佔投資組合的9%。
 
-**Sam**: So riskier assets automatically get smaller allocations?
+[VISUAL: 含計算過程的風險預算配置表]
 
-**Alex**: Exactly. And that is the beauty of risk budgeting versus naive allocation. If you simply allocate 30% to US stocks and 10% to emerging markets, you might think the EM position is small. But EM is far more volatile, so it might actually contribute MORE risk than the larger US position. Risk budgeting ensures each position contributes proportionally to your overall risk.
+**Stella**：所以風險越高的資產，自動獲得越小的配置？
 
-**Sam**: Let us talk about scenario analysis. I hear professional investors talk about this a lot.
+**Horace**：正是。這就是風險預算相對於單純配置比例的美妙之處。若你單純配置30%給美股、10%給新興市場，你可能覺得新興市場的部位已經很小。但新興市場的波動性遠高於美股，它對整體風險的貢獻可能反而高於那個規模更大的美股部位。風險預算確保每個部位按比例貢獻你的整體風險。
 
-[VISUAL: "Scenario Analysis" section header]
+**Stella**：我們來談情境分析。我聽到專業投資人常提到這個。
 
-**Alex**: Scenario analysis is one of the most powerful tools in risk management because it forces you to think about specific future states of the world, not just historical patterns. Here is how it works.
+[VISUAL: 「情境分析」章節標題]
 
-**Alex**: Step one, define three to five plausible scenarios. A base case -- the most likely outcome. An optimistic case. A pessimistic case. And one or two extreme cases.
+**Horace**：情境分析是風險管理中最強大的工具之一，因為它迫使你思考具體的未來狀態，而非只依賴歷史模式。操作方式如下。
 
-**Sam**: Give me an example.
+**Horace**：第一步，定義三到五個可能的情境：一個基本情境——最可能發生的結果；一個樂觀情境；一個悲觀情境；以及一兩個極端情境。
 
-**Alex**: For a typical balanced portfolio right now, I would model: Base case, economy grows 2-3%, stocks up 8-12%, bonds up 3-5%. Recession, GDP contracts, stocks down 25-35%, bonds up 8-15%. Stagflation, low growth with high inflation, stocks down 15-25%, bonds also down 5-10% because rising rates hurt bond prices. A boom, GDP growth 4%+, stocks up 20-30%. And a financial crisis, credit freeze, stocks down 40-50%.
+**Stella**：給我一個例子。
 
-[VISUAL: Scenario matrix with descriptions]
+**Horace**：對於一個典型的平衡型投資組合，我會這樣建模：基本情境，經濟成長2-3%，股票上漲8-12%，債券上漲3-5%。衰退，GDP萎縮，股票下跌25-35%，債券上漲8-15%。停滯性通膨，低成長加高通膨，股票下跌15-25%，債券因利率上升也下跌5-10%。繁榮，GDP成長4%以上，股票上漲20-30%。以及金融危機，信用凍結，股票下跌40-50%。
 
-**Sam**: Then you apply each scenario to your actual portfolio?
+[VISUAL: 含描述的情境矩陣]
 
-**Alex**: Exactly. Take every position in your portfolio and estimate how it would perform in each scenario. Then calculate the total portfolio impact. The critical question is: in the worst case, is the loss survivable?
+**Stella**：然後把每個情境套用到你的實際投資組合？
 
-**Sam**: And if it is not?
+**Horace**：正是。針對投資組合中的每個部位，估算它在各情境下的表現，再計算投資組合的整體影響。關鍵問題是：最糟情況下，損失是否可以承受？
 
-**Alex**: Then you reduce risk until it is. That might mean reducing equity allocation, adding hedges, or increasing cash. The whole point of scenario analysis is to confront uncomfortable possibilities BEFORE they happen, when you can still make rational decisions. Once the crisis is happening, emotions take over.
+**Stella**：如果無法承受呢？
 
-[ANIMATION: animation/week41_scenario_analysis.py -- Interactive scenario analysis visualization. Shows a sample portfolio with 60% stocks, 25% bonds, 10% REITs, 5% gold. Five scenarios are displayed as columns: base case, recession, stagflation, boom, and crisis. For each scenario, animated bars show the return of each asset class and the total portfolio return. The worst-case scenario is highlighted in red, with an annotation showing the dollar loss and the number of years needed to recover at the expected return rate. The animation then shows the portfolio being adjusted -- reducing stocks to 45%, adding 15% to short-term bonds -- and the scenarios recalculate, showing the worst case improving significantly.]
+**Horace**：那就降低風險直到可以承受為止。這可能意味著降低股票配置、加入避險部位，或增加現金。情境分析的全部意義，在於在危機發生之前——你還能做出理性決策的時候——就直面這些令人不安的可能性。一旦危機真的發生，情緒就會接管一切。
 
-**Sam**: That really drives the point home. You can see exactly how each change affects your worst case.
+[ANIMATION: animation/week41_scenario_analysis.py——互動式情境分析視覺化。顯示一個範例投資組合，包含60%股票、25%債券、10%不動產投資信託、5%黃金。以五個情境為欄：基本情境、衰退、停滯性通膨、繁榮和危機。每個情境用動態長條圖顯示各資產類別的報酬及投資組合總報酬。最糟情境以紅色標示，並標注美元損失額以及以預期報酬率計算的回本年數。動畫接著顯示投資組合的調整——將股票從60%降至45%，新增15%至短期債券——情境隨即重新計算，顯示最糟情況大幅改善。]
 
-**Alex**: And notice something important. When we reduced stocks from 60% to 45%, the base case return dropped -- from about 7.7% to about 6.2%. Risk management has a cost. But the worst case improved from a 27% loss to about an 18% loss. That is the tradeoff, and it is a tradeoff every investor needs to make consciously.
+**Stella**：這真的讓人印象深刻，你能清楚看見每一個調整如何影響最糟情況。
 
-**Sam**: You have been building toward something. You keep saying risk management is a process. What does that mean?
+**Horace**：注意一個重要的地方。當我們將股票從60%降至45%，基本情境的報酬從約7.7%降至約6.2%——風險管理是有代價的。但最糟情況從虧損27%改善至約虧損18%，這就是每位投資人都必須有意識地做出的取捨。
 
-[VISUAL: "Risk Management as a Process" section header]
+**Stella**：你一直在說風險管理是一個流程。這是什麼意思？
 
-**Alex**: This is the most important part of today's lesson. Risk management is not a one-time activity. It is not something you do when you set up your portfolio and then forget about. It is an ongoing cycle of identifying risks, measuring them, setting limits, monitoring your positions, adjusting when necessary, and reviewing what worked and what did not.
+[VISUAL: 「風險管理是一個流程」章節標題]
 
-**Sam**: Walk me through what this looks like in practice for a regular investor.
+**Horace**：這是今天課程最重要的部分。風險管理不是一次性的活動，不是你建立投資組合時做一次就能忘掉的事。它是一個持續不斷的循環——識別風險、衡量風險、設定上限、監控部位、在必要時調整、回顧什麼有效什麼無效。
 
-**Alex**: Daily, which should take about five minutes: check your portfolio value, check if any positions are near stop-loss levels, and glance at the VIX and major market indicators. Weekly, about 30 minutes: review all open positions, verify position sizes are within risk limits, and check concentration. Monthly, about two hours: calculate your portfolio risk metrics, run a quick scenario analysis, review your risk budget, and document any lessons learned.
+**Stella**：具體來說，對一般投資人而言，這看起來是什麼樣子？
 
-**Sam**: And quarterly?
+**Horace**：每日，約需五分鐘：查看投資組合價值，確認是否有部位接近停損，瀏覽波動率指數和主要市場指標。每週，約三十分鐘：審視所有未平倉部位，確認部位規模在風險上限以內，確認集中度是否過高。每月，約兩小時：計算投資組合的風險指標，快速執行情境分析，審視風險預算，並記錄學到的任何教訓。
 
-**Alex**: Quarterly is your deep review. Four hours of serious work. Re-run your full scenario analysis with updated assumptions. Check whether correlations have changed -- they do change over time. Review whether your overall risk level is still appropriate for your life situation. A lot can change in three months -- a new job, a new baby, a big expense coming up.
+**Stella**：每季呢？
 
-[VISUAL: Risk management checklist organized by daily/weekly/monthly/quarterly]
+**Horace**：每季是你的深度審視，需要四小時的嚴肅工作。以更新的假設重新執行完整的情境分析；確認相關性是否改變——它確實會隨時間改變；審視整體風險水平是否仍符合你的人生處境。三個月內可以發生很多事——換新工作、添了新成員、即將有大筆支出。
 
-**Sam**: Let me ask about something that is really relevant right now -- concentration risk. A lot of people have portfolios dominated by tech stocks.
+[VISUAL: 依每日/每週/每月/每季整理的風險管理清單]
 
-**Alex**: Concentration risk is one of the most dangerous forms of risk because it feels good when it works. If you put 40% of your portfolio in Nvidia and it triples, you are a genius. But if Nvidia drops 60% -- which it absolutely can, and has in the past -- you have just lost 24% of your entire portfolio from a single stock.
+**Stella**：讓我問一個現在非常切身的問題——集中度風險。很多人的投資組合都以科技股為主。
 
-**Sam**: What are the guidelines?
+**Horace**：集中度風險是最危險的風險形式之一，因為在奏效的時候，感覺超棒。如果你把投資組合的40%放在輝達，然後它漲了三倍，你就是天才。但如果輝達跌60%——這絕對有可能，而且過去就發生過——你的整個投資組合剛剛因為單一一支股票損失了24%。
 
-**Alex**: No single stock should be more than 5-10% of your total portfolio. No single sector should exceed 20-25%. And here is one people forget -- employer stock should be capped at 10%, because you already have income concentration risk with your employer. If you work at a tech company and own their stock, a single bad event can cost you both your job and your savings simultaneously.
+**Stella**：有哪些準則可以遵循？
 
-**Sam**: That is what happened at Enron, right?
+**Horace**：單一股票不應超過投資組合總值的5-10%。單一類股不應超過20-25%。還有一點人們常忽略——雇主股票應上限10%，因為你已經對雇主有收入集中的風險。如果你在科技公司任職又持有公司股票，一個壞消息可能同時讓你失去工作和積蓄。
 
-**Alex**: Enron employees had 62% of their 401k in Enron stock. When the company went to zero, they lost both their jobs and their retirement savings. The same pattern repeated at Bear Stearns, Lehman Brothers, and dozens of smaller companies. It is a mistake that gets made over and over.
+**Stella**：這就是安隆發生的事，對吧？
 
-[VISUAL: Historical examples of concentration risk disasters]
+**Horace**：安隆員工有62%的401k退休金放在安隆股票裡。當公司歸零，他們同時失去了工作和退休積蓄。同樣的模式在貝爾斯登、雷曼兄弟和無數小公司身上一再重演。這是一個反覆被犯下的錯誤。
 
-**Sam**: What about the correlation trap? You mentioned earlier that diversification can fail.
+[VISUAL: 集中度風險災難的歷史案例]
 
-**Alex**: This is crucial. Most people think they are diversified because they own US stocks, international stocks, REITs, and maybe some corporate bonds. In calm markets, these assets have moderate correlations -- they do not all move together. But in a crisis, correlations spike toward one. Suddenly everything drops together.
+**Stella**：那相關性陷阱呢？你之前提到分散投資可能失效。
 
-**Sam**: So what actually provides real diversification in a crisis?
+**Horace**：這至關重要。大多數人以為持有美國股票、國際股票、不動產投資信託和一些公司債，就已經分散了。在平靜的市場中，這些資產的相關性適中——它們不會同步移動。但在危機中，相關性急升趨近於1，突然間一切都一起下跌。
 
-**Alex**: The reliable crisis diversifiers are cash, long-dated US Treasuries -- though even these are not guaranteed -- managed futures strategies that profit from trends in either direction, and long volatility positions. Everything else -- international stocks, REITs, corporate bonds, commodities -- tends to correlate heavily with US stocks during severe stress.
+**Stella**：那什麼東西在危機中真正能提供分散效果？
 
-[VISUAL: Correlation matrix showing normal vs. crisis values]
+**Horace**：可靠的危機分散工具是現金、長天期美國公債——雖然這個也不是保證——以及能在任何方向趨勢中獲利的管理期貨策略，還有做多波動率的部位。其餘的東西——國際股票、不動產投資信託、公司債、大宗商品——在嚴重壓力下往往與美股高度相關。
 
-**Sam**: Let us talk about drawdown management. You mentioned the asymmetry problem.
+[VISUAL: 正常市場與危機市場的相關性矩陣]
 
-**Alex**: This is math everyone needs to understand. Losses and gains are not symmetrical. If you lose 10%, you need an 11% gain to recover. That is manageable. But if you lose 50%, you need a 100% gain to recover. At typical stock market returns of 8-10% per year, that takes seven years. If you lose 75%, you need a 300% gain -- fifteen years at 10% per year.
+**Stella**：我們來談回撤管理。你提到了不對稱問題。
 
-[VISUAL: Drawdown recovery table with years to recover]
+**Horace**：這是每個人都需要理解的數學。虧損和獲利是不對稱的。虧損10%，你需要11%的報酬才能回本，還算容易。但虧損50%，你需要100%的報酬。以股市年均8-10%的報酬率計算，需要七年。虧損75%，你需要300%的報酬——以年報酬10%計算要花十五年。
 
-**Sam**: So the entire point of risk management is to keep drawdowns small enough that recovery is feasible.
+[VISUAL: 含回本所需年數的回撤回本表]
 
-**Alex**: That is exactly right. The most successful long-term investors are not the ones with the highest returns -- they are the ones who avoid catastrophic drawdowns. Warren Buffett has never had a single year where Berkshire's book value dropped more than about 9%. His secret is not stock picking genius, though he has that too. It is the relentless focus on avoiding permanent loss of capital.
+**Stella**：所以風險管理的全部意義，就是把回撤壓在可以回本的範圍內。
 
-**Sam**: Let me summarize what I have learned today.
+**Horace**：完全正確。長期下來最成功的投資人，不是報酬率最高的那些人——而是避免災難性回撤的那些人。巴菲特從未有過波克夏帳面價值下跌超過約9%的單一年份。他的秘訣不只是選股天賦——雖然他確實有——而是對避免資本永久損失的不懈堅持。
 
-[VISUAL: Summary slide]
+**Stella**：讓我來總結一下今天學到的東西。
 
-**Sam**: First, position sizing using the 2% rule -- never risk more than 2% of your portfolio on a single trade. Second, the Kelly criterion is mathematically optimal but too aggressive in practice -- use half Kelly or less, or just stick with the 2% rule. Third, stop-losses protect capital, and there are five main types depending on your trading style. Fourth, risk budgeting allocates a total risk tolerance across asset classes. Fifth, scenario analysis prepares you for specific futures. And sixth, risk management is an ongoing process, not a one-time setup.
+[VISUAL: 總結投影片]
 
-**Alex**: Perfect summary. And here is one last thought. The best trade you will ever make is the one you do not make because your risk management told you the position was too large or the risk/reward was not there. You will never see that trade in your performance report, but it might be the one that saved your portfolio.
+**Stella**：第一，使用2%法則規模部位——任何單一交易的風險永遠不超過投資組合的2%。第二，凱利公式在數學上最優，但在實務上太激進——使用半凱利或更保守的比例，或者就直接用2%法則。第三，停損能保護資本，依交易風格有五種主要類型。第四，風險預算將總風險承受度配置到各資產類別。第五，情境分析為特定未來做準備。第六，風險管理是一個持續的流程，而非一次性的設置。
 
-**Sam**: It is hard to appreciate avoiding a loss you never experienced.
+**Horace**：完美的總結。最後補充一個想法。你能做的最好交易，是那筆因為風險管理告訴你部位太大、或報酬風險比不夠好，而沒有進場的交易。你永遠不會在績效報告中看到這筆交易，但它可能就是拯救你投資組合的那一筆。
 
-**Alex**: That is why risk management is so hard psychologically. It is like paying for fire insurance. Every year you do not have a fire, the insurance feels like a waste. But the year your house burns down, it is the best money you ever spent. The goal is to still be investing five, ten, twenty years from now. And the only way to guarantee that is to manage your risk today.
+**Stella**：要感謝一場從未親身經歷的損失，確實很困難。
 
-**Sam**: This has been eye-opening. I think most investors, myself included, spend too much time researching stocks and not enough time thinking about how much to bet and when to exit.
+**Horace**：這正是為什麼風險管理在心理上如此困難。就像繳火災保險費。每一年房子沒有失火，保險費就感覺是白花錢。但真的失火的那一年，這是你花過最值得的錢。目標是讓自己五年後、十年後、二十年後還在投資。而唯一能保證這件事的方法，是今天就管理好你的風險。
 
-**Alex**: And that is the dirty secret of the investment industry. The financial media, the newsletters, the YouTube channels -- they focus almost entirely on WHAT to buy. Nobody wants to hear about position sizing and drawdown management. But that is where the real edge is. The what-to-buy question matters, but the how-much-to-buy and when-to-sell questions matter more.
+**Stella**：這堂課讓我大開眼界。我想大多數投資人，包括我自己，花太多時間研究要買什麼股票，卻沒有花足夠的時間思考要押注多少和何時出場。
 
-[VISUAL: Key takeaways bullet list]
+**Horace**：這正是投資產業骯髒的秘密。財經媒體、投資電子報、YouTube頻道——幾乎全都聚焦在買什麼。沒有人想聽部位規模和回撤管理。但真正的優勢就在那裡。買什麼的問題很重要，但買多少和何時賣更重要。
 
-**Alex**: Before we close, let me leave you with five rules of risk management that I want you to write down.
+[VISUAL: 重點結論條列]
 
-**Sam**: Go ahead.
+**Horace**：在結束之前，讓我給你五條風險管理法則，請你把它們寫下來。
 
-**Alex**: Rule one: never risk more than 2% of your portfolio on a single trade. Rule two: always have a predetermined exit point before you enter a trade. Rule three: diversification is not enough -- you need position limits, sector limits, and correlation awareness. Rule four: plan for the worst case and make sure it is survivable. Rule five: risk management is a daily process, not a product you can buy.
+**Stella**：請說。
 
-**Sam**: Simple rules but incredibly hard to follow when emotions kick in.
+**Horace**：法則一：任何單一交易的風險永遠不超過投資組合的2%。法則二：進場之前，永遠先設定好預先確定的出場點。法則三：分散投資不夠——你需要部位上限、類股上限和相關性意識。法則四：為最糟情況做計畫，並確保它是可以承受的。法則五：風險管理是每日的流程，而非你能購買的產品。
 
-**Alex**: That is why you write them down, review them regularly, and build systems that enforce them automatically. Stop-loss orders enforce rule two. Position sizing calculators enforce rule one. Calendar reminders enforce rule five. The goal is to make risk management automatic so you do not have to rely on willpower during a market panic.
+**Stella**：法則簡單，但在情緒湧現時，遵守起來難得要命。
 
-[VISUAL: "Next week: Value at Risk and Risk Models"]
+**Horace**：這正是為什麼你要把它們寫下來、定期審視，並建立能自動執行的系統。停損單強制執行法則二；部位規模計算器強制執行法則一；行事曆提醒強制執行法則五。目標是讓風險管理自動化，這樣你在市場恐慌期間就不必依賴意志力。
 
-**Alex**: Next week, we are going to dive into the quantitative side of risk management -- Value at Risk, Conditional Value at Risk, stress testing, and factor risk models. We will put numbers on everything we discussed today.
+[VISUAL: 「下週：風險值與風險模型」]
 
-**Sam**: So today was the conceptual framework, and next week is the math.
+**Horace**：下週，我們要深入風險管理的量化面——風險值、條件風險值、壓力測試和因子風險模型，把今天討論的一切都轉化成具體數字。
 
-**Alex**: Exactly. You need both. The concepts tell you what to do. The models tell you how much.
+**Stella**：所以今天是概念框架，下週是數學。
 
-**Sam**: Looking forward to it. Thanks, Alex.
+**Horace**：正是。兩者都需要。概念告訴你該做什麼，模型告訴你做多少。
 
-**Alex**: Thank you, Sam. Remember -- the first rule is do not lose money. Everything else is secondary. See you next week.
+**Stella**：很期待。謝謝你，Horace。
 
-[VISUAL: End card with channel subscribe prompt and links to previous videos]
+**Horace**：謝謝你，Stella。記住——第一條法則是不要虧錢，其他一切都是次要的。我們下週見。
+
+[VISUAL: 結尾卡，含頻道訂閱提示及前期影片連結]

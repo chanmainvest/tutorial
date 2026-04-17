@@ -246,153 +246,153 @@ A10: Yes, to a degree. Most screeners allow you to save screen configurations an
 
 **[VISUAL: Massive wall of stock tickers scrolling rapidly, overwhelming and chaotic]**
 
-**Alex:** Sam, there are thousands of stocks out there. How do professional investors find the ones worth researching? I feel like I am drowning in options.
+**Horace:** Stella, there are thousands of stocks out there. How do professional investors find the ones worth researching? I feel like I am drowning in options.
 
-**Sam:** That is exactly why stock screeners exist. They are like search engines for stocks. You tell the screener what you want, and it filters out everything else.
+**Stella:** That is exactly why stock screeners exist. They are like search engines for stocks. You tell the screener what you want, and it filters out everything else.
 
 **[ANIMATION: The wall of tickers gets filtered through a funnel labeled "SCREENER" with criteria labels on the sides. Only a small group of tickers comes out the bottom]**
 
-**Alex:** So where do I even start?
+**Horace:** So where do I even start?
 
-**Sam:** First, you need to know what kind of investor you are. That determines which filters you use. Are you looking for cheap stocks, fast-growing companies, or reliable dividend payers?
+**Stella:** First, you need to know what kind of investor you are. That determines which filters you use. Are you looking for cheap stocks, fast-growing companies, or reliable dividend payers?
 
 **[VISUAL: Three investor profiles shown as cards: "Value Investor" with magnifying glass icon, "Growth Investor" with rocket icon, "Dividend Investor" with cash flow icon]**
 
-**Alex:** Let us say I want to find good value stocks. What would that screen look like?
+**Horace:** Let us say I want to find good value stocks. What would that screen look like?
 
-**Sam:** Let me walk you through building one step by step. I will use Finviz, which is free and one of the best screeners available.
+**Stella:** Let me walk you through building one step by step. I will use Finviz, which is free and one of the best screeners available.
 
 **[VISUAL: Screen recording style showing Finviz screener interface with filters being applied one at a time]**
 
-**Sam:** Step one, set basic filters to narrow the universe. Market cap above five hundred million eliminates speculative micro-caps. Average volume above one hundred thousand shares ensures we can actually trade these stocks.
+**Stella:** Step one, set basic filters to narrow the universe. Market cap above five hundred million eliminates speculative micro-caps. Average volume above one hundred thousand shares ensures we can actually trade these stocks.
 
 **[ANIMATION: Universe shrinking from 6,000+ stocks to approximately 3,000 as basic filters are applied, shown as a funnel graphic]**
 
-**Alex:** That already cut the universe in half.
+**Horace:** That already cut the universe in half.
 
-**Sam:** Now step two, apply our core value criteria. P/E ratio below fifteen. Price-to-book below two. Positive free cash flow.
+**Stella:** Now step two, apply our core value criteria. P/E ratio below fifteen. Price-to-book below two. Positive free cash flow.
 
 **[ANIMATION: Funnel continues to narrow. Stock count drops from 3,000 to approximately 200]**
 
-**Sam:** Step three, add quality filters. Return on equity above ten percent. Debt-to-equity below one. Current ratio above one point five. These ensure we are finding cheap AND healthy companies, not cheap and dying ones.
+**Stella:** Step three, add quality filters. Return on equity above ten percent. Debt-to-equity below one. Current ratio above one point five. These ensure we are finding cheap AND healthy companies, not cheap and dying ones.
 
 **[ANIMATION: Funnel narrows further. Count drops to approximately 40 stocks]**
 
-**Alex:** Forty stocks. That is actually manageable.
+**Horace:** Forty stocks. That is actually manageable.
 
-**Sam:** Exactly. From six thousand to forty in about five minutes. Now the real work begins.
+**Stella:** Exactly. From six thousand to forty in about five minutes. Now the real work begins.
 
-**Alex:** What comes next?
+**Horace:** What comes next?
 
-**Sam:** This is where your watchlist comes in. I organize every screened stock into sectors first.
+**Stella:** This is where your watchlist comes in. I organize every screened stock into sectors first.
 
 **[ANIMATION: The 40 stock tickers sort themselves into sector buckets: Financials (8 stocks), Industrials (7), Consumer Staples (6), Energy (5), Healthcare (5), Others (9)]**
 
-**Sam:** Sector grouping is critical because you can only compare apples to apples. A bank with a P/E of ten is not the same as a tech company with a P/E of ten. Within each sector, I can rank and compare meaningfully.
+**Stella:** Sector grouping is critical because you can only compare apples to apples. A bank with a P/E of ten is not the same as a tech company with a P/E of ten. Within each sector, I can rank and compare meaningfully.
 
-**Alex:** That makes sense. What do you compare within each sector?
+**Horace:** That makes sense. What do you compare within each sector?
 
-**Sam:** I look at relative valuation. Which stock is cheapest compared to its sector peers? I check relative quality. Which has the highest return on capital? And I look at the trend. Is the company improving or deteriorating?
+**Stella:** I look at relative valuation. Which stock is cheapest compared to its sector peers? I check relative quality. Which has the highest return on capital? And I look at the trend. Is the company improving or deteriorating?
 
 **[VISUAL: Table showing 4 financial stocks side by side with columns for P/E, P/B, ROE, Debt/Equity, Revenue Growth, with the most attractive values highlighted in green]**
 
-**Alex:** So you are ranking within sectors. What is next?
+**Horace:** So you are ranking within sectors. What is next?
 
-**Sam:** Triage into three tiers.
+**Stella:** Triage into three tiers.
 
 **[ANIMATION: Three tiers appearing as labeled folders. Tier 1: "Research Now" (red/urgent). Tier 2: "Research Soon" (yellow). Tier 3: "Monitor" (green/patient)]**
 
-**Sam:** Tier one gets immediate deep research. These are stocks that are cheap, high quality, AND have a catalyst, maybe an earnings report coming up, a new product launch, or insider buying.
+**Stella:** Tier one gets immediate deep research. These are stocks that are cheap, high quality, AND have a catalyst, maybe an earnings report coming up, a new product launch, or insider buying.
 
-**Alex:** How many stocks go into tier one?
+**Horace:** How many stocks go into tier one?
 
-**Sam:** Five to ten at most. These are your best ideas that get your full attention this week. Tier two has fifteen to twenty stocks to research when time allows. Tier three is everything else you want to monitor but do not need to rush into.
+**Stella:** Five to ten at most. These are your best ideas that get your full attention this week. Tier two has fifteen to twenty stocks to research when time allows. Tier three is everything else you want to monitor but do not need to rush into.
 
-**Alex:** What does "deep research" actually look like?
+**Horace:** What does "deep research" actually look like?
 
-**Sam:** Let me show you my workflow.
+**Stella:** Let me show you my workflow.
 
 **[ANIMATION: Research workflow as a horizontal pipeline. Step 1: Company Overview (10 min). Step 2: Financial Statements (30 min). Step 3: Earnings Call (30 min). Step 4: Competitive Analysis (30 min). Step 5: Valuation (30 min). Step 6: Decision (15 min)]**
 
-**Sam:** Start with a quick company overview. What does the business do? How does it make money? Who are its competitors? This takes ten minutes and gives you the context for everything that follows.
+**Stella:** Start with a quick company overview. What does the business do? How does it make money? Who are its competitors? This takes ten minutes and gives you the context for everything that follows.
 
-**Alex:** Then financial statements?
+**Horace:** Then financial statements?
 
-**Sam:** Right. Pull up five years of income statements, balance sheets, and cash flow statements. Look for trends. Is revenue growing? Are margins expanding or contracting? Is debt increasing or decreasing? Is free cash flow positive and growing?
+**Stella:** Right. Pull up five years of income statements, balance sheets, and cash flow statements. Look for trends. Is revenue growing? Are margins expanding or contracting? Is debt increasing or decreasing? Is free cash flow positive and growing?
 
 **[VISUAL: Simplified 5-year financial trend showing Revenue, Operating Margin, and Free Cash Flow with arrows indicating trends]**
 
-**Sam:** Then listen to or read the transcript of the most recent earnings call. Management commentary tells you things the numbers cannot, like their strategy, their concerns, and their outlook.
+**Stella:** Then listen to or read the transcript of the most recent earnings call. Management commentary tells you things the numbers cannot, like their strategy, their concerns, and their outlook.
 
-**Alex:** That sounds like a lot of work per stock.
+**Horace:** That sounds like a lot of work per stock.
 
-**Sam:** Two to four hours per stock for thorough research. That is why screening and triage matter so much. You cannot spend four hours on every stock in the market, but you can spend four hours on your top five candidates each week.
+**Stella:** Two to four hours per stock for thorough research. That is why screening and triage matter so much. You cannot spend four hours on every stock in the market, but you can spend four hours on your top five candidates each week.
 
-**Alex:** Let me ask about some common screening strategies. What if I am more of a growth investor?
+**Horace:** Let me ask about some common screening strategies. What if I am more of a growth investor?
 
-**Sam:** Then your screen looks completely different.
+**Stella:** Then your screen looks completely different.
 
 **[VISUAL: Side-by-side comparison of Value Screen criteria vs Growth Screen criteria]**
 
-**Sam:** For growth, I would screen for revenue growth above fifteen percent, earnings growth above twenty percent, return on equity above fifteen percent, and PEG ratio below one point five. The PEG ratio is key because it relates the P/E to the growth rate. A PEG below one means you are paying less than one times the growth rate.
+**Stella:** For growth, I would screen for revenue growth above fifteen percent, earnings growth above twenty percent, return on equity above fifteen percent, and PEG ratio below one point five. The PEG ratio is key because it relates the P/E to the growth rate. A PEG below one means you are paying less than one times the growth rate.
 
-**Alex:** And for dividend investors?
+**Horace:** And for dividend investors?
 
-**Sam:** Dividend yield between two and five percent, because anything above five percent might signal a cut risk. Payout ratio below sixty-five percent for sustainability. Ten or more consecutive years of dividend increases. And positive free cash flow growth.
+**Stella:** Dividend yield between two and five percent, because anything above five percent might signal a cut risk. Payout ratio below sixty-five percent for sustainability. Ten or more consecutive years of dividend increases. And positive free cash flow growth.
 
 **[ANIMATION: Three screening funnels side by side, each labeled Value/Growth/Dividend, showing different criteria and different stocks emerging from each]**
 
-**Alex:** Can I combine these approaches?
+**Horace:** Can I combine these approaches?
 
-**Sam:** Absolutely. Many successful investors use a GARP approach, growth at a reasonable price. You screen for growth metrics AND valuation metrics simultaneously. This avoids both value traps and overpriced growth stocks.
+**Stella:** Absolutely. Many successful investors use a GARP approach, growth at a reasonable price. You screen for growth metrics AND valuation metrics simultaneously. This avoids both value traps and overpriced growth stocks.
 
-**Alex:** What are the biggest mistakes people make with screeners?
+**Horace:** What are the biggest mistakes people make with screeners?
 
-**Sam:** Number one: treating the screen results as buy recommendations. A screen is a starting point, not an answer.
+**Stella:** Number one: treating the screen results as buy recommendations. A screen is a starting point, not an answer.
 
 **[VISUAL: Red X over a screener result list with text "NOT a buy list"]**
 
-**Sam:** Number two: over-filtering. If you use fifteen criteria simultaneously, you might get zero results or only weird statistical anomalies. Start with four to six core criteria.
+**Stella:** Number two: over-filtering. If you use fifteen criteria simultaneously, you might get zero results or only weird statistical anomalies. Start with four to six core criteria.
 
-**Alex:** What is number three?
+**Horace:** What is number three?
 
-**Sam:** Running a screen once and never updating it. Markets change weekly. Run your screens regularly. A stock that was too expensive last month might be a bargain after a pullback.
+**Stella:** Running a screen once and never updating it. Markets change weekly. Run your screens regularly. A stock that was too expensive last month might be a bargain after a pullback.
 
 **[ANIMATION: Calendar showing weekly screening schedule with check marks]**
 
-**Alex:** And number four?
+**Horace:** And number four?
 
-**Sam:** Ignoring qualitative factors. Screeners only capture numbers. They cannot tell you about management quality, competitive moats, regulatory risk, or technological disruption. The numbers get you the candidates. Your brain makes the final call.
+**Stella:** Ignoring qualitative factors. Screeners only capture numbers. They cannot tell you about management quality, competitive moats, regulatory risk, or technological disruption. The numbers get you the candidates. Your brain makes the final call.
 
 **[VISUAL: Split screen showing "Quantitative" (screener data, charts, ratios) on one side and "Qualitative" (management, moat, industry trends, risks) on the other, both pointing to "Investment Decision" at bottom]**
 
-**Alex:** One last thing. How do I keep my watchlist organized over time?
+**Horace:** One last thing. How do I keep my watchlist organized over time?
 
-**Sam:** I recommend a simple spreadsheet or your brokerage platform's watchlist feature. Create columns for: ticker, sector, current price, your target price, the key thesis in one sentence, and last review date.
+**Stella:** I recommend a simple spreadsheet or your brokerage platform's watchlist feature. Create columns for: ticker, sector, current price, your target price, the key thesis in one sentence, and last review date.
 
 **[VISUAL: Clean spreadsheet template with columns: Ticker, Sector, Tier, Price, Target, P/E, Thesis, Last Reviewed, with a few sample entries filled in]**
 
-**Sam:** Review the entire watchlist monthly. Remove stocks that no longer meet your criteria. Add new ones from your screens. Update prices and notes. Keep it alive and current, not a dusty list you set and forget.
+**Stella:** Review the entire watchlist monthly. Remove stocks that no longer meet your criteria. Add new ones from your screens. Update prices and notes. Keep it alive and current, not a dusty list you set and forget.
 
-**Alex:** This is really actionable. So to summarize: screen to narrow the universe, organize by sector, triage into tiers, and do deep research on the top candidates.
+**Horace:** This is really actionable. So to summarize: screen to narrow the universe, organize by sector, triage into tiers, and do deep research on the top candidates.
 
-**Sam:** Exactly. It is a repeatable, systematic process. The best investors are not the ones with the flashiest ideas. They are the ones with the most disciplined process.
+**Stella:** Exactly. It is a repeatable, systematic process. The best investors are not the ones with the flashiest ideas. They are the ones with the most disciplined process.
 
 **[VISUAL: Summary card with the complete workflow: Screen (weekly) -> Sector Group -> Triage (Tiers 1-2-3) -> Deep Research -> Valuation -> Decision -> Monitor]**
 
-**Alex:** Thanks Sam. I am going to set up my first screen tonight.
+**Horace:** Thanks Stella. I am going to set up my first screen tonight.
 
-**Sam:** Start simple. Four criteria. See what comes out. Then refine from there. Your process will improve with every iteration.
+**Stella:** Start simple. Four criteria. See what comes out. Then refine from there. Your process will improve with every iteration.
 
-**Alex:** Any last quick tips for someone just getting started?
+**Horace:** Any last quick tips for someone just getting started?
 
-**Sam:** Three things. First, write down why you added each stock to your watchlist. A one-sentence thesis forces clarity. Second, set a calendar reminder to review your watchlist every month. Stale watchlists become useless. Third, track your screening performance over time. Did the stocks you screened and researched actually outperform? If not, refine your criteria.
+**Stella:** Three things. First, write down why you added each stock to your watchlist. A one-sentence thesis forces clarity. Second, set a calendar reminder to review your watchlist every month. Stale watchlists become useless. Third, track your screening performance over time. Did the stocks you screened and researched actually outperform? If not, refine your criteria.
 
 **[VISUAL: Calendar with monthly review reminder, notebook with written thesis examples, and performance tracker spreadsheet shown side by side]**
 
-**Alex:** Write it down, review regularly, and track results. Simple but powerful habits.
+**Horace:** Write it down, review regularly, and track results. Simple but powerful habits.
 
-**Sam:** Exactly. The best investors are not the smartest. They are the most disciplined. Your screening process is the foundation of that discipline.
+**Stella:** Exactly. The best investors are not the smartest. They are the most disciplined. Your screening process is the foundation of that discipline.
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on fundamental analysis and valuation]**
 

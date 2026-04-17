@@ -1,38 +1,35 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第31週：殖利率曲線——債券市場的水晶球
 
-# Week 31: Yield Curves - The Bond Market's Crystal Ball
+## 閱讀章節
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+殖利率曲線是整個債券市場中最受關注的單一指標，這是有原因的。它預測了過去50年每一次美國經濟衰退。它驅動了數兆美元的房貸、企業貸款和政府債務的定價。它影響聯準會政策，並左右從股票到房地產的每一個資產類別。然而，大多數個人投資者無法解釋殖利率曲線是什麼，更遑論解讀它。
 
-The yield curve is the single most watched indicator in the entire bond market, and for good reason. It has predicted every U.S. recession in the past 50 years. It drives the pricing of trillions of dollars in mortgages, corporate loans, and government debt. It shapes Federal Reserve policy and influences every asset class from stocks to real estate. Yet most individual investors cannot explain what a yield curve is, let alone interpret it.
+**為什麼理解殖利率曲線至關重要：**
 
-**Why understanding yield curves is essential:**
+**1. 殖利率曲線預測了1970年以來的每一次衰退。** 當殖利率曲線倒掛——即短期利率升至長期利率之上——此後6到24個月內，每次都出現了衰退。沒有任何其他經濟指標有如此一致的紀錄。2年期/10年期美國公債利差在2022年出現倒掛，理解這意味著什麼，讓有見識的投資者在投資組合布局上擁有顯著優勢。
 
-**1. The yield curve predicted every recession since 1970.** When the yield curve inverts, meaning short-term rates rise above long-term rates, a recession has followed within 6 to 24 months in every instance. No other economic indicator has such a consistent track record. The 2-year/10-year Treasury spread inverted in 2022, and understanding what this meant gave informed investors a significant edge in portfolio positioning.
+**2. 殖利率曲線決定整個經濟體的借貸成本。** 房貸利率、汽車貸款利率、公司債利率和信用卡利率，全都受到殖利率曲線影響。當曲線陡峭時，銀行透過借入短期資金、放貸長期資金而大幅獲利。當曲線平坦或倒掛時，銀行獲利能力萎縮，放貸趨緊，經濟放緩。理解這個機制，有助於你理解經濟週期。
 
-**2. The yield curve determines borrowing costs throughout the economy.** Mortgage rates, auto loan rates, corporate bond rates, and credit card rates are all influenced by the yield curve. When the curve is steep, banks profit handsomely by borrowing short and lending long. When it is flat or inverted, bank profitability shrinks, lending tightens, and the economy slows. Understanding this mechanism helps you understand economic cycles.
+**3. 殖利率曲線是債券投資的基礎。** 如果你持有債券或債券基金（出於分散投資的考量，你應該持有），殖利率曲線決定你的報酬。曲線形狀的變化對不同到期日的債券影響各異。當利率下跌時，長期債券基金一年可以上漲15%；當利率上升時，也可能下跌15%。本週的內容，結合第32週（存續期間與凸性），將為你提供明智管理利率風險的工具。
 
-**3. The yield curve is the foundation of bond investing.** If you own bonds or bond funds (and you should for diversification), the yield curve determines your returns. Changes in the curve's shape affect different bond maturities differently. A long-term bond fund can gain 15% in a year when rates fall, or lose 15% when rates rise. This week's material, combined with Week 32 (duration and convexity), gives you the tools to manage this interest rate risk intelligently.
+**4. 殖利率曲線與固定收益的一切都有關聯。** 第33週（信用分析）、第34週（利率敏感性）和第36週（收益型投資組合建構）都預設你理解殖利率曲線。信用利差是相對於公債殖利率曲線來衡量的。利率敏感性分析以殖利率曲線的變動作為輸入。而建構債券投資組合，需要理解曲線不同部位的行為特性。
 
-**4. The yield curve connects to everything in fixed income.** Weeks 33 (credit analysis), 34 (rate sensitivity), and 36 (income portfolio construction) all assume you understand yield curves. Credit spreads are measured relative to the Treasury yield curve. Rate sensitivity analysis uses yield curve movements as inputs. And constructing a bond portfolio requires understanding how different parts of the curve behave.
-
-**5. Yield curves embody market expectations.** The curve reflects millions of investors' collective expectations about future interest rates, inflation, and economic growth. Reading the curve is like reading the market's mind. A steep curve says the market expects growth and possibly higher rates. A flat curve says the market expects slower growth. An inverted curve says the market expects economic contraction. This information is free and updated in real time.
+**5. 殖利率曲線體現市場預期。** 曲線反映了數百萬投資者對未來利率、通膨和經濟成長的集體預期。解讀曲線就像解讀市場的心思。陡峭的曲線意味市場預期成長，或許還有更高的利率。平坦的曲線意味市場預期成長放緩。倒掛的曲線意味市場預期經濟收縮。這些資訊是免費的，並且每天即時更新。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知識
 
-#### What Is a Yield Curve?
+#### 什麼是殖利率曲線？
 
-A yield curve is a graph that plots the yields (interest rates) of bonds with equal credit quality but different maturities. The most commonly referenced yield curve is the U.S. Treasury yield curve, which plots the yields on Treasury bills, notes, and bonds from 1 month to 30 years.
+殖利率曲線是一張圖表，繪製信用品質相同但到期日不同的債券殖利率（利率）。最常被引用的殖利率曲線是美國公債殖利率曲線，它繪製從1個月到30年期的國庫券、公債票據和長期公債的殖利率。
 
 ```
-U.S. TREASURY YIELD CURVE (EXAMPLE - NORMAL SHAPE):
+美國公債殖利率曲線（範例——正常形狀）：
 
-  Yield
+  殖利率
   5.0% |                                              *
        |                                        *
   4.5% |                                  *
@@ -45,59 +42,59 @@ U.S. TREASURY YIELD CURVE (EXAMPLE - NORMAL SHAPE):
        |
   2.5% |
        +---+---+---+---+---+---+---+---+---+---+---
-       1m  3m  6m  1y  2y  3y  5y  7y  10y 20y 30y
-                    Maturity
+       1月  3月  6月  1年  2年  3年  5年  7年  10年 20年 30年
+                         到期日
 
-  KEY DATA POINTS (EXAMPLE):
-  Maturity     Yield     Common Name
+  主要資料點（範例）：
+  到期日       殖利率     常見名稱
   ========     =====     ==============================
-  1 month      2.80%     Treasury Bill (T-Bill)
-  3 months     3.10%     Treasury Bill
-  6 months     3.40%     Treasury Bill
-  1 year       3.60%     Treasury Bill
-  2 years      3.80%     Treasury Note (T-Note)
-  5 years      4.10%     Treasury Note
-  10 years     4.40%     Treasury Note (benchmark)
-  20 years     4.65%     Treasury Bond (T-Bond)
-  30 years     4.80%     Treasury Bond (long bond)
+  1個月        2.80%     國庫券（T-Bill）
+  3個月        3.10%     國庫券
+  6個月        3.40%     國庫券
+  1年          3.60%     國庫券
+  2年          3.80%     公債票據（T-Note）
+  5年          4.10%     公債票據
+  10年         4.40%     公債票據（基準）
+  20年         4.65%     長期公債（T-Bond）
+  30年         4.80%     長期公債（長債）
 ```
 
-#### Types of Rates: Spot, Forward, and Par
+#### 利率類型：即期利率、遠期利率與票面利率
 
-Before analyzing yield curves, you must understand three different types of interest rates.
+在分析殖利率曲線之前，你必須了解三種不同類型的利率。
 
-**Spot Rate (Zero-Coupon Rate):** The yield on a zero-coupon bond that pays no intermediate coupons. This is the "pure" rate for a specific maturity. If the 5-year spot rate is 4.2%, it means a dollar invested today in a 5-year zero-coupon bond will compound at 4.2% per year.
+**即期利率（零息利率）：** 零息債券的殖利率，該債券不支付中間票息。這是特定到期日的「純粹」利率。如果5年期即期利率為4.2%，這意味著今天投資於5年期零息債券的一塊錢，將以每年4.2%的速度複利增長。
 
-**Forward Rate:** The implied future interest rate derived from today's spot rates. The forward rate is the rate the market expects (or prices in) for a future period. The "2-year rate, 3 years from now" (written as 3f2 or f(3,5)) is derived from the 3-year and 5-year spot rates.
+**遠期利率：** 由今日即期利率推算出的隱含未來利率。遠期利率是市場預期（或定價）的未來某一期間的利率。「3年後的2年期利率」（寫作3f2或f(3,5)）是由3年期和5年期即期利率推導而來。
 
-**Par Rate (Par Yield):** The coupon rate at which a coupon-paying bond would be priced exactly at par (100). This is what most people mean when they say "the yield curve," because most Treasury bonds pay coupons. The par yield curve is what you see quoted on financial news.
+**票面利率（平價殖利率）：** 附息債券的票面利率，使該債券的定價恰好為面額（100）。這是大多數人所說的「殖利率曲線」，因為大多數公債都支付票息。平價殖利率曲線就是你在財經新聞上看到的那條線。
 
 ```
-RELATIONSHIP BETWEEN RATE TYPES:
+利率類型之間的關係：
 
-  Spot Rates (Zero-Coupon):        Forward Rates (Implied Future):
-  1-year spot = 3.50%              Year 1 to Year 2 forward = 4.10%
-  2-year spot = 3.80%              Year 2 to Year 3 forward = 4.40%
-  3-year spot = 4.00%              Year 3 to Year 5 forward = 4.65%
-  5-year spot = 4.20%
+  即期利率（零息）：                遠期利率（隱含未來）：
+  1年期即期利率 = 3.50%            第1年至第2年遠期利率 = 4.10%
+  2年期即期利率 = 3.80%            第2年至第3年遠期利率 = 4.40%
+  3年期即期利率 = 4.00%            第3年至第5年遠期利率 = 4.65%
+  5年期即期利率 = 4.20%
 
-  HOW FORWARD RATES ARE DERIVED:
+  遠期利率的推導方式：
 
-  The 2-year spot (3.80%) must equal the geometric average of:
-    Year 1 spot (3.50%) and Year 1-to-2 forward rate
+  2年期即期利率（3.80%）必須等於以下兩者的幾何平均值：
+    1年期即期利率（3.50%）和第1年至第2年的遠期利率
 
   (1 + 0.038)^2 = (1 + 0.035)^1 x (1 + f)^1
   1.0774 = 1.035 x (1 + f)
   f = 1.0774 / 1.035 - 1
   f = 4.10%
 
-  The forward rate (4.10%) is HIGHER than either spot rate.
-  This is because the yield curve is upward-sloping, implying
-  that rates are expected to be higher in the future.
+  遠期利率（4.10%）高於任一即期利率。
+  這是因為殖利率曲線向上傾斜，暗示
+  未來利率預期將更高。
 
-  DIAGRAM:
+  示意圖：
 
-  Today          Year 1         Year 2         Year 3
+  今日          第1年          第2年          第3年
     |              |              |              |
     |--- 3.50% --->|              |              |
     |              |--- 4.10% --->|              |
@@ -107,52 +104,52 @@ RELATIONSHIP BETWEEN RATE TYPES:
     |                                            |
     |------------------ 4.00% ----------------->|
     |                                            |
-    2-year spot = geometric average of           |
-    1-year spot + 1-year forward                 |
+    2年期即期利率 = 幾何平均值（                  |
+    1年期即期利率 + 1年期遠期利率）               |
 ```
 
 ```
-PAR RATE vs. SPOT RATE:
+票面利率 vs. 即期利率：
 
-  When the yield curve is upward-sloping:
-    Par Rate < Spot Rate (at the same maturity)
+  當殖利率曲線向上傾斜時：
+    票面利率 < 即期利率（相同到期日）
 
-  When the yield curve is downward-sloping (inverted):
-    Par Rate > Spot Rate (at the same maturity)
+  當殖利率曲線向下傾斜（倒掛）時：
+    票面利率 > 即期利率（相同到期日）
 
-  When the yield curve is flat:
-    Par Rate = Spot Rate
+  當殖利率曲線平坦時：
+    票面利率 = 即期利率
 
-  Why? A coupon-paying bond receives intermediate cash flows
-  that are discounted at lower spot rates (for earlier years).
-  This pulls the par yield below the spot rate when the curve
-  slopes up, and pushes it above when the curve slopes down.
+  為什麼？附息債券在到期前會收到中間現金流，
+  這些現金流以較低的即期利率（針對較早年份）折現。
+  當曲線向上傾斜時，這使平價殖利率低於即期利率；
+  當曲線向下傾斜時，則高於即期利率。
 
-  EXAMPLE (UPWARD-SLOPING CURVE):
+  範例（向上傾斜的曲線）：
 
-  Maturity    Spot Rate    Par Rate    Difference
-  ========    =========    ========    ==========
-  1 year      3.50%        3.50%      0.00%  (same, no coupons)
-  2 years     3.80%        3.79%      0.01%
-  5 years     4.20%        4.16%      0.04%
-  10 years    4.50%        4.40%      0.10%
-  30 years    4.90%        4.72%      0.18%
+  到期日    即期利率    票面利率    差異
+  ========  =========   ========   ==========
+  1年        3.50%       3.50%     0.00%（相同，無票息）
+  2年        3.80%       3.79%     0.01%
+  5年        4.20%       4.16%     0.04%
+  10年       4.50%       4.40%     0.10%
+  30年       4.90%       4.72%     0.18%
 
-  The difference grows with maturity because longer bonds
-  have more intermediate cash flows affected by lower
-  short-term spot rates.
+  差異隨到期日增長而擴大，因為較長期債券
+  有更多中間現金流受到較低
+  短期即期利率的影響。
 ```
 
-#### Yield Curve Shapes
+#### 殖利率曲線形狀
 
-The yield curve takes three primary shapes, each conveying different information about the market's expectations.
+殖利率曲線呈現三種主要形狀，每種形狀傳達關於市場預期的不同訊息。
 
-**Normal (Upward-Sloping):**
+**正常型（向上傾斜）：**
 
 ```
-NORMAL YIELD CURVE:
+正常殖利率曲線：
 
-  Yield
+  殖利率
   5.0% |                                       ___*___
        |                               ____*---
   4.0% |                      _____*---
@@ -161,28 +158,28 @@ NORMAL YIELD CURVE:
        | __*--
   2.0% |
        +---+---+---+---+---+---+---+---+---
-       1m  3m  1y  2y  3y  5y  10y 20y 30y
+       1月  3月  1年  2年  3年  5年  10年 20年 30年
 
-  WHAT IT MEANS:
-  - Investors demand higher yields for longer maturities
-    (compensation for more time = more risk)
-  - The economy is expected to grow normally
-  - Inflation expectations are stable or moderately rising
-  - Banks can profit by borrowing short (low rates) and
-    lending long (high rates) -> credit expansion
+  意涵：
+  - 投資者要求較長期限的更高殖利率
+    （補償更長時間 = 更高風險）
+  - 預期經濟正常成長
+  - 通膨預期穩定或溫和上升
+  - 銀行可透過借入短期資金（低利率）和
+    放貸長期資金（高利率）獲利 -> 信用擴張
 
-  HISTORICAL CONTEXT:
-  - This is the "default" shape for most of history
-  - Occurs during economic expansions and early recovery
-  - Spread between 2y and 10y typically 100-200 bps
+  歷史背景：
+  - 這是歷史上大部分時間的「預設」形狀
+  - 出現於經濟擴張期和早期復甦期
+  - 2年期和10年期之間的利差通常為100至200個基點
 ```
 
-**Flat:**
+**平坦型：**
 
 ```
-FLAT YIELD CURVE:
+平坦殖利率曲線：
 
-  Yield
+  殖利率
   5.0% |
        |
   4.0% | *----*----*----*----*----*----*----*----*
@@ -191,28 +188,28 @@ FLAT YIELD CURVE:
        |
   2.0% |
        +---+---+---+---+---+---+---+---+---
-       1m  3m  1y  2y  3y  5y  10y 20y 30y
+       1月  3月  1年  2年  3年  5年  10年 20年 30年
 
-  WHAT IT MEANS:
-  - The market is uncertain about future direction
-  - Often a TRANSITION between normal and inverted
-  - Short-term rates have risen (Fed tightening) but
-    long-term rates have not followed
-  - Banks have little incentive to lend (no term spread)
-  - Economic growth is expected to slow
+  意涵：
+  - 市場對未來走向感到不確定
+  - 通常是正常型與倒掛型之間的「過渡」狀態
+  - 短期利率已上升（聯準會緊縮）但
+    長期利率尚未跟進
+  - 銀行幾乎沒有動力放貸（無期限利差）
+  - 預期經濟成長放緩
 
-  HISTORICAL CONTEXT:
-  - Often appears late in a Fed tightening cycle
-  - Preceded several recessions as a transitional phase
-  - 2y-10y spread near 0 bps (+/- 25 bps)
+  歷史背景：
+  - 通常出現在聯準會緊縮週期的後期
+  - 曾作為過渡階段先於數次衰退出現
+  - 2年期至10年期利差接近0個基點（±25個基點）
 ```
 
-**Inverted (Downward-Sloping):**
+**倒掛型（向下傾斜）：**
 
 ```
-INVERTED YIELD CURVE:
+倒掛殖利率曲線：
 
-  Yield
+  殖利率
   5.5% |
        |
   5.0% | *
@@ -223,32 +220,32 @@ INVERTED YIELD CURVE:
        |                        *---*---*
   3.5% |
        +---+---+---+---+---+---+---+---+---
-       1m  3m  1y  2y  3y  5y  10y 20y 30y
+       1月  3月  1年  2年  3年  5年  10年 20年 30年
 
-  WHAT IT MEANS:
-  - Short-term rates are HIGHER than long-term rates
-  - The market expects the Fed to cut rates in the future
-    (because rates need to come down to avoid/fight recession)
-  - Economic contraction is expected
-  - Banks lose money on new lending -> credit contraction
-  - THE SINGLE BEST PREDICTOR OF RECESSION
+  意涵：
+  - 短期利率高於長期利率
+  - 市場預期聯準會未來將降息
+    （因為需要降低利率以避免/對抗衰退）
+  - 預期經濟收縮
+  - 銀行在新放貸上虧損 -> 信用收縮
+  - 預測衰退最可靠的單一指標
 
-  HISTORICAL CONTEXT:
-  - Inverted before every U.S. recession since 1970
-  - 2-year/10-year spread inverted in July 2022
-  - Average lead time: 12-18 months before recession
-  - No false signals in 50 years (though lead time varies)
+  歷史背景：
+  - 1970年以來每次美國衰退前均出現倒掛
+  - 2年期/10年期利差於2022年7月倒掛
+  - 平均前置時間：衰退前12至18個月
+  - 50年來零次假信號（儘管前置時間有所不同）
 ```
 
 ```
-OTHER SHAPES:
+其他形狀：
 
-  HUMPED CURVE:              STEEP CURVE (Bear Steepener):
-  Short rates low             Short rates very low
-  Middle rates highest        Long rates very high
-  Long rates moderate
+  駝峰型曲線：               陡峭型曲線（空頭陡化）：
+  短期利率低                   短期利率極低
+  中期利率最高                 長期利率極高
+  長期利率適中
 
-  Yield                       Yield
+  殖利率                       殖利率
   5% |       *****            6% |                        *
      |     **     **             |                    *
   4% |   **         **       5% |               *
@@ -257,503 +254,502 @@ OTHER SHAPES:
      |                    *     | *
   2% |                       3% |
      +---+---+---+---+---      +---+---+---+---+---
-     1y  3y  5y  10y 30y       1y  3y  5y  10y 30y
+     1年  3年  5年  10年 30年    1年  3年  5年  10年 30年
 
-  Humped: Transition shape,    Steep: Early recovery,
-  often before inversion.      Fed holding rates low.
-  Middle maturities are        Market expects significant
-  most affected by policy.     future rate increases.
+  駝峰型：過渡形狀，              陡峭型：早期復甦，
+  通常在倒掛之前出現。            聯準會維持低利率。
+  中期到期日受政策               市場預期未來利率
+  影響最大。                     將大幅上升。
 ```
 
-#### The Yield Curve as Recession Predictor
+#### 殖利率曲線作為衰退預測指標
 
-The yield curve's predictive power deserves special attention because it is one of the most reliable signals in all of finance.
+殖利率曲線的預測能力值得特別關注，因為它是整個金融領域最可靠的信號之一。
 
 ```
-HISTORICAL YIELD CURVE INVERSIONS AND RECESSIONS:
+歷史上的殖利率曲線倒掛與衰退：
 
-  Inversion Date   Recession Start   Lead Time   2y-10y Spread
+  倒掛日期         衰退開始日期      前置時間    2年期至10年期利差
   ==============   ===============   =========   =============
-  Aug 1978         Jan 1980          17 months   -154 bps
-  Sep 1980         Jul 1981          10 months   -216 bps
-  Jan 1989         Jul 1990          18 months   -18 bps
-  Feb 2000         Mar 2001          13 months   -52 bps
-  Aug 2006         Dec 2007          16 months   -19 bps
-  Jul 2022         ???               ???         -107 bps
+  1978年8月        1980年1月         17個月      -154個基點
+  1980年9月        1981年7月         10個月      -216個基點
+  1989年1月        1990年7月         18個月      -18個基點
+  2000年2月        2001年3月         13個月      -52個基點
+  2006年8月        2007年12月        16個月      -19個基點
+  2022年7月        ???               ???         -107個基點
 
-  FALSE SIGNALS: 0 (every inversion led to recession)
+  假信號次數：0次（每次倒掛均導致衰退）
 
-  NOTE: Lead time varies from 10 to 18 months.
-  The curve inverts long before the recession is obvious.
-  By the time recession is officially declared (which happens
-  AFTER the fact), the curve has usually already un-inverted
-  and is steepening again.
+  注意：前置時間從10到18個月不等。
+  曲線倒掛發生在衰退明顯出現之前很久。
+  等到衰退被官方宣佈時（這發生在
+  事後），曲線通常已回到正值
+  並再度陡化。
 ```
 
-**Why Does Inversion Predict Recession?**
+**為什麼倒掛能預測衰退？**
 
-The mechanism is not just correlation; there is causation:
-
-```
-THE INVERSION-RECESSION MECHANISM:
-
-  Step 1: Fed raises short-term rates to fight inflation
-          |
-          v
-  Step 2: Short rates rise above long rates (inversion)
-          |
-          v
-  Step 3: Banks cannot profit from lending
-          (borrow at 5%, lend at 4% = LOSS)
-          |
-          v
-  Step 4: Banks tighten lending standards
-          (fewer loans approved, higher standards)
-          |
-          v
-  Step 5: Businesses cannot get financing
-          Consumer credit tightens
-          |
-          v
-  Step 6: Economic activity slows
-          Hiring freezes, layoffs begin
-          |
-          v
-  Step 7: RECESSION
-
-  The curve does not just predict recession; it CAUSES it
-  through the credit channel. When banks cannot make money
-  lending, the economy's credit engine stalls.
-```
+這不僅僅是相關性，其中存在因果關係：
 
 ```
-USING THE YIELD CURVE FOR PORTFOLIO DECISIONS:
+倒掛至衰退的機制：
 
-  Curve Shape         Action for Investors
+  第1步：聯準會升息以對抗通膨
+          |
+          v
+  第2步：短期利率升至長期利率之上（倒掛）
+          |
+          v
+  第3步：銀行無法從放貸中獲利
+         （借入5%，放貸4% = 虧損）
+          |
+          v
+  第4步：銀行收緊放貸標準
+         （核准的貸款減少，標準更嚴格）
+          |
+          v
+  第5步：企業無法獲得融資
+         消費者信貸收緊
+          |
+          v
+  第6步：經濟活動放緩
+         凍結招募，開始裁員
+          |
+          v
+  第7步：衰退
+
+  曲線不只是預測衰退，它還透過
+  信用管道「造成」衰退。當銀行無法從
+  放貸中獲利時，經濟的信用引擎熄火。
+```
+
+```
+利用殖利率曲線做投資組合決策：
+
+  曲線形狀            投資者的操作
   ================    ==========================================
-  Normal (steep)      - Favor stocks over bonds
-                      - Overweight banks and financials
-                      - Hold shorter-duration bonds (less risk)
-                      - Economy is healthy, risk-on
+  正常型（陡峭）      - 股票優於債券
+                      - 超配銀行股和金融股
+                      - 持有較短存續期間債券（風險較低）
+                      - 經濟健康，偏向風險性資產
 
-  Flattening          - Begin shifting to quality stocks
-                      - Extend bond duration slightly
-                      - Reduce cyclical stock exposure
-                      - Watch for inversion signal
+  趨於平坦            - 開始轉向優質股票
+                      - 小幅延長債券存續期間
+                      - 降低景氣循環股曝險
+                      - 留意倒掛信號
 
-  Inverted            - Reduce stock allocation (slowly)
-                      - Extend bond duration (lock in high rates)
-                      - Overweight defensive sectors
-                      - Build cash position
-                      - Do NOT panic sell (recession may be
-                        12+ months away)
+  倒掛                - 逐步降低股票配置
+                      - 延長債券存續期間（鎖定高利率）
+                      - 超配防禦型類股
+                      - 建立現金部位
+                      - 切勿恐慌性賣出（衰退可能
+                        還有12個月以上才到來）
 
-  Steepening from     - The recession is either happening or
-  inversion (bull     ending. Fed is cutting rates.
-  steepener)          - Begin adding stock exposure
-                      - Bonds are rallying, take some profits
-                      - Transition from defensive to cyclical
+  從倒掛陡化          - 衰退正在發生或即將結束。
+  （多頭陡化）         聯準會正在降息。
+                      - 開始增加股票配置
+                      - 債券正在上漲，部分獲利了結
+                      - 從防禦型過渡到景氣循環型
 ```
 
-#### Term Premium
+#### 期限溢酬
 
-The term premium is the extra yield investors demand for holding longer-maturity bonds instead of rolling over short-term bonds. It is compensation for the additional risks of locking up money for longer periods: inflation risk, interest rate risk, and uncertainty.
-
-```
-TERM PREMIUM CONCEPT:
-
-  Long-term yield = Expected average of future short rates
-                    + TERM PREMIUM
-
-  Example:
-  If the market expects the Fed funds rate to average 3.5%
-  over the next 10 years, the 10-year yield might be 4.0%.
-
-  10-year yield (4.0%) = Expected avg rate (3.5%) + Term premium (0.5%)
-
-  The term premium is NOT directly observable. It must be
-  estimated using models (Kim-Wright, ACM model, etc.)
-
-  TERM PREMIUM OVER TIME:
-
-  Period              Estimated Term Premium    Context
-  ==================  ======================    ====================
-  1980s-1990s         +200 to +300 bps          High inflation memory
-  2000s               +100 to +150 bps          Moderate
-  2010-2020           -50 to +50 bps            QE era, negative!
-  2021-2024           +50 to +150 bps           Post-QE normalization
-
-  NEGATIVE TERM PREMIUM?
-  Yes, this happened during QE (quantitative easing).
-  The Fed was buying long-term bonds, pushing prices up
-  and yields down. This artificial demand compressed the
-  term premium below zero. Investors were effectively
-  PAYING for the privilege of holding long bonds, because
-  the Fed was a guaranteed buyer.
-```
+期限溢酬是投資者持有長期債券而非滾動短期債券所要求的額外殖利率。這是對長期鎖定資金的額外風險補償：通膨風險、利率風險和不確定性。
 
 ```
-WHY TERM PREMIUM MATTERS:
+期限溢酬的概念：
 
-  If the 10-year yield is 4.5%, how much is:
-    a) Expectations of future rates? (monetary policy path)
-    b) Term premium? (compensation for risk)
+  長期殖利率 = 預期未來短期利率的平均值
+               + 期限溢酬
 
-  This decomposition matters because:
+  範例：
+  如果市場預期未來10年聯準會基準利率平均為3.5%，
+  則10年期殖利率可能為4.0%。
 
-  If 10y yield is HIGH because of HIGH TERM PREMIUM:
-    -> Bonds are offering good compensation for risk
-    -> May be a good time to buy long bonds
-    -> The "real" expected rate path may be lower than you think
+  10年期殖利率（4.0%）= 預期平均利率（3.5%）+ 期限溢酬（0.5%）
 
-  If 10y yield is HIGH because of HIGH EXPECTED RATES:
-    -> The market expects the Fed to keep rates elevated
-    -> Long bonds may still fall further if expectations rise
-    -> The term premium may actually be low (poor compensation)
+  期限溢酬無法直接觀察，必須
+  使用模型估算（Kim-Wright模型、ACM模型等）。
 
-  VISUAL DECOMPOSITION:
+  期限溢酬的歷史變化：
 
-  10-year yield: 4.50%
+  時期               估計期限溢酬           背景
+  ==================  ======================  ====================
+  1980至1990年代      +200至+300個基點        高通膨記憶
+  2000年代            +100至+150個基點        適中
+  2010至2020年        -50至+50個基點          量化寬鬆時代，甚至為負！
+  2021至2024年        +50至+150個基點         量化寬鬆後的正常化
+
+  期限溢酬為負？
+  是的，這在量化寬鬆期間發生過。
+  聯準會購買長期債券，推升價格
+  並壓低殖利率。這種人為需求將
+  期限溢酬壓至零以下。投資者實際上
+  在為持有長期債券的特權「付費」，因為
+  聯準會是有保障的買家。
+```
+
+```
+為什麼期限溢酬很重要：
+
+  如果10年期殖利率為4.5%，其中有多少是：
+    a) 對未來利率的預期？（貨幣政策路徑）
+    b) 期限溢酬？（風險補償）
+
+  這個分解很重要，因為：
+
+  如果10年期殖利率高是因為期限溢酬高：
+    -> 債券為承擔風險提供了良好補償
+    -> 可能是買入長期債券的好時機
+    -> 真實的預期利率路徑可能比你想的更低
+
+  如果10年期殖利率高是因為預期利率高：
+    -> 市場預期聯準會將維持高利率
+    -> 如果預期繼續上升，長期債券可能還會進一步下跌
+    -> 期限溢酬實際上可能偏低（補償不足）
+
+  視覺化分解：
+
+  10年期殖利率：4.50%
   |===============================================|
-  |    Expected Rates: 3.80%     | Term Premium:  |
+  |    預期利率：3.80%           | 期限溢酬：      |
   |                              |    0.70%       |
   |===============================================|
 ```
 
-#### Key Yield Curve Spreads
+#### 關鍵殖利率曲線利差
 
-Several specific spreads on the yield curve are closely watched by investors and economists.
+殖利率曲線上有幾個特定的利差受到投資者和經濟學家的密切關注。
 
 ```
-IMPORTANT YIELD CURVE SPREADS:
+重要的殖利率曲線利差：
 
-  Spread              Definition                 Significance
+  利差              定義                       重要性
   ==================  ========================   =========================
-  2y-10y              10y yield - 2y yield       Most watched recession
-                                                 indicator. Inverts before
-                                                 every recession.
+  2年期至10年期       10年期殖利率 - 2年期殖利率  最受關注的衰退
+                                                 指標。每次衰退前
+                                                 均出現倒掛。
 
-  3m-10y              10y yield - 3m T-bill      Fed's preferred recession
-                                                 indicator. More sensitive
-                                                 to current Fed policy.
+  3月期至10年期       10年期殖利率 - 3月期國庫券  聯準會偏好的衰退
+                                                 指標。對當前聯準會
+                                                 政策更為敏感。
 
-  Fed Funds - 10y     10y yield - Fed Funds      Measures full extent of
-                                                 monetary policy impact
-                                                 on long rates.
+  聯邦基金利率至10年期 10年期殖利率 - 聯邦基金利率 衡量貨幣政策對
+                                                 長期利率的完整影響程度。
 
-  2y-30y              30y yield - 2y yield       Term spread for long-
-                                                 duration investors.
+  2年期至30年期       30年期殖利率 - 2年期殖利率  長期投資者的
+                                                 期限利差。
 
-  5y-30y              30y yield - 5y yield       Long-end steepness.
-                                                 Important for pension
-                                                 funds and insurers.
+  5年期至30年期       30年期殖利率 - 5年期殖利率  長端陡峭程度。
+                                                 對退休基金
+                                                 和保險公司很重要。
 
-  EXAMPLE READINGS:
+  範例讀數：
 
-  Spread    Normal Value   Current (example)   Signal
-  ========  ============   =================   ===========
-  2y-10y    +100-200 bps   -50 bps             Inverted!
-  3m-10y    +100-250 bps   -120 bps            Inverted!
-  2y-30y    +150-250 bps   +20 bps             Nearly flat
+  利差       正常值          當前（範例）       信號
+  ========   ============    =================  ===========
+  2年至10年   +100至200個基點  -50個基點          倒掛！
+  3月至10年   +100至250個基點  -120個基點         倒掛！
+  2年至30年   +150至250個基點  +20個基點          幾乎平坦
 
-  When BOTH the 2y-10y AND 3m-10y are inverted,
-  the recession signal is strongest.
+  當2年至10年期和3月至10年期同時倒掛時，
+  衰退信號最為強烈。
 ```
 
-#### Yield Curve Shifts and Portfolio Impact
+#### 殖利率曲線移動與投資組合影響
 
-The yield curve does not move uniformly. Different maturities can move by different amounts and even in different directions.
+殖利率曲線的移動並不均勻。不同到期日可能移動幅度不同，甚至方向相反。
 
 ```
-TYPES OF YIELD CURVE MOVEMENTS:
+殖利率曲線的移動類型：
 
-  1. PARALLEL SHIFT (all maturities move equally):
+  1. 平行移動（所有到期日等幅移動）：
 
-  Yield                          Yield
+  殖利率                         殖利率
   5% |          ****             5.5%|          ****
      |     ****                      |     ****
   4% |****                       4.5%|****
      |                               |
   3% |                           3.5%|
      +---+---+---+---               +---+---+---+---
-     2y  5y  10y 30y                2y  5y  10y 30y
-       Before                         After (+50 bps)
+     2年  5年  10年 30年             2年  5年  10年 30年
+       移動前                          移動後（+50個基點）
 
-  Impact: All bonds lose value proportional to their duration.
-  Long bonds lose more than short bonds.
+  影響：所有債券的損失與其存續期間成正比。
+  長期債券損失多於短期債券。
 
-  2. STEEPENING (long rates rise more than short rates):
+  2. 陡化（長期利率升幅大於短期利率）：
 
-  Yield                          Yield
+  殖利率                         殖利率
   4.5%|          ****            5.0%|               ****
      |     ****                      |         ****
   4% |****                       4.5%|    ****
      |                               |****
   3.5%|                          4.0%|
      +---+---+---+---               +---+---+---+---
-     2y  5y  10y 30y                2y  5y  10y 30y
-       Before                         After (steepening)
+     2年  5年  10年 30年             2年  5年  10年 30年
+       移動前                          移動後（陡化）
 
-  Impact: Long bonds suffer more than short bonds.
-  Strategy: Shorten duration. Overweight short maturities.
+  影響：長期債券受損多於短期債券。
+  策略：縮短存續期間。超配短期到期日債券。
 
-  3. FLATTENING (short rates rise more than long rates):
+  3. 趨平（短期利率升幅大於長期利率）：
 
-  Yield                          Yield
+  殖利率                         殖利率
   4.5%|          ****            4.5%|****----****----****
      |     ****                      |
   4% |****                       4.0%|
      |                               |
   3.5%|                          3.5%|
      +---+---+---+---               +---+---+---+---
-     2y  5y  10y 30y                2y  5y  10y 30y
-       Before                         After (flattening)
+     2年  5年  10年 30年             2年  5年  10年 30年
+       移動前                          移動後（趨平）
 
-  Impact: Short bonds lose more; long bonds may actually gain
-  if long rates fell. Strategy: Extend duration if you expect
-  flattening to continue.
+  影響：短期債券損失較多；長期債券實際上可能上漲，
+  如果長期利率下降。策略：如果預期趨平將持續，
+  則延長存續期間。
 
-  4. TWIST (short and long move in opposite directions):
+  4. 扭轉（短期和長期利率方向相反）：
 
-  Yield                          Yield
+  殖利率                         殖利率
   4.5%|          ****            5.0%|****          ****
      |     ****                      |    ****
   4% |****                       4.5%|        ****
      |                               |
   3.5%|                          4.0%|
      +---+---+---+---               +---+---+---+---
-     2y  5y  10y 30y                2y  5y  10y 30y
-       Before                         After (twist/butterfly)
+     2年  5年  10年 30年             2年  5年  10年 30年
+       移動前                          移動後（扭轉/蝴蝶型）
 
-  Impact: Short and long bonds lose; middle may be stable.
-  This is the hardest movement to hedge against.
+  影響：短期和長期債券均損失；中期可能保持穩定。
+  這是最難避險的移動類型。
 ```
 
-#### Reading the Current Yield Curve
+#### 解讀當前殖利率曲線
 
 ```
-STEP-BY-STEP YIELD CURVE ANALYSIS:
+殖利率曲線分析的逐步流程：
 
-  1. OBSERVE THE SHAPE
-     Is it normal, flat, inverted, or humped?
-     -> This tells you the market's macro outlook.
+  1. 觀察形狀
+     是正常型、平坦型、倒掛型還是駝峰型？
+     -> 這告訴你市場的總體展望。
 
-  2. CHECK KEY SPREADS
-     What is the 2y-10y spread? The 3m-10y spread?
-     -> Negative = recession warning.
-     -> Positive and steepening = expansion signal.
+  2. 檢查關鍵利差
+     2年至10年期利差是多少？3月至10年期利差呢？
+     -> 負值 = 衰退警告。
+     -> 正值且陡化 = 擴張信號。
 
-  3. COMPARE TO RECENT HISTORY
-     Has the curve flattened, steepened, or shifted?
-     -> Flattening from normal: late cycle, be cautious.
-     -> Steepening from inversion: recovery may be starting.
+  3. 與近期歷史比較
+     曲線是趨平、陡化還是平行移動？
+     -> 從正常型趨平：週期後期，保持謹慎。
+     -> 從倒掛陡化：復甦可能正在開始。
 
-  4. IDENTIFY THE DRIVER
-     Are short rates moving (Fed policy) or long rates
-     moving (inflation expectations, term premium)?
-     -> Fed-driven flattening: short end rising.
-     -> Market-driven steepening: long end rising.
+  4. 識別驅動因素
+     是短期利率移動（聯準會政策）還是長期利率
+     移動（通膨預期、期限溢酬）？
+     -> 聯準會驅動的趨平：短端上升。
+     -> 市場驅動的陡化：長端上升。
 
-  5. CONSIDER TERM PREMIUM
-     Are long rates high because of expectations or risk?
-     -> High term premium = bonds may be attractive.
-     -> Low term premium = bonds may be expensive.
+  5. 考量期限溢酬
+     長期利率高是因為預期還是風險？
+     -> 高期限溢酬 = 債券可能具有吸引力。
+     -> 低期限溢酬 = 債券可能偏貴。
 
-  WHERE TO FIND YIELD CURVE DATA:
-  - Treasury.gov (official daily yields)
-  - FRED (Federal Reserve Economic Data) - free, excellent
-  - Your brokerage platform (most have yield curve tools)
-  - Financial news sites (CNBC, Bloomberg, Reuters)
+  哪裡可以找到殖利率曲線資料：
+  - Treasury.gov（官方每日殖利率）
+  - FRED（聯準會經濟資料庫）- 免費，非常優質
+  - 你的券商平台（大多數都有殖利率曲線工具）
+  - 財經新聞網站（CNBC、Bloomberg、Reuters）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見的迷思
 
-**Misconception 1: "An inverted yield curve means a recession is imminent."**
+**迷思1：「殖利率曲線倒掛意味著衰退即將來臨。」**
 
-Inverted, yes, but imminent, no. The average lead time between inversion and recession onset is 12 to 18 months. In some cases it has been as long as 24 months. Many investors see the inversion, panic, sell everything, and then watch the market rally for another year before the recession arrives. The yield curve is an early warning system, not an immediate alarm. Use it to gradually adjust your portfolio over months, not to make dramatic changes overnight.
+倒掛，是的；即將來臨，則不然。倒掛到衰退開始之間的平均前置時間為12至18個月，某些情況下甚至長達24個月。許多投資者看到倒掛，就恐慌性賣出所有部位，然後眼睜睜看著市場又上漲了一年，衰退才真正到來。殖利率曲線是早期預警系統，而非立即響起的警報。應利用它在數個月內逐漸調整投資組合，而不是一夜之間做出劇烈改變。
 
-**Misconception 2: "The yield curve reflects what will happen to interest rates."**
+**迷思2：「殖利率曲線反映了利率的未來走向。」**
 
-The yield curve reflects the market's expectations of future rates plus a term premium. Expectations can be wrong. In the 2010s, the yield curve consistently implied that rates would rise, but the Fed kept them near zero for years. Forward rates are not forecasts; they are prices that reflect the current supply and demand for bonds at different maturities. They are useful indicators but not prophecies.
+殖利率曲線反映的是市場對未來利率的預期加上期限溢酬。預期可能是錯的。在2010年代，殖利率曲線持續暗示利率將上升，但聯準會卻將利率維持在接近零的水準長達數年。遠期利率不是預測；它們是反映當前不同到期日債券供需的價格。它們是有用的指標，但不是預言。
 
-**Misconception 3: "A steeper yield curve is always better for the economy."**
+**迷思3：「殖利率曲線越陡峭，對經濟就越有利。」**
 
-A steep curve is generally positive because it encourages bank lending and signals growth expectations. But an excessively steep curve, especially one driven by surging long-term rates, can indicate inflation fears and may actually tighten financial conditions. A 30-year Treasury yield at 6% means mortgage rates at 7-8%, which slows housing and consumer spending. Context matters more than shape alone.
+陡峭的曲線通常是正面的，因為它鼓勵銀行放貸，並預示成長預期。但過度陡峭的曲線——尤其是由長期利率急升驅動的——可能表明市場對通膨的擔憂，實際上可能收緊金融環境。30年期公債殖利率在6%意味著房貸利率在7至8%，這會拖慢房市和消費者支出。脈絡比形狀本身更重要。
 
-**Misconception 4: "I should buy long-term bonds when the yield curve inverts."**
+**迷思4：「當殖利率曲線倒掛時，我應該買入長期債券。」**
 
-This is partially correct but the timing matters. The curve often inverts because the Fed has raised short-term rates aggressively. Long-term rates may not have peaked yet. The optimal time to buy long bonds is typically when the Fed signals it will start cutting rates, which is usually after the inversion and closer to the recession. Buying too early means you may endure further price declines before the eventual rally.
+這部分是正確的，但時機很重要。曲線倒掛通常是因為聯準會已大幅升息。長期利率可能尚未見頂。買入長期債券的最佳時機通常是聯準會發出即將開始降息的信號時，這通常在倒掛之後、更接近衰退之際。買入太早意味著在最終反彈之前，你可能還要承受進一步的價格下跌。
 
-**Misconception 5: "The yield curve is only relevant for bond investors."**
+**迷思5：「殖利率曲線只與債券投資者相關。」**
 
-The yield curve affects every asset class. Stock valuations are influenced by the discount rate, which comes from the yield curve. Real estate prices are driven by mortgage rates, which track the long end of the curve. Corporate profitability depends on borrowing costs. Bank earnings are directly tied to the curve's steepness. Even commodity prices are influenced by the rate environment. Every investor should monitor the yield curve.
+殖利率曲線影響每一個資產類別。股票估值受折現率影響，而折現率來自殖利率曲線。房地產價格由房貸利率驅動，而房貸利率追蹤曲線的長端。企業獲利能力取決於借貸成本。銀行盈餘直接與曲線的陡峭程度掛鉤。就連商品價格也受到利率環境的影響。每位投資者都應該關注殖利率曲線。
 
-**Misconception 6: "Spot rates, forward rates, and par rates are interchangeable."**
+**迷思6：「即期利率、遠期利率和票面利率可以互換使用。」**
 
-They are mathematically related but not the same. Using par rates when you should use spot rates for discounting cash flows leads to pricing errors. Zero-coupon bonds should be priced with spot rates. Coupon bonds can be priced either with spot rates (discounting each cash flow separately) or with par rates (single discount rate). Forward rates are useful for valuing forward-starting instruments and for inferring market expectations. Using the wrong rate type is a common source of error in bond analytics.
-
----
-
-### d) Q&A
-
-**Q: Where can I see the current yield curve?**
-
-A: The U.S. Treasury publishes daily yield data at treasury.gov/resource-center/data-chart-center. The Federal Reserve's FRED database (fred.stlouisfed.org) has excellent yield curve tools and historical data. Most brokerage platforms also display the current yield curve. For real-time data during market hours, financial news sites like CNBC and Bloomberg provide up-to-the-minute yield information. The "Daily Treasury Par Yield Curve Rates" page on treasury.gov is the official source.
-
-**Q: How do I calculate forward rates from spot rates?**
-
-A: The general formula is: (1 + S_n)^n = (1 + S_m)^m x (1 + f)^(n-m), where S_n is the n-year spot rate, S_m is the m-year spot rate, and f is the forward rate from year m to year n. Solve for f. For example, if the 2-year spot is 3.80% and the 3-year spot is 4.00%: (1.04)^3 = (1.038)^2 x (1 + f). So 1.12486 = 1.07744 x (1 + f). Therefore f = 4.40%. This says the market prices the 1-year rate, 2 years from now, at 4.40%.
-
-**Q: The 2y-10y spread and the 3m-10y spread sometimes give different signals. Which should I follow?**
-
-A: Both are useful but measure different things. The 2y-10y spread reflects market expectations of medium-term rate policy. The 3m-10y spread is more tied to current Fed policy (the 3-month T-bill rate tracks the Fed Funds rate closely). The Fed's own research (using the "near-term forward spread") gives more weight to the 3m-10y spread. In practice, when both are inverted, the signal is strongest. When they diverge, the 3m-10y spread may be more relevant for near-term recession risk.
-
-**Q: Can the yield curve be manipulated by the Fed?**
-
-A: The Fed directly controls the Federal Funds rate, which is a very short-term rate. It also influences the yield curve through quantitative easing (QE) and quantitative tightening (QT). During QE, the Fed buys long-term bonds, pushing long rates down and flattening or even inverting the curve artificially. During QT, the Fed sells long-term bonds, pushing long rates up and steepening the curve. The question of whether the inverted curve in 2022-2023 was a true recession signal or partly an artifact of previous QE is actively debated by economists.
-
-**Q: What is the "uninversion" and why does it matter?**
-
-A: Uninversion is when the yield curve returns from inverted to normal. Paradoxically, the uninversion often occurs right as the recession begins or shortly before. This is because the Fed starts cutting rates (pulling short rates down) in response to economic weakness, causing the short end to drop faster than the long end. So the curve steepens even as the economy deteriorates. Historically, the uninversion has been as important a signal as the initial inversion. It often marks the transition from "recession is coming" to "recession is here."
-
-**Q: How should I position my bond portfolio based on the yield curve?**
-
-A: The basic framework is: in a steepening environment, shorten duration (overweight shorter maturities) because long rates are rising. In a flattening environment, extend duration moderately because long rates are falling relative to short rates. When the curve is inverted and the Fed is expected to cut, lock in high short-term rates with CDs or T-bills, and begin extending duration to capture price gains when long rates eventually fall. We will cover these strategies in more detail in Week 34 (rate sensitivity) and Week 36 (income portfolio).
-
-**Q: What is the "term structure of interest rates" and is it the same as the yield curve?**
-
-A: They are closely related but technically different. The term structure of interest rates refers to the theoretical relationship between interest rates and time to maturity, usually expressed as spot rates. The yield curve, in common usage, refers to the par yield curve plotted from observed market prices of coupon-paying bonds. For practical purposes, investors use the terms interchangeably, but in academic and professional contexts, "term structure" specifically means the spot rate curve.
+它們在數學上相關，但並不相同。在折現現金流時，誤用票面利率取代即期利率會導致定價錯誤。零息債券應使用即期利率定價。附息債券可以用即期利率（分別折現每筆現金流）或票面利率（單一折現率）定價。遠期利率適用於遠期起始工具的估值，以及推算市場預期。使用錯誤的利率類型是債券分析中常見的錯誤來源。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：在哪裡可以查看當前的殖利率曲線？**
+
+答：美國財政部在treasury.gov/resource-center/data-chart-center每天公布殖利率資料。聯準會的FRED資料庫（fred.stlouisfed.org）提供出色的殖利率曲線工具和歷史資料。大多數券商平台也會顯示當前殖利率曲線。至於盤中即時資料，CNBC和Bloomberg等財經新聞網站提供每分鐘更新的殖利率資訊。Treasury.gov上的「每日公債平價殖利率曲線利率」頁面是官方來源。
+
+**問：如何從即期利率計算遠期利率？**
+
+答：一般公式為：(1 + S_n)^n = (1 + S_m)^m x (1 + f)^(n-m)，其中S_n是n年期即期利率，S_m是m年期即期利率，f是從第m年到第n年的遠期利率。解出f即可。例如，若2年期即期利率為3.80%，3年期即期利率為4.00%：(1.04)^3 = (1.038)^2 x (1 + f)，則1.12486 = 1.07744 x (1 + f)，因此f = 4.40%。這意味著市場定價的「2年後的1年期利率」為4.40%。
+
+**問：2年至10年期利差和3月至10年期利差有時給出不同信號，我應該以哪個為準？**
+
+答：兩者都有用，但衡量的東西不同。2年至10年期利差反映市場對中期利率政策的預期。3月至10年期利差與當前聯準會政策更緊密相關（3個月期國庫券利率緊密追蹤聯邦基金利率）。聯準會自己的研究（使用「近端遠期利差」）更重視3月至10年期利差。實務上，當兩者同時倒掛時，信號最強。當兩者出現分歧時，3月至10年期利差對近期衰退風險可能更具參考價值。
+
+**問：殖利率曲線可以被聯準會操縱嗎？**
+
+答：聯準會直接控制的是聯邦基金利率，這是一個非常短期的利率。它也透過量化寬鬆和量化緊縮來影響殖利率曲線。量化寬鬆期間，聯準會購買長期債券，壓低長期利率，使曲線趨平甚至人為倒掛。量化緊縮期間，聯準會出售長期債券，推升長期利率，使曲線陡化。2022至2023年的曲線倒掛究竟是真正的衰退信號，還是部分源於之前量化寬鬆的副作用，目前仍是經濟學家積極爭論的議題。
+
+**問：什麼是「去倒掛」，為什麼它很重要？**
+
+答：「去倒掛」是指殖利率曲線從倒掛狀態回歸正常。矛盾的是，去倒掛往往恰好發生在衰退開始之時或稍早之前。這是因為聯準會開始降息（拉低短期利率）以應對經濟疲軟，導致短端比長端下降得更快。因此，即使在經濟惡化之際，曲線也會陡化。從歷史上看，去倒掛是一個與最初倒掛同樣重要的信號。它往往標誌著從「衰退即將來臨」到「衰退正在發生」的轉折點。
+
+**問：我應該如何根據殖利率曲線調整債券投資組合？**
+
+答：基本框架是：在陡化環境中，縮短存續期間（超配短期到期日債券），因為長期利率正在上升。在趨平環境中，適度延長存續期間，因為長期利率相對於短期利率正在下跌。當曲線倒掛且市場預期聯準會降息時，以定期存款或國庫券鎖定高短期利率，並開始延長存續期間，以在長期利率最終下跌時獲取資本利得。我們將在第34週（利率敏感性）和第36週（收益型投資組合）更詳細地介紹這些策略。
+
+**問：什麼是「利率的期限結構」，它與殖利率曲線是同一件事嗎？**
+
+答：兩者密切相關，但技術上有所不同。利率的期限結構是指利率與到期日之間的理論關係，通常以即期利率表示。殖利率曲線在一般用法中，是指從附息票面債券的觀察市場價格繪製的平價殖利率曲線。在實務上，投資者常互換使用這兩個術語，但在學術和專業環境中，「期限結構」特指即期利率曲線。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 31: Yield Curves - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. This week we are shifting gears from options to bonds. Specifically, we are going to learn about the yield curve, which I consider the single most important indicator in all of financial markets.
+**Horace：** 大家好，歡迎回來。本週我們要從選擇權轉換到債券。具體來說，我們將學習殖利率曲線，這在我看來是整個金融市場最重要的單一指標。
 
-**Sam:** That is a bold claim. More important than stock market earnings, GDP, or employment data?
+**Stella：** 這個說法很大膽欸，陳馬。比股票盈餘、GDP或就業數據還要重要？
 
-**Alex:** I stand by it. The yield curve has predicted every U.S. recession in the past 50 years. No other indicator has that track record. Zero false signals. It drives trillions of dollars in mortgage rates, corporate borrowing costs, and bank profitability. And it is free to read, updated every day.
+**Horace：** 我的立場不變。殖利率曲線預測了過去50年每一次美國衰退。沒有任何其他指標有這樣的紀錄。零次假信號。它驅動數兆美元的房貸利率、企業借貸成本和銀行獲利能力。而且它完全免費，每天更新。
 
 [VISUAL: A newspaper-style headline montage showing: "Yield Curve Inverts" (2006), followed by "Recession Declared" (2008). Then "Yield Curve Inverts" (2019), followed by "Recession Declared" (2020). Then "Yield Curve Inverts" (2022) with a question mark.]
 
-**Sam:** OK, you have my attention. Let us start from the beginning. What exactly is a yield curve?
+**Stella：** 好，你引起我的注意了。我們從頭開始吧。殖利率曲線到底是什麼？
 
-**Alex:** A yield curve is simply a graph. On the x-axis, you have maturity, from 1 month out to 30 years. On the y-axis, you have the yield, the interest rate. You plot the yield of government bonds at each maturity and connect the dots. That line is the yield curve.
+**Horace：** 殖利率曲線就是一張圖表。X軸是到期日，從1個月延伸到30年。Y軸是殖利率，也就是利率。你把每個到期日的政府債券殖利率標記出來，連成一條線，那就是殖利率曲線。
 
 [ANIMATION: Reference animation/week31_yield_curve_build.py - Starting with empty axes labeled "Maturity" (x-axis) and "Yield" (y-axis). Treasury bond data points appear one by one: 1-month bill at 2.8%, 3-month at 3.1%, 6-month at 3.4%, 1-year at 3.6%, 2-year at 3.8%, 5-year at 4.1%, 10-year at 4.4%, 30-year at 4.8%. As each point appears, a smooth curve forms connecting them. The final shape is a typical upward-sloping normal yield curve.]
 
-**Sam:** So it slopes upward. Short-term rates are lower and long-term rates are higher. Why?
+**Stella：** 所以它是向上傾斜的。短期利率較低，長期利率較高。為什麼？
 
-**Alex:** Think of it like this. If I asked you to lend me money for one year, you might ask for 3.5% interest. But if I asked you to lend me money for 30 years, you would want much more, maybe 5%. Why? Because in 30 years, a lot can go wrong. Inflation could spike, I might not pay you back, or you might need the money for something else. That extra yield for taking on more time is called the term premium.
+**Horace：** 這樣想吧。如果我請你借我錢借一年，你可能要求3.5%的利息。但如果我請你借我錢借30年，你會想要更多，也許是5%。為什麼？因為30年內很多事情可能出錯。通膨可能飆升，我可能還不了錢，或者你可能需要這筆錢做其他用途。這種因為持有更長期限而多出來的殖利率，就叫做期限溢酬。
 
-**Sam:** So longer maturity equals more risk equals more yield.
+**Stella：** 所以到期日越長，風險越高，殖利率就越高。
 
-**Alex:** Exactly. Under normal conditions, the yield curve slopes upward. This is called a normal yield curve. Investors are being compensated for the additional risk of lending money for longer periods.
+**Horace：** 完全正確。在正常情況下，殖利率曲線向上傾斜，這叫做正常殖利率曲線。投資者因為把錢借出更長期間所承擔的額外風險，獲得相應的補償。
 
-**Sam:** But sometimes the curve has different shapes, right?
+**Stella：** 但有時候曲線的形狀會不一樣，對吧？
 
-**Alex:** There are three main shapes. Normal, which is upward-sloping and signals a healthy economy. Flat, where short and long rates are about equal, which signals uncertainty and transition. And inverted, where short rates are actually higher than long rates, which is the recession warning.
+**Horace：** 主要有三種形狀。正常型，也就是向上傾斜，代表健康的經濟。平坦型，也就是短期和長期利率差不多，代表不確定性和過渡期。以及倒掛型，也就是短期利率實際上高於長期利率，這是衰退警告。
 
-[VISUAL: Three yield curves displayed side by side. Left: "Normal" with a clear upward slope labeled "Healthy Economy." Center: "Flat" with a horizontal line labeled "Transition / Uncertainty." Right: "Inverted" with a downward slope labeled "RECESSION WARNING"]
+[VISUAL: Three yield curves displayed side by side. Left: "正常型" with a clear upward slope labeled "經濟健康." Center: "平坦型" with a horizontal line labeled "過渡期 / 不確定性." Right: "倒掛型" with a downward slope labeled "衰退警告"]
 
-**Sam:** Let us talk about the inverted curve because that is the famous one. How does it predict recessions?
+**Stella：** 我們來聊聊倒掛型曲線，因為那是最有名的一種。它是如何預測衰退的？
 
-**Alex:** The mechanism is surprisingly straightforward. It starts with the Federal Reserve raising short-term interest rates to fight inflation. When the Fed pushes short rates high enough, they rise above long rates, and the curve inverts. Now think about what this means for banks. Banks make money by borrowing short and lending long. They take in deposits at short-term rates and make loans at long-term rates. The difference is their profit margin.
+**Horace：** 這個機制出乎意料地直觀。一切始於聯準會升息以對抗通膨。當聯準會把短期利率推得足夠高，使其超過長期利率時，曲線就倒掛了。現在想想這對銀行意味著什麼。銀行的獲利模式是借入短期資金、放貸長期資金。它們以短期利率吸收存款，以長期利率發放貸款，這之間的差額就是它們的利潤空間。
 
-**Sam:** And when the curve inverts, that profit margin disappears.
+**Stella：** 當曲線倒掛時，這個利潤空間就消失了。
 
-**Alex:** Or goes negative. If a bank borrows at 5% and can only lend at 4%, it loses money on every new loan. So what do banks do? They stop lending. They tighten credit standards. Fewer loans get approved.
+**Horace：** 甚至變成負數。如果銀行以5%借入資金，卻只能以4%放貸，那麼每筆新貸款都在虧損。所以銀行會怎麼做？它們停止放貸。它們收緊信貸標準。核准的貸款大量減少。
 
 [ANIMATION: Reference animation/week31_bank_mechanism.py - A visual chain reaction. Step 1: A "Fed" building raising a lever labeled "Short-term rate" to 5%. Step 2: A curve graphic showing the short end above the long end. Step 3: A bank building with an equation "Borrow at 5% - Lend at 4% = -1% LOSS" flashing red. Step 4: A "LOANS" spigot being turned off. Step 5: Business icons and consumer icons showing "Denied" stamps on loan applications. Step 6: An economic activity graph declining.]
 
-**Alex:** When credit dries up, businesses cannot get financing. Consumers cannot get loans. Economic activity slows. Hiring freezes. Eventually, layoffs begin. And that is a recession. The yield curve does not just predict it; it is part of the causal mechanism.
+**Horace：** 當信貸枯竭時，企業無法獲得融資。消費者借不到錢。經濟活動放緩。招募凍結。最終裁員開始。這就是衰退。殖利率曲線不只是預測衰退——它本身就是造成衰退的機制之一。
 
-**Sam:** And this has happened before every recession since 1970?
+**Stella：** 而且這在1970年以來的每次衰退前都發生過？
 
-**Alex:** Every single one. The 2-year/10-year Treasury spread inverted before the recessions of 1980, 1981, 1990, 2001, 2008, and 2020. Average lead time is 12 to 18 months. And there have been zero false signals. No other indicator comes close to this track record.
+**Horace：** 每一次，無一例外。2年期至10年期公債利差在1980年、1981年、1990年、2001年、2008年和2020年的衰退之前都出現了倒掛。平均前置時間是12至18個月。而且沒有任何假信號。沒有任何其他指標的記錄能與之相比。
 
 [VISUAL: Timeline spanning 1978 to 2024. Each inversion event is marked with an inverted triangle, and each subsequent recession is marked with a gray shaded bar. Arrows connect each inversion to its recession with the lead time in months: 17, 10, 18, 13, 16, etc.]
 
-**Sam:** But you said 12 to 18 months lead time. So when the curve inverts, you should not panic immediately.
+**Stella：** 但你說前置時間有12到18個月。所以當曲線倒掛時，不應該立刻恐慌。
 
-**Alex:** This is crucial. The inversion is an early warning, not an immediate alarm. Many investors see the inversion, sell everything, and then watch the stock market rally for another 12 months before the recession arrives. The correct response is to gradually adjust your portfolio over months: shifting to higher quality stocks, extending bond duration to lock in high rates, building a cash position, and reducing cyclical exposure. Do not panic. Prepare.
+**Horace：** 這一點至關重要。倒掛是早期預警，不是立即的警報。很多投資者一看到倒掛就賣光所有部位，然後眼睜睜地看著股市再上漲12個月，衰退才真正到來。正確的應對是在數個月內逐漸調整投資組合：轉向品質較高的股票、延長債券存續期間以鎖定高利率、建立現金部位、降低景氣循環類股的曝險。不要恐慌，要做好準備。
 
-**Sam:** Now I want to understand the different types of rates because the reading distinguished between spot rates, forward rates, and par rates.
+**Stella：** 現在我想了解不同的利率類型，因為閱讀章節區分了即期利率、遠期利率和票面利率。
 
-**Alex:** Great question. These three are related but different. The spot rate, also called the zero-coupon rate, is the yield on a bond that pays no coupons and just returns your money at maturity. It is the "pure" rate for a specific maturity. The 5-year spot rate tells you exactly what return you get for locking up money for exactly 5 years.
+**Horace：** 好問題，小魚。這三種利率相互關聯，但有所不同。即期利率，也叫零息利率，是零息債券的殖利率——該債券不支付票息，只在到期時歸還本金。它是特定到期日的「純粹」利率。5年期即期利率精確地告訴你，把錢鎖定整整5年能獲得多少報酬。
 
-**Sam:** And a forward rate?
+**Stella：** 那遠期利率呢？
 
-**Alex:** A forward rate is the implied future interest rate derived from today's spot rates. Here is the key idea. If the 1-year spot rate is 3.5% and the 2-year spot rate is 3.8%, we can calculate what the market implies the 1-year rate will be one year from now.
+**Horace：** 遠期利率是由今日即期利率推算出的隱含未來利率。關鍵思路是這樣的：如果1年期即期利率是3.5%，而2年期即期利率是3.8%，我們可以計算出市場隱含的「1年後的1年期利率」是多少。
 
-[VISUAL: A timeline diagram. "Today" at the left. Two paths: Path 1 shows "Invest for 2 years at 3.80% spot rate." Path 2 shows "Invest for 1 year at 3.50%, then reinvest for 1 year at ??? forward rate." Both paths end at the same point. The forward rate of 4.10% is revealed as the rate that makes both paths equivalent.]
+[VISUAL: A timeline diagram. "今日" at the left. Two paths: Path 1 shows "以3.80%的即期利率投資2年." Path 2 shows "以3.50%投資1年，然後以???的遠期利率再投資1年." Both paths end at the same point. The forward rate of 4.10% is revealed as the rate that makes both paths equivalent.]
 
-**Alex:** The math says the implied forward rate is about 4.10%. This means that for both investment paths to give you the same result, the 1-year rate next year would need to be 4.10%. This is what the market is pricing in.
+**Horace：** 計算結果告訴我們，隱含遠期利率約為4.10%。這意味著，要讓這兩條投資路徑給出相同的結果，明年的1年期利率就需要是4.10%。這就是市場正在定價的水準。
 
-**Sam:** Is that what will actually happen?
+**Stella：** 這就是實際會發生的情況嗎？
 
-**Alex:** Not necessarily. Forward rates are market-implied expectations, not forecasts. They can be wrong, and often are. But they tell you what the market is pricing, which is valuable information even if it turns out to be incorrect.
+**Horace：** 不一定。遠期利率是市場隱含的預期，不是預測。它們可能是錯的，而且常常如此。但它們告訴你市場正在定價什麼，即使最終結果不盡相同，這本身也是有價值的資訊。
 
-**Sam:** What about par rates?
+**Stella：** 那票面利率呢？
 
-**Alex:** Par rates are the coupon rates at which a coupon-paying bond would trade exactly at par, at $100. This is what most people see when they look at yield curves on financial news. When CNBC shows the "10-year Treasury yield at 4.4%," that is essentially the par rate. For an upward-sloping curve, par rates are slightly below spot rates because the intermediate coupon payments are discounted at lower short-term rates.
+**Horace：** 票面利率是附息債券恰好以面額（100元）交易時所對應的票息利率。這是大多數人在財經新聞上看到殖利率曲線時所看到的數字。當CNBC報導「10年期公債殖利率4.4%」時，基本上就是票面利率。對於向上傾斜的曲線，票面利率略低於即期利率，因為中間的票息支付是以較低的短期即期利率折現的。
 
-**Sam:** Let us talk about the term premium because this seems like an underappreciated concept.
+**Stella：** 我們來聊聊期限溢酬，因為這個概念似乎常被低估。
 
-**Alex:** The term premium is the extra yield investors demand for bearing the risk of holding longer-maturity bonds. The long-term yield equals the expected average of future short-term rates plus the term premium. If the market expects rates to average 3.5% over the next 10 years, and the 10-year yield is 4.5%, then the term premium is roughly 1%.
+**Horace：** 期限溢酬是投資者因承擔持有長期債券風險所要求的額外殖利率。長期殖利率等於預期未來短期利率的平均值加上期限溢酬。如果市場預期未來10年利率平均為3.5%，而10年期殖利率是4.5%，那麼期限溢酬大約是1%。
 
-**Sam:** So not all of the yield is about rate expectations?
+**Stella：** 所以殖利率並不完全代表利率預期？
 
-**Alex:** Correct. And this distinction matters enormously. During the quantitative easing era, the Fed bought trillions of dollars in long-term bonds. This compressed the term premium, in some estimates pushing it below zero. Investors were actually paying for the privilege of holding long bonds because the Fed was a guaranteed buyer. When QE ended and the Fed started selling bonds (quantitative tightening), the term premium expanded, pushing long rates up even if rate expectations did not change.
+**Horace：** 正確。而且這個區別非常重要。在量化寬鬆時代，聯準會購買了數兆美元的長期債券，這壓縮了期限溢酬，根據某些估算甚至低於零。投資者實際上在為持有長期債券的「特權」付費，因為聯準會是有保障的買家。當量化寬鬆結束、聯準會開始出售債券（量化緊縮）後，期限溢酬擴大，推升長期利率，即使利率預期沒有改變。
 
-[VISUAL: A bar decomposition of the 10-year yield. The bar is split into two segments: "Expected Average Future Rate: 3.80%" (blue) and "Term Premium: 0.70%" (orange). Total: 4.50%. Below, a second bar shows the QE era: "Expected Rate: 3.00%" and "Term Premium: -0.30%". Total: 2.70%. Annotation: "During QE, the term premium was NEGATIVE"]
+[VISUAL: A bar decomposition of the 10-year yield. The bar is split into two segments: "預期未來平均利率：3.80%" (blue) and "期限溢酬：0.70%" (orange). Total: 4.50%. Below, a second bar shows the QE era: "預期利率：3.00%" and "期限溢酬：-0.30%". Total: 2.70%. Annotation: "量化寬鬆期間，期限溢酬為負值"]
 
-**Sam:** That explains why long-term rates can move without the Fed changing policy.
+**Stella：** 這解釋了為什麼長期利率可以在聯準會不改變政策的情況下移動。
 
-**Alex:** Exactly. The long end of the curve is driven by two independent forces: expectations of future Fed policy and the term premium. This is why the 10-year yield can rise even when the Fed is cutting rates, if the term premium is expanding. And it is why the 10-year can fall even when the Fed is raising rates, if the term premium is compressing.
+**Horace：** 完全正確。長端的曲線受到兩股獨立力量驅動：對未來聯準會政策的預期，以及期限溢酬。這就是為什麼即使聯準會在降息，10年期殖利率也可能上升——如果期限溢酬正在擴大的話。也解釋了為什麼即使聯準會在升息，10年期殖利率也可能下跌——如果期限溢酬正在壓縮的話。
 
-**Sam:** How should investors actually use the yield curve in their portfolio decisions?
+**Stella：** 投資者實際上應該怎麼利用殖利率曲線做投資組合決策？
 
-**Alex:** I have a simple framework. When the curve is normal and steep, favor stocks over bonds. Banks and financials do well. Keep bond holdings short-duration. When the curve is flattening, start shifting to higher quality. Watch for the inversion signal. When the curve is inverted, begin gradually reducing stock exposure, extend bond duration to lock in high rates, and build cash.
+**Horace：** 我有一個簡單的框架。當曲線正常且陡峭時，股票優先於債券。銀行股和金融股表現良好。保持債券持倉的短存續期間。當曲線趨平時，開始轉向較高品質的股票，留意倒掛信號。當曲線倒掛時，開始逐步降低股票配置、延長債券存續期間以鎖定高利率、並建立現金部位。
 
-[VISUAL: A decision matrix. Three columns for "Normal/Steep", "Flat/Flattening", "Inverted". Rows for different asset classes: Stocks, Bonds, Cash, Sectors. Each cell has a recommendation with an up/down/neutral arrow.]
+[VISUAL: A decision matrix. Three columns for "正常型/陡峭", "平坦型/趨平", "倒掛型". Rows for different asset classes: 股票, 債券, 現金, 類股. Each cell has a recommendation with an up/down/neutral arrow.]
 
-**Alex:** And here is the often-overlooked signal: when the curve un-inverts, meaning it goes from inverted back to normal, that is when the recession is typically imminent or already starting. The un-inversion happens because the Fed starts cutting rates, pulling the short end down. So paradoxically, the curve normalizing can be the most bearish signal of all.
+**Horace：** 還有一個常被忽略的信號：當曲線「去倒掛」——也就是從倒掛回歸正常時——通常就是衰退即將來臨或已經開始的時刻。去倒掛的發生是因為聯準會開始降息，拉低短端。所以弔詭的是，曲線回歸正常反而可能是最悲觀的信號。
 
-**Sam:** That is counterintuitive. The curve going back to normal is actually worse than being inverted?
+**Stella：** 這真的很違反直覺。曲線回歸正常居然比倒掛更糟糕？
 
-**Alex:** For the near-term economic outlook, yes. The inversion says "recession is coming in 12 to 18 months." The un-inversion says "recession may be starting now." Of course, it also means that once you get through the recession, conditions are set for recovery. The curve steepening from inversion is eventually very bullish, just not immediately.
+**Horace：** 就近期經濟展望而言，是的。倒掛意味著「衰退在12到18個月後到來」。去倒掛意味著「衰退可能現在就在發生」。當然，這也意味著一旦度過衰退，復甦的條件已經成熟。從倒掛開始的曲線陡化，最終對市場非常有利，只是不是立竿見影的。
 
-**Sam:** Let me ask about yield curve movements. How does the curve actually shift?
+**Stella：** 我想了解殖利率曲線的移動方式。曲線實際上是怎麼變化的？
 
-**Alex:** There are four main types of movements. A parallel shift is when all maturities move by the same amount, say everything goes up 50 basis points. A steepening is when long rates rise more than short rates, making the curve more upward-sloping. A flattening is when short rates rise more than long rates, making the curve flatter. And a twist is when short and long rates move in opposite directions.
+**Horace：** 主要有四種移動類型。平行移動是指所有到期日等幅移動，比如所有到期日全部上升50個基點。陡化是指長期利率升幅大於短期利率，使曲線更加向上傾斜。趨平是指短期利率升幅大於長期利率，使曲線更趨平坦。扭轉則是短期和長期利率往相反方向移動。
 
 [ANIMATION: Reference animation/week31_curve_movements.py - Four sequential animations showing each type of yield curve movement. 1) Parallel shift: entire curve lifts up uniformly. 2) Steepening: the right end of the curve lifts while the left stays put. 3) Flattening: the left end lifts while the right stays put. 4) Twist: left end lifts and right end drops simultaneously. Each animation shows a bond portfolio value indicator changing to show the impact.]
 
-**Sam:** And different movements affect different parts of a bond portfolio differently?
+**Stella：** 不同的移動方式對債券投資組合的不同部分影響也不同？
 
-**Alex:** Exactly. A parallel shift hits long bonds hardest because they have the most duration. A steepening specifically hurts the long end. A flattening hurts the short end but may benefit the long end. We will quantify all of this precisely next week when we cover duration and convexity.
+**Horace：** 完全正確。平行移動對長期債券衝擊最大，因為它們的存續期間最長。陡化特別打擊長端。趨平傷害短端，但長端實際上可能受益。下週我們介紹存續期間和凸性時，會精確量化這一切。
 
-**Sam:** How do the key yield curve spreads work? I have heard people talk about the "2s-10s spread."
+**Stella：** 關鍵的殖利率曲線利差是怎麼運作的？我聽過人們談到「2年至10年期利差」。
 
-**Alex:** The 2s-10s spread is the 10-year yield minus the 2-year yield. When it is positive, the curve is normal. When it is negative, the curve is inverted. It normally ranges from plus 100 to plus 200 basis points. The other important spread is the 3-month-to-10-year spread, which the Fed itself uses as its preferred recession indicator because the 3-month rate tracks the Fed Funds rate very closely.
+**Horace：** 2年至10年期利差就是10年期殖利率減去2年期殖利率。正值代表曲線正常，負值代表曲線倒掛。正常情況下，這個利差在正100到正200個基點之間。另一個重要利差是3個月至10年期利差，聯準會自己偏好用這個作為衰退指標，因為3個月期國庫券利率緊密追蹤聯邦基金利率。
 
 [VISUAL: A live-style chart showing the 2y-10y spread over time from 2000 to present. The zero line is highlighted. Periods where the spread dips below zero (2000, 2006, 2019, 2022) are shaded, with subsequent recession periods marked in gray.]
 
-**Sam:** Before we wrap up, where should people go to look at the yield curve?
+**Stella：** 在結束之前，大家應該去哪裡查看殖利率曲線？
 
-**Alex:** The best free resource is FRED, the Federal Reserve Economic Data website. It has the current yield curve, historical data, and tools to plot any spread over time. The U.S. Treasury website publishes daily par yield curve rates. And most brokerage platforms have yield curve tools built in. I recommend checking the yield curve at least weekly, or whenever you hear news about Fed policy changes.
+**Horace：** 最好的免費資源是FRED，也就是聯準會經濟資料庫。它有當前殖利率曲線、歷史資料，以及繪製任何利差歷史走勢的工具。美國財政部網站每天公布平價殖利率曲線利率。大多數券商平台也內建殖利率曲線工具。我建議至少每週查看一次殖利率曲線，或者每當聽到聯準會政策變動的新聞時就去看看。
 
-**Sam:** This has been fascinating. I feel like I understand something that most retail investors completely ignore.
+**Stella：** 這次真的很精彩。我覺得我現在理解了一件大多數散戶投資者完全忽視的事情。
 
-**Alex:** And that is your edge. When you can read the yield curve, you have access to the collective wisdom of the bond market, which is much larger and often smarter than the stock market. Next week, we build on this foundation with duration and convexity, which will give you the mathematical tools to measure exactly how much your bond portfolio will change when the yield curve moves.
+**Horace：** 這就是你的優勢。當你能解讀殖利率曲線時，你就能獲取債券市場的集體智慧——而債券市場比股票市場規模大得多，而且往往更聰明。下週我們將在這個基礎上繼續深入，介紹存續期間和凸性，讓你擁有精確衡量殖利率曲線移動時你的債券投資組合將如何變化的數學工具。
 
-**Sam:** Thanks, everyone. See you next week for duration and convexity.
+**Stella：** 謝謝大家。下週見，我們來聊存續期間和凸性。
 
 [VISUAL: End screen with show logo, "Week 31: Yield Curves" summary, and preview of Week 32: Duration and Convexity]
 
-**Alex:** See you then.
+**Horace：** 下週見。

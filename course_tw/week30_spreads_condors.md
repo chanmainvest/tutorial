@@ -1,128 +1,125 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第三十週：價差與鐵禿鷹——定義風險的選擇權策略
 
-# Week 30: Spreads and Condors - Defined-Risk Options Strategies
+## 閱讀單元
 
-## Reading Section
+### a) 為何本課至關重要
 
-### a) Why This Is Important
+在前幾週，你學習了單腿選擇權策略：買進買權或賣權、賣出掩護性買權，以及賣出現金擔保賣權。這些都是強大的工具，但各有其局限性。掩護性買權需要持有100股股票；現金擔保賣權需要預留完整的現金以備購買股票。兩者都需要相當可觀的資本。
 
-In the previous weeks, you learned single-leg options strategies: buying calls or puts, selling covered calls, and selling cash-secured puts. These are powerful tools, but they have limitations. A covered call requires owning 100 shares of stock. A cash-secured put requires setting aside the full cash to purchase shares. Both demand significant capital.
+**價差策略解決了資本問題。** 透過將兩個或更多選擇權合併為單一部位，你可以建立所需資本大幅減少、且最大獲利與最大虧損均明確定義的交易。這正是價差策略成為專業選擇權交易核心基礎的原因。
 
-**Spreads solve the capital problem.** By combining two or more options into a single position, you can create trades that require far less capital while having clearly defined maximum profit and maximum loss. This is why spreads are the backbone of professional options trading.
+**為何學習價差與鐵禿鷹策略至關重要：**
 
-**Why learning spreads and condors is critical:**
+**1. 風險定義改變一切。** 當你賣出裸賣賣權時，最大虧損是履約價乘以100（若股價歸零）。採用賣權價差，最大虧損是兩履約價之差減去收取的權利金，通常只占裸賣賣權風險的一小部分。這意味著你可以用更少的資本、更低的風險參與選擇權賣方交易。一筆現金擔保賣權可能需要$15,000現金，同樣的部位用價差策略只需$500至$1,000。
 
-**1. Defined risk changes everything.** When you sell a naked put, your maximum loss is the strike price times 100 (if the stock goes to zero). With a put spread, your maximum loss is the difference between strikes minus the premium received, typically a small fraction of the naked put risk. This means you can participate in options selling with a fraction of the capital and a fraction of the risk. A trade that might require $15,000 in cash for a cash-secured put can be replicated for $500-$1,000 with a spread.
+**2. 價差策略讓你表達更細膩的市場觀點。** 單腿選擇權是較粗糙的工具：你要嘛看多、看空，要嘛中性。價差策略讓你表達更精準的觀點，例如「我認為這檔股票在未來30天內會維持在$140到$160之間」、「我認為股票會上漲但不會突破$165」或「我預期波動性將下降」。這些精準的觀點可以被轉化為結構精確的部位。
 
-**2. Spreads allow you to express nuanced market views.** Single-leg options are blunt instruments: you are bullish, bearish, or neutral. Spreads let you express views like "I think the stock will stay between $140 and $160 for the next 30 days" or "I think the stock will go up but not past $165" or "I expect volatility to decrease." These precise views can be translated into precisely structured positions.
+**3. 鐵禿鷹策略是典型的收益策略。** 鐵禿鷹策略在股價維持在區間內時獲利。在大約70至80%時間處於盤整狀態的市場中，這是一個與價格自然趨勢相符的策略。許多全職選擇權交易者將鐵禿鷹策略作為主要的收益工具，在部署的資本上每月穩定創造3至8%的報酬。
 
-**3. Iron condors are the quintessential income strategy.** An iron condor profits when the stock stays within a range. In a market that spends roughly 70-80% of its time in consolidation, this is a strategy that aligns with the natural tendency of prices. Many full-time options traders use iron condors as their primary income vehicle, consistently generating 3-8% per month on capital deployed.
+**4. 價差分析依賴希臘字母。** 本課直接延伸自第二十九週的內容。你將看到如何將不同履約價與類型的選擇權組合，創造出具有客製化希臘字母特性的部位。在價差層面理解Delta、Theta、Vega與Gamma，正是能幹的選擇權交易者與初學者之間的差距。
 
-**4. Spread analysis relies on the Greeks.** This lesson builds directly on Week 29. You will see how combining options with different strikes and types creates positions with customized Greek profiles. Understanding delta, theta, vega, and gamma at the spread level is what separates competent options traders from beginners.
-
-**5. Spreads are the building blocks of advanced strategies.** Butterflies, calendars, diagonals, ratio spreads, and virtually every advanced options strategy is built from the basic spreads you will learn today. Master vertical spreads and iron condors, and you have the foundation for everything that follows.
+**5. 價差策略是進階策略的基石。** 蝶式、日曆、對角線、比率價差，以及幾乎所有進階選擇權策略，都是由你今天將學習的基本價差所構成的。掌握垂直價差與鐵禿鷹策略，你便奠定了後續所有策略的基礎。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### What Is a Spread?
+#### 什麼是價差？
 
-A spread is a position created by simultaneously buying one option and selling another option on the same underlying stock. The options differ in strike price, expiration date, or both. By combining a long and short option, you create a position with limited risk and limited profit potential.
-
-```
-SPREAD = BUY one option + SELL another option
-         (same underlying, same expiration for vertical spreads)
-
-WHY SPREADS EXIST:
-
-  Single Option:  Unlimited profit potential, limited or large risk
-  Spread:         Limited profit potential, LIMITED RISK
-
-  The trade-off: You give up unlimited upside/downside
-  in exchange for defined, manageable risk.
-```
-
-#### Vertical Spreads: The Foundation
-
-A **vertical spread** uses two options with the same expiration date but different strike prices. There are four types:
+價差是一種透過同時買入一個選擇權並賣出另一個選擇權而建立的部位，兩者標的股票相同，但可能在履約價、到期日或兩者皆有所不同。透過結合多頭與空頭選擇權，你建立了一個獲利與虧損均有限的部位。
 
 ```
-THE FOUR VERTICAL SPREADS:
+價差 = 買入一個選擇權 + 賣出另一個選擇權
+       （垂直價差的標的相同、到期日相同）
 
-  +-----------------------------------------------------------+
-  |                     BULLISH                                |
-  |                                                           |
-  |  Bull Call Spread (DEBIT)    Bull Put Spread (CREDIT)     |
-  |  Buy lower strike call      Sell higher strike put        |
-  |  Sell higher strike call    Buy lower strike put          |
-  |  You PAY net premium        You RECEIVE net premium       |
-  |  Profit if stock RISES      Profit if stock stays UP      |
-  +-----------------------------------------------------------+
-  |                     BEARISH                                |
-  |                                                           |
-  |  Bear Put Spread (DEBIT)    Bear Call Spread (CREDIT)     |
-  |  Buy higher strike put      Sell lower strike call        |
-  |  Sell lower strike put      Buy higher strike call        |
-  |  You PAY net premium        You RECEIVE net premium       |
-  |  Profit if stock FALLS      Profit if stock stays DOWN    |
-  +-----------------------------------------------------------+
+價差存在的原因：
+
+  單腿選擇權：獲利潛力無限，風險有限或較大
+  價差策略：  獲利潛力有限，風險定義明確
+
+  取捨之道：你放棄無限的上下行空間，
+  換取明確、可管理的風險。
 ```
 
-#### Debit Spreads vs. Credit Spreads
+#### 垂直價差：基礎
 
-The distinction between debit and credit spreads is fundamental:
-
-**Debit Spread:** You pay money to enter the trade. Your maximum profit occurs when both options expire in the money. You profit from a directional move.
-
-**Credit Spread:** You receive money to enter the trade. Your maximum profit occurs when both options expire out of the money. You profit from the stock staying away from your short strike.
+**垂直價差**使用兩個到期日相同但履約價不同的選擇權。共有四種類型：
 
 ```
-DEBIT vs. CREDIT SPREADS:
+四種垂直價差：
 
-                    DEBIT SPREAD              CREDIT SPREAD
-  Entry Cost:       You PAY premium           You RECEIVE premium
-  Max Profit:       Width - Premium Paid      Premium Received
-  Max Loss:         Premium Paid              Width - Premium Received
-  Profit When:      Stock moves your way      Stock stays away
-  Theta Effect:     NEGATIVE (hurts you)      POSITIVE (helps you)
-  Probability:      Typically < 50%           Typically > 50%
-  Risk/Reward:      Higher reward, lower      Lower reward, higher
-                    probability               probability
-
-  Width = Difference between strike prices
-
-  Example: Bull Call Spread on AAPL at $150
-
-  DEBIT (Bull Call Spread):         CREDIT (Bull Put Spread):
-  Buy $150 Call: -$5.00             Sell $150 Put: +$5.00
-  Sell $155 Call: +$2.50            Buy $145 Put: -$2.50
-  Net: PAY $2.50                    Net: RECEIVE $2.50
-  Max Profit: $5 - $2.50 = $2.50   Max Profit: $2.50
-  Max Loss: $2.50                   Max Loss: $5 - $2.50 = $2.50
+  +------------------------------------------------------------------+
+  |                           看多方向                                |
+  |                                                                  |
+  |  多頭買權價差（借方）              多頭賣權價差（信用）            |
+  |  買入較低履約價買權               賣出較高履約價賣權               |
+  |  賣出較高履約價買權               買入較低履約價賣權               |
+  |  你支付淨權利金                   你收取淨權利金                   |
+  |  股價上漲時獲利                   股價維持偏高時獲利               |
+  +------------------------------------------------------------------+
+  |                           看空方向                                |
+  |                                                                  |
+  |  空頭賣權價差（借方）              空頭買權價差（信用）            |
+  |  買入較高履約價賣權               賣出較低履約價買權               |
+  |  賣出較低履約價賣權               買入較高履約價買權               |
+  |  你支付淨權利金                   你收取淨權利金                   |
+  |  股價下跌時獲利                   股價維持偏低時獲利               |
+  +------------------------------------------------------------------+
 ```
 
-#### Bull Call Spread (Debit Call Spread)
+#### 借方價差與信用價差
 
-The bull call spread is the simplest directional spread. You buy a call at a lower strike and sell a call at a higher strike.
+借方與信用價差的區別是根本性的：
+
+**借方價差：** 你付錢進場。當兩個選擇權都到期價內時，最大獲利實現。你從方向性的股價移動獲利。
+
+**信用價差：** 你進場時收取資金。當兩個選擇權都到期價外時，最大獲利實現。你從股價遠離你的賣出履約價而獲利。
 
 ```
-BULL CALL SPREAD EXAMPLE:
+借方價差與信用價差比較：
 
-  AAPL at $150. You are moderately bullish.
+                    借方價差                  信用價差
+  進場成本：        你支付權利金              你收取權利金
+  最大獲利：        價差寬度 - 已付權利金     已收取的權利金
+  最大虧損：        已付權利金                價差寬度 - 已收取的權利金
+  獲利時機：        股價朝你預期方向移動       股價遠離履約價
+  Theta影響：       負值（對你不利）           正值（對你有利）
+  勝率：            通常低於50%               通常高於50%
+  風報比：          較高報酬、較低            較低報酬、較高
+                    勝率                      勝率
 
-  Buy 1 AAPL $150 Call (30 days): Pay $5.00
-  Sell 1 AAPL $155 Call (30 days): Receive $2.50
-  Net Debit: $2.50 per share ($250 per spread)
+  價差寬度 = 兩個履約價之間的差額
 
-  Max Profit: ($155 - $150) - $2.50 = $2.50/share ($250)
-  Max Loss:   $2.50/share ($250)
-  Breakeven:  $150 + $2.50 = $152.50
+  範例：AAPL $150 的多頭買權價差
 
-  PAYOFF DIAGRAM AT EXPIRATION:
+  借方（多頭買權價差）：               信用（多頭賣權價差）：
+  買入 $150 買權：-$5.00              賣出 $150 賣權：+$5.00
+  賣出 $155 買權：+$2.50             買入 $145 賣權：-$2.50
+  淨值：支付 $2.50                    淨值：收取 $2.50
+  最大獲利：$5 - $2.50 = $2.50       最大獲利：$2.50
+  最大虧損：$2.50                     最大虧損：$5 - $2.50 = $2.50
+```
 
-  P&L
+#### 多頭買權價差（借方買權價差）
+
+多頭買權價差是最直觀的方向性價差策略。你買入較低履約價的買權，並賣出較高履約價的買權。
+
+```
+多頭買權價差範例：
+
+  AAPL 位於 $150，你溫和看多。
+
+  買入1口 AAPL $150 買權（30天）：支付 $5.00
+  賣出1口 AAPL $155 買權（30天）：收取 $2.50
+  淨借方：每股 $2.50（每口價差 $250）
+
+  最大獲利：（$155 - $150）- $2.50 = $2.50/股（$250）
+  最大虧損：$2.50/股（$250）
+  損益平衡點：$150 + $2.50 = $152.50
+
+  到期時的損益圖：
+
+  損益
   +$250 |                          ___________________
         |                     ____/
      $0 |_________________ __/
@@ -131,58 +128,58 @@ BULL CALL SPREAD EXAMPLE:
         +----+----+----+----+----+----+----+----
         $140 $142 $144 $146 $148 $150 $152 $155 $160
                               |         |
-                           Buy Strike  Sell Strike
+                           買入履約價  賣出履約價
                               $150       $155
 
-  Below $150: Both expire worthless. Lose full $250.
-  $150-$155: Long call gains value, short call still OTM.
-  Above $155: Both ITM. Max profit of $250 locked in.
+  低於 $150：兩者均到期無價值。損失全部 $250。
+  $150-$155：多頭買權增值，空頭買權仍為價外。
+  高於 $155：兩者均價內，鎖定最大獲利 $250。
 ```
 
 ```
-GREEKS FOR BULL CALL SPREAD:
+多頭買權價差的希臘字母：
 
-  Component          Delta   Gamma   Theta    Vega
-  =================  ======  ======  ======   =====
-  Long $150 Call     +0.50   +0.03   -$0.08   +$0.10
-  Short $155 Call    -0.30   -0.02   +$0.06   -$0.08
-  ===================================================
-  NET SPREAD         +0.20   +0.01   -$0.02   +$0.02
+  部位                Delta   Gamma   Theta    Vega
+  ==================  ======  ======  ======   =====
+  多頭 $150 買權      +0.50   +0.03   -$0.08   +$0.10
+  空頭 $155 買權      -0.30   -0.02   +$0.06   -$0.08
+  =====================================================
+  淨價差              +0.20   +0.01   -$0.02   +$0.02
 
-  Interpretation:
-  - Low delta (+0.20): Moderate directional exposure
-  - Low gamma (+0.01): Delta is relatively stable
-  - Low theta (-$0.02): Small daily cost ($2/day)
-  - Low vega (+$0.02): Minor volatility sensitivity
+  解讀：
+  - 低Delta（+0.20）：溫和的方向性曝險
+  - 低Gamma（+0.01）：Delta相對穩定
+  - 低Theta（-$0.02）：每日小額成本（每天$2）
+  - 低Vega（+$0.02）：對波動性變化敏感度低
 
-  Compare to buying the $150 call alone:
-  - Delta: +0.50 (2.5x more exposure)
-  - Theta: -$0.08 ($8/day cost, 4x more expensive)
-  - Max loss: $5.00 (2x more risk)
+  與單獨買入 $150 買權相比：
+  - Delta：+0.50（曝險高出2.5倍）
+  - Theta：-$0.08（每天成本$8，貴4倍）
+  - 最大虧損：$5.00（風險高出2倍）
 
-  The spread REDUCES everything: exposure, cost, and risk.
+  價差策略降低了一切：曝險、成本與風險。
 ```
 
-#### Bear Put Spread (Debit Put Spread)
+#### 空頭賣權價差（借方賣權價差）
 
-The bear put spread is the bearish mirror of the bull call spread.
+空頭賣權價差是多頭買權價差的看空鏡像。
 
 ```
-BEAR PUT SPREAD EXAMPLE:
+空頭賣權價差範例：
 
-  AAPL at $150. You are moderately bearish.
+  AAPL 位於 $150，你溫和看空。
 
-  Buy 1 AAPL $150 Put (30 days): Pay $4.80
-  Sell 1 AAPL $145 Put (30 days): Receive $2.30
-  Net Debit: $2.50 per share ($250 per spread)
+  買入1口 AAPL $150 賣權（30天）：支付 $4.80
+  賣出1口 AAPL $145 賣權（30天）：收取 $2.30
+  淨借方：每股 $2.50（每口價差 $250）
 
-  Max Profit: ($150 - $145) - $2.50 = $2.50/share ($250)
-  Max Loss:   $2.50/share ($250)
-  Breakeven:  $150 - $2.50 = $147.50
+  最大獲利：（$150 - $145）- $2.50 = $2.50/股（$250）
+  最大虧損：$2.50/股（$250）
+  損益平衡點：$150 - $2.50 = $147.50
 
-  PAYOFF DIAGRAM AT EXPIRATION:
+  到期時的損益圖：
 
-  P&L
+  損益
   +$250 |___________________
         |                   \____
      $0 |                        \__  _________________
@@ -191,30 +188,30 @@ BEAR PUT SPREAD EXAMPLE:
         +----+----+----+----+----+----+----+----
         $138 $140 $142 $144 $146 $148 $150 $152 $155
                          |              |
-                      Sell Strike    Buy Strike
+                      賣出履約價      買入履約價
                         $145           $150
 ```
 
-#### Credit Spreads: Bull Put Spread and Bear Call Spread
+#### 信用價差：多頭賣權價差與空頭買權價差
 
-Credit spreads are the income-generating versions of vertical spreads. Instead of paying to bet on direction, you collect premium and profit when the stock stays in your favor.
+信用價差是垂直價差中產生收益的版本。你不是付錢賭方向，而是收取權利金，並在股價維持在有利位置時獲利。
 
 ```
-BULL PUT SPREAD (CREDIT) EXAMPLE:
+多頭賣權價差（信用）範例：
 
-  AAPL at $155. You are neutral to bullish.
+  AAPL 位於 $155，你中性偏多。
 
-  Sell 1 AAPL $150 Put (30 days): Receive $2.80
-  Buy 1 AAPL $145 Put (30 days): Pay $1.30
-  Net Credit: $1.50 per share ($150 per spread)
+  賣出1口 AAPL $150 賣權（30天）：收取 $2.80
+  買入1口 AAPL $145 賣權（30天）：支付 $1.30
+  淨信用：每股 $1.50（每口價差 $150）
 
-  Max Profit: $1.50/share ($150) - if AAPL stays above $150
-  Max Loss:   ($150 - $145) - $1.50 = $3.50/share ($350)
-  Breakeven:  $150 - $1.50 = $148.50
+  最大獲利：$1.50/股（$150）——若 AAPL 維持在 $150 以上
+  最大虧損：（$150 - $145）- $1.50 = $3.50/股（$350）
+  損益平衡點：$150 - $1.50 = $148.50
 
-  PAYOFF DIAGRAM AT EXPIRATION:
+  到期時的損益圖：
 
-  P&L
+  損益
   +$150 |                          ___________________
         |                     ____/
      $0 |                ____/
@@ -223,32 +220,32 @@ BULL PUT SPREAD (CREDIT) EXAMPLE:
         +----+----+----+----+----+----+----+----
         $140 $142 $144 $146 $148 $150 $152 $155
                     |              |
-                 Buy Strike    Sell Strike
+                 買入履約價      賣出履約價
                    $145          $150
 
-  PROBABILITY ANALYSIS:
-  Stock needs to stay above $148.50 for profit.
-  Currently at $155, that is $6.50 (4.2%) of cushion.
-  With delta of short put at 0.30, probability of
-  profit is approximately 70%.
+  勝率分析：
+  股價需維持在 $148.50 以上方可獲利。
+  目前位於 $155，距離損益平衡點有 $6.50（4.2%）的緩衝。
+  以空頭賣權的Delta為0.30計算，
+  獲利機率約為 70%。
 ```
 
 ```
-BEAR CALL SPREAD (CREDIT) EXAMPLE:
+空頭買權價差（信用）範例：
 
-  AAPL at $155. You are neutral to bearish.
+  AAPL 位於 $155，你中性偏空。
 
-  Sell 1 AAPL $160 Call (30 days): Receive $2.00
-  Buy 1 AAPL $165 Call (30 days): Pay $0.80
-  Net Credit: $1.20 per share ($120 per spread)
+  賣出1口 AAPL $160 買權（30天）：收取 $2.00
+  買入1口 AAPL $165 買權（30天）：支付 $0.80
+  淨信用：每股 $1.20（每口價差 $120）
 
-  Max Profit: $1.20/share ($120) - if AAPL stays below $160
-  Max Loss:   ($165 - $160) - $1.20 = $3.80/share ($380)
-  Breakeven:  $160 + $1.20 = $161.20
+  最大獲利：$1.20/股（$120）——若 AAPL 維持在 $160 以下
+  最大虧損：（$165 - $160）- $1.20 = $3.80/股（$380）
+  損益平衡點：$160 + $1.20 = $161.20
 
-  PAYOFF DIAGRAM AT EXPIRATION:
+  到期時的損益圖：
 
-  P&L
+  損益
   +$120 |___________________
         |                   \____
      $0 |                        \__
@@ -257,93 +254,92 @@ BEAR CALL SPREAD (CREDIT) EXAMPLE:
         +----+----+----+----+----+----+----+----
         $150 $152 $155 $158 $160 $162 $164 $166
                               |              |
-                           Sell Strike    Buy Strike
+                           賣出履約價      買入履約價
                              $160          $165
 ```
 
-#### Capital Efficiency of Spreads
+#### 價差策略的資本效率
 
 ```
-CAPITAL COMPARISON:
+資本需求比較：
 
-  Strategy                  Capital Required    Max Profit   Max Loss   ROI
-  ========================  ================    ==========   ========   ====
-  Cash-Secured Put $150     $15,000             $280         $15,000    1.9%
-  Bull Put Spread           $350 (margin)       $150         $350       42.9%
-    $150/$145
+  策略                     所需資本            最大獲利   最大虧損   報酬率
+  =======================  ================    ========   ========   ======
+  現金擔保賣權 $150         $15,000            $280       $15,000    1.9%
+  多頭賣權價差
+    $150/$145              $350（保證金）      $150       $350       42.9%
 
-  100 Shares of Stock       $15,500             Unlimited    $15,500    n/a
-  Bull Call Spread           $250                $250         $250       100%
-    $150/$155
+  持有100股股票             $15,500            無限       $15,500    不適用
+  多頭買權價差
+    $150/$155              $250               $250       $250       100%
 
-  NOTE: Spread returns look high but remember:
-  - Cash-secured put has ~80% win rate, spread has ~70%
-  - Spread max loss happens more frequently as % of capital
-  - Capital efficiency must be weighed against win rate
-  - Never risk more than 2-5% of portfolio on a single spread
+  注意事項：價差策略的報酬率看起來很高，但請記住：
+  - 現金擔保賣權勝率約80%，價差策略約70%
+  - 價差策略的最大虧損以資本百分比計算更常發生
+  - 資本效率必須與勝率一同衡量
+  - 單一價差部位的風險永遠不超過投資組合的2至5%
 ```
 
-#### The Iron Condor
+#### 鐵禿鷹策略
 
-An iron condor combines a bull put spread and a bear call spread on the same stock with the same expiration. It profits when the stock stays within a range.
+鐵禿鷹策略在同一標的股票、相同到期日上，結合多頭賣權價差與空頭買權價差。當股價維持在區間內時獲利。
 
 ```
-IRON CONDOR STRUCTURE:
+鐵禿鷹策略結構：
 
-  An iron condor is TWO credit spreads:
+  鐵禿鷹策略是兩個信用價差的組合：
 
-  Bull Put Spread (below market):
-    Sell Put at Strike B
-    Buy Put at Strike A (lower, protection)
+  多頭賣權價差（市場下方）：
+    在履約價B賣出賣權
+    在履約價A買入賣權（較低，作為保護）
 
-  Bear Call Spread (above market):
-    Sell Call at Strike C
-    Buy Call at Strike D (higher, protection)
+  空頭買權價差（市場上方）：
+    在履約價C賣出買權
+    在履約價D買入買權（較高，作為保護）
 
-  A < B < Current Price < C < D
+  A < B < 目前股價 < C < D
 
-  VISUAL:
+  示意圖：
 
-                      Current Price
+                       目前股價
                            |
-  Buy Put   Sell Put       |       Sell Call   Buy Call
+  買入賣權  賣出賣權        |       賣出買權    買入買權
     (A)       (B)          |         (C)         (D)
      |         |           |          |           |
      v         v           v          v           v
   ===|=========|===========|==========|===========|===
   $135       $140        $150       $160        $165
      <-------->                       <---------->
-     Protection                       Protection
-        Wing                             Wing
+     保護翼                            保護翼
                <------------------------->
-                   Profit Zone
+                       獲利區間
 ```
 
 ```
-IRON CONDOR EXAMPLE:
+鐵禿鷹策略範例：
 
-  AAPL at $150. You expect it to stay between $140 and $160.
+  AAPL 位於 $150，你預期股價將維持在 $140 與 $160 之間。
 
-  Bull Put Spread (downside):
-    Sell 1 AAPL $140 Put:  Receive $1.20
-    Buy 1 AAPL $135 Put:   Pay $0.50
+  多頭賣權價差（下方保護）：
+    賣出1口 AAPL $140 賣權：收取 $1.20
+    買入1口 AAPL $135 賣權：支付 $0.50
 
-  Bear Call Spread (upside):
-    Sell 1 AAPL $160 Call:  Receive $1.00
-    Buy 1 AAPL $165 Call:   Pay $0.30
+  空頭買權價差（上方保護）：
+    賣出1口 AAPL $160 買權：收取 $1.00
+    買入1口 AAPL $165 買權：支付 $0.30
 
-  TOTAL Net Credit: $1.20 - $0.50 + $1.00 - $0.30 = $1.40/share
-  Total Credit Received: $140 per iron condor
+  總淨信用：$1.20 - $0.50 + $1.00 - $0.30 = $1.40/股
+  收取的總信用：每口鐵禿鷹策略 $140
 
-  Max Profit: $1.40/share ($140) - both spreads expire worthless
-  Max Loss:   $5.00 - $1.40 = $3.60/share ($360) - one side breached
-  Width:      $5.00 (difference between strikes in each spread)
-  Breakeven (lower): $140 - $1.40 = $138.60
-  Breakeven (upper): $160 + $1.40 = $161.40
+  最大獲利：$1.40/股（$140）——兩個價差均到期無價值
+  最大虧損：$5.00 - $1.40 = $3.60/股（$360）——任一側被突破
+  價差寬度：$5.00（各個價差中履約價之間的差額）
+  下方損益平衡點：$140 - $1.40 = $138.60
+  上方損益平衡點：$160 + $1.40 = $161.40
 
-  PAYOFF DIAGRAM AT EXPIRATION:
+  到期時的損益圖：
 
-  P&L
+  損益
   +$140 |              _________________________
         |         ____/                         \____
      $0 |    ____/                                   \____
@@ -352,462 +348,460 @@ IRON CONDOR EXAMPLE:
         +----+----+----+----+----+----+----+----+----+----+----
         $130 $133 $136 $139 $142 $145 $148 $151 $154 $157 $160 $165
               |         |                        |         |
-           Buy Put   Sell Put                Sell Call  Buy Call
+           買入賣權  賣出賣權                 賣出買權   買入買權
             $135      $140                     $160      $165
 
-  PROFIT ZONE: $138.60 to $161.40 (a $22.80 range)
-  Stock needs to move less than 7.6% in either direction.
+  獲利區間：$138.60 至 $161.40（共 $22.80 的區間）
+  股價只需在任一方向波動不超過 7.6%。
 ```
 
 ```
-IRON CONDOR GREEKS:
+鐵禿鷹策略的希臘字母：
 
-  Component              Delta   Gamma   Theta    Vega
-  =====================  ======  ======  ======   =====
-  Short $140 Put         +0.18   -0.015  +$0.04   -$0.06
-  Long $135 Put          -0.10   +0.010  -$0.02   +$0.04
-  Short $160 Call        -0.15   -0.012  +$0.03   -$0.05
-  Long $165 Call         +0.08   +0.008  -$0.02   +$0.03
-  =======================================================
-  NET IRON CONDOR        +0.01   -0.009  +$0.03   -$0.04
+  部位                    Delta   Gamma   Theta    Vega
+  ======================  ======  ======  ======   =====
+  空頭 $140 賣權          +0.18   -0.015  +$0.04   -$0.06
+  多頭 $135 賣權          -0.10   +0.010  -$0.02   +$0.04
+  空頭 $160 買權          -0.15   -0.012  +$0.03   -$0.05
+  多頭 $165 買權          +0.08   +0.008  -$0.02   +$0.03
+  =========================================================
+  淨鐵禿鷹策略            +0.01   -0.009  +$0.03   -$0.04
 
-  Interpretation:
-  - Delta near zero: Market neutral (this is the point!)
-  - Negative gamma: Big moves in either direction hurt
-  - Positive theta: Earning ~$3/day from time decay
-  - Negative vega: Benefits from declining IV
+  解讀：
+  - Delta近乎為零：市場中性（這正是重點！）
+  - 負Gamma：任一方向的大幅波動都會造成損害
+  - 正Theta：每天從時間價值衰減中獲取約$3
+  - 負Vega：受益於隱含波動率下降
 
-  IDEAL CONDITIONS FOR IRON CONDORS:
-  1. High IV (more premium to collect, and IV likely to fall)
-  2. Range-bound market (stock staying between strikes)
-  3. 30-45 days to expiration (optimal theta decay)
-  4. No major catalysts expected (earnings, FDA, etc.)
+  鐵禿鷹策略的理想條件：
+  1. 高隱含波動率（可收取更多權利金，且隱含波動率可能回落）
+  2. 區間震盪的市場（股價維持在履約價之間）
+  3. 距到期日30至45天（最佳Theta衰減時機）
+  4. 預期沒有重大催化事件（財報、FDA審核等）
 ```
 
-#### Probability and Expected Value
+#### 機率與期望值
 
-Understanding probability is essential for spread trading.
-
-```
-PROBABILITY FRAMEWORK FOR CREDIT SPREADS:
-
-  The short strike's delta approximates the probability
-  of that strike being breached at expiration.
-
-  Example: Iron Condor on AAPL at $150
-
-  Short $140 Put:  Delta = 0.18 -> ~18% chance of breach
-  Short $160 Call: Delta = 0.15 -> ~15% chance of breach
-
-  Probability of EITHER side being breached:
-    ~18% + ~15% = ~33% (approximately, assuming independence)
-
-  Probability of profit (both sides expire OTM):
-    ~67%
-
-  EXPECTED VALUE CALCULATION:
-
-  Win:  67% x $140 profit = +$93.80
-  Lose: 33% x $360 loss   = -$118.80
-  Expected Value per trade = -$25.00
-
-  WAIT, THAT IS NEGATIVE?
-
-  Yes, if you hold to expiration and never manage the position.
-  But active management changes this dramatically.
-
-  WITH ACTIVE MANAGEMENT (close at 50% profit, close at 2x loss):
-
-  Adjusted win rate: ~78% (closing early captures more wins)
-  Adjusted avg win:  $70 (50% of $140)
-  Adjusted avg loss: $200 (closing at 2x loss before max loss)
-
-  Win:  78% x $70  = +$54.60
-  Lose: 22% x $200 = -$44.00
-  Expected Value per trade = +$10.60
-
-  MANAGEMENT IS WHAT MAKES IRON CONDORS PROFITABLE.
-```
-
-#### Managing Spread Trades
-
-Management is the most important skill in spread trading. Here are the key rules.
+理解機率對於價差交易至關重要。
 
 ```
-MANAGEMENT RULES FOR CREDIT SPREADS AND IRON CONDORS:
+信用價差的機率框架：
 
-  RULE 1: TAKE PROFITS EARLY
-    - Close at 50% of max profit (e.g., sold for $1.40, buy back at $0.70)
-    - Why? The last 50% of profit takes disproportionately more time
-      and carries more risk. Closing early frees capital for new trades.
-    - A trader who closes at 50% and redeploys capital can often
-      make more than holding a single position to expiration.
+  空頭履約價的Delta大致反映該履約價到期時被突破的機率。
 
-  RULE 2: CUT LOSSES AT A PREDETERMINED LEVEL
-    - Close if loss reaches 1.5x to 2x the credit received
-    - Example: Received $1.40, close if spread is worth $2.80-$3.50
-    - Never let a spread go to max loss. Max loss means you held
-      through the worst possible outcome.
+  範例：AAPL $150 的鐵禿鷹策略
 
-  RULE 3: CLOSE BEFORE EXPIRATION WEEK
-    - Gamma risk makes the last week dangerous
-    - Close or roll 7-10 days before expiration
-    - The last 10% of profit is not worth the gamma risk
+  空頭 $140 賣權：Delta = 0.18 → 約18%的突破機率
+  空頭 $160 買權：Delta = 0.15 → 約15%的突破機率
 
-  RULE 4: DO NOT DEFEND LOSING POSITIONS BLINDLY
-    - Rolling a losing spread can work, but only if the thesis
-      (stock staying in range) is still intact.
-    - If the stock has fundamentally broken out of your range,
-      close the trade and accept the loss.
+  任一側被突破的機率：
+    約18% + 15% = 約33%（假設相互獨立，為近似值）
+
+  獲利機率（兩側均到期價外）：
+    約67%
+
+  期望值計算：
+
+  獲利：67% x $140 獲利 = +$93.80
+  虧損：33% x $360 損失 = -$118.80
+  每筆交易期望值 = -$25.00
+
+  等等，期望值是負的？
+
+  是的，如果你持有到期且從不管理部位。
+  但主動管理將大幅改變這個結果。
+
+  採用主動管理（50%獲利平倉，2倍虧損平倉）：
+
+  調整後勝率：約78%（提前平倉捕獲更多勝局）
+  調整後平均獲利：$70（$140的50%）
+  調整後平均虧損：$200（在最大虧損前以2倍虧損平倉）
+
+  獲利：78% x $70  = +$54.60
+  虧損：22% x $200 = -$44.00
+  每筆交易期望值 = +$10.60
+
+  主動管理才是讓鐵禿鷹策略獲利的關鍵。
+```
+
+#### 管理價差交易
+
+管理是價差交易中最重要的技能。以下是關鍵規則。
+
+```
+信用價差與鐵禿鷹策略的管理規則：
+
+  規則一：提早獲利了結
+    - 在最大獲利的50%時平倉（例如以$1.40賣出，在$0.70買回）
+    - 原因？最後50%的獲利需要不成比例的更多時間，
+      且承擔更多風險。提早平倉可釋放資金進行新交易。
+    - 在50%時平倉並重新部署資金的交易者，
+      往往比持有單一部位至到期賺得更多。
+
+  規則二：在預定水位認損
+    - 若虧損達到收取信用的1.5至2倍時平倉
+    - 範例：收取 $1.40，若價差價值達 $2.80至$3.50 則平倉
+    - 永遠不要讓價差達到最大虧損。最大虧損意味著你
+      撐過了最糟糕的結果。
+
+  規則三：在到期週前平倉
+    - Gamma風險在最後一週會變得極為危險
+    - 在到期前7至10天平倉或移倉展期
+    - 最後10%的獲利不值得承擔Gamma風險
+
+  規則四：不要盲目地為虧損部位辯護
+    - 展期虧損的價差有時可行，但前提是
+      你的論點（股價維持在區間內）仍然成立。
+    - 若股票已從根本上突破你的區間，
+      平倉並接受損失。
 ```
 
 ```
-ROLLING A CREDIT SPREAD:
+展期信用價差：
 
-  Original Position:
-    Sold AAPL $140/$135 Put Spread for $1.40
-    15 days to expiration
-    AAPL has dropped to $142 (threatening the $140 short strike)
+  原始部位：
+    以 $1.40 賣出 AAPL $140/$135 賣權價差
+    距到期日15天
+    AAPL 已下跌至 $142（空頭履約價 $140 面臨威脅）
 
-  OPTION 1: Close for a loss
-    Spread is now worth $2.50
-    Loss: $2.50 - $1.40 = $1.10/share ($110 per spread)
+  選項一：認損平倉
+    價差目前價值 $2.50
+    損失：$2.50 - $1.40 = $1.10/股（每口價差$110損失）
 
-  OPTION 2: Roll down and out
-    Close current spread: Pay $2.50
-    Open new spread 30 days out:
-      Sell $138/$133 Put Spread: Receive $1.80
-    Net debit to roll: $2.50 - $1.80 = $0.70
-    Total at risk: $1.40 (original) + $0.70 (roll cost) = $2.10
-    But now you have 30 more days and a lower short strike ($138)
+  選項二：往下移倉展期
+    平倉目前價差：支付 $2.50
+    建立新的30天後到期價差：
+      賣出 $138/$133 賣權價差：收取 $1.80
+    展期淨借方：$2.50 - $1.80 = $0.70
+    總風險：$1.40（原始）+ $0.70（展期成本）= $2.10
+    但現在你多了30天且空頭履約價更低（$138）
 
-  WHEN TO ROLL vs. WHEN TO CLOSE:
+  何時展期，何時平倉：
 
-  Roll if:
-    - Stock is near but not through your short strike
-    - You can collect meaningful credit for the new position
-    - Your original thesis (range-bound) still applies
-    - IV has not collapsed (rolling into low-IV options is poor value)
+  展期條件：
+    - 股價接近但尚未突破你的空頭履約價
+    - 你可以為新部位收取有意義的信用
+    - 你的原始論點（區間震盪）仍然成立
+    - 隱含波動率尚未崩潰（在低隱含波動率時展期效益差）
 
-  Close if:
-    - Stock has blown through your short strike significantly
-    - Your thesis is broken (trend has changed)
-    - The roll does not provide meaningful credit improvement
-    - You have already rolled once (avoid "rolling into a hole")
+  平倉條件：
+    - 股票已大幅突破你的空頭履約價
+    - 你的論點已失效（趨勢已改變）
+    - 展期無法帶來有意義的信用改善
+    - 你已展期一次（避免「越展越深的洞」）
 ```
 
-#### Position Sizing for Spreads
+#### 價差交易的部位規模
 
 ```
-POSITION SIZING GUIDELINES:
+部位規模指南：
 
-  RULE: Never risk more than 2-5% of total portfolio on a
-  single spread or iron condor.
+  規則：單一價差或鐵禿鷹策略的風險永遠不超過總投資組合的2至5%。
 
-  Example: $100,000 portfolio, 3% risk per trade
+  範例：$100,000 投資組合，每筆交易3%風險
 
-  Max risk per trade: $3,000
+  每筆交易最大風險：$3,000
 
-  Iron Condor max loss: $360 per condor
+  鐵禿鷹策略最大虧損：每口 $360
 
-  Maximum contracts: $3,000 / $360 = 8 iron condors
+  最大合約數：$3,000 / $360 = 8口鐵禿鷹策略
 
-  DIVERSIFICATION:
-    - Spread risk across 3-5 different underlyings
-    - Stagger entry dates (do not enter all at once)
-    - Mix strike widths based on conviction
-    - Keep total portfolio risk in spreads under 15-20%
+  分散配置：
+    - 將風險分散至3至5個不同標的
+    - 錯開進場日期（不要同時全部進場）
+    - 根據確信度混合不同的價差寬度
+    - 價差策略的總投資組合風險控制在15至20%以內
 
-  EXAMPLE ALLOCATION ($100,000 portfolio):
+  配置範例（$100,000 投資組合）：
 
-  Position                          Contracts   Max Risk   % of Port
-  ================================  =========   ========   =========
-  AAPL Iron Condor (30 days)        3           $1,080     1.1%
-  SPY Iron Condor (45 days)         2           $720       0.7%
-  MSFT Bull Put Spread (30 days)    4           $1,200     1.2%
-  QQQ Bear Call Spread (30 days)    3           $960       1.0%
+  部位                            合約數   最大風險   占比
+  ==============================  ======   ========   ======
+  AAPL 鐵禿鷹策略（30天）         3        $1,080     1.1%
+  SPY 鐵禿鷹策略（45天）          2        $720       0.7%
+  MSFT 多頭賣權價差（30天）       4        $1,200     1.2%
+  QQQ 空頭買權價差（30天）        3        $960       1.0%
   ================================================================
-  TOTAL                             12          $3,960     4.0%
+  合計                            12       $3,960     4.0%
 
-  Remaining 96% of portfolio is in stocks, bonds, and cash.
-  Options spreads are an income overlay, not the core portfolio.
+  投資組合中剩餘96%配置於股票、債券與現金。
+  選擇權價差是收益疊加策略，而非核心投資組合。
 ```
 
-#### Choosing Strike Width and Distance
+#### 選擇價差寬度與距離
 
 ```
-STRIKE WIDTH COMPARISON ($5 vs. $10 vs. $20 width):
+價差寬度比較（$5、$10 與 $20 寬度）：
 
-  AAPL at $150, 30 days, Bull Put Spread:
+  AAPL 位於 $150，30天，多頭賣權價差：
 
-  $5 Width ($145/$140):
-    Credit: $0.80    Max Loss: $4.20    ROC: 19%    Win Rate: ~75%
-    Capital at risk per spread: $420
+  $5 寬度（$145/$140）：
+    信用：$0.80    最大虧損：$4.20    資本報酬率：19%    勝率：約75%
+    每口價差風險資本：$420
 
-  $10 Width ($145/$135):
-    Credit: $1.10    Max Loss: $8.90    ROC: 12%    Win Rate: ~75%
-    Capital at risk per spread: $890
+  $10 寬度（$145/$135）：
+    信用：$1.10    最大虧損：$8.90    資本報酬率：12%    勝率：約75%
+    每口價差風險資本：$890
 
-  $20 Width ($145/$125):
-    Credit: $1.30    Max Loss: $18.70   ROC: 7%     Win Rate: ~75%
-    Capital at risk per spread: $1,870
+  $20 寬度（$145/$125）：
+    信用：$1.30    最大虧損：$18.70   資本報酬率：7%     勝率：約75%
+    每口價差風險資本：$1,870
 
-  OBSERVATIONS:
-  - Narrower spreads have higher ROC (return on capital)
-  - Wider spreads collect more total credit but lower ROC
-  - Win rate is the same (determined by short strike, not width)
-  - Narrower spreads reach max loss more quickly
-  - For iron condors, $5 width is most common for retail traders
+  觀察：
+  - 較窄價差有更高的資本報酬率
+  - 較寬價差收取更多總信用但資本報酬率較低
+  - 勝率相同（由空頭履約價決定，而非寬度）
+  - 較窄價差達到最大虧損的速度更快
+  - 對零售交易者而言，$5寬度的鐵禿鷹策略最為常見
 
-  RECOMMENDED: $5 width for accounts under $100,000
-               $10 width for larger accounts or higher conviction
+  建議：帳戶規模低於$100,000使用$5寬度
+        帳戶規模較大或確信度較高時使用$10寬度
 ```
 
 ```
-STRIKE DISTANCE (HOW FAR OTM):
+履約價距離（距價外多遠）：
 
-  Probability   Short Strike Delta   Typical Distance OTM   Credit
-  ===========   ==================   ====================   ======
-  High win      0.10-0.15            12-18% OTM             Low
-  Moderate      0.20-0.30            6-12% OTM              Moderate
-  Aggressive    0.35-0.45            2-6% OTM               High
+  機率等級   空頭履約價Delta   距現價價外幅度      信用金額
+  ========  ================  ==================  ======
+  高勝率     0.10-0.15         價外12-18%          低
+  適中       0.20-0.30         價外6-12%           中等
+  積極進取   0.35-0.45         價外2-6%            高
 
-  SWEET SPOT: Short strike at delta 0.15-0.25 (10-15% OTM)
-  Provides 70-80% probability of profit with reasonable premium.
+  最佳區間：空頭履約價Delta在0.15至0.25（價外10至15%）
+  提供70至80%的獲利機率，同時有合理的權利金。
 
-  For iron condors, aim for short strikes at ~1 standard deviation
-  from current price. Your brokerage platform can show you the
-  expected move based on implied volatility.
+  對於鐵禿鷹策略，目標是將空頭履約價設在
+  距目前股價約一個標準差的位置。
+  你的券商平台可以根據隱含波動率顯示預期波動範圍。
 
-  EXPECTED MOVE CALCULATION:
+  預期波動範圍計算：
 
-  Expected Move = Stock Price x IV x sqrt(DTE/365)
+  預期波動範圍 = 股價 x 隱含波動率 x sqrt（到期天數/365）
 
-  Example: AAPL at $150, IV = 25%, 30 days
-  Expected Move = $150 x 0.25 x sqrt(30/365)
-                = $150 x 0.25 x 0.287
-                = $10.76
+  範例：AAPL 位於 $150，隱含波動率 = 25%，30天
+  預期波動範圍 = $150 x 0.25 x sqrt（30/365）
+               = $150 x 0.25 x 0.287
+               = $10.76
 
-  So the market expects AAPL to move about $10.76 in 30 days.
-  Selling strikes at $140 put and $160 call places you near
-  one standard deviation, which is breached about 32% of the time
-  (16% on each side).
+  因此市場預期 AAPL 在30天內約波動 $10.76。
+  在 $140 賣權與 $160 買權設置空頭履約價，
+  使你接近一個標準差，約有32%的機率被突破
+  （每側各16%）。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Spreads are just for advanced traders."**
+**迷思一：「價差策略只適合進階交易者。」**
 
-Spreads are actually safer than many single-leg strategies. A defined-risk spread has a known maximum loss before you enter the trade. Compare this to selling a naked put or owning stock, where losses can be dramatically larger. Spreads should be learned early in an options education, not treated as "advanced." They require a different approval level at most brokerages (typically Level 3), but the concepts are straightforward.
+實際上，價差策略比許多單腿策略更為安全。定義風險的價差在進場前便有已知的最大虧損。相比之下，賣出裸賣賣權或持有股票的損失可能大得多。價差策略應在選擇權學習初期就加以掌握，而不是被視為「進階」技巧。大多數券商確實需要更高的帳戶核准等級（通常為三級），但概念本身並不複雜。
 
-**Misconception 2: "Iron condors are a guaranteed income strategy."**
+**迷思二：「鐵禿鷹策略是穩賺不賠的收益策略。」**
 
-No options strategy guarantees income. Iron condors have high win rates (65-80%) but the losses when they occur are typically larger than the wins. A single bad month can erase several months of gains. The key is proper position sizing (never more than 2-5% risk per trade) and active management (taking profits early and cutting losses). Without discipline, iron condors can produce devastating drawdowns.
+沒有任何選擇權策略保證獲利。鐵禿鷹策略勝率高（65至80%），但發生虧損時，損失金額通常大於獲利。一個糟糕的月份可以抹去好幾個月的獲利。關鍵在於適當的部位規模（每筆交易風險永遠不超過2至5%）與主動管理（提早獲利了結、果斷認損）。沒有紀律，鐵禿鷹策略可能造成災難性的回撤。
 
-**Misconception 3: "Wider spreads are always better because you collect more premium."**
+**迷思三：「較寬的價差總是更好，因為可以收取更多權利金。」**
 
-Wider spreads collect more total premium but have lower return on capital and reach max loss in the same scenarios. A $10-wide spread is not twice as profitable as a $5-wide spread; it simply uses more capital for incrementally more premium. For most retail traders, $5-wide spreads provide the best balance of capital efficiency and manageable risk.
+較寬的價差可以收取更多總權利金，但資本報酬率較低，且在相同情境下達到最大虧損。$10寬度的價差並不是$5寬度的兩倍獲利；它只是使用更多資本換取增量較少的權利金。對大多數零售交易者來說，$5寬度的價差在資本效率與可管理的風險之間提供了最佳平衡。
 
-**Misconception 4: "I should always hold my spreads to expiration to capture the full credit."**
+**迷思四：「我應該持有價差部位至到期，以獲取全額信用。」**
 
-This is one of the most common and costly mistakes. Research from options analytics firms consistently shows that closing credit spreads at 50% of maximum profit and redeploying capital produces better risk-adjusted returns than holding to expiration. Holding the last 50% of profit exposes you to rapidly increasing gamma risk for diminishing reward.
+這是最常見且代價最高的錯誤之一。來自選擇權分析公司的研究一致顯示，在最大獲利的50%時平倉信用價差並重新部署資金，能產生比持有至到期更好的風險調整後報酬。持有最後50%的獲利使你承受急劇上升的Gamma風險，換來的報酬卻遞減。
 
-**Misconception 5: "Credit spreads are always better than debit spreads."**
+**迷思五：「信用價差總是優於借方價差。」**
 
-Neither is inherently better. Credit spreads benefit from time decay and have higher probability but lower reward-to-risk. Debit spreads cost money but profit from directional moves. The choice depends on your market outlook. In high-IV environments, credit spreads are typically favored. In low-IV environments or with a strong directional conviction, debit spreads can be more efficient.
+兩者都沒有天生的優勢。信用價差受益於時間價值衰減且勝率較高，但風報比較低。借方價差需要付出成本，但從方向性的股價移動中獲利。選擇取決於你的市場觀點。在高隱含波動率環境下，通常較青睞信用價差；在低隱含波動率環境下，或有強烈方向性確信時，借方價差可能更有效率。
 
-**Misconception 6: "If both legs of my spread expire out of the money, I always keep the full credit."**
+**迷思六：「只要我的價差兩腿都到期價外，我就能保有全額信用。」**
 
-This is true if both legs expire truly OTM. But beware of "pin risk" near expiration. If the stock closes right at your short strike, you may be assigned on the short leg while the long leg expires worthless. This leaves you with an unwanted stock position. To avoid this, close spreads before expiration, even if they are near worthless.
-
----
-
-### d) Q&A
-
-**Q: What brokerage approval level do I need to trade spreads?**
-
-A: Most brokerages require Level 3 options approval for defined-risk spreads (vertical spreads and iron condors). This typically requires some options trading experience, a margin account, and answering questions about your options knowledge. The approval process varies by broker. Fidelity, Schwab, TD Ameritrade, and Interactive Brokers all offer spread trading with appropriate approval. If you have been trading covered calls and cash-secured puts (Levels 1-2), upgrading to Level 3 is usually straightforward.
-
-**Q: How much capital do I need to start trading spreads?**
-
-A: Technically, you can trade a single $5-wide spread with as little as $500 in margin. However, a more practical minimum is $10,000-$25,000. This allows you to diversify across multiple positions while keeping each trade under 5% of your capital. With $25,000, you could comfortably run 5-8 iron condors across different underlyings and expirations.
-
-**Q: Should I trade iron condors on individual stocks or on indexes like SPY?**
-
-A: Both work, but index options (SPY, QQQ, IWM) have advantages. They are more liquid, have tighter bid-ask spreads, cannot gap as dramatically as individual stocks (no single-stock earnings risk), and qualify for favorable 60/40 tax treatment if you use SPX options. Many professional iron condor traders focus exclusively on SPX or SPY. Individual stocks can work but carry event risk (earnings, FDA decisions, etc.) that can blow through strikes overnight.
-
-**Q: What happens if one side of my iron condor is breached?**
-
-A: If the stock moves through one of your short strikes, that side of the iron condor is in danger. The other side is now deeply out of the money and nearly worthless, which is good. Your options are: (1) Close the entire iron condor and take the loss. (2) Close only the threatened side and let the profitable side continue. (3) Roll the threatened side further out in time or further out of the money. Option 2 is common: close the losing side, and the winning side's remaining credit partially offsets your loss.
-
-**Q: How do I calculate my return on capital for a spread?**
-
-A: Return on capital (ROC) for a credit spread is: Credit Received divided by Max Loss. For a $5-wide bull put spread that collects $1.50, max loss is $3.50, and ROC is $1.50/$3.50 = 42.9%. If you close at 50% profit ($0.75), your actual ROC is $0.75/$3.50 = 21.4%. To annualize, divide by the number of days held and multiply by 365. If you held for 20 days: 21.4% x (365/20) = 390% annualized. These percentages sound high but remember, they apply only to the small amount of capital at risk, not your entire portfolio.
-
-**Q: Can I leg into a spread, buying one side first and selling the other later?**
-
-A: You can, but it is generally not recommended for beginners. Legging in exposes you to execution risk. If you buy the long option and the stock moves before you can sell the short option, you may get a worse price on the spread. Most brokerage platforms allow you to enter spreads as a single order, which guarantees you get both legs filled at your desired net price. Use the spread order functionality.
-
-**Q: How many iron condors should I have on at one time?**
-
-A: For a typical retail account ($50,000-$200,000), 3-5 iron condor positions at any given time is reasonable. Diversify across different underlyings and stagger entry dates by one to two weeks. This ensures you do not have all positions expiring at the same time and reduces correlation risk. Total capital at risk in iron condors should not exceed 15-20% of your portfolio.
+若兩腿確實到期價外，這是正確的。但要注意到期日附近的「釘選風險」。若股票收盤價恰好在你的空頭履約價附近，你可能被指派空頭腿，而多頭腿卻到期無價值。這會讓你持有不想要的股票部位。為避免這種情況，請在到期前平倉價差，即使接近無價值也應如此。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：交易價差需要什麼等級的券商核准？**
+
+答：大多數券商要求定義風險價差（垂直價差與鐵禿鷹策略）需達到三級選擇權核准。這通常需要一些選擇權交易經歷、保證金帳戶，以及回答關於選擇權知識的問題。核准流程因券商而異。Fidelity、Schwab、TD Ameritrade 與 Interactive Brokers 在適當核准下均提供價差交易。若你已在交易掩護性買權與現金擔保賣權（一至二級），升級至三級通常相當簡單。
+
+**問：開始交易價差需要多少資本？**
+
+答：技術上，你可以用$500的保證金交易一口$5寬度的價差。然而，更實際的最低金額是$10,000至$25,000。這讓你能在多個部位之間分散配置，同時將每筆交易控制在資本的5%以內。有了$25,000，你可以舒適地在不同標的與到期日執行5至8口鐵禿鷹策略。
+
+**問：我應該在個股還是SPY等指數上交易鐵禿鷹策略？**
+
+答：兩者都可行，但指數選擇權（SPY、QQQ、IWM）有其優勢。它們流動性更好、買賣價差更窄、不會像個股那樣大幅跳空（無單一股票財報風險），且若使用SPX選擇權，符合60/40稅務優惠待遇。許多專業的鐵禿鷹策略交易者專注在SPX或SPY上。個股可行，但存在事件風險（財報、FDA決策等），可能在一夜之間突破履約價。
+
+**問：若鐵禿鷹策略的某一側被突破，該怎麼辦？**
+
+答：若股票移動穿越你的某個空頭履約價，那一側就面臨危險。另一側此時大幅價外且接近無價值，這是好事。你的選項有：（1）平倉整個鐵禿鷹策略並承受損失。（2）僅平倉受威脅的一側，讓獲利的一側繼續。（3）將受威脅的一側展期至更低的履約價或更遠的到期日。第二個選項很常見：平倉虧損的一側，而獲利一側剩餘的信用可部分抵消你的損失。
+
+**問：如何計算價差的資本報酬率？**
+
+答：信用價差的資本報酬率（ROC）計算方式為：收取的信用除以最大虧損。對於一口收取$1.50信用的$5寬度多頭賣權價差，最大虧損為$3.50，ROC = $1.50/$3.50 = 42.9%。若你在50%獲利時平倉（$0.75），實際ROC = $0.75/$3.50 = 21.4%。若要年化，除以持有天數再乘以365。若持有20天：21.4% x（365/20）= 390%年化報酬率。這些百分比看起來很高，但請記住，它們僅適用於風險資本的小額部分，而非整個投資組合。
+
+**問：我可以分批建立價差部位，先買一腿再賣另一腿嗎？**
+
+答：技術上可以，但通常不建議初學者這樣做。分批建倉存在執行風險。若你先買入多頭選擇權，股票在你賣出空頭選擇權前就移動了，你可能在價差上得到較差的成交價。大多數券商平台允許你以單一委託單進入價差部位，確保兩腿都以你期望的淨價格成交。請使用價差委託單功能。
+
+**問：我同時應該持有幾口鐵禿鷹策略？**
+
+答：對於典型的零售帳戶（$50,000至$200,000），同時持有3至5個鐵禿鷹策略部位是合理的。在不同標的之間分散配置，並將進場日期錯開一至兩週。這確保你的部位不會全部在同一時間到期，也降低了相關性風險。鐵禿鷹策略的總風險資本不應超過投資組合的15至20%。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 30: Spreads and Condors - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we learned the option Greeks. This week we are going to use those Greeks to build more sophisticated options positions. We are talking about spreads and iron condors.
+**Horace：** 歡迎回來。上週我們學習了選擇權希臘字母。這週我們要用這些希臘字母來建構更複雜的選擇權部位。我們要談的是價差策略與鐵禿鷹策略。
 
-**Sam:** This is exciting because one of the limitations of covered calls and cash-secured puts is the capital requirement. You need to own 100 shares or set aside $14,000 in cash. Spreads seem like they can do similar things with much less capital.
+**Stella：** 這真的很讓人期待，因為掩護性買權與現金擔保賣權有一個限制，就是資本需求。你需要持有100股或預留$14,000現金。價差策略感覺用少得多的資本就能達到類似的效果。
 
-**Alex:** That is exactly right. A cash-secured put on Apple might require $15,000 in capital. A put spread on Apple might require $350. You achieve similar economic exposure with a fraction of the capital. And more importantly, your maximum loss is defined before you enter the trade.
+**Horace：** 完全正確。蘋果的現金擔保賣權可能需要$15,000的資本。蘋果的賣權價差可能只需要$350。你用一小部分的資本達到類似的經濟曝險。更重要的是，你的最大虧損在進場前就已確定。
 
-[VISUAL: Side-by-side comparison. Left: "Cash-Secured Put" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "Bull Put Spread" showing $350 capital, $150 max profit, $350 max loss. Annotation: "27x less capital required."]
+[VISUAL: Side-by-side comparison. Left: "現金擔保賣權" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "多頭賣權價差" showing $350 capital, $150 max profit, $350 max loss. Annotation: "所需資本減少27倍。"]
 
-**Sam:** Let us start with the basics. What exactly is a spread?
+**Stella：** 我們先從基礎開始。什麼是價差策略？
 
-**Alex:** A spread is simply buying one option and selling another option on the same stock. By combining a long and short option, you create a position where both your profit and your loss are limited. The two options partially offset each other.
+**Horace：** 價差策略就是同時在同一標的股票上買入一個選擇權並賣出另一個選擇權。透過結合多頭與空頭選擇權，你建立了一個獲利與虧損都有限的部位。兩個選擇權互相部分抵消。
 
-**Sam:** And there are different types of spreads?
+**Stella：** 價差策略有不同的類型嗎？
 
-**Alex:** There are four basic vertical spreads. A vertical spread means both options have the same expiration but different strike prices. You have the bull call spread, the bear put spread, the bull put spread, and the bear call spread. The first two are debit spreads where you pay money to enter. The second two are credit spreads where you receive money to enter.
+**Horace：** 有四種基本的垂直價差。垂直價差是指兩個選擇權的到期日相同但履約價不同。分別是多頭買權價差、空頭賣權價差、多頭賣權價差與空頭買權價差。前兩種是借方價差，進場時需要付錢；後兩種是信用價差，進場時收取資金。
 
-[VISUAL: A 2x2 grid. Columns: "Debit (You Pay)" and "Credit (You Receive)". Rows: "Bullish" and "Bearish". Bull Call Spread in top-left, Bull Put Spread in top-right, Bear Put Spread in bottom-left, Bear Call Spread in bottom-right]
+[VISUAL: A 2x2 grid. Columns: "借方（你付錢）" and "信用（你收取）". Rows: "看多" and "看空". 多頭買權價差 in top-left, 多頭賣權價差 in top-right, 空頭賣權價差 in bottom-left, 空頭買權價差 in bottom-right]
 
-**Sam:** Let us walk through a bull call spread first since it is the most intuitive.
+**Stella：** 我們先來走過多頭買權價差，因為它最直觀。
 
-**Alex:** Sure. Let us say Apple is at $150 and you are moderately bullish. You buy the $150 call for $5.00 and you sell the $155 call for $2.50. Your net cost is $2.50 per share, or $250 per spread. That is your maximum loss. Your maximum profit is the difference between the strikes, $5.00, minus what you paid, $2.50, which equals $2.50 per share or $250.
+**Horace：** 好的。假設蘋果在$150，你溫和看多。你以$5.00買入$150買權，以$2.50賣出$155買權。淨成本是每股$2.50，即每口價差$250。這是你的最大虧損。最大獲利是兩個履約價之差$5.00，減去你支付的$2.50，等於每股$2.50或$250。
 
 [ANIMATION: Reference animation/week30_spread_payoff.py - Building a spread payoff diagram step by step. First, the long call payoff line appears (the classic hockey stick shape starting at -$500 at $150 and rising after $150). Then the short call payoff appears (inverted hockey stick starting at +$250 at $155). Finally, the two are combined into the spread payoff, which shows the characteristic shape: flat at -$250 below $150, rising between $150 and $155, and flat at +$250 above $155.]
 
-**Sam:** So my maximum risk is the $250 I paid, and no matter how high Apple goes, I can only make $250?
+**Stella：** 所以我的最大風險是付出的$250，不管蘋果漲多高，我最多只能賺$250？
 
-**Alex:** Correct. You have capped both your downside and your upside. The breakeven is $152.50, which is the lower strike plus the premium paid. Below $150, you lose the full $250. Between $150 and $155, your profit increases linearly. Above $155, you keep the maximum $250.
+**Horace：** 完全正確。你同時限制了下行與上行空間。損益平衡點是$152.50，也就是較低履約價加上支付的權利金。低於$150，損失全部$250。在$150至$155之間，獲利線性增加。高於$155，鎖定最大獲利$250。
 
-**Sam:** And how does this compare to just buying the $150 call outright?
+**Stella：** 與直接買入$150買權相比如何？
 
-**Alex:** Great question. If you just bought the $150 call for $5.00, your maximum loss is $500, and your profit potential is unlimited. The spread costs $250 instead of $500, so you risk half as much. But you give up anything above $155. The spread is more capital efficient but has a capped reward.
+**Horace：** 好問題。若你直接以$5.00買入$150買權，最大虧損是$500，獲利潛力無限。價差策略的成本是$250而非$500，風險只有一半。但你放棄了$155以上的所有漲幅。價差策略資本效率更高，但報酬有上限。
 
-[VISUAL: Two payoff diagrams overlaid. Solid line: Bull Call Spread, showing the characteristic capped shape. Dashed line: Long Call alone, showing unlimited upside. The area between them above $155 is shaded and labeled "Upside you give up in exchange for lower cost and lower risk"]
+[VISUAL: Two payoff diagrams overlaid. Solid line: 多頭買權價差, showing the characteristic capped shape. Dashed line: 單獨多頭買權, showing unlimited upside. The area between them above $155 is shaded and labeled "為了降低成本與風險而放棄的上行空間"]
 
-**Sam:** Now let us talk about credit spreads. These are the income-generating version, right?
+**Stella：** 現在讓我們談談信用價差。這是產生收益的版本，對嗎？
 
-**Alex:** Exactly. With a credit spread, you receive money upfront and your goal is for both options to expire worthless. Let me walk through a bull put spread. Apple is at $155. You sell the $150 put for $2.80 and buy the $145 put for $1.30. You receive a net credit of $1.50 per share, or $150 per spread.
+**Horace：** 確實。使用信用價差，你預先收取資金，目標是讓兩個選擇權都到期無價值。讓我帶你走過一個多頭賣權價差。蘋果在$155。你以$2.80賣出$150賣權，以$1.30買入$145賣權。淨收取的信用是每股$1.50，即每口價差$150。
 
-**Sam:** So I get paid $150 to enter the trade. What are the outcomes?
+**Stella：** 所以我進場時收取$150。有哪些可能的結果？
 
-**Alex:** If Apple stays above $150 at expiration, both puts expire worthless and you keep the entire $150. That is your maximum profit. If Apple drops below $145, you hit maximum loss: the $5.00 width minus the $1.50 credit, which is $3.50 per share or $350 per spread. In between, there is a breakeven at $148.50.
+**Horace：** 若蘋果在到期時維持在$150以上，兩個賣權均到期無價值，你保留整個$150。這是你的最大獲利。若蘋果跌破$145，你達到最大虧損：$5.00的價差寬度減去$1.50的信用，等於每股$3.50或$350。兩者之間的損益平衡點在$148.50。
 
-[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL currently at $155 - you have $6.50 of cushion"]
+[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL 目前位於 $155——你有 $6.50 的緩衝空間"]
 
-**Sam:** So I need Apple to stay above $148.50 to profit. And it is currently at $155. That seems very doable.
+**Stella：** 所以我需要蘋果維持在$148.50以上才能獲利。而目前它在$155。看起來很容易實現。
 
-**Alex:** And that is the appeal of credit spreads. You do not need the stock to go up. You just need it to not go down too much. The probability of profit is around 70% for this trade, based on the delta of the short strike.
+**Horace：** 這正是信用價差的吸引力所在。你不需要股票上漲，只需要它不要跌太多。這筆交易的獲利機率約為70%，這是根據空頭履約價的Delta計算得出的。
 
-**Sam:** Now let us get to the star of the show. The iron condor.
+**Stella：** 現在讓我們進入主角——鐵禿鷹策略。
 
-**Alex:** The iron condor is simply a bull put spread and a bear call spread on the same stock, same expiration. You are selling premium on both sides, betting that the stock stays within a range.
+**Horace：** 鐵禿鷹策略就是在同一標的股票、相同到期日上，結合多頭賣權價差與空頭買權價差。你在兩側都賣出權利金，押注股票維持在一個區間內。
 
 [ANIMATION: Reference animation/week30_iron_condor_build.py - Building an iron condor step by step. First, a stock price at $150 with a number line. Then the bull put spread appears below: sell $140 put and buy $135 put, with the payoff shape shown below the line. Then the bear call spread appears above: sell $160 call and buy $165 call, with the payoff shape shown above the line. Finally, both are combined into the complete iron condor payoff, showing the characteristic "table top" shape: loss zones on both ends, profit plateau in the middle.]
 
-**Sam:** Walk me through a specific example.
+**Stella：** 可以帶我走過一個具體的例子嗎？
 
-**Alex:** Apple is at $150. On the downside, I sell the $140 put for $1.20 and buy the $135 put for $0.50. On the upside, I sell the $160 call for $1.00 and buy the $165 call for $0.30. Total credit received: $1.40 per share, or $140 per iron condor.
+**Horace：** 當然。蘋果在$150。下方，我以$1.20賣出$140賣權，以$0.50買入$135賣權。上方，我以$1.00賣出$160買權，以$0.30買入$165買權。收取的總信用：每股$1.40，即每口鐵禿鷹策略$140。
 
-**Sam:** And the maximum loss?
+**Stella：** 最大虧損呢？
 
-**Alex:** The maximum loss is the width of one spread, $5.00, minus the total credit, $1.40, which equals $3.60 per share or $360. This happens if Apple drops below $135 or rises above $165 at expiration.
+**Horace：** 最大虧損是一個價差的寬度$5.00，減去總信用$1.40，等於每股$3.60或$360。這在蘋果到期時跌破$135或漲過$165時發生。
 
-**Sam:** What is the profit zone?
+**Stella：** 獲利區間是什麼？
 
-**Alex:** The profit zone is between the two breakevens. Lower breakeven is $140 minus $1.40, which is $138.60. Upper breakeven is $160 plus $1.40, which is $161.40. So Apple needs to stay between $138.60 and $161.40. That is a $22.80 range, or about 7.6% in either direction from the current price.
+**Horace：** 獲利區間在兩個損益平衡點之間。下方損益平衡點是$140減去$1.40，等於$138.60。上方損益平衡點是$160加上$1.40，等於$161.40。所以蘋果需要維持在$138.60至$161.40之間，這是一個$22.80的區間，相當於目前股價任一方向的7.6%。
 
-[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "Profit Zone: $138.60 to $161.40 (15.2% total range)" and "Probability of Profit: ~67%"]
+[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "獲利區間：$138.60 至 $161.40（總計15.2%的區間）" and "獲利機率：約67%"]
 
-**Sam:** Let us look at the Greeks for this iron condor, because that connects to what we learned last week.
+**Stella：** 讓我們看看這個鐵禿鷹策略的希臘字母，因為這連結到我們上週學的內容。
 
-**Alex:** Great idea. The iron condor has near-zero delta, which means it is market neutral. It does not care if the stock goes up or down a little. It has negative gamma, which means big moves in either direction hurt. It has positive theta, meaning you earn money every day from time decay. And it has negative vega, meaning you benefit when implied volatility decreases.
+**Horace：** 好主意。鐵禿鷹策略的Delta接近於零，意味著它是市場中性的，不在乎股票是小漲還是小跌。它有負的Gamma，意味著任一方向的大幅波動都會造成傷害。它有正的Theta，每天從時間價值衰減中獲利。還有負的Vega，意味著你受益於隱含波動率下降。
 
-[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/day (with a dollar sign icon). Vega: -$4 per 1% IV (with a down-arrow icon). Commentary below each: "Market neutral", "Big moves hurt", "Earns $3/day", "Lower IV helps"]
+[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/天 (with a dollar sign icon). Vega: -$4 每1% IV (with a down-arrow icon). Commentary below each: "市場中性", "大幅波動有害", "每天賺$3", "較低隱含波動率有利"]
 
-**Sam:** So it is basically a bet that things stay boring?
+**Stella：** 所以基本上是押注事情維持無聊？
 
-**Alex:** That is a perfect way to describe it. And here is the thing: markets are boring most of the time. Stocks spend roughly 70 to 80% of their time in consolidation ranges. The iron condor is designed to profit during those boring periods.
+**Horace：** 這個形容非常貼切。而且事實是：市場大部分時間確實很「無聊」。股票大約有70至80%的時間都在盤整區間內波動。鐵禿鷹策略正是設計來在那些平淡時期獲利的。
 
-**Sam:** OK, now here is the critical question. How do we manage these positions? Because I know from the reading that management is what separates profitable condor traders from losing ones.
+**Stella：** 好，現在關鍵問題來了。我們如何管理這些部位？因為我從閱讀材料中知道，管理能力才是讓鐵禿鷹策略交易者盈利與虧損的分水嶺。
 
-**Alex:** This is the most important part of the entire lesson. Rule number one: take profits early. When your iron condor has captured 50% of the maximum profit, close it. Do not wait for the remaining 50%.
+**Horace：** 這是整堂課最重要的部分。規則一：提早獲利了結。當你的鐵禿鷹策略獲取了最大獲利的50%時，平倉它。不要等待剩餘的50%。
 
-**Sam:** Why not? If it is working, why not let it run?
+**Stella：** 為什麼不等？如果進行得順利，為何要提早出場？
 
-**Alex:** Because the risk-reward flips. In the first half of the trade, you are capturing $70 of profit while risking a $360 max loss. Once you have captured $70, you are now risking $360 to make an additional $70. The last 50% of profit takes disproportionately longer and exposes you to increasing gamma risk as expiration approaches.
+**Horace：** 因為風報比翻轉了。在交易的前半段，你在風險最大虧損$360的情況下獲取$70的獲利。一旦你已經獲取了$70，你現在是在冒$360的風險去賺額外的$70。最後50%的獲利需要不成比例的更長時間，並在到期日接近時暴露你於日益增加的Gamma風險。
 
-[VISUAL: A risk/reward timeline. Left side "Day 1-15" showing "Earning $70 profit" with low risk meter. Right side "Day 15-30" showing "Earning final $70" with high risk meter. Arrow pointing to day 15 saying "Close here for optimal risk-adjusted return"]
+[VISUAL: A risk/reward timeline. Left side "第1至15天" showing "賺取$70獲利" with low risk meter. Right side "第15至30天" showing "賺取最後$70" with high risk meter. Arrow pointing to day 15 saying "在此平倉可獲得最佳風險調整後報酬"]
 
-**Sam:** That makes a lot of sense. What is rule number two?
+**Stella：** 這很有道理。規則二是什麼？
 
-**Alex:** Cut your losses at a predetermined level. I recommend closing if the loss reaches 1.5 to 2 times the credit received. So if you received $1.40, close if the spread is worth $2.80 to $3.50. Never let a spread reach maximum loss.
+**Horace：** 在預定水位認損。我建議若虧損達到收取信用的1.5至2倍時平倉。所以若收取了$1.40，若價差價值達到$2.80至$3.50時平倉。永遠不要讓價差達到最大虧損。
 
-**Sam:** And rule number three?
+**Stella：** 規則三呢？
 
-**Alex:** Close before expiration week. Gamma risk becomes extreme in the last five to seven trading days, especially for at-the-money strikes. If the stock has drifted toward one of your short strikes, you are sitting on a time bomb of gamma. Close the position and redeploy into a new expiration cycle.
+**Horace：** 在到期週前平倉。Gamma風險在最後五至七個交易日會變得極為嚴重，尤其是對平價履約價而言。若股票漂移至你的某個空頭履約價附近，你等於坐在一顆Gamma定時炸彈上。平倉部位，進入新的到期週期。
 
-[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "Trading Zone". Days 22-25 in yellow labeled "Consider closing". Days 26-30 in red labeled "Danger Zone - Close!"]
+[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "交易區間". Days 22-25 in yellow labeled "考慮平倉". Days 26-30 in red labeled "危險區——平倉！"]
 
-**Sam:** What if one side of the condor is being threatened? Like if Apple starts dropping toward my $140 put?
+**Stella：** 若鐵禿鷹策略的某一側受到威脅怎麼辦？例如蘋果開始向$140賣權靠近？
 
-**Alex:** You have several options. First, you can close the entire iron condor and accept the loss on the threatened side while banking the profit on the winning side. Second, you can close just the threatened side and leave the winning side on. Third, you can roll the threatened side to a lower strike and further expiration.
+**Horace：** 你有幾個選項。第一，平倉整個鐵禿鷹策略，承受受威脅那側的損失，同時兌現獲利那側的收益。第二，只平倉受威脅的那側，讓獲利的那側繼續持有。第三，將受威脅的那側展期至更低的履約價或更遠的到期日。
 
-**Sam:** Can you walk through the rolling scenario?
+**Stella：** 你能帶我走過展期的情境嗎？
 
-**Alex:** Sure. Say you sold the $140/$135 put spread as part of your condor, and Apple has dropped to $142. The put spread is now worth $2.50, meaning you have a $1.10 loss on that side. But the call spread side is nearly worthless since Apple moved away from $160. You can close the entire put spread for $2.50, then simultaneously sell a new $138/$133 put spread 30 days out for maybe $1.80. Your net cost to roll is $0.70. You now have more time and a lower short strike.
+**Horace：** 當然。假設你賣出$140/$135賣權價差作為鐵禿鷹策略的一部分，而蘋果已下跌至$142。賣權價差現在價值$2.50，意味著那一側有$1.10的虧損。但買權價差那側幾乎無價值，因為蘋果已遠離$160。你可以以$2.50平倉整個賣權價差，然後同時賣出30天後到期的新$138/$133賣權價差，或許可收取$1.80。展期的淨成本是$0.70。你現在有更多時間，且空頭履約價更低。
 
 [ANIMATION: Reference animation/week30_condor_adjustment.py - An iron condor payoff diagram on a stock that starts at $150. The stock price dot moves to $142. The left side of the condor flashes red. Then the animation shows the left side being "lifted" and moved to a new, lower position ($138/$133), with the payoff diagram adjusting in real-time. A timer resets from 15 days to 45 days, showing the extra time gained.]
 
-**Sam:** But you only roll if your thesis is intact, right? If Apple is crashing because of bad news, maybe you just close and move on.
+**Stella：** 但你只有在論點仍然成立的情況下才展期，對嗎？如果蘋果是因為壞消息而暴跌，或許就直接平倉認賠走人。
 
-**Alex:** Exactly. Rolling is for when the stock has drifted but your thesis of range-bound behavior is still valid. If the stock has fundamentally broken out, if there is a regime change, close the position and reassess. Never roll into a hole. One roll is fine. Two rolls is aggressive. Three rolls means your thesis was wrong.
+**Horace：** 完全正確。展期適用於股票漂移但你的區間震盪論點仍然有效的情況。若股票已根本性地突破，若趨勢已改變，就平倉並重新評估。永遠不要越展越深。展期一次可以，激進的展期第二次。若要展第三次，意味著你的論點從一開始就錯了。
 
-**Sam:** Let us talk about position sizing. How many condors should someone trade?
+**Stella：** 讓我們談談部位規模。一個人應該交易多少口鐵禿鷹策略？
 
-**Alex:** The golden rule is never risk more than 2 to 5% of your total portfolio on a single spread or iron condor. For a $100,000 portfolio at 3% risk per trade, your max risk is $3,000. With an iron condor that has $360 max loss, you could trade up to 8 contracts. But I would suggest diversifying across 3 to 5 different underlyings rather than putting all 8 contracts on one stock.
+**Horace：** 黃金法則是，單一價差或鐵禿鷹策略的風險永遠不超過總投資組合的2至5%。對於$100,000的投資組合，每筆交易風險3%，最大風險是$3,000。每口鐵禿鷹策略最大虧損$360，最多可交易8口合約。但我建議分散在3至5個不同標的上，而不是把全部8口都押在同一支股票上。
 
-[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "Options Spreads - Active Income". The rest shows "Stocks 60%", "Bonds 25%", "Cash 11%". A zoom-in on the Options Spreads slice shows it divided into: "AAPL Condor 1.1%", "SPY Condor 0.7%", "MSFT Put Spread 1.2%", "QQQ Call Spread 1.0%"]
+[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "選擇權價差——主動收益". The rest shows "股票 60%", "債券 25%", "現金 11%". A zoom-in on the Options Spreads slice shows it divided into: "AAPL 鐵禿鷹策略 1.1%", "SPY 鐵禿鷹策略 0.7%", "MSFT 賣權價差 1.2%", "QQQ 買權價差 1.0%"]
 
-**Sam:** What about choosing between individual stocks and indexes for iron condors?
+**Stella：** 對於鐵禿鷹策略，選擇個股還是SPY等指數好呢？
 
-**Alex:** Indexes like SPY, QQQ, and IWM have major advantages for iron condors. They are extremely liquid with tight bid-ask spreads. They cannot gap as dramatically as individual stocks because they are diversified baskets. And if you use SPX options instead of SPY, they qualify for 60/40 tax treatment: 60% long-term capital gains and 40% short-term, regardless of how long you hold. That tax advantage alone can add 1 to 2% annually.
+**Horace：** 指數型選擇權如SPY、QQQ、IWM對於鐵禿鷹策略有重大優勢。它們流動性極高，買賣價差很窄。它們不會像個股那樣大幅跳空，因為它們是分散的一籃子股票。另外，若你使用SPX選擇權而非SPY，符合六四稅務優惠待遇：60%享有長期資本利得稅率，40%為短期，無論持有多久都是如此。光是這個稅務優勢每年就能增加1至2%的報酬。
 
-**Sam:** But individual stocks have higher premiums, right? Because they are more volatile?
+**Stella：** 但個股的權利金比較高，對吧？因為波動性更大？
 
-**Alex:** They do, and that is the tradeoff. Higher premium but also higher risk. An individual stock can gap 10% on earnings. SPY might gap 3% on a terrible news day. For pure income generation via iron condors, I lean toward index options. For directional views expressed through spreads, individual stocks can make sense.
+**Horace：** 確實，而這就是取捨之道。權利金更高，但風險也更大。個股可能因財報而跳空10%。SPY在極糟的消息日可能跳空3%。純粹以鐵禿鷹策略產生收益而言，我傾向選擇指數型選擇權。若要透過價差策略表達方向性觀點，個股可能更有意義。
 
-**Sam:** Let me ask about debit spreads versus credit spreads. When would I use one over the other?
+**Stella：** 讓我問問借方價差與信用價差的問題。什麼時候該用哪一種？
 
-**Alex:** Use credit spreads when implied volatility is high and you want to profit from time decay. You are essentially saying, "I do not think the stock will reach this level." Use debit spreads when you have a directional conviction and IV is low or moderate. You are saying, "I think the stock will move in this direction." High IV makes credit spreads attractive because you collect more premium. Low IV makes debit spreads attractive because options are cheap to buy.
+**Horace：** 當隱含波動率偏高且你想從時間價值衰減獲利時，使用信用價差。你基本上是在說：「我不認為股票會到達這個水位。」當你有方向性確信且隱含波動率偏低或適中時，使用借方價差。你是在說：「我認為股票會往這個方向移動。」高隱含波動率使信用價差具有吸引力，因為你收取更多權利金；低隱含波動率使借方價差具有吸引力，因為選擇權買起來便宜。
 
-[VISUAL: A decision flowchart. "What is your view?" branches into "Directional" and "Neutral/Range-bound". "Directional" leads to "Is IV high?" If yes: "Credit spread in the direction you expect". If no: "Debit spread in the direction you expect". "Neutral/Range-bound" leads directly to "Iron Condor (credit on both sides)"]
+[VISUAL: A decision flowchart. "你的觀點是什麼？" branches into "方向性" and "中性/區間震盪". "方向性" leads to "隱含波動率是否偏高？". If yes: "朝預期方向的信用價差". If no: "朝預期方向的借方價差". "中性/區間震盪" leads directly to "鐵禿鷹策略（兩側均賣出信用）"]
 
-**Sam:** Before we wrap up, can you give me the key metrics to check before entering a spread trade?
+**Stella：** 在我們結束之前，可以給我進場價差交易前要確認的關鍵指標嗎？
 
-**Alex:** Here is my checklist. One, probability of profit should be above 60% for credit spreads. Two, risk-to-reward ratio should be reasonable, ideally the maximum loss should be no more than 3 to 4 times the maximum profit for credit spreads. Three, the credit received should be at least 20 to 30% of the width of the spread to ensure adequate premium. Four, implied volatility rank should be above 30 for credit spreads, meaning IV is in the upper third of its annual range. Five, there should be no major earnings or catalysts before expiration. And six, position size should be under 5% of portfolio risk.
+**Horace：** 以下是我的確認清單。第一，信用價差的獲利機率應高於60%。第二，風報比應合理，理想上信用價差的最大虧損不超過最大獲利的3至4倍。第三，收取的信用應至少是價差寬度的20至30%，以確保收取了足夠的權利金。第四，隱含波動率排名應高於30，意味著隱含波動率處於年度範圍的前三分之一。第五，到期前不應有重大財報或催化事件。第六，部位風險應低於投資組合的5%。
 
-[VISUAL: Checklist displayed on screen: "Pre-Trade Checklist for Credit Spreads" with six items, each with a checkbox: "1. Probability of Profit > 60%", "2. Max Loss < 4x Max Profit", "3. Credit > 20% of spread width", "4. IV Rank > 30", "5. No earnings/catalysts in window", "6. Position risk < 5% of portfolio"]
+[VISUAL: Checklist displayed on screen: "信用價差進場前確認清單" with six items, each with a checkbox: "1. 獲利機率 > 60%", "2. 最大虧損 < 最大獲利的4倍", "3. 信用 > 價差寬度的20%", "4. 隱含波動率排名 > 30", "5. 交易期間無財報/催化事件", "6. 部位風險 < 投資組合的5%"]
 
-**Sam:** That is a solid framework. I feel like I could actually start using this.
+**Stella：** 這是一個扎實的框架。我覺得我真的可以開始運用這套方法了。
 
-**Alex:** And you should start small. Paper trade your first 10 iron condors. Get comfortable with the mechanics, the management rules, and the emotional discipline of taking profits at 50% and cutting losses at 2x. Once you are consistent in paper trading, move to one or two real contracts.
+**Horace：** 你應該從小規模開始。先模擬交易你的前10口鐵禿鷹策略。熟悉操作機制、管理規則，以及在50%時獲利了結、在2倍虧損時認損的情緒紀律。一旦在模擬交易中保持一致性，再移至一至兩口真實合約。
 
-**Sam:** Next week we are moving to fixed income, right? Yield curves?
+**Stella：** 下週我們要進入固定收益，對嗎？殖利率曲線？
 
-**Alex:** That is right. We are taking a break from options to build our bond knowledge. We will come back to options in Week 37. But everything we learned about Greeks and spreads will be waiting for you when we return.
+**Horace：** 沒錯。我們要暫別選擇權，建構我們的債券知識。我們將在第三十七週回到選擇權主題。但我們學過的希臘字母與價差知識會在你回來時等著你。
 
-**Sam:** Thanks, everyone. See you next week.
+**Stella：** 謝謝大家，我們下週見。
 
-[VISUAL: End screen with show logo, "Week 30: Spreads and Condors" summary, and preview of Week 31: Yield Curves]
+[VISUAL: End screen with show logo, "第三十週：價差與鐵禿鷹策略" summary, and preview of Week 31: 殖利率曲線]
 
-**Alex:** See you then.
+**Horace：** 下週見。

@@ -1,356 +1,405 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+Now I have the full terminology glossary. Let me produce the Taiwan Traditional Chinese translation:
 
-# Side Lesson 27: Watchlist Building and Stock Screening
-
----
-
-## Part 1: Reading Section
+```markdown
+# 補充課第27課：觀察名單建立與選股篩選
 
 ---
 
-### Introduction
-
-With thousands of publicly traded stocks across global markets, finding investment opportunities without a systematic process is like searching for a needle in a haystack. Stock screeners and watchlist management transform investing from a haphazard activity into a disciplined research workflow. Whether you are a value investor looking for undervalued companies, a growth investor seeking high-revenue businesses, or a dividend investor building an income stream, a well-designed screening and watchlist process is your most valuable tool for generating ideas and staying organized.
+## 第一部分：閱讀章節
 
 ---
 
-### A) Why Important
+### 簡介
 
-**Information overload management.** There are approximately 4,000 stocks listed on major US exchanges, over 6,000 if you include OTC markets, and tens of thousands globally. No one can analyze every company. Screening narrows the universe to a manageable number of candidates that meet your specific criteria, saving enormous amounts of time.
-
-**Discipline enforcement.** A systematic screening process prevents you from chasing headlines, hot tips, or social media hype. By defining your criteria in advance, you make decisions based on data rather than emotion. This is one of the most reliable ways to improve long-term investment results.
-
-**Consistency.** Using the same screening criteria over time allows you to compare opportunities on an equal basis. Without a consistent process, you might apply different standards to different stocks based on how excited or nervous you feel about them, introducing bias that hurts returns.
-
-**Opportunity identification.** Some of the best investment opportunities are in companies you have never heard of. Screeners surface these hidden gems by focusing on financial characteristics rather than brand recognition or media coverage. Many successful value investors credit their screening process for finding their best ideas.
-
-**Research efficiency.** A well-organized watchlist with sector groupings and priority tiers ensures you spend your limited research time on the most promising candidates. Instead of randomly reading about whatever catches your eye, you work through a prioritized pipeline of ideas that have already passed your initial filters.
-
-**Pattern recognition.** Over time, running screens regularly helps you develop intuition about what constitutes an attractive investment. You begin to recognize patterns in valuations, growth rates, and financial health that textbooks alone cannot teach.
+全球市場上有數千支公開交易的股票，若沒有系統化流程，尋找投資機會猶如大海撈針。選股篩選工具與觀察名單管理，能將投資從雜亂無章的活動，轉化為有紀律的研究工作流程。無論你是尋找被低估公司的價值型投資人、追求高營收企業的成長型投資人，還是建立收益來源的股利型投資人，設計良好的篩選與觀察名單流程，都是你產生投資構想與保持有序的最重要工具。
 
 ---
 
-### B) What You Need to Know
+### A) 為何重要
 
-#### Stock Screeners: Tools and Platforms
+**資訊超載管理。** 美國主要交易所約有4,000支股票掛牌，若納入店頭市場（OTC）則超過6,000支，全球更有數以萬計。沒有人能分析每一家公司。篩選工具將可投資範圍縮小至符合特定條件的可管理候選名單，節省大量時間。
 
-Several free and paid platforms provide stock screening capabilities. Each has strengths and limitations.
+**強化紀律。** 系統化的篩選流程，能防止你追逐頭條新聞、小道消息或社群媒體炒作。事先定義篩選標準，讓你根據數據而非情緒做決策。這是改善長期投資成果最可靠的方式之一。
 
-**Free screeners.** Finviz is the most popular free screener, offering dozens of fundamental, technical, and descriptive filters. Yahoo Finance provides basic screening with a clean interface. Google Finance is simpler but useful for quick lookups. TradingView combines screening with charting capabilities.
+**一致性。** 長期使用相同篩選標準，能讓你在同等基礎上比較投資機會。若缺乏一致的流程，你可能根據對不同股票的興奮或恐懼程度，採用不同標準，引入損害報酬率的偏差。
 
-**Brokerage screeners.** Most brokerages, including Fidelity, Schwab, and Interactive Brokers, offer built-in screeners. These often integrate directly with your portfolio, making it easy to move from screening to research to execution. Fidelity's screener is particularly well-regarded for its breadth of criteria and ease of use.
+**機會發掘。** 一些最佳投資機會，往往存在於你從未聽說過的公司。篩選工具以財務特徵為焦點，而非品牌知名度或媒體曝光度，讓這些隱藏的寶石得以浮現。許多成功的價值型投資人，都將篩選流程歸功於找到最佳投資標的。
 
-**Premium screeners.** Portfolio123, Stock Rover, and GuruFocus offer more advanced screening with backtesting capabilities, custom formulas, and proprietary metrics. These are worth considering once your screening process matures and you need capabilities beyond what free tools provide.
+**研究效率。** 一份依類股分組、設有優先層級的觀察名單，確保你將有限的研究時間，花在最有潛力的候選標的上。你不再隨機閱讀任何吸引眼球的內容，而是按照優先順序處理一條已通過初始篩選的投資構想流水線。
 
-**Data considerations.** All screeners are only as good as their data. Free screeners may have delayed data, limited historical coverage, or missing metrics for smaller companies. Always verify key data points from the company's actual financial statements before making investment decisions based on screened data.
+**模式識別。** 定期執行篩選，隨著時間推移，你將建立對有吸引力投資標的的直覺。你開始識別估值、成長率和財務健全度的模式，這是教科書無法單獨教授的。
 
-#### Fundamental Screening Criteria
-
-The criteria you use should align with your investment philosophy. Here are the most important categories and specific metrics within each.
-
-**Valuation Metrics**
-
-Price-to-earnings ratio (P/E) is the most common valuation metric. A low P/E relative to sector peers or historical averages may indicate undervaluation. However, low P/E stocks are sometimes cheap for good reasons, such as declining earnings or structural challenges.
-
-Forward P/E uses analyst estimates for next year's earnings, providing a more forward-looking valuation. The PEG ratio divides P/E by expected earnings growth rate; a PEG below 1.0 suggests the stock may be undervalued relative to its growth.
-
-Price-to-book ratio (P/B) compares market capitalization to book value. Particularly useful for financial companies and asset-heavy industries. A P/B below 1.0 means the market values the company at less than its accounting net worth.
-
-Price-to-sales ratio (P/S) is useful for companies without positive earnings. Revenue is harder to manipulate than earnings and provides a cleaner comparison. Enterprise value to EBITDA (EV/EBITDA) is often preferred by professionals because it accounts for differences in capital structure and tax rates.
-
-Free cash flow yield (FCF yield) divides free cash flow per share by the stock price. This measures the cash return a business generates relative to its market price. Many experienced investors consider this the most important valuation metric because cash flow is harder to manipulate than earnings.
-
-**Quality and Profitability Metrics**
-
-Return on equity (ROE) measures how efficiently a company uses shareholder capital. Consistently high ROE above 15% suggests a competitive advantage. But watch for artificially high ROE caused by excessive debt.
-
-Return on invested capital (ROIC) is a more comprehensive measure that includes debt capital. ROIC consistently above the company's cost of capital indicates genuine value creation.
-
-Gross margin, operating margin, and net margin reveal the company's pricing power and cost structure. Expanding margins suggest improving competitive position; contracting margins may signal trouble.
-
-Debt-to-equity ratio and interest coverage ratio measure financial health. Companies with too much debt are vulnerable during economic downturns. Interest coverage below 3x is a warning sign.
-
-Current ratio and quick ratio measure short-term liquidity. Can the company pay its bills? A current ratio below 1.0 suggests potential liquidity problems.
-
-**Growth Metrics**
-
-Revenue growth rate, both historical and projected, indicates the company's top-line trajectory. Sustainable revenue growth is the foundation of long-term stock price appreciation.
-
-Earnings growth rate shows whether increasing revenue translates to increasing profits. Revenue growth without earnings growth may indicate market share bought through price cutting.
-
-Free cash flow growth is the ultimate growth metric. A company that grows revenue and earnings but not free cash flow may be consuming excessive capital.
-
-**Dividend Metrics**
-
-Dividend yield, the annual dividend divided by the stock price, indicates current income. High yields above 5-6% may signal a dividend cut risk.
-
-Payout ratio, dividends divided by earnings, measures sustainability. Below 60% is generally sustainable for most industries. REITs and utilities can sustain higher payout ratios.
-
-Dividend growth rate, measured over 5 and 10 years, shows management's commitment to returning capital. Consistent dividend increases often signal management confidence in future earnings.
-
-Consecutive years of dividend increases help identify Dividend Aristocrats (25+ years) and Dividend Kings (50+ years), companies with exceptional track records.
-
-#### Building an Effective Screening Process
-
-**Step 1: Define your investment philosophy.** Before touching a screener, articulate what kind of investor you are. Value? Growth? Dividend income? GARP (growth at a reasonable price)? Your philosophy determines which criteria matter most.
-
-**Step 2: Set primary filters to narrow the universe.** Start with broad filters that eliminate clearly unsuitable candidates. Minimum market capitalization of $500 million eliminates most micro-caps. Minimum daily volume of 100,000 shares ensures tradability. Country or exchange filters focus on your geographic preference.
-
-**Step 3: Apply your core criteria.** Layer on the fundamental metrics that align with your philosophy. For a value screen, this might be P/E below 15, P/B below 2, and positive free cash flow. For a growth screen, revenue growth above 15%, earnings growth above 20%, and ROE above 15%. For dividend income, yield above 3%, payout ratio below 70%, and 10+ years of consecutive increases.
-
-**Step 4: Apply quality filters.** Regardless of your primary philosophy, quality filters help avoid value traps and growth disappointments. Positive operating income, manageable debt levels, and adequate liquidity ratios are universal quality checks.
-
-**Step 5: Review and refine.** If your screen returns too many results (more than 50), tighten the criteria. If too few (less than 10), loosen them. A good screen should return 15-40 candidates for further research.
-
-**Step 6: Sort and prioritize.** Sort results by the metric you consider most important. Many investors sort by valuation (cheapest first) or quality (highest ROIC first) to prioritize their research time.
-
-#### Sector Grouping and Organization
-
-Organizing your watchlist by sector provides several advantages.
-
-**Comparability.** Companies within the same sector face similar economic conditions, competitive dynamics, and regulatory environments. Comparing a bank's P/E to a tech company's P/E is not meaningful, but comparing it to another bank's P/E is very informative.
-
-**The eleven GICS sectors** provide a standard classification: Communication Services, Consumer Discretionary, Consumer Staples, Energy, Financials, Health Care, Industrials, Information Technology, Materials, Real Estate, and Utilities. Most screeners allow filtering by sector.
-
-**Sub-industry analysis** goes deeper. Within Financials, for example, you might separate large banks, regional banks, insurance companies, and asset managers. Each sub-industry has distinct valuation norms, growth profiles, and risk characteristics.
-
-**Sector rotation awareness.** Different sectors perform best at different stages of the economic cycle. Consumer Discretionary and Technology tend to lead in early recovery. Energy and Materials lead in mid-cycle expansion. Utilities and Consumer Staples lead in late cycle and recession. Organizing by sector helps you identify opportunities across the cycle.
-
-**Concentration monitoring.** A watchlist grouped by sector reveals if you are too concentrated. If 80% of your candidates are technology stocks, you might be overlooking opportunities in other sectors or building excessive sector risk.
-
-#### The Complete Research Workflow
-
-Screening is just the first step. Here is a complete workflow from idea generation through investment decision.
-
-**Stage 1: Screening (30 minutes weekly).** Run your core screens. Review new additions. Remove stocks that no longer pass. This is a quick, systematic process, not deep research.
-
-**Stage 2: Watchlist triage (1 hour weekly).** Briefly review each new candidate from your screens. Read a one-paragraph company description, check recent news, and look at a 5-year chart. Categorize into three tiers: Tier 1 (research immediately), Tier 2 (research when time allows), Tier 3 (monitor but no urgency).
-
-**Stage 3: Deep research (2-4 hours per company).** For Tier 1 candidates, conduct thorough analysis. Read the latest 10-K annual report, listen to the most recent earnings call, analyze 5 years of financial statements, assess the competitive landscape, and build a simple valuation model. This is where most of your investment time should be spent.
-
-**Stage 4: Valuation and decision (1 hour per company).** Based on your research, estimate intrinsic value. Compare to the current market price. If the stock trades at a sufficient discount to your estimate (margin of safety), it becomes a buy candidate. If not, it returns to the watchlist for monitoring.
-
-**Stage 5: Position sizing and execution.** Determine how much to invest based on your conviction level, portfolio diversification needs, and risk tolerance. Use limit orders, especially for less liquid stocks. Consider scaling into positions over time rather than buying all at once.
-
-**Stage 6: Ongoing monitoring.** Even after purchase, continue monitoring the company through earnings reports, industry developments, and management changes. Update your watchlist regularly. Remove positions that no longer meet your criteria. Add new opportunities as they surface.
-
-#### Common Screening Strategies
-
-**Classic Value Screen (Benjamin Graham inspired).**
-P/E below 15. P/B below 1.5. Current ratio above 2.0. Positive earnings for the past 5 years. Dividend paying. This screen identifies cheap, financially strong, profitable companies. It tends to work best in market environments where valuation is rewarded.
-
-**Quality Growth Screen (GARP approach).**
-Revenue growth above 10%. Earnings growth above 12%. PEG ratio below 1.5. ROE above 15%. Debt-to-equity below 0.5. This screen finds growing companies at reasonable prices with strong returns on capital.
-
-**Dividend Growth Screen.**
-Dividend yield between 2% and 5%. Consecutive annual increases above 10 years. Payout ratio below 65%. Free cash flow positive. Revenue growth positive over 5 years. This screen identifies sustainable and growing dividend payers.
-
-**Turnaround Screen.**
-P/B below 1.0. Negative earnings last year but positive most recent quarter. Insider buying in the past 6 months. Debt-to-equity below 1.0. This screen is higher risk but can identify companies where the worst is behind them and a recovery is underway.
+**避免偏見。** 若沒有系統化篩選流程，投資人自然傾向於已知的股票：熱門品牌、自身產業的公司、媒體討論的股票，或朋友的推薦。這種熟悉性偏誤嚴重限制了投資機會範圍。篩選工具依財務特徵客觀篩選股票，讓你接觸到那些透過隨意瀏覽或口耳相傳永遠無從發現的公司。
 
 ---
 
-### C) Common Misconceptions
+### B) 必備知識
 
-**Misconception 1: "A stock that passes my screen is automatically a good investment."**
-Screening is a first filter, not a final verdict. A stock can look great on quantitative metrics and still be a terrible investment due to qualitative factors: bad management, regulatory threats, technological disruption, or accounting manipulation. Screening narrows the universe; deep research makes the investment decision.
+#### 選股篩選工具：平台與工具
 
-**Misconception 2: "The more criteria I use, the better my screen."**
-Over-filtering can eliminate good opportunities. A screen with 15 simultaneous criteria may return zero results or only extreme outliers that satisfy every condition by coincidence. Start with 4-6 core criteria and add filters only if the results are too broad. Simplicity often outperforms complexity in screening.
+多個免費和付費平台提供選股篩選功能，各有優缺點。
 
-**Misconception 3: "I should buy every stock that passes my screen."**
-A screen might return 30 stocks, but after deep research, only 5-10 may deserve investment. The screen identifies candidates, not conclusions. Some screened stocks will have hidden problems, upcoming headwinds, or valuations that are cheap for legitimate reasons.
+**免費篩選工具。** Finviz是最受歡迎的免費篩選工具，提供數十種基本面、技術面和描述性篩選條件。Yahoo Finance提供基本篩選功能，介面簡潔。Google Finance較為簡單，但適合快速查詢。TradingView結合篩選與圖表功能。
 
-**Misconception 4: "I only need to screen once."**
-Markets change constantly. A stock that does not pass your screen today might pass next month after a price decline or earnings improvement. Run your screens regularly, at least monthly and preferably weekly, to catch emerging opportunities and remove deteriorating positions.
+**券商篩選工具。** 多數券商，包括Fidelity、Schwab和Interactive Brokers，提供內建篩選工具。這些工具通常可直接整合至你的投資組合，讓你從篩選到研究再到執行一氣呵成。Fidelity的篩選工具因條件豐富、操作直覺，特別受到好評。
 
-**Misconception 5: "Screeners capture all relevant information."**
-Screeners rely on quantitative data, but some of the most important investment factors are qualitative: management quality, competitive moats, brand strength, corporate culture, and industry dynamics. These cannot be captured in a numerical filter. Screening must be supplemented with qualitative research.
+**付費篩選工具。** Portfolio123、Stock Rover和GuruFocus提供更進階的篩選功能，包含回測能力、自訂公式和專有指標。一旦你的篩選流程趨於成熟，且超出免費工具能力範疇時，這些工具值得考慮。
 
-**Misconception 6: "Low P/E always means a stock is cheap."**
-A stock can have a low P/E because earnings are temporarily inflated (cyclical peak earnings), because the company is in terminal decline, or because of one-time accounting gains. Always examine why a stock appears cheap. If the low valuation reflects a genuine problem, it is a value trap, not a bargain.
+**資料品質注意事項。** 所有篩選工具的品質，取決於其資料的品質。免費篩選工具可能有資料延遲、歷史覆蓋有限，或小型公司指標缺失的問題。在根據篩選資料做出投資決策前，務必從公司實際財務報表核實關鍵數據。
+
+#### 基本面篩選標準
+
+你使用的標準，應與你的投資哲學一致。以下是最重要的類別及各類別內的具體指標。
+
+**估值指標**
+
+本益比（P/E）是最常見的估值指標。相對於類股同業或歷史平均值偏低的本益比，可能表示被低估。然而，本益比偏低的股票有時是有充分理由的低廉，例如盈餘下滑或結構性挑戰。
+
+預估本益比使用分析師對下一年度盈餘的預測，提供更具前瞻性的估值。本益成長比（PEG）將本益比除以預期盈餘成長率；PEG低於1.0，表示相對於其成長性，股價可能被低估。
+
+股價淨值比（P/B）比較市值與帳面價值。對金融公司和資本密集型產業特別有用。P/B低於1.0，表示市場對該公司的估值低於其帳面淨值。
+
+股價營收比（P/S）適用於尚無正盈餘的公司。營收比盈餘更難操縱，提供更清晰的比較基礎。企業價值對稅息折舊及攤銷前利潤（EV/EBITDA）通常受專業人士青睞，因為它考慮了資本結構和稅率的差異。
+
+自由現金流殖利率（FCF殖利率）將每股自由現金流除以股價。衡量企業相對於市價所產生的現金報酬。許多有經驗的投資人認為這是最重要的估值指標，因為現金流比盈餘更難操縱。
+
+**品質與獲利能力指標**
+
+股東權益報酬率（ROE）衡量公司運用股東資本的效率。持續高於15%的ROE，表示具有競爭優勢。但需注意過高的負債所造成的人為高ROE。
+
+投入資本報酬率（ROIC）是更全面的衡量指標，包含負債資本。ROIC持續高於公司資金成本，表示真正的價值創造。
+
+毛利率、營業利益率和淨利率，揭示公司的定價能力和成本結構。利潤率擴張表示競爭地位改善；利潤率收縮可能預示麻煩。
+
+負債權益比和利息保障倍數衡量財務健全度。負債過高的公司，在經濟下行期間容易受到衝擊。利息保障倍數低於3倍是警示信號。
+
+流動比率和速動比率衡量短期流動性。公司是否能支付帳單？流動比率低於1.0，表示可能存在流動性問題。
+
+**成長指標**
+
+歷史和預估的營收成長率，顯示公司的頂線軌跡。可持續的營收成長，是長期股價升值的基礎。
+
+盈餘成長率顯示營收增長是否轉化為獲利增長。營收成長但盈餘未成長，可能表示以降價方式換取市場份額。
+
+自由現金流成長是終極成長指標。營收和盈餘成長但自由現金流未成長的公司，可能正在消耗大量資本來支持成長，最終難以為繼。
+
+盈餘驚喜歷史也可以是有用的成長篩選指標。持續超越分析師預估5%以上的公司，通常管理層較為保守且具有真實的營運動能。持續超預期的模式，表示業務表現優於市場預期。
+
+**股利指標**
+
+股利殖利率，即年度股利除以股價，顯示當前收益。高於5-6%的高殖利率可能意味著減股利風險。
+
+配息率，即股利除以盈餘，衡量可持續性。對多數產業而言，低於60%通常是可持續的。不動產投資信託（REITs）和公用事業可以維持較高的配息率。
+
+以5年和10年衡量的股利成長率，顯示管理層回報資本的承諾。持續的股利增加，通常表示管理層對未來盈餘有信心。
+
+連續股利增加年數，有助於識別股利貴族（25年以上）和股利之王（50年以上），即具有卓越歷史紀錄的公司。
+
+#### 建立有效的篩選流程
+
+**第一步：定義你的投資哲學。** 在接觸篩選工具之前，先闡明你是哪種投資人。價值型？成長型？股利收益型？GARP（合理價格下的成長型）？你的哲學決定哪些標準最重要。
+
+**第二步：設定主要篩選條件縮小範圍。** 從廣泛的篩選條件開始，排除明顯不合適的候選標的。最低市值5億美元，排除大多數微型股。最低日均成交量10萬股，確保可交易性。國家或交易所篩選條件，聚焦於你的地理偏好。
+
+**第三步：套用核心標準。** 疊加符合你哲學的基本面指標。對於價值篩選，可能是本益比低於15、股價淨值比低於2，以及正自由現金流。對於成長篩選，可能是營收成長率高於15%、盈餘成長率高於20%，以及ROE高於15%。對於股利收益，可能是殖利率高於3%、配息率低於70%，以及連續增加10年以上。
+
+**第四步：套用品質篩選條件。** 無論你的主要哲學為何，品質篩選條件有助於避免價值陷阱和成長令人失望的情形。正營業利益、可管理的負債水準，以及足夠的流動比率，是普遍適用的品質檢核。
+
+**第五步：檢視與精煉。** 若篩選結果太多（超過50個），收緊標準。若太少（不足10個），放寬標準。好的篩選應返回15至40個候選標的供進一步研究。
+
+**第六步：排序和優先排列。** 依你認為最重要的指標排序結果。許多投資人按估值（最便宜優先）或品質（最高ROIC優先）排序，以優先安排研究時間。
+
+#### 類股分組與組織
+
+依類股組織觀察名單有幾個優點。
+
+**可比性。** 同類股內的公司面對相似的經濟條件、競爭動態和監管環境。將銀行的本益比與科技公司的本益比相比是沒有意義的，但與另一家銀行的本益比相比則非常有參考價值。
+
+**十一個全球行業分類標準（GICS）類股**提供標準分類：通訊服務、非必需消費品、必需消費品、能源、金融、醫療保健、工業、資訊科技、原物料、房地產和公用事業。大多數篩選工具允許依類股篩選。
+
+**次產業分析**更深入。例如在金融類股中，你可以分別區分大型銀行、區域銀行、保險公司和資產管理公司。每個次產業都有不同的估值規範、成長特徵和風險特性。
+
+**類股輪動意識。** 不同類股在經濟週期的不同階段表現最佳。非必需消費品和科技股往往在景氣初步復甦時領漲。能源和原物料在週期中期擴張時領漲。公用事業和必需消費品在週期末期和衰退期領漲。依類股組織，有助於識別整個週期的機會。
+
+**集中度監控。** 依類股分組的觀察名單，揭示你是否過於集中。若80%的候選標的都是科技股，你可能忽視了其他類股的機會，或正在建立過多的類股風險。
+
+#### 完整研究工作流程
+
+篩選只是第一步。以下是從構想產生到投資決策的完整工作流程。
+
+**第一階段：篩選（每週30分鐘）。** 執行核心篩選。檢視新增標的。移除不再符合條件的股票。這是快速、系統化的流程，而非深度研究。
+
+**第二階段：觀察名單分流（每週1小時）。** 簡要檢視篩選中的每個新候選標的。閱讀一段公司描述、查看最近新聞，並查看5年K線圖。分類至三個層級：第一層（立即研究）、第二層（有時間時研究）、第三層（監控但不急迫）。
+
+**第三階段：深度研究（每家公司2至4小時）。** 對第一層候選標的進行徹底分析。閱讀最新的10-K年報、聆聽最近一次法說會、分析5年財務報表、評估競爭格局，並建立簡單的估值模型。這是你大多數投資時間應該花費的地方。
+
+**第四階段：估值與決策（每家公司1小時）。** 根據你的研究，估算內在價值。與當前市價比較。若股票以低於你的估計（安全邊際）的價格交易，則成為買入候選標的。若不符合，則返回觀察名單繼續監控。
+
+**第五階段：部位規模與執行。** 根據你的信念程度、投資組合分散需求和風險承受度，決定投資金額。使用限價委託，特別是對流動性較低的股票。考慮分批建倉，而非一次全部買入。
+
+**第六階段：持續監控。** 即使在買入後，仍透過盈餘報告、產業動態和管理層變動持續監控公司。定期更新觀察名單。移除不再符合標準的持股。隨著新機會浮現而新增標的。
+
+**時間管理技巧。** 每週的完整工作流程，包括篩選加上分流，應不超過兩小時。對單一股票的深度研究需要兩至四小時，可分散於一週內完成。這意味著每週投入五至六小時的個人投資人，可以維持穩健的篩選與研究流水線。研究時間的品質遠比數量重要。對少數高潛力候選標的的專注分析，優於對數十支股票的浮光掠影。
+
+#### 常見篩選策略
+
+**經典價值篩選（受Benjamin Graham啟發）。**
+本益比低於15。股價淨值比低於1.5。流動比率高於2.0。過去5年盈餘為正。有配發股利。此篩選識別便宜、財務健全、有獲利能力的公司。在估值受到市場重視的環境中，效果往往最佳。
+
+**品質成長篩選（GARP方法）。**
+營收成長率高於10%。盈餘成長率高於12%。本益成長比低於1.5。ROE高於15%。負債權益比低於0.5。此篩選尋找以合理價格交易、資本報酬率強勁的成長型公司。
+
+**股利成長篩選。**
+股利殖利率介於2%至5%。連續年度增加超過10年。配息率低於65%。自由現金流為正。過去5年營收成長為正。此篩選識別可持續且持續成長的配息公司。
+
+**轉機篩選。**
+股價淨值比低於1.0。上一年度盈餘為負但最近一季為正。過去6個月有內部人士買進。負債權益比低於1.0。此篩選風險較高，但可識別最壞情況已過、正走向復甦的公司。
+
+**小型股品質篩選。**
+市值介於5億至20億美元。ROE高於12%。過去3年營收成長率高於8%。負債權益比低於0.5。內部人士持股比例高於5%。此篩選針對大型機構可能忽視的財務健全小型公司，隨著公司成長，潛在的價格發現空間較大。
+
+**國際價值篩選。**
+存託憑證（ADR）掛牌或國際交易所上市。本益比低於12。股利殖利率高於3%。自由現金流為正。所在國GDP成長率高於2%。此篩選識別成長中經濟體的被低估國際企業，讓觀察名單多元化，超越國內市場。
+
+#### 避免資料陷阱
+
+篩選資料並非完美，了解常見陷阱可防止代價高昂的錯誤。
+
+**過時資料。** 免費篩選工具在盈餘發布後，更新財務數據可能延遲數天至數週。篩選工具上看起來便宜的股票，可能在更新基礎數據後的強勁盈餘報告後已反彈。
+
+**一次性項目。** 每股盈餘可能因一次性收益（資產出售、法律和解）或一次性費用（重組、資產減值）而失真。由一次性收益驅動的低本益比具有誤導性。務必確認盈餘是否來自持續性業務。
+
+**類股特定指標。** 標準篩選標準並非對所有產業同等適用。銀行應以股價有形淨值比和資產報酬率評估，而非標準本益比。不動產投資信託（REITs）使用不動產基金（FFO）而非盈餘。公用事業以管制費率基礎成長評估。對某個類股使用錯誤的指標，會產生誤導性結果。
+
+**股數變化。** 大量發行股票（稀釋）的公司，可能在營收表面增長的同時，實際上破壞了每股價值。在分析營收和盈餘成長的同時，務必查看流通股數的趨勢。
 
 ---
 
-### D) Q&A Section
+### C) 常見誤解
 
-**Q1: How many stocks should be on my watchlist?**
-A1: This depends on how much time you have for research. A manageable watchlist for a part-time individual investor is 30-50 stocks across sectors. Active investors might maintain 100+. The key is organization: use tiers to prioritize where you spend your research time. A bloated, unorganized watchlist of 500 stocks is worse than useless because it overwhelms your ability to focus.
+**誤解一：「通過篩選的股票自動是好的投資。」**
+篩選是第一道過濾器，而非最終裁決。一支股票在量化指標上看起來很好，仍可能因質化因素而成為糟糕的投資：管理不善、法規威脅、技術顛覆或會計操縱。篩選縮小範圍；深度研究做出投資決策。
 
-**Q2: Should I screen for domestic stocks only or include international?**
-A2: Including international stocks widens your opportunity set significantly. Many of the world's best companies are listed outside the US. However, international screening introduces complications: different accounting standards (IFRS vs. GAAP), currency effects, political risk, and data availability. Start with US markets, and once your process is refined, expand to developed international markets (Europe, Japan, Australia) before venturing into emerging markets.
+**誤解二：「我使用的標準越多，篩選越好。」**
+過度篩選可能排除好的機會。同時使用15個標準的篩選可能返回零結果，或只有恰好滿足每個條件的極端異常值。從4至6個核心標準開始，只在結果太廣泛時才增加篩選條件。簡單性在篩選中往往優於複雜性。
 
-**Q3: How often should I update my screens?**
-A3: Run your primary screens weekly or bi-weekly. Monthly is the minimum to catch emerging opportunities. After each earnings season, many stocks will shift in and out of your criteria as financial data updates. Some investors also run screens after significant market drawdowns (5%+ declines), as falling prices push more stocks through value-oriented filters.
+**誤解三：「我應該買入所有通過篩選的股票。」**
+一次篩選可能返回30支股票，但經過深度研究後，只有5至10支可能值得投資。篩選識別候選標的，而非結論。部分篩選出的股票將有隱藏問題、即將面臨的逆風，或估值便宜有合理原因。
 
-**Q4: What is the best screener for beginners?**
-A4: Finviz (finviz.com) is the best starting point. It is free, comprehensive, and visually intuitive. The screener page lets you apply filters across descriptive (sector, market cap, country), fundamental (P/E, EPS growth, ROE), and technical (moving averages, RSI, volume) categories. Results are displayed in a table with sortable columns and one-click chart access. Start with Finviz, and graduate to paid tools only when you outgrow its capabilities.
+**誤解四：「我只需要篩選一次。」**
+市場不斷變化。今天不符合篩選條件的股票，可能在下個月股價下跌或盈餘改善後通過篩選。定期執行篩選，至少每月一次，最好每週一次，以捕捉新興機會並移除惡化中的持股。
 
-**Q5: Should I use technical criteria in my screens?**
-A5: This depends on your investment approach. If you are a fundamental investor, technical criteria can serve as timing tools. For example, screening for fundamentally strong stocks that are also near their 52-week lows can identify good companies going through temporary price weakness, potentially offering better entry points. But be careful not to let technical criteria override fundamental analysis. A stock at its 52-week low might be there for very good fundamental reasons.
+**誤解五：「篩選工具涵蓋所有相關資訊。」**
+篩選工具依賴量化數據，但最重要的投資因素中有一些是質化的：管理品質、競爭護城河、品牌強度、企業文化和產業動態。這些無法以數字篩選條件捕捉。篩選必須輔以質化研究。
 
-**Q6: How do I avoid value traps in my screening?**
-A6: Combine valuation criteria with quality and momentum criteria. A stock that is cheap AND profitable, with improving margins and insider buying, is much less likely to be a value trap than one that is simply cheap. Watch out for: declining revenue, negative free cash flow, rising debt, dividend cuts, and insider selling. These red flags suggest the cheap valuation reflects genuine deterioration rather than temporary mispricing.
+**誤解六：「低本益比一定意味著股票便宜。」**
+股票本益比低，可能是因為盈餘暫時虛高（景氣循環高峰盈餘）、公司處於衰退末期，或因為一次性會計收益。務必檢視為何股票看起來便宜。若低估值反映真正的問題，那是價值陷阱，而非便宜貨。
 
-**Q7: What is the difference between a static watchlist and a dynamic one?**
-A7: A static watchlist is a fixed list of companies you follow regardless of their current metrics. You might always watch Apple, JPMorgan, and Johnson & Johnson because they are industry bellwethers. A dynamic watchlist changes based on screening results. Stocks are added when they pass your filters and removed when they no longer qualify. The best approach combines both: a core static list of high-quality companies you always follow, plus a dynamic component fed by your screening process.
+**誤解七：「專業投資人使用秘密、複雜的篩選條件。」**
+大多數專業選股人使用出奇簡單的初始篩選，與任何個人投資人在Finviz上能設置的篩選相似。優勢不在於奇特的篩選標準，而在於篩選後進行的研究深度和品質。專業人士可能從簡單篩選中分析50支股票，在數月深度盡職調查後投資其中5支。篩選流程是普及的；篩選後的分析深度，才是專業人士差異化的地方。
 
-**Q8: How do I organize research notes for my watchlist stocks?**
-A8: Create a simple template for each stock that includes: company description, investment thesis in 2-3 sentences, key metrics (current and target), catalysts that could drive the stock higher, risks that could drive it lower, and your estimated fair value. Update this after each earnings report. Many investors use a spreadsheet with one row per stock and columns for key data points. Others use note-taking apps like Notion or OneNote. The format matters less than consistency. Every stock on your watchlist should have a written thesis explaining why it is there.
-
----
-
-## Part 2: YouTube Script
+**誤解八：「我應該根據過去有效的方法來篩選。」**
+回測篩選標準並僅根據歷史因子表現進行投資是危險的。因子會經歷長期表現不佳。2010年至2020年，價值股相對成長股表現不佳超過十年。小型股可能連續多年落後於大型股。若你只根據近期有效的方法篩選，你可能在因子最受追捧和估值最高時買入。根據合理的基本面邏輯使用篩選，而非僅基於近期表現。
 
 ---
 
-**TITLE: How to Build a Watchlist: Stock Screening Like a Pro**
+### D) 問答章節
+
+**Q1：我的觀察名單應該有多少支股票？**
+A1：這取決於你有多少研究時間。對於兼職的個人投資人，跨類股的30至50支股票是可管理的觀察名單。活躍投資人可能維持100支以上。關鍵在於組織：用層級來優先安排你的研究時間。一份500支股票、雜亂無章的臃腫觀察名單，比沒有還糟，因為它讓你無法聚焦。
+
+**Q2：我應該只篩選國內股票，還是包含國際股票？**
+A2：納入國際股票大幅擴大了你的投資機會範圍。世界上許多最優秀的公司在美國以外上市。然而，國際篩選帶來了複雜性：不同的會計準則（IFRS與GAAP）、匯率影響、政治風險和資料可得性。從美國市場開始，一旦你的流程成熟後，先擴展至已開發國際市場（歐洲、日本、澳洲），再涉足新興市場。
+
+**Q3：我應該多久更新一次篩選？**
+A3：每週或每兩週執行一次主要篩選。每月是捕捉新興機會的最低頻率。每個財報季後，隨著財務數據更新，許多股票將進出你的篩選條件。部分投資人也在重大市場下跌後（跌幅5%以上）執行篩選，因為下跌的股價會讓更多股票通過以價值為導向的篩選。
+
+**Q4：對於初學者來說，最好的篩選工具是什麼？**
+A4：Finviz（finviz.com）是最佳起點。它免費、全面且視覺直覺。篩選頁面讓你在描述性（類股、市值、國家）、基本面（本益比、EPS成長、ROE）和技術面（移動平均線、RSI、成交量）等類別套用篩選條件。結果以可排序欄位的表格顯示，並可一鍵查看圖表。從Finviz開始，只有在超出其功能範疇時才升級至付費工具。
+
+**Q5：我應該在篩選中使用技術面標準嗎？**
+A5：這取決於你的投資方法。若你是基本面投資人，技術面標準可以作為時機工具。例如，篩選基本面強勁且接近52週低點的股票，可以識別正在經歷暫時股價疲軟的好公司，可能提供更好的進場點。但注意不要讓技術面標準凌駕於基本面分析之上。股票處於52週低點可能有非常充分的基本面原因。
+
+**Q6：我如何在篩選中避免價值陷阱？**
+A6：將估值標準與品質和動能標準結合。便宜且有獲利能力、利潤率改善且有內部人士買進的股票，比單純便宜的股票，成為價值陷阱的可能性小得多。注意以下警示信號：營收下滑、負自由現金流、負債增加、股利削減，以及內部人士賣出。這些紅旗表明便宜的估值反映的是真正的惡化，而非暫時的錯誤定價。
+
+**Q7：靜態觀察名單和動態觀察名單有何區別？**
+A7：靜態觀察名單是你無論當前指標如何都會追蹤的固定公司名單。你可能一直關注Apple、JPMorgan和Johnson & Johnson，因為它們是產業風向標。動態觀察名單依篩選結果而變化。股票在通過篩選條件時加入，不再符合條件時移除。最佳方法是兩者結合：一份你始終追蹤的優質公司核心靜態名單，加上由篩選流程填充的動態部分。
+
+**Q8：我如何整理觀察名單股票的研究筆記？**
+A8：為每支股票建立一個簡單模板，包括：公司描述、2至3句話的投資論點、關鍵指標（當前值和目標值）、可能推動股票上漲的催化劑、可能驅動下跌的風險，以及你估算的合理價值。每次財報後更新。許多投資人使用試算表，每行一支股票，欄位為關鍵數據點。其他人使用Notion或OneNote等筆記應用程式。格式的重要性低於一致性。觀察名單上的每支股票，都應有說明其存在理由的書面投資論點。
+
+**Q9：我如何知道何時將股票從觀察名單中移除？**
+A9：當原始投資論點被打破時移除股票，而非僅因股價走勢不如預期。具體的移除觸發因素包括：連續三季營收下滑且無復甦跡象、管理層舞弊或嚴重治理問題、產業結構性變化永久損害商業模式，或股票相對於你的合理價值估計出現大幅高估。也應移除你監控超過六個月但從未找到令人信服進場點的股票，因為它們消耗研究資源卻未產生可行動的投資構想。
+
+**Q10：我能自動化篩選流程嗎？**
+A10：在一定程度上可以。大多數篩選工具允許你儲存篩選設定，一鍵執行。Portfolio123和Stock Rover等平台，允許你設置電子郵件提醒，當新股票進入篩選條件時通知你。你也可以透過你的券商平台，為觀察名單股票設置價格提醒，在股票達到目標進場價位時通知你。然而，質化研究步驟——閱讀財務報表、聆聽法說會，以及評估競爭地位——無法自動化，也不應被跳過。
+
+---
+
+## 第二部分：YouTube腳本
+
+---
+
+**標題：如何建立觀察名單：像專業人士一樣篩選股票**
+
+**長度：約17分鐘**
 
 ---
 
 **[VISUAL: Massive wall of stock tickers scrolling rapidly, overwhelming and chaotic]**
 
-**Alex:** Sam, there are thousands of stocks out there. How do professional investors find the ones worth researching? I feel like I am drowning in options.
+**Horace（陳馬）：** 小魚，市場上有成千上萬支股票。專業投資人如何找到值得研究的那些？我感覺自己溺在選擇的汪洋中。
 
-**Sam:** That is exactly why stock screeners exist. They are like search engines for stocks. You tell the screener what you want, and it filters out everything else.
+**Stella（小魚）：** 這正是選股篩選工具存在的原因。它們就像股票的搜索引擎。你告訴篩選工具你的需求，它就過濾掉其他一切。
 
 **[ANIMATION: The wall of tickers gets filtered through a funnel labeled "SCREENER" with criteria labels on the sides. Only a small group of tickers comes out the bottom]**
 
-**Alex:** So where do I even start?
+**Horace（陳馬）：** 那我從哪裡開始？
 
-**Sam:** First, you need to know what kind of investor you are. That determines which filters you use. Are you looking for cheap stocks, fast-growing companies, or reliable dividend payers?
+**Stella（小魚）：** 首先，你需要知道自己是哪種投資人。這決定你使用哪些篩選條件。你是在尋找便宜的股票、快速成長的公司，還是可靠的股利發放者？
 
 **[VISUAL: Three investor profiles shown as cards: "Value Investor" with magnifying glass icon, "Growth Investor" with rocket icon, "Dividend Investor" with cash flow icon]**
 
-**Alex:** Let us say I want to find good value stocks. What would that screen look like?
+**Horace（陳馬）：** 假設我想尋找好的價值股。篩選條件會是什麼樣子？
 
-**Sam:** Let me walk you through building one step by step. I will use Finviz, which is free and one of the best screeners available.
+**Stella（小魚）：** 讓我一步一步帶你建立一個。我會使用Finviz，它是免費的，也是最好的篩選工具之一。
 
 **[VISUAL: Screen recording style showing Finviz screener interface with filters being applied one at a time]**
 
-**Sam:** Step one, set basic filters to narrow the universe. Market cap above five hundred million eliminates speculative micro-caps. Average volume above one hundred thousand shares ensures we can actually trade these stocks.
+**Stella（小魚）：** 第一步，設定基本篩選條件縮小範圍。市值高於5億美元，排除投機性的微型股。平均成交量高於10萬股，確保我們實際上能交易這些股票。
 
 **[ANIMATION: Universe shrinking from 6,000+ stocks to approximately 3,000 as basic filters are applied, shown as a funnel graphic]**
 
-**Alex:** That already cut the universe in half.
+**Horace（陳馬）：** 這已經把範圍縮小了一半。
 
-**Sam:** Now step two, apply our core value criteria. P/E ratio below fifteen. Price-to-book below two. Positive free cash flow.
+**Stella（小魚）：** 現在第二步，套用我們的核心價值標準。本益比低於15。股價淨值比低於2。正自由現金流。
 
 **[ANIMATION: Funnel continues to narrow. Stock count drops from 3,000 to approximately 200]**
 
-**Sam:** Step three, add quality filters. Return on equity above ten percent. Debt-to-equity below one. Current ratio above one point five. These ensure we are finding cheap AND healthy companies, not cheap and dying ones.
+**Stella（小魚）：** 第三步，加入品質篩選。股東權益報酬率高於10%。負債權益比低於1。流動比率高於1.5。這些確保我們找到的是便宜且健康的公司，而非便宜且垂死的公司。
 
 **[ANIMATION: Funnel narrows further. Count drops to approximately 40 stocks]**
 
-**Alex:** Forty stocks. That is actually manageable.
+**Horace（陳馬）：** 40支股票。這實際上是可管理的。
 
-**Sam:** Exactly. From six thousand to forty in about five minutes. Now the real work begins.
+**Stella（小魚）：** 正是。從6,000支縮減至40支，大約只需5分鐘。現在真正的工作開始了。
 
-**Alex:** What comes next?
+**Horace（陳馬）：** 接下來做什麼？
 
-**Sam:** This is where your watchlist comes in. I organize every screened stock into sectors first.
+**Stella（小魚）：** 這就是觀察名單派上用場的地方。我首先將每支篩選出的股票依類股分組。
 
 **[ANIMATION: The 40 stock tickers sort themselves into sector buckets: Financials (8 stocks), Industrials (7), Consumer Staples (6), Energy (5), Healthcare (5), Others (9)]**
 
-**Sam:** Sector grouping is critical because you can only compare apples to apples. A bank with a P/E of ten is not the same as a tech company with a P/E of ten. Within each sector, I can rank and compare meaningfully.
+**Stella（小魚）：** 類股分組至關重要，因為你只能做蘋果對蘋果的比較。本益比10倍的銀行，與本益比10倍的科技公司，是截然不同的。在同一類股內，才能有意義地排名和比較。
 
-**Alex:** That makes sense. What do you compare within each sector?
+**Horace（陳馬）：** 有道理。在每個類股內你比較什麼？
 
-**Sam:** I look at relative valuation. Which stock is cheapest compared to its sector peers? I check relative quality. Which has the highest return on capital? And I look at the trend. Is the company improving or deteriorating?
+**Stella（小魚）：** 我看相對估值。哪支股票相較於同類股同業最便宜？我看相對品質。哪支資本報酬率最高？我也看趨勢。公司是在改善還是惡化？
 
 **[VISUAL: Table showing 4 financial stocks side by side with columns for P/E, P/B, ROE, Debt/Equity, Revenue Growth, with the most attractive values highlighted in green]**
 
-**Alex:** So you are ranking within sectors. What is next?
+**Horace（陳馬）：** 所以你在類股內排名。下一步是什麼？
 
-**Sam:** Triage into three tiers.
+**Stella（小魚）：** 分流至三個層級。
 
 **[ANIMATION: Three tiers appearing as labeled folders. Tier 1: "Research Now" (red/urgent). Tier 2: "Research Soon" (yellow). Tier 3: "Monitor" (green/patient)]**
 
-**Sam:** Tier one gets immediate deep research. These are stocks that are cheap, high quality, AND have a catalyst, maybe an earnings report coming up, a new product launch, or insider buying.
+**Stella（小魚）：** 第一層立即進行深度研究。這些是便宜、高品質，且有催化劑的股票——可能是即將到來的財報、新產品發布，或內部人士買進。
 
-**Alex:** How many stocks go into tier one?
+**Horace（陳馬）：** 第一層有多少支股票？
 
-**Sam:** Five to ten at most. These are your best ideas that get your full attention this week. Tier two has fifteen to twenty stocks to research when time allows. Tier three is everything else you want to monitor but do not need to rush into.
+**Stella（小魚）：** 最多5至10支。這些是本週獲得你全力關注的最佳構想。第二層有15至20支，在有時間時研究。第三層是所有你想監控但不需要急迫的其他股票。
 
-**Alex:** What does "deep research" actually look like?
+**Horace（陳馬）：** 「深度研究」實際上是什麼樣子？
 
-**Sam:** Let me show you my workflow.
+**Stella（小魚）：** 讓我展示我的工作流程。
 
 **[ANIMATION: Research workflow as a horizontal pipeline. Step 1: Company Overview (10 min). Step 2: Financial Statements (30 min). Step 3: Earnings Call (30 min). Step 4: Competitive Analysis (30 min). Step 5: Valuation (30 min). Step 6: Decision (15 min)]**
 
-**Sam:** Start with a quick company overview. What does the business do? How does it make money? Who are its competitors? This takes ten minutes and gives you the context for everything that follows.
+**Stella（小魚）：** 從快速的公司概覽開始。業務做什麼？如何賺錢？競爭者是誰？這需要10分鐘，為後續一切提供背景。
 
-**Alex:** Then financial statements?
+**Horace（陳馬）：** 然後是財務報表？
 
-**Sam:** Right. Pull up five years of income statements, balance sheets, and cash flow statements. Look for trends. Is revenue growing? Are margins expanding or contracting? Is debt increasing or decreasing? Is free cash flow positive and growing?
+**Stella（小魚）：** 對。查閱5年的損益表、資產負債表和現金流量表。尋找趨勢。營收是否成長？利潤率是擴張還是收縮？負債是增加還是減少？自由現金流是否為正且成長？
 
 **[VISUAL: Simplified 5-year financial trend showing Revenue, Operating Margin, and Free Cash Flow with arrows indicating trends]**
 
-**Sam:** Then listen to or read the transcript of the most recent earnings call. Management commentary tells you things the numbers cannot, like their strategy, their concerns, and their outlook.
+**Stella（小魚）：** 然後聆聽或閱讀最近一次法說會的文字稿。管理層評論告訴你數字無法呈現的事情，例如他們的策略、顧慮和展望。
 
-**Alex:** That sounds like a lot of work per stock.
+**Horace（陳馬）：** 聽起來每支股票要花很多功夫。
 
-**Sam:** Two to four hours per stock for thorough research. That is why screening and triage matter so much. You cannot spend four hours on every stock in the market, but you can spend four hours on your top five candidates each week.
+**Stella（小魚）：** 徹底研究每支股票需要2至4小時。這正是篩選和分流如此重要的原因。你無法在市場上的每支股票各花4小時，但你可以每週在你的前5名候選標的各花4小時。
 
-**Alex:** Let me ask about some common screening strategies. What if I am more of a growth investor?
+**Horace（陳馬）：** 讓我問一些常見的篩選策略。如果我更像是成長型投資人呢？
 
-**Sam:** Then your screen looks completely different.
+**Stella（小魚）：** 那你的篩選條件就完全不同了。
 
 **[VISUAL: Side-by-side comparison of Value Screen criteria vs Growth Screen criteria]**
 
-**Sam:** For growth, I would screen for revenue growth above fifteen percent, earnings growth above twenty percent, return on equity above fifteen percent, and PEG ratio below one point five. The PEG ratio is key because it relates the P/E to the growth rate. A PEG below one means you are paying less than one times the growth rate.
+**Stella（小魚）：** 對於成長型，我會篩選營收成長率高於15%、盈餘成長率高於20%、ROE高於15%，以及本益成長比低於1.5。本益成長比是關鍵，因為它將本益比與成長率關聯。本益成長比低於1，意味著你付出的倍數低於成長率。
 
-**Alex:** And for dividend investors?
+**Horace（陳馬）：** 股利型投資人呢？
 
-**Sam:** Dividend yield between two and five percent, because anything above five percent might signal a cut risk. Payout ratio below sixty-five percent for sustainability. Ten or more consecutive years of dividend increases. And positive free cash flow growth.
+**Stella（小魚）：** 股利殖利率介於2%至5%之間，因為高於5%的殖利率可能表示減股利風險。配息率低於65%以確保可持續性。連續10年以上每年增加股利。以及正的自由現金流成長。
 
 **[ANIMATION: Three screening funnels side by side, each labeled Value/Growth/Dividend, showing different criteria and different stocks emerging from each]**
 
-**Alex:** Can I combine these approaches?
+**Horace（陳馬）：** 我能結合這些方法嗎？
 
-**Sam:** Absolutely. Many successful investors use a GARP approach, growth at a reasonable price. You screen for growth metrics AND valuation metrics simultaneously. This avoids both value traps and overpriced growth stocks.
+**Stella（小魚）：** 當然。許多成功的投資人使用GARP方法，即以合理價格買進成長股。你同時篩選成長指標和估值指標。這避免了既陷入價值陷阱又買入過度高估成長股的問題。
 
-**Alex:** What are the biggest mistakes people make with screeners?
+**Horace（陳馬）：** 人們使用篩選工具最常犯的錯誤是什麼？
 
-**Sam:** Number one: treating the screen results as buy recommendations. A screen is a starting point, not an answer.
+**Stella（小魚）：** 第一：將篩選結果視為買入建議。篩選是起點，而非答案。
 
 **[VISUAL: Red X over a screener result list with text "NOT a buy list"]**
 
-**Sam:** Number two: over-filtering. If you use fifteen criteria simultaneously, you might get zero results or only weird statistical anomalies. Start with four to six core criteria.
+**Stella（小魚）：** 第二：過度篩選。若同時使用15個標準，你可能得到零結果或只有奇怪的統計異常值。從4至6個核心標準開始。
 
-**Alex:** What is number three?
+**Horace（陳馬）：** 第三是什麼？
 
-**Sam:** Running a screen once and never updating it. Markets change weekly. Run your screens regularly. A stock that was too expensive last month might be a bargain after a pullback.
+**Stella（小魚）：** 只篩選一次而不更新。市場每週都在變化。定期執行篩選。上個月估值過高的股票，在回檔後可能是便宜貨。
 
 **[ANIMATION: Calendar showing weekly screening schedule with check marks]**
 
-**Alex:** And number four?
+**Horace（陳馬）：** 第四呢？
 
-**Sam:** Ignoring qualitative factors. Screeners only capture numbers. They cannot tell you about management quality, competitive moats, regulatory risk, or technological disruption. The numbers get you the candidates. Your brain makes the final call.
+**Stella（小魚）：** 忽視質化因素。篩選工具只能捕捉數字。它們無法告訴你管理品質、競爭護城河、法規風險或技術顛覆。數字給你候選標的，你的頭腦做最終決定。
 
 **[VISUAL: Split screen showing "Quantitative" (screener data, charts, ratios) on one side and "Qualitative" (management, moat, industry trends, risks) on the other, both pointing to "Investment Decision" at bottom]**
 
-**Alex:** One last thing. How do I keep my watchlist organized over time?
+**Horace（陳馬）：** 最後一件事。我如何長期保持觀察名單的有序？
 
-**Sam:** I recommend a simple spreadsheet or your brokerage platform's watchlist feature. Create columns for: ticker, sector, current price, your target price, the key thesis in one sentence, and last review date.
+**Stella（小魚）：** 我推薦使用簡單的試算表或你的券商平台的觀察名單功能。建立欄位包括：代碼、類股、當前股價、你的目標價、一句話的核心投資論點，以及最後檢視日期。
 
 **[VISUAL: Clean spreadsheet template with columns: Ticker, Sector, Tier, Price, Target, P/E, Thesis, Last Reviewed, with a few sample entries filled in]**
 
-**Sam:** Review the entire watchlist monthly. Remove stocks that no longer meet your criteria. Add new ones from your screens. Update prices and notes. Keep it alive and current, not a dusty list you set and forget.
+**Stella（小魚）：** 每月檢視整份觀察名單。移除不再符合你標準的股票。從篩選中添加新股票。更新價格和筆記。讓它保持活躍和最新，而不是一份設定後就遺忘的塵封名單。
 
-**Alex:** This is really actionable. So to summarize: screen to narrow the universe, organize by sector, triage into tiers, and do deep research on the top candidates.
+**Horace（陳馬）：** 這真的很實用。總結一下：篩選縮小範圍，依類股組織，分流至層級，並對頂尖候選標的進行深度研究。
 
-**Sam:** Exactly. It is a repeatable, systematic process. The best investors are not the ones with the flashiest ideas. They are the ones with the most disciplined process.
+**Stella（小魚）：** 正是。這是一個可重複的、系統化的流程。最優秀的投資人，不是那些有最華麗構想的人，而是那些流程最嚴謹的人。
 
 **[VISUAL: Summary card with the complete workflow: Screen (weekly) -> Sector Group -> Triage (Tiers 1-2-3) -> Deep Research -> Valuation -> Decision -> Monitor]**
 
-**Alex:** Thanks Sam. I am going to set up my first screen tonight.
+**Horace（陳馬）：** 謝謝Stella。我今晚就要設置我的第一個篩選。
 
-**Sam:** Start simple. Four criteria. See what comes out. Then refine from there. Your process will improve with every iteration.
+**Stella（小魚）：** 從簡單開始。四個標準。看看結果如何，然後不斷精煉。每一次迭代都會讓你的流程更好。
+
+**Horace（陳馬）：** 給剛入門的人最後的快速提示？
+
+**Stella（小魚）：** 三件事。第一，寫下你將每支股票加入觀察名單的原因。一句話的投資論點強制你思路清晰。第二，設定日曆提醒，每月檢視你的觀察名單。過時的觀察名單會變得毫無用處。第三，追蹤你的篩選績效。你篩選和研究的股票，實際上表現是否超出大盤？若沒有，精煉你的標準。
+
+**[VISUAL: Calendar with monthly review reminder, notebook with written thesis examples, and performance tracker spreadsheet shown side by side]**
+
+**Horace（陳馬）：** 寫下來、定期檢視、追蹤結果。簡單但強而有力的習慣。
+
+**Stella（小魚）：** 正是。最優秀的投資人不是最聰明的，而是最嚴謹的。你的篩選流程，是這種嚴謹紀律的基礎。
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on fundamental analysis and valuation]**
 
 ---
 
-*End of Side Lesson 27*
+*補充課第27課結束*
+```

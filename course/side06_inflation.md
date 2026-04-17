@@ -284,169 +284,169 @@ A: The Fed has a dual mandate: maximum employment and price stability. It target
 
 **[VISUAL: Time-lapse of a price tag on a gallon of milk changing from $1.50 to $2.00 to $3.00 to $4.50 over decades. Title card: "Understanding Inflation"]**
 
-**Alex:** Here is a question. If I told you there was a tax that took two to three percent of your savings every year, that you could not vote against, that had no exemption, and that most people ignored -- would you want to know about it?
+**Horace:** Here is a question. If I told you there was a tax that took two to three percent of your savings every year, that you could not vote against, that had no exemption, and that most people ignored -- would you want to know about it?
 
-**Sam:** Obviously. What is it?
+**Stella:** Obviously. What is it?
 
-**Alex:** Inflation. The silent thief.
+**Horace:** Inflation. The silent thief.
 
 **[ANIMATION: Stack of dollar bills. Each year, a few bills from the stack disappear. After 30 years, roughly half the stack is gone. Label: "Purchasing power of $100 at 3% annual inflation: $41 after 30 years."]**
 
-**Sam:** Two to three percent per year does not sound like much, though.
+**Stella:** Two to three percent per year does not sound like much, though.
 
-**Alex:** That is exactly what makes it dangerous. It is invisible on a day-to-day basis. You do not notice that your coffee costs twenty cents more this year. But compound that over twenty or thirty years, and you have lost half your purchasing power. A hundred dollars today buys about forty-one dollars worth of goods in thirty years at three percent inflation.
+**Horace:** That is exactly what makes it dangerous. It is invisible on a day-to-day basis. You do not notice that your coffee costs twenty cents more this year. But compound that over twenty or thirty years, and you have lost half your purchasing power. A hundred dollars today buys about forty-one dollars worth of goods in thirty years at three percent inflation.
 
-**Sam:** How is inflation actually measured?
+**Stella:** How is inflation actually measured?
 
-**Alex:** The main measure in the US is the Consumer Price Index, or CPI. The Bureau of Labor Statistics tracks the prices of about eighty thousand items across two hundred categories. They weight them based on how the average urban consumer spends money.
+**Horace:** The main measure in the US is the Consumer Price Index, or CPI. The Bureau of Labor Statistics tracks the prices of about eighty thousand items across two hundred categories. They weight them based on how the average urban consumer spends money.
 
 **[VISUAL: Pie chart of CPI components with weights: Housing 36%, Transportation 16%, Food 13%, Medical 7%, Education 6%, Recreation 5%, Apparel 2%, Other 15%]**
 
-**Alex:** Housing is the biggest component at thirty-six percent. Then transportation, food, and medical care. So when people say "inflation is three percent," they mean this weighted average of all these categories went up three percent.
+**Horace:** Housing is the biggest component at thirty-six percent. Then transportation, food, and medical care. So when people say "inflation is three percent," they mean this weighted average of all these categories went up three percent.
 
-**Sam:** But my personal experience of inflation might be very different from the official number.
+**Stella:** But my personal experience of inflation might be very different from the official number.
 
-**Alex:** Exactly. If you are a young renter in an expensive city spending a lot on housing and education, your personal inflation rate is probably higher than CPI. If you are a retiree with a paid-off house spending heavily on healthcare, your inflation is also probably higher because medical costs inflate faster than average. CPI is an average, and few people are perfectly average.
+**Horace:** Exactly. If you are a young renter in an expensive city spending a lot on housing and education, your personal inflation rate is probably higher than CPI. If you are a retiree with a paid-off house spending heavily on healthcare, your inflation is also probably higher because medical costs inflate faster than average. CPI is an average, and few people are perfectly average.
 
 **[VISUAL: Three icons -- young renter, suburban family, retiree. Each with their own "personal CPI" showing different rates: 4.2%, 2.8%, 4.5%]**
 
-**Sam:** I hear people say the government manipulates CPI to make inflation look lower. Is that true?
+**Stella:** I hear people say the government manipulates CPI to make inflation look lower. Is that true?
 
-**Alex:** There are legitimate debates about CPI methodology -- things like how they account for quality improvements in technology, how they measure housing costs, and how they handle consumers switching to cheaper alternatives. These methodological choices do affect the number. But calling it "manipulation" implies bad faith, and the evidence does not support that. Independent price indices, like academic projects tracking millions of online prices, have generally confirmed that CPI is in the right ballpark.
+**Horace:** There are legitimate debates about CPI methodology -- things like how they account for quality improvements in technology, how they measure housing costs, and how they handle consumers switching to cheaper alternatives. These methodological choices do affect the number. But calling it "manipulation" implies bad faith, and the evidence does not support that. Independent price indices, like academic projects tracking millions of online prices, have generally confirmed that CPI is in the right ballpark.
 
-**Alex:** Now let me explain something that changes how you should think about every investment return you ever see.
+**Horace:** Now let me explain something that changes how you should think about every investment return you ever see.
 
 **[VISUAL: Title card: "Nominal vs. Real Returns"]**
 
-**Alex:** When someone says "the stock market returned ten percent last year," that is the nominal return. It is the raw number. But if inflation was three percent, your real return -- the actual increase in your purchasing power -- was only about seven percent.
+**Horace:** When someone says "the stock market returned ten percent last year," that is the nominal return. It is the raw number. But if inflation was three percent, your real return -- the actual increase in your purchasing power -- was only about seven percent.
 
 **[ANIMATION: Thermometer graphic. Nominal return = 10% (top of thermometer). Inflation = 3% (red zone subtracted from top). Real return = ~7% (what remains). Clear visual that inflation "eats" part of your return.]**
 
-**Sam:** So real returns are what actually matter.
+**Stella:** So real returns are what actually matter.
 
-**Alex:** Always. Let me show you what this means for different asset classes over the long run.
+**Horace:** Always. Let me show you what this means for different asset classes over the long run.
 
 **[VISUAL: Bar chart of historical real returns (after inflation): Stocks ~7%, Long-term Government Bonds ~2%, Treasury Bills (Cash) ~0.4%, Gold ~1%]**
 
-**Alex:** Stocks have returned about seven percent per year in real terms since 1926. Government bonds, about two percent. Cash -- Treasury bills -- about zero point four percent. Barely above zero. Gold about one percent.
+**Horace:** Stocks have returned about seven percent per year in real terms since 1926. Government bonds, about two percent. Cash -- Treasury bills -- about zero point four percent. Barely above zero. Gold about one percent.
 
-**Sam:** Cash is basically treading water.
+**Stella:** Cash is basically treading water.
 
-**Alex:** And that is before taxes. If you earn four percent on a savings account and pay twenty-five percent in taxes, your after-tax return is three percent. If inflation is three percent, your real after-tax return is zero. You have worked all year to earn interest that exactly offsets inflation. Nothing gained.
+**Horace:** And that is before taxes. If you earn four percent on a savings account and pay twenty-five percent in taxes, your after-tax return is three percent. If inflation is three percent, your real after-tax return is zero. You have worked all year to earn interest that exactly offsets inflation. Nothing gained.
 
 **[ANIMATION: Person running on a treadmill. The speed increases labeled "Inflation 3%." The person speeds up to match, labeled "Savings account 4%, after tax 3%." Net progress: zero. Treadmill labeled "Cash trap."]**
 
-**Sam:** This is why people say cash is a losing investment.
+**Stella:** This is why people say cash is a losing investment.
 
-**Alex:** Over the long term, yes. Which is why every portfolio needs assets that can beat inflation. And the champion of beating inflation is equities.
+**Horace:** Over the long term, yes. Which is why every portfolio needs assets that can beat inflation. And the champion of beating inflation is equities.
 
-**Sam:** But stocks got crushed in the 1970s when inflation was high.
+**Stella:** But stocks got crushed in the 1970s when inflation was high.
 
-**Alex:** True. In the short term, unexpected inflation is terrible for stocks. When inflation spikes, the Federal Reserve raises interest rates, which increases the discount rate on future earnings, which compresses valuations. The S&P 500 had an awful real return in the 1970s. But from 1970 through 2000 -- a thirty-year period that included the entire inflationary era -- stocks still returned about seven percent real per year.
+**Horace:** True. In the short term, unexpected inflation is terrible for stocks. When inflation spikes, the Federal Reserve raises interest rates, which increases the discount rate on future earnings, which compresses valuations. The S&P 500 had an awful real return in the 1970s. But from 1970 through 2000 -- a thirty-year period that included the entire inflationary era -- stocks still returned about seven percent real per year.
 
 **[VISUAL: Chart showing S&P 500 real returns by decade. 1970s: poor. 1980s: excellent. 1990s: excellent. The 30-year average smooths to approximately historical norms.]**
 
-**Alex:** The lesson: stocks are a terrible short-term inflation hedge but an excellent long-term one. Companies can raise prices, innovate, cut costs, and grow earnings in nominal terms. Given enough time, equity returns overwhelm inflation.
+**Horace:** The lesson: stocks are a terrible short-term inflation hedge but an excellent long-term one. Companies can raise prices, innovate, cut costs, and grow earnings in nominal terms. Given enough time, equity returns overwhelm inflation.
 
-**Sam:** What about something designed specifically to protect against inflation? TIPS?
+**Stella:** What about something designed specifically to protect against inflation? TIPS?
 
-**Alex:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with CPI. If inflation is three percent, your principal goes up three percent, and your interest is calculated on the higher amount.
+**Horace:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with CPI. If inflation is three percent, your principal goes up three percent, and your interest is calculated on the higher amount.
 
 **[ANIMATION: Bond certificate with face value $10,000. Year 1: CPI up 3%, principal becomes $10,300, interest paid on $10,300. Year 2: CPI up 2.5%, principal becomes $10,558, interest on $10,558. The principal staircase graphic climbing with inflation.]**
 
-**Alex:** TIPS guarantee a real return. If you buy a TIPS yielding two percent, you will earn two percent above inflation, no matter what inflation does. That is powerful certainty.
+**Horace:** TIPS guarantee a real return. If you buy a TIPS yielding two percent, you will earn two percent above inflation, no matter what inflation does. That is powerful certainty.
 
-**Sam:** What is the catch?
+**Stella:** What is the catch?
 
-**Alex:** Two things. First, the real yield is modest -- often below two percent. TIPS protect your purchasing power but will not make you wealthy. Second, the inflation adjustment is taxable annually even though you do not receive it in cash until maturity. This "phantom income" tax makes TIPS less efficient in taxable accounts. Hold them in an IRA if possible.
+**Horace:** Two things. First, the real yield is modest -- often below two percent. TIPS protect your purchasing power but will not make you wealthy. Second, the inflation adjustment is taxable annually even though you do not receive it in cash until maturity. This "phantom income" tax makes TIPS less efficient in taxable accounts. Hold them in an IRA if possible.
 
 **[VISUAL: Comparison table: TIPS -- Pros: Inflation protection, government backed, real return guaranteed. Cons: Low real yield, phantom income tax, still has interest rate risk.]**
 
-**Sam:** What about real estate and commodities as inflation hedges?
+**Stella:** What about real estate and commodities as inflation hedges?
 
-**Alex:** Real estate is excellent because rents and property values tend to rise with inflation. If you own rental property, you can raise rents. Your fixed-rate mortgage becomes cheaper in real terms as inflation erodes the real value of your debt. The challenge is that real estate is illiquid and requires active management.
+**Horace:** Real estate is excellent because rents and property values tend to rise with inflation. If you own rental property, you can raise rents. Your fixed-rate mortgage becomes cheaper in real terms as inflation erodes the real value of your debt. The challenge is that real estate is illiquid and requires active management.
 
 **[ANIMATION: House with rent sign. Arrow showing rent increasing with CPI. Mortgage payment staying flat. The gap between rent and mortgage widening over time = growing real income.]**
 
-**Alex:** Commodities -- oil, metals, agricultural products -- provide direct inflation exposure because commodity prices are literally a component of CPI. When commodity prices rise, inflation rises. The problem is that long-term commodity returns have been unimpressive, and commodity futures involve complex roll dynamics that can drag returns.
+**Horace:** Commodities -- oil, metals, agricultural products -- provide direct inflation exposure because commodity prices are literally a component of CPI. When commodity prices rise, inflation rises. The problem is that long-term commodity returns have been unimpressive, and commodity futures involve complex roll dynamics that can drag returns.
 
-**Sam:** And gold? Everyone talks about gold during inflation.
+**Stella:** And gold? Everyone talks about gold during inflation.
 
-**Alex:** Gold's track record is mixed. It was spectacular in the 1970s and during the post-2020 inflation. But from 1980 to 2000, gold lost seventy percent of its real value while inflation averaged three and a half percent. Gold is less an inflation hedge and more a crisis hedge -- it shines when people lose faith in the monetary system, not during routine two-to-three percent inflation.
+**Horace:** Gold's track record is mixed. It was spectacular in the 1970s and during the post-2020 inflation. But from 1980 to 2000, gold lost seventy percent of its real value while inflation averaged three and a half percent. Gold is less an inflation hedge and more a crisis hedge -- it shines when people lose faith in the monetary system, not during routine two-to-three percent inflation.
 
 **[VISUAL: Gold real price chart from 1970-present. Massive spike in late 1970s, long decline 1980-2000, rise 2000-2012, flat 2012-2018, surge 2019-present. Inconsistent pattern highlighted.]**
 
-**Sam:** What about I-Bonds? You mentioned those alongside TIPS.
+**Stella:** What about I-Bonds? You mentioned those alongside TIPS.
 
-**Alex:** I-Bonds are savings bonds from the Treasury that are, in my opinion, one of the best-kept secrets in personal finance for small investors. They combine a fixed rate with an inflation adjustment every six months. The interest is tax-deferred until you cash them in. State taxes are exempt entirely. And the composite rate can never go below zero, so you have deflation protection built in.
+**Horace:** I-Bonds are savings bonds from the Treasury that are, in my opinion, one of the best-kept secrets in personal finance for small investors. They combine a fixed rate with an inflation adjustment every six months. The interest is tax-deferred until you cash them in. State taxes are exempt entirely. And the composite rate can never go below zero, so you have deflation protection built in.
 
 **[VISUAL: I-Bond structure. "Fixed Rate (permanent) + Inflation Rate (adjusts every 6 months) = Composite Rate." Benefits listed: tax-deferred, no market risk, deflation floor. Limit: $10,000/year per person.]**
 
-**Sam:** What is the limit?
+**Stella:** What is the limit?
 
-**Alex:** Ten thousand dollars per person per year in electronic form, plus up to five thousand in paper bonds through a tax refund. You must hold for at least one year, and if you cash out before five years you lose three months of interest. But within those constraints, I-Bonds are hard to beat. During the 2022 inflation spike, composite rates hit over nine percent. Nine percent, guaranteed by the US government, with tax deferral. That was arguably the best risk-free investment available anywhere.
+**Horace:** Ten thousand dollars per person per year in electronic form, plus up to five thousand in paper bonds through a tax refund. You must hold for at least one year, and if you cash out before five years you lose three months of interest. But within those constraints, I-Bonds are hard to beat. During the 2022 inflation spike, composite rates hit over nine percent. Nine percent, guaranteed by the US government, with tax deferral. That was arguably the best risk-free investment available anywhere.
 
 **[ANIMATION: I-Bond rate chart showing composite rates spiking above 9% in late 2022, then gradually declining as inflation eased. Annotation: "Still an excellent deal whenever the fixed rate is positive."]**
 
-**Sam:** How should this change the way people plan for retirement?
+**Stella:** How should this change the way people plan for retirement?
 
-**Alex:** Dramatically. Let me show you the single biggest mistake retirees make.
+**Horace:** Dramatically. Let me show you the single biggest mistake retirees make.
 
 **[VISUAL: Two retirement scenarios side by side]**
 
-**Alex:** Scenario one: a retiree with a million-dollar portfolio withdrawing forty thousand dollars per year, flat, not adjusted for inflation. In year one, that is four percent. Fine. But in year twenty, after three percent annual inflation, that forty thousand dollars has the purchasing power of only twenty-two thousand in today's dollars. They have effectively cut their standard of living in half.
+**Horace:** Scenario one: a retiree with a million-dollar portfolio withdrawing forty thousand dollars per year, flat, not adjusted for inflation. In year one, that is four percent. Fine. But in year twenty, after three percent annual inflation, that forty thousand dollars has the purchasing power of only twenty-two thousand in today's dollars. They have effectively cut their standard of living in half.
 
 **[ANIMATION: Bar chart showing $40,000 flat withdrawal each year. A second overlay shows the real purchasing power declining each year. By year 20, the bars are nearly half height.]**
 
-**Alex:** Scenario two: same portfolio, but withdrawals increase by three percent per year to keep up with inflation. Year one: forty thousand. Year ten: fifty-four thousand. Year twenty: seventy-two thousand. Now purchasing power is maintained, but the portfolio is under much more strain.
+**Horace:** Scenario two: same portfolio, but withdrawals increase by three percent per year to keep up with inflation. Year one: forty thousand. Year ten: fifty-four thousand. Year twenty: seventy-two thousand. Now purchasing power is maintained, but the portfolio is under much more strain.
 
-**Sam:** Which is why the four percent rule assumes inflation-adjusted withdrawals, right?
+**Stella:** Which is why the four percent rule assumes inflation-adjusted withdrawals, right?
 
-**Alex:** Right. And it requires a meaningful equity allocation -- typically fifty to sixty percent stocks -- to generate the real growth needed to sustain rising withdrawals over a thirty-year retirement. An all-bond portfolio cannot keep up.
+**Horace:** Right. And it requires a meaningful equity allocation -- typically fifty to sixty percent stocks -- to generate the real growth needed to sustain rising withdrawals over a thirty-year retirement. An all-bond portfolio cannot keep up.
 
 **[VISUAL: Portfolio survival chart. 100% bonds fails after ~18 years with inflation-adjusted withdrawals. 50/50 survives 30 years in most scenarios. 60/40 or 70/30 provides margin of safety.]**
 
-**Sam:** What about Social Security?
+**Stella:** What about Social Security?
 
-**Alex:** Social Security is one of the best inflation hedges a retiree has because benefits are adjusted annually for CPI. It provides a real income floor that no private investment can exactly replicate. This is one reason delaying Social Security to maximize the benefit is so valuable -- you are increasing the size of your inflation-protected income stream.
+**Horace:** Social Security is one of the best inflation hedges a retiree has because benefits are adjusted annually for CPI. It provides a real income floor that no private investment can exactly replicate. This is one reason delaying Social Security to maximize the benefit is so valuable -- you are increasing the size of your inflation-protected income stream.
 
 **[VISUAL: Social Security benefit with annual COLA adjustments shown. Starting at $2,500/month, rising to $3,360/month after 10 years at 3% annual COLA. Purchasing power maintained.]**
 
-**Sam:** Let us bring it all together. What should a practical investor do about inflation?
+**Stella:** Let us bring it all together. What should a practical investor do about inflation?
 
-**Alex:** Five things.
+**Horace:** Five things.
 
 **[VISUAL: Five-point framework appearing one by one]**
 
-**Alex:** First, think in real terms. Whenever you see an investment return, mentally subtract inflation. That five percent CD is really two percent real, and after taxes maybe one percent. Train yourself to think in real returns.
+**Horace:** First, think in real terms. Whenever you see an investment return, mentally subtract inflation. That five percent CD is really two percent real, and after taxes maybe one percent. Train yourself to think in real returns.
 
-**Sam:** Number two?
+**Stella:** Number two?
 
-**Alex:** Hold equities for the long term. Stocks are the best long-term inflation hedge because companies grow revenues and earnings in nominal terms. Do not abandon stocks because inflation is elevated -- that is exactly when you need their inflation-hedging properties most.
+**Horace:** Hold equities for the long term. Stocks are the best long-term inflation hedge because companies grow revenues and earnings in nominal terms. Do not abandon stocks because inflation is elevated -- that is exactly when you need their inflation-hedging properties most.
 
-**Alex:** Three -- include TIPS or I-Bonds in your fixed-income allocation. Allocate twenty to thirty percent of your bond portfolio to inflation-protected securities. This ensures that at least part of your portfolio is explicitly guaranteed to keep up with CPI.
+**Horace:** Three -- include TIPS or I-Bonds in your fixed-income allocation. Allocate twenty to thirty percent of your bond portfolio to inflation-protected securities. This ensures that at least part of your portfolio is explicitly guaranteed to keep up with CPI.
 
-**Alex:** Four -- be cautious with long-duration fixed-rate bonds. These are the most vulnerable asset class during inflation. When rates rise, long bonds get crushed. Shorten your bond duration during inflationary environments.
+**Horace:** Four -- be cautious with long-duration fixed-rate bonds. These are the most vulnerable asset class during inflation. When rates rise, long bonds get crushed. Shorten your bond duration during inflationary environments.
 
-**Alex:** And five -- plan retirement withdrawals in real terms. Your spending needs will grow with inflation. Model your retirement plan with inflation-adjusted withdrawals, not flat dollar amounts. Use conservative inflation assumptions -- three percent or higher -- rather than hoping for the Fed's two percent target.
+**Horace:** And five -- plan retirement withdrawals in real terms. Your spending needs will grow with inflation. Model your retirement plan with inflation-adjusted withdrawals, not flat dollar amounts. Use conservative inflation assumptions -- three percent or higher -- rather than hoping for the Fed's two percent target.
 
 **[ANIMATION: Portfolio pie chart showing recommended allocation with inflation awareness: Broad equities (50-60%), TIPS (10-15%), Short/intermediate bonds (15-20%), Real estate/REITs (5-10%), Commodities (0-5%), Cash for near-term needs (5-10%)]**
 
-**Sam:** The bottom line is that inflation is not something to fear -- it is something to plan for.
+**Stella:** The bottom line is that inflation is not something to fear -- it is something to plan for.
 
-**Alex:** Exactly. You cannot control inflation. But you can build a portfolio that is resilient to it, plan your retirement in real terms, and make sure your purchasing power grows over time rather than erodes. That is the whole game.
+**Horace:** Exactly. You cannot control inflation. But you can build a portfolio that is resilient to it, plan your retirement in real terms, and make sure your purchasing power grows over time rather than erodes. That is the whole game.
 
-**Sam:** One last thing. People use words like disinflation, deflation, and stagflation interchangeably. Can you clarify?
+**Stella:** One last thing. People use words like disinflation, deflation, and stagflation interchangeably. Can you clarify?
 
-**Alex:** Very different things. Disinflation means inflation is slowing down -- prices are still rising but more slowly. That is generally good for investments. Deflation means prices are actually falling. It sounds nice but it is economically dangerous -- it increases the real burden of debt, discourages spending, and can spiral into depression. Japan experienced deflation for much of the 1990s and 2000s and it was devastating. And stagflation is the nightmare scenario: stagnant growth, high unemployment, and high inflation all at the same time. The 1970s were the classic example. Both stocks and bonds suffer during stagflation.
+**Horace:** Very different things. Disinflation means inflation is slowing down -- prices are still rising but more slowly. That is generally good for investments. Deflation means prices are actually falling. It sounds nice but it is economically dangerous -- it increases the real burden of debt, discourages spending, and can spiral into depression. Japan experienced deflation for much of the 1990s and 2000s and it was devastating. And stagflation is the nightmare scenario: stagnant growth, high unemployment, and high inflation all at the same time. The 1970s were the classic example. Both stocks and bonds suffer during stagflation.
 
 **[VISUAL: Three scenarios on a spectrum. Left: "Disinflation (2015-2019): Inflation falling from 3% to 1.5%. Generally positive for assets." Center: "Deflation (Japan 1990s): Prices falling. Dangerous." Right: "Stagflation (US 1970s): High inflation + recession. Worst case for investors."]**
 
 **[VISUAL: Recap: "Think in Real Returns | Equities for Long-Term Hedge | TIPS/I-Bonds for Guaranteed Real Returns | I-Bonds for Tax-Deferred Protection | Shorten Bond Duration | Plan Retirement in Real Terms"]**
 
-**Sam:** Go check your portfolio. How much is in cash earning below inflation? How much is in long-duration bonds? What is your real after-tax return? These are the questions that matter.
+**Stella:** Go check your portfolio. How much is in cash earning below inflation? How much is in long-duration bonds? What is your real after-tax return? These are the questions that matter.
 
-**Alex:** See you in the next one.
+**Horace:** See you in the next one.
 
 **[VISUAL: End card with channel info and "Explore More: Full Course Curriculum"]**
 

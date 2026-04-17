@@ -629,128 +629,128 @@ A: They are closely related but technically different. The term structure of int
 
 [VISUAL: Animated intro with show logo. Text: "Week 31: Yield Curves - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. This week we are shifting gears from options to bonds. Specifically, we are going to learn about the yield curve, which I consider the single most important indicator in all of financial markets.
+**Horace:** Welcome back, everyone. This week we are shifting gears from options to bonds. Specifically, we are going to learn about the yield curve, which I consider the single most important indicator in all of financial markets.
 
-**Sam:** That is a bold claim. More important than stock market earnings, GDP, or employment data?
+**Stella:** That is a bold claim. More important than stock market earnings, GDP, or employment data?
 
-**Alex:** I stand by it. The yield curve has predicted every U.S. recession in the past 50 years. No other indicator has that track record. Zero false signals. It drives trillions of dollars in mortgage rates, corporate borrowing costs, and bank profitability. And it is free to read, updated every day.
+**Horace:** I stand by it. The yield curve has predicted every U.S. recession in the past 50 years. No other indicator has that track record. Zero false signals. It drives trillions of dollars in mortgage rates, corporate borrowing costs, and bank profitability. And it is free to read, updated every day.
 
 [VISUAL: A newspaper-style headline montage showing: "Yield Curve Inverts" (2006), followed by "Recession Declared" (2008). Then "Yield Curve Inverts" (2019), followed by "Recession Declared" (2020). Then "Yield Curve Inverts" (2022) with a question mark.]
 
-**Sam:** OK, you have my attention. Let us start from the beginning. What exactly is a yield curve?
+**Stella:** OK, you have my attention. Let us start from the beginning. What exactly is a yield curve?
 
-**Alex:** A yield curve is simply a graph. On the x-axis, you have maturity, from 1 month out to 30 years. On the y-axis, you have the yield, the interest rate. You plot the yield of government bonds at each maturity and connect the dots. That line is the yield curve.
+**Horace:** A yield curve is simply a graph. On the x-axis, you have maturity, from 1 month out to 30 years. On the y-axis, you have the yield, the interest rate. You plot the yield of government bonds at each maturity and connect the dots. That line is the yield curve.
 
 [ANIMATION: Reference animation/week31_yield_curve_build.py - Starting with empty axes labeled "Maturity" (x-axis) and "Yield" (y-axis). Treasury bond data points appear one by one: 1-month bill at 2.8%, 3-month at 3.1%, 6-month at 3.4%, 1-year at 3.6%, 2-year at 3.8%, 5-year at 4.1%, 10-year at 4.4%, 30-year at 4.8%. As each point appears, a smooth curve forms connecting them. The final shape is a typical upward-sloping normal yield curve.]
 
-**Sam:** So it slopes upward. Short-term rates are lower and long-term rates are higher. Why?
+**Stella:** So it slopes upward. Short-term rates are lower and long-term rates are higher. Why?
 
-**Alex:** Think of it like this. If I asked you to lend me money for one year, you might ask for 3.5% interest. But if I asked you to lend me money for 30 years, you would want much more, maybe 5%. Why? Because in 30 years, a lot can go wrong. Inflation could spike, I might not pay you back, or you might need the money for something else. That extra yield for taking on more time is called the term premium.
+**Horace:** Think of it like this. If I asked you to lend me money for one year, you might ask for 3.5% interest. But if I asked you to lend me money for 30 years, you would want much more, maybe 5%. Why? Because in 30 years, a lot can go wrong. Inflation could spike, I might not pay you back, or you might need the money for something else. That extra yield for taking on more time is called the term premium.
 
-**Sam:** So longer maturity equals more risk equals more yield.
+**Stella:** So longer maturity equals more risk equals more yield.
 
-**Alex:** Exactly. Under normal conditions, the yield curve slopes upward. This is called a normal yield curve. Investors are being compensated for the additional risk of lending money for longer periods.
+**Horace:** Exactly. Under normal conditions, the yield curve slopes upward. This is called a normal yield curve. Investors are being compensated for the additional risk of lending money for longer periods.
 
-**Sam:** But sometimes the curve has different shapes, right?
+**Stella:** But sometimes the curve has different shapes, right?
 
-**Alex:** There are three main shapes. Normal, which is upward-sloping and signals a healthy economy. Flat, where short and long rates are about equal, which signals uncertainty and transition. And inverted, where short rates are actually higher than long rates, which is the recession warning.
+**Horace:** There are three main shapes. Normal, which is upward-sloping and signals a healthy economy. Flat, where short and long rates are about equal, which signals uncertainty and transition. And inverted, where short rates are actually higher than long rates, which is the recession warning.
 
 [VISUAL: Three yield curves displayed side by side. Left: "Normal" with a clear upward slope labeled "Healthy Economy." Center: "Flat" with a horizontal line labeled "Transition / Uncertainty." Right: "Inverted" with a downward slope labeled "RECESSION WARNING"]
 
-**Sam:** Let us talk about the inverted curve because that is the famous one. How does it predict recessions?
+**Stella:** Let us talk about the inverted curve because that is the famous one. How does it predict recessions?
 
-**Alex:** The mechanism is surprisingly straightforward. It starts with the Federal Reserve raising short-term interest rates to fight inflation. When the Fed pushes short rates high enough, they rise above long rates, and the curve inverts. Now think about what this means for banks. Banks make money by borrowing short and lending long. They take in deposits at short-term rates and make loans at long-term rates. The difference is their profit margin.
+**Horace:** The mechanism is surprisingly straightforward. It starts with the Federal Reserve raising short-term interest rates to fight inflation. When the Fed pushes short rates high enough, they rise above long rates, and the curve inverts. Now think about what this means for banks. Banks make money by borrowing short and lending long. They take in deposits at short-term rates and make loans at long-term rates. The difference is their profit margin.
 
-**Sam:** And when the curve inverts, that profit margin disappears.
+**Stella:** And when the curve inverts, that profit margin disappears.
 
-**Alex:** Or goes negative. If a bank borrows at 5% and can only lend at 4%, it loses money on every new loan. So what do banks do? They stop lending. They tighten credit standards. Fewer loans get approved.
+**Horace:** Or goes negative. If a bank borrows at 5% and can only lend at 4%, it loses money on every new loan. So what do banks do? They stop lending. They tighten credit standards. Fewer loans get approved.
 
 [ANIMATION: Reference animation/week31_bank_mechanism.py - A visual chain reaction. Step 1: A "Fed" building raising a lever labeled "Short-term rate" to 5%. Step 2: A curve graphic showing the short end above the long end. Step 3: A bank building with an equation "Borrow at 5% - Lend at 4% = -1% LOSS" flashing red. Step 4: A "LOANS" spigot being turned off. Step 5: Business icons and consumer icons showing "Denied" stamps on loan applications. Step 6: An economic activity graph declining.]
 
-**Alex:** When credit dries up, businesses cannot get financing. Consumers cannot get loans. Economic activity slows. Hiring freezes. Eventually, layoffs begin. And that is a recession. The yield curve does not just predict it; it is part of the causal mechanism.
+**Horace:** When credit dries up, businesses cannot get financing. Consumers cannot get loans. Economic activity slows. Hiring freezes. Eventually, layoffs begin. And that is a recession. The yield curve does not just predict it; it is part of the causal mechanism.
 
-**Sam:** And this has happened before every recession since 1970?
+**Stella:** And this has happened before every recession since 1970?
 
-**Alex:** Every single one. The 2-year/10-year Treasury spread inverted before the recessions of 1980, 1981, 1990, 2001, 2008, and 2020. Average lead time is 12 to 18 months. And there have been zero false signals. No other indicator comes close to this track record.
+**Horace:** Every single one. The 2-year/10-year Treasury spread inverted before the recessions of 1980, 1981, 1990, 2001, 2008, and 2020. Average lead time is 12 to 18 months. And there have been zero false signals. No other indicator comes close to this track record.
 
 [VISUAL: Timeline spanning 1978 to 2024. Each inversion event is marked with an inverted triangle, and each subsequent recession is marked with a gray shaded bar. Arrows connect each inversion to its recession with the lead time in months: 17, 10, 18, 13, 16, etc.]
 
-**Sam:** But you said 12 to 18 months lead time. So when the curve inverts, you should not panic immediately.
+**Stella:** But you said 12 to 18 months lead time. So when the curve inverts, you should not panic immediately.
 
-**Alex:** This is crucial. The inversion is an early warning, not an immediate alarm. Many investors see the inversion, sell everything, and then watch the stock market rally for another 12 months before the recession arrives. The correct response is to gradually adjust your portfolio over months: shifting to higher quality stocks, extending bond duration to lock in high rates, building a cash position, and reducing cyclical exposure. Do not panic. Prepare.
+**Horace:** This is crucial. The inversion is an early warning, not an immediate alarm. Many investors see the inversion, sell everything, and then watch the stock market rally for another 12 months before the recession arrives. The correct response is to gradually adjust your portfolio over months: shifting to higher quality stocks, extending bond duration to lock in high rates, building a cash position, and reducing cyclical exposure. Do not panic. Prepare.
 
-**Sam:** Now I want to understand the different types of rates because the reading distinguished between spot rates, forward rates, and par rates.
+**Stella:** Now I want to understand the different types of rates because the reading distinguished between spot rates, forward rates, and par rates.
 
-**Alex:** Great question. These three are related but different. The spot rate, also called the zero-coupon rate, is the yield on a bond that pays no coupons and just returns your money at maturity. It is the "pure" rate for a specific maturity. The 5-year spot rate tells you exactly what return you get for locking up money for exactly 5 years.
+**Horace:** Great question. These three are related but different. The spot rate, also called the zero-coupon rate, is the yield on a bond that pays no coupons and just returns your money at maturity. It is the "pure" rate for a specific maturity. The 5-year spot rate tells you exactly what return you get for locking up money for exactly 5 years.
 
-**Sam:** And a forward rate?
+**Stella:** And a forward rate?
 
-**Alex:** A forward rate is the implied future interest rate derived from today's spot rates. Here is the key idea. If the 1-year spot rate is 3.5% and the 2-year spot rate is 3.8%, we can calculate what the market implies the 1-year rate will be one year from now.
+**Horace:** A forward rate is the implied future interest rate derived from today's spot rates. Here is the key idea. If the 1-year spot rate is 3.5% and the 2-year spot rate is 3.8%, we can calculate what the market implies the 1-year rate will be one year from now.
 
 [VISUAL: A timeline diagram. "Today" at the left. Two paths: Path 1 shows "Invest for 2 years at 3.80% spot rate." Path 2 shows "Invest for 1 year at 3.50%, then reinvest for 1 year at ??? forward rate." Both paths end at the same point. The forward rate of 4.10% is revealed as the rate that makes both paths equivalent.]
 
-**Alex:** The math says the implied forward rate is about 4.10%. This means that for both investment paths to give you the same result, the 1-year rate next year would need to be 4.10%. This is what the market is pricing in.
+**Horace:** The math says the implied forward rate is about 4.10%. This means that for both investment paths to give you the same result, the 1-year rate next year would need to be 4.10%. This is what the market is pricing in.
 
-**Sam:** Is that what will actually happen?
+**Stella:** Is that what will actually happen?
 
-**Alex:** Not necessarily. Forward rates are market-implied expectations, not forecasts. They can be wrong, and often are. But they tell you what the market is pricing, which is valuable information even if it turns out to be incorrect.
+**Horace:** Not necessarily. Forward rates are market-implied expectations, not forecasts. They can be wrong, and often are. But they tell you what the market is pricing, which is valuable information even if it turns out to be incorrect.
 
-**Sam:** What about par rates?
+**Stella:** What about par rates?
 
-**Alex:** Par rates are the coupon rates at which a coupon-paying bond would trade exactly at par, at $100. This is what most people see when they look at yield curves on financial news. When CNBC shows the "10-year Treasury yield at 4.4%," that is essentially the par rate. For an upward-sloping curve, par rates are slightly below spot rates because the intermediate coupon payments are discounted at lower short-term rates.
+**Horace:** Par rates are the coupon rates at which a coupon-paying bond would trade exactly at par, at $100. This is what most people see when they look at yield curves on financial news. When CNBC shows the "10-year Treasury yield at 4.4%," that is essentially the par rate. For an upward-sloping curve, par rates are slightly below spot rates because the intermediate coupon payments are discounted at lower short-term rates.
 
-**Sam:** Let us talk about the term premium because this seems like an underappreciated concept.
+**Stella:** Let us talk about the term premium because this seems like an underappreciated concept.
 
-**Alex:** The term premium is the extra yield investors demand for bearing the risk of holding longer-maturity bonds. The long-term yield equals the expected average of future short-term rates plus the term premium. If the market expects rates to average 3.5% over the next 10 years, and the 10-year yield is 4.5%, then the term premium is roughly 1%.
+**Horace:** The term premium is the extra yield investors demand for bearing the risk of holding longer-maturity bonds. The long-term yield equals the expected average of future short-term rates plus the term premium. If the market expects rates to average 3.5% over the next 10 years, and the 10-year yield is 4.5%, then the term premium is roughly 1%.
 
-**Sam:** So not all of the yield is about rate expectations?
+**Stella:** So not all of the yield is about rate expectations?
 
-**Alex:** Correct. And this distinction matters enormously. During the quantitative easing era, the Fed bought trillions of dollars in long-term bonds. This compressed the term premium, in some estimates pushing it below zero. Investors were actually paying for the privilege of holding long bonds because the Fed was a guaranteed buyer. When QE ended and the Fed started selling bonds (quantitative tightening), the term premium expanded, pushing long rates up even if rate expectations did not change.
+**Horace:** Correct. And this distinction matters enormously. During the quantitative easing era, the Fed bought trillions of dollars in long-term bonds. This compressed the term premium, in some estimates pushing it below zero. Investors were actually paying for the privilege of holding long bonds because the Fed was a guaranteed buyer. When QE ended and the Fed started selling bonds (quantitative tightening), the term premium expanded, pushing long rates up even if rate expectations did not change.
 
 [VISUAL: A bar decomposition of the 10-year yield. The bar is split into two segments: "Expected Average Future Rate: 3.80%" (blue) and "Term Premium: 0.70%" (orange). Total: 4.50%. Below, a second bar shows the QE era: "Expected Rate: 3.00%" and "Term Premium: -0.30%". Total: 2.70%. Annotation: "During QE, the term premium was NEGATIVE"]
 
-**Sam:** That explains why long-term rates can move without the Fed changing policy.
+**Stella:** That explains why long-term rates can move without the Fed changing policy.
 
-**Alex:** Exactly. The long end of the curve is driven by two independent forces: expectations of future Fed policy and the term premium. This is why the 10-year yield can rise even when the Fed is cutting rates, if the term premium is expanding. And it is why the 10-year can fall even when the Fed is raising rates, if the term premium is compressing.
+**Horace:** Exactly. The long end of the curve is driven by two independent forces: expectations of future Fed policy and the term premium. This is why the 10-year yield can rise even when the Fed is cutting rates, if the term premium is expanding. And it is why the 10-year can fall even when the Fed is raising rates, if the term premium is compressing.
 
-**Sam:** How should investors actually use the yield curve in their portfolio decisions?
+**Stella:** How should investors actually use the yield curve in their portfolio decisions?
 
-**Alex:** I have a simple framework. When the curve is normal and steep, favor stocks over bonds. Banks and financials do well. Keep bond holdings short-duration. When the curve is flattening, start shifting to higher quality. Watch for the inversion signal. When the curve is inverted, begin gradually reducing stock exposure, extend bond duration to lock in high rates, and build cash.
+**Horace:** I have a simple framework. When the curve is normal and steep, favor stocks over bonds. Banks and financials do well. Keep bond holdings short-duration. When the curve is flattening, start shifting to higher quality. Watch for the inversion signal. When the curve is inverted, begin gradually reducing stock exposure, extend bond duration to lock in high rates, and build cash.
 
 [VISUAL: A decision matrix. Three columns for "Normal/Steep", "Flat/Flattening", "Inverted". Rows for different asset classes: Stocks, Bonds, Cash, Sectors. Each cell has a recommendation with an up/down/neutral arrow.]
 
-**Alex:** And here is the often-overlooked signal: when the curve un-inverts, meaning it goes from inverted back to normal, that is when the recession is typically imminent or already starting. The un-inversion happens because the Fed starts cutting rates, pulling the short end down. So paradoxically, the curve normalizing can be the most bearish signal of all.
+**Horace:** And here is the often-overlooked signal: when the curve un-inverts, meaning it goes from inverted back to normal, that is when the recession is typically imminent or already starting. The un-inversion happens because the Fed starts cutting rates, pulling the short end down. So paradoxically, the curve normalizing can be the most bearish signal of all.
 
-**Sam:** That is counterintuitive. The curve going back to normal is actually worse than being inverted?
+**Stella:** That is counterintuitive. The curve going back to normal is actually worse than being inverted?
 
-**Alex:** For the near-term economic outlook, yes. The inversion says "recession is coming in 12 to 18 months." The un-inversion says "recession may be starting now." Of course, it also means that once you get through the recession, conditions are set for recovery. The curve steepening from inversion is eventually very bullish, just not immediately.
+**Horace:** For the near-term economic outlook, yes. The inversion says "recession is coming in 12 to 18 months." The un-inversion says "recession may be starting now." Of course, it also means that once you get through the recession, conditions are set for recovery. The curve steepening from inversion is eventually very bullish, just not immediately.
 
-**Sam:** Let me ask about yield curve movements. How does the curve actually shift?
+**Stella:** Let me ask about yield curve movements. How does the curve actually shift?
 
-**Alex:** There are four main types of movements. A parallel shift is when all maturities move by the same amount, say everything goes up 50 basis points. A steepening is when long rates rise more than short rates, making the curve more upward-sloping. A flattening is when short rates rise more than long rates, making the curve flatter. And a twist is when short and long rates move in opposite directions.
+**Horace:** There are four main types of movements. A parallel shift is when all maturities move by the same amount, say everything goes up 50 basis points. A steepening is when long rates rise more than short rates, making the curve more upward-sloping. A flattening is when short rates rise more than long rates, making the curve flatter. And a twist is when short and long rates move in opposite directions.
 
 [ANIMATION: Reference animation/week31_curve_movements.py - Four sequential animations showing each type of yield curve movement. 1) Parallel shift: entire curve lifts up uniformly. 2) Steepening: the right end of the curve lifts while the left stays put. 3) Flattening: the left end lifts while the right stays put. 4) Twist: left end lifts and right end drops simultaneously. Each animation shows a bond portfolio value indicator changing to show the impact.]
 
-**Sam:** And different movements affect different parts of a bond portfolio differently?
+**Stella:** And different movements affect different parts of a bond portfolio differently?
 
-**Alex:** Exactly. A parallel shift hits long bonds hardest because they have the most duration. A steepening specifically hurts the long end. A flattening hurts the short end but may benefit the long end. We will quantify all of this precisely next week when we cover duration and convexity.
+**Horace:** Exactly. A parallel shift hits long bonds hardest because they have the most duration. A steepening specifically hurts the long end. A flattening hurts the short end but may benefit the long end. We will quantify all of this precisely next week when we cover duration and convexity.
 
-**Sam:** How do the key yield curve spreads work? I have heard people talk about the "2s-10s spread."
+**Stella:** How do the key yield curve spreads work? I have heard people talk about the "2s-10s spread."
 
-**Alex:** The 2s-10s spread is the 10-year yield minus the 2-year yield. When it is positive, the curve is normal. When it is negative, the curve is inverted. It normally ranges from plus 100 to plus 200 basis points. The other important spread is the 3-month-to-10-year spread, which the Fed itself uses as its preferred recession indicator because the 3-month rate tracks the Fed Funds rate very closely.
+**Horace:** The 2s-10s spread is the 10-year yield minus the 2-year yield. When it is positive, the curve is normal. When it is negative, the curve is inverted. It normally ranges from plus 100 to plus 200 basis points. The other important spread is the 3-month-to-10-year spread, which the Fed itself uses as its preferred recession indicator because the 3-month rate tracks the Fed Funds rate very closely.
 
 [VISUAL: A live-style chart showing the 2y-10y spread over time from 2000 to present. The zero line is highlighted. Periods where the spread dips below zero (2000, 2006, 2019, 2022) are shaded, with subsequent recession periods marked in gray.]
 
-**Sam:** Before we wrap up, where should people go to look at the yield curve?
+**Stella:** Before we wrap up, where should people go to look at the yield curve?
 
-**Alex:** The best free resource is FRED, the Federal Reserve Economic Data website. It has the current yield curve, historical data, and tools to plot any spread over time. The U.S. Treasury website publishes daily par yield curve rates. And most brokerage platforms have yield curve tools built in. I recommend checking the yield curve at least weekly, or whenever you hear news about Fed policy changes.
+**Horace:** The best free resource is FRED, the Federal Reserve Economic Data website. It has the current yield curve, historical data, and tools to plot any spread over time. The U.S. Treasury website publishes daily par yield curve rates. And most brokerage platforms have yield curve tools built in. I recommend checking the yield curve at least weekly, or whenever you hear news about Fed policy changes.
 
-**Sam:** This has been fascinating. I feel like I understand something that most retail investors completely ignore.
+**Stella:** This has been fascinating. I feel like I understand something that most retail investors completely ignore.
 
-**Alex:** And that is your edge. When you can read the yield curve, you have access to the collective wisdom of the bond market, which is much larger and often smarter than the stock market. Next week, we build on this foundation with duration and convexity, which will give you the mathematical tools to measure exactly how much your bond portfolio will change when the yield curve moves.
+**Horace:** And that is your edge. When you can read the yield curve, you have access to the collective wisdom of the bond market, which is much larger and often smarter than the stock market. Next week, we build on this foundation with duration and convexity, which will give you the mathematical tools to measure exactly how much your bond portfolio will change when the yield curve moves.
 
-**Sam:** Thanks, everyone. See you next week for duration and convexity.
+**Stella:** Thanks, everyone. See you next week for duration and convexity.
 
 [VISUAL: End screen with show logo, "Week 31: Yield Curves" summary, and preview of Week 32: Duration and Convexity]
 
-**Alex:** See you then.
+**Horace:** See you then.

@@ -253,9 +253,9 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Desk setup with multiple monitors showing different portfolio tools -- brokerage platform, spreadsheet, Portfolio Visualizer, financial news]
 
-**Alex:** You have built your portfolio. You have chosen your asset allocation, selected your funds, and invested your money. Now what? How do you actually keep track of everything without driving yourself crazy?
+**Horace:** You have built your portfolio. You have chosen your asset allocation, selected your funds, and invested your money. Now what? How do you actually keep track of everything without driving yourself crazy?
 
-**Sam:** Today we are covering the practical tools for monitoring your portfolio -- from free spreadsheet tricks to professional-grade analytics. And equally important, we are going to talk about how often you should actually be checking and what the right workflow looks like.
+**Stella:** Today we are covering the practical tools for monitoring your portfolio -- from free spreadsheet tricks to professional-grade analytics. And equally important, we are going to talk about how often you should actually be checking and what the right workflow looks like.
 
 [VISUAL: Title card "Portfolio Monitoring: Tools, Techniques, and the Right Cadence"]
 
@@ -265,19 +265,19 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Portfolio Visualizer website interface showing the backtest tool]
 
-**Alex:** Let us start with what might be the most powerful free investing tool on the internet: Portfolio Visualizer. This is a website -- portfoliovisualizer.com -- that gives you institutional-quality portfolio analysis for free.
+**Horace:** Let us start with what might be the most powerful free investing tool on the internet: Portfolio Visualizer. This is a website -- portfoliovisualizer.com -- that gives you institutional-quality portfolio analysis for free.
 
-**Sam:** Here is what you can do. Enter your asset allocation -- say, 60 percent VTI, 30 percent VXUS, and 10 percent BND. Choose a time period, and it will show you exactly how that portfolio would have performed historically. Not just returns, but volatility, maximum drawdown, Sharpe ratio, and more.
+**Stella:** Here is what you can do. Enter your asset allocation -- say, 60 percent VTI, 30 percent VXUS, and 10 percent BND. Choose a time period, and it will show you exactly how that portfolio would have performed historically. Not just returns, but volatility, maximum drawdown, Sharpe ratio, and more.
 
 [VISUAL: Screen recording of entering a portfolio allocation and viewing the results, with key metrics highlighted]
 
-**Alex:** But the really powerful features go beyond basic backtesting. The correlation analysis tool shows you the correlation between any combination of assets over any time period. You can see which assets actually diversify your portfolio and which are just giving you more of the same risk.
+**Horace:** But the really powerful features go beyond basic backtesting. The correlation analysis tool shows you the correlation between any combination of assets over any time period. You can see which assets actually diversify your portfolio and which are just giving you more of the same risk.
 
-**Sam:** The Monte Carlo simulator is another gem. It runs thousands of possible future scenarios based on historical return patterns and tells you the probability of meeting your financial goals. Want to know the odds of your portfolio lasting 30 years in retirement? This tool will tell you.
+**Stella:** The Monte Carlo simulator is another gem. It runs thousands of possible future scenarios based on historical return patterns and tells you the probability of meeting your financial goals. Want to know the odds of your portfolio lasting 30 years in retirement? This tool will tell you.
 
 [VISUAL: Monte Carlo simulation results showing probability distribution of outcomes]
 
-**Alex:** And the efficient frontier tool plots the optimal risk-return combinations for your chosen assets and shows you where your current portfolio sits. If your portfolio is below the frontier, there is a better allocation waiting for you.
+**Horace:** And the efficient frontier tool plots the optimal risk-return combinations for your chosen assets and shows you where your current portfolio sits. If your portfolio is below the frontier, there is a better allocation waiting for you.
 
 ---
 
@@ -285,21 +285,21 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Google Sheets spreadsheet with portfolio tracker layout]
 
-**Sam:** For hands-on investors who want complete control over their tracking, Google Sheets is incredibly powerful. And it has a secret weapon: the GOOGLEFINANCE function.
+**Stella:** For hands-on investors who want complete control over their tracking, Google Sheets is incredibly powerful. And it has a secret weapon: the GOOGLEFINANCE function.
 
-**Alex:** Type equals GOOGLEFINANCE, then a ticker in quotes and "price," and you get the current stock price pulled directly into your spreadsheet. You can also pull PE ratios, dividend yields, market caps, and historical price data.
+**Horace:** Type equals GOOGLEFINANCE, then a ticker in quotes and "price," and you get the current stock price pulled directly into your spreadsheet. You can also pull PE ratios, dividend yields, market caps, and historical price data.
 
 [VISUAL: Close-up of GOOGLEFINANCE formulas in cells, showing the syntax and results]
 
-**Sam:** From there, you can build a complete portfolio tracker. A holdings tab that automatically calculates your current allocation and drift from targets. A performance tab that tracks monthly returns. A dividends tab. Even a rebalancing calculator that tells you exactly how many shares to buy or sell.
+**Stella:** From there, you can build a complete portfolio tracker. A holdings tab that automatically calculates your current allocation and drift from targets. A performance tab that tracks monthly returns. A dividends tab. Even a rebalancing calculator that tells you exactly how many shares to buy or sell.
 
-**Alex:** We recommend five essential tabs. First, your Holdings tab with current values, cost basis, gains and losses, and allocation percentages. Second, a Performance tab comparing your returns to benchmarks using the XIRR function. Third, a Rebalancing tab that flags when any position drifts more than five percentage points from its target.
+**Horace:** We recommend five essential tabs. First, your Holdings tab with current values, cost basis, gains and losses, and allocation percentages. Second, a Performance tab comparing your returns to benchmarks using the XIRR function. Third, a Rebalancing tab that flags when any position drifts more than five percentage points from its target.
 
 [VISUAL: Template spreadsheet showing the five-tab structure with sample data]
 
-**Sam:** Fourth, a Dividends tab tracking income received and projected annual income. And fifth, a Tax tab that tracks cost basis by lot and identifies tax-loss harvesting opportunities.
+**Stella:** Fourth, a Dividends tab tracking income received and projected annual income. And fifth, a Tax tab that tracks cost basis by lot and identifies tax-loss harvesting opportunities.
 
-**Alex:** The beauty of building your own spreadsheet is that it is completely customized to your needs. The downside is that GOOGLEFINANCE can be unreliable during market hours and does not always include dividend-adjusted returns. For total return calculations, you may need to supplement with data from other sources.
+**Horace:** The beauty of building your own spreadsheet is that it is completely customized to your needs. The downside is that GOOGLEFINANCE can be unreliable during market hours and does not always include dividend-adjusted returns. For total return calculations, you may need to supplement with data from other sources.
 
 ---
 
@@ -307,17 +307,17 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Split screen showing Fidelity, Schwab, Interactive Brokers, and Vanguard platform interfaces]
 
-**Sam:** Your brokerage platform itself is a monitoring tool that is constantly improving. Fidelity has Full View for account aggregation and Portfolio Analysis for deep-dives into your allocation. Schwab, which now includes the Thinkorswim platform from TD Ameritrade, has some of the best charting and options analysis tools in the industry.
+**Stella:** Your brokerage platform itself is a monitoring tool that is constantly improving. Fidelity has Full View for account aggregation and Portfolio Analysis for deep-dives into your allocation. Schwab, which now includes the Thinkorswim platform from TD Ameritrade, has some of the best charting and options analysis tools in the industry.
 
-**Alex:** Interactive Brokers stands out for the most comprehensive built-in analytics. Their Portfolio Analyst tool provides performance attribution, factor analysis, risk metrics, and sector breakdowns that rival professional terminals. If you are an active investor or use options, IBKR's tools are hard to beat.
+**Horace:** Interactive Brokers stands out for the most comprehensive built-in analytics. Their Portfolio Analyst tool provides performance attribution, factor analysis, risk metrics, and sector breakdowns that rival professional terminals. If you are an active investor or use options, IBKR's tools are hard to beat.
 
-**Sam:** For account aggregation -- seeing all your financial accounts in one place -- Empower, formerly Personal Capital, offers a free dashboard that connects to your bank accounts, brokerage accounts, retirement accounts, and credit cards. It gives you a complete net worth picture and analyzes your investment allocation and fees.
+**Stella:** For account aggregation -- seeing all your financial accounts in one place -- Empower, formerly Personal Capital, offers a free dashboard that connects to your bank accounts, brokerage accounts, retirement accounts, and credit cards. It gives you a complete net worth picture and analyzes your investment allocation and fees.
 
 [VISUAL: Empower/Personal Capital dashboard showing aggregated net worth, asset allocation, and fee analysis]
 
-**Alex:** Their Fee Analyzer is particularly eye-opening. It calculates the total annual fees you are paying across all your investments. Many people discover they are paying 1 percent or more in total fees when they thought they were paying 0.1 percent. Over 30 years, that difference can cost hundreds of thousands of dollars.
+**Horace:** Their Fee Analyzer is particularly eye-opening. It calculates the total annual fees you are paying across all your investments. Many people discover they are paying 1 percent or more in total fees when they thought they were paying 0.1 percent. Over 30 years, that difference can cost hundreds of thousands of dollars.
 
-**Sam:** Morningstar's Portfolio X-Ray tool is another must-use, especially if you hold multiple funds. It looks through your funds to the underlying holdings and shows you your true exposure. Many investors discover that their "diversified" portfolio of five funds actually holds the same 50 large-cap stocks repeated across multiple funds.
+**Stella:** Morningstar's Portfolio X-Ray tool is another must-use, especially if you hold multiple funds. It looks through your funds to the underlying holdings and shows you your true exposure. Many investors discover that their "diversified" portfolio of five funds actually holds the same 50 large-cap stocks repeated across multiple funds.
 
 [VISUAL: Morningstar X-Ray showing fund overlap analysis]
 
@@ -327,23 +327,23 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Calendar showing daily, weekly, monthly, quarterly, and annual review schedule]
 
-**Alex:** Now for arguably the most important part of this lesson -- how often should you actually monitor your portfolio?
+**Horace:** Now for arguably the most important part of this lesson -- how often should you actually monitor your portfolio?
 
-**Sam:** The answer, backed by research, is far less than most people think. Studies consistently show that investors who check their portfolios less frequently earn higher returns, because they make fewer emotional, impulsive trades.
+**Stella:** The answer, backed by research, is far less than most people think. Studies consistently show that investors who check their portfolios less frequently earn higher returns, because they make fewer emotional, impulsive trades.
 
 [VISUAL: Chart showing inverse relationship between checking frequency and average returns]
 
-**Alex:** Here is the cadence we recommend. Daily: five minutes or less. Skim headlines for major events. Do NOT check your portfolio value unless there is a specific reason.
+**Horace:** Here is the cadence we recommend. Daily: five minutes or less. Skim headlines for major events. Do NOT check your portfolio value unless there is a specific reason.
 
-**Sam:** Weekly: 15 to 30 minutes. Review your watchlist, check for upcoming dividend dates or earnings announcements, and clear any alerts that triggered.
+**Stella:** Weekly: 15 to 30 minutes. Review your watchlist, check for upcoming dividend dates or earnings announcements, and clear any alerts that triggered.
 
-**Alex:** Monthly: 30 to 60 minutes. This is your main check-in. Review portfolio performance, check asset allocation drift, scan for tax-loss harvesting opportunities, and review dividend income.
+**Horace:** Monthly: 30 to 60 minutes. This is your main check-in. Review portfolio performance, check asset allocation drift, scan for tax-loss harvesting opportunities, and review dividend income.
 
 [VISUAL: Monthly review checklist displayed as a simple dashboard]
 
-**Sam:** Quarterly: one to two hours. This is your comprehensive review. Evaluate whether each holding's investment thesis still holds. Update your Investment Policy Statement if anything has changed in your life. Review your investment journal. Rebalance if needed.
+**Stella:** Quarterly: one to two hours. This is your comprehensive review. Evaluate whether each holding's investment thesis still holds. Update your Investment Policy Statement if anything has changed in your life. Review your investment journal. Rebalance if needed.
 
-**Alex:** Annually: two to four hours. Full portfolio audit. Calculate your true return for the year. Review all fees. Update your financial plan. Do year-end tax planning. Assess whether your risk tolerance has changed.
+**Horace:** Annually: two to four hours. Full portfolio audit. Calculate your true return for the year. Review all fees. Update your financial plan. Do year-end tax planning. Assess whether your risk tolerance has changed.
 
 ---
 
@@ -351,19 +351,19 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: Smartphone showing various investment alert notifications]
 
-**Sam:** The key to monitoring less frequently without missing important events is setting up the right alerts.
+**Stella:** The key to monitoring less frequently without missing important events is setting up the right alerts.
 
-**Alex:** At minimum, set up these alerts. First, price alerts for any holding that moves more than 5 percent in a single day. This catches major events without bothering you with daily noise.
+**Horace:** At minimum, set up these alerts. First, price alerts for any holding that moves more than 5 percent in a single day. This catches major events without bothering you with daily noise.
 
-**Sam:** Second, rebalancing alerts. If your target allocation is 70/30 and stocks drift to 75 percent, you want to know. Most monitoring tools can alert you when drift exceeds a threshold you set.
+**Stella:** Second, rebalancing alerts. If your target allocation is 70/30 and stocks drift to 75 percent, you want to know. Most monitoring tools can alert you when drift exceeds a threshold you set.
 
 [VISUAL: Alert setup examples in Google Sheets, broker apps, and third-party tools]
 
-**Alex:** Third, economic calendar alerts. At minimum, set reminders for FOMC meeting dates and major economic data releases -- CPI, employment reports, GDP. These events move markets and can affect your portfolio.
+**Horace:** Third, economic calendar alerts. At minimum, set reminders for FOMC meeting dates and major economic data releases -- CPI, employment reports, GDP. These events move markets and can affect your portfolio.
 
-**Sam:** Fourth, dividend alerts for income-focused investors. Know when your holdings go ex-dividend and when cuts or increases are announced.
+**Stella:** Fourth, dividend alerts for income-focused investors. Know when your holdings go ex-dividend and when cuts or increases are announced.
 
-**Alex:** And fifth, set a calendar reminder for your quarterly review. Put it on your calendar like a doctor's appointment. This structures your monitoring so you do it when you should, rather than when emotions drive you to check.
+**Horace:** And fifth, set a calendar reminder for your quarterly review. Put it on your calendar like a doctor's appointment. This structures your monitoring so you do it when you should, rather than when emotions drive you to check.
 
 [VISUAL: Sample calendar showing quarterly review dates blocked out]
 
@@ -373,20 +373,20 @@ A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal 
 
 [VISUAL: "Your Monitoring Stack" showing recommended tools by category]
 
-**Sam:** Let us put together a recommended monitoring stack for the average individual investor. It does not need to be complicated.
+**Stella:** Let us put together a recommended monitoring stack for the average individual investor. It does not need to be complicated.
 
-**Alex:** Core tools, all free: Your brokerage platform for trading and basic analytics. Google Sheets for a customized portfolio tracker. Portfolio Visualizer for portfolio analysis and backtesting. Empower for account aggregation and fee analysis.
+**Horace:** Core tools, all free: Your brokerage platform for trading and basic analytics. Google Sheets for a customized portfolio tracker. Portfolio Visualizer for portfolio analysis and backtesting. Empower for account aggregation and fee analysis.
 
-**Sam:** Optional tools for deeper analysis: Morningstar for fund research and X-Ray analysis. Thinkorswim for charting and options analysis. FRED for economic data.
+**Stella:** Optional tools for deeper analysis: Morningstar for fund research and X-Ray analysis. Thinkorswim for charting and options analysis. FRED for economic data.
 
 [VISUAL: Clean summary graphic showing the full monitoring stack organized by function]
 
-**Alex:** Set up your alerts, establish your review cadence, and resist the urge to check more often than your schedule dictates. The data is clear: the best portfolio monitoring approach is one that keeps you informed with minimum time investment while preventing impulsive behavior.
+**Horace:** Set up your alerts, establish your review cadence, and resist the urge to check more often than your schedule dictates. The data is clear: the best portfolio monitoring approach is one that keeps you informed with minimum time investment while preventing impulsive behavior.
 
-**Sam:** Investing is a marathon, not a sprint. The tools exist to help you stay on course, not to keep you glued to a screen. Build your system, trust your process, and let compounding do its work.
+**Stella:** Investing is a marathon, not a sprint. The tools exist to help you stay on course, not to keep you glued to a screen. Build your system, trust your process, and let compounding do its work.
 
 [VISUAL: End card with channel logo and "Thank you for completing the Side Lessons series!"]
 
-**Alex:** That wraps up our side lesson series. We have covered everything from REITs to commodities, from the Federal Reserve to the psychology of trading. We hope these tools help you on your investing journey. Thanks for watching.
+**Horace:** That wraps up our side lesson series. We have covered everything from REITs to commodities, from the Federal Reserve to the psychology of trading. We hope these tools help you on your investing journey. Thanks for watching.
 
 [END - 15:00]

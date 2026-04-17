@@ -285,127 +285,127 @@ A: This is a pragmatic approach that some advisors recommend. You could lump sum
 
 **[VISUAL: Person standing at a crossroads. One path labeled "Invest All Now" and the other "Spread It Out Over Time." Title card: "DCA vs. Lump Sum: The Real Answer"]**
 
-**Alex:** You just got a hundred thousand dollars. Maybe it is an inheritance, a bonus, or you sold your house. You want to invest it. Do you put it all in today, or do you spread it out over the next year?
+**Horace:** You just got a hundred thousand dollars. Maybe it is an inheritance, a bonus, or you sold your house. You want to invest it. Do you put it all in today, or do you spread it out over the next year?
 
-**Sam:** I think most people's gut says spread it out. It feels safer.
+**Stella:** I think most people's gut says spread it out. It feels safer.
 
-**Alex:** And that feeling is valid. But let us look at what the data actually says, because it might surprise you. And then let us talk about why the data might not be the final answer for everyone.
+**Horace:** And that feeling is valid. But let us look at what the data actually says, because it might surprise you. And then let us talk about why the data might not be the final answer for everyone.
 
 **[VISUAL: Title card split: "THE MATH | THE PSYCHOLOGY"]**
 
-**Alex:** Let me start with the math. Vanguard published a landmark study comparing lump sum investing to dollar-cost averaging. They looked at every possible twelve-month period going back to 1926 in the US, and they also checked UK and Australian markets.
+**Horace:** Let me start with the math. Vanguard published a landmark study comparing lump sum investing to dollar-cost averaging. They looked at every possible twelve-month period going back to 1926 in the US, and they also checked UK and Australian markets.
 
 **[VISUAL: Vanguard research paper cover, then a bar chart showing "Lump Sum Won: 68%" vs "DCA Won: 32%"]**
 
-**Alex:** The result: lump sum investing beat DCA about two-thirds of the time. And when it won, it won by an average of about two point three percent over the twelve-month period.
+**Horace:** The result: lump sum investing beat DCA about two-thirds of the time. And when it won, it won by an average of about two point three percent over the twelve-month period.
 
-**Sam:** Two-thirds of the time is a lot. Why?
+**Stella:** Two-thirds of the time is a lot. Why?
 
-**Alex:** Simple logic. Markets go up more often than they go down. About seventy-five percent of calendar years are positive. If you have money sitting in cash waiting to be invested, and the market is likely to rise, every month of delay is a month of missed returns.
+**Horace:** Simple logic. Markets go up more often than they go down. About seventy-five percent of calendar years are positive. If you have money sitting in cash waiting to be invested, and the market is likely to rise, every month of delay is a month of missed returns.
 
 **[ANIMATION: Timeline showing 12 months. $10,000 enters each month for DCA. Market line trends upward over the period. Each DCA installment buys at a progressively higher price. The first $10,000 gets 12 months of growth. The last $10,000 gets 1 month. Lump sum overlay shows all $120,000 getting 12 months of growth.]**
 
-**Alex:** Think of it this way. With DCA, your first installment is invested for twelve months, your second for eleven months, your third for ten, and so on. Your last installment only gets one month of market exposure. But with lump sum, every dollar gets the full twelve months. In a rising market, that is a big advantage.
+**Horace:** Think of it this way. With DCA, your first installment is invested for twelve months, your second for eleven months, your third for ten, and so on. Your last installment only gets one month of market exposure. But with lump sum, every dollar gets the full twelve months. In a rising market, that is a big advantage.
 
-**Sam:** Okay, so what about the one-third of the time when DCA wins?
+**Stella:** Okay, so what about the one-third of the time when DCA wins?
 
-**Alex:** That is when the market drops during the DCA period. In those cases, your later installments buy at lower prices, so you end up with more shares at a lower average cost. If the market then recovers, you come out ahead.
+**Horace:** That is when the market drops during the DCA period. In those cases, your later installments buy at lower prices, so you end up with more shares at a lower average cost. If the market then recovers, you come out ahead.
 
 **[ANIMATION: Same timeline but market line declining over the first 6 months then recovering. DCA installments buying at lower prices during the dip. DCA portfolio ends up worth more than lump sum portfolio.]**
 
-**Alex:** The problem is you cannot know in advance which scenario you are in. You are essentially betting on whether the next twelve months will be positive or negative. And historically, positive is more than twice as likely.
+**Horace:** The problem is you cannot know in advance which scenario you are in. You are essentially betting on whether the next twelve months will be positive or negative. And historically, positive is more than twice as likely.
 
-**Sam:** Let me play devil's advocate. I hear you on the math. But imagine you inherit two hundred thousand dollars from a parent who just passed away. That money is deeply emotional. And you invest it all on Monday, and by Friday the market is down fifteen percent. You have lost thirty thousand dollars of your parent's legacy in a week.
+**Stella:** Let me play devil's advocate. I hear you on the math. But imagine you inherit two hundred thousand dollars from a parent who just passed away. That money is deeply emotional. And you invest it all on Monday, and by Friday the market is down fifteen percent. You have lost thirty thousand dollars of your parent's legacy in a week.
 
 **[VISUAL: Empathetic imagery -- person looking at phone showing portfolio decline, with a family photo nearby]**
 
-**Alex:** And that scenario is why the math is not the whole story. The psychological cost of that experience could be enormous. You might panic-sell. You might develop a permanent fear of investing. You might lose sleep for months.
+**Horace:** And that scenario is why the math is not the whole story. The psychological cost of that experience could be enormous. You might panic-sell. You might develop a permanent fear of investing. You might lose sleep for months.
 
-**Sam:** So the best strategy you cannot stick with is worse than a suboptimal strategy you can stick with.
+**Stella:** So the best strategy you cannot stick with is worse than a suboptimal strategy you can stick with.
 
-**Alex:** Exactly. This is the core tension. Lump sum maximizes expected wealth. DCA minimizes maximum regret. And for many people, minimizing regret is the right objective.
+**Horace:** Exactly. This is the core tension. Lump sum maximizes expected wealth. DCA minimizes maximum regret. And for many people, minimizing regret is the right objective.
 
 **[VISUAL: Two-panel comparison. Panel 1: "Lump Sum -- Maximize Expected Wealth" with a graph showing higher average outcome but wider range. Panel 2: "DCA -- Minimize Maximum Regret" with a graph showing slightly lower average but narrower range of outcomes.]**
 
-**Sam:** Is there a compromise?
+**Stella:** Is there a compromise?
 
-**Alex:** Several. My favorite is what I call accelerated DCA. Instead of twelve months, compress it to three or four months. You capture most of the lump sum's mathematical advantage while still getting the psychological comfort of not going all-in on one day.
+**Horace:** Several. My favorite is what I call accelerated DCA. Instead of twelve months, compress it to three or four months. You capture most of the lump sum's mathematical advantage while still getting the psychological comfort of not going all-in on one day.
 
 **[VISUAL: Three strategies on a spectrum. Far left: "Full DCA (12 months)" -- most conservative. Middle: "Accelerated DCA (3-4 months)" -- balanced. Far right: "Full Lump Sum" -- highest expected return.]**
 
-**Alex:** Another option: invest half immediately and DCA the other half over six months. Research suggests this captures about seventy-five percent of the lump sum advantage while cutting the maximum regret roughly in half.
+**Horace:** Another option: invest half immediately and DCA the other half over six months. Research suggests this captures about seventy-five percent of the lump sum advantage while cutting the maximum regret roughly in half.
 
-**Sam:** Let me ask the question nobody wants to answer. What if you invest a lump sum and the market crashes twenty percent?
+**Stella:** Let me ask the question nobody wants to answer. What if you invest a lump sum and the market crashes twenty percent?
 
-**Alex:** Let us look at real history. If you had the worst possible timing and invested a lump sum at the absolute peak before the 2008 financial crisis -- the very worst day you could have picked -- how long would it take to recover?
+**Horace:** Let us look at real history. If you had the worst possible timing and invested a lump sum at the absolute peak before the 2008 financial crisis -- the very worst day you could have picked -- how long would it take to recover?
 
 **[VISUAL: Chart showing S&P 500 from October 2007 peak through recovery. The exact recovery date is marked.]**
 
-**Alex:** About five and a half years to break even. By 2013, you were back. By 2019, you had more than doubled your money. And remember, this is the absolute worst case. Most lump sum investments in most years never face anything close to a 50% drawdown.
+**Horace:** About five and a half years to break even. By 2013, you were back. By 2019, you had more than doubled your money. And remember, this is the absolute worst case. Most lump sum investments in most years never face anything close to a 50% drawdown.
 
-**Sam:** Five and a half years feels like a long time when you are living through it.
+**Stella:** Five and a half years feels like a long time when you are living through it.
 
-**Alex:** It does. And this is where your time horizon matters. If you need this money in two years, neither lump sum nor DCA into stocks is appropriate -- it should be in short-term bonds or cash. If your time horizon is twenty or thirty years, a five-year recovery period is a blip.
+**Horace:** It does. And this is where your time horizon matters. If you need this money in two years, neither lump sum nor DCA into stocks is appropriate -- it should be in short-term bonds or cash. If your time horizon is twenty or thirty years, a five-year recovery period is a blip.
 
 **[ANIMATION: Timeline showing 30-year investment horizon. The 2008 crash appears as a dip in years 1-6, but by year 10 it is barely visible. By year 30, it is a small bump on a long upward trajectory.]**
 
-**Sam:** What about the argument that DCA is not really a risk-reduction strategy, it is just delayed investing?
+**Stella:** What about the argument that DCA is not really a risk-reduction strategy, it is just delayed investing?
 
-**Alex:** That is correct, and it is an important point. Once your DCA plan is complete, you have the exact same market exposure as the lump sum investor. If a crash happens in month thirteen -- after your twelve-month DCA is done -- you take the same hit either way. DCA only protects you against crashes that happen during the DCA window. It does not reduce your long-term risk at all.
+**Horace:** That is correct, and it is an important point. Once your DCA plan is complete, you have the exact same market exposure as the lump sum investor. If a crash happens in month thirteen -- after your twelve-month DCA is done -- you take the same hit either way. DCA only protects you against crashes that happen during the DCA window. It does not reduce your long-term risk at all.
 
 **[ANIMATION: Two portfolios. Lump sum investor fully invested from month 1. DCA investor gradually reaching the same level by month 12. After month 12, both portfolios are identical. A crash at month 18 affects both equally.]**
 
-**Sam:** I think the key insight is that this question matters a lot less than people think.
+**Stella:** I think the key insight is that this question matters a lot less than people think.
 
-**Alex:** Absolutely. Let me put it in perspective. Over a thirty-year investment horizon, the difference between lump sum and twelve-month DCA on the initial investment affects maybe the first one or two percent of your total outcome. What drives the other ninety-eight percent? How much you save. What your asset allocation is. Whether you stay invested through downturns. Whether you rebalance. Whether you manage taxes well. Those factors dominate.
+**Horace:** Absolutely. Let me put it in perspective. Over a thirty-year investment horizon, the difference between lump sum and twelve-month DCA on the initial investment affects maybe the first one or two percent of your total outcome. What drives the other ninety-eight percent? How much you save. What your asset allocation is. Whether you stay invested through downturns. Whether you rebalance. Whether you manage taxes well. Those factors dominate.
 
 **[VISUAL: Pie chart of "What Determines Your 30-Year Outcome." DCA vs. LSI: 1-2%. Savings Rate: 30%. Asset Allocation: 35%. Staying Invested: 20%. Tax Efficiency: 10-15%.]**
 
-**Sam:** So we are spending an entire episode on something that accounts for one to two percent of the outcome.
+**Stella:** So we are spending an entire episode on something that accounts for one to two percent of the outcome.
 
-**Alex:** We are, because it is the question that paralyzes people. And a paralyzed investor who never invests because they cannot decide between lump sum and DCA loses one hundred percent of the potential returns. The biggest risk is not choosing wrong between LSI and DCA. The biggest risk is not choosing at all.
+**Horace:** We are, because it is the question that paralyzes people. And a paralyzed investor who never invests because they cannot decide between lump sum and DCA loses one hundred percent of the potential returns. The biggest risk is not choosing wrong between LSI and DCA. The biggest risk is not choosing at all.
 
 **[VISUAL: Three outcomes ranked. Worst: "Never invest (cash forever)." Better: "DCA over 12 months." Best (on average): "Lump sum." The gap between "Never invest" and either strategy is enormous. The gap between DCA and lump sum is modest.]**
 
-**Sam:** Let me bring up the "world's worst market timer" study you mentioned earlier. Tell me about that.
+**Stella:** Let me bring up the "world's worst market timer" study you mentioned earlier. Tell me about that.
 
-**Alex:** Charles Schwab ran this fascinating analysis. They looked at five investors over twenty-year rolling periods, each investing two thousand dollars per year.
+**Horace:** Charles Schwab ran this fascinating analysis. They looked at five investors over twenty-year rolling periods, each investing two thousand dollars per year.
 
 **[VISUAL: Five investor profiles appear. "Perfect Timer: invests at yearly low." "Immediate Investor: invests on Jan 1." "DCA Investor: spreads across the year." "Bad Timer: invests at yearly high." "Cash Hoarder: never invests."]**
 
-**Alex:** Perfect Timer invested at the absolute lowest point each year. Immediate Investor put money in on the first trading day each year. DCA spread it out monthly. Bad Timer managed to invest at the absolute worst possible moment every single year. And Cash Hoarder kept everything in Treasury bills.
+**Horace:** Perfect Timer invested at the absolute lowest point each year. Immediate Investor put money in on the first trading day each year. DCA spread it out monthly. Bad Timer managed to invest at the absolute worst possible moment every single year. And Cash Hoarder kept everything in Treasury bills.
 
-**Sam:** What were the results?
+**Stella:** What were the results?
 
-**Alex:** Perfect Timer did best, obviously. But Immediate Investor was remarkably close behind. DCA was third. Bad Timer was fourth. And Cash Hoarder was dead last, by an enormous margin.
+**Horace:** Perfect Timer did best, obviously. But Immediate Investor was remarkably close behind. DCA was third. Bad Timer was fourth. And Cash Hoarder was dead last, by an enormous margin.
 
 **[ANIMATION: Bar chart building from left to right showing twenty-year ending values. Each bar has a label and value. The gap between any investing strategy and Cash Hoarder is dramatically larger than the gap between the best and worst timers.]**
 
-**Sam:** So even the world's worst market timer -- someone who literally invested at the peak every single year -- dramatically outperformed the person who stayed in cash.
+**Stella:** So even the world's worst market timer -- someone who literally invested at the peak every single year -- dramatically outperformed the person who stayed in cash.
 
-**Alex:** By multiples. The lesson is clear: the difference between the best timing and the worst timing is small compared to the difference between investing and not investing. Time in the market overwhelms timing of the market. This is arguably the most important chart in all of personal finance.
+**Horace:** By multiples. The lesson is clear: the difference between the best timing and the worst timing is small compared to the difference between investing and not investing. Time in the market overwhelms timing of the market. This is arguably the most important chart in all of personal finance.
 
-**Sam:** What about value averaging? You mentioned that briefly.
+**Stella:** What about value averaging? You mentioned that briefly.
 
-**Alex:** Value averaging targets a specific portfolio growth rate. Instead of investing a fixed dollar amount each month, you adjust your investment to hit a target value. If the market drops, you invest more. If it rises, you invest less. It automatically buys more at low prices and less at high prices.
+**Horace:** Value averaging targets a specific portfolio growth rate. Instead of investing a fixed dollar amount each month, you adjust your investment to hit a target value. If the market drops, you invest more. If it rises, you invest less. It automatically buys more at low prices and less at high prices.
 
 **[ANIMATION: Two bar charts side by side over twelve months. Left: "DCA" -- equal bars each month. Right: "Value Averaging" -- tall bars in down months, short bars in up months. Total invested is similar but distribution is different.]**
 
-**Alex:** Some research suggests value averaging produces slightly better returns than standard DCA. But it is more complex, the cash flows are unpredictable, and it still does not beat lump sum on average. It is a reasonable middle path for investors who enjoy optimization and can handle variable contribution amounts.
+**Horace:** Some research suggests value averaging produces slightly better returns than standard DCA. But it is more complex, the cash flows are unpredictable, and it still does not beat lump sum on average. It is a reasonable middle path for investors who enjoy optimization and can handle variable contribution amounts.
 
-**Sam:** So what is the practical takeaway?
+**Stella:** So what is the practical takeaway?
 
-**Alex:** If you can handle volatility and your time horizon is long, lump sum and move on with your life. If the thought of investing everything at once keeps you up at night, DCA over three to six months and sleep well. If you want a compromise, invest sixty percent immediately and DCA the rest. If you are paralyzed, set up automatic monthly investments and let the system do the work. The most important thing is to get invested and stay invested.
+**Horace:** If you can handle volatility and your time horizon is long, lump sum and move on with your life. If the thought of investing everything at once keeps you up at night, DCA over three to six months and sleep well. If you want a compromise, invest sixty percent immediately and DCA the rest. If you are paralyzed, set up automatic monthly investments and let the system do the work. The most important thing is to get invested and stay invested.
 
-**Sam:** Any approach that gets you from cash to your target allocation is a good approach.
+**Stella:** Any approach that gets you from cash to your target allocation is a good approach.
 
-**Alex:** As long as you do not undo it when the market hiccups. And that brings us back to the real skill in investing -- not the entry strategy, but the emotional discipline to stay the course once you are in.
+**Horace:** As long as you do not undo it when the market hiccups. And that brings us back to the real skill in investing -- not the entry strategy, but the emotional discipline to stay the course once you are in.
 
 **[VISUAL: Decision flowchart. "Have a lump sum?" -> "Can tolerate volatility?" -> Yes: "Lump sum today." No: "Can commit to a schedule?" -> Yes: "DCA over 3-6 months." No: "Invest 50-60% now, auto-invest the rest monthly." All paths converge at: "Stay invested. Do not sell in a downturn."]**
 
 **[VISUAL: Recap: "Lump Sum wins ~68% of the time | DCA reduces maximum regret | The difference is small long-term | The real risk is not investing at all | Choose the approach you can stick with"]**
 
-**Sam:** Perfect. See you in the next one.
+**Stella:** Perfect. See you in the next one.
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 06 -- Understanding Inflation"]**
 

@@ -243,9 +243,9 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [VISUAL: Two bouncing balls on screen, one representing Stock A and one representing Stock B, moving independently]
 
-**Alex:** We have talked a lot about diversification in this series. Do not put all your eggs in one basket, spread your risk across different assets, blah blah blah. But have you ever wondered WHY diversification actually works? What is the math behind it?
+**Horace:** We have talked a lot about diversification in this series. Do not put all your eggs in one basket, spread your risk across different assets, blah blah blah. But have you ever wondered WHY diversification actually works? What is the math behind it?
 
-**Sam:** Today we are going under the hood. We are going to look at the actual mathematics that makes diversification one of the most powerful concepts in investing. And I promise -- it is more intuitive than you think.
+**Stella:** Today we are going under the hood. We are going to look at the actual mathematics that makes diversification one of the most powerful concepts in investing. And I promise -- it is more intuitive than you think.
 
 [VISUAL: Title card "The Math of Diversification: Correlation, Covariance, and Portfolio Risk"]
 
@@ -255,17 +255,17 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [ANIMATION: Two stock charts side by side. First showing them moving in perfect lockstep (correlation +1), then independently (correlation 0), then in opposite directions (correlation -1)]
 
-**Alex:** Let us start with correlation. It is a number between negative one and positive one that tells you how much two investments tend to move together.
+**Horace:** Let us start with correlation. It is a number between negative one and positive one that tells you how much two investments tend to move together.
 
-**Sam:** If two stocks have a correlation of positive one, they move in perfect lockstep. When one goes up 2 percent, the other goes up 2 percent. There is zero diversification benefit from holding both -- they behave like the same investment.
+**Stella:** If two stocks have a correlation of positive one, they move in perfect lockstep. When one goes up 2 percent, the other goes up 2 percent. There is zero diversification benefit from holding both -- they behave like the same investment.
 
-**Alex:** If the correlation is zero, the stocks move completely independently. One might go up while the other goes down, or both might go up, or both might go down. There is no consistent relationship.
+**Horace:** If the correlation is zero, the stocks move completely independently. One might go up while the other goes down, or both might go up, or both might go down. There is no consistent relationship.
 
 [VISUAL: Scatter plots showing return pairs for different correlation levels: +1.0, +0.5, 0, -0.5, -1.0]
 
-**Sam:** And if the correlation is negative one -- perfect negative correlation -- they always move in exactly opposite directions. If you could find two investments with correlation of negative one, you could theoretically build a portfolio with zero risk. But in the real world, nothing has perfect negative correlation.
+**Stella:** And if the correlation is negative one -- perfect negative correlation -- they always move in exactly opposite directions. If you could find two investments with correlation of negative one, you could theoretically build a portfolio with zero risk. But in the real world, nothing has perfect negative correlation.
 
-**Alex:** Most stock pairs have correlations between 0.5 and 0.9. Stocks and bonds have correlations that typically range from 0 to negative 0.3. Gold has near-zero correlation with stocks. The lower the correlation between your portfolio components, the more diversification benefit you get.
+**Horace:** Most stock pairs have correlations between 0.5 and 0.9. Stocks and bonds have correlations that typically range from 0 to negative 0.3. Gold has near-zero correlation with stocks. The lower the correlation between your portfolio components, the more diversification benefit you get.
 
 ---
 
@@ -273,19 +273,19 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [ANIMATION: Building blocks showing how two volatile assets can combine into a less volatile portfolio]
 
-**Sam:** Here is where it gets really interesting. Let us say you have two investments. Stock A has 15 percent volatility. Stock B has 12 percent volatility. Their correlation is 0.3.
+**Stella:** Here is where it gets really interesting. Let us say you have two investments. Stock A has 15 percent volatility. Stock B has 12 percent volatility. Their correlation is 0.3.
 
-**Alex:** If you put 60 percent in A and 40 percent in B, what is the portfolio's volatility? If you just take a weighted average, you would expect about 13.8 percent.
+**Horace:** If you put 60 percent in A and 40 percent in B, what is the portfolio's volatility? If you just take a weighted average, you would expect about 13.8 percent.
 
 [VISUAL: Calculation showing weighted average: 0.6 * 15% + 0.4 * 12% = 13.8%]
 
-**Sam:** But the actual portfolio volatility is only 11.4 percent. That is lower than EITHER individual investment. You combined two risky things and got something less risky than both. That is the magic of diversification.
+**Stella:** But the actual portfolio volatility is only 11.4 percent. That is lower than EITHER individual investment. You combined two risky things and got something less risky than both. That is the magic of diversification.
 
 [ANIMATION: Visual showing 15% and 12% combining to create 11.4%, with "Diversification Benefit" labeled as the difference]
 
-**Alex:** The reason is that third term in the portfolio variance formula -- the covariance term. When the correlation is less than one, that term reduces the total portfolio variance. The lower the correlation, the bigger the reduction.
+**Horace:** The reason is that third term in the portfolio variance formula -- the covariance term. When the correlation is less than one, that term reduces the total portfolio variance. The lower the correlation, the bigger the reduction.
 
-**Sam:** Let me put it simply. When Stock A has a bad day but Stock B does not -- because they are not perfectly correlated -- the loss in A is partially offset by B holding steady or even going up. That offsetting effect is what reduces portfolio risk below the weighted average.
+**Stella:** Let me put it simply. When Stock A has a bad day but Stock B does not -- because they are not perfectly correlated -- the loss in A is partially offset by B holding steady or even going up. That offsetting effect is what reduces portfolio risk below the weighted average.
 
 [VISUAL: Daily returns calendar showing days where A is down but B is up, partially offsetting each other]
 
@@ -295,19 +295,19 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [ANIMATION: Graph with Risk (x-axis) and Return (y-axis). Individual assets plotted as dots. Curved line (efficient frontier) appearing above and to the left of most dots]
 
-**Alex:** In 1952, a graduate student named Harry Markowitz published a paper that would eventually win him the Nobel Prize. He showed that by combining assets with different correlations, you can trace out what he called the "efficient frontier."
+**Horace:** In 1952, a graduate student named Harry Markowitz published a paper that would eventually win him the Nobel Prize. He showed that by combining assets with different correlations, you can trace out what he called the "efficient frontier."
 
-**Sam:** The efficient frontier is the set of portfolios that give you the highest possible return for each level of risk. Every point on this curve is optimal -- you cannot get more return without taking more risk, and you cannot reduce risk without giving up some return.
+**Stella:** The efficient frontier is the set of portfolios that give you the highest possible return for each level of risk. Every point on this curve is optimal -- you cannot get more return without taking more risk, and you cannot reduce risk without giving up some return.
 
 [ANIMATION: Arrow showing that portfolios below the frontier are "inefficient" -- same risk but lower return, or same return but higher risk]
 
-**Alex:** Any portfolio that falls below the efficient frontier is inefficient. There exists a better portfolio -- one with the same risk but higher return, or the same return but less risk. The math proves it.
+**Horace:** Any portfolio that falls below the efficient frontier is inefficient. There exists a better portfolio -- one with the same risk but higher return, or the same return but less risk. The math proves it.
 
-**Sam:** And here is the key insight: individual assets almost never sit on the efficient frontier. It is only by combining assets that you can reach the frontier. This is the mathematical proof that diversification works -- it literally creates better risk-return combinations than any individual investment.
+**Stella:** And here is the key insight: individual assets almost never sit on the efficient frontier. It is only by combining assets that you can reach the frontier. This is the mathematical proof that diversification works -- it literally creates better risk-return combinations than any individual investment.
 
 [VISUAL: Animated GIF showing how adding a low-correlation asset to a portfolio shifts the frontier up and to the left]
 
-**Alex:** When you add an asset with low correlation to your portfolio, the efficient frontier shifts up and to the left -- meaning you get more return for the same risk or less risk for the same return. This is why financial advisors emphasize diversification so strongly. The math demands it.
+**Horace:** When you add an asset with low correlation to your portfolio, the efficient frontier shifts up and to the left -- meaning you get more return for the same risk or less risk for the same return. This is why financial advisors emphasize diversification so strongly. The math demands it.
 
 ---
 
@@ -315,21 +315,21 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [VISUAL: Correlation matrix that starts with normal values, then shifts to all-high values during a crisis, visualized with color coding]
 
-**Sam:** Now for the uncomfortable truth. Everything we just discussed works beautifully during normal times. But during market crises, correlations change. And they change in the worst possible direction.
+**Stella:** Now for the uncomfortable truth. Everything we just discussed works beautifully during normal times. But during market crises, correlations change. And they change in the worst possible direction.
 
-**Alex:** During the 2008 financial crisis, correlations between stocks, international stocks, REITs, corporate bonds, and commodities all spiked toward one. Assets that were supposed to diversify your portfolio suddenly all fell together.
+**Horace:** During the 2008 financial crisis, correlations between stocks, international stocks, REITs, corporate bonds, and commodities all spiked toward one. Assets that were supposed to diversify your portfolio suddenly all fell together.
 
 [ANIMATION: Network diagram showing assets with moderate connections during normal times, then connections all turning red and thickening during a crisis]
 
-**Sam:** This is what people call correlation breakdown, though it is really correlation convergence. In a crisis, everything becomes correlated because of contagion, leverage unwinds, and panicked selling across all asset classes.
+**Stella:** This is what people call correlation breakdown, though it is really correlation convergence. In a crisis, everything becomes correlated because of contagion, leverage unwinds, and panicked selling across all asset classes.
 
-**Alex:** Even gold, which normally has near-zero correlation with stocks, briefly declined alongside stocks during the worst days of the March 2020 crash, as investors sold everything to raise cash.
+**Horace:** Even gold, which normally has near-zero correlation with stocks, briefly declined alongside stocks during the worst days of the March 2020 crash, as investors sold everything to raise cash.
 
 [VISUAL: Chart showing gold declining alongside stocks in mid-March 2020 before recovering and rising]
 
-**Sam:** So what actually works as a diversifier during crises? Historically, two things have been most reliable: high-quality government bonds -- especially long-term Treasuries -- and cash. These maintained their negative or low correlation with stocks even during severe stress.
+**Stella:** So what actually works as a diversifier during crises? Historically, two things have been most reliable: high-quality government bonds -- especially long-term Treasuries -- and cash. These maintained their negative or low correlation with stocks even during severe stress.
 
-**Alex:** The 2022 experience was a notable exception. Both stocks and bonds fell because rising interest rates and inflation hit both asset classes simultaneously. This shows that even the stock-bond negative correlation is not guaranteed -- it depends on the macroeconomic regime.
+**Horace:** The 2022 experience was a notable exception. Both stocks and bonds fell because rising interest rates and inflation hit both asset classes simultaneously. This shows that even the stock-bond negative correlation is not guaranteed -- it depends on the macroeconomic regime.
 
 ---
 
@@ -337,21 +337,21 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [VISUAL: "Building Your Portfolio: Correlation in Practice" header]
 
-**Sam:** Let us bring this back to practical portfolio construction. Here are the key takeaways.
+**Stella:** Let us bring this back to practical portfolio construction. Here are the key takeaways.
 
-**Alex:** First, when evaluating whether to add an asset to your portfolio, check its correlation with your existing holdings. An asset with high expected returns but a correlation of 0.95 with what you already own adds almost no diversification value. An asset with moderate returns but a correlation of 0.2 might actually improve your portfolio's risk-adjusted returns dramatically.
+**Horace:** First, when evaluating whether to add an asset to your portfolio, check its correlation with your existing holdings. An asset with high expected returns but a correlation of 0.95 with what you already own adds almost no diversification value. An asset with moderate returns but a correlation of 0.2 might actually improve your portfolio's risk-adjusted returns dramatically.
 
 [VISUAL: Before/after portfolio comparison showing how adding a low-correlation asset improves the efficient frontier position]
 
-**Sam:** Second, do not confuse the number of holdings with diversification quality. Owning 100 U.S. large-cap stocks gives you roughly the same diversification as owning 30, because they are all highly correlated with each other. True diversification comes from combining asset classes with genuinely different return drivers -- stocks, bonds, real estate, commodities, international equities.
+**Stella:** Second, do not confuse the number of holdings with diversification quality. Owning 100 U.S. large-cap stocks gives you roughly the same diversification as owning 30, because they are all highly correlated with each other. True diversification comes from combining asset classes with genuinely different return drivers -- stocks, bonds, real estate, commodities, international equities.
 
-**Alex:** Third, stress-test your portfolio. Do not just look at average correlations. Look at crisis-period correlations. How would your portfolio have performed in 2008 or 2020 if correlations spiked to 0.9 among all your equity holdings?
+**Horace:** Third, stress-test your portfolio. Do not just look at average correlations. Look at crisis-period correlations. How would your portfolio have performed in 2008 or 2020 if correlations spiked to 0.9 among all your equity holdings?
 
 [VISUAL: Side-by-side portfolio performance: "Normal Correlations" vs "Crisis Correlations" showing the difference]
 
-**Sam:** Fourth, keep some assets that historically maintain their diversification benefit during crises. Treasury bonds and cash are boring, but they are the most reliable portfolio insurance available.
+**Stella:** Fourth, keep some assets that historically maintain their diversification benefit during crises. Treasury bonds and cash are boring, but they are the most reliable portfolio insurance available.
 
-**Alex:** And fifth, remember that the math is a framework, not a crystal ball. Correlations change, expected returns are uncertain, and no model perfectly predicts the future. Use the math to build better portfolios, but maintain humility about its limitations.
+**Horace:** And fifth, remember that the math is a framework, not a crystal ball. Correlations change, expected returns are uncertain, and no model perfectly predicts the future. Use the math to build better portfolios, but maintain humility about its limitations.
 
 [VISUAL: End card with channel logo and "Next: Options Greeks Deep Dive"]
 
@@ -361,20 +361,20 @@ A: Factor models (like the Fama-French model) simplify the covariance estimation
 
 [VISUAL: Two portfolios side by side: "Naive Diversification" (many assets, all high correlation) vs "True Diversification" (fewer assets, low correlation)]
 
-**Sam:** Let us close with some practical portfolio-building advice based on everything we have learned about correlation.
+**Stella:** Let us close with some practical portfolio-building advice based on everything we have learned about correlation.
 
-**Alex:** The most important takeaway is that diversification quality matters more than diversification quantity. Owning 15 different U.S. large-cap stock funds gives you almost no diversification benefit because they are all 0.95 correlated with each other. Owning five truly different asset classes -- U.S. stocks, international stocks, bonds, real estate, and commodities -- gives you far more diversification even though you hold fewer things.
+**Horace:** The most important takeaway is that diversification quality matters more than diversification quantity. Owning 15 different U.S. large-cap stock funds gives you almost no diversification benefit because they are all 0.95 correlated with each other. Owning five truly different asset classes -- U.S. stocks, international stocks, bonds, real estate, and commodities -- gives you far more diversification even though you hold fewer things.
 
 [VISUAL: Correlation matrix color-coded: 5 stock funds (all red/high correlation) vs 5 different asset classes (green/low correlation)]
 
-**Sam:** When you are choosing assets for your portfolio, ask this question: "Does this new holding have a different return driver than what I already own?" If the answer is yes -- like bonds driven by interest rates versus stocks driven by earnings growth -- it adds real diversification. If the answer is no -- like adding a second S&P 500 fund -- it adds nothing.
+**Stella:** When you are choosing assets for your portfolio, ask this question: "Does this new holding have a different return driver than what I already own?" If the answer is yes -- like bonds driven by interest rates versus stocks driven by earnings growth -- it adds real diversification. If the answer is no -- like adding a second S&P 500 fund -- it adds nothing.
 
-**Alex:** And remember the crisis caveat. The diversification that looks great on paper during calm markets may partially evaporate during a severe crash, as correlations spike. This is why maintaining some allocation to the most reliable crisis diversifiers -- Treasury bonds and cash -- is always prudent, even if it reduces your long-term expected return slightly.
+**Horace:** And remember the crisis caveat. The diversification that looks great on paper during calm markets may partially evaporate during a severe crash, as correlations spike. This is why maintaining some allocation to the most reliable crisis diversifiers -- Treasury bonds and cash -- is always prudent, even if it reduces your long-term expected return slightly.
 
-**Sam:** Build your portfolio for the storm, not just the sunshine. If your portfolio can survive a 2008-style crisis without forcing you to sell at the bottom, it is well constructed. The math of correlation tells you how to get there, and the discipline to maintain your allocation through both good times and bad is what makes it work in practice.
+**Stella:** Build your portfolio for the storm, not just the sunshine. If your portfolio can survive a 2008-style crisis without forcing you to sell at the bottom, it is well constructed. The math of correlation tells you how to get there, and the discipline to maintain your allocation through both good times and bad is what makes it work in practice.
 
 [VISUAL: End card with channel logo and "Next: Options Greeks Deep Dive"]
 
-**Alex:** In our next lesson, we are diving deep into the world of options Greeks -- gamma, rho, and the second-order sensitivities that separate beginners from advanced options traders. See you there.
+**Horace:** In our next lesson, we are diving deep into the world of options Greeks -- gamma, rho, and the second-order sensitivities that separate beginners from advanced options traders. See you there.
 
 [END - 15:00]

@@ -853,212 +853,212 @@ A: For Python users, `backtrader` and `zipline` are popular open-source backtest
 
 [VISUAL: Title card -- "The Backtest Trap: Why Most Strategies Fail in Real Life"]
 
-**Alex**: Today we are going to talk about one of the most important -- and most treacherous -- tools in investing: backtesting. The practice of testing your strategy on historical data to see how it would have performed. And I need to warn you upfront: backtesting is incredibly seductive and incredibly dangerous.
+**Horace**: Today we are going to talk about one of the most important -- and most treacherous -- tools in investing: backtesting. The practice of testing your strategy on historical data to see how it would have performed. And I need to warn you upfront: backtesting is incredibly seductive and incredibly dangerous.
 
-**Sam**: Dangerous? I thought backtesting was just responsible due diligence. You want to see if a strategy worked before putting real money on it.
+**Stella**: Dangerous? I thought backtesting was just responsible due diligence. You want to see if a strategy worked before putting real money on it.
 
-**Alex**: That is exactly why it is dangerous. The idea is completely sound. The execution is where investors lose fortunes. Here is the core problem: a backtest is a retrospective analysis of data you already have. It is like reading a mystery novel after someone told you who the murderer is. Everything looks obvious in hindsight.
+**Horace**: That is exactly why it is dangerous. The idea is completely sound. The execution is where investors lose fortunes. Here is the core problem: a backtest is a retrospective analysis of data you already have. It is like reading a mystery novel after someone told you who the murderer is. Everything looks obvious in hindsight.
 
-**Sam**: So backtests are biased toward looking good?
+**Stella**: So backtests are biased toward looking good?
 
-**Alex**: Always. And not by a small amount. Research consistently shows that strategies perform 30-70% worse in live trading than in backtests. A strategy that shows a Sharpe ratio of 2.0 in the backtest typically delivers 0.8 to 1.2 live. A strategy showing 5% annual alpha often delivers 1-2%.
+**Horace**: Always. And not by a small amount. Research consistently shows that strategies perform 30-70% worse in live trading than in backtests. A strategy that shows a Sharpe ratio of 2.0 in the backtest typically delivers 0.8 to 1.2 live. A strategy showing 5% annual alpha often delivers 1-2%.
 
 [VISUAL: Chart showing the "Alpha Waterfall" -- how backtested returns erode step by step]
 
 [ANIMATION: animation/week46_backtest_pitfalls.py -- Animated demonstration of backtesting biases. The animation starts with a "clean" backtest showing an equity curve rising smoothly from $100,000 to $500,000 over 20 years. A counter in the corner shows the annualized return and Sharpe ratio. Then, one by one, biases are "turned on" and the equity curve adjusts in real time. First, survivorship bias is corrected: several stocks in the portfolio go bankrupt, and the equity curve drops. The annualized return decreases visibly. Second, lookahead bias is corrected: trades that used future information are removed, causing the curve to dip further. Third, transaction costs are added: each trade incurs a visible cost deduction, and the equity curve flattens. Fourth, slippage is added: fills worsen, and the curve drops further. Finally, the overfit parameters are replaced with simpler rules, and the curve drops to nearly match the benchmark. The final frame shows side-by-side: the "as presented" backtest versus the "corrected" backtest, with the gap between them highlighted and labeled "The Backtest Illusion."]
 
-**Sam**: That animation is sobering. The strategy went from looking amazing to barely beating the index.
+**Stella**: That animation is sobering. The strategy went from looking amazing to barely beating the index.
 
-**Alex**: And that is a GOOD outcome. Many strategies go from "beating the index by 5%" to "underperforming the index by 2%" after corrections. Let me walk you through each bias so you can spot them.
+**Horace**: And that is a GOOD outcome. Many strategies go from "beating the index by 5%" to "underperforming the index by 2%" after corrections. Let me walk you through each bias so you can spot them.
 
 [VISUAL: "Lookahead Bias" section header]
 
-**Alex**: Lookahead bias is the most insidious. It occurs when your backtest uses information that was not available at the time of the trade. It sounds like an obvious mistake, but it hides in places you would never expect.
+**Horace**: Lookahead bias is the most insidious. It occurs when your backtest uses information that was not available at the time of the trade. It sounds like an obvious mistake, but it hides in places you would never expect.
 
-**Sam**: Like what?
+**Stella**: Like what?
 
-**Alex**: Financial data revisions. GDP numbers are revised multiple times after the initial release. The "final" GDP figure for Q3 might not be available until three months after the quarter ends. If your backtest uses the final figure on the date of the initial release, you are using data from the future.
+**Horace**: Financial data revisions. GDP numbers are revised multiple times after the initial release. The "final" GDP figure for Q3 might not be available until three months after the quarter ends. If your backtest uses the final figure on the date of the initial release, you are using data from the future.
 
-**Sam**: But databases just show the final number, right?
+**Stella**: But databases just show the final number, right?
 
-**Alex**: Exactly. Most databases show the revised, corrected, final figure with a timestamp of the original reporting date. Your backtest treats it as if the revised number was known on day one. This is a subtle but real form of lookahead bias.
+**Horace**: Exactly. Most databases show the revised, corrected, final figure with a timestamp of the original reporting date. Your backtest treats it as if the revised number was known on day one. This is a subtle but real form of lookahead bias.
 
-**Alex**: Earnings data is even worse. A company's fiscal Q4 might end December 31, but they do not report earnings until February. Most databases assign Q4 data to December 31. If your backtest uses Q4 earnings data on January 2 to buy a stock, you are trading on information that would not exist for another 6 weeks.
+**Horace**: Earnings data is even worse. A company's fiscal Q4 might end December 31, but they do not report earnings until February. Most databases assign Q4 data to December 31. If your backtest uses Q4 earnings data on January 2 to buy a stock, you are trading on information that would not exist for another 6 weeks.
 
 [VISUAL: Timeline showing the gap between fiscal quarter end and earnings report date]
 
-**Sam**: So how do you fix this?
+**Stella**: So how do you fix this?
 
-**Alex**: Use point-in-time databases -- databases that record when each piece of information became available. Or impose a conservative lag: do not use quarterly data until 90 days after the fiscal quarter end. This ensures the data was definitely public before you trade on it.
+**Horace**: Use point-in-time databases -- databases that record when each piece of information became available. Or impose a conservative lag: do not use quarterly data until 90 days after the fiscal quarter end. This ensures the data was definitely public before you trade on it.
 
-**Alex**: Another sneaky source of lookahead bias is index membership. If you backtest a strategy on "S&P 500 stocks" using the CURRENT S&P 500 members, you are including Tesla in 2019, even though Tesla was not added until December 2020.
+**Horace**: Another sneaky source of lookahead bias is index membership. If you backtest a strategy on "S&P 500 stocks" using the CURRENT S&P 500 members, you are including Tesla in 2019, even though Tesla was not added until December 2020.
 
-**Sam**: And Tesla's stock tripled in 2020. So including it retroactively would inflate returns.
+**Stella**: And Tesla's stock tripled in 2020. So including it retroactively would inflate returns.
 
-**Alex**: Exactly. You need the HISTORICAL constituent list -- which companies were actually in the S&P 500 on each date. This is harder to obtain than you might think, which is why many amateur backtests get it wrong.
+**Horace**: Exactly. You need the HISTORICAL constituent list -- which companies were actually in the S&P 500 on each date. This is harder to obtain than you might think, which is why many amateur backtests get it wrong.
 
 [VISUAL: "Survivorship Bias" section header]
 
-**Alex**: Survivorship bias is conceptually simple: your data includes only the winners because the losers have disappeared. But the magnitude of the problem is larger than most people realize.
+**Horace**: Survivorship bias is conceptually simple: your data includes only the winners because the losers have disappeared. But the magnitude of the problem is larger than most people realize.
 
-**Sam**: Give me a concrete example.
+**Stella**: Give me a concrete example.
 
-**Alex**: You want to backtest a small-cap value strategy. You pull a list of all US stocks from your database and filter for small, cheap ones. But your database only includes companies that CURRENTLY exist. Companies that went bankrupt in 2008, 2015, or 2020 are not in the database. They are gone.
+**Horace**: You want to backtest a small-cap value strategy. You pull a list of all US stocks from your database and filter for small, cheap ones. But your database only includes companies that CURRENTLY exist. Companies that went bankrupt in 2008, 2015, or 2020 are not in the database. They are gone.
 
-**Sam**: And those bankrupt companies were probably small and cheap right before they died.
+**Stella**: And those bankrupt companies were probably small and cheap right before they died.
 
-**Alex**: Right. Your strategy would have bought many of those companies. Some of the "small and cheap" stocks in your backtest recovered and tripled. In reality, some of them went to zero. You see only the ones that survived. The estimated magnitude of survivorship bias in small-cap value backtests is 1.5-3% per year.
+**Horace**: Right. Your strategy would have bought many of those companies. Some of the "small and cheap" stocks in your backtest recovered and tripled. In reality, some of them went to zero. You see only the ones that survived. The estimated magnitude of survivorship bias in small-cap value backtests is 1.5-3% per year.
 
-**Sam**: So a strategy showing 14% returns might really deliver 11% after correcting for this bias.
+**Stella**: So a strategy showing 14% returns might really deliver 11% after correcting for this bias.
 
-**Alex**: And that 11% -- before transaction costs, before taxes, before fees -- is suddenly much less impressive than the 14% in the marketing materials.
+**Horace**: And that 11% -- before transaction costs, before taxes, before fees -- is suddenly much less impressive than the 14% in the marketing materials.
 
 [VISUAL: Side-by-side equity curves -- with survivorship bias (smooth, upward) and without (rougher, lower)]
 
-**Alex**: Survivorship bias affects mutual fund analysis even more. When you look at "10-year mutual fund performance," you are seeing only the funds that survived 10 years. Funds that performed so badly they were closed or merged are excluded. This inflates the apparent average return by 1-2% per year and makes active management look more competitive with passive indexing than it actually is.
+**Horace**: Survivorship bias affects mutual fund analysis even more. When you look at "10-year mutual fund performance," you are seeing only the funds that survived 10 years. Funds that performed so badly they were closed or merged are excluded. This inflates the apparent average return by 1-2% per year and makes active management look more competitive with passive indexing than it actually is.
 
-**Sam**: So the statistic that "40% of active funds beat their benchmark" might be even worse than it sounds.
+**Stella**: So the statistic that "40% of active funds beat their benchmark" might be even worse than it sounds.
 
-**Alex**: Correct. When you include dead funds, the percentage that beat their benchmark drops further. The true long-run success rate of active management, after survivorship bias correction, is closer to 10-15% over 15-year periods.
+**Horace**: Correct. When you include dead funds, the percentage that beat their benchmark drops further. The true long-run success rate of active management, after survivorship bias correction, is closer to 10-15% over 15-year periods.
 
 [VISUAL: "Overfitting" section header]
 
-**Sam**: Let us talk about overfitting. This comes up a lot in machine learning discussions, but how does it apply to investment strategies?
+**Stella**: Let us talk about overfitting. This comes up a lot in machine learning discussions, but how does it apply to investment strategies?
 
-**Alex**: Imagine you are designing a momentum strategy. You need to choose a lookback period -- how many months of past returns do you look at? You test 1 month, 2 months, 3 months, all the way to 24 months. You find that 11 months gives the highest return.
+**Horace**: Imagine you are designing a momentum strategy. You need to choose a lookback period -- how many months of past returns do you look at? You test 1 month, 2 months, 3 months, all the way to 24 months. You find that 11 months gives the highest return.
 
-**Sam**: Great, use 11 months.
+**Stella**: Great, use 11 months.
 
-**Alex**: But WHY 11 months? Is there an economic reason why 11 is better than 10 or 12? Almost certainly not. The reason 11 months looks best is random -- it happens to align with the specific fluctuations in your historical data. If you run the same test on a different time period, the "optimal" lookback might be 7 months, or 14 months, or something completely different.
+**Horace**: But WHY 11 months? Is there an economic reason why 11 is better than 10 or 12? Almost certainly not. The reason 11 months looks best is random -- it happens to align with the specific fluctuations in your historical data. If you run the same test on a different time period, the "optimal" lookback might be 7 months, or 14 months, or something completely different.
 
-**Sam**: So choosing 11 months is overfitting to the specific historical data.
+**Stella**: So choosing 11 months is overfitting to the specific historical data.
 
-**Alex**: Exactly. And it gets worse the more parameters you optimize. If you also optimize the number of stocks to hold, the rebalancing frequency, the sector constraints, and the volatility filter, you have five parameters, each tested over multiple values. The total number of combinations is enormous, and the chance that the "best" combination is genuinely the best -- rather than randomly the best in this specific data -- is very small.
+**Horace**: Exactly. And it gets worse the more parameters you optimize. If you also optimize the number of stocks to hold, the rebalancing frequency, the sector constraints, and the volatility filter, you have five parameters, each tested over multiple values. The total number of combinations is enormous, and the chance that the "best" combination is genuinely the best -- rather than randomly the best in this specific data -- is very small.
 
-**Sam**: How many parameters is too many?
+**Stella**: How many parameters is too many?
 
-**Alex**: A useful rule: you need at least 50 independent observations per parameter. With 15 years of monthly data (180 observations), you can responsibly optimize at most 3 parameters. With 5 years (60 observations), you can optimize maybe 1 parameter. A strategy with 10 optimized parameters on 5 years of data is guaranteed to be overfit.
+**Horace**: A useful rule: you need at least 50 independent observations per parameter. With 15 years of monthly data (180 observations), you can responsibly optimize at most 3 parameters. With 5 years (60 observations), you can optimize maybe 1 parameter. A strategy with 10 optimized parameters on 5 years of data is guaranteed to be overfit.
 
 [VISUAL: Table showing data length vs. maximum parameters with 50:1 rule]
 
-**Alex**: Here is a simple diagnostic. If changing a parameter slightly causes a dramatic change in performance, the strategy is overfit. A genuine effect should be robust -- if 11 months works, then 10 and 12 months should also work reasonably well. If 11 months shows a Sharpe of 2.0 but 10 months shows 0.5 and 12 months shows 0.3, that 11-month result is noise.
+**Horace**: Here is a simple diagnostic. If changing a parameter slightly causes a dramatic change in performance, the strategy is overfit. A genuine effect should be robust -- if 11 months works, then 10 and 12 months should also work reasonably well. If 11 months shows a Sharpe of 2.0 but 10 months shows 0.5 and 12 months shows 0.3, that 11-month result is noise.
 
-**Sam**: That makes intuitive sense. A real pattern would not depend on such precise calibration.
+**Stella**: That makes intuitive sense. A real pattern would not depend on such precise calibration.
 
-**Alex**: Right. Think of it this way: the real world is messy. Any genuine edge in financial markets must be robust to imprecise implementation. If your strategy requires perfectly calibrated parameters to work, it will not survive the imprecision of real-world trading.
+**Horace**: Right. Think of it this way: the real world is messy. Any genuine edge in financial markets must be robust to imprecise implementation. If your strategy requires perfectly calibrated parameters to work, it will not survive the imprecision of real-world trading.
 
 [VISUAL: "Walk-Forward Analysis" section header]
 
-**Sam**: So how do we properly validate a strategy?
+**Stella**: So how do we properly validate a strategy?
 
-**Alex**: Walk-forward analysis. Instead of one split into training and testing, you do many. You take a 5-year training window, optimize your strategy, then test it on the next year. Then you roll the window forward by one year and repeat. Over a 20-year period, you get 15 separate out-of-sample tests.
+**Horace**: Walk-forward analysis. Instead of one split into training and testing, you do many. You take a 5-year training window, optimize your strategy, then test it on the next year. Then you roll the window forward by one year and repeat. Over a 20-year period, you get 15 separate out-of-sample tests.
 
-**Sam**: So it is like simulating what a real trader would do -- only looking at past data to make future decisions.
+**Stella**: So it is like simulating what a real trader would do -- only looking at past data to make future decisions.
 
-**Alex**: Exactly. And the key feature is that you get MULTIPLE out-of-sample tests, not just one. If the strategy works in 12 out of 15 test periods, that is much more convincing than one test period that happened to be favorable.
+**Horace**: Exactly. And the key feature is that you get MULTIPLE out-of-sample tests, not just one. If the strategy works in 12 out of 15 test periods, that is much more convincing than one test period that happened to be favorable.
 
-**Sam**: What if it works in 8 out of 15?
+**Stella**: What if it works in 8 out of 15?
 
-**Alex**: Then the strategy is regime-dependent -- it works in some market conditions and fails in others. That is useful information, but it means you need to identify which regime favors the strategy and whether you can identify regime changes in real time. If you cannot, the strategy is impractical.
+**Horace**: Then the strategy is regime-dependent -- it works in some market conditions and fails in others. That is useful information, but it means you need to identify which regime favors the strategy and whether you can identify regime changes in real time. If you cannot, the strategy is impractical.
 
 [VISUAL: Walk-forward timeline showing rolling training and test windows]
 
-**Alex**: Walk-forward analysis also reveals the realistic Sharpe ratio you should expect. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 1.0, you know the strategy has genuine alpha but the backtest overstates it by 2x. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 0.2, the strategy is overfit and the "alpha" is an illusion.
+**Horace**: Walk-forward analysis also reveals the realistic Sharpe ratio you should expect. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 1.0, you know the strategy has genuine alpha but the backtest overstates it by 2x. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 0.2, the strategy is overfit and the "alpha" is an illusion.
 
-**Sam**: Now let us talk about transaction costs. You mentioned they can destroy a strategy.
+**Stella**: Now let us talk about transaction costs. You mentioned they can destroy a strategy.
 
 [VISUAL: "Transaction Costs" section header]
 
-**Alex**: Transaction costs are the reality check that separates paper profits from real profits. Many beautiful strategies exist only in a world of zero transaction costs.
+**Horace**: Transaction costs are the reality check that separates paper profits from real profits. Many beautiful strategies exist only in a world of zero transaction costs.
 
-**Sam**: But we have zero commissions now. Are costs not negligible?
+**Stella**: But we have zero commissions now. Are costs not negligible?
 
-**Alex**: Commissions were never the main cost. The spread, market impact, and slippage are the big ones. When you buy a stock, you pay the ask price, which is above the midpoint. When you sell, you get the bid price, which is below the midpoint. That is the spread cost, and it happens on EVERY trade.
+**Horace**: Commissions were never the main cost. The spread, market impact, and slippage are the big ones. When you buy a stock, you pay the ask price, which is above the midpoint. When you sell, you get the bid price, which is below the midpoint. That is the spread cost, and it happens on EVERY trade.
 
-**Alex**: Then there is market impact. If you are buying 10,000 shares and the daily volume is 50,000, your buying pushes the price up against you. The bigger your order relative to volume, the more you move the price. This can easily cost 0.10-0.30% per trade for medium-sized orders.
+**Horace**: Then there is market impact. If you are buying 10,000 shares and the daily volume is 50,000, your buying pushes the price up against you. The bigger your order relative to volume, the more you move the price. This can easily cost 0.10-0.30% per trade for medium-sized orders.
 
-**Sam**: And this gets worse for small-cap stocks with lower volume.
+**Stella**: And this gets worse for small-cap stocks with lower volume.
 
-**Alex**: Much worse. A small-cap stock trading 20,000 shares per day with a spread of 0.50% and high impact costs can cost 0.50-1.00% per trade. If your strategy trades this stock 4 times per year, that is 2-4% in annual costs just from this one holding.
+**Horace**: Much worse. A small-cap stock trading 20,000 shares per day with a spread of 0.50% and high impact costs can cost 0.50-1.00% per trade. If your strategy trades this stock 4 times per year, that is 2-4% in annual costs just from this one holding.
 
 [VISUAL: Cost breakdown for a hypothetical trade in a large-cap vs. small-cap stock]
 
-**Alex**: Let me show you the full impact with a real example. Take a monthly momentum strategy. It turns over 200% of the portfolio per year. That means the equivalent of the entire portfolio is bought and sold twice.
+**Horace**: Let me show you the full impact with a real example. Take a monthly momentum strategy. It turns over 200% of the portfolio per year. That means the equivalent of the entire portfolio is bought and sold twice.
 
-**Sam**: So every dollar in the portfolio is traded about 4 times per year -- 2 buys and 2 sells.
+**Stella**: So every dollar in the portfolio is traded about 4 times per year -- 2 buys and 2 sells.
 
-**Alex**: Right. At 0.15% per trade for large-caps, that is 4 times 0.15% equals 0.60% annual cost. Seems manageable. But the stocks momentum strategies buy tend to be mid- and small-caps with higher costs. At 0.30% per trade, costs become 1.20% per year. Add slippage and opportunity cost, and you are at 1.50-2.00%.
+**Horace**: Right. At 0.15% per trade for large-caps, that is 4 times 0.15% equals 0.60% annual cost. Seems manageable. But the stocks momentum strategies buy tend to be mid- and small-caps with higher costs. At 0.30% per trade, costs become 1.20% per year. Add slippage and opportunity cost, and you are at 1.50-2.00%.
 
-**Sam**: And if the strategy's gross alpha is 3%, half to two-thirds of it is eaten by costs.
+**Stella**: And if the strategy's gross alpha is 3%, half to two-thirds of it is eaten by costs.
 
-**Alex**: And that is the good scenario. Many strategies have gross alpha of 1-2%, which is entirely consumed by transaction costs. The strategy looks great on paper and loses money in practice.
+**Horace**: And that is the good scenario. Many strategies have gross alpha of 1-2%, which is entirely consumed by transaction costs. The strategy looks great on paper and loses money in practice.
 
 [VISUAL: "Alpha Waterfall" showing how gross alpha erodes through each cost layer]
 
-**Sam**: So how do I know when to trust a backtest?
+**Stella**: So how do I know when to trust a backtest?
 
 [VISUAL: "When to Trust a Backtest" section header]
 
-**Alex**: I use a scorecard approach. There are about ten criteria that a good backtest should meet. I grade each one on a 0-2 scale.
+**Horace**: I use a scorecard approach. There are about ten criteria that a good backtest should meet. I grade each one on a 0-2 scale.
 
-**Sam**: Give me the top five.
+**Stella**: Give me the top five.
 
-**Alex**: First: does the strategy have an economic rationale? Not just "it works" but WHY does it work? Who is on the losing side of this trade? If you cannot identify the loser, you might BE the loser.
+**Horace**: First: does the strategy have an economic rationale? Not just "it works" but WHY does it work? Who is on the losing side of this trade? If you cannot identify the loser, you might BE the loser.
 
-**Alex**: Second: simplicity. Strategies with 1-3 parameters are more likely genuine than strategies with 10-20 parameters. Every extra parameter is an opportunity for overfitting.
+**Horace**: Second: simplicity. Strategies with 1-3 parameters are more likely genuine than strategies with 10-20 parameters. Every extra parameter is an opportunity for overfitting.
 
-**Alex**: Third: walk-forward performance. Does it deliver positive, consistent returns across multiple out-of-sample test periods? If it only works in certain periods, it is regime-dependent at best.
+**Horace**: Third: walk-forward performance. Does it deliver positive, consistent returns across multiple out-of-sample test periods? If it only works in certain periods, it is regime-dependent at best.
 
-**Alex**: Fourth: transaction costs. Does the strategy survive after realistic costs? If costs consume more than 50% of gross alpha, the strategy is fragile -- small changes in market conditions could push it underwater.
+**Horace**: Fourth: transaction costs. Does the strategy survive after realistic costs? If costs consume more than 50% of gross alpha, the strategy is fragile -- small changes in market conditions could push it underwater.
 
-**Alex**: Fifth: multiple markets. Does it work in the US AND Europe AND Japan? A pattern that appears only in one country during one time period is probably data-mined. A pattern that appears across multiple countries and time periods is more likely genuine.
+**Horace**: Fifth: multiple markets. Does it work in the US AND Europe AND Japan? A pattern that appears only in one country during one time period is probably data-mined. A pattern that appears across multiple countries and time periods is more likely genuine.
 
-**Sam**: What is the strongest sign that a backtest is overfit?
+**Stella**: What is the strongest sign that a backtest is overfit?
 
-**Alex**: Performance that is too good. If someone shows you a backtest with a Sharpe ratio above 3.0, assume overfitting until proven otherwise. The best investors in the world -- Warren Buffett, Jim Simons, Ray Dalio -- have live Sharpe ratios of 0.7 to 2.5. A backtest showing Sharpe 4.0 is claiming to be better than the best investors who ever lived. Possible but extremely unlikely.
+**Horace**: Performance that is too good. If someone shows you a backtest with a Sharpe ratio above 3.0, assume overfitting until proven otherwise. The best investors in the world -- Warren Buffett, Jim Simons, Ray Dalio -- have live Sharpe ratios of 0.7 to 2.5. A backtest showing Sharpe 4.0 is claiming to be better than the best investors who ever lived. Possible but extremely unlikely.
 
 [VISUAL: Spectrum of Sharpe ratios -- market average (0.4), good active manager (0.7), great hedge fund (1.5), suspicious backtest (3.0+)]
 
-**Sam**: What about new retail investors who want to test a simple idea? Like "buy stocks after they drop 20%."
+**Stella**: What about new retail investors who want to test a simple idea? Like "buy stocks after they drop 20%."
 
-**Alex**: Great example. Let us walk through how you would test that responsibly. First, define the strategy precisely. "Buy stocks in the S&P 500 after a 20% decline from their 52-week high. Hold for 6 months. Equal weight."
+**Horace**: Great example. Let us walk through how you would test that responsibly. First, define the strategy precisely. "Buy stocks in the S&P 500 after a 20% decline from their 52-week high. Hold for 6 months. Equal weight."
 
-**Sam**: Simple. Two parameters: the drawdown threshold and the holding period.
+**Stella**: Simple. Two parameters: the drawdown threshold and the holding period.
 
-**Alex**: Good. Now, get survivorship-free data. Make sure you include stocks that were in the S&P 500 at each point in time, not just current members. Include companies that were later removed due to bankruptcy or merger.
+**Horace**: Good. Now, get survivorship-free data. Make sure you include stocks that were in the S&P 500 at each point in time, not just current members. Include companies that were later removed due to bankruptcy or merger.
 
-**Sam**: What about transaction costs?
+**Stella**: What about transaction costs?
 
-**Alex**: Use 0.10% per trade as a baseline. That covers spread and small impact for large-cap stocks. Your turnover depends on how many stocks trigger the 20% decline rule, but it is probably moderate.
+**Horace**: Use 0.10% per trade as a baseline. That covers spread and small impact for large-cap stocks. Your turnover depends on how many stocks trigger the 20% decline rule, but it is probably moderate.
 
-**Alex**: Split the data. Use 2000-2015 to develop and confirm the strategy, then test on 2015-2025. Better yet, run walk-forward analysis with 5-year training windows.
+**Horace**: Split the data. Use 2000-2015 to develop and confirm the strategy, then test on 2015-2025. Better yet, run walk-forward analysis with 5-year training windows.
 
-**Sam**: And what would I probably find?
+**Stella**: And what would I probably find?
 
-**Alex**: You would probably find that buying large dips works on average -- stocks that decline 20% tend to recover more often than not -- but with enormous variance. Some 20% declines become 50% declines. The strategy underperforms dramatically during bear markets (2008, 2020 briefly, 2022) because EVERYTHING is declining 20%, and you are buying everything, and much of it keeps falling.
+**Horace**: You would probably find that buying large dips works on average -- stocks that decline 20% tend to recover more often than not -- but with enormous variance. Some 20% declines become 50% declines. The strategy underperforms dramatically during bear markets (2008, 2020 briefly, 2022) because EVERYTHING is declining 20%, and you are buying everything, and much of it keeps falling.
 
-**Sam**: So the average looks okay but the distribution of outcomes is wide.
+**Stella**: So the average looks okay but the distribution of outcomes is wide.
 
-**Alex**: And that is the key insight. Backtests show you the average outcome, but you live through a single path. The average may be positive while many individual paths are painful. Understanding the DISTRIBUTION of outcomes -- not just the average -- is essential for deciding whether you can actually follow a strategy through its worst periods.
+**Horace**: And that is the key insight. Backtests show you the average outcome, but you live through a single path. The average may be positive while many individual paths are painful. Understanding the DISTRIBUTION of outcomes -- not just the average -- is essential for deciding whether you can actually follow a strategy through its worst periods.
 
 [VISUAL: Distribution of outcomes for the "buy the dip" strategy, showing the fat tail of losses]
 
-**Sam**: One more question. If backtests are so unreliable, how do professional quants use them?
+**Stella**: One more question. If backtests are so unreliable, how do professional quants use them?
 
-**Alex**: Professionals treat backtests as the BEGINNING of research, not the end. A backtest is a hypothesis test: "Is this pattern real enough to investigate further?" If it passes the backtest with all biases corrected, they move to paper trading -- running the strategy in real time with no money. If it works in paper trading for 6-12 months, they allocate a small amount of capital. If it works with real money for another 6-12 months, they gradually increase the allocation. At every stage, they compare live performance to backtested expectations.
+**Horace**: Professionals treat backtests as the BEGINNING of research, not the end. A backtest is a hypothesis test: "Is this pattern real enough to investigate further?" If it passes the backtest with all biases corrected, they move to paper trading -- running the strategy in real time with no money. If it works in paper trading for 6-12 months, they allocate a small amount of capital. If it works with real money for another 6-12 months, they gradually increase the allocation. At every stage, they compare live performance to backtested expectations.
 
-**Sam**: So the backtest is just step one of a multi-step validation process.
+**Stella**: So the backtest is just step one of a multi-step validation process.
 
-**Alex**: Exactly. And most strategies fail at each successive stage. Out of 100 backtested ideas, maybe 20 survive bias correction. Of those 20, maybe 5 work in paper trading. Of those 5, maybe 2 work with real money. And of those 2, maybe 1 continues to work after 3 years. The attrition rate is enormous, which is why genuine alpha is so rare and so valuable.
+**Horace**: Exactly. And most strategies fail at each successive stage. Out of 100 backtested ideas, maybe 20 survive bias correction. Of those 20, maybe 5 work in paper trading. Of those 5, maybe 2 work with real money. And of those 2, maybe 1 continues to work after 3 years. The attrition rate is enormous, which is why genuine alpha is so rare and so valuable.
 
-**Sam**: That is a sobering conversion rate. One percent.
+**Stella**: That is a sobering conversion rate. One percent.
 
-**Alex**: And that is at professional firms with teams of PhDs, institutional data, and decades of experience. For individual investors running backtests on free data with retail tools, the success rate is even lower. Which is why, for most investors, the best use of backtesting knowledge is EVALUATING other people's claims rather than building your own strategies. When your financial advisor shows you a beautifully smooth equity curve, you now know to ask: "Is this survivorship-free? Point-in-time data? How many parameters? Walk-forward tested? After realistic costs?"
+**Horace**: And that is at professional firms with teams of PhDs, institutional data, and decades of experience. For individual investors running backtests on free data with retail tools, the success rate is even lower. Which is why, for most investors, the best use of backtesting knowledge is EVALUATING other people's claims rather than building your own strategies. When your financial advisor shows you a beautifully smooth equity curve, you now know to ask: "Is this survivorship-free? Point-in-time data? How many parameters? Walk-forward tested? After realistic costs?"
 
 [VISUAL: "The Backtest Validation Checklist" -- 10 questions to ask about any backtest]
 
-**Sam**: Thanks, Alex. Next week, we move to a very different topic -- tail risk hedging. How do you protect your portfolio against rare but catastrophic events?
+**Stella**: Thanks, Horace. Next week, we move to a very different topic -- tail risk hedging. How do you protect your portfolio against rare but catastrophic events?
 
-**Alex**: Right. Tail risk is where everything we have learned about statistics, correlations, and strategy testing meets the real world of market crashes. It is a lesson that every investor needs but hopes they never have to use.
+**Horace**: Right. Tail risk is where everything we have learned about statistics, correlations, and strategy testing meets the real world of market crashes. It is a lesson that every investor needs but hopes they never have to use.
 
 [VISUAL: End card -- "Next Week: Tail Risk Hedging"]

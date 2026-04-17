@@ -1,409 +1,406 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 01: Mastering the TI BA II Plus Financial Calculator
+# 附加課程第一課：精通TI BA II Plus金融計算機
 
 ---
 
-## PART 1: READING SECTION
+## 第一部分：閱讀章節
 
 ---
 
-### Why This Is Important
+### 為何這門課很重要
 
-Every finance professional and serious investor needs to speak the language of time value of money fluently. The TI BA II Plus is the industry-standard financial calculator used by CFA candidates, financial analysts, and investment bankers worldwide. While spreadsheets can do these calculations, understanding how to work a financial calculator builds intuition about how money moves through time. You cannot fake this skill in a job interview, a client meeting, or a certification exam.
+每位金融專業人士和認真的投資者都需要流利地掌握貨幣時間價值的語言。TI BA II Plus是全球CFA考生、金融分析師和投資銀行家使用的業界標準金融計算機。雖然試算表也能做這些計算，但學習如何使用金融計算機能建立對金錢如何跨越時間流動的直覺。在求職面試、客戶會議或資格考試中，你無法假裝擁有這項技能。
 
-More importantly, the calculator forces you to think about cash flow sign conventions, compounding frequency, and the relationship between present and future values in a way that simply plugging numbers into a spreadsheet formula does not. When you truly understand what each key does, you understand the math behind every loan, every bond, every investment decision.
+更重要的是，計算機迫使你思考現金流量正負號慣例、複利計算頻率，以及現值和終值之間的關係——這是單純把數字代入試算表公式所無法做到的。當你真正理解每個按鍵的功能時，你便理解了每筆貸款、每張債券、每個投資決策背後的數學原理。
 
 ---
 
-### What You Need to Know
+### 你需要了解的知識
 
-#### The Five TVM Keys
+#### 五個TVM按鍵
 
-The heart of the TI BA II Plus is the five Time Value of Money (TVM) keys across the third row:
+TI BA II Plus的核心是第三排的五個貨幣時間價值（TVM）按鍵：
 
-- **N** -- The number of compounding periods. Not years, not months, but periods. If you have a 30-year mortgage with monthly payments, N = 360.
-- **I/Y** -- The interest rate per year (expressed as a percentage, not a decimal). The calculator automatically divides this by P/Y to get the periodic rate.
-- **PV** -- Present Value. The value of money today, or the starting amount. Typically entered as negative when it represents money you pay out.
-- **PMT** -- Payment. The periodic cash flow that occurs at regular intervals. Negative when you pay it, positive when you receive it.
-- **FV** -- Future Value. The value of money at the end of the time horizon. Negative when you pay it out, positive when you receive it.
+- **N** -- 複利計算期數。不是年數，不是月數，而是期數。如果你有一筆30年期、按月還款的房貸，N = 360。
+- **I/Y** -- 每年利率（以百分比表示，非小數）。計算機會自動將其除以P/Y以取得每期利率。
+- **PV** -- 現值。今日金錢的價值，或起始金額。當代表你支付的款項時，通常輸入為負值。
+- **PMT** -- 年金付款。定期發生的現金流量。支付時為負值，收取時為正值。
+- **FV** -- 終值。在時間範圍末端時金錢的價值。支付時為負值，收取時為正值。
 
-The fundamental rule: **you must enter at least four of the five variables, then compute the fifth.** The calculator solves for the unknown.
+基本規則：**你必須輸入五個變數中的至少四個，然後計算第五個。** 計算機會求解未知數。
 
-#### The Sign Convention
+#### 正負號慣例
 
-This is where most beginners stumble. The TI BA II Plus uses a cash flow sign convention:
+這是大多數初學者犯錯的地方。TI BA II Plus使用現金流量正負號慣例：
 
-- **Negative (-)** = money leaving your pocket (outflows)
-- **Positive (+)** = money coming into your pocket (inflows)
+- **負值（-）** = 從你口袋流出的金錢（流出）
+- **正值（+）** = 流入你口袋的金錢（流入）
 
-Think of it from your perspective as the investor or borrower:
+以投資者或借款人的角度思考：
 
-- If you invest $1,000 today, PV = -1000 (money leaves you)
-- If you receive $1,500 in five years, FV = 1500 (money comes to you)
-- If you make monthly loan payments, PMT = -500 (money leaves you)
-- If you receive monthly rental income, PMT = 2000 (money comes to you)
+- 如果你今天投資1,000元，PV = -1000（金錢離開你）
+- 如果你在五年後收到1,500元，FV = 1500（金錢流向你）
+- 如果你每月繳交貸款，PMT = -500（金錢離開你）
+- 如果你收取每月租金收入，PMT = 2000（金錢流向你）
 
-If you get the signs wrong, you will either get an error or a wrong answer. Every single time you enter a TVM problem, ask yourself: "Is this money going out or coming in?"
+如果你搞錯了正負號，你將會得到錯誤或錯誤答案。每次輸入TVM問題時，問自己：「這筆錢是流出還是流入？」
 
-#### P/Y and C/Y Settings
+#### P/Y和C/Y設定
 
-Press **[2ND]** then **[I/Y]** to access the P/Y (Payments per Year) and C/Y (Compounding periods per Year) settings.
+按 **[2ND]** 然後 **[I/Y]** 進入P/Y（每年付款次數）和C/Y（每年計息次數）設定。
 
-- **P/Y** -- How many payments occur per year. Set to 12 for monthly, 4 for quarterly, 2 for semi-annual, 1 for annual.
-- **C/Y** -- How many times interest compounds per year. Usually matches P/Y, but not always.
+- **P/Y** -- 每年付款多少次。月付設12，季付設4，半年付設2，年付設1。
+- **C/Y** -- 每年計息多少次。通常與P/Y相同，但不一定。
 
-**Critical habit:** Always check your P/Y setting before starting a new problem. A wrong P/Y setting is the single most common source of calculator errors. Many professionals keep P/Y = 1 at all times and manually adjust N and I/Y, which avoids confusion.
+**關鍵習慣：** 開始新問題前，務必檢查P/Y設定。錯誤的P/Y設定是計算機錯誤最常見的來源。許多專業人士始終保持P/Y = 1，並手動調整N和I/Y，以避免混淆。
 
-**Reset approach:** Press [2ND] [+/-] (which is the RESET function) and press ENTER to clear everything back to factory defaults (P/Y = 1, C/Y = 1).
+**重置方法：** 按[2ND] [+/-]（這是RESET功能），然後按ENTER將一切恢復至出廠預設值（P/Y = 1，C/Y = 1）。
 
-#### Basic TVM Examples
+#### 基本TVM範例
 
-**Example 1: Future Value of a Lump Sum**
-You invest $10,000 today at 8% annual return for 20 years. What will it be worth?
+**範例一：一次性投入的終值**
+你今天投資10,000元，年報酬率8%，持續20年。最終價值為何？
 
 - N = 20
 - I/Y = 8
-- PV = -10000 (money leaving you)
+- PV = -10000（從你流出的金錢）
 - PMT = 0
 - CPT FV = 46,609.57
 
-**Example 2: Monthly Mortgage Payment**
-You borrow $300,000 for 30 years at 6.5% annual interest with monthly payments.
+**範例二：每月房貸還款**
+你借款300,000元，期限30年，年利率6.5%，按月還款。
 
-- Set P/Y = 12
-- N = 360 (30 x 12)
+- 設定P/Y = 12
+- N = 360（30 × 12）
 - I/Y = 6.5
-- PV = 300000 (money coming to you from the bank)
-- FV = 0 (loan fully repaid)
-- CPT PMT = -1,896.20 (you pay this each month)
+- PV = 300000（從銀行流入你的金錢）
+- FV = 0（貸款全額還清）
+- CPT PMT = -1,896.20（你每月支付此金額）
 
-**Example 3: Required Return**
-You can buy a bond for $950 that pays $50 per year for 10 years and returns $1,000 at maturity. What is the yield?
+**範例三：所需報酬率**
+你可以以950元購買一張債券，每年支付50元票息，期限10年，到期時還本1,000元。殖利率為何？
 
-- Set P/Y = 1
+- 設定P/Y = 1
 - N = 10
-- PV = -950 (you pay this)
-- PMT = 50 (you receive this annually)
-- FV = 1000 (you receive this at maturity)
+- PV = -950（你支付此金額）
+- PMT = 50（你每年收取此金額）
+- FV = 1000（到期時你收取此金額）
 - CPT I/Y = 5.66%
 
-#### NPV and IRR Functions
+#### NPV和IRR函數
 
-Press **[CF]** to enter the Cash Flow worksheet.
+按 **[CF]** 進入現金流量工作表。
 
-**Entering Cash Flows:**
-1. CF0 = initial investment (usually negative)
-2. C01 = first cash flow, F01 = frequency of that cash flow
-3. C02 = second cash flow, F02 = frequency, and so on
-4. Use the down arrow to move through entries
+**輸入現金流量：**
+1. CF0 = 初始投資（通常為負值）
+2. C01 = 第一筆現金流量，F01 = 該現金流量的頻率
+3. C02 = 第二筆現金流量，F02 = 頻率，依此類推
+4. 使用向下箭頭在各項目間移動
 
-**Computing NPV:**
-1. After entering cash flows, press [NPV]
-2. Enter I = discount rate (as a percentage)
-3. Press the down arrow, then CPT to compute NPV
+**計算NPV：**
+1. 輸入現金流量後，按[NPV]
+2. 輸入I = 折現率（以百分比表示）
+3. 按向下箭頭，然後按CPT計算NPV
 
-**Computing IRR:**
-1. After entering cash flows, press [IRR]
-2. Press CPT to compute IRR
+**計算IRR：**
+1. 輸入現金流量後，按[IRR]
+2. 按CPT計算IRR
 
-**Example: Project Evaluation**
-A project requires $50,000 upfront and generates $15,000 per year for 5 years.
+**範例：專案評估**
+一個專案需要預先投入50,000元，並在5年內每年產生15,000元。
 
 - CF0 = -50000
-- C01 = 15000, F01 = 5
-- NPV at I = 10%: press [NPV], I = 10, down arrow, CPT = $6,861.80
-- IRR: press [IRR], CPT = 15.24%
+- C01 = 15000，F01 = 5
+- 折現率10%的NPV：按[NPV]，I = 10，向下箭頭，CPT = 6,861.80元
+- IRR：按[IRR]，CPT = 15.24%
 
-Since NPV > 0 and IRR > required return of 10%, the project is acceptable.
+由於NPV > 0且IRR > 所需報酬率10%，該專案可接受。
 
-#### Bond Calculations
+#### 債券計算
 
-Press **[2ND]** then **[9]** to access the Bond worksheet.
+按 **[2ND]** 然後 **[9]** 進入債券工作表。
 
-Key inputs:
-- **SDT** -- Settlement date (when you buy the bond)
-- **CPN** -- Annual coupon rate (as a percentage)
-- **RDT** -- Redemption date (maturity date)
-- **RV** -- Redemption value (usually 100 for par)
-- **ACT/360** -- Day count convention
-- **2/Y or 1/Y** -- Semi-annual or annual coupon frequency
-- **YLD** -- Yield to maturity
-- **PRI** -- Clean price
+主要輸入項：
+- **SDT** -- 交割日（購買債券時）
+- **CPN** -- 年票面利率（以百分比表示）
+- **RDT** -- 贖回日（到期日）
+- **RV** -- 贖回價值（通常以面額100為基準）
+- **ACT/360** -- 計息日數慣例
+- **2/Y or 1/Y** -- 半年付或年付票息頻率
+- **YLD** -- 到期殖利率
+- **PRI** -- 乾淨價格
 
-You can enter either YLD or PRI and compute the other.
+你可以輸入YLD或PRI，計算另一個。
 
-**Example: Bond Pricing**
-A bond with 5% coupon, semi-annual payments, matures in 10 years, market yield is 6%.
+**範例：債券定價**
+一張債券，票面利率5%、半年付息、10年後到期，市場殖利率6%。
 
-Using TVM keys (simpler approach):
-- Set P/Y = 2
-- N = 20 (10 years x 2)
+使用TVM按鍵（較簡便的方式）：
+- 設定P/Y = 2
+- N = 20（10年 × 2）
 - I/Y = 6
-- PMT = 25 (1000 x 5% / 2)
+- PMT = 25（1000 × 5% / 2）
 - FV = 1000
-- CPT PV = -925.61 (the price you pay)
+- CPT PV = -925.61（你支付的價格）
 
-#### Amortization Worksheet
+#### 攤還工作表
 
-Press **[2ND]** then **[PV]** to access the amortization worksheet after solving a TVM loan problem.
+在解完TVM貸款問題後，按 **[2ND]** 然後 **[PV]** 進入攤還工作表。
 
-- P1 = starting period
-- P2 = ending period
-- BAL = remaining balance after P2
-- PRN = total principal paid between P1 and P2
-- INT = total interest paid between P1 and P2
+- P1 = 起始期數
+- P2 = 結束期數
+- BAL = P2後的剩餘餘額
+- PRN = P1到P2之間還清的本金總額
+- INT = P1到P2之間支付的利息總額
 
-This is invaluable for understanding how much of each payment goes to principal versus interest over the life of a loan.
+這對於了解貸款存續期間內每筆還款中本金與利息各占多少非常有價值。
 
-#### Statistical Functions
+#### 統計函數
 
-Press **[2ND]** then **[7]** to access the Data worksheet. Press **[2ND]** then **[8]** for the Stat worksheet.
+按 **[2ND]** 然後 **[7]** 進入資料工作表。按 **[2ND]** 然後 **[8]** 進入統計工作表。
 
-You can enter data points and compute:
-- Mean (average)
-- Sample standard deviation (Sx)
-- Population standard deviation (sigma x)
-- Linear regression statistics
+你可以輸入資料點並計算：
+- 平均數（算術平均）
+- 樣本標準差（Sx）
+- 母體標準差（sigma x）
+- 線性迴歸統計數據
 
-While not as commonly tested as TVM, these functions are useful for quick portfolio return and risk calculations.
+雖然不如TVM常見，但這些功能對於快速計算投資組合報酬率和風險很有用。
 
-#### Key Shortcuts and Tips
+#### 主要快捷鍵和技巧
 
-1. **Clear TVM:** Press [2ND] then [FV] (which is CLR TVM) before every new problem.
-2. **Clear all worksheets:** Press [2ND] then [CE/C] (which is CLR Work) when in a worksheet.
-3. **Change sign:** Use the [+/-] key to toggle between positive and negative.
-4. **Store and recall:** Use [STO] and [RCL] with number keys 0-9 to store intermediate results.
-5. **Chain calculations:** After computing one value, you can change one or two inputs and recompute without re-entering everything.
-6. **Decimal places:** Press [2ND] then [.] (FORMAT), then enter the number of decimal places you want displayed (0-9). Press ENTER.
-
----
-
-### Common Misconceptions
-
-**"I can just use Excel, so I don't need a calculator."**
-Excel is powerful, but it does not build intuition. When you manually set up a TVM problem on a calculator, you are forced to think about what each variable means, what the sign should be, and how many periods are involved. This understanding transfers directly to building better spreadsheet models and catching errors in other people's work.
-
-**"N always equals the number of years."**
-No. N is the number of compounding periods. A 5-year loan with monthly payments has N = 60, not 5. A 10-year bond with semi-annual coupons has N = 20, not 10. Always match N to the payment frequency.
-
-**"I/Y is the periodic interest rate."**
-No. I/Y is the annual interest rate. The calculator divides it by P/Y internally to get the periodic rate. If you have a monthly problem with P/Y = 12 and the annual rate is 6%, you enter I/Y = 6, not 0.5.
-
-**"The sign doesn't matter as long as the magnitude is right."**
-The sign is everything. If PV and FV have the same sign, the calculator thinks money flows in the same direction at both times, which makes no sense for most problems and will produce an error or a wrong answer.
-
-**"BGN mode is rarely used."**
-BGN (Begin) mode matters whenever payments occur at the start of each period rather than the end. Annuities due (like rent or insurance premiums paid in advance) require BGN mode. Forgetting to switch between BGN and END is a common exam mistake. Check the display -- if you see "BGN" in the upper right, you are in begin mode.
-
-**"NPV and IRR always give the same accept/reject decision."**
-For independent projects with conventional cash flows (one outflow followed by inflows), they agree. But for mutually exclusive projects or non-conventional cash flows (multiple sign changes), NPV and IRR can conflict. Always trust NPV when they disagree.
-
-**"A higher IRR always means a better project."**
-IRR has limitations: it assumes reinvestment at the IRR itself, it can produce multiple solutions with non-conventional cash flows, and it does not account for project scale. A project with 50% IRR on a $100 investment is not necessarily better than 20% IRR on a $1,000,000 investment.
+1. **清除TVM：** 每個新問題前，按[2ND]再按[FV]（即CLR TVM）。
+2. **清除所有工作表：** 在工作表中按[2ND]再按[CE/C]（即CLR Work）。
+3. **變更正負號：** 使用[+/-]鍵在正負值之間切換。
+4. **儲存和調用：** 使用[STO]和[RCL]搭配數字鍵0-9儲存中間結果。
+5. **串接計算：** 計算出一個值後，你可以變更一兩個輸入值並重新計算，而無需重新輸入所有資料。
+6. **小數位數：** 按[2ND]再按[.]（FORMAT），然後輸入要顯示的小數位數（0-9）。按ENTER。
 
 ---
 
-### Q&A Section
+### 常見的誤解
 
-**Q: My calculator gives me an "Error 5" when I try to compute I/Y. What's wrong?**
-A: Error 5 means "no solution exists." This almost always means your signs are wrong. Check that PV and FV/PMT have opposite signs. If you are investing money (PV is negative), then you should receive money back (FV or PMT should be positive), or vice versa.
+**「我可以用Excel，所以不需要計算機。」**
+Excel功能強大，但它無法建立直覺。當你在計算機上手動設定TVM問題時，你被迫思考每個變數的含義、正負號應該是什麼，以及涉及多少期數。這種理解直接轉化為建立更好的試算表模型，以及發現他人工作中的錯誤。
 
-**Q: Should I keep P/Y at 1 or change it for each problem?**
-A: Many experienced users keep P/Y = 1 at all times. When you do this, you manually adjust N (multiply years by frequency) and I/Y (divide annual rate by frequency). This approach avoids the confusion of forgetting to change P/Y back. Others prefer to set P/Y to match the problem. Either approach works, but be consistent.
+**「N始終等於年數。」**
+不對。N是複利計算的期數。一筆5年期按月還款的貸款N = 60，不是5。一張10年期半年付息的債券N = 20，不是10。務必讓N與付款頻率相符。
 
-**Q: How do I compute the yield to maturity on a bond that pays semi-annual coupons?**
-A: Set P/Y = 2, enter N = (years to maturity x 2), PV = -(current price), PMT = (annual coupon / 2), FV = 1000 (or par value), then CPT I/Y. The result is the annual YTM (the calculator adjusts for the semi-annual compounding internally).
+**「I/Y是每期利率。」**
+不對。I/Y是年利率。計算機內部會將其除以P/Y以取得每期利率。如果你有一個P/Y = 12的月付問題，年利率為6%，你輸入I/Y = 6，而非0.5。
 
-**Q: What's the difference between the CF worksheet and the TVM keys?**
-A: The TVM keys handle level annuities (equal, regular payments). The CF worksheet handles uneven cash flows. Use TVM for loans, standard bonds, and regular savings. Use CF for project evaluation, uneven income streams, and any situation where cash flows change from period to period.
+**「只要數值大小正確，正負號不重要。」**
+正負號決定一切。如果PV和FV具有相同的正負號，計算機會認為金錢在兩個時間點流向相同方向，這對大多數問題而言沒有意義，將產生錯誤或錯誤答案。
 
-**Q: How do I handle a problem where payments start in the future (deferred annuity)?**
-A: Break it into two steps. First, calculate the PV of the annuity as of the date payments begin. Then discount that PV back to today using a separate TVM calculation. The calculator does not have a built-in deferred annuity function.
+**「BGN模式很少用到。」**
+當付款發生在每期開始而非結束時，BGN（期初）模式就很重要。期初年金（如提前支付的租金或保險費）需要BGN模式。忘記在BGN和END之間切換是常見的考試錯誤。檢查螢幕——如果右上方顯示「BGN」，你就在期初模式。
 
-**Q: Can I compute Modified Duration or Convexity on this calculator?**
-A: The bond worksheet gives you duration (Macaulay) and modified duration directly. After entering bond details and computing price or yield, scroll down to see DUR (duration). For convexity, you would need to calculate it manually or use the stored memory registers.
+**「NPV和IRR總是給出相同的接受/拒絕決策。」**
+對於具有傳統現金流量（一筆流出後跟著多筆流入）的獨立專案，它們確實一致。但對於互斥專案或非傳統現金流量（多次正負號變動），NPV和IRR可能衝突。當它們不一致時，永遠信任NPV。
 
-**Q: What is the difference between ordinary annuity and annuity due on this calculator?**
-A: Press [2ND] then [PMT] to toggle between END (ordinary annuity -- payments at end of period) and BGN (annuity due -- payments at beginning of period). The display shows "BGN" when in begin mode. Most problems assume END mode unless stated otherwise.
-
-**Q: How accurate is the calculator compared to Excel?**
-A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds most spreadsheet calculations for financial problems. Any differences you see are typically due to rounding in the display, not calculation errors.
+**「較高的IRR總是代表較好的專案。」**
+IRR有其局限：它假設再投資的報酬率等於IRR本身，對於非傳統現金流量可能產生多個解，且未考量專案規模。100元投資的IRR 50%不一定優於1,000,000元投資的IRR 20%。
 
 ---
 
-## PART 2: YOUTUBE SCRIPT
+### 問答章節
+
+**問：我嘗試計算I/Y時，計算機顯示「Error 5」。是什麼問題？**
+答：Error 5代表「不存在解」。這幾乎肯定代表你的正負號有誤。檢查PV和FV/PMT是否具有相反的正負號。如果你是在投資金錢（PV為負值），那麼你應該收到金錢（FV或PMT應為正值），反之亦然。
+
+**問：我應該將P/Y保持在1，還是針對每個問題更改它？**
+答：許多有經驗的使用者始終將P/Y保持在1。這樣做時，你需要手動調整N（年數乘以頻率）和I/Y（年利率除以頻率）。這種方式可避免忘記將P/Y改回來的困惑。其他人則偏好根據問題設定P/Y。兩種方式都可行，但要保持一致。
+
+**問：如何計算半年付息債券的到期殖利率？**
+答：設定P/Y = 2，輸入N =（到期年數 × 2），PV = -（目前價格），PMT =（年票息 / 2），FV = 1000（或面值），然後CPT I/Y。結果就是年度到期殖利率（計算機內部會自動調整半年複利計算）。
+
+**問：CF工作表和TVM按鍵有什麼區別？**
+答：TVM按鍵處理等額年金（相等的定期付款）。CF工作表處理不均等的現金流量。TVM適用於貸款、標準債券和定期儲蓄。CF適用於專案評估、不均等收入流，以及任何現金流量逐期變動的情況。
+
+**問：如何處理付款從未來某個時間才開始的問題（遞延年金）？**
+答：分成兩個步驟。首先，計算以付款開始日期為基準的年金現值。然後，使用另一個TVM計算將該現值折算回今日。計算機沒有內建的遞延年金功能。
+
+**問：我可以在這台計算機上計算修正存續期間或凸性嗎？**
+答：債券工作表可以直接給你存續期間（馬考利存續期間）和修正存續期間。輸入債券詳情並計算價格或殖利率後，向下捲動查看DUR（存續期間）。對於凸性，你需要手動計算或使用儲存記憶體。
+
+**問：在這台計算機上，期末年金和期初年金有什麼區別？**
+答：按[2ND]再按[PMT]在END（期末年金——每期末付款）和BGN（期初年金——每期初付款）之間切換。在期初模式時，螢幕顯示「BGN」。除非另有說明，大多數問題假設為END模式。
+
+**問：計算機的準確度與Excel相比如何？**
+答：TI BA II Plus使用13位內部精度，對於金融問題，這與大多數試算表計算相符或更高。你看到的任何差異通常是由於顯示時的四捨五入，而非計算錯誤。
 
 ---
 
-### "Your Calculator Is Your Best Friend: Mastering the TI BA II Plus"
+## 第二部分：YouTube腳本
 
-**Target Length:** 15-20 minutes
-**Tone:** Encouraging, practical, demystifying
+---
+
+### 「計算機是你最好的朋友：精通TI BA II Plus」
+
+**目標長度：** 15-20分鐘
+**語調：** 鼓勵、實用、去神秘化
 
 ---
 
 **[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]**
 
-**Alex:** Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+**Horace：** 好，小魚，今天我們做點不一樣的事情。我們要實際操作金融計算機。我知道大家在想什麼——「現在都2026年了，有Excel用，為什麼還需要計算機？」
 
-**Sam:** Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+**Stella：** 對，我一開始也這樣想。但後來我開始準備CFA考試，才發現計算機不只是工具——它實際上在教你如何思考金錢隨時間的變化。
 
-**Alex:** Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+**Horace：** 沒錯。而且說實話，一旦你用熟了，用這台機器解題比用試算表還快。不需要開機、不需要管理檔案，按下去就有答案。
 
 **[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]**
 
-**Alex:** So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+**Horace：** 那我們從這台計算機上最重要的五個按鍵開始。TVM按鍵——貨幣時間價值。它們就在第三排這裡：N、I/Y、PV、PMT、FV。這五個按鍵大概能處理你在計算機上做的80%的工作。
 
-**Sam:** Can you walk through what each one means in plain English?
+**Stella：** 你能用白話文解釋每個按鍵的意思嗎？
 
-**Alex:** Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+**Horace：** 當然。N是期數——不是年數，是期數。I/Y是每年利率。PV是金錢現在的價值。PMT是每期定期發生的付款。FV是金錢在未來的價值。
 
 **[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]**
 
-**Sam:** Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+**Stella：** 好，但有個地方是我剛開始時一直搞混的。負號。為什麼PV有時候是負的？
 
-**Alex:** This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+**Horace：** 這是最重要的事情。計算機使用現金流量正負號慣例。負值表示金錢從你那裡流出。正值表示金錢流向你。所以如果你今天投資一千元，那筆錢就從你的錢包流走了。PV等於負一千。
 
-**Sam:** And when you get money back in the future?
+**Stella：** 那未來收到錢的時候呢？
 
-**Alex:** That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+**Horace：** 那是正值。FV等於正一千五百。把自己想像成站在中間。金錢從你那裡流走是負值。金錢流向你是正值。
 
 **[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]**
 
-**Sam:** What happens if you mess up the signs?
+**Stella：** 如果正負號搞錯了會怎樣？
 
-**Alex:** You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+**Horace：** 你要麼得到Error 5——代表不存在解——要麼得到看起來合理但完全錯誤的數字。後者其實更危險，因為你可能不會察覺。
 
 **[VISUAL: Calculator screen showing "Error 5" with a red X]**
 
-**Alex:** Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+**Horace：** 讓我示範一個真實的例子。假設你想知道10,000元以每年8%的報酬率投資20年後值多少錢。
 
 **[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]**
 
-**Alex:** First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+**Horace：** 首先，我習慣先清除TVM暫存器。按第二，然後FV——那是CLR TVM。清空後再開始。現在：2、0、N。8、I/Y。負10,000、PV。0、PMT——因為沒有額外的投入。現在按CPT、FV。我們得到46,609.57元。
 
-**Sam:** That is the power of compound interest right there. Your money more than quadrupled.
+**Stella：** 這就是複利的威力。你的錢增加了四倍以上。
 
-**Alex:** In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+**Horace：** 在20年、8%的情況下，是的。注意我輸入PV為負值，因為那10,000元是我在投資——它從我這裡流走了。計算機給我一個正的FV，因為那是流回我這裡的金錢。
 
 **[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]**
 
-**Sam:** Okay, let us try something people actually deal with. Mortgages.
+**Stella：** 好，來試試人們實際遇到的情況。房貸。
 
-**Alex:** Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+**Horace：** 很好。假設你借了300,000元，30年期房貸，年利率6.5%。每月還款金額是多少？
 
 **[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]**
 
-**Alex:** First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+**Horace：** 首先——這是月付問題。所以我們需要處理P/Y。按第二，然後I/Y——這會帶你進入P/Y設定。輸入12，按ENTER。然後按第二、CPT退出。
 
-**Sam:** And this tells the calculator that payments happen twelve times a year?
+**Stella：** 這告訴計算機每年付款12次？
 
-**Alex:** Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+**Horace：** 正確。現在計算機知道要在內部將年利率除以12。所以：N等於360——30乘以12。I/Y等於6.5——是年利率，不是月利率。PV等於300,000——正值，因為銀行把這筆錢給你。
 
-**Sam:** Wait, the loan amount is positive?
+**Stella：** 等等，貸款金額是正值？
 
-**Alex:** Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+**Horace：** 是的！銀行把300,000元交給你。那筆錢流向你。那是流入。你還給銀行的還款將是負值——流出。
 
-**Sam:** That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+**Stella：** 一開始有點違反直覺，但從現金流量方向的角度思考就說得通了。
 
-**Alex:** FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+**Horace：** FV等於零，因為30年結束時，貸款已全額還清。現在CPT PMT，我們得到負1,896.20元。
 
 **[VISUAL: Calculator screen showing -1,896.20]**
 
-**Sam:** Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+**Stella：** 每月接近1,900元。而且是負值，因為那是從你口袋流出的金錢。
 
-**Alex:** Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+**Horace：** 每個月，持續30年。這裡還有個讓人大開眼界的東西。讓我展示一下攤還的情況。按第二、PV——那是AMORT功能。將P1設為1，P2設為12。現在向下捲動。
 
 **[VISUAL: Split screen showing calculator and a pie chart of first year payments]**
 
-**Alex:** In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+**Horace：** 在第一年，你總共支付約22,700元。其中約19,300元是利息，只有約3,400元是本金。
 
-**Sam:** So in the first year, eighty-five percent of your payment is just interest?
+**Stella：** 所以第一年，80%以上的還款只是在付利息？
 
-**Alex:** Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+**Horace：** 歡迎來到攤還的世界。現在看看最後一年——將P1設為349，P2設為360。幾乎所有還款都是本金了。這就是攤還的原理。初期，你主要在付利息。後期，你主要在還清貸款本金。
 
 **[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]**
 
-**Sam:** This is why people say the first few years of a mortgage are "expensive."
+**Stella：** 這就是為什麼人們說房貸的前幾年「成本高昂」。
 
-**Alex:** Now let us shift gears to something every investor needs. NPV and IRR.
+**Horace：** 現在讓我們換個話題，談談每個投資者都需要掌握的東西。NPV和IRR。
 
 **[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]**
 
-**Alex:** Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+**Horace：** 假設一個朋友提供你一個商業機會。你今天投資50,000元，預計未來5年每年收回15,000元。如果你的要求報酬率是10%，這筆交易划算嗎？
 
-**Sam:** So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+**Stella：** 所以我們需要弄清楚這些未來現金流量以今日的幣值計算是否超過50,000元。
 
-**Alex:** Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+**Horace：** 對。按CF進入現金流量工作表。CF0是你的初始投資——負50,000。然後C01是15,000，F01是5——表示15,000重複五次。現在按NPV。輸入I等於10。向下捲動，然後CPT。
 
 **[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]**
 
-**Alex:** NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+**Horace：** NPV等於6,861.80元。它是正值，這意味著這筆交易在你的10%要求之上創造了額外價值。
 
-**Sam:** And IRR?
+**Stella：** 那IRR呢？
 
-**Alex:** Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+**Horace：** 按IRR，然後CPT。我們得到15.24%。這是這筆投資的實際報酬率。由於它超過你要求的10%，這個專案可以進行。
 
 **[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]**
 
-**Sam:** Do NPV and IRR always agree?
+**Stella：** NPV和IRR總是一致嗎？
 
-**Alex:** For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+**Horace：** 對於像這樣的簡單專案——一筆前期成本後跟著多筆正向流入——是的，它們總是一致。但對於更複雜的情況，例如比較兩個規模不同的互斥專案，它們可能不一致。當它們不一致時，永遠信任NPV。它以實際金額衡量真實的價值創造。
 
 **[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]**
 
-**Sam:** Let us do bonds. That is where I see a lot of people struggle.
+**Stella：** 來談談債券吧。這是我看到很多人費力的地方。
 
-**Alex:** Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+**Horace：** 債券只是一種特定類型的TVM問題。你今天支付一個價格，沿途收到票息付款，到期時收回本金。讓我示範一下。
 
 **[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]**
 
-**Alex:** Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+**Horace：** 假設你看到一張債券，票面利率5%、半年付息、10年後到期，市場殖利率要求6%。你應該支付多少？
 
-**Alex:** Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+**Horace：** 將P/Y設為2，因為票息是半年付。N等於20——10年乘以2。I/Y等於6——年殖利率。PMT等於25——也就是1,000乘以5%除以2。FV等於1,000——到期時收回的面額。CPT PV。
 
 **[VISUAL: Calculator keystrokes with annotations]**
 
-**Alex:** Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+**Horace：** 負925.61元。所以這張債券以折價交易，因為票面利率5%低於市場殖利率6%。
 
-**Sam:** It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+**Stella：** 直覺上說得通。如果市場要求6%，但債券的票息只有5%，價格就必須下降以彌補差距。
 
-**Alex:** And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+**Horace：** 反過來也成立。如果票面利率是7%而市場要求6%，這張債券將以超過1,000元的溢價交易。
 
 **[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]**
 
-**Sam:** What about finding the yield when you know the price?
+**Stella：** 如果你知道價格，要怎麼求殖利率？
 
-**Alex:** Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+**Horace：** 同樣的設置，但不是計算PV，而是輸入PV為負950——假設那是市場價格——然後計算I/Y。你就得到到期殖利率。
 
-**Alex:** Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+**Horace：** 在我們結束之前，讓我給你五個最重要的計算機技巧，能幫你省下很多時間。
 
 **[VISUAL: Numbered list appearing one by one]**
 
-**Alex:** Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+**Horace：** 第一——每個新問題前務必清除TVM。按第二再按FV。養成習慣。第二——務必檢查P/Y。按第二再按I/Y，在每個問題前確認。第三——在觸碰計算機前先寫下你的輸入值。N等於多少、I/Y等於多少等等。這能在事前發現正負號錯誤。
 
-**Sam:** What about number four?
+**Stella：** 第四呢？
 
-**Alex:** Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+**Horace：** 第四——對正負號有疑問時，畫一條時間軸。把自己放在時間零點。向下的箭頭是負值，向上的箭頭是正值。第五——用你知道答案的問題來練習。用一個簡單的儲蓄帳戶問題手算，再用計算機驗證。建立信心。
 
 **[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]**
 
-**Sam:** Any advice for people preparing for the CFA or other exams?
+**Stella：** 對準備CFA或其他考試的人有什麼建議嗎？
 
-**Alex:** Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+**Horace：** 在考試前將計算機設定為顯示四位小數——按第二、點、4、ENTER。把按鍵操作練得像反射一樣，不用思考。記住，在考試當天，你要解幾十個TVM問題。速度來自練習，不是捷徑。
 
-**Sam:** Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+**Stella：** 很棒的分享。計算機一開始看起來很嚇人，但一旦掌握了正負號和期數的邏輯，就變得自然而然了。
 
-**Alex:** Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+**Horace：** 正是如此。就像學開車一樣。一開始你要思考每一個細小動作。一段時間後，就變成肌肉記憶了。去練習我們今天示範的例子。試著改變輸入值，看看輸出如何變化。那才是建立真正直覺的方式。
 
 **[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]**
 
-**Sam:** Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+**Stella：** 下次我們會把這些技能用在真實案例上。但現在，拿起你的計算機開始按數字吧。下集見。
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]**
 
 ---
 
-**END OF SIDE LESSON 01**
+**附加課程第一課結束**

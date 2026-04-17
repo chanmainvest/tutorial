@@ -1,806 +1,790 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
-
-# Week 22: Currency and International Diversification
+# 第22周：货币与国际分散投资
 
 ---
 
-## Reading Section
+## 阅读部分
 
-### a) Why This Is Important
+### a) 为何这一主题至关重要
 
-Most investors suffer from a bias they do not even know they have: home bias. Studies consistently show that investors in every country dramatically overweight their domestic stock market relative to its share of global market capitalization. American investors put roughly 75-80% of their equity allocation into US stocks, even though the US represents only about 60% of global stock market value. Japanese investors are even more extreme, with over 90% domestic allocation despite Japan being only about 6% of the global market. European investors show similar patterns.
+大多数投资者都存在一种自己浑然不觉的偏见：本土偏见。研究一再表明，各国投资者都会大幅超配本国股票市场，远超其在全球股票市值中的占比。美国投资者将约75%至80%的股票配置投入美国股票，尽管美国仅占全球股市市值的约60%。日本投资者的情况更为极端，尽管日本仅占全球市场的约6%，其国内配置比例却超过90%。欧洲投资者也呈现出类似的规律。
 
-This matters for several critical reasons:
+这一现象之所以重要，原因有以下几点：
 
-1. **Concentration risk.** Putting most of your money in one country means your wealth is tied to the fortunes of a single economy, a single currency, a single regulatory regime, and a single set of political risks. No matter how strong the US economy appears today, economic leadership rotates over decades. Japan was the world's most exciting market in the 1980s. The Nikkei peaked in December 1989 and did not regain that level for over 34 years.
+1. **集中风险。** 将大部分资金投入单一国家，意味着你的财富与单一经济体、单一货币、单一监管体系以及单一政治风险紧密相连。无论今日美国经济看起来多么强劲，经济领导地位都会在数十年间轮转。日本在20世纪80年代曾是全球最令人振奋的市场。日经指数于1989年12月见顶，此后逾34年才重新收复失地。
 
-2. **Missing diversification benefits.** International markets do not move in perfect lockstep with the US market. Correlations between US and international stocks are meaningful (around 0.6-0.8) but far from 1.0. This means adding international stocks to a US portfolio reduces overall volatility without necessarily sacrificing long-term returns.
+2. **错失分散投资的收益。** 国际市场与美国市场并非完全同步运动。美国股票与国际股票之间的相关性有一定程度（约为0.6至0.8），但远低于1.0。这意味着在美国股票投资组合中加入国际股票，可以在不必然牺牲长期收益的前提下，降低整体波动性。
 
-3. **Currency exposure as a distinct asset class.** When you invest internationally, you are making two bets: one on the foreign stock market, and one on the foreign currency versus your home currency. Currency movements can significantly enhance or erode your returns, and understanding this dual exposure is essential for informed international investing.
+3. **货币敞口是一类独特的资产类别。** 当你进行国际投资时，你实际上在同时下两个赌注：一是对外国股票市场的押注，二是对外币相对于本币走势的押注。货币波动可以显著增强或侵蚀你的收益，理解这种双重敞口对于做出明智的国际投资决策至关重要。
 
-4. **Access to different growth opportunities.** Some of the fastest-growing economies and companies are outside the US. Emerging markets like India, Vietnam, and parts of Africa are experiencing rapid economic development. Developed markets like Europe and Japan contain world-class companies at valuations often lower than their US peers.
+4. **接触不同的增长机遇。** 部分增长最快的经济体和企业位于美国之外。印度、越南以及非洲部分地区等新兴市场正在经历快速的经济发展。欧洲和日本等发达市场拥有一流的企业，其估值往往低于同类美国企业。
 
-This lesson will equip you with the knowledge to think globally about your portfolio, understand currency dynamics, and make informed decisions about how much international exposure to hold and whether to hedge the currency risk.
+本节课将帮助你以全球视角审视自己的投资组合，理解货币动态，并在持有多少国际敞口、是否对货币风险进行对冲等问题上做出明智决策。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知识
 
-#### 1. The Home Bias Problem
+#### 1. 本土偏见问题
 
-Home bias is the tendency for investors to over-allocate to their own country's stock market relative to that country's weight in the global market.
+本土偏见是指投资者相对于本国股市在全球市场中的权重，倾向于过度配置本国股票市场。
 
 ```
-HOME BIAS BY COUNTRY
+各国本土偏见情况
 ====================
 
-Country         Domestic     Country's Share of     Home Bias
-                Allocation   Global Market Cap      (Overweight)
----------       ----------   ------------------     -----------
-USA             ~78%         ~60%                   +18%
-Japan           ~93%         ~6%                    +87%
-UK              ~70%         ~4%                    +66%
-Canada          ~60%         ~3%                    +57%
-Australia       ~65%         ~2%                    +63%
-Germany         ~55%         ~3%                    +52%
+国家         国内配置比例   该国占全球市值比例   本土偏见
+                                               （超配幅度）
+---------   ----------   ------------------   -----------
+美国         ~78%         ~60%                 +18%
+日本         ~93%         ~6%                  +87%
+英国         ~70%         ~4%                  +66%
+加拿大       ~60%         ~3%                  +57%
+澳大利亚     ~65%         ~2%                  +63%
+德国         ~55%         ~3%                  +52%
 
-A truly global, unbiased portfolio would match
-each country's weight in the global market.
+一个真正全球化、不存在偏见的投资组合
+应按各国在全球市场中的权重进行配置。
 ```
 
-**Why does home bias exist?**
+**本土偏见为何存在？**
 
-- Familiarity: investors are more comfortable with companies they know
-- Information advantage: easier to follow domestic news and reports
-- Currency risk avoidance: international investing adds currency complexity
-- Tax complications: foreign tax credits, withholding taxes
-- Historical returns: US has outperformed recently, reinforcing the bias
-- Behavioral inertia: defaulting to what feels safe
+- 熟悉度：投资者更倾向于持有自己熟悉的公司
+- 信息优势：更容易跟踪国内新闻和报告
+- 规避货币风险：国际投资增加了货币的复杂性
+- 税务复杂性：外国税收抵免、预提税
+- 历史收益：美国近期表现强劲，进一步强化了这种偏见
+- 行为惯性：倾向于坚守感觉安全的选择
 
-**Why home bias is costly:**
+**本土偏见的代价：**
 
 ```
-ROLLING 10-YEAR PERIODS: US vs. INTERNATIONAL LEADERSHIP
+滚动10年周期：美国与国际股市的领涨交替
 =========================================================
 
-Period              US Better?     International Better?
-------              ----------     ---------------------
-1970-1979                          X (International won)
-1980-1989                          X (Japan-led boom)
-1990-1999           X
-2000-2009                          X (Lost decade for US)
-2010-2019           X
-2020-2029           ?              ?
+周期              美国领先？     国际市场领先？
+------            ----------     ---------------------
+1970-1979                        X（国际市场胜出）
+1980-1989                        X（日本引领的繁荣期）
+1990-1999         X
+2000-2009                        X（美国"失去的十年"）
+2010-2019         X
+2020-2029         ?              ?
 
-Leadership alternates! Concentrating in one region
-means you will inevitably suffer through extended
-periods of underperformance.
+领导地位在轮换！集中于单一地区
+意味着你将不可避免地经历长期的相对落后。
 ```
 
 ---
 
-#### 2. Benefits of International Diversification
+#### 2. 国际分散投资的收益
 
-**Correlation and Diversification:**
+**相关性与分散投资：**
 
 ```
-CORRELATION MATRIX (APPROXIMATE)
+相关性矩阵（近似值）
 =================================
 
-              US      Developed   Emerging
-              Stocks  Int'l       Markets
-              ------  ---------   --------
-US Stocks     1.00
-Dev. Int'l    0.75    1.00
-Emerg. Mkts   0.65    0.70        1.00
+              美国     发达国际    新兴
+              股票     市场        市场
+              ------   ---------   --------
+美国股票      1.00
+发达国际市场  0.75     1.00
+新兴市场      0.65     0.70        1.00
 
-KEY INSIGHT: Correlations below 1.0 create
-diversification benefit. The lower the
-correlation, the greater the benefit.
+核心洞察：相关性低于1.0即可产生
+分散投资的收益。相关性越低，收益越大。
 
-Portfolio volatility is ALWAYS less than
-the weighted average volatility of its
-components when correlations are below 1.0.
+当各成分相关性低于1.0时，
+投资组合的波动性必然低于各成分
+加权平均波动性。
 ```
 
-**The Efficient Frontier Effect:**
+**有效前沿效应：**
 
-Adding international stocks to an all-domestic portfolio shifts the efficient frontier upward and to the left -- meaning you can achieve either:
-- The same return with less risk, or
-- Higher return with the same risk
+在纯国内投资组合中加入国际股票，会使有效前沿向左上方移动——这意味着你可以实现：
+- 相同收益，但风险更低；或
+- 相同风险，但收益更高
 
 ```
-EFFICIENT FRONTIER WITH INTERNATIONAL DIVERSIFICATION
+加入国际股票后的有效前沿
 =====================================================
 
-Return
+收益
   ^
-  |              * Global Portfolio
-  |           *     (better risk/return)
+  |              * 全球投资组合
+  |           *     （更优的风险收益比）
   |        *   /
   |      *   /
-  |    *   /  <-- US Only Portfolio
+  |    *   /  <-- 纯美国股票投资组合
   |  *   /
   | *  /
   |* /
   |/
-  +---------------------------------> Risk
+  +---------------------------------> 风险
 
-Adding international stocks generally improves
-the risk-return tradeoff.
+加入国际股票通常能改善风险收益比。
 ```
 
 ---
 
-#### 3. Currency Risk and Return
+#### 3. 货币风险与收益
 
-When you buy a foreign stock, your return has two components:
+当你购买外国股票时，你的收益包含两个部分：
 
 ```
-TOTAL RETURN FROM FOREIGN INVESTMENT
+境外投资的总收益
 =====================================
 
-Total Return = Local Market Return + Currency Return
+总收益 = 本地市场收益 + 货币收益
 
-Example 1: Positive Currency Effect
+示例一：货币产生正向影响
 -------------------------------------
-You buy a European stock ETF:
-- European stocks rise 8% in euro terms
-- Euro appreciates 5% vs. USD
-- Your return in USD = +8% + 5% = ~+13%
-  (approximately; compound formula is slightly different)
+你购买欧洲股票交易所交易基金：
+- 欧洲股票以欧元计涨幅8%
+- 欧元兑美元升值5%
+- 你的美元收益 = +8% + 5% = ~+13%
+  （近似值；精确复利公式略有差异）
 
-Example 2: Negative Currency Effect
+示例二：货币产生负向影响
 -------------------------------------
-You buy a Japanese stock ETF:
-- Japanese stocks rise 10% in yen terms
-- Yen depreciates 7% vs. USD
-- Your return in USD = +10% - 7% = ~+3%
+你购买日本股票交易所交易基金：
+- 日本股票以日元计涨幅10%
+- 日元兑美元贬值7%
+- 你的美元收益 = +10% - 7% = ~+3%
 
-Example 3: Currency Dominates
+示例三：货币主导收益
 -------------------------------------
-You buy a Brazilian stock ETF:
-- Brazilian stocks rise 15% in real terms
-- Brazilian real depreciates 20% vs. USD
-- Your return in USD = +15% - 20% = ~-5%
-  (Lost money despite strong local returns!)
+你购买巴西股票交易所交易基金：
+- 巴西股票以雷亚尔计涨幅15%
+- 巴西雷亚尔兑美元贬值20%
+- 你的美元收益 = +15% - 20% = ~-5%
+  （尽管本地市场表现强劲，仍录得亏损！）
 ```
 
-**Key insight:** For short-term investors, currency movements can overwhelm stock market returns. For long-term investors, currency effects tend to wash out over decades, but can dominate returns over any period of one to five years.
+**核心洞察：** 对短期投资者而言，货币波动可能掩盖股市收益。对长期投资者而言，货币影响在数十年间趋于抵消，但在任何一至五年的周期内都可能主导收益。
 
 ---
 
-#### 4. FX Quote Conventions
+#### 4. 外汇报价惯例
 
-Understanding how currencies are quoted is essential for interpreting financial news and making international investment decisions.
+理解货币的报价方式，对于解读财经资讯和做出国际投资决策至关重要。
 
-**Direct vs. Indirect Quotes:**
+**直接报价与间接报价：**
 
 ```
-FX QUOTING CONVENTIONS
+外汇报价惯例
 =======================
 
-A currency pair is written as: BASE/QUOTE
+货币对的书写格式为：基础货币/报价货币
 
-EUR/USD = 1.10 means:
-  1 Euro costs 1.10 US Dollars
-  EUR is the BASE currency
-  USD is the QUOTE currency
+EUR/USD = 1.10 意味着：
+  1欧元兑换1.10美元
+  EUR为基础货币
+  USD为报价货币
 
-USD/JPY = 150 means:
-  1 US Dollar costs 150 Japanese Yen
-  USD is the BASE currency
-  JPY is the QUOTE currency
+USD/JPY = 150 意味着：
+  1美元兑换150日元
+  USD为基础货币
+  JPY为报价货币
 
-For a US-based investor:
-- EUR/USD going UP means euro is STRENGTHENING
-  (it costs MORE dollars to buy one euro)
-- USD/JPY going UP means dollar is STRENGTHENING
-  (one dollar buys MORE yen)
-  equivalently, yen is WEAKENING
+对美元投资者而言：
+- EUR/USD上涨意味着欧元走强
+  （购买1欧元需花费更多美元）
+- USD/JPY上涨意味着美元走强
+  （1美元可兑换更多日元）
+  等同于日元走弱
 
-COMMON CURRENCY PAIRS AND NICKNAMES
+常见货币对及其俗称
 ====================================
-EUR/USD  "Euro"           ~1.08-1.15 typical range
-GBP/USD  "Cable"          ~1.20-1.35 typical range
-USD/JPY  "Dollar-Yen"     ~100-155 typical range
-USD/CHF  "Swissy"         ~0.85-1.00 typical range
-AUD/USD  "Aussie"         ~0.60-0.80 typical range
-USD/CAD  "Loonie"         ~1.25-1.40 typical range
+EUR/USD  "欧元"           典型区间约1.08-1.15
+GBP/USD  "英镑"           典型区间约1.20-1.35
+USD/JPY  "美元兑日元"     典型区间约100-155
+USD/CHF  "瑞郎"           典型区间约0.85-1.00
+AUD/USD  "澳元"           典型区间约0.60-0.80
+USD/CAD  "加元"           典型区间约1.25-1.40
 ```
 
-**Bid-Ask Spread in FX:**
+**外汇买卖价差：**
 
 ```
-FX TRANSACTION COSTS
+外汇交易成本
 =====================
 
-Interbank market:     EUR/USD 1.1000/1.1002 (0.02% spread)
-Retail forex broker:  EUR/USD 1.0995/1.1005 (0.09% spread)
-Airport exchange:     EUR/USD 1.0700/1.1300 (5.5% spread!)
-Credit card abroad:   Usually 1-3% markup
+银行间市场：        EUR/USD 1.1000/1.1002（价差0.02%）
+零售外汇经纪商：    EUR/USD 1.0995/1.1005（价差0.09%）
+机场兑换处：        EUR/USD 1.0700/1.1300（价差5.5%！）
+境外信用卡消费：    通常附加1-3%手续费
 
-For investors using ETFs:
-- Currency conversion costs are embedded in the ETF
-- Typically 0.01-0.05% for major currencies
-- Higher for emerging market currencies (0.1-0.5%)
+对使用交易所交易基金的投资者而言：
+- 货币转换成本已内嵌于交易所交易基金中
+- 主要货币通常为0.01-0.05%
+- 新兴市场货币较高（0.1-0.5%）
 ```
 
 ---
 
-#### 5. Purchasing Power Parity (PPP)
+#### 5. 购买力平价（PPP）
 
-PPP is a theory that exchange rates should adjust so that identical goods cost the same in different countries when expressed in a common currency.
+购买力平价理论认为，汇率应当调整至使相同商品在不同国家以共同货币计价后价格相同的水平。
 
-**The Big Mac Index (made famous by The Economist):**
+**巨无霸指数（由《经济学人》杂志推广）：**
 
 ```
-BIG MAC INDEX -- PPP ILLUSTRATION
+巨无霸指数——购买力平价的直观演示
 ===================================
 
-If a Big Mac costs:
-- $5.50 in the US
-- 4.50 euros in Germany
-- 480 yen in Japan
+若巨无霸的价格为：
+- 美国：5.50美元
+- 德国：4.50欧元
+- 日本：480日元
 
-Then PPP exchange rates would be:
+则基于购买力平价的汇率应为：
 - EUR/USD = 5.50 / 4.50 = 1.22
 - USD/JPY = 480 / 5.50 = 87.3
 
-If actual market rates are:
-- EUR/USD = 1.10  --> Euro is 10% undervalued vs PPP
-- USD/JPY = 150   --> Yen is 42% undervalued vs PPP
+若实际市场汇率为：
+- EUR/USD = 1.10  --> 欧元相对购买力平价低估约10%
+- USD/JPY = 150   --> 日元相对购买力平价低估约42%
 
-INTERPRETATION:
-PPP provides a long-term anchor for exchange rates.
-Currencies far from PPP tend to revert toward it
-over very long periods (5-15 years).
-But short-term deviations can be enormous and persistent.
+解读：
+购买力平价为汇率提供了长期锚点。
+偏离购买力平价较大的货币，往往会在
+很长一段时间内（5-15年）逐步回归。
+但短期偏离可能幅度极大且持续时间较长。
 ```
 
-**Implications for investors:**
+**对投资者的启示：**
 
-- A currency significantly below PPP may offer a long-term tailwind for foreign investors
-- A currency significantly above PPP may create a long-term headwind
-- PPP is a terrible short-term predictor but a reasonable long-term anchor
-- Investing in countries with undervalued currencies (on a PPP basis) gives you a potential double benefit: cheap stocks + potential currency appreciation
+- 明显低于购买力平价的货币，可能为境外投资者提供长期顺风
+- 明显高于购买力平价的货币，可能形成长期阻力
+- 购买力平价作为短期预测工具极不可靠，但作为长期锚点具有一定参考价值
+- 投资货币被低估（基于购买力平价）的国家，可能带来双重收益：低价股票+潜在货币升值
 
 ---
 
-#### 6. Developed vs. Emerging Markets
+#### 6. 发达市场与新兴市场
 
 ```
-MARKET CLASSIFICATION
+市场分类
 ======================
 
-DEVELOPED MARKETS            EMERGING MARKETS
+发达市场                     新兴市场
 =================            ================
-- US, Canada                 - China, India, Brazil
-- UK, Germany, France        - Taiwan, South Korea*
-- Japan, Australia           - South Africa, Mexico
-- Switzerland, Sweden        - Indonesia, Thailand
-- etc.                       - Poland, Turkey, etc.
+- 美国、加拿大              - 中国、印度、巴西
+- 英国、德国、法国          - 台湾、韩国*
+- 日本、澳大利亚            - 南非、墨西哥
+- 瑞士、瑞典                - 印度尼西亚、泰国
+- 等等                      - 波兰、土耳其等
 
-Characteristics:             Characteristics:
-- Stable legal systems       - Higher growth potential
-- Deep, liquid markets       - Higher volatility
-- Strong regulation          - Political/regulatory risk
-- Lower expected returns     - Currency volatility
-- Lower risk                 - Liquidity issues
-                             - Governance concerns
+特征：                       特征：
+- 法律体系稳定              - 更高的增长潜力
+- 市场规模大、流动性强      - 波动性更高
+- 监管体系完善              - 政治/监管风险
+- 预期收益相对较低          - 货币波动较大
+- 风险相对较低              - 流动性问题
+                             - 公司治理隐忧
 
-*South Korea is classified as Emerging by MSCI
- despite being a highly developed economy -- an
- ongoing debate in the index world.
+*韩国尽管经济高度发达，仍被明晟（MSCI）
+ 划定为新兴市场——这在指数界一直存在争议。
 ```
 
-**Risk-Return Profile:**
+**风险收益特征：**
 
 ```
-RISK-RETURN SPECTRUM
+风险收益谱系
 =====================
 
-Return
+收益
   ^
-  |                           * Emerging Markets
-  |                      *      (higher return, higher risk)
+  |                           * 新兴市场
+  |                      *      （更高收益，更高风险）
   |                 *
   |            *
-  |       * Developed Int'l
+  |       * 发达国际市场
   |  *
-  | * US Stocks
+  | * 美国股票
   |
-  +-----------------------------------------> Risk
-         Low                              High
+  +-----------------------------------------> 风险
+         低                               高
 
-Note: This is the theoretical expectation.
-In practice, emerging markets have not always
-delivered higher returns to compensate for
-their higher risk. Country selection and
-entry valuation matter enormously.
+注：这是理论预期。
+实际上，新兴市场并不总能以更高收益
+补偿其更高的风险。国家筛选和
+买入时的估值水平至关重要。
 ```
 
-**Emerging Market Specific Risks:**
+**新兴市场特有风险：**
 
 ```
-EMERGING MARKET RISK CHECKLIST
+新兴市场风险清单
 ===============================
 
-1. Political Risk
-   - Regime change, nationalization, sanctions
-   - Example: Russia 2022 -- foreign investors lost access
+1. 政治风险
+   - 政权更迭、国有化、制裁
+   - 示例：2022年俄罗斯——境外投资者失去市场准入
 
-2. Currency Risk
-   - EM currencies can depreciate 20-50% in crises
-   - Example: Turkish lira lost 80%+ from 2018-2023
+2. 货币风险
+   - 新兴市场货币在危机中可贬值20-50%
+   - 示例：土耳其里拉在2018-2023年间贬值超80%
 
-3. Liquidity Risk
-   - Harder to buy/sell, wider bid-ask spreads
-   - Markets may close during crises
+3. 流动性风险
+   - 买卖难度更大，买卖价差更宽
+   - 危机期间市场可能关闭
 
-4. Governance Risk
-   - Weaker shareholder protections
-   - State-owned enterprises may not prioritize shareholders
+4. 公司治理风险
+   - 股东保护较弱
+   - 国有企业可能不以股东利益为优先
 
-5. Capital Controls
-   - Some countries restrict money flows in/out
-   - You might not be able to sell when you want to
+5. 资本管制
+   - 部分国家限制资金进出
+   - 想卖出时可能无法卖出
 
-6. Information Risk
-   - Less transparency, different accounting standards
-   - Language barriers in financial reporting
+6. 信息风险
+   - 透明度较低，会计准则不同
+   - 财务报告存在语言障碍
 ```
 
 ---
 
-#### 7. ADRs -- American Depositary Receipts
+#### 7. ADR——美国存托凭证
 
-ADRs allow US investors to buy shares of foreign companies on US exchanges in US dollars.
+ADR使美国投资者能够在美国交易所以美元购买外国公司股票。
 
 ```
-HOW ADRs WORK
+ADR的运作方式
 ==============
 
-Foreign Company              US Market
-(e.g., Nestle in             (e.g., NYSE)
- Switzerland)
+境外公司                     美国市场
+（例如：瑞士的雀巢）         （例如：纽约证券交易所）
      |                           |
-     |   Shares deposited        |
-     |   with custodian bank     |
+     |   股票存入托管银行        |
+     |                           |
      | ========================> |
      |                           |
-     |   Bank issues ADR         |
-     |   receipts                |
+     |   银行发行ADR凭证         |
      |                           |
-     |                     ADR trades like
-     |                     a regular US stock
-     |                     in USD
+     |                     ADR像普通美股一样
+     |                     以美元交易
      |                           |
-     |   Dividends converted     |
-     |   from CHF to USD         |
+     |   股息从瑞郎兑换为美元    |
      | <======================== |
 
-ADR TYPES:
+ADR类型：
 -----------
-Level 1: Trade over-the-counter (OTC), minimal SEC requirements
-Level 2: Listed on major US exchange (NYSE, NASDAQ)
-Level 3: Full SEC registration, can raise capital in US
+一级ADR：在场外市场（OTC）交易，美国证监会要求最低
+二级ADR：在美国主要交易所（纽交所、纳斯达克）上市
+三级ADR：完整美国证监会注册，可在美国公开募资
 
-EXAMPLES OF POPULAR ADRs:
-- Toyota (TM) -- Japan
-- Nestle (NSRGY) -- Switzerland
-- Samsung (SSNLF) -- South Korea (OTC)
-- Alibaba (BABA) -- China
-- TSMC (TSM) -- Taiwan
-- Shell (SHEL) -- UK/Netherlands
+知名ADR示例：
+- 丰田（TM）—— 日本
+- 雀巢（NSRGY）—— 瑞士
+- 三星（SSNLF）—— 韩国（场外市场）
+- 阿里巴巴（BABA）—— 中国
+- 台积电（TSM）—— 台湾
+- 壳牌（SHEL）—— 英国/荷兰
 ```
 
-**ADR Advantages:**
-- Trade in USD during US market hours
-- Easy to buy through any US brokerage
-- Dividends paid in USD
-- Familiar settlement and custody
+**ADR的优势：**
+- 在美国市场交易时段以美元进行交易
+- 可通过任何美国券商便捷购买
+- 股息以美元支付
+- 结算与托管流程熟悉
 
-**ADR Disadvantages:**
-- Limited selection (not all foreign companies have ADRs)
-- Foreign withholding tax on dividends (can claim credit)
-- ADR fees (small annual fee charged against dividends)
-- Still exposed to currency risk (price tracks foreign shares)
-- May trade at premium or discount to underlying shares
+**ADR的劣势：**
+- 选择有限（并非所有外国公司均有ADR）
+- 股息须缴纳外国预提税（可申请税收抵免）
+- ADR手续费（从股息中扣取少量年费）
+- 仍面临货币风险（价格与外国股票挂钩）
+- 可能相对于标的股票存在溢价或折价
 
 ---
 
-#### 8. International ETFs
+#### 8. 国际交易所交易基金
 
-ETFs have made international investing dramatically easier and cheaper.
+交易所交易基金使国际投资变得大幅简化且成本更低。
 
 ```
-MAJOR INTERNATIONAL ETF CATEGORIES
+主要国际交易所交易基金类别
 ====================================
 
-BROAD INTERNATIONAL:
-- Total International Stock (ex-US)
-  Covers both developed and emerging
-  Examples: VXUS, IXUS
+宽基国际（不含美国）：
+- 覆盖发达市场和新兴市场
+- 代表产品：VXUS、IXUS
 
-DEVELOPED MARKETS:
-- Developed International (ex-US)
-  Europe, Japan, Australia, Canada
-  Examples: VEA, IEFA, EFA
+发达市场：
+- 发达国际市场（不含美国）
+  欧洲、日本、澳大利亚、加拿大
+- 代表产品：VEA、IEFA、EFA
 
-EMERGING MARKETS:
-- Broad Emerging Markets
-  China, India, Taiwan, Brazil, etc.
-  Examples: VWO, IEMG, EEM
+新兴市场：
+- 宽基新兴市场
+  中国、印度、台湾、巴西等
+- 代表产品：VWO、IEMG、EEM
 
-SINGLE COUNTRY:
-- Japan (EWJ), Germany (EWG), India (INDA)
-- China (MCHI, FXI), Brazil (EWZ)
-- Dozens of single-country ETFs available
+单一国家：
+- 日本（EWJ）、德国（EWG）、印度（INDA）
+- 中国（MCHI、FXI）、巴西（EWZ）
+- 市场上有数十只单一国家交易所交易基金
 
-REGIONAL:
-- Europe (VGK), Asia Pacific (VPL)
-- Latin America (ILF)
+区域性：
+- 欧洲（VGK）、亚太（VPL）
+- 拉丁美洲（ILF）
 
-EXPENSE RATIOS (typical):
-- Developed markets: 0.04-0.12%
-- Emerging markets: 0.10-0.25%
-- Single country: 0.30-0.60%
+费率（典型范围）：
+- 发达市场：0.04-0.12%
+- 新兴市场：0.10-0.25%
+- 单一国家：0.30-0.60%
 ```
 
 ---
 
-#### 9. Hedged vs. Unhedged
+#### 9. 对冲与非对冲
 
-When investing internationally, you can choose to accept currency risk (unhedged) or eliminate it (hedged).
+进行国际投资时，你可以选择承担货币风险（非对冲），或消除货币风险（对冲）。
 
 ```
-HEDGED vs. UNHEDGED -- HOW IT WORKS
+对冲与非对冲——运作原理
 =====================================
 
-UNHEDGED ETF (e.g., VEA):
-- You get the full local market return PLUS currency effect
-- If European stocks +8% and Euro +5% vs USD, you get ~+13%
-- If European stocks +8% and Euro -5% vs USD, you get ~+3%
-- More volatile, but captures long-term currency movements
+非对冲交易所交易基金（例如VEA）：
+- 你获得完整的本地市场收益加上货币效应
+- 若欧洲股票涨8%，欧元兑美元升5%，你的收益约+13%
+- 若欧洲股票涨8%，欧元兑美元跌5%，你的收益约+3%
+- 短期波动性较高，但可捕捉长期货币走势
 
-HEDGED ETF (e.g., HEZU -- hedged Eurozone):
-- Currency risk is neutralized through forward contracts
-- You get approximately the local market return only
-- European stocks +8%, regardless of currency = you get ~+8%
-- Less volatile short-term, but hedging has a cost
+对冲交易所交易基金（例如HEZU——已对冲欧元区基金）：
+- 通过远期合约中和货币风险
+- 你获得的约等于本地市场收益
+- 欧洲股票涨8%，无论货币走势如何，你的收益约+8%
+- 短期波动性较低，但对冲本身有成本
 
-HEDGING COST:
-- Based on interest rate differential between countries
-- If US rates = 5% and Euro rates = 3%, hedging cost ~2%/year
-- If US rates = 5% and Japan rates = 0.5%, hedging cost ~4.5%/year
-- This cost eats into returns!
+对冲成本：
+- 取决于两国之间的利差
+- 若美国利率5%、欧元区利率3%，对冲成本约2%/年
+- 若美国利率5%、日本利率0.5%，对冲成本约4.5%/年
+- 这一成本会侵蚀收益！
 
-DECISION FRAMEWORK:
+决策框架：
 ====================
 
-Factor                          Unhedged     Hedged
+因素                            非对冲       对冲
 ------                          --------     ------
-Time horizon > 10 years         Preferred
-Time horizon < 3 years                       Preferred
-Foreign currency undervalued    Preferred
-Foreign currency overvalued                  Preferred
-Want simplicity                 Preferred
-Want lower short-term vol.                   Preferred
-Interest rate differential
-  is large (costly to hedge)    Preferred
-Interest rate differential
-  is small                                   Preferred
+投资期限超过10年                首选
+投资期限不足3年                              首选
+外币被低估                      首选
+外币被高估                                   首选
+追求简便                        首选
+追求较低的短期波动性                         首选
+利差较大（对冲成本高）          首选
+利差较小                                     首选
 ```
 
-**The Academic Consensus:**
+**学术界的主流共识：**
 
-For long-term investors (10+ year horizons), most academic research suggests leaving equity investments unhedged because:
-1. Currency effects tend to mean-revert over long periods
-2. Hedging has a direct cost (interest rate differential)
-3. Currency diversification itself provides portfolio benefits
-4. Transaction costs of rolling hedges add up over time
+对于长期投资者（投资期限10年以上），大多数学术研究建议对股票投资保持非对冲状态，原因如下：
+1. 货币效应在较长时期内趋于均值回归
+2. 对冲有直接成本（利差）
+3. 货币分散化本身为投资组合提供收益
+4. 滚动对冲的交易成本随时间累积
 
-For bonds, hedging is generally recommended because bond returns are much smaller than equity returns, and currency volatility can easily overwhelm the bond income.
+对于债券，通常建议进行对冲，因为债券收益较小，货币波动可能轻易掩盖债券收入。
 
 ```
-HEDGING RULE OF THUMB
+对冲经验法则
 =====================
 
-Equities:  Generally leave UNHEDGED (for long-term investors)
-Bonds:     Generally HEDGE (currency vol > bond returns)
+股票：长期投资者一般保持非对冲状态
+债券：一般建议对冲（货币波动性 > 债券收益）
 
-Exception: If you have a strong view on currency
-direction, you may choose to hedge or not
-based on your outlook. But be humble -- currency
-forecasting is notoriously difficult.
+例外情形：若你对货币走势有明确判断，
+可据此决定是否对冲。但应保持谦逊——
+货币预测出了名地困难。
 ```
 
 ---
 
-#### 10. How Much International Should You Hold?
+#### 10. 应配置多少比例的国际投资？
 
 ```
-ALLOCATION FRAMEWORKS
+配置框架
 ======================
 
-Approach 1: Market Cap Weight
-- Hold each country in proportion to its global market cap
-- Currently: ~60% US, ~30% developed int'l, ~10% emerging
-- Most theoretically sound, but heavy in whatever is "hot"
+方法一：按市值权重
+- 按各国占全球市场的比重进行配置
+- 当前约为：~60%美国、~30%发达国际市场、~10%新兴市场
+- 理论上最为合理，但会重仓当下热门市场
 
-Approach 2: GDP Weight
-- Hold each region in proportion to its share of global GDP
-- Currently: ~25% US, ~40% developed int'l, ~35% emerging
-- More exposure to fast-growing economies
-- Problem: stock market size does not track GDP closely
+方法二：按GDP权重
+- 按各地区占全球GDP的比重进行配置
+- 当前约为：~25%美国、~40%发达国际市场、~35%新兴市场
+- 更多配置至快速增长的经济体
+- 问题：股票市场规模与GDP并不紧密挂钩
 
-Approach 3: Pragmatic Split
-- 60-70% US, 20-30% developed international, 5-10% emerging
-- Balances diversification with simplicity
-- Most commonly recommended by financial advisors
+方法三：务实分配
+- 60-70%美国、20-30%发达国际市场、5-10%新兴市场
+- 兼顾分散化与简便性
+- 财务顾问最常推荐
 
-Approach 4: Equal Weight by Region
-- 33% US, 33% developed int'l, 33% emerging
-- Maximum diversification, significant emerging exposure
-- Most contrarian, highest tracking error vs. US
+方法四：按区域等权配置
+- 33%美国、33%发达国际市场、33%新兴市场
+- 分散化程度最高，新兴市场敞口最大
+- 最具逆向思维色彩，相对美国的跟踪误差最大
 
-RECOMMENDED STARTING POINT:
+建议起始配置：
 ============================
-60% US Stocks
-25% Developed International
-15% Emerging Markets
+60% 美国股票
+25% 发达国际市场
+15% 新兴市场
 
-Adjust based on:
-- Your views on relative valuation
-- Your comfort with currency risk
-- Your time horizon
-- Tax considerations
+可根据以下因素调整：
+- 你对相对估值的判断
+- 你对货币风险的承受能力
+- 你的投资期限
+- 税务考量
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误解
 
-**Misconception 1: "The US market has always outperformed, so I do not need international."**
+**误解一："美国市场一直表现最佳，我不需要投资国际市场。"**
 
-Reality: The US outperformance since 2010 has been historically unusual, driven largely by the dominance of US technology companies and a rising dollar. From 2000-2009, US stocks returned approximately zero while international stocks delivered positive returns. From 1970-1989, international stocks dramatically outperformed the US. Performance leadership rotates, and the best time to diversify internationally is before the rotation happens -- which you cannot predict.
+现实：美国自2010年以来的超额表现在历史上属于异常现象，很大程度上源于美国科技公司的强势崛起和美元走强。2000年至2009年，美国股票的收益接近于零，而国际股票在同期取得了正收益。更早回溯至1970年至1989年，国际股票的表现大幅超越美国。市场领导权在轮换，而最佳的国际分散投资时机，是在美国开始落后之前——而这一时间点是无法预测的。
 
-**Misconception 2: "US companies are already global, so owning the S&P 500 gives me international exposure."**
+**误解二："美国公司已经是全球化企业，持有标普500就等于拥有国际敞口。"**
 
-Reality: While many S&P 500 companies derive significant revenue from abroad, their stock prices are still primarily driven by the US market, US regulatory environment, US interest rates, and the US dollar. Owning Coca-Cola does not give you the same portfolio diversification benefit as owning a European beverage company. The stocks move differently because they are priced by different investor bases in different markets.
+现实：虽然许多标普500成分公司在海外获取了大量收入，但其股价仍主要受美国市场、美国监管环境、美国利率和美元的驱动。持有可口可乐，并不能为你提供与持有一家欧洲饮料公司相同的投资组合分散化收益。这些股票的价格走势不同，因为它们由不同市场中的不同投资者群体定价。
 
-**Misconception 3: "Emerging markets are too risky."**
+**误解三："新兴市场风险太高。"**
 
-Reality: Emerging markets are more volatile than developed markets on a stand-alone basis, but in a portfolio context, their imperfect correlation with developed markets can actually reduce overall portfolio risk. Furthermore, "risk" cuts both ways -- emerging markets have delivered some of the highest returns in history during favorable periods. The key is appropriate sizing (not going overboard) and diversification across multiple countries rather than concentrating in one or two.
+现实：新兴市场在独立评估时确实比发达市场波动性更高，但放在投资组合的背景下，其与发达市场不完全的相关性实际上可以降低整体投资组合的风险。此外，"风险"具有双面性——新兴市场在有利时期创造了历史上部分最高收益。关键在于适度配置（不过度集中）以及在多个国家之间分散投资，而非集中于一两个市场。
 
-**Misconception 4: "Currency hedging eliminates a risk, so it is always better."**
+**误解四："货币对冲消除了一种风险，因此总是更好的选择。"**
 
-Reality: Hedging eliminates currency fluctuations but at a cost, and that cost can be substantial when interest rate differentials are wide. Moreover, currency exposure itself provides diversification -- the US dollar does not always strengthen. During periods of dollar weakness, unhedged international investments get a return boost. For long-term equity investors, most evidence suggests that unhedged is the better default.
+现实：对冲消除货币波动，但有成本，且当利差较大时成本可能相当可观。此外，货币敞口本身提供了分散化效益——美元并不总是走强。在美元走弱的时期，非对冲的国际投资将获得额外的收益加成。对于长期股票投资者，大多数证据表明，非对冲是更好的默认选择。
 
-**Misconception 5: "ADRs eliminate currency risk."**
+**误解五："ADR消除了货币风险。"**
 
-Reality: ADRs are simply receipts representing foreign shares. The underlying shares are still denominated in the foreign currency, and the ADR price reflects currency movements. If Nestle's stock is flat in Swiss francs but the franc appreciates 10% against the dollar, the ADR price will rise approximately 10%. ADRs provide convenience, not currency protection.
+现实：ADR仅是代表外国股票的存托凭证。标的股票仍以外币计价，ADR价格也反映汇率变动。若雀巢股票以瑞郎计算持平，但瑞郎兑美元升值10%，则ADR价格将上涨约10%。ADR提供的是便利性，而非货币保护。
 
-**Misconception 6: "You can predict which currencies will strengthen."**
+**误解六："你可以预测哪种货币将会走强。"**
 
-Reality: Currency forecasting is one of the most notoriously difficult tasks in finance. Academic studies consistently find that professional forecasters do little better than a coin flip at predicting short-term currency movements. Even fundamental approaches like purchasing power parity only work over very long horizons (5-15 years) and can be wrong for extended periods. Humility about currency direction is a virtue.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: If correlations between markets are increasing due to globalization, does international diversification still help?**
-
-A: Yes, though the benefit has modestly decreased over time. While correlations have risen from roughly 0.4-0.5 in the 1990s to 0.6-0.8 today, they are still well below 1.0, meaning diversification still reduces portfolio risk. Importantly, correlations tend to be unstable -- they spike during global crises (when you need diversification least) but remain moderate during normal times. Over full market cycles, international diversification continues to improve the risk-return profile.
-
-**Q2: Should I invest in international bonds as well as international stocks?**
-
-A: International bonds can add diversification, but the case is more nuanced than for stocks. The return spread between US and foreign government bonds is often small, and currency volatility can dominate bond returns. If you do invest in international bonds, hedging the currency risk is strongly recommended. Many investors keep their bond allocation domestic (or currency-hedged) for simplicity and stability.
-
-**Q3: How do foreign taxes affect my international investment returns?**
-
-A: Most countries withhold tax on dividends paid to foreign investors, typically 10-30%. As a US investor, you can claim a Foreign Tax Credit on your US tax return to avoid double taxation. In taxable accounts, this credit directly reduces your US tax bill. In tax-advantaged accounts (IRA, 401k), the foreign tax is lost -- you cannot claim the credit. This means taxable accounts are often slightly better for holding international funds, all else equal.
-
-**Q4: What about frontier markets -- are they worth considering?**
-
-A: Frontier markets (countries like Vietnam, Kenya, Bangladesh, Sri Lanka) are even less developed than emerging markets. They offer potentially high returns but come with extreme risks: very low liquidity, limited regulatory protection, political instability, and often difficult market access. For most individual investors, frontier market exposure through a diversified emerging markets ETF (which may hold small allocations to frontier markets) is sufficient. Direct frontier market investing is best left to specialists.
-
-**Q5: How often should I rebalance my international allocation?**
-
-A: Annual rebalancing is typically sufficient. Currency movements and divergent market returns will cause your allocation to drift over time. If your target is 60/25/15 (US/developed/emerging) and after a strong US year it has drifted to 68/20/12, rebalancing back to target forces you to sell high (US) and buy low (international), which is a systematic value discipline. Rebalancing more frequently than annually adds transaction costs without significantly improving outcomes.
-
-**Q6: What is the difference between MSCI EAFE and FTSE Developed ex-US?**
-
-A: These are the two main developed international stock indexes. MSCI EAFE (Europe, Australasia, Far East) is the older, more established index. FTSE Developed ex-US is used by Vanguard and includes small-cap stocks and South Korea (which MSCI classifies as emerging). The performance difference is small. The most important decision is having international exposure, not which specific index you track.
-
-**Q7: Do international stocks protect against US-specific risks?**
-
-A: Yes. Events like US government shutdowns, US regulatory changes, US fiscal crises, or a US dollar decline would disproportionately affect US stocks and US dollar-denominated assets. International stocks provide a hedge against US-specific political and economic risks. This is separate from global risks (like pandemics or global recessions) which affect all markets.
-
-**Q8: How does currency risk change over different time horizons?**
-
-A: Over short periods (1-3 years), currency movements can add or subtract 5-15% from international returns, often dominating stock market returns. Over medium periods (3-10 years), currency effects remain significant but begin to moderate. Over very long periods (15+ years), currency effects tend to average out toward zero, especially between developed market currencies. This is why long-term investors can generally afford to remain unhedged.
-
-**Q9: Is it better to use one total international fund or separate developed and emerging market funds?**
-
-A: Either approach works. A single total international fund (like VXUS) is simpler and provides broad exposure with one holding. Separate funds (like VEA + VWO) give you more control over your developed vs. emerging allocation and allow you to tilt toward one or the other based on your views. The total cost is similar either way. For most investors, simplicity favors the single-fund approach.
-
-**Q10: What about investing in international real estate or commodities for additional diversification?**
-
-A: International REITs add another dimension of diversification -- exposure to foreign property markets and currencies. International commodity producers (mining companies, oil companies) are heavily influenced by global commodity prices rather than their home market, providing natural diversification. Both can be useful satellite positions, but your core international allocation should be broad equity exposure before adding these specialty categories.
+现实：货币预测是金融领域中出了名最困难的任务之一。学术研究一致发现，专业预测人员在预测短期货币走势方面的准确率，与抛硬币相差无几。即便是购买力平价这样的基本面方法，也只在超长期（5至15年）内有效，且可能在相当长的时间内出现偏差。对货币走势保持谦逊，是难能可贵的品质。
 
 ---
 
-## YouTube Script
+### d) 常见问题解答
 
-[VISUAL: Animated intro with title "Week 22: Currency and International Diversification" with a spinning globe graphic]
+**问题一：全球化导致市场间相关性上升，国际分散投资还有意义吗？**
 
-**Alex:** Welcome back. Today we are talking about a mistake that almost every investor makes, and most do not even realize it. It is called home bias, and it could be costing you significant returns and exposing you to unnecessary risk.
+答：有意义，尽管收益已略有下降。虽然相关性已从1990年代的约0.4至0.5上升至今日的0.6至0.8，但仍远低于1.0，这意味着分散化仍能降低投资组合风险。值得注意的是，相关性本身并不稳定——在全球危机期间（此时你最需要分散化）往往会急剧上升，但在正常时期维持在中等水平。纵观完整的市场周期，国际分散投资仍持续改善风险收益特征。
 
-**Sam:** Home bias? Does that mean investing too much in your own country?
+**问题二：除国际股票外，我是否也应投资国际债券？**
 
-**Alex:** Exactly. The average American investor puts about 78% of their stock allocation into US stocks. But the US is only about 60% of the global stock market. That means American investors are significantly overweight their home market.
+答：国际债券可以增加分散化，但论据比股票更为复杂。美国与外国政府债券之间的收益差异往往较小，货币波动可能主导债券收益。若你投资国际债券，强烈建议对货币风险进行对冲。许多投资者为了简便与稳定，选择将债券配置保留在国内（或采用货币对冲方式）。
 
-**Sam:** But the US market has been crushing it for the last decade-plus. Why would I want to invest anywhere else?
+**问题三：外国税收如何影响我的国际投资收益？**
 
-**Alex:** And there it is -- that is exactly the thinking that creates the bias. Let me show you something that might change your perspective.
+答：大多数国家会对支付给境外投资者的股息预提税款，通常为10%至30%。作为美国投资者，你可以在美国纳税申报表中申请外国税收抵免，以避免双重征税。在应税账户中，这一抵免可直接抵减你的美国应缴税额。在税收优惠账户（IRA、401k）中，外国税款将无法找回——你无法申请抵免。这意味着，在其他条件相同的情况下，应税账户往往更适合持有国际基金。
+
+**问题四：前沿市场值得考虑吗？**
+
+答：前沿市场（越南、肯尼亚、孟加拉国、斯里兰卡等国家）比新兴市场的发展程度更低。它们可能提供较高的潜在收益，但伴随着极高的风险：流动性极差、监管保护有限、政治局势不稳，以及市场准入往往困难重重。对大多数个人投资者而言，通过多元化的新兴市场交易所交易基金（通常会对前沿市场有少量配置）获取前沿市场敞口已经足够。直接投资前沿市场最好留给专业人士。
+
+**问题五：我应该多久再平衡一次国际配置？**
+
+答：每年再平衡一次通常已经足够。货币波动和各市场表现的差异，会随时间推移导致你的配置偏离目标。若你的目标是60/25/15（美国/发达市场/新兴市场），在美国市场经历强劲一年后，配置已偏移至68/20/12，那么将其再平衡回目标，实际上是系统性地高卖（美国）低买（国际），体现出纪律性的价值驱动。再平衡频率高于每年一次，只会增加交易成本，而不能显著改善结果。
+
+**问题六：MSCI EAFE与富时发达国家（不含美国）指数有何区别？**
+
+答：这是发达国际股票的两大主流指数。明晟EAFE（欧洲、澳大拉西亚、远东）是更悠久、更成熟的指数。富时发达国家（不含美国）指数由先锋使用，涵盖小盘股和韩国（明晟将其归类为新兴市场）。两者的表现差异较小。最重要的决策是拥有国际敞口，而非跟踪哪个具体指数。
+
+**问题七：国际股票能否对冲美国特有风险？**
+
+答：可以。美国政府停摆、美国监管变化、美国财政危机或美元贬值等事件，将对美国股票和美元计价资产产生不成比例的冲击。国际股票为美国特有的政治和经济风险提供了对冲。这与全球性风险（如疫情或全球经济衰退）不同，后者影响所有市场。
+
+**问题八：货币风险如何随投资期限的不同而变化？**
+
+答：在短期（1至3年）内，货币波动可能使国际投资收益增减5%至15%，往往主导股市收益。在中期（3至10年）内，货币影响仍然显著，但开始趋于缓和。在很长的期限内（15年以上），货币效应趋于平均至接近零，在发达市场货币之间尤为如此。这也是为什么长期投资者通常可以保持非对冲状态的原因。
+
+**问题九：使用单一全球国际基金好，还是分别持有发达市场和新兴市场基金好？**
+
+答：两种方式均可行。单一全球国际基金（如VXUS）更为简便，用一只基金即可获得广泛敞口。分拆基金（如VEA + VWO）则让你对发达市场与新兴市场的配置比例有更多掌控，并可根据判断对其中一方进行倾斜。两种方式的总体成本相近。对大多数投资者而言，简便性使单一基金方案更具优势。
+
+**问题十：投资国际房地产或大宗商品是否能进一步增强分散化？**
+
+答：国际房地产投资信托可以增加分散化的维度——提供对境外房产市场和货币的敞口。国际大宗商品生产商（矿业公司、石油公司）受全球大宗商品价格的影响远超其所在本国市场，天然具有分散化效益。两者都可以作为卫星持仓，但你的核心国际配置，应当在加入这些特色品类之前，先以宽基股票敞口为基础。
+
+---
+
+## YouTube脚本
+
+[VISUAL: Animated intro with title "第22周：货币与国际分散投资" with a spinning globe graphic]
+
+**Horace：** 欢迎回来。今天我们要讲的是一个几乎所有投资者都会犯的错误，而且大多数人根本意识不到自己犯了这个错误。它叫做本土偏见，而且很可能正在让你损失可观的收益，同时让你承受不必要的风险。
+
+**Stella：** 本土偏见？是说在本国市场投入太多？
+
+**Horace：** 正是。普通美国投资者大约把78%的股票配置投入美国股票。但美国只占全球股市的约60%。这意味着美国投资者大幅超配了本国市场。
+
+**Stella：** 但美国市场在过去十多年里一直表现出色。我为什么要去别的地方投资？
+
+**Horace：** 瞧，这就是产生偏见的那种想法。让我给你看一些数据，也许能改变你的看法。
 
 [VISUAL: Chart showing rolling 10-year returns of US vs. international stocks from 1970 to present. Bars alternate showing which region won each decade, demonstrating that leadership rotates.]
 
-**Alex:** From 2010 to 2020, yes, the US dramatically outperformed international stocks. But from 2000 to 2009 -- the so-called "lost decade" -- the S&P 500 returned essentially zero. International stocks delivered positive returns over the same period. Go back further to the 1970s and 1980s, and international stocks, especially Japan, massively outperformed the US.
+**Horace：** 2010年到2020年，没错，美国股市的表现确实大幅领先于国际市场。但在2000年到2009年——也就是所谓的"失去的十年"——标普500的收益几乎为零。而国际股票在同期录得正收益。再往前看，70年代和80年代，国际股票，尤其是日本，表现远超美国。
 
-**Sam:** So performance leadership rotates between regions?
+**Stella：** 所以各地区的市场领导权是在轮换的？
 
-**Alex:** It does, and the tricky part is that you cannot predict when the rotation will happen. The time to diversify internationally is before the US starts underperforming, not after. By then, international stocks have already rallied and the opportunity has shrunk.
+**Horace：** 是的，棘手之处在于你无法预测轮换何时发生。进行国际分散投资的最佳时机，是在美国开始落后之前——而不是落后之后。等到那时，国际股票早已涨了一大截，机会也已大为缩小。
 
 [VISUAL: Timeline showing dominant market regions by decade, with question marks for the current decade]
 
-**Sam:** That makes sense. But I hear people say "US companies like Apple and Google already sell globally, so I already have international exposure."
+**Stella：** 有道理。不过我也听人说过："像苹果、谷歌这样的美国公司已经是全球化企业，所以持有标普500就等于拥有国际敞口。"
 
-**Alex:** That is one of the most common misconceptions, and it sounds logical but does not hold up. Yes, Apple sells iPhones in Tokyo and Munich. But Apple's stock price is driven by the US market, US interest rates, US investor sentiment, and the US dollar. If you compare the price behavior of Apple to that of, say, a European luxury goods company like LVMH, they move very differently despite both being global businesses.
+**Horace：** 这是最常见的误解之一，听起来合情合理，但经不起推敲。没错，苹果在东京和慕尼黑卖iPhone。但苹果的股价是由美国市场、美国利率、美国投资者情绪和美元所驱动的。如果你把苹果的走势和欧洲奢侈品巨头——比如酩悦轩尼诗路易威登集团——的走势做对比，你会发现尽管两家都是全球化企业，它们的价格走势却大相径庭。
 
 [ANIMATION: animation/week22_currency_impact.py - Two animated line charts side by side. One shows a US multinational and one shows a European multinational. Both sell globally, but their stock prices behave differently, with correlation highlighted. The animation then shows the portfolio volatility of holding both versus just one, demonstrating the diversification benefit.]
 
-**Sam:** Okay, I am starting to see why diversification matters. But what about the currency issue? That seems complicated.
+**Stella：** 好，我开始明白分散投资的意义了。但货币问题呢？听起来挺复杂的。
 
-**Alex:** Currency is actually simpler than people think. When you buy a foreign stock, you are making two bets at once. Let me break it down with an example.
+**Horace：** 货币其实比人们想象的简单。当你购买外国股票时，你实际上同时下了两个赌注。让我用一个例子拆解一下。
 
-**Sam:** Go for it.
+**Stella：** 说来听听。
 
-**Alex:** Say you buy a European stock ETF. European stocks go up 8% in euro terms. Great. But you are a US investor, so you need to convert back to dollars. If the euro also strengthened 5% against the dollar during that time, your total return is approximately 13%. The stock return plus the currency return.
+**Horace：** 假设你买了一只欧洲股票交易所交易基金。欧洲股票以欧元计涨了8%。很好。但你是美元投资者，所以你需要把收益换回美元。如果在此期间欧元相对美元也升值了5%，你的美元总收益大约是13%。股票收益加上货币收益。
 
-**Sam:** Oh, so the currency helped me!
+**Stella：** 哦，所以货币帮了我！
 
-**Alex:** In this case, yes. But it works the other way too. Let us say Japanese stocks go up 10% in yen terms, but the yen weakened 7% against the dollar. Your return in dollars is only about 3%. You made money on the stocks but lost some of it on the currency.
+**Horace：** 这次是的。但反过来也一样。假设日本股票以日元计涨了10%，但日元兑美元贬值了7%。你的美元收益只有约3%。你在股票上赚到了钱，但一部分被货币吃掉了。
 
-[VISUAL: Animated equation showing: Local Return + Currency Return = Total Return, with three examples using different currencies showing positive, negative, and neutral currency effects]
+[VISUAL: Animated equation showing: 本地市场收益 + 货币收益 = 总收益, with three examples using different currencies showing positive, negative, and neutral currency effects]
 
-**Sam:** So currency can really make or break your international returns.
+**Stella：** 所以货币真的能决定你国际投资的成败。
 
-**Alex:** In the short run, absolutely. Currency movements can add or subtract 5% to 15% in a given year. But here is the important thing -- over very long periods, like 15 to 20 years, currency effects tend to wash out. Currencies mean-revert over time. So for a long-term investor, currency risk is less of a concern than it feels.
+**Horace：** 短期内确实如此。货币波动在某一年可以给你的收益增减5%到15%。但有一点很重要——从非常长的周期来看，比如15到20年，货币效应趋于相互抵消。货币会均值回归。所以对长期投资者来说，货币风险比感觉上的要小得多。
 
-**Sam:** That is reassuring. But what about emerging market currencies? I have heard those can be really volatile.
+**Stella：** 听到这个我放心多了。但新兴市场的货币呢？我听说那些货币波动可以很大。
 
-**Alex:** They can. The Turkish lira lost over 80% of its value from 2018 to 2023. The Argentine peso has been in constant decline for years. These are extreme cases, but emerging market currencies are genuinely riskier than developed market currencies. This is one reason emerging market investments are more volatile overall.
+**Horace：** 是的，可以非常大。土耳其里拉在2018年至2023年间贬值了超过80%。阿根廷比索多年来持续下跌。这些是极端案例，但新兴市场货币的波动性确实远高于发达市场货币。这也是新兴市场投资整体波动性更高的原因之一。
 
 [VISUAL: Chart showing the performance of several emerging market currencies vs. the US dollar over 10 years, highlighting extreme moves in Turkish lira, Argentine peso, and Brazilian real]
 
-**Sam:** Okay, let us talk about how to actually invest internationally. What are my options?
+**Stella：** 好，我们来聊聊具体怎么做国际投资。我有哪些选择？
 
-**Alex:** You have three main vehicles. First, ADRs -- American Depositary Receipts. These are foreign shares that have been repackaged to trade on US exchanges in US dollars. Toyota, Nestle, TSMC, Alibaba -- they all have ADRs. You buy and sell them just like any US stock.
+**Horace：** 主要有三种工具。第一，ADR——美国存托凭证。这是被重新包装后可以在美国交易所以美元交易的外国股票。丰田、雀巢、台积电、阿里巴巴——它们都有ADR。买卖方式和普通美国股票完全一样。
 
-**Sam:** That sounds easy. Is there a catch?
+**Stella：** 听起来很方便。有什么需要注意的吗？
 
-**Alex:** A few small ones. First, the selection is limited -- only large, well-known foreign companies have ADRs. Second, you still have currency risk -- the ADR price tracks the foreign share price and the exchange rate. Third, there is a small ADR fee charged against your dividends.
+**Horace：** 有几点小瑕疵。第一，选择有限——只有大型、知名的外国公司才有ADR。第二，你仍然面临货币风险——ADR价格跟踪外国股票价格和汇率。第三，ADR会从你的股息中收取少量手续费。
 
-**Sam:** And the second option?
+**Stella：** 第二种选择是什么？
 
-**Alex:** International ETFs. This is how most investors get their international exposure, and it is the approach I recommend. You can buy broad international ETFs that cover all developed markets outside the US, or all emerging markets, or even specific countries. The costs are very low -- 0.05% to 0.25% per year depending on the fund.
+**Horace：** 国际交易所交易基金。大多数投资者通过这种方式获取国际敞口，这也是我推荐的方式。你可以购买覆盖美国以外所有发达市场的宽基国际交易所交易基金，或者覆盖所有新兴市场的，甚至是特定单一国家的。费用非常低——根据基金的不同，每年约0.05%至0.25%。
 
-[VISUAL: Tree diagram showing international ETF categories: Total International at the top, branching into Developed and Emerging, with Developed further branching into specific countries/regions]
+[VISUAL: Tree diagram showing international ETF categories: 宽基国际（全球） at the top, branching into 发达市场 and 新兴市场, with 发达市场 further branching into specific countries/regions]
 
-**Sam:** What are the big ones to know about?
+**Stella：** 有哪些重要的基金需要了解？
 
-**Alex:** For developed international, the most popular are VEA and IEFA. For emerging markets, VWO and IEMG. For a single fund covering everything non-US, VXUS is excellent -- it holds both developed and emerging markets in market-cap proportions.
+**Horace：** 发达国际市场方面，最受欢迎的是VEA和IEFA。新兴市场方面是VWO和IEMG。如果想用单一基金覆盖所有非美国市场，VXUS是个很好的选择——它按市值比例同时持有发达市场和新兴市场。
 
-**Sam:** And the third option?
+**Stella：** 第三种选择呢？
 
-**Alex:** Buying directly on foreign stock exchanges. This is for advanced investors who have brokerage accounts with international access. You would be buying stocks in euros, yen, or pounds, dealing with different trading hours, and navigating foreign tax rules. For most people, ETFs are the superior choice.
+**Horace：** 直接在境外股票交易所买卖股票。这适合拥有国际交易权限券商账户的进阶投资者。你需要用欧元、日元或英镑买卖股票，还要应对不同的交易时段和境外税务规定。对大多数人而言，交易所交易基金是更优越的选择。
 
-**Sam:** Let us talk about this hedging thing. I have seen ETFs that say "currency hedged" in the name. What does that mean?
+**Stella：** 我们来聊聊对冲。我见过一些名称里带"货币对冲"的交易所交易基金，那是什么意思？
 
-**Alex:** Great question. A currency-hedged ETF uses financial contracts called forwards to neutralize the currency effect. So if you own a hedged European stock ETF, you get the local stock market return without the euro-dollar exchange rate affecting your result.
+**Horace：** 好问题。货币对冲交易所交易基金使用一种叫做远期合约的金融工具来中和货币影响。所以如果你持有一只对冲型欧洲股票交易所交易基金，你获得的是本地股市收益，而不受欧元兑美元汇率的影响。
 
-**Sam:** That sounds like it removes risk. Why would anyone not hedge?
+**Stella：** 听起来是消除风险。为什么还有人不选择对冲？
 
-**Alex:** Two reasons. First, hedging costs money. The cost is approximately equal to the interest rate differential between the two countries. Right now, if US interest rates are higher than European rates by 2%, hedging a European ETF costs you about 2% per year in reduced returns. That is a big drag.
+**Horace：** 两个原因。第一，对冲是有成本的。成本大约等于两国之间的利差。如果美国利率比欧洲利率高出2%，对冲欧洲交易所交易基金每年大约要付出2%的收益作为代价。这是相当大的拖累。
 
 [VISUAL: Side-by-side comparison showing returns of a hedged vs unhedged European ETF over time, with the hedging cost visible as a gap between them during periods of stable exchange rates]
 
-**Alex:** Second, currency exposure provides its own diversification. The US dollar does not always go up. During periods of dollar weakness -- which happen regularly -- your unhedged international investments get a nice boost. By hedging, you eliminate that potential benefit along with the risk.
+**Horace：** 第二，货币敞口本身提供了分散化效益。美元并不总是走强。在美元走弱的时期——这种情况会周期性出现——你的非对冲国际投资会获得一笔额外的收益加成。选择对冲，就意味着你在消除风险的同时，也失去了这个潜在收益。
 
-**Sam:** So what is the recommendation?
+**Stella：** 那建议是什么？
 
-**Alex:** For long-term equity investors, most academic research and most practitioners recommend leaving your international stock exposure unhedged. The costs of hedging and the loss of currency diversification outweigh the volatility reduction over long horizons. For bonds, the recommendation flips -- hedge your international bonds, because bond returns are small and currency volatility can easily overwhelm them.
+**Horace：** 对于长期股票投资者，大多数学术研究和从业者都建议保持国际股票敞口的非对冲状态。从长期视角看，对冲的成本以及失去货币分散化的代价，超过了波动性降低所带来的好处。对于债券，建议则相反——对国际债券进行对冲，因为债券收益较小，货币波动很容易将其淹没。
 
-**Sam:** That is a clean rule of thumb. Unhedged for stocks, hedged for bonds.
+**Stella：** 这个经验法则很清晰。股票不对冲，债券对冲。
 
-**Alex:** Exactly. Now, there is one more concept I want to cover -- purchasing power parity, or PPP.
+**Horace：** 正是。接下来我还想介绍一个概念——购买力平价，简称PPP。
 
-**Sam:** What is that?
+**Stella：** 那是什么？
 
-**Alex:** PPP is the idea that exchange rates should eventually adjust so that the same goods cost the same in different countries. The most famous version is The Economist's Big Mac Index. If a Big Mac costs $5.50 in the US and the equivalent of $3.50 in Japan after converting at current exchange rates, PPP theory says the yen is undervalued -- it should strengthen until Big Macs cost the same everywhere.
+**Horace：** 购买力平价的核心思想是，汇率最终应当调整至使相同商品在不同国家折算成相同货币后价格一致的水平。最著名的版本是《经济学人》杂志的巨无霸指数。如果一个巨无霸在美国售价5.50美元，按当前汇率折算后在日本只相当于3.50美元，购买力平价理论认为日元被低估了——日元应当升值，直至各地巨无霸的价格趋于一致。
 
 [VISUAL: World map showing Big Mac prices in different countries, color-coded by whether the local currency is overvalued or undervalued relative to the US dollar]
 
-**Sam:** Does it actually work?
+**Stella：** 这个理论实际管用吗？
 
-**Alex:** As a short-term trading signal, no. Currencies can stay far from PPP for years. But as a long-term anchor, yes. Currencies that are significantly undervalued relative to PPP tend to strengthen over periods of 5 to 15 years, and vice versa. So if you are making a long-term international investment, PPP can help you identify currencies that might provide a tailwind.
+**Horace：** 作为短期交易信号，不管用。货币偏离购买力平价的状态可以维持多年。但作为长期锚点，有一定参考价值。相对购买力平价明显被低估的货币，往往会在5至15年内走强，反之亦然。所以如果你在进行长期国际投资，购买力平价可以帮你识别哪些货币可能提供顺风。
 
-**Sam:** Let us bring it all together. How much of my portfolio should be international?
+**Stella：** 我们把所有内容整合一下。我的投资组合中应该有多少比例是国际投资？
 
-**Alex:** There are different schools of thought. A strict market-cap approach would say about 40% international -- because the US is about 60% of the global market. A more conservative approach, which is what most financial advisors recommend, is 20% to 40% international.
+**Horace：** 不同的流派有不同的主张。严格按市值权重的方法会建议约40%配置国际——因为美国约占全球市场的60%。更保守的做法，也是大多数财务顾问推荐的，是20%至40%配置国际市场。
 
 [VISUAL: Three portfolio pie charts showing different international allocations:
-1. Conservative: 70% US, 20% Developed Int'l, 10% Emerging
-2. Moderate: 60% US, 25% Developed Int'l, 15% Emerging
-3. Aggressive: 50% US, 30% Developed Int'l, 20% Emerging]
+1. 保守型：70% 美国，20% 发达国际市场，10% 新兴市场
+2. 均衡型：60% 美国，25% 发达国际市场，15% 新兴市场
+3. 积极型：50% 美国，30% 发达国际市场，20% 新兴市场]
 
-**Alex:** My suggestion for a starting point is 60% US, 25% developed international, and 15% emerging markets. Then adjust based on your views and comfort level. The most important thing is having some meaningful international exposure -- not the exact percentage.
+**Horace：** 我建议的起始配置是：60%美国、25%发达国际市场、15%新兴市场。然后根据你自己的判断和风险承受能力加以调整。最重要的是拥有有意义的国际敞口——而不是纠结于具体比例。
 
-**Sam:** What about the split between developed and emerging?
+**Stella：** 发达市场和新兴市场之间的比例怎么分？
 
-**Alex:** Developed international markets -- Europe, Japan, Australia, Canada -- are your core international holding. They are stable, well-regulated, and provide solid diversification. Emerging markets are your growth engine and correlation diversifier, but they come with higher volatility and additional risks like political instability and weaker governance. A ratio of roughly 2:1 developed to emerging is a reasonable starting point.
+**Horace：** 发达国际市场——欧洲、日本、澳大利亚、加拿大——是你国际持仓的核心。这些市场稳定、监管完善，提供扎实的分散化效益。新兴市场是你的增长引擎和相关性分散器，但波动性更高，还有政治不稳定和公司治理薄弱等额外风险。以约2比1的发达市场对新兴市场比例作为起点，是合理的选择。
 
-**Sam:** Can we talk about some practical considerations? Like, what about withholding taxes on international dividends?
+**Stella：** 能聊聊一些实操注意事项吗？比如国际股息的预提税问题？
 
-**Alex:** Important topic. Most countries withhold tax on dividends paid to foreign investors. For example, if you own a German stock ETF, Germany withholds about 26% of your dividends before you receive them. The US has tax treaties with many countries that reduce this rate, and you can claim a Foreign Tax Credit on your US tax return to avoid double taxation.
+**Horace：** 这是个重要的话题。大多数国家会对支付给境外投资者的股息预扣税款。比如你持有一只德国股票交易所交易基金，德国在你收到股息之前会预扣约26%。美国与许多国家签订了税务协定，可降低这一税率，而且你可以在美国纳税申报表上申请外国税收抵免，避免双重征税。
 
-**Sam:** So I get the money back?
+**Stella：** 所以我可以把钱要回来？
 
-**Alex:** In a taxable brokerage account, yes -- you claim the credit and it reduces your US tax bill dollar-for-dollar. But in a tax-advantaged account like an IRA or 401k, you cannot claim the credit. The withholding is just lost. This is why many advisors suggest holding international funds in taxable accounts and domestic funds in tax-advantaged accounts, all else equal.
+**Horace：** 在应税券商账户中，是的——你申请抵免后，它会直接抵减你的美国应缴税额，按比例折算。但在IRA或401k这类税收优惠账户中，你无法申请抵免。那部分预提税就彻底消失了。这也是为什么许多顾问建议在其他条件相同的情况下，在应税账户中持有国际基金，在税收优惠账户中持有国内基金。
 
 [VISUAL: Flow chart showing foreign dividend tax treatment in taxable vs. tax-advantaged accounts, with the "lost" withholding highlighted for IRA/401k]
 
-**Sam:** That is a really practical tip. What about the actual process of buying international stocks -- do I need to worry about time zones and currency conversion?
+**Stella：** 这个建议非常实用。那实际买入国际股票的过程呢——我需要担心时区和货币兑换的问题吗？
 
-**Alex:** If you are using ETFs -- which I recommend for most investors -- you do not need to worry about any of that. International ETFs trade on US exchanges during US market hours in US dollars. The ETF provider handles all the currency conversion, custodial arrangements, and foreign market access internally. It is completely seamless from your perspective.
+**Horace：** 如果你使用的是交易所交易基金——我对大多数投资者的建议——完全不需要担心这些。国际交易所交易基金在美国交易所、美国市场交易时段内以美元进行交易。货币兑换、托管安排和境外市场准入都由基金管理方在内部处理，从你的角度来看完全无缝衔接。
 
-**Sam:** And if I wanted to buy individual foreign stocks?
+**Stella：** 如果我想买个股外国股票呢？
 
-**Alex:** Then you have three options. First, buy ADRs on US exchanges -- same convenience as US stocks. Second, use a brokerage that offers international market access -- firms like Interactive Brokers let you trade directly on foreign exchanges in foreign currencies. You will deal with different trading hours, currency conversion fees, and foreign settlement procedures. Third, some brokerages offer fractional international shares. For most individual investors, ADRs or international ETFs are the path of least resistance.
+**Horace：** 那你有三个选择。第一，在美国交易所买ADR——和美国股票一样方便。第二，使用提供国际市场准入的券商——像盈透证券这样的平台可以让你直接在境外交易所以当地货币交易。你需要应对不同的交易时段、货币兑换费用以及境外交收流程。第三，部分券商提供国际股票的碎股买入服务。对大多数个人投资者而言，ADR或国际交易所交易基金是阻力最小的路径。
 
-[VISUAL: Comparison table showing three methods of accessing foreign stocks: ETFs (easiest, cheapest), ADRs (easy, limited selection), Direct Foreign Trading (most control, most complex)]
+[VISUAL: Comparison table showing three methods of accessing foreign stocks: 交易所交易基金（最简便，成本最低），ADR（简便，选择有限），直接境外交易（控制度最高，复杂度最高）]
 
-**Sam:** Let me ask about something I have seen in the news -- the carry trade. How does that relate to currency investing?
+**Stella：** 我想问问最近新闻里经常提到的套息交易。这和货币投资有什么关系？
 
-**Alex:** The carry trade is when investors borrow in a low-interest-rate currency and invest in a high-interest-rate currency to capture the rate differential. For years, hedge funds borrowed in Japanese yen (near-zero interest rates) and invested in Australian dollars or emerging market currencies (higher rates). It works beautifully until the low-rate currency suddenly strengthens, wiping out months or years of carry in days.
+**Horace：** 套息交易是指投资者以低利率货币借款，然后投资于高利率货币，赚取利差。多年来，对冲基金以日元（近零利率）借款，然后投资于澳元或新兴市场货币（利率更高）。这种策略运作良好，直到低利率货币突然走强，将数月甚至数年积累的利差在数日之内一扫而空。
 
-**Sam:** And this affects regular investors how?
+**Stella：** 这对普通投资者有什么影响？
 
-**Alex:** When carry trades unwind -- usually during market stress -- it can cause sudden, violent currency movements that affect your international investments. The yen can surge 10% in a week as carry trades are reversed, boosting your Japanese stock returns if you are unhedged. Understanding carry trades helps you interpret sudden currency moves that might otherwise seem random.
+**Horace：** 当套息交易平仓——通常发生在市场动荡期间——可能引发突然而剧烈的货币波动，进而影响你的国际投资。套息平仓时日元可能在一周内飙升10%，如果你持有的日本股票是非对冲的，你的收益会相应提升。理解套息交易，有助于你解读那些看似莫名其妙的突发货币波动。
 
-[VISUAL: Diagram showing carry trade mechanics: borrow yen at 0.5%, invest in Australian dollars at 4.5%, earn 4% spread -- then showing the "unwind" when yen surges and losses wipe out carry profits]
+[VISUAL: Diagram showing carry trade mechanics: 以0.5%利率借入日元，投资于4.5%利率的澳元，赚取4%利差——then showing the "unwind" when 日元飙升 and losses wipe out carry profits]
 
-**Sam:** One last question. I know you said performance leadership rotates. Right now, lots of people are bullish on India and skeptical of China. Should I tilt my emerging markets allocation?
+**Stella：** 最后一个问题。我知道你说过市场领导权在轮换。目前很多人看好印度、对中国持谨慎态度。我应该在新兴市场配置上进行倾斜吗？
 
-**Alex:** You can, but be careful. Country-specific bets in emerging markets are inherently risky. India has great demographics and growth potential, but Indian stocks are also expensive on a valuation basis. China has governance and geopolitical risks, but Chinese stocks are very cheap. The consensus is already priced in. When everyone agrees that a particular country is the obvious winner, the easy money has often already been made.
+**Horace：** 你可以，但要谨慎。押注于新兴市场中的特定国家，本身就存在相当大的风险。印度有优越的人口结构和增长潜力，但印度股票的估值也偏高。中国有公司治理和地缘政治方面的风险，但中国股票估值非常低。市场共识已经被定价了。当所有人都认为某个国家是显而易见的赢家时，容易赚的钱往往早已被人赚走了。
 
-[VISUAL: Valuation comparison chart showing P/E ratios of major emerging markets, highlighting the gap between "popular" (expensive) and "unpopular" (cheap) countries]
+[VISUAL: Valuation comparison chart showing P/E ratios of major emerging markets, highlighting the gap between "热门"（估值偏高） and "冷门"（估值偏低）countries]
 
-**Alex:** My advice is to start with a broad emerging markets ETF that diversifies across many countries, and only add country-specific tilts if you have done deep research and have strong conviction.
+**Horace：** 我的建议是：从覆盖多个国家的宽基新兴市场交易所交易基金开始，只有在做了深入研究并有强烈判断的前提下，才考虑加入针对特定国家的倾斜配置。
 
-**Sam:** This has been really eye-opening, Alex. I have been way too US-focused.
+**Stella：** 这节课真的让我大开眼界，Horace。我一直过于专注美国市场了。
 
-**Alex:** You are not alone. Most investors are. The good news is that fixing it is easy -- one or two international ETFs and you have dramatically improved your diversification. The key insight is this: diversification is the only free lunch in investing. International stocks give you access to that free lunch.
+**Horace：** 你不是一个人。大多数投资者都是如此。好消息是，纠正这一点很容易——一两只国际交易所交易基金，你的分散化程度就会大幅提升。核心洞察是这样的：分散投资是投资领域唯一的免费午餐。国际股票让你有机会享用这顿免费午餐。
 
-**Sam:** No one should leave free lunch on the table.
+**Stella：** 没有人应该把免费午餐留在桌上不动。
 
-**Alex:** Exactly. Next week, we are diving into factor investing -- what drives stock returns beyond just the market going up. Value, momentum, quality, size -- these are the building blocks of sophisticated portfolio construction.
+**Horace：** 说得对。下周我们将深入探讨因子投资——除了市场整体上涨之外，究竟是什么在驱动股票收益。价值、动量、质量、规模——这些是构建精细化投资组合的基本要素。
 
-**Sam:** That sounds fascinating. Thanks everyone for watching, and we will see you next week!
+**Stella：** 听起来很精彩。谢谢大家的收看，我们下周见！
 
 [VISUAL: End screen with subscribe button, key takeaway bullet points, and preview of Week 23 Factor Investing]
 

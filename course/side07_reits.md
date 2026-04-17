@@ -229,173 +229,173 @@ A: Many countries have adopted REIT-like structures, including the UK, Japan, Au
 
 ---
 
-**Alex:** Welcome back, everyone. Today we are tackling REITs -- Real Estate Investment Trusts. Sam, have you ever thought about investing in real estate?
+**Horace:** Welcome back, everyone. Today we are tackling REITs -- Real Estate Investment Trusts. Stella, have you ever thought about investing in real estate?
 
-**Sam:** Definitely. I mean, who has not heard the advice to buy property? But honestly, I do not have hundreds of thousands of dollars lying around for a down payment. And being a landlord sounds exhausting.
+**Stella:** Definitely. I mean, who has not heard the advice to buy property? But honestly, I do not have hundreds of thousands of dollars lying around for a down payment. And being a landlord sounds exhausting.
 
-**Alex:** You are not alone. That is exactly why REITs exist. They let you invest in real estate without buying a single building.
+**Horace:** You are not alone. That is exactly why REITs exist. They let you invest in real estate without buying a single building.
 
 [VISUAL: Split screen -- left side shows a person stressed out dealing with tenant complaints and property repairs; right side shows someone calmly buying REIT shares on a phone app]
 
-**Sam:** Okay, so what exactly is a REIT?
+**Stella:** Okay, so what exactly is a REIT?
 
-**Alex:** A REIT is a company that owns or finances income-producing real estate. Congress created them back in 1960. Think of it like a mutual fund, but instead of holding stocks, it holds real estate -- office buildings, apartments, shopping centers, warehouses, you name it.
+**Horace:** A REIT is a company that owns or finances income-producing real estate. Congress created them back in 1960. Think of it like a mutual fund, but instead of holding stocks, it holds real estate -- office buildings, apartments, shopping centers, warehouses, you name it.
 
-**Sam:** So I buy shares in this company, and I own a tiny piece of all those buildings?
+**Stella:** So I buy shares in this company, and I own a tiny piece of all those buildings?
 
-**Alex:** Exactly. And here is the key feature that makes REITs special. By law, they must distribute at least 90% of their taxable income to shareholders as dividends.
+**Horace:** Exactly. And here is the key feature that makes REITs special. By law, they must distribute at least 90% of their taxable income to shareholders as dividends.
 
 [ANIMATION: A building generates rental income. 90% of that income flows out as dividends to shareholders. Only 10% stays with the company.]
 
-**Sam:** Ninety percent! That is a huge payout. Why would they agree to give away that much money?
+**Stella:** Ninety percent! That is a huge payout. Why would they agree to give away that much money?
 
-**Alex:** Because in exchange for distributing 90%, the REIT does not pay corporate income tax on those distributions. It is a trade-off. The REIT avoids double taxation, and investors get substantial income.
+**Horace:** Because in exchange for distributing 90%, the REIT does not pay corporate income tax on those distributions. It is a trade-off. The REIT avoids double taxation, and investors get substantial income.
 
-**Sam:** So where does the REIT get money to buy new properties if it is giving away 90% of its income?
+**Stella:** So where does the REIT get money to buy new properties if it is giving away 90% of its income?
 
-**Alex:** Great question. REITs typically fund growth by issuing new shares or taking on debt. They cannot just reinvest profits like a normal company. This is why you will see REITs frequently raising capital in the markets.
+**Horace:** Great question. REITs typically fund growth by issuing new shares or taking on debt. They cannot just reinvest profits like a normal company. This is why you will see REITs frequently raising capital in the markets.
 
-**Sam:** Got it. Now, are all REITs the same?
+**Stella:** Got it. Now, are all REITs the same?
 
-**Alex:** Not at all. There are three main types. First, equity REITs -- these actually own and operate properties. They collect rent. This is the most common type, about 90% of all publicly traded REITs.
+**Horace:** Not at all. There are three main types. First, equity REITs -- these actually own and operate properties. They collect rent. This is the most common type, about 90% of all publicly traded REITs.
 
 [VISUAL: Infographic showing three categories -- Equity REITs (own buildings), Mortgage REITs (own loans), Hybrid REITs (own both)]
 
-**Sam:** What about the other types?
+**Stella:** What about the other types?
 
-**Alex:** Mortgage REITs, or mREITs, do not own buildings. They invest in mortgages and mortgage-backed securities. They make money from the interest on those loans. They tend to be more volatile and very sensitive to interest rate changes.
+**Horace:** Mortgage REITs, or mREITs, do not own buildings. They invest in mortgages and mortgage-backed securities. They make money from the interest on those loans. They tend to be more volatile and very sensitive to interest rate changes.
 
-**Sam:** And hybrid REITs?
+**Stella:** And hybrid REITs?
 
-**Alex:** They combine both approaches -- owning some properties and some mortgages. But hybrids are pretty rare these days. Most REITs focus on one approach or the other.
+**Horace:** They combine both approaches -- owning some properties and some mortgages. But hybrids are pretty rare these days. Most REITs focus on one approach or the other.
 
-**Sam:** Within equity REITs, I imagine there are different property types?
+**Stella:** Within equity REITs, I imagine there are different property types?
 
-**Alex:** Absolutely, and this is where it gets interesting. There are office REITs, retail REITs that own shopping malls and stores, residential REITs with apartment buildings, industrial REITs with warehouses and distribution centers, healthcare REITs, and some newer categories that have really taken off.
+**Horace:** Absolutely, and this is where it gets interesting. There are office REITs, retail REITs that own shopping malls and stores, residential REITs with apartment buildings, industrial REITs with warehouses and distribution centers, healthcare REITs, and some newer categories that have really taken off.
 
 [ANIMATION: A wheel diagram showing different REIT sectors -- office, retail, residential, industrial, healthcare, data centers, cell towers, self-storage, specialty -- with icons for each]
 
-**Sam:** Which newer categories are you talking about?
+**Stella:** Which newer categories are you talking about?
 
-**Alex:** Data centers and cell towers have become huge. Think about it -- Equinix and Digital Realty own the buildings that house the servers running the internet. American Tower and Crown Castle own the cell towers your phone connects to. These infrastructure-type REITs have been some of the best performers over the past decade.
+**Horace:** Data centers and cell towers have become huge. Think about it -- Equinix and Digital Realty own the buildings that house the servers running the internet. American Tower and Crown Castle own the cell towers your phone connects to. These infrastructure-type REITs have been some of the best performers over the past decade.
 
-**Sam:** I never would have thought of cell towers as real estate.
+**Stella:** I never would have thought of cell towers as real estate.
 
-**Alex:** Most people do not. But the REIT structure works perfectly for them -- they own physical assets that generate predictable rental income from long-term contracts with wireless carriers.
+**Horace:** Most people do not. But the REIT structure works perfectly for them -- they own physical assets that generate predictable rental income from long-term contracts with wireless carriers.
 
-**Sam:** So how do I figure out if a REIT is a good investment? Can I just look at the P/E ratio like a regular stock?
+**Stella:** So how do I figure out if a REIT is a good investment? Can I just look at the P/E ratio like a regular stock?
 
-**Alex:** Actually, no. Traditional P/E ratios do not work well for REITs because of depreciation. Buildings get depreciated on the financial statements, which lowers reported earnings. But unlike a machine that actually wears out, well-maintained buildings often increase in value over time.
+**Horace:** Actually, no. Traditional P/E ratios do not work well for REITs because of depreciation. Buildings get depreciated on the financial statements, which lowers reported earnings. But unlike a machine that actually wears out, well-maintained buildings often increase in value over time.
 
 [VISUAL: Side-by-side comparison -- a factory machine losing value over time vs. a well-maintained building appreciating over time, with depreciation accounting being the same for both]
 
-**Sam:** So the accounting makes the REIT look like it is earning less than it actually is?
+**Stella:** So the accounting makes the REIT look like it is earning less than it actually is?
 
-**Alex:** Exactly. That is why the REIT industry uses a metric called Funds From Operations, or FFO. It takes net income and adds back depreciation to give you a clearer picture of actual cash generation.
+**Horace:** Exactly. That is why the REIT industry uses a metric called Funds From Operations, or FFO. It takes net income and adds back depreciation to give you a clearer picture of actual cash generation.
 
-**Sam:** So I should look at Price-to-FFO instead of Price-to-Earnings?
+**Stella:** So I should look at Price-to-FFO instead of Price-to-Earnings?
 
-**Alex:** Yes. And even better, look at Adjusted FFO, or AFFO, which subtracts the capital expenditures needed to maintain the properties. AFFO is the closest thing to true free cash flow for a REIT.
+**Horace:** Yes. And even better, look at Adjusted FFO, or AFFO, which subtracts the capital expenditures needed to maintain the properties. AFFO is the closest thing to true free cash flow for a REIT.
 
-**Sam:** What kind of returns have REITs delivered historically?
+**Stella:** What kind of returns have REITs delivered historically?
 
-**Alex:** Over the long term, equity REITs have delivered total returns -- that is dividends plus price appreciation -- that are roughly comparable to the broad stock market. Sometimes slightly higher, sometimes slightly lower, depending on the time period you examine.
+**Horace:** Over the long term, equity REITs have delivered total returns -- that is dividends plus price appreciation -- that are roughly comparable to the broad stock market. Sometimes slightly higher, sometimes slightly lower, depending on the time period you examine.
 
 [ANIMATION: Line graph showing the growth of $10,000 invested in REITs vs. the S&P 500 over 30 years, with the two lines weaving around each other, ending at similar points]
 
-**Sam:** If returns are similar, why bother adding REITs to a portfolio?
+**Stella:** If returns are similar, why bother adding REITs to a portfolio?
 
-**Alex:** Diversification. REITs do not move in perfect lockstep with the stock market. The correlation is moderate -- roughly 0.5 to 0.7 historically. That means adding REITs to a stock portfolio can reduce overall volatility and improve risk-adjusted returns.
+**Horace:** Diversification. REITs do not move in perfect lockstep with the stock market. The correlation is moderate -- roughly 0.5 to 0.7 historically. That means adding REITs to a stock portfolio can reduce overall volatility and improve risk-adjusted returns.
 
-**Sam:** What about inflation? I have heard real estate is a good inflation hedge.
+**Stella:** What about inflation? I have heard real estate is a good inflation hedge.
 
-**Alex:** It can be, over the long term. Property owners can raise rents as prices rise. But there is a catch -- if inflation leads to higher interest rates, that creates headwinds for REITs in the short term. Higher rates increase borrowing costs and make REIT dividends less attractive compared to bonds.
+**Horace:** It can be, over the long term. Property owners can raise rents as prices rise. But there is a catch -- if inflation leads to higher interest rates, that creates headwinds for REITs in the short term. Higher rates increase borrowing costs and make REIT dividends less attractive compared to bonds.
 
-**Sam:** So it is not a simple inflation hedge.
+**Stella:** So it is not a simple inflation hedge.
 
-**Alex:** Right. Over decades, REITs tend to keep up with or beat inflation. Over months or quarters, the relationship is messier.
+**Horace:** Right. Over decades, REITs tend to keep up with or beat inflation. Over months or quarters, the relationship is messier.
 
 [VISUAL: Chart showing REIT performance during different inflation regimes -- moderate inflation periods showing positive returns, high inflation with rapidly rising rates showing mixed results]
 
-**Sam:** Now let us talk about taxes. You mentioned REITs distribute 90% of income. How is that taxed?
+**Stella:** Now let us talk about taxes. You mentioned REITs distribute 90% of income. How is that taxed?
 
-**Alex:** This is important because it is different from regular stock dividends. Most REIT dividends are taxed as ordinary income, not at the lower qualified dividend rate.
+**Horace:** This is important because it is different from regular stock dividends. Most REIT dividends are taxed as ordinary income, not at the lower qualified dividend rate.
 
-**Sam:** Ouch. So if I am in a high tax bracket, that could really eat into my returns.
+**Stella:** Ouch. So if I am in a high tax bracket, that could really eat into my returns.
 
-**Alex:** It could. But there is some relief. The Tax Cuts and Jobs Act created a 20% deduction on qualified REIT dividends through the QBI deduction. So the effective top rate drops from 37% to about 29.6%.
+**Horace:** It could. But there is some relief. The Tax Cuts and Jobs Act created a 20% deduction on qualified REIT dividends through the QBI deduction. So the effective top rate drops from 37% to about 29.6%.
 
-**Sam:** Still higher than the 20% rate on qualified dividends from regular stocks, though.
+**Stella:** Still higher than the 20% rate on qualified dividends from regular stocks, though.
 
-**Alex:** Correct. Which is why many advisors recommend holding REITs in tax-advantaged accounts like IRAs or 401(k)s. In those accounts, you do not pay taxes on the dividends until you withdraw the money -- or ever, in the case of a Roth IRA.
+**Horace:** Correct. Which is why many advisors recommend holding REITs in tax-advantaged accounts like IRAs or 401(k)s. In those accounts, you do not pay taxes on the dividends until you withdraw the money -- or ever, in the case of a Roth IRA.
 
 [VISUAL: Two columns -- "Taxable Account" showing REIT dividends taxed at ordinary income rates, "Tax-Advantaged Account" showing REIT dividends growing tax-deferred or tax-free]
 
-**Sam:** What about investing in actual physical property versus REITs? Is one better?
+**Stella:** What about investing in actual physical property versus REITs? Is one better?
 
-**Alex:** Neither is universally better. They are different tools for different situations. Direct real estate gives you leverage -- you can put 20% down and control a $300,000 asset. It gives you tax deductions for mortgage interest and depreciation. And you have control over your investment.
+**Horace:** Neither is universally better. They are different tools for different situations. Direct real estate gives you leverage -- you can put 20% down and control a $300,000 asset. It gives you tax deductions for mortgage interest and depreciation. And you have control over your investment.
 
-**Sam:** But you also have to deal with tenants and maintenance and vacancy.
+**Stella:** But you also have to deal with tenants and maintenance and vacancy.
 
-**Alex:** Exactly. REITs give you instant diversification, professional management, liquidity, and zero headaches. But you give up the leverage and tax benefits of direct ownership. For most investors, especially those who are not real estate professionals, REITs are the more practical choice.
+**Horace:** Exactly. REITs give you instant diversification, professional management, liquidity, and zero headaches. But you give up the leverage and tax benefits of direct ownership. For most investors, especially those who are not real estate professionals, REITs are the more practical choice.
 
-**Sam:** If I want to invest in REITs, should I pick individual ones or go with an index fund?
+**Stella:** If I want to invest in REITs, should I pick individual ones or go with an index fund?
 
-**Alex:** For most people, a REIT index fund or ETF is the way to go. The Vanguard Real Estate ETF, ticker VNQ, is one of the most popular. It holds over 150 REITs, charges an expense ratio of just 0.12%, and gives you broad exposure to the entire U.S. REIT market.
+**Horace:** For most people, a REIT index fund or ETF is the way to go. The Vanguard Real Estate ETF, ticker VNQ, is one of the most popular. It holds over 150 REITs, charges an expense ratio of just 0.12%, and gives you broad exposure to the entire U.S. REIT market.
 
 [VISUAL: Table showing top REIT ETFs -- VNQ, SCHH, USRT -- with expense ratios, number of holdings, and dividend yields]
 
-**Sam:** How much of my portfolio should be in REITs?
+**Stella:** How much of my portfolio should be in REITs?
 
-**Alex:** Common recommendations range from 5% to 15%. Keep in mind that if you already own a total stock market index fund, you already have about 3-4% in REITs. A dedicated allocation would add to that.
+**Horace:** Common recommendations range from 5% to 15%. Keep in mind that if you already own a total stock market index fund, you already have about 3-4% in REITs. A dedicated allocation would add to that.
 
-**Sam:** And if I already own rental properties?
+**Stella:** And if I already own rental properties?
 
-**Alex:** Then you might want less REIT exposure to avoid being overweight in real estate. Your total real estate allocation -- direct plus REITs -- is what matters.
+**Horace:** Then you might want less REIT exposure to avoid being overweight in real estate. Your total real estate allocation -- direct plus REITs -- is what matters.
 
-**Sam:** One more thing -- I have seen ads for non-traded REITs. What are those about?
+**Stella:** One more thing -- I have seen ads for non-traded REITs. What are those about?
 
-**Alex:** Be very careful there. Non-traded REITs are not listed on stock exchanges. They often have high fees, limited liquidity -- meaning you cannot easily sell your shares -- and less transparency. The fact that you do not see daily price fluctuations does not mean they are less risky. It just means the risk is hidden.
+**Horace:** Be very careful there. Non-traded REITs are not listed on stock exchanges. They often have high fees, limited liquidity -- meaning you cannot easily sell your shares -- and less transparency. The fact that you do not see daily price fluctuations does not mean they are less risky. It just means the risk is hidden.
 
 [VISUAL: Warning icon with bullet points about non-traded REIT risks: high fees (7-10% upfront), illiquidity, lack of transparency, potential conflicts of interest]
 
-**Sam:** That sounds like a trap for unsophisticated investors.
+**Stella:** That sounds like a trap for unsophisticated investors.
 
-**Alex:** It can be. Stick with publicly traded REITs or REIT index funds. They offer better liquidity, lower fees, more transparency, and easier tax reporting.
+**Horace:** It can be. Stick with publicly traded REITs or REIT index funds. They offer better liquidity, lower fees, more transparency, and easier tax reporting.
 
-**Sam:** Before we wrap up, I want to ask about risk. Are there specific dangers with REITs that I should watch for?
+**Stella:** Before we wrap up, I want to ask about risk. Are there specific dangers with REITs that I should watch for?
 
-**Alex:** Absolutely. The biggest risk is leverage. REITs often use a lot of debt to buy properties. In good times, leverage amplifies returns. In bad times, it amplifies losses. During the 2008 crisis, heavily leveraged REITs were devastated -- some lost 80% or more of their value. Always check a REIT's debt-to-equity ratio before investing.
+**Horace:** Absolutely. The biggest risk is leverage. REITs often use a lot of debt to buy properties. In good times, leverage amplifies returns. In bad times, it amplifies losses. During the 2008 crisis, heavily leveraged REITs were devastated -- some lost 80% or more of their value. Always check a REIT's debt-to-equity ratio before investing.
 
 [VISUAL: Leverage amplification diagram. A REIT with 50% debt: property values rise 20%, equity rises 40% (amplified). Property values fall 20%, equity falls 40% (amplified the wrong way). High leverage makes both directions more extreme.]
 
-**Sam:** What about the risk that a specific property type becomes obsolete?
+**Stella:** What about the risk that a specific property type becomes obsolete?
 
-**Alex:** That is structural risk, and it is very real. Think about enclosed shopping malls. Twenty years ago, mall REITs were considered blue-chip investments. Then e-commerce reshaped retail, and many malls saw declining foot traffic, store closures, and falling rents. The COVID pandemic accelerated this trend. Similarly, traditional office REITs are now facing questions about remote work permanently reducing demand for office space.
+**Horace:** That is structural risk, and it is very real. Think about enclosed shopping malls. Twenty years ago, mall REITs were considered blue-chip investments. Then e-commerce reshaped retail, and many malls saw declining foot traffic, store closures, and falling rents. The COVID pandemic accelerated this trend. Similarly, traditional office REITs are now facing questions about remote work permanently reducing demand for office space.
 
-**Sam:** So sector selection within REITs matters a lot.
+**Stella:** So sector selection within REITs matters a lot.
 
-**Alex:** It matters enormously. Data center REITs and cell tower REITs have thrived because they are on the right side of technological trends. Enclosed mall REITs and some office REITs have struggled because they are on the wrong side. When you buy a broad REIT index fund, you get exposure to all sectors, which provides some protection. But if you pick individual REITs, you are making a bet on a specific property type's future.
+**Horace:** It matters enormously. Data center REITs and cell tower REITs have thrived because they are on the right side of technological trends. Enclosed mall REITs and some office REITs have struggled because they are on the wrong side. When you buy a broad REIT index fund, you get exposure to all sectors, which provides some protection. But if you pick individual REITs, you are making a bet on a specific property type's future.
 
-**Sam:** What about interest rates? We touched on this, but can you give a concrete example?
+**Stella:** What about interest rates? We touched on this, but can you give a concrete example?
 
-**Alex:** Sure. In 2022, the Federal Reserve raised interest rates aggressively -- from near zero to over 5% in about 18 months. During that period, the Vanguard Real Estate ETF (VNQ) fell about 26%. The mechanism is straightforward: higher rates make borrowing more expensive for REITs, and higher bond yields make REIT dividends less competitive. Investors selling REITs to buy suddenly attractive Treasury bonds pushed prices down.
+**Horace:** Sure. In 2022, the Federal Reserve raised interest rates aggressively -- from near zero to over 5% in about 18 months. During that period, the Vanguard Real Estate ETF (VNQ) fell about 26%. The mechanism is straightforward: higher rates make borrowing more expensive for REITs, and higher bond yields make REIT dividends less competitive. Investors selling REITs to buy suddenly attractive Treasury bonds pushed prices down.
 
 [ANIMATION: See-saw diagram. On one side: REIT dividend yield at 4%. On the other side: Treasury bond yield rising from 1% to 5%. As Treasury yields rise, the REIT side goes down because investors shift money to the "safer" option with now-comparable yield.]
 
-**Sam:** So REITs are essentially competing with bonds for income-seeking investors.
+**Stella:** So REITs are essentially competing with bonds for income-seeking investors.
 
-**Alex:** That is a useful way to think about it. When bonds yield 1%, a 4% REIT yield is very attractive. When bonds yield 5%, that same 4% REIT yield has to compete with a much safer alternative.
+**Horace:** That is a useful way to think about it. When bonds yield 1%, a 4% REIT yield is very attractive. When bonds yield 5%, that same 4% REIT yield has to compete with a much safer alternative.
 
-**Sam:** Let me summarize what I have learned. REITs let me invest in real estate without buying property. They must pay out 90% of income as dividends. There are equity REITs that own buildings and mortgage REITs that own loans. I should use FFO instead of P/E to value them. REIT dividends are taxed as ordinary income, so they are better held in tax-advantaged accounts. Leverage and interest rates are the biggest risk factors. Sector selection matters because different property types face different structural trends. And for most investors, a low-cost REIT index fund like VNQ is the simplest approach.
+**Stella:** Let me summarize what I have learned. REITs let me invest in real estate without buying property. They must pay out 90% of income as dividends. There are equity REITs that own buildings and mortgage REITs that own loans. I should use FFO instead of P/E to value them. REIT dividends are taxed as ordinary income, so they are better held in tax-advantaged accounts. Leverage and interest rates are the biggest risk factors. Sector selection matters because different property types face different structural trends. And for most investors, a low-cost REIT index fund like VNQ is the simplest approach.
 
-**Alex:** Perfect summary. REITs are not exotic or complicated -- they are simply another tool in the diversification toolkit. A modest allocation can add income and diversification to any portfolio.
+**Horace:** Perfect summary. REITs are not exotic or complicated -- they are simply another tool in the diversification toolkit. A modest allocation can add income and diversification to any portfolio.
 
 [ANIMATION: Final graphic showing a diversified portfolio pie chart with stocks, bonds, and a REIT slice highlighted, with text: "REITs: Diversification through real estate without the landlord headaches"]
 
-**Sam:** Thanks, Alex. Next time, we will look at something that affects every fund investor but often gets overlooked -- fees.
+**Stella:** Thanks, Horace. Next time, we will look at something that affects every fund investor but often gets overlooked -- fees.
 
-**Alex:** That is right. Understanding fees can literally save you hundreds of thousands of dollars over a lifetime. See you in the next lesson.
+**Horace:** That is right. Understanding fees can literally save you hundreds of thousands of dollars over a lifetime. See you in the next lesson.
 
 ---
 

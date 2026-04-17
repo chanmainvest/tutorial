@@ -696,213 +696,213 @@ A: Keep an investment journal. Before every trade, write down why you are making
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Title sequence with neural network visualization morphing into market chart patterns]
 
-**Alex:** Welcome back everyone. Today we are covering what I genuinely believe is the most important topic in this entire course. Not stocks, not bonds, not valuation -- your brain. Specifically, the ways your brain is systematically wired to make you a terrible investor.
+**Horace:** Welcome back everyone. Today we are covering what I genuinely believe is the most important topic in this entire course. Not stocks, not bonds, not valuation -- your brain. Specifically, the ways your brain is systematically wired to make you a terrible investor.
 
-**Sam:** That sounds dramatic, Alex. I mean, I think I make pretty rational decisions with my money.
+**Stella:** That sounds dramatic, Horace. I mean, I think I make pretty rational decisions with my money.
 
-**Alex:** And that belief -- that you are rational -- is actually the first trap. Let me ask you something. Imagine I offer you two choices. Choice A: I give you $500, guaranteed. Choice B: we flip a coin -- heads you get $1,000, tails you get nothing. Which do you pick?
+**Horace:** And that belief -- that you are rational -- is actually the first trap. Let me ask you something. Imagine I offer you two choices. Choice A: I give you $500, guaranteed. Choice B: we flip a coin -- heads you get $1,000, tails you get nothing. Which do you pick?
 
-**Sam:** The guaranteed $500. Easy. Why risk getting nothing?
+**Stella:** The guaranteed $500. Easy. Why risk getting nothing?
 
-**Alex:** Okay, now flip it. Choice A: you lose $500, guaranteed. Choice B: we flip a coin -- heads you lose $1,000, tails you lose nothing.
+**Horace:** Okay, now flip it. Choice A: you lose $500, guaranteed. Choice B: we flip a coin -- heads you lose $1,000, tails you lose nothing.
 
-**Sam:** Hmm... I think I would take the gamble. At least there is a chance I lose nothing.
+**Stella:** Hmm... I think I would take the gamble. At least there is a chance I lose nothing.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Coin flip visualization showing both scenarios with expected value calculations appearing beside each choice, both showing $500]
 
-**Alex:** And right there, you just demonstrated loss aversion, the most fundamental bias in all of behavioral finance. Both scenarios have the exact same expected value -- $500. But when it is a gain, you play it safe. When it is a loss, you gamble. You feel losses about twice as intensely as gains of the same size.
+**Horace:** And right there, you just demonstrated loss aversion, the most fundamental bias in all of behavioral finance. Both scenarios have the exact same expected value -- $500. But when it is a gain, you play it safe. When it is a loss, you gamble. You feel losses about twice as intensely as gains of the same size.
 
-**Sam:** Twice? That seems like a lot.
+**Stella:** Twice? That seems like a lot.
 
-**Alex:** It has been measured in hundreds of experiments. Daniel Kahneman and Amos Tversky proved this back in the 1970s, and Kahneman won the Nobel Prize in Economics for it. But here is the crucial thing -- this is not some quirky lab result. It has massive implications for your money.
+**Horace:** It has been measured in hundreds of experiments. Daniel Kahneman and Amos Tversky proved this back in the 1970s, and Kahneman won the Nobel Prize in Economics for it. But here is the crucial thing -- this is not some quirky lab result. It has massive implications for your money.
 
 [VISUAL: Split screen showing two investors -- one labeled "Rational" and one labeled "Emotional" -- facing the same market drop]
 
-**Sam:** How does loss aversion actually hurt me in the real world?
+**Stella:** How does loss aversion actually hurt me in the real world?
 
-**Alex:** Let me give you a concrete example. Say you own two stocks. Stock A is up 40% from where you bought it. Stock B is down 40%. You need cash and have to sell one. Which do you sell?
+**Horace:** Let me give you a concrete example. Say you own two stocks. Stock A is up 40% from where you bought it. Stock B is down 40%. You need cash and have to sell one. Which do you sell?
 
-**Sam:** I would probably sell Stock A. Lock in the gain.
+**Stella:** I would probably sell Stock A. Lock in the gain.
 
-**Alex:** And that is exactly what most investors do. It is called the disposition effect. You sell your winners and hold your losers. But research shows this is backwards. The stocks people sell tend to keep outperforming, and the stocks they hold tend to keep underperforming. One landmark study found a performance gap of over three percentage points per year.
+**Horace:** And that is exactly what most investors do. It is called the disposition effect. You sell your winners and hold your losers. But research shows this is backwards. The stocks people sell tend to keep outperforming, and the stocks they hold tend to keep underperforming. One landmark study found a performance gap of over three percentage points per year.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Portfolio visualization showing two paths: one where winners are sold and losers held (declining portfolio), another where decisions are based on forward analysis (growing portfolio)]
 
-**Sam:** So I should sell the losers instead?
+**Stella:** So I should sell the losers instead?
 
-**Alex:** Not automatically. You should sell whichever stock has the worse forward-looking prospects. The point is that your purchase price is irrelevant to that decision. But your brain treats it as the most important number in the world. That purchase price becomes an anchor.
+**Horace:** Not automatically. You should sell whichever stock has the worse forward-looking prospects. The point is that your purchase price is irrelevant to that decision. But your brain treats it as the most important number in the world. That purchase price becomes an anchor.
 
 [VISUAL: An anchor symbol chained to a stock price chart, dragging the investor's thinking down]
 
-**Sam:** Wait, anchoring -- that is another bias?
+**Stella:** Wait, anchoring -- that is another bias?
 
-**Alex:** It is. And it is everywhere. Let me show you a famous experiment. Researchers spun a wheel numbered 1 to 100 in front of participants. Then they asked an unrelated question: "What percentage of African countries are in the United Nations?" People who saw the wheel land on 10 guessed around 25%. People who saw the wheel land on 65 guessed around 45%. A completely random number influenced their estimate of a factual question.
+**Horace:** It is. And it is everywhere. Let me show you a famous experiment. Researchers spun a wheel numbered 1 to 100 in front of participants. Then they asked an unrelated question: "What percentage of African countries are in the United Nations?" People who saw the wheel land on 10 guessed around 25%. People who saw the wheel land on 65 guessed around 45%. A completely random number influenced their estimate of a factual question.
 
-**Sam:** That is absurd.
+**Stella:** That is absurd.
 
-**Alex:** It is absurd, and it happens in investing constantly. You buy a stock at $100. It drops to $60. Rationally, the only question is whether the company is worth $60 today based on its earnings, growth, and competitive position. But you are anchored to $100. You think "it is down 40%, it has to come back." The stock does not know what you paid for it. The stock does not owe you a recovery.
+**Horace:** It is absurd, and it happens in investing constantly. You buy a stock at $100. It drops to $60. Rationally, the only question is whether the company is worth $60 today based on its earnings, growth, and competitive position. But you are anchored to $100. You think "it is down 40%, it has to come back." The stock does not know what you paid for it. The stock does not owe you a recovery.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Price chart showing a stock dropping from $100 to $60, with a thought bubble showing the investor anchored to $100, versus a clean forward valuation analysis]
 
-**Sam:** Okay, that one hits home. I have definitely done that.
+**Stella:** Okay, that one hits home. I have definitely done that.
 
-**Alex:** Everyone has. Here is a debiasing trick for anchoring. Cover up the cost basis column in your brokerage account. Or ask yourself this: "If I had cash right now instead of this stock, would I buy it at today's price?" If the answer is no, you should probably sell, regardless of what you originally paid.
+**Horace:** Everyone has. Here is a debiasing trick for anchoring. Cover up the cost basis column in your brokerage account. Or ask yourself this: "If I had cash right now instead of this stock, would I buy it at today's price?" If the answer is no, you should probably sell, regardless of what you originally paid.
 
-**Sam:** That is a great mental trick. What is next?
+**Stella:** That is a great mental trick. What is next?
 
-**Alex:** Let us talk about overconfidence, which might be the most dangerous bias for active traders. Here is a stat that blows people's minds: when you ask a large group of people to rate their driving ability, 93% say they are above average.
+**Horace:** Let us talk about overconfidence, which might be the most dangerous bias for active traders. Here is a stat that blows people's minds: when you ask a large group of people to rate their driving ability, 93% say they are above average.
 
-**Sam:** But that is mathematically impossible.
+**Stella:** But that is mathematically impossible.
 
 [VISUAL: Bar chart showing 93% of people rating themselves "above average drivers" with a red line at 50% labeled "mathematical maximum"]
 
-**Alex:** Exactly. And the same thing happens in investing. Most people believe they can pick stocks better than the market, time entries and exits, and generate above-average returns. The data says otherwise. A study by Brad Barber and Terrance Odean looked at 66,000 brokerage accounts and found a clear pattern: the more people traded, the worse their returns.
+**Horace:** Exactly. And the same thing happens in investing. Most people believe they can pick stocks better than the market, time entries and exits, and generate above-average returns. The data says otherwise. A study by Brad Barber and Terrance Odean looked at 66,000 brokerage accounts and found a clear pattern: the more people traded, the worse their returns.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Animated bar chart building from low-turnover investors (highest returns) to highest-turnover investors (lowest returns), with the gap widening dramatically]
 
-**Sam:** How big was the difference?
+**Stella:** How big was the difference?
 
-**Alex:** The most active traders earned about 5.5% annually while the least active earned about 11.4%. That is nearly six percentage points per year, just from overtrading driven by overconfidence. Compounded over 30 years, the calm investor ends up with roughly three times as much money.
+**Horace:** The most active traders earned about 5.5% annually while the least active earned about 11.4%. That is nearly six percentage points per year, just from overtrading driven by overconfidence. Compounded over 30 years, the calm investor ends up with roughly three times as much money.
 
-**Sam:** Three times? Just from trading less?
+**Stella:** Three times? Just from trading less?
 
-**Alex:** Just from trading less. And here is the kicker -- the people who traded the most were the most confident in their abilities. Confidence and competence are barely correlated in investing. In fact, they might be negatively correlated because confident people take bigger bets and trade more frequently, both of which drag returns.
+**Horace:** Just from trading less. And here is the kicker -- the people who traded the most were the most confident in their abilities. Confidence and competence are barely correlated in investing. In fact, they might be negatively correlated because confident people take bigger bets and trade more frequently, both of which drag returns.
 
 [VISUAL: Two-axis chart showing "Confidence" on X-axis and "Returns" on Y-axis, with a slightly negative correlation line]
 
-**Sam:** So should you just never trade?
+**Stella:** So should you just never trade?
 
-**Alex:** For most people, infrequent trading is vastly better. The ideal for most individual investors is to set up a diversified portfolio, contribute automatically, rebalance periodically, and resist the urge to tinker. But the overconfidence bias makes you think you are the exception who can outperform. Ask yourself honestly: what do you know that millions of professional analysts, each with Bloomberg terminals and teams of researchers, do not?
+**Horace:** For most people, infrequent trading is vastly better. The ideal for most individual investors is to set up a diversified portfolio, contribute automatically, rebalance periodically, and resist the urge to tinker. But the overconfidence bias makes you think you are the exception who can outperform. Ask yourself honestly: what do you know that millions of professional analysts, each with Bloomberg terminals and teams of researchers, do not?
 
-**Sam:** When you put it that way...
+**Stella:** When you put it that way...
 
-**Alex:** Right. Now let us talk about one of my personal favorites -- herd mentality.
+**Horace:** Right. Now let us talk about one of my personal favorites -- herd mentality.
 
 [VISUAL: Animation of sheep walking off a cliff, transitioning to investors crowding into a single stock]
 
-**Sam:** This is the "follow the crowd" thing?
+**Stella:** This is the "follow the crowd" thing?
 
-**Alex:** Exactly. And it is an evolutionary instinct. In prehistoric times, if your tribe started running, you ran too. Stopping to think might get you eaten by a lion. The problem is that this instinct does not work in financial markets. In markets, the crowd is most dangerous at the extremes.
+**Horace:** Exactly. And it is an evolutionary instinct. In prehistoric times, if your tribe started running, you ran too. Stopping to think might get you eaten by a lion. The problem is that this instinct does not work in financial markets. In markets, the crowd is most dangerous at the extremes.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Market cycle emotion wheel showing euphoria at the top (crowd buying) and capitulation at the bottom (crowd selling), with "Smart Money" arrows pointing in the opposite direction at each extreme]
 
-**Alex:** Think about the biggest investment bubbles in history. Dutch tulips in 1637. The South Sea Company in 1720. The dot-com bubble in 2000. The housing bubble in 2008. Every single one followed the same pattern. A few early investors made money. Word spread. More people piled in. Prices rose further, which attracted even more people. Eventually, everyone was buying not because of fundamentals but because everyone else was buying.
+**Horace:** Think about the biggest investment bubbles in history. Dutch tulips in 1637. The South Sea Company in 1720. The dot-com bubble in 2000. The housing bubble in 2008. Every single one followed the same pattern. A few early investors made money. Word spread. More people piled in. Prices rose further, which attracted even more people. Eventually, everyone was buying not because of fundamentals but because everyone else was buying.
 
-**Sam:** And then it crashes.
+**Stella:** And then it crashes.
 
-**Alex:** And then it crashes. But here is the thing -- during the bubble, anyone who warned about overvaluation was mocked. During the dot-com bubble, people quit their jobs to day trade. During the housing bubble, taxi drivers were flipping houses. That is not a sign of a healthy market -- that is herd mentality at its most extreme.
+**Horace:** And then it crashes. But here is the thing -- during the bubble, anyone who warned about overvaluation was mocked. During the dot-com bubble, people quit their jobs to day trade. During the housing bubble, taxi drivers were flipping houses. That is not a sign of a healthy market -- that is herd mentality at its most extreme.
 
-**Sam:** How do you fight herd mentality?
+**Stella:** How do you fight herd mentality?
 
-**Alex:** Warren Buffett said it best: "Be fearful when others are greedy, and greedy when others are fearful." But that is incredibly hard in practice because social pressure is real. When your coworkers, your neighbors, your social media feed are all showing off gains from the hot investment, the pressure to join is enormous.
+**Horace:** Warren Buffett said it best: "Be fearful when others are greedy, and greedy when others are fearful." But that is incredibly hard in practice because social pressure is real. When your coworkers, your neighbors, your social media feed are all showing off gains from the hot investment, the pressure to join is enormous.
 
 [VISUAL: Social media feed mockup showing friends posting investment gains, with FOMO meter rising on the side]
 
-**Alex:** My concrete advice: develop your own research process and trust it. When the crowd disagrees with your analysis, check your work, but do not automatically defer to the herd. The crowd is often right in the middle of a trend but almost always wrong at the extremes.
+**Horace:** My concrete advice: develop your own research process and trust it. When the crowd disagrees with your analysis, check your work, but do not automatically defer to the herd. The crowd is often right in the middle of a trend but almost always wrong at the extremes.
 
-**Sam:** What about confirmation bias? I have heard that term a lot.
+**Stella:** What about confirmation bias? I have heard that term a lot.
 
-**Alex:** Confirmation bias is sneaky because it disguises itself as research. It is the tendency to seek out information that supports what you already believe and ignore information that contradicts it.
+**Horace:** Confirmation bias is sneaky because it disguises itself as research. It is the tendency to seek out information that supports what you already believe and ignore information that contradicts it.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Split screen showing "Biased Research" (only reading bullish articles, skipping warnings) versus "Balanced Research" (reading both bull and bear cases, stress-testing assumptions)]
 
-**Alex:** Say you are excited about a stock. You read three bullish analyst reports, join the stock's fan forum online, watch a YouTube video from someone who is also bullish. You feel great -- everything confirms your thesis! But you skipped the two bearish reports, you ignored the declining margins in the latest quarterly filing, and you dismissed the competitor that is eating into the company's market share.
+**Horace:** Say you are excited about a stock. You read three bullish analyst reports, join the stock's fan forum online, watch a YouTube video from someone who is also bullish. You feel great -- everything confirms your thesis! But you skipped the two bearish reports, you ignored the declining margins in the latest quarterly filing, and you dismissed the competitor that is eating into the company's market share.
 
-**Sam:** So how do you fight it? It is natural to look for information that agrees with you.
+**Stella:** So how do you fight it? It is natural to look for information that agrees with you.
 
-**Alex:** The best technique is called "steel-manning the opposition." For every investment, force yourself to write down the three strongest arguments against it. Not weak straw-man arguments -- the genuine best case for why this investment might fail. If your thesis still holds after you have honestly engaged with the bear case, your conviction is well-founded. If the bear case is stronger than you expected, you just avoided a bad investment.
+**Horace:** The best technique is called "steel-manning the opposition." For every investment, force yourself to write down the three strongest arguments against it. Not weak straw-man arguments -- the genuine best case for why this investment might fail. If your thesis still holds after you have honestly engaged with the bear case, your conviction is well-founded. If the bear case is stronger than you expected, you just avoided a bad investment.
 
 [VISUAL: Notepad graphic showing "Bull Case" on left and "Bear Case" on right, with the investor circling the stronger arguments from each side]
 
-**Alex:** Another technique: actively seek out the smartest person who disagrees with you. Read their analysis carefully. If you cannot refute their points, you might be wrong.
+**Horace:** Another technique: actively seek out the smartest person who disagrees with you. Read their analysis carefully. If you cannot refute their points, you might be wrong.
 
-**Sam:** Okay, what about recency bias?
+**Stella:** Okay, what about recency bias?
 
-**Alex:** Recency bias is why people pile into the market after it has gone up and flee after it has gone down -- the exact opposite of buy low, sell high. Your brain overweights recent experience and projects it into the future.
+**Horace:** Recency bias is why people pile into the market after it has gone up and flee after it has gone down -- the exact opposite of buy low, sell high. Your brain overweights recent experience and projects it into the future.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Timeline showing market returns decade by decade, with "investor sentiment" overlaid showing high optimism after good decades and pessimism after bad ones, always lagging reality]
 
-**Alex:** After the 2008 financial crisis, surveys showed that ordinary investors expected near-zero returns for the next decade. In reality, the S&P 500 roughly tripled from its 2009 low over the next decade. After the incredible bull run of 2012 through 2021, surveys showed investors expecting 15-20% annual returns going forward. Those expectations were almost certainly too high. In both cases, recent experience was a terrible predictor of the future.
+**Horace:** After the 2008 financial crisis, surveys showed that ordinary investors expected near-zero returns for the next decade. In reality, the S&P 500 roughly tripled from its 2009 low over the next decade. After the incredible bull run of 2012 through 2021, surveys showed investors expecting 15-20% annual returns going forward. Those expectations were almost certainly too high. In both cases, recent experience was a terrible predictor of the future.
 
-**Sam:** So the recent past is misleading?
+**Stella:** So the recent past is misleading?
 
-**Alex:** The recent past is one data point in a much longer history. The stock market has data going back over 100 years. Over that time, the average annual return has been about 10% nominal, 7% real. There have been terrible decades and incredible decades. Recency bias makes you think the current trend is permanent, but the historical base rate is the better guide.
+**Horace:** The recent past is one data point in a much longer history. The stock market has data going back over 100 years. Over that time, the average annual return has been about 10% nominal, 7% real. There have been terrible decades and incredible decades. Recency bias makes you think the current trend is permanent, but the historical base rate is the better guide.
 
 [VISUAL: 100-year S&P 500 chart with rolling 10-year returns highlighted, showing enormous variation but a consistent long-term upward trend]
 
-**Sam:** This is a lot of biases. I am starting to feel like it is hopeless -- how can you invest if your brain is working against you?
+**Stella:** This is a lot of biases. I am starting to feel like it is hopeless -- how can you invest if your brain is working against you?
 
-**Alex:** Great question, and I do not want to leave you feeling defeated. Here is the good news: you do not have to fix your brain. You just need to build systems that protect you from it. I call this the bias defense system.
+**Horace:** Great question, and I do not want to leave you feeling defeated. Here is the good news: you do not have to fix your brain. You just need to build systems that protect you from it. I call this the bias defense system.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Five-layer defense system building up like a fortress, each layer adding protection: Awareness, Rules, Friction, Accountability, Automation]
 
-**Alex:** Layer one: awareness. You are building that right now. Know the biases, keep a checklist, scan it before every investment decision. Layer two: rules-based investing. Write down your investment criteria before you buy anything. "I will only buy stocks with a P/E below 20 and debt-to-equity below 0.5" -- whatever your criteria are, write them down. This engages System 2 thinking.
+**Horace:** Layer one: awareness. You are building that right now. Know the biases, keep a checklist, scan it before every investment decision. Layer two: rules-based investing. Write down your investment criteria before you buy anything. "I will only buy stocks with a P/E below 20 and debt-to-equity below 0.5" -- whatever your criteria are, write them down. This engages System 2 thinking.
 
-**Sam:** System 2?
+**Stella:** System 2?
 
-**Alex:** Right -- Daniel Kahneman describes two thinking systems. System 1 is fast, automatic, emotional. It is the one that says "the stock crashed, sell everything!" System 2 is slow, deliberate, analytical. It says "let me calculate the valuation and check if anything fundamental changed." Most bad investment decisions happen because System 1 hijacks the decision before System 2 can engage.
+**Horace:** Right -- Daniel Kahneman describes two thinking systems. System 1 is fast, automatic, emotional. It is the one that says "the stock crashed, sell everything!" System 2 is slow, deliberate, analytical. It says "let me calculate the valuation and check if anything fundamental changed." Most bad investment decisions happen because System 1 hijacks the decision before System 2 can engage.
 
 [VISUAL: Two brain diagrams side by side -- System 1 (lightning bolt, emotional face) and System 2 (calculator, thoughtful face)]
 
-**Alex:** Layer three: add friction. Make it hard to act on impulse. Implement a 48-hour cooling-off period before any trade. Delete trading apps from your phone. The more friction between your impulse and the execution, the more time System 2 has to intervene.
+**Horace:** Layer three: add friction. Make it hard to act on impulse. Implement a 48-hour cooling-off period before any trade. Delete trading apps from your phone. The more friction between your impulse and the execution, the more time System 2 has to intervene.
 
-**Sam:** Delete the trading app? That seems extreme.
+**Stella:** Delete the trading app? That seems extreme.
 
-**Alex:** The best investors I know check their portfolios monthly, not daily. Here is why: if you check daily, you see your portfolio losing money roughly 46% of trading days, because daily volatility is high even in bull markets. Each time you see a loss, loss aversion triggers an urge to sell. Check annually, and you only see losses about 15% of the time. Less exposure to short-term noise means fewer emotional triggers.
+**Horace:** The best investors I know check their portfolios monthly, not daily. Here is why: if you check daily, you see your portfolio losing money roughly 46% of trading days, because daily volatility is high even in bull markets. Each time you see a loss, loss aversion triggers an urge to sell. Check annually, and you only see losses about 15% of the time. Less exposure to short-term noise means fewer emotional triggers.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Side-by-side simulations: one investor checking daily (stress meter maxed out, multiple panic trades) versus one checking monthly (calm, stays the course), both ending at the same destination but the daily checker with lower returns due to bad trades]
 
-**Sam:** That is a really compelling argument. What are layers four and five?
+**Stella:** That is a really compelling argument. What are layers four and five?
 
-**Alex:** Layer four is accountability. The most powerful tool here is an investment journal. Before every trade, write down why you are doing it, what would make you wrong, and which biases might be affecting you. Then review the journal quarterly. When you look back at your decisions, patterns emerge. You will see that you consistently sell too early, or that you always buy after reading positive news, or that your best decisions were the ones you almost did not make.
+**Horace:** Layer four is accountability. The most powerful tool here is an investment journal. Before every trade, write down why you are doing it, what would make you wrong, and which biases might be affecting you. Then review the journal quarterly. When you look back at your decisions, patterns emerge. You will see that you consistently sell too early, or that you always buy after reading positive news, or that your best decisions were the ones you almost did not make.
 
 [VISUAL: Investment journal mockup with entries showing the date, action, reasoning, bias check, and a later review section]
 
-**Sam:** That sounds really useful. I am going to start one.
+**Stella:** That sounds really useful. I am going to start one.
 
-**Alex:** Do it. It costs nothing and takes five minutes per trade. Layer five is the ultimate defense: automation. Use index funds so you never have to pick stocks. Set up automatic contributions so you never have to decide when to invest. Enable automatic rebalancing so you never have to decide what to sell. The best defense against behavioral biases is removing the human from the decision loop.
+**Horace:** Do it. It costs nothing and takes five minutes per trade. Layer five is the ultimate defense: automation. Use index funds so you never have to pick stocks. Set up automatic contributions so you never have to decide when to invest. Enable automatic rebalancing so you never have to decide what to sell. The best defense against behavioral biases is removing the human from the decision loop.
 
-**Sam:** But does not that take all the fun out of investing?
+**Stella:** But does not that take all the fun out of investing?
 
-**Alex:** Here is a framework. Take 90% of your portfolio and automate it completely -- index funds, automatic contributions, automatic rebalancing. Boring, disciplined, effective. Then take the remaining 10% as "play money." Use that to scratch the itch of stock picking, trying new strategies, following your hunches. If you are right, you make a little extra. If you are wrong, you have only risked 10%. The 90% protects you from the biases that the 10% lets you indulge.
+**Horace:** Here is a framework. Take 90% of your portfolio and automate it completely -- index funds, automatic contributions, automatic rebalancing. Boring, disciplined, effective. Then take the remaining 10% as "play money." Use that to scratch the itch of stock picking, trying new strategies, following your hunches. If you are right, you make a little extra. If you are wrong, you have only risked 10%. The 90% protects you from the biases that the 10% lets you indulge.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Pie chart splitting into 90% "Core" (automated index funds) and 10% "Satellite" (active picks), with a shield icon on the core and a play button on the satellite]
 
-**Sam:** I love that. It is like having your cake and eating it too.
+**Stella:** I love that. It is like having your cake and eating it too.
 
-**Alex:** Exactly. Now, let me show you how biases interact, because in the real world they do not operate in isolation. They create dangerous feedback loops.
+**Horace:** Exactly. Now, let me show you how biases interact, because in the real world they do not operate in isolation. They create dangerous feedback loops.
 
 [VISUAL: Diagram showing bias interaction map with arrows connecting herd mentality to overconfidence to confirmation bias to recency bias, all feeding into a central "bad decision" node]
 
-**Alex:** Here is how a typical bubble works through the lens of biases. Phase one: prices start rising for legitimate reasons. Phase two: recency bias kicks in -- "prices have been going up, so they will keep going up." Phase three: herd mentality attracts more buyers. Phase four: confirmation bias filters out any warning signs -- "this time it is different." Phase five: overconfidence peaks -- "I am a genius." Phase six: the music stops. Prices drop. Phase seven: anchoring to the peak price prevents selling -- "it will come back to where it was." Phase eight: loss aversion deepens the paralysis. Phase nine: panic selling at the bottom. Phase ten: recency bias again -- "I am never investing again."
+**Horace:** Here is how a typical bubble works through the lens of biases. Phase one: prices start rising for legitimate reasons. Phase two: recency bias kicks in -- "prices have been going up, so they will keep going up." Phase three: herd mentality attracts more buyers. Phase four: confirmation bias filters out any warning signs -- "this time it is different." Phase five: overconfidence peaks -- "I am a genius." Phase six: the music stops. Prices drop. Phase seven: anchoring to the peak price prevents selling -- "it will come back to where it was." Phase eight: loss aversion deepens the paralysis. Phase nine: panic selling at the bottom. Phase ten: recency bias again -- "I am never investing again."
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Full bubble cycle animation showing each phase with the corresponding bias highlighted, price chart in the background rising and crashing, with stick-figure investors showing the emotional state at each phase]
 
-**Sam:** That is the history of every bubble ever, is it not?
+**Stella:** That is the history of every bubble ever, is it not?
 
-**Alex:** Tulips in 1637, the South Sea in 1720, railroads in the 1840s, the Roaring Twenties, dot-com, housing, crypto -- same pattern, same biases, different assets. The assets change, but the human psychology does not. That is why studying behavioral biases is not just academic -- it is the most practical thing you can do for your portfolio.
+**Horace:** Tulips in 1637, the South Sea in 1720, railroads in the 1840s, the Roaring Twenties, dot-com, housing, crypto -- same pattern, same biases, different assets. The assets change, but the human psychology does not. That is why studying behavioral biases is not just academic -- it is the most practical thing you can do for your portfolio.
 
-**Sam:** Okay, let me see if I can summarize what we covered. Loss aversion makes losses hurt twice as much as gains feel good, which makes us hold losers and sell winners. Overconfidence makes us trade too much and take too many risks. Anchoring chains us to irrelevant numbers, especially purchase prices. Herd mentality makes us buy at tops and sell at bottoms. Confirmation bias makes us only see evidence that supports what we already believe. Recency bias makes us project the recent past into the future. And the disposition effect combines several of these to systematically keep our worst stocks and sell our best ones.
+**Stella:** Okay, let me see if I can summarize what we covered. Loss aversion makes losses hurt twice as much as gains feel good, which makes us hold losers and sell winners. Overconfidence makes us trade too much and take too many risks. Anchoring chains us to irrelevant numbers, especially purchase prices. Herd mentality makes us buy at tops and sell at bottoms. Confirmation bias makes us only see evidence that supports what we already believe. Recency bias makes us project the recent past into the future. And the disposition effect combines several of these to systematically keep our worst stocks and sell our best ones.
 
-[VISUAL: Checklist appearing as Sam names each bias, with a check mark for each one]
+[VISUAL: Checklist appearing as Stella names each bias, with a check mark for each one]
 
-**Alex:** Perfect summary. And the defenses are awareness, rules, friction, accountability, and automation. Build systems that protect you from yourself. The goal is not to be a perfectly rational robot -- that is impossible. The goal is to create an environment where your biases do the least damage.
+**Horace:** Perfect summary. And the defenses are awareness, rules, friction, accountability, and automation. Build systems that protect you from yourself. The goal is not to be a perfectly rational robot -- that is impossible. The goal is to create an environment where your biases do the least damage.
 
-**Sam:** One last question. You study these biases for a living. Do you still fall victim to them?
+**Stella:** One last question. You study these biases for a living. Do you still fall victim to them?
 
-**Alex:** Every single day. Last month I held a position two weeks longer than I should have because I was anchored to my purchase price. I caught it, wrote about it in my journal, and adjusted. But the urge was real. The biases never go away -- you just get better at recognizing them and acting despite them, not because of them.
+**Horace:** Every single day. Last month I held a position two weeks longer than I should have because I was anchored to my purchase price. I caught it, wrote about it in my journal, and adjusted. But the urge was real. The biases never go away -- you just get better at recognizing them and acting despite them, not because of them.
 
-[VISUAL: Investment journal entry showing Alex's real-world anchoring example]
+[VISUAL: Investment journal entry showing Horace's real-world anchoring example]
 
-**Sam:** That is actually reassuring. It is not about being perfect, it is about having a process.
+**Stella:** That is actually reassuring. It is not about being perfect, it is about having a process.
 
-**Alex:** Exactly. Markets will test you. Your brain will betray you. But if you have systems, rules, and awareness, you will come out ahead over the long run. And that is what investing is -- a long-run game.
+**Horace:** Exactly. Markets will test you. Your brain will betray you. But if you have systems, rules, and awareness, you will come out ahead over the long run. And that is what investing is -- a long-run game.
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Closing animation showing two paths: "Biased Investor" (zigzagging, panic-buying, panic-selling) versus "System-Protected Investor" (steady, consistent, calm), both starting at the same point but diverging dramatically over 30 years]
 
-**Sam:** Thanks Alex. I am going to start my investment journal tonight and set up that 48-hour cooling-off rule.
+**Stella:** Thanks Horace. I am going to start my investment journal tonight and set up that 48-hour cooling-off rule.
 
-**Alex:** That is the best homework assignment in this course. Do those two things and you are already ahead of 90% of investors. See everyone next week when we take everything we have learned and build our first portfolio from scratch.
+**Horace:** That is the best homework assignment in this course. Do those two things and you are already ahead of 90% of investors. See everyone next week when we take everything we have learned and build our first portfolio from scratch.
 
 [VISUAL: End screen with key takeaways:
 1. Your brain has systematic biases that hurt investment returns
@@ -913,7 +913,7 @@ A: Keep an investment journal. Before every trade, write down why you are making
 
 [ANIMATION: animation/week11_behavioral_biases.py -- Final animation: bias defense fortress with five labeled layers, camera zooming out to reveal a calm, steadily growing portfolio inside]
 
-**Alex:** If you found this helpful, like, subscribe, and share with someone who needs to hear it. Next week is the big one -- we are building your first portfolio. See you then.
+**Horace:** If you found this helpful, like, subscribe, and share with someone who needs to hear it. Next week is the big one -- we are building your first portfolio. See you then.
 
 [VISUAL: End card with subscribe button and link to next week's lesson]
 

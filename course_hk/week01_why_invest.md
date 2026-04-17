@@ -1,141 +1,115 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第一週：為何要投資？貨幣的時間價值
 
-# Week 1: Why Invest? The Time Value of Money
-
-Animation reference: `animation/week01_compound_growth.py`
+動畫參考：`animation/week01_compound_growth.py`
 
 ---
 
-## Part 1: Reading Section
+## 第一部分：閱讀章節
 
 ---
 
-### a) Why This Is Important
+### a) 為何這至關重要
 
-Money sitting idle is money losing value. Every single day, inflation chips away at
-the purchasing power of cash stuffed under a mattress or parked in a zero-interest
-checking account. Understanding *why* you need to invest is not just a financial
-skill -- it is a survival skill in a modern economy.
+閒置的錢就是正在貶值的錢。每一天，通脹都在蠶食現金的購買力——無論是藏在床墊下，還是放在零利率的往來帳戶裡。明白*為何*需要投資，不只是一項財務技能——在現代經濟中，這更是生存技能。
 
-Consider this: in 1990, a cup of coffee cost about $0.75. By 2025, that same cup
-costs $5.00 or more. The coffee did not become six times better. Your dollar became
-six times weaker. That is inflation at work, and it never stops.
+想想看：1990年，一杯咖啡大約需要0.75美元。到了2025年，同一杯咖啡已要5.00美元甚至更多。咖啡並沒有變好六倍，而是你的一美元變弱了六倍。這就是通脹在發揮作用，而且它從不停歇。
 
-The time value of money (TVM) is the foundational principle of all finance. It states
-that a dollar today is worth more than a dollar tomorrow. This is true for three
-reasons:
+貨幣的時間價值（TVM）是所有金融的基礎原則。它指出：今天的一美元比明天的一美元更有價值。這一點成立，基於三個原因：
 
-1. **Inflation** -- prices rise over time, so future dollars buy less.
-2. **Opportunity cost** -- money available now can be invested to earn returns.
-3. **Risk** -- a promised future payment may never arrive.
+1. **通脹** — 物價隨時間上漲，因此未來的貨幣購買力更弱。
+2. **機會成本** — 現有的錢可以立即投資以賺取回報。
+3. **風險** — 承諾的未來款項可能永遠不會兌現。
 
-If you understand TVM, you understand why investing is not optional. It is the only
-way to ensure your wealth grows faster than the economy erodes it.
+如果你理解了貨幣的時間價值，你就明白投資並非可選項。這是確保你的財富增速超越經濟侵蝕速度的唯一方法。
 
-Here is a stark comparison:
+以下是一個鮮明的對比：
 
 ```
-  Person A: Saves $10,000/year in a bank account (0.5% interest)
-  Person B: Invests $10,000/year in the stock market (avg 10% return)
+  甲：每年將10,000美元存入銀行帳戶（利率0.5%）
+  乙：每年將10,000美元投資於股票市場（平均回報10%）
 
-  After 30 years:
+  30年後：
   +-----------+----------------+----------------+
-  |           |   Person A     |   Person B     |
+  |           |       甲       |       乙       |
   +-----------+----------------+----------------+
-  | Deposited |   $300,000     |   $300,000     |
-  | Value     |   $323,705     | $1,809,434     |
-  | Growth    |    $23,705     | $1,509,434     |
+  | 存入金額  |   $300,000     |   $300,000     |
+  | 最終價值  |   $323,705     | $1,809,434     |
+  | 增長      |    $23,705     | $1,509,434     |
   +-----------+----------------+----------------+
 ```
 
-Person B has over five times the wealth, despite contributing the exact same amount.
-The difference is entirely due to the time value of money and compound growth.
+乙的財富超過甲的五倍，但兩人的存入金額完全相同。這個差異完全來自貨幣的時間價值與複利增長。
 
-Every year you delay investing is a year of compounding you can never get back.
-A 25-year-old who invests $5,000 per year until age 65 at 10% average returns
-will have approximately $2.4 million. If that same person waits until age 35 to
-start, they will have roughly $900,000 -- less than half, despite only missing
-10 years of contributions. The math is unforgiving.
+每一年推遲投資，就是永遠失去一年的複利累積。一個25歲開始、每年投資5,000美元、以平均10%回報投資至65歲的人，最終將擁有約240萬美元。如果同一個人等到35歲才開始，最終大約只有90萬美元——不足前者的一半，儘管只少了10年的供款。這道數學題毫不留情。
 
-This week's lesson gives you the conceptual foundation for everything that follows
-in this course. Master these ideas, and every future topic will make more sense.
+本週的課程為整個課程奠定概念基礎。掌握這些理念，日後的每個主題都會更容易理解。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. Inflation: The Silent Wealth Destroyer
+#### 1. 通脹：無聲的財富殺手
 
-Inflation is the general increase in prices over time. Central banks (like the
-Federal Reserve in the US) target about 2% annual inflation, but actual inflation
-can vary widely.
+通脹是物價隨時間普遍上漲的現象。各地央行（如美國的美聯儲）的目標通脹率約為每年2%，但實際通脹率可大幅波動。
 
 ```
-  The Inflation Effect on $100 Over Time
-  (assuming 3% annual inflation)
+  $100在通脹影響下的購買力變化
+  （假設年通脹率3%）
 
-  Year 0:   $100.00  |========================|  100% purchasing power
-  Year 10:   $74.41  |==================      |   74%
-  Year 20:   $55.37  |==============          |   55%
-  Year 30:   $41.20  |==========              |   41%
-  Year 40:   $30.66  |========                |   31%
-  Year 50:   $22.81  |======                  |   23%
+  第0年：  $100.00  |========================|  100%購買力
+  第10年：  $74.41  |==================      |   74%
+  第20年：  $55.37  |==============          |   55%
+  第30年：  $41.20  |==========              |   41%
+  第40年：  $30.66  |========                |   31%
+  第50年：  $22.81  |======                  |   23%
 ```
 
-At 3% inflation, your money loses nearly half its purchasing power in just 23 years.
-This is called the "real" value of money -- what it can actually buy, as opposed to
-the "nominal" value (the number printed on the bill).
+在3%通脹率下，你的金錢在短短23年內就失去近一半的購買力。這稱為金錢的「實際」價值——即它實際能購買的東西——有別於「名義」價值（即紙幣上印的數字）。
 
-**How inflation is measured:**
+**通脹的衡量方式：**
 
-- **CPI (Consumer Price Index)** -- tracks the cost of a "basket" of goods and
-  services that a typical household purchases (food, housing, transportation, etc.)
-- **PCE (Personal Consumption Expenditures)** -- the Federal Reserve's preferred
-  measure; broader than CPI.
-- **Core inflation** -- excludes volatile food and energy prices to show underlying
-  trends.
+- **消費物價指數（CPI）** — 追蹤普通家庭購買的一籃子商品及服務的成本（包括食品、住房、交通等）。
+- **個人消費支出（PCE）** — 美聯儲偏好的衡量指標，涵蓋範圍比消費物價指數更廣。
+- **核心通脹** — 排除波動較大的食品及能源價格，以反映潛在趨勢。
 
-**Historical US inflation rates (approximate averages):**
+**美國歷史通脹率（約數）：**
 
 ```
   +----------------+-------------------+
-  |    Period       | Avg Annual CPI   |
+  |    時期        |  年均消費物價指數  |
   +----------------+-------------------+
-  | 1930-1940      |     -2.0%        |
-  | 1940-1950      |     +5.6%        |
-  | 1950-1970      |     +2.3%        |
-  | 1970-1980      |     +7.8%        |
-  | 1980-2000      |     +3.8%        |
-  | 2000-2020      |     +2.1%        |
-  | 2020-2025      |     +4.8%        |
+  | 1930-1940年    |     -2.0%         |
+  | 1940-1950年    |     +5.6%         |
+  | 1950-1970年    |     +2.3%         |
+  | 1970-1980年    |     +7.8%         |
+  | 1980-2000年    |     +3.8%         |
+  | 2000-2020年    |     +2.1%         |
+  | 2020-2025年    |     +4.8%         |
   +----------------+-------------------+
 ```
 
-Notice how inflation spiked in the 1970s (oil crises) and again in the early 2020s
-(pandemic supply shocks). These spikes can devastate purchasing power rapidly.
+留意通脹如何在1970年代（石油危機）及2020年代初（疫情供應衝擊）急劇攀升。這些通脹飆升可迅速摧毀購買力。
 
-#### 2. Compound Interest: The Eighth Wonder of the World
+#### 2. 複利：世界第八大奇蹟
 
-Compound interest means you earn interest on your interest. It is the single most
-powerful force in personal finance.
+複利意味著你能在利息上賺取利息。這是個人理財中最強大的力量。
 
-**The compound interest formula:**
+**複利公式：**
 
 ```
   FV = PV x (1 + r)^n
 
-  Where:
-    FV = Future Value (what your money grows to)
-    PV = Present Value (what you start with)
-    r  = interest rate per period (as a decimal)
-    n  = number of periods
+  其中：
+    FV = 終值（你的錢最終增長至的金額）
+    PV = 現值（你的起始本金）
+    r  = 每期利率（以小數表示）
+    n  = 期數
 ```
 
-**Example: $1,000 at 8% annual return**
+**示例：$1,000以8%年回報計算**
 
 ```
-  Year  |  Starting  |  Interest  |  Ending
+  年份  |   期初      |   利息     |   期末
   ------+------------+------------+----------
     1   |  $1,000.00 |    $80.00  |  $1,080.00
     2   |  $1,080.00 |    $86.40  |  $1,166.40
@@ -147,15 +121,14 @@ powerful force in personal finance.
    40   | $20,106.85 | $1,608.55  | $21,715.40
 ```
 
-Notice how the interest earned in year 40 ($1,608) is more than the original
-investment ($1,000). That is compounding at work.
+留意第40年賺取的利息（$1,608）已超過原始投資金額（$1,000）。這就是複利在發揮作用。
 
-**Visualizing compound vs. simple interest:**
+**複利與單利的視覺化比較：**
 
 ```
-  Value ($)
+  價值（$）
   |
-  |                                              * Compound (8%)
+  |                                              * 複利（8%）
   |                                         *
   |                                     *
   |                                 *
@@ -163,7 +136,7 @@ investment ($1,000). That is compounding at work.
   |                         *
   |                     *
   |                  *
-  |               *          ___-----  Simple (8%)
+  |               *          ___-----  單利（8%）
   |            *    ___-----
   |         * ___---
   |       *--
@@ -172,205 +145,182 @@ investment ($1,000). That is compounding at work.
   |  *
   | *
   |*___________________________________________
-  0    5    10    15    20    25    30    Years
+  0    5    10    15    20    25    30    年
 ```
 
-With simple interest, you earn 8% of the original $1,000 every year ($80/year).
-With compound interest, you earn 8% of the *current* balance, which grows each year.
-Over long periods, the gap becomes enormous.
+以單利計算，每年賺取原始$1,000的8%（即每年$80）。以複利計算，每年賺取*當前*結餘的8%，而結餘每年都在增加。長期而言，兩者的差距變得極為懸殊。
 
-**The compounding frequency matters too:**
+**計息頻率同樣重要：**
 
 ```
-  $10,000 at 12% for 10 years, different compounding frequencies:
+  $10,000以12%計算10年，不同計息頻率的比較：
 
   +----------------+--------------+
-  | Compounding    | Final Value  |
+  | 計息頻率       |  最終價值    |
   +----------------+--------------+
-  | Annually       | $31,058.48   |
-  | Semi-annually  | $32,071.35   |
-  | Quarterly      | $32,620.38   |
-  | Monthly        | $33,003.87   |
-  | Daily          | $33,194.62   |
-  | Continuously   | $33,201.17   |
+  | 每年           | $31,058.48   |
+  | 每半年         | $32,071.35   |
+  | 每季           | $32,620.38   |
+  | 每月           | $33,003.87   |
+  | 每日           | $33,194.62   |
+  | 連續           | $33,201.17   |
   +----------------+--------------+
 ```
 
-More frequent compounding produces higher returns, but the difference diminishes.
-The jump from annual to monthly is significant; from daily to continuous, negligible.
+計息頻率越高，回報越高，但差距會逐漸縮小。從每年到每月的提升相當顯著；而從每日到連續計息，差別則微乎其微。
 
-#### 3. The Rule of 72
+#### 3. 72法則
 
-The Rule of 72 is a mental shortcut for estimating how long it takes to double
-your money:
+72法則是估算資金翻倍所需時間的心算捷徑：
 
 ```
-  Years to double = 72 / annual return rate (%)
+  翻倍年數 = 72 / 年回報率（%）
 
-  Examples:
+  示例：
   +--------+-----------------------+
-  | Return |  Years to Double      |
+  | 回報率 |  翻倍年數              |
   +--------+-----------------------+
-  |   2%   |  72 / 2  = 36 years   |
-  |   4%   |  72 / 4  = 18 years   |
-  |   6%   |  72 / 6  = 12 years   |
-  |   8%   |  72 / 8  =  9 years   |
-  |  10%   |  72 / 10 =  7.2 years |
-  |  12%   |  72 / 12 =  6 years   |
+  |   2%   |  72 / 2  = 36年       |
+  |   4%   |  72 / 4  = 18年       |
+  |   6%   |  72 / 6  = 12年       |
+  |   8%   |  72 / 8  =  9年       |
+  |  10%   |  72 / 10 =  7.2年     |
+  |  12%   |  72 / 12 =  6年       |
   +--------+-----------------------+
 ```
 
-**Why does this work?** It is a mathematical approximation derived from the
-natural logarithm. The exact formula is: t = ln(2) / ln(1 + r), but 72 is close
-enough for mental math and has the advantage of being divisible by many numbers.
+**為何這個法則有效？** 這是從自然對數推導出的數學近似值。精確公式為：t = ln(2) / ln(1 + r)，但72已足夠接近，可用於心算，且其優點是能被許多數字整除。
 
-**You can also use the Rule of 72 in reverse for inflation:**
+**你亦可以反向使用72法則來計算通脹：**
 
 ```
-  At 3% inflation, purchasing power halves in: 72 / 3 = 24 years
-  At 6% inflation, purchasing power halves in: 72 / 6 = 12 years
-  At 9% inflation, purchasing power halves in: 72 / 9 =  8 years
+  在3%通脹率下，購買力減半需要：72 / 3 = 24年
+  在6%通脹率下，購買力減半需要：72 / 6 = 12年
+  在9%通脹率下，購買力減半需要：72 / 9 =  8年
 ```
 
-This makes inflation tangible. If inflation averages 4%, every 18 years your money
-buys only half as much. This is why "safe" savings accounts that earn 1-2% are
-actually losing you money in real terms.
+這讓通脹變得具體可感。如果通脹平均4%，每18年你的金錢購買力就只剩一半。這就是為何賺取1-2%的「安全」儲蓄帳戶，實際上正在讓你的財富縮水。
 
-#### 4. Opportunity Cost
+#### 4. 機會成本
 
-Opportunity cost is the value of the next best alternative you give up when making
-a decision. In investing, it means every dollar has competing uses, and choosing
-one means forgoing another.
+機會成本是指在做決定時，你放棄的最佳替代選擇的價值。在投資中，這意味著每一分錢都有多種競爭用途，選擇其中一種就意味著放棄其他選擇。
 
 ```
-  Decision Tree: What to do with $10,000?
+  決策樹：$10,000該如何運用？
 
                          $10,000
                             |
             +---------------+---------------+
             |               |               |
-       Save in bank    Invest in      Pay off credit
-       (0.5% APY)     index fund       card debt
-            |          (avg 10%)        (20% APR)
+       存入銀行          投資指數基金      還清信用卡
+       (年利率0.5%)      (平均10%回報)     債務
+            |               |            (年利率20%)
             |               |               |
-       After 10 yrs    After 10 yrs   Saved in 10 yrs
-       = $10,511       = $25,937       = $31,875
-                                       (interest avoided)
+         10年後           10年後          10年節省
+        = $10,511        = $25,937       = $31,875
+                                       （節省利息）
 ```
 
-In this example, paying off high-interest credit card debt has the highest
-"return" because you are eliminating a 20% annual cost. This is why financial
-advisors often recommend paying off high-interest debt before investing.
+在此例子中，還清高息信用卡債務的「回報」最高，因為你實際上消除了每年20%的成本。這就是為何理財顧問通常建議先還清高息債務，再考慮投資。
 
-**Key insight:** Opportunity cost applies to time as well as money. Every year you
-delay investing has a measurable cost, because you lose that year of compounding
-forever.
+**重要啟示：** 機會成本同時適用於時間和金錢。每一年推遲投資都有可量化的代價，因為你將永遠失去那一年的複利增長。
 
 ```
-  The Cost of Waiting: $5,000/year at 10% return
+  推遲入市的代價：每年$5,000，回報率10%
 
-  Start Age  |  End Age 65  |  Total Invested  |  Final Value
-  -----------+--------------+------------------+---------------
-      20     |   45 years   |    $225,000      |  $3,616,635
-      25     |   40 years   |    $200,000      |  $2,212,963
-      30     |   35 years   |    $175,000      |  $1,355,122
-      35     |   30 years   |    $150,000      |    $822,470
-      40     |   25 years   |    $125,000      |    $491,735
-      45     |   20 years   |    $100,000      |    $286,375
+  開始年齡  |  至65歲    |  總投入金額   |  最終價值
+  ---------+------------+--------------+---------------
+      20   |   45年     |    $225,000  |  $3,616,635
+      25   |   40年     |    $200,000  |  $2,212,963
+      30   |   35年     |    $175,000  |  $1,355,122
+      35   |   30年     |    $150,000  |    $822,470
+      40   |   25年     |    $125,000  |    $491,735
+      45   |   20年     |    $100,000  |    $286,375
 ```
 
-Starting at 20 instead of 30 means investing only $50,000 more, but ending up
-with $2.26 million more. The early years of compounding are disproportionately
-valuable.
+從20歲開始而非30歲，只需多投入$50,000，最終卻多出226萬美元。早年的複利效應具有不成比例的巨大價值。
 
-#### 5. Real vs. Nominal Returns
+#### 5. 實際回報與名義回報
 
-**Nominal return** is the raw percentage gain on an investment, not adjusted for
-inflation. **Real return** is the nominal return minus inflation, representing
-actual purchasing power gained.
+**名義回報**是投資的原始百分比增益，未經通脹調整。**實際回報**是名義回報減去通脹率，代表實際購買力的增長。
 
 ```
-  Real Return (approximate) = Nominal Return - Inflation Rate
+  實際回報（近似值）= 名義回報 - 通脹率
 
-  More precisely:
-  Real Return = ((1 + Nominal) / (1 + Inflation)) - 1
+  更精確的計算：
+  實際回報 = ((1 + 名義回報) / (1 + 通脹率)) - 1
 
-  Example: 10% nominal return, 3% inflation
-  Approximate real return = 10% - 3% = 7%
-  Exact real return = (1.10 / 1.03) - 1 = 6.80%
+  示例：名義回報10%，通脹率3%
+  近似實際回報 = 10% - 3% = 7%
+  精確實際回報 = (1.10 / 1.03) - 1 = 6.80%
 ```
 
-**Historical real returns by asset class (US, approximate):**
+**各資產類別的歷史實際回報（美國，近似值）：**
 
 ```
   +---------------------+-----------+-----------+-----------+
-  | Asset Class         | Nominal   | Inflation | Real      |
+  | 資產類別            | 名義回報  | 通脹率    | 實際回報  |
   +---------------------+-----------+-----------+-----------+
-  | US Stocks (S&P 500) |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-  | US Bonds (10-yr)    |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-  | Gold                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-  | Savings Account     |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-  | Cash (mattress)     |   0.0%    |   ~3.0%   |  ~-3.0%  |
+  | 美國股票（標普500） |  ~10.0%   |   ~3.0%   |  ~7.0%   |
+  | 美國債券（10年期）  |   ~5.0%   |   ~3.0%   |  ~2.0%   |
+  | 黃金                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
+  | 儲蓄帳戶            |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
+  | 現金（藏於家中）    |   0.0%    |   ~3.0%   |  ~-3.0%  |
   +---------------------+-----------+-----------+-----------+
 ```
 
-**Critical takeaway:** A savings account earning 2% in a 3% inflation environment
-is *losing* 1% of purchasing power per year. Cash under the mattress is losing 3%
-per year. Only assets that earn above the inflation rate grow your real wealth.
+**關鍵結論：** 在3%通脹環境下，儲蓄帳戶賺取2%利息，實際上每年*損失*1%的購買力。藏在家中的現金每年損失3%。只有回報率高於通脹率的資產，才能真正增加你的實際財富。
 
-#### 6. Future Value and Present Value
+#### 6. 終值與現值
 
-These are the two core TVM calculations.
+這是兩個核心的貨幣時間價值計算。
 
-**Future Value (FV):** What a sum of money today will be worth in the future.
+**終值（FV）：** 今天的一筆金錢在未來將價值多少。
 
 ```
   FV = PV x (1 + r)^n
 
-  Example: What will $5,000 be worth in 20 years at 8%?
+  示例：$5,000在8%回報率下20年後值多少？
   FV = $5,000 x (1.08)^20
   FV = $5,000 x 4.6610
   FV = $23,305
 ```
 
-**Present Value (PV):** What a future sum of money is worth today.
+**現值（PV）：** 未來的一筆金錢在今天值多少。
 
 ```
   PV = FV / (1 + r)^n
 
-  Example: What is $50,000 in 15 years worth today at 7%?
+  示例：15年後的$50,000在7%折現率下今天值多少？
   PV = $50,000 / (1.07)^15
   PV = $50,000 / 2.7590
   PV = $18,126
 ```
 
-**This means:** If someone offers you $50,000 in 15 years, and you could earn 7%
-on your money, that offer is only worth $18,126 to you today. If they also offer
-you $20,000 right now, the $20,000 today is the better deal.
+**這意味著：** 如果有人承諾在15年後給你$50,000，而你的投資能賺取7%回報，那麼這個承諾今天對你而言只值$18,126。如果他們同時提供$20,000的即時現金，今天的$20,000才是更划算的選擇。
 
-**Future Value of an Annuity (regular contributions):**
+**年金終值（定期供款）：**
 
 ```
   FV = PMT x [((1 + r)^n - 1) / r]
 
-  Where PMT = regular payment amount
+  其中 PMT = 定期供款金額
 
-  Example: $500/month for 30 years at 8% annual (0.667% monthly)
+  示例：每月$500，持續30年，年回報8%（月利率0.667%）
   FV = $500 x [((1.00667)^360 - 1) / 0.00667]
   FV = $500 x 1,491.57
   FV = $745,785
 
-  Total contributed: $500 x 360 = $180,000
-  Total growth: $745,785 - $180,000 = $565,785
+  總供款額：$500 x 360 = $180,000
+  總增長：$745,785 - $180,000 = $565,785
 ```
 
-Your investment growth ($565,785) is more than triple what you actually put in
-($180,000). That is the power of consistent investing combined with compounding.
+你的投資增長（$565,785）超過實際投入金額（$180,000）的三倍。這就是持續投資結合複利的力量。
 
-**Present Value diagram -- discounting future cash flows:**
+**現值圖示 — 對未來現金流進行折現：**
 
 ```
-  Today     Year 1    Year 2    Year 3    Year 4    Year 5
+  今天      第1年     第2年     第3年     第4年     第5年
     |         |         |         |         |         |
     |         $100      $100      $100      $100      $100
     |         |         |         |         |         |
@@ -381,91 +331,66 @@ Your investment growth ($565,785) is more than triple what you actually put in
     |<------------------------------------|         |
     |<-------------------------------------------------|
     |
-    PV = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+    現值 = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
 
-    (Discount rate = 7%)
+    （折現率 = 7%）
 ```
 
-Each future $100 is worth less today because of the time value of money. The
-further in the future a payment is, the less it is worth today.
+每一筆未來的$100在今天價值較低，因為貨幣存在時間價值。未來的款項距今越遠，在今天的價值就越低。
 
-#### 7. Putting It All Together: The Investing Imperative
+#### 7. 綜合所有概念：投資的必要性
 
 ```
-  The Three Paths Over 30 Years ($10,000 starting, $5,000/yr added)
+  三條路徑的30年比較（起始$10,000，每年追加$5,000）
 
-                        Do Nothing     Savings Acct    Invest (S&P)
-                        (0% return)    (1.5% return)   (10% return)
+                        甚麼都不做   儲蓄帳戶     投資（標普500）
+                        （0%回報）  （1.5%回報）  （10%回報）
   +--------------------+-------------+--------------+---------------+
-  | Total Contributed  |  $160,000   |   $160,000   |   $160,000    |
-  | Final Value        |  $160,000   |   $192,760   |   $987,174    |
-  | Real Value (3% inf)|  $65,890    |    $79,379   |   $406,392    |
-  | Purchasing Power   |   Lost 59%  |    Lost 50%  |   Gained 154% |
+  | 總存入金額         |  $160,000   |   $160,000   |   $160,000    |
+  | 最終價值           |  $160,000   |   $192,760   |   $987,174    |
+  | 實際價值（3%通脹） |  $65,890    |    $79,379   |   $406,392    |
+  | 購買力             |   損失59%   |    損失50%   |   增加154%    |
   +--------------------+-------------+--------------+---------------+
 ```
 
-Only the investor actually grows their wealth in real terms. The saver barely
-keeps up. The person who does nothing loses more than half their purchasing power.
+只有投資者的財富在實際意義上真正增長。儲蓄者勉強能保持現狀。甚麼都不做的人，則損失超過一半的購買力。
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Investing is gambling."**
+**誤解一：「投資就是賭博。」**
 
-Gambling has a negative expected return (the house always wins). Investing in
-diversified assets has a historically positive expected return. The S&P 500 has
-returned roughly 10% annually over the past century, including the Great Depression,
-World War II, the 2008 financial crisis, and COVID-19. Short-term speculation on
-individual stocks can resemble gambling, but disciplined long-term investing in
-diversified funds is fundamentally different.
+賭博的預期回報為負（莊家永遠佔優）。投資多元化資產的歷史預期回報為正。標普500在過去一個世紀的年均回報約為10%，期間經歷了大蕭條、第二次世界大戰、2008年金融危機和新冠疫情。短線炒賣個別股票可能類似賭博，但有紀律地長期投資多元化基金，在本質上截然不同。
 
-**Misconception 2: "I need a lot of money to start investing."**
+**誤解二：「我需要很多錢才能開始投資。」**
 
-Many brokerages now offer $0 minimums and fractional shares. You can buy $10 worth
-of an S&P 500 index fund. The most important factor is not how much you start with,
-but how early you start and how consistently you contribute. Even $50 per month
-invested from age 22 grows to over $350,000 by age 65 at 10% average returns.
+現在許多券商提供零最低入場金額和碎股交易。你可以只用$10購買標普500指數基金。最重要的因素不是起始金額，而是開始的時間和供款的一致性。即使每月投入$50，從22歲開始，在10%平均回報下，到65歲時將增長至逾35萬美元。
 
-**Misconception 3: "Saving is the same as investing."**
+**誤解三：「儲蓄等同於投資。」**
 
-Saving means putting money aside. Investing means putting money to work. A savings
-account earning 0.5% while inflation runs at 3% means you are losing 2.5% of
-purchasing power annually. Saving is important for emergency funds and short-term
-goals, but for long-term wealth building, investing is essential.
+儲蓄是把錢留起來，投資是讓錢為你工作。在3%通脹環境下，儲蓄帳戶僅賺取0.5%，意味著你每年損失2.5%的購買力。儲蓄對於緊急備用金和短期目標固然重要，但要長期積累財富，投資不可或缺。
 
-**Misconception 4: "I should wait for the 'right time' to invest."**
+**誤解四：「我應該等到『合適時機』才投資。」**
 
-Market timing is extraordinarily difficult. Studies consistently show that "time in
-the market" beats "timing the market." A Schwab study found that even someone who
-invested at the worst possible time each year (the market peak) still significantly
-outperformed someone who kept their money in cash waiting for a better entry point.
+擇時入市極為困難。研究一再顯示，「在市場中持有的時間」勝過「擇時入市」。嘉信理財的一項研究發現，即使每年都在最糟糕的時機（市場高位）入市，其表現仍遠優於把錢放在現金中等待更好入市點的人。
 
-**Misconception 5: "Compound interest only matters for large sums."**
+**誤解五：「複利只對大額資金才有意義。」**
 
-The percentage works the same regardless of the amount. $100 growing at 10% for
-40 years becomes $4,526. The multiplier (45x) is identical whether you start with
-$100 or $100,000. The key is the growth rate and the time horizon.
+百分比的運作方式對任何金額都相同。$100以10%回報增長40年，將變成$4,526。這個乘數（45倍）無論是從$100還是$100,000開始，都完全相同。關鍵在於增長率和時間跨度。
 
-**Misconception 6: "Inflation is always around 2-3%."**
+**誤解六：「通脹率通常在2-3%左右。」**
 
-While central banks target 2%, actual inflation can be much higher. The US
-experienced 13.5% inflation in 1980. Argentina has seen 100%+ inflation in recent
-years. Even in stable economies, inflation can spike due to supply shocks, monetary
-policy changes, or geopolitical events. Your investment strategy needs to account
-for variable inflation scenarios.
+雖然央行以2%為目標，但實際通脹可能高得多。美國在1980年曾出現13.5%的通脹。阿根廷近年通脹率更超過100%。即使在穩定經濟體中，供應衝擊、貨幣政策變化或地緣政治事件都可能引發通脹飆升。你的投資策略需要考慮不同通脹情景。
 
-**Misconception 7: "A 10% gain followed by a 10% loss gets you back to even."**
+**誤解七：「上升10%後下跌10%，就能回到原點。」**
 
-This is mathematically incorrect. $100 + 10% = $110. Then $110 - 10% = $99. You
-are actually down 1%. Losses hurt more than equivalent gains help, which is why
-managing downside risk matters in investing. A 50% loss requires a 100% gain just
-to break even.
+這在數學上是錯誤的。$100上升10% = $110。然後$110下跌10% = $99。你實際上損失了1%。虧損的傷害遠大於同等幅度升幅帶來的好處，這就是為何控制下行風險在投資中至關重要。下跌50%需要上升100%才能回本。
 
 ```
-  Loss/Gain Asymmetry:
+  虧損與盈利的不對稱性：
   +----------+----------------------------+
-  | Loss     | Gain Needed to Recover     |
+  | 虧損     | 回本所需回報               |
   +----------+----------------------------+
   |   -10%   |         +11.1%             |
   |   -20%   |         +25.0%             |
@@ -477,257 +402,177 @@ to break even.
   +----------+----------------------------+
 ```
 
-**Misconception 8: "The Rule of 72 is exact."**
+**誤解八：「72法則是精確的。」**
 
-It is an approximation. It works best for interest rates between 6% and 10%.
-At very low or very high rates, it becomes less accurate. For 2%, the actual
-doubling time is 35.0 years (Rule of 72 says 36). For 20%, the actual time is
-3.8 years (Rule of 72 says 3.6). Close enough for quick mental math, but do not
-use it for precise financial planning.
+這只是近似值。它在6%至10%的利率範圍內最為準確。利率過低或過高時，精確度會下降。對於2%，實際翻倍時間為35.0年（72法則的答案是36年）。對於20%，實際時間為3.8年（72法則的答案是3.6年）。作為快速心算足夠準確，但不應用於精確的財務規劃。
 
 ---
 
-### d) Q&A
+### d) 問答環節
 
-**Q1: What is the time value of money in simple terms?**
+**問題一：用簡單的話說，貨幣的時間價值是什麼？**
 
-A: A dollar today is worth more than a dollar in the future because (1) inflation
-reduces what that future dollar can buy, (2) you could invest today's dollar and
-earn a return, and (3) there is always some risk that a promised future payment will
-not materialize. This is why lenders charge interest and why investors demand returns
--- they are being compensated for giving up the use of their money now.
+答：今天的一美元比未來的一美元更有價值，原因有三：（1）通脹削減了未來那一美元的購買力；（2）今天的一美元可以投資並賺取回報；（3）承諾的未來款項始終存在無法兌現的風險。這就是為何借款人收取利息、投資者要求回報——他們是在為現在放棄資金使用權而獲得補償。
 
-**Q2: How does compound interest differ from simple interest?**
+**問題二：複利與單利有何分別？**
 
-A: Simple interest is calculated only on the original principal. If you invest $1,000
-at 5% simple interest, you earn $50 every year, regardless of how much has
-accumulated. Compound interest is calculated on the principal plus all accumulated
-interest. So in year 2, you earn interest on $1,050, not just $1,000. Over long
-periods, this difference becomes dramatic. After 30 years, $1,000 at 5% simple
-interest becomes $2,500. At 5% compound interest, it becomes $4,322.
+答：單利只按原始本金計算。如果你以5%單利投資$1,000，無論累積了多少，每年都固定賺取$50。複利則以本金加上所有已累積利息來計算。因此在第二年，你的利息是基於$1,050而非$1,000計算。長期而言，這個分別極為顯著。30年後，$1,000以5%單利計算變成$2,500；以5%複利計算，則變成$4,322。
 
-**Q3: Why does the Rule of 72 work?**
+**問題三：為何72法則有效？**
 
-A: It is derived from the mathematical relationship ln(2) / ln(1 + r), where ln is
-the natural logarithm and r is the interest rate. For rates near 8%, 72/r closely
-approximates this formula. The number 72 was chosen because it is easily divisible
-by 2, 3, 4, 6, 8, 9, and 12, making mental math convenient. Some people use the
-"Rule of 70" for lower rates or the "Rule of 69.3" for continuous compounding,
-but 72 is the most practical for everyday use.
+答：它源自數學關係 ln(2) / ln(1 + r)，其中 ln 是自然對數，r 是利率。在利率接近8%時，72/r 與這個公式非常吻合。選擇數字72，是因為它能被2、3、4、6、8、9和12整除，方便心算。有些人對較低利率使用「70法則」，或對連續複利使用「69.3法則」，但72是日常使用中最實用的。
 
-**Q4: What is the difference between nominal and real returns?**
+**問題四：名義回報與實際回報有何分別？**
 
-A: Nominal return is the headline number -- "the stock market returned 10% this
-year." Real return adjusts for inflation to show your actual increase in purchasing
-power. If the market returned 10% but inflation was 4%, your real return was
-approximately 6%. Always think in real terms when evaluating long-term investment
-performance, because nominal returns can be misleading in high-inflation environments.
+答：名義回報是表面數字——「今年股票市場回報10%」。實際回報則調整通脹後，反映你的購買力實際增長幅度。如果市場回報10%但通脹為4%，你的實際回報約為6%。在評估長期投資表現時，應始終以實際回報為準，因為在高通脹環境下，名義回報可能產生誤導。
 
-**Q5: How do I calculate the present value of a future sum?**
+**問題五：如何計算未來款項的現值？**
 
-A: Use the formula PV = FV / (1 + r)^n. Decide on an appropriate discount rate (r)
--- this is typically the return you could earn on alternative investments. For example,
-if someone promises you $10,000 in 10 years and you could earn 7% elsewhere:
-PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083. That future $10,000 is only
-worth about $5,083 to you today.
+答：使用公式 PV = FV / (1 + r)^n。選擇適當的折現率（r）——通常是你在其他投資中能賺取的回報率。例如，如果有人承諾10年後給你$10,000，而你其他地方能賺取7%：PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那筆未來的$10,000，今天對你而言只值約$5,083。
 
-**Q6: What is a good annual return to expect from investing?**
+**問題六：投資的合理預期年回報是多少？**
 
-A: The US stock market (S&P 500) has historically returned about 10% per year
-nominally, or about 7% after inflation. However, returns vary enormously year to
-year. In any given year, the market might return +30% or -30%. The 10% average only
-emerges over long time horizons (20+ years). Bond returns have historically been
-about 5% nominal (2% real). A balanced portfolio might target 7-8% nominal. Never
-assume any specific return is guaranteed.
+答：美國股票市場（標普500）歷史上的名義年回報約為10%，扣除通脹後約為7%。然而，每年的回報波動極大。在任何給定年份，市場可能上升30%，也可能下跌30%。10%的平均水平只在長時間跨度（20年以上）才會顯現。債券的歷史名義回報約為5%（實際約2%）。均衡的投資組合可以以7-8%的名義回報為目標。切勿假設任何特定回報是有保證的。
 
-**Q7: Should I pay off debt or invest?**
+**問題七：我應該先還清債務還是先投資？**
 
-A: Compare the interest rate on your debt to the expected return on your investments.
-If your debt charges 20% interest (credit cards), paying it off is like earning a
-guaranteed 20% return -- better than any investment. If your debt is at 4% (mortgage),
-and you expect 10% from investments, investing may be more profitable, though debt
-payoff is a guaranteed "return" while investment returns are not. A common strategy:
-pay off all debt above 6-7% interest, then invest the rest.
+答：比較你的債務利率與預期投資回報率。如果你的債務利率為20%（信用卡），還清債務等同於賺取有保障的20%回報——比任何投資都優勝。如果你的債務利率為4%（房貸），而你預期投資回報為10%，投資可能更有利，但還債是「有保障的回報」，而投資回報則不然。常見策略：還清所有利率超過6-7%的債務，再將餘款用於投資。
 
-**Q8: Does inflation affect all goods equally?**
+**問題八：通脹對所有商品的影響是否一樣？**
 
-A: No. Different categories inflate at different rates. Over the past 20 years in the
-US, healthcare and education costs have risen much faster than the overall CPI, while
-technology and clothing have often gotten cheaper. The CPI is an average across a
-basket of goods, so your personal inflation rate depends on what you actually spend
-money on. Retirees, for instance, often face higher effective inflation because
-healthcare is a larger share of their spending.
+答：不。不同類別的通脹速度各異。過去20年在美國，醫療保健和教育成本的上漲遠超整體消費物價指數，而科技和服裝價格往往有所下降。消費物價指數是一籃子商品的平均值，因此你個人的通脹率取決於實際支出項目。例如，退休人士因醫療保健佔支出比重較大，通常面臨較高的實際通脹率。
 
-**Q9: What happens if I invest a lump sum vs. regular monthly contributions?**
+**問題九：一次性投入與定期月供，哪種方式更好？**
 
-A: Statistically, lump-sum investing beats dollar-cost averaging (regular
-contributions) about two-thirds of the time, because markets tend to go up. However,
-dollar-cost averaging reduces the risk of investing everything at a market peak, and
-it is more practical for most people who earn a regular paycheck. The best strategy
-is usually: invest each paycheck as you receive it. Do not hold cash waiting for a
-"better time."
+答：統計上，一次性投資在約三分之二的情況下優於平均成本法（定期供款），因為市場長期呈上升趨勢。然而，平均成本法降低了在市場高位全倉投入的風險，而且對大多數有定期薪水的人來說更為切實可行。最佳策略通常是：每收到一份薪水就立即投資，不要持有現金等待「更好的時機」。
 
-**Q10: Can compound interest work against me?**
+**問題十：複利會對我不利嗎？**
 
-A: Absolutely. Compound interest on debt is the mirror image of compound interest on
-investments. A $5,000 credit card balance at 24% APR, if unpaid, grows to $14,615 in
-just 5 years. This is why high-interest debt is a financial emergency. The same
-mathematical force that builds wealth through investing destroys wealth through
-unpaid debt.
+答：絕對會。債務上的複利是投資複利的鏡像。$5,000的信用卡結餘，若年利率為24%且未償還，5年後將增長至$14,615。這就是為何高息債務是財務緊急情況。驅動投資積累財富的數學力量，同樣能通過未償還的債務摧毀財富。
 
 ---
 
-## Part 2: YouTube Script
+## 第二部分：YouTube 腳本
 
 ---
 
-**VIDEO TITLE:** Why Invest? The Time Value of Money | Investment Course Week 1
+**視頻標題：** 為何要投資？貨幣的時間價值｜投資課程第一週
 
-**RUNTIME TARGET:** ~25 minutes
+**目標時長：** 約25分鐘
 
-**HOSTS:**
-- **Alex** (teacher): Experienced investor, explains concepts clearly
-- **Sam** (student): Curious beginner, asks questions the audience is thinking
+**主持人：**
+- **Horace**（導師）：經驗豐富的散戶交易員，憑多年市場經驗講解各項概念
+- **Stella**（學生）：剛大學畢業，正學習如何投資積蓄，提出觀眾心中的疑問
 
 ---
 
-**[INTRO SEQUENCE]**
+**[開場序列]**
 
 [VISUAL: Animated logo with text "Investment Fundamentals - Week 1"]
 
 [ANIMATION: A clock ticking while dollar bills slowly shrink in size]
 
-**Alex:** Welcome to Week 1 of our investment fundamentals course. I am Alex, and
-this is the lesson that changes how you think about money forever.
+**Horace：** 歡迎來到投資基礎課程第一週。我是陳馬，今天這堂課，將會永遠改變你對金錢的看法。
 
-**Sam:** And I am Sam. I will be asking all the beginner questions, so do not worry
-if you are brand new to this. I am right there with you.
+**Stella：** 我是小魚。我會提出所有初學者的問題，所以如果你完全是投資新手，不用擔心，我跟你一樣在起步。
 
-**Alex:** Today we are answering one of the most important financial questions you
-will ever face: Why should you invest at all?
+**Horace：** 今天我們要回答一個你一生中最重要的財務問題：為什麼要投資？
 
-**Sam:** Right, because honestly, investing feels risky. Why not just save money in
-a bank account where it is safe?
+**Stella：** 對，說真的，投資感覺很有風險。為什麼不直接把錢存入銀行，放在安全的地方？
 
-**Alex:** That is exactly where we are going to start. Because the surprising truth
-is that keeping your money "safe" in a bank account is one of the riskiest things
-you can do with it.
+**Horace：** 這正是我們的起點。因為令人驚訝的真相是，把錢「安全地」放在銀行帳戶，可能是你能對錢做的最危險的事之一。
 
-**Sam:** Wait, how is that possible?
+**Stella：** 等等，這怎麼可能？
 
-[VISUAL: Title card -- "Part 1: The Invisible Thief -- Inflation"]
+[VISUAL: Title card -- "第一部分：無形的竊賊——通脹"]
 
 ---
 
-**[SEGMENT 1: INFLATION]**
+**[第一段：通脹]**
 
-**Alex:** Let me tell you about the invisible thief that is robbing you right now.
-It is called inflation.
+**Horace：** 讓我告訴你一個正在偷走你財富的無形竊賊，它叫做通脹。
 
 [ANIMATION: A basket of groceries. The price tag starts at $50 and slowly ticks
 up to $75, then $100, while the basket stays the same size. Reference:
 animation/week01_compound_growth.py -- inflation_scene()]
 
-**Sam:** Inflation. I have heard the word, but what does it actually mean for my
-wallet?
+**Stella：** 通脹。我聽過這個詞，但它對我的荷包究竟意味著什麼？
 
-**Alex:** Inflation means prices go up over time. Not because products get better,
-but because the currency loses value. In 1995, a movie ticket cost about four
-dollars. Today, it costs fifteen. Same movie experience. But your dollar buys
-less.
+**Horace：** 通脹的意思是物價隨時間上漲，不是因為產品變好了，而是因為貨幣貶值了。1995年，一張電影票大約四美元。今天要十五美元。同樣的觀影體驗，但你的一美元能買到的東西少了。
 
-**Sam:** So my money is getting weaker even if I do not spend it?
+**Stella：** 所以即使我不花錢，我的錢也在貶值？
 
-**Alex:** Exactly. And here is what makes it dangerous.
+**Horace：** 正是。而這正是令它危險的地方。
 
 [VISUAL: Split screen showing two jars. Left jar labeled "$10,000 in 2005."
 Right jar labeled "$10,000 in 2025." The right jar shows items being removed
 one by one to represent lost purchasing power.]
 
-**Alex:** If you had put ten thousand dollars under your mattress in 2005 and
-pulled it out in 2025, you would still have ten thousand dollars. But that ten
-thousand dollars would only buy what about six thousand dollars bought in 2005.
-You lost roughly forty percent of your purchasing power by doing absolutely
-nothing.
+**Horace：** 假設你在2005年把一萬美元藏在床墊下，到2025年取出來，你手上仍有一萬美元。但那一萬美元的購買力，只相當於2005年的約六千美元。你只是什麼都不做，就白白損失了大約四成的購買力。
 
-**Sam:** Forty percent? That is huge. But banks pay interest, right? Does that
-help?
+**Stella：** 四成？這數字很驚人。但銀行會付利息對嗎？這有幫助嗎？
 
-**Alex:** Let me show you the math.
+**Horace：** 讓我給你看看這個數字。
 
 [ANIMATION: Bar chart comparing "Savings Account Rate: 0.5%" vs
 "Inflation Rate: 3%" with a gap labeled "Real Loss: -2.5% per year"]
 
-**Alex:** The average savings account in the US has paid about half a percent
-interest in recent years. Meanwhile, inflation has averaged around three percent.
-That means every year, your savings account loses about two and a half percent
-in real purchasing power.
+**Horace：** 近年美國普通儲蓄帳戶的利息約為0.5%。而通脹平均約為3%。這意味著每年你的儲蓄帳戶實際上損失約2.5%的購買力。
 
-**Sam:** So I am actually losing money by saving it?
+**Stella：** 所以我存錢其實是在虧錢？
 
-**Alex:** In real terms, yes. And that brings us to the most important concept in
-all of finance.
+**Horace：** 就實際購買力而言，是的。這就引出了金融領域最重要的概念。
 
-[VISUAL: Title card -- "Part 2: The Time Value of Money"]
+[VISUAL: Title card -- "第二部分：貨幣的時間價值"]
 
 ---
 
-**[SEGMENT 2: TIME VALUE OF MONEY]**
+**[第二段：貨幣的時間價值]**
 
-**Alex:** The Time Value of Money -- TVM for short -- is the idea that a dollar
-today is worth more than a dollar tomorrow.
+**Horace：** 貨幣的時間價值——簡稱TVM——是指今天的一美元比明天的一美元更有價值。
 
-**Sam:** Why? A dollar is a dollar, right?
+**Stella：** 為什麼？一美元就是一美元，不是嗎？
 
-**Alex:** Think of it this way. If I offer you a thousand dollars right now or a
-thousand dollars one year from now, which would you take?
+**Horace：** 這樣想想看。如果我現在給你一千美元，或者一年後給你一千美元，你選哪個？
 
-**Sam:** Right now, obviously.
+**Stella：** 當然是現在。
 
-**Alex:** Why?
+**Horace：** 為什麼？
 
-**Sam:** Because... I could use it now? And who knows what happens in a year?
+**Stella：** 因為……我現在可以用？而且誰知道一年後會怎樣？
 
-**Alex:** You just named two of the three reasons.
+**Horace：** 你剛才說出了三個原因中的兩個。
 
 [VISUAL: Three pillars graphic:
-Pillar 1 -- "Opportunity: Invest it now, earn returns"
-Pillar 2 -- "Inflation: Future dollars buy less"
-Pillar 3 -- "Risk: Future payment might not come"]
+Pillar 1 -- "機會：現在投資，賺取回報"
+Pillar 2 -- "通脹：未來的錢購買力更弱"
+Pillar 3 -- "風險：未來的款項可能無法兌現"]
 
-**Alex:** First, opportunity. If you have the money now, you can invest it and
-earn a return. Second, inflation. That future dollar will buy less than today's
-dollar. Third, risk. The person promising you money in the future might not
-follow through.
+**Horace：** 第一，機會。如果你現在有這筆錢，就可以投資並賺取回報。第二，通脹。未來的那一美元，購買力比今天的一美元更弱。第三，風險。承諾未來付錢的人，可能未必能夠兌現。
 
-**Sam:** So time literally makes money less valuable?
+**Stella：** 所以時間真的讓金錢變得更不值錢？
 
-**Alex:** Unless you put it to work. And that is where investing comes in. Investing
-is how you fight the time value of money. Instead of letting time erode your
-wealth, you harness time to grow it.
+**Horace：** 除非你讓它為你工作。這就是投資的用武之地。投資是對抗貨幣時間價值的方法。與其讓時間侵蝕你的財富，你可以利用時間來增長它。
 
-**Sam:** How?
+**Stella：** 怎麼做到？
 
-**Alex:** Two words: compound interest.
+**Horace：** 兩個字：複利。
 
-[VISUAL: Title card -- "Part 3: Compound Interest -- The Eighth Wonder"]
+[VISUAL: Title card -- "第三部分：複利——第八大奇蹟"]
 
 ---
 
-**[SEGMENT 3: COMPOUND INTEREST]**
+**[第三段：複利]**
 
 [ANIMATION: Reference animation/week01_compound_growth.py -- compound_scene().
 Starting with a single coin, it duplicates. Then each duplicate duplicates.
 The pile grows slowly at first, then explosively.]
 
-**Alex:** Albert Einstein reportedly called compound interest the eighth wonder
-of the world. Whether he actually said it or not, the math backs it up.
+**Horace：** 據說愛因斯坦稱複利為世界第八大奇蹟。不管他是否真的說過這句話，數字都支持這個說法。
 
-**Sam:** What makes compound interest different from regular interest?
+**Stella：** 複利跟普通利息有什麼分別？
 
-**Alex:** Great question. Simple interest means you earn a fixed percentage on your
-original amount every year. Compound interest means you earn interest on your
-interest.
+**Horace：** 好問題。單利的意思是每年按原始本金賺取固定百分比。複利的意思是你在利息上再賺利息。
 
 [ANIMATION: Side-by-side comparison.
 Left side: "Simple Interest" -- $1,000 grows by exactly $80 each year, shown
@@ -735,351 +580,264 @@ as equal-sized blocks stacking up.
 Right side: "Compound Interest" -- $1,000 grows by increasing amounts each
 year, blocks get larger as they stack.]
 
-**Alex:** Let us say you invest one thousand dollars at eight percent. With simple
-interest, you earn eighty dollars every year. After ten years, you have one
-thousand eight hundred dollars.
+**Horace：** 假設你以8%投資一千美元。以單利計算，每年固定賺$80。十年後，你有$1,800。
 
-**Sam:** That seems fine.
+**Stella：** 聽起來還可以。
 
-**Alex:** Now with compound interest, in year one you still earn eighty dollars.
-But in year two, you earn eight percent of one thousand eighty dollars, which
-is eighty-six dollars and forty cents. In year three, you earn eight percent of
-one thousand one hundred sixty-six dollars and forty cents.
+**Horace：** 現在以複利計算，第一年你同樣賺$80。但第二年，你賺的是$1,080的8%，即$86.40。第三年，你賺的是$1,166.40的8%。
 
-**Sam:** So each year the interest payment gets bigger?
+**Stella：** 所以每年的利息都在增加？
 
-**Alex:** Exactly. And after ten years, instead of one thousand eight hundred
-dollars, you have two thousand one hundred fifty-nine dollars.
+**Horace：** 正是。十年後，你不是$1,800，而是$2,159。
 
 [VISUAL: Table on screen:
-Simple: $1,000 -> $1,800 after 10 years
-Compound: $1,000 -> $2,159 after 10 years
-Difference: $359]
+單利：$1,000 -> 10年後$1,800
+複利：$1,000 -> 10年後$2,159
+差距：$359]
 
-**Sam:** Three hundred and fifty-nine dollars more. That is nice but not exactly
-life-changing.
+**Stella：** 多了$359。這不錯，但算不上改變人生。
 
-**Alex:** You are right. After ten years, it is a nice bonus. But here is where
-it gets wild. Let us extend the timeline.
+**Horace：** 你說得對。十年後，差距只是個不錯的額外收益。但當我們拉長時間線，情況就變得驚人了。
 
 [ANIMATION: Graph showing both curves extending to 40 years. The compound curve
 begins to separate dramatically from the simple interest line around year 20,
 and by year 40, it is far above.]
 
-**Alex:** After twenty years, the compound interest total is four thousand six
-hundred sixty-one dollars versus two thousand six hundred dollars for simple.
-After thirty years, it is ten thousand sixty-three versus three thousand four
-hundred. And after forty years...
+**Horace：** 二十年後，複利總額為$4,661，而單利是$2,600。三十年後，複利是$10,063，單利是$3,400。四十年後……
 
-**Sam:** Let me guess -- it gets crazy?
+**Stella：** 讓我猜——數字變得很瘋狂？
 
-**Alex:** Twenty-one thousand seven hundred fifteen dollars. Compared to four
-thousand two hundred for simple interest. Your money has grown to over twenty-one
-times what you started with.
+**Horace：** $21,715。相比單利的$4,200。你的錢增長至原始投入的超過二十一倍。
 
-**Sam:** From just one thousand dollars?
+**Stella：** 只靠一千美元？
 
-**Alex:** From just one thousand dollars. And that is without adding a single extra
-penny. Just letting compound interest do its thing for forty years.
+**Horace：** 只靠一千美元。而且沒有額外追加一分錢，只是讓複利在四十年間自然運作。
 
 [VISUAL: Final comparison graphic:
-$1,000 at 8% for 40 years:
-Simple Interest: $4,200
-Compound Interest: $21,715]
+$1,000以8%投資40年：
+單利：$4,200
+複利：$21,715]
 
-**Sam:** Okay, that is genuinely impressive. But who has forty years?
+**Stella：** 好吧，這真的令人印象深刻。但誰有四十年的時間？
 
-**Alex:** Anyone who starts in their twenties and retires in their sixties. And most
-people are not investing just a one-time lump sum. They are adding money regularly.
-Let me show you what happens when you combine regular contributions with compound
-interest.
+**Horace：** 任何在二十多歲開始、六十多歲退休的人都有。而且大多數人投資的不只是一次性的本金，他們會定期追加資金。讓我展示一下，當你把定期供款與複利結合起來會發生什麼。
 
 [ANIMATION: A piggy bank receiving coins monthly. A growth meter next to it
 accelerates upward. Numbers tick from $0 to $500,000 to $1,000,000.]
 
-**Alex:** If you invest five hundred dollars a month starting at age twenty-five,
-at an average return of ten percent per year, by age sixty-five you will have
-approximately two million six hundred thousand dollars.
+**Horace：** 如果你從25歲開始每月投資$500，以年均10%的回報計算，到65歲時你將擁有大約260萬美元。
 
-**Sam:** Two point six million? From five hundred a month?
+**Stella：** 260萬？從每月$500開始？
 
-**Alex:** Your total contributions would be two hundred forty thousand dollars. The
-remaining two point three six million is pure compound growth.
+**Horace：** 你的總供款額是$24萬美元，剩餘的236萬是純粹的複利增長。
 
-**Sam:** That is ninety percent growth and only ten percent contributions. That is
-unbelievable.
+**Stella：** 也就是九成是增長，只有一成是供款。這簡直難以置信。
 
-**Alex:** That is the power of time plus compounding. And this is exactly why
-starting early matters so much.
+**Horace：** 這就是時間加上複利的力量。而這正是為什麼盡早開始至關重要。
 
-[VISUAL: Title card -- "Part 4: The Cost of Waiting"]
+[VISUAL: Title card -- "第四部分：推遲入市的代價"]
 
 ---
 
-**[SEGMENT 4: THE COST OF WAITING]**
+**[第四段：推遲入市的代價]**
 
 [ANIMATION: Two characters walking side by side. "Early Emma" starts at age 25.
 "Waiting Will" starts at age 35. Both walk toward age 65. Emma's wealth bar
 grows much taller than Will's.]
 
-**Alex:** Let me introduce you to two hypothetical investors. Early Emma starts
-investing five thousand dollars per year at age twenty-five. Waiting Will starts
-the same amount at age thirty-five. Both invest until age sixty-five, both earn
-ten percent per year on average.
+**Horace：** 讓我介紹兩位假設的投資者。及早入市的阿芳從25歲開始每年投資$5,000。遲遲才入市的偉哥從35歲開始投入相同金額。兩人都投資至65歲，平均年回報同為10%。
 
-**Sam:** So Emma invests for forty years and Will for thirty years?
+**Stella：** 所以阿芳投資40年，偉哥投資30年？
 
-**Alex:** Right. Emma invests a total of two hundred thousand dollars. Will invests
-a total of one hundred fifty thousand dollars. So Emma puts in fifty thousand
-more. But look at the results.
+**Horace：** 對。阿芳總共投入$20萬，偉哥投入$15萬。阿芳多投$5萬。但看看結果。
 
 [VISUAL: Comparison bars:
-Emma (starts at 25): Invested $200,000 -> Final value $2,212,963
-Will (starts at 35): Invested $150,000 -> Final value $822,470]
+阿芳（25歲開始）：投入$200,000 -> 最終價值$2,212,963
+偉哥（35歲開始）：投入$150,000 -> 最終價值$822,470]
 
-**Sam:** Emma has almost three times as much money? From only fifty thousand dollars
-more in contributions?
+**Stella：** 阿芳的錢幾乎是偉哥的三倍？只是因為多投了$5萬？
 
-**Alex:** One point four million dollars more in final value from fifty thousand
-more in contributions. That is a twenty-eight to one ratio. Every dollar Emma
-invested in those first ten years multiplied enormously over the next thirty years.
+**Horace：** 最終價值相差140萬美元，但供款只相差$5萬。比例是28比1。阿芳在最初十年投入的每一美元，在其後三十年中獲得了巨大的增幅。
 
-**Sam:** So the early years are the most valuable?
+**Stella：** 所以越早投入的錢最有價值？
 
-**Alex:** By far. The first dollars you invest have the longest time to compound.
-A dollar invested at age twenty-five has forty years to grow. A dollar invested
-at age fifty-five only has ten years. The twenty-five-year-old dollar could grow
-to forty-five dollars. The fifty-five-year-old dollar only grows to about two
-dollars and sixty cents.
+**Horace：** 絕對如此。你最早投入的錢有最長的時間複利增長。25歲投入的一美元有四十年增長。55歲投入的一美元只有十年。那個25歲的一美元可能增長至45美元，而55歲的一美元只增長至約$2.60。
 
-[VISUAL: Title card -- "Part 5: The Rule of 72"]
+[VISUAL: Title card -- "第五部分：72法則"]
 
 ---
 
-**[SEGMENT 5: RULE OF 72]**
+**[第五段：72法則]**
 
-**Sam:** This is all great, but doing compound interest math in my head sounds
-impossible.
+**Stella：** 這一切都很好，但要在腦中計算複利，感覺根本不可能。
 
-**Alex:** It would be, except there is a beautiful shortcut called the Rule of 72.
+**Horace：** 確實，所以有一個美妙的捷徑，叫做72法則。
 
 [VISUAL: Large "72" on screen with a division sign]
 
-**Alex:** To estimate how many years it takes to double your money, just divide
-seventy-two by the annual return rate.
+**Horace：** 要估算你的錢翻倍需要多少年，只需用72除以年回報率。
 
-**Sam:** That is it?
+**Stella：** 就這麼簡單？
 
-**Alex:** That is it. At six percent, your money doubles in twelve years. At eight
-percent, nine years. At twelve percent, just six years.
+**Horace：** 就這麼簡單。以6%回報率計算，你的錢12年翻倍。以8%計算，9年。以12%計算，只需6年。
 
 [ANIMATION: A $1 bill doubling into $2, then $4, then $8, then $16, with
 timestamps showing the years at 8% return: 0, 9, 18, 27, 36 years]
 
-**Sam:** So at eight percent, one dollar becomes two in nine years, four in
-eighteen years, eight in twenty-seven years, and sixteen in thirty-six years?
+**Stella：** 所以以8%計算，$1在9年後變成$2，18年後變$4，27年後變$8，36年後變$16？
 
-**Alex:** Exactly. Four doublings in thirty-six years. And here is a great use of
-this rule in reverse. You can estimate how fast inflation destroys your money.
+**Horace：** 正是。36年內翻倍四次。這個法則還可以反向使用，用來估計通脹摧毀你財富的速度。
 
-**Sam:** How?
+**Stella：** 怎麼用？
 
-**Alex:** At three percent inflation, seventy-two divided by three is twenty-four.
-Your money loses half its value every twenty-four years.
+**Horace：** 在3%通脹率下，72除以3等於24。你的錢每24年就失去一半的購買力。
 
-**Sam:** So if I am thirty years old and retirement is thirty-five years away, my
-money could lose more than half its value if I just hold cash?
+**Stella：** 所以如果我現在30歲，距離退休還有35年，只是持有現金，我的金錢可能損失超過一半的購買力？
 
-**Alex:** More than half. At three percent inflation over thirty-five years, a
-dollar is worth about thirty-five cents. You would lose about sixty-five percent
-of your purchasing power.
+**Horace：** 超過一半。在3%通脹率下持續35年，一美元只剩約三毛五分的購買力，損失約六成五。
 
-[VISUAL: Dollar bill with 65% of it shaded out/faded, labeled "Lost to Inflation
-Over 35 Years (3% annual)"]
+[VISUAL: Dollar bill with 65% of it shaded out/faded, labeled "35年通脹損失（每年3%）"]
 
-**Sam:** That is terrifying.
+**Stella：** 這很嚇人。
 
-**Alex:** It should be motivating. Because once you understand this, you understand
-that not investing is the real risk.
+**Horace：** 這應該讓人警醒。一旦你明白這一點，你就會明白不投資才是真正的風險。
 
-[VISUAL: Title card -- "Part 6: Real vs. Nominal Returns"]
+[VISUAL: Title card -- "第六部分：實際回報與名義回報"]
 
 ---
 
-**[SEGMENT 6: REAL VS. NOMINAL RETURNS]**
+**[第六段：實際回報與名義回報]**
 
-**Alex:** Before we wrap up, I want to clarify something that trips up a lot of
-people. When you hear that the stock market returns ten percent per year, that
-is the nominal return.
+**Horace：** 在結束之前，我想釐清一個讓很多人困惑的概念。當你聽到股票市場每年回報10%，那是名義回報。
 
-**Sam:** Nominal meaning the headline number?
+**Stella：** 名義的意思就是表面數字？
 
-**Alex:** Right. The actual number before adjusting for inflation. But what matters
-for your purchasing power is the real return -- the nominal return minus inflation.
+**Horace：** 對，就是未經通脹調整的原始數字。但對你購買力真正重要的，是實際回報——名義回報減去通脹率。
 
 [ANIMATION: A thermometer-style graphic. "Nominal Return" shows 10%.
 "Inflation" shows 3% being subtracted. "Real Return" shows 7%.]
 
-**Alex:** If the stock market returns ten percent and inflation is three percent,
-your real return is about seven percent. That seven percent represents your
-actual increase in purchasing power -- the additional goods and services you can
-now afford.
+**Horace：** 如果股票市場回報10%，而通脹是3%，你的實際回報約為7%。這7%代表你購買力的實際增長——你現在能多負擔的商品和服務。
 
-**Sam:** So I should always think about returns after inflation?
+**Stella：** 所以我應該始終考慮扣除通脹後的回報？
 
-**Alex:** For long-term planning, absolutely. And here is why it matters. Look at
-this comparison.
+**Horace：** 在長期規劃中，絕對是的。以下說明為何這很重要。
 
 [VISUAL: Table on screen:
-Asset           | Nominal Return | After 3% Inflation | Real Return
-Stocks          |     10%        |                     |    7%
-Bonds           |      5%        |                     |    2%
-Savings Account |      2%        |                     |   -1%
-Cash            |      0%        |                     |   -3%]
+資產              | 名義回報 | 扣除3%通脹後 | 實際回報
+股票              |   10%    |              |    7%
+債券              |    5%    |              |    2%
+儲蓄帳戶          |    2%    |              |   -1%
+現金              |    0%    |              |   -3%]
 
-**Alex:** A savings account with a two percent return seems like it is growing your
-money. But after three percent inflation, you are actually losing one percent per
-year. Cash under the mattress is losing three percent per year.
+**Horace：** 儲蓄帳戶賺取2%的回報，看起來像是在增長你的財富。但扣除3%通脹後，你實際上每年損失1%。藏在家裡的現金每年損失3%。
 
-**Sam:** So stocks are really the only option that significantly grows your wealth?
+**Stella：** 所以股票真的是唯一能顯著增長財富的選擇嗎？
 
-**Alex:** Over long periods, stocks have been the strongest wealth-building tool
-available to ordinary investors. Bonds play an important role too, and we will
-cover asset allocation later in the course. But yes, for long-term growth, equities
-are the primary engine.
+**Horace：** 從長期來看，股票一直是普通投資者最強大的財富積累工具。債券也扮演重要角色，我們將在課程後段探討資產配置。但是，論長期增長，股票是主要引擎。
 
-[VISUAL: Title card -- "Part 7: Future Value and Present Value"]
+[VISUAL: Title card -- "第七部分：終值與現值"]
 
 ---
 
-**[SEGMENT 7: FV AND PV]**
+**[第七段：終值與現值]**
 
-**Alex:** Let me give you two formulas that will come up again and again.
+**Horace：** 讓我給你兩個會在課程中反覆出現的公式。
 
 [VISUAL: Two formula cards side by side:
-Left: "Future Value: FV = PV x (1 + r)^n"
-Right: "Present Value: PV = FV / (1 + r)^n"]
+Left: "終值：FV = PV x (1 + r)^n"
+Right: "現值：PV = FV / (1 + r)^n"]
 
-**Alex:** Future value answers the question: "If I invest this money now, how much
-will I have later?" Present value answers the reverse: "What is a future payment
-worth to me today?"
+**Horace：** 終值回答的問題是：「如果我現在投資這筆錢，未來我會有多少？」現值則反過來：「未來的一筆款項，今天對我來說值多少？」
 
-**Sam:** Can you give me a real example?
+**Stella：** 能給我一個實際例子嗎？
 
-**Alex:** Sure. Say you have ten thousand dollars and you can earn eight percent per
-year for twenty-five years. The future value is ten thousand times one point oh
-eight to the power of twenty-five. That equals sixty-eight thousand four hundred
-eighty-five dollars.
+**Horace：** 當然。假設你有$10,000，以8%年回報率投資25年。終值是$10,000乘以1.08的25次方，結果是$68,485。
 
 [ANIMATION: $10,000 growing in a bar chart over 25 years, reaching $68,485.
 Key milestones highlighted: $21,589 at year 10, $46,610 at year 20.]
 
-**Sam:** Almost seven times the original amount. Nice.
+**Stella：** 幾乎是原始金額的七倍，不錯。
 
-**Alex:** Now the reverse. Your company offers you a bonus of one hundred thousand
-dollars payable in twenty years. What is that worth today, assuming you could earn
-eight percent investing on your own?
+**Horace：** 現在反過來。你的公司提供一筆10萬美元的獎金，在20年後支付。假設你自己投資能賺取8%的回報，這筆未來款項今天值多少？
 
-**Sam:** Let me think. One hundred thousand divided by one point oh eight to the
-twentieth power...
+**Stella：** 讓我想想。10萬美元除以1.08的20次方……
 
-**Alex:** Which equals...
+**Horace：** 結果是……
 
-**Sam:** I have no idea how to calculate that in my head.
+**Stella：** 我完全不知道怎麼心算這個。
 
-**Alex:** It is twenty-one thousand four hundred fifty-five dollars. That future
-hundred thousand is only worth about twenty-one thousand today.
+**Horace：** 答案是$21,455。那筆未來的10萬美元，今天大約只值$21,455。
 
 [VISUAL: $100,000 shrinking backward through time to $21,455]
 
-**Sam:** So if someone offered me twenty-five thousand dollars right now instead, I
-should take the cash?
+**Stella：** 所以如果有人現在提供我$25,000的即時現金，我應該選現金？
 
-**Alex:** From a pure time-value-of-money perspective, yes. Twenty-five thousand
-now is worth more than one hundred thousand in twenty years, if you can earn eight
-percent.
+**Horace：** 從純粹的貨幣時間價值角度來說，是的。如果你能賺取8%的回報，現在的$25,000比20年後的$100,000更有價值。
 
-**Sam:** This completely changes how I think about money.
+**Stella：** 這完全改變了我對金錢的看法。
 
-**Alex:** And that is exactly the point of this lesson.
+**Horace：** 而這正是本課的目的所在。
 
-[VISUAL: Title card -- "Key Takeaways"]
+[VISUAL: Title card -- "重點總結"]
 
 ---
 
-**[SEGMENT 8: RECAP AND TAKEAWAYS]**
+**[第八段：回顧與總結]**
 
 [ANIMATION: Summary slide building point by point]
 
-**Alex:** Let us recap what we learned today.
+**Horace：** 讓我們回顧一下今天所學的內容。
 
 [VISUAL: Bullet points appearing one by one]
 
-**Alex:** Number one: Inflation silently destroys your purchasing power. At three
-percent inflation, money loses half its value in about twenty-four years.
+**Horace：** 第一點：通脹無聲地摧毀你的購買力。在3%通脹率下，金錢在約24年內損失一半的購買力。
 
-**Sam:** The invisible thief.
+**Stella：** 無形的竊賊。
 
-**Alex:** Number two: Compound interest is the most powerful force in building
-wealth. You earn interest on your interest, and over decades, this creates
-exponential growth.
+**Horace：** 第二點：複利是積累財富最強大的力量。你在利息上賺取利息，幾十年來這創造了指數級增長。
 
-**Sam:** The eighth wonder.
+**Stella：** 第八大奇蹟。
 
-**Alex:** Number three: The Rule of 72. Divide seventy-two by your return rate to
-estimate doubling time. Quick, easy, and surprisingly accurate.
+**Horace：** 第三點：72法則。用72除以你的回報率，即可估算翻倍時間。快速、簡單，而且出人意料地準確。
 
-**Sam:** Seventy-two divided by the rate. Got it.
+**Stella：** 72除以回報率。記住了。
 
-**Alex:** Number four: Starting early is more important than investing large amounts.
-The first dollars you invest have the most time to compound and create the most
-wealth.
+**Horace：** 第四點：盡早開始比投入大額資金更重要。你最早投入的錢有最長的時間複利增長，創造最多財富。
 
-**Sam:** Early Emma beat Waiting Will by a mile.
+**Stella：** 及早入市的阿芳遠遠跑贏了遲遲才入市的偉哥。
 
-**Alex:** Number five: Always think in real returns, not nominal. What matters is
-your purchasing power after inflation, not the raw number in your account.
+**Horace：** 第五點：始終以實際回報而非名義回報思考問題。重要的是通脹後的購買力，而非帳戶上的原始數字。
 
-**Sam:** Ten percent minus three percent inflation equals seven percent real growth.
+**Stella：** 10%名義回報減去3%通脹，等於7%實際增長。
 
-**Alex:** And number six: Future value and present value are the foundational tools
-for evaluating any financial decision. Every investment, every loan, every financial
-offer can be evaluated using these concepts.
+**Horace：** 第六點：終值和現值是評估任何財務決策的基礎工具。每一項投資、每一筆貸款、每一個財務提案，都可以用這些概念來評估。
 
-[VISUAL: Animated graphic showing a timeline from "Today" to "Future" with arrows
+[VISUAL: Animated graphic showing a timeline from "今天" to "未來" with arrows
 showing FV going forward and PV coming back]
 
-**Sam:** So what should someone do right now, today, after watching this video?
+**Stella：** 那麼，看完這個視頻後，有什麼是現在、今天就可以做的？
 
-**Alex:** Three things. First, check what your savings account is paying. If it is
-less than inflation, understand that you are losing money. Second, open an
-investment account if you do not have one. Many brokerages have zero minimums and
-zero commissions. Third, start investing, even if it is just fifty dollars a month.
-The amount matters less than the habit.
+**Horace：** 三件事。第一，查看你的儲蓄帳戶利率。如果低於通脹率，你要明白自己正在虧本。第二，如果你還沒有投資帳戶，開一個。現在很多券商提供零最低入場金額和零佣金。第三，開始投資，即使只是每月$50。金額不如習慣重要。
 
-**Sam:** Because time is the most important ingredient.
+**Stella：** 因為時間是最重要的因素。
 
-**Alex:** Exactly. Every day you wait is a day of compounding you will never get
-back.
+**Horace：** 正是。每一天的等待，都是永遠失去的一天複利增長。
 
 [VISUAL: End card with course logo]
 
-**Alex:** Next week, we are going to talk about the easiest, most proven way for
-beginners to invest: index funds and ETFs. You will learn why most professional
-fund managers cannot beat a simple index fund, and how you can get started with
-one for practically nothing.
+**Horace：** 下週，我們將探討初學者最簡單、最經過驗證的投資方式：指數基金及交易所買賣基金。你將了解為何大多數專業基金經理都跑不贏一個簡單的指數基金，以及如何以幾乎零成本開始入場。
 
-**Sam:** That sounds great. See you all next week.
+**Stella：** 聽起來很棒，下週見！
 
-**Alex:** Thanks for watching. If you found this helpful, subscribe and hit the
-notification bell so you do not miss Week 2. See you then.
+**Horace：** 感謝收看。如果你覺得這個視頻有幫助，請訂閱並點擊通知鈴鐺，以便不錯過第二週。到時見！
 
-[ANIMATION: Outro animation with subscribe button graphic and "Next Week:
-Index Funds and ETFs" preview card]
+[ANIMATION: Outro animation with subscribe button graphic and "下週預告：
+指數基金及交易所買賣基金" preview card]
 
-**[END]**
+**[完]**
 
 ---
 
-*Animation reference for this episode: `animation/week01_compound_growth.py`*
-*Next lesson: `course/week02_index_funds_etfs.md`*
+*本集動畫參考：`animation/week01_compound_growth.py`*
+*下一課：`course/week02_index_funds_etfs.md`*

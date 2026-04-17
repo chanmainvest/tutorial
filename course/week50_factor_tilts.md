@@ -707,173 +707,173 @@ A8: Yes, but with caveats. ESG screens can introduce unintended factor tilts -- 
 
 [VISUAL: Channel intro animation with factor return charts and portfolio construction graphics]
 
-**Alex:** Welcome to Week 50. Today we are diving into factor tilts and alternative risk premia -- topics that separate sophisticated portfolio construction from naive index investing.
+**Horace:** Welcome to Week 50. Today we are diving into factor tilts and alternative risk premia -- topics that separate sophisticated portfolio construction from naive index investing.
 
-**Sam:** Factor investing feels like it has been the hot topic in investing for the past decade. Every ETF provider is selling "smart beta" products. Is there real substance here, or is it mostly marketing?
+**Stella:** Factor investing feels like it has been the hot topic in investing for the past decade. Every ETF provider is selling "smart beta" products. Is there real substance here, or is it mostly marketing?
 
 [VISUAL: Title card "Factor Investing: Substance vs. Marketing"]
 
-**Alex:** Both, honestly. The academic research behind factors is rigorous and decades old. Fama and French identified value and size in the early 1990s. Jegadeesh and Titman documented momentum in 1993. Novy-Marx showed the profitability factor in 2013. These are real phenomena with real economic explanations.
+**Horace:** Both, honestly. The academic research behind factors is rigorous and decades old. Fama and French identified value and size in the early 1990s. Jegadeesh and Titman documented momentum in 1993. Novy-Marx showed the profitability factor in 2013. These are real phenomena with real economic explanations.
 
-**Sam:** But the ETF marketing oversells it?
+**Stella:** But the ETF marketing oversells it?
 
-**Alex:** Dramatically. Here is the uncomfortable truth: the academic research shows a value premium of about 4.5 percent per year. After publication decay, that drops to about 3 percent. After ETF fees and trading costs, you are looking at maybe 2 to 2.5 percent. And after taxes in a taxable account, you might net 1.5 to 2 percent. That is still meaningful, but it is a far cry from the backtested charts in the marketing materials.
+**Horace:** Dramatically. Here is the uncomfortable truth: the academic research shows a value premium of about 4.5 percent per year. After publication decay, that drops to about 3 percent. After ETF fees and trading costs, you are looking at maybe 2 to 2.5 percent. And after taxes in a taxable account, you might net 1.5 to 2 percent. That is still meaningful, but it is a far cry from the backtested charts in the marketing materials.
 
 [VISUAL: Waterfall chart showing factor return degradation from academic paper to real-world after-tax return]
 
-**Sam:** So we should expect factor premiums that are one-third to one-half of what the research papers report?
+**Stella:** So we should expect factor premiums that are one-third to one-half of what the research papers report?
 
-**Alex:** That is a good rule of thumb. McLean and Pontiff published a landmark paper in 2016 showing that factor returns decline by about 32 percent on average after the original research is published. Markets are adaptive -- once a pattern is identified, capital flows in to exploit it, and the premium shrinks.
+**Horace:** That is a good rule of thumb. McLean and Pontiff published a landmark paper in 2016 showing that factor returns decline by about 32 percent on average after the original research is published. Markets are adaptive -- once a pattern is identified, capital flows in to exploit it, and the premium shrinks.
 
 [ANIMATION: animation/week50_factor_matrix.py -- Animated matrix showing correlations between different factors (Value, Momentum, Quality, Low Vol, Size) with colors shifting to show how correlations change across different market regimes]
 
-**Sam:** Okay, so let us go through the major factors. Start with value.
+**Stella:** Okay, so let us go through the major factors. Start with value.
 
-**Alex:** Value is probably the most debated factor right now. The basic idea is that stocks trading at low prices relative to their fundamentals -- book value, earnings, cash flow -- tend to outperform expensive stocks over time. The historical premium is around 4.5 percent annually from 1927 to today.
+**Horace:** Value is probably the most debated factor right now. The basic idea is that stocks trading at low prices relative to their fundamentals -- book value, earnings, cash flow -- tend to outperform expensive stocks over time. The historical premium is around 4.5 percent annually from 1927 to today.
 
-**Sam:** But it had a terrible decade in the 2010s.
+**Stella:** But it had a terrible decade in the 2010s.
 
-**Alex:** Terrible is almost an understatement. From roughly 2007 to 2020, value stocks underperformed growth stocks by a cumulative 60 to 70 percent. Investors who had loaded up on value coming out of the 2008 financial crisis endured 13 years of underperformance. Many gave up entirely -- which, ironically, may have set the stage for value's rebound starting in late 2020.
+**Horace:** Terrible is almost an understatement. From roughly 2007 to 2020, value stocks underperformed growth stocks by a cumulative 60 to 70 percent. Investors who had loaded up on value coming out of the 2008 financial crisis endured 13 years of underperformance. Many gave up entirely -- which, ironically, may have set the stage for value's rebound starting in late 2020.
 
 [VISUAL: Chart showing value vs growth cumulative returns 2007-2024, highlighting the 13-year drought and subsequent recovery]
 
-**Sam:** So is value dead or alive?
+**Stella:** So is value dead or alive?
 
-**Alex:** Alive, but humbled. The value premium is likely smaller than it was historically, partly because so much capital now targets the factor, and partly because accounting-based value measures like book value have become less relevant in an economy dominated by intangible assets. Companies like Google and Microsoft have enormous value in their intellectual property, which does not appear on the balance sheet. Book-to-market, the traditional value measure, misclassifies these companies as "expensive" when they may actually be reasonably priced.
+**Horace:** Alive, but humbled. The value premium is likely smaller than it was historically, partly because so much capital now targets the factor, and partly because accounting-based value measures like book value have become less relevant in an economy dominated by intangible assets. Companies like Google and Microsoft have enormous value in their intellectual property, which does not appear on the balance sheet. Book-to-market, the traditional value measure, misclassifies these companies as "expensive" when they may actually be reasonably priced.
 
-**Sam:** What about momentum?
+**Stella:** What about momentum?
 
 [VISUAL: Title card "Momentum: The Strongest and Most Dangerous Factor"]
 
-**Alex:** Momentum is fascinating. It is the strongest factor in terms of historical return -- about 7 to 8 percent annually. Stocks that have gone up over the past 12 months tend to keep going up, and stocks that have gone down tend to keep going down.
+**Horace:** Momentum is fascinating. It is the strongest factor in terms of historical return -- about 7 to 8 percent annually. Stocks that have gone up over the past 12 months tend to keep going up, and stocks that have gone down tend to keep going down.
 
-**Sam:** That sounds like a trend following strategy.
+**Stella:** That sounds like a trend following strategy.
 
-**Alex:** It is related, but applied specifically to individual stocks in a cross-sectional ranking. The explanations for why it works involve behavioral finance -- investors underreact to good news and then overreact as trends continue. There is also a risk-based explanation: momentum stocks tend to be exposed to crash risk.
+**Horace:** It is related, but applied specifically to individual stocks in a cross-sectional ranking. The explanations for why it works involve behavioral finance -- investors underreact to good news and then overreact as trends continue. There is also a risk-based explanation: momentum stocks tend to be exposed to crash risk.
 
-**Sam:** Crash risk?
+**Stella:** Crash risk?
 
-**Alex:** Momentum has the worst drawdowns of any major factor. In 2009, momentum crashed 73 percent in just two months. What happens is that momentum goes long stocks that have been winning -- often high-beta, leveraged-up names -- and short stocks that have been losing -- often beaten-down, bombed-out names. When the market violently reverses, like it did in March 2009, all those losers suddenly rally and all those winners suddenly plunge. The long-short portfolio gets destroyed from both sides simultaneously.
+**Horace:** Momentum has the worst drawdowns of any major factor. In 2009, momentum crashed 73 percent in just two months. What happens is that momentum goes long stocks that have been winning -- often high-beta, leveraged-up names -- and short stocks that have been losing -- often beaten-down, bombed-out names. When the market violently reverses, like it did in March 2009, all those losers suddenly rally and all those winners suddenly plunge. The long-short portfolio gets destroyed from both sides simultaneously.
 
 [VISUAL: Chart showing momentum factor crashes in 1932, 2009, and 2020, overlaid with market bottoms]
 
-**Sam:** So momentum is the highest return but also the highest risk?
+**Stella:** So momentum is the highest return but also the highest risk?
 
-**Alex:** Exactly. And that is why combining momentum with value is so powerful. Their correlation is about negative 0.25. When value is suffering -- like in a growth-dominated tech boom -- momentum tends to do well because it goes long the winning growth stocks. When momentum crashes -- like in a sharp market reversal -- value stocks tend to be the beneficiaries because cheap, beaten-down stocks lead the recovery.
+**Horace:** Exactly. And that is why combining momentum with value is so powerful. Their correlation is about negative 0.25. When value is suffering -- like in a growth-dominated tech boom -- momentum tends to do well because it goes long the winning growth stocks. When momentum crashes -- like in a sharp market reversal -- value stocks tend to be the beneficiaries because cheap, beaten-down stocks lead the recovery.
 
-**Sam:** That is beautiful diversification.
+**Stella:** That is beautiful diversification.
 
-**Alex:** It is one of the strongest arguments for multi-factor investing. No single factor works all the time, but combining uncorrelated or negatively correlated factors creates a much smoother ride.
+**Horace:** It is one of the strongest arguments for multi-factor investing. No single factor works all the time, but combining uncorrelated or negatively correlated factors creates a much smoother ride.
 
 [VISUAL: Chart showing hypothetical portfolios: value only, momentum only, and value + momentum combined, with the combined portfolio having much lower drawdowns]
 
-**Sam:** Tell me about quality.
+**Stella:** Tell me about quality.
 
-**Alex:** Quality is my favorite factor because it is the most intuitive and the most defensive. High-quality companies -- those with strong profitability, stable earnings, low debt, and honest accounting -- tend to outperform low-quality companies over time.
+**Horace:** Quality is my favorite factor because it is the most intuitive and the most defensive. High-quality companies -- those with strong profitability, stable earnings, low debt, and honest accounting -- tend to outperform low-quality companies over time.
 
-**Sam:** That seems obvious. Why would the market misprice quality?
+**Stella:** That seems obvious. Why would the market misprice quality?
 
-**Alex:** Two reasons. First, investors tend to be attracted to "lottery ticket" stocks -- the next Tesla, the next Amazon. These are typically low-quality companies with exciting narratives but poor fundamentals. The attention they get pushes their prices up and the boring, high-quality companies get overlooked. Second, many investors focus too much on growth potential and not enough on current profitability. A company growing revenue 50 percent per year but burning cash is exciting. A company growing revenue 8 percent per year with 30 percent profit margins is boring. But boring tends to win over time.
+**Horace:** Two reasons. First, investors tend to be attracted to "lottery ticket" stocks -- the next Tesla, the next Amazon. These are typically low-quality companies with exciting narratives but poor fundamentals. The attention they get pushes their prices up and the boring, high-quality companies get overlooked. Second, many investors focus too much on growth potential and not enough on current profitability. A company growing revenue 50 percent per year but burning cash is exciting. A company growing revenue 8 percent per year with 30 percent profit margins is boring. But boring tends to win over time.
 
 [ANIMATION: animation/week50_factor_matrix.py -- Animated scatter plot showing stocks positioned by quality score (x-axis) vs subsequent 5-year return (y-axis), with high-quality stocks clustering in the upper-right quadrant]
 
-**Sam:** What about low volatility?
+**Stella:** What about low volatility?
 
-**Alex:** The low volatility anomaly is one of the most counterintuitive findings in finance. Basic financial theory says that higher risk should be rewarded with higher returns. But empirically, it is the opposite: low-volatility stocks have delivered higher risk-adjusted returns than high-volatility stocks.
+**Horace:** The low volatility anomaly is one of the most counterintuitive findings in finance. Basic financial theory says that higher risk should be rewarded with higher returns. But empirically, it is the opposite: low-volatility stocks have delivered higher risk-adjusted returns than high-volatility stocks.
 
-**Sam:** How is that possible?
+**Stella:** How is that possible?
 
-**Alex:** Several explanations. First, many institutional investors are benchmarked against the market, so they gravitate toward high-beta stocks to beat their benchmark in up markets. This pushes high-beta stock prices up and depresses their future returns. Second, investors have a "lottery preference" -- they overpay for volatile, exciting stocks, similar to buying lottery tickets. Third, leverage constraints matter: investors who want more return but cannot use leverage buy high-beta stocks instead, creating excess demand.
+**Horace:** Several explanations. First, many institutional investors are benchmarked against the market, so they gravitate toward high-beta stocks to beat their benchmark in up markets. This pushes high-beta stock prices up and depresses their future returns. Second, investors have a "lottery preference" -- they overpay for volatile, exciting stocks, similar to buying lottery tickets. Third, leverage constraints matter: investors who want more return but cannot use leverage buy high-beta stocks instead, creating excess demand.
 
-**Sam:** Interesting. Now, how do I actually combine all these factors?
+**Stella:** Interesting. Now, how do I actually combine all these factors?
 
 [VISUAL: Title card "Building a Multi-Factor Portfolio"]
 
-**Alex:** There are two main approaches. The first is portfolio mixing -- you buy separate ETFs for each factor and combine them. For example, 25 percent in a value ETF, 25 percent in a momentum ETF, 25 percent in a quality ETF, and 25 percent in a low volatility ETF.
+**Horace:** There are two main approaches. The first is portfolio mixing -- you buy separate ETFs for each factor and combine them. For example, 25 percent in a value ETF, 25 percent in a momentum ETF, 25 percent in a quality ETF, and 25 percent in a low volatility ETF.
 
-**Sam:** Simple enough.
+**Stella:** Simple enough.
 
-**Alex:** The advantage is simplicity and transparency. The disadvantage is diluted factor exposure. Some stocks will appear in multiple factor portfolios but with offsetting exposures -- a stock might be in the value ETF because it is cheap but also have negative momentum. You end up with conflicting signals within the portfolio.
+**Horace:** The advantage is simplicity and transparency. The disadvantage is diluted factor exposure. Some stocks will appear in multiple factor portfolios but with offsetting exposures -- a stock might be in the value ETF because it is cheap but also have negative momentum. You end up with conflicting signals within the portfolio.
 
-**Sam:** What is the alternative?
+**Stella:** What is the alternative?
 
-**Alex:** The integrated or intersectional approach. Instead of buying separate factor ETFs, you select stocks that score well on multiple factors simultaneously. You look for stocks that are cheap AND have positive momentum AND are high quality. This gives you concentrated factor exposure -- every stock in the portfolio is pulling in the same direction on every factor.
+**Horace:** The integrated or intersectional approach. Instead of buying separate factor ETFs, you select stocks that score well on multiple factors simultaneously. You look for stocks that are cheap AND have positive momentum AND are high quality. This gives you concentrated factor exposure -- every stock in the portfolio is pulling in the same direction on every factor.
 
-**Sam:** That sounds better. Why does not everyone do that?
+**Stella:** That sounds better. Why does not everyone do that?
 
-**Alex:** Higher turnover, more complexity, and harder to replicate cheaply. A handful of multi-factor ETFs attempt this -- like LRGF from iShares or GSLC from Goldman Sachs -- but they still end up with somewhat diluted exposure because they hold hundreds of stocks to manage tracking error.
+**Horace:** Higher turnover, more complexity, and harder to replicate cheaply. A handful of multi-factor ETFs attempt this -- like LRGF from iShares or GSLC from Goldman Sachs -- but they still end up with somewhat diluted exposure because they hold hundreds of stocks to manage tracking error.
 
 [VISUAL: Side-by-side comparison of portfolio mixing vs integrated approach, showing factor exposure intensity]
 
-**Sam:** Let us shift to alternative risk premia. What are those?
+**Stella:** Let us shift to alternative risk premia. What are those?
 
 [VISUAL: Title card "Alternative Risk Premia: Beyond Equity Factors"]
 
-**Alex:** Alternative risk premia extend the factor concept into other domains. The four main ones are carry, trend following, volatility risk premium, and cross-asset value.
+**Horace:** Alternative risk premia extend the factor concept into other domains. The four main ones are carry, trend following, volatility risk premium, and cross-asset value.
 
-**Sam:** We covered volatility risk premium last week. Tell me about carry.
+**Stella:** We covered volatility risk premium last week. Tell me about carry.
 
-**Alex:** Carry is conceptually simple: buy assets with high yields and sell assets with low yields. In currency markets, this means buying high-interest-rate currencies like the Australian dollar and selling low-interest-rate currencies like the Japanese yen. In commodities, it means buying commodities in backwardation -- where futures prices are below spot -- and selling those in contango.
+**Horace:** Carry is conceptually simple: buy assets with high yields and sell assets with low yields. In currency markets, this means buying high-interest-rate currencies like the Australian dollar and selling low-interest-rate currencies like the Japanese yen. In commodities, it means buying commodities in backwardation -- where futures prices are below spot -- and selling those in contango.
 
-**Sam:** Why does this work?
+**Stella:** Why does this work?
 
-**Alex:** Carry provides compensation for bearing risk. High-yielding currencies tend to depreciate on average, but not by enough to offset the interest rate differential. High-yielding bonds tend to have credit risk, but defaults do not occur often enough to eliminate the spread. The catch is that carry strategies are exposed to sudden "risk-off" events. In 2008, the Australian dollar dropped 40 percent against the yen in a few months as carry trades unwound.
+**Horace:** Carry provides compensation for bearing risk. High-yielding currencies tend to depreciate on average, but not by enough to offset the interest rate differential. High-yielding bonds tend to have credit risk, but defaults do not occur often enough to eliminate the spread. The catch is that carry strategies are exposed to sudden "risk-off" events. In 2008, the Australian dollar dropped 40 percent against the yen in a few months as carry trades unwound.
 
 [VISUAL: Chart showing FX carry trade returns over time, with sharp drawdowns during crises highlighted]
 
-**Sam:** And trend following?
+**Stella:** And trend following?
 
-**Alex:** We will cover this in depth next week when we discuss managed futures. But briefly, trend following is a time-series momentum strategy: go long assets that are trending up and short assets that are trending down. The remarkable property of trend following is that it has historically provided "crisis alpha" -- positive returns during extended equity bear markets. This makes it one of the best diversifiers available.
+**Horace:** We will cover this in depth next week when we discuss managed futures. But briefly, trend following is a time-series momentum strategy: go long assets that are trending up and short assets that are trending down. The remarkable property of trend following is that it has historically provided "crisis alpha" -- positive returns during extended equity bear markets. This makes it one of the best diversifiers available.
 
-**Sam:** How do I access these alternative risk premia?
+**Stella:** How do I access these alternative risk premia?
 
-**Alex:** For trend following, ETFs like DBMF and KMLM replicate the returns of managed futures strategies. For carry and cross-asset value, there are fewer clean retail options, though some multi-strategy alternative ETFs include these components. The fees tend to be higher -- 0.75 to 1.0 percent -- but the diversification benefit can justify the cost for a meaningful allocation.
+**Horace:** For trend following, ETFs like DBMF and KMLM replicate the returns of managed futures strategies. For carry and cross-asset value, there are fewer clean retail options, though some multi-strategy alternative ETFs include these components. The fees tend to be higher -- 0.75 to 1.0 percent -- but the diversification benefit can justify the cost for a meaningful allocation.
 
 [VISUAL: Table showing ARP ETFs with their strategies, fees, and historical returns]
 
-**Sam:** What about factor crowding? I have heard this is a major concern.
+**Stella:** What about factor crowding? I have heard this is a major concern.
 
 [VISUAL: Title card "Factor Crowding: When Everyone Discovers the 'Secret'"]
 
-**Alex:** Factor crowding is perhaps the biggest risk in modern factor investing. When a factor premium becomes widely known and heavily traded, several things happen. First, the premium shrinks because so many investors are competing for it. Second, the factor portfolio becomes concentrated in the same stocks, increasing systemic risk. Third, when sentiment shifts and everyone tries to exit simultaneously, the factor can crash violently.
+**Horace:** Factor crowding is perhaps the biggest risk in modern factor investing. When a factor premium becomes widely known and heavily traded, several things happen. First, the premium shrinks because so many investors are competing for it. Second, the factor portfolio becomes concentrated in the same stocks, increasing systemic risk. Third, when sentiment shifts and everyone tries to exit simultaneously, the factor can crash violently.
 
-**Sam:** Has this happened?
+**Stella:** Has this happened?
 
-**Alex:** Several times. The most dramatic example was the August 2007 quant crisis, when quantitative equity strategies -- most of which shared similar factor exposures -- simultaneously suffered massive losses. Multi-billion-dollar hedge funds lost 20 to 30 percent in a week because their models were all buying and selling the same stocks. Goldman Sachs' Global Alpha Fund, once their flagship quant fund, never recovered and was eventually closed.
+**Horace:** Several times. The most dramatic example was the August 2007 quant crisis, when quantitative equity strategies -- most of which shared similar factor exposures -- simultaneously suffered massive losses. Multi-billion-dollar hedge funds lost 20 to 30 percent in a week because their models were all buying and selling the same stocks. Goldman Sachs' Global Alpha Fund, once their flagship quant fund, never recovered and was eventually closed.
 
 [ANIMATION: animation/week50_factor_matrix.py -- Animated visualization showing capital flowing into factor strategies over time, with a "crowding meter" rising as AUM increases, culminating in a simulated crash scenario]
 
-**Sam:** How do I detect crowding before it becomes a problem?
+**Stella:** How do I detect crowding before it becomes a problem?
 
-**Alex:** Watch the factor valuation spread -- the price difference between the long and short sides of a factor. When the spread is historically narrow, the factor is probably crowded and the premium is compressed. Also monitor fund flows into factor ETFs. When inflows are massive and the financial media is enthusiastically promoting a factor, that is usually a contrarian signal.
+**Horace:** Watch the factor valuation spread -- the price difference between the long and short sides of a factor. When the spread is historically narrow, the factor is probably crowded and the premium is compressed. Also monitor fund flows into factor ETFs. When inflows are massive and the financial media is enthusiastically promoting a factor, that is usually a contrarian signal.
 
-**Sam:** This brings up a meta-question. If factor premiums decay after publication and shrink with crowding, will factor investing eventually stop working?
+**Stella:** This brings up a meta-question. If factor premiums decay after publication and shrink with crowding, will factor investing eventually stop working?
 
-**Alex:** That is the right question. My view is that factor premiums will persist but at lower levels than their historical averages. The structural reasons for the premiums -- behavioral biases, institutional constraints, risk aversion -- are unlikely to disappear entirely. But the easy money is gone. What remains is a modest premium, maybe 1 to 3 percent annually for a well-diversified multi-factor portfolio, which is still worth capturing because it comes with low incremental risk when implemented properly.
+**Horace:** That is the right question. My view is that factor premiums will persist but at lower levels than their historical averages. The structural reasons for the premiums -- behavioral biases, institutional constraints, risk aversion -- are unlikely to disappear entirely. But the easy money is gone. What remains is a modest premium, maybe 1 to 3 percent annually for a well-diversified multi-factor portfolio, which is still worth capturing because it comes with low incremental risk when implemented properly.
 
-**Sam:** Practical allocation. What should a sophisticated investor's factor portfolio look like?
+**Stella:** Practical allocation. What should a sophisticated investor's factor portfolio look like?
 
 [VISUAL: Pie chart showing sample multi-factor portfolio allocation]
 
-**Alex:** For a half-million dollar portfolio, I would suggest roughly 70 percent in a core market portfolio -- total US and international equities plus some bonds. Then 20 percent in factor tilts -- split across value, quality, and perhaps a small momentum allocation in tax-advantaged accounts. And 10 percent in alternative risk premia -- primarily managed futures for trend following exposure.
+**Horace:** For a half-million dollar portfolio, I would suggest roughly 70 percent in a core market portfolio -- total US and international equities plus some bonds. Then 20 percent in factor tilts -- split across value, quality, and perhaps a small momentum allocation in tax-advantaged accounts. And 10 percent in alternative risk premia -- primarily managed futures for trend following exposure.
 
-**Sam:** Why only 20 percent in factor tilts? Why not go all-in?
+**Stella:** Why only 20 percent in factor tilts? Why not go all-in?
 
-**Alex:** Two reasons. First, factor premiums are uncertain and can underperform for long periods. You need the core market allocation as an anchor. Second, tracking error. If your entire portfolio is factor-tilted and those factors underperform for 3 to 5 years, the psychological pressure to abandon the strategy becomes overwhelming. By keeping factors as a complement to, rather than a replacement for, market exposure, you can stick with the strategy through inevitable drawdowns.
+**Horace:** Two reasons. First, factor premiums are uncertain and can underperform for long periods. You need the core market allocation as an anchor. Second, tracking error. If your entire portfolio is factor-tilted and those factors underperform for 3 to 5 years, the psychological pressure to abandon the strategy becomes overwhelming. By keeping factors as a complement to, rather than a replacement for, market exposure, you can stick with the strategy through inevitable drawdowns.
 
-**Sam:** What is the single biggest mistake you see in factor investing?
+**Stella:** What is the single biggest mistake you see in factor investing?
 
-**Alex:** Abandoning the strategy after a period of underperformance. Value investors who gave up in 2019 after years of frustration missed the sharp value rebound in 2020-2022. Momentum investors who capitulated in the depths of the 2009 crash missed the subsequent recovery. Factor investing requires a decade-long commitment. If you cannot make that commitment, you are better off in a simple total market index fund.
+**Horace:** Abandoning the strategy after a period of underperformance. Value investors who gave up in 2019 after years of frustration missed the sharp value rebound in 2020-2022. Momentum investors who capitulated in the depths of the 2009 crash missed the subsequent recovery. Factor investing requires a decade-long commitment. If you cannot make that commitment, you are better off in a simple total market index fund.
 
 [VISUAL: Text on screen "Factor investing is a marathon, not a sprint"]
 
-**Sam:** Wise words. How should someone who is just starting think about adding factor tilts?
+**Stella:** Wise words. How should someone who is just starting think about adding factor tilts?
 
-**Alex:** Start simple. Add one or two factor ETFs to your existing portfolio -- value and quality are the easiest to stick with because they are intuitive and have moderate tracking error. Allocate 10 to 15 percent of your equity portfolio to these tilts. Commit to holding for at least 5 years regardless of performance. As you gain comfort and understanding, you can add momentum, low volatility, or alternative risk premia. But start simple, start small, and be patient.
+**Horace:** Start simple. Add one or two factor ETFs to your existing portfolio -- value and quality are the easiest to stick with because they are intuitive and have moderate tracking error. Allocate 10 to 15 percent of your equity portfolio to these tilts. Commit to holding for at least 5 years regardless of performance. As you gain comfort and understanding, you can add momentum, low volatility, or alternative risk premia. But start simple, start small, and be patient.
 
-**Sam:** Great advice. Next week we will dive deep into managed futures and trend following -- one of the most fascinating diversification strategies available to investors.
+**Stella:** Great advice. Next week we will dive deep into managed futures and trend following -- one of the most fascinating diversification strategies available to investors.
 
-**Alex:** See you then.
+**Horace:** See you then.
 
 [VISUAL: End card with lesson summary, recommended factor ETFs, and reading list]
 

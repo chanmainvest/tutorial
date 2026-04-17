@@ -823,191 +823,191 @@ A: The real interest rate -- the nominal rate minus inflation expectations. This
 
 **[VISUAL: Title card -- "Week 34: Interest Rate Sensitivity Across Assets" with a rising interest rate curve superimposed over various asset icons: stocks, bonds, houses, gold bars]**
 
-**Alex:** Welcome back. Last week, we covered credit analysis. Today, we are going even broader. We are going to talk about the gravitational force of all financial markets -- interest rates. And I do not just mean how rates affect bonds. I mean how rates affect everything.
+**Horace:** Welcome back. Last week, we covered credit analysis. Today, we are going even broader. We are going to talk about the gravitational force of all financial markets -- interest rates. And I do not just mean how rates affect bonds. I mean how rates affect everything.
 
-**Sam:** Everything? I know higher rates make bond prices go down, but are stocks and real estate really that connected to rates?
+**Stella:** Everything? I know higher rates make bond prices go down, but are stocks and real estate really that connected to rates?
 
-**Alex:** Let me answer with a question. What was the worst-performing major asset class in 2022?
+**Horace:** Let me answer with a question. What was the worst-performing major asset class in 2022?
 
-**Sam:** I would guess long-term bonds? Or maybe the Nasdaq?
+**Stella:** I would guess long-term bonds? Or maybe the Nasdaq?
 
-**Alex:** Trick question -- they performed almost identically. The 30-year Treasury fell about 33%. The Nasdaq-100 fell about 33%. And the reason was the same: interest rates went from near zero to over 4% in just nine months.
+**Horace:** Trick question -- they performed almost identically. The 30-year Treasury fell about 33%. The Nasdaq-100 fell about 33%. And the reason was the same: interest rates went from near zero to over 4% in just nine months.
 
 **[VISUAL: Side-by-side chart showing 2022 performance of 30-year Treasuries and Nasdaq-100, both declining roughly 33%]**
 
-**Sam:** Wait, the same percentage? That cannot be a coincidence.
+**Stella:** Wait, the same percentage? That cannot be a coincidence.
 
-**Alex:** It is not. And this is the key insight of today's lesson: stocks have duration, just like bonds. Duration measures how sensitive an asset's price is to changes in interest rates. Growth stocks, especially unprofitable growth stocks, have extremely long duration -- sometimes 40 to 60 years.
+**Horace:** It is not. And this is the key insight of today's lesson: stocks have duration, just like bonds. Duration measures how sensitive an asset's price is to changes in interest rates. Growth stocks, especially unprofitable growth stocks, have extremely long duration -- sometimes 40 to 60 years.
 
-**Sam:** How can a stock have "duration"? That is a bond concept.
+**Stella:** How can a stock have "duration"? That is a bond concept.
 
-**Alex:** Think about what determines a stock's value. It is the present value of all future cash flows -- dividends, earnings, free cash flow stretching decades into the future. You discount those cash flows back to today using a discount rate that includes the risk-free interest rate. When rates go up, that discount rate goes up, and the present value goes down.
+**Horace:** Think about what determines a stock's value. It is the present value of all future cash flows -- dividends, earnings, free cash flow stretching decades into the future. You discount those cash flows back to today using a discount rate that includes the risk-free interest rate. When rates go up, that discount rate goes up, and the present value goes down.
 
 **[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Animated visualization showing a timeline of future cash flows for two companies: a value stock with large near-term cash flows that taper off, and a growth stock with small near-term cash flows that grow much larger over time. As the discount rate slider increases, both bars shrink, but the growth stock's bars shrink dramatically more because its cash flows are further in the future.]**
 
-**Alex:** Here is the critical difference between a value stock and a growth stock. A value stock generates most of its cash flows in the next few years. A growth stock generates most of its cash flows 10, 15, 20 years from now. When you raise the discount rate, those distant cash flows get crushed.
+**Horace:** Here is the critical difference between a value stock and a growth stock. A value stock generates most of its cash flows in the next few years. A growth stock generates most of its cash flows 10, 15, 20 years from now. When you raise the discount rate, those distant cash flows get crushed.
 
-**Sam:** So a growth stock is like a long-term bond, and a value stock is like a short-term bond?
+**Stella:** So a growth stock is like a long-term bond, and a value stock is like a short-term bond?
 
-**Alex:** Exactly. A mature utility company paying a 4% dividend with slow growth might have an effective duration of 15 years. A high-growth tech company reinvesting all its profits might have a duration of 40 years or more. An unprofitable biotech company? Its duration could be 60 to 80 years.
+**Horace:** Exactly. A mature utility company paying a 4% dividend with slow growth might have an effective duration of 15 years. A high-growth tech company reinvesting all its profits might have a duration of 40 years or more. An unprofitable biotech company? Its duration could be 60 to 80 years.
 
 **[VISUAL: Table showing equity duration by style -- Deep Value (8-12 years), Dividend stocks (12-18), S&P 500 (18-25), Growth (25-40), Unprofitable Growth (40-60+)]**
 
-**Sam:** That explains why the ARK Innovation ETF fell 67% in 2022 while the S&P only fell 18%.
+**Stella:** That explains why the ARK Innovation ETF fell 67% in 2022 while the S&P only fell 18%.
 
-**Alex:** Precisely. ARK was loaded with unprofitable, high-growth companies -- the longest-duration equities you can buy. When rates went up 4 percentage points, those stocks were devastated. Meanwhile, bank stocks and energy stocks -- short-duration assets -- actually went up.
+**Horace:** Precisely. ARK was loaded with unprofitable, high-growth companies -- the longest-duration equities you can buy. When rates went up 4 percentage points, those stocks were devastated. Meanwhile, bank stocks and energy stocks -- short-duration assets -- actually went up.
 
-**Sam:** So the whole growth-versus-value debate is really about interest rates?
+**Stella:** So the whole growth-versus-value debate is really about interest rates?
 
-**Alex:** To a large degree, yes. Growth massively outperformed value from 2009 to 2021. But that period saw rates falling from about 3% to near zero. It was a 12-year tailwind for long-duration assets. In 2022, when rates reversed sharply, value outperformed growth by the widest margin in decades.
+**Horace:** To a large degree, yes. Growth massively outperformed value from 2009 to 2021. But that period saw rates falling from about 3% to near zero. It was a 12-year tailwind for long-duration assets. In 2022, when rates reversed sharply, value outperformed growth by the widest margin in decades.
 
 **[VISUAL: 20-year chart showing growth vs. value performance with the 10-year Treasury yield overlaid, showing the inverse relationship]**
 
-**Alex:** This does not mean growth is bad or value is good. It means the rate environment determines which style has the wind at its back. Neither is permanently superior.
+**Horace:** This does not mean growth is bad or value is good. It means the rate environment determines which style has the wind at its back. Neither is permanently superior.
 
-**Sam:** OK, what about real estate? I know mortgage rates matter, but how big is the impact?
+**Stella:** OK, what about real estate? I know mortgage rates matter, but how big is the impact?
 
-**Alex:** Real estate might be the single most interest-rate-sensitive major asset class, and for three distinct reasons.
+**Horace:** Real estate might be the single most interest-rate-sensitive major asset class, and for three distinct reasons.
 
 **[VISUAL: Three-pillar graphic -- "Financing Costs," "Cap Rates," "Demand" -- each connected to interest rates]**
 
-**Alex:** Pillar one: financing costs. Most real estate is bought with 60 to 70 percent debt. When the interest rate on that debt goes from 4% to 7%, the annual interest expense nearly doubles. For our example of a ten-million-dollar property with 65% leverage, the cash flow to the equity investor drops by 57%.
+**Horace:** Pillar one: financing costs. Most real estate is bought with 60 to 70 percent debt. When the interest rate on that debt goes from 4% to 7%, the annual interest expense nearly doubles. For our example of a ten-million-dollar property with 65% leverage, the cash flow to the equity investor drops by 57%.
 
-**Sam:** 57%? From a 3-percentage-point rate increase?
+**Stella:** 57%? From a 3-percentage-point rate increase?
 
-**Alex:** Yes, because leverage amplifies the impact. This is the double-edged sword of leverage -- it magnifies returns on the way up and magnifies losses on the way down.
+**Horace:** Yes, because leverage amplifies the impact. This is the double-edged sword of leverage -- it magnifies returns on the way up and magnifies losses on the way down.
 
 **[VISUAL: Before/after comparison showing the same property's cash flow at 4% vs 7% interest rates, with the equity investor's cash flow highlighted]**
 
-**Alex:** Pillar two: cap rate expansion. The cap rate is real estate's version of the earnings yield. When interest rates rise, investors demand higher cap rates. And when cap rates rise, property values fall. A 200-basis-point increase in cap rates can reduce a property's value by nearly 30%.
+**Horace:** Pillar two: cap rate expansion. The cap rate is real estate's version of the earnings yield. When interest rates rise, investors demand higher cap rates. And when cap rates rise, property values fall. A 200-basis-point increase in cap rates can reduce a property's value by nearly 30%.
 
-**Sam:** That is enormous. And what is the third pillar?
+**Stella:** That is enormous. And what is the third pillar?
 
-**Alex:** Demand reduction. Consider residential housing. A 30-year mortgage at 3% on a $400,000 loan costs $1,686 per month. At 7%, the same loan costs $2,661 per month -- that is 58% more. Many potential buyers simply cannot afford that, so demand drops, inventory builds, and prices soften.
+**Horace:** Demand reduction. Consider residential housing. A 30-year mortgage at 3% on a $400,000 loan costs $1,686 per month. At 7%, the same loan costs $2,661 per month -- that is 58% more. Many potential buyers simply cannot afford that, so demand drops, inventory builds, and prices soften.
 
 **[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Animated bar chart showing monthly mortgage payments at different interest rates from 3% to 8% on a $400,000 loan, with each bar growing taller and a "buyer affordability threshold" line showing fewer and fewer buyers can afford the payment as rates rise.]**
 
-**Sam:** What about commercial real estate? I have heard the office market is in trouble.
+**Stella:** What about commercial real estate? I have heard the office market is in trouble.
 
-**Alex:** Office is facing a double whammy -- higher rates plus the secular shift to remote work. Some office buildings have lost 40 to 50 percent of their value. But not all real estate is equally affected. Industrial properties like warehouses and data centers have strong secular demand that partially offsets rate headwinds. Self-storage has short-term leases that allow quick rent adjustments.
+**Horace:** Office is facing a double whammy -- higher rates plus the secular shift to remote work. Some office buildings have lost 40 to 50 percent of their value. But not all real estate is equally affected. Industrial properties like warehouses and data centers have strong secular demand that partially offsets rate headwinds. Self-storage has short-term leases that allow quick rent adjustments.
 
 **[VISUAL: Table showing real estate sectors by rate sensitivity, from "Very High" (Office) to "Lower" (Cell Towers, Healthcare)]**
 
-**Sam:** Let us talk about commodities. Gold went up a lot recently, but I have also heard gold does poorly when rates rise?
+**Stella:** Let us talk about commodities. Gold went up a lot recently, but I have also heard gold does poorly when rates rise?
 
-**Alex:** This is where the misconceptions run deep. People say gold is an inflation hedge. But that is imprecise. Gold is really a hedge against negative real interest rates.
+**Horace:** This is where the misconceptions run deep. People say gold is an inflation hedge. But that is imprecise. Gold is really a hedge against negative real interest rates.
 
-**Sam:** What are real interest rates?
+**Stella:** What are real interest rates?
 
-**Alex:** The real rate is the nominal interest rate minus inflation. If the nominal rate is 5% and inflation is 3%, the real rate is 2%. If the nominal rate is 2% and inflation is 5%, the real rate is negative 3%.
+**Horace:** The real rate is the nominal interest rate minus inflation. If the nominal rate is 5% and inflation is 3%, the real rate is 2%. If the nominal rate is 2% and inflation is 5%, the real rate is negative 3%.
 
 **[VISUAL: Simple equation graphic -- "Real Rate = Nominal Rate - Inflation" with examples showing positive and negative real rates]**
 
-**Alex:** Gold does not generate any income -- no dividends, no coupons, no rent. So when real rates are positive and rising, holding gold means you are giving up meaningful yield to own a non-yielding asset. The opportunity cost is high, and gold tends to decline.
+**Horace:** Gold does not generate any income -- no dividends, no coupons, no rent. So when real rates are positive and rising, holding gold means you are giving up meaningful yield to own a non-yielding asset. The opportunity cost is high, and gold tends to decline.
 
-**Sam:** But when real rates are negative?
+**Stella:** But when real rates are negative?
 
-**Alex:** When real rates are negative, cash is losing purchasing power even in a savings account. In that environment, gold's zero yield does not look so bad compared to a guaranteed real loss. That is when gold tends to shine.
+**Horace:** When real rates are negative, cash is losing purchasing power even in a savings account. In that environment, gold's zero yield does not look so bad compared to a guaranteed real loss. That is when gold tends to shine.
 
 **[VISUAL: Scatter plot showing gold price changes vs. real interest rate changes, demonstrating the inverse relationship with ~-0.7 correlation]**
 
-**Sam:** What about other commodities like oil and copper?
+**Stella:** What about other commodities like oil and copper?
 
-**Alex:** They work through different channels. Higher rates strengthen the dollar, and since commodities are priced in dollars, a stronger dollar puts downward pressure on commodity prices. Higher rates also slow economic growth, reducing demand for industrial commodities. But the supply side matters too -- if rates are high enough to discourage new mining or drilling, future supply constraints can eventually push prices higher.
+**Horace:** They work through different channels. Higher rates strengthen the dollar, and since commodities are priced in dollars, a stronger dollar puts downward pressure on commodity prices. Higher rates also slow economic growth, reducing demand for industrial commodities. But the supply side matters too -- if rates are high enough to discourage new mining or drilling, future supply constraints can eventually push prices higher.
 
-**Sam:** So commodity analysis is complicated.
+**Stella:** So commodity analysis is complicated.
 
-**Alex:** It is. There is no single clean relationship like there is for bonds. You have to think about which channel dominates in each specific situation.
+**Horace:** It is. There is no single clean relationship like there is for bonds. You have to think about which channel dominates in each specific situation.
 
-**Sam:** Let us talk about corporate behavior. You mentioned that rates affect how companies use leverage and buybacks.
+**Stella:** Let us talk about corporate behavior. You mentioned that rates affect how companies use leverage and buybacks.
 
-**Alex:** This is hugely important and often overlooked. During the low-rate era from 2010 to 2021, US companies bought back over seven trillion dollars in stock. A large portion was funded by cheap debt.
+**Horace:** This is hugely important and often overlooked. During the low-rate era from 2010 to 2021, US companies bought back over seven trillion dollars in stock. A large portion was funded by cheap debt.
 
 **[VISUAL: Chart showing cumulative stock buybacks by US companies over the past 15 years, with the Fed Funds rate overlaid]**
 
-**Alex:** The math was simple. Borrow at 3%, buy back stock with a 5% earnings yield, and you create 2% of value for remaining shareholders. But when borrowing costs go to 6 or 7 percent, the math flips. Now buybacks destroy value. The company would be better off paying down debt.
+**Horace:** The math was simple. Borrow at 3%, buy back stock with a 5% earnings yield, and you create 2% of value for remaining shareholders. But when borrowing costs go to 6 or 7 percent, the math flips. Now buybacks destroy value. The company would be better off paying down debt.
 
-**Sam:** So do buybacks stop when rates rise?
+**Stella:** So do buybacks stop when rates rise?
 
-**Alex:** They slow dramatically. Companies shift from "buy back stock and increase leverage" mode to "pay down debt and strengthen the balance sheet" mode. This matters for equity investors because a significant portion of equity returns over the past decade came from buyback-driven EPS growth. Remove that tailwind, and equity returns may be more modest going forward.
+**Horace:** They slow dramatically. Companies shift from "buy back stock and increase leverage" mode to "pay down debt and strengthen the balance sheet" mode. This matters for equity investors because a significant portion of equity returns over the past decade came from buyback-driven EPS growth. Remove that tailwind, and equity returns may be more modest going forward.
 
 **[VISUAL: Two-scenario comparison showing how the same $1B buyback is EPS-accretive at 3% rates but EPS-dilutive at 7% rates]**
 
-**Sam:** Which sectors are most vulnerable to this?
+**Stella:** Which sectors are most vulnerable to this?
 
-**Alex:** Any sector with high leverage is vulnerable. Utilities, REITs, telecoms, and especially private-equity-backed companies, which often carry 5 to 8 times debt-to-EBITDA. When rates rise 3 percentage points on that much debt, it can turn a comfortable situation into a crisis.
+**Horace:** Any sector with high leverage is vulnerable. Utilities, REITs, telecoms, and especially private-equity-backed companies, which often carry 5 to 8 times debt-to-EBITDA. When rates rise 3 percentage points on that much debt, it can turn a comfortable situation into a crisis.
 
-**Sam:** So how do I put all of this together for my portfolio?
+**Stella:** So how do I put all of this together for my portfolio?
 
-**Alex:** That is where rate regime mapping comes in. I think about four distinct rate environments, and each one favors a different mix of assets.
+**Horace:** That is where rate regime mapping comes in. I think about four distinct rate environments, and each one favors a different mix of assets.
 
 **[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Four-quadrant animated diagram showing rate regimes (Low/Falling, Low/Rising, High/Stable, High/Falling) with asset class performance indicators rotating into each quadrant. For each regime, favored assets light up green and challenged assets turn red.]**
 
-**Alex:** Regime one: low and falling rates. Think 2010 to 2020. Growth stocks, long bonds, REITs, and gold all benefited. Regime two: low and rising rates. Think 2022. Value stocks, bank stocks, floating-rate instruments, and cash were the winners. Regime three: high and stable rates. Think the mid-2000s. High-quality bonds, dividend stocks, and quality companies do well. Regime four: high and falling rates. Think the early 1980s. Everything rallies because the starting yields are high and rates are declining.
+**Horace:** Regime one: low and falling rates. Think 2010 to 2020. Growth stocks, long bonds, REITs, and gold all benefited. Regime two: low and rising rates. Think 2022. Value stocks, bank stocks, floating-rate instruments, and cash were the winners. Regime three: high and stable rates. Think the mid-2000s. High-quality bonds, dividend stocks, and quality companies do well. Regime four: high and falling rates. Think the early 1980s. Everything rallies because the starting yields are high and rates are declining.
 
-**Sam:** Which regime are we in now?
+**Stella:** Which regime are we in now?
 
-**Alex:** That is the critical question every investor needs to answer for themselves. Look at the level of rates relative to history, the direction they are heading, the speed of change, and what the market expects. The answers to these questions should drive your asset allocation.
+**Horace:** That is the critical question every investor needs to answer for themselves. Look at the level of rates relative to history, the direction they are heading, the speed of change, and what the market expects. The answers to these questions should drive your asset allocation.
 
 **[VISUAL: Rate regime identification decision tree/flowchart]**
 
-**Sam:** What if I am wrong about the direction of rates?
+**Stella:** What if I am wrong about the direction of rates?
 
-**Alex:** That is why hedging matters. There are several approaches. The simplest is duration management -- if you think rates are rising, shorten your portfolio's duration by owning more value stocks, shorter-term bonds, and less real estate. If you think rates are falling, extend duration.
+**Horace:** That is why hedging matters. There are several approaches. The simplest is duration management -- if you think rates are rising, shorten your portfolio's duration by owning more value stocks, shorter-term bonds, and less real estate. If you think rates are falling, extend duration.
 
-**Sam:** What about using derivatives to hedge?
+**Stella:** What about using derivatives to hedge?
 
-**Alex:** You can use Treasury futures, interest rate swaps, or options on bond ETFs to hedge rate exposure. But for most individual investors, the simpler approach is more practical: use asset allocation and sector rotation to manage rate sensitivity. Tilt toward financials and value when you expect rising rates. Tilt toward growth and REITs when you expect falling rates.
+**Horace:** You can use Treasury futures, interest rate swaps, or options on bond ETFs to hedge rate exposure. But for most individual investors, the simpler approach is more practical: use asset allocation and sector rotation to manage rate sensitivity. Tilt toward financials and value when you expect rising rates. Tilt toward growth and REITs when you expect falling rates.
 
-**Sam:** Are there any natural hedges -- assets that benefit from rising rates?
+**Stella:** Are there any natural hedges -- assets that benefit from rising rates?
 
-**Alex:** Yes. Bank stocks tend to benefit because their net interest margins expand. Insurance companies earn more on their investment portfolios. Floating-rate loans and bonds see their coupon payments increase. Cash and money market funds start yielding more. These can serve as natural offsets to the rate sensitivity in the rest of your portfolio.
+**Horace:** Yes. Bank stocks tend to benefit because their net interest margins expand. Insurance companies earn more on their investment portfolios. Floating-rate loans and bonds see their coupon payments increase. Cash and money market funds start yielding more. These can serve as natural offsets to the rate sensitivity in the rest of your portfolio.
 
 **[VISUAL: "Natural Rate Hedges" table showing assets that benefit from rising rates with explanations of why]**
 
-**Sam:** Before we wrap up, I want to ask about the yield curve. You added a section about it in the reading material. Can you explain why it matters for asset allocation?
+**Stella:** Before we wrap up, I want to ask about the yield curve. You added a section about it in the reading material. Can you explain why it matters for asset allocation?
 
-**Alex:** The yield curve is the relationship between bond yields and their maturities. Normally, longer-term bonds yield more than shorter-term ones -- that is a "normal" upward-sloping curve. But sometimes the curve inverts -- short-term rates exceed long-term rates. And that is one of the most powerful recession signals in finance.
+**Horace:** The yield curve is the relationship between bond yields and their maturities. Normally, longer-term bonds yield more than shorter-term ones -- that is a "normal" upward-sloping curve. But sometimes the curve inverts -- short-term rates exceed long-term rates. And that is one of the most powerful recession signals in finance.
 
 **[VISUAL: Three yield curve shapes shown side by side -- Normal (upward sloping), Flat, and Inverted (downward sloping) with labels]**
 
-**Sam:** I have heard that an inverted yield curve predicts recessions. Is that really true?
+**Stella:** I have heard that an inverted yield curve predicts recessions. Is that really true?
 
-**Alex:** It has preceded every US recession since 1970 without exception. The average lead time is about 14 to 16 months. Now, it is not perfect -- the timing varies a lot, and there have been a few false signals in other countries. But it is the single most reliable recession indicator we have.
+**Horace:** It has preceded every US recession since 1970 without exception. The average lead time is about 14 to 16 months. Now, it is not perfect -- the timing varies a lot, and there have been a few false signals in other countries. But it is the single most reliable recession indicator we have.
 
-**Sam:** Why does an inverted curve predict recessions?
+**Stella:** Why does an inverted curve predict recessions?
 
-**Alex:** There are two explanations. The market-based explanation is that when investors expect economic weakness, they buy long-term bonds as a safe haven, pushing long-term yields down. When they expect the Fed will eventually cut rates, long-term yields fall relative to short-term yields. The mechanical explanation is that banks borrow short and lend long. When the curve inverts, banking becomes unprofitable, lending slows, and the economy contracts.
+**Horace:** There are two explanations. The market-based explanation is that when investors expect economic weakness, they buy long-term bonds as a safe haven, pushing long-term yields down. When they expect the Fed will eventually cut rates, long-term yields fall relative to short-term yields. The mechanical explanation is that banks borrow short and lend long. When the curve inverts, banking becomes unprofitable, lending slows, and the economy contracts.
 
 **[VISUAL: Diagram showing the bank lending channel -- banks borrow at short-term rates, lend at long-term rates, and the spread between them is their profit margin. When the curve inverts, the margin disappears or goes negative.]**
 
-**Sam:** How should I adjust my portfolio when the curve inverts?
+**Stella:** How should I adjust my portfolio when the curve inverts?
 
-**Alex:** When the curve first inverts, reduce risk gradually. Do not panic -- the recession may be 12 to 18 months away. Start building cash reserves. Shift from cyclical stocks to defensive sectors. Consider extending bond duration to lock in the higher short-term rates before they fall. And watch credit spreads for confirmation -- if both the yield curve is inverted and credit spreads are widening, the signal is stronger.
+**Horace:** When the curve first inverts, reduce risk gradually. Do not panic -- the recession may be 12 to 18 months away. Start building cash reserves. Shift from cyclical stocks to defensive sectors. Consider extending bond duration to lock in the higher short-term rates before they fall. And watch credit spreads for confirmation -- if both the yield curve is inverted and credit spreads are widening, the signal is stronger.
 
-**Sam:** What about when the curve un-inverts -- when it goes from inverted back to normal?
+**Stella:** What about when the curve un-inverts -- when it goes from inverted back to normal?
 
-**Alex:** This is actually the scariest moment. Paradoxically, when the curve re-steepens from an inverted position, the recession is usually imminent or already starting. The Fed is cutting rates because the economy is weakening, which pushes short-term rates down and steepens the curve. But here is the opportunity -- this is often the best time to start positioning for the recovery. Long-term bonds rally strongly when the Fed cuts rates, and the eventual recovery rewards investors who added risk during the downturn.
+**Horace:** This is actually the scariest moment. Paradoxically, when the curve re-steepens from an inverted position, the recession is usually imminent or already starting. The Fed is cutting rates because the economy is weakening, which pushes short-term rates down and steepens the curve. But here is the opportunity -- this is often the best time to start positioning for the recovery. Long-term bonds rally strongly when the Fed cuts rates, and the eventual recovery rewards investors who added risk during the downturn.
 
 **[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Timeline animation showing the yield curve shape evolving through a full economic cycle: normal curve during expansion, flattening as the Fed hikes, inverting before recession, re-steepening during recession as the Fed cuts, and returning to normal during recovery. Asset class performance indicators update at each phase.]**
 
-**Sam:** That is fascinating. The curve shape essentially tells you where you are in the economic cycle.
+**Stella:** That is fascinating. The curve shape essentially tells you where you are in the economic cycle.
 
-**Alex:** Exactly. Combine the yield curve shape with the rate level and direction, and you have a powerful framework for positioning your portfolio across all asset classes.
+**Horace:** Exactly. Combine the yield curve shape with the rate level and direction, and you have a powerful framework for positioning your portfolio across all asset classes.
 
-**Sam:** What is the single most important rate metric I should watch?
+**Stella:** What is the single most important rate metric I should watch?
 
-**Alex:** The real interest rate. Not the nominal rate, not the Fed Funds rate, but the real rate -- the nominal rate minus inflation expectations. You can see this directly by looking at TIPS yields. When real rates are rising, almost every asset class faces headwinds. When real rates are falling, almost everything gets a boost. Real rates are the true gravitational force of financial markets.
+**Horace:** The real interest rate. Not the nominal rate, not the Fed Funds rate, but the real rate -- the nominal rate minus inflation expectations. You can see this directly by looking at TIPS yields. When real rates are rising, almost every asset class faces headwinds. When real rates are falling, almost everything gets a boost. Real rates are the true gravitational force of financial markets.
 
 **[VISUAL: 20-year chart of real interest rates (TIPS yields) with annotations showing how different asset classes performed during different real rate regimes]**
 
-**Sam:** This has been eye-opening. Let me try to summarize. Stocks have duration just like bonds -- growth stocks have long duration and are very rate-sensitive, while value stocks have shorter duration. Real estate is extremely rate-sensitive because of leverage, cap rates, and demand effects. Gold responds to real rates, not nominal rates. And I should map the rate regime to my asset allocation.
+**Stella:** This has been eye-opening. Let me try to summarize. Stocks have duration just like bonds -- growth stocks have long duration and are very rate-sensitive, while value stocks have shorter duration. Real estate is extremely rate-sensitive because of leverage, cap rates, and demand effects. Gold responds to real rates, not nominal rates. And I should map the rate regime to my asset allocation.
 
-**Alex:** That is an excellent summary. And remember -- the reason rates are changing matters as much as the direction. Rising rates driven by strong economic growth are very different from rising rates driven by inflation and Fed tightening. Context is king.
+**Horace:** That is an excellent summary. And remember -- the reason rates are changing matters as much as the direction. Rising rates driven by strong economic growth are very different from rising rates driven by inflation and Fed tightening. Context is king.
 
-**Sam:** Thanks Alex. Next week we dive into advanced financial statement analysis. I am looking forward to getting into the weeds on earnings quality.
+**Stella:** Thanks Horace. Next week we dive into advanced financial statement analysis. I am looking forward to getting into the weeds on earnings quality.
 
-**Alex:** It will be a great one. We will cover some of my favorite tools for detecting accounting manipulation. See you next week.
+**Horace:** It will be a great one. We will cover some of my favorite tools for detecting accounting manipulation. See you next week.
 
 **[VISUAL: End card with key takeaways:
 1. Equities have duration -- growth stocks are long-duration, value stocks are short-duration

@@ -1,5 +1,7 @@
 # Investment Tutorial: From Beginner to Professional
 
+**[View the Course Website](https://chanmainvest.github.io/tutorial/)**
+
 A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Based on CFA curriculum knowledge, structured for retail investors with a YouTube-ready teaching format.
 
 ## Course Philosophy
@@ -64,8 +66,6 @@ A comprehensive 52-week investment education course with supplementary side less
 | 34 | [Interest Rate Sensitivity Across Assets](course/week34_rate_sensitivity.md) | How rate changes ripple through equities, bonds, real estate, and commodities |
 | 35 | [Advanced Financial Statement Analysis](course/week35_advanced_fsa.md) | Stock compensation, off-balance-sheet items, and earnings quality detection |
 | 36 | [Building an Income-Generating Portfolio](course/week36_income_portfolio.md) | Combining dividends, bonds, covered calls, and REITs for steady cash flow |
-
-### Level 3: Advanced (Weeks 25-36) - Options and Fixed Income
 
 ### Level 4: Sophisticated (Weeks 37-46)
 

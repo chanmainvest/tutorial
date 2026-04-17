@@ -762,143 +762,143 @@ A: WACC is the discount rate used in DCF valuation. When you discount a company'
 
 [VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
 
-**Alex:** Welcome back everyone. Today we are going under the hood of how companies actually manage their money. This is corporate finance, and I promise you this will change how you look at every company you invest in.
+**Horace:** Welcome back everyone. Today we are going under the hood of how companies actually manage their money. This is corporate finance, and I promise you this will change how you look at every company you invest in.
 
-**Sam:** Why should I care about how a company structures its finances? I just want to know if the stock price is going up.
+**Stella:** Why should I care about how a company structures its finances? I just want to know if the stock price is going up.
 
-**Alex:** And that is exactly why you need to understand this. Stock prices over the long term are driven by how effectively management allocates capital. Think of it this way -- when you buy a stock, you are essentially hiring the management team to invest your money for you. Would you hire someone without understanding how they plan to use your money?
+**Horace:** And that is exactly why you need to understand this. Stock prices over the long term are driven by how effectively management allocates capital. Think of it this way -- when you buy a stock, you are essentially hiring the management team to invest your money for you. Would you hire someone without understanding how they plan to use your money?
 
-**Sam:** When you put it that way, no.
+**Stella:** When you put it that way, no.
 
-**Alex:** Exactly. So let us start with the most fundamental decision in corporate finance: how should a company fund itself? Should it use debt, equity, or some combination?
+**Horace:** Exactly. So let us start with the most fundamental decision in corporate finance: how should a company fund itself? Should it use debt, equity, or some combination?
 
 [VISUAL: Title card "Capital Structure: Debt vs. Equity" with a building illustration. One side of the building is labeled "Debt" and is shaded blue, the other side "Equity" shaded green. The proportion changes dynamically.]
 
-**Sam:** I think I know this. Debt is borrowed money and equity is ownership money, right?
+**Stella:** I think I know this. Debt is borrowed money and equity is ownership money, right?
 
-**Alex:** Correct. But the choice between them has enormous consequences. Let me give you a concrete example. Imagine two identical pizza restaurant chains, each with $1 million in assets generating $150,000 in operating income. Chain A is financed entirely with equity -- the owners put up all the money. Chain B is financed with $500,000 in equity and $500,000 in debt at 6% interest.
+**Horace:** Correct. But the choice between them has enormous consequences. Let me give you a concrete example. Imagine two identical pizza restaurant chains, each with $1 million in assets generating $150,000 in operating income. Chain A is financed entirely with equity -- the owners put up all the money. Chain B is financed with $500,000 in equity and $500,000 in debt at 6% interest.
 
-**Sam:** So Chain B owes $30,000 a year in interest.
+**Stella:** So Chain B owes $30,000 a year in interest.
 
-**Alex:** Right. Chain A earns $150,000 before tax, pays $37,500 in tax at a 25% rate, and keeps $112,500. That is an 11.25% return on the owners' million-dollar investment. Chain B earns $150,000 but pays $30,000 in interest, leaving $120,000 before tax. After $30,000 in tax, they keep $90,000. But here is the key -- the owners only invested $500,000, so their return is 18%.
+**Horace:** Right. Chain A earns $150,000 before tax, pays $37,500 in tax at a 25% rate, and keeps $112,500. That is an 11.25% return on the owners' million-dollar investment. Chain B earns $150,000 but pays $30,000 in interest, leaving $120,000 before tax. After $30,000 in tax, they keep $90,000. But here is the key -- the owners only invested $500,000, so their return is 18%.
 
 [ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
 
-**Sam:** Wait, Chain B's owners made a higher return even though the company had lower net income?
+**Stella:** Wait, Chain B's owners made a higher return even though the company had lower net income?
 
-**Alex:** Exactly. This is the power of leverage. Because the owners put up less money but the business generated the same operating income, their return on equity is higher. But here is the catch. What happens if the business has a bad year and operating income drops to $20,000?
+**Horace:** Exactly. This is the power of leverage. Because the owners put up less money but the business generated the same operating income, their return on equity is higher. But here is the catch. What happens if the business has a bad year and operating income drops to $20,000?
 
-**Sam:** Chain A would still make a small profit, but Chain B has to pay $30,000 in interest on only $20,000 of income -- they are in the red.
+**Stella:** Chain A would still make a small profit, but Chain B has to pay $30,000 in interest on only $20,000 of income -- they are in the red.
 
-**Alex:** Precisely. Leverage magnifies returns in both directions. Good times become great, and bad times become terrible. This is the fundamental tradeoff of debt -- higher potential returns but also higher risk.
+**Horace:** Precisely. Leverage magnifies returns in both directions. Good times become great, and bad times become terrible. This is the fundamental tradeoff of debt -- higher potential returns but also higher risk.
 
-**Sam:** So is there an optimal amount of debt?
+**Stella:** So is there an optimal amount of debt?
 
-**Alex:** There is, and finding it is one of the central problems in corporate finance. In 1958, two economists named Modigliani and Miller proved something remarkable. In a perfect world -- no taxes, no bankruptcy costs -- the mix of debt and equity would not matter at all. The total value of the firm would be the same regardless.
+**Horace:** There is, and finding it is one of the central problems in corporate finance. In 1958, two economists named Modigliani and Miller proved something remarkable. In a perfect world -- no taxes, no bankruptcy costs -- the mix of debt and equity would not matter at all. The total value of the firm would be the same regardless.
 
-**Sam:** But we do not live in a perfect world.
+**Stella:** But we do not live in a perfect world.
 
-**Alex:** Right. In reality, there are two major frictions that make capital structure matter. First, interest on debt is tax-deductible, which gives debt a cost advantage. If a company borrows $1 million at 5%, the $50,000 in interest reduces taxable income, saving $12,500 in taxes at a 25% rate. That tax shield is worth real money. Second, too much debt creates the risk of financial distress -- if you cannot make your interest payments, you face bankruptcy, which is enormously costly.
+**Horace:** Right. In reality, there are two major frictions that make capital structure matter. First, interest on debt is tax-deductible, which gives debt a cost advantage. If a company borrows $1 million at 5%, the $50,000 in interest reduces taxable income, saving $12,500 in taxes at a 25% rate. That tax shield is worth real money. Second, too much debt creates the risk of financial distress -- if you cannot make your interest payments, you face bankruptcy, which is enormously costly.
 
 [VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "Optimal Capital Structure" and is shown around 30-50% debt for a typical company. Annotations show "tax benefits dominating" on the left side and "distress costs dominating" on the right side.]
 
-**Sam:** So the optimal capital structure balances the tax benefits of debt against the bankruptcy risks?
+**Stella:** So the optimal capital structure balances the tax benefits of debt against the bankruptcy risks?
 
-**Alex:** Exactly. And this optimal point varies by industry. A utility company with stable, predictable cash flows can safely carry 50-60% debt. A technology startup with volatile and uncertain cash flows should carry very little. The general rule is: the more stable and predictable your cash flows, the more debt you can safely handle.
+**Horace:** Exactly. And this optimal point varies by industry. A utility company with stable, predictable cash flows can safely carry 50-60% debt. A technology startup with volatile and uncertain cash flows should carry very little. The general rule is: the more stable and predictable your cash flows, the more debt you can safely handle.
 
-**Sam:** This makes sense. Now, you mentioned WACC earlier. What is that?
+**Stella:** This makes sense. Now, you mentioned WACC earlier. What is that?
 
-**Alex:** WACC stands for Weighted Average Cost of Capital. It is the blended cost of all the money a company uses. Think of it as the minimum return the company must earn on its investments to satisfy both its lenders and its shareholders.
+**Horace:** WACC stands for Weighted Average Cost of Capital. It is the blended cost of all the money a company uses. Think of it as the minimum return the company must earn on its investments to satisfy both its lenders and its shareholders.
 
-**Sam:** How do you calculate it?
+**Stella:** How do you calculate it?
 
-**Alex:** You take the cost of equity multiplied by the equity weight, plus the cost of debt (after tax) multiplied by the debt weight. Let me use a real example. Say a company has a $800 million market cap and $200 million in debt. Shareholders require a 10% return and the company borrows at 5%. The tax rate is 25%.
+**Horace:** You take the cost of equity multiplied by the equity weight, plus the cost of debt (after tax) multiplied by the debt weight. Let me use a real example. Say a company has a $800 million market cap and $200 million in debt. Shareholders require a 10% return and the company borrows at 5%. The tax rate is 25%.
 
-**Alex:** Equity weight is 80%, debt weight is 20%. WACC equals 10% times 80% plus 5% times 20% times 75%, which is 8% plus 0.75%, equaling 8.75%.
+**Horace:** Equity weight is 80%, debt weight is 20%. WACC equals 10% times 80% plus 5% times 20% times 75%, which is 8% plus 0.75%, equaling 8.75%.
 
 [VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "Every project must clear this bar to create value."]
 
-**Sam:** So if the company invests in a project that returns 7%, that is bad?
+**Stella:** So if the company invests in a project that returns 7%, that is bad?
 
-**Alex:** It is destroying value. The project earns 7% but the capital costs 8.75%. Shareholders would have been better off getting their money back. This is one of the most important concepts in all of corporate finance -- only invest in projects that earn above the cost of capital.
+**Horace:** It is destroying value. The project earns 7% but the capital costs 8.75%. Shareholders would have been better off getting their money back. This is one of the most important concepts in all of corporate finance -- only invest in projects that earn above the cost of capital.
 
-**Sam:** Let us talk about what happens when the company has more cash than good projects. How does it return money to shareholders?
+**Stella:** Let us talk about what happens when the company has more cash than good projects. How does it return money to shareholders?
 
-**Alex:** Two main ways: dividends and share buybacks. Let us start with dividends. A dividend is simply a cash payment from the company to its shareholders. If a company pays $1 per share per quarter and you own 1,000 shares, you receive $1,000 in cash every three months.
+**Horace:** Two main ways: dividends and share buybacks. Let us start with dividends. A dividend is simply a cash payment from the company to its shareholders. If a company pays $1 per share per quarter and you own 1,000 shares, you receive $1,000 in cash every three months.
 
-**Sam:** That sounds great. Why does not every company pay dividends?
+**Stella:** That sounds great. Why does not every company pay dividends?
 
-**Alex:** Because some companies have better uses for their cash. If a company can reinvest profits at a 25% return, sending that money to shareholders who might only earn 8% in the market is a poor decision. Amazon famously paid no dividends for decades because Jeff Bezos could reinvest every dollar at extraordinary returns. But mature companies with limited growth opportunities should return excess cash rather than hoarding it or wasting it on low-return projects.
+**Horace:** Because some companies have better uses for their cash. If a company can reinvest profits at a 25% return, sending that money to shareholders who might only earn 8% in the market is a poor decision. Amazon famously paid no dividends for decades because Jeff Bezos could reinvest every dollar at extraordinary returns. But mature companies with limited growth opportunities should return excess cash rather than hoarding it or wasting it on low-return projects.
 
 [VISUAL: Decision tree flowchart. Starting with "Company has $100M in free cash flow." First branch: "Can we invest at returns above WACC?" If yes, "Invest in growth." If no, "Return cash to shareholders" which branches into "Dividends" and "Buybacks" with pros and cons listed for each.]
 
-**Sam:** What makes a dividend safe or risky?
+**Stella:** What makes a dividend safe or risky?
 
-**Alex:** The key metric is the payout ratio -- what percentage of earnings is being paid out as dividends. A payout ratio of 40% is very comfortable. It means the company can absorb a significant earnings decline and still afford the dividend. A payout ratio of 90% is dangerous -- any earnings stumble could force a cut. Even more important, look at whether free cash flow covers the dividend. Some companies report good earnings but poor cash flow, and if the cash is not there, the dividend is not sustainable.
+**Horace:** The key metric is the payout ratio -- what percentage of earnings is being paid out as dividends. A payout ratio of 40% is very comfortable. It means the company can absorb a significant earnings decline and still afford the dividend. A payout ratio of 90% is dangerous -- any earnings stumble could force a cut. Even more important, look at whether free cash flow covers the dividend. Some companies report good earnings but poor cash flow, and if the cash is not there, the dividend is not sustainable.
 
-**Sam:** What happens when a company cuts its dividend?
+**Stella:** What happens when a company cuts its dividend?
 
-**Alex:** It is usually a bloodbath for the stock price. Dividend cuts are one of the strongest negative signals a company can send. They are saying "we can no longer afford to pay you." The stock typically drops 20-30% on a dividend cut announcement because it signals fundamental deterioration AND forces income-seeking investors -- who held the stock specifically for the dividend -- to sell.
+**Horace:** It is usually a bloodbath for the stock price. Dividend cuts are one of the strongest negative signals a company can send. They are saying "we can no longer afford to pay you." The stock typically drops 20-30% on a dividend cut announcement because it signals fundamental deterioration AND forces income-seeking investors -- who held the stock specifically for the dividend -- to sell.
 
 [VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "Dividend cuts are among the most destructive single-day events for shareholders."]
 
-**Sam:** Okay, so what about buybacks? How do they work?
+**Stella:** Okay, so what about buybacks? How do they work?
 
-**Alex:** When a company buys back its own shares, it reduces the number of shares outstanding. If a company has 100 million shares and buys back 10 million, there are now only 90 million shares. Each remaining share represents a larger piece of the company. If earnings stay the same at $100 million, EPS goes from $1.00 to $1.11 -- an 11% increase without the company earning a single additional dollar of profit.
+**Horace:** When a company buys back its own shares, it reduces the number of shares outstanding. If a company has 100 million shares and buys back 10 million, there are now only 90 million shares. Each remaining share represents a larger piece of the company. If earnings stay the same at $100 million, EPS goes from $1.00 to $1.11 -- an 11% increase without the company earning a single additional dollar of profit.
 
-**Sam:** That is clever. So buybacks increase your ownership percentage?
+**Stella:** That is clever. So buybacks increase your ownership percentage?
 
-**Alex:** Exactly. But here is where it gets controversial. Buybacks only create value if the company is buying at a reasonable price. If the stock is worth $50 and the company buys at $30, that is a fantastic deal -- they are buying dollars for 60 cents. But if the stock is worth $30 and they are buying at $50, they are paying $1.67 for every dollar of value. That destroys value for remaining shareholders.
+**Horace:** Exactly. But here is where it gets controversial. Buybacks only create value if the company is buying at a reasonable price. If the stock is worth $50 and the company buys at $30, that is a fantastic deal -- they are buying dollars for 60 cents. But if the stock is worth $30 and they are buying at $50, they are paying $1.67 for every dollar of value. That destroys value for remaining shareholders.
 
-**Sam:** How do I know if a buyback is being done at a good price?
+**Stella:** How do I know if a buyback is being done at a good price?
 
-**Alex:** Look at the valuation metrics we learned in Week 21. If the company is buying back stock when its P/E is below its historical average and below peers, that is likely a good buyback. If it is buying at all-time-high valuations, be skeptical. Also, and this is critical -- check whether the share count is actually declining. Many companies announce huge buyback programs but the share count barely moves because they are simultaneously issuing new shares as executive compensation.
+**Horace:** Look at the valuation metrics we learned in Week 21. If the company is buying back stock when its P/E is below its historical average and below peers, that is likely a good buyback. If it is buying at all-time-high valuations, be skeptical. Also, and this is critical -- check whether the share count is actually declining. Many companies announce huge buyback programs but the share count barely moves because they are simultaneously issuing new shares as executive compensation.
 
 [ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "Total Shares Outstanding." On one side, slices are being removed (buybacks). On the other side, new slices are being added (stock-based compensation). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "Announced buybacks: $5B. Actual share reduction: 2%. Executive compensation: the hidden cost."]
 
-**Sam:** That feels like a scam.
+**Stella:** That feels like a scam.
 
-**Alex:** It is one of the most common forms of shareholder wealth transfer, and most retail investors never notice it. Always check shares outstanding over time, not just buyback announcements.
+**Horace:** It is one of the most common forms of shareholder wealth transfer, and most retail investors never notice it. Always check shares outstanding over time, not just buyback announcements.
 
-**Sam:** Let us talk about corporate governance. What is it and why should an investor care?
+**Stella:** Let us talk about corporate governance. What is it and why should an investor care?
 
-**Alex:** Corporate governance is the system that keeps management accountable to shareholders. Remember, when you own a stock, you are an owner of the company but you do not run it day to day. You delegate that to the CEO and management team. The governance system ensures they act in your interest, not just their own.
+**Horace:** Corporate governance is the system that keeps management accountable to shareholders. Remember, when you own a stock, you are an owner of the company but you do not run it day to day. You delegate that to the CEO and management team. The governance system ensures they act in your interest, not just their own.
 
-**Sam:** What is the main risk if governance is weak?
+**Stella:** What is the main risk if governance is weak?
 
-**Alex:** The agency problem. Managers and shareholders have naturally different interests. Shareholders want to maximize the value of their investment. Managers want to maximize their compensation, job security, and prestige. These goals overlap sometimes, but not always. A CEO might pursue a massive acquisition not because it is the best use of shareholder capital, but because running a bigger company means higher pay and more power.
+**Horace:** The agency problem. Managers and shareholders have naturally different interests. Shareholders want to maximize the value of their investment. Managers want to maximize their compensation, job security, and prestige. These goals overlap sometimes, but not always. A CEO might pursue a massive acquisition not because it is the best use of shareholder capital, but because running a bigger company means higher pay and more power.
 
 [VISUAL: Two-column comparison showing "What shareholders want" vs. "What managers might want." Shareholders: maximize returns, efficient capital use, transparency, appropriate risk. Managers: higher pay, bigger empire, job security, personal perks. The overlap area is labeled "Good governance aligns these."]
 
-**Sam:** What are the warning signs of bad governance?
+**Stella:** What are the warning signs of bad governance?
 
-**Alex:** Several red flags. First, the CEO is also the chairman of the board -- the person being overseen is overseeing themselves. Second, board members have served for 15 or 20 years -- they are likely captured by management and not truly independent. Third, executive compensation is excessive relative to performance. If the stock drops 30% but the CEO still gets a $20 million bonus, the pay structure is broken. Fourth, dual-class share structures where insiders control voting with a small economic stake.
+**Horace:** Several red flags. First, the CEO is also the chairman of the board -- the person being overseen is overseeing themselves. Second, board members have served for 15 or 20 years -- they are likely captured by management and not truly independent. Third, executive compensation is excessive relative to performance. If the stock drops 30% but the CEO still gets a $20 million bonus, the pay structure is broken. Fourth, dual-class share structures where insiders control voting with a small economic stake.
 
-**Sam:** You mentioned dual-class shares. How does that work?
+**Stella:** You mentioned dual-class shares. How does that work?
 
-**Alex:** Some companies issue two classes of stock. Class A might have 1 vote per share and Class B has 10 votes per share. The founders hold the Class B shares. So a founder might own only 10% of the economic value of the company but control 51% of the votes. Google, Meta, and Snap all have structures like this.
+**Horace:** Some companies issue two classes of stock. Class A might have 1 vote per share and Class B has 10 votes per share. The founders hold the Class B shares. So a founder might own only 10% of the economic value of the company but control 51% of the votes. Google, Meta, and Snap all have structures like this.
 
-**Sam:** Is that bad?
+**Stella:** Is that bad?
 
-**Alex:** It depends on who the founder is. If the founder is Mark Zuckerberg building Meta into one of the world's most valuable companies, the dual-class structure arguably protects the long-term vision from short-term pressure. If the founder is running the company into the ground, the dual-class structure prevents shareholders from holding them accountable. It is a bet on the judgment of one person.
+**Horace:** It depends on who the founder is. If the founder is Mark Zuckerberg building Meta into one of the world's most valuable companies, the dual-class structure arguably protects the long-term vision from short-term pressure. If the founder is running the company into the ground, the dual-class structure prevents shareholders from holding them accountable. It is a bet on the judgment of one person.
 
-**Sam:** One last topic. You mentioned that most acquisitions destroy value. Why do companies keep doing them?
+**Stella:** One last topic. You mentioned that most acquisitions destroy value. Why do companies keep doing them?
 
-**Alex:** This is one of the great puzzles of corporate finance. Study after study shows that on average, the acquiring company's stock falls on announcement of a major acquisition. The target company's shareholders get a 20-30% premium, but the acquirer's shareholders lose value. Yet the M&A industry is enormous and CEOs keep doing deals.
+**Horace:** This is one of the great puzzles of corporate finance. Study after study shows that on average, the acquiring company's stock falls on announcement of a major acquisition. The target company's shareholders get a 20-30% premium, but the acquirer's shareholders lose value. Yet the M&A industry is enormous and CEOs keep doing deals.
 
-**Sam:** Why?
+**Stella:** Why?
 
-**Alex:** Several reasons. One, CEO compensation is often tied to company size -- bigger company, bigger paycheck. Two, overconfidence -- every CEO thinks they will be the exception who makes the acquisition work. Three, investment bankers earn enormous fees from deals, so they are always pitching acquisition ideas. Four, sometimes acquisitions are genuinely the right move, and the statistical average includes both good and bad deals.
+**Horace:** Several reasons. One, CEO compensation is often tied to company size -- bigger company, bigger paycheck. Two, overconfidence -- every CEO thinks they will be the exception who makes the acquisition work. Three, investment bankers earn enormous fees from deals, so they are always pitching acquisition ideas. Four, sometimes acquisitions are genuinely the right move, and the statistical average includes both good and bad deals.
 
 [VISUAL: Bar chart showing "Average stock price reaction to M&A announcements." Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "On average, M&A transfers value from acquirer to target shareholders."]
 
-**Sam:** So how do I evaluate an acquisition as a shareholder?
+**Stella:** So how do I evaluate an acquisition as a shareholder?
 
-**Alex:** Ask five questions. One, what price is being paid? Compare it to the target's valuation multiples and to comparable transactions. Two, how is it being funded? All-cash is usually better than stock (issuing stock dilutes existing shareholders). Three, what are the claimed synergies, and are they realistic? Cuts synergies (cost savings) are more reliable than growth synergies (revenue increases). Four, what is the acquirer's track record with previous deals? Some companies are serial acquirers with a history of value destruction. Five, does the deal make strategic sense, or is it empire building?
+**Horace:** Ask five questions. One, what price is being paid? Compare it to the target's valuation multiples and to comparable transactions. Two, how is it being funded? All-cash is usually better than stock (issuing stock dilutes existing shareholders). Three, what are the claimed synergies, and are they realistic? Cuts synergies (cost savings) are more reliable than growth synergies (revenue increases). Four, what is the acquirer's track record with previous deals? Some companies are serial acquirers with a history of value destruction. Five, does the deal make strategic sense, or is it empire building?
 
-**Sam:** This has been incredibly dense but really valuable. Let me try to summarize. Capital structure is the mix of debt and equity -- debt amplifies returns but increases risk. WACC is the minimum return a company must earn. Dividends and buybacks are how companies return cash, but both can be done well or poorly. And governance is the system that keeps management honest.
+**Stella:** This has been incredibly dense but really valuable. Let me try to summarize. Capital structure is the mix of debt and equity -- debt amplifies returns but increases risk. WACC is the minimum return a company must earn. Dividends and buybacks are how companies return cash, but both can be done well or poorly. And governance is the system that keeps management honest.
 
-**Alex:** Perfect summary. And here is the one thing I want you to take away from today. When you evaluate any company as an investment, ask yourself: is management creating value with my money or extracting value from me? Capital allocation quality, shareholder returns policy, and governance structures will tell you the answer.
+**Horace:** Perfect summary. And here is the one thing I want you to take away from today. When you evaluate any company as an investment, ask yourself: is management creating value with my money or extracting value from me? Capital allocation quality, shareholder returns policy, and governance structures will tell you the answer.
 
 [VISUAL: A "Management Quality Checklist" with six items:
 1. ROIC consistently above WACC?
@@ -908,12 +908,12 @@ A: WACC is the discount rate used in DCF valuation. When you discount a company'
 5. Board independent with aligned incentives?
 6. Management has meaningful stock ownership?]
 
-**Sam:** Next week?
+**Stella:** Next week?
 
-**Alex:** Next week we are going to look at earnings and cash flow quality -- how to tell whether a company's reported profits are real or an accounting mirage. It is one of the most practical skills you can develop as an investor, and it connects directly to what we learned today about capital allocation.
+**Horace:** Next week we are going to look at earnings and cash flow quality -- how to tell whether a company's reported profits are real or an accounting mirage. It is one of the most practical skills you can develop as an investor, and it connects directly to what we learned today about capital allocation.
 
 [VISUAL: Preview card for Week 20 with "Earnings and Cash Flow: Quality, Manipulation, and Free Cash Flow"]
 
-**Alex:** Thanks for watching everyone. Corporate finance might not sound glamorous, but I promise you -- the investors who understand how companies use their money consistently outperform those who just chase stock prices. Share this with anyone who is making investment decisions without looking under the hood. See you next week.
+**Horace:** Thanks for watching everyone. Corporate finance might not sound glamorous, but I promise you -- the investors who understand how companies use their money consistently outperform those who just chase stock prices. Share this with anyone who is making investment decisions without looking under the hood. See you next week.
 
 [VISUAL: Outro animation with subscribe button and links to previous episodes]

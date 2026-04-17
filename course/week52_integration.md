@@ -896,139 +896,139 @@ A8: Discipline trumps sophistication. A disciplined investor with a simple three
 
 [VISUAL: Channel intro animation showing a montage of all previous lessons' key visuals, converging into a single unified portfolio diagram]
 
-**Alex:** Welcome to Week 52. The final lesson. The capstone. For 51 weeks, we have built your investment knowledge brick by brick. Today, we build the house.
+**Horace:** Welcome to Week 52. The final lesson. The capstone. For 51 weeks, we have built your investment knowledge brick by brick. Today, we build the house.
 
-**Sam:** I have to admit, I am feeling a mix of excitement and overwhelm. We have covered so much -- from index funds to variance swaps, from dollar-cost averaging to managed futures. How do we actually put this all together?
+**Stella:** I have to admit, I am feeling a mix of excitement and overwhelm. We have covered so much -- from index funds to variance swaps, from dollar-cost averaging to managed futures. How do we actually put this all together?
 
 [VISUAL: Title card "Week 52: Putting It All Together"]
 
-**Alex:** That feeling is completely natural, and it leads us to the most important insight of the entire course: the goal of sophistication is not complexity. It is robustness.
+**Horace:** That feeling is completely natural, and it leads us to the most important insight of the entire course: the goal of sophistication is not complexity. It is robustness.
 
-**Sam:** Can you unpack that?
+**Stella:** Can you unpack that?
 
-**Alex:** Every strategy we have learned exists to solve a specific problem. Index funds capture the equity risk premium. Factor tilts harvest documented return premia. Options strategies generate income and provide hedging. Managed futures provide crisis alpha. Tail hedges protect against catastrophic loss. The all-weather portfolio combines these solutions into a single framework that performs reasonably across all market environments.
+**Horace:** Every strategy we have learned exists to solve a specific problem. Index funds capture the equity risk premium. Factor tilts harvest documented return premia. Options strategies generate income and provide hedging. Managed futures provide crisis alpha. Tail hedges protect against catastrophic loss. The all-weather portfolio combines these solutions into a single framework that performs reasonably across all market environments.
 
 [ANIMATION: animation/week52_all_weather.py -- Animated diagram showing each strategy as a building block, stacking together into a complete portfolio structure. Each block is labeled with its role (growth, income, protection, diversification) and color-coded by function. The animation shows how removing any one block weakens the structure but does not cause collapse.]
 
-**Sam:** Let us walk through the actual allocation. If I have a portfolio, say a million dollars, what does it look like?
+**Stella:** Let us walk through the actual allocation. If I have a portfolio, say a million dollars, what does it look like?
 
-**Alex:** I will give you a concrete example. About 55 to 65 percent in core holdings -- total US equities, international equities, bonds, TIPS, and REITs. These are your foundation. Then 10 to 15 percent in factor tilts -- value, quality, and small cap value ETFs that provide a modest return premium over the market. Then 15 to 25 percent in alternative strategies -- managed futures, options income, tail hedges, and cash.
+**Horace:** I will give you a concrete example. About 55 to 65 percent in core holdings -- total US equities, international equities, bonds, TIPS, and REITs. These are your foundation. Then 10 to 15 percent in factor tilts -- value, quality, and small cap value ETFs that provide a modest return premium over the market. Then 15 to 25 percent in alternative strategies -- managed futures, options income, tail hedges, and cash.
 
 [VISUAL: Detailed pie chart of the all-weather portfolio with specific ETF tickers and percentages]
 
-**Sam:** That is more complex than a three-fund portfolio but less complex than I expected given how much we have covered.
+**Stella:** That is more complex than a three-fund portfolio but less complex than I expected given how much we have covered.
 
-**Alex:** And that is deliberate. After studying dozens of strategies, the mature decision is to use only the ones that provide meaningful, differentiated value. We do not need ten different factor tilts. We do not need five different options strategies. We need the right five to seven components, each doing a specific job, combined intelligently.
+**Horace:** And that is deliberate. After studying dozens of strategies, the mature decision is to use only the ones that provide meaningful, differentiated value. We do not need ten different factor tilts. We do not need five different options strategies. We need the right five to seven components, each doing a specific job, combined intelligently.
 
-**Sam:** How do we know these components work well together?
+**Stella:** How do we know these components work well together?
 
 [VISUAL: Title card "Portfolio Integration: How Strategies Interact"]
 
-**Alex:** This is where portfolio construction becomes an art as much as a science. The key interactions are worth understanding. First, options income and tail hedges are natural offsets. The income from selling options premium partially funds the cost of tail hedge positions. In normal markets, the options income generates 6 to 10 percent on its allocation while the tail hedge costs 3 to 5 percent on its allocation. The net effect is positive in most years.
+**Horace:** This is where portfolio construction becomes an art as much as a science. The key interactions are worth understanding. First, options income and tail hedges are natural offsets. The income from selling options premium partially funds the cost of tail hedge positions. In normal markets, the options income generates 6 to 10 percent on its allocation while the tail hedge costs 3 to 5 percent on its allocation. The net effect is positive in most years.
 
-**Sam:** And in a crisis?
+**Stella:** And in a crisis?
 
-**Alex:** In a crisis, the tail hedge pays off massively -- potentially 50 to 200 percent on its allocation -- while the options income suffers losses. But because the tail hedge is sized to protect the options income (and the broader portfolio), the net effect is protective. You lose on the options side but gain more on the tail hedge side.
+**Horace:** In a crisis, the tail hedge pays off massively -- potentially 50 to 200 percent on its allocation -- while the options income suffers losses. But because the tail hedge is sized to protect the options income (and the broader portfolio), the net effect is protective. You lose on the options side but gain more on the tail hedge side.
 
 [VISUAL: Diagram showing options income and tail hedge payoffs in different market scenarios -- the two curves offsetting each other]
 
-**Sam:** What about managed futures and core equities?
+**Stella:** What about managed futures and core equities?
 
-**Alex:** This is perhaps the most important interaction. During normal markets, managed futures and equities have near-zero correlation. Each does its own thing. But during extended bear markets, managed futures tend to generate strongly positive returns while equities decline. This negative crisis-period correlation is the single most valuable property in portfolio construction. It means that the managed futures allocation is working hardest precisely when you need it most.
+**Horace:** This is perhaps the most important interaction. During normal markets, managed futures and equities have near-zero correlation. Each does its own thing. But during extended bear markets, managed futures tend to generate strongly positive returns while equities decline. This negative crisis-period correlation is the single most valuable property in portfolio construction. It means that the managed futures allocation is working hardest precisely when you need it most.
 
 [ANIMATION: animation/week52_all_weather.py -- Animated simulation showing a portfolio through a stylized market cycle: growth phase (equities lead, managed futures moderate), crisis phase (equities fall, managed futures rise, tail hedges spike), recovery phase (equities rebound, managed futures normalize). A running total shows the all-weather portfolio's smoother path compared to 60/40.]
 
-**Sam:** Let us talk about risk budgeting. You mentioned this is different from dollar allocation.
+**Stella:** Let us talk about risk budgeting. You mentioned this is different from dollar allocation.
 
-**Alex:** It is a crucial distinction. Dollar allocation tells you how much money is in each strategy. Risk budgeting tells you how much *risk* each strategy contributes to the overall portfolio. These are very different because strategies have different volatilities.
+**Horace:** It is a crucial distinction. Dollar allocation tells you how much money is in each strategy. Risk budgeting tells you how much *risk* each strategy contributes to the overall portfolio. These are very different because strategies have different volatilities.
 
-**Sam:** Give me an example.
+**Stella:** Give me an example.
 
-**Alex:** Suppose you have 15 percent of your portfolio in bonds and 10 percent in managed futures. In dollar terms, bonds are a bigger position. But bonds have about 5 percent annual volatility while managed futures target 12 percent volatility. In risk terms, managed futures contribute more risk despite being a smaller dollar allocation. Risk budgeting ensures you are aware of this and sizing positions accordingly.
+**Horace:** Suppose you have 15 percent of your portfolio in bonds and 10 percent in managed futures. In dollar terms, bonds are a bigger position. But bonds have about 5 percent annual volatility while managed futures target 12 percent volatility. In risk terms, managed futures contribute more risk despite being a smaller dollar allocation. Risk budgeting ensures you are aware of this and sizing positions accordingly.
 
 [VISUAL: Table showing dollar allocation vs risk contribution for each strategy, highlighting the differences]
 
-**Sam:** How often should I rebalance this portfolio?
+**Stella:** How often should I rebalance this portfolio?
 
-**Alex:** I recommend a threshold-based approach with a calendar minimum. Rebalance any time a strategy drifts more than 5 percentage points from its target allocation. But even without triggering the threshold, review and rebalance at least semi-annually. Over-rebalancing creates costs and tax events. Under-rebalancing allows drift that can significantly change your risk profile.
+**Horace:** I recommend a threshold-based approach with a calendar minimum. Rebalance any time a strategy drifts more than 5 percentage points from its target allocation. But even without triggering the threshold, review and rebalance at least semi-annually. Over-rebalancing creates costs and tax events. Under-rebalancing allows drift that can significantly change your risk profile.
 
-**Sam:** What about more active monitoring?
+**Stella:** What about more active monitoring?
 
-**Alex:** Daily monitoring should take about 5 minutes -- just check for extreme market moves and verify your options positions are within parameters. Weekly, spend 30 minutes reviewing position-level details. Monthly, spend an hour on risk contribution analysis. Quarterly, do a half-day comprehensive review. The key is routine. Professional investors succeed not because they spend every waking moment watching screens, but because they have a disciplined, consistent process.
+**Horace:** Daily monitoring should take about 5 minutes -- just check for extreme market moves and verify your options positions are within parameters. Weekly, spend 30 minutes reviewing position-level details. Monthly, spend an hour on risk contribution analysis. Quarterly, do a half-day comprehensive review. The key is routine. Professional investors succeed not because they spend every waking moment watching screens, but because they have a disciplined, consistent process.
 
 [VISUAL: Monitoring dashboard mockup showing daily, weekly, monthly, and quarterly review items]
 
-**Sam:** Let us talk about the investment policy statement. You seem to think this is critically important.
+**Stella:** Let us talk about the investment policy statement. You seem to think this is critically important.
 
 [VISUAL: Title card "The Investment Policy Statement: Your North Star"]
 
-**Alex:** It might be the single most important document in your investment life, and almost no individual investor has one. Every endowment, pension fund, and sovereign wealth fund has an IPS. It is the document that codifies your investment philosophy, targets, constraints, and behavioral rules BEFORE emotions enter the picture.
+**Horace:** It might be the single most important document in your investment life, and almost no individual investor has one. Every endowment, pension fund, and sovereign wealth fund has an IPS. It is the document that codifies your investment philosophy, targets, constraints, and behavioral rules BEFORE emotions enter the picture.
 
-**Sam:** Why does writing it down matter? I can keep it in my head.
+**Stella:** Why does writing it down matter? I can keep it in my head.
 
-**Alex:** Because during a crisis, your head is the worst place for it. When the market drops 30 percent and every headline screams that this time is different, your rational brain shuts down and your lizard brain takes over. The IPS is the external anchor that prevents you from making the emotional decision that feels right in the moment but is wrong in the long run.
+**Horace:** Because during a crisis, your head is the worst place for it. When the market drops 30 percent and every headline screams that this time is different, your rational brain shuts down and your lizard brain takes over. The IPS is the external anchor that prevents you from making the emotional decision that feels right in the moment but is wrong in the long run.
 
-**Sam:** What should be in it?
+**Stella:** What should be in it?
 
-**Alex:** Six key sections. Your investor profile -- goals, time horizon, risk tolerance. Your strategic allocation with specific targets and allowable ranges. Your rebalancing policy. Rules for each strategy -- position limits, stop losses, timing constraints. Behavioral rules -- a list of things you will and will not do during stress. And finally, a review and amendment process that includes a mandatory waiting period before making changes.
+**Horace:** Six key sections. Your investor profile -- goals, time horizon, risk tolerance. Your strategic allocation with specific targets and allowable ranges. Your rebalancing policy. Rules for each strategy -- position limits, stop losses, timing constraints. Behavioral rules -- a list of things you will and will not do during stress. And finally, a review and amendment process that includes a mandatory waiting period before making changes.
 
 [VISUAL: IPS template outline with key sections highlighted]
 
-**Sam:** The behavioral rules section seems unusual.
+**Stella:** The behavioral rules section seems unusual.
 
-**Alex:** It is the most important section. Things like: "I will not sell any position in a panic without sleeping on it first." "I will not check my portfolio more than once per day during a crisis." "I will not increase position sizes after a winning streak." These rules sound simple, but in the heat of a market event, they are the difference between staying the course and blowing up your plan.
+**Horace:** It is the most important section. Things like: "I will not sell any position in a panic without sleeping on it first." "I will not check my portfolio more than once per day during a crisis." "I will not increase position sizes after a winning streak." These rules sound simple, but in the heat of a market event, they are the difference between staying the course and blowing up your plan.
 
-**Sam:** Have you personally broken these rules?
+**Stella:** Have you personally broken these rules?
 
-**Alex:** Everyone has. The point is not to be perfect -- it is to have a system that catches you before you do irreversible damage. The IPS is like a seatbelt. You do not need it 99 percent of the time, but the one time you do, it saves you.
+**Horace:** Everyone has. The point is not to be perfect -- it is to have a system that catches you before you do irreversible damage. The IPS is like a seatbelt. You do not need it 99 percent of the time, but the one time you do, it saves you.
 
 [ANIMATION: animation/week52_all_weather.py -- Animated comparison showing two investor journeys over 20 years. Investor A follows the IPS disciplined approach: steady contributions, mechanical rebalancing, stays the course during crises. Investor B makes emotional decisions: buys after rallies, sells after crashes, abandons strategies after 2 years of underperformance. The animation shows the dramatic divergence in portfolio value over time, with Investor A ending with roughly twice the wealth of Investor B despite starting with identical portfolios.]
 
-**Sam:** Let us talk about the professional mindset. What separates someone who knows these strategies from someone who successfully implements them?
+**Stella:** Let us talk about the professional mindset. What separates someone who knows these strategies from someone who successfully implements them?
 
 [VISUAL: Title card "The Professional Mindset"]
 
-**Alex:** Temperament. Process. Self-awareness. In that order.
+**Horace:** Temperament. Process. Self-awareness. In that order.
 
-**Sam:** Temperament first?
+**Stella:** Temperament first?
 
-**Alex:** Yes. The capacity to remain calm during chaos, to tolerate uncertainty, and to defer gratification is more important than any analytical skill. Warren Buffett has said that investing requires a temperament that neither derives great pleasure from being with the crowd nor against it. The professional investor is comfortable being alone with their process.
+**Horace:** Yes. The capacity to remain calm during chaos, to tolerate uncertainty, and to defer gratification is more important than any analytical skill. Warren Buffett has said that investing requires a temperament that neither derives great pleasure from being with the crowd nor against it. The professional investor is comfortable being alone with their process.
 
-**Sam:** And process?
+**Stella:** And process?
 
-**Alex:** Process means evaluating decisions by the quality of the reasoning, not the outcome. A well-reasoned trade that loses money is a better decision than a lucky guess that makes money. Over thousands of decisions, good process converges to good outcomes. But any individual decision can go either way regardless of its quality. The professional focuses on the process and accepts that outcomes are probabilistic.
+**Horace:** Process means evaluating decisions by the quality of the reasoning, not the outcome. A well-reasoned trade that loses money is a better decision than a lucky guess that makes money. Over thousands of decisions, good process converges to good outcomes. But any individual decision can go either way regardless of its quality. The professional focuses on the process and accepts that outcomes are probabilistic.
 
-**Sam:** Self-awareness?
+**Stella:** Self-awareness?
 
-**Alex:** Knowing your own biases, limitations, and emotional triggers. Knowing that you tend to get overconfident after a winning streak. Knowing that you tend to freeze during sharp declines. Knowing that you have a bias toward action when doing nothing is often the right choice. The investment journal -- logging every decision with your rationale -- is the practical tool for developing self-awareness. When you review your journal annually, patterns emerge that you could not see in real time.
+**Horace:** Knowing your own biases, limitations, and emotional triggers. Knowing that you tend to get overconfident after a winning streak. Knowing that you tend to freeze during sharp declines. Knowing that you have a bias toward action when doing nothing is often the right choice. The investment journal -- logging every decision with your rationale -- is the practical tool for developing self-awareness. When you review your journal annually, patterns emerge that you could not see in real time.
 
 [VISUAL: Quote on screen: "The market does not care about your analysis, your education, or your portfolio construction. It will test your discipline in ways you cannot anticipate."]
 
-**Sam:** This feels like the right moment for a reality check. After 52 weeks, what should someone actually expect from this portfolio approach?
+**Stella:** This feels like the right moment for a reality check. After 52 weeks, what should someone actually expect from this portfolio approach?
 
-**Alex:** Honest expectations. Over a full market cycle of 7 to 10 years, the all-weather portfolio should deliver returns roughly comparable to a 60/40 portfolio -- perhaps 7 to 8.5 percent annualized. But with significantly less risk. Maximum drawdowns of 15 to 25 percent versus 30 to 40 percent for 60/40. Higher Sharpe ratio. Faster recovery from downturns.
+**Horace:** Honest expectations. Over a full market cycle of 7 to 10 years, the all-weather portfolio should deliver returns roughly comparable to a 60/40 portfolio -- perhaps 7 to 8.5 percent annualized. But with significantly less risk. Maximum drawdowns of 15 to 25 percent versus 30 to 40 percent for 60/40. Higher Sharpe ratio. Faster recovery from downturns.
 
-**Sam:** So the main benefit is not higher returns but less pain?
+**Stella:** So the main benefit is not higher returns but less pain?
 
-**Alex:** Exactly. And that matters more than most people realize. A 50 percent drawdown requires a 100 percent gain to recover. A 20 percent drawdown requires only a 25 percent gain. The math of avoiding large losses is the most underappreciated force in long-term wealth accumulation. And psychologically, the difference between watching your portfolio fall 20 percent versus 50 percent is the difference between mild discomfort and genuine panic.
+**Horace:** Exactly. And that matters more than most people realize. A 50 percent drawdown requires a 100 percent gain to recover. A 20 percent drawdown requires only a 25 percent gain. The math of avoiding large losses is the most underappreciated force in long-term wealth accumulation. And psychologically, the difference between watching your portfolio fall 20 percent versus 50 percent is the difference between mild discomfort and genuine panic.
 
-**Sam:** One more question. What is the single most important thing someone should take away from this entire 52-week course?
+**Stella:** One more question. What is the single most important thing someone should take away from this entire 52-week course?
 
 [VISUAL: Dramatic pause, then text: "The Most Important Lesson"]
 
-**Alex:** Discipline trumps sophistication. A disciplined investor with a simple three-fund portfolio who rebalances annually and never panic-sells will outperform a sophisticated investor with a complex all-weather portfolio who abandons the strategy during the first bear market. Everything we have learned -- every strategy, every framework, every tool -- is only valuable if you have the discipline to stick with it. The IPS, the behavioral rules, the monitoring process -- these are not optional. They are the foundation.
+**Horace:** Discipline trumps sophistication. A disciplined investor with a simple three-fund portfolio who rebalances annually and never panic-sells will outperform a sophisticated investor with a complex all-weather portfolio who abandons the strategy during the first bear market. Everything we have learned -- every strategy, every framework, every tool -- is only valuable if you have the discipline to stick with it. The IPS, the behavioral rules, the monitoring process -- these are not optional. They are the foundation.
 
-**Sam:** So the most advanced lesson in the entire course is also the simplest.
+**Stella:** So the most advanced lesson in the entire course is also the simplest.
 
-**Alex:** It always is. Learn the strategies. Build the portfolio. Write the plan. Follow it. For decades. That is the entire secret to investment success. Everything else is commentary.
+**Horace:** It always is. Learn the strategies. Build the portfolio. Write the plan. Follow it. For decades. That is the entire secret to investment success. Everything else is commentary.
 
-**Sam:** To everyone who has been with us for all 52 weeks: congratulations. You now have a body of knowledge that places you in the top tier of investor sophistication. But knowledge without action is worthless. Go build your portfolio. Write your IPS. Start the journey.
+**Stella:** To everyone who has been with us for all 52 weeks: congratulations. You now have a body of knowledge that places you in the top tier of investor sophistication. But knowledge without action is worthless. Go build your portfolio. Write your IPS. Start the journey.
 
-**Alex:** And remember: investing is not a destination. It is a practice. There is no finish line. There is only continuous improvement, year after year, decade after decade. The best time to start was 52 weeks ago. The second best time is today.
+**Horace:** And remember: investing is not a destination. It is a practice. There is no finish line. There is only continuous improvement, year after year, decade after decade. The best time to start was 52 weeks ago. The second best time is today.
 
-**Sam:** Thank you, Alex. This has been an incredible journey.
+**Stella:** Thank you, Horace. This has been an incredible journey.
 
-**Alex:** Thank you, Sam. And thank you to everyone who watched. Go invest wisely.
+**Horace:** Thank you, Stella. And thank you to everyone who watched. Go invest wisely.
 
 [VISUAL: End card with full course summary, final portfolio template, and resources. Fade to channel logo.]
 

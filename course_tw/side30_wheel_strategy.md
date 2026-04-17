@@ -1,377 +1,408 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 30: The Wheel Strategy
+# 補充課程 30：滾輪策略
 
 ---
 
-## Part 1: Reading Section
+## 第一部分：閱讀章節
 
 ---
 
-### Introduction
+### 簡介
 
-The Wheel Strategy is one of the most popular options-based income strategies among individual investors. It combines two strategies you may already know, selling cash-secured puts and selling covered calls, into a repeating cycle that generates premium income while systematically buying stocks at prices you choose and selling them at prices you target. The concept is elegantly simple: sell a put on a stock you want to own. If assigned, sell a covered call on the stock you now hold. If the call is exercised, sell another put. Repeat. The "wheel" keeps turning, collecting premium at each step. While it sounds like a money-printing machine, understanding the real risks, realistic returns, and proper execution is critical for success.
-
----
-
-### A) Why Important
-
-**Income generation.** The Wheel Strategy generates regular premium income from options sales. In a low-yield environment, this provides a meaningful alternative source of cash flow. Many wheel practitioners generate annualized yields of 10-20% on their capital, though this comes with equity risk that must be understood.
-
-**Disciplined buying and selling.** The strategy imposes discipline on two of the hardest decisions in investing: when to buy and when to sell. By selecting strike prices in advance, you commit to buying at a price you consider attractive and selling at a price you consider fair. This removes emotional decision-making from the process.
-
-**Stock acquisition at a discount.** When you sell a put and the stock declines to your strike price, you are assigned the stock at the strike price minus the premium received. This effectively creates a purchase price below where the stock was trading when you sold the put. You get paid to wait for a price you wanted.
-
-**Capital efficiency.** The strategy keeps your capital working at all times. When you are not holding the stock, your cash is earning put premium. When you are holding the stock, your shares are earning call premium. There is no idle period.
-
-**Skill development.** The Wheel teaches fundamental options concepts, including time decay, implied volatility, assignment mechanics, and risk management, in a practical, repeatable framework. It is an excellent bridge from basic options knowledge to more sophisticated strategies.
-
-**Flexibility.** The strategy adapts to different market environments. In sideways markets, you collect premium without assignment. In declining markets, you acquire stocks at discount prices. In rising markets, you profit from stock appreciation plus call premium. Each phase of the wheel has its own characteristics.
+滾輪策略是個人投資人中最受歡迎的選擇權收益策略之一。它結合了兩種你可能已經熟悉的策略——賣出現金擔保賣權與賣出掩護性買權——形成一個不斷循環的週期，在系統性地以你設定的價格買進股票、以你設定的目標價賣出股票的同時，持續賺取權利金收入。概念上極為簡潔優雅：對你願意持有的股票賣出賣權；若遭履約指派，則對你現持有的股票賣出掩護性買權；若買權遭執行，再賣出另一張賣權。如此循環。「滾輪」不斷轉動，在每個環節收取權利金。儘管聽起來像是印鈔機，但真正理解其風險、合理的報酬預期與正確的執行方式，才是成功的關鍵。
 
 ---
 
-### B) What You Need to Know
+### A) 為何重要
 
-#### The Complete Wheel Cycle
+**創造收益。** 滾輪策略透過賣出選擇權持續賺取權利金收入。在低殖利率環境下，這提供了一個有意義的替代現金流來源。許多使用滾輪策略的投資人能在其資本上實現年化 10-20% 的殖利率，但這伴隨著必須充分了解的股票風險。
 
-The Wheel Strategy consists of three distinct phases that repeat continuously.
+**紀律化的買賣決策。** 此策略對投資中最艱難的兩個決定——何時買進與何時賣出——施加了紀律。透過事先選定履約價，你承諾在自認具吸引力的價格買進，並在自認合理的價格賣出。這將情緒化決策從過程中排除。
 
-**Phase 1: Sell a Cash-Secured Put**
+**折價取得股票。** 當你賣出賣權且股票下跌至你的履約價時，你將以履約價減去所收權利金的價格被指派買進股票。這實際上使你的買進成本低於賣出賣權時的股票交易價格。你等待理想價位的同時，還能獲得報酬。
 
-You sell a put option on a stock you would be happy to own at the strike price. The put is "cash-secured" because you hold enough cash in your account to purchase the stock if assigned (100 shares per contract at the strike price).
+**資本效率。** 此策略讓你的資本隨時保持運作。當你未持有股票時，現金在賺取賣權權利金；當你持有股票時，持股在賺取買權權利金。沒有資本閒置的時期。
 
-For example, Stock XYZ trades at $50. You sell a $47.50 put expiring in 30 days and receive $1.20 in premium ($120 per contract). You must hold $4,750 in cash as collateral. Two outcomes are possible:
+**技能培養。** 滾輪策略在一個實用、可重複的框架中，教導選擇權的基本概念，包括時間價值衰減、隱含波動性、指派機制與風險管理。對於從基礎選擇權知識進階到更複雜策略，這是絕佳的橋樑。
 
-Outcome A: The stock stays above $47.50 at expiration. The put expires worthless. You keep the $120 premium. Your annualized return on the $4,750 in collateral is approximately 30%. Return to Phase 1 and sell another put.
-
-Outcome B: The stock falls below $47.50 at expiration. You are assigned 100 shares at $47.50. Your effective cost basis is $47.50 minus $1.20 premium = $46.30. Move to Phase 2.
-
-**Phase 2: Hold the Stock (Transition)**
-
-You now own 100 shares with a cost basis of $46.30. The stock might be trading at $45, $47, or any price. This is a brief transition phase where you assess the situation and prepare to sell a covered call.
-
-Some practitioners sell the covered call immediately upon assignment. Others wait for a bounce in the stock price to sell calls at a higher strike. The right approach depends on your outlook and the available premiums.
-
-**Phase 3: Sell a Covered Call**
-
-You sell a call option against your 100 shares, choosing a strike price at or above your cost basis. This is critical: selling a call below your cost basis locks in a loss if the stock is called away.
-
-Continuing the example, you own 100 shares with a $46.30 cost basis. The stock is trading at $47. You sell a $50 call expiring in 30 days and receive $0.80 in premium ($80 per contract). Two outcomes are possible:
-
-Outcome A: The stock stays below $50 at expiration. The call expires worthless. You keep the $80 premium. Your cost basis effectively drops to $46.30 minus $0.80 = $45.50. Return to Phase 3 and sell another call.
-
-Outcome B: The stock rises above $50 at expiration. Your shares are called away at $50. You receive $5,000 for the shares. Your total profit is: $5,000 minus $4,630 (cost basis) plus $80 (call premium) = $450. Return to Phase 1 and sell another put.
-
-The cycle then repeats indefinitely.
-
-#### Selecting the Right Stocks
-
-Stock selection is the most important factor in the Wheel Strategy's success. A wheel on a bad stock will lose money regardless of how well you manage the options.
-
-**Quality first.** Choose stocks you would happily own for months or years. The strategy occasionally requires holding through significant drawdowns. If you would not buy and hold the stock at your put strike price, do not sell puts on it.
-
-**Sufficient liquidity.** The stock should have high options volume and tight bid-ask spreads. Minimum criteria: average daily stock volume above 1 million shares, options open interest above 500 contracts per strike, and bid-ask spreads on options no wider than $0.10-$0.15.
-
-**Price range.** Stocks in the $20-$100 range are ideal for most individual investors. Below $20, the premiums are too small to be meaningful. Above $100, each contract requires significant capital ($10,000+ in collateral per put contract). Stocks priced at $50 require $5,000 per contract, which is manageable for most portfolios.
-
-**Moderate implied volatility.** Higher implied volatility means fatter premiums but also more risk of large price moves. Sweet spot is implied volatility in the 25-45% range. Below 25%, premiums are too thin. Above 45%, the stock is too volatile and assignment at bad prices becomes likely.
-
-**Avoid earnings and binary events.** Do not sell puts or calls that span earnings announcements unless you are specifically seeking the elevated premium and accept the risk. Stock prices can gap 10-20% after earnings, potentially resulting in assignment far from your target price. Similarly, avoid biotech stocks awaiting FDA decisions, companies in merger negotiations, or any situation where a binary outcome could cause extreme price movement.
-
-**Favorable sectors.** Technology, consumer staples, financials, and healthcare tend to offer good wheel candidates. Highly cyclical sectors like energy and materials can work but require more careful timing. Avoid meme stocks, SPACs, and recent IPOs, as their volatility patterns are unpredictable.
-
-#### Strike Selection and Expiration
-
-**Put strike selection.** Most wheel practitioners sell puts at strikes 5-10% below the current stock price (out of the money). This provides a buffer against small declines. The trade-off: lower strikes mean lower premiums but higher probability of the put expiring worthless (keeping premium without assignment).
-
-Delta is a useful guide. A put with a delta of -0.20 to -0.30 has roughly a 20-30% probability of being in the money at expiration. This is a common target range. Higher deltas (closer to the money) generate more premium but increase assignment probability.
-
-**Call strike selection.** Sell calls at or above your cost basis. Choosing a strike above cost basis ensures a profit on the stock if called away. Common approach: sell calls with a delta of 0.25-0.35, giving the stock room to appreciate while still collecting meaningful premium.
-
-**Expiration selection.** Most wheel practitioners favor 30-45 day expirations (one options cycle). This timeframe offers the best balance between premium received and time decay acceleration. Options lose value fastest in the final 30 days before expiration, so selling in this window maximizes the rate of time decay (theta) working in your favor.
-
-Weekly options (7-14 days to expiration) offer faster turnover and more frequent premium collection but require more management and have higher annualized transaction costs. Monthly options (30-45 days) are the most popular choice for balance and efficiency.
-
-Longer-dated options (60-90 days) collect more total premium per trade but at a lower daily rate of time decay. They also tie up capital longer and provide less flexibility to adjust.
-
-#### Income Calculation and Realistic Returns
-
-Understanding realistic returns prevents disappointment and poor risk management.
-
-**Per-cycle calculation.** On a $50 stock with $4,750 in collateral (selling a $47.50 put):
-- Premium received: $120 (assuming $1.20 per share)
-- Time period: 30 days
-- Return on capital: $120 / $4,750 = 2.5% per month
-- Annualized: approximately 30% if every cycle goes perfectly
-
-**Reality check.** Not every cycle goes perfectly. Some months you are assigned and hold the stock through a decline. Some months the stock drops sharply and you must wait weeks or months selling calls to recover. Some months volatility is low and premiums are thin. Realistic annualized returns for a well-executed wheel strategy on quality stocks are 10-20%, not 30%+.
-
-**The assignment drag.** When assigned on a put, the stock may continue declining. If you sell a $47.50 put and the stock drops to $40, you own shares at $47.50 (minus premium) while the stock is at $40. You cannot sell a covered call above your cost basis without going far out in time. This assignment drag is the primary reason actual returns are lower than theoretical maximum returns.
-
-**Transaction costs.** Options commissions, though lower than they used to be, still add up. At $0.65 per contract per leg, each complete wheel cycle costs $1.30. On a $120 premium, that is roughly 1% of revenue. Over 12 cycles per year, commissions reduce returns by approximately 0.5-1.0%.
-
-**Tax treatment.** Options premium income is generally taxed as short-term capital gains regardless of how long you hold the option. This means premium income is taxed at your ordinary income rate, not the lower long-term capital gains rate. In a taxable account, this significantly reduces after-tax returns. Consider running the wheel in a tax-advantaged account (IRA) where feasible.
-
-#### Managing Assignments and Drawdowns
-
-The biggest challenge of the Wheel Strategy is managing the stock-holding phase when the stock has declined significantly below your assignment price.
-
-**Patience is essential.** When assigned at $47.50 on a stock now trading at $40, do not panic sell. The whole premise of the strategy is that you selected a stock you are willing to hold. Continue selling covered calls to reduce your cost basis incrementally.
-
-**Covered call premium math.** If the stock is at $40 and your cost basis is $46.30, selling $42 calls for $0.50 each month reduces your cost basis by $0.50 per cycle. After four months, your cost basis drops to $44.30. After eight months, $42.30. Eventually, your cost basis may decline to the current stock price, and you can sell calls at or above your cost basis for a profit when called away.
-
-**Rolling down.** If the stock declines further after assignment, you may need to sell calls at lower strikes (but still above your adjusted cost basis). This generates less premium but continues the income stream while you wait for recovery.
-
-**The danger of selling calls below cost basis.** Never sell a covered call with a strike below your cost basis unless you have decided to take a loss on the position. If the stock rallies and your shares are called away at a strike below your cost basis, you lock in a loss that cannot be recovered through the wheel.
-
-**When to break the wheel.** If the stock's fundamentals deteriorate (not just the price), it may be better to sell the stock at a loss and redeploy capital into a better wheel candidate. Holding a fundamentally broken stock while selling tiny covered call premiums is a recipe for slow destruction of capital. Apply the same fundamental analysis to your wheel positions that you would to any stock position.
-
-**Position sizing.** Never commit more than 5-10% of your portfolio to a single wheel position. If the stock declines 30-40%, the impact on your total portfolio should be manageable. Diversification across 5-10 wheel positions reduces single-stock risk.
-
-#### Advanced Wheel Variations
-
-**The aggressive wheel.** Sell at-the-money or slightly in-the-money puts for higher premium. This increases assignment probability but generates significantly more income per cycle. Suitable for strongly bullish conviction on the underlying stock.
-
-**The conservative wheel.** Sell puts at 15-20% out of the money and calls at 10-15% out of the money. Lower premium per cycle but much lower assignment probability and more room for stock appreciation. Suitable for volatile markets or expensive stocks.
-
-**The dividend wheel.** Target dividend-paying stocks and time the wheel to collect dividends during the stock-holding phase. Sell puts shortly after ex-dividend dates (when the stock dips), get assigned, collect the next dividend, then sell calls.
-
-**The poor man's wheel.** Instead of selling cash-secured puts, sell put spreads (sell a put and buy a lower-strike put as protection). This reduces the capital requirement but caps the potential loss and reduces premium collected. Suitable for smaller accounts.
-
-**Multi-leg wheel.** Sell puts at multiple strike prices simultaneously to ladder into positions. If assigned on the lower strike, sell calls at correspondingly lower prices. This averages into positions during declines rather than going all-in at one price.
+**靈活性。** 此策略能適應不同的市場環境。在盤整市場中，你可收取權利金而不被指派。在下跌市場中，你能以折價買進股票。在上漲市場中，你可從股票增值加上買權權利金中獲利。滾輪的每個階段各有其特性。
 
 ---
 
-### C) Common Misconceptions
+### B) 必備知識
 
-**Misconception 1: "The Wheel Strategy is risk-free income."**
-The Wheel carries full downside equity risk. When you sell a cash-secured put and are assigned, you own the stock. If the stock drops 50%, you have a 50% loss on your capital, minus whatever premium you collected. The premium income provides a small buffer but does not protect against large declines. The risk profile is identical to owning the stock with a slightly lower cost basis.
+#### 完整的滾輪週期
 
-**Misconception 2: "I can wheel any stock and make money."**
-Stock selection is paramount. Running the wheel on a stock in structural decline (like a retailer being disrupted by e-commerce or a company with deteriorating fundamentals) will result in losses that no amount of premium can offset. The wheel works best on fundamentally strong companies experiencing temporary price weakness, not on cheap stocks that are cheap for good reasons.
+滾輪策略由三個不斷循環的不同階段構成。
 
-**Misconception 3: "The annualized return on each trade represents my actual annual return."**
-Annualizing a single trade's return is misleading. A 2.5% return in 30 days annualizes to 30%, but you will not achieve this every month for a year. Some months you will be assigned and stuck holding a declining stock with no premium income. Some months volatility will be low and premiums thin. Actual annual returns of 10-20% are realistic for experienced practitioners, but 30%+ year after year is extremely unlikely.
+**第一階段：賣出現金擔保賣權**
 
-**Misconception 4: "Assignment is always bad."**
-Assignment is a planned outcome in the wheel, not a failure. You selected the strike price because you wanted to own the stock at that price. Getting assigned means you are buying a stock you want at a price you chose, minus the premium you already collected. The only bad assignment is on a stock you should not have been wheeling in the first place.
+你對一檔你很樂意以履約價持有的股票賣出賣權。賣權是「現金擔保」的，因為你的帳戶中持有足夠的現金，以便在遭指派時買進股票（每口合約 100 股，以履約價計算）。
 
-**Misconception 5: "I should sell calls below my cost basis to generate income while waiting."**
-This is one of the most dangerous mistakes in the wheel. Selling calls below your cost basis caps your recovery. If the stock bounces and gets called away at a strike below your cost basis, you lock in a loss permanently. Always sell calls at or above your adjusted cost basis, even if the premium is small. Patience is more profitable than desperation.
+舉例而言，股票 XYZ 的交易價格為 50 美元。你賣出一張 30 天後到期的 47.50 美元賣權，收取 1.20 美元的權利金（每口合約 120 美元）。你必須持有 4,750 美元現金作為擔保品。可能出現兩種結果：
 
-**Misconception 6: "The Wheel works in all market conditions."**
-The wheel struggles in two environments. In a strong bull market, puts expire worthless but you miss the stock's full upside because you are never assigned (or your calls cap gains if holding shares). In a severe bear market, you get assigned repeatedly at declining prices, and covered call premiums cannot offset the losses. The strategy performs best in sideways to mildly bullish markets with moderate volatility.
+結果 A：股票在到期時維持在 47.50 美元以上。賣權到期變得毫無價值。你保留 120 美元的權利金。以 4,750 美元擔保品計算，年化報酬約為 30%。回到第一階段，繼續賣出另一張賣權。
+
+結果 B：股票在到期時跌破 47.50 美元。你被指派以 47.50 美元買進 100 股。你的有效成本基礎為 47.50 美元減去 1.20 美元權利金，即 46.30 美元。進入第二階段。
+
+**第二階段：持有股票（過渡期）**
+
+你現在以 46.30 美元的成本基礎持有 100 股。股票可能交易在 45 美元、47 美元或任何價格。這是一個短暫的過渡階段，你需評估情況並準備賣出掩護性買權。
+
+部分策略執行者在遭指派後立即賣出掩護性買權；另一些人則等待股票出現反彈後，再以更高的履約價賣出買權。正確的做法取決於你對後市的判斷與現有的權利金水準。
+
+**第三階段：賣出掩護性買權**
+
+你對持有的 100 股賣出買權選擇權，選擇等於或高於你成本基礎的履約價。這點至關重要：以低於成本基礎的履約價賣出買權，若股票被買走，將鎖定虧損。
+
+繼續前述範例，你以 46.30 美元成本基礎持有 100 股。股票目前交易在 47 美元。你賣出一張 30 天後到期的 50 美元買權，收取 0.80 美元的權利金（每口合約 80 美元）。可能出現兩種結果：
+
+結果 A：股票在到期時維持在 50 美元以下。買權到期變得毫無價值。你保留 80 美元的權利金。你的成本基礎實際上從 46.30 美元降至 45.50 美元（46.30 減去 0.80）。回到第三階段，繼續賣出另一張買權。
+
+結果 B：股票在到期時漲過 50 美元。你的持股以 50 美元被買走。你收到 5,000 美元的賣股款項。總利潤為：5,000 美元減去 4,630 美元（成本基礎）加上 80 美元（買權權利金）= 450 美元。回到第一階段，繼續賣出另一張賣權。
+
+此後循環無限重複。
+
+#### 選擇合適的股票
+
+股票篩選是滾輪策略成功最重要的因素。對一檔品質差的股票執行滾輪策略，無論選擇權管理多好都將造成虧損。
+
+**品質優先。** 選擇你願意持有數月甚至數年的股票。此策略偶爾需要你在重大回撤期間繼續持有。如果你不願意以賣權履約價買進並持有該股票，就不要對它賣出賣權。
+
+**足夠的流動性。** 股票應具有高選擇權成交量及窄小的買賣價差。最低標準：股票平均日成交量超過 100 萬股、每個履約價的選擇權未平倉量超過 500 口合約，且選擇權的買賣價差不超過 0.10-0.15 美元。
+
+**價格區間。** 對大多數個人投資人而言，股價在 20-100 美元區間的股票最為理想。低於 20 美元時，權利金過於微薄，意義不大。高於 100 美元時，每口合約需要大量資本（每口賣權合約需 10,000 美元以上的擔保品）。股價 50 美元的股票每口合約需 5,000 美元，對大多數投資組合而言尚屬可管理範圍。
+
+**適中的隱含波動性。** 較高的隱含波動性意味著更豐厚的權利金，但也代表股價大幅波動的風險更高。最佳區間為隱含波動性在 25-45% 之間。低於 25% 時，權利金過於微薄；高於 45% 時，股票的波動性過大，容易在不利價格遭指派。
+
+**避開財報及二元事件。** 不要賣出跨越財報公告期的賣權或買權，除非你刻意追求因此提高的權利金，並接受相應的風險。財報後股價可能跳空 10-20%，可能在遠離目標的價格遭到指派。同樣地，應避免等待 FDA 審查結果的生技股、涉及併購談判的公司，或任何二元結果可能引發極端價格波動的情況。
+
+**有利的產業類股。** 科技、民生消費、金融及醫療保健通常是較佳的滾輪標的。能源和原材料等高度週期性類股也可操作，但需要更謹慎的時機判斷。應避免散戶熱炒股、特殊目的收購公司（SPAC）及近期上市（IPO）股票，因為它們的波動性模式難以預測。
+
+#### 履約價與到期日的選擇
+
+**賣權履約價的選擇。** 大多數滾輪策略執行者選擇低於當前股價 5-10% 的價外履約價賣出賣權。這提供了對抗小幅下跌的緩衝。取捨之道在於：履約價越低，權利金越少，但賣權到期作廢（保留全部權利金而不被指派）的機率越高。
+
+貝塔值可作為有用的參考。貝塔值為 -0.20 至 -0.30 的賣權，代表其在到期時價內的機率約為 20-30%。這是常見的目標區間。較高的貝塔值（更靠近價平）可產生更多權利金，但也提高被指派的機率。
+
+**買權履約價的選擇。** 以等於或高於成本基礎的履約價賣出買權。選擇高於成本基礎的履約價，可確保股票若被買走時仍能獲利。常見做法是賣出貝塔值為 0.25-0.35 的買權，為股票的上漲留有空間，同時仍能收取有意義的權利金。
+
+**到期日的選擇。** 大多數滾輪策略執行者偏好 30-45 天到期（一個選擇權週期）。這個時間框架在收取的權利金與時間價值衰減加速之間取得最佳平衡。選擇權在到期前最後 30 天的價值損耗最快，因此在此窗口賣出，可最大化對你有利的時間價值衰減（Theta）。
+
+週選擇權（距到期 7-14 天）可提供更快的週轉率與更頻繁的權利金收取，但需要更多管理，且年化交易成本也更高。月選擇權（30-45 天到期）因兼顧平衡與效率，是最受歡迎的選擇。
+
+較長到期日的選擇權（60-90 天）每筆交易可收取更多的總權利金，但日均時間價值衰減率較低。同時也會占用資本更長時間，調整彈性也較差。
+
+#### 收益計算與合理的報酬預期
+
+了解合理的報酬預期，可避免失望與不當的風險管理。
+
+**單週期計算。** 以 50 美元的股票為例，擔保品為 4,750 美元（賣出 47.50 美元賣權）：
+- 收取的權利金：120 美元（假設每股 1.20 美元）
+- 時間週期：30 天
+- 資本報酬率：120 美元 / 4,750 美元 = 每月 2.5%
+- 若每個週期完美執行，年化約為 30%
+
+**實際情況。** 並非每個週期都能完美執行。有些月份你會被指派並在股票下跌期間持股。有些月份股票大幅下跌，你必須等待數週或數月才能賣出買權以回收成本。有些月份的波動性很低，權利金十分微薄。對品質優良股票執行良好的滾輪策略，現實的年化報酬率為 10-20%，而非 30% 以上。
+
+**指派拖累效應。** 在賣權遭指派後，股票可能持續下跌。如果你賣出一張 47.50 美元的賣權，而股票跌至 40 美元，你持有的股票成本為 47.50 美元（減去權利金），但股票僅交易在 40 美元。你無法在不跨越很長時間的情況下，以高於成本基礎的履約價賣出掩護性買權。這種指派拖累效應是實際報酬低於理論最大報酬的主要原因。
+
+**交易成本。** 選擇權的手續費，儘管比以前低了許多，累積起來仍相當可觀。以每口合約每邊 0.65 美元計算，每完成一個滾輪週期的成本為 1.30 美元。以 120 美元的權利金計算，手續費約占收入的 1%。每年執行 12 個週期，手續費將使報酬率降低約 0.5-1.0%。
+
+**稅務處理。** 選擇權權利金收入通常被視為短期資本利得課稅，無論你持有選擇權多長時間。這意味著權利金收入按你的一般所得稅率課稅，而非較低的長期資本利得稅率。在應稅帳戶中，這會顯著降低稅後報酬率。在可行的情況下，請考慮在節稅帳戶（個人退休帳戶 IRA）中執行滾輪策略。
+
+#### 管理指派情況與回撤
+
+滾輪策略最大的挑戰，是在股票已大幅跌破指派價格時管理持股階段。
+
+**耐心至關重要。** 當你以 47.50 美元被指派，而股票現在交易在 40 美元時，不要驚慌賣出。此策略的整個前提是你選擇了一檔你願意持有的股票。繼續賣出掩護性買權，逐步降低你的成本基礎。
+
+**掩護性買權的權利金數學計算。** 如果股票在 40 美元，你的成本基礎是 46.30 美元，每月以 0.50 美元賣出 42 美元買權，每個週期可將你的成本基礎降低 0.50 美元。四個月後，你的成本基礎降至 44.30 美元；八個月後，降至 42.30 美元。最終，你的成本基礎可能降至接近當前股價，屆時你可以以等於或高於成本基礎的履約價賣出買權，若股票被買走則獲利了結。
+
+**向下滾動。** 如果股票在指派後進一步下跌，你可能需要以更低的履約價（但仍高於你的調整後成本基礎）賣出買權。這雖然產生的權利金較少，但在等待回升期間仍能維持收益流。
+
+**低於成本基礎賣出買權的危險。** 除非你已決定承受虧損出場，否則絕對不要以低於成本基礎的履約價賣出掩護性買權。若股票反彈，而你的持股在低於成本基礎的履約價被買走，你將鎖定一個無法透過滾輪策略回收的永久損失。
+
+**何時中斷滾輪。** 如果股票的基本面惡化（而非僅是股價下跌），將股票認賠賣出，並將資本重新部署到更合適的滾輪標的，可能是更好的選擇。持有一檔基本面已出問題的股票，同時賣出微薄的掩護性買權權利金，是緩慢侵蝕資本的良方。對你的滾輪持倉應用與任何股票持倉相同的基本面分析。
+
+**部位規模控制。** 單一滾輪部位所占的投資組合比例不應超過 5-10%。若股票下跌 30-40%，對整體投資組合的影響應在可控範圍內。分散於 5-10 個滾輪部位，可降低個股風險。
+
+#### 進階滾輪變化型
+
+**積極型滾輪。** 賣出價平或略為價內的賣權，以獲取更高的權利金。這提高了被指派的機率，但每個週期的收益也顯著增加。適合對標的股票有強烈看多信念的投資人。
+
+**保守型滾輪。** 賣出低於當前股價 15-20% 的賣權，及低於當前股價 10-15% 的買權。每個週期的權利金較少，但被指派的機率大幅降低，且股票有更多上漲空間。適合市場波動較大或股票價格較高的情況。
+
+**股利滾輪。** 以配發股利的股票為目標，並安排滾輪週期，以便在持股階段收取股利。在除息日後不久（股票下跌時）賣出賣權，被指派後收取下一次股利，然後再賣出買權。
+
+**窮人滾輪。** 以賣出賣權價差（賣出一張賣權同時買入一張較低履約價的賣權作為保護）代替賣出現金擔保賣權。這降低了資本需求，但同時也限制了最大潛在損失，並減少了收取的權利金。適合資金規模較小的投資人。
+
+**多層滾輪。** 同時以多個履約價賣出賣權，以梯狀方式建立部位。若在較低履約價被指派，則相應地以較低的價格賣出買權。這樣可在下跌期間分批買進，而非在單一價格全力投入。
+
+#### 記錄保存與績效追蹤
+
+嚴格的記錄保存對於評估滾輪策略是否真正為你帶來效益至關重要。
+
+**追蹤每筆交易。** 記錄日期、標的股票、選擇權類型（賣權或買權）、履約價、到期日、收取的權利金及結果（到期作廢、遭指派、提前平倉）。這樣可建立完整的滾輪操作歷史紀錄。
+
+**計算真實報酬。** 你的實際年化報酬率應涵蓋所有時期，包括指派後持股期間報酬率可能為負的時段。只統計賣權獲利週期而忽略虧損持股期間，是自欺欺人的行為。
+
+**與基準比較。** 將你的滾輪報酬與單純買入並持有相同股票進行比較，也與被動式指數基金進行比較。如果在考量時間與精力之後，滾輪策略的表現未能優於相同股票的買入持有策略，那麼額外的複雜性或許並不值得。
+
+**按股票分類追蹤。** 部分股票持續產生有利可圖的滾輪週期，而另一些股票則持續導致指派與虧損。隨著時間推移，你的記錄將揭示哪些股票是優良的滾輪標的，哪些應予以避開。這種以數據為驅動的選股方式，能顯著改善操作成果。
+
+**監控勝率。** 追蹤賣權週期中到期作廢（獲勝）與遭到指派的比例。一個健全的滾輪操作通常在賣權上的勝率為 65-75%。若你的勝率跌破 60%，你的履約價選擇可能過於積極。
 
 ---
 
-### D) Q&A Section
+### C) 常見迷思
 
-**Q1: How much capital do I need to start the Wheel Strategy?**
-A1: At minimum, you need enough to buy 100 shares of your chosen stock at the put strike price. For a $50 stock with a $47.50 put, that is $4,750. Ideally, you want enough capital to run 3-5 wheel positions simultaneously for diversification, which suggests $15,000-$25,000 minimum. Some brokers offer mini options on certain ETFs (10 shares per contract), reducing the capital requirement tenfold.
+**迷思一：「滾輪策略是零風險收益。」**
+滾輪策略承擔著完整的股票下行風險。當你賣出現金擔保賣權並遭指派時，你便持有該股票。若股票下跌 50%，扣除收取的任何權利金後，你的資本損失為 50%。權利金收入提供了微小的緩衝，但無法防範重大下跌。其風險特徵與直接持有股票相同，只是成本基礎略低。
 
-**Q2: Which account type is best for the Wheel Strategy?**
-A2: A Roth IRA is ideal because all premium income grows tax-free and withdrawals in retirement are tax-free. A traditional IRA is the next best option because income is tax-deferred. In a taxable account, premium income is taxed as short-term capital gains (ordinary income rates), which can significantly reduce after-tax returns. Many successful wheel practitioners run the strategy exclusively in IRAs.
+**迷思二：「我可以對任何股票使用滾輪策略並獲利。」**
+股票篩選是最重要的關鍵。對一家結構性衰退的公司（如被電商衝擊的零售商，或基本面不斷惡化的企業）執行滾輪策略，將造成任何權利金都無法彌補的損失。滾輪策略最適合應用於基本面強健、股價暫時走弱的公司，而非那些因充分理由而股價低廉的公司。
 
-**Q3: How do I handle early assignment?**
-A3: Early assignment on puts is rare but can occur, particularly on deep in-the-money puts near expiration or just before an ex-dividend date. If assigned early, simply move to Phase 3 (sell covered calls) sooner than planned. Early assignment on calls is also rare unless the call is deep in the money near an ex-dividend date. In that case, your shares are called away and you return to Phase 1. Early assignment is not a crisis; it simply accelerates the wheel cycle.
+**迷思三：「每筆交易的年化報酬代表我實際的年度報酬。」**
+將單筆交易的報酬年化是一種誤導。30 天內 2.5% 的報酬年化為 30%，但你不會每個月都能達成這個成績並持續整整一年。有些月份你會被指派，被迫在股票下跌期間持股且沒有權利金收入；有些月份波動性很低、權利金十分微薄。對有經驗的執行者而言，實際年度報酬 10-20% 是合理的預期，但年復一年超過 30% 的可能性極低。
 
-**Q4: Can I run the Wheel on ETFs instead of individual stocks?**
-A4: Absolutely, and many practitioners prefer it. SPY (S&P 500), QQQ (Nasdaq 100), and IWM (Russell 2000) are popular wheel candidates. ETFs provide built-in diversification, eliminating single-stock risk. The premiums per dollar of capital are often lower than individual stocks, but the reduced risk can make the risk-adjusted returns comparable or better. The biggest drawback is the high capital requirement for SPY (approximately $50,000+ per contract).
+**迷思四：「被指派一定是壞事。」**
+在滾輪策略中，被指派是預先規劃的結果，而非失敗。你之所以選擇那個履約價，是因為你想以那個價格持有股票。被指派意味著你以自己選定的價格，買進了你想要的股票，還預先扣除了已收取的權利金。唯一真正糟糕的指派，是發生在一檔你根本不應該執行滾輪策略的股票上。
 
-**Q5: What happens if the stock gaps down significantly on an earnings announcement?**
-A5: If you sold a put that spans earnings and the stock gaps down 20%, you will be assigned at your strike price on a stock now trading far below it. Your loss is the gap down minus your premium received. This is why most wheel practitioners avoid selling options that span earnings dates. If you do choose to sell through earnings, sell puts further out of the money (15-20% below current price) to provide a larger buffer, and accept the lower premium.
+**迷思五：「我應該以低於成本基礎的履約價賣出買權，以便在等待期間創造收益。」**
+這是滾輪策略中最危險的錯誤之一。以低於成本基礎的履約價賣出買權，限制了你回收損失的可能性。若股票反彈，持股在低於成本基礎的履約價被買走，你將永久鎖定虧損。即使能收取的權利金微薄，也要始終以等於或高於調整後成本基礎的履約價賣出買權。耐心比急於求成更有利可圖。
 
-**Q6: How does the Wheel compare to simply buying and holding the stock?**
-A6: In a strong bull market, buy and hold outperforms the wheel because the wheel's covered calls cap upside. In a flat or mildly bullish market, the wheel outperforms because the premium income exceeds the limited price appreciation. In a bear market, the wheel slightly outperforms because premium income partially offsets the decline. Over long periods, studies suggest the wheel generates similar total returns to buy-and-hold but with lower volatility and more consistent income. The trade-off is capped upside for reduced downside.
+**迷思六：「滾輪策略在所有市場環境中都有效。」**
+滾輪策略在兩種環境中表現欠佳。在強勢多頭市場中，賣權到期作廢，但你卻因為從未被指派（或持股後買權限制了獲利），錯失股票的完整上漲空間。在嚴峻的空頭市場中，你反覆在不斷下跌的價格被指派，掩護性買權的權利金無法抵消損失。此策略在盤整至溫和多頭、且波動性適中的市場中表現最佳。
 
-**Q7: Should I close my options early or let them expire?**
-A7: A common best practice is to close puts and calls when they have lost 50-75% of their value, even if there are days remaining until expiration. For example, if you sold a put for $1.20 and it is now worth $0.30, buying it back captures $0.90 of profit and frees your capital for the next cycle. Waiting for the last $0.30 exposes you to reversal risk for diminishing returns. This practice increases the number of annual cycles and improves annualized returns.
+**迷思七：「我應該總是賣出權利金最高的選擇權。」**
+權利金最高的選擇權往往也最危險。它們要麼處於價平附近（被指派的機率高），要麼掛在波動性極高的股票上（價格大幅波動的風險高）。追逐權利金是使用滾輪策略虧錢最常見的方式。應優先考量適當的權利金與可接受的風險之間的平衡。在優質股票上每月獲得 1.5% 的權利金，遠優於在投機性股票上獲得 4% 的權利金。
 
-**Q8: How many wheel positions should I run simultaneously?**
-A8: Diversification across 5-10 positions in different sectors is ideal. This reduces single-stock risk and ensures that one bad assignment does not devastate your portfolio. With 5-10 positions, you will typically have some in the put-selling phase, some holding stock and selling calls, and the income stream becomes more consistent. Start with 2-3 positions and expand as you gain experience and confidence.
-
----
-
-## Part 2: YouTube Script
+**迷思八：「滾輪策略是被動收入策略。」**
+雖然有人將其描述為被動收入，但滾輪策略需要主動管理。你需要監控持倉、決定何時提前滾動或平倉選擇權、評估指派後是否繼續對該股票執行滾輪、追蹤成本基礎並管理到期日時機。它不像當沖交易那樣耗時，但需要定期關注——對於 5-10 個部位，通常每週需投入 30-60 分鐘。將其視為真正被動操作的投資人，往往會犯下代價高昂的錯誤。
 
 ---
 
-**TITLE: The Wheel Strategy: A Complete Guide to Options Income**
+### D) 問答章節
+
+**Q1：我需要多少資金才能開始執行滾輪策略？**
+A1：最低限度，你需要足夠的資金以賣權履約價買進 100 股你選定的股票。以股價 50 美元、履約價 47.50 美元的賣權為例，需要 4,750 美元。理想情況下，你需要足夠的資金同時執行 3-5 個滾輪部位以達到分散效果，這意味著最低資金需求約為 15,000-25,000 美元。部分券商針對特定指數股票型基金提供迷你選擇權（每口合約 10 股），可將資金需求降至十分之一。
+
+**Q2：哪種帳戶類型最適合執行滾輪策略？**
+A2：羅斯個人退休帳戶（Roth IRA）是理想選擇，因為所有權利金收入均可免稅增長，退休後提款也免稅。傳統個人退休帳戶（Traditional IRA）是次佳選擇，因為收入可遞延課稅。在應稅帳戶中，權利金收入按短期資本利得（一般所得稅率）課稅，這可能大幅降低稅後報酬率。許多成功的滾輪策略執行者，選擇專門在個人退休帳戶中執行此策略。
+
+**Q3：如何處理提前指派的情況？**
+A3：賣權的提前指派很少見，但可能發生，特別是在深度價內的賣權接近到期日時，或是在除息日前夕。若提前指派，只需比預定時間更早進入第三階段（賣出掩護性買權）。買權的提前指派也很罕見，除非買權在除息日前夕已深度價內。在這種情況下，你的持股將被買走，你再回到第一階段。提前指派並非危機，它只是加速了滾輪週期的進行。
+
+**Q4：我可以對指數股票型基金而非個股執行滾輪策略嗎？**
+A4：完全可以，而且許多執行者更偏好這種方式。SPY（標普 500 指數）、QQQ（那斯達克 100 指數）及 IWM（羅素 2000 指數）是熱門的滾輪標的。指數股票型基金提供內建的分散化，消除了個股風險。每元資本所能收取的權利金通常低於個股，但降低後的風險使風險調整後的報酬相當甚至更好。最大的缺點是 SPY 對資本需求很高（每口合約約需 50,000 美元以上）。
+
+**Q5：若股票在財報公告後大幅跳空下跌，應如何應對？**
+A5：若你賣出的賣權跨越財報期，而股票跳空下跌 20%，你將在遠低於當前交易價格的履約價被指派。你的損失為跳空的幅度減去收取的權利金。這正是為何大多數滾輪策略執行者會避免賣出跨越財報日期的選擇權。如果你確實選擇在財報前後賣出，請賣出更深度價外的賣權（低於當前股價 15-20%）以提供更大緩衝，並接受較低的權利金作為代價。
+
+**Q6：滾輪策略與單純買入並持有股票相比如何？**
+A6：在強勢多頭市場中，買入並持有的表現優於滾輪策略，因為買權限制了上漲空間。在盤整或溫和多頭市場中，滾輪策略表現更佳，因為權利金收入超過有限的股價升幅。在空頭市場中，滾輪策略的表現略優，因為權利金收入部分抵消了下跌幅度。研究顯示，長期而言，滾輪策略產生的總報酬與買入並持有相近，但波動性更低、收益更穩定。取捨之道在於：以限制上漲空間換取降低下行風險。
+
+**Q7：我應該提前平倉選擇權，還是讓其自然到期？**
+A7：一個常見的最佳實務，是在選擇權已損耗 50-75% 的價值時，即便距到期日仍有數天，也將其平倉。舉例而言，若你以 1.20 美元賣出一張賣權，現在它僅值 0.30 美元，買回平倉可鎖定 0.90 美元的利潤，並釋放資金用於下一個週期。等待最後那 0.30 美元，以微薄的利潤冒著反轉風險並不值得。這個做法可增加年度週期數並提升年化報酬率。
+
+**Q8：我應該同時執行多少個滾輪部位？**
+A8：分散於不同產業的 5-10 個部位是理想配置。這降低了個股風險，並確保單一指派事件不會毀掉你的投資組合。持有 5-10 個部位時，通常會有些處於賣出賣權階段，有些處於持股並賣出買權的階段，收益流也因此更趨穩定。建議先從 2-3 個部位開始，隨著你累積經驗與信心，再逐步擴大規模。
+
+**Q9：隱含波動性如何影響我的滾輪決策？**
+A9：隱含波動性（IV）直接影響權利金水準。當隱含波動性高時，權利金豐厚，滾輪策略每個週期產生更多收益；當隱含波動性低時，權利金微薄，報酬率也隨之收縮。部分執行者只在隱含波動性高於該股歷史平均水準時才賣出選擇權，等待權利金升高後再進場。隱含波動性百分位（當前隱含波動性相對於過去一年的排名）是一個有用的指標。隱含波動性百分位高於 50，表示當前權利金高於平均水準，為賣出選擇權創造了有利條件；低於 30 則表示權利金可能過於微薄，不足以彌補股票風險。
+
+**Q10：新手使用滾輪策略最常犯的錯誤是什麼？**
+A10：最常見的錯誤是根據權利金大小而非基本面品質來選股。每月賣權可收取 5% 權利金的股票確實極具誘惑力，但之所以權利金這麼高，是因為市場認為這檔股票風險極高。這些往往是波動性大、基本面薄弱的股票：被散戶熱炒的股票、估值過高的成長股，或面臨生存威脅的公司。新手追逐權利金，最終在股票下跌 30-40% 後遭指派，抹去了數月的權利金收益。務必先根據基本面選股，再評估權利金是否足以補償風險。如果你不願意直接以賣權履約價買進並持有該股票一年，就不要對它賣出賣權。
+
+---
+
+## 第二部分：YouTube 腳本
+
+---
+
+**標題：滾輪策略：選擇權收益完全指南**
+
+**時長：約 18 分鐘**
 
 ---
 
 **[VISUAL: A spinning wheel graphic with three segments labeled "Sell Put," "Hold Stock," and "Sell Call," with dollar signs appearing at each transition]**
 
-**Alex:** Sam, everyone on investing forums talks about "running the wheel." It sounds too good to be true. What is it?
+**Horace（陳馬）：** 小魚，投資論壇上大家都在討論「滾輪策略」。聽起來太美好了，感覺不像是真的。這到底是什麼？
 
-**Sam:** The Wheel is an options income strategy that combines two things we have already covered: selling cash-secured puts and selling covered calls. You cycle between them in a repeating loop.
+**Stella（小魚）：** 滾輪策略是一種選擇權收益策略，結合了我們已經介紹過的兩種操作：賣出現金擔保賣權和賣出掩護性買權。你在兩者之間不斷循環。
 
 **[ANIMATION: Circular flow diagram: "Sell Cash-Secured Put" -> "Get Assigned Stock" -> "Sell Covered Call" -> "Stock Gets Called Away" -> back to "Sell Cash-Secured Put." Dollar signs float off at each step]**
 
-**Alex:** So you collect premium at every step?
+**Horace（陳馬）：** 所以每個步驟都能收取權利金？
 
-**Sam:** Exactly. That is the beauty of it. Your capital is always working. When you do not own the stock, your cash earns put premium. When you own the stock, your shares earn call premium. Let me walk through a complete cycle.
+**Stella（小魚）：** 完全正確。這就是它的魅力所在。你的資本隨時保持運作。當你沒持有股票時，現金在賺取賣權權利金；當你持有股票時，持股在賺取買權權利金。讓我帶你走一遍完整的週期。
 
-**Alex:** Let us do it.
+**Horace（陳馬）：** 走吧，來一遍。
 
-**Sam:** Phase one. You like Stock XYZ trading at fifty dollars. You sell a forty-seven-fifty put expiring in thirty days and collect one dollar and twenty cents in premium. That is one hundred twenty dollars per contract.
+**Stella（小魚）：** 第一階段。你很看好目前交易在 50 美元的股票 XYZ。你賣出一張 30 天後到期的 47.50 美元賣權，收取每股 1.20 美元的權利金，也就是每口合約 120 美元。
 
 **[ANIMATION: Stock chart showing XYZ at $50. A horizontal line appears at $47.50 labeled "Put Strike." Premium of $1.20 ($120) floats into a cash register]**
 
-**Alex:** And I need forty-seven hundred fifty in cash as collateral, right?
+**Horace（陳馬）：** 而且我需要持有 4,750 美元的現金作為擔保品，對吧？
 
-**Sam:** Right. Now two things can happen. If the stock stays above forty-seven fifty, the put expires worthless. You keep the one hundred twenty dollars and do it again. That is a two-point-five percent return in thirty days.
+**Stella（小魚）：** 對。現在可能出現兩種情況。如果股票維持在 47.50 美元以上，賣權到期作廢，你保留 120 美元，然後再次操作。這在 30 天內獲得了 2.5% 的報酬。
 
 **[VISUAL: Calendar showing 30 days with $120 earned. Annualized return calculation: 2.5% x 12 = 30%]**
 
-**Alex:** Thirty percent annualized? That seems amazing.
+**Horace（陳馬）：** 年化 30%？這聽起來太驚人了。
 
-**Sam:** Hold on, we will get to the reality check. First, let us see what happens if the stock drops below forty-seven fifty.
+**Stella（小魚）：** 等一下，我們等一下來做「現實核查」。先看看股票跌破 47.50 美元時會發生什麼。
 
 **[ANIMATION: Stock price line declining below $47.50. 100 shares materialize in the portfolio. Cash decreases by $4,750. Cost basis label shows $46.30 ($47.50 - $1.20 premium)]**
 
-**Sam:** You are assigned one hundred shares at forty-seven fifty. But because you already collected one twenty in premium, your effective cost basis is forty-six thirty. You bought the stock below where it was trading AND got paid to do it.
+**Stella（小魚）：** 你以 47.50 美元被指派買進 100 股。但因為你已經收取了 120 美元的權利金，你的有效成本基礎是 46.30 美元。你不僅以低於股票交易時的價格買進，還在等待期間獲得了報酬。
 
-**Alex:** So far so good. Now what?
+**Horace（陳馬）：** 到目前為止看起來不錯。接下來呢？
 
-**Sam:** Phase three. You own the stock, so you sell a covered call. The stock is at forty-seven, and you sell a fifty-dollar call for eighty cents. That is eighty dollars in premium.
+**Stella（小魚）：** 進入第三階段。你持有股票，所以賣出一張掩護性買權。股票在 47 美元，你以 0.80 美元賣出一張 50 美元的買權，也就是每口合約 80 美元的權利金。
 
 **[ANIMATION: Stock chart with shares shown in portfolio. A horizontal line appears at $50 labeled "Call Strike." Premium of $0.80 ($80) floats into cash register]**
 
-**Sam:** Again, two outcomes. If the stock stays below fifty, the call expires worthless. You keep the eighty dollars, your cost basis drops to forty-five fifty, and you sell another call.
+**Stella（小魚）：** 同樣有兩種結果。如果股票維持在 50 美元以下，買權到期作廢，你保留 80 美元，成本基礎降至 45.50 美元，然後再賣出另一張買權。
 
-**Alex:** And if the stock rises above fifty?
+**Horace（陳馬）：** 如果股票漲過 50 美元呢？
 
-**Sam:** Your shares are called away at fifty dollars. Let us calculate the total profit.
+**Stella（小魚）：** 你的持股以 50 美元被買走。讓我們來計算總利潤。
 
 **[ANIMATION: Profit calculation building step by step:
-Shares sold at: $50.00
-Cost basis: $46.30
-Stock profit: $3.70 x 100 = $370
-Plus call premium: $80
-Total profit: $450
-On $4,750 capital over ~60 days = 9.5% or ~58% annualized]**
+持股賣出價格：$50.00
+成本基礎：$46.30
+股票利潤：$3.70 x 100 = $370
+加上買權權利金：$80
+總利潤：$450
+以 $4,750 資本計算，歷時約 60 天 = 9.5%，或年化約 58%]**
 
-**Alex:** Four hundred fifty dollars on forty-seven fifty in capital. That is incredible. But you said there is a reality check?
+**Horace（陳馬）：** 以 4,750 美元的資本賺到 450 美元。這真是驚人。但你說有個「現實核查」？
 
-**Sam:** A big one. Those numbers assume everything goes perfectly. Let me show you what actually happens when the stock drops after assignment.
+**Stella（小魚）：** 而且是一個很重要的核查。上面的數字假設一切完美進行。讓我告訴你指派後股票繼續下跌時實際上會發生什麼。
 
 **[ANIMATION: Stock chart showing assignment at $47.50, then stock declining to $40. Red loss bar growing as stock falls. Cost basis at $46.30 with stock at $40 = unrealized loss of $630]**
 
-**Sam:** You are assigned at forty-seven fifty with a cost basis of forty-six thirty. Then the stock drops to forty. You are now sitting on a six-hundred-thirty dollar unrealized loss. You cannot sell a call above your cost basis because the stock is too far below it.
+**Stella（小魚）：** 你以 47.50 美元被指派，成本基礎為 46.30 美元。接著股票跌到 40 美元。你現在面臨 630 美元的未實現虧損。你無法以高於成本基礎的履約價賣出買權，因為股票距那個價格還差太遠。
 
-**Alex:** So what do you do?
+**Horace（陳馬）：** 那你怎麼辦？
 
-**Sam:** You sell calls at a strike just above your cost basis, but the premium is tiny because the strike is so far from the current price. A forty-seven call with the stock at forty might only pay twenty to thirty cents.
+**Stella（小魚）：** 你只能以略高於成本基礎的履約價賣出買權，但因為履約價遠高於當前股價，能收到的權利金微乎其微。股票在 40 美元時，47 美元的買權可能只能收到 20 到 30 美分。
 
 **[VISUAL: Options chain showing low premiums for out-of-the-money calls when stock is well below strike]**
 
-**Sam:** At thirty cents per month, it takes over twenty months of call selling to bring your cost basis down to the stock price. Meanwhile, the stock might drop further.
+**Stella（小魚）：** 以每月 30 美分計算，你需要超過 20 個月的買權賣出操作，才能將成本基礎降至股票當前的價格。而在這段時間裡，股票可能還會繼續下跌。
 
-**Alex:** So the risk is real. This is not free money.
+**Horace（陳馬）：** 所以風險是真實存在的。這不是免費的錢。
 
-**Sam:** Not at all. The Wheel Strategy has the same downside risk as owning the stock. If the stock drops fifty percent, you lose fifty percent minus whatever premium you collected. Which might be three to five percent.
+**Stella（小魚）：** 完全正確。滾輪策略與直接持股的下行風險完全相同。如果股票下跌 50%，你的損失就是 50% 減去收取的任何權利金，而那可能只有 3% 到 5%。
 
-**[VISUAL: Risk comparison showing: Buy-and-hold loss on 50% drop = -50%. Wheel loss on same drop = -45% to -47% (after premiums). Small difference highlighted]**
+**[VISUAL: Risk comparison showing: 買入並持有在50%跌幅下的損失 = -50%。相同跌幅下滾輪策略的損失 = -45% 至 -47%（扣除權利金後）。差距微小處以標記突出顯示]**
 
-**Alex:** So stock selection is everything.
+**Horace（陳馬）：** 所以選股就是一切。
 
-**Sam:** Absolutely. Let me show you what makes a good wheel stock versus a bad one.
+**Stella（小魚）：** 絕對是。讓我來說明什麼是好的滾輪標的，什麼是不好的標的。
 
-**[ANIMATION: Two columns appearing. "Good Wheel Stocks": Strong fundamentals, Moderate volatility (25-45% IV), High options liquidity, $20-$100 price range, No upcoming binary events. "Bad Wheel Stocks": Declining business, Extreme volatility (>60% IV), Low options volume, Meme stocks or SPACs, Pending earnings or FDA decisions]**
+**[ANIMATION: Two columns appearing. "好的滾輪標的"：基本面強健、適中的波動性（隱含波動性 25-45%）、選擇權流動性高、股價區間 $20-$100、無即將到來的二元事件。"不好的滾輪標的"：業務衰退中的公司、極高的波動性（隱含波動性 >60%）、選擇權成交量低、散戶熱炒股或特殊目的收購公司、即將公布財報或等待 FDA 審查結果]**
 
-**Sam:** The stocks that generate the fattest premiums are often the riskiest. A biotech stock might offer five percent premium per month, but it could also drop forty percent on an FDA rejection. The best wheel stocks are boring, profitable companies with moderate volatility.
+**Stella（小魚）：** 能產生最豐厚權利金的股票，往往也是風險最高的。一檔生技股每月可能提供 5% 的權利金，但也可能在 FDA 審查未通過時下跌 40%。最好的滾輪標的是那些讓人覺得無聊、但獲利穩定、波動性適中的公司。
 
-**Alex:** How about strike and expiration selection?
+**Horace（陳馬）：** 那履約價和到期日怎麼選？
 
-**Sam:** For puts, I target a delta of about negative zero-point-two to negative zero-point-three. That means the put has roughly a twenty to thirty percent chance of being in the money at expiration.
+**Stella（小魚）：** 賣權的部分，我會鎖定貝塔值約為負 0.20 至負 0.30 的選擇權，也就是說賣權在到期時有大約 20% 至 30% 的機率是價內的。
 
 **[VISUAL: Options chain with delta column highlighted. Puts with delta of -0.20 to -0.30 are highlighted in a green band]**
 
-**Sam:** For expiration, thirty to forty-five days is the sweet spot. Time decay, or theta, accelerates fastest in the final thirty days. You want to sell into that acceleration.
+**Stella（小魚）：** 到期日的部分，30 至 45 天是最佳區間。時間價值衰減（Theta）在最後 30 天加速最快。你要在這段加速期間賣出選擇權。
 
 **[ANIMATION: Theta decay curve showing option value over time. The curve is flat early and drops steeply in the final 30 days. The 30-45 day selling zone is highlighted]**
 
-**Alex:** And for covered calls?
+**Horace（陳馬）：** 掩護性買權呢？
 
-**Sam:** Similar approach. Delta of zero-point-two-five to zero-point-three-five, thirty to forty-five days to expiration. But the critical rule is: never sell a call with a strike below your cost basis. If the stock bounces and gets called away below your cost basis, you lock in a permanent loss.
+**Stella（小魚）：** 方法類似——貝塔值 0.25 至 0.35，距到期 30 至 45 天。但有個關鍵原則：絕對不要以低於成本基礎的履約價賣出買權。若股票反彈，持股在低於成本基礎的履約價被買走，你將鎖定永久性的虧損。
 
-**[VISUAL: Red warning box with text: "NEVER sell calls below your cost basis. This locks in losses that cannot be recovered"]**
+**[VISUAL: Red warning box with text: "絕對不要以低於成本基礎的履約價賣出買權。這將鎖定無法挽回的損失"]**
 
-**Alex:** Let me ask about realistic returns. What should I actually expect?
+**Horace（陳馬）：** 讓我問一下合理的報酬預期。我實際上應該期待什麼？
 
-**Sam:** Let me give you honest numbers.
+**Stella（小魚）：** 讓我給你誠實的數字。
 
 **[ANIMATION: Three scenarios showing annualized returns:
-Bull market: 8-12% (calls cap upside, miss big rallies)
-Sideways market: 15-25% (sweet spot, premiums collected consistently)
-Bear market: -10 to -30% (assignment losses exceed premiums)
-Average across cycles: 10-20%]**
+多頭市場：8-12%（買權限制上漲空間，錯失大漲行情）
+盤整市場：15-25%（最佳甜蜜點，持續穩定收取權利金）
+空頭市場：-10 至 -30%（指派損失超過收取的權利金）
+跨週期平均：10-20%]**
 
-**Sam:** In a sideways market, the wheel shines. You collect premium cycle after cycle without major losses. In a bull market, it is decent but you miss some upside because your calls cap gains. In a bear market, you lose money, but less than a buy-and-hold investor because of the premium cushion.
+**Stella（小魚）：** 在盤整市場中，滾輪策略大放異彩。你一個週期接著一個週期收取權利金，沒有重大損失。在多頭市場中，表現尚可，但因買權限制了獲利，你可能錯失部分上漲空間。在空頭市場中，你會虧錢，但因為有權利金作為緩衝，損失會比買入並持有的投資人略少一些。
 
-**Alex:** So ten to twenty percent over time?
+**Horace（陳馬）：** 所以長期而言是 10% 至 20%？
 
-**Sam:** For experienced practitioners on quality stocks, yes. But that is pre-tax. Premium income is taxed as short-term capital gains.
+**Stella（小魚）：** 對有經驗的執行者在優質股票上是的，但這是稅前數字。權利金收入按短期資本利得課稅。
 
-**[VISUAL: Pre-tax vs post-tax return comparison. 15% pre-tax -> 10-11% after tax at 30% rate. Arrow pointing to "Run in IRA for tax-free compounding"]**
+**[VISUAL: Pre-tax vs post-tax return comparison. 稅前 15% -> 按 30% 稅率課稅後的稅後 10-11%。箭頭指向「在個人退休帳戶中執行，享受免稅複利增長」]**
 
-**Sam:** This is why many wheel traders run the strategy in a Roth IRA. All that premium income compounds tax-free.
+**Stella（小魚）：** 這也是為什麼許多滾輪策略的投資人選擇在羅斯個人退休帳戶中執行這個策略。所有的權利金收入都能免稅複利增長。
 
-**Alex:** What about a pro tip for managing the strategy?
+**Horace（陳馬）：** 管理這個策略有什麼進階技巧嗎？
 
-**Sam:** Close your options early. Do not wait for expiration.
+**Stella（小魚）：** 提前平倉選擇權。不要等到到期日。
 
 **[ANIMATION: Timeline showing option sold for $1.20. After 15 days, value drops to $0.30. "Buy to close" action takes $0.90 profit. Remaining 15 days are freed up for a new cycle]**
 
-**Sam:** When the option has lost fifty to seventy-five percent of its value, buy it back and start a new cycle. You capture most of the premium in half the time, freeing your capital for the next trade. This can increase your annual number of cycles from twelve to eighteen or more.
+**Stella（小魚）：** 當選擇權已損耗 50% 至 75% 的價值時，就買回平倉並啟動新的週期。你在一半的時間內鎖定了大部分的權利金，同時釋放資金進入下一筆交易。這個做法可以讓你每年的操作週期從 12 次增加到 18 次甚至更多。
 
-**Alex:** That is smart. More cycles, more income.
+**Horace（陳馬）：** 這個做法很聰明。更多週期，更多收益。
 
-**Sam:** Exactly. You are trading a small amount of remaining premium for significantly more time to redeploy capital.
+**Stella（小魚）：** 完全正確。你是在放棄一小部分剩餘的權利金，換取更多可以重新部署資本的時間。
 
-**Alex:** Let me see if I have the complete picture. Sell a put on a stock I like. If assigned, sell a covered call above my cost basis. If called away, sell another put. Repeat.
+**Horace（陳馬）：** 讓我確認一下我是否掌握了完整的脈絡。對我看好的股票賣出賣權；若被指派，則以高於成本基礎的履約價賣出掩護性買權；若持股被買走，再賣出另一張賣權。如此循環。
 
-**Sam:** That is the wheel. But let me give you three golden rules.
+**Stella（小魚）：** 這就是滾輪策略。但讓我給你三個黃金法則。
 
 **[ANIMATION: Three golden rules appearing as stone tablets]**
 
-**Sam:** Rule one: only wheel stocks you would happily own for a year or more. If you would not want to hold it through a thirty percent drawdown, do not sell puts on it.
+**Stella（小魚）：** 法則一：只對你願意持有一年以上的股票執行滾輪策略。如果你不願意承受 30% 的回撤而繼續持有，就不要對它賣出賣權。
 
-**Alex:** Treat it like stock picking first, options second.
+**Horace（陳馬）：** 先做選股，再考慮選擇權。
 
-**Sam:** Rule two: never commit more than five to ten percent of your portfolio to a single wheel position. Run five to ten wheels across different sectors for diversification.
+**Stella（小魚）：** 法則二：單一滾輪部位所占的投資組合比例，絕不超過 5% 至 10%。分散至不同產業的 5 至 10 個滾輪部位，以達到風險分散的效果。
 
 **[VISUAL: Portfolio pie chart showing 5-10 wheel positions across different sectors, each representing 5-10% of the portfolio]**
 
-**Sam:** Rule three: be patient during drawdowns. When the stock drops after assignment, keep selling covered calls above your cost basis. It might take months to recover, but the premium income steadily lowers your break-even. Do not panic sell and do not sell calls below your cost basis.
+**Stella（小魚）：** 法則三：在回撤期間要有耐心。當指派後股票下跌時，持續以高於成本基礎的履約價賣出掩護性買權。這可能需要數月的時間才能回收，但穩定的權利金收入會逐步降低你的損益平衡點。不要驚慌賣出，也不要以低於成本基礎的履約價賣出買權。
 
-**Alex:** What if the stock fundamentally breaks? Like the company is actually failing?
+**Horace（陳馬）：** 如果股票出現基本面問題呢？比如說這家公司真的陷入困境？
 
-**Sam:** That is the exception. If the business is deteriorating, not just the stock price, cut your losses and wheel a different stock. The wheel only works on fundamentally sound companies going through temporary price weakness. It does not fix a broken business.
+**Stella（小魚）：** 這是個例外情況。如果公司的業務確實在惡化，而不只是股價在下跌，那就認賠出場，換到另一檔更合適的滾輪標的。滾輪策略只適用於基本面穩健、股價暫時走弱的公司。它無法拯救一家業務已出問題的企業。
 
-**[VISUAL: Decision tree: "Stock declined after assignment" -> "Are fundamentals still solid?" -> Yes: "Keep selling calls, be patient" -> No: "Sell stock, redeploy capital to better candidate"]**
+**[VISUAL: Decision tree: "指派後股票下跌" -> "基本面是否依然穩健？" -> 是：「持續賣出買權，保持耐心」 -> 否：「賣出股票，將資金重新部署至更好的標的」]**
 
-**Alex:** One last thing. How does this compare to just buying dividend stocks for income?
+**Horace（陳馬）：** 最後一個問題。和單純持有配息股票相比，這個策略如何？
 
-**Sam:** Great question.
+**Stella（小魚）：** 問得好。
 
 **[VISUAL: Comparison table:
-Dividend Income: 3-4% yield, passive, no options knowledge needed, tax-advantaged qualified dividends
-Wheel Income: 10-20% yield, active management required, options knowledge needed, short-term capital gains tax
-Risk: Similar (both have full equity downside)]**
+股利收益：殖利率 3-4%，被動式管理，無需選擇權知識，享有稅務優惠的合格股利
+滾輪收益：殖利率 10-20%，需要主動管理，需要選擇權知識，按短期資本利得課稅
+風險：相近（兩者均承擔完整的股票下行風險）]**
 
-**Sam:** The wheel generates significantly more income but requires active management and options knowledge. Dividends are passive and tax-advantaged. Many investors do both: hold dividend stocks in one part of the portfolio and run the wheel in another.
+**Stella（小魚）：** 滾輪策略能產生顯著更高的收益，但需要主動管理和選擇權知識。股利收益屬於被動式管理，且享有稅務優惠。許多投資人兩者兼採：在投資組合的一部分持有配息股票，在另一部分執行滾輪策略。
 
-**Alex:** That makes sense. Thanks Sam. I feel like I really understand the wheel now, including the risks.
+**Horace（陳馬）：** 這很合理。最後一個問題。對於即將執行第一次滾輪策略的人，最重要的一件事是什麼？
 
-**Sam:** That is the most important part. The premium income is real, but so is the equity risk. Respect both sides and the wheel can be a powerful addition to your investment toolkit.
+**Stella（小魚）：** 先選股，而不是先選選擇權。把 80% 的時間花在選股上，20% 花在選擇權機制上。如果你選對了股票，即使選擇權執行得不夠完美，也能產生不錯的成果。如果你選錯了股票，再完美的選擇權操作也救不了你。
 
-**[VISUAL: Summary card showing the complete wheel cycle diagram with key parameters: Strike delta 0.20-0.30, Expiration 30-45 days, Close at 50-75% profit, Never sell calls below cost basis, 5-10% max per position, Run in IRA if possible]**
+**[VISUAL: Emphasis graphic showing "選股 = 成功的 80%" and "選擇權執行 = 成功的 20%"]**
+
+**Horace（陳馬）：** 選股優先，選擇權其次。了解了。謝謝小魚。我覺得我現在真的理解滾輪策略了，包括其中的風險。
+
+**Stella（小魚）：** 這才是最重要的。權利金收益是真實的，但股票下行風險也是真實的。兩者都要尊重，滾輪策略才能成為你投資工具箱中一個強而有力的利器。
+
+**[VISUAL: Summary card showing the complete wheel cycle diagram with key parameters: 履約價貝塔值 0.20-0.30、到期日 30-45 天、於達到 50-75% 利潤時平倉、絕不以低於成本基礎的履約價賣出買權、單一部位最多占投資組合 5-10%、在可行的情況下於個人退休帳戶中執行]**
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on covered calls and cash-secured puts]**
 
 ---
 
-*End of Side Lesson 30*
+*補充課程 30 結束*

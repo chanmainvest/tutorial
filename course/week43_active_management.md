@@ -811,218 +811,218 @@ A: Calculate your active share relative to a broad index like the S&P 500 or tot
 
 [VISUAL: Title card -- "Alpha, Beta, and the Art of Active Management"]
 
-**Alex**: Today we tackle one of the most contentious topics in finance: does active management work? And how do you measure whether it is working?
+**Horace**: Today we tackle one of the most contentious topics in finance: does active management work? And how do you measure whether it is working?
 
-**Sam**: This is the "stock picking versus index funds" debate?
+**Stella**: This is the "stock picking versus index funds" debate?
 
-**Alex**: It goes much deeper than that. We are going to cover the precise tools that professionals use to evaluate active management -- alpha, tracking error, information ratio, active share, the Fundamental Law of Active Management, and performance attribution.
+**Horace**: It goes much deeper than that. We are going to cover the precise tools that professionals use to evaluate active management -- alpha, tracking error, information ratio, active share, the Fundamental Law of Active Management, and performance attribution.
 
-**Sam**: Why do these matter for regular investors?
+**Stella**: Why do these matter for regular investors?
 
-**Alex**: Because the active management industry collects over $100 billion a year in fees. If you own any actively managed fund, or if you pick individual stocks yourself, you need to know whether that activity is adding value or destroying it.
+**Horace**: Because the active management industry collects over $100 billion a year in fees. If you own any actively managed fund, or if you pick individual stocks yourself, you need to know whether that activity is adding value or destroying it.
 
 [VISUAL: SPIVA scorecard statistics]
 
-**Sam**: And the statistics are not encouraging for active managers, right?
+**Stella**: And the statistics are not encouraging for active managers, right?
 
-**Alex**: The SPIVA scorecard consistently shows that over 15-year periods, roughly 85-90% of US large-cap active managers underperform the S&P 500. But -- and this is important -- some managers DO outperform consistently. The tools we are learning today help you identify which ones.
+**Horace**: The SPIVA scorecard consistently shows that over 15-year periods, roughly 85-90% of US large-cap active managers underperform the S&P 500. But -- and this is important -- some managers DO outperform consistently. The tools we are learning today help you identify which ones.
 
-**Sam**: Let us start at the beginning. Alpha and beta.
+**Stella**: Let us start at the beginning. Alpha and beta.
 
 [VISUAL: "Alpha and Beta" section header]
 
-**Alex**: Beta measures how much your portfolio moves with the market. A beta of 1 means your portfolio moves in lockstep with the market. Beta of 1.2 means you move 20% more -- you are up more in bull markets and down more in bear markets. Beta of 0.8 means you move 20% less.
+**Horace**: Beta measures how much your portfolio moves with the market. A beta of 1 means your portfolio moves in lockstep with the market. Beta of 1.2 means you move 20% more -- you are up more in bull markets and down more in bear markets. Beta of 0.8 means you move 20% less.
 
-**Sam**: And alpha?
+**Stella**: And alpha?
 
-**Alex**: Alpha is the return that is left over after you account for beta. Here is a critical example. A portfolio returns 15% in a year when the market returns 10%. Most people would say the manager outperformed by 5%. But if the portfolio has a beta of 1.3, the expected return based purely on market exposure was 4% plus 1.3 times 6%, which equals 11.8%.
+**Horace**: Alpha is the return that is left over after you account for beta. Here is a critical example. A portfolio returns 15% in a year when the market returns 10%. Most people would say the manager outperformed by 5%. But if the portfolio has a beta of 1.3, the expected return based purely on market exposure was 4% plus 1.3 times 6%, which equals 11.8%.
 
 [VISUAL: Alpha calculation worked through step by step]
 
-**Sam**: So the manager's alpha is only 15% minus 11.8%, which is 3.2%, not 5%.
+**Stella**: So the manager's alpha is only 15% minus 11.8%, which is 3.2%, not 5%.
 
-**Alex**: Exactly. And that is a generous example. Many managers who appear to beat the market have simply taken more market risk -- higher beta. Their alpha, after adjusting for risk, is zero or negative.
+**Horace**: Exactly. And that is a generous example. Many managers who appear to beat the market have simply taken more market risk -- higher beta. Their alpha, after adjusting for risk, is zero or negative.
 
-**Sam**: How do I know if alpha is real or just luck?
+**Stella**: How do I know if alpha is real or just luck?
 
-**Alex**: This is the hardest question in finance. The answer requires statistical significance testing. For a 1% annual alpha to be statistically significant at 95% confidence, you typically need about 16 years of data. For 2% alpha, about 8 years. For 3%, about 5 years.
+**Horace**: This is the hardest question in finance. The answer requires statistical significance testing. For a 1% annual alpha to be statistically significant at 95% confidence, you typically need about 16 years of data. For 2% alpha, about 8 years. For 3%, about 5 years.
 
 [ANIMATION: animation/week43_alpha_significance.py -- Animated simulation showing 100 fund managers with zero true alpha (they are all coin flippers). Each manager runs for 1, 3, 5, 10, and 20 years. At each time horizon, the animation shows how many managers appear to have "significant" alpha. After 1 year, about 40-45 managers show positive alpha. After 3 years, about 30. After 5 years, about 20. After 10 years, about 10-12. After 20 years, about 5 managers still show positive alpha even though NONE of them have genuine skill. The point is made visually: even with zero skill, some managers will always look good by pure luck, and longer track records are needed to distinguish skill from luck.]
 
-**Sam**: That is sobering. Even with NO skill, some managers will always appear to outperform just by chance.
+**Stella**: That is sobering. Even with NO skill, some managers will always appear to outperform just by chance.
 
-**Alex**: And here is the cruel corollary. The fund industry has thousands of managers. If 5% of zero-skill managers appear to outperform over 10 years, and you have 5,000 managers, that is 250 managers who look skilled but are not. Separating the truly skilled from the lucky is extremely difficult.
+**Horace**: And here is the cruel corollary. The fund industry has thousands of managers. If 5% of zero-skill managers appear to outperform over 10 years, and you have 5,000 managers, that is 250 managers who look skilled but are not. Separating the truly skilled from the lucky is extremely difficult.
 
-**Sam**: Is it even possible?
+**Stella**: Is it even possible?
 
-**Alex**: Yes, but you need multiple tools, not just returns. That is where tracking error and information ratio come in.
+**Horace**: Yes, but you need multiple tools, not just returns. That is where tracking error and information ratio come in.
 
 [VISUAL: "Tracking Error and Information Ratio" section header]
 
-**Alex**: Tracking error measures how much your portfolio's returns deviate from the benchmark. It is the standard deviation of the return difference. A tracking error of zero means you are an index fund. A tracking error of 5% means your monthly returns typically differ from the benchmark by about 1.4% in any given month.
+**Horace**: Tracking error measures how much your portfolio's returns deviate from the benchmark. It is the standard deviation of the return difference. A tracking error of zero means you are an index fund. A tracking error of 5% means your monthly returns typically differ from the benchmark by about 1.4% in any given month.
 
-**Sam**: And that tells me how active the manager is?
+**Stella**: And that tells me how active the manager is?
 
-**Alex**: It tells you how much active RISK the manager is taking. And that is important because it is one thing to outperform by 2% with 3% tracking error -- that means the active bets were efficient. It is quite another to outperform by 2% with 12% tracking error -- that means the active bets were large and sloppy, and you just happened to get lucky.
+**Horace**: It tells you how much active RISK the manager is taking. And that is important because it is one thing to outperform by 2% with 3% tracking error -- that means the active bets were efficient. It is quite another to outperform by 2% with 12% tracking error -- that means the active bets were large and sloppy, and you just happened to get lucky.
 
-**Sam**: So the ratio of alpha to tracking error matters.
+**Stella**: So the ratio of alpha to tracking error matters.
 
-**Alex**: That is exactly the information ratio. IR equals alpha divided by tracking error. It measures how much return you get per unit of active risk. Think of it as the Sharpe ratio for active management.
+**Horace**: That is exactly the information ratio. IR equals alpha divided by tracking error. It measures how much return you get per unit of active risk. Think of it as the Sharpe ratio for active management.
 
 [VISUAL: Information ratio calculation and interpretation scale]
 
-**Alex**: An IR above 0.5 is very good -- top quartile among active managers. Above 0.75 is excellent. Above 1.0 is exceptional and almost impossible to sustain over long periods.
+**Horace**: An IR above 0.5 is very good -- top quartile among active managers. Above 0.75 is excellent. Above 1.0 is exceptional and almost impossible to sustain over long periods.
 
-**Sam**: What is a typical IR?
+**Stella**: What is a typical IR?
 
-**Alex**: The median active manager has an IR near zero -- their alpha is negligible after fees. The top quartile has an IR around 0.3-0.5. Top decile is 0.5-0.8. If someone claims a sustained IR above 1.0, they are either Warren Buffett, Renaissance Technologies, or lying.
+**Horace**: The median active manager has an IR near zero -- their alpha is negligible after fees. The top quartile has an IR around 0.3-0.5. Top decile is 0.5-0.8. If someone claims a sustained IR above 1.0, they are either Warren Buffett, Renaissance Technologies, or lying.
 
 [VISUAL: Distribution of information ratios across active managers]
 
-**Sam**: I want to understand active share. I have heard it mentioned as a way to identify closet indexers.
+**Stella**: I want to understand active share. I have heard it mentioned as a way to identify closet indexers.
 
 [VISUAL: "Active Share" section header]
 
-**Alex**: Active share measures how different your portfolio is from the benchmark, position by position. It is calculated by summing the absolute differences between your portfolio weights and the benchmark weights for every security, then dividing by two.
+**Horace**: Active share measures how different your portfolio is from the benchmark, position by position. It is calculated by summing the absolute differences between your portfolio weights and the benchmark weights for every security, then dividing by two.
 
-**Sam**: Give me an example.
+**Stella**: Give me an example.
 
-**Alex**: Say the benchmark has 7% in Apple, and your fund has 10% in Apple. That is a 3% difference. The benchmark has 4% in Google, and your fund has zero. That is a 4% difference. You do this for every stock in both the portfolio and the benchmark, sum up all the absolute differences, and divide by two. If your active share is 80%, it means 80% of your portfolio differs from the benchmark.
+**Horace**: Say the benchmark has 7% in Apple, and your fund has 10% in Apple. That is a 3% difference. The benchmark has 4% in Google, and your fund has zero. That is a 4% difference. You do this for every stock in both the portfolio and the benchmark, sum up all the absolute differences, and divide by two. If your active share is 80%, it means 80% of your portfolio differs from the benchmark.
 
 [VISUAL: Active share calculation example with several stocks]
 
-**Sam**: What does research say about active share and performance?
+**Stella**: What does research say about active share and performance?
 
-**Alex**: The landmark Cremers and Petajisto study from 2009 divided funds into categories based on active share. Funds with active share above 80% -- truly differentiated portfolios -- outperformed their benchmarks by about 1.5% per year before fees. Funds with active share below 40% -- closet indexers -- underperformed by about the amount of their fee. They were charging for active management but delivering index-like returns.
+**Horace**: The landmark Cremers and Petajisto study from 2009 divided funds into categories based on active share. Funds with active share above 80% -- truly differentiated portfolios -- outperformed their benchmarks by about 1.5% per year before fees. Funds with active share below 40% -- closet indexers -- underperformed by about the amount of their fee. They were charging for active management but delivering index-like returns.
 
-**Sam**: So if you are going to be active, be REALLY active?
+**Stella**: So if you are going to be active, be REALLY active?
 
-**Alex**: Yes, but with a caveat. High active share is necessary but not sufficient. Being different from the benchmark is only valuable if you are different in the RIGHT way. A manager who avoids the 10 best-performing stocks has high active share and terrible returns. You need high active share AND skill.
+**Horace**: Yes, but with a caveat. High active share is necessary but not sufficient. Being different from the benchmark is only valuable if you are different in the RIGHT way. A manager who avoids the 10 best-performing stocks has high active share and terrible returns. You need high active share AND skill.
 
 [ANIMATION: animation/week43_active_share.py -- Animated scatter plot comparing active share (x-axis) to future 5-year alpha (y-axis) for 500 simulated funds. The animation builds up over time, showing four quadrants: low active share with negative alpha (closet indexers, bottom left), low active share with small positive alpha (enhanced indexers, top left), high active share with negative alpha (unskilled stock pickers, bottom right), and high active share with positive alpha (skilled stock pickers, top right). The best-performing funds cluster in the top right, confirming that high active share is necessary for significant outperformance. But the bottom right quadrant also has many funds, showing that high active share without skill leads to large underperformance. A text annotation summarizes: "High active share gives you the opportunity to outperform -- and the risk of underperforming significantly."]
 
-**Sam**: So the key combination is high active share plus genuine skill.
+**Stella**: So the key combination is high active share plus genuine skill.
 
-**Alex**: Exactly. And there is an even more useful matrix. Plot active share against tracking error. Funds with high active share but low tracking error are "diversified stock pickers" -- they pick many different stocks but the overall portfolio risk is similar to the benchmark. Research shows this is the category most likely to outperform. Funds with low active share and low tracking error are closet indexers. Funds with high active share and high tracking error are concentrated bets -- they can outperform hugely or underperform hugely.
+**Horace**: Exactly. And there is an even more useful matrix. Plot active share against tracking error. Funds with high active share but low tracking error are "diversified stock pickers" -- they pick many different stocks but the overall portfolio risk is similar to the benchmark. Research shows this is the category most likely to outperform. Funds with low active share and low tracking error are closet indexers. Funds with high active share and high tracking error are concentrated bets -- they can outperform hugely or underperform hugely.
 
 [VISUAL: Active share vs. tracking error 2x2 matrix]
 
-**Sam**: Now I want to understand the Fundamental Law. This sounds like it ties everything together.
+**Stella**: Now I want to understand the Fundamental Law. This sounds like it ties everything together.
 
 [VISUAL: "The Fundamental Law of Active Management" section header]
 
-**Alex**: The Fundamental Law, developed by Grinold and Kahn, is one of the most elegant frameworks in finance. It says: Information Ratio equals the Information Coefficient times the square root of Breadth. IR equals IC times square root of BR.
+**Horace**: The Fundamental Law, developed by Grinold and Kahn, is one of the most elegant frameworks in finance. It says: Information Ratio equals the Information Coefficient times the square root of Breadth. IR equals IC times square root of BR.
 
-**Sam**: Break those components down.
+**Stella**: Break those components down.
 
-**Alex**: The Information Coefficient, IC, measures your skill per bet. It is the correlation between your forecasts and actual outcomes. An IC of zero means your predictions are random. An IC of 0.05 means you have a very slight edge -- your predictions are slightly better than chance. An IC of 0.10 is quite good. An IC of 0.15 is exceptional.
+**Horace**: The Information Coefficient, IC, measures your skill per bet. It is the correlation between your forecasts and actual outcomes. An IC of zero means your predictions are random. An IC of 0.05 means you have a very slight edge -- your predictions are slightly better than chance. An IC of 0.10 is quite good. An IC of 0.15 is exceptional.
 
-**Sam**: Those sound really small.
+**Stella**: Those sound really small.
 
-**Alex**: They are. Even the best investors in the world have ICs in the 0.05 to 0.15 range. Nobody consistently predicts stock returns with high accuracy. But even a tiny edge, compounded over many bets, produces significant alpha.
+**Horace**: They are. Even the best investors in the world have ICs in the 0.05 to 0.15 range. Nobody consistently predicts stock returns with high accuracy. But even a tiny edge, compounded over many bets, produces significant alpha.
 
-**Sam**: And that is where breadth comes in.
+**Stella**: And that is where breadth comes in.
 
-**Alex**: Breadth, BR, is the number of independent bets per year. The key word is INDEPENDENT. If you buy 50 tech stocks, those are not 50 independent bets -- they are highly correlated. The effective breadth might be only 5-10.
+**Horace**: Breadth, BR, is the number of independent bets per year. The key word is INDEPENDENT. If you buy 50 tech stocks, those are not 50 independent bets -- they are highly correlated. The effective breadth might be only 5-10.
 
 [VISUAL: Formula with examples at different IC and BR combinations]
 
-**Alex**: Here is the magic. A manager with modest skill -- IC of 0.05 -- making 100 independent bets achieves an IR of 0.05 times the square root of 100, which equals 0.50. That is a very good IR. A manager with twice the skill -- IC of 0.10 -- making only 25 bets achieves 0.10 times the square root of 25, which equals 0.50. Same IR, completely different approach.
+**Horace**: Here is the magic. A manager with modest skill -- IC of 0.05 -- making 100 independent bets achieves an IR of 0.05 times the square root of 100, which equals 0.50. That is a very good IR. A manager with twice the skill -- IC of 0.10 -- making only 25 bets achieves 0.10 times the square root of 25, which equals 0.50. Same IR, completely different approach.
 
-**Sam**: So skill and breadth are substitutes.
+**Stella**: So skill and breadth are substitutes.
 
-**Alex**: Exactly. If you have modest forecasting ability -- which is what most investors have -- you should make MANY independent bets. Diversify across sectors, countries, and styles. Each bet on its own will not be impressively profitable, but the cumulative effect of many small edges is a strong information ratio.
+**Horace**: Exactly. If you have modest forecasting ability -- which is what most investors have -- you should make MANY independent bets. Diversify across sectors, countries, and styles. Each bet on its own will not be impressively profitable, but the cumulative effect of many small edges is a strong information ratio.
 
-**Sam**: And if you are Warren Buffett with higher skill per bet?
+**Stella**: And if you are Warren Buffett with higher skill per bet?
 
-**Alex**: Then you can concentrate -- make fewer, larger bets and still achieve a strong IR. But most people overestimate their IC. They think they are Buffett when they are actually average. The safe strategy is to assume modest skill and diversify.
+**Horace**: Then you can concentrate -- make fewer, larger bets and still achieve a strong IR. But most people overestimate their IC. They think they are Buffett when they are actually average. The safe strategy is to assume modest skill and diversify.
 
 [VISUAL: Table showing IC/BR combinations and resulting IR]
 
-**Sam**: This has a practical implication for me. I should spread my stock picks across different sectors and countries, not concentrate in what I know best?
+**Stella**: This has a practical implication for me. I should spread my stock picks across different sectors and countries, not concentrate in what I know best?
 
-**Alex**: Unless what you know best truly gives you an edge. But here is a reality check: if you pick 50 stocks all in the tech sector, your effective breadth is not 50. Because those stocks are correlated at about 0.5-0.7 with each other, your effective breadth is more like 5-8 independent bets. You have done a lot of research for very little diversification benefit.
+**Horace**: Unless what you know best truly gives you an edge. But here is a reality check: if you pick 50 stocks all in the tech sector, your effective breadth is not 50. Because those stocks are correlated at about 0.5-0.7 with each other, your effective breadth is more like 5-8 independent bets. You have done a lot of research for very little diversification benefit.
 
-**Sam**: Let us move to performance attribution. How do I figure out WHERE my returns came from?
+**Stella**: Let us move to performance attribution. How do I figure out WHERE my returns came from?
 
 [VISUAL: "Performance Attribution" section header]
 
-**Alex**: Performance attribution decomposes your active return -- the difference between your portfolio and the benchmark -- into specific sources. The classic Brinson model splits it into allocation effect and selection effect.
+**Horace**: Performance attribution decomposes your active return -- the difference between your portfolio and the benchmark -- into specific sources. The classic Brinson model splits it into allocation effect and selection effect.
 
-**Sam**: What is the difference?
+**Stella**: What is the difference?
 
-**Alex**: Allocation effect measures whether you added value by over- or underweighting sectors. If you overweighted technology and technology outperformed the market, your allocation effect in tech is positive. Selection effect measures whether you picked good stocks within each sector. If your tech stocks returned 18% while the benchmark's tech stocks returned 15%, your selection effect in tech is positive.
+**Horace**: Allocation effect measures whether you added value by over- or underweighting sectors. If you overweighted technology and technology outperformed the market, your allocation effect in tech is positive. Selection effect measures whether you picked good stocks within each sector. If your tech stocks returned 18% while the benchmark's tech stocks returned 15%, your selection effect in tech is positive.
 
 [VISUAL: Attribution example with sector-by-sector breakdown]
 
-**Alex**: Let me walk through a real example. Say your portfolio returned 12.2% and the benchmark returned 10.5%. That is 1.7% outperformance. Attribution decomposes this as: 0.37% from sector allocation, 1.01% from stock selection, and 0.32% from the interaction between the two.
+**Horace**: Let me walk through a real example. Say your portfolio returned 12.2% and the benchmark returned 10.5%. That is 1.7% outperformance. Attribution decomposes this as: 0.37% from sector allocation, 1.01% from stock selection, and 0.32% from the interaction between the two.
 
-**Sam**: So most of the outperformance came from picking good stocks, not from overweighting the right sectors.
+**Stella**: So most of the outperformance came from picking good stocks, not from overweighting the right sectors.
 
-**Alex**: Exactly. And that distinction matters. Sector allocation is hard to repeat -- it requires macro forecasting, which is notoriously difficult. Stock selection tends to be more repeatable because it is based on company-level analysis. A manager whose outperformance comes primarily from selection is more likely to continue outperforming than one whose outperformance comes from a lucky sector bet.
+**Horace**: Exactly. And that distinction matters. Sector allocation is hard to repeat -- it requires macro forecasting, which is notoriously difficult. Stock selection tends to be more repeatable because it is based on company-level analysis. A manager whose outperformance comes primarily from selection is more likely to continue outperforming than one whose outperformance comes from a lucky sector bet.
 
-**Sam**: What about factor attribution?
+**Stella**: What about factor attribution?
 
-**Alex**: Factor attribution goes even deeper. Instead of asking "did the manager pick good stocks in tech?", it asks "is the outperformance explained by the manager's tilt toward growth stocks, or momentum stocks, or small caps?" This is crucial because factor tilts can be replicated cheaply with ETFs.
+**Horace**: Factor attribution goes even deeper. Instead of asking "did the manager pick good stocks in tech?", it asks "is the outperformance explained by the manager's tilt toward growth stocks, or momentum stocks, or small caps?" This is crucial because factor tilts can be replicated cheaply with ETFs.
 
 [ANIMATION: animation/week43_factor_attribution.py -- Animated waterfall chart showing a manager's 14% total return being decomposed step by step. The animation starts with the full 14% bar. First, the risk-free rate of 4% is separated out. Then market exposure (beta of 1.1 contributing 8.8%) is peeled away. Then size, value, momentum, and quality factor exposures are separated one by one, each showing their contribution. What remains at the end is the residual alpha -- in this case, approximately -0.2%. The animation emphasizes that the impressive-looking 14% total return and 2% "outperformance" versus the 12% market return is entirely explained by factor exposures. There is no genuine stock-picking alpha.]
 
-**Sam**: That is devastating. The manager looked like a 2% outperformer, but after factor attribution, they actually have slightly negative alpha?
+**Stella**: That is devastating. The manager looked like a 2% outperformer, but after factor attribution, they actually have slightly negative alpha?
 
-**Alex**: This is incredibly common. Studies show that a large majority of active fund "alpha" is actually factor exposure in disguise. The manager tilts toward momentum, or quality, or small caps, and when those factors perform well, the fund outperforms. When those factors reverse, the fund underperforms. The manager has no genuine stock-picking skill -- they are just a factor bet dressed up as active management.
+**Horace**: This is incredibly common. Studies show that a large majority of active fund "alpha" is actually factor exposure in disguise. The manager tilts toward momentum, or quality, or small caps, and when those factors perform well, the fund outperforms. When those factors reverse, the fund underperforms. The manager has no genuine stock-picking skill -- they are just a factor bet dressed up as active management.
 
-**Sam**: And I could replicate that factor bet with cheap ETFs.
+**Stella**: And I could replicate that factor bet with cheap ETFs.
 
-**Alex**: For about 0.1% in fees instead of 0.8% or 1.0%. This is one of the most important insights from modern finance: much of what the active management industry sells as "alpha" is actually "beta in disguise" -- systematic factor exposure that can be obtained far more cheaply.
+**Horace**: For about 0.1% in fees instead of 0.8% or 1.0%. This is one of the most important insights from modern finance: much of what the active management industry sells as "alpha" is actually "beta in disguise" -- systematic factor exposure that can be obtained far more cheaply.
 
-**Sam**: So how do I use all of this practically?
+**Stella**: So how do I use all of this practically?
 
 [VISUAL: "Putting It All Together" section header]
 
-**Alex**: Here is my framework for evaluating any active manager -- including yourself if you pick individual stocks.
+**Horace**: Here is my framework for evaluating any active manager -- including yourself if you pick individual stocks.
 
-**Alex**: Step one: look at alpha net of fees over at least 5 years, ideally 10. Is it positive? Is it statistically significant?
+**Horace**: Step one: look at alpha net of fees over at least 5 years, ideally 10. Is it positive? Is it statistically significant?
 
-**Sam**: Most managers will fail at this step.
+**Stella**: Most managers will fail at this step.
 
-**Alex**: Correct. Step two: check the information ratio. An IR below 0.3 is not worth paying for. You can get similar results with an index fund and zero active risk.
+**Horace**: Correct. Step two: check the information ratio. An IR below 0.3 is not worth paying for. You can get similar results with an index fund and zero active risk.
 
-**Alex**: Step three: check active share. If it is below 40%, you have a closet indexer. Do not pay active management fees for index-like returns.
+**Horace**: Step three: check active share. If it is below 40%, you have a closet indexer. Do not pay active management fees for index-like returns.
 
-**Alex**: Step four: run factor attribution. Is the alpha explained by factor tilts, or is there genuine residual stock-picking alpha? If it is all factor tilts, buy factor ETFs instead.
+**Horace**: Step four: run factor attribution. Is the alpha explained by factor tilts, or is there genuine residual stock-picking alpha? If it is all factor tilts, buy factor ETFs instead.
 
-**Alex**: Step five: look at performance attribution. Is the alpha coming from broad-based stock selection across sectors, or from one or two lucky bets?
+**Horace**: Step five: look at performance attribution. Is the alpha coming from broad-based stock selection across sectors, or from one or two lucky bets?
 
 [VISUAL: Five-step evaluation framework as a flowchart]
 
-**Sam**: If a manager passes all five steps, is it a good investment?
+**Stella**: If a manager passes all five steps, is it a good investment?
 
-**Alex**: It is a CANDIDATE for investment. You still need to assess qualitative factors: is the manager investing their own money alongside clients? Has the process been consistent? Has the fund grown too large for its strategy? Are key personnel stable? But passing the quantitative tests is a prerequisite.
+**Horace**: It is a CANDIDATE for investment. You still need to assess qualitative factors: is the manager investing their own money alongside clients? Has the process been consistent? Has the fund grown too large for its strategy? Are key personnel stable? But passing the quantitative tests is a prerequisite.
 
-**Sam**: What percentage of active managers pass all five tests?
+**Stella**: What percentage of active managers pass all five tests?
 
-**Alex**: Generously? Maybe 5-10%. More realistically, 3-5%. The vast majority of active managers either have no alpha, are closet indexers, or have alpha that is fully explained by factor exposures.
+**Horace**: Generously? Maybe 5-10%. More realistically, 3-5%. The vast majority of active managers either have no alpha, are closet indexers, or have alpha that is fully explained by factor exposures.
 
-**Sam**: So the default should be index funds?
+**Stella**: So the default should be index funds?
 
-**Alex**: For most investors, yes. The evidence overwhelmingly supports passive investing for the majority of a portfolio. BUT -- and this is important -- the fact that most active managers fail does not mean ALL active management is worthless. The small minority of genuinely skilled managers can add meaningful value. The tools we learned today help you identify them.
+**Horace**: For most investors, yes. The evidence overwhelmingly supports passive investing for the majority of a portfolio. BUT -- and this is important -- the fact that most active managers fail does not mean ALL active management is worthless. The small minority of genuinely skilled managers can add meaningful value. The tools we learned today help you identify them.
 
-**Sam**: Let me summarize. Alpha measures value-added after adjusting for risk. Tracking error measures active risk. Information ratio is alpha per unit of tracking error. Active share measures portfolio differentiation. The Fundamental Law says IR equals skill times the square root of breadth. Performance attribution decomposes returns into allocation and selection. Factor attribution reveals whether alpha is genuine or just factor exposure.
+**Stella**: Let me summarize. Alpha measures value-added after adjusting for risk. Tracking error measures active risk. Information ratio is alpha per unit of tracking error. Active share measures portfolio differentiation. The Fundamental Law says IR equals skill times the square root of breadth. Performance attribution decomposes returns into allocation and selection. Factor attribution reveals whether alpha is genuine or just factor exposure.
 
-**Alex**: Perfect. And the overarching message: be skeptical but not cynical. Most active management destroys value after fees. But the tools exist to separate the wheat from the chaff. Use them.
+**Horace**: Perfect. And the overarching message: be skeptical but not cynical. Most active management destroys value after fees. But the tools exist to separate the wheat from the chaff. Use them.
 
-**Sam**: This has completely changed how I will evaluate fund managers -- and my own stock picks.
+**Stella**: This has completely changed how I will evaluate fund managers -- and my own stock picks.
 
-**Alex**: That is the goal. And do not forget to apply these tools to yourself. If you are spending 10 hours a week researching stocks and your portfolio has an information ratio near zero, your time might be better spent elsewhere. Index the core of your portfolio and concentrate your active bets where you have a genuine informational edge.
+**Horace**: That is the goal. And do not forget to apply these tools to yourself. If you are spending 10 hours a week researching stocks and your portfolio has an information ratio near zero, your time might be better spent elsewhere. Index the core of your portfolio and concentrate your active bets where you have a genuine informational edge.
 
 [VISUAL: "Next week: Market Microstructure"]
 
-**Alex**: Next week we go inside the machine. We will learn about bid-ask spreads, market makers, order types, price impact, slippage, implementation shortfall, and dark pools. This is the plumbing of financial markets -- and understanding it can save you significant money on every trade you make.
+**Horace**: Next week we go inside the machine. We will learn about bid-ask spreads, market makers, order types, price impact, slippage, implementation shortfall, and dark pools. This is the plumbing of financial markets -- and understanding it can save you significant money on every trade you make.
 
-**Sam**: From measuring performance to executing trades efficiently.
+**Stella**: From measuring performance to executing trades efficiently.
 
-**Alex**: Exactly. All the alpha in the world does not help if you give it back in transaction costs. See you next week.
+**Horace**: Exactly. All the alpha in the world does not help if you give it back in transaction costs. See you next week.
 
-**Sam**: Thanks, Alex.
+**Stella**: Thanks, Horace.
 
 [VISUAL: End card with channel subscribe prompt and links to previous videos]

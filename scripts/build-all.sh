@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Master build script for the Investment Tutorial
+# Master build script for the Chanma Investment Tutorial
 # Usage: bash scripts/build-all.sh
 set -e
 
@@ -14,15 +14,15 @@ echo ""
 echo "=== Step 2: Auto-Translate ==="
 if [ -n "$ANTHROPIC_API_KEY" ]; then
     echo "ANTHROPIC_API_KEY detected. Running translation..."
-    node scripts/translate-batch.js --locale all
+    py -3 scripts/translate-batch.py --locale all
 else
     echo "ANTHROPIC_API_KEY not set. Skipping auto-translation."
-    echo "To translate: export ANTHROPIC_API_KEY=sk-... && node scripts/translate-batch.js --locale all"
+    echo "To translate: export ANTHROPIC_API_KEY=sk-... && py -3 scripts/translate-batch.py --locale all"
 fi
 echo ""
 
 echo "=== Step 3: Build Website ==="
-node scripts/build.js
+py -3 scripts/build.py
 echo ""
 
 echo "=== Done ==="

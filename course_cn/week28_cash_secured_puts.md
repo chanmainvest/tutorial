@@ -1,1093 +1,1090 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第28周：现金担保看跌期权建仓策略
 
-# Week 28: Cash-Secured Puts for Entry
+## 阅读部分
 
-## Reading Section
+### a) 为什么这很重要
 
-### a) Why This Is Important
+每位投资者在找到心仪股票时都面临同样的两难困境：现在买入，还是等待更好的价格？现在买入，意味着如果股票下周下跌，你可能付出了过高的价格。等待，则意味着股票可能继续上涨，你彻底错失机会。这是在紧迫感与耐心之间由来已久的拉锯战，让数百万投资者陷入僵局。
 
-Every investor faces the same dilemma when they find a stock they want to buy: should I buy now, or should I wait for a better price? Buying now means you might pay too much if the stock drops next week. Waiting means the stock might continue rising and you miss the opportunity entirely. This is the age-old tug-of-war between urgency and patience, and it paralyzes millions of investors.
+**现金担保看跌期权**策略优雅地化解了这一困境。你无需为择时煎熬，只需选定自己愿意买入的价格，在该行权价卖出一份看跌期权，然后坐等收钱。如果股票跌至你的目标价，你以折扣价买入；如果没有跌到，你保留期权费，下个月再来一次。与持有现金等待相比，这个策略在任何情景下都不会让你吃亏。
 
-The **cash-secured put** strategy elegantly resolves this dilemma. Instead of agonizing over timing, you pick the price you want to pay, sell a put at that strike price, and get paid to wait. If the stock drops to your price, you buy it at a discount. If it does not drop, you keep the premium and try again. There is no scenario where you lose compared to simply waiting with cash in your account.
+**为什么这一策略对积累财富至关重要：**
 
-**Why this strategy is critical for building wealth:**
+**1. 它将闲置现金转化为创收资产。** 普通投资者平均将投资组合的10%至30%持有为现金，等待机会入场。在一个50万美元的投资组合中，这意味着有5万至15万美元只能赚取活期存款利率。现金担保看跌期权能在这笔闲置现金上创造8%至20%的年化收益，将沉睡的资金变成活跃的收入来源。
 
-**1. It converts idle cash into an income-producing asset.** The average investor keeps 10-30% of their portfolio in cash, waiting for opportunities. On a $500,000 portfolio, that is $50,000-$150,000 earning savings-account rates. Cash-secured puts can generate 8-20% annualized return on that idle cash, turning dead money into active income.
+**2. 它将情绪从买入决策中剥离。** 你无需每天盯盘、费尽心思寻找完美入场点，而是提前设定理想价格，让市场主动找上门来。你收到的期权费，是对你耐心和纪律的补偿。这种系统化方式消除了行情上涨时的恐慌性追买，以及市场下跌时的裹足不前。
 
-**2. It removes emotion from buying decisions.** Instead of watching a stock daily and trying to pick the perfect entry point, you define your ideal price in advance and let the market come to you. The premium you receive is compensation for your patience and discipline. This systematic approach eliminates the panic buying that often occurs during market rallies and the paralysis that prevents buying during dips.
+**3. 它保证你的入场价优于市价单。** 当你以3.00美元的期权费卖出行权价140美元的看跌期权时，你的有效买入成本是137.00美元。即使被行权，你买入股票的成本也低于任何以140美元市价下单的投资者。期权费始终对你有利。
 
-**3. It guarantees a better entry price than a market order.** When you sell a put for $3.00 at a $140 strike, your effective purchase price is $137.00. Even if you are assigned, you entered the stock at a lower cost than anyone who bought at $140 with a regular order. The premium always works in your favor.
+**4. 它建立了一套结构化的买入框架。** 你不必临时起意做买入决定，而是整理出目标股票和目标价格清单，系统地卖出看跌期权。这将投资从一系列情绪化决策转变为有章可循的流程。专业基金经理几十年来一直沿用这一方法。
 
-**4. It creates a structured buying framework.** Instead of making ad hoc buying decisions, you build a list of target stocks with target prices and sell puts systematically. This transforms investing from a series of emotional decisions into a methodical process. Professional fund managers have used this approach for decades.
+**5. 它在市场走弱时自然积累仓位。** 由于看跌期权在股票下跌时才会被行权，这一策略会在股市回调和调整时自动买入股票——而这恰恰是长线投资者应该出手的时机。现金担保看跌期权本身就是一个附带收入的"逢跌买入"机制。
 
-**5. It naturally builds positions during market weakness.** Because puts are assigned when stocks drop, the strategy automatically buys stocks during pullbacks and corrections, which is exactly when long-term investors should be buying. The cash-secured put is a built-in "buy the dip" mechanism with income attached.
-
-Cash-secured puts are the ideal complement to covered calls (Week 27). Together, they form the complete **wheel strategy**: sell puts to enter positions while collecting income, then sell covered calls on those positions for ongoing income, and if assigned on the calls, start selling puts again. This continuous cycle can generate 12-20% annual income on a well-managed portfolio.
+现金担保看跌期权是备兑看涨期权（第27周）的理想搭档。两者共同构成完整的**车轮策略**：卖出看跌期权建仓同时收取收入，持仓后卖出备兑看涨期权持续创收，若看涨期权被行权，则再次卖出看跌期权。这一循环运转，可为管理有序的投资组合每年创造12%至20%的收入。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知识
 
-#### What Is a Cash-Secured Put?
+#### 什么是现金担保看跌期权？
 
-A **cash-secured put** is a position where you:
+**现金担保看跌期权**是指你：
 
-1. **Sell (write) a put option** at a strike price you are willing to buy the stock at.
-2. **Hold enough cash** in your account to buy 100 shares at that strike price.
+1. **卖出（立权）一份看跌期权**，行权价设在你愿意买入股票的价格。
+2. **在账户中持有足够现金**，以便在该行权价买入100股。
 
-The "cash-secured" part is critical. Unlike a naked put (which uses margin), a cash-secured put has the full purchase amount set aside. Your broker holds this cash as collateral. If you are assigned, the cash is used to purchase the shares. There is no margin risk.
+"现金担保"这一点至关重要。与裸看跌期权（使用保证金）不同，现金担保看跌期权需要预留全额购股资金。你的券商将这笔现金作为担保。如果被行权，这笔现金将用于买入股票，不存在保证金风险。
 
 ```
-CASH-SECURED PUT STRUCTURE:
+现金担保看跌期权结构：
 
   +---------------------------------------------------+
-  |  POSITION:                                        |
+  |  持仓：                                           |
   |                                                   |
-  |  SHORT: 1 AAPL $140 Put, 30 days to expiration   |
-  |  Premium received: $2.50/share ($250 total)       |
+  |  卖空：1手苹果 140美元 看跌期权，距到期日30天    |
+  |  收到期权费：每股2.50美元（共250美元）           |
   |                                                   |
-  |  CASH RESERVED: $14,000 ($140 x 100 shares)      |
+  |  预留现金：14,000美元（140美元 x 100股）         |
   |                                                   |
-  |  COMMITMENT:                                      |
-  |  "I agree to buy 100 shares of AAPL at $140      |
-  |   if the stock drops to or below $140 before      |
-  |   expiration. In return, I receive $250 now."     |
+  |  承诺内容：                                       |
+  |  "若苹果股价在到期日前跌至或低于140美元，        |
+  |   我同意以140美元买入100股。                     |
+  |   作为回报，我现在收取250美元。"                 |
   |                                                   |
-  |  EFFECTIVE PURCHASE PRICE IF ASSIGNED:            |
-  |  $140.00 - $2.50 = $137.50 per share             |
+  |  行权后的有效买入成本：                           |
+  |  140.00美元 - 2.50美元 = 每股137.50美元         |
   +---------------------------------------------------+
 ```
 
-#### Capital Requirement
+#### 资金要求
 
-The capital required for a cash-secured put equals the strike price multiplied by 100 (shares per contract). This cash must be available in your account and will be held as collateral until the option expires or is closed.
+现金担保看跌期权所需资金等于行权价乘以100（每手股数）。这笔现金必须存在于你的账户中，并在期权到期或平仓前作为担保占用。
 
 ```
-CAPITAL REQUIREMENT EXAMPLES:
+资金要求示例：
 
-  Stock     Strike    Cash Required    Typical Premium   Yield/Month
-  =====     ======    =============    ===============   ===========
-  AAPL      $140      $14,000          $1.50-$3.50       1.1-2.5%
-  MSFT      $380      $38,000          $4.00-$8.00       1.1-2.1%
-  GOOGL     $160      $16,000          $2.00-$4.50       1.3-2.8%
-  JPM       $180      $18,000          $2.00-$4.00       1.1-2.2%
-  SPY       $520      $52,000          $5.00-$10.00      1.0-1.9%
-  KO        $55       $5,500           $0.60-$1.20       1.1-2.2%
+  股票    行权价     所需现金      典型期权费       月收益率
+  =====   ======    =============  ===============  ===========
+  苹果    140美元   14,000美元    1.50-3.50美元    1.1-2.5%
+  微软    380美元   38,000美元    4.00-8.00美元    1.1-2.1%
+  谷歌    160美元   16,000美元    2.00-4.50美元    1.3-2.8%
+  摩根大通 180美元  18,000美元    2.00-4.00美元    1.1-2.2%
+  SPY     520美元   52,000美元    5.00-10.00美元   1.0-1.9%
+  可口可乐 55美元    5,500美元    0.60-1.20美元    1.1-2.2%
 
-  NOTE: Lower-priced stocks require less capital per contract,
-  making them more accessible for smaller accounts.
+  注：价格较低的股票每手所需资金更少，
+  更适合资金规模较小的账户。
   
-  For a $50,000 account:
-    Can sell 3 KO $55 Puts ($16,500 reserved)
-    Can sell 1 AAPL $140 Put ($14,000 reserved)
-    Can sell 1 JPM $180 Put ($18,000 reserved)
-    Remaining cash: $1,500 buffer
+  对于5万美元账户：
+    可卖出3手可口可乐55美元看跌期权（预留16,500美元）
+    可卖出1手苹果140美元看跌期权（预留14,000美元）
+    可卖出1手摩根大通180美元看跌期权（预留18,000美元）
+    剩余现金缓冲：1,500美元
 ```
 
-#### Selecting the Strike Price
+#### 行权价的选择
 
-The strike price is your target buy price. It should be a price at which you would be genuinely happy to own the stock. Here are the key considerations:
-
-```
-STRIKE PRICE SELECTION FRAMEWORK:
-
-  Current Stock Price: $155 (AAPL example)
-
-  APPROACH 1: Fundamental Valuation
-    - Calculate fair value using PE ratio, DCF, or other methods
-    - Set strike at or below fair value
-    - Example: Fair value estimate = $145, sell $145 put
-    - You buy at a discount to your estimate of intrinsic value
-
-  APPROACH 2: Technical Support Levels
-    - Identify price levels where stock has historically found support
-    - Set strike at or just below support
-    - Example: AAPL has support at $148-$150, sell $148 put
-    - You buy at a level where the stock has historically bounced
-
-  APPROACH 3: Percentage Below Market
-    - Set strike at a fixed percentage below current price
-    - Conservative: 10-15% below (strike $132-$140)
-    - Moderate: 5-10% below (strike $140-$147)
-    - Aggressive: 0-5% below (strike $147-$155)
-
-  APPROACH 4: Using Delta
-    - Delta 0.20 = ~20% probability of assignment = ~8-12% OTM
-    - Delta 0.30 = ~30% probability of assignment = ~5-8% OTM
-    - Delta 0.40 = ~40% probability of assignment = ~3-5% OTM
-    - Lower delta = further OTM = lower premium but lower assignment risk
-```
+行权价就是你的目标买入价。它应当是一个你真心乐意以该价格持有股票的价位。以下是关键考量因素：
 
 ```
-STRIKE PRICE vs. PREMIUM TRADEOFF (AAPL at $155, 30 days):
+行权价选择框架：
 
-  Strike   Distance   Delta   Premium   Monthly   Ann. Yield   Assign Prob
-  ======   ========   =====   =======   =======   ==========   ==========
-  $155     ATM        0.50    $4.50     3.0%      36.0%        ~50%
-  $150     3.2% OTM   0.35    $2.80     1.9%      22.4%        ~35%
-  $145     6.5% OTM   0.25    $1.70     1.2%      14.1%        ~25%
-  $140     9.7% OTM   0.18    $0.95     0.7%      8.1%         ~18%
-  $135     12.9% OTM  0.12    $0.50     0.4%      4.4%         ~12%
-  $130     16.1% OTM  0.07    $0.25     0.2%      2.3%         ~7%
+  当前股价：155美元（以苹果为例）
 
-  SWEET SPOT: $140-$150 range (5-10% OTM)
-  Balances meaningful premium with a purchase price you want.
+  方法一：基本面估值
+    - 使用市盈率、DCF或其他方法计算公允价值
+    - 将行权价设在公允价值或以下
+    - 示例：公允价值估计为145美元，卖出145美元看跌期权
+    - 你以低于内在价值估计的价格买入股票
+
+  方法二：技术支撑位
+    - 找出股价历史上多次获得支撑的价格区间
+    - 将行权价设在支撑位或略低于支撑位
+    - 示例：苹果在148-150美元有支撑，卖出148美元看跌期权
+    - 你在股票历史上多次反弹的价位买入
+
+  方法三：低于市价的固定百分比
+    - 将行权价设在当前价格以下固定百分比处
+    - 保守型：低于10-15%（行权价132-140美元）
+    - 稳健型：低于5-10%（行权价140-147美元）
+    - 进取型：低于0-5%（行权价147-155美元）
+
+  方法四：使用贝塔系数（Delta）
+    - Delta 0.20 = 约20%被行权概率 = 约虚值8-12%
+    - Delta 0.30 = 约30%被行权概率 = 约虚值5-8%
+    - Delta 0.40 = 约40%被行权概率 = 约虚值3-5%
+    - Delta越低 = 越深度虚值 = 期权费越低但被行权风险越小
 ```
 
-#### Selecting the Expiration
-
-The same principles from covered calls apply to cash-secured puts. The 30-45 day window is optimal for the balance between premium income and theta decay.
-
 ```
-EXPIRATION COMPARISON (AAPL $145 Put):
+行权价与期权费的权衡（苹果股价155美元，30天到期）：
 
-  Expiration    Days   Premium   Ann. Yield   Theta/Day   Management
-  ==========   ====   =======   ==========   =========   ==========
-  1 Week        7     $0.45     33.4%*       $0.064      Weekly
-  2 Weeks       14    $0.80     23.7%*       $0.057      Biweekly
-  1 Month       30    $1.70     14.1%        $0.057      Monthly     <--
-  45 Days       45    $2.40     13.1%        $0.053      ~Monthly    <--
-  2 Months      60    $3.00     12.3%        $0.050      Bimonthly
-  3 Months      90    $4.00     10.9%        $0.044      Quarterly
+  行权价  距当前价  Delta  期权费   月收益   年化收益  被行权概率
+  ======  ========  =====  =======  =======  ========  ==========
+  155美元  平值     0.50   4.50美元  3.0%    36.0%     约50%
+  150美元  虚值3.2%  0.35   2.80美元  1.9%    22.4%     约35%
+  145美元  虚值6.5%  0.25   1.70美元  1.2%    14.1%     约25%
+  140美元  虚值9.7%  0.18   0.95美元  0.7%    8.1%      约18%
+  135美元  虚值12.9% 0.12   0.50美元  0.4%    4.4%      约12%
+  130美元  虚值16.1% 0.07   0.25美元  0.2%    2.3%      约7%
 
-  * Weekly/biweekly yields look very high annualized but are harder
-    to sustain due to higher transaction frequency and occasional
-    gaps between cycles.
-
-  RECOMMENDED: 30-45 days (marked with arrows)
-  - Best theta decay rate relative to premium
-  - Manageable frequency (monthly attention)
-  - Sufficient premium to justify the trade
+  最佳区间：140-150美元（虚值5-10%）
+  在可观期权费与理想买入价之间取得最佳平衡。
 ```
 
-#### Effective Purchase Price
+#### 到期日的选择
 
-One of the most important calculations in put selling is your **effective purchase price**. This is the actual cost per share if you are assigned, after accounting for the premium received.
+备兑看涨期权所适用的原则同样适用于现金担保看跌期权。30至45天的窗口期在期权费收入与时间价值衰减之间实现最佳平衡。
 
 ```
-EFFECTIVE PURCHASE PRICE FORMULA:
+到期日对比（苹果145美元看跌期权）：
 
-  Effective Price = Strike Price - Premium Received
+  到期时间  天数  期权费    年化收益  每日Theta  管理频率
+  ========  ====  =======   ========  =========  =========
+  1周        7   0.45美元  33.4%*    0.064美元  每周
+  2周       14   0.80美元  23.7%*    0.057美元  每两周
+  1个月     30   1.70美元  14.1%     0.057美元  每月     <--
+  45天      45   2.40美元  13.1%     0.053美元  约每月   <--
+  2个月     60   3.00美元  12.3%     0.050美元  每两个月
+  3个月     90   4.00美元  10.9%     0.044美元  每季度
 
-  Example:
-    Sell AAPL $145 Put for $2.80
-    Effective price = $145.00 - $2.80 = $142.20
+  *每周/每两周年化收益看起来很高，但由于交易频率更高
+  且偶尔出现周期间隔，实际上难以持续维持。
 
-  What this means:
-    If you are assigned, you buy 100 shares at $145.
-    But you already received $280 in premium.
-    Your NET cost per share is $142.20.
+  推荐：30-45天（以箭头标注）
+  - Theta衰减速率相对于期权费最优
+  - 管理频率合理（每月关注一次）
+  - 期权费足以支撑这笔交易
+```
+
+#### 有效买入成本
+
+卖出看跌期权中最重要的计算之一是**有效买入成本**。这是被行权后，扣除已收期权费后每股的实际成本。
+
+```
+有效买入成本公式：
+
+  有效成本 = 行权价 - 已收期权费
+
+  示例：
+    卖出苹果145美元看跌期权，期权费2.80美元
+    有效成本 = 145.00美元 - 2.80美元 = 142.20美元
+
+  含义：
+    若被行权，你以145美元买入100股。
+    但你已收到280美元期权费。
+    每股净成本为142.20美元。
     
-    This is equivalent to buying the stock at $142.20 on the open market.
+    这等同于在公开市场以142.20美元买入该股票。
 
-  WITH REPEATED SELLING (before eventual assignment):
+  多次卖出后最终被行权的情景：
 
-    Month 1: Sell $145 Put for $2.80 -> Not assigned -> Keep $280
-    Month 2: Sell $145 Put for $2.30 -> Not assigned -> Keep $230
-    Month 3: Sell $145 Put for $3.10 -> Not assigned -> Keep $310
-    Month 4: Sell $145 Put for $3.50 -> ASSIGNED
+    第1个月：卖出145美元看跌期权，期权费2.80美元 -> 未被行权 -> 保留280美元
+    第2个月：卖出145美元看跌期权，期权费2.30美元 -> 未被行权 -> 保留230美元
+    第3个月：卖出145美元看跌期权，期权费3.10美元 -> 未被行权 -> 保留310美元
+    第4个月：卖出145美元看跌期权，期权费3.50美元 -> 被行权
 
-    Total premiums: $280 + $230 + $310 + $350 = $1,170
-    Per share: $11.70
+    期权费合计：280 + 230 + 310 + 350 = 1,170美元
+    每股合计：11.70美元
     
-    Assignment price: $145.00
-    Effective purchase price: $145.00 - $11.70 = $133.30
+    行权价：145.00美元
+    有效买入成本：145.00美元 - 11.70美元 = 133.30美元
     
-    Stock was at $155 when you started.
-    You effectively bought at $133.30, a 14% discount from the
-    original price and an 8% discount from your $145 strike.
+    开始时股价为155美元。
+    你的有效买入成本为133.30美元，相较于最初价格折扣14%，
+    相较于145美元行权价折扣8%。
 ```
 
-#### The Four Scenarios at Expiration
+#### 到期时的四种情景
 
-Every cash-secured put will end in one of these four scenarios:
+每笔现金担保看跌期权到期时会出现以下四种情景之一：
 
 ```
-SCENARIO 1: Stock stays well above strike (MOST COMMON)
+情景一：股价远高于行权价（最为常见）
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $158
+  设置：苹果股价155美元，卖出145美元看跌期权，期权费2.80美元
+  到期时：苹果股价158美元
 
-  Result: Put expires worthless.
-  Premium: Keep $280 (1.9% return in 30 days)
-  Shares: None purchased
-  Cash: $14,500 returned (no longer reserved)
-  Action: Sell another put for next month
+  结果：看跌期权归零失效。
+  期权费：保留280美元（30天收益1.9%）
+  持股：无
+  现金：14,500美元返还（不再占用）
+  操作：卖出下个月的看跌期权
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
-  |  $160|           ___/                            |
-  |  $155|____/\___/                                 |
-  |  $150|                                           |
-  |  $145|- - - - - - - - - - - STRIKE - - - - - -  |
-  |  $140|                                           |
-  |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |  苹果股价走势：                                  |
+  |  160美元|           ___/                         |
+  |  155美元|____/\___/                              |
+  |  150美元|                                        |
+  |  145美元|- - - - - - - - - - 行权价 - - - - -   |
+  |  140美元|                                        |
+  |         |____|____|____|____|____|                |
+  |         第1天  第7天 第14天 第21天 第30天         |
   |                                                  |
-  |  Stock never threatened the strike.              |
-  |  Put decayed to zero. Keep premium.              |
+  |  股价从未逼近行权价。                            |
+  |  看跌期权归零衰减，保留期权费。                  |
   +--------------------------------------------------+
 
 
-SCENARIO 2: Stock drops to strike, hovers near it
+情景二：股价跌至行权价附近徘徊
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $144
+  设置：苹果股价155美元，卖出145美元看跌期权，期权费2.80美元
+  到期时：苹果股价144美元
 
-  Result: Put is $1 in the money. You are assigned.
-  Purchase: Buy 100 shares at $145
-  Premium: Keep $280
-  Effective cost: $142.20 per share
-  Stock value: $144 (small unrealized gain from effective cost!)
-  Action: Start selling covered calls on your new shares
+  结果：看跌期权实值1美元，被行权。
+  买入：以145美元买入100股
+  期权费：保留280美元
+  有效成本：每股142.20美元
+  股票价值：144美元（较有效成本小幅账面盈利！）
+  操作：开始对新持股卖出备兑看涨期权
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
-  |  $155|____                                       |
-  |  $150|    \____                                  |
-  |  $145|- - - - -\__ _STRIKE_ ___/\____           |
-  |  $140|          \_/                   \          |
-  |  $135|                                           |
-  |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |  苹果股价走势：                                  |
+  |  155美元|____                                    |
+  |  150美元|    \____                               |
+  |  145美元|- - - - -\__ 行权价 ___/\____          |
+  |  140美元|          \_/                   \       |
+  |  135美元|                                        |
+  |         |____|____|____|____|____|                |
+  |         第1天  第7天 第14天 第21天 第30天         |
   |                                                  |
-  |  Stock crossed below strike.                     |
-  |  Assigned at $145, effective cost $142.20.       |
+  |  股价跌破行权价。                                |
+  |  以145美元被行权，有效成本142.20美元。           |
   +--------------------------------------------------+
 
 
-SCENARIO 3: Stock drops significantly below strike
+情景三：股价大幅跌破行权价
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $125
+  设置：苹果股价155美元，卖出145美元看跌期权，期权费2.80美元
+  到期时：苹果股价125美元
 
-  Result: Put is $20 in the money. You are assigned.
-  Purchase: Buy 100 shares at $145
-  Premium: Keep $280
-  Effective cost: $142.20 per share
-  Stock value: $125 (unrealized loss of $17.20/share)
-  Loss: $1,720 (but $280 less than buying at $145 outright)
+  结果：看跌期权实值20美元，被行权。
+  买入：以145美元买入100股
+  期权费：保留280美元
+  有效成本：每股142.20美元
+  股票价值：125美元（账面亏损17.20美元/股）
+  损失：1,720美元（但比直接以145美元买入少损失280美元）
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
-  |  $155|__                                         |
-  |  $150|  \__                                      |
-  |  $145|- - \_STRIKE_ - - - - - - - - - - - - -   |
-  |  $140|     \                                     |
-  |  $135|      \___                                 |
-  |  $130|          \____                            |
-  |  $125|               \______                     |
-  |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |  苹果股价走势：                                  |
+  |  155美元|__                                      |
+  |  150美元|  \__                                   |
+  |  145美元|- - \_行权价_ - - - - - - - - - - - -  |
+  |  140美元|     \                                  |
+  |  135美元|      \___                              |
+  |  130美元|          \____                         |
+  |  125美元|               \______                  |
+  |         |____|____|____|____|____|                |
+  |         第1天  第7天 第14天 第21天 第30天         |
   |                                                  |
-  |  Stock dropped hard. Assigned at $145.           |
-  |  Paper loss, but you wanted to own the stock.    |
-  |  Effective cost of $142.20 is still better       |
-  |  than buying at $145 with a limit order.         |
+  |  股价大幅下跌，以145美元被行权。                 |
+  |  账面亏损，但你本就有意持有该股票。              |
+  |  有效成本142.20美元仍优于以145美元挂限价单。    |
   +--------------------------------------------------+
 
 
-SCENARIO 4: Stock rallies strongly above starting price
+情景四：股价从起点大幅上涨
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $175
+  设置：苹果股价155美元，卖出145美元看跌期权，期权费2.80美元
+  到期时：苹果股价175美元
 
-  Result: Put expires worthless.
-  Premium: Keep $280 (1.9% return in 30 days)
-  Shares: None purchased
-  Opportunity cost: You "missed" the rally from $155 to $175
+  结果：看跌期权归零失效。
+  期权费：保留280美元（30天收益1.9%）
+  持股：无
+  机会成本：你"错过"了从155美元到175美元的上涨行情
   
-  BUT: You also missed nothing with a limit order at $145,
-  which also would not have been filled!
+  但：挂在145美元的限价单同样未能成交，
+  同样错过了这波行情！
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
-  |  $175|                              _____/       |
-  |  $170|                         ___/              |
-  |  $165|                    ___/                   |
-  |  $160|               ___/                        |
-  |  $155|____      ___/                             |
-  |  $150|    \___/                                  |
-  |  $145|- - - - - - - - -STRIKE- - - - - - - - -  |
-  |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |  苹果股价走势：                                  |
+  |  175美元|                              _____/    |
+  |  170美元|                         ___/           |
+  |  165美元|                    ___/                |
+  |  160美元|               ___/                     |
+  |  155美元|____      ___/                          |
+  |  150美元|    \___/                               |
+  |  145美元|- - - - - - - - 行权价 - - - - - - - - |
+  |         |____|____|____|____|____|                |
+  |         第1天  第7天 第14天 第21天 第30天         |
   |                                                  |
-  |  Stock rallied. You did not buy.                 |
-  |  Same result as a limit order, but you earned    |
-  |  $280 in premium while the limit order earned $0.|
+  |  股价上涨，未能买入。                            |
+  |  结果与限价单相同，但你额外赚取了280美元期权费， |
+  |  而限价单分文未得。                              |
   +--------------------------------------------------+
 ```
 
-#### Comparison to Buying Stock Outright
+#### 与直接买入股票的对比
 
-Let us directly compare three approaches to acquiring the same stock:
-
-```
-THREE APPROACHES TO BUYING AAPL (currently at $155):
-
-APPROACH 1: Buy at Market
-  Action: Buy 100 shares at $155
-  Cost: $15,500
-  If stock goes to $170: Profit = $1,500 (9.7%)
-  If stock goes to $140: Loss = -$1,500 (-9.7%)
-  If stock stays at $155: Gain = $0 (0%)
-
-APPROACH 2: Limit Order at $145
-  Action: Place limit buy at $145, wait
-  Cost if filled: $14,500
-  If stock never reaches $145: No shares, $0 income
-  If stock drops to $145 and assigned: Cost = $145/share
-  Opportunity cost: Cash earns savings rate (~4-5% annually)
-
-APPROACH 3: Cash-Secured Put at $145
-  Action: Sell $145 Put for $2.80, reserve $14,500
-  If stock stays above $145: Keep $280, repeat next month
-  If stock drops to $145: Effective cost = $142.20/share
-  Annual income if never assigned: ~14-17% on reserved capital
-
-SIDE-BY-SIDE COMPARISON TABLE:
-
-  Outcome              Market Buy   Limit Order   CSP ($145)
-  ==================   ==========   ===========   ============
-  Stock to $170        +$1,500      Not filled    Not filled
-                                    $0 income     +$280 income
-  
-  Stock stays $155     $0           Not filled    Not filled
-                                    $0 income     +$280 income
-  
-  Stock to $145        -$1,000      Buys at $145  Buys at $142.20
-                                    $0 income     $280 premium
-  
-  Stock to $130        -$2,500      Buys at $145  Buys at $142.20
-                                    Loss: $1,500  Loss: $1,220
-  
-  Income while         $0           ~$0           $280/month
-  waiting                           (savings rate) (14%+ ann.)
-
-  CONCLUSION: Cash-secured puts win in every scenario except
-  the one where you want to buy at market price RIGHT NOW.
-```
-
-#### Managing Assignments
-
-When you are assigned on a cash-secured put, your broker automatically purchases 100 shares at the strike price using the reserved cash. Here is what to do next:
+让我们直接对比获取同一只股票的三种方式：
 
 ```
-ASSIGNMENT MANAGEMENT CHECKLIST:
+购买苹果股票的三种方式（当前股价155美元）：
 
-  [ ] 1. Confirm the assignment in your account
-        - Check: 100 shares added, cash deducted
-        - Note your cost basis (strike price, adjusted for premium)
+方式一：以市价买入
+  操作：以155美元买入100股
+  成本：15,500美元
+  若股价涨至170美元：盈利 = 1,500美元（9.7%）
+  若股价跌至140美元：亏损 = -1,500美元（-9.7%）
+  若股价持平155美元：盈亏 = 0美元（0%）
 
-  [ ] 2. Reassess the stock
-        - Has the fundamental thesis changed?
-        - Is the stock dropping for temporary or permanent reasons?
-        - Would you still buy at this price if starting fresh?
+方式二：以145美元挂限价单
+  操作：挂145美元限价买单，等待成交
+  成交成本：14,500美元
+  若股价从未触及145美元：无持股，零收入
+  若股价跌至145美元并成交：成本 = 每股145美元
+  机会成本：现金仅赚活期存款利率（约年化4-5%）
 
-  [ ] 3. If fundamentals are intact:
-        - START SELLING COVERED CALLS on your new shares
-        - Select strike above your effective cost basis
-        - This begins the "wheel strategy" cycle
+方式三：卖出145美元现金担保看跌期权
+  操作：以2.80美元卖出145美元看跌期权，预留14,500美元现金
+  若股价保持在145美元以上：保留280美元，下月重复操作
+  若股价跌至145美元：有效成本 = 每股142.20美元
+  若始终未被行权的年化收入：预留资金约14-17%
+
+横向对比表：
+
+  情景              市价买入      限价单          现金担保看跌期权（145美元）
+  ==============   ==========   ===========   ==================
+  股价涨至170美元   +1,500美元   未成交          未成交
+                                零收入          +280美元期权费
+  
+  股价持平155美元   0美元        未成交          未成交
+                                零收入          +280美元期权费
+  
+  股价跌至145美元   -1,000美元   以145美元买入   以142.20美元买入
+                                零收入          期权费280美元
+  
+  股价跌至130美元   -2,500美元   以145美元买入   以142.20美元买入
+                                亏损：1,500美元  亏损：1,220美元
+  
+  等待期间收入     0美元        约0美元         每月280美元
+                               （活期存款利率）  （年化14%+）
+
+  结论：除非你想立刻以市价买入，否则现金担保看跌期权
+  在每一种情景下都优于其他方式。
+```
+
+#### 被行权后的处置
+
+当你的现金担保看跌期权被行权时，券商会自动使用预留现金以行权价买入100股。以下是后续操作指引：
+
+```
+被行权处置清单：
+
+  [ ] 1. 确认账户中的行权情况
+        - 核实：增加100股，相应现金已扣除
+        - 记录成本基础（行权价，以期权费调整后）
+
+  [ ] 2. 重新评估该股票
+        - 基本面逻辑是否发生变化？
+        - 股票下跌是暂时性还是结构性原因？
+        - 若重新开始，你还愿意在这个价位买入吗？
+
+  [ ] 3. 若基本面依然完好：
+        - 开始对新持股卖出备兑看涨期权
+        - 选择高于有效成本基础的行权价
+        - 这开启了"车轮策略"循环
         
-        Example:
-          Assigned at $145 (effective $142.20)
-          Stock now at $143
-          Sell $155 covered call for $2.00
-          If called away: Profit = $155 - $142.20 + $2.00 = $14.80/share
+        示例：
+          以145美元被行权（有效成本142.20美元）
+          股价现在为143美元
+          卖出155美元备兑看涨期权，期权费2.00美元
+          若被行权：盈利 = 155 - 142.20 + 2.00 = 每股14.80美元
 
-  [ ] 4. If fundamentals have deteriorated:
-        - Consider selling shares immediately
-        - Take the loss (premium cushion reduces it)
-        - Reallocate capital to better opportunities
-        - Do NOT sell more puts hoping to "average down" unless thesis holds
+  [ ] 4. 若基本面已恶化：
+        - 考虑立即卖出股票
+        - 承担亏损（期权费缓冲已有所减损）
+        - 将资金重新配置到更好的机会
+        - 切勿仅凭"摊薄成本"的想法继续卖出看跌期权，
+          除非投资逻辑依然成立
 
-  [ ] 5. Update your portfolio tracking
-        - Record the assignment
-        - Calculate your effective cost basis
-        - Plan your covered call strategy
+  [ ] 5. 更新投资组合记录
+        - 记录行权情况
+        - 计算有效成本基础
+        - 规划备兑看涨期权策略
 ```
 
-#### The Wheel Strategy Preview
+#### 车轮策略预览
 
-The **wheel strategy** is a continuous cycle of cash-secured puts and covered calls. It is the most complete income-generating strategy for stock investors. Here is how it works:
+**车轮策略**是现金担保看跌期权与备兑看涨期权持续循环运转的组合，是股票投资者最完整的收入生成策略。其运作方式如下：
 
 ```
-THE WHEEL STRATEGY CYCLE:
+车轮策略循环：
 
   +------------------------------------------+
   |                                          |
-  |   PHASE 1: SELL CASH-SECURED PUTS       |
-  |   "Getting paid to wait for your price"  |
+  |   第一阶段：卖出现金担保看跌期权         |
+  |   "坐等目标价，同时收取期权费"           |
   |                                          |
-  |   -> Stock stays above strike?           |
-  |      Keep premium, sell new put          |
-  |      (REPEAT PHASE 1)                   |
+  |   -> 股价持续高于行权价？                |
+  |      保留期权费，卖出新的看跌期权        |
+  |      （重复第一阶段）                   |
   |                                          |
-  |   -> Stock drops below strike?           |
-  |      Assigned: Buy shares               |
-  |      (MOVE TO PHASE 2)                  |
+  |   -> 股价跌破行权价？                   |
+  |      被行权：买入股票                   |
+  |      （进入第二阶段）                   |
   |                                          |
   +------------------------------------------+
                      |
-                     | (Assigned)
+                     | （被行权）
                      v
   +------------------------------------------+
   |                                          |
-  |   PHASE 2: SELL COVERED CALLS           |
-  |   "Getting paid to hold and wait"        |
+  |   第二阶段：卖出备兑看涨期权             |
+  |   "持股等待，同时收取期权费"             |
   |                                          |
-  |   -> Stock stays below strike?           |
-  |      Keep premium, sell new call         |
-  |      (REPEAT PHASE 2)                   |
+  |   -> 股价持续低于行权价？               |
+  |      保留期权费，卖出新的看涨期权        |
+  |      （重复第二阶段）                   |
   |                                          |
-  |   -> Stock rises above strike?           |
-  |      Assigned: Sell shares               |
-  |      (RETURN TO PHASE 1)               |
+  |   -> 股价涨破行权价？                   |
+  |      被行权：卖出股票                   |
+  |      （返回第一阶段）                   |
   |                                          |
   +------------------------------------------+
                      |
-                     | (Called away)
+                     | （被行权卖出）
                      v
-             Return to Phase 1
-             (Sell puts again)
+             返回第一阶段
+             （再次卖出看跌期权）
 
 
-INCOME AT EVERY STAGE:
-  Phase 1: Put premiums (while waiting to buy)
-  Phase 2: Call premiums + dividends (while holding)
+每个阶段均有收入：
+  第一阶段：看跌期权费（等待买入期间）
+  第二阶段：看涨期权费 + 股息（持股期间）
   
-  There is NEVER a phase where you are not earning income.
+  永远不存在颗粒无收的阶段。
 ```
 
 ```
-WHEEL STRATEGY COMPLETE EXAMPLE:
+车轮策略完整示例：
 
-Stock: JPM (JPMorgan Chase)
-Starting: Cash of $18,000, JPM at $195
+股票：摩根大通
+起始：持有18,000美元现金，摩根大通股价195美元
 
-PHASE 1 - PUT SELLING:
-  Month 1: Sell $180 Put for $2.50 -> JPM at $192 -> Keep $250
-  Month 2: Sell $180 Put for $2.20 -> JPM at $198 -> Keep $220
-  Month 3: Sell $180 Put for $3.00 -> JPM drops to $175 -> ASSIGNED
+第一阶段——卖出看跌期权：
+  第1个月：卖出180美元看跌期权，期权费2.50美元 -> 摩根大通股价192美元 -> 保留250美元
+  第2个月：卖出180美元看跌期权，期权费2.20美元 -> 摩根大通股价198美元 -> 保留220美元
+  第3个月：卖出180美元看跌期权，期权费3.00美元 -> 摩根大通跌至175美元 -> 被行权
 
-  Put premiums collected: $250 + $220 + $300 = $770
-  Shares acquired: 100 at $180
-  Effective cost basis: $180 - $7.70 = $172.30
+  累计看跌期权费：250 + 220 + 300 = 770美元
+  买入股票：100股，成本180美元/股
+  有效成本基础：180 - 7.70 = 172.30美元/股
 
-PHASE 2 - COVERED CALL SELLING:
-  Month 4: Sell $195 Call for $2.80 -> JPM at $182 -> Keep $280
-  Month 5: Sell $195 Call for $2.50 -> JPM at $188 -> Keep $250
-           Also receive JPM dividend: $1.15/share = $115
-  Month 6: Sell $195 Call for $3.20 -> JPM at $190 -> Keep $320
-  Month 7: Sell $195 Call for $3.50 -> JPM rises to $198 -> CALLED AWAY
+第二阶段——卖出备兑看涨期权：
+  第4个月：卖出195美元看涨期权，期权费2.80美元 -> 摩根大通股价182美元 -> 保留280美元
+  第5个月：卖出195美元看涨期权，期权费2.50美元 -> 摩根大通股价188美元 -> 保留250美元
+           同时收到摩根大通股息：每股1.15美元 = 115美元
+  第6个月：卖出195美元看涨期权，期权费3.20美元 -> 摩根大通股价190美元 -> 保留320美元
+  第7个月：卖出195美元看涨期权，期权费3.50美元 -> 摩根大通涨至198美元 -> 被行权卖出
 
-  Call premiums collected: $280 + $250 + $320 + $350 = $1,200
-  Dividend received: $115
-  Sale price: $195
+  累计看涨期权费：280 + 250 + 320 + 350 = 1,200美元
+  收到股息：115美元
+  卖出价格：195美元
 
-TOTAL CYCLE RESULTS (7 months):
-  Put premiums:   $770
-  Call premiums:   $1,200
-  Dividend:        $115
-  Capital gain:    ($195 - $180) x 100 = $1,500
+整轮循环总结（7个月）：
+  看跌期权费：   770美元
+  看涨期权费：  1,200美元
+  股息：          115美元
+  资本利得：   （195 - 180）x 100 = 1,500美元
   ================================================
-  TOTAL PROFIT:    $3,585
+  总盈利：        3,585美元
 
-  Return on $18,000 capital: 19.9% in 7 months = 34.2% annualized
+  基于18,000美元资金的收益率：7个月19.9%，年化34.2%
 
-RETURN TO PHASE 1:
-  Month 8: Cash of $19,500+, sell $180 puts again...
-  The wheel keeps turning.
+返回第一阶段：
+  第8个月：持有19,500美元以上现金，再次卖出180美元看跌期权……
+  车轮持续转动。
 ```
 
-#### Position Management: When and How to Close Early
+#### 持仓管理：何时以及如何提前平仓
 
-Not every put needs to be held to expiration. Here are guidelines for early management:
-
-```
-EARLY CLOSE GUIDELINES:
-
-  TAKE PROFIT (Buy back the put):
-  - Put has lost 50% of its value -> Close for 50% profit
-    Example: Sold for $2.80, now worth $1.40 -> Buy back at $1.40
-    Profit: $140 in ~15 days (vs $280 in 30 days)
-    Why: Capture most of the profit, free up capital, reduce risk
-
-  - Put has lost 75% of its value -> Strongly consider closing
-    Example: Sold for $2.80, now worth $0.70 -> Buy back at $0.70
-    Profit: $210 in ~20 days
-    Why: Remaining $70 is not worth the risk of holding
-
-  CUT LOSS (Buy back the put at a loss):
-  - Put has DOUBLED in value -> Consider closing
-    Example: Sold for $2.80, now worth $5.60 -> Buy back at $5.60
-    Loss: -$280
-    Why: Prevent further loss. The stock has moved against you.
-    Reassess whether you still want to own the stock.
-
-  - Stock has dropped through strike with bad news -> Close
-    If the reason for the drop changes your thesis about the company,
-    take the loss and move on.
-
-  ROLL (Close current put, open new one):
-  - Stock is near strike with a few days left
-  - You still want to own it, but want more premium
-  - Close the current put, sell next month's put
-  - Example: Buy back $145 March Put at $3.50, sell $145 April Put
-    for $5.00 -> Net credit of $1.50
-
-MANAGEMENT SCHEDULE:
-  Day 1-7:    Set it and forget it (unless major news)
-  Day 8-20:   Check weekly. Close if 50%+ profit achieved.
-  Day 21-25:  Evaluate closely. Roll or close if needed.
-  Day 26-30:  Expiration week. Final decision: expire or close.
-```
-
-#### Building a Cash-Secured Put Portfolio
-
-For investors with sufficient capital, running a diversified portfolio of cash-secured puts can generate substantial, consistent income.
+并非所有看跌期权都需要持有至到期。以下是提前管理的指引：
 
 ```
-CASH-SECURED PUT PORTFOLIO EXAMPLE: $100,000 Capital
+提前平仓指引：
 
-Allocation Strategy:
-  - 5 positions across different sectors
-  - 15-20% of capital per position
-  - 10-15% kept as cash buffer for opportunities or margin of safety
+  止盈（买回看跌期权）：
+  - 期权价值损失50%时 -> 以50%盈利平仓
+    示例：以2.80美元卖出，现价1.40美元 -> 以1.40美元买回
+    盈利：约15天赚取140美元（与持有30天赚280美元相比）
+    原因：锁定大部分盈利，释放资金，降低风险
+
+  - 期权价值损失75%时 -> 强烈建议平仓
+    示例：以2.80美元卖出，现价0.70美元 -> 以0.70美元买回
+    盈利：约20天赚取210美元
+    原因：剩余70美元不值得继续承担持仓风险
+
+  止损（亏损平仓）：
+  - 期权价值翻倍时 -> 考虑平仓
+    示例：以2.80美元卖出，现价5.60美元 -> 以5.60美元买回
+    亏损：-280美元
+    原因：防止亏损进一步扩大。股票走势已对你不利。
+    重新评估你是否仍然希望持有该股票。
+
+  - 股价大幅跌破行权价且伴随利空消息 -> 平仓
+    如果下跌原因改变了你对这家公司的投资逻辑，
+    及时止损，重新配置资金。
+
+  移仓展期（平掉当前看跌期权，开仓新的）：
+  - 距到期仅剩几天，股价接近行权价
+  - 你仍然希望持有股票，但希望收取更多期权费
+  - 平掉当前看跌期权，卖出下个月的看跌期权
+  - 示例：买回3月份145美元看跌期权（成本3.50美元），
+    卖出4月份145美元看跌期权（期权费5.00美元）
+    -> 净收权利金1.50美元
+
+管理日程：
+  第1-7天：   设好仓位，静待观察（除非有重大消息）
+  第8-20天：  每周检查一次。若盈利超过50%则考虑平仓。
+  第21-25天： 密切关注。如有需要则移仓或平仓。
+  第26-30天： 到期周，最终决策：自然到期或提前平仓。
+```
+
+#### 构建现金担保看跌期权投资组合
+
+对于资金充裕的投资者，同时运作一个多元化的现金担保看跌期权组合可以创造可观且稳定的收入。
+
+```
+现金担保看跌期权组合示例：本金10万美元
+
+资金配置策略：
+  - 5个不同板块的持仓
+  - 每个持仓占本金的15-20%
+  - 保留10-15%的现金缓冲，用于抓住机会或提供安全边际
 
 +--------------------------------------------------------------+
-| STOCK | SECTOR      | STRIKE | CAPITAL  | PREMIUM | ANN YLD |
+| 股票 | 板块       | 行权价  | 占用资金  | 期权费  | 年化收益 |
 +--------------------------------------------------------------+
-| AAPL  | Technology  | $140   | $14,000  | $1.80   | 15.4%   |
-| JPM   | Financials  | $180   | $18,000  | $2.50   | 16.7%   |
-| JNJ   | Healthcare  | $150   | $15,000  | $1.60   | 12.8%   |
-| KO    | Cons.Staple | $55    | $16,500* | $0.70   | 15.3%   |
-|       |             |        | (3 cnts) |         |         |
-| AMZN  | Consumer    | $180   | $18,000  | $3.20   | 21.3%   |
+| 苹果 | 科技       | 140美元 | 14,000美元 | 1.80美元 | 15.4% |
+| 摩根大通 | 金融   | 180美元 | 18,000美元 | 2.50美元 | 16.7% |
+| 强生 | 医疗健康   | 150美元 | 15,000美元 | 1.60美元 | 12.8% |
+| 可口可乐 | 必需消费| 55美元 | 16,500美元*| 0.70美元 | 15.3% |
+|      |            |         | （3手）    |          |       |
+| 亚马逊 | 消费品   | 180美元 | 18,000美元 | 3.20美元 | 21.3% |
 +--------------------------------------------------------------+
-| TOTAL               |        | $81,500  | $1,250  | 15.7%   |
-| Cash buffer          |        | $18,500  |         |         |
+| 合计              |         | 81,500美元 | 1,250美元 | 15.7%|
+| 现金缓冲          |         | 18,500美元 |           |      |
 +--------------------------------------------------------------+
-* 3 contracts of KO at $55 = $16,500
+*可口可乐3手 x 55美元 = 16,500美元
 
-Monthly Income: $1,250 (premiums across 5 positions)
-Annual Income: $15,000 (15.0% on invested capital)
-Annual Income on Total: $15,000 / $100,000 = 15.0%
+月度收入：1,250美元（5个持仓的期权费合计）
+年度收入：15,000美元（占投入资金的15.0%）
+总资金年化收益：15,000 / 100,000 = 15.0%
 
-Diversification:
-  Technology: 14%
-  Financials: 18%
-  Healthcare: 15%
-  Consumer Staples: 16.5%
-  Consumer Discretionary: 18%
-  Cash: 18.5%
+分散配置：
+  科技：14%
+  金融：18%
+  医疗健康：15%
+  必需消费品：16.5%
+  可选消费品：18%
+  现金：18.5%
 ```
 
-#### Comparing Cash-Secured Puts Across Different Market Environments
+#### 不同市场环境下的现金担保看跌期权表现
 
-Understanding how the strategy performs in different conditions helps you set realistic expectations:
+了解策略在不同市场环境下的表现，有助于建立合理预期：
 
 ```
-PERFORMANCE IN DIFFERENT MARKETS:
+不同市场环境下的表现：
 
-BULL MARKET (stock rising 15-25% per year):
-  - Puts expire worthless month after month
-  - You collect premium but never buy the stock
-  - Annual return on cash: 10-18% (premiums only)
-  - Emotional challenge: Watching the stock rise without owning it
-  - Reality check: You are earning more than a savings account
-  - Adjustment: Consider selling closer to ATM for higher premiums
-                 or just buy the stock at market
+牛市（股票年涨幅15-25%）：
+  - 看跌期权月复一月归零失效
+  - 你持续收取期权费，但始终未买入股票
+  - 现金年化收益：10-18%（仅期权费）
+  - 心理挑战：眼看股票上涨，自己却未持股
+  - 客观认知：你的收益已远超活期存款利率
+  - 策略调整：考虑卖出更接近平值的期权以获取更高期权费，
+               或者直接以市价买入股票
 
-FLAT MARKET (stock moves sideways, +/- 5%):
-  - Most puts expire worthless
-  - Occasional assignment followed by recovery
-  - Annual return on cash: 12-18% (premiums)
-  - This is the IDEAL environment for put selling
-  - You earn consistent income while the stock goes nowhere
+震荡市（股票横向波动，±5%）：
+  - 大多数看跌期权归零失效
+  - 偶尔被行权，随后股价回升
+  - 现金年化收益：12-18%（期权费）
+  - 这是卖出看跌期权的理想环境
+  - 股价原地踏步时，你依然收取稳定收入
 
-MILD BEAR MARKET (stock declining 5-15%):
-  - You get assigned on some puts
-  - Effective cost is below strike price (premium cushion)
-  - You own stocks at discounted prices
-  - Transition to covered calls on assigned shares
-  - Net result: Buying stocks at good prices with income along the way
+温和熊市（股票下跌5-15%）：
+  - 部分看跌期权被行权
+  - 有效成本低于行权价（期权费提供缓冲）
+  - 你以折扣价持有股票
+  - 对被行权股份转入备兑看涨期权阶段
+  - 综合结果：以合适价格买入股票，同时全程有收入伴随
 
-SEVERE BEAR MARKET (stock declining 25%+):
-  - Multiple assignments
-  - Unrealized losses on assigned shares
-  - Premium cushion helps but does not eliminate losses
-  - This is the time to hold assigned shares and sell covered calls
-  - Long-term: These become your best entry prices
+深度熊市（股票下跌25%以上）：
+  - 多次被行权
+  - 被行权股份出现账面亏损
+  - 期权费缓冲有所帮助，但无法完全消除亏损
+  - 此时应持有被行权股份，继续卖出备兑看涨期权
+  - 长期来看：这些往往会成为你最好的建仓时机
   
-  HISTORICAL EXAMPLE: Selling AAPL puts in 2022
-    AAPL dropped from $182 to $129 (29% decline)
-    Put seller assigned at ~$150, effective cost ~$145
-    By mid-2023, AAPL recovered to $190
-    Result: 31% gain from effective cost in ~12 months
-    Plus: Covered call premiums during the hold = additional 8-12%
+  历史案例：2022年卖出苹果看跌期权
+    苹果从182美元跌至129美元（跌幅29%）
+    看跌期权卖家以约150美元被行权，有效成本约145美元
+    2023年中，苹果股价回升至190美元
+    结果：从有效成本计算，约12个月内盈利31%
+    加上：持股期间备兑看涨期权费 = 额外收益8-12%
 ```
 
-#### Practical Checklist: Before You Sell a Put
+#### 实操清单：卖出看跌期权前的核查
 
-Use this checklist every time you are about to sell a cash-secured put:
-
-```
-PRE-TRADE CHECKLIST:
-
-  STOCK QUALITY:
-  [ ] Company has been profitable for at least 3 years
-  [ ] Debt-to-equity ratio is reasonable for its industry
-  [ ] No pending litigation or regulatory risks that concern me
-  [ ] I understand what the company does and how it makes money
-  [ ] I would hold this stock for at least 2-3 years if assigned
-
-  STRIKE SELECTION:
-  [ ] Strike is at or below my fair value estimate
-  [ ] Strike is at least 5% below current price (for OTM approach)
-  [ ] If assigned, my total position in this stock stays under 20%
-  [ ] I have confirmed the support level on the price chart
-
-  EXPIRATION SELECTION:
-  [ ] 30-45 days to expiration
-  [ ] No earnings announcement between now and expiration
-  [ ] No major economic events (Fed meeting, etc.) that concern me
-
-  PREMIUM CHECK:
-  [ ] Annualized yield is at least 8% (my minimum threshold)
-  [ ] Bid-ask spread is tight (under $0.30 for a ~$3 option)
-  [ ] Volume and open interest are sufficient (at least 100 OI)
-
-  CAPITAL CHECK:
-  [ ] I have cash to cover the full assignment (strike x 100)
-  [ ] This position does not use more than 20% of my total capital
-  [ ] I have at least 15% of my total capital in cash reserve
-  [ ] I am NOT using margin for this position
-
-  MANAGEMENT PLAN:
-  [ ] I know at what profit level I will close early (50-75%)
-  [ ] I know at what loss level I will cut the position (2x premium)
-  [ ] If assigned, I have a plan (sell covered calls or hold)
-```
-
-#### Risk Management for Cash-Secured Puts
-
-Understanding and managing risk is essential for long-term success:
+每次卖出现金担保看跌期权前，请使用此清单：
 
 ```
-RISK MANAGEMENT FRAMEWORK:
+交易前核查清单：
 
-  1. STOCK SELECTION RISK
-     Mitigation: Only sell puts on stocks you want to own
-     - Strong balance sheet (low debt)
-     - Consistent earnings growth
-     - Competitive moat
-     - Reasonable valuation at your strike price
-     Rule: If you would not buy 100 shares at the strike with a
-     market order, do NOT sell a put at that strike.
+  股票质量：
+  [ ] 公司至少连续3年实现盈利
+  [ ] 负债权益比在其所在行业内处于合理水平
+  [ ] 没有令我担忧的未决诉讼或监管风险
+  [ ] 我了解该公司的业务模式和盈利方式
+  [ ] 若被行权，我愿意持有该股票至少2-3年
 
-  2. CONCENTRATION RISK
-     Mitigation: Diversify across sectors and stocks
-     - Maximum 20% of capital in any single stock
-     - Minimum 4-5 different stocks
-     - Spread across at least 3 sectors
-     Rule: No single assignment should be devastating to your portfolio.
+  行权价选择：
+  [ ] 行权价等于或低于我的公允价值估计
+  [ ] 行权价至少低于当前价格5%（虚值策略）
+  [ ] 若被行权，该股票的总仓位不超过总资金的20%
+  [ ] 已在价格走势图上确认支撑位
 
-  3. MARKET CRASH RISK
-     Mitigation: Keep 15-20% cash buffer
-     - If ALL positions are assigned, you still have cash reserves
-     - A crash that assigns all puts at once is rare but possible
-     - In a broad crash, your effective costs are still below market
-     Rule: Size positions so that being assigned on ALL of them
-     simultaneously does not exceed your total capital.
+  到期日选择：
+  [ ] 距到期日30-45天
+  [ ] 到期日前无业绩发布
+  [ ] 没有令我担忧的重大宏观事件（美联储议息会议等）
 
-  4. EARNINGS/EVENT RISK
-     Mitigation: Avoid selling puts expiring during earnings week
-     - Earnings can cause 10-20% gaps overnight
-     - If you sell a put through earnings, accept the gap risk
-     - Better: sell puts AFTER earnings, when IV has settled
-     Rule: Know the earnings calendar for every stock you sell puts on.
+  期权费核查：
+  [ ] 年化收益至少达到8%（我的最低门槛）
+  [ ] 买卖价差较窄（约3美元的期权，价差不超过0.30美元）
+  [ ] 成交量和持仓量充足（持仓量至少100手）
 
-  5. OPPORTUNITY COST RISK
-     Mitigation: Use short-duration puts (30-45 days)
-     - Cash is tied up for the option's duration
-     - If a better opportunity arises, you may not have free cash
-     - Shorter durations free cash more frequently
-     Rule: Keep enough liquid cash to act on unexpected opportunities.
+  资金核查：
+  [ ] 我有足够现金覆盖全额行权（行权价 x 100）
+  [ ] 该仓位不超过总资金的20%
+  [ ] 总资金中至少保留15%的现金储备
+  [ ] 本仓位不使用保证金
 
-MAXIMUM LOSS CALCULATION:
+  管理计划：
+  [ ] 我知道在何种盈利水平提前平仓（50-75%）
+  [ ] 我知道在何种亏损水平止损（2倍期权费）
+  [ ] 若被行权，我有明确计划（卖出备兑看涨期权或继续持有）
+```
 
-  Absolute worst case (stock goes to $0):
-    Max Loss = (Strike Price - Premium) x 100 x Number of Contracts
+#### 现金担保看跌期权的风险管理
+
+理解并管控风险是长期成功的基石：
+
+```
+风险管理框架：
+
+  1. 选股风险
+     应对措施：仅对你愿意持有的股票卖出看跌期权
+     - 资产负债表稳健（低负债）
+     - 盈利持续增长
+     - 具备竞争护城河
+     - 行权价对应的估值合理
+     原则：如果你不愿意以行权价用市价单买入100股，
+     就不要在该行权价卖出看跌期权。
+
+  2. 集中度风险
+     应对措施：跨板块、跨股票分散持仓
+     - 单一股票仓位不超过总资金的20%
+     - 最少涉及4-5只不同股票
+     - 覆盖至少3个板块
+     原则：任何一次被行权都不应对你的投资组合造成毁灭性打击。
+
+  3. 市场暴跌风险
+     应对措施：保留15-20%的现金缓冲
+     - 即使所有仓位同时被行权，仍有现金储备
+     - 所有看跌期权同时被行权的情况罕见，但有可能发生
+     - 即使在大幅下跌中，你的有效成本依然低于市价
+     原则：持仓规模应确保即便所有仓位同时被行权，
+     也不会超过你的总资金上限。
+
+  4. 业绩/事件风险
+     应对措施：避免卖出在业绩发布当周到期的看跌期权
+     - 业绩公告可能导致隔夜跳空10-20%
+     - 若你卖出跨越业绩发布期的看跌期权，须接受跳空风险
+     - 更好的做法：在业绩发布后、隐含波动率平稳后再卖出期权
+     原则：了解你所卖期权标的股票的业绩日历。
+
+  5. 机会成本风险
+     应对措施：使用短期限看跌期权（30-45天）
+     - 现金在期权存续期间被占用
+     - 若出现更好的机会，你可能没有闲置现金
+     - 期限越短，资金释放越频繁
+     原则：保留足够的流动现金，以便在意外机会出现时及时出手。
+
+最大亏损计算：
+
+  绝对最坏情景（股价归零）：
+    最大亏损 = （行权价 - 期权费）x 100 x 合约数量
     
-    AAPL $140 Put at $2.80:
-    Max Loss = ($140 - $2.80) x 100 = $13,720 per contract
+    苹果140美元看跌期权，期权费2.80美元：
+    最大亏损 = （140 - 2.80）x 100 = 每手13,720美元
     
-    This would require AAPL to go to $0, which is essentially
-    impossible for a company of Apple's size and financial strength.
+    这需要苹果股价归零，对于苹果公司这样的规模和
+    财务实力而言，几乎是不可能发生的。
 
-  Realistic worst case (stock drops 30%):
-    AAPL drops from $155 to $108.50
-    You buy at $140, effective cost $137.20
-    Unrealized loss: ($137.20 - $108.50) x 100 = $2,870
+  现实最坏情景（股价下跌30%）：
+    苹果从155美元跌至108.50美元
+    以140美元被行权，有效成本137.20美元
+    账面亏损：（137.20 - 108.50）x 100 = 2,870美元
     
-    This is painful but manageable, especially if you believe
-    AAPL will recover and you start selling covered calls.
+    这虽然令人痛苦，但可以承受——尤其是当你相信
+    苹果将会复苏，且已开始卖出备兑看涨期权的情况下。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "Selling puts is the same as buying stock, so why bother?"**
+**误区一："卖出看跌期权与买入股票一样，何必多此一举？"**
 
-While the risk profiles are similar (both have downside exposure), the economics are different. The put seller has a lower effective cost basis (by the amount of the premium), and earns income while waiting for the entry price. A stock buyer at $155 starts at $155. A put seller at $145 strike with $2.80 premium starts at $142.20 if assigned, and earns $280 if not. Over time, the put seller's entry is significantly better.
+虽然两者的风险特征相似（均面临下行风险），但经济效益不同。卖出看跌期权者的有效成本基础更低（低于期权费的金额），且在等待入场价期间有收入流入。以155美元买入股票者，起点是155美元；以145美元行权价卖出看跌期权且期权费为2.80美元者，若被行权，起点是142.20美元，若未被行权，则额外赚取280美元。长期来看，卖出看跌期权者的入场价显著更优。
 
-**Misconception 2: "Cash-secured puts tie up too much capital."**
+**误区二："现金担保看跌期权占用资金太多。"**
 
-This is true if you compare it to margin-based strategies, but the comparison should be to what you would do with the cash otherwise. If the cash is sitting in a savings account at 4-5%, selling cash-secured puts at 12-18% annualized yield is a dramatic improvement. The capital is "tied up" in the same way it would be tied up waiting for a limit order to fill: you have decided to buy the stock at a certain price, so the capital is already mentally allocated.
+与基于保证金的策略相比，确实如此。但比较的基准应该是你否则会如何使用这笔现金。如果现金存在活期账户只赚4-5%的利率，那么卖出现金担保看跌期权获得12-18%的年化收益是质的飞跃。资金"被占用"的方式与挂限价单等待成交如出一辙：你已决定在某个价格买入该股票，因此这笔资金在心理上早已专门预留。
 
-**Misconception 3: "You should sell puts on high-volatility stocks for bigger premiums."**
+**误区三："应该对高波动性股票卖出看跌期权，以获取更丰厚的期权费。"**
 
-Higher volatility does mean higher premiums, but it also means higher probability of large drops, which increases assignment risk and potential losses. A biotech stock might offer $8 in premium on a $50 put, but the stock could easily drop 40% on a failed drug trial. You should sell puts on stocks with moderate volatility that you genuinely want to own, not on the most volatile names for premium size alone.
+波动性越高确实意味着期权费越高，但同时也意味着出现大幅下跌的概率更高，增加了被行权的风险和潜在亏损。一只生物科技股在50美元看跌期权上可能提供8美元的期权费，但该股票在药物试验失败后很可能下跌40%。你应该对你真心希望持有的、具有适度波动性的股票卖出看跌期权，而不是单纯为了期权费规模而选择最高波动性的标的。
 
-**Misconception 4: "Getting assigned on a put is a bad outcome."**
+**误区四："被行权是糟糕的结果。"**
 
-Assignment means you bought a stock you wanted at a price you chose, at an effective cost lower than that price. This is a successful execution of your plan. The only time assignment is truly bad is when the stock drops catastrophically due to fundamental problems (fraud, bankruptcy, structural decline). This risk exists equally with any form of stock purchase. Assignment itself is neutral to positive.
+被行权意味着你以自己选定的价格买入了心仪的股票，且有效成本低于该价格。这是你计划成功执行的体现。被行权真正令人不安的唯一情形，是股票因基本面问题（欺诈、破产、结构性衰退）而遭遇灾难性下跌。这一风险对于任何形式的股票买入都同样存在。被行权本身是中性乃至积极的结果。
 
-**Misconception 5: "I should always roll to avoid assignment."**
+**误区五："应该始终移仓展期以避免被行权。"**
 
-Rolling has a cost. If the stock is below your strike and you roll, you are buying back an in-the-money put (expensive) and selling a new one (hopefully for more). The net credit may be small or you may even pay a debit. If you want the stock at the strike price, just accept assignment. Rolling makes sense only when: (a) your view on the stock has changed and you no longer want to buy, or (b) you want more time to collect premium before buying.
+移仓展期是有成本的。如果股价低于行权价且你选择展期，你需要以较高价格买回实值看跌期权，同时卖出新的期权（希望收到更多权利金）。净权利金可能很低，甚至可能需要支付净费用。如果你本就希望以行权价买入该股票，接受行权即可。仅在以下情况下展期才有意义：(a) 你对该股票的看法发生了变化，不再希望买入；或 (b) 你希望继续收取期权费，在买入前争取更多时间。
 
-**Misconception 6: "Cash-secured puts only work in bull markets."**
+**误区六："现金担保看跌期权只在牛市中有效。"**
 
-Cash-secured puts actually work in ALL market environments, but the outcomes differ. In bull markets: puts expire worthless, you keep premium. In flat markets: same result, premium income is your return. In mild bear markets: you get assigned and buy stocks at a discount, which is ideal for long-term investors. In severe bear markets: you buy stocks at a discount but face unrealized losses, though your effective cost is still better than buying without the put strategy. The strategy fails only if you are selling puts on fundamentally flawed companies.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How is a cash-secured put different from a naked put?**
-
-A: The strategy is the same; the collateral is different. A cash-secured put requires you to have the full cash amount to buy the shares ($14,000 for a $140 put). A naked put uses margin, meaning you only need to post a fraction of the value (perhaps $3,000-$5,000 depending on your broker). Naked puts have the same profit potential but carry additional risk because if you are assigned and the stock drops further, you may face a margin call. In this course, we exclusively teach cash-secured puts because they eliminate margin risk and align with a conservative investing philosophy.
-
-**Q2: Can I sell puts on index ETFs like SPY?**
-
-A: Yes, and SPY puts are among the most liquid options in the world. The capital requirement is higher ($52,000 for a $520 put), but you get broad market diversification in a single contract. SPY puts are an excellent choice for investors who want to build a position in the overall market at a lower price. The premiums on SPY are somewhat lower on a percentage basis (due to lower volatility), but the consistency and liquidity are exceptional.
-
-**Q3: What happens if I do not have enough cash when I am assigned?**
-
-A: If your put is cash-secured, this should not happen because your broker has already reserved the full amount. If you are using margin and get assigned without sufficient funds, your broker will issue a margin call. You will need to either deposit more cash or sell securities to cover the purchase. This is one of the key reasons we recommend cash-secured puts over naked puts: the cash is always there when needed.
-
-**Q4: Should I sell puts weekly or monthly?**
-
-A: Monthly (30-45 days) is recommended for most investors. Weekly puts require more frequent management and have smaller individual premiums. While the annualized yield of weekly puts can be higher, the additional effort and transaction frequency often do not justify the marginal increase. Monthly puts provide a good premium with minimal management. If you are more experienced and have time, selling weekly puts can work, but start with monthly.
-
-**Q5: What is the difference between selling a put and buying a deep-in-the-money call?**
-
-A: Economically, they are similar but not identical. Both give you bullish exposure with a lower initial outlay than buying stock. However, selling a put generates income (you receive premium), while buying a call costs money (you pay premium). Selling a put also requires full cash collateral and has limited profit (the premium). Buying a deep ITM call costs less upfront but loses value to time decay and has unlimited profit potential. For income-oriented investors, selling puts is generally preferred.
-
-**Q6: How do I account for dividends when selling puts?**
-
-A: If you sell a put on a dividend-paying stock and get assigned, you will receive future dividends on the shares you now own. However, you do not receive dividends while you hold the short put position (you do not own the shares yet). This is a minor disadvantage compared to owning the stock outright, but the put premium typically exceeds the dividend you would have received during the same period.
-
-**Q7: What happens to my put if the stock splits?**
-
-A: Options are adjusted for stock splits. If AAPL does a 4-for-1 split and you have a $140 put, your position would be adjusted to 4 contracts of $35 puts (same economic exposure). The OCC handles all adjustments automatically. You do not need to take any action.
-
-**Q8: Can I sell puts in a margin account even if I want them cash-secured?**
-
-A: Yes. You can choose to keep enough cash in your margin account to fully cover the put, effectively making it cash-secured even though the account type allows margin. Many investors use margin accounts for the flexibility but maintain cash reserves equivalent to full coverage. The key discipline is not using the margin to sell more puts than you could cover with cash.
-
-**Q9: What if I want to be more conservative? Can I sell puts on stocks I already own?**
-
-A: Yes, this is called selling an "additional put." If you already own 100 shares of AAPL and sell a $140 put, getting assigned would give you 200 shares. This is a way to double down on stocks you love at lower prices. Just ensure your total position size remains within your risk tolerance and portfolio allocation limits.
-
-**Q10: How does the wheel strategy compare to traditional buy-and-hold?**
-
-A: Over long periods, the wheel strategy typically generates higher income but may slightly underperform during strong bull markets (due to the covered call capping upside). In flat and mildly bearish markets, the wheel significantly outperforms because of the premium income. Research on the CBOE PutWrite Index (PUT) shows that a systematic put-writing strategy has delivered returns comparable to the S&P 500 with about 25-30% less volatility. The wheel adds covered calls on top, further enhancing income. For income-focused investors, the wheel is often superior to pure buy-and-hold.
+现金担保看跌期权在所有市场环境下均可运作，但结果各有不同。牛市中：看跌期权归零失效，保留期权费。震荡市中：同样结果，期权费收入即为你的收益。温和熊市中：你被行权，以折扣价买入股票，对长线投资者而言恰到好处。深度熊市中：你以折扣价买入股票，但面临账面亏损，尽管有效成本仍优于不使用看跌期权策略的买入价格。这一策略失效的唯一情形，是你对基本面存在根本性缺陷的公司卖出了看跌期权。
 
 ---
 
-## YouTube Script
+### d) 常见问答
+
+**问题一：现金担保看跌期权与裸看跌期权有何不同？**
+
+答：策略相同，区别在于担保品。现金担保看跌期权要求你持有足额现金用于买入股票（以140美元行权价计，需14,000美元）。裸看跌期权使用保证金，你只需存入部分金额（视券商而定，约需3,000至5,000美元）。裸看跌期权的盈利潜力相同，但风险更高——一旦被行权且股价继续下跌，可能面临追加保证金通知。本课程仅讲授现金担保看跌期权，因为它消除了保证金风险，与稳健的投资理念相吻合。
+
+**问题二：我可以对SPY等指数型交易所交易基金卖出看跌期权吗？**
+
+答：可以，而且SPY看跌期权是全球流动性最佳的期权之一。所需资金较高（520美元的看跌期权需要52,000美元），但一张合约即可获得宽泛的市场分散投资。SPY看跌期权是希望以更低价格建立大盘仓位的投资者的理想选择。由于波动性较低，SPY期权的百分比收益率略低，但其稳定性和流动性极为出色。
+
+**问题三：如果我在被行权时账户现金不足，会怎样？**
+
+答：若你使用的是现金担保看跌期权，这种情况本不应发生，因为券商已预留了全额资金。若你使用保证金且资金不足时被行权，券商将发出追加保证金通知，你需要存入更多现金或卖出证券以支付购股款项。这正是我们推荐现金担保看跌期权而非裸看跌期权的关键原因之一：需要时，现金随时就位。
+
+**问题四：我应该每周还是每月卖出看跌期权？**
+
+答：对于大多数投资者，推荐按月操作（30-45天）。每周卖出看跌期权需要更频繁的管理，且单次期权费金额较小。虽然每周看跌期权的年化收益率在理论上更高，但额外的操作精力和交易频率通常不值得那一点微弱的增量收益。月度期权在较少管理投入的前提下提供了合理的期权费。若你经验丰富且有充裕时间，每周卖出看跌期权也可行，但建议从月度期权开始入手。
+
+**问题五：卖出看跌期权与买入深度实值看涨期权有何区别？**
+
+答：从经济逻辑上看，两者相似但并不完全等同。两者均以低于直接买股的初始投入提供看多敞口。然而，卖出看跌期权能产生收入（你收取期权费），而买入看涨期权需要支出（你支付期权费）。卖出看跌期权还需要全额现金担保，且盈利有限（以期权费为上限）。买入深度实值看涨期权的前期成本更低，但面临时间价值损耗，且盈利潜力理论上无限。对于以收入为导向的投资者，卖出看跌期权通常更为适合。
+
+**问题六：卖出看跌期权时，如何考虑股息因素？**
+
+答：若你对派息股票卖出看跌期权并被行权，你此后将以持股人身份收取股息。然而，持有空头看跌期权期间（尚未持股），你无法收取股息。与直接持股相比，这是一个轻微劣势，但在同等时间内，看跌期权费通常高于你本可收到的股息金额。
+
+**问题七：如果标的股票分拆，我的看跌期权会怎样？**
+
+答：期权会根据股票分拆进行相应调整。如果苹果实施1拆4分股，而你持有140美元看跌期权，你的仓位将自动调整为4手35美元看跌期权（经济敞口不变）。美国期权结算公司会自动处理所有调整，无需你采取任何操作。
+
+**问题八：即使我希望以现金担保方式操作，也可以在保证金账户中卖出看跌期权吗？**
+
+答：可以。你可以选择在保证金账户中保留足额现金，以完整覆盖看跌期权的行权金额，从实质上将其转变为现金担保的操作——尽管账户类型本身允许使用保证金。很多投资者使用保证金账户以获取更大的灵活性，但同时保持相当于全额担保的现金储备。关键在于自律：不因保证金的存在而卖出超过现金担保上限的看跌期权。
+
+**问题九：如果我想更保守一些，可以对已持有的股票卖出看跌期权吗？**
+
+答：可以，这被称为"叠加卖出看跌期权"。如果你已持有100股苹果，再卖出一手140美元看跌期权，被行权后你将持有200股。这是一种以更低价格加仓心仪股票的方式。只需确保你的总仓位规模仍在你的风险承受能力和投资组合配置限制之内。
+
+**问题十：车轮策略与传统的买入并持有相比，孰优孰劣？**
+
+答：长期来看，车轮策略通常产生更高的收入，但在强劲牛市中可能略逊一筹（因为备兑看涨期权限制了上行空间）。在震荡市和温和熊市中，车轮策略因期权费收入而明显跑赢。芝加哥期权交易所看跌期权卖出指数（PUT）的研究表明，系统性卖出看跌期权策略实现了与标准普尔500指数相当的收益，但波动性约低25%-30%。在此基础上叠加备兑看涨期权可进一步提升收入。对于以收入为导向的投资者而言，车轮策略往往优于单纯的买入并持有。
+
+---
+
+## YouTube脚本
 
 [VISUAL: Animated intro with show logo. Text: "Week 28: Cash-Secured Puts for Entry - Level 3: Advanced"]
 
-**Alex:** Welcome back. Over the past three weeks, we have built a complete foundation in options. We started with the basics in Week 25, then learned to think of options as conditional orders in Week 26, and mastered covered calls for income in Week 27. Today we complete the picture with cash-secured puts.
+**Horace：** 欢迎回来。在过去三周里，我们构建了期权的完整基础体系。第25周从基础概念入手，第26周学会了将期权理解为条件委托单，第27周掌握了备兑看涨期权的收入策略。今天，我们用现金担保看跌期权来画龙点睛。
 
-**Sam:** And then we are going to put it all together with the wheel strategy?
+**Stella（小魚）：** 然后我们就可以把所有知识串在一起，讲车轮策略了？
 
-**Alex:** That is exactly right. Cash-secured puts are the entry mechanism of the wheel. They are how you get into stocks while getting paid to do so. By the end of today, you will have the complete toolkit.
+**Horace（陳馬）：** 正是。现金担保看跌期权是车轮的入场机制，是你在收钱的同时买入股票的方式。今天课程结束时，你将拥有完整的工具箱。
 
-[VISUAL: A wheel diagram showing the cycle: "Cash -> Sell Puts -> Assigned -> Own Shares -> Sell Calls -> Called Away -> Cash" with today's focus "Sell Puts" highlighted]
+[VISUAL: A wheel diagram showing the cycle: "现金 -> 卖出看跌期权 -> 被行权 -> 持有股票 -> 卖出看涨期权 -> 被行权卖出 -> 现金" with today's focus "卖出看跌期权" highlighted]
 
-**Sam:** OK, let us start with the basics. What is a cash-secured put?
+**Stella：** 好，我们从基础开始。什么是现金担保看跌期权？
 
-**Alex:** A cash-secured put is when you sell a put option and keep enough cash in your account to buy the shares if you are assigned. You are making a promise: I will buy this stock at this price if it drops to that level. In return, someone pays you a premium right now.
+**Horace：** 现金担保看跌期权，就是你卖出一份看跌期权，同时在账户中保留足额现金，以便在被行权时买入股票。你是在做出一个承诺：如果股票跌到这个价位，我就买入。作为交换，对方现在付给你期权费。
 
-**Sam:** And the "cash-secured" part means I am not using borrowed money?
+**Stella：** "现金担保"的部分，意思是我不用借钱？
 
-**Alex:** Exactly. Your broker holds the full amount, say $14,000 for a $140 put, as collateral. If you are assigned, that cash is used to buy the shares. No margin, no borrowed money, no surprises.
+**Horace：** 正是。你的券商预留了全额金额——比如一手140美元的看跌期权，就是14,000美元——作为担保。如果被行权，这笔现金直接用来买入股票。没有保证金，没有借款，没有意外。
 
-[VISUAL: Diagram showing a bank vault labeled "$14,000" connected to a put option contract. Arrow labeled "Premium $280" flowing from the option to the investor's pocket. Arrow labeled "If assigned" flowing from the vault to "100 shares"]
+[VISUAL: Diagram showing a bank vault labeled "14,000美元" connected to a put option contract. Arrow labeled "期权费 280美元" flowing from the option to the investor's pocket. Arrow labeled "若被行权" flowing from the vault to "100股股票"]
 
-**Sam:** Let me walk through an example. Apple is at $155 and I think $145 is a great price to buy.
+**Stella：** 让我来举个例子。苹果股价在155美元，我觉得145美元是很好的买入价格。
 
-**Alex:** Perfect setup. Instead of placing a limit order at $145, you sell one AAPL $145 put expiring in 30 days. Let us say the premium is $2.80. You receive $280 immediately, and your broker reserves $14,500 in cash.
+**Horace：** 完美的设定。你不必挂一张145美元的限价单，而是卖出一手30天到期的苹果145美元看跌期权。假设期权费是2.80美元，你立即收到280美元，券商同时预留14,500美元现金。
 
-**Sam:** And now what?
+**Stella：** 然后呢？
 
-**Alex:** Now you wait. And one of four things will happen.
+**Horace：** 然后你等待。接下来会出现四种情景之一。
 
 [ANIMATION: Reference animation/week28_cash_secured_put.py - Animation showing a stock price chart with AAPL starting at $155 and a $145 strike line drawn horizontally. Four animated paths branch from the starting point: (1) stock stays flat around $155, (2) stock rises to $175, (3) stock drops to $144, (4) stock drops sharply to $125. For each path, the animation shows the outcome: premium kept or assignment occurring, with the effective cost calculator updating in real-time. A running P&L display shows the put seller's position at each stage.]
 
-**Alex:** Scenario one, the most common: Apple stays above $145. The put expires worthless. You keep the $280 and your $14,500 is freed up. You earned 1.9% in 30 days, which is 23.6% annualized. Then you sell another put for next month.
+**Horace：** 情景一，也是最常见的：苹果持续高于145美元。看跌期权归零失效，你保留280美元，14,500美元的预留现金也解除占用。30天内收益1.9%，年化约23.6%。然后你再卖下个月的。
 
-**Sam:** Nice. Scenario two?
+**Stella：** 不错。情景二呢？
 
-**Alex:** Apple drops to exactly $145 or slightly below. You are assigned. You buy 100 shares at $145. But remember, you already received $2.80 per share in premium, so your effective cost is $142.20.
+**Horace：** 苹果刚好跌至145美元或略低于145美元。你被行权，以145美元买入100股。但记住，你每股已收到2.80美元的期权费，所以有效成本是142.20美元。
 
-**Sam:** Which is lower than what a limit order would have given me.
+**Stella：** 比限价单的买入价还要低。
 
-**Alex:** By $2.80 per share. That is 1.9% better than a limit order. And it does not sound like much, but over many cycles, these savings compound dramatically.
+**Horace：** 每股低2.80美元，也就是便宜了1.9%。听起来不多，但经过多轮循环，这些节省会显著复利累积。
 
-[VISUAL: Two receipts side by side. Left: "Limit Order Receipt - 100 shares AAPL at $145.00 - Total: $14,500". Right: "Cash-Secured Put Receipt - 100 shares AAPL at $145.00 - Premium Received: -$280 - Effective Cost: $14,220 - Savings: $280"]
+[VISUAL: Two receipts side by side. Left: "限价单收据 - 苹果100股，每股145.00美元 - 合计：14,500美元". Right: "现金担保看跌期权收据 - 苹果100股，每股145.00美元 - 已收期权费：-280美元 - 有效成本：14,220美元 - 节省：280美元"]
 
-**Sam:** What about scenario three, a big drop?
+**Stella：** 情景三，大幅下跌怎么办？
 
-**Alex:** Say Apple drops to $125. You are assigned at $145, effective cost $142.20. You are now sitting on an unrealized loss of $17.20 per share. This is the risk of the strategy.
+**Horace：** 假设苹果跌至125美元，你以145美元被行权，有效成本142.20美元。你现在每股账面亏损17.20美元，这就是这个策略的风险所在。
 
-**Sam:** But the limit order person is also sitting on a loss.
+**Stella：** 但挂了限价单的人也同样在亏损。
 
-**Alex:** Right. The limit order buyer at $145 has an unrealized loss of $20 per share. You have a loss of $17.20 per share. You are $2.80 better off. In a big drop, nobody wins, but the put seller loses slightly less.
+**Horace：** 对。以145美元挂限价单的买家，每股账面亏损20美元，而你是17.20美元。你少亏了2.80美元。大幅下跌时，没有人是赢家，但卖出看跌期权者亏得少一点。
 
-**Sam:** And scenario four? Apple rockets higher?
+**Stella：** 情景四，苹果大涨呢？
 
-**Alex:** Apple goes to $175. Your put expires worthless. You keep the $280 but you did not buy any shares. You "missed" the rally. But here is the thing: your limit order at $145 also was not filled. The limit order person also missed the rally and earned nothing. You at least earned $280.
+**Horace：** 苹果涨到175美元，你的看跌期权归零失效，你保留了280美元，但没有买到股票。你"错过"了这波上涨。但关键在于：你在145美元挂的限价单，同样没有成交，同样错过了上涨，而且一分钱没赚。你至少还赚了280美元。
 
 [VISUAL: Scoreboard showing all four scenarios. For each, the put seller's outcome is compared to the limit order person's outcome. In every scenario, the put seller is equal to or better than the limit order approach.]
 
-**Alex:** In every single scenario, the put seller does at least as well as the limit order, and usually better. That is the fundamental mathematical advantage of this strategy.
+**Horace：** 在每一种情景下，卖出看跌期权者的结果都不亚于挂限价单，通常还更好。这就是这个策略根本的数学优势。
 
-**Sam:** That is compelling. Now let me ask about strike price selection. How do I decide what strike to sell?
+**Stella：** 这很有说服力。现在谈谈行权价的选择，我该如何决定卖出哪个行权价？
 
-**Alex:** There are several approaches, and the best one depends on your situation. The first approach is fundamental valuation. You estimate the stock's fair value and set your strike at or below that number.
+**Horace：** 有几种方法，最适合的取决于你的具体情况。第一种是基本面估值：你估算股票的公允价值，将行权价设在该数字或以下。
 
-**Sam:** So if I think Apple is worth $145 based on its PE ratio and earnings, I sell the $145 put?
+**Stella：** 所以如果我根据市盈率和盈利估算苹果的合理价值是145美元，我就卖出145美元的看跌期权？
 
-**Alex:** Exactly. You are saying, I am willing to buy Apple at fair value, and I will accept premium for making that commitment. The second approach is using support levels from a price chart. If Apple has bounced off $148 three times in the past year, that is a strong support level and a logical strike.
+**Horace：** 正是。你在说，我愿意以公允价值买入苹果，并愿意为此承诺收取期权费。第二种方法是利用价格走势图上的技术支撑位。如果苹果过去一年曾三次在148美元附近获得支撑，那就是强支撑位，也是合理的行权价选择。
 
-**Sam:** And the third approach?
+**Stella：** 第三种方法是什么？
 
-**Alex:** Percentage below market. Simply go 5-10% below the current price. For Apple at $155, that is $140-$147. This is the simplest approach and works well for beginners.
+**Horace：** 低于市价的固定百分比。直接选择比当前价格低5%至10%的位置。苹果在155美元，对应的就是140至147美元。这是最简单的方法，对初学者来说效果很好。
 
-[VISUAL: Three-panel display. Panel 1: Fundamental analysis showing PE ratio and earnings with a "Fair Value: $145" label. Panel 2: Price chart with support line at $148. Panel 3: Current price $155 with 5% and 10% arrows pointing to $147 and $140 respectively.]
+[VISUAL: Three-panel display. Panel 1: Fundamental analysis showing PE ratio and earnings with a "公允价值：145美元" label. Panel 2: Price chart with support line at $148. Panel 3: Current price $155 with 5% and 10% arrows pointing to $147 and $140 respectively.]
 
-**Sam:** I notice there is always a tradeoff between the premium and the strike distance. Can you walk through that?
+**Stella：** 我注意到期权费和行权价距离之间总存在权衡。你能带我们走一遍吗？
 
-**Alex:** Absolutely. The further out of the money you go, the less premium you receive, but the lower your probability of being assigned. Think of it as a dial between income and safety.
+**Horace：** 当然。越深度虚值，你收到的期权费越少，但被行权的概率也越低。可以把它想象成一个在"更高收入"和"更高安全性"之间调节的旋钮。
 
-[VISUAL: A dial/gauge with "More Income" on the left and "More Safety" on the right. Specific strike prices are marked along the dial with their premiums and assignment probabilities.]
+[VISUAL: A dial/gauge with "更高收入" on the left and "更高安全性" on the right. Specific strike prices are marked along the dial with their premiums and assignment probabilities.]
 
-**Alex:** At the $155 strike, right at the money, you might get $4.50 in premium. That is a 3% monthly return, but there is a 50% chance you get assigned. At the $145 strike, 6.5% out of the money, you get $1.70. That is a 1.2% monthly return with about a 25% chance of assignment. At $135, 13% out of the money, you get $0.50. That is 0.4% per month with only a 12% chance of assignment.
+**Horace：** 平值的155美元行权价，期权费可能是4.50美元，月收益3%，但被行权概率50%。虚值6.5%的145美元行权价，期权费是1.70美元，月收益1.2%，被行权概率约25%。虚值13%的135美元行权价，期权费只有0.50美元，月收益0.4%，被行权概率仅12%。
 
-**Sam:** So for conservative investors, the $140-$145 range seems like the sweet spot?
+**Stella：** 所以对于保守型投资者来说，140至145美元的区间是最佳点位？
 
-**Alex:** For most people, yes. You are getting a meaningful premium, maybe 1-2% per month, with a 15-25% chance of assignment at a price you would love to own the stock. If you are assigned, you are happy. If you are not, you earned income. Win-win.
+**Horace：** 对大多数人而言，是的。你能获得有意义的期权费，可能是月度1%至2%，同时被行权的概率在15%至25%之间，而那正是你乐意持有股票的价格。被行权了你很高兴，没被行权你赚了钱。两全其美。
 
-**Sam:** Now let us talk about what happens after assignment. I sold a put, I got assigned, I now own 100 shares. What do I do?
+**Stella：** 现在说说被行权之后的事。我卖出了看跌期权，被行权了，现在持有100股，接下来怎么做？
 
-**Alex:** This is where the wheel strategy comes alive. Step one: check that the stock's fundamentals are still intact. Is this drop temporary or permanent? If the company is still strong, step two: start selling covered calls on your new shares.
+**Horace：** 这就是车轮策略大放异彩的时刻。第一步：确认股票基本面依然完好。这次下跌是暂时性的还是永久性的？如果公司依然强劲，第二步：开始对新持股卖出备兑看涨期权。
 
-**Sam:** So I immediately transition from put selling to covered call selling?
+**Stella：** 所以我立刻从卖出看跌期权切换到卖出备兑看涨期权？
 
-**Alex:** Exactly. Let us say you were assigned on AAPL at $145, effective cost $142.20. The stock is now at $143. You sell a $155 covered call for $2.50. Now you are collecting income while you wait for the stock to recover.
+**Horace：** 正是。比如你以145美元被行权，有效成本142.20美元，目前股价是143美元。你卖出一手155美元的备兑看涨期权，期权费2.50美元。你在等待股价回升的同时持续收入。
 
-[VISUAL: Transition animation showing the wheel turning from "Phase 1: Put Selling" to "Phase 2: Covered Call Selling". The investor's dashboard changes from showing a short put position to showing long shares plus a short call.]
+[VISUAL: Transition animation showing the wheel turning from "第一阶段：卖出看跌期权" to "第二阶段：卖出备兑看涨期权". The investor's dashboard changes from showing a short put position to showing long shares plus a short call.]
 
-**Alex:** If Apple recovers to $155 and your shares are called away, your total profit on the cycle is: $155 minus $142.20 effective cost plus $2.50 call premium equals $15.30 per share. That is a $1,530 profit on a position that started with a put.
+**Horace：** 如果苹果回升至155美元并且你的股票被行权卖出，这整轮循环的总盈利是：155美元减去有效成本142.20美元，加上2.50美元看涨期权费，等于每股15.30美元，也就是每手1,530美元——而这一切始于一手看跌期权。
 
-**Sam:** And then you go back to selling puts?
+**Stella：** 然后你再回去卖看跌期权？
 
-**Alex:** You go back to Phase 1. You have $15,500 in cash from the sale, plus the accumulated premiums. You sell another put and the wheel keeps turning.
+**Horace：** 回到第一阶段。你手里有从卖出股票所得的15,500美元，加上累积的期权费。再卖一手看跌期权，车轮继续转。
 
 [VISUAL: The complete wheel cycle shown as a circular flow chart with dollar amounts at each stage, showing how capital grows through each phase]
 
-**Sam:** Let me ask about the complete portfolio approach. If I have $100,000, how should I set this up?
+**Stella：** 谈谈完整的投资组合管理方法。如果我有10万美元，应该如何设置？
 
-**Alex:** Divide your capital across 4-6 quality stocks in different sectors. Keep 15-20% as a cash buffer. Sell one monthly put on each stock.
+**Horace：** 将资金分散配置到不同板块的4到6只优质股票中，保留15%至20%的现金缓冲，对每只股票每月卖出一手看跌期权。
 
 [VISUAL: Portfolio allocation pie chart with 5 stocks and a cash buffer segment, showing the specific positions and premiums]
 
-**Alex:** With $100,000, you might have five positions using about $80,000 in capital, with $20,000 in reserve. Each month, you collect roughly $1,000-$1,500 in total premiums. That is $12,000-$18,000 per year, or 12-18% on your total capital.
+**Horace：** 10万美元的资金，可以建立5个持仓，占用约8万美元，预留2万美元。每个月合计收取约1,000至1,500美元的期权费，全年就是1.2至1.8万美元，相当于总资金的12%至18%。
 
-**Sam:** And if one or two get assigned?
+**Stella：** 如果一两个持仓被行权了呢？
 
-**Alex:** You start selling covered calls on those positions while continuing to sell puts on the others. Your portfolio evolves naturally between Phase 1 and Phase 2 positions. Some months you might have all puts. Other months, a mix of puts and covered calls. The income keeps flowing regardless.
+**Horace：** 你就对那些持仓开始卖备兑看涨期权，同时继续对其余标的卖看跌期权。你的投资组合在第一阶段和第二阶段之间自然切换流动。有些月份可能全是看跌期权，有些月份是两者混合。无论哪种情况，收入都在持续流入。
 
-**Sam:** This is starting to feel like a real income business.
+**Stella：** 这开始感觉像一门真正的收入生意了。
 
-**Alex:** That is exactly what it is. And the best part is, it aligns perfectly with what a long-term investor already wants to do. You are buying quality stocks at good prices and selling them at higher prices. The wheel just pays you at every step of that process.
+**Horace：** 这正是它的本质。而且最妙的是，它与长线投资者本来想做的事完全契合。你在以合适的价格买入优质股票，在更高的价格卖出，只不过车轮策略在这整个过程的每一步都在付你钱。
 
 [ANIMATION: Reference animation/week28_cash_secured_put.py - A second animation sequence showing a 12-month wheel strategy simulation. The animation shows a portfolio of 3 stocks cycling through put selling and covered call phases. A monthly income tracker shows premiums accumulating. An equity curve shows the portfolio value growing steadily compared to a simple buy-and-hold approach. Key metrics update: total premiums collected, number of assignments, total return.]
 
-**Sam:** Let us talk about risk management. What are the things that could go wrong?
+**Stella：** 来聊聊风险管理。什么情况下会出问题？
 
-**Alex:** The biggest risk is a stock you sell puts on experiencing a fundamental deterioration. Imagine selling puts on a company that then announces massive fraud or a failed product. The stock drops 50% and you are forced to buy at your strike price.
+**Horace：** 最大的风险是：你对某只股票卖出了看跌期权，而它随后出现了基本面的根本性恶化。想象一下，你卖出了一家公司的看跌期权，然后该公司宣布了重大欺诈或产品失败。股价腰斩，你被迫以行权价买入。
 
-**Sam:** How do you protect against that?
+**Stella：** 怎么防范？
 
-**Alex:** Three ways. First, only sell puts on high-quality companies with strong balance sheets, competitive moats, and consistent earnings. You are not selling puts on speculative biotech stocks or meme stocks. Second, diversify. If you have five positions and one stock drops 30%, it is painful but not devastating. Third, have a stop-loss mentality. If the stock starts dropping and the fundamental thesis changes, buy back the put at a loss. A $500 loss is much better than a $5,000 loss.
+**Horace：** 三种方式。第一，只对资产负债表稳健、具备竞争护城河、盈利持续的高质量公司卖出看跌期权。你不会对投机性生物科技股或炒作股卖出期权。第二，分散持仓。如果你有五个仓位，某只股票跌了30%，会很痛，但不会毁灭性地打击你。第三，保持止损意识。如果股票开始下跌，且基本面逻辑已发生变化，就亏损买回看跌期权。亏损500美元远比亏损5,000美元要好得多。
 
-[VISUAL: Three pillars of risk management: "Quality Companies" (images of blue-chip logos), "Diversification" (pie chart), "Stop-Loss Discipline" (circuit breaker image)]
+[VISUAL: Three pillars of risk management: "优质公司"（蓝筹股标志图片），"分散持仓"（饼图），"止损纪律"（断路器图片）]
 
-**Sam:** What about market-wide crashes? Like 2008 or March 2020?
+**Stella：** 那大规模市场崩溃呢？比如2008年或2020年3月？
 
-**Alex:** In a broad market crash, if you have puts on five stocks and the market drops 25%, you could be assigned on all of them. This is where the cash buffer matters. If you have $100,000 and only $80,000 in put positions, you can handle the assignments without stress.
+**Horace：** 在大范围市场暴跌时，如果你对五只股票持有看跌期权，而市场整体下跌25%，你可能在所有仓位上都被行权。这正是现金缓冲的重要性所在。如果你持有10万美元，只有8万美元在看跌期权仓位上，那所有被行权时你也从容应对。
 
-**Alex:** But here is the silver lining: in a crash, you are buying stocks at your target prices during maximum fear. Historically, these have been the best times to buy. If you sold $145 puts on Apple and the market crashes to bring Apple to $130, you buy at an effective cost of $142.20. If Apple recovers to $200 over the next two years, which it historically does, you made an incredible entry.
+**Horace：** 但这里有一线希望：在市场崩溃时，你正以目标价格在极度恐慌中买入股票。从历史来看，这些往往是最好的买入时机。如果你以145美元卖出了苹果的看跌期权，市场崩溃导致苹果跌至130美元，你的有效成本是142.20美元。如果苹果两年内回升至200美元——历史上它确实如此——你进场的时机极为出色。
 
-**Sam:** So the short-term pain is real, but the long-term opportunity is also real.
+**Stella：** 短期的阵痛是真实的，但长期的机遇同样是真实的。
 
-**Alex:** Exactly. The put seller's advantage is that they entered at $142.20, not $145. Every dollar matters when you are buying at a low.
+**Horace：** 正是。卖出看跌期权者的优势在于他们以142.20美元入场，而不是145美元。当你在低点买入时，每一分钱都至关重要。
 
-[VISUAL: Historical chart showing S&P 500 crashes and recoveries: 2008, 2020, 2022. Arrows showing "Put sellers buying here" at the low points, with recovery trajectories and eventual profits.]
+[VISUAL: Historical chart showing S&P 500 crashes and recoveries: 2008, 2020, 2022. Arrows showing "看跌期权卖家在此买入" at the low points, with recovery trajectories and eventual profits.]
 
-**Sam:** Let me ask about expiration selection. We talked about 30-45 days being the sweet spot for covered calls. Is it the same for puts?
+**Stella：** 再来说说到期日的选择。我们谈到备兑看涨期权的最佳窗口是30至45天，看跌期权也一样吗？
 
-**Alex:** Same principles apply. 30-45 days gives you the best balance of premium versus time commitment. Theta decay accelerates after 45 days, so you capture the most decay per day. Monthly cycles align well with most people's schedules: spend 30 minutes on expiration day managing positions, then forget about it for three weeks.
+**Horace：** 相同的原则。30至45天在期权费收入与时间投入之间实现最佳平衡。45天以内Theta衰减加速，因此每天捕获的时间价值衰减量最大。月度循环也与大多数人的日程安排相契合：在到期日花30分钟管理仓位，然后三周内不必操心。
 
-**Sam:** What about weekly puts?
+**Stella：** 每周卖出看跌期权怎么样？
 
-**Alex:** Weekly puts give you higher annualized yields on paper, but they require weekly attention, have smaller absolute premiums per trade, and sometimes the bid-ask spread eats up a larger percentage of the premium. For most investors, monthly is the way to go. Weekly works for experienced traders who enjoy the process.
+**Horace：** 每周看跌期权的理论年化收益率更高，但需要每周关注，单次期权费的绝对金额较小，有时买卖价差会吃掉期权费收入的更大比例。对于大多数投资者，月度操作是正确的选择。每周操作适合享受交易过程的有经验者，但建议先从月度开始。
 
-[VISUAL: Calendar view showing monthly put selling schedule. One day per month highlighted as "Management Day" where positions are reviewed and new puts are sold.]
+[VISUAL: Calendar view showing monthly put selling schedule. One day per month highlighted as "管理日" where positions are reviewed and new puts are sold.]
 
-**Sam:** Can I do all of this in my Roth IRA?
+**Stella：** 我可以在Roth IRA账户里做这些操作吗？
 
-**Alex:** Absolutely, and I strongly recommend it. In a Roth IRA, the premium income grows tax-free forever. No capital gains tax, no income tax on premiums. Over 20-30 years, the tax savings from doing this strategy in a Roth IRA can amount to tens or hundreds of thousands of dollars.
+**Horace：** 当然可以，而且我强烈建议这样做。在Roth IRA中，期权费收入永久免税增长，没有资本利得税，没有期权费收入税。30年下来，在Roth IRA中运行这个策略所节省的税款，可能多达数万乃至数十万美元。
 
-**Sam:** That is huge. What about traditional IRAs?
+**Stella：** 这意义重大。传统IRA账户呢？
 
-**Alex:** Also excellent. The income grows tax-deferred. You pay taxes when you withdraw, but in the meantime, you can reinvest the full premium amount without any tax drag. Both IRA types are ideal for the wheel strategy.
+**Horace：** 同样出色。收入实现税收递延增长，取款时才缴税，但在此期间你可以将全部期权费再投资，没有税收拖累。两种IRA类型都是运行车轮策略的理想账户。
 
-[VISUAL: Comparison of three accounts: "Taxable: Premium taxed at 22-37%", "Traditional IRA: Tax-deferred", "Roth IRA: TAX-FREE". A 20-year growth chart shows the compounding difference.]
+[VISUAL: Comparison of three accounts: "应税账户：期权费按22-37%纳税"，"传统IRA：税收递延"，"Roth IRA：永久免税"。A 20-year growth chart shows the compounding difference.]
 
-**Sam:** Let us do one more complete example. Walk me through a full year of cash-secured put selling.
+**Stella：** 我们再来一个完整示例。带我们走一遍完整的一年现金担保看跌期权操作。
 
-**Alex:** Let us do it with Microsoft, currently at $420. We think $380 is a great entry price.
+**Horace：** 好，以微软为例，当前股价420美元，我们认为380美元是理想的入场价。
 
 [VISUAL: MSFT stock chart with $380 level marked. Monthly timeline below showing put selling activity.]
 
-**Alex:** Month 1: We sell the $380 put for $4.50. Microsoft stays at $415. Put expires. We keep $450.
+**Horace：** 第1个月：卖出380美元看跌期权，期权费4.50美元。微软股价保持在415美元，期权到期，保留450美元。
 
-Month 2: Sell $380 put for $3.80. Microsoft at $425. Expires. Keep $380.
+第2个月：卖出380美元看跌期权，期权费3.80美元。微软股价425美元，到期，保留380美元。
 
-Month 3: Sell $380 put for $5.00. Microsoft at $410. Expires. Keep $500.
+第3个月：卖出380美元看跌期权，期权费5.00美元。微软股价410美元，到期，保留500美元。
 
-Month 4: Sell $380 put for $4.20. Microsoft at $418. Expires. Keep $420.
+第4个月：卖出380美元看跌期权，期权费4.20美元。微软股价418美元，到期，保留420美元。
 
-Month 5: Sell $380 put for $6.50 (higher IV before earnings). Microsoft drops to $395 after earnings but stays above $380. Expires. Keep $650.
+第5个月：卖出380美元看跌期权，期权费6.50美元（业绩发布前隐含波动率升高）。业绩发布后微软跌至395美元，但仍高于380美元，到期，保留650美元。
 
-Month 6: Sell $380 put for $4.00. Microsoft at $400. Expires. Keep $400.
+第6个月：卖出380美元看跌期权，期权费4.00美元。微软股价400美元，到期，保留400美元。
 
-**Sam:** So after six months, we have collected $2,800 in premiums and Microsoft never hit our price.
+**Stella：** 六个月后，我们累计收取了2,800美元期权费，微软从未触及我们的目标价。
 
-**Alex:** Right. $2,800 on $38,000 reserved capital is 7.4% in six months, or about 14.7% annualized. And we still have not bought the stock.
+**Horace：** 对。38,000美元预留资金上赚到2,800美元，六个月收益7.4%，年化约14.7%，而我们还没买入该股票。
 
-Month 7: Sell $380 put for $5.20. Microsoft drops to $375. We get assigned.
+第7个月：卖出380美元看跌期权，期权费5.20美元。微软跌至375美元，我们被行权。
 
-**Sam:** So now we own 100 shares at $380.
+**Stella：** 现在我们以380美元持有100股了。
 
-**Alex:** Yes, but our effective cost is much lower. We collected $2,800 plus the final $520 premium. Total premiums: $3,320, or $33.20 per share. Our effective cost basis is $380 minus $33.20 equals $346.80.
+**Horace：** 是的，但有效成本远低于此。我们累计收取了2,800美元，加上这次520美元的期权费，合计期权费3,320美元，折合每股33.20美元。有效成本基础是380美元减去33.20美元，等于346.80美元。
 
-[VISUAL: Calculator showing the running total: 7 months of premiums adding up to $3,320. Final effective cost: $346.80 vs original price of $420 when we started. Savings: $73.20 per share or 17.4%.]
+[VISUAL: Calculator showing the running total: 7个月期权费合计3,320美元。最终有效成本：346.80美元 vs 刚开始时420美元的股价。节省：每股73.20美元，折合17.4%。]
 
-**Sam:** We effectively bought Microsoft at $346.80 when it was at $420 when we started. That is a 17% discount.
+**Stella：** 我们实际上以346.80美元买入了微软，而最初入手时它在420美元，相当于打了83折，折扣高达17%。
 
-**Alex:** And now we start Phase 2. We sell covered calls on our 100 shares at a strike above our cost basis. Even though Microsoft is at $375 now, our cost is $346.80, so we have room to sell calls at $360, $370, or $380 and still make a profit if called away.
+**Horace：** 现在进入第二阶段。我们对持仓的100股卖出备兑看涨期权，行权价设在高于成本基础的位置。虽然微软现价375美元，但我们的成本是346.80美元，所以卖出360、370或380美元的看涨期权，若被行权仍然盈利。
 
-**Sam:** The wheel keeps turning.
+**Stella：** 车轮继续转。
 
-**Alex:** And income keeps flowing. That is the beauty of the system.
+**Horace：** 收入也持续流入。这就是这套系统的美妙之处。
 
-**Sam:** One last thing I want to address. Some people watching this are going to say, why not just buy the stock? Why go through all this?
+**Stella：** 最后一个问题。有些观众会问：为什么不直接买股票？这么做的意义在哪里？
 
-**Alex:** Fair question. If you have a stock you want to own right now and you believe it will go up significantly, buying at market is fine. Cash-secured puts are not about avoiding stock ownership. They are about making the process of building positions more efficient and profitable.
+**Horace：** 这是个合理的问题。如果你现在就想持有某只股票，且坚信它会大幅上涨，以市价买入完全没问题。现金担保看跌期权不是为了回避股票持有，而是让建立仓位的过程更高效、更有利可图。
 
-**Alex:** Think of it this way. A contractor could dig a foundation with a shovel or with an excavator. Both get the job done. But the excavator is more efficient. Cash-secured puts are the excavator. Same end result, stock ownership, but with income along the way and a better effective entry price.
+**Horace：** 这样想：一个承包商可以用铁锹挖地基，也可以用挖掘机。两者都能完成任务，但挖掘机效率更高。现金担保看跌期权就是那台挖掘机——最终结果相同，都是持有股票，但一路上有收入相伴，入场价也更优。
 
-[VISUAL: Side-by-side: "Buying Stock = Shovel" (simple, direct) vs "Cash-Secured Puts = Excavator" (more efficient, better result)]
+[VISUAL: Side-by-side: "买入股票 = 铁锹"（简单直接）vs "现金担保看跌期权 = 挖掘机"（更高效，更优结果）]
 
-**Sam:** I love that analogy. Let me summarize today. A cash-secured put means selling a put while holding enough cash to buy the shares. It is like a limit buy order that pays you. Your effective purchase price is always lower than the strike price because of the premium. If the stock stays above the strike, you keep the premium and try again. If you are assigned, you start selling covered calls. And this creates the wheel strategy: a continuous cycle of income generation.
+**Stella：** 这个比喻太形象了。来总结一下今天的内容。现金担保看跌期权是指在持有足额现金的同时卖出看跌期权，就像一张付你钱的限价买单。有效买入价始终低于行权价，因为期权费的存在。若股价高于行权价，保留期权费，下次再来。若被行权，开始卖出备兑看涨期权。这就构成了车轮策略：持续循环运转的收入生成机器。
 
-**Alex:** Perfect. And I want to leave everyone with this thought: the wheel strategy is not about getting rich quick. It is about building a systematic, income-generating investment machine. Month after month, year after year, the premiums accumulate, the positions cycle, and your wealth grows with a level of consistency that few other strategies can match.
+**Horace：** 完美总结。最后我想给所有人留下一个思考：车轮策略不是一夜暴富的捷径，它是一台系统化、持续创收的投资引擎。月复一月，年复一年，期权费不断累积，仓位不断轮转，财富以大多数其他策略难以匹敌的一致性稳步增长。
 
-**Sam:** Before we close, can we do a rapid-fire FAQ? I have a bunch of quick questions that viewers have sent in.
+**Stella：** 节目结束前，我们来做一个快问快答。我有很多来自观众的简短问题。
 
-**Alex:** Let us do it.
+**Horace：** 开始吧。
 
-**Sam:** Can I sell puts in a Roth IRA?
+**Stella：** 我可以在Roth IRA账户里卖出看跌期权吗？
 
-**Alex:** Yes, and I highly recommend it. Premiums grow tax-free forever. Most brokers allow cash-secured puts and covered calls in Roth and traditional IRAs.
+**Horace：** 可以，而且我强烈建议。期权费收入永久免税增长，没有资本利得税，也没有期权费收入税。大多数券商在Roth IRA和传统IRA中均允许现金担保看跌期权和备兑看涨期权。
 
-**Sam:** What happens if I get assigned and the stock keeps dropping?
+**Stella：** 如果被行权后股价继续下跌怎么办？
 
-**Alex:** You hold the stock and start selling covered calls. The premiums from covered calls reduce your cost basis further. If the company is still fundamentally sound, the stock will eventually recover, and you will profit from the recovery plus all the premiums collected.
+**Horace：** 持有股票，开始卖出备兑看涨期权。备兑看涨期权的期权费会进一步降低你的成本基础。如果公司基本面依然健康，股价终将恢复，你将从回升中获利，加上持股期间所有累积的期权费收入。
 
-**Sam:** Is there a minimum account size?
+**Stella：** 账户规模至少需要多少？
 
-**Alex:** For cash-secured puts, you need enough to buy 100 shares at the strike price. For a $55 stock like Coca-Cola, that is $5,500. For a $180 stock like JPMorgan, that is $18,000. Start with lower-priced quality stocks if you have a smaller account.
+**Horace：** 对于现金担保看跌期权，你需要足额现金在行权价买入100股。可口可乐55美元的股票，需要5,500美元；摩根大通180美元的股票，需要18,000美元。账户较小时，从价格较低的优质股票开始。
 
-**Sam:** Can I sell puts on ETFs?
+**Stella：** 可以对交易所交易基金卖出看跌期权吗？
 
-**Alex:** Yes, SPY, QQQ, IWM, and sector ETFs all have active options markets. ETF puts are a great way to build positions in the broad market at lower prices. The premiums are slightly lower percentage-wise due to lower volatility, but the diversification benefit is significant.
+**Horace：** 可以，SPY、QQQ、IWM及各板块交易所交易基金都有活跃的期权市场。交易所交易基金看跌期权是以较低价格建立大盘仓位的好方法。由于波动性较低，百分比收益率略低，但分散化效果极佳，流动性也非常出色。
 
-**Sam:** What is the difference between a cash-secured put and a naked put?
+**Stella：** 现金担保看跌期权和裸看跌期权有什么区别？
 
-**Alex:** Same option trade, different collateral. Cash-secured means you have 100% of the cash to buy the shares. Naked means you are using margin and only posting a fraction. We exclusively teach cash-secured because it eliminates margin risk. Never sell naked puts as a beginner.
+**Horace：** 期权策略相同，担保品不同。现金担保意味着你有100%的资金用于买入股票。裸卖出意味着使用保证金，只需存入一小部分资金。我们专门教授现金担保看跌期权，因为它消除了保证金风险。初学者切勿卖出裸看跌期权。
 
-**Sam:** How many stocks should I sell puts on at once?
+**Stella：** 同一时间应该对多少只股票卖出看跌期权？
 
-**Alex:** Four to six is a good range. This gives you diversification without becoming unmanageable. Each position should use no more than 20% of your total capital, and you should keep 15-20% as a cash reserve.
+**Horace：** 四到六只是合适的范围，既能分散持仓，又不会管理起来焦头烂额。每个持仓不应超过总资金的20%，同时保留15%至20%的现金储备。
 
-**Sam:** What if I want to buy a stock right now? Should I still sell a put?
+**Stella：** 如果我现在就想买入某只股票，还需要卖出看跌期权吗？
 
-**Alex:** If you want to buy immediately and you are bullish, just buy the stock. Cash-secured puts are for when you want to buy at a LOWER price. If you are patient and have a target entry, sell the put. If you think the stock is going up and you do not want to miss it, buy at market.
+**Horace：** 如果你立刻想买且看多该股，就直接买入。现金担保看跌期权适用于你希望以更低价格买入的情形。如果你认为股票会上涨且不想错过，就以市价买入；如果你有耐心，有目标入场价，就卖出看跌期权。
 
-**Sam:** Last question: what is the single biggest mistake new put sellers make?
+**Stella：** 最后一个问题：新手卖出看跌期权时最常犯的错误是什么？
 
-**Alex:** Selling puts on stocks they would not actually want to own. They see a fat premium on a volatile stock and think, "This will never hit the strike." Then it does, and they are stuck owning 100 shares of a company they do not believe in. Only sell puts on stocks you love at prices you would celebrate buying at.
+**Horace：** 对那些自己其实并不想持有的股票卖出看跌期权。他们看到某只高波动性股票的丰厚期权费，心想"这不可能跌到行权价"，结果它真的跌到了，他们被迫持有100股一家自己并不认可的公司股票。只对你真心喜欢的股票，在你会为之欢呼雀跃的价格上，卖出看跌期权。
 
-**Sam:** Love it. Sell puts on stocks you love at prices you would celebrate. That should be on a poster.
+**Stella：** 太对了。对你喜欢的股票，在你愿意以击掌庆贺的价格上，卖出看跌期权。这句话应该做成海报。
 
-**Alex:** Maybe I will make one.
+**Horace：** 也许我真的会做一张。
 
-**Sam:** Thank you all for joining us through these four weeks of options education. We started knowing nothing about options, and now we have a complete, practical framework.
+**Stella：** 感谢大家陪我们走过这四周的期权教育旅程。我们从对期权一无所知出发，如今已拥有一套完整实用的框架。
 
-**Alex:** If you have watched all four lessons, you now understand more about practical options strategies than most investors ever will. Start small, practice with one or two positions, and scale up as you gain confidence. The wheel rewards patience and discipline.
+**Horace：** 如果你把这四节课都看完了，你现在对实用期权策略的理解，已经超过了大多数投资者的终身积累。从小处着手，先用一两个仓位练手，随着信心增长再逐步扩大规模。车轮策略奖励的，是有耐心、有纪律的人。
 
-**Sam:** Let me give our four-lesson summary for anyone who wants the big picture.
+**Stella：** 为所有想了解全局的观众，总结一下这四节课的核心内容。
 
 [VISUAL: Four-panel summary appearing one by one]
 
-**Sam:** Week 25: We learned what options are. Calls, puts, strike prices, expiration, time decay. The building blocks.
+**Stella：** 第25周：我们学习了期权的基本概念——看涨期权、看跌期权、行权价、到期日、时间价值衰减，这些是一切的基石。
 
-**Sam:** Week 26: We learned to think of options as conditional orders. Puts are paid limit buys. Calls are paid limit sells. This is the mental model that makes everything click.
+**Stella：** 第26周：我们学会了将期权理解为条件委托单——看跌期权是付你钱的限价买单，看涨期权是付你钱的限价卖单。这个心智模型让一切豁然开朗。
 
-**Sam:** Week 27: We mastered covered calls. Own shares, sell calls, generate income. Premium income can be 2-3 times dividends or more.
+**Stella：** 第27周：我们掌握了备兑看涨期权——持股、卖出看涨期权、创造收入。期权费收入可以是股息的两到三倍乃至更多。
 
-**Sam:** Week 28: We completed the picture with cash-secured puts. Get paid to wait for your buy price. When assigned, start selling covered calls. The wheel keeps turning.
+**Stella：** 第28周：我们用现金担保看跌期权画龙点睛——坐等目标买入价，期间收取期权费。被行权后开始卖出备兑看涨期权，车轮持续转动。
 
-**Alex:** And here is the beautiful thing: these four lessons give you a complete, practical system. You do not need to learn straddles, strangles, iron condors, or butterfly spreads. The wheel strategy, using only cash-secured puts and covered calls, is all most long-term investors will ever need.
+**Horace：** 美妙之处在于：这四节课给了你一套完整实用的系统。你不需要学习跨式、宽跨式、铁鹰策略或蝶式价差。车轮策略，只用现金担保看跌期权和备兑看涨期权，就是大多数长线投资者终其一生所需要的全部。
 
-**Sam:** Simple, powerful, and proven. Thanks for watching, everyone.
+**Stella：** 简单、有力、经得起时间检验。感谢大家的收看。
 
-**Alex:** Please like and subscribe if this series has been valuable. And leave a comment telling us about your first cash-secured put or covered call trade. We love hearing your stories. See you in the next lesson.
+**Horace：** 如果这个系列对你有价值，欢迎点赞并订阅。在评论区告诉我们你的第一笔现金担保看跌期权或备兑看涨期权交易，我们非常期待听到你们的故事。下节课见。
 
-[VISUAL: End screen with subscribe button. Series recap showing all four weeks: "Week 25: Options Basics -> Week 26: Options as Orders -> Week 27: Covered Calls -> Week 28: Cash-Secured Puts". Text: "You now have the complete toolkit. Start the wheel."]
+[VISUAL: End screen with subscribe button. Series recap showing all four weeks: "第25周：期权基础 -> 第26周：期权即委托单 -> 第27周：备兑看涨期权 -> 第28周：现金担保看跌期权". Text: "工具箱已就位，启动车轮吧。"]
 
 ---
 
-*Animation Reference: animation/week28_cash_secured_put.py - This animation shows two main sequences. First, an interactive payoff diagram for a cash-secured put, where the strike price and premium can be adjusted. The effective purchase price updates dynamically. Four stock price paths are animated to show each scenario (stays above, drops to strike, drops well below, rallies higher), with outcome boxes appearing for each. Second, a 12-month wheel strategy simulation showing a portfolio of 3 stocks cycling through put and covered call phases. Monthly income bars accumulate in a chart, and an equity curve compares the wheel approach to simple buy-and-hold, demonstrating the income advantage in flat and mildly bearish markets.*
+*动画参考：animation/week28_cash_secured_put.py——该动画包含两个主要序列。第一个是现金担保看跌期权的交互式盈亏图，行权价和期权费可动态调整，有效买入成本实时更新。四条股价走势路径依次动画展示每种情景（高于行权价、跌至行权价、大幅跌破行权价、大幅上涨），每种结果对应的说明框逐一弹出。第二个是12个月的车轮策略模拟，展示三只股票的投资组合在看跌期权和备兑看涨期权两个阶段之间的循环切换。月度收入柱状图持续累积，权益曲线将车轮策略与简单买入并持有进行对比，直观呈现该策略在震荡市和温和熊市中的收入优势。*

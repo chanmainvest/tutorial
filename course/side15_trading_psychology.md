@@ -220,9 +220,9 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Heart rate monitor graphic overlaid on a volatile stock chart, both spiking and crashing together]
 
-**Alex:** There is a saying in investing: "The market is a device for transferring money from the impatient to the patient." And after everything we have covered about valuation, diversification, and asset allocation, you might think the hard part is the math.
+**Horace:** There is a saying in investing: "The market is a device for transferring money from the impatient to the patient." And after everything we have covered about valuation, diversification, and asset allocation, you might think the hard part is the math.
 
-**Sam:** It is not. The hardest part of investing is managing what is between your ears. Your brain -- brilliant as it is -- comes equipped with millions of years of survival instincts that are absolutely terrible for investing.
+**Stella:** It is not. The hardest part of investing is managing what is between your ears. Your brain -- brilliant as it is -- comes equipped with millions of years of survival instincts that are absolutely terrible for investing.
 
 [VISUAL: Title card "Trading Psychology: Mastering Your Emotions in the Market"]
 
@@ -232,17 +232,17 @@ A: Professional traders use several techniques. They define risk before entering
 
 [ANIMATION: Roller coaster graphic that follows a stock chart from bull market to bear market and back, with emotion labels at each stage]
 
-**Alex:** Let me walk you through something called the emotional cycle of investing. It is eerily predictable, and once you see it, you cannot unsee it.
+**Horace:** Let me walk you through something called the emotional cycle of investing. It is eerily predictable, and once you see it, you cannot unsee it.
 
-**Sam:** It starts with optimism. Markets are going up, your portfolio is growing, and you are feeling good. Then optimism turns to excitement, excitement turns to thrill, and at the very peak -- euphoria.
+**Stella:** It starts with optimism. Markets are going up, your portfolio is growing, and you are feeling good. Then optimism turns to excitement, excitement turns to thrill, and at the very peak -- euphoria.
 
 [VISUAL: Chart with markers at each emotional stage: Optimism -> Excitement -> Thrill -> Euphoria (peak) -> Anxiety -> Denial -> Fear -> Desperation -> Panic (bottom) -> Depression -> Hope -> Relief]
 
-**Alex:** Euphoria is the point of maximum financial risk. It is when people say things like "stocks only go up" or "this time is different." It is when your barber is giving you stock tips and your neighbor just quit her job to day trade.
+**Horace:** Euphoria is the point of maximum financial risk. It is when people say things like "stocks only go up" or "this time is different." It is when your barber is giving you stock tips and your neighbor just quit her job to day trade.
 
-**Sam:** And then the cycle reverses. Anxiety, denial, fear, desperation, and finally -- panic. Panic is when people sell at the absolute bottom. They cannot take the pain anymore, and they dump everything.
+**Stella:** And then the cycle reverses. Anxiety, denial, fear, desperation, and finally -- panic. Panic is when people sell at the absolute bottom. They cannot take the pain anymore, and they dump everything.
 
-**Alex:** Here is the cruel irony. The moment of maximum risk -- euphoria -- feels amazing. And the moment of maximum opportunity -- panic -- feels absolutely terrible. Your emotions are literally guiding you to do the exact wrong thing at the exact wrong time.
+**Horace:** Here is the cruel irony. The moment of maximum risk -- euphoria -- feels amazing. And the moment of maximum opportunity -- panic -- feels absolutely terrible. Your emotions are literally guiding you to do the exact wrong thing at the exact wrong time.
 
 [VISUAL: Two contrasting images side by side: happy investor at market peak captioned "Maximum Risk," distressed investor at market bottom captioned "Maximum Opportunity"]
 
@@ -252,21 +252,21 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Brain graphic with labeled regions for different biases]
 
-**Sam:** So why do we keep falling into these traps? Because our brains are wired with cognitive biases that made perfect sense for survival on the savanna but are disastrous for investing.
+**Stella:** So why do we keep falling into these traps? Because our brains are wired with cognitive biases that made perfect sense for survival on the savanna but are disastrous for investing.
 
-**Alex:** Let us talk about the big ones. First: loss aversion. Psychologists Kahneman and Tversky showed that losing $1,000 hurts about twice as much as gaining $1,000 feels good.
+**Horace:** Let us talk about the big ones. First: loss aversion. Psychologists Kahneman and Tversky showed that losing $1,000 hurts about twice as much as gaining $1,000 feels good.
 
 [ANIMATION: Scale showing $1,000 loss on one side weighing twice as much as $1,000 gain]
 
-**Sam:** This means investors hold onto losing stocks way too long, hoping to avoid the pain of realizing the loss. And they sell winning stocks too early, rushing to lock in the pleasure of a gain. It is called the disposition effect, and it is one of the most consistent findings in behavioral finance.
+**Stella:** This means investors hold onto losing stocks way too long, hoping to avoid the pain of realizing the loss. And they sell winning stocks too early, rushing to lock in the pleasure of a gain. It is called the disposition effect, and it is one of the most consistent findings in behavioral finance.
 
-**Alex:** Next: confirmation bias. Once you decide a stock is great, your brain starts filtering information. You notice every positive article and dismiss every negative one. You are literally building a case for what you already believe instead of objectively evaluating the evidence.
+**Horace:** Next: confirmation bias. Once you decide a stock is great, your brain starts filtering information. You notice every positive article and dismiss every negative one. You are literally building a case for what you already believe instead of objectively evaluating the evidence.
 
 [VISUAL: Funnel graphic showing information flowing in, with "Confirms my view" going through and "Contradicts my view" being filtered out]
 
-**Sam:** Then there is anchoring. You bought a stock at $50, it drops to $30, and you refuse to sell because $50 is your anchor. "I will sell when it gets back to $50." But the stock does not know or care what you paid. The market does not owe you a return to your break-even price.
+**Stella:** Then there is anchoring. You bought a stock at $50, it drops to $30, and you refuse to sell because $50 is your anchor. "I will sell when it gets back to $50." But the stock does not know or care what you paid. The market does not owe you a return to your break-even price.
 
-**Alex:** And finally, herd behavior. When everyone around you is buying, it feels safe to buy. When everyone is panicking, it feels dangerous to hold. But the crowd is reliably wrong at extremes. That is literally what creates the extremes.
+**Horace:** And finally, herd behavior. When everyone around you is buying, it feels safe to buy. When everyone is panicking, it feels dangerous to hold. But the crowd is reliably wrong at extremes. That is literally what creates the extremes.
 
 ---
 
@@ -274,19 +274,19 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: CNN Fear and Greed Index gauge graphic]
 
-**Sam:** If we simplify all these biases down, they really boil down to two primal emotions: fear and greed.
+**Stella:** If we simplify all these biases down, they really boil down to two primal emotions: fear and greed.
 
-**Alex:** And here is what is interesting -- they operate on completely different timescales. Greed builds slowly. It is the gradual accumulation of confidence during a bull market. You see your portfolio going up month after month, your friends are making money, social media is full of gain screenshots, and you start thinking, "Maybe I should take more risk."
+**Horace:** And here is what is interesting -- they operate on completely different timescales. Greed builds slowly. It is the gradual accumulation of confidence during a bull market. You see your portfolio going up month after month, your friends are making money, social media is full of gain screenshots, and you start thinking, "Maybe I should take more risk."
 
 [ANIMATION: Pot of water slowly coming to a boil, labeled "Greed"]
 
-**Sam:** Fear hits like a lightning bolt. One bad day, one scary headline, and suddenly your stomach is in knots. Fear triggers our fight-or-flight response. Your body literally pumps adrenaline and cortisol, narrowing your focus and pushing you toward immediate action. In the wild, that saves your life. In the market, it destroys your portfolio.
+**Stella:** Fear hits like a lightning bolt. One bad day, one scary headline, and suddenly your stomach is in knots. Fear triggers our fight-or-flight response. Your body literally pumps adrenaline and cortisol, narrowing your focus and pushing you toward immediate action. In the wild, that saves your life. In the market, it destroys your portfolio.
 
 [ANIMATION: Lightning bolt striking, labeled "Fear"]
 
-**Alex:** The CNN Fear and Greed Index tracks seven market indicators to measure overall sentiment. And here is the key finding: periods of extreme greed have historically corresponded to market peaks, and periods of extreme fear have corresponded to market bottoms.
+**Horace:** The CNN Fear and Greed Index tracks seven market indicators to measure overall sentiment. And here is the key finding: periods of extreme greed have historically corresponded to market peaks, and periods of extreme fear have corresponded to market bottoms.
 
-**Sam:** So if you can learn to do the opposite of what your emotions are screaming at you to do -- be cautious when you feel greedy and buy when you feel fearful -- you have an enormous edge over the average investor.
+**Stella:** So if you can learn to do the opposite of what your emotions are screaming at you to do -- be cautious when you feel greedy and buy when you feel fearful -- you have an enormous edge over the average investor.
 
 ---
 
@@ -294,19 +294,19 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Toolkit graphic showing "Your Emotional Defense Kit"]
 
-**Alex:** Okay, so knowing about these biases is important, but knowing is not enough. You need actual systems and habits to protect yourself from yourself.
+**Horace:** Okay, so knowing about these biases is important, but knowing is not enough. You need actual systems and habits to protect yourself from yourself.
 
-**Sam:** Strategy number one: Write an Investment Policy Statement. This is your personal investing constitution. It defines your goals, your time horizon, your asset allocation, and your rules for buying and selling. When emotions run high, you do not ask "What should I do?" You ask "What does my plan say I should do?"
+**Stella:** Strategy number one: Write an Investment Policy Statement. This is your personal investing constitution. It defines your goals, your time horizon, your asset allocation, and your rules for buying and selling. When emotions run high, you do not ask "What should I do?" You ask "What does my plan say I should do?"
 
 [VISUAL: Document template showing IPS sections: Goals, Time Horizon, Asset Allocation, Rebalancing Rules, Buy/Sell Criteria]
 
-**Alex:** Strategy number two: Automate everything you can. Dollar-cost averaging -- investing a fixed amount on a set schedule -- removes the timing decision entirely. You buy when prices are high, you buy when prices are low, and over time, it averages out. The key is that you do not have to make a decision during scary moments.
+**Horace:** Strategy number two: Automate everything you can. Dollar-cost averaging -- investing a fixed amount on a set schedule -- removes the timing decision entirely. You buy when prices are high, you buy when prices are low, and over time, it averages out. The key is that you do not have to make a decision during scary moments.
 
-**Sam:** Strategy number three: The 24-hour rule. Before making any trade driven by emotion, sleep on it. If the idea still makes sense tomorrow with a clear head, go ahead. If it was driven by fear or excitement, the urge will usually fade.
+**Stella:** Strategy number three: The 24-hour rule. Before making any trade driven by emotion, sleep on it. If the idea still makes sense tomorrow with a clear head, go ahead. If it was driven by fear or excitement, the urge will usually fade.
 
 [VISUAL: Clock graphic with "24 HOURS" and "Before any emotional trade" caption]
 
-**Alex:** Strategy number four: Check your portfolio less often. This one sounds counterintuitive, but research is clear. Investors who check daily earn worse returns than those who check monthly or quarterly. Every time you look at your portfolio on a red day, loss aversion kicks in and whispers "sell." If you check less often, you expose yourself to fewer of those harmful impulses.
+**Horace:** Strategy number four: Check your portfolio less often. This one sounds counterintuitive, but research is clear. Investors who check daily earn worse returns than those who check monthly or quarterly. Every time you look at your portfolio on a red day, loss aversion kicks in and whispers "sell." If you check less often, you expose yourself to fewer of those harmful impulses.
 
 ---
 
@@ -314,21 +314,21 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Open journal/notebook with handwritten trade entries]
 
-**Sam:** Let us talk about the hardest part -- dealing with losses. Because losses are inevitable. The S&P 500 drops an average of 14 percent from its high at some point during every single year. That is normal.
+**Stella:** Let us talk about the hardest part -- dealing with losses. Because losses are inevitable. The S&P 500 drops an average of 14 percent from its high at some point during every single year. That is normal.
 
-**Alex:** The key is to normalize losses in your mind before they happen. If you invest in stocks, you will see your portfolio drop 10 percent regularly, 20 percent occasionally, and 30 to 50 percent rarely but inevitably. This is the price of admission for long-term returns.
+**Horace:** The key is to normalize losses in your mind before they happen. If you invest in stocks, you will see your portfolio drop 10 percent regularly, 20 percent occasionally, and 30 to 50 percent rarely but inevitably. This is the price of admission for long-term returns.
 
 [VISUAL: Table showing S&P 500 intra-year declines alongside full-year returns for the past 20 years]
 
-**Sam:** One of the most powerful tools for managing losses -- and improving your overall decision-making -- is keeping an investment journal.
+**Stella:** One of the most powerful tools for managing losses -- and improving your overall decision-making -- is keeping an investment journal.
 
-**Alex:** Here is what you write for every trade. The date. What you bought or sold. The price. Your reasoning. What would change your mind. And critically -- your emotional state at the time. Were you calm, excited, anxious, fearful?
+**Horace:** Here is what you write for every trade. The date. What you bought or sold. The price. Your reasoning. What would change your mind. And critically -- your emotional state at the time. Were you calm, excited, anxious, fearful?
 
 [VISUAL: Journal entry template with fields for Date, Ticker, Action, Price, Thesis, Exit Criteria, Emotional State]
 
-**Sam:** Then every quarter, review your journal. You will start seeing patterns you never noticed. Maybe you always buy after a big up day, chasing momentum. Maybe you always sell on the third consecutive red day, just when things are about to turn around.
+**Stella:** Then every quarter, review your journal. You will start seeing patterns you never noticed. Maybe you always buy after a big up day, chasing momentum. Maybe you always sell on the third consecutive red day, just when things are about to turn around.
 
-**Alex:** That self-awareness is worth more than any stock tip or technical indicator. Because once you see the pattern, you can break it.
+**Horace:** That self-awareness is worth more than any stock tip or technical indicator. Because once you see the pattern, you can break it.
 
 ---
 
@@ -336,17 +336,17 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Summary graphic with key takeaways]
 
-**Sam:** Let us bring it all together with the most important principle of trading psychology. Ready?
+**Stella:** Let us bring it all together with the most important principle of trading psychology. Ready?
 
-**Alex:** The goal is not to have no emotions. That is impossible and not even desirable. Emotions are information. The goal is to have a process that is stronger than your emotions.
+**Horace:** The goal is not to have no emotions. That is impossible and not even desirable. Emotions are information. The goal is to have a process that is stronger than your emotions.
 
 [VISUAL: Text on screen: "Build a process stronger than your emotions"]
 
-**Sam:** When you feel euphoric and want to go all-in, your process says "my allocation is already at target, stay the course." When you feel terrified and want to sell everything, your process says "rebalance by buying more of what has fallen."
+**Stella:** When you feel euphoric and want to go all-in, your process says "my allocation is already at target, stay the course." When you feel terrified and want to sell everything, your process says "rebalance by buying more of what has fallen."
 
-**Alex:** The best investors are not the smartest or the most informed. They are the most disciplined. They have a plan, they follow it, and they have built habits and systems that protect them from their own worst impulses.
+**Horace:** The best investors are not the smartest or the most informed. They are the most disciplined. They have a plan, they follow it, and they have built habits and systems that protect them from their own worst impulses.
 
-**Sam:** Invest with a plan. Automate what you can. Write things down. Check your portfolio less. And remember -- the emotional cycle is always running. Your job is not to escape it, but to recognize where you are in it and act accordingly.
+**Stella:** Invest with a plan. Automate what you can. Write things down. Check your portfolio less. And remember -- the emotional cycle is always running. Your job is not to escape it, but to recognize where you are in it and act accordingly.
 
 [VISUAL: End card with channel logo and "Next: Market History and Crashes"]
 
@@ -356,22 +356,22 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Document being signed labeled "My Investment Commitment"]
 
-**Sam:** Here is one final, powerful technique that ties everything together. A commitment contract.
+**Stella:** Here is one final, powerful technique that ties everything together. A commitment contract.
 
-**Alex:** Before the next market correction happens -- because it will happen -- write down exactly what you will do when your portfolio drops 10 percent, 20 percent, or 30 percent. Be specific.
+**Horace:** Before the next market correction happens -- because it will happen -- write down exactly what you will do when your portfolio drops 10 percent, 20 percent, or 30 percent. Be specific.
 
-**Sam:** For example: "If my portfolio drops 10 percent, I will review my asset allocation but take no action unless it has drifted more than 5 percentage points from targets. If it drops 20 percent, I will rebalance by buying more of whatever has fallen. If it drops 30 percent, I will deploy cash reserves into equities according to my predetermined plan."
+**Stella:** For example: "If my portfolio drops 10 percent, I will review my asset allocation but take no action unless it has drifted more than 5 percentage points from targets. If it drops 20 percent, I will rebalance by buying more of whatever has fallen. If it drops 30 percent, I will deploy cash reserves into equities according to my predetermined plan."
 
 [VISUAL: Template showing three tiers of response: 10%, 20%, 30% decline with specific actions for each]
 
-**Alex:** Write it down now, when you are calm and rational. Sign it. Put it somewhere you can find it. When the panic hits -- and the heart rate goes up and the headlines are screaming -- you do not have to think. You just follow the plan.
+**Horace:** Write it down now, when you are calm and rational. Sign it. Put it somewhere you can find it. When the panic hits -- and the heart rate goes up and the headlines are screaming -- you do not have to think. You just follow the plan.
 
-**Sam:** This is what separates investors who build wealth from investors who destroy it. It is not intelligence, it is not information, it is not timing. It is having a process that is stronger than your emotions and the discipline to follow it when every instinct tells you to do the opposite.
+**Stella:** This is what separates investors who build wealth from investors who destroy it. It is not intelligence, it is not information, it is not timing. It is having a process that is stronger than your emotions and the discipline to follow it when every instinct tells you to do the opposite.
 
-**Alex:** Investing is simple, but it is not easy. The math is straightforward. The psychology is brutal. But with the right habits, the right tools, and the right self-awareness, you can master both.
+**Horace:** Investing is simple, but it is not easy. The math is straightforward. The psychology is brutal. But with the right habits, the right tools, and the right self-awareness, you can master both.
 
 [VISUAL: End card with channel logo and "Next: Market History and Crashes"]
 
-**Sam:** Next time, we are looking at the great market crashes of history -- what caused them, how long recovery took, and what lessons they teach us. See you there.
+**Stella:** Next time, we are looking at the great market crashes of history -- what caused them, how long recovery took, and what lessons they teach us. See you there.
 
 [END - 16:00]

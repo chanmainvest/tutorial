@@ -269,141 +269,141 @@ A: Yes. Foreign taxes paid on dividends from international stock funds may be cl
 
 **[VISUAL: Side-by-side comparison -- two identical portfolios both earning 8%. One labeled "Tax-Oblivious" shows ending value, the other "Tax-Efficient" shows a significantly larger ending value. Title card: "Tax-Efficient Investing"]**
 
-**Alex:** What if I told you that two investors with the exact same portfolio, the exact same returns, and the exact same savings rate could end up thirty to forty percent apart in total wealth over thirty years?
+**Horace:** What if I told you that two investors with the exact same portfolio, the exact same returns, and the exact same savings rate could end up thirty to forty percent apart in total wealth over thirty years?
 
-**Sam:** That is massive. What is the difference?
+**Stella:** That is massive. What is the difference?
 
-**Alex:** Taxes. Nothing else. Just taxes.
+**Horace:** Taxes. Nothing else. Just taxes.
 
 **[ANIMATION: Dollar bill being cut into pieces. "Taxes" slice taking 1-2% per year. Compound effect shown over 30 years growing from a small annual drag to a huge cumulative impact.]**
 
-**Sam:** Most people think about finding better investments. You are saying the bigger lever is keeping more of what you already earn.
+**Stella:** Most people think about finding better investments. You are saying the bigger lever is keeping more of what you already earn.
 
-**Alex:** Exactly. You cannot control the market, but you can absolutely control your tax efficiency. And the strategies we are covering today are not complicated -- they are just not taught in most places.
+**Horace:** Exactly. You cannot control the market, but you can absolutely control your tax efficiency. And the strategies we are covering today are not complicated -- they are just not taught in most places.
 
-**Alex:** Let us start with the absolute basics. When you sell an investment for a profit, you owe capital gains tax. But the rate depends entirely on how long you held it.
+**Horace:** Let us start with the absolute basics. When you sell an investment for a profit, you owe capital gains tax. But the rate depends entirely on how long you held it.
 
 **[VISUAL: Two clocks. One showing less than 12 months labeled "Short-Term: Taxed as Ordinary Income (up to 37%)." The other showing more than 12 months labeled "Long-Term: Preferential Rate (0%, 15%, or 20%)"]**
 
-**Alex:** Hold for a year or less -- short-term capital gain, taxed at your ordinary income rate, which for many professionals is thirty-two to thirty-seven percent. Hold for more than one year -- long-term capital gain, taxed at zero, fifteen, or twenty percent depending on your income.
+**Horace:** Hold for a year or less -- short-term capital gain, taxed at your ordinary income rate, which for many professionals is thirty-two to thirty-seven percent. Hold for more than one year -- long-term capital gain, taxed at zero, fifteen, or twenty percent depending on your income.
 
-**Sam:** So the difference between selling on day 364 and day 366 could be a fifteen-plus-percent difference in your tax rate?
+**Stella:** So the difference between selling on day 364 and day 366 could be a fifteen-plus-percent difference in your tax rate?
 
-**Alex:** Exactly. On a hundred-thousand-dollar gain, that is over fifteen thousand dollars saved just by waiting two more days. This is the simplest tax strategy in existence and yet people ignore it constantly.
+**Horace:** Exactly. On a hundred-thousand-dollar gain, that is over fifteen thousand dollars saved just by waiting two more days. This is the simplest tax strategy in existence and yet people ignore it constantly.
 
 **[ANIMATION: Calendar showing 365 days. Day 364 highlighted in red: "$37,000 tax." Day 366 highlighted in green: "$15,000 tax." Arrow showing $22,000 savings.]**
 
-**Sam:** What about dividends?
+**Stella:** What about dividends?
 
-**Alex:** Not all dividends are taxed the same. Qualified dividends get the same favorable rate as long-term capital gains. Ordinary dividends, like those from REITs, get taxed at your full income rate. And bond interest is always ordinary income.
+**Horace:** Not all dividends are taxed the same. Qualified dividends get the same favorable rate as long-term capital gains. Ordinary dividends, like those from REITs, get taxed at your full income rate. And bond interest is always ordinary income.
 
 **[VISUAL: Tax rate comparison table. Qualified Dividends: 0-20%. Ordinary Dividends: 10-37%. Bond Interest: 10-37%. Municipal Bond Interest: 0%.]**
 
-**Alex:** This is why holding bonds in your taxable brokerage account is one of the least efficient things you can do. All that interest income is taxed at your highest rate every single year.
+**Horace:** This is why holding bonds in your taxable brokerage account is one of the least efficient things you can do. All that interest income is taxed at your highest rate every single year.
 
-**Sam:** Which brings us to asset location.
+**Stella:** Which brings us to asset location.
 
-**Alex:** Right. Asset location is putting the right investments in the right type of account. You have three buckets.
+**Horace:** Right. Asset location is putting the right investments in the right type of account. You have three buckets.
 
 **[VISUAL: Three buckets labeled "Taxable Brokerage," "Traditional IRA/401(k)," and "Roth IRA/401(k)" with brief descriptions of tax treatment for each]**
 
-**Alex:** The general framework: in your taxable account, hold things that are already tax-efficient -- low-turnover index funds, ETFs, stocks you plan to hold forever, and municipal bonds. In your traditional IRA or 401(k), hold the tax-inefficient stuff -- bonds, REITs, high-turnover funds. In your Roth, hold whatever you expect to grow the most, because that growth will never be taxed.
+**Horace:** The general framework: in your taxable account, hold things that are already tax-efficient -- low-turnover index funds, ETFs, stocks you plan to hold forever, and municipal bonds. In your traditional IRA or 401(k), hold the tax-inefficient stuff -- bonds, REITs, high-turnover funds. In your Roth, hold whatever you expect to grow the most, because that growth will never be taxed.
 
-**Sam:** Why does it matter where things sit?
+**Stella:** Why does it matter where things sit?
 
-**Alex:** Let me show you with real numbers.
+**Horace:** Let me show you with real numbers.
 
 **[ANIMATION: Two scenarios running side by side over 20 years. Scenario A: Bond fund in taxable, stock fund in IRA. Scenario B: Stock fund in taxable, bond fund in IRA. Both start with same total dollars. After 20 years, Scenario B shows approximately 10-15% more after-tax wealth.]**
 
-**Alex:** Same total portfolio, same total returns, same total contributions. But by putting the bond fund inside the IRA where its interest is not taxed annually, and the stock fund in the taxable account where it gets preferential capital gains rates, you end up with meaningfully more money.
+**Horace:** Same total portfolio, same total returns, same total contributions. But by putting the bond fund inside the IRA where its interest is not taxed annually, and the stock fund in the taxable account where it gets preferential capital gains rates, you end up with meaningfully more money.
 
-**Sam:** Okay, let us talk about tax-loss harvesting. This is the strategy I hear about most but understand least.
+**Stella:** Okay, let us talk about tax-loss harvesting. This is the strategy I hear about most but understand least.
 
-**Alex:** Tax-loss harvesting is selling an investment that has gone down in value to lock in the loss. You then use that loss to offset gains elsewhere, reducing your tax bill.
+**Horace:** Tax-loss harvesting is selling an investment that has gone down in value to lock in the loss. You then use that loss to offset gains elsewhere, reducing your tax bill.
 
 **[VISUAL: Portfolio showing five positions. Three are up, two are down. Arrows showing the losing positions being sold. Loss amounts flowing to offset gain amounts.]**
 
-**Alex:** Here is a simple example. You bought a total international fund for fifty thousand dollars. It is now worth forty thousand. That is a ten-thousand-dollar unrealized loss. You sell it, realizing the loss. Immediately, you buy a different international fund -- similar exposure but not identical -- to stay invested.
+**Horace:** Here is a simple example. You bought a total international fund for fifty thousand dollars. It is now worth forty thousand. That is a ten-thousand-dollar unrealized loss. You sell it, realizing the loss. Immediately, you buy a different international fund -- similar exposure but not identical -- to stay invested.
 
-**Sam:** And that ten-thousand-dollar loss offsets gains elsewhere?
+**Stella:** And that ten-thousand-dollar loss offsets gains elsewhere?
 
-**Alex:** Dollar for dollar against capital gains. If you have ten thousand in long-term gains in another part of your portfolio, your net gain becomes zero. At a fifteen-percent tax rate, you just saved fifteen hundred dollars. If it offsets short-term gains at thirty-two percent, you saved thirty-two hundred.
+**Horace:** Dollar for dollar against capital gains. If you have ten thousand in long-term gains in another part of your portfolio, your net gain becomes zero. At a fifteen-percent tax rate, you just saved fifteen hundred dollars. If it offsets short-term gains at thirty-two percent, you saved thirty-two hundred.
 
 **[ANIMATION: Balance scale. Left side: $10,000 loss. Right side: $10,000 gain. They cancel out. Tax bill: $0 instead of $1,500-$3,200.]**
 
-**Sam:** But I have heard this is not really a free lunch -- it is more of a tax deferral.
+**Stella:** But I have heard this is not really a free lunch -- it is more of a tax deferral.
 
-**Alex:** Smart observation. When you buy the replacement fund at forty thousand dollars, your cost basis is lower. So when you eventually sell the replacement, your gain will be ten thousand dollars larger. You deferred the tax, you did not eliminate it.
+**Horace:** Smart observation. When you buy the replacement fund at forty thousand dollars, your cost basis is lower. So when you eventually sell the replacement, your gain will be ten thousand dollars larger. You deferred the tax, you did not eliminate it.
 
-**Sam:** So when is deferral valuable?
+**Stella:** So when is deferral valuable?
 
-**Alex:** Three situations where deferral becomes permanent savings. First, if your tax rate is lower in the future -- maybe you retire and move to a lower bracket. Second, if you hold until death and your heirs get the step-up in basis. Third, if you donate the appreciated shares to charity, bypassing capital gains entirely.
+**Horace:** Three situations where deferral becomes permanent savings. First, if your tax rate is lower in the future -- maybe you retire and move to a lower bracket. Second, if you hold until death and your heirs get the step-up in basis. Third, if you donate the appreciated shares to charity, bypassing capital gains entirely.
 
 **[VISUAL: Three scenarios listed with dollar amounts showing the savings: "Lower Future Rate: $800 saved," "Step-Up at Death: $1,500 saved," "Charitable Donation: $1,500 saved"]**
 
-**Alex:** And even pure deferral has value. Fifteen hundred dollars invested today at eight percent for twenty years grows to seven thousand dollars. That is real money just from the time value of deferring a tax payment.
+**Horace:** And even pure deferral has value. Fifteen hundred dollars invested today at eight percent for twenty years grows to seven thousand dollars. That is real money just from the time value of deferring a tax payment.
 
-**Sam:** Now the trap. The wash sale rule.
+**Stella:** Now the trap. The wash sale rule.
 
-**Alex:** The IRS says you cannot sell at a loss and buy a "substantially identical" security within thirty days before or after the sale. If you do, the loss is disallowed.
+**Horace:** The IRS says you cannot sell at a loss and buy a "substantially identical" security within thirty days before or after the sale. If you do, the loss is disallowed.
 
 **[ANIMATION: Calendar with 61-day window highlighted. Day 31 = sale date. Days 1-30 = "No purchase of same security." Days 32-61 = "No purchase of same security." Violation shown with red X.]**
 
-**Sam:** What counts as substantially identical?
+**Stella:** What counts as substantially identical?
 
-**Alex:** Same stock, same fund, same CUSIP number -- clearly yes. Buying a different ETF that tracks a different index -- clearly no. The gray area is buying a different ETF that tracks the same or a very similar index. The IRS has not given definitive guidance here, but most tax professionals consider a Vanguard S&P 500 ETF and a Schwab Total Market ETF to be sufficiently different.
+**Horace:** Same stock, same fund, same CUSIP number -- clearly yes. Buying a different ETF that tracks a different index -- clearly no. The gray area is buying a different ETF that tracks the same or a very similar index. The IRS has not given definitive guidance here, but most tax professionals consider a Vanguard S&P 500 ETF and a Schwab Total Market ETF to be sufficiently different.
 
 **[VISUAL: Traffic light system. Red: "Same security - Always a wash sale." Yellow: "Same index, different provider - Gray area." Green: "Different index, different provider - Generally safe."]**
 
-**Alex:** The biggest trap is not the obvious one. It is automatic dividend reinvestment. If you sell a fund at a loss and have DRIP turned on in another account that buys the same fund within thirty days, you have accidentally triggered a wash sale. Turn off DRIP for any security you are harvesting losses on.
+**Horace:** The biggest trap is not the obvious one. It is automatic dividend reinvestment. If you sell a fund at a loss and have DRIP turned on in another account that buys the same fund within thirty days, you have accidentally triggered a wash sale. Turn off DRIP for any security you are harvesting losses on.
 
-**Sam:** What about the IRA trap?
+**Stella:** What about the IRA trap?
 
-**Alex:** This is the worst one. If you sell at a loss in your taxable account and your IRA buys the same security within thirty days, the loss is disallowed. And here is the nightmare -- you cannot add the disallowed loss to the IRA's cost basis. The loss is gone. Permanently. This is the one scenario where a wash sale violation can cost you money forever.
+**Horace:** This is the worst one. If you sell at a loss in your taxable account and your IRA buys the same security within thirty days, the loss is disallowed. And here is the nightmare -- you cannot add the disallowed loss to the IRA's cost basis. The loss is gone. Permanently. This is the one scenario where a wash sale violation can cost you money forever.
 
 **[VISUAL: Red warning banner: "Wash Sale + IRA = PERMANENT LOSS. The disallowed loss CANNOT be recovered."]**
 
-**Sam:** Let us zoom out. What does a comprehensive tax-efficient strategy look like for a typical investor?
+**Stella:** Let us zoom out. What does a comprehensive tax-efficient strategy look like for a typical investor?
 
-**Alex:** Five pillars.
+**Horace:** Five pillars.
 
 **[VISUAL: Five pillars graphic building up one by one]**
 
-**Alex:** Pillar one -- hold investments for more than a year to get long-term capital gains rates. Pillar two -- put the right assets in the right accounts through asset location. Pillar three -- use tax-efficient funds in taxable accounts -- index ETFs over actively managed mutual funds. Pillar four -- harvest losses during market downturns and use them to offset gains. Pillar five -- manage withdrawals in retirement to stay in the lowest possible tax bracket through strategic Roth conversions and bracket management.
+**Horace:** Pillar one -- hold investments for more than a year to get long-term capital gains rates. Pillar two -- put the right assets in the right accounts through asset location. Pillar three -- use tax-efficient funds in taxable accounts -- index ETFs over actively managed mutual funds. Pillar four -- harvest losses during market downturns and use them to offset gains. Pillar five -- manage withdrawals in retirement to stay in the lowest possible tax bracket through strategic Roth conversions and bracket management.
 
-**Sam:** Each one of these individually saves a little bit. But combined over thirty years...
+**Stella:** Each one of these individually saves a little bit. But combined over thirty years...
 
-**Alex:** Combined, you are talking about an extra five hundred thousand to a million dollars in after-tax wealth for a typical high-income professional over a career. Not from better stock picks. Not from market timing. Just from being tax-smart.
+**Horace:** Combined, you are talking about an extra five hundred thousand to a million dollars in after-tax wealth for a typical high-income professional over a career. Not from better stock picks. Not from market timing. Just from being tax-smart.
 
 **[ANIMATION: Two wealth trajectories starting from the same point. One climbs normally, the other climbs higher and higher as each pillar is added. The gap at year 30 is substantial. Labels show: "Pillar 1: +$50K," "Pillar 2: +$120K," and so on, cumulating.]**
 
-**Sam:** That is the most compelling argument I have heard for something that is not particularly exciting.
+**Stella:** That is the most compelling argument I have heard for something that is not particularly exciting.
 
-**Alex:** Tax efficiency is not exciting. It is just effective. And unlike finding the next hot stock, it is entirely within your control.
+**Horace:** Tax efficiency is not exciting. It is just effective. And unlike finding the next hot stock, it is entirely within your control.
 
-**Sam:** What about municipal bonds? When do those make sense?
+**Stella:** What about municipal bonds? When do those make sense?
 
-**Alex:** Municipal bonds are a powerful tool for high-income investors in taxable accounts. The interest is exempt from federal income tax, and if the bonds are from your state, often state tax too. The key is comparing the tax-equivalent yield. A muni yielding three and a half percent for someone in the thirty-five percent bracket is equivalent to a taxable bond yielding five point four percent. If you cannot find taxable bonds beating that number, munis win.
+**Horace:** Municipal bonds are a powerful tool for high-income investors in taxable accounts. The interest is exempt from federal income tax, and if the bonds are from your state, often state tax too. The key is comparing the tax-equivalent yield. A muni yielding three and a half percent for someone in the thirty-five percent bracket is equivalent to a taxable bond yielding five point four percent. If you cannot find taxable bonds beating that number, munis win.
 
 **[VISUAL: Side-by-side comparison. Taxable bond: 5.0% yield, after 35% tax = 3.25% kept. Municipal bond: 3.5% yield, after 0% tax = 3.5% kept. Muni wins. Formula shown: Tax-Equivalent Yield = Muni Yield / (1 - Tax Rate).]**
 
-**Sam:** But never in an IRA.
+**Stella:** But never in an IRA.
 
-**Alex:** Never. In a tax-advantaged account, the tax exemption is wasted. You would earn a lower yield for no benefit. Munis belong exclusively in taxable accounts.
+**Horace:** Never. In a tax-advantaged account, the tax exemption is wasted. You would earn a lower yield for no benefit. Munis belong exclusively in taxable accounts.
 
-**Alex:** Let me mention one more thing -- the step-up in basis at death. When you die, the cost basis of your taxable investments resets to market value. All those unrealized gains? Gone. Your heirs inherit at the current price and owe zero capital gains tax on the appreciation during your lifetime.
+**Horace:** Let me mention one more thing -- the step-up in basis at death. When you die, the cost basis of your taxable investments resets to market value. All those unrealized gains? Gone. Your heirs inherit at the current price and owe zero capital gains tax on the appreciation during your lifetime.
 
 **[ANIMATION: Investor buys stock at $10,000. Over decades it grows to $200,000. Unrealized gain: $190,000. At death, basis steps up to $200,000. Heir sells at $200,000 and owes $0 in capital gains. The $190,000 gain is permanently erased.]**
 
-**Sam:** So tax-loss harvesting becomes even more valuable. You get the loss benefit now, and the lower cost basis is eventually wiped out by the step-up.
+**Stella:** So tax-loss harvesting becomes even more valuable. You get the loss benefit now, and the lower cost basis is eventually wiped out by the step-up.
 
-**Alex:** Exactly. Harvest losses during your lifetime, use them to offset gains and income, and the deferred tax on the replacement securities is eliminated at death. It is one of the most valuable features in the entire tax code for long-term investors.
+**Horace:** Exactly. Harvest losses during your lifetime, use them to offset gains and income, and the deferred tax on the replacement securities is eliminated at death. It is one of the most valuable features in the entire tax code for long-term investors.
 
 **[VISUAL: Recap card: "Hold >1 Year | Asset Location | Tax-Efficient Funds | Tax-Loss Harvesting | Municipal Bonds | Strategic Withdrawals | Step-Up in Basis"]**
 
-**Sam:** Go look at your portfolio right now. Check what is in which account. See if you have any losses worth harvesting. Calculate your tax-equivalent yield on your bond holdings. Small changes today compound into big differences tomorrow.
+**Stella:** Go look at your portfolio right now. Check what is in which account. See if you have any losses worth harvesting. Calculate your tax-equivalent yield on your bond holdings. Small changes today compound into big differences tomorrow.
 
-**Alex:** See you in the next one.
+**Horace:** See you in the next one.
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 05 -- DCA vs. Lump Sum"]**
 

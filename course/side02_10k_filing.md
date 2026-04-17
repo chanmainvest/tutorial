@@ -246,153 +246,153 @@ A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO
 
 **[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]**
 
-**Alex:** If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+**Horace:** If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
 
-**Sam:** I would hope so, but I think most retail investors never open one.
+**Stella:** I would hope so, but I think most retail investors never open one.
 
-**Alex:** Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+**Horace:** Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
 
 **[VISUAL: EDGAR website homepage with search bar highlighted]**
 
-**Sam:** First things first -- where do you find these?
+**Stella:** First things first -- where do you find these?
 
-**Alex:** SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free. No subscription, no paywall, no sign-up required.
+**Horace:** SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free. No subscription, no paywall, no sign-up required.
 
-**Sam:** Can you also find them on the company's website?
+**Stella:** Can you also find them on the company's website?
 
-**Alex:** Yes, most companies have an "Investor Relations" section with links to their SEC filings. But I recommend using EDGAR directly because it is the primary source, it is standardized, and you can use the SEC's search tools to compare filings across companies.
+**Horace:** Yes, most companies have an "Investor Relations" section with links to their SEC filings. But I recommend using EDGAR directly because it is the primary source, it is standardized, and you can use the SEC's search tools to compare filings across companies.
 
 **[VISUAL: EDGAR search results page showing multiple filing types: 10-K, 10-Q, 8-K, DEF 14A. The 10-K is highlighted.]**
 
-**Sam:** What about the 10-Q? How is that different?
+**Stella:** What about the 10-Q? How is that different?
 
-**Alex:** The 10-Q is the quarterly report -- filed three times per year for the first three quarters. The fourth quarter data is included in the annual 10-K. The 10-Q is less detailed than the 10-K: it has unaudited financials and a shorter MD&A. But it is useful for tracking developments between annual reports. If a company's situation is changing rapidly, the 10-Qs will show it.
+**Horace:** The 10-Q is the quarterly report -- filed three times per year for the first three quarters. The fourth quarter data is included in the annual 10-K. The 10-Q is less detailed than the 10-K: it has unaudited financials and a shorter MD&A. But it is useful for tracking developments between annual reports. If a company's situation is changing rapidly, the 10-Qs will show it.
 
 **[VISUAL: Calendar showing filing schedule: Q1 10-Q in May, Q2 10-Q in August, Q3 10-Q in November, Annual 10-K in February/March. The 8-K shown as occurring "anytime" for material events.]**
 
 **[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]**
 
-**Alex:** A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+**Horace:** A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
 
-**Sam:** What do you read first?
+**Stella:** What do you read first?
 
-**Alex:** If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+**Horace:** If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
 
 **[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]**
 
-**Alex:** But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+**Horace:** But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
 
-**Sam:** Why MD&A specifically?
+**Stella:** Why MD&A specifically?
 
-**Alex:** Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+**Horace:** Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
 
 **[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]**
 
-**Sam:** So it is like getting management's narrative on the financial story.
+**Stella:** So it is like getting management's narrative on the financial story.
 
-**Alex:** Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+**Horace:** Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
 
 **[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]**
 
-**Alex:** That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+**Horace:** That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
 
-**Sam:** The footnotes? Those pages and pages of small print?
+**Stella:** The footnotes? Those pages and pages of small print?
 
-**Alex:** I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+**Horace:** I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
 
 **[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]**
 
-**Sam:** What specifically should people look for in the footnotes?
+**Stella:** What specifically should people look for in the footnotes?
 
-**Alex:** Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+**Horace:** Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
 
 **[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]**
 
-**Sam:** Okay, what about risk factors? Item 1A?
+**Stella:** Okay, what about risk factors? Item 1A?
 
-**Alex:** Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+**Horace:** Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
 
 **[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]**
 
-**Alex:** If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+**Horace:** If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
 
-**Sam:** Let us talk about red flags. What patterns should make an investor nervous?
+**Stella:** Let us talk about red flags. What patterns should make an investor nervous?
 
-**Alex:** I have a checklist I run through every time.
+**Horace:** I have a checklist I run through every time.
 
 **[VISUAL: Red flag checklist appearing one by one]**
 
-**Alex:** Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+**Horace:** Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
 
-**Sam:** Like they are counting revenue from deals that have not actually been paid for?
+**Stella:** Like they are counting revenue from deals that have not actually been paid for?
 
-**Alex:** Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+**Horace:** Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
 
 **[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]**
 
-**Alex:** Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+**Horace:** Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
 
-**Sam:** That is basically the company saying "our numbers might not be right."
+**Stella:** That is basically the company saying "our numbers might not be right."
 
-**Alex:** Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+**Horace:** Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
 
 **[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]**
 
-**Sam:** How do you read a 10-K efficiently? What is the workflow?
+**Stella:** How do you read a 10-K efficiently? What is the workflow?
 
-**Alex:** Here is my process. On a first read, I spend about two hours.
+**Horace:** Here is my process. On a first read, I spend about two hours.
 
 **[VISUAL: Workflow diagram with time allocations]**
 
-**Alex:** Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+**Horace:** Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
 
-**Sam:** Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+**Stella:** Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
 
-**Alex:** People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+**Horace:** People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
 
 **[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]**
 
-**Sam:** One more thing -- how do you track changes over time?
+**Stella:** One more thing -- how do you track changes over time?
 
-**Alex:** Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+**Horace:** Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
 
 **[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]**
 
-**Alex:** These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+**Horace:** These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
 
-**Sam:** It is like forensic reading.
+**Stella:** It is like forensic reading.
 
-**Alex:** That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+**Horace:** That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
 
 **[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]**
 
-**Sam:** One more thing -- what about the proxy statement? Is that part of the 10-K?
+**Stella:** One more thing -- what about the proxy statement? Is that part of the 10-K?
 
-**Alex:** The proxy statement -- Form DEF 14A -- is a separate filing, but it complements the 10-K. It contains executive compensation details, board member backgrounds, and information about shareholder proposals. The 10-K often "incorporates by reference" the proxy for items like executive comp, which means the 10-K points you to the proxy rather than repeating the information.
+**Horace:** The proxy statement -- Form DEF 14A -- is a separate filing, but it complements the 10-K. It contains executive compensation details, board member backgrounds, and information about shareholder proposals. The 10-K often "incorporates by reference" the proxy for items like executive comp, which means the 10-K points you to the proxy rather than repeating the information.
 
 **[VISUAL: Two documents side by side. "10-K: Financial and operational detail" and "DEF 14A (Proxy): Governance, compensation, board." Arrow showing 10-K referencing the proxy for Items 10-14.]**
 
-**Alex:** Executive compensation is worth studying because it reveals management's incentives. If the CEO is compensated based on revenue growth, they will pursue revenue growth -- even if it destroys profitability. If bonuses are tied to adjusted earnings, management is incentivized to adjust more aggressively. The proxy tells you what behavior management is being rewarded for.
+**Horace:** Executive compensation is worth studying because it reveals management's incentives. If the CEO is compensated based on revenue growth, they will pursue revenue growth -- even if it destroys profitability. If bonuses are tied to adjusted earnings, management is incentivized to adjust more aggressively. The proxy tells you what behavior management is being rewarded for.
 
-**Sam:** So you are basically asking: does management's pay structure align with shareholder interests?
+**Stella:** So you are basically asking: does management's pay structure align with shareholder interests?
 
-**Alex:** Exactly. Look for red flags like excessive perquisites, guaranteed bonuses regardless of performance, or short vesting periods on stock options. And look for positive signs like significant personal stock ownership, long vesting periods, and performance metrics tied to return on capital or free cash flow rather than revenue.
+**Horace:** Exactly. Look for red flags like excessive perquisites, guaranteed bonuses regardless of performance, or short vesting periods on stock options. And look for positive signs like significant personal stock ownership, long vesting periods, and performance metrics tied to return on capital or free cash flow rather than revenue.
 
 **[VISUAL: Two columns. Red flags: "Golden parachutes, guaranteed bonuses, minimal stock ownership." Green flags: "Performance-based comp, significant personal ownership, long vesting."]**
 
-**Sam:** Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, check the proxy for compensation alignment, and watch for red flags that suggest something is off.
+**Stella:** Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, check the proxy for compensation alignment, and watch for red flags that suggest something is off.
 
-**Alex:** And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+**Horace:** And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
 
 **[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls | Proxy: Compensation Alignment"]**
 
-**Sam:** Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+**Stella:** Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
 
-**Alex:** And start a simple filing. A company like Apple or Coca-Cola that you already know. Get comfortable with the structure first. Then graduate to more complex filings where the real detective work begins.
+**Horace:** And start a simple filing. A company like Apple or Coca-Cola that you already know. Get comfortable with the structure first. Then graduate to more complex filings where the real detective work begins.
 
-**Sam:** Great advice.
+**Stella:** Great advice.
 
-**Alex:** See you in the next one.
+**Horace:** See you in the next one.
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]**
 

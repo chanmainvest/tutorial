@@ -1,53 +1,50 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第32周：久期与凸性——衡量债券价格敏感性
 
-# Week 32: Duration and Convexity - Measuring Bond Price Sensitivity
+## 阅读部分
 
-## Reading Section
+### a）为何重要
 
-### a) Why This Is Important
+上周你学会了如何解读收益率曲线及其形态。本周你将学习如何精确量化利率变动时债券投资组合的价值变化幅度。久期与凸性正是实现这一目标的工具，对于任何持有债券或债券基金的投资者而言，掌握这两个概念是必不可少的。
 
-Last week you learned to read the yield curve and interpret its shape. This week you will learn to quantify exactly how much your bond portfolio will change in value when interest rates move. Duration and convexity are the tools that make this possible, and they are non-negotiable knowledge for anyone who owns bonds or bond funds.
+**久期与凸性为何重要：**
 
-**Why duration and convexity matter:**
+**1. 利率风险是债券投资中最主要的风险。** 如果你持有一只10年期国债，利率上升1%，你的债券价值将损失约8%至9%。以10万美元的持仓计算，损失金额高达8,000至9,000美元。若不了解久期，你将无法预测、衡量或管理这一风险。久期能够精确量化这种风险。
 
-**1. Interest rate risk is the dominant risk in bond investing.** If you own a 10-year Treasury bond and interest rates rise by 1%, your bond loses approximately 8-9% of its value. On a $100,000 position, that is an $8,000-$9,000 loss. Without understanding duration, you have no way to predict, measure, or manage this risk. Duration quantifies it precisely.
+**2. 久期决定了你的投资组合对利率变动的敏感程度。** 久期为2年的投资组合在利率上升1%时，价值约损失2%；久期为15年的投资组合，价值约损失15%。这两个投资组合的差异是巨大的，然而许多投资者在持有债券基金时对其久期一无所知。这就好比在高速公路上以未知速度行驶——你需要看速度表。
 
-**2. Duration determines your portfolio's vulnerability to rate changes.** A portfolio with a duration of 2 years will lose about 2% if rates rise by 1%. A portfolio with a duration of 15 years will lose about 15%. The difference between these two portfolios is enormous, and yet many investors own bond funds without knowing their duration. This is like driving at an unknown speed on a highway. You need the speedometer.
+**3. 凸性使久期估算更为精准。** 久期是一种一阶近似。对于小幅度的利率变动，久期效果良好；但对于大幅度变动，误差会越来越大。凸性是修正因子。例如，利率上升2%时，单纯依靠久期可能预测损失16%，而凸性修正后实际损失为14.5%。这1.5%的差距，对于50万美元的债券投资组合而言意味着7,500美元。凸性至关重要。
 
-**3. Convexity makes duration more accurate.** Duration is a first-order approximation. It works well for small rate changes but becomes increasingly inaccurate for large moves. Convexity is the correction factor. For a 2% rate increase, duration alone might predict a 16% loss, but convexity adjusts this to 14.5%. That 1.5% difference on a $500,000 bond portfolio is $7,500. Convexity matters.
+**4. 负凸性隐藏着巨大风险。** 抵押贷款支持证券和可赎回债券具有负凸性，意味着在极端利率环境下，其表现比久期所预示的更差。2022年，许多投资者付出了沉重代价——他们持有的抵押贷款支持证券的损失远超其名义久期所暗示的水平。理解负凸性对于规避此类风险至关重要。
 
-**4. Negative convexity creates hidden risks.** Mortgage-backed securities and callable bonds have negative convexity, meaning they behave worse than duration suggests in extreme rate environments. Many investors in 2022 discovered this the hard way when their MBS holdings lost far more than their stated duration implied. Understanding negative convexity is essential for avoiding these surprises.
+**5. 免疫策略利用久期消除利率风险。** 养老基金、保险公司以及任何面临特定未来负债的投资者，都可以利用久期匹配来确保资产能够精确覆盖负债，无论利率如何变动。这一概念虽然更多应用于机构投资者，但它能帮助你深刻理解久期的运作原理，以及久期为何是专业债券管理的核心。
 
-**5. Immunization uses duration to eliminate interest rate risk.** Pension funds, insurance companies, and any investor with a specific future liability can use duration matching to ensure that their assets will exactly meet their obligations regardless of what interest rates do. This concept, while more applicable to institutions, illuminates how duration works and why it is so fundamental to professional bond management.
-
-**6. Duration connects to everything in fixed income.** Weeks 34 (rate sensitivity), 36 (income portfolio), and all credit analysis depend on understanding duration. When a bond fund says "modified duration: 6.2 years," you need to know exactly what that means for your portfolio. This week gives you that knowledge.
+**6. 久期与固定收益领域的一切息息相关。** 第34周（利率敏感性）、第36周（收益型投资组合）以及所有信用分析，都建立在对久期的理解之上。当债券基金标注"修正久期：6.2年"时，你需要清楚这对你的投资组合意味着什么。本周的内容将给你这份认知。
 
 ---
 
-### b) What You Need to Know
+### b）核心知识点
 
-#### The Price-Yield Relationship
+#### 价格与收益率的关系
 
-Before understanding duration, you must understand the fundamental relationship between bond prices and yields.
+在理解久期之前，你必须先了解债券价格与收益率之间的基本关系。
 
 ```
-THE INVERSE RELATIONSHIP:
+反向关系：
 
-  When interest rates GO UP, bond prices GO DOWN.
-  When interest rates GO DOWN, bond prices GO UP.
+  当利率上升，债券价格下跌。
+  当利率下降，债券价格上涨。
 
-  WHY?
+  为什么？
 
-  You own a bond paying 4% coupon. New bonds now pay 5%.
-  Your 4% bond is less attractive -> its price falls.
+  你持有一只票息率为4%的债券。新发行的债券票息率为5%。
+  你的4%债券吸引力下降 -> 价格下跌。
 
-  You own a bond paying 4% coupon. New bonds now pay 3%.
-  Your 4% bond is more attractive -> its price rises.
+  你持有一只票息率为4%的债券。新发行的债券票息率为3%。
+  你的4%债券吸引力上升 -> 价格上涨。
 
-  PRICE-YIELD CURVE:
+  价格-收益率曲线：
 
-  Price
+  价格
   $130 |*
        | *
   $120 |  *
@@ -61,256 +58,254 @@ THE INVERSE RELATIONSHIP:
    $80 |                        ********
        +----+----+----+----+----+----+----+----
        1%   2%   3%   4%   5%   6%   7%   8%
-                     Yield (YTM)
+                    收益率（到期收益率）
 
-  KEY OBSERVATION:
-  The curve is CONVEX (bowed toward the origin).
-  - A 1% rate DROP causes a LARGER price gain
-    than a 1% rate RISE causes a price loss.
-  - This asymmetry is convexity, and it benefits bondholders.
+  关键观察：
+  该曲线是凸形的（向原点弯曲）。
+  - 利率下降1%带来的价格涨幅，大于利率上升1%导致的价格跌幅。
+  - 这种不对称性就是凸性，它对债券持有人有利。
 ```
 
-#### Macaulay Duration
+#### 麦考利久期
 
-Macaulay duration is the weighted average time until you receive all the bond's cash flows, where the weights are the present values of each cash flow.
+麦考利久期是债券所有现金流的加权平均到期时间，其权重为各期现金流的现值占比。
 
 ```
-MACAULAY DURATION CALCULATION:
+麦考利久期计算：
 
-  Bond: 5% coupon, 3-year maturity, YTM = 4%, par = $1,000
+  债券：票息率5%，期限3年，到期收益率4%，面值$1,000
 
-  Year    Cash Flow    PV Factor    PV of CF     Weight     Year x Weight
+  年份    现金流       折现因子     现值          权重        年份×权重
   ====    =========    =========    ========     ======     =============
   1       $50          0.9615       $48.08       0.0462     0.0462
   2       $50          0.9246       $46.23       0.0445     0.0889
   3       $1,050       0.8890       $933.45      0.8976     2.6928
   ====    =========    =========    ========     ======     =============
-  Total                             $1,040.40*   1.0000     2.8279
+  合计                              $1,040.40*   1.0000     2.8279
 
-  * Bond trades at premium because coupon (5%) > yield (4%)
+  * 债券溢价交易，因为票息率（5%）> 收益率（4%）
 
-  Macaulay Duration = 2.83 years
+  麦考利久期 = 2.83年
 
-  INTERPRETATION:
-  Although this bond has 3 years to maturity, the weighted
-  average time to receive cash flows is 2.83 years.
-  The duration is shorter than maturity because you receive
-  coupon payments before maturity, pulling the average forward.
+  解读：
+  虽然该债券的到期期限为3年，但现金流的
+  加权平均接收时间为2.83年。
+  久期短于到期期限，是因为你在到期前已收到
+  票息，将加权平均值前移。
 
-  SPECIAL CASE: Zero-Coupon Bond
-  A 3-year zero-coupon bond has Macaulay duration = 3.00 years.
-  Duration equals maturity because there is only one cash flow,
-  at maturity. No earlier coupons to pull the average forward.
+  特殊情况：零息债券
+  3年期零息债券的麦考利久期 = 3.00年。
+  久期等于到期期限，因为只有一笔现金流，
+  且在到期时发生。没有提前的票息将平均值前移。
 ```
 
 ```
-FACTORS AFFECTING MACAULAY DURATION:
+影响麦考利久期的因素：
 
-  Factor              Effect on Duration     Explanation
+  因素              对久期的影响        说明
   ==================  ====================   =======================
-  Higher coupon       SHORTER duration        More cash flow early
-  Lower coupon        LONGER duration         Less cash flow early
-  Longer maturity     LONGER duration         Cash flows further out
-  Shorter maturity    SHORTER duration        Cash flows closer
-  Higher yield        SHORTER duration        Distant CFs worth less
-  Lower yield         LONGER duration         Distant CFs worth more
+  票息率较高          久期较短              较多现金流提前收到
+  票息率较低          久期较长              较少现金流提前收到
+  到期期限较长        久期较长              现金流时间较远
+  到期期限较短        久期较短              现金流时间较近
+  收益率较高          久期较短              远期现金流现值较低
+  收益率较低          久期较长              远期现金流现值较高
 
-  DIAGRAM - HOW COUPON AFFECTS DURATION:
+  图示——票息率如何影响久期：
 
-  High Coupon Bond (8%):            Low Coupon Bond (2%):
-  More weight on early CFs          Most weight on final CF
+  高票息债券（8%）：                低票息债券（2%）：
+  较多权重在早期现金流              大部分权重在最终现金流
 
-  Weight                            Weight
+  权重                              权重
   |  ##                             |
   |  ## ##                          |
   |  ## ## ##                       |  ##
   |  ## ## ## ####                  |  ## ##
   |  ## ## ## ####                  |  ## ## ## ## ########
   +--+--+--+--+--+--               +--+--+--+--+--+--
-   1  2  3  4  5 Mat                1  2  3  4  5 Mat
+   1  2  3  4  5 到期               1  2  3  4  5 到期
 
-  Duration ~3.8 years               Duration ~4.7 years
+  久期约3.8年                        久期约4.7年
 
-  Coupon payments "pull" the duration toward the present.
-  Higher coupons pull harder, resulting in shorter duration.
+  票息将久期向当前时点"拉近"。
+  票息率越高，拉力越强，久期越短。
 ```
 
-#### Modified Duration
+#### 修正久期
 
-Modified duration converts Macaulay duration into a direct measure of price sensitivity. It answers the question: "How much will the bond's price change for a 1% change in yield?"
-
-```
-MODIFIED DURATION FORMULA:
-
-  Modified Duration = Macaulay Duration / (1 + YTM/n)
-
-  Where n = number of coupon payments per year
-  (n=2 for semiannual, n=1 for annual)
-
-  Example (semiannual coupons):
-  Macaulay Duration = 2.83 years
-  YTM = 4% (semiannual = 2% per period)
-
-  Modified Duration = 2.83 / (1 + 0.04/2)
-                    = 2.83 / 1.02
-                    = 2.77 years
-
-  PRICE SENSITIVITY APPROXIMATION:
-
-  % Price Change = -Modified Duration x Change in Yield (in %)
-
-  If yields rise 1%:
-    % Price Change = -2.77 x 1% = -2.77%
-    On a $100,000 position: LOSS of $2,770
-
-  If yields fall 1%:
-    % Price Change = -2.77 x (-1%) = +2.77%
-    On a $100,000 position: GAIN of $2,770
-```
+修正久期将麦考利久期转换为价格敏感性的直接衡量指标。它回答的问题是："收益率变动1%，债券价格会变动多少？"
 
 ```
-MODIFIED DURATION BY BOND TYPE:
+修正久期公式：
 
-  Bond Type                     Typical Duration   Price Impact per 1%
+  修正久期 = 麦考利久期 / (1 + 到期收益率/n)
+
+  其中 n = 每年付息次数
+  （半年付息 n=2，年付息 n=1）
+
+  示例（半年付息）：
+  麦考利久期 = 2.83年
+  到期收益率 = 4%（半年利率 = 2%）
+
+  修正久期 = 2.83 / (1 + 0.04/2)
+           = 2.83 / 1.02
+           = 2.77年
+
+  价格敏感性近似计算：
+
+  价格变动% = -修正久期 × 收益率变动%
+
+  若收益率上升1%：
+    价格变动% = -2.77 × 1% = -2.77%
+    10万美元持仓：损失 $2,770
+
+  若收益率下降1%：
+    价格变动% = -2.77 × (-1%) = +2.77%
+    10万美元持仓：收益 $2,770
+```
+
+```
+不同债券类型的修正久期：
+
+  债券类型                      典型久期        每1%利率变动的价格影响
   ============================  ================   ===================
-  Money Market / T-Bills        0 - 0.25 years     0 - 0.25%
-  Short-Term Bond Fund          1 - 3 years        1 - 3%
-  Intermediate Bond Fund        3 - 7 years        3 - 7%
-  Aggregate Bond Index (AGG)    6 - 7 years        6 - 7%
-  Long-Term Bond Fund           10 - 18 years      10 - 18%
-  30-Year Treasury Bond         18 - 22 years      18 - 22%
-  Zero-Coupon 30-Year           ~30 years           ~30%
+  货币市场/短期国债              0 - 0.25年        0 - 0.25%
+  短期债券基金                   1 - 3年           1 - 3%
+  中期债券基金                   3 - 7年           3 - 7%
+  综合债券指数（AGG）             6 - 7年           6 - 7%
+  长期债券基金                   10 - 18年         10 - 18%
+  30年期国债                     18 - 22年         18 - 22%
+  30年期零息债券                  约30年            约30%
 
-  VISUAL COMPARISON:
+  可视化对比：
 
-  Rate rises 1%, portfolio losses:
+  利率上升1%，各类投资组合损失：
 
-  Money Market    |#                              0.1%
-  Short-Term      |###                            2%
-  Intermediate    |######                         5%
-  Aggregate       |########                       6.5%
-  Long-Term       |################               14%
-  30-Year Zero    |################################ 28%
+  货币市场        |#                              0.1%
+  短期            |###                            2%
+  中期            |######                         5%
+  综合债券        |########                       6.5%
+  长期            |################               14%
+  30年零息        |################################ 28%
                    0%    5%    10%    15%    20%   25%   30%
 ```
 
-#### Effective Duration
+#### 有效久期
 
-For bonds with embedded options (callable bonds, mortgage-backed securities, putable bonds), modified duration does not work because the cash flows change when rates change. For these bonds, we use **effective duration**, which measures price sensitivity empirically.
+对于含有内嵌期权的债券（可赎回债券、抵押贷款支持证券、可回售债券），修正久期不适用，因为利率变化时现金流也会发生改变。对于这类债券，我们使用**有效久期**，通过实证方式衡量价格敏感性。
 
 ```
-EFFECTIVE DURATION:
+有效久期：
 
-  Effective Duration = (P_down - P_up) / (2 x P_0 x Delta_y)
+  有效久期 = (P_跌 - P_涨) / (2 × P_0 × Δy)
 
-  Where:
-    P_down = Bond price when yield decreases by Delta_y
-    P_up   = Bond price when yield increases by Delta_y
-    P_0    = Current bond price
-    Delta_y = Yield change used (typically 0.25% or 0.50%)
+  其中：
+    P_跌   = 收益率下降 Δy 时的债券价格
+    P_涨   = 收益率上升 Δy 时的债券价格
+    P_0    = 当前债券价格
+    Δy     = 所用的收益率变动幅度（通常为0.25%或0.50%）
 
-  EXAMPLE:
+  示例：
 
-  Callable bond, current price = $102.00, yield = 5.00%
+  可赎回债券，当前价格 = $102.00，收益率 = 5.00%
 
-  If yield drops to 4.75%: Price = $103.20
-  If yield rises to 5.25%: Price = $100.50
+  若收益率降至4.75%：价格 = $103.20
+  若收益率升至5.25%：价格 = $100.50
 
-  Effective Duration = ($103.20 - $100.50) / (2 x $102.00 x 0.0025)
-                     = $2.70 / $0.51
-                     = 5.29 years
+  有效久期 = ($103.20 - $100.50) / (2 × $102.00 × 0.0025)
+            = $2.70 / $0.51
+            = 5.29年
 
-  COMPARE: Modified duration of the same bond might be 7.2 years.
-  The difference (7.2 vs 5.29) is because when rates fall, the
-  issuer is likely to CALL the bond (buy it back), capping the
-  upside. This call risk shortens the effective duration.
+  对比：同一债券的修正久期可能为7.2年。
+  差异（7.2 vs 5.29）来自于：当利率下降时，
+  发行人很可能赎回债券（买回），限制了价格上涨空间。
+  此赎回风险缩短了有效久期。
 
-  WHEN TO USE WHICH:
+  何时使用哪种久期：
 
-  Bond Type                 Use This Duration
+  债券类型                使用此久期
   ========================  ==========================
-  Non-callable Treasury     Modified Duration
-  Non-callable Corporate    Modified Duration
-  Callable Corporate Bond   Effective Duration
-  Mortgage-Backed Security  Effective Duration
-  Putable Bond              Effective Duration
-  Floating Rate Note        Effective Duration
+  不可赎回国债              修正久期
+  不可赎回公司债            修正久期
+  可赎回公司债              有效久期
+  抵押贷款支持证券          有效久期
+  可回售债券                有效久期
+  浮动利率票据              有效久期
 ```
 
-#### PVBP (Price Value of a Basis Point)
+#### 基点价值（PVBP）
 
-PVBP, also called DV01 (Dollar Value of 01), measures the dollar change in bond price for a 1 basis point (0.01%) change in yield. It translates duration into actual dollar amounts.
+基点价值（PVBP），又称"01美元价值"（DV01），衡量收益率变动1个基点（0.01%）时，债券价格的美元变动额。它将久期转换为实际美元金额。
 
 ```
-PVBP / DV01 CALCULATION:
+基点价值（PVBP / DV01）计算：
 
-  PVBP = Modified Duration x Price x 0.0001
+  PVBP = 修正久期 × 价格 × 0.0001
 
-  Example:
-  Bond price = $98.50, Modified Duration = 7.5 years
+  示例：
+  债券价格 = $98.50，修正久期 = 7.5年
 
-  PVBP = 7.5 x $98.50 x 0.0001 = $0.0739 per $100 face value
+  PVBP = 7.5 × $98.50 × 0.0001 = $0.0739（每$100面值）
 
-  For $100,000 face value:
-  PVBP = $0.0739 x 1,000 = $73.88
+  对于$100,000面值：
+  PVBP = $0.0739 × 1,000 = $73.88
 
-  Meaning: A 1 basis point rise in rates causes a $73.88 loss.
-           A 10 bp rise causes a ~$739 loss.
-           A 100 bp (1%) rise causes a ~$7,388 loss.
+  含义：利率上升1个基点，损失$73.88。
+        上升10个基点，损失约$739。
+        上升100个基点（1%），损失约$7,388。
 
-  PVBP BY MATURITY ($100,000 FACE VALUE):
+  不同期限的基点价值（$100,000面值）：
 
-  Maturity    Duration    PVBP (per bp)    Loss per 1%
+  到期期限    久期       基点价值    每1%利率变动损失
   ========    ========    =============    ===========
-  2-year      1.9         $19              $1,900
-  5-year      4.5         $45              $4,500
-  10-year     8.2         $82              $8,200
-  20-year     14.5        $145             $14,500
-  30-year     20.0        $200             $20,000
+  2年         1.9         $19              $1,900
+  5年         4.5         $45              $4,500
+  10年        8.2         $82              $8,200
+  20年        14.5        $145             $14,500
+  30年        20.0        $200             $20,000
 
-  A 30-YEAR BOND LOSES $200 FOR EVERY SINGLE BASIS POINT
-  MOVE IN RATES. For a $1,000,000 position, that is $2,000/bp.
+  30年期债券每变动一个基点损失$200。
+  若持仓为$1,000,000，则每个基点损失$2,000。
 
-  This is why pension funds and insurance companies obsess
-  over managing duration. Their bond portfolios are in the
-  billions, and even a few basis points matter enormously.
+  这正是养老基金和保险公司对久期管理如此重视的原因。
+  其债券投资组合规模高达数十亿，即便区区几个基点也举足轻重。
 ```
 
 ```
-PORTFOLIO PVBP:
+投资组合基点价值：
 
-  Portfolio PVBP = Sum of all position PVBPs
+  投资组合PVBP = 各持仓PVBP之和
 
-  Example Portfolio ($500,000 total):
-  Position              Amount     Duration   PVBP
+  示例投资组合（总计$500,000）：
+  持仓               金额          久期      基点价值
   ====================  =========  ========   =========
-  2-Year Treasury       $150,000   1.9        $28.50
-  5-Year Treasury       $200,000   4.5        $90.00
-  10-Year Treasury      $100,000   8.2        $82.00
-  Cash                  $50,000    0.0        $0.00
+  2年期国债            $150,000   1.9        $28.50
+  5年期国债            $200,000   4.5        $90.00
+  10年期国债           $100,000   8.2        $82.00
+  现金                 $50,000    0.0        $0.00
   ======================================================
-  TOTAL                 $500,000   4.02*      $200.50
+  合计                 $500,000   4.02*      $200.50
 
-  * Portfolio Duration = Total PVBP / (Total Value x 0.0001)
-    = $200.50 / ($500,000 x 0.0001) = 4.01 years
+  * 投资组合久期 = 总PVBP / (总价值 × 0.0001)
+    = $200.50 / ($500,000 × 0.0001) = 4.01年
 
-  If rates rise 50 bps uniformly:
-    Portfolio loss = $200.50 x 50 = $10,025 (about 2.0%)
+  若利率均匀上升50个基点：
+    投资组合损失 = $200.50 × 50 = $10,025（约2.0%）
 
-  If rates rise 100 bps (1%):
-    Portfolio loss = $200.50 x 100 = $20,050 (about 4.0%)
+  若利率上升100个基点（1%）：
+    投资组合损失 = $200.50 × 100 = $20,050（约4.0%）
 ```
 
-#### Convexity
+#### 凸性
 
-Duration is a linear approximation. It works well for small rate changes but becomes increasingly inaccurate for larger moves. Convexity is the correction factor that accounts for the curvature of the price-yield relationship.
+久期是一种线性近似。对于小幅利率变动，效果良好；但对于大幅变动，误差会越来越大。凸性是修正因子，用于弥补价格-收益率关系中的曲线弯曲效应。
 
 ```
-WHY DURATION ALONE IS NOT ENOUGH:
+为什么单靠久期还不够：
 
-  For a bond with Duration = 10 and Price = $100:
+  对于久期为10、价格为$100的债券：
 
-  Yield Change   Duration Estimate    Actual Price    Error
+  收益率变动    久期估算              实际价格         误差
   ============   =================    ============    =====
   -0.25%         +$2.50 ($102.50)     $102.53         $0.03
   -0.50%         +$5.00 ($105.00)     $105.13         $0.13
@@ -321,18 +316,18 @@ WHY DURATION ALONE IS NOT ENOUGH:
   +1.00%         -$10.00 ($90.00)     $89.73          $0.27
   +2.00%         -$20.00 ($80.00)     $80.53          $0.53
 
-  Duration OVERESTIMATES losses and UNDERESTIMATES gains.
-  The error grows with larger rate changes.
-  Convexity corrects this error.
+  久期会高估损失、低估收益。
+  误差随利率变动幅度增大而扩大。
+  凸性修正了这一误差。
 
-  GRAPHICAL VIEW:
+  图示：
 
-  Price
+  价格
   $130 |*
        | *
-  $120 |  *                Actual price-yield curve (curved)
+  $120 |  *                实际价格-收益率曲线（弯曲）
        |   **              ---
-  $110 |     **           Duration estimate (straight line)
+  $110 |     **           久期估算（直线）
        |       **
   $100 |     ----***-----------
        |   --        ****
@@ -341,41 +336,40 @@ WHY DURATION ALONE IS NOT ENOUGH:
    $80 |                          ********
        +----+----+----+----+----+----+----
        1%   2%   3%   4%   5%   6%   7%
-                     Yield
+                    收益率
 
-  The gap between the curved line and the straight line
-  is the convexity effect. It is always in the bondholder's
-  favor for normal (positive convexity) bonds.
+  弯曲线与直线之间的差距即为凸性效应。
+  对于正凸性债券，这一效应始终对持有人有利。
 ```
 
 ```
-CONVEXITY-ADJUSTED PRICE CHANGE:
+凸性调整后的价格变动：
 
-  % Price Change = -Duration x Delta_y + (1/2) x Convexity x (Delta_y)^2
+  价格变动% = -久期 × Δy + (1/2) × 凸性 × (Δy)²
 
-  Where Delta_y is the yield change in decimal form
+  其中 Δy 为以小数表示的收益率变动幅度
 
-  Example:
-  Duration = 10 years, Convexity = 120, Price = $100
+  示例：
+  久期 = 10年，凸性 = 120，价格 = $100
 
-  Yield rises 1% (Delta_y = 0.01):
-    Duration effect:   -10 x 0.01 = -0.10 = -10.00%
-    Convexity effect:  0.5 x 120 x (0.01)^2 = +0.006 = +0.60%
-    Total: -10.00% + 0.60% = -9.40%
-    Price: $100 x (1 - 0.094) = $90.60
+  收益率上升1%（Δy = 0.01）：
+    久期效应：   -10 × 0.01 = -0.10 = -10.00%
+    凸性效应：   0.5 × 120 × (0.01)² = +0.006 = +0.60%
+    合计：-10.00% + 0.60% = -9.40%
+    价格：$100 × (1 - 0.094) = $90.60
 
-  Yield falls 1% (Delta_y = -0.01):
-    Duration effect:   -10 x (-0.01) = +0.10 = +10.00%
-    Convexity effect:  0.5 x 120 x (-0.01)^2 = +0.006 = +0.60%
-    Total: +10.00% + 0.60% = +10.60%
-    Price: $100 x (1 + 0.106) = $110.60
+  收益率下降1%（Δy = -0.01）：
+    久期效应：   -10 × (-0.01) = +0.10 = +10.00%
+    凸性效应：   0.5 × 120 × (-0.01)² = +0.006 = +0.60%
+    合计：+10.00% + 0.60% = +10.60%
+    价格：$100 × (1 + 0.106) = $110.60
 
-  NOTICE: The convexity adjustment is ALWAYS POSITIVE.
-  It adds to gains (when rates fall) and reduces losses (when rates rise).
-  This is positive convexity, and it is favorable for bondholders.
+  注意：凸性调整项始终为正。
+  它在利率下降时增加收益，在利率上升时减少损失。
+  这就是正凸性，对债券持有人有利。
 
-  COMPARISON:
-  Rate Change    Duration Only    With Convexity    Difference
+  对比：
+  利率变动     仅用久期         加入凸性修正      差值
   ===========    =============    ==============    ==========
   -2%            +20.00%          +22.40%           +2.40%
   -1%            +10.00%          +10.60%           +0.60%
@@ -385,488 +379,483 @@ CONVEXITY-ADJUSTED PRICE CHANGE:
   +2%            -20.00%          -17.60%           +2.40%
 ```
 
-#### Negative Convexity
+#### 负凸性
 
-Some bonds have negative convexity, meaning the price-yield curve bends the wrong way. Instead of gaining more on rate drops than they lose on rate rises, these bonds gain less and lose more. The primary culprits are callable bonds and mortgage-backed securities (MBS).
+某些债券具有负凸性，即价格-收益率曲线向不利方向弯曲。与收益不对称相反，这类债券在利率下降时涨幅不足，在利率上升时跌幅更大。主要表现在可赎回债券和抵押贷款支持证券中。
 
 ```
-NEGATIVE CONVEXITY:
+负凸性：
 
-  WHY IT OCCURS (CALLABLE BONDS):
+  为何出现（可赎回债券）：
 
-  When rates fall, the issuer can CALL the bond (buy it back at par).
-  This caps the bond's upside. As rates approach the call threshold,
-  the bond's price stops rising and flattens near the call price.
+  当利率下降，发行人可以赎回债券（以面值买回）。
+  这封住了债券价格上涨的空间。随着利率接近赎回临界点，
+  债券价格停止上涨，并在接近赎回价格的水平趋于平稳。
 
-  Price
-  $115 |          Non-callable bond (positive convexity)
+  价格
+  $115 |          不可赎回债券（正凸性）
        |        **
   $110 |      ** .....
-       |    **  .     ..... Callable bond (negative convexity)
+       |    **  .     ..... 可赎回债券（负凸性）
   $105 |  ** ..
        | **.
-  $100 |*.                           CALL PRICE (cap)
+  $100 |*.                           赎回价格（上限）
        |                        -.-.-.-.-.-.-.-.-.-.-
    $95 |                    ..
        |                ..
-   $90 |            ..                Both bonds similar
-       |        ..                    when rates rise
+   $90 |            ..                利率上升时
+       |        ..                    两种债券表现相近
    $85 |    ..
        +----+----+----+----+----+----+----+----
        2%   3%   4%   5%   6%   7%   8%   9%
 
-  Below ~4% yield: Callable bond's price is CAPPED near $105
-  because the issuer will likely call it. The non-callable bond
-  continues to rise.
+  当收益率低于约4%时：可赎回债券价格被锁定在约$105附近，
+  因为发行人很可能赎回。不可赎回债券则继续上涨。
 
-  This "capping" creates NEGATIVE CONVEXITY in the low-rate region.
+  这种"价格封顶"在低利率区间产生了负凸性。
 ```
 
 ```
-NEGATIVE CONVEXITY IN MORTGAGE-BACKED SECURITIES:
+抵押贷款支持证券中的负凸性：
 
-  MBS have the worst negative convexity because homeowners
-  can refinance (prepay their mortgage) at any time.
+  抵押贷款支持证券的负凸性最为严重，因为房主
+  可以随时提前还款（再融资）。
 
-  When rates fall:
-  - Homeowners refinance -> prepayments accelerate
-  - You get your principal back at par (no premium)
-  - Your high-coupon cash flows are replaced by lower yields
-  - Duration SHORTENS (you get money back faster, but at the
-    worst time because you cannot reinvest at high rates)
+  当利率下降时：
+  - 房主再融资 -> 提前还款加速
+  - 你以面值收回本金（无溢价）
+  - 高票息现金流被低收益率替代
+  - 久期缩短（你更早收回资金，但此时
+    无法以高利率再投资，时机最差）
 
-  When rates rise:
-  - Homeowners stop refinancing -> prepayments slow
-  - Your principal is locked up for longer
-  - Duration EXTENDS (you are stuck holding a low-coupon
-    bond for longer, exactly when you would want to reinvest
-    at higher rates)
+  当利率上升时：
+  - 房主停止再融资 -> 提前还款减少
+  - 本金被锁定更长时间
+  - 久期延伸（你被迫持有低票息债券更久，
+    恰恰是在你最希望以更高利率再投资的时候）
 
-  THIS IS THE OPPOSITE OF WHAT YOU WANT.
+  这与你所期望的完全相反。
 
-  Duration SHORTENS when rates fall (gains are capped)
-  Duration EXTENDS when rates rise (losses are magnified)
+  利率下降时久期缩短（收益被封顶）
+  利率上升时久期延伸（损失被放大）
 
-  This is why MBS underperformed dramatically in 2022.
-  As rates surged from 1.5% to 4.5%, MBS duration extended
-  from ~4 years to ~7 years, amplifying losses.
+  这正是抵押贷款支持证券在2022年表现极差的原因。
+  随着利率从1.5%急升至4.5%，抵押贷款支持证券的
+  久期从约4年延伸至约7年，放大了损失。
 
-  COMPARISON OF CONVEXITY:
+  凸性对比：
 
-  Bond Type              Duration   Convexity    Behavior
+  债券类型              久期      凸性         特性
   =====================  ========   =========    ==================
-  Zero-Coupon Treasury   High       Very High    Best convexity
-  Coupon Treasury        Moderate   Positive     Good convexity
-  Investment Grade Corp  Moderate   Positive     Good convexity
-  Callable Corporate     Moderate   Mixed*       Neg when rates low
-  Agency MBS             Moderate   Negative     Worst convexity
-  Interest-Only Strip    High       Very Neg     Extreme neg convex.
+  零息国债               较高       很高         凸性最好
+  付息国债               中等       正值         凸性良好
+  投资级公司债           中等       正值         凸性良好
+  可赎回公司债           中等       混合*        接近赎回价时为负
+  机构抵押贷款支持证券   中等       负值         凸性最差
+  纯利息剥离证券         较高       极负         极端负凸性
 
-  * Negative near call price, positive far from call price
+  * 接近赎回价时为负凸性，远离赎回价时为正凸性
 ```
 
 ```
-PORTFOLIO IMPLICATIONS OF NEGATIVE CONVEXITY:
+负凸性对投资组合的影响：
 
-  Scenario: $200,000 bond portfolio, Duration = 6 years
+  情景：$200,000债券投资组合，久期 = 6年
 
-  POSITIVE CONVEXITY PORTFOLIO (Treasuries):
-    Convexity = 55
+  正凸性投资组合（国债）：
+    凸性 = 55
 
-    Rates fall 2%:
-      Duration: +12.00%   Convexity: +1.10%   Total: +13.10%
-      Gain: $26,200
+    利率下降2%：
+      久期效应：+12.00%   凸性效应：+1.10%   合计：+13.10%
+      收益：$26,200
 
-    Rates rise 2%:
-      Duration: -12.00%   Convexity: +1.10%   Total: -10.90%
-      Loss: $21,800
+    利率上升2%：
+      久期效应：-12.00%   凸性效应：+1.10%   合计：-10.90%
+      损失：$21,800
 
-    ASYMMETRY: Gained $4,400 more than lost. Convexity helps.
+    不对称性：收益比损失多$4,400。凸性发挥了保护作用。
 
-  NEGATIVE CONVEXITY PORTFOLIO (MBS):
-    Convexity = -30
+  负凸性投资组合（抵押贷款支持证券）：
+    凸性 = -30
 
-    Rates fall 2%:
-      Duration: +12.00%   Convexity: -0.60%   Total: +11.40%
-      Gain: $22,800
+    利率下降2%：
+      久期效应：+12.00%   凸性效应：-0.60%   合计：+11.40%
+      收益：$22,800
 
-    Rates rise 2%:
-      Duration: -12.00%   Convexity: -0.60%   Total: -12.60%
-      Loss: $25,200
+    利率上升2%：
+      久期效应：-12.00%   凸性效应：-0.60%   合计：-12.60%
+      损失：$25,200
 
-    ASYMMETRY: Lost $2,400 more than gained. Convexity hurts.
+    不对称性：损失比收益多$2,400。凸性产生了负面影响。
 
-    NET DIFFERENCE: $6,800 between the two portfolios!
-    And this understates the MBS problem because duration
-    itself extends when rates rise, making the true loss worse.
+    净差额：两个投资组合相差$6,800！
+    且这还低估了抵押贷款支持证券的问题，因为
+    在利率上升时，久期本身也会延伸，使实际损失更大。
 ```
 
-#### Immunization
+#### 免疫策略
 
-Immunization is a strategy that uses duration matching to ensure that a bond portfolio will meet a specific future liability regardless of interest rate changes.
+免疫策略是利用久期匹配确保债券投资组合能够在任何利率环境下覆盖特定未来负债的方法。
 
 ```
-IMMUNIZATION CONCEPT:
+免疫策略概念：
 
-  PROBLEM:
-  You need exactly $1,000,000 in 7 years for a future obligation.
-  You have $700,000 today to invest in bonds.
-  If rates rise, your bonds lose value but you can reinvest coupons
-  at higher rates. If rates fall, your bonds gain value but you
-  reinvest coupons at lower rates. These two effects offset.
+  问题：
+  你需要在7年后精确支付$1,000,000的未来负债。
+  你今天有$700,000可投资于债券。
+  若利率上升，你的债券价值下降，但票息可以以更高利率再投资。
+  若利率下降，你的债券价值上升，但票息再投资利率更低。
+  这两种效应相互抵消。
 
-  SOLUTION:
-  Match the DURATION of your portfolio to your TIME HORIZON.
+  解决方案：
+  将投资组合的久期与你的时间跨度相匹配。
 
-  If your liability is in 7 years, build a portfolio with
-  Macaulay Duration = 7 years.
+  若负债发生在7年后，则构建麦考利久期 = 7年的投资组合。
 
-  WHY THIS WORKS:
+  为什么有效：
 
-  Two effects of a rate change:
+  利率变动的两种效应：
 
-  1. PRICE EFFECT:
-     Higher rates -> lower bond prices (hurts)
-     Lower rates -> higher bond prices (helps)
+  1. 价格效应：
+     利率上升 -> 债券价格下跌（不利）
+     利率下降 -> 债券价格上涨（有利）
 
-  2. REINVESTMENT EFFECT:
-     Higher rates -> coupons reinvested at higher rates (helps)
-     Lower rates -> coupons reinvested at lower rates (hurts)
+  2. 再投资效应：
+     利率上升 -> 票息以更高利率再投资（有利）
+     利率下降 -> 票息以更低利率再投资（不利）
 
-  When Duration = Time Horizon:
-     Price effect and reinvestment effect exactly OFFSET.
-     You reach your target regardless of rate changes.
+  当久期 = 时间跨度时：
+     价格效应与再投资效应精确抵消。
+     无论利率如何变动，你都能实现投资目标。
 
-  DIAGRAM:
+  图示：
 
-  Portfolio Value
-  at Horizon
+  到期时
+  投资组合价值
        |
        |         *        *
        |        * *      * *
        |       *   *    *   *
-  $1M  |------*-----****-----*------ Target
+  $1M  |------*-----****-----*------ 目标
        |     *                 *
        |    *                   *
        |   *                     *
        +---+---+---+---+---+---+---
            -3% -2% -1%  0% +1% +2% +3%
-                Rate Change
+                利率变动
 
-  At duration = horizon, the value converges to the target
-  regardless of the rate change. The "valley" at the center
-  is shallow and both sides converge near the target.
+  当久期等于时间跨度时，价值在到期时收敛至目标，
+  无论利率如何变动。中间的"谷底"较浅，两侧均接近目标。
 ```
 
 ```
-IMMUNIZATION EXAMPLE:
+免疫策略示例：
 
-  Liability: $1,000,000 due in 5 years
-  Current rates: 4.5%
-  Required investment today: $1,000,000 / (1.045)^5 = $802,451
+  负债：5年后需要$1,000,000
+  当前利率：4.5%
+  今日所需投资额：$1,000,000 / (1.045)^5 = $802,451
 
-  Build a portfolio with Duration = 5 years
+  构建久期 = 5年的投资组合
 
-  Option A: Buy a 5-year zero-coupon bond
-    Duration = 5 years (exactly matches)
-    Simple but may not be available at desired size
+  方案A：购买5年期零息债券
+    久期 = 5年（完全匹配）
+    简便，但可能无法以所需规模购入
 
-  Option B: Barbell with 2-year and 10-year bonds
-    Weight in 2-year (duration 1.9): w
-    Weight in 10-year (duration 8.2): 1-w
+  方案B：用2年期和10年期债券构建哑铃组合
+    在2年期债券（久期1.9）的权重：w
+    在10年期债券（久期8.2）的权重：1-w
 
-    Target: w x 1.9 + (1-w) x 8.2 = 5.0
-    Solving: 1.9w + 8.2 - 8.2w = 5.0
-             -6.3w = -3.2
-             w = 0.508
+    目标：w × 1.9 + (1-w) × 8.2 = 5.0
+    求解：1.9w + 8.2 - 8.2w = 5.0
+          -6.3w = -3.2
+          w = 0.508
 
-    Invest 50.8% in 2-year ($407,646)
-    Invest 49.2% in 10-year ($394,805)
-    Portfolio duration = 5.0 years
+    投资50.8%于2年期债券（$407,646）
+    投资49.2%于10年期债券（$394,805）
+    投资组合久期 = 5.0年
 
-  IMPORTANT: Immunization requires REBALANCING.
-  As time passes and rates change, the portfolio duration shifts.
-  You must periodically (quarterly or after significant rate moves)
-  rebalance to maintain duration = remaining time to liability.
+  重要提示：免疫策略需要定期再平衡。
+  随着时间推移和利率变动，投资组合久期会发生偏移。
+  你必须定期（每季度或在利率大幅变动后）
+  进行再平衡，以维持久期等于负债剩余期限。
 
-  IMMUNIZATION CONDITIONS:
-  1. Portfolio duration = liability duration (time to payment)
-  2. Present value of portfolio >= present value of liability
-  3. Portfolio must be rebalanced periodically
-  4. Works best for parallel yield curve shifts
-  5. Does not protect against non-parallel shifts perfectly
+  免疫策略条件：
+  1. 投资组合久期 = 负债久期（至付款日的时间）
+  2. 投资组合现值 >= 负债现值
+  3. 必须定期进行再平衡
+  4. 最适用于收益率曲线平行移动的情况
+  5. 对非平行移动的保护效果不够完美
 ```
 
-#### Duration and Convexity in Practice
+#### 久期与凸性的实际应用
 
 ```
-COMMON BOND FUND METRICS:
+常见债券基金指标：
 
-  Fund                     Duration   Convexity   What This Means
+  基金                     久期      凸性        含义
   =======================  ========   =========   ===================
-  Vanguard Short-Term       2.7        0.08       Low rate sensitivity
-  (BSV)                                           Safe in rising rates
+  先锋短期债券基金          2.7        0.08       利率敏感性低
+  （BSV）                                         利率上升时较安全
 
-  Vanguard Total Bond       6.5        0.65       Moderate sensitivity
-  (BND)                                           Core bond holding
+  先锋全债市场基金          6.5        0.65       中等敏感性
+  （BND）                                         核心债券持仓
 
-  iShares 7-10 Year         7.8        0.70       Above average
-  (IEF)                                           Meaningful rate risk
+  iShares 7-10年期          7.8        0.70       敏感性偏高
+  （IEF）                                         有较明显利率风险
 
-  iShares 20+ Year          17.2       3.95       Very high sensitivity
-  (TLT)                                           Extreme rate risk
+  iShares 20年期以上        17.2       3.95       敏感性极高
+  （TLT）                                         利率风险极大
 
-  iShares MBS               5.8       -0.30       Moderate duration
-  (MBB)                                           NEGATIVE convexity!
+  iShares抵押贷款支持       5.8       -0.30       中等久期
+  证券（MBB）                                     负凸性！
 
-  PVBP PER $100,000 INVESTED:
+  每$100,000投资的基点价值：
 
-  BSV:  $27/bp    -> $2,700 per 1% rate change
-  BND:  $65/bp    -> $6,500 per 1% rate change
-  IEF:  $78/bp    -> $7,800 per 1% rate change
-  TLT:  $172/bp   -> $17,200 per 1% rate change
-  MBB:  $58/bp    -> $5,800 per 1% rate change (with neg convexity!)
+  BSV：  $27/bp    -> 利率每变动1%，损益约$2,700
+  BND：  $65/bp    -> 利率每变动1%，损益约$6,500
+  IEF：  $78/bp    -> 利率每变动1%，损益约$7,800
+  TLT：  $172/bp   -> 利率每变动1%，损益约$17,200
+  MBB：  $58/bp    -> 利率每变动1%，损益约$5,800（含负凸性！）
 ```
 
 ```
-PRACTICAL GUIDELINES:
+实操指南：
 
-  YOUR RISK TOLERANCE AND DURATION:
+  你的风险承受能力与久期：
 
-  Conservative (cannot tolerate > 5% bond loss):
-    Maximum duration = 5 / expected rate move
-    If you expect rates could rise 1%: max duration = 5 years
-    Funds: BSV, short-term bond funds, T-bills
+  保守型（不能承受超过5%的债券损失）：
+    最大久期 = 5 / 预期利率变动幅度
+    若预期利率可能上升1%：最大久期 = 5年
+    推荐基金：BSV、短期债券基金、短期国债
 
-  Moderate (can tolerate 5-10% bond loss):
-    Maximum duration = 10 / expected rate move
-    If you expect rates could rise 1%: max duration = 10 years
-    Funds: BND, intermediate bond funds
+  稳健型（可承受5%-10%的债券损失）：
+    最大久期 = 10 / 预期利率变动幅度
+    若预期利率可能上升1%：最大久期 = 10年
+    推荐基金：BND、中期债券基金
 
-  Aggressive (willing to accept > 10% bond loss for
-             higher yield and convexity benefits):
-    Duration > 10 years
-    Funds: TLT, long-term bond funds
-    Only appropriate if you believe rates will fall
+  积极型（愿意承受超过10%的债券损失，以
+         换取更高收益率和凸性收益）：
+    久期 > 10年
+    推荐基金：TLT、长期债券基金
+    仅适合看空利率（预期利率下降）的投资者
 
-  DURATION MATCHING RULE OF THUMB:
-  Your bond portfolio duration should approximately match
-  your investment time horizon.
+  久期匹配经验法则：
+  你的债券投资组合久期应大致匹配你的投资时间跨度。
 
-  5-year time horizon -> Duration ~5 years
-  10-year time horizon -> Duration ~10 years
+  5年投资期限 -> 久期约5年
+  10年投资期限 -> 久期约10年
 
-  This provides natural immunization against rate changes:
-  price losses from rising rates are offset by higher
-  reinvestment income, and vice versa.
+  这提供了对利率变动的天然免疫保护：
+  利率上升带来的价格损失，被更高的再投资收益抵消，
+  反之亦然。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c）常见误区
 
-**Misconception 1: "Duration is the average life of a bond."**
+**误区一："久期就是债券的平均存续期。"**
 
-Macaulay duration is the weighted average time to receive cash flows, which is conceptually related to "average life" but is not the same thing. Modified duration is purely a price sensitivity measure and has nothing to do with the bond's life span. When someone says "this bond has a duration of 7," they usually mean modified duration of 7, which means the bond's price changes by approximately 7% for a 1% change in yield. Duration as a number of years is a mathematical coincidence of the units, not a time measurement.
+麦考利久期是现金流加权平均到期时间，在概念上与"平均存续期"有所关联，但并不相同。修正久期纯粹是价格敏感性指标，与债券存续时间无关。当有人说"这只债券的久期为7"时，通常是指修正久期为7，意味着收益率每变动1%，债券价格约变动7%。久期以"年"为单位只是数学上的巧合，并非时间的度量。
 
-**Misconception 2: "If a bond has a 5-year duration, I will lose exactly 5% if rates rise 1%."**
+**误区二："债券久期为5年，利率上升1%时我将精确损失5%。"**
 
-Duration provides an approximation, not an exact prediction. The actual price change depends on convexity, the shape of the yield curve shift, credit spread changes, and other factors. For small rate changes (25-50 basis points), duration is quite accurate. For large rate changes (100+ basis points), convexity becomes important and the duration estimate can be significantly off.
+久期提供的是近似值，而非精确预测。实际价格变动取决于凸性、收益率曲线移动形态、信用利差变化及其他因素。对于小幅利率变动（25至50个基点），久期的估算相当准确。对于大幅变动（100个基点以上），凸性变得重要，久期估算可能存在明显偏差。
 
-**Misconception 3: "Higher duration always means higher risk."**
+**误区三："久期越高，风险就越大。"**
 
-Duration measures interest rate risk specifically. A bond could have low duration but high credit risk (a junk bond maturing in 2 years) or high duration but low credit risk (a 30-year Treasury). Total bond risk includes interest rate risk (duration), credit risk (default probability), liquidity risk, and reinvestment risk. Duration captures only the first of these.
+久期衡量的是利率风险。一只债券可能久期较短但信用风险较高（例如2年期高收益债），也可能久期较长但信用风险极低（例如30年期国债）。债券的总体风险包括利率风险（久期）、信用风险（违约概率）、流动性风险和再投资风险。久期只反映其中的第一项。
 
-**Misconception 4: "I should always minimize duration because rates might rise."**
+**误区四："我应该始终最小化久期，因为利率可能上升。"**
 
-If rates are already high and the economy is weakening, extending duration can be highly profitable. In late 2023, when the 10-year Treasury yielded over 5%, investors who extended duration captured significant gains as rates fell. The goal is not to minimize duration but to align duration with your market outlook and risk tolerance. In a falling-rate environment, longer duration is your friend.
+如果利率已处于高位且经济走弱，延长久期可能带来丰厚回报。2023年底，10年期国债收益率超过5%，选择延长久期的投资者在利率下降时获得了可观的资本利得。目标不是最小化久期，而是将久期与你对市场的判断及风险承受能力相匹配。在利率下降的环境中，较长的久期是你的朋友。
 
-**Misconception 5: "Mortgage-backed securities are safe because they are government-backed."**
+**误区五："抵押贷款支持证券有政府背书，所以很安全。"**
 
-Government-backed MBS (issued by Ginnie Mae, Fannie Mae, Freddie Mac) have virtually no credit risk. But they have significant interest rate risk amplified by negative convexity. In 2022, the iShares MBS ETF (MBB) lost over 11%, and individual MBS tranches lost much more. "Government-backed" means you will get your money back eventually, but it does not protect you from price declines caused by rising rates and negative convexity.
+政府背书的抵押贷款支持证券（由吉利美、房利美、房地美发行）几乎不存在信用风险。但它们具有显著的利率风险，且因负凸性而被放大。2022年，iShares抵押贷款支持证券ETF（MBB）损失超过11%，部分抵押贷款支持证券分层产品损失更为惨重。"政府背书"意味着你最终能收回本金，但这无法保护你免受利率上升和负凸性引发的价格下跌。
 
-**Misconception 6: "Convexity does not matter for small portfolios."**
+**误区六："凸性对小规模投资组合无关紧要。"**
 
-For a $50,000 bond portfolio with moderate duration, the convexity effect on a 1% rate change might be $200-$300. That is not trivial. More importantly, understanding convexity changes how you think about bond selection. Given two bonds with the same duration and yield, you should prefer the one with higher convexity. It gives you better upside and less downside. This free benefit (higher convexity at the same duration) is available to investors of any size.
+对于一个5万美元、中等久期的债券投资组合，利率变动1%时的凸性效应可能达200至300美元。这并非微不足道。更重要的是，理解凸性会改变你选择债券的方式。在久期和收益率相同的条件下，你应该优先选择凸性更高的债券，因为它在利率下降时提供更大的上行空间，在利率上升时带来更小的下行损失。这种"免费福利"（相同久期下的更高凸性）对任何规模的投资者都适用。
 
-**Misconception 7: "Duration matching means buying a bond that matures when I need the money."**
+**误区七："久期匹配就是买一只在需要用钱时到期的债券。"**
 
-Maturity matching and duration matching are different. A 10-year coupon bond might have a duration of 7.5 years. If your liability is in 7.5 years, you should match the duration (7.5), not the maturity (10). Alternatively, you could combine shorter and longer bonds to create a portfolio with the target duration. Duration matching is about the weighted average timing of cash flows, not the final maturity date.
-
----
-
-### d) Q&A
-
-**Q: How do I find the duration of my bond fund?**
-
-A: Every bond fund and ETF reports its "effective duration" or "modified duration" on its fact sheet and website. For Vanguard funds, go to the fund page and look under "Risk & Volatility." For iShares, look under "Exposure Breakdown." Your brokerage platform also typically displays duration alongside other fund characteristics. If you own individual bonds, your brokerage platform may calculate duration for each position, or you can use online bond calculators.
-
-**Q: If I own BND (Vanguard Total Bond Market) with a duration of 6.5 years, how much will I lose if rates rise by 0.50%?**
-
-A: Approximate loss = duration x rate change = 6.5 x 0.50% = 3.25%. On a $100,000 position, that is approximately $3,250. The convexity adjustment for a 0.50% move is small (about +0.16%), so the actual loss would be closer to 3.09%, or $3,090. For practical purposes at the retail level, the duration approximation of $3,250 is close enough.
-
-**Q: Should I care about Macaulay duration or modified duration?**
-
-A: For investment decision-making, use modified duration (or effective duration for bonds with embedded options). Modified duration directly tells you price sensitivity. Macaulay duration is primarily used for immunization calculations and for understanding the concept. When bond fund fact sheets report "duration," they almost always mean effective duration, which is close to modified duration for option-free bonds.
-
-**Q: What is "key rate duration" and when does it matter?**
-
-A: Key rate duration (also called partial duration) measures sensitivity to rate changes at specific points on the yield curve. A bond might have a 2-year key rate duration of 0.5 and a 10-year key rate duration of 6.0. This means it is much more sensitive to changes in 10-year rates than 2-year rates. Key rate durations matter when you expect non-parallel yield curve shifts. If you think the long end will rise but the short end will stay flat, key rate durations tell you exactly how your portfolio will respond. Most retail investors can ignore key rate durations, but institutional investors use them extensively.
-
-**Q: How do I increase or decrease my portfolio duration?**
-
-A: To increase duration, shift from shorter-maturity bonds/funds to longer-maturity ones. Replacing BSV (duration 2.7) with IEF (duration 7.8) increases duration. To decrease duration, do the opposite, or add cash (duration zero) to the portfolio. You can also use Treasury futures to adjust duration synthetically without selling existing holdings. For a simple approach, blend a short-duration fund with a long-duration fund to hit your target.
-
-**Q: Does duration apply to stocks or only bonds?**
-
-A: Duration is primarily a bond concept, but the underlying principle applies to any asset with known future cash flows. Equity duration is a concept used in academic finance, where high-growth stocks (with cash flows far in the future) have longer "duration" and are more sensitive to discount rate changes. This explains why growth stocks suffered more than value stocks in 2022 when rates rose sharply. The cash flows of growth companies are further in the future, making their present value more sensitive to the discount rate.
-
-**Q: What happened to MBS duration in 2022 and why was it so bad?**
-
-A: In early 2022, MBS had an effective duration of approximately 4 years. As rates rose sharply from 1.5% to 4.5%, prepayments slowed dramatically (nobody refinances from a 3% mortgage to a 6% mortgage). This caused MBS duration to extend to approximately 7 years, right as rates were rising. The combination of rising rates AND extending duration created losses far worse than the initial 4-year duration would have predicted. This "duration extension" in a rising-rate environment is the practical manifestation of negative convexity, and it is why MBS should be treated with extra caution compared to Treasuries of similar duration.
+到期日匹配与久期匹配是两个不同的概念。一只10年期付息债券的久期可能只有7.5年。如果你的负债发生在7.5年后，你应该匹配久期（7.5年），而不是到期日（10年）。你也可以将短期和长期债券组合，使投资组合达到目标久期。久期匹配关注的是现金流加权平均时间，而非最终到期日。
 
 ---
 
-## YouTube Script
+### d）问答
+
+**问：如何查找我持有的债券基金的久期？**
+
+答：每只债券基金和交易所交易基金都会在其说明书和官网上披露"有效久期"或"修正久期"。先锋旗下基金可在基金页面的"风险与波动性"栏目中查找；iShares基金可在"敞口分解"栏目中查找。你的券商平台通常也会在基金特征信息中显示久期。如果你持有单只债券，券商平台可能为每个持仓计算久期，或者你可以使用在线债券计算器。
+
+**问：我持有BND（先锋全债市场ETF），久期为6.5年，若利率上升0.50%，我会损失多少？**
+
+答：近似损失 = 久期 × 利率变动 = 6.5 × 0.50% = 3.25%。10万美元持仓约损失3,250美元。0.50%变动幅度下，凸性调整量很小（约+0.16%），实际损失约为3.09%，即3,090美元。对于普通零售投资者而言，久期近似值3,250美元的估算已足够实用。
+
+**问：我应该关注麦考利久期还是修正久期？**
+
+答：在投资决策中，请使用修正久期（对于含内嵌期权的债券则使用有效久期）。修正久期直接反映价格敏感性。麦考利久期主要用于免疫策略计算以及理解概念本身。债券基金说明书中标注的"久期"，几乎都是指有效久期，对于无期权债券，有效久期与修正久期非常接近。
+
+**问：什么是"关键利率久期"？何时需要关注？**
+
+答：关键利率久期（又称局部久期）衡量债券对收益率曲线特定期限处利率变动的敏感性。例如，某债券的2年期关键利率久期为0.5，10年期关键利率久期为6.0，意味着它对10年期利率变动远比对2年期更为敏感。当你预期收益率曲线发生非平行移动时，关键利率久期尤为重要。若你认为长端利率将上升而短端保持不变，关键利率久期能精确告诉你投资组合的反应。大多数零售投资者可以忽略关键利率久期，但机构投资者会广泛应用。
+
+**问：如何调整我的投资组合久期？**
+
+答：要增加久期，将持仓从短期债券/基金转向长期债券/基金。用IEF（久期7.8）替代BSV（久期2.7）可以增加久期。要降低久期，反向操作，或向投资组合中加入现金（久期为零）。你也可以使用国债期货合成调整久期，无需卖出现有持仓。简便起见，可将短久期基金与长久期基金按比例混合，达到目标久期。
+
+**问：久期适用于股票吗，还是仅限于债券？**
+
+答：久期主要是债券领域的概念，但其底层逻辑适用于任何具有已知未来现金流的资产。股票久期是学术金融中的一个概念——高成长股（现金流发生在较远未来）的"久期"较长，对折现率变化更为敏感。这解释了为何2022年利率急升时，成长股的跌幅远大于价值股。成长型公司的现金流更多发生在未来，使其现值对折现率的变化更加敏感。
+
+**问：2022年抵押贷款支持证券的久期发生了什么，为何损失如此惨重？**
+
+答：2022年初，抵押贷款支持证券的有效久期约为4年。随着利率从1.5%急升至4.5%，提前还款急剧减少（没有人会把3%的房贷再融资成6%的），导致久期延伸至约7年。因此，不仅利率在上升，抵押贷款支持证券对上升利率的敏感性也在同步增强，形成双重打击。当年抵押贷款支持证券ETF MBB损失约11%，部分抵押贷款支持证券分层产品损失更大。这种在利率上升环境中发生的"久期延伸"，正是负凸性在实践中的体现，也是为何抵押贷款支持证券在同等久期下应比国债更加谨慎对待的原因。
+
+---
+
+## YouTube脚本
 
 [VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we learned how to read the yield curve. This week we are going to learn how to measure exactly how much your bonds will move when rates change. We are talking about duration and convexity.
+**Horace：** 欢迎回来。上周我们学习了如何解读收益率曲线。这周我们要学习如何精确衡量利率变动时你的债券会移动多少。今天的主题是久期与凸性。
 
-**Sam:** Duration is one of those terms I see on every bond fund fact sheet, and I always just kind of gloss over it. I know it is important but I do not really understand what it means.
+**Stella：** 久期这个词，我在每一份债券基金说明书上都能看到，但我以前都是直接跳过的。我知道它很重要，但一直搞不清楚它到底是什么意思。
 
-**Alex:** You are not alone. Most retail investors ignore duration, and that is a costly mistake. Duration is the single most important number for understanding your bond portfolio's risk. Let me put it in simple terms. Duration tells you how much your bond or bond fund will change in price for a 1% change in interest rates.
+**Horace：** 你并不孤单。大多数零售投资者都忽视了久期，但这个代价其实不小。久期是理解债券投资组合风险最关键的一个数字。用最简单的话来说：久期告诉你，当利率变动1%时，你的债券或债券基金的价格会变化多少。
 
-**Sam:** Give me an example.
+**Stella：** 给我举个例子。
 
-**Alex:** If your bond fund has a duration of 6.5 years, like the Vanguard Total Bond Market fund, and rates rise by 1%, your fund will lose approximately 6.5%. On $100,000, that is a $6,500 loss. If rates rise by 2%, you lose approximately 13%, or $13,000.
+**Horace：** 如果你的债券基金久期是6.5年，比如先锋全债市场基金，而利率上升了1%，你的基金大约会损失6.5%。10万美元的持仓，就是6,500美元的损失。如果利率上升2%，损失大约是13%，也就是13,000美元。
 
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "Duration of 6.5 = lose 6.5% per 1% rate increase"]
+[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "久期6.5年 = 利率每上升1%，损失约6.5%"]
 
-**Sam:** And if rates fall, the opposite?
+**Stella：** 那如果利率下降呢，是反过来吗？
 
-**Alex:** Exactly. A 1% rate drop would give you approximately a 6.5% gain, or $6,500. Duration works in both directions.
+**Horace：** 完全正确。利率下降1%，你大约能获得6.5%的涨幅，即6,500美元的收益。久期在两个方向上都起作用。
 
-**Sam:** OK so higher duration means more sensitivity to rates. What determines a bond's duration?
+**Stella：** 好，所以久期越高，对利率越敏感。那决定债券久期的因素有哪些？
 
-**Alex:** Three main factors. First, maturity. Longer-maturity bonds have higher duration. A 30-year Treasury has a duration around 20 years while a 2-year Treasury has a duration around 1.9 years. Second, coupon rate. Higher coupons mean lower duration because you receive more cash flow earlier. Third, yield level. Higher yields mean lower duration because distant cash flows are discounted more heavily.
+**Horace：** 主要有三个因素。第一，到期期限。到期期限越长，久期越高。30年期国债的久期约为20年，而2年期国债的久期约为1.9年。第二，票息率。票息率越高，久期越短，因为你更早收到更多现金流。第三，收益率水平。收益率越高，久期越短，因为远期现金流被折现得更厉害。
 
-[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
+[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (久期) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
 
-**Sam:** Can you explain the different types of duration? I have seen Macaulay, modified, and effective.
+**Stella：** 你能解释一下不同类型的久期吗？我见过麦考利久期、修正久期和有效久期。
 
-**Alex:** Sure. Macaulay duration is the original concept. It is the weighted average time until you receive all the bond's cash flows. Think of it like the balance point on a seesaw. If you put all the bond's cash flows on a timeline, weighted by their present value, the balance point is the Macaulay duration.
+**Horace：** 当然。麦考利久期是最原始的概念。它是债券所有现金流的加权平均到期时间。可以把它想象成跷跷板的支点——把债券所有现金流按现值加权摆放在时间轴上，支点的位置就是麦考利久期。
 
-**Sam:** So for a zero-coupon bond, the Macaulay duration equals the maturity?
+**Stella：** 所以对于零息债券，麦考利久期等于到期期限？
 
-**Alex:** Exactly, because there is only one cash flow at the end. For a coupon bond, the Macaulay duration is always less than the maturity because the coupon payments pull the balance point forward.
+**Horace：** 完全正确，因为只有一笔现金流，在最后发生。对于付息债券，麦考利久期总是小于到期期限，因为途中收到的票息将加权平均值向前拉动。
 
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "Macaulay Duration = 4.2 years". Below: "Maturity = 5 years, but duration is only 4.2 years"]
+[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "麦考利久期 = 4.2年". Below: "到期期限 = 5年，但久期仅为4.2年"]
 
-**Sam:** And modified duration?
+**Stella：** 那修正久期呢？
 
-**Alex:** Modified duration takes Macaulay duration and adjusts it to directly measure price sensitivity. The formula is simple: modified duration equals Macaulay duration divided by one plus the yield. The result tells you the percentage price change for a 1% yield change. When people say "duration" in an investment context, they almost always mean modified duration.
+**Horace：** 修正久期在麦考利久期的基础上进行调整，直接衡量价格敏感性。公式很简单：修正久期等于麦考利久期除以（1加上收益率）。结果告诉你，收益率变动1%时债券价格变动的百分比。在投资实践中，人们说的"久期"几乎都是指修正久期。
 
-**Sam:** What about effective duration?
+**Stella：** 有效久期呢？
 
-**Alex:** Effective duration is used for bonds with embedded options, like callable bonds and mortgage-backed securities. For these bonds, the cash flows change when rates change because the issuer might call the bond or homeowners might refinance their mortgages. Modified duration does not account for this. Effective duration is calculated empirically by observing how the bond's price actually changes when you bump rates up and down.
+**Horace：** 有效久期用于含有内嵌期权的债券，比如可赎回债券和抵押贷款支持证券。对于这类债券，利率变化时现金流也会随之改变，因为发行人可能赎回债券，或者房主可能提前还贷再融资。修正久期无法处理这种情况。有效久期通过实证方式计算——观察债券价格在利率上下波动时的实际变化。
 
-[VISUAL: Three boxes side by side. "Macaulay Duration: Weighted average time to cash flows. Used for immunization." "Modified Duration: Price sensitivity to rates. Used for risk measurement." "Effective Duration: Price sensitivity for bonds with options. Handles callable bonds and MBS."]
+[VISUAL: Three boxes side by side. "麦考利久期：现金流加权平均到期时间。用于免疫策略。" "修正久期：对利率的价格敏感性。用于风险衡量。" "有效久期：含期权债券的价格敏感性。适用于可赎回债券和抵押贷款支持证券。"]
 
-**Sam:** Let us talk about PVBP because I want to understand the dollar impact.
+**Stella：** 我们来谈谈基点价值，因为我想了解实际的美元影响。
 
-**Alex:** PVBP stands for Price Value of a Basis Point. One basis point is one hundredth of one percent, or 0.01%. PVBP tells you how many dollars your bond position changes for a 1 basis point move in rates.
+**Horace：** 基点价值（PVBP）衡量的是收益率变动1个基点（0.01%）时，你的债券持仓变动的美元金额。
 
-**Sam:** How do you calculate it?
+**Stella：** 怎么计算？
 
-**Alex:** Multiply modified duration by the bond price by 0.0001. For example, a $100,000 position with duration of 8 years has a PVBP of $100,000 times 8 times 0.0001, which equals $80. Every single basis point move in rates changes your position by $80.
+**Horace：** 用修正久期乘以债券价格再乘以0.0001。举个例子，10万美元持仓、久期8年的债券，基点价值 = 10万 × 8 × 0.0001 = 80美元。也就是说，利率每变动一个基点，你的持仓就变动80美元。
 
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2-year: $19/bp. 5-year: $45/bp. 10-year: $82/bp. 20-year: $145/bp. 30-year: $200/bp. A highlight shows: "30-year bond: $200 per basis point. A 50 bp move = $10,000 gain or loss."]
+[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2年期：$19/bp。5年期：$45/bp。10年期：$82/bp。20年期：$145/bp。30年期：$200/bp。A highlight shows: "30年期债券：每个基点$200。利率变动50个基点 = 损益$10,000。"]
 
-**Sam:** So if I own $100,000 in TLT, the long-term Treasury ETF, with a duration of 17 years?
+**Stella：** 所以如果我持有10万美元的TLT，也就是长期国债ETF，久期约为17年？
 
-**Alex:** Your PVBP is $170 per basis point. A 1% rate move, which is 100 basis points, changes your position by $17,000. That is a 17% swing. In 2022, when rates rose about 2.5%, TLT lost approximately 31%. If you knew the duration, you could have predicted that.
+**Horace：** 你的基点价值是每个基点170美元。利率变动1%（100个基点），你的持仓就变动17,000美元，即17%的波动。2022年，利率上升了约2.5%，TLT损失了约31%。如果你事先了解久期，完全可以预判这个结果。
 
-**Sam:** That really puts it in perspective. Now let us talk about convexity because you said duration alone is not enough.
+**Stella：** 这真的让人印象深刻。现在我们来讲凸性，因为你说过只有久期还不够。
 
-**Alex:** Right. Duration is a straight-line approximation of a curved relationship. Think about it this way. The actual relationship between bond prices and yields is a curve, not a straight line. Duration draws a tangent line to that curve at the current yield. For small movements along the curve, the tangent line is a good approximation. For large movements, the tangent line diverges from the actual curve.
+**Horace：** 对。久期是对一种曲线关系的直线近似。这样想：债券价格与收益率之间的实际关系是一条曲线，而不是直线。久期是在当前收益率点画出的切线。对于沿曲线的小幅移动，切线是很好的近似；但对于大幅移动，切线与实际曲线的偏差就会越来越大。
 
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "Convexity bonus: you gain MORE than duration predicts." As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "Convexity cushion: you lose LESS than duration predicts."]
+[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (久期) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "凸性红利：你的实际收益大于久期预测。" As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "凸性缓冲：你的实际损失小于久期预测。"]
 
-**Sam:** So convexity always helps you?
+**Stella：** 所以凸性总是对你有利？
 
-**Alex:** For bonds with positive convexity, yes. You gain more than duration predicts when rates fall, and you lose less than duration predicts when rates rise. This asymmetry is free. It is a mathematical property of fixed cash flow streams discounted at different rates.
+**Horace：** 对于正凸性债券，是的。利率下降时，你的收益超过久期的预测；利率上升时，你的损失小于久期的预测。这种不对称性是免费的，是固定现金流以不同利率折现时固有的数学属性。
 
-**Sam:** How do I use convexity in my calculations?
+**Stella：** 那凸性在计算中怎么用？
 
-**Alex:** The formula adds a second term. Percentage price change equals negative duration times the rate change, plus one-half times convexity times the rate change squared. The second term is always positive for positive convexity bonds, which is why it always helps.
+**Horace：** 公式加入了第二项。价格变动百分比等于负久期乘以利率变动，再加上二分之一乘以凸性乘以利率变动的平方。对于正凸性债券，第二项始终为正，这就是它始终有利的原因。
 
-[VISUAL: The formula displayed clearly with a worked example. "% Change = -Duration x Ay + 0.5 x Convexity x (Ay)^2". Example: Duration 10, Convexity 120, rates rise 1%. Duration effect: -10%. Convexity effect: +0.6%. Total: -9.4% instead of -10%. "Convexity saved you 0.6% on a $100,000 portfolio = $600"]
+[VISUAL: The formula displayed clearly with a worked example. "价格变动% = -久期 × Δy + 0.5 × 凸性 × (Δy)²"。示例：久期10，凸性120，利率上升1%。久期效应：-10%。凸性效应：+0.6%。合计：-9.4%，而非-10%。"凸性为你在$100,000投资组合中节省了0.6% = $600。"]
 
-**Sam:** Now I have to ask about negative convexity because that sounds scary.
+**Stella：** 现在我必须问一下负凸性，因为听起来很可怕。
 
-**Alex:** Negative convexity is exactly what it sounds like. Instead of the curve bending in your favor, it bends against you. You gain less than expected when rates fall and lose more than expected when rates rise.
+**Horace：** 负凸性正如其名。曲线不再向有利方向弯曲，而是向不利方向弯曲。利率下降时，涨幅不及预期；利率上升时，跌幅超出预期。
 
-**Sam:** Why would any bond have negative convexity?
+**Stella：** 为什么会有债券出现负凸性？
 
-**Alex:** The primary cause is embedded options that favor the issuer or the borrower. In a callable bond, the issuer can call (buy back) the bond when rates fall. This caps your upside near the call price. You cannot benefit from further rate declines because the issuer will just take the bond away from you and reissue at lower rates.
+**Horace：** 根本原因是债券中有利于发行人或借款人的内嵌期权。对于可赎回债券，当利率下降时，发行人可以赎回债券（以面值买回）。这封住了你的上行空间，使价格被锁定在赎回价附近。你无法从进一步的利率下降中获益，因为发行人会把债券拿走，以更低利率重新发行。
 
-[VISUAL: Two price-yield curves overlaid. The solid curve (non-callable Treasury) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (callable bond) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "Lost upside due to call option"]
+[VISUAL: Two price-yield curves overlaid. The solid curve (不可赎回国债) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (可赎回债券) follows the Treasury curve on the right (高利率) but flattens and caps near the call price on the left (低利率). The area between the curves on the left is labeled "因赎回期权损失的上行空间"]
 
-**Sam:** And mortgage-backed securities are even worse?
+**Stella：** 抵押贷款支持证券还要更糟？
 
-**Alex:** Much worse. Every homeowner with a mortgage has the option to refinance at any time. When rates fall, homeowners refinance en masse. Your MBS gets its principal returned at par, and you have to reinvest at the now-lower rates. But when rates rise, nobody refinances. Your money is locked in at the old low rate for much longer than expected. Duration extends exactly when you do not want it to.
+**Horace：** 糟糕得多。每一位有房贷的房主都可以随时选择再融资。当利率下降，房主大量再融资，你持有的抵押贷款支持证券本金以面值提前归还，而你只能以更低的利率进行再投资。但当利率上升，没有人再融资，你的资金被锁定在旧的低利率中，期限远比预期更长，久期大幅延伸。
 
-**Sam:** This is what happened in 2022, right?
+**Stella：** 这就是2022年发生的事，对吗？
 
-**Alex:** Exactly. MBS went into 2022 with an effective duration of about 4 years. As rates surged, prepayments collapsed and duration extended to about 7 years. So not only were rates rising, but the MBS was becoming more sensitive to those rising rates as they moved higher. It was a double hit. The MBS ETF MBB lost about 11% that year, and some MBS tranches lost much more.
+**Horace：** 完全正确。2022年初，抵押贷款支持证券的有效久期约为4年。随着利率急升，提前还款急剧减少，久期延伸至约7年。所以利率在上升，而抵押贷款支持证券对利率上升的敏感性同时也在增强，形成双重打击。当年抵押贷款支持证券ETF MBB损失约11%，部分分层产品损失更惨重。
 
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "Rising rates: BAD" and "Extending duration: MAKES IT WORSE." The combination produces a loss that is larger than what 4-year duration would have predicted.]
+[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "利率上升：不利" and "久期延伸：使情况更糟。" The combination produces a loss that is larger than what 4-year duration would have predicted.]
 
-**Sam:** So should I avoid MBS entirely?
+**Stella：** 那我应该完全回避抵押贷款支持证券吗？
 
-**Alex:** Not necessarily, but you should understand what you are buying. Government-backed MBS has zero credit risk, and it typically offers a yield premium over comparable Treasuries. That premium is compensation for the negative convexity. If you hold MBS in a stable-rate environment, you collect the extra yield without the convexity problem. The danger is in rapidly changing rate environments. My advice: if you own MBS or a fund that holds MBS, know its duration and understand that in extreme rate moves, it will behave worse than a Treasury of similar duration.
+**Horace：** 不一定，但你必须清楚自己在买什么。政府背书的抵押贷款支持证券没有信用风险，通常也比同期限国债提供更高的收益率。这个溢价正是对负凸性的补偿。如果你在利率稳定的环境下持有抵押贷款支持证券，你可以收取这个额外收益而不用承担凸性风险。危险在于利率剧烈波动的环境。我的建议是：如果你持有抵押贷款支持证券或持仓其中的基金，要了解其久期，并明白在极端利率变动时，它的表现会比同等久期的国债更差。
 
-**Sam:** Let me bring this back to practical investing. How should someone use duration to manage their bond portfolio?
+**Stella：** 让我把这些内容联系到实际投资上。投资者应该如何利用久期来管理债券投资组合？
 
-**Alex:** Here is my framework. First, know your duration. Look up the effective duration of every bond fund you own. Calculate your portfolio's weighted average duration. Second, stress test your portfolio. Multiply your duration by 1% and by 2% to see how much you would lose if rates rise. Ask yourself if you can tolerate those losses. Third, match your duration to your horizon. If you need the money in 5 years, your duration should be around 5 years. This immunizes you against rate changes.
+**Horace：** 我的框架分三步。第一步，了解你的久期。查出你持有的每只债券基金的有效久期，计算投资组合的加权平均久期。第二步，进行压力测试。用久期乘以1%和2%，估算利率上升时的潜在损失。扪心自问，你能承受这些损失吗？第三步，将久期与你的时间跨度匹配。如果你5年后需要用钱，久期应该在5年左右。这能帮你对冲利率变动的影响。
 
-[VISUAL: A three-step checklist. Step 1: "Know Your Duration" with icons of bond fund fact sheets showing duration numbers. Step 2: "Stress Test" with a table showing "If rates rise 1%/2%/3%, you lose $X/$Y/$Z". Step 3: "Match to Horizon" with a timeline showing "Need money in 7 years -> Duration should be ~7 years"]
+[VISUAL: A three-step checklist. 第一步："了解你的久期"，配以显示久期数字的债券基金说明书图标。第二步："压力测试"，配以表格显示"若利率上升1%/2%/3%，你损失$X/$Y/$Z"。第三步："匹配时间跨度"，配以时间轴显示"7年后需要用钱 -> 久期应约为7年"。]
 
-**Sam:** What about the allocation between short, intermediate, and long bonds?
+**Stella：** 短期、中期和长期债券之间如何配置？
 
-**Alex:** In a rising-rate environment or when you are uncertain, stay short. Duration of 2 to 4 years. You sacrifice some yield but protect against rate surprises. In a falling-rate environment, extend duration. Duration of 8 to 15 years. You capture both higher yields and price gains as rates decline. In a stable-rate environment, intermediate duration is fine. Duration of 5 to 7 years. You get reasonable yield without extreme sensitivity.
+**Horace：** 在利率上升或不确定的环境中，保持短久期，2至4年。你会牺牲一些收益，但能抵御利率的意外冲击。在利率下降的环境中，延长久期，8至15年。你同时获得更高的票息收益和利率下降带来的资本利得。在利率稳定的环境中，中等久期即可，5至7年，在合理收益和可控利率敏感性之间取得平衡。
 
-**Sam:** And what about the yield curve shape? Last week we talked about using the curve's shape for decisions.
+**Stella：** 那收益率曲线的形态呢？上周我们讨论了利用曲线形态做决策。
 
-**Alex:** They connect directly. When the curve is steep, staying short costs you a lot of yield because long rates are much higher. But long bonds have more duration risk. When the curve is flat, there is no yield advantage to extending, so stay short and take less risk. When the curve is inverted, short-term instruments actually yield more, so you get paid more for taking less risk. That is a free lunch, and it is the market's way of telling you to stay short.
+**Horace：** 两者直接相连。当曲线陡峭时，持短端的机会成本较高，因为长端收益率高得多，但长期债券有更高的久期风险。当曲线平坦时，延长久期没有收益优势，应保持短久期、降低风险。当曲线倒挂时，短端实际上收益率更高，这意味着你承担更低风险却能获得更高收益——这是一次免费的午餐，市场在告诉你保持短久期。
 
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "Steep Curve: Long bonds yield much more, but duration risk is high. Moderate duration." "Flat Curve: No yield pickup for duration risk. Stay short." "Inverted Curve: Short rates higher than long rates. Stay short, get paid more."]
+[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "陡峭曲线：长期债券收益率高得多，但久期风险高。适中久期。" "平坦曲线：延长久期没有收益补偿。保持短久期。" "倒挂曲线：短端利率高于长端。保持短久期，获得更高收益。"]
 
-**Sam:** Let us talk about immunization briefly. I find this concept elegant even though it is more of an institutional strategy.
+**Stella：** 我们简单聊一下免疫策略吧。我觉得这个概念很精妙，虽然更多是机构投资者使用的策略。
 
-**Alex:** Immunization is beautiful in its simplicity. You match your portfolio's duration to the date you need the money. If rates rise, your bonds lose value but you reinvest coupons at higher rates. If rates fall, your bonds gain value but you reinvest coupons at lower rates. These two effects cancel out. At the horizon date, you arrive at approximately the same ending value regardless of what rates did.
+**Horace：** 免疫策略的美妙在于它的简洁。你将投资组合的久期与需要用钱的时间相匹配。如果利率上升，你的债券价值下降，但票息再投资的利率更高。如果利率下降，你的债券价值上升，但票息再投资的利率更低。这两种效应相互抵消。到目标时间点，你得到的最终价值大致相同，与利率走势无关。
 
-**Sam:** So it is like a hedge that works in both directions?
+**Stella：** 所以它就像一个双向对冲？
 
-**Alex:** Exactly. And it does not cost anything. You just have to rebalance periodically to keep the duration matched. The catch is it works perfectly only for parallel yield curve shifts. If the curve twists or the shift is non-parallel, there is some tracking error. But for most retail investors, duration matching is far better than not thinking about duration at all.
+**Horace：** 完全是。而且它不需要任何额外成本，你只需定期再平衡，保持久期与目标时间匹配即可。需要注意的是，它在收益率曲线平行移动的情况下效果最佳。若曲线发生扭转或非平行移动，会有一定跟踪误差。但对大多数零售投资者来说，做久期匹配远比完全不考虑久期要好得多。
 
-**Sam:** Let me try to bring all of this together. Duration tells me sensitivity to rates, roughly percentage loss per 1% rate rise. Convexity improves that estimate, and positive convexity always works in my favor. Negative convexity, which is mainly in callable bonds and MBS, works against me. And PVBP converts all of this into actual dollars.
+**Stella：** 让我来总结一下。久期告诉我对利率的敏感性，大约是利率每上升1%损失的百分比。凸性改善了这个估算，正凸性总是对我有利。负凸性主要存在于可赎回债券和抵押贷款支持证券中，对我不利。而基点价值将这一切转化为实际美元金额。
 
-**Alex:** Perfect summary. Let me add one more thought. When you are comparing two bonds or two bond funds with similar duration and yield, always prefer the one with higher convexity. It is free protection. You get more upside in a rate decline and less downside in a rate rise. All else equal, higher convexity is always better.
+**Horace：** 完美的总结。我再补充一点：当你比较两只久期和收益率相近的债券或基金时，优先选择凸性更高的那只。这是免费的保护——在利率下降时享有更大的上涨空间，在利率上升时承受更小的下跌损失。在其他条件相同的情况下，更高的凸性永远更优。
 
-[VISUAL: Two bonds displayed side by side. Bond A: Duration 7, Yield 4.5%, Convexity 60. Bond B: Duration 7, Yield 4.5%, Convexity 85. A star or checkmark next to Bond B with text: "Same duration, same yield, but better convexity. Choose Bond B."]
+[VISUAL: Two bonds displayed side by side. 债券A：久期7，收益率4.5%，凸性60。债券B：久期7，收益率4.5%，凸性85。A star or checkmark next to 债券B with text: "相同久期，相同收益率，但凸性更高。选债券B。"]
 
-**Sam:** And if I can only remember one number?
+**Stella：** 如果我只能记住一个数字？
 
-**Alex:** Remember your portfolio duration. If it is 6, you lose approximately 6% for every 1% rates rise. If it is 3, you lose approximately 3%. That single number tells you more about your bond risk than anything else.
+**Horace：** 记住你的投资组合久期。如果是6，利率每上升1%，你大约损失6%。如果是3，大约损失3%。这一个数字，比任何其他指标都更能告诉你债券的风险所在。
 
-**Sam:** This has been really helpful. I finally understand what those numbers on my fund fact sheets mean.
+**Stella：** 这次讲解真的很有帮助。我终于搞清楚基金说明书上那些数字的含义了。
 
-**Alex:** And that is the whole point. Next week we move to credit analysis, where we will learn how to evaluate the other major risk in bonds: the risk that the borrower does not pay you back. Duration is interest rate risk. Credit analysis is default risk. Together, they give you the complete picture of bond investing.
+**Horace：** 这正是我们的目的。下周我们进入信用分析，学习如何评估债券的另一类主要风险：借款人不还钱的风险。久期是利率风险；信用分析是违约风险。两者结合，才是债券投资的完整图景。
 
-**Sam:** Thanks, everyone. See you next week.
+**Stella：** 感谢大家，我们下周见。
 
-[VISUAL: End screen with show logo, "Week 32: Duration and Convexity" summary, and preview of Week 33: Credit Analysis]
+[VISUAL: End screen with show logo, "第32周：久期与凸性" summary, and preview of Week 33: Credit Analysis]
 
-**Alex:** See you then.
+**Horace：** 下周见。

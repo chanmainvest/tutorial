@@ -590,249 +590,249 @@ A: Calculate the "effective leverage ratio" for each strategy by dividing the no
 
 [VISUAL: Opening title card -- "Week 37: Options Leverage Strategies" with a split-screen showing a small pebble tipping a large boulder]
 
-**Alex**: Welcome back, everyone. Today we are tackling one of the most exciting and most dangerous concepts in options trading -- leverage. Sam, when you hear the word "leverage," what comes to mind?
+**Horace**: Welcome back, everyone. Today we are tackling one of the most exciting and most dangerous concepts in options trading -- leverage. Stella, when you hear the word "leverage," what comes to mind?
 
-**Sam**: Honestly? It sounds like a way to make a lot of money fast. Like, using a small amount of capital to control a large position. I know it can go wrong, but the appeal is obvious.
+**Stella**: Honestly? It sounds like a way to make a lot of money fast. Like, using a small amount of capital to control a large position. I know it can go wrong, but the appeal is obvious.
 
-**Alex**: That is the right instinct, and you are far from alone. Leverage is what draws most people to options in the first place. But here is the thing -- most retail traders who use options for leverage end up losing money. Not because leverage itself is bad, but because they misunderstand the mechanics. So today, we are going to build a proper framework.
+**Horace**: That is the right instinct, and you are far from alone. Leverage is what draws most people to options in the first place. But here is the thing -- most retail traders who use options for leverage end up losing money. Not because leverage itself is bad, but because they misunderstand the mechanics. So today, we are going to build a proper framework.
 
 [VISUAL: Slide showing "The Power of Leverage" with side-by-side comparison of stock vs. option returns]
 
-**Sam**: OK, let us start with the basics. How exactly do options create leverage?
+**Stella**: OK, let us start with the basics. How exactly do options create leverage?
 
-**Alex**: Great question. Let me give you a concrete example. Say a stock is trading at $200. You have two choices. Choice one: buy 100 shares for $20,000. Choice two: buy one at-the-money call option for $10 per share, which costs you $1,000.
+**Horace**: Great question. Let me give you a concrete example. Say a stock is trading at $200. You have two choices. Choice one: buy 100 shares for $20,000. Choice two: buy one at-the-money call option for $10 per share, which costs you $1,000.
 
-**Sam**: So the option costs 95% less upfront.
+**Stella**: So the option costs 95% less upfront.
 
-**Alex**: Exactly. Now, the stock goes up 10% to $220. With the stock, you made $2,000 on your $20,000 investment -- a 10% return. With the option, at expiration, your call is worth $20, you paid $10, so your profit is $10 per share, or $1,000. That is a 100% return on your $1,000 investment.
+**Horace**: Exactly. Now, the stock goes up 10% to $220. With the stock, you made $2,000 on your $20,000 investment -- a 10% return. With the option, at expiration, your call is worth $20, you paid $10, so your profit is $10 per share, or $1,000. That is a 100% return on your $1,000 investment.
 
 [VISUAL: Animated bar chart showing 10% return on stock vs. 100% return on option for the same stock move]
 
-**Sam**: 100% return versus 10% return. That is 10 times leverage! But wait -- what happens if the stock drops 10%?
+**Stella**: 100% return versus 10% return. That is 10 times leverage! But wait -- what happens if the stock drops 10%?
 
-**Alex**: Now you see the other side. If the stock drops to $180, your stock position loses $2,000, a 10% loss. Your option? With the stock at $180, your $200 call is now $20 out of the money with no time left. It expires worthless. You lose your entire $1,000 investment. That is a 100% loss.
+**Horace**: Now you see the other side. If the stock drops to $180, your stock position loses $2,000, a 10% loss. Your option? With the stock at $180, your $200 call is now $20 out of the money with no time left. It expires worthless. You lose your entire $1,000 investment. That is a 100% loss.
 
 [VISUAL: Red downward arrow showing -10% for stock, -100% for option]
 
-**Sam**: Ouch. So the leverage works both ways.
+**Stella**: Ouch. So the leverage works both ways.
 
-**Alex**: Not quite both ways, and this is important. Notice the asymmetry. On the upside, you made $1,000 on the option versus $2,000 on the stock -- less in absolute dollars. On the downside, you lost $1,000 on the option versus $2,000 on the stock -- also less in absolute dollars. The key insight is that the *percentage* return is amplified, but the *dollar* risk is defined. You cannot lose more than $1,000 on the option.
+**Horace**: Not quite both ways, and this is important. Notice the asymmetry. On the upside, you made $1,000 on the option versus $2,000 on the stock -- less in absolute dollars. On the downside, you lost $1,000 on the option versus $2,000 on the stock -- also less in absolute dollars. The key insight is that the *percentage* return is amplified, but the *dollar* risk is defined. You cannot lose more than $1,000 on the option.
 
-**Sam**: So there is a built-in floor to the loss. Unlike margin, right?
+**Stella**: So there is a built-in floor to the loss. Unlike margin, right?
 
-**Alex**: Exactly, and that is why I want to compare options leverage to margin leverage, because they are fundamentally different.
+**Horace**: Exactly, and that is why I want to compare options leverage to margin leverage, because they are fundamentally different.
 
 [VISUAL: Split-screen comparison table -- "Options Leverage vs. Margin Leverage"]
 
-**Alex**: With margin, your broker lends you money to buy more stock. Typical retail margin is 2x leverage. You put up $10,000, your broker lends you $10,000, and you buy $20,000 of stock. The cost is the interest rate on the borrowed amount -- currently around 5-8% per year at most brokers.
+**Horace**: With margin, your broker lends you money to buy more stock. Typical retail margin is 2x leverage. You put up $10,000, your broker lends you $10,000, and you buy $20,000 of stock. The cost is the interest rate on the borrowed amount -- currently around 5-8% per year at most brokers.
 
-**Sam**: And the downside risk?
+**Stella**: And the downside risk?
 
-**Alex**: Potentially unlimited. If the stock drops far enough, you can lose more than your initial investment. You can get a margin call. In extreme cases, you can end up owing money to your broker. That cannot happen with long options.
+**Horace**: Potentially unlimited. If the stock drops far enough, you can lose more than your initial investment. You can get a margin call. In extreme cases, you can end up owing money to your broker. That cannot happen with long options.
 
 [ANIMATION: animation/week37_leverage_payoff.py -- Side-by-side animated payoff diagrams comparing a long call position and a margin stock position. The animation shows a stock price slider moving from left to right. As the stock price changes, both P&L curves update in real-time. The call option payoff shows the hockey stick shape with a flat loss at the premium level. The margin position shows a straight line that extends below zero into negative territory. Key points are labeled: breakeven, maximum loss for the option, and margin call trigger for the margin position.]
 
-**Sam**: That animation really shows the difference. The option has that flat bottom -- you cannot lose more than the premium. The margin position just keeps going down.
+**Stella**: That animation really shows the difference. The option has that flat bottom -- you cannot lose more than the premium. The margin position just keeps going down.
 
-**Alex**: Right. Now, let us talk about the cost of leverage, because this is where many traders fool themselves.
+**Horace**: Right. Now, let us talk about the cost of leverage, because this is where many traders fool themselves.
 
 [VISUAL: Slide titled "The True Cost of Options Leverage"]
 
-**Alex**: When you buy an option, you pay a premium. That premium has two components: intrinsic value and extrinsic value. The extrinsic value -- the time value -- is the real cost of your leverage. And it decays to zero by expiration.
+**Horace**: When you buy an option, you pay a premium. That premium has two components: intrinsic value and extrinsic value. The extrinsic value -- the time value -- is the real cost of your leverage. And it decays to zero by expiration.
 
-**Sam**: So it is like renting leverage instead of owning it.
+**Stella**: So it is like renting leverage instead of owning it.
 
-**Alex**: That is a brilliant analogy. With margin, you are paying rent too -- the interest rate. But with options, the "rent" is often much higher on an annualized basis. Let me show you.
+**Horace**: That is a brilliant analogy. With margin, you are paying rent too -- the interest rate. But with options, the "rent" is often much higher on an annualized basis. Let me show you.
 
 [VISUAL: Cost breakdown showing annualized cost comparison]
 
-**Alex**: If you buy quarterly ATM calls on a $200 stock and each one costs $10 in premium, you are spending $40 per year in extrinsic value to maintain about 10x leverage on $20,000 of stock. That is $40 on $1,000 of capital, but it is buying you exposure to $20,000 of stock.
+**Horace**: If you buy quarterly ATM calls on a $200 stock and each one costs $10 in premium, you are spending $40 per year in extrinsic value to maintain about 10x leverage on $20,000 of stock. That is $40 on $1,000 of capital, but it is buying you exposure to $20,000 of stock.
 
-**Sam**: How does that compare to margin?
+**Stella**: How does that compare to margin?
 
-**Alex**: With margin, to get 2x leverage on $20,000 of stock, you put up $10,000 and borrow $10,000. The interest on $10,000 at 6% is $600 per year. So margin costs $600 for 2x leverage, while options cost about $4,000 for 10x leverage. Per unit of leverage, they are surprisingly similar.
+**Horace**: With margin, to get 2x leverage on $20,000 of stock, you put up $10,000 and borrow $10,000. The interest on $10,000 at 6% is $600 per year. So margin costs $600 for 2x leverage, while options cost about $4,000 for 10x leverage. Per unit of leverage, they are surprisingly similar.
 
-**Sam**: Huh, I never thought about it that way. But the option leverage is five times higher.
+**Stella**: Huh, I never thought about it that way. But the option leverage is five times higher.
 
-**Alex**: Right, and you get the defined risk benefit. But here is the trap -- if the stock does not move, you lose your entire premium with options. With margin, you just pay interest but you still own the stock. This is why options are a terrible substitute for long-term stock ownership.
+**Horace**: Right, and you get the defined risk benefit. But here is the trap -- if the stock does not move, you lose your entire premium with options. With margin, you just pay interest but you still own the stock. This is why options are a terrible substitute for long-term stock ownership.
 
 [VISUAL: Warning sign graphic -- "Options are not stock substitutes"]
 
-**Sam**: OK, so how do I measure how much leverage I actually have at any given moment? You mentioned something about delta earlier?
+**Stella**: OK, so how do I measure how much leverage I actually have at any given moment? You mentioned something about delta earlier?
 
-**Alex**: Delta is the key. It tells you how much the option price changes for every $1 move in the stock. An at-the-money call has a delta of about 0.50. That means for every $1 the stock goes up, your call goes up $0.50.
+**Horace**: Delta is the key. It tells you how much the option price changes for every $1 move in the stock. An at-the-money call has a delta of about 0.50. That means for every $1 the stock goes up, your call goes up $0.50.
 
-**Sam**: And the leverage ratio comes from that?
+**Stella**: And the leverage ratio comes from that?
 
-**Alex**: Yes. The formula is: Leverage Ratio equals Stock Price times Delta, divided by the Option Premium.
+**Horace**: Yes. The formula is: Leverage Ratio equals Stock Price times Delta, divided by the Option Premium.
 
 [VISUAL: Formula on screen with worked examples]
 
-**Alex**: For our $200 stock example, with an ATM call at $10 and delta of 0.50: leverage equals 200 times 0.50 divided by 10, which is 10x. If you buy an out-of-the-money $220 call for $3 with a delta of 0.20, leverage equals 200 times 0.20 divided by 3, which is about 13x.
+**Horace**: For our $200 stock example, with an ATM call at $10 and delta of 0.50: leverage equals 200 times 0.50 divided by 10, which is 10x. If you buy an out-of-the-money $220 call for $3 with a delta of 0.20, leverage equals 200 times 0.20 divided by 3, which is about 13x.
 
-**Sam**: So OTM options give you more leverage?
+**Stella**: So OTM options give you more leverage?
 
-**Alex**: More leverage, yes, but with a critical tradeoff. The higher the leverage, the lower the probability of profit. That OTM call needs the stock to move above $223 just to break even. The ATM call only needs it above $210. Higher leverage does not mean better leverage.
+**Horace**: More leverage, yes, but with a critical tradeoff. The higher the leverage, the lower the probability of profit. That OTM call needs the stock to move above $223 just to break even. The ATM call only needs it above $210. Higher leverage does not mean better leverage.
 
 [VISUAL: Table showing strike price, delta, leverage ratio, and probability of profit]
 
-**Sam**: What about deep in-the-money options? Do they still give you leverage?
+**Stella**: What about deep in-the-money options? Do they still give you leverage?
 
-**Alex**: Less, but yes. A deep ITM $160 call on our $200 stock might cost $42 with a delta of 0.92. Leverage equals 200 times 0.92 divided by 42, which is about 4.4x. Lower leverage, but it behaves much more like the stock. You get most of the upside move, and the probability of profit is high.
+**Horace**: Less, but yes. A deep ITM $160 call on our $200 stock might cost $42 with a delta of 0.92. Leverage equals 200 times 0.92 divided by 42, which is about 4.4x. Lower leverage, but it behaves much more like the stock. You get most of the upside move, and the probability of profit is high.
 
-**Sam**: So it is a spectrum from deep ITM to deep OTM -- from low leverage high probability to high leverage low probability.
+**Stella**: So it is a spectrum from deep ITM to deep OTM -- from low leverage high probability to high leverage low probability.
 
-**Alex**: Exactly. And here is something really important that most traders miss. The leverage changes as the stock moves! If you buy an ATM call and the stock rallies, your option goes deeper ITM, delta increases, but the leverage ratio actually decreases because the option premium has increased faster than delta times stock price.
+**Horace**: Exactly. And here is something really important that most traders miss. The leverage changes as the stock moves! If you buy an ATM call and the stock rallies, your option goes deeper ITM, delta increases, but the leverage ratio actually decreases because the option premium has increased faster than delta times stock price.
 
-**Sam**: Wait, that is counterintuitive. My winner de-leverages itself?
+**Stella**: Wait, that is counterintuitive. My winner de-leverages itself?
 
-**Alex**: Yes, and that is actually a beautiful feature. It is automatic risk management. As your position gets more profitable, it becomes less leveraged, so a reversal hurts less in percentage terms. Conversely, as the stock drops, your option goes OTM, delta decreases, and your dollar exposure to further drops shrinks. You are automatically de-risking on the way down.
+**Horace**: Yes, and that is actually a beautiful feature. It is automatic risk management. As your position gets more profitable, it becomes less leveraged, so a reversal hurts less in percentage terms. Conversely, as the stock drops, your option goes OTM, delta decreases, and your dollar exposure to further drops shrinks. You are automatically de-risking on the way down.
 
 [VISUAL: Animated graph showing delta and leverage changing as stock price moves]
 
-**Sam**: That is really elegant. Unlike margin, where the leverage stays constant or can actually increase on the way down because your equity is shrinking.
+**Stella**: That is really elegant. Unlike margin, where the leverage stays constant or can actually increase on the way down because your equity is shrinking.
 
-**Alex**: Exactly. That is one of the most underappreciated advantages of options leverage.
+**Horace**: Exactly. That is one of the most underappreciated advantages of options leverage.
 
-**Sam**: OK, let us talk about position sizing. How much should I put into a leveraged options trade?
+**Stella**: OK, let us talk about position sizing. How much should I put into a leveraged options trade?
 
-**Alex**: This is where discipline separates successful options traders from the rest.
+**Horace**: This is where discipline separates successful options traders from the rest.
 
 [VISUAL: Position sizing framework slide]
 
-**Alex**: Start with this rule: the maximum premium you risk on any single trade should be 1-2% of your total portfolio. So on a $100,000 portfolio, you should risk no more than $1,000 to $2,000 in premium on any one options trade.
+**Horace**: Start with this rule: the maximum premium you risk on any single trade should be 1-2% of your total portfolio. So on a $100,000 portfolio, you should risk no more than $1,000 to $2,000 in premium on any one options trade.
 
-**Sam**: But $2,000 seems like a small amount compared to a stock trade.
+**Stella**: But $2,000 seems like a small amount compared to a stock trade.
 
-**Alex**: It is a small amount in dollars, but remember the leverage. If you buy $2,000 of ATM calls with 10x leverage, you have $20,000 of effective stock exposure. If you buy OTM calls with 15x leverage, you have $30,000 of exposure. The position is not small -- you are just risking less capital to get that exposure.
+**Horace**: It is a small amount in dollars, but remember the leverage. If you buy $2,000 of ATM calls with 10x leverage, you have $20,000 of effective stock exposure. If you buy OTM calls with 15x leverage, you have $30,000 of exposure. The position is not small -- you are just risking less capital to get that exposure.
 
-**Sam**: What about total allocation? Can I have multiple options positions open?
+**Stella**: What about total allocation? Can I have multiple options positions open?
 
-**Alex**: Yes, but cap your total long option premium at 5-10% of your portfolio. On a $100,000 portfolio, never have more than $5,000 to $10,000 in long option premium at once. This prevents the "death by a thousand cuts" problem where you are slowly bleeding premium every day across many positions.
+**Horace**: Yes, but cap your total long option premium at 5-10% of your portfolio. On a $100,000 portfolio, never have more than $5,000 to $10,000 in long option premium at once. This prevents the "death by a thousand cuts" problem where you are slowly bleeding premium every day across many positions.
 
 [VISUAL: Portfolio allocation pie chart showing 90-95% core holdings, 5-10% options positions]
 
-**Sam**: That makes sense. Can you walk me through a real-world example of leverage done right versus done wrong?
+**Stella**: That makes sense. Can you walk me through a real-world example of leverage done right versus done wrong?
 
-**Alex**: Let us start with leverage done right. Say you have a strong thesis that Apple will beat earnings and rally. Apple is at $185, earnings are in three weeks. You allocate $550 -- your 2% risk budget on a $27,500 portfolio -- to buy one ATM $185 call for $5.50.
+**Horace**: Let us start with leverage done right. Say you have a strong thesis that Apple will beat earnings and rally. Apple is at $185, earnings are in three weeks. You allocate $550 -- your 2% risk budget on a $27,500 portfolio -- to buy one ATM $185 call for $5.50.
 
-**Sam**: And what happens?
+**Stella**: And what happens?
 
-**Alex**: Scenario one: Apple beats and rallies to $200. Your option is worth about $15.50. You make $1,000, a 182% return on your $550 investment. On stock, you would have needed $18,500 to make $1,500. Your options trade made 67% of the dollar profit with 3% of the capital.
+**Horace**: Scenario one: Apple beats and rallies to $200. Your option is worth about $15.50. You make $1,000, a 182% return on your $550 investment. On stock, you would have needed $18,500 to make $1,500. Your options trade made 67% of the dollar profit with 3% of the capital.
 
 [VISUAL: P&L comparison chart for AAPL scenarios]
 
-**Sam**: And if Apple misses?
+**Stella**: And if Apple misses?
 
-**Alex**: Scenario two: Apple drops to $170. Your option is worth essentially zero. You lose $540, which is 2% of your portfolio. Painful but not devastating. You can take this loss and move on.
+**Horace**: Scenario two: Apple drops to $170. Your option is worth essentially zero. You lose $540, which is 2% of your portfolio. Painful but not devastating. You can take this loss and move on.
 
-**Sam**: That seems very manageable. Now show me leverage gone wrong.
+**Stella**: That seems very manageable. Now show me leverage gone wrong.
 
-**Alex**: This is a story I see all the time. A trader with a $50,000 account decides to put $10,000 -- 20% of the portfolio -- into weekly OTM Tesla calls. They buy 50 contracts of $260 calls for $2 each when Tesla is at $250.
+**Horace**: This is a story I see all the time. A trader with a $50,000 account decides to put $10,000 -- 20% of the portfolio -- into weekly OTM Tesla calls. They buy 50 contracts of $260 calls for $2 each when Tesla is at $250.
 
-**Sam**: 50 contracts? That is 5,000 shares of exposure!
+**Stella**: 50 contracts? That is 5,000 shares of exposure!
 
-**Alex**: That is $1,250,000 of notional exposure on a $50,000 account. Twenty-five times leverage. Tesla drops 3% that week. All 50 contracts expire worthless. Gone. $10,000, 20% of the portfolio, vanished in one week.
+**Horace**: That is $1,250,000 of notional exposure on a $50,000 account. Twenty-five times leverage. Tesla drops 3% that week. All 50 contracts expire worthless. Gone. $10,000, 20% of the portfolio, vanished in one week.
 
 [VISUAL: Red bar showing -20% portfolio loss]
 
-**Sam**: And then what happens?
+**Stella**: And then what happens?
 
-**Alex**: The trader thinks "Tesla is due for a bounce" and does it again. Another $10,000 into weekly OTM calls. Tesla goes up 1%, but not enough -- the calls expire worth only $2,500. The trader lost $7,500 on the trade. Two weeks in, the portfolio is down $17,500, or 35%.
+**Horace**: The trader thinks "Tesla is due for a bounce" and does it again. Another $10,000 into weekly OTM calls. Tesla goes up 1%, but not enough -- the calls expire worth only $2,500. The trader lost $7,500 on the trade. Two weeks in, the portfolio is down $17,500, or 35%.
 
-**Sam**: But Tesla itself is only down about 2% at that point!
+**Stella**: But Tesla itself is only down about 2% at that point!
 
-**Alex**: Exactly. The stock moved 2% against them, but the portfolio lost 35%. That is the destructive power of over-leverage combined with short-dated OTM options and oversized positions.
+**Horace**: Exactly. The stock moved 2% against them, but the portfolio lost 35%. That is the destructive power of over-leverage combined with short-dated OTM options and oversized positions.
 
 [VISUAL: Comparison showing 2% stock decline vs. 35% portfolio decline]
 
-**Sam**: So what are the rules to avoid this?
+**Stella**: So what are the rules to avoid this?
 
-**Alex**: Let me give you the five commandments of options leverage.
+**Horace**: Let me give you the five commandments of options leverage.
 
 [VISUAL: Five commandments listed on screen with icons]
 
-**Alex**: One -- never risk more than 2% of your portfolio on a single options trade. Two -- never have more than 10% of your portfolio in total long option premium. Three -- always match your expiration to your time frame, plus a 50% buffer. If you think the move happens in 4 weeks, buy 6-week options. Four -- have predetermined exit criteria before you enter. Know your profit target and your stop loss. Five -- never use weekly options for leverage unless you are trading a specific catalyst happening that week.
+**Horace**: One -- never risk more than 2% of your portfolio on a single options trade. Two -- never have more than 10% of your portfolio in total long option premium. Three -- always match your expiration to your time frame, plus a 50% buffer. If you think the move happens in 4 weeks, buy 6-week options. Four -- have predetermined exit criteria before you enter. Know your profit target and your stop loss. Five -- never use weekly options for leverage unless you are trading a specific catalyst happening that week.
 
-**Sam**: What about using spreads for leverage? Like bull call spreads?
+**Stella**: What about using spreads for leverage? Like bull call spreads?
 
-**Alex**: Great instinct. Spreads can be an excellent leverage tool.
+**Horace**: Great instinct. Spreads can be an excellent leverage tool.
 
 [VISUAL: Bull call spread payoff diagram]
 
-**Alex**: A bull call spread -- buying a lower strike call and selling a higher strike call -- gives you leverage with a capped upside but also a lower cost basis. Say SPY is at $500. You buy a $500/$520 call spread for $7.50. Your maximum profit is $12.50, your maximum loss is $7.50. If SPY goes to $520, a 4% move, your spread returns 167%. That is about 42x the stock's percentage return.
+**Horace**: A bull call spread -- buying a lower strike call and selling a higher strike call -- gives you leverage with a capped upside but also a lower cost basis. Say SPY is at $500. You buy a $500/$520 call spread for $7.50. Your maximum profit is $12.50, your maximum loss is $7.50. If SPY goes to $520, a 4% move, your spread returns 167%. That is about 42x the stock's percentage return.
 
-**Sam**: And the downside is capped at $7.50.
+**Stella**: And the downside is capped at $7.50.
 
-**Alex**: Right. You traded unlimited upside for a lower cost of leverage. The extrinsic value you receive from the short call partially offsets the extrinsic value you pay for the long call. It makes the leverage cheaper to maintain.
+**Horace**: Right. You traded unlimited upside for a lower cost of leverage. The extrinsic value you receive from the short call partially offsets the extrinsic value you pay for the long call. It makes the leverage cheaper to maintain.
 
-**Sam**: When should someone use leverage through options versus just buying more stock or using margin?
+**Stella**: When should someone use leverage through options versus just buying more stock or using margin?
 
-**Alex**: Options leverage makes the most sense in five situations.
+**Horace**: Options leverage makes the most sense in five situations.
 
 [VISUAL: Five scenarios listed with brief descriptions]
 
-**Alex**: First, catalyst-driven trades with defined time windows -- earnings, FDA approvals, merger votes. Second, portfolio hedging -- buying puts to protect a large position. Third, capital-efficient exposure when you need your cash for other things. Fourth, asymmetric bets where you have a thesis for a big move. Fifth, when you want to risk-budget a speculative idea without exposing yourself to unlimited downside.
+**Horace**: First, catalyst-driven trades with defined time windows -- earnings, FDA approvals, merger votes. Second, portfolio hedging -- buying puts to protect a large position. Third, capital-efficient exposure when you need your cash for other things. Fourth, asymmetric bets where you have a thesis for a big move. Fifth, when you want to risk-budget a speculative idea without exposing yourself to unlimited downside.
 
-**Sam**: And when is it a bad idea?
+**Stella**: And when is it a bad idea?
 
-**Alex**: When you are trying to replace long-term stock ownership. When you are doubling down on losing trades. When you are buying weekly options for entertainment. And critically, when you do not have a well-defined thesis with a specific time frame.
+**Horace**: When you are trying to replace long-term stock ownership. When you are doubling down on losing trades. When you are buying weekly options for entertainment. And critically, when you do not have a well-defined thesis with a specific time frame.
 
-**Sam**: This has been incredibly educational. Before we wrap up, can we talk about how implied volatility affects leverage? I feel like that is something people overlook.
+**Stella**: This has been incredibly educational. Before we wrap up, can we talk about how implied volatility affects leverage? I feel like that is something people overlook.
 
-**Alex**: Absolutely, and it is critical. Implied volatility determines how much extrinsic value you are paying, which directly impacts your leverage cost.
+**Horace**: Absolutely, and it is critical. Implied volatility determines how much extrinsic value you are paying, which directly impacts your leverage cost.
 
 [VISUAL: IV Rank chart showing high vs low IV environments]
 
-**Alex**: When IV is high -- say after a market sell-off or right before earnings -- options are expensive. An ATM call that normally costs $10 might cost $15 in a high-IV environment. Your leverage ratio drops because you are paying more premium for the same delta exposure.
+**Horace**: When IV is high -- say after a market sell-off or right before earnings -- options are expensive. An ATM call that normally costs $10 might cost $15 in a high-IV environment. Your leverage ratio drops because you are paying more premium for the same delta exposure.
 
-**Sam**: So the leverage gets more expensive when the market is volatile?
+**Stella**: So the leverage gets more expensive when the market is volatile?
 
-**Alex**: Exactly. And here is the cruel irony: high-IV environments are often when traders MOST want leverage, because they see big moves and want to participate. But that is precisely when leverage is most expensive. Conversely, when IV is low and the market is calm, options are cheap, leverage is efficient -- but there is less price movement to profit from.
+**Horace**: Exactly. And here is the cruel irony: high-IV environments are often when traders MOST want leverage, because they see big moves and want to participate. But that is precisely when leverage is most expensive. Conversely, when IV is low and the market is calm, options are cheap, leverage is efficient -- but there is less price movement to profit from.
 
 [VISUAL: Chart showing IV rank vs effective leverage ratio]
 
-**Sam**: So there is a tension between the opportunity and the cost.
+**Stella**: So there is a tension between the opportunity and the cost.
 
-**Alex**: Always. The ideal scenario for leveraged option trades is moderate IV with a specific catalyst that you believe will move the stock more than the market expects. That gives you reasonable leverage cost AND the potential for a meaningful move.
+**Horace**: Always. The ideal scenario for leveraged option trades is moderate IV with a specific catalyst that you believe will move the stock more than the market expects. That gives you reasonable leverage cost AND the potential for a meaningful move.
 
-**Sam**: What about IV crush? How does that affect a leveraged position?
+**Stella**: What about IV crush? How does that affect a leveraged position?
 
-**Alex**: IV crush is the rapid decline in implied volatility after an event like earnings. Even if the stock moves in your direction, the drop in IV can eat into your profits or even turn a directional winner into a loser.
+**Horace**: IV crush is the rapid decline in implied volatility after an event like earnings. Even if the stock moves in your direction, the drop in IV can eat into your profits or even turn a directional winner into a loser.
 
 [VISUAL: P&L decomposition showing delta gain vs vega loss from IV crush]
 
-**Alex**: Say you buy an ATM call for $8 before earnings. The stock goes up 3% as you expected. Your delta gain might be $3. But IV drops from 50% to 30% after earnings. Your vega loss could be $4. Net result: you lost $1 despite being right about direction.
+**Horace**: Say you buy an ATM call for $8 before earnings. The stock goes up 3% as you expected. Your delta gain might be $3. But IV drops from 50% to 30% after earnings. Your vega loss could be $4. Net result: you lost $1 despite being right about direction.
 
-**Sam**: That is devastating. You were right and still lost money.
+**Stella**: That is devastating. You were right and still lost money.
 
-**Alex**: Welcome to the world of options. This is why understanding the Greeks -- all of them, not just delta -- is so important for leveraged positions. Leverage is not just about magnifying stock moves. It is about understanding the full risk decomposition.
+**Horace**: Welcome to the world of options. This is why understanding the Greeks -- all of them, not just delta -- is so important for leveraged positions. Leverage is not just about magnifying stock moves. It is about understanding the full risk decomposition.
 
-**Sam**: How do professionals handle this?
+**Stella**: How do professionals handle this?
 
-**Alex**: Three approaches. First, they trade post-event when IV has already crushed. Less exciting, but you avoid the vega risk. Second, they use spreads. In a vertical spread, you are long vega on one leg and short vega on the other, partially neutralizing IV crush. Third, they size for the worst case, assuming IV will crush and the stock will move less than expected.
+**Horace**: Three approaches. First, they trade post-event when IV has already crushed. Less exciting, but you avoid the vega risk. Second, they use spreads. In a vertical spread, you are long vega on one leg and short vega on the other, partially neutralizing IV crush. Third, they size for the worst case, assuming IV will crush and the stock will move less than expected.
 
 [VISUAL: Spread vs single leg vega exposure comparison]
 
-**Sam**: Let me also ask about a scenario I see a lot -- traders rolling losing options positions. Is that ever a good use of leverage?
+**Stella**: Let me also ask about a scenario I see a lot -- traders rolling losing options positions. Is that ever a good use of leverage?
 
-**Alex**: This is a trap that destroys accounts. Let me paint the picture.
+**Horace**: This is a trap that destroys accounts. Let me paint the picture.
 
 [VISUAL: Rolling loss scenario with cumulative cost tracking]
 
-**Alex**: You buy a call for $5. The stock drops. Your call is now worth $2. Instead of taking the $3 loss, you "roll" -- sell the $2 call and buy a new one for $5 at a later expiration. You have now committed $8 total ($5 original + $3 additional net cost). If the stock drops again, you roll again. Now you have $11 committed. Each roll increases your effective cost basis and your leverage -- but the stock is showing you that your thesis may be wrong.
+**Horace**: You buy a call for $5. The stock drops. Your call is now worth $2. Instead of taking the $3 loss, you "roll" -- sell the $2 call and buy a new one for $5 at a later expiration. You have now committed $8 total ($5 original + $3 additional net cost). If the stock drops again, you roll again. Now you have $11 committed. Each roll increases your effective cost basis and your leverage -- but the stock is showing you that your thesis may be wrong.
 
-**Sam**: It is like doubling down at a casino.
+**Stella**: It is like doubling down at a casino.
 
-**Alex**: Exactly. The disciplined approach is to take the loss at your predetermined stop, reassess the thesis, and if you still want the trade, enter fresh with a new risk budget. Rolling a loser is emotional, not strategic. It transforms a small defined loss into a large compounding loss.
+**Horace**: Exactly. The disciplined approach is to take the loss at your predetermined stop, reassess the thesis, and if you still want the trade, enter fresh with a new risk budget. Rolling a loser is emotional, not strategic. It transforms a small defined loss into a large compounding loss.
 
-**Sam**: What is the one final takeaway you want people to remember?
+**Stella**: What is the one final takeaway you want people to remember?
 
-**Alex**: Leverage is a tool, not a strategy. A chainsaw is incredibly useful for cutting trees, but only if you know how to use it safely. Options leverage can accelerate your returns, but only if you combine it with disciplined position sizing, defined risk management, and a genuine analytical edge. Without those, you are just gambling with a turbocharger attached.
+**Horace**: Leverage is a tool, not a strategy. A chainsaw is incredibly useful for cutting trees, but only if you know how to use it safely. Options leverage can accelerate your returns, but only if you combine it with disciplined position sizing, defined risk management, and a genuine analytical edge. Without those, you are just gambling with a turbocharger attached.
 
 [VISUAL: Closing summary slide with key takeaways and the leverage framework]
 
-**Sam**: That is a perfect way to end it. Next week, we are going to look at LEAPS -- long-term options that can serve as a bridge between stock ownership and options leverage. See you then!
+**Stella**: That is a perfect way to end it. Next week, we are going to look at LEAPS -- long-term options that can serve as a bridge between stock ownership and options leverage. See you then!
 
 [VISUAL: End card -- "Next Week: Week 38 -- LEAPS and Long-Term Options"]
 

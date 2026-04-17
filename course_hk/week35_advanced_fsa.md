@@ -1,925 +1,915 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 35: Advanced Financial Statement Analysis
+# 第35週：進階財務報表分析
 
 ---
 
-## Reading Section
+## 閱讀部分
 
 ---
 
-### a) Why This Is Important
+### a) 為何這一課至關重要
 
-Basic financial statement analysis -- reading an income statement, balance sheet, and cash flow statement -- is a skill that many investors develop early. But basic analysis only scratches the surface. The most important insights (and the most dangerous traps) lie beneath the surface numbers, in the adjustments, assumptions, and accounting choices that companies make.
+基本財務報表分析——閱讀損益表、資產負債表和現金流量表——是許多投資者早期培養的技能。但基本分析只是觸及表面。最重要的洞察（以及最危險的陷阱）藏於數字之下，隱身於企業所作出的調整、假設和會計選擇之中。
 
-Here is why advanced financial statement analysis matters:
+以下是進階財務報表分析至關重要的原因：
 
-1. **Earnings quality separates winners from losers.** Not all earnings are created equal. A dollar of earnings backed by real cash flow is worth far more than a dollar of earnings manufactured through accounting tricks. Research consistently shows that stocks with high earnings quality outperform those with low earnings quality by 3-5% per year.
+1. **盈利質素將贏家與輸家區分開來。** 並非所有盈利都生而平等。有真實現金流支撐的一元盈利，遠比透過會計技巧製造出來的一元盈利更有價值。研究持續顯示，盈利質素高的股票每年跑贏盈利質素低的股票3至5%。
 
-2. **Accounting manipulation is more common than you think.** Studies suggest that roughly 10-15% of public companies engage in some form of earnings management in any given year. Most of this is legal "gray area" manipulation -- aggressive but technically permissible accounting. Some crosses the line into fraud. The ability to detect red flags protects your capital.
+2. **會計操縱比你想像的更為普遍。** 研究顯示，每年大約有10至15%的上市公司從事某種形式的盈利管理。當中大多數屬於合法的「灰色地帶」操縱——手法進取但技術上仍屬允許的會計處理。部分則逾越了欺詐的界線。具備識別危險信號的能力，可保護你的資本。
 
-3. **Off-balance-sheet items can be enormous.** Before accounting rule changes, companies could hide massive liabilities off their balance sheets. Operating leases, special purpose entities, pension obligations -- these can dwarf on-balance-sheet debt. Ignoring them gives you a dangerously incomplete picture of a company's financial health.
+3. **表外項目可以龐大無比。** 在會計準則修訂之前，企業可以將巨額負債隱藏於資產負債表之外。經營性租賃、特殊目的實體、退休金義務——這些項目的規模可以遠超表內債務。忽視它們，你對企業財務狀況的認識將危險地不完整。
 
-4. **GAAP and IFRS differences matter for global investors.** If you invest internationally, you need to understand how the same business can look different under different accounting standards. Revenue recognition, R&D treatment, inventory methods, and depreciation can all differ, making cross-border comparisons misleading without adjustment.
+4. **GAAP與IFRS之間的差異對環球投資者而言舉足輕重。** 若你進行國際投資，你需要理解同一盤生意在不同會計準則下可以呈現出截然不同的面貌。收入確認、研發支出處理、存貨計價方法及折舊政策均可能有所不同，在未加調整的情況下，跨境比較可能產生誤導。
 
-5. **Quantitative screening tools like the Beneish M-Score and Altman Z-Score provide systematic ways to flag potential problems.** Rather than relying solely on subjective judgment, these models combine multiple financial ratios into a single score that quantifies the probability of manipulation or bankruptcy.
+5. **Beneish M值和Altman Z值等量化篩選工具，提供系統化的方式標記潛在問題。** 這些模型將多個財務比率合併為單一分數，量化操縱或破產的可能性，而非單靠主觀判斷。
 
-Consider the case of Wirecard, the German payments company that collapsed in 2020 when $2 billion in cash turned out not to exist. Sophisticated financial statement analysis would have flagged numerous red flags years before the fraud was exposed. Or consider Valeant Pharmaceuticals (now Bausch Health), where aggressive accounting masked deteriorating fundamentals until the stock fell over 90%.
+以Wirecard為例，這家德國支付公司於2020年倒閉，原因是20億美元的現金根本不存在。縝密的財務報表分析本可在騙局曝光數年前標記出大量危險信號。又或者Valeant Pharmaceuticals（現更名為Bausch Health），進取的會計手法掩蓋了惡化的基本面，直至股價跌逾九成。
 
-The goal of this lesson is to give you the tools to see through the numbers and understand what is really happening in a company's finances.
+本課的目標，是為你提供透視數字、洞悉企業財務真實狀況的工具。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. Stock-Based Compensation (SBC) Adjustments
+#### 1. 以股代薪（SBC）調整
 
-Stock-based compensation is one of the most contentious issues in modern financial analysis. Under GAAP and IFRS, companies must expense the fair value of stock options and restricted stock units (RSUs) on their income statements. However, many companies add this expense back when reporting "adjusted" or "non-GAAP" earnings.
+以股代薪是現代財務分析中最具爭議的議題之一。根據GAAP及IFRS，企業必須在損益表中將股票期權及限制性股票單位（RSU）的公允價值計入費用。然而，許多企業在申報「調整後」或「非GAAP」盈利時，會將此費用加回。
 
-**Why SBC Matters:**
-
-```
-The SBC Debate:
-
-  Management's argument:
-    "SBC is a non-cash expense. It does not reduce our cash flow.
-     Our adjusted earnings (excluding SBC) better reflect
-     our true profitability."
-
-  The counterargument:
-    "SBC IS a real cost. It dilutes existing shareholders.
-     If you did not use SBC, you would need to pay higher
-     cash salaries, which would reduce cash flow.
-     Excluding SBC overstates true profitability."
-
-  The truth:
-    SBC is a REAL economic cost that transfers value from
-    existing shareholders to employees. Adding it back to
-    arrive at "adjusted earnings" is misleading.
-```
-
-**Quantifying the SBC Impact:**
+**為何SBC至關重要：**
 
 ```
-Example: Tech Company XYZ
+SBC爭議：
 
-  GAAP Net Income:            $500 million
-  Stock-Based Compensation:   $200 million
-  "Adjusted" Net Income:      $700 million
+  管理層的論點：
+    「SBC是非現金費用。它不會減少我們的現金流。
+     我們的調整後盈利（不含SBC）能更好地反映
+     我們的真實盈利能力。」
 
-  Shares Outstanding:         1 billion
-  GAAP EPS:                   $0.50
-  "Adjusted" EPS:             $0.70  (40% higher!)
+  反駁論點：
+    「SBC確實是真實成本。它攤薄了現有股東的權益。
+     若不使用SBC，你需要支付更高的現金薪酬，
+     這將減少現金流。
+     剔除SBC會高估真實盈利能力。」
 
-  Share dilution from SBC:    ~3% per year
-  Cumulative dilution (5yr):  ~15%
-
-  If you value the stock at 20x "adjusted" earnings:   $14.00
-  If you value the stock at 20x GAAP earnings:         $10.00
-  Difference:                                          40%!
-
-  For some tech companies, SBC exceeds 20% of revenue.
-  Ignoring it can lead to massive overvaluation.
+  真相：
+    SBC是一項真實的經濟成本，將價值
+    從現有股東轉移至員工。將其加回
+    以得出「調整後盈利」具有誤導性。
 ```
 
-**How to Adjust for SBC:**
+**量化SBC的影響：**
 
 ```
-Step 1: Use GAAP earnings as your starting point (include SBC expense)
-Step 2: Track diluted share count over time
-Step 3: Calculate SBC as a percentage of revenue
-Step 4: Compare SBC to peer companies
+例子：科技公司XYZ
 
-SBC Red Flags:
-  [!] SBC > 15% of revenue
-  [!] SBC growing faster than revenue
-  [!] Diluted share count increasing >3% per year
-  [!] Company consistently excludes SBC from "adjusted" metrics
-  [!] SBC as a percentage of operating cash flow > 30%
+  GAAP淨利潤：              5億美元
+  以股代薪：                2億美元
+  「調整後」淨利潤：         7億美元
+
+  已發行股份：              10億股
+  GAAP每股盈利：            0.50美元
+  「調整後」每股盈利：       0.70美元（高出40%！）
+
+  SBC帶來的股份攤薄：       每年約3%
+  累計攤薄（5年）：         約15%
+
+  若以20倍「調整後」盈利估值：   14.00美元
+  若以20倍GAAP盈利估值：        10.00美元
+  差距：                        40%！
+
+  對某些科技公司而言，SBC超過收入的20%。
+  忽視SBC可能導致嚴重高估。
 ```
 
-#### 2. Operating Leases on the Balance Sheet
-
-Before the implementation of ASC 842 (US GAAP, effective 2019) and IFRS 16 (effective 2019), companies could keep operating leases off their balance sheets. Under the old rules, only capital (finance) leases appeared as assets and liabilities. Operating leases were disclosed only in footnotes.
-
-The new rules require companies to recognize "right-of-use" assets and lease liabilities for most leases, bringing them onto the balance sheet.
-
-**Impact of Lease Capitalization:**
+**如何調整SBC：**
 
 ```
-Before ASC 842/IFRS 16:
+第一步：以GAAP盈利為起點（包含SBC費用）
+第二步：追蹤攤薄後股份數目的變化趨勢
+第三步：計算SBC佔收入的百分比
+第四步：與同業公司的SBC作比較
 
-  Balance Sheet:
-    Assets:           $10 billion
-    Debt:              $3 billion
-    Equity:            $7 billion
-    Debt/Equity:       0.43x
-    Debt/Assets:       30%
-
-  Off-balance-sheet operating leases: $4 billion (PV of future payments)
-
-After ASC 842/IFRS 16:
-
-  Balance Sheet:
-    Assets:           $14 billion  (+$4B right-of-use assets)
-    Debt:              $3 billion
-    Lease Liabilities: $4 billion
-    Total Obligations: $7 billion
-    Equity:            $7 billion
-    (Debt + Leases)/Equity: 1.00x  (more than doubled!)
-    Total Obligations/Assets: 50%
-
-  The company's true leverage was much higher than
-  the pre-rule balance sheet suggested.
+SBC危險信號：
+  [!] SBC > 收入的15%
+  [!] SBC增速快於收入增速
+  [!] 攤薄後股份數目每年增加 > 3%
+  [!] 公司在「調整後」指標中持續剔除SBC
+  [!] SBC佔經營現金流的百分比 > 30%
 ```
 
-**Industries Most Affected by Lease Capitalization:**
+#### 2. 資產負債表上的經營性租賃
+
+在ASC 842（美國GAAP，2019年生效）和IFRS 16（2019年生效）實施之前，企業可以將經營性租賃置於資產負債表之外。在舊準則下，只有資本（融資）租賃才在資產負債表上記為資產及負債。經營性租賃僅在附註中披露。
+
+新準則要求企業將大多數租賃確認為「使用權資產」及租賃負債，並將其納入資產負債表。
+
+**租賃資本化的影響：**
 
 ```
-Industry        | Typical Lease Impact     | Why
-----------------|--------------------------|---------------------------
-Airlines        | Very High                | Aircraft and gate leases
-Retail          | Very High                | Store leases
-Restaurants     | High                     | Restaurant location leases
-Telecommunications| Moderate-High          | Cell tower and equipment leases
-Healthcare      | Moderate                 | Facility leases
-Technology      | Moderate                 | Office and data center leases
-Manufacturing   | Low-Moderate             | Factory leases (many owned)
-Mining/Energy   | Low                      | Assets typically owned
+ASC 842/IFRS 16實施前：
+
+  資產負債表：
+    資產：            100億美元
+    債務：             30億美元
+    股東權益：         70億美元
+    債務╱權益比：      0.43倍
+    債務╱資產比：      30%
+
+  表外經營性租賃：40億美元（未來付款額的現值）
+
+ASC 842/IFRS 16實施後：
+
+  資產負債表：
+    資產：            140億美元（+40億使用權資產）
+    債務：             30億美元
+    租賃負債：         40億美元
+    總負債：           70億美元
+    股東權益：         70億美元
+    （債務+租賃）╱權益比：1.00倍（超過翻倍！）
+    總負債╱資產比：   50%
+
+  該公司的真實槓桿遠高於
+  準則修訂前的資產負債表所呈現的水平。
 ```
 
-**How to Analyze Leases:**
+**受租賃資本化影響最大的行業：**
 
 ```
-Key Questions:
-  1. What is the total present value of lease obligations?
-  2. How does this compare to on-balance-sheet debt?
-  3. What are the annual lease payments?
-  4. What is the weighted-average remaining lease term?
-  5. Are there significant lease renewals or extensions coming?
-
-Adjustment for Older Analysis:
-  If comparing to historical data (pre-2019), you must either:
-    a) Add lease liabilities back to older financials for consistency, or
-    b) Remove lease effects from current financials for comparison
-
-  For credit analysis, always include lease obligations in
-  your leverage calculations regardless of accounting treatment.
+行業          | 典型租賃影響程度     | 原因
+-------------|---------------------|---------------------------
+航空          | 非常高              | 飛機及登機閘口租賃
+零售          | 非常高              | 店鋪租賃
+餐飲          | 高                  | 餐廳場地租賃
+電訊          | 中等偏高            | 電話基站及設備租賃
+醫療保健      | 中等               | 設施租賃
+科技          | 中等               | 辦公室及數據中心租賃
+製造業        | 低至中等           | 廠房租賃（許多為自置物業）
+採礦╱能源    | 低                  | 資產通常為自置
 ```
 
-#### 3. Pension Obligations
-
-Defined benefit pension plans can create enormous liabilities that are not always transparent from the face of the financial statements.
-
-**Understanding Pension Accounting:**
+**如何分析租賃：**
 
 ```
-Key Components:
+關鍵問題：
+  1. 租賃義務的現值總額是多少？
+  2. 這與表內債務相比如何？
+  3. 每年的租賃付款額是多少？
+  4. 加權平均剩餘租賃期為多少？
+  5. 是否有重大的租賃續期或延期即將到來？
 
-  Plan Assets (A):
-    The investment portfolio (stocks, bonds, etc.) that
-    funds future pension payments.
+針對舊有分析的調整：
+  若與歷史數據（2019年前）作比較，你必須：
+    a）將租賃負債加回舊版財務數據以保持一致性，或
+    b）從當前財務數據中剔除租賃影響以作比較
 
-  Projected Benefit Obligation (PBO):
-    The present value of all pension benefits earned by
-    employees, based on assumptions about salary growth,
-    mortality, and discount rates.
-
-  Funded Status = Plan Assets - PBO
-    Overfunded:  A > PBO  (asset on balance sheet)
-    Underfunded: A < PBO  (liability on balance sheet)
-
-  The Catch:
-    Small changes in assumptions can dramatically change the PBO.
+  在進行信用分析時，無論會計處理方式如何，
+  均應將租賃義務納入槓桿計算。
 ```
 
-**Sensitivity of Pension Obligations:**
+#### 3. 退休金義務
+
+界定福利退休金計劃可造成龐大負債，而這些負債在財務報表的表面數字中並不總是一目了然。
+
+**理解退休金會計：**
 
 ```
-Example: Company with $10 billion PBO
+主要組成部分：
 
-  Discount Rate Sensitivity:
-    +0.5% discount rate change: PBO decreases ~$750M  (7.5%)
-    -0.5% discount rate change: PBO increases ~$800M  (8.0%)
+  計劃資產（A）：
+    為未來退休金付款提供資金的投資組合
+    （股票、債券等）。
 
-  Salary Growth Assumption:
-    +0.5% salary growth: PBO increases ~$300M  (3.0%)
-    -0.5% salary growth: PBO decreases ~$280M  (2.8%)
+  預計福利義務（PBO）：
+    根據薪酬增長、死亡率及折現率的假設，
+    計算員工已累積的所有退休金福利之現值。
 
-  Mortality Assumption:
-    If employees live 1 year longer: PBO increases ~$300-500M
+  資金狀況 = 計劃資產 - PBO
+    超額撥備：  A > PBO（資產負債表上顯示為資產）
+    撥備不足：  A < PBO（資產負債表上顯示為負債）
 
-  These sensitivities mean management can significantly influence
-  the reported pension liability by tweaking assumptions.
+  關鍵點：
+    假設的細微變化可大幅改變PBO。
 ```
 
-**Red Flags in Pension Accounting:**
+**退休金義務的敏感性：**
 
 ```
-  [!] Discount rate significantly higher than peer companies
-  [!] Expected return on plan assets higher than historical returns
-  [!] Plan assumptions becoming more aggressive over time
-  [!] Large and growing pension deficit
-  [!] Pension contributions significantly less than pension expense
-  [!] Company freezing or terminating pension plans (may indicate
-      inability to fund obligations)
+例子：PBO為100億美元的公司
+
+  折現率敏感性：
+    折現率上升0.5%：PBO減少約7.5億美元（7.5%）
+    折現率下降0.5%：PBO增加約8億美元（8.0%）
+
+  薪酬增長假設：
+    薪酬增長率上升0.5%：PBO增加約3億美元（3.0%）
+    薪酬增長率下降0.5%：PBO減少約2.8億美元（2.8%）
+
+  死亡率假設：
+    若員工壽命延長1年：PBO增加約3至5億美元
+
+  這些敏感性意味著管理層可透過微調假設，
+  對申報的退休金負債產生重大影響。
 ```
 
-**Pension-Heavy Industries:**
+**退休金會計的危險信號：**
 
 ```
-Industry            | Pension Exposure | Notable Examples
---------------------|-----------------|---------------------------
-Aerospace/Defense   | Very High       | Boeing, Lockheed Martin
-Automotive          | Very High       | GM, Ford
-Utilities           | High            | Many regulated utilities
-Telecommunications  | High            | AT&T, Verizon
-Consumer Staples    | Moderate        | Procter & Gamble, PepsiCo
-Technology          | Low             | Most tech companies use
-                    |                 | defined contribution plans
+  [!] 折現率顯著高於同業公司
+  [!] 計劃資產的預期回報高於歷史回報
+  [!] 計劃假設隨時間推移愈趨進取
+  [!] 退休金赤字龐大且持續擴大
+  [!] 退休金供款顯著低於退休金費用
+  [!] 公司凍結或終止退休金計劃（可能表明
+      無力履行義務）
 ```
 
-#### 4. Goodwill and Impairment
-
-Goodwill is the premium a company pays above the fair value of identifiable assets when it acquires another company. It represents intangible factors like brand value, customer relationships, and synergies.
-
-**The Goodwill Problem:**
+**退休金敞口較大的行業：**
 
 ```
-Acquisition Example:
-
-  Company A acquires Company B for $5 billion
-
-  Fair value of Company B's identifiable assets:
-    Tangible assets:    $1.5 billion
-    Identifiable intangibles: $1.0 billion
-    Liabilities:        -$0.5 billion
-    Net identifiable:    $2.0 billion
-
-  Goodwill = Purchase Price - Net Identifiable Assets
-  Goodwill = $5.0B - $2.0B = $3.0B
-
-  This $3.0B is recorded as an asset on Company A's balance sheet.
-  It sits there indefinitely until/unless it is "impaired."
+行業              | 退休金敞口  | 著名例子
+-----------------|------------|---------------------------
+航天╱國防        | 非常高      | Boeing、Lockheed Martin
+汽車              | 非常高      | GM、Ford
+公用事業          | 高          | 許多受監管的公用事業公司
+電訊              | 高          | AT&T、Verizon
+必需消費品        | 中等        | Procter & Gamble、PepsiCo
+科技              | 低          | 大多數科技公司採用
+                 |             | 界定供款計劃
 ```
 
-**Why Goodwill Matters:**
+#### 4. 商譽及減值
+
+商譽是企業收購另一家公司時，超出可識別資產公允價值所支付的溢價。它代表品牌價值、客戶關係及協同效應等無形因素。
+
+**商譽問題：**
 
 ```
-Goodwill as a Percentage of Total Assets (Examples):
+收購例子：
 
-  Company Type                    | Goodwill / Total Assets
-  --------------------------------|------------------------
-  Serial acquirer (pharma, tech)  | 30 - 60%
-  Diversified industrial          | 20 - 40%
-  Financial company               | 5 - 15%
-  Asset-heavy company (utility)   | 5 - 10%
+  甲公司以50億美元收購乙公司
 
-  When goodwill is a large portion of assets, the balance sheet
-  is built on a foundation of past acquisition premiums.
-  If those acquisitions do not perform, goodwill must be impaired.
+  乙公司可識別資產的公允價值：
+    有形資產：       15億美元
+    可識別無形資產：  10億美元
+    負債：            -5億美元
+    可識別淨資產：    20億美元
+
+  商譽 = 收購價格 - 可識別淨資產
+  商譽 = 50億美元 - 20億美元 = 30億美元
+
+  這30億美元作為資產記錄在甲公司的資產負債表上。
+  它將無限期地留在那裡，直至被「減值」。
 ```
 
-**Goodwill Impairment:**
-
-Under current rules, goodwill is tested for impairment annually. If the fair value of the acquired business falls below its carrying value (including goodwill), the goodwill must be written down.
+**為何商譽重要：**
 
 ```
-Impairment Test (Simplified):
+商譽佔總資產的百分比（例子）：
 
-  Carrying value of business unit (including goodwill): $5.0 billion
-  Current fair value of business unit:                  $3.5 billion
+  公司類型                    | 商譽╱總資產
+  --------------------------|------------------------
+  連環收購方（藥業、科技）    | 30 - 60%
+  多元化工業企業              | 20 - 40%
+  金融公司                    | 5 - 15%
+  資產密集型公司（公用事業）  | 5 - 10%
 
-  Impairment = $5.0B - $3.5B = $1.5 billion write-down
-
-  This $1.5B charge hits the income statement as a loss.
-  It does NOT affect cash flow (non-cash charge).
-  But it signals that the company overpaid for the acquisition.
+  當商譽佔資產的比重較大時，資產負債表
+  建立在過去收購溢價的基礎上。
+  若這些收購表現不佳，商譽必須減值。
 ```
 
-**Red Flags Related to Goodwill:**
+**商譽減值：**
+
+根據現行準則，商譽須每年接受減值測試。若被收購業務的公允價值低於其賬面值（含商譽），則必須對商譽進行撇減。
 
 ```
-  [!] Goodwill > 50% of total assets
-  [!] Goodwill > total shareholders' equity
-  [!] History of large acquisitions at high premiums
-  [!] Acquired businesses underperforming original projections
-  [!] Management repeatedly claiming acquisitions will create
-      "synergies" without delivering
-  [!] Industry downturns affecting acquired businesses
-  [!] Discount rates used in impairment testing are unusually low
-      (this inflates fair value and avoids impairment)
+減值測試（簡化版）：
+
+  業務部門賬面值（含商譽）：  50億美元
+  業務部門當前公允價值：      35億美元
+
+  減值額 = 50億美元 - 35億美元 = 15億美元撇減
+
+  這15億美元的撇減以虧損形式計入損益表。
+  它不影響現金流（非現金撇減）。
+  但它表明公司為收購支付了過高的代價。
 ```
 
-#### 5. Off-Balance-Sheet Items
-
-Despite accounting reforms, several types of obligations can still remain effectively off-balance-sheet or be obscured:
+**與商譽相關的危險信號：**
 
 ```
-Common Off-Balance-Sheet Items:
-
-  1. Unconsolidated Joint Ventures and Associates
-     - Company owns 20-49% of another entity
-     - Only the equity investment appears on balance sheet
-     - The JV's debt does not appear on the parent's balance sheet
-     - Must read footnotes to assess proportional debt exposure
-
-  2. Variable Interest Entities (VIEs)
-     - Special purpose entities that may or may not be consolidated
-     - Used in securitization, project finance, and structured finance
-     - Complex rules determine whether consolidation is required
-     - Enron famously used VIEs to hide billions in debt
-
-  3. Purchase Commitments and Contingencies
-     - Firm purchase obligations (take-or-pay contracts)
-     - Guarantee obligations
-     - Litigation contingencies
-     - Environmental liabilities
-     - These appear in footnotes, not on the balance sheet
-
-  4. Factoring/Securitization of Receivables
-     - Company sells receivables to a third party for cash
-     - If structured properly, removes receivables from balance sheet
-     - Can make leverage ratios look better
-     - May obscure deteriorating collection performance
-
-  5. Operating Leases (Pre-2019 Legacy)
-     - While new rules bring most leases on-balance-sheet,
-       some short-term and low-value leases remain off
-     - When comparing to historical data, older operating leases
-       are still off-balance-sheet
+  [!] 商譽 > 總資產的50%
+  [!] 商譽 > 股東權益總額
+  [!] 歷史上以高溢價進行大規模收購
+  [!] 被收購業務表現遜於原始預測
+  [!] 管理層反覆聲稱收購將帶來「協同效應」卻未能兌現
+  [!] 行業下行影響被收購業務
+  [!] 減值測試中採用的折現率異常偏低
+      （這會虛增公允價值並規避減值）
 ```
 
-**How to Find Off-Balance-Sheet Items:**
+#### 5. 表外項目
+
+儘管會計改革已推進，部分類型的義務仍可有效置於資產負債表之外，或被混淆處理：
 
 ```
-Where to Look:
+常見表外項目：
 
-  10-K Annual Report:
-    - Footnote: "Commitments and Contingencies"
-    - Footnote: "Variable Interest Entities"
-    - Footnote: "Investments in Affiliates"
-    - Footnote: "Guarantees"
-    - MD&A section: "Off-Balance-Sheet Arrangements"
-      (SEC requires disclosure in this section)
+  1. 未並表的合營企業及聯營公司
+     - 公司持有另一實體20至49%的股權
+     - 資產負債表上僅顯示股權投資額
+     - 合營企業的債務不在母公司資產負債表上呈現
+     - 須閱讀附註以評估按比例計算的債務敞口
 
-  For each off-balance-sheet item, ask:
-    1. What is the maximum potential exposure?
-    2. How likely is the exposure to materialize?
-    3. Would this exposure change my leverage calculations?
-    4. Would this change my assessment of the company's risk?
+  2. 可變權益實體（VIEs）
+     - 可能並表或不並表的特殊目的實體
+     - 用於資產證券化、項目融資及結構性融資
+     - 是否需要並表取決於複雜的規定
+     - 安然公司曾以VIEs隱藏數以十億計的債務
+
+  3. 採購承諾及或有負債
+     - 固定採購義務（照付不議合同）
+     - 擔保義務
+     - 訴訟或有負債
+     - 環境負債
+     - 這些項目載於附註，而非資產負債表
+
+  4. 應收賬款保理╱證券化
+     - 公司將應收賬款出售予第三方以換取現金
+     - 若結構恰當，可將應收賬款從資產負債表中移除
+     - 可令槓桿比率看起來更佳
+     - 可能掩蓋應收賬款回收表現的惡化
+
+  5. 經營性租賃（2019年前的歷史情況）
+     - 儘管新準則已將大多數租賃納入資產負債表，
+       部分短期及低價值租賃仍置於表外
+     - 與歷史數據比較時，舊有的經營性租賃
+       仍置於資產負債表之外
 ```
 
-#### 6. Earnings Quality Scoring
-
-Earnings quality refers to how well reported earnings reflect the underlying economic reality of the business. High-quality earnings are sustainable, cash-backed, and free from accounting manipulation.
-
-**Dimensions of Earnings Quality:**
+**如何尋找表外項目：**
 
 ```
-Dimension                | High Quality                  | Low Quality
--------------------------|-------------------------------|---------------------------
-Cash Conversion          | Earnings backed by cash flow  | Earnings exceed cash flow
-Persistence              | Earnings are recurring        | One-time gains inflate
-Predictability           | Stable and forecastable       | Volatile and erratic
-Accrual Level            | Low accruals                  | High accruals
-Source                   | Core operations               | Non-operating items
-Conservatism             | Conservative assumptions      | Aggressive assumptions
-Transparency             | Clear and disclosed           | Opaque and complex
+查閱位置：
+
+  10-K年報：
+    - 附註：「承諾及或有負債」
+    - 附註：「可變權益實體」
+    - 附註：「對聯營公司的投資」
+    - 附註：「擔保」
+    - 管理層討論及分析（MD&A）部分：「表外安排」
+      （美國證監會要求在此部分作出披露）
+
+  對於每項表外項目，請思考：
+    1. 最大潛在敞口是多少？
+    2. 敞口實現的可能性有多大？
+    3. 這一敞口是否會改變我的槓桿計算結果？
+    4. 這是否會改變我對公司風險的評估？
 ```
 
-**Cash Flow Quality Test:**
+#### 6. 盈利質素評分
+
+盈利質素是指申報盈利在多大程度上反映了企業的真實經濟狀況。高質素的盈利具有可持續性、有現金流支撐，且不含會計操縱成分。
+
+**盈利質素的多個維度：**
 
 ```
-The simplest earnings quality test:
-
-  Operating Cash Flow / Net Income Ratio
-
-  Interpretation:
-    > 1.0   High quality (cash flow exceeds reported earnings)
-    0.8-1.0 Good quality
-    0.5-0.8 Moderate quality (investigate accruals)
-    < 0.5   Low quality (earnings may not be real)
-    < 0     Red flag (company reports profits but burns cash)
-
-  Apply over a 3-5 year period to smooth out timing differences.
+維度              | 高質素                      | 低質素
+-----------------|-----------------------------|--------------------------
+現金轉化          | 盈利有現金流支撐             | 盈利超越現金流
+持久性            | 盈利屬經常性項目             | 一次性收益虛增盈利
+可預測性          | 穩定且可預測                 | 波動且難以預測
+應計水平          | 應計水平低                   | 應計水平高
+來源              | 核心業務                     | 非經營性項目
+保守程度          | 保守假設                     | 進取假設
+透明度            | 清晰且披露充分               | 不透明且複雜
 ```
 
-**Accrual Analysis:**
-
-Accruals are the difference between reported earnings and cash flow. High accruals often signal future earnings reversals.
+**現金流質素測試：**
 
 ```
-Total Accruals = Net Income - Operating Cash Flow
+最簡單的盈利質素測試：
 
-  or more precisely:
+  經營現金流╱淨利潤比率
 
-Total Accruals = (Change in Non-Cash Current Assets)
-               - (Change in Current Liabilities ex-Debt)
-               - Depreciation & Amortization
+  解讀：
+    > 1.0   高質素（現金流超越申報盈利）
+    0.8-1.0 良好質素
+    0.5-0.8 中等質素（應調查應計項目）
+    < 0.5   低質素（盈利可能並不真實）
+    < 0     危險信號（公司申報盈利但消耗現金）
 
-Accrual Ratio = Total Accruals / Average Total Assets
-
-  Interpretation:
-    Accrual Ratio < -5%:   Very conservative (high quality)
-    Accrual Ratio -5% to 0%: Conservative
-    Accrual Ratio 0% to +5%: Moderate
-    Accrual Ratio +5% to +10%: Aggressive (lower quality)
-    Accrual Ratio > +10%:  Very aggressive (red flag)
-
-  Research Finding (Sloan, 1996):
-    Stocks with low accruals outperform stocks with high accruals
-    by approximately 10% per year. This is the "accrual anomaly."
+  建議採用3至5年期間計算，以平滑時間差異。
 ```
 
-#### 7. The Beneish M-Score
+**應計分析：**
 
-The Beneish M-Score is a mathematical model that uses financial ratios to detect the probability of earnings manipulation. Developed by Professor Messod Beneish at Indiana University, it has proven remarkably effective at flagging manipulators.
-
-**The M-Score Formula:**
+應計項目是申報盈利與現金流之間的差額。高應計水平往往預示盈利將來會出現逆轉。
 
 ```
-M-Score = -4.84
-        + 0.920 x DSRI   (Days Sales in Receivables Index)
-        + 0.528 x GMI    (Gross Margin Index)
-        + 0.404 x AQI    (Asset Quality Index)
-        + 0.892 x SGI    (Sales Growth Index)
-        + 0.115 x DEPI   (Depreciation Index)
-        - 0.172 x SGAI   (SGA Expense Index)
-        + 4.679 x TATA   (Total Accruals to Total Assets)
-        - 0.327 x LVGI   (Leverage Index)
+總應計 = 淨利潤 - 經營現金流
+
+  或更精確地：
+
+總應計 = （非現金流動資產的變動）
+        - （不含債務的流動負債變動）
+        - 折舊及攤銷
+
+應計比率 = 總應計╱平均總資產
+
+  解讀：
+    應計比率 < -5%：      非常保守（高質素）
+    應計比率 -5%至0%：    保守
+    應計比率 0%至+5%：    中等
+    應計比率 +5%至+10%：  進取（較低質素）
+    應計比率 > +10%：     非常進取（危險信號）
+
+  研究發現（Sloan，1996年）：
+    低應計股票每年跑贏高應計股票約10%。
+    這就是「應計異象」。
 ```
 
-**Variable Definitions:**
+#### 7. Beneish M值
+
+Beneish M值是一個數學模型，利用財務比率偵測盈利操縱的可能性。由印第安納大學Messod Beneish教授開發，在標記操縱者方面已被證明極為有效。
+
+**M值公式：**
 
 ```
-DSRI = (Receivables(t)/Sales(t)) / (Receivables(t-1)/Sales(t-1))
-  Measures if receivables are growing faster than sales.
-  Values > 1.0 suggest revenue recognition issues.
-
-GMI = Gross Margin(t-1) / Gross Margin(t)
-  Measures if gross margins are deteriorating.
-  Values > 1.0 suggest margin pressure (motive to manipulate).
-
-AQI = [1 - (Current Assets(t) + PP&E(t)) / Total Assets(t)] /
-      [1 - (Current Assets(t-1) + PP&E(t-1)) / Total Assets(t-1)]
-  Measures change in asset quality (more intangibles = lower quality).
-  Values > 1.0 suggest increased capitalization of expenses.
-
-SGI = Sales(t) / Sales(t-1)
-  Measures sales growth rate.
-  High growth companies face more pressure to maintain growth.
-
-DEPI = Depreciation Rate(t-1) / Depreciation Rate(t)
-  Measures if depreciation is slowing.
-  Values > 1.0 suggest company is extending asset lives to boost earnings.
-
-SGAI = (SGA(t)/Sales(t)) / (SGA(t-1)/Sales(t-1))
-  Measures change in SGA efficiency.
-  Values > 1.0 suggest declining efficiency.
-
-TATA = (Net Income - Cash Flow from Operations) / Total Assets
-  Measures accrual level relative to assets.
-  Higher values suggest more aggressive accrual accounting.
-
-LVGI = Total Debt(t)/Total Assets(t) / (Total Debt(t-1)/Total Assets(t-1))
-  Measures change in leverage.
-  Values > 1.0 suggest increasing leverage.
+M值 = -4.84
+     + 0.920 x DSRI   （應收賬款天數指數）
+     + 0.528 x GMI    （毛利率指數）
+     + 0.404 x AQI    （資產質量指數）
+     + 0.892 x SGI    （銷售增長指數）
+     + 0.115 x DEPI   （折舊指數）
+     - 0.172 x SGAI   （銷售及一般行政費用指數）
+     + 4.679 x TATA   （總應計佔總資產比率）
+     - 0.327 x LVGI   （槓桿指數）
 ```
 
-**Interpreting the M-Score:**
+**變量定義：**
 
 ```
-  M-Score > -1.78:  HIGH probability of manipulation
-  M-Score < -1.78:  LOW probability of manipulation
+DSRI = （應收賬款（t）╱銷售額（t））╱（應收賬款（t-1）╱銷售額（t-1））
+  衡量應收賬款增速是否快於銷售額。
+  數值 > 1.0 表明收入確認可能存在問題。
 
-  The threshold of -1.78 correctly identifies about 76% of
-  historical manipulators, with a false positive rate of about 17%.
+GMI = 毛利率（t-1）╱毛利率（t）
+  衡量毛利率是否出現惡化。
+  數值 > 1.0 表明存在利潤壓力（操縱的動機）。
 
-  Famous Applications:
-    - Enron's M-Score exceeded -1.78 years before its collapse
-    - WorldCom showed elevated M-Score before the fraud was revealed
-    - Many subprime-era financial companies showed high M-Scores
+AQI = [1 - （流動資產（t）+ 物業廠房設備（t））╱總資產（t）] ╱
+      [1 - （流動資產（t-1）+ 物業廠房設備（t-1））╱總資產（t-1）]
+  衡量資產質量的變化（無形資產增多 = 質量降低）。
+  數值 > 1.0 表明費用資本化程度上升。
+
+SGI = 銷售額（t）╱銷售額（t-1）
+  衡量銷售增長率。
+  高增長公司面臨更大壓力以維持增長。
+
+DEPI = 折舊率（t-1）╱折舊率（t）
+  衡量折舊是否放緩。
+  數值 > 1.0 表明公司延長資產使用年限以提升盈利。
+
+SGAI = （銷售及一般行政費用（t）╱銷售額（t））╱（銷售及一般行政費用（t-1）╱銷售額（t-1））
+  衡量銷售及一般行政費用效率的變化。
+  數值 > 1.0 表明效率下降。
+
+TATA = （淨利潤 - 經營現金流）╱總資產
+  衡量應計水平相對於資產的比例。
+  數值越高表明應計會計越為進取。
+
+LVGI = 總債務（t）╱總資產（t）╱（總債務（t-1）╱總資產（t-1））
+  衡量槓桿的變化。
+  數值 > 1.0 表明槓桿上升。
 ```
 
-#### 8. The Altman Z-Score
-
-The Altman Z-Score is one of the most well-known bankruptcy prediction models. Developed by Professor Edward Altman at NYU in 1968, it combines five financial ratios into a single score that predicts the probability of bankruptcy.
-
-**The Z-Score Formula (for public manufacturing companies):**
+**解讀M值：**
 
 ```
-Z-Score = 1.2 x X1 + 1.4 x X2 + 3.3 x X3 + 0.6 x X4 + 1.0 x X5
+  M值 > -1.78：  操縱可能性高
+  M值 < -1.78：  操縱可能性低
 
-Where:
-  X1 = Working Capital / Total Assets
-       (measures liquidity relative to company size)
+  -1.78這一臨界值能正確識別歷史上約76%的操縱案例，
+  誤報率約為17%。
 
-  X2 = Retained Earnings / Total Assets
-       (measures cumulative profitability and age of firm)
-
-  X3 = EBIT / Total Assets
-       (measures operating efficiency)
-
-  X4 = Market Value of Equity / Book Value of Total Liabilities
-       (measures solvency -- how far assets can decline before
-        liabilities exceed assets)
-
-  X5 = Sales / Total Assets
-       (measures asset turnover efficiency)
+  著名應用案例：
+    - 安然公司的M值在其倒閉數年前已超過-1.78
+    - 世通公司在欺詐曝光前M值偏高
+    - 許多次按危機時期的金融公司M值偏高
 ```
 
-**Interpreting the Z-Score:**
+#### 8. Altman Z值
+
+Altman Z值是最廣為人知的破產預測模型之一。由紐約大學Edward Altman教授於1968年開發，它將五個財務比率合併為單一分數，預測破產的可能性。
+
+**Z值公式（適用於上市製造業公司）：**
 
 ```
-  Z-Score > 2.99:   SAFE ZONE -- low probability of bankruptcy
-  Z-Score 1.81-2.99: GREY ZONE -- moderate probability
-  Z-Score < 1.81:   DISTRESS ZONE -- high probability of bankruptcy
+Z值 = 1.2 x X1 + 1.4 x X2 + 3.3 x X3 + 0.6 x X4 + 1.0 x X5
 
-  Historical accuracy:
-    - Correctly predicted 72% of bankruptcies 2 years in advance
-    - Type II error rate (predicting bankruptcy when it did not occur): ~6%
+其中：
+  X1 = 營運資本╱總資產
+       （衡量相對於公司規模的流動性）
+
+  X2 = 留存盈利╱總資產
+       （衡量累計盈利能力及公司年齡）
+
+  X3 = 息稅前盈利╱總資產
+       （衡量經營效率）
+
+  X4 = 股票市值╱總負債賬面值
+       （衡量償付能力——資產在超過負債前
+        可下降的幅度）
+
+  X5 = 銷售額╱總資產
+       （衡量資產周轉效率）
 ```
 
-**Modified Z-Score for Non-Manufacturing Companies:**
+**解讀Z值：**
 
 ```
-Z'-Score = 6.56 x X1 + 3.26 x X2 + 6.72 x X3 + 1.05 x X4
+  Z值 > 2.99：    安全區——破產可能性低
+  Z值 1.81-2.99： 灰色區——中等破產可能性
+  Z值 < 1.81：    困境區——破產可能性高
 
-  (Removes X5 because asset turnover varies too much across industries)
-
-  Interpretation:
-    Z' > 2.60:  Safe zone
-    Z' 1.10-2.60: Grey zone
-    Z' < 1.10:  Distress zone
+  歷史準確率：
+    - 提前兩年正確預測72%的破產案例
+    - 第二類錯誤率（預測破產但最終未發生）：約6%
 ```
 
-**Modified Z-Score for Private Companies:**
+**適用於非製造業公司的修訂Z值：**
 
 ```
-Z''-Score = 0.717 x X1 + 0.847 x X2 + 3.107 x X3 + 0.420 x X4' + 0.998 x X5
+Z'值 = 6.56 x X1 + 3.26 x X2 + 6.72 x X3 + 1.05 x X4
 
-  Where X4' = Book Value of Equity / Total Liabilities
-  (uses book value instead of market value, since private companies
-   do not have a market capitalization)
+  （剔除X5，因為資產周轉率在不同行業之間差異過大）
 
-  Interpretation:
-    Z'' > 2.60: Safe zone
-    Z'' 1.10-2.60: Grey zone
-    Z'' < 1.10: Distress zone
+  解讀：
+    Z' > 2.60：  安全區
+    Z' 1.10-2.60：灰色區
+    Z' < 1.10：  困境區
 ```
 
-**Practical Application:**
+**適用於私人公司的修訂Z值：**
 
 ```
-Example: Evaluating Company ABC
+Z''值 = 0.717 x X1 + 0.847 x X2 + 3.107 x X3 + 0.420 x X4' + 0.998 x X5
 
-  Working Capital:        $200M
-  Total Assets:         $1,000M
-  Retained Earnings:      $300M
-  EBIT:                   $120M
-  Market Cap:             $800M
-  Total Liabilities:      $600M
-  Sales:                $1,200M
+  其中X4' = 股東權益賬面值╱總負債
+  （使用賬面值代替市值，因為私人公司
+   沒有市值）
 
-  X1 = 200/1000 = 0.200
-  X2 = 300/1000 = 0.300
-  X3 = 120/1000 = 0.120
-  X4 = 800/600  = 1.333
-  X5 = 1200/1000 = 1.200
-
-  Z = 1.2(0.200) + 1.4(0.300) + 3.3(0.120) + 0.6(1.333) + 1.0(1.200)
-  Z = 0.240 + 0.420 + 0.396 + 0.800 + 1.200
-  Z = 3.056
-
-  Verdict: Safe Zone (Z > 2.99)
-  This company has a low probability of bankruptcy.
+  解讀：
+    Z'' > 2.60：  安全區
+    Z'' 1.10-2.60：灰色區
+    Z'' < 1.10：  困境區
 ```
 
-#### 9. IFRS vs. GAAP: Key Differences
-
-For investors who compare companies across borders, understanding the key differences between International Financial Reporting Standards (IFRS) and US Generally Accepted Accounting Principles (US GAAP) is essential.
-
-**Major Differences:**
+**實際應用：**
 
 ```
-Area               | US GAAP                    | IFRS
--------------------|----------------------------|----------------------------
-Framework          | Rules-based                | Principles-based
-                   | (detailed specific rules)  | (broad guidelines)
+例子：評估ABC公司
 
-Inventory          | LIFO allowed               | LIFO prohibited
-                   | (many US companies use     | (must use FIFO or
-                   |  LIFO for tax benefits)    |  weighted average)
+  營運資本：         2億美元
+  總資產：          10億美元
+  留存盈利：         3億美元
+  息稅前盈利：       1.2億美元
+  市值：            8億美元
+  總負債：          6億美元
+  銷售額：          12億美元
 
-R&D Costs          | Generally expensed         | Development costs can be
-                   | immediately                | capitalized if criteria met
-                   |                            | Research always expensed
+  X1 = 2╱10 = 0.200
+  X2 = 3╱10 = 0.300
+  X3 = 1.2╱10 = 0.120
+  X4 = 8╱6  = 1.333
+  X5 = 12╱10 = 1.200
 
-Revenue            | ASC 606 (5-step model)     | IFRS 15 (very similar to
-Recognition        |                            | ASC 606 -- converged)
+  Z值 = 1.2(0.200) + 1.4(0.300) + 3.3(0.120) + 0.6(1.333) + 1.0(1.200)
+  Z值 = 0.240 + 0.420 + 0.396 + 0.800 + 1.200
+  Z值 = 3.056
 
-Impairment of      | Write down to fair value   | Write down to recoverable
-Long-Lived Assets  | Not reversible             | amount; Reversible (except
-                   |                            | goodwill) if value recovers
-
-Investment         | Three categories: held-to- | Two categories: amortized
-Property           | maturity, trading,         | cost or fair value through
-                   | available-for-sale         | profit or loss
-
-Leases             | ASC 842: operating and     | IFRS 16: all leases
-                   | finance lease distinction  | treated as finance leases
-                   | retained on income stmt    | (single model on balance
-                   |                            | sheet)
-
-Extraordinary      | Prohibited                 | Prohibited (both converged
-Items              |                            | on this)
-
-Contingencies      | Probable = >75% likely     | Probable = >50% likely
-                   | (higher threshold)         | (lower threshold)
-
-Biological Assets  | Generally at cost          | At fair value less costs
-                   |                            | to sell
-
-Revaluation of     | Not allowed (historical    | Allowed (can write up
-Fixed Assets       | cost only)                 | asset values to fair
-                   |                            | value periodically)
+  結論：安全區（Z值 > 2.99）
+  該公司破產可能性低。
 ```
 
-**Practical Implications for Investors:**
+#### 9. IFRS與GAAP的主要差異
+
+對於跨境比較不同公司的投資者而言，理解國際財務報告準則（IFRS）與美國公認會計準則（US GAAP）之間的主要差異至關重要。
+
+**主要差異：**
 
 ```
-When comparing a US GAAP company to an IFRS company:
+範疇              | 美國GAAP                   | IFRS
+-----------------|----------------------------|----------------------------
+框架              | 規則為本                   | 原則為本
+                 | （詳細具體規定）            | （廣泛指引）
 
-  1. LIFO vs. FIFO:
-     If the US company uses LIFO, its cost of goods sold is higher
-     (during inflation) and its inventory value is lower.
-     Adjust by adding the "LIFO reserve" (found in footnotes)
-     to inventory and equity for comparison.
+存貨              | 允許後進先出法             | 禁止後進先出法
+                 | （許多美國公司採用後進先出  | （須採用先進先出法或
+                 |  法以獲得稅務優惠）        |  加權平均法）
 
-  2. R&D Capitalization:
-     The IFRS company may capitalize development costs, making its
-     assets higher and expenses lower. For comparison, either:
-       a) Capitalize the US company's development spending, or
-       b) Expense the IFRS company's capitalized development costs
+研發成本          | 通常立即費用化             | 若符合標準，開發成本可
+                 |                            | 資本化；研究費用須
+                 |                            | 即時費用化
 
-  3. Asset Revaluation:
-     IFRS companies can write up asset values, inflating equity.
-     Be cautious comparing book values and ROE across standards.
+收入確認          | ASC 606（五步驟模型）      | IFRS 15（與ASC 606
+                 |                            | 非常相似——已趨同）
 
-  4. Impairment Reversal:
-     IFRS allows impairment reversals (except goodwill). This means
-     an IFRS company's earnings can include gains from reversing
-     previous write-downs, which would not appear under US GAAP.
+長期資產減值      | 撇減至公允價值             | 撇減至可回收金額；
+                 | 不可轉回                   | 若價值回升可轉回（商譽除外）
 
-  5. Lease Accounting:
-     Under IFRS 16, all leases are treated as finance leases on
-     the income statement (interest + depreciation). Under ASC 842,
-     operating leases use straight-line lease expense. This means
-     EBITDA may be higher for IFRS companies with significant
-     operating leases, because lease payments are split between
-     interest (below EBITDA) and depreciation (below EBITDA).
+投資物業          | 三個類別：持有至到期、     | 兩個類別：攤銷成本或
+                 | 交易性、可供出售           | 通過損益以公允價值計量
+
+租賃              | ASC 842：在損益表上        | IFRS 16：所有租賃
+                 | 保留經營性租賃與           | 均視為融資租賃
+                 | 融資租賃的區分             | （資產負債表採用
+                 |                            | 單一模型）
+
+特殊項目          | 禁止                       | 禁止（兩者已趨同）
+
+或有負債          | 很可能 = 可能性>75%        | 很可能 = 可能性>50%
+                 | （較高門檻）               | （較低門檻）
+
+生物資產          | 通常以成本計量             | 以公允價值減銷售成本計量
+
+固定資產重估      | 不允許（僅採用            | 允許（可定期將
+                 | 歷史成本）                 | 資產價值調高至公允價值）
+```
+
+**對投資者的實際影響：**
+
+```
+比較美國GAAP公司與IFRS公司時：
+
+  1. 後進先出法與先進先出法：
+     若美國公司採用後進先出法，在通脹期間其銷售成本較高，
+     存貨價值較低。
+     可透過將附註中的「後進先出法儲備」
+     加回存貨及股東權益，以進行比較調整。
+
+  2. 研發費用資本化：
+     IFRS公司可能將開發成本資本化，令其資產較高、
+     費用較低。為作比較，可採取以下方法：
+       a）將美國公司的開發支出資本化，或
+       b）將IFRS公司已資本化的開發成本費用化
+
+  3. 資產重估：
+     IFRS公司可調高資產價值，令股東權益虛增。
+     跨準則比較賬面值及股本回報率時需格外謹慎。
+
+  4. 減值轉回：
+     IFRS允許轉回減值（商譽除外）。這意味著
+     IFRS公司的盈利可包括轉回過往撇減所產生的收益，
+     而美國GAAP下此類收益不會出現。
+
+  5. 租賃會計：
+     在IFRS 16下，所有租賃在損益表上均視為融資租賃
+     （利息+折舊）。在ASC 842下，
+     經營性租賃採用直線法計算租賃費用。這意味著
+     擁有大量經營性租賃的IFRS公司的息稅折舊攤銷前盈利
+     可能較高，因為租賃付款被分拆為
+     利息（息稅折舊攤銷前盈利以下）和折舊（息稅折舊攤銷前盈利以下）。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Non-GAAP (adjusted) earnings are more accurate than GAAP earnings."**
+**誤解一：「非GAAP（調整後）盈利比GAAP盈利更為準確。」**
 
-Companies often present "adjusted" earnings that exclude stock-based compensation, restructuring charges, amortization of intangibles, and other items. While management argues these adjustments provide a clearer picture, the reality is that adjusted earnings almost always paint a rosier picture. Restructuring charges, for example, may be labeled as "one-time" but some companies report restructuring charges year after year. SBC is a real cost of doing business. Start with GAAP earnings and make your own adjustments rather than accepting management's curated version.
+企業通常呈報「調整後」盈利，剔除以股代薪、重組費用、無形資產攤銷及其他項目。儘管管理層聲稱這些調整提供了更清晰的圖像，但現實是調整後盈利幾乎總是描繪出更美好的前景。例如，重組費用可能被標榜為「一次性」，但部分公司年復一年地申報重組費用。SBC是真實的業務成本。應以GAAP盈利為出發點，自行作出調整，而非接受管理層精心挑選的版本。
 
-**Misconception 2: "Goodwill impairment charges do not matter because they are non-cash."**
+**誤解二：「商譽減值撇減無關緊要，因為它們是非現金費用。」**
 
-While it is true that goodwill impairments do not directly affect cash flow, they signal that management overpaid for an acquisition and that the acquired business is underperforming expectations. This has real implications: it suggests poor capital allocation, potential management overconfidence, and the possibility that future acquisitions may similarly disappoint. A pattern of goodwill impairments is a serious red flag about management quality.
+確實，商譽減值不直接影響現金流，但它表明管理層為收購支付了過高的代價，且被收購業務的表現遜於預期。這具有深遠的現實影響：它反映出資本配置欠佳、管理層可能過於自信，以及未來收購同樣令人失望的可能性。反覆出現商譽減值，是管理層質素方面的嚴重危險信號。
 
-**Misconception 3: "A company with growing revenue and earnings is financially healthy."**
+**誤解三：「收入和盈利持續增長的公司財務狀況良好。」**
 
-Revenue and earnings growth can be manufactured through acquisitions, accounting tricks, or unsustainable practices. A company might grow revenue through channel stuffing (pushing excess inventory to distributors). It might grow earnings by reducing reserves, extending depreciation lives, or capitalizing expenses. Always look at cash flow quality alongside reported earnings. If earnings are growing but operating cash flow is flat or declining, something is wrong.
+收入和盈利增長可透過收購、會計技巧或不可持續的做法來製造。公司可能透過渠道填塞（向分銷商推送過量存貨）來實現收入增長；也可能透過削減準備金、延長折舊年期或將費用資本化來提升盈利。應始終將現金流質素與申報盈利一併審視。若盈利增長但經營現金流持平甚至下降，說明問題存在。
 
-**Misconception 4: "The Altman Z-Score predicts all bankruptcies."**
+**誤解四：「Altman Z值能預測所有破產。」**
 
-The Z-Score is a useful screening tool, not an oracle. It was developed using manufacturing companies from the 1960s. It is less reliable for financial companies, service companies, and companies in industries that did not exist in 1968. It also does not capture qualitative factors like management fraud or sudden regulatory changes. Use it as one input among many, not as a standalone decision tool.
+Z值是有用的篩選工具，而非萬能的預言。它以1960年代的製造業公司為基礎開發，對金融公司、服務業公司及1968年後才出現的新興行業的企業，可靠性較低。它亦無法捕捉管理層欺詐或突如其來的監管變化等定性因素。應將其作為眾多分析工具之一，而非獨立的決策依據。
 
-**Misconception 5: "Off-balance-sheet items were eliminated by post-2008 accounting reforms."**
+**誤解五：「2008年後的會計改革已消除了表外項目。」**
 
-While significant progress has been made -- operating leases are now on-balance-sheet, and consolidation rules for VIEs have been tightened -- many items still remain off-balance-sheet or buried in footnotes. Purchase commitments, guarantee obligations, contingent liabilities, and unconsolidated joint ventures can still represent significant hidden exposures. Always read the footnotes.
+儘管已取得重大進展——經營性租賃已納入資產負債表，VIEs的並表規定亦已收緊——但許多項目仍置於資產負債表之外或深埋於附註之中。採購承諾、擔保義務、或有負債及未並表的合營企業，仍可代表龐大的潛在敞口。務必閱讀附註。
 
-**Misconception 6: "IFRS and GAAP are essentially the same now."**
+**誤解六：「IFRS與GAAP現在基本上相同。」**
 
-While convergence efforts have aligned the two standards in some areas (revenue recognition, lease accounting), significant differences remain. LIFO inventory, R&D capitalization, asset revaluation, and impairment reversal create meaningful differences in reported financials. Investors comparing companies across standards without adjustment can reach misleading conclusions.
+儘管趨同工作在某些範疇（收入確認、租賃會計）已令兩套準則趨於一致，但仍存在重大差異。後進先出法存貨計價、研發費用資本化、資產重估及減值轉回，均造成申報財務數據的顯著差異。投資者在未作調整的情況下跨準則比較公司，可能得出具有誤導性的結論。
 
-**Misconception 7: "High accruals are always a sign of manipulation."**
+**誤解七：「高應計水平必然是操縱的信號。」**
 
-High accruals can also result from legitimate business growth. A rapidly growing company may have increasing receivables and inventory simply because its business is expanding. The key is to assess whether accrual growth is proportionate to business growth. If receivables are growing twice as fast as revenue, that is concerning. If they are growing at the same rate, it is likely normal.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I calculate the Beneish M-Score for a company I am interested in?**
-
-A: You need two years of financial data (current year and prior year) to calculate the eight input variables. Pull the data from 10-K filings or financial databases. Calculate each ratio (DSRI, GMI, AQI, SGI, DEPI, SGAI, TATA, LVGI), then plug them into the M-Score formula. Several free online calculators and spreadsheet templates are available. If the resulting M-Score is greater than -1.78, the company has a higher-than-normal probability of earnings manipulation.
-
-**Q2: What should I do if a company has a high Beneish M-Score?**
-
-A: A high M-Score does not prove manipulation -- it indicates elevated risk. Investigate further by examining which specific variables are driving the high score. If DSRI is high, dig into accounts receivable policies. If TATA is high, compare earnings to cash flow. If AQI is high, investigate capitalized costs. You may discover legitimate explanations or confirm your concerns. Either way, you are making a more informed decision.
-
-**Q3: How much goodwill is "too much"?**
-
-A: There is no absolute threshold, but goodwill exceeding 50% of total assets or exceeding total shareholders' equity should trigger deeper investigation. Compare to industry peers. Evaluate whether the acquired businesses are performing as expected. If the company is a serial acquirer with growing goodwill and limited organic growth, be especially cautious. The risk is that a single large impairment could wipe out a significant portion of book value.
-
-**Q4: How do I adjust for off-balance-sheet items in my analysis?**
-
-A: For each off-balance-sheet item, estimate its present value and add it to both assets and liabilities. For example, if footnotes disclose $2 billion in unconsolidated joint venture debt at 50% ownership, add $1 billion (your proportional share) to both assets and debt. For purchase commitments, estimate the present value of future payments. Then recalculate leverage ratios and coverage ratios with these adjusted figures.
-
-**Q5: Is it worth calculating these scores for every stock I consider buying?**
-
-A: For individual stock picks, absolutely. The Beneish M-Score takes about 30 minutes to calculate manually (faster with a spreadsheet template) and can save you from catastrophic losses. The Altman Z-Score is even quicker. Think of them as inexpensive insurance -- a small time investment that can prevent large financial losses. For a diversified index fund or ETF, these tools are less necessary because the diversification inherently reduces the impact of any single company's manipulation or bankruptcy.
-
-**Q6: How do I detect revenue recognition manipulation?**
-
-A: Look for these signals: (1) Receivables growing faster than revenue (DSRI > 1.0), which suggests the company is booking revenue before cash is collected. (2) Revenue spikes at quarter-end or year-end (channel stuffing). (3) Unusual related-party revenue. (4) Changes in revenue recognition policy disclosed in footnotes. (5) Deferred revenue declining while reported revenue grows (may suggest pulling forward future revenue). (6) Revenue growth significantly outpacing industry growth with no clear competitive explanation.
-
-**Q7: What is the difference between earnings quality and earnings growth?**
-
-A: Earnings growth tells you how fast earnings are increasing. Earnings quality tells you whether those earnings are real, sustainable, and cash-backed. A company can have high earnings growth but low quality -- for example, through aggressive accounting, one-time gains, or unsustainable cost cutting. Conversely, a company can have moderate growth but very high quality -- recurring revenue, strong cash conversion, conservative accounting. Over time, high-quality earnings tend to persist, while low-quality earnings tend to reverse.
-
-**Q8: Why do companies engage in earnings management if analysts can detect it?**
-
-A: Several reasons. First, most earnings management is legal "gray area" activity -- stretching the rules without technically breaking them. Second, analysts often focus on whether a company beats consensus estimates by a penny or two, creating intense pressure to manage earnings to hit targets. Third, executive compensation is often tied to earnings-based targets, creating personal financial incentives. Fourth, many investors and analysts focus on non-GAAP metrics that exclude the very items that would reveal the manipulation.
-
-**Q9: How should I use the Altman Z-Score for bond investing?**
-
-A: The Z-Score is particularly valuable for credit analysis. Before buying a corporate bond, calculate the issuer's Z-Score. If it is in the distress zone (below 1.81), the bond may offer a high yield, but the bankruptcy risk is real. Compare the yield spread to the bankruptcy probability implied by the Z-Score. Track the Z-Score over time -- a declining Z-Score is a warning sign even if it is still in the safe zone. For high-yield bonds, the Z-Score provides a useful quantitative supplement to the qualitative 4 Cs analysis from Week 33.
-
-**Q10: What are the biggest "red flag" patterns across all these tools?**
-
-A: The biggest red flag is when multiple indicators point in the same direction simultaneously. A company with a high Beneish M-Score, declining Z-Score, cash flow lagging reported earnings, growing goodwill, significant off-balance-sheet items, and aggressive non-GAAP adjustments is waving every possible warning flag. Individually, each factor has innocent explanations. Together, they paint a picture of a company where the financial statements cannot be trusted at face value.
+高應計水平也可能源於正常的業務增長。一家快速增長的公司，其應收賬款和存貨增加，可能純粹是因為業務擴張所致。關鍵在於評估應計項目的增長是否與業務增長相稱。若應收賬款增速是收入增速的兩倍，這才值得警惕；若兩者增速相若，則可能屬正常情況。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問1：如何計算我感興趣的公司的Beneish M值？**
+
+答：你需要兩年的財務數據（當年及前一年）來計算八個輸入變量。從10-K申報文件或財務數據庫中提取數據。計算每個比率（DSRI、GMI、AQI、SGI、DEPI、SGAI、TATA、LVGI），然後代入M值公式。網上有多個免費計算器及電子試算表模板可供使用。若結果M值大於-1.78，則該公司盈利操縱的可能性高於正常水平。
+
+**問2：若公司的Beneish M值偏高，我應該怎麼辦？**
+
+答：M值偏高不等於證實操縱——它只是表明風險偏高。應進一步調查是哪些具體變量驅動了M值偏高。若DSRI偏高，應深入研究應收賬款政策。若TATA偏高，應比較盈利與現金流。若AQI偏高，應調查已資本化的成本。你可能會發現合理的解釋，或確認你的疑慮。無論如何，你都在作出更有根據的決策。
+
+**問3：多少商譽算是「過多」？**
+
+答：沒有絕對的門檻，但商譽超過總資產50%或超過股東權益總額，應觸發更深入的調查。與同業進行比較。評估被收購業務是否達到原始業績預測。若公司是連環收購方，商譽持續增長但有機增長有限，則需格外謹慎。風險在於，一次大規模減值撇減可能大幅削減賬面值的相當大部分。
+
+**問4：如何在分析中調整表外項目？**
+
+答：對於每個表外項目，估算其現值，並將其同時加入資產及負債。例如，若附註披露在50%股權下，合營企業債務為20億美元，則將10億美元（你的按比例應佔份額）同時加入資產及債務。對於採購承諾，估算未來付款額的現值。然後以這些調整後的數字重新計算槓桿比率及覆蓋比率。
+
+**問5：是否值得為我考慮買入的每隻股票計算這些分數？**
+
+答：對於個別股票，絕對值得。手動計算Beneish M值約需30分鐘（使用電子試算表模板更快），但可令你免於蒙受災難性損失。Altman Z值的計算更為迅速。將其視為廉價的保險——花費少量時間，可防止重大財務損失。對於多元化指數基金或交易所買賣基金，這些工具的必要性較低，因為分散化本身已降低了任何單一公司操縱或破產的影響。
+
+**問6：如何偵測收入確認操縱？**
+
+答：留意以下信號：（1）應收賬款增速快於收入——DSRI大於1.0，表明公司在收到現金前已確認收入。（2）季末或年末收入出現異常激增（渠道填塞）。（3）異常的關聯方收入。（4）附註中披露收入確認政策變更。（5）遞延收入下降而申報收入增長（可能表明提前確認未來收入）。（6）收入增速顯著超越行業增速，卻無清晰的競爭優勢解釋。
+
+**問7：盈利質素與盈利增長有何區別？**
+
+答：盈利增長告訴你盈利的增速。盈利質素則告訴你這些盈利是否真實、可持續且有現金流支撐。一家公司可以有高盈利增長但質素低下——例如透過進取的會計手法、一次性收益或不可持續的成本削減。相反，一家公司可能增長適中，但質素極高——經常性收入、強勁的現金轉化、保守的會計政策。從長遠來看，高質素的盈利往往能持續，而低質素的盈利則往往會逆轉。
+
+**問8：若分析師能夠偵測到盈利管理，為何公司仍要這樣做？**
+
+答：原因有幾個。首先，大多數盈利管理屬於合法的「灰色地帶」行為——在技術上不違規的情況下延伸規則邊界。其次，分析師往往關注公司是否能超越市場共識預測一兩分錢，為迎合目標而管理盈利製造了巨大壓力。第三，高管薪酬往往與基於盈利的目標掛鈎，形成個人財務上的動機。第四，許多投資者和分析師專注於非GAAP指標，而這些指標恰恰剔除了本可揭示操縱的項目。
+
+**問9：如何在債券投資中使用Altman Z值？**
+
+答：Z值對信用分析尤為重要。在買入公司債券之前，計算發行人的Z值。若Z值處於困境區（低於1.81），該債券可能提供較高的收益率，但破產風險是真實的。將收益率利差與Z值所隱含的破產可能性作比較。追蹤Z值隨時間的變化——即使仍處於安全區，Z值下降也是一個警示信號。對於高收益債券，Z值是對第33週4C定性分析的有用量化補充。
+
+**問10：綜合所有工具，最大的「危險信號」組合是什麼？**
+
+答：最大的危險信號，是多個指標同時指向同一方向。一家Beneish M值偏高、Z值持續下降、現金流落後於申報盈利、商譽持續增長、存在重大表外項目且頻繁作出進取非GAAP調整的公司，正在揮動每一面可能的警示旗幟。單獨來看，每個因素都可能有無辜的解釋。但合在一起，它們描繪出一幅財務報表不可照單全收的圖像。
+
+---
+
+## YouTube腳本
 
 ---
 
 **[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]**
 
-**Alex:** Welcome back. Today we are going beyond basic financial statements into the advanced territory -- the tricks, traps, and tools that separate amateur investors from professionals. If you have ever wondered how investors like Warren Buffett or Michael Burry spot problems that everyone else misses, this is how.
+**Horace（陳馬）：** 歡迎回來。今天我們要超越基本財務報表，進入進階領域——那些將業餘投資者與專業人士區分開來的技巧、陷阱和工具。若你曾好奇巴菲特或Michael Burry等投資者如何發現別人都忽視的問題，答案就在這裡。
 
-**Sam:** I feel like I have a decent grasp of income statements and balance sheets from earlier lessons. What am I missing?
+**Stella（小魚）：** 我覺得自己從早前的課堂已對損益表和資產負債表有一定掌握。那我還欠缺什麼？
 
-**Alex:** You are missing the layer beneath the surface. Let me give you a provocative question: If a company reports $500 million in net income, is that good?
+**Horace（陳馬）：** 你欠缺的是表面之下那一層。讓我問你一個發人深省的問題：若一家公司申報淨利潤5億美元，這算好嗎？
 
-**Sam:** Well, it depends on the context, but $500 million in profit sounds pretty good.
+**Stella（小魚）：** 嗯，要視乎情況，但5億美元的盈利聽起來相當不錯。
 
-**Alex:** What if I told you that same company's operating cash flow was only $100 million?
+**Horace（陳馬）：** 要是我告訴你，同一家公司的經營現金流只有1億美元呢？
 
-**Sam:** That is a huge gap. Where did the other $400 million go?
+**Stella（小魚）：** 這差距很大。其餘那4億美元去了哪裡？
 
-**Alex:** That is exactly the right question. The gap between reported earnings and cash flow is called "accruals," and it is one of the most powerful signals in financial analysis. High accruals often mean the company is recognizing revenue or deferring expenses in ways that do not reflect real cash generation. And research shows that companies with high accruals significantly underperform the market.
+**Horace（陳馬）：** 這正是對的問題。申報盈利與現金流之間的差距稱為「應計項目」，它是財務分析中最有力的信號之一。高應計水平往往意味著公司以不反映真實現金產生的方式確認收入或遞延費用。研究顯示，高應計水平的公司表現顯著遜於市場。
 
-**[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "Accruals: $400M"]**
+**[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "應計項目：4億美元"]**
 
-**Sam:** So I should always compare net income to cash flow?
+**Stella（小魚）：** 所以我應該時刻將淨利潤與現金流作比較？
 
-**Alex:** Always. The ratio of operating cash flow to net income is the simplest earnings quality test. If it is above 1.0 -- meaning cash flow exceeds reported earnings -- that is high quality. If it is below 0.5, investigate immediately. If it is negative -- the company reports profits but actually burns cash -- that is a screaming red flag.
+**Horace（陳馬）：** 一定要。經營現金流對淨利潤的比率，是最簡單的盈利質素測試。若高於1.0——即現金流超越申報盈利——質素高。若低於0.5，應立即調查。若為負數——公司申報盈利但實際消耗現金——那是尖叫般的危險信號。
 
-**[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 (High Quality), 0.8-1.0 (Good), 0.5-0.8 (Investigate), <0.5 (Red Flag)]**
+**[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 （高質素）, 0.8-1.0 （良好）, 0.5-0.8 （須調查）, <0.5 （危險信號）]**
 
-**Sam:** Let us talk about one of the most controversial topics in tech investing -- stock-based compensation. I see companies exclude it from their "adjusted" earnings all the time.
+**Stella（小魚）：** 我們來談談科技投資中最具爭議的話題之一——以股代薪。我經常見到公司在「調整後」盈利中剔除這一項。
 
-**Alex:** This is one of my pet peeves. Stock-based compensation, or SBC, is a real cost. When a company pays employees with stock options or restricted stock units, it is transferring value from existing shareholders to employees. If the company did not use SBC, it would need to pay higher cash salaries.
+**Horace（陳馬）：** 這是我最不以為然的做法之一。以股代薪，即SBC，是真實的成本。當公司用股票期權或限制性股票單位支付員工薪酬時，是將價值從現有股東轉移至員工。若公司不採用SBC，就需要支付更高的現金薪酬。
 
-**Sam:** But management says it is a "non-cash" expense.
+**Stella（小魚）：** 但管理層說這是「非現金」費用。
 
-**Alex:** Sure, there is no cash leaving the bank account. But your ownership stake is being diluted. Let me show you how big the impact can be.
+**Horace（陳馬）：** 沒錯，賬戶不會有現金流出。但你的持股比例正在被攤薄。讓我展示一下這個影響有多大。
 
-**[VISUAL: Example showing Tech Company XYZ -- GAAP EPS of $0.50 vs. "Adjusted" EPS of $0.70, a 40% difference entirely due to excluding SBC]**
+**[VISUAL: Example showing Tech Company XYZ -- GAAP每股盈利為0.50美元 vs. 「調整後」每股盈利為0.70美元，差距40%完全源於剔除SBC]**
 
-**Alex:** For some large tech companies, SBC exceeds 20% of revenue. If you value the stock using adjusted earnings that exclude SBC, you could overpay by 30 to 40 percent. Always start with GAAP earnings.
+**Horace（陳馬）：** 對某些大型科技公司而言，SBC超過收入的20%。若你以剔除SBC的調整後盈利進行估值，可能會溢付30至40%。請始終以GAAP盈利為基礎。
 
-**Sam:** Are there red flags I should watch for with SBC?
+**Stella（小魚）：** 在SBC方面，有哪些危險信號需要留意？
 
-**Alex:** Yes. SBC exceeding 15% of revenue is aggressive. Diluted share count increasing more than 3% per year means shareholders are being diluted significantly. And watch for companies where SBC as a percentage of revenue is growing over time -- it suggests the company is funding its operations partly by printing stock.
+**Horace（陳馬）：** 有。SBC超過收入的15%屬於進取做法。攤薄後股份數目每年增加逾3%，意味著股東正被大幅攤薄。還要留意SBC佔收入的百分比是否隨時間上升——這表明公司在某程度上靠「印股票」來資助其運營。
 
 **[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: cost of goods sold, operating expenses, cash compensation, SBC expense, and profit. The SBC slice grows larger over successive years while the profit slice remains stable, illustrating how SBC consumes an increasing share of revenue.]**
 
-**Sam:** What about off-balance-sheet items? I thought those were fixed after the 2008 financial crisis.
+**Stella（小魚）：** 表外項目又如何？我以為2008年金融危機後已解決了這個問題。
 
-**Alex:** Partially fixed. Operating leases are now on the balance sheet, which was a huge improvement. But several important items still lurk off-balance-sheet or in the footnotes.
+**Horace（陳馬）：** 部分解決了。經營性租賃現已納入資產負債表，這是一大進步。但仍有幾類重要項目潛伏於資產負債表之外或附註之中。
 
-**Sam:** Like what?
+**Stella（小魚）：** 例如哪些？
 
-**Alex:** Unconsolidated joint ventures, where a company owns 20 to 49 percent of another business. The joint venture's debt does not appear on the parent company's balance sheet. Variable interest entities -- special purpose entities that may not be consolidated. Purchase commitments. Guarantee obligations. These can represent billions of dollars in hidden exposure.
+**Horace（陳馬）：** 未並表的合營企業，即公司持有另一業務20至49%股權的情況。合營企業的債務不在母公司資產負債表上呈現。可變權益實體——可能未被並表的特殊目的實體。採購承諾。擔保義務。這些可能代表數以十億計的隱藏敞口。
 
-**[VISUAL: Iceberg diagram -- visible portion above water shows "On-Balance-Sheet Items" (debt, leases, etc.), below water shows "Off-Balance-Sheet Items" (JV debt, purchase commitments, guarantees, pension deficits, contingent liabilities)]**
+**[VISUAL: Iceberg diagram -- visible portion above water shows「表內項目」（debt, leases等）, below water shows「表外項目」（合營企業債務、採購承諾、擔保、退休金赤字、或有負債）]**
 
-**Sam:** Where do I find this information?
+**Stella（小魚）：** 這些資料在哪裡找？
 
-**Alex:** Footnotes. The 10-K annual filing has footnotes on "Commitments and Contingencies," "Variable Interest Entities," and "Investments in Affiliates." The SEC also requires a specific section in the MD&A called "Off-Balance-Sheet Arrangements." You have to actually read these sections -- most investors skip them, which is exactly why the information stays hidden.
+**Horace（陳馬）：** 附註。10-K年報有關「承諾及或有負債」、「可變權益實體」及「對聯營公司的投資」的附註。美國證監會亦要求在MD&A（管理層討論及分析）的「表外安排」一節作出披露。你必須真正閱讀這些部分——大多數投資者跳過它們，這正是相關資訊得以藏匿的原因。
 
-**Sam:** OK, let us talk about goodwill. I see it on balance sheets all the time and I honestly do not understand it.
+**Stella（小魚）：** 好，我們來談談商譽。我在資產負債表上經常見到這個項目，但老實說，我並不真正理解它。
 
-**Alex:** Goodwill is the premium a company pays when it acquires another company above the fair value of the identifiable assets. If Company A buys Company B for $5 billion, and Company B's identifiable assets minus liabilities are worth $2 billion, the remaining $3 billion goes on the balance sheet as "goodwill."
+**Horace（陳馬）：** 商譽是公司收購另一家公司時，超出可識別資產公允價值所支付的溢價。若甲公司以50億美元收購乙公司，而乙公司的可識別淨資產值20億美元，餘下的30億美元就在資產負債表上記為「商譽」。
 
-**Sam:** And that $3 billion just sits there?
+**Stella（小魚）：** 那30億美元就這樣留在那裡？
 
-**Alex:** Indefinitely. Under current rules, goodwill is not amortized -- it just sits on the balance sheet until management determines it is "impaired," meaning the acquired business is no longer worth what they paid for it. Then they take a write-down.
+**Horace（陳馬）：** 無限期地留在那裡。根據現行準則，商譽不予攤銷——它就留在資產負債表上，直至管理層判定其已「減值」，即被收購業務的價值已低於當初支付的代價。然後才進行撇減。
 
-**[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label "Premium paid for acquisitions -- may or may not be worth what's on the books"]**
+**[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label「為收購支付的溢價——其賬面值是否物有所值，尚未可知」]**
 
-**Alex:** Here is the problem. For serial acquirers -- companies that grow primarily through acquisition -- goodwill can become 30 to 60 percent of total assets. That means a huge portion of the company's balance sheet is based on the assumption that past acquisitions were worth what was paid. If that assumption is wrong, the balance sheet is overstated.
+**Horace（陳馬）：** 問題在於，對於連環收購方——主要靠收購擴張的公司——商譽可佔總資產的30至60%。這意味著資產負債表的很大一部分，建立在過去收購價格是否合理的假設之上。若這個假設有誤，資產負債表就被高估了。
 
-**Sam:** How do I know if goodwill is too high?
+**Stella（小魚）：** 我如何知道商譽是否過多？
 
-**Alex:** Compare goodwill to total assets and to shareholders' equity. If goodwill exceeds 50% of total assets or exceeds total equity, dig deeper. Look at whether acquired businesses are meeting their original performance projections. Check if the company has a history of goodwill impairments. And be especially skeptical of companies that make frequent acquisitions at high premiums but show limited organic growth.
+**Horace（陳馬）：** 將商譽與總資產及股東權益作比較。若商譽超過總資產50%或超過股東權益，則需深入研究。查閱被收購業務是否達到原始業績預測。檢視公司是否有商譽減值的歷史。對於頻繁以高溢價收購、但有機增長有限的公司，尤其要保持懷疑。
 
-**Sam:** Let us talk about pension obligations. I hear they can be massive.
+**Stella（小魚）：** 我們來談談退休金義務。我聽說它們的規模可以非常龐大。
 
-**Alex:** They can be. A defined benefit pension creates a legal obligation to pay retirees fixed amounts for the rest of their lives. The present value of those payments can be enormous -- tens of billions of dollars for large companies. And here is the tricky part: the size of this obligation depends heavily on assumptions that management chooses.
+**Horace（陳馬）：** 確實。界定福利退休金計劃形成了向退休人員終身支付固定金額的法律義務。這些付款的現值可以極為龐大——大型公司可達數百億美元。更棘手的是，這一義務的規模在很大程度上取決於管理層選擇的假設。
 
-**[VISUAL: Pension accounting diagram showing Plan Assets on one side, Projected Benefit Obligation on the other, with the gap labeled "Funded Status"]**
+**[VISUAL: Pension accounting diagram showing計劃資產 on one side, 預計福利義務 on the other, with the gap labeled「資金狀況」]**
 
-**Alex:** The discount rate is the most impactful assumption. A 0.5% change in the discount rate can swing the pension obligation by 7 to 8 percent. For a company with a $10 billion pension obligation, that is $700 to $800 million from a single assumption change. Management sets this assumption, creating room for manipulation.
+**Horace（陳馬）：** 折現率是最具影響力的假設。折現率變動0.5%，可令退休金義務的規模波動7至8%。對於擁有100億美元退休金義務的公司，單是一個假設的改變，就可帶來7至8億美元的差異。而這個假設由管理層設定，為操縱提供了空間。
 
-**Sam:** What should I look for?
+**Stella（小魚）：** 我應留意什麼？
 
-**Alex:** Compare the company's discount rate to peers. If it is significantly higher, they may be understating their obligation. Also compare expected return on plan assets to actual historical returns. If the expected return is unrealistically high, pension expense is understated. And track the funded status over time -- a growing pension deficit is a liability that will eventually demand cash contributions.
+**Horace（陳馬）：** 將公司的折現率與同業作比較。若明顯偏高，他們可能低估了義務規模。同時比較計劃資產的預期回報與實際歷史回報。若預期回報不切實際地偏高，退休金費用就被低估了。追蹤資金狀況的變化趨勢——退休金赤字不斷擴大，是最終需要現金供款的負債。
 
-**Sam:** This is great. Now, you mentioned two scoring models -- the Beneish M-Score and the Altman Z-Score. Let us walk through those.
+**Stella（小魚）：** 非常好。你提到了兩個評分模型——Beneish M值和Altman Z值。我們來逐一說明。
 
-**Alex:** These are two of the most powerful quantitative tools in financial analysis. Let us start with the Beneish M-Score, which detects earnings manipulation.
+**Horace（陳馬）：** 這是財務分析中最有力的兩個量化工具。先從Beneish M值開始，它用於偵測盈利操縱。
 
-**[VISUAL: Formula display showing the M-Score equation with all 8 variables]**
+**[VISUAL: Formula display showing the M值方程式 with all 8 variables]**
 
-**Alex:** The M-Score combines eight financial ratios into a single number. The threshold is negative 1.78. If the M-Score is above that threshold, the company has a statistically elevated probability of manipulating its earnings.
+**Horace（陳馬）：** M值將八個財務比率合併為一個數字。臨界值為負1.78。若M值高於這個臨界值，公司在統計上具有較高的盈利操縱可能性。
 
-**Sam:** What kinds of things does it look for?
+**Stella（小魚）：** 它具體偵測哪些情況？
 
-**Alex:** Each variable captures a different type of manipulation signal. The Days Sales in Receivables Index checks if receivables are growing faster than sales -- a classic revenue recognition red flag. The Asset Quality Index checks if the company is capitalizing more expenses as assets. Total Accruals to Total Assets measures the overall level of accrual accounting.
+**Horace（陳馬）：** 每個變量捕捉不同類型的操縱信號。應收賬款天數指數檢視應收賬款增速是否快於銷售——這是收入確認問題的典型危險信號。資產質量指數檢視公司是否將更多費用資本化為資產。總應計佔總資產比率衡量應計會計的整體水平。
 
-**[VISUAL: Each of the 8 M-Score variables listed with a one-line plain-English description of what it detects]**
+**[VISUAL: Each of the 8 M值變量 listed with a one-line plain-English description of what it detects]**
 
-**Sam:** Has this actually caught real frauds?
+**Stella（小魚）：** 這個方法有沒有真實偵測到欺詐案例？
 
-**Alex:** Yes. Enron's M-Score exceeded the manipulation threshold years before the fraud was publicly exposed. WorldCom showed elevated scores. Many pre-crisis financial companies showed high M-Scores. It is not perfect -- it catches about 76% of manipulators with a 17% false positive rate -- but it is a remarkably effective screening tool.
+**Horace（陳馬）：** 有。安然公司的M值在欺詐公開曝光數年前，已超越操縱臨界值。世通公司的M值偏高同樣如此。許多危機前的金融公司都顯示出較高的M值。它並非完美——能偵測約76%的操縱者，誤報率約17%——但它是非常有效的篩選工具。
 
 **[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M-Score over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]**
 
-**Sam:** And the Altman Z-Score?
+**Stella（小魚）：** 那Altman Z值呢？
 
-**Alex:** The Z-Score predicts bankruptcy. It combines five financial ratios -- working capital, retained earnings, operating earnings, market capitalization, and sales -- all scaled by total assets.
+**Horace（陳馬）：** Z值用於預測破產。它結合五個財務比率——營運資本、留存盈利、經營盈利、市值及銷售額——全部以總資產作除數。
 
-**[VISUAL: Z-Score formula with the three zones marked: Safe Zone (>2.99), Grey Zone (1.81-2.99), Distress Zone (<1.81)]**
+**[VISUAL: Z值公式 with the three zones marked: 安全區（>2.99）、灰色區（1.81-2.99）、困境區（<1.81）]**
 
-**Alex:** If the Z-Score is above 2.99, the company is in the safe zone. Between 1.81 and 2.99 is the grey zone -- monitor closely. Below 1.81 is the distress zone -- the company has a high probability of bankruptcy within two years.
+**Horace（陳馬）：** 若Z值高於2.99，公司處於安全區。介乎1.81至2.99之間是灰色區——需密切監察。低於1.81是困境區——公司在未來兩年內破產的可能性較高。
 
-**Sam:** Can I use these two scores together?
+**Stella（小魚）：** 我可以同時使用這兩個分數嗎？
 
-**Alex:** Absolutely, and I would recommend it. The M-Score tells you if the company might be manipulating its earnings. The Z-Score tells you if the company might be heading for bankruptcy. A company with both a high M-Score (potential manipulation) and a low Z-Score (financial distress) is a company you should probably avoid entirely.
+**Horace（陳馬）：** 絕對可以，而且我建議你這樣做。M值告訴你公司是否可能操縱其盈利。Z值告訴你公司是否正走向破產。一家M值偏高（潛在操縱）且Z值偏低（財務困境）的公司，是你很可能應完全迴避的公司。
 
-**Sam:** Let us briefly cover GAAP versus IFRS differences. Why does this matter?
+**Stella（小魚）：** 我們簡單談談GAAP與IFRS的差異。這為何重要？
 
-**Alex:** If you invest internationally -- and most diversified investors should -- you will encounter companies using IFRS instead of US GAAP. The differences can make the same underlying business look meaningfully different on paper.
+**Horace（陳馬）：** 若你進行國際投資——大多數多元化投資者都應如此——你將遇到採用IFRS而非美國GAAP的公司。兩者之間的差異，可令同一盤生意在紙面上看起來截然不同。
 
 **[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]**
 
-**Alex:** Here are the biggest ones. First, inventory: US GAAP allows LIFO, which during inflation produces higher cost of goods sold and lower taxes. IFRS prohibits LIFO. So a US company using LIFO will report lower earnings and lower inventory values than an identical IFRS company.
+**Horace（陳馬）：** 以下是最主要的差異。首先，存貨計價：美國GAAP允許後進先出法，在通脹期間產生較高的銷售成本和較低的稅負。IFRS禁止後進先出法。因此，採用後進先出法的美國公司，其盈利和存貨價值將低於同等的IFRS公司。
 
-**Sam:** How do I adjust for that?
+**Stella（小魚）：** 如何調整這一差異？
 
-**Alex:** US companies disclose a "LIFO reserve" in their footnotes. Add that to inventory and equity to get a FIFO-equivalent balance sheet.
+**Horace（陳馬）：** 美國公司在附註中披露「後進先出法儲備」。將其加入存貨及股東權益，即可得出相當於先進先出法的資產負債表。
 
-**Alex:** Second, R&D: IFRS allows capitalizing development costs if certain criteria are met. US GAAP requires expensing all R&D immediately. So an IFRS tech company might have higher reported assets and higher earnings than an identical US GAAP company.
+**Horace（陳馬）：** 其次，研發費用：IFRS允許在符合特定標準的情況下將開發成本資本化。美國GAAP要求所有研發費用即時費用化。因此，一家IFRS科技公司可能比同等的美國GAAP公司呈現出更高的資產及更高的盈利。
 
-**Sam:** What about asset impairments?
+**Stella（小魚）：** 資產減值呢？
 
-**Alex:** Good one. Under IFRS, impairments on assets other than goodwill can be reversed if the value recovers. Under US GAAP, once you write down an asset, it stays written down. This means IFRS companies can report gains from impairment reversals that would never appear under US GAAP.
+**Horace（陳馬）：** 問得好。在IFRS下，商譽以外的資產減值可在價值回升時轉回。在美國GAAP下，資產一旦被撇減，便永久保持撇減後的水平。這意味著IFRS公司的盈利可包括轉回過往撇減所帶來的收益，而這類收益在美國GAAP下不會出現。
 
-**[VISUAL: Summary checklist -- "Before Comparing GAAP and IFRS Companies" with adjustment steps listed]**
+**[VISUAL: Summary checklist -- 「比較GAAP與IFRS公司前的調整步驟」 with adjustment steps listed]**
 
-**Sam:** This has been incredibly dense but valuable. Let me try to summarize the key takeaways.
+**Stella（小魚）：** 這一課內容非常密集，但極具價值。讓我嘗試總結關鍵要點。
 
-**Alex:** Go for it.
+**Horace（陳馬）：** 請說。
 
-**Sam:** First, always compare earnings to cash flow -- the accrual gap is the simplest earnings quality test. Second, stock-based compensation is a real cost; do not accept adjusted earnings that exclude it. Third, off-balance-sheet items still exist and can be enormous -- read the footnotes. Fourth, goodwill can overstate a balance sheet -- be skeptical of serial acquirers. Fifth, use the Beneish M-Score and Altman Z-Score as quantitative screening tools. And sixth, adjust for GAAP-versus-IFRS differences when comparing international companies.
+**Stella（小魚）：** 第一，始終將盈利與現金流作比較——應計差距是最簡單的盈利質素測試。第二，以股代薪是真實成本；不要接受剔除它的調整後盈利。第三，表外項目仍然存在且可能規模龐大——閱讀附註。第四，商譽可能高估資產負債表——對連環收購方保持懷疑。第五，使用Beneish M值和Altman Z值作為量化篩選工具。第六，比較國際公司時，要調整GAAP與IFRS的差異。
 
-**Alex:** Excellent. And I would add one overarching principle: the single biggest red flag is when multiple warning signs appear simultaneously. Any one of these factors might have an innocent explanation. But when you see high accruals, a deteriorating M-Score, growing goodwill, aggressive non-GAAP adjustments, and off-balance-sheet items all at the same company -- run.
+**Horace（陳馬）：** 非常好。我還要補充一個總括性原則：最大的危險信號，是多個警示信號同時出現。一家Beneish M值偏高、Z值持續下降、現金流落後於申報盈利、商譽不斷增長、存在重大表外項目，且大量使用進取的非GAAP調整的公司——請敬而遠之。
 
-**Sam:** Great advice. Next week we are building income-generating portfolios. I am looking forward to something more actionable after this analytical deep dive.
+**Stella（小魚）：** 忠告良言。下週我們將建構創造收益的投資組合。在這次深度分析之後，我很期待一些更實際可操作的內容。
 
-**Alex:** It will be a practical session. We will cover dividends, bond coupons, option premiums, and how to build a portfolio that generates sustainable income. See you then.
+**Horace（陳馬）：** 那將是一個實務課堂。我們將探討股息、債券票息、期權金，以及如何建立一個可持續創造收益的投資組合。到時見。
 
 **[VISUAL: End card with key takeaways:
-1. Cash flow quality trumps reported earnings -- always compare OCF to net income
-2. Stock-based compensation is a real cost; use GAAP earnings, not adjusted
-3. Off-balance-sheet items still exist -- read the footnotes
-4. Beneish M-Score detects manipulation; Altman Z-Score predicts bankruptcy
-5. GAAP vs. IFRS differences require adjustments for cross-border comparisons
-6. Multiple simultaneous red flags are the strongest warning signal]**
+1. 現金流質素勝過申報盈利——始終比較經營現金流與淨利潤
+2. 以股代薪是真實成本；採用GAAP盈利，而非調整後盈利
+3. 表外項目依然存在——閱讀附註
+4. Beneish M值偵測操縱；Altman Z值預測破產
+5. GAAP與IFRS的差異需要調整才能作跨境比較
+6. 多個危險信號同時出現，是最強烈的警示信號]**
 
 ---
 
-*End of Week 35*
+*第35週完*

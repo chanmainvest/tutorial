@@ -820,252 +820,252 @@ A: Absolutely. As your time horizon shortens, your capacity to recover from larg
 
 [VISUAL: Title card -- "Portfolio Risk Management: How to Survive and Thrive"]
 
-**Alex**: Today we are going to talk about the most important topic in all of investing, and I guarantee it is not what most people think.
+**Horace**: Today we are going to talk about the most important topic in all of investing, and I guarantee it is not what most people think.
 
-**Sam**: Let me guess -- it is not about finding the next hot stock?
+**Stella**: Let me guess -- it is not about finding the next hot stock?
 
-**Alex**: Not even close. It is about risk management. Every legendary investor -- Warren Buffett, Ray Dalio, Howard Marks, George Soros -- they all say the same thing. The first rule of investing is do not lose money. The second rule is do not forget rule one.
+**Horace**: Not even close. It is about risk management. Every legendary investor -- Warren Buffett, Ray Dalio, Howard Marks, George Soros -- they all say the same thing. The first rule of investing is do not lose money. The second rule is do not forget rule one.
 
-**Sam**: That sounds like a cliche, though. Everyone says "do not lose money." How do you actually do it?
+**Stella**: That sounds like a cliche, though. Everyone says "do not lose money." How do you actually do it?
 
-**Alex**: That is exactly what we are going to cover. Risk management is a system -- a set of tools and processes that keep you in the game long enough for your good ideas to work. Let me start with the single most impactful concept: position sizing.
+**Horace**: That is exactly what we are going to cover. Risk management is a system -- a set of tools and processes that keep you in the game long enough for your good ideas to work. Let me start with the single most impactful concept: position sizing.
 
 [VISUAL: "Position Sizing: The 2% Rule" slide]
 
-**Alex**: Position sizing is deciding how much of your portfolio to put into any single investment. And here is the thing -- most retail investors do this completely wrong or do not do it at all.
+**Horace**: Position sizing is deciding how much of your portfolio to put into any single investment. And here is the thing -- most retail investors do this completely wrong or do not do it at all.
 
-**Sam**: What do they do instead?
+**Stella**: What do they do instead?
 
-**Alex**: They typically do one of three things. First, equal weighting -- just divide the portfolio into however many stocks they want to own. Ten stocks, ten percent each. Second, conviction weighting -- they put 30% into their best idea, 20% into the next, and so on. Third, and most common, random sizing -- they buy some number of shares that "feels right" with no methodology at all.
+**Horace**: They typically do one of three things. First, equal weighting -- just divide the portfolio into however many stocks they want to own. Ten stocks, ten percent each. Second, conviction weighting -- they put 30% into their best idea, 20% into the next, and so on. Third, and most common, random sizing -- they buy some number of shares that "feels right" with no methodology at all.
 
-**Sam**: And those are all wrong?
+**Stella**: And those are all wrong?
 
-**Alex**: They are all missing the key insight. Position sizing should be based on risk, not conviction or arbitrary allocation.
+**Horace**: They are all missing the key insight. Position sizing should be based on risk, not conviction or arbitrary allocation.
 
 [ANIMATION: animation/week41_position_sizing.py -- Animated comparison of three portfolios over 100 trades. Portfolio A uses the 2% rule with consistent 2% risk per trade. Portfolio B uses aggressive 10% risk per trade. Portfolio C uses random sizing between 1-15%. The underlying strategy is identical with a 55% win rate and 1.5:1 reward-to-risk ratio. The animation shows all three portfolio equity curves simultaneously, with Portfolio B experiencing a devastating drawdown around trade 40 that nearly wipes it out, Portfolio C showing erratic volatile performance, and Portfolio A showing steady upward growth with manageable drawdowns. Running statistics show maximum drawdown, current drawdown, and total return for each.]
 
-**Sam**: That is incredibly clear. Portfolio B -- the aggressive one -- nearly went to zero even though the underlying strategy was profitable.
+**Stella**: That is incredibly clear. Portfolio B -- the aggressive one -- nearly went to zero even though the underlying strategy was profitable.
 
-**Alex**: Exactly. The strategy had a genuine edge. Fifty-five percent win rate, 1.5 to 1 reward-to-risk. That is a good strategy. But with 10% risk per trade, a normal losing streak was enough to nearly destroy the account. Portfolio A, using the 2% rule, captured the same edge but survived the drawdowns.
+**Horace**: Exactly. The strategy had a genuine edge. Fifty-five percent win rate, 1.5 to 1 reward-to-risk. That is a good strategy. But with 10% risk per trade, a normal losing streak was enough to nearly destroy the account. Portfolio A, using the 2% rule, captured the same edge but survived the drawdowns.
 
-**Sam**: OK, walk me through the 2% rule mechanically.
+**Stella**: OK, walk me through the 2% rule mechanically.
 
-**Alex**: Here is how it works. Take your total portfolio value. Calculate 2% of it -- that is your maximum risk per trade. Then determine where your stop-loss is. The distance between your entry price and your stop-loss, in dollars per share, is your risk per share. Divide your maximum risk by the risk per share, and you get the number of shares to buy.
+**Horace**: Here is how it works. Take your total portfolio value. Calculate 2% of it -- that is your maximum risk per trade. Then determine where your stop-loss is. The distance between your entry price and your stop-loss, in dollars per share, is your risk per share. Divide your maximum risk by the risk per share, and you get the number of shares to buy.
 
 [VISUAL: Step-by-step calculation example on screen]
 
-**Alex**: Say your portfolio is $100,000. Two percent is $2,000 maximum risk. You want to buy a stock at $50 with a stop-loss at $45. That is $5 risk per share. Two thousand divided by five equals 400 shares. You would buy 400 shares at $50, which is a $20,000 position -- 20% of your portfolio.
+**Horace**: Say your portfolio is $100,000. Two percent is $2,000 maximum risk. You want to buy a stock at $50 with a stop-loss at $45. That is $5 risk per share. Two thousand divided by five equals 400 shares. You would buy 400 shares at $50, which is a $20,000 position -- 20% of your portfolio.
 
-**Sam**: Wait -- 20% in one stock? That seems aggressive.
+**Stella**: Wait -- 20% in one stock? That seems aggressive.
 
-**Alex**: But notice -- the POSITION is 20%, but the RISK is only 2%. If you are wrong and the stock hits your stop-loss at $45, you lose $2,000. Two percent of your portfolio. Completely survivable. The key distinction is between position size and risk. They are not the same thing.
+**Horace**: But notice -- the POSITION is 20%, but the RISK is only 2%. If you are wrong and the stock hits your stop-loss at $45, you lose $2,000. Two percent of your portfolio. Completely survivable. The key distinction is between position size and risk. They are not the same thing.
 
-**Sam**: What if I have a wider stop-loss?
+**Stella**: What if I have a wider stop-loss?
 
-**Alex**: Then you buy fewer shares. Same stock at $50, but your stop is at $40 -- that is $10 risk per share. Two thousand divided by ten equals 200 shares. Your position is now $10,000 -- only 10% of the portfolio. The wider the stop, the smaller the position. The risk stays constant.
+**Horace**: Then you buy fewer shares. Same stock at $50, but your stop is at $40 -- that is $10 risk per share. Two thousand divided by ten equals 200 shares. Your position is now $10,000 -- only 10% of the portfolio. The wider the stop, the smaller the position. The risk stays constant.
 
 [VISUAL: Table showing different stop distances and resulting position sizes]
 
-**Sam**: That makes a lot of sense. The stop-loss determines the position size, not the other way around.
+**Stella**: That makes a lot of sense. The stop-loss determines the position size, not the other way around.
 
-**Alex**: Exactly right. Now let me explain why 2% specifically. It is about surviving losing streaks.
+**Horace**: Exactly right. Now let me explain why 2% specifically. It is about surviving losing streaks.
 
-**Sam**: How bad can losing streaks get?
+**Stella**: How bad can losing streaks get?
 
-**Alex**: Worse than you think. Even with a 60% win rate, there is about a 1% chance of losing 10 trades in a row over any 200-trade period. If you risk 2% per trade, ten consecutive losses takes you down about 18%. Painful, but totally recoverable. If you risk 10% per trade, ten consecutive losses takes you down 65%. You now need a 186% gain just to break even. You are effectively dead.
+**Horace**: Worse than you think. Even with a 60% win rate, there is about a 1% chance of losing 10 trades in a row over any 200-trade period. If you risk 2% per trade, ten consecutive losses takes you down about 18%. Painful, but totally recoverable. If you risk 10% per trade, ten consecutive losses takes you down 65%. You now need a 186% gain just to break even. You are effectively dead.
 
 [VISUAL: Side-by-side drawdown comparison table]
 
-**Sam**: OK, I am sold on the 2% rule. But I have heard of something called the Kelly criterion that supposedly tells you the mathematically optimal bet size. Is that better?
+**Stella**: OK, I am sold on the 2% rule. But I have heard of something called the Kelly criterion that supposedly tells you the mathematically optimal bet size. Is that better?
 
-**Alex**: The Kelly criterion is fascinating and important, but dangerous in practice. Let me explain.
+**Horace**: The Kelly criterion is fascinating and important, but dangerous in practice. Let me explain.
 
 [VISUAL: Kelly criterion formula on screen]
 
-**Alex**: The Kelly formula calculates the fraction of your capital that maximizes long-term growth rate, given your edge. It takes into account both your win rate and your reward-to-risk ratio. For a strategy with a 60% win rate and 1.5 to 1 payoff, Kelly says to risk 33% of your capital per trade.
+**Horace**: The Kelly formula calculates the fraction of your capital that maximizes long-term growth rate, given your edge. It takes into account both your win rate and your reward-to-risk ratio. For a strategy with a 60% win rate and 1.5 to 1 payoff, Kelly says to risk 33% of your capital per trade.
 
-**Sam**: Thirty-three percent? That is insanely aggressive.
+**Stella**: Thirty-three percent? That is insanely aggressive.
 
-**Alex**: It is. And here is the catch -- full Kelly is mathematically optimal for growth, but it produces drawdowns of 50-80% along the way. No human being can tolerate that. The standard practice is to use half Kelly, which gives you 75% of the growth rate with dramatically less drawdown. Or quarter Kelly for even more conservative sizing.
+**Horace**: It is. And here is the catch -- full Kelly is mathematically optimal for growth, but it produces drawdowns of 50-80% along the way. No human being can tolerate that. The standard practice is to use half Kelly, which gives you 75% of the growth rate with dramatically less drawdown. Or quarter Kelly for even more conservative sizing.
 
-**Sam**: But there is another problem, right? You have to know your exact win rate and payoff ratio.
+**Stella**: But there is another problem, right? You have to know your exact win rate and payoff ratio.
 
-**Alex**: That is the fatal flaw. Kelly requires PRECISE inputs. In gambling, you know the odds exactly. In investing, you are estimating. If you think your win rate is 60% but it is really 50%, full Kelly will have you risking 33% per trade on a strategy with zero edge. You will blow up.
+**Horace**: That is the fatal flaw. Kelly requires PRECISE inputs. In gambling, you know the odds exactly. In investing, you are estimating. If you think your win rate is 60% but it is really 50%, full Kelly will have you risking 33% per trade on a strategy with zero edge. You will blow up.
 
 [VISUAL: Sensitivity analysis showing how small changes in estimated win rate dramatically change Kelly sizing]
 
-**Alex**: This is why the 2% rule is safer for most investors. It does not require you to know your edge precisely. It simply limits the damage from any single trade. Use Kelly as a theoretical framework for thinking about bet sizing, but use the 2% rule as your practical daily tool.
+**Horace**: This is why the 2% rule is safer for most investors. It does not require you to know your edge precisely. It simply limits the damage from any single trade. Use Kelly as a theoretical framework for thinking about bet sizing, but use the 2% rule as your practical daily tool.
 
-**Sam**: Let me transition to stop-losses. You keep mentioning them as part of position sizing. What are the main types?
+**Stella**: Let me transition to stop-losses. You keep mentioning them as part of position sizing. What are the main types?
 
 [VISUAL: "Stop-Loss Strategies" section header]
 
-**Alex**: There are five main types, and each one has its place. First is the fixed percentage stop. You simply sell if the stock drops a certain percentage below your entry. Ten percent is common. Simple but inflexible -- it does not account for different stocks having different volatilities.
+**Horace**: There are five main types, and each one has its place. First is the fixed percentage stop. You simply sell if the stock drops a certain percentage below your entry. Ten percent is common. Simple but inflexible -- it does not account for different stocks having different volatilities.
 
-**Sam**: A volatile biotech stock might routinely swing 10% in a week.
+**Stella**: A volatile biotech stock might routinely swing 10% in a week.
 
-**Alex**: Exactly. That is why the second type -- the volatility-based stop -- is often better. You use the stock's Average True Range, or ATR, which measures its normal daily movement. A typical stop is set at 2 times ATR below the entry price. So a calm utility stock with a $0.50 ATR gets a $1 stop, while a volatile tech stock with a $5 ATR gets a $10 stop.
+**Horace**: Exactly. That is why the second type -- the volatility-based stop -- is often better. You use the stock's Average True Range, or ATR, which measures its normal daily movement. A typical stop is set at 2 times ATR below the entry price. So a calm utility stock with a $0.50 ATR gets a $1 stop, while a volatile tech stock with a $5 ATR gets a $10 stop.
 
 [VISUAL: Two stocks side by side showing different ATR values and resulting stop placement]
 
-**Sam**: The stop adjusts to the stock's natural movement. I like that.
+**Stella**: The stop adjusts to the stock's natural movement. I like that.
 
-**Alex**: Third is the support-based stop. You identify a key support level on the chart and place your stop just below it. If the stock breaks support, the technical picture has changed and you exit. This requires chart-reading ability but is probably the most widely used method among professional traders.
+**Horace**: Third is the support-based stop. You identify a key support level on the chart and place your stop just below it. If the stock breaks support, the technical picture has changed and you exit. This requires chart-reading ability but is probably the most widely used method among professional traders.
 
-**Sam**: What about trailing stops?
+**Stella**: What about trailing stops?
 
-**Alex**: That is number four. A trailing stop moves up as the stock rises but never moves down. If you set a 15% trailing stop on a stock you bought at $100, and it goes to $140, your stop is now at $119. If the stock then drops to $119, you are sold out with a 19% gain instead of riding it back down.
+**Horace**: That is number four. A trailing stop moves up as the stock rises but never moves down. If you set a 15% trailing stop on a stock you bought at $100, and it goes to $140, your stop is now at $119. If the stock then drops to $119, you are sold out with a 19% gain instead of riding it back down.
 
 [ANIMATION: animation/week41_trailing_stop.py -- Animated chart showing a stock price rising from $100 to $160 over several months with pullbacks along the way. A trailing stop line (15% below peak) is shown moving up alongside the price. The animation pauses at key moments to highlight how the stop adjusts: it rises when the stock makes new highs but stays flat during pullbacks. Eventually the stock reverses and crosses the trailing stop line, triggering a sell. Annotations show the entry price, the highest price reached, the trailing stop level, and the final gain captured.]
 
-**Sam**: That is elegant. You never cap your upside, but you protect against major reversals.
+**Stella**: That is elegant. You never cap your upside, but you protect against major reversals.
 
-**Alex**: The final type is the time-based stop. You exit if the trade has not worked within a certain number of days or weeks. This is especially useful for catalyst-driven trades. If you bought before an earnings report expecting a breakout and nothing happened after two weeks, exit and deploy your capital elsewhere.
+**Horace**: The final type is the time-based stop. You exit if the trade has not worked within a certain number of days or weeks. This is especially useful for catalyst-driven trades. If you bought before an earnings report expecting a breakout and nothing happened after two weeks, exit and deploy your capital elsewhere.
 
-**Sam**: Let us move to risk budgeting. How do I think about my total portfolio risk?
+**Stella**: Let us move to risk budgeting. How do I think about my total portfolio risk?
 
 [VISUAL: "Risk Budgeting" section header]
 
-**Alex**: Risk budgeting starts with one number: your maximum acceptable drawdown. What is the largest peak-to-trough decline you can tolerate -- financially AND emotionally?
+**Horace**: Risk budgeting starts with one number: your maximum acceptable drawdown. What is the largest peak-to-trough decline you can tolerate -- financially AND emotionally?
 
-**Sam**: How do I figure that out?
+**Stella**: How do I figure that out?
 
-**Alex**: Financially, it depends on your time horizon and income. If you are 30 years old with a stable job, you can probably tolerate a 30% drawdown because you have decades to recover and ongoing income to invest. If you are 65 and retired, a 30% drawdown might force you to sell at the bottom because you need the money for living expenses.
+**Horace**: Financially, it depends on your time horizon and income. If you are 30 years old with a stable job, you can probably tolerate a 30% drawdown because you have decades to recover and ongoing income to invest. If you are 65 and retired, a 30% drawdown might force you to sell at the bottom because you need the money for living expenses.
 
-**Sam**: And the emotional side?
+**Stella**: And the emotional side?
 
-**Alex**: Here is a brutal truth. Most people overestimate their emotional risk tolerance. In a survey, everyone says they can handle a 20% decline. But when their $500,000 portfolio drops to $400,000, they cannot sleep. They check their phone at 3 AM. They argue with their spouse. They eventually panic-sell at the bottom. If you have never experienced a real bear market, be conservative in estimating your emotional capacity. Use a maximum drawdown that is 10 percentage points below what you think you can handle.
+**Horace**: Here is a brutal truth. Most people overestimate their emotional risk tolerance. In a survey, everyone says they can handle a 20% decline. But when their $500,000 portfolio drops to $400,000, they cannot sleep. They check their phone at 3 AM. They argue with their spouse. They eventually panic-sell at the bottom. If you have never experienced a real bear market, be conservative in estimating your emotional capacity. Use a maximum drawdown that is 10 percentage points below what you think you can handle.
 
 [VISUAL: Risk capacity assessment framework]
 
-**Alex**: Once you have your maximum drawdown, you allocate it across asset classes. This is your risk budget. If your total budget is 20%, you might allocate 12% to equities, 4% to bonds, and 4% to alternatives. Then you size your positions within each bucket so that the worst-case loss for each bucket stays within its allocation.
+**Horace**: Once you have your maximum drawdown, you allocate it across asset classes. This is your risk budget. If your total budget is 20%, you might allocate 12% to equities, 4% to bonds, and 4% to alternatives. Then you size your positions within each bucket so that the worst-case loss for each bucket stays within its allocation.
 
-**Sam**: How do I translate a risk budget into actual position sizes?
+**Stella**: How do I translate a risk budget into actual position sizes?
 
-**Alex**: Divide the risk budget by the asset's expected volatility. If you allocate 5% of risk to US large cap stocks, and US large cap has roughly 16% historical volatility, your position size should be about 5% divided by 16%, which is 31% of your portfolio. For emerging markets with 22% volatility and a 2% risk allocation, the position would be 2% divided by 22%, about 9% of the portfolio.
+**Horace**: Divide the risk budget by the asset's expected volatility. If you allocate 5% of risk to US large cap stocks, and US large cap has roughly 16% historical volatility, your position size should be about 5% divided by 16%, which is 31% of your portfolio. For emerging markets with 22% volatility and a 2% risk allocation, the position would be 2% divided by 22%, about 9% of the portfolio.
 
 [VISUAL: Risk budget allocation table with calculations]
 
-**Sam**: So riskier assets automatically get smaller allocations?
+**Stella**: So riskier assets automatically get smaller allocations?
 
-**Alex**: Exactly. And that is the beauty of risk budgeting versus naive allocation. If you simply allocate 30% to US stocks and 10% to emerging markets, you might think the EM position is small. But EM is far more volatile, so it might actually contribute MORE risk than the larger US position. Risk budgeting ensures each position contributes proportionally to your overall risk.
+**Horace**: Exactly. And that is the beauty of risk budgeting versus naive allocation. If you simply allocate 30% to US stocks and 10% to emerging markets, you might think the EM position is small. But EM is far more volatile, so it might actually contribute MORE risk than the larger US position. Risk budgeting ensures each position contributes proportionally to your overall risk.
 
-**Sam**: Let us talk about scenario analysis. I hear professional investors talk about this a lot.
+**Stella**: Let us talk about scenario analysis. I hear professional investors talk about this a lot.
 
 [VISUAL: "Scenario Analysis" section header]
 
-**Alex**: Scenario analysis is one of the most powerful tools in risk management because it forces you to think about specific future states of the world, not just historical patterns. Here is how it works.
+**Horace**: Scenario analysis is one of the most powerful tools in risk management because it forces you to think about specific future states of the world, not just historical patterns. Here is how it works.
 
-**Alex**: Step one, define three to five plausible scenarios. A base case -- the most likely outcome. An optimistic case. A pessimistic case. And one or two extreme cases.
+**Horace**: Step one, define three to five plausible scenarios. A base case -- the most likely outcome. An optimistic case. A pessimistic case. And one or two extreme cases.
 
-**Sam**: Give me an example.
+**Stella**: Give me an example.
 
-**Alex**: For a typical balanced portfolio right now, I would model: Base case, economy grows 2-3%, stocks up 8-12%, bonds up 3-5%. Recession, GDP contracts, stocks down 25-35%, bonds up 8-15%. Stagflation, low growth with high inflation, stocks down 15-25%, bonds also down 5-10% because rising rates hurt bond prices. A boom, GDP growth 4%+, stocks up 20-30%. And a financial crisis, credit freeze, stocks down 40-50%.
+**Horace**: For a typical balanced portfolio right now, I would model: Base case, economy grows 2-3%, stocks up 8-12%, bonds up 3-5%. Recession, GDP contracts, stocks down 25-35%, bonds up 8-15%. Stagflation, low growth with high inflation, stocks down 15-25%, bonds also down 5-10% because rising rates hurt bond prices. A boom, GDP growth 4%+, stocks up 20-30%. And a financial crisis, credit freeze, stocks down 40-50%.
 
 [VISUAL: Scenario matrix with descriptions]
 
-**Sam**: Then you apply each scenario to your actual portfolio?
+**Stella**: Then you apply each scenario to your actual portfolio?
 
-**Alex**: Exactly. Take every position in your portfolio and estimate how it would perform in each scenario. Then calculate the total portfolio impact. The critical question is: in the worst case, is the loss survivable?
+**Horace**: Exactly. Take every position in your portfolio and estimate how it would perform in each scenario. Then calculate the total portfolio impact. The critical question is: in the worst case, is the loss survivable?
 
-**Sam**: And if it is not?
+**Stella**: And if it is not?
 
-**Alex**: Then you reduce risk until it is. That might mean reducing equity allocation, adding hedges, or increasing cash. The whole point of scenario analysis is to confront uncomfortable possibilities BEFORE they happen, when you can still make rational decisions. Once the crisis is happening, emotions take over.
+**Horace**: Then you reduce risk until it is. That might mean reducing equity allocation, adding hedges, or increasing cash. The whole point of scenario analysis is to confront uncomfortable possibilities BEFORE they happen, when you can still make rational decisions. Once the crisis is happening, emotions take over.
 
 [ANIMATION: animation/week41_scenario_analysis.py -- Interactive scenario analysis visualization. Shows a sample portfolio with 60% stocks, 25% bonds, 10% REITs, 5% gold. Five scenarios are displayed as columns: base case, recession, stagflation, boom, and crisis. For each scenario, animated bars show the return of each asset class and the total portfolio return. The worst-case scenario is highlighted in red, with an annotation showing the dollar loss and the number of years needed to recover at the expected return rate. The animation then shows the portfolio being adjusted -- reducing stocks to 45%, adding 15% to short-term bonds -- and the scenarios recalculate, showing the worst case improving significantly.]
 
-**Sam**: That really drives the point home. You can see exactly how each change affects your worst case.
+**Stella**: That really drives the point home. You can see exactly how each change affects your worst case.
 
-**Alex**: And notice something important. When we reduced stocks from 60% to 45%, the base case return dropped -- from about 7.7% to about 6.2%. Risk management has a cost. But the worst case improved from a 27% loss to about an 18% loss. That is the tradeoff, and it is a tradeoff every investor needs to make consciously.
+**Horace**: And notice something important. When we reduced stocks from 60% to 45%, the base case return dropped -- from about 7.7% to about 6.2%. Risk management has a cost. But the worst case improved from a 27% loss to about an 18% loss. That is the tradeoff, and it is a tradeoff every investor needs to make consciously.
 
-**Sam**: You have been building toward something. You keep saying risk management is a process. What does that mean?
+**Stella**: You have been building toward something. You keep saying risk management is a process. What does that mean?
 
 [VISUAL: "Risk Management as a Process" section header]
 
-**Alex**: This is the most important part of today's lesson. Risk management is not a one-time activity. It is not something you do when you set up your portfolio and then forget about. It is an ongoing cycle of identifying risks, measuring them, setting limits, monitoring your positions, adjusting when necessary, and reviewing what worked and what did not.
+**Horace**: This is the most important part of today's lesson. Risk management is not a one-time activity. It is not something you do when you set up your portfolio and then forget about. It is an ongoing cycle of identifying risks, measuring them, setting limits, monitoring your positions, adjusting when necessary, and reviewing what worked and what did not.
 
-**Sam**: Walk me through what this looks like in practice for a regular investor.
+**Stella**: Walk me through what this looks like in practice for a regular investor.
 
-**Alex**: Daily, which should take about five minutes: check your portfolio value, check if any positions are near stop-loss levels, and glance at the VIX and major market indicators. Weekly, about 30 minutes: review all open positions, verify position sizes are within risk limits, and check concentration. Monthly, about two hours: calculate your portfolio risk metrics, run a quick scenario analysis, review your risk budget, and document any lessons learned.
+**Horace**: Daily, which should take about five minutes: check your portfolio value, check if any positions are near stop-loss levels, and glance at the VIX and major market indicators. Weekly, about 30 minutes: review all open positions, verify position sizes are within risk limits, and check concentration. Monthly, about two hours: calculate your portfolio risk metrics, run a quick scenario analysis, review your risk budget, and document any lessons learned.
 
-**Sam**: And quarterly?
+**Stella**: And quarterly?
 
-**Alex**: Quarterly is your deep review. Four hours of serious work. Re-run your full scenario analysis with updated assumptions. Check whether correlations have changed -- they do change over time. Review whether your overall risk level is still appropriate for your life situation. A lot can change in three months -- a new job, a new baby, a big expense coming up.
+**Horace**: Quarterly is your deep review. Four hours of serious work. Re-run your full scenario analysis with updated assumptions. Check whether correlations have changed -- they do change over time. Review whether your overall risk level is still appropriate for your life situation. A lot can change in three months -- a new job, a new baby, a big expense coming up.
 
 [VISUAL: Risk management checklist organized by daily/weekly/monthly/quarterly]
 
-**Sam**: Let me ask about something that is really relevant right now -- concentration risk. A lot of people have portfolios dominated by tech stocks.
+**Stella**: Let me ask about something that is really relevant right now -- concentration risk. A lot of people have portfolios dominated by tech stocks.
 
-**Alex**: Concentration risk is one of the most dangerous forms of risk because it feels good when it works. If you put 40% of your portfolio in Nvidia and it triples, you are a genius. But if Nvidia drops 60% -- which it absolutely can, and has in the past -- you have just lost 24% of your entire portfolio from a single stock.
+**Horace**: Concentration risk is one of the most dangerous forms of risk because it feels good when it works. If you put 40% of your portfolio in Nvidia and it triples, you are a genius. But if Nvidia drops 60% -- which it absolutely can, and has in the past -- you have just lost 24% of your entire portfolio from a single stock.
 
-**Sam**: What are the guidelines?
+**Stella**: What are the guidelines?
 
-**Alex**: No single stock should be more than 5-10% of your total portfolio. No single sector should exceed 20-25%. And here is one people forget -- employer stock should be capped at 10%, because you already have income concentration risk with your employer. If you work at a tech company and own their stock, a single bad event can cost you both your job and your savings simultaneously.
+**Horace**: No single stock should be more than 5-10% of your total portfolio. No single sector should exceed 20-25%. And here is one people forget -- employer stock should be capped at 10%, because you already have income concentration risk with your employer. If you work at a tech company and own their stock, a single bad event can cost you both your job and your savings simultaneously.
 
-**Sam**: That is what happened at Enron, right?
+**Stella**: That is what happened at Enron, right?
 
-**Alex**: Enron employees had 62% of their 401k in Enron stock. When the company went to zero, they lost both their jobs and their retirement savings. The same pattern repeated at Bear Stearns, Lehman Brothers, and dozens of smaller companies. It is a mistake that gets made over and over.
+**Horace**: Enron employees had 62% of their 401k in Enron stock. When the company went to zero, they lost both their jobs and their retirement savings. The same pattern repeated at Bear Stearns, Lehman Brothers, and dozens of smaller companies. It is a mistake that gets made over and over.
 
 [VISUAL: Historical examples of concentration risk disasters]
 
-**Sam**: What about the correlation trap? You mentioned earlier that diversification can fail.
+**Stella**: What about the correlation trap? You mentioned earlier that diversification can fail.
 
-**Alex**: This is crucial. Most people think they are diversified because they own US stocks, international stocks, REITs, and maybe some corporate bonds. In calm markets, these assets have moderate correlations -- they do not all move together. But in a crisis, correlations spike toward one. Suddenly everything drops together.
+**Horace**: This is crucial. Most people think they are diversified because they own US stocks, international stocks, REITs, and maybe some corporate bonds. In calm markets, these assets have moderate correlations -- they do not all move together. But in a crisis, correlations spike toward one. Suddenly everything drops together.
 
-**Sam**: So what actually provides real diversification in a crisis?
+**Stella**: So what actually provides real diversification in a crisis?
 
-**Alex**: The reliable crisis diversifiers are cash, long-dated US Treasuries -- though even these are not guaranteed -- managed futures strategies that profit from trends in either direction, and long volatility positions. Everything else -- international stocks, REITs, corporate bonds, commodities -- tends to correlate heavily with US stocks during severe stress.
+**Horace**: The reliable crisis diversifiers are cash, long-dated US Treasuries -- though even these are not guaranteed -- managed futures strategies that profit from trends in either direction, and long volatility positions. Everything else -- international stocks, REITs, corporate bonds, commodities -- tends to correlate heavily with US stocks during severe stress.
 
 [VISUAL: Correlation matrix showing normal vs. crisis values]
 
-**Sam**: Let us talk about drawdown management. You mentioned the asymmetry problem.
+**Stella**: Let us talk about drawdown management. You mentioned the asymmetry problem.
 
-**Alex**: This is math everyone needs to understand. Losses and gains are not symmetrical. If you lose 10%, you need an 11% gain to recover. That is manageable. But if you lose 50%, you need a 100% gain to recover. At typical stock market returns of 8-10% per year, that takes seven years. If you lose 75%, you need a 300% gain -- fifteen years at 10% per year.
+**Horace**: This is math everyone needs to understand. Losses and gains are not symmetrical. If you lose 10%, you need an 11% gain to recover. That is manageable. But if you lose 50%, you need a 100% gain to recover. At typical stock market returns of 8-10% per year, that takes seven years. If you lose 75%, you need a 300% gain -- fifteen years at 10% per year.
 
 [VISUAL: Drawdown recovery table with years to recover]
 
-**Sam**: So the entire point of risk management is to keep drawdowns small enough that recovery is feasible.
+**Stella**: So the entire point of risk management is to keep drawdowns small enough that recovery is feasible.
 
-**Alex**: That is exactly right. The most successful long-term investors are not the ones with the highest returns -- they are the ones who avoid catastrophic drawdowns. Warren Buffett has never had a single year where Berkshire's book value dropped more than about 9%. His secret is not stock picking genius, though he has that too. It is the relentless focus on avoiding permanent loss of capital.
+**Horace**: That is exactly right. The most successful long-term investors are not the ones with the highest returns -- they are the ones who avoid catastrophic drawdowns. Warren Buffett has never had a single year where Berkshire's book value dropped more than about 9%. His secret is not stock picking genius, though he has that too. It is the relentless focus on avoiding permanent loss of capital.
 
-**Sam**: Let me summarize what I have learned today.
+**Stella**: Let me summarize what I have learned today.
 
 [VISUAL: Summary slide]
 
-**Sam**: First, position sizing using the 2% rule -- never risk more than 2% of your portfolio on a single trade. Second, the Kelly criterion is mathematically optimal but too aggressive in practice -- use half Kelly or less, or just stick with the 2% rule. Third, stop-losses protect capital, and there are five main types depending on your trading style. Fourth, risk budgeting allocates a total risk tolerance across asset classes. Fifth, scenario analysis prepares you for specific futures. And sixth, risk management is an ongoing process, not a one-time setup.
+**Stella**: First, position sizing using the 2% rule -- never risk more than 2% of your portfolio on a single trade. Second, the Kelly criterion is mathematically optimal but too aggressive in practice -- use half Kelly or less, or just stick with the 2% rule. Third, stop-losses protect capital, and there are five main types depending on your trading style. Fourth, risk budgeting allocates a total risk tolerance across asset classes. Fifth, scenario analysis prepares you for specific futures. And sixth, risk management is an ongoing process, not a one-time setup.
 
-**Alex**: Perfect summary. And here is one last thought. The best trade you will ever make is the one you do not make because your risk management told you the position was too large or the risk/reward was not there. You will never see that trade in your performance report, but it might be the one that saved your portfolio.
+**Horace**: Perfect summary. And here is one last thought. The best trade you will ever make is the one you do not make because your risk management told you the position was too large or the risk/reward was not there. You will never see that trade in your performance report, but it might be the one that saved your portfolio.
 
-**Sam**: It is hard to appreciate avoiding a loss you never experienced.
+**Stella**: It is hard to appreciate avoiding a loss you never experienced.
 
-**Alex**: That is why risk management is so hard psychologically. It is like paying for fire insurance. Every year you do not have a fire, the insurance feels like a waste. But the year your house burns down, it is the best money you ever spent. The goal is to still be investing five, ten, twenty years from now. And the only way to guarantee that is to manage your risk today.
+**Horace**: That is why risk management is so hard psychologically. It is like paying for fire insurance. Every year you do not have a fire, the insurance feels like a waste. But the year your house burns down, it is the best money you ever spent. The goal is to still be investing five, ten, twenty years from now. And the only way to guarantee that is to manage your risk today.
 
-**Sam**: This has been eye-opening. I think most investors, myself included, spend too much time researching stocks and not enough time thinking about how much to bet and when to exit.
+**Stella**: This has been eye-opening. I think most investors, myself included, spend too much time researching stocks and not enough time thinking about how much to bet and when to exit.
 
-**Alex**: And that is the dirty secret of the investment industry. The financial media, the newsletters, the YouTube channels -- they focus almost entirely on WHAT to buy. Nobody wants to hear about position sizing and drawdown management. But that is where the real edge is. The what-to-buy question matters, but the how-much-to-buy and when-to-sell questions matter more.
+**Horace**: And that is the dirty secret of the investment industry. The financial media, the newsletters, the YouTube channels -- they focus almost entirely on WHAT to buy. Nobody wants to hear about position sizing and drawdown management. But that is where the real edge is. The what-to-buy question matters, but the how-much-to-buy and when-to-sell questions matter more.
 
 [VISUAL: Key takeaways bullet list]
 
-**Alex**: Before we close, let me leave you with five rules of risk management that I want you to write down.
+**Horace**: Before we close, let me leave you with five rules of risk management that I want you to write down.
 
-**Sam**: Go ahead.
+**Stella**: Go ahead.
 
-**Alex**: Rule one: never risk more than 2% of your portfolio on a single trade. Rule two: always have a predetermined exit point before you enter a trade. Rule three: diversification is not enough -- you need position limits, sector limits, and correlation awareness. Rule four: plan for the worst case and make sure it is survivable. Rule five: risk management is a daily process, not a product you can buy.
+**Horace**: Rule one: never risk more than 2% of your portfolio on a single trade. Rule two: always have a predetermined exit point before you enter a trade. Rule three: diversification is not enough -- you need position limits, sector limits, and correlation awareness. Rule four: plan for the worst case and make sure it is survivable. Rule five: risk management is a daily process, not a product you can buy.
 
-**Sam**: Simple rules but incredibly hard to follow when emotions kick in.
+**Stella**: Simple rules but incredibly hard to follow when emotions kick in.
 
-**Alex**: That is why you write them down, review them regularly, and build systems that enforce them automatically. Stop-loss orders enforce rule two. Position sizing calculators enforce rule one. Calendar reminders enforce rule five. The goal is to make risk management automatic so you do not have to rely on willpower during a market panic.
+**Horace**: That is why you write them down, review them regularly, and build systems that enforce them automatically. Stop-loss orders enforce rule two. Position sizing calculators enforce rule one. Calendar reminders enforce rule five. The goal is to make risk management automatic so you do not have to rely on willpower during a market panic.
 
 [VISUAL: "Next week: Value at Risk and Risk Models"]
 
-**Alex**: Next week, we are going to dive into the quantitative side of risk management -- Value at Risk, Conditional Value at Risk, stress testing, and factor risk models. We will put numbers on everything we discussed today.
+**Horace**: Next week, we are going to dive into the quantitative side of risk management -- Value at Risk, Conditional Value at Risk, stress testing, and factor risk models. We will put numbers on everything we discussed today.
 
-**Sam**: So today was the conceptual framework, and next week is the math.
+**Stella**: So today was the conceptual framework, and next week is the math.
 
-**Alex**: Exactly. You need both. The concepts tell you what to do. The models tell you how much.
+**Horace**: Exactly. You need both. The concepts tell you what to do. The models tell you how much.
 
-**Sam**: Looking forward to it. Thanks, Alex.
+**Stella**: Looking forward to it. Thanks, Horace.
 
-**Alex**: Thank you, Sam. Remember -- the first rule is do not lose money. Everything else is secondary. See you next week.
+**Horace**: Thank you, Stella. Remember -- the first rule is do not lose money. Everything else is secondary. See you next week.
 
 [VISUAL: End card with channel subscribe prompt and links to previous videos]

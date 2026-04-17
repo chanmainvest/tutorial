@@ -237,9 +237,9 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: Globe spinning with stock exchange names lighting up across different time zones -- Tokyo, London, New York, Hong Kong, Mumbai, Sao Paulo]
 
-**Alex:** When you go to sleep at night, markets on the other side of the world are opening. When you wake up, you can check how stocks performed in Tokyo, London, and Mumbai before your own market even opens.
+**Horace:** When you go to sleep at night, markets on the other side of the world are opening. When you wake up, you can check how stocks performed in Tokyo, London, and Mumbai before your own market even opens.
 
-**Sam:** Investing is a global activity. But most American investors keep the vast majority of their money right here at home. Today, we are asking: Is that a mistake? And if so, how do you actually invest around the world?
+**Stella:** Investing is a global activity. But most American investors keep the vast majority of their money right here at home. Today, we are asking: Is that a mistake? And if so, how do you actually invest around the world?
 
 [VISUAL: Title card "Global Markets: Investing Beyond Your Home Country"]
 
@@ -249,19 +249,19 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [ANIMATION: Pie chart of global stock market capitalization showing US at ~60%, rest of world at ~40%]
 
-**Alex:** Here is the starting point. The U.S. stock market is about 60 percent of total global stock market capitalization. That is dominant, but it also means 40 percent of the world's investable stocks are outside the United States.
+**Horace:** Here is the starting point. The U.S. stock market is about 60 percent of total global stock market capitalization. That is dominant, but it also means 40 percent of the world's investable stocks are outside the United States.
 
-**Sam:** And the number of publicly listed companies tells an even bigger story. There are roughly 4,000 public companies in the U.S., but tens of thousands more listed on exchanges around the world. By limiting yourself to U.S. stocks, you are ignoring the majority of the world's public companies.
+**Stella:** And the number of publicly listed companies tells an even bigger story. There are roughly 4,000 public companies in the U.S., but tens of thousands more listed on exchanges around the world. By limiting yourself to U.S. stocks, you are ignoring the majority of the world's public companies.
 
 [VISUAL: Bar chart comparing number of listed companies: US ~4,000, Japan ~3,800, China ~5,000, India ~5,000+, UK ~2,000]
 
-**Alex:** But the most compelling argument for international diversification is this: leadership rotates. From 2000 to 2009, U.S. stocks returned basically nothing. The S&P 500 was flat for a decade. Meanwhile, international developed markets and emerging markets delivered solid positive returns.
+**Horace:** But the most compelling argument for international diversification is this: leadership rotates. From 2000 to 2009, U.S. stocks returned basically nothing. The S&P 500 was flat for a decade. Meanwhile, international developed markets and emerging markets delivered solid positive returns.
 
-**Sam:** Then from 2010 to 2024, the script flipped completely. U.S. stocks crushed international stocks by a wide margin. If you look at just the last 15 years, you would think international investing was pointless.
+**Stella:** Then from 2010 to 2024, the script flipped completely. U.S. stocks crushed international stocks by a wide margin. If you look at just the last 15 years, you would think international investing was pointless.
 
 [VISUAL: Rolling 10-year performance chart alternating between US outperformance and international outperformance over 50 years]
 
-**Alex:** But that is recency bias talking. No one knows which region will lead over the next decade. Diversifying globally is an admission of uncertainty -- and that is actually a smart investment strategy.
+**Horace:** But that is recency bias talking. No one knows which region will lead over the next decade. Diversifying globally is an admission of uncertainty -- and that is actually a smart investment strategy.
 
 ---
 
@@ -269,17 +269,17 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: Three-tier pyramid labeled "Developed Markets," "Emerging Markets," "Frontier Markets"]
 
-**Sam:** The global market is divided into three categories. At the top, you have developed markets -- countries like Japan, the UK, Germany, Australia, and Canada. These have mature economies, well-regulated markets, and strong investor protections.
+**Stella:** The global market is divided into three categories. At the top, you have developed markets -- countries like Japan, the UK, Germany, Australia, and Canada. These have mature economies, well-regulated markets, and strong investor protections.
 
-**Alex:** Below that are emerging markets -- countries like China, India, Brazil, Taiwan, and South Korea. These economies are growing faster, but they come with more risk. Political uncertainty, weaker corporate governance, and currency volatility are all part of the package.
+**Horace:** Below that are emerging markets -- countries like China, India, Brazil, Taiwan, and South Korea. These economies are growing faster, but they come with more risk. Political uncertainty, weaker corporate governance, and currency volatility are all part of the package.
 
-**Sam:** And at the base are frontier markets -- places like Vietnam, Nigeria, and Bangladesh. These are the least developed, least liquid, and highest-risk markets. Most investors access these only through specialized funds.
+**Stella:** And at the base are frontier markets -- places like Vietnam, Nigeria, and Bangladesh. These are the least developed, least liquid, and highest-risk markets. Most investors access these only through specialized funds.
 
 [VISUAL: Examples of countries in each tier with key economic stats -- GDP growth, market cap, per capita income]
 
-**Alex:** The classification system most investors follow comes from MSCI -- Morgan Stanley Capital International. When MSCI decides to add or remove a country from an index, it triggers billions in capital flows, because trillions of dollars in passive funds track these indices.
+**Horace:** The classification system most investors follow comes from MSCI -- Morgan Stanley Capital International. When MSCI decides to add or remove a country from an index, it triggers billions in capital flows, because trillions of dollars in passive funds track these indices.
 
-**Sam:** One interesting case is South Korea. It has a GDP per capita comparable to many European countries and is home to Samsung and Hyundai. But MSCI still classifies it as an emerging market due to restrictions on currency trading. Another index provider, FTSE Russell, classifies it as developed. So the line between developed and emerging is not always clear-cut.
+**Stella:** One interesting case is South Korea. It has a GDP per capita comparable to many European countries and is home to Samsung and Hyundai. But MSCI still classifies it as an emerging market due to restrictions on currency trading. Another index provider, FTSE Russell, classifies it as developed. So the line between developed and emerging is not always clear-cut.
 
 ---
 
@@ -287,21 +287,21 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: Warning sign graphic with icons for Currency, Political, Liquidity, and Accounting risks]
 
-**Alex:** International investing comes with risks that domestic investors do not face. The biggest one is currency risk.
+**Horace:** International investing comes with risks that domestic investors do not face. The biggest one is currency risk.
 
-**Sam:** When you buy a Japanese stock, your return depends on two things: how the stock performs in yen, and how the yen moves against the dollar. If the stock goes up 10 percent in yen but the yen falls 8 percent against the dollar, your actual return in dollars is only about 2 percent.
+**Stella:** When you buy a Japanese stock, your return depends on two things: how the stock performs in yen, and how the yen moves against the dollar. If the stock goes up 10 percent in yen but the yen falls 8 percent against the dollar, your actual return in dollars is only about 2 percent.
 
 [ANIMATION: Math example showing Local Return (10%) + Currency Effect (-8%) = Dollar Return (~2%)]
 
-**Alex:** Over short periods, currency swings can dominate your returns. Over decades, they tend to wash out. But if you have a shorter time horizon, you might want to consider currency-hedged funds.
+**Horace:** Over short periods, currency swings can dominate your returns. Over decades, they tend to wash out. But if you have a shorter time horizon, you might want to consider currency-hedged funds.
 
-**Sam:** Then there is political and regulatory risk. In 2021, China's government launched a crackdown on its own tech companies. Alibaba, Tencent, and Didi saw hundreds of billions in value evaporate overnight based on regulatory actions that were almost impossible to predict.
+**Stella:** Then there is political and regulatory risk. In 2021, China's government launched a crackdown on its own tech companies. Alibaba, Tencent, and Didi saw hundreds of billions in value evaporate overnight based on regulatory actions that were almost impossible to predict.
 
 [VISUAL: Chart showing Chinese tech stock declines during 2021 regulatory crackdown]
 
-**Alex:** And in 2022, Russia's invasion of Ukraine essentially made Russian stocks worthless for foreign investors. The Moscow stock exchange was shut down, sanctions froze assets, and investors were left with positions they could neither sell nor value.
+**Horace:** And in 2022, Russia's invasion of Ukraine essentially made Russian stocks worthless for foreign investors. The Moscow stock exchange was shut down, sanctions froze assets, and investors were left with positions they could neither sell nor value.
 
-**Sam:** The lesson is not to avoid international investing altogether. It is to diversify broadly and avoid excessive concentration in any single country. A broad emerging markets ETF spreads your risk across 24 countries, so no single government's actions can devastate your portfolio.
+**Stella:** The lesson is not to avoid international investing altogether. It is to diversify broadly and avoid excessive concentration in any single country. A broad emerging markets ETF spreads your risk across 24 countries, so no single government's actions can devastate your portfolio.
 
 ---
 
@@ -309,21 +309,21 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: ETF logos and tickers arranged by category]
 
-**Alex:** The good news is that going global has never been easier or cheaper. ETFs give you access to virtually every market in the world at rock-bottom costs.
+**Horace:** The good news is that going global has never been easier or cheaper. ETFs give you access to virtually every market in the world at rock-bottom costs.
 
-**Sam:** Let us break it down. For broad international exposure, you have funds like Vanguard's VXUS -- the Vanguard Total International Stock ETF. It covers developed and emerging markets outside the U.S., holds over 8,000 stocks, and charges just 0.07 percent per year.
+**Stella:** Let us break it down. For broad international exposure, you have funds like Vanguard's VXUS -- the Vanguard Total International Stock ETF. It covers developed and emerging markets outside the U.S., holds over 8,000 stocks, and charges just 0.07 percent per year.
 
 [VISUAL: Comparison table of major international ETFs: VXUS, VEA, VWO, IEFA, IEMG with expense ratios, number of holdings, and geographic breakdown]
 
-**Alex:** If you want to be more targeted, you can separate developed markets -- VEA from Vanguard or IEFA from iShares -- from emerging markets -- VWO from Vanguard or IEMG from iShares. This lets you control how much EM exposure you take.
+**Horace:** If you want to be more targeted, you can separate developed markets -- VEA from Vanguard or IEFA from iShares -- from emerging markets -- VWO from Vanguard or IEMG from iShares. This lets you control how much EM exposure you take.
 
-**Sam:** And if you have views on specific countries or want to address specific risks, there are single-country ETFs for almost every market. INDA for India, EWJ for Japan, FXI for China, EWZ for Brazil.
+**Stella:** And if you have views on specific countries or want to address specific risks, there are single-country ETFs for almost every market. INDA for India, EWJ for Japan, FXI for China, EWZ for Brazil.
 
-**Alex:** There is even an emerging markets ex-China ETF -- EMXC from iShares -- for investors who want EM exposure without the concentration risk and geopolitical concerns associated with China.
+**Horace:** There is even an emerging markets ex-China ETF -- EMXC from iShares -- for investors who want EM exposure without the concentration risk and geopolitical concerns associated with China.
 
 [VISUAL: Portfolio building example: 60% US (VTI) + 25% Developed Intl (VEA) + 15% Emerging (VWO) = Global Portfolio]
 
-**Sam:** A simple, globally diversified equity portfolio might look like this: 60 percent U.S. stocks through VTI, 25 percent developed international through VEA, and 15 percent emerging markets through VWO. Three funds, global coverage, total cost under 0.06 percent.
+**Stella:** A simple, globally diversified equity portfolio might look like this: 60 percent U.S. stocks through VTI, 25 percent developed international through VEA, and 15 percent emerging markets through VWO. Three funds, global coverage, total cost under 0.06 percent.
 
 ---
 
@@ -331,19 +331,19 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: Spectrum showing different allocation approaches]
 
-**Alex:** The big question everyone asks is: How much of my portfolio should be international?
+**Horace:** The big question everyone asks is: How much of my portfolio should be international?
 
-**Sam:** There is a wide range of opinions. Vanguard recommends about 40 percent of your equity allocation in international stocks. Many advisors land between 20 and 40 percent. Jack Bogle, Vanguard's founder, actually recommended zero percent -- he believed U.S. multinationals provided enough global exposure.
+**Stella:** There is a wide range of opinions. Vanguard recommends about 40 percent of your equity allocation in international stocks. Many advisors land between 20 and 40 percent. Jack Bogle, Vanguard's founder, actually recommended zero percent -- he believed U.S. multinationals provided enough global exposure.
 
-**Alex:** The truth is, there is no single right answer. What we know is this: the more concentrated you are in any one country, the more dependent you are on that country's economy, policies, and market. Diversifying internationally reduces that dependence.
+**Horace:** The truth is, there is no single right answer. What we know is this: the more concentrated you are in any one country, the more dependent you are on that country's economy, policies, and market. Diversifying internationally reduces that dependence.
 
 [VISUAL: Risk vs. concentration chart showing how portfolio risk decreases as international allocation increases from 0% to ~40%, then levels off]
 
-**Sam:** And here is a practical way to think about it. If you are 100 percent in U.S. stocks and the next decade looks like 2000 to 2009 -- where U.S. stocks went nowhere -- you will be very unhappy. Having 30 to 40 percent internationally would have significantly improved your returns during that period.
+**Stella:** And here is a practical way to think about it. If you are 100 percent in U.S. stocks and the next decade looks like 2000 to 2009 -- where U.S. stocks went nowhere -- you will be very unhappy. Having 30 to 40 percent internationally would have significantly improved your returns during that period.
 
-**Alex:** Conversely, if the next decade looks like 2010 to 2020, you would have been better off all-U.S. But since you do not know which scenario will play out, diversification is the prudent choice.
+**Horace:** Conversely, if the next decade looks like 2010 to 2020, you would have been better off all-U.S. But since you do not know which scenario will play out, diversification is the prudent choice.
 
-**Sam:** Start with something -- even 20 percent international is far better than zero. As you get more comfortable, you can adjust based on your views, risk tolerance, and time horizon.
+**Stella:** Start with something -- even 20 percent international is far better than zero. As you get more comfortable, you can adjust based on your views, risk tolerance, and time horizon.
 
 [VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
 
@@ -353,28 +353,28 @@ A: It depends on whether the recession is U.S.-specific or global. During the 20
 
 [VISUAL: Three example international portfolio allocations: Conservative, Moderate, and Aggressive]
 
-**Alex:** Let us close with three practical portfolio examples showing how to implement international diversification at different comfort levels.
+**Horace:** Let us close with three practical portfolio examples showing how to implement international diversification at different comfort levels.
 
-**Sam:** Conservative approach: Start with just 20 percent international using a single total international ETF like VXUS. Simple, low-cost, and provides meaningful diversification without complexity. If you are new to international investing, this is where to start.
+**Stella:** Conservative approach: Start with just 20 percent international using a single total international ETF like VXUS. Simple, low-cost, and provides meaningful diversification without complexity. If you are new to international investing, this is where to start.
 
 [VISUAL: Portfolio 1: 80% VTI + 20% VXUS]
 
-**Alex:** Moderate approach: Allocate 30-35 percent international, split between developed and emerging markets. Something like 20 percent VEA for developed markets and 10-15 percent VWO for emerging markets. This gives you more control over your EM exposure.
+**Horace:** Moderate approach: Allocate 30-35 percent international, split between developed and emerging markets. Something like 20 percent VEA for developed markets and 10-15 percent VWO for emerging markets. This gives you more control over your EM exposure.
 
 [VISUAL: Portfolio 2: 65% VTI + 20% VEA + 15% VWO]
 
-**Sam:** Aggressive approach: Match global market cap weights with about 40 percent international. Add an EM ex-China component if you want to manage China risk separately. Maybe 22 percent VEA, 10 percent VWO, and 8 percent INDA or other targeted country exposure.
+**Stella:** Aggressive approach: Match global market cap weights with about 40 percent international. Add an EM ex-China component if you want to manage China risk separately. Maybe 22 percent VEA, 10 percent VWO, and 8 percent INDA or other targeted country exposure.
 
 [VISUAL: Portfolio 3: 60% VTI + 22% VEA + 10% VWO + 8% Targeted Country ETFs]
 
-**Alex:** Regardless of which approach you choose, the key principle is the same: you are acknowledging that you do not know which region of the world will deliver the best returns over the next decade. By spreading your bets geographically, you ensure that wherever growth occurs, you participate.
+**Horace:** Regardless of which approach you choose, the key principle is the same: you are acknowledging that you do not know which region of the world will deliver the best returns over the next decade. By spreading your bets geographically, you ensure that wherever growth occurs, you participate.
 
-**Sam:** And remember -- international allocations will feel wrong at times. During periods of U.S. dominance, you will wish you had more domestic exposure. During periods of international outperformance, you will wish you had more international. That is normal. The discomfort is the price of true diversification.
+**Stella:** And remember -- international allocations will feel wrong at times. During periods of U.S. dominance, you will wish you had more domestic exposure. During periods of international outperformance, you will wish you had more international. That is normal. The discomfort is the price of true diversification.
 
-**Alex:** Trust the process, stick with your allocation, and rebalance periodically. Over a full investing lifetime, geographic diversification has historically improved risk-adjusted returns. That is the evidence, and that is what we are betting on.
+**Horace:** Trust the process, stick with your allocation, and rebalance periodically. Over a full investing lifetime, geographic diversification has historically improved risk-adjusted returns. That is the evidence, and that is what we are betting on.
 
 [VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
 
-**Sam:** In our next lesson, we are diving into the math behind diversification -- correlation, covariance, and why portfolio risk is not just the sum of individual risks. See you there.
+**Stella:** In our next lesson, we are diving into the math behind diversification -- correlation, covariance, and why portfolio risk is not just the sum of individual risks. See you there.
 
 [END - 14:30]

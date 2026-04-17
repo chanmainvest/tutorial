@@ -255,9 +255,9 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Rapid montage -- oil rig pumping, gold bars stacking, wheat field blowing in wind, copper wire being manufactured, coffee beans being roasted]
 
-**Alex:** Everything you see around you started as a raw material. The gas in your car, the metal in your phone, the food on your plate -- all of it is a commodity that is bought and sold in global markets every single day.
+**Horace:** Everything you see around you started as a raw material. The gas in your car, the metal in your phone, the food on your plate -- all of it is a commodity that is bought and sold in global markets every single day.
 
-**Sam:** But investing in commodities is very different from investing in stocks. There are no earnings reports, no dividends, and a hidden cost that has destroyed billions in investor capital. Today, we are covering how commodity markets actually work and how to navigate them.
+**Stella:** But investing in commodities is very different from investing in stocks. There are no earnings reports, no dividends, and a hidden cost that has destroyed billions in investor capital. Today, we are covering how commodity markets actually work and how to navigate them.
 
 [VISUAL: Title card "Commodities: Energy, Metals, Agriculture, and How to Invest"]
 
@@ -267,13 +267,13 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [ANIMATION: Four sectors displayed as pillars with icons: Energy (oil drop), Metals (gold bar), Agriculture (wheat stalk), Other (timber, water)]
 
-**Alex:** Commodities fall into four main categories. Energy is the biggest -- crude oil, natural gas, gasoline. Metals include precious metals like gold and silver, and industrial metals like copper and aluminum. Agriculture covers everything from corn and wheat to coffee and livestock. And then there are niche commodities like timber and rare earth elements.
+**Horace:** Commodities fall into four main categories. Energy is the biggest -- crude oil, natural gas, gasoline. Metals include precious metals like gold and silver, and industrial metals like copper and aluminum. Agriculture covers everything from corn and wheat to coffee and livestock. And then there are niche commodities like timber and rare earth elements.
 
-**Sam:** Each sector has its own supply-and-demand dynamics. Oil prices depend on OPEC decisions and geopolitics. Agricultural prices depend on weather and growing seasons. Copper prices are so closely tied to economic growth that traders call it "Dr. Copper" because it diagnoses the health of the global economy.
+**Stella:** Each sector has its own supply-and-demand dynamics. Oil prices depend on OPEC decisions and geopolitics. Agricultural prices depend on weather and growing seasons. Copper prices are so closely tied to economic growth that traders call it "Dr. Copper" because it diagnoses the health of the global economy.
 
 [VISUAL: "Dr. Copper" graphic showing copper price overlaid with global GDP growth, demonstrating correlation]
 
-**Alex:** And here is what makes commodities interesting as an investment: they tend to perform well exactly when stocks and bonds do not -- during inflationary periods. When oil and food prices are rising, they are driving inflation higher, which hurts stock and bond prices. But if you own the commodities themselves, you are on the right side of that trade.
+**Horace:** And here is what makes commodities interesting as an investment: they tend to perform well exactly when stocks and bonds do not -- during inflationary periods. When oil and food prices are rising, they are driving inflation higher, which hurts stock and bond prices. But if you own the commodities themselves, you are on the right side of that trade.
 
 ---
 
@@ -281,19 +281,19 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [ANIMATION: Futures curve graphic showing contango (upward sloping) and backwardation (downward sloping)]
 
-**Sam:** Now, here is where most investors get tripped up. You cannot buy a barrel of oil and store it in your garage. So most commodity investments use futures contracts -- agreements to buy or sell a commodity at a specific price on a future date.
+**Stella:** Now, here is where most investors get tripped up. You cannot buy a barrel of oil and store it in your garage. So most commodity investments use futures contracts -- agreements to buy or sell a commodity at a specific price on a future date.
 
-**Alex:** The problem is something called contango. In many commodity markets, the futures price for next month is higher than today's price. And the price for two months out is even higher. The futures curve slopes upward.
+**Horace:** The problem is something called contango. In many commodity markets, the futures price for next month is higher than today's price. And the price for two months out is even higher. The futures curve slopes upward.
 
 [VISUAL: Futures curve for crude oil showing spot at $75, one month at $76, three months at $78, six months at $81]
 
-**Sam:** Why? Because storing a physical commodity costs money -- storage fees, insurance, financing. The futures price includes these costs. So next month's oil is more expensive than today's oil, not because anyone expects oil to go up, but because of storage costs built into the price.
+**Stella:** Why? Because storing a physical commodity costs money -- storage fees, insurance, financing. The futures price includes these costs. So next month's oil is more expensive than today's oil, not because anyone expects oil to go up, but because of storage costs built into the price.
 
-**Alex:** This creates a devastating problem for commodity ETFs. These funds hold futures contracts. When those contracts expire, the fund has to sell the cheap expiring contract and buy the more expensive next-month contract. This is called "rolling," and in contango, every roll loses money.
+**Horace:** This creates a devastating problem for commodity ETFs. These funds hold futures contracts. When those contracts expire, the fund has to sell the cheap expiring contract and buy the more expensive next-month contract. This is called "rolling," and in contango, every roll loses money.
 
 [ANIMATION: Rolling process shown as a repeating cycle: Buy at $77 -> Hold -> Sell at $76 (as it approaches spot) -> Buy next month at $78 -> Hold -> Sell at $77 -> Buy at $79... Each roll loses approximately $1]
 
-**Sam:** The poster child for this problem is the United States Oil Fund -- ticker USO. Oil prices have been volatile but roughly rangebound over long periods. Yet USO lost approximately 90 percent of its value from inception, primarily because of negative roll yield from persistent contango.
+**Stella:** The poster child for this problem is the United States Oil Fund -- ticker USO. Oil prices have been volatile but roughly rangebound over long periods. Yet USO lost approximately 90 percent of its value from inception, primarily because of negative roll yield from persistent contango.
 
 [VISUAL: Two charts side by side: Oil spot price (volatile but flat trend) vs USO price (steady decline). Title: "The Roll Yield Graveyard"]
 
@@ -303,19 +303,19 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Four investment approaches displayed as cards: Physical ETFs, Broad Commodity ETFs, Producer Stocks, Direct Futures]
 
-**Alex:** So if futures-based ETFs have this problem, how should you actually invest in commodities? There are a few approaches that work better.
+**Horace:** So if futures-based ETFs have this problem, how should you actually invest in commodities? There are a few approaches that work better.
 
-**Sam:** For precious metals, you can buy physically backed ETFs. GLD and IAU hold actual gold bars in vaults. SLV holds physical silver. The price tracks the spot price closely, and there is no roll yield issue because there are no futures involved.
+**Stella:** For precious metals, you can buy physically backed ETFs. GLD and IAU hold actual gold bars in vaults. SLV holds physical silver. The price tracks the spot price closely, and there is no roll yield issue because there are no futures involved.
 
 [VISUAL: Gold vault photograph with GLD performance chart showing close tracking of gold spot price]
 
-**Alex:** For broader commodity exposure, look for funds that use optimization strategies to minimize roll costs. The Invesco Optimum Yield Diversified Commodity ETF -- ticker PDBC -- spreads across energy, metals, and agriculture, and uses strategies to roll into contracts that minimize the contango drag.
+**Horace:** For broader commodity exposure, look for funds that use optimization strategies to minimize roll costs. The Invesco Optimum Yield Diversified Commodity ETF -- ticker PDBC -- spreads across energy, metals, and agriculture, and uses strategies to roll into contracts that minimize the contango drag.
 
-**Sam:** Another approach is buying the stocks of companies that produce commodities. Energy stocks like ExxonMobil, mining companies, and agricultural firms give you exposure to commodity prices plus dividends and earnings growth. The XLE ETF for energy, GDX for gold miners, and XME for metals and mining.
+**Stella:** Another approach is buying the stocks of companies that produce commodities. Energy stocks like ExxonMobil, mining companies, and agricultural firms give you exposure to commodity prices plus dividends and earnings growth. The XLE ETF for energy, GDX for gold miners, and XME for metals and mining.
 
 [VISUAL: Comparison table: Physical ETFs vs Futures ETFs vs Producer Stocks -- showing Roll Yield, Dividends, Correlation to Spot Price, and Additional Risks for each]
 
-**Alex:** Producer stocks are not a perfect substitute though. They carry equity market risk, company-specific risk, and are more correlated with the stock market than physical commodities. But they do avoid the roll yield problem, and they pay dividends, which commodities themselves never do.
+**Horace:** Producer stocks are not a perfect substitute though. They carry equity market risk, company-specific risk, and are more correlated with the stock market than physical commodities. But they do avoid the roll yield problem, and they pay dividends, which commodities themselves never do.
 
 ---
 
@@ -323,21 +323,21 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Portfolio pie chart showing traditional 60/40, then modified to include 5-10% commodity allocation]
 
-**Sam:** So what role should commodities play in your portfolio? Most experts who recommend commodity exposure suggest 5 to 15 percent of total assets.
+**Stella:** So what role should commodities play in your portfolio? Most experts who recommend commodity exposure suggest 5 to 15 percent of total assets.
 
-**Alex:** The case for including commodities is primarily diversification and inflation protection. Commodities have low correlation with stocks and bonds, so adding them can actually reduce your portfolio's overall volatility even though commodities themselves are volatile.
+**Horace:** The case for including commodities is primarily diversification and inflation protection. Commodities have low correlation with stocks and bonds, so adding them can actually reduce your portfolio's overall volatility even though commodities themselves are volatile.
 
 [ANIMATION: Portfolio risk graph showing total portfolio volatility decreasing as commodity allocation increases from 0% to ~10%, then leveling off]
 
-**Sam:** During the 2000 to 2009 period -- the so-called lost decade for stocks -- a diversified commodity allocation would have added meaningful positive returns to a portfolio that otherwise went nowhere.
+**Stella:** During the 2000 to 2009 period -- the so-called lost decade for stocks -- a diversified commodity allocation would have added meaningful positive returns to a portfolio that otherwise went nowhere.
 
-**Alex:** And during the 2021 to 2022 inflation spike, commodities were the best-performing major asset class. Energy prices soared, agricultural prices jumped, and metals rallied. Investors with commodity exposure had a natural hedge against the inflation that was crushing their stock and bond holdings.
+**Horace:** And during the 2021 to 2022 inflation spike, commodities were the best-performing major asset class. Energy prices soared, agricultural prices jumped, and metals rallied. Investors with commodity exposure had a natural hedge against the inflation that was crushing their stock and bond holdings.
 
 [VISUAL: 2022 asset class returns bar chart: Commodities (+20%), Cash (+1%), Stocks (-18%), Bonds (-13%)]
 
-**Sam:** But commodities are not a magic bullet. They do not produce income. They can have extended periods of poor performance. And the mechanics of futures investing can create unexpected drags on returns.
+**Stella:** But commodities are not a magic bullet. They do not produce income. They can have extended periods of poor performance. And the mechanics of futures investing can create unexpected drags on returns.
 
-**Alex:** The practical recommendation is this: Use a broad, diversified commodity fund with roll optimization for your core commodity allocation. Supplement with physically backed gold if you want dedicated precious metals exposure. Consider energy and mining stocks as an additional layer. And keep the total allocation modest -- 5 to 10 percent is plenty for most portfolios.
+**Horace:** The practical recommendation is this: Use a broad, diversified commodity fund with roll optimization for your core commodity allocation. Supplement with physically backed gold if you want dedicated precious metals exposure. Consider energy and mining stocks as an additional layer. And keep the total allocation modest -- 5 to 10 percent is plenty for most portfolios.
 
 [VISUAL: End card with channel logo and "Next: Technical Analysis"]
 
@@ -347,26 +347,26 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Long-term commodity price chart from 1900 to present showing multiple supercycle peaks and troughs]
 
-**Sam:** Let us talk about something that is on a lot of investors' minds -- commodity supercycles and the energy transition.
+**Stella:** Let us talk about something that is on a lot of investors' minds -- commodity supercycles and the energy transition.
 
-**Alex:** A commodity supercycle is a long-term period -- 10 to 25 years -- of sustained above-trend commodity prices. The most recent one was driven by China's incredible industrialization from roughly 2000 to 2011. China was building cities, factories, and infrastructure at an unprecedented pace, consuming enormous quantities of steel, copper, oil, and every other commodity imaginable.
+**Horace:** A commodity supercycle is a long-term period -- 10 to 25 years -- of sustained above-trend commodity prices. The most recent one was driven by China's incredible industrialization from roughly 2000 to 2011. China was building cities, factories, and infrastructure at an unprecedented pace, consuming enormous quantities of steel, copper, oil, and every other commodity imaginable.
 
 [ANIMATION: China GDP growth overlaid with commodity index performance from 2000-2011]
 
-**Sam:** Some analysts believe we may be entering a new supercycle driven by the energy transition. Think about it -- to electrify transportation, you need copper for wiring, lithium and cobalt for batteries, nickel for battery cathodes, and rare earth elements for electric motors and wind turbines.
+**Stella:** Some analysts believe we may be entering a new supercycle driven by the energy transition. Think about it -- to electrify transportation, you need copper for wiring, lithium and cobalt for batteries, nickel for battery cathodes, and rare earth elements for electric motors and wind turbines.
 
-**Alex:** The International Energy Agency estimates that achieving net-zero emissions by 2050 would require a six-fold increase in mineral inputs to the energy sector. That is an enormous demand surge for specific commodities, and supply cannot scale up overnight -- new mines take 10 to 15 years to develop.
+**Horace:** The International Energy Agency estimates that achieving net-zero emissions by 2050 would require a six-fold increase in mineral inputs to the energy sector. That is an enormous demand surge for specific commodities, and supply cannot scale up overnight -- new mines take 10 to 15 years to develop.
 
 [VISUAL: Chart showing projected demand growth for key energy transition minerals: copper, lithium, nickel, cobalt]
 
-**Sam:** At the same time, traditional energy commodities face a more uncertain future. Oil demand is projected to peak within the next decade as electric vehicle adoption accelerates. Coal demand is already declining in many countries. Natural gas may see sustained demand as a transition fuel, but its long-term future is also uncertain.
+**Stella:** At the same time, traditional energy commodities face a more uncertain future. Oil demand is projected to peak within the next decade as electric vehicle adoption accelerates. Coal demand is already declining in many countries. Natural gas may see sustained demand as a transition fuel, but its long-term future is also uncertain.
 
-**Alex:** For commodity investors, this creates a strategic question. Do you want exposure to the commodities of the past -- oil and coal -- or the commodities of the future -- copper, lithium, and nickel? Or a blend of both? There is no single right answer, but understanding the structural trends helps you make a more informed choice.
+**Horace:** For commodity investors, this creates a strategic question. Do you want exposure to the commodities of the past -- oil and coal -- or the commodities of the future -- copper, lithium, and nickel? Or a blend of both? There is no single right answer, but understanding the structural trends helps you make a more informed choice.
 
-**Sam:** The practical takeaway: a broad, diversified commodity allocation captures both traditional and transition-related commodities. If you have a strong view on the energy transition timeline, you can tilt toward electrification metals using targeted ETFs or mining company stocks.
+**Stella:** The practical takeaway: a broad, diversified commodity allocation captures both traditional and transition-related commodities. If you have a strong view on the energy transition timeline, you can tilt toward electrification metals using targeted ETFs or mining company stocks.
 
 [VISUAL: End card with channel logo and "Next: Technical Analysis"]
 
-**Alex:** Next time, we are exploring a topic that divides investors like few others -- technical analysis. Charts, patterns, moving averages -- do they actually work? See you there.
+**Horace:** Next time, we are exploring a topic that divides investors like few others -- technical analysis. Charts, patterns, moving averages -- do they actually work? See you there.
 
 [END - 13:30]

@@ -728,142 +728,142 @@ A: In early 2022, MBS had an effective duration of approximately 4 years. As rat
 
 [VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we learned how to read the yield curve. This week we are going to learn how to measure exactly how much your bonds will move when rates change. We are talking about duration and convexity.
+**Horace:** Welcome back. Last week we learned how to read the yield curve. This week we are going to learn how to measure exactly how much your bonds will move when rates change. We are talking about duration and convexity.
 
-**Sam:** Duration is one of those terms I see on every bond fund fact sheet, and I always just kind of gloss over it. I know it is important but I do not really understand what it means.
+**Stella:** Duration is one of those terms I see on every bond fund fact sheet, and I always just kind of gloss over it. I know it is important but I do not really understand what it means.
 
-**Alex:** You are not alone. Most retail investors ignore duration, and that is a costly mistake. Duration is the single most important number for understanding your bond portfolio's risk. Let me put it in simple terms. Duration tells you how much your bond or bond fund will change in price for a 1% change in interest rates.
+**Horace:** You are not alone. Most retail investors ignore duration, and that is a costly mistake. Duration is the single most important number for understanding your bond portfolio's risk. Let me put it in simple terms. Duration tells you how much your bond or bond fund will change in price for a 1% change in interest rates.
 
-**Sam:** Give me an example.
+**Stella:** Give me an example.
 
-**Alex:** If your bond fund has a duration of 6.5 years, like the Vanguard Total Bond Market fund, and rates rise by 1%, your fund will lose approximately 6.5%. On $100,000, that is a $6,500 loss. If rates rise by 2%, you lose approximately 13%, or $13,000.
+**Horace:** If your bond fund has a duration of 6.5 years, like the Vanguard Total Bond Market fund, and rates rise by 1%, your fund will lose approximately 6.5%. On $100,000, that is a $6,500 loss. If rates rise by 2%, you lose approximately 13%, or $13,000.
 
 [VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "Duration of 6.5 = lose 6.5% per 1% rate increase"]
 
-**Sam:** And if rates fall, the opposite?
+**Stella:** And if rates fall, the opposite?
 
-**Alex:** Exactly. A 1% rate drop would give you approximately a 6.5% gain, or $6,500. Duration works in both directions.
+**Horace:** Exactly. A 1% rate drop would give you approximately a 6.5% gain, or $6,500. Duration works in both directions.
 
-**Sam:** OK so higher duration means more sensitivity to rates. What determines a bond's duration?
+**Stella:** OK so higher duration means more sensitivity to rates. What determines a bond's duration?
 
-**Alex:** Three main factors. First, maturity. Longer-maturity bonds have higher duration. A 30-year Treasury has a duration around 20 years while a 2-year Treasury has a duration around 1.9 years. Second, coupon rate. Higher coupons mean lower duration because you receive more cash flow earlier. Third, yield level. Higher yields mean lower duration because distant cash flows are discounted more heavily.
+**Horace:** Three main factors. First, maturity. Longer-maturity bonds have higher duration. A 30-year Treasury has a duration around 20 years while a 2-year Treasury has a duration around 1.9 years. Second, coupon rate. Higher coupons mean lower duration because you receive more cash flow earlier. Third, yield level. Higher yields mean lower duration because distant cash flows are discounted more heavily.
 
 [ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
 
-**Sam:** Can you explain the different types of duration? I have seen Macaulay, modified, and effective.
+**Stella:** Can you explain the different types of duration? I have seen Macaulay, modified, and effective.
 
-**Alex:** Sure. Macaulay duration is the original concept. It is the weighted average time until you receive all the bond's cash flows. Think of it like the balance point on a seesaw. If you put all the bond's cash flows on a timeline, weighted by their present value, the balance point is the Macaulay duration.
+**Horace:** Sure. Macaulay duration is the original concept. It is the weighted average time until you receive all the bond's cash flows. Think of it like the balance point on a seesaw. If you put all the bond's cash flows on a timeline, weighted by their present value, the balance point is the Macaulay duration.
 
-**Sam:** So for a zero-coupon bond, the Macaulay duration equals the maturity?
+**Stella:** So for a zero-coupon bond, the Macaulay duration equals the maturity?
 
-**Alex:** Exactly, because there is only one cash flow at the end. For a coupon bond, the Macaulay duration is always less than the maturity because the coupon payments pull the balance point forward.
+**Horace:** Exactly, because there is only one cash flow at the end. For a coupon bond, the Macaulay duration is always less than the maturity because the coupon payments pull the balance point forward.
 
 [VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "Macaulay Duration = 4.2 years". Below: "Maturity = 5 years, but duration is only 4.2 years"]
 
-**Sam:** And modified duration?
+**Stella:** And modified duration?
 
-**Alex:** Modified duration takes Macaulay duration and adjusts it to directly measure price sensitivity. The formula is simple: modified duration equals Macaulay duration divided by one plus the yield. The result tells you the percentage price change for a 1% yield change. When people say "duration" in an investment context, they almost always mean modified duration.
+**Horace:** Modified duration takes Macaulay duration and adjusts it to directly measure price sensitivity. The formula is simple: modified duration equals Macaulay duration divided by one plus the yield. The result tells you the percentage price change for a 1% yield change. When people say "duration" in an investment context, they almost always mean modified duration.
 
-**Sam:** What about effective duration?
+**Stella:** What about effective duration?
 
-**Alex:** Effective duration is used for bonds with embedded options, like callable bonds and mortgage-backed securities. For these bonds, the cash flows change when rates change because the issuer might call the bond or homeowners might refinance their mortgages. Modified duration does not account for this. Effective duration is calculated empirically by observing how the bond's price actually changes when you bump rates up and down.
+**Horace:** Effective duration is used for bonds with embedded options, like callable bonds and mortgage-backed securities. For these bonds, the cash flows change when rates change because the issuer might call the bond or homeowners might refinance their mortgages. Modified duration does not account for this. Effective duration is calculated empirically by observing how the bond's price actually changes when you bump rates up and down.
 
 [VISUAL: Three boxes side by side. "Macaulay Duration: Weighted average time to cash flows. Used for immunization." "Modified Duration: Price sensitivity to rates. Used for risk measurement." "Effective Duration: Price sensitivity for bonds with options. Handles callable bonds and MBS."]
 
-**Sam:** Let us talk about PVBP because I want to understand the dollar impact.
+**Stella:** Let us talk about PVBP because I want to understand the dollar impact.
 
-**Alex:** PVBP stands for Price Value of a Basis Point. One basis point is one hundredth of one percent, or 0.01%. PVBP tells you how many dollars your bond position changes for a 1 basis point move in rates.
+**Horace:** PVBP stands for Price Value of a Basis Point. One basis point is one hundredth of one percent, or 0.01%. PVBP tells you how many dollars your bond position changes for a 1 basis point move in rates.
 
-**Sam:** How do you calculate it?
+**Stella:** How do you calculate it?
 
-**Alex:** Multiply modified duration by the bond price by 0.0001. For example, a $100,000 position with duration of 8 years has a PVBP of $100,000 times 8 times 0.0001, which equals $80. Every single basis point move in rates changes your position by $80.
+**Horace:** Multiply modified duration by the bond price by 0.0001. For example, a $100,000 position with duration of 8 years has a PVBP of $100,000 times 8 times 0.0001, which equals $80. Every single basis point move in rates changes your position by $80.
 
 [VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2-year: $19/bp. 5-year: $45/bp. 10-year: $82/bp. 20-year: $145/bp. 30-year: $200/bp. A highlight shows: "30-year bond: $200 per basis point. A 50 bp move = $10,000 gain or loss."]
 
-**Sam:** So if I own $100,000 in TLT, the long-term Treasury ETF, with a duration of 17 years?
+**Stella:** So if I own $100,000 in TLT, the long-term Treasury ETF, with a duration of 17 years?
 
-**Alex:** Your PVBP is $170 per basis point. A 1% rate move, which is 100 basis points, changes your position by $17,000. That is a 17% swing. In 2022, when rates rose about 2.5%, TLT lost approximately 31%. If you knew the duration, you could have predicted that.
+**Horace:** Your PVBP is $170 per basis point. A 1% rate move, which is 100 basis points, changes your position by $17,000. That is a 17% swing. In 2022, when rates rose about 2.5%, TLT lost approximately 31%. If you knew the duration, you could have predicted that.
 
-**Sam:** That really puts it in perspective. Now let us talk about convexity because you said duration alone is not enough.
+**Stella:** That really puts it in perspective. Now let us talk about convexity because you said duration alone is not enough.
 
-**Alex:** Right. Duration is a straight-line approximation of a curved relationship. Think about it this way. The actual relationship between bond prices and yields is a curve, not a straight line. Duration draws a tangent line to that curve at the current yield. For small movements along the curve, the tangent line is a good approximation. For large movements, the tangent line diverges from the actual curve.
+**Horace:** Right. Duration is a straight-line approximation of a curved relationship. Think about it this way. The actual relationship between bond prices and yields is a curve, not a straight line. Duration draws a tangent line to that curve at the current yield. For small movements along the curve, the tangent line is a good approximation. For large movements, the tangent line diverges from the actual curve.
 
 [ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "Convexity bonus: you gain MORE than duration predicts." As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "Convexity cushion: you lose LESS than duration predicts."]
 
-**Sam:** So convexity always helps you?
+**Stella:** So convexity always helps you?
 
-**Alex:** For bonds with positive convexity, yes. You gain more than duration predicts when rates fall, and you lose less than duration predicts when rates rise. This asymmetry is free. It is a mathematical property of fixed cash flow streams discounted at different rates.
+**Horace:** For bonds with positive convexity, yes. You gain more than duration predicts when rates fall, and you lose less than duration predicts when rates rise. This asymmetry is free. It is a mathematical property of fixed cash flow streams discounted at different rates.
 
-**Sam:** How do I use convexity in my calculations?
+**Stella:** How do I use convexity in my calculations?
 
-**Alex:** The formula adds a second term. Percentage price change equals negative duration times the rate change, plus one-half times convexity times the rate change squared. The second term is always positive for positive convexity bonds, which is why it always helps.
+**Horace:** The formula adds a second term. Percentage price change equals negative duration times the rate change, plus one-half times convexity times the rate change squared. The second term is always positive for positive convexity bonds, which is why it always helps.
 
 [VISUAL: The formula displayed clearly with a worked example. "% Change = -Duration x Ay + 0.5 x Convexity x (Ay)^2". Example: Duration 10, Convexity 120, rates rise 1%. Duration effect: -10%. Convexity effect: +0.6%. Total: -9.4% instead of -10%. "Convexity saved you 0.6% on a $100,000 portfolio = $600"]
 
-**Sam:** Now I have to ask about negative convexity because that sounds scary.
+**Stella:** Now I have to ask about negative convexity because that sounds scary.
 
-**Alex:** Negative convexity is exactly what it sounds like. Instead of the curve bending in your favor, it bends against you. You gain less than expected when rates fall and lose more than expected when rates rise.
+**Horace:** Negative convexity is exactly what it sounds like. Instead of the curve bending in your favor, it bends against you. You gain less than expected when rates fall and lose more than expected when rates rise.
 
-**Sam:** Why would any bond have negative convexity?
+**Stella:** Why would any bond have negative convexity?
 
-**Alex:** The primary cause is embedded options that favor the issuer or the borrower. In a callable bond, the issuer can call (buy back) the bond when rates fall. This caps your upside near the call price. You cannot benefit from further rate declines because the issuer will just take the bond away from you and reissue at lower rates.
+**Horace:** The primary cause is embedded options that favor the issuer or the borrower. In a callable bond, the issuer can call (buy back) the bond when rates fall. This caps your upside near the call price. You cannot benefit from further rate declines because the issuer will just take the bond away from you and reissue at lower rates.
 
 [VISUAL: Two price-yield curves overlaid. The solid curve (non-callable Treasury) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (callable bond) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "Lost upside due to call option"]
 
-**Sam:** And mortgage-backed securities are even worse?
+**Stella:** And mortgage-backed securities are even worse?
 
-**Alex:** Much worse. Every homeowner with a mortgage has the option to refinance at any time. When rates fall, homeowners refinance en masse. Your MBS gets its principal returned at par, and you have to reinvest at the now-lower rates. But when rates rise, nobody refinances. Your money is locked in at the old low rate for much longer than expected. Duration extends exactly when you do not want it to.
+**Horace:** Much worse. Every homeowner with a mortgage has the option to refinance at any time. When rates fall, homeowners refinance en masse. Your MBS gets its principal returned at par, and you have to reinvest at the now-lower rates. But when rates rise, nobody refinances. Your money is locked in at the old low rate for much longer than expected. Duration extends exactly when you do not want it to.
 
-**Sam:** This is what happened in 2022, right?
+**Stella:** This is what happened in 2022, right?
 
-**Alex:** Exactly. MBS went into 2022 with an effective duration of about 4 years. As rates surged, prepayments collapsed and duration extended to about 7 years. So not only were rates rising, but the MBS was becoming more sensitive to those rising rates as they moved higher. It was a double hit. The MBS ETF MBB lost about 11% that year, and some MBS tranches lost much more.
+**Horace:** Exactly. MBS went into 2022 with an effective duration of about 4 years. As rates surged, prepayments collapsed and duration extended to about 7 years. So not only were rates rising, but the MBS was becoming more sensitive to those rising rates as they moved higher. It was a double hit. The MBS ETF MBB lost about 11% that year, and some MBS tranches lost much more.
 
 [ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "Rising rates: BAD" and "Extending duration: MAKES IT WORSE." The combination produces a loss that is larger than what 4-year duration would have predicted.]
 
-**Sam:** So should I avoid MBS entirely?
+**Stella:** So should I avoid MBS entirely?
 
-**Alex:** Not necessarily, but you should understand what you are buying. Government-backed MBS has zero credit risk, and it typically offers a yield premium over comparable Treasuries. That premium is compensation for the negative convexity. If you hold MBS in a stable-rate environment, you collect the extra yield without the convexity problem. The danger is in rapidly changing rate environments. My advice: if you own MBS or a fund that holds MBS, know its duration and understand that in extreme rate moves, it will behave worse than a Treasury of similar duration.
+**Horace:** Not necessarily, but you should understand what you are buying. Government-backed MBS has zero credit risk, and it typically offers a yield premium over comparable Treasuries. That premium is compensation for the negative convexity. If you hold MBS in a stable-rate environment, you collect the extra yield without the convexity problem. The danger is in rapidly changing rate environments. My advice: if you own MBS or a fund that holds MBS, know its duration and understand that in extreme rate moves, it will behave worse than a Treasury of similar duration.
 
-**Sam:** Let me bring this back to practical investing. How should someone use duration to manage their bond portfolio?
+**Stella:** Let me bring this back to practical investing. How should someone use duration to manage their bond portfolio?
 
-**Alex:** Here is my framework. First, know your duration. Look up the effective duration of every bond fund you own. Calculate your portfolio's weighted average duration. Second, stress test your portfolio. Multiply your duration by 1% and by 2% to see how much you would lose if rates rise. Ask yourself if you can tolerate those losses. Third, match your duration to your horizon. If you need the money in 5 years, your duration should be around 5 years. This immunizes you against rate changes.
+**Horace:** Here is my framework. First, know your duration. Look up the effective duration of every bond fund you own. Calculate your portfolio's weighted average duration. Second, stress test your portfolio. Multiply your duration by 1% and by 2% to see how much you would lose if rates rise. Ask yourself if you can tolerate those losses. Third, match your duration to your horizon. If you need the money in 5 years, your duration should be around 5 years. This immunizes you against rate changes.
 
 [VISUAL: A three-step checklist. Step 1: "Know Your Duration" with icons of bond fund fact sheets showing duration numbers. Step 2: "Stress Test" with a table showing "If rates rise 1%/2%/3%, you lose $X/$Y/$Z". Step 3: "Match to Horizon" with a timeline showing "Need money in 7 years -> Duration should be ~7 years"]
 
-**Sam:** What about the allocation between short, intermediate, and long bonds?
+**Stella:** What about the allocation between short, intermediate, and long bonds?
 
-**Alex:** In a rising-rate environment or when you are uncertain, stay short. Duration of 2 to 4 years. You sacrifice some yield but protect against rate surprises. In a falling-rate environment, extend duration. Duration of 8 to 15 years. You capture both higher yields and price gains as rates decline. In a stable-rate environment, intermediate duration is fine. Duration of 5 to 7 years. You get reasonable yield without extreme sensitivity.
+**Horace:** In a rising-rate environment or when you are uncertain, stay short. Duration of 2 to 4 years. You sacrifice some yield but protect against rate surprises. In a falling-rate environment, extend duration. Duration of 8 to 15 years. You capture both higher yields and price gains as rates decline. In a stable-rate environment, intermediate duration is fine. Duration of 5 to 7 years. You get reasonable yield without extreme sensitivity.
 
-**Sam:** And what about the yield curve shape? Last week we talked about using the curve's shape for decisions.
+**Stella:** And what about the yield curve shape? Last week we talked about using the curve's shape for decisions.
 
-**Alex:** They connect directly. When the curve is steep, staying short costs you a lot of yield because long rates are much higher. But long bonds have more duration risk. When the curve is flat, there is no yield advantage to extending, so stay short and take less risk. When the curve is inverted, short-term instruments actually yield more, so you get paid more for taking less risk. That is a free lunch, and it is the market's way of telling you to stay short.
+**Horace:** They connect directly. When the curve is steep, staying short costs you a lot of yield because long rates are much higher. But long bonds have more duration risk. When the curve is flat, there is no yield advantage to extending, so stay short and take less risk. When the curve is inverted, short-term instruments actually yield more, so you get paid more for taking less risk. That is a free lunch, and it is the market's way of telling you to stay short.
 
 [VISUAL: A decision matrix combining yield curve shape and duration recommendation. "Steep Curve: Long bonds yield much more, but duration risk is high. Moderate duration." "Flat Curve: No yield pickup for duration risk. Stay short." "Inverted Curve: Short rates higher than long rates. Stay short, get paid more."]
 
-**Sam:** Let us talk about immunization briefly. I find this concept elegant even though it is more of an institutional strategy.
+**Stella:** Let us talk about immunization briefly. I find this concept elegant even though it is more of an institutional strategy.
 
-**Alex:** Immunization is beautiful in its simplicity. You match your portfolio's duration to the date you need the money. If rates rise, your bonds lose value but you reinvest coupons at higher rates. If rates fall, your bonds gain value but you reinvest coupons at lower rates. These two effects cancel out. At the horizon date, you arrive at approximately the same ending value regardless of what rates did.
+**Horace:** Immunization is beautiful in its simplicity. You match your portfolio's duration to the date you need the money. If rates rise, your bonds lose value but you reinvest coupons at higher rates. If rates fall, your bonds gain value but you reinvest coupons at lower rates. These two effects cancel out. At the horizon date, you arrive at approximately the same ending value regardless of what rates did.
 
-**Sam:** So it is like a hedge that works in both directions?
+**Stella:** So it is like a hedge that works in both directions?
 
-**Alex:** Exactly. And it does not cost anything. You just have to rebalance periodically to keep the duration matched. The catch is it works perfectly only for parallel yield curve shifts. If the curve twists or the shift is non-parallel, there is some tracking error. But for most retail investors, duration matching is far better than not thinking about duration at all.
+**Horace:** Exactly. And it does not cost anything. You just have to rebalance periodically to keep the duration matched. The catch is it works perfectly only for parallel yield curve shifts. If the curve twists or the shift is non-parallel, there is some tracking error. But for most retail investors, duration matching is far better than not thinking about duration at all.
 
-**Sam:** Let me try to bring all of this together. Duration tells me sensitivity to rates, roughly percentage loss per 1% rate rise. Convexity improves that estimate, and positive convexity always works in my favor. Negative convexity, which is mainly in callable bonds and MBS, works against me. And PVBP converts all of this into actual dollars.
+**Stella:** Let me try to bring all of this together. Duration tells me sensitivity to rates, roughly percentage loss per 1% rate rise. Convexity improves that estimate, and positive convexity always works in my favor. Negative convexity, which is mainly in callable bonds and MBS, works against me. And PVBP converts all of this into actual dollars.
 
-**Alex:** Perfect summary. Let me add one more thought. When you are comparing two bonds or two bond funds with similar duration and yield, always prefer the one with higher convexity. It is free protection. You get more upside in a rate decline and less downside in a rate rise. All else equal, higher convexity is always better.
+**Horace:** Perfect summary. Let me add one more thought. When you are comparing two bonds or two bond funds with similar duration and yield, always prefer the one with higher convexity. It is free protection. You get more upside in a rate decline and less downside in a rate rise. All else equal, higher convexity is always better.
 
 [VISUAL: Two bonds displayed side by side. Bond A: Duration 7, Yield 4.5%, Convexity 60. Bond B: Duration 7, Yield 4.5%, Convexity 85. A star or checkmark next to Bond B with text: "Same duration, same yield, but better convexity. Choose Bond B."]
 
-**Sam:** And if I can only remember one number?
+**Stella:** And if I can only remember one number?
 
-**Alex:** Remember your portfolio duration. If it is 6, you lose approximately 6% for every 1% rates rise. If it is 3, you lose approximately 3%. That single number tells you more about your bond risk than anything else.
+**Horace:** Remember your portfolio duration. If it is 6, you lose approximately 6% for every 1% rates rise. If it is 3, you lose approximately 3%. That single number tells you more about your bond risk than anything else.
 
-**Sam:** This has been really helpful. I finally understand what those numbers on my fund fact sheets mean.
+**Stella:** This has been really helpful. I finally understand what those numbers on my fund fact sheets mean.
 
-**Alex:** And that is the whole point. Next week we move to credit analysis, where we will learn how to evaluate the other major risk in bonds: the risk that the borrower does not pay you back. Duration is interest rate risk. Credit analysis is default risk. Together, they give you the complete picture of bond investing.
+**Horace:** And that is the whole point. Next week we move to credit analysis, where we will learn how to evaluate the other major risk in bonds: the risk that the borrower does not pay you back. Duration is interest rate risk. Credit analysis is default risk. Together, they give you the complete picture of bond investing.
 
-**Sam:** Thanks, everyone. See you next week.
+**Stella:** Thanks, everyone. See you next week.
 
 [VISUAL: End screen with show logo, "Week 32: Duration and Convexity" summary, and preview of Week 33: Credit Analysis]
 
-**Alex:** See you then.
+**Horace:** See you then.

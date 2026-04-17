@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3: Advanced (Weeks 25-36) - Chanma Investment Tutorial</title>
+    <style>
+:root {
+    --bg: #fafbfc;
+    --text: #2d3748;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f7fafc;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1f5f9;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --gold: #c5a44e;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 0;
+}
+
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-brand .brand-icon {
+    font-size: 1.4rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-link, .dropdown-trigger {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s;
+}
+
+.nav-link:hover, .dropdown-trigger:hover {
+    background: var(--nav-hover);
+}
+
+.arrow { font-size: 0.7rem; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 320px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    z-index: 200;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
+
+.dropdown-content a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+/* Language selector in nav */
+.lang-selector {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+}
+
+.lang-btn:hover { opacity: 1; }
+
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
+
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.breadcrumb-inner a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb-inner a:hover { text-decoration: underline; }
+
+.bc-sep { color: #a0aec0; margin: 0 4px; }
+
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+.content-area { }
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) { background: #f8fafc; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+p code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+
+.nav-btn-text { display: flex; flex-direction: column; }
+
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: 8px;
+    }
+    .nav-menu.open .nav-dropdown { width: 100%; }
+    .nav-menu.open .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.1);
+        border-radius: 0;
+        max-height: 300px;
+    }
+    .nav-menu.open .dropdown-content a {
+        color: var(--nav-text);
+        border-bottom-color: rgba(255,255,255,0.1);
+        padding-left: 32px;
+    }
+    .hamburger { display: block; }
+    .lang-selector { margin-left: 0; padding: 8px 14px; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                Chanma Investment
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="nav-menu">
+                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <span>Level 3: Advanced</span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Level 3: Advanced (Weeks 25-36)</h1>
+<hr>
+<h2>Part 1: Reading Section</h2>
+<hr>
+<h3>Level Overview</h3>
+<p>
+Level 3 introduces two of the most powerful and widely misunderstood areas of finance: options and fixed income. This is not about speculation -- it is about adding precision tools to your investment toolkit. Options for income generation and hedging, fixed income for stability and cash flow.
+</p>
+<h3>What You Will Learn</h3>
+<p>
+<strong>Weeks 25-30: Options</strong>
+</p>
+<ul><li>Introduction to options -- calls, puts, and how they really work</li>
+<li>Options as enhanced order types, not gambling instruments</li>
+<li>Covered calls for generating income from stocks you own</li>
+<li>Cash-secured puts for getting paid to buy stocks at target prices</li>
+<li>The Greeks -- delta, theta, vega -- the forces that move option prices</li>
+<li>Credit spreads and iron condors for defined-risk income</li>
+<p>
+</ul>
+<strong>Weeks 31-36: Fixed Income</strong>
+</p>
+<ul><li>Yield curves and what their shape tells us about the economy</li>
+<li>Duration and convexity -- measuring interest rate risk</li>
+<li>Credit analysis and bond selection</li>
+<li>How rate changes ripple across all asset classes</li>
+<li>Advanced financial statement analysis -- detecting earnings quality</li>
+<li>Building an income-generating portfolio combining dividends, bonds, and options</li>
+<p>
+</ul>
+</p>
+<h3>What You Will Be Able to Do After Level 3</h3>
+<ul><li>Write covered calls and cash-secured puts to generate consistent income</li>
+<li>Construct defined-risk option strategies like credit spreads</li>
+<li>Read and interpret yield curves for economic signals</li>
+<li>Evaluate corporate credit quality and select appropriate bonds</li>
+<li>Detect accounting red flags in financial statements</li>
+<li>Build a portfolio designed to produce steady cash flow</li>
+<p>
+</ul>
+</p>
+<h3>Weekly Lessons</h3>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>25</td><td>Introduction to Options</td></tr><tr><td>26</td><td>Options as Conditional Orders</td></tr><tr><td>27</td><td>Covered Calls for Income</td></tr><tr><td>28</td><td>Cash-Secured Puts for Entry</td></tr><tr><td>29</td><td>Option Greeks - Delta, Theta, Vega</td></tr><tr><td>30</td><td>Credit Spreads and Iron Condors</td></tr><tr><td>31</td><td>Fixed Income Deep Dive - Yield Curves</td></tr><tr><td>32</td><td>Duration and Convexity</td></tr><tr><td>33</td><td>Credit Analysis and Bond Selection</td></tr><tr><td>34</td><td>Interest Rate Sensitivity Across Assets</td></tr><tr><td>35</td><td>Advanced Financial Statement Analysis</td></tr><tr><td>36</td><td>Building an Income-Generating Portfolio</td></tr></tbody></table>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>第三級：進階（第25至36週）</h1>
+<hr>
+<h2>第一部分：閱讀章節</h2>
+<hr>
+<h3>級別概覽</h3>
+<p>
+第三級介紹兩個最具影響力、同時亦最常被誤解的金融領域：期權與固定收益。這不是關於投機——而是為你的投資工具箱增添精密工具。期權用於創造收入及對沖，固定收益則用於穩定資產及現金流管理。
+</p>
+<h3>學習內容</h3>
+<p>
+<strong>第25至30週：期權</strong>
+</p>
+<ul><li>期權入門——認購期權、認沽期權及其真正運作原理</li>
+<li>期權作為進階委託類型，而非賭博工具</li>
+<li>備兌認購期權——從持有的股票中創造收入</li>
+<li>現金擔保認沽期權——以目標價買入股票並獲得報酬</li>
+<li>希臘值——Delta、Theta、Vega——驅動期權金變動的力量</li>
+<li>信用價差策略與鐵鷹式策略——有限風險的收入策略</li>
+<p>
+</ul>
+<strong>第31至36週：固定收益</strong>
+</p>
+<ul><li>收益率曲線及其形態對經濟的啟示</li>
+<li>存續期與凸性——量度利率風險</li>
+<li>信用分析與債券篩選</li>
+<li>利率變動如何波及各類資產</li>
+<li>進階財務報表分析——識別盈利質素</li>
+<li>建構綜合創收投資組合，整合股息、債券與期權</li>
+<p>
+</ul>
+</p>
+<h3>完成第三級後的能力</h3>
+<ul><li>撰寫備兌認購期權及現金擔保認沽期權，持續創造收入</li>
+<li>建構有限風險期權策略，如信用價差策略</li>
+<li>解讀收益率曲線以掌握經濟信號</li>
+<li>評估企業信用質素並篩選合適債券</li>
+<li>識別財務報表中的會計警示信號</li>
+<li>建立旨在產生穩定現金流的投資組合</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>25</td><td>期權入門</td></tr><tr><td>26</td><td>期權作為條件式委託</td></tr><tr><td>27</td><td>備兌認購期權創收策略</td></tr><tr><td>28</td><td>現金擔保認沽期權建倉策略</td></tr><tr><td>29</td><td>期權希臘值——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用價差策略與鐵鷹式策略</td></tr><tr><td>31</td><td>固定收益深度剖析——收益率曲線</td></tr><tr><td>32</td><td>存續期與凸性</td></tr><tr><td>33</td><td>信用分析與債券篩選</td></tr><tr><td>34</td><td>利率變動對各類資產的敏感度</td></tr><tr><td>35</td><td>進階財務報表分析</td></tr><tr><td>36</td><td>建構創收投資組合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第三級概覽：期權與固定收益精要 | 陳馬投資教學
+</p>
+<p>
+<strong>目標片長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（導師）：資深散戶投資者，憑多年市場經驗深入淺出講解概念</li>
+<li><strong>Stella</strong>（學員）：剛畢業的大學生，正學習投資積蓄，提出觀眾心中的疑問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[片頭]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 歡迎來到第三級。這一關係到很多投資者能否實現重大突破，抑或迷失方向。我們將涵蓋期權與固定收益——這兩個聽起來艱深，但其實是市場上最實用的工具。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 說實話，我對期權有點怯。每次聽到期權，不是有人大賺一筆，就是有人血本無歸。
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 那是因為大多數人接觸期權，都是透過投機的故事。我們的切入角度會完全不同。第25週我們從基礎開始，到了第26週，我會徹底改變你對期權的看法——我們會讓你明白，期權其實只是你已熟悉的委託類型的進階版本。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 你是什麼意思？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 現金擔保認沽期權，本質上就是一張限價買入委託，而你還能在等候期間收取報酬。備兌認購期權，就像一張限價賣出委託，同樣讓你在等候期間獲得報酬。一旦你從這個角度理解期權，恐懼自然就消失了。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 那之後我們就進入創收策略了？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 第27及28週分別講備兌認購期權與現金擔保認沽期權——這兩個是最核心的創收策略。第29週介紹希臘值，讓你精準掌握期權的走勢。第30週則深入信用價差策略與鐵鷹式策略，學習有限風險的創收方法。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 那固定收益那一半呢？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 第31至36週同樣精彩。你將學會像經濟學家一樣解讀收益率曲線，掌握存續期與凸性來管理利率風險，評估信用質素，到了第36週，你將建立一個完整的創收投資組合，把所有元素融為一體——股息、債券、期權，以及房地產信託基金。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 聽起來就是一個每個月都真正為你賺錢的投資組合。
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 這正是我們的目標。我們開始吧。
+</p>
+<p>
+<strong>[完]</strong>
+</p>
+            </div>
+            <div id="content-tw" class="lang-content">
+                <h1>第三級：進階（第25-36週）</h1>
+<hr>
+<h2>第一部分：閱讀章節</h2>
+<hr>
+<h3>第三級概覽</h3>
+<p>
+第三級介紹金融領域中兩個最強大、也最常被誤解的範疇：選擇權與固定收益。這不是關於投機——而是在您的投資工具箱中增添精準的工具。選擇權用於創造收入與避險，固定收益用於穩定性與現金流。
+</p>
+<h3>您將學到的內容</h3>
+<p>
+<strong>第25-30週：選擇權</strong>
+</p>
+<ul><li>選擇權簡介——買權、賣權，以及它們的真正運作方式</li>
+<li>選擇權作為進階委託類型，而非賭博工具</li>
+<li>掩護性買權——從您持有的股票中產生收入</li>
+<li>現金擔保賣權——獲得報酬等待以目標價買入股票</li>
+<li>希臘字母——Delta、Theta、Vega——推動選擇權價格的力量</li>
+<li>信用價差與鐵禿鷹策略——有限風險的創收策略</li>
+<p>
+</ul>
+<strong>第31-36週：固定收益</strong>
+</p>
+<ul><li>殖利率曲線及其形狀對經濟的啟示</li>
+<li>存續期間與凸性——衡量利率風險</li>
+<li>信用分析與債券選擇</li>
+<li>利率變動如何在所有資產類別中產生連鎖效應</li>
+<li>進階財務報表分析——識別盈餘品質</li>
+<li>建立結合股利、債券與選擇權的創收投資組合</li>
+<p>
+</ul>
+</p>
+<h3>完成第三級後，您將能夠</h3>
+<ul><li>操作掩護性買權與現金擔保賣權以產生穩定收入</li>
+<li>建構有限風險的選擇權策略，如信用價差</li>
+<li>解讀殖利率曲線所傳遞的經濟訊號</li>
+<li>評估企業信用品質並選擇適當債券</li>
+<li>識別財務報表中的會計警示訊號</li>
+<li>建立旨在產生穩定現金流的投資組合</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>25</td><td>選擇權簡介</td></tr><tr><td>26</td><td>選擇權作為條件式委託</td></tr><tr><td>27</td><td>掩護性買權創造收入</td></tr><tr><td>28</td><td>現金擔保賣權作為進場策略</td></tr><tr><td>29</td><td>選擇權希臘字母——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用價差與鐵禿鷹策略</td></tr><tr><td>31</td><td>固定收益深度探討——殖利率曲線</td></tr><tr><td>32</td><td>存續期間與凸性</td></tr><tr><td>33</td><td>信用分析與債券選擇</td></tr><tr><td>34</td><td>各資產類別的利率敏感度</td></tr><tr><td>35</td><td>進階財務報表分析</td></tr><tr><td>36</td><td>建立創收投資組合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第三級概覽：選擇權與固定收益全攻略｜陳馬投資教學
+</p>
+<p>
+<strong>目標片長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老師）：資深散戶投資人，從多年市場經驗中講解概念</li>
+<li><strong>Stella</strong>（學生）：剛畢業的社會新鮮人，正在學習投資她的積蓄，提出觀眾心中的疑問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[開場]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
+</p>
+<p>
+<strong>Horace：</strong> 歡迎來到第三級。很多投資人在這裡要麼大幅躍進，要麼迷失方向。我們要介紹選擇權與固定收益——這兩個領域聽起來很嚇人，但其實是最實用的投資工具之一。
+</p>
+<p>
+<strong>Stella：</strong> 老實說，我對選擇權有點怕。每次聽到選擇權，不是有人大賺一筆，就是有人血本無歸。
+</p>
+<p>
+<strong>Horace：</strong> 那是因為大多數人接觸到選擇權，都是透過投機的故事。我們會用完全不同的角度來學習。第25週從基礎開始，到了第26週，我會徹底改變你對選擇權的看法——我們會讓你發現，選擇權其實只是你已經在用的委託方式的進階版本。
+</p>
+<p>
+<strong>Stella：</strong> 什麼意思？
+</p>
+<p>
+<strong>Horace：</strong> 現金擔保賣權本質上就是一個限價買單，而且還能讓你邊等邊收錢。掩護性買權就像限價賣單，同樣讓你邊等邊領錢。一旦你用這個角度來看選擇權，恐懼感自然就消失了。
+</p>
+<p>
+<strong>Stella：</strong> 那接下來就進入創收策略了嗎？
+</p>
+<p>
+<strong>Horace：</strong> 第27和28週會介紹掩護性買權與現金擔保賣權——這是最核心的創收策略。第29週帶你認識希臘字母，讓你精準掌握選擇權的價格走勢。第30週則涵蓋信用價差與鐵禿鷹策略，讓你用有限的風險賺取收入。
+</p>
+<p>
+<strong>Stella：</strong> 那固定收益的部分呢？
+</p>
+<p>
+<strong>Horace：</strong> 第31到36週同樣精彩。你會學會像經濟學家一樣解讀殖利率曲線，掌握存續期間與凸性來管理利率風險，評估信用品質，而且到了第36週，你將建立一個完整的創收投資組合，把所有東西整合在一起——股利、債券、選擇權，還有不動產投資信託。
+</p>
+<p>
+<strong>Stella：</strong> 聽起來就是一個每個月都能幫你賺錢的投資組合。
+</p>
+<p>
+<strong>Horace：</strong> 這正是我們的目標。我們開始吧。
+</p>
+<p>
+<strong>[結尾]</strong>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>第三级：进阶（第25-36周）</h1>
+<hr>
+<h2>第一部分：阅读内容</h2>
+<hr>
+<h3>级别概述</h3>
+<p>
+第三级介绍金融领域两个最强大且最常被误解的领域：期权和固定收益。这并非关于投机——而是在您的投资工具箱中增添精准工具。期权用于产生收益和对冲，固定收益则带来稳定性和现金流。
+</p>
+<h3>您将学到的内容</h3>
+<p>
+<strong>第25-30周：期权</strong>
+</p>
+<ul><li>期权入门——看涨期权、看跌期权及其真正的运作方式</li>
+<li>期权作为增强型委托单，而非赌博工具</li>
+<li>备兑看涨期权——从持有股票中产生收益</li>
+<li>现金担保看跌期权——获得报酬以目标价买入股票</li>
+<li>希腊字母——delta、theta、vega——驱动期权价格变动的力量</li>
+<li>信用价差和铁鹰策略——有限风险的收益策略</li>
+<p>
+</ul>
+<strong>第31-36周：固定收益</strong>
+</p>
+<ul><li>收益率曲线及其形态对经济的启示</li>
+<li>久期与凸性——衡量利率风险</li>
+<li>信用分析与债券筛选</li>
+<li>利率变化如何在各类资产中产生连锁反应</li>
+<li>高级财务报表分析——识别盈利质量</li>
+<li>构建结合股息、债券和期权的收益型投资组合</li>
+<p>
+</ul>
+</p>
+<h3>完成第三级后您将能够做什么</h3>
+<ul><li>卖出备兑看涨期权和现金担保看跌期权以稳定产生收益</li>
+<li>构建有限风险期权策略，如信用价差</li>
+<li>解读收益率曲线以获取经济信号</li>
+<li>评估企业信用质量并选择合适的债券</li>
+<li>识别财务报表中的会计警示信号</li>
+<li>构建旨在产生稳定现金流的投资组合</li>
+<p>
+</ul>
+</p>
+<h3>每周课程</h3>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>25</td><td>期权入门</td></tr><tr><td>26</td><td>期权作为条件委托单</td></tr><tr><td>27</td><td>备兑看涨期权产生收益</td></tr><tr><td>28</td><td>现金担保看跌期权建仓</td></tr><tr><td>29</td><td>期权希腊字母——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用价差和铁鹰策略</td></tr><tr><td>31</td><td>固定收益深度解析——收益率曲线</td></tr><tr><td>32</td><td>久期与凸性</td></tr><tr><td>33</td><td>信用分析与债券筛选</td></tr><tr><td>34</td><td>利率对各类资产的敏感性</td></tr><tr><td>35</td><td>高级财务报表分析</td></tr><tr><td>36</td><td>构建收益型投资组合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 脚本</h2>
+<hr>
+<p>
+<strong>视频标题：</strong> 第三级概述：期权与固定收益精通 | 陈马投资教程
+</p>
+<p>
+<strong>时长目标：</strong> 约5分钟
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老师）：经验丰富的散户交易者，从多年市场经验中讲解概念</li>
+<li><strong>Stella</strong>（学生）：刚毕业的大学生，正在学习如何投资储蓄，提出观众心中的疑问</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[开场]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
+</p>
+<p>
+<strong>Horace：</strong> 欢迎来到第三级。在这里，许多投资者要么实现重大飞跃，要么就此迷失。我们将覆盖期权和固定收益——这两个听起来令人生畏，但实际上是最实用工具之一的领域。
+</p>
+<p>
+<strong>Stella：</strong> 说实话，期权让我有点紧张。每次听到它，不是有人大赚一笔，就是有人血本无归。
+</p>
+<p>
+<strong>Horace：</strong> 这是因为大多数人都是通过投机故事接触期权的。我们会用完全不同的方式来学习。第25周从基础开始，到第26周，我会彻底改变您对期权的认知——我们会让您看到，期权其实只是您已经在用的委托单的增强版。
+</p>
+<p>
+<strong>Stella：</strong> 您是什么意思？
+</p>
+<p>
+<strong>Horace：</strong> 现金担保看跌期权本质上就是一种限价买单，区别在于您在等待的过程中还能收到报酬。备兑看涨期权就像限价卖单，同样可以在等待中获得收益。一旦您从这个角度来理解期权，恐惧自然就消失了。
+</p>
+<p>
+<strong>Stella：</strong> 然后我们进入收益策略？
+</p>
+<p>
+<strong>Horace：</strong> 第27周和第28周涵盖备兑看涨期权和现金担保看跌期权——这是最核心的收益策略。第29周介绍希腊字母，它们会精确告诉您期权价格如何变动。第30周涵盖信用价差和铁鹰策略，用于有限风险的收益操作。
+</p>
+<p>
+<strong>Stella：</strong> 那固定收益部分呢？
+</p>
+<p>
+<strong>Horace：</strong> 第31周到第36周同样精彩。您将学会像经济学家一样解读收益率曲线，掌握用于管理利率风险的久期和凸性，学会评估信用质量。到第36周，您将构建一个完整的收益型投资组合，把所有内容融为一体——股息、债券、期权和房地产投资信托。
+</p>
+<p>
+<strong>Stella：</strong> 听起来这个投资组合每个月都能给您带来收益。
+</p>
+<p>
+<strong>Horace：</strong> 这正是我们的目标。让我们开始吧。
+</p>
+<p>
+<strong>[结束]</strong>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="nav-buttons">
+            <a href="week24.html" class="nav-btn prev">
+            <span style="font-size:1.2rem">&#8592;</span>
+            <span class="nav-btn-text">
+                <span class="btn-label">Previous</span>
+                <span>Week 24: Multi strategy</span>
+            </span>
+        </a>
+            <a href="week25.html" class="nav-btn next">
+            <span class="nav-btn-text">
+                <span class="btn-label">Next</span>
+                <span>Week 25: Intro options</span>
+            </span>
+            <span style="font-size:1.2rem">&#8594;</span>
+        </a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+    </footer>
+
+    <script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    localStorage.setItem('preferred-lang', lang);
+}
+
+// Restore language preference
+(function() {
+    var saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') switchLang(saved);
+})();
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
+</body>
+</html>

@@ -252,145 +252,145 @@ A10: Absolutely. Monte Carlo works for any financial goal with uncertain returns
 
 **[VISUAL: Casino roulette wheel spinning, then morphing into a retirement portfolio graph with thousands of lines fanning out]**
 
-**Alex:** Sam, I have heard that Monte Carlo simulation can tell me whether I will run out of money in retirement. That sounds both amazing and intimidating. What is it, and do I need a math degree to use it?
+**Horace:** Stella, I have heard that Monte Carlo simulation can tell me whether I will run out of money in retirement. That sounds both amazing and intimidating. What is it, and do I need a math degree to use it?
 
-**Sam:** You absolutely do not need a math degree. The concept is intuitive once you see it in action.
+**Stella:** You absolutely do not need a math degree. The concept is intuitive once you see it in action.
 
-**Sam:** It is actually simpler than it sounds. Instead of assuming your portfolio grows at a nice, steady seven percent every year, Monte Carlo asks: what if returns are random?
+**Stella:** It is actually simpler than it sounds. Instead of assuming your portfolio grows at a nice, steady seven percent every year, Monte Carlo asks: what if returns are random?
 
 **[ANIMATION: Single straight line showing 7% annual growth. Then the line shatters into thousands of squiggly lines, some going up dramatically, some going down to zero]**
 
-**Sam:** Each of those lines represents one possible future. In some futures, the market booms and you end up wealthy. In others, a crash early in retirement devastates your portfolio. Monte Carlo runs thousands of these scenarios and counts how many times your money lasts.
+**Stella:** Each of those lines represents one possible future. In some futures, the market booms and you end up wealthy. In others, a crash early in retirement devastates your portfolio. Monte Carlo runs thousands of these scenarios and counts how many times your money lasts.
 
-**Alex:** So it is like running my retirement plan through ten thousand alternate realities?
+**Horace:** So it is like running my retirement plan through ten thousand alternate realities?
 
-**Sam:** Exactly. And the percentage of realities where you do not run out of money is your "probability of success."
+**Stella:** Exactly. And the percentage of realities where you do not run out of money is your "probability of success."
 
 **[VISUAL: Counter showing "10,000 simulations" with a success/failure tally. Final result: "8,500 success / 1,500 failure = 85% probability of success"]**
 
-**Alex:** Why can I not just use the average return and call it a day?
+**Horace:** Why can I not just use the average return and call it a day?
 
-**Sam:** Because of something called sequence of returns risk. Let me show you why it matters so much.
+**Stella:** Because of something called sequence of returns risk. Let me show you why it matters so much.
 
 **[ANIMATION: Two investors, both getting the same set of annual returns over 20 years, but in different orders. Investor A gets bad returns early and good returns late. Investor B gets good returns early and bad returns late. Both withdrawing the same amount annually]**
 
-**Sam:** Both investors have the same average return over twenty years: seven percent. But Investor A, who got the bad years early while withdrawing money, runs out at age seventy-eight. Investor B, who got the good years early, has over a million dollars left.
+**Stella:** Both investors have the same average return over twenty years: seven percent. But Investor A, who got the bad years early while withdrawing money, runs out at age seventy-eight. Investor B, who got the good years early, has over a million dollars left.
 
-**Alex:** Same average return, completely different outcomes. That is terrifying.
+**Horace:** Same average return, completely different outcomes. That is terrifying.
 
-**Sam:** This is why straight-line projections are dangerous. They hide the single biggest risk retirees face: getting unlucky with the sequence of returns in the early years.
+**Stella:** This is why straight-line projections are dangerous. They hide the single biggest risk retirees face: getting unlucky with the sequence of returns in the early years.
 
 **[VISUAL: Side-by-side portfolio value charts for Investor A and B, diverging dramatically despite identical average returns]**
 
-**Alex:** So what goes into a Monte Carlo simulation? What are the inputs?
+**Horace:** So what goes into a Monte Carlo simulation? What are the inputs?
 
-**Sam:** There are several key inputs. Let me walk through them.
+**Stella:** There are several key inputs. Let me walk through them.
 
 **[ANIMATION: Input form appearing with fields being filled in one by one]**
 
-**Sam:** First, your starting portfolio value. Say one million dollars. Second, your expected return and volatility for each asset class. For stocks, maybe seven percent return with fifteen percent volatility. For bonds, four percent with five percent volatility.
+**Stella:** First, your starting portfolio value. Say one million dollars. Second, your expected return and volatility for each asset class. For stocks, maybe seven percent return with fifteen percent volatility. For bonds, four percent with five percent volatility.
 
-**Alex:** Where do those numbers come from?
+**Horace:** Where do those numbers come from?
 
-**Sam:** Historical data adjusted for current conditions. US stocks have historically returned about ten percent, but with today's higher valuations, many planners use seven to eight percent as a more realistic forward-looking estimate.
+**Stella:** Historical data adjusted for current conditions. US stocks have historically returned about ten percent, but with today's higher valuations, many planners use seven to eight percent as a more realistic forward-looking estimate.
 
 **[VISUAL: Historical return distribution bell curve for stocks, with the mean and standard deviation labeled]**
 
-**Sam:** Third, your asset allocation. Sixty percent stocks, forty percent bonds. Fourth, your annual withdrawal amount, say forty thousand dollars, adjusted for inflation at three percent per year.
+**Stella:** Third, your asset allocation. Sixty percent stocks, forty percent bonds. Fourth, your annual withdrawal amount, say forty thousand dollars, adjusted for inflation at three percent per year.
 
-**Alex:** And then the computer runs random scenarios?
+**Horace:** And then the computer runs random scenarios?
 
-**Sam:** Right. In each simulation, the computer randomly generates annual returns from the specified distribution. Year one might be plus twenty-two percent. Year two might be minus fourteen percent. Year three might be plus nine percent. Each simulation creates a different random sequence.
+**Stella:** Right. In each simulation, the computer randomly generates annual returns from the specified distribution. Year one might be plus twenty-two percent. Year two might be minus fourteen percent. Year three might be plus nine percent. Each simulation creates a different random sequence.
 
 **[ANIMATION: Random number generator spinning, producing annual returns that feed into a portfolio growth model. Portfolio balance rising and falling over 30 simulated years]**
 
-**Sam:** After running ten thousand of these sequences, you get a distribution of outcomes.
+**Stella:** After running ten thousand of these sequences, you get a distribution of outcomes.
 
 **[VISUAL: Fan chart showing the 10th, 25th, 50th, 75th, and 90th percentile portfolio trajectories over 30 years, with a horizontal red line at zero]**
 
-**Alex:** What am I looking at here?
+**Horace:** What am I looking at here?
 
-**Sam:** The dark middle line is the median outcome, the fiftieth percentile. The shaded bands show different probability ranges. The key is the bottom band, the tenth percentile. That is what happens in the worst ten percent of scenarios.
+**Stella:** The dark middle line is the median outcome, the fiftieth percentile. The shaded bands show different probability ranges. The key is the bottom band, the tenth percentile. That is what happens in the worst ten percent of scenarios.
 
-**Alex:** And if that bottom line hits zero, I have run out of money in those bad scenarios.
+**Horace:** And if that bottom line hits zero, I have run out of money in those bad scenarios.
 
-**Sam:** Exactly. In this example, the bottom ten percent of scenarios run out of money around year twenty-five. The median scenario ends with over a million dollars. The top ten percent ends with over three million. Same starting conditions, vastly different outcomes.
+**Stella:** Exactly. In this example, the bottom ten percent of scenarios run out of money around year twenty-five. The median scenario ends with over a million dollars. The top ten percent ends with over three million. Same starting conditions, vastly different outcomes.
 
-**Alex:** So what is a good probability of success? Should I aim for a hundred percent?
+**Horace:** So what is a good probability of success? Should I aim for a hundred percent?
 
-**Sam:** Here is where people get confused. Many people think a hundred percent is the goal, but it is actually a signal of a different problem.
+**Stella:** Here is where people get confused. Many people think a hundred percent is the goal, but it is actually a signal of a different problem.
 
 **[ANIMATION: Probability gauge showing different zones: Below 70% = "Needs Work" (red), 70-80% = "Caution" (yellow), 80-90% = "Comfortable" (light green), 90%+ = "Very Safe" (dark green), 100% = "Probably Too Conservative" (blue)]**
 
-**Sam:** A hundred percent probability means you are being extremely conservative. You are probably spending too little and will leave a fortune behind. That is not the goal unless leaving a large inheritance is your primary objective.
+**Stella:** A hundred percent probability means you are being extremely conservative. You are probably spending too little and will leave a fortune behind. That is not the goal unless leaving a large inheritance is your primary objective.
 
-**Alex:** So what is the sweet spot?
+**Horace:** So what is the sweet spot?
 
-**Sam:** For most people, eighty to ninety percent. That means you have a high likelihood of success but are not so conservative that you sacrifice quality of life. The key is having flexibility to adjust if things go poorly.
+**Stella:** For most people, eighty to ninety percent. That means you have a high likelihood of success but are not so conservative that you sacrifice quality of life. The key is having flexibility to adjust if things go poorly.
 
-**Alex:** What about the famous four percent rule? How does it hold up in Monte Carlo?
+**Horace:** What about the famous four percent rule? How does it hold up in Monte Carlo?
 
-**Sam:** The four percent rule says you can withdraw four percent of your initial portfolio, adjusted for inflation, for thirty years. Let me show you what Monte Carlo says about it.
+**Stella:** The four percent rule says you can withdraw four percent of your initial portfolio, adjusted for inflation, for thirty years. Let me show you what Monte Carlo says about it.
 
 **[VISUAL: Monte Carlo results for the 4% rule at different return assumptions. Historical returns: 95% success. Conservative forward returns: 80-85% success. Very conservative: 70% success]**
 
-**Sam:** With historical return assumptions, the four percent rule has about a ninety-five percent success rate. But with more conservative forward-looking assumptions, it drops to eighty to eighty-five percent. If the next thirty years deliver lower returns than history, the four percent rule might be too aggressive.
+**Stella:** With historical return assumptions, the four percent rule has about a ninety-five percent success rate. But with more conservative forward-looking assumptions, it drops to eighty to eighty-five percent. If the next thirty years deliver lower returns than history, the four percent rule might be too aggressive.
 
-**Alex:** That is eye-opening. What improves the numbers?
+**Horace:** That is eye-opening. What improves the numbers?
 
-**Sam:** Flexibility is the single most powerful improvement. Instead of withdrawing a fixed amount regardless of market conditions, adjust your spending.
+**Stella:** Flexibility is the single most powerful improvement. Instead of withdrawing a fixed amount regardless of market conditions, adjust your spending.
 
 **[ANIMATION: "Guardrails Strategy" showing a corridor. Upper guardrail: "Portfolio up 20%+ from plan -> increase spending 10%." Lower guardrail: "Portfolio down 20%+ from plan -> decrease spending 10%."]**
 
-**Sam:** The guardrails approach sets an upper and lower boundary. If your portfolio surges well above plan, you give yourself a raise. If it drops significantly, you tighten the belt. This flexibility can improve your probability of success from eighty percent to over ninety percent without changing your starting withdrawal rate.
+**Stella:** The guardrails approach sets an upper and lower boundary. If your portfolio surges well above plan, you give yourself a raise. If it drops significantly, you tighten the belt. This flexibility can improve your probability of success from eighty percent to over ninety percent without changing your starting withdrawal rate.
 
-**Alex:** Where can I actually run these simulations?
+**Horace:** Where can I actually run these simulations?
 
-**Sam:** Several free tools are available.
+**Stella:** Several free tools are available.
 
 **[VISUAL: Screenshots of three tools side by side: Portfolio Visualizer, FireCalc, and cFIREsim with brief descriptions]**
 
-**Sam:** Portfolio Visualizer has a great Monte Carlo tool with customizable assumptions. FireCalc runs your plan through every historical period, which is technically not Monte Carlo but gives similar insights. And cFIREsim offers the most customization options for free.
+**Stella:** Portfolio Visualizer has a great Monte Carlo tool with customizable assumptions. FireCalc runs your plan through every historical period, which is technically not Monte Carlo but gives similar insights. And cFIREsim offers the most customization options for free.
 
-**Alex:** What are the limitations I should know about?
+**Horace:** What are the limitations I should know about?
 
-**Sam:** Three big ones. First, most tools assume returns follow a normal bell curve distribution. But real markets have fat tails, meaning crashes happen more often than the models predict.
+**Stella:** Three big ones. First, most tools assume returns follow a normal bell curve distribution. But real markets have fat tails, meaning crashes happen more often than the models predict.
 
 **[ANIMATION: Normal bell curve overlaid with actual market return distribution showing fatter tails, with the excess highlighted]**
 
-**Sam:** Second, the simulation assumes you will stick to your plan no matter what. In reality, people panic and sell at the worst times. No model can account for behavioral mistakes.
+**Stella:** Second, the simulation assumes you will stick to your plan no matter what. In reality, people panic and sell at the worst times. No model can account for behavioral mistakes.
 
-**Alex:** And the third?
+**Horace:** And the third?
 
-**Sam:** The inputs are assumptions, not facts. If you assume eight percent returns and the market only delivers five percent, your ninety percent success plan might actually be a sixty percent success plan. Always run simulations with conservative assumptions and see how sensitive the results are to changes.
+**Stella:** The inputs are assumptions, not facts. If you assume eight percent returns and the market only delivers five percent, your ninety percent success plan might actually be a sixty percent success plan. Always run simulations with conservative assumptions and see how sensitive the results are to changes.
 
 **[VISUAL: Sensitivity analysis table showing probability of success at different return/withdrawal rate combinations. Returns across the top (5%, 6%, 7%, 8%), withdrawal rates down the side (3%, 3.5%, 4%, 4.5%, 5%). Each cell shows probability of success]**
 
-**Alex:** That sensitivity table is really useful. I can see exactly how each variable affects my odds.
+**Horace:** That sensitivity table is really useful. I can see exactly how each variable affects my odds.
 
-**Sam:** That is the power of Monte Carlo. It turns vague anxiety about retirement into specific, quantifiable probabilities. You can see exactly how much saving one more year, or cutting spending by ten percent, or adjusting your allocation, changes your odds of success.
+**Stella:** That is the power of Monte Carlo. It turns vague anxiety about retirement into specific, quantifiable probabilities. You can see exactly how much saving one more year, or cutting spending by ten percent, or adjusting your allocation, changes your odds of success.
 
 **[VISUAL: Three scenario comparisons: "Retire at 62" (75% success), "Retire at 64" (87% success), "Retire at 62 but reduce spending 15%" (88% success)]**
 
-**Alex:** So the bottom line is: run the simulation, aim for eighty to ninety percent, build in flexibility, and check back regularly?
+**Horace:** So the bottom line is: run the simulation, aim for eighty to ninety percent, build in flexibility, and check back regularly?
 
-**Sam:** Exactly. And remember, Monte Carlo is a planning tool, not a crystal ball. Use it to inform your decisions, not to dictate them. The real value is understanding the range of outcomes so you can prepare for both the good scenarios and the bad ones.
+**Stella:** Exactly. And remember, Monte Carlo is a planning tool, not a crystal ball. Use it to inform your decisions, not to dictate them. The real value is understanding the range of outcomes so you can prepare for both the good scenarios and the bad ones.
 
 **[VISUAL: Summary card showing key takeaways: Sequence of returns matters, Aim for 80-90% success, Use conservative assumptions, Flexibility is your superpower, Check annually, 4% rule is a starting point not a law]**
 
-**Alex:** Thanks Sam. I feel much more confident about planning for retirement now.
+**Horace:** Thanks Stella. I feel much more confident about planning for retirement now.
 
-**Sam:** The best part is you can do this yourself tonight with free tools. Run the numbers, see where you stand, and start making informed decisions.
+**Stella:** The best part is you can do this yourself tonight with free tools. Run the numbers, see where you stand, and start making informed decisions.
 
-**Alex:** One last thing. If I run the simulation and I am at seventy-five percent, should I panic?
+**Horace:** One last thing. If I run the simulation and I am at seventy-five percent, should I panic?
 
-**Sam:** No. Seventy-five percent means you need to make some adjustments but you are not in crisis. Small changes compound into big probability improvements. Saving an extra five hundred dollars per month, delaying retirement by one year, or reducing planned spending by ten percent could each push you above eighty-five percent. The simulation tells you precisely how much each lever moves the needle.
+**Stella:** No. Seventy-five percent means you need to make some adjustments but you are not in crisis. Small changes compound into big probability improvements. Saving an extra five hundred dollars per month, delaying retirement by one year, or reducing planned spending by ten percent could each push you above eighty-five percent. The simulation tells you precisely how much each lever moves the needle.
 
 **[VISUAL: Before/after comparison showing 75% success improving to 88% with three small adjustments: $500/month more savings, 1 year later retirement, 8% less spending. Each adjustment shown with its individual probability improvement]**
 
-**Alex:** That is incredibly empowering. Instead of worrying vaguely about retirement, I can quantify exactly where I stand and what to do about it.
+**Horace:** That is incredibly empowering. Instead of worrying vaguely about retirement, I can quantify exactly where I stand and what to do about it.
 
-**Sam:** That is the whole point. Turn anxiety into arithmetic. Then take action on the specific levers that matter most for your situation.
+**Stella:** That is the whole point. Turn anxiety into arithmetic. Then take action on the specific levers that matter most for your situation.
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on retirement planning and withdrawal strategies]**
 

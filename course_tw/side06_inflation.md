@@ -1,458 +1,457 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+Now I have the full terminology dictionary. Let me produce the Taiwan Traditional Chinese translation.
 
-# Side Lesson 06: Inflation -- The Silent Thief and How to Protect Your Portfolio
-
----
-
-## PART 1: READING SECTION
+# 補充課程第06課：通膨——無聲的竊賊與如何保護您的投資組合
 
 ---
 
-### Why This Is Important
-
-Inflation is the one risk that affects every single investor, saver, and retiree on the planet. It does not discriminate by income level, investment skill, or geography. It silently erodes the purchasing power of every dollar you hold, every bond coupon you receive, and every salary you earn.
-
-Most people understand inflation in the abstract -- "things get more expensive over time." But very few investors understand how inflation is measured, why the official numbers might not match their personal experience, how it devastates fixed-income investments, and what specific tools exist to protect against it. This gap in understanding causes real harm. Retirees who plan for nominal returns instead of real returns run out of money. Investors who keep excessive cash "for safety" watch their purchasing power decay by 2-3% per year. Savers who celebrate a 5% CD yield do not realize they are barely keeping up with inflation after taxes.
-
-Understanding inflation transforms how you think about every financial decision: savings rates, asset allocation, retirement planning, and debt management.
+## 第一部分：閱讀章節
 
 ---
 
-### What You Need to Know
+### 為什麼這很重要
 
-#### What Inflation Is and Why It Happens
+通膨是唯一一種影響地球上每一位投資人、儲蓄者和退休人員的風險。它不分收入水準、投資技巧或地域。它悄無聲息地侵蝕您持有的每一分錢的購買力、您收到的每一筆債券票息，以及您賺取的每一分薪水。
 
-Inflation is the sustained increase in the general price level of goods and services over time. When inflation is 3%, a basket of goods that cost $100 this year will cost $103 next year. Your dollar buys less.
+大多數人對通膨的概念停留在抽象層面——「東西會隨著時間變貴。」但很少有投資人真正了解通膨是如何衡量的、為什麼官方數字可能與個人實際感受不符、通膨如何摧毀固定收益投資，以及有哪些具體工具可以防範。這種認知落差會造成實質傷害。以名目報酬而非實質報酬規劃退休的人會花光積蓄。把過多現金放在「安全」帳戶的投資人，眼睜睜看著購買力每年縮水2到3%。以5%定期存單殖利率慶祝的儲蓄者，卻不知道扣稅後幾乎跟不上通膨。
 
-**Causes of inflation:**
-
-1. **Demand-pull inflation** -- Too much money chasing too few goods. When consumers and businesses have abundant cash (from loose monetary policy, fiscal stimulus, or strong economic growth) and spend aggressively, prices rise. This was a significant factor in the 2021-2023 inflation surge.
-
-2. **Cost-push inflation** -- Rising production costs force businesses to raise prices. Higher energy costs, wages, raw materials, or supply chain disruptions increase the cost of making goods. The 1970s oil crises are the classic example.
-
-3. **Monetary inflation** -- Central banks increasing the money supply faster than the economy grows. More dollars in circulation relative to goods and services means each dollar is worth less. This is the "money printing" narrative.
-
-4. **Built-in (expectations-based) inflation** -- When people expect prices to rise, they demand higher wages, which increases business costs, which leads to higher prices, which confirms the expectation. This self-reinforcing cycle is why central banks care intensely about "inflation expectations."
-
-In reality, inflation episodes usually involve multiple causes simultaneously. The post-2020 inflation combined supply chain disruptions (cost-push), massive fiscal stimulus (demand-pull), and aggressive monetary expansion (monetary inflation).
-
-#### How Inflation Is Measured: CPI and Beyond
-
-**Consumer Price Index (CPI):** The most widely reported inflation measure in the United States. The Bureau of Labor Statistics (BLS) tracks the prices of approximately 80,000 items across 200 categories, weighted by how much a typical urban consumer spends on each category.
-
-CPI component weights (approximate):
-- Housing (shelter): 36%
-- Transportation: 16%
-- Food: 13%
-- Medical care: 7%
-- Education and communication: 6%
-- Recreation: 5%
-- Apparel: 2%
-- Other: 15%
-
-**CPI-U** -- The standard CPI, covering all urban consumers (about 93% of the US population).
-
-**CPI-W** -- Covers urban wage earners and clerical workers. Used to adjust Social Security benefits.
-
-**Core CPI** -- Excludes food and energy prices, which are volatile. Economists and the Federal Reserve focus on core CPI because it better reflects underlying inflation trends rather than temporary commodity price swings. However, consumers feel food and energy costs acutely, which is why "core CPI" can seem disconnected from reality.
-
-**PCE (Personal Consumption Expenditures) Price Index** -- The Federal Reserve's preferred inflation measure. It covers a broader range of expenditures, uses different weights, and accounts for consumers substituting cheaper goods when prices rise. PCE typically runs 0.3-0.5 percentage points lower than CPI.
-
-**Limitations of CPI:**
-- **Substitution bias** -- If steak prices rise, consumers buy chicken instead. CPI partially adjusts for this, but critics argue the adjustment understates the true impact on living standards.
-- **Quality adjustment (hedonic adjustments)** -- If a $30,000 car has more features than last year's $28,000 car, the BLS may record a smaller price increase (or even a decrease) because you are getting "more car." Critics argue this understates the cost of simply having a car.
-- **Owner's Equivalent Rent (OER)** -- Rather than using actual home prices, CPI uses an estimate of what homeowners would pay to rent their own homes. This can lag actual housing costs significantly during periods of rapid home price appreciation.
-- **Personal inflation rate** -- Your individual inflation experience depends on your spending patterns. If you spend heavily on healthcare and education (which inflate faster than average), your personal inflation is higher than CPI. If you are a homebody who does not drive much, your inflation may be lower.
-
-#### Inflation Across Different Spending Categories
-
-Not all prices inflate at the same rate. Understanding the variation helps you assess your personal exposure:
-
-**Faster than overall CPI:**
-- College tuition: approximately 5-7% annually over the past two decades
-- Healthcare/medical services: approximately 4-5% annually
-- Childcare: approximately 4-5% annually
-- Housing in high-demand urban areas: highly variable but often well above CPI
-
-**Roughly in line with CPI:**
-- Food at home: approximately 2-3% annually (with spikes during supply disruptions)
-- Rent (nationally): approximately 3-4% annually
-- Transportation: approximately 2-3% annually (heavily influenced by fuel prices)
-
-**Slower than CPI (or deflationary):**
-- Technology (computers, electronics, software): prices fall consistently as capability increases
-- Clothing: roughly flat to slightly increasing, driven by cheap global manufacturing
-- Communication (phone, internet): adjusted for quality, prices have fallen dramatically
-
-This variation means that a young family paying for childcare and saving for college faces a personal inflation rate well above CPI. A retiree paying for healthcare faces the same problem. Investors should plan for their personal inflation rate, not the headline number.
-
-#### Nominal vs. Real Returns
-
-**Nominal return** -- The raw percentage your investment earns, without adjusting for inflation. If your portfolio grows from $100,000 to $108,000, your nominal return is 8%.
-
-**Real return** -- The return after adjusting for inflation. If inflation was 3%, your real return is approximately 5%.
-
-**The exact formula:** Real Return = ((1 + Nominal Return) / (1 + Inflation Rate)) - 1
-
-So: (1.08 / 1.03) - 1 = 4.85%. The approximation (nominal minus inflation = 5%) is close enough for most purposes.
-
-**Why real returns matter:** Nominal returns are an illusion. If you earn 6% on your portfolio but inflation is 6%, your purchasing power has not changed. You have more dollars but they buy the same amount of goods. Real returns measure actual wealth creation.
-
-**Historical real returns (US, 1926-2024, approximate):**
-- Stocks (S&P 500): ~7% real
-- Long-term government bonds: ~2% real
-- Treasury bills (cash proxy): ~0.4% real
-- Gold: ~1% real
-- Residential real estate (national average): ~1% real
-
-The dominance of stocks becomes even more apparent when viewed in real terms. Bonds barely outpace inflation. Cash essentially treads water. Stocks are the primary vehicle for building real wealth over long periods.
-
-#### The Rule of 72 for Inflation
-
-The Rule of 72 works for inflation erosion too. Divide 72 by the inflation rate to estimate how many years it takes for prices to double (or equivalently, for the purchasing power of a fixed sum to be cut in half).
-
-- At 2% inflation: purchasing power halves in 36 years
-- At 3% inflation: purchasing power halves in 24 years
-- At 4% inflation: purchasing power halves in 18 years
-- At 6% inflation: purchasing power halves in 12 years
-- At 8% inflation: purchasing power halves in 9 years
-
-This means a retiree withdrawing a fixed dollar amount from their portfolio faces a purchasing power decline of roughly 50% over a 24-year retirement at 3% inflation. This is why retirement planning must incorporate inflation adjustments to withdrawal amounts.
-
-#### TIPS: Treasury Inflation-Protected Securities
-
-TIPS are US government bonds that adjust their principal value based on changes in CPI. They provide a direct hedge against inflation.
-
-**How TIPS work:**
-- You buy a TIPS bond with a stated real yield (e.g., 2%)
-- The principal adjusts semi-annually based on CPI changes
-- Interest payments are calculated on the inflation-adjusted principal
-- At maturity, you receive the greater of the inflation-adjusted principal or the original face value (deflation protection)
-
-**Example:**
-You buy $10,000 in TIPS with a 2% real yield. Inflation is 3% in the first year.
-
-- Adjusted principal after year 1: $10,000 x 1.03 = $10,300
-- Interest payment: $10,300 x 2% = $206
-- You have received $206 in interest and your principal has grown to $10,300
-- Your total return is approximately 5% (2% real yield + 3% inflation), which is 2% in real terms -- exactly the stated real yield
-
-**TIPS vs. nominal Treasuries:**
-The difference between a nominal Treasury yield and a same-maturity TIPS yield is called the **breakeven inflation rate**. If a 10-year Treasury yields 4.5% and a 10-year TIPS yields 2.0%, the breakeven inflation rate is 2.5%. If actual inflation over the next 10 years averages more than 2.5%, TIPS will outperform. If less than 2.5%, nominal Treasuries win.
-
-**Practical considerations:**
-- TIPS interest is taxable annually, including the inflation adjustment to principal (even though you do not receive the principal adjustment until maturity). This creates "phantom income" that is taxed. For this reason, TIPS are best held in tax-advantaged accounts.
-- TIPS prices fluctuate with changes in real interest rates. If real rates rise, TIPS prices fall (like all bonds). TIPS protect against inflation, not against rising real rates.
-- I-Bonds (Series I savings bonds) offer similar inflation protection for retail investors, with the added benefit of tax deferral until redemption. Annual purchase limits ($10,000 per person per year electronically, plus up to $5,000 in paper bonds via tax refund) make them useful but limited.
-
-#### I-Bonds: The Retail Investor's Inflation Shield
-
-I-Bonds deserve dedicated attention because they combine several advantages that TIPS lack:
-
-**Rate structure:** I-Bond rates have two components. A fixed rate (set at purchase, permanent for the life of the bond) plus an inflation rate (adjusted every six months based on CPI). The composite rate equals the fixed rate plus twice the semiannual inflation rate, plus a cross-product term. The composite rate can never go below zero -- I-Bonds will never lose nominal value.
-
-**Tax advantages:** Unlike TIPS, I-Bond interest is not taxed until redemption. This eliminates the phantom income problem entirely. Interest is also exempt from state and local taxes. If used for qualified higher education expenses (subject to income limits), the interest can be completely tax-free at the federal level as well.
-
-**No market risk:** I-Bonds are not traded on the secondary market, so there is no price volatility. You redeem them directly with the US Treasury at their full accrued value. This means rising real interest rates do not cause I-Bond prices to fall, unlike TIPS.
-
-**Limitations:** The $10,000 annual electronic purchase limit per person (plus $5,000 in paper form via tax refund) caps the total amount you can accumulate. You must hold for at least one year, and redemption before five years forfeits the last three months of interest. You cannot sell them to another investor.
-
-**When I-Bonds are most valuable:** During periods of elevated inflation with a positive fixed rate, I-Bonds become one of the best risk-free investments available. During the 2022 inflation spike, I-Bond composite rates briefly exceeded 9%. Even in lower-inflation environments, a positive fixed rate ensures a guaranteed real return with no credit risk, no market risk, and favorable tax treatment.
-
-#### Inflation Hedges: What Actually Works
-
-**Equities (stocks):** Over the long term, stocks are the best inflation hedge because companies can raise prices, cut costs, and grow earnings in nominal terms. Revenue and profits rise with inflation, supporting stock prices. However, stocks are a poor short-term inflation hedge -- unexpected inflation spikes often cause stock market declines as discount rates rise and economic uncertainty increases. The 1970s saw poor real stock returns despite stocks' long-term inflation-hedging properties.
-
-**Real estate:** Physical real estate is a natural inflation hedge because rental income and property values tend to rise with inflation. Landlords can raise rents, and replacement costs for buildings increase with construction costs. Mortgages become easier to service as income inflates while fixed-rate payments remain constant. However, real estate is illiquid, capital-intensive, and subject to local market conditions. REITs provide liquid real estate exposure but trade like stocks in the short term.
-
-**Commodities:** Direct commodity exposure (through futures or commodity ETFs) provides an inflation hedge because commodity prices are a component of inflation. Energy, food, and metals prices rise during inflationary periods. However, commodity returns over the long term have been modest, and commodity futures involve roll costs that can drag performance. Commodities are volatile and do not produce income.
-
-**TIPS and I-Bonds:** The most direct inflation hedge, as discussed above. They guarantee a real return. Their limitation is that real yields are modest (often below 2%), so they protect purchasing power but do not build significant real wealth.
-
-**Gold:** Often called the ultimate inflation hedge, but the evidence is mixed. Gold held its value during the extreme 1970s inflation and surged during the post-2020 inflation. But gold also had long periods of poor performance during moderate inflation (1980-2000). Gold produces no income, has storage costs, and is highly volatile. It is better characterized as a hedge against extreme monetary debasement or crisis rather than a reliable hedge against moderate, steady inflation.
-
-**Floating-rate instruments:** Floating-rate bonds and bank loans have interest rates that reset periodically based on benchmark rates. When inflation rises and the Fed raises rates, floating-rate income rises too. These provide some inflation protection but carry credit risk.
-
-**Infrastructure:** Toll roads, pipelines, utilities, and airports often have revenues tied to inflation through contractual escalators or regulatory frameworks. Infrastructure assets can provide inflation-linked income streams with lower volatility than equities. Listed infrastructure funds and REITs provide liquid access.
-
-**What does NOT hedge inflation:**
-- Long-term fixed-rate bonds -- the worst asset class during inflation, as fixed coupon payments lose purchasing power and rising rates cause price declines
-- Cash and money market funds -- real returns are often negative during inflationary periods, even when nominal rates rise, because rates tend to lag inflation
-- Growth stocks with no current earnings -- valued on distant future cash flows that are heavily discounted when rates rise
-- Fixed annuities without inflation riders -- similar to fixed bonds, the purchasing power of fixed payments erodes over time
-
-#### Historical Inflation Episodes: Lessons Learned
-
-Understanding past inflation helps calibrate expectations:
-
-**The Great Inflation (1965-1982):** CPI averaged roughly 7% per year for nearly two decades. The peak came in 1980 at 13.5%. Causes included the Vietnam War spending, loose monetary policy under Fed Chair Arthur Burns, two oil embargoes (1973 and 1979), and wage-price spirals. Stocks delivered poor real returns during this period. Bonds were devastated. Real estate and commodities thrived. The era ended only when Fed Chair Paul Volcker raised the federal funds rate to 20%, triggering a severe recession but finally breaking inflationary expectations.
-
-**The Great Moderation (1983-2019):** After Volcker's intervention, inflation averaged about 2.5% for nearly four decades. Central bank independence, globalization (cheap labor and goods from emerging markets), technology-driven productivity gains, and credible inflation targeting kept prices stable. Many investors became complacent, assuming inflation was permanently subdued.
-
-**The Post-Pandemic Surge (2021-2023):** CPI reached 9.1% in June 2022, the highest since 1981. Causes included massive fiscal stimulus ($5+ trillion in COVID relief), supply chain disruptions, labor shortages, pent-up demand, and energy price spikes from the Russia-Ukraine conflict. The Fed raised rates aggressively from 0% to 5.25-5.50%. Inflation returned to the 3-4% range by late 2023 but proved stickier than initially expected.
-
-**Key lessons:** Inflation can emerge suddenly after long periods of stability. Central banks can control inflation but at the cost of recession and financial market pain. Investors who are positioned for a single inflation regime (either permanently low or permanently high) are vulnerable to regime changes.
-
-#### Inflation and Retirement Planning
-
-Inflation is the most underestimated risk in retirement planning. The combination of a fixed (or slowly growing) income stream, a multi-decade time horizon, and rising healthcare costs (which inflate faster than general CPI) creates a dangerous environment.
-
-**Key considerations:**
-
-1. **Social Security is inflation-adjusted** -- Benefits are increased annually by the CPI-W Cost of Living Adjustment (COLA). This makes Social Security one of the most valuable assets a retiree has, as it provides a real (inflation-adjusted) income floor.
-
-2. **Most pensions are not fully inflation-adjusted** -- Some government pensions include COLAs, but many private pensions pay a fixed nominal amount forever. A $50,000 annual pension loses half its purchasing power over 24 years at 3% inflation.
-
-3. **The 4% rule assumes inflation adjustments** -- The Trinity Study's 4% withdrawal rule assumes you withdraw 4% in year one and then increase the dollar amount by inflation each year. This means your withdrawal rate relative to the portfolio actually increases over time, which is why the rule requires a substantial equity allocation to generate real growth.
-
-4. **Healthcare inflation runs 2-3x general inflation** -- For retirees, healthcare is typically a growing share of spending. Using general CPI to plan healthcare costs will lead to significant underestimation.
-
-5. **Sequence of returns risk is amplified by inflation** -- A bear market early in retirement is bad. A bear market combined with high inflation early in retirement is devastating, because you are withdrawing larger nominal amounts from a declining portfolio.
+理解通膨能徹底改變您對每一個財務決策的思考方式：儲蓄率、資產配置、退休規劃和債務管理。
 
 ---
 
-### Common Misconceptions
+### 您需要知道的事
 
-**"Inflation is always bad."**
-Moderate, stable inflation (around 2%) is actually considered healthy for an economy. It encourages spending and investment (why sit on cash that loses value?), allows real wages to adjust downward without nominal wage cuts (which are psychologically devastating for workers), and gives central banks room to cut interest rates during recessions. Deflation -- falling prices -- is far more dangerous because it causes consumers to delay purchases, increases the real burden of debt, and can spiral into economic depression.
+#### 什麼是通膨以及為何會發生
 
-**"The government manipulates CPI to understate inflation."**
-While CPI methodology has changed over time (substitution adjustments, hedonic quality adjustments, changes in housing measurement), these changes were made by career statisticians for defensible methodological reasons, not to suppress the number for political purposes. Alternative measures like the Billion Prices Project (which tracked millions of online prices) have generally confirmed that CPI is a reasonable, if imperfect, measure. Your personal inflation may differ from CPI, but that does not mean CPI is manipulated.
+通膨是商品和服務整體物價水準隨時間持續上升的現象。當通膨率為3%時，今年花費100美元的一籃子商品，明年將花費103美元。您的錢購買力下降了。
 
-**"Gold is the best inflation hedge."**
-Gold's track record as an inflation hedge is inconsistent. It performed spectacularly during the 1970s stagflation and the post-2020 inflation. But from 1980 to 2000, gold lost 70% of its value in real terms while inflation averaged about 3.5% per year. Stocks, real estate, and TIPS have more consistent inflation-hedging properties. Gold is better understood as a hedge against extreme monetary disorder, not against routine 2-4% annual inflation.
+**通膨的成因：**
 
-**"If inflation is 3%, I need my investments to return at least 3% to break even."**
-Actually, you need to earn more than 3% because investment returns are taxed. If you are in the 25% combined tax bracket and earn 4% on a CD, your after-tax return is 3%. If inflation is 3%, your real after-tax return is approximately zero. To earn a positive real after-tax return of 2%, you would need a pre-tax nominal return of about 6.7%. This is why holding cash or low-yielding bonds in taxable accounts during inflationary periods can be a losing strategy in real terms.
+1. **需求拉動型通膨**——太多錢追逐太少商品。當消費者和企業擁有大量現金（來自寬鬆貨幣政策、財政刺激或強勁經濟成長）並積極消費時，物價便會上漲。這是2021至2023年通膨飆升的重要因素。
 
-**"Inflation hurts everyone equally."**
-Inflation has distributional effects. It hurts savers, bondholders, retirees on fixed incomes, and workers whose wages lag price increases. It helps borrowers (whose debt is repaid in cheaper dollars), owners of real assets (whose property values rise), and companies with pricing power (who can pass costs to consumers). If you have a large fixed-rate mortgage, moderate inflation is actually beneficial because your home value and income rise while your mortgage payment stays the same.
+2. **成本推動型通膨**——生產成本上升迫使企業提高售價。能源、工資、原物料成本上漲或供應鏈中斷，都會增加商品生產成本。1970年代的石油危機是最典型的例子。
 
-**"Cryptocurrency is a good inflation hedge."**
-Despite the "digital gold" narrative, Bitcoin and other cryptocurrencies have shown little correlation with inflation in their short history. During the 2022 inflation spike, Bitcoin fell more than 60% from its highs. Crypto prices are driven primarily by speculation, adoption narratives, and risk appetite -- not by inflation expectations. It may evolve into an inflation hedge over time as the asset class matures, but the evidence is not there yet.
+3. **貨幣型通膨**——央行增加貨幣供給的速度超過經濟成長速度。相對於商品和服務，流通中的貨幣增加，意味著每一元的價值降低。這就是「印鈔」的敘事。
 
-**"We can just look at the 10-Year Treasury yield to know expected inflation."**
-The 10-Year Treasury yield incorporates expected inflation, but also includes a real yield component and a term premium (compensation for duration risk). A better measure of expected inflation is the breakeven rate (nominal Treasury yield minus TIPS yield), which isolates the inflation component. Even breakeven rates are imperfect because they include an inflation risk premium and a liquidity premium.
+4. **內建型（預期型）通膨**——當人們預期物價將上漲時，他們要求更高的工資；這增加了企業成本，進而導致物價上漲，從而印證了預期。這種自我強化的循環，正是央行高度關注「通膨預期」的原因。
+
+現實中，通膨事件通常涉及多種原因同時作用。2020年後的通膨結合了供應鏈中斷（成本推動）、大規模財政刺激（需求拉動）以及激進的貨幣擴張（貨幣型通膨）。
+
+#### 通膨如何衡量：CPI及其他指標
+
+**消費者物價指數（CPI）：** 美國最廣泛報告的通膨衡量指標。美國勞工統計局（BLS）追蹤200個類別中大約80,000個項目的價格，根據典型城市消費者在各類別的支出比例加權。
+
+CPI組成比重（近似值）：
+- 住房（居所）：36%
+- 交通：16%
+- 食品：13%
+- 醫療保健：7%
+- 教育與通訊：6%
+- 娛樂：5%
+- 服飾：2%
+- 其他：15%
+
+**CPI-U**——標準CPI，涵蓋所有城市消費者（約佔美國人口的93%）。
+
+**CPI-W**——涵蓋城市工資所得者和辦公室員工。用於調整社會安全福利金。
+
+**核心CPI**——排除價格波動較大的食品和能源。經濟學家和聯準會關注核心CPI，因為它更能反映基本通膨趨勢，而非暫時性的大宗商品價格波動。然而，消費者對食品和能源成本感受強烈，這就是為什麼「核心CPI」有時顯得脫離現實。
+
+**個人消費支出物價指數（PCE）**——聯準會偏好的通膨衡量指標。它涵蓋更廣泛的支出範圍，使用不同的比重，並考量消費者在物價上漲時改買更便宜商品的替代行為。PCE通常比CPI低0.3至0.5個百分點。
+
+**CPI的局限性：**
+- **替代偏差**——若牛排價格上漲，消費者改買雞肉。CPI對此做了部分調整，但批評者認為調整幅度低估了對生活水準的實際影響。
+- **品質調整（享樂調整）**——若一輛30,000美元的汽車比去年28,000美元的款型功能更多，BLS可能記錄為較小幅度的漲價（甚至是降價），因為您「獲得了更好的車」。批評者認為這低估了單純「擁有一輛車」的成本。
+- **業主等值租金（OER）**——CPI不使用實際房價，而是估算屋主租用自己房屋需支付的租金。在房價快速上漲時期，這可能與實際住房成本出現顯著落差。
+- **個人通膨率**——您的個人通膨感受取決於您的消費模式。如果您在醫療保健和教育（通膨速度超過平均）上支出較多，您的個人通膨率高於CPI。如果您足不出戶且很少開車，您的通膨率可能低於CPI。
+
+#### 不同消費類別的通膨差異
+
+並非所有價格的通膨速度相同。了解其差異有助於評估您的個人曝險：
+
+**高於整體CPI：**
+- 大學學費：過去二十年每年約5至7%
+- 醫療保健/醫療服務：每年約4至5%
+- 托育費用：每年約4至5%
+- 高需求城市地區的住房：差異極大，但往往遠高於CPI
+
+**大致與CPI持平：**
+- 居家食品：每年約2至3%（供應中斷期間會有波峰）
+- 租金（全國）：每年約3至4%
+- 交通：每年約2至3%（受油價影響顯著）
+
+**低於CPI（或通縮）：**
+- 科技（電腦、電子產品、軟體）：隨能力提升，價格持續下降
+- 服飾：大致持平至微幅上漲，受廉價全球製造業驅動
+- 通訊（電話、網路）：調整品質後，價格已大幅下降
+
+這種差異意味著，支付托育費用、為大學教育存錢的年輕家庭，其個人通膨率遠高於CPI。醫療費用大的退休人員面臨同樣問題。投資人應根據個人通膨率而非標題數字來規劃。
+
+#### 名目報酬 vs. 實質報酬
+
+**名目報酬**——您投資賺取的原始百分比，未經通膨調整。若您的投資組合從100,000美元增長至108,000美元，名目報酬為8%。
+
+**實質報酬**——扣除通膨後的報酬。若通膨率為3%，您的實質報酬約為5%。
+
+**精確公式：** 實質報酬 = ((1 + 名目報酬) / (1 + 通膨率)) - 1
+
+即：(1.08 / 1.03) - 1 = 4.85%。近似算法（名目報酬減通膨 = 5%）在大多數情況下已足夠精確。
+
+**為何實質報酬重要：** 名目報酬是一種幻象。若您的投資組合賺取6%而通膨為6%，您的購買力並未改變。您擁有更多的錢，但它們購買的商品數量相同。實質報酬衡量的才是真正的財富創造。
+
+**歷史實質報酬（美國，1926至2024年，近似值）：**
+- 股票（S&P 500）：約7%實質報酬
+- 長期政府公債：約2%實質報酬
+- 國庫券（現金替代）：約0.4%實質報酬
+- 黃金：約1%實質報酬
+- 住宅房地產（全國平均）：約1%實質報酬
+
+以實質報酬視角來看，股票的優勢更加突出。債券幾乎只能跟上通膨。現金基本上原地踏步。股票是長期建立實質財富的主要工具。
+
+#### 通膨的72法則
+
+72法則同樣適用於通膨侵蝕。用72除以通膨率，可估算物價翻倍（或等同地，固定金額購買力減半）所需的年數。
+
+- 2%通膨：購買力在36年後減半
+- 3%通膨：購買力在24年後減半
+- 4%通膨：購買力在18年後減半
+- 6%通膨：購買力在12年後減半
+- 8%通膨：購買力在9年後減半
+
+這意味著，以固定金額從投資組合提款的退休人員，在3%通膨下，24年退休期間購買力將下降約50%。這就是為什麼退休規劃必須將提款金額的通膨調整納入考量。
+
+#### TIPS：通膨保值國庫券
+
+TIPS是美國政府公債，其本金根據CPI變動進行調整。它們提供對抗通膨的直接避險工具。
+
+**TIPS如何運作：**
+- 您購買一張TIPS債券，具有既定的實質殖利率（例如2%）
+- 本金每半年根據CPI變動調整一次
+- 利息按通膨調整後的本金計算
+- 到期時，您收到通膨調整後本金與原始面值中較高者（通縮保護）
+
+**範例：**
+您以2%實質殖利率購買10,000美元TIPS。第一年通膨為3%。
+
+- 第一年後調整本金：10,000美元 × 1.03 = 10,300美元
+- 利息支付：10,300美元 × 2% = 206美元
+- 您收到206美元利息，本金增長至10,300美元
+- 您的總報酬約為5%（2%實質殖利率 + 3%通膨），實質上為2%——恰好等於約定的實質殖利率
+
+**TIPS vs. 一般國庫券：**
+一般國庫券殖利率與同期TIPS殖利率的差值稱為**損益平衡通膨率**。若10年期國庫券殖利率為4.5%，10年期TIPS殖利率為2.0%，損益平衡通膨率即為2.5%。若未來10年實際平均通膨超過2.5%，TIPS將勝出。若低於2.5%，一般國庫券則較佳。
+
+**實務考量：**
+- TIPS利息每年須繳稅，包括本金的通膨調整部分（即使您在到期前不會收到本金調整）。這產生了「幻影收入」的課稅問題。因此，TIPS最好持有在稅賦優惠帳戶中。
+- TIPS價格隨實質利率變動而波動。若實質利率上升，TIPS價格下跌（如同所有債券）。TIPS防範的是通膨，而非實質利率上升。
+- I型儲蓄債券（I-Bonds）為散戶投資人提供類似的通膨保護，並額外具備遞延課稅的優惠（直至贖回時才課稅）。年度購買限額（每人每年電子購買10,000美元，另可透過退稅購買最多5,000美元紙本債券）使其實用但有限。
+
+#### I-Bonds：散戶投資人的通膨防護盾
+
+I-Bonds值得單獨討論，因為它們結合了TIPS所缺乏的幾項優勢：
+
+**利率結構：** I-Bonds利率由兩部分組成：固定利率（購買時設定，終身不變）加上通膨利率（每六個月根據CPI調整）。綜合利率等於固定利率加上半年通膨率的兩倍，再加上交叉乘積項。綜合利率永遠不會低於零——I-Bonds絕不會出現名目損失。
+
+**稅務優勢：** 與TIPS不同，I-Bonds利息在贖回前不須課稅。這完全消除了幻影收入的問題。利息也免徵州及地方稅。若用於合格高等教育費用（受收入限制），聯邦層面的利息甚至可以完全免稅。
+
+**無市場風險：** I-Bonds不在次級市場交易，因此沒有價格波動。您直接向美國財政部以全額累計價值贖回。這意味著實質利率上升不會導致I-Bonds價格下跌，不同於TIPS。
+
+**限制：** 每人每年電子購買上限10,000美元（另可透過退稅購買5,000美元紙本），限制了可累積的總金額。您必須持有至少一年，且五年前贖回將損失最後三個月的利息。您不能將其轉售給其他投資人。
+
+**I-Bonds最具價值的時機：** 在通膨高企且固定利率為正值的時期，I-Bonds成為可用的最佳無風險投資之一。2022年通膨飆升期間，I-Bonds綜合利率一度超過9%。即便在通膨較低的環境下，正固定利率也確保了有保證的實質報酬，且無信用風險、無市場風險，並享有稅務優惠。
+
+#### 通膨避險工具：什麼真正有效
+
+**股票：** 長期而言，股票是最佳的通膨避險工具，因為企業可以提高售價、削減成本，並以名目金額增加盈餘。營收和利潤隨通膨上升，支撐股價。然而，股票是短期通膨的差勁避險工具——意外的通膨飆升往往導致股市下跌，因為折現率上升，經濟不確定性增加。1970年代儘管股票具有長期通膨避險屬性，卻出現了惡劣的實質報酬。
+
+**房地產：** 實體房地產是天然的通膨避險工具，因為租金收入和房產價值往往隨通膨上升。房東可以提高租金，建築物的重置成本也隨建築成本上升。隨著收入因通膨增加而固定利率的房貸還款保持不變，房貸服務的壓力逐漸減輕。然而，房地產缺乏流動性、資本密集，且受當地市場條件影響。不動產投資信託（REITs）提供流動的房地產曝險，但短期內表現如股票。
+
+**大宗商品：** 透過期貨或大宗商品指數股票型基金（ETF）的直接大宗商品曝險，提供通膨避險，因為大宗商品價格是通膨的組成部分。能源、食品和金屬價格在通膨時期上漲。然而，大宗商品的長期報酬並不突出，且大宗商品期貨涉及轉倉成本，可能拖累績效。大宗商品波動性大且不產生收益。
+
+**TIPS和I-Bonds：** 如上所述，是最直接的通膨避險工具。它們保證實質報酬。其限制在於實質殖利率適中（通常低於2%），因此它們能保護購買力，但無法創造顯著的實質財富。
+
+**黃金：** 常被稱為終極通膨避險工具，但實證記錄不一致。黃金在1970年代的停滯性通膨和2020年後的通膨期間表現卓越。但從1980年到2000年，黃金的實質價值縮水70%，而期間平均通膨率約為3.5%。黃金更應被視為對極端貨幣貶值或危機的避險工具，而非對溫和、穩定通膨的可靠避險手段。
+
+**浮動利率工具：** 浮動利率債券和銀行貸款的利率會定期根據基準利率重設。當通膨上升且聯準會升息時，浮動利率收益也會上升。這些工具提供一定的通膨保護，但帶有信用風險。
+
+**基礎建設：** 收費公路、管線、公用事業和機場通常透過合約遞增條款或監管框架，將收益與通膨掛鉤。基礎建設資產可提供與通膨連動的收益流，且波動性低於股票。上市基礎建設基金和不動產投資信託（REITs）提供流動性管道。
+
+**無法避險通膨的資產：**
+- 長期固定利率債券——通膨期間表現最差的資產類別，固定票息的購買力下降，且利率上升導致價格下跌
+- 現金和貨幣市場基金——通膨時期的實質報酬往往為負值，即便名目利率上升，因為利率往往落後於通膨
+- 無當期盈餘的成長型股票——以遙遠未來現金流估值，在利率上升時折現率大幅提高
+- 無通膨調整條款的固定年金——類似固定利率債券，固定給付的購買力隨時間侵蝕
+
+#### 歷史通膨事件：汲取教訓
+
+了解過去的通膨有助於校準預期：
+
+**大通膨時代（1965至1982年）：** CPI近二十年平均約為每年7%。1980年的高峰達13.5%。成因包括越戰支出、聯準會主席亞瑟·伯恩斯（Arthur Burns）主導的寬鬆貨幣政策、兩次石油禁運（1973和1979年），以及工資與物價的螺旋式上漲。這一時期股票的實質報酬不佳，債券遭受重創。房地產和大宗商品則大幅升值。直至聯準會主席保羅·沃克爾（Paul Volcker）將聯邦基金利率提升至20%，觸發嚴重衰退，才終於打破通膨預期，結束此一時代。
+
+**大緩和時代（1983至2019年）：** 沃克爾干預後，通膨在近四十年間平均約為2.5%。央行獨立性、全球化（來自新興市場的廉價勞動力和商品）、科技驅動的生產力提升，以及可信賴的通膨目標制，共同維持了物價穩定。許多投資人因此自滿，認為通膨已永久性地受到抑制。
+
+**疫後通膨飆升（2021至2023年）：** CPI在2022年6月達到9.1%，為1981年以來最高。成因包括大規模財政刺激（超過5萬億美元的COVID紓困資金）、供應鏈中斷、勞動力短缺、被壓抑的需求釋放，以及俄烏衝突引發的能源價格飆升。聯準會激進升息，從0%升至5.25至5.50%。通膨在2023年底回落至3至4%區間，但事實證明其黏性超出了最初的預期。
+
+**關鍵教訓：** 通膨在長期穩定後可能突然出現。央行可以控制通膨，但代價是衰退和金融市場陣痛。僅為單一通膨情境（永久低通膨或永久高通膨）做好準備的投資人，在情境轉變時將面臨脆弱性。
+
+#### 通膨與退休規劃
+
+通膨是退休規劃中最被低估的風險。固定（或緩慢增長）收入流、數十年的時間跨度，以及醫療保健費用（通膨速度高於一般CPI）的快速上漲，共同構成了危險的環境。
+
+**主要考量事項：**
+
+1. **社會安全福利金經過通膨調整**——福利金每年依CPI-W的生活費用調整（COLA）增加。這使社會安全福利金成為退休人員最寶貴的資產之一，因為它提供了一個實質（通膨調整後的）收入底線。
+
+2. **大多數退休金並未完全進行通膨調整**——部分政府退休金包含COLA，但許多私人退休金終身支付固定名目金額。在3%通膨下，一份5萬美元的年度退休金在24年後將損失一半購買力。
+
+3. **4%法則假設通膨調整後的提款**——三一研究（Trinity Study）的4%提款法則假設第一年提款4%，此後每年按通膨增加提款金額。這意味著相對於投資組合的提款率實際上隨時間上升，這也是為何此法則需要相當大的股票配置來產生實質成長。
+
+4. **醫療保健通膨是一般通膨的2至3倍**——對退休人員而言，醫療保健通常佔支出的比例不斷增加。以一般CPI規劃醫療費用，將導致嚴重低估。
+
+5. **報酬順序風險因通膨而放大**——退休初期遭遇空頭市場已然不利。若空頭市場加上高通膨在退休初期同時出現，則具有毀滅性，因為您從下跌的投資組合中提取更大的名目金額。
 
 ---
 
-### Q&A Section
+### 常見誤解
 
-**Q: If stocks are the best long-term inflation hedge, why did they perform so poorly in the 1970s?**
-A: The 1970s were a period of "stagflation" -- high inflation combined with low economic growth. Stocks can handle moderate inflation (companies adjust prices, revenues grow), but extreme, unexpected inflation combined with recession is toxic for equity valuations. P/E ratios compressed dramatically because investors demanded higher returns to compensate for inflation risk. Once inflation was tamed in the early 1980s, stock valuations expanded and produced enormous returns. The key lesson: stocks hedge inflation over the long term but can suffer significantly during inflation shocks.
+**「通膨總是有害的。」**
+溫和、穩定的通膨（約2%）實際上被認為對經濟有益。它鼓勵消費和投資（為何要持有縮水的現金？），使實質工資能夠在不削減名目工資（對員工心理打擊巨大）的情況下向下調整，並給予央行在衰退期間降息的空間。通縮——物價下跌——則危險得多，因為它使消費者推遲購買，增加債務的實質負擔，並可能螺旋式進入經濟蕭條。
 
-**Q: Should I adjust my asset allocation based on inflation expectations?**
-A: Modestly. If you believe inflation will be persistently higher, tilting toward TIPS, commodities, real estate (REITs), and short-duration bonds can help. Avoid long-duration fixed-rate bonds during rising inflation. But do not make dramatic changes based on inflation forecasts, which are notoriously inaccurate. A well-diversified portfolio with a meaningful equity allocation provides reasonable inflation protection without requiring you to predict inflation accurately.
+**「政府操縱CPI以低報通膨。」**
+雖然CPI方法論隨時間有所改變（替代調整、享樂品質調整、住房衡量方式的改變），但這些改變是由職業統計學家出於合理的方法論原因做出的，並非為了政治目的壓低數字。追蹤數百萬線上價格的「十億物價計畫」（Billion Prices Project）等替代衡量指標，通常也確認CPI是一個合理（儘管不完美）的衡量指標。您的個人通膨可能與CPI不同，但這並不代表CPI受到操縱。
 
-**Q: How much of my portfolio should be in TIPS?**
-A: There is no universal answer, but a common approach is to allocate 20-30% of the fixed-income portion to TIPS. For a 60/40 portfolio, that means 8-12% of the total portfolio. Some financial planners recommend enough TIPS (or I-Bonds) to cover essential living expenses in real terms for the first 5-10 years of retirement, with the remaining portfolio in equities for long-term growth.
+**「黃金是最佳的通膨避險工具。」**
+黃金作為通膨避險工具的記錄並不一致。它在1970年代的停滯性通膨和2020年後的通膨中表現卓越。但從1980年到2000年，在通膨平均約3.5%的情況下，黃金損失了70%的實質價值。股票、房地產和TIPS具有更一致的通膨避險屬性。黃金更應被理解為對極端貨幣混亂的避險工具，而非對例行性2至4%年通膨的可靠避險手段。
 
-**Q: Are I-Bonds better than TIPS?**
-A: For most retail investors, I-Bonds have some advantages: they are tax-deferred (TIPS are not), they never lose nominal value (TIPS can trade below par before maturity), and they can be redeemed after one year (with a three-month interest penalty if redeemed before five years). The main disadvantage is the $10,000 annual purchase limit. For amounts exceeding the I-Bond limit, TIPS are the alternative.
+**「若通膨為3%，我的投資至少需要報酬3%才能損益平衡。」**
+事實上，您需要賺取超過3%，因為投資報酬需要課稅。若您的綜合稅率為25%，在定期存單上賺取4%，您的稅後報酬為3%。若通膨為3%，您的實質稅後報酬約為零。要賺取2%的正實質稅後報酬，您需要約6.7%的稅前名目報酬。這就是為什麼在通膨時期，在應稅帳戶中持有現金或低殖利率債券，可能在實質意義上是虧損策略。
 
-**Q: What is the difference between "expected" and "unexpected" inflation?**
-A: Expected inflation is already priced into asset values, interest rates, and wages. If everyone expects 3% inflation, nominal Treasury yields include a 3% inflation premium. Unexpected inflation -- the portion that surprises markets -- is what causes disruption. Rising inflation from 3% to 6% when markets expected 3% causes bond prices to fall, stock multiples to compress, and portfolios to suffer. Inflation hedging is primarily about protecting against unexpected inflation.
+**「通膨對所有人的影響相同。」**
+通膨具有分配效應。它傷害儲蓄者、債券持有人、依靠固定收入的退休人員，以及工資漲幅落後物價的勞工。它有利於借款人（債務以更便宜的貨幣償還）、實體資產擁有者（房產價值上升），以及擁有定價能力的企業（可將成本轉嫁給消費者）。若您有大額固定利率房貸，溫和通膨實際上對您有利，因為房屋價值和收入隨通膨上漲，而房貸還款保持不變。
 
-**Q: How does the Federal Reserve target inflation?**
-A: The Fed has a 2% annual inflation target (measured by PCE, not CPI). It uses interest rate policy (the federal funds rate) as its primary tool. When inflation is above target, the Fed raises rates to cool economic activity and reduce spending. When inflation is below target or the economy is weak, it cuts rates to stimulate borrowing and spending. The Fed can also use quantitative easing (buying bonds to inject money into the system) or quantitative tightening (reducing its bond holdings) to influence longer-term rates and financial conditions.
+**「加密貨幣是良好的通膨避險工具。」**
+儘管有「數位黃金」的敘事，比特幣和其他加密貨幣在其短暫的歷史中與通膨的相關性很低。在2022年通膨飆升期間，比特幣從高點跌逾60%。加密貨幣價格主要由投機、採用敘事和風險偏好驅動，而非通膨預期。它可能隨著資產類別成熟而演化為通膨避險工具，但目前還沒有充分證據。
 
-**Q: What should I do with my portfolio during a high-inflation period?**
-A: Resist the urge to make dramatic changes. Ensure you have adequate exposure to real assets (equities, real estate, commodities) and inflation-linked bonds (TIPS, I-Bonds). Shorten the duration of your fixed-income holdings to reduce sensitivity to rising rates. Review your retirement spending plan and adjust withdrawal assumptions for higher inflation. And remember that high-inflation periods eventually end -- the last thing you want is to abandon your long-term strategy based on a short-term environment.
-
-**Q: What is the difference between disinflation, deflation, and stagflation?**
-A: Disinflation is a decrease in the inflation rate -- prices are still rising, just more slowly (e.g., inflation falling from 5% to 2%). This is generally positive for financial assets. Deflation is an actual decline in the price level -- prices are falling. This sounds beneficial for consumers but is economically dangerous because it increases the real burden of debt, discourages spending ("why buy today if it will be cheaper tomorrow"), and is associated with depression. Stagflation is the combination of stagnant economic growth, high unemployment, and high inflation -- the worst of all worlds. Both stocks and bonds tend to perform poorly during stagflation. The 1970s are the classic example.
-
-**Q: Are I-Bonds better than TIPS for most investors?**
-A: For amounts up to the $10,000 annual limit, I-Bonds have several advantages over TIPS: tax deferral (no phantom income), no market price risk, and a deflation floor that protects nominal value. The main disadvantage is the purchase limit and the one-year lock-up period. For investors who need more than $10,000 of inflation protection annually, TIPS fill the gap. The optimal approach is to max out I-Bonds first, then use TIPS (held in tax-advantaged accounts) for additional inflation-protected fixed income.
-
-**Q: How does inflation affect mortgage decisions?**
-A: Inflation is generally favorable for fixed-rate mortgage holders because your mortgage payment remains constant while your income and home value rise with inflation. Over time, the real cost of your mortgage payments declines. This is one reason homeownership is often cited as an inflation hedge -- not just because home values appreciate, but because the debt used to purchase the home becomes cheaper in real terms. Conversely, adjustable-rate mortgages lose this advantage because their payments rise with interest rates during inflationary periods.
-
-**Q: What is the relationship between the Federal Reserve and inflation?**
-A: The Fed has a dual mandate: maximum employment and price stability. It targets 2% annual inflation as measured by the PCE index. When inflation exceeds the target, the Fed raises the federal funds rate to cool economic activity, making borrowing more expensive and slowing spending. When inflation is too low or the economy is weak, it cuts rates to stimulate growth. The Fed can also use balance sheet tools -- quantitative easing (buying bonds to inject money) or quantitative tightening (letting bonds mature to reduce money supply). Fed credibility in fighting inflation is crucial because if markets believe the Fed will tolerate higher inflation, expectations become self-fulfilling.
+**「我們只要看10年期國庫券殖利率，就能知道預期通膨。」**
+10年期國庫券殖利率包含預期通膨，但也包括實質殖利率和期限溢價（對持續期間風險的補償）。衡量預期通膨的更好指標是損益平衡通膨率（名目國庫券殖利率減TIPS殖利率），它隔離了通膨部分。即便損益平衡通膨率也不完美，因為它包含通膨風險溢價和流動性溢價。
 
 ---
 
-## PART 2: YOUTUBE SCRIPT
+### 問答章節
+
+**問：如果股票是最佳的長期通膨避險工具，為何它們在1970年代表現如此糟糕？**
+答：1970年代是「停滯性通膨」時期——高通膨加上低經濟成長。股票可以承受溫和通膨（企業調整售價，營收增長），但極端、意外的通膨加上衰退，對股票估值具有毒性。由於投資人要求更高報酬來補償通膨風險，本益比大幅壓縮。1980年代初通膨被控制後，股票估值擴張，產生了豐厚報酬。關鍵教訓：股票長期可避險通膨，但在通膨衝擊期間可能顯著受損。
+
+**問：我是否應該根據通膨預期調整資產配置？**
+答：可以做些許調整。若您認為通膨將持續偏高，向TIPS、大宗商品、房地產（不動產投資信託）和短存續期間債券傾斜，可能有所幫助。避免在通膨上升期間持有長存續期間固定利率債券。但不要根據通膨預測做出劇烈調整——這類預測出了名的不準確。擁有相當股票配置的充分分散投資組合，無需精確預測通膨，便能提供合理的通膨保護。
+
+**問：我的投資組合中應有多少比例配置在TIPS？**
+答：沒有統一的答案，但常見做法是將固定收益部分的20至30%配置於TIPS。以60/40的投資組合而言，意味著總投資組合的8至12%。部分財務規劃師建議持有足夠多的TIPS（或I-Bonds），以實質金額支應退休初期5至10年的基本生活支出，其餘投資組合則配置於股票以求長期成長。
+
+**問：I-Bonds比TIPS好嗎？**
+答：對大多數散戶投資人而言，I-Bonds有若干優勢：遞延課稅（TIPS則否）、名目價值絕不損失（TIPS在到期前可能以低於面值的價格交易），以及可在一年後贖回（五年前贖回損失三個月利息）。主要缺點是每年10,000美元的購買上限。對於超過I-Bonds上限的金額，TIPS是替代方案。
+
+**問：「預期」通膨和「意外」通膨有何不同？**
+答：預期通膨已反映在資產價值、利率和工資中。若所有人都預期3%通膨，名目國庫券殖利率就包含了3%的通膨溢價。意外通膨——超出市場預期的部分——才是造成混亂的根源。通膨從3%升至6%，而市場預期為3%，將導致債券價格下跌、股票估值倍數壓縮，投資組合受損。通膨避險主要是針對意外通膨的保護。
+
+**問：聯準會如何以通膨為目標？**
+答：聯準會的雙重使命是：最大就業和物價穩定。它以PCE衡量2%的年通膨目標。它主要以利率政策（聯邦基金利率）作為工具。當通膨高於目標時，聯準會升息以冷卻經濟活動、減少支出。當通膨低於目標或經濟疲弱時，則降息以刺激借貸和消費。聯準會也可以使用資產負債表工具——量化寬鬆（購買債券以注入資金）或量化緊縮（縮減債券持倉以減少貨幣供給）——以影響長期利率和金融條件。
+
+**問：在高通膨時期，我應如何處理我的投資組合？**
+答：抵制進行劇烈調整的衝動。確保您對實體資產（股票、房地產、大宗商品）和通膨連結債券（TIPS、I-Bonds）有充足的曝險。縮短固定收益持倉的存續期間，以降低對利率上升的敏感度。重新審視您的退休支出計畫，並針對較高通膨調整提款假設。同時請記住，高通膨時期終將結束——您最不希望的，就是因短期環境而放棄長期策略。
+
+**問：通膨放緩、通縮和停滯性通膨有何不同？**
+答：通膨放緩是通膨率下降——物價仍在上漲，只是速度較慢（例如通膨從5%降至2%）。這對金融資產通常是正面的。通縮是物價水準實際下跌——物價下降。這聽起來對消費者有利，但在經濟上很危險，因為它增加了債務的實質負擔，抑制消費（「為什麼今天買，明天會更便宜？」），並與蕭條相關聯。停滯性通膨是最壞的情況：經濟停滯、高失業率和高通膨同時並存。股票和債券在停滯性通膨期間往往表現不佳。1970年代是典型的例子。
+
+**問：對大多數投資人而言，I-Bonds比TIPS更好嗎？**
+答：對於10,000美元年度上限以內的金額，I-Bonds相對TIPS有幾項優勢：遞延課稅（無幻影收入）、無市場價格風險，以及保護名目價值的通縮底線。主要缺點是購買限額和一年鎖定期。對於需要超過10,000美元通膨保護的投資人，TIPS填補了這個缺口。最佳做法是先用滿I-Bonds額度，再使用TIPS（持有於稅賦優惠帳戶中）補充通膨保護的固定收益配置。
+
+**問：通膨如何影響房貸決策？**
+答：通膨通常對固定利率房貸持有人有利，因為您的房貸還款保持不變，而您的收入和房屋價值隨通膨上漲。隨著時間推移，您的房貸還款的實質成本下降。這也是為什麼自有住宅常被引用為通膨避險工具的原因——不僅因為房屋價值升值，還因為用於購買房屋的債務在實質上變得更便宜。相反，浮動利率房貸在通膨時期失去這一優勢，因為其還款金額隨利率上升而增加。
+
+**問：聯準會與通膨的關係是什麼？**
+答：聯準會肩負雙重使命：最大就業和物價穩定。它以PCE指數衡量2%的年通膨目標。當通膨超過目標時，聯準會提高聯邦基金利率以冷卻經濟活動、使借貸更昂貴、放緩支出。當通膨過低或經濟疲弱時，則降息以刺激成長。聯準會也可使用資產負債表工具——量化寬鬆（購買債券以注入資金）或量化緊縮（讓債券到期以縮減貨幣供給）。聯準會對抗通膨的公信力至關重要，因為若市場相信聯準會將容忍更高的通膨，這種預期便會自我實現。
 
 ---
 
-### "Inflation: The Tax You Cannot Vote On (And How to Beat It)"
+## 第二部分：YouTube腳本
 
-**Target Length:** 18-22 minutes
-**Tone:** Urgent but not alarmist, educational, empowering
+---
+
+### 「通膨：您無法投票反對的稅（以及如何戰勝它）」
+
+**目標長度：** 18至22分鐘
+**基調：** 緊迫但不危言聳聽，具教育性，給予觀眾力量
 
 ---
 
 **[VISUAL: Time-lapse of a price tag on a gallon of milk changing from $1.50 to $2.00 to $3.00 to $4.50 over decades. Title card: "Understanding Inflation"]**
 
-**Alex:** Here is a question. If I told you there was a tax that took two to three percent of your savings every year, that you could not vote against, that had no exemption, and that most people ignored -- would you want to know about it?
+**Horace（陳馬）：** 我問您一個問題。如果我告訴您，有一種稅每年從您的積蓄中拿走2到3%，您無法投票反對，沒有任何豁免，而且大多數人對此視而不見——您想了解這是什麼嗎？
 
-**Sam:** Obviously. What is it?
+**Stella（小魚）：** 當然。那是什麼？
 
-**Alex:** Inflation. The silent thief.
+**Horace：** 通膨。無聲的竊賊。
 
 **[ANIMATION: Stack of dollar bills. Each year, a few bills from the stack disappear. After 30 years, roughly half the stack is gone. Label: "Purchasing power of $100 at 3% annual inflation: $41 after 30 years."]**
 
-**Sam:** Two to three percent per year does not sound like much, though.
+**Stella：** 但每年2到3%聽起來不多。
 
-**Alex:** That is exactly what makes it dangerous. It is invisible on a day-to-day basis. You do not notice that your coffee costs twenty cents more this year. But compound that over twenty or thirty years, and you have lost half your purchasing power. A hundred dollars today buys about forty-one dollars worth of goods in thirty years at three percent inflation.
+**Horace：** 這正是它危險的地方。日常生活中它是看不見的。您不會注意到今年咖啡貴了2毛錢。但複利計算二十或三十年，您就損失了一半的購買力。今天100美元在3%通膨下，三十年後只能購買41美元的商品。
 
-**Sam:** How is inflation actually measured?
+**Stella：** 通膨實際上是怎麼衡量的？
 
-**Alex:** The main measure in the US is the Consumer Price Index, or CPI. The Bureau of Labor Statistics tracks the prices of about eighty thousand items across two hundred categories. They weight them based on how the average urban consumer spends money.
+**Horace：** 美國的主要指標是消費者物價指數，也就是CPI。美國勞工統計局追蹤200個類別中大約8萬個項目的價格，根據普通城市消費者的消費方式進行加權。
 
 **[VISUAL: Pie chart of CPI components with weights: Housing 36%, Transportation 16%, Food 13%, Medical 7%, Education 6%, Recreation 5%, Apparel 2%, Other 15%]**
 
-**Alex:** Housing is the biggest component at thirty-six percent. Then transportation, food, and medical care. So when people say "inflation is three percent," they mean this weighted average of all these categories went up three percent.
+**Horace：** 住房是最大的組成部分，佔36%。接下來是交通、食品和醫療保健。所以當人們說「通膨是3%」時，他們的意思是所有這些類別的加權平均上漲了3%。
 
-**Sam:** But my personal experience of inflation might be very different from the official number.
+**Stella：** 但我個人對通膨的感受可能與官方數字非常不同。
 
-**Alex:** Exactly. If you are a young renter in an expensive city spending a lot on housing and education, your personal inflation rate is probably higher than CPI. If you are a retiree with a paid-off house spending heavily on healthcare, your inflation is also probably higher because medical costs inflate faster than average. CPI is an average, and few people are perfectly average.
+**Horace：** 完全正確。如果您是在昂貴城市大量支出住房和教育的年輕租屋族，您的個人通膨率可能高於CPI。如果您是擁有自住房且大量支出醫療保健的退休人員，您的通膨也可能更高，因為醫療費用的通膨速度高於平均。CPI是一個平均值，很少有人恰好是平均水準。
 
 **[VISUAL: Three icons -- young renter, suburban family, retiree. Each with their own "personal CPI" showing different rates: 4.2%, 2.8%, 4.5%]**
 
-**Sam:** I hear people say the government manipulates CPI to make inflation look lower. Is that true?
+**Stella：** 我聽說有人說政府操縱CPI讓通膨看起來更低。這是真的嗎？
 
-**Alex:** There are legitimate debates about CPI methodology -- things like how they account for quality improvements in technology, how they measure housing costs, and how they handle consumers switching to cheaper alternatives. These methodological choices do affect the number. But calling it "manipulation" implies bad faith, and the evidence does not support that. Independent price indices, like academic projects tracking millions of online prices, have generally confirmed that CPI is in the right ballpark.
+**Horace：** 關於CPI方法論，確實存在合理的爭議——例如他們如何計算科技產品的品質提升、如何衡量住房成本，以及如何處理消費者轉向更便宜替代品的行為。這些方法論選擇確實影響數字。但說是「操縱」就暗示了惡意，而現有證據並不支持這種說法。追蹤數百萬線上價格的獨立物價指數，通常也確認CPI在合理範圍內。
 
-**Alex:** Now let me explain something that changes how you should think about every investment return you ever see.
+**Horace：** 現在讓我解釋一件事，它將改變您對曾見過的每一個投資報酬的思考方式。
 
 **[VISUAL: Title card: "Nominal vs. Real Returns"]**
 
-**Alex:** When someone says "the stock market returned ten percent last year," that is the nominal return. It is the raw number. But if inflation was three percent, your real return -- the actual increase in your purchasing power -- was only about seven percent.
+**Horace：** 當有人說「去年股市報酬10%」，那是名目報酬。是原始數字。但如果通膨是3%，您的實質報酬——您購買力的實際增長——只有約7%。
 
 **[ANIMATION: Thermometer graphic. Nominal return = 10% (top of thermometer). Inflation = 3% (red zone subtracted from top). Real return = ~7% (what remains). Clear visual that inflation "eats" part of your return.]**
 
-**Sam:** So real returns are what actually matter.
+**Stella：** 所以實質報酬才是真正重要的。
 
-**Alex:** Always. Let me show you what this means for different asset classes over the long run.
+**Horace：** 永遠如此。讓我給您看看這對不同資產類別長期意味著什麼。
 
 **[VISUAL: Bar chart of historical real returns (after inflation): Stocks ~7%, Long-term Government Bonds ~2%, Treasury Bills (Cash) ~0.4%, Gold ~1%]**
 
-**Alex:** Stocks have returned about seven percent per year in real terms since 1926. Government bonds, about two percent. Cash -- Treasury bills -- about zero point four percent. Barely above zero. Gold about one percent.
+**Horace：** 自1926年以來，股票每年的實質報酬約為7%。政府公債約為2%。現金——國庫券——約為0.4%。幾乎接近零。黃金約為1%。
 
-**Sam:** Cash is basically treading water.
+**Stella：** 現金基本上原地踏步。
 
-**Alex:** And that is before taxes. If you earn four percent on a savings account and pay twenty-five percent in taxes, your after-tax return is three percent. If inflation is three percent, your real after-tax return is zero. You have worked all year to earn interest that exactly offsets inflation. Nothing gained.
+**Horace：** 而且那還是稅前。如果您在儲蓄帳戶上賺取4%，繳25%的稅，稅後報酬是3%。如果通膨是3%，您的實質稅後報酬是零。您辛苦了一整年賺取的利息，恰好只抵消了通膨。什麼都沒得到。
 
 **[ANIMATION: Person running on a treadmill. The speed increases labeled "Inflation 3%." The person speeds up to match, labeled "Savings account 4%, after tax 3%." Net progress: zero. Treadmill labeled "Cash trap."]**
 
-**Sam:** This is why people say cash is a losing investment.
+**Stella：** 這就是為什麼人們說現金是虧損的投資。
 
-**Alex:** Over the long term, yes. Which is why every portfolio needs assets that can beat inflation. And the champion of beating inflation is equities.
+**Horace：** 長期而言，是的。這也是為什麼每個投資組合都需要能夠戰勝通膨的資產。而通膨戰勝者的冠軍，是股票。
 
-**Sam:** But stocks got crushed in the 1970s when inflation was high.
+**Stella：** 但1970年代高通膨時，股票表現慘烈。
 
-**Alex:** True. In the short term, unexpected inflation is terrible for stocks. When inflation spikes, the Federal Reserve raises interest rates, which increases the discount rate on future earnings, which compresses valuations. The S&P 500 had an awful real return in the 1970s. But from 1970 through 2000 -- a thirty-year period that included the entire inflationary era -- stocks still returned about seven percent real per year.
+**Horace：** 沒錯。短期而言，意外通膨對股票非常不利。當通膨飆升時，聯準會升息，這提高了未來盈餘的折現率，從而壓縮估值。1970年代S&P 500的實質報酬非常糟糕。但從1970年到2000年——涵蓋整個通膨時代的三十年——股票的實質年報酬仍約為7%。
 
 **[VISUAL: Chart showing S&P 500 real returns by decade. 1970s: poor. 1980s: excellent. 1990s: excellent. The 30-year average smooths to approximately historical norms.]**
 
-**Alex:** The lesson: stocks are a terrible short-term inflation hedge but an excellent long-term one. Companies can raise prices, innovate, cut costs, and grow earnings in nominal terms. Given enough time, equity returns overwhelm inflation.
+**Horace：** 教訓：股票是短期糟糕的通膨避險工具，但卻是優秀的長期避險工具。企業可以提高售價、創新、削減成本，並以名目金額增加盈餘。給予足夠時間，股票報酬將超越通膨。
 
-**Sam:** What about something designed specifically to protect against inflation? TIPS?
+**Stella：** 那麼專門設計來防範通膨的工具呢？TIPS？
 
-**Alex:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with CPI. If inflation is three percent, your principal goes up three percent, and your interest is calculated on the higher amount.
+**Horace：** 通膨保值國庫券。這些是政府公債，其本金隨CPI調整。若通膨為3%，您的本金增加3%，您的利息按較高的金額計算。
 
 **[ANIMATION: Bond certificate with face value $10,000. Year 1: CPI up 3%, principal becomes $10,300, interest paid on $10,300. Year 2: CPI up 2.5%, principal becomes $10,558, interest on $10,558. The principal staircase graphic climbing with inflation.]**
 
-**Alex:** TIPS guarantee a real return. If you buy a TIPS yielding two percent, you will earn two percent above inflation, no matter what inflation does. That is powerful certainty.
+**Horace：** TIPS保證實質報酬。若您購買殖利率2%的TIPS，無論通膨如何變化，您都將賺取比通膨高2%的報酬。這是強大的確定性。
 
-**Sam:** What is the catch?
+**Stella：** 有什麼缺點嗎？
 
-**Alex:** Two things. First, the real yield is modest -- often below two percent. TIPS protect your purchasing power but will not make you wealthy. Second, the inflation adjustment is taxable annually even though you do not receive it in cash until maturity. This "phantom income" tax makes TIPS less efficient in taxable accounts. Hold them in an IRA if possible.
+**Horace：** 兩點。第一，實質殖利率適中——通常低於2%。TIPS保護您的購買力，但不會讓您致富。第二，通膨調整部分每年須課稅，即便您在到期前不會以現金收到這部分調整。這種「幻影收入」稅使TIPS在應稅帳戶中效率較低。若可能，將它們持有在個人退休帳戶（IRA）中。
 
 **[VISUAL: Comparison table: TIPS -- Pros: Inflation protection, government backed, real return guaranteed. Cons: Low real yield, phantom income tax, still has interest rate risk.]**
 
-**Sam:** What about real estate and commodities as inflation hedges?
+**Stella：** 房地產和大宗商品作為通膨避險工具呢？
 
-**Alex:** Real estate is excellent because rents and property values tend to rise with inflation. If you own rental property, you can raise rents. Your fixed-rate mortgage becomes cheaper in real terms as inflation erodes the real value of your debt. The challenge is that real estate is illiquid and requires active management.
+**Horace：** 房地產很出色，因為租金和房產價值往往隨通膨上漲。若您擁有出租房產，可以提高租金。隨著通膨侵蝕債務的實質價值，您的固定利率房貸在實質上變得更便宜。挑戰在於房地產缺乏流動性，需要積極管理。
 
 **[ANIMATION: House with rent sign. Arrow showing rent increasing with CPI. Mortgage payment staying flat. The gap between rent and mortgage widening over time = growing real income.]**
 
-**Alex:** Commodities -- oil, metals, agricultural products -- provide direct inflation exposure because commodity prices are literally a component of CPI. When commodity prices rise, inflation rises. The problem is that long-term commodity returns have been unimpressive, and commodity futures involve complex roll dynamics that can drag returns.
+**Horace：** 大宗商品——石油、金屬、農產品——提供直接的通膨曝險，因為大宗商品價格字面上就是CPI的組成部分。大宗商品價格上漲時，通膨也上升。問題在於大宗商品的長期報酬不夠亮眼，且大宗商品期貨涉及複雜的轉倉動態，可能拖累報酬。
 
-**Sam:** And gold? Everyone talks about gold during inflation.
+**Stella：** 黃金呢？每個人都在通膨時期談論黃金。
 
-**Alex:** Gold's track record is mixed. It was spectacular in the 1970s and during the post-2020 inflation. But from 1980 to 2000, gold lost seventy percent of its real value while inflation averaged three and a half percent. Gold is less an inflation hedge and more a crisis hedge -- it shines when people lose faith in the monetary system, not during routine two-to-three percent inflation.
+**Horace：** 黃金的記錄是混雜的。它在1970年代和2020年後的通膨期間表現卓越。但從1980年到2000年，在通膨平均3.5%的情況下，黃金損失了70%的實質價值。黃金更像是危機避險工具，而非例行性通膨避險工具——當人們對貨幣體系失去信心時它才閃耀，而不是在例行的2至3%通膨中。
 
 **[VISUAL: Gold real price chart from 1970-present. Massive spike in late 1970s, long decline 1980-2000, rise 2000-2012, flat 2012-2018, surge 2019-present. Inconsistent pattern highlighted.]**
 
-**Sam:** What about I-Bonds? You mentioned those alongside TIPS.
+**Stella：** I-Bonds呢？您之前提到過它們和TIPS並列。
 
-**Alex:** I-Bonds are savings bonds from the Treasury that are, in my opinion, one of the best-kept secrets in personal finance for small investors. They combine a fixed rate with an inflation adjustment every six months. The interest is tax-deferred until you cash them in. State taxes are exempt entirely. And the composite rate can never go below zero, so you have deflation protection built in.
+**Horace：** I-Bonds是來自財政部的儲蓄債券，在我看來，對小額投資人而言是個人理財中最鮮為人知的秘密之一。它們結合了固定利率與每六個月調整一次的通膨利率。利息在您贖回之前遞延課稅。州稅完全豁免。而且綜合利率永遠不會低於零，因此內建通縮保護。
 
 **[VISUAL: I-Bond structure. "Fixed Rate (permanent) + Inflation Rate (adjusts every 6 months) = Composite Rate." Benefits listed: tax-deferred, no market risk, deflation floor. Limit: $10,000/year per person.]**
 
-**Sam:** What is the limit?
+**Stella：** 上限是多少？
 
-**Alex:** Ten thousand dollars per person per year in electronic form, plus up to five thousand in paper bonds through a tax refund. You must hold for at least one year, and if you cash out before five years you lose three months of interest. But within those constraints, I-Bonds are hard to beat. During the 2022 inflation spike, composite rates hit over nine percent. Nine percent, guaranteed by the US government, with tax deferral. That was arguably the best risk-free investment available anywhere.
+**Horace：** 每人每年電子購買10,000美元，另可透過退稅購買最多5,000美元紙本債券。您必須持有至少一年，若五年前贖回則損失三個月的利息。但在這些限制條件下，I-Bonds很難被超越。在2022年通膨飆升期間，綜合利率超過9%。9%，由美國政府擔保，且具備遞延課稅優惠。這可以說是當時任何地方可獲得的最佳無風險投資。
 
 **[ANIMATION: I-Bond rate chart showing composite rates spiking above 9% in late 2022, then gradually declining as inflation eased. Annotation: "Still an excellent deal whenever the fixed rate is positive."]**
 
-**Sam:** How should this change the way people plan for retirement?
+**Stella：** 這應該如何改變人們的退休規劃方式？
 
-**Alex:** Dramatically. Let me show you the single biggest mistake retirees make.
+**Horace：** 大幅改變。讓我給您看看退休人員最常犯的單一最大錯誤。
 
 **[VISUAL: Two retirement scenarios side by side]**
 
-**Alex:** Scenario one: a retiree with a million-dollar portfolio withdrawing forty thousand dollars per year, flat, not adjusted for inflation. In year one, that is four percent. Fine. But in year twenty, after three percent annual inflation, that forty thousand dollars has the purchasing power of only twenty-two thousand in today's dollars. They have effectively cut their standard of living in half.
+**Horace：** 情境一：一位退休人員擁有100萬美元的投資組合，每年固定提款4萬美元，不調整通膨。第一年，這是4%，很好。但在第二十年，經過3%的年通膨，那4萬美元的購買力以今日美元計算只剩約2.2萬美元。他們的生活水準實際上已腰斬。
 
 **[ANIMATION: Bar chart showing $40,000 flat withdrawal each year. A second overlay shows the real purchasing power declining each year. By year 20, the bars are nearly half height.]**
 
-**Alex:** Scenario two: same portfolio, but withdrawals increase by three percent per year to keep up with inflation. Year one: forty thousand. Year ten: fifty-four thousand. Year twenty: seventy-two thousand. Now purchasing power is maintained, but the portfolio is under much more strain.
+**Horace：** 情境二：同樣的投資組合，但每年提款金額增加3%以跟上通膨。第一年：4萬美元。第十年：5.4萬美元。第二十年：7.2萬美元。現在購買力得以維持，但投資組合的壓力大得多。
 
-**Sam:** Which is why the four percent rule assumes inflation-adjusted withdrawals, right?
+**Stella：** 這就是為什麼4%法則假設通膨調整後的提款，對嗎？
 
-**Alex:** Right. And it requires a meaningful equity allocation -- typically fifty to sixty percent stocks -- to generate the real growth needed to sustain rising withdrawals over a thirty-year retirement. An all-bond portfolio cannot keep up.
+**Horace：** 正確。而且它需要相當大的股票配置——通常50至60%的股票——以產生維持三十年退休期間不斷增加提款所需的實質成長。純債券投資組合無法跟上。
 
 **[VISUAL: Portfolio survival chart. 100% bonds fails after ~18 years with inflation-adjusted withdrawals. 50/50 survives 30 years in most scenarios. 60/40 or 70/30 provides margin of safety.]**
 
-**Sam:** What about Social Security?
+**Stella：** 社會安全福利金呢？
 
-**Alex:** Social Security is one of the best inflation hedges a retiree has because benefits are adjusted annually for CPI. It provides a real income floor that no private investment can exactly replicate. This is one reason delaying Social Security to maximize the benefit is so valuable -- you are increasing the size of your inflation-protected income stream.
+**Horace：** 社會安全福利金是退休人員擁有的最佳通膨避險工具之一，因為福利金每年根據CPI進行生活費用調整。它提供了沒有任何私人投資能夠完全複製的實質收入底線。這也是為什麼延遲領取社會安全福利金以最大化金額如此寶貴的原因——您是在增加您的通膨保護收入流的規模。
 
 **[VISUAL: Social Security benefit with annual COLA adjustments shown. Starting at $2,500/month, rising to $3,360/month after 10 years at 3% annual COLA. Purchasing power maintained.]**
 
-**Sam:** Let us bring it all together. What should a practical investor do about inflation?
+**Stella：** 讓我們把一切整合起來。實際的投資人應如何應對通膨？
 
-**Alex:** Five things.
+**Horace：** 五件事。
 
 **[VISUAL: Five-point framework appearing one by one]**
 
-**Alex:** First, think in real terms. Whenever you see an investment return, mentally subtract inflation. That five percent CD is really two percent real, and after taxes maybe one percent. Train yourself to think in real returns.
+**Horace：** 第一，以實質報酬思考。每次看到投資報酬時，心裡自動減去通膨。那5%的定期存單實際上是2%的實質報酬，扣稅後可能只有1%。訓練自己以實質報酬思考。
 
-**Sam:** Number two?
+**Stella：** 第二點呢？
 
-**Alex:** Hold equities for the long term. Stocks are the best long-term inflation hedge because companies grow revenues and earnings in nominal terms. Do not abandon stocks because inflation is elevated -- that is exactly when you need their inflation-hedging properties most.
+**Horace：** 長期持有股票。股票是最佳的長期通膨避險工具，因為企業以名目金額增加營收和盈餘。不要因為通膨上升就拋棄股票——那正是您最需要其通膨避險屬性的時候。
 
-**Alex:** Three -- include TIPS or I-Bonds in your fixed-income allocation. Allocate twenty to thirty percent of your bond portfolio to inflation-protected securities. This ensures that at least part of your portfolio is explicitly guaranteed to keep up with CPI.
+**Horace：** 第三——在固定收益配置中納入TIPS或I-Bonds。將20至30%的債券投資組合配置於通膨保護型證券。這確保您的投資組合至少有一部分明確保證跟上CPI。
 
-**Alex:** Four -- be cautious with long-duration fixed-rate bonds. These are the most vulnerable asset class during inflation. When rates rise, long bonds get crushed. Shorten your bond duration during inflationary environments.
+**Horace：** 第四——對長存續期間固定利率債券保持謹慎。這些是通膨期間最脆弱的資產類別。當利率上升時，長期債券遭受重創。在通膨環境下縮短債券的存續期間。
 
-**Alex:** And five -- plan retirement withdrawals in real terms. Your spending needs will grow with inflation. Model your retirement plan with inflation-adjusted withdrawals, not flat dollar amounts. Use conservative inflation assumptions -- three percent or higher -- rather than hoping for the Fed's two percent target.
+**Horace：** 第五——以實質金額規劃退休提款。您的支出需求將隨通膨增加。以通膨調整後的提款而非固定金額對您的退休計畫建模。使用保守的通膨假設——3%或更高——而不是期望聯準會2%的目標能夠實現。
 
 **[ANIMATION: Portfolio pie chart showing recommended allocation with inflation awareness: Broad equities (50-60%), TIPS (10-15%), Short/intermediate bonds (15-20%), Real estate/REITs (5-10%), Commodities (0-5%), Cash for near-term needs (5-10%)]**
 
-**Sam:** The bottom line is that inflation is not something to fear -- it is something to plan for.
+**Stella：** 結論是，通膨不是令人恐懼的事——而是需要規劃的事。
 
-**Alex:** Exactly. You cannot control inflation. But you can build a portfolio that is resilient to it, plan your retirement in real terms, and make sure your purchasing power grows over time rather than erodes. That is the whole game.
+**Horace：** 完全正確。您無法控制通膨。但您可以建立一個能夠承受通膨的投資組合、以實質金額規劃退休，並確保您的購買力隨時間增長而非縮水。這才是整個遊戲的關鍵。
 
-**Sam:** One last thing. People use words like disinflation, deflation, and stagflation interchangeably. Can you clarify?
+**Stella：** 最後一件事。人們常把通膨放緩、通縮和停滯性通膨混為一談。您能釐清一下嗎？
 
-**Alex:** Very different things. Disinflation means inflation is slowing down -- prices are still rising but more slowly. That is generally good for investments. Deflation means prices are actually falling. It sounds nice but it is economically dangerous -- it increases the real burden of debt, discourages spending, and can spiral into depression. Japan experienced deflation for much of the 1990s and 2000s and it was devastating. And stagflation is the nightmare scenario: stagnant growth, high unemployment, and high inflation all at the same time. The 1970s were the classic example. Both stocks and bonds suffer during stagflation.
+**Horace：** 它們截然不同。通膨放緩意味著通膨正在減速——物價仍在上漲，只是更慢。這通常對投資有利。通縮意味著物價實際下跌。聽起來不錯，但在經濟上很危險——它增加了債務的實質負擔，抑制消費，並可能螺旋式進入蕭條。日本在1990和2000年代經歷了通縮，影響極為深遠。而停滯性通膨則是噩夢情境：停滯的成長、高失業率和高通膨同時並存。1970年代是典型例子。股票和債券在停滯性通膨中往往表現不佳。
 
 **[VISUAL: Three scenarios on a spectrum. Left: "Disinflation (2015-2019): Inflation falling from 3% to 1.5%. Generally positive for assets." Center: "Deflation (Japan 1990s): Prices falling. Dangerous." Right: "Stagflation (US 1970s): High inflation + recession. Worst case for investors."]**
 
 **[VISUAL: Recap: "Think in Real Returns | Equities for Long-Term Hedge | TIPS/I-Bonds for Guaranteed Real Returns | I-Bonds for Tax-Deferred Protection | Shorten Bond Duration | Plan Retirement in Real Terms"]**
 
-**Sam:** Go check your portfolio. How much is in cash earning below inflation? How much is in long-duration bonds? What is your real after-tax return? These are the questions that matter.
+**Stella：** 去看看您的投資組合。有多少是在低於通膨利率下持有的現金？有多少是長存續期間債券？您的實質稅後報酬是多少？這些才是真正重要的問題。
 
-**Alex:** See you in the next one.
+**Horace：** 下集再見。
 
 **[VISUAL: End card with channel info and "Explore More: Full Course Curriculum"]**
 
 ---
 
-**END OF SIDE LESSON 06**
+**補充課程第06課完**

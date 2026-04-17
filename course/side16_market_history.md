@@ -250,9 +250,9 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Dramatic montage of historical newspaper headlines: "WALL ST. LAYS AN EGG" (1929), "CRASH" (1987), "MARKETS IN TURMOIL" (2008), "DOW PLUNGES" (2020)]
 
-**Alex:** 1929. 1987. 2000. 2008. 2020. Five moments when the financial world seemed to be ending. Five crashes that wiped out trillions of dollars. And five recoveries that rewarded the investors who kept their nerve.
+**Horace:** 1929. 1987. 2000. 2008. 2020. Five moments when the financial world seemed to be ending. Five crashes that wiped out trillions of dollars. And five recoveries that rewarded the investors who kept their nerve.
 
-**Sam:** Today we are doing something different. We are taking a walk through market history -- not just the scary parts, but the patterns, the lessons, and the recoveries that followed every single crash. Because if you want to survive the next crash -- and there will be a next crash -- you need to understand the ones that came before.
+**Stella:** Today we are doing something different. We are taking a walk through market history -- not just the scary parts, but the patterns, the lessons, and the recoveries that followed every single crash. Because if you want to survive the next crash -- and there will be a next crash -- you need to understand the ones that came before.
 
 [VISUAL: Title card "Market History: Crashes, Patterns, and the Recovery Playbook"]
 
@@ -262,19 +262,19 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Black and white photos of 1920s Wall Street, ticker tape, long lines at banks]
 
-**Alex:** Let us start with the granddaddy of all crashes -- 1929. The Roaring Twenties were a time of incredible optimism. New technologies like radio and automobiles were transforming the economy. The stock market was booming, and ordinary Americans were investing for the first time.
+**Horace:** Let us start with the granddaddy of all crashes -- 1929. The Roaring Twenties were a time of incredible optimism. New technologies like radio and automobiles were transforming the economy. The stock market was booming, and ordinary Americans were investing for the first time.
 
-**Sam:** But here is the dangerous part. Many of them were investing with borrowed money. Margin requirements were absurdly loose -- you could borrow up to 90 percent of a stock's purchase price. So a $1,000 investment might be backed by only $100 of your own money.
+**Stella:** But here is the dangerous part. Many of them were investing with borrowed money. Margin requirements were absurdly loose -- you could borrow up to 90 percent of a stock's purchase price. So a $1,000 investment might be backed by only $100 of your own money.
 
 [ANIMATION: Leverage diagram showing $100 invested controlling $1,000 in stock, then showing how a 10% decline wipes out the entire investment]
 
-**Alex:** The Dow peaked on September 3, 1929, at 381. Then came Black Thursday, Black Monday, and Black Tuesday -- three days that destroyed confidence in the market. But the real devastation happened over the next three years. The market kept falling and falling.
+**Horace:** The Dow peaked on September 3, 1929, at 381. Then came Black Thursday, Black Monday, and Black Tuesday -- three days that destroyed confidence in the market. But the real devastation happened over the next three years. The market kept falling and falling.
 
-**Sam:** By July 1932, the Dow had dropped to 41. That is an 89 percent decline from the peak. And the recovery? The Dow did not permanently regain its 1929 level until 1954. That is 25 years.
+**Stella:** By July 1932, the Dow had dropped to 41. That is an 89 percent decline from the peak. And the recovery? The Dow did not permanently regain its 1929 level until 1954. That is 25 years.
 
 [VISUAL: Long-term chart showing 1929 peak, 1932 bottom, and 1954 recovery, with the 25-year gap highlighted]
 
-**Alex:** Twenty-five years. If you invested at the peak in 1929, you would have had to wait a quarter century just to break even. That is why time horizon and valuation matter so much.
+**Horace:** Twenty-five years. If you invested at the peak in 1929, you would have had to wait a quarter century just to break even. That is why time horizon and valuation matter so much.
 
 ---
 
@@ -282,19 +282,19 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Trading floor chaos, vintage 1980s footage of panicked traders]
 
-**Sam:** Fast forward to October 19, 1987. On a single Monday, the Dow Jones fell 22.6 percent. In one day. That is still the largest single-day percentage decline in history.
+**Stella:** Fast forward to October 19, 1987. On a single Monday, the Dow Jones fell 22.6 percent. In one day. That is still the largest single-day percentage decline in history.
 
-**Alex:** To put that in context, if the Dow is at 35,000, a 22.6 percent drop would be about an 8,000-point decline in a single session. Your retirement account loses more than a fifth of its value before dinner.
+**Horace:** To put that in context, if the Dow is at 35,000, a 22.6 percent drop would be about an 8,000-point decline in a single session. Your retirement account loses more than a fifth of its value before dinner.
 
 [ANIMATION: Single-day decline comparison: 1987 (-22.6%), 2020 worst day (-12.9%), 2008 worst day (-9.0%)]
 
-**Sam:** What made 1987 unique was the role of computers. A strategy called portfolio insurance used automated trading to sell stocks as prices fell, theoretically protecting against losses. But when everyone's computers started selling at the same time, it created a cascade. Selling triggered more selling, which triggered more selling.
+**Stella:** What made 1987 unique was the role of computers. A strategy called portfolio insurance used automated trading to sell stocks as prices fell, theoretically protecting against losses. But when everyone's computers started selling at the same time, it created a cascade. Selling triggered more selling, which triggered more selling.
 
-**Alex:** But here is the remarkable part. The new Fed Chairman, Alan Greenspan, who had been on the job for just two months, immediately announced that the Fed would provide liquidity to the financial system. And the recovery was swift. The market bottomed within two months and was back to its pre-crash level within two years.
+**Horace:** But here is the remarkable part. The new Fed Chairman, Alan Greenspan, who had been on the job for just two months, immediately announced that the Fed would provide liquidity to the financial system. And the recovery was swift. The market bottomed within two months and was back to its pre-crash level within two years.
 
 [VISUAL: 1987 crash and recovery chart showing the sharp V-shaped recovery]
 
-**Sam:** The lesson? A crash without an underlying economic crisis -- no recession, no systemic banking failure -- tends to recover quickly, especially when the central bank responds decisively.
+**Stella:** The lesson? A crash without an underlying economic crisis -- no recession, no systemic banking failure -- tends to recover quickly, especially when the central bank responds decisively.
 
 ---
 
@@ -302,21 +302,21 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Late-1990s tech imagery -- early websites, dot-com company logos, sock puppet mascot]
 
-**Alex:** The late 1990s gave us one of the most spectacular bubbles in history. The internet was genuinely revolutionary -- it really was changing everything. But investors confused a transformative technology with a guaranteed investment.
+**Horace:** The late 1990s gave us one of the most spectacular bubbles in history. The internet was genuinely revolutionary -- it really was changing everything. But investors confused a transformative technology with a guaranteed investment.
 
-**Sam:** Companies with no revenue, no profits, and sometimes no actual product were reaching billion-dollar valuations. Pets.com, which sold pet food online, went public in February 2000 and was liquidated nine months later. They spent $11.8 million on advertising in 1999 and generated only $619,000 in revenue.
+**Stella:** Companies with no revenue, no profits, and sometimes no actual product were reaching billion-dollar valuations. Pets.com, which sold pet food online, went public in February 2000 and was liquidated nine months later. They spent $11.8 million on advertising in 1999 and generated only $619,000 in revenue.
 
 [VISUAL: Pets.com stock chart from IPO to zero, with revenue vs advertising spending comparison]
 
-**Alex:** The NASDAQ went from about 1,000 in 1995 to over 5,000 in March 2000 -- a five-fold increase in five years. And then it collapsed. By October 2002, the NASDAQ had fallen 78 percent. Seventy-eight percent.
+**Horace:** The NASDAQ went from about 1,000 in 1995 to over 5,000 in March 2000 -- a five-fold increase in five years. And then it collapsed. By October 2002, the NASDAQ had fallen 78 percent. Seventy-eight percent.
 
 [ANIMATION: NASDAQ chart from 1995 to 2002 showing the dramatic rise and fall]
 
-**Sam:** And unlike 1987, this was not a quick recovery. The S&P 500 did not get back to its 2000 peak until 2007. The NASDAQ did not recover until 2015 -- fifteen years later.
+**Stella:** And unlike 1987, this was not a quick recovery. The S&P 500 did not get back to its 2000 peak until 2007. The NASDAQ did not recover until 2015 -- fifteen years later.
 
-**Alex:** The crucial lesson here is the difference between a great technology and a great investment. The internet was indeed transformative. But most of the companies riding the wave were terrible businesses. Amazon survived and thrived. For every Amazon, there were a hundred companies that went to zero.
+**Horace:** The crucial lesson here is the difference between a great technology and a great investment. The internet was indeed transformative. But most of the companies riding the wave were terrible businesses. Amazon survived and thrived. For every Amazon, there were a hundred companies that went to zero.
 
-**Sam:** And investors who were concentrated in tech stocks suffered far more than those with diversified portfolios. Diversification is not sexy, but it is what keeps you in the game.
+**Stella:** And investors who were concentrated in tech stocks suffered far more than those with diversified portfolios. Diversification is not sexy, but it is what keeps you in the game.
 
 ---
 
@@ -324,21 +324,21 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Lehman Brothers building, "For Sale" signs on houses, long lines at banks]
 
-**Alex:** 2008 was different from any previous crash because it threatened the entire financial system. This was not just stocks going down -- this was banks failing, credit markets freezing, and serious people wondering if the ATMs would stop working.
+**Horace:** 2008 was different from any previous crash because it threatened the entire financial system. This was not just stocks going down -- this was banks failing, credit markets freezing, and serious people wondering if the ATMs would stop working.
 
-**Sam:** The roots were in the housing market. Banks had spent years making increasingly risky mortgage loans to people who could not afford them. These loans were packaged into complex securities and sold worldwide. Rating agencies slapped AAA ratings on them. And everyone assumed housing prices would never fall nationally.
+**Stella:** The roots were in the housing market. Banks had spent years making increasingly risky mortgage loans to people who could not afford them. These loans were packaged into complex securities and sold worldwide. Rating agencies slapped AAA ratings on them. And everyone assumed housing prices would never fall nationally.
 
 [ANIMATION: Simplified CDO structure showing risky mortgages being packaged, rated AAA, and sold to global investors]
 
-**Alex:** When housing prices started falling in 2006, the dominoes began to topple. Bear Stearns collapsed in March 2008. Lehman Brothers went bankrupt in September 2008 -- a 158-year-old institution, gone overnight. That triggered a global panic.
+**Horace:** When housing prices started falling in 2006, the dominoes began to topple. Bear Stearns collapsed in March 2008. Lehman Brothers went bankrupt in September 2008 -- a 158-year-old institution, gone overnight. That triggered a global panic.
 
-**Sam:** The S&P 500 fell 57 percent from its October 2007 peak to its March 2009 bottom. Trillions of dollars in wealth evaporated. Unemployment reached 10 percent. It felt like the financial system itself might collapse.
+**Stella:** The S&P 500 fell 57 percent from its October 2007 peak to its March 2009 bottom. Trillions of dollars in wealth evaporated. Unemployment reached 10 percent. It felt like the financial system itself might collapse.
 
 [VISUAL: Timeline of 2008 crisis events with S&P 500 chart showing each event's impact]
 
-**Alex:** But the policy response was massive. The Fed cut rates to zero, launched quantitative easing, and provided emergency lending to banks. Congress passed TARP -- a $700 billion bank bailout. Controversial at the time, but effective.
+**Horace:** But the policy response was massive. The Fed cut rates to zero, launched quantitative easing, and provided emergency lending to banks. Congress passed TARP -- a $700 billion bank bailout. Controversial at the time, but effective.
 
-**Sam:** The market bottomed on March 9, 2009, and began one of the longest bull markets in history. The S&P 500 returned over 400 percent in the following decade. Investors who sold at the bottom missed one of the greatest wealth-building periods in market history.
+**Stella:** The market bottomed on March 9, 2009, and began one of the longest bull markets in history. The S&P 500 returned over 400 percent in the following decade. Investors who sold at the bottom missed one of the greatest wealth-building periods in market history.
 
 ---
 
@@ -346,27 +346,27 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: Empty city streets, stock chart with steep decline, then Fed announcement headlines]
 
-**Alex:** March 2020. A global pandemic shuts down the world economy in a matter of weeks. The S&P 500 falls 34 percent in just 23 trading days -- the fastest decline of that magnitude ever.
+**Horace:** March 2020. A global pandemic shuts down the world economy in a matter of weeks. The S&P 500 falls 34 percent in just 23 trading days -- the fastest decline of that magnitude ever.
 
-**Sam:** Circuit breakers -- those automatic trading halts created after 1987 -- were triggered four times in March 2020. Oil prices went negative for the first time in history. It felt apocalyptic.
+**Stella:** Circuit breakers -- those automatic trading halts created after 1987 -- were triggered four times in March 2020. Oil prices went negative for the first time in history. It felt apocalyptic.
 
 [VISUAL: 2020 crash timeline showing the 23-day decline and the key policy responses]
 
-**Alex:** But the recovery was just as unprecedented as the crash. The CARES Act pumped $2.2 trillion into the economy. The Fed went all-in with unlimited quantitative easing. And by August 2020 -- less than five months later -- the S&P 500 was back at its pre-crash high. That is the fastest recovery in history.
+**Horace:** But the recovery was just as unprecedented as the crash. The CARES Act pumped $2.2 trillion into the economy. The Fed went all-in with unlimited quantitative easing. And by August 2020 -- less than five months later -- the S&P 500 was back at its pre-crash high. That is the fastest recovery in history.
 
-**Sam:** Now, here is what ties all of these crashes together. Let us look at the common patterns.
+**Stella:** Now, here is what ties all of these crashes together. Let us look at the common patterns.
 
 [ANIMATION: Five columns, one for each crash, with checkmarks showing shared characteristics]
 
-**Alex:** Pattern one: Every crash was preceded by euphoria and excessive risk-taking. Margin speculation in 1929. Portfolio insurance in 1987. Dot-com mania in 2000. Housing and complex derivatives in 2008. And arguably, aggressive risk-taking fueled by a decade of low rates in 2020.
+**Horace:** Pattern one: Every crash was preceded by euphoria and excessive risk-taking. Margin speculation in 1929. Portfolio insurance in 1987. Dot-com mania in 2000. Housing and complex derivatives in 2008. And arguably, aggressive risk-taking fueled by a decade of low rates in 2020.
 
-**Sam:** Pattern two: A trigger event. Not the cause, but the catalyst. Margin calls, computer-driven selling, Lehman's bankruptcy, pandemic lockdowns.
+**Stella:** Pattern two: A trigger event. Not the cause, but the catalyst. Margin calls, computer-driven selling, Lehman's bankruptcy, pandemic lockdowns.
 
-**Alex:** Pattern three: Correlations spike. During each crash, assets that were supposed to be diversified all fell together. Diversification is weakest when you need it most -- though bonds have generally held up.
+**Horace:** Pattern three: Correlations spike. During each crash, assets that were supposed to be diversified all fell together. Diversification is weakest when you need it most -- though bonds have generally held up.
 
-**Sam:** Pattern four: Forced selling pushes prices below fundamental value. Margin calls, fund redemptions, and risk management rules force people to sell at the worst time, creating opportunities for patient investors.
+**Stella:** Pattern four: Forced selling pushes prices below fundamental value. Margin calls, fund redemptions, and risk management rules force people to sell at the worst time, creating opportunities for patient investors.
 
-**Alex:** And pattern five: Every crash was followed by a full recovery. Every single one. The timelines ranged from five months to 25 years, but the direction was always eventually up.
+**Horace:** And pattern five: Every crash was followed by a full recovery. Every single one. The timelines ranged from five months to 25 years, but the direction was always eventually up.
 
 ---
 
@@ -374,26 +374,26 @@ A: No investment outcome is guaranteed. The U.S. market's track record of always
 
 [VISUAL: "Your Crash Survival Guide" checklist]
 
-**Sam:** So what do we do with all of this? Here is the crash survival guide.
+**Stella:** So what do we do with all of this? Here is the crash survival guide.
 
-**Alex:** First, accept that crashes will happen. If you invest in stocks, you will experience significant declines. Planning for this reality is far better than being surprised by it.
+**Horace:** First, accept that crashes will happen. If you invest in stocks, you will experience significant declines. Planning for this reality is far better than being surprised by it.
 
-**Sam:** Second, match your asset allocation to your time horizon. If you are 30 years from retirement, a crash is a buying opportunity. If you are two years from retirement, you need more bonds and cash to absorb the impact.
+**Stella:** Second, match your asset allocation to your time horizon. If you are 30 years from retirement, a crash is a buying opportunity. If you are two years from retirement, you need more bonds and cash to absorb the impact.
 
 [VISUAL: Risk spectrum showing time horizon vs appropriate stock allocation]
 
-**Alex:** Third, maintain an emergency fund. Having six to twelve months of living expenses in cash means you will never be forced to sell investments at the worst time to cover bills.
+**Horace:** Third, maintain an emergency fund. Having six to twelve months of living expenses in cash means you will never be forced to sell investments at the worst time to cover bills.
 
-**Sam:** Fourth, do not try to time the market. Missing the best days is incredibly costly, and those best days almost always occur right next to the worst days. Stay invested.
+**Stella:** Fourth, do not try to time the market. Missing the best days is incredibly costly, and those best days almost always occur right next to the worst days. Stay invested.
 
-**Alex:** And fifth, study history. Not to predict the future, but to build the emotional resilience to endure the next inevitable downturn. When the next crash comes -- and it will -- you want to be the person who stays calm and maybe even buys more, not the person who panics and sells everything.
+**Horace:** And fifth, study history. Not to predict the future, but to build the emotional resilience to endure the next inevitable downturn. When the next crash comes -- and it will -- you want to be the person who stays calm and maybe even buys more, not the person who panics and sells everything.
 
 [VISUAL: Long-term S&P 500 chart from 1929 to present, showing all crashes as small dips in an overall upward trajectory]
 
-**Sam:** Zoom out far enough, and every crash in history looks like a small dip on an upward trajectory. That is the big picture. And that is the perspective you need when the next one hits.
+**Stella:** Zoom out far enough, and every crash in history looks like a small dip on an upward trajectory. That is the big picture. And that is the perspective you need when the next one hits.
 
 [VISUAL: End card with channel logo and "Next: Federal Reserve and Monetary Policy"]
 
-**Alex:** Next time, we are diving into the institution that has been at the center of every recovery we just discussed -- the Federal Reserve. See you there.
+**Horace:** Next time, we are diving into the institution that has been at the center of every recovery we just discussed -- the Federal Reserve. See you there.
 
 [END - 15:30]

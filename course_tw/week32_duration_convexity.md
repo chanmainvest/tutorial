@@ -1,53 +1,50 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第32週：存續期間與凸性——衡量債券價格敏感度
 
-# Week 32: Duration and Convexity - Measuring Bond Price Sensitivity
+## 閱讀章節
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+上週你學會了如何解讀殖利率曲線及其形態。本週你將學習如何精確量化當利率變動時，你的債券投資組合價值會如何變化。存續期間與凸性正是實現這一目標的工具，對於任何持有債券或債券基金的人來說，這是不可或缺的知識。
 
-Last week you learned to read the yield curve and interpret its shape. This week you will learn to quantify exactly how much your bond portfolio will change in value when interest rates move. Duration and convexity are the tools that make this possible, and they are non-negotiable knowledge for anyone who owns bonds or bond funds.
+**存續期間與凸性為何重要：**
 
-**Why duration and convexity matter:**
+**1. 利率風險是債券投資中最主要的風險。** 如果你持有一張10年期美國公債，而利率上升1%，你的債券將損失約8至9%的價值。在10萬美元的部位上，這相當於8,000至9,000美元的損失。若不了解存續期間，你將無法預測、衡量或管理這種風險。存續期間能精確量化這項風險。
 
-**1. Interest rate risk is the dominant risk in bond investing.** If you own a 10-year Treasury bond and interest rates rise by 1%, your bond loses approximately 8-9% of its value. On a $100,000 position, that is an $8,000-$9,000 loss. Without understanding duration, you have no way to predict, measure, or manage this risk. Duration quantifies it precisely.
+**2. 存續期間決定了你的投資組合對利率變動的敏感程度。** 存續期間為2年的投資組合，若利率上升1%，將損失約2%。存續期間為15年的投資組合則將損失約15%。這兩個投資組合之間的差異極為巨大，但許多投資人持有債券基金時根本不知道其存續期間。這就像在高速公路上以未知速度行駛——你需要速度計。
 
-**2. Duration determines your portfolio's vulnerability to rate changes.** A portfolio with a duration of 2 years will lose about 2% if rates rise by 1%. A portfolio with a duration of 15 years will lose about 15%. The difference between these two portfolios is enormous, and yet many investors own bond funds without knowing their duration. This is like driving at an unknown speed on a highway. You need the speedometer.
+**3. 凸性使存續期間的估算更加精準。** 存續期間是一階近似值，對於小幅利率變動效果良好，但對較大幅度的波動則會愈來愈不準確。凸性是修正係數。以利率上升2%為例，單純使用存續期間可能預測損失16%，但加入凸性修正後調整為14.5%。在50萬美元的債券投資組合上，這1.5%的差距就是7,500美元。凸性不容忽視。
 
-**3. Convexity makes duration more accurate.** Duration is a first-order approximation. It works well for small rate changes but becomes increasingly inaccurate for large moves. Convexity is the correction factor. For a 2% rate increase, duration alone might predict a 16% loss, but convexity adjusts this to 14.5%. That 1.5% difference on a $500,000 bond portfolio is $7,500. Convexity matters.
+**4. 負凸性會帶來隱藏的風險。** 不動產抵押貸款證券（MBS）與可贖回債券具有負凸性，意味著在極端利率環境下，其表現比存續期間所顯示的更差。許多投資人在2022年吃足了苦頭，他們持有的MBS損失遠超過標示的存續期間所暗示的幅度。了解負凸性是避免這類意外不可或缺的功課。
 
-**4. Negative convexity creates hidden risks.** Mortgage-backed securities and callable bonds have negative convexity, meaning they behave worse than duration suggests in extreme rate environments. Many investors in 2022 discovered this the hard way when their MBS holdings lost far more than their stated duration implied. Understanding negative convexity is essential for avoiding these surprises.
+**5. 免疫策略利用存續期間消除利率風險。** 退休基金、保險公司及任何具有特定未來負債的投資人，都可以利用存續期間配對，確保無論利率如何變動，資產都能精確滿足其義務。這個概念雖較適用於法人機構，卻能清楚闡明存續期間的運作原理，以及為何它對專業債券管理如此根本。
 
-**5. Immunization uses duration to eliminate interest rate risk.** Pension funds, insurance companies, and any investor with a specific future liability can use duration matching to ensure that their assets will exactly meet their obligations regardless of what interest rates do. This concept, while more applicable to institutions, illuminates how duration works and why it is so fundamental to professional bond management.
-
-**6. Duration connects to everything in fixed income.** Weeks 34 (rate sensitivity), 36 (income portfolio), and all credit analysis depend on understanding duration. When a bond fund says "modified duration: 6.2 years," you need to know exactly what that means for your portfolio. This week gives you that knowledge.
+**6. 存續期間與固定收益的一切都密切相關。** 第34週（利率敏感度）、第36週（收益型投資組合）以及所有信用分析，都建立在理解存續期間的基礎上。當一檔債券基金標示「修正存續期間：6.2年」時，你必須清楚知道這對你的投資組合意味著什麼。本週將賦予你這樣的能力。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的內容
 
-#### The Price-Yield Relationship
+#### 價格與殖利率的關係
 
-Before understanding duration, you must understand the fundamental relationship between bond prices and yields.
+在理解存續期間之前，你必須先了解債券價格與殖利率之間的基本關係。
 
 ```
-THE INVERSE RELATIONSHIP:
+反向關係：
 
-  When interest rates GO UP, bond prices GO DOWN.
-  When interest rates GO DOWN, bond prices GO UP.
+  當利率上升，債券價格下跌。
+  當利率下跌，債券價格上升。
 
-  WHY?
+  為什麼？
 
-  You own a bond paying 4% coupon. New bonds now pay 5%.
-  Your 4% bond is less attractive -> its price falls.
+  你持有一張票面利率4%的債券，而新發行債券的利率是5%。
+  你的4%債券吸引力降低 -> 其價格下跌。
 
-  You own a bond paying 4% coupon. New bonds now pay 3%.
-  Your 4% bond is more attractive -> its price rises.
+  你持有一張票面利率4%的債券，而新發行債券的利率是3%。
+  你的4%債券吸引力提高 -> 其價格上漲。
 
-  PRICE-YIELD CURVE:
+  價格-殖利率曲線：
 
-  Price
+  價格
   $130 |*
        | *
   $120 |  *
@@ -61,278 +58,277 @@ THE INVERSE RELATIONSHIP:
    $80 |                        ********
        +----+----+----+----+----+----+----+----
        1%   2%   3%   4%   5%   6%   7%   8%
-                     Yield (YTM)
+                   殖利率（到期殖利率）
 
-  KEY OBSERVATION:
-  The curve is CONVEX (bowed toward the origin).
-  - A 1% rate DROP causes a LARGER price gain
-    than a 1% rate RISE causes a price loss.
-  - This asymmetry is convexity, and it benefits bondholders.
+  關鍵觀察：
+  這條曲線是凸的（向原點彎曲）。
+  - 利率下跌1%帶來的價格漲幅，
+    大於利率上升1%造成的價格跌幅。
+  - 這種不對稱性就是凸性，對債券持有人有利。
 ```
 
-#### Macaulay Duration
+#### 麥考利存續期間
 
-Macaulay duration is the weighted average time until you receive all the bond's cash flows, where the weights are the present values of each cash flow.
-
-```
-MACAULAY DURATION CALCULATION:
-
-  Bond: 5% coupon, 3-year maturity, YTM = 4%, par = $1,000
-
-  Year    Cash Flow    PV Factor    PV of CF     Weight     Year x Weight
-  ====    =========    =========    ========     ======     =============
-  1       $50          0.9615       $48.08       0.0462     0.0462
-  2       $50          0.9246       $46.23       0.0445     0.0889
-  3       $1,050       0.8890       $933.45      0.8976     2.6928
-  ====    =========    =========    ========     ======     =============
-  Total                             $1,040.40*   1.0000     2.8279
-
-  * Bond trades at premium because coupon (5%) > yield (4%)
-
-  Macaulay Duration = 2.83 years
-
-  INTERPRETATION:
-  Although this bond has 3 years to maturity, the weighted
-  average time to receive cash flows is 2.83 years.
-  The duration is shorter than maturity because you receive
-  coupon payments before maturity, pulling the average forward.
-
-  SPECIAL CASE: Zero-Coupon Bond
-  A 3-year zero-coupon bond has Macaulay duration = 3.00 years.
-  Duration equals maturity because there is only one cash flow,
-  at maturity. No earlier coupons to pull the average forward.
-```
+麥考利存續期間是收到債券所有現金流之前的加權平均時間，其中權重為每筆現金流的現值。
 
 ```
-FACTORS AFFECTING MACAULAY DURATION:
+麥考利存續期間計算：
 
-  Factor              Effect on Duration     Explanation
-  ==================  ====================   =======================
-  Higher coupon       SHORTER duration        More cash flow early
-  Lower coupon        LONGER duration         Less cash flow early
-  Longer maturity     LONGER duration         Cash flows further out
-  Shorter maturity    SHORTER duration        Cash flows closer
-  Higher yield        SHORTER duration        Distant CFs worth less
-  Lower yield         LONGER duration         Distant CFs worth more
+  債券：票面利率5%，3年到期，到期殖利率4%，面額$1,000
 
-  DIAGRAM - HOW COUPON AFFECTS DURATION:
+  年度    現金流      現值係數    現金流現值    權重      年度×權重
+  ====    =========  =========  =========    ======    =============
+  1       $50        0.9615     $48.08       0.0462    0.0462
+  2       $50        0.9246     $46.23       0.0445    0.0889
+  3       $1,050     0.8890     $933.45      0.8976    2.6928
+  ====    =========  =========  =========    ======    =============
+  合計                           $1,040.40*   1.0000    2.8279
 
-  High Coupon Bond (8%):            Low Coupon Bond (2%):
-  More weight on early CFs          Most weight on final CF
+  * 債券以溢價交易，因為票面利率（5%）> 殖利率（4%）
 
-  Weight                            Weight
-  |  ##                             |
-  |  ## ##                          |
-  |  ## ## ##                       |  ##
-  |  ## ## ## ####                  |  ## ##
-  |  ## ## ## ####                  |  ## ## ## ## ########
-  +--+--+--+--+--+--               +--+--+--+--+--+--
-   1  2  3  4  5 Mat                1  2  3  4  5 Mat
+  麥考利存續期間 = 2.83年
 
-  Duration ~3.8 years               Duration ~4.7 years
+  解讀：
+  雖然這張債券有3年到期，但收到所有現金流的
+  加權平均時間為2.83年。
+  存續期間短於到期日，因為你在到期前就收到票息，
+  使平均時間提前。
 
-  Coupon payments "pull" the duration toward the present.
-  Higher coupons pull harder, resulting in shorter duration.
-```
-
-#### Modified Duration
-
-Modified duration converts Macaulay duration into a direct measure of price sensitivity. It answers the question: "How much will the bond's price change for a 1% change in yield?"
-
-```
-MODIFIED DURATION FORMULA:
-
-  Modified Duration = Macaulay Duration / (1 + YTM/n)
-
-  Where n = number of coupon payments per year
-  (n=2 for semiannual, n=1 for annual)
-
-  Example (semiannual coupons):
-  Macaulay Duration = 2.83 years
-  YTM = 4% (semiannual = 2% per period)
-
-  Modified Duration = 2.83 / (1 + 0.04/2)
-                    = 2.83 / 1.02
-                    = 2.77 years
-
-  PRICE SENSITIVITY APPROXIMATION:
-
-  % Price Change = -Modified Duration x Change in Yield (in %)
-
-  If yields rise 1%:
-    % Price Change = -2.77 x 1% = -2.77%
-    On a $100,000 position: LOSS of $2,770
-
-  If yields fall 1%:
-    % Price Change = -2.77 x (-1%) = +2.77%
-    On a $100,000 position: GAIN of $2,770
+  特殊情況：零息債券
+  3年期零息債券的麥考利存續期間 = 3.00年。
+  存續期間等於到期日，因為只有一筆現金流，
+  且發生在到期時。沒有更早的票息使平均時間提前。
 ```
 
 ```
-MODIFIED DURATION BY BOND TYPE:
+影響麥考利存續期間的因素：
 
-  Bond Type                     Typical Duration   Price Impact per 1%
-  ============================  ================   ===================
-  Money Market / T-Bills        0 - 0.25 years     0 - 0.25%
-  Short-Term Bond Fund          1 - 3 years        1 - 3%
-  Intermediate Bond Fund        3 - 7 years        3 - 7%
-  Aggregate Bond Index (AGG)    6 - 7 years        6 - 7%
-  Long-Term Bond Fund           10 - 18 years      10 - 18%
-  30-Year Treasury Bond         18 - 22 years      18 - 22%
-  Zero-Coupon 30-Year           ~30 years           ~30%
+  因素          對存續期間的影響    說明
+  ============  ================   =======================
+  票面利率較高  存續期間較短        更多現金流在較早期
+  票面利率較低  存續期間較長        較少現金流在較早期
+  到期日較長    存續期間較長        現金流時間點較遠
+  到期日較短    存續期間較短        現金流時間點較近
+  殖利率較高    存續期間較短        遠期現金流價值較低
+  殖利率較低    存續期間較長        遠期現金流價值較高
 
-  VISUAL COMPARISON:
+  圖示——票面利率如何影響存續期間：
 
-  Rate rises 1%, portfolio losses:
+  高票面利率債券（8%）：              低票面利率債券（2%）：
+  較多權重在早期現金流                大部分權重在最終現金流
 
-  Money Market    |#                              0.1%
-  Short-Term      |###                            2%
-  Intermediate    |######                         5%
-  Aggregate       |########                       6.5%
-  Long-Term       |################               14%
-  30-Year Zero    |################################ 28%
-                   0%    5%    10%    15%    20%   25%   30%
+  權重                                權重
+  |  ##                              |
+  |  ## ##                           |
+  |  ## ## ##                        |  ##
+  |  ## ## ## ####                   |  ## ##
+  |  ## ## ## ####                   |  ## ## ## ## ########
+  +--+--+--+--+--+--                +--+--+--+--+--+--
+   1  2  3  4  5 到期                 1  2  3  4  5 到期
+
+  存續期間 ≈ 3.8年                   存續期間 ≈ 4.7年
+
+  票息支付使存續期間向當前時間點「拉近」。
+  票面利率越高，拉力越大，存續期間越短。
 ```
 
-#### Effective Duration
+#### 修正存續期間
 
-For bonds with embedded options (callable bonds, mortgage-backed securities, putable bonds), modified duration does not work because the cash flows change when rates change. For these bonds, we use **effective duration**, which measures price sensitivity empirically.
-
-```
-EFFECTIVE DURATION:
-
-  Effective Duration = (P_down - P_up) / (2 x P_0 x Delta_y)
-
-  Where:
-    P_down = Bond price when yield decreases by Delta_y
-    P_up   = Bond price when yield increases by Delta_y
-    P_0    = Current bond price
-    Delta_y = Yield change used (typically 0.25% or 0.50%)
-
-  EXAMPLE:
-
-  Callable bond, current price = $102.00, yield = 5.00%
-
-  If yield drops to 4.75%: Price = $103.20
-  If yield rises to 5.25%: Price = $100.50
-
-  Effective Duration = ($103.20 - $100.50) / (2 x $102.00 x 0.0025)
-                     = $2.70 / $0.51
-                     = 5.29 years
-
-  COMPARE: Modified duration of the same bond might be 7.2 years.
-  The difference (7.2 vs 5.29) is because when rates fall, the
-  issuer is likely to CALL the bond (buy it back), capping the
-  upside. This call risk shortens the effective duration.
-
-  WHEN TO USE WHICH:
-
-  Bond Type                 Use This Duration
-  ========================  ==========================
-  Non-callable Treasury     Modified Duration
-  Non-callable Corporate    Modified Duration
-  Callable Corporate Bond   Effective Duration
-  Mortgage-Backed Security  Effective Duration
-  Putable Bond              Effective Duration
-  Floating Rate Note        Effective Duration
-```
-
-#### PVBP (Price Value of a Basis Point)
-
-PVBP, also called DV01 (Dollar Value of 01), measures the dollar change in bond price for a 1 basis point (0.01%) change in yield. It translates duration into actual dollar amounts.
+修正存續期間將麥考利存續期間轉換為直接衡量價格敏感度的指標，回答了這個問題：「殖利率每變動1%，債券價格會變動多少？」
 
 ```
-PVBP / DV01 CALCULATION:
+修正存續期間公式：
 
-  PVBP = Modified Duration x Price x 0.0001
+  修正存續期間 = 麥考利存續期間 / (1 + 到期殖利率/n)
 
-  Example:
-  Bond price = $98.50, Modified Duration = 7.5 years
+  其中n = 每年票息支付次數
+  （每半年支付n=2，每年支付n=1）
 
-  PVBP = 7.5 x $98.50 x 0.0001 = $0.0739 per $100 face value
+  範例（半年付息）：
+  麥考利存續期間 = 2.83年
+  到期殖利率 = 4%（半年利率 = 2%）
 
-  For $100,000 face value:
-  PVBP = $0.0739 x 1,000 = $73.88
+  修正存續期間 = 2.83 / (1 + 0.04/2)
+              = 2.83 / 1.02
+              = 2.77年
 
-  Meaning: A 1 basis point rise in rates causes a $73.88 loss.
-           A 10 bp rise causes a ~$739 loss.
-           A 100 bp (1%) rise causes a ~$7,388 loss.
+  價格敏感度近似值：
 
-  PVBP BY MATURITY ($100,000 FACE VALUE):
+  價格變動百分比 = -修正存續期間 × 殖利率變動幅度（%）
 
-  Maturity    Duration    PVBP (per bp)    Loss per 1%
-  ========    ========    =============    ===========
-  2-year      1.9         $19              $1,900
-  5-year      4.5         $45              $4,500
-  10-year     8.2         $82              $8,200
-  20-year     14.5        $145             $14,500
-  30-year     20.0        $200             $20,000
+  若殖利率上升1%：
+    價格變動% = -2.77 × 1% = -2.77%
+    10萬美元部位：損失 $2,770
 
-  A 30-YEAR BOND LOSES $200 FOR EVERY SINGLE BASIS POINT
-  MOVE IN RATES. For a $1,000,000 position, that is $2,000/bp.
-
-  This is why pension funds and insurance companies obsess
-  over managing duration. Their bond portfolios are in the
-  billions, and even a few basis points matter enormously.
+  若殖利率下跌1%：
+    價格變動% = -2.77 × (-1%) = +2.77%
+    10萬美元部位：獲利 $2,770
 ```
 
 ```
-PORTFOLIO PVBP:
+不同債券類型的修正存續期間：
 
-  Portfolio PVBP = Sum of all position PVBPs
+  債券類型                    典型存續期間     每1%的價格影響
+  ==========================  ==============   ===================
+  貨幣市場 / 短期公債         0 - 0.25年       0 - 0.25%
+  短期債券基金                1 - 3年          1 - 3%
+  中期債券基金                3 - 7年          3 - 7%
+  綜合債券指數（AGG）         6 - 7年          6 - 7%
+  長期債券基金                10 - 18年        10 - 18%
+  30年期美國公債              18 - 22年        18 - 22%
+  30年期零息債券              ≈30年            ≈30%
 
-  Example Portfolio ($500,000 total):
-  Position              Amount     Duration   PVBP
+  視覺比較：
+
+  利率上升1%，投資組合損失：
+
+  貨幣市場      |#                              0.1%
+  短期          |###                            2%
+  中期          |######                         5%
+  綜合          |########                       6.5%
+  長期          |################               14%
+  30年零息      |################################ 28%
+                 0%    5%    10%    15%    20%   25%   30%
+```
+
+#### 有效存續期間
+
+對於含有嵌入式選擇權的債券（可贖回債券、不動產抵押貸款證券、可賣回債券），修正存續期間並不適用，因為當利率變動時，現金流也會隨之改變。對於這類債券，我們使用**有效存續期間**，以實證方式衡量價格敏感度。
+
+```
+有效存續期間：
+
+  有效存續期間 = (P跌 - P漲) / (2 × P₀ × Δy)
+
+  其中：
+    P跌 = 殖利率下降Δy時的債券價格
+    P漲 = 殖利率上升Δy時的債券價格
+    P₀  = 當前債券價格
+    Δy  = 使用的殖利率變動幅度（通常為0.25%或0.50%）
+
+  範例：
+
+  可贖回債券，當前價格 = $102.00，殖利率 = 5.00%
+
+  若殖利率降至4.75%：價格 = $103.20
+  若殖利率升至5.25%：價格 = $100.50
+
+  有效存續期間 = ($103.20 - $100.50) / (2 × $102.00 × 0.0025)
+              = $2.70 / $0.51
+              = 5.29年
+
+  比較：同一債券的修正存續期間可能為7.2年。
+  差異（7.2 vs 5.29）在於當利率下跌時，
+  發行人可能會「贖回」債券（買回），限制了上漲空間。
+  此贖回風險使有效存續期間縮短。
+
+  何時使用哪種存續期間：
+
+  債券類型              使用此存續期間
+  ====================  ==========================
+  非可贖回公債          修正存續期間
+  非可贖回公司債        修正存續期間
+  可贖回公司債          有效存續期間
+  不動產抵押貸款證券    有效存續期間
+  可賣回債券            有效存續期間
+  浮動利率票據          有效存續期間
+```
+
+#### 基點價值（PVBP）
+
+PVBP，又稱DV01（01的美元價值），衡量殖利率每變動1個基點（0.01%）時債券價格的美元變化量，將存續期間轉換為實際金額。
+
+```
+PVBP / DV01計算：
+
+  PVBP = 修正存續期間 × 價格 × 0.0001
+
+  範例：
+  債券價格 = $98.50，修正存續期間 = 7.5年
+
+  PVBP = 7.5 × $98.50 × 0.0001 = $0.0739（每$100面值）
+
+  對$100,000面值：
+  PVBP = $0.0739 × 1,000 = $73.88
+
+  意義：利率上升1個基點造成$73.88的損失。
+        上升10個基點造成約$739的損失。
+        上升100個基點（1%）造成約$7,388的損失。
+
+  依到期日劃分的PVBP（$100,000面值）：
+
+  到期日    存續期間    PVBP（每基點）    每1%的損失
+  ========  ========   =============    ===========
+  2年       1.9        $19              $1,900
+  5年       4.5        $45              $4,500
+  10年      8.2        $82              $8,200
+  20年      14.5       $145             $14,500
+  30年      20.0       $200             $20,000
+
+  30年期債券每移動1個基點就損失$200。
+  對$1,000,000的部位，每個基點意味著$2,000。
+
+  這就是為什麼退休基金和保險公司對管理存續期間如此執著。
+  他們的債券投資組合規模達數十億，哪怕幾個基點也關係重大。
+```
+
+```
+投資組合PVBP：
+
+  投資組合PVBP = 所有部位PVBP之總和
+
+  範例投資組合（合計$500,000）：
+  部位              金額       存續期間   PVBP
   ====================  =========  ========   =========
-  2-Year Treasury       $150,000   1.9        $28.50
-  5-Year Treasury       $200,000   4.5        $90.00
-  10-Year Treasury      $100,000   8.2        $82.00
-  Cash                  $50,000    0.0        $0.00
+  2年期公債       $150,000   1.9        $28.50
+  5年期公債       $200,000   4.5        $90.00
+  10年期公債      $100,000   8.2        $82.00
+  現金            $50,000    0.0        $0.00
   ======================================================
-  TOTAL                 $500,000   4.02*      $200.50
+  合計            $500,000   4.02*      $200.50
 
-  * Portfolio Duration = Total PVBP / (Total Value x 0.0001)
-    = $200.50 / ($500,000 x 0.0001) = 4.01 years
+  * 投資組合存續期間 = 總PVBP / (總價值 × 0.0001)
+    = $200.50 / ($500,000 × 0.0001) = 4.01年
 
-  If rates rise 50 bps uniformly:
-    Portfolio loss = $200.50 x 50 = $10,025 (about 2.0%)
+  若利率均勻上升50個基點：
+    投資組合損失 = $200.50 × 50 = $10,025（約2.0%）
 
-  If rates rise 100 bps (1%):
-    Portfolio loss = $200.50 x 100 = $20,050 (about 4.0%)
+  若利率上升100個基點（1%）：
+    投資組合損失 = $200.50 × 100 = $20,050（約4.0%）
 ```
 
-#### Convexity
+#### 凸性
 
-Duration is a linear approximation. It works well for small rate changes but becomes increasingly inaccurate for larger moves. Convexity is the correction factor that accounts for the curvature of the price-yield relationship.
+存續期間是一種線性近似值，對小幅利率變動效果良好，但對較大幅度的波動則愈來愈不準確。凸性是修正係數，用於補償價格-殖利率關係的曲線特性。
 
 ```
-WHY DURATION ALONE IS NOT ENOUGH:
+為何單靠存續期間還不夠：
 
-  For a bond with Duration = 10 and Price = $100:
+  存續期間 = 10，價格 = $100的債券：
 
-  Yield Change   Duration Estimate    Actual Price    Error
-  ============   =================    ============    =====
-  -0.25%         +$2.50 ($102.50)     $102.53         $0.03
-  -0.50%         +$5.00 ($105.00)     $105.13         $0.13
-  -1.00%         +$10.00 ($110.00)    $110.52         $0.52
-  -2.00%         +$20.00 ($120.00)    $122.14         $2.14
-  +0.25%         -$2.50 ($97.50)      $97.47          $0.03
-  +0.50%         -$5.00 ($95.00)      $94.87          $0.13
-  +1.00%         -$10.00 ($90.00)     $89.73          $0.27
-  +2.00%         -$20.00 ($80.00)     $80.53          $0.53
+  殖利率變動    存續期間估算        實際價格       誤差
+  ============  =================   ============   =====
+  -0.25%        +$2.50 ($102.50)    $102.53        $0.03
+  -0.50%        +$5.00 ($105.00)    $105.13        $0.13
+  -1.00%        +$10.00 ($110.00)   $110.52        $0.52
+  -2.00%        +$20.00 ($120.00)   $122.14        $2.14
+  +0.25%        -$2.50 ($97.50)     $97.47         $0.03
+  +0.50%        -$5.00 ($95.00)     $94.87         $0.13
+  +1.00%        -$10.00 ($90.00)    $89.73         $0.27
+  +2.00%        -$20.00 ($80.00)    $80.53         $0.53
 
-  Duration OVERESTIMATES losses and UNDERESTIMATES gains.
-  The error grows with larger rate changes.
-  Convexity corrects this error.
+  存續期間「高估」損失，「低估」獲利。
+  誤差隨利率變動幅度增大而擴大。
+  凸性修正了這個誤差。
 
-  GRAPHICAL VIEW:
+  圖形說明：
 
-  Price
+  價格
   $130 |*
        | *
-  $120 |  *                Actual price-yield curve (curved)
+  $120 |  *                實際價格-殖利率曲線（曲線）
        |   **              ---
-  $110 |     **           Duration estimate (straight line)
+  $110 |     **           存續期間估算（直線）
        |       **
   $100 |     ----***-----------
        |   --        ****
@@ -341,532 +337,526 @@ WHY DURATION ALONE IS NOT ENOUGH:
    $80 |                          ********
        +----+----+----+----+----+----+----
        1%   2%   3%   4%   5%   6%   7%
-                     Yield
+                   殖利率
 
-  The gap between the curved line and the straight line
-  is the convexity effect. It is always in the bondholder's
-  favor for normal (positive convexity) bonds.
+  曲線與直線之間的差距就是凸性效應。
+  對於正常的正凸性債券，此效應永遠對債券持有人有利。
 ```
 
 ```
-CONVEXITY-ADJUSTED PRICE CHANGE:
+含凸性修正的價格變動：
 
-  % Price Change = -Duration x Delta_y + (1/2) x Convexity x (Delta_y)^2
+  價格變動% = -存續期間 × Δy + (1/2) × 凸性 × (Δy)²
 
-  Where Delta_y is the yield change in decimal form
+  其中Δy為以小數表示的殖利率變動幅度
 
-  Example:
-  Duration = 10 years, Convexity = 120, Price = $100
+  範例：
+  存續期間 = 10年，凸性 = 120，價格 = $100
 
-  Yield rises 1% (Delta_y = 0.01):
-    Duration effect:   -10 x 0.01 = -0.10 = -10.00%
-    Convexity effect:  0.5 x 120 x (0.01)^2 = +0.006 = +0.60%
-    Total: -10.00% + 0.60% = -9.40%
-    Price: $100 x (1 - 0.094) = $90.60
+  殖利率上升1%（Δy = 0.01）：
+    存續期間效應：   -10 × 0.01 = -0.10 = -10.00%
+    凸性效應：       0.5 × 120 × (0.01)² = +0.006 = +0.60%
+    合計：-10.00% + 0.60% = -9.40%
+    價格：$100 × (1 - 0.094) = $90.60
 
-  Yield falls 1% (Delta_y = -0.01):
-    Duration effect:   -10 x (-0.01) = +0.10 = +10.00%
-    Convexity effect:  0.5 x 120 x (-0.01)^2 = +0.006 = +0.60%
-    Total: +10.00% + 0.60% = +10.60%
-    Price: $100 x (1 + 0.106) = $110.60
+  殖利率下跌1%（Δy = -0.01）：
+    存續期間效應：   -10 × (-0.01) = +0.10 = +10.00%
+    凸性效應：       0.5 × 120 × (-0.01)² = +0.006 = +0.60%
+    合計：+10.00% + 0.60% = +10.60%
+    價格：$100 × (1 + 0.106) = $110.60
 
-  NOTICE: The convexity adjustment is ALWAYS POSITIVE.
-  It adds to gains (when rates fall) and reduces losses (when rates rise).
-  This is positive convexity, and it is favorable for bondholders.
+  注意：凸性修正值「永遠為正」。
+  它增加了獲利（當利率下跌時）並減少了損失（當利率上升時）。
+  這就是正凸性，對債券持有人有利。
 
-  COMPARISON:
-  Rate Change    Duration Only    With Convexity    Difference
-  ===========    =============    ==============    ==========
-  -2%            +20.00%          +22.40%           +2.40%
-  -1%            +10.00%          +10.60%           +0.60%
-  -0.5%          +5.00%           +5.15%            +0.15%
-  +0.5%          -5.00%           -4.85%            +0.15%
-  +1%            -10.00%          -9.40%            +0.60%
-  +2%            -20.00%          -17.60%           +2.40%
+  比較：
+  利率變動    僅存續期間    含凸性修正    差異
+  ===========  =============  ==============  ==========
+  -2%          +20.00%        +22.40%         +2.40%
+  -1%          +10.00%        +10.60%         +0.60%
+  -0.5%        +5.00%         +5.15%          +0.15%
+  +0.5%        -5.00%         -4.85%          +0.15%
+  +1%          -10.00%        -9.40%          +0.60%
+  +2%          -20.00%        -17.60%         +2.40%
 ```
 
-#### Negative Convexity
+#### 負凸性
 
-Some bonds have negative convexity, meaning the price-yield curve bends the wrong way. Instead of gaining more on rate drops than they lose on rate rises, these bonds gain less and lose more. The primary culprits are callable bonds and mortgage-backed securities (MBS).
+某些債券具有負凸性，意味著價格-殖利率曲線向不利方向彎曲。這類債券在利率下跌時的獲利不如預期，在利率上升時的損失卻超過預期。主要問題來源是可贖回債券和不動產抵押貸款證券（MBS）。
 
 ```
-NEGATIVE CONVEXITY:
+負凸性：
 
-  WHY IT OCCURS (CALLABLE BONDS):
+  發生原因（可贖回債券）：
 
-  When rates fall, the issuer can CALL the bond (buy it back at par).
-  This caps the bond's upside. As rates approach the call threshold,
-  the bond's price stops rising and flattens near the call price.
+  當利率下跌，發行人可以「贖回」債券（以面額買回）。
+  這使債券的上漲空間受到限制。當利率接近贖回門檻時，
+  債券價格停止上漲，並在贖回價格附近趨於平穩。
 
-  Price
-  $115 |          Non-callable bond (positive convexity)
+  價格
+  $115 |          非可贖回債券（正凸性）
        |        **
   $110 |      ** .....
-       |    **  .     ..... Callable bond (negative convexity)
+       |    **  .     ..... 可贖回債券（負凸性）
   $105 |  ** ..
        | **.
-  $100 |*.                           CALL PRICE (cap)
+  $100 |*.                           贖回價（上限）
        |                        -.-.-.-.-.-.-.-.-.-.-
    $95 |                    ..
        |                ..
-   $90 |            ..                Both bonds similar
-       |        ..                    when rates rise
+   $90 |            ..                兩種債券在利率
+       |        ..                    上升時表現相似
    $85 |    ..
        +----+----+----+----+----+----+----+----
        2%   3%   4%   5%   6%   7%   8%   9%
 
-  Below ~4% yield: Callable bond's price is CAPPED near $105
-  because the issuer will likely call it. The non-callable bond
-  continues to rise.
+  殖利率低於約4%時：可贖回債券的價格被限制在約$105附近，
+  因為發行人可能會贖回它。而非可贖回債券則繼續上漲。
 
-  This "capping" creates NEGATIVE CONVEXITY in the low-rate region.
+  這種「封頂」效應在低利率區間形成了「負凸性」。
 ```
 
 ```
-NEGATIVE CONVEXITY IN MORTGAGE-BACKED SECURITIES:
+不動產抵押貸款證券中的負凸性：
 
-  MBS have the worst negative convexity because homeowners
-  can refinance (prepay their mortgage) at any time.
+  MBS的負凸性最為嚴重，因為屋主可以隨時再融資（提前還款）。
 
-  When rates fall:
-  - Homeowners refinance -> prepayments accelerate
-  - You get your principal back at par (no premium)
-  - Your high-coupon cash flows are replaced by lower yields
-  - Duration SHORTENS (you get money back faster, but at the
-    worst time because you cannot reinvest at high rates)
+  當利率下跌：
+  - 屋主再融資 -> 提前還款加速
+  - 你以面額收回本金（無溢價）
+  - 高票息現金流被較低殖利率所取代
+  - 存續期間「縮短」（你更快收回資金，但這時候
+    恰好是最糟糕的時機，因為你無法以高利率再投資）
 
-  When rates rise:
-  - Homeowners stop refinancing -> prepayments slow
-  - Your principal is locked up for longer
-  - Duration EXTENDS (you are stuck holding a low-coupon
-    bond for longer, exactly when you would want to reinvest
-    at higher rates)
+  當利率上升：
+  - 屋主停止再融資 -> 提前還款減慢
+  - 你的本金被鎖定更長時間
+  - 存續期間「延長」（你持有低票息債券的時間更長，
+    而偏偏就是在你希望以更高利率再投資的時候）
 
-  THIS IS THE OPPOSITE OF WHAT YOU WANT.
+  這與你期望的情況完全相反。
 
-  Duration SHORTENS when rates fall (gains are capped)
-  Duration EXTENDS when rates rise (losses are magnified)
+  利率下跌時存續期間「縮短」（獲利受限）
+  利率上升時存續期間「延長」（損失放大）
 
-  This is why MBS underperformed dramatically in 2022.
-  As rates surged from 1.5% to 4.5%, MBS duration extended
-  from ~4 years to ~7 years, amplifying losses.
+  這就是為什麼MBS在2022年表現極度不佳。
+  當利率從1.5%飆升至4.5%時，MBS的存續期間
+  從約4年延伸至約7年，放大了損失。
 
-  COMPARISON OF CONVEXITY:
+  凸性比較：
 
-  Bond Type              Duration   Convexity    Behavior
-  =====================  ========   =========    ==================
-  Zero-Coupon Treasury   High       Very High    Best convexity
-  Coupon Treasury        Moderate   Positive     Good convexity
-  Investment Grade Corp  Moderate   Positive     Good convexity
-  Callable Corporate     Moderate   Mixed*       Neg when rates low
-  Agency MBS             Moderate   Negative     Worst convexity
-  Interest-Only Strip    High       Very Neg     Extreme neg convex.
+  債券類型                存續期間   凸性       表現特徵
+  ====================   ========   =========   ==================
+  零息公債               高         非常高      凸性最佳
+  附息公債               中等       正值        凸性良好
+  投資等級公司債         中等       正值        凸性良好
+  可贖回公司債           中等       混合*       接近贖回價時為負
+  機構型MBS              中等       負值        凸性最差
+  純利息剝離債券         高         極度負值    極端負凸性
 
-  * Negative near call price, positive far from call price
+  * 接近贖回價時為負凸性，遠離贖回價時為正凸性
 ```
 
 ```
-PORTFOLIO IMPLICATIONS OF NEGATIVE CONVEXITY:
+負凸性對投資組合的影響：
 
-  Scenario: $200,000 bond portfolio, Duration = 6 years
+  情境：$200,000債券投資組合，存續期間 = 6年
 
-  POSITIVE CONVEXITY PORTFOLIO (Treasuries):
-    Convexity = 55
+  正凸性投資組合（公債）：
+    凸性 = 55
 
-    Rates fall 2%:
-      Duration: +12.00%   Convexity: +1.10%   Total: +13.10%
-      Gain: $26,200
+    利率下跌2%：
+      存續期間：+12.00%   凸性：+1.10%   合計：+13.10%
+      獲利：$26,200
 
-    Rates rise 2%:
-      Duration: -12.00%   Convexity: +1.10%   Total: -10.90%
-      Loss: $21,800
+    利率上升2%：
+      存續期間：-12.00%   凸性：+1.10%   合計：-10.90%
+      損失：$21,800
 
-    ASYMMETRY: Gained $4,400 more than lost. Convexity helps.
+    不對稱效應：獲利比損失多$4,400。凸性帶來幫助。
 
-  NEGATIVE CONVEXITY PORTFOLIO (MBS):
-    Convexity = -30
+  負凸性投資組合（MBS）：
+    凸性 = -30
 
-    Rates fall 2%:
-      Duration: +12.00%   Convexity: -0.60%   Total: +11.40%
-      Gain: $22,800
+    利率下跌2%：
+      存續期間：+12.00%   凸性：-0.60%   合計：+11.40%
+      獲利：$22,800
 
-    Rates rise 2%:
-      Duration: -12.00%   Convexity: -0.60%   Total: -12.60%
-      Loss: $25,200
+    利率上升2%：
+      存續期間：-12.00%   凸性：-0.60%   合計：-12.60%
+      損失：$25,200
 
-    ASYMMETRY: Lost $2,400 more than gained. Convexity hurts.
+    不對稱效應：損失比獲利多$2,400。凸性造成傷害。
 
-    NET DIFFERENCE: $6,800 between the two portfolios!
-    And this understates the MBS problem because duration
-    itself extends when rates rise, making the true loss worse.
+    兩組投資組合的淨差異：$6,800！
+    而這還低估了MBS的問題，因為存續期間本身
+    在利率上升時也會延長，使實際損失更加嚴重。
 ```
 
-#### Immunization
+#### 免疫策略
 
-Immunization is a strategy that uses duration matching to ensure that a bond portfolio will meet a specific future liability regardless of interest rate changes.
+免疫策略是利用存續期間配對確保債券投資組合能夠在無論利率如何變動的情況下，均能履行特定未來負債義務的策略。
 
 ```
-IMMUNIZATION CONCEPT:
+免疫策略概念：
 
-  PROBLEM:
-  You need exactly $1,000,000 in 7 years for a future obligation.
-  You have $700,000 today to invest in bonds.
-  If rates rise, your bonds lose value but you can reinvest coupons
-  at higher rates. If rates fall, your bonds gain value but you
-  reinvest coupons at lower rates. These two effects offset.
+  問題：
+  你需要在7年後精確擁有$1,000,000以履行未來義務。
+  你今天有$700,000可投資於債券。
+  若利率上升，你的債券價值下跌，但票息可以較高利率再投資。
+  若利率下跌，你的債券價值上漲，但票息以較低利率再投資。
+  這兩種效應相互抵消。
 
-  SOLUTION:
-  Match the DURATION of your portfolio to your TIME HORIZON.
+  解決方案：
+  將你的投資組合「存續期間」配對至你的「投資時間軸」。
 
-  If your liability is in 7 years, build a portfolio with
-  Macaulay Duration = 7 years.
+  若你的負債在7年後到期，建立麥考利存續期間 = 7年的投資組合。
 
-  WHY THIS WORKS:
+  為何奏效：
 
-  Two effects of a rate change:
+  利率變動的兩種效應：
 
-  1. PRICE EFFECT:
-     Higher rates -> lower bond prices (hurts)
-     Lower rates -> higher bond prices (helps)
+  1. 價格效應：
+     利率上升 -> 債券價格下跌（不利）
+     利率下跌 -> 債券價格上漲（有利）
 
-  2. REINVESTMENT EFFECT:
-     Higher rates -> coupons reinvested at higher rates (helps)
-     Lower rates -> coupons reinvested at lower rates (hurts)
+  2. 再投資效應：
+     利率上升 -> 票息以較高利率再投資（有利）
+     利率下跌 -> 票息以較低利率再投資（不利）
 
-  When Duration = Time Horizon:
-     Price effect and reinvestment effect exactly OFFSET.
-     You reach your target regardless of rate changes.
+  當存續期間 = 投資時間軸時：
+     價格效應與再投資效應「精確抵消」。
+     無論利率如何變動，你都能達到目標。
 
-  DIAGRAM:
+  圖示：
 
-  Portfolio Value
-  at Horizon
+  到期時
+  投資組合價值
        |
        |         *        *
        |        * *      * *
        |       *   *    *   *
-  $1M  |------*-----****-----*------ Target
+  $1M  |------*-----****-----*------ 目標
        |     *                 *
        |    *                   *
        |   *                     *
        +---+---+---+---+---+---+---
            -3% -2% -1%  0% +1% +2% +3%
-                Rate Change
+                  利率變動
 
-  At duration = horizon, the value converges to the target
-  regardless of the rate change. The "valley" at the center
-  is shallow and both sides converge near the target.
+  當存續期間 = 投資時間軸時，無論利率如何變動，
+  價值均收斂至目標附近。中心的「谷底」很淺，
+  兩側都接近目標。
 ```
 
 ```
-IMMUNIZATION EXAMPLE:
+免疫策略範例：
 
-  Liability: $1,000,000 due in 5 years
-  Current rates: 4.5%
-  Required investment today: $1,000,000 / (1.045)^5 = $802,451
+  負債：5年後到期的$1,000,000
+  當前利率：4.5%
+  今日所需投資：$1,000,000 / (1.045)⁵ = $802,451
 
-  Build a portfolio with Duration = 5 years
+  建立存續期間 = 5年的投資組合
 
-  Option A: Buy a 5-year zero-coupon bond
-    Duration = 5 years (exactly matches)
-    Simple but may not be available at desired size
+  方案A：購買5年期零息債券
+    存續期間 = 5年（精確配對）
+    簡單但可能無法以所需規模取得
 
-  Option B: Barbell with 2-year and 10-year bonds
-    Weight in 2-year (duration 1.9): w
-    Weight in 10-year (duration 8.2): 1-w
+  方案B：2年期與10年期債券的啞鈴策略
+    在2年期（存續期間1.9）的配置比重：w
+    在10年期（存續期間8.2）的配置比重：1-w
 
-    Target: w x 1.9 + (1-w) x 8.2 = 5.0
-    Solving: 1.9w + 8.2 - 8.2w = 5.0
-             -6.3w = -3.2
-             w = 0.508
+    目標：w × 1.9 + (1-w) × 8.2 = 5.0
+    求解：1.9w + 8.2 - 8.2w = 5.0
+          -6.3w = -3.2
+          w = 0.508
 
-    Invest 50.8% in 2-year ($407,646)
-    Invest 49.2% in 10-year ($394,805)
-    Portfolio duration = 5.0 years
+    投資50.8%於2年期（$407,646）
+    投資49.2%於10年期（$394,805）
+    投資組合存續期間 = 5.0年
 
-  IMPORTANT: Immunization requires REBALANCING.
-  As time passes and rates change, the portfolio duration shifts.
-  You must periodically (quarterly or after significant rate moves)
-  rebalance to maintain duration = remaining time to liability.
+  重要：免疫策略需要「再平衡」。
+  隨著時間流逝和利率變動，投資組合的存續期間會偏移。
+  你必須定期（每季或在重大利率波動後）再平衡，
+  以維持存續期間 = 距離負債的剩餘時間。
 
-  IMMUNIZATION CONDITIONS:
-  1. Portfolio duration = liability duration (time to payment)
-  2. Present value of portfolio >= present value of liability
-  3. Portfolio must be rebalanced periodically
-  4. Works best for parallel yield curve shifts
-  5. Does not protect against non-parallel shifts perfectly
+  免疫策略條件：
+  1. 投資組合存續期間 = 負債存續期間（距離償付的時間）
+  2. 投資組合現值 >= 負債現值
+  3. 必須定期再平衡
+  4. 最適用於殖利率曲線平行移動的情況
+  5. 對非平行移動的保護並不完美
 ```
 
-#### Duration and Convexity in Practice
+#### 存續期間與凸性的實務應用
 
 ```
-COMMON BOND FUND METRICS:
+常見債券基金指標：
 
-  Fund                     Duration   Convexity   What This Means
-  =======================  ========   =========   ===================
-  Vanguard Short-Term       2.7        0.08       Low rate sensitivity
-  (BSV)                                           Safe in rising rates
+  基金                     存續期間   凸性      意義
+  =======================  ========   =========  ===================
+  Vanguard短期              2.7        0.08      低利率敏感度
+  （BSV）                                        在利率上升時較安全
 
-  Vanguard Total Bond       6.5        0.65       Moderate sensitivity
-  (BND)                                           Core bond holding
+  Vanguard總體債券          6.5        0.65      中等敏感度
+  （BND）                                        核心債券持倉
 
-  iShares 7-10 Year         7.8        0.70       Above average
-  (IEF)                                           Meaningful rate risk
+  iShares 7-10年            7.8        0.70      略高於平均
+  （IEF）                                        具有顯著利率風險
 
-  iShares 20+ Year          17.2       3.95       Very high sensitivity
-  (TLT)                                           Extreme rate risk
+  iShares 20年以上          17.2       3.95      極高敏感度
+  （TLT）                                        極端利率風險
 
-  iShares MBS               5.8       -0.30       Moderate duration
-  (MBB)                                           NEGATIVE convexity!
+  iShares MBS               5.8        -0.30     中等存續期間
+  （MBB）                                        「負」凸性！
 
-  PVBP PER $100,000 INVESTED:
+  每$100,000投資的PVBP：
 
-  BSV:  $27/bp    -> $2,700 per 1% rate change
-  BND:  $65/bp    -> $6,500 per 1% rate change
-  IEF:  $78/bp    -> $7,800 per 1% rate change
-  TLT:  $172/bp   -> $17,200 per 1% rate change
-  MBB:  $58/bp    -> $5,800 per 1% rate change (with neg convexity!)
+  BSV：  $27/基點   -> 利率每變動1%，損益約$2,700
+  BND：  $65/基點   -> 利率每變動1%，損益約$6,500
+  IEF：  $78/基點   -> 利率每變動1%，損益約$7,800
+  TLT：  $172/基點  -> 利率每變動1%，損益約$17,200
+  MBB：  $58/基點   -> 利率每變動1%，損益約$5,800（含負凸性！）
 ```
 
 ```
-PRACTICAL GUIDELINES:
+實務操作指引：
 
-  YOUR RISK TOLERANCE AND DURATION:
+  你的風險承受度與存續期間：
 
-  Conservative (cannot tolerate > 5% bond loss):
-    Maximum duration = 5 / expected rate move
-    If you expect rates could rise 1%: max duration = 5 years
-    Funds: BSV, short-term bond funds, T-bills
+  保守型（無法承受超過5%的債券損失）：
+    最大存續期間 = 5 / 預期利率波動幅度
+    若預期利率可能上升1%：最大存續期間 = 5年
+    適合基金：BSV、短期債券基金、短期公債
 
-  Moderate (can tolerate 5-10% bond loss):
-    Maximum duration = 10 / expected rate move
-    If you expect rates could rise 1%: max duration = 10 years
-    Funds: BND, intermediate bond funds
+  穩健型（可承受5-10%的債券損失）：
+    最大存續期間 = 10 / 預期利率波動幅度
+    若預期利率可能上升1%：最大存續期間 = 10年
+    適合基金：BND、中期債券基金
 
-  Aggressive (willing to accept > 10% bond loss for
-             higher yield and convexity benefits):
-    Duration > 10 years
-    Funds: TLT, long-term bond funds
-    Only appropriate if you believe rates will fall
+  積極型（願意接受超過10%的債券損失，
+         以換取更高殖利率與凸性效益）：
+    存續期間 > 10年
+    適合基金：TLT、長期債券基金
+    僅適合預期利率將下跌的投資人
 
-  DURATION MATCHING RULE OF THUMB:
-  Your bond portfolio duration should approximately match
-  your investment time horizon.
+  存續期間配對的經驗法則：
+  你的債券投資組合存續期間應大約配對你的投資時間軸。
 
-  5-year time horizon -> Duration ~5 years
-  10-year time horizon -> Duration ~10 years
+  5年投資時間軸 -> 存續期間約5年
+  10年投資時間軸 -> 存續期間約10年
 
-  This provides natural immunization against rate changes:
-  price losses from rising rates are offset by higher
-  reinvestment income, and vice versa.
+  這提供了對利率變動的自然免疫效果：
+  利率上升帶來的價格損失，被較高的再投資收益所抵消，
+  反之亦然。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Duration is the average life of a bond."**
+**迷思一：「存續期間是債券的平均存續壽命。」**
 
-Macaulay duration is the weighted average time to receive cash flows, which is conceptually related to "average life" but is not the same thing. Modified duration is purely a price sensitivity measure and has nothing to do with the bond's life span. When someone says "this bond has a duration of 7," they usually mean modified duration of 7, which means the bond's price changes by approximately 7% for a 1% change in yield. Duration as a number of years is a mathematical coincidence of the units, not a time measurement.
+麥考利存續期間是收到現金流的加權平均時間，概念上與「平均壽命」有關，但並不相同。修正存續期間純粹是價格敏感度的衡量指標，與債券的存續壽命毫無關係。當有人說「這張債券的存續期間為7」，他們通常指的是修正存續期間為7，意即債券價格因殖利率每變動1%而大約改變7%。以年數表示的存續期間，是單位上的數學巧合，而非時間量度。
 
-**Misconception 2: "If a bond has a 5-year duration, I will lose exactly 5% if rates rise 1%."**
+**迷思二：「如果債券的存續期間是5年，利率上升1%，我就會剛好損失5%。」**
 
-Duration provides an approximation, not an exact prediction. The actual price change depends on convexity, the shape of the yield curve shift, credit spread changes, and other factors. For small rate changes (25-50 basis points), duration is quite accurate. For large rate changes (100+ basis points), convexity becomes important and the duration estimate can be significantly off.
+存續期間提供的是近似值，而非精確預測。實際價格變動取決於凸性、殖利率曲線移動的形態、信用利差變化及其他因素。對於小幅利率變動（25至50個基點），存續期間相當準確。對於大幅利率變動（100個基點以上），凸性變得重要，存續期間的估算可能有相當大的偏差。
 
-**Misconception 3: "Higher duration always means higher risk."**
+**迷思三：「存續期間越高，風險一定越大。」**
 
-Duration measures interest rate risk specifically. A bond could have low duration but high credit risk (a junk bond maturing in 2 years) or high duration but low credit risk (a 30-year Treasury). Total bond risk includes interest rate risk (duration), credit risk (default probability), liquidity risk, and reinvestment risk. Duration captures only the first of these.
+存續期間專門衡量利率風險。一張債券可能存續期間低但信用風險高（2年到期的高收益債券），也可能存續期間高但信用風險低（30年期公債）。債券的總體風險包括利率風險（存續期間）、信用風險（違約機率）、流動性風險和再投資風險。存續期間只捕捉了其中第一項。
 
-**Misconception 4: "I should always minimize duration because rates might rise."**
+**迷思四：「我應該永遠最小化存續期間，因為利率可能上升。」**
 
-If rates are already high and the economy is weakening, extending duration can be highly profitable. In late 2023, when the 10-year Treasury yielded over 5%, investors who extended duration captured significant gains as rates fell. The goal is not to minimize duration but to align duration with your market outlook and risk tolerance. In a falling-rate environment, longer duration is your friend.
+若利率已處於高位且經濟走弱，延長存續期間可能帶來豐厚獲利。2023年底，10年期美國公債殖利率超過5%，當時延長存續期間的投資人隨著利率下跌而獲得了可觀的報酬。目標不是最小化存續期間，而是使存續期間與你的市場展望和風險承受度相符。在利率下跌的環境中，較長的存續期間是你的朋友。
 
-**Misconception 5: "Mortgage-backed securities are safe because they are government-backed."**
+**迷思五：「不動產抵押貸款證券是安全的，因為有政府背書。」**
 
-Government-backed MBS (issued by Ginnie Mae, Fannie Mae, Freddie Mac) have virtually no credit risk. But they have significant interest rate risk amplified by negative convexity. In 2022, the iShares MBS ETF (MBB) lost over 11%, and individual MBS tranches lost much more. "Government-backed" means you will get your money back eventually, but it does not protect you from price declines caused by rising rates and negative convexity.
+有政府背書的MBS（由吉利美、房利美、房地美發行）幾乎沒有信用風險。但它們具有顯著的利率風險，且因負凸性而被放大。2022年，iShares MBS指數股票型基金（MBB）損失超過11%，而部分MBS分券的損失更為嚴重。「政府背書」意味著你最終能拿回資金，但並不能保護你免受利率上升和負凸性所帶來的價格跌幅。
 
-**Misconception 6: "Convexity does not matter for small portfolios."**
+**迷思六：「對小型投資組合來說，凸性並不重要。」**
 
-For a $50,000 bond portfolio with moderate duration, the convexity effect on a 1% rate change might be $200-$300. That is not trivial. More importantly, understanding convexity changes how you think about bond selection. Given two bonds with the same duration and yield, you should prefer the one with higher convexity. It gives you better upside and less downside. This free benefit (higher convexity at the same duration) is available to investors of any size.
+對於一個$50,000的中等存續期間債券投資組合，利率每變動1%的凸性效應可能是200至300美元。這並非無足輕重。更重要的是，理解凸性改變了你選債的思維方式。在存續期間和殖利率相同的情況下，你應該優先選擇凸性較高的債券。它給你更好的上行空間和更少的下行風險。這個免費效益（在相同存續期間下享有更高凸性）對任何規模的投資人都適用。
 
-**Misconception 7: "Duration matching means buying a bond that matures when I need the money."**
+**迷思七：「存續期間配對意味著買一張在我需要資金時到期的債券。」**
 
-Maturity matching and duration matching are different. A 10-year coupon bond might have a duration of 7.5 years. If your liability is in 7.5 years, you should match the duration (7.5), not the maturity (10). Alternatively, you could combine shorter and longer bonds to create a portfolio with the target duration. Duration matching is about the weighted average timing of cash flows, not the final maturity date.
-
----
-
-### d) Q&A
-
-**Q: How do I find the duration of my bond fund?**
-
-A: Every bond fund and ETF reports its "effective duration" or "modified duration" on its fact sheet and website. For Vanguard funds, go to the fund page and look under "Risk & Volatility." For iShares, look under "Exposure Breakdown." Your brokerage platform also typically displays duration alongside other fund characteristics. If you own individual bonds, your brokerage platform may calculate duration for each position, or you can use online bond calculators.
-
-**Q: If I own BND (Vanguard Total Bond Market) with a duration of 6.5 years, how much will I lose if rates rise by 0.50%?**
-
-A: Approximate loss = duration x rate change = 6.5 x 0.50% = 3.25%. On a $100,000 position, that is approximately $3,250. The convexity adjustment for a 0.50% move is small (about +0.16%), so the actual loss would be closer to 3.09%, or $3,090. For practical purposes at the retail level, the duration approximation of $3,250 is close enough.
-
-**Q: Should I care about Macaulay duration or modified duration?**
-
-A: For investment decision-making, use modified duration (or effective duration for bonds with embedded options). Modified duration directly tells you price sensitivity. Macaulay duration is primarily used for immunization calculations and for understanding the concept. When bond fund fact sheets report "duration," they almost always mean effective duration, which is close to modified duration for option-free bonds.
-
-**Q: What is "key rate duration" and when does it matter?**
-
-A: Key rate duration (also called partial duration) measures sensitivity to rate changes at specific points on the yield curve. A bond might have a 2-year key rate duration of 0.5 and a 10-year key rate duration of 6.0. This means it is much more sensitive to changes in 10-year rates than 2-year rates. Key rate durations matter when you expect non-parallel yield curve shifts. If you think the long end will rise but the short end will stay flat, key rate durations tell you exactly how your portfolio will respond. Most retail investors can ignore key rate durations, but institutional investors use them extensively.
-
-**Q: How do I increase or decrease my portfolio duration?**
-
-A: To increase duration, shift from shorter-maturity bonds/funds to longer-maturity ones. Replacing BSV (duration 2.7) with IEF (duration 7.8) increases duration. To decrease duration, do the opposite, or add cash (duration zero) to the portfolio. You can also use Treasury futures to adjust duration synthetically without selling existing holdings. For a simple approach, blend a short-duration fund with a long-duration fund to hit your target.
-
-**Q: Does duration apply to stocks or only bonds?**
-
-A: Duration is primarily a bond concept, but the underlying principle applies to any asset with known future cash flows. Equity duration is a concept used in academic finance, where high-growth stocks (with cash flows far in the future) have longer "duration" and are more sensitive to discount rate changes. This explains why growth stocks suffered more than value stocks in 2022 when rates rose sharply. The cash flows of growth companies are further in the future, making their present value more sensitive to the discount rate.
-
-**Q: What happened to MBS duration in 2022 and why was it so bad?**
-
-A: In early 2022, MBS had an effective duration of approximately 4 years. As rates rose sharply from 1.5% to 4.5%, prepayments slowed dramatically (nobody refinances from a 3% mortgage to a 6% mortgage). This caused MBS duration to extend to approximately 7 years, right as rates were rising. The combination of rising rates AND extending duration created losses far worse than the initial 4-year duration would have predicted. This "duration extension" in a rising-rate environment is the practical manifestation of negative convexity, and it is why MBS should be treated with extra caution compared to Treasuries of similar duration.
+到期日配對與存續期間配對是不同的概念。一張10年期附息債券的存續期間可能是7.5年。如果你的負債在7.5年後到期，你應該配對存續期間（7.5年），而非到期日（10年）。或者，你可以組合較短和較長的債券，建立一個達到目標存續期間的投資組合。存續期間配對關注的是現金流加權平均時間點，而非最終到期日。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：如何查詢我的債券基金的存續期間？**
+
+答：每一檔債券基金和指數股票型基金都在其說明書和網站上揭露「有效存續期間」或「修正存續期間」。對於Vanguard基金，進入基金頁面後查看「風險與波動性」。對於iShares，查看「曝險細分」。你的券商平台通常也會在其他基金特性旁顯示存續期間。如果你持有個別債券，你的券商平台可能為每個部位計算存續期間，或者你可以使用線上債券計算工具。
+
+**問：如果我持有BND（Vanguard總體債券市場指數股票型基金），其存續期間為6.5年，若利率上升0.50%，我會損失多少？**
+
+答：近似損失 = 存續期間 × 利率變動 = 6.5 × 0.50% = 3.25%。對於$100,000的部位，約損失$3,250。0.50%波動的凸性修正很小（約+0.16%），所以實際損失接近3.09%，即$3,090。對散戶投資人而言，存續期間近似值$3,250已足夠準確。
+
+**問：我應該關注麥考利存續期間還是修正存續期間？**
+
+答：在投資決策上，使用修正存續期間（或對含有嵌入式選擇權的債券使用有效存續期間）。修正存續期間直接告訴你價格敏感度。麥考利存續期間主要用於免疫策略計算和理解概念。當債券基金說明書揭露「存續期間」時，幾乎都是指有效存續期間，這對於無選擇權債券而言與修正存續期間非常接近。
+
+**問：什麼是「關鍵利率存續期間」？何時才重要？**
+
+答：關鍵利率存續期間（又稱局部存續期間）衡量對殖利率曲線特定區段利率變動的敏感度。一張債券可能有2年關鍵利率存續期間0.5，以及10年關鍵利率存續期間6.0。這意味著它對10年期利率的敏感度遠高於2年期利率。當你預期殖利率曲線出現非平行移動時，關鍵利率存續期間就很重要。若你認為長端利率會上升但短端維持不變，關鍵利率存續期間能精確告訴你投資組合的反應。大多數散戶投資人可以忽略關鍵利率存續期間，但機構投資人廣泛使用它。
+
+**問：如何增加或降低我的投資組合存續期間？**
+
+答：若要增加存續期間，將短期到期的債券或基金轉換為較長期的品種。以IEF（存續期間7.8年）取代BSV（存續期間2.7年），可提高存續期間。若要降低存續期間，則做相反操作，或在投資組合中增加現金（存續期間為零）。你也可以使用美國公債期貨合成調整存續期間，而無需出售現有持倉。最簡單的方法是混合短期存續期間基金與長期存續期間基金，以達到目標存續期間。
+
+**問：存續期間適用於股票嗎？還是僅適用於債券？**
+
+答：存續期間主要是債券概念，但其背後的原理適用於任何具有已知未來現金流的資產。股票存續期間是學術金融中使用的概念，其中高成長股（現金流時間點較遠）具有較長的「存續期間」，且對折現率的變化更為敏感。這解釋了為何2022年利率大幅上升時，成長股的表現遜於價值股。成長型公司的現金流時間點較遠，使其現值對折現率的敏感度更高。
+
+**問：2022年MBS的存續期間發生了什麼事？為何如此嚴重？**
+
+答：2022年初，MBS的有效存續期間約為4年。隨著利率從1.5%急速攀升至4.5%，提前還款大幅萎縮（沒有人會從3%的房貸再融資為6%的房貸）。這導致MBS的存續期間延長至約7年。因此，不僅利率在上升，MBS對那些上升的利率也變得更加敏感。這是雙重打擊。當年MBS指數股票型基金MBB損失約11%，部分MBS分券損失更大。這種在利率上升環境中的「存續期間延長」，正是負凸性在實務上的具體呈現，也是為何與同存續期間公債相比，MBS應被格外謹慎對待的原因。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we learned how to read the yield curve. This week we are going to learn how to measure exactly how much your bonds will move when rates change. We are talking about duration and convexity.
+**Horace（陳馬）：** 歡迎回來。上週我們學習了如何解讀殖利率曲線。本週我們要學習如何精確衡量利率變動時，你的債券會移動多少。我們要討論的是存續期間與凸性。
 
-**Sam:** Duration is one of those terms I see on every bond fund fact sheet, and I always just kind of gloss over it. I know it is important but I do not really understand what it means.
+**Stella（小魚）：** 存續期間是我在每一張債券基金說明書上都會看到的術語，我一直都是大略帶過。我知道它很重要，但我不太清楚它到底是什麼意思。
 
-**Alex:** You are not alone. Most retail investors ignore duration, and that is a costly mistake. Duration is the single most important number for understanding your bond portfolio's risk. Let me put it in simple terms. Duration tells you how much your bond or bond fund will change in price for a 1% change in interest rates.
+**Horace（陳馬）：** 你不是特例。大多數散戶投資人都忽略了存續期間，但這是個代價高昂的錯誤。存續期間是了解債券投資組合風險最重要的單一數字。讓我用簡單的話來說明。存續期間告訴你，當利率每變動1%時，你的債券或債券基金的價格會變動多少。
 
-**Sam:** Give me an example.
+**Stella（小魚）：** 給我一個例子。
 
-**Alex:** If your bond fund has a duration of 6.5 years, like the Vanguard Total Bond Market fund, and rates rise by 1%, your fund will lose approximately 6.5%. On $100,000, that is a $6,500 loss. If rates rise by 2%, you lose approximately 13%, or $13,000.
+**Horace（陳馬）：** 如果你的債券基金存續期間是6.5年，就像Vanguard總體債券市場基金，而利率上升了1%，你的基金將損失約6.5%。對$100,000而言，那就是損失$6,500。如果利率上升2%，你損失約13%，也就是$13,000。
 
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "Duration of 6.5 = lose 6.5% per 1% rate increase"]
+[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "存續期間6.5 = 利率每上升1%損失6.5%"]
 
-**Sam:** And if rates fall, the opposite?
+**Stella（小魚）：** 那如果利率下跌，就是相反的情況？
 
-**Alex:** Exactly. A 1% rate drop would give you approximately a 6.5% gain, or $6,500. Duration works in both directions.
+**Horace（陳馬）：** 完全正確。利率下跌1%，你大約會獲得6.5%的報酬，也就是$6,500。存續期間對兩個方向都有效。
 
-**Sam:** OK so higher duration means more sensitivity to rates. What determines a bond's duration?
+**Stella（小魚）：** 好，那麼存續期間越高，就代表對利率越敏感。是什麼決定了債券的存續期間？
 
-**Alex:** Three main factors. First, maturity. Longer-maturity bonds have higher duration. A 30-year Treasury has a duration around 20 years while a 2-year Treasury has a duration around 1.9 years. Second, coupon rate. Higher coupons mean lower duration because you receive more cash flow earlier. Third, yield level. Higher yields mean lower duration because distant cash flows are discounted more heavily.
+**Horace（陳馬）：** 主要有三個因素。第一，到期日。到期日越長的債券，存續期間越高。30年期公債的存續期間約20年，而2年期公債只有約1.9年。第二，票面利率。票面利率越高，存續期間越短，因為你更早收到更多現金流。第三，殖利率水準。殖利率越高，存續期間越短，因為遠期現金流被折現得更多。
 
 [ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
 
-**Sam:** Can you explain the different types of duration? I have seen Macaulay, modified, and effective.
+**Stella（小魚）：** 你能解釋一下不同種類的存續期間嗎？我看過麥考利、修正和有效存續期間。
 
-**Alex:** Sure. Macaulay duration is the original concept. It is the weighted average time until you receive all the bond's cash flows. Think of it like the balance point on a seesaw. If you put all the bond's cash flows on a timeline, weighted by their present value, the balance point is the Macaulay duration.
+**Horace（陳馬）：** 當然。麥考利存續期間是最原始的概念。它是收到債券所有現金流之前的加權平均時間。把它想成蹺蹺板上的支點。如果你把債券所有的現金流放在時間軸上，以現值加權，支點就是麥考利存續期間。
 
-**Sam:** So for a zero-coupon bond, the Macaulay duration equals the maturity?
+**Stella（小魚）：** 所以對於零息債券，麥考利存續期間等於到期日？
 
-**Alex:** Exactly, because there is only one cash flow at the end. For a coupon bond, the Macaulay duration is always less than the maturity because the coupon payments pull the balance point forward.
+**Horace（陳馬）：** 完全正確，因為只有一筆現金流在最後發生。對於附息債券，麥考利存續期間永遠小於到期日，因為票息支付會將支點往前拉。
 
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "Macaulay Duration = 4.2 years". Below: "Maturity = 5 years, but duration is only 4.2 years"]
+[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "麥考利存續期間 = 4.2年". Below: "到期日 = 5年，但存續期間只有4.2年"]
 
-**Sam:** And modified duration?
+**Stella（小魚）：** 那修正存續期間呢？
 
-**Alex:** Modified duration takes Macaulay duration and adjusts it to directly measure price sensitivity. The formula is simple: modified duration equals Macaulay duration divided by one plus the yield. The result tells you the percentage price change for a 1% yield change. When people say "duration" in an investment context, they almost always mean modified duration.
+**Horace（陳馬）：** 修正存續期間將麥考利存續期間調整為直接衡量價格敏感度的指標。公式很簡單：修正存續期間等於麥考利存續期間除以（一加上殖利率）。結果告訴你殖利率每變動1%，債券價格變動的百分比。當人們在投資情境中說「存續期間」，幾乎都是指修正存續期間。
 
-**Sam:** What about effective duration?
+**Stella（小魚）：** 那有效存續期間呢？
 
-**Alex:** Effective duration is used for bonds with embedded options, like callable bonds and mortgage-backed securities. For these bonds, the cash flows change when rates change because the issuer might call the bond or homeowners might refinance their mortgages. Modified duration does not account for this. Effective duration is calculated empirically by observing how the bond's price actually changes when you bump rates up and down.
+**Horace（陳馬）：** 有效存續期間用於含有嵌入式選擇權的債券，例如可贖回債券和不動產抵押貸款證券。對於這類債券，當利率變動時，現金流也會改變，因為發行人可能贖回債券，或屋主可能辦理再融資。修正存續期間無法考量這一點。有效存續期間是透過觀察利率上下波動時債券價格的實際變化來實證計算的。
 
-[VISUAL: Three boxes side by side. "Macaulay Duration: Weighted average time to cash flows. Used for immunization." "Modified Duration: Price sensitivity to rates. Used for risk measurement." "Effective Duration: Price sensitivity for bonds with options. Handles callable bonds and MBS."]
+[VISUAL: Three boxes side by side. "麥考利存續期間：現金流的加權平均時間。用於免疫策略。" "修正存續期間：對利率的價格敏感度。用於風險衡量。" "有效存續期間：含選擇權債券的價格敏感度。處理可贖回債券和MBS。"]
 
-**Sam:** Let us talk about PVBP because I want to understand the dollar impact.
+**Stella（小魚）：** 我們來談談PVBP，因為我想了解實際的美元影響。
 
-**Alex:** PVBP stands for Price Value of a Basis Point. One basis point is one hundredth of one percent, or 0.01%. PVBP tells you how many dollars your bond position changes for a 1 basis point move in rates.
+**Horace（陳馬）：** PVBP是基點價值的縮寫。一個基點是百分之一的百分之一，即0.01%。PVBP告訴你，利率每移動1個基點，你的債券部位會改變多少美元。
 
-**Sam:** How do you calculate it?
+**Stella（小魚）：** 如何計算？
 
-**Alex:** Multiply modified duration by the bond price by 0.0001. For example, a $100,000 position with duration of 8 years has a PVBP of $100,000 times 8 times 0.0001, which equals $80. Every single basis point move in rates changes your position by $80.
+**Horace（陳馬）：** 修正存續期間乘以債券價格再乘以0.0001。例如，$100,000部位，存續期間8年，PVBP就是$100,000乘以8再乘以0.0001，等於$80。利率每移動一個基點，你的部位就改變$80。
 
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2-year: $19/bp. 5-year: $45/bp. 10-year: $82/bp. 20-year: $145/bp. 30-year: $200/bp. A highlight shows: "30-year bond: $200 per basis point. A 50 bp move = $10,000 gain or loss."]
+[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2年期: $19/基點。5年期: $45/基點。10年期: $82/基點。20年期: $145/基點。30年期: $200/基點。A highlight shows: "30年期債券：每個基點$200。50個基點的波動 = 損益$10,000。"]
 
-**Sam:** So if I own $100,000 in TLT, the long-term Treasury ETF, with a duration of 17 years?
+**Stella（小魚）：** 那如果我持有$100,000的TLT，也就是長期公債指數股票型基金，存續期間是17年？
 
-**Alex:** Your PVBP is $170 per basis point. A 1% rate move, which is 100 basis points, changes your position by $17,000. That is a 17% swing. In 2022, when rates rose about 2.5%, TLT lost approximately 31%. If you knew the duration, you could have predicted that.
+**Horace（陳馬）：** 你的PVBP是每個基點$170。1%的利率波動，也就是100個基點，會讓你的部位改變$17,000。那是17%的波動。2022年，利率上升了約2.5%，TLT損失了約31%。如果你知道存續期間，就能預測到這一點。
 
-**Sam:** That really puts it in perspective. Now let us talk about convexity because you said duration alone is not enough.
+**Stella（小魚）：** 這真的很有感。現在我們來談談凸性，因為你說單靠存續期間還不夠。
 
-**Alex:** Right. Duration is a straight-line approximation of a curved relationship. Think about it this way. The actual relationship between bond prices and yields is a curve, not a straight line. Duration draws a tangent line to that curve at the current yield. For small movements along the curve, the tangent line is a good approximation. For large movements, the tangent line diverges from the actual curve.
+**Horace（陳馬）：** 對。存續期間是對曲線關係的直線近似。這樣想吧：債券價格與殖利率之間的實際關係是一條曲線，而不是直線。存續期間在當前殖利率點對那條曲線畫了一條切線。對於沿曲線的小幅移動，切線是個很好的近似值。對於大幅移動，切線就會偏離實際曲線。
 
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "Convexity bonus: you gain MORE than duration predicts." As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "Convexity cushion: you lose LESS than duration predicts."]
+[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "凸性紅利：你的獲利超過存續期間的預測。" As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "凸性緩衝：你的損失少於存續期間的預測。"]
 
-**Sam:** So convexity always helps you?
+**Stella（小魚）：** 所以凸性永遠對你有利？
 
-**Alex:** For bonds with positive convexity, yes. You gain more than duration predicts when rates fall, and you lose less than duration predicts when rates rise. This asymmetry is free. It is a mathematical property of fixed cash flow streams discounted at different rates.
+**Horace（陳馬）：** 對具有正凸性的債券而言，是的。當利率下跌時，你的獲利超過存續期間的預測；當利率上升時，你的損失少於存續期間的預測。這種不對稱性是免費的，它是固定現金流以不同利率折現的數學特性。
 
-**Sam:** How do I use convexity in my calculations?
+**Stella（小魚）：** 我如何在計算中使用凸性？
 
-**Alex:** The formula adds a second term. Percentage price change equals negative duration times the rate change, plus one-half times convexity times the rate change squared. The second term is always positive for positive convexity bonds, which is why it always helps.
+**Horace（陳馬）：** 這個公式加了第二項。價格變動百分比等於負的存續期間乘以利率變動，再加上二分之一乘以凸性乘以利率變動的平方。第二項對正凸性債券永遠為正，這就是為什麼它永遠帶來幫助。
 
-[VISUAL: The formula displayed clearly with a worked example. "% Change = -Duration x Ay + 0.5 x Convexity x (Ay)^2". Example: Duration 10, Convexity 120, rates rise 1%. Duration effect: -10%. Convexity effect: +0.6%. Total: -9.4% instead of -10%. "Convexity saved you 0.6% on a $100,000 portfolio = $600"]
+[VISUAL: The formula displayed clearly with a worked example. "% 變動 = -存續期間 × Δy + 0.5 × 凸性 × (Δy)²". Example: 存續期間10，凸性120，利率上升1%。存續期間效應：-10%。凸性效應：+0.6%。合計：-9.4%而非-10%。"凸性為你在$100,000的投資組合上節省了0.6% = $600"]
 
-**Sam:** Now I have to ask about negative convexity because that sounds scary.
+**Stella（小魚）：** 現在我必須問負凸性，因為聽起來很可怕。
 
-**Alex:** Negative convexity is exactly what it sounds like. Instead of the curve bending in your favor, it bends against you. You gain less than expected when rates fall and lose more than expected when rates rise.
+**Horace（陳馬）：** 負凸性正是字面上的意思。曲線不是向有利方向彎曲，而是對你不利。當利率下跌時，你的獲利不如預期；當利率上升時，你的損失超過預期。
 
-**Sam:** Why would any bond have negative convexity?
+**Stella（小魚）：** 為什麼有些債券會有負凸性？
 
-**Alex:** The primary cause is embedded options that favor the issuer or the borrower. In a callable bond, the issuer can call (buy back) the bond when rates fall. This caps your upside near the call price. You cannot benefit from further rate declines because the issuer will just take the bond away from you and reissue at lower rates.
+**Horace（陳馬）：** 主要原因是有利於發行人或借款人的嵌入式選擇權。在可贖回債券中，當利率下跌時，發行人可以贖回（買回）債券。這使你的上行空間被限制在贖回價附近。你無法從利率的進一步下跌中獲益，因為發行人會把債券拿回去，再以更低的利率重新發行。
 
-[VISUAL: Two price-yield curves overlaid. The solid curve (non-callable Treasury) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (callable bond) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "Lost upside due to call option"]
+[VISUAL: Two price-yield curves overlaid. The solid curve (非可贖回公債) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (可贖回債券) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "因贖回選擇權而損失的上行空間"]
 
-**Sam:** And mortgage-backed securities are even worse?
+**Stella（小魚）：** 那不動產抵押貸款證券的情況更糟？
 
-**Alex:** Much worse. Every homeowner with a mortgage has the option to refinance at any time. When rates fall, homeowners refinance en masse. Your MBS gets its principal returned at par, and you have to reinvest at the now-lower rates. But when rates rise, nobody refinances. Your money is locked in at the old low rate for much longer than expected. Duration extends exactly when you do not want it to.
+**Horace（陳馬）：** 糟糕得多。每一位有房貸的屋主都可以隨時辦理再融資。當利率下跌，屋主大規模再融資。你的MBS本金以面額還給你，你被迫在現在較低的利率環境下再投資。但當利率上升，沒有人再融資。你的資金鎖定在舊的低利率下，時間比預期長得多。存續期間恰恰在你不希望它延長的時候延長了。
 
-**Sam:** This is what happened in 2022, right?
+**Stella（小魚）：** 這就是2022年發生的事，對吧？
 
-**Alex:** Exactly. MBS went into 2022 with an effective duration of about 4 years. As rates surged, prepayments collapsed and duration extended to about 7 years. So not only were rates rising, but the MBS was becoming more sensitive to those rising rates as they moved higher. It was a double hit. The MBS ETF MBB lost about 11% that year, and some MBS tranches lost much more.
+**Horace（陳馬）：** 完全正確。MBS進入2022年時的有效存續期間約為4年。隨著利率急速攀升，提前還款崩潰，存續期間延長至約7年。所以不只是利率在上升，MBS在利率上升時對那些利率的敏感度也在增加。這是雙重打擊。當年MBS指數股票型基金MBB損失了約11%，部分MBS分券損失更多。
 
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "Rising rates: BAD" and "Extending duration: MAKES IT WORSE." The combination produces a loss that is larger than what 4-year duration would have predicted.]
+[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "利率上升：不利" and "存續期間延長：使情況更加惡化。" The combination produces a loss that is larger than what 4-year duration would have predicted.]
 
-**Sam:** So should I avoid MBS entirely?
+**Stella（小魚）：** 那我應該完全避開MBS嗎？
 
-**Alex:** Not necessarily, but you should understand what you are buying. Government-backed MBS has zero credit risk, and it typically offers a yield premium over comparable Treasuries. That premium is compensation for the negative convexity. If you hold MBS in a stable-rate environment, you collect the extra yield without the convexity problem. The danger is in rapidly changing rate environments. My advice: if you own MBS or a fund that holds MBS, know its duration and understand that in extreme rate moves, it will behave worse than a Treasury of similar duration.
+**Horace（陳馬）：** 不一定，但你應該清楚自己買的是什麼。有政府背書的MBS（由吉利美、房利美、房地美發行）幾乎沒有信用風險，而且通常比同等條件的公債提供更高的殖利率溢酬。那個溢酬是負凸性的補償。如果你在利率穩定的環境中持有MBS，你能收取額外殖利率而不會碰到凸性問題。危險在於利率劇烈變動的環境。我的建議是：如果你持有MBS或含有MBS的基金，要清楚其存續期間，並且了解在極端利率波動下，它的表現會比同存續期間的公債更差。
 
-**Sam:** Let me bring this back to practical investing. How should someone use duration to manage their bond portfolio?
+**Stella（小魚）：** 讓我把這些帶回實際投資。一個人應該如何利用存續期間來管理他們的債券投資組合？
 
-**Alex:** Here is my framework. First, know your duration. Look up the effective duration of every bond fund you own. Calculate your portfolio's weighted average duration. Second, stress test your portfolio. Multiply your duration by 1% and by 2% to see how much you would lose if rates rise. Ask yourself if you can tolerate those losses. Third, match your duration to your horizon. If you need the money in 5 years, your duration should be around 5 years. This immunizes you against rate changes.
+**Horace（陳馬）：** 以下是我的框架。第一，了解你的存續期間。查詢你持有的每一檔債券基金的有效存續期間，計算投資組合的加權平均存續期間。第二，對你的投資組合進行壓力測試。將你的存續期間分別乘以1%和2%，看看利率上升時你會損失多少。問問自己是否能夠承受這些損失。第三，將存續期間配對至你的時間軸。如果你5年後需要這筆錢，你的存續期間應該約為5年。這能讓你對利率變動產生自然的免疫效果。
 
-[VISUAL: A three-step checklist. Step 1: "Know Your Duration" with icons of bond fund fact sheets showing duration numbers. Step 2: "Stress Test" with a table showing "If rates rise 1%/2%/3%, you lose $X/$Y/$Z". Step 3: "Match to Horizon" with a timeline showing "Need money in 7 years -> Duration should be ~7 years"]
+[VISUAL: A three-step checklist. Step 1: "了解你的存續期間" with icons of bond fund fact sheets showing duration numbers. Step 2: "壓力測試" with a table showing "若利率上升1%/2%/3%，你損失$X/$Y/$Z". Step 3: "配對時間軸" with a timeline showing "7年後需要資金 -> 存續期間應約為7年"]
 
-**Sam:** What about the allocation between short, intermediate, and long bonds?
+**Stella（小魚）：** 那短期、中期和長期債券的配置呢？
 
-**Alex:** In a rising-rate environment or when you are uncertain, stay short. Duration of 2 to 4 years. You sacrifice some yield but protect against rate surprises. In a falling-rate environment, extend duration. Duration of 8 to 15 years. You capture both higher yields and price gains as rates decline. In a stable-rate environment, intermediate duration is fine. Duration of 5 to 7 years. You get reasonable yield without extreme sensitivity.
+**Horace（陳馬）：** 在利率上升環境或不確定時，保持短端。存續期間2至4年。你犧牲了一些殖利率，但能防範利率意外。在利率下跌環境中，延長存續期間。存續期間8至15年。你能同時捕捉較高殖利率和利率下跌時的價格漲幅。在利率穩定環境中，中等存續期間是合理的。存續期間5至7年。你能獲得合理殖利率，而不會有極端的敏感度。
 
-**Sam:** And what about the yield curve shape? Last week we talked about using the curve's shape for decisions.
+**Stella（小魚）：** 那殖利率曲線形態呢？上週我們談到利用曲線形態來做決策。
 
-**Alex:** They connect directly. When the curve is steep, staying short costs you a lot of yield because long rates are much higher. But long bonds have more duration risk. When the curve is flat, there is no yield advantage to extending, so stay short and take less risk. When the curve is inverted, short-term instruments actually yield more, so you get paid more for taking less risk. That is a free lunch, and it is the market's way of telling you to stay short.
+**Horace（陳馬）：** 它們直接相關。當殖利率曲線陡峭時，保持短端的成本很高，因為長端利率高出很多，但長期債券存在更多存續期間風險。當殖利率曲線平坦時，延長存續期間並不會帶來額外的殖利率優勢，因此保持短端、承擔較少風險。當殖利率曲線倒掛時，短期工具的殖利率實際上高於長期，你能因承擔較少風險而獲得更高報酬。這是免費的午餐，也是市場告訴你保持短端的訊號。
 
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "Steep Curve: Long bonds yield much more, but duration risk is high. Moderate duration." "Flat Curve: No yield pickup for duration risk. Stay short." "Inverted Curve: Short rates higher than long rates. Stay short, get paid more."]
+[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "陡峭殖利率曲線：長期債券殖利率高很多，但存續期間風險高。中等存續期間。" "平坦殖利率曲線：無殖利率優勢補償存續期間風險。保持短端。" "倒掛殖利率曲線：短端利率高於長端。保持短端，獲得更高報酬。"]
 
-**Sam:** Let us talk about immunization briefly. I find this concept elegant even though it is more of an institutional strategy.
+**Stella（小魚）：** 我們來簡單談一下免疫策略。即使它更屬於機構層面的策略，我覺得這個概念很優雅。
 
-**Alex:** Immunization is beautiful in its simplicity. You match your portfolio's duration to the date you need the money. If rates rise, your bonds lose value but you reinvest coupons at higher rates. If rates fall, your bonds gain value but you reinvest coupons at lower rates. These two effects cancel out. At the horizon date, you arrive at approximately the same ending value regardless of what rates did.
+**Horace（陳馬）：** 免疫策略簡單得讓人嘆為觀止。你將投資組合的存續期間配對到你需要資金的日期。若利率上升，你的債券價值下跌，但你以更高的利率再投資票息。若利率下跌，你的債券價值上漲，但你以更低的利率再投資票息。這兩種效應相互抵消。在期限屆滿時，無論利率發生了什麼，你的最終價值大約相同。
 
-**Sam:** So it is like a hedge that works in both directions?
+**Stella（小魚）：** 所以它就像一個雙向都有效的避險？
 
-**Alex:** Exactly. And it does not cost anything. You just have to rebalance periodically to keep the duration matched. The catch is it works perfectly only for parallel yield curve shifts. If the curve twists or the shift is non-parallel, there is some tracking error. But for most retail investors, duration matching is far better than not thinking about duration at all.
+**Horace（陳馬）：** 完全正確。而且它不需要任何成本，你只需定期再平衡以維持存續期間的配對。問題在於它只對殖利率曲線平行移動的情況完美適用。如果曲線扭轉或移動不平行，會有一些追蹤誤差。但對大多數散戶投資人而言，存續期間配對遠比完全不考慮存續期間要好得多。
 
-**Sam:** Let me try to bring all of this together. Duration tells me sensitivity to rates, roughly percentage loss per 1% rate rise. Convexity improves that estimate, and positive convexity always works in my favor. Negative convexity, which is mainly in callable bonds and MBS, works against me. And PVBP converts all of this into actual dollars.
+**Stella（小魚）：** 讓我試著把這一切整合在一起。存續期間告訴我對利率的敏感度，大約是每1%利率上升損失的百分比。凸性改善了這個估算，而且正凸性永遠對我有利。負凸性主要出現在可贖回債券和MBS中，會對我不利。PVBP則將這一切轉換成實際金額。
 
-**Alex:** Perfect summary. Let me add one more thought. When you are comparing two bonds or two bond funds with similar duration and yield, always prefer the one with higher convexity. It is free protection. You get more upside in a rate decline and less downside in a rate rise. All else equal, higher convexity is always better.
+**Horace（陳馬）：** 完美的總結。我再補充一點。當你比較兩張或兩檔存續期間和殖利率相近的債券或基金時，永遠優先選擇凸性較高的那個。它是免費的保護。你在利率下跌時有更多上行空間，在利率上升時有較少下行風險。在其他條件相同的情況下，凸性越高越好。
 
-[VISUAL: Two bonds displayed side by side. Bond A: Duration 7, Yield 4.5%, Convexity 60. Bond B: Duration 7, Yield 4.5%, Convexity 85. A star or checkmark next to Bond B with text: "Same duration, same yield, but better convexity. Choose Bond B."]
+[VISUAL: Two bonds displayed side by side. 債券A：存續期間7，殖利率4.5%，凸性60。債券B：存續期間7，殖利率4.5%，凸性85。A star or checkmark next to 債券B with text: "存續期間相同，殖利率相同，但凸性較佳。選擇債券B。"]
 
-**Sam:** And if I can only remember one number?
+**Stella（小魚）：** 如果我只能記住一個數字呢？
 
-**Alex:** Remember your portfolio duration. If it is 6, you lose approximately 6% for every 1% rates rise. If it is 3, you lose approximately 3%. That single number tells you more about your bond risk than anything else.
+**Horace（陳馬）：** 記住你的投資組合存續期間。如果是6，利率每上升1%，你大約損失6%。如果是3，你大約損失3%。這個單一數字對你的債券風險說明，比任何其他指標都更有力。
 
-**Sam:** This has been really helpful. I finally understand what those numbers on my fund fact sheets mean.
+**Stella（小魚）：** 這次的內容非常有幫助。我終於搞懂基金說明書上那些數字的意義了。
 
-**Alex:** And that is the whole point. Next week we move to credit analysis, where we will learn how to evaluate the other major risk in bonds: the risk that the borrower does not pay you back. Duration is interest rate risk. Credit analysis is default risk. Together, they give you the complete picture of bond investing.
+**Horace（陳馬）：** 這正是重點所在。下週我們進入信用分析，將學習如何評估債券的另一項主要風險：借款人無力還款的風險。存續期間是利率風險。信用分析是違約風險。兩者合在一起，才能讓你對債券投資有完整的認識。
 
-**Sam:** Thanks, everyone. See you next week.
+**Stella（小魚）：** 謝謝各位。我們下週見。
 
-[VISUAL: End screen with show logo, "Week 32: Duration and Convexity" summary, and preview of Week 33: Credit Analysis]
+[VISUAL: End screen with show logo, "第32週：存續期間與凸性" summary, and preview of Week 33: Credit Analysis]
 
-**Alex:** See you then.
+**Horace（陳馬）：** 我們下週見。

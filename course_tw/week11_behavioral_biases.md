@@ -1,925 +1,910 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 11: Behavioral Biases - Your Brain vs Your Money
+# 第十一週：行為偏誤——你的大腦對決你的金錢
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-You can master every financial ratio, memorize every valuation formula, and understand every portfolio theory -- and still lose money. The reason is not lack of knowledge. It is your own brain. Behavioral biases are systematic patterns of irrationality that affect every investor, from first-time buyers to seasoned hedge fund managers. Understanding these biases is not optional -- it is the difference between knowing what to do and actually doing it.
+你可以精通每一個財務比率、背熟每一個估值公式、理解每一套投資組合理論——卻依然虧錢。原因不是知識不足，而是你自己的大腦。行為偏誤是影響每一位投資人的系統性非理性模式，從首次進場的新手到資深的避險基金經理人，無一倖免。理解這些偏誤不是可選項——它是「知道該怎麼做」與「真正去做」之間的差距。
 
-Consider a simple experiment. Researchers offered people a choice: receive $50 with certainty, or flip a coin for a chance to win $100 or nothing. Mathematically, both options have the same expected value. But the vast majority of people choose the guaranteed $50. Now flip the scenario: lose $50 with certainty, or flip a coin with a 50% chance of losing $100 or losing nothing. Suddenly, people prefer the gamble. Same math, completely opposite behavior. This asymmetry -- feeling losses roughly twice as intensely as equivalent gains -- is called loss aversion, and it is just one of dozens of cognitive traps hardwired into your brain.
+來看一個簡單的實驗。研究人員讓受試者在兩個選項之間做選擇：確定拿到 50 美元，或擲硬幣賭 100 美元或零元。從數學上看，兩個選項的期望值相同。但絕大多數人選擇確定的 50 美元。現在反過來：確定損失 50 美元，或擲硬幣賭 50% 機率損失 100 美元或一毛不損。這時，人們反而偏好賭一把。數學完全相同，行為卻截然相反。這種不對稱性——感受損失的強度大約是感受同等獲利的兩倍——稱為「損失趨避」，而這只是大腦中數十個認知陷阱之一。
 
-Why should you care?
+為什麼你要在意？
 
-1. **Biases cost real money.** The annual DALBAR study consistently shows that the average equity fund investor underperforms the S&P 500 by 3-4 percentage points per year. The gap is not caused by fees or bad fund selection. It is caused by behavior: buying after rallies (greed), selling after crashes (fear), and trading too frequently (overconfidence). Over a 30-year career, that behavioral penalty can cost you more than half your potential wealth.
+1. **偏誤會讓你實實在在虧錢。** DALBAR 的年度研究持續顯示，一般股票型基金投資人每年表現落後標普 500 指數 3 至 4 個百分點。這個差距不是由手續費或基金選擇不當造成的，而是由行為造成的：在漲勢後進場（貪婪）、在崩跌後出場（恐懼），以及交易過度頻繁（過度自信）。三十年下來，這個行為代價可能讓你損失超過一半的潛在財富。
+2. **了解偏誤並不能自動修正它。** 與一旦發現就能修正的數學錯誤不同，行為偏誤深植於你的神經迴路。就連研究這些偏誤的學者自己也難逃其害。目標不是消滅偏誤，而是建立能限制其損害的系統與習慣。
+3. **市場由集體偏誤塑造。** 泡沫因從眾心態與過度自信而形成，崩盤因損失趨避與恐慌性拋售而加深。如果你了解偏誤如何驅動市場，你就能在他人非理性行為中佔據有利位置，而非隨之起舞。
+4. **這些知識的應用遠不止投資。** 行為偏誤影響薪資談判、職涯決策、重大採購，以及幾乎所有金錢與不確定性交會的領域。這堂課可以說是整個課程中應用最廣泛的一課。
 
-2. **Knowing about biases does not automatically fix them.** Unlike a math error you can correct once you spot it, behavioral biases are deeply wired into your neurology. Even researchers who study these biases fall victim to them. The goal is not to eliminate biases -- it is to build systems and habits that limit their damage.
-
-3. **Markets are shaped by collective biases.** Bubbles form because of herd mentality and overconfidence. Crashes deepen because of loss aversion and panic selling. If you understand how biases move markets, you can position yourself to profit from others' irrational behavior rather than join it.
-
-4. **This knowledge applies beyond investing.** Behavioral biases affect salary negotiations, career decisions, major purchases, and virtually every domain where money and uncertainty intersect. This is arguably the most broadly useful lesson in the entire course.
-
-This lesson maps the most dangerous behavioral biases for investors, explains the psychology behind each one, and -- most importantly -- gives you concrete strategies for counteracting them. Think of it as a user manual for your own brain.
+本課將梳理對投資人最危險的行為偏誤，解釋每一種偏誤背後的心理機制，並且——最重要的——提供具體可行的對策。把它想成一本你自己大腦的使用手冊。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. The Dual-System Framework
+#### 1. 雙系統思維框架
 
-Before diving into specific biases, you need to understand how your brain makes decisions. Psychologist Daniel Kahneman, who won the Nobel Prize in Economics, describes two mental systems:
+在深入探討各種偏誤之前，你需要先了解大腦如何做決策。獲得諾貝爾經濟學獎的心理學家丹尼爾·康納曼（Daniel Kahneman）描述了兩種心理系統：
 
 ```
-THE TWO SYSTEMS OF THINKING
+思考的兩個系統
 =============================
 
-   SYSTEM 1 (Fast)                  SYSTEM 2 (Slow)
+   系統一（快速）                    系統二（慢速）
    ================                 ================
-   - Automatic                      - Deliberate
-   - Effortless                     - Effortful
-   - Emotional                      - Analytical
-   - Quick judgments                 - Careful reasoning
-   - Pattern matching               - Logical calculation
-   - Always "on"                    - Lazy, avoids effort
-   - Prone to bias                  - More accurate but slow
+   - 自動運作                       - 刻意為之
+   - 毫不費力                       - 需要付出心力
+   - 情緒主導                       - 分析主導
+   - 快速判斷                       - 審慎推理
+   - 模式比對                       - 邏輯計算
+   - 永遠「開機」                   - 懶惰，抗拒消耗心力
+   - 容易產生偏誤                   - 較為精確但緩慢
 
-   Example:                         Example:
-   "That stock crashed              "Let me calculate the
-    50% -- SELL!"                    intrinsic value and
-                                     compare it to the
-                                     current price..."
+   例子：                           例子：
+   「這支股票崩跌                   「讓我計算內在價值，
+    50%——賣掉！」                   再與目前價格比較……」
 
-   +-----------+     Shortcuts     +-----------+
-   | SYSTEM 1  |  ==============> |  DECISION |
-   | (Fast)    |   (most of the   |           |
-   +-----------+    time)         +-----------+
+   +-----------+     捷徑         +-----------+
+   | 系統一    |  ==============> |  決策     |
+   | （快速）  |  （大多數時候）  |           |
+   +-----------+                  +-----------+
                                        ^
-   +-----------+   Overrides       |
-   | SYSTEM 2  |  ==============> |
-   | (Slow)    |  (when you       |
-   +-----------+   force it)
+   +-----------+   覆蓋             |
+   | 系統二    |  ==============> |
+   | （慢速）  | （當你強迫自己   |
+   +-----------+  啟動時）
 ```
 
-Most investment decisions are made by System 1 -- fast, intuitive, and dangerously prone to error. Good investing requires engaging System 2, but your brain naturally resists this because slow thinking burns more energy. Every bias we discuss below is essentially System 1 hijacking a decision that should involve System 2.
+大多數投資決策由系統一做出——快速、直覺，且危險地容易出錯。良好的投資需要啟動系統二，但你的大腦天生抗拒，因為慢速思考消耗更多能量。以下所有偏誤，本質上都是系統一劫持了本應由系統二主導的決策。
 
 ---
 
-#### 2. Loss Aversion
+#### 2. 損失趨避
 
-Loss aversion is the most fundamental bias in investing. Research by Kahneman and Tversky shows that the pain of losing $1,000 is psychologically about twice as intense as the pleasure of gaining $1,000. This asymmetry distorts nearly every financial decision you make.
+損失趨避是投資中最根本的偏誤。康納曼與特佛斯基（Tversky）的研究顯示，損失 1,000 美元的心理痛苦，大約是獲得 1,000 美元的愉悅感的兩倍。這種不對稱性幾乎扭曲了你所做的每一個財務決策。
 
 ```
-LOSS AVERSION: THE ASYMMETRIC VALUE FUNCTION
+損失趨避：不對稱的價值函數
 =============================================
 
-    Pleasure
-    (Positive)
+    愉悅感
+    （正向）
        |
-       |         Gains feel good...
+       |         獲利帶來愉悅……
        |        /
        |       /
-       |      /   <-- Moderate slope
+       |      /   <-- 坡度較緩
        |     /
        |    /
        |   /
   -----+--/------------------------------
-       | /         Losses
+       | /         損失
        |/
        |\
        | \
-       |  \    <-- STEEP slope (2x)
+       |  \    <-- 坡度陡峭（2 倍）
        |   \
        |    \
-       |     \     ...but losses feel
-       |      \    MUCH worse
+       |     \     ……但損失
+       |      \    的痛苦大得多
        |
-    Pain
-    (Negative)
+    痛苦感
+    （負向）
 
-  Key: The loss curve is approximately TWICE as steep
-       as the gain curve. Losing $100 hurts as much
-       as gaining $200 feels good.
+  關鍵：損失曲線的坡度大約是獲利曲線的兩倍。
+       損失 100 元的痛苦，相當於獲利 200 元的快感。
 ```
 
-**How loss aversion hurts investors:**
+**損失趨避如何傷害投資人：**
 
-- **Selling winners too early.** You lock in a small gain because you fear it will disappear, even though the investment thesis is intact and the stock has further to run.
-- **Holding losers too long.** You refuse to sell a losing position because selling would make the loss "real." You hold on, hoping it will come back, often watching a small loss turn into a devastating one.
-- **Avoiding the market entirely.** Some people never invest because the possibility of loss paralyzes them, even though historically equities have delivered positive returns over every 20-year rolling period.
-- **Over-allocating to "safe" assets.** You put 80% in bonds or cash because you cannot stomach short-term volatility, but you sacrifice decades of compounding growth.
+- **過早賣出獲利部位。** 你急於鎖定小額獲利，因為你害怕獲利消失，即使投資邏輯依然成立、股票還有上漲空間。
+- **抱著虧損部位太久。** 你拒絕賣出虧損部位，因為賣出就讓損失「成真」了。你繼續持有、期待反彈，卻往往眼睜睜看著小虧變成重大損失。
+- **完全迴避市場。** 有些人始終不投資，因為虧損的可能性讓他們動彈不得，即便歷史上股票在任何一個 20 年滾動期都曾帶來正報酬。
+- **過度配置「安全」資產。** 你把 80% 的資金放在債券或現金，因為你無法承受短期波動性，卻因此犧牲了數十年的複利成長。
 
 ---
 
-#### 3. Overconfidence Bias
+#### 3. 過度自信偏誤
 
-Overconfidence is the tendency to overestimate your own abilities, knowledge, and the precision of your predictions. Studies consistently show that when people say they are 90% sure of something, they are right only about 70% of the time. In investing, overconfidence is particularly dangerous because it leads to excessive trading, under-diversification, and ignoring risks.
+過度自信是指高估自己的能力、知識及預測精準度的傾向。研究一再顯示，當人們說自己有 90% 把握時，實際上只有大約 70% 的勝率。在投資中，過度自信特別危險，因為它導致過度交易、分散不足，以及忽視風險。
 
 ```
-OVERCONFIDENCE IN ACTION
+過度自信的實際呈現
 =========================
 
-Survey: "Rate yourself as a driver"
+調查：「你的駕駛技術如何？」
 +--------------------------------------------------+
 |                                                    |
-|   93% of drivers rate themselves                   |
-|   "above average"                                  |
+|   93% 的駕駛人認為自己                             |
+|   「高於平均水準」                                 |
 |                                                    |
-|   Mathematically, only 50% can be above average.   |
-|                                                    |
-+--------------------------------------------------+
-
-Applied to investing:
-+--------------------------------------------------+
-|                                                    |
-|   "I can pick stocks better than professionals"    |
-|   "I know when to get in and out of the market"    |
-|   "This time I have done enough research"          |
-|   "I do not need to diversify -- I know what I own"|
-|                                                    |
-|   Reality: Active individual investors             |
-|   underperform index funds by ~2-4% annually       |
+|   從數學上看，只有 50% 的人能高於平均水準。         |
 |                                                    |
 +--------------------------------------------------+
 
-TRADING FREQUENCY AND RETURNS
+應用到投資：
++--------------------------------------------------+
+|                                                    |
+|   「我選股的眼光比專業人士好」                     |
+|   「我知道何時進出市場」                           |
+|   「這次我做了足夠的研究」                         |
+|   「我不需要分散投資——我很清楚自己在買什麼」       |
+|                                                    |
+|   現實：個人主動投資人                             |
+|   每年落後指數基金約 2 至 4 個百分點              |
+|                                                    |
++--------------------------------------------------+
+
+交易頻率與報酬的關係
 ==============================
 
-Investor Type     Avg Annual    Avg Portfolio
-                  Turnover      Return
+投資人類型        平均年化          平均投資組合
+                  換手率            報酬
 --------------    ----------    -------------
-Low Turnover        2%          11.4%
-Moderate           50%           9.6%
-High              200%           7.1%
-Highest           250%+          5.5%
+低換手率            2%              11.4%
+中等換手率         50%               9.6%
+高換手率          200%               7.1%
+最高換手率        250%+              5.5%
 
-Source: Barber & Odean study of 66,000 accounts
+資料來源：Barber & Odean 對 66,000 個帳戶的研究
 
-Key: The more you trade, the worse you do.
-     Overconfidence drives excessive trading.
+關鍵：交易越頻繁，表現越差。
+     過度自信驅動過度交易。
 ```
 
-**Three forms of overconfidence:**
+**過度自信的三種形式：**
 
-1. **Overprecision:** Your predictions are too narrow. You think a stock will earn $5.00 per share, when the realistic range is $3.00 to $7.00.
-2. **Overestimation:** You believe your portfolio will return 15% per year when the market average is 10%.
-3. **Overplacement:** You believe you are a better investor than most other people (the "Lake Wobegon effect").
+1. **過度精確：** 你的預測區間太窄。你認為某支股票每股將賺 5.00 元，但實際上合理的區間是 3.00 至 7.00 元。
+2. **過度估計：** 你相信自己的投資組合每年可以獲得 15% 報酬，而市場平均只有 10%。
+3. **過度排名：** 你認為自己比大多數投資人都優秀（也就是「烏比岡湖效應」）。
 
 ---
 
-#### 4. Anchoring Bias
+#### 4. 定錨偏誤
 
-Anchoring is the tendency to rely too heavily on the first piece of information you encounter (the "anchor") when making decisions. In investing, the most common anchor is the price at which you bought a stock. That purchase price is irrelevant to the stock's future value, but your brain treats it as a reference point that distorts all subsequent judgments.
+定錨是指在做決策時，過度依賴所接觸到的第一條資訊（即「錨點」）的傾向。在投資中，最常見的錨點是你買進股票的價格。那個買進價格與股票的未來價值毫無關聯，但你的大腦卻把它當作最重要的參考基準，扭曲了所有後續判斷。
 
 ```
-ANCHORING BIAS: HOW YOUR BRAIN GETS TRAPPED
+定錨偏誤：你的大腦如何被困住
 =============================================
 
-  You bought Stock X at $100.
-  It drops to $60.
+  你以 100 元買進 X 股票。
+  現在跌到 60 元。
 
-  BIASED THINKING (Anchored to $100):
-  "It is down 40%. It MUST come back."
-  "I will sell when it gets back to $100."
-  "At $60, it is a bargain compared to what I paid."
+  偏誤思維（錨定在 100 元）：
+  「跌了 40%，它一定會反彈。」
+  「等漲回 100 元我就賣。」
+  「60 元，比我買的時候便宜多了。」
 
-  RATIONAL THINKING (No anchor):
-  "Forget what I paid. Is this company worth $60 today?"
-  "Given current earnings and growth, what is fair value?"
-  "Would I buy this stock today at $60 if I did not own it?"
+  理性思維（無錨點）：
+  「忘掉我買多少。這家公司現在值 60 元嗎？」
+  「根據目前盈餘和成長，合理價值是多少？」
+  「如果我現在還沒有持有，我願意以 60 元買進嗎？」
 
-  OTHER COMMON ANCHORS IN INVESTING:
+  投資中常見的其他錨點：
   +------------------------------------------+
-  |  52-week high/low                        |
-  |  Price target from an analyst            |
-  |  A round number ($100, $1,000)           |
-  |  Previous all-time high                  |
-  |  IPO price                               |
-  |  A friend's cost basis                   |
+  |  52 週最高／最低價                       |
+  |  分析師的目標價                          |
+  |  整數關卡（100 元、1,000 元）            |
+  |  歷史最高價                              |
+  |  掛牌上市（IPO）價格                     |
+  |  朋友的持有成本                          |
   +------------------------------------------+
 
-  THE ANCHOR TEST:
+  錨點測試：
   ==========================================
-  Ask yourself: "Would I buy this stock
-  at today's price if I had never heard
-  of it before?"
+  問自己：「如果我從未聽過這支股票，
+  我願意在今天的價格買進嗎？」
 
-  If NO --> why are you still holding it?
-  If YES --> the anchor is irrelevant
+  如果不願意 --> 你為什麼還繼續持有？
+  如果願意   --> 錨點就無關緊要了
   ==========================================
 ```
 
 ---
 
-#### 5. Herd Mentality
+#### 5. 從眾心態
 
-Herd mentality is the tendency to follow the crowd rather than thinking independently. It is an evolutionary survival mechanism -- in prehistoric times, if everyone in your tribe started running, stopping to analyze the situation would get you eaten. But in markets, following the herd leads you to buy at tops (when everyone is euphoric) and sell at bottoms (when everyone is panicking).
+從眾心態是指跟隨大眾而非獨立思考的傾向。這是一種演化而來的生存機制——在遠古時代，如果你的部落所有人開始奔跑，停下來分析情況會讓你被吃掉。但在市場中，隨波逐流只會讓你在高點買進（當所有人都亢奮時），在低點賣出（當所有人都恐慌時）。
 
 ```
-HERD MENTALITY AND THE MARKET CYCLE
+從眾心態與市場循環
 =====================================
 
-                    EUPHORIA
-                   "Everyone is     <-- Herd is BUYING
-                    getting rich!"       (Maximum risk)
+                    狂喜
+                   「每個人都在                <-- 群眾買進
+                    發大財！」                      （風險最高）
                       /    \
                      /      \
                     /        \
-         THRILL   /          \  ANXIETY
+         興奮    /          \  焦慮
                  /            \
                 /              \
-     OPTIMISM  /                \  DENIAL
+     樂觀    /                \  否認
               /                  \
              /                    \
             /                      \
-  HOPE     /                        \  FEAR
+  希望   /                        \  恐懼
           /                          \
          /                            \
-  RELIEF/                              \ DESPERATION
+  解脫 /                              \ 絕望
        /                                \
-      /                                  \  PANIC
+      /                                  \  恐慌
      /                                    \
-    /                                      \ CAPITULATION
+    /                                      \ 投降
    /                                        \
-  DISBELIEF                                  "I am selling
-  "Is it real?"                               everything!"
-                                              <-- Herd is SELLING
-                                                  (Maximum opportunity)
+  不敢相信                                  「我要全部賣掉！」
+  「是真的嗎？」                             <-- 群眾賣出
+                                                （機會最大）
 
-  SMART MONEY:  Buys during capitulation
-                Sells during euphoria
-  HERD:         Buys during euphoria
-                Sells during capitulation
+  聰明錢：在投降時買進
+          在狂喜時賣出
+  群眾：  在狂喜時買進
+          在投降時賣出
 ```
 
-**Why herding is so powerful:**
+**從眾心態為何如此強大：**
 
-- **Social proof:** If millions of people are buying, they must know something you do not -- right? Not necessarily. They might all be wrong together.
-- **FOMO (Fear of Missing Out):** Watching your neighbors, coworkers, and social media contacts get rich from a trending investment creates enormous psychological pressure.
-- **Safety in numbers:** If you follow the crowd and lose money, at least you are not alone. Being wrong alone feels far worse than being wrong together.
-- **Information cascades:** People stop using their own information and simply copy others, creating a self-reinforcing loop that amplifies both booms and busts.
+- **社會認同：** 如果數百萬人都在買，他們一定知道你不知道的事——對吧？不一定。他們可能一起犯錯。
+- **錯失恐懼（FOMO）：** 看著鄰居、同事、社群媒體上的人都在某個熱門投資上賺錢，會形成巨大的心理壓力。
+- **法不責眾：** 如果你跟著大眾虧損，至少你不孤單。獨自犯錯的感覺遠比與眾人一起犯錯更難受。
+- **資訊瀑布：** 人們停止使用自己的判斷，直接複製他人的行為，形成自我強化的循環，放大了多頭與空頭的波動。
 
 ---
 
-#### 6. Confirmation Bias
+#### 6. 確認偏誤
 
-Confirmation bias is the tendency to seek out information that supports your existing beliefs while ignoring or dismissing information that contradicts them. It is perhaps the most insidious bias because it feels like you are doing research, when in reality you are building a case for a decision you have already made.
+確認偏誤是指主動尋找支持自身既有信念的資訊，同時忽略或否定與之矛盾的資訊的傾向。它可能是所有偏誤中最隱蔽的一種，因為它偽裝成研究的樣子——而你實際上是在為已做出的決定尋找理由。
 
 ```
-CONFIRMATION BIAS: THE RESEARCH TRAP
+確認偏誤：研究的陷阱
 ======================================
 
-  You believe Stock Y is a great investment.
+  你認為 Y 股票是一筆好投資。
 
-  BIASED RESEARCH:
+  偏誤式研究：
   +-------------------------------------------+
-  |  [x] Read 5 bullish analyst reports       |
-  |  [x] Joined an online forum of fans       |
-  |  [x] Found 3 articles about growth        |
-  |  [ ] Skipped the bearish report           |
-  |  [ ] Ignored declining margins            |
-  |  [ ] Dismissed competitive threats        |
+  |  [x] 讀了 5 份看多的分析師報告           |
+  |  [x] 加入了粉絲社群                       |
+  |  [x] 找到 3 篇關於成長的文章             |
+  |  [ ] 跳過了看空的報告                     |
+  |  [ ] 忽略了毛利率下降的問題               |
+  |  [ ] 不屑競爭威脅                         |
   +-------------------------------------------+
-  Result: "See? I was right. Strong buy!"
+  結論：「你看！我說的沒錯。強力買進！」
 
-  UNBIASED RESEARCH:
+  無偏誤式研究：
   +-------------------------------------------+
-  |  [x] Read 3 bullish AND 3 bearish reports |
-  |  [x] Listed top 5 reasons it could fail   |
-  |  [x] Checked what smart bears are saying  |
-  |  [x] Looked for disconfirming data        |
-  |  [x] Stress-tested assumptions            |
-  |  [x] Asked: "What would change my mind?"  |
+  |  [x] 讀了 3 份看多與 3 份看空的報告      |
+  |  [x] 列出了 5 個可能失敗的最強理由       |
+  |  [x] 查閱了聰明空方的觀點               |
+  |  [x] 尋找反證資料                         |
+  |  [x] 壓力測試了各項假設                   |
+  |  [x] 問自己：「什麼情況會讓我改變心意？」|
   +-------------------------------------------+
-  Result: "Interesting -- the bull case is
-   strong but there are 2 risks I need to
-   watch carefully."
+  結論：「有意思——看多的邏輯不錯，
+   但有 2 個風險需要密切追蹤。」
 ```
 
-**The "kill your darlings" technique:** For every investment thesis, actively try to disprove it before committing money. If your thesis survives genuine attempts to destroy it, your conviction is well-founded. If it crumbles under scrutiny, you just saved yourself from a bad investment.
+**「殺死心頭好」技巧：** 對每一個投資論點，在投入資金之前，主動試圖推翻它。如果你的論點在真正的反駁下依然站得住腳，你的信念便有充分依據。如果它在仔細審視下崩潰，你剛好躲過了一筆壞投資。
 
 ---
 
-#### 7. Recency Bias
+#### 7. 近期偏誤
 
-Recency bias is the tendency to overweight recent events and underweight historical patterns. After a market crash, investors assume crashes are the new normal and avoid stocks for years. After a bull market, investors assume returns will continue forever and take on excessive risk. In both cases, the recent past distorts expectations about the future.
+近期偏誤是指過度重視近期事件、低估歷史規律的傾向。市場崩盤後，投資人認為崩盤是新常態而迴避股票達數年之久；多頭市場後，投資人認為報酬會永遠持續而承擔過高風險。在這兩種情況下，近期過去都扭曲了對未來的預期。
 
 ```
-RECENCY BIAS IN MARKET EXPECTATIONS
+市場預期中的近期偏誤
 =====================================
 
-After a 5-year bull market:
+歷經 5 年多頭市場後：
 +------------------------------------------+
-| Survey: "Expected return next year?"     |
-| Average answer: +15% to +20%            |
+| 調查：「你預期明年報酬為何？」           |
+| 平均答案：+15% 至 +20%                  |
 |                                          |
-| Actual historical average: ~10%          |
-| Actual subsequent return: often LOWER    |
-| than average (mean reversion)            |
+| 歷史平均報酬：約 10%                    |
+| 後來的實際報酬：往往低於平均            |
+| （均值回歸）                             |
 +------------------------------------------+
 
-After a major crash:
+歷經重大崩盤後：
 +------------------------------------------+
-| Survey: "Expected return next year?"     |
-| Average answer: -5% to +2%              |
+| 調查：「你預期明年報酬為何？」           |
+| 平均答案：-5% 至 +2%                    |
 |                                          |
-| Actual historical average: ~10%          |
-| Actual subsequent return: often HIGHER   |
-| than average (recovery)                  |
+| 歷史平均報酬：約 10%                    |
+| 後來的實際報酬：往往高於平均            |
+| （復甦）                                 |
 +------------------------------------------+
 
-RECENCY BIAS TIMELINE
+近期偏誤時間軸
 ======================
 
-Event in 2008:     "Markets crash 40%!"
-2009-2010:         "I am never investing again."
-2011-2013:         "Okay maybe a little, but careful."
-2014-2019:         "Stocks only go up!"
-March 2020:        "Markets crash 34%!"
-2020-2021:         "I am never investing again... wait,
-                    it already recovered?"
+2008 年事件：      「市場暴跌 40%！」
+2009—2010 年：     「我再也不投資了。」
+2011—2013 年：     「好吧，也許少量投資，但要小心。」
+2014—2019 年：     「股票只漲不跌！」
+2020 年 3 月：     「市場暴跌 34%！」
+2020—2021 年：     「我再也不投資了……等等，
+                    怎麼已經反彈了？」
 
-The pattern repeats endlessly because human
-memory overweights the most recent experience.
+這個模式之所以不斷重演，是因為人類的記憶
+會過度重視最近的經歷。
 ```
 
 ---
 
-#### 8. Disposition Effect
+#### 8. 處置效應
 
-The disposition effect is the tendency to sell winning investments too early and hold losing investments too long. It combines loss aversion (refusing to realize losses) with the desire to feel the pleasure of a "win" (locking in gains). The result is a portfolio that systematically keeps its worst stocks and sells its best ones.
+處置效應是指過早賣出獲利投資、卻過久持有虧損投資的傾向。它結合了損失趨避（拒絕認賠）與享受「獲勝感」的渴望（鎖定獲利）。結果是，投資組合系統性地保留最差的股票、賣出最好的股票。
 
 ```
-THE DISPOSITION EFFECT IN ACTION
+處置效應的實際呈現
 ==================================
 
-PORTFOLIO ON JANUARY 1:
-Stock A: Bought at $50, now $70  (+40%)
-Stock B: Bought at $50, now $30  (-40%)
+1 月 1 日的投資組合：
+A 股：以 50 元買進，現在 70 元（+40%）
+B 股：以 50 元買進，現在 30 元（-40%）
 
-WHAT MOST INVESTORS DO:
-Sell Stock A --> "Lock in the gain! I am smart!"
-Hold Stock B --> "It will come back. I am not taking a loss."
+大多數投資人的做法：
+賣出 A 股 --> 「鎖定獲利！我真聰明！」
+繼續持有 B 股 --> 「它會反彈的。我不要認賠。」
 
-WHAT THE EVIDENCE SHOWS:
-Winners that were sold continued to outperform
-by an average of 3.4% over the following year.
+研究數據顯示：
+被賣出的獲利股票，在後續一年仍平均
+超越大盤約 3.4 個百分點。
 
-Losers that were held continued to underperform
-by an average of 1.2% over the following year.
+被繼續持有的虧損股票，在後續一年仍平均
+落後大盤約 1.2 個百分點。
 
-THE RATIONAL APPROACH:
+理性的做法：
 +---------------------------------------------+
-| Forget your cost basis. Ask only:           |
+| 忘掉你的持有成本。只問一個問題：            |
 |                                             |
-| "If I had cash instead of this stock,       |
-|  would I buy it today at today's price?"    |
+| 「如果我現在手上是現金而非這支股票，        |
+|  我願意以今天的價格買進嗎？」              |
 |                                             |
-| YES --> Hold (regardless of gain or loss)   |
-| NO  --> Sell (regardless of gain or loss)   |
+| 願意 --> 繼續持有（無論是獲利或虧損）      |
+| 不願意 --> 賣出（無論是獲利或虧損）        |
 +---------------------------------------------+
 
-TAX REALITY CHECK:
-Actually, there IS a rational reason to
-sell losers and hold winners -- TAX LOSS
-HARVESTING. Realized losses offset gains
-and reduce your tax bill. The disposition
-effect does the exact opposite of optimal
-tax strategy!
+稅務現實確認：
+其實，有一個確實合理的理由賣出虧損股票
+並繼續持有獲利股票——那就是「稅損收割」。
+已實現的損失可以抵銷獲利，降低你的稅負。
+而處置效應做的，恰恰與最佳稅務策略背道而馳！
 ```
 
 ---
 
-#### 9. Additional Biases Worth Knowing
+#### 9. 其他值得了解的偏誤
 
 ```
-BIAS QUICK REFERENCE TABLE
+偏誤快速參考表
 ============================
 
-Bias                 What It Is                          Investment Impact
+偏誤                 定義                                對投資的影響
 ----                 ----------                          -----------------
-Mental Accounting    Treating money differently           Ignoring opportunity
-                     based on its source or label         cost across accounts
+心理帳戶             根據資金來源或標籤，               忽略不同帳戶之間的
+                     對金錢採取不同態度                  機會成本
 
-Status Quo Bias      Preferring the current state         Failing to rebalance
-                     over making changes                  or update allocation
+維持現狀偏誤         偏好現有狀態，抗拒改變             未能執行再平衡或
+                                                         調整資產配置
 
-Endowment Effect     Valuing something more just          Holding inherited stocks
-                     because you own it                   or refusing to sell
+稟賦效應             僅因擁有某物就對其                 持有繼承的股票或
+                     賦予更高的價值                      拒絕出售
 
-Sunk Cost Fallacy    Continuing because you have          Throwing good money
-                     already invested time/money          after bad investments
+沉沒成本謬誤         因為已投入時間或金錢               繼續把資金投入
+                     而繼續堅持下去                      已經走壞的投資
 
-Gambler's Fallacy    Believing past random events         "It has gone up 5 days
-                     affect future probabilities          in a row, it must drop"
+賭徒謬誤             認為過去的隨機事件                 「已經連漲 5 天了，
+                     會影響未來的機率                    應該要跌了」
 
-Narrative Fallacy    Preferring stories over data         Buying "great stories"
-                     when making decisions                ignoring fundamentals
+敘事謬誤             在做決策時偏好故事                 買進「動人故事」的
+                     勝過數據                            公司卻忽略基本面
 
-Availability Bias    Overweighting easily recalled        Overreacting to vivid
-                     information                         news headlines
+可得性偏誤           過度重視容易被回想起               過度反應於生動的
+                     的資訊                              新聞頭條
 
-Home Bias            Overweighting domestic stocks        Missing international
-                                                         diversification
+本土偏誤             過度配置在國內股票                 錯失國際分散投資
+                                                         的機會
 ```
 
 ---
 
-#### 10. Building Your Bias Defense System
+#### 10. 建立你的偏誤防禦系統
 
-Knowing about biases is necessary but not sufficient. You need concrete systems to counteract them. Here is a framework:
+了解偏誤是必要條件，但還不夠。你需要具體的系統來抵制它們。以下是一套框架：
 
 ```
-THE BIAS DEFENSE SYSTEM
+偏誤防禦系統
 =========================
 
-LAYER 1: AWARENESS
+第一層：意識
 +--------------------------------------------------+
-| - Study the biases (you are doing this now)      |
-| - Keep a bias checklist near your trading screen |
-| - Before every trade, scan the checklist         |
-+--------------------------------------------------+
-         |
-         v
-LAYER 2: RULES-BASED INVESTING
-+--------------------------------------------------+
-| - Write an Investment Policy Statement (IPS)     |
-| - Define entry and exit criteria BEFORE buying   |
-| - Set a rebalancing schedule (quarterly/annual)  |
-| - Use automatic contributions (dollar-cost avg)  |
+| - 學習偏誤（你現在正在做的事）                  |
+| - 在交易螢幕旁貼一份偏誤檢查清單               |
+| - 每次交易前，逐項掃描清單                      |
 +--------------------------------------------------+
          |
          v
-LAYER 3: FRICTION AND DELAY
+第二層：規則導向的投資
 +--------------------------------------------------+
-| - Implement a 48-hour cooling-off rule before    |
-|   any trade over $1,000                          |
-| - Delete trading apps from your phone            |
-| - Check your portfolio monthly, not daily        |
-| - Make it hard to act on impulse                 |
-+--------------------------------------------------+
-         |
-         v
-LAYER 4: ACCOUNTABILITY
-+--------------------------------------------------+
-| - Keep an investment journal (write down WHY     |
-|   you buy/sell before each trade)                |
-| - Review your journal quarterly to spot patterns |
-| - Find an investing buddy who will challenge you |
-| - Use a pre-mortem: "Assume this fails -- why?"  |
+| - 撰寫投資政策聲明（IPS）                       |
+| - 在買進之前明確定義進出場標準                  |
+| - 設定再平衡時間表（每季或每年）               |
+| - 使用自動定期定額投資                          |
 +--------------------------------------------------+
          |
          v
-LAYER 5: AUTOMATION
+第三層：摩擦與延遲
 +--------------------------------------------------+
-| - Use index funds to remove stock-picking biases |
-| - Set up automatic rebalancing                   |
-| - Auto-invest a fixed amount each month          |
-| - The best bias defense is removing the human    |
-|   from the decision loop entirely                |
+| - 對超過 1,000 美元的交易                       |
+|   實施 48 小時冷靜期                            |
+| - 從手機刪除交易 App                            |
+| - 每月查看一次投資組合，而非每天                |
+| - 讓衝動行事變得困難                            |
++--------------------------------------------------+
+         |
+         v
+第四層：問責機制
++--------------------------------------------------+
+| - 建立投資日記（每次交易前寫下                  |
+|   買賣理由）                                    |
+| - 每季審查日記，找出行為模式                    |
+| - 找一位願意挑戰你觀點的投資夥伴               |
+| - 使用「事前驗屍」法：                          |
+|   「假設這次失敗了——原因是什麼？」             |
++--------------------------------------------------+
+         |
+         v
+第五層：自動化
++--------------------------------------------------+
+| - 使用指數基金，排除選股偏誤                    |
+| - 設定自動再平衡                                |
+| - 每月自動投入固定金額                          |
+| - 最佳的偏誤防禦，就是讓人類                    |
+|   完全退出決策迴圈                              |
 +--------------------------------------------------+
 ```
 
-**The Investment Journal**
+**投資日記**
 
-One of the most powerful debiasing tools is an investment journal. For every trade, record:
+投資日記是最強大的去偏誤工具之一。對每筆交易，記錄以下內容：
 
 ```
-INVESTMENT JOURNAL TEMPLATE
+投資日記範本
 =============================
 
-Date: ___________
-Action: BUY / SELL / HOLD
-Ticker: ___________
-Price: ___________
-Position Size: ___________
+日期：___________
+操作：買進／賣出／持有
+股票代號：___________
+價格：___________
+部位大小：___________
 
-Why I am making this trade:
+我做這筆交易的原因：
 _________________________________
 _________________________________
 
-What would make me wrong:
+什麼情況會讓我的判斷出錯：
 _________________________________
 _________________________________
 
-Bias check (circle any that apply):
-[ ] Am I anchoring to a past price?
-[ ] Am I following the crowd?
-[ ] Am I only reading bullish/bearish info?
-[ ] Did something recent dominate my thinking?
-[ ] Am I selling just to feel a "win"?
-[ ] Am I holding just to avoid a "loss"?
-[ ] Am I overconfident in my prediction?
-[ ] Am I reacting emotionally to news?
+偏誤確認（圈出適用的項目）：
+[ ] 我是否對某個過去的價格產生定錨？
+[ ] 我是否在追隨大眾？
+[ ] 我是否只閱讀看多／看空的資訊？
+[ ] 是否有某件近期事件主導了我的思維？
+[ ] 我是否只是為了「獲勝感」而賣出？
+[ ] 我是否只是為了逃避「虧損感」而繼續持有？
+[ ] 我是否對自己的預測過度自信？
+[ ] 我是否在對新聞做出情緒性反應？
 
-Emotional state (1=calm, 5=agitated): ___
+當下情緒狀態（1 = 平靜，5 = 激動）：___
 
-Review date (6 months later): ___________
-Actual outcome: ___________
-Was my reasoning correct? ___________
-Which biases affected me? ___________
+複查日期（六個月後）：___________
+實際結果：___________
+我的推論正確嗎？___________
+哪些偏誤影響了我？___________
 ```
 
 ---
 
-#### 11. Debiasing Strategies for Each Bias
+#### 11. 針對各種偏誤的去偏誤策略
 
 ```
-BIAS-SPECIFIC COUNTERMEASURES
+各偏誤的對應措施
 ===============================
 
-LOSS AVERSION:
-  - Pre-commit to stop-loss levels before buying
-  - Reframe losses as "tuition" -- learning costs
-  - Focus on portfolio-level returns, not individual positions
-  - Remember: unrealized losses are still real losses
+損失趨避：
+  - 在買進之前預先設定停損點
+  - 將損失重新框架為「學費」——學習的成本
+  - 關注整體投資組合報酬，而非個別部位
+  - 記住：未實現的損失依然是真實的損失
 
-OVERCONFIDENCE:
-  - Track your predictions vs. actual outcomes
-  - Use wider confidence intervals ("it could be $30-$80")
-  - Default to index funds unless you have a genuine edge
-  - Ask: "What do I know that the market does not?"
+過度自信：
+  - 追蹤你的預測與實際結果
+  - 使用更寬的信心區間（「可能是 30 至 80 元之間」）
+  - 除非有真正的優勢，否則預設選擇指數基金
+  - 問自己：「我知道市場不知道的什麼事？」
 
-ANCHORING:
-  - Never make decisions based on purchase price
-  - Use the "clean slate" test regularly
-  - Focus on forward-looking valuation, not past prices
-  - Cover the "cost basis" column in your brokerage
+定錨偏誤：
+  - 絕不根據買進成本做決策
+  - 定期使用「清空思緒」測試
+  - 專注於前瞻性估值，而非過去的價格
+  - 在券商介面中蓋住「持有成本」欄位
 
-HERD MENTALITY:
-  - If everyone is talking about an investment, be cautious
-  - Develop your own research process and trust it
-  - Study contrarian investors (Buffett, Templeton, Marks)
-  - Remember: the crowd is often right in the middle
-    but almost always wrong at extremes
+從眾心態：
+  - 如果所有人都在談論某項投資，要提高警覺
+  - 發展你自己的研究流程並相信它
+  - 研究逆向投資人（巴菲特、坦伯頓、馬克斯）
+  - 記住：大眾在趨勢中段往往是對的，
+    但在極端時刻幾乎總是錯的
 
-CONFIRMATION BIAS:
-  - Actively seek out the bear case for every bull thesis
-  - Read analysts who disagree with your view
-  - Use the "pre-mortem" technique before every investment
-  - Assign a "devil's advocate" if investing with a group
+確認偏誤：
+  - 對每個看多論點，主動尋求看空的理由
+  - 閱讀與你意見相左的分析師的看法
+  - 在每次投資前使用「事前驗屍」法
+  - 若是與一群人共同投資，指派一名「魔鬼代言人」
 
-RECENCY BIAS:
-  - Study long-term market history (100+ years)
-  - Use systematic strategies that ignore recent trends
-  - Remember mean reversion: extremes tend to normalize
-  - Keep a chart of S&P 500 returns since 1926 nearby
+近期偏誤：
+  - 研究長期市場歷史（100 年以上）
+  - 採用忽略近期趨勢的系統化策略
+  - 記住均值回歸：極端狀況往往趨於正常化
+  - 在書桌旁貼一張標普 500 自 1926 年以來的走勢圖
 
-DISPOSITION EFFECT:
-  - Use tax-loss harvesting to make selling losers rewarding
-  - Set rules for position review independent of gain/loss
-  - Ask: "Would I buy this today?" for every holding
-  - Automate rebalancing to remove emotional selling
+處置效應：
+  - 用稅損收割讓賣出虧損部位變得有誘因
+  - 根據與損益無關的標準設定部位審查規則
+  - 對每一個持倉問：「我今天還會買進嗎？」
+  - 自動化再平衡，移除情緒性賣出的干擾
 ```
 
 ---
 
-#### 12. The Bias Interaction Map
+#### 12. 偏誤交互影響圖
 
-Biases do not operate in isolation. They reinforce each other, creating dangerous feedback loops:
+偏誤不是單獨運作的，它們會互相強化，形成危險的回饋循環：
 
 ```
-BIAS INTERACTION MAP
+偏誤交互影響圖
 =====================
 
-  HERD MENTALITY -----> OVERCONFIDENCE
-  "Everyone is buying"  "I cannot lose with
-                         the crowd"
+  從眾心態 --------> 過度自信
+  「大家都在買」      「跟著大眾，
+                       怎麼可能輸」
        |                      |
        v                      v
-  CONFIRMATION BIAS <--- RECENCY BIAS
-  "I only see good      "It has been going
-   news about it"        up for months"
+  確認偏誤 <-------- 近期偏誤
+  「我只看到好消息」  「它已經漲了好幾個月了」
        |                      |
        v                      v
-  ANCHORING ----------> DISPOSITION EFFECT
-  "I bought at the top"  "I will hold until
-                          it comes back"
+  定錨偏誤 --------> 處置效應
+  「我是在高點買進的」  「我要撐到它回來」
        |                      |
        v                      v
-  LOSS AVERSION ------> PANIC SELLING
-  "I cannot take this    "Get me out at
-   pain anymore"          any price!"
+  損失趨避 --------> 恐慌性拋售
+  「我再也撐不住了」    「不管什麼價，
+                         讓我出場！」
 
-EXAMPLE: THE BUBBLE CYCLE
+範例：泡沫循環
 ==========================
 
-Phase 1: Smart money buys quietly (no bias)
-Phase 2: Prices rise --> RECENCY BIAS kicks in
-Phase 3: Media coverage --> HERD MENTALITY grows
-Phase 4: "It is different this time" --> CONFIRMATION BIAS
-Phase 5: "I am a genius" --> OVERCONFIDENCE
-Phase 6: Prices peak --> ANCHORING to high
-Phase 7: Prices drop --> LOSS AVERSION prevents selling
-Phase 8: Crash --> PANIC SELLING at bottom
-Phase 9: "Never again" --> RECENCY BIAS (negative)
-Phase 10: Miss the recovery --> cycle repeats
+第一階段：聰明錢悄悄買進（無偏誤）
+第二階段：價格上漲 --> 近期偏誤啟動
+第三階段：媒體報導 --> 從眾心態蔓延
+第四階段：「這次不一樣」--> 確認偏誤
+第五階段：「我是天才」--> 過度自信
+第六階段：價格見頂 --> 定錨在高點
+第七階段：價格下跌 --> 損失趨避阻礙賣出
+第八階段：崩盤 --> 在低點恐慌性拋售
+第九階段：「再也不玩了」--> 近期偏誤（負向）
+第十階段：錯過反彈 --> 循環重演
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見的錯誤觀念
 
-**Misconception 1: "I am rational. Biases affect other people, not me."**
+**錯誤觀念一：「我是理性的。偏誤影響的是別人，不是我。」**
 
-Reality: This belief is itself a bias -- it is called the "bias blind spot." Research shows that people who believe they are unbiased are actually more susceptible to bias because they do not take precautions. The most dangerous investor is one who thinks they are perfectly rational. Even Nobel laureates in behavioral economics admit to falling victim to the biases they study. Intelligence does not protect you; systems and humility do.
+現實：這個信念本身就是一種偏誤——稱為「偏誤盲點」。研究顯示，相信自己沒有偏誤的人，實際上更容易受偏誤影響，因為他們不會採取預防措施。最危險的投資人，是那個認為自己完全理性的人。就連行為經濟學的諾貝爾獎得主，也坦承自己深陷於他們研究的偏誤之中。智識無法保護你，系統與謙遜才能。
 
-**Misconception 2: "If I just learn about biases, I will stop making these mistakes."**
+**錯誤觀念二：「只要學習偏誤的相關知識，我就不會再犯這些錯誤了。」**
 
-Reality: Knowledge alone is insufficient. Knowing about optical illusions does not make them disappear -- you still see the illusion even when you know the lines are the same length. Similarly, knowing about loss aversion does not make losses hurt less. You need to build external systems (rules, automation, checklists, cooling-off periods) that act as guardrails when your brain misfires.
+現實：光有知識是不夠的。了解視錯覺不代表錯覺會消失——即使你知道兩條線一樣長，你還是會看到長短不一。同樣地，了解損失趨避不會讓虧損的痛苦減輕。你需要建立外部系統——規則、自動化、檢查清單、冷靜期——在你的大腦失靈時作為護欄。
 
-**Misconception 3: "Emotional investing is always bad."**
+**錯誤觀念三：「情緒化投資永遠是壞事。」**
 
-Reality: Emotions evolved for good reasons. Fear can protect you from genuine dangers like fraud or unsustainable business models. Enthusiasm can motivate you to research opportunities deeply. The problem is not emotion itself -- it is letting emotion override analysis. The goal is informed emotion, not no emotion.
+現實：情緒是有其演化意義的。恐懼可以保護你免受真實危險，例如詐欺或不可持續的商業模式。熱情可以激勵你深入研究機會。問題不在於情緒本身，而在於讓情緒凌駕於分析之上。目標是有所依據的情緒，而非沒有情緒。
 
-**Misconception 4: "Professional investors do not have these biases."**
+**錯誤觀念四：「專業投資人沒有這些偏誤。」**
 
-Reality: Professionals have the same biases. Studies of mutual fund managers show clear evidence of the disposition effect, overconfidence, and herding behavior. The difference is that good professional shops build institutional safeguards: investment committees, risk management systems, position size limits, and mandatory devil's advocacy. Individual investors need to build their own version of these safeguards.
+現實：專業人士同樣有這些偏誤。針對共同基金經理人的研究，清楚顯示了處置效應、過度自信和從眾行為的存在。不同之處在於，優秀的專業機構會建立制度性的防護措施：投資委員會、風險管理系統、部位規模限制，以及強制性的「魔鬼代言人」機制。個人投資人需要打造自己版本的這些防護措施。
 
-**Misconception 5: "Contrarian investing means always doing the opposite of the crowd."**
+**錯誤觀念五：「逆向投資就是永遠與大眾反向操作。」**
 
-Reality: The crowd is often right, especially in the middle of a trend. Contrarian investing means thinking independently, not reflexively opposing consensus. The crowd is most dangerous at extremes -- euphoria and panic -- but can be perfectly reasonable during normal times. Blind contrarianism is just another form of not thinking.
+現實：大眾往往是對的，尤其是在趨勢中段。逆向投資的意思是獨立思考，而不是反射性地對抗共識。大眾在極端時刻——狂喜與恐慌——才最危險，但在正常時期可能完全合理。盲目的逆向主義，不過是另一種不思考的形式。
 
-**Misconception 6: "Behavioral finance says markets are irrational, so you can easily beat them."**
+**錯誤觀念六：「行為金融學說市場是非理性的，所以很容易打敗市場。」**
 
-Reality: Behavioral finance says markets are imperfectly rational. Individual stocks can be mispriced due to biases, but exploiting this systematically is extremely difficult. The primary practical lesson of behavioral finance for most investors is defensive: protect yourself from your own biases. Offense (exploiting others' biases) is possible but much harder.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What is the single most damaging bias for individual investors?**
-
-A: Research consistently points to loss aversion combined with the disposition effect as the most costly bias. It causes investors to sell their winners too early and hold their losers too long, which systematically removes the best-performing stocks from their portfolio while keeping the worst. Terrance Odean's landmark study found that stocks individual investors sold went on to outperform the stocks they held by about 3.4 percentage points annually. Over decades, this compounds into an enormous wealth penalty.
-
-**Q2: Does dollar-cost averaging actually help with behavioral biases, or is it just a marketing trick?**
-
-A: Dollar-cost averaging (investing a fixed amount at regular intervals) is primarily a behavioral tool, not a mathematical one. Mathematically, lump-sum investing beats DCA about two-thirds of the time because markets trend upward. But DCA is powerful precisely because it removes the decision of when to invest, which eliminates several biases: anchoring to "better" prices, timing anxiety, loss aversion from investing a lump sum right before a dip, and the paralysis of analysis. If DCA gets you into the market when you would otherwise sit on the sidelines, it is enormously valuable despite its mathematical inferiority.
-
-**Q3: How do I know if I am being contrarian or just wrong?**
-
-A: Ask three questions. First, do you have an analytical thesis based on data, or are you just reacting emotionally to the crowd? Second, can you articulate specifically what the crowd is getting wrong? Third, what is your time horizon -- contrarian positions often require patience of months or years. If you can answer all three clearly, you are being contrarian. If you are just uncomfortable with consensus and cannot explain why, you might simply be wrong. The best contrarian investors, like Warren Buffett and Howard Marks, can always explain their reasoning in detail.
-
-**Q4: Can biases ever help investors?**
-
-A: In limited cases, yes. Loss aversion can act as a natural brake that prevents you from taking reckless gambles. Status quo bias can keep you from over-trading. Home bias, while suboptimal for diversification, ensures you invest in markets you understand. The key is knowing which biases are accidentally helpful in your specific situation and which are harmful. For most investors, the harmful effects vastly outweigh any accidental benefits.
-
-**Q5: How often should I check my portfolio if I want to reduce bias?**
-
-A: Research suggests that checking your portfolio less frequently significantly reduces anxiety-driven trading. Investors who check daily are exposed to visible losses roughly 46% of trading days (because daily volatility is high even in rising markets). Those who check annually see losses only about 15% of the time. Since loss aversion means each visible loss triggers an urge to sell, less frequent checking leads to calmer, better decisions. A reasonable approach: check monthly for awareness, rebalance quarterly or annually, and only make ad hoc changes when your investment thesis fundamentally changes.
-
-**Q6: Are there differences in behavioral biases across cultures or genders?**
-
-A: Yes. Research shows that overconfidence in trading is more pronounced among men than women, with men trading 45% more frequently and earning lower returns as a result (Barber and Odean, 2001). Cultural factors also play a role -- collectivist cultures may show stronger herding tendencies, while individualist cultures may show more overconfidence. However, loss aversion and anchoring appear to be universal across cultures. The important takeaway is that everyone has biases, but the specific mix varies.
-
-**Q7: My friend made a lot of money on a speculative stock. Does that disprove behavioral finance?**
-
-A: No. Survivorship bias is at play here. For every friend who made money on a speculative bet, there are many others who lost money on similar bets but do not talk about it. Additionally, making money on a single trade does not mean the decision was sound -- it might have been a bad bet that happened to pay off. Good process beats good outcomes over time. A reckless driver who arrives safely once does not prove reckless driving is safe.
-
-**Q8: How do social media and financial news amplify behavioral biases?**
-
-A: Social media and 24/7 financial news are bias amplifiers. They trigger herd mentality through trending tickers and viral posts. They fuel recency bias by endlessly replaying the most recent market move. They enable confirmation bias by letting you curate a feed of only agreeable opinions. They worsen loss aversion by creating constant awareness of paper losses. And they feed overconfidence by showcasing winners while hiding losers. Managing your information diet is a critical part of bias defense. Consider unfollowing financial social media accounts and limiting news consumption to weekly summaries.
-
-**Q9: Is there a connection between behavioral biases and market bubbles?**
-
-A: Bubbles are essentially the collective expression of multiple biases operating simultaneously. Here is the chain: initial price increases trigger recency bias ("prices go up"). Success stories attract the herd ("everyone is buying"). Confirmation bias filters out warning signs ("this time is different"). Overconfidence grows ("I am a genius"). Anchoring to peak prices prevents selling as the bubble pops. Loss aversion delays exit further. Finally, panic selling at the bottom is the ultimate capitulation. Every major bubble in history -- tulips, the South Sea, 1929, dot-com, housing -- followed this pattern driven by the same biases.
-
-**Q10: What is the best single habit I can adopt to reduce the impact of biases?**
-
-A: Keep an investment journal. Before every trade, write down why you are making it, what would make you wrong, and which biases might be influencing you. Then review the journal quarterly. This single habit engages System 2 thinking, creates accountability, generates a record you can learn from, and forces you to confront your own reasoning. Investors who journal consistently report making fewer impulsive trades and achieving better long-term results. It costs nothing and takes five minutes per trade.
+現實：行為金融學說的是，市場並非完全理性。個別股票可能因偏誤而定價錯誤，但系統性地利用這一點極為困難。行為金融學對大多數投資人最主要的實際啟示是防禦性的：保護自己免受自身偏誤的傷害。進攻性的操作——利用他人的偏誤——雖然可行，但難度高得多。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Animated intro sequence -- a brain in a boxing ring facing off against a stack of dollar bills. Title card: "Week 11: Behavioral Biases - Your Brain vs Your Money"]
+**問題一：對個人投資人來說，最具殺傷力的偏誤是哪一個？**
 
-[ANIMATION: animation/week11_behavioral_biases.py -- Title sequence with neural network visualization morphing into market chart patterns]
+答：研究一再指出，損失趨避結合處置效應，是代價最高的偏誤。它讓投資人過早賣出獲利部位，卻過久持有虧損部位，系統性地將表現最好的股票從投資組合中剔除，同時保留最差的股票。歐登（Terrance Odean）的里程碑研究發現，個人投資人賣出的股票，在後續一年的表現約超越他們持有的股票 3.4 個百分點。數十年累積下來，這會形成巨大的財富損失。
 
-**Alex:** Welcome back everyone. Today we are covering what I genuinely believe is the most important topic in this entire course. Not stocks, not bonds, not valuation -- your brain. Specifically, the ways your brain is systematically wired to make you a terrible investor.
+**問題二：定期定額投資真的有助於對抗行為偏誤，還是只是一種行銷話術？**
 
-**Sam:** That sounds dramatic, Alex. I mean, I think I make pretty rational decisions with my money.
+答：定期定額投資（每隔一段固定時間投入固定金額）主要是一種行為工具，而非數學工具。從數學上看，一次性投入大約三分之二的時間會優於定期定額，因為市場長期呈上漲趨勢。但定期定額的強大之處，正是因為它消除了「何時投資」的決策，從而排除了幾種偏誤：定錨於「更好的」進場時機、進場時機的焦慮、在資金一次性投入後隨即下跌的損失趨避，以及分析癱瘓。如果定期定額能讓你在原本會觀望的情況下進入市場，儘管其數學上並非最優解，它依然具有極大的價值。
 
-**Alex:** And that belief -- that you are rational -- is actually the first trap. Let me ask you something. Imagine I offer you two choices. Choice A: I give you $500, guaranteed. Choice B: we flip a coin -- heads you get $1,000, tails you get nothing. Which do you pick?
+**問題三：我怎麼判斷自己是在逆向投資，還是單純判斷錯誤？**
 
-**Sam:** The guaranteed $500. Easy. Why risk getting nothing?
+答：問自己三個問題。第一，你的分析邏輯是否建立在數據上，還是只是對大眾的情緒反應？第二，你能否清楚說明大眾究竟哪裡判斷錯誤？第三，你的時間跨度是多長——逆向部位往往需要數月乃至數年的耐心。如果你能清楚回答這三個問題，你就是在進行逆向投資。如果你只是對共識感到不安卻說不出理由，你可能只是單純地錯了。最優秀的逆向投資人，例如巴菲特和霍華·馬克斯（Howard Marks），永遠能詳細說明自己的推論。
 
-**Alex:** Okay, now flip it. Choice A: you lose $500, guaranteed. Choice B: we flip a coin -- heads you lose $1,000, tails you lose nothing.
+**問題四：偏誤有沒有可能對投資人有所幫助？**
 
-**Sam:** Hmm... I think I would take the gamble. At least there is a chance I lose nothing.
+答：在有限的情況下，是的。損失趨避可以作為天然的剎車器，防止你進行魯莽的賭注。維持現狀偏誤可以讓你避免過度交易。本土偏誤雖然對分散投資而言並非最佳，卻確保你只投資自己熟悉的市場。關鍵在於，了解哪些偏誤在你的特定情況下恰好有益，哪些有害。對大多數投資人而言，有害的影響遠遠超過任何意外的好處。
 
-[ANIMATION: animation/week11_behavioral_biases.py -- Coin flip visualization showing both scenarios with expected value calculations appearing beside each choice, both showing $500]
+**問題五：如果我想減少偏誤的影響，應該多久查看一次投資組合？**
 
-**Alex:** And right there, you just demonstrated loss aversion, the most fundamental bias in all of behavioral finance. Both scenarios have the exact same expected value -- $500. But when it is a gain, you play it safe. When it is a loss, you gamble. You feel losses about twice as intensely as gains of the same size.
+答：研究顯示，減少查看投資組合的頻率，能顯著降低焦慮性交易。每天查看的投資人，大約 46% 的交易日都能看到帳面虧損（因為即使在上漲的市場中，日常波動性也很高）。每年查看的人，只有大約 15% 的時間會看到虧損。由於損失趨避使每一次看見的虧損都會觸發賣出的衝動，查看頻率越低，決策就越冷靜、越理性。合理的做法是：每月查看一次以掌握狀況，每季或每年再平衡，只在投資論點根本性改變時才做臨時調整。
 
-**Sam:** Twice? That seems like a lot.
+**問題六：行為偏誤在不同文化或性別之間有差異嗎？**
 
-**Alex:** It has been measured in hundreds of experiments. Daniel Kahneman and Amos Tversky proved this back in the 1970s, and Kahneman won the Nobel Prize in Economics for it. But here is the crucial thing -- this is not some quirky lab result. It has massive implications for your money.
+答：有。研究顯示，交易中的過度自信在男性中比女性更明顯，男性的交易頻率高出 45%，報酬卻更低（Barber 與 Odean，2001 年）。文化因素也有影響——集體主義文化可能表現出更強的從眾傾向，而個人主義文化則可能表現出更強的過度自信。然而，損失趨避和定錨偏誤似乎具有跨文化的普遍性。重要的結論是：每個人都有偏誤，但具體的組合因人而異。
 
-[VISUAL: Split screen showing two investors -- one labeled "Rational" and one labeled "Emotional" -- facing the same market drop]
+**問題七：我的朋友靠投機股票賺了很多錢。這是否推翻了行為金融學？**
 
-**Sam:** How does loss aversion actually hurt me in the real world?
+答：不。這裡涉及倖存者偏誤。每一個靠投機賭注賺錢的朋友背後，有許多人在類似的賭注中虧損，只是不說出口。此外，在一筆交易中賺錢，並不代表決策是正確的——那可能是一個錯誤的賭注，恰好僥倖成功。良好的流程長期下來必然勝過良好的結果。一個魯莽的駕駛人安全抵達目的地一次，並不能證明魯莽駕駛是安全的。
 
-**Alex:** Let me give you a concrete example. Say you own two stocks. Stock A is up 40% from where you bought it. Stock B is down 40%. You need cash and have to sell one. Which do you sell?
+**問題八：社群媒體和財經新聞如何放大行為偏誤？**
 
-**Sam:** I would probably sell Stock A. Lock in the gain.
+答：社群媒體和 24 小時的財經新聞是偏誤的放大器。熱門股票代號和病毒式貼文觸發從眾心態；不斷重播最近的市場動態助長近期偏誤；精心篩選的同溫層讓確認偏誤大行其道；對帳面虧損的持續暴露惡化了損失趨避；而大篇幅報導獲勝者、忽略失敗者則餵養了過度自信。管理你的資訊飲食，是偏誤防禦的關鍵一環。考慮取消追蹤財金社群媒體帳號，並將新聞閱覽限制在每週摘要。
 
-**Alex:** And that is exactly what most investors do. It is called the disposition effect. You sell your winners and hold your losers. But research shows this is backwards. The stocks people sell tend to keep outperforming, and the stocks they hold tend to keep underperforming. One landmark study found a performance gap of over three percentage points per year.
+**問題九：行為偏誤與市場泡沫之間有關聯嗎？**
 
-[ANIMATION: animation/week11_behavioral_biases.py -- Portfolio visualization showing two paths: one where winners are sold and losers held (declining portfolio), another where decisions are based on forward analysis (growing portfolio)]
+答：泡沫本質上就是多種偏誤同時運作的集體表達。以下是這條鏈結：最初的價格上漲觸發近期偏誤（「價格一直在漲」）；成功的故事吸引群眾（「大家都在買」）；確認偏誤過濾掉警告訊號（「這次不一樣」）；過度自信不斷膨脹（「我是天才」）；定錨在高點阻礙了泡沫破滅時的賣出；損失趨避進一步加深猶豫；最終，在低點的恐慌性拋售是徹底的投降。歷史上每一個重大泡沫——鬱金香、南海公司、1929 年大崩盤、網路泡沫、房市泡沫——都遵循這個由相同偏誤驅動的相同模式。
 
-**Sam:** So I should sell the losers instead?
+**問題十：我可以養成哪一個習慣，最有效地減少偏誤的影響？**
 
-**Alex:** Not automatically. You should sell whichever stock has the worse forward-looking prospects. The point is that your purchase price is irrelevant to that decision. But your brain treats it as the most important number in the world. That purchase price becomes an anchor.
-
-[VISUAL: An anchor symbol chained to a stock price chart, dragging the investor's thinking down]
-
-**Sam:** Wait, anchoring -- that is another bias?
-
-**Alex:** It is. And it is everywhere. Let me show you a famous experiment. Researchers spun a wheel numbered 1 to 100 in front of participants. Then they asked an unrelated question: "What percentage of African countries are in the United Nations?" People who saw the wheel land on 10 guessed around 25%. People who saw the wheel land on 65 guessed around 45%. A completely random number influenced their estimate of a factual question.
-
-**Sam:** That is absurd.
-
-**Alex:** It is absurd, and it happens in investing constantly. You buy a stock at $100. It drops to $60. Rationally, the only question is whether the company is worth $60 today based on its earnings, growth, and competitive position. But you are anchored to $100. You think "it is down 40%, it has to come back." The stock does not know what you paid for it. The stock does not owe you a recovery.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Price chart showing a stock dropping from $100 to $60, with a thought bubble showing the investor anchored to $100, versus a clean forward valuation analysis]
-
-**Sam:** Okay, that one hits home. I have definitely done that.
-
-**Alex:** Everyone has. Here is a debiasing trick for anchoring. Cover up the cost basis column in your brokerage account. Or ask yourself this: "If I had cash right now instead of this stock, would I buy it at today's price?" If the answer is no, you should probably sell, regardless of what you originally paid.
-
-**Sam:** That is a great mental trick. What is next?
-
-**Alex:** Let us talk about overconfidence, which might be the most dangerous bias for active traders. Here is a stat that blows people's minds: when you ask a large group of people to rate their driving ability, 93% say they are above average.
-
-**Sam:** But that is mathematically impossible.
-
-[VISUAL: Bar chart showing 93% of people rating themselves "above average drivers" with a red line at 50% labeled "mathematical maximum"]
-
-**Alex:** Exactly. And the same thing happens in investing. Most people believe they can pick stocks better than the market, time entries and exits, and generate above-average returns. The data says otherwise. A study by Brad Barber and Terrance Odean looked at 66,000 brokerage accounts and found a clear pattern: the more people traded, the worse their returns.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Animated bar chart building from low-turnover investors (highest returns) to highest-turnover investors (lowest returns), with the gap widening dramatically]
-
-**Sam:** How big was the difference?
-
-**Alex:** The most active traders earned about 5.5% annually while the least active earned about 11.4%. That is nearly six percentage points per year, just from overtrading driven by overconfidence. Compounded over 30 years, the calm investor ends up with roughly three times as much money.
-
-**Sam:** Three times? Just from trading less?
-
-**Alex:** Just from trading less. And here is the kicker -- the people who traded the most were the most confident in their abilities. Confidence and competence are barely correlated in investing. In fact, they might be negatively correlated because confident people take bigger bets and trade more frequently, both of which drag returns.
-
-[VISUAL: Two-axis chart showing "Confidence" on X-axis and "Returns" on Y-axis, with a slightly negative correlation line]
-
-**Sam:** So should you just never trade?
-
-**Alex:** For most people, infrequent trading is vastly better. The ideal for most individual investors is to set up a diversified portfolio, contribute automatically, rebalance periodically, and resist the urge to tinker. But the overconfidence bias makes you think you are the exception who can outperform. Ask yourself honestly: what do you know that millions of professional analysts, each with Bloomberg terminals and teams of researchers, do not?
-
-**Sam:** When you put it that way...
-
-**Alex:** Right. Now let us talk about one of my personal favorites -- herd mentality.
-
-[VISUAL: Animation of sheep walking off a cliff, transitioning to investors crowding into a single stock]
-
-**Sam:** This is the "follow the crowd" thing?
-
-**Alex:** Exactly. And it is an evolutionary instinct. In prehistoric times, if your tribe started running, you ran too. Stopping to think might get you eaten by a lion. The problem is that this instinct does not work in financial markets. In markets, the crowd is most dangerous at the extremes.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Market cycle emotion wheel showing euphoria at the top (crowd buying) and capitulation at the bottom (crowd selling), with "Smart Money" arrows pointing in the opposite direction at each extreme]
-
-**Alex:** Think about the biggest investment bubbles in history. Dutch tulips in 1637. The South Sea Company in 1720. The dot-com bubble in 2000. The housing bubble in 2008. Every single one followed the same pattern. A few early investors made money. Word spread. More people piled in. Prices rose further, which attracted even more people. Eventually, everyone was buying not because of fundamentals but because everyone else was buying.
-
-**Sam:** And then it crashes.
-
-**Alex:** And then it crashes. But here is the thing -- during the bubble, anyone who warned about overvaluation was mocked. During the dot-com bubble, people quit their jobs to day trade. During the housing bubble, taxi drivers were flipping houses. That is not a sign of a healthy market -- that is herd mentality at its most extreme.
-
-**Sam:** How do you fight herd mentality?
-
-**Alex:** Warren Buffett said it best: "Be fearful when others are greedy, and greedy when others are fearful." But that is incredibly hard in practice because social pressure is real. When your coworkers, your neighbors, your social media feed are all showing off gains from the hot investment, the pressure to join is enormous.
-
-[VISUAL: Social media feed mockup showing friends posting investment gains, with FOMO meter rising on the side]
-
-**Alex:** My concrete advice: develop your own research process and trust it. When the crowd disagrees with your analysis, check your work, but do not automatically defer to the herd. The crowd is often right in the middle of a trend but almost always wrong at the extremes.
-
-**Sam:** What about confirmation bias? I have heard that term a lot.
-
-**Alex:** Confirmation bias is sneaky because it disguises itself as research. It is the tendency to seek out information that supports what you already believe and ignore information that contradicts it.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Split screen showing "Biased Research" (only reading bullish articles, skipping warnings) versus "Balanced Research" (reading both bull and bear cases, stress-testing assumptions)]
-
-**Alex:** Say you are excited about a stock. You read three bullish analyst reports, join the stock's fan forum online, watch a YouTube video from someone who is also bullish. You feel great -- everything confirms your thesis! But you skipped the two bearish reports, you ignored the declining margins in the latest quarterly filing, and you dismissed the competitor that is eating into the company's market share.
-
-**Sam:** So how do you fight it? It is natural to look for information that agrees with you.
-
-**Alex:** The best technique is called "steel-manning the opposition." For every investment, force yourself to write down the three strongest arguments against it. Not weak straw-man arguments -- the genuine best case for why this investment might fail. If your thesis still holds after you have honestly engaged with the bear case, your conviction is well-founded. If the bear case is stronger than you expected, you just avoided a bad investment.
-
-[VISUAL: Notepad graphic showing "Bull Case" on left and "Bear Case" on right, with the investor circling the stronger arguments from each side]
-
-**Alex:** Another technique: actively seek out the smartest person who disagrees with you. Read their analysis carefully. If you cannot refute their points, you might be wrong.
-
-**Sam:** Okay, what about recency bias?
-
-**Alex:** Recency bias is why people pile into the market after it has gone up and flee after it has gone down -- the exact opposite of buy low, sell high. Your brain overweights recent experience and projects it into the future.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Timeline showing market returns decade by decade, with "investor sentiment" overlaid showing high optimism after good decades and pessimism after bad ones, always lagging reality]
-
-**Alex:** After the 2008 financial crisis, surveys showed that ordinary investors expected near-zero returns for the next decade. In reality, the S&P 500 roughly tripled from its 2009 low over the next decade. After the incredible bull run of 2012 through 2021, surveys showed investors expecting 15-20% annual returns going forward. Those expectations were almost certainly too high. In both cases, recent experience was a terrible predictor of the future.
-
-**Sam:** So the recent past is misleading?
-
-**Alex:** The recent past is one data point in a much longer history. The stock market has data going back over 100 years. Over that time, the average annual return has been about 10% nominal, 7% real. There have been terrible decades and incredible decades. Recency bias makes you think the current trend is permanent, but the historical base rate is the better guide.
-
-[VISUAL: 100-year S&P 500 chart with rolling 10-year returns highlighted, showing enormous variation but a consistent long-term upward trend]
-
-**Sam:** This is a lot of biases. I am starting to feel like it is hopeless -- how can you invest if your brain is working against you?
-
-**Alex:** Great question, and I do not want to leave you feeling defeated. Here is the good news: you do not have to fix your brain. You just need to build systems that protect you from it. I call this the bias defense system.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Five-layer defense system building up like a fortress, each layer adding protection: Awareness, Rules, Friction, Accountability, Automation]
-
-**Alex:** Layer one: awareness. You are building that right now. Know the biases, keep a checklist, scan it before every investment decision. Layer two: rules-based investing. Write down your investment criteria before you buy anything. "I will only buy stocks with a P/E below 20 and debt-to-equity below 0.5" -- whatever your criteria are, write them down. This engages System 2 thinking.
-
-**Sam:** System 2?
-
-**Alex:** Right -- Daniel Kahneman describes two thinking systems. System 1 is fast, automatic, emotional. It is the one that says "the stock crashed, sell everything!" System 2 is slow, deliberate, analytical. It says "let me calculate the valuation and check if anything fundamental changed." Most bad investment decisions happen because System 1 hijacks the decision before System 2 can engage.
-
-[VISUAL: Two brain diagrams side by side -- System 1 (lightning bolt, emotional face) and System 2 (calculator, thoughtful face)]
-
-**Alex:** Layer three: add friction. Make it hard to act on impulse. Implement a 48-hour cooling-off period before any trade. Delete trading apps from your phone. The more friction between your impulse and the execution, the more time System 2 has to intervene.
-
-**Sam:** Delete the trading app? That seems extreme.
-
-**Alex:** The best investors I know check their portfolios monthly, not daily. Here is why: if you check daily, you see your portfolio losing money roughly 46% of trading days, because daily volatility is high even in bull markets. Each time you see a loss, loss aversion triggers an urge to sell. Check annually, and you only see losses about 15% of the time. Less exposure to short-term noise means fewer emotional triggers.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Side-by-side simulations: one investor checking daily (stress meter maxed out, multiple panic trades) versus one checking monthly (calm, stays the course), both ending at the same destination but the daily checker with lower returns due to bad trades]
-
-**Sam:** That is a really compelling argument. What are layers four and five?
-
-**Alex:** Layer four is accountability. The most powerful tool here is an investment journal. Before every trade, write down why you are doing it, what would make you wrong, and which biases might be affecting you. Then review the journal quarterly. When you look back at your decisions, patterns emerge. You will see that you consistently sell too early, or that you always buy after reading positive news, or that your best decisions were the ones you almost did not make.
-
-[VISUAL: Investment journal mockup with entries showing the date, action, reasoning, bias check, and a later review section]
-
-**Sam:** That sounds really useful. I am going to start one.
-
-**Alex:** Do it. It costs nothing and takes five minutes per trade. Layer five is the ultimate defense: automation. Use index funds so you never have to pick stocks. Set up automatic contributions so you never have to decide when to invest. Enable automatic rebalancing so you never have to decide what to sell. The best defense against behavioral biases is removing the human from the decision loop.
-
-**Sam:** But does not that take all the fun out of investing?
-
-**Alex:** Here is a framework. Take 90% of your portfolio and automate it completely -- index funds, automatic contributions, automatic rebalancing. Boring, disciplined, effective. Then take the remaining 10% as "play money." Use that to scratch the itch of stock picking, trying new strategies, following your hunches. If you are right, you make a little extra. If you are wrong, you have only risked 10%. The 90% protects you from the biases that the 10% lets you indulge.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Pie chart splitting into 90% "Core" (automated index funds) and 10% "Satellite" (active picks), with a shield icon on the core and a play button on the satellite]
-
-**Sam:** I love that. It is like having your cake and eating it too.
-
-**Alex:** Exactly. Now, let me show you how biases interact, because in the real world they do not operate in isolation. They create dangerous feedback loops.
-
-[VISUAL: Diagram showing bias interaction map with arrows connecting herd mentality to overconfidence to confirmation bias to recency bias, all feeding into a central "bad decision" node]
-
-**Alex:** Here is how a typical bubble works through the lens of biases. Phase one: prices start rising for legitimate reasons. Phase two: recency bias kicks in -- "prices have been going up, so they will keep going up." Phase three: herd mentality attracts more buyers. Phase four: confirmation bias filters out any warning signs -- "this time it is different." Phase five: overconfidence peaks -- "I am a genius." Phase six: the music stops. Prices drop. Phase seven: anchoring to the peak price prevents selling -- "it will come back to where it was." Phase eight: loss aversion deepens the paralysis. Phase nine: panic selling at the bottom. Phase ten: recency bias again -- "I am never investing again."
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Full bubble cycle animation showing each phase with the corresponding bias highlighted, price chart in the background rising and crashing, with stick-figure investors showing the emotional state at each phase]
-
-**Sam:** That is the history of every bubble ever, is it not?
-
-**Alex:** Tulips in 1637, the South Sea in 1720, railroads in the 1840s, the Roaring Twenties, dot-com, housing, crypto -- same pattern, same biases, different assets. The assets change, but the human psychology does not. That is why studying behavioral biases is not just academic -- it is the most practical thing you can do for your portfolio.
-
-**Sam:** Okay, let me see if I can summarize what we covered. Loss aversion makes losses hurt twice as much as gains feel good, which makes us hold losers and sell winners. Overconfidence makes us trade too much and take too many risks. Anchoring chains us to irrelevant numbers, especially purchase prices. Herd mentality makes us buy at tops and sell at bottoms. Confirmation bias makes us only see evidence that supports what we already believe. Recency bias makes us project the recent past into the future. And the disposition effect combines several of these to systematically keep our worst stocks and sell our best ones.
-
-[VISUAL: Checklist appearing as Sam names each bias, with a check mark for each one]
-
-**Alex:** Perfect summary. And the defenses are awareness, rules, friction, accountability, and automation. Build systems that protect you from yourself. The goal is not to be a perfectly rational robot -- that is impossible. The goal is to create an environment where your biases do the least damage.
-
-**Sam:** One last question. You study these biases for a living. Do you still fall victim to them?
-
-**Alex:** Every single day. Last month I held a position two weeks longer than I should have because I was anchored to my purchase price. I caught it, wrote about it in my journal, and adjusted. But the urge was real. The biases never go away -- you just get better at recognizing them and acting despite them, not because of them.
-
-[VISUAL: Investment journal entry showing Alex's real-world anchoring example]
-
-**Sam:** That is actually reassuring. It is not about being perfect, it is about having a process.
-
-**Alex:** Exactly. Markets will test you. Your brain will betray you. But if you have systems, rules, and awareness, you will come out ahead over the long run. And that is what investing is -- a long-run game.
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Closing animation showing two paths: "Biased Investor" (zigzagging, panic-buying, panic-selling) versus "System-Protected Investor" (steady, consistent, calm), both starting at the same point but diverging dramatically over 30 years]
-
-**Sam:** Thanks Alex. I am going to start my investment journal tonight and set up that 48-hour cooling-off rule.
-
-**Alex:** That is the best homework assignment in this course. Do those two things and you are already ahead of 90% of investors. See everyone next week when we take everything we have learned and build our first portfolio from scratch.
-
-[VISUAL: End screen with key takeaways:
-1. Your brain has systematic biases that hurt investment returns
-2. Loss aversion, overconfidence, and herd mentality are the big three
-3. Knowledge alone is not enough -- build systems to protect yourself
-4. Keep an investment journal and implement a cooling-off period
-5. Automate 90% of your portfolio to minimize bias exposure]
-
-[ANIMATION: animation/week11_behavioral_biases.py -- Final animation: bias defense fortress with five labeled layers, camera zooming out to reveal a calm, steadily growing portfolio inside]
-
-**Alex:** If you found this helpful, like, subscribe, and share with someone who needs to hear it. Next week is the big one -- we are building your first portfolio. See you then.
-
-[VISUAL: End card with subscribe button and link to next week's lesson]
+答：建立投資日記。每次交易前，寫下你的交易原因、什麼情況會讓你出錯，以及哪些偏誤可能正在影響你。然後每季審查一次日記。這個習慣激活系統二思維、建立問責機制、積累可供學習的記錄，並迫使你正視自己的推論。持續記日記的投資人表示，他們做出的衝動交易更少，長期結果也更好。這不花一毛錢，每筆交易只需要五分鐘。
 
 ---
 
-*Animation reference: animation/week11_behavioral_biases.py*
+## YouTube 腳本
+
+[VISUAL: 動畫開場序列——一顆大腦在拳擊台上與一疊鈔票對峙。標題卡：「第十一週：行為偏誤——你的大腦對決你的金錢」]
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 標題序列，神經網路視覺化逐漸變形為市場走勢圖案]
+
+**Horace（陳馬）：** 歡迎回來，大家好。今天我們要講的主題，我真的認為是整個課程中最重要的一課。不是股票，不是債券，也不是估值——而是你的大腦。更具體地說，是你的大腦如何系統性地讓你成為一個糟糕的投資人。
+
+**Stella（小魚）：** 這聽起來很嚴重耶，陳馬。我覺得我在處理錢的事情上，做的決定都還蠻理性的啊。
+
+**Horace（陳馬）：** 而你這個信念——認為自己很理性——其實就是第一個陷阱。讓我問你一個問題。假設我給你兩個選擇。選項 A：確定給你 500 美元。選項 B：擲硬幣——正面你得到 1,000 美元，反面你什麼都拿不到。你選哪個？
+
+**Stella（小魚）：** 確定的 500 美元。簡單。幹嘛冒險什麼都拿不到？
+
+**Horace（陳馬）：** 好，現在反過來。選項 A：確定損失 500 美元。選項 B：擲硬幣——正面損失 1,000 美元，反面一毛不損。
+
+**Stella（小魚）：** 嗯……我想我會選擲硬幣。至少有機會一分都不損失嘛。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 硬幣翻轉的視覺化，顯示兩種情境，旁邊出現期望值計算，兩者均為 500 美元]
+
+**Horace（陳馬）：** 你剛剛示範的，就是行為金融學中最根本的偏誤——損失趨避。兩種情境的期望值完全相同，都是 500 美元。但面對獲利時，你選擇保守；面對損失時，你反而願意賭一把。你感受損失的強度，大約是感受同等獲利的兩倍。
+
+**Stella（小魚）：** 兩倍？這差這麼多？
+
+**Horace（陳馬）：** 這在數百個實驗中都被測量出來了。康納曼和特佛斯基在 1970 年代就證明了這一點，康納曼後來因此得到諾貝爾經濟學獎。但關鍵的問題是——這不只是一個實驗室裡有趣的現象，它對你的財富有非常重大的影響。
+
+[VISUAL: 分割畫面，顯示「理性投資人」與「情緒化投資人」面對相同市場下跌的反應]
+
+**Stella（小魚）：** 損失趨避在現實中究竟怎麼傷害我？
+
+**Horace（陳馬）：** 讓我給你一個具體的例子。假設你持有兩支股票。A 股從買進以來漲了 40%，B 股跌了 40%。你需要現金，必須賣出其中一支。你賣哪支？
+
+**Stella（小魚）：** 我大概會賣 A 股。先鎖住獲利。
+
+**Horace（陳馬）：** 這正是大多數投資人的做法。這就叫做處置效應。你賣出獲利股票，繼續抱著虧損股票。但研究顯示，這樣做完全是本末倒置的。被賣出的股票往往繼續超越大盤，被繼續持有的股票往往繼續落後大盤。有一項里程碑研究發現，兩者之間的績效差距超過每年 3 個百分點。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 投資組合視覺化，顯示兩條路徑：一條是賣出獲利股票並持有虧損股票（投資組合下滑），另一條是基於前瞻性分析做決策（投資組合成長）]
+
+**Stella（小魚）：** 所以我應該改賣虧損的？
+
+**Horace（陳馬）：** 不是自動就這樣做。你應該賣出未來前景較差的那支。重點是，你的買進成本與這個決策毫無關聯。但你的大腦卻把它當作世界上最重要的數字。那個買進成本就成了一個錨點。
+
+[VISUAL: 一個錨符號鎖鏈般拴在股票走勢圖上，拉扯著投資人的思維向下]
+
+**Stella（小魚）：** 等等，定錨——那是另一個偏誤？
+
+**Horace（陳馬）：** 是的，而且它無處不在。讓我介紹一個著名的實驗。研究人員在受試者面前轉動一個標有 1 到 100 的轉盤，然後問一個完全不相關的問題：「聯合國的成員國中，非洲國家佔多少百分比？」看到轉盤停在 10 的人，猜測的答案大約是 25%；看到轉盤停在 65 的人，猜測的答案大約是 45%。一個完全隨機的數字，竟然影響了他們對一個事實性問題的估計。
+
+**Stella（小魚）：** 這也太荒謬了吧。
+
+**Horace（陳馬）：** 是很荒謬，但它在投資中無時無刻都在發生。你以 100 元買進一支股票，它跌到 60 元。理性上，唯一的問題是：根據這家公司今天的盈餘、成長和競爭優勢，它值不值 60 元？但你被定錨在 100 元。你心裡想的是「它跌了 40%，一定會反彈的。」股票不知道你付了多少錢，股票也不欠你一個反彈。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 股票走勢圖顯示從 100 元跌至 60 元，一個思考泡泡顯示投資人定錨在 100 元，相對應的是一份清晰的前瞻性估值分析]
+
+**Stella（小魚）：** 好，這個說的讓我很有感。我確實做過這種事。
+
+**Horace（陳馬）：** 每個人都這樣過。這裡有一個去定錨的小技巧：把券商介面中的持有成本欄位蓋住。或者問自己：「如果我現在手上是現金而非這支股票，我願意以今天的價格買進嗎？」如果答案是不願意，你大概就該賣，不管當初買進的成本是多少。
+
+**Stella（小魚）：** 這個心智技巧真的很實用。那接下來呢？
+
+**Horace（陳馬）：** 來聊聊過度自信吧，這可能是主動交易者最危險的偏誤。這裡有一個讓人目瞪口呆的數據：你去問一大群人，讓他們評估自己的駕駛技術，有 93% 的人說自己「高於平均水準」。
+
+**Stella（小魚）：** 但那在數學上根本不可能啊。
+
+[VISUAL: 長條圖顯示 93% 的人自評駕駛技術「高於平均」，紅色基準線在 50% 標記著「數學上的最大值」]
+
+**Horace（陳馬）：** 完全正確。同樣的事情發生在投資上。大多數人相信自己能選到比市場更好的股票、能精準掌握進出時機，並能創造高於平均的報酬。數據卻說相反。Brad Barber 和 Terrance Odean 研究了 66,000 個券商帳戶，發現一個清楚的規律：交易越頻繁，報酬越差。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 動畫長條圖從換手率最低的投資人（報酬最高）逐步建立到換手率最高的投資人（報酬最低），差距顯著拉大]
+
+**Stella（小魚）：** 差距有多大？
+
+**Horace（陳馬）：** 交易最頻繁的投資人年化報酬約 5.5%，而最少交易的投資人約為 11.4%。光因為過度交易造成的差距，就將近 6 個百分點。複利計算 30 年，那個從容不迫的投資人，累積財富約是頻繁交易者的三倍。
+
+**Stella（小魚）：** 三倍？只因為交易少一點？
+
+**Horace（陳馬）：** 只因為交易少一點。而且最有意思的是——交易最頻繁的人，往往是對自己能力最有信心的人。在投資這件事上，自信與能力幾乎沒有相關性。甚至可能是負相關，因為有自信的人會下更大的賭注、交易更頻繁，兩者都會拖累報酬。
+
+[VISUAL: 雙軸圖，X 軸是「自信程度」，Y 軸是「報酬」，趨勢線微微向下傾斜]
+
+**Stella（小魚）：** 所以就完全不要交易嗎？
+
+**Horace（陳馬）：** 對大多數人來說，少交易遠比多交易好得多。對大多數個人投資人而言，最理想的做法是建立一個分散的投資組合，自動定期投入資金，定期再平衡，並克制調整的衝動。但過度自信偏誤讓你覺得自己是例外。問問自己：你究竟知道什麼，是數百萬個各自配備彭博終端機和研究團隊的專業分析師所不知道的？
+
+**Stella（小魚）：** 這樣說起來……
+
+**Horace（陳馬）：** 對吧。現在我們來談談我個人最喜歡的一個偏誤——從眾心態。
+
+[VISUAL: 羊群走向懸崖的動畫，轉場為投資人蜂擁買進同一支股票]
+
+**Stella（小魚）：** 就是「跟著大眾走」這件事？
+
+**Horace（陳馬）：** 正是。這是一種演化而來的本能。在遠古時代，如果你的部落所有人開始奔跑，你也跟著跑。停下來分析情況可能讓你被獅子吃掉。問題是，這種本能在金融市場完全失效。在市場中，群眾在極端時刻才最危險。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 市場循環情緒轉盤動畫，顯示頂部是狂喜（群眾買進）、底部是投降（群眾賣出），「聰明錢」的箭頭在每個極端都指向相反方向]
+
+**Horace（陳馬）：** 想想歷史上最大的幾個投資泡沫。1637 年的荷蘭鬱金香、1720 年的南海公司、2000 年的網路泡沫、2008 年的房市泡沫。每一個都遵循相同的模式。早期投資人賺了錢，消息傳開，更多人湧入，價格進一步上漲，吸引更多人。最終，每個人買進的理由不是基本面，而只是因為其他人都在買。
+
+**Stella（小魚）：** 然後就崩了。
+
+**Horace（陳馬）：** 然後就崩了。但在泡沫期間，任何警告過度估值的人都會被嘲笑。網路泡沫時期，有人辭掉工作去當日交易員。房市泡沫時期，計程車司機在炒房。這不是健康市場的訊號——這是從眾心態發展到極致的樣子。
+
+**Stella（小魚）：** 那怎麼對抗從眾心態？
+
+**Horace（陳馬）：** 巴菲特說得最好：「別人貪婪時我恐懼，別人恐懼時我貪婪。」但實際執行起來極其困難，因為社會壓力是真實存在的。當你的同事、鄰居、社群媒體上的朋友都在炫耀某個熱門投資的獲利，那種想要跟進的壓力是非常巨大的。
+
+[VISUAL: 社群媒體動態模擬畫面，朋友紛紛貼出投資獲利，旁邊的錯失恐懼（FOMO）指數不斷上升]
+
+**Horace（陳馬）：** 我的具體建議是：發展你自己的研究流程，並信任它。當群眾的觀點與你的分析相左，重新檢查你的功課，但不要自動向群眾靠攏。群眾在趨勢中段往往是對的，但在極端時刻幾乎都是錯的。
+
+**Stella（小魚）：** 那確認偏誤呢？我常常聽到這個詞。
+
+**Horace（陳馬）：** 確認偏誤是最隱蔽的，因為它偽裝成研究的樣子。它是指你傾向於尋找支持你既有信念的資訊，同時忽略矛盾的資訊。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 分割畫面顯示「偏誤式研究」（只讀看多文章、略過警訊）與「均衡式研究」（同時閱讀多空雙方觀點、壓力測試各項假設）]
+
+**Horace（陳馬）：** 假設你對一支股票很興奮。你讀了三份看多的分析師報告，加入了該股票的粉絲社群，看了一個同樣看多的 YouTube 影片。你感覺很好——所有資訊都在支持你的觀點！但你跳過了兩份看空的報告，忽略了最新季報中毛利率下滑的問題，也不屑一顧那個正在蠶食市場份額的競爭對手。
+
+**Stella（小魚）：** 那怎麼對抗它？人本來就會去找認同自己想法的資訊，這是很自然的吧。
+
+**Horace（陳馬）：** 最好的技巧叫做「鋼人論證對立面」。對每一個投資論點，強迫自己寫下三個反對它的最強理由。不是簡單的稻草人論點——而是支持這個投資可能失敗的真正最佳理由。如果你的論點在誠實地與看空面交鋒後依然站得住腳，你的信念才是有根據的。如果看空的理由比你預期的更有力，你就剛好躲過了一筆壞投資。
+
+[VISUAL: 記事本圖形，左邊是「看多理由」，右邊是「看空理由」，投資人圈出了雙方各自較強的論點]
+
+**Horace（陳馬）：** 另一個技巧是：主動找到最聰明的反對者，仔細閱讀他們的分析。如果你沒辦法反駁他們的論點，你可能是錯的。
+
+**Stella（小魚）：** 好，那近期偏誤呢？
+
+**Horace（陳馬）：** 近期偏誤，就是為什麼人們在市場上漲之後大舉進場，在市場下跌之後倉皇出逃——這恰恰與「低買高賣」背道而馳。你的大腦過度重視近期的經歷，並把它投射到未來。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 時間軸顯示各十年間的市場報酬，疊加顯示「投資人情緒」，始終落後於現實——好年代之後過度樂觀，壞年代之後過度悲觀]
+
+**Horace（陳馬）：** 2008 年金融危機後，調查顯示一般投資人預期未來十年的報酬接近零。現實是，標普 500 從 2009 年的低點到之後的十年間，大約翻了三倍。而經歷了 2012 至 2021 年的大多頭行情後，調查顯示投資人預期未來年化報酬達 15 至 20%。這些預期幾乎可以確定是過高的。在這兩種情況下，近期的經歷都是預測未來的糟糕依據。
+
+**Stella（小魚）：** 所以近期的過去具有誤導性？
+
+**Horace（陳馬）：** 近期的過去只是更長遠歷史中的一個數據點。股市有超過百年的資料。在這段時間裡，平均年化報酬大約是名目 10%、實質 7%。有過糟糕的十年，也有過輝煌的十年。近期偏誤讓你以為當前的趨勢是永久的，但歷史的基準率才是更好的參考指標。
+
+[VISUAL: 100 年的標普 500 走勢圖，標示出滾動 10 年報酬，顯示巨大的變動性，但長期趨勢穩定向上]
+
+**Stella（小魚）：** 這也太多偏誤了。我開始覺得沒救了——如果大腦本身就是障礙，怎麼投資？
+
+**Horace（陳馬）：** 這是個好問題，而我不想讓你感到絕望。好消息是：你不必修好你的大腦。你只需要建立保護你不受大腦干擾的系統。我把它叫做偏誤防禦系統。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 五層防禦系統如堡壘般一層一層建立起來，每一層加上標籤：意識、規則、摩擦、問責、自動化]
+
+**Horace（陳馬）：** 第一層：意識。你現在正在建立這個。了解偏誤，準備一份檢查清單，每次投資決策前都掃描一遍。第二層：規則導向的投資。在買進任何東西之前，先把你的投資標準寫下來。「我只買本益比低於 20 倍、負債比低於 0.5 的股票」——不管你的標準是什麼，先白紙黑字寫好。這樣做能激活系統二的思維。
+
+**Stella（小魚）：** 系統二？
+
+**Horace（陳馬）：** 對，康納曼描述了兩種思考系統。系統一又快又自動，由情緒驅動。它說的是「股票崩了，全部賣掉！」系統二又慢又刻意，由分析驅動。它說的是「讓我先算算估值，看看有沒有任何基本面改變。」大多數糟糕的投資決策，都是因為系統一在系統二來得及介入之前就劫持了決策。
+
+[VISUAL: 兩個大腦圖並排——系統一（閃電符號、情緒化的臉）與系統二（計算機、若有所思的臉）]
+
+**Horace（陳馬）：** 第三層：增加摩擦。讓衝動行事變得困難。任何交易前實施 48 小時冷靜期。從手機刪除交易 App。你的衝動與實際執行之間的摩擦越多，系統二就有越多時間介入。
+
+**Stella（小魚）：** 刪掉交易 App？這好極端喔。
+
+**Horace（陳馬）：** 我認識的最優秀的投資人，每個月才查看一次投資組合，不是每天。原因是這樣的：如果你每天看，即使在多頭市場中，大約 46% 的交易日你都會看到帳面虧損，因為日常波動性很高。每次看到虧損，損失趨避就觸發賣出的衝動。如果每月才看一次，你只有大約 15% 的時間看到虧損。接觸到短期雜訊越少，情緒觸發越少，決策就越好。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 並排模擬：一個每天查看帳戶的投資人（壓力值爆表，多次恐慌性交易）與一個每月才查看的投資人（沉穩冷靜，堅持策略），兩者起點相同，但因恐慌交易報酬落後，最終財富差距明顯]
+
+**Stella（小魚）：** 這個論點真的很有說服力。那第四和第五層呢？
+
+**Horace（陳馬）：** 第四層是問責機制。這裡最強大的工具就是投資日記。每筆交易之前，寫下你為什麼要這樣做、什麼情況會讓你出錯，以及哪些偏誤可能正在影響你。然後每季審查一次。當你回顧自己的決策，就會發現規律。你會看到自己總是太早賣出，或者總是讀完正面新聞就進場，或者你最好的決策，往往是那些你幾乎沒有做出的決策。
+
+[VISUAL: 投資日記模擬畫面，包含日期、操作、推論、偏誤確認欄位，以及後來的複查記錄]
+
+**Stella（小魚）：** 這真的很實用。我要開始記了。
+
+**Horace（陳馬）：** 記起來。不花一毛錢，每筆交易只需要五分鐘。第五層是終極防禦：自動化。使用指數基金，這樣你就不用選股。設定自動定期投入，這樣你就不用決定何時進場。開啟自動再平衡，這樣你就不用決定賣什麼。對抗行為偏誤最好的防禦，就是讓人類完全退出決策迴圈。
+
+**Stella（小魚）：** 但這樣不是把投資的樂趣都拿走了嗎？
+
+**Horace（陳馬）：** 有一個框架可以參考。把投資組合的 90% 完全自動化——指數基金、自動定期投入、自動再平衡。無聊、嚴謹，而且有效。然後用剩下的 10% 當「遊玩資金」。用它來滿足你選股的慾望、嘗試新策略、跟著直覺走。如果你賭對了，你多賺一點。如果賭錯了，你最多只損失 10%。那 90% 保護你不受那 10% 的放縱影響。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 圓餅圖分割為 90% 的「核心」（自動化指數基金，帶有盾牌圖示）和 10% 的「衛星」（主動選股，帶有播放按鈕圖示）]
+
+**Stella（小魚）：** 我喜歡這個。魚與熊掌兼得。
+
+**Horace（陳馬）：** 正是。現在讓我展示偏誤是如何交互影響的，因為在真實世界中，它們不是單獨運作的，它們會形成危險的回饋循環。
+
+[VISUAL: 圖表顯示偏誤交互影響圖，箭頭連結從眾心態、過度自信、確認偏誤、近期偏誤，全部匯流向中心的「糟糕決策」]
+
+**Horace（陳馬）：** 讓我用偏誤的視角來拆解一個典型的泡沫是如何形成的。第一階段：出於合理理由，價格開始上漲。第二階段：近期偏誤啟動——「價格一直在漲，未來也會繼續漲。」第三階段：從眾心態吸引更多買家。第四階段：確認偏誤過濾掉所有警告訊號——「這次不一樣。」第五階段：過度自信達到頂峰——「我是天才。」第六階段：音樂停下來，價格下跌。第七階段：定錨在高點阻礙賣出——「它會回來的。」第八階段：損失趨避讓猶豫更深。第九階段：在低點恐慌性拋售。第十階段：再次出現近期偏誤——「我再也不投資了。」
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 完整的泡沫循環動畫，每個階段對應的偏誤高亮顯示，背景是價格走勢圖的上漲與崩跌，棒棒人投資人呈現每個階段的情緒狀態]
+
+**Stella（小魚）：** 這就是每一個泡沫的歷史，對吧？
+
+**Horace（陳馬）：** 1637 年的鬱金香、1720 年的南海公司、1840 年代的鐵路、咆哮的二零年代、網路泡沫、房市泡沫、加密貨幣——同樣的模式，同樣的偏誤，只是換了不同的資產。資產會改變，人類的心理不會改變。這就是為什麼研究行為偏誤不只是學術上的事——它是你能為你的投資組合做的最實際的事。
+
+**Stella（小魚）：** 好，讓我試著總結一下我們今天講的。損失趨避讓損失的痛苦是獲利愉悅的兩倍，使我們賣出獲利股票卻抱著虧損股票。過度自信讓我們交易太頻繁、承擔太多風險。定錨把我們鎖鏈在無關緊要的數字上，尤其是買進成本。從眾心態讓我們在頂部買進、在底部賣出。確認偏誤讓我們只看到支持自己信念的證據。近期偏誤讓我們把近期的過去投射到未來。而處置效應結合了這幾種偏誤，系統性地讓我們保留最差的股票、賣出最好的股票。
+
+[VISUAL: 隨著小魚逐一說出各偏誤，檢查清單逐一出現，每項前面打上勾號]
+
+**Horace（陳馬）：** 完美的總結。防禦手段則是：意識、規則、摩擦、問責、以及自動化。建立保護你免受自己傷害的系統。目標不是成為一個完全理性的機器人——那是不可能的。目標是創造一個讓你的偏誤盡可能少造成傷害的環境。
+
+**Stella（小魚）：** 最後一個問題。你研究這些偏誤多年了。你自己還會受它們影響嗎？
+
+**Horace（陳馬）：** 每一天。上個月我就多持有了一個部位兩個星期，因為我定錨在自己的買進成本。我發現了，把它寫進日記裡，然後做了調整。但那個衝動是真實的。偏誤從來不會消失——你只是越來越擅長辨識它們，並在它們的驅使之外做出行動，而不是因為它們而行動。
+
+[VISUAL: 投資日記記錄，顯示 Horace 陳馬的定錨偏誤真實案例]
+
+**Stella（小魚）：** 這其實讓我鬆了一口氣。重點不是要做到完美，而是要有一套流程。
+
+**Horace（陳馬）：** 正是。市場會考驗你，你的大腦會背叛你。但如果你有系統、規則和意識，你就能在長期中勝出。而投資就是一場長期的遊戲。
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 結尾動畫顯示兩條路徑：「受偏誤影響的投資人」（左搖右擺，恐慌進場、恐慌出場）與「系統保護的投資人」（穩定、持續、從容），兩者起點相同，三十年後財富差距極為驚人]
+
+**Stella（小魚）：** 謝謝你陳馬。我今晚就要開始記投資日記，也要設定那個 48 小時冷靜期。
+
+**Horace（陳馬）：** 這是整個課程中最好的一項課後作業。做到這兩件事，你就已經超越了九成的投資人。下週見，我們會把這個課程所有學到的東西整合起來，從零開始打造你的第一個投資組合。
+
+[VISUAL: 結尾畫面，顯示關鍵重點：
+1. 你的大腦有系統性的偏誤，會傷害投資報酬
+2. 損失趨避、過度自信和從眾心態是三大主要偏誤
+3. 光有知識還不夠——建立系統來保護自己
+4. 開始記投資日記，並實施冷靜期
+5. 將九成的投資組合自動化，以降低偏誤的暴露]
+
+[ANIMATION: animation/week11_behavioral_biases.py -- 最終動畫：五層標有標籤的偏誤防禦堡壘，鏡頭拉遠，揭示堡壘內部一個平穩成長的投資組合]
+
+**Horace（陳馬）：** 如果你覺得這集有幫助，記得按讚、訂閱，並分享給需要聽到這些的人。下週是重頭戲——我們要打造你的第一個投資組合。到時見。
+
+[VISUAL: 結尾卡，附有訂閱按鈕與下一課的連結]
+
+---
+
+*動畫參考檔案：animation/week11_behavioral_biases.py*

@@ -700,139 +700,139 @@ A8: This is a legitimate concern but less pressing than it appears. The global f
 
 [VISUAL: Channel intro animation with trend charts across multiple markets -- stocks, bonds, commodities, currencies]
 
-**Alex:** Welcome to Week 51. Today we are covering one of the most important topics in the entire course: managed futures and trend following. This strategy has been responsible for some of the most consistent portfolio protection during market crises, and it is now accessible to retail investors through ETFs.
+**Horace:** Welcome to Week 51. Today we are covering one of the most important topics in the entire course: managed futures and trend following. This strategy has been responsible for some of the most consistent portfolio protection during market crises, and it is now accessible to retail investors through ETFs.
 
-**Sam:** I have been looking forward to this one. Managed futures always seemed mysterious to me -- like a black box that hedge funds use. Can we demystify it?
+**Stella:** I have been looking forward to this one. Managed futures always seemed mysterious to me -- like a black box that hedge funds use. Can we demystify it?
 
 [VISUAL: Title card "Managed Futures: Demystified"]
 
-**Alex:** Absolutely. And the surprise is how simple the core concept is. At its heart, trend following -- which accounts for about 70 percent of the managed futures industry -- does one thing: it buys assets that are going up and sells assets that are going down.
+**Horace:** Absolutely. And the surprise is how simple the core concept is. At its heart, trend following -- which accounts for about 70 percent of the managed futures industry -- does one thing: it buys assets that are going up and sells assets that are going down.
 
-**Sam:** That is it? That sounds almost too simple.
+**Stella:** That is it? That sounds almost too simple.
 
-**Alex:** The elegance IS the simplicity. A basic trend following system might use a 200-day moving average. When the price is above the 200-day average, you go long. When it is below, you go short. Apply this across 50 to 100 different futures markets -- stocks, bonds, commodities, currencies -- size each position by inverse volatility so that each market contributes equal risk, and you have a professional-grade trend following strategy.
+**Horace:** The elegance IS the simplicity. A basic trend following system might use a 200-day moving average. When the price is above the 200-day average, you go long. When it is below, you go short. Apply this across 50 to 100 different futures markets -- stocks, bonds, commodities, currencies -- size each position by inverse volatility so that each market contributes equal risk, and you have a professional-grade trend following strategy.
 
 [ANIMATION: animation/week51_trend_following.py -- Animated price chart showing a trend developing over time. A moving average line follows the price. Green arrows appear when buy signals trigger (price crosses above MA), red arrows when sell/short signals trigger (price crosses below MA). Profit and loss accumulates on a running total below the chart.]
 
-**Sam:** If it is that simple, why does not everyone do it?
+**Stella:** If it is that simple, why does not everyone do it?
 
-**Alex:** Two reasons. First, it is operationally complex even though the concept is simple. You need to trade futures across dozens of markets, manage leverage and margin, and operate around the clock across global time zones. Second -- and this is the bigger barrier -- it is psychologically brutal. Buying something that has already gone up feels like chasing. Holding through a 15 percent drawdown while the S&P is ripping higher requires iron discipline. Most people cannot do it.
+**Horace:** Two reasons. First, it is operationally complex even though the concept is simple. You need to trade futures across dozens of markets, manage leverage and margin, and operate around the clock across global time zones. Second -- and this is the bigger barrier -- it is psychologically brutal. Buying something that has already gone up feels like chasing. Holding through a 15 percent drawdown while the S&P is ripping higher requires iron discipline. Most people cannot do it.
 
 [VISUAL: Title card "Time Series Momentum: The Academic Evidence"]
 
-**Sam:** Let us talk about the academic foundation. Is there serious research behind this?
+**Stella:** Let us talk about the academic foundation. Is there serious research behind this?
 
-**Alex:** Extensive research. The landmark paper was by Moskowitz, Ooi, and Pedersen at AQR Capital Management in 2012. They studied 58 different futures markets across equities, bonds, currencies, and commodities, going back decades. They found that time series momentum -- an asset's own past returns predicting its future returns -- was positive and statistically significant in every single asset class.
+**Horace:** Extensive research. The landmark paper was by Moskowitz, Ooi, and Pedersen at AQR Capital Management in 2012. They studied 58 different futures markets across equities, bonds, currencies, and commodities, going back decades. They found that time series momentum -- an asset's own past returns predicting its future returns -- was positive and statistically significant in every single asset class.
 
-**Sam:** Every asset class?
+**Stella:** Every asset class?
 
-**Alex:** Every one. Equities, bonds, currencies, commodities. The effect was robust across multiple lookback periods from one month to twelve months. It persisted after transaction costs. And it was NOT explained by traditional risk factors. This is not some fragile anomaly -- it is one of the most robust patterns in financial markets.
+**Horace:** Every one. Equities, bonds, currencies, commodities. The effect was robust across multiple lookback periods from one month to twelve months. It persisted after transaction costs. And it was NOT explained by traditional risk factors. This is not some fragile anomaly -- it is one of the most robust patterns in financial markets.
 
 [VISUAL: Table showing TSMOM returns across asset classes with Sharpe ratios]
 
-**Sam:** Why do trends exist? It seems like markets should be efficient enough to eliminate predictable patterns.
+**Stella:** Why do trends exist? It seems like markets should be efficient enough to eliminate predictable patterns.
 
-**Alex:** Markets are adaptively efficient, not perfectly efficient. Several forces create trends. First, behavioral biases: investors anchor to old prices and underreact to new information, so prices adjust to new realities slowly rather than instantly. Second, institutional factors: central bank interest rate cycles create multi-year trends in bonds and currencies. Stop-losses and margin calls force selling during declines, extending downward trends. Third, real economic forces: commodity supply-demand imbalances take years to resolve, business cycles create multi-quarter earnings trends, and geopolitical shifts create currency movements that play out over months or years.
+**Horace:** Markets are adaptively efficient, not perfectly efficient. Several forces create trends. First, behavioral biases: investors anchor to old prices and underreact to new information, so prices adjust to new realities slowly rather than instantly. Second, institutional factors: central bank interest rate cycles create multi-year trends in bonds and currencies. Stop-losses and margin calls force selling during declines, extending downward trends. Third, real economic forces: commodity supply-demand imbalances take years to resolve, business cycles create multi-quarter earnings trends, and geopolitical shifts create currency movements that play out over months or years.
 
 [ANIMATION: animation/week51_trend_following.py -- Animated diagram showing the behavioral cycle: new information arrives -> slow initial reaction (anchoring) -> gradual price adjustment -> herding amplifies the move -> overshoot -> eventual mean reversion. The animation highlights how trend following captures the middle portion of this cycle.]
 
-**Sam:** Now let us talk about what I think is the most compelling feature: crisis alpha. What happens to trend following during market crashes?
+**Stella:** Now let us talk about what I think is the most compelling feature: crisis alpha. What happens to trend following during market crashes?
 
 [VISUAL: Title card "Crisis Alpha: The Ultimate Portfolio Insurance"]
 
-**Alex:** Crisis alpha is the term coined by Kathryn Kaminski to describe trend following's remarkable property of generating positive returns during major market dislocations. Let me walk you through the mechanism.
+**Horace:** Crisis alpha is the term coined by Kathryn Kaminski to describe trend following's remarkable property of generating positive returns during major market dislocations. Let me walk you through the mechanism.
 
-**Sam:** Please.
+**Stella:** Please.
 
-**Alex:** When a crisis begins, there is typically a sudden initial shock -- think of the market dropping 5 percent in a few days. At this point, trend following systems are usually still long equities, so they LOSE money. This is the cost phase.
+**Horace:** When a crisis begins, there is typically a sudden initial shock -- think of the market dropping 5 percent in a few days. At this point, trend following systems are usually still long equities, so they LOSE money. This is the cost phase.
 
-**Sam:** That does not sound like crisis protection.
+**Stella:** That does not sound like crisis protection.
 
-**Alex:** Patience. As the decline continues -- say over several weeks -- the trend signals start to flip. Moving averages cross, breakout signals trigger. The systems move from long to flat to short. Simultaneously, other trends emerge: bonds rally as investors flee to safety, certain commodities sell off, the dollar may strengthen. The trend following system goes long bonds, short equities, short certain commodities.
+**Horace:** Patience. As the decline continues -- say over several weeks -- the trend signals start to flip. Moving averages cross, breakout signals trigger. The systems move from long to flat to short. Simultaneously, other trends emerge: bonds rally as investors flee to safety, certain commodities sell off, the dollar may strengthen. The trend following system goes long bonds, short equities, short certain commodities.
 
 [VISUAL: Timeline showing the five phases of crisis alpha: initial shock, signal flip, trend development, crisis deepening, recovery]
 
-**Sam:** So the system needs time to adapt.
+**Stella:** So the system needs time to adapt.
 
-**Alex:** Exactly. And this is the key insight. The longer and more sustained the crisis, the more profitable trend following becomes. During the 2008 financial crisis, which played out over 18 months, trend following strategies returned approximately 18 percent while the S&P 500 lost 57 percent. During the dot-com crash, which lasted nearly three years, trend following returned about 28 percent cumulatively.
+**Horace:** Exactly. And this is the key insight. The longer and more sustained the crisis, the more profitable trend following becomes. During the 2008 financial crisis, which played out over 18 months, trend following strategies returned approximately 18 percent while the S&P 500 lost 57 percent. During the dot-com crash, which lasted nearly three years, trend following returned about 28 percent cumulatively.
 
-**Sam:** What about COVID? That was a crash but also a very quick recovery.
+**Stella:** What about COVID? That was a crash but also a very quick recovery.
 
-**Alex:** COVID is the perfect counter-example. The crash from peak to trough happened in just five weeks -- the fastest 30 percent decline in stock market history. Trend following systems barely had time to flip from long to short before the market reversed sharply upward. The result: managed futures lost about 3 percent during COVID, which is essentially flat. Not a disaster, but not the crisis alpha we saw in 2008.
+**Horace:** COVID is the perfect counter-example. The crash from peak to trough happened in just five weeks -- the fastest 30 percent decline in stock market history. Trend following systems barely had time to flip from long to short before the market reversed sharply upward. The result: managed futures lost about 3 percent during COVID, which is essentially flat. Not a disaster, but not the crisis alpha we saw in 2008.
 
 [VISUAL: Side-by-side comparison charts of trend following vs S&P 500 during GFC 2008 and COVID 2020]
 
-**Sam:** So trend following protects against long, grinding bear markets but not flash crashes.
+**Stella:** So trend following protects against long, grinding bear markets but not flash crashes.
 
-**Alex:** That is the right way to think about it. And here is the important corollary: the truly dangerous bear markets -- the ones that destroy retirement portfolios and force people to sell at the bottom -- are almost always the extended ones. The GFC. The dot-com crash. These lasted months to years and caused 40 to 60 percent losses. Quick crashes with quick recoveries, like COVID, are traumatic but not financially devastating if you stay invested. Trend following provides the most protection precisely when you need it most.
+**Horace:** That is the right way to think about it. And here is the important corollary: the truly dangerous bear markets -- the ones that destroy retirement portfolios and force people to sell at the bottom -- are almost always the extended ones. The GFC. The dot-com crash. These lasted months to years and caused 40 to 60 percent losses. Quick crashes with quick recoveries, like COVID, are traumatic but not financially devastating if you stay invested. Trend following provides the most protection precisely when you need it most.
 
-**Sam:** What about 2022? I heard that was a standout year for managed futures.
+**Stella:** What about 2022? I heard that was a standout year for managed futures.
 
 [VISUAL: Title card "2022: Trend Following's Finest Hour"]
 
-**Alex:** 2022 may have been the most important year in the history of trend following, in terms of proving its value to the investing world. Here is why: in 2022, stocks fell 25 percent, and bonds -- which are supposed to protect you during stock declines -- also fell, losing about 13 percent. The traditional 60/40 portfolio had its worst year in decades. Meanwhile, trend following strategies returned approximately 24 percent.
+**Horace:** 2022 may have been the most important year in the history of trend following, in terms of proving its value to the investing world. Here is why: in 2022, stocks fell 25 percent, and bonds -- which are supposed to protect you during stock declines -- also fell, losing about 13 percent. The traditional 60/40 portfolio had its worst year in decades. Meanwhile, trend following strategies returned approximately 24 percent.
 
-**Sam:** Positive 24 percent while both stocks and bonds lost money? How?
+**Stella:** Positive 24 percent while both stocks and bonds lost money? How?
 
-**Alex:** Multiple sustained trends across asset classes, all in the same direction. Interest rates rose steadily throughout the year as the Federal Reserve hiked aggressively. This created a strong, persistent short-bond trend. Energy commodities spiked due to the Russia-Ukraine conflict. The US dollar strengthened against nearly every other currency. And equities declined gradually over many months, giving trend following systems plenty of time to establish short positions. The key word is "gradually" -- these were not sudden shocks but sustained, multi-month trends.
+**Horace:** Multiple sustained trends across asset classes, all in the same direction. Interest rates rose steadily throughout the year as the Federal Reserve hiked aggressively. This created a strong, persistent short-bond trend. Energy commodities spiked due to the Russia-Ukraine conflict. The US dollar strengthened against nearly every other currency. And equities declined gradually over many months, giving trend following systems plenty of time to establish short positions. The key word is "gradually" -- these were not sudden shocks but sustained, multi-month trends.
 
 [ANIMATION: animation/week51_trend_following.py -- Animated portfolio simulation showing positions across asset classes during 2022: short bonds building over time, long energy commodities, long USD, short equities. Each position's contribution to the overall return is shown as a stacking bar chart that grows throughout the year.]
 
-**Sam:** So 2022 was the year that proved trend following works when nothing else does.
+**Stella:** So 2022 was the year that proved trend following works when nothing else does.
 
-**Alex:** Precisely. And it vindicated the investors who maintained their managed futures allocation through the difficult 2010s, when trend following underperformed and many institutions abandoned it. The lesson is clear: crisis protection strategies only work if you hold them through the calm periods too. You cannot time when the crisis will come.
+**Horace:** Precisely. And it vindicated the investors who maintained their managed futures allocation through the difficult 2010s, when trend following underperformed and many institutions abandoned it. The lesson is clear: crisis protection strategies only work if you hold them through the calm periods too. You cannot time when the crisis will come.
 
-**Sam:** Let us talk about practical implementation. How can a regular investor access this?
+**Stella:** Let us talk about practical implementation. How can a regular investor access this?
 
 [VISUAL: Title card "Implementation: ETFs and Beyond"]
 
-**Alex:** The two most prominent options are DBMF and KMLM. DBMF, from iMGP, uses a factor-based approach to replicate the returns of the top 20 CTAs. It has the largest AUM at about 3 billion dollars and the broadest market coverage. KMLM, from KFA Mount Lucas, tracks a rules-based trend following index across commodities, currencies, and bonds. Both charge around 85 to 95 basis points, which sounds expensive but is far cheaper than the traditional CTA fee structure of 2 percent management fee plus 20 percent performance fee.
+**Horace:** The two most prominent options are DBMF and KMLM. DBMF, from iMGP, uses a factor-based approach to replicate the returns of the top 20 CTAs. It has the largest AUM at about 3 billion dollars and the broadest market coverage. KMLM, from KFA Mount Lucas, tracks a rules-based trend following index across commodities, currencies, and bonds. Both charge around 85 to 95 basis points, which sounds expensive but is far cheaper than the traditional CTA fee structure of 2 percent management fee plus 20 percent performance fee.
 
-**Sam:** Which one should someone choose?
+**Stella:** Which one should someone choose?
 
-**Alex:** If picking one, I would lean toward DBMF because it includes equity index futures in its replication, while KMLM does not. This means DBMF can go short equity indexes during a bear market, which is a significant component of crisis alpha. If you have enough allocation to split between two products -- say, a 10 percent allocation to managed futures -- I would do 7 percent in DBMF and 3 percent in KMLM to get strategy diversification.
+**Horace:** If picking one, I would lean toward DBMF because it includes equity index futures in its replication, while KMLM does not. This means DBMF can go short equity indexes during a bear market, which is a significant component of crisis alpha. If you have enough allocation to split between two products -- say, a 10 percent allocation to managed futures -- I would do 7 percent in DBMF and 3 percent in KMLM to get strategy diversification.
 
-**Sam:** What is a reasonable allocation?
+**Stella:** What is a reasonable allocation?
 
-**Alex:** Research from AQR, Man Group, and other leading quant firms consistently points to 10 to 15 percent as the sweet spot. At this level, you get meaningful drawdown reduction -- potentially shaving 8 to 10 percentage points off the worst drawdown -- while maintaining strong portfolio returns. Below 5 percent, the impact is too small to matter. Above 20 percent, you start to feel significant drag during bull markets.
+**Horace:** Research from AQR, Man Group, and other leading quant firms consistently points to 10 to 15 percent as the sweet spot. At this level, you get meaningful drawdown reduction -- potentially shaving 8 to 10 percentage points off the worst drawdown -- while maintaining strong portfolio returns. Below 5 percent, the impact is too small to matter. Above 20 percent, you start to feel significant drag during bull markets.
 
 [VISUAL: Chart showing the efficient frontier with and without managed futures, demonstrating the improvement in risk-return trade-off]
 
-**Sam:** What about behavioral challenges? You mentioned that trend following feels uncomfortable.
+**Stella:** What about behavioral challenges? You mentioned that trend following feels uncomfortable.
 
-**Alex:** This might be the most important practical consideration. During a strong equity bull market -- like 2013 or 2019, when the S&P 500 returned 30-plus percent -- your managed futures allocation might return 3 to 5 percent. Every quarterly statement, you will see this allocation dragging on your total portfolio return. The temptation to eliminate it and go all-in on equities is enormous.
+**Horace:** This might be the most important practical consideration. During a strong equity bull market -- like 2013 or 2019, when the S&P 500 returned 30-plus percent -- your managed futures allocation might return 3 to 5 percent. Every quarterly statement, you will see this allocation dragging on your total portfolio return. The temptation to eliminate it and go all-in on equities is enormous.
 
-**Sam:** How do you stay disciplined?
+**Stella:** How do you stay disciplined?
 
-**Alex:** Three things. First, mentally reframe the allocation as insurance. You do not cancel your homeowner's insurance because your house did not burn down last year. Second, look at your portfolio's risk metrics, not just returns. The Sharpe ratio, maximum drawdown, and volatility of the portfolio WITH managed futures is better than without, even if the raw return is slightly lower in bull markets. Third, remember 2008 and 2022. Those are the years that define long-term wealth. If managed futures reduce your drawdown from 50 percent to 30 percent in the next crisis, you need a 43 percent gain to recover from 30 percent versus a 100 percent gain from 50 percent. That difference compounds over a lifetime.
+**Horace:** Three things. First, mentally reframe the allocation as insurance. You do not cancel your homeowner's insurance because your house did not burn down last year. Second, look at your portfolio's risk metrics, not just returns. The Sharpe ratio, maximum drawdown, and volatility of the portfolio WITH managed futures is better than without, even if the raw return is slightly lower in bull markets. Third, remember 2008 and 2022. Those are the years that define long-term wealth. If managed futures reduce your drawdown from 50 percent to 30 percent in the next crisis, you need a 43 percent gain to recover from 30 percent versus a 100 percent gain from 50 percent. That difference compounds over a lifetime.
 
 [VISUAL: Recovery math comparison: 30% drawdown needs 43% to recover vs 50% drawdown needs 100% to recover]
 
-**Sam:** Let us talk about the long-term picture. Has trend following always worked?
+**Stella:** Let us talk about the long-term picture. Has trend following always worked?
 
-**Alex:** Remarkably, yes. Research going back to the 1800s shows positive trend following returns across every multi-decade period. The strategy has survived world wars, the Great Depression, multiple financial crises, the transition from floor trading to electronic markets, and the rise of algorithmic trading. It has been profitable for over 100 years.
+**Horace:** Remarkably, yes. Research going back to the 1800s shows positive trend following returns across every multi-decade period. The strategy has survived world wars, the Great Depression, multiple financial crises, the transition from floor trading to electronic markets, and the rise of algorithmic trading. It has been profitable for over 100 years.
 
-**Sam:** Why has it not been arbitraged away in all that time?
+**Stella:** Why has it not been arbitraged away in all that time?
 
-**Alex:** Because the barriers to implementation are structural and psychological, not informational. Everyone *knows* that trends exist. But executing a trend following strategy requires trading dozens of markets simultaneously, managing leverage, operating globally, and maintaining discipline through inevitable drawdowns. Most investors -- including most professionals -- cannot do this consistently. Additionally, trend following profits from behavioral biases that are deeply wired into human psychology: anchoring, herding, loss aversion. As long as humans are involved in markets, trends will exist.
+**Horace:** Because the barriers to implementation are structural and psychological, not informational. Everyone *knows* that trends exist. But executing a trend following strategy requires trading dozens of markets simultaneously, managing leverage, operating globally, and maintaining discipline through inevitable drawdowns. Most investors -- including most professionals -- cannot do this consistently. Additionally, trend following profits from behavioral biases that are deeply wired into human psychology: anchoring, herding, loss aversion. As long as humans are involved in markets, trends will exist.
 
 [ANIMATION: animation/week51_trend_following.py -- Historical timeline animation showing trend following returns by decade from the 1880s to 2020s, with major historical events marked. The visual shows that the strategy has been consistently profitable across radically different market regimes and eras.]
 
-**Sam:** How does managed futures fit with everything else we have learned in this course?
+**Stella:** How does managed futures fit with everything else we have learned in this course?
 
-**Alex:** That is the perfect segue to next week's integration lesson, but I will preview it. Think of your portfolio as having multiple layers. The core is your market exposure -- stocks and bonds. Factor tilts add a modest return premium with controlled tracking error. Options strategies provide income and tail hedging. And managed futures provide the ultimate diversifier -- a strategy that is genuinely uncorrelated to everything else and provides positive returns during the crises that threaten the rest of your portfolio.
+**Horace:** That is the perfect segue to next week's integration lesson, but I will preview it. Think of your portfolio as having multiple layers. The core is your market exposure -- stocks and bonds. Factor tilts add a modest return premium with controlled tracking error. Options strategies provide income and tail hedging. And managed futures provide the ultimate diversifier -- a strategy that is genuinely uncorrelated to everything else and provides positive returns during the crises that threaten the rest of your portfolio.
 
-**Sam:** So managed futures is the portfolio's insurance policy?
+**Stella:** So managed futures is the portfolio's insurance policy?
 
-**Alex:** Insurance policy with a positive expected return. Most insurance costs money -- you pay premiums and hope to never collect. Managed futures, historically, have generated positive returns on average while ALSO providing crisis protection. It is not a free lunch -- you endure periods of underperformance as the cost -- but over a full market cycle, it adds value on both the return and risk dimensions.
+**Horace:** Insurance policy with a positive expected return. Most insurance costs money -- you pay premiums and hope to never collect. Managed futures, historically, have generated positive returns on average while ALSO providing crisis protection. It is not a free lunch -- you endure periods of underperformance as the cost -- but over a full market cycle, it adds value on both the return and risk dimensions.
 
-**Sam:** This has been incredibly insightful. I feel like managed futures is the missing piece that most portfolios lack.
+**Stella:** This has been incredibly insightful. I feel like managed futures is the missing piece that most portfolios lack.
 
-**Alex:** It absolutely is. The largest, most sophisticated institutional investors -- Norwegian Government Pension Fund, Yale Endowment, Australian super funds -- have been allocating to managed futures for decades. It is only recently that retail investors have gained access through ETFs. Take advantage of it.
+**Horace:** It absolutely is. The largest, most sophisticated institutional investors -- Norwegian Government Pension Fund, Yale Endowment, Australian super funds -- have been allocating to managed futures for decades. It is only recently that retail investors have gained access through ETFs. Take advantage of it.
 
-**Sam:** Next week is the grand finale. We bring everything together.
+**Stella:** Next week is the grand finale. We bring everything together.
 
-**Alex:** Week 52: Portfolio Integration -- putting all 52 weeks of learning into a single, coherent investment framework. See you then.
+**Horace:** Week 52: Portfolio Integration -- putting all 52 weeks of learning into a single, coherent investment framework. See you then.
 
 [VISUAL: End card with lesson summary, ETF comparison table, and recommended readings]
 

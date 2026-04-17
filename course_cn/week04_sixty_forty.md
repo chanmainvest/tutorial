@@ -1,78 +1,75 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
-
-# Week 4: The 60/40 Portfolio
+# 第四周：60/40 投资组合
 
 ---
 
-## Reading Section
+## 阅读部分
 
-### a) Why This Is Important
+### a) 为什么这很重要
 
-The 60/40 portfolio -- 60% stocks and 40% bonds -- is the most famous asset allocation in the history of investing. It has been the default recommendation of financial advisors for decades, the benchmark against which balanced funds are measured, and the starting point for almost every serious conversation about portfolio construction. If you invest in a target-date retirement fund, you are likely in some variation of 60/40 right now.
+60/40 投资组合——60% 股票、40% 债券——是投资历史上最著名的资产配置方案。数十年来，它一直是理财顾问的默认推荐方案，是衡量平衡型基金的基准，也是几乎所有关于投资组合构建的严肃讨论的起点。如果你投资了目标日期退休基金，你很可能已经持有某种形式的 60/40 组合。
 
-Understanding the 60/40 portfolio matters for every investor, whether you ultimately adopt it, modify it, or reject it entirely:
+理解 60/40 投资组合对每一位投资者都至关重要，无论你最终是采用它、加以调整，还是彻底摒弃它：
 
-1. **It is the baseline.** In the same way that a doctor needs to understand the human body before diagnosing disease, an investor needs to understand 60/40 before evaluating more complex strategies. It is the control group against which everything else is measured. When a hedge fund manager says they beat "the benchmark," they often mean they outperformed a 60/40 portfolio on a risk-adjusted basis.
+1. **它是基准线。** 就像医生需要了解正常人体才能诊断疾病，投资者需要理解 60/40 才能评估更复杂的策略。它是衡量其他一切的对照组。当对冲基金经理说他们跑赢了"基准"，他们通常意味着在风险调整后跑赢了 60/40 投资组合。
 
-2. **It demonstrates the power of diversification.** The 60/40 portfolio is not simply a watered-down stock portfolio. Because of the historical relationship between stocks and bonds, a 60/40 mix has historically delivered roughly 80% of the stock market's return with only about 60% of its risk. That is diversification working its magic -- you give up a little return but shed disproportionately more risk.
+2. **它展示了分散化的力量。** 60/40 投资组合并非简单的稀释版股票投资组合。由于股票与债券之间的历史关系，60/40 组合在历史上实现了股市约 80% 的收益，同时只承担约 60% 的风险。这就是分散化发挥的魔力——你放弃了一点收益，但规避了不成比例的更多风险。
 
-3. **It reveals the limits of diversification.** The year 2022 delivered a painful lesson: when both stocks and bonds fall simultaneously, the 60/40 portfolio offers no shelter. Understanding why 2022 happened -- and whether it could happen again -- is essential for building resilient portfolios.
+3. **它揭示了分散化的局限性。** 2022 年带来了一个痛苦的教训：当股票和债券同时下跌时，60/40 投资组合毫无庇护之所。理解 2022 年为何发生——以及它是否可能再次发生——对于构建稳健的投资组合至关重要。
 
-4. **It teaches you about correlation.** The stock-bond correlation is the single most important variable in portfolio construction. When stocks and bonds move in opposite directions (negative correlation), 60/40 works beautifully. When they move together (positive correlation), it fails. Understanding what drives correlation shifts is one of the most valuable things you can learn.
+4. **它让你了解相关性。** 股票与债券的相关性是投资组合构建中最重要的单一变量。当股票和债券走势相反（负相关）时，60/40 运作良好。当它们同向波动（正相关）时，就会失效。理解是什么驱动相关性发生转变，是你能学到的最有价值的事情之一。
 
-5. **It forces you to think about what comes next.** With interest rates, inflation regimes, and global economic structures evolving, blindly following a 60/40 allocation from past decades may not be optimal going forward. But you need to understand why it worked before you can intelligently adapt it.
+5. **它迫使你思考下一步。** 随着利率、通胀环境和全球经济结构的演变，盲目沿用过去几十年的 60/40 配置可能并非最优选择。但你需要先理解它为何奏效，才能对其进行智慧的调整。
 
-This lesson covers the origin and logic of the 60/40 portfolio, its historical performance, the mechanics of stock-bond correlation, how it reduces drawdowns, the 2022 debacle and what it taught us, and modern alternatives and adaptations.
+本课涵盖 60/40 投资组合的起源与逻辑、历史表现、股债相关性的运作机制、如何降低回撤、2022 年的惨败及其启示，以及现代替代方案与改进版本。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知识
 
-#### 1. Origin and Logic of the 60/40 Portfolio
+#### 1. 60/40 投资组合的起源与逻辑
 
-The 60/40 portfolio did not emerge from a single paper or theory. It evolved over decades as a practical compromise between growth and stability.
+60/40 投资组合并非源自某篇单一论文或理论，而是在数十年间作为增长与稳定之间的实用折中方案逐步演化而来。
 
-**The intellectual roots:**
+**思想根源：**
 
-- **1952:** Harry Markowitz publishes "Portfolio Selection," introducing Modern Portfolio Theory (MPT). He mathematically proves that combining assets with different return patterns can produce portfolios with better risk-return characteristics than any single asset alone.
+- **1952 年：** 哈里·马科维茨发表《证券组合选择》，提出现代投资组合理论（MPT）。他用数学方法证明，将具有不同收益模式的资产组合在一起，可以产生比任何单一资产更优的风险-收益特征的投资组合。
 
-- **1960s-1970s:** The concept of a "balanced fund" gains popularity. Pension funds and endowments begin adopting stock-bond mixes rather than holding only one asset class.
+- **1960 至 1970 年代：** "平衡型基金"的概念逐渐流行。养老金和捐赠基金开始采用股债混合配置，而非单持一种资产类别。
 
-- **1980s-1990s:** Financial advisors standardize around 60/40 as the "moderate" or "balanced" allocation. The strong performance of both stocks and bonds during this period cements 60/40 as the default.
+- **1980 至 1990 年代：** 理财顾问将 60/40 标准化为"中等"或"平衡"配置。这一时期股票和债券均表现强劲，进一步巩固了 60/40 作为默认方案的地位。
 
-**Why 60% stocks and 40% bonds specifically?**
+**为什么偏偏是 60% 股票、40% 债券？**
 
-The 60/40 split represents a sweet spot in the risk-return tradeoff:
+60/40 的比例代表了风险-收益权衡中的"甜蜜点"：
 
 ```
-WHY 60/40 IS THE "SWEET SPOT"
+为什么 60/40 是"甜蜜点"
 ================================
 
-Allocation      Expected    Standard    Sharpe    Max
-(Stock/Bond)    Return      Deviation   Ratio     Drawdown
-                                        (approx)
------------     --------    ---------   ------    --------
-0/100  Bonds      5.5%        6%         0.37      -18%
-20/80             6.4%        7%         0.49      -20%
-40/60             7.4%        9%         0.49      -26%
-60/40             8.4%       10%         0.49      -33%    <--
-80/20             9.3%       13%         0.45      -42%
-100/0  Stocks    10.3%       16%         0.41      -51%
+配置比例        预期      标准      夏普    最大
+（股票/债券）   收益      差        比率    回撤
+                                   （约）
+-----------     --------  ------   ------  --------
+0/100  债券       5.5%      6%      0.37    -18%
+20/80             6.4%      7%      0.49    -20%
+40/60             7.4%      9%      0.49    -26%
+60/40             8.4%     10%      0.49    -33%    <--
+80/20             9.3%     13%      0.45    -42%
+100/0  股票      10.3%     16%      0.41    -51%
 
-Key observations:
-- Return increases roughly linearly with stock allocation
-- Risk increases FASTER than return beyond 60/40
-- Sharpe Ratio peaks around 40-60% stocks
-- Maximum drawdown escalates rapidly above 60% stocks
+关键观察：
+- 收益随股票配置比例近似线性增长
+- 风险在 60/40 之后的增速快于收益增速
+- 夏普比率在股票配置 40%-60% 区间达到峰值
+- 股票超过 60% 后，最大回撤急剧上升
 ```
 
 ```
-RISK-RETURN TRADEOFF VISUALIZATION
+风险-收益权衡示意图
 =====================================
 
-Expected
-Return
+预期
+收益
    |                                        * 100/0
    |                                     *
 10%|                                  *
@@ -85,143 +82,144 @@ Return
    |           *
  6%|        * 20/80
    |     *
- 5%|  * 0/100                  Notice: the curve BENDS
-   |                           The first 60% in stocks
-   |                           adds a lot of return for
-   |                           moderate risk. The last
-   |                           40% adds less return but
-   |                           much more risk.
-   +--|--|--|--|--|--|--|--|--|-> Risk (Std Dev)
+ 5%|  * 0/100                  注意：曲线出现弯折
+   |                           股票从 0% 增至 60%
+   |                           在风险适度增加的前提下
+   |                           带来大幅提升的收益；
+   |                           而从 60% 增至 100%
+   |                           收益增幅递减，
+   |                           风险却大幅攀升。
+   +--|--|--|--|--|--|--|--|--|-> 风险（标准差）
       4  6  8  10 12 14 16 18
 ```
 
-**The intuition:** Moving from 0% stocks to 60% stocks dramatically improves returns while risk increases only moderately. But moving from 60% to 100% stocks adds diminishing returns while risk accelerates. The "bang for your buck" in terms of risk-adjusted return is maximized around the 40-60% stock allocation range.
+**直观理解：** 股票从 0% 增至 60%，收益大幅提升，而风险仅适度上升。但从 60% 增至 100%，收益边际递减，风险却加速攀升。以风险调整收益而言，回报最优区间大致在股票配置 40%-60% 附近。
 
 ---
 
-#### 2. Historical Performance of 60/40
+#### 2. 60/40 的历史表现
 
-The 60/40 portfolio has delivered remarkably strong results over long periods, particularly in the United States.
+60/40 投资组合在较长时期内——尤其是在美国——表现出了相当强劲的回报。
 
 ```
-60/40 PORTFOLIO PERFORMANCE BY DECADE
+60/40 投资组合各年代表现
 ========================================
 
-Decade          60/40        S&P 500     Bonds     60/40
-                Return       Return      Return    Max DD
-                (Ann.)       (Ann.)      (Ann.)
----------       ------       ------      ------    ------
-1930s            5.2%         0.0%       +4.9%      -28%
-1940s            7.1%         9.2%       +2.7%      -13%
-1950s           10.2%        19.4%       -0.1%       -8%
-1960s            5.8%         7.8%       +1.7%      -14%
-1970s            6.7%         5.9%       +5.5%      -18%
-1980s           14.5%        17.5%      +12.6%       -8%
-1990s           12.8%        18.2%       +7.7%       -6%
-2000s            4.0%        -0.9%       +6.3%      -33%
-2010s            8.7%        13.6%       +3.7%      -10%
-2020-24          4.8%         9.6%      -0.5%       -22%
+年代            60/40        标普 500    债券      60/40
+                收益         收益        收益      最大回撤
+                （年化）     （年化）    （年化）
+---------       ------       ------     ------    ------
+1930 年代         5.2%         0.0%      +4.9%     -28%
+1940 年代         7.1%         9.2%      +2.7%     -13%
+1950 年代        10.2%        19.4%      -0.1%      -8%
+1960 年代         5.8%         7.8%      +1.7%     -14%
+1970 年代         6.7%         5.9%      +5.5%     -18%
+1980 年代        14.5%        17.5%     +12.6%      -8%
+1990 年代        12.8%        18.2%      +7.7%      -6%
+2000 年代         4.0%        -0.9%      +6.3%     -33%
+2010 年代         8.7%        13.6%      +3.7%     -10%
+2020-24           4.8%         9.6%      -0.5%     -22%
 
-Full Period     ~8.0%       ~10.2%      ~5.0%      -33%
-(1926-2024)
+全周期          约 8.0%      约 10.2%   约 5.0%   -33%
+（1926-2024）
 
-Notable: 60/40 was positive in 82% of calendar years.
-The S&P 500 alone was positive in 73% of calendar years.
+值得注意：60/40 在约 82% 的自然年度实现正收益。
+单持标普 500 则在约 73% 的自然年度实现正收益。
 ```
 
 ```
-GROWTH OF $100,000 IN 60/40 vs. ALL-STOCK vs. ALL-BOND
+10 万元在 60/40、全股票及全债券中的增值对比
 ========================================================
-(1990-2024, logarithmic scale)
+（1990-2024，对数刻度）
 
-Value
+价值
   |
-$2M +                                            * All-Stock
+200万 +                                          * 全股票
     |                                          *
     |                                       *
-$1M +                                    *   * 60/40
+100万 +                                    *   * 60/40
     |                                 *    *
     |                              *    *
     |                           *    *
-$500K                        *    *
+50万 +                        *    *
     |                     *    *
     |                  *    *
-    |               *    *         * All-Bond
-$250K            *    *         *
+    |               *    *         * 全债券
+25万 +            *    *         *
     |         *    *         *
     |      *    *         *
-$100K  *----*---------*-------->
+10万 +  *----*---------*-------->
     1990    2000    2010    2024
 
-All-Stock:  $100K -> ~$2.1M  (higher return, bigger swings)
-60/40:      $100K -> ~$1.1M  (solid return, smoother ride)
-All-Bond:   $100K -> ~$350K  (lower return, least volatility)
+全股票：10 万 -> 约 210 万（收益更高，波动更大）
+60/40：10 万 -> 约 110 万（收益稳健，走势平滑）
+全债券：10 万 -> 约 35 万（收益较低，波动性最小）
 ```
 
-**The "lost decade" example:** From 2000 to 2009, the S&P 500 had a negative total return. This was the era of the dot-com crash and the financial crisis. But the 60/40 portfolio returned about 4% annualized over the same period because bonds performed well. This is the core promise of 60/40: bonds provide a cushion when stocks stumble.
+**"失去的十年"案例：** 2000 年至 2009 年，标普 500 总收益为负。这是科网泡沫破裂和金融危机的时代。但 60/40 投资组合在同期实现了约 4% 的年化收益，原因在于债券表现良好。这正是 60/40 的核心承诺：当股票跌倒时，债券提供缓冲垫。
 
 ---
 
-#### 3. Stock-Bond Correlation: The Engine That Drives 60/40
+#### 3. 股债相关性：驱动 60/40 运转的引擎
 
-The 60/40 portfolio works because of a critical assumption: stocks and bonds do not always move in the same direction. In statistical terms, they have a low or negative correlation.
+60/40 投资组合之所以有效，源于一个关键假设：股票和债券并不总是同向波动。用统计学术语来说，它们的相关性较低甚至为负。
 
-**Understanding correlation:**
+**理解相关性：**
 
 ```
-CORRELATION EXPLAINED
+相关性解析
 ========================
 
-Correlation = -1.0    Perfect opposite movement
-                       When stocks go UP, bonds go DOWN (same %)
-                       Maximum diversification benefit
+相关性 = -1.0    完全反向波动
+                  股票涨，债券跌（幅度相同）
+                  分散化收益最大化
 
-Correlation = 0.0     No relationship
-                       Stocks and bonds move independently
-                       Good diversification benefit
+相关性 = 0.0     无关联
+                  股票与债券独立波动
+                  分散化收益良好
 
-Correlation = +1.0    Perfect same-direction movement
-                       When stocks go UP, bonds go UP (same %)
-                       ZERO diversification benefit
+相关性 = +1.0    完全同向波动
+                  股票涨，债券涨（幅度相同）
+                  分散化收益为零
 
 
-WHAT HAPPENS TO 60/40 AT DIFFERENT CORRELATIONS
+不同相关性下 60/40 的表现
 =================================================
 
-Correlation    60/40 Std Dev    Diversification    60/40 Benefit
-               (approx)        Benefit            vs. All-Stock
------------    -------------    ---------------    -------------
--0.5            7.5%            Maximum             Excellent
--0.2            9.0%            Strong              Very Good
- 0.0           10.0%            Good                Good
-+0.2           11.0%            Moderate             Fair
-+0.5           12.5%            Minimal              Limited
-+1.0           14.0%            NONE                 None
+相关性    60/40 标准差    分散化收益    60/40 相对
+          （约）                        全股票的优势
+-------   -----------    ----------   ----------
+-0.5        7.5%          最大          极佳
+-0.2        9.0%          显著          非常好
+ 0.0       10.0%          良好          良好
++0.2       11.0%          中等          一般
++0.5       12.5%          有限          有限
++1.0       14.0%          无            无
 ```
 
-**Historical correlation regimes:**
+**历史相关性环境：**
 
-The stock-bond correlation has not been constant. It has shifted dramatically over time, and understanding why is critical:
+股债相关性并非一成不变，它随时间发生了戏剧性的转变，理解其背后的原因至关重要：
 
 ```
-STOCK-BOND CORRELATION THROUGH HISTORY
+股债相关性的历史演变
 =========================================
 
-Period            Correlation    Regime              Why
------------       -----------    ------              ---
-1960-1970          +0.3          Positive            Rising inflation
-1970-1980          +0.4          Positive            High and volatile
-                                                    inflation
-1980-1999          +0.2          Mildly positive     Falling inflation,
-                                                    falling rates
-2000-2020          -0.3          NEGATIVE            Deflation fears,
-                                                    low stable inflation,
-                                                    "flight to quality"
-2021-2023          +0.5          POSITIVE            Inflation shock,
-                                                    aggressive rate hikes
+时期              相关性    环境          原因
+-----------       ------    ------        ---
+1960-1970          +0.3     正相关        通胀上行
+1970-1980          +0.4     正相关        通胀高企且
+                                          波动剧烈
+1980-1999          +0.2     弱正相关      通胀下行，
+                                          利率下行
+2000-2020          -0.3     负相关        通缩忧虑，
+                                          低位稳定通胀，
+                                          "避险"情绪
+2021-2023          +0.5     正相关        通胀冲击，
+                                          央行激进加息
 
 
-Correlation
+相关性
 +0.6  |         *
       |        * *                                    *
 +0.4  |       *   *                                  * *
@@ -237,873 +235,866 @@ Correlation
       +--|--|--|--|--|--|--|--|--|--|--|--|--|-->
        1960 1970 1980 1990 2000 2010 2020
 
-       INFLATION          DEFLATION         INFLATION
-       REGIME             REGIME            RETURNS
-       (positive          (negative         (positive
-        correlation)       correlation)      correlation)
+       通胀主导            通缩主导         通胀重来
+       （正相关）          （负相关）        （正相关）
 ```
 
-**The key insight:** The correlation between stocks and bonds is driven primarily by the inflation regime:
+**核心洞见：** 股债相关性主要由通胀环境驱动：
 
-- **When inflation is the dominant concern** (1960s-1970s, 2021-2023): Both stocks and bonds suffer from inflation. Rising rates hurt bonds directly (prices fall). Inflation also hurts stocks by increasing costs and compressing valuations. Correlation is positive, and 60/40 struggles.
+- **当通胀是主要矛盾时**（1960 至 1970 年代、2021 至 2023 年）：股票和债券均受通胀拖累。利率上升直接打压债券价格。通胀还会通过推高成本、压缩估值来损害股票。相关性为正，60/40 表现挣扎。
 
-- **When deflation or recession is the dominant concern** (2000-2020): Stocks fall because of economic weakness, but bonds rally because central banks cut rates and investors flee to safety. Correlation is negative, and 60/40 shines.
+- **当通缩或经济衰退是主要矛盾时**（2000 至 2020 年）：股票因经济疲弱而下跌，但债券因央行降息、投资者寻求避险而上涨。相关性为负，60/40 大放异彩。
 
 ---
 
-#### 4. How 60/40 Reduces Drawdowns
+#### 4. 60/40 如何降低回撤
 
-The practical benefit of the 60/40 portfolio is most visible during market crises. By holding 40% in bonds, the portfolio has a built-in shock absorber.
+60/40 投资组合的实际收益在市场危机期间最为明显。持有 40% 债券，组合内置了减震器。
 
 ```
-DRAWDOWN COMPARISON: 60/40 vs. ALL-STOCK
+回撤对比：60/40 与全股票
 ==========================================
 
-                        All-Stock    60/40       60/40
-Event                   Drawdown     Drawdown    Savings
------------             ---------    --------    -------
-Black Monday 1987         -34%        -19%        15%
-Asian/LTCM 1997-98        -19%        -10%         9%
-Dot-Com 2000-02           -49%        -22%        27%
-Financial Crisis 07-09    -57%        -33%        24%
-COVID Crash 2020          -34%        -22%        12%
-2022 Bear Market          -25%        -22%         3% *
+                        全股票    60/40     60/40
+事件                    回撤      回撤      节省
+-----------             ------    ------    ------
+1987 年黑色星期一        -34%      -19%      15%
+1997-98 亚洲/LTCM 危机   -19%      -10%       9%
+2000-02 科网泡沫          -49%      -22%      27%
+2007-09 金融危机          -57%      -33%      24%
+2020 年新冠暴跌           -34%      -22%      12%
+2022 年熊市               -25%      -22%       3% *
 
-* 2022 was unusual: bonds fell too, so 60/40
-  provided almost no cushion. More on this below.
+* 2022 年较为特殊：债券同样下跌，
+  60/40 几乎未能提供缓冲。详见下文。
 ```
 
 ```
-ANATOMY OF 60/40 IN A NORMAL CRISIS (2008-2009)
+60/40 在正常危机中的运作解析（2008-2009）
 ==================================================
 
-What happened:
-- Stocks fell 57% from peak to trough
-- Bonds ROSE about 5% during the same period
-- Stock-bond correlation was strongly negative
+事件经过：
+- 股票从高点至低点下跌 57%
+- 债券在同期上涨约 5%
+- 股债相关性为强负相关
 
-Portfolio math:
-- Stock portion (60%): -57% x 0.60 = -34.2%
-- Bond portion  (40%):  +5% x 0.40 = +2.0%
-- Total 60/40 drawdown:               -32.2%
+投资组合数学：
+- 股票部分（60%）：-57% x 0.60 = -34.2%
+- 债券部分（40%）：+5% x 0.40  = +2.0%
+- 60/40 总体回撤：               -32.2%
 
-     Stocks    |XXXXXXXXX                    |  -57%
-               |XXXXXXXXX                    |
-     Bonds     |       BBB                   |  +5%
-               |                             |
-     60/40     |XXXXXX                       |  -32%
-               |                             |
-               0%   -20%   -40%   -60%
+     股票    |XXXXXXXXX                    |  -57%
+             |XXXXXXXXX                    |
+     债券    |       BBB                   |  +5%
+             |                             |
+     60/40   |XXXXXX                       |  -32%
+             |                             |
+             0%   -20%   -40%   -60%
 
-The bonds acted as a SHOCK ABSORBER, reducing the
-total portfolio damage by nearly half.
+债券充当了减震器，将投资组合损失
+减少了近一半。
 ```
 
 ```
-ANATOMY OF 60/40 IN THE 2022 CRISIS
+60/40 在 2022 年危机中的运作解析
 ======================================
 
-What happened:
-- Stocks fell about 25% from peak to trough
-- Bonds ALSO fell about 13% (worst bond year since 1800s)
-- Stock-bond correlation was strongly POSITIVE
+事件经过：
+- 股票从高点至低点下跌约 25%
+- 债券同样下跌约 13%（自 1800 年代以来最差债券年份）
+- 股债相关性为强正相关
 
-Portfolio math:
-- Stock portion (60%): -25% x 0.60 = -15.0%
-- Bond portion  (40%): -13% x 0.40 =  -5.2%
-- Total 60/40 drawdown:               -20.2%
+投资组合数学：
+- 股票部分（60%）：-25% x 0.60 = -15.0%
+- 债券部分（40%）：-13% x 0.40 =  -5.2%
+- 60/40 总体回撤：               -20.2%
 
-     Stocks    |XXXXXXXX                     |  -25%
-               |                             |
-     Bonds     |XXXX                         |  -13%
-               |                             |
-     60/40     |XXXXXXX                      |  -20%
-               |                             |
-               0%   -10%   -20%   -30%
+     股票    |XXXXXXXX                     |  -25%
+             |                             |
+     债券    |XXXX                         |  -13%
+             |                             |
+     60/40   |XXXXXXX                      |  -20%
+             |                             |
+             0%   -10%   -20%   -30%
 
-The bonds PROVIDED ALMOST NO CUSHION. Instead of
-offsetting stock losses, they added to them.
-This was a failure of the 60/40 premise.
+债券几乎未能提供缓冲。债券非但没有
+抵消股票损失，反而雪上加霜。
+这是 60/40 前提的一次失效。
 ```
 
-**Recovery times also matter:**
+**修复时间同样重要：**
 
 ```
-TIME TO RECOVER FROM MAJOR DRAWDOWNS
+从主要回撤中修复所需时间
 =======================================
 
-Event                   All-Stock      60/40
-                        Recovery       Recovery
------------             ---------      --------
-Dot-Com 2000-02         7 years        3 years
-Financial Crisis 07-09  5.5 years      3 years
-COVID 2020              5 months       4 months
-2022 Bear Market        2 years        1.5 years
+事件                    全股票        60/40
+                        修复时间      修复时间
+-----------             --------      --------
+2000-02 科网泡沫         7 年          3 年
+2007-09 金融危机         5.5 年        3 年
+2020 年新冠              5 个月        4 个月
+2022 年熊市              2 年          1.5 年
 
-60/40 recovers faster because:
-1. The drawdown is smaller (less ground to make up)
-2. Rebalancing buys stocks at depressed prices
-3. Bond income provides cash flow during recovery
+60/40 修复更快，原因在于：
+1. 回撤更小（需弥补的差距更少）
+2. 再平衡以低价买入股票
+3. 债券收入在修复期间提供现金流
 ```
 
 ---
 
-#### 5. When 60/40 Fails: The 2022 Case Study
+#### 5. 60/40 的失效时刻：2022 年案例研究
 
-The year 2022 was a watershed moment for the 60/40 portfolio. For the first time in decades, both stocks and bonds suffered significant losses simultaneously, challenging the fundamental premise of balanced investing.
+2022 年是 60/40 投资组合的历史转折点。数十年来首次，股票和债券同时遭受重大损失，从根本上动摇了平衡投资的逻辑前提。
 
-**What happened in 2022:**
+**2022 年发生了什么：**
 
 ```
-2022 ASSET CLASS RETURNS
+2022 年各类资产收益
 ==========================
 
-Asset                         Return
+资产                          收益
 ----                          ------
-S&P 500                       -18.1%
-Nasdaq                        -32.5%
-International Stocks          -16.0%
-U.S. Aggregate Bonds          -13.0%
-Long-Term Treasuries          -29.3%
-60/40 Portfolio               -16.9%
-TIPS (Inflation-Protected)     -11.9%
-Commodities (broad)           +16.1%
-Cash / T-Bills                 +1.5%
+标普 500                      -18.1%
+纳斯达克                      -32.5%
+国际股票                      -16.0%
+美国综合债券                  -13.0%
+长期国债                      -29.3%
+60/40 投资组合                -16.9%
+通胀保值债券（TIPS）           -11.9%
+大宗商品（综合）               +16.1%
+现金 / 短期国债                 +1.5%
 
-The traditional 60/40 had its WORST year since 2008,
-and one of its worst years since the Great Depression.
+传统 60/40 经历了自 2008 年以来最糟糕的一年，
+也是自大萧条以来最差年份之一。
 ```
 
-**Why 2022 was different:**
+**为何 2022 年与众不同：**
 
-The root cause was the return of inflation after decades of dormancy. From 2000 to 2020, the world lived in a low-inflation environment. Central banks kept interest rates near zero. Bonds rallied persistently. Whenever stocks fell (2001, 2008, 2020), bonds rose because central banks cut rates aggressively. The negative stock-bond correlation became something investors took for granted.
+根本原因在于通胀在沉寂数十年后强势回归。2000 至 2020 年间，全球处于低通胀环境，央行将利率维持在接近零的水平，债券持续上涨。每当股票下跌（2001 年、2008 年、2020 年），央行都会大幅降息，债券随之上涨。股债负相关逐渐成为投资者习以为常的常态。
 
-In 2022, inflation surged to 9%, its highest level in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. This created a scenario where:
+2022 年，通胀飙升至 9%，创 40 年新高。美联储以史上最快的节奏加息。这催生了如下局面：
 
-1. **Bonds fell** because rising rates mechanically push bond prices down. The longer the duration of the bond, the greater the damage. Long-term Treasuries lost nearly 30%.
+1. **债券下跌**，因为利率上升从机制上推低债券价格。债券久期越长，损失越大。长期国债跌幅近 30%。
 
-2. **Stocks fell** because higher interest rates increase the discount rate applied to future cash flows, compressing valuations. Growth stocks, whose value depends heavily on distant future earnings, were hit hardest.
+2. **股票下跌**，因为更高的利率提高了未来现金流的折现率，压缩估值。依赖遥远未来盈利的成长股受冲击最为严重。
 
-3. **The correlation flipped positive.** Both asset classes were responding to the same force -- inflation and rate hikes -- in the same direction. The diversification benefit of holding bonds alongside stocks evaporated.
+3. **相关性转为正值。** 两类资产对同一力量——通胀与加息——做出了方向一致的反应。持有债券以对冲股票的分散化收益荡然无存。
 
 ```
-THE INFLATION MECHANISM
+通胀传导机制
 =========================
 
-Inflation rises
+通胀上行
       |
       v
-Central Bank raises rates
+央行加息
       |
       +---------+---------+
       |                   |
       v                   v
-Bond prices              Stock valuations
-FALL                     COMPRESSED
-(rates up =              (higher discount rate
- prices down)             = lower present value
-                          of future earnings)
+债券价格                股票估值
+下跌                    受压
+（利率升 =             （折现率升 =
+ 价格跌）               未来盈利现值降低）
       |                   |
       v                   v
-BOTH STOCKS AND BONDS FALL TOGETHER
+股票与债券同时下跌
       |
       v
-60/40 diversification FAILS
+60/40 分散化失效
 ```
 
-**Was 2022 a one-time anomaly or a new regime?**
+**2022 年是一次性异常，还是新常态？**
 
-This is the most important question for investors going forward. History suggests the answer is nuanced:
+这是投资者最需要思考的问题。历史告诉我们，答案较为复杂：
 
 ```
-HISTORICAL CONTEXT FOR SIMULTANEOUS DECLINES
+股债同时下跌的历史背景
 ===============================================
 
-Year(s)         Stocks      Bonds       Cause
+年份            股票        债券        原因
 -------         ------      -----       -----
-1931            -43%        -2%         Depression + deflation
-1941            -11%        -2%         WWII
-1969            -8%         -5%         Vietnam, inflation
-1973-74         -37%        -4%         Oil crisis, inflation
-2022            -18%        -13%        Post-COVID inflation
+1931            -43%        -2%         大萧条 + 通缩
+1941            -11%        -2%         二战
+1969             -8%        -5%         越战，通胀
+1973-74         -37%        -4%         石油危机，通胀
+2022            -18%        -13%        新冠后通胀
 
-Key observation: Simultaneous stock-bond declines are RARE
-but NOT unprecedented. They tend to occur during inflationary
-periods or regime changes. The 2000-2020 negative correlation
-was the exception, not the rule, when viewed over 100 years.
+关键观察：股债同时下跌属于罕见现象，
+但并非史无前例。此类情况往往发生在
+通胀时期或环境剧变期间。从百年维度来看，
+2000-2020 年的负相关才是例外，而非常态。
 ```
 
 ---
 
-#### 6. The Bond Math: Why Duration Matters
+#### 6. 债券数学：为何久期至关重要
 
-To understand why bonds sometimes help and sometimes hurt in a 60/40 portfolio, you need to understand duration -- a measure of how sensitive a bond's price is to interest rate changes.
+要理解债券在 60/40 投资组合中有时保护、有时拖累的原因，你需要了解久期——衡量债券价格对利率变化敏感程度的指标。
 
 ```
-DURATION AND INTEREST RATE SENSITIVITY
+久期与利率敏感性
 =========================================
 
-Duration     Rate Change     Price Impact
-(years)      (1% increase)   (approximate)
---------     -------------   ------------
-2 years          +1%           -2%
-5 years          +1%           -5%
-10 years         +1%          -10%
-20 years         +1%          -20%
-30 years         +1%          -30%
+久期        利率变化          价格影响
+（年）      （上升 1%）       （约）
+--------    -------------    ------------
+2 年           +1%             -2%
+5 年           +1%             -5%
+10 年          +1%            -10%
+20 年          +1%            -20%
+30 年          +1%            -30%
 
-The U.S. Aggregate Bond Index has a duration of ~6 years.
-A 1% rise in rates = ~6% loss in bond value.
+美国综合债券指数的久期约为 6 年。
+利率每升 1% ≈ 债券价值损失约 6%。
 
-In 2022, rates rose about 3% across the curve:
-6-year duration x 3% rate increase = ~18% loss estimate
-Actual loss of Agg Bond Index: -13% (coupon income offset some)
+2022 年，整条收益率曲线利率上行约 3%：
+6 年久期 x 利率上行 3% = 估算损失约 18%
+综合债券指数实际损失：-13%（票息收入抵消了部分亏损）
 ```
 
 ```
-CHOOSING THE RIGHT BONDS FOR 60/40
+为 60/40 选择合适的债券
 =====================================
 
-Bond Type           Duration    2022 Return    Hedge Quality
----------           --------    -----------    ------------
-T-Bills / Cash       0.1yr       +1.5%         No hedge, but
-                                               no damage either
-Short-Term Bonds     2 yrs       -4.5%         Poor hedge,
-                                               limited damage
-Intermediate Bonds   5 yrs       -10%          Moderate hedge
-                                               in normal times
-Aggregate Index      6 yrs       -13%          Good hedge in
-                                               deflation, bad
-                                               in inflation
-Long-Term Bonds     20 yrs       -29%          Best deflation
-                                               hedge, worst
-                                               inflation result
-TIPS                 7 yrs       -12%          Should hedge
-                                               inflation, but
-                                               duration still
-                                               hurts in 2022
+债券类型          久期    2022 年收益    对冲质量
+---------         ------  -----------   ------------
+短期国债 / 现金   0.1 年    +1.5%       无对冲，
+                                        但也无损失
+短期债券          2 年      -4.5%       对冲效果差，
+                                        损失有限
+中期债券          5 年      -10%        正常时期
+                                        有一定对冲效果
+综合债券指数      6 年      -13%        通缩时对冲良好，
+                                        通胀时对冲失效
+长期债券         20 年      -29%        通缩时对冲效果
+                                        最佳，通胀时
+                                        损失最重
+通胀保值债券      7 年      -12%        理论上对冲通胀，
+（TIPS）                                但 2022 年
+                                        久期仍带来损失
 ```
 
-**The 60/40 duration decision is critical:** The type of bonds you hold in the 40% allocation dramatically changes the portfolio's behavior. Short-duration bonds provide stability but limited crisis protection. Long-duration bonds provide maximum crisis protection in deflationary recessions but maximum damage in inflationary environments.
+**60/40 的久期决策至关重要：** 你在 40% 配置中持有的债券类型，将从根本上改变组合的表现特征。短久期债券提供稳定性，但危机保护有限。长久期债券在通缩性衰退中提供最强的危机保护，却在通胀环境下造成最大损失。
 
 ---
 
-#### 7. Modern Alternatives and Adaptations
+#### 7. 现代替代方案与改进版本
 
-The 2022 experience has prompted investors and advisors to reconsider the traditional 60/40 and explore alternatives. Here are the most common adaptations:
+2022 年的经历促使投资者和顾问重新审视传统 60/40，并探索各种替代方案。以下是最常见的几种调整思路：
 
-**Alternative 1: Shorten Bond Duration**
+**替代方案一：缩短债券久期**
 
-Replace intermediate and long-term bonds with short-term bonds or T-bills. This sacrifices yield but dramatically reduces interest rate sensitivity.
+将中长期债券替换为短期债券或短期国债。这样做会牺牲收益率，但能大幅降低对利率变化的敏感性。
 
 ```
-60/40 WITH SHORT BONDS vs. TRADITIONAL 60/40
+短期债券版 60/40 与传统 60/40 对比
 ===============================================
 
-                        Traditional     Short-Bond
-                        60/40           60/40
-                        -----------     ----------
-2022 Return              -16.9%          -10.2%
-2008 Return              -22.1%          -26.8%
-Avg Return (2000-24)      5.8%            5.2%
-Std Dev (2000-24)         9.8%           10.5%
+                        传统         短期债券
+                        60/40        60/40
+                        ------       ----------
+2022 年收益             -16.9%        -10.2%
+2008 年收益             -22.1%        -26.8%
+平均收益（2000-24）       5.8%          5.2%
+标准差（2000-24）         9.8%         10.5%
 
-Tradeoff: Better in inflation, worse in deflation.
-The short-bond version was less damaged in 2022,
-but it also did not benefit from the bond rally in 2008.
+权衡取舍：通胀环境下更好，通缩环境下更差。
+短期债券版本在 2022 年损失较小，
+但在 2008 年也未能受益于债券价格的大幅上涨。
 ```
 
-**Alternative 2: Add Real Assets (Commodities, TIPS, Real Estate)**
+**替代方案二：加入实物资产（大宗商品、通胀保值债券、房地产）**
 
-Real assets tend to perform well during inflationary periods, providing a third source of diversification.
+实物资产在通胀时期往往表现良好，提供第三维度的分散化来源。
 
 ```
-"ALL-WEATHER" PORTFOLIO CONCEPT
+"全天候"投资组合概念
 ==================================
 
-          Traditional 60/40       All-Weather Alternative
-          -----------------       ----------------------
-Stocks:       60%                      40%
-Bonds:        40%                      20%
-Commodities:   0%                      15%
-TIPS:          0%                      10%
-Real Estate:   0%                      10%
-Gold:          0%                       5%
+          传统 60/40              全天候替代方案
+          ---------               ----------------------
+股票：      60%                        40%
+债券：      40%                        20%
+大宗商品：   0%                        15%
+通胀保值债券：0%                       10%
+房地产：     0%                        10%
+黄金：       0%                         5%
 
-                                      100%
+                                       100%
 
-Performance comparison (approximate):
-                     60/40      All-Weather
-2008 (deflation)    -22%          -18%
-2022 (inflation)    -17%          -10%
-2010s avg return    +8.7%         +6.5%
-Worst drawdown      -33%          -25%
+表现对比（约）：
+                     60/40      全天候
+2008（通缩）          -22%       -18%
+2022（通胀）          -17%       -10%
+2010 年代平均收益     +8.7%      +6.5%
+最大回撤             -33%        -25%
 
-Tradeoff: More consistent, but lower returns in
-strong stock markets. You sacrifice upside for
-better downside protection across regimes.
+权衡取舍：更为稳定，但在强劲牛市中
+收益较低。你以一定的上行空间换取
+跨周期更好的下行保护。
 ```
 
-**Alternative 3: Factor-Based Bond Allocation**
+**替代方案三：基于因子的债券配置**
 
-Instead of a static 40% in bonds, dynamically adjust the type and duration of bonds based on the inflation and rate environment.
+不固守 40% 债券的静态配置，而是根据通胀和利率环境动态调整债券类型与久期。
 
 ```
-ADAPTIVE BOND ALLOCATION FRAMEWORK
+自适应债券配置框架
 =====================================
 
-Inflation Regime          Bond Strategy
-----------------          -------------
-Low and stable            Long-duration Treasuries
-  (like 2010-2019)        (maximum deflation hedge)
+通胀环境                  债券策略
+-----------               ---------
+低位稳定                  长久期国债
+  （如 2010-2019）        （通缩对冲最大化）
 
-Rising inflation          Short-duration + TIPS +
-  (like 2021-2023)        Commodities
-                          (minimize rate risk, hedge
-                           inflation)
+通胀上行                  短久期 + 通胀保值债券 +
+  （如 2021-2023）        大宗商品
+                          （降低利率风险，
+                           对冲通胀）
 
-High but falling          Intermediate bonds
-  (like 1982-1990)        (lock in high yields as
-                           rates decline)
+高位但下行                中期债券
+  （如 1982-1990）        （在利率下行过程中
+                           锁定高收益率）
 
-Deflation risk            Long-duration Treasuries
-  (like 2008-2009)        (maximum capital gain
-                           potential as rates fall
-                           toward zero)
+面临通缩风险              长久期国债
+  （如 2008-2009）        （利率向零下行时
+                           资本利得最大化）
 ```
 
-**Alternative 4: The "Risk Parity" Approach**
+**替代方案四："风险平价"方法**
 
-Instead of allocating 60% of capital to stocks and 40% to bonds, allocate based on risk contribution. Since stocks are much more volatile than bonds, a 60/40 portfolio actually has about 90% of its risk coming from stocks. Risk parity equalizes this.
+不以 60% 资本配置股票、40% 配置债券，而是按风险贡献进行配置。由于股票的波动性远高于债券，60/40 投资组合中约 90% 的风险来自股票。风险平价力求使各资产类别的风险贡献均等化。
 
 ```
-60/40 vs. RISK PARITY: WHERE THE RISK ACTUALLY IS
+60/40 与风险平价：风险究竟来自哪里
 ====================================================
 
-Traditional 60/40:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:              60%          ------->      ~90%
-Bonds:               40%          ------->      ~10%
+传统 60/40：
+                资本配置               风险贡献
+                ------                 ---------
+股票：            60%         ------->    约 90%
+债券：            40%         ------->    约 10%
 
-The portfolio is dominated by stock risk despite
-looking "balanced" in dollar terms.
-
-
-Risk Parity:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:             ~25%          ------->      ~50%
-Bonds:              ~75%          ------->      ~50%
-(with leverage)
-
-In a risk parity portfolio, each asset class
-contributes equally to total portfolio risk.
-This usually requires leverage on the bond side
-to achieve competitive returns.
+尽管从金额看似乎"平衡"，
+实际上投资组合风险几乎由股票主导。
 
 
-Comparison:
-                    60/40       Risk Parity
-Avg Return          8.0%          7.5%
-Std Dev            10.0%          6.5%
-Sharpe Ratio        0.40          0.54
-Max Drawdown       -33%          -18%
+风险平价：
+                资本配置               风险贡献
+                ------                 ---------
+股票：           约 25%       ------->    约 50%
+债券：           约 75%       ------->    约 50%
+（使用杠杆）
 
-Risk Parity has better risk-adjusted returns but
-requires leverage, which introduces its own risks.
+在风险平价投资组合中，
+每类资产对总风险的贡献基本相等。
+债券端通常需要使用杠杆以实现具有竞争力的收益。
+
+
+对比：
+                    60/40     风险平价
+平均收益             8.0%       7.5%
+标准差              10.0%       6.5%
+夏普比率             0.40       0.54
+最大回撤            -33%       -18%
+
+风险平价具有更优的风险调整收益，
+但需要使用杠杆，而杠杆本身带来额外风险。
 ```
 
-**Alternative 5: Include International Bonds**
+**替代方案五：纳入国际债券**
 
-U.S.-centric 60/40 misses the diversification benefit of international bonds, which respond to different central bank policies and economic cycles.
+以美国为核心的 60/40 忽略了国际债券的分散化收益，而国际债券对不同央行政策和经济周期有不同反应。
 
 ---
 
-#### 8. Building a Modern 60/40
+#### 8. 构建现代 60/40
 
-Taking all lessons into account, here is a framework for constructing a modern version of the 60/40 portfolio:
+综合以上所有经验，以下是构建现代 60/40 投资组合的框架：
 
 ```
-MODERN 60/40 FRAMEWORK
+现代 60/40 框架
 =========================
 
-STEP 1: DEFINE YOUR EQUITY SLEEVE (60%)
+第一步：确定权益资产配置（60%）
 -----------------------------------------
-U.S. Large Cap (S&P 500 or Total Market)     35%
-International Developed (EAFE)               15%
-Emerging Markets                             10%
-                                             ---
-                                             60%
+美国大盘股（标普 500 或全市场）            35%
+国际发达市场股票（EAFE）                   15%
+新兴市场股票                               10%
+                                           ---
+                                           60%
 
-STEP 2: DEFINE YOUR DEFENSIVE SLEEVE (40%)
+第二步：确定防御性资产配置（40%）
 -----------------------------------------
-Core: Intermediate Treasuries / Agg Bond     15%
-Inflation Protection: TIPS                    8%
-Short-Term: T-Bills / Short Bonds             7%
-Real Assets: Commodities / REITs              5%
-International Bonds (hedged)                  5%
-                                             ---
-                                             40%
+核心：中期国债 / 综合债券                  15%
+通胀保护：通胀保值债券                      8%
+短期：短期国债 / 短期债券                   7%
+实物资产：大宗商品 / 房地产投资信托         5%
+国际债券（对冲汇率）                        5%
+                                           ---
+                                           40%
 
-STEP 3: REBALANCE
+第三步：再平衡
 -----------------------------------------
-- Rebalance back to targets annually or when
-  any allocation drifts more than 5% from target
-- Rebalancing forces you to buy low and sell high
+- 每年或当任一配置偏离目标超过 5% 时
+  再平衡至目标比例
+- 再平衡迫使你低买高卖
 
 
-STEP 4: STRESS TEST
+第四步：压力测试
 -----------------------------------------
-Ask: How does this portfolio perform under:
-- 2008-style deflation crisis?
-- 2022-style inflation shock?
-- 1970s-style stagflation?
-- Normal economic growth?
+自问：此投资组合在以下情景下表现如何？
+- 2008 年式通缩危机？
+- 2022 年式通胀冲击？
+- 1970 年代式滞胀？
+- 正常经济增长？
 
-If any scenario produces unacceptable losses,
-adjust the allocation.
+若任一情景导致无法接受的损失，
+请调整配置。
 ```
 
 ---
 
-#### 9. The Rebalancing Bonus
+#### 9. 再平衡红利
 
-One underappreciated feature of the 60/40 portfolio is the **rebalancing bonus** -- the extra return generated by systematically buying low and selling high as you restore your target allocation.
+60/40 投资组合中一个容易被忽视的特点，是**再平衡红利**——通过系统性地低买高卖、恢复目标配置所带来的额外收益。
 
 ```
-HOW REBALANCING WORKS IN A CRISIS
+危机中的再平衡运作原理
 =====================================
 
-STARTING POINT:
-  Stocks: $600,000 (60%)
-  Bonds:  $400,000 (40%)
-  Total:  $1,000,000
+起始状态：
+  股票：600,000 元（60%）
+  债券：400,000 元（40%）
+  合计：1,000,000 元
 
-AFTER STOCK CRASH (-40% stocks, +5% bonds):
-  Stocks: $360,000 (46%)   <-- now underweight
-  Bonds:  $420,000 (54%)   <-- now overweight
-  Total:  $780,000
+股票暴跌后（股票 -40%，债券 +5%）：
+  股票：360,000 元（46%）  <-- 低于目标
+  债券：420,000 元（54%）  <-- 超出目标
+  合计：780,000 元
 
-REBALANCE TO 60/40:
-  Target stocks: $780K x 60% = $468,000
-  Target bonds:  $780K x 40% = $312,000
-  Action: Sell $108K bonds, buy $108K stocks
+再平衡至 60/40：
+  目标股票：78 万 x 60% = 468,000 元
+  目标债券：78 万 x 40% = 312,000 元
+  操作：卖出债券 10.8 万，买入股票 10.8 万
 
-  You are buying stocks at depressed prices
-  using money from bonds that held their value.
+  你正在用价值相对稳定的债券资金，
+  以低价买入下跌的股票。
 
-AFTER RECOVERY (stocks +67% from trough, bonds flat):
-  Without rebalancing:
-    Stocks: $360K x 1.67 = $601K
-    Bonds:  $420K x 1.00 = $420K
-    Total: $1,021K  (+2.1% from start)
+修复后（股票从低点反弹 67%，债券持平）：
+  未再平衡：
+    股票：36 万 x 1.67 = 601K
+    债券：42 万 x 1.00 = 420K
+    合计：1,021K（较起点 +2.1%）
 
-  With rebalancing:
-    Stocks: $468K x 1.67 = $782K
-    Bonds:  $312K x 1.00 = $312K
-    Total: $1,094K  (+9.4% from start)
+  已再平衡：
+    股票：46.8 万 x 1.67 = 782K
+    债券：31.2 万 x 1.00 = 312K
+    合计：1,094K（较起点 +9.4%）
 
-  Rebalancing bonus: ~7% in this example
+  此例中再平衡红利约为 7%
 ```
 
-The rebalancing bonus is not guaranteed in every period, but over long horizons, it has historically added 0.5% to 1.0% per year to portfolio returns. It works because it enforces the discipline of buying assets that have fallen (and are therefore cheaper) and selling assets that have risen (and are therefore more expensive).
+再平衡红利并非在每个阶段都有保障，但从长期来看，它历史上每年为投资组合增加了约 0.5% 至 1.0% 的收益。其有效性源于它强制执行了一种纪律：买入已下跌（因此更便宜）的资产，卖出已上涨（因此更昂贵）的资产。
 
 ---
 
-#### 10. When to Deviate from 60/40
+#### 10. 何时偏离 60/40
 
-The 60/40 portfolio is a starting point, not a destination. Several factors should cause you to deviate:
+60/40 投资组合是起点，而非终点。以下几类因素应促使你对其进行调整：
 
 ```
-REASONS TO HOLD MORE STOCKS (>60%)
+持有更多股票的理由（>60%）
 =====================================
-- Long time horizon (20+ years)
-- Stable income not dependent on portfolio
-- High risk tolerance confirmed by experience
-- Large savings rate that can offset losses
-- No near-term spending needs from portfolio
+- 时间跨度较长（20 年以上）
+- 收入稳定，不依赖投资组合
+- 风险承受能力强，有亲身经历印证
+- 储蓄率高，可弥补损失
+- 近期无需从投资组合中支取资金
 
-REASONS TO HOLD FEWER STOCKS (<60%)
+持有更少股票的理由（<60%）
 =====================================
-- Short time horizon (<10 years)
-- Dependent on portfolio for income
-- Low risk tolerance (would panic in a crash)
-- Concentrated wealth (e.g., company stock)
-- Near-term spending needs (house purchase, etc.)
+- 时间跨度较短（10 年以内）
+- 依赖投资组合作为收入来源
+- 风险承受能力低（市场暴跌时会恐慌）
+- 集中持仓风险（如公司股票）
+- 近期有支出需求（购房等）
 
-REASONS TO MODIFY THE BOND ALLOCATION
+调整债券配置的理由
 ========================================
-- High inflation: shorten duration, add TIPS/commodities
-- Low rates: reduce bond allocation, add alternatives
-- Rising rates: favor short-duration bonds
-- Deflation risk: favor long-duration Treasuries
+- 高通胀时：缩短久期，增加通胀保值债券/大宗商品
+- 低利率时：降低债券比例，增加替代资产
+- 利率上行时：偏重短久期债券
+- 面临通缩风险时：偏重长久期国债
 ```
 
 ```
-AGE-BASED ADAPTATION OF 60/40
+60/40 的年龄适配调整
 ================================
 
-Age Range        Suggested            Rationale
-                 Stock/Bond
----------        ----------           ---------
-25-35            80/20 to 90/10       Very long horizon,
-                                      human capital is
-                                      a "bond-like" asset
-36-50            60/40 to 80/20       Peak earning years,
-                                      long horizon
-51-60            50/50 to 60/40       Approaching retirement,
-                                      sequence risk matters
-61-70            40/60 to 50/50       In or near retirement,
-                                      capital preservation
-71+              30/70 to 40/60       Draw-down phase,
-                                      income and stability
+年龄段       建议               理由
+             股票/债券
+-------      ----------         ---------
+25-35        80/20 至 90/10     时间跨度极长，
+                                人力资本是
+                                "类债券"资产
+36-50        60/40 至 80/20     收入高峰期，
+                                时间跨度长
+51-60        50/50 至 60/40     临近退休，
+                                收益顺序风险不容忽视
+61-70        40/60 至 50/50     处于或临近退休，
+                                保值为先
+71 岁以上     30/70 至 40/60    进入提取阶段，
+                                注重收入与稳定性
 
-These are guidelines, not rules. Individual
-circumstances vary enormously.
+这些是参考指引，而非刚性规则。
+个人情况差异极大。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "60/40 is dead after 2022."**
+**误区一："2022 年之后 60/40 已经过时了。"**
 
-Reality: 2022 was a painful year for 60/40, but one bad year does not invalidate a strategy that has worked for decades. The 60/40 portfolio failed in 2022 because of a specific set of circumstances -- an inflation shock after a decade of zero interest rates. If inflation returns to moderate levels and the stock-bond correlation reverts to negative (as it often does during recessions), 60/40 will work again. The lesson of 2022 is not that 60/40 is dead, but that it should not be blindly applied without understanding the macro environment.
+现实：2022 年对 60/40 而言是痛苦的一年，但一个坏年头无法否定一个运作了数十年的策略。60/40 在 2022 年失效，是因为特定的历史环境——在零利率持续十年之后遭遇通胀冲击。如果通胀回归温和水平，股债相关性恢复负值（衰退时期往往如此），60/40 将重新奏效。2022 年的教训并非"60/40 已死"，而是不应在不理解宏观环境的情况下盲目套用。
 
-**Misconception 2: "40% in bonds is too conservative for young investors."**
+**误区二："40% 的债券对年轻投资者而言过于保守。"**
 
-Reality: For investors with truly long time horizons (30+ years) and stable income, 60/40 may indeed be too conservative. A 25-year-old with decades until retirement might be better served by 80/20 or even 90/10. But "too conservative" is not the same as "wrong." A young investor in 60/40 will still build substantial wealth -- they will just build it slightly slower than someone in a higher-equity portfolio. And if the higher-equity investor panics during a crash and sells, the 60/40 investor who stayed the course wins.
+现实：对于时间跨度真正较长（30 年以上）且收入稳定的投资者而言，60/40 确实可能过于保守。一位距退休还有数十年的 25 岁年轻人，可能更适合 80/20 甚至 90/10。但"过于保守"并不等同于"错误"。持有 60/40 的年轻投资者仍将积累可观财富，只是速度略慢于高权益配置者。而如果高权益配置者在暴跌中恐慌性清仓，那么坚守 60/40 的投资者最终将胜出。
 
-**Misconception 3: "You can just hold stocks and ride out the dips."**
+**误区三："只持股票，挺过低谷就好了。"**
 
-Reality: In theory, yes. In practice, very few investors can actually stomach a 50% decline without making emotional decisions. The 60/40 portfolio exists partly as a behavioral tool -- it reduces volatility enough that most investors can stay invested through downturns. An all-stock portfolio that you abandon during a crash underperforms a 60/40 portfolio that you maintain.
+现实：理论上可行。但实际上，几乎没有投资者能在不做出情绪化决策的情况下真正承受 50% 的跌幅。60/40 投资组合在某种程度上是一种行为管理工具——它将波动性降低到大多数投资者能够在下行期坚持持仓的程度。一个你在暴跌中抛售的全股票组合，表现将不及一个你始终持有的 60/40 组合。
 
-**Misconception 4: "Bonds always go up when stocks go down."**
+**误区四："债券在股票下跌时总会上涨。"**
 
-Reality: This was roughly true from 2000 to 2020, but it is not a law of nature. It is a consequence of specific macroeconomic conditions -- low inflation and central banks cutting rates during crises. In inflationary environments, bonds and stocks can fall together, as 2022 demonstrated. The stock-bond correlation is a variable, not a constant.
+现实：这在 2000 至 2020 年间大致成立，但并非自然规律。它是特定宏观经济条件的产物——低通胀，以及央行在危机中大幅降息。在通胀环境下，债券和股票可能同时下跌，正如 2022 年所示。股债相关性是变量，不是常数。
 
-**Misconception 5: "A target-date fund is the same as 60/40."**
+**误区五："目标日期基金就等同于 60/40。"**
 
-Reality: Target-date funds start with high equity allocations (often 90%) for young investors and gradually shift to more conservative allocations as the target date approaches. A target-date fund for someone retiring in 2060 looks nothing like 60/40 today -- it might be 90/10. Only near the target date does it resemble 60/40 or even more conservative allocations. Target-date funds are a glide path, not a fixed allocation.
+现实：目标日期基金对年轻投资者的权益配置较高（通常达 90%），并随着目标日期临近逐步转向更保守的配置。以 2060 年为目标日期的基金，与 60/40 相去甚远——今天可能是 90/10。只有临近目标日期时，它才会接近 60/40 甚至更保守的配置。目标日期基金是一条滑降轨道，而非固定配置。
 
-**Misconception 6: "60/40 means 60% S&P 500 and 40% U.S. Aggregate Bonds."**
+**误区六："60/40 就是 60% 标普 500 加 40% 美国综合债券。"**
 
-Reality: That is the most common implementation, but 60/40 is a concept, not a prescription. The 60% equity portion could include international stocks, small caps, or emerging markets. The 40% bond portion could include TIPS, international bonds, short-duration bonds, or even alternatives like commodities and REITs. How you fill the buckets matters as much as the bucket sizes.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: If I am 30 years old, should I use 60/40?**
-
-A: Probably not exactly 60/40. With a 30-35 year investment horizon, you have the capacity to take more equity risk. A 70/30 or 80/20 allocation is likely more appropriate. However, 60/40 is better than any allocation you cannot maintain during a downturn. If 80/20 would cause you to panic-sell during a crash, 60/40 is the better choice for you. Your actual allocation should be the most aggressive one you can hold through the worst markets without selling.
-
-**Q2: What specific funds should I use to build a 60/40 portfolio?**
-
-A: The simplest implementation uses two funds: a total U.S. stock market index fund (like VTI or SWTSX) for the 60% equity allocation and a total U.S. bond market index fund (like BND or SCHZ) for the 40% bond allocation. A more diversified version might add an international stock fund (VXUS), a TIPS fund (SCHP), and possibly a short-term bond fund (VGSH). Many providers also offer all-in-one balanced funds that maintain a 60/40 allocation automatically, such as Vanguard Balanced Index Fund (VBIAX).
-
-**Q3: How often should I rebalance my 60/40 portfolio?**
-
-A: Research suggests that annual rebalancing captures most of the benefit. Some advisors prefer threshold-based rebalancing -- only rebalancing when an allocation drifts more than 5% from its target. Either approach works. More frequent rebalancing (monthly or quarterly) generates more trading costs without meaningful improvement in returns. In tax-advantaged accounts like IRAs and 401(k)s, the tax cost of rebalancing is zero, so annual rebalancing is straightforward. In taxable accounts, consider directing new contributions to the underweight asset class rather than selling the overweight one.
-
-**Q4: Does 60/40 work outside the United States?**
-
-A: The 60/40 strategy has generally worked in other developed markets, but the results have been more mixed than in the U.S. The United States had an unusually strong stock market in the 20th century, which flatters 60/40 historical returns. In Japan, where stocks declined for three decades after 1989, a 60/40 portfolio would have been saved by strong bond returns but would still have underperformed a 100% bond portfolio for extended periods. Investors should avoid assuming that U.S. historical returns represent a universal truth.
-
-**Q5: What is the tax efficiency of 60/40?**
-
-A: Stocks are generally more tax-efficient than bonds because stock returns come partly from capital gains (which are taxed at lower rates and can be deferred) while bond returns come primarily from interest income (taxed at ordinary income rates). In a taxable account, consider holding bonds in tax-advantaged accounts (IRA, 401k) and stocks in taxable accounts. This asset location strategy can add 0.3-0.5% per year in after-tax returns without changing your overall allocation.
-
-**Q6: How did the 60/40 portfolio perform during the 1970s stagflation?**
-
-A: The 1970s were a challenging period for 60/40. Stocks had mediocre returns due to high inflation and economic stagnation. Bonds also suffered as interest rates rose from about 6% to over 15%. The 60/40 portfolio returned roughly 6-7% annualized during the 1970s, which sounds acceptable until you consider that inflation averaged nearly 7.4%. In real (inflation-adjusted) terms, 60/40 investors barely broke even. This is the scenario that most closely resembles the 2022 concern -- and it is why adding inflation-hedging assets (commodities, TIPS, real estate) to a modern 60/40 is prudent.
-
-**Q7: Is there a better ratio than 60/40?**
-
-A: There is no universally "best" ratio. Research suggests that on a risk-adjusted basis (Sharpe Ratio), allocations between 40% and 60% stocks tend to perform similarly well. The "optimal" allocation depends entirely on the time period studied, the specific assets used, and the investor's personal situation. A more useful framework is to think in terms of a range: aggressive investors should be 70-90% stocks, moderate investors 50-70%, and conservative investors 30-50%. The exact percentages matter less than maintaining the allocation through market cycles.
-
-**Q8: What about adding gold to a 60/40 portfolio?**
-
-A: Gold has historically had low correlation to both stocks and bonds, making it a potential diversifier. A small allocation (5-10%) can improve risk-adjusted returns in certain environments, particularly during inflationary periods or currency crises. However, gold produces no income and has long periods of poor performance. From 1980 to 2000, gold lost about 70% of its real value. It is best thought of as insurance -- a small position that you hope you never need but are glad to have when crisis strikes.
-
-**Q9: What return should I expect from a 60/40 portfolio going forward?**
-
-A: Forward-looking returns depend heavily on starting valuations and interest rates. With stock valuations above historical averages and bond yields around 4-5%, a reasonable expectation for a 60/40 portfolio might be 5-7% nominal (before inflation) compared to the historical 8%. Lower expected returns do not mean 60/40 is broken -- they reflect the starting conditions. If bond yields rise to 5-6% and stock valuations normalize, forward returns will improve. The key point is that past returns should not be extrapolated without adjusting for current conditions.
-
-**Q10: Should I abandon 60/40 during inflationary periods?**
-
-A: You should not abandon 60/40, but you should adapt it. During inflationary periods, consider: shortening bond duration (swap long-term bonds for short-term), adding TIPS (Treasury Inflation-Protected Securities), adding commodities (historically the best inflation hedge), and adding real estate (rents tend to rise with inflation). The core principle of holding both growth assets and defensive assets remains sound. You are simply adjusting the composition of each sleeve to reflect the current regime. Making dramatic changes based on short-term macro predictions is dangerous -- most investors are poor macro forecasters.
+现实：这是最常见的实施方式，但 60/40 是一个概念，而非处方。60% 的权益部分可以包含国际股票、小盘股或新兴市场股票。40% 的债券部分可以包含通胀保值债券、国际债券、短久期债券，甚至大宗商品和房地产投资信托等替代资产。如何填充每个"篮子"，和篮子的大小同样重要。
 
 ---
 
-## YouTube Script
+### d) 常见问题解答
+
+**问题一：我今年 30 岁，应该采用 60/40 吗？**
+
+答：可能不需要严格按照 60/40。以 30 至 35 年的投资时间跨度而言，你有能力承担更多权益风险。70/30 或 80/20 的配置可能更为合适。然而，60/40 优于任何你在市场下行时无法坚守的配置。如果 80/20 会让你在暴跌时恐慌性清仓，那么 60/40 对你而言是更好的选择。你的实际配置应是你在最恶劣市场环境中也能坚持不卖出的最激进方案。
+
+**问题二：构建 60/40 投资组合应选择哪些具体基金？**
+
+答：最简单的实施方案只需两只基金：一只全市场美国股票指数基金（如 VTI 或 SWTSX）用于 60% 权益配置，以及一只全市场美国债券指数基金（如 BND 或 SCHZ）用于 40% 债券配置。更为分散的版本可额外增加一只国际股票基金（VXUS）、一只通胀保值债券基金（SCHP）以及一只短期债券基金（VGSH）。许多基金提供商也提供自动维持 60/40 配置的一站式平衡基金，例如先锋平衡指数基金（VBIAX）。
+
+**问题三：60/40 投资组合应多久再平衡一次？**
+
+答：研究表明，年度再平衡能够获取大部分收益。部分顾问偏好基于阈值的再平衡——仅当某项配置偏离目标超过 5% 时才进行调整。两种方式均可奏效。更频繁的再平衡（每月或每季度）会增加交易成本，却没有明显改善收益。在个人退休账户（IRA）和 401(k) 等税收优惠账户中，再平衡无需承担税务成本，因此年度再平衡操作便捷。在应税账户中，可考虑将新增资金优先投向低配资产，而非卖出超配资产。
+
+**问题四：60/40 策略在美国以外同样适用吗？**
+
+答：60/40 策略在其他发达市场大体上也曾奏效，但结果参差不齐，不如在美国那般亮眼。美国股市在 20 世纪表现异常强劲，这使得 60/40 的历史收益数据显得格外光彩。在日本，股市自 1989 年后长达三十年的下行中，60/40 投资组合虽得益于强劲的债券收益得以保全，但在某些较长阶段仍逊于全债券组合。投资者应避免将美国历史收益视为放之四海而皆准的规律。
+
+**问题五：60/40 的税收效率如何？**
+
+答：股票的税收效率通常优于债券，因为股票收益部分来自资本利得（税率更低且可递延），而债券收益主要来自利息收入（按普通所得税率征税）。在应税账户中，可考虑将债券置于税收优惠账户（IRA、401k），将股票置于应税账户。这一资产摆位策略在不改变整体配置的前提下，每年可带来约 0.3% 至 0.5% 的税后收益提升。
+
+**问题六：60/40 投资组合在 1970 年代滞胀期间表现如何？**
+
+答：1970 年代对 60/40 而言是充满挑战的时期。受高通胀和经济停滞拖累，股票表现平平。债券亦受到冲击，利率从约 6% 飙升至逾 15%。60/40 投资组合在 1970 年代实现了约 6% 至 7% 的年化收益，听起来尚可，但若考虑到同期通胀年均接近 7.4%，实际（经通胀调整后的）收益几乎为零。这是与 2022 年所引发担忧最为相似的历史情景——这也正是为何在现代 60/40 中加入通胀对冲资产（大宗商品、通胀保值债券、房地产）是审慎之举。
+
+**问题七：有没有比 60/40 更优的比例？**
+
+答：并不存在普遍意义上的"最优"比例。研究表明，从风险调整收益（夏普比率）来看，股票配置在 40% 至 60% 之间的组合表现相当接近。所谓"最优"配置完全取决于所研究的时间段、所用的具体资产以及投资者的个人情况。一个更实用的框架是区间思维：激进型投资者应持有 70% 至 90% 的股票，稳健型 50% 至 70%，保守型 30% 至 50%。具体百分比远不如跨越市场周期维持配置纪律来得重要。
+
+**问题八：在 60/40 投资组合中加入黄金如何？**
+
+答：黄金与股票和债券的历史相关性均较低，是潜在的分散化工具。配置少量黄金（5% 至 10%）在特定环境下——尤其是通胀时期或货币危机——可改善风险调整收益。然而，黄金不产生收益，且有较长时间表现欠佳。1980 至 2000 年间，黄金实际价值损失约 70%。黄金最好被视为保险——少量持仓，希望永远用不上，但危机来临时庆幸自己持有。
+
+**问题九：展望未来，60/40 投资组合的预期收益是多少？**
+
+答：前瞻性收益高度依赖于当前的估值水平和利率环境。以股票估值高于历史均值、债券收益率约 4% 至 5% 的现状为起点，60/40 投资组合合理预期的名义收益（税前、通胀前）约为 5% 至 7%，低于历史约 8% 的水平。较低的预期收益并不意味着 60/40 已然失效——它反映的是当前的起点条件。若债券收益率升至 5% 至 6%，股票估值回归正常，未来收益将随之改善。关键在于，过去的收益不应在未调整现状因素的情况下被直接外推。
+
+**问题十：在通胀时期应否放弃 60/40？**
+
+答：你不应放弃 60/40，但应对其加以调整。在通胀时期，可考虑：缩短债券久期（将长期债券换为短期债券）、增加通胀保值债券（TIPS，利率随通胀调整的国债）、增加大宗商品（历史上最佳的通胀对冲工具），以及增加房地产（租金往往随通胀上涨）。同时持有增长资产和防御资产的核心原则依然成立，你只是在根据当前环境调整每个"篮子"的构成。基于短期宏观预测做出剧烈变动是危险的——大多数投资者并不擅长宏观预测。
+
+---
+
+## YouTube 脚本
 
 [VISUAL: Animated intro with title "Week 4: The 60/40 Portfolio"]
 
-**Alex:** Welcome back everyone. Last week we covered risk and return -- the foundation of investing. Today we are going to take those concepts and apply them to the most famous portfolio allocation in history: the 60/40 portfolio. Sixty percent stocks, forty percent bonds. If you have a 401(k) or any kind of retirement account, there is a good chance you are already invested in some version of this.
+**Horace：** 大家好，欢迎回来。上周我们讲了风险与收益——投资的基础。今天，我们要把这些概念应用到投资历史上最著名的投资组合配置方案：60/40 投资组合。60% 股票，40% 债券。如果你有 401(k) 或任何形式的退休账户，很可能你已经在某种版本的 60/40 中了。
 
-**Sam:** I have definitely heard of 60/40, but I always thought it was kind of boring. Like, it is what your parents' financial advisor recommends. Is it actually worth a whole lesson?
+**Stella（小魚）：** 我肯定听说过 60/40，但我一直觉得它有点无聊。感觉就是你爸妈的理财顾问会推荐的那种。它真的值得专门讲一节课吗？
 
-**Alex:** That is a fair reaction, and you are not alone. A lot of younger investors dismiss 60/40 as too conservative or too basic. But here is the thing -- understanding why 60/40 works, when it works, and when it does not is essential to becoming a serious investor. It is the benchmark against which everything else is measured.
+**Horace（陳馬）：** 这个反应很正常，你不是一个人这么想。很多年轻投资者认为 60/40 太保守、太基础而不屑一顾。但问题是——理解 60/40 为什么有效、在什么时候有效、又在什么时候失效，是成为成熟投资者不可或缺的一步。它是衡量一切策略的基准线。
 
-[VISUAL: Text appears: "60/40 is not just a portfolio -- it is a framework for understanding diversification"]
+[VISUAL: Text appears: "60/40 不仅仅是一个投资组合——它是理解分散化的框架"]
 
-**Sam:** Okay, sell me on it. Where did 60/40 even come from?
+**Stella（小魚）：** 好，说服我。60/40 到底是怎么来的？
 
-**Alex:** It evolved over several decades. The intellectual foundation goes back to 1952, when Harry Markowitz published his groundbreaking paper on Modern Portfolio Theory. He proved mathematically that combining assets with different return patterns -- like stocks and bonds -- can produce a portfolio with better risk-return characteristics than either asset alone.
+**Horace（陳馬）：** 它是经过数十年演化而来的。思想基础可以追溯到 1952 年，哈里·马科维茨发表了那篇奠基性的现代投资组合理论论文。他用数学方法证明：将具有不同收益模式的资产——比如股票和债券——组合在一起，可以产生比任何单一资产都更优的风险-收益特征。
 
-**Sam:** What do you mean by "better risk-return characteristics"?
+**Stella（小魚）：** 什么叫"更优的风险-收益特征"？
 
-**Alex:** I mean you get more return per unit of risk. Think of it this way. If stocks return 10% with 16% volatility and bonds return 5% with 6% volatility, you might expect a 60/40 mix to return about 8% with maybe 12% volatility -- just a weighted average. But because stocks and bonds do not move in perfect lockstep, the actual volatility of a 60/40 portfolio is only about 10%. You get roughly 80% of the stock market's return with only about 60% of its risk.
+**Horace（陳馬）：** 意思是每单位风险对应更高的收益。这样想：如果股票年化收益 10%、波动性 16%，债券年化收益 5%、波动性 6%，你可能会预期 60/40 组合的收益约为 8%、波动性约为 12%——也就是加权平均。但因为股票和债券并非完全同步波动，60/40 投资组合的实际波动性只有约 10%。你用约 16% 的股市波动性，换来约 80% 的股市收益，却只承担约 60% 的风险。
 
 [VISUAL: Animated bar chart showing expected return and risk for different allocations from 100% bonds to 100% stocks. The return line rises roughly linearly, but the risk line curves -- it rises slowly at first, then accelerates. The 60/40 point is highlighted where the gap between return and risk is favorable.]
 
-**Sam:** Wait, that math does not add up. How can the risk be lower than the weighted average?
+**Stella（小魚）：** 等等，这个数学说不通。风险怎么会低于加权平均值？
 
-**Alex:** That is the magic of diversification, and it is exactly what Markowitz proved. When you combine two assets that do not move in perfect sync, the ups and downs partially cancel each other out. On a day when stocks drop 2%, bonds might rise 1%. The 60/40 portfolio drops only about 0.8% instead of 1.2%. Over time, this smoothing effect reduces overall volatility below what you would expect from a simple average.
+**Horace（陳馬）：** 这就是分散化的魔力，也正是马科维茨所证明的。当你组合两种走势不完全一致的资产，它们的涨跌会部分相互抵消。在股票某天跌 2% 的时候，债券可能涨 1%。60/40 投资组合只跌约 0.8%，而不是 1.2%。随着时间推移，这种平滑效果将总体波动性降低到比简单加权平均还要低的水平。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Two sine waves representing stock returns (large amplitude, high frequency) and bond returns (small amplitude, different phase). As they combine into a 60/40 weighted average, the resulting wave has noticeably smaller amplitude than even the weighted average would suggest. Key moments where the waves move in opposite directions are highlighted, showing how the cancellation effect works.]
 
-**Sam:** So the key is that stocks and bonds move differently from each other?
+**Stella（小魚）：** 所以关键在于股票和债券走势不同？
 
-**Alex:** Exactly. And the technical term for this is correlation. When stocks and bonds have low or negative correlation -- meaning they tend to move in different directions -- the diversification benefit is strong. This is why 60/40 has worked so well historically.
+**Horace（陳馬）：** 没错。专业术语叫相关性。当股票和债券的相关性低或为负——也就是说它们倾向于反向波动——分散化收益就会很强。这正是 60/40 在历史上表现良好的原因。
 
-**Sam:** You said "historically." Has the correlation always been negative?
+**Stella（小魚）：** 你说的是"历史上"。相关性一直是负的吗？
 
-**Alex:** Great catch, and this is where the story gets really important. The stock-bond correlation has not been constant. It has actually changed dramatically over time.
+**Horace（陳馬）：** 问得好，这正是这个故事中最关键的部分。股债相关性并非一成不变，它随时间发生了巨大变化。
 
 [VISUAL: Historical chart showing stock-bond correlation from 1960 to 2024. The line fluctuates between +0.5 and -0.4, with distinct regimes labeled]
 
-**Alex:** From the 1960s through the early 1990s, stocks and bonds were actually positively correlated -- they tended to move in the same direction. Then from about 1997 to 2020, the correlation flipped negative. Stocks and bonds moved in opposite directions, which is the golden era for 60/40. Bonds rallied during every stock market crisis, acting as a perfect hedge.
+**Horace（陳馬）：** 从 1960 年代到 1990 年代初，股票和债券实际上是正相关的——它们倾向于同向波动。从大约 1997 年到 2020 年，相关性反转为负值。股票和债券走势相反，这是 60/40 的黄金时代。在每一次股市危机中，债券都大幅上涨，成为完美的对冲工具。
 
-**Sam:** What caused the flip?
+**Stella（小魚）：** 是什么导致了这次反转？
 
-**Alex:** Inflation. Or rather, the absence of inflation. During the 1960s and 1970s, inflation was the dominant economic force. When inflation rises, it hurts both stocks and bonds simultaneously. Stocks suffer because costs rise and valuations compress. Bonds suffer because interest rates rise and bond prices fall.
+**Horace（陳馬）：** 通胀。或者说，通胀的缺失。在 1960 至 1970 年代，通胀是主导性的经济力量。通胀上升时，股票和债券同时受损。股票受损，因为成本上升、估值受压；债券受损，因为利率上升导致债券价格下跌。
 
-**Sam:** And from the late 1990s onward?
+**Stella（小魚）：** 那 1990 年代末之后呢？
 
-**Alex:** Inflation became a non-issue. It was low and stable. The dominant concern shifted from inflation to deflation and recession. In that environment, when stocks fell due to economic weakness, central banks cut interest rates aggressively, which caused bond prices to rise. Stocks went down, bonds went up. The correlation was negative. And 60/40 was beautiful.
+**Horace（陳馬）：** 通胀不再是问题，它处于低位且稳定。主要矛盾从通胀转向通缩和经济衰退。在那种环境下，每当股票因经济疲软而下跌，央行就会大幅降息，推动债券价格上涨。股票跌，债券涨。相关性为负。60/40 大放异彩。
 
-[VISUAL: Two-panel diagram. Left panel labeled "Inflationary Regime" shows stocks and bonds both falling with arrows pointing down. Right panel labeled "Deflationary/Low Inflation Regime" shows stocks falling and bonds rising with arrows in opposite directions]
+[VISUAL: Two-panel diagram. Left panel labeled "通胀主导环境" shows stocks and bonds both falling with arrows pointing down. Right panel labeled "通缩/低通胀环境" shows stocks falling and bonds rising with arrows in opposite directions]
 
-**Sam:** I think I know where this is going. 2022?
+**Stella（小魚）：** 我想我知道接下来要说什么了。2022 年？
 
-**Alex:** Exactly. In 2022, inflation came roaring back. The consumer price index hit 9%, the highest in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. And suddenly, stocks and bonds were falling together again -- just like in the 1970s.
+**Horace（陳馬）：** 没错。2022 年，通胀强势回归。消费者价格指数达到 9%，创 40 年新高。美联储以史上最快的节奏加息。突然之间，股票和债券再次同步下跌——就像 1970 年代一样。
 
 [VISUAL: Chart showing 2022 performance: S&P 500 down 18%, U.S. Aggregate Bonds down 13%, 60/40 portfolio down 17%]
 
-**Alex:** The S&P 500 fell about 18%. But here is the part that shocked people -- the U.S. bond market fell 13%. It was the worst year for bonds since anyone could remember. Long-term Treasuries lost nearly 30%.
+**Horace（陳馬）：** 标普 500 下跌约 18%。但真正让人震惊的是——美国债券市场也跌了 13%。那是人们记忆中债券最惨烈的一年。长期国债跌幅近 30%。
 
-**Sam:** So the 60/40 portfolio got hit from both sides?
+**Stella（小魚）：** 所以 60/40 投资组合两面都挨了打？
 
-**Alex:** Exactly. The 40% in bonds, which was supposed to cushion the blow, actually added to the losses. A 60/40 portfolio lost about 17% in 2022. The bonds provided almost no protection.
+**Horace（陳馬）：** 没错。本应起到缓冲作用的 40% 债券，反而加剧了损失。2022 年 60/40 投资组合亏损约 17%。债券几乎没有提供任何保护。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Side-by-side comparison of two crisis years: 2008 and 2022. In 2008, show a portfolio bar where stocks drop significantly (red section) but bonds rise (green section), with the net 60/40 result being a moderate loss. In 2022, show both the stock section and bond section dropping (both red), with the net 60/40 result being nearly as bad as stocks alone. Animate the bond bar "flipping" from green (helpful) in 2008 to red (harmful) in 2022.]
 
-**Sam:** So is 60/40 dead? I have seen a lot of headlines saying that.
+**Stella（小魚）：** 那 60/40 是不是已经过时了？我看到过很多这样的标题。
 
-**Alex:** Those headlines make for good clicks, but the answer is no. Let me explain why. First, one bad year does not invalidate a strategy that has worked for nearly a century. The 60/40 portfolio has had bad years before -- not this specific failure mode, but it has had down years. It recovered every time.
+**Horace（陳馬）：** 那些标题很吸引眼球，但答案是否定的。让我来解释一下。首先，一个坏年头无法否定一个近百年来行之有效的策略。60/40 投资组合以前也有过糟糕的年份——尽管不是这种具体的失效模式——但每次都复苏了。
 
-**Sam:** But what if we are entering a new regime where stocks and bonds are positively correlated?
+**Stella（小魚）：** 但如果我们正在进入一个股债正相关的新常态呢？
 
-**Alex:** That is the real question, and I want to give you an honest answer. The correlation between stocks and bonds is driven primarily by the inflation regime. If we return to a world of low, stable inflation -- which is what central banks are trying to achieve -- the correlation should eventually flip back to negative, and 60/40 will work as advertised. But if inflation remains elevated or volatile for years, the positive correlation could persist, and 60/40 will struggle.
+**Horace（陳馬）：** 这才是真正的问题所在，我想给你一个诚实的答案。股债相关性主要由通胀环境驱动。如果我们回归低位稳定通胀的世界——这正是央行努力实现的目标——相关性最终应该会重新转为负值，60/40 也将恢复正常运转。但如果通胀长期维持高位或持续波动，正相关可能延续，60/40 将持续承压。
 
-**Sam:** So what should investors do?
+**Stella（小魚）：** 那投资者应该怎么办？
 
-**Alex:** The lesson is not to abandon 60/40 but to modernize it. The original 60/40 assumed a world where inflation was not a concern. A modern 60/40 needs to account for the possibility of inflation.
+**Horace（陳馬）：** 教训不是放弃 60/40，而是要与时俱进地更新它。传统的 60/40 假设了一个通胀不是问题的世界。现代 60/40 需要将通胀的可能性纳入考量。
 
 [VISUAL: Two portfolio pie charts side by side. Traditional 60/40: 60% stocks, 40% bonds. Modern 60/40: 40% stocks, 15% bonds, 10% TIPS, 15% international stocks, 10% real estate/commodities, 10% short-term bonds]
 
-**Alex:** Instead of putting the entire 40% defensive allocation into traditional bonds, consider splitting it up. Keep some in traditional intermediate bonds for deflation protection. Add TIPS -- Treasury Inflation-Protected Securities -- which adjust for inflation. Add some short-term bonds or T-bills that are less sensitive to rate changes. And consider a small allocation to commodities or real estate, which tend to perform well during inflationary periods.
+**Horace（陳馬）：** 与其将全部 40% 的防御性配置押注在传统债券上，不如加以分散。保留一部分传统中期债券用于通缩保护，加入通胀保值债券（TIPS）——它会随通胀调整利率，加入对利率变化不那么敏感的短期债券或短期国债，同时考虑小幅配置在通胀时期表现较好的大宗商品或房地产。
 
-**Sam:** So you are diversifying within the bond allocation, not just between stocks and bonds.
+**Stella（小魚）：** 所以你是在对债券配置本身进行分散化，而不仅仅是在股债之间做分散化。
 
-**Alex:** Exactly. The traditional 60/40 diversified across two dimensions: stocks and bonds. A modern 60/40 diversifies across three dimensions: growth assets, deflation hedges, and inflation hedges. That way, you have something working in your favor regardless of the economic environment.
+**Horace（陳馬）：** 正是。传统 60/40 在两个维度上进行分散化：股票和债券。现代 60/40 在三个维度上分散化：增长资产、通缩对冲工具，以及通胀对冲工具。这样一来，无论处于哪种经济环境，你都有东西在为你发挥作用。
 
-[VISUAL: Three-column framework: "Growth Assets" (stocks, REITs), "Deflation Hedges" (long-term bonds), "Inflation Hedges" (TIPS, commodities, short-term bonds). Arrows show that in any environment, at least one column should perform well]
+[VISUAL: Three-column framework: "增长资产"（股票、房地产投资信托）、"通缩对冲"（长期债券）、"通胀对冲"（通胀保值债券、大宗商品、短期债券）。Arrows show that in any environment, at least one column should perform well]
 
-**Sam:** That is smart. Let us go back to the basics for a minute. How has 60/40 actually performed over long periods?
+**Stella（小魚）：** 这个思路很妙。让我们回到基础。60/40 在长期内的实际表现如何？
 
-**Alex:** Over the past century, a U.S. 60/40 portfolio has returned roughly 8 to 9 percent per year before inflation, or about 5 to 6 percent after inflation. It has been positive in about 82 percent of calendar years, compared to 73 percent for stocks alone.
+**Horace（陳馬）：** 在过去一个世纪里，美国 60/40 投资组合的年化名义收益约为 8% 至 9%，扣除通胀后约为 5% 至 6%。在约 82% 的自然年度中实现正收益，而单持股票则约为 73%。
 
-**Sam:** So it is positive more often than stocks?
+**Stella（小魚）：** 所以它正收益的年份比股票还多？
 
-**Alex:** Yes, because the bond cushion prevents many of those marginal stock market down years from turning into portfolio down years. In a year where stocks lose 5% and bonds gain 4%, the 60/40 portfolio is roughly flat instead of negative.
+**Horace（陳馬）：** 是的，因为债券缓冲垫可以防止许多股市小幅下跌年份演变为投资组合亏损年份。在股票亏 5%、债券赚 4% 的年份，60/40 投资组合大致持平，而不是录得负收益。
 
 [VISUAL: Calendar heat map showing annual returns for stocks, bonds, and 60/40 from 1990 to 2024. Red cells for negative years, green for positive. The 60/40 row has notably fewer red cells than the stocks row]
 
-**Sam:** What about the really bad years? How does 60/40 handle crashes?
+**Stella（小魚）：** 那在真正糟糕的年份呢？60/40 怎么应对市场暴跌？
 
-**Alex:** This is where 60/40 really earns its reputation. In the 2008 financial crisis, stocks fell 57 percent from peak to trough. That is catastrophic. The 60/40 portfolio fell about 33 percent. Still painful, but much more survivable.
+**Horace（陳馬）：** 这正是 60/40 赢得口碑的地方。在 2008 年金融危机中，股票从高点至低点跌幅达 57%。这是灾难性的。60/40 投资组合的跌幅约为 33%。仍然痛苦，但更能承受。
 
-**Sam:** Why such a big difference?
+**Stella（小魚）：** 为什么差距这么大？
 
-**Alex:** Two reasons. First, the 40% in bonds acted as ballast. While stocks were cratering, investment-grade bonds actually rose about 5% during the worst of the crisis as investors fled to safety and the Fed slashed interest rates to zero. Second -- and this is less obvious -- if you were rebalancing, the 60/40 framework forced you to sell bonds at high prices and buy stocks at depressed prices.
+**Horace（陳馬）：** 两个原因。首先，40% 的债券起到了压舱石的作用。在股票暴跌期间，随着投资者逃向避险资产、美联储将利率降至零，投资级债券在危机最严峻时实际上上涨了约 5%。其次——这点不那么直观——如果你在做再平衡，60/40 框架会迫使你在高价卖出债券、以低价买入股票。
 
 [VISUAL: Step-by-step rebalancing example: Starting with $600K stocks / $400K bonds. After crash: $360K stocks / $420K bonds (now 46/54). Rebalance: sell bonds, buy stocks at low prices. After recovery: portfolio with rebalancing is worth $1.09M vs. $1.02M without rebalancing]
 
-**Sam:** Wait, that is really clever. Rebalancing automatically makes you buy low and sell high?
+**Stella（小魚）：** 等等，这真的很聪明。再平衡自动让你低买高卖？
 
-**Alex:** Exactly. It is systematic contrarian investing. When stocks crash, they become a smaller percentage of your portfolio, so rebalancing forces you to buy more stocks at cheap prices. When stocks soar, they become a larger percentage, so rebalancing forces you to trim and lock in gains. Over time, this rebalancing bonus has added roughly 0.5 to 1 percent per year.
+**Horace（陳馬）：** 没错。这是系统性的逆向投资。股票暴跌时，它在投资组合中占比缩小，再平衡就迫使你以低价买入更多股票。股票大涨时，它占比扩大，再平衡就迫使你减仓锁定收益。从长期来看，这种再平衡红利每年约贡献 0.5% 至 1% 的额外收益。
 
-**Sam:** That is free return just from maintaining discipline.
+**Stella（小魚）：** 这不就是光靠纪律就能赚到的收益吗。
 
-**Alex:** It is not free -- it requires the emotional discipline to buy stocks during a panic and sell them during euphoria. That is very hard to do. The 60/40 framework gives you a mechanical reason to do the right thing.
+**Horace（陳馬）：** 不是免费的——它需要你在市场恐慌时买入股票、在市场狂热时卖出股票的情绪自律。这在投资中极其难做到。60/40 框架给了你一个机械性的理由去做正确的事。
 
-[VISUAL: Emotional decision-making chart showing that rebalancing forces buy/sell decisions that are the opposite of natural human instinct: "Market crashes -- Instinct: SELL, Rebalancing: BUY" and "Market soars -- Instinct: BUY MORE, Rebalancing: SELL"]
+[VISUAL: Emotional decision-making chart showing that rebalancing forces buy/sell decisions that are the opposite of natural human instinct: "市场暴跌——本能：卖出，再平衡：买入" and "市场狂涨——本能：加仓，再平衡：卖出"]
 
-**Sam:** Let us talk about who should actually use 60/40. Is it right for everyone?
+**Stella（小魚）：** 聊聊谁真正适合 60/40 吧。它适合所有人吗？
 
-**Alex:** Definitely not. The right allocation depends entirely on your personal situation. For young investors in their twenties and thirties with stable incomes and long time horizons, 60/40 is probably too conservative. They have decades to ride out market volatility and should likely hold 70 to 90 percent in stocks.
+**Horace（陳馬）：** 绝对不是。合适的配置完全取决于你的个人情况。对于二三十岁、收入稳定、时间跨度长的年轻投资者，60/40 可能太保守了。他们有几十年的时间来应对市场波动，应该持有 70% 至 90% 的股票。
 
-**Sam:** When does 60/40 make sense?
+**Stella（小魚）：** 什么时候 60/40 才是合理的？
 
-**Alex:** For investors in their forties and fifties who are in their peak earning years but starting to think about retirement, 60/40 is a reasonable starting point. For investors in their sixties and beyond who are approaching or in retirement, 60/40 might actually be too aggressive -- they might want 40/60 or 50/50.
+**Horace（陳馬）：** 对于处于收入高峰期、但开始考虑退休规划的四五十岁投资者，60/40 是合理的起点。对于临近或已进入退休的六十岁以上投资者，60/40 可能反而太激进——他们或许更适合 40/60 或 50/50。
 
 [VISUAL: Age-based allocation spectrum showing a sliding scale from 90/10 stocks/bonds at age 25, gradually shifting to 60/40 around age 50, and 30/70 at age 75. Each point on the spectrum has a brief annotation explaining the rationale]
 
-**Sam:** What about the old rule of thumb -- "your age in bonds"?
+**Stella（小魚）：** 那"年龄即债券比例"的经验法则呢？
 
-**Alex:** That rule says a 30-year-old should be 30% bonds and a 70-year-old should be 70% bonds. It is a rough approximation that gets the directional move right -- more bonds as you age. But it is probably too conservative for most people today. With longer lifespans and lower bond yields, many advisors now suggest "your age minus 20 in bonds" or even "your age minus 30 in bonds." A 30-year-old under the updated rule would be 0-10% bonds rather than 30%.
+**Horace（陳馬）：** 这个法则说 30 岁的人应该持有 30% 债券，70 岁的人应持有 70% 债券。方向是对的——随着年龄增长持有更多债券。但对大多数人来说，这个标准可能过于保守了。随着人均寿命延长、债券收益率降低，现在许多顾问建议用"年龄减 20 等于债券比例"甚至"年龄减 30"。按更新后的标准，30 岁的人债券比例应为 0% 至 10%，而非 30%。
 
-**Sam:** So what actually matters more than the specific numbers?
+**Stella（小魚）：** 那比具体数字更重要的是什么？
 
-**Alex:** Two things. First, your time horizon -- how many years until you need the money. Second, your behavioral risk tolerance -- the most aggressive portfolio you can hold without panic-selling during a crash. The optimal allocation is the one that maximizes returns subject to the constraint that you will actually stick with it.
+**Horace（陳馬）：** 两件事。第一，你的时间跨度——距离你需要用钱还有多少年。第二，你的行为风险承受能力——你在暴跌中不会恐慌性清仓的最激进配置。最优配置，是在你真正能坚守的前提下，使收益最大化的那个。
 
-[VISUAL: Decision tree: "Time Horizon > 20 years?" leads to 70-90% stocks. "Time Horizon 10-20 years?" leads to 50-70% stocks. "Time Horizon < 10 years?" leads to 30-50% stocks. Each branch has a secondary check: "Can you handle a 30%+ drawdown?" If no, shift one level more conservative]
+[VISUAL: Decision tree: "时间跨度 > 20 年？" leads to 70-90% stocks. "时间跨度 10-20 年？" leads to 50-70% stocks. "时间跨度 < 10 年？" leads to 30-50% stocks. Each branch has a secondary check: "你能承受 30% 以上的回撤吗？" If no, shift one level more conservative]
 
-**Sam:** I want to talk more about the bond side. You mentioned earlier that the type of bonds matters a lot. Can you go deeper?
+**Stella（小魚）：** 我想多聊聊债券部分。你之前提到债券的类型至关重要，可以深入讲讲吗？
 
-**Alex:** Absolutely. This is one of the most important and least understood aspects of 60/40. Not all bonds are created equal, and the type of bonds in your 40% allocation dramatically changes the portfolio's behavior.
+**Horace（陳馬）：** 当然。这是 60/40 中最重要、却最少被人理解的方面之一。并非所有债券生而平等，你在 40% 配置中持有的债券类型，将从根本上改变投资组合的表现特征。
 
-[VISUAL: Bond spectrum from left to right: T-Bills (safest, lowest yield) to Short-Term Bonds to Intermediate Bonds to Long-Term Bonds (most volatile, highest yield in normal conditions)]
+[VISUAL: Bond spectrum from left to right: 短期国债（最安全，收益率最低）to 短期债券 to 中期债券 to 长期债券（波动性最大，正常情况下收益率最高）]
 
-**Alex:** The key concept is duration. Duration measures how sensitive a bond is to interest rate changes. A bond with a duration of 2 years will lose about 2% if interest rates rise 1%. A bond with a duration of 20 years will lose about 20% for the same rate increase.
+**Horace（陳馬）：** 关键概念是久期。久期衡量的是债券价格对利率变化的敏感程度。久期为 2 年的债券，在利率上升 1% 时会损失约 2%。久期为 20 年的债券，在利率同等变化下会损失约 20%。
 
-**Sam:** That is a tenfold difference in sensitivity.
+**Stella（小魚）：** 敏感程度相差了十倍。
 
-**Alex:** Exactly. In 2022, the U.S. Aggregate Bond Index had a duration of about 6 years. When rates rose roughly 3 percentage points, the index lost about 13%. But if your 40% had been in short-term bonds with a duration of 2 years, you would have lost only about 4-5% on the bond side. The total 60/40 portfolio would have been down maybe 13% instead of 17%.
+**Horace（陳馬）：** 没错。2022 年，美国综合债券指数的久期约为 6 年。当利率上行约 3 个百分点时，该指数损失约 13%。但如果你的 40% 配置在久期约为 2 年的短期债券上，债券端损失仅约 4% 至 5%。整体 60/40 投资组合跌幅可能只有约 13%，而不是 17%。
 
-**Sam:** So why does not everyone just use short-term bonds?
+**Stella（小魚）：** 那为什么不是所有人都选短期债券呢？
 
-**Alex:** Because in a deflationary crisis -- like 2008 -- long-duration bonds are what save you. When the Fed cuts rates to zero, long-term bond prices surge. Long-term Treasuries gained about 26% in 2008. Short-term bonds barely moved. The 60/40 portfolio with long-duration bonds was down about 22%, but the version with short-term bonds was down about 27%.
+**Horace（陳馬）：** 因为在通缩危机中——比如 2008 年——救你的正是长久期债券。当美联储将利率降至零时，长期债券价格大幅攀升。长期国债在 2008 年涨了约 26%。短期债券几乎纹丝不动。持有长久期债券的 60/40 在 2008 年跌幅约 22%，而持有短期债券的版本跌幅约 27%。
 
-[VISUAL: Two-by-two matrix: "Crisis Type" on one axis (Deflationary vs. Inflationary), "Bond Duration" on the other (Short vs. Long). Shows which combination wins in each scenario: Long duration wins in deflation, Short duration wins in inflation]
+[VISUAL: Two-by-two matrix: "危机类型"为一轴（通缩 vs. 通胀），"债券久期"为另一轴（短 vs. 长）。Shows which combination wins in each scenario: 通缩时长久期胜出，通胀时短久期胜出]
 
-**Sam:** So it is a tradeoff -- you are choosing between protection against deflation and protection against inflation?
+**Stella（小魚）：** 所以这是一种权衡——你在通缩保护和通胀保护之间做选择？
 
-**Alex:** Precisely. And the elegant solution is to not choose. Hold both. Split your 40% bond allocation between some long-duration bonds for deflation protection, some short-duration bonds or TIPS for inflation protection, and some intermediate bonds as a core holding.
+**Horace（陳馬）：** 正是。而优雅的解决方案是不必二选一。两者都持有。将你的 40% 债券配置拆分：一部分长久期债券用于通缩保护，一部分短久期债券或通胀保值债券用于通胀保护，再加上一部分中期债券作为核心持仓。
 
-**Sam:** That is the "modern 60/40" you mentioned earlier.
+**Stella（小魚）：** 这就是你之前说的"现代 60/40"。
 
-**Alex:** Right. You are not just diversifying between stocks and bonds -- you are diversifying within the bond allocation to handle multiple types of crises.
+**Horace（陳馬）：** 对。你不只是在股票和债券之间做分散化——你是在对债券配置内部进行分散化，以应对多种类型的危机。
 
-[VISUAL: Pie chart showing a diversified bond allocation: 40% total split into Intermediate Bonds (15%), Short-Term/T-Bills (10%), TIPS (8%), International Bonds (7%)]
+[VISUAL: Pie chart showing a diversified bond allocation: 40% total split into 中期债券（15%）、短期债券/短期国债（10%）、通胀保值债券（8%）、国际债券（7%）]
 
-**Sam:** Let me ask about something I see a lot online. People say "just go all in on stocks, you are young, ride it out." What is wrong with that advice?
+**Stella（小魚）：** 让我问一个在网上经常看到的观点。有人说"年轻人就应该全仓股票，你还年轻，挺过低谷就好了。"这种说法有什么问题？
 
-**Alex:** Nothing is wrong with it in theory. Over 30-year periods, stocks have always outperformed bonds. So purely from a mathematical standpoint, a 25-year-old maximizes expected wealth by being 100% in stocks. But there are two practical problems.
+**Horace（陳馬）：** 从理论上说没什么问题。在 30 年的时间跨度内，股票始终跑赢债券。所以从纯数学的角度看，25 岁的年轻人应该 100% 持股以最大化预期财富。但有两个实际层面的问题。
 
-**Sam:** Which are?
+**Stella（小魚）：** 哪两个？
 
-**Alex:** First, human behavior. It is easy to say "I will ride it out" when the market is going up. It is extraordinarily difficult when your $200,000 portfolio has become $120,000 and the news is screaming that the economy is collapsing. Most people who say they will "ride it out" have never actually experienced a 40% decline. The research shows that even professional investors make worse decisions under stress.
+**Horace（陳馬）：** 第一，人类的行为模式。市场上涨时说"我能挺过去"很容易。但当你的 20 万投资组合缩水到 12 万，新闻铺天盖地都在说经济要崩了，那就极其难熬了。大多数说自己能"挺过去"的人，从未真正经历过 40% 的跌幅。研究表明，即使是专业投资者，在压力下的决策质量也会明显下滑。
 
 [VISUAL: Graph showing investor cash flows into and out of stock funds, overlaid with market performance. Shows massive outflows at market bottoms (2009, 2020) and massive inflows at market tops -- proving that many investors who plan to "ride it out" actually do the opposite]
 
-**Alex:** Second, sequence of returns risk. This matters most for people approaching or in retirement. If you are 100% in stocks and the market drops 50% in your first year of retirement, you are in serious trouble even if the market eventually recovers. You are selling shares at depressed prices to fund your living expenses, and those shares are gone -- they do not participate in the recovery.
+**Horace（陳馬）：** 第二，收益顺序风险。这对临近或刚进入退休阶段的人影响最大。如果你 100% 持股，在退休第一年市场就跌了 50%，即便市场最终复苏，你也会陷入非常被动的处境。你在最糟糕的时候不得不卖出股票来维持生活开支，而那些卖出的份额就此错过了之后的反弹。
 
-**Sam:** So bonds are not just for returns -- they are for behavioral management and sequence risk.
+**Stella（小魚）：** 所以债券不只是为了收益——它还是行为管理工具和应对收益顺序风险的手段。
 
-**Alex:** Exactly. Bonds serve three functions in a portfolio. One, they provide modest but stable returns. Two, they reduce drawdowns so you can sleep at night and avoid panic-selling. Three, they provide a source of funds during stock market crashes so you do not have to sell stocks at the worst time.
+**Horace（陳馬）：** 正是。债券在投资组合中发挥三种作用。第一，提供适度但稳定的收益。第二，降低回撤幅度，让你能安心入睡，避免恐慌性清仓。第三，在股市暴跌时提供资金来源，让你不必在最糟糕的时机卖出股票。
 
-[VISUAL: Three pillars labeled "Returns" (small), "Behavioral Anchor" (medium), and "Liquidity Buffer" (tall), showing that the non-return benefits of bonds are arguably more valuable than the return contribution]
+[VISUAL: Three pillars labeled "收益"（小）、"行为锚点"（中）、"流动性缓冲"（高），showing that the non-return benefits of bonds are arguably more valuable than the return contribution]
 
-**Sam:** What about alternatives to bonds in the 40% allocation? People talk about gold, real estate, crypto...
+**Stella（小魚）：** 那 40% 的配置中，有没有债券以外的替代品？人们也在谈黄金、房地产、加密货币……
 
-**Alex:** Let us take them one by one. Gold has historically had low correlation to both stocks and bonds, which makes it a genuine diversifier. A 5% allocation to gold can improve risk-adjusted returns. But gold produces no income, has long stretches of poor performance, and is volatile in its own right. I think of gold as portfolio insurance, not a core holding.
+**Horace（陳馬）：** 我们逐个来看。黄金与股票和债券的历史相关性均较低，是真正的分散化工具。配置 5% 的黄金可以改善风险调整收益。但黄金不产生收益，而且有很长一段时间表现欠佳，自身也有相当的波动性。我把黄金看作投资组合中的保险，而非核心配置。
 
-**Sam:** Real estate?
+**Stella（小魚）：** 房地产呢？
 
-**Alex:** Real estate, through REITs, can be a useful addition. REITs provide income, tend to benefit from inflation (rents rise with prices), and have moderate correlation to stocks. But they are not bonds -- they can drop 40% in a crisis, as they did in 2008. Including REITs at 5-10% of a portfolio is reasonable, but they do not replace bonds.
+**Horace（陳馬）：** 通过房地产投资信托（REIT）持有的房地产可以是一种有用的补充。房地产投资信托提供收益，在通胀时期往往受益（租金随物价上涨），与股票的相关性也属中等。但它们不是债券——危机时可以跌 40%，正如 2008 年所见。在投资组合中配置 5% 至 10% 的房地产投资信托是合理的，但不能替代债券。
 
-**Sam:** And crypto?
+**Stella（小魚）：** 那加密货币呢？
 
-**Alex:** Cryptocurrency, as of now, behaves more like a high-volatility growth asset than a defensive asset. Its correlation to stocks has increased over time. Bitcoin dropped over 60% in 2022 while providing no diversification benefit. Regardless of what you think about crypto's future, it is not a bond substitute. If you include it, it should come from the equity allocation, not the bond allocation.
+**Horace（陳馬）：** 就目前而言，加密货币的行为更像高波动性的增长资产，而不是防御性资产。它与股票的相关性随时间不断上升。比特币在 2022 年跌幅逾 60%，毫无分散化价值可言。无论你对加密货币的未来持何种看法，它都不能替代债券。如果要配置，它应当来自权益资产那个"篮子"，而不是债券。
 
-[VISUAL: Correlation matrix showing how different assets correlate with each other: Stocks/Bonds (low), Stocks/Gold (low), Stocks/REITs (moderate), Stocks/Bitcoin (moderate-high), Stocks/Commodities (moderate)]
+[VISUAL: Correlation matrix showing how different assets correlate with each other: 股票/债券（低）、股票/黄金（低）、股票/房地产投资信托（中）、股票/比特币（中高）、股票/大宗商品（中）]
 
-**Sam:** Okay, let me ask the big-picture question. If I am building a portfolio today, in 2026, what should I do? Should I use 60/40 or something else?
+**Stella（小魚）：** 好，让我来问一个宏观问题。如果我现在——2026 年——要构建一个投资组合，我应该怎么做？用 60/40 还是其他方案？
 
-**Alex:** Here is my framework. Start with 60/40 as your baseline. Then adjust based on three factors.
+**Horace（陳馬）：** 这是我的框架。以 60/40 作为基准线，然后根据三个因素进行调整。
 
-**Sam:** What are the three factors?
+**Stella（小魚）：** 哪三个因素？
 
-**Alex:** First, your time horizon. If you have more than 20 years, shift toward more stocks -- maybe 70/30 or 80/20. If you have less than 10 years, shift toward more bonds -- maybe 50/50 or 40/60.
+**Horace（陳馬）：** 第一，你的时间跨度。如果超过 20 年，向更多股票倾斜——也许是 70/30 或 80/20。如果不足 10 年，向更多债券倾斜——也许是 50/50 或 40/60。
 
-Second, the current environment. Today, bond yields are around 4-5%, which means bonds are finally paying you something reasonable. That actually makes the 40% bond allocation more attractive than it was during the zero-rate era of 2010-2020 when bonds yielded almost nothing.
+第二，当前市场环境。今天的债券收益率约为 4% 至 5%，这意味着债券终于再次能给你带来不错的回报。这实际上使 40% 的债券配置比 2010 至 2020 年近乎零利率时代更具吸引力。
 
-Third, diversify within each sleeve. Do not put all 60% in the S&P 500 -- add international stocks. Do not put all 40% in the U.S. Aggregate Bond Index -- add TIPS, short-term bonds, and maybe some real assets.
+第三，在每个"篮子"内部做分散化。不要把全部 60% 都押在标普 500 上——加入国际股票。不要把全部 40% 都投入美国综合债券指数——加入通胀保值债券、短期债券，以及一部分实物资产。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Start with a basic 60/40 pie chart. Animate it transforming step by step: first the equity slice breaks into domestic and international segments, then the bond slice breaks into core bonds, TIPS, short-term, and alternatives. Show the risk metrics changing as each diversification step is added -- each step either reduces risk or improves return or both. Final state shows a fully diversified modern portfolio with expected return and volatility displayed.]
 
-**Sam:** What about the "risk parity" approach I have heard about?
+**Stella（小魚）：** 我还听说过"风险平价"，这是什么？
 
-**Alex:** Risk parity is a fascinating concept. In a traditional 60/40, even though you have 40% in bonds by dollars, about 90% of your portfolio's risk comes from stocks because stocks are so much more volatile than bonds. Your 60/40 portfolio is really a "90/10 risk portfolio."
+**Horace（陳馬）：** 风险平价是个很有意思的概念。在传统的 60/40 中，即便你把 40% 的资金配置在债券上，投资组合约 90% 的风险其实来自股票——因为股票的波动性远远高于债券。你的 60/40 组合在风险维度上其实是"90/10"。
 
-**Sam:** That is misleading.
+**Stella（小魚）：** 那很有误导性。
 
-**Alex:** It is. Risk parity says: instead of allocating by dollars, allocate by risk. Make each asset class contribute equally to total portfolio risk. In practice, this means holding a lot more bonds and a lot less stocks. Maybe 25% stocks and 75% bonds by dollars, which gives you roughly 50/50 risk contribution.
+**Horace（陳馬）：** 确实。风险平价的逻辑是：与其按资金配置，不如按风险配置。让每类资产对总体风险的贡献基本相等。在实践中，这意味着持有更多债券、更少股票——按资金比例大约是 25% 股票、75% 债券，从而实现大致 50/50 的风险贡献。
 
-**Sam:** But that sounds like the returns would be terrible.
+**Stella（小魚）：** 但这样的话收益不会很差吗？
 
-**Alex:** On an unlevered basis, yes. But risk parity funds typically use leverage -- they borrow to buy more bonds -- so the total return is competitive with 60/40. The Sharpe Ratio of risk parity portfolios has historically been higher than 60/40, meaning better risk-adjusted returns.
+**Horace（陳馬）：** 在不加杠杆的情况下，是的。但风险平价基金通常使用杠杆——借钱购买更多债券——所以总体收益与 60/40 具有竞争力。从历史来看，风险平价投资组合的夏普比率高于 60/40，也就是风险调整后的收益更优。
 
 [VISUAL: Side-by-side comparison of 60/40 and Risk Parity: capital allocation pie charts, risk contribution pie charts, return comparison, and Sharpe Ratio comparison. Risk Parity shows more balanced risk contribution and higher Sharpe Ratio]
 
-**Sam:** What are the downsides of risk parity?
+**Stella（小魚）：** 风险平价有什么缺点？
 
-**Alex:** Leverage introduces its own risks. If bond markets seize up -- as they briefly did in March 2020 -- leveraged bond positions can blow up. The strategy also depends on bonds having decent returns, which was questionable when yields were near zero. And the fees for risk parity funds tend to be much higher than a simple 60/40 index portfolio.
+**Horace（陳馬）：** 杠杆本身带来额外风险。如果债券市场出现流动性危机——就像 2020 年 3 月短暂出现的那样——杠杆债券仓位可能瞬间爆仓。这一策略也依赖债券能带来不错的收益，而在收益率趋近于零的时代，这一点存疑。此外，风险平价基金的费率往往远高于简单的 60/40 指数组合。
 
-**Sam:** So it is more sophisticated but not necessarily better?
+**Stella（小魚）：** 所以它更复杂，但未必更好？
 
-**Alex:** For most individual investors, a well-constructed 60/40 or 70/30 portfolio using low-cost index funds will outperform a risk parity fund on an after-fee basis. Risk parity is an interesting institutional approach, but for retail investors, simplicity usually wins.
+**Horace（陳馬）：** 对于大多数个人投资者而言，一个用低成本指数基金精心构建的 60/40 或 70/30 组合，扣除费用后通常优于风险平价基金。风险平价是一种有趣的机构投资方法，但对于普通投资者来说，简单往往胜出。
 
-**Sam:** Let me ask one more practical question. Let us say I have a 60/40 portfolio and stocks crash 30%. I am feeling scared. What do I actually do?
+**Stella（小魚）：** 再问一个实际的问题。假设我有一个 60/40 组合，然后股票跌了 30%。我很恐慌。我到底该怎么做？
 
-**Alex:** First, do nothing impulsive. Close the brokerage app. Go for a walk. Do not make decisions when you are in an emotional state. Second, remind yourself that a 30% decline is a normal, expected event. It has happened many times before and the market has always recovered. Third, if you have the discipline, rebalance. Your portfolio has drifted from 60/40 to maybe 50/50 because stocks fell. Sell some bonds and buy stocks at depressed prices. This is the hardest thing in investing -- buying when everyone else is selling.
+**Horace（陳馬）：** 首先，不要冲动行事。关掉券商 App，出去走走。不要在情绪激动时做决定。其次，提醒自己，30% 的跌幅是正常、可预期的事件，历史上发生过很多次，市场每次都恢复了。第三，如果你有足够的自律，就做再平衡。你的组合已经从 60/40 漂移到大约 50/50，因为股票跌了。卖一些债券，以低价买入股票。这是投资中最难的事情——在所有人都在抛售的时候买入。
 
-**Sam:** And if I cannot bring myself to do that?
+**Stella（小魚）：** 如果我做不到呢？
 
-**Alex:** Then your allocation was probably too aggressive. If a 30% drop makes you want to sell everything, you should have been in 50/50 or 40/60, not 60/40. The right allocation is the one where you can rebalance during a crisis rather than flee from it. That is why understanding your own risk tolerance is so important -- not the theoretical kind, but the kind you feel in your stomach when your portfolio drops.
+**Horace（陳馬）：** 那说明你原来的配置可能太激进了。如果 30% 的跌幅让你想把一切都卖掉，你本该选择 50/50 或 40/60，而不是 60/40。正确的配置，是那个能让你在危机中执行再平衡而非落荒而逃的配置。这正是为什么了解你自己真实的风险承受能力如此重要——不是理论层面的，而是当你的投资组合下跌时你胃里翻腾的那种感觉。
 
-[VISUAL: "Crisis Protocol" checklist: 1) Do not check your portfolio daily, 2) Review your time horizon, 3) Rebalance if possible, 4) Continue regular contributions, 5) Remember: this has happened before and markets recovered]
+[VISUAL: "危机应对清单"：1) 不要每天查看你的投资组合，2) 审视你的时间跨度，3) 如有可能进行再平衡，4) 继续定期定投，5) 记住：这种情况以前发生过，市场都恢复了]
 
-**Sam:** This has been incredibly helpful. Can you summarize the key takeaways?
+**Stella（小魚）：** 今天讲的内容真的太有帮助了。能总结一下核心要点吗？
 
-**Alex:** Five things to remember about the 60/40 portfolio.
+**Horace（陳馬）：** 关于 60/40 投资组合，有五件事要记住。
 
-One, it works because of the stock-bond correlation. When stocks and bonds move in opposite directions, the diversification benefit is powerful. But this correlation is not fixed -- it depends on the inflation regime.
+第一，它的有效性来自股债相关性。当股票和债券走势相反时，分散化收益强大。但这种相关性并非固定不变——它取决于通胀环境。
 
-Two, 60/40 is a starting point, not a mandate. Younger investors should likely hold more stocks, older investors more bonds. The specific numbers matter less than the framework.
+第二，60/40 是起点，不是教条。年轻投资者应持有更多股票，年长投资者应持有更多债券。具体数字远不如框架本身重要。
 
-Three, the type of bonds matters enormously. Traditional long-duration bonds protect you in deflationary crises but hurt you in inflationary ones. A modern bond allocation should include short-duration bonds and TIPS as well.
+第三，债券的类型至关重要。传统的长久期债券在通缩危机中保护你，但在通胀环境下会拖累你。现代债券配置还应包含短久期债券和通胀保值债券。
 
-Four, rebalancing is your secret weapon. It forces you to buy low and sell high, and it has added meaningful returns over time.
+第四，再平衡是你的秘密武器。它强制你低买高卖，并在长期持续带来有意义的额外收益。
 
-Five, the biggest risk is not the market -- it is you. The best portfolio in the world is worthless if you abandon it during a crisis. Choose an allocation you can stick with through the worst markets.
+第五，最大的风险不是市场——而是你自己。世界上最好的投资组合，如果你在危机中将其抛弃，就毫无价值。选择一个你能在最糟糕的市场中坚守的配置。
 
 [VISUAL: Summary card with the five key takeaways, each with a simple icon]
 
-**Sam:** That last point is really the one that ties everything together. It is not about finding the perfect allocation -- it is about finding one you can live with.
+**Stella（小魚）：** 最后这一点真的把所有内容都串起来了。找到完美的配置并不是关键——关键是找到一个你能与之共渡风雨的配置。
 
-**Alex:** Perfectly said. The best allocation is not the one that looks best on a backtest. It is the one you can maintain through the inevitable storms.
+**Horace（陳馬）：** 说得太好了。最优的配置不是回测数据最漂亮的那个，而是你能在不可避免的风暴中坚持下去的那个。
 
-**Sam:** What is coming up next week?
+**Stella（小魚）：** 下周我们讲什么？
 
-**Alex:** Next week we are diving into asset allocation strategies -- how to think about dividing your money across different asset classes beyond just stocks and bonds. We will cover the endowment model, the three-fund portfolio, and how to think about alternative assets. It is going to build directly on what we learned today.
+**Horace（陳馬）：** 下周我们深入资产配置策略——如何思考将资金分配到股票和债券之外的各类资产。我们会讲捐赠基金模型、三基金投资组合，以及如何思考另类资产的问题。内容将直接建立在今天所学的基础之上。
 
-**Sam:** Cannot wait. Thanks for watching everyone, and we will see you next week.
+**Stella（小魚）：** 非常期待。感谢大家的收看，我们下周见！
 
 [VISUAL: End screen with subscribe button and links to previous lessons. Preview card for Week 5: Asset Allocation Strategies]
 

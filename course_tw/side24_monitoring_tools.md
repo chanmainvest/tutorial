@@ -1,395 +1,392 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 24: Portfolio Monitoring Tools and Resources
+# 補充課 24：投資組合監控工具與資源
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Building a great portfolio is only half the battle. Monitoring it -- tracking performance, measuring risk, rebalancing when necessary, and staying informed without becoming obsessive -- is the other half. Fortunately, investors today have access to an extraordinary range of tools, from free spreadsheet templates and open-source calculators to professional-grade analytics platforms that were once available only to institutional investors. This lesson surveys the most useful monitoring tools available to individual investors, explains what each is best suited for, and provides practical guidance on building a monitoring workflow that keeps you informed without driving you crazy. The goal is to spend the minimum time necessary to maintain a well-managed portfolio, freeing you to focus on the rest of your life.
-
----
-
-### a) Why This Is Important
-
-**Performance Measurement.** How do you know if your investment strategy is actually working? Raw returns are misleading without context. A 12% annual return sounds great, but if the market returned 20%, you underperformed significantly. If you took twice the risk of the market to achieve that 12%, your risk-adjusted performance is poor. Proper performance measurement requires benchmarking, risk adjustment, and time-weighted return calculations that account for the timing of cash flows.
-
-**Drift Detection.** Over time, your portfolio's asset allocation drifts from your targets as different assets perform differently. A portfolio that started as 70% stocks and 30% bonds might drift to 80/20 after a strong bull market. Without monitoring, this drift can expose you to more risk than you intended. Regular monitoring identifies when rebalancing is needed.
-
-**Tax Management.** In taxable accounts, monitoring tools help you identify tax-loss harvesting opportunities, track cost basis, manage wash sale rules, and estimate year-end tax liabilities. The tax savings from effective management can add 0.5-1% per year to after-tax returns -- a significant sum over a lifetime.
-
-**Behavioral Guardrails.** Paradoxically, having good monitoring tools can help you check your portfolio less frequently while staying better informed. When you have automated alerts for rebalancing triggers, performance thresholds, and dividend payments, you do not need to anxiously check your accounts daily. The tools do the watching for you.
-
-**Fee Awareness.** Investment fees compound just like returns, but in the wrong direction. Monitoring tools that aggregate your holdings and calculate total fees across funds, advisory fees, and transaction costs help you identify unnecessary cost drags and optimize your expense structure.
+建立一個優質的投資組合只是一半的功課。監控它——追蹤績效、衡量風險、在必要時再平衡，以及保持資訊靈通而不至於過度焦慮——是另一半。幸運的是，今日的投資人可以取得各式各樣出色的工具，從免費的試算表範本和開源計算機，到曾經只有機構投資人才能使用的專業分析平台。本課程盤點對個人投資人最有用的監控工具，說明各工具最適合的用途，並提供實務指引，協助你建立一套監控工作流程——讓你保持資訊靈通，又不至於精神崩潰。目標是花費最少必要的時間來妥善管理投資組合，讓你能夠專注在生活的其他層面。
 
 ---
 
-### b) What You Need to Know
+### a) 為何這很重要
+
+**績效衡量。** 你如何知道你的投資策略是否真的有效？沒有脈絡參考，原始報酬率是具有誤導性的。12% 的年報酬率聽起來很不錯，但如果市場報酬率是 20%，你的表現就嚴重落後。如果你承擔了市場兩倍的風險才獲得那 12%，你的風險調整後績效就相當差。適當的績效衡量需要基準比較、風險調整，以及考量現金流時機的時間加權報酬率計算。
+
+**偏移偵測。** 隨著時間推移，由於不同資產表現各異，你的投資組合資產配置會從目標比例偏移。一個以 70% 股票和 30% 債券起始的投資組合，在一段強勁的多頭市場後，可能偏移至 80/20。沒有監控，這種偏移可能使你承擔超出預期的風險。定期監控能找出何時需要再平衡。
+
+**稅務管理。** 在應稅帳戶中，監控工具能幫助你找出稅損收割的機會、追蹤成本基礎、管理清洗銷售規則，並估算年末稅務負債。有效管理所節省的稅務，每年可為稅後報酬增加 0.5-1%——這在一生中是一筆可觀的金額。
+
+**行為防護欄。** 矛盾的是，擁有良好的監控工具，反而可以幫助你減少查看投資組合的頻率，同時保持更好的資訊掌握。當你設置了再平衡觸發點、績效門檻和股利支付的自動提醒，就不需要每天焦慮地查看帳戶。工具替你盯著一切。
+
+**費用意識。** 投資費用的複利效應就像報酬一樣，但方向相反。能夠彙整你的持倉並計算基金費用率、顧問費和交易成本等各項總費用的監控工具，能幫助你找出不必要的成本拖累，並優化你的費用結構。
+
+---
+
+### b) 你需要了解的事項
 
 #### Portfolio Visualizer
 
-Portfolio Visualizer (portfoliovisualizer.com) is one of the most powerful free analytics tools available to individual investors. It offers sophisticated analysis that was once available only through expensive professional terminals.
+Portfolio Visualizer（portfoliovisualizer.com）是個人投資人可取得的最強大免費分析工具之一。它提供了曾經只有昂貴的專業終端機才有的精密分析。
 
-**Key Features:**
+**主要功能：**
 
-**Backtest Portfolio.** Input your asset allocation, select a time period, and see how the portfolio would have performed historically. The tool calculates total return, annualized return, standard deviation, Sharpe ratio, Sortino ratio, maximum drawdown, and other risk metrics. You can compare multiple portfolios side by side to evaluate different allocation strategies.
+**投資組合回測。** 輸入你的資產配置，選擇時間區間，即可看到該投資組合在歷史上的表現。該工具計算總報酬、年化報酬、標準差、夏普比率、索提諾比率、最大回撤以及其他風險指標。你可以並排比較多個投資組合，以評估不同的配置策略。
 
-**Asset Correlations.** View the correlation matrix between any combination of assets over custom time periods. This is invaluable for portfolio construction -- it shows you which assets actually provide diversification and how correlations change across different market environments.
+**資產相關性。** 查看任意資產組合在自訂時間區間的相關矩陣。這對投資組合建構非常寶貴——它能顯示哪些資產真正提供分散效果，以及相關性在不同市場環境下如何變化。
 
-**Monte Carlo Simulation.** Run thousands of simulated future scenarios based on historical return distributions to estimate the probability of meeting your financial goals. For example, you can input your current portfolio value, annual contributions, time horizon, and spending needs, and the simulator will show you the probability of success across different market conditions.
+**蒙地卡羅模擬。** 根據歷史報酬分佈執行數千次模擬未來情境，以估算實現財務目標的機率。例如，你可以輸入目前的投資組合價值、每年貢獻額、時間範圍和支出需求，模擬器會顯示在不同市場條件下的成功機率。
 
-**Factor Analysis.** Decompose your portfolio's returns into factor exposures (market, size, value, momentum, quality) using regression analysis. This tells you whether your portfolio's performance comes from factor tilts or genuine alpha.
+**因子分析。** 使用迴歸分析將你的投資組合報酬分解為因子暴露（市場、規模、價值、動能、品質）。這能告訴你，投資組合的績效來自因子傾斜還是真正的阿爾法。
 
-**Efficient Frontier.** Plot the efficient frontier for your selected assets and see where your current portfolio falls relative to the optimal risk-return trade-off. This visual tool helps you identify whether your portfolio is efficiently constructed or if adjustments could improve your risk-adjusted returns.
+**效率前緣。** 繪製所選資產的效率前緣，並查看你目前的投資組合相對於最佳風險報酬取捨的位置。這個視覺化工具幫助你判斷投資組合是否有效率地建構，或者調整是否能改善風險調整後報酬。
 
-**Limitations:** Portfolio Visualizer uses historical data, which may not predict future performance. The free tier has usage limits, and advanced features require a subscription (approximately $30-50 per month). It does not connect directly to your brokerage accounts -- you input allocations manually.
+**限制：** Portfolio Visualizer 使用歷史數據，這不一定能預測未來績效。免費版有使用限制，進階功能需要訂閱（約每月 30-50 美元）。它不直接連接你的券商帳戶——你需要手動輸入配置比例。
 
-#### Google Sheets for Portfolio Tracking
+#### Google 試算表追蹤投資組合
 
-Google Sheets (and Excel) provide flexible, customizable tools for portfolio tracking. The GOOGLEFINANCE function pulls real-time and historical stock data directly into your spreadsheet.
+Google 試算表（以及 Excel）為投資組合追蹤提供了靈活、可客製化的工具。GOOGLEFINANCE 函數可直接將即時和歷史股票數據提取到你的試算表中。
 
-**Essential GOOGLEFINANCE Functions:**
+**重要的 GOOGLEFINANCE 函數：**
 
-- `=GOOGLEFINANCE("VTI","price")` -- Returns the current price of VTI.
-- `=GOOGLEFINANCE("VTI","changepct")` -- Returns the daily percentage change.
-- `=GOOGLEFINANCE("VTI","pe")` -- Returns the price-to-earnings ratio.
-- `=GOOGLEFINANCE("VTI","yield")` -- Returns the dividend yield.
-- `=GOOGLEFINANCE("VTI","marketcap")` -- Returns the market capitalization.
-- `=GOOGLEFINANCE("VTI","price","1/1/2023","12/31/2023","DAILY")` -- Returns historical daily prices for the specified date range.
+- `=GOOGLEFINANCE("VTI","price")` — 返回 VTI 的當前價格。
+- `=GOOGLEFINANCE("VTI","changepct")` — 返回當日漲跌百分比。
+- `=GOOGLEFINANCE("VTI","pe")` — 返回本益比。
+- `=GOOGLEFINANCE("VTI","yield")` — 返回股利殖利率。
+- `=GOOGLEFINANCE("VTI","marketcap")` — 返回市值。
+- `=GOOGLEFINANCE("VTI","price","1/1/2023","12/31/2023","DAILY")` — 返回指定日期範圍的歷史每日價格。
 
-**Building a Portfolio Tracker:**
+**建立投資組合追蹤表：**
 
-A basic portfolio tracking spreadsheet includes:
+基本的投資組合追蹤試算表包括：
 
-1. **Holdings Tab:** Columns for Ticker, Name, Shares, Purchase Price, Purchase Date, Current Price (using GOOGLEFINANCE), Current Value (Shares * Current Price), Gain/Loss (Current Value - Cost Basis), Gain/Loss Percentage, Target Allocation, Current Allocation, and Drift from Target.
+1. **持倉分頁：** 欄位包含股票代號、名稱、股數、買進價格、買進日期、當前價格（使用 GOOGLEFINANCE）、當前市值（股數 × 當前價格）、損益（當前市值 - 成本基礎）、損益百分比、目標配置比例、當前配置比例，以及與目標的偏移。
 
-2. **Performance Tab:** Track monthly or quarterly portfolio values, calculate time-weighted returns, and compare against benchmarks. Use the XIRR function for accurate return calculations that account for the timing of deposits and withdrawals.
+2. **績效分頁：** 追蹤每月或每季的投資組合價值，計算時間加權報酬率，並與基準比較。使用 XIRR 函數進行精確的報酬率計算，以考量存款和提款的時機。
 
-3. **Rebalancing Tab:** Calculate how many shares of each holding to buy or sell to return to target allocations. Include logic that considers tax implications (prefer rebalancing through new contributions rather than selling appreciated assets).
+3. **再平衡分頁：** 計算每個持倉需要買進或賣出多少股，以回到目標配置。包含考量稅務影響的邏輯（優先透過新投入資金進行再平衡，而非賣出已增值的資產）。
 
-4. **Dividend Tab:** Track dividend payments, reinvestment, and yield calculations. Use GOOGLEFINANCE to pull current yields and calculate projected annual income.
+4. **股利分頁：** 追蹤股利支付、再投資和殖利率計算。使用 GOOGLEFINANCE 提取當前殖利率並計算預期年度收益。
 
-5. **Tax Tab:** Track cost basis by lot, identify tax-loss harvesting opportunities (positions with unrealized losses), and flag potential wash sale issues.
+5. **稅務分頁：** 按批次追蹤成本基礎，找出稅損收割機會（有未實現虧損的部位），並標記潛在的清洗銷售問題。
 
-**Tips for Google Sheets:**
-- GOOGLEFINANCE can be unreliable during market hours due to data delays and outages. Do not rely on it for real-time trading decisions.
-- Historical data from GOOGLEFINANCE may not include dividends in price returns. For total return calculations, use an external data source.
-- Google Sheets has a built-in sparkline function (`=SPARKLINE(GOOGLEFINANCE(...))`) that can create mini charts within cells for visual portfolio monitoring.
+**Google 試算表使用技巧：**
+- 由於數據延遲和服務中斷，GOOGLEFINANCE 在交易時段可能不穩定。請勿依賴它做即時交易決策。
+- GOOGLEFINANCE 的歷史數據可能未在價格報酬中包含股利。進行總報酬計算時，請使用外部數據來源。
+- Google 試算表有內建的迷你圖表函數（`=SPARKLINE(GOOGLEFINANCE(...))`），可在儲存格內建立迷你圖表，用於視覺化投資組合監控。
 
-#### Brokerage Platform Tools
+#### 券商平台工具
 
-Modern brokerage platforms offer increasingly sophisticated built-in analytics.
+現代券商平台提供日益精密的內建分析功能。
 
-**Fidelity:**
-- **Full View / eMoney:** Aggregates accounts from multiple institutions for a complete financial picture.
-- **Portfolio Analysis:** Shows asset allocation, sector exposure, geographic breakdown, and portfolio overlap between funds.
-- **Planning and Guidance Center:** Retirement planning calculator with Monte Carlo simulation.
-- **Tax Lot Management:** Detailed cost basis tracking with the ability to specify lots for tax-optimized selling.
-- **Active Trader Pro:** Advanced charting and technical analysis for active traders.
+**Fidelity：**
+- **Full View / eMoney：** 彙整多個機構帳戶，提供完整的財務全貌。
+- **投資組合分析：** 顯示資產配置、類股暴露、地理分佈和基金重疊情況。
+- **規劃與指引中心：** 具備蒙地卡羅模擬的退休規劃計算機。
+- **稅務批次管理：** 詳細的成本基礎追蹤，可指定批次以進行稅務最佳化銷售。
+- **Active Trader Pro：** 適合積極交易者的進階圖表和技術分析工具。
 
-**Charles Schwab (including former TD Ameritrade/Thinkorswim):**
-- **Schwab Portfolio Checkup:** Analyzes asset allocation, diversification, and provides recommendations.
-- **Thinkorswim Platform:** Industry-leading options analysis, charting, and paper trading capabilities. The platform's risk profile tool shows the Greeks for your entire portfolio.
-- **Schwab Intelligent Portfolios:** Automated investing with tax-loss harvesting (for portfolios over $50,000).
+**Charles Schwab（包含前 TD Ameritrade/Thinkorswim）：**
+- **Schwab Portfolio Checkup：** 分析資產配置、分散程度，並提供建議。
+- **Thinkorswim 平台：** 業界領先的選擇權分析、圖表和模擬交易功能。該平台的風險設定檔工具顯示你整個投資組合的希臘字母值。
+- **Schwab Intelligent Portfolios：** 自動化投資，含稅損收割功能（適用於 50,000 美元以上的投資組合）。
 
-**Interactive Brokers (IBKR):**
-- **Portfolio Analyst:** The most comprehensive built-in analytics of any brokerage. Provides detailed performance attribution, risk analysis, sector/geographic breakdowns, and factor exposure analysis.
-- **Risk Navigator:** Real-time risk analysis showing your portfolio's exposure to market movements, interest rates, and volatility changes. Essential for options-heavy portfolios.
-- **TWS (Trader Workstation):** Professional-grade trading platform with advanced analytics.
-- **Lowest margin rates and widest range of tradable instruments among retail brokers.
+**Interactive Brokers（IBKR）：**
+- **Portfolio Analyst：** 所有券商中最全面的內建分析工具。提供詳細的績效歸因、風險分析、類股／地理分佈，以及因子暴露分析。
+- **Risk Navigator：** 即時風險分析，顯示你的投資組合對市場波動、利率和波動性變化的暴露。對以選擇權為主的投資組合至關重要。
+- **TWS（Trader Workstation）：** 具備進階分析功能的專業交易平台。
+- 零售券商中保證金利率最低、可交易工具範圍最廣。
 
-**Vanguard:**
-- **Portfolio Watch:** Analyzes asset allocation against Vanguard's recommendations.
-- **Retirement Income Calculator:** Projects income in retirement based on current savings and asset allocation.
-- **Lower-cost platform with emphasis on long-term, passive investing.**
-- Historically less feature-rich for active monitoring but continuously improving.
+**Vanguard：**
+- **Portfolio Watch：** 根據 Vanguard 的建議分析資產配置。
+- **退休收入計算機：** 根據當前儲蓄和資產配置預測退休後收入。
+- 低成本平台，強調長期被動投資。
+- 歷史上主動監控功能較不豐富，但持續改善中。
 
-#### Third-Party Monitoring Tools
+#### 第三方監控工具
 
-**Morningstar (morningstar.com):**
-- **Portfolio X-Ray:** Aggregates holdings across all your funds and ETFs to show true underlying asset allocation, sector exposure, geographic distribution, and stock overlap. This is essential because many investors hold overlapping funds without realizing it.
-- **Fund/ETF Research:** Detailed analysis of funds including expense ratios, tax efficiency, manager tenure, and Morningstar ratings.
-- **Premium Membership:** Includes analyst reports, fair value estimates for stocks, and enhanced portfolio tools. Approximately $35/month.
+**Morningstar（morningstar.com）：**
+- **投資組合 X 光：** 彙整你所有基金和指數股票型基金的持倉，以顯示真正的底層資產配置、類股暴露、地理分佈和股票重疊情況。這非常重要，因為許多投資人持有重疊基金而不自知。
+- **基金／指數股票型基金研究：** 詳細的基金分析，包括費用率、稅務效率、經理人任期和 Morningstar 評級。
+- **高級會員：** 包含分析師報告、股票公允價值估計和增強版投資組合工具。約每月 35 美元。
 
-**Personal Capital (now Empower):**
-- **Free Dashboard:** Aggregates all financial accounts (brokerage, banking, retirement, credit cards) for a complete net worth view.
-- **Investment Checkup:** Analyzes your portfolio's asset allocation, fee costs, and risk exposure, comparing them against recommended allocations.
-- **Retirement Planner:** Monte Carlo simulation-based retirement projections.
-- **Fee Analyzer:** Calculates the total annual fees across all your investments, including fund expense ratios and advisor fees. This tool has helped many investors discover they are paying far more in fees than they realized.
-- Note: Empower uses free tools as a marketing channel for its wealth management services. You may receive solicitations for their advisory service.
+**Personal Capital（現為 Empower）：**
+- **免費儀表板：** 彙整所有財務帳戶（券商、銀行、退休、信用卡），提供完整的淨資產視圖。
+- **投資組合健診：** 分析你的投資組合資產配置、費用成本和風險暴露，並與建議配置比較。
+- **退休規劃工具：** 基於蒙地卡羅模擬的退休預測。
+- **費用分析工具：** 計算你所有投資的年度總費用，包括基金費用率和顧問費。這個工具幫助許多投資人發現他們支付的費用遠超過自己的認知。
+- 注意：Empower 將免費工具作為其財富管理服務的行銷管道。你可能會收到他們顧問服務的推銷。
 
-**Stock Events / Dividend Tracking Apps:**
-- **Stock Events:** Mobile app that tracks dividend payments, ex-dates, and projected annual income. Useful for income-focused investors.
-- **Simply Wall St:** Visual stock analysis using infographics. Shows valuation metrics, financial health indicators, and dividend history in an accessible format.
-- **Seeking Alpha:** Investment research platform with community analysis, earnings call transcripts, and portfolio tracking. Free tier available with premium options.
+**股票事件 ／ 股利追蹤應用程式：**
+- **Stock Events：** 追蹤股利支付、除息日和預期年度收益的手機應用程式。對以收益為導向的投資人很有用。
+- **Simply Wall St：** 使用資訊圖表的視覺化股票分析。以易於理解的格式顯示估值指標、財務健全指標和股利歷史。
+- **Seeking Alpha：** 具有社群分析、法說會逐字稿和投資組合追蹤功能的投資研究平台。有免費版和付費選項。
 
-#### Setting Up Alerts
+#### 設定提醒
 
-Effective alerts reduce the need for manual checking while ensuring you do not miss important events.
+有效的提醒能減少手動查看的需求，同時確保你不會錯過重要事件。
 
-**Price Alerts:**
-- Set alerts for significant moves (more than 5% in a day) in your holdings.
-- Set alerts when key holdings approach your target buy prices.
-- Set alerts when portfolio drift exceeds your rebalancing threshold (typically 5 percentage points from target).
+**價格提醒：**
+- 為持倉中單日漲跌超過 5% 的情況設定提醒。
+- 當主要持倉接近你的目標買進價格時設定提醒。
+- 當投資組合偏移超過你的再平衡門檻時設定提醒（通常距目標偏移 5 個百分點）。
 
-**Dividend Alerts:**
-- Track ex-dividend dates to manage timing of purchases and sales.
-- Monitor for dividend cuts or increases in your income holdings.
+**股利提醒：**
+- 追蹤除息日，以管理買進和賣出的時機。
+- 監控收益持倉的股利削減或增加。
 
-**News Alerts:**
-- Google Alerts for company names and ticker symbols of your largest holdings.
-- Earnings date reminders for holdings you want to monitor closely.
-- SEC filing alerts (13F, 10-K, 10-Q) for holdings where you follow insider activity or financial statements.
+**新聞提醒：**
+- 為最大持倉的公司名稱和股票代號設定 Google 快訊。
+- 為你想密切監控的持倉設定法說會日期提醒。
+- 為你追蹤內部人活動或財務報表的持倉設定美國證管會申報文件提醒（13F、10-K、10-Q）。
 
-**Economic Calendar Alerts:**
-- FOMC meeting dates and rate decisions.
-- Employment reports, inflation data (CPI, PCE), GDP releases.
-- Earnings season dates for portfolio-relevant companies.
+**經濟行事曆提醒：**
+- 聯邦公開市場委員會（FOMC）會議日期和利率決議。
+- 就業報告、通膨數據（CPI、PCE）、GDP 公布。
+- 與投資組合相關的公司法說會季節日期。
 
-**Rebalancing Alerts:**
-- Calendar reminders for periodic rebalancing reviews (quarterly or semi-annually).
-- Threshold alerts when any asset class deviates more than 5 percentage points from its target allocation.
+**再平衡提醒：**
+- 定期再平衡審查的行事曆提醒（每季或每半年）。
+- 當任何資產類別偏移目標配置超過 5 個百分點時的門檻提醒。
 
-#### Key Performance Metrics to Track
+#### 需追蹤的關鍵績效指標
 
-Understanding which metrics to monitor helps you evaluate your portfolio objectively rather than relying on gut feelings.
+了解要監控哪些指標，有助於你客觀評估投資組合，而非依賴直覺。
 
-**Time-Weighted Return (TWR).** Measures portfolio performance independent of the timing and size of cash flows. This is the standard for comparing your performance to a benchmark. Most brokerage platforms report TWR.
+**時間加權報酬率（TWR）。** 衡量不受現金流時機和規模影響的投資組合績效。這是將你的績效與基準比較的標準方法。大多數券商平台都報告時間加權報酬率。
 
-**Money-Weighted Return (MWR / XIRR).** Measures your personal return accounting for the timing and size of your deposits and withdrawals. If you invested a large sum right before a rally, your MWR will be higher than your TWR. XIRR captures your actual experience as an investor.
+**金額加權報酬率（MWR / XIRR）。** 衡量你的個人報酬率，考量了存款和提款的時機與規模。如果你在一波上漲前投入大筆資金，你的金額加權報酬率將高於時間加權報酬率。XIRR 捕捉到你作為投資人的實際體驗。
 
-**Sharpe Ratio.** Measures risk-adjusted return: (Portfolio Return - Risk-Free Rate) / Portfolio Standard Deviation. A Sharpe ratio above 0.5 is decent, above 1.0 is good, and above 1.5 is excellent. Compare your portfolio's Sharpe ratio to your benchmark's to determine if you are being compensated for the risk you are taking.
+**夏普比率。** 衡量風險調整後報酬：（投資組合報酬率 - 無風險利率）/ 投資組合標準差。夏普比率高於 0.5 算尚可，高於 1.0 算良好，高於 1.5 算優秀。將你的投資組合夏普比率與基準的夏普比率比較，以判斷你是否獲得了承擔風險的補償。
 
-**Maximum Drawdown.** The largest peak-to-trough decline in your portfolio. This measures the worst-case scenario you have experienced. If your maximum drawdown exceeds your pain threshold, your portfolio may be too risky. Portfolio Visualizer calculates this automatically for backtested portfolios.
+**最大回撤。** 你的投資組合有史以來從波峰到波谷最大的跌幅。這衡量你所經歷過的最壞情況。如果你的最大回撤超過你的痛苦門檻，你的投資組合可能風險過高。Portfolio Visualizer 會自動為回測的投資組合計算這個數值。
 
-**Sortino Ratio.** Similar to the Sharpe ratio but penalizes only downside volatility (not upside). This is arguably a better measure of risk-adjusted return because investors do not mind upside volatility. A Sortino ratio above 1.0 indicates good risk-adjusted performance.
+**索提諾比率。** 類似夏普比率，但只懲罰下行波動性（而非上行）。這可以說是更好的風險調整後報酬衡量指標，因為投資人不在意上行波動性。索提諾比率高於 1.0 表示良好的風險調整後績效。
 
-**Expense Ratio.** The total annual cost of your investments as a percentage of assets. For index fund portfolios, this should be below 0.10%. For actively managed portfolios, total costs including fund fees, advisory fees, and transaction costs should ideally be below 0.50%. Every basis point of fee saved compounds over decades.
+**費用率。** 你的投資年度總費用佔資產的百分比。對指數基金投資組合而言，應低於 0.10%。對主動管理的投資組合，包括基金費用率、顧問費和交易成本在內的總費用，理想上應低於 0.50%。每節省一個基點的費用，都會在數十年間累積複利。
 
-#### Common Tracking Mistakes to Avoid
+#### 常見的追蹤錯誤
 
-**Comparing to the Wrong Benchmark.** A conservative 60/40 portfolio should be compared to a 60/40 benchmark, not the S&P 500. Comparing a diversified portfolio to a single asset class will always make you feel like you are underperforming when that particular asset class is doing well.
+**與錯誤基準比較。** 保守的 60/40 投資組合應與 60/40 基準比較，而非標準普爾 500 指數。將分散化投資組合與單一資產類別比較，在那個特定資產類別表現良好時，永遠會讓你覺得表現落後。
 
-**Ignoring Taxes in Performance Calculations.** Pre-tax returns overstate your actual wealth accumulation. For taxable accounts, tracking after-tax returns gives a more accurate picture. This is particularly important for strategies that generate significant short-term capital gains.
+**在績效計算中忽略稅務。** 稅前報酬高估了你的實際財富累積。對應稅帳戶而言，追蹤稅後報酬能提供更準確的圖像。對於產生大量短期資本利得的策略而言，這特別重要。
 
-**Anchoring to Purchase Price.** Many investors obsess over whether each individual holding is above or below their purchase price. What matters is whether the holding is likely to provide good forward returns relative to alternatives. A stock that has declined 30% from your purchase price may be an excellent value or a value trap -- the purchase price itself is irrelevant to that analysis.
+**錨定於買進價格。** 許多投資人執著於每筆持倉是否高於或低於他們的買進價格。真正重要的是，該持倉相對於其他選擇，是否可能提供良好的未來報酬。一支從你買進價格下跌了 30% 的股票，可能是絕佳的價值投資機會，也可能是價值陷阱——買進價格本身與這個分析無關。
 
-**Frequency Bias in Performance Evaluation.** If you evaluate your strategy after only six months, you do not have enough data to determine if it is working. Most investment strategies should be evaluated over complete market cycles (3-5 years minimum). Abandoning a sound strategy after a short period of underperformance is one of the most common investor mistakes.
+**績效評估的頻率偏誤。** 如果你在僅僅六個月後評估你的策略，你沒有足夠的數據來判斷它是否有效。大多數投資策略應在完整的市場週期（至少 3-5 年）中進行評估。在短暫的績效落後後放棄一個合理的策略，是最常見的投資人錯誤之一。
 
-#### Building an Effective Monitoring Workflow
+#### 建立有效的監控工作流程
 
-The goal is to find the minimum effective monitoring frequency that keeps your portfolio well-managed without consuming excessive time or triggering emotional reactions.
+目標是找到最低有效監控頻率，讓你的投資組合管理良好，同時不消耗過多時間或引發情緒反應。
 
-**Daily (5 minutes or less):**
-- Skim financial headlines for major market-moving events.
-- Check portfolio value only if you have a specific reason (e.g., rebalancing day, significant market event).
-- Do NOT check daily during normal market conditions. This triggers loss aversion and leads to overtrading.
+**每日（5 分鐘或更少）：**
+- 瀏覽財經頭條，了解重大市場事件。
+- 只有在有特定原因時才查看投資組合價值（例如，再平衡日、重大市場事件）。
+- 在正常市場條件下，切勿每日查看。這會觸發損失規避並導致過度交易。
 
-**Weekly (15-30 minutes):**
-- Review your watchlist and any alerts that triggered during the week.
-- Check for any upcoming ex-dividend dates or earnings announcements for your holdings.
+**每週（15-30 分鐘）：**
+- 查看你的關注清單，以及本週觸發的任何提醒。
+- 檢查持倉即將到來的除息日或法說會公告。
 
-**Monthly (30-60 minutes):**
-- Review portfolio performance and compare against benchmarks.
-- Check asset allocation drift and determine if rebalancing is needed.
-- Review income received (dividends, interest) and verify reinvestment or allocation.
-- In taxable accounts, scan for tax-loss harvesting opportunities.
+**每月（30-60 分鐘）：**
+- 審查投資組合績效並與基準比較。
+- 檢查資產配置偏移，判斷是否需要再平衡。
+- 審查收到的收益（股利、利息），確認再投資或配置情況。
+- 在應稅帳戶中，掃描稅損收割機會。
 
-**Quarterly (1-2 hours):**
-- Comprehensive portfolio review. Evaluate each holding's thesis and determine if it still holds.
-- Update your Investment Policy Statement if circumstances have changed (job change, inheritance, shifting time horizon).
-- Review investment journal entries and identify behavioral patterns.
-- Rebalance if drift exceeds your threshold and was not addressed during monthly reviews.
+**每季（1-2 小時）：**
+- 全面的投資組合審查。評估每筆持倉的投資論點，判斷是否仍然成立。
+- 若情況有所改變（換工作、繼承財產、時間範圍轉移），更新你的投資政策說明書。
+- 審閱投資日誌條目，找出行為模式。
+- 若偏移超過門檻且未在每月審查中處理，則進行再平衡。
 
-**Annually (2-4 hours):**
-- Full portfolio audit. Review total return, risk-adjusted return, and comparison to benchmarks.
-- Review and update your financial plan. Recalculate whether you are on track for your goals.
-- Tax planning: Estimate capital gains distributions, plan year-end harvesting, and consider Roth conversions.
-- Review all investment fees and determine if cheaper alternatives exist.
-- Evaluate whether your risk tolerance has changed based on your experience during the year.
-
----
-
-### c) Common Misconceptions
-
-**"Checking my portfolio more often makes me a better investor."** Research consistently shows the opposite. Investors who check less frequently make fewer impulsive trades and achieve better long-term returns. Daily checking exposes you to loss aversion -- you see daily noise that is meaningless over a 20-year time horizon but that emotionally feels significant. Monthly or quarterly monitoring is sufficient for most investors.
-
-**"I need expensive tools to manage my portfolio well."** The most important portfolio management tools are free or very low cost. Google Sheets, Portfolio Visualizer's free tier, your brokerage's built-in analytics, and Empower's free dashboard cover the needs of the vast majority of individual investors. Premium tools are nice-to-have, not need-to-have.
-
-**"Real-time data is important for long-term investors."** If your investment horizon is 20-30 years, whether you see your portfolio value at 10:15 AM or 4:00 PM makes zero difference. Real-time data is necessary for day traders but counterproductive for long-term investors because it creates urgency that leads to poor decisions.
-
-**"My brokerage's performance numbers are all I need."** Brokerage performance calculations can be misleading because they show simple returns that do not account for the timing of deposits. An investor who deposited money right before a rally will appear to have a higher return than one who deposited the same amount right after a rally, even if they hold identical investments. Use XIRR or time-weighted returns for accurate performance measurement.
-
-**"Portfolio monitoring is set-it-and-forget-it."** While excessive monitoring is harmful, complete neglect is also problematic. Asset allocation drift, fee changes, tax opportunities, and evolving personal circumstances all require periodic attention. The sweet spot is systematic, scheduled reviews rather than reactive daily checking or total avoidance.
+**每年（2-4 小時）：**
+- 全面的投資組合稽核。審查總報酬、風險調整後報酬，以及與基準的比較。
+- 審查並更新你的財務計劃。重新計算你是否達成目標。
+- 稅務規劃：估算資本利得分配，規劃年末收割，以及考量羅斯轉換。
+- 審查所有投資費用，判斷是否存在更便宜的替代方案。
+- 根據你當年的經歷，評估你的風險承受度是否有所改變。
 
 ---
 
-### d) Q&A
+### c) 常見誤解
 
-**Q: What is the single most important metric to track?**
-A: For most investors, asset allocation drift is the most actionable metric. If your target is 70% stocks and 30% bonds, knowing when that has drifted to 80/20 or 60/40 tells you when to rebalance. Performance metrics are informative, but asset allocation is what you actually act on. Track it monthly and rebalance when drift exceeds 5 percentage points.
+**「更頻繁地查看投資組合能讓我成為更好的投資人。」** 研究一再顯示事實恰恰相反。較少頻率查看投資組合的投資人，衝動交易更少，長期報酬更好。每日查看使你暴露於損失規避中——你看到每日的雜訊，這在 20 年的時間跨度內毫無意義，但在情感上感覺很重要。對大多數投資人而言，每月或每季監控就已足夠。
 
-**Q: How do I calculate my true investment return?**
-A: Use the XIRR function in Excel or Google Sheets. XIRR calculates the internal rate of return based on a series of cash flows and their dates. List every deposit, withdrawal, and the current portfolio value with their respective dates. The XIRR result is your personal rate of return, properly accounting for the timing and size of all cash flows.
+**「我需要昂貴的工具才能妥善管理我的投資組合。」** 最重要的投資組合管理工具是免費或費用非常低廉的。Google 試算表、Portfolio Visualizer 的免費版、你的券商內建分析工具，以及 Empower 的免費儀表板，已能涵蓋絕大多數個人投資人的需求。付費工具是錦上添花，而非必不可少。
 
-**Q: Are robo-advisors good monitoring tools?**
-A: Robo-advisors like Wealthfront, Betterment, and Schwab Intelligent Portfolios handle much of the monitoring automatically -- rebalancing, tax-loss harvesting, and performance reporting are built in. For investors who want a truly hands-off approach, robo-advisors provide effective monitoring and management at relatively low cost (typically 0.25-0.50% per year). The trade-off is less customization and control compared to self-directed portfolios.
+**「即時數據對長期投資人很重要。」** 如果你的投資時間跨度是 20-30 年，你在上午 10:15 還是下午 4:00 看到你的投資組合價值，完全沒有差異。即時數據對當日沖銷交易者是必要的，但對長期投資人而言則適得其反，因為它製造了緊迫感，導致不良決策。
 
-**Q: How do I track the performance of a portfolio that spans multiple accounts?**
-A: Use an account aggregation tool like Empower (Personal Capital), Morningstar's Portfolio Manager, or a Google Sheets model that combines data from all accounts. The key is to view your portfolio holistically -- your IRA, 401(k), taxable brokerage account, and any other investment accounts should be analyzed as a single portfolio to understand your true asset allocation and risk exposure. Many investors discover they are far less diversified than they thought when they finally aggregate all their accounts.
+**「我的券商的績效數字就是我所需要的全部。」** 券商的績效計算可能具有誤導性，因為它們顯示的是未考量存款時機的簡單報酬率。在一波上漲前存款的投資人，看起來會比在同一波上漲後存入同等金額的投資人報酬率更高，即使他們持有完全相同的投資。使用 XIRR 或時間加權報酬率進行準確的績效衡量。
 
-**Q: What should I do if I discover I have been significantly underperforming my benchmark?**
-A: First, verify the comparison is fair -- are you comparing against the right benchmark? A conservative 60/40 portfolio should not be compared to a 100% equity index. Second, identify the source of underperformance: Is it high fees? Poor timing (buying high, selling low)? Lack of diversification? Concentrated positions that did not work out? Third, make systematic changes rather than emotional ones. If fees are the problem, switch to lower-cost funds. If behavioral issues are the cause, implement automation and reduce your checking frequency. Avoid the temptation to make dramatic portfolio changes all at once.
-
-**Q: How much time should I spend on portfolio monitoring?**
-A: For a well-constructed, diversified portfolio using index funds or ETFs, 2-4 hours per quarter is sufficient. This includes checking drift, reviewing performance, scanning for tax opportunities, and updating your financial plan. If you find yourself spending more than an hour per week on monitoring, you are likely over-monitoring and at risk of making impulsive decisions. The best portfolios require minimal maintenance -- that is a feature, not a bug.
-
-**Q: What are the best free resources for staying informed about markets?**
-A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal Reserve's FRED database (fred.stlouisfed.org) for economic data; finviz.com for stock screening and market heatmaps. For research: SEC.gov EDGAR for company filings; Macrotrends.net for long-term financial data; Portfolio Visualizer for portfolio analysis. For education: Investopedia for concept explanations; Bogleheads.org forum for practical investing discussion. Avoid sources that promote frequent trading or sensationalize market events.
+**「投資組合監控是一勞永逸的事。」** 雖然過度監控有害，但完全忽視也是有問題的。資產配置偏移、費用變更、稅務機會，以及個人情況的變化，都需要定期關注。最佳做法是系統性、定期的審查，而非每日被動反應式的查看，或完全置之不理。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：最重要的單一追蹤指標是什麼？**
+答：對大多數投資人而言，資產配置偏移是最具可行性的指標。如果你的目標是 70% 股票和 30% 債券，了解它何時偏移至 80/20 或 60/40 能告訴你何時需要再平衡。績效指標提供參考，但資產配置才是你真正需要採取行動的指標。每月追蹤它，當偏移超過 5 個百分點時進行再平衡。
+
+**問：我如何計算我的真實投資報酬率？**
+答：在 Excel 或 Google 試算表中使用 XIRR 函數。XIRR 根據一系列現金流及其日期計算內部報酬率。列出每一筆存款、提款和當前投資組合價值及其各自的日期。XIRR 結果就是你的個人報酬率，已正確考量所有現金流的時機和規模。
+
+**問：機器人理財顧問是好的監控工具嗎？**
+答：像 Wealthfront、Betterment 和 Schwab Intelligent Portfolios 這樣的機器人理財顧問，會自動處理大部分的監控工作——再平衡、稅損收割和績效報告都是內建的。對於想要真正免操心方式的投資人，機器人理財顧問以相對低廉的成本（通常每年 0.25-0.50%）提供有效的監控和管理。代價是與自主管理的投資組合相比，客製化和控制程度較低。
+
+**問：如何追蹤跨多個帳戶的投資組合績效？**
+答：使用帳戶彙整工具，如 Empower（Personal Capital）、Morningstar 的 Portfolio Manager，或能合併所有帳戶數據的 Google 試算表模型。關鍵是整體地看待你的投資組合——你的個人退休帳戶（IRA）、401(k)、應稅券商帳戶以及任何其他投資帳戶，都應作為單一投資組合進行分析，以了解你的真實資產配置和風險暴露。許多投資人在最終彙整所有帳戶後，發現自己的分散程度遠低於想像。
+
+**問：如果我發現我的績效顯著落後於基準，我該怎麼做？**
+答：首先，確認比較是否公平——你是否與正確的基準進行比較？保守的 60/40 投資組合不應與 100% 股票指數比較。其次，找出績效落後的來源：是高費用？時機不佳（高買低賣）？分散不足？沒有成效的集中部位？第三，做出系統性的改變，而非情緒性的。如果費用是問題，就換成低成本基金。如果行為問題是原因，就實施自動化並降低查看頻率。避免一次對投資組合做出重大的全面調整。
+
+**問：我應該在投資組合監控上花多少時間？**
+答：對於使用指數基金或指數股票型基金的構建良好、分散化的投資組合，每季 2-4 小時就足夠了。這包括檢查偏移、審查績效、掃描稅務機會，以及更新你的財務計劃。如果你發現自己每週在監控上花費超過一小時，你可能過度監控了，並且有做出衝動決定的風險。最好的投資組合只需要最少的維護——這是一個特點，而非缺陷。
+
+**問：了解市場的最佳免費資源是什麼？**
+答：對於廣泛的市場認識：CNBC.com 和 Bloomberg.com 提供新聞；美國聯準會的 FRED 資料庫（fred.stlouisfed.org）提供經濟數據；finviz.com 提供選股篩選和市場熱力圖。對於研究：美國證管會 EDGAR 提供公司申報文件；Macrotrends.net 提供長期財務數據；Portfolio Visualizer 提供投資組合分析。對於教育：Investopedia 提供概念說明；Bogleheads.org 論壇提供實務投資討論。避免推崇頻繁交易或渲染市場事件的來源。
+
+---
+
+## YouTube 腳本
 
 [INTRO - 0:00]
 
-[VISUAL: Desk setup with multiple monitors showing different portfolio tools -- brokerage platform, spreadsheet, Portfolio Visualizer, financial news]
+[VISUAL: 桌面設置，多個螢幕顯示不同的投資組合工具——券商平台、試算表、Portfolio Visualizer、財經新聞]
 
-**Alex:** You have built your portfolio. You have chosen your asset allocation, selected your funds, and invested your money. Now what? How do you actually keep track of everything without driving yourself crazy?
+**Horace（陳馬）：** 你已經建立了你的投資組合。你選擇了資產配置，挑選了基金，並投入了你的資金。接下來呢？你如何在不讓自己抓狂的情況下追蹤一切？
 
-**Sam:** Today we are covering the practical tools for monitoring your portfolio -- from free spreadsheet tricks to professional-grade analytics. And equally important, we are going to talk about how often you should actually be checking and what the right workflow looks like.
+**Stella（小魚）：** 今天我們要介紹監控你的投資組合的實務工具——從免費的試算表技巧到專業級的分析工具。同樣重要的是，我們將討論你實際上應該多頻繁地查看，以及正確的工作流程是什麼樣子。
 
-[VISUAL: Title card "Portfolio Monitoring: Tools, Techniques, and the Right Cadence"]
+[VISUAL: 標題卡「投資組合監控：工具、技巧與正確節奏」]
 
 ---
 
 [SECTION 1 - PORTFOLIO VISUALIZER - 1:30]
 
-[VISUAL: Portfolio Visualizer website interface showing the backtest tool]
+[VISUAL: Portfolio Visualizer 網站介面，顯示回測工具]
 
-**Alex:** Let us start with what might be the most powerful free investing tool on the internet: Portfolio Visualizer. This is a website -- portfoliovisualizer.com -- that gives you institutional-quality portfolio analysis for free.
+**Horace（陳馬）：** 讓我們從網路上可能最強大的免費投資工具開始：Portfolio Visualizer。這個網站——portfoliovisualizer.com——免費提供你機構等級的投資組合分析。
 
-**Sam:** Here is what you can do. Enter your asset allocation -- say, 60 percent VTI, 30 percent VXUS, and 10 percent BND. Choose a time period, and it will show you exactly how that portfolio would have performed historically. Not just returns, but volatility, maximum drawdown, Sharpe ratio, and more.
+**Stella（小魚）：** 你可以這樣使用：輸入你的資產配置——假設是 60% 的 VTI、30% 的 VXUS 和 10% 的 BND。選擇一個時間區間，它就會精確地顯示出該投資組合在歷史上的表現。不只是報酬，還包括波動性、最大回撤、夏普比率等更多指標。
 
-[VISUAL: Screen recording of entering a portfolio allocation and viewing the results, with key metrics highlighted]
+[VISUAL: 螢幕錄影，顯示輸入投資組合配置並查看結果的過程，關鍵指標被高亮顯示]
 
-**Alex:** But the really powerful features go beyond basic backtesting. The correlation analysis tool shows you the correlation between any combination of assets over any time period. You can see which assets actually diversify your portfolio and which are just giving you more of the same risk.
+**Horace（陳馬）：** 但真正強大的功能超越了基本的回測。相關性分析工具顯示任意資產組合在任何時間區間的相關性。你可以看到哪些資產真正能分散你的投資組合風險，哪些只是讓你承擔更多相同的風險。
 
-**Sam:** The Monte Carlo simulator is another gem. It runs thousands of possible future scenarios based on historical return patterns and tells you the probability of meeting your financial goals. Want to know the odds of your portfolio lasting 30 years in retirement? This tool will tell you.
+**Stella（小魚）：** 蒙地卡羅模擬器是另一個寶藏。它根據歷史報酬模式運行數千次可能的未來情境，並告訴你達成財務目標的機率。想知道你的投資組合在退休後持續 30 年的機率？這個工具會告訴你。
 
-[VISUAL: Monte Carlo simulation results showing probability distribution of outcomes]
+[VISUAL: 蒙地卡羅模擬結果，顯示結果的機率分佈]
 
-**Alex:** And the efficient frontier tool plots the optimal risk-return combinations for your chosen assets and shows you where your current portfolio sits. If your portfolio is below the frontier, there is a better allocation waiting for you.
+**Horace（陳馬）：** 效率前緣工具繪製出所選資產的最佳風險報酬組合，並顯示你目前的投資組合在哪個位置。如果你的投資組合低於效率前緣，那裡有一個更好的配置等著你。
 
 ---
 
 [SECTION 2 - GOOGLE SHEETS AND DIY TRACKING - 4:00]
 
-[VISUAL: Google Sheets spreadsheet with portfolio tracker layout]
+[VISUAL: Google 試算表，顯示投資組合追蹤器的版面配置]
 
-**Sam:** For hands-on investors who want complete control over their tracking, Google Sheets is incredibly powerful. And it has a secret weapon: the GOOGLEFINANCE function.
+**Stella（小魚）：** 對於想完全掌控追蹤的親力親為型投資人，Google 試算表非常強大。而且它有一個秘密武器：GOOGLEFINANCE 函數。
 
-**Alex:** Type equals GOOGLEFINANCE, then a ticker in quotes and "price," and you get the current stock price pulled directly into your spreadsheet. You can also pull PE ratios, dividend yields, market caps, and historical price data.
+**Horace（陳馬）：** 輸入等號 GOOGLEFINANCE，然後在引號中輸入股票代號和 "price"，你就能直接在試算表中取得當前股票價格。你還可以提取本益比、股利殖利率、市值和歷史價格數據。
 
-[VISUAL: Close-up of GOOGLEFINANCE formulas in cells, showing the syntax and results]
+[VISUAL: 儲存格中 GOOGLEFINANCE 公式的特寫，顯示語法和結果]
 
-**Sam:** From there, you can build a complete portfolio tracker. A holdings tab that automatically calculates your current allocation and drift from targets. A performance tab that tracks monthly returns. A dividends tab. Even a rebalancing calculator that tells you exactly how many shares to buy or sell.
+**Stella（小魚）：** 從那裡，你可以建立一個完整的投資組合追蹤器。一個自動計算當前配置比例和與目標偏移的持倉分頁。一個追蹤每月報酬的績效分頁。一個股利分頁。甚至是一個告訴你精確需要買入或賣出多少股的再平衡計算機。
 
-**Alex:** We recommend five essential tabs. First, your Holdings tab with current values, cost basis, gains and losses, and allocation percentages. Second, a Performance tab comparing your returns to benchmarks using the XIRR function. Third, a Rebalancing tab that flags when any position drifts more than five percentage points from its target.
+**Horace（陳馬）：** 我們建議五個重要分頁。第一，你的持倉分頁，包含當前市值、成本基礎、損益，以及配置比例。第二，使用 XIRR 函數將你的報酬率與基準比較的績效分頁。第三，當任何部位從目標偏移超過五個百分點時發出警示的再平衡分頁。
 
-[VISUAL: Template spreadsheet showing the five-tab structure with sample data]
+[VISUAL: 範本試算表，顯示五個分頁結構和範例數據]
 
-**Sam:** Fourth, a Dividends tab tracking income received and projected annual income. And fifth, a Tax tab that tracks cost basis by lot and identifies tax-loss harvesting opportunities.
+**Stella（小魚）：** 第四，追蹤收到的收益和預期年度收益的股利分頁。以及第五，按批次追蹤成本基礎並找出稅損收割機會的稅務分頁。
 
-**Alex:** The beauty of building your own spreadsheet is that it is completely customized to your needs. The downside is that GOOGLEFINANCE can be unreliable during market hours and does not always include dividend-adjusted returns. For total return calculations, you may need to supplement with data from other sources.
+**Horace（陳馬）：** 自行建立試算表的好處在於，它完全根據你的需求客製化。缺點是 GOOGLEFINANCE 在交易時段可能不穩定，且不一定包含股利調整後的報酬。對於總報酬計算，你可能需要補充其他來源的數據。
 
 ---
 
 [SECTION 3 - BROKERAGE AND THIRD-PARTY TOOLS - 6:30]
 
-[VISUAL: Split screen showing Fidelity, Schwab, Interactive Brokers, and Vanguard platform interfaces]
+[VISUAL: 分割螢幕，顯示 Fidelity、Schwab、Interactive Brokers 和 Vanguard 的平台介面]
 
-**Sam:** Your brokerage platform itself is a monitoring tool that is constantly improving. Fidelity has Full View for account aggregation and Portfolio Analysis for deep-dives into your allocation. Schwab, which now includes the Thinkorswim platform from TD Ameritrade, has some of the best charting and options analysis tools in the industry.
+**Stella（小魚）：** 你的券商平台本身就是一個持續進步的監控工具。Fidelity 有用於帳戶彙整的 Full View 和用於深入分析配置的 Portfolio Analysis。Schwab，現在包含了來自 TD Ameritrade 的 Thinkorswim 平台，擁有業界最好的圖表和選擇權分析工具之一。
 
-**Alex:** Interactive Brokers stands out for the most comprehensive built-in analytics. Their Portfolio Analyst tool provides performance attribution, factor analysis, risk metrics, and sector breakdowns that rival professional terminals. If you are an active investor or use options, IBKR's tools are hard to beat.
+**Horace（陳馬）：** Interactive Brokers 以最全面的內建分析工具脫穎而出。他們的 Portfolio Analyst 工具提供績效歸因、因子分析、風險指標和類股分佈，可媲美專業終端機。如果你是積極的投資人或使用選擇權，IBKR 的工具難以匹敵。
 
-**Sam:** For account aggregation -- seeing all your financial accounts in one place -- Empower, formerly Personal Capital, offers a free dashboard that connects to your bank accounts, brokerage accounts, retirement accounts, and credit cards. It gives you a complete net worth picture and analyzes your investment allocation and fees.
+**Stella（小魚）：** 對於帳戶彙整——在同一個地方看到所有的財務帳戶——Empower（前身為 Personal Capital）提供了一個免費的儀表板，連接到你的銀行帳戶、券商帳戶、退休帳戶和信用卡。它提供了完整的淨資產視圖，並分析你的投資配置和費用。
 
-[VISUAL: Empower/Personal Capital dashboard showing aggregated net worth, asset allocation, and fee analysis]
+[VISUAL: Empower/Personal Capital 儀表板，顯示彙整的淨資產、資產配置和費用分析]
 
-**Alex:** Their Fee Analyzer is particularly eye-opening. It calculates the total annual fees you are paying across all your investments. Many people discover they are paying 1 percent or more in total fees when they thought they were paying 0.1 percent. Over 30 years, that difference can cost hundreds of thousands of dollars.
+**Horace（陳馬）：** 他們的費用分析工具特別令人大開眼界。它計算你在所有投資中支付的年度總費用。許多人發現他們以為只付了 0.1% 費用，實際上卻支付了 1% 或更多的總費用。在 30 年的期間，這個差異可能損失數十萬美元。
 
-**Sam:** Morningstar's Portfolio X-Ray tool is another must-use, especially if you hold multiple funds. It looks through your funds to the underlying holdings and shows you your true exposure. Many investors discover that their "diversified" portfolio of five funds actually holds the same 50 large-cap stocks repeated across multiple funds.
+**Stella（小魚）：** Morningstar 的投資組合 X 光工具是另一個必用工具，尤其是如果你持有多個基金的話。它穿透你的基金看到底層持倉，並顯示你的真實暴露。許多投資人發現他們「分散化」的五個基金投資組合，實際上在多個基金中重複持有相同的 50 檔大型股票。
 
-[VISUAL: Morningstar X-Ray showing fund overlap analysis]
+[VISUAL: Morningstar X 光，顯示基金重疊分析]
 
 ---
 
 [SECTION 4 - THE RIGHT MONITORING CADENCE - 9:00]
 
-[VISUAL: Calendar showing daily, weekly, monthly, quarterly, and annual review schedule]
+[VISUAL: 行事曆，顯示每日、每週、每月、每季和每年的審查時程]
 
-**Alex:** Now for arguably the most important part of this lesson -- how often should you actually monitor your portfolio?
+**Horace（陳馬）：** 現在來談這堂課中可以說是最重要的部分——你應該多頻繁地監控你的投資組合？
 
-**Sam:** The answer, backed by research, is far less than most people think. Studies consistently show that investors who check their portfolios less frequently earn higher returns, because they make fewer emotional, impulsive trades.
+**Stella（小魚）：** 答案，有研究支持，遠少於大多數人想像的。研究一再顯示，較少頻率查看投資組合的投資人，報酬率更高，因為他們的情緒性、衝動性交易更少。
 
-[VISUAL: Chart showing inverse relationship between checking frequency and average returns]
+[VISUAL: 圖表，顯示查看頻率與平均報酬率之間的反比關係]
 
-**Alex:** Here is the cadence we recommend. Daily: five minutes or less. Skim headlines for major events. Do NOT check your portfolio value unless there is a specific reason.
+**Horace（陳馬）：** 以下是我們推薦的節奏。每日：五分鐘或更少。快速瀏覽頭條，了解重大事件。除非有特定原因，否則不要查看投資組合價值。
 
-**Sam:** Weekly: 15 to 30 minutes. Review your watchlist, check for upcoming dividend dates or earnings announcements, and clear any alerts that triggered.
+**Stella（小魚）：** 每週：15 到 30 分鐘。查看你的關注清單，檢查即將到來的除息日或法說會公告，並清除本週觸發的任何提醒。
 
-**Alex:** Monthly: 30 to 60 minutes. This is your main check-in. Review portfolio performance, check asset allocation drift, scan for tax-loss harvesting opportunities, and review dividend income.
+**Horace（陳馬）：** 每月：30 到 60 分鐘。這是你的主要確認。審查投資組合績效，檢查資產配置偏移，掃描稅損收割機會，以及審查股利收益。
 
-[VISUAL: Monthly review checklist displayed as a simple dashboard]
+[VISUAL: 每月審查清單，以簡單的儀表板形式顯示]
 
-**Sam:** Quarterly: one to two hours. This is your comprehensive review. Evaluate whether each holding's investment thesis still holds. Update your Investment Policy Statement if anything has changed in your life. Review your investment journal. Rebalance if needed.
+**Stella（小魚）：** 每季：一到兩小時。這是你的全面審查。評估每筆持倉的投資論點是否仍然成立。若你的生活中有任何改變，更新你的投資政策說明書。審閱你的投資日誌。若有需要，進行再平衡。
 
-**Alex:** Annually: two to four hours. Full portfolio audit. Calculate your true return for the year. Review all fees. Update your financial plan. Do year-end tax planning. Assess whether your risk tolerance has changed.
+**Horace（陳馬）：** 每年：兩到四小時。全面的投資組合稽核。計算你當年的真實報酬率。審查所有費用。更新你的財務計劃。進行年末稅務規劃。評估你的風險承受度是否有所改變。
 
 ---
 
 [SECTION 5 - SETTING UP SMART ALERTS - 11:30]
 
-[VISUAL: Smartphone showing various investment alert notifications]
+[VISUAL: 智慧型手機，顯示各種投資提醒通知]
 
-**Sam:** The key to monitoring less frequently without missing important events is setting up the right alerts.
+**Stella（小魚）：** 在不頻繁查看的情況下不錯過重要事件的關鍵，是設定正確的提醒。
 
-**Alex:** At minimum, set up these alerts. First, price alerts for any holding that moves more than 5 percent in a single day. This catches major events without bothering you with daily noise.
+**Horace（陳馬）：** 至少，設定以下這些提醒。第一，當任何持倉在單一交易日波動超過 5% 時的價格提醒。這能捕捉重大事件，而不會被每日的雜訊打擾。
 
-**Sam:** Second, rebalancing alerts. If your target allocation is 70/30 and stocks drift to 75 percent, you want to know. Most monitoring tools can alert you when drift exceeds a threshold you set.
+**Stella（小魚）：** 第二，再平衡提醒。如果你的目標配置是 70/30 而股票偏移至 75%，你希望知道這件事。大多數監控工具可以在偏移超過你設定的門檻時提醒你。
 
-[VISUAL: Alert setup examples in Google Sheets, broker apps, and third-party tools]
+[VISUAL: Google 試算表、券商應用程式和第三方工具中的提醒設置範例]
 
-**Alex:** Third, economic calendar alerts. At minimum, set reminders for FOMC meeting dates and major economic data releases -- CPI, employment reports, GDP. These events move markets and can affect your portfolio.
+**Horace（陳馬）：** 第三，經濟行事曆提醒。至少要設定聯邦公開市場委員會（FOMC）會議日期和主要經濟數據公布的提醒——CPI、就業報告、GDP。這些事件會推動市場並可能影響你的投資組合。
 
-**Sam:** Fourth, dividend alerts for income-focused investors. Know when your holdings go ex-dividend and when cuts or increases are announced.
+**Stella（小魚）：** 第四，針對以收益為導向的投資人，設定股利提醒。了解你的持倉何時除息，以及何時宣布股利削減或增加。
 
-**Alex:** And fifth, set a calendar reminder for your quarterly review. Put it on your calendar like a doctor's appointment. This structures your monitoring so you do it when you should, rather than when emotions drive you to check.
+**Horace（陳馬）：** 第五，在行事曆上設定你的每季審查提醒。像預約看醫生一樣把它放在行事曆上。這能使你的監控結構化，讓你在應該查看時查看，而非在情緒驅使時查看。
 
-[VISUAL: Sample calendar showing quarterly review dates blocked out]
+[VISUAL: 範本行事曆，顯示每季審查日期已排定]
 
 ---
 
 [SECTION 6 - PUTTING IT ALL TOGETHER - 13:00]
 
-[VISUAL: "Your Monitoring Stack" showing recommended tools by category]
+[VISUAL: 「你的監控工具組合」，按類別顯示推薦工具]
 
-**Sam:** Let us put together a recommended monitoring stack for the average individual investor. It does not need to be complicated.
+**Stella（小魚）：** 讓我們為一般個人投資人整理出一套推薦的監控工具組合。它不需要複雜。
 
-**Alex:** Core tools, all free: Your brokerage platform for trading and basic analytics. Google Sheets for a customized portfolio tracker. Portfolio Visualizer for portfolio analysis and backtesting. Empower for account aggregation and fee analysis.
+**Horace（陳馬）：** 核心工具，全部免費：你的券商平台，用於交易和基本分析。Google 試算表，用於客製化投資組合追蹤器。Portfolio Visualizer，用於投資組合分析和回測。Empower，用於帳戶彙整和費用分析。
 
-**Sam:** Optional tools for deeper analysis: Morningstar for fund research and X-Ray analysis. Thinkorswim for charting and options analysis. FRED for economic data.
+**Stella（小魚）：** 用於更深入分析的選用工具：Morningstar，用於基金研究和 X 光分析。Thinkorswim，用於圖表和選擇權分析。FRED，用於經濟數據。
 
-[VISUAL: Clean summary graphic showing the full monitoring stack organized by function]
+[VISUAL: 清晰的摘要圖表，顯示按功能組織的完整監控工具組合]
 
-**Alex:** Set up your alerts, establish your review cadence, and resist the urge to check more often than your schedule dictates. The data is clear: the best portfolio monitoring approach is one that keeps you informed with minimum time investment while preventing impulsive behavior.
+**Horace（陳馬）：** 設定你的提醒，建立你的審查節奏，並抵制比你的時程更頻繁查看的衝動。數據很清楚：最佳的投資組合監控方式是以最少的時間投入保持你的資訊靈通，同時防止衝動行為。
 
-**Sam:** Investing is a marathon, not a sprint. The tools exist to help you stay on course, not to keep you glued to a screen. Build your system, trust your process, and let compounding do its work.
+**Stella（小魚）：** 投資是一場馬拉松，不是短跑。工具的存在是為了幫助你保持在正確的軌道上，而不是讓你整天盯著螢幕。建立你的系統，信任你的過程，讓複利發揮它的作用。
 
-[VISUAL: End card with channel logo and "Thank you for completing the Side Lessons series!"]
+[VISUAL: 結束卡，顯示頻道標誌和「感謝你完成補充課程系列！」]
 
-**Alex:** That wraps up our side lesson series. We have covered everything from REITs to commodities, from the Federal Reserve to the psychology of trading. We hope these tools help you on your investing journey. Thanks for watching.
+**Horace（陳馬）：** 這樣我們就完成了補充課程系列。我們涵蓋了從不動產投資信託到大宗商品、從聯準會到交易心理學的所有內容。希望這些工具能在你的投資旅程中助你一臂之力。感謝收看。
 
 [END - 15:00]

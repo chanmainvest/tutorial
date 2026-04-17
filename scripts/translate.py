@@ -71,6 +71,28 @@ FINANCIAL_TERMS = {
     "margin": {"hk": "保證金", "tw": "保證金", "cn": "保证金"},
     "drawdown": {"hk": "回撤", "tw": "回撤", "cn": "回撤"},
     "Sharpe ratio": {"hk": "夏普比率", "tw": "夏普比率", "cn": "夏普比率"},
+
+    # Additional terms
+    "cash-secured put": {"hk": "現金擔保認沽期權", "tw": "現金擔保賣權", "cn": "现金担保看跌期权"},
+    "iron condor": {"hk": "鐵鷹式策略", "tw": "鐵禿鷹策略", "cn": "铁鹰策略"},
+    "LEAPS": {"hk": "長期期權", "tw": "長期期權", "cn": "长期期权"},
+    "VIX": {"hk": "波動率指數", "tw": "波動率指數", "cn": "波动率指数"},
+    "Value at Risk": {"hk": "風險值", "tw": "風險值", "cn": "风险价值"},
+    "alpha": {"hk": "阿爾法", "tw": "阿爾法", "cn": "阿尔法"},
+    "beta": {"hk": "貝塔", "tw": "貝塔", "cn": "贝塔"},
+    "factor investing": {"hk": "因子投資", "tw": "因子投資", "cn": "因子投资"},
+    "momentum": {"hk": "動量", "tw": "動能", "cn": "动量"},
+    "REIT": {"hk": "房地產信託基金", "tw": "不動產投資信託", "cn": "房地产投资信托"},
+    "dollar cost averaging": {"hk": "平均成本法", "tw": "定期定額投資", "cn": "定投"},
+    "financial statement": {"hk": "財務報表", "tw": "財務報表", "cn": "财务报表"},
+    "income statement": {"hk": "損益表", "tw": "損益表", "cn": "利润表"},
+    "balance sheet": {"hk": "資產負債表", "tw": "資產負債表", "cn": "资产负债表"},
+    "cash flow statement": {"hk": "現金流量表", "tw": "現金流量表", "cn": "现金流量表"},
+    "sector rotation": {"hk": "板塊輪動", "tw": "類股輪動", "cn": "板块轮动"},
+    "backtesting": {"hk": "回測", "tw": "回測", "cn": "回测"},
+    "tail risk": {"hk": "尾部風險", "tw": "尾部風險", "cn": "尾部风险"},
+    "structured product": {"hk": "結構性產品", "tw": "結構型商品", "cn": "结构化产品"},
+    "trend following": {"hk": "趨勢跟蹤", "tw": "趨勢跟隨", "cn": "趋势跟踪"},
 }
 
 # Project root is one level up from this script

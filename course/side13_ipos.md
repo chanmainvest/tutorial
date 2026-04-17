@@ -240,9 +240,9 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [VISUAL: Stock exchange floor with IPO bell-ringing ceremony, confetti falling, executives clapping]
 
-**Alex:** You have probably seen those exciting clips -- a company rings the bell at the NYSE, confetti flies, and suddenly everyone is talking about getting in on the next big IPO. But what actually happens behind the scenes?
+**Horace:** You have probably seen those exciting clips -- a company rings the bell at the NYSE, confetti flies, and suddenly everyone is talking about getting in on the next big IPO. But what actually happens behind the scenes?
 
-**Sam:** And more importantly -- should you, as a regular investor, be rushing to buy on day one? Today we are pulling back the curtain on IPOs, SPACs, spin-offs, and everything that happens when a company goes from private to public.
+**Stella:** And more importantly -- should you, as a regular investor, be rushing to buy on day one? Today we are pulling back the curtain on IPOs, SPACs, spin-offs, and everything that happens when a company goes from private to public.
 
 [VISUAL: Title card "IPOs, SPACs, and Spin-Offs: What Every Investor Needs to Know"]
 
@@ -252,19 +252,19 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [VISUAL: Timeline graphic showing the IPO process from filing to first trade]
 
-**Alex:** Let us start with the basics. An IPO -- Initial Public Offering -- is when a private company sells shares to the public for the first time. But it is not as simple as just putting shares up for sale.
+**Horace:** Let us start with the basics. An IPO -- Initial Public Offering -- is when a private company sells shares to the public for the first time. But it is not as simple as just putting shares up for sale.
 
-**Sam:** Right. The process usually takes six to twelve months. First, the company hires investment banks -- called underwriters -- to manage the whole thing. These are big names like Goldman Sachs or Morgan Stanley.
+**Stella:** Right. The process usually takes six to twelve months. First, the company hires investment banks -- called underwriters -- to manage the whole thing. These are big names like Goldman Sachs or Morgan Stanley.
 
 [ANIMATION: Flowchart showing: Company -> Selects Underwriter -> Files S-1 with SEC -> Roadshow -> Pricing -> Trading Begins]
 
-**Alex:** The company files a document called an S-1 with the SEC. This is basically their public financial autobiography -- everything investors need to know about the business, the risks, and how they plan to use the money they raise.
+**Horace:** The company files a document called an S-1 with the SEC. This is basically their public financial autobiography -- everything investors need to know about the business, the risks, and how they plan to use the money they raise.
 
-**Sam:** Then comes the roadshow. Executives travel to major cities, presenting to big institutional investors -- pension funds, mutual funds, hedge funds. The underwriters are gauging demand: How many shares do these institutions want to buy, and at what price?
+**Stella:** Then comes the roadshow. Executives travel to major cities, presenting to big institutional investors -- pension funds, mutual funds, hedge funds. The underwriters are gauging demand: How many shares do these institutions want to buy, and at what price?
 
 [VISUAL: Map showing roadshow cities: New York, Boston, San Francisco, London, Hong Kong]
 
-**Alex:** Based on that demand, the underwriters set the IPO price the night before trading starts. And here is the first thing most people do not realize -- the IPO price is not the price you pay as a retail investor. That price is reserved for the institutional investors who participated in the roadshow.
+**Horace:** Based on that demand, the underwriters set the IPO price the night before trading starts. And here is the first thing most people do not realize -- the IPO price is not the price you pay as a retail investor. That price is reserved for the institutional investors who participated in the roadshow.
 
 ---
 
@@ -272,17 +272,17 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [ANIMATION: Bar chart showing IPO price at $20, first-day close at $24, representing a 20% "pop"]
 
-**Sam:** This brings us to one of the most interesting phenomena in finance -- IPO underpricing. On average, IPOs close their first day about 15 to 20 percent above the offer price.
+**Stella:** This brings us to one of the most interesting phenomena in finance -- IPO underpricing. On average, IPOs close their first day about 15 to 20 percent above the offer price.
 
-**Alex:** So if the IPO price is $20, the stock might close at $24 on day one. That sounds like free money, right?
+**Horace:** So if the IPO price is $20, the stock might close at $24 on day one. That sounds like free money, right?
 
-**Sam:** It does, but here is the catch. That $4 gain goes to the institutional investors who got the IPO allocation. By the time you and I can buy shares on the open market, we are paying $24, not $20.
+**Stella:** It does, but here is the catch. That $4 gain goes to the institutional investors who got the IPO allocation. By the time you and I can buy shares on the open market, we are paying $24, not $20.
 
 [VISUAL: Two stick figures -- "Institutional Investor" buying at $20 with a green arrow, "Retail Investor" buying at $24 with a yellow caution sign]
 
-**Alex:** And it gets worse. Research shows that if you buy IPO stocks on the first day at market prices and hold them for three years, you actually tend to underperform the broader market. The excitement fades, reality sets in, and many of these companies struggle to meet the lofty expectations baked into their first-day prices.
+**Horace:** And it gets worse. Research shows that if you buy IPO stocks on the first day at market prices and hold them for three years, you actually tend to underperform the broader market. The excitement fades, reality sets in, and many of these companies struggle to meet the lofty expectations baked into their first-day prices.
 
-**Sam:** So the lesson here is simple. Do not chase IPOs on day one. If a company is truly great, it will still be a good investment six months or a year later, once you have more data to evaluate.
+**Stella:** So the lesson here is simple. Do not chase IPOs on day one. If a company is truly great, it will still be a good investment six months or a year later, once you have more data to evaluate.
 
 ---
 
@@ -290,15 +290,15 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [ANIMATION: Calendar graphic with a lock icon showing 90-180 day lock-up period, then unlocking]
 
-**Alex:** Another critical concept for IPO investors is the lock-up period. When a company goes public, insiders -- founders, executives, early investors, employees with stock options -- are typically prohibited from selling their shares for 90 to 180 days.
+**Horace:** Another critical concept for IPO investors is the lock-up period. When a company goes public, insiders -- founders, executives, early investors, employees with stock options -- are typically prohibited from selling their shares for 90 to 180 days.
 
-**Sam:** This is supposed to prevent a flood of insider selling right after the IPO. Imagine if the CEO and every early investor dumped their shares on day one -- it would crater the stock.
+**Stella:** This is supposed to prevent a flood of insider selling right after the IPO. Imagine if the CEO and every early investor dumped their shares on day one -- it would crater the stock.
 
-**Alex:** But what happens when that lock-up expires? Suddenly, millions of shares that were previously restricted become available for sale. And studies consistently show that stocks experience negative price pressure around lock-up expirations.
+**Horace:** But what happens when that lock-up expires? Suddenly, millions of shares that were previously restricted become available for sale. And studies consistently show that stocks experience negative price pressure around lock-up expirations.
 
 [VISUAL: Stock chart showing price decline around lock-up expiration date, with volume spike]
 
-**Sam:** The impact is especially severe when venture capital firms or private equity investors hold large positions. They may need to sell to return capital to their own investors. So if you are thinking about buying a post-IPO stock, always check when the lock-up expires. It is publicly disclosed in the S-1 filing.
+**Stella:** The impact is especially severe when venture capital firms or private equity investors hold large positions. They may need to sell to return capital to their own investors. So if you are thinking about buying a post-IPO stock, always check when the lock-up expires. It is publicly disclosed in the S-1 filing.
 
 ---
 
@@ -306,21 +306,21 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [VISUAL: Diagram showing the SPAC lifecycle: IPO -> Trust -> Target Search -> Merger -> Public Company]
 
-**Alex:** Now let us talk about SPACs -- Special Purpose Acquisition Companies. These were the hottest thing on Wall Street in 2020 and 2021. Over 600 SPACs went public in 2021 alone.
+**Horace:** Now let us talk about SPACs -- Special Purpose Acquisition Companies. These were the hottest thing on Wall Street in 2020 and 2021. Over 600 SPACs went public in 2021 alone.
 
-**Sam:** A SPAC is essentially a blank-check company. A sponsor creates a shell company, takes it public at $10 per share, and puts the money into a trust. Then they have about two years to find a private company to merge with.
+**Stella:** A SPAC is essentially a blank-check company. A sponsor creates a shell company, takes it public at $10 per share, and puts the money into a trust. Then they have about two years to find a private company to merge with.
 
 [ANIMATION: SPAC structure showing $10 per share flowing into trust, sponsor receiving 20% founder shares]
 
-**Alex:** Here is the part most investors missed during the SPAC craze. The sponsor -- the person running the SPAC -- typically gets 20 percent of the shares for almost nothing. This is called the "promote." So right from the start, regular shareholders are diluted by 20 percent.
+**Horace:** Here is the part most investors missed during the SPAC craze. The sponsor -- the person running the SPAC -- typically gets 20 percent of the shares for almost nothing. This is called the "promote." So right from the start, regular shareholders are diluted by 20 percent.
 
-**Sam:** Plus, SPACs usually issue warrants alongside shares, creating even more dilution. When you add it all up, SPAC shareholders face significant headwinds before the merged company even starts operating.
+**Stella:** Plus, SPACs usually issue warrants alongside shares, creating even more dilution. When you add it all up, SPAC shareholders face significant headwinds before the merged company even starts operating.
 
-**Alex:** The data bears this out. A Stanford study found that the median SPAC delivered negative 65 percent returns from merger close to one year later. Negative 65 percent.
+**Horace:** The data bears this out. A Stanford study found that the median SPAC delivered negative 65 percent returns from merger close to one year later. Negative 65 percent.
 
 [VISUAL: Performance comparison chart: Average SPAC return vs S&P 500 return over one year post-merger]
 
-**Sam:** There is one silver lining though. SPAC shareholders have the right to redeem their shares for about $10 before the merger closes. So if you do not like the deal, you can get your money back. This makes pre-merger SPACs relatively low-risk -- the danger comes after you decide to stay in through the merger.
+**Stella:** There is one silver lining though. SPAC shareholders have the right to redeem their shares for about $10 before the merger closes. So if you do not like the deal, you can get your money back. This makes pre-merger SPACs relatively low-risk -- the danger comes after you decide to stay in through the merger.
 
 ---
 
@@ -328,23 +328,23 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [ANIMATION: Large circle labeled "Parent Company" splitting into two circles: "Parent" and "Spin-Off"]
 
-**Alex:** Finally, let us talk about spin-offs. This is where a large company takes one of its divisions and turns it into a separate, independent public company.
+**Horace:** Finally, let us talk about spin-offs. This is where a large company takes one of its divisions and turns it into a separate, independent public company.
 
-**Sam:** Shareholders of the parent automatically receive shares in the new company. For example, when eBay spun off PayPal in 2015, eBay shareholders received PayPal shares proportional to their holdings.
+**Stella:** Shareholders of the parent automatically receive shares in the new company. For example, when eBay spun off PayPal in 2015, eBay shareholders received PayPal shares proportional to their holdings.
 
-**Alex:** What makes spin-offs interesting from an investment perspective is that they have historically outperformed the market. Research shows spin-offs beating the S&P 500 by about 10 percentage points annually in the first three years.
+**Horace:** What makes spin-offs interesting from an investment perspective is that they have historically outperformed the market. Research shows spin-offs beating the S&P 500 by about 10 percentage points annually in the first three years.
 
 [VISUAL: Bar chart comparing spin-off performance vs S&P 500 over 1, 2, and 3 year periods]
 
-**Sam:** Why? A few reasons. First, when a division is spun off, index funds that held the parent might be forced to sell the spin-off because it does not fit their mandate or is too small. That creates artificial selling pressure and temporarily depressed prices.
+**Stella:** Why? A few reasons. First, when a division is spun off, index funds that held the parent might be forced to sell the spin-off because it does not fit their mandate or is too small. That creates artificial selling pressure and temporarily depressed prices.
 
-**Alex:** Second, the spin-off often starts with little or no analyst coverage. Big institutional investors may not even notice it. This neglect can lead to mispricing that savvy individual investors can exploit.
+**Horace:** Second, the spin-off often starts with little or no analyst coverage. Big institutional investors may not even notice it. This neglect can lead to mispricing that savvy individual investors can exploit.
 
-**Sam:** And third, the management team of the newly independent company is often more focused and motivated. Their compensation is tied directly to their own stock performance, not buried inside a giant conglomerate.
+**Stella:** And third, the management team of the newly independent company is often more focused and motivated. Their compensation is tied directly to their own stock performance, not buried inside a giant conglomerate.
 
 [VISUAL: Checklist graphic - "Spin-Off Evaluation: Business Quality, Debt Levels, Management Incentives, Reason for Spin-Off"]
 
-**Alex:** But not all spin-offs are winners. If a parent company is spinning off a division to dump bad assets or excessive debt onto it, that is a red flag. Always look at why the spin-off is happening before getting excited about the opportunity.
+**Horace:** But not all spin-offs are winners. If a parent company is spinning off a division to dump bad assets or excessive debt onto it, that is a red flag. Always look at why the spin-off is happening before getting excited about the opportunity.
 
 ---
 
@@ -352,22 +352,22 @@ A: Yes. The Renaissance IPO ETF (IPO) holds companies within two years of their 
 
 [VISUAL: "Your IPO and Spin-Off Playbook" with numbered list]
 
-**Sam:** So let us wrap this up with some practical takeaways. Number one -- do not chase IPO day-one pops. The odds are stacked against retail investors on IPO day.
+**Stella:** So let us wrap this up with some practical takeaways. Number one -- do not chase IPO day-one pops. The odds are stacked against retail investors on IPO day.
 
-**Alex:** Number two -- always check lock-up expiration dates before buying post-IPO stocks. That wave of insider selling can create significant downward pressure.
+**Horace:** Number two -- always check lock-up expiration dates before buying post-IPO stocks. That wave of insider selling can create significant downward pressure.
 
-**Sam:** Number three -- be extremely cautious with SPACs. The sponsor incentives and dilution make the math unfavorable for regular shareholders. If you do invest in a SPAC, remember your redemption right and use it if the deal does not look good.
+**Stella:** Number three -- be extremely cautious with SPACs. The sponsor incentives and dilution make the math unfavorable for regular shareholders. If you do invest in a SPAC, remember your redemption right and use it if the deal does not look good.
 
-**Alex:** Number four -- pay attention to spin-offs. They are often overlooked and can offer genuine opportunities, especially in the months immediately after separation when forced selling and neglect create temporary mispricings.
+**Horace:** Number four -- pay attention to spin-offs. They are often overlooked and can offer genuine opportunities, especially in the months immediately after separation when forced selling and neglect create temporary mispricings.
 
 [VISUAL: Summary comparison table: IPO vs SPAC vs Spin-Off vs Direct Listing, showing key features]
 
-**Sam:** And number five -- for any newly public company, wait for more information before investing. Let the company report a few quarters of earnings as a public entity. Let analysts initiate coverage. The fear of missing out is your worst enemy with newly public stocks.
+**Stella:** And number five -- for any newly public company, wait for more information before investing. Let the company report a few quarters of earnings as a public entity. Let analysts initiate coverage. The fear of missing out is your worst enemy with newly public stocks.
 
-**Alex:** The bottom line is that going public is an exciting event, but excitement and good investing are often at odds with each other. Patience and discipline will serve you far better than chasing the latest headline.
+**Horace:** The bottom line is that going public is an exciting event, but excitement and good investing are often at odds with each other. Patience and discipline will serve you far better than chasing the latest headline.
 
 [VISUAL: End card with channel logo, subscribe button, and "Next: Private Markets and Alternative Investments"]
 
-**Sam:** Thanks for watching. If this was helpful, hit that subscribe button, and we will see you in the next one.
+**Stella:** Thanks for watching. If this was helpful, hit that subscribe button, and we will see you in the next one.
 
 [END - 15:00]

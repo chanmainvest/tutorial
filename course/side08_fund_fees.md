@@ -261,97 +261,97 @@ A: In limited circumstances, yes. Some alternative strategies (like managed futu
 
 ---
 
-**Alex:** Today we are talking about something that might sound boring but is absolutely critical to your financial future: investment fees. Sam, do you know what fees you are paying on your investments?
+**Horace:** Today we are talking about something that might sound boring but is absolutely critical to your financial future: investment fees. Stella, do you know what fees you are paying on your investments?
 
-**Sam:** Honestly? Not exactly. I know my fund has an expense ratio of something like 0.8% or maybe it is 0.08%. I cannot remember which.
+**Stella:** Honestly? Not exactly. I know my fund has an expense ratio of something like 0.8% or maybe it is 0.08%. I cannot remember which.
 
-**Alex:** And that right there is exactly the problem. The difference between 0.8% and 0.08% is enormous over time, but most investors do not know -- or care -- until it is too late.
+**Horace:** And that right there is exactly the problem. The difference between 0.8% and 0.08% is enormous over time, but most investors do not know -- or care -- until it is too late.
 
 [VISUAL: Two identical-looking fund fact sheets side by side. One shows 0.80% expense ratio, the other shows 0.08%. A magnifying glass zooms in on the fee line.]
 
-**Sam:** Okay, so walk me through this. What exactly is an expense ratio?
+**Stella:** Okay, so walk me through this. What exactly is an expense ratio?
 
-**Alex:** The expense ratio is the annual percentage of your money that the fund takes to cover its operating costs -- paying the portfolio managers, administrative staff, legal and accounting fees, technology, and so on. If a fund has a 0.50% expense ratio, it takes $5 for every $1,000 you have invested, every year.
+**Horace:** The expense ratio is the annual percentage of your money that the fund takes to cover its operating costs -- paying the portfolio managers, administrative staff, legal and accounting fees, technology, and so on. If a fund has a 0.50% expense ratio, it takes $5 for every $1,000 you have invested, every year.
 
-**Sam:** Five dollars per thousand does not sound like much.
+**Stella:** Five dollars per thousand does not sound like much.
 
-**Alex:** That is how they get you. Let me show you what happens over a full career of investing.
+**Horace:** That is how they get you. Let me show you what happens over a full career of investing.
 
 [ANIMATION: Two investors both start with $100,000 and earn 8% gross return per year. Investor A pays 0.03% in fees. Investor B pays 1.00% in fees. The animation shows both portfolios growing over 30 years. At the end, Investor A has $997,000. Investor B has $761,000. The gap of $236,000 is highlighted in red.]
 
-**Sam:** Wait. The 1% fee investor lost $236,000 compared to the 0.03% investor? On the same $100,000?
+**Stella:** Wait. The 1% fee investor lost $236,000 compared to the 0.03% investor? On the same $100,000?
 
-**Alex:** Two hundred and thirty-six thousand dollars. That is the true cost of a fee that "does not sound like much." And this is not some unlikely scenario. Millions of Americans are in funds charging 0.50% to 1.50% right now, when they could be in funds charging 0.03%.
+**Horace:** Two hundred and thirty-six thousand dollars. That is the true cost of a fee that "does not sound like much." And this is not some unlikely scenario. Millions of Americans are in funds charging 0.50% to 1.50% right now, when they could be in funds charging 0.03%.
 
-**Sam:** But why is the difference so enormous? It is only about 1% per year.
+**Stella:** But why is the difference so enormous? It is only about 1% per year.
 
-**Alex:** Because of compounding. Every year, the fee is deducted from your total balance. That money is gone -- it no longer earns returns for you. It is compound growth working in reverse. You are not just losing 1% per year. You are losing all the future growth that 1% would have generated.
+**Horace:** Because of compounding. Every year, the fee is deducted from your total balance. That money is gone -- it no longer earns returns for you. It is compound growth working in reverse. You are not just losing 1% per year. You are losing all the future growth that 1% would have generated.
 
 [ANIMATION: A tree metaphor. A small branch is cut each year (representing the fee). But the leaves and future branches that would have grown from that branch are also lost. Over 30 years, the tree that keeps its branches is dramatically larger.]
 
-**Sam:** That tree analogy really drives it home. Okay, so expense ratio is the big one. Are there other fees I should watch for?
+**Stella:** That tree analogy really drives it home. Okay, so expense ratio is the big one. Are there other fees I should watch for?
 
-**Alex:** Unfortunately, yes. Let us go through the full menu of fund fees.
+**Horace:** Unfortunately, yes. Let us go through the full menu of fund fees.
 
-**Sam:** There is a menu?
+**Stella:** There is a menu?
 
-**Alex:** More like a trap-laden obstacle course. First up: loads.
+**Horace:** More like a trap-laden obstacle course. First up: loads.
 
 [VISUAL: A toll booth metaphor. "Front-end load: pay to enter." "Back-end load: pay to exit."]
 
-**Alex:** A front-end load is a sales commission you pay when you buy the fund. Typically 3% to 5.75%. So if you invest $10,000 in a fund with a 5% front-end load, only $9,500 actually gets invested. Five hundred dollars goes straight to the broker who sold you the fund.
+**Horace:** A front-end load is a sales commission you pay when you buy the fund. Typically 3% to 5.75%. So if you invest $10,000 in a fund with a 5% front-end load, only $9,500 actually gets invested. Five hundred dollars goes straight to the broker who sold you the fund.
 
-**Sam:** So I am starting in a hole before the fund even does anything?
+**Stella:** So I am starting in a hole before the fund even does anything?
 
-**Alex:** Exactly. And then you still pay the annual expense ratio on top of that. Back-end loads work the other way -- you pay when you sell. They typically decrease the longer you hold the fund, eventually reaching zero after 5-7 years.
+**Horace:** Exactly. And then you still pay the annual expense ratio on top of that. Back-end loads work the other way -- you pay when you sell. They typically decrease the longer you hold the fund, eventually reaching zero after 5-7 years.
 
-**Sam:** So they lock you in.
+**Stella:** So they lock you in.
 
-**Alex:** That is precisely the point. Even if the fund performs terribly, you face a penalty for leaving. It is a hostage fee.
+**Horace:** That is precisely the point. Even if the fund performs terribly, you face a penalty for leaving. It is a hostage fee.
 
-**Sam:** Are loads still common?
+**Stella:** Are loads still common?
 
-**Alex:** Less common than they used to be, thankfully. The trend is strongly toward no-load funds. But they still exist, especially in funds sold through commission-based financial advisors. My advice is simple: never buy a fund with a load. There is always a comparable no-load alternative.
+**Horace:** Less common than they used to be, thankfully. The trend is strongly toward no-load funds. But they still exist, especially in funds sold through commission-based financial advisors. My advice is simple: never buy a fund with a load. There is always a comparable no-load alternative.
 
-**Sam:** What about 12b-1 fees? I have seen that term but never understood it.
+**Stella:** What about 12b-1 fees? I have seen that term but never understood it.
 
-**Alex:** 12b-1 fees are named after the SEC rule that allows them. They are annual charges -- up to 1% per year -- that the fund deducts to pay for marketing and distribution. This includes advertising, printing brochures, and paying commissions to brokers who recommend the fund.
+**Horace:** 12b-1 fees are named after the SEC rule that allows them. They are annual charges -- up to 1% per year -- that the fund deducts to pay for marketing and distribution. This includes advertising, printing brochures, and paying commissions to brokers who recommend the fund.
 
-**Sam:** So I am paying for the fund to advertise itself to other people?
+**Stella:** So I am paying for the fund to advertise itself to other people?
 
-**Alex:** Yes. The original theory was that attracting more investors would create economies of scale, lowering costs for everyone. But in practice, that rarely happens. You are just subsidizing the fund company's sales efforts.
+**Horace:** Yes. The original theory was that attracting more investors would create economies of scale, lowering costs for everyone. But in practice, that rarely happens. You are just subsidizing the fund company's sales efforts.
 
 [VISUAL: A pie chart of where 12b-1 fees go: broker compensation 60%, advertising 25%, other distribution costs 15%]
 
-**Sam:** Are 12b-1 fees included in the expense ratio?
+**Stella:** Are 12b-1 fees included in the expense ratio?
 
-**Alex:** Yes, they are. So a fund with a 1.00% expense ratio might have a 0.25% management fee, a 0.25% 12b-1 fee, and 0.50% in other operating expenses. The 12b-1 fee is buried inside the total.
+**Horace:** Yes, they are. So a fund with a 1.00% expense ratio might have a 0.25% management fee, a 0.25% 12b-1 fee, and 0.50% in other operating expenses. The 12b-1 fee is buried inside the total.
 
-**Sam:** What about trading costs? I have heard those can be significant.
+**Stella:** What about trading costs? I have heard those can be significant.
 
-**Alex:** This is a hidden cost that many investors completely miss. When a fund manager buys and sells stocks within the portfolio, the fund incurs brokerage commissions and bid-ask spreads. These costs are not included in the expense ratio. They are real costs that reduce your returns, but they are much harder to find.
+**Horace:** This is a hidden cost that many investors completely miss. When a fund manager buys and sells stocks within the portfolio, the fund incurs brokerage commissions and bid-ask spreads. These costs are not included in the expense ratio. They are real costs that reduce your returns, but they are much harder to find.
 
-**Sam:** How do I estimate trading costs?
+**Stella:** How do I estimate trading costs?
 
-**Alex:** Look at the fund's turnover ratio. A 100% turnover ratio means the fund essentially replaced its entire portfolio in one year. Higher turnover means higher trading costs. Studies estimate that trading costs add roughly 0.5% to 1.0% per year for high-turnover actively managed funds.
+**Horace:** Look at the fund's turnover ratio. A 100% turnover ratio means the fund essentially replaced its entire portfolio in one year. Higher turnover means higher trading costs. Studies estimate that trading costs add roughly 0.5% to 1.0% per year for high-turnover actively managed funds.
 
 [ANIMATION: Two funnel diagrams. Left funnel (index fund): 8% gross return enters, 0.03% expense ratio and minimal trading costs drain out, 7.95% net return exits. Right funnel (active fund): 8% gross return enters, 0.80% expense ratio, 0.50% trading costs, and 0.30% tax drag drain out, 6.40% net return exits.]
 
-**Sam:** So the true cost of that active fund is not 0.80%. It is closer to 1.60% when you add in trading costs and tax drag?
+**Stella:** So the true cost of that active fund is not 0.80%. It is closer to 1.60% when you add in trading costs and tax drag?
 
-**Alex:** For a high-turnover fund in a taxable account, absolutely. That is why the total cost of ownership is the number you should care about, not just the headline expense ratio.
+**Horace:** For a high-turnover fund in a taxable account, absolutely. That is why the total cost of ownership is the number you should care about, not just the headline expense ratio.
 
-**Sam:** Speaking of taxes, how do fund fees interact with taxes?
+**Stella:** Speaking of taxes, how do fund fees interact with taxes?
 
-**Alex:** Great segue. When a fund sells stocks at a profit, it distributes those capital gains to shareholders -- and you owe taxes on them, even if you did not sell any shares yourself. Active funds with high turnover generate more capital gains distributions, creating a bigger annual tax bill.
+**Horace:** Great segue. When a fund sells stocks at a profit, it distributes those capital gains to shareholders -- and you owe taxes on them, even if you did not sell any shares yourself. Active funds with high turnover generate more capital gains distributions, creating a bigger annual tax bill.
 
-**Sam:** That seems unfair. I did not sell anything. Why do I owe taxes?
+**Stella:** That seems unfair. I did not sell anything. Why do I owe taxes?
 
-**Alex:** It is the structure of mutual funds. The fund itself does not pay taxes -- it passes gains through to shareholders. Index funds, because they rarely sell holdings, generate very few capital gains. This tax efficiency is another hidden advantage of indexing.
+**Horace:** It is the structure of mutual funds. The fund itself does not pay taxes -- it passes gains through to shareholders. Index funds, because they rarely sell holdings, generate very few capital gains. This tax efficiency is another hidden advantage of indexing.
 
-**Sam:** Let me put this all together. Say I am comparing two funds. How do I figure out the total cost?
+**Stella:** Let me put this all together. Say I am comparing two funds. How do I figure out the total cost?
 
-**Alex:** Here is my checklist.
+**Horace:** Here is my checklist.
 
 [VISUAL: "Total Cost Checklist" appearing as a clipboard with checkboxes:
 1. Expense ratio
@@ -363,11 +363,11 @@ A: In limited circumstances, yes. Some alternative strategies (like managed futu
 7. Account maintenance fees
 8. Advisor fees (if applicable)]
 
-**Alex:** Add it all up, and you get your true cost of investing. For a well-chosen portfolio of index funds held at a discount brokerage with no advisor, the total cost might be 0.05-0.10% per year. For an advisor-managed portfolio of actively managed funds with loads, the total cost could easily exceed 2.00% per year.
+**Horace:** Add it all up, and you get your true cost of investing. For a well-chosen portfolio of index funds held at a discount brokerage with no advisor, the total cost might be 0.05-0.10% per year. For an advisor-managed portfolio of actively managed funds with loads, the total cost could easily exceed 2.00% per year.
 
-**Sam:** A 2% annual difference does not sound huge, but we just saw what that does over 30 years.
+**Stella:** A 2% annual difference does not sound huge, but we just saw what that does over 30 years.
 
-**Alex:** Let me show the full comparison.
+**Horace:** Let me show the full comparison.
 
 [ANIMATION: Bar chart showing ending wealth from $100,000 after 30 years at 8% gross return:
 0.05% total cost: $993,000
@@ -377,47 +377,47 @@ A: In limited circumstances, yes. Some alternative strategies (like managed futu
 2.00% total cost: $567,000
 The bars decrease dramatically, with the dollar difference between each labeled]
 
-**Sam:** The 2% total cost investor ends up with $567,000. The 0.05% investor ends up with $993,000. That is $426,000 more. On the same $100,000 starting investment with the same gross market return.
+**Stella:** The 2% total cost investor ends up with $567,000. The 0.05% investor ends up with $993,000. That is $426,000 more. On the same $100,000 starting investment with the same gross market return.
 
-**Alex:** Four hundred and twenty-six thousand dollars. That is the price of not paying attention to fees. And remember, most actively managed funds do not even outperform their benchmark before fees. So you are paying extra for the privilege of worse returns.
+**Horace:** Four hundred and twenty-six thousand dollars. That is the price of not paying attention to fees. And remember, most actively managed funds do not even outperform their benchmark before fees. So you are paying extra for the privilege of worse returns.
 
-**Sam:** How do actively managed funds justify their fees?
+**Stella:** How do actively managed funds justify their fees?
 
-**Alex:** They claim superior stock selection, risk management, and expertise. But the data tells a different story. Over 15-year periods, roughly 85% to 90% of actively managed large-cap U.S. stock funds fail to beat the S&P 500 index after fees.
+**Horace:** They claim superior stock selection, risk management, and expertise. But the data tells a different story. Over 15-year periods, roughly 85% to 90% of actively managed large-cap U.S. stock funds fail to beat the S&P 500 index after fees.
 
 [VISUAL: A scoreboard showing "Active Funds vs. S&P 500 over 15 years" -- Active wins: 10-15%. S&P 500 wins: 85-90%.]
 
-**Sam:** So paying higher fees for active management is essentially paying more for a lower probability of success.
+**Stella:** So paying higher fees for active management is essentially paying more for a lower probability of success.
 
-**Alex:** Precisely. And even among the small minority that do outperform, we cannot identify them in advance. Past performance does not reliably predict future performance. The fee, however, is guaranteed to drag on your returns every single year.
+**Horace:** Precisely. And even among the small minority that do outperform, we cannot identify them in advance. Past performance does not reliably predict future performance. The fee, however, is guaranteed to drag on your returns every single year.
 
-**Sam:** What about my 401(k)? I just picked the default option and never looked at fees.
+**Stella:** What about my 401(k)? I just picked the default option and never looked at fees.
 
-**Alex:** You should absolutely check. Many 401(k) plans include a mix of low-cost and high-cost options. Some plans are excellent, with Vanguard or Fidelity index funds at rock-bottom fees. Others are loaded with expensive actively managed funds and may even charge additional plan administration fees.
+**Horace:** You should absolutely check. Many 401(k) plans include a mix of low-cost and high-cost options. Some plans are excellent, with Vanguard or Fidelity index funds at rock-bottom fees. Others are loaded with expensive actively managed funds and may even charge additional plan administration fees.
 
-**Sam:** How do I find out?
+**Stella:** How do I find out?
 
-**Alex:** Your plan is required to send you an annual fee disclosure. Look for it in your plan documents or online portal. Compare the expense ratios of your current funds to equivalent index fund options in the plan. If your plan only offers expensive options, talk to your HR department -- companies have been increasingly pressured to add low-cost choices.
+**Horace:** Your plan is required to send you an annual fee disclosure. Look for it in your plan documents or online portal. Compare the expense ratios of your current funds to equivalent index fund options in the plan. If your plan only offers expensive options, talk to your HR department -- companies have been increasingly pressured to add low-cost choices.
 
 [VISUAL: Sample 401(k) fee disclosure showing a fund lineup with expense ratios highlighted. Arrow pointing to a fund at 1.20% with text: "This is costing you." Another arrow pointing to an index option at 0.04% with text: "Switch to this."]
 
-**Sam:** What about financial advisor fees? That is a whole separate layer, right?
+**Stella:** What about financial advisor fees? That is a whole separate layer, right?
 
-**Alex:** Right. If you work with a financial advisor who charges 1% of assets under management, that is on top of the fund fees. So even if they put you in low-cost index funds at 0.05%, your total cost is 1.05%. On a $500,000 portfolio, that is $5,250 per year.
+**Horace:** Right. If you work with a financial advisor who charges 1% of assets under management, that is on top of the fund fees. So even if they put you in low-cost index funds at 0.05%, your total cost is 1.05%. On a $500,000 portfolio, that is $5,250 per year.
 
-**Sam:** When is that worth it?
+**Stella:** When is that worth it?
 
-**Alex:** A good advisor earns their fee through comprehensive financial planning -- tax optimization, estate planning, insurance review, behavioral coaching during market crashes, Social Security optimization, and retirement income planning. If your advisor just picks funds and rebalances once a year, you can get that from a robo-advisor for 0.25% or do it yourself for free.
+**Horace:** A good advisor earns their fee through comprehensive financial planning -- tax optimization, estate planning, insurance review, behavioral coaching during market crashes, Social Security optimization, and retirement income planning. If your advisor just picks funds and rebalances once a year, you can get that from a robo-advisor for 0.25% or do it yourself for free.
 
-**Sam:** Let me sum up the key takeaways. Fees compound and destroy wealth over time. The expense ratio is important but not the only cost. Loads and 12b-1 fees are generally red flags. High turnover means hidden trading and tax costs. Most active managers do not earn their higher fees. Always compare the total cost of ownership. And for most people, low-cost index funds are the best deal.
+**Stella:** Let me sum up the key takeaways. Fees compound and destroy wealth over time. The expense ratio is important but not the only cost. Loads and 12b-1 fees are generally red flags. High turnover means hidden trading and tax costs. Most active managers do not earn their higher fees. Always compare the total cost of ownership. And for most people, low-cost index funds are the best deal.
 
-**Alex:** Perfect. If you take one thing from this lesson, let it be this: a dollar saved in fees is a dollar that compounds for you, not against you. Over a lifetime, that is worth hundreds of thousands of dollars.
+**Horace:** Perfect. If you take one thing from this lesson, let it be this: a dollar saved in fees is a dollar that compounds for you, not against you. Over a lifetime, that is worth hundreds of thousands of dollars.
 
 [ANIMATION: Final image -- a split-screen future. On the left, "High-Fee Investor" looking stressed at a modest retirement. On the right, "Low-Fee Investor" relaxing comfortably with significantly more wealth. Text overlay: "The fee you save today grows for you tomorrow."]
 
-**Sam:** Next lesson, we are going to explore something much more exciting but also much more controversial -- crypto and digital assets.
+**Stella:** Next lesson, we are going to explore something much more exciting but also much more controversial -- crypto and digital assets.
 
-**Alex:** That is right. Love it or hate it, crypto is part of the investment landscape. We will give you the facts so you can make your own informed decision.
+**Horace:** That is right. Love it or hate it, crypto is part of the investment landscape. We will give you the facts so you can make your own informed decision.
 
 ---
 

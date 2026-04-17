@@ -1,318 +1,403 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+Now I have the terminology. Let me produce the Mainland Simplified Chinese translation:
 
-# Side Lesson 02: Reading a 10-K Filing Like a Pro
-
----
-
-## PART 1: READING SECTION
+# 副课02：像专业人士一样阅读10-K年报
 
 ---
 
-### Why This Is Important
-
-The 10-K is the single most important document a public company produces. It is the annual report filed with the Securities and Exchange Commission, and unlike the glossy annual report mailed to shareholders, the 10-K is a legal document. Management signs it under penalty of perjury. The company's auditors attest to the financial statements within it. Every claim is supposed to be accurate, complete, and not misleading.
-
-If you want to understand what a company actually does, how it makes money, what risks it faces, and whether its financial statements are trustworthy, the 10-K is where you start. Professional investors, analysts, and portfolio managers read these filings cover to cover. Retail investors who skip them are flying blind.
-
-Learning to read a 10-K efficiently -- knowing where to look, what matters, and what to skim -- is a foundational skill that separates informed investors from speculators.
+## 第一部分：阅读材料
 
 ---
 
-### What You Need to Know
+### 为什么这很重要
 
-#### Where to Find 10-K Filings
+10-K是上市公司发布的最重要的文件。这是向证券交易委员会（SEC）提交的年度报告，与寄给股东的精美年报不同，10-K是一份法律文件。管理层在伪证罪的法律约束下签署它。公司的审计师对其中的财务报表进行认证。每一项声明都应当准确、完整、无误导性。
 
-All public company filings are available for free on the SEC's EDGAR database at sec.gov/edgar. You can also find them on company investor relations pages, financial data providers like Bloomberg or FactSet, and free services like annualreports.com. The filing is typically available within 60 days of a company's fiscal year-end for large accelerated filers.
+如果你想了解一家公司真正做什么、如何盈利、面临什么风险以及其财务报表是否可信，10-K就是你的起点。专业投资者、分析师和投资组合经理会从头到尾阅读这些文件。跳过这些文件的散户投资者无异于盲目飞行。
 
-Related filings you should know:
-- **10-Q** -- Quarterly report (less detailed than 10-K, filed three times per year)
-- **8-K** -- Current report for material events (filed as needed)
-- **DEF 14A** -- Proxy statement (executive compensation, board details)
-- **S-1** -- Registration statement for IPOs
+10-K也是最大的均衡器。拥有彭博终端和六位数研究预算的对冲基金分析师，与每位个人投资者阅读的是同一份免费公开的10-K。信息是完全相同的。区别在于解读能力——而这正是本课要帮助你培养的技能。
 
-#### The Structure of a 10-K
-
-A standard 10-K has four main parts with multiple items:
-
-**Part I: The Business**
-
-- **Item 1: Business** -- What the company does, its products and services, competitive landscape, regulatory environment, and number of employees. This is your "company overview" section. Read this first when analyzing a company for the first time.
-
-- **Item 1A: Risk Factors** -- A comprehensive list of risks the company faces. These are ordered roughly by significance. This section has grown dramatically over the years and can run 20-40 pages. Do not skip it. The specific risks listed here often foreshadow future problems. Generic boilerplate risks (earthquakes, pandemics) matter less than company-specific risks (customer concentration, regulatory changes, technology obsolescence).
-
-- **Item 1B: Unresolved Staff Comments** -- SEC comments on prior filings that remain unresolved. If this section has content, pay attention -- it means the SEC has concerns about the company's disclosures.
-
-- **Item 1C: Cybersecurity** -- Added in 2023, this requires companies to disclose their cybersecurity risk management, strategy, and governance processes.
-
-- **Item 2: Properties** -- Where the company operates. Useful for understanding geographic diversification and whether the company owns or leases its key facilities.
-
-- **Item 3: Legal Proceedings** -- Pending lawsuits and regulatory actions. Material litigation can represent significant financial risk.
-
-- **Item 4: Mine Safety Disclosures** -- Only relevant for mining companies.
-
-**Part II: Financial Information**
-
-- **Item 5: Market for Common Equity** -- Stock exchange listing, dividend history, and share repurchase activity.
-
-- **Item 6: Reserved** -- Previously contained selected financial data (5-year summary). Now reserved after SEC rule changes.
-
-- **Item 7: Management's Discussion and Analysis (MD&A)** -- This is arguably the most important section of the entire 10-K. Management explains the financial results in their own words. They discuss revenue trends, cost drivers, liquidity, capital allocation priorities, and known trends that may affect future performance. Read this section carefully and critically.
-
-- **Item 7A: Quantitative and Qualitative Disclosures About Market Risk** -- Exposure to interest rate risk, foreign currency risk, and commodity price risk. Often includes sensitivity analysis.
-
-- **Item 8: Financial Statements and Supplementary Data** -- The audited financial statements: Income Statement, Balance Sheet, Cash Flow Statement, Statement of Stockholders' Equity, and the Notes to Financial Statements. The notes are where the real detail lives.
-
-- **Item 9: Changes in and Disagreements with Accountants** -- If the company changed auditors or had disagreements, this is a red flag.
-
-- **Item 9A: Controls and Procedures** -- Management's assessment of internal controls over financial reporting. If there is a "material weakness," this is a serious concern.
-
-**Part III: Governance**
-
-- **Item 10: Directors and Corporate Governance** -- Board composition and governance structure.
-- **Item 11: Executive Compensation** -- Often incorporated by reference to the proxy statement.
-- **Item 12: Security Ownership** -- Who owns the stock (insiders, institutions).
-- **Item 13: Certain Relationships and Related Transactions** -- Deals between the company and its insiders.
-- **Item 14: Principal Accountant Fees** -- How much the company pays its auditor.
-
-**Part IV: Exhibits**
-
-- **Item 15: Exhibits and Financial Statement Schedules** -- Key contracts, the CEO/CFO certifications (Sarbanes-Oxley Section 302 and 906), and subsidiary lists.
-
-#### The Financial Statements in Detail
-
-The four core statements:
-
-1. **Income Statement (Statement of Operations)** -- Revenue minus expenses equals net income. Look at revenue growth, gross margins, operating margins, and net margins over time. Compare to competitors.
-
-2. **Balance Sheet (Statement of Financial Position)** -- Assets equal liabilities plus equity. Focus on cash and equivalents, debt levels (short-term and long-term), goodwill and intangibles (signs of past acquisitions), and the debt-to-equity ratio.
-
-3. **Cash Flow Statement** -- Operating, investing, and financing activities. Many analysts consider this the most reliable statement because cash is harder to manipulate than earnings. A company can report profits while burning cash -- this is a warning sign.
-
-4. **Statement of Stockholders' Equity** -- Shows how equity changed during the year through net income, dividends, share issuance, buybacks, and other comprehensive income.
-
-#### The Footnotes: Where the Secrets Live
-
-The notes to financial statements are not optional reading. They contain:
-
-- **Revenue recognition policies** -- How the company decides when to count revenue. Changes here can inflate or deflate earnings.
-- **Lease obligations** -- Both on and off-balance-sheet commitments.
-- **Debt details** -- Maturity schedules, interest rates, covenants, and variable-rate exposure.
-- **Stock-based compensation** -- The real cost of employee equity awards.
-- **Pension obligations** -- Assumptions about return rates and discount rates that can dramatically affect reported liabilities.
-- **Segment reporting** -- Breaks the business into operating segments with separate revenue and profit figures. Essential for understanding a diversified company.
-- **Subsequent events** -- Things that happened after the balance sheet date but before the filing.
-- **Contingent liabilities** -- Potential obligations from lawsuits, warranties, or guarantees.
-
-#### Red Flags to Watch For
-
-These patterns in a 10-K warrant deeper investigation:
-
-1. **Revenue growing faster than cash from operations** -- The company may be booking revenue it has not collected yet.
-2. **Accounts receivable growing faster than revenue** -- Customers may not be paying, or the company may be stuffing the channel.
-3. **Frequent changes in accounting policies** -- May indicate attempts to manage earnings.
-4. **Related party transactions** -- Deals with insiders can be self-serving.
-5. **Auditor change** -- Especially if the previous auditor raised concerns.
-6. **Material weakness in internal controls** -- The company cannot reliably produce accurate financials.
-7. **Growing gap between GAAP and non-GAAP earnings** -- Excessive "adjustments" can mask poor performance.
-8. **Rising goodwill relative to total assets** -- Indicates the company overpaid for acquisitions.
-9. **Off-balance-sheet arrangements** -- Special purpose entities or variable interest entities that obscure true leverage.
-10. **Vague or changing language in risk factors** -- New risks appearing or familiar risks being described more urgently.
-
-#### How to Read a 10-K Efficiently
-
-You do not need to read every word. Here is a professional's approach:
-
-1. **Start with Item 1 (Business)** if you are new to the company. Skip if you already know the business model.
-2. **Go to Item 7 (MD&A)** for management's narrative on financial performance.
-3. **Review Item 8 (Financial Statements)** -- focus on trends over 2-3 years, not single-year numbers.
-4. **Read the footnotes** -- especially revenue recognition, debt, and segment data.
-5. **Scan Item 1A (Risk Factors)** for company-specific risks, not boilerplate.
-6. **Check Item 9A (Controls)** for any material weaknesses.
-7. **Compare to the prior year's 10-K** -- what changed? Use the SEC's filing comparison tools or diff tools to spot changes in language.
+学会高效阅读10-K——知道在哪里查找、什么重要、什么可以略读——是将知情投资者与投机者区分开来的基础技能。这也是一项随着实践不断提升的技能。你阅读的第十份10-K会比第一份容易得多，因为你将认识其中的规律，知道哪些部分需要认真研读，并对正常与可疑之处培养出敏锐的判断力。
 
 ---
 
-### Common Misconceptions
+### 你需要知道的内容
 
-**"The 10-K and the annual report are the same thing."**
-No. The glossy annual report is a marketing document. The 10-K is a legal filing. The annual report often includes portions of the 10-K but adds management letters, photographs, and forward-looking hype. Always read the actual 10-K filed with the SEC.
+#### 在哪里查找10-K文件
 
-**"If the auditor gave a clean opinion, the financials are definitely accurate."**
-An unqualified (clean) audit opinion means the auditor believes the financial statements are presented fairly in accordance with GAAP. It does not mean the company is healthy, profitable, or well-managed. It also does not guarantee the absence of fraud -- auditors perform testing, not forensic investigations. Enron received clean audit opinions right up until it collapsed.
+所有上市公司的文件均可在SEC的EDGAR数据库（sec.gov/edgar）免费获取。你也可以在公司的投资者关系页面、彭博或FactSet等金融数据提供商，以及annualreports.com等免费服务上找到它们。对于大型加速申报公司，该文件通常在公司财年结束后60天内提交。
 
-**"Non-GAAP earnings are more accurate than GAAP earnings."**
-Companies often present "adjusted" or non-GAAP earnings that exclude stock-based compensation, restructuring charges, or amortization of intangibles. Sometimes these adjustments are reasonable and provide better insight into recurring profitability. Other times, companies exclude real, recurring costs to make their earnings look better. Always compare GAAP and non-GAAP side by side and question every adjustment.
+你应当了解的相关文件：
+- **10-Q** — 季度报告（比10-K简略，每年提交三次）
+- **8-K** — 重大事件的当前报告（按需提交，通常是重要变化的首个信号）
+- **DEF 14A** — 委托书（高管薪酬、董事会详情、股东投票事项）
+- **S-1** — IPO注册声明（新上市公司首次全面信息披露）
+- **Form 4** — 内幕交易报告（当高管、董事或持股10%以上的股东买卖公司股票时提交）
+- **Schedule 13D/13G** — 当投资者收购公司5%或以上流通股时提交
 
-**"I only need to read the most recent 10-K."**
-Trends matter more than snapshots. Reading three years of 10-Ks reveals whether margins are improving or deteriorating, whether risk factor language is becoming more urgent, and whether management's promises from prior years actually materialized. At minimum, compare the current 10-K to last year's.
+**提交截止日期：** 大型加速申报公司（公众持股市值超过7亿美元）必须在财年结束后60天内提交10-K。加速申报公司（公众持股市值在7500万至7亿美元之间）有75天。非加速申报公司（小型公司）有90天。无法按时提交的公司会提交NT 10-K（延迟申报通知），申请15天延期。延迟申报本身就是一个值得关注的信息信号。
 
-**"Small companies have simpler 10-Ks that are easier to read."**
-Small-cap 10-Ks are often less polished and harder to parse than large-cap filings. Large companies have armies of lawyers and accountants crafting their disclosures. Small companies may have less professional presentations, but the information is still there -- and sometimes the rough edges make problems easier to spot.
+**财年与日历年：** 并非所有公司都使用日历年（12月31日结束）作为财年。零售商通常使用以一月下旬或二月初结束的财年（假日购物季之后）。有些公司的财年以六月、九月或其他月份结束。苹果的财年在九月下旬结束，微软的在六月结束。始终检查财年结束日期，以便正确解读季节性收入模式等时间敏感数据。
 
-**"Risk factors are just legal boilerplate to protect the company from lawsuits."**
-While there is some boilerplate (natural disasters, regulatory changes), many risk factors are genuinely informative. When a company adds a new risk factor or significantly expands an existing one, pay attention. The company is legally warning you about something specific.
+#### 10-K的结构
+
+标准10-K分为四个主要部分，包含多个条目：
+
+**第一部分：业务**
+
+- **条目1：业务** — 公司做什么、其产品和服务、竞争格局、监管环境以及员工数量。这是你的"公司概览"部分。首次分析一家公司时，先阅读这部分。
+
+- **条目1A：风险因素** — 公司面临的全面风险列表，大致按重要性排序。这一部分多年来已大幅扩展，可能长达20至40页。不要跳过。这里列出的具体风险往往预示着未来的问题。通用的样板风险（地震、疫情）不如公司特定风险（客户集中度、监管变化、技术过时）重要。
+
+- **条目1B：未解决的员工意见** — SEC对之前文件中仍未解决的意见。如果这一部分有内容，需要特别关注——这意味着SEC对公司的信息披露存有疑虑。
+
+- **条目1C：网络安全** — 2023年新增，要求公司披露其网络安全风险管理、战略和治理流程。
+
+- **条目2：物业** — 公司在哪里运营。有助于了解地理多元化程度以及公司是自有还是租赁其主要设施。
+
+- **条目3：法律程序** — 待决诉讼和监管行动。重大诉讼可能代表重大财务风险。
+
+- **条目4：矿山安全披露** — 仅与采矿公司相关。
+
+**第二部分：财务信息**
+
+- **条目5：普通股市场** — 股票交易所上市、分红历史和股票回购活动。
+
+- **条目6：保留** — 此前包含经过筛选的财务数据（5年摘要），SEC规则修改后现已保留。
+
+- **条目7：管理层讨论与分析（MD&A）** — 这可以说是整个10-K中最重要的部分。管理层用自己的话解释财务业绩。他们讨论收入趋势、成本驱动因素、流动性、资本配置重点以及可能影响未来业绩的已知趋势。仔细且批判性地阅读这部分。
+
+- **条目7A：市场风险的定量和定性披露** — 利率风险、外汇风险和大宗商品价格风险的敞口，通常包含敏感性分析。
+
+- **条目8：财务报表及补充数据** — 经审计的财务报表：利润表、资产负债表、现金流量表、股东权益变动表，以及财务报表附注。附注才是真正细节所在。
+
+- **条目9：与会计师的变更和分歧** — 如果公司更换了审计师或存在分歧，这是一个警示信号。
+
+- **条目9A：控制和程序** — 管理层对财务报告内部控制的评估。如果存在"重大缺陷"，这是一个严重问题。
+
+**第三部分：治理**
+
+- **条目10：董事和公司治理** — 董事会构成和治理结构。
+- **条目11：高管薪酬** — 通常通过引用委托书的方式纳入。
+- **条目12：证券所有权** — 谁持有股票（内部人士、机构）。
+- **条目13：某些关系和关联交易** — 公司与其内部人士之间的交易。
+- **条目14：主要会计师费用** — 公司向其审计师支付的费用。
+
+**第四部分：附件**
+
+- **条目15：附件和财务报表附表** — 关键合同、CEO/CFO认证（萨班斯-奥克斯利法案第302条和第906条），以及子公司列表。
+
+#### 财务报表详解
+
+四项核心报表：
+
+1. **利润表（经营业绩表）** — 收入减去支出等于净利润。关注随时间推移的收入增长、毛利率、营业利润率和净利率。与竞争对手进行比较。特别注意增长是有机增长（来自现有业务）还是无机增长（来自并购）。MD&A部分通常会对此进行细分。
+
+2. **资产负债表（财务状况表）** — 资产等于负债加股东权益。重点关注现金及现金等价物、债务水平（短期和长期）、商誉和无形资产（过去并购的迹象），以及资产负债率。注意大额无形资产余额，如果业务条件恶化，这些资产可能面临减值。
+
+3. **现金流量表** — 经营、投资和筹资活动。许多分析师认为这是最可靠的报表，因为现金比盈利更难以操纵。一家公司可以在现金持续消耗的情况下报告利润——这是一个警示信号。计算自由现金流（经营现金流减去资本支出），以了解企业在维护资产基础后真正产生了多少现金。
+
+4. **股东权益变动表** — 显示在一年中股东权益如何通过净利润、股息、股份发行、回购和其他综合收益发生变化。大额其他综合损失累计（AOCI）可能表明未实现的投资损失、外汇折算影响或养老金负债调整，这些不会出现在利润表上，但会影响资产负债表。
+
+**专业提示：** 始终并排查看三年的财务报表。10-K提供两年的资产负债表数据和三年的利润表及现金流量数据。趋势所反映的信息远多于任何单一年份的数字。连续三年利润率下降的公司与利润率稳定或扩张的公司，即便当年的绝对数字看起来相似，本质上也处于截然不同的状况。
+
+#### 附注：秘密所在之处
+
+财务报表附注不是可选读物。它们包含：
+
+- **收入确认政策** — 公司如何决定何时计算收入。这里的变化可能会夸大或缩小盈利。
+- **租赁义务** — 表内和表外承诺。
+- **债务详情** — 到期安排、利率、契约条款和浮动利率敞口。
+- **股权激励** — 员工股权奖励的实际成本。
+- **养老金义务** — 关于回报率和折现率的假设，可能对报告的负债产生重大影响。
+- **分部报告** — 将业务细分为各运营分部，分别列示收入和利润数字。对于理解多元化公司至关重要。
+- **期后事项** — 资产负债表日期后但文件提交前发生的事情。
+- **或有负债** — 来自诉讼、保修或担保的潜在义务。
+
+#### 审计师报告：你的第一站
+
+在深入研究财务报表之前，先检查审计师报告。这通常是条目8开头附近的两至三页函件。
+
+**关键要素：**
+
+- **意见类型** — "无保留意见"（清洁）意味着审计师认为报表被公允呈现。"保留意见"意味着存在特定例外。"否定意见"意味着存在严重问题。"拒绝表示意见"意味着审计师无法形成意见。任何非无保留意见的情况都需要立即关注。
+
+- **持续经营措辞** — 如果审计师包含关于"对主体持续经营能力存在重大疑虑"的段落，这是一个重要警告。审计师是在说这家公司可能在未来12个月内无法存续。
+
+- **关键审计事项（CAMs）** — 自2019年起对大型申报公司要求，CAMs强调审计中特别具有挑战性、需要大量审计师判断或涉及复杂会计估计的领域。这些通常指向财务报表中最主观且可能存在问题的领域。阅读每个CAM并思考其含义。
+
+- **审计公司本身** — 虽然"四大"（德勤、普华永道、安永、毕马威）审计大多数大公司，但小公司可能使用地区性或规模较小的会计师事务所。大型公司从四大转向较小的会计师事务所可能是一个黄色信号，因为这可能意味着分歧或在不应削减的领域削减成本。
+
+#### 需要关注的警示信号
+
+10-K中的以下模式需要深入调查：
+
+1. **收入增长速度快于经营现金流** — 公司可能在计算尚未收到的收入。
+2. **应收账款增长速度快于收入** — 客户可能没有付款，或公司可能在塞渠道。
+3. **频繁更改会计政策** — 可能表明试图管理盈利。
+4. **关联交易** — 与内部人士的交易可能出于自身利益。
+5. **审计师变更** — 尤其是在上一任审计师提出疑虑之后。
+6. **内部控制存在重大缺陷** — 公司无法可靠地提供准确的财务报表。
+7. **GAAP与非GAAP盈利之间的差距不断扩大** — 过多的"调整"可能掩盖糟糕的业绩。
+8. **商誉占总资产比例上升** — 表明公司为收购支付了过高的溢价。
+9. **表外安排** — 隐藏真实杠杆水平的特殊目的实体或可变利益实体。
+10. **风险因素中措辞含糊或变化** — 出现新风险或现有风险被描述得更为紧迫。
+11. **库存增长速度快于收入** — 公司可能生产过剩或难以销售商品。库存过剩可能导致未来的减值损失。
+12. **重大"其他收入"或一次性收益虚增盈利** — 如果大量净利润来自资产出售、保险理赔或其他非经营性项目，核心盈利能力可能比看起来更弱。
+
+#### 如何高效阅读10-K
+
+你不需要逐字阅读每一个字。以下是专业人士的方法：
+
+1. **从条目1（业务）开始**，如果你是第一次接触这家公司。如果你已经了解商业模式，可以跳过。
+2. **转到条目7（MD&A）**，了解管理层对财务业绩的叙述。
+3. **查阅条目8（财务报表）** — 关注2至3年的趋势，而非单年数字。
+4. **阅读附注** — 尤其是收入确认、债务和分部数据。
+5. **浏览条目1A（风险因素）**，查找公司特定风险，而非样板内容。
+6. **检查条目9A（控制）**，查找任何重大缺陷。
+7. **检查审计师报告**，关注意见类型、持续经营措辞和关键审计事项。
+8. **与上一年的10-K进行比较** — 有什么变化？使用SEC的文件比较工具或差异对比工具来发现措辞变化。
+
+**建立研究模板：** 考虑创建一个标准模板或核查清单，用于填写你阅读的每份10-K。包含以下字段：商业模式摘要、收入细分、利润率趋势、债务到期情况、关键风险因素、管理层质量评估以及你的整体投资逻辑。这能强制进行严格分析，并创建可以回顾的记录。
+
+**与业绩电话会议记录交叉参考：** 阅读10-K后，阅读最近的业绩电话会议记录。将管理层口头表述的内容与文件中的内容进行比较。两者之间的差异可能很有参考价值——管理层在电话会议上可能比在经过法律审查的10-K中更坦诚或更回避。特别注意管理层回避或拒绝直接回答的分析师问题。
+
+**阅读竞争对手的10-K：** 读完一家公司的10-K后，阅读其最近竞争对手的10-K。这能为比较提供基准。利润率是更高还是更低？收入增长是更快还是更慢？风险因素是相似还是不同？当你并排查看原始文件时，竞争分析会变得容易得多。
+
+**使用SEC的EDGAR搜索工具：** SEC在efts.sec.gov/LATEST/search-index提供跨所有文件的全文搜索。你可以搜索公司文件中的特定术语，或跨所有公司搜索。这对于追踪全行业趋势（搜索所有10-K中的"关税"以查看哪些公司正在讨论贸易风险）、查找可比披露或识别面临特定问题的公司非常有价值。高级EDGAR用户还会利用XBRL（可扩展商业报告语言）数据，该数据以结构化、机器可读的格式提供财务数据，支持自动化分析和比较。
 
 ---
 
-### Q&A Section
+### 常见误解
 
-**Q: How long does it take to read a 10-K?**
-A: A full read-through of a large-cap 10-K can take 3-6 hours. With practice and a focused approach (MD&A, financials, footnotes, risk factors), you can extract the key information in 1-2 hours. For companies you follow regularly, the incremental read of each new 10-K takes less time because you already know the business.
+**"10-K和年报是同一回事。"**
+不。精美的年报是一份营销文件。10-K是一份法律文件。年报通常包含10-K的部分内容，但会添加管理层信函、照片和前瞻性炒作。始终阅读向SEC提交的实际10-K。
 
-**Q: What is the difference between a 10-K and a 10-K/A?**
-A: The /A suffix means "amendment." A 10-K/A is a corrected or updated version of a previously filed 10-K. This can be routine (adding information that was incorporated by reference) or concerning (restating financial results). Always read the reason for the amendment.
+**"如果审计师给出了清洁意见，财务数据肯定是准确的。"**
+无保留（清洁）审计意见意味着审计师认为财务报表按照公认会计准则被公允呈现。这并不意味着公司健康、盈利或管理良好，也不保证不存在欺诈——审计师进行的是测试，而非法证调查。安然公司在倒闭前一直获得清洁审计意见。
 
-**Q: How do I compare 10-Ks across companies in the same industry?**
-A: Focus on the same line items: revenue growth, margins, return on equity, debt levels, and cash flow generation. Segment reporting is especially useful because it lets you compare specific business lines. Also compare risk factors -- a risk that one company discloses but its competitor does not may indicate different exposure levels or different disclosure philosophies.
+**"非GAAP盈利比GAAP盈利更准确。"**
+公司通常会呈现"调整后"或非GAAP盈利，排除股权激励、重组费用或无形资产摊销。有时这些调整是合理的，能更好地反映经常性盈利能力。其他时候，公司则排除真实的、经常性的成本，使其盈利看起来更好。始终并排比较GAAP和非GAAP，并质疑每一项调整。
 
-**Q: What is an NT 10-K?**
-A: NT stands for "Notification of Late Filing." If a company cannot file its 10-K on time, it files an NT 10-K requesting a 15-day extension. Late filings can indicate accounting problems, internal control issues, or significant events requiring additional disclosure. This is a yellow flag.
+**"我只需要阅读最新的10-K。"**
+趋势比快照更重要。阅读三年的10-K可以揭示利润率是在提升还是恶化，风险因素措辞是否变得更加紧迫，以及管理层在前几年的承诺是否真正得到了兑现。至少，将当前10-K与上一年进行比较。
 
-**Q: Should I read the 10-K before or after the earnings call?**
-A: Read the 10-K first, or at least skim the MD&A and financial statements. This gives you context for management's commentary on the earnings call. You will ask better questions and catch discrepancies between the written filing and verbal statements.
+**"小公司的10-K更简单，更容易阅读。"**
+小盘股的10-K通常不如大盘股文件精练，更难以解读。大型公司有大批律师和会计师来撰写其信息披露。小公司的呈现可能不那么专业，但信息仍然在那里——有时粗糙的边缘反而使问题更容易发现。
 
-**Q: What tools can help me read 10-Ks more efficiently?**
-A: The SEC's EDGAR full-text search lets you search across filings. Calcbench and similar services extract structured financial data. AI-powered tools can summarize sections, but always verify their output against the source. For tracking changes year over year, some services offer red-line comparisons of consecutive filings.
+**"风险因素只是保护公司免受诉讼的法律样板。"**
+虽然有一些样板内容（自然灾害、监管变化），但许多风险因素确实具有参考价值。当一家公司增加新的风险因素或大幅扩展现有风险因素时，请予以关注。公司在法律上是在警告你某些具体事项。
 
-**Q: How important are the CEO and CFO certifications at the end?**
-A: The Sarbanes-Oxley certifications (Sections 302 and 906) make the CEO and CFO personally liable for the accuracy of the financial statements. These carry criminal penalties. While they do not guarantee honesty, they raise the stakes significantly for executives who might otherwise be tempted to misrepresent their company's financial position.
+**"资产负债表告诉你一家公司值多少钱。"**
+资产负债表显示的是账面价值，这基于历史成本和会计规则，而非市场价值。公司许多最有价值的资产——品牌声誉、客户关系、内部开发的知识产权、优秀员工——根本不会出现在资产负债表上。账面价值和市场价值可能相差几个数量级，对于科技和服务公司尤为如此。
+
+**"如果收入在增长，公司一定运营良好。"**
+收入增长若缺乏背景则毫无意义。一家公司可以通过降价（压缩利润率）、收购其他公司（增加债务）、提供延长付款条款（夸大应收账款）或更改收入确认政策（提前确认未来收入）来实现收入增长。始终将收入增长与利润率趋势、现金流和投资资本回报率结合起来看。
+
+**"我可以信赖分析师报告，所以不需要自己阅读10-K。"**
+分析师报告很有用，但它们是二手资料。分析师有其自身的偏见、利益冲突（投资银行关系）和有限的时间。他们无法覆盖300页文件中的每一个细节。通过自己阅读10-K，你能培养独立判断力，可能会发现分析师遗漏或轻描淡写的细节。最优秀的投资者将自己的一手研究（阅读文件）与二手资料（分析师报告、行业研究）相结合。
+
+**"GAAP盈利始终保守且可靠。"**
+公认会计准则（GAAP）提供了一个框架，但涉及在收入确认时间、资产减值测试、折旧使用年限估计和坏账准备等领域的大量管理层判断。同一行业中的两家公司，可能因为管理层如何激进或保守地应用会计准则而在相似的基本经济状况下报告截然不同的GAAP盈利。这就是为什么阅读附注中的会计政策至关重要。
 
 ---
 
-## PART 2: YOUTUBE SCRIPT
+### 问答环节
+
+**问：阅读一份10-K需要多长时间？**
+答：全面阅读一份大盘股10-K可能需要3至6小时。通过实践和有针对性的方法（MD&A、财务报表、附注、风险因素），你可以在1至2小时内提取关键信息。对于你定期跟踪的公司，每份新10-K的增量阅读时间更短，因为你已经了解这门业务。
+
+**问：什么是"持续经营"意见，它是否令人担忧？**
+答：持续经营意见意味着审计师对公司在未来12个月内继续运营的能力存在重大疑虑。这是一个非常严重的警告。这并不意味着公司一定会倒闭，但意味着能够接触内部财务信息的审计师存在重大顾虑。获得持续经营意见的公司有时可以恢复，特别是在获得额外融资的情况下，但投资者在投资前应将其视为重大警示信号，需要深入调查。
+
+**问：如何在10-K中发现塞渠道行为？**
+答：塞渠道是指公司向经销商推销过多库存以夸大收入。寻找应收账款增长速度明显快于收入的情况、经销商库存上升（有时在MD&A中提及）、销售退货或折让增加，以及季末收入飙升后下一季度初期疲软的情况。还需检查现金流量表——如果经营现金流持续低于净利润，公司可能在计算尚未收到的收入。
+
+**问：从10-K数据计算哪些最重要的财务比率？**
+答：从这五项开始：（1）同比收入增长率。（2）营业利润率（营业利润除以收入）以了解盈利能力。（3）自由现金流（经营现金流减去资本支出）以了解真实现金产生。（4）债务/EBITDA比率以评估杠杆水平。（5）投资资本回报率（ROIC）以衡量公司使用资本的效率。追踪这些指标三年或以上，以识别趋势。
+
+**问：10-K和10-K/A有什么区别？**
+答："/A"后缀表示"修正"。10-K/A是之前提交的10-K的更正或更新版本。这可以是常规的（添加通过引用纳入的信息）或令人担忧的（重述财务业绩）。始终阅读修正原因。
+
+**问：如何比较同一行业不同公司的10-K？**
+答：关注相同的行项目：收入增长、利润率、净资产收益率、债务水平和现金流产生。分部报告特别有用，因为它允许你比较特定业务线。也要比较风险因素——一家公司披露但其竞争对手没有的风险，可能表明不同的敞口水平或不同的披露理念。
+
+**问：什么是NT 10-K？**
+答：NT代表"延迟申报通知"。如果公司无法按时提交10-K，它会提交NT 10-K申请15天延期。延迟申报可能表明存在会计问题、内部控制问题或需要额外披露的重大事件。这是一个黄色信号。
+
+**问：应该在业绩电话会议前还是后阅读10-K？**
+答：先阅读10-K，或者至少浏览MD&A和财务报表。这为你理解管理层在业绩电话会议上的评论提供背景。你会提出更好的问题，并能发现书面文件与口头表述之间的差异。
+
+**问：什么工具可以帮助我更高效地阅读10-K？**
+答：SEC的EDGAR全文搜索允许你跨文件搜索。Calcbench和类似服务可提取结构化财务数据。AI工具可以总结各部分内容，但始终要对照原始资料核实其输出。对于追踪年度变化，一些服务提供连续文件的红线比较。
+
+**问：末尾的CEO和CFO认证有多重要？**
+答：萨班斯-奥克斯利认证（第302条和第906条）使CEO和CFO对财务报表的准确性承担个人责任。这些认证带有刑事处罚。虽然它们不能保证诚实，但对于可能原本倾向于歪曲公司财务状况的高管来说，风险大大提高。
 
 ---
 
-### "Decoding the 10-K: How to Read the Most Important Document in Investing"
+## 第二部分：YouTube脚本
 
-**Target Length:** 18-22 minutes
-**Tone:** Detective-like, revealing, methodical
+---
+
+### "解码10-K：如何阅读投资中最重要的文件"
+
+**目标时长：** 18-22分钟
+**基调：** 侦探式、揭秘式、有条不紊
 
 ---
 
 **[VISUAL: Stack of thick printed documents on a desk. Camera zooms into the cover page showing "FORM 10-K" and SEC filing header. Title card: "Reading a 10-K Like a Pro"]**
 
-**Alex:** If I told you there is a document that every public company is legally required to produce, that is signed under penalty of perjury, that tells you exactly how the company makes money, what risks it faces, and whether the numbers add up -- would you read it?
+**Horace（陳馬）：** 如果我告诉你，有一份文件每家上市公司都被法律要求发布，在伪证罪的约束下签署，准确告诉你公司如何赚钱、面临什么风险、数字是否经得起推敲——你会去读它吗？
 
-**Sam:** I would hope so, but I think most retail investors never open one.
+**Stella（小魚）：** 我希望是的，但我觉得大多数散户投资者从来不打开这个文件。
 
-**Alex:** Most do not. And that is a huge information disadvantage. The 10-K is the great equalizer. It is free, it is public, and it is the same document that hedge fund analysts pore over. Today we are going to teach you how to read one efficiently so you actually do it.
+**Horace：** 大多数人确实不读。这是巨大的信息劣势。10-K是最大的均衡器。它是免费的、公开的，与对冲基金分析师仔细研究的是同一份文件。今天我们要教你如何高效阅读它，让你真正付诸实践。
 
 **[VISUAL: EDGAR website homepage with search bar highlighted]**
 
-**Sam:** First things first -- where do you find these?
+**Stella：** 首先——在哪里找到这些文件？
 
-**Alex:** SEC dot gov slash EDGAR. Every public company files here. Type in the company name or ticker, select 10-K from the filing type, and you have got every annual filing going back decades. Completely free.
+**Horace：** SEC网站的EDGAR数据库。每家上市公司都在这里申报。输入公司名称或股票代码，从申报类型中选择10-K，你就能获得过去几十年的每份年度申报。完全免费，无需订阅、无需注册。
+
+**Stella：** 也可以在公司网站上找到吗？
+
+**Horace：** 是的，大多数公司的"投资者关系"部分都有SEC文件的链接。但我建议直接使用EDGAR，因为它是主要来源，格式标准化，而且你可以使用SEC的搜索工具跨公司比较文件。
+
+**[VISUAL: EDGAR search results page showing multiple filing types: 10-K, 10-Q, 8-K, DEF 14A. The 10-K is highlighted.]**
+
+**Stella：** 10-Q呢？那有什么不同？
+
+**Horace：** 10-Q是季度报告——每年前三个季度各提交一次。第四季度数据包含在年度10-K中。10-Q比10-K简略：财务数据未经审计，MD&A也更短。但它对追踪年度报告之间的发展很有用。如果一家公司的情况正在快速变化，10-Q会最先显示出来。
+
+**[VISUAL: Calendar showing filing schedule: Q1 10-Q in May, Q2 10-Q in August, Q3 10-Q in November, Annual 10-K in February/March. The 8-K shown as occurring "anytime" for material events.]**
 
 **[VISUAL: Animated table of contents of a 10-K, organized into Part I through Part IV with all items listed]**
 
-**Alex:** A 10-K has a standard structure mandated by the SEC. Four parts, about fifteen items. But you do not need to read all of them with equal attention. Let me show you where the gold is.
+**Horace：** 10-K有SEC规定的标准结构。四个部分，约15个条目。但你不需要以同等的注意力阅读所有内容。让我告诉你金矿在哪里。
 
-**Sam:** What do you read first?
+**Stella：** 你先读什么？
 
-**Alex:** If it is a company I have never analyzed before, I start with Item 1 -- Business. This tells me what the company actually does. Not the marketing pitch, not the tagline -- the real operational description. How they make money, who their customers are, what their competitive position is, and how they are regulated.
+**Horace：** 如果是我从未分析过的公司，我从条目1——业务开始。这告诉我公司实际做什么。不是营销宣传，不是标语——而是真实的运营描述：他们如何赚钱、客户是谁、竞争地位如何以及如何受到监管。
 
 **[ANIMATION: Company profile card being filled in: Industry, Products, Revenue Streams, Customer Base, Competitive Position, Regulatory Environment]**
 
-**Alex:** But if I already know the business, I skip straight to Item 7 -- Management's Discussion and Analysis, or MD&A. This is the most important section of the entire filing.
+**Horace：** 但如果我已经了解这门业务，我会直接跳到条目7——管理层讨论与分析，即MD&A。这是整个申报中最重要的部分。
 
-**Sam:** Why MD&A specifically?
+**Stella：** 为什么特别是MD&A？
 
-**Alex:** Because this is where management explains the numbers in their own words. Revenue went up twelve percent? MD&A tells you why. Was it volume growth? Price increases? An acquisition? Currency effects? Margins compressed by two hundred basis points? MD&A explains which costs went up and whether management expects that to continue.
+**Horace：** 因为这里是管理层用自己的话解释数字的地方。收入增长了12%？MD&A告诉你原因。是销量增长？提价？并购？汇率影响？利润率压缩了200个基点？MD&A解释了哪些成本上升了，以及管理层是否预期这种情况会持续。
 
 **[VISUAL: Excerpt from a real MD&A section with key phrases highlighted: "driven primarily by," "partially offset by," "we expect," "due to"]**
 
-**Sam:** So it is like getting management's narrative on the financial story.
+**Stella：** 所以它就像是获得管理层对财务故事的叙述。
 
-**Alex:** Exactly. And here is the thing -- you read it critically. Management will spin things positively. Your job is to check whether their narrative matches the actual numbers.
+**Horace：** 正是。而且有一点——你要批判性地阅读它。管理层会把事情往好处说。你的任务是检查他们的叙述是否与实际数字相符。
 
 **[ANIMATION: Two-panel comparison. Left panel shows management quote: "Strong revenue growth driven by market expansion." Right panel shows actual data: "Revenue +8%, but Accounts Receivable +22%." Red flag icon appears.]**
 
-**Alex:** That brings us to the financial statements -- Item 8. You have got four statements: Income Statement, Balance Sheet, Cash Flow Statement, and Statement of Stockholders' Equity. But the real detail is in the footnotes.
+**Horace：** 这就引出了财务报表——条目8。你有四张报表：利润表、资产负债表、现金流量表和股东权益变动表。但真正的细节在附注里。
 
-**Sam:** The footnotes? Those pages and pages of small print?
+**Stella：** 附注？那些密密麻麻的小字？
 
-**Alex:** I know, they look intimidating. But this is literally where companies bury the most important information. Revenue recognition policies? In the footnotes. Debt maturity schedules? Footnotes. Off-balance-sheet arrangements? Footnotes. Pension assumptions? Footnotes. If you skip the footnotes, you are reading a summary, not the actual story.
+**Horace：** 我知道，看起来令人生畏。但这字面上就是公司埋藏最重要信息的地方。收入确认政策？在附注里。债务到期安排？附注。表外安排？附注。养老金假设？附注。如果你跳过附注，你读的是摘要，而不是真实的故事。
 
 **[VISUAL: Iceberg diagram. Above water: "Financial Statements." Below water (much larger): "Footnotes -- Revenue Recognition, Debt Details, Lease Obligations, Contingent Liabilities, Segment Data, Stock Compensation"]**
 
-**Sam:** What specifically should people look for in the footnotes?
+**Stella：** 具体来说，人们应该在附注中寻找什么？
 
-**Alex:** Three things always. First, revenue recognition -- how does the company decide when to count revenue? If they changed their policy, why? Second, debt -- how much, at what interest rate, when does it mature, and are there covenants they might violate? Third, segment reporting -- if the company has multiple business lines, the segment data shows you which ones are actually making money and which ones are dragging.
+**Horace：** 始终关注三件事。第一，收入确认——公司如何决定何时计算收入？如果他们改变了政策，为什么？第二，债务——多少、利率是多少、何时到期、是否有可能违反的契约条款？第三，分部报告——如果公司有多条业务线，分部数据会告诉你哪些在真正赚钱，哪些在拖后腿。
 
 **[VISUAL: Three cards flipping over: "Revenue Recognition," "Debt Structure," "Segment Performance"]**
 
-**Sam:** Okay, what about risk factors? Item 1A?
+**Stella：** 好的，风险因素呢？条目1A？
 
-**Alex:** Risk factors have gotten long -- some companies have thirty or forty pages. Most people either skip them entirely or try to read every word and give up. Here is the efficient approach: scan for company-specific risks and ignore generic ones.
+**Horace：** 风险因素变得很长——有些公司有三四十页。大多数人要么完全跳过，要么试图逐字阅读然后放弃。这里有个高效的方法：扫描公司特定风险，忽略通用的内容。
 
 **[VISUAL: Two columns. Left column "Generic (Skim)" showing: natural disasters, macroeconomic conditions, regulatory changes. Right column "Specific (Read Carefully)" showing: customer concentration, patent expiration, pending litigation, technology disruption]**
 
-**Alex:** If a company says "our top three customers account for fifty-two percent of revenue" -- that is specific and important. If they say "adverse economic conditions could affect our business" -- that applies to every company on earth. Focus on what makes this company's risks unique.
+**Horace：** 如果一家公司说"我们前三大客户占收入的52%"——这是具体的、重要的。如果他们说"不利的经济状况可能影响我们的业务"——这适用于世界上的每一家公司。关注什么使这家公司的风险与众不同。
 
-**Sam:** Let us talk about red flags. What patterns should make an investor nervous?
+**Stella：** 让我们谈谈警示信号。哪些模式应该让投资者感到警惕？
 
-**Alex:** I have a checklist I run through every time.
+**Horace：** 我每次都会运行一个核查清单。
 
 **[VISUAL: Red flag checklist appearing one by one]**
 
-**Alex:** Number one -- revenue growing but operating cash flow shrinking. That means the company is booking sales but not collecting cash. Could be aggressive revenue recognition or deteriorating customer quality.
+**Horace：** 第一——收入增长但经营现金流收缩。这意味着公司在计算销售额但没有收到现金。可能是激进的收入确认或客户质量恶化。
 
-**Sam:** Like they are counting revenue from deals that have not actually been paid for?
+**Stella：** 就像他们在计算实际上还没有付款的交易的收入？
 
-**Alex:** Exactly. Number two -- accounts receivable growing significantly faster than revenue. If revenue is up ten percent but receivables are up twenty-five percent, someone is not paying their bills or the company is stuffing the channel.
+**Horace：** 正是。第二——应收账款增长速度明显快于收入。如果收入增长10%但应收账款增长25%，有人没有付账，或者公司在塞渠道。
 
 **[ANIMATION: Two bar charts side by side. Revenue bars growing modestly. Accounts receivable bars growing much faster. Warning triangle appears between them.]**
 
-**Alex:** Number three -- a change in auditors, especially mid-year or after disagreements. Number four -- material weaknesses in internal controls, disclosed in Item 9A. That means the company's own management is admitting they cannot reliably produce accurate financial statements.
+**Horace：** 第三——审计师变更，尤其是年中或在分歧之后。第四——内部控制中的重大缺陷，在条目9A中披露。这意味着公司自己的管理层承认他们无法可靠地提供准确的财务报表。
 
-**Sam:** That is basically the company saying "our numbers might not be right."
+**Stella：** 这基本上是公司在说"我们的数字可能不对。"
 
-**Alex:** Number five -- the gap between GAAP and non-GAAP earnings widening over time. Every company now presents "adjusted" earnings that exclude certain costs. Some of these adjustments are reasonable, like one-time restructuring charges. But when the adjustments keep growing, the company may be excluding real, recurring expenses to make earnings look better.
+**Horace：** 第五——GAAP和非GAAP盈利之间的差距随时间扩大。现在每家公司都呈现排除某些成本的"调整后"盈利。其中一些调整是合理的，比如一次性重组费用。但当调整不断增加，公司可能在排除真实的、经常性的费用，使盈利看起来更好。
 
 **[VISUAL: Line chart showing GAAP earnings flat while "Adjusted" earnings climb higher and higher. The growing gap is shaded red.]**
 
-**Sam:** How do you read a 10-K efficiently? What is the workflow?
+**Stella：** 你如何高效阅读10-K？工作流程是什么？
 
-**Alex:** Here is my process. On a first read, I spend about two hours.
+**Horace：** 这是我的流程。首次阅读时，我花大约两个小时。
 
 **[VISUAL: Workflow diagram with time allocations]**
 
-**Alex:** Twenty minutes on Item 1, the Business section, to understand the company. Thirty to forty minutes on Item 7, MD&A, to understand management's story. Thirty minutes on the financial statements themselves -- looking at three-year trends, not just the current year. Twenty to thirty minutes on footnotes -- hit the big three we discussed. Fifteen minutes scanning risk factors for company-specific items. And five minutes checking Item 9A for internal control issues and Item 9 for auditor changes.
+**Horace：** 条目1业务部分20分钟，了解公司。条目7 MD&A 30至40分钟，了解管理层的故事。财务报表本身30分钟——查看三年趋势，而非只看当年。附注20至30分钟——重点关注我们讨论的三大方面。15分钟浏览风险因素查找公司特定事项。5分钟检查条目9A的内部控制问题和条目9的审计师变更。
 
-**Sam:** Two hours sounds like a lot, but for a company you might invest tens of thousands of dollars in, it is nothing.
+**Stella：** 两个小时听起来很多，但对于你可能投入数万元的公司来说，这算不了什么。
 
-**Alex:** People spend more time researching a television purchase than they do researching a stock they are putting fifty thousand dollars into. Two hours of reading the 10-K is the minimum due diligence.
+**Horace：** 人们花在研究一台电视上的时间比研究他们投入五万元的股票还要多。两个小时阅读10-K是最低限度的尽职调查。
 
 **[VISUAL: Split image -- person spending hours comparing TV specs vs. person buying stock in 30 seconds on phone app]**
 
-**Sam:** One more thing -- how do you track changes over time?
+**Stella：** 还有一件事——你如何追踪随时间的变化？
 
-**Alex:** Great question. I always compare the current 10-K to last year's. Some services offer red-line comparisons. But even manually, you can spot changes. Did a risk factor get added? Did the language around a particular issue become more urgent? Did management's MD&A drop a product line they used to talk about?
+**Horace：** 好问题。我总是将当前的10-K与去年的进行比较。一些服务提供红线比较。但即使手动，你也可以发现变化。是否增加了风险因素？特定问题的措辞是否变得更加紧迫？管理层的MD&A是否删去了他们曾经谈论的产品线？
 
 **[ANIMATION: Two versions of a risk factors section side by side, with new text highlighted in yellow and deleted text shown with strikethrough]**
 
-**Alex:** These changes tell you where the story is evolving. A company that added three paragraphs about supply chain risk this year when it had one sentence last year is telling you something.
+**Horace：** 这些变化告诉你故事在哪里演变。今年在供应链风险方面增加了三段，而去年只有一句话的公司，是在告诉你某些事情。
 
-**Sam:** It is like forensic reading.
+**Stella：** 这就像法证阅读。
 
-**Alex:** That is exactly what fundamental analysis is. You are a detective, and the 10-K is your case file. Every number tells a story. Every footnote has a detail that matters. Your job is to piece it all together and decide whether this company is worth owning.
+**Horace：** 这正是基本面分析的本质。你是一名侦探，10-K是你的案件档案。每个数字都讲述一个故事。每个附注都有重要的细节。你的任务是把所有这些拼凑在一起，判断这家公司是否值得持有。
 
 **[VISUAL: Detective magnifying glass over a 10-K filing page, highlighting key numbers]**
 
-**Sam:** Alright, to recap -- start with the business overview, focus on MD&A for the narrative, dig into financial statements and especially footnotes for the details, scan risk factors for company-specific issues, and watch for red flags that suggest something is off.
+**Stella：** 还有一件事——委托书呢？它是10-K的一部分吗？
 
-**Alex:** And do it for every company you own or are considering owning. This is the work that separates investing from gambling.
+**Horace：** 委托书——DEF 14A表格——是一份单独的申报，但它是10-K的补充。它包含高管薪酬细节、董事会成员背景以及股东提案信息。10-K通常"通过引用纳入"委托书中关于高管薪酬等项目的内容，这意味着10-K将你引向委托书，而不是重复这些信息。
 
-**[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls"]**
+**[VISUAL: Two documents side by side. "10-K: Financial and operational detail" and "DEF 14A (Proxy): Governance, compensation, board." Arrow showing 10-K referencing the proxy for Items 10-14.]**
 
-**Sam:** Go pull up a 10-K for a company you own right now. Practice with a company you already understand. It will be easier to learn the format when the content is familiar.
+**Horace：** 高管薪酬值得研究，因为它揭示了管理层的激励机制。如果CEO的薪酬基于收入增长，他们会追求收入增长——即使这损害了盈利能力。如果奖金与调整后盈利挂钩，管理层就有动力进行更激进的调整。委托书告诉你管理层因什么行为而获得奖励。
 
-**Alex:** Great advice. See you in the next one.
+**Stella：** 所以你基本上是在问：管理层的薪酬结构是否与股东利益一致？
+
+**Horace：** 正是。寻找警示信号，如过度的特殊福利、不论业绩如何的保证奖金，或股票期权的短暂归属期。也寻找积极信号，如大量个人持股、长归属期，以及与投资资本回报率或自由现金流挂钩的业绩指标，而非与收入挂钩。
+
+**[VISUAL: Two columns. Red flags: "Golden parachutes, guaranteed bonuses, minimal stock ownership." Green flags: "Performance-based comp, significant personal ownership, long vesting."]**
+
+**Stella：** 好的，总结一下——从业务概览开始，重点关注MD&A了解叙述，深入研究财务报表尤其是附注了解细节，浏览风险因素查找公司特定问题，检查委托书了解薪酬一致性，并注意表明某些地方不对劲的警示信号。
+
+**Horace：** 并且对你持有或正在考虑持有的每家公司都这样做。这是将投资与赌博区分开来的功课。
+
+**[VISUAL: Recap card: "Item 1: Know the Business | Item 7: Read MD&A Critically | Item 8: Financial Statements + Footnotes | Item 1A: Company-Specific Risks | Item 9/9A: Auditor & Controls | Proxy: Compensation Alignment"]**
+
+**Stella：** 现在就去查阅一家你持有的公司的10-K吧。从一家你已经了解的公司开始练习。当内容是熟悉的，学习格式会更容易。
+
+**Horace：** 从一份简单的文件开始。苹果或可口可乐这样你已经了解的公司。先熟悉结构。然后再升级到更复杂的申报，那才是真正的侦探工作开始的地方。
+
+**Stella：** 很好的建议。
+
+**Horace：** 下一课见。
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 03 -- ETF Mechanics"]**
 
 ---
 
-**END OF SIDE LESSON 02**
+**副课02结束**

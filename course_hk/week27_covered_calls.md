@@ -1,82 +1,79 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第27週：備兌認購期權創造收入
 
-# Week 27: Covered Calls for Income
+## 閱讀部分
 
-## Reading Section
+### a) 為何這一點如此重要
 
-### a) Why This Is Important
+備兌認購期權是全球最廣泛使用的期權策略之一，原因充分。它讓你從已持有的股票中產生收入，實際上創造了一種「合成股息」，其收益率可遠超單純股息所能提供的水平。大型養老基金、捐贈基金及機構投資者均將備兌認購期權作為其收入策略的核心部分。它並不偏門，也不帶投機性質，而是一種紀律嚴明、廣為人知的投資組合回報提升方法。
 
-A covered call is one of the most widely used options strategies in the world, and for good reason. It allows you to generate income from stocks you already own, effectively creating a "synthetic dividend" that can produce yields far exceeding what dividends alone provide. Major pension funds, endowments, and institutional investors use covered calls as a core part of their income strategies. It is not exotic. It is not speculative. It is a disciplined, well-understood approach to enhancing portfolio returns.
+**現代投資的收入困境：** 標準普爾500指數的平均股息收益率已從1980年代的逾4%，下跌至今日的約1.3%。對於持有500,000美元投資組合的投資者而言，每年的股息收入僅為6,500美元。許多退休人士及注重收入的投資者認為此金額不足。備兌認購期權每年可額外產生6-12%的收益，有潛力將那6,500美元提升至36,500至66,500美元，且毋須改變原有投資組合。
 
-**The income problem in modern investing:** The average dividend yield of the S&P 500 has fallen from over 4% in the 1980s to approximately 1.3% today. For an investor with a $500,000 portfolio, that is only $6,500 per year in dividend income. Many retirees and income-focused investors find this insufficient. Covered calls can generate an additional 6-12% annually, potentially turning that $6,500 into $36,500-$66,500 per year without changing the underlying portfolio.
+**為何每位股票投資者都應了解備兌認購期權：**
 
-**Why covered calls are important for every stock investor:**
+1. **收入增強：** 對於股息收益率為1.5%的股票，加入備兌認購期權可將總收益率提升至8-15%，對收入型投資者而言意義深遠。
 
-1. **Income Enhancement:** On a stock yielding 1.5% in dividends, adding covered calls can bring total yield to 8-15%. This is transformative for income investors.
+2. **下行緩衝：** 所收取的期權金可對股價下跌起到小幅緩衝作用。若你收取2美元的期權金，而股票下跌1美元，相較未出售認購期權的情況，你仍然處於較優的位置。
 
-2. **Downside Cushion:** The premium received acts as a small buffer against price declines. If you collect $2 in premium and the stock drops $1, you still come out ahead versus holding without the call.
+3. **紀律性賣出：** 備兌認購期權迫使你提前思考自己的退出價格，從而避免無限期持有股票而毫無賣出計劃的常見錯誤。
 
-3. **Disciplined Selling:** Covered calls force you to think about your exit price in advance. This prevents the common mistake of holding a stock indefinitely without any sell plan.
+4. **降低投資組合波動性：** 研究顯示，備兌認購期權策略的投資組合波動性低於純多頭股票投資組合。芝加哥期權交易所買入沽出指數（BXM）的歷史表現與標準普爾500指數相若，但波動性低約30%。
 
-4. **Portfolio Volatility Reduction:** Studies show that covered call strategies have lower portfolio volatility than long-only stock portfolios. The CBOE BuyWrite Index (BXM) has historically delivered similar returns to the S&P 500 with about 30% less volatility.
+5. **適用於強勁上升市以外的各種市況：** 在橫盤市、輕微下跌市及溫和看漲市中，備兌認購期權均優於買入持有策略。唯一落後的情況是股票出現強勁持續上漲，屆時上行受限的代價才會顯著。
 
-5. **Works in All Markets Except Strong Rallies:** Covered calls outperform buy-and-hold in flat markets, slightly down markets, and mildly bullish markets. The only scenario where they lag is in a strong, sustained rally where the cap on upside becomes a significant cost.
-
-This lesson will teach you the complete mechanics of covered calls: how they work, how to select strike prices and expirations, how to calculate your yield, when to use them, and how to manage the strategy over time.
+本課程將全面講解備兌認購期權的運作機制：其運作原理、如何選擇行使價及到期日、如何計算收益率、何時使用，以及如何長期管理此策略。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的事項
 
-#### What Is a Covered Call?
+#### 什麼是備兌認購期權？
 
-A **covered call** is a two-part position:
+**備兌認購期權**由兩部分組成：
 
-1. **Own 100 shares** of a stock (the "covered" part)
-2. **Sell 1 call option** on that stock (the "call" part)
+1. **持有100股**股票（「備兌」部分）
+2. **賣出1份**該股票的認購期權（「認購」部分）
 
-The call is "covered" because you own the shares needed to fulfill your obligation if the buyer exercises. This is what makes it a conservative strategy. You are not making a naked promise; you already have the goods to deliver.
+由於你已持有所需股份以履行義務，故認購期權屬於「備兌」，這正是此策略被視為保守策略的原因。你並非做出裸倉式承諾，而是已備有可交付的股票。
 
 ```
-COVERED CALL STRUCTURE:
+備兌認購期權結構：
 
   +------------------------------------------+
-  |  POSITION:                               |
+  |  持倉情況：                              |
   |                                          |
-  |  LONG:   100 shares of AAPL at $155      |
-  |  SHORT:  1 AAPL $170 Call, 30 days out   |
-  |          Premium received: $2.50/share   |
+  |  買入（多頭）：100股AAPL，成本155美元    |
+  |  賣出（空頭）：1份AAPL 170美元認購期權   |
+  |               距到期日30天               |
+  |               已收期權金：2.50美元/股    |
   |                                          |
-  |  NET EFFECT:                             |
-  |  - You own the stock (benefit from       |
-  |    appreciation up to $170)              |
-  |  - You collected $250 in premium         |
-  |  - If AAPL goes above $170, your shares  |
-  |    are "called away" (sold at $170)      |
-  |  - If AAPL stays below $170, you keep    |
-  |    shares and premium                    |
+  |  淨效果：                                |
+  |  - 你持有股票（可享受股價升至170美元     |
+  |    前的升值）                            |
+  |  - 你已收取250美元期權金                 |
+  |  - 若AAPL升逾170美元，你的股份將被       |
+  |    「行使取走」（以170美元賣出）          |
+  |  - 若AAPL維持在170美元以下，你保留       |
+  |    股份及期權金                          |
   +------------------------------------------+
 ```
 
-#### The Payoff Diagram
+#### 損益圖
 
-The payoff diagram for a covered call shows a unique shape that is capped on the upside but cushioned on the downside:
+備兌認購期權的損益圖呈現出獨特形態，上行有頂但下行有緩衝：
 
 ```
-  Profit/Loss
-  Per Share ($)
+  每股盈虧（美元）
     |
     |
- +17.50|. . . . . . . . . . . . . . . . . .************  Max profit
-    |                                   ****              ($170-$155+$2.50)
+ +17.50|. . . . . . . . . . . . . . . . . .************  最大利潤
+    |                                   ****              （170-155+2.50美元）
  +10.00|                              ***
     |                            ***
   +5.00|                        ***
     |                      ***
-  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  Premium cushion
+  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  期權金緩衝
     |              ***
-   0.00|----------**---------- Stock Price at Expiration -->
+   0.00|----------**---------- 到期時股價 -->
     |        ***
   -5.00|     ***
     |    **
@@ -87,855 +84,850 @@ The payoff diagram for a covered call shows a unique shape that is capped on the
     +---|---|---|---|---|---|---|---|---|---
        135  140  145  150  155  160  165  170  175  180
 
-  Key Points:
-  - Max profit = $17.50/share (at $170 or above)
-    ($170 strike - $155 cost + $2.50 premium)
-  - Breakeven = $152.50 ($155 cost - $2.50 premium)
-  - The premium shifts the breakeven DOWN by $2.50
-  - Above $170: Profit is CAPPED (shares called away)
-  - Below $152.50: Net loss (but $2.50 better than stock alone)
+  要點：
+  - 最大利潤 = 17.50美元/股（股價於170美元或以上時）
+    （170美元行使價 - 155美元成本 + 2.50美元期權金）
+  - 損益平衡點 = 152.50美元（155美元成本 - 2.50美元期權金）
+  - 期權金將損益平衡點下移2.50美元
+  - 170美元以上：利潤受限（股份被行使取走）
+  - 152.50美元以下：出現淨虧損（但較單純持股好2.50美元）
 
-  Comparison to holding stock without covered call:
-  - Below $155: Covered call loses LESS (premium cushion)
-  - $155 to $170: Covered call earns MORE (premium added)
-  - Above $172.50: Stock alone earns MORE (no cap)
+  與未出售備兌認購期權的持股相比：
+  - 155美元以下：備兌認購期權虧損較少（期權金緩衝）
+  - 155至170美元：備兌認購期權賺取較多（加上期權金）
+  - 172.50美元以上：單純持股賺取較多（無上限）
 ```
 
-The covered call outperforms the stock in two out of three scenarios. It underperforms only when the stock makes a large upward move. This is the core tradeoff: you sacrifice unlimited upside for steady income and downside protection.
+備兌認購期權在三個情景中的兩個表現優於純持股。僅當股票出現大幅上升時，它才會跑輸。這是核心取捨：你以穩定收入和下行保護，換取無限上行潛力。
 
-#### Mechanics: Step by Step
+#### 操作機制：逐步說明
 
-**Step 1: Own 100 shares (or multiples of 100)**
+**第一步：持有100股（或100的倍數）**
 
-You must own at least 100 shares of the stock to sell 1 covered call. For 2 contracts, you need 200 shares, and so on. You cannot sell fractional contracts.
-
-```
-Shares Owned    Calls You Can Sell
-============    ==================
-100             1 contract
-200             2 contracts
-300             3 contracts
-500             5 contracts
-1,000           10 contracts
-```
-
-**Step 2: Select the strike price**
-
-The strike price is your "conditional sell price." If the stock reaches this price, your shares will be called away.
+你必須持有至少100股股票，才能賣出1份備兌認購期權。賣出2份合約需要200股，如此類推。你不能賣出非整數的合約。
 
 ```
-STRIKE PRICE SELECTION GUIDE:
-
-Stock Price: $155
-
-  Conservative (far OTM):     $175-$180 strike (13-16% above)
-    - Lower premium ($0.50-$1.00)
-    - Very unlikely to be called away (<5%)
-    - Lower annualized yield (3-6%)
-    - Best when: You are very bullish and want to keep shares
-
-  Moderate (moderately OTM):  $165-$170 strike (6-10% above)
-    - Moderate premium ($1.50-$3.00)
-    - Moderate chance of assignment (10-20%)
-    - Good annualized yield (8-15%)
-    - Best when: Mildly bullish, want balance of income and upside
-
-  Aggressive (near ATM):      $155-$160 strike (0-3% above)
-    - Higher premium ($3.50-$5.50)
-    - High chance of assignment (30-50%)
-    - Highest annualized yield (15-30%)
-    - Best when: Neutral outlook, prioritize income over appreciation
+已持股數    可賣出期權合約數
+========    ================
+100         1份合約
+200         2份合約
+300         3份合約
+500         5份合約
+1,000       10份合約
 ```
 
-**Step 3: Select the expiration date**
+**第二步：選擇行使價**
+
+行使價是你的「有條件賣出價格」。若股票達到此價格，你的股份將被行使取走。
 
 ```
-EXPIRATION SELECTION:
+行使價選擇指引：
 
-  Weekly (5-7 days):
-    Pros: Fast turnover, high annualized yield if repeated
-    Cons: Very small premium per trade, high management effort
-    Yield per trade: 0.3-0.5%
-    Management: Weekly attention required
+股價：155美元
 
-  Monthly (25-35 days):    <--- RECOMMENDED
-    Pros: Good premium, reasonable management schedule
-    Cons: Moderate time commitment
-    Yield per trade: 1.0-2.5%
-    Management: Monthly check-ins
+  保守型（深度價外）：     175-180美元行使價（高於現價13-16%）
+    - 期權金較低（0.50-1.00美元）
+    - 被行使的可能性極低（<5%）
+    - 年化收益率較低（3-6%）
+    - 最適用情況：你看好後市且希望保留股份
 
-  45 Days:                 <--- ALSO EXCELLENT
-    Pros: Optimal theta decay zone, good premium
-    Cons: Slightly longer capital commitment
-    Yield per trade: 1.5-3.5%
-    Management: Close at 50% profit, typically around day 21
+  穩健型（中度價外）：     165-170美元行使價（高於現價6-10%）
+    - 期權金適中（1.50-3.00美元）
+    - 被行使的可能性適中（10-20%）
+    - 年化收益率良好（8-15%）
+    - 最適用情況：溫和看好後市，希望兼顧收入與上行空間
 
-  60-90 Days:
-    Pros: Higher total premium, less frequent management
-    Cons: Slower theta decay, more exposure to earnings events
-    Yield per trade: 2.5-5.0%
-    Management: Biweekly check-ins
+  進取型（接近平價）：     155-160美元行使價（高於現價0-3%）
+    - 期權金較高（3.50-5.50美元）
+    - 被行使的可能性較高（30-50%）
+    - 年化收益率最高（15-30%）
+    - 最適用情況：中性展望，收入優先於資本增值
 ```
 
-**Step 4: Sell the call**
-
-On your brokerage platform, you will see options listed under "Sell to Open." You select the expiration date and strike price, choose "Sell" (not "Buy"), and submit the order. The premium is credited to your account immediately.
-
-**Step 5: Wait and manage**
-
-After selling the call, you have three possible management actions:
+**第三步：選擇到期日**
 
 ```
-MANAGEMENT DECISION TREE:
+到期日選擇：
 
-  Option is losing value (stock flat or declining):
-    -> GOOD: Time decay is working in your favor
-    -> Action: Wait, or buy back at 50-75% profit and sell a new one
+  每週期權（5-7天）：
+    優點：換倉快，若重複操作年化收益率高
+    缺點：每次交易期權金極少，管理工作繁重
+    每次收益率：0.3-0.5%
+    管理頻率：每週均需關注
+
+  每月期權（25-35天）：    <--- 推薦選擇
+    優點：期權金充裕，管理時間安排合理
+    缺點：需要一定時間投入
+    每次收益率：1.0-2.5%
+    管理頻率：每月檢視
+
+  45天期權：               <--- 同樣出色
+    優點：處於時間值衰減最佳區間，期權金良好
+    缺點：資金承諾時間略長
+    每次收益率：1.5-3.5%
+    管理頻率：在獲利50%時平倉，通常約第21天
+
+  60-90天期權：
+    優點：總期權金較高，管理頻率較低
+    缺點：時間值衰減較慢，更多暴露於業績公告事件
+    每次收益率：2.5-5.0%
+    管理頻率：每兩週檢視一次
+```
+
+**第四步：賣出認購期權**
+
+在你的券商平台上，你會在「賣出開倉」下看到所列出的期權。選擇到期日和行使價，選擇「賣出」（而非「買入」），然後提交訂單。期權金將立即記入你的帳戶。
+
+**第五步：等候並管理**
+
+賣出認購期權後，你有三種可行的管理操作：
+
+```
+管理決策流程：
+
+  期權正在貶值（股票橫盤或下跌）：
+    -> 良好：時間值衰減正對你有利
+    -> 操作：等候，或於獲利50-75%時買回並賣出新期權
   
-  Option is gaining value (stock rising toward strike):
-    -> Monitor: Is stock likely to exceed strike by expiration?
-    -> If YES and you are OK selling: Let it ride, accept assignment
-    -> If YES and you want to keep shares: Roll the position (see below)
-    -> If NO: Wait for expiration
+  期權正在升值（股票升向行使價）：
+    -> 監察：到期前股票是否有可能超越行使價？
+    -> 若是，且你接受出售：持倉不動，接受被行使
+    -> 若是，但你希望保留股份：展倉（見下文）
+    -> 若否：等候到期
   
-  Expiration is approaching:
-    -> If stock is below strike: Let option expire worthless, sell new one
-    -> If stock is near strike: Decide whether to accept assignment or roll
-    -> If stock is above strike: Accept assignment or roll up and out
+  到期日臨近：
+    -> 若股票低於行使價：讓期權到期作廢，賣出新期權
+    -> 若股票接近行使價：決定是否接受被行使或展倉
+    -> 若股票高於行使價：接受被行使或向上展倉
 ```
 
-#### Calculating Your Yield
+#### 計算你的收益率
 
-Understanding your potential return is essential for comparing covered calls to other income strategies.
+了解潛在回報對於將備兌認購期權與其他收入策略作比較至關重要。
 
-**Per-Trade Yield:**
-
-```
-Premium Yield = (Premium Received / Stock Price) x 100
-
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Yield: $2.50 / $155 = 1.61%
-```
-
-**Annualized Yield:**
+**每次交易收益率：**
 
 ```
-Annualized Yield = (Premium / Stock Price) x (365 / Days to Expiration) x 100
+期權金收益率 = （已收期權金 / 股價）x 100
 
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Days to expiration: 30
-  Annualized: ($2.50 / $155) x (365 / 30) x 100 = 19.6%
+示例：
+  股價：155美元
+  認購期權期權金：2.50美元
+  收益率：2.50 / 155 = 1.61%
 ```
 
-**If-Called Return (total return if shares are called away):**
+**年化收益率：**
 
 ```
-If-Called Return = [(Strike - Cost Basis + Premium) / Cost Basis] x 100
+年化收益率 = （期權金 / 股價）x（365 / 距到期日天數）x 100
 
-Example:
-  Cost basis: $145 (bought shares at $145)
-  Current stock: $155
-  Strike: $170
-  Premium: $2.50
-  Days: 30
-
-  If-Called Return = [($170 - $145 + $2.50) / $145] x 100 = 18.97%
-  Annualized If-Called = 18.97% x (365/30) = 230.7% (annualized)
-
-  Note: The annualized if-called number can look unrealistically large
-  for short timeframes. It is most useful for comparing relative
-  attractiveness of different strikes and expirations.
+示例：
+  股價：155美元
+  認購期權期權金：2.50美元
+  距到期日天數：30天
+  年化：（2.50 / 155）x（365 / 30）x 100 = 19.6%
 ```
 
-**Return Comparison Table:**
+**若被行使的回報（股份被行使取走時的總回報）：**
 
 ```
-COVERED CALL INCOME vs. DIVIDENDS
-(on a $100,000 stock portfolio)
+若被行使的回報 = [（行使價 - 持股成本 + 期權金）/ 持股成本] x 100
+
+示例：
+  持股成本：145美元（以145美元買入股份）
+  當前股價：155美元
+  行使價：170美元
+  期權金：2.50美元
+  天數：30天
+
+  若被行使的回報 = [（170 - 145 + 2.50）/ 145] x 100 = 18.97%
+  年化若被行使回報 = 18.97% x（365/30）= 230.7%（年化）
+
+  注：短期的年化若被行使數字可能看起來不切實際地高。
+  它最適合用於比較不同行使價和到期日的相對吸引力。
+```
+
+**回報比較表：**
+
+```
+備兌認購期權收入 對比 股息
+（以100,000美元股票投資組合計算）
 
 +-------------------------------------------------------------+
-| SOURCE              | ANNUAL YIELD | ANNUAL INCOME           |
+| 來源               | 年化收益率   | 年化收入                |
 +-------------------------------------------------------------+
-| Dividends only      | 1.5%         | $1,500                  |
-| Covered calls only  | 8-12%        | $8,000 - $12,000        |
-| Combined            | 9.5-13.5%    | $9,500 - $13,500        |
+| 僅股息             | 1.5%         | 1,500美元               |
+| 僅備兌認購期權     | 8-12%        | 8,000 - 12,000美元      |
+| 兩者合併           | 9.5-13.5%    | 9,500 - 13,500美元      |
 +-------------------------------------------------------------+
 
-Covered calls can produce 5-8x the income of dividends alone.
+備兌認購期權可產生相當於單純股息5-8倍的收入。
 
-Monthly Income Comparison:
-  Dividends: $1,500/12 = $125/month
-  With Covered Calls: $9,500/12 = $792/month  (or higher)
+每月收入比較：
+  股息：1,500/12 = 125美元/月
+  加入備兌認購期權：9,500/12 = 792美元/月（或更高）
 ```
 
-#### When Covered Calls Work Best
+#### 備兌認購期權最適用的情況
 
-The covered call strategy is not a one-size-fits-all solution. It excels in specific market conditions:
-
-```
-MARKET CONDITION        | COVERED CALL    | STOCK ALONE
-                        | PERFORMANCE     | PERFORMANCE
-========================|=================|================
-Flat/Sideways Market    | EXCELLENT       | Poor (no gains)
-                        | Premium = income| Just dividends
-                        |                 |
-Mildly Bullish (+5%)   | VERY GOOD       | Good
-                        | Gains + premium | Just gains
-                        |                 |
-Mildly Bearish (-5%)   | GOOD            | Poor
-                        | Premium cushion | Loss
-                        |                 |
-Strongly Bullish (+20%)| FAIR            | EXCELLENT
-                        | Capped at strike| Full upside
-                        |                 |
-Strongly Bearish (-20%)| POOR (but       | VERY POOR
-                        | better than     | Full loss
-                        | stock alone)    |
-
-Summary: Covered calls outperform in 3 out of 5 market scenarios.
-They underperform only in strong rallies.
-```
-
-The ideal environment for covered calls is a stock that is moving sideways or grinding slowly higher. In these conditions, the premium income is "free money" because the stock rarely reaches the strike price. This is also why covered calls are popular during periods of high implied volatility but low actual movement (high IV, low realized volatility).
-
-#### The Risk of Assignment
-
-Assignment occurs when the call buyer exercises their right, requiring you to sell your shares at the strike price. Let us demystify this:
+備兌認購期權策略並非放諸四海而皆準。它在特定市場條件下表現出色：
 
 ```
-ASSIGNMENT: WHAT ACTUALLY HAPPENS
+市場狀況              | 備兌認購期權   | 單純持股
+                      | 表現           | 表現
+======================|================|================
+橫盤/窄幅波動市       | 出色           | 差（無收益）
+                      | 期權金 = 收入  | 僅有股息
+                      |                |
+溫和看漲（+5%）       | 非常好         | 良好
+                      | 資本增值＋期權金| 僅資本增值
+                      |                |
+溫和看跌（-5%）       | 良好           | 差
+                      | 期權金提供緩衝  | 虧損
+                      |                |
+強力看漲（+20%）      | 一般           | 出色
+                      | 受限於行使價    | 完整上行
+                      |                |
+強力看跌（-20%）      | 差（但         | 非常差
+                      | 優於單純持股）  | 完整虧損
 
-Before Assignment:
-  Account: 100 shares AAPL ($15,500 value)
-           Short 1 AAPL $170 Call
-           Cash: $250 (premium received)
-
-After Assignment:
-  Account: 0 shares AAPL
-           No option position
-           Cash: $17,250 ($17,000 from sale + $250 premium)
-
-Net Result:
-  Sold 100 shares at $170 = $17,000
-  Plus premium received = $250
-  Total proceeds = $17,250
-  Original cost (at $155) = $15,500
-  Total profit = $1,750 (11.3%)
-
-This is a GOOD OUTCOME. You sold at your target price.
+總結：備兌認購期權在5種市場情景中的3種表現優勝。
+僅在強勁上升市中表現落後。
 ```
 
-**When does assignment happen?**
+備兌認購期權最理想的環境，是股票橫盤整理或緩慢上升的情況。在這些條件下，期權金收入幾乎是「免費的」，因為股票很少達到行使價。這也是備兌認購期權在隱含波動性高但實際波動性低（高隱含波動性、低實際波動性）時期廣受歡迎的原因。
 
-- Most commonly at expiration if the option is in the money.
-- Occasionally before expiration ("early assignment"), usually just before an ex-dividend date.
-- Almost never happens when the option is out of the money.
+#### 被行使的風險
 
-**Early Assignment:**
-
-Early assignment is rare but can happen. The most common trigger is an upcoming dividend. If the call is deep in the money and the dividend is larger than the remaining extrinsic value, the call buyer may exercise early to capture the dividend. You can largely avoid early assignment by:
-
-1. Not selling calls that are deep in the money.
-2. Being aware of ex-dividend dates.
-3. If you are concerned, buying back the call before the ex-dividend date.
+當認購期權買方行使其權利，要求你以行使價出售股份時，即發生被行使的情況。讓我們為此揭開神秘面紗：
 
 ```
-EARLY ASSIGNMENT RISK ASSESSMENT:
+被行使：實際發生的情況
 
-  Extrinsic value remaining in the call: $0.80
-  Upcoming dividend: $0.65
+被行使前：
+  帳戶：100股AAPL（市值15,500美元）
+         已賣出1份AAPL 170美元認購期權
+         現金：250美元（已收期權金）
 
-  Extrinsic > Dividend ($0.80 > $0.65):
-    -> Early assignment UNLIKELY (buyer would lose $0.15 by exercising)
+被行使後：
+  帳戶：0股AAPL
+         無期權持倉
+         現金：17,250美元（17,000美元賣股所得＋250美元期權金）
 
-  Extrinsic < Dividend ($0.30 < $0.65):
-    -> Early assignment POSSIBLE (buyer gains $0.35 by exercising)
+淨結果：
+  以170美元賣出100股 = 17,000美元
+  加上已收期權金 = 250美元
+  總收益 = 17,250美元
+  原始成本（以155美元計）= 15,500美元
+  總利潤 = 1,750美元（11.3%）
+
+這是一個良好的結果。你以目標價格賣出股份。
 ```
 
-#### Rolling Covered Calls
+**何時發生被行使？**
 
-**Rolling** means closing your current call position and opening a new one. This is how you manage covered calls that are challenged (stock approaching or exceeding the strike price).
+- 最常見的情況是到期時期權處於價內狀態。
+- 偶爾會在到期前發生「提前行使」，通常在除息日前後。
+- 期權處於價外時，幾乎從不發生被行使。
 
-There are three types of rolls:
+**提前行使：**
+
+提前行使較為罕見，但確實會發生。最常見的觸發因素是即將派發的股息。若認購期權深度價內，且股息金額大於剩餘外在價值，認購期權買方可能提前行使以捕捉股息。你可通過以下方式在很大程度上避免提前行使：
+
+1. 不賣出深度價內的認購期權。
+2. 留意除息日。
+3. 若有顧慮，在除息日前買回認購期權。
 
 ```
-ROLLING STRATEGIES:
+提前行使風險評估：
 
-1. ROLL OUT (Same Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $170 Call, April expiry (sell)
+  認購期權剩餘外在價值：0.80美元
+  即將派發的股息：0.65美元
+
+  外在價值 > 股息（0.80 > 0.65）：
+    -> 提前行使的可能性不高（買方行使將損失0.15美元）
+
+  外在價值 < 股息（0.30 < 0.65）：
+    -> 提前行使的可能性較大（買方行使可獲得0.35美元）
+```
+
+#### 展倉操作
+
+**展倉**指平掉現有的認購期權持倉，並開立新的持倉。當備兌認購期權面臨挑戰（股票接近或超過行使價）時，這是管理策略的方式。
+
+展倉有三種類型：
+
+```
+展倉策略：
+
+1. 向後展倉（相同行使價，較遠到期日）
+   平倉：AAPL 170美元認購期權，3月到期（買回）
+   開倉：AAPL 170美元認購期權，4月到期（賣出）
    
-   Purpose: Extend time, collect additional premium
-   When: Stock is near strike, you want to keep shares a bit longer
-   Net credit: Usually $0.50-$2.00 per share
+   目的：延長時間，收取額外期權金
+   適用情況：股票接近行使價，你希望多持有一段時間
+   淨期權金收入：通常每股0.50-2.00美元
 
-2. ROLL UP AND OUT (Higher Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $180 Call, April expiry (sell)
+2. 向上並向後展倉（較高行使價，較遠到期日）
+   平倉：AAPL 170美元認購期權，3月到期（買回）
+   開倉：AAPL 180美元認購期權，4月到期（賣出）
    
-   Purpose: Raise the selling price, extend time
-   When: Stock has rallied, you want more upside room
-   Net credit: May be a small credit or even a debit
+   目的：提高賣出價格，延長時間
+   適用情況：股票已上升，你希望爭取更大上行空間
+   淨期權金：可能是小幅淨收入，甚至是淨支出
    
-3. ROLL DOWN (Lower Strike, Same or Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back for cheap)
-   Open:  AAPL $160 Call, March or April expiry (sell for more)
+3. 向下展倉（較低行使價，相同或較遠到期日）
+   平倉：AAPL 170美元認購期權，3月到期（廉價買回）
+   開倉：AAPL 160美元認購期權，3月或4月到期（賣出更高期權金）
    
-   Purpose: Collect more premium after stock declined
-   When: Stock has dropped, $170 call is nearly worthless
-   Net credit: Usually $1.00-$4.00 per share
+   目的：在股票下跌後收取更多期權金
+   適用情況：股票已下跌，170美元認購期權幾乎毫無價值
+   淨期權金收入：通常每股1.00-4.00美元
 ```
 
-**Rolling Example:**
+**展倉示例：**
 
 ```
-ROLL UP AND OUT EXAMPLE:
+向上並向後展倉示例：
 
-Original position:
-  Own 100 AAPL at $155
-  Sold $170 Call, March expiry, for $2.50 (received $250)
+原始持倉：
+  持有100股AAPL，成本155美元
+  以2.50美元賣出170美元行使價認購期權，3月到期（已收250美元）
   
-Stock rallies to $172. The $170 call is now worth $5.00.
+股票升至172美元。該170美元認購期權現值5.00美元。
 
-Without rolling: Shares called away at $170.
-  Profit: $170 - $155 + $2.50 = $17.50/share ($1,750)
+不展倉：股份以170美元被行使取走。
+  利潤：170 - 155 + 2.50 = 17.50美元/股（1,750美元）
 
-With rolling:
-  Buy back $170 March Call at $5.00 (pay $500)
-  Sell $180 April Call at $3.50 (receive $350)
-  Net cost of roll: $500 - $350 = $150 debit
+展倉操作：
+  以5.00美元買回3月份170美元認購期權（支付500美元）
+  以3.50美元賣出4月份180美元認購期權（收取350美元）
+  展倉淨成本：500 - 350 = 150美元淨支出
 
-  If stock stays below $180 by April:
-    Keep shares, net premium = $250 (original) - $150 (roll cost) = $100
-    Stock appreciation: still holding at (let us say) $175 = $2,000 gain
-    Total: $2,100
+  若股票於4月份到期前維持在180美元以下：
+    保留股份，淨期權金 = 250美元（原有）- 150美元（展倉成本）= 100美元
+    股票增值：假設持有至175美元 = 2,000美元收益
+    合計：2,100美元
 
-  If stock rises above $180 by April:
-    Shares called away at $180
-    Profit: $180 - $155 + $2.50 (orig) - $1.50 (roll cost) = $26.00/share
-    Total: $2,600
+  若股票於4月份到期前升逾180美元：
+    股份以180美元被行使取走
+    利潤：180 - 155 + 2.50（原有）- 1.50（展倉成本）= 26.00美元/股
+    合計：2,600美元
 
-  Rolling raised your potential sale price from $170 to $180
-  at a cost of $1.50 per share in net premium.
+  展倉將你的潛在賣出價格從170美元提升至180美元，
+  代價是每股淨期權金減少1.50美元。
 ```
 
-#### Premium as Enhanced Yield: The 2-3x Dividend Comparison
+#### 期權金作為增強收益：2-3倍股息比較
 
-One of the most compelling aspects of covered calls is how they compare to dividends as an income source.
-
-```
-INCOME COMPARISON: DIVIDENDS vs. COVERED CALLS
-
-Stock: Johnson & Johnson (JNJ)
-Price: $160
-Annual Dividend: $4.76 per share (2.98% yield)
-
-Covered Call Strategy (monthly, moderate strike):
-  Average monthly premium: $2.00 per share
-  Annual premium income: $2.00 x 12 = $24.00 per share
-  Premium yield: $24.00 / $160 = 15.0%
-
-  Total yield with covered calls:
-    Dividend: 2.98%
-    Premium:  15.0%
-    Total:    17.98%
-
-  Multiplier: 17.98% / 2.98% = 6.0x dividend yield alone
-
-  Even with conservative strike selection:
-    Average monthly premium: $1.00 per share
-    Annual premium income: $12.00 per share
-    Premium yield: 7.5%
-    Total yield: 10.48%
-    Multiplier: 3.5x dividend yield alone
-```
+備兌認購期權最具吸引力的特點之一，是它與股息作為收入來源的比較。
 
 ```
-MORE EXAMPLES ACROSS DIFFERENT STOCKS:
+收入比較：股息 對比 備兌認購期權
+
+股票：強生公司（JNJ）
+股價：160美元
+年度股息：每股4.76美元（收益率2.98%）
+
+備兌認購期權策略（每月，穩健型行使價）：
+  平均每月期權金：每股2.00美元
+  年度期權金收入：2.00 x 12 = 每股24.00美元
+  期權金收益率：24.00 / 160 = 15.0%
+
+  加入備兌認購期權的總收益率：
+    股息：2.98%
+    期權金：15.0%
+    合計：17.98%
+
+  倍數：17.98% / 2.98% = 6.0倍（相對於單純股息收益率）
+
+  即使採用保守型行使價選擇：
+    平均每月期權金：每股1.00美元
+    年度期權金收入：每股12.00美元
+    期權金收益率：7.5%
+    總收益率：10.48%
+    倍數：3.5倍（相對於單純股息收益率）
+```
+
+```
+不同股票的更多示例：
 
 +-----------------------------------------------------------------+
-| STOCK  | PRICE | DIV YIELD | CC YIELD* | TOTAL  | MULTIPLIER    |
+| 股票   | 股價  | 股息率 | 備兌認購期權收益率* | 合計       | 倍數      |
 +-----------------------------------------------------------------+
-| AAPL   | $155  | 0.65%     | 10-14%    | 10.7-14.7% | 16-22x   |
-| MSFT   | $420  | 0.72%     | 8-12%     | 8.7-12.7%  | 12-18x   |
-| JNJ    | $160  | 2.98%     | 8-12%     | 11.0-15.0% | 3.7-5.0x |
-| JPM    | $200  | 2.20%     | 10-15%    | 12.2-17.2% | 5.5-7.8x |
-| KO     | $62   | 3.10%     | 6-10%     | 9.1-13.1%  | 2.9-4.2x |
+| AAPL   | 155美元| 0.65% | 10-14%     | 10.7-14.7% | 16-22倍  |
+| MSFT   | 420美元| 0.72% | 8-12%      | 8.7-12.7%  | 12-18倍  |
+| JNJ    | 160美元| 2.98% | 8-12%      | 11.0-15.0% | 3.7-5.0倍|
+| JPM    | 200美元| 2.20% | 10-15%     | 12.2-17.2% | 5.5-7.8倍|
+| KO     | 62美元 | 3.10% | 6-10%      | 9.1-13.1%  | 2.9-4.2倍|
 +-----------------------------------------------------------------+
-* CC Yield = Covered Call annualized yield, varies with IV and strike
+* 備兌認購期權收益率 = 年化收益率，因隱含波動性和行使價而異
 
-Average multiplier across these stocks: 2-3x (conservative) to 5-8x
+這些股票的平均倍數：保守型2-3倍，進取型5-8倍
 ```
 
-The "2-3x dividend yield" comparison is conservative and achievable for most investors using moderate covered call strategies. More aggressive strike selection can produce even higher multiples, but at the cost of more frequent assignment.
+「2-3倍股息收益率」的比較屬於保守估算，大多數投資者採用穩健型備兌認購期權策略即可實現。更進取的行使價選擇可產生更高倍數，但代價是被行使的頻率更高。
 
-#### Managing Your Covered Call Portfolio
+#### 管理你的備兌認購期權投資組合
 
-A systematic approach to covered calls involves establishing clear rules:
-
-```
-COVERED CALL MANAGEMENT RULES:
-
-  ENTRY RULES:
-  1. Sell calls on stocks you are willing to part with at the strike
-  2. Select strikes 5-10% above current price (moderate approach)
-  3. Use 30-45 day expirations
-  4. Sell on days with higher implied volatility if possible
-  5. Avoid selling calls right before earnings (unless you want out)
-
-  PROFIT-TAKING RULES:
-  1. If the call loses 50-75% of its value quickly, buy it back
-     and sell a new call (captures most of the profit, resets time)
-  2. Example: Sold for $2.50, now worth $0.75 -> Buy back ($0.75)
-     Profit captured: $1.75 (70%). Sell new call for fresh premium.
-
-  LOSS MANAGEMENT RULES:
-  1. If stock drops significantly, let the call expire worthless
-  2. Then reassess: Do you still want to own the stock?
-     - If YES: Sell a new call (possibly at a lower strike)
-     - If NO: Sell the stock (the call has already expired)
-  3. Never sell calls below your cost basis unless you are prepared
-     to sell at a loss
-
-  ASSIGNMENT RULES:
-  1. If stock exceeds strike near expiration: Let it be assigned
-     (you sold at your target price - this is success!)
-  2. If you want to keep shares: Roll up and out for a credit
-  3. After assignment: Consider selling puts to re-enter
-     (this starts the "wheel" strategy cycle)
-
-  EARNINGS RULES:
-  1. Do not sell calls expiring during earnings week
-     (IV crush + potential gap = unpredictable outcomes)
-  2. Sell calls AFTER earnings when IV has settled
-  3. Exception: Sell calls THROUGH earnings if you want to
-     exit the position anyway
-```
-
-#### Complete Portfolio Example
+系統化的備兌認購期權方法需要制定清晰的規則：
 
 ```
-COVERED CALL PORTFOLIO: $200,000 invested in 5 stocks
+備兌認購期權管理規則：
+
+  入場規則：
+  1. 僅對你願意以行使價出售的股票賣出認購期權
+  2. 選擇高於現價5-10%的行使價（穩健型方法）
+  3. 採用30-45天到期日
+  4. 盡可能在隱含波動性較高的日子賣出
+  5. 避免在業績公告前賣出認購期權（除非你希望離場）
+
+  獲利了結規則：
+  1. 若認購期權迅速貶值50-75%，買回並賣出新期權
+     （捕捉大部分利潤，重置時間值）
+  2. 示例：以2.50美元賣出，現值0.75美元 -> 以0.75美元買回
+     已捕捉利潤：1.75美元（70%）。賣出新期權以獲取新期權金。
+
+  虧損管理規則：
+  1. 若股票大幅下跌，讓認購期權到期作廢
+  2. 然後重新評估：你是否仍想持有這只股票？
+     - 若是：賣出新認購期權（可能以較低行使價）
+     - 若否：賣出股票（認購期權已到期）
+  3. 除非你已準備好以虧損賣出，否則不要在成本價以下賣出認購期權
+
+  被行使規則：
+  1. 若股票在到期前超過行使價：接受被行使
+     （你以目標價格賣出 - 這是策略成功！）
+  2. 若你希望保留股份：向上並向後展倉以獲取淨收入
+  3. 被行使後：考慮賣出認沽期權以重新入場
+     （此舉開啟「滾輪」策略循環）
+
+  業績公告規則：
+  1. 不要賣出在業績公告週到期的認購期權
+     （隱含波動性急跌 + 潛在跳空 = 難以預測的結果）
+  2. 業績公告後當隱含波動性平穩後再賣出認購期權
+  3. 例外：若你本身希望離場，可透過業績公告賣出認購期權
+```
+
+#### 完整投資組合示例
+
+```
+備兌認購期權投資組合：200,000美元投資於5只股票
 
 +---------------------------------------------------------------------+
-| STOCK | SHARES | COST   | CURRENT| CALLS SOLD       | PREMIUM/MO   |
+| 股票   | 股數   | 成本    | 現價    | 已賣出認購期權     | 每月期權金  |
 +---------------------------------------------------------------------+
-| AAPL  | 200    | $145   | $155   | 2x $170 Call     | $500          |
-| MSFT  | 100    | $380   | $420   | 1x $450 Call     | $300          |
-| JPM   | 200    | $175   | $200   | 2x $220 Call     | $400          |
-| JNJ   | 200    | $150   | $160   | 2x $175 Call     | $360          |
-| KO    | 300    | $55    | $62    | 3x $67 Call      | $270          |
+| AAPL   | 200    | 145美元 | 155美元 | 2份 170美元認購期權| 500美元    |
+| MSFT   | 100    | 380美元 | 420美元 | 1份 450美元認購期權| 300美元    |
+| JPM    | 200    | 175美元 | 200美元 | 2份 220美元認購期權| 400美元    |
+| JNJ    | 200    | 150美元 | 160美元 | 2份 175美元認購期權| 360美元    |
+| KO     | 300    | 55美元  | 62美元  | 3份 67美元認購期權 | 270美元    |
 +---------------------------------------------------------------------+
-| TOTAL                                               | $1,830/month  |
+| 合計                                               | 1,830美元/月  |
 +---------------------------------------------------------------------+
 
-Annual Summary:
-  Covered call income: $1,830 x 12 = $21,960 (11.0% yield)
-  Dividend income: ~$3,800 (1.9% yield)
-  Total income: $25,760 (12.9% yield)
+年度總結：
+  備兌認購期權收入：1,830 x 12 = 21,960美元（11.0%收益率）
+  股息收入：約3,800美元（1.9%收益率）
+  總收入：25,760美元（12.9%收益率）
 
-  Monthly income: $2,147 (calls + dividends)
+  每月收入：2,147美元（認購期權＋股息）
 ```
 
-This is the power of covered calls at scale. A $200,000 portfolio generating over $25,000 per year in income, without selling a single share (assuming no assignments). In a flat market, this income alone provides a double-digit return.
+這正是備兌認購期權規模化的威力所在。一個200,000美元的投資組合，每年可產生逾25,000美元的收入，且無需賣出任何一股股份（假設無被行使情況）。在橫盤市中，這份收入本身已提供雙位數的回報。
 
-#### Common Covered Call Scenarios: Month-by-Month Walkthrough
+#### 常見備兌認購期權情景：逐月實操演練
 
-To make this concrete, let us trace a single covered call position through an entire year:
-
-```
-12-MONTH COVERED CALL DIARY: AAPL
-
-Starting: Own 100 shares at $155 cost basis
-
-JANUARY (Stock at $155):
-  Sell $170 Call, Feb expiry, for $2.50
-  AAPL ends Jan at $158 -> Call expires Feb at $157
-  Result: Call expires worthless. Keep $250. Sell new call.
-
-FEBRUARY (Stock at $157):
-  Sell $172 Call, Mar expiry, for $2.30
-  AAPL ends Feb at $162
-  Result: Call expires worthless. Keep $230. Sell new call.
-
-MARCH (Stock at $162):
-  Sell $175 Call, Apr expiry, for $2.80
-  AAPL approaches $174 at expiration
-  Result: Call expires worthless (barely). Keep $280. Close call.
-
-APRIL (Stock at $173, earnings upcoming):
-  SKIP covered call (earnings in late April)
-  Hold shares through earnings.
-  AAPL reports good earnings, stock jumps to $182.
-
-MAY (Stock at $182):
-  Sell $195 Call, Jun expiry, for $2.60
-  AAPL ends May at $179
-  Result: Call expires worthless. Keep $260. Sell new call.
-
-JUNE (Stock at $179):
-  Sell $192 Call, Jul expiry, for $2.40
-  AAPL ends Jun at $176
-  Result: Call expires worthless. Keep $240. Sell new call.
-
-JULY (Stock at $176, earnings upcoming):
-  Sell short-term $185 Call, 2-week expiry, for $1.20
-  Expires before earnings.
-  Result: Call expires worthless. Keep $120.
-  Hold through July earnings. AAPL dips to $168.
-
-AUGUST (Stock at $168):
-  Sell $180 Call, Sep expiry, for $2.00
-  AAPL recovers to $172
-  Result: Call expires worthless. Keep $200. Sell new call.
-
-SEPTEMBER (Stock at $172):
-  Sell $185 Call, Oct expiry, for $2.20
-  AAPL ends Sep at $175
-  Result: Call expires worthless. Keep $220. Sell new call.
-
-OCTOBER (Stock at $175, earnings upcoming):
-  SKIP covered call (October earnings).
-  AAPL reports mixed results, stock drops to $165.
-
-NOVEMBER (Stock at $165):
-  Sell $178 Call, Dec expiry, for $1.90
-  AAPL year-end rally to $171
-  Result: Call expires worthless. Keep $190. Sell new call.
-
-DECEMBER (Stock at $171):
-  Sell $185 Call, Jan expiry, for $2.10
-  AAPL finishes year at $174.
-  Result: Call expires worthless in January. Keep $210.
-
-ANNUAL SUMMARY:
-  Total premiums collected: $250+$230+$280+$260+$240+$120+$200+$220+$190+$210
-  = $2,200 (10 cycles, 2 skipped for earnings)
-
-  Premium yield: $2,200 / $15,500 = 14.2%
-  Dividends received: ~$100 (4 quarterly dividends)
-  Capital appreciation: $174 - $155 = $19/share = $1,900 (12.3%)
-  TOTAL RETURN: $2,200 + $100 + $1,900 = $4,200 (27.1%)
-
-  Without covered calls:
-  Capital appreciation + dividends only = $2,000 (12.9%)
-
-  Covered calls added $2,200 (14.2%) to total return.
-```
-
-This example illustrates several important practical points: you skip cycles around earnings, premium amounts vary with market conditions, and the cumulative effect over a year is significant.
-
-#### The Psychology of Covered Calls
-
-Success with covered calls requires the right mental framework:
+為使說明更具體，讓我們追蹤一個備兌認購期權持倉整整一年：
 
 ```
-PSYCHOLOGICAL CHALLENGES AND SOLUTIONS:
+12個月備兌認購期權操作日誌：AAPL
 
-  CHALLENGE: "I hate seeing the stock go above my strike."
-  SOLUTION: Reframe assignment as success. You set a target price
-  and the stock reached it. That is your plan working, not failing.
-  Pre-commit to being satisfied with your strike price BEFORE selling.
+起始：持有100股，持股成本155美元
 
-  CHALLENGE: "The premium seems too small to bother."
-  SOLUTION: Think annually, not monthly. A $200 premium seems small.
-  $2,400 per year on one position is meaningful. On 5 positions,
-  that is $12,000. Over 10 years, reinvested, that is $200,000+.
+一月（股價155美元）：
+  賣出170美元認購期權，2月到期，期權金2.50美元
+  AAPL一月底收報158美元 -> 2月到期時收報157美元
+  結果：期權到期作廢。保留250美元。賣出新認購期權。
 
-  CHALLENGE: "I keep getting called away and missing rallies."
-  SOLUTION: Sell further OTM calls (lower delta). If you are getting
-  called away more than 20% of the time, your strikes are too close
-  to the current price.
+二月（股價157美元）：
+  賣出172美元認購期權，3月到期，期權金2.30美元
+  AAPL二月底收報162美元
+  結果：期權到期作廢。保留230美元。賣出新認購期權。
 
-  CHALLENGE: "I do not want to sell my shares at any price."
-  SOLUTION: Maybe covered calls are not right for this stock.
-  It is OK to have some stocks that you never sell calls on.
-  Only use covered calls on positions where you have a sell target.
+三月（股價162美元）：
+  賣出175美元認購期權，4月到期，期權金2.80美元
+  AAPL到期時接近174美元
+  結果：期權剛好到期作廢。保留280美元。平倉。
+
+四月（股價173美元，即將公布業績）：
+  跳過備兌認購期權（四月下旬業績公告）
+  持股度過業績公告。
+  AAPL公布佳績，股價急升至182美元。
+
+五月（股價182美元）：
+  賣出195美元認購期權，6月到期，期權金2.60美元
+  AAPL五月底收報179美元
+  結果：期權到期作廢。保留260美元。賣出新認購期權。
+
+六月（股價179美元）：
+  賣出192美元認購期權，7月到期，期權金2.40美元
+  AAPL六月底收報176美元
+  結果：期權到期作廢。保留240美元。賣出新認購期權。
+
+七月（股價176美元，即將公布業績）：
+  賣出短線185美元認購期權，2週到期，期權金1.20美元
+  在業績公告前到期。
+  結果：期權到期作廢。保留120美元。
+  持股度過七月業績公告。AAPL回落至168美元。
+
+八月（股價168美元）：
+  賣出180美元認購期權，9月到期，期權金2.00美元
+  AAPL回升至172美元
+  結果：期權到期作廢。保留200美元。賣出新認購期權。
+
+九月（股價172美元）：
+  賣出185美元認購期權，10月到期，期權金2.20美元
+  AAPL九月底收報175美元
+  結果：期權到期作廢。保留220美元。賣出新認購期權。
+
+十月（股價175美元，即將公布業績）：
+  跳過備兌認購期權（十月業績公告）。
+  AAPL公布業績參差，股價跌至165美元。
+
+十一月（股價165美元）：
+  賣出178美元認購期權，12月到期，期權金1.90美元
+  AAPL年底反彈至171美元
+  結果：期權到期作廢。保留190美元。賣出新認購期權。
+
+十二月（股價171美元）：
+  賣出185美元認購期權，1月到期，期權金2.10美元
+  AAPL全年收報174美元。
+  結果：認購期權於一月到期作廢。保留210美元。
+
+年度總結：
+  已收期權金合計：250+230+280+260+240+120+200+220+190+210
+  = 2,200美元（10個週期，2個因業績公告跳過）
+
+  期權金收益率：2,200 / 15,500 = 14.2%
+  已收股息：約100美元（4次季度股息）
+  資本增值：174 - 155 = 19美元/股 = 1,900美元（12.3%）
+  總回報：2,200 + 100 + 1,900 = 4,200美元（27.1%）
+
+  不採用備兌認購期權：
+  僅資本增值加股息 = 2,000美元（12.9%）
+
+  備兌認購期權為總回報額外貢獻了2,200美元（14.2%）。
+```
+
+這個例子說明了幾個重要的實操要點：你需在業績公告前後跳過週期、期權金金額因市場狀況而異，以及累積效應在全年範圍內非常顯著。
+
+#### 備兌認購期權的心理建設
+
+成功運用備兌認購期權需要正確的心態框架：
+
+```
+心理挑戰與解決方案：
+
+  挑戰：「我不喜歡看到股票升過我的行使價。」
+  解決方案：重新定位被行使的意義，視之為成功。你設定了目標價格，
+  而股票達到了這個價格。這是你的計劃奏效，而非失敗。
+  在賣出前，預先承諾對行使價感到滿意。
+
+  挑戰：「期權金金額太少，不值得費心。」
+  解決方案：從年度角度看，而非月度。200美元的期權金看似微不足道。
+  但每年2,400美元在同一持倉上意義重大。在5個持倉上，
+  就是12,000美元。在10年後，複利再投資後即達200,000美元以上。
+
+  挑戰：「我不斷被行使，錯失上升行情。」
+  解決方案：賣出更深度價外的認購期權（較低Delta值）。若你被行使
+  的頻率超過20%，說明你的行使價選擇離現價太近。
+
+  挑戰：「我不希望以任何價格賣出我的股份。」
+  解決方案：也許備兌認購期權並不適合這只股票。
+  對某些股票不賣出任何認購期權是完全可以的。
+  只對你設有賣出目標的持倉使用備兌認購期權。
   
-  CHALLENGE: "What if I sell a call and bad news comes out?"
-  SOLUTION: If the stock drops, the call expires worthless and you
-  keep the premium. Bad news actually helps the covered call writer
-  (though it hurts the stock position). The premium is a cushion.
+  挑戰：「如果我賣出認購期權後出現壞消息怎麼辦？」
+  解決方案：若股票下跌，認購期權到期作廢，你保留期權金。
+  壞消息實際上有利於備兌認購期權的賣方
+  （雖然它損害股票持倉）。期權金是一種緩衝。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Covered calls are risk-free income."**
+**誤解一：「備兌認購期權是零風險收入。」**
 
-No investment strategy is risk-free. While covered calls reduce risk compared to holding stock alone (because the premium provides a downside cushion), you still bear the full downside risk of stock ownership minus the premium. If the stock drops 30%, you lose 30% minus the 1-2% premium cushion. The call premium is income, not insurance. Do not confuse the two.
+沒有任何投資策略是零風險的。雖然備兌認購期權與單純持股相比降低了風險（因為期權金提供了下行緩衝），但你仍然承受持股的全部下行風險，扣除期權金後。若股票跌幅達30%，你將虧損30%減去1-2%的期權金緩衝。期權金是收入，而非保障。切勿混淆兩者。
 
-**Misconception 2: "I should sell covered calls on all my stocks."**
+**誤解二：「我應該對所有持股都賣出備兌認購期權。」**
 
-Not necessarily. If you own a stock with enormous growth potential and you are in it for the long-term appreciation, capping your upside with covered calls may cost you far more than the premium income provides. For example, selling covered calls on a stock that subsequently doubles would mean you sold at a fraction of its potential. Covered calls work best on mature, stable companies where you do not expect explosive growth.
+不一定。若你持有一只具有巨大增長潛力、並以長線資本增值為目標的股票，以備兌認購期權限制上行潛力，其代價可能遠超所收取的期權金。例如，若你對一只後來翻倍的股票賣出備兌認購期權，意味著你以其潛在價值的一小部分賣出。備兌認購期權最適合穩健成熟的企業，即你不預期其出現爆炸性增長的股票。
 
-**Misconception 3: "If the stock goes above my strike, I made a mistake."**
+**誤解三：「若股票升過我的行使價，我就犯了錯誤。」**
 
-This is the most psychologically challenging misconception. If you sold a $170 call and the stock goes to $190, you "missed out" on $20 of gains. But you still made money. You sold at $170 plus the premium. That was your target. A covered call that results in assignment is a **successful trade**, not a failed one. The mistake is not in selling the call; it would be in choosing a strike price that does not represent a genuine target.
+這是心理上最具挑戰性的誤解。若你以170美元行使價賣出認購期權，而股票升至190美元，你「損失了」20美元的收益。但你仍然賺了錢。你以170美元加上期權金賣出，那就是你的目標。導致被行使的備兌認購期權是一筆**成功的交易**，而非失敗的交易。錯誤並不在於賣出認購期權，而在於選擇了一個並非真正目標的行使價。
 
-**Misconception 4: "Covered calls are not worth it because premiums are too small."**
+**誤解四：「備兌認購期權不值得操作，因為期權金太少。」**
 
-A $2 premium on a $155 stock is 1.3% in one month. That is 15.6% annualized. Where else can you earn 15.6% with moderate risk? If you think 1.3% per month is small, calculate what it amounts to over 10 years of compounding. At 12% annual yield (conservative for covered calls), $200,000 grows to approximately $621,000 from income alone, assuming reinvestment.
+155美元股票的2美元期權金，相當於一個月1.3%的回報，年化為15.6%。試問你還能在哪裡以適中風險賺取15.6%的回報？若你認為每月1.3%微不足道，不妨計算一下10年複利累積後的金額。以12%的年收益率（備兌認購期權的保守估算），200,000美元僅靠收入（假設再投資）約可增長至621,000美元。
 
-**Misconception 5: "I should never sell calls below my cost basis."**
+**誤解五：「我永遠不應在成本價以下賣出認購期權。」**
 
-This is generally good advice, but it is a guideline, not an absolute rule. If you bought a stock at $180 and it has fallen to $140, selling a $170 call would lock in a loss if assigned. However, if the stock is unlikely to recover to $180, selling the $170 call and collecting premium while waiting may be a rational choice. The premium collected reduces your breakeven point. Each situation requires judgment.
+這通常是個好建議，但並非絕對的規則。若你以180美元買入一只股票，而它已跌至140美元，賣出170美元的認購期權意味著若被行使將確認虧損。然而，若股票不太可能回升至180美元，在等待期間賣出170美元認購期權並收取期權金，或許是理性的選擇。所收取的期權金降低了你的損益平衡點。每種情況都需要個別判斷。
 
-**Misconception 6: "Rolling is always better than accepting assignment."**
+**誤解六：「展倉總是優於接受被行使。」**
 
-Sometimes the best action is to let the shares be called away. If the stock has reached your fair value estimate, if the fundamentals have changed, or if better opportunities exist elsewhere, accepting assignment and moving on is the right choice. Rolling should be used when you still want to hold the stock and believe it has more upside, not as a reflexive response to avoid assignment.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens to my dividend if I sell a covered call?**
-
-A: You continue to receive dividends as long as you own the shares. The covered call does not affect your dividend rights unless you are assigned before the ex-dividend date. If you are assigned early (which happens occasionally to capture the dividend), you sell the shares and no longer receive the dividend, but you keep the call premium and the proceeds from the sale.
-
-**Q2: Can I sell covered calls on ETFs like SPY or QQQ?**
-
-A: Absolutely. ETFs are excellent for covered calls because they have high liquidity, tight bid-ask spreads, no single-stock risk, and no earnings surprises. SPY, QQQ, IWM, and sector ETFs like XLF (financials) and XLE (energy) all have active options markets. The premiums may be slightly lower per dollar of stock price (because ETFs are less volatile than individual stocks), but the consistency and reduced risk make them attractive.
-
-**Q3: How do I handle covered calls during earnings season?**
-
-A: There are two approaches. The conservative approach is to avoid having calls expire during earnings week. Sell calls that expire before or after earnings. The aggressive approach is to sell calls through earnings, which provides higher premium (due to elevated IV) but risks a gap move that causes assignment or an unwanted stock position after a large drop. For most investors in this course, the conservative approach is recommended: let the call expire before earnings, skip one cycle, then resume after earnings are announced.
-
-**Q4: Should I sell calls on my entire position or just part of it?**
-
-A: Selling calls on your entire position maximizes income but caps all upside. Selling calls on a portion (e.g., 50-75%) provides income while leaving some shares uncovered for potential upside. A common approach is to sell calls on 50% of your shares, giving you income while maintaining some growth exposure. This is a personal choice based on your outlook and income needs.
-
-**Q5: What if the stock drops after I sell a covered call?**
-
-A: The call will lose value (good for you as the seller) and likely expire worthless. You keep the premium. However, you still hold the stock at a lower price, so you have an unrealized loss on the stock position. The premium partially offsets this loss. After the call expires, you can sell a new call at a lower strike or wait for the stock to recover. The key question is always: do you still want to own the stock?
-
-**Q6: How do commissions affect covered call profitability?**
-
-A: Most major brokers now offer commission-free options trading (Schwab, Fidelity, Interactive Brokers Lite). Even at brokers that charge, the typical cost is $0.50-$0.65 per contract. On a $250 premium, that is about 0.2-0.3% of the premium. Commissions are no longer a meaningful impediment to covered call strategies unless you are trading very small premiums on weekly options.
-
-**Q7: What is the "Buy-Write" strategy?**
-
-A: A buy-write is when you simultaneously buy 100 shares and sell a call in a single trade. Many brokers allow you to enter this as a combined order. The advantage is that you get a single fill price for the combined position. For example, instead of buying AAPL at $155 and separately selling the $170 call for $2.50, you enter a buy-write order for a net cost of $152.50 ($155 - $2.50). This guarantees you get both legs filled at your target net price.
-
-**Q8: How far out of the money should I sell my calls?**
-
-A: This depends on your goals. As a general guideline:
-- Income focus: 3-5% OTM (higher premium, more assignment risk)
-- Balanced approach: 5-10% OTM (moderate premium, moderate risk)
-- Growth focus: 10-15% OTM (lower premium, rare assignment)
-- Use delta as a guide: a 0.20-0.30 delta call is 5-10% OTM and has roughly a 20-30% chance of being in the money at expiration.
-
-**Q9: Can I sell covered calls in an IRA?**
-
-A: Yes. Covered calls are approved for virtually all IRA accounts (traditional, Roth, rollover). They are classified as Level 1 options, the most basic and conservative level. You do not need margin to sell covered calls because you already own the shares. The tax advantage of an IRA makes covered calls even more attractive because the premium income is not taxed until withdrawal (traditional) or not taxed at all (Roth).
-
-**Q10: What is the "collar" strategy, and how does it relate to covered calls?**
-
-A: A collar combines a covered call with a protective put. You own the stock, sell a call (collecting premium), and use some or all of that premium to buy a put (protection). For example: own AAPL at $155, sell the $170 call for $2.50, buy the $140 put for $2.00. Net premium: $0.50. You have capped your upside at $170 but protected your downside below $140. Your stock can only move between $140 and $170, and you collected $0.50 for accepting this range. Collars are excellent for protecting large positions with minimal cost.
+有時候最佳的做法是讓股份被行使取走。若股票已達到你的合理價值估算、基本面已發生變化，或其他地方存在更好的機會，接受被行使並繼續前行才是正確選擇。展倉應在你仍希望持有股票且認為其有更大上行空間時使用，而非作為逃避被行使的反射性回應。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Animated intro with show logo. Text: "Week 27: Covered Calls for Income - Level 3: Advanced"]
+**問題1：若我賣出備兌認購期權，我的股息會怎樣？**
 
-**Alex:** Welcome back. Today we are diving into one of my absolute favorite strategies for long-term investors: the covered call. If you own stocks and you are not at least considering covered calls, you are leaving money on the table.
+答：只要你持有股份，你仍會繼續收取股息。備兌認購期權不影響你的股息權益，除非你在除息日前被行使。若你被提前行使（這種情況偶爾發生，通常是為了捕捉股息），你賣出股份後不再收取股息，但你保留了期權金及賣股所得。
 
-**Sam:** That is a bold statement. Tell me why.
+**問題2：我可以對SPY或QQQ等交易所買賣基金賣出備兌認購期權嗎？**
 
-**Alex:** I will prove it to you with numbers. If you own a typical $200,000 stock portfolio, you are probably earning about $3,000-$4,000 per year in dividends. With covered calls, you could add another $16,000 to $24,000 per year in income. That is 5 to 8 times what dividends provide.
+答：完全可以。交易所買賣基金非常適合備兌認購期權，因為它們流動性高、買賣差價窄、不存在單一股票風險，也不會有業績公告意外。SPY、QQQ、IWM，以及XLF（金融板塊）和XLE（能源板塊）等板塊交易所買賣基金均擁有活躍的期權市場。期權金相對於股價可能略低（因為交易所買賣基金波動性低於個別股票），但其一致性及較低的風險使它們頗具吸引力。
 
-**Sam:** $20,000 in additional income without selling my stocks? Walk me through this.
+**問題3：在業績公告季節，我應如何處理備兌認購期權？**
 
-[VISUAL: Bar chart comparison: "Dividends Only: ~$3,500/year" vs "Dividends + Covered Calls: ~$22,000/year" on a $200,000 portfolio]
+答：有兩種方法。保守型做法是避免持有在業績公告週到期的認購期權，選擇在業績公告前或後到期的認購期權。進取型做法是跨越業績公告期賣出認購期權，這可提供更高的期權金（由於隱含波動性上升），但存在跳空波動導致被行使或業績後出現大幅下跌持倉的風險。對於本課程的大多數投資者，推薦保守型做法：讓認購期權在業績公告前到期，跳過一個週期，然後在業績公告後恢復操作。
 
-**Alex:** Let us start with exactly what a covered call is. It is a two-part position. Part one: you own at least 100 shares of a stock. Part two: you sell one call option against those shares. The call is "covered" because your shares are the collateral. If the buyer exercises, you simply deliver your existing shares.
+**問題4：我應對全部持股還是部分持股賣出認購期權？**
 
-**Sam:** So I am selling someone the right to buy my shares at a specific price?
+答：對全部持股賣出認購期權可最大化收入，但會限制所有上行潛力。對部分持股賣出認購期權（例如50-75%）可提供收入，同時保留部分股份以爭取潛在上行空間。常見做法是對50%的股份賣出認購期權，在獲取收入的同時保持一定的增長敞口。這取決於個人的市場展望和收入需求。
 
-**Alex:** Exactly. Think of it as placing a limit sell order on your stock and getting paid for it. We covered this concept last week. Today we are going deep into the mechanics.
+**問題5：賣出備兌認購期權後股票下跌怎麼辦？**
 
-[VISUAL: Diagram showing the covered call structure - "Long 100 shares" connected to "Short 1 Call" with an equals sign leading to "Covered Call Position"]
+答：認購期權將會貶值（對你作為賣方有利），並很可能到期作廢。你保留期權金。但是，你仍以較低價格持有股票，因此持倉出現帳面虧損。期權金部分抵銷了此虧損。認購期權到期後，你可以在較低行使價賣出新認購期權，或等待股票回升。關鍵問題始終是：你是否仍想持有這只股票？
 
-**Sam:** Let us use a real example.
+**問題6：佣金對備兌認購期權盈利能力的影響如何？**
 
-**Alex:** Perfect. Let us say you own 100 shares of Apple at $155. You sell one Apple $170 call option, expiring in 30 days, for $2.50 per share. That is $250 in your account immediately.
+答：現在大多數主要券商提供免佣金的期權交易（嘉信理財、富達、盈透証券Lite版）。即使在收取佣金的券商，每份合約的典型費用約為0.50-0.65美元。相對於250美元的期權金，這約佔期權金的0.2-0.3%。佣金對備兌認購期權策略已不再構成重大障礙，除非你交易的是期權金極低的每週期權。
 
-**Sam:** And what happens from there?
+**問題7：什麼是「買入沽出策略（Buy-Write）」？**
 
-**Alex:** Three possible scenarios. Let me walk through each one.
+答：買入沽出策略是指在單一交易中同時買入100股股票和賣出認購期權。許多券商允許你以組合訂單方式輸入。優點是你可以按合併後的單一成交價建立整個持倉。例如，無需分別以155美元買入AAPL，再以2.50美元單獨賣出170美元行使價的認購期權，你可以直接以152.50美元的淨成本（155美元減2.50美元）輸入買入沽出訂單，確保兩條腿以你的目標淨價格成交。
 
-[ANIMATION: Reference animation/week27_covered_call.py - Animation showing a stock price chart with the current price at $155 and a horizontal dashed line at $170 (strike price). Three animated paths branch out: Path 1 shows the stock staying flat around $155, Path 2 shows the stock rising to $165, and Path 3 shows the stock rising above $170. For each path, a calculator shows the profit/loss calculation including the premium. The animation highlights the "cap" at $170 and shows how the premium cushions the position on the downside.]
+**問題8：我的認購期權應距現價多遠？**
 
-**Alex:** Scenario one: Apple stays below $170 at expiration. The call expires worthless. You keep your 100 shares, and you keep the $250 premium. You can sell another call next month. Repeat forever.
+答：這取決於你的目標。以下是一般指引：
+- 收入優先：價外3-5%（期權金較高，被行使風險較大）
+- 均衡策略：價外5-10%（期權金適中，風險適中）
+- 增長優先：價外10-15%（期權金較低，罕有被行使）
+- 以Delta值作參考：Delta值為0.20-0.30的認購期權大致屬於價外5-10%，在到期時處於價內的概率約為20-30%。
 
-**Sam:** That is the best-case scenario for the strategy.
+**問題9：我可以在個人退休帳戶內賣出備兌認購期權嗎？**
 
-**Alex:** It is the most common scenario. With a strike 10% above the current price, this happens about 80-85% of the time for monthly options.
+答：可以。備兌認購期權幾乎獲批准用於所有個人退休帳戶（傳統型、羅斯型、轉存型）。它們被歸類為第一級期權，即最基本和最保守的級別。你無需保證金即可賣出備兌認購期權，因為你已持有股份。個人退休帳戶的稅務優惠使備兌認購期權更具吸引力，因為期權金收入在提取前無需繳稅（傳統型），或完全免稅（羅斯型）。
 
-**Sam:** Scenario two?
+**問題10：什麼是「領口策略」，它與備兌認購期權有何關係？**
 
-**Alex:** Apple rises above $170. Your shares are called away. You sell 100 shares at $170 and keep the $250 premium. Total proceeds: $172.50 per share. On your $155 cost basis, that is a profit of $17.50 per share, or $1,750 total. An 11.3% return in 30 days.
-
-**Sam:** But I missed out on anything above $170.
-
-**Alex:** True. If Apple went to $200, you "only" made $17.50 per share instead of $45 per share. But here is my question: is making $1,750 in 30 days a bad outcome?
-
-[VISUAL: Two investors. "Investor A" sold covered call, made $1,750 in 30 days, looks satisfied. "Investor B" held without call, made $4,500, looks slightly happier but also stressed. Text: "Both made money. The covered call writer had a PLAN."]
-
-**Sam:** When you put it that way, no. It is still a great return.
-
-**Alex:** And remember, you chose $170 as your target sell price. Assignment means your plan worked.
-
-**Sam:** What about scenario three? What if Apple drops?
-
-**Alex:** If Apple drops to, say, $148, the call expires worthless and you keep the $250 premium. You still hold your shares at a loss, but your effective cost basis is now $152.50 instead of $155 because the premium reduces your cost. You are $2.50 per share better off than if you had not sold the call.
-
-**Sam:** So the premium is like a small cushion.
-
-**Alex:** Exactly. It does not eliminate downside risk, but it reduces it. Over time, these premiums accumulate and significantly lower your average cost basis.
-
-[VISUAL: Waterfall chart showing cost basis reduction over 12 months of covered call selling. Starting at $155, each month the cost basis drops by $1.50-$2.50 as premiums are collected, ending around $130 after 12 months]
-
-**Sam:** Let us talk about how to choose the right strike price. That seems like a critical decision.
-
-**Alex:** It is the most important decision in the strategy. There are three approaches. Conservative: sell calls 10-15% out of the money. You get smaller premiums but rarely lose your shares. Moderate: 5-10% out of the money. Good balance of income and retention. Aggressive: at the money or just above. Maximum income but high assignment probability.
-
-**Sam:** Which do you recommend for someone starting out?
-
-**Alex:** The moderate approach. For a stock at $155, that means the $165 to $175 range. Specifically, I like the delta 0.20 to 0.30 range, which roughly corresponds to a 20-30% chance the stock reaches the strike.
-
-[VISUAL: Number line showing strike prices. $155 current price in the center. Ranges marked: "$155-$160 Aggressive (high income, high assignment)", "$165-$170 Moderate (balanced)", "$175-$180 Conservative (low income, low assignment)"]
-
-**Sam:** What about expiration? How far out should the option expire?
-
-**Alex:** 30 to 45 days is the sweet spot. Here is why. Remember the time decay curve from last week? Theta, the daily rate of decay, accelerates in the last 45 days. By selling in this window, you get the best ratio of premium to time. Selling a 30-day call gives you roughly 60-70% of the premium of a 60-day call but in half the time.
-
-**Sam:** So I get nearly the same premium but I can do it twice in the same timeframe?
-
-**Alex:** Exactly. Two 30-day cycles at $2.00 each = $4.00 total. One 60-day cycle at $3.00 total. Two cycles wins. Plus, shorter duration means less exposure to unexpected events.
-
-[VISUAL: Comparison: "Two 30-day cycles: $2.00 + $2.00 = $4.00" vs "One 60-day cycle: $3.00". The two-cycle approach clearly generates more income.]
-
-**Sam:** Now I want to know about the yield math. How do I calculate my return?
-
-**Alex:** Simple formula. Take the premium, divide by the stock price, and annualize it. If you receive $2.50 on a $155 stock for a 30-day option, that is $2.50 divided by $155, which is 1.6%. Annualized: 1.6% times 365 divided by 30 equals 19.6%.
-
-**Sam:** 19.6% annualized? That seems high.
-
-**Alex:** It is high when conditions are favorable. In practice, you will not achieve that every month. Some months the premium will be lower. Some months you might skip a cycle around earnings. A realistic annual covered call yield is 8-15% for a moderate approach on high-quality stocks.
-
-[VISUAL: Calculator showing the yield formula with an example. Then a "Reality Check" adjustment showing: Theoretical max ~20%, Practical annual yield ~8-15%, with adjustments for "Months skipped for earnings", "Varying IV levels", "Cycles when assigned"]
-
-**Sam:** Let us talk about what to do when things do not go as planned. What if the stock is approaching my strike price with a week to go?
-
-**Alex:** You have two choices. First, let it happen. If you are happy selling at the strike price, just let the shares be called away. Remember, assignment is success, not failure. Second, roll the position.
-
-**Sam:** What does rolling mean?
-
-**Alex:** Rolling means closing your current call by buying it back, and simultaneously selling a new call with a later expiration and usually a higher strike. This extends your time in the position and often generates a net credit.
-
-[VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "Buy Back" the current call, then "Sell New" call with later expiry and higher strike. Net credit amount is displayed.]
-
-**Alex:** Here is an example. You sold the AAPL $170 call for $2.50 and the stock is now at $172 with a week to go. The call is worth about $4.00. You buy it back for $4.00, then sell the AAPL $180 call expiring next month for $3.00. Your net cost on the roll is $1.00. But you have raised your selling price from $170 to $180 and given yourself another month.
-
-**Sam:** So rolling is a way to "push back" the selling point?
-
-**Alex:** Exactly. You are saying, I do not want to sell at $170 anymore, I want to sell at $180, and I am willing to give up $1.00 per share in net premium to get that $10 higher selling price. If Apple stays below $180, you still keep the new premium minus the roll cost.
-
-**Sam:** When should you roll versus just accepting assignment?
-
-**Alex:** Roll when: you still want to own the stock, you believe it has more upside, and you can roll for a credit or a small debit. Accept assignment when: the stock has reached your fair value, the fundamentals have changed, or better opportunities exist elsewhere.
-
-[VISUAL: Decision flowchart. "Stock approaching strike price?" -> "Do you still want to own it?" If YES -> "Can you roll for a credit?" If YES -> "ROLL". If NO to either -> "LET IT BE ASSIGNED"]
-
-**Sam:** Now I want to address the elephant in the room. What about that scenario where the stock absolutely rockets higher and you miss out on a huge gain?
-
-**Alex:** Let me give you two perspectives. Mathematically, the covered call underperforms when stocks rally more than 10-15% in a single month. This happens maybe 10-15% of the time for a typical large-cap stock. The other 85-90% of the time, the covered call earns the same capital gain plus the premium.
-
-**Sam:** So 85% of the time you win, and 15% of the time you "win less."
-
-**Alex:** Exactly. And notice I said "win less," not "lose." Even when the stock blasts through your strike, you still make a profit. You made the strike price minus your cost, plus the premium. You just did not make the maximum possible profit.
-
-**Sam:** That is an important distinction.
-
-**Alex:** And here is the psychological perspective. Professional investors know that missing a moonshot is the cost of consistent income. A bird in the hand versus two in the bush. The premiums you collect month after month are certain. The possibility that the stock will rocket 25% in any given month is uncertain.
-
-[VISUAL: Two columns: "CERTAIN: Monthly premium income of $250" vs "UNCERTAIN: Possibility of catching a 25% monthly rally". Text below: "Covered calls trade uncertain upside for certain income."]
-
-**Sam:** Let us talk about the overall income comparison. You said covered calls can produce 2-3 times what dividends provide?
-
-**Alex:** Actually, for many stocks, it is far more than that. Let me show you.
-
-[VISUAL: Table on screen comparing 5 stocks with their dividend yield vs covered call yield vs combined yield]
-
-**Alex:** Take Apple. Dividend yield is about 0.65%. With monthly covered calls, you can add 10-14% in premium income. Your total yield goes from 0.65% to roughly 11-15%. That is not 2-3 times the dividend. That is more like 17 to 23 times.
-
-**Sam:** That is staggering.
-
-**Alex:** For a higher-dividend stock like Johnson and Johnson at about 3% dividend yield, covered calls add 8-12%, bringing total yield to 11-15%, which is about 4-5 times the dividend alone. The "2-3 times" guideline is actually conservative. The real multiplier depends on the stock's volatility and the aggressiveness of your strike selection.
-
-**Sam:** Can you walk through what a complete covered call portfolio looks like? For someone with, say, $200,000?
-
-**Alex:** Sure. Picture five stocks, each a blue-chip name in a different sector. Apple for tech, JPMorgan for finance, Johnson and Johnson for healthcare, Coca-Cola for consumer staples, and Microsoft for more tech. You own 100-300 shares of each, and you sell covered calls monthly.
-
-[VISUAL: Portfolio dashboard showing 5 stocks with shares owned, cost basis, current price, call sold, premium collected, and annualized yield for each. Bottom shows total monthly income and annual projected income.]
-
-**Alex:** Your total monthly premium might be around $1,800. Add dividends of about $300 per month, and you are generating $2,100 per month in income from a $200,000 portfolio. That is $25,200 per year, or a 12.6% annual income yield.
-
-**Sam:** That is incredible. Most people would be thrilled with that kind of income.
-
-**Alex:** And the beauty is, you still own all the stocks. They can still appreciate. You can still receive dividends. The covered calls just add a third stream of income on top.
-
-**Sam:** Let me ask about the management side. How much time does this take?
-
-**Alex:** Here is my monthly routine. On expiration week, I spend about 30 minutes reviewing my positions. For any calls that expired worthless, I sell new calls for the next month, takes maybe 10 minutes per stock. For any that are being challenged, I decide whether to roll or accept assignment, another 10 minutes. Total time per month: about 45-60 minutes.
-
-**Sam:** Under an hour a month for $25,000 per year in extra income.
-
-**Alex:** When you think about it in terms of hourly rate, you are earning over $2,000 per hour for the time spent managing covered calls.
-
-[VISUAL: Calculator: "45 minutes/month x 12 months = 9 hours/year. $25,200 / 9 hours = $2,800/hour"]
-
-**Sam:** OK, I have to ask about the tricky situations. What do I do around earnings?
-
-**Alex:** My rule is simple: do not have calls expiring during earnings week. Earnings can cause the stock to gap up or down significantly. If it gaps up, you might be assigned at a bad price. If it gaps down, the call premium you collected is tiny compared to the stock loss. Either way, earnings week adds unpredictable risk. Sell calls that expire before earnings or after earnings, but not during.
-
-**Sam:** So you skip a cycle?
-
-**Alex:** Sometimes. Or you sell a shorter-term call that expires before earnings, then sell a new call after the announcement. The key is not to be short a call when a binary event is about to happen unless you are specifically trying to exit the position.
-
-[VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "No Calls" in red]
-
-**Sam:** What about tax considerations?
-
-**Alex:** In a taxable account, covered call premiums are generally short-term capital gains, taxed at your ordinary income rate. If your shares are called away, the premium is added to the sale proceeds for capital gains calculation. If the call expires worthless, the premium is a standalone short-term gain. In an IRA or Roth IRA, none of this matters because the income grows tax-deferred or tax-free. This is why I especially like covered calls in Roth IRAs; the premium income is never taxed.
-
-**Sam:** So Roth IRA is the ideal account for this strategy.
-
-**Alex:** If you have one with sufficient funds to own 100-share lots, absolutely. The premiums grow tax-free and can be reinvested to compound over decades.
-
-[VISUAL: Two columns showing "Taxable Account: Premium taxed at ordinary income rate (22-37%)" vs "Roth IRA: Premium grows tax-FREE"]
-
-**Sam:** Let me summarize what we learned today. A covered call is owning 100 shares and selling a call against them. It caps your upside at the strike price but generates premium income. The ideal market is flat to mildly bullish. Premium income can be 2-3 times dividends or more. The sweet spot is 30-45 day expiration at 5-10% out of the money. And if your stock hits the strike, it is not a failure, it is a successful exit at your target price.
-
-**Alex:** Perfect summary. And one thing I want to emphasize: this is not a one-time strategy. The power comes from doing it month after month, year after year. The premiums compound. Your cost basis drops. And your total return significantly outpaces a passive buy-and-hold approach in most market conditions.
-
-**Sam:** Next week we are covering cash-secured puts, which is the other side of this coin.
-
-**Alex:** Right. Covered calls are about getting paid to sell at your target. Cash-secured puts are about getting paid to buy at your target. Together, they form the wheel strategy, which is one of the most elegant income strategies in investing.
-
-**Sam:** Looking forward to it. Thanks for watching, everyone.
-
-**Alex:** Like, subscribe, and we will see you in Week 28.
-
-[VISUAL: End screen with subscribe button, playlist link, and preview of Week 28: Cash-Secured Puts for Entry]
+答：領口策略將備兌認購期權與保護性認沽期權結合。你持有股票、賣出認購期權（收取期權金），並以部分或全部期權金購入認沽期權（保護）。例如：持有AAPL股票成本為155美元，以2.50美元賣出170美元行使價的認購期權，以2.00美元買入140美元行使價的認沽期權。淨期權金：0.50美元。你將上行空間限制在170美元，同時獲得140美元以下的下行保護。你的股票只能在140至170美元之間波動，而你以收取0.50美元換取接受這個波動範圍。領口策略非常適合以極低成本保護大型持倉。
 
 ---
 
-*Animation Reference: animation/week27_covered_call.py - This animation displays a stock price chart with the covered call position overlaid. It shows the current stock price, the strike price as a horizontal ceiling line, and three animated price paths (flat, moderate rise, strong rise). For each path, a profit calculator updates in real-time, showing the combined profit from stock appreciation plus premium income, with the cap at the strike price clearly illustrated. When the stock crosses the strike, the animation shows the shares being "called away" with a visual handoff. The payoff diagram is also animated, showing how the premium shifts the breakeven point lower and how the profit caps at the strike.*
+## YouTube腳本
+
+[VISUAL: 動畫片頭配節目標誌。文字：「第27週：備兌認購期權創造收入 - 第三級：進階」]
+
+**Horace：** 歡迎回來。今天我們要深入探討我最喜歡的長線投資策略之一：備兌認購期權。如果你持有股票，卻從未認真考慮過備兌認購期權，那你確實在白白放棄收入。
+
+**Stella：** 這個說法夠大膽的。說說你的理由。
+
+**Horace：** 我用數字來證明給你看。如果你持有一個典型的200,000美元股票投資組合，你每年大概只能收取3,000至4,000美元的股息。但加入備兌認購期權後，你每年可以額外增加16,000至24,000美元的收入，相當於股息的5至8倍。
+
+**Stella：** 無需賣出股份，就能多賺20,000美元？帶我一步一步了解吧。
+
+[VISUAL: 長條圖比較：「僅股息：每年約3,500美元」對比「股息＋備兌認購期權：每年約22,000美元」，以200,000美元投資組合計算]
+
+**Horace：** 我們先從備兌認購期權的定義說起。它由兩個部分組成。第一部分：你持有至少100股股票。第二部分：你針對這些股份賣出一份認購期權合約。之所以稱為「備兌」，是因為你的股份就是抵押品。若買方行使期權，你只需交付已持有的股份即可。
+
+**Stella：** 所以我是在以特定價格，向別人出售購買我股份的權利？
+
+**Horace：** 完全正確。你可以把它理解為對你的股票掛出一個限價賣單，同時還能收取費用。我們上週已介紹過這個概念，今天我們要深入探討其運作機制。
+
+[VISUAL: 圖示顯示備兌認購期權結構——「持有100股（多頭）」連接至「賣出1份認購期權（空頭）」，以等號引向「備兌認購期權持倉」]
+
+**Stella：** 讓我們用一個實際例子來說明。
+
+**Horace：** 好。假設你持有100股蘋果公司股票，成本為155美元。你賣出一份30天後到期、行使價170美元的蘋果認購期權，每股期權金為2.50美元，即250美元立刻存入你的帳戶。
+
+**Stella：** 之後會發生什麼？
+
+**Horace：** 有三種可能情景。讓我逐一說明。
+
+[ANIMATION: 參考 animation/week27_covered_call.py——動畫顯示股價走勢圖，目前股價為155美元，170美元行使價以水平虛線標示。三條動畫路徑分別延伸：路徑一顯示股票維持橫盤約155美元，路徑二顯示股票升至165美元，路徑三顯示股票升逾170美元。每條路徑均配有計算器，實時顯示包括期權金在內的盈虧計算。動畫重點標示170美元的「上限」，並展示期權金如何在下行時提供緩衝。]
+
+**Horace：** 情景一：到期時蘋果股價維持在170美元以下。認購期權到期作廢，你保留100股股份，同時保留250美元期權金。下個月你可以再賣出一份新的認購期權，如此循環往復。
+
+**Stella：** 這是策略的最佳情景。
+
+**Horace：** 也是最常見的情景。對於高於現價10%的行使價，每月期權的這種情況發生概率約為80至85%。
+
+**Stella：** 情景二呢？
+
+**Horace：** 蘋果升逾170美元，你的股份被行使取走。你以170美元賣出100股，並保留250美元期權金。每股總收益為172.50美元。相對於155美元的持股成本，每股利潤為17.50美元，即30天內總利潤1,750美元，回報率11.3%。
+
+**Stella：** 但我錯失了170美元以上的升幅。
+
+**Horace：** 確實。若蘋果升至200美元，你「只賺」了每股17.50美元，而非45美元。但我的問題是：在30天內賺取1,750美元，算是壞結果嗎？
+
+[VISUAL: 兩位投資者。「投資者甲」賣出備兌認購期權，30天賺取1,750美元，神情滿足。「投資者乙」持股未賣期權，賺取4,500美元，神情略為開心但也帶點緊張。文字：「兩者均有盈利。備兌認購期權賣方有明確計劃。」]
+
+**Stella：** 你這樣說，確實不是壞結果。仍然是非常理想的回報。
+
+**Horace：** 而且請記住，你選擇170美元作為目標賣出價格。被行使意味著你的計劃奏效了。
+
+**Stella：** 情景三呢？如果蘋果下跌怎麼辦？
+
+**Horace：** 如果蘋果跌至148美元，認購期權到期作廢，你保留250美元期權金。你仍持有虧損的股份，但你的實際持股成本現在是152.50美元，而非155美元，因為期權金降低了你的成本。與未賣出認購期權相比，你每股多賺2.50美元。
+
+**Stella：** 所以期權金就像一個小緩衝墊。
+
+**Horace：** 正是。它並不能消除下行風險，但確實能夠減少損失。隨著時間累積，這些期權金不斷積沙成塔，大幅降低你的平均持股成本。
+
+[VISUAL: 瀑布圖顯示12個月備兌認購期權操作後的成本持續下降。從155美元起步，每月因收取期權金而下降1.50至2.50美元，12個月後降至約130美元]
+
+**Stella：** 我們來聊聊如何選擇正確的行使價，這個決定看起來非常關鍵。
+
+**Horace：** 這是策略中最重要的決定。有三種方法。保守型：賣出價外10至15%的認購期權，期權金較少但鮮有被行使。穩健型：價外5至10%，收入與持股之間取得良好平衡。進取型：平價或略高於現價，最大化收入但被行使概率高。
+
+**Stella：** 你建議初學者採用哪種方法？
+
+**Horace：** 穩健型方法。對於155美元的股票，即165至175美元的區間。具體而言，我偏好Delta值在0.20至0.30的區間，大致對應股票達到行使價的概率為20至30%。
+
+[VISUAL: 數軸顯示行使價。中間標示現價155美元。各區間標示：「155-160美元 進取型（高收入，高被行使率）」、「165-170美元 穩健型（均衡）」、「175-180美元 保守型（低收入，低被行使率）」]
+
+**Stella：** 到期日呢？期權應選擇多遠的到期日？
+
+**Horace：** 30至45天是最佳區間。原因如下。還記得上週介紹的時間值衰減曲線嗎？Theta，即每日衰減速率，在最後45天會加速。在這個時間窗口賣出，可獲得最佳的期權金與時間比率。30天到期的認購期權，其期權金大約是60天期的60至70%，但只需一半時間。
+
+**Stella：** 所以在相同時間內，我幾乎可以收到相同的期權金，但能操作兩次？
+
+**Horace：** 正是。兩個30天週期各收2.00美元，合計4.00美元；一個60天週期收3.00美元。兩次週期勝出。而且較短的到期日意味著對意外事件的敞口更小。
+
+[VISUAL: 比較：「兩個30天週期：2.00＋2.00 = 4.00美元」對比「一個60天週期：3.00美元」。兩個週期的方案明顯產生更多收入。]
+
+**Stella：** 現在我想了解收益率計算方法。如何計算我的回報？
+
+**Horace：** 公式很簡單。將期權金除以股價，然後年化。若你在155美元的股票上收取2.50美元的30天期期權金，即2.50除以155等於1.6%，年化則為1.6%乘以365除以30，等於19.6%。
+
+**Stella：** 年化19.6%？這似乎很高。
+
+**Horace：** 在條件有利時確實如此。但實際上，你不可能每個月都達到這個水平。有些月份期權金會較低，有些月份你可能會在業績公告前後跳過一個週期。以穩健方法操作優質股票，切實可行的年化備兌認購期權收益率為8至15%。
+
+[VISUAL: 計算器顯示收益率公式及示例。然後以「現實核對」作調整，顯示：理論最高約20%，實際年化收益率約8-15%，並列出調整因素：「因業績公告跳過的月份」、「隱含波動性水平變化」、「被行使時的週期」]
+
+**Stella：** 讓我們談談事情不如預期時的應對方法。如果距到期還有一週，但股票正在接近我的行使價，我應怎麼辦？
+
+**Horace：** 你有兩個選擇。第一，順其自然。若你樂意以行使價賣出，就讓股份被行使取走。請記住，被行使是成功，而非失敗。第二，展倉。
+
+**Stella：** 展倉是什麼意思？
+
+**Horace：** 展倉指買回現有的認購期權平倉，同時賣出一份到期日更遠、行使價通常更高的新認購期權。這樣可延長持倉時間，並往往能產生淨期權金收入。
+
+[VISUAL: 展倉動畫。時間軸顯示原始認購期權持倉。箭頭顯示「買回」現有認購期權，然後「賣出新認購期權」，設有更遠到期日和更高行使價。顯示淨期權金收入金額。]
+
+**Horace：** 舉個例子。你以2.50美元賣出AAPL 170美元行使價的認購期權，而股票現在是172美元，距到期只剩一週。認購期權現值約4.00美元。你以4.00美元買回，同時賣出下個月到期的AAPL 180美元行使價認購期權，收取3.00美元。展倉的淨成本為1.00美元。但你已將賣出價格從170美元提升至180美元，並多爭取了一個月時間。
+
+**Stella：** 所以展倉是把賣出時間點「往後推」的方式？
+
+**Horace：** 正是。你的意思是：我不再希望以170美元賣出，我想以180美元賣出，而我願意為了多10美元的賣出價格，付出每股1.00美元的淨期權金代價。若蘋果維持在180美元以下，你仍可保留新期權金扣除展倉成本後的淨收入。
+
+**Stella：** 什麼情況下應展倉，什麼情況下應接受被行使？
+
+**Horace：** 展倉的時機：你仍希望持有股票、你認為其仍有上行空間，且你可以以收取淨期權金或小額淨支出的方式展倉。接受被行使的時機：股票已達到你的合理估值、基本面出現變化，或其他地方存在更好的機會。
+
+[VISUAL: 決策流程圖。「股票接近行使價？」→「你是否仍希望持有？」若是→「你能以收取淨期權金的方式展倉嗎？」若是→「展倉」。若其中任一答案為否→「接受被行使」]
+
+**Stella：** 現在我想談談那個最明顯的問題。如果股票大幅飆升，你錯失了巨大漲幅，怎麼辦？
+
+**Horace：** 讓我從兩個角度分析。從數學角度看，當股票在單個月內升幅超過10至15%時，備兌認購期權的表現會落後。對於典型的大型股而言，這種情況大約有10至15%的概率發生。其餘85至90%的時間，備兌認購期權的資本增值與單純持股相同，還額外加上期權金收入。
+
+**Stella：** 所以85%的時間你勝出，15%的時間你「勝出得少一點」。
+
+**Horace：** 正是。請注意我說的是「勝出得少一點」，而非「虧損」。即使股票大幅衝破你的行使價，你仍然有利潤。你賺取了行使價減去持股成本，再加上期權金。你只是沒有賺到最大可能的利潤。
+
+**Stella：** 這個區別非常重要。
+
+**Horace：** 從心理角度看，專業投資者明白，放棄偶爾出現的爆炸性升幅，是獲取穩定收入的代價。手中有鳥勝過林中有鳥。你每月按時收取的期權金是確定的，而任何特定月份股票大漲25%的可能性是不確定的。
+
+[VISUAL: 兩欄：「確定的：每月期權金收入250美元」對比「不確定的：某月大漲25%的可能性」。下方文字：「備兌認購期權以不確定的上行潛力換取確定的收入。」]
+
+**Stella：** 讓我們談談整體收入比較。你說備兌認購期權可以產生股息2至3倍的收入？
+
+**Horace：** 事實上，對很多股票而言，遠不止這個倍數。讓我來展示給你看。
+
+[VISUAL: 螢幕顯示5只股票的比較表，列出股息收益率、備兌認購期權收益率及合計收益率]
+
+**Horace：** 以蘋果為例，股息收益率約為0.65%。加入每月備兌認購期權，可增加10至14%的期權金收入，總收益率從0.65%提升至約11至15%，倍數不是2至3倍，而是高達17至23倍。
+
+**Stella：** 這令人瞠目結舌。
+
+**Horace：** 對於股息收益率較高的股票，例如強生公司約3%的股息收益率，備兌認購期權可額外增加8至12%，令總收益率達到11至15%，相當於單純股息收益率的4至5倍。「2至3倍」的說法其實已是保守估算，實際倍數取決於股票的波動性及行使價的選擇。
+
+**Stella：** 你能說明一個完整的備兌認購期權投資組合是什麼樣子嗎？假設投資者持有200,000美元？
+
+**Horace：** 當然。想像五只股票，各是不同板塊的藍籌名稱：科技板塊選蘋果、金融板塊選摩根大通、醫療健康板塊選強生、消費必需品板塊選可口可樂、再加微軟作為另一科技股。你持有各100至300股，每月賣出備兌認購期權。
+
+[VISUAL: 投資組合儀表板顯示5只股票，列出持股數量、持股成本、現價、已賣出認購期權、已收期權金及年化收益率。底部顯示每月總收入及預計年收入。]
+
+**Horace：** 你的每月期權金總收入約為1,800美元。加上每月約300美元的股息，你從200,000美元的投資組合每月產生2,100美元的收入，相當於每年25,200美元，即12.6%的年化收入收益率。
+
+**Stella：** 這非常驚人。大多數人都會對這種收入水平感到滿意。
+
+**Horace：** 而且精妙之處在於，你仍然持有所有股票。股票仍然可以升值，你仍然可以收取股息，備兌認購期權只是在現有基礎上增添了第三條收入流。
+
+**Stella：** 讓我問問管理方面的問題。這需要花多少時間？
+
+**Horace：** 以下是我的每月例行操作。在到期週，我花約30分鐘檢視持倉。對於到期作廢的認購期權，我賣出下個月的新認購期權，每只股票約需10分鐘。對於受到挑戰的持倉，我決定是否展倉或接受被行使，另需約10分鐘。每月總時間：約45至60分鐘。
+
+**Stella：** 不到一小時，每年額外賺取25,000美元。
+
+**Horace：** 從時薪角度計算，管理備兌認購期權的時薪超過2,000美元。
+
+[VISUAL: 計算器：「每月45分鐘 x 12個月 = 每年9小時。25,200美元 / 9小時 = 每小時2,800美元」]
+
+**Stella：** 好，我必須問問那些棘手的情況。業績公告季節應該怎麼辦？
+
+**Horace：** 我的規則很簡單：不要持有在業績公告週到期的認購期權。業績公告可能導致股票大幅跳空上升或下跌。若跳空上升，你可能在不理想的價格被行使。若跳空下跌，你收取的期權金相對於股票虧損而言微不足道。無論哪種方式，業績公告週都會增加難以預測的風險。要賣出在業績公告前或後到期的認購期權，而非在業績公告期間到期。
+
+**Stella：** 所以你跳過一個週期？
+
+**Horace：** 有時是這樣。或者你賣出在業績公告前到期的短線認購期權，然後在業績公告後再賣出新的。關鍵是在二元事件即將發生時，不要持有空頭認購期權，除非你特意希望在此時離場。
+
+[VISUAL: 日曆顯示業績公告日期以紅色標示。業績公告前後的到期日均有顯示，業績公告週標為紅色「不賣認購期權」]
+
+**Stella：** 稅務方面的考慮呢？
+
+**Horace：** 在應稅帳戶中，備兌認購期權的期權金通常被視為短期資本增值，按普通收入稅率課稅。若股份被行使取走，期權金計入賣股所得以計算資本增值。若認購期權到期作廢，期權金作為獨立的短期資本增值處理。在個人退休帳戶或羅斯個人退休帳戶中，這些均不適用，因為收入可免稅遞延增長（傳統型）或完全免稅（羅斯型）。正因如此，我尤其喜歡在羅斯個人退休帳戶中運用備兌認購期權，因為期權金收入永遠無需繳稅。
+
+**Stella：** 所以羅斯個人退休帳戶是此策略的最理想帳戶。
+
+**Horace：** 若你有足夠資金以100股為單位持股，那絕對是首選。期權金免稅增長，並可再投資以在數十年間複利積累。
+
+[VISUAL: 兩欄顯示「應稅帳戶：期權金按普通收入稅率課稅（22-37%）」對比「羅斯個人退休帳戶：期權金完全免稅增長」]
+
+**Stella：** 讓我總結今天所學。備兌認購期權是持有100股並針對這些股份賣出認購期權。它以行使價設定上行上限，但換來期權金收入。最理想的市場是橫盤至溫和看漲。期權金收入可達股息的2至3倍或更多。甜蜜點是30至45天到期、價外5至10%的認購期權。若股票達到行使價，這不是失敗，而是以你的目標價格成功離場。
+
+**Horace：** 總結得非常好。我想特別強調一點：這不是一次性的策略，其威力在於月復一月、年復一年地堅持執行。期權金不斷積累，持股成本持續下降，在大多數市場條件下，總回報將顯著超越被動的買入持有策略。
+
+**Stella：** 下週我們將介紹現金擔保認沽期權，這是本策略的另一面。
+
+**Horace：** 沒錯。備兌認購期權是在目標價格賣出時收取報酬。現金擔保認沽期權是在目標價格買入時收取報酬。兩者合而為一，便構成滾輪策略，這是投資領域最精妙的收入策略之一。
+
+**Stella：** 非常期待。感謝各位收看。
+
+**Horace：** 請點讚、訂閱，我們第28週見。
+
+[VISUAL: 結束畫面，含訂閱按鈕、播放列表連結及第28週預覽：現金擔保認沽期權建立入場倉位]
+
+---
+
+*動畫參考：animation/week27_covered_call.py——此動畫顯示一個股價走勢圖，疊加備兌認購期權持倉。它展示現時股價、以水平上限線表示的行使價，以及三條動畫股價路徑（橫盤、溫和上升、強勁上升）。對於每條路徑，利潤計算器實時更新，顯示股票升值加上期權金收入的合計利潤，並清楚說明於行使價位置的利潤上限。當股票穿越行使價時，動畫以視覺方式呈現股份被「行使取走」的過程。損益圖亦經過動畫處理，展示期權金如何將損益平衡點下移，以及利潤如何在行使價處封頂。*

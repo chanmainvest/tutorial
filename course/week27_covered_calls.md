@@ -741,195 +741,195 @@ A: A collar combines a covered call with a protective put. You own the stock, se
 
 [VISUAL: Animated intro with show logo. Text: "Week 27: Covered Calls for Income - Level 3: Advanced"]
 
-**Alex:** Welcome back. Today we are diving into one of my absolute favorite strategies for long-term investors: the covered call. If you own stocks and you are not at least considering covered calls, you are leaving money on the table.
+**Horace:** Welcome back. Today we are diving into one of my absolute favorite strategies for long-term investors: the covered call. If you own stocks and you are not at least considering covered calls, you are leaving money on the table.
 
-**Sam:** That is a bold statement. Tell me why.
+**Stella:** That is a bold statement. Tell me why.
 
-**Alex:** I will prove it to you with numbers. If you own a typical $200,000 stock portfolio, you are probably earning about $3,000-$4,000 per year in dividends. With covered calls, you could add another $16,000 to $24,000 per year in income. That is 5 to 8 times what dividends provide.
+**Horace:** I will prove it to you with numbers. If you own a typical $200,000 stock portfolio, you are probably earning about $3,000-$4,000 per year in dividends. With covered calls, you could add another $16,000 to $24,000 per year in income. That is 5 to 8 times what dividends provide.
 
-**Sam:** $20,000 in additional income without selling my stocks? Walk me through this.
+**Stella:** $20,000 in additional income without selling my stocks? Walk me through this.
 
 [VISUAL: Bar chart comparison: "Dividends Only: ~$3,500/year" vs "Dividends + Covered Calls: ~$22,000/year" on a $200,000 portfolio]
 
-**Alex:** Let us start with exactly what a covered call is. It is a two-part position. Part one: you own at least 100 shares of a stock. Part two: you sell one call option against those shares. The call is "covered" because your shares are the collateral. If the buyer exercises, you simply deliver your existing shares.
+**Horace:** Let us start with exactly what a covered call is. It is a two-part position. Part one: you own at least 100 shares of a stock. Part two: you sell one call option against those shares. The call is "covered" because your shares are the collateral. If the buyer exercises, you simply deliver your existing shares.
 
-**Sam:** So I am selling someone the right to buy my shares at a specific price?
+**Stella:** So I am selling someone the right to buy my shares at a specific price?
 
-**Alex:** Exactly. Think of it as placing a limit sell order on your stock and getting paid for it. We covered this concept last week. Today we are going deep into the mechanics.
+**Horace:** Exactly. Think of it as placing a limit sell order on your stock and getting paid for it. We covered this concept last week. Today we are going deep into the mechanics.
 
 [VISUAL: Diagram showing the covered call structure - "Long 100 shares" connected to "Short 1 Call" with an equals sign leading to "Covered Call Position"]
 
-**Sam:** Let us use a real example.
+**Stella:** Let us use a real example.
 
-**Alex:** Perfect. Let us say you own 100 shares of Apple at $155. You sell one Apple $170 call option, expiring in 30 days, for $2.50 per share. That is $250 in your account immediately.
+**Horace:** Perfect. Let us say you own 100 shares of Apple at $155. You sell one Apple $170 call option, expiring in 30 days, for $2.50 per share. That is $250 in your account immediately.
 
-**Sam:** And what happens from there?
+**Stella:** And what happens from there?
 
-**Alex:** Three possible scenarios. Let me walk through each one.
+**Horace:** Three possible scenarios. Let me walk through each one.
 
 [ANIMATION: Reference animation/week27_covered_call.py - Animation showing a stock price chart with the current price at $155 and a horizontal dashed line at $170 (strike price). Three animated paths branch out: Path 1 shows the stock staying flat around $155, Path 2 shows the stock rising to $165, and Path 3 shows the stock rising above $170. For each path, a calculator shows the profit/loss calculation including the premium. The animation highlights the "cap" at $170 and shows how the premium cushions the position on the downside.]
 
-**Alex:** Scenario one: Apple stays below $170 at expiration. The call expires worthless. You keep your 100 shares, and you keep the $250 premium. You can sell another call next month. Repeat forever.
+**Horace:** Scenario one: Apple stays below $170 at expiration. The call expires worthless. You keep your 100 shares, and you keep the $250 premium. You can sell another call next month. Repeat forever.
 
-**Sam:** That is the best-case scenario for the strategy.
+**Stella:** That is the best-case scenario for the strategy.
 
-**Alex:** It is the most common scenario. With a strike 10% above the current price, this happens about 80-85% of the time for monthly options.
+**Horace:** It is the most common scenario. With a strike 10% above the current price, this happens about 80-85% of the time for monthly options.
 
-**Sam:** Scenario two?
+**Stella:** Scenario two?
 
-**Alex:** Apple rises above $170. Your shares are called away. You sell 100 shares at $170 and keep the $250 premium. Total proceeds: $172.50 per share. On your $155 cost basis, that is a profit of $17.50 per share, or $1,750 total. An 11.3% return in 30 days.
+**Horace:** Apple rises above $170. Your shares are called away. You sell 100 shares at $170 and keep the $250 premium. Total proceeds: $172.50 per share. On your $155 cost basis, that is a profit of $17.50 per share, or $1,750 total. An 11.3% return in 30 days.
 
-**Sam:** But I missed out on anything above $170.
+**Stella:** But I missed out on anything above $170.
 
-**Alex:** True. If Apple went to $200, you "only" made $17.50 per share instead of $45 per share. But here is my question: is making $1,750 in 30 days a bad outcome?
+**Horace:** True. If Apple went to $200, you "only" made $17.50 per share instead of $45 per share. But here is my question: is making $1,750 in 30 days a bad outcome?
 
 [VISUAL: Two investors. "Investor A" sold covered call, made $1,750 in 30 days, looks satisfied. "Investor B" held without call, made $4,500, looks slightly happier but also stressed. Text: "Both made money. The covered call writer had a PLAN."]
 
-**Sam:** When you put it that way, no. It is still a great return.
+**Stella:** When you put it that way, no. It is still a great return.
 
-**Alex:** And remember, you chose $170 as your target sell price. Assignment means your plan worked.
+**Horace:** And remember, you chose $170 as your target sell price. Assignment means your plan worked.
 
-**Sam:** What about scenario three? What if Apple drops?
+**Stella:** What about scenario three? What if Apple drops?
 
-**Alex:** If Apple drops to, say, $148, the call expires worthless and you keep the $250 premium. You still hold your shares at a loss, but your effective cost basis is now $152.50 instead of $155 because the premium reduces your cost. You are $2.50 per share better off than if you had not sold the call.
+**Horace:** If Apple drops to, say, $148, the call expires worthless and you keep the $250 premium. You still hold your shares at a loss, but your effective cost basis is now $152.50 instead of $155 because the premium reduces your cost. You are $2.50 per share better off than if you had not sold the call.
 
-**Sam:** So the premium is like a small cushion.
+**Stella:** So the premium is like a small cushion.
 
-**Alex:** Exactly. It does not eliminate downside risk, but it reduces it. Over time, these premiums accumulate and significantly lower your average cost basis.
+**Horace:** Exactly. It does not eliminate downside risk, but it reduces it. Over time, these premiums accumulate and significantly lower your average cost basis.
 
 [VISUAL: Waterfall chart showing cost basis reduction over 12 months of covered call selling. Starting at $155, each month the cost basis drops by $1.50-$2.50 as premiums are collected, ending around $130 after 12 months]
 
-**Sam:** Let us talk about how to choose the right strike price. That seems like a critical decision.
+**Stella:** Let us talk about how to choose the right strike price. That seems like a critical decision.
 
-**Alex:** It is the most important decision in the strategy. There are three approaches. Conservative: sell calls 10-15% out of the money. You get smaller premiums but rarely lose your shares. Moderate: 5-10% out of the money. Good balance of income and retention. Aggressive: at the money or just above. Maximum income but high assignment probability.
+**Horace:** It is the most important decision in the strategy. There are three approaches. Conservative: sell calls 10-15% out of the money. You get smaller premiums but rarely lose your shares. Moderate: 5-10% out of the money. Good balance of income and retention. Aggressive: at the money or just above. Maximum income but high assignment probability.
 
-**Sam:** Which do you recommend for someone starting out?
+**Stella:** Which do you recommend for someone starting out?
 
-**Alex:** The moderate approach. For a stock at $155, that means the $165 to $175 range. Specifically, I like the delta 0.20 to 0.30 range, which roughly corresponds to a 20-30% chance the stock reaches the strike.
+**Horace:** The moderate approach. For a stock at $155, that means the $165 to $175 range. Specifically, I like the delta 0.20 to 0.30 range, which roughly corresponds to a 20-30% chance the stock reaches the strike.
 
 [VISUAL: Number line showing strike prices. $155 current price in the center. Ranges marked: "$155-$160 Aggressive (high income, high assignment)", "$165-$170 Moderate (balanced)", "$175-$180 Conservative (low income, low assignment)"]
 
-**Sam:** What about expiration? How far out should the option expire?
+**Stella:** What about expiration? How far out should the option expire?
 
-**Alex:** 30 to 45 days is the sweet spot. Here is why. Remember the time decay curve from last week? Theta, the daily rate of decay, accelerates in the last 45 days. By selling in this window, you get the best ratio of premium to time. Selling a 30-day call gives you roughly 60-70% of the premium of a 60-day call but in half the time.
+**Horace:** 30 to 45 days is the sweet spot. Here is why. Remember the time decay curve from last week? Theta, the daily rate of decay, accelerates in the last 45 days. By selling in this window, you get the best ratio of premium to time. Selling a 30-day call gives you roughly 60-70% of the premium of a 60-day call but in half the time.
 
-**Sam:** So I get nearly the same premium but I can do it twice in the same timeframe?
+**Stella:** So I get nearly the same premium but I can do it twice in the same timeframe?
 
-**Alex:** Exactly. Two 30-day cycles at $2.00 each = $4.00 total. One 60-day cycle at $3.00 total. Two cycles wins. Plus, shorter duration means less exposure to unexpected events.
+**Horace:** Exactly. Two 30-day cycles at $2.00 each = $4.00 total. One 60-day cycle at $3.00 total. Two cycles wins. Plus, shorter duration means less exposure to unexpected events.
 
 [VISUAL: Comparison: "Two 30-day cycles: $2.00 + $2.00 = $4.00" vs "One 60-day cycle: $3.00". The two-cycle approach clearly generates more income.]
 
-**Sam:** Now I want to know about the yield math. How do I calculate my return?
+**Stella:** Now I want to know about the yield math. How do I calculate my return?
 
-**Alex:** Simple formula. Take the premium, divide by the stock price, and annualize it. If you receive $2.50 on a $155 stock for a 30-day option, that is $2.50 divided by $155, which is 1.6%. Annualized: 1.6% times 365 divided by 30 equals 19.6%.
+**Horace:** Simple formula. Take the premium, divide by the stock price, and annualize it. If you receive $2.50 on a $155 stock for a 30-day option, that is $2.50 divided by $155, which is 1.6%. Annualized: 1.6% times 365 divided by 30 equals 19.6%.
 
-**Sam:** 19.6% annualized? That seems high.
+**Stella:** 19.6% annualized? That seems high.
 
-**Alex:** It is high when conditions are favorable. In practice, you will not achieve that every month. Some months the premium will be lower. Some months you might skip a cycle around earnings. A realistic annual covered call yield is 8-15% for a moderate approach on high-quality stocks.
+**Horace:** It is high when conditions are favorable. In practice, you will not achieve that every month. Some months the premium will be lower. Some months you might skip a cycle around earnings. A realistic annual covered call yield is 8-15% for a moderate approach on high-quality stocks.
 
 [VISUAL: Calculator showing the yield formula with an example. Then a "Reality Check" adjustment showing: Theoretical max ~20%, Practical annual yield ~8-15%, with adjustments for "Months skipped for earnings", "Varying IV levels", "Cycles when assigned"]
 
-**Sam:** Let us talk about what to do when things do not go as planned. What if the stock is approaching my strike price with a week to go?
+**Stella:** Let us talk about what to do when things do not go as planned. What if the stock is approaching my strike price with a week to go?
 
-**Alex:** You have two choices. First, let it happen. If you are happy selling at the strike price, just let the shares be called away. Remember, assignment is success, not failure. Second, roll the position.
+**Horace:** You have two choices. First, let it happen. If you are happy selling at the strike price, just let the shares be called away. Remember, assignment is success, not failure. Second, roll the position.
 
-**Sam:** What does rolling mean?
+**Stella:** What does rolling mean?
 
-**Alex:** Rolling means closing your current call by buying it back, and simultaneously selling a new call with a later expiration and usually a higher strike. This extends your time in the position and often generates a net credit.
+**Horace:** Rolling means closing your current call by buying it back, and simultaneously selling a new call with a later expiration and usually a higher strike. This extends your time in the position and often generates a net credit.
 
 [VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "Buy Back" the current call, then "Sell New" call with later expiry and higher strike. Net credit amount is displayed.]
 
-**Alex:** Here is an example. You sold the AAPL $170 call for $2.50 and the stock is now at $172 with a week to go. The call is worth about $4.00. You buy it back for $4.00, then sell the AAPL $180 call expiring next month for $3.00. Your net cost on the roll is $1.00. But you have raised your selling price from $170 to $180 and given yourself another month.
+**Horace:** Here is an example. You sold the AAPL $170 call for $2.50 and the stock is now at $172 with a week to go. The call is worth about $4.00. You buy it back for $4.00, then sell the AAPL $180 call expiring next month for $3.00. Your net cost on the roll is $1.00. But you have raised your selling price from $170 to $180 and given yourself another month.
 
-**Sam:** So rolling is a way to "push back" the selling point?
+**Stella:** So rolling is a way to "push back" the selling point?
 
-**Alex:** Exactly. You are saying, I do not want to sell at $170 anymore, I want to sell at $180, and I am willing to give up $1.00 per share in net premium to get that $10 higher selling price. If Apple stays below $180, you still keep the new premium minus the roll cost.
+**Horace:** Exactly. You are saying, I do not want to sell at $170 anymore, I want to sell at $180, and I am willing to give up $1.00 per share in net premium to get that $10 higher selling price. If Apple stays below $180, you still keep the new premium minus the roll cost.
 
-**Sam:** When should you roll versus just accepting assignment?
+**Stella:** When should you roll versus just accepting assignment?
 
-**Alex:** Roll when: you still want to own the stock, you believe it has more upside, and you can roll for a credit or a small debit. Accept assignment when: the stock has reached your fair value, the fundamentals have changed, or better opportunities exist elsewhere.
+**Horace:** Roll when: you still want to own the stock, you believe it has more upside, and you can roll for a credit or a small debit. Accept assignment when: the stock has reached your fair value, the fundamentals have changed, or better opportunities exist elsewhere.
 
 [VISUAL: Decision flowchart. "Stock approaching strike price?" -> "Do you still want to own it?" If YES -> "Can you roll for a credit?" If YES -> "ROLL". If NO to either -> "LET IT BE ASSIGNED"]
 
-**Sam:** Now I want to address the elephant in the room. What about that scenario where the stock absolutely rockets higher and you miss out on a huge gain?
+**Stella:** Now I want to address the elephant in the room. What about that scenario where the stock absolutely rockets higher and you miss out on a huge gain?
 
-**Alex:** Let me give you two perspectives. Mathematically, the covered call underperforms when stocks rally more than 10-15% in a single month. This happens maybe 10-15% of the time for a typical large-cap stock. The other 85-90% of the time, the covered call earns the same capital gain plus the premium.
+**Horace:** Let me give you two perspectives. Mathematically, the covered call underperforms when stocks rally more than 10-15% in a single month. This happens maybe 10-15% of the time for a typical large-cap stock. The other 85-90% of the time, the covered call earns the same capital gain plus the premium.
 
-**Sam:** So 85% of the time you win, and 15% of the time you "win less."
+**Stella:** So 85% of the time you win, and 15% of the time you "win less."
 
-**Alex:** Exactly. And notice I said "win less," not "lose." Even when the stock blasts through your strike, you still make a profit. You made the strike price minus your cost, plus the premium. You just did not make the maximum possible profit.
+**Horace:** Exactly. And notice I said "win less," not "lose." Even when the stock blasts through your strike, you still make a profit. You made the strike price minus your cost, plus the premium. You just did not make the maximum possible profit.
 
-**Sam:** That is an important distinction.
+**Stella:** That is an important distinction.
 
-**Alex:** And here is the psychological perspective. Professional investors know that missing a moonshot is the cost of consistent income. A bird in the hand versus two in the bush. The premiums you collect month after month are certain. The possibility that the stock will rocket 25% in any given month is uncertain.
+**Horace:** And here is the psychological perspective. Professional investors know that missing a moonshot is the cost of consistent income. A bird in the hand versus two in the bush. The premiums you collect month after month are certain. The possibility that the stock will rocket 25% in any given month is uncertain.
 
 [VISUAL: Two columns: "CERTAIN: Monthly premium income of $250" vs "UNCERTAIN: Possibility of catching a 25% monthly rally". Text below: "Covered calls trade uncertain upside for certain income."]
 
-**Sam:** Let us talk about the overall income comparison. You said covered calls can produce 2-3 times what dividends provide?
+**Stella:** Let us talk about the overall income comparison. You said covered calls can produce 2-3 times what dividends provide?
 
-**Alex:** Actually, for many stocks, it is far more than that. Let me show you.
+**Horace:** Actually, for many stocks, it is far more than that. Let me show you.
 
 [VISUAL: Table on screen comparing 5 stocks with their dividend yield vs covered call yield vs combined yield]
 
-**Alex:** Take Apple. Dividend yield is about 0.65%. With monthly covered calls, you can add 10-14% in premium income. Your total yield goes from 0.65% to roughly 11-15%. That is not 2-3 times the dividend. That is more like 17 to 23 times.
+**Horace:** Take Apple. Dividend yield is about 0.65%. With monthly covered calls, you can add 10-14% in premium income. Your total yield goes from 0.65% to roughly 11-15%. That is not 2-3 times the dividend. That is more like 17 to 23 times.
 
-**Sam:** That is staggering.
+**Stella:** That is staggering.
 
-**Alex:** For a higher-dividend stock like Johnson and Johnson at about 3% dividend yield, covered calls add 8-12%, bringing total yield to 11-15%, which is about 4-5 times the dividend alone. The "2-3 times" guideline is actually conservative. The real multiplier depends on the stock's volatility and the aggressiveness of your strike selection.
+**Horace:** For a higher-dividend stock like Johnson and Johnson at about 3% dividend yield, covered calls add 8-12%, bringing total yield to 11-15%, which is about 4-5 times the dividend alone. The "2-3 times" guideline is actually conservative. The real multiplier depends on the stock's volatility and the aggressiveness of your strike selection.
 
-**Sam:** Can you walk through what a complete covered call portfolio looks like? For someone with, say, $200,000?
+**Stella:** Can you walk through what a complete covered call portfolio looks like? For someone with, say, $200,000?
 
-**Alex:** Sure. Picture five stocks, each a blue-chip name in a different sector. Apple for tech, JPMorgan for finance, Johnson and Johnson for healthcare, Coca-Cola for consumer staples, and Microsoft for more tech. You own 100-300 shares of each, and you sell covered calls monthly.
+**Horace:** Sure. Picture five stocks, each a blue-chip name in a different sector. Apple for tech, JPMorgan for finance, Johnson and Johnson for healthcare, Coca-Cola for consumer staples, and Microsoft for more tech. You own 100-300 shares of each, and you sell covered calls monthly.
 
 [VISUAL: Portfolio dashboard showing 5 stocks with shares owned, cost basis, current price, call sold, premium collected, and annualized yield for each. Bottom shows total monthly income and annual projected income.]
 
-**Alex:** Your total monthly premium might be around $1,800. Add dividends of about $300 per month, and you are generating $2,100 per month in income from a $200,000 portfolio. That is $25,200 per year, or a 12.6% annual income yield.
+**Horace:** Your total monthly premium might be around $1,800. Add dividends of about $300 per month, and you are generating $2,100 per month in income from a $200,000 portfolio. That is $25,200 per year, or a 12.6% annual income yield.
 
-**Sam:** That is incredible. Most people would be thrilled with that kind of income.
+**Stella:** That is incredible. Most people would be thrilled with that kind of income.
 
-**Alex:** And the beauty is, you still own all the stocks. They can still appreciate. You can still receive dividends. The covered calls just add a third stream of income on top.
+**Horace:** And the beauty is, you still own all the stocks. They can still appreciate. You can still receive dividends. The covered calls just add a third stream of income on top.
 
-**Sam:** Let me ask about the management side. How much time does this take?
+**Stella:** Let me ask about the management side. How much time does this take?
 
-**Alex:** Here is my monthly routine. On expiration week, I spend about 30 minutes reviewing my positions. For any calls that expired worthless, I sell new calls for the next month, takes maybe 10 minutes per stock. For any that are being challenged, I decide whether to roll or accept assignment, another 10 minutes. Total time per month: about 45-60 minutes.
+**Horace:** Here is my monthly routine. On expiration week, I spend about 30 minutes reviewing my positions. For any calls that expired worthless, I sell new calls for the next month, takes maybe 10 minutes per stock. For any that are being challenged, I decide whether to roll or accept assignment, another 10 minutes. Total time per month: about 45-60 minutes.
 
-**Sam:** Under an hour a month for $25,000 per year in extra income.
+**Stella:** Under an hour a month for $25,000 per year in extra income.
 
-**Alex:** When you think about it in terms of hourly rate, you are earning over $2,000 per hour for the time spent managing covered calls.
+**Horace:** When you think about it in terms of hourly rate, you are earning over $2,000 per hour for the time spent managing covered calls.
 
 [VISUAL: Calculator: "45 minutes/month x 12 months = 9 hours/year. $25,200 / 9 hours = $2,800/hour"]
 
-**Sam:** OK, I have to ask about the tricky situations. What do I do around earnings?
+**Stella:** OK, I have to ask about the tricky situations. What do I do around earnings?
 
-**Alex:** My rule is simple: do not have calls expiring during earnings week. Earnings can cause the stock to gap up or down significantly. If it gaps up, you might be assigned at a bad price. If it gaps down, the call premium you collected is tiny compared to the stock loss. Either way, earnings week adds unpredictable risk. Sell calls that expire before earnings or after earnings, but not during.
+**Horace:** My rule is simple: do not have calls expiring during earnings week. Earnings can cause the stock to gap up or down significantly. If it gaps up, you might be assigned at a bad price. If it gaps down, the call premium you collected is tiny compared to the stock loss. Either way, earnings week adds unpredictable risk. Sell calls that expire before earnings or after earnings, but not during.
 
-**Sam:** So you skip a cycle?
+**Stella:** So you skip a cycle?
 
-**Alex:** Sometimes. Or you sell a shorter-term call that expires before earnings, then sell a new call after the announcement. The key is not to be short a call when a binary event is about to happen unless you are specifically trying to exit the position.
+**Horace:** Sometimes. Or you sell a shorter-term call that expires before earnings, then sell a new call after the announcement. The key is not to be short a call when a binary event is about to happen unless you are specifically trying to exit the position.
 
 [VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "No Calls" in red]
 
-**Sam:** What about tax considerations?
+**Stella:** What about tax considerations?
 
-**Alex:** In a taxable account, covered call premiums are generally short-term capital gains, taxed at your ordinary income rate. If your shares are called away, the premium is added to the sale proceeds for capital gains calculation. If the call expires worthless, the premium is a standalone short-term gain. In an IRA or Roth IRA, none of this matters because the income grows tax-deferred or tax-free. This is why I especially like covered calls in Roth IRAs; the premium income is never taxed.
+**Horace:** In a taxable account, covered call premiums are generally short-term capital gains, taxed at your ordinary income rate. If your shares are called away, the premium is added to the sale proceeds for capital gains calculation. If the call expires worthless, the premium is a standalone short-term gain. In an IRA or Roth IRA, none of this matters because the income grows tax-deferred or tax-free. This is why I especially like covered calls in Roth IRAs; the premium income is never taxed.
 
-**Sam:** So Roth IRA is the ideal account for this strategy.
+**Stella:** So Roth IRA is the ideal account for this strategy.
 
-**Alex:** If you have one with sufficient funds to own 100-share lots, absolutely. The premiums grow tax-free and can be reinvested to compound over decades.
+**Horace:** If you have one with sufficient funds to own 100-share lots, absolutely. The premiums grow tax-free and can be reinvested to compound over decades.
 
 [VISUAL: Two columns showing "Taxable Account: Premium taxed at ordinary income rate (22-37%)" vs "Roth IRA: Premium grows tax-FREE"]
 
-**Sam:** Let me summarize what we learned today. A covered call is owning 100 shares and selling a call against them. It caps your upside at the strike price but generates premium income. The ideal market is flat to mildly bullish. Premium income can be 2-3 times dividends or more. The sweet spot is 30-45 day expiration at 5-10% out of the money. And if your stock hits the strike, it is not a failure, it is a successful exit at your target price.
+**Stella:** Let me summarize what we learned today. A covered call is owning 100 shares and selling a call against them. It caps your upside at the strike price but generates premium income. The ideal market is flat to mildly bullish. Premium income can be 2-3 times dividends or more. The sweet spot is 30-45 day expiration at 5-10% out of the money. And if your stock hits the strike, it is not a failure, it is a successful exit at your target price.
 
-**Alex:** Perfect summary. And one thing I want to emphasize: this is not a one-time strategy. The power comes from doing it month after month, year after year. The premiums compound. Your cost basis drops. And your total return significantly outpaces a passive buy-and-hold approach in most market conditions.
+**Horace:** Perfect summary. And one thing I want to emphasize: this is not a one-time strategy. The power comes from doing it month after month, year after year. The premiums compound. Your cost basis drops. And your total return significantly outpaces a passive buy-and-hold approach in most market conditions.
 
-**Sam:** Next week we are covering cash-secured puts, which is the other side of this coin.
+**Stella:** Next week we are covering cash-secured puts, which is the other side of this coin.
 
-**Alex:** Right. Covered calls are about getting paid to sell at your target. Cash-secured puts are about getting paid to buy at your target. Together, they form the wheel strategy, which is one of the most elegant income strategies in investing.
+**Horace:** Right. Covered calls are about getting paid to sell at your target. Cash-secured puts are about getting paid to buy at your target. Together, they form the wheel strategy, which is one of the most elegant income strategies in investing.
 
-**Sam:** Looking forward to it. Thanks for watching, everyone.
+**Stella:** Looking forward to it. Thanks for watching, everyone.
 
-**Alex:** Like, subscribe, and we will see you in Week 28.
+**Horace:** Like, subscribe, and we will see you in Week 28.
 
 [VISUAL: End screen with subscribe button, playlist link, and preview of Week 28: Cash-Secured Puts for Entry]
 

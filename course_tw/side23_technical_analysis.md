@@ -1,258 +1,257 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+Now I have the Taiwan terminology. Let me produce the translation:
 
-# Side Lesson 23: Technical Analysis -- Charts, Indicators, and Patterns
-
----
-
-## Reading Section
-
-Technical analysis is the study of past market data -- primarily price and volume -- to forecast future price movements. It is one of the oldest and most debated disciplines in investing. Proponents argue that price charts contain all available information about a security and that patterns repeat because human psychology does not change. Critics counter that past price movements have no predictive power and that chart patterns are little more than financial astrology. The truth, as with most debates in investing, lies somewhere in between. Technical analysis is neither the crystal ball its advocates claim nor the complete nonsense its detractors assert. Used properly -- as a tool for timing entries and exits, managing risk, and understanding market sentiment -- it can add value to an investor's toolkit. Used improperly -- as a standalone method for picking stocks -- it can lead to overtrading and substantial losses. This lesson covers the core concepts of technical analysis, the most widely used indicators, and a realistic assessment of when they help and when they do not.
+# 附加課程第二十三課：技術分析——圖表、指標與型態
 
 ---
 
-### a) Why This Is Important
+## 閱讀章節
 
-**Price Is Information.** Even if you are a fundamental investor, understanding what the market is telling you through price action is valuable. A stock with strong fundamentals but a declining price may be telling you something you have not yet discovered -- perhaps insiders are selling, or a competitive threat is emerging. Price can lead fundamentals.
-
-**Risk Management.** Technical analysis provides concrete tools for managing risk. Support levels suggest where buying interest may emerge. Stop-loss levels based on technical analysis help you define your maximum loss before entering a position. Regardless of whether you believe in chart patterns, having predefined exit points based on price levels is sound risk management.
-
-**Timing Entries and Exits.** Even the best fundamental analysis does not tell you when to buy or sell. You might identify a great company trading at a fair price, but buying just before a 20% decline is still painful. Technical analysis can help you time entries more effectively -- buying at support levels, waiting for trend confirmations, or using momentum indicators to avoid catching a falling knife.
-
-**Understanding Market Participants.** Millions of traders use technical analysis, which means support levels, moving averages, and pattern breakouts become self-fulfilling prophecies to some degree. When a major moving average is approaching, you can anticipate that many traders will act based on it. This knowledge is valuable even if you are skeptical of technical analysis itself.
-
-**Complementing Fundamental Analysis.** The most effective investment approach for many practitioners combines fundamental analysis (what to buy) with technical analysis (when to buy). This synthesis gives you an edge over investors who use either approach in isolation.
+技術分析是研究過去市場數據（主要是價格與成交量）以預測未來價格走勢的學科。這是投資領域中最古老、也最具爭議性的學門之一。支持者認為，價格圖表包含了關於一檔證券的所有可用資訊，且由於人類心理不會改變，因此型態會不斷重複出現。批評者則反駁，過去的價格走勢對未來沒有預測能力，圖表型態不過是財務占星術。然而，就像投資領域中的大多數爭論一樣，真相介於兩者之間。技術分析既不是支持者所聲稱的水晶球，也不是批評者斷言的一派胡言。正確使用技術分析——作為掌握進出場時機、管理風險與了解市場情緒的工具——確實能為投資者的工具箱增添價值。若使用不當——作為選股的獨立方法——則可能導致過度交易與重大虧損。本課程涵蓋技術分析的核心概念、最廣泛使用的指標，以及對其何時有效、何時無效的務實評估。
 
 ---
 
-### b) What You Need to Know
+### a) 為何這很重要
 
-#### Chart Types
+**價格即資訊。** 即使你是基本面投資者，了解市場透過價格行為向你傳遞的訊息也很有價值。基本面強健但價格持續下跌的股票，或許正在向你揭示你尚未發現的事情——也許內部人士正在出售，或者競爭威脅正在浮現。價格可以領先基本面。
 
-**Line Charts.** The simplest chart type, plotting a single data point (typically the closing price) for each time period, connected by a continuous line. Line charts are clean and easy to read but sacrifice information about intraday price movement.
+**風險管理。** 技術分析提供具體的風險管理工具。支撐位暗示了買盤興趣可能出現的位置。基於技術分析設定的停損位，能讓你在進場前就明確定義最大虧損。無論你是否相信圖表型態，根據價格水準預先設定離場點都是健全的風險管理。
 
-**Bar Charts (OHLC).** Each bar represents one time period and shows four data points: the Open (left tick), High (top of bar), Low (bottom of bar), and Close (right tick). Bar charts provide more information than line charts, showing the range of trading activity within each period.
+**掌握進出場時機。** 即使是最好的基本面分析，也無法告訴你何時買進或賣出。你可能找到一家以合理價格交易的優秀公司，但若在下跌20%之前買進，仍然是痛苦的。技術分析可以幫助你更有效地掌握進場時機——在支撐位買進、等待趨勢確認，或使用動能指標避免接住落下的飛刀。
 
-**Candlestick Charts.** Originated in 18th-century Japanese rice trading, candlestick charts display the same OHLC data as bar charts but with a visual "body" between the open and close. If the close is higher than the open, the body is typically green or white (bullish). If the close is lower than the open, the body is red or black (bearish). The thin lines above and below the body ("wicks" or "shadows") show the high and low.
+**了解市場參與者。** 數百萬名交易者使用技術分析，這意味著支撐位、移動平均線和型態突破在某種程度上成為自我實現的預言。當主要移動平均線即將到來時，你可以預期許多交易者會根據它採取行動。即使你對技術分析本身持懷疑態度，這種認識也是有價值的。
 
-Candlestick charts are the most popular chart type among technical analysts because the visual patterns are easier to identify at a glance. Specific candlestick formations -- doji, hammer, engulfing patterns, shooting star -- are interpreted as signals of potential price reversals or continuations.
+**補充基本面分析。** 對許多從業者而言，最有效的投資方法是將基本面分析（買什麼）與技術分析（何時買）結合起來。這種綜合運用使你比單獨使用任一方法的投資者更具優勢。
 
-**Point and Figure Charts.** These charts ignore time entirely and focus only on price movement. They plot X's for rising prices and O's for falling prices, filtering out noise and highlighting significant price trends. While less common today, they remain useful for identifying long-term trends and price targets.
+---
 
-#### Support and Resistance
+### b) 你需要了解的知識
 
-The most fundamental concepts in technical analysis are support and resistance.
+#### 圖表類型
 
-**Support** is a price level where buying interest is strong enough to prevent the price from declining further. When a stock falls to a support level, buyers step in -- perhaps because they view it as a bargain, or because they have standing buy orders at that price. Support levels are identified by looking at previous price lows where the stock bounced.
+**折線圖。** 最簡單的圖表類型，為每個時間段繪製一個數據點（通常是收盤價），並用連續線連接。折線圖簡潔易讀，但犧牲了日內價格走勢的資訊。
 
-**Resistance** is a price level where selling pressure is strong enough to prevent the price from rising further. Sellers may take profits at this level, or it may represent a previous high where holders who bought at that price are looking to "get back to even" and exit their positions.
+**長條圖（OHLC）。** 每根長條代表一個時間段，顯示四個數據點：開盤價（左刻度）、最高價（長條頂端）、最低價（長條底端）和收盤價（右刻度）。長條圖比折線圖提供更多資訊，顯示每個時間段內的交易範圍。
 
-**Key Principles:**
-- Once broken, support becomes resistance, and resistance becomes support. If a stock breaks below a support level, that level often becomes resistance on subsequent rallies. This principle is called "polarity."
-- The more times a level is tested, the more significant it becomes -- but also the more likely it is to eventually break. A support level tested five times is clearly important, but each test weakens it as the pool of buyers at that level is depleted.
-- Support and resistance are zones, not exact prices. A stock may not bounce from exactly $50.00 each time -- it might bounce from $49.50 one time and $50.25 another. Think in terms of zones rather than precise numbers.
-- Volume confirms breakouts. A breakout above resistance on high volume is more likely to be genuine than one on low volume.
+**K線圖。** 起源於18世紀日本米市交易，K線圖顯示與長條圖相同的OHLC數據，但在開盤價與收盤價之間有一個視覺化的「實體」。若收盤價高於開盤價，實體通常為綠色或白色（多頭）。若收盤價低於開盤價，實體為紅色或黑色（空頭）。實體上方和下方的細線（「影線」或「上下影線」）顯示最高價和最低價。
 
-#### Moving Averages
+K線圖是技術分析師最受歡迎的圖表類型，因為視覺型態更容易一目了然地識別。特定的K線型態——十字星、錘頭線、吞噬型態、流星線——被解讀為潛在價格反轉或持續的訊號。
 
-Moving averages smooth out price data to identify trends by averaging prices over a specific number of periods.
+**點數圖（Point and Figure Charts）。** 這種圖表完全忽略時間，只關注價格走勢。它用X標記價格上漲，用O標記價格下跌，過濾噪音並突顯重要的價格趨勢。雖然現在不太常見，但對於識別長期趨勢和價格目標仍然有用。
 
-**Simple Moving Average (SMA).** The arithmetic mean of prices over a specified period. A 50-day SMA adds the closing prices of the last 50 days and divides by 50. Each data point is weighted equally.
+#### 支撐與壓力
 
-**Exponential Moving Average (EMA).** Gives greater weight to recent prices, making it more responsive to new information. The 50-day EMA reacts faster to recent price changes than the 50-day SMA.
+技術分析中最基本的概念是支撐與壓力。
 
-**Commonly Used Moving Averages:**
-- **20-day EMA:** Short-term trend indicator. Used by swing traders.
-- **50-day SMA:** Medium-term trend indicator. Widely watched by institutional and individual investors.
-- **200-day SMA:** Long-term trend indicator. The most important moving average for many analysts. A stock trading above its 200-day SMA is considered to be in a long-term uptrend.
+**支撐**是買盤興趣足夠強勁以阻止價格進一步下跌的價格水準。當股票跌至支撐位時，買家介入——也許是因為他們認為這是便宜貨，或者因為他們在該價位有預設的買單。支撐位透過觀察股票反彈的前低點來識別。
 
-**Moving Average Signals:**
+**壓力**是賣壓足夠強勁以阻止價格進一步上漲的價格水準。賣家可能在此水準獲利了結，或者它代表了持股者在該價格買入後希望「回本」並離場的前高點。
 
-**Golden Cross.** Occurs when the 50-day SMA crosses above the 200-day SMA. Interpreted as a bullish signal indicating a potential shift from a downtrend to an uptrend. The golden cross has a mixed track record -- it often confirms a trend change but with a significant lag.
+**關鍵原則：**
+- 一旦被突破，支撐變成壓力，壓力變成支撐。若股票跌破支撐位，該水準在後續反彈中往往成為壓力。這個原則稱為「極性轉換」。
+- 一個水準被測試的次數越多，它就越重要——但最終突破的可能性也越大。被測試五次的支撐位明顯很重要，但每次測試都會消耗該水準的買家資源，使其逐漸弱化。
+- 支撐與壓力是區間，而非精確價格。股票不會每次都從恰好50元反彈——它可能一次從49.5元反彈，另一次從50.25元反彈。以區間而非精確數字思考。
+- 成交量確認突破。在高成交量下突破壓力位比在低成交量下更可能是真實突破。
 
-**Death Cross.** Occurs when the 50-day SMA crosses below the 200-day SMA. Interpreted as a bearish signal. Like the golden cross, it tends to be a lagging indicator that confirms a trend change rather than predicting one.
+#### 移動平均線
 
-**Moving Averages as Support/Resistance.** Trending stocks often bounce off key moving averages. In a strong uptrend, the 50-day SMA frequently acts as a support level where dip-buyers enter. A break below the 200-day SMA often signals a more significant trend change.
+移動平均線透過計算特定期間的平均價格來平滑價格數據，以識別趨勢。
 
-#### Relative Strength Index (RSI)
+**簡單移動平均線（SMA）。** 指定期間內價格的算術平均值。50日SMA將過去50個交易日的收盤價相加後除以50。每個數據點的權重相同。
 
-The RSI is a momentum oscillator that measures the speed and magnitude of recent price changes to evaluate whether a security is overbought or oversold.
+**指數移動平均線（EMA）。** 給予近期價格更大的權重，使其對新資訊更加敏感。50日EMA對近期價格變化的反應比50日SMA更快。
 
-**Calculation.** RSI compares the average gain on up days to the average loss on down days over a specified period (typically 14 days). The result is scaled between 0 and 100.
+**常用移動平均線：**
+- **20日EMA：** 短期趨勢指標。波段交易者使用。
+- **50日SMA：** 中期趨勢指標。機構和個人投資者廣泛關注。
+- **200日SMA：** 長期趨勢指標。許多分析師最重要的移動平均線。在200日SMA上方交易的股票被認為處於長期上升趨勢。
+
+**移動平均線訊號：**
+
+**黃金交叉。** 當50日SMA上穿200日SMA時出現。被解讀為看多訊號，表示可能從下降趨勢轉為上升趨勢。黃金交叉的歷史記錄喜憂參半——它通常確認趨勢轉變，但有顯著滯後。
+
+**死亡交叉。** 當50日SMA下穿200日SMA時出現。被解讀為看空訊號。與黃金交叉一樣，它傾向於是一個滯後指標，確認趨勢轉變而非預測趨勢轉變。
+
+**移動平均線作為支撐/壓力。** 處於趨勢中的股票往往在關鍵移動平均線附近反彈。在強勁上升趨勢中，50日SMA經常作為逢低買入者進場的支撐位。跌破200日SMA通常標誌著更重要的趨勢轉變。
+
+#### 相對強弱指數（RSI）
+
+RSI是一種動能振盪指標，衡量近期價格變化的速度與幅度，以評估證券是否處於超買或超賣狀態。
+
+**計算方式。** RSI比較指定期間（通常為14天）內上漲日的平均漲幅與下跌日的平均跌幅。結果被縮放在0到100之間。
 
 RSI = 100 - (100 / (1 + RS))
 
-Where RS = Average Gain over 14 periods / Average Loss over 14 periods.
+其中RS = 14個期間的平均漲幅 / 14個期間的平均跌幅。
 
-**Interpretation:**
-- **RSI above 70:** The security is considered overbought -- it has risen too far, too fast, and may be due for a pullback. However, in strong uptrends, the RSI can remain above 70 for extended periods. Overbought does not mean "sell immediately."
-- **RSI below 30:** The security is considered oversold -- it has fallen too far, too fast, and may be due for a bounce. Similarly, in strong downtrends, the RSI can remain below 30 for extended periods.
-- **RSI Divergence:** One of the most powerful RSI signals occurs when the RSI diverges from price. If a stock makes a new high but the RSI makes a lower high, it signals weakening momentum -- a "bearish divergence." If a stock makes a new low but the RSI makes a higher low, it signals diminishing selling pressure -- a "bullish divergence."
+**解讀：**
+- **RSI高於70：** 該證券被認為處於超買狀態——它上漲過快，可能面臨回調。然而，在強勁上升趨勢中，RSI可能在較長時間內保持在70以上。超買並不意味著「立即賣出」。
+- **RSI低於30：** 該證券被認為處於超賣狀態——它下跌過快，可能面臨反彈。同樣，在強勁下降趨勢中，RSI可能在較長時間內保持在30以下。
+- **RSI背離：** RSI最強大的訊號之一是RSI與價格背離時出現。若股票創出新高但RSI創出較低的高點，這表示動能正在減弱——「看空背離」。若股票創出新低但RSI創出較高的低點，這表示賣壓正在減弱——「看多背離」。
 
-**Limitations:** The RSI is most useful in ranging (non-trending) markets. In strong trends, the RSI can give premature signals. An overbought RSI in a strong bull trend does not mean you should sell -- the trend may continue much further. Use RSI in conjunction with trend analysis, not in isolation.
+**局限性：** RSI在震盪（非趨勢）市場中最為有用。在強勁趨勢中，RSI可能給出過早的訊號。強勁多頭趨勢中的超買RSI並不意味著你應該賣出——趨勢可能繼續走得更遠。RSI應與趨勢分析結合使用，而非孤立使用。
 
-#### MACD (Moving Average Convergence Divergence)
+#### MACD（移動平均收斂發散指標）
 
-The MACD is a trend-following momentum indicator that shows the relationship between two moving averages.
+MACD是一種趨勢跟隨動能指標，顯示兩條移動平均線之間的關係。
 
-**Components:**
-- **MACD Line:** The 12-day EMA minus the 26-day EMA. When this line is positive, the short-term trend is above the long-term trend (bullish). When negative, the opposite (bearish).
-- **Signal Line:** The 9-day EMA of the MACD line. This smoother line is used to generate buy and sell signals.
-- **Histogram:** The difference between the MACD line and the signal line. The histogram visually shows the momentum of the trend.
+**組成部分：**
+- **MACD線：** 12日EMA減去26日EMA。當這條線為正時，短期趨勢高於長期趨勢（看多）。為負時則相反（看空）。
+- **訊號線：** MACD線的9日EMA。這條更平滑的線用於產生買進和賣出訊號。
+- **柱狀圖：** MACD線與訊號線之間的差值。柱狀圖直觀地顯示趨勢的動能。
 
-**Signals:**
-- **Bullish Crossover:** The MACD line crosses above the signal line. This suggests upward momentum is increasing.
-- **Bearish Crossover:** The MACD line crosses below the signal line. This suggests downward momentum is increasing.
-- **MACD Divergence:** Like RSI divergence, if the MACD makes lower highs while the stock makes higher highs, it signals weakening momentum.
-- **Zero Line Crossover:** When the MACD line crosses above zero, it confirms that the 12-day EMA is above the 26-day EMA -- a bullish trend confirmation.
+**訊號：**
+- **看多交叉：** MACD線上穿訊號線。這表示上漲動能正在增強。
+- **看空交叉：** MACD線下穿訊號線。這表示下跌動能正在增強。
+- **MACD背離：** 與RSI背離類似，若MACD創出較低的高點而股票創出較高的高點，這表示動能正在減弱。
+- **零線交叉：** 當MACD線上穿零線時，確認12日EMA高於26日EMA——多頭趨勢確認。
 
-#### Additional Technical Tools
+#### 其他技術工具
 
-**Bollinger Bands.** Created by John Bollinger, these consist of a 20-day SMA (middle band) with upper and lower bands set 2 standard deviations above and below. When price touches or exceeds the upper band, the security is statistically extended and may be overbought. When it touches the lower band, it may be oversold. "Bollinger Band squeezes" -- when the bands narrow significantly -- often precede large price moves as volatility contracts before expanding.
+**布林通道。** 由約翰·布林格創建，由20日SMA（中軌）以及設置在中軌上下各2個標準差的上下軌組成。當價格觸及或超過上軌時，該證券在統計上已被拉伸，可能處於超買狀態。當它觸及下軌時，可能處於超賣狀態。「布林通道收縮」——當通道顯著收窄時——往往預示著大幅價格走勢的到來，因為波動性收縮後會擴張。
 
-**Volume Analysis.** Volume is the number of shares traded in a given period. Key volume principles:
-- Price moves on high volume are more significant than moves on low volume.
-- Rising price with rising volume confirms the trend. Rising price with declining volume suggests the trend is weakening.
-- Volume spikes at bottoms (capitulation) or tops (climactic buying) often signal reversals.
-- On Balance Volume (OBV) is a cumulative indicator that adds volume on up days and subtracts volume on down days, helping identify whether volume is flowing into or out of a security.
+**成交量分析。** 成交量是指定期間內交易的股票數量。關鍵成交量原則：
+- 高成交量下的價格走勢比低成交量下的更重要。
+- 價格上漲伴隨成交量增加確認趨勢。價格上漲伴隨成交量減少表明趨勢正在減弱。
+- 底部的成交量爆增（恐慌性拋售）或頂部的成交量爆增（高潮式買盤）往往預示著反轉。
+- 能量潮（OBV）是一個累積指標，在上漲日加入成交量，在下跌日減去成交量，有助於識別成交量是流入還是流出某證券。
 
-**Fibonacci Retracements.** Based on the Fibonacci sequence, these levels (23.6%, 38.2%, 50%, 61.8%, 78.6%) are drawn between a significant high and low to identify potential support and resistance levels during retracements. The 61.8% retracement level (the "golden ratio") is the most closely watched. While the mathematical basis for Fibonacci levels in markets is debatable, enough traders use them that they can create self-fulfilling support and resistance zones.
+**費波那契回調。** 基於費波那契數列，這些水準（23.6%、38.2%、50%、61.8%、78.6%）繪製在重要高低點之間，以識別回調期間的潛在支撐與壓力水準。61.8%回調水準（「黃金比例」）是最受關注的。雖然費波那契水準在市場中的數學基礎存疑，但足夠多的交易者使用它們，使其能夠創造自我實現的支撐和壓力區間。
 
-**Trend Lines.** Straight lines drawn across successive highs (resistance trend line) or successive lows (support trend line). A break of a well-established trend line is considered a significant signal. Trend lines are subjective -- different analysts may draw them differently -- but they provide a simple visual representation of the prevailing trend.
+**趨勢線。** 沿連續高點（壓力趨勢線）或連續低點（支撐趨勢線）畫出的直線。突破一條已確立的趨勢線被視為重要訊號。趨勢線是主觀的——不同的分析師可能以不同方式畫線——但它們提供了對主流趨勢的簡單視覺呈現。
 
-#### Common Chart Patterns
+#### 常見圖表型態
 
-Technical analysts have cataloged dozens of chart patterns that they believe predict future price movements. Here are the most widely recognized:
+技術分析師已整理出數十種他們認為能預測未來價格走勢的圖表型態。以下是最廣為人知的幾種：
 
-**Head and Shoulders.** Consists of three peaks: a higher middle peak (head) flanked by two lower peaks (shoulders). The neckline connects the lows between the peaks. A break below the neckline is interpreted as a bearish reversal signal. An inverse head and shoulders (three troughs with the middle being deepest) is a bullish reversal signal.
+**頭肩頂。** 由三個高峰組成：中間較高的高峰（頭部）夾在兩個較低的高峰（肩部）之間。頸線連接兩個高峰之間的低點。跌破頸線被解讀為看空反轉訊號。反向頭肩底（三個低谷，中間最深）是看多反轉訊號。
 
-**Double Top / Double Bottom.** A double top occurs when a stock reaches the same resistance level twice and fails to break through. It suggests the uptrend is exhausting. A double bottom occurs when a stock reaches the same support level twice and bounces each time. It suggests the downtrend is weakening. The pattern is confirmed when the stock breaks through the middle peak (for double bottom) or trough (for double top).
+**雙頂 / 雙底。** 雙頂發生在股票兩次達到相同壓力位且未能突破時。這表明上升趨勢正在衰竭。雙底發生在股票兩次達到相同支撐位且每次都反彈時。這表明下降趨勢正在減弱。當股票突破中間高峰（對於雙底）或低谷（對於雙頂）時，型態得到確認。
 
-**Cup and Handle.** A bullish continuation pattern where the price forms a U-shaped cup followed by a small downward handle. The breakout from the handle suggests the uptrend will resume. This pattern was popularized by William O'Neil, founder of Investor's Business Daily.
+**杯柄型態。** 看多持續型態，價格形成U形杯，隨後是小幅向下的柄部。從柄部突破表明上升趨勢將繼續。這個型態由《投資者商業日報》創辦人威廉·歐尼爾所推廣。
 
-**Flags and Pennants.** Short-term continuation patterns that appear during pauses in strong trends. A flag is a small rectangular consolidation pattern, while a pennant is a small symmetrical triangle. Both suggest the prior trend will resume after a brief pause.
+**旗形與三角旗形。** 短期持續型態，出現在強勁趨勢中的停頓期間。旗形是一個小型矩形整理型態，而三角旗形是一個小型對稱三角形。兩者都表明在短暫停頓後，原先的趨勢將繼續。
 
-**Triangles.** Ascending triangles (flat top, rising bottom) are generally bullish. Descending triangles (flat bottom, declining top) are generally bearish. Symmetrical triangles (converging trend lines) can break in either direction and represent periods of indecision.
+**三角形。** 上升三角形（頂部平坦，底部上升）通常看多。下降三角形（底部平坦，頂部下降）通常看空。對稱三角形（趨勢線收斂）可能向任一方向突破，代表猶豫期。
 
-**Important Caveat.** While these patterns are widely taught and watched, rigorous academic testing has produced mixed results on their predictive power. Many patterns that appear significant in hindsight are not statistically significant when tested out of sample. The strongest evidence supports trend-following strategies (momentum) rather than specific pattern recognition.
+**重要警示。** 雖然這些型態被廣泛教授和關注，但嚴格的學術測試對其預測能力得出了不一致的結果。許多在事後看來顯著的型態，在樣本外測試時並不具有統計顯著性。最強的證據支持趨勢跟隨策略（動能）而非特定的型態識別。
 
-#### Market Structure and Technical Analysis
+#### 市場結構與技術分析
 
-Understanding modern market structure adds context to how technical analysis operates today.
+了解現代市場結構為技術分析的運作方式提供了背景。
 
-**Algorithmic Trading Impact.** Algorithmic trading now accounts for 60-80% of U.S. equity volume. Many algorithms incorporate technical signals -- moving average crossovers, volume breakouts, support/resistance levels -- into their decision-making. This means technical levels can become more self-reinforcing in the short term (as multiple algorithms react to the same signals simultaneously) but also more prone to false breakouts (as algorithms probe technical levels to trigger stop-losses and then reverse).
+**演算法交易的影響。** 演算法交易現在佔美國股票成交量的60-80%。許多演算法將技術訊號——移動平均線交叉、成交量突破、支撐/壓力水準——納入其決策中。這意味著技術水準在短期內可能變得更具自我強化性（因為多個演算法同時對相同訊號做出反應），但也更容易出現假突破（因為演算法探測技術水準以觸發停損然後反轉）。
 
-**High-Frequency Trading and Level Detection.** High-frequency trading firms use sophisticated pattern recognition to identify common technical levels and the clusters of stop-loss orders placed around them. This creates a dynamic where obvious technical levels may be "run" -- the price briefly penetrates the level to trigger stop-losses, then reverses. This is why experienced technical analysts use zones rather than exact prices and require confirmation (such as a close above/below the level) before acting.
+**高頻交易與水準偵測。** 高頻交易公司使用複雜的型態識別來識別常見的技術水準和圍繞它們的停損單集群。這創造了一種動態，即明顯的技術水準可能被「橫掃」——價格短暫穿越水準以觸發停損，然後反轉。這就是為什麼有經驗的技術分析師使用區間而非精確價格，並在採取行動前要求確認（例如在水準上下方收盤）。
 
-**Options Market Influence.** Large concentrations of open interest at specific strike prices can create support and resistance levels through options market maker hedging activity (as discussed in the Greeks lesson). These "pinning" effects are most prominent near options expiration and add a structural dimension to technical analysis that goes beyond traditional price pattern recognition.
+**選擇權市場影響。** 特定履約價的大量未平倉量可能透過選擇權造市商的避險活動創造支撐和壓力水準（如希臘值課程中所討論的）。這些「磁吸」效應在選擇權到期日附近最為明顯，為技術分析增添了超越傳統價格型態識別的結構性維度。
 
-**The Self-Fulfilling Prophecy Debate.** A common criticism of technical analysis is that it works only because enough people believe in it -- making it a self-fulfilling prophecy. There is truth to this, but it does not invalidate the approach. If millions of market participants use the 200-day moving average as a decision point, then the 200-day moving average IS a real feature of the market, regardless of whether it has any inherent predictive power. The distinction between "real" and "self-fulfilling" is less important than whether the signal provides useful information for making trading decisions.
+**自我實現預言的爭論。** 對技術分析的一個常見批評是，它之所以有效，僅僅是因為足夠多的人相信它——使其成為自我實現的預言。這有一定道理，但並不能否定這種方法。若數百萬市場參與者將200日移動平均線作為決策點，那麼200日移動平均線就是市場的真實特徵，無論它是否具有任何固有的預測能力。「真實」與「自我實現」之間的區別，不如該訊號是否為交易決策提供有用資訊來得重要。
 
-#### Building a Technical Analysis Routine
+#### 建立技術分析日常程序
 
-For investors who want to incorporate technical analysis into their process, here is a practical routine:
+對於希望將技術分析融入其流程的投資者，以下是一個實用的日常程序：
 
-**Weekly Review (15-20 minutes):**
+**每週回顧（15-20分鐘）：**
 
-1. Check whether the S&P 500 is above or below its 200-day moving average. If above, the long-term trend is bullish. If below, be more cautious with new investments.
+1. 檢查標普500指數是否在200日移動平均線上方或下方。若在上方，長期趨勢看多。若在下方，對新投資更加謹慎。
 
-2. Check the RSI for the major indices. Extreme readings (above 75 or below 25) suggest the market may be due for a reversal.
+2. 檢查主要指數的RSI。極端讀數（高於75或低於25）表明市場可能面臨反轉。
 
-3. Review your holdings against their key moving averages. Any stock that has broken below its 200-day SMA deserves a fundamental review -- is the thesis still intact?
+3. 針對關鍵移動平均線回顧你的持倉。任何跌破200日SMA的股票都值得進行基本面回顧——投資論點是否仍然成立？
 
-4. Check volume trends for your major holdings. Declining volume on rallies or increasing volume on declines can be early warning signs.
+4. 檢查主要持倉的成交量趨勢。反彈時成交量下降或下跌時成交量增加可能是早期預警訊號。
 
-**Before Entering a New Position:**
+**在建立新部位之前：**
 
-1. Check the stock's current trend. Is it in an uptrend, downtrend, or trading range?
+1. 檢查股票目前的趨勢。它處於上升趨勢、下降趨勢還是震盪區間？
 
-2. Identify the nearest support levels. These are potential entry points that offer a better risk-reward ratio than buying at random.
+2. 識別最近的支撐位。這些是提供比隨機買入更好風險報酬比的潛在進場點。
 
-3. Set a stop-loss level based on the nearest support zone below your entry. This defines your maximum loss before entering the trade.
+3. 根據你進場點下方最近的支撐區間設定停損位。這在進行交易前就定義了你的最大虧損。
 
-4. Check RSI for overbought/oversold conditions. Avoid buying when RSI is above 70 unless you have strong fundamental conviction.
+4. 檢查RSI是否處於超買/超賣狀態。避免在RSI高於70時買入，除非你有強烈的基本面信念。
 
-5. Verify that volume supports any apparent breakout or breakdown. Low-volume moves are less reliable.
+5. 確認成交量支持任何明顯的突破或跌破。低成交量走勢的可靠性較低。
 
-This routine takes minimal time, requires no advanced tools (free charting from your brokerage or sites like TradingView), and provides a structured framework for timing decisions that complements your fundamental analysis.
+這個程序花費最少的時間，不需要任何進階工具（從你的券商或TradingView等網站獲取免費圖表），並提供了一個結構性框架，用於補充你的基本面分析的時機決策。
 
-#### The Evidence: Does Technical Analysis Work?
+#### 證據：技術分析有效嗎？
 
-The academic evidence on technical analysis is mixed:
+關於技術分析的學術證據是不一致的：
 
-**Evidence Supporting Technical Analysis:**
-- Momentum strategies (buying recent winners and selling recent losers) have been documented as profitable across multiple time periods and markets. Momentum is one of the most robust anomalies in finance.
-- Moving average strategies (investing when price is above the 200-day SMA and going to cash when below) have historically reduced drawdowns compared to buy-and-hold, though they sacrifice some upside.
-- Studies by Lo, Mamaysky, and Wang (2000) found that some chart patterns contain statistically significant predictive information.
+**支持技術分析的證據：**
+- 動能策略（買入近期贏家、賣出近期輸家）已在多個時間段和市場中被記錄為有利可圖的。動能是金融學中最穩健的異常現象之一。
+- 移動平均線策略（當價格高於200日SMA時投資，低於時轉入現金）與買入並持有相比，歷史上降低了回撤，儘管犧牲了部分上漲空間。
+- Lo、Mamaysky和Wang（2000年）的研究發現，某些圖表型態包含具有統計顯著性的預測資訊。
 
-**Evidence Against Technical Analysis:**
-- After accounting for transaction costs, most technical trading systems fail to generate risk-adjusted returns superior to buy-and-hold.
-- The efficient market hypothesis argues that past prices cannot predict future prices because all available information is already reflected in current prices.
-- Data mining bias -- testing many patterns on the same data set -- leads to the discovery of patterns that are statistical artifacts rather than genuine signals.
-- Technical patterns that worked historically may stop working as more traders adopt them, arbitraging away the opportunity.
+**反對技術分析的證據：**
+- 在考慮交易成本後，大多數技術交易系統未能產生優於買入並持有的風險調整後報酬。
+- 效率市場假說認為，過去的價格無法預測未來的價格，因為所有可用資訊已反映在當前價格中。
+- 數據挖掘偏誤——在同一數據集上測試許多型態——導致發現的型態是統計人工製品而非真實訊號。
+- 歷史上有效的技術型態，隨著更多交易者採用它們，可能停止有效，因為機會被套利消除。
 
-**A Balanced View:** Technical analysis is best used as a complement to fundamental analysis and risk management, not as a standalone system. Its greatest value lies in: (1) identifying trends and momentum, (2) providing concrete entry and exit levels, (3) managing risk through stop-losses and position sizing, and (4) understanding market sentiment and participant behavior.
-
----
-
-### c) Common Misconceptions
-
-**"Technical analysis can predict the future."** Technical analysis identifies probabilities and tendencies, not certainties. A pattern that "works" 60% of the time still fails 40% of the time. No indicator, pattern, or system reliably predicts future prices. The value lies in tilting probabilities in your favor, not in making guarantees.
-
-**"You can get rich with chart patterns alone."** Profitable trading requires far more than pattern recognition. Risk management, position sizing, psychological discipline, and transaction cost management are equally important. Many traders who can identify patterns still lose money because they lack these other skills.
-
-**"The more indicators you use, the better."** Adding more indicators often creates conflicting signals and analysis paralysis. Most successful technical traders use two or three indicators that complement each other -- for example, a trend indicator (moving average), a momentum indicator (RSI), and a volume indicator. Simplicity generally outperforms complexity.
-
-**"Backtesting proves a strategy works."** Backtesting shows how a strategy would have performed historically, but it is subject to overfitting (tuning parameters to fit past data perfectly), look-ahead bias, and survivorship bias. A strategy that performs brilliantly in a backtest may fail in live trading because the conditions that generated the backtest results may not persist.
-
-**"Support and resistance are exact numbers."** Price levels are zones, not precise numbers. A stock will not always bounce from exactly $100.00 -- it might bounce from $99.50 or $100.75. Treating support and resistance as narrow ranges rather than exact prices produces better results.
-
-**"Technical analysis is completely useless."** While many specific claims about chart patterns are not supported by rigorous evidence, dismissing technical analysis entirely ignores the well-documented momentum effect, the practical utility of moving averages for risk management, and the reality that millions of market participants use technical tools, making them partially self-fulfilling. A balanced view recognizes both the limitations and the legitimate applications of technical analysis.
-
-**"A pattern that worked in the past will work in the future."** Markets are adaptive. As more traders identify and exploit a pattern, the pattern becomes crowded and may stop working. Strategies that generated significant alpha in academic studies often produce diminished returns once they become widely known. This is why simplicity and a focus on robust, fundamental tendencies (like momentum and trend following) tend to be more durable than complex, specific pattern strategies.
+**平衡觀點：** 技術分析最好作為基本面分析和風險管理的補充，而非獨立系統。其最大價值在於：（1）識別趨勢與動能，（2）提供具體的進出場水準，（3）透過停損和部位規模管理風險，以及（4）了解市場情緒和參與者行為。
 
 ---
 
-### d) Q&A
+### c) 常見迷思
 
-**Q: Should fundamental investors ignore technical analysis entirely?**
-A: No. Even dedicated fundamental investors can benefit from basic technical awareness. Knowing that a stock you want to buy is approaching a major support level (a potentially better entry point) or that it has broken below its 200-day moving average (a warning sign) adds useful context to your fundamental analysis. You do not need to become a chart expert, but basic technical literacy helps.
+**「技術分析可以預測未來。」** 技術分析識別的是概率和傾向，而非確定性。一個「有效」60%的時間的型態，仍然有40%的時間會失效。沒有任何指標、型態或系統能可靠地預測未來價格。其價值在於使概率向你傾斜，而非做出保證。
 
-**Q: What is the best time frame for technical analysis?**
-A: It depends on your investment horizon. Day traders use 1-minute to 15-minute charts. Swing traders use daily charts. Position traders and investors use weekly or monthly charts. Generally, longer time frames produce more reliable signals with less noise, but they provide slower entry and exit signals. Using multiple time frames (checking the weekly trend before making daily trade decisions) is a best practice.
+**「僅靠圖表型態就能致富。」** 獲利交易需要遠不止型態識別。風險管理、部位規模、心理紀律和交易成本管理同等重要。許多能夠識別型態的交易者仍然虧損，因為他們缺乏這些其他技能。
 
-**Q: How do I avoid "analysis paralysis" with too many indicators?**
-A: Choose one trend indicator (e.g., 50/200-day moving averages), one momentum indicator (e.g., RSI or MACD), and one volume indicator (e.g., OBV). If all three confirm a signal, act. If they conflict, wait for clarity. This three-indicator approach covers trend, momentum, and conviction without overwhelming you with contradictory signals.
+**「使用的指標越多越好。」** 添加更多指標往往會產生相互矛盾的訊號和分析癱瘓。大多數成功的技術交易者使用兩到三個相互補充的指標——例如，一個趨勢指標（移動平均線）、一個動能指標（RSI）和一個成交量指標。簡單通常勝過複雜。
 
-**Q: Do chart patterns work the same way in all markets?**
-A: The core principles (trend, momentum, support/resistance) apply across stocks, commodities, forex, and crypto. However, different markets have different characteristics. Commodity markets are heavily influenced by seasonal patterns. Forex markets trade 24 hours with no gaps. Crypto markets are more volatile and less liquid. Adapt your analysis to the specific market's characteristics.
+**「回測證明策略有效。」** 回測顯示策略在歷史上的表現，但它受到過度擬合（調整參數以完美擬合過去數據）、前瞻偏誤和存活者偏誤的影響。在回測中表現出色的策略，在實盤交易中可能失敗，因為產生回測結果的條件可能不會持續。
 
-**Q: What is the relationship between technical and fundamental analysis?**
-A: The strongest investment approach combines both. Use fundamental analysis to identify what to buy (quality companies at reasonable valuations) and technical analysis to determine when to buy (favorable entry points based on trend and momentum). This combination is sometimes called "technamental" analysis. It leverages the strengths of each approach while compensating for their individual weaknesses.
+**「支撐與壓力是精確數字。」** 價格水準是區間，而非精確數字。股票不會總是從恰好100元反彈——它可能從99.5元或100.75元反彈。將支撐與壓力視為窄幅區間而非精確價格，能產生更好的結果。
 
-**Q: Are moving averages the most important technical indicator?**
-A: For long-term investors, the 200-day SMA is arguably the most useful single indicator. Historical research shows that investing only when the market is above its 200-day SMA and moving to cash when below has historically captured most of the market's upside while avoiding the worst drawdowns. However, this strategy generates frequent false signals in choppy markets and incurs transaction costs and tax consequences. It works best as a risk management overlay rather than a standalone strategy.
+**「技術分析完全無用。」** 雖然許多關於圖表型態的具體主張沒有嚴格的證據支持，但完全否定技術分析忽視了有充分記錄的動能效應、移動平均線在風險管理中的實際效用，以及數百萬市場參與者使用技術工具的現實，使其具有部分自我實現的效果。平衡的觀點承認技術分析的局限性和合法應用。
 
-**Q: What is volume profile, and why do some traders consider it important?**
-A: Volume profile shows the amount of trading volume that occurred at each price level over a specified period, rather than over time. High-volume price levels (called "high volume nodes") often act as strong support or resistance because many market participants have positions established at those prices. Low-volume areas ("low volume nodes") tend to be prices the market moves through quickly. Volume profile provides a different perspective on support and resistance than traditional price-based analysis and is increasingly used by institutional and sophisticated retail traders.
-
-**Q: How reliable are candlestick patterns?**
-A: Individual candlestick patterns (hammer, doji, engulfing) have limited predictive power on their own. Studies show that while some patterns have a slight statistical edge, the magnitude is small and often consumed by transaction costs. Candlestick patterns are most useful when they occur at key support/resistance levels or in conjunction with other indicators. A hammer pattern at a major support level with oversold RSI and increasing volume is far more meaningful than a hammer pattern in the middle of nowhere.
-
-**Q: Should I use technical analysis for ETFs and index funds?**
-A: Technical analysis can be applied to any traded security, including ETFs and index funds. In fact, broad market indices like the S&P 500 tend to respect technical levels more reliably than individual stocks because they aggregate the behavior of many participants, reducing noise. Using the 200-day moving average as a risk management signal for your total market ETF is one of the most practical applications of technical analysis for long-term investors.
+**「過去有效的型態未來也會有效。」** 市場是適應性的。隨著越來越多的交易者識別並利用某個型態，該型態變得擁擠並可能停止有效。在學術研究中產生顯著阿爾法的策略，一旦廣為人知，往往產生遞減的報酬。這就是為什麼簡單性以及對穩健、基本傾向（如動能和趨勢跟隨）的關注，往往比複雜的特定型態策略更耐用。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：基本面投資者應該完全忽視技術分析嗎？**
+答：不應該。即使是專注基本面的投資者，也能從基本的技術意識中受益。知道你想買的股票正在接近主要支撐位（潛在的更好進場點），或者它已跌破200日移動平均線（警告訊號），為你的基本面分析增添了有用的背景。你不需要成為圖表專家，但基本的技術素養有所幫助。
+
+**問：技術分析最佳的時間框架是什麼？**
+答：這取決於你的投資期限。當日交易者使用1分鐘到15分鐘圖表。波段交易者使用日線圖。部位交易者和投資者使用週線或月線圖表。一般而言，較長的時間框架產生更可靠、噪音更少的訊號，但提供更慢的進出場訊號。使用多個時間框架（在做日線交易決策前先檢查週線趨勢）是最佳做法。
+
+**問：如何避免指標過多造成「分析癱瘓」？**
+答：選擇一個趨勢指標（例如50/200日移動平均線）、一個動能指標（例如RSI或MACD）和一個成交量指標（例如OBV）。如果三者都確認一個訊號，就採取行動。如果它們相互矛盾，就等待明確訊號。這種三指標方法涵蓋趨勢、動能和信念，而不會讓你被相互矛盾的訊號所淹沒。
+
+**問：圖表型態在所有市場中的運作方式相同嗎？**
+答：核心原則（趨勢、動能、支撐/壓力）適用於股票、大宗商品、外匯和加密貨幣。然而，不同市場有不同的特點。大宗商品市場受季節性型態影響較大。外匯市場24小時交易，沒有缺口。加密貨幣市場波動性更大、流動性更低。根據特定市場的特點調整你的分析。
+
+**問：技術分析與基本面分析的關係是什麼？**
+答：最強的投資方法將兩者結合。使用基本面分析確定買什麼（合理估值下的優質公司）；使用技術分析確定何時買（基於趨勢和動能的有利進場點）。這種結合有時被稱為「技術基本面分析」。它利用每種方法的優勢，同時彌補各自的個別弱點。
+
+**問：移動平均線是最重要的技術指標嗎？**
+答：對於長期投資者而言，200日SMA可以說是最有用的單一指標。歷史研究表明，僅在市場高於200日SMA時投資，低於時轉入現金，歷史上在避免最嚴重回撤的同時捕獲了市場大部分上漲空間。然而，這種策略在震盪市場中會產生頻繁的假訊號，並產生交易成本和稅務後果。它最適合作為風險管理的疊加策略，而非獨立策略。
+
+**問：什麼是成交量分布，為什麼一些交易者認為它很重要？**
+答：成交量分布顯示指定期間內每個價格水準發生的交易量，而非隨時間的交易量。高成交量價格水準（稱為「高成交量節點」）往往作為強勁的支撐或壓力，因為許多市場參與者在這些價格建立了部位。低成交量區域（「低成交量節點」）往往是市場快速穿越的價格。成交量分布提供了不同於傳統基於價格分析的支撐與壓力視角，越來越多地被機構和成熟的散戶交易者使用。
+
+**問：K線型態有多可靠？**
+答：單個K線型態（錘頭線、十字星、吞噬型態）本身的預測能力有限。研究表明，雖然一些型態有輕微的統計優勢，但幅度很小，往往被交易成本所消耗。K線型態在關鍵支撐/壓力位出現，或與其他指標結合使用時最為有用。在主要支撐位出現、RSI超賣且成交量增加的錘頭線，遠比出現在任意位置的錘頭線更有意義。
+
+**問：技術分析應該用於指數股票型基金和指數基金嗎？**
+答：技術分析可以應用於任何交易的證券，包括指數股票型基金和指數基金。事實上，標普500等大盤指數往往比個股更可靠地遵守技術水準，因為它們匯聚了許多參與者的行為，減少了噪音。將200日移動平均線作為你的全市場指數股票型基金的風險管理訊號，是長期投資者技術分析最實用的應用之一。
+
+---
+
+## YouTube 腳本
 
 [INTRO - 0:00]
 
 [VISUAL: Computer screen showing a stock chart with multiple indicators -- moving averages, RSI, MACD, volume bars -- all updating in real time]
 
-**Alex:** Technical analysis. Two words that split the investing world in half. Some people swear by it -- they will not make a trade without checking the charts. Others think it is essentially reading tea leaves.
+**Horace（陳馬）：** 技術分析。這兩個字把投資世界分成了兩半。有些人深信不疑——他們不看圖表就不做任何交易。另一些人則認為這本質上是在看茶葉。
 
-**Sam:** Today, we are not here to pick sides in that debate. We are here to give you a practical understanding of the most important technical analysis tools, show you what the evidence says about when they work, and help you decide how to incorporate them into your own investing process.
+**Stella（小魚）：** 今天，我們不是要在這場辯論中選邊站。我們要給你一個對最重要技術分析工具的實用理解，告訴你證據對其有效性的說法，並幫助你決定如何將它們融入自己的投資流程。
 
 [VISUAL: Title card "Technical Analysis: Charts, Indicators, and What the Evidence Says"]
 
@@ -262,17 +261,17 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Side-by-side comparison of line chart, bar chart, and candlestick chart for the same stock over the same time period]
 
-**Alex:** Let us start with the basics -- how to read a chart. The three main chart types are line charts, bar charts, and candlestick charts.
+**Horace（陳馬）：** 讓我們從基礎開始——如何閱讀圖表。三種主要圖表類型是折線圖、長條圖和K線圖。
 
-**Sam:** Line charts are the simplest -- just the closing price plotted over time, connected by a line. Clean and easy to read, but you lose information about what happened during each trading day.
+**Stella（小魚）：** 折線圖是最簡單的——只是隨時間繪製的收盤價，用線連接。簡潔易讀，但你失去了每個交易日日內發生的事情的資訊。
 
-**Alex:** Candlestick charts are the most popular among technical analysts. Each candle shows four pieces of information: the open, high, low, and close. The body of the candle is green if the stock closed higher than it opened, and red if it closed lower.
+**Horace（陳馬）：** K線圖在技術分析師中最受歡迎。每根K線顯示四個資訊：開盤價、最高價、最低價和收盤價。若股票的收盤價高於開盤價，K線實體為綠色；若收盤價低於開盤價，則為紅色。
 
 [ANIMATION: Building a single candlestick from its components: showing the open, then the high, low, and close forming the body and wicks]
 
-**Sam:** The beauty of candlesticks is that you can see at a glance not just where the stock ended, but how it got there. A candle with a long lower wick shows that the stock dropped significantly during the day but buyers pushed it back up. That is a sign of demand.
+**Stella（小魚）：** K線的美妙之處在於，你不僅能一目了然地看到股票的收盤位置，還能看到它如何達到那裡。有長下影線的K線顯示股票在日內大幅下跌，但買家將其推了回來。這是需求的訊號。
 
-**Alex:** Specific candlestick patterns -- like the hammer, the doji, and the engulfing pattern -- have been cataloged and studied for centuries, going back to 18th-century Japanese rice trading. Whether they have real predictive power is debated, but they are widely watched, which gives them some influence.
+**Horace（陳馬）：** 特定的K線型態——如錘頭線、十字星和吞噬型態——已被整理和研究了幾個世紀，可以追溯到18世紀的日本米市交易。它們是否具有真正的預測能力仍有爭議，但它們被廣泛關注，這賦予了它們一定的影響力。
 
 ---
 
@@ -280,15 +279,15 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [ANIMATION: Stock chart with horizontal support and resistance levels drawn, showing price bouncing between them]
 
-**Sam:** The two most fundamental concepts in technical analysis are support and resistance. Support is a price level where buying interest is strong enough to stop a decline. Resistance is where selling pressure stops a rally.
+**Stella（小魚）：** 技術分析中兩個最基本的概念是支撐和壓力。支撐是買盤興趣足夠強勁以阻止下跌的價格水準。壓力是賣壓阻止反彈的地方。
 
-**Alex:** Think of it like a ball bouncing on a floor. The floor is support -- every time the ball hits it, it bounces back up. If the ball breaks through the floor, it falls to the next level below. That broken floor now becomes the ceiling -- it becomes resistance.
+**Horace（陳馬）：** 把它想像成一個球在地板上彈跳。地板是支撐——每次球碰到它，它就彈回去。如果球穿破地板，它就跌落到下面的水準。那個破裂的地板現在變成了天花板——它變成了壓力。
 
 [VISUAL: Ball bouncing animation transitioning to stock chart, with support levels as floors and resistance levels as ceilings]
 
-**Sam:** Why do support and resistance work? Because they reflect real decisions by real people. If a stock bounced from $50 three times, investors remember that. The next time it approaches $50, some will place buy orders there, expecting another bounce. Enough buying at $50 creates the support.
+**Stella（小魚）：** 為什麼支撐和壓力有效？因為它們反映了真實人們的真實決策。如果一支股票三次從50元反彈，投資者記住了這一點。下次它接近50元時，一些人會在那裡掛買單，期待再次反彈。足夠多的50元買盤創造了支撐。
 
-**Alex:** And here is the key principle: when support breaks, it often becomes resistance, and vice versa. If the stock finally breaks below $50, the people who bought at $50 are now sitting on losses. Many of them will sell if the stock rallies back to $50 to "get back to even." That selling at $50 turns the former support into resistance.
+**Horace（陳馬）：** 這裡有個關鍵原則：當支撐被突破時，它往往變成壓力，反之亦然。如果股票最終跌破50元，在50元買入的人現在正在虧損。他們中的許多人會在股票反彈至50元時賣出，以「回本」。那種在50元的賣出將前支撐變成了壓力。
 
 [ANIMATION: Arrow showing the polarity switch -- support level breaking and then acting as resistance on the next rally attempt]
 
@@ -298,17 +297,17 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Stock chart with 50-day and 200-day moving averages overlaid]
 
-**Sam:** Moving averages are probably the most widely used technical indicator. They smooth out price noise to show you the underlying trend.
+**Stella（小魚）：** 移動平均線可能是最廣泛使用的技術指標。它們平滑價格噪音，向你顯示基本趨勢。
 
-**Alex:** The two most important ones are the 50-day and 200-day simple moving averages. If a stock is trading above its 200-day moving average, it is generally considered to be in a long-term uptrend. Below it, a downtrend.
+**Horace（陳馬）：** 最重要的兩條是50日和200日簡單移動平均線。若股票在其200日移動平均線上方交易，通常被認為處於長期上升趨勢。在其下方，則是下降趨勢。
 
-**Sam:** And two of the most watched signals in technical analysis come from the interaction between these two moving averages. A golden cross -- when the 50-day crosses above the 200-day -- is considered bullish. A death cross -- when the 50-day crosses below the 200-day -- is considered bearish.
+**Stella（小魚）：** 技術分析中兩個最受關注的訊號來自這兩條移動平均線的相互作用。黃金交叉——50日上穿200日——被視為看多。死亡交叉——50日下穿200日——被視為看空。
 
 [ANIMATION: Golden cross and death cross on a chart, with labels and arrows showing the crossover points]
 
-**Alex:** Now, do these signals actually work? Historical research shows that the golden cross and death cross tend to confirm trend changes, but with a significant lag. By the time the crossover happens, a substantial portion of the move has already occurred. They are better at keeping you on the right side of major trends than at catching precise turning points.
+**Horace（陳馬）：** 那麼，這些訊號真的有效嗎？歷史研究表明，黃金交叉和死亡交叉往往確認趨勢轉變，但有顯著滯後。到交叉發生時，大部分走勢已經發生了。它們更擅長讓你站在主要趨勢的正確一側，而非捕捉精確的轉折點。
 
-**Sam:** In practical terms, the 200-day moving average is most useful as a risk management tool. Research by Meb Faber and others has shown that investing only when the S&P 500 is above its 200-day average and going to cash when below has historically captured most of the upside while avoiding the worst bear markets.
+**Stella（小魚）：** 從實際角度來看，200日移動平均線最有用的是作為風險管理工具。Meb Faber等人的研究表明，僅在標普500高於其200日平均線時投資，低於時轉入現金，歷史上在避免最嚴重的空頭市場的同時，捕獲了大部分上漲空間。
 
 [VISUAL: Performance comparison: S&P 500 buy-and-hold vs 200-day SMA timing strategy over 30 years]
 
@@ -318,23 +317,23 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: RSI indicator displayed below a stock chart, with overbought (70) and oversold (30) zones highlighted]
 
-**Alex:** Moving beyond trend, let us look at momentum indicators. The Relative Strength Index -- RSI -- measures whether a stock has moved too far, too fast.
+**Horace（陳馬）：** 超越趨勢，讓我們看看動能指標。相對強弱指數——RSI——衡量一支股票的走勢是否過快。
 
-**Sam:** RSI ranges from 0 to 100. Above 70 is considered overbought -- the stock may have risen too quickly and could pull back. Below 30 is considered oversold -- the stock may have fallen too quickly and could bounce.
+**Stella（小魚）：** RSI的範圍從0到100。高於70被認為是超買——股票可能上漲太快並可能回調。低於30被認為是超賣——股票可能下跌太快並可能反彈。
 
-**Alex:** But here is an important nuance. In a strong uptrend, a stock can stay overbought -- RSI above 70 -- for weeks or even months. Selling just because the RSI hit 70 in a bull market will take you out of strong trends far too early.
+**Horace（陳馬）：** 但這裡有個重要的細微差別。在強勁的上升趨勢中，股票的RSI可能保持在70以上——持續數週甚至數月。僅僅因為在多頭市場中RSI達到70就賣出，會讓你過早地退出強勁趨勢。
 
 [VISUAL: Example of a stock in a strong uptrend with RSI persistently above 70 for an extended period]
 
-**Sam:** The most powerful RSI signal is divergence. If a stock makes a new high but the RSI makes a lower high, it means the momentum behind the rally is weakening. The price is going up, but it is taking less and less energy to do so. That is a warning sign.
+**Stella（小魚）：** 最強大的RSI訊號是背離。如果一支股票創出新高但RSI創出較低的高點，這意味著反彈背後的動能正在減弱。價格在上漲，但所需的能量越來越少。這是一個警告訊號。
 
 [ANIMATION: Stock chart making higher highs while RSI makes lower highs, with divergence lines drawn]
 
-**Alex:** The MACD -- Moving Average Convergence Divergence -- is another popular momentum indicator. It tracks the difference between two moving averages and generates signals when they cross.
+**Horace（陳馬）：** MACD——移動平均收斂發散指標——是另一個流行的動能指標。它追蹤兩條移動平均線之間的差異，並在它們交叉時產生訊號。
 
 [VISUAL: MACD indicator showing the MACD line, signal line, and histogram below a stock chart]
 
-**Sam:** When the MACD line crosses above the signal line, it is a buy signal. When it crosses below, a sell signal. Like moving average crossovers, these tend to confirm trends rather than predict them.
+**Stella（小魚）：** 當MACD線上穿訊號線時，是買進訊號。當它下穿時，是賣出訊號。與移動平均線交叉一樣，這些往往確認趨勢而非預測趨勢。
 
 ---
 
@@ -342,19 +341,19 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: "The Evidence" header with thumbs up and thumbs down on either side]
 
-**Alex:** Here is the honest assessment. Does technical analysis work?
+**Horace（陳馬）：** 這是誠實的評估。技術分析有效嗎？
 
-**Sam:** The academic evidence is mixed. On one hand, momentum is one of the most robust and well-documented anomalies in finance. Stocks that have been going up tend to keep going up, and stocks that have been going down tend to keep going down -- at least over periods of 3 to 12 months. That is a form of technical analysis vindication.
+**Stella（小魚）：** 學術證據是不一致的。一方面，動能是金融學中最穩健、有最充分記錄的異常現象之一。一直在上漲的股票往往繼續上漲，一直在下跌的股票往往繼續下跌——至少在3到12個月的時間段內是如此。這是技術分析得到平反的一種形式。
 
-**Alex:** Moving average strategies have also shown some merit as risk management tools. Avoiding the market when it is below the 200-day average has historically reduced drawdowns, though often at the cost of some upside and with transaction costs eating into returns.
+**Horace（陳馬）：** 移動平均線策略作為風險管理工具也顯示出一定的價值。當市場低於200日平均線時避開市場，歷史上降低了回撤，儘管通常以犧牲部分上漲空間和交易成本侵蝕報酬為代價。
 
 [VISUAL: Scorecard showing which technical concepts have academic support and which do not]
 
-**Sam:** On the other hand, most complex chart pattern strategies -- head and shoulders, double tops, cup and handle -- have not been convincingly shown to outperform buy-and-hold after accounting for transaction costs and data mining bias.
+**Stella（小魚）：** 另一方面，大多數複雜的圖表型態策略——頭肩頂、雙頂、杯柄型態——在考慮交易成本和數據挖掘偏誤後，尚未被令人信服地證明能優於買入並持有。
 
-**Alex:** Our recommendation: Use technical analysis as a complement to fundamental analysis, not a replacement. Use it for timing your entries and exits, setting stop-losses, and understanding market sentiment. But base your investment decisions -- what to own and how much -- on fundamentals.
+**Horace（陳馬）：** 我們的建議：將技術分析作為基本面分析的補充，而非替代。將其用於掌握進出場時機、設定停損和了解市場情緒。但基於基本面做出你的投資決策——持有什麼以及持有多少。
 
-**Sam:** Keep it simple. The 200-day moving average, RSI, and volume analysis are the three most useful tools for most investors. Master those before exploring anything more complex.
+**Stella（小魚）：** 保持簡單。200日移動平均線、RSI和成交量分析是大多數投資者最有用的三個工具。在探索任何更複雜的工具之前，先掌握這些。
 
 [VISUAL: End card with channel logo and "Next: Portfolio Monitoring Tools"]
 
@@ -364,22 +363,22 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Venn diagram showing Fundamental Analysis overlapping with Technical Analysis, with "Best Approach" in the overlap]
 
-**Sam:** So where does all of this leave us? Here is our honest recommendation for most investors.
+**Stella（小魚）：** 那麼，所有這些讓我們站在哪裡？以下是我們對大多數投資者的誠實建議。
 
-**Alex:** Use fundamental analysis to decide WHAT to buy. Is this a quality company? Is the valuation reasonable? Are the financials healthy? These are fundamental questions that no chart pattern can answer.
+**Horace（陳馬）：** 使用基本面分析決定買什麼。這是一家優質公司嗎？估值合理嗎？財務狀況健康嗎？這些是基本面問題，沒有任何圖表型態能回答。
 
-**Sam:** Then use technical analysis to decide WHEN to buy. If the fundamentals look great but the stock is in a steep downtrend, maybe wait for signs of stabilization before committing capital. If the stock is sitting on a major support level, that might be a better entry point than buying after a 20 percent rally.
+**Stella（小魚）：** 然後使用技術分析決定何時買入。如果基本面看起來很好，但股票處於急劇的下降趨勢中，也許在投入資本之前等待穩定的跡象。如果股票坐落在主要支撐位，那可能比在上漲20%後買入是更好的進場點。
 
 [VISUAL: Example trade: Fundamental screen identifies quality company -> Technical analysis identifies support level near $95 -> Entry at $96 with stop-loss at $92]
 
-**Alex:** The two approaches are complementary, not competing. Fundamental analysis without technical awareness means you might buy a great company at a terrible time. Technical analysis without fundamental backing means you are trading patterns in a vacuum with no understanding of what drives the business.
+**Horace（陳馬）：** 這兩種方法是互補的，而非競爭的。沒有技術意識的基本面分析意味著你可能在糟糕的時機買入一家優秀公司。沒有基本面支撐的技術分析意味著你在真空中交易型態，對驅動業務的因素毫無了解。
 
-**Sam:** Keep your technical toolkit simple. The 200-day moving average, RSI, and basic volume analysis cover 80 percent of what you need. Master these before adding complexity. And always remember -- technical analysis provides probabilities, not certainties. No indicator works every time, and risk management is what saves you when the signals are wrong.
+**Stella（小魚）：** 保持你的技術工具箱簡單。200日移動平均線、RSI和基本成交量分析覆蓋了你所需的80%。在增加複雜性之前，先掌握這些。始終記住——技術分析提供的是概率，而非確定性。沒有任何指標每次都有效，當訊號錯誤時，風險管理才是拯救你的東西。
 
-**Alex:** The best investors we have studied use simple technical tools to time entries, fundamental analysis to select holdings, and disciplined risk management to protect against being wrong. That combination -- not any single approach -- is the edge.
+**Horace（陳馬）：** 我們研究過的最好的投資者使用簡單的技術工具來掌握進場時機、使用基本面分析來選擇持倉，並使用嚴格的風險管理來防範判斷失誤。那種組合——而非任何單一方法——才是優勢所在。
 
 [VISUAL: End card with channel logo and "Next: Portfolio Monitoring Tools"]
 
-**Sam:** In our final side lesson, we are covering the practical tools for monitoring your portfolio -- from free spreadsheets to professional platforms. See you there.
+**Stella（小魚）：** 在我們最後的附加課程中，我們將介紹監控投資組合的實用工具——從免費電子表格到專業平台。在那裡見！
 
 [END - 14:30]

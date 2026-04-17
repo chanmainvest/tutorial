@@ -1,228 +1,221 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 42: Value at Risk and Risk Models
+# 第42週：風險值與風險模型
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Last week we covered the conceptual framework of risk management -- position sizing, stop-losses, risk budgeting, and scenario analysis. This week we put numbers on those concepts. Value at Risk (VaR), Conditional Value at Risk (CVaR), stress testing, and factor risk models are the quantitative tools that institutional investors use every single day to measure, monitor, and manage portfolio risk.
+上週我們介紹了風險管理的概念框架——倉位管理、止損、風險預算和情景分析。本週我們將為這些概念賦予具體數字。風險值（Value at Risk，VaR）、條件風險值（CVaR）、壓力測試和因子風險模型，是機構投資者每天用來衡量、監控和管理投資組合風險的量化工具。
 
-Understanding these tools is critical because:
+理解這些工具至關重要，原因如下：
 
-- **VaR is the industry standard for risk measurement**: Every major bank, hedge fund, pension fund, and insurance company calculates VaR daily. If you want to understand how professionals think about risk, you need to understand VaR. When someone says "our daily VaR is $5 million at the 95% confidence level," they are communicating a specific, quantitative statement about portfolio risk.
-- **VaR has well-known limitations that caused real-world disasters**: The 2008 financial crisis exposed critical weaknesses in VaR models. Banks that relied solely on VaR were blindsided by losses that their models said were virtually impossible. Understanding these limitations -- and the tools that address them, like CVaR and stress testing -- is essential for any serious investor.
-- **Factor risk models decompose portfolio risk into understandable components**: Rather than viewing your portfolio as a black box with some aggregate risk number, factor models tell you: "40% of your risk comes from your exposure to the overall market, 25% comes from your tilt toward growth stocks, 15% comes from your sector concentration in technology, and 20% comes from stock-specific risk." This decomposition is enormously valuable for understanding WHERE your risk is coming from and whether that is where you WANT it.
-- **Stress testing prepares you for events that VaR says cannot happen**: VaR answers the question "What is my worst-case loss on a normal day?" Stress testing answers "What happens when the world goes crazy?" Both questions need answers.
-- **These tools are increasingly accessible to individual investors**: Portfolio analytics platforms now offer VaR calculations, factor decompositions, and stress testing to retail investors. Understanding the theory helps you use these tools correctly and interpret their output wisely.
+- **VaR是風險衡量的行業標準**：每家主要銀行、對沖基金、退休基金和保險公司每天都會計算VaR。如果你想了解專業人士如何看待風險，就必須理解VaR。當有人說「我們在95%置信水平下的日VaR為500萬美元」，他們正在傳達一個關於投資組合風險的具體量化陳述。
+- **VaR有廣為人知的局限性，這些局限性在現實世界中造成了災難**：2008年金融危機暴露了VaR模型的關鍵弱點。單純依賴VaR的銀行，被其模型認為幾乎不可能出現的損失打了個措手不及。理解這些局限性——以及應對這些局限性的工具，如CVaR和壓力測試——對任何認真的投資者而言都至關重要。
+- **因子風險模型將投資組合風險分解為可理解的組成部分**：因子模型不是將你的投資組合視為一個只有某個總體風險數字的黑盒子，而是告訴你：「你40%的風險來自整體市場敞口，25%來自你對增長型股票的偏重，15%來自你在科技板塊的集中度，20%來自個股特有風險。」這種分解對於理解你的風險來自哪裡，以及這是否是你希望承擔風險的地方，具有極大的價值。
+- **壓力測試讓你為VaR認為不可能發生的事件做好準備**：VaR回答的問題是「在正常交易日，我的最壞情況損失是多少？」壓力測試回答的問題是「當世界陷入瘋狂時，會發生什麼？」兩個問題都需要答案。
+- **這些工具對個人投資者的可及性日益提升**：投資組合分析平台現在向零售投資者提供VaR計算、因子分解和壓力測試。理解背後的理論有助於你正確使用這些工具，並明智地解讀其輸出結果。
 
-This lesson will teach you how VaR is calculated (three methods), what CVaR adds, how stress testing works, what factor risk models reveal, and -- critically -- where all of these tools fail.
+本課將教你VaR的計算方法（三種方法）、CVaR的補充作用、壓力測試的運作原理、因子風險模型揭示的內容，以及——最關鍵的——所有這些工具的失效之處。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的內容
 
-#### 1. Value at Risk (VaR): The Concept
+#### 1. 風險值（VaR）：概念
 
-Value at Risk answers a simple question: "What is the maximum loss I should expect over a given time period, at a given confidence level, under normal market conditions?"
+風險值回答一個簡單的問題：「在正常市場條件下，在給定時間段內，以給定的置信水平，我預期的最大損失是多少？」
 
 ```
-VaR DEFINITION
+VaR 定義
 
-"There is a X% chance that the portfolio will not lose
- more than $Y over the next N days."
+「投資組合在未來N天內，有X%的概率，
+ 損失不會超過$Y。」
 
-THREE PARAMETERS:
-  1. Confidence level (typically 95% or 99%)
-  2. Time horizon (typically 1 day or 10 days)
-  3. Dollar amount (the VaR number itself)
+三個參數：
+  1. 置信水平（通常為95%或99%）
+  2. 時間區間（通常為1天或10天）
+  3. 金額（即VaR數值本身）
 
-EXAMPLE:
-  "1-day 95% VaR = $50,000"
+示例：
+  「1天期95% VaR = $50,000」
   
-  This means:
-  - Over any given day
-  - There is a 95% probability
-  - That the portfolio will not lose more than $50,000
+  這意味著：
+  - 在任意給定的交易日
+  - 有95%的概率
+  - 投資組合損失不會超過$50,000
   
-  Equivalently:
-  - On 1 day out of 20 (5% of trading days)
-  - Losses may EXCEED $50,000
-  - VaR says NOTHING about how much they exceed it
+  等效地說：
+  - 每20個交易日中，有1天（即5%的交易日）
+  - 損失可能超過$50,000
+  - VaR對超出的損失金額不作任何說明
 
-VISUAL INTERPRETATION:
+視覺解讀：
 
-  Probability
+  概率
   |
   |     ___________
   |    /           \
   |   /             \
   |  /               \
-  | /    95% of      \
-  |/    outcomes      \
-  |    within here     \
-  +-----|---------|---------|---> Portfolio Return
+  | /    95%的        \
+  |/    結果           \
+  |    在此範圍內       \
+  +-----|---------|---------|---> 投資組合回報
     -$50k    $0       +$80k
         ^
         |
-    VaR = $50,000 loss
-    (5% of outcomes are
-     worse than this)
+    VaR = $50,000 損失
+    （5%的結果比這更差）
 ```
 
 ```
-VaR AT DIFFERENT CONFIDENCE LEVELS
+不同置信水平下的 VaR
 
-Portfolio: $1,000,000 in S&P 500 index
-Annual volatility: 16%
-Daily volatility: 16% / sqrt(252) = 1.01%
+投資組合：$1,000,000 標普500指數基金
+年化波動性：16%
+日波動性：16% / sqrt(252) = 1.01%
 
-         Confidence    Z-Score    1-Day VaR
+         置信水平    Z值       1天期 VaR
          ──────────────────────────────────
-           90%          1.28      $12,900
-           95%          1.65      $16,600
-           99%          2.33      $23,500
-           99.9%        3.09      $31,200
+           90%       1.28      $12,900
+           95%       1.65      $16,600
+           99%       2.33      $23,500
+           99.9%     3.09      $31,200
 
-INTERPRETATION:
-  At 95%: We expect to lose more than $16,600
-          on about 1 day per month (5% of 20 days)
+解讀：
+  95%時：預計每月約有1天（5%×20天）
+          損失會超過$16,600
           
-  At 99%: We expect to lose more than $23,500
-          on about 2-3 days per year (1% of 252 days)
+  99%時：預計每年約有2至3天（1%×252天）
+          損失會超過$23,500
           
-  At 99.9%: We expect to lose more than $31,200
-            on about 1 day every 4 years
+  99.9%時：預計每4年約有1天
+            損失會超過$31,200
 
-SCALING VaR ACROSS TIME HORIZONS:
-  N-day VaR = 1-day VaR x sqrt(N)
+跨時間區間的 VaR 換算：
+  N天期 VaR = 1天期 VaR × sqrt(N)
   
-  1-day 95% VaR:  $16,600
-  5-day 95% VaR:  $16,600 x sqrt(5)  = $37,100
-  10-day 95% VaR: $16,600 x sqrt(10) = $52,500
+  1天期 95% VaR：  $16,600
+  5天期 95% VaR：  $16,600 × sqrt(5)  = $37,100
+  10天期 95% VaR： $16,600 × sqrt(10) = $52,500
   
-  WARNING: Square root scaling assumes returns are
-  independent and identically distributed. In reality,
-  market crashes cluster (volatility clustering), making
-  multi-day VaR larger than the square-root formula suggests.
+  警告：平方根換算假設回報是獨立同分布的。
+  但現實中，市場崩潰存在聚集性（波動性聚集效應），
+  使多天期 VaR 大於平方根公式所顯示的結果。
 ```
 
-#### 2. Parametric VaR (Variance-Covariance Method)
+#### 2. 參數法 VaR（方差-協方差法）
 
-The simplest VaR method assumes returns follow a normal distribution. It uses only the mean and standard deviation of returns plus the correlations between portfolio components.
+最簡單的VaR方法假設回報服從正態分布，只使用回報的均值和標準差以及各投資組合組成部分之間的相關性。
 
 ```
-PARAMETRIC VaR CALCULATION
+參數法 VaR 計算
 
-For a single asset:
-  VaR = Portfolio Value x Z-score x sigma x sqrt(T)
+單一資產：
+  VaR = 投資組合市值 × Z值 × sigma × sqrt(T)
 
-Where:
-  Z-score: 1.65 for 95%, 2.33 for 99%
-  sigma: daily standard deviation of returns
-  T: time horizon in days
+其中：
+  Z值：95%置信水平取1.65，99%取2.33
+  sigma：回報的日標準差
+  T：時間區間（天數）
 
-EXAMPLE: Single stock portfolio
-  Portfolio: $200,000 in AAPL
-  AAPL daily volatility (sigma): 1.8%
+示例：單一股票投資組合
+  投資組合：$200,000 蘋果公司（AAPL）
+  AAPL 日波動性（sigma）：1.8%
   
-  1-day 95% VaR = $200,000 x 1.65 x 0.018
+  1天期 95% VaR = $200,000 × 1.65 × 0.018
                = $5,940
 
-For a two-asset portfolio:
-  Portfolio sigma = sqrt(w1^2*s1^2 + w2^2*s2^2
+兩資產投資組合：
+  投資組合 sigma = sqrt(w1^2*s1^2 + w2^2*s2^2
                         + 2*w1*w2*s1*s2*rho)
 
-Where:
-  w1, w2 = portfolio weights
-  s1, s2 = asset standard deviations
-  rho = correlation between assets
+其中：
+  w1, w2 = 投資組合權重
+  s1, s2 = 資產標準差
+  rho = 資產間的相關係數
 
-EXAMPLE: Two-stock portfolio
-  $120,000 in AAPL (60%), daily vol = 1.8%
-  $80,000 in JNJ (40%), daily vol = 1.0%
-  Correlation = 0.35
+示例：兩股票投資組合
+  $120,000 持有 AAPL（60%），日波動性 = 1.8%
+  $80,000 持有 JNJ（40%），日波動性 = 1.0%
+  相關係數 = 0.35
 
-  Portfolio sigma = sqrt(0.6^2 x 0.018^2 + 0.4^2 x 0.01^2
-                        + 2 x 0.6 x 0.4 x 0.018 x 0.01 x 0.35)
+  投資組合 sigma = sqrt(0.6^2 × 0.018^2 + 0.4^2 × 0.01^2
+                        + 2 × 0.6 × 0.4 × 0.018 × 0.01 × 0.35)
                  = sqrt(0.0001166 + 0.0000160 + 0.0000302)
                  = sqrt(0.0001628)
-                 = 0.01276  (1.276%)
+                 = 0.01276（1.276%）
 
-  1-day 95% VaR = $200,000 x 1.65 x 0.01276
+  1天期 95% VaR = $200,000 × 1.65 × 0.01276
                = $4,211
 
-  NOTE: VaR for the two-stock portfolio ($4,211) is LESS
-  than VaR for AAPL alone at the same total value ($5,940).
-  This is the diversification benefit in action.
+  注意：兩股票投資組合的 VaR（$4,211）低於
+  相同總值的純 AAPL 投資組合 VaR（$5,940）。
+  這正是分散投資效益的體現。
 ```
 
 ```
-PARAMETRIC VaR: STRENGTHS AND WEAKNESSES
+參數法 VaR：優點與缺點
 
-STRENGTHS:
-  + Fast to compute (closed-form formula)
-  + Easy to understand and explain
-  + Only needs means, variances, and correlations
-  + Works well for linear instruments (stocks, bonds)
-  + Additive across components (can decompose VaR)
+優點：
+  + 計算速度快（封閉式公式）
+  + 易於理解和解釋
+  + 只需均值、方差和相關係數
+  + 對線性工具（股票、債券）效果良好
+  + 各組成部分的 VaR 可加總（可分解 VaR）
 
-WEAKNESSES:
-  - Assumes normal distribution of returns
-  - Real returns have FAT TAILS (extreme events
-    are much more common than normal distribution predicts)
-  - Does not handle options well (non-linear payoffs)
-  - Assumes constant volatility and correlations
-  - Underestimates risk during market stress
+缺點：
+  - 假設回報服從正態分布
+  - 真實回報具有厚尾效應（極端事件
+    遠比正態分布所預測的更為常見）
+  - 對期權處理欠佳（非線性收益結構）
+  - 假設波動性和相關係數保持不變
+  - 在市場壓力下會低估風險
 
-NORMAL DISTRIBUTION vs. REALITY:
+正態分布與現實的對比：
 
-  Normal distribution predicts:
-    > 3 sigma event: once every 740 days (3 years)
-    > 4 sigma event: once every 31,560 days (126 years)
-    > 5 sigma event: once every 3.5 million days (never)
+  正態分布預測：
+    > 3個標準差事件：每740天發生一次（約3年）
+    > 4個標準差事件：每31,560天發生一次（約126年）
+    > 5個標準差事件：每350萬天發生一次（幾乎不可能）
   
-  Actual stock market:
-    > 3 sigma event: once every 100-200 days
-    > 4 sigma event: once every 2-5 years
-    > 5 sigma event: once every 10-20 years
+  股票市場實際情況：
+    > 3個標準差事件：每100至200天發生一次
+    > 4個標準差事件：每2至5年發生一次
+    > 5個標準差事件：每10至20年發生一次
   
-  CONCLUSION: Fat tails make parametric VaR dangerously
-  optimistic about tail risk. The 2008 crisis produced
-  events that a normal distribution said should happen
-  once in the lifetime of the universe.
+  結論：厚尾效應令參數法 VaR 對尾部風險
+  的估計危險地過於樂觀。2008年的危機產生了
+  按正態分布計算需要宇宙壽命才能發生一次的事件。
 ```
 
-#### 3. Historical Simulation VaR
+#### 3. 歷史模擬法 VaR
 
-Instead of assuming a distribution, historical simulation uses actual past returns to estimate VaR. It takes your current portfolio and applies historical daily returns to see what would have happened.
+歷史模擬法不假設任何分布，而是使用實際的歷史回報來估算VaR。它以你目前的投資組合為基礎，應用歷史日回報數據，模擬過去的損益情況。
 
 ```
-HISTORICAL SIMULATION VaR: METHOD
+歷史模擬法 VaR：方法
 
-Step 1: Collect N days of historical returns
-  (typically 250-1000 trading days)
+步驟一：收集N天的歷史回報數據
+  （通常為250至1000個交易日）
 
-Step 2: Apply each day's returns to current portfolio
-  For day i: Hypothetical P&L = Sum of
-    (position_j x return_j_on_day_i)
-    for all positions j
+步驟二：將每天的歷史回報應用於當前投資組合
+  對第 i 天：模擬損益 = 所有持倉 j 的
+    （持倉 j 金額 × 第 i 天持倉 j 的回報）之和
 
-Step 3: Sort the hypothetical P&L from worst to best
+步驟三：將模擬損益從最差到最好排列
 
-Step 4: VaR = the loss at the Xth percentile
-  For 95% VaR with 500 observations:
-    VaR = 25th worst day (5% x 500)
-  For 99% VaR with 500 observations:
-    VaR = 5th worst day (1% x 500)
+步驟四：VaR = 第 X 個百分位的損失
+  500個觀測值的 95% VaR：
+    VaR = 第 25 個最差的交易日（5% × 500）
+  500個觀測值的 99% VaR：
+    VaR = 第 5 個最差的交易日（1% × 500）
 
-EXAMPLE: 500 days of data, sorted P&L
-  Day rank    P&L           Cumulative %
+示例：500天數據，損益排列
+  排名        損益            累計百分比
   ────────────────────────────────────────
-  1 (worst)   -$48,200      0.2%
+  1（最差）   -$48,200      0.2%
   2           -$41,500      0.4%
   3           -$38,700      0.6%
   4           -$35,100      0.8%
@@ -232,83 +225,82 @@ EXAMPLE: 500 days of data, sorted P&L
   25          -$18,200      5.0%  <-- 95% VaR
   26          -$17,800      5.2%
   ...
-  250         +$500         50.0% (median)
+  250         +$500         50.0%（中位數）
   ...
-  500 (best)  +$52,300      100.0%
+  500（最佳） +$52,300      100.0%
   
   95% VaR = $18,200
   99% VaR = $32,800
 ```
 
 ```
-HISTORICAL SIMULATION: STRENGTHS AND WEAKNESSES
+歷史模擬法：優點與缺點
 
-STRENGTHS:
-  + No distribution assumption (captures fat tails)
-  + Captures actual correlations (including non-linear)
-  + Naturally incorporates skewness and kurtosis
-  + Handles options and non-linear instruments
-  + Intuitive: "what would have happened"
+優點：
+  + 無需分布假設（能捕捉厚尾效應）
+  + 捕捉實際相關性（包括非線性相關）
+  + 自然包含偏度和峰度
+  + 適用於期權和非線性工具
+  + 直觀易懂：「如果歷史重演會發生什麼」
 
-WEAKNESSES:
-  - Assumes history repeats (future = past)
-  - Limited by available data (cannot model events
-    worse than the worst day in your sample)
-  - Sample period matters enormously:
+缺點：
+  - 假設歷史會重演（未來 = 過去）
+  - 受數據限制（無法模擬比樣本中
+    最差交易日更壞的事件）
+  - 樣本區間影響極大：
     ┌─────────────────────────────────────────────┐
-    │  Using 2015-2019 data: Low VaR              │
-    │  (calm market, no crisis in sample)         │
+    │  使用2015至2019年數據：VaR 偏低             │
+    │  （市場平靜，樣本中無危機）                 │
     │                                             │
-    │  Using 2007-2009 data: High VaR             │
-    │  (crisis in sample)                         │
+    │  使用2007至2009年數據：VaR 偏高             │
+    │  （樣本中包含危機）                         │
     │                                             │
-    │  SAME PORTFOLIO, VERY DIFFERENT VaR         │
-    │  depending on which history you choose      │
+    │  相同投資組合，VaR 差異極大                 │
+    │  取決於選取哪段歷史數據                     │
     └─────────────────────────────────────────────┘
-  - Ghost effects: old extreme events drop out of
-    the sample window, causing VaR to suddenly drop
-    even with no portfolio change
-  - Equal weighting of all historical days (a day
-    from 3 years ago has same weight as yesterday)
+  - 幽靈效應：舊的極端事件從樣本視窗中消失，
+    即使投資組合毫無變化，VaR 也會突然下降
+  - 所有歷史交易日具有相同權重（3年前的交易日
+    與昨天的交易日同等重要）
 ```
 
-#### 4. Monte Carlo VaR
+#### 4. 蒙地卡羅法 VaR
 
-Monte Carlo simulation generates thousands of random scenarios based on assumed statistical properties of asset returns, then calculates VaR from the simulated distribution.
+蒙地卡羅模擬根據假設的資產回報統計特性生成數以千計的隨機情景，然後從模擬分布中計算VaR。
 
 ```
-MONTE CARLO VaR: METHOD
+蒙地卡羅法 VaR：方法
 
-Step 1: Estimate return distribution parameters
-  - Mean returns for each asset
-  - Volatilities for each asset
-  - Correlation matrix between assets
-  - (Optional) Fat tail parameters, skewness
+步驟一：估算回報分布參數
+  - 各資產的預期回報
+  - 各資產的波動性
+  - 各資產之間的相關矩陣
+  - （可選）厚尾參數、偏度
 
-Step 2: Generate N random scenarios (N = 10,000+)
-  For each scenario:
-    - Draw correlated random returns for all assets
-    - Calculate portfolio P&L
+步驟二：生成N個隨機情景（N ≥ 10,000）
+  對每個情景：
+    - 抽取所有資產的相關隨機回報
+    - 計算投資組合損益
+
+步驟三：將N個投資組合損益值排列
+
+步驟四：VaR = 第 X 個百分位的損失
+  10,000個情景的 95% VaR：
+    VaR = 第 500 個最差情景
+
+概念示意圖：
+
+  生成10,000個隨機投資組合回報：
   
-Step 3: Sort the N portfolio P&L values
-
-Step 4: VaR = loss at the Xth percentile
-  For 95% VaR with 10,000 scenarios:
-    VaR = 500th worst scenario
-
-CONCEPTUAL DIAGRAM:
-
-  Generate 10,000 random portfolio returns:
-  
-  Scenario 1:   AAPL -2.1%, JNJ +0.3%  -> P&L: -$2,280
-  Scenario 2:   AAPL +1.5%, JNJ +0.8%  -> P&L: +$2,440
-  Scenario 3:   AAPL -0.3%, JNJ -0.5%  -> P&L: -$760
+  情景1：    AAPL -2.1%，JNJ +0.3%  -> 損益：-$2,280
+  情景2：    AAPL +1.5%，JNJ +0.8%  -> 損益：+$2,440
+  情景3：    AAPL -0.3%，JNJ -0.5%  -> 損益：-$760
   ...
-  Scenario 10000: AAPL +0.7%, JNJ -0.2% -> P&L: +$680
+  情景10000：AAPL +0.7%，JNJ -0.2% -> 損益：+$680
   
-  Sort all 10,000 P&L values:
+  將所有10,000個損益值排列：
   
-       Frequency
+       頻率
        |
        |        ___________
        |       /           \
@@ -317,88 +309,87 @@ CONCEPTUAL DIAGRAM:
        |    /                 \
        |   /                   \
        |  /     10,000          \
-       | / simulated outcomes    \__
+       | / 個模擬結果            \__
   _____|/                          \____
-  ─────|──────────|─────────────────────> P&L
+  ─────|──────────|─────────────────────> 損益
        ^          $0
        |
-  500th worst = 95% VaR
+  第500個最差 = 95% VaR
 ```
 
 ```
-MONTE CARLO VaR: STRENGTHS AND WEAKNESSES
+蒙地卡羅法：優點與缺點
 
-STRENGTHS:
-  + Highly flexible (any distribution assumption)
-  + Can model fat tails, skewness, regime changes
-  + Handles options and non-linear instruments well
-  + Can generate as many scenarios as needed
-  + Can incorporate complex dependencies
-  + Can model time-varying volatility (GARCH)
+優點：
+  + 高度靈活（可採用任何分布假設）
+  + 可模擬厚尾、偏度和市場機制轉換
+  + 能很好地處理期權和非線性工具
+  + 可按需生成任意數量的情景
+  + 可納入複雜的相依結構
+  + 可模擬隨時間變化的波動性（GARCH模型）
 
-WEAKNESSES:
-  - Computationally intensive (slow for large portfolios)
-  - Model risk: garbage in, garbage out
-    (results depend on assumed distributions)
-  - Requires careful calibration of parameters
-  - Can give false precision (10,000 scenarios sounds
-    scientific, but if the model is wrong, all 10,000
-    scenarios are wrong)
-  - Convergence: need enough scenarios for stable results
+缺點：
+  - 計算量大（大型投資組合速度較慢）
+  - 模型風險：垃圾進，垃圾出
+    （結果取決於假設的分布）
+  - 需要仔細校準參數
+  - 可能產生虛假精確性（10,000個情景看起來很嚴謹，
+    但若模型有誤，10,000個情景均屬錯誤）
+  - 收斂性：需要足夠多的情景才能得到穩定結果
 
-COMPARISON OF THREE VaR METHODS:
+三種 VaR 方法比較：
 
-Feature          Parametric   Historical   Monte Carlo
+特性            參數法       歷史模擬法   蒙地卡羅法
 ─────────────────────────────────────────────────────────
-Speed            Fast         Medium       Slow
-Distribution     Normal only  No assumption Flexible
-Fat tails        No           Yes          If modeled
-Non-linear       No           Yes          Yes
-Transparency     High         High         Medium
-Data needed      Stats only   Full history  Parameters
-Model risk       Medium       Low          High
-Best for         Stocks/bonds All assets   Options/
-                                           complex
+計算速度        快           中等         慢
+分布假設        僅正態分布   無需假設     靈活
+厚尾效應        無           有           視建模而定
+非線性          不適用       適用         適用
+透明度          高           高           中等
+所需數據        統計數據     完整歷史     參數
+模型風險        中等         低           高
+最適用場景      股票/債券    所有資產     期權/
+                                          複雜工具
 ```
 
-#### 5. Conditional Value at Risk (CVaR / Expected Shortfall)
+#### 5. 條件風險值（CVaR / 預期損失）
 
-CVaR, also called Expected Shortfall, answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
+CVaR，又稱預期損失（Expected Shortfall），回答了VaR所忽略的問題：「當損失超過VaR時，情況會有多糟？」
 
 ```
-CVaR vs. VaR: THE CRITICAL DIFFERENCE
+CVaR 與 VaR：關鍵差異
 
-VaR tells you: "I will not lose more than $X with Y% confidence"
-CVaR tells you: "When I DO lose more than VaR, my AVERAGE loss is $Z"
+VaR 告訴你：「在Y%的置信水平下，我的損失不會超過$X」
+CVaR 告訴你：「當我的損失確實超過VaR時，我的平均損失是$Z」
 
-VISUAL:
+視覺呈現：
 
-  Probability
+  概率
   |
   |     ___________
   |    /           \
   |   /             \
-  |  /    95% of     \
-  | /    outcomes     \
+  |  /    95%的      \
+  | /    結果         \
   |/                   \
   |                     \___
-  +────|──────────────|──────|─────> Loss
+  +────|──────────────|──────|─────> 損失
        0            VaR    CVaR
                    $50k   $78k
        
        ├──── 95% ────┤ 5% │
        
-  VaR = $50,000:  "95% of the time, losses stay below $50k"
-  CVaR = $78,000: "When losses exceed $50k (the worst 5%),
-                   the AVERAGE loss is $78,000"
+  VaR = $50,000：「95%的情況下，損失低於$50,000」
+  CVaR = $78,000：「當損失超過$50,000時（最差的5%），
+                   平均損失為$78,000」
 
-WHY CVaR IS BETTER:
+為何 CVaR 更優：
 
-  Consider two portfolios:
+  考慮兩個投資組合：
   
-  Portfolio A:                Portfolio B:
+  投資組合 A：                投資組合 B：
   95% VaR = $50,000          95% VaR = $50,000
-  Worst 5% losses:           Worst 5% losses:
+  最差 5% 的損失：           最差 5% 的損失：
     -$52,000                   -$55,000
     -$55,000                   -$70,000
     -$58,000                   -$95,000
@@ -406,20 +397,20 @@ WHY CVaR IS BETTER:
     -$65,000                   -$500,000
   CVaR = $58,000              CVaR = $168,000
   
-  SAME VaR. Vastly different tail risk.
-  VaR cannot distinguish them. CVaR can.
-  Portfolio B has hidden catastrophic risk.
+  VaR 相同，尾部風險卻天差地別。
+  VaR 無法區分兩者，CVaR 可以。
+  投資組合 B 隱藏著災難性風險。
 ```
 
 ```
-CVaR CALCULATION (HISTORICAL METHOD)
+CVaR 計算（歷史法）
 
-Using the sorted P&L from historical simulation:
-500 observations, 95% confidence level
+採用歷史模擬法的排列損益：
+500個觀測值，95%置信水平
 
-The worst 5% = worst 25 observations
+最差的 5% = 最差的 25 個觀測值
 
-  Rank    P&L
+  排名    損益
   ──────────────
   1       -$48,200
   2       -$41,500
@@ -432,683 +423,680 @@ The worst 5% = worst 25 observations
   9       -$27,000
   10      -$26,200
   ...
-  25      -$18,200  <-- This is VaR (95th percentile)
+  25      -$18,200  <-- 此為 VaR（第95百分位）
   
-  CVaR = Average of ranks 1-25
+  CVaR = 第 1 至 25 名的平均值
        = (-$48,200 + -$41,500 + ... + -$18,200) / 25
        = -$29,800
 
-  95% VaR = $18,200 (boundary of worst 5%)
-  95% CVaR = $29,800 (average of worst 5%)
+  95% VaR = $18,200（最差5%的邊界）
+  95% CVaR = $29,800（最差5%的平均值）
 
-  CVaR is 64% larger than VaR in this example.
-  This is typical -- CVaR is usually 1.3x to 2.5x VaR
-  depending on how fat the tails are.
+  在此例中，CVaR 比 VaR 高出 64%。
+  這是典型情況——CVaR 通常是 VaR 的 1.3 至 2.5 倍，
+  具體取決於尾部的厚度。
 ```
 
-#### 6. Stress Testing
+#### 6. 壓力測試
 
-Stress testing goes beyond statistical models to ask: "What happens to my portfolio if a specific extreme event occurs?" Unlike VaR, stress tests are not constrained by historical probabilities or statistical distributions.
+壓力測試超越統計模型，提出這樣一個問題：「如果某個特定的極端事件發生，我的投資組合會怎樣？」與VaR不同，壓力測試不受歷史概率或統計分布的約束。
 
 ```
-STRESS TESTING FRAMEWORK
+壓力測試框架
 
-TYPE 1: HISTORICAL STRESS TESTS
-  Apply actual historical crisis returns to current portfolio
+類型一：歷史壓力測試
+  將實際歷史危機期間的回報應用於當前投資組合
 
   ┌────────────────────────────────────────────────────────┐
-  │  Event                    S&P    10Y     Credit  Gold  │
-  │                           500    Bond    Spreads       │
+  │  事件                     標普    10年    信用    黃金  │
+  │                           500     債券    利差          │
   │────────────────────────────────────────────────────────│
-  │  Black Monday 1987        -20%   +5%     +100bp  +3%  │
-  │  LTCM Crisis 1998         -19%   +8%     +200bp  +2%  │
-  │  Tech Crash 2000-02       -49%   +20%    +300bp  +5%  │
-  │  GFC 2008-09              -57%   +25%    +600bp  +25% │
-  │  COVID Crash 2020         -34%   +5%     +400bp  +5%  │
-  │  2022 Rate Shock          -25%   -15%    +150bp  -1%  │
+  │  1987年黑色星期一         -20%   +5%     +100bp  +3%  │
+  │  1998年長期資本管理危機   -19%   +8%     +200bp  +2%  │
+  │  2000至02年科網泡沫爆破   -49%   +20%    +300bp  +5%  │
+  │  2008至09年金融海嘯       -57%   +25%    +600bp  +25% │
+  │  2020年新冠疫情崩盤       -34%   +5%     +400bp  +5%  │
+  │  2022年加息衝擊           -25%   -15%    +150bp  -1%  │
   └────────────────────────────────────────────────────────┘
 
-  Apply to current portfolio to estimate impact.
+  應用於當前投資組合以估算影響。
 
-TYPE 2: HYPOTHETICAL STRESS TESTS
-  Design plausible future scenarios not seen in history
+類型二：假設性壓力測試
+  設計歷史上未曾出現但合理可信的未來情景
 
-  Example hypothetical scenarios:
-  - China invades Taiwan (supply chain collapse)
-  - US sovereign debt downgrade (Treasury selloff)
-  - AI bubble burst (tech sector -60%)
-  - Global pandemic worse than COVID
-  - Simultaneous stock AND bond crash (-30% / -15%)
+  假設情景示例：
+  - 中國入侵台灣（供應鏈崩潰）
+  - 美國主權債務評級遭降（國債拋售）
+  - 人工智能泡沫爆破（科技板塊 -60%）
+  - 比新冠疫情更嚴峻的全球性疫情
+  - 股票與債券同步崩盤（-30% / -15%）
 
-TYPE 3: SENSITIVITY ANALYSIS (Factor Shocks)
-  Change one risk factor at a time and measure impact
+類型三：敏感性分析（因子衝擊）
+  每次改變一個風險因子並衡量影響
 
-  Interest rates: +100bp, +200bp, +300bp
-  S&P 500: -10%, -20%, -30%, -40%
-  VIX: 25, 35, 50, 80
-  Credit spreads: +100bp, +200bp, +400bp
-  USD: +10%, -10%
+  利率：+100bp、+200bp、+300bp
+  標普500：-10%、-20%、-30%、-40%
+  波動率指數：25、35、50、80
+  信用利差：+100bp、+200bp、+400bp
+  美元：+10%、-10%
 ```
 
 ```
-STRESS TEST: WORKED EXAMPLE
+壓力測試：實例演示
 
-Portfolio: $600,000
-  40% US Equities       ($240,000)
-  20% Int'l Equities    ($120,000)
-  25% US Agg Bonds      ($150,000)
-  10% REITs             ($60,000)
-  5%  Gold              ($30,000)
+投資組合：$600,000
+  40% 美國股票       （$240,000）
+  20% 國際股票       （$120,000）
+  25% 美國綜合債券   （$150,000）
+  10% 房地產信託基金 （$60,000）
+  5%  黃金           （$30,000）
 
-STRESS TEST: 2008-STYLE FINANCIAL CRISIS
+壓力測試：2008年式金融危機
 
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -50%             -$120,000
-Int'l Equities    -55%             -$66,000
-US Agg Bonds      +8%              +$12,000
-REITs             -65%             -$39,000
-Gold              +25%             +$7,500
-──────────────────────────────────────────────────
-TOTAL                              -$205,500
-Portfolio drawdown:                -34.3%
+資產類別         危機回報         金額影響
+──────────────────────────────────────────
+美國股票          -50%            -$120,000
+國際股票          -55%            -$66,000
+美國綜合債券      +8%             +$12,000
+房地產信託基金    -65%            -$39,000
+黃金              +25%            +$7,500
+──────────────────────────────────────────
+合計                              -$205,500
+投資組合回撤：                    -34.3%
 
-STRESS TEST: 2022-STYLE RATE SHOCK
+壓力測試：2022年式加息衝擊
 
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -25%             -$60,000
-Int'l Equities    -20%             -$24,000
-US Agg Bonds      -13%             -$19,500
-REITs             -30%             -$18,000
-Gold              -2%              -$600
-──────────────────────────────────────────────────
-TOTAL                              -$122,100
-Portfolio drawdown:                -20.4%
+資產類別         危機回報         金額影響
+──────────────────────────────────────────
+美國股票          -25%            -$60,000
+國際股票          -20%            -$24,000
+美國綜合債券      -13%            -$19,500
+房地產信託基金    -30%            -$18,000
+黃金              -2%             -$600
+──────────────────────────────────────────
+合計                              -$122,100
+投資組合回撤：                    -20.4%
 
-NOTE: The 2022 scenario is worse for bonds but better
-for equities. The 2008 scenario is worse for equities.
-A truly robust portfolio should survive BOTH.
+注意：2022年情景對債券的衝擊更大，但對股票較輕。
+2008年情景對股票的衝擊更大。
+一個真正穩健的投資組合應能承受兩種情景。
 
-STRESS TEST: HYPOTHETICAL WORST CASE
-(Simultaneous equity crash + rate spike + credit crisis)
+壓力測試：假設性最壞情況
+（股票崩盤 + 利率急升 + 信貸危機同時發生）
 
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -45%             -$108,000
-Int'l Equities    -50%             -$60,000
-US Agg Bonds      -10%             -$15,000
-REITs             -55%             -$33,000
-Gold              +15%             +$4,500
-──────────────────────────────────────────────────
-TOTAL                              -$211,500
-Portfolio drawdown:                -35.3%
+資產類別         危機回報         金額影響
+──────────────────────────────────────────
+美國股票          -45%            -$108,000
+國際股票          -50%            -$60,000
+美國綜合債券      -10%            -$15,000
+房地產信託基金    -55%            -$33,000
+黃金              +15%            +$4,500
+──────────────────────────────────────────
+合計                              -$211,500
+投資組合回撤：                    -35.3%
 
-Is -35% survivable? Depends on investor.
-If not: increase bond allocation, add TIPS, add cash.
+-35%是否可以承受？取決於投資者本身。
+若不能：增加債券配置，加入抗通脹債券，增持現金。
 ```
 
-#### 7. Factor Risk Models
+#### 7. 因子風險模型
 
-Factor risk models decompose portfolio risk into systematic (factor) risk and idiosyncratic (stock-specific) risk. They answer the question: "Where is my risk coming from?"
+因子風險模型將投資組合風險分解為系統性（因子）風險和特異性（個股特有）風險，回答「我的風險來自哪裡？」這一問題。
 
 ```
-FACTOR RISK MODEL: CONCEPTUAL STRUCTURE
+因子風險模型：概念架構
 
-Total portfolio risk = Factor risk + Specific risk
+投資組合總風險 = 因子風險 + 特有風險
 
-FACTOR RISK: Risk from exposure to common factors
-  that affect many stocks simultaneously.
+因子風險：源於同時影響眾多股票的
+共同因子的敞口所帶來的風險。
   
-  Common factors:
+  常見因子：
   ┌─────────────────────────────────────────────────┐
-  │  MARKET        Overall market movement          │
-  │  SIZE          Small cap vs. large cap          │
-  │  VALUE         Value vs. growth                 │
-  │  MOMENTUM      Recent winners vs. losers        │
-  │  QUALITY       Profitable vs. unprofitable      │
-  │  VOLATILITY    Low vol vs. high vol             │
-  │  SECTOR        Industry exposure                │
-  │  COUNTRY       Geographic exposure              │
-  │  INTEREST RATE Sensitivity to rate changes      │
-  │  CREDIT        Sensitivity to credit conditions │
+  │  市場       整體市場走向                        │
+  │  規模       小市值與大市值                      │
+  │  價值       價值型與增長型                      │
+  │  動量       近期強勢股與弱勢股                  │
+  │  質量       盈利強勁與盈利薄弱公司              │
+  │  波動性     低波幅與高波幅                      │
+  │  板塊       行業敞口                            │
+  │  地區       地理敞口                            │
+  │  利率       對利率變化的敏感度                  │
+  │  信用       對信用狀況的敏感度                  │
   └─────────────────────────────────────────────────┘
 
-SPECIFIC RISK: Risk unique to individual stocks
-  (earnings surprises, management changes, lawsuits, etc.)
+特有風險：個別股票的特有風險
+  （盈利意外、管理層變動、訴訟等）
   
-  Specific risk can be diversified away with enough
-  positions. Factor risk cannot.
+  持倉數量足夠多時，特有風險可通過分散投資消除。
+  因子風險則無法消除。
 
-RISK DECOMPOSITION DIAGRAM:
+風險分解示意圖：
 
-  Total Portfolio Risk: 100%
+  投資組合總風險：100%
   ┌──────────────────────────────────────────────┐
   │                                              │
-  │  Factor Risk: 75%              Specific: 25% │
+  │  因子風險：75%                特有風險：25% │
   │  ┌────────────────────────┐    ┌───────────┐ │
-  │  │ Market    40%          │    │ Stock A 5% │ │
-  │  │ Growth    15%          │    │ Stock B 4% │ │
-  │  │ Tech sect 10%         │    │ Stock C 3% │ │
-  │  │ Momentum   5%          │    │ ...        │ │
-  │  │ Other      5%          │    │ Stock N 2% │ │
+  │  │ 市場      40%          │    │ 股票A  5% │ │
+  │  │ 增長型    15%          │    │ 股票B  4% │ │
+  │  │ 科技板塊  10%          │    │ 股票C  3% │ │
+  │  │ 動量       5%          │    │ ...       │ │
+  │  │ 其他       5%          │    │ 股票N  2% │ │
   │  └────────────────────────┘    └───────────┘ │
   │                                              │
   └──────────────────────────────────────────────┘
 ```
 
 ```
-FACTOR RISK DECOMPOSITION: EXAMPLE
+因子風險分解：示例
 
-Portfolio: 15 stocks, heavily weighted in tech growth
+投資組合：15隻股票，重倉科技增長股
 
-FACTOR EXPOSURES (BETAS):
-  Market beta:     1.15  (15% more market risk than index)
-  Size factor:    -0.20  (tilted toward large cap)
-  Value factor:   -0.45  (heavily tilted toward growth)
-  Momentum:       +0.30  (tilted toward recent winners)
-  Tech sector:    +0.35  (overweight technology)
+因子敞口（貝塔）：
+  市場貝塔：      1.15  （市場風險比指數高15%）
+  規模因子：     -0.20  （偏向大市值股票）
+  價值因子：     -0.45  （大幅偏向增長型股票）
+  動量：         +0.30  （偏向近期強勢股）
+  科技板塊：     +0.35  （超配科技股）
   
-RISK CONTRIBUTION BY FACTOR:
+按因子劃分的風險貢獻：
 
-  Factor           Exposure    Factor Vol    Risk
-                   (Beta)      (Annual)      Contribution
+  因子           敞口      因子波動性    風險
+               （貝塔）    （年化）      貢獻
   ────────────────────────────────────────────────────────
-  Market            1.15        16%          42%
-  Value (growth)   -0.45        10%          18%
-  Tech sector       0.35        12%          14%
-  Momentum          0.30         8%           8%
-  Size             -0.20         6%           3%
-  Other factors     various     various       5%
+  市場            1.15      16%          42%
+  價值（增長型）  -0.45     10%          18%
+  科技板塊         0.35     12%          14%
+  動量             0.30      8%           8%
+  規模            -0.20      6%           3%
+  其他因子         各異      各異          5%
   ────────────────────────────────────────────────────────
-  TOTAL FACTOR RISK                          90%
-  Specific risk                              10%
+  因子風險合計                           90%
+  特有風險                               10%
   ────────────────────────────────────────────────────────
-  TOTAL                                     100%
+  合計                                  100%
 
-INTERPRETATION:
-  This portfolio's risk is 90% driven by factors and
-  only 10% by individual stock selection.
+解讀：
+  此投資組合 90% 的風險由因子驅動，
+  僅 10% 來自個股選擇。
   
-  The largest risk is MARKET exposure (42%), followed
-  by GROWTH tilt (18%) and TECH concentration (14%).
+  最大風險來源是市場敞口（42%），
+  其次是增長型偏重（18%）和科技板塊集中（14%）。
   
-  ACTION ITEMS:
-  - If you want less risk, reduce market beta (add bonds)
-  - If you want less factor concentration, balance
-    growth with some value exposure
-  - The tech overweight contributes 14% of risk;
-    consider diversifying sectors
-  - Specific risk is low (10%), meaning diversification
-    across 15 stocks has done its job
+  行動建議：
+  - 若想降低風險，減低市場貝塔（增加債券）
+  - 若想降低因子集中度，以部分價值股平衡增長股敞口
+  - 科技板塊超配貢獻了14%的風險；
+    考慮分散板塊配置
+  - 特有風險低（10%），說明持有15隻股票
+    的分散化已充分發揮效用
 ```
 
-#### 8. Limitations of VaR and Risk Models
+#### 8. VaR 及風險模型的局限性
 
-No discussion of risk models is complete without a thorough understanding of their limitations. These limitations have caused real-world catastrophes.
+任何關於風險模型的討論，若不深入探討其局限性，都是不完整的。這些局限性已在現實世界中造成了真實的災難。
 
 ```
-CRITICAL LIMITATIONS OF VaR
+VaR 的關鍵局限性
 
-LIMITATION 1: VaR SAYS NOTHING ABOUT TAIL LOSSES
-  VaR: "95% of the time, losses will not exceed $50,000"
+局限性一：VaR 對尾部損失隻字不提
+  VaR：「95%的情況下，損失不會超過$50,000」
   
-  But what about the other 5%?
-  Could be -$55,000 or -$5,000,000
-  VaR treats both the same.
+  但其餘 5% 怎麼辦？
+  可能是 -$55,000，也可能是 -$5,000,000
+  VaR 對兩者一視同仁。
   
-  SOLUTION: Use CVaR (Expected Shortfall) to measure
-  the average loss in the tail.
+  解決方案：使用 CVaR（預期損失）來衡量
+  尾部的平均損失。
 
-LIMITATION 2: VaR ASSUMES "NORMAL" CONDITIONS
-  VaR is calibrated to normal market behavior.
-  During crises, volatilities spike, correlations
-  change, liquidity evaporates, and the rules change.
+局限性二：VaR 假設市場處於「正常」狀態
+  VaR 是基於正常市場行為校準的。
+  危機期間，波動性急升，相關係數改變，
+  流動性消失殆盡，規則隨之改變。
   
-  The worst days in market history all look like this:
+  市場歷史上最糟糕的日子都呈現這種情況：
   
-  VaR said:    "Worst case is -3%"
-  Reality:     "-12% in one day"
-  Explanation: "That was a 9-sigma event"
-  Translation: "Our model was wrong"
+  VaR 說：    「最壞情況是 -3%」
+  現實：       「單日下跌 -12%」
+  解釋：       「那是一個9個標準差事件」
+  潛台詞：     「我們的模型錯了」
   
-  SOLUTION: Supplement VaR with stress tests that
-  do not rely on normal-market assumptions.
+  解決方案：以不依賴正常市場假設的壓力測試
+  作為 VaR 的補充。
 
-LIMITATION 3: VaR CREATES FALSE CONFIDENCE
+局限性三：VaR 製造虛假信心
   ┌─────────────────────────────────────────────┐
   │                                             │
-  │  "Our VaR is only $5 million, so we can     │
-  │   increase leverage."                       │
+  │  「我們的 VaR 只有500萬美元，               │
+  │   所以我們可以進一步加槓桿。」              │
   │                                             │
-  │  This reasoning CAUSED the 2008 crisis.     │
-  │  Banks used low VaR numbers to justify      │
-  │  extreme leverage. When VaR models broke    │
-  │  down during the crisis, losses were        │
-  │  10-50x the VaR estimate.                   │
+  │  這種邏輯正是2008年危機的導火線。           │
+  │  銀行利用低 VaR 數字為極端槓桿辯護。        │
+  │  當危機期間 VaR 模型失效，實際損失          │
+  │  高達 VaR 估算值的10至50倍。               │
   │                                             │
-  │  RULE: VaR is a MINIMUM risk estimate,      │
-  │  not a maximum. Actual losses can and will  │
-  │  exceed VaR regularly.                      │
+  │  原則：VaR 是風險的最低估計，               │
+  │  而非上限。實際損失完全可以而且將會         │
+  │  定期超過 VaR。                             │
   │                                             │
   └─────────────────────────────────────────────┘
 
-LIMITATION 4: CORRELATION BREAKDOWN
-  VaR models assume correlations are stable.
-  During crises, correlations spike toward 1.0.
+局限性四：相關係數在危機時崩潰
+  VaR 模型假設相關係數穩定。
+  危機期間，相關係數會急升至接近1.0。
   
-  Normal market:          Crisis:
-  Stock A ── 0.3 ── Stock B   Stock A ── 0.9 ── Stock B
-  Stock A ── 0.2 ── Stock C   Stock A ── 0.85── Stock C
+  正常市場：                  危機時：
+  股票A ── 0.3 ── 股票B   股票A ── 0.9 ── 股票B
+  股票A ── 0.2 ── 股票C   股票A ── 0.85── 股票C
   
-  Diversification benefit disappears precisely when
-  you need it most. VaR understates crisis-period risk.
+  分散投資的效益恰恰在你最需要它的時候消失了。
+  VaR 在危機時期低估風險。
 
-LIMITATION 5: LIQUIDITY RISK IS INVISIBLE TO VaR
-  VaR assumes you can sell at current market prices.
-  During crises, bid-ask spreads widen 5-10x, some
-  assets become completely illiquid.
+局限性五：VaR 對流動性風險視而不見
+  VaR 假設你能以當前市場價格賣出資產。
+  危機期間，買賣差價擴大5至10倍，
+  部分資產完全失去流動性。
   
-  Your VaR might say: "Sell $1M of bonds at -2% loss"
-  Reality during crisis: "Cannot sell bonds at any price"
+  VaR 可能顯示：「以 -2% 的損失賣出100萬美元債券」
+  危機現實：     「無法以任何價格賣出債券」
   
-  SOLUTION: Apply liquidity adjustments to VaR.
-  Add extra risk for illiquid positions.
+  解決方案：對 VaR 進行流動性調整，
+  對流動性差的持倉增加額外風險。
 
-LIMITATION 6: MODEL RISK
-  Every VaR model is wrong. The question is how wrong.
+局限性六：模型風險
+  每個 VaR 模型都是錯的，問題只在於錯到什麼程度。
   
-  Parametric VaR: wrong because returns are not normal
-  Historical VaR: wrong because the future is not the past
-  Monte Carlo VaR: wrong because the model is misspecified
+  參數法 VaR：錯誤，因為回報並非正態分布
+  歷史模擬法：錯誤，因為未來並非過去
+  蒙地卡羅法：錯誤，因為模型設定存在偏差
   
-  Using VaR without understanding its limitations
-  is worse than not using VaR at all, because it
-  creates an illusion of precision.
+  在不理解局限性的情況下使用 VaR，
+  比完全不使用 VaR 更危險，
+  因為它製造了一種精確的假象。
 ```
 
 ```
-THE "COBRA EFFECT" OF VaR
+VaR 的「眼鏡蛇效應」
 
-Named after a real historical event in colonial India
-where a bounty on cobras led to cobra FARMING, making
-the problem worse.
+這個名稱源自英屬印度時代的一個真實歷史事件：
+當局對眼鏡蛇設立賞金，結果促使人們養殖眼鏡蛇，
+令問題更加惡化。
 
-VaR can create perverse incentives:
+VaR 同樣可能製造反效果的誘因：
 
-1. VaR-CONSTRAINED TRADERS:
-   Traders with VaR limits may restructure portfolios
-   to minimize REPORTED VaR while taking on the same
-   or MORE actual risk.
+1. 受 VaR 限制的交易員：
+   設有 VaR 限額的交易員可能重組投資組合，
+   以最小化所呈報的 VaR，同時承擔同等甚至更大的實際風險。
    
-   Example: Selling deep out-of-the-money options
-   has very low VaR (small daily move expected)
-   but enormous tail risk (catastrophic if exercised).
+   例如：賣出深度價外期權的 VaR 極低
+   （預期日損失微小），但尾部風險極大
+   （若被行使則損失災難性）。
    
-   VaR says: "Low risk"
-   Reality: "Picking up pennies in front of steamrollers"
+   VaR 顯示：「風險低」
+   現實：     「在壓路機前面撿硬幣」
 
-2. PROCYCLICALITY:
-   In calm markets: VaR is low -> take more risk
-   In volatile markets: VaR rises -> forced to sell
+2. 順周期性：
+   市場平靜時：VaR 低 -> 承擔更多風險
+   市場波動時：VaR 上升 -> 被迫賣出
    
-   This creates a feedback loop:
+   這形成一個反饋循環：
    ┌──────────────────────────────────────────┐
-   │  Market drops                            │
+   │  市場下跌                                │
    │     ↓                                    │
-   │  Volatility rises                        │
+   │  波動性上升                              │
    │     ↓                                    │
-   │  VaR increases                           │
+   │  VaR 增加                                │
    │     ↓                                    │
-   │  Risk limits breached                    │
+   │  突破風險限額                            │
    │     ↓                                    │
-   │  Forced selling to reduce VaR            │
+   │  被迫賣出以降低 VaR                      │
    │     ↓                                    │
-   │  Market drops further                    │
+   │  市場進一步下跌                          │
    │     ↓                                    │
-   │  REPEAT                                  │
+   │  循環往復                                │
    └──────────────────────────────────────────┘
    
-   VaR-based risk management can AMPLIFY crashes.
+   基於 VaR 的風險管理可能放大市場崩盤。
 ```
 
-#### 9. Putting It All Together: A Complete Risk Measurement Framework
+#### 9. 整合應用：完整的風險衡量框架
 
 ```
-COMPREHENSIVE RISK MEASUREMENT APPROACH
+全面風險衡量方法
 
-Do not rely on any single measure. Use ALL of these:
+不要依賴任何單一指標，應結合以下所有工具：
 
   ┌──────────────────────────────────────────────────────┐
-  │  MEASURE        PURPOSE         WHAT IT CATCHES      │
+  │  指標            用途            能捕捉的風險        │
   │──────────────────────────────────────────────────────│
-  │  VaR (95%)      Daily risk      Normal daily losses  │
-  │  VaR (99%)      Tail risk       Rare but plausible   │
-  │  CVaR           Tail severity   How bad the bad gets │
-  │  Stress tests   Extreme events  Model-free scenarios │
-  │  Factor decomp  Risk sources    Where risk comes from│
-  │  Concentration  Single names    Idiosyncratic risk   │
-  │  Correlation    Diversification Hidden dependencies  │
-  │  Drawdown       Cumulative loss Sustained declines   │
-  │  Liquidity      Exit ability    Can you sell?         │
+  │  VaR（95%）      日常風險監控    正常日損失          │
+  │  VaR（99%）      尾部風險        罕見但合理的損失    │
+  │  CVaR            尾部嚴重性      最壞情況有多壞      │
+  │  壓力測試        極端事件        無模型依賴的情景    │
+  │  因子分解        風險來源        風險從哪裡來        │
+  │  集中度          單一持倉        特有風險            │
+  │  相關性          分散化          隱藏的相依關係      │
+  │  回撤            累計損失        持續下行            │
+  │  流動性          退出能力        能否賣出？          │
   └──────────────────────────────────────────────────────┘
 
-RISK DASHBOARD (what professionals monitor daily):
+風險儀表板（專業人士每日監控的內容）：
 
   ┌─────────────────────────────────────┐
-  │  RISK DASHBOARD - April 12, 2026   │
+  │  風險儀表板 - 2026年4月12日         │
   │                                     │
-  │  Portfolio Value:    $500,000        │
-  │  Daily P&L:          -$2,100        │
+  │  投資組合市值：    $500,000         │
+  │  當日損益：        -$2,100          │
   │                                     │
-  │  1-Day 95% VaR:     $8,200         │
-  │  1-Day 99% VaR:     $14,500        │
-  │  10-Day 95% VaR:    $25,900        │
-  │  95% CVaR:          $18,600        │
+  │  1天期 95% VaR：  $8,200           │
+  │  1天期 99% VaR：  $14,500          │
+  │  10天期 95% VaR： $25,900          │
+  │  95% CVaR：       $18,600          │
   │                                     │
-  │  Portfolio Vol:      14.2% (ann)    │
-  │  Market Beta:        0.85           │
-  │  Sharpe Ratio:       1.12           │
+  │  投資組合波動性：  14.2%（年化）    │
+  │  市場貝塔：        0.85             │
+  │  夏普比率：        1.12             │
   │                                     │
-  │  Max Drawdown (YTD): -6.3%         │
-  │  Current Drawdown:   -2.1%         │
+  │  年初至今最大回撤：-6.3%           │
+  │  當前回撤：        -2.1%           │
   │                                     │
-  │  Largest Position:   AAPL (7.2%)   │
-  │  Largest Sector:     Tech (28.1%)  │
+  │  最大單一持倉：    AAPL（7.2%）    │
+  │  最大板塊：        科技（28.1%）   │
   │                                     │
-  │  STRESS TEST RESULTS:              │
-  │  2008-style crisis: -31.2%         │
-  │  Rate shock +300bp: -18.7%         │
-  │  Tech crash -50%:   -22.4%         │
+  │  壓力測試結果：                    │
+  │  2008年式危機：   -31.2%           │
+  │  加息 +300bp：    -18.7%           │
+  │  科技股崩盤-50%： -22.4%           │
   │                                     │
-  │  ALERTS: None                       │
+  │  警報：無                           │
   └─────────────────────────────────────┘
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "VaR tells me my maximum possible loss."**
+**誤解一：「VaR 告訴我可能損失的最大金額。」**
 
-VaR tells you the loss that will be exceeded a certain percentage of the time. It is a threshold, not a ceiling. If your 95% VaR is $50,000, you should expect to lose MORE than $50,000 about once a month (one day in twenty). VaR says nothing about how much more. Your actual loss could be $55,000 or $500,000. This is why CVaR exists -- it measures the average loss when VaR is exceeded.
+VaR 告訴你的是在某個特定時間比例內可能被超越的損失門檻。它是一條界線，不是上限。如果你的 95% VaR 是 $50,000，你應該預計每個月大約有一天（每二十天中的一天）損失會超過 $50,000。VaR 對超出的金額隻字不提。你的實際損失可能是 $55,000，也可能是 $500,000。這正是 CVaR 存在的原因——它衡量的是超過 VaR 時的平均損失。
 
-**Misconception 2: "A lower VaR always means a safer portfolio."**
+**誤解二：「VaR 較低就一定代表投資組合更安全。」**
 
-A portfolio can have low VaR but extreme tail risk. Selling deep out-of-the-money put options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic -- the position can lose 10-50 times its VaR in a single day. This is exactly the risk profile that destroyed Long-Term Capital Management, AIG, and numerous hedge funds. Low VaR with high CVaR is a major warning sign.
+一個投資組合可以 VaR 很低，但尾部風險極高。賣出深度價外的認沽期權的 VaR 非常低，因為日常預期損失微乎其微。但其尾部風險卻是災難性的——該倉位在單日內可能損失其 VaR 的10至50倍。這正是摧毀長期資本管理公司、美國國際集團以及無數對沖基金的風險特徵。低 VaR 配合高 CVaR，是一個重大的警示訊號。
 
-**Misconception 3: "Historical VaR captures all the risks because it uses real data."**
+**誤解三：「歷史 VaR 使用了真實數據，因此能捕捉所有風險。」**
 
-Historical VaR can only capture events that occurred in your data window. If your window is 2015-2019, it does not contain a financial crisis. Your VaR will dramatically understate the risk of crisis-type events. Even a 20-year window may not contain the specific type of crisis that hits next. Historical simulation is useful but must be supplemented with hypothetical stress tests.
+歷史 VaR 只能捕捉你的數據視窗內發生過的事件。如果你的視窗是2015年至2019年，其中並不包含金融危機。你的 VaR 將嚴重低估危機類事件的風險。即使是20年的視窗，也可能不包含下次危機的具體類型。歷史模擬法有其用處，但必須輔以假設性壓力測試。
 
-**Misconception 4: "Monte Carlo simulation gives accurate results because it runs thousands of scenarios."**
+**誤解四：「蒙地卡羅模擬運行了數千個情景，因此結果準確。」**
 
-Running 10,000 scenarios sounds impressive, but if the underlying model is wrong, all 10,000 scenarios are wrong. Monte Carlo is only as good as the assumptions about return distributions, correlations, and volatilities that you feed into it. Garbage in, garbage out -- but with 10,000 rows of garbage instead of one. The precision of the output far exceeds the accuracy of the inputs.
+運行10,000個情景聽起來令人印象深刻，但如果底層模型有誤，所有10,000個情景都是錯的。蒙地卡羅法的質素取決於你輸入的回報分布、相關係數和波動性假設。垃圾進，垃圾出——只不過這次有10,000行垃圾，而非一行。輸出結果的精確度遠遠超過輸入數據的準確性。
 
-**Misconception 5: "Factor risk models capture all sources of risk."**
+**誤解五：「因子風險模型能捕捉所有風險來源。」**
 
-Factor models capture systematic risk -- the risk from exposure to known factors like market, size, value, and momentum. But they miss event risk (a specific company's CEO being arrested), liquidity risk (an asset becoming impossible to sell), and structural risk (an entire market closing, as happened with Russian stocks in 2022). Factor models are a powerful lens but not a complete picture.
+因子模型捕捉的是系統性風險——市場、規模、價值和動量等已知因子所帶來的風險。但它忽略了事件風險（某家公司的行政總裁被捕）、流動性風險（某資產變得無法賣出）和結構性風險（整個市場關閉，如2022年俄羅斯股票市場）。因子模型是一個強大的視角，但並非完整的圖景。
 
-**Misconception 6: "Stress testing is only for institutions."**
+**誤解六：「壓力測試只適用於機構投資者。」**
 
-Individual investors can and should run simple stress tests. Take your current portfolio and ask: "What happens if the stock market drops 40%? What happens if interest rates rise 3%? What happens if my largest holding goes to zero?" You do not need a Bloomberg terminal. You need a spreadsheet and an honest assessment of each position's sensitivity to extreme moves. If the worst case is unsurvivable, reduce risk now, before the event occurs.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What confidence level and time horizon should I use for VaR?**
-
-A: For daily monitoring, 95% 1-day VaR is standard. It gives you a practical sense of your daily risk. For risk budgeting and limit-setting, 99% 10-day VaR is more common because it captures more severe events over a longer horizon. Banks are required by regulators to use 99% 10-day VaR for capital calculations. As an individual investor, 95% 1-day VaR is sufficient for monitoring, but always supplement with CVaR and stress tests.
-
-**Q2: How many days of historical data should I use for historical simulation VaR?**
-
-A: At minimum, 250 trading days (one year). Ideally, 500-1000 days (2-4 years). Using less than 250 days produces unstable estimates. Using more than 1000 days includes very old data that may not be relevant to current market conditions. Some practitioners use exponentially weighted data, where recent observations get more weight than older ones, to balance recency with sample size.
-
-**Q3: Can I calculate VaR for my personal portfolio?**
-
-A: Yes. The simplest approach is to calculate the daily volatility of your portfolio's historical returns and multiply by the appropriate z-score. If your portfolio's daily standard deviation is 0.8%, your 95% 1-day VaR is 0.8% x 1.65 = 1.32% of portfolio value. On a $300,000 portfolio, that is $3,960. Many portfolio analytics tools (Portfolio Visualizer, Morningstar, some brokerage platforms) provide VaR calculations automatically.
-
-**Q4: What is the difference between VaR and maximum drawdown?**
-
-A: VaR measures the worst expected loss on a single day (or short period) at a given confidence level. Maximum drawdown measures the largest peak-to-trough decline over a given period, which can span weeks or months. A portfolio can have low daily VaR but a large maximum drawdown if it experiences many consecutive small losses. For long-term investors, maximum drawdown is often a more meaningful risk measure because it captures the cumulative impact of sustained declines.
-
-**Q5: How do banks use VaR for regulation?**
-
-A: Under Basel III regulations, banks must hold capital equal to at least 3 times their 99% 10-day VaR. This is meant to ensure banks have enough capital to survive extreme events. After 2008, regulators added Stressed VaR (VaR calculated using crisis-period data) and the Fundamental Review of the Trading Book (FRTB) framework, which replaces VaR with Expected Shortfall (CVaR) as the primary risk measure. The shift to CVaR reflects the recognition that VaR's blindness to tail severity was a major contributor to the crisis.
-
-**Q6: How do I stress test a portfolio with options?**
-
-A: Options stress testing requires repricing options under each stress scenario using an options pricing model (Black-Scholes or similar). You cannot simply apply percentage moves to option values because options have non-linear payoffs. If you own a call option and the stock drops 30%, the option might lose 60%, 80%, or 100% depending on its strike price and time to expiration. Most brokerage platforms with options trading offer a "what-if" or "theoretical" tool that reprices your options under different scenarios. Use these tools.
-
-**Q7: Why did regulators shift from VaR to CVaR after the financial crisis?**
-
-A: VaR's fundamental flaw is that it ignores the severity of tail losses. Two portfolios can have identical VaR but dramatically different tail risk. Before 2008, banks optimized their portfolios to minimize VaR, which led them to take on positions with enormous tail risk but low day-to-day risk (like mortgage-backed securities). CVaR penalizes tail severity, so portfolios optimized for CVaR are more robust to extreme events. The shift from VaR to CVaR in regulation is one of the most important post-crisis reforms.
+個人投資者完全可以而且應該進行簡單的壓力測試。拿出你目前的投資組合，問自己：「如果股市下跌40%會怎樣？如果利率上升3%會怎樣？如果我持有最多的股票歸零會怎樣？」你不需要彭博終端，你只需要一張試算表，以及對每個持倉在極端波動下敏感度的誠實評估。如果最壞的情況是你無法承受的，就在事件發生之前降低風險。
 
 ---
 
+### d) 常見問答
+
+**問題一：VaR 應該選用哪個置信水平和時間區間？**
+
+答：用於日常監控，95%的1天期VaR是標準做法，能讓你對日常風險有切實的感知。用於風險預算和限額設定，99%的10天期VaR更為常見，因為它能捕捉更嚴重的事件，時間跨度也更長。銀行按監管要求必須使用99%的10天期VaR進行資本計算。作為個人投資者，95%的1天期VaR已足夠用於監控，但務必輔以CVaR和壓力測試。
+
+**問題二：歷史模擬法VaR應使用多少天的歷史數據？**
+
+答：最少250個交易日（一年）。理想情況下，500至1000天（2至4年）。使用少於250天的數據會產生不穩定的估算結果。使用超過1000天的數據則包含了可能與當前市場環境不相關的老舊數據。部分從業者採用指數加權數據，使近期觀測值的權重高於較舊的觀測值，以平衡及時性與樣本量的考量。
+
+**問題三：我能為個人投資組合計算VaR嗎？**
+
+答：可以。最簡單的方法是計算投資組合歷史回報的日標準差，再乘以相應的Z值。如果你的投資組合日標準差為0.8%，你的95%的1天期VaR就是0.8%×1.65=1.32%的投資組合市值。以$300,000的投資組合計算，即為$3,960。許多投資組合分析工具（如Portfolio Visualizer、晨星，以及部分券商平台）都能自動提供VaR計算。
+
+**問題四：VaR與最大回撤有何區別？**
+
+答：VaR衡量的是在給定置信水平下，單日（或短期）的最大預期損失。最大回撤衡量的是在給定時期內，從峰值到谷底的最大跌幅，可能橫跨數週或數月。一個投資組合的日VaR可以很低，但如果持續出現連續小額虧損，最大回撤可能依然相當大。對長期投資者而言，最大回撤往往是更有意義的風險指標，因為它捕捉了持續下行的累積影響。
+
+**問題五：銀行如何將VaR用於監管？**
+
+答：根據《巴塞爾三》規定，銀行必須持有至少相當於其99%的10天期VaR三倍的資本，以確保銀行有足夠資本抵禦極端事件。2008年後，監管機構增加了壓力VaR（使用危機時期數據計算的VaR），以及《交易帳簿根本性審查》（FRTB）框架，以預期損失（CVaR）取代VaR作為主要風險指標。轉向CVaR，反映了監管機構對VaR忽視尾部嚴重性這一重大缺陷的認識——這一缺陷正是危機的主要推手之一。
+
+**問題六：如何對含有期權的投資組合進行壓力測試？**
+
+答：期權的壓力測試需要使用期權定價模型（如Black-Scholes或類似模型）對各壓力情景下的期權重新定價。你不能簡單地將百分比跌幅應用於期權價值，因為期權具有非線性的收益結構。如果你持有一份認購期權，而標的股票下跌30%，該期權可能損失60%、80%，甚至100%，具體取決於其行使價和到期日。大多數提供期權交易的券商平台都配備了「假設分析」或「理論值計算」工具，可在不同情景下對期權重新定價。請善加利用這些工具。
+
+**問題七：為何監管機構在金融危機後從VaR轉向CVaR？**
+
+答：VaR的根本缺陷在於它忽略了尾部損失的嚴重程度。兩個投資組合的VaR可以完全相同，但尾部風險卻截然不同。2008年前，銀行為最小化VaR而優化投資組合，導致它們持有了尾部風險巨大、但日常風險極低的倉位（例如按揭抵押證券）。CVaR對尾部嚴重性進行懲罰，因此針對CVaR優化的投資組合對極端事件更具韌性。從VaR到CVaR的監管轉變，是危機後最重要的監管改革之一。
+
 ---
 
-## YouTube Script
+---
 
-**Week 42: Value at Risk and Risk Models**
+## YouTube 腳本
 
-[VISUAL: Title card -- "VaR, CVaR, and Risk Models: Quantifying Portfolio Risk"]
+**第42週：風險值與風險模型**
 
-**Alex**: Last week we covered the conceptual foundations of risk management. This week we are going to put numbers on everything. We are going to learn how institutions measure risk, where those measurements fail, and how to build a complete risk framework.
+[VISUAL: 標題卡——「VaR、CVaR 與風險模型：量化投資組合風險」]
 
-**Sam**: This is the quantitative side -- the math behind risk management.
+**Horace（陳馬）**：上週我們介紹了風險管理的概念基礎。本週我們要為一切賦予具體數字，學習機構如何衡量風險，這些衡量方法在哪裡失效，以及如何建立一個完整的風險框架。
 
-**Alex**: Right. And the centerpiece of institutional risk measurement is Value at Risk, or VaR. It is the most widely used risk metric in finance.
+**Stella（小魚）**：這就是量化那一面——風險管理背後的數學。
 
-**Sam**: I have heard the term but never really understood what it means.
+**Horace（陳馬）**：沒錯。而機構風險衡量的核心，就是風險值，即VaR。它是金融界使用最廣泛的風險指標。
 
-[VISUAL: VaR definition with bell curve diagram]
+**Stella（小魚）**：我聽過這個詞，但從來沒真正搞懂它的意思。
 
-**Alex**: VaR answers one specific question: "What is the maximum loss I should expect on a normal day, at a given confidence level?" For example, "there is a 95% probability that the portfolio will not lose more than $50,000 in a single day." That is a 95% 1-day VaR of $50,000.
+[VISUAL: VaR 定義配鐘形曲線圖]
 
-**Sam**: So on 95 out of 100 days, losses will be less than $50,000?
+**Horace（陳馬）**：VaR 回答一個具體的問題：「在正常交易日，以給定的置信水平，我預期的最大損失是多少？」例如，「有95%的概率，投資組合在單日內的損失不會超過$50,000。」這就是95%的1天期VaR為$50,000。
 
-**Alex**: Exactly. But here is the critical nuance that most people miss. VaR says NOTHING about what happens on the other 5 days. The loss could be $55,000 or $5 million. VaR only tells you about the boundary -- the 95th percentile. It is a fence, not a wall.
+**Stella（小魚）**：所以在100個交易日中的95天，損失會低於$50,000？
 
-**Sam**: That seems like a pretty big gap. How do you know what happens beyond the fence?
+**Horace（陳馬）**：正是。但這裡有一個大多數人都忽略的關鍵細節。VaR 對另外5天發生的事情隻字不提。損失可以是$55,000，也可以是$500萬。VaR 只告訴你那條界線——第95個百分位。它是一道圍欄，不是一堵牆。
 
-**Alex**: That is exactly the right question, and it is what led to the 2008 crisis. But we will get there. First, let me explain the three ways VaR is calculated, because the method matters a lot.
+**Stella（小魚）**：這個缺口看起來挺大的。你怎麼知道圍欄之外發生了什麼？
 
-[VISUAL: "Three Methods of Calculating VaR" overview slide]
+**Horace（陳馬）**：這正是正確的問題，也正是2008年危機的導火線。不過我們稍後再談。先讓我解釋VaR的三種計算方法，因為方法本身非常重要。
 
-**Alex**: Method one is parametric VaR, also called the variance-covariance method. It is the simplest. You assume that returns follow a normal distribution -- the classic bell curve. Then VaR is just a formula.
+[VISUAL: 「VaR 的三種計算方法」概覽幻燈片]
 
-**Sam**: What is the formula?
+**Horace（陳馬）**：第一種方法是參數法VaR，又叫方差-協方差法，是最簡單的一種。它假設回報服從正態分布——即經典的鐘形曲線。這樣一來，VaR 就只需套公式計算。
 
-**Alex**: VaR equals your portfolio value times the z-score times the portfolio's daily standard deviation. For 95% confidence, the z-score is 1.65. For 99%, it is 2.33. If your portfolio is $500,000 and the daily standard deviation is 1%, your 95% VaR is $500,000 times 1.65 times 0.01, which equals $8,250.
+**Stella（小魚）**：公式是什麼？
 
-[VISUAL: Step-by-step parametric VaR calculation]
+**Horace（陳馬）**：VaR 等於投資組合市值乘以Z值再乘以投資組合的日標準差。95%置信水平的Z值是1.65，99%的Z值是2.33。如果你的投資組合是$500,000，日標準差是1%，那麼95%的VaR就是$500,000×1.65×0.01，等於$8,250。
 
-**Sam**: That seems straightforward. What is the catch?
+[VISUAL: 參數法 VaR 計算步驟]
 
-**Alex**: The catch is the assumption of normality. Real stock market returns have fat tails -- extreme events happen far more often than a normal distribution predicts. A normal distribution says a 4-sigma event should happen once every 126 years. In reality, it happens every 2-5 years. A 5-sigma event should theoretically happen once in 3.5 million years. The stock market has had several in just the last few decades.
+**Stella（小魚）**：聽起來很直接，問題在哪裡？
 
-[ANIMATION: animation/week42_fat_tails.py -- Animated overlay of the normal distribution (bell curve) and the actual distribution of S&P 500 daily returns from 1950 to 2025. The animation starts with both distributions overlapping at the center, looking nearly identical. Then it zooms into the left tail (losses), where the actual distribution dramatically exceeds the normal distribution. Annotations appear pointing to specific extreme days: Black Monday 1987 (-22.6%), COVID crash March 2020 (-12%), Flash Crash 2010 (-9%), and several other events. A counter tallies the number of actual events beyond 3, 4, and 5 standard deviations compared to what the normal distribution predicts. The difference is striking: hundreds of events where the normal model predicted single digits.]
+**Horace（陳馬）**：問題在於正態分布的假設。真實的股票市場回報具有厚尾效應——極端事件發生的頻率遠比正態分布預測的高得多。正態分布說，4個標準差的事件每126年才會發生一次；但現實中，每2至5年就會出現一次。5個標準差的事件在理論上每350萬年才發生一次，但股票市場在過去幾十年裡已經出現了好幾次。
 
-**Sam**: That is shocking. The fat tails are dramatically thicker than the normal distribution predicts. So parametric VaR, which assumes normality, systematically underestimates the probability of extreme losses?
+[ANIMATION: animation/week42_fat_tails.py——動畫對比正態分布（鐘形曲線）與1950年至2025年間標普500日回報的實際分布。動畫先從兩條分布在中心區域幾乎重合開始，看似差別不大，然後逐漸拉近至左側尾部（損失部分），顯示實際分布遠遠超出正態分布的預測範圍。動畫中標註了幾個具體極端事件：1987年黑色星期一（-22.6%）、2020年新冠疫情崩盤（-12%）、2010年閃崩（-9%）等。一個計數器顯示超過3個、4個和5個標準差的實際事件數量，對比正態分布的預測值——差距觸目驚心：實際事件數以百計，而正態分布的預測只是個位數。]
 
-**Alex**: Precisely. Parametric VaR works fine for measuring the risk of ordinary daily movements. But it fails catastrophically at measuring tail risk -- the very risk that can destroy your portfolio.
+**Stella（小魚）**：這太驚人了。厚尾效應比正態分布預測的厚了太多。所以假設正態分布的參數法VaR，系統性地低估了極端損失的概率？
 
-**Sam**: What is method two?
+**Horace（陳馬）**：正是。參數法VaR用於衡量日常普通波動的風險還不錯，但在衡量尾部風險時卻慘敗——而那恰恰是可能摧毀你投資組合的風險。
 
-**Alex**: Historical simulation. Instead of assuming a distribution, you take actual historical data. You collect hundreds of past daily returns for your portfolio's assets. Then you apply each historical day's returns to your current portfolio and ask, "What would my P&L have been?" You sort all the hypothetical P&L values from worst to best, and VaR is just the loss at the 5th percentile.
+**Stella（小魚）**：第二種方法是什麼？
 
-[VISUAL: Sorted histogram of historical simulation results with VaR marked]
+**Horace（陳馬）**：歷史模擬法。與其假設某種分布，不如直接使用真實的歷史數據。你收集過去幾百天的投資組合資產日回報。然後將每個歷史交易日的回報應用於你目前的投資組合，問一句：「我的損益會是多少？」把所有模擬損益從最差到最好排列，VaR 就是第5個百分位的損失。
 
-**Sam**: That seems much better. No assumptions about normality.
+[VISUAL: 歷史模擬法結果的排列直方圖，標記 VaR 位置]
 
-**Alex**: It has advantages. It captures fat tails because they are in the actual data. It captures the actual correlations between assets. And it handles non-linear instruments like options better than parametric VaR.
+**Stella（小魚）**：這聽起來好多了，不需要假設正態分布。
 
-**Sam**: But there is a catch here too.
+**Horace（陳馬）**：它有其優勢。它能捕捉厚尾效應，因為這些數據就在實際歷史中。它也能捕捉資產之間的實際相關性。而且它比參數法VaR更能處理像期權這樣的非線性工具。
 
-**Alex**: Two catches. First, it assumes the future will look like the past. If your historical window is 2015-2019 -- a calm bull market -- your VaR will be low because there were no crises in that period. But that does not mean crises will not happen going forward.
+**Stella（小魚）**：但這裡也有個陷阱。
 
-**Sam**: Cherry-picking the sample period.
+**Horace（陳馬）**：有兩個陷阱。第一，它假設未來會重演過去。如果你的歷史視窗是2015年至2019年——一段平靜的牛市——你的VaR就會偏低，因為那段時期沒有危機。但這不代表未來不會發生危機。
 
-**Alex**: It does not even require intentional cherry-picking. Any fixed window automatically excludes some historical events. The second catch is the ghost effect. When an extreme day rolls off the end of your data window, VaR can drop overnight even though nothing about your portfolio changed. On January 1st of a new year, the worst day from four years ago might fall out of your 1000-day window, and suddenly your VaR looks 20% lower.
+**Stella（小魚）**：選擇性地挑選樣本區間。
 
-[VISUAL: Timeline showing data window shifting and extreme events falling off]
+**Horace（陳馬）**：甚至不需要刻意為之。任何固定的數據視窗都自動排除了某些歷史事件。第二個陷阱是幽靈效應。當一個極端交易日從你的數據視窗末端消失，即使你的投資組合分毫未動，VaR也可能在一夜之間下降。新年伊始，四年前最糟糕的那一天可能從你1000天的視窗中滾出去，你的VaR突然看起來低了20%。
 
-**Sam**: That is unsettling. What about the third method?
+[VISUAL: 時間軸顯示數據視窗滾動和極端事件消失]
 
-**Alex**: Monte Carlo simulation. This is the most sophisticated approach. You build a mathematical model of how your assets behave -- their expected returns, volatilities, correlations, and importantly, the shape of the return distribution including fat tails. Then you generate thousands of random scenarios from this model and calculate VaR from the simulated distribution.
+**Stella（小魚）**：這讓人很不安。第三種方法呢？
 
-[ANIMATION: animation/week42_monte_carlo.py -- Animated Monte Carlo simulation for a two-asset portfolio. The animation begins with 100 random return pairs being generated and plotted on a scatter plot, showing the correlation structure between the two assets. This scales up rapidly to 1,000, then 5,000, then 10,000 scenarios. A histogram of total portfolio returns builds up on the side as scenarios accumulate. The 95th percentile loss is marked and labeled as VaR. A convergence chart in the corner shows how the VaR estimate stabilizes as more scenarios are added, starting volatile with few scenarios and settling to a stable value by 10,000. The final frame compares the Monte Carlo VaR to the parametric VaR, showing the Monte Carlo estimate is larger due to the fat-tailed distribution used in the simulation.]
+**Horace（陳馬）**：蒙地卡羅模擬。這是最複雜的方法。你建立一個數學模型，描述你的資產行為——預期回報、波動性、相關係數，以及最重要的——回報分布的形狀，包括厚尾效應。然後你從這個模型生成數以千計的隨機情景，再從模擬分布中計算VaR。
 
-**Sam**: So Monte Carlo can model fat tails if you tell it to?
+[ANIMATION: animation/week42_monte_carlo.py——對一個兩資產投資組合的蒙地卡羅模擬動畫。動畫從生成100個隨機回報對開始，在散點圖上呈現，展示兩個資產之間的相關結構。隨後情景數迅速增加到1,000個、5,000個、10,000個。隨著情景不斷累積，側邊的投資組合總回報直方圖同步生成。第95百分位的損失被標記並標示為VaR。右下角的收斂圖表顯示VaR估算值如何隨情景數增加而趨於穩定——情景較少時波動劇烈，到10,000個情景時趨於穩定。最後一幀對比蒙地卡羅法VaR與參數法VaR，顯示蒙地卡羅法的估算值更大，原因是模擬中採用了厚尾分布。]
 
-**Alex**: Exactly. You can use Student's t-distribution or other fat-tailed distributions instead of the normal distribution. You can model time-varying volatility. You can model regime changes. Monte Carlo is as good as the model you put into it.
+**Stella（小魚）**：所以蒙地卡羅法可以模擬厚尾效應，只要你告訴它這樣做？
 
-**Sam**: And that is also its weakness -- it is only as good as the model.
+**Horace（陳馬）**：正是。你可以使用Student t分布或其他厚尾分布，而不是正態分布。你可以模擬隨時間變化的波動性，可以模擬市場機制的轉換。蒙地卡羅法的質素取決於你放入其中的模型。
 
-**Alex**: Right. If your model is wrong, running 10,000 scenarios of a wrong model just gives you 10,000 wrong answers. This is called model risk. The output looks precise and scientific -- four decimal places, thousands of scenarios -- but the precision is meaningless if the underlying assumptions are flawed.
+**Stella（小魚）**：而這也是它的弱點——它只有模型那麼好。
 
-[VISUAL: Comparison table of three VaR methods -- strengths and weaknesses]
+**Horace（陳馬）**：對。如果你的模型有誤，對一個錯誤的模型運行10,000個情景，只會給你10,000個錯誤的答案。這就叫做模型風險。輸出結果看起來精確而科學——小數點後四位、數千個情景——但如果底層假設有誤，這份精確毫無意義。
 
-**Sam**: OK, so all three VaR methods have limitations. What do we do about it?
+[VISUAL: 三種 VaR 方法比較表——優點與缺點]
 
-**Alex**: This is where CVaR -- Conditional Value at Risk, also called Expected Shortfall -- comes in. CVaR answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
+**Stella（小魚）**：好，三種VaR方法都有其局限性。我們怎麼辦？
 
-[VISUAL: Bell curve diagram showing VaR boundary and CVaR region in the tail]
+**Horace（陳馬）**：這就是CVaR——條件風險值，又叫預期損失——的用武之地。CVaR回答的是VaR所忽略的問題：「當損失超過VaR時，情況會有多糟？」
 
-**Alex**: VaR tells you the boundary of the worst 5% of outcomes. CVaR tells you the AVERAGE loss within that worst 5%. If your 95% VaR is $50,000, your CVaR might be $78,000. That means when you have a really bad day -- worse than VaR -- the average loss is about $78,000, not $50,000.
+[VISUAL: 鐘形曲線圖，顯示 VaR 邊界和尾部的 CVaR 區域]
 
-**Sam**: Why is that distinction important?
+**Horace（陳馬）**：VaR告訴你最差5%結果的邊界。CVaR告訴你那最差5%之內的平均損失。如果你的95%VaR是$50,000，你的CVaR可能是$78,000。這意味著當你遇到真正糟糕的一天——比VaR更差——平均損失大約是$78,000，而不是$50,000。
 
-**Alex**: Because two portfolios can have identical VaR but completely different CVaR. Imagine Portfolio A and Portfolio B both have a 95% VaR of $50,000. But Portfolio A's worst days are clustered around $55,000-$65,000, while Portfolio B's worst days include occasional losses of $200,000 or even $500,000. Portfolio A's CVaR might be $58,000. Portfolio B's CVaR might be $168,000.
+**Stella（小魚）**：為什麼這個區別很重要？
 
-**Sam**: Same VaR, totally different risk.
+**Horace（陳馬）**：因為兩個投資組合的VaR可以完全相同，CVaR卻截然不同。想象投資組合A和投資組合B的95%VaR都是$50,000。但投資組合A最差的那些日子集中在$55,000至$65,000，而投資組合B最差的日子偶爾會出現$200,000甚至$500,000的損失。投資組合A的CVaR可能是$58,000，投資組合B的CVaR可能是$168,000。
 
-**Alex**: Exactly. And this is not a theoretical concern. Before 2008, many banks had portfolios with moderate VaR but extreme CVaR. They were selling insurance on rare events -- credit default swaps, deep out-of-the-money options -- which had small daily risk but catastrophic tail risk. VaR could not see the difference. CVaR can.
+**Stella（小魚）**：VaR 相同，風險卻天差地別。
 
-**Sam**: Is that why regulators switched from VaR to CVaR after the crisis?
+**Horace（陳馬）**：這不是理論上的擔憂。2008年前，許多銀行的投資組合VaR適中，CVaR卻極高。他們在出售罕見事件的保險——信用違約互換、深度價外期權——日常風險微小，尾部風險卻是災難性的。VaR看不出其中的差別，CVaR卻能。
 
-**Alex**: Precisely. The Basel Committee, which sets global banking regulations, introduced the Fundamental Review of the Trading Book, which replaces VaR with Expected Shortfall as the primary risk measure. CVaR penalizes tail severity, so banks can no longer hide tail risk behind low VaR numbers.
+**Stella（小魚）**：這就是為什麼監管機構在危機後從VaR轉向CVaR？
 
-[VISUAL: VaR vs. CVaR for two portfolios with identical VaR but different tail risk]
+**Horace（陳馬）**：正是。制定全球銀行監管標準的巴塞爾委員會推出了《交易帳簿根本性審查》，以預期損失（CVaR）取代VaR作為主要風險指標。CVaR對尾部嚴重性進行懲罰，銀行再也無法用低VaR數字掩蓋尾部風險。
 
-**Sam**: Let us talk about stress testing. You mentioned this last week as a complement to statistical models.
+[VISUAL: 兩個 VaR 相同但尾部風險不同的投資組合對比]
 
-[VISUAL: "Stress Testing" section header]
+**Stella（小魚）**：我們來談談壓力測試。上週你提到這是統計模型的補充。
 
-**Alex**: Stress testing is fundamentally different from VaR and CVaR. Those are statistical -- they ask, "What is the probability distribution of losses?" Stress testing is scenario-based -- it asks, "What happens if THIS specific thing occurs?"
+[VISUAL: 「壓力測試」章節標題]
 
-**Sam**: Give me examples of stress scenarios.
+**Horace（陳馬）**：壓力測試與VaR和CVaR有著根本的不同。後兩者是統計性的——它們問「損失的概率分布是什麼？」壓力測試是情景性的——它問「如果這件特定的事情發生，會怎樣？」
 
-**Alex**: There are three types. First, historical stress tests. You take actual past crises and apply them to your current portfolio. What would have happened to my portfolio during the 2008 financial crisis? During the COVID crash? During the 2022 rate shock?
+**Stella（小魚）**：能舉幾個壓力情景的例子嗎？
 
-**Sam**: But my portfolio is different from what I would have held during those periods.
+**Horace（陳馬）**：有三種類型。第一種，歷史壓力測試。你取過去真實發生的危機，應用於你目前的投資組合。如果是2008年金融危機，我的投資組合會怎樣？如果是新冠疫情崩盤呢？如果是2022年加息衝擊呢？
 
-**Alex**: That is exactly the point. You apply those historical market moves to your CURRENT portfolio. You know that during the 2008 crisis, the S&P 500 fell 57%, international stocks fell 55%, US bonds rose 8%, REITs fell 65%, and gold rose 25%. Apply those moves to whatever you are holding today.
+**Stella（小魚）**：但我現在的投資組合和那些時期的不同。
 
-[VISUAL: Historical stress test applied to a sample portfolio]
+**Horace（陳馬）**：這正是重點所在。你把那些歷史市場走勢應用於你現在持有的投資組合。你知道2008年危機期間，標普500下跌了57%，國際股票跌了55%，美國債券升了8%，房地產信託基金跌了65%，黃金升了25%。把這些走勢應用於你今天持有的所有資產。
 
-**Alex**: Second type: hypothetical stress tests. You design scenarios that have not happened but are plausible. What if China invades Taiwan and global supply chains collapse? What if the US government defaults on its debt? What if AI causes a technology sector crash of 60%?
+[VISUAL: 歷史壓力測試應用於一個示例投資組合]
 
-**Sam**: Those sound extreme.
+**Horace（陳馬）**：第二種類型：假設性壓力測試。你設計從未發生過但合理可信的情景。如果中國入侵台灣，全球供應鏈崩潰，會怎樣？如果美國政府債務違約呢？如果人工智能引發科技板塊60%的崩盤呢？
 
-**Alex**: They are extreme. That is the point. You are testing the limits of your portfolio's resilience. If a plausible extreme scenario would destroy your portfolio, you need to know that before it happens, not after.
+**Stella（小魚）**：聽起來很極端。
 
-**Sam**: And the third type?
+**Horace（陳馬）**：它們確實極端，這正是重點。你是在測試你投資組合的承受極限。如果一個合理的極端情景會毀掉你的投資組合，你需要在它發生之前就知道，而不是之後。
 
-**Alex**: Sensitivity analysis or factor shocks. You change one risk factor at a time and measure the impact. What happens if interest rates rise 200 basis points? What happens if the S&P drops 30%? What happens if the VIX spikes to 60? This gives you a factor-by-factor understanding of your portfolio's vulnerabilities.
+**Stella（小魚）**：第三種類型呢？
 
-[ANIMATION: animation/week42_stress_test.py -- Interactive stress test dashboard animation. A sample portfolio is displayed: 40% US equities, 20% international equities, 25% bonds, 10% REITs, 5% gold. Five stress scenarios appear as tabs: 2008 crisis, COVID crash, 2022 rate shock, stagflation, and tech bubble burst. When each tab is selected, the portfolio bars animate to show the impact of each scenario on each asset class, with the total portfolio loss prominently displayed. The worst scenario (2008 crisis) is highlighted with a red warning, showing a -34% total portfolio loss. The animation then shows the portfolio being rebalanced -- reducing equities, adding more bonds and gold -- and the stress test results recalculate in real-time, showing improvement in the worst-case scenario.]
+**Horace（陳馬）**：敏感性分析，即因子衝擊。你每次改變一個風險因子，衡量影響。如果利率上升200個基點會怎樣？如果標普500下跌30%呢？如果波動率指數飆升至60呢？這讓你能逐一了解投資組合對各種風險因子的脆弱程度。
 
-**Sam**: That is really powerful. You can see exactly how portfolio changes affect your worst-case outcomes.
+[ANIMATION: animation/week42_stress_test.py——互動式壓力測試儀表板動畫。顯示一個示例投資組合：40%美國股票、20%國際股票、25%債券、10%房地產信託基金、5%黃金。五個壓力情景以標籤頁呈現：2008年危機、新冠疫情崩盤、2022年加息衝擊、滯脹和科技泡沫爆破。點選每個標籤頁，投資組合各資產類別的長條圖動態顯示各情景對每類資產的衝擊，並突出呈現投資組合的總損失。最嚴峻的情景（2008年危機）以紅色警示標示，顯示投資組合總計損失-34%。動畫隨後展示投資組合再平衡過程——減少股票、增加債券和黃金——壓力測試結果即時重算，顯示最壞情景下的改善效果。]
 
-**Alex**: And notice that the 2008 scenario and the 2022 scenario stress different parts of the portfolio. In 2008, stocks were devastated but bonds were a safe haven. In 2022, BOTH stocks and bonds fell because rising interest rates hurt both. A portfolio that survived 2008 might not survive a repeat of 2022, and vice versa. Good stress testing uses multiple scenarios.
+**Stella（小魚）**：這非常強大。你能清楚看到投資組合調整如何影響最壞情況的結果。
 
-**Sam**: Let us move to factor risk models. What are those?
+**Horace（陳馬）**：而且注意到，2008年情景和2022年情景衝擊的是投資組合的不同部分。2008年，股票遭受重創，但債券是避風港。2022年，股票和債券雙雙下跌，因為加息同時打擊了兩者。能撐過2008年的投資組合，未必能撐過2022年的重演，反之亦然。好的壓力測試使用多種情景。
 
-[VISUAL: "Factor Risk Models" section header]
+**Stella（小魚）**：我們來談談因子風險模型。那是什麼？
 
-**Alex**: Factor risk models decompose your portfolio's total risk into components. Instead of saying "my portfolio has 14% volatility," a factor model says "6% of that volatility comes from market exposure, 3% comes from your tilt toward growth stocks, 2% comes from tech sector concentration, and 3% comes from individual stock selection."
+[VISUAL: 「因子風險模型」章節標題]
 
-**Sam**: So it tells you WHERE your risk is coming from?
+**Horace（陳馬）**：因子風險模型將你的投資組合總風險分解成各個組成部分。它不是說「我的投資組合波動性為14%」，而是告訴你：「這14%波動性中，6%來自市場敞口，3%來自你對增長型股票的偏重，2%來自科技板塊集中度，3%來自個股選擇。」
 
-**Alex**: Exactly. And that is incredibly valuable because it tells you whether your risk is intentional or accidental. If you are a growth investor and 25% of your risk comes from your growth factor exposure, that is intentional -- you chose to tilt toward growth. But if 15% of your risk comes from an unintended concentration in technology, that might be accidental, and you might want to fix it.
+**Stella（小魚）**：所以它告訴你風險從哪裡來？
 
-[VISUAL: Factor risk decomposition pie chart for a sample portfolio]
+**Horace（陳馬）**：正是。這非常有價值，因為它能告訴你哪些風險是主動選擇的，哪些是無意中承擔的。如果你是增長型投資者，25%的風險來自增長因子敞口，這是主動選擇的——你決定偏向增長型股票。但如果15%的風險來自你無意識的科技板塊集中度，這可能是偶然的，你或許希望加以修正。
 
-**Alex**: The major risk factors in equity markets are market (overall market direction), size (small vs. large cap), value (value vs. growth), momentum (recent winners vs. losers), quality (profitable vs. unprofitable companies), and low volatility (calm vs. volatile stocks). Then there are sector factors and country factors.
+[VISUAL: 示例投資組合的因子風險分解餅圖]
 
-**Sam**: How does this help me practically?
+**Horace（陳馬）**：股票市場中的主要風險因子包括：市場（整體市場方向）、規模（小市值與大市值）、價值（價值型與增長型）、動量（近期強勢股與弱勢股）、質量（盈利強勁的公司與盈利薄弱的公司），以及低波幅（平穩股票與高波幅股票）。此外還有板塊因子和地區因子。
 
-**Alex**: Let me give you a concrete example. Say you have 15 stocks and your factor model tells you: market exposure contributes 42% of your risk, growth tilt contributes 18%, tech sector contributes 14%, and momentum contributes 8%. The remaining 18% is stock-specific.
+**Stella（小魚）**：這在實際操作中有什麼幫助？
 
-**Sam**: That sounds like a typical growth-oriented tech portfolio.
+**Horace（陳馬）**：讓我給你一個具體的例子。假設你持有15隻股票，因子模型告訴你：市場敞口貢獻了42%的風險，增長型偏重貢獻了18%，科技板塊貢獻了14%，動量貢獻了8%。剩餘18%是個股特有風險。
 
-**Alex**: It is. And the factor model reveals something important. If the market drops 20%, you can expect to lose about 23% because your market beta is 1.15. If growth stocks specifically underperform value by 10%, you will lose an additional 4.5% from your growth tilt. If the tech sector drops relative to the market, there is another hit. Your risks are stacked.
+**Stella（小魚）**：聽起來像是一個典型的偏向增長型科技股的投資組合。
 
-**Sam**: And those risks are correlated. They could all hit at once.
+**Horace（陳馬）**：正是。而因子模型揭示了一些重要的東西。如果市場下跌20%，你可以預期損失約23%，因為你的市場貝塔是1.15。如果增長型股票相對於價值型股票跑輸10%，你還會因增長型偏重而額外損失4.5%。如果科技板塊相對大市下跌，又是另一重打擊。你的風險是疊加的。
 
-**Alex**: Which is exactly what happened in 2022. The market dropped, growth underperformed value dramatically, and tech was one of the worst-performing sectors. A portfolio with heavy market, growth, and tech factor exposure got hit three different ways simultaneously.
+**Stella（小魚）**：而這些風險是相關的，可能同時爆發。
 
-[VISUAL: Factor exposure diagram showing how multiple factor risks can stack]
+**Horace（陳馬）**：這正是2022年發生的事情。市場下跌，增長型股票大幅跑輸價值型股票，科技板塊又是表現最差的板塊之一。一個大量持有市場、增長型和科技因子敞口的投資組合，同時從三個方向受到衝擊。
 
-**Sam**: So factor models help you avoid unintentional risk concentration across factors?
+[VISUAL: 因子敞口示意圖，展示多個因子風險如何疊加]
 
-**Alex**: Precisely. If you want to take growth risk, do it knowingly and limit it. If you want tech exposure, size it appropriately. Factor models turn a vague sense of "I think I am diversified" into a precise measurement of where your risk actually sits.
+**Stella（小魚）**：所以因子模型幫助你避免在因子層面的無意識風險集中？
 
-**Sam**: Let us come back to the limitations we keep hinting at. VaR failed spectacularly in 2008. What happened?
+**Horace（陳馬）**：正是。如果你想承擔增長型風險，請有意識地這樣做，並加以控制。如果你想持有科技股敞口，請合理調配規模。因子模型把「我覺得我已經分散了」這種模糊感覺，轉化為關於風險實際所在的精確衡量。
 
-[VISUAL: "When Risk Models Fail" section header]
+**Stella（小魚）**：讓我們回到我們一直暗示的局限性。VaR在2008年慘敗，究竟發生了什麼？
 
-**Alex**: The 2008 crisis is the definitive case study of VaR failure. Let me walk through what went wrong.
+[VISUAL: 「當風險模型失效」章節標題]
 
-**Alex**: Before the crisis, banks held enormous portfolios of mortgage-backed securities. Their VaR models used historical data from a period when housing prices had never declined nationwide. The models showed low risk because the historical data contained no housing crashes.
+**Horace（陳馬）**：2008年的危機是VaR失效的終極案例研究。讓我逐步說明出了什麼問題。
 
-**Sam**: So the models literally could not imagine the scenario that occurred?
+**Horace（陳馬）**：危機前，銀行持有龐大的按揭抵押證券投資組合。它們的VaR模型使用的歷史數據，來自一個全國性樓價從未下跌的時期。模型顯示風險很低，因為歷史數據中根本不存在樓市崩盤。
 
-**Alex**: Correct. And it was worse than that. VaR created a false sense of security that encouraged banks to take MORE risk. "Our VaR is only $50 million, so we can lever up further." The low VaR number was used to justify 30-to-1 leverage. When the crisis hit and losses exceeded VaR by 10 to 50 times, the leverage amplified those losses into existential threats.
+**Stella（小魚）**：所以模型根本無法想象後來發生的情景？
 
-[VISUAL: Pre-crisis bank leverage ratios and VaR estimates vs. actual losses]
+**Horace（陳馬）**：正確。而且情況更糟。VaR製造了一種虛假的安全感，鼓勵銀行承擔更多風險。「我們的VaR只有5000萬美元，所以我們可以進一步加槓桿。」低VaR數字被用來為30倍槓桿辯護。當危機到來，損失超出VaR估算值10至50倍，槓桿將這些損失放大為生死攸關的威脅。
 
-**Alex**: There is also the procyclicality problem. When markets are calm, VaR is low, which encourages risk-taking. When markets become volatile, VaR rises, which forces selling. The forced selling makes markets more volatile, which raises VaR further, which forces more selling. VaR-based risk management can amplify market crashes instead of preventing them.
+[VISUAL: 危機前銀行槓桿比率、VaR 估算值與實際損失對比]
 
-**Sam**: It is a feedback loop -- the same kind we saw with volatility products.
+**Horace（陳馬）**：還有順周期性的問題。市場平靜時，VaR低，鼓勵承擔更多風險；市場波動時，VaR上升，迫使賣出；被迫賣出使市場更加波動，VaR進一步上升，又迫使更多賣出。基於VaR的風險管理可能放大市場崩盤，而不是預防它。
 
-**Alex**: Exactly. And there is one more subtle problem called the cobra effect. When traders are given VaR limits, they find ways to minimize reported VaR while taking on enormous tail risk. Selling deep out-of-the-money options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic. VaR cannot see it.
+**Stella（小魚）**：這是一個反饋循環——和我們在波動性產品中看到的一樣。
 
-**Sam**: So VaR is actually dangerous if it is your only risk measure?
+**Horace（陳馬）**：正是。還有一個更微妙的問題，叫做眼鏡蛇效應。當交易員被設定VaR限額時，他們會想方設法最小化所呈報的VaR，同時承擔巨大的尾部風險。賣出深度價外期權的VaR非常低，因為日常預期損失微乎其微，但尾部風險卻是災難性的。VaR看不見這些。
 
-**Alex**: It is potentially more dangerous than having no risk measure at all, because it creates an illusion of safety. That is why the modern approach uses VaR as one tool among many: VaR for daily risk monitoring, CVaR for tail severity, stress tests for extreme scenarios, factor models for risk decomposition, and concentration analysis for single-name risk.
+**Stella（小魚）**：所以如果VaR是你唯一的風險指標，它其實很危險？
 
-[VISUAL: Complete risk measurement framework showing all tools and their purposes]
+**Horace（陳馬）**：它有可能比完全不用任何風險指標還要危險，因為它製造了一種安全的假象。這就是為什麼現代方法要把VaR作為眾多工具之一：VaR用於日常風險監控，CVaR用於衡量尾部嚴重性，壓力測試用於極端情景，因子模型用於風險分解，集中度分析用於單一持倉風險。
 
-**Sam**: How should an individual investor use all of this?
+[VISUAL: 完整風險衡量框架，顯示所有工具及其用途]
 
-**Alex**: Here is my practical recommendation. First, calculate your portfolio's VaR using a free tool like Portfolio Visualizer. This gives you a baseline daily risk number. Second, understand that your actual worst-case loss is probably 2-3 times your VaR -- that is a rough CVaR estimate. Third, run simple stress tests in a spreadsheet. Take your positions and apply 2008-style returns, 2020-style returns, and 2022-style returns. If any scenario produces a loss you cannot tolerate, reduce risk. Fourth, check your factor exposures. Most brokerages now show you this. Are you unintentionally concentrated in growth, tech, or momentum?
+**Stella（小魚）**：個人投資者應如何應用這些工具？
 
-**Sam**: That is manageable. VaR for daily monitoring, stress tests for extreme scenarios, and factor analysis for understanding risk sources.
+**Horace（陳馬）**：以下是我的實際建議。第一，使用免費工具（如Portfolio Visualizer）計算你投資組合的VaR，以此作為日常風險的基準數字。第二，理解你的實際最壞情況損失大概是VaR的2至3倍——這是CVaR的粗略估算。第三，在試算表中進行簡單的壓力測試：取出你的持倉，分別應用2008年式、2020年式和2022年式的回報。如果任何一個情景帶來你無法承受的損失，就降低風險。第四，檢查你的因子敞口。現在大多數券商都能顯示這些數據。你是否在無意中集中於增長型、科技或動量因子？
 
-**Alex**: And always remember: every model is wrong. The goal is not to predict the future perfectly. The goal is to be approximately right about the range of outcomes, prepare for the worst plausible case, and have a plan for when the models fail -- because they will fail.
+**Stella（小魚）**：這是可以做到的。VaR用於日常監控，壓力測試用於極端情景，因子分析用於了解風險來源。
 
-**Sam**: Let me summarize. VaR measures the maximum expected loss at a given confidence level. Three methods: parametric (simple, assumes normality), historical simulation (uses real data, limited by history), and Monte Carlo (flexible, limited by model quality). CVaR measures the average loss in the tail. Stress testing measures the impact of specific extreme scenarios. Factor models decompose risk into systematic components. And no single tool is sufficient -- you need all of them, plus healthy skepticism.
+**Horace（陳馬）**：而且永遠記住：每個模型都是錯的。目標不是完美預測未來，而是對結果範圍有大致正確的認識，為最壞的合理情況做好準備，並在模型失效時有應對計劃——因為它們必然會失效。
 
-**Alex**: Perfect. And if you remember nothing else from today, remember this: the models that failed in 2008 were not stupid. They were built by brilliant people with PhDs. They failed because they assumed the future would look like the recent past, and it did not. The same models might fail again, in a different way. Risk management is not about having the right model. It is about knowing that every model is wrong and planning accordingly.
+**Stella（小魚）**：讓我來總結一下。VaR以給定的置信水平衡量預期的最大損失。三種方法：參數法（簡單，假設正態分布）、歷史模擬法（使用真實數據，受歷史限制）和蒙地卡羅法（靈活，受模型質量限制）。CVaR衡量尾部的平均損失。壓力測試衡量特定極端情景的影響。因子模型將風險分解為系統性組成部分。而且沒有任何單一工具是足夠的——你需要全部工具，加上健康的懷疑態度。
 
-**Sam**: That is a humbling thought.
+**Horace（陳馬）**：完美。如果你從今天只記住一件事，請記住這個：2008年失效的模型並不愚蠢。它們由博士學位的聰明人建立。它們失效，是因為它們假設未來會像近期的過去，而事實並非如此。同樣的模型可能再次失效，以另一種方式。風險管理不在於擁有正確的模型，而在於知道每個模型都是錯的，並據此做好規劃。
 
-**Alex**: It should be. Humility is the most important risk management tool of all. If you think your model has captured all the risks, you are the most dangerous person in the room.
+**Stella（小魚）**：這讓人謙卑。
 
-[VISUAL: "Next week: Active Portfolio Management"]
+**Horace（陳馬）**：理應如此。謙遜是最重要的風險管理工具。如果你認為你的模型已捕捉了所有風險，你就是房間裡最危險的人。
 
-**Alex**: Next week we shift gears from risk to return. We will cover alpha, beta, tracking error, information ratio, active share, and performance attribution -- the tools for understanding whether active management is actually adding value.
+[VISUAL: 「下週：主動投資組合管理」]
 
-**Sam**: From measuring risk to measuring skill.
+**Horace（陳馬）**：下週我們從風險轉向回報。我們將介紹阿爾法、貝塔、追蹤誤差、資訊比率、主動份額和表現歸因——這些工具用於判斷主動管理是否真正創造了價值。
 
-**Alex**: Exactly. And spoiler alert -- most active managers do not have as much skill as they think they do. The tools we will learn next week help you tell the difference.
+**Stella（小魚）**：從衡量風險到衡量技能。
 
-**Sam**: Looking forward to it. Thanks, Alex.
+**Horace（陳馬）**：正是。而且劇透一下——大多數主動基金經理並沒有他們自以為的那麼厲害。下週我們學的工具，能幫助你辨別箇中差異。
 
-**Alex**: Thank you, Sam. Remember -- the model is always wrong. Plan for it. See you next week.
+**Stella（小魚）**：期待。謝謝你，Horace（陳馬）。
 
-[VISUAL: End card with channel subscribe prompt and links to previous videos]
+**Horace（陳馬）**：謝謝你，Stella（小魚）。記住——模型永遠是錯的，為此做好準備。我們下週見。
+
+[VISUAL: 結束卡，附頻道訂閱提示及往期影片連結]

@@ -221,9 +221,9 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Split screen showing NYSE trading floor on one side and a private boardroom meeting on the other]
 
-**Alex:** When most people think about investing, they think about stocks and bonds -- things you can buy and sell on public exchanges. But there is this whole other world of investing that most people never see.
+**Horace:** When most people think about investing, they think about stocks and bonds -- things you can buy and sell on public exchanges. But there is this whole other world of investing that most people never see.
 
-**Sam:** Private markets. Where venture capital firms fund the next big startup, private equity firms buy and transform entire companies, and trillions of dollars change hands far from the public eye. The question is -- should you, as an individual investor, try to access this world?
+**Stella:** Private markets. Where venture capital firms fund the next big startup, private equity firms buy and transform entire companies, and trillions of dollars change hands far from the public eye. The question is -- should you, as an individual investor, try to access this world?
 
 [VISUAL: Title card "Private Markets: PE, VC, BDCs, and Beyond"]
 
@@ -233,13 +233,13 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [ANIMATION: Iceberg graphic -- small portion above water labeled "Public Markets: ~4,000 US companies" and large portion below labeled "Private Markets: Millions of companies"]
 
-**Alex:** Here is a stat that surprises most people. There are only about 4,000 publicly traded companies in the United States. That number has actually fallen from about 7,500 in the late 1990s. Meanwhile, there are millions of private businesses.
+**Horace:** Here is a stat that surprises most people. There are only about 4,000 publicly traded companies in the United States. That number has actually fallen from about 7,500 in the late 1990s. Meanwhile, there are millions of private businesses.
 
-**Sam:** Companies are staying private much longer than they used to. Amazon went public just three years after founding. Today, companies like SpaceX and Stripe have been private for over a decade while reaching valuations of hundreds of billions of dollars.
+**Stella:** Companies are staying private much longer than they used to. Amazon went public just three years after founding. Today, companies like SpaceX and Stripe have been private for over a decade while reaching valuations of hundreds of billions of dollars.
 
 [VISUAL: Timeline showing average years to IPO: 1990s = 4 years, 2000s = 7 years, 2020s = 11+ years]
 
-**Alex:** So if you only invest in public markets, you are fishing in an increasingly small pond. That has led a lot of people to ask: How can I get access to private investments?
+**Horace:** So if you only invest in public markets, you are fishing in an increasingly small pond. That has led a lot of people to ask: How can I get access to private investments?
 
 ---
 
@@ -247,25 +247,25 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Three pillars showing "Leveraged Buyouts," "Growth Equity," and "Venture Capital"]
 
-**Sam:** Let us break down the main types of private equity investing. The biggest category is leveraged buyouts, or LBOs. A PE firm buys a company using mostly borrowed money -- typically 60 to 70 percent debt and 30 to 40 percent equity.
+**Stella:** Let us break down the main types of private equity investing. The biggest category is leveraged buyouts, or LBOs. A PE firm buys a company using mostly borrowed money -- typically 60 to 70 percent debt and 30 to 40 percent equity.
 
-**Alex:** They then work to improve the company -- cutting costs, growing revenue, making strategic acquisitions -- and sell it in three to seven years at a higher price. The returns come from three places: growing the company's earnings, selling at a higher valuation multiple, and paying down debt with the company's cash flow.
+**Horace:** They then work to improve the company -- cutting costs, growing revenue, making strategic acquisitions -- and sell it in three to seven years at a higher price. The returns come from three places: growing the company's earnings, selling at a higher valuation multiple, and paying down debt with the company's cash flow.
 
 [ANIMATION: Simple LBO math showing $100M acquisition at 8x EBITDA, sold for $150M at 10x EBITDA five years later, with debt paydown creating equity value]
 
-**Sam:** Then there is venture capital, which is the highest-risk, highest-potential-reward segment. VC firms invest in early-stage startups. Most of these investments fail completely. The model depends on finding one or two massive winners out of every 25 or 30 investments.
+**Stella:** Then there is venture capital, which is the highest-risk, highest-potential-reward segment. VC firms invest in early-stage startups. Most of these investments fail completely. The model depends on finding one or two massive winners out of every 25 or 30 investments.
 
-**Alex:** Think about it this way. If a VC fund invests in 30 companies and 20 of them go to zero, five return the original investment, three return 3x, one returns 10x, and one returns 50x -- that one 50x winner makes the entire fund successful. It is a power law distribution.
+**Horace:** Think about it this way. If a VC fund invests in 30 companies and 20 of them go to zero, five return the original investment, three return 3x, one returns 10x, and one returns 50x -- that one 50x winner makes the entire fund successful. It is a power law distribution.
 
 [VISUAL: Power law chart showing VC fund returns by company -- most near zero, a few moderate, one massive winner dominating total returns]
 
-**Sam:** That is fundamentally different from stock investing, where returns are more evenly distributed. In VC, the outcome is extreme -- a tiny number of investments generate the vast majority of returns. Miss the big winner, and the whole fund fails.
+**Stella:** That is fundamentally different from stock investing, where returns are more evenly distributed. In VC, the outcome is extreme -- a tiny number of investments generate the vast majority of returns. Miss the big winner, and the whole fund fails.
 
-**Alex:** And here is the thing most people do not realize about PE and VC fund returns. There is something called the J-curve.
+**Horace:** And here is the thing most people do not realize about PE and VC fund returns. There is something called the J-curve.
 
 [ANIMATION: J-curve showing negative returns in years 1-3, breakeven around year 4-5, and positive returns in years 5-10]
 
-**Sam:** In the early years of a fund, returns are negative. You are paying management fees, the fund is deploying capital, and none of the investments have matured yet. Returns typically do not turn positive until year three to five, and the best returns come in years five through ten. Your money is locked up for a decade or more.
+**Stella:** In the early years of a fund, returns are negative. You are paying management fees, the fund is deploying capital, and none of the investments have matured yet. Returns typically do not turn positive until year three to five, and the best returns come in years five through ten. Your money is locked up for a decade or more.
 
 ---
 
@@ -273,21 +273,21 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Four doors labeled "BDCs," "Interval Funds," "Crowdfunding," and "Public PE Stocks"]
 
-**Alex:** Traditionally, you needed to be ultra-wealthy to access private markets. Minimum investments of $250,000 to $10 million, and you had to be an accredited investor. But that has been changing.
+**Horace:** Traditionally, you needed to be ultra-wealthy to access private markets. Minimum investments of $250,000 to $10 million, and you had to be an accredited investor. But that has been changing.
 
-**Sam:** Let us start with BDCs -- Business Development Companies. These are publicly traded companies that lend to small and mid-sized businesses. Think of them like REITs, but for private credit instead of real estate.
+**Stella:** Let us start with BDCs -- Business Development Companies. These are publicly traded companies that lend to small and mid-sized businesses. Think of them like REITs, but for private credit instead of real estate.
 
 [VISUAL: BDC structure diagram showing investors buying shares, BDC lending to private companies, interest income flowing back as dividends]
 
-**Alex:** BDCs pay high dividends -- often 8 to 12 percent yields -- because they are required to distribute at least 90 percent of their income. You can buy them through any brokerage account, just like buying a stock.
+**Horace:** BDCs pay high dividends -- often 8 to 12 percent yields -- because they are required to distribute at least 90 percent of their income. You can buy them through any brokerage account, just like buying a stock.
 
-**Sam:** But those high yields come with real risk. During the 2008 financial crisis, many BDCs saw their share prices drop 60 to 80 percent and had to cut dividends significantly. They use leverage, and their borrowers are typically riskier companies that cannot access public bond markets.
+**Stella:** But those high yields come with real risk. During the 2008 financial crisis, many BDCs saw their share prices drop 60 to 80 percent and had to cut dividends significantly. They use leverage, and their borrowers are typically riskier companies that cannot access public bond markets.
 
 [VISUAL: BDC performance chart during 2008-2009 showing sharp decline and recovery]
 
-**Alex:** Next up: interval funds. These are a newer vehicle that gives retail investors access to private equity and private credit strategies. They are regulated by the SEC, which provides some investor protection.
+**Horace:** Next up: interval funds. These are a newer vehicle that gives retail investors access to private equity and private credit strategies. They are regulated by the SEC, which provides some investor protection.
 
-**Sam:** The trade-off is limited liquidity. Unlike a mutual fund where you can sell any day, interval funds only let you redeem quarterly, and even then they might cap redemptions at five to 25 percent of fund assets. So your money can be partially locked up.
+**Stella:** The trade-off is limited liquidity. Unlike a mutual fund where you can sell any day, interval funds only let you redeem quarterly, and even then they might cap redemptions at five to 25 percent of fund assets. So your money can be partially locked up.
 
 ---
 
@@ -295,25 +295,25 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Smartphone screen showing a crowdfunding platform with startup investment opportunities]
 
-**Alex:** Crowdfunding platforms like Wefunder, Republic, and StartEngine have made it possible for anyone to invest in startups for as little as $100. Sounds exciting, right?
+**Horace:** Crowdfunding platforms like Wefunder, Republic, and StartEngine have made it possible for anyone to invest in startups for as little as $100. Sounds exciting, right?
 
-**Sam:** It can be, but let us be realistic about the risks. Professional VC firms have teams of analysts doing deep due diligence. They negotiate protective terms. They sit on boards and actively help their companies. And even with all of that, most of their investments still fail.
+**Stella:** It can be, but let us be realistic about the risks. Professional VC firms have teams of analysts doing deep due diligence. They negotiate protective terms. They sit on boards and actively help their companies. And even with all of that, most of their investments still fail.
 
 [VISUAL: Pie chart showing typical VC portfolio outcome: 50% total losses, 30% modest returns, 15% good returns, 5% home runs]
 
-**Alex:** Crowdfunding investors get none of those advantages. Limited information, no protective terms, no board seats, and no secondary market to sell if you change your mind. Your money is locked up until the company either succeeds spectacularly or -- more likely -- fails.
+**Horace:** Crowdfunding investors get none of those advantages. Limited information, no protective terms, no board seats, and no secondary market to sell if you change your mind. Your money is locked up until the company either succeeds spectacularly or -- more likely -- fails.
 
-**Sam:** This brings us to the concept of the illiquidity premium. The idea is that investors should earn extra returns for accepting illiquidity -- the inability to sell whenever you want.
+**Stella:** This brings us to the concept of the illiquidity premium. The idea is that investors should earn extra returns for accepting illiquidity -- the inability to sell whenever you want.
 
 [ANIMATION: Scale graphic balancing "Liquidity" on one side and "Higher Expected Returns" on the other]
 
-**Alex:** Research suggests this premium is about 2 to 4 percent per year for private equity compared to public markets. But here are three important caveats.
+**Horace:** Research suggests this premium is about 2 to 4 percent per year for private equity compared to public markets. But here are three important caveats.
 
-**Sam:** First, that premium is an average, and it varies enormously. Top-quartile PE funds crush the public markets. Bottom-quartile funds underperform badly. Manager selection matters more than in any other asset class.
+**Stella:** First, that premium is an average, and it varies enormously. Top-quartile PE funds crush the public markets. Bottom-quartile funds underperform badly. Manager selection matters more than in any other asset class.
 
-**Alex:** Second, PE return data suffers from survivorship bias. Failed funds stop reporting, so the averages look better than reality.
+**Horace:** Second, PE return data suffers from survivorship bias. Failed funds stop reporting, so the averages look better than reality.
 
-**Sam:** Third, part of what looks like outperformance is actually just compensation for leverage. If you borrowed money to invest in public stocks at the same ratio PE firms use, you would capture much of that so-called premium.
+**Stella:** Third, part of what looks like outperformance is actually just compensation for leverage. If you borrowed money to invest in public stocks at the same ratio PE firms use, you would capture much of that so-called premium.
 
 ---
 
@@ -321,23 +321,23 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Decision tree for private market investing]
 
-**Alex:** So after all of this, what should a regular investor actually do?
+**Horace:** So after all of this, what should a regular investor actually do?
 
-**Sam:** Start with this question: Do I really need private market exposure? For most people building a retirement portfolio, a well-diversified mix of public stocks, bonds, and REITs is more than adequate. Private markets are a complement, not a necessity.
+**Stella:** Start with this question: Do I really need private market exposure? For most people building a retirement portfolio, a well-diversified mix of public stocks, bonds, and REITs is more than adequate. Private markets are a complement, not a necessity.
 
 [VISUAL: Portfolio allocation pie chart showing "Core: 85-95% Public Markets" and "Satellite: 5-15% Private Markets (optional)"]
 
-**Alex:** If you do want some exposure, here is a practical framework. First, only invest money you absolutely will not need for at least five to ten years. Illiquidity is not just an inconvenience -- it can become a crisis if you need the money and cannot access it.
+**Horace:** If you do want some exposure, here is a practical framework. First, only invest money you absolutely will not need for at least five to ten years. Illiquidity is not just an inconvenience -- it can become a crisis if you need the money and cannot access it.
 
-**Sam:** Second, consider publicly traded vehicles first. BDCs give you private credit exposure with daily liquidity. Publicly traded PE firms like Blackstone or KKR give you exposure to alternative asset management fee income. These are the easiest, most liquid ways to dip your toes into private markets.
+**Stella:** Second, consider publicly traded vehicles first. BDCs give you private credit exposure with daily liquidity. Publicly traded PE firms like Blackstone or KKR give you exposure to alternative asset management fee income. These are the easiest, most liquid ways to dip your toes into private markets.
 
-**Alex:** Third, if you want to go further, interval funds from reputable managers offer a middle ground -- some illiquidity, but with SEC regulation and periodic redemption windows.
+**Horace:** Third, if you want to go further, interval funds from reputable managers offer a middle ground -- some illiquidity, but with SEC regulation and periodic redemption windows.
 
 [VISUAL: Risk spectrum showing Public PE Stocks -> BDCs -> Interval Funds -> Crowdfunding -> Direct PE/VC, with risk increasing left to right]
 
-**Sam:** And fourth, approach crowdfunding with extreme caution. If you invest, treat it like buying a lottery ticket. Only invest amounts you can afford to lose entirely, and spread your bets across many companies rather than concentrating in one or two.
+**Stella:** And fourth, approach crowdfunding with extreme caution. If you invest, treat it like buying a lottery ticket. Only invest amounts you can afford to lose entirely, and spread your bets across many companies rather than concentrating in one or two.
 
-**Alex:** The bottom line: private markets offer real opportunities, but they also present real risks that are harder to see and harder to manage than public market risks. Go in with your eyes open, and never invest more than you can afford to lock up for years.
+**Horace:** The bottom line: private markets offer real opportunities, but they also present real risks that are harder to see and harder to manage than public market risks. Go in with your eyes open, and never invest more than you can afford to lock up for years.
 
 ---
 
@@ -345,22 +345,22 @@ A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an 
 
 [VISUAL: Diagram showing secondary market transactions -- original fund investor selling to secondary buyer at a discount]
 
-**Sam:** Before we wrap up, let us mention one more development that is changing private markets -- the secondary market.
+**Stella:** Before we wrap up, let us mention one more development that is changing private markets -- the secondary market.
 
-**Alex:** Traditionally, once you invested in a PE fund, you were locked in for the full ten to twelve year life of the fund. But a growing secondary market now allows investors to sell their fund interests before maturity, usually at a discount to the reported value.
+**Horace:** Traditionally, once you invested in a PE fund, you were locked in for the full ten to twelve year life of the fund. But a growing secondary market now allows investors to sell their fund interests before maturity, usually at a discount to the reported value.
 
-**Sam:** This creates an interesting opportunity. Secondary buyers can purchase fund interests at 10 to 20 percent discounts, effectively buying seasoned portfolios of companies at below reported value. Some interval funds and dedicated secondary funds give retail investors access to this strategy.
+**Stella:** This creates an interesting opportunity. Secondary buyers can purchase fund interests at 10 to 20 percent discounts, effectively buying seasoned portfolios of companies at below reported value. Some interval funds and dedicated secondary funds give retail investors access to this strategy.
 
 [VISUAL: Chart showing historical secondary market discount levels and how they vary with market conditions]
 
-**Alex:** There are also platforms like Forge Global and EquityZen that let individuals buy pre-IPO shares of private companies from employees and early investors. Minimum investments are typically $10,000 or more, and the shares remain illiquid until the company goes public.
+**Horace:** There are also platforms like Forge Global and EquityZen that let individuals buy pre-IPO shares of private companies from employees and early investors. Minimum investments are typically $10,000 or more, and the shares remain illiquid until the company goes public.
 
-**Sam:** These platforms have made headlines with companies like SpaceX and Stripe, where enthusiastic investors have paid high prices for pre-IPO access. But remember the risks: limited financial information, uncertain exit timelines, and no guarantee the company will ever go public at a price above what you paid.
+**Stella:** These platforms have made headlines with companies like SpaceX and Stripe, where enthusiastic investors have paid high prices for pre-IPO access. But remember the risks: limited financial information, uncertain exit timelines, and no guarantee the company will ever go public at a price above what you paid.
 
-**Alex:** The private markets landscape is evolving rapidly. More access is becoming available to individual investors, but the fundamental principles remain the same: understand the fees, respect the illiquidity, diversify your exposure, and never invest money you cannot afford to lock up for years.
+**Horace:** The private markets landscape is evolving rapidly. More access is becoming available to individual investors, but the fundamental principles remain the same: understand the fees, respect the illiquidity, diversify your exposure, and never invest money you cannot afford to lock up for years.
 
 [VISUAL: End card with channel logo and "Next: Trading Psychology"]
 
-**Sam:** In our next lesson, we are tackling something every investor struggles with -- the psychology of trading. See you there.
+**Stella:** In our next lesson, we are tackling something every investor struggles with -- the psychology of trading. See you there.
 
 [END - 15:00]

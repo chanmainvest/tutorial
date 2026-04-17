@@ -1,119 +1,117 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 17: Performance Metrics - Volatility, Drawdowns, and Risk-Adjusted Returns
+# 第17週：績效指標——波動性、回撤與風險調整後回報
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何此議題至關重要
 
-You just finished a year of investing. Your portfolio went up 15%. Is that good? The honest answer is: you have no idea, unless you know how much risk you took to get there.
+你剛完成了一年的投資。你的投資組合上漲了15%。這成績好嗎？說實話：除非你知道自己承受了多大風險才換來這個回報，否則根本無從判斷。
 
-Consider two fund managers. Manager A returned 15% while taking wild swings -- her portfolio dropped 40% in March before roaring back. Manager B also returned 15% but with much smoother performance -- the worst monthly decline was 4%. Most investors would strongly prefer Manager B, even though the headline return is identical. The difference is risk-adjusted performance, and it is how professionals actually evaluate investment skill.
+試想兩位基金經理。經理A錄得15%回報，但過程中大幅波動——她的投資組合在三月份急跌40%，隨後才強力反彈。經理B同樣錄得15%回報，但表現平穩得多——最差的單月跌幅只有4%。絕大多數投資者會強烈傾向選擇經理B，即使兩人的表面回報完全相同。這個差別就是風險調整後績效，也是專業人士評估投資能力的真正標準。
 
-This matters for several critical reasons:
+這個概念之所以重要，有以下幾個關鍵原因：
 
-1. **Raw returns are meaningless in isolation.** A 20% return sounds great until you learn the market returned 25%, or that you took twice the risk to earn it. Performance metrics give you the context to evaluate whether you are being adequately compensated for the risks you bear.
+1. **單憑原始回報根本說明不了問題。** 20%的回報聽起來不錯，但若你得知市場整體回報達25%，或者你承受了雙倍風險才換來這個成績，意義就截然不同了。績效指標為你提供了評估背景，讓你判斷所承擔的風險是否獲得了合理補償。
 
-2. **Drawdowns determine whether you actually capture returns.** A strategy that drops 50% before recovering to earn 12% annually might look good on paper, but most human beings will panic and sell at the bottom. Understanding drawdowns helps you choose strategies you can actually stick with.
+2. **回撤決定了你能否真正兌現回報。** 一個策略在最終每年錄得12%回報之前，若先大跌50%，帳面上或許看起來不錯，但大多數真實投資者會在低點驚慌沽貨。了解回撤有助於你選擇自己真正能夠堅持的策略。
 
-3. **You cannot improve what you cannot measure.** If you do not systematically track your performance using proper metrics, you will never know whether your investment decisions are adding or subtracting value compared to simply buying an index fund.
+3. **無法量度的事情，就無法改進。** 如果你不利用適當的指標系統地追蹤績效，就永遠不會知道你的投資決策，與單純買入指數基金相比，究竟是在增值還是在損耗。
 
-4. **Time-weighted vs. money-weighted returns affect how you evaluate yourself.** The return your portfolio shows depends on how you calculate it. Using the wrong method leads to incorrect conclusions about your investment skill.
+4. **時間加權回報與金額加權回報影響你如何評估自己。** 你的投資組合所呈現的回報，取決於你採用的計算方法。使用錯誤的方法，只會得出錯誤的結論。
 
-5. **Professional credibility demands proper measurement.** If you ever manage money for others, discuss investments with advisors, or even evaluate your own 401(k) options, you need to speak the language of risk-adjusted performance.
+5. **專業信譽要求正確的量度標準。** 無論是替他人管理資金、與顧問討論投資，還是評估自己的401(k)選項，你都需要掌握風險調整後績效的語言。
 
-This lesson gives you the complete toolkit for evaluating investment performance the way professionals do -- from basic volatility to sophisticated risk-adjusted metrics like the Sharpe and Sortino ratios, through drawdown analysis and the critical distinction between how you measure returns.
+本課為你提供一套完整的工具，讓你以專業方式評估投資績效——從基本的波動性，到夏普比率和索提諾比率等精密的風險調整指標，再到回撤分析，以及回報量度方式這一關鍵區別。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. Volatility -- The Standard Measure of Risk
+#### 1. 波動性——衡量風險的標準指標
 
-Volatility measures how much returns bounce around their average. Technically, it is the standard deviation of returns. A stock that returns 10% every year like clockwork has zero volatility. A stock that swings between -30% and +50% has high volatility.
+波動性量度的是回報圍繞平均值的起伏幅度。從技術層面而言，它是回報的標準差。一隻每年穩定回報10%的股票，其波動性為零。一隻在-30%至+50%之間大幅震盪的股票，則具有高波動性。
 
-**The Math (Simplified)**
+**數學計算（簡化版）**
 
 ```
-CALCULATING VOLATILITY
+計算波動性
+==========
+
+第一步：收集定期回報（一般以月度為標準）
+第二步：計算平均回報
+第三步：量度每期回報與平均值的偏差
+第四步：將每個偏差平方（以消除負數）
+第五步：計算平方偏差的平均值（即方差）
+第六步：取平方根（即標準差）
+
+以6個月度回報為例：
+回報：+3%、-2%、+5%、-1%、+4%、+3%
+平均值：+2%
+
+與平均值的偏差：
++3% - 2% = +1%    -> 平方：0.0001
+-2% - 2% = -4%    -> 平方：0.0016
++5% - 2% = +3%    -> 平方：0.0009
+-1% - 2% = -3%    -> 平方：0.0009
++4% - 2% = +2%    -> 平方：0.0004
++3% - 2% = +1%    -> 平方：0.0001
+
+方差 = (0.0001+0.0016+0.0009+0.0009+0.0004+0.0001) / 6
+     = 0.000667
+
+月度標準差 = sqrt(0.000667) = 2.58%
+年度標準差  = 2.58% x sqrt(12) = 8.94%
+```
+
+**關鍵洞見：** 波動性的年化，是將月度標準差乘以12的平方根（而非乘以12）。這源於獨立隨機變數的數學特性。
+
+**典型波動性範圍**
+
+```
+各資產類別的年度波動性
 ======================
 
-Step 1: Collect periodic returns (monthly is standard)
-Step 2: Calculate the average return
-Step 3: Measure how far each return deviates from the average
-Step 4: Square each deviation (to eliminate negatives)
-Step 5: Average the squared deviations (this is the variance)
-Step 6: Take the square root (this is the standard deviation)
+資產類別                   典型年度波動性    範圍
+--------                   --------------    ----
+貨幣市場／國庫券                0.5 - 1%      極低
+投資級別債券                    3 - 7%        低
+高收益債券                      8 - 14%       中等
+均衡投資組合（60/40）           8 - 12%       中等
+美國大型股股票                 14 - 18%       中高
+美國小型股股票                 18 - 25%       高
+已發展市場國際股票             15 - 22%       高
+新興市場股票                   20 - 30%       高
+個別股票                       25 - 60%+      極高
+商品                           15 - 30%       高
+加密貨幣                       50 - 100%+     極端
 
-Example with 6 monthly returns:
-Returns: +3%, -2%, +5%, -1%, +4%, +3%
-Average: +2%
-
-Deviations from average:
-+3% - 2% = +1%    -> squared: 0.0001
--2% - 2% = -4%    -> squared: 0.0016
-+5% - 2% = +3%    -> squared: 0.0009
--1% - 2% = -3%    -> squared: 0.0009
-+4% - 2% = +2%    -> squared: 0.0004
-+3% - 2% = +1%    -> squared: 0.0001
-
-Variance = (0.0001+0.0016+0.0009+0.0009+0.0004+0.0001) / 6
-         = 0.000667
-
-Monthly Std Dev = sqrt(0.000667) = 2.58%
-Annual Std Dev  = 2.58% x sqrt(12) = 8.94%
-```
-
-**Key insight:** Volatility is annualized by multiplying monthly standard deviation by the square root of 12 (not by 12). This comes from the mathematical properties of independent random variables.
-
-**Typical Volatility Ranges**
-
-```
-ANNUAL VOLATILITY BY ASSET CLASS
-==================================
-
-Asset Class              Typical Annual Vol    Range
------------              ------------------    -----
-Money market / T-Bills       0.5 - 1%          Very low
-Investment grade bonds       3 - 7%            Low
-High yield bonds             8 - 14%           Moderate
-Balanced portfolio (60/40)   8 - 12%           Moderate
-US large cap stocks         14 - 18%           Moderate-High
-US small cap stocks         18 - 25%           High
-International developed     15 - 22%           High
-Emerging market stocks      20 - 30%           High
-Individual stocks           25 - 60%+          Very High
-Commodities                 15 - 30%           High
-Cryptocurrency              50 - 100%+         Extreme
-
-VOLATILITY SCALE
+波動性刻度
 |---------|---------|---------|---------|---------|
 0%        10%       20%       30%       50%      100%
-Treasury   Bonds     S&P 500   EM       Crypto
-Bills                         Stocks
+國庫券     債券     標普500   新興      加密
+                             市場      貨幣
+                             股票
 ```
 
-**Why Volatility Is Imperfect as a Risk Measure**
+**波動性作為風險指標的不足之處**
 
-Volatility treats upside and downside moves equally. If a stock jumps 20% in a month, that increases measured volatility -- but no investor considers a big gain to be "risk." This limitation is exactly why metrics like the Sortino ratio exist, which we will cover later.
+波動性對上行和下行波動一視同仁。若一隻股票某月大漲20%，這會增加其量度波動性——但沒有投資者會認為大幅獲利是「風險」。這個局限性正是索提諾比率存在的原因，我們稍後將詳細介紹。
 
 ---
 
-#### 2. Drawdowns -- The Risk Metric That Matters Most to Real Investors
+#### 2. 回撤——對真實投資者最重要的風險指標
 
-A drawdown measures the decline from a peak to a subsequent trough. It answers the question every investor really cares about: "How much did I lose at the worst point?"
+回撤量度的是從峰值到隨後谷底的跌幅。它回答了每個投資者真正在意的問題：「我最差的時候虧了多少？」
 
 ```
-DRAWDOWN ANATOMY
-================
+回撤解析
+========
 
-Portfolio   $100  $110  $105  $95  $80  $85  $90  $100  $115  $108
-Value
+投資組合   $100  $110  $105  $95  $80  $85  $90  $100  $115  $108
+價值
 
-                   Peak
+                   峰值
                    $110
                     |
                     +----+
@@ -121,64 +119,63 @@ Value
                     +----+----+
                               |
                     +---------+----+
-                                   |  Maximum Drawdown
+                                   |  最大回撤
                     +--------------+  = ($110-$80)/$110
                               $80  |  = -27.3%
-                              Trough
+                              谷底
                                    |
                     +--------------+----+
                                         |
                     +-------------------+----+
                                              |
                     +------------------------+----+
-                                                   | Recovery!
-                                            $110 = | New Peak
+                                                   | 收復！
+                                            $110 = | 新峰值
                                                    |
                                              +-----+----+
                                                         |
-                                                  $115  | New ATH
+                                                  $115  | 新歷史高位
 ```
 
-**Key Drawdown Metrics**
+**主要回撤指標**
 
 ```
-DRAWDOWN METRICS DASHBOARD
-============================
+回撤指標總覽
+============
 
-Metric                    Definition                          Why It Matters
-------                    ----------                          --------------
-Maximum Drawdown (MDD)    Largest peak-to-trough decline      Worst-case pain
-Recovery Time             Time from trough back to peak       How long you suffer
-Drawdown Duration         Peak to peak (includes recovery)    Total disruption
-Average Drawdown          Mean of all drawdowns               Typical experience
-Drawdown Frequency        How often drawdowns > X% occur      How often it hurts
-Calmar Ratio              Ann. Return / Max Drawdown          Return per unit of
-                                                              worst-case risk
+指標                   定義                               重要性
+----                   ----                               ------
+最大回撤 (MDD)         最大峰值至谷底跌幅                  最壞情況下的痛苦程度
+收復時間               從谷底回升至峰值所需時間            你要承受多久的煎熬
+回撤持續期             從峰值至峰值（包含收復期）           整體擾動時長
+平均回撤               所有回撤的平均值                    典型體驗
+回撤頻率               超過X%的回撤出現頻率               受創頻率
+卡爾馬比率             年化回報 / 最大回撤                 每單位最壞情況風險的回報
 ```
 
-**Historical Maximum Drawdowns -- S&P 500**
+**標普500歷史最大回撤**
 
 ```
-MAJOR S&P 500 DRAWDOWNS
-=========================
+標普500主要回撤事件
+===================
 
-Event                    Peak-to-Trough    Duration     Recovery Time
------                    --------------    --------     -------------
-Great Depression         -86.2%            2.8 years    25.2 years
-1973-74 Oil Crisis       -48.2%            1.8 years     3.2 years
-Black Monday 1987        -33.5%            2 months      1.9 years
-Dot-Com Crash            -49.1%            2.5 years     7.0 years
-Great Fin. Crisis 2008   -56.8%            1.4 years     5.3 years
-COVID Crash 2020         -33.9%            1 month       5 months
-2022 Bear Market         -25.4%            9 months      2+ years
+事件                     峰值至谷底    持續期        收復時間
+----                     ----------    ------        --------
+大蕭條                   -86.2%        2.8年         25.2年
+1973-74年石油危機        -48.2%        1.8年          3.2年
+1987年黑色星期一         -33.5%        2個月          1.9年
+科網股泡沫爆破           -49.1%        2.5年          7.0年
+2008年金融海嘯           -56.8%        1.4年          5.3年
+2020年新冠股災           -33.9%        1個月          5個月
+2022年熊市               -25.4%        9個月          2年以上
 
-KEY INSIGHT: The deeper the drawdown, the more you need
-to recover. A 50% loss requires a 100% gain to break even.
+關鍵洞見：回撤愈深，收復所需的漲幅就愈大。
+虧損50%，需要上漲100%才能回本。
 
-LOSS vs. GAIN NEEDED TO RECOVER
-================================
-Loss     Gain Needed     |  Loss     Gain Needed
------    -----------     |  -----    -----------
+虧損幅度與所需收復漲幅
+========================
+虧損     所需漲幅        |  虧損     所需漲幅
+----     --------        |  ----     --------
 -10%     +11.1%          |  -40%     +66.7%
 -20%     +25.0%          |  -50%     +100.0%
 -25%     +33.3%          |  -60%     +150.0%
@@ -186,681 +183,678 @@ Loss     Gain Needed     |  Loss     Gain Needed
 -33%     +50.0%          |  -90%     +900.0%
 ```
 
-**Why maximum drawdown matters more than volatility to most investors:** Volatility is an abstract statistical concept. Drawdown is concrete. When your $500,000 retirement portfolio drops to $250,000, you feel that in your gut. The behavioral consequences -- panic selling, sleepless nights, abandoning your strategy at the worst time -- are driven by drawdowns, not standard deviations.
+**為何最大回撤對大多數投資者而言比波動性更重要：** 波動性是一個抽象的統計概念。回撤則是具體的。當你的50萬元退休投資組合縮水至25萬元，那種感受是切身的。由此引發的行為後果——驚慌沽貨、夜不能寐、在最壞的時機放棄策略——都是由回撤驅動的，而非標準差。
 
 ---
 
-#### 3. The Sharpe Ratio -- The Gold Standard of Risk-Adjusted Returns
+#### 3. 夏普比率——風險調整後回報的黃金標準
 
-Named after Nobel laureate William Sharpe, this ratio measures how much excess return you earn per unit of volatility. It is the most widely used risk-adjusted performance metric in finance.
+夏普比率以諾貝爾獎得主威廉·夏普命名，量度的是每單位波動性所賺取的超額回報。它是金融界使用最廣泛的風險調整後績效指標。
 
-**Formula:**
+**公式：**
 
 ```
                     Rp - Rf
-Sharpe Ratio = ─────────────
+夏普比率 = ─────────────
                     sigma_p
 
-Where:
-  Rp      = Portfolio return (annualized)
-  Rf      = Risk-free rate (e.g., T-bill rate)
-  sigma_p = Portfolio standard deviation (annualized)
+其中：
+  Rp      = 投資組合回報（年化）
+  Rf      = 無風險利率（例如國庫券利率）
+  sigma_p = 投資組合標準差（年化）
 ```
 
-**Worked Example:**
+**計算示例：**
 
 ```
-SHARPE RATIO EXAMPLE
-=====================
+夏普比率示例
+============
 
-Portfolio A:
-  Return:       12%
-  Risk-free:     4%
-  Volatility:   16%
-  Sharpe = (12% - 4%) / 16% = 0.50
+投資組合A：
+  回報：       12%
+  無風險利率：  4%
+  波動性：     16%
+  夏普比率 = (12% - 4%) / 16% = 0.50
 
-Portfolio B:
-  Return:        9%
-  Risk-free:     4%
-  Volatility:    6%
-  Sharpe = (9% - 4%) / 6% = 0.83
+投資組合B：
+  回報：        9%
+  無風險利率：  4%
+  波動性：      6%
+  夏普比率 = (9% - 4%) / 6% = 0.83
 
-Portfolio B has a LOWER return but a HIGHER Sharpe Ratio.
-Per unit of risk taken, Portfolio B was more efficient.
+投資組合B的回報較低，但夏普比率較高。
+每單位風險所換取的回報，投資組合B效率更高。
 
-VISUAL INTERPRETATION
-======================
+視覺化解讀
+==========
 
-Return
+回報
   ^
-14|                    * A (12%, 16% vol)
+14|                    * A（12%，波動性16%）
 12|                  /
 10|               /
- 9|          * B (9%, 6% vol)
+ 9|          * B（9%，波動性6%）
   |        /
  6|      /
- 4|----*----> Risk-free rate (4%)
+ 4|----*----> 無風險利率（4%）
  2|
-  +-----|-----|-----|-----|------> Volatility
+  +-----|-----|-----|-----|------> 波動性
   0     5    10    15    20
 
-The slope of the line from the risk-free rate to each
-portfolio IS the Sharpe ratio. Steeper = better.
+從無風險利率到各投資組合連線的斜率，
+就是夏普比率。斜率愈陡，表現愈好。
 ```
 
-**Interpreting Sharpe Ratios**
+**解讀夏普比率**
 
 ```
-SHARPE RATIO GUIDELINES
-========================
+夏普比率參考指引
+================
 
-Sharpe Ratio    Interpretation
-------------    ---------------
-< 0             Worse than risk-free (why bother?)
-0.0 - 0.4       Sub-par risk-adjusted returns
-0.4 - 0.7       Acceptable (typical for equity markets)
-0.7 - 1.0       Very good
-1.0 - 1.5       Excellent (top quartile managers)
-1.5 - 2.0       Outstanding (rare)
-> 2.0           Suspicious (too good -- check for data errors,
-                survivorship bias, or hidden risks like tail risk)
+夏普比率    解讀
+--------    ----
+< 0         遜於無風險利率（何苦呢？）
+0.0 - 0.4   風險調整後回報欠佳
+0.4 - 0.7   尚可接受（股票市場的典型水平）
+0.7 - 1.0   相當不錯
+1.0 - 1.5   優秀（頂尖四分位基金經理）
+1.5 - 2.0   卓越（罕見）
+> 2.0       值得懷疑（過於理想——
+            需檢查數據錯誤、存活者偏差
+            或隱藏的尾部風險）
 
-Historical Sharpe Ratios (approximate):
-  S&P 500 long-term:          0.4 - 0.5
-  60/40 balanced:             0.5 - 0.6
-  Warren Buffett (Berkshire):  ~0.76
-  Renaissance Medallion Fund:  ~2.0+ (but with massive leverage)
+歷史夏普比率（概略）：
+  標普500長期：                0.4 - 0.5
+  60/40均衡投資組合：          0.5 - 0.6
+  巴菲特（巴郡）：            約0.76
+  文藝復興大獎章基金：        約2.0+（但使用了大量槓桿）
 ```
 
 ---
 
-#### 4. The Sortino Ratio -- Fixing the Sharpe Ratio's Biggest Flaw
+#### 4. 索提諾比率——修正夏普比率最大缺陷
 
-The Sharpe ratio penalizes all volatility equally. But investors do not mind upside volatility -- they only care about losses. The Sortino ratio fixes this by using only downside deviation in the denominator.
+夏普比率對所有波動性一視同仁。但投資者並不介意上行波動性——他們只在意虧損。索提諾比率通過在分母中只使用下行偏差來修正這個問題。
 
-**Formula:**
+**公式：**
 
 ```
                     Rp - Rf
-Sortino Ratio = ─────────────
-                 Downside Dev
+索提諾比率 = ─────────────
+                 下行偏差
 
-Where:
-  Downside Deviation = Standard deviation of ONLY negative returns
-  (returns below the risk-free rate or a target return)
+其中：
+  下行偏差 = 僅計算負回報的標準差
+  （即低於無風險利率或目標回報的回報）
 ```
 
-**Why It Matters:**
+**為何重要：**
 
 ```
-SHARPE vs. SORTINO: WHEN THEY DIVERGE
+夏普比率 vs. 索提諾比率：何時出現分歧
 =======================================
 
-                 Portfolio C      Portfolio D
-                 -----------      -----------
-Return           15%              15%
-Volatility       20%              20%
-Sharpe Ratio     0.55             0.55   <-- Identical!
+                 投資組合C      投資組合D
+                 ---------      ---------
+回報             15%            15%
+波動性           20%            20%
+夏普比率         0.55           0.55   <-- 相同！
 
-But look closer at the return distribution:
+但仔細觀察回報分佈：
 
-Portfolio C (Symmetric returns):
-  Positive months:  +4% average, 12 months
-  Negative months:  -4% average, 12 months
-  Downside Dev:     ~14%
-  Sortino:          0.79
+投資組合C（對稱回報）：
+  正回報月份：平均+4%，12個月
+  負回報月份：平均-4%，12個月
+  下行偏差：  約14%
+  索提諾比率： 0.79
 
-Portfolio D (Positive skew):
-  Positive months:  +6% average, 14 months
-  Negative months:  -2% average, 10 months
-  Downside Dev:     ~7%
-  Sortino:          1.57   <-- MUCH better!
+投資組合D（正偏態）：
+  正回報月份：平均+6%，14個月
+  負回報月份：平均-2%，10個月
+  下行偏差：  約7%
+  索提諾比率： 1.57   <-- 好得多！
 
-Portfolio D has the SAME Sharpe but DOUBLE the Sortino
-because its volatility comes from upside moves, not losses.
+投資組合D的夏普比率相同，但索提諾比率高出一倍，
+因為其波動性來自上行波動，而非虧損。
 
-RETURN DISTRIBUTION COMPARISON
-================================
+回報分佈比較
+============
 
-Portfolio C (Symmetric):
-  Frequency
+投資組合C（對稱）：
+  頻率
     |      ***
     |    ***   ***
     |  ***       ***
     | **           **
     |*               *
     +---|----|----|---|--->
-    -10  -5   0   5  10   Return %
+    -10  -5   0   5  10   回報 %
 
-Portfolio D (Positive Skew):
-  Frequency
+投資組合D（正偏態）：
+  頻率
     |         ***
     |       ***  **
     |     ***      *
     |    **         *
     |  **            *
     +---|----|----|---|--->
-    -10  -5   0   5  10   Return %
+    -10  -5   0   5  10   回報 %
 ```
 
-**When to Use Which:**
+**何時使用哪個指標：**
 
-- **Sharpe Ratio:** Good general-purpose measure; standard in the industry; comparable across studies and datasets.
-- **Sortino Ratio:** Better when comparing strategies with different return distributions, especially those with asymmetric payoffs (options strategies, trend following, etc.).
+- **夏普比率：** 適合作一般用途；是業界標準；可與各類研究和數據集作橫向比較。
+- **索提諾比率：** 更適合比較回報分佈不同的策略，尤其是具有非對稱收益的策略（期權策略、趨勢跟蹤等）。
 
 ---
 
-#### 5. Other Important Risk-Adjusted Metrics
+#### 5. 其他重要的風險調整後指標
 
 ```
-RISK-ADJUSTED METRICS REFERENCE TABLE
-========================================
+風險調整後指標參考表
+====================
 
-Metric          Formula                       Best For
-------          -------                       --------
-Treynor Ratio   (Rp - Rf) / Beta             Diversified portfolios
-                                              (uses systematic risk only)
+指標             公式                              最適用於
+----             ----                              --------
+特雷諾比率       (Rp - Rf) / 貝塔                 已分散的投資組合
+                                                   （只使用系統性風險）
 
-Information     (Rp - Rb) / Tracking Error    Active managers vs.
-Ratio                                         benchmark
+資訊比率         (Rp - Rb) / 追蹤誤差             主動型基金經理
+                                                   相對基準的表現
 
-Calmar Ratio    Ann. Return / Max Drawdown    Evaluating tail risk
-                                              exposure
+卡爾馬比率       年化回報 / 最大回撤              評估尾部風險
+                                                   敞口
 
-Omega Ratio     Probability-weighted          Complex strategies
-                gains / losses                with non-normal returns
+奧米伽比率       概率加權                         具有非正態分佈的
+                 盈利 / 虧損                       複雜策略
 
-Jensen's Alpha  Rp - [Rf + Beta*(Rm - Rf)]   True skill after
-                                              adjusting for market risk
+簡森阿爾法       Rp - [Rf + 貝塔*(Rm - Rf)]       扣除市場風險後的
+                                                   真實能力
 
-M-Squared       Sharpe * Market Vol + Rf      Converts Sharpe to
-(M2)                                          an equivalent return %
+M平方            夏普比率 × 市場波動性 + Rf       將夏普比率換算為
+(M2)                                              等效回報百分比
 ```
 
 ```
-CHOOSING THE RIGHT METRIC
-============================
+如何選擇合適的指標
+==================
 
-Question You're Asking              Use This Metric
------------------------              ---------------
-"Am I being compensated for risk?"   Sharpe Ratio
-"Am I being compensated for          Sortino Ratio
- downside risk specifically?"
-"Did I beat my benchmark after       Information Ratio
- adjusting for tracking error?"       / Jensen's Alpha
-"What is my worst-case scenario?"    Maximum Drawdown
-                                      / Calmar Ratio
-"How much return per unit of         Treynor Ratio
- market risk (beta) did I earn?"
-"Can I compare two strategies        M-Squared
- directly in return terms?"
+你想回答的問題                     使用這個指標
+--------------                     ------------
+「我的風險是否獲得補償？」          夏普比率
+「我的下行風險是否獲得補償？」      索提諾比率
+「扣除追蹤誤差後，                  資訊比率
+ 我能否跑贏基準？」                  / 簡森阿爾法
+「最壞情況是什麼？」                最大回撤
+                                    / 卡爾馬比率
+「每單位市場風險（貝塔）            特雷諾比率
+ 我賺取了多少回報？」
+「可否直接用回報數字               M平方
+ 比較兩個策略？」
 ```
 
 ---
 
-#### 6. Time-Weighted vs. Money-Weighted Returns
+#### 6. 時間加權回報 vs. 金額加權回報
 
-This is one of the most misunderstood and most consequential distinctions in performance measurement. The method you choose can make the same portfolio look brilliant or mediocre.
+這是績效量度中最常被誤解、影響最深遠的區別之一。你選擇的方法，可以讓同一個投資組合看起來才華橫溢，也可以讓它顯得平庸。
 
-**Time-Weighted Return (TWR)**
+**時間加權回報（TWR）**
 
-Time-weighted return eliminates the impact of cash flows (deposits and withdrawals). It measures the return of the strategy itself, as if $1 had been invested for the entire period with no additions or withdrawals.
+時間加權回報消除了現金流（存款和提款）的影響。它量度的是策略本身的回報，假設在整個期間始終投入1元，沒有任何追加或提取。
 
-**Money-Weighted Return (MWR) / Internal Rate of Return (IRR)**
+**金額加權回報（MWR）／內部回報率（IRR）**
 
-Money-weighted return accounts for the timing and size of cash flows. It measures the return actually experienced by the investor, given when they added or withdrew money.
+金額加權回報考慮現金流的時機和規模。它量度的是投資者實際體驗到的回報，取決於資金的投入或提取時間。
 
 ```
-TWR vs. MWR: THE CRITICAL DIFFERENCE
-=======================================
+時間加權回報 vs. 金額加權回報：關鍵分別
+=========================================
 
-Scenario: You invest in a fund over 2 years.
+情境：你在2年內投資一隻基金。
 
-Year 1: Fund returns +30%
-Year 2: Fund returns -10%
+第1年：基金回報+30%
+第2年：基金回報-10%
 
-Case A: You invest $10,000 at the start, add nothing.
+情況A：你在初期投入10,000元，此後不作任何操作。
                                              TWR     MWR
-  Start of Year 1:  $10,000                  
-  End of Year 1:    $13,000 (+30%)           
-  End of Year 2:    $11,700 (-10%)           
+  第1年初：  $10,000                  
+  第1年末：  $13,000 (+30%)           
+  第2年末：  $11,700 (-10%)           
                                              +8.2%   +8.2%
-                                             (Same because no
-                                              additional flows)
+                                             （相同，因無
+                                              額外現金流）
 
-Case B: You invest $10,000 at start, add $50,000
-        at start of Year 2 (chasing performance).
+情況B：你在初期投入10,000元，並在第2年初
+        追加50,000元（追逐佳績）。
                                              TWR     MWR
-  Start of Year 1:  $10,000                  
-  End of Year 1:    $13,000 (+30%)           
-  Add:              $50,000                  
-  Start of Year 2:  $63,000                  
-  End of Year 2:    $56,700 (-10%)           
+  第1年初：  $10,000                  
+  第1年末：  $13,000 (+30%)           
+  追加：     $50,000                  
+  第2年初：  $63,000                  
+  第2年末：  $56,700 (-10%)           
                                              +8.2%   -4.6%
 
-SAME fund, SAME returns, but the INVESTOR lost money
-because they added capital right before the down year.
+同一隻基金，同樣的回報，但投資者卻虧了錢，
+原因是他們在下跌之年前夕才大舉投入資金。
 
-Case C: You invest $50,000 at start, withdraw $40,000
-        at end of Year 1 (selling after gains).
+情況C：你在初期投入50,000元，並在第1年末
+        提取40,000元（獲利後沽出）。
                                              TWR     MWR
-  Start of Year 1:  $50,000                  
-  End of Year 1:    $65,000 (+30%)           
-  Withdraw:         $40,000                  
-  Start of Year 2:  $25,000                  
-  End of Year 2:    $22,500 (-10%)           
+  第1年初：  $50,000                  
+  第1年末：  $65,000 (+30%)           
+  提取：     $40,000                  
+  第2年初：  $25,000                  
+  第2年末：  $22,500 (-10%)           
                                              +8.2%   +20.8%
 
-Now the investor's MWR is HIGH because they were heavily
-invested during the good year and lightly invested during
-the bad year.
+現在投資者的金額加權回報偏高，因為他在
+表現好的年份持重倉，在表現差的年份輕倉。
 ```
 
 ```
-WHEN TO USE EACH METHOD
-=========================
+何時使用哪種方法
+================
 
-Time-Weighted Return (TWR)         Money-Weighted Return (MWR/IRR)
---------------------------         --------------------------------
-Evaluating a fund MANAGER          Evaluating YOUR personal result
-  (did the strategy work?)           (how did I actually do?)
+時間加權回報（TWR）                金額加權回報（MWR/IRR）
+--------------------               -----------------------
+評估基金「經理」                   評估你的「個人」實際結果
+  （策略有效嗎？）                   （我實際表現如何？）
 
-Comparing fund to benchmark        Evaluating timing of your
-  (apples to apples)                contributions/withdrawals
+將基金與基準作比較                 評估你的供款和提款時機
+  （同等基礎比較）
 
-Industry standard for              Appropriate for private equity,
-  mutual fund reporting              real estate (irregular flows)
+互惠基金申報的行業標準             適用於私募股權、
+                                   房地產（不規則現金流）
 
-Removes the effect of              Captures the effect of
-  investor behavior                  investor behavior
+消除投資者行為的影響               反映投資者行為的影響
 
-Used by: Morningstar,              Used by: Personal financial
-  fund fact sheets,                  planning, PE/VC funds,
-  performance composites             estate valuation
+使用者：晨星、基金資料頁、         使用者：個人財務規劃、
+  績效報告合輯                       私募股權/風險投資基金、
+                                      資產估值
 
-CALCULATION VISUALIZATION
-==========================
+計算方式示意
+============
 
-Time-Weighted (chain-linking sub-period returns):
+時間加權（將各子期間回報連乘）：
 
-  Period 1    Period 2    Period 3
-  +10%        -5%         +8%
-    |           |           |
-    v           v           v
+  第1期      第2期      第3期
+  +10%       -5%        +8%
+    |          |          |
+    v          v          v
   (1.10)  x  (0.95)  x  (1.08)  =  1.1286
-                                     = +12.86% TWR
+                                    = +12.86% TWR
 
-Money-Weighted (finding the rate that equates flows):
+金額加權（求使所有現金流現值歸零的折現率）：
 
-  Time 0     Time 1      Time 2      Time 3
-  -$1000     -$500       +$200       +$1600
-    |          |           |           |
-    v          v           v           v
-  PV of all cash flows at rate r must = 0
-  Solve for r (this IS the IRR / MWR)
+  時間0      時間1      時間2      時間3
+  -$1000     -$500      +$200      +$1600
+    |          |          |          |
+    v          v          v          v
+  所有現金流在折現率r下的現值之和必須等於0
+  求解r（這就是IRR / MWR）
 ```
 
-**The Behavior Gap**
+**行為差距**
 
-This distinction reveals one of the most important findings in all of finance: the average investor earns far less than the average fund. DALBAR's annual studies consistently show that while the S&P 500 has averaged roughly 10% per year, the average equity fund investor has earned only about 5-6%. The gap comes from bad timing -- investors add money after gains (buying high) and pull money after losses (selling low).
+這個區別揭示了金融學最重要的發現之一：普通投資者的回報，遠低於普通基金的回報。DALBAR的年度研究持續顯示，雖然標普500的年均回報約為10%，但普通股票基金投資者的實際回報只有約5至6%。差距來自於錯誤的時機——投資者在獲利後追加資金（高位買入），在虧損後撤資（低位賣出）。
 
 ```
-THE BEHAVIOR GAP
-=================
+行為差距
+========
 
-       Fund Return (TWR)                  Investor Return (MWR)
-       ==================                 =====================
+       基金回報（TWR）                   投資者回報（MWR）
+       ==============                    ================
            +10.0%                              +5.8%
               |                                   |
-              |    <--- Behavior Gap --->          |
-              |          ~4.2% annually            |
+              |    <--- 行為差距 --->              |
+              |          每年約4.2%               |
               |                                   |
 
-Sources of the gap:
-  - Chasing hot funds after big gains
-  - Panic selling during drawdowns
-  - Market timing attempts
-  - Overtrading
-  - Moving to cash at wrong times
+差距成因：
+  - 追逐大漲後的熱門基金
+  - 回撤期間驚慌沽貨
+  - 嘗試把握市場時機
+  - 過度買賣
+  - 在錯誤時機轉持現金
 ```
 
 ---
 
-#### 7. Putting It All Together -- A Performance Dashboard
+#### 7. 綜合運用——績效總覽
 
-When evaluating any investment, strategy, or your own portfolio, you should examine multiple metrics together. No single number tells the full story.
+在評估任何投資、策略或你自己的投資組合時，你應該同時審視多個指標。沒有單一數字能說明全貌。
 
 ```
-SAMPLE PERFORMANCE DASHBOARD
-===============================
+績效總覽示例
+============
 
-Metric                  Your       60/40      S&P
-                       Portfolio   Benchmark   500
------                  ---------  ---------   ----
-Annualized Return       9.8%       8.2%       10.5%
-Annualized Volatility  11.3%       9.4%       15.2%
-Sharpe Ratio            0.69       0.60        0.53
-Sortino Ratio           1.02       0.85        0.72
-Maximum Drawdown       -18.5%     -22.1%      -33.9%
-Calmar Ratio            0.53       0.37        0.31
-Worst Month            -7.2%      -8.5%      -12.4%
-Best Month             +6.8%      +7.1%      +12.7%
-% Positive Months       62%        61%         63%
-Beta to S&P              0.65       0.58        1.00
-Alpha (annualized)      +1.8%      +0.4%       0.0%
-Tracking Error           6.2%       7.4%        0.0%
-Information Ratio        0.29       0.05        N/A
+指標                    本投資組合    60/40基準     標普500
+----                    ----------    --------      ------
+年化回報                 9.8%          8.2%         10.5%
+年化波動性              11.3%          9.4%         15.2%
+夏普比率                 0.69          0.60          0.53
+索提諾比率               1.02          0.85          0.72
+最大回撤               -18.5%        -22.1%        -33.9%
+卡爾馬比率               0.53          0.37          0.31
+最差單月                -7.2%         -8.5%        -12.4%
+最佳單月                +6.8%         +7.1%        +12.7%
+正回報月份佔比           62%           61%           63%
+相對標普500的貝塔         0.65          0.58          1.00
+阿爾法（年化）           +1.8%         +0.4%          0.0%
+追蹤誤差                 6.2%          7.4%           0.0%
+資訊比率                 0.29          0.05           不適用
 
-INTERPRETATION:
-Your portfolio earned slightly less than the S&P 500
-but with much less risk. On a risk-adjusted basis
-(Sharpe, Sortino, Calmar), you outperformed both
-benchmarks. The lower drawdown means you were more
-likely to stay invested through turbulence.
+解讀：
+本投資組合的回報略低於標普500，
+但承受的風險明顯較低。以風險調整後回報而言
+（夏普比率、索提諾比率、卡爾馬比率），
+均跑贏兩個基準。較低的回撤意味著你更有可能
+在市場動盪中堅持持有。
 ```
 
 ---
 
-#### 8. Rolling Returns and Time-Horizon Analysis
+#### 8. 滾動回報與時間跨度分析
 
-A single performance number can hide tremendous variability depending on the time period chosen. Rolling return analysis solves this by showing performance over every overlapping period of a given length.
+單一績效數字可能因所選時間段不同而掩蓋巨大差異。滾動回報分析通過呈現給定長度的每個重疊期間的表現來解決這個問題。
 
 ```
-ROLLING 3-YEAR ANNUALIZED RETURN (CONCEPTUAL)
-================================================
+滾動3年年化回報（概念示意）
+============================
 
-Start each new 3-year window one month forward:
+每個新的3年窗口向前移動一個月：
 
-Window 1:  Jan 2015 - Dec 2017  ->  Ann. Return: +11.2%
-Window 2:  Feb 2015 - Jan 2018  ->  Ann. Return: +10.8%
-Window 3:  Mar 2015 - Feb 2018  ->  Ann. Return: +12.1%
+窗口1：2015年1月 - 2017年12月  ->  年化回報：+11.2%
+窗口2：2015年2月 - 2018年1月   ->  年化回報：+10.8%
+窗口3：2015年3月 - 2018年2月   ->  年化回報：+12.1%
 ...
-Window N:  Jan 2021 - Dec 2023  ->  Ann. Return:  +7.3%
+窗口N：2021年1月 - 2023年12月  ->  年化回報：+7.3%
 
-Plot all windows:
+將所有窗口繪製成圖：
 
-Return
+回報
   20%|                  *
   15%|        * *    *     *
   10%|  *  *       *         *  *    *
    5%|                              *  *
    0%|
   -5%|
-     +--|--|--|--|--|--|--|--|--|--|--|---> Time
+     +--|--|--|--|--|--|--|--|--|--|--|---> 時間
     2015              2019              2023
 
-This shows the RANGE of experiences investors had,
-not just the endpoint-to-endpoint number.
+這呈現了投資者經歷的「回報範圍」，
+而非單一的起訖點數字。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Higher returns always mean better performance."**
+**誤解一：「更高的回報必然代表更好的表現。」**
 
-Reality: Returns must always be evaluated relative to the risk taken. A fund that returns 15% with 30% volatility is not superior to one returning 10% with 10% volatility. The second fund has a Sharpe ratio of roughly 0.60 (assuming a 4% risk-free rate) versus about 0.37 for the first. Professionals would choose the lower-return fund and use modest leverage to achieve the same return with less total risk.
+現實：回報必須始終與所承受的風險一同評估。一隻回報15%但波動性達30%的基金，並不優於一隻回報10%但波動性只有10%的基金。假設無風險利率為4%，後者的夏普比率約為0.60，前者約為0.37。專業人士會選擇回報較低的基金，並通過適度槓桿來達到相同回報，同時承受更低的總體風險。
 
-**Misconception 2: "Volatility and risk are the same thing."**
+**誤解二：「波動性和風險是同一回事。」**
 
-Reality: Volatility is one measure of risk, but it misses important dimensions. A stock that steadily loses 2% per month has low volatility but catastrophic risk. Conversely, a stock that is flat for 11 months and then jumps 30% in December has high volatility but would be a wonderful investment. True risk includes the probability of permanent capital loss, liquidity risk, concentration risk, and drawdown severity -- none of which are fully captured by standard deviation.
+現實：波動性是衡量風險的其中一個指標，但它遺漏了重要的面向。一隻每月穩定下跌2%的股票波動性很低，但風險卻是災難性的。相反，一隻11個月都持平、然後在12月大漲30%的股票波動性很高，但卻是極佳的投資。真正的風險包括永久性資本損失的概率、流動性風險、集中性風險和回撤嚴重程度——這些都無法被標準差完全反映。
 
-**Misconception 3: "A Sharpe ratio above 1.0 is easy to achieve."**
+**誤解三：「夏普比率超過1.0很容易達到。」**
 
-Reality: A sustained Sharpe ratio above 1.0 is genuinely exceptional. The long-run Sharpe ratio of the US equity market is roughly 0.4 to 0.5. Warren Buffett's Berkshire Hathaway has achieved approximately 0.76 over decades. If someone claims a Sharpe ratio above 2.0 over a long period, investigate carefully for survivorship bias, data mining, illiquid holdings marked at stale prices, or hidden tail risk.
+現實：持續維持高於1.0的夏普比率實屬難得。美國股票市場的長期夏普比率約為0.4至0.5。巴菲特的巴郡在數十年間達到了約0.76。若有人聲稱在長期內夏普比率超過2.0，請仔細核查，是否存在存活者偏差、數據挖掘、以過時價格計算的非流動性持倉，或隱藏的尾部風險。
 
-**Misconception 4: "Maximum drawdown is a one-time event you can just endure."**
+**誤解四：「最大回撤只是一次性事件，忍忍就過去了。」**
 
-Reality: The maximum drawdown you have experienced so far is likely not the worst you will ever experience. Markets regularly produce drawdowns that exceed anything seen in recent history. Furthermore, the psychological impact of living through a drawdown is far more intense than any backtest suggests. Watching your life savings shrink by 40% in real-time, with terrifying headlines every day, is qualitatively different from seeing a -40% number in a table.
+現實：你至今經歷的最大回撤，很可能並非你將來會遇到的最壞情況。市場定期出現超越近代歷史紀錄的回撤。此外，親身經歷回撤的心理衝擊，遠比任何回測數字所暗示的更為強烈。在每天充斥恐怖新聞的環境下，眼睜睜看著畢生積蓄縮水40%，是截然不同的質感體驗，與表格中的-40%數字相差天壤之別。
 
-**Misconception 5: "My brokerage account return is my actual performance."**
+**誤解五：「我的證券行帳戶顯示的回報就是我的實際表現。」**
 
-Reality: Most brokerage accounts report time-weighted returns, which ignore the impact of your deposits and withdrawals. Your actual experience (money-weighted return) can be dramatically different. If you added money before a decline or withdrew money before a rally, your personal return is worse than what your account statement shows.
+現實：大多數證券行帳戶呈報的是時間加權回報，忽略了你的存款和提款的影響。你的實際體驗（金額加權回報）可能截然不同。若你在下跌前追加資金，或在反彈前撤資，你的個人回報將遠遜於帳戶結單所呈示的數字。
 
-**Misconception 6: "Past Sharpe ratios predict future Sharpe ratios."**
+**誤解六：「過去的夏普比率可以預測未來的夏普比率。」**
 
-Reality: Risk-adjusted metrics are far more stable than raw returns, but they are not fixed. A strategy's Sharpe ratio can change dramatically when market regimes shift. A strategy designed for low-rate environments may have a terrible Sharpe ratio when rates rise. Always understand why a strategy works, not just that it worked historically.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How many months of data do I need before performance metrics are meaningful?**
-
-A: At minimum, you want 36 months (3 years) for basic statistics like Sharpe ratio and volatility to be somewhat reliable. For drawdown analysis, you ideally want data covering at least one full market cycle (bull and bear), which typically means 7-10 years. For very high confidence, 15-20 years of data is preferred. Be deeply skeptical of any strategy that shows only 12 months of performance.
-
-**Q2: Should I use daily, weekly, or monthly returns to calculate volatility and Sharpe?**
-
-A: Monthly returns are the standard for most performance analysis. Daily returns can be noisy and may overstate volatility due to bid-ask spreads and microstructure effects. Weekly returns are a reasonable middle ground. For comparability with published statistics and benchmarks, use monthly data and annualize. If using daily data, annualize by multiplying daily standard deviation by the square root of 252 (trading days per year).
-
-**Q3: My portfolio has a negative Sharpe ratio. What does that mean?**
-
-A: It means your portfolio returned less than the risk-free rate. You would have been better off in Treasury bills. This is not uncommon during bear markets -- even the S&P 500 has negative Sharpe ratios over certain multi-year periods. If your Sharpe ratio is consistently negative over a full market cycle (5+ years), you should seriously reconsider your strategy.
-
-**Q4: What is a good maximum drawdown to target?**
-
-A: This depends entirely on your risk tolerance, but a useful rule of thumb: your maximum acceptable drawdown should be roughly twice the return you expect. If you target 8% annual returns, be prepared for drawdowns of 15-20%. If you target 12% annual returns, be prepared for drawdowns of 25-30% or more. The key is to set this threshold before you invest, not during a drawdown when emotions dominate.
-
-**Q5: Why do financial advisors show time-weighted returns instead of money-weighted?**
-
-A: Time-weighted returns are used because they isolate manager skill from client behavior. If an advisor's strategy returned 10% (TWR) but a particular client earned only 3% (MWR) because they panicked and sold during a dip, the advisor's strategy still performed well -- the client's behavior was the problem. TWR is fair to the manager; MWR is fair to the client. You should demand to see both.
-
-**Q6: How do hedge funds report such high Sharpe ratios?**
-
-A: Several factors inflate hedge fund Sharpe ratios: (1) Survivorship bias -- failed funds are removed from databases, leaving only winners. (2) Illiquid holdings are often marked at stale or manager-estimated prices, artificially smoothing returns and reducing measured volatility. (3) Some strategies involve selling insurance-like instruments that generate steady small gains but occasional catastrophic losses (hidden tail risk). (4) Leverage can boost returns without appearing in standard Sharpe calculations if not properly accounted for. Always look at the Sharpe ratio with skepticism for any strategy that involves illiquid assets or option-like payoffs.
-
-**Q7: What is the Calmar ratio and why do some people prefer it?**
-
-A: The Calmar ratio is annualized return divided by maximum drawdown. Some investors prefer it because maximum drawdown is a more tangible risk measure than standard deviation. A Calmar ratio above 1.0 means your annualized return exceeds your worst drawdown -- a good sign. Below 0.5 suggests you endured significant pain for modest returns. However, maximum drawdown is a single observation and is sample-dependent, which makes Calmar less statistically robust than Sharpe.
-
-**Q8: How do I calculate my personal money-weighted return?**
-
-A: You need a record of every deposit and withdrawal with dates. Then you solve for the internal rate of return (IRR) -- the discount rate that makes the present value of all cash flows (including the ending portfolio value) equal to zero. Most spreadsheet software has an IRR or XIRR function that does this automatically. XIRR is preferred because it handles irregular dates. Simply input negative values for money invested, positive values for money withdrawn or your ending balance, and the corresponding dates.
-
-**Q9: Does rebalancing affect performance metrics?**
-
-A: Yes, rebalancing affects all performance metrics. Regular rebalancing tends to reduce volatility (by keeping allocations from drifting toward riskier assets) and can improve the Sharpe ratio, particularly in sideways or mean-reverting markets. However, in strong trending markets, rebalancing sells winners and buys losers, which can reduce raw returns. The impact on drawdown is generally positive -- rebalanced portfolios typically experience smaller maximum drawdowns because they maintain diversification.
-
-**Q10: Can two investors in the same fund have wildly different money-weighted returns?**
-
-A: Absolutely. If Investor A put in $100,000 at inception and never touched it, and Investor B started with $10,000 but added $200,000 right before a 30% crash, their money-weighted returns would be vastly different despite owning the same fund. This is precisely why the distinction between TWR and MWR matters. The fund's performance (TWR) is the same for everyone. Each investor's experience (MWR) is unique.
+現實：風險調整後指標比原始回報穩定得多，但並非固定不變。當市場環境轉變時，策略的夏普比率可能大幅改變。為低利率環境設計的策略，在利率上升時夏普比率可能急劇惡化。務必理解一個策略為何有效，而非只知道它曾經有效。
 
 ---
 
-## YouTube Script
+### d) 常見問題解答
+
+**問題一：需要多少個月的數據，績效指標才有意義？**
+
+答：夏普比率和波動性等基本統計數據要達到一定可靠性，至少需要36個月（3年）的數據。回撤分析理想上需要涵蓋至少一個完整市場周期（牛市和熊市），通常意味著需要7至10年的數據。若要達到高置信度，則最好有15至20年的數據。對於任何只展示12個月績效的策略，應保持高度懷疑。
+
+**問題二：計算波動性和夏普比率應使用日度、週度還是月度回報？**
+
+答：月度回報是大多數績效分析的標準。日度回報可能較為嘈雜，並可能因買賣差價和微觀結構效應而高估波動性。週度回報是合理的中間選項。為了與已發布的統計數據和基準具有可比性，應使用月度數據並進行年化。若使用日度數據，則通過將日度標準差乘以252的平方根（每年交易日數）來年化。
+
+**問題三：我的投資組合夏普比率為負值，這意味著什麼？**
+
+答：這意味著你的投資組合回報低於無風險利率。你本可以持有國庫券而獲得更好的結果。在熊市期間，這並不罕見——即使是標普500，在某些數年期間的夏普比率也是負值。若在完整市場周期（5年以上）中，你的夏普比率持續為負，則應認真重新考慮你的策略。
+
+**問題四：最大回撤應以多少為目標？**
+
+答：這完全取決於你的風險承受能力，但有一個實用的經驗法則：你能接受的最大回撤，大約應為你預期回報的兩倍。若你的目標是每年8%的回報，應預備承受15至20%的回撤。若你的目標是每年12%的回報，則應預備承受25至30%甚至更大的回撤。關鍵是在投資前設定這個閾值，而非在回撤期間被情緒主導時才去設定。
+
+**問題五：為何財務顧問呈示的是時間加權回報，而非金額加權回報？**
+
+答：使用時間加權回報，是因為它能將經理人的能力與客戶行為分開。若顧問的策略錄得10%回報（TWR），但某位客戶因在下跌期間驚慌賣出而只賺得3%（MWR），顧問的策略表現依然良好——問題在於客戶的行為。TWR對經理人公平；MWR對客戶公平。你應要求同時查閱兩者。
+
+**問題六：對沖基金如何呈現如此高的夏普比率？**
+
+答：有幾個因素會令對沖基金的夏普比率虛高：（1）存活者偏差——已倒閉的基金從數據庫中被剔除，只留下成功的基金。（2）非流動性持倉往往按過時或由基金經理估算的價格計值，人為地平滑了回報，降低了量度到的波動性。（3）某些策略涉及出售類似保險的工具，產生穩定的小額收益，但偶爾遭遇災難性損失（隱藏的尾部風險）。（4）槓桿可以提升回報，若未妥善計算，則不會反映在標準的夏普比率計算中。對任何涉及非流動性資產或類期權收益的策略，都應以懷疑的態度審視其夏普比率。
+
+**問題七：卡爾馬比率是什麼，為何有人偏好使用它？**
+
+答：卡爾馬比率是年化回報除以最大回撤。部分投資者偏好它，因為最大回撤是比標準差更直觀的風險指標。卡爾馬比率高於1.0，意味著你的年化回報超過了最大回撤——是個好兆頭。低於0.5則表明你承受了重大痛苦，卻只換來了有限的回報。然而，最大回撤是單一觀測值，且受樣本影響，使得卡爾馬比率的統計穩健性低於夏普比率。
+
+**問題八：如何計算個人的金額加權回報？**
+
+答：你需要記錄每一筆存款和提款及其日期。然後求解內部回報率（IRR）——使所有現金流（包括最終投資組合價值）的現值之和等於零的折現率。大多數試算表軟件都有IRR或XIRR函數可自動完成計算。XIRR更為適合，因為它處理不規則日期。只需輸入投入資金的負值、提取資金或最終結餘的正值，以及對應日期即可。
+
+**問題九：再平衡是否影響績效指標？**
+
+答：是的，再平衡影響所有績效指標。定期再平衡往往能降低波動性（通過防止配置向風險較高的資產過度偏移），並能改善夏普比率，尤其是在橫盤震盪或均值回歸的市場中。然而，在強勢趨勢市場中，再平衡會賣出強勢資產、買入弱勢資產，可能降低原始回報。對回撤的影響通常是正面的——再平衡後的投資組合因維持了分散化，通常會經歷較小的最大回撤。
+
+**問題十：持有同一隻基金的兩位投資者，金額加權回報可以有很大差異嗎？**
+
+答：完全可以。若投資者A在基金成立時投入10萬元，此後從不更動；投資者B一開始只投入1萬元，卻在大跌30%之前追加了20萬元；兩人的金額加權回報將截然不同，儘管他們持有的是同一隻基金。這正是區分時間加權回報和金額加權回報如此重要的原因。基金的表現（TWR）對所有人相同；每位投資者的體驗（MWR）卻各不相同。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with title "Week 17: Performance Metrics - Volatility, Drawdowns, and Risk-Adjusted Returns"]
 
-**Alex:** Welcome back everyone. Today we are talking about something that is absolutely critical for your success as an investor, but that most people get completely wrong. We are talking about how to actually measure investment performance.
+**Horace：** 歡迎大家回來。今日我哋講嘅嘢，對你作為一個投資者嚟講絕對係至關重要嘅，但大多數人都係搞錯晒嘅——就係點樣正確量度投資績效。
 
-**Sam:** This seems pretty straightforward, Alex. I look at my portfolio, I see it went up 15% this year, that is my performance, right?
+**Stella：** 呢個好似唔係幾複雜喎，Horace。我睇下個投資組合，見到今年升咗15%，噉咪係我嘅績效囉，係咪？
 
-**Alex:** And that right there is the mistake almost everyone makes. Let me ask you something. If I told you I made 15% last year, would you be impressed?
+**Horace：** 而你噉諗，正正就係幾乎所有人都會犯嘅錯誤。我問你一個問題。如果我話你聽，我去年賺咗15%，你會覺得係咪唔錯？
 
-**Sam:** I mean, 15% sounds pretty good.
+**Stella：** 我意思係，15%聽起嚟幾好喎。
 
-**Alex:** What if I told you that to make that 15%, my portfolio dropped 45% in the spring, I could not sleep for three months, and I nearly sold everything at the bottom?
+**Horace：** 如果我話你聽，為咗賺到呢個15%，我個投資組合喺春季跌咗45%，我三個月都瞓唔著，仲差啲喺最低點賣晒？
 
-**Sam:** That sounds terrifying. Okay, so the 15% does not tell the whole story.
+**Stella：** 噉聽起嚟好恐怖喎。好，所以個15%唔係講晒件事。
 
-**Alex:** Not even close. Today we are going to learn the metrics that professionals use to evaluate performance properly. We will cover volatility, drawdowns, the Sharpe ratio, the Sortino ratio, and one of the most misunderstood concepts in all of finance -- the difference between time-weighted and money-weighted returns.
+**Horace：** 差遠喇。今日我哋將會學習專業人士用嚟正確評估績效嘅指標。我哋會涵蓋波動性、回撤、夏普比率、索提諾比率，以及金融界最多人誤解嘅概念之一——時間加權回報同金額加權回報嘅分別。
 
 [VISUAL: Agenda slide showing the five main topics with icons: a zigzag line for volatility, a falling arrow for drawdowns, a scale/balance for Sharpe, a half-scale for Sortino, and a clock vs. money bag for TWR vs. MWR]
 
-**Sam:** Let us start from the beginning. When people talk about volatility, what exactly do they mean?
+**Stella：** 由最基本開始講起啦。當人哋講到波動性，究竟係指咩？
 
-**Alex:** Volatility is simply a measure of how much returns bounce around. Technically, it is the standard deviation of returns. Think of it this way. Imagine you have two roads to get to the same destination, and both take the same time. Road A is a smooth highway. Road B is a roller coaster with huge hills and sharp turns. They get you to the same place, but the experience is very different.
+**Horace：** 波動性就係量度回報起伏幅度嘅指標。從技術層面嚟講，佢係回報嘅標準差。噉樣諗下：假設你有兩條路去同一個目的地，兩條路所需時間一樣。A路係一條平坦嘅高速公路。B路係一個過山車，有巨大起伏同急彎。兩條路都能帶你到達目的地，但體驗截然不同。
 
-**Sam:** I would definitely prefer Road A.
+**Stella：** 我絕對會選A路。
 
-**Alex:** Most investors would. And in investing, the smooth road has low volatility and the roller coaster has high volatility. The S&P 500 typically has an annual volatility of about 15 to 16 percent. That means in a normal year, you should expect the market to fluctuate within a range of about 15% above or below the average return.
+**Horace：** 大多數投資者都係噉。喺投資世界，平坦嘅路代表低波動性，過山車就代表高波動性。標普500的年度波動性通常約為15至16%。即係話，喺正常嘅一年裡，你預期市場會喺平均回報上下約15%的範圍內波動。
 
-[ANIMATION: animation/week17_volatility.py - Two animated portfolio lines growing over the same 5-year period to the same ending value. Line A is smooth with gentle undulations. Line B zigzags wildly with large swings. Both reach the same final point. Labels show "Low Volatility: 8%" and "High Volatility: 25%". A final annotation appears: "Same return. Very different experience."]
+[ANIMATION: animation/week17_volatility.py - Two animated portfolio lines growing over the same 5-year period to the same ending value. Line A is smooth with gentle undulations. Line B zigzags wildly with large swings. Both reach the same final point. Labels show "低波動性：8%" and "高波動性：25%". A final annotation appears: "相同回報。截然不同的體驗。"]
 
-**Sam:** So if the average return is 10% and volatility is 15%, the range of typical outcomes in a year would be negative 5% to positive 25%?
+**Stella：** 所以如果平均回報係10%，波動性係15%，一年內嘅典型結果範圍係負5%至正25%？
 
-**Alex:** Roughly, yes. That is one standard deviation in each direction, which covers about two thirds of outcomes. Two standard deviations -- covering about 95% of outcomes -- would be negative 20% to positive 40%. That is why even in a normal environment, without any crisis, you can see the market drop 20% and it is completely within the realm of normal.
+**Horace：** 大致係噉。呢個係上下各一個標準差，覆蓋大約三分之二嘅結果。兩個標準差——覆蓋大約95%的結果——係負20%至正40%。所以即使係正常環境下，沒有任何危機，你都可能見到市場跌20%，而呢個完全係正常範圍之內。
 
-**Sam:** That is actually useful to know. So when the market drops 15%, that is just normal volatility, not necessarily a crisis.
+**Stella：** 噉其實幾有用喎。所以當市場跌15%，那只係正常嘅波動性，未必係危機。
 
-**Alex:** Exactly. And this is where many investors go wrong. They see a 10 or 15 percent decline and they panic, thinking something is fundamentally broken. In reality, the market drops 10% or more roughly once every 18 months on average. It drops 20% or more about once every 4 to 5 years. These are features of equity investing, not bugs.
+**Horace：** 完全正確。而好多投資者就係喺呢度出錯。佢哋見到10至15%的跌幅就驚慌失措，以為係出咗根本性的問題。但事實上，市場跌10%或以上，平均大約每18個月就發生一次。跌20%或以上，大約每4至5年就發生一次。這些都是股票投資嘅特性，唔係缺陷。
 
 [VISUAL: Timeline from 1980 to present showing all S&P 500 corrections (10%+) and bear markets (20%+) plotted as vertical bars below the x-axis, demonstrating how frequent these events are. A rising line above shows the long-term upward trend despite the corrections.]
 
-**Sam:** Okay, so volatility tells me about the bumpiness of the ride. But you mentioned something about volatility being an imperfect measure of risk?
+**Stella：** 好，所以波動性告訴我旅程有幾顛簸。但你提到波動性作為風險指標係唔完美嘅？
 
-**Alex:** Yes, and this is crucial. Volatility treats upside and downside moves identically. If your stock jumps 20% in a month, that increases its measured volatility. But nobody thinks of a big gain as risk, right?
+**Horace：** 係，而且呢點非常關鍵。波動性對上行同下行嘅波動一視同仁。如果你隻股票某個月大漲20%，呢個會增加其量度到嘅波動性。但冇人會覺得大幅獲利係風險，對唔對？
 
-**Sam:** No, that sounds great.
+**Stella：** 唔會囉，噉聽起嚟好正喎。
 
-**Alex:** Exactly. This is the fundamental limitation of volatility as a risk measure. It penalizes you for good outcomes as much as bad ones. We will come back to this when we talk about the Sortino ratio, which fixes this problem. But first, let us talk about the risk metric that matters most to real human beings -- drawdowns.
+**Horace：** 正係噉說。呢個就係波動性作為風險指標最根本嘅局限性。它同等地懲罰好結果同壞結果。我哋講到索提諾比率嗰陣會返嚟討論呢個問題，索提諾比率正正解決了呢個缺陷。但首先，我哋先講對真實投資者最重要嘅風險指標——回撤。
 
-**Sam:** What exactly is a drawdown?
+**Stella：** 回撤究竟係咩？
 
-**Alex:** A drawdown is the decline from a portfolio's peak value to its subsequent trough. It answers the question every investor actually cares about: how much did I lose from the top?
+**Horace：** 回撤係量度投資組合從峰值到隨後谷底的跌幅。它回答咗每個投資者真正關心的問題：我最高點跌返最低，虧咗幾多？
 
-[VISUAL: Large animated chart showing a portfolio growing from $100,000. The line rises to a peak of $150,000, then drops to $105,000 (a 30% drawdown), then recovers to $160,000. Red shading fills the area between the peak and the trough, labeled "Maximum Drawdown: -30%". The recovery period is highlighted in yellow. Clear labels show "Peak", "Trough", "Drawdown Period", and "Recovery Period".]
+[VISUAL: Large animated chart showing a portfolio growing from $100,000. The line rises to a peak of $150,000, then drops to $105,000 (a 30% drawdown), then recovers to $160,000. Red shading fills the area between the peak and the trough, labeled "最大回撤：-30%". The recovery period is highlighted in yellow. Clear labels show "峰值"、"谷底"、"回撤期" and "收復期".]
 
-**Alex:** There is a mathematical reality about drawdowns that most people do not intuitively grasp. If your portfolio drops 50%, you need a 100% gain just to get back to even. Not 50% -- 100%.
+**Horace：** 關於回撤，有一個數學現實係大多數人都無直覺感知嘅。如果你的投資組合跌50%，你需要上漲100%先至能回到原位。唔係50%——係100%。
 
-**Sam:** Wait, why 100%?
+**Stella：** 等等，點解係100%？
 
-**Alex:** Because if you start with $100 and lose 50%, you have $50. Now you need to double from $50 to get back to $100. And doubling your money is a 100% gain. This asymmetry is devastating at large drawdown levels.
+**Horace：** 因為如果你由$100開始，虧損50%，你就得返$50。而家你需要由$50倍升才能回到$100。將錢翻一番，就係100%的漲幅。呢個不對稱性，在大幅回撤時係毀滅性的。
 
 [ANIMATION: animation/week17_drawdown_recovery.py - Animated bar chart showing loss percentages on the left and required recovery gains on the right. Starts with small losses (-10% needs +11.1%) and progressively shows larger losses up to -90% needs +900%. The bars on the right grow exponentially while the bars on the left grow linearly, visually demonstrating the asymmetry. Each pair of bars animates in sequence with the recovery bar "growing" up dramatically.]
 
-**Sam:** So a 75% loss needs a 300% gain to recover? That could take decades!
+**Stella：** 所以虧損75%需要上漲300%才能收復？噉可能要花幾十年！
 
-**Alex:** It can. The S&P 500 after the Great Depression did not recover to its 1929 peak until 1954 -- twenty-five years later. That is why Warren Buffett's first rule of investing is "never lose money" and the second rule is "never forget rule number one." He is not speaking literally -- all investors experience losses. He means that avoiding catastrophic drawdowns is the single most important thing you can do.
+**Horace：** 係嘅。標普500在大蕭條之後，直到1954年才收復1929年嘅峰值——足足花了25年。這正是為何巴菲特的投資第一原則係「永不虧損」，第二原則係「永遠記住第一原則」。佢唔係字面意思上咁講——所有投資者都會蝕本。佢嘅意思係，避免災難性的回撤係你能做嘅最重要一件事。
 
-**Sam:** This is making me think differently about risk already. Okay, so how do we combine return and risk into a single number?
+**Stella：** 呢個令我對風險嘅睇法完全改觀了。好，那我哋係如何將回報同風險整合成一個數字嘅？
 
-**Alex:** That brings us to the Sharpe ratio, which is arguably the most important metric in all of performance analysis. It was created by William Sharpe, who won the Nobel Prize in Economics.
+**Horace：** 噉就帶嚟咗夏普比率，它可以說是所有績效分析中最重要的指標。它是諾貝爾經濟學獎得主威廉·夏普所創立的。
 
-[VISUAL: Photo of William Sharpe with the formula displayed prominently: Sharpe = (Rp - Rf) / sigma_p, with each component labeled: "Portfolio return minus Risk-free rate, divided by Portfolio volatility"]
+[VISUAL: Photo of William Sharpe with the formula displayed prominently: 夏普比率 = (Rp - Rf) / sigma_p, with each component labeled: "投資組合回報減無風險利率，除以投資組合波動性"]
 
-**Alex:** The Sharpe ratio measures excess return per unit of risk. The numerator is your portfolio return minus the risk-free rate -- this is the extra return you earned for taking risk. The denominator is your volatility. The higher the ratio, the more efficiently you converted risk into return.
+**Horace：** 夏普比率量度的是每單位風險所賺取的超額回報。分子係你的投資組合回報減去無風險利率——呢個就係你承擔風險而賺取的額外回報。分母係你的波動性。比率越高，代表你將風險轉化為回報的效率越高。
 
-**Sam:** Can you walk me through a real example?
+**Stella：** 可以用真實例子走一遍嗎？
 
-**Alex:** Of course. Let us say Portfolio A returned 14% with a volatility of 20%, and the risk-free rate is 4%. The Sharpe ratio is 14 minus 4, divided by 20, which equals 0.50. Now Portfolio B returned only 9% with a volatility of 8%. Its Sharpe is 9 minus 4 divided by 8, which equals 0.625.
+**Horace：** 當然。假設投資組合A錄得14%回報，波動性為20%，無風險利率為4%。夏普比率係14減4，再除以20，等於0.50。而投資組合B只錄得9%回報，波動性為8%。它的夏普比率係9減4，再除以8，等於0.625。
 
-**Sam:** So Portfolio B has a lower return but a higher Sharpe ratio?
+**Stella：** 所以投資組合B回報較低，但夏普比率更高？
 
-**Alex:** Exactly. Portfolio B was more efficient with its risk. And here is the key insight. If Portfolio B used a little bit of leverage -- say borrowed at the risk-free rate and scaled up to the same volatility as Portfolio A -- it would produce a higher return than A. The Sharpe ratio tells you which strategy is fundamentally better, regardless of how much risk you choose to take.
+**Horace：** 完全正確。投資組合B的風險效率更高。而呢度有個關鍵洞見。若投資組合B使用少量槓桿——假設以無風險利率借入資金，並將風險規模放大至與投資組合A相同的波動性——它將產生高於A的回報。夏普比率告訴你哪個策略在根本上更優秀，不論你選擇承受多少風險。
 
 [ANIMATION: animation/week17_sharpe_visual.py - A coordinate plane with volatility on x-axis and return on y-axis. The risk-free rate is marked at 4% on the y-axis. Two dots represent Portfolio A (20%, 14%) and Portfolio B (8%, 9%). Lines are drawn from the risk-free rate through each dot. Portfolio B's line is steeper (higher slope = higher Sharpe). An animated leverage slider shows Portfolio B sliding along its line to higher risk/return levels, eventually surpassing Portfolio A's return at the same risk level.]
 
-**Sam:** That is elegant. So when comparing any two investments, the one with the higher Sharpe ratio is always better?
+**Stella：** 咁優雅。所以比較任何兩個投資，夏普比率較高的那個永遠更好？
 
-**Alex:** In theory, yes, assuming the returns are normally distributed and you can use leverage freely. In practice, there are complications. Returns are not always normally distributed -- they can have fat tails and skewness. And not everyone can use leverage. But as a general ranking tool, the Sharpe ratio is the industry standard.
+**Horace：** 理論上係，假設回報呈正態分佈，且你可以自由使用槓桿。但實踐中存在複雜性。回報並非永遠呈正態分佈——它可能有厚尾和偏態。而且並非每個人都能使用槓桿。但作為一般排名工具，夏普比率係業界標準。
 
-**Sam:** What is a good Sharpe ratio?
+**Stella：** 幾多算係好嘅夏普比率？
 
-**Alex:** The long-run Sharpe ratio of the US stock market is about 0.4 to 0.5. A 60/40 balanced portfolio is typically around 0.5 to 0.6. Anything above 0.7 is quite good. Above 1.0 is excellent -- you are in the top tier. And if someone tells you they have a Sharpe ratio above 2.0 over any extended period, be very, very skeptical.
+**Horace：** 美國股票市場的長期夏普比率大約係0.4至0.5。60/40均衡投資組合通常約為0.5至0.6。高於0.7算係相當不錯。高於1.0就係優秀——你已進入頂尖行列。而如果有人話你知佢哋在任何延伸期間的夏普比率超過2.0，就要非常、非常懷疑。
 
-**Sam:** Why skeptical?
+**Stella：** 點解要懷疑？
 
-**Alex:** Because sustained Sharpe ratios above 2.0 are almost unheard of in liquid markets. When you see them, it is usually because of one of a few things. The returns are calculated on illiquid assets marked at stale prices, which artificially smooths volatility. Or there is survivorship bias -- you are only seeing the fund that survived while the other 99 that used the same strategy blew up. Or the strategy is selling tail risk -- collecting small premiums that look like steady income until a catastrophe hits and wipes out years of gains in a week.
+**Horace：** 因為在流動性市場中，持續維持超過2.0的夏普比率幾乎聞所未聞。當你見到呢個情況，通常係以下其中一種原因。回報係基於以過時價格計值的非流動性資產，人為地平滑了波動性。或者係存活者偏差——你只係睇到那隻倖存的基金，而另外99隻使用同樣策略的基金已經爆倉。又或者係該策略在出售尾部風險——收取小額保費，看起來似穩定收入，直到某次災難在一周內抹去多年的收益。
 
-**Sam:** Like picking up pennies in front of a steamroller.
+**Stella：** 就像喺壓路機前面執便士。
 
-**Alex:** That is the classic metaphor, and it is perfect. The Sharpe ratio of picking up pennies in front of a steamroller looks amazing right up until the steamroller catches you.
+**Horace：** 呢個比喻經典極了，非常貼切。喺壓路機前面執便士嘅夏普比率，直到壓路機追上你之前，看起來都係美美的。
 
 [VISUAL: Illustrated metaphor showing someone picking up coins on a road with a steamroller approaching in the background, with a P&L chart below showing steady gains followed by a sudden catastrophic loss]
 
-**Sam:** You mentioned earlier that the Sharpe ratio has a flaw because it treats upside volatility the same as downside volatility. How does the Sortino ratio fix this?
+**Stella：** 你之前提到夏普比率有個缺陷，就係佢對上行和下行波動性一視同仁。索提諾比率係如何修正呢個問題的？
 
-**Alex:** The Sortino ratio uses the same basic structure as the Sharpe -- excess return in the numerator -- but in the denominator, instead of total standard deviation, it uses only the downside deviation. That is, it only counts the volatility that comes from returns below your target, usually the risk-free rate.
+**Horace：** 索提諾比率的基本結構同夏普比率相同——分子係超額回報——但分母唔係使用總標準差，而是只使用下行偏差。即係話，它只計算低於你目標的回報（通常係無風險利率）所帶來的波動性。
 
-**Sam:** So it ignores the good kind of volatility.
+**Stella：** 所以佢忽略了好的那種波動性。
 
-**Alex:** Exactly. Imagine two hedge funds. Both return 12% per year with the same Sharpe ratio. But Fund X achieves this with symmetric returns -- gains and losses are roughly equal in size. Fund Y achieves it by having many small gains and very few but slightly larger losses -- most of its volatility comes from the upside. The Sortino ratio would rate Fund Y much higher than Fund X, even though the Sharpe ratio says they are equal.
+**Horace：** 完全正確。想像兩隻對沖基金。兩者均錄得12%年回報，夏普比率相同。但基金X係通過對稱回報達到呢個結果——盈利和虧損大致相等。基金Y係通過大量小幅盈利和極少但略大的虧損來實現——大部分波動性來自上行。索提諾比率會對基金Y給出遠高於基金X的評級，即使夏普比率顯示兩者相同。
 
 [VISUAL: Two return distribution histograms side by side. Fund X shows a symmetric bell curve. Fund Y shows a right-skewed distribution with a higher peak. Both have the same Sharpe ratio labeled, but Fund Y shows a much higher Sortino ratio. The downside portion of each distribution is highlighted in red, showing that Fund Y has much less downside area.]
 
-**Sam:** When should I use the Sortino versus the Sharpe?
+**Stella：** 我應該在什麼情況下使用索提諾比率，而非夏普比率？
 
-**Alex:** Use the Sharpe as your default -- it is the standard, everyone calculates it, and it is easy to compare across studies. Use the Sortino when you are comparing strategies that have very different return distributions. This is especially important for options strategies, trend following, and anything with asymmetric payoffs. A covered call strategy, for example, will look different on Sharpe versus Sortino because the distribution is truncated on the upside.
+**Horace：** 以夏普比率作為默認選擇——它係標準，人人都計算它，容易跨研究作比較。當你比較回報分佈截然不同的策略時，才使用索提諾比率。這對期權策略、趨勢跟蹤和任何具有非對稱收益的策略尤為重要。例如，備兌認購期權策略在夏普比率和索提諾比率上的表現會有所不同，因為其分佈在上行方向被截斷。
 
-**Sam:** This brings up a question. What other metrics should I know about?
+**Stella：** 咁我仲需要知道哪些其他指標？
 
-**Alex:** There are a few more worth knowing. The Calmar ratio divides annualized return by maximum drawdown -- it tells you how much return you earned per unit of worst-case pain. The Information ratio measures excess return over a benchmark divided by tracking error -- it is how active managers are evaluated. And Jensen's Alpha measures whether a portfolio beat what the Capital Asset Pricing Model predicted it should earn, given its level of market risk.
+**Horace：** 還有幾個值得了解的。卡爾馬比率將年化回報除以最大回撤——告訴你每單位最壞情況的痛苦換來多少回報。資訊比率量度超過基準的超額回報除以追蹤誤差——這係評估主動型基金經理的方式。而簡森阿爾法則量度投資組合是否跑贏資本資產定價模型根據其市場風險水平所預測的回報。
 
-**Sam:** That is a lot of metrics. Do professionals really look at all of these?
+**Stella：** 呢啲指標真係好多。專業人士真係每一個都睇？
 
-**Alex:** Not all of them, but they typically look at a dashboard of metrics, not just one number. The standard professional analysis would include annualized return, volatility, Sharpe ratio, maximum drawdown, and sometimes Sortino and Calmar. Looking at multiple metrics gives you a three-dimensional picture of performance instead of a flat snapshot.
+**Horace：** 唔係每個都看，但他們通常睇一個指標總覽，而唔係只看一個數字。標準的專業分析通常包括年化回報、波動性、夏普比率、最大回撤，有時也包括索提諾比率和卡爾馬比率。同時睇多個指標，能讓你對績效有立體的了解，而非平面的快照。
 
-[VISUAL: Mock-up of a professional performance dashboard showing a portfolio vs. benchmark with all key metrics: return, volatility, Sharpe, Sortino, max drawdown, Calmar, beta, alpha, Information ratio. Color-coded green/red to show where the portfolio outperforms/underperforms.]
+[VISUAL: Mock-up of a professional performance dashboard showing a portfolio vs. benchmark with all key metrics: 回報, 波動性, 夏普比率, 索提諾比率, 最大回撤, 卡爾馬比率, 貝塔, 阿爾法, 資訊比率. Color-coded green/red to show where the portfolio outperforms/underperforms.]
 
-**Sam:** Alright, let us move to the last topic, which you said is one of the most misunderstood concepts in finance -- time-weighted versus money-weighted returns. What is the difference?
+**Stella：** 好，而家講最後一個話題，你話係金融界最多人誤解嘅概念之一——時間加權回報同金額加權回報。兩者有何分別？
 
-**Alex:** This is where it gets really interesting. Let me set up a scenario. Imagine a fund that returns plus 30% in Year 1 and minus 10% in Year 2.
+**Horace：** 呢度就開始非常有趣喇。俾我設定一個情境。想像一隻基金，第1年回報正30%，第2年回報負10%。
 
-**Sam:** Okay, so a great year followed by a bad year.
+**Stella：** 好，即係一個好年份接住一個差年份。
 
-**Alex:** Right. Now imagine three different investors. Investor A puts in $10,000 at the start and does not touch it. Investor B puts in $10,000 at the start, but then adds $50,000 at the start of Year 2 because she was impressed by the 30% gain. Investor C starts with $50,000 and withdraws $40,000 at the end of Year 1 because she wanted to lock in profits.
+**Horace：** 係。現在想像三個不同的投資者。投資者A在初期投入10,000元，此後不作任何操作。投資者B在初期投入10,000元，但在第2年初追加50,000元，因為她對30%的漲幅印象深刻。投資者C初期投入50,000元，並在第1年末提取40,000元以鎖定利潤。
 
-**Sam:** They are all in the same fund, so they should have the same return, right?
+**Stella：** 佢哋都係持有同一隻基金，所以回報應該係一樣嘅，係咪？
 
-**Alex:** The fund has the same return, yes. The time-weighted return, which ignores cash flows, is about 8.2% annualized for all three investors. But the money-weighted returns -- the actual returns these investors experienced -- are wildly different.
+**Horace：** 基金嘅回報係一樣，係。時間加權回報——忽略現金流——對三位投資者來說都係約8.2%年化回報。但金額加權回報——呢三位投資者實際體驗到嘅回報——卻截然不同。
 
-[ANIMATION: animation/week17_twr_mwr.py - Three animated portfolio simulations running simultaneously. Investor A shows a simple line growing 30% then declining 10%. Investor B shows a small line growing 30%, then a large cash deposit animates in, and the combined portfolio drops 10% on a much larger base -- ending animation shows the dollar loss prominently. Investor C shows a large line growing 30%, then a large cash withdrawal animates out, and the small remaining portfolio drops 10% on a small base -- ending animation shows the dollar gain prominently. Final screen shows all three money-weighted returns side by side with the identical time-weighted return.]
+[ANIMATION: animation/week17_twr_mwr.py - Three animated portfolio simulations running simultaneously. 投資者A shows a simple line growing 30% then declining 10%. 投資者B shows a small line growing 30%, then a large cash deposit animates in, and the combined portfolio drops 10% on a much larger base -- ending animation shows the dollar loss prominently. 投資者C shows a large line growing 30%, then a large cash withdrawal animates out, and the small remaining portfolio drops 10% on a small base -- ending animation shows the dollar gain prominently. Final screen shows all three money-weighted returns side by side with the identical time-weighted return.]
 
-**Alex:** Investor A has the same TWR and MWR because she made no additional moves. Investor B, who added money before the decline, has a money-weighted return of roughly negative 4.6%. She actually lost money despite being in a fund that gained.
+**Horace：** 投資者A的時間加權回報和金額加權回報相同，因為她沒有作出任何額外操作。投資者B在跌市前追加資金，其金額加權回報大約是負4.6%。儘管她投資的基金整體錄得正回報，她自己卻虧了錢。
 
-**Sam:** That is shocking.
+**Stella：** 呢個真係出乎意料！
 
-**Alex:** And Investor C, who pulled money before the decline, has a money-weighted return of roughly positive 20.8%. She did phenomenally despite being in the same fund. Same fund, same performance, but three totally different investor experiences.
+**Horace：** 而投資者C喺跌市前提取資金，其金額加權回報大約係正20.8%。她的表現出色，儘管身處同一隻基金。同一隻基金，同樣的表現，但三位投資者的體驗完全不同。
 
-**Sam:** So the timing of when you add and remove money completely changes your result.
+**Stella：** 所以你追加和提取資金的時機，完全改變了你的結果。
 
-**Alex:** Completely. And this is not a contrived example. There is extensive academic research showing that the average investor earns substantially less than the funds they invest in. The DALBAR studies show that while the S&P 500 has averaged roughly 10% per year over the past 30 years, the average equity fund investor has earned only about 5 to 6%. That 4 percentage point gap is the "behavior gap."
+**Horace：** 完全係。而且呢個唔係刻意構造的例子。大量學術研究顯示，普通投資者的回報遠低於其所投資基金的回報。DALBAR的研究持續顯示，過去30年標普500年均回報約10%，但普通股票基金投資者只賺到約5至6%。這約4個百分點的差距，就是「行為差距」。
 
-[VISUAL: Bar chart showing "Fund Return" at approximately 10% next to "Investor Return" at approximately 5.5%, with the gap between them labeled "The Behavior Gap: ~4.2% per year lost to bad timing"]
+[VISUAL: Bar chart showing "基金回報" at approximately 10% next to "投資者回報" at approximately 5.5%, with the gap between them labeled "行為差距：每年約流失4.2%"]
 
-**Sam:** Because people buy after things go up and sell after things go down.
+**Stella：** 因為人哋喺升市後先買，喺跌市後先賣。
 
-**Alex:** Exactly. Fear and greed dominate investor behavior. When markets are roaring, everyone wants in -- they add money at the peaks. When markets crash, everyone wants out -- they pull money at the troughs. This is literally the opposite of buy low, sell high.
+**Horace：** 正係。恐懼和貪婪主宰著投資者的行為。當市場飆升，人人都想入場——他們在峰值附近追加資金。當市場崩潰，人人都想離場——他們在谷底附近撤資。這字面上就係買貴賣平的反向操作。
 
-**Sam:** So when my brokerage account shows me my return, which one is it using?
+**Stella：** 所以當我的證券行帳戶顯示我的回報，它用的是哪種方法？
 
-**Alex:** Most brokerage accounts report time-weighted returns. This means the return number you see may not reflect your actual experience if you have been making deposits and withdrawals. If you want to know your true personal return, you need to calculate the money-weighted return using the XIRR function in a spreadsheet.
+**Horace：** 大多數證券行帳戶呈報的是時間加權回報。這意味著，如果你一直在進行存款和提款，你所看到的回報數字可能無法反映你的實際體驗。若想知道你的真實個人回報，你需要用試算表的XIRR函數計算金額加權回報。
 
-**Sam:** Which one is "right?"
+**Stella：** 哪一個才是「正確」的？
 
-**Alex:** Neither is right or wrong -- they answer different questions. Time-weighted return answers "did the investment strategy work?" Money-weighted return answers "did I personally make money?" For evaluating a fund manager, use TWR -- it is not fair to penalize them for when you chose to invest. For evaluating your own financial progress, use MWR -- it captures the reality of your decisions.
+**Horace：** 兩者都唔係對或錯——它們回答的是不同的問題。時間加權回報回答的係「這個投資策略有效嗎？」金額加權回報回答的係「我個人真係賺到錢嗎？」評估基金經理，用時間加權回報——責怪他們因你選擇何時投資而產生的後果並不公平。評估你自己的財務進展，用金額加權回報——它反映了你決策的實際結果。
 
-**Sam:** This has been incredibly eye-opening. So to summarize, I should not just look at returns -- I need to look at volatility, drawdowns, and risk-adjusted ratios like the Sharpe and Sortino. And I need to understand the difference between how well my strategy performed and how well I personally performed.
+**Stella：** 今日真係大開眼界。所以，我唔應該只睇回報——我需要同時睇波動性、回撤，以及夏普比率和索提諾比率等風險調整後指標。而且我需要了解我的策略表現有幾好，以及我個人實際表現有幾好之間的分別。
 
-**Alex:** That is a perfect summary. Let me give you a practical takeaway. After every year, sit down and calculate these five things for your portfolio. One, your total return. Two, your portfolio's volatility. Three, your Sharpe ratio. Four, your maximum drawdown during the year. Five, your money-weighted return using XIRR.
+**Horace：** 呢個總結非常完美。俾你一個實際的行動指引。每年結束後，坐下來為你的投資組合計算以下五件事。第一，你的總回報。第二，你的投資組合波動性。第三，你的夏普比率。第四，你全年的最大回撤。第五，用XIRR計算你的金額加權回報。
 
-[VISUAL: Checklist graphic showing "Annual Performance Review - 5 Must-Calculate Metrics" with the five items listed cleanly]
+[VISUAL: Checklist graphic showing "年度績效回顧——5個必算指標" with the five items listed cleanly]
 
-**Alex:** Compare your Sharpe ratio to a simple 60/40 benchmark. If your Sharpe is lower, your added complexity is not being rewarded. Compare your money-weighted return to your time-weighted return. If there is a big gap, your timing of deposits and withdrawals is hurting you, and you should consider automating contributions.
+**Horace：** 將你的夏普比率與簡單的60/40基準作比較。如果你的夏普比率更低，代表你額外承受的複雜度並未獲得回報。將你的金額加權回報與時間加權回報作比較。如果差距很大，代表你的存款和提款時機正在拖累你，你應該考慮自動化定期供款。
 
-**Sam:** What if my Sharpe ratio is lower than the benchmark?
+**Stella：** 如果我的夏普比率低於基準點怎辦？
 
-**Alex:** Then you need to honestly ask yourself whether your active decisions are adding value. Many investors discover that despite spending hours researching stocks, they would have been better off in a simple index fund. That is not a failure -- that is valuable self-knowledge. You can redirect that energy toward the aspects of financial planning that matter more, like saving rate, tax optimization, and staying invested during downturns.
+**Horace：** 那你就需要誠實地問自己，你的主動決策究竟係在增值還是在損耗。很多投資者發現，儘管花了大量時間研究股票，他們本可以只買一隻簡單的指數基金，結果更好。這唔係失敗——這係寶貴的自我認識。你可以將這些精力重新投入到財務規劃中更重要的環節，例如儲蓄率、稅務優化，以及在市場下跌時堅持持有。
 
-**Sam:** This is the most practical episode we have done yet. Thank you for walking through all of this.
+**Stella：** 呢集係我哋做過最實用的一集。多謝你帶領我們走過呢一切。
 
-**Alex:** Before we wrap up, I want to emphasize one final point. These metrics are tools for learning and improving. Do not obsess over short-term Sharpe ratios or panic over a bad quarter's drawdown. Calculate these annually, look at trends over time, and use them to gradually refine your approach. The best investors are the ones who treat their portfolio as a continuous learning experiment, and these metrics are how you keep score honestly.
+**Horace：** 在結束之前，我想強調最後一點。呢些指標係用來學習和進步的工具。不要過度執著於短期夏普比率，或對某個季度的回撤感到恐慌。每年計算一次，持續觀察趨勢，用它們逐步優化你的方法。最出色的投資者，是將投資組合視為持續學習實驗的人，而呢些指標就是你誠實計分的方式。
 
 [VISUAL: End screen with key takeaways in bullet points:
-- Returns without risk context are meaningless
-- Drawdowns matter more than volatility for real investors
-- Sharpe ratio: excess return per unit of total risk
-- Sortino ratio: excess return per unit of downside risk
-- TWR measures the strategy; MWR measures your experience
-- Calculate these annually to track your improvement]
+- 沒有風險背景的回報毫無意義
+- 回撤對真實投資者比波動性更重要
+- 夏普比率：每單位總風險的超額回報
+- 索提諾比率：每單位下行風險的超額回報
+- 時間加權回報量度策略；金額加權回報量度你的體驗
+- 每年計算一次這些指標，追蹤自己的進步]
 
-**Sam:** Same time next week?
+**Stella：** 下週同一時間？
 
-**Alex:** Same time next week. We will be talking about interest rates and how the Federal Reserve affects everything from bond prices to stock valuations. You will not want to miss it.
+**Horace：** 下週同一時間。我哋將會講利率，以及美聯儲如何影響由債券價格到股票估值的一切。你唔想錯過嘅。
 
-[VISUAL: Preview card for Week 18 with "Interest Rates and Central Bank Policy" and an animated Federal Reserve building icon]
+[VISUAL: Preview card for Week 18 with "利率與央行政策" and an animated Federal Reserve building icon]
 
-**Alex:** Thanks for watching everyone. If this episode helped you think differently about performance measurement, share it with a friend who is just looking at returns and thinking they have the whole picture. See you next week.
+**Horace：** 多謝各位收睇。如果今集幫助你以不同眼光看待績效量度，歡迎分享俾你身邊只係睇回報數字、以為自己掌握全貌的朋友。下週見。
 
 [VISUAL: Outro animation with subscribe button and links to previous episodes]

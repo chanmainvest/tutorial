@@ -613,79 +613,79 @@ Yes, several exist. RSPN and other "rotation" ETFs attempt to systematically rot
 
 [VISUAL: Channel intro animation with upbeat music. Title card reads "Week 16: Business Cycles and Sector Rotation -- Riding the Economic Waves"]
 
-**Alex:** Welcome back. Last week we talked about multi-asset allocation -- combining stocks, bonds, commodities, and gold for better diversification. Today, we are going deeper into one of the most powerful tools in an investor's toolkit: understanding the business cycle and using it to tilt your portfolio toward the right sectors at the right time.
+**Horace:** Welcome back. Last week we talked about multi-asset allocation -- combining stocks, bonds, commodities, and gold for better diversification. Today, we are going deeper into one of the most powerful tools in an investor's toolkit: understanding the business cycle and using it to tilt your portfolio toward the right sectors at the right time.
 
-**Sam:** Sector rotation. I have heard this term thrown around on financial media. "Rotation into defensives," "rotation into cyclicals." What exactly does it mean?
+**Stella:** Sector rotation. I have heard this term thrown around on financial media. "Rotation into defensives," "rotation into cyclicals." What exactly does it mean?
 
-**Alex:** At its core, sector rotation is the observation that different sectors of the economy perform better during different phases of the business cycle. Think about it intuitively. When the economy is booming, people are buying cars, going on vacations, renovating their homes. Consumer discretionary companies thrive. But when a recession hits, people cut back on luxuries and keep buying toothpaste, electricity, and medicine. Defensive sectors hold up while cyclicals get crushed.
+**Horace:** At its core, sector rotation is the observation that different sectors of the economy perform better during different phases of the business cycle. Think about it intuitively. When the economy is booming, people are buying cars, going on vacations, renovating their homes. Consumer discretionary companies thrive. But when a recession hits, people cut back on luxuries and keep buying toothpaste, electricity, and medicine. Defensive sectors hold up while cyclicals get crushed.
 
 [VISUAL: Split screen. Left side shows a thriving restaurant scene, busy car dealership, crowded mall labeled "Expansion: Cyclicals Thrive". Right side shows a quiet restaurant, empty car lot, sparse mall labeled "Recession: Cyclicals Suffer"]
 
-**Sam:** That makes intuitive sense. But can we actually predict these shifts?
+**Stella:** That makes intuitive sense. But can we actually predict these shifts?
 
-**Alex:** Not with precision, but with useful probability. And the key word is "shift" -- we are not trying to call the exact top or bottom. We are trying to recognize which phase of the cycle we are in and position accordingly.
+**Horace:** Not with precision, but with useful probability. And the key word is "shift" -- we are not trying to call the exact top or bottom. We are trying to recognize which phase of the cycle we are in and position accordingly.
 
-**Sam:** Alright, let us start with the business cycle itself. Walk me through the phases.
+**Stella:** Alright, let us start with the business cycle itself. Walk me through the phases.
 
-**Alex:** The business cycle has four main phases, and they repeat over and over. Picture it as a clock or a wave.
+**Horace:** The business cycle has four main phases, and they repeat over and over. Picture it as a clock or a wave.
 
 [ANIMATION: animation/week16_sector_rotation.py - Animated visualization of the business cycle as a rotating wheel. The wheel has four quadrants labeled Early Recovery, Mid-Expansion, Late Expansion, and Contraction. As the wheel rotates, sector ETF icons light up in each quadrant showing which sectors outperform. GDP growth, unemployment, and interest rate indicators are shown on the side, updating as the wheel turns through each phase. A portfolio bar at the bottom shows how an investor's sector allocation should shift with each phase transition.]
 
-**Sam:** That animation really helps. Let me make sure I have each phase right.
+**Stella:** That animation really helps. Let me make sure I have each phase right.
 
-**Alex:** Go for it.
+**Horace:** Go for it.
 
-**Sam:** Phase one is Early Recovery. The economy just went through a recession, unemployment is still high, but things are starting to stabilize. The central bank has slashed interest rates to stimulate growth. Stocks have already started to recover because markets look ahead. This is where you want to own financials, consumer discretionary, and real estate.
+**Stella:** Phase one is Early Recovery. The economy just went through a recession, unemployment is still high, but things are starting to stabilize. The central bank has slashed interest rates to stimulate growth. Stocks have already started to recover because markets look ahead. This is where you want to own financials, consumer discretionary, and real estate.
 
-**Alex:** Perfect. Why those sectors specifically?
+**Horace:** Perfect. Why those sectors specifically?
 
-**Sam:** Financials benefit from the steep yield curve -- the central bank has pushed short-term rates to near zero, but long-term rates are higher because investors expect future growth. Banks borrow short and lend long, so that spread is their profit margin. Consumer discretionary benefits because pent-up demand starts flowing as consumers regain confidence. And real estate benefits from rock-bottom interest rates making mortgages cheap.
+**Stella:** Financials benefit from the steep yield curve -- the central bank has pushed short-term rates to near zero, but long-term rates are higher because investors expect future growth. Banks borrow short and lend long, so that spread is their profit margin. Consumer discretionary benefits because pent-up demand starts flowing as consumers regain confidence. And real estate benefits from rock-bottom interest rates making mortgages cheap.
 
 [VISUAL: The yield curve shown as a steep upward slope with labels "Banks borrow here (cheap!)" at the short end and "Banks lend here (higher rates)" at the long end, with the spread highlighted as bank profit]
 
-**Alex:** Excellent analysis. Phase two?
+**Horace:** Excellent analysis. Phase two?
 
-**Sam:** Mid-Expansion. GDP growth is strong and broadening. Unemployment is falling steadily. The central bank starts raising rates but they are still relatively low. This is the Goldilocks phase -- not too hot, not too cold. Best sectors are technology and industrials. Tech benefits from increasing business investment in software and equipment. Industrials benefit from rising orders, construction, and transportation demand.
+**Stella:** Mid-Expansion. GDP growth is strong and broadening. Unemployment is falling steadily. The central bank starts raising rates but they are still relatively low. This is the Goldilocks phase -- not too hot, not too cold. Best sectors are technology and industrials. Tech benefits from increasing business investment in software and equipment. Industrials benefit from rising orders, construction, and transportation demand.
 
-**Alex:** And this is often the longest phase of the cycle. Companies are growing earnings, consumers are spending, and business confidence is high. Why does it eventually end?
+**Horace:** And this is often the longest phase of the cycle. Companies are growing earnings, consumers are spending, and business confidence is high. Why does it eventually end?
 
-**Sam:** Because the economy starts to overheat?
+**Stella:** Because the economy starts to overheat?
 
-**Alex:** Exactly. Which brings us to phase three.
+**Horace:** Exactly. Which brings us to phase three.
 
-**Sam:** Late Expansion. Growth is still positive but starting to slow at the margins. Unemployment is very low, which sounds good but it means companies are struggling to find workers and wages are rising fast. Inflation picks up. The central bank is aggressively raising rates to cool things down. This is where you want energy and materials because commodity prices are surging with demand, and you also want to start adding defensive sectors like healthcare because the end of the cycle is approaching.
+**Stella:** Late Expansion. Growth is still positive but starting to slow at the margins. Unemployment is very low, which sounds good but it means companies are struggling to find workers and wages are rising fast. Inflation picks up. The central bank is aggressively raising rates to cool things down. This is where you want energy and materials because commodity prices are surging with demand, and you also want to start adding defensive sectors like healthcare because the end of the cycle is approaching.
 
 [VISUAL: Dashboard showing key late-expansion indicators: wages rising sharply, CPI above target, Fed funds rate climbing, credit spreads starting to widen, PMI still above 50 but declining]
 
-**Alex:** And the warning signs of late expansion are critical to recognize. When you see the yield curve flattening or inverting, PMI starting to decline from high levels, and speculative behavior increasing -- people quitting their jobs to day-trade, bitcoin going parabolic, SPACs everywhere -- that is the time to start rotating toward defense.
+**Horace:** And the warning signs of late expansion are critical to recognize. When you see the yield curve flattening or inverting, PMI starting to decline from high levels, and speculative behavior increasing -- people quitting their jobs to day-trade, bitcoin going parabolic, SPACs everywhere -- that is the time to start rotating toward defense.
 
-**Sam:** Phase four: Contraction. The dreaded recession.
+**Stella:** Phase four: Contraction. The dreaded recession.
 
-**Alex:** GDP turns negative. Unemployment spikes. Corporate earnings fall. Fear dominates. But also -- and this is crucial -- the central bank starts slashing rates again, which plants the seeds of the next recovery. In this phase, you want utilities, consumer staples, and healthcare. These are the sectors people cannot stop spending on even during a recession. You still need electricity, food, and medicine.
+**Horace:** GDP turns negative. Unemployment spikes. Corporate earnings fall. Fear dominates. But also -- and this is crucial -- the central bank starts slashing rates again, which plants the seeds of the next recovery. In this phase, you want utilities, consumer staples, and healthcare. These are the sectors people cannot stop spending on even during a recession. You still need electricity, food, and medicine.
 
 [VISUAL: Bar chart showing sector returns during the 2008 recession, 2020 COVID recession, and 2022 bear market. Defensive sectors (utilities, staples, healthcare) shown in green with mild declines. Cyclical sectors (financials, consumer discretionary, technology) shown in red with deep declines]
 
-**Sam:** And you mentioned that markets lead the economy by six to nine months. So the stock market starts falling before the recession officially starts, and it starts recovering before the recession officially ends.
+**Stella:** And you mentioned that markets lead the economy by six to nine months. So the stock market starts falling before the recession officially starts, and it starts recovering before the recession officially ends.
 
-**Alex:** That is one of the most important things to understand. By the time the National Bureau of Economic Research officially declares a recession, the stock market has typically already bottomed and started to recover. If you wait for official confirmation, you miss the recovery. This is why leading indicators matter so much more than lagging indicators.
+**Horace:** That is one of the most important things to understand. By the time the National Bureau of Economic Research officially declares a recession, the stock market has typically already bottomed and started to recover. If you wait for official confirmation, you miss the recovery. This is why leading indicators matter so much more than lagging indicators.
 
 [VISUAL: Timeline showing the sequence: Stock market peaks (Month 0) --> Recession officially begins (Month 6-9) --> Stock market bottoms (Month 8-12) --> Recession officially ends (Month 12-18) --> Economy clearly recovering (Month 18-24). Key annotation: "The market has already recovered by the time the recession is 'officially' over"]
 
-**Sam:** Okay, so how do I actually know where we are in the cycle right now? What indicators should I watch?
+**Stella:** Okay, so how do I actually know where we are in the cycle right now? What indicators should I watch?
 
-**Alex:** The two most important ones are the PMI and the yield curve. Let us start with PMI.
+**Horace:** The two most important ones are the PMI and the yield curve. Let us start with PMI.
 
 [VISUAL: Title card "PMI: Your Real-Time Economic GPS"]
 
-**Alex:** The Purchasing Managers' Index is a monthly survey of purchasing managers at major companies. Are you receiving more orders or fewer? Are you building inventory or drawing it down? Are you hiring or laying off? The answers are compiled into a single number.
+**Horace:** The Purchasing Managers' Index is a monthly survey of purchasing managers at major companies. Are you receiving more orders or fewer? Are you building inventory or drawing it down? Are you hiring or laying off? The answers are compiled into a single number.
 
-**Sam:** And the magic number is 50?
+**Stella:** And the magic number is 50?
 
-**Alex:** Right. Above 50 means the manufacturing sector is expanding. Below 50 means it is contracting. But the level alone is not enough -- the direction matters just as much. A PMI of 52 that was 56 last month is more bearish than a PMI of 48 that was 44 last month.
+**Horace:** Right. Above 50 means the manufacturing sector is expanding. Below 50 means it is contracting. But the level alone is not enough -- the direction matters just as much. A PMI of 52 that was 56 last month is more bearish than a PMI of 48 that was 44 last month.
 
-**Sam:** Because in the first case things are slowing, and in the second case they are improving?
+**Stella:** Because in the first case things are slowing, and in the second case they are improving?
 
-**Alex:** Precisely. The first case suggests the economy is decelerating, possibly heading toward contraction. The second case suggests the economy is recovering from a trough. Here is how I read PMI signals for sector rotation.
+**Horace:** Precisely. The first case suggests the economy is decelerating, possibly heading toward contraction. The second case suggests the economy is recovering from a trough. Here is how I read PMI signals for sector rotation.
 
 [VISUAL: PMI signal chart showing five zones with arrows pointing to sector recommendations:
 - PMI > 55 and rising: "Full cyclical mode -- Tech, Industrials, Consumer Disc"
@@ -694,23 +694,23 @@ Yes, several exist. RSPN and other "rotation" ETFs attempt to systematically rot
 - PMI < 45: "Deep defensive -- add duration to bonds, maximize defensive sectors"
 - PMI < 50 and rising: "Recovery building -- start adding Financials, Consumer Disc"]
 
-**Sam:** What about the yield curve? You mentioned it is one of the best recession predictors.
+**Stella:** What about the yield curve? You mentioned it is one of the best recession predictors.
 
-**Alex:** The yield curve plots interest rates from short-term to long-term. Normally, longer-term bonds pay higher rates because you are tying up your money for longer. That gives you an upward-sloping curve. But when investors expect the economy to weaken, they rush into long-term bonds for safety, pushing long-term rates down. If long-term rates fall below short-term rates, the curve inverts.
+**Horace:** The yield curve plots interest rates from short-term to long-term. Normally, longer-term bonds pay higher rates because you are tying up your money for longer. That gives you an upward-sloping curve. But when investors expect the economy to weaken, they rush into long-term bonds for safety, pushing long-term rates down. If long-term rates fall below short-term rates, the curve inverts.
 
-**Sam:** And that predicts recession?
+**Stella:** And that predicts recession?
 
-**Alex:** Every US recession since 1955 was preceded by a yield curve inversion. That is an extraordinary track record. Only one false positive in over 70 years.
+**Horace:** Every US recession since 1955 was preceded by a yield curve inversion. That is an extraordinary track record. Only one false positive in over 70 years.
 
 [VISUAL: Historical chart showing the 10-year minus 2-year Treasury spread from 1975 to 2025, with recessions shaded in grey. Every recession is preceded by the line going negative (inversion). The time lag between inversion and recession varies from 6 to 18 months]
 
-**Sam:** So if the yield curve inverts today, I should immediately sell all my stocks?
+**Stella:** So if the yield curve inverts today, I should immediately sell all my stocks?
 
-**Alex:** Absolutely not. And this is where many people go wrong. The yield curve tells you a recession is likely within 6 to 18 months. But stocks can rally significantly during that lead time. The S&P 500 has gained an average of 15 percent between the inversion date and the eventual market peak. Selling immediately after inversion means missing that final leg up.
+**Horace:** Absolutely not. And this is where many people go wrong. The yield curve tells you a recession is likely within 6 to 18 months. But stocks can rally significantly during that lead time. The S&P 500 has gained an average of 15 percent between the inversion date and the eventual market peak. Selling immediately after inversion means missing that final leg up.
 
-**Sam:** So what do you do instead?
+**Stella:** So what do you do instead?
 
-**Alex:** Start gradually tilting. Begin reducing your cyclical tilt and adding defensive sectors. Do not make dramatic moves, but shift the odds in your favor. If the curve inverts and PMI is still above 55, you might move from 20 percent cyclical tilt to 10 percent. If PMI then starts declining, you shift fully to defensive tilts. It is a process, not an event.
+**Horace:** Start gradually tilting. Begin reducing your cyclical tilt and adding defensive sectors. Do not make dramatic moves, but shift the odds in your favor. If the curve inverts and PMI is still above 55, you might move from 20 percent cyclical tilt to 10 percent. If PMI then starts declining, you shift fully to defensive tilts. It is a process, not an event.
 
 [VISUAL: Step-by-step tilting process shown as a slider:
 "Normal expansion" --> Tilt dial at "Cyclical"
@@ -718,53 +718,53 @@ Yes, several exist. RSPN and other "rotation" ETFs attempt to systematically rot
 "PMI starts declining" --> Tilt dial moves toward "Defensive"
 "PMI below 50" --> Tilt dial at "Full Defensive"]
 
-**Sam:** This makes a lot more sense than trying to time the exact top. What other indicators should I watch?
+**Stella:** This makes a lot more sense than trying to time the exact top. What other indicators should I watch?
 
-**Alex:** Initial jobless claims are excellent. When they start rising from low levels, it signals the labor market is weakening. Consumer confidence surveys tell you about future spending. Building permits signal future construction activity. And credit spreads -- the difference in yield between high-yield bonds and government bonds -- tell you about market stress levels. When credit spreads widen sharply, it means the bond market is pricing in higher default risk, which often precedes economic trouble.
+**Horace:** Initial jobless claims are excellent. When they start rising from low levels, it signals the labor market is weakening. Consumer confidence surveys tell you about future spending. Building permits signal future construction activity. And credit spreads -- the difference in yield between high-yield bonds and government bonds -- tell you about market stress levels. When credit spreads widen sharply, it means the bond market is pricing in higher default risk, which often precedes economic trouble.
 
 [VISUAL: Dashboard of four leading indicators displayed as gauges: PMI (like a speedometer), Yield Curve (like a thermometer), Initial Claims (like a tachometer), Credit Spreads (like a fuel gauge). Each gauge shows current reading and historical danger zones]
 
-**Sam:** You mentioned tilting versus full rotation. Can you walk me through both approaches?
+**Stella:** You mentioned tilting versus full rotation. Can you walk me through both approaches?
 
-**Alex:** Sure. Let me first explain why full rotation is so tempting and why most people should not do it.
+**Horace:** Sure. Let me first explain why full rotation is so tempting and why most people should not do it.
 
 [VISUAL: Title card "The Temptation and Danger of Full Rotation"]
 
-**Alex:** Full rotation means moving your entire equity allocation from cyclical sectors in early recovery to defensive sectors before recession. If you get it right, the returns are spectacular. Research shows that perfect cycle timing could add 5 to 8 percent per year above buy-and-hold.
+**Horace:** Full rotation means moving your entire equity allocation from cyclical sectors in early recovery to defensive sectors before recession. If you get it right, the returns are spectacular. Research shows that perfect cycle timing could add 5 to 8 percent per year above buy-and-hold.
 
-**Sam:** That is huge. Why does not everyone do it?
+**Stella:** That is huge. Why does not everyone do it?
 
-**Alex:** Because getting it right requires near-perfect timing, and getting it wrong is very costly. Let us say you rotate fully into defensive sectors because you think a recession is coming. But the economy keeps growing for another 18 months. During that time, cyclical sectors gain 25 percent while your defensives gain 8 percent. You just underperformed by 17 percentage points. Now the recession finally arrives, and defensives outperform by 15 percent. Net-net, you are still behind.
+**Horace:** Because getting it right requires near-perfect timing, and getting it wrong is very costly. Let us say you rotate fully into defensive sectors because you think a recession is coming. But the economy keeps growing for another 18 months. During that time, cyclical sectors gain 25 percent while your defensives gain 8 percent. You just underperformed by 17 percentage points. Now the recession finally arrives, and defensives outperform by 15 percent. Net-net, you are still behind.
 
 [VISUAL: Two portfolio lines: "Full Rotation (Wrong Timing)" vs "Buy and Hold". The rotation portfolio underperforms for 18 months, briefly catches up during the recession, but ends up with a lower total return than buy-and-hold]
 
-**Sam:** So the margin for error is really thin.
+**Stella:** So the margin for error is really thin.
 
-**Alex:** Very thin. And most people -- professionals included -- are not good enough at timing to make full rotation work consistently. This is why I recommend tilting for almost everyone.
+**Horace:** Very thin. And most people -- professionals included -- are not good enough at timing to make full rotation work consistently. This is why I recommend tilting for almost everyone.
 
-**Sam:** Walk me through a tilting strategy.
+**Stella:** Walk me through a tilting strategy.
 
-**Alex:** The idea is simple. Keep 80 percent of your equity allocation in a broad market index fund like VTI or VOO. That is your core -- it gives you exposure to all eleven sectors, weighted by market cap. Then use the remaining 20 percent for tactical sector tilts based on the cycle phase.
+**Horace:** The idea is simple. Keep 80 percent of your equity allocation in a broad market index fund like VTI or VOO. That is your core -- it gives you exposure to all eleven sectors, weighted by market cap. Then use the remaining 20 percent for tactical sector tilts based on the cycle phase.
 
 [VISUAL: Portfolio allocation shown as a plate of food. The main course (80%) is labeled "Core: S&P 500 / Total Market Index". The side dish (20%) is labeled "Tilt: 2-3 Sector ETFs based on cycle phase"]
 
-**Alex:** In early recovery, your tilt might be 10 percent in XLF (financials) and 10 percent in XLY (consumer discretionary). As you move into mid-expansion, you sell those and buy 10 percent XLK (technology) and 10 percent XLI (industrials). In late expansion, you shift to 10 percent XLE (energy) and 10 percent XLV (healthcare). And in contraction, you go to 10 percent XLU (utilities) and 10 percent XLP (consumer staples).
+**Horace:** In early recovery, your tilt might be 10 percent in XLF (financials) and 10 percent in XLY (consumer discretionary). As you move into mid-expansion, you sell those and buy 10 percent XLK (technology) and 10 percent XLI (industrials). In late expansion, you shift to 10 percent XLE (energy) and 10 percent XLV (healthcare). And in contraction, you go to 10 percent XLU (utilities) and 10 percent XLP (consumer staples).
 
-**Sam:** So I am only changing 20 percent of my portfolio at each transition?
+**Stella:** So I am only changing 20 percent of my portfolio at each transition?
 
-**Alex:** Exactly. If you are wrong about the cycle phase, you underperform by a small amount -- maybe 1 to 2 percent. If you are right, you outperform by 2 to 4 percent. The risk-reward is asymmetric in your favor because the downside of a wrong call is limited.
+**Horace:** Exactly. If you are wrong about the cycle phase, you underperform by a small amount -- maybe 1 to 2 percent. If you are right, you outperform by 2 to 4 percent. The risk-reward is asymmetric in your favor because the downside of a wrong call is limited.
 
 [VISUAL: Risk-reward comparison:
 Full Rotation: Right = +6%, Wrong = -15% (bad asymmetry)
 Tilting: Right = +3%, Wrong = -2% (good asymmetry)]
 
-**Sam:** What if I am completely clueless about where we are in the cycle? Should I just not tilt at all?
+**Stella:** What if I am completely clueless about where we are in the cycle? Should I just not tilt at all?
 
-**Alex:** If you genuinely have no view, then yes, stay market-cap weighted with your index fund. But here is the thing -- you usually have some information. If PMI has been above 55 for two years and the yield curve just inverted, you do not need to be an economist to recognize that we are probably in late expansion. You do not need certainty to tilt -- you just need an informed lean.
+**Horace:** If you genuinely have no view, then yes, stay market-cap weighted with your index fund. But here is the thing -- you usually have some information. If PMI has been above 55 for two years and the yield curve just inverted, you do not need to be an economist to recognize that we are probably in late expansion. You do not need certainty to tilt -- you just need an informed lean.
 
-**Sam:** Let me ask about a specific scenario. Let us say it is early 2020, COVID is just emerging. How would sector rotation have helped?
+**Stella:** Let me ask about a specific scenario. Let us say it is early 2020, COVID is just emerging. How would sector rotation have helped?
 
-**Alex:** Great case study. In January 2020, the US economy was in late expansion. PMI was around 50 -- right at the borderline. The yield curve had inverted in 2019 and then steepened back. An investor following our framework would have already had a defensive tilt -- maybe overweight healthcare and consumer staples.
+**Horace:** Great case study. In January 2020, the US economy was in late expansion. PMI was around 50 -- right at the borderline. The yield curve had inverted in 2019 and then steepened back. An investor following our framework would have already had a defensive tilt -- maybe overweight healthcare and consumer staples.
 
 [VISUAL: Timeline of 2020 with monthly sector returns:
 Jan: Market flat, defensive tilt slightly positive
@@ -773,23 +773,23 @@ Mar: Market crashes 34%, cyclicals down 40-50%, defensives down 20-30%
 Apr-May: Early recovery begins, switch to cyclical tilt
 Jun-Dec: Massive cyclical rally, financials and consumer disc surge]
 
-**Sam:** So the defensive tilt would not have saved you from losing money in March, but it would have reduced the drawdown.
+**Stella:** So the defensive tilt would not have saved you from losing money in March, but it would have reduced the drawdown.
 
-**Alex:** Right. No sector was spared in March 2020 -- it was a genuine market-wide panic. But healthcare fell about 25 percent while energy fell 55 percent and financials fell 40 percent. The tilt provided real cushioning. And then -- this is the key part -- recognizing that the Fed's massive intervention combined with PMI bottoming created early recovery conditions would have prompted a rotation into cyclicals by April or May. Those who made that shift caught one of the strongest cyclical rallies in decades.
+**Horace:** Right. No sector was spared in March 2020 -- it was a genuine market-wide panic. But healthcare fell about 25 percent while energy fell 55 percent and financials fell 40 percent. The tilt provided real cushioning. And then -- this is the key part -- recognizing that the Fed's massive intervention combined with PMI bottoming created early recovery conditions would have prompted a rotation into cyclicals by April or May. Those who made that shift caught one of the strongest cyclical rallies in decades.
 
-**Sam:** The people who sold in panic in March and waited for "confirmation" that the recession was over --
+**Stella:** The people who sold in panic in March and waited for "confirmation" that the recession was over --
 
-**Alex:** -- missed the entire recovery. By the time the economy officially exited recession in mid-2020, the S&P 500 was already at new all-time highs. The market led the economy by months.
+**Horace:** -- missed the entire recovery. By the time the economy officially exited recession in mid-2020, the S&P 500 was already at new all-time highs. The market led the economy by months.
 
 [VISUAL: Two investor journeys through 2020. Investor A: follows PMI signals, tilts defensively in January, rotates to cyclicals in April, ends year up 22%. Investor B: panics and sells in March, waits for "all clear", re-enters in September, ends year up only 8%]
 
-**Sam:** Let me ask about the current environment. Without giving specific investment advice, how would someone apply this framework right now?
+**Stella:** Let me ask about the current environment. Without giving specific investment advice, how would someone apply this framework right now?
 
-**Alex:** Let us walk through the process as an exercise. Step one: check the PMI. Is it above or below 50? Is it rising or falling? Step two: check the yield curve. Is it steep, flat, or inverted? Step three: check employment trends. Are initial claims rising or falling? Step four: check credit spreads. Are they tight (calm) or widening (stress)?
+**Horace:** Let us walk through the process as an exercise. Step one: check the PMI. Is it above or below 50? Is it rising or falling? Step two: check the yield curve. Is it steep, flat, or inverted? Step three: check employment trends. Are initial claims rising or falling? Step four: check credit spreads. Are they tight (calm) or widening (stress)?
 
-**Sam:** And based on those four inputs, you map to the cycle phase?
+**Stella:** And based on those four inputs, you map to the cycle phase?
 
-**Alex:** Right. If PMI is above 50 and rising, the curve is steep, claims are falling, and spreads are tight -- you are in early-to-mid expansion, so tilt toward cyclicals. If PMI is above 50 but falling, the curve is flattening, claims are bottoming, and spreads are starting to widen -- you are in late expansion, so start moving toward defensives. The indicators do the work.
+**Horace:** Right. If PMI is above 50 and rising, the curve is steep, claims are falling, and spreads are tight -- you are in early-to-mid expansion, so tilt toward cyclicals. If PMI is above 50 but falling, the curve is flattening, claims are bottoming, and spreads are starting to widen -- you are in late expansion, so start moving toward defensives. The indicators do the work.
 
 [VISUAL: Decision tree flowchart:
 Start --> "Is PMI above 50?" 
@@ -798,175 +798,175 @@ Yes --> "Is PMI rising?" --> Yes: "Early/Mid Expansion: Cyclical tilt"
 No  --> "Is PMI rising?" --> Yes: "Early Recovery: Cyclical tilt"
                           --> No: "Contraction: Full defensive"]
 
-**Sam:** What if the indicators disagree with each other? Like PMI is above 50 but the yield curve just inverted?
+**Stella:** What if the indicators disagree with each other? Like PMI is above 50 but the yield curve just inverted?
 
-**Alex:** That happens often during transitions, and it is actually valuable information. It tells you the economy is still growing but the bond market is signaling trouble ahead. In that situation, you would move to a neutral positioning -- reduce cyclical tilts but do not go fully defensive yet. Wait for more confirmation. The worst thing you can do is make a dramatic move based on one conflicting indicator.
+**Horace:** That happens often during transitions, and it is actually valuable information. It tells you the economy is still growing but the bond market is signaling trouble ahead. In that situation, you would move to a neutral positioning -- reduce cyclical tilts but do not go fully defensive yet. Wait for more confirmation. The worst thing you can do is make a dramatic move based on one conflicting indicator.
 
-**Sam:** Let us talk about some specific sectors in more depth. I want to understand why financials lead in early recovery.
+**Stella:** Let us talk about some specific sectors in more depth. I want to understand why financials lead in early recovery.
 
 [VISUAL: Title card "Deep Dive: Why Certain Sectors Lead at Certain Times"]
 
-**Alex:** Banks are the classic early recovery play. When the economy troughs, the central bank has pushed short-term rates to near zero. But long-term rates are higher because investors expect eventual recovery. The difference between these rates -- the yield curve spread -- is the bank's profit margin on lending. When the curve is steep, banks are highly profitable.
+**Horace:** Banks are the classic early recovery play. When the economy troughs, the central bank has pushed short-term rates to near zero. But long-term rates are higher because investors expect eventual recovery. The difference between these rates -- the yield curve spread -- is the bank's profit margin on lending. When the curve is steep, banks are highly profitable.
 
-**Sam:** And loan demand also starts picking up?
+**Stella:** And loan demand also starts picking up?
 
-**Alex:** Exactly. During the recession, nobody wanted to borrow. As the economy recovers, businesses start investing again, consumers start buying homes and cars. Loan growth accelerates. And the loans that went bad during the recession? The worst ones have already been written off, so credit losses are declining. It is a triple tailwind: wider margins, growing volumes, and falling losses.
+**Horace:** Exactly. During the recession, nobody wanted to borrow. As the economy recovers, businesses start investing again, consumers start buying homes and cars. Loan growth accelerates. And the loans that went bad during the recession? The worst ones have already been written off, so credit losses are declining. It is a triple tailwind: wider margins, growing volumes, and falling losses.
 
 [VISUAL: Three upward arrows labeled "Net Interest Margin (steep curve)", "Loan Growth (recovering demand)", and "Declining Credit Losses (worst is over)" converging into a bar chart showing bank earnings recovering from trough]
 
-**Sam:** What about technology? Why does it do best in mid-expansion?
+**Stella:** What about technology? Why does it do best in mid-expansion?
 
-**Alex:** Technology benefits from two mid-expansion dynamics. First, business confidence is high, and companies are investing in new software, hardware, and infrastructure to capture growth. IT spending budgets expand. Second, interest rates are still relatively low, which supports the high valuations that growth stocks typically carry. Technology stocks have long-duration cash flows -- their value depends heavily on future earnings. Low rates make those future earnings more valuable today.
+**Horace:** Technology benefits from two mid-expansion dynamics. First, business confidence is high, and companies are investing in new software, hardware, and infrastructure to capture growth. IT spending budgets expand. Second, interest rates are still relatively low, which supports the high valuations that growth stocks typically carry. Technology stocks have long-duration cash flows -- their value depends heavily on future earnings. Low rates make those future earnings more valuable today.
 
-**Sam:** And in late expansion, when rates are rising sharply?
+**Stella:** And in late expansion, when rates are rising sharply?
 
-**Alex:** That is when technology often struggles. Rising rates compress the valuations of growth stocks because those distant future cash flows are discounted more heavily. We saw this vividly in 2022 when the Fed raised rates aggressively -- the NASDAQ, which is tech-heavy, fell over 30 percent while the more value-oriented Dow Jones held up much better.
+**Horace:** That is when technology often struggles. Rising rates compress the valuations of growth stocks because those distant future cash flows are discounted more heavily. We saw this vividly in 2022 when the Fed raised rates aggressively -- the NASDAQ, which is tech-heavy, fell over 30 percent while the more value-oriented Dow Jones held up much better.
 
 [VISUAL: Comparison chart showing tech sector (XLK) vs. utilities (XLU) during the 2022 rate-hiking cycle. Tech down 30%+, utilities roughly flat, dramatically illustrating rate sensitivity of growth vs. defensive sectors]
 
-**Sam:** What about energy? Why is it a late-cycle winner?
+**Stella:** What about energy? Why is it a late-cycle winner?
 
-**Alex:** By late expansion, the economy has been growing for years. Industrial production is near capacity. Global demand for oil, gas, and raw materials is at its peak. Supply struggles to keep up because energy companies take years to bring new production online. The result is rising energy prices, which directly boost revenue and profits for energy companies.
+**Horace:** By late expansion, the economy has been growing for years. Industrial production is near capacity. Global demand for oil, gas, and raw materials is at its peak. Supply struggles to keep up because energy companies take years to bring new production online. The result is rising energy prices, which directly boost revenue and profits for energy companies.
 
-**Sam:** And there is an inflation element too?
+**Stella:** And there is an inflation element too?
 
-**Alex:** Absolutely. Late expansion often coincides with rising inflation, and energy is both a cause and beneficiary of inflation. When your gasoline bill goes up, that money flows directly to energy company revenues. This is why energy stocks are one of the few sectors that reliably outperform during inflationary periods.
+**Horace:** Absolutely. Late expansion often coincides with rising inflation, and energy is both a cause and beneficiary of inflation. When your gasoline bill goes up, that money flows directly to energy company revenues. This is why energy stocks are one of the few sectors that reliably outperform during inflationary periods.
 
 [VISUAL: Chart showing oil price, energy sector returns, and CPI inflation rate from 2000-2025, highlighting how all three tend to peak together in late-cycle environments]
 
-**Sam:** Let me ask about the sectors that hold up during recessions. Why are utilities so defensive?
+**Stella:** Let me ask about the sectors that hold up during recessions. Why are utilities so defensive?
 
-**Alex:** Utilities -- electricity, water, natural gas distribution -- are regulated monopolies. They have a guaranteed customer base, regulated pricing, and very predictable cash flows. Nobody cancels their electricity during a recession. And because utilities have high, stable dividend yields -- often 3 to 4 percent -- they become very attractive when stock prices are falling and investors are seeking safe income.
+**Horace:** Utilities -- electricity, water, natural gas distribution -- are regulated monopolies. They have a guaranteed customer base, regulated pricing, and very predictable cash flows. Nobody cancels their electricity during a recession. And because utilities have high, stable dividend yields -- often 3 to 4 percent -- they become very attractive when stock prices are falling and investors are seeking safe income.
 
-**Sam:** They act almost like bonds?
+**Stella:** They act almost like bonds?
 
-**Alex:** Exactly. Utilities are sometimes called "bond proxies" because they have similar characteristics: stable income, low volatility, and sensitivity to interest rates. When rates fall during a recession, utility stocks rise because their fixed dividend becomes more valuable relative to declining bond yields.
+**Horace:** Exactly. Utilities are sometimes called "bond proxies" because they have similar characteristics: stable income, low volatility, and sensitivity to interest rates. When rates fall during a recession, utility stocks rise because their fixed dividend becomes more valuable relative to declining bond yields.
 
-**Sam:** And consumer staples?
+**Stella:** And consumer staples?
 
-**Alex:** Same defensive logic. Procter and Gamble, Coca-Cola, Walmart, Costco -- these companies sell products you buy every week regardless of the economy. Toothpaste, laundry detergent, food, beverages. Demand barely budges during a recession. And these companies tend to have strong brands, pricing power, and steady dividends.
+**Horace:** Same defensive logic. Procter and Gamble, Coca-Cola, Walmart, Costco -- these companies sell products you buy every week regardless of the economy. Toothpaste, laundry detergent, food, beverages. Demand barely budges during a recession. And these companies tend to have strong brands, pricing power, and steady dividends.
 
 [VISUAL: Household items with labels showing their category: "Toothpaste (Consumer Staple -- Recession Proof)", "New Car (Consumer Discretionary -- Recession Sensitive)", "Electricity (Utility -- Recession Proof)", "Vacation (Consumer Discretionary -- Recession Sensitive)"]
 
-**Sam:** Let me test my understanding with a scenario. Let us say it is mid-2007. The yield curve inverted in 2006. PMI is declining from 55 toward 50. Housing prices are starting to fall. Initial claims are ticking up. What should I do?
+**Stella:** Let me test my understanding with a scenario. Let us say it is mid-2007. The yield curve inverted in 2006. PMI is declining from 55 toward 50. Housing prices are starting to fall. Initial claims are ticking up. What should I do?
 
-**Alex:** Walk me through your analysis.
+**Horace:** Walk me through your analysis.
 
-**Sam:** Multiple indicators are flashing late expansion or approaching contraction. The yield curve inverted a year ago, which historically means recession within 6 to 18 months. PMI is declining, which means momentum is fading. Housing -- which is a leading sector -- is already rolling over. I would start tilting toward defensives. Reduce financials -- which have huge exposure to the housing market. Add healthcare, consumer staples, and utilities.
+**Stella:** Multiple indicators are flashing late expansion or approaching contraction. The yield curve inverted a year ago, which historically means recession within 6 to 18 months. PMI is declining, which means momentum is fading. Housing -- which is a leading sector -- is already rolling over. I would start tilting toward defensives. Reduce financials -- which have huge exposure to the housing market. Add healthcare, consumer staples, and utilities.
 
-**Alex:** Brilliant analysis. And in reality, an investor who made exactly that shift in mid-2007 would have avoided the worst of the 2008 financial crisis. Financials fell over 80 percent from peak to trough. Healthcare fell about 35 percent -- still painful but dramatically better. Utilities fell about 30 percent. The tilt would not have prevented losses, but it would have cut them roughly in half.
+**Horace:** Brilliant analysis. And in reality, an investor who made exactly that shift in mid-2007 would have avoided the worst of the 2008 financial crisis. Financials fell over 80 percent from peak to trough. Healthcare fell about 35 percent -- still painful but dramatically better. Utilities fell about 30 percent. The tilt would not have prevented losses, but it would have cut them roughly in half.
 
 [VISUAL: Portfolio comparison 2007-2009: "Cyclical Tilt" portfolio (heavy financials, consumer discretionary) down 55%. "Defensive Tilt" portfolio (heavy healthcare, staples, utilities) down 28%. "Held and recovered" annotation showing defensive portfolio recovering to breakeven by 2010, cyclical portfolio not recovering until 2013]
 
-**Sam:** That is a huge difference. But let me play devil's advocate. What if someone tilted defensively in 2006 when the curve first inverted? They would have missed the final leg up in 2007.
+**Stella:** That is a huge difference. But let me play devil's advocate. What if someone tilted defensively in 2006 when the curve first inverted? They would have missed the final leg up in 2007.
 
-**Alex:** Great point, and this is the honest truth about sector rotation: you will never get the timing perfectly right. If you tilt defensively too early, you give up some upside. If you tilt too late, you take some unnecessary losses. The goal is not perfection -- it is improvement over a static allocation. Even being approximately right with a modest tilt adds meaningful value over a full market cycle.
+**Horace:** Great point, and this is the honest truth about sector rotation: you will never get the timing perfectly right. If you tilt defensively too early, you give up some upside. If you tilt too late, you take some unnecessary losses. The goal is not perfection -- it is improvement over a static allocation. Even being approximately right with a modest tilt adds meaningful value over a full market cycle.
 
-**Sam:** I want to ask about something practical. How do I actually monitor all these indicators without spending hours every day on economic data?
+**Stella:** I want to ask about something practical. How do I actually monitor all these indicators without spending hours every day on economic data?
 
-**Alex:** You do not need to be glued to the screen. The business cycle moves slowly -- phases last months to years, not days. Here is a simple monthly routine. Once a month, check three things: the ISM PMI report, the yield curve spread (10-year minus 2-year), and the trend in initial jobless claims. These are all free and publicly available. If all three are pointing in the same direction as last month, do nothing. If one starts to diverge, put it on your watch list. If two or three are signaling a phase change, make your tilt adjustment.
+**Horace:** You do not need to be glued to the screen. The business cycle moves slowly -- phases last months to years, not days. Here is a simple monthly routine. Once a month, check three things: the ISM PMI report, the yield curve spread (10-year minus 2-year), and the trend in initial jobless claims. These are all free and publicly available. If all three are pointing in the same direction as last month, do nothing. If one starts to diverge, put it on your watch list. If two or three are signaling a phase change, make your tilt adjustment.
 
 [VISUAL: Monthly calendar with one day circled labeled "15-Minute Economic Check-Up". Checklist: "1. ISM PMI (first business day of month) 2. Yield curve spread (FRED website) 3. Initial claims trend (Dept of Labor, weekly, check monthly)"]
 
-**Sam:** Fifteen minutes a month? That is manageable.
+**Stella:** Fifteen minutes a month? That is manageable.
 
-**Alex:** Investing should not be a full-time job unless it is your career. The beauty of the tilting approach is that it requires very few decisions per year. You might make two or three tilt adjustments across an entire cycle. The rest of the time, your core index fund is doing the heavy lifting.
+**Horace:** Investing should not be a full-time job unless it is your career. The beauty of the tilting approach is that it requires very few decisions per year. You might make two or three tilt adjustments across an entire cycle. The rest of the time, your core index fund is doing the heavy lifting.
 
-**Sam:** What about using this internationally? Are business cycles the same everywhere?
+**Stella:** What about using this internationally? Are business cycles the same everywhere?
 
-**Alex:** The cycles are the same in structure but different in timing. The US might be in late expansion while Europe is in mid-expansion and China is in early recovery. This creates opportunities for geographic rotation as well as sector rotation. For example, if you think the US is headed for recession but Europe is still growing, you might tilt your international allocation toward European cyclicals while keeping US allocation defensive.
+**Horace:** The cycles are the same in structure but different in timing. The US might be in late expansion while Europe is in mid-expansion and China is in early recovery. This creates opportunities for geographic rotation as well as sector rotation. For example, if you think the US is headed for recession but Europe is still growing, you might tilt your international allocation toward European cyclicals while keeping US allocation defensive.
 
 [VISUAL: Three business cycle wheels side by side for US, Europe, and China, each at a different phase position, with arrows showing how an investor might shift allocations between regions]
 
-**Sam:** That adds a lot of complexity though.
+**Stella:** That adds a lot of complexity though.
 
-**Alex:** It does, which is why I suggest most individual investors focus on sector rotation within their home market -- the US for most of our viewers. International cycle timing is an advanced strategy that even many professionals struggle with. Get comfortable with US sector rotation first, and then consider adding an international dimension later.
+**Horace:** It does, which is why I suggest most individual investors focus on sector rotation within their home market -- the US for most of our viewers. International cycle timing is an advanced strategy that even many professionals struggle with. Get comfortable with US sector rotation first, and then consider adding an international dimension later.
 
-**Sam:** Let us talk about mistakes. What are the biggest errors people make with sector rotation?
+**Stella:** Let us talk about mistakes. What are the biggest errors people make with sector rotation?
 
 [VISUAL: Title card "Five Deadly Sins of Sector Rotation"]
 
-**Alex:** Number one: overtrading. The business cycle moves in months and years. Some people try to sector-rotate based on weekly data or daily market movements. That is not sector rotation -- that is day trading with sector ETFs. It generates transaction costs and taxes while adding no value.
+**Horace:** Number one: overtrading. The business cycle moves in months and years. Some people try to sector-rotate based on weekly data or daily market movements. That is not sector rotation -- that is day trading with sector ETFs. It generates transaction costs and taxes while adding no value.
 
-**Sam:** How often should I actually be making changes?
+**Stella:** How often should I actually be making changes?
 
-**Alex:** Two to four times per year at most. Major phase transitions do not happen more frequently than that. If you are trading sector ETFs every month, you are doing it wrong.
+**Horace:** Two to four times per year at most. Major phase transitions do not happen more frequently than that. If you are trading sector ETFs every month, you are doing it wrong.
 
-**Sam:** What is mistake number two?
+**Stella:** What is mistake number two?
 
-**Alex:** Confusing a sector correction with a cycle change. Technology might drop 10 percent in a month during a strong expansion. That is not a signal to rotate out of tech -- it is a normal pullback within an ongoing trend. True cycle changes are confirmed by multiple economic indicators over several months, not by short-term price action.
+**Horace:** Confusing a sector correction with a cycle change. Technology might drop 10 percent in a month during a strong expansion. That is not a signal to rotate out of tech -- it is a normal pullback within an ongoing trend. True cycle changes are confirmed by multiple economic indicators over several months, not by short-term price action.
 
 [VISUAL: Chart showing a technology sector pullback within a larger uptrend, with annotations: "This 10% drop is a CORRECTION (stay invested)" vs. a separate chart showing a sustained decline confirmed by falling PMI, labeled "This is a CYCLE CHANGE (rotate out)"]
 
-**Alex:** Mistake three: ignoring valuation. Even within the right cycle phase, overpaying for sector ETFs is a risk. If energy stocks have already doubled because oil prices surged, the easy money has been made. Buying at peak valuations within a sector is just as dangerous as buying the wrong sector.
+**Horace:** Mistake three: ignoring valuation. Even within the right cycle phase, overpaying for sector ETFs is a risk. If energy stocks have already doubled because oil prices surged, the easy money has been made. Buying at peak valuations within a sector is just as dangerous as buying the wrong sector.
 
-**Sam:** So sector rotation does not replace valuation analysis?
+**Stella:** So sector rotation does not replace valuation analysis?
 
-**Alex:** Exactly. They complement each other. The cycle tells you which sectors are likely to outperform. Valuation tells you whether that outperformance is already priced in.
+**Horace:** Exactly. They complement each other. The cycle tells you which sectors are likely to outperform. Valuation tells you whether that outperformance is already priced in.
 
-**Alex:** Mistake four: going all-in on a single sector. Even with high conviction about the cycle phase, concentrating your entire portfolio in one or two sectors is reckless. If you are wrong, or if an unexpected event hits that specific sector -- like a regulatory crackdown or a pandemic -- you are wiped out. Keep your core index fund position and only tilt at the margins.
+**Horace:** Mistake four: going all-in on a single sector. Even with high conviction about the cycle phase, concentrating your entire portfolio in one or two sectors is reckless. If you are wrong, or if an unexpected event hits that specific sector -- like a regulatory crackdown or a pandemic -- you are wiped out. Keep your core index fund position and only tilt at the margins.
 
 [VISUAL: Two portfolio outcomes. "Concentrated: 100% Energy in Late 2014" shows a -40% loss when oil prices crashed. "Tilted: 80% Index + 20% Energy in Late 2014" shows a -12% loss -- painful but survivable]
 
-**Sam:** And the fifth mistake?
+**Stella:** And the fifth mistake?
 
-**Alex:** Fighting the Fed. The central bank is the most powerful single influence on markets. When the Fed is cutting rates and easing monetary policy, it creates tailwinds for risk assets and cyclical sectors. When the Fed is raising rates and tightening, it creates headwinds. "Do not fight the Fed" is one of the oldest and most reliable adages in investing. If the Fed is easing, lean toward cyclicals. If the Fed is tightening, lean toward defensives.
+**Horace:** Fighting the Fed. The central bank is the most powerful single influence on markets. When the Fed is cutting rates and easing monetary policy, it creates tailwinds for risk assets and cyclical sectors. When the Fed is raising rates and tightening, it creates headwinds. "Do not fight the Fed" is one of the oldest and most reliable adages in investing. If the Fed is easing, lean toward cyclicals. If the Fed is tightening, lean toward defensives.
 
 [VISUAL: Fed funds rate chart overlaid with cyclical vs. defensive sector relative performance. Clear pattern: cyclicals outperform when rates are falling, defensives outperform when rates are rising]
 
-**Sam:** This connects back to the yield curve, right?
+**Stella:** This connects back to the yield curve, right?
 
-**Alex:** Directly. The Fed controls the short end of the yield curve. The market controls the long end. When the Fed is easing, the short end drops and the curve steepens -- that is the early recovery signal. When the Fed is tightening, the short end rises and the curve flattens or inverts -- that is the late cycle warning.
+**Horace:** Directly. The Fed controls the short end of the yield curve. The market controls the long end. When the Fed is easing, the short end drops and the curve steepens -- that is the early recovery signal. When the Fed is tightening, the short end rises and the curve flattens or inverts -- that is the late cycle warning.
 
-**Sam:** Can we do a quick practice exercise? Give me a set of economic data and I will tell you what phase we are in and how to position.
+**Stella:** Can we do a quick practice exercise? Give me a set of economic data and I will tell you what phase we are in and how to position.
 
-**Alex:** Perfect. Here are the inputs. PMI is at 53 and has been declining for four months from a peak of 58. The yield curve spread is 0.3 percent and narrowing. Initial claims are 210,000 and have been flat for six months at historically low levels. The Fed has raised rates five times in the past year. Wage growth is running at 5 percent year-over-year. Where are we?
+**Horace:** Perfect. Here are the inputs. PMI is at 53 and has been declining for four months from a peak of 58. The yield curve spread is 0.3 percent and narrowing. Initial claims are 210,000 and have been flat for six months at historically low levels. The Fed has raised rates five times in the past year. Wage growth is running at 5 percent year-over-year. Where are we?
 
-**Sam:** Okay, let me think through this. PMI above 50 means expansion, but it is declining from a peak -- that is a negative signal. The yield curve is barely positive and narrowing, suggesting we are approaching inversion. Claims are at historic lows, meaning the labor market is very tight. The Fed has been raising rates aggressively. Wages are growing fast, suggesting inflation pressure. This is clearly late expansion, possibly approaching contraction.
+**Stella:** Okay, let me think through this. PMI above 50 means expansion, but it is declining from a peak -- that is a negative signal. The yield curve is barely positive and narrowing, suggesting we are approaching inversion. Claims are at historic lows, meaning the labor market is very tight. The Fed has been raising rates aggressively. Wages are growing fast, suggesting inflation pressure. This is clearly late expansion, possibly approaching contraction.
 
-[VISUAL: Sam's analysis displayed as a checklist with each indicator color-coded: PMI (yellow - caution), Yield Curve (orange - warning), Claims (yellow - too low, nowhere to go but up), Fed Policy (red - tightening), Wages (orange - inflationary)]
+[VISUAL: Stella's analysis displayed as a checklist with each indicator color-coded: PMI (yellow - caution), Yield Curve (orange - warning), Claims (yellow - too low, nowhere to go but up), Fed Policy (red - tightening), Wages (orange - inflationary)]
 
-**Alex:** Excellent. And your portfolio positioning?
+**Horace:** Excellent. And your portfolio positioning?
 
-**Sam:** I would keep my 80 percent core index position. For the 20 percent tilt, I would rotate out of pure cyclicals like consumer discretionary and into a mix of late-cycle winners and defensives. Maybe 10 percent healthcare and 10 percent energy. Energy because we are still in expansion with inflation rising, and healthcare because I want to start building defensive exposure for the potential downturn.
+**Stella:** I would keep my 80 percent core index position. For the 20 percent tilt, I would rotate out of pure cyclicals like consumer discretionary and into a mix of late-cycle winners and defensives. Maybe 10 percent healthcare and 10 percent energy. Energy because we are still in expansion with inflation rising, and healthcare because I want to start building defensive exposure for the potential downturn.
 
-**Alex:** That is a really thoughtful answer. You are not making a dramatic move -- you are gradually shifting your positioning based on the weight of evidence. And if you are wrong and the expansion continues for another year, your core index fund captures that upside while your healthcare allocation does not hurt you much.
+**Horace:** That is a really thoughtful answer. You are not making a dramatic move -- you are gradually shifting your positioning based on the weight of evidence. And if you are wrong and the expansion continues for another year, your core index fund captures that upside while your healthcare allocation does not hurt you much.
 
-**Sam:** And if the recession arrives in six months, I already have defensive exposure that cushions the blow, and I can rotate the energy tilt to utilities or staples when PMI crosses below 50.
+**Stella:** And if the recession arrives in six months, I already have defensive exposure that cushions the blow, and I can rotate the energy tilt to utilities or staples when PMI crosses below 50.
 
-**Alex:** Now you are thinking like a cycle-aware investor.
+**Horace:** Now you are thinking like a cycle-aware investor.
 
-**Sam:** Before we wrap up, can we address the elephant in the room? Does sector rotation actually work? What does the research say?
+**Stella:** Before we wrap up, can we address the elephant in the room? Does sector rotation actually work? What does the research say?
 
-**Alex:** The academic research is mixed, which is the honest answer. Studies show that perfect sector rotation -- buying the best-performing sector each month -- would produce enormous returns. But no one can achieve perfect timing. Studies of actual sector rotation mutual funds show that most do not beat a simple index fund after fees and taxes.
+**Horace:** The academic research is mixed, which is the honest answer. Studies show that perfect sector rotation -- buying the best-performing sector each month -- would produce enormous returns. But no one can achieve perfect timing. Studies of actual sector rotation mutual funds show that most do not beat a simple index fund after fees and taxes.
 
-**Sam:** That sounds discouraging.
+**Stella:** That sounds discouraging.
 
-**Alex:** But here is the nuance. Most sector rotation funds use aggressive full rotation, high turnover, and rely on short-term momentum signals rather than fundamental economic indicators. The tilting approach we have described -- modest overweights based on cycle position -- has a better empirical track record because it reduces timing risk and keeps transaction costs low. Research by Fidelity and other firms has shown that even a modestly accurate cycle assessment combined with sector tilting can add 1 to 2 percent per year in risk-adjusted returns.
+**Horace:** But here is the nuance. Most sector rotation funds use aggressive full rotation, high turnover, and rely on short-term momentum signals rather than fundamental economic indicators. The tilting approach we have described -- modest overweights based on cycle position -- has a better empirical track record because it reduces timing risk and keeps transaction costs low. Research by Fidelity and other firms has shown that even a modestly accurate cycle assessment combined with sector tilting can add 1 to 2 percent per year in risk-adjusted returns.
 
 [VISUAL: Research summary showing: "Perfect Rotation: +8% per year (theoretical, impossible)" / "Full Rotation Funds: -1% per year vs index (after fees/taxes)" / "Modest Tilting: +1-2% per year vs index (achievable)"]
 
-**Sam:** So the key insight is that tilting gives you most of the benefit with a fraction of the risk compared to full rotation.
+**Stella:** So the key insight is that tilting gives you most of the benefit with a fraction of the risk compared to full rotation.
 
-**Alex:** Exactly. And there is another benefit that does not show up in return numbers: risk reduction. Even if tilting does not add return, the reduced drawdowns during recessions make it psychologically easier to stay invested. And staying invested through the full cycle is the single most important determinant of long-term returns.
+**Horace:** Exactly. And there is another benefit that does not show up in return numbers: risk reduction. Even if tilting does not add return, the reduced drawdowns during recessions make it psychologically easier to stay invested. And staying invested through the full cycle is the single most important determinant of long-term returns.
 
-**Sam:** Alright, three key takeaways from today?
+**Stella:** Alright, three key takeaways from today?
 
-**Alex:** First, the business cycle is partially predictable using leading indicators like PMI, the yield curve, and initial claims. You do not need to be an economist -- just check these three indicators once a month.
+**Horace:** First, the business cycle is partially predictable using leading indicators like PMI, the yield curve, and initial claims. You do not need to be an economist -- just check these three indicators once a month.
 
-**Sam:** Second, different sectors outperform during different phases. Cyclicals like financials, consumer discretionary, and technology lead during recoveries and expansions. Defensives like utilities, healthcare, and consumer staples lead during contractions.
+**Stella:** Second, different sectors outperform during different phases. Cyclicals like financials, consumer discretionary, and technology lead during recoveries and expansions. Defensives like utilities, healthcare, and consumer staples lead during contractions.
 
-**Alex:** And third, tilting -- keeping 80 percent in a core index fund and tilting 20 percent toward favored sectors -- is far superior to full rotation for individual investors. It captures most of the benefit with a fraction of the risk, cost, and stress.
+**Horace:** And third, tilting -- keeping 80 percent in a core index fund and tilting 20 percent toward favored sectors -- is far superior to full rotation for individual investors. It captures most of the benefit with a fraction of the risk, cost, and stress.
 
-**Sam:** Can I add a bonus takeaway?
+**Stella:** Can I add a bonus takeaway?
 
-**Alex:** Go for it.
+**Horace:** Go for it.
 
-**Sam:** Never fight the Fed. When the central bank is easing, lean into risk. When it is tightening, lean into safety. The Fed is the most powerful force in markets.
+**Stella:** Never fight the Fed. When the central bank is easing, lean into risk. When it is tightening, lean into safety. The Fed is the most powerful force in markets.
 
-**Alex:** Perfectly said. Next week, we continue building your toolkit with a deep dive into factor investing -- understanding the size, value, momentum, and quality factors that drive returns across all sectors and cycles. It is the next level of portfolio sophistication.
+**Horace:** Perfectly said. Next week, we continue building your toolkit with a deep dive into factor investing -- understanding the size, value, momentum, and quality factors that drive returns across all sectors and cycles. It is the next level of portfolio sophistication.
 
-**Sam:** Can not wait. See everyone next week!
+**Stella:** Can not wait. See everyone next week!
 
 [VISUAL: End screen with subscribe button, links to previous lessons, and a preview thumbnail for Week 17. Summary card showing: "The Business Cycle Clock: Know where you are, position for where you're going"]
 

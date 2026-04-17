@@ -623,223 +623,223 @@ A: Options taxation depends on the strategy and holding period. Generally, optio
 
 [VISUAL: Animated intro with show logo. Text: "Week 25: Introduction to Options - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are stepping into what I consider one of the most important topics in this entire course. We are talking about options.
+**Horace:** Welcome back, everyone. Today we are stepping into what I consider one of the most important topics in this entire course. We are talking about options.
 
-**Sam:** Options. I have to be honest, Alex, this is the topic I have been both excited about and a little nervous about. I hear people talk about options and it sounds like gambling.
+**Stella:** Options. I have to be honest, Horace, this is the topic I have been both excited about and a little nervous about. I hear people talk about options and it sounds like gambling.
 
-**Alex:** And that is exactly the misconception we need to address right at the start. Options are tools. A hammer can build a house or break a window. Options can protect your portfolio like insurance, or they can blow up your account like a casino bet. It all depends on how you use them.
+**Horace:** And that is exactly the misconception we need to address right at the start. Options are tools. A hammer can build a house or break a window. Options can protect your portfolio like insurance, or they can blow up your account like a casino bet. It all depends on how you use them.
 
 [VISUAL: Split screen showing two scenarios - Left: "Options as Insurance" with a shield icon and a portfolio being protected, Right: "Options as Gambling" with dice and a portfolio going to zero]
 
-**Sam:** OK so let us start from the very beginning. What actually IS an option?
+**Stella:** OK so let us start from the very beginning. What actually IS an option?
 
-**Alex:** An option is a contract. It gives the buyer the right, but not the obligation, to buy or sell a specific stock at a specific price on or before a specific date. Let me repeat that because it is the single most important definition you will learn today. The right, but not the obligation.
+**Horace:** An option is a contract. It gives the buyer the right, but not the obligation, to buy or sell a specific stock at a specific price on or before a specific date. Let me repeat that because it is the single most important definition you will learn today. The right, but not the obligation.
 
-**Sam:** So it is like a choice. I have the option to do something, but I do not have to.
+**Stella:** So it is like a choice. I have the option to do something, but I do not have to.
 
-**Alex:** Exactly. And this is what separates options from other financial instruments. When you buy stock, you own it, period. When you buy a futures contract, you are obligated to fulfill it. But when you buy an option, you have a choice. You will only exercise it if it benefits you.
+**Horace:** Exactly. And this is what separates options from other financial instruments. When you buy stock, you own it, period. When you buy a futures contract, you are obligated to fulfill it. But when you buy an option, you have a choice. You will only exercise it if it benefits you.
 
 [VISUAL: Three boxes side by side: "Stock = You OWN it", "Futures = You MUST fulfill", "Option = You CHOOSE"]
 
-**Sam:** Got it. So there are two types, right? Calls and puts?
+**Stella:** Got it. So there are two types, right? Calls and puts?
 
-**Alex:** Right. A call option gives you the right to BUY a stock at a specific price. A put option gives you the right to SELL a stock at a specific price. That is it. Those are the only two building blocks. Every options strategy in existence is built from some combination of calls and puts.
+**Horace:** Right. A call option gives you the right to BUY a stock at a specific price. A put option gives you the right to SELL a stock at a specific price. That is it. Those are the only two building blocks. Every options strategy in existence is built from some combination of calls and puts.
 
-**Sam:** Let me make sure I have this straight. If I think a stock is going up, I want a call because that gives me the right to buy at a lower price?
+**Stella:** Let me make sure I have this straight. If I think a stock is going up, I want a call because that gives me the right to buy at a lower price?
 
-**Alex:** Exactly right. And if you think a stock is going down, or if you want to protect against a drop, you want a put because that gives you the right to sell at a higher price.
+**Horace:** Exactly right. And if you think a stock is going down, or if you want to protect against a drop, you want a put because that gives you the right to sell at a higher price.
 
 [VISUAL: Two cards appear - "CALL: Right to BUY - Bullish bet" and "PUT: Right to SELL - Bearish bet / Insurance"]
 
-**Sam:** Now I have heard the terms "strike price" and "expiration date." Can you explain those?
+**Stella:** Now I have heard the terms "strike price" and "expiration date." Can you explain those?
 
-**Alex:** Sure. Every option has four essential components. The underlying stock, like Apple or Microsoft. The type, call or put. The strike price, which is the agreed-upon price for the transaction. And the expiration date, which is when the contract expires.
+**Horace:** Sure. Every option has four essential components. The underlying stock, like Apple or Microsoft. The type, call or put. The strike price, which is the agreed-upon price for the transaction. And the expiration date, which is when the contract expires.
 
 [ANIMATION: Reference animation/week25_option_payoff.py - Animation showing an option contract being assembled piece by piece. First the stock ticker appears, then the type (call/put), then the strike price slides in, then the expiration date stamps on. The assembled contract then shows a payoff diagram that builds as the stock price moves along the x-axis.]
 
-**Alex:** Let me give you a concrete example. Let us say Apple is trading at $155. You buy an "AAPL January 17, 2026, $160 Call." That means you have the right to buy 100 shares of Apple at $160 per share, any time before January 17, 2026.
+**Horace:** Let me give you a concrete example. Let us say Apple is trading at $155. You buy an "AAPL January 17, 2026, $160 Call." That means you have the right to buy 100 shares of Apple at $160 per share, any time before January 17, 2026.
 
-**Sam:** Wait, did you say 100 shares? Why 100?
+**Stella:** Wait, did you say 100 shares? Why 100?
 
-**Alex:** Every standard options contract controls 100 shares. This is important because it affects your calculations. If the option is quoted at $3.50, you are not paying $3.50. You are paying $3.50 per share times 100 shares, which equals $350 per contract.
+**Horace:** Every standard options contract controls 100 shares. This is important because it affects your calculations. If the option is quoted at $3.50, you are not paying $3.50. You are paying $3.50 per share times 100 shares, which equals $350 per contract.
 
-**Sam:** Oh, that is something I could see tripping people up.
+**Stella:** Oh, that is something I could see tripping people up.
 
-**Alex:** Absolutely. It trips up beginners all the time. Always multiply by 100 to get your actual cost.
+**Horace:** Absolutely. It trips up beginners all the time. Always multiply by 100 to get your actual cost.
 
 [VISUAL: Calculator animation: "$3.50 per share x 100 shares = $350 per contract"]
 
-**Sam:** OK, so I have heard the phrase "in the money" thrown around a lot. What does that mean?
+**Stella:** OK, so I have heard the phrase "in the money" thrown around a lot. What does that mean?
 
-**Alex:** Great question. This is about the relationship between the strike price and the current stock price. We call it "moneyness." There are three states. In the money means the option has intrinsic value right now. At the money means the strike price equals the stock price. Out of the money means the option has no intrinsic value.
+**Horace:** Great question. This is about the relationship between the strike price and the current stock price. We call it "moneyness." There are three states. In the money means the option has intrinsic value right now. At the money means the strike price equals the stock price. Out of the money means the option has no intrinsic value.
 
-**Sam:** Can you give me an example?
+**Stella:** Can you give me an example?
 
-**Alex:** Sure. Apple is at $155. If you have a call option with a $140 strike, that is in the money because you could buy the stock at $140 and it is worth $155. That is $15 of intrinsic value. If your call has a $155 strike, it is at the money. And if your call has a $170 strike, it is out of the money because it would not make sense to exercise the right to buy at $170 when the stock is only at $155.
+**Horace:** Sure. Apple is at $155. If you have a call option with a $140 strike, that is in the money because you could buy the stock at $140 and it is worth $155. That is $15 of intrinsic value. If your call has a $155 strike, it is at the money. And if your call has a $170 strike, it is out of the money because it would not make sense to exercise the right to buy at $170 when the stock is only at $155.
 
 [VISUAL: A number line showing stock price at $155, with markers at different strike prices. $140 labeled "ITM - $15 intrinsic value", $155 labeled "ATM", $170 labeled "OTM - no intrinsic value". Color coding: green for ITM, yellow for ATM, red for OTM]
 
-**Sam:** And for puts it is the opposite?
+**Stella:** And for puts it is the opposite?
 
-**Alex:** Exactly. A put with a $170 strike is in the money when the stock is at $155, because you could sell at $170 when it is only worth $155. A put with a $140 strike is out of the money.
+**Horace:** Exactly. A put with a $170 strike is in the money when the stock is at $155, because you could sell at $170 when it is only worth $155. A put with a $140 strike is out of the money.
 
-**Sam:** This brings up another question. You mentioned intrinsic value. What is the other part of the option's price?
+**Stella:** This brings up another question. You mentioned intrinsic value. What is the other part of the option's price?
 
-**Alex:** Every option's price, which we call the premium, has two components. Intrinsic value, which is the real tangible value, and extrinsic value, which is everything else. Extrinsic value is also called time value, though that is slightly imprecise because it also includes volatility premium.
+**Horace:** Every option's price, which we call the premium, has two components. Intrinsic value, which is the real tangible value, and extrinsic value, which is everything else. Extrinsic value is also called time value, though that is slightly imprecise because it also includes volatility premium.
 
-**Sam:** Can you break that down with numbers?
+**Stella:** Can you break that down with numbers?
 
-**Alex:** Let us say Apple is at $155 and the $150 call is trading at $8.50. The intrinsic value is $5, because the stock is $5 above the strike price. The extrinsic value is $8.50 minus $5, which is $3.50. That $3.50 represents the market's assessment of the possibility that the option could become even more valuable before it expires.
+**Horace:** Let us say Apple is at $155 and the $150 call is trading at $8.50. The intrinsic value is $5, because the stock is $5 above the strike price. The extrinsic value is $8.50 minus $5, which is $3.50. That $3.50 represents the market's assessment of the possibility that the option could become even more valuable before it expires.
 
 [VISUAL: A stacked bar chart showing the option premium of $8.50 broken into two segments: $5.00 intrinsic (solid green) and $3.50 extrinsic (striped blue)]
 
-**Sam:** And an out-of-the-money option has no intrinsic value?
+**Stella:** And an out-of-the-money option has no intrinsic value?
 
-**Alex:** Correct. An out-of-the-money option's entire premium is extrinsic value. It is all hope and time. That is why OTM options are cheaper, and it is also why they lose value faster as expiration approaches.
+**Horace:** Correct. An out-of-the-money option's entire premium is extrinsic value. It is all hope and time. That is why OTM options are cheaper, and it is also why they lose value faster as expiration approaches.
 
-**Sam:** That leads perfectly into time decay, which I keep hearing about. Can you explain that?
+**Stella:** That leads perfectly into time decay, which I keep hearing about. Can you explain that?
 
-**Alex:** Time decay, technically called theta, is the rate at which an option loses extrinsic value as it approaches expiration. And here is the critical thing: it is not linear. The decay accelerates as you get closer to expiration.
+**Horace:** Time decay, technically called theta, is the rate at which an option loses extrinsic value as it approaches expiration. And here is the critical thing: it is not linear. The decay accelerates as you get closer to expiration.
 
 [ANIMATION: Reference animation/week25_option_payoff.py - A second animation sequence showing a time decay curve. An option starts with 90 days to expiration and $8 of extrinsic value. As a clock ticks and days count down, the extrinsic value decreases slowly at first, then the curve steepens dramatically in the last 30 days, with the last week showing the fastest decay. Numbers update in real-time. A "days remaining" counter ticks down alongside.]
 
-**Alex:** Imagine you have 90 days until expiration. In the first 30 days, the option might lose about 15% of its time value. In the middle 30 days, maybe another 25%. But in the last 30 days, it loses the remaining 60%. And in the final week, the decay is brutal.
+**Horace:** Imagine you have 90 days until expiration. In the first 30 days, the option might lose about 15% of its time value. In the middle 30 days, maybe another 25%. But in the last 30 days, it loses the remaining 60%. And in the final week, the decay is brutal.
 
-**Sam:** So if you are buying options, time is your enemy.
+**Stella:** So if you are buying options, time is your enemy.
 
-**Alex:** Precisely. Every single day, your option loses a little value, and that loss accelerates. You need the stock to move enough, in the right direction, fast enough, to overcome this natural erosion.
+**Horace:** Precisely. Every single day, your option loses a little value, and that loss accelerates. You need the stock to move enough, in the right direction, fast enough, to overcome this natural erosion.
 
-**Sam:** And if you are selling options?
+**Stella:** And if you are selling options?
 
-**Alex:** Then time is your best friend. You collect premium upfront and profit as it decays. This is why, in this course, we focus heavily on option selling strategies. We want time on our side.
+**Horace:** Then time is your best friend. You collect premium upfront and profit as it decays. This is why, in this course, we focus heavily on option selling strategies. We want time on our side.
 
 [VISUAL: Two panels - Left: "Option Buyer" with a melting ice cream cone labeled "Time Value" and text "Time is your ENEMY". Right: "Option Seller" with a piggy bank getting larger as coins drop in, text "Time is your FRIEND"]
 
-**Sam:** Speaking of buying and selling, can we talk about the difference between the buyer and the seller? Because I know one has rights and the other has obligations.
+**Stella:** Speaking of buying and selling, can we talk about the difference between the buyer and the seller? Because I know one has rights and the other has obligations.
 
-**Alex:** This is crucial. The buyer of an option pays the premium and gets a right. The seller of an option collects the premium and takes on an obligation. Let me walk through each scenario.
+**Horace:** This is crucial. The buyer of an option pays the premium and gets a right. The seller of an option collects the premium and takes on an obligation. Let me walk through each scenario.
 
-**Alex:** If you buy a call, you have the right to buy stock at the strike price. Your maximum loss is the premium you paid. If you sell a call, you have the obligation to sell stock at the strike price if the buyer exercises. Your maximum loss is theoretically unlimited because the stock could keep going up forever.
+**Horace:** If you buy a call, you have the right to buy stock at the strike price. Your maximum loss is the premium you paid. If you sell a call, you have the obligation to sell stock at the strike price if the buyer exercises. Your maximum loss is theoretically unlimited because the stock could keep going up forever.
 
-**Sam:** Unlimited loss? That sounds terrifying.
+**Stella:** Unlimited loss? That sounds terrifying.
 
-**Alex:** It is, for a naked call. But a covered call, where you already own the stock, caps your risk. The stock gets called away at the strike price, and you miss out on gains above that price, but you never actually lose money on the option itself. That is why we only teach covered calls in this course, never naked calls.
+**Horace:** It is, for a naked call. But a covered call, where you already own the stock, caps your risk. The stock gets called away at the strike price, and you miss out on gains above that price, but you never actually lose money on the option itself. That is why we only teach covered calls in this course, never naked calls.
 
 [VISUAL: Risk comparison chart: "Naked Call = Unlimited Risk" (red, warning sign), "Covered Call = Limited, Defined Risk" (green, checkmark)]
 
-**Sam:** What about puts?
+**Stella:** What about puts?
 
-**Alex:** If you buy a put, you have the right to sell stock at the strike price. Max loss is the premium. If you sell a put, you have the obligation to buy stock at the strike price. Your max loss is the strike price times 100 minus the premium, which would happen if the stock went to zero. That sounds scary, but if it is a stock you actually want to own, then getting assigned on a put just means you bought the stock at a discount.
+**Horace:** If you buy a put, you have the right to sell stock at the strike price. Max loss is the premium. If you sell a put, you have the obligation to buy stock at the strike price. Your max loss is the strike price times 100 minus the premium, which would happen if the stock went to zero. That sounds scary, but if it is a stock you actually want to own, then getting assigned on a put just means you bought the stock at a discount.
 
-**Sam:** That is actually a really nice way to think about it. You are getting paid to promise to buy a stock you already want.
+**Stella:** That is actually a really nice way to think about it. You are getting paid to promise to buy a stock you already want.
 
-**Alex:** Exactly. And that is the philosophy behind the cash-secured put strategy we will cover in Week 28.
+**Horace:** Exactly. And that is the philosophy behind the cash-secured put strategy we will cover in Week 28.
 
-**Sam:** Let us talk about the option chain. When I look at my brokerage account, I see this huge grid of numbers. It is overwhelming.
+**Stella:** Let us talk about the option chain. When I look at my brokerage account, I see this huge grid of numbers. It is overwhelming.
 
-**Alex:** The option chain is just a listing of all available options for a particular stock. It shows you every available strike price for each expiration date, separated into calls on one side and puts on the other.
+**Horace:** The option chain is just a listing of all available options for a particular stock. It shows you every available strike price for each expiration date, separated into calls on one side and puts on the other.
 
 [VISUAL: A real-looking option chain table for AAPL, with columns labeled: Bid, Ask, Last, Volume, Open Interest, Strike, and the same columns repeated for puts. The ATM strike is highlighted. ITM options have a shaded background.]
 
-**Alex:** The key things to look at are the bid and ask prices, which tell you what you can buy and sell for. The volume, which tells you how active that specific option is today. And the open interest, which tells you how many existing contracts are out there. High open interest means the option is liquid and you will get better pricing.
+**Horace:** The key things to look at are the bid and ask prices, which tell you what you can buy and sell for. The volume, which tells you how active that specific option is today. And the open interest, which tells you how many existing contracts are out there. High open interest means the option is liquid and you will get better pricing.
 
-**Sam:** What about the bid-ask spread?
+**Stella:** What about the bid-ask spread?
 
-**Alex:** The bid-ask spread is the difference between the bid and ask. A tight spread, like $0.05, means low transaction costs. A wide spread, like $0.50, means expensive. On a $3.00 option, a $0.50 spread means you are paying about 17% just to get into the trade. Always check the spread.
+**Horace:** The bid-ask spread is the difference between the bid and ask. A tight spread, like $0.05, means low transaction costs. A wide spread, like $0.50, means expensive. On a $3.00 option, a $0.50 spread means you are paying about 17% just to get into the trade. Always check the spread.
 
-**Sam:** Now I want to ask about American versus European options. Does that matter?
+**Stella:** Now I want to ask about American versus European options. Does that matter?
 
-**Alex:** For most individual investors trading stock options, you are dealing with American-style options, which means they can be exercised at any time before expiration. European-style options can only be exercised on the expiration date. Most index options like SPX and NDX are European-style.
+**Horace:** For most individual investors trading stock options, you are dealing with American-style options, which means they can be exercised at any time before expiration. European-style options can only be exercised on the expiration date. Most index options like SPX and NDX are European-style.
 
-**Sam:** When would someone exercise early?
+**Stella:** When would someone exercise early?
 
-**Alex:** Early exercise is rare but it happens most commonly when there is a dividend coming. If you own a deep in-the-money call on a stock that is about to go ex-dividend, you might exercise early to capture the dividend. Otherwise, it is almost always better to sell the option rather than exercise it, because selling captures both intrinsic and extrinsic value.
+**Horace:** Early exercise is rare but it happens most commonly when there is a dividend coming. If you own a deep in-the-money call on a stock that is about to go ex-dividend, you might exercise early to capture the dividend. Otherwise, it is almost always better to sell the option rather than exercise it, because selling captures both intrinsic and extrinsic value.
 
 [VISUAL: Timeline showing American vs European exercise windows, with American having a full bar across the entire period and European having only a marker at expiration]
 
-**Sam:** Let us talk about why options exist in the first place. What is the purpose?
+**Stella:** Let us talk about why options exist in the first place. What is the purpose?
 
-**Alex:** Three main purposes. First, hedging. Options were originally created so farmers could lock in prices for their crops. Today, portfolio managers use options to protect against market crashes. It is insurance.
+**Horace:** Three main purposes. First, hedging. Options were originally created so farmers could lock in prices for their crops. Today, portfolio managers use options to protect against market crashes. It is insurance.
 
-**Sam:** Like buying a put on your portfolio?
+**Stella:** Like buying a put on your portfolio?
 
-**Alex:** Exactly. If you own $500,000 in stocks and you are worried about a crash, you can buy puts on SPY or on your individual holdings. If the market drops 30%, your puts gain value and offset your stock losses. The cost of the puts is your insurance premium.
+**Horace:** Exactly. If you own $500,000 in stocks and you are worried about a crash, you can buy puts on SPY or on your individual holdings. If the market drops 30%, your puts gain value and offset your stock losses. The cost of the puts is your insurance premium.
 
-**Alex:** Second purpose is speculation. Options provide leverage. Instead of buying 100 shares of Apple for $15,500, you can buy one call option for maybe $350 and control those same 100 shares. If Apple goes up 10%, the stock investor makes about $1,550, or 10%. But the option might go up 200% or more.
+**Horace:** Second purpose is speculation. Options provide leverage. Instead of buying 100 shares of Apple for $15,500, you can buy one call option for maybe $350 and control those same 100 shares. If Apple goes up 10%, the stock investor makes about $1,550, or 10%. But the option might go up 200% or more.
 
-**Sam:** But if Apple stays flat or goes down?
+**Stella:** But if Apple stays flat or goes down?
 
-**Alex:** The stock investor still has their shares and might only be down temporarily. The option buyer could lose their entire $350. Leverage cuts both ways. That is why speculation with options requires discipline and proper position sizing.
+**Horace:** The stock investor still has their shares and might only be down temporarily. The option buyer could lose their entire $350. Leverage cuts both ways. That is why speculation with options requires discipline and proper position sizing.
 
 [VISUAL: Side-by-side comparison: Stock buyer puts in $15,500, options buyer puts in $350. Three scenarios shown: stock up 10%, flat, and down 10%, showing both dollar and percentage returns for each]
 
-**Alex:** The third purpose is income generation. This is what we will focus on most. If you own stocks, you can sell covered calls against them. If you have cash and a list of stocks you want to buy, you can sell cash-secured puts. Both strategies generate regular income.
+**Horace:** The third purpose is income generation. This is what we will focus on most. If you own stocks, you can sell covered calls against them. If you have cash and a list of stocks you want to buy, you can sell cash-secured puts. Both strategies generate regular income.
 
-**Sam:** And the income from options can be significant, right?
+**Stella:** And the income from options can be significant, right?
 
-**Alex:** It can be. A well-executed covered call strategy on a diversified portfolio can generate 8 to 15 percent annually. Compare that to the average dividend yield of the S&P 500, which is around 1.3 percent. We are talking about potentially 6 to 10 times the income from dividends alone.
+**Horace:** It can be. A well-executed covered call strategy on a diversified portfolio can generate 8 to 15 percent annually. Compare that to the average dividend yield of the S&P 500, which is around 1.3 percent. We are talking about potentially 6 to 10 times the income from dividends alone.
 
-**Sam:** That is remarkable. Why does not everyone do it?
+**Stella:** That is remarkable. Why does not everyone do it?
 
-**Alex:** Because there are tradeoffs. Covered calls cap your upside. If the stock rockets higher, you miss out on gains above the strike price. Cash-secured puts require you to buy the stock if it drops, which means you take on the downside risk. There is no free lunch. But for investors with the right temperament and the right portfolio, these strategies can significantly enhance returns.
+**Horace:** Because there are tradeoffs. Covered calls cap your upside. If the stock rockets higher, you miss out on gains above the strike price. Cash-secured puts require you to buy the stock if it drops, which means you take on the downside risk. There is no free lunch. But for investors with the right temperament and the right portfolio, these strategies can significantly enhance returns.
 
 [VISUAL: Bar chart comparing income sources: "Dividends Only: ~1.3%/year" vs "Dividends + Options Income: ~9-16%/year"]
 
-**Sam:** Before we wrap up, can we talk about what makes option pricing work? Like, why does an option cost what it costs?
+**Stella:** Before we wrap up, can we talk about what makes option pricing work? Like, why does an option cost what it costs?
 
-**Alex:** Six main factors. The stock price relative to the strike, which determines intrinsic value. The time to expiration, more time means more premium. Implied volatility, which is the market's expectation of how much the stock will move. Interest rates, which have a minor effect. Dividends, which affect calls and puts differently. And the strike price itself.
+**Horace:** Six main factors. The stock price relative to the strike, which determines intrinsic value. The time to expiration, more time means more premium. Implied volatility, which is the market's expectation of how much the stock will move. Interest rates, which have a minor effect. Dividends, which affect calls and puts differently. And the strike price itself.
 
-**Sam:** Implied volatility sounds important. Can you explain it simply?
+**Stella:** Implied volatility sounds important. Can you explain it simply?
 
-**Alex:** Think of it this way. If a stock has been moving 1% per day on average, options will be priced for that level of movement. But if the company has earnings coming up next week and everyone expects a big move, the options will get more expensive because the market expects 3-4% movement. That higher expected movement is reflected in higher implied volatility.
+**Horace:** Think of it this way. If a stock has been moving 1% per day on average, options will be priced for that level of movement. But if the company has earnings coming up next week and everyone expects a big move, the options will get more expensive because the market expects 3-4% movement. That higher expected movement is reflected in higher implied volatility.
 
-**Sam:** So options before earnings are expensive?
+**Stella:** So options before earnings are expensive?
 
-**Alex:** Very expensive. And right after earnings, implied volatility collapses, a phenomenon called IV crush. This is why buying options before earnings is generally a losing strategy. Even if you are right about the direction, the IV crush can eat up your profits.
+**Horace:** Very expensive. And right after earnings, implied volatility collapses, a phenomenon called IV crush. This is why buying options before earnings is generally a losing strategy. Even if you are right about the direction, the IV crush can eat up your profits.
 
 [VISUAL: Graph showing implied volatility building up before an earnings date, then sharply dropping. Label: "IV Crush" at the drop point. Shows option price declining despite stock moving in the right direction]
 
-**Sam:** That is a trap a lot of beginners fall into, I bet.
+**Stella:** That is a trap a lot of beginners fall into, I bet.
 
-**Alex:** One of the most common traps. We will teach you how to be on the right side of that trade.
+**Horace:** One of the most common traps. We will teach you how to be on the right side of that trade.
 
-**Sam:** So to summarize today's lesson: options are contracts that give buyers rights and sellers obligations. There are calls for bullish bets and puts for bearish bets or protection. Every option has a strike price, expiration date, and type. Options are priced based on intrinsic value and extrinsic value, and extrinsic value decays over time. And the three main uses are hedging, speculation, and income generation.
+**Stella:** So to summarize today's lesson: options are contracts that give buyers rights and sellers obligations. There are calls for bullish bets and puts for bearish bets or protection. Every option has a strike price, expiration date, and type. Options are priced based on intrinsic value and extrinsic value, and extrinsic value decays over time. And the three main uses are hedging, speculation, and income generation.
 
-**Alex:** Perfect summary. And the key takeaway for our course is that we will focus on selling options for income, specifically covered calls and cash-secured puts. These are conservative strategies where time decay works in our favor.
+**Horace:** Perfect summary. And the key takeaway for our course is that we will focus on selling options for income, specifically covered calls and cash-secured puts. These are conservative strategies where time decay works in our favor.
 
-**Sam:** I am actually excited about this. It seems much less scary than I expected.
+**Stella:** I am actually excited about this. It seems much less scary than I expected.
 
-**Alex:** That is the goal. In the next lesson, we are going to look at one of my favorite mental models: options as conditional orders. It will change the way you think about selling puts and calls forever.
+**Horace:** That is the goal. In the next lesson, we are going to look at one of my favorite mental models: options as conditional orders. It will change the way you think about selling puts and calls forever.
 
 [VISUAL: Preview slide for Week 26 with text "Next Week: Options as Conditional Orders - Rethinking How You Buy and Sell Stocks"]
 
-**Sam:** Before we go, can we do a quick lightning round? I have a few rapid-fire questions from viewers.
+**Stella:** Before we go, can we do a quick lightning round? I have a few rapid-fire questions from viewers.
 
-**Alex:** Let us do it.
+**Horace:** Let us do it.
 
-**Sam:** First question: can you trade options after hours?
+**Stella:** First question: can you trade options after hours?
 
-**Alex:** No. Options trade during regular market hours only, 9:30 AM to 4:00 PM Eastern. Some index options have extended hours, but for stock options, it is regular hours only.
+**Horace:** No. Options trade during regular market hours only, 9:30 AM to 4:00 PM Eastern. Some index options have extended hours, but for stock options, it is regular hours only.
 
-**Sam:** Can I buy one option and sell a different one at the same time?
+**Stella:** Can I buy one option and sell a different one at the same time?
 
-**Alex:** Yes, those are called spreads. Bull call spreads, bear put spreads, iron condors, those are all multi-leg strategies. We will not cover those in this course because they are more complex, but they are common intermediate strategies.
+**Horace:** Yes, those are called spreads. Bull call spreads, bear put spreads, iron condors, those are all multi-leg strategies. We will not cover those in this course because they are more complex, but they are common intermediate strategies.
 
-**Sam:** What is the minimum account size for options trading?
+**Stella:** What is the minimum account size for options trading?
 
-**Alex:** There is no universal minimum, but most brokers require $2,000-$5,000 for a basic options account. For selling cash-secured puts, you need enough to cover 100 shares at the strike price. For buying options, you just need enough to pay the premium. I recommend at least $10,000 to start with covered calls or cash-secured puts.
+**Horace:** There is no universal minimum, but most brokers require $2,000-$5,000 for a basic options account. For selling cash-secured puts, you need enough to cover 100 shares at the strike price. For buying options, you just need enough to pay the premium. I recommend at least $10,000 to start with covered calls or cash-secured puts.
 
-**Sam:** Can I use options on any stock?
+**Stella:** Can I use options on any stock?
 
-**Alex:** Not every stock has options. The stock needs to be listed on an exchange, meet minimum requirements for price, trading volume, and float. Most large-cap stocks have options. Many small-cap stocks do not. Your broker will show you which stocks have options available.
+**Horace:** Not every stock has options. The stock needs to be listed on an exchange, meet minimum requirements for price, trading volume, and float. Most large-cap stocks have options. Many small-cap stocks do not. Your broker will show you which stocks have options available.
 
-**Sam:** And finally: what is the single most important thing a beginner should know about options?
+**Stella:** And finally: what is the single most important thing a beginner should know about options?
 
-**Alex:** Know your maximum loss before you enter any trade. If you are buying options, your max loss is the premium. If you are selling options, calculate the worst case and make sure you can live with it. Position sizing and risk management are more important than any strategy.
+**Horace:** Know your maximum loss before you enter any trade. If you are buying options, your max loss is the premium. If you are selling options, calculate the worst case and make sure you can live with it. Position sizing and risk management are more important than any strategy.
 
-**Sam:** Great advice. Thanks, everyone. See you next week.
+**Stella:** Great advice. Thanks, everyone. See you next week.
 
-**Alex:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 26.
+**Horace:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 26.
 
 [VISUAL: End screen with subscribe button, playlist link to Level 3: Options series, and social media handles]
 

@@ -1,291 +1,282 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第十三週：多頭與空頭交易
 
-# Week 13: Long and Short Trading
+## 閱讀章節
 
-## Reading Section
+### a) 為何這個主題至關重要
 
-### a) Why This Is Important
+每位投資人都是從學習買股票開始的。你找到一家你看好的公司，買進股票，然後期待股價上漲。這就是做多。它直觀、簡單，也是大多數人對投資的認知方式。但這只是全貌的一半。
 
-Every investor starts by learning to buy stocks. You find a company you believe in, purchase shares, and hope the price goes up. This is called going long. It is intuitive, straightforward, and how most people think about investing. But it is only half the picture.
+另一半是放空——在股票下跌時獲利的能力。了解多頭與空頭部位之所以至關重要，有以下幾個原因：
 
-The other half is short selling, the ability to profit when a stock goes down. Understanding both long and short positions is essential for several reasons:
+**完整參與市場：** 市場有漲有跌。如果你只能在股票上漲時獲利，你在空頭市場與修正期間實際上是局外人。S&P 500大約每六到七年就會經歷一次20%以上的跌幅。2008年金融危機期間，市場下跌了57%。2020年新冠疫情崩盤期間，市場在33天內暴跌34%。了解放空的投資人在這些事件中擁有獲利或避險的工具。而那些只懂做多的人，只能眼睜睜看著自己的投資組合縮水。
 
-**Complete Market Participation:** Markets go up and down. If you can only profit when stocks rise, you are effectively sidelined during bear markets and corrections. The S&P 500 has experienced a decline of 20% or more roughly once every 6-7 years. During the 2008 financial crisis, the market fell 57%. During the COVID crash of 2020, it dropped 34% in 33 days. Investors who understood short selling had tools to profit or hedge during these events. Those who only knew how to go long watched helplessly as their portfolios shrank.
+**避險與風險管理：** 即使你從未放空過任何一檔股票，了解放空的運作方式也有助於保護你的投資組合。避險基金運用多空策略來降低市場風險，同時持續創造報酬。投資組合保險策略也依賴空頭部位。如果你管理退休帳戶並歷經多個市場週期，了解這些工具不是奢侈，而是必要。
 
-**Hedging and Risk Management:** Even if you never short a single stock, understanding how short selling works helps you protect your portfolio. Hedge funds use long/short strategies to reduce market risk while still generating returns. Portfolio insurance strategies rely on short positions. If you manage a retirement account through multiple market cycles, understanding these tools becomes not a luxury but a necessity.
+**理解市場機制：** 放空是金融市場價格發現中最重要的機制之一。當投資人只能買進時，被高估的股票會在高估的狀態下停留更長時間。放空者扮演市場天然質疑者的角色，他們深入研究公司、識別詐欺行為，並對市場炒作反向押注。歷史上許多重大企業詐欺案——從安隆到Wirecard——都是由放空者率先發現的。了解他們的角色，能讓你對市場運作有更完整的認識。
 
-**Understanding Market Mechanics:** Short selling is one of the most important mechanisms for price discovery in financial markets. When investors can only buy, overvalued stocks remain overvalued for longer. Short sellers serve as the market's natural skeptics, researching companies, identifying fraud, and betting against the hype. Many of the largest corporate frauds in history, from Enron to Wirecard, were first identified by short sellers. Understanding their role gives you a more complete picture of how markets function.
+**職涯關聯性：** 若你追求金融、資產管理或相關領域的職涯，多空策略是基礎知識。管理數兆美元的避險基金每天都在運用這些策略。即使是傳統的純多頭基金經理人也需要了解放空，因為他們自己的持股可能成為放空者的目標。精通交易的兩個面向是業界應有的專業知識。
 
-**Career Relevance:** If you pursue a career in finance, asset management, or related fields, long/short strategies are fundamental. Hedge funds managing trillions of dollars use these strategies daily. Even traditional long-only fund managers need to understand short selling because their own holdings may be targets of short sellers. Knowing both sides of the trade is expected professional knowledge.
+**誠實面對投資：** 真正有見識的投資人對任何投資都會同時思考多頭與空頭的論點。學習放空迫使你思考可能出錯的地方，而不只是一切順利的情況。這種雙面思維讓你成為更好的分析師、更好的風險管理者，最終成為更好的投資人。
 
-**Intellectual Honesty:** A truly informed investor considers both the bull and bear case for any investment. Learning about short selling forces you to think about what could go wrong, not just what could go right. This dual perspective makes you a better analyst, a better risk manager, and ultimately a better investor.
-
-In this lesson, we will cover the mechanics of both long and short positions, explore the unique risks of short selling, learn how professional hedge funds combine both in long/short strategies, and examine some of the most dramatic short selling episodes in market history.
+在本課程中，我們將涵蓋多頭與空頭部位的操作機制、探討放空的獨特風險、學習專業避險基金如何結合兩者構建多空策略，並回顧歷史上最戲劇性的放空事件。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### What Is a Long Position?
+#### 什麼是多頭部位？
 
-A long position is the simplest concept in investing. When you buy a stock, you are going long. You purchase shares because you believe the price will increase, and you profit from the difference between your purchase price and your eventual selling price.
+多頭部位是投資中最基本的概念。當你買入股票，就是在做多。你買進股票，因為你認為價格會上漲，並從買進價格與最終賣出價格之間的差額中獲利。
 
 ```
-LONG POSITION MECHANICS:
+多頭部位操作機制：
 
-  Buy 100 shares of AAPL at $150
+  以每股$150買進100股AAPL
   
   +-----------+     +-------------+     +----------+
-  |  BUY at   | --> |  HOLD and   | --> |  SELL at  |
-  |  $150     |     |  WAIT       |     |  $180     |
+  |  以$150   | --> |  持有並     | --> |  以$180  |
+  |  買入     |     |  等待       |     |  賣出    |
   +-----------+     +-------------+     +----------+
   
-  Investment:    100 x $150 = $15,000
-  Sale Proceeds: 100 x $180 = $18,000
-  Profit:        $18,000 - $15,000 = $3,000
-  Return:        $3,000 / $15,000 = +20.0%
+  投資金額：    100 x $150 = $15,000
+  賣出所得：    100 x $180 = $18,000
+  獲利：        $18,000 - $15,000 = $3,000
+  報酬率：      $3,000 / $15,000 = +20.0%
 
-  RISK PROFILE:
-  Maximum Gain:  Unlimited (stock can rise infinitely)
-  Maximum Loss:  $15,000 (stock drops to $0)
+  風險概況：
+  最大獲利：    無上限（股票可無限上漲）
+  最大虧損：    $15,000（股票跌至$0）
   
-  Profit
+  獲利
     |
     |                     /
     |                   /
     |                 /
     |               /
-    0|----------*-----------> Stock Price
+    0|----------*-----------> 股票價格
     |         /  $150
     |       /
     |     /
     |   /
     | /
-  -$15K (stock goes to $0)
+  -$15K（股票跌至$0）
 ```
 
-The key characteristics of a long position are:
+多頭部位的主要特性如下：
 
-1. You pay cash upfront (or use margin to borrow some of the purchase price).
-2. You own the shares and are entitled to dividends.
-3. Your maximum loss is limited to your investment (the stock can only go to zero).
-4. Your maximum gain is theoretically unlimited (there is no ceiling on how high a stock can go).
-5. Time is generally on your side: companies grow, earnings increase, and stocks tend to go up over the long run.
+1. 你需要預先支付現金（或使用保證金借款支付部分買入價格）。
+2. 你擁有股票，有權收取股利。
+3. 你的最大虧損以投資金額為限（股票最低只能跌到零）。
+4. 你的最大獲利理論上無上限（股票上漲沒有天花板）。
+5. 時間通常站在你這邊：企業成長、盈餘增加，股票長期來說有上漲的傾向。
 
-#### What Is a Short Position?
+#### 什麼是空頭部位？
 
-A short position is the opposite of a long position. When you short a stock, you are betting that the price will go down. The mechanics are counterintuitive at first: you sell shares you do not own, and you profit if you can buy them back later at a lower price.
-
-```
-SHORT SELLING MECHANICS - Step by Step:
-
-  Step 1: BORROW shares from your broker
-  
-  +------------+      +------------+
-  | Your       | <--- | Broker's   |
-  | Account    |      | Inventory  |
-  | (receives  |      | (lends 100 |
-  |  100 shares)|     |  AAPL)     |
-  +------------+      +------------+
-
-  Step 2: SELL the borrowed shares in the open market
-  
-  +------------+      +------------+
-  | Your       | ---> | Open       |
-  | Account    |      | Market     |
-  | (sells 100 |      | (buyer     |
-  |  at $150)  |      |  pays $150)|
-  +------------+      +------------+
-  
-  Cash received: 100 x $150 = $15,000
-  (held as collateral in your account)
-
-  Step 3: WAIT for price to drop
-
-  Step 4: BUY BACK (cover) the shares at lower price
-  
-  +------------+      +------------+
-  | Your       | <--- | Open       |
-  | Account    |      | Market     |
-  | (buys 100  |      | (seller    |
-  |  at $120)  |      |  gets $120)|
-  +------------+      +------------+
-  
-  Cost to cover: 100 x $120 = $12,000
-
-  Step 5: RETURN the shares to your broker
-  
-  +------------+      +------------+
-  | Your       | ---> | Broker's   |
-  | Account    |      | Inventory  |
-  | (returns   |      | (receives  |
-  |  100 shares)|     |  100 AAPL) |
-  +------------+      +------------+
-
-  Profit: $15,000 - $12,000 = $3,000
-  Return: $3,000 / $15,000 = +20.0%
-```
-
-Let us be very precise about the difference in profit and loss profiles:
+空頭部位與多頭部位相反。當你放空一檔股票，你是在押注價格會下跌。其操作機制乍看之下不太直觀：你賣出你並未持有的股票，並在之後以更低的價格買回來獲利。
 
 ```
-LONG vs. SHORT: Risk/Reward Comparison
+放空操作步驟說明：
+
+  步驟一：向券商借入股票
+  
+  +------------+      +------------+
+  | 您的帳戶   | <--- | 券商庫存   |
+  | （取得     |      | （借出100  |
+  |  100股）   |      |  股AAPL）  |
+  +------------+      +------------+
+
+  步驟二：在公開市場賣出借來的股票
+  
+  +------------+      +------------+
+  | 您的帳戶   | ---> | 公開市場   |
+  | （以$150   |      | （買方支付 |
+  |  賣出100股）|     |  $150）    |
+  +------------+      +------------+
+  
+  收到現金：100 x $150 = $15,000
+  （存放於您帳戶作為擔保品）
+
+  步驟三：等待價格下跌
+
+  步驟四：以較低價格回補股票
+  
+  +------------+      +------------+
+  | 您的帳戶   | <--- | 公開市場   |
+  | （以$120   |      | （賣方收到 |
+  |  買入100股）|     |  $120）    |
+  +------------+      +------------+
+  
+  回補成本：100 x $120 = $12,000
+
+  步驟五：將股票歸還給券商
+  
+  +------------+      +------------+
+  | 您的帳戶   | ---> | 券商庫存   |
+  | （歸還     |      | （收回100  |
+  |  100股）   |      |  股AAPL）  |
+  +------------+      +------------+
+
+  獲利：$15,000 - $12,000 = $3,000
+  報酬率：$3,000 / $15,000 = +20.0%
+```
+
+讓我們精確比較多頭與空頭部位在獲利與虧損方面的差異：
+
+```
+多頭與空頭：風險/報酬比較
 
 +---------------------------+--------------------+--------------------+
-|                           | LONG POSITION      | SHORT POSITION     |
+|                           | 多頭部位           | 空頭部位           |
 +---------------------------+--------------------+--------------------+
-| You profit when:          | Stock goes UP      | Stock goes DOWN    |
-| You lose when:            | Stock goes DOWN    | Stock goes UP      |
-| Maximum profit:           | Unlimited          | Limited to 100%*   |
-| Maximum loss:             | 100% of investment | UNLIMITED**        |
-| Dividends:                | You RECEIVE them   | You PAY them       |
-| Time bias:                | Favorable (stocks  | Unfavorable (stocks|
-|                           | tend to rise)      | tend to rise)      |
-| Borrow cost:              | None               | Ongoing fee        |
-| Margin requirement:       | Up to 50% (Reg T)  | 150% initial***    |
+| 獲利條件：                | 股票上漲           | 股票下跌           |
+| 虧損條件：                | 股票下跌           | 股票上漲           |
+| 最大獲利：                | 無上限             | 上限為100%*        |
+| 最大虧損：                | 投資金額的100%     | 無上限**           |
+| 股利：                    | 您收取股利         | 您支付股利         |
+| 時間偏向：                | 有利（股票長期     | 不利（股票長期     |
+|                           | 趨於上漲）         | 趨於上漲）         |
+| 借券成本：                | 無                 | 持續收費           |
+| 保證金要求：              | 最高50%（Reg T）   | 初始150%***        |
 +---------------------------+--------------------+--------------------+
 
-*   If you short at $150 and stock goes to $0, you make $150/share (100%).
-**  Stock can theoretically rise infinitely. Short at $150, stock goes 
-    to $500 = loss of $350/share (233%).
-*** You must deposit the short sale proceeds ($15,000) PLUS additional
-    margin (typically 50%, or $7,500) = $22,500 total.
+*   若您以$150放空，股票跌至$0，每股獲利$150（100%）。
+**  股票理論上可無限上漲。以$150放空，股票漲至$500
+    = 每股虧損$350（233%）。
+*** 您必須存入放空所得（$15,000）加上額外保證金
+    （通常為50%，即$7,500）= 合計$22,500。
 ```
 
-#### The Asymmetric Risk of Short Selling
+#### 放空的不對稱風險
 
-This is the most critical concept in this entire lesson. Short selling has an inherently asymmetric risk profile that makes it fundamentally more dangerous than going long.
-
-```
-WHY SHORT SELLING IS MORE DANGEROUS:
-
-  LONG POSITION: Buy at $100
-  
-  Best case:  Stock goes to infinity  -> Unlimited gain
-  Worst case: Stock goes to $0        -> Lose $100 (100%)
-  
-  LOSS IS CAPPED AT 100%
-  
-  SHORT POSITION: Short at $100
-  
-  Best case:  Stock goes to $0        -> Gain $100 (100%)
-  Worst case: Stock goes to infinity  -> UNLIMITED LOSS
-  
-  LOSS IS UNCAPPED
-  
-  
-  Comparison of P&L as stock moves from $100:
-
-  Stock    Long P&L    Long %     Short P&L   Short %
-  -----    --------    ------     ---------   -------
-  $  0     -$100       -100%      +$100       +100%     <- Max short gain
-  $ 50     -$ 50       - 50%      +$ 50       + 50%
-  $100     $   0          0%      $   0          0%     <- Entry point
-  $150     +$ 50       + 50%      -$ 50       - 50%
-  $200     +$100       +100%      -$100       -100%
-  $300     +$200       +200%      -$200       -200%
-  $500     +$400       +400%      -$400       -400%
-  $1000    +$900       +900%      -$900       -900%
-       ... keeps going up ...   ... keeps going DOWN ...
-
-  The short seller's loss has NO FLOOR.
-```
-
-This asymmetry creates a psychological and mathematical challenge. A short seller who is right can, at best, double their money (if the stock goes to zero). But a short seller who is wrong can lose multiples of their initial position. This is why professional short sellers use strict position sizing and stop-loss discipline.
-
-#### Margin Requirements for Short Selling
-
-Short selling requires a margin account and involves specific margin requirements that differ from buying on margin.
+這是本課程最關鍵的概念。放空具有天生的不對稱風險特性，使其本質上比做多更危險。
 
 ```
-MARGIN REQUIREMENTS FOR SHORT SELLING:
+為何放空更危險：
 
-  Example: Short 100 shares of XYZ at $100
+  多頭部位：以$100買入
+  
+  最佳情況：股票漲至無限大  -> 獲利無上限
+  最差情況：股票跌至$0      -> 虧損$100（100%）
+  
+  虧損上限為100%
+  
+  空頭部位：以$100放空
+  
+  最佳情況：股票跌至$0      -> 獲利$100（100%）
+  最差情況：股票漲至無限大  -> 虧損無上限
+  
+  虧損無上限
+  
+  
+  股票從$100移動時，損益比較：
 
-  INITIAL MARGIN REQUIREMENT (Regulation T):
+  股價    多頭損益    多頭%      空頭損益    空頭%
+  -----   --------   ------     ---------  -------
+  $  0    -$100      -100%      +$100      +100%    <- 空頭最大獲利
+  $ 50    -$ 50      - 50%      +$ 50      + 50%
+  $100    $   0        0%       $   0        0%     <- 進場點
+  $150    +$ 50      + 50%      -$ 50      - 50%
+  $200    +$100      +100%      -$100      -100%
+  $300    +$200      +200%      -$200      -200%
+  $500    +$400      +400%      -$400      -400%
+  $1000   +$900      +900%      -$900      -900%
+       ... 持續上漲 ...        ... 持續下跌 ...
+
+  放空者的虧損沒有下限。
+```
+
+這種不對稱性造成心理與數學上的雙重挑戰。放空者就算判斷正確，最多也只能使資金翻倍（若股票跌至零）。但判斷錯誤的放空者，虧損可能是初始部位的數倍。這就是為何專業放空者堅守嚴格的部位規模控制與停損紀律。
+
+#### 放空的保證金要求
+
+放空需要保證金帳戶，並且涉及與融資買股不同的特定保證金要求。
+
+```
+放空的保證金要求：
+
+  範例：以每股$100放空100股XYZ
+
+  初始保證金要求（Reg T規定）：
   +----------------------------------------------+
-  | Short sale proceeds:          $10,000         |
-  | Additional margin (50%):     + $5,000         |
-  | Total account equity needed:  $15,000         |
+  | 放空所得：                    $10,000         |
+  | 額外保證金（50%）：          + $5,000         |
+  | 帳戶所需總權益：              $15,000         |
   +----------------------------------------------+
   
-  MAINTENANCE MARGIN (typically 30%):
-  Your equity must remain above 30% of the
-  current market value of the short position.
+  維持保證金（通常為30%）：
+  您的權益必須維持在空頭部位目前市值的30%以上。
   
-  MARGIN CALL TRIGGER:
+  追繳保證金觸發條件：
   
-  If stock rises from $100 to $130:
+  若股票從$100上漲至$130：
   
-  Short sale proceeds:    $10,000
-  Additional margin:      $ 5,000
-  Total deposited:        $15,000
-  Current value of short: $13,000 (100 shares x $130)
+  放空所得：              $10,000
+  額外保證金：            $ 5,000
+  存入合計：              $15,000
+  空頭部位目前市值：      $13,000（100股 x $130）
   
-  Your equity = $15,000 - $13,000 = $2,000
-  Maintenance required = 30% x $13,000 = $3,900
+  您的權益 = $15,000 - $13,000 = $2,000
+  維持保證金要求 = 30% x $13,000 = $3,900
   
-  $2,000 < $3,900 ---> MARGIN CALL
+  $2,000 < $3,900 ---> 追繳保證金
   
-  You must deposit additional funds or close the position.
+  您必須存入額外資金或平倉。
   
-  MARGIN CALL FORMULA:
+  追繳保證金價格公式：
   
-  Margin call price = Initial deposit / (shares x (1 + maintenance%))
+  追繳保證金價格 = 初始存入 / （股數 x （1 + 維持保證金比率）)
   = $15,000 / (100 x 1.30) = $115.38
   
-  If stock exceeds $115.38, you get a margin call.
+  若股票超過$115.38，您將收到追繳保證金通知。
 ```
 
-#### The Short Squeeze
+#### 軋空
 
-A short squeeze is one of the most dramatic events in financial markets. It occurs when a heavily shorted stock begins to rise, forcing short sellers to buy back shares to limit their losses, which drives the price up further, which forces more short sellers to cover, creating a self-reinforcing upward spiral.
+軋空是金融市場中最戲劇性的事件之一。它發生於一檔放空比率極高的股票開始上漲，迫使放空者回補股票以限制損失，進而推動股價進一步上漲，繼續迫使更多放空者回補，形成自我強化的上漲螺旋。
 
 ```
-ANATOMY OF A SHORT SQUEEZE:
+軋空的解剖：
 
-  Phase 1: Setup
+  第一階段：醞釀期
   +----------------------------------------------------------+
-  | Stock XYZ at $50                                         |
-  | Short interest: 40% of float (very high)                 |
-  | Many hedge funds are short, expecting price to decline    |
-  +----------------------------------------------------------+
-         |
-         v
-  Phase 2: Catalyst (unexpected good news)
-  +----------------------------------------------------------+
-  | Stock jumps to $65 on positive earnings surprise          |
-  | Short sellers sitting on -30% loss                       |
+  | XYZ股票報價$50                                           |
+  | 放空比率：流通股數的40%（極高）                           |
+  | 許多避險基金放空，預期股價將下跌                          |
   +----------------------------------------------------------+
          |
          v
-  Phase 3: Initial Covering
+  第二階段：催化劑（出乎意料的利多消息）
   +----------------------------------------------------------+
-  | Some short sellers buy to cover (limit losses)            |
-  | Their buying pushes stock to $80                         |
-  | Remaining shorts now at -60% loss                        |
-  +----------------------------------------------------------+
-         |
-         v
-  Phase 4: Panic Covering
-  +----------------------------------------------------------+
-  | Margin calls force more shorts to cover                   |
-  | Price spikes to $120, $150, $200                         |
-  | Low float = very few shares available to buy              |
-  | Short sellers competing to buy = price skyrockets         |
+  | 財報驚喜帶動股票跳漲至$65                                |
+  | 放空者已承受-30%的虧損                                   |
   +----------------------------------------------------------+
          |
          v
-  Phase 5: Exhaustion
+  第三階段：初步回補
   +----------------------------------------------------------+
-  | Most shorts have covered or been forced out               |
-  | Price peaks and begins to normalize                      |
-  | Stock eventually settles at a level between the           |
-  | original price and the squeeze peak                      |
+  | 部分放空者買進回補（限制損失）                            |
+  | 他們的買盤推升股價至$80                                  |
+  | 剩餘放空者目前虧損達-60%                                 |
+  +----------------------------------------------------------+
+         |
+         v
+  第四階段：恐慌性回補
+  +----------------------------------------------------------+
+  | 追繳保證金迫使更多放空者回補                              |
+  | 股價急漲至$120、$150、$200                              |
+  | 流通股數少，可買入的股票極為有限                          |
+  | 放空者競相買入 = 股價飆升                                |
+  +----------------------------------------------------------+
+         |
+         v
+  第五階段：趨緩
+  +----------------------------------------------------------+
+  | 多數放空者已主動或被動出場                                |
+  | 股價見頂後開始回歸正常                                   |
+  | 股票最終在原始價格與軋空高點之間找到支撐                  |
   +----------------------------------------------------------+
 
-  Price Chart During a Short Squeeze:
+  軋空期間股價走勢圖：
 
   $200 |                    *
        |                   * *
@@ -299,803 +290,787 @@ ANATOMY OF A SHORT SQUEEZE:
        |      *                                   ****
   $ 50 |******                                        ****
        +---|----|----|----|----|----|----|----|----|--------->
-        Day 1   5   10   15   20   25   30   35   40  Time
-       Setup     Catalyst   Panic    Peak    Normalization
+        第1天  5   10   15   20   25   30   35   40  時間
+       醞釀期   催化劑  恐慌期  高峰  趨緩期
 ```
 
-#### Short Interest and Days to Cover
+#### 放空比率與回補天數
 
-Two key metrics help investors assess the risk of a short squeeze:
-
-```
-SHORT SELLING METRICS:
-
-  SHORT INTEREST:
-  The total number of shares currently sold short.
-  Usually expressed as a percentage of the float.
-  
-  Short Interest = Shares Sold Short / Total Float x 100
-  
-  Example:
-  Company ABC has 50 million shares in the float.
-  10 million shares are sold short.
-  Short Interest = 10M / 50M x 100 = 20%
-  
-  INTERPRETATION:
-  +-------------------+------------------------------------------+
-  | Short Interest     | Interpretation                          |
-  +-------------------+------------------------------------------+
-  | < 5%              | Normal. Not heavily shorted.             |
-  | 5% - 10%          | Moderate. Some bearish sentiment.        |
-  | 10% - 20%         | High. Significant bearish bets.         |
-  | 20% - 40%         | Very high. Squeeze risk elevated.       |
-  | > 40%             | Extreme. Very high squeeze risk.        |
-  +-------------------+------------------------------------------+
-
-  DAYS TO COVER (Short Interest Ratio):
-  How many days it would take all short sellers to buy back
-  their shares, based on average daily trading volume.
-  
-  Days to Cover = Shares Sold Short / Average Daily Volume
-  
-  Example:
-  10 million shares short / 2 million avg daily volume = 5 days
-  
-  INTERPRETATION:
-  +-------------------+------------------------------------------+
-  | Days to Cover      | Interpretation                          |
-  +-------------------+------------------------------------------+
-  | < 2 days          | Low. Shorts can exit quickly.            |
-  | 2 - 5 days        | Moderate. Some covering pressure.        |
-  | 5 - 10 days       | High. Significant squeeze potential.     |
-  | > 10 days         | Very high. Severe squeeze risk.          |
-  +-------------------+------------------------------------------+
-```
-
-#### Borrowing Costs and Locate Requirements
-
-When you short a stock, you must borrow the shares from someone who owns them. This borrowing process has costs and constraints:
+兩個關鍵指標可幫助投資人評估軋空風險：
 
 ```
-SHORT SELLING COSTS:
+放空指標說明：
 
-  1. BORROW FEE (Cost to Borrow)
+  放空比率：
+  目前已放空的股票總數。
+  通常以流通股數的百分比表示。
+  
+  放空比率 = 放空股數 / 流通股數總計 x 100
+  
+  範例：
+  ABC公司流通股數為5,000萬股。
+  其中1,000萬股已遭放空。
+  放空比率 = 1,000萬 / 5,000萬 x 100 = 20%
+  
+  解讀：
+  +-------------------+------------------------------------------+
+  | 放空比率          | 解讀                                     |
+  +-------------------+------------------------------------------+
+  | < 5%             | 正常。未受大量放空。                       |
+  | 5% - 10%         | 中等。有一定空頭情緒。                     |
+  | 10% - 20%        | 偏高。空頭押注顯著。                       |
+  | 20% - 40%        | 非常高。軋空風險上升。                     |
+  | > 40%            | 極度偏高。軋空風險極高。                   |
+  +-------------------+------------------------------------------+
+
+  回補天數（放空比率）：
+  若所有放空者依據平均每日成交量回補，
+  需要多少天才能買回全部股票。
+  
+  回補天數 = 放空股數 / 平均每日成交量
+  
+  範例：
+  1,000萬股放空 / 平均每日成交量200萬股 = 5天
+  
+  解讀：
+  +-------------------+------------------------------------------+
+  | 回補天數          | 解讀                                     |
+  +-------------------+------------------------------------------+
+  | < 2天            | 低。放空者可迅速出場。                     |
+  | 2 - 5天          | 中等。有一定回補壓力。                     |
+  | 5 - 10天         | 偏高。軋空潛力顯著。                       |
+  | > 10天           | 非常高。軋空風險嚴重。                     |
+  +-------------------+------------------------------------------+
+```
+
+#### 借券成本與借券確認要求
+
+放空股票時，你必須向持有股票的一方借入。這個借券流程有其成本與限制：
+
+```
+放空成本說明：
+
+  1. 借券費率（借券成本）
   
   +----------------------------------------------------------+
-  | Easy-to-borrow stocks:   0.25% - 1.0% annualized         |
-  | (large-cap, high float)  Example: AAPL, MSFT             |
+  | 易借券股票：          年利率0.25% - 1.0%                 |
+  | （大型股、流通股數多） 例如：AAPL、MSFT                  |
   |                                                           |
-  | General collateral:      1.0% - 3.0% annualized          |
-  | (most mid-cap stocks)                                     |
+  | 一般擔保品：          年利率1.0% - 3.0%                  |
+  | （多數中型股）                                           |
   |                                                           |
-  | Hard-to-borrow stocks:   5% - 50%+ annualized            |
-  | (small-cap, high short   Example: Meme stocks, small     |
-  |  interest)               biotechs with high short int.   |
+  | 難借券股票：          年利率5% - 50%以上                  |
+  | （小型股、高放空比率） 例如：迷因股、放空比率高            |
+  |                        的小型生技股                       |
   |                                                           |
-  | Special situations:      50% - 300%+ annualized           |
-  | (extremely hard to       Example: GameStop during         |
-  |  borrow)                 the 2021 squeeze                 |
+  | 特殊情況：            年利率50% - 300%以上                |
+  | （極難借券）          例如：2021年軋空期間的GameStop      |
   +----------------------------------------------------------+
   
-  2. DIVIDEND OBLIGATION
+  2. 股利義務
   
-  If the stock pays a dividend while you are short:
-  YOU must pay the dividend to the share lender.
+  若您持有放空部位期間該股票發放股利：
+  您必須將股利支付給借券方。
   
-  Example: Short 100 shares of JNJ at $160
-  JNJ pays $1.19/share quarterly dividend
-  You owe: 100 x $1.19 = $119 per quarter ($476/year)
-  That is an additional 0.30% annual cost.
+  範例：以每股$160放空100股JNJ
+  JNJ每季發放每股$1.19的股利
+  您須支付：100 x $1.19 = 每季$119（每年$476）
+  此為額外0.30%的年度成本。
   
-  3. LOCATE REQUIREMENT
+  3. 借券確認要求
   
-  Before shorting, your broker must confirm that shares
-  are available to borrow. This is called a "locate."
+  放空前，您的券商必須確認有可供借入的股票。
+  此程序稱為「借券確認」。
   
   +------------------+     +-----------------+
-  | You: "I want to  | --> | Broker: Checks  |
-  | short 100 XYZ"   |     | inventory and   |
-  +------------------+     | prime brokers   |
-                           +-----------------+
-                                    |
-                          +---------+---------+
-                          |                   |
-                   +------+------+    +-------+------+
-                   | "Located.   |    | "Hard to     |
-                   | Proceed."   |    | borrow. Fee  |
-                   +-------------+    | is 25% ann." |
-                                      +--------------+
+  | 您：「我想放空  | --> | 券商：查詢庫存  |
+  | 100股XYZ」      |     | 及主要經紀商    |
+  +------------------+     +-----------------+
+                                   |
+                         +---------+---------+
+                         |                   |
+                  +------+------+    +-------+------+
+                  | 「已確認借  |    | 「難以借券。  |
+                  | 券。可進行  |    | 年費率為      |
+                  | 操作。」    |    | 25%。」       |
+                  +-------------+    +--------------+
 ```
 
-#### Hedge Fund Long/Short Strategy
+#### 避險基金多空策略
 
-Professional hedge funds often combine long and short positions in a strategy called long/short equity. This is one of the oldest and most common hedge fund strategies.
+專業避險基金通常將多頭與空頭部位結合，運用一種稱為多空股票（Long/Short Equity）的策略。這是最古老也最常見的避險基金策略之一。
 
 ```
-LONG/SHORT EQUITY STRATEGY:
+多空股票策略：
 
-  CONCEPT:
-  Buy stocks you think will outperform (go long)
-  Sell short stocks you think will underperform (go short)
+  概念：
+  買進你認為會超越大盤的股票（做多）
+  放空你認為會落後大盤的股票（放空）
   
-  The goal is to profit from the SPREAD between winners and losers,
-  while reducing overall market exposure.
+  目標是從強勢股與弱勢股的差異中獲利，
+  同時降低整體市場風險敞口。
   
-  EXAMPLE PORTFOLIO ($10 million fund):
+  範例投資組合（1,000萬美元基金）：
 
-  LONG POSITIONS (stocks expected to rise):
+  多頭部位（預期上漲的股票）：
   +-------------------+----------+-----------+
-  | Stock             | Value    | Thesis    |
+  | 股票              | 價值     | 投資邏輯  |
   +-------------------+----------+-----------+
-  | MSFT              | $1.5M    | AI growth |
-  | UNH               | $1.2M    | Aging pop |
-  | COST              | $1.0M    | Pricing   |
-  | MA                | $0.8M    | Cashless  |
-  | AVGO              | $1.0M    | Semis     |
+  | MSFT              | $1.5M    | AI成長    |
+  | UNH               | $1.2M    | 人口老化  |
+  | COST              | $1.0M    | 定價能力  |
+  | MA                | $0.8M    | 無現金趨勢|
+  | AVGO              | $1.0M    | 半導體    |
   +-------------------+----------+-----------+
-  | Total Long        | $5.5M    |           |
+  | 多頭合計          | $5.5M    |           |
   +-------------------+----------+-----------+
 
-  SHORT POSITIONS (stocks expected to fall):
+  空頭部位（預期下跌的股票）：
   +-------------------+----------+-------------+
-  | Stock             | Value    | Thesis      |
+  | 股票              | 價值     | 投資邏輯    |
   +-------------------+----------+-------------+
-  | SNAP              | -$0.8M   | User decline|
-  | BYND              | -$0.6M   | Fad over   |
-  | PTON              | -$0.7M   | Competition|
-  | CVNA              | -$0.5M   | Debt load  |
-  | NKLA              | -$0.4M   | No revenue |
+  | SNAP              | -$0.8M   | 用戶流失    |
+  | BYND              | -$0.6M   | 熱潮退去    |
+  | PTON              | -$0.7M   | 競爭加劇    |
+  | CVNA              | -$0.5M   | 債務壓力    |
+  | NKLA              | -$0.4M   | 無營收      |
   +-------------------+----------+-------------+
-  | Total Short       | -$3.0M   |             |
+  | 空頭合計          | -$3.0M   |             |
   +-------------------+----------+-------------+
 
-  PORTFOLIO METRICS:
+  投資組合指標：
   +-------------------+----------+
-  | Gross Exposure     | $8.5M   |  (Long + |Short|)
-  | Net Exposure       | $2.5M   |  (Long - |Short|)
-  | Net/Gross Ratio    |  29%    |  (Net / Gross)
+  | 總風險敞口         | $8.5M   |  （多頭 + |空頭|）
+  | 淨風險敞口         | $2.5M   |  （多頭 - |空頭|）
+  | 淨額/總額比率      |  29%    |  （淨額 / 總額）
   +-------------------+----------+
   
-  This portfolio has 65% long, 35% short.
-  Net exposure of 29% means the portfolio is modestly
-  positioned for the market to go up, but is protected
-  if it goes down.
+  此投資組合多頭佔65%，空頭佔35%。
+  29%的淨風險敞口意味著此投資組合對市場
+  上漲呈現小幅看多，但也具備一定的下跌保護。
 ```
 
-#### Market Neutral Strategy
+#### 市場中性策略
 
-A market neutral strategy is a special case of long/short where the net exposure is approximately zero. The goal is to eliminate market risk entirely and profit solely from stock selection.
+市場中性策略是多空策略的特殊情況，其中淨風險敞口約為零。目標是完全消除市場風險，僅從選股能力中獲利。
 
 ```
-MARKET NEUTRAL CONCEPT:
+市場中性概念：
 
-  Regular Long-Only Investor:
+  一般純多頭投資人：
   +----------------------------------------------------------+
-  | Returns = Stock Selection + Market Movement               |
-  | (alpha)    (beta)                                         |
+  | 報酬 = 選股能力 + 市場漲跌                               |
+  | （阿爾法）  （貝塔）                                      |
   |                                                           |
-  | If market drops 20%, even great stock picks might lose.   |
+  | 若市場下跌20%，即使精心挑選的股票也可能出現虧損。         |
   +----------------------------------------------------------+
   
-  Market Neutral Investor:
+  市場中性投資人：
   +----------------------------------------------------------+
-  | Returns = Stock Selection ONLY                            |
-  | (alpha)                                                   |
+  | 報酬 = 選股能力                                          |
+  | （阿爾法）                                               |
   |                                                           |
-  | Market movement is hedged away. Profits come from the     |
-  | spread between longs and shorts, regardless of whether    |
-  | the overall market goes up or down.                       |
+  | 市場波動被避險掉。獲利來自多頭與空頭之間的差異，         |
+  | 與整體市場漲跌無關。                                      |
   +----------------------------------------------------------+
 
-  HOW IT WORKS:
+  運作方式：
 
-  $5 Million Long   +   $5 Million Short   =   $0 Net Exposure
-      (best ideas)       (worst ideas)          (market neutral)
+  500萬美元多頭 + 500萬美元空頭 = 零淨風險敞口
+  （最佳選股）    （最差選股）       （市場中性）
 
-  Scenario 1: Market rises 10%
+  情境一：市場上漲10%
   +----------------------------------------------------------+
-  | Longs go up 15% (beat market by 5%):   +$750,000         |
-  | Shorts go up 8% (lag market by 2%):    -$400,000         |
-  | Net profit:                            +$350,000 (+3.5%) |
-  +----------------------------------------------------------+
-
-  Scenario 2: Market falls 10%
-  +----------------------------------------------------------+
-  | Longs go down 7% (beat market by 3%):  -$350,000         |
-  | Shorts go down 14% (lag market by 4%): +$700,000         |
-  | Net profit:                            +$350,000 (+3.5%) |
+  | 多頭上漲15%（超越大盤5%）：   +$750,000                  |
+  | 空頭上漲8%（落後大盤2%）：    -$400,000                  |
+  | 淨獲利：                      +$350,000 (+3.5%)           |
   +----------------------------------------------------------+
 
-  Scenario 3: Market is flat
+  情境二：市場下跌10%
   +----------------------------------------------------------+
-  | Longs go up 4% (stock selection alpha):  +$200,000       |
-  | Shorts go down 3% (stock selection alpha):+$150,000      |
-  | Net profit:                              +$350,000 (+3.5%)|
+  | 多頭下跌7%（優於大盤3%）：    -$350,000                  |
+  | 空頭下跌14%（落後大盤4%）：   +$700,000                  |
+  | 淨獲利：                      +$350,000 (+3.5%)           |
   +----------------------------------------------------------+
 
-  Notice: In all three scenarios, the fund made money!
-  This is the power of market neutrality.
-  (In practice, results are not this clean, but the concept holds.)
+  情境三：市場持平
+  +----------------------------------------------------------+
+  | 多頭上漲4%（選股阿爾法）：    +$200,000                  |
+  | 空頭下跌3%（選股阿爾法）：    +$150,000                  |
+  | 淨獲利：                      +$350,000 (+3.5%)           |
+  +----------------------------------------------------------+
+
+  注意：在三種情境下，基金都賺到了錢！
+  這就是市場中性的力量。
+  （實際上，結果不會這麼乾淨，但概念是成立的。）
 ```
 
-#### Gross and Net Exposure
+#### 總風險敞口與淨風險敞口
 
-Understanding exposure metrics is critical for evaluating long/short portfolios:
+了解風險敞口指標對評估多空投資組合至關重要：
 
 ```
-EXPOSURE METRICS EXPLAINED:
+風險敞口指標說明：
 
-  Given a $10M fund with $7M long and $4M short:
+  假設一個1,000萬美元的基金，多頭700萬美元，空頭400萬美元：
   
-  GROSS EXPOSURE = |Longs| + |Shorts| = $7M + $4M = $11M (110%)
+  總風險敞口 = |多頭| + |空頭| = $700萬 + $400萬 = $1,100萬 (110%)
   +-----------------------------------------------------------------+
-  | Measures total market activity.                                  |
-  | 110% means the fund has 10% more in positions than its capital. |
-  | Higher gross = more aggressive, more potential alpha and risk.   |
-  +-----------------------------------------------------------------+
-
-  NET EXPOSURE = Longs - |Shorts| = $7M - $4M = $3M (30%)
-  +-----------------------------------------------------------------+
-  | Measures directional bias.                                       |
-  | 30% net long means the fund benefits if the market rises,       |
-  | but is partially protected if it falls.                         |
+  | 衡量市場參與總量。                                               |
+  | 110%意味著基金的持倉金額超過其資本10%。                          |
+  | 總風險敞口越高 = 越積極進取，潛在阿爾法與風險也越大。            |
   +-----------------------------------------------------------------+
 
-  LONG/SHORT RATIO = Longs / |Shorts| = $7M / $4M = 1.75x
+  淨風險敞口 = 多頭 - |空頭| = $700萬 - $400萬 = $300萬 (30%)
   +-----------------------------------------------------------------+
-  | For every $1 short, the fund has $1.75 long.                    |
-  | Ratio > 1 = net long bias. Ratio = 1 = market neutral.         |
+  | 衡量方向性偏向。                                                 |
+  | 淨多頭30%意味著若市場上漲，基金受益，                            |
+  | 但若市場下跌，也有部分保護。                                      |
   +-----------------------------------------------------------------+
 
-  EXPOSURE SPECTRUM:
+  多空比率 = 多頭 / |空頭| = $700萬 / $400萬 = 1.75倍
+  +-----------------------------------------------------------------+
+  | 每$1空頭，基金持有$1.75多頭。                                    |
+  | 比率 > 1 = 淨多頭偏向。比率 = 1 = 市場中性。                    |
+  +-----------------------------------------------------------------+
 
-  <--- Bearish                                         Bullish --->
+  風險敞口光譜：
+
+  <--- 偏空                                             偏多 --->
   
-  Net Short    Market     Moderate    Typical      Aggressive
-  (-50%)       Neutral    Net Long    Long/Short   Long Only
-               (0%)       (+30%)      (+50%)       (+100%)
+  淨空頭    市場中性   溫和淨多頭  典型多空    積極純多頭
+  (-50%)    (0%)       (+30%)      (+50%)      (+100%)
   
   |------------|----------|-----------|------------|------------|
-  Rare, only   Pure       Most       Traditional  No hedging
-  in crisis    stock      common     hedge fund   at all
-  situations   picking    L/S setup  allocation
+  罕見，僅     純粹      最常見的    傳統避險    完全不避險
+  在危機時     選股      多空設置    基金配置
+  出現
 ```
 
-#### Uptick Rule and Short Selling Regulations
+#### 放空限制令與放空法規
 
-Short selling is regulated to prevent market manipulation and panic selling:
+放空受到監管，以防止市場操縱與恐慌性賣壓：
 
 ```
-KEY SHORT SELLING REGULATIONS:
+主要放空法規：
 
-  1. REGULATION SHO (SEC Rule 201 - Alternative Uptick Rule)
+  1. Reg SHO（SEC第201條規則——替代上漲法則）
   +----------------------------------------------------------+
-  | Triggered when a stock drops 10% or more from prior close |
-  | Once triggered, short selling is restricted for the rest  |
-  | of the day AND the next trading day.                      |
-  | During restriction: shorts can only be executed at a      |
-  | price ABOVE the current best bid (uptick only).           |
-  +----------------------------------------------------------+
-
-  2. LOCATE REQUIREMENT
-  +----------------------------------------------------------+
-  | Before shorting, broker must locate shares to borrow.     |
-  | Prevents "naked short selling" (shorting without          |
-  | borrowing shares first).                                  |
+  | 當股票較前一收盤價下跌10%或以上時觸發                    |
+  | 一旦觸發，當天剩餘時間及次一交易日的放空均受限制。         |
+  | 限制期間：放空僅能以高於目前最佳買價的價格執行            |
+  | （僅能在上漲時放空）。                                    |
   +----------------------------------------------------------+
 
-  3. SHORT SALE REPORTING
+  2. 借券確認要求
   +----------------------------------------------------------+
-  | Short interest is reported twice monthly to FINRA.        |
-  | Published data has a ~2 week lag.                         |
-  | Some real-time estimates available from data vendors.     |
+  | 放空前，券商必須確認可供借入的股票。                      |
+  | 防止「裸放空」（未先借入股票即進行放空）。                 |
   +----------------------------------------------------------+
 
-  4. 13F FILINGS (for large managers)
+  3. 放空部位申報
   +----------------------------------------------------------+
-  | Fund managers with >$100M must report long positions      |
-  | quarterly. Short positions are NOT required to be         |
-  | disclosed in 13F filings, though some proposals would     |
-  | change this.                                              |
+  | 放空比率每月向FINRA申報兩次。                             |
+  | 公開資料有約兩週的延遲。                                  |
+  | 部分即時估算資料可向資料供應商取得。                      |
+  +----------------------------------------------------------+
+
+  4. 13F申報表（針對大型機構）
+  +----------------------------------------------------------+
+  | 資產管理規模超過1億美元的基金須每季申報多頭持倉。          |
+  | 空頭部位不需要在13F申報表中揭露，                         |
+  | 但已有提案討論是否修改此規定。                            |
   +----------------------------------------------------------+
 ```
 
-#### Famous Short Selling Episodes
+#### 著名的放空事件
 
-Understanding historical short selling events helps illustrate both the rewards and the catastrophic risks:
+了解歷史上的放空事件有助於說明其中的報酬與毀滅性風險：
 
 ```
-NOTABLE SHORT SELLING CASES:
+知名放空案例：
 
-  1. GEORGE SOROS vs. BRITISH POUND (1992)
+  1. 喬治·索羅斯對決英鎊（1992年）
   +----------------------------------------------------------+
-  | Soros shorted the British pound, betting that the UK      |
-  | could not maintain its currency peg to the German mark.   |
-  | Profit: ~$1 billion in a single day.                      |
-  | Known as "Black Wednesday" for the Bank of England.       |
-  | Lesson: Macro shorts can generate enormous returns.       |
-  +----------------------------------------------------------+
-
-  2. ENRON (2001)
-  +----------------------------------------------------------+
-  | Short seller Jim Chanos identified accounting fraud.       |
-  | Stock fell from $90 to $0.26 over ~1 year.               |
-  | Short sellers who did their research profited enormously.  |
-  | Lesson: Short selling aids price discovery and exposes     |
-  | corporate fraud.                                          |
+  | 索羅斯放空英鎊，押注英國無法維持英鎊對德國馬克的聯繫匯率。 |
+  | 獲利：單日約10億美元。                                    |
+  | 英格蘭銀行稱此日為「黑色星期三」。                        |
+  | 啟示：總體經濟放空可創造驚人報酬。                        |
   +----------------------------------------------------------+
 
-  3. VOLKSWAGEN SHORT SQUEEZE (2008)
+  2. 安隆事件（2001年）
   +----------------------------------------------------------+
-  | Porsche secretly accumulated 74% of VW shares via options.|
-  | Short sellers discovered the float was nearly zero.        |
-  | VW briefly became the most valuable company on earth.     |
-  | Stock went from ~200 EUR to 1,000 EUR in two days.       |
-  | Many hedge funds suffered catastrophic losses.             |
-  | Lesson: Short squeezes can be devastating.                |
+  | 放空者Jim Chanos發現財務報表造假。                         |
+  | 股票在約一年內從$90跌至$0.26。                           |
+  | 做足研究的放空者獲利豐厚。                                |
+  | 啟示：放空有助於價格發現並揭露企業詐欺。                  |
   +----------------------------------------------------------+
 
-  4. GAMESTOP (2021)
+  3. 福斯汽車軋空事件（2008年）
   +----------------------------------------------------------+
-  | Short interest exceeded 100% of float (some shares were   |
-  | lent out and shorted multiple times).                     |
-  | Retail investors on Reddit (WallStreetBets) coordinated   |
-  | buying to trigger a squeeze.                              |
-  | Stock went from ~$20 to ~$483 in three weeks.            |
-  | Melvin Capital lost 53% in January 2021 alone.            |
-  | Lesson: Crowded shorts are extremely dangerous,           |
-  | especially in the age of social media and retail trading. |
+  | 保時捷透過選擇權秘密累積福斯74%的股份。                   |
+  | 放空者發現流通股數幾近於零。                              |
+  | 福斯短暫成為全球市值最高的公司。                          |
+  | 股票在兩天內從約200歐元漲至1,000歐元。                   |
+  | 許多避險基金遭受毀滅性虧損。                              |
+  | 啟示：軋空的殺傷力極大。                                  |
   +----------------------------------------------------------+
 
-  5. BILL ACKMAN vs. HERBALIFE (2012-2018)
+  4. GameStop事件（2021年）
   +----------------------------------------------------------+
-  | Ackman publicly shorted Herbalife, calling it a pyramid   |
-  | scheme. Invested $1 billion in the short position.        |
-  | Carl Icahn took the opposite side, going long.            |
-  | Ackman eventually closed the short for a ~$1B loss.       |
-  | Lesson: Being right on fundamentals does not guarantee    |
-  | profit on a short. Timing and crowding matter.            |
+  | 放空比率超過流通股數的100%（部分股票被多次借出並放空）。   |
+  | Reddit論壇（WallStreetBets）的散戶協調買進觸發軋空。      |
+  | 股票在三週內從約$20漲至約$483。                          |
+  | Melvin Capital單在2021年1月就虧損53%。                   |
+  | 啟示：過度集中的放空極為危險，                            |
+  | 在社群媒體與散戶交易盛行的時代尤然。                      |
+  +----------------------------------------------------------+
+
+  5. Bill Ackman對決康寶萊（2012-2018年）
+  +----------------------------------------------------------+
+  | Ackman公開放空康寶萊，稱其為金字塔騙局。                  |
+  | 空頭部位規模達10億美元。                                  |
+  | Carl Icahn站在對立面，做多康寶萊。                        |
+  | Ackman最終以約10億美元的虧損平倉。                        |
+  | 啟示：基本面判斷正確，不代表放空一定獲利。                 |
+  | 時機選擇與部位擁擠程度同樣重要。                          |
   +----------------------------------------------------------+
 ```
 
-#### Practical Considerations for Individual Investors
+#### 個人投資人的實務考量
 
 ```
-SHOULD YOU SHORT SELL?
+你應該放空股票嗎？
 
-  FOR MOST INDIVIDUAL INVESTORS: PROBABLY NOT.
+  對於多數個人投資人而言：可能不應該。
   
-  Here is why:
+  原因如下：
   
   +----------------------------------------------------------+
-  | REASON                           | EXPLANATION            |
+  | 原因                          | 說明                      |
   +----------------------------------------------------------+
-  | Unlimited loss potential          | One bad short can      |
-  |                                   | wipe out your account  |
+  | 虧損無上限                    | 一次放空判斷失誤            |
+  |                               | 可能讓帳戶歸零             |
   +----------------------------------------------------------+
-  | Stocks have upward bias           | The S&P 500 averages   |
-  |                                   | ~10% per year. You are |
-  |                                   | swimming upstream.     |
+  | 股票具備上漲偏向               | S&P 500年均報酬率約10%。   |
+  |                               | 你是在逆流而游。           |
   +----------------------------------------------------------+
-  | Borrow costs eat into profits     | 1-50%+ annual cost     |
-  |                                   | just to hold the short |
+  | 借券成本侵蝕獲利               | 年率1% - 50%以上的         |
+  |                               | 成本，僅僅為了持有空頭      |
   +----------------------------------------------------------+
-  | You pay dividends                 | Another ongoing cost   |
+  | 你須支付股利                   | 另一項持續性成本            |
   +----------------------------------------------------------+
-  | Margin calls can force you out    | You may be right on    |
-  |                                   | direction but wrong    |
-  |                                   | on timing              |
+  | 追繳保證金可能迫使你出場       | 方向判斷正確，時機           |
+  |                               | 卻可能判斷錯誤              |
   +----------------------------------------------------------+
-  | Short squeezes are devastating    | GameStop showed how    |
-  |                                   | quickly shorts can     |
-  |                                   | be destroyed           |
+  | 軋空具毀滅性                   | GameStop展示了放空者        |
+  |                               | 可以多快被摧毀              |
   +----------------------------------------------------------+
-  | Psychological difficulty          | Watching a stock rise  |
-  |                                   | against your short is  |
-  |                                   | extremely stressful    |
+  | 心理壓力巨大                   | 眼看股票對著你的空頭         |
+  |                               | 方向上漲，極為煎熬          |
   +----------------------------------------------------------+
 
-  BETTER ALTERNATIVES FOR INDIVIDUAL INVESTORS:
+  個人投資人的較佳替代方案：
   
-  1. Buy put options instead of shorting stock
-     (defined risk, no margin calls, no borrow fees)
+  1. 買進賣權，而非放空股票
+     （風險有限、無追繳保證金、無借券費用）
   
-  2. Use inverse ETFs (SH, SDS, SPXU)
-     (simple, no margin account needed)
+  2. 使用反向指數股票型基金（如SH、SDS、SPXU）
+     （簡便，無需保證金帳戶）
   
-  3. Reduce long exposure during bearish periods
-     (sell some stocks, raise cash)
+  3. 在看空時期降低多頭部位
+     （賣出部分股票、提高現金比重）
   
-  4. Focus on long/short via ETFs
-     (some ETFs implement long/short strategies for you)
+  4. 透過指數股票型基金布局多空策略
+     （部分指數股票型基金已代為執行多空策略）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Short sellers are evil and destroy companies."**
+**迷思一：「放空者是邪惡的，會摧毀公司。」**
 
-This is a widespread belief, especially amplified during events like the GameStop saga. In reality, short sellers play a vital role in market efficiency. They provide liquidity, contribute to price discovery, and often serve as the only check on corporate fraud and overvaluation. Studies by the SEC and academic researchers have consistently found that markets with short selling restrictions are less efficient and more prone to bubbles. Short sellers did not cause Enron to fail; Enron's management committed fraud, and short sellers were among the first to identify it. Blaming short sellers is like blaming the thermometer for a fever.
+這是個普遍的觀念，在GameStop事件期間尤其被放大。實際上，放空者在市場效率中扮演著至關重要的角色。他們提供流動性、促進價格發現，並且往往是制衡企業詐欺與過度高估的唯一力量。美國SEC與學術研究人員的研究一致發現，限制放空的市場效率更低，也更容易出現泡沫。放空者沒有造成安隆的崩潰；安隆的管理層才是詐欺的主謀，而放空者是最早察覺問題的人。責怪放空者就像責怪溫度計讓你發燒一樣。
 
-**Misconception 2: "You can lose infinite money on a short sale."**
+**迷思二：「放空可能造成無限虧損。」**
 
-While it is true that losses are theoretically unlimited because a stock can rise indefinitely, in practice, risk management tools exist. Stop-loss orders, position sizing rules, and margin requirements create practical limits. No professional short seller enters a position without a maximum loss threshold. Additionally, brokers will issue margin calls and eventually force-close positions before losses become truly extreme. The statement is mathematically true but practically misleading. The real danger is not infinite loss but rather sudden, large loss during a squeeze or gap up.
+雖然損失理論上是無上限的（股票可無限上漲），但實際上存在風險管理工具。停損單、部位規模規則與保證金要求提供了實際的限制。沒有任何專業放空者在未設定最大虧損門檻的情況下建立部位。此外，券商會發出追繳保證金通知，並在虧損真正變得極端之前強制平倉。這句話在數學上是正確的，但在實務上容易誤導人。真正的危險不是無限虧損，而是在軋空或跳空上漲期間遭受突然的大幅虧損。
 
-**Misconception 3: "If a stock has high short interest, it is a bad company."**
+**迷思三：「一檔股票放空比率高，代表它是爛公司。」**
 
-High short interest indicates that many investors are betting against the stock, but it does not prove they are right. Tesla had very high short interest for years from 2013 to 2020, and short sellers lost billions as the stock rose over 1,000%. Conversely, Enron had relatively low short interest even as it approached bankruptcy. Short interest is a data point, not a verdict. Some of the most heavily shorted stocks go on to deliver exceptional returns.
+高放空比率表示許多投資人在押注股票下跌，但這並不能證明他們是對的。特斯拉在2013年至2020年間放空比率非常高，而放空者在股票上漲超過1,000%的過程中虧損了數十億美元。相反地，安隆在接近破產時，放空比率其實相對偏低。放空比率是一個數據點，而非最終裁決。部分被大量放空的股票，之後反而創造了優異的報酬。
 
-**Misconception 4: "Going long is safe and going short is risky."**
+**迷思四：「做多是安全的，放空才危險。」**
 
-Going long is not inherently safe. An investor who put 100% of their portfolio into a single stock like Lehman Brothers in 2008 lost everything. A diversified long/short portfolio with proper risk management can actually be less risky than a concentrated long-only portfolio. The risk of any investment depends on position sizing, diversification, and risk management, not simply on whether it is long or short.
+做多本身並不安全。一位在2008年將全部資金押注在雷曼兄弟單一股票的投資人最終血本無歸。一個具備適當風險管理的多元化多空投資組合，實際上可能比集中持有的純多頭投資組合風險更低。任何投資的風險取決於部位規模、分散程度與風險管理，而不單單取決於它是多頭還是空頭。
 
-**Misconception 5: "Short squeezes are unpredictable and random."**
+**迷思五：「軋空是無法預測且隨機發生的。」**
 
-While the exact timing of a squeeze is hard to predict, the conditions that make a squeeze likely are well documented: high short interest relative to float, low float, high days-to-cover ratio, and a catalyst that drives buying. Professional investors monitor these metrics precisely because they signal elevated squeeze risk. The GameStop squeeze was not random; the conditions were visible to anyone who looked at the data.
+雖然軋空的確切時間點難以預測，但容易引發軋空的條件是有據可查的：相對於流通股數偏高的放空比率、低流通股數、高回補天數，以及帶動買盤的催化劑。專業投資人正是因為這些指標能顯示升高的軋空風險，才會密切追蹤它們。GameStop的軋空並非偶然；任何人只要看過相關數據，都能察覺到這些條件的存在。
 
-**Misconception 6: "Market neutral strategies always make money."**
+**迷思六：「市場中性策略永遠可以獲利。」**
 
-Market neutral eliminates systematic market risk (beta), but it does not eliminate stock-specific risk (alpha). If your long picks underperform and your short picks outperform, you lose money on both sides. Market neutral strategies also face risks from factor rotations, crowded trades, and liquidity crises. During the quant meltdown of August 2007, many market neutral hedge funds suffered catastrophic losses because their positions were highly correlated with other quant funds.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I actually short a stock? Do I need a special account?**
-
-A: You need a margin account, which most brokers offer if you meet minimum balance requirements (typically $2,000-$25,000 depending on the broker). Once approved for margin, you can enter a short sale order just like a regular sell order, but you select "sell short" instead of "sell." Your broker will handle the share borrowing automatically. Note that some brokers restrict short selling for accounts below certain sizes or for certain stocks.
-
-**Q2: What happens if the stock I shorted gets acquired at a premium?**
-
-A: This is one of the nightmare scenarios for short sellers. If a company you are short gets a takeover bid at, say, a 40% premium, the stock will gap up immediately and you are stuck with the loss. There is no time to react. This is why short sellers avoid companies that are rumored acquisition targets, and it is one more reason why position sizing is critical.
-
-**Q3: Can I short sell in my IRA or retirement account?**
-
-A: Generally, no. Most brokers do not allow short selling in IRAs because short selling requires margin, and IRAs are cash accounts by regulation. However, you can achieve similar bearish exposure in an IRA by buying put options or purchasing inverse ETFs, both of which do not require margin.
-
-**Q4: What is the difference between "naked" short selling and regular short selling?**
-
-A: In regular (covered) short selling, you borrow shares before selling them. In naked short selling, you sell shares without first borrowing them, essentially creating phantom shares. Naked short selling is illegal for most market participants under SEC Regulation SHO, though market makers have limited exemptions. When people criticize short selling, they are often concerned about naked shorting, which is a form of market manipulation.
-
-**Q5: How long can I hold a short position?**
-
-A: Theoretically, as long as you want, provided you maintain sufficient margin and the shares remain available to borrow. However, you are paying borrow fees every day, and you owe any dividends the stock pays. Additionally, your broker can recall the borrowed shares at any time, forcing you to close your position or find shares from another lender. This recall risk is higher for hard-to-borrow stocks.
-
-**Q6: What is a "short and distort" scheme?**
-
-A: Short and distort is the bearish equivalent of a pump and dump scheme. A trader shorts a stock, then spreads false or misleading negative information to drive the price down, and covers their short for a profit. This is illegal and considered securities fraud. The SEC has brought enforcement actions against individuals who engage in this behavior, including some well-known short sellers who published misleading research reports.
-
-**Q7: If short selling is so risky, why do hedge funds do it?**
-
-A: Hedge funds use short selling as part of a broader strategy, not in isolation. They typically short as part of a long/short portfolio, where short positions hedge against market declines and sector-specific risks. They also have sophisticated risk management systems, dedicated prime brokerage relationships for borrowing, and the scale to diversify across many short positions. A single short position might be 1-3% of a fund's capital, limiting the damage from any one stock. The combination of diversification and hedging makes the overall portfolio less risky, even if individual short positions carry high risk.
-
-**Q8: What does it mean when short interest exceeds 100% of the float?**
-
-A: This occurs when shares are borrowed and sold short, and the buyers of those shares lend them out again to other short sellers. Share A lends to Short Seller 1, who sells to Buyer B, who lends to Short Seller 2. The same underlying shares have been shorted twice. This is legal but creates extreme squeeze risk because there are more short obligations than actual shares available. This was the situation with GameStop in January 2021.
-
-**Q9: What is a "short ladder attack"? Is it real?**
-
-A: The term "short ladder attack" gained popularity during the GameStop saga but is not a recognized term in professional finance. The idea is that short sellers trade shares back and forth between themselves at progressively lower prices to drive the stock down. In reality, this would be extremely difficult to execute on a transparent, regulated exchange with millions of participants. What people often interpret as a short ladder attack is usually normal selling pressure or algorithmic trading. Legitimate concerns about short selling manipulation exist, but the "short ladder" specifically is more myth than reality.
-
-**Q10: How do long/short funds report their performance?**
-
-A: Long/short funds report returns net of all costs, including borrow fees, margin costs, and management fees. Key performance metrics include: net return (the actual return to investors), gross return (before fees), alpha (return above what the market exposure would predict), Sharpe ratio (risk-adjusted return), and maximum drawdown (the worst peak-to-trough decline). Investors should also look at the fund's average net exposure, gross exposure, and how the long and short books each contributed to returns.
+市場中性消除了系統性市場風險（貝塔），但並不能消除個股特定風險（阿爾法）。如果你的多頭選股表現落後，空頭選股卻表現亮眼，你在兩邊都賠錢。市場中性策略也面臨因子輪動、部位過度擁擠與流動性危機的風險。2007年8月的量化基金大崩盤期間，許多市場中性避險基金遭受毀滅性虧損，原因是它們的持倉與其他量化基金高度相關。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問1：我要如何實際放空一檔股票？需要特殊帳戶嗎？**
+
+答：你需要保證金帳戶，大多數券商都提供此服務，前提是你符合最低餘額要求（通常是2,000至25,000美元，依券商而異）。一旦獲得保證金帳戶核准，你可以像普通賣單一樣下放空委託，但選擇的是「融券賣出」而非「賣出」。你的券商會自動處理借券事宜。請注意，部分券商對帳戶規模低於某一門檻或特定股票會限制放空。
+
+**問2：我放空的股票如果遭到溢價收購，會怎樣？**
+
+答：這是放空者最惡夢般的情境之一。如果你放空的公司收到一個例如溢價40%的收購要約，股票會立刻跳空上漲，而你只能承受損失。根本沒有時間反應。這就是為何放空者會迴避有傳聞稱可能被收購的公司，也是部位規模控制至關重要的原因之一。
+
+**問3：我可以在IRA或退休帳戶中放空嗎？**
+
+答：一般而言不行。大多數券商不允許在IRA帳戶中放空，因為放空需要保證金，而依法規規定IRA是現金帳戶。然而，你可以在IRA中透過買進賣權或購買反向指數股票型基金，達到類似的看空部位，這兩者都不需要保證金。
+
+**問4：「裸放空」與一般放空有何不同？**
+
+答：在一般（有券）放空中，你在賣出前先借入股票。裸放空則是在未先借入股票的情況下賣出，本質上是創造虛假的股票供給。裸放空在SEC Reg SHO規定下對大多數市場參與者而言是違法的，但造市商享有有限的豁免。人們批評放空時，擔憂的往往是裸放空這種市場操縱行為，而非一般放空。
+
+**問5：我可以無限期持有空頭部位嗎？**
+
+答：理論上可以，只要你維持足夠的保證金，且股票仍可借入。然而，你每天都在支付借券費用，並且必須支付股票的股利。此外，你的券商可以隨時收回借出的股票，迫使你平倉或另覓借券來源。這種收回風險對難借券股票更為常見，而且可能在最不恰當的時機發生。
+
+**問6：什麼是「放空砸盤」（Short and Distort）？**
+
+答：放空砸盤是對炒高出貨（Pump and Dump）的空頭版本。交易者先放空一檔股票，再散布虛假或誤導性的負面消息壓低股價，最後回補獲利。這是非法的，屬於證券詐欺。SEC已對從事此行為的個人採取執法行動，包括部分發布誤導性研究報告的知名放空者。
+
+**問7：放空風險這麼高，避險基金為何還要這麼做？**
+
+答：避險基金是將放空作為更廣泛策略的一部分，而非單獨使用。他們通常將放空納入多空投資組合，空頭部位作為對抗市場下跌與特定類股風險的避險工具。他們也有精密的風險管理系統、與主要經紀商建立的借券關係，以及足夠的規模將空頭部位分散於多個個股。單一空頭部位可能僅佔基金資金的1%至3%，限制了任何一檔股票造成的損害。分散化與避險的結合使整體投資組合的風險降低，即使個別空頭部位的風險較高。
+
+**問8：放空比率超過流通股數的100%是什麼意思？**
+
+答：這種情況發生於股票被借出並放空，而購入那些股票的買方又將其再次借出給其他放空者。股票A借給放空者1，放空者1賣給買方B，買方B再借給放空者2。同樣的基礎股票被放空了兩次。此舉合法，但會造成極高的軋空風險，因為空頭義務的數量超過了實際可用的股票數量。這就是2021年1月GameStop事件發生時的情況。
+
+**問9：什麼是「放空梯形攻擊」（Short Ladder Attack）？這是真實存在的嗎？**
+
+答：「放空梯形攻擊」這個詞在GameStop事件期間廣泛流傳，但在專業金融領域並非公認術語。其概念是放空者在彼此之間以逐漸降低的價格互相交易股票，藉此壓低股價。實際上，在有著數百萬參與者的透明、受監管的交易所中，這種做法極難執行。人們通常將正常的賣壓或演算法交易解讀為放空梯形攻擊。對放空操縱行為的合理擔憂確實存在，但「放空梯形攻擊」這個概念更多是迷思，而非現實。
+
+**問10：多空基金如何申報績效？**
+
+答：多空基金申報的報酬為扣除所有成本後的淨報酬，包含借券費用、保證金成本與管理費。主要績效指標包括：淨報酬（投資人實際取得的報酬）、毛報酬（費用前）、阿爾法（超越市場風險敞口所能預測的報酬）、夏普比率（風險調整後報酬），以及最大回撤（最大峰谷跌幅）。投資人也應關注基金的平均淨風險敞口、總風險敞口，以及多頭書與空頭書各自對報酬的貢獻。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 13: Long and Short Trading - Level 2: Intermediate"]
 
-**Alex:** Welcome back. Today we are covering a topic that divides the investing world like nothing else. We are talking about long and short trading.
+**Horace：** 歡迎回來。今天我們要講一個在投資界最兩極分化的主題。我們要談多頭與空頭交易。
 
-**Sam:** Long and short. I know that going long means buying a stock because you think it will go up. But short selling has always confused me. How do you sell something you do not own?
+**Stella：** 多頭和空頭。我知道做多就是買股票，因為你認為它會上漲。但放空一直讓我很困惑。你怎麼能賣出一個你根本沒有的東西？
 
-**Alex:** That is the question everyone asks, and it is a great one. Let us start with what you already know and build from there. Going long is simple. You buy shares, you hold them, you sell them later at hopefully a higher price. You profit from the stock going up.
+**Horace：** 這是每個人都會問的問題，問得非常好。我們先從你已經懂的地方出發，然後一步步深入。做多很簡單。你買進股票，持有，然後希望在更高的價格賣出。你從股票上漲中獲利。
 
 [VISUAL: Simple diagram showing BUY at $100 arrow to SELL at $130, with +$30 profit highlighted in green]
 
-**Sam:** Right. Buy low, sell high. The oldest rule in investing.
+**Stella：** 對啊。低買高賣。投資最古老的法則。
 
-**Alex:** Exactly. Now short selling flips that around. Instead of buy low, sell high, you sell high first, then buy low later. You still profit from the difference, but the order is reversed.
+**Horace：** 完全正確。那麼放空就是把這個邏輯反過來。不是低買高賣，而是先高賣，之後再低買。你一樣從差價中獲利，只是順序相反了。
 
-**Sam:** Sell high first? But how can you sell shares if you do not own them?
+**Stella：** 先高賣？但你沒有股票，要怎麼賣？
 
-**Alex:** You borrow them. Let me walk through the mechanics step by step because this is where people get lost.
+**Horace：** 你借過來。讓我一步步帶你走過這個機制，因為這裡是大家最容易搞混的地方。
 
-[ANIMATION: Reference animation/week13_short_selling.py - Animation showing the five-step short selling process. Step 1: Shares flow from a "Broker's Inventory" box to a "Your Account" box. Step 2: Those shares flow from "Your Account" to the "Open Market" and cash flows back. Step 3: Clock ticks showing time passing, stock price declining on a small chart. Step 4: Cash flows from "Your Account" to the "Open Market" and shares flow back. Step 5: Shares return from "Your Account" to "Broker's Inventory." At each step, account balances update to show shares held, cash balance, and profit/loss in real-time.]
+[ANIMATION: Reference animation/week13_short_selling.py - Animation showing the five-step short selling process. Step 1: Shares flow from a "券商庫存" box to a "您的帳戶" box. Step 2: Those shares flow from "您的帳戶" to the "公開市場" and cash flows back. Step 3: Clock ticks showing time passing, stock price declining on a small chart. Step 4: Cash flows from "您的帳戶" to the "公開市場" and shares flow back. Step 5: Shares return from "您的帳戶" to "券商庫存." At each step, account balances update to show shares held, cash balance, and profit/loss in real-time.]
 
-**Alex:** Step one. You go to your broker and say I want to short 100 shares of Company XYZ, which is trading at $100. Your broker finds 100 shares in their inventory, or from another client who holds XYZ, and lends them to you.
+**Horace：** 步驟一。你去找你的券商說，我想放空100股XYZ公司的股票，目前報價$100。你的券商會從他們的庫存，或是從其他持有XYZ的客戶那裡找到100股，然後借給你。
 
-**Sam:** So the broker is lending me shares that belong to someone else?
+**Stella：** 所以券商是把別人的股票借給我？
 
-**Alex:** Exactly. The original owner usually does not even know. Their shares are still shown in their account, but the actual shares have been lent out. The broker handles all of this behind the scenes.
+**Horace：** 正是。原本的持有人通常根本不知道這回事。他們的帳戶裡股票依然顯示在那裡，但實際的股票已經被借出去了。券商在幕後處理這一切。
 
-**Sam:** Interesting. OK so now I have 100 borrowed shares. What next?
+**Stella：** 有意思。好，現在我有100股借來的股票了。接下來呢？
 
-**Alex:** Step two. You immediately sell those borrowed shares in the open market at the current price of $100. Someone buys them, and $10,000 in cash flows into your account. But here is the thing, that cash is not really yours yet. It is held as collateral because you have an obligation. You owe 100 shares of XYZ to your broker.
+**Horace：** 步驟二。你立刻在公開市場以當前$100的價格賣出那些借來的股票。有人買下它們，$10,000的現金流入你的帳戶。但這裡有個重點，那筆現金還不真的屬於你。它被當作擔保品持有，因為你有一個義務。你欠券商100股XYZ。
 
-[VISUAL: Account statement showing: "Shares held: -100 XYZ" and "Cash received: $10,000 (held as collateral)" with a note: "Obligation: Return 100 shares of XYZ"]
+[VISUAL: Account statement showing: "持有股數：-100 XYZ" and "收到現金：$10,000（作為擔保品）" with a note: "義務：歸還100股XYZ"]
 
-**Sam:** So I have cash from the sale, but I owe shares. I am in debt, but in shares instead of money.
+**Stella：** 所以我有賣股票的現金，但我欠著股票。我有負債，只不過負的是股票而不是錢。
 
-**Alex:** That is a perfect way to think about it. You have a share debt. And just like any debt, you need to repay it. In this case, you repay it by buying 100 shares of XYZ at some point in the future and returning them to the broker.
+**Horace：** 這是個非常精準的理解方式。你有股票的負債。就像任何負債一樣，你需要還清。在這個情況下，你透過在未來某個時間點買回100股XYZ並歸還給券商來還清。
 
-**Sam:** And if the stock has dropped by then?
+**Stella：** 那如果到那時候股票已經跌了呢？
 
-**Alex:** Then you win. Step three, let us say XYZ drops from $100 to $70. You buy 100 shares at $70, which costs you $7,000. You return those shares to your broker, which closes your short position. Your profit is $10,000 minus $7,000, which equals $3,000.
+**Horace：** 你就贏了。步驟三，假設XYZ從$100跌到$70。你以$70買進100股，花了$7,000。你將那些股票還給券商，空頭部位就平倉了。你的獲利是$10,000減$7,000，等於$3,000。
 
-**Sam:** Sell at $100, buy back at $70, pocket the $30 per share difference. That actually makes sense.
+**Stella：** 以$100賣出，以$70買回，賺走每股$30的差價。這樣講起來真的很合理。
 
-**Alex:** It does. But here is where it gets dangerous. What if the stock does not go down? What if it goes up?
+**Horace：** 是的。但接下來就是危險所在了。如果股票沒有跌，反而漲了呢？
 
-**Sam:** Then I lose money because I have to buy back at a higher price.
+**Stella：** 那我就虧錢了，因為我必須以更高的價格回補。
 
-**Alex:** Right. And this is the critical difference between long and short positions. When you go long, the worst case is the stock goes to zero and you lose 100% of your investment. But the stock cannot go below zero. Your loss is capped.
+**Horace：** 對。而這就是多頭部位與空頭部位之間的關鍵差異。做多時，最壞的情況是股票跌到零，你損失100%的投資。但股票不能跌破零。你的虧損是有下限的。
 
-[VISUAL: Two side-by-side loss diagrams. Left: "Long Position: Maximum Loss = 100%" with a floor at zero. Right: "Short Position: Maximum Loss = ???" with no floor, an arrow pointing down labeled "UNLIMITED"]
+[VISUAL: Two side-by-side loss diagrams. Left: "多頭部位：最大虧損 = 100%" with a floor at zero. Right: "空頭部位：最大虧損 = ???" with no floor, an arrow pointing down labeled "無上限"]
 
-**Sam:** But when you are short, the stock can go up forever. There is no ceiling.
+**Stella：** 但放空時，股票可以無限上漲，沒有天花板。
 
-**Alex:** Exactly. If you short at $100 and the stock goes to $200, you have lost $100 per share, which is 100% of your initial position value. If it goes to $300, you have lost $200 per share, or 200%. If it goes to $1,000, you have lost $900 per share. The loss keeps growing with no limit.
+**Horace：** 正是。如果你以$100放空，股票漲到$200，你每股虧損$100，相當於初始部位價值的100%。漲到$300，每股虧損$200，即200%。漲到$1,000，每股虧損$900。虧損會持續擴大，沒有上限。
 
-**Sam:** That is terrifying. Is that what happened with GameStop?
+**Stella：** 太可怕了。GameStop就是發生這種事嗎？
 
-**Alex:** GameStop is the perfect example. Let us talk about that because it illustrates several critical concepts.
+**Horace：** GameStop是最完美的例子。我們來聊聊那件事，因為它說明了幾個非常重要的概念。
 
 [VISUAL: GameStop (GME) stock chart from November 2020 to February 2021, showing the price at ~$20 in early January, the spike to $483, and the collapse back down. Key dates labeled.]
 
-**Alex:** In early January 2021, GameStop was trading around $20. Short interest was above 100% of the float, which means there were more shares sold short than there were shares available to trade. This is like musical chairs where there are fewer chairs than players.
+**Horace：** 2021年1月初，GameStop的股價大約在$20。放空比率超過流通股數的100%，也就是說被放空的股數超過了市場上可交易的股數。這就像是椅子比玩家少的搶椅子遊戲。
 
-**Sam:** Wait. How can short interest be above 100%? Does not that mean more shares were shorted than actually exist?
+**Stella：** 等一下。放空比率怎麼可能超過100%？這不是代表放空的股數超過實際存在的股數嗎？
 
-**Alex:** Not exactly. What happens is a chain of lending. Investor A owns 100 shares and lends them to Short Seller B, who sells them to Investor C. Now Investor C's broker lends those same shares to Short Seller D. The same 100 shares have been shorted twice. The total short interest is 200 shares short, but there are only 100 actual shares. This is legal, but it creates enormous squeeze risk.
+**Horace：** 不完全是。發生的是一連串借券行為。投資人A持有100股並借給放空者B，放空者B賣給投資人C。現在投資人C的券商將同樣那100股再借給放空者D。同樣的100股被放空了兩次。總放空比率是200股，但實際只有100股。這是合法的，但會造成極高的軋空風險。
 
-**Sam:** Because if all those short sellers need to buy back shares at the same time, they are competing for a very limited supply.
+**Stella：** 因為如果所有放空者同時需要回補股票，他們是在搶極為有限的供應量。
 
-**Alex:** Exactly. And that is precisely what happened. Retail investors on a Reddit forum called WallStreetBets noticed the extreme short interest and started buying GameStop aggressively. As the stock started to rise, short sellers began to feel the pain.
+**Horace：** 正是。而這就是後來發生的事。Reddit一個叫WallStreetBets的論壇上的散戶投資人注意到極高的放空比率，開始積極買進GameStop。隨著股票開始上漲，放空者開始感受到痛苦。
 
-**Sam:** And they had to start covering, which means buying shares to close their short positions.
+**Stella：** 而他們必須開始回補，也就是買進股票來平掉空頭部位。
 
-**Alex:** Right. And their buying pushed the price up further, which caused more short sellers to get margin calls and be forced to cover, which pushed the price even higher. This is the self-reinforcing cycle known as a short squeeze.
+**Horace：** 對。他們的買盤推升了股價，這讓更多放空者收到追繳保證金通知，被迫回補，股價又再往上推。這就是被稱為軋空的自我強化循環。
 
-[ANIMATION: Reference animation/week13_short_selling.py - A second animation sequence showing the short squeeze feedback loop. Start with a circle diagram: "Stock Price Rises" at the top, arrow to "Short Sellers Lose Money" on the right, arrow to "Forced Buying (Covering)" at the bottom, arrow to "More Buying Pressure" on the left, arrow back to "Stock Price Rises." As the cycle repeats, the stock price chart in the center accelerates upward, and a counter shows the number of short sellers being squeezed out increasing. The animation speed increases with each cycle to convey the acceleration.]
+[ANIMATION: Reference animation/week13_short_selling.py - A second animation sequence showing the short squeeze feedback loop. Start with a circle diagram: "股價上漲" at the top, arrow to "放空者虧損" on the right, arrow to "被迫回補" at the bottom, arrow to "買盤增加" on the left, arrow back to "股價上漲." As the cycle repeats, the stock price chart in the center accelerates upward, and a counter shows the number of short sellers being squeezed out increasing. The animation speed increases with each cycle to convey the acceleration.]
 
-**Alex:** GameStop went from $20 to $483 in about three weeks. Melvin Capital, a prominent hedge fund that was short GameStop, lost 53% of its entire fund in January alone. They needed a $2.75 billion cash infusion from other hedge funds just to stay afloat.
+**Horace：** GameStop在大約三週內從$20漲到$483。知名避險基金Melvin Capital放空GameStop，單在2021年1月就虧損了整個基金的53%。他們需要其他避險基金注資27.5億美元才能撐下去。
 
-**Sam:** Fifty-three percent in one month. From one short position?
+**Stella：** 一個月損失53%。就因為一個空頭部位？
 
-**Alex:** Well, GameStop was their largest short, but they had other losing positions too. The point is that one badly sized short position in a squeeze can be catastrophic. This is why position sizing is absolutely critical for anyone who shorts stocks.
+**Horace：** 嗯，GameStop是他們最大的空頭部位，但他們還有其他虧損的部位。重點是，一個過度集中的空頭部位在軋空中可以造成毀滅性的損失。這就是為什麼部位規模控制對任何放空股票的人來說都是絕對關鍵的。
 
-**Sam:** So how do professional hedge funds manage this risk?
+**Stella：** 那麼專業避險基金是怎麼管理這個風險的？
 
-**Alex:** Great question. This brings us to the long/short strategy, which is how most professional investors actually use short selling. They do not just short stocks in isolation. They pair long positions with short positions to create a hedged portfolio.
+**Horace：** 好問題。這帶我們進入多空策略，這是大多數專業投資人實際運用放空的方式。他們不是單獨放空個股。他們將多頭部位與空頭部位結合，構建一個有避險的投資組合。
 
-[VISUAL: A balance scale diagram. Left side labeled "LONG" with green stocks listed (MSFT, AAPL, UNH). Right side labeled "SHORT" with red stocks listed (SNAP, PTON, NKLA). Scale is slightly tilted toward the long side, labeled "Slight net long bias"]
+[VISUAL: A balance scale diagram. Left side labeled "多頭" with green stocks listed (MSFT, AAPL, UNH). Right side labeled "空頭" with red stocks listed (SNAP, PTON, NKLA). Scale is slightly tilted toward the long side, labeled "輕微淨多頭偏向"]
 
-**Sam:** So they are not making a bet purely on the market going down?
+**Stella：** 所以他們不是純粹押注市場會下跌？
 
-**Alex:** No. A long/short fund is making a bet on relative performance. They are saying, "I believe these good companies will outperform these bad companies." Whether the overall market goes up or down is secondary.
+**Horace：** 不是。多空基金押注的是相對表現。他們說的是：「我相信這些好公司會跑贏這些爛公司。」整體市場漲或跌，是次要的。
 
-**Sam:** Can you give me a concrete example?
+**Stella：** 可以舉個具體的例子嗎？
 
-**Alex:** Sure. Imagine you are a hedge fund manager and you believe that Microsoft is a great company but that Snap is in trouble. You go long $1 million in Microsoft and short $1 million in Snap. Let us look at what happens in three different market scenarios.
+**Horace：** 當然。想像你是一個避險基金的基金經理，你認為微軟是優質公司，但Snap遇到麻煩了。你多頭買進100萬美元的微軟，放空100萬美元的Snap。我們來看三種不同市場情境下的結果。
 
 [VISUAL: Three-scenario table appearing row by row]
 
-**Alex:** Scenario one, the market goes up 10%. Microsoft, being a great company, beats the market and goes up 15%. Snap, being a weak company, only goes up 5%. Your long makes $150,000 and your short loses $50,000 because Snap went up even though it underperformed. Net profit is $100,000.
+**Horace：** 情境一，市場上漲10%。微軟身為優質公司，超越大盤漲了15%。Snap身為弱勢公司，只漲了5%。你的多頭賺了15萬美元，但因為Snap雖然跑輸大盤卻仍然上漲，你的空頭虧了5萬美元。淨獲利10萬美元。
 
-**Sam:** You made money because your long pick beat your short pick, even though both went up.
+**Stella：** 你賺到了錢，因為你的多頭選股跑贏了空頭選股，即使兩者都上漲了。
 
-**Alex:** Scenario two, the market drops 10%. Microsoft, being resilient, only drops 5%. Snap drops 20%. Your long loses $50,000 but your short makes $200,000 as Snap falls. Net profit is $150,000.
+**Horace：** 情境二，市場下跌10%。微軟很抗跌，只跌了5%。Snap則跌了20%。你的多頭虧了5萬美元，但空頭因為Snap大跌賺了20萬美元。淨獲利15萬美元。
 
-**Sam:** You made money even though the market crashed? Because Snap fell more than Microsoft?
+**Stella：** 市場崩盤你還是賺到錢了？因為Snap跌得比微軟多？
 
-**Alex:** Exactly. And here is scenario three: the market is flat. Microsoft goes up 5% because it is a great company. Snap drops 8% because it is struggling. Your long makes $50,000 and your short makes $80,000. Net profit: $130,000.
+**Horace：** 正是。情境三：市場持平。微軟因為是優質公司漲了5%。Snap因為業績欠佳跌了8%。你的多頭賺了5萬美元，空頭賺了8萬美元。淨獲利：13萬美元。
 
-**Sam:** So in all three scenarios, you made money. Not because you predicted the market direction, but because you correctly predicted which stock would do better than the other.
+**Stella：** 所以三種情境你都賺到了錢。不是因為你預測對了市場方向，而是因為你正確預測了哪檔股票會比另一檔表現更好。
 
-**Alex:** That is the core insight of long/short investing. You are trying to isolate your stock selection skill from market direction. The technical term for this is separating alpha from beta. Alpha is your skill in picking stocks. Beta is the market's overall movement. A long/short strategy tries to capture alpha while neutralizing beta.
+**Horace：** 這就是多空投資的核心洞見。你努力將選股能力與市場方向隔離開來。這在技術上稱為分離阿爾法與貝塔。阿爾法是你選股的能力，貝塔是市場的整體漲跌。多空策略試圖捕捉阿爾法，同時消除貝塔的影響。
 
-[VISUAL: Formula graphic showing "Return = Alpha (stock selection) + Beta (market) x Net Exposure" with Alpha highlighted in green and Beta crossed out in red for market neutral]
+[VISUAL: Formula graphic showing "報酬 = 阿爾法（選股能力）+ 貝塔（市場）x 淨風險敞口" with 阿爾法 highlighted in green and 貝塔 crossed out in red for market neutral]
 
-**Sam:** You mentioned something called market neutral. What is that?
+**Stella：** 你提到了市場中性。那是什麼？
 
-**Alex:** Market neutral is a special case of long/short where you have equal dollar amounts on both sides. If you have $5 million long and $5 million short, your net exposure to the market is zero. The market could go up 20% or crash 30% and theoretically, it should not matter to you.
+**Horace：** 市場中性是多空策略的特殊情況，你在兩邊各有等額的資金。如果你多頭500萬美元、空頭500萬美元，你對市場的淨風險敞口就是零。市場漲20%或跌30%，理論上對你沒有影響。
 
-**Sam:** Because the gains on one side offset the losses on the other?
+**Stella：** 因為一邊的獲利會抵消另一邊的損失？
 
-**Alex:** Exactly. In a perfectly market neutral portfolio, your returns come entirely from stock selection. If your longs outperform your shorts, you make money regardless of what the market does. If your shorts outperform your longs, you lose money regardless of what the market does.
+**Horace：** 正是。在一個完美的市場中性投資組合中，你的報酬完全來自選股。如果你的多頭跑贏空頭，不管市場漲跌你都賺錢。如果你的空頭跑贏多頭，不管市場漲跌你都虧錢。
 
-**Sam:** It sounds like the holy grail. Why does not everyone do this?
+**Stella：** 聽起來像是聖杯。為什麼不是每個人都這樣做呢？
 
-**Alex:** Because it is incredibly hard. You need to be right on both your longs and your shorts. If you go long a stock that drops and short a stock that rises, you lose on both sides. Also, market neutral strategies typically generate lower returns than long-only in bull markets because you are giving up the market's natural upward drift in exchange for reduced risk.
+**Horace：** 因為這非常非常難。你必須在多頭和空頭上同時判斷正確。如果你做多的股票下跌，放空的股票上漲，你兩邊都虧錢。此外，市場中性策略在多頭市場中的報酬通常低於純多頭，因為你放棄了市場自然的上漲紅利，換取較低的風險。
 
-[VISUAL: Performance comparison chart over 5 years. Long-only (S&P 500) shows higher returns in bull years but deep drawdowns. Market neutral shows smoother, more consistent but lower returns. Labels show: "Long-only: Higher return, higher risk" and "Market neutral: Lower return, lower risk"]
+[VISUAL: Performance comparison chart over 5 years. 純多頭（S&P 500）shows higher returns in bull years but deep drawdowns. 市場中性 shows smoother, more consistent but lower returns. Labels show: "純多頭：報酬較高，風險較高" and "市場中性：報酬較低，風險較低"]
 
-**Sam:** OK let us talk about some practical numbers. What are the costs of short selling?
+**Stella：** 好，我們來聊一些實際的數字。放空的成本有哪些？
 
-**Alex:** Three main costs. First, the borrow fee. When you borrow shares, you pay an annual fee to the lender. For large, liquid stocks like Apple or Microsoft, this might be 0.25% to 1% per year. Not a big deal.
+**Horace：** 主要有三種成本。第一，借券費率。當你借入股票，你需要向出借方支付年利率形式的費用。對於蘋果或微軟這類大型、流動性高的股票，每年可能只有0.25%到1%。影響不大。
 
-**Sam:** But for harder-to-borrow stocks?
+**Stella：** 但對難借券的股票呢？
 
-**Alex:** The cost can explode. Hard-to-borrow stocks might cost 10%, 20%, even 50% or more per year. During the GameStop squeeze, borrow costs on GME shares reportedly hit 80% annualized. That means even if the stock does not move at all, you are losing 80% per year just in borrow fees.
+**Horace：** 成本可能爆炸式成長。難借券的股票可能每年要花10%、20%，甚至50%以上。在GameStop軋空期間，GME股票的借券成本據報達到年化80%。這意味著即使股票完全不動，你一年光借券費就虧掉80%。
 
-[VISUAL: Cost spectrum bar showing "Easy to Borrow: 0.25-1% /yr" (green) through "General: 1-5% /yr" (yellow) to "Hard to Borrow: 5-50%+ /yr" (red) to "Extreme: 50-300%+ /yr" (dark red)]
+[VISUAL: Cost spectrum bar showing "易借券：年率0.25-1%" (green) through "一般：年率1-5%" (yellow) to "難借券：年率5-50%以上" (red) to "極端情況：年率50-300%以上" (dark red)]
 
-**Sam:** That is insane. What is the second cost?
+**Stella：** 太誇張了。第二種成本是什麼？
 
-**Alex:** Dividends. When you short a stock that pays dividends, you are on the hook for paying those dividends to the person who lent you the shares. If you short Johnson and Johnson and they pay their quarterly dividend, you owe that dividend out of your pocket.
+**Horace：** 股利。當你放空一檔有發放股利的股票，你必須從自己口袋裡將那筆股利支付給借券方。如果你放空嬌生，而嬌生發放季度股利，那筆股利就要由你來付。
 
-**Sam:** So you are fighting against the dividend as well as the general upward trend of stocks?
+**Stella：** 所以你不但要對抗股利，還要對抗股票普遍的上漲趨勢？
 
-**Alex:** Exactly. The third cost is margin. Short selling requires a margin account, and you need to maintain margin requirements. Typically, you need the short sale proceeds plus an additional 50% as initial margin. And if the stock rises, you may face margin calls that force you to add more capital or close the position at the worst possible time.
+**Horace：** 完全正確。第三種成本是保證金。放空需要保證金帳戶，而且你需要維持保證金要求。通常你需要放空所得加上額外50%的初始保證金。如果股票上漲，你可能收到追繳保證金通知，在最糟糕的時機被迫補錢或平倉。
 
-**Sam:** Which is exactly what triggers a short squeeze.
+**Stella：** 而那正是觸發軋空的原因。
 
-**Alex:** Right. Forced buying from margin calls accelerates the squeeze. The short seller is not choosing to buy; they are being forced to buy, and that removes any rational price discovery from the equation.
+**Horace：** 對。追繳保證金造成的被動回補加速了軋空。放空者不是選擇買進，而是被迫買進，這讓股價的任何理性發現機制都失效了。
 
-**Sam:** Let me ask you something. You mentioned famous short sellers earlier. Can we talk about some of the legendary shorts?
+**Stella：** 讓我問你一件事。你之前提到了著名的放空者。我們可以聊聊一些傳奇的放空案例嗎？
 
-**Alex:** Sure. Let us start with the most famous one. In 1992, George Soros bet against the British pound. This was not a stock short; it was a currency short. He believed that Britain could not maintain the pound's peg to the German mark within the European Exchange Rate Mechanism. He shorted $10 billion worth of pounds.
+**Horace：** 當然。我們從最有名的一個開始。1992年，喬治·索羅斯押注英鎊。這不是股票的放空，而是匯率的放空。他認為英國無法在歐洲匯率機制下維持英鎊對德國馬克的聯繫匯率。他放空了價值100億美元的英鎊。
 
-**Sam:** Ten billion dollars?
+**Stella：** 100億美元？
 
-**Alex:** He was managing about $7 billion at the time, so he used significant leverage. The Bank of England tried to defend the peg by raising interest rates and buying pounds, but it was not enough. On September 16, 1992, known as Black Wednesday, Britain crashed out of the ERM and the pound plummeted. Soros made approximately $1 billion in a single day.
+**Horace：** 他當時管理約70億美元，所以使用了相當大的槓桿。英格蘭銀行試圖透過升息和買進英鎊來捍衛聯繫匯率，但仍不敵。1992年9月16日，也就是英格蘭銀行所稱的「黑色星期三」，英國被迫退出歐洲匯率機制，英鎊急貶。索羅斯單日獲利約10億美元。
 
 [VISUAL: Timeline of Black Wednesday showing Soros building his position, the Bank of England's failed defense, and the pound's collapse. A counter shows Soros's profit climbing.]
 
-**Sam:** That is extraordinary. But that was a macro bet. What about stock-level shorts?
+**Stella：** 這真是驚人。但那是總體經濟的押注。個股放空呢？
 
-**Alex:** Jim Chanos and Enron is a classic. Chanos is one of the most respected short sellers in history. In late 2000, he started analyzing Enron's financial statements and found that something did not add up. Their reported profits did not match their cash flows. He shorted the stock when it was trading around $60-80.
+**Horace：** Jim Chanos放空安隆是個經典。Chanos是歷史上最受尊敬的放空者之一。2000年底，他開始分析安隆的財務報表，發現有些地方對不起來。他們申報的利潤與現金流量不吻合。他在股票報價約$60至$80時開始建立空頭部位。
 
-**Sam:** And Enron turned out to be one of the biggest corporate frauds in history.
+**Stella：** 而安隆後來成為史上最大的企業詐欺案之一。
 
-**Alex:** The stock went from over $90 to $0.26 as the fraud was exposed. Chanos made enormous returns. But here is the important part: Chanos did not cause Enron's downfall. He identified it through rigorous fundamental analysis. The fraud was already there. He just saw it before others did.
+**Horace：** 股票從超過$90跌至$0.26，詐欺事實陸續曝光。Chanos獲得了豐厚的報酬。但有個重要的地方：Chanos沒有造成安隆的垮台。他透過嚴謹的基本面分析識別了這件事。詐欺本來就在那裡，只是他比其他人更早看到。
 
-**Sam:** Short sellers as detectives.
+**Stella：** 放空者如同偵探。
 
-**Alex:** Exactly. Many of the biggest corporate frauds have been uncovered by short sellers first. Muddy Waters, Citron Research, Hindenburg Research. These are firms that do deep research into companies they believe are fraudulent or overvalued, publish their findings, and profit when the truth comes out.
+**Horace：** 正是。許多最大的企業詐欺都是由放空者率先揭露的。Muddy Waters、Citron Research、Hindenburg Research。這些公司深入研究他們認為涉嫌詐欺或被高估的公司，發表研究報告，並在真相浮出水面時獲利。
 
-**Sam:** But not all shorts work out, right?
+**Stella：** 但不是所有放空都成功的，對吧？
 
-**Alex:** Not at all. Bill Ackman's short of Herbalife is a cautionary tale. In 2012, Ackman publicly announced a $1 billion short position in Herbalife, calling it a pyramid scheme. He held a three-hour public presentation laying out his case.
+**Horace：** 完全不是。Bill Ackman放空康寶萊就是一個警世故事。2012年，Ackman公開宣布對康寶萊建立10億美元的空頭部位，稱其為金字塔騙局。他舉行了一場長達三小時的公開簡報說明他的論點。
 
-**Sam:** And what happened?
+**Stella：** 然後發生了什麼？
 
-**Alex:** Carl Icahn, another billionaire investor, took the other side. He went long Herbalife. The stock went up. Way up. Ackman added to his short, doubled down publicly, and it became one of the most watched investment battles in history. After six years, Ackman closed his short for a loss of approximately $1 billion.
+**Horace：** 另一位億萬富翁投資人Carl Icahn站在對立面，做多康寶萊。股票漲了。漲了很多。Ackman加碼空頭，公開加倍押注，這成為史上最受矚目的投資對決之一。六年後，Ackman以約10億美元的虧損平掉空頭部位。
 
-[VISUAL: Split screen showing Ackman on one side labeled "SHORT -$1B" in red and Icahn on the other labeled "LONG +$1B" in green, with the Herbalife stock chart between them]
+[VISUAL: Split screen showing Ackman on one side labeled "空頭 -$10億" in red and Icahn on the other labeled "多頭 +$10億" in green, with the Herbalife stock chart between them]
 
-**Sam:** Even when you are right about the fundamentals, you can still lose?
+**Stella：** 即使基本面判斷正確，還是可能賠錢？
 
-**Alex:** That is one of the great lessons of short selling. Ackman may have been right that Herbalife's business model was questionable. The FTC later did take action against Herbalife. But the stock did not go to zero, and Ackman ran out of patience and capital before his thesis played out. In short selling, being right is not enough. You need to be right, and you need the market to agree with you, within your time frame, without a squeeze forcing you out first.
+**Horace：** 這是放空最重要的教訓之一。Ackman對康寶萊商業模式的質疑可能有其道理。美國聯邦貿易委員會後來確實對康寶萊採取行動。但股票並沒有歸零，而Ackman在他的論點被市場認可之前就耗盡了耐心和資金。在放空中，判斷正確還不夠。你必須正確，市場也必須在你的時間框架內認同你，而且不能在軋空中先把你逼出場。
 
-**Sam:** That seems like a lot of things that need to go right.
+**Stella：** 需要這麼多事情同時成立，真的很難。
 
-**Alex:** It is. Which brings us to the Volkswagen short squeeze of 2008. This one is particularly dramatic.
+**Horace：** 確實。這帶我們到2008年的福斯汽車軋空事件。這個特別戲劇化。
 
-**Sam:** What happened?
+**Stella：** 發生了什麼事？
 
-**Alex:** Porsche had been quietly accumulating Volkswagen shares through options. When they disclosed their position, the market realized that Porsche controlled about 74% of VW shares, and the German state of Lower Saxony held another 20%. That left only about 6% of VW shares freely tradable, but short interest was about 13% of the total shares.
+**Horace：** 保時捷一直在透過選擇權秘密累積福斯汽車的股份。當他們揭露持倉時，市場才意識到保時捷控制了福斯約74%的股份，而下薩克森州政府又持有另外20%。這意味著只有約6%的福斯股票可以自由交易，但放空比率卻約達總股數的13%。
 
-**Sam:** So more shares were short than were available to trade?
+**Stella：** 所以放空的股數超過了可交易的股票數量？
 
-**Alex:** Way more. When short sellers realized they literally could not buy enough shares to cover their positions, panic set in. VW stock went from about 200 euros to over 1,000 euros in two trading days. Briefly, Volkswagen became the most valuable company in the world by market capitalization, which was absurd for a car company.
+**Horace：** 遠遠超過。當放空者意識到他們根本買不到足夠的股票來回補部位時，恐慌開始蔓延。福斯股票在兩個交易日內從約200歐元飆漲至逾1,000歐元。福斯一度短暫成為全球市值最高的公司，對一家汽車公司來說這是完全荒謬的。
 
-[VISUAL: VW stock chart showing the two-day spike from 200 to 1000 EUR, with a callout: "Briefly the world's most valuable company" and a note: "Short sellers' losses: estimated $30 billion"]
+[VISUAL: VW stock chart showing the two-day spike from 200 to 1000 EUR, with a callout: "短暫成為全球市值最高的公司" and a note: "放空者估計損失：300億美元"]
 
-**Sam:** How much did short sellers lose?
+**Stella：** 放空者虧損了多少？
 
-**Alex:** Estimates range from $20 billion to $30 billion in total. Individual hedge funds lost hundreds of millions in days. At least one fund manager reportedly died by suicide.
+**Horace：** 估計在200億至300億美元之間。個別避險基金在幾天內就損失了數億美元。據報至少有一位基金經理因此輕生。
 
-**Sam:** That is devastating. So what should individual investors take away from all of this?
+**Stella：** 太慘了。所以個人投資人應該從中學到什麼？
 
-**Alex:** Several key lessons. First, short selling is an advanced strategy that most individual investors should avoid. The risk/reward is asymmetric against you: your maximum gain is 100%, but your maximum loss is unlimited.
+**Horace：** 幾個關鍵教訓。第一，放空是一種進階策略，大多數個人投資人應該避免。風險/報酬的不對稱對你不利：你最大獲利是100%，但最大虧損是無上限的。
 
-**Sam:** What about people who want to bet against a stock without shorting it?
+**Stella：** 那些想要押注股票下跌但不想放空的人怎麼辦？
 
-**Alex:** Great question. There are safer alternatives. You can buy put options, which give you a defined maximum loss equal to the premium you paid. You can buy inverse ETFs like SH (inverse S&P 500) or SQQQ (3x inverse Nasdaq). These let you profit from declines without the unlimited risk of short selling.
+**Horace：** 好問題。有一些風險較低的替代方案。你可以買進賣權，最大虧損就是你支付的權利金，僅此而已。你可以買進反向指數股票型基金，例如SH（反向S&P 500）或SQQQ（三倍反向那斯達克）。這些讓你能從下跌中獲利，而沒有放空的無上限風險。
 
-[VISUAL: Comparison table showing "Short Selling vs. Put Options vs. Inverse ETFs" with columns for maximum loss, margin requirement, borrow cost, dividend obligation, and squeeze risk. Put options and inverse ETFs show "None" or "No" for the last three, with defined maximum loss.]
+[VISUAL: Comparison table showing "放空 vs. 賣權 vs. 反向指數股票型基金" with columns for 最大虧損、保證金要求、借券成本、股利義務 and 軋空風險. 賣權 and 反向指數股票型基金 show "無" or "否" for the last three, with defined maximum loss.]
 
-**Sam:** Those seem much more manageable for a regular investor.
+**Stella：** 對一般投資人來說，那些似乎好管理多了。
 
-**Alex:** They are. The second lesson is that understanding short selling makes you a better investor even if you never short a stock yourself. When you see high short interest in a stock you own, you know to investigate why bears are betting against it. When you understand how squeezes work, you avoid chasing parabolic moves driven by short covering.
+**Horace：** 確實如此。第二個教訓是，即使你從不放空，了解放空的運作方式也能讓你成為更好的多頭投資人。當你看到你持有的股票有高放空比率，你就知道要去研究空頭為什麼要押注反方向。當你了解軋空的運作方式，你就能避免追高那些由被動回補推升的拋物線式漲勢。
 
-**Sam:** And the third lesson?
+**Stella：** 第三個教訓呢？
 
-**Alex:** Respect the short sellers. They serve an important function in the market. When a stock has high short interest, it means smart people have done research and decided to bet real money that the company is overvalued or has problems. They might be wrong, but you should at least understand their thesis before dismissing it.
+**Horace：** 尊重放空者。他們在市場中扮演著重要的功能。當一檔股票有高放空比率，代表聰明的人做了研究，並用真金白銀押注這家公司被高估或有問題。他們可能是錯的，但在否定他們之前，你至少應該去理解他們的論點。
 
-**Sam:** Even though they get vilified in the media and on social media?
+**Stella：** 即使他們在媒體和社群媒體上被妖魔化？
 
-**Alex:** Especially then. The companies that complain the loudest about short sellers are sometimes the ones with the most to hide. Not always, but enough that it should give you pause.
+**Horace：** 尤其是在那個時候。對放空者抱怨最大聲的公司，有時正是那些最有東西需要隱瞞的公司。不是每次都如此，但頻率足以讓你多想一想。
 
-**Sam:** Let us talk about how a long/short strategy actually works in practice at a hedge fund.
+**Stella：** 我們來聊聊多空策略在避險基金實際運作上是怎麼運行的。
 
-**Alex:** Good. So a typical long/short equity fund might have 120% to 160% gross exposure and 30% to 60% net long exposure. That means for every $100 in the fund, they might have $90 in long positions and $50 in short positions.
+**Horace：** 好。典型的多空股票基金可能有120%至160%的總風險敞口，以及30%至60%的淨多頭敞口。這意味著基金每100美元的資本，可能有90美元的多頭部位和50美元的空頭部位。
 
-**Sam:** What do those exposure numbers tell you?
+**Stella：** 那些風險敞口數字告訴你什麼？
 
-**Alex:** Gross exposure of 140% means the fund is using some leverage. They have more positions than capital. Net exposure of 40% means they are modestly bullish. They have more longs than shorts. If the market drops 10%, their portfolio would theoretically drop about 4% (10% times 40% net exposure), plus or minus their stock selection alpha.
+**Horace：** 總風險敞口140%意味著基金使用了一些槓桿，持倉金額超過資本。淨風險敞口40%意味著他們呈現溫和看多，多頭部位多於空頭。如果市場下跌10%，他們的投資組合理論上會下跌約4%（10%乘以40%淨風險敞口），加減他們的選股阿爾法。
 
-[VISUAL: Gauge diagram showing gross exposure at 140% and net exposure at 40%, with zones labeled: "0% = Market Neutral," "50% = Moderate Long," "100% = Full Long, No Shorts"]
+[VISUAL: Gauge diagram showing 總風險敞口 at 140% and 淨風險敞口 at 40%, with zones labeled: "0% = 市場中性", "50% = 溫和多頭", "100% = 純多頭，無空頭"]
 
-**Sam:** So the short side acts as a buffer against market declines?
+**Stella：** 所以空頭部位充當了抵禦市場下跌的緩衝？
 
-**Alex:** Exactly. If the market drops 10%, the long side of the portfolio loses value but the short side gains value, partially offsetting the loss. The short book is functioning as a hedge. That is literally where the term "hedge fund" comes from. The first hedge fund, created by Alfred Winslow Jones in 1949, was a long/short equity fund. He hedged his long bets with short positions.
+**Horace：** 正是。如果市場下跌10%，多頭部位會跌價，但空頭部位會增值，部分抵消損失。空頭帳本在發揮避險的功能。這就是「避險基金」這個名稱的由來。第一個避險基金由Alfred Winslow Jones於1949年創立，就是多空股票基金。他用空頭部位來對沖他的多頭押注。
 
-**Sam:** I had no idea that was the origin of the term.
+**Stella：** 我完全不知道這個詞的起源。
 
-**Alex:** Most people do not. Over the decades, hedge funds have evolved into many different strategies, but long/short equity remains one of the largest and most fundamental.
+**Horace：** 大多數人都不知道。幾十年來，避險基金演變出許多不同的策略，但多空股票仍然是規模最大、最基礎的策略之一。
 
-**Sam:** How does a portfolio manager decide what to short?
+**Stella：** 基金經理是如何決定放空什麼的？
 
-**Alex:** The best short sellers look for several characteristics. Deteriorating fundamentals, meaning revenue is declining, margins are shrinking, or the business model is being disrupted. Overly optimistic valuation, where the stock price reflects expectations that are unrealistic. Accounting red flags, such as revenue recognition tricks, off-balance-sheet liabilities, or rising receivables relative to revenue. And management credibility issues, like insiders selling aggressively or a pattern of over-promising and under-delivering.
+**Horace：** 最優秀的放空者會尋找幾個特徵。基本面惡化，意思是營收下滑、利潤率萎縮，或商業模式正被顛覆。過度樂觀的估值，即股價反映了不切實際的預期。財務報表紅旗，例如收入認列問題、表外負債，或應收帳款相對於營收異常攀升。以及管理層信譽問題，例如內部人士積極出脫持股，或慣於過度承諾、表現不如預期。
 
-[VISUAL: Checklist graphic: "Short Selling Criteria" with items: Deteriorating Fundamentals (checkmark), Overvaluation (checkmark), Accounting Red Flags (checkmark), Management Issues (checkmark), High Short Interest CAUTION (warning triangle), Catalyst Identified (checkmark)]
+[VISUAL: Checklist graphic: "放空選股標準" with items: 基本面惡化（打勾）, 估值偏高（打勾）, 財務報表紅旗（打勾）, 管理層問題（打勾）, 高放空比率 注意（警告三角形）, 已識別催化劑（打勾）]
 
-**Sam:** That actually sounds like a lot of fundamental analysis, not just gambling.
+**Stella：** 這聽起來需要大量的基本面分析，不只是在賭博。
 
-**Alex:** Good short selling IS fundamental analysis. It is the same skill set as finding great companies to go long, but in reverse. You are looking for companies where the reality is worse than the perception.
+**Horace：** 好的放空本來就是基本面分析。它和尋找優質多頭標的所需的技能一樣，只是方向相反。你在尋找那些現實比外界認知更糟糕的公司。
 
-**Sam:** What about the risk management side? How do funds prevent a GameStop-type disaster?
+**Stella：** 那風險管理這一面呢？基金是怎麼預防GameStop那樣的災難的？
 
-**Alex:** Several rules. First, position sizing. Most professional funds cap individual short positions at 2-3% of capital. Even if the stock doubles against you, you lose at most 2-3% of the fund, not 53% like Melvin Capital.
+**Horace：** 有幾條規則。第一，部位規模控制。大多數專業基金將個別空頭部位上限設在資金的2%至3%。即使股票對著你的方向翻倍，你最多也只損失基金的2%至3%，而不是像Melvin Capital那樣損失53%。
 
-**Sam:** Because Melvin was too concentrated?
+**Stella：** 因為Melvin的部位過於集中？
 
-**Alex:** Their GameStop short was reportedly much larger than prudent risk management would dictate. Second rule: stop losses. If a short position moves against you by a certain percentage, say 20-30%, you cut it. You do not add to it, you do not try to be a hero. You take the loss and move on.
+**Horace：** 他們的GameStop空頭部位據報遠超過謹慎風險管理所允許的規模。第二條規則：停損。如果空頭部位對你不利地移動了某個百分比，比如20%到30%，你就砍掉它。你不會加碼，不會試圖扛著，你接受損失，繼續前進。
 
-**Sam:** What about crowding? Should you avoid stocks that everyone else is shorting?
+**Stella：** 那過於擁擠的部位呢？你應該避開那些人人都在放空的股票嗎？
 
-**Alex:** Absolutely. Crowded shorts are the most dangerous. If 30% or more of the float is short and the days-to-cover ratio is above 5 days, that is a squeeze waiting to happen. The best short sellers look for overlooked or misunderstood situations, not popular short targets.
+**Horace：** 絕對是。擁擠的空頭是最危險的。如果超過30%的流通股數遭到放空，回補天數超過5天，那就是一顆等待引爆的軋空炸彈。最優秀的放空者會尋找被忽視或被誤解的標的，而非大眾熱衷的放空目標。
 
-**Sam:** Let me see if I can summarize the key takeaways. Going long means buying stock expecting it to rise. Going short means borrowing and selling stock expecting it to fall. Short selling has unlimited risk because there is no cap on how high a stock can go. Short squeezes happen when heavily shorted stocks rise, forcing shorts to cover, driving the price higher in a feedback loop.
+**Stella：** 讓我試著總結一下主要重點。做多是買進股票，預期它上漲。放空是借股票並賣出，預期它下跌。放空的虧損無上限，因為股票的上漲沒有天花板。軋空發生於被大量放空的股票上漲，迫使放空者回補，推高股價，形成反饋迴圈。
 
-**Alex:** Keep going.
+**Horace：** 繼續說。
 
-**Sam:** Long/short strategies combine long and short positions to reduce market risk and isolate stock selection skill. Market neutral is a special case where net exposure is zero. And for most individual investors, put options or inverse ETFs are safer ways to express bearish views than outright short selling.
+**Stella：** 多空策略結合多頭與空頭部位，以降低市場風險並隔離選股能力。市場中性是淨風險敞口為零的特殊情況。對大多數個人投資人來說，賣權或反向指數股票型基金是表達看空觀點比直接放空更安全的方式。
 
-**Alex:** Perfect summary. I would add one more thing: understanding how short selling works makes you a better long investor because it forces you to consider both sides of every investment thesis.
+**Horace：** 說得太完整了。我再補充一點：了解放空的運作方式，即使你從不放空股票，也能讓你成為更好的多頭投資人，因為它迫使你對每一個投資論點同時考慮兩個面向。
 
-**Sam:** This has been really eye-opening. I feel like I understand a whole dimension of the market that I did not before.
+**Stella：** 這個話題真的讓我大開眼界。我感覺我現在理解了市場一個全新的維度。
 
-**Alex:** That is exactly the goal. Next week, we are going to take this a step further and talk about pair trading, which is a specific type of long/short strategy where you trade two related stocks against each other. It is one of the most elegant strategies in quantitative finance.
+**Horace：** 這正是我們的目標。下週，我們要進一步深入，談論配對交易——一種特定類型的多空策略，你交易的是兩檔相關股票之間的相對關係。這是量化金融中最精緻優雅的策略之一。
 
-[VISUAL: Preview slide for Week 14 with text "Next Week: Pair Trading Fundamentals - Profiting from Relative Value"]
+[VISUAL: Preview slide for Week 14 with text "下週：配對交易基礎 - 從相對價值中獲利"]
 
-**Sam:** Before we go, quick rapid-fire questions?
+**Stella：** 在結束之前，快問快答時間？
 
-**Alex:** Let us do it.
+**Horace：** 來吧。
 
-**Sam:** Can you short ETFs?
+**Stella：** 可以放空指數股票型基金嗎？
 
-**Alex:** Yes. You can short ETFs just like stocks. SPY, QQQ, IWM are all heavily shorted and very liquid for short selling. ETF shares are generally easy to borrow with low borrow fees.
+**Horace：** 可以。你可以像放空個股一樣放空指數股票型基金。SPY、QQQ、IWM都是高度被放空且流動性非常高的放空標的，借券費用通常也很低。
 
-**Sam:** What happens during a stock split if you are short?
+**Stella：** 如果你放空期間股票發生股票分割，會怎樣？
 
-**Alex:** Your position adjusts proportionally. If you are short 100 shares at $200 and the stock does a 2-for-1 split, you are now short 200 shares at $100. Your total obligation is unchanged. No profit or loss from the split itself.
+**Horace：** 你的部位會等比例調整。如果你以$200放空100股，股票進行一股拆二股的分割，你之後就是以$100放空200股。你的總義務不變。分割本身不產生獲利或虧損。
 
-**Sam:** Can the broker force me to close my short at any time?
+**Stella：** 券商可以在任何時候強制我平倉嗎？
 
-**Alex:** Yes. If the shares you borrowed are recalled by the lender and your broker cannot find alternative shares to borrow, you may be forced to cover. This is called a "buy-in." It is more common with hard-to-borrow stocks and can happen at the worst possible time.
+**Horace：** 可以。如果你借入的股票被出借方收回，而你的券商又找不到其他借券來源，你可能被強制回補。這稱為「強制回補」（Buy-in）。對難借券股票更常發生，而且可能偏偏在最糟糕的時機出現。
 
-**Sam:** What is the most shorted stock right now?
+**Stella：** 現在放空比率最高的股票是哪些？
 
-**Alex:** It changes constantly. You can find current short interest data on sites like FINRA's Short Interest page, Yahoo Finance, or specialty data providers like S3 Partners and Ortex. Just remember, the most shorted stocks are often the most dangerous to short because the squeeze risk is highest.
+**Horace：** 每天都在變。你可以在FINRA的放空比率頁面、Yahoo Finance或S3 Partners、Ortex等專業資料供應商找到最新的放空比率數據。只要記得，放空比率最高的股票往往也是最危險的，因為軋空風險最高。
 
-**Sam:** And finally: if you could give one piece of advice to someone thinking about short selling for the first time?
+**Stella：** 最後：如果你要給第一次考慮放空的人一條建議，那是什麼？
 
-**Alex:** Start with paper trading. Do not risk real money until you have experienced a position moving against you and felt the psychological pressure of watching losses mount with no natural floor. Short selling is as much a psychological game as a financial one. And if after paper trading you still want to do it, never risk more than 2% of your portfolio on any single short position.
+**Horace：** 從模擬交易開始。在動用真錢之前，不要冒險。先體驗一下部位對你不利移動、眼看虧損持續擴大且沒有天然底部的心理壓力。放空在心理層面上和財務層面上一樣是場博弈。如果在模擬交易之後你仍然想這樣做，永遠不要將超過投資組合2%的資金押注在任何單一空頭部位上。
 
-**Sam:** Great advice. Thanks everyone, see you next week.
+**Stella：** 非常好的建議。謝謝大家，下週見。
 
-**Alex:** Thanks for watching. Like and subscribe if this was helpful, and we will see you in Week 14 for pair trading.
+**Horace：** 感謝收看。如果這期對你有幫助，歡迎點讚訂閱，我們第十四週見，主題是配對交易。
 
 [VISUAL: End screen with subscribe button, playlist link to Level 2: Intermediate Strategies series, and social media handles]
 
 ---
 
-*Animation Reference: animation/week13_short_selling.py - This animation illustrates the complete mechanics of short selling in two main sequences. The first sequence shows the five-step process of borrowing shares, selling them, waiting for a price decline, buying them back, and returning them to the broker, with real-time account balance updates. The second sequence demonstrates the short squeeze feedback loop, showing how forced covering creates a self-reinforcing price spiral, with a stock chart that accelerates upward as more short sellers are squeezed out of their positions.*
+*動畫說明：animation/week13_short_selling.py — 此動畫以兩個主要序列說明放空的完整機制。第一個序列展示五步驟流程：借入股票、賣出股票、等待股價下跌、回補股票，以及將股票歸還給券商，並即時更新帳戶餘額顯示持有股數、現金餘額與損益。第二個序列示範軋空的反饋迴圈，展示被迫回補如何創造自我強化的股價飆升螺旋，中央的股價走勢圖隨著更多放空者被擠壓出場而加速上漲，以傳達這種加速感。*

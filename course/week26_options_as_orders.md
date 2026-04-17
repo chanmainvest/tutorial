@@ -634,217 +634,217 @@ A: A natural progression is: (1) Identify stocks you want to own, (2) sell puts 
 
 [VISUAL: Animated intro with show logo. Text: "Week 26: Options as Conditional Orders - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we covered the fundamentals of options: calls, puts, strike prices, expiration, time decay. Today we are going to take all of that knowledge and apply it through a mental model that I think is going to change how you think about options forever.
+**Horace:** Welcome back. Last week we covered the fundamentals of options: calls, puts, strike prices, expiration, time decay. Today we are going to take all of that knowledge and apply it through a mental model that I think is going to change how you think about options forever.
 
-**Sam:** A mental model? What do you mean?
+**Stella:** A mental model? What do you mean?
 
-**Alex:** I mean a way of thinking about options that makes them feel intuitive rather than complex. Here it is: selling a put is like placing a limit buy order and getting paid while you wait. Selling a covered call is like placing a limit sell order and getting paid while you wait.
+**Horace:** I mean a way of thinking about options that makes them feel intuitive rather than complex. Here it is: selling a put is like placing a limit buy order and getting paid while you wait. Selling a covered call is like placing a limit sell order and getting paid while you wait.
 
-**Sam:** Wait, that is it? That seems... almost too simple.
+**Stella:** Wait, that is it? That seems... almost too simple.
 
-**Alex:** The best mental models are simple. And this one is powerful because it is nearly perfectly accurate. Let me walk you through exactly what I mean.
+**Horace:** The best mental models are simple. And this one is powerful because it is nearly perfectly accurate. Let me walk you through exactly what I mean.
 
 [VISUAL: Title card: "Options as Conditional Orders: A New Way to Think About Buying and Selling Stocks"]
 
-**Alex:** Let us start with something every investor is familiar with: a limit buy order. Sam, explain what a limit buy order is.
+**Horace:** Let us start with something every investor is familiar with: a limit buy order. Stella, explain what a limit buy order is.
 
-**Sam:** Sure. It is when you tell your broker, buy this stock for me, but only if the price drops to a certain level. Like, buy Apple at $140 even though it is currently at $155.
+**Stella:** Sure. It is when you tell your broker, buy this stock for me, but only if the price drops to a certain level. Like, buy Apple at $140 even though it is currently at $155.
 
-**Alex:** Perfect. And what happens while you wait for that price?
+**Horace:** Perfect. And what happens while you wait for that price?
 
-**Sam:** Nothing. Your cash just sits there.
+**Stella:** Nothing. Your cash just sits there.
 
-**Alex:** Exactly. Your cash sits there earning almost nothing. Maybe 4-5% in a savings rate if you are lucky. Now here is the options alternative. Instead of placing a limit buy order at $140, you sell a cash-secured put at the $140 strike.
+**Horace:** Exactly. Your cash sits there earning almost nothing. Maybe 4-5% in a savings rate if you are lucky. Now here is the options alternative. Instead of placing a limit buy order at $140, you sell a cash-secured put at the $140 strike.
 
 [VISUAL: Side-by-side comparison appearing on screen. Left: "Limit Buy Order at $140 - Cash earns: ~0%". Right: "Sell $140 Put for $1.85 - Cash earns: ~16% annualized"]
 
-**Sam:** So what exactly does selling a put at $140 mean?
+**Stella:** So what exactly does selling a put at $140 mean?
 
-**Alex:** It means you are making a promise. You are saying: I agree to buy 100 shares of Apple at $140 per share if the stock drops to that level before the option expires. And in exchange for making that promise, someone pays you a premium. Let us say $1.85 per share, or $185 per contract.
+**Horace:** It means you are making a promise. You are saying: I agree to buy 100 shares of Apple at $140 per share if the stock drops to that level before the option expires. And in exchange for making that promise, someone pays you a premium. Let us say $1.85 per share, or $185 per contract.
 
-**Sam:** So I am getting paid $185 to promise to do something I was already willing to do?
+**Stella:** So I am getting paid $185 to promise to do something I was already willing to do?
 
-**Alex:** Yes. That is the beauty of it. You already wanted to buy Apple at $140. The limit order does the same thing for free. The put option does the same thing and pays you for it.
+**Horace:** Yes. That is the beauty of it. You already wanted to buy Apple at $140. The limit order does the same thing for free. The put option does the same thing and pays you for it.
 
 [ANIMATION: Reference animation/week26_put_as_limit.py - Animation showing two parallel timelines. Top timeline: "Limit Order" shows cash sitting idle, then stock dropping to $140 and order filling. Bottom timeline: "Short Put" shows cash with premium coins being added each month, then stock dropping to $140 and assignment occurring, with the effective purchase price shown as lower than $140 due to accumulated premiums. A counter shows the total premium collected over time.]
 
-**Sam:** OK, let us walk through the possible outcomes. What happens if Apple stays above $140?
+**Stella:** OK, let us walk through the possible outcomes. What happens if Apple stays above $140?
 
-**Alex:** Your put expires worthless. The word "worthless" sounds bad, but for the seller, it is great. It means your obligation disappears and you keep the $185 premium. Your $14,000 in cash is freed up, and you can sell another put next month.
+**Horace:** Your put expires worthless. The word "worthless" sounds bad, but for the seller, it is great. It means your obligation disappears and you keep the $185 premium. Your $14,000 in cash is freed up, and you can sell another put next month.
 
-**Sam:** And if Apple drops to $140?
+**Stella:** And if Apple drops to $140?
 
-**Alex:** You get assigned. You buy 100 shares at $140, which is exactly what you wanted. But here is the key: your effective purchase price is not $140. It is $140 minus the $1.85 premium, which is $138.15. You got a better deal than the limit order would have given you.
+**Horace:** You get assigned. You buy 100 shares at $140, which is exactly what you wanted. But here is the key: your effective purchase price is not $140. It is $140 minus the $1.85 premium, which is $138.15. You got a better deal than the limit order would have given you.
 
 [VISUAL: Calculator showing: "$140.00 strike - $1.85 premium = $138.15 effective cost"]
 
-**Sam:** What if Apple drops even further, like to $120?
+**Stella:** What if Apple drops even further, like to $120?
 
-**Alex:** You still buy at $140. Your effective cost is still $138.15. And yes, you are sitting on an unrealized loss because the stock is at $120. But think about it: the limit order buyer is in the exact same situation, except their cost basis is $140, not $138.15. You are $1.85 per share better off.
+**Horace:** You still buy at $140. Your effective cost is still $138.15. And yes, you are sitting on an unrealized loss because the stock is at $120. But think about it: the limit order buyer is in the exact same situation, except their cost basis is $140, not $138.15. You are $1.85 per share better off.
 
-**Sam:** So in every scenario, the put seller does at least as well as the limit order buyer, and usually better?
+**Stella:** So in every scenario, the put seller does at least as well as the limit order buyer, and usually better?
 
-**Alex:** In terms of economic outcome, yes. The tradeoff is that the put has an expiration date. A limit order can sit there indefinitely. With puts, you need to actively sell a new contract each month.
+**Horace:** In terms of economic outcome, yes. The tradeoff is that the put has an expiration date. A limit order can sit there indefinitely. With puts, you need to actively sell a new contract each month.
 
-**Sam:** But that is also when you collect more premium, right?
+**Stella:** But that is also when you collect more premium, right?
 
-**Alex:** Exactly. And that is where the real power shows up. Let me show you what happens when you do this repeatedly.
+**Horace:** Exactly. And that is where the real power shows up. Let me show you what happens when you do this repeatedly.
 
 [VISUAL: Month-by-month table showing repeated put selling. Each month shows: premium collected, stock price, outcome (expired or assigned), cumulative premium. Final row shows effective purchase price after 6 months of collecting premiums before eventual assignment]
 
-**Alex:** Let us say you sell puts on Apple at $140 every month. Month after month, Apple stays above $140. Each month you collect $150-$250 in premium. After six months, you have collected $1,310 in total premiums. Then in month six, Apple finally drops and you get assigned.
+**Horace:** Let us say you sell puts on Apple at $140 every month. Month after month, Apple stays above $140. Each month you collect $150-$250 in premium. After six months, you have collected $1,310 in total premiums. Then in month six, Apple finally drops and you get assigned.
 
-**Sam:** So you waited six months, just like the limit order person would have.
+**Stella:** So you waited six months, just like the limit order person would have.
 
-**Alex:** Right. But the limit order person's cost is $140 per share. Your effective cost, after accounting for all the premiums collected, is $126.90 per share. That is a 9.4% better entry price. And this is not some exotic strategy. It is simple, straightforward, and mechanical.
+**Horace:** Right. But the limit order person's cost is $140 per share. Your effective cost, after accounting for all the premiums collected, is $126.90 per share. That is a 9.4% better entry price. And this is not some exotic strategy. It is simple, straightforward, and mechanical.
 
-**Sam:** That is a massive difference. $13.10 per share on 100 shares is $1,310 in your pocket.
+**Stella:** That is a massive difference. $13.10 per share on 100 shares is $1,310 in your pocket.
 
-**Alex:** Exactly. And that is just from being willing to do what you were already planning to do, but using the right tool.
+**Horace:** Exactly. And that is just from being willing to do what you were already planning to do, but using the right tool.
 
 [VISUAL: Two investors side by side. Left: "Limit Order Larry" standing with empty pockets, price tag showing $140/share. Right: "Put Selling Patty" standing with pockets full of cash, price tag showing $126.90/share. Both own the same 100 shares of AAPL.]
 
-**Sam:** OK, now let us talk about the other side. You mentioned covered calls are like limit sell orders with income.
+**Stella:** OK, now let us talk about the other side. You mentioned covered calls are like limit sell orders with income.
 
-**Alex:** Same concept, reversed. Let us say you own 100 shares of Apple at $155 and you would be happy to sell at $180. Instead of placing a limit sell order, you sell a covered call at the $180 strike.
+**Horace:** Same concept, reversed. Let us say you own 100 shares of Apple at $155 and you would be happy to sell at $180. Instead of placing a limit sell order, you sell a covered call at the $180 strike.
 
-**Sam:** And you collect a premium for agreeing to sell at $180?
+**Stella:** And you collect a premium for agreeing to sell at $180?
 
-**Alex:** Right. Let us say $1.50 per share, or $150 per contract. Now, if Apple stays below $180 by expiration, the call expires worthless. You keep your shares and the $150. If Apple rises above $180, your shares are called away and you sell at $180 plus you keep the $1.50 premium. Your effective sale price is $181.50.
+**Horace:** Right. Let us say $1.50 per share, or $150 per contract. Now, if Apple stays below $180 by expiration, the call expires worthless. You keep your shares and the $150. If Apple rises above $180, your shares are called away and you sell at $180 plus you keep the $1.50 premium. Your effective sale price is $181.50.
 
 [VISUAL: Two scenarios branching from "Sell $180 Call for $1.50". Branch 1: "Stock stays below $180" -> "Keep shares + $150 premium, sell another call". Branch 2: "Stock rises above $180" -> "Sell shares at $180, keep $150, effective price $181.50"]
 
-**Sam:** So the covered call seller gets a better exit price than the limit seller, just like the put seller gets a better entry price?
+**Stella:** So the covered call seller gets a better exit price than the limit seller, just like the put seller gets a better entry price?
 
-**Alex:** Yes. And the same compounding effect applies. If you sell covered calls month after month and Apple slowly grinds higher, you collect $150-$250 in premium each month. After eight months, when Apple finally crosses $180 and your shares are called away, you have collected over $1,600 in premiums on top of your $180 sale price.
+**Horace:** Yes. And the same compounding effect applies. If you sell covered calls month after month and Apple slowly grinds higher, you collect $150-$250 in premium each month. After eight months, when Apple finally crosses $180 and your shares are called away, you have collected over $1,600 in premiums on top of your $180 sale price.
 
-**Sam:** Your effective sale price is $196.20. That is remarkable.
+**Stella:** Your effective sale price is $196.20. That is remarkable.
 
-**Alex:** And that is on top of any dividends you received during those eight months of holding. You were getting paid from three sources: the stock's capital appreciation from $155 to $180, the dividends, and the options premiums.
+**Horace:** And that is on top of any dividends you received during those eight months of holding. You were getting paid from three sources: the stock's capital appreciation from $155 to $180, the dividends, and the options premiums.
 
 [VISUAL: Three-layer income stack visualization. Bottom: "Capital Gains: $25/share", Middle: "Dividends: ~$3.80/share", Top: "Options Premium: $16.20/share", Total: "$45.00/share = 29% total return"]
 
-**Sam:** Let me make sure I understand the risks though. What are the downsides?
+**Stella:** Let me make sure I understand the risks though. What are the downsides?
 
-**Alex:** Great question. Let us address that head on. For selling puts, the main risk is that the stock drops significantly and you are forced to buy at the strike price. If Apple drops from $155 to $100 and you sold the $140 put, you buy at $140 and immediately have a $40 per share unrealized loss.
+**Horace:** Great question. Let us address that head on. For selling puts, the main risk is that the stock drops significantly and you are forced to buy at the strike price. If Apple drops from $155 to $100 and you sold the $140 put, you buy at $140 and immediately have a $40 per share unrealized loss.
 
-**Sam:** But you would have had the same loss with a limit order.
+**Stella:** But you would have had the same loss with a limit order.
 
-**Alex:** True, except you are $1.85 better off. The real question is: would you still want to own Apple at $140 if it dropped to $100? If Apple is a strong company and you believe it will recover, then you just got a great long-term entry. If Apple is falling because of fundamental problems, you might regret it. That is why rule number one is: only sell puts on stocks you genuinely want to own.
+**Horace:** True, except you are $1.85 better off. The real question is: would you still want to own Apple at $140 if it dropped to $100? If Apple is a strong company and you believe it will recover, then you just got a great long-term entry. If Apple is falling because of fundamental problems, you might regret it. That is why rule number one is: only sell puts on stocks you genuinely want to own.
 
 [VISUAL: Bold text on screen: "RULE #1: Only sell puts on stocks you GENUINELY want to own at the strike price."]
 
-**Sam:** And the risk for covered calls?
+**Stella:** And the risk for covered calls?
 
-**Alex:** The risk is opportunity cost. If you sell the $180 call and Apple rockets to $250, you sold at $181.50 and missed out on $68.50 per share of additional gains. You made money, but you left a lot on the table. This is the tradeoff for the income you collected. You are trading unlimited upside for steady income.
+**Horace:** The risk is opportunity cost. If you sell the $180 call and Apple rockets to $250, you sold at $181.50 and missed out on $68.50 per share of additional gains. You made money, but you left a lot on the table. This is the tradeoff for the income you collected. You are trading unlimited upside for steady income.
 
-**Sam:** Is there a way to mitigate that?
+**Stella:** Is there a way to mitigate that?
 
-**Alex:** Yes. Choose strike prices that are far enough above the current price that the probability of being called away is low. If Apple is at $155, a $180 call is about 16% above the current price. Most months, Apple will not move up 16% in 30-45 days. Statistically, an OTM covered call at that distance might only be exercised 10-15% of the time.
+**Horace:** Yes. Choose strike prices that are far enough above the current price that the probability of being called away is low. If Apple is at $155, a $180 call is about 16% above the current price. Most months, Apple will not move up 16% in 30-45 days. Statistically, an OTM covered call at that distance might only be exercised 10-15% of the time.
 
-**Sam:** So you win the premium 85-90% of the time?
+**Stella:** So you win the premium 85-90% of the time?
 
-**Alex:** Roughly. And when you do get called away, you are selling at a price you chose as your target. It is not a loss. It is a successful exit at your planned price, plus the bonus of all the premiums you collected along the way.
+**Horace:** Roughly. And when you do get called away, you are selling at a price you chose as your target. It is not a loss. It is a successful exit at your planned price, plus the bonus of all the premiums you collected along the way.
 
 [VISUAL: Probability meter showing "85-90% chance: Keep shares + premium" vs "10-15% chance: Sell shares at target + premium"]
 
-**Sam:** Let us talk about the practical side. How do I actually choose the right strike price and expiration?
+**Stella:** Let us talk about the practical side. How do I actually choose the right strike price and expiration?
 
-**Alex:** For puts, start with the question: at what price would I be genuinely excited to buy this stock? Not just willing, but excited. That is your strike. For Apple at $155, maybe $140 feels like a great deal. Maybe $130 is your bargain price. The further below the current price, the less premium you will receive, but the less likely you are to be assigned and the happier you will be if you are.
+**Horace:** For puts, start with the question: at what price would I be genuinely excited to buy this stock? Not just willing, but excited. That is your strike. For Apple at $155, maybe $140 feels like a great deal. Maybe $130 is your bargain price. The further below the current price, the less premium you will receive, but the less likely you are to be assigned and the happier you will be if you are.
 
-**Sam:** And for expiration?
+**Stella:** And for expiration?
 
-**Alex:** The sweet spot is 30 to 45 days. Here is why. Option time decay accelerates after 45 days. By selling 30-45 day options, you are capturing the period of fastest decay. This gives you the best ratio of premium collected relative to time capital is reserved.
+**Horace:** The sweet spot is 30 to 45 days. Here is why. Option time decay accelerates after 45 days. By selling 30-45 day options, you are capturing the period of fastest decay. This gives you the best ratio of premium collected relative to time capital is reserved.
 
 [VISUAL: Time decay curve with the 30-45 day zone highlighted and labeled "Sweet Spot: Maximum daily theta decay relative to total premium collected"]
 
-**Sam:** Makes sense. What about position sizing? How much of my portfolio should be in these strategies?
+**Stella:** Makes sense. What about position sizing? How much of my portfolio should be in these strategies?
 
-**Alex:** Great question. Never allocate more than 20% of your options-eligible capital to a single stock. If you have $100,000, that means no more than $20,000 committed to any single put position. For a $140 AAPL put, that is just 1 contract at $14,000. Diversify across 4-6 stocks in different sectors.
+**Horace:** Great question. Never allocate more than 20% of your options-eligible capital to a single stock. If you have $100,000, that means no more than $20,000 committed to any single put position. For a $140 AAPL put, that is just 1 contract at $14,000. Diversify across 4-6 stocks in different sectors.
 
-**Sam:** So if I have $100,000, I might have put positions on Apple, Microsoft, JPMorgan, Johnson and Johnson, and an ETF like SPY?
+**Stella:** So if I have $100,000, I might have put positions on Apple, Microsoft, JPMorgan, Johnson and Johnson, and an ETF like SPY?
 
-**Alex:** Exactly. Five positions, each using $14,000-$20,000 in capital. You are diversified across technology, financials, healthcare, and the broad market. If one stock drops and you get assigned, it does not dominate your portfolio.
+**Horace:** Exactly. Five positions, each using $14,000-$20,000 in capital. You are diversified across technology, financials, healthcare, and the broad market. If one stock drops and you get assigned, it does not dominate your portfolio.
 
 [VISUAL: Portfolio pie chart showing 5 segments for different put positions, each roughly 15-20% of the total, with 20-25% kept as cash reserve]
 
-**Sam:** I want to come back to something you said. You called this approach a "conditional order." Can you explain that term?
+**Stella:** I want to come back to something you said. You called this approach a "conditional order." Can you explain that term?
 
-**Alex:** A conditional order is an order that only executes if certain conditions are met. A limit order is conditional: it only executes if the stock reaches your limit price. A put option is also conditional: you only buy the stock if it drops to the strike price. The option adds a condition that the limit order does not have: a time limit and a premium. But the core concept is the same. You are placing a conditional order with income.
+**Horace:** A conditional order is an order that only executes if certain conditions are met. A limit order is conditional: it only executes if the stock reaches your limit price. A put option is also conditional: you only buy the stock if it drops to the strike price. The option adds a condition that the limit order does not have: a time limit and a premium. But the core concept is the same. You are placing a conditional order with income.
 
-**Sam:** I like that framing. It makes options feel much less exotic. They are just orders with extra features.
+**Stella:** I like that framing. It makes options feel much less exotic. They are just orders with extra features.
 
-**Alex:** Exactly. And that is why I love this mental model. It takes something that feels complex and foreign, an options contract, and translates it into something every investor already understands, a limit order. The only difference is you are getting paid to use the option version.
+**Horace:** Exactly. And that is why I love this mental model. It takes something that feels complex and foreign, an options contract, and translates it into something every investor already understands, a limit order. The only difference is you are getting paid to use the option version.
 
 [VISUAL: Equation on screen: "Options = Limit Orders + Premium Income + Time Limit"]
 
-**Sam:** Now, is there a scenario where the regular limit order is actually better?
+**Stella:** Now, is there a scenario where the regular limit order is actually better?
 
-**Alex:** Yes, a few. First, if you want to buy fewer than 100 shares. Options only come in 100-share increments. If you want 50 shares of a $300 stock, a limit order is your only choice. Second, if you need the order to stay open indefinitely. Options expire, so you need to actively manage the strategy. Third, if the stock has very low options volume and wide bid-ask spreads. In that case, the transaction costs of the option might eat up the premium benefit.
+**Horace:** Yes, a few. First, if you want to buy fewer than 100 shares. Options only come in 100-share increments. If you want 50 shares of a $300 stock, a limit order is your only choice. Second, if you need the order to stay open indefinitely. Options expire, so you need to actively manage the strategy. Third, if the stock has very low options volume and wide bid-ask spreads. In that case, the transaction costs of the option might eat up the premium benefit.
 
-**Sam:** That makes sense. So it is not always options over limit orders. It depends on the situation.
+**Stella:** That makes sense. So it is not always options over limit orders. It depends on the situation.
 
-**Alex:** Right. Options are a better tool for certain jobs, and limit orders are a better tool for others. The key is knowing which tool fits the situation.
+**Horace:** Right. Options are a better tool for certain jobs, and limit orders are a better tool for others. The key is knowing which tool fits the situation.
 
-**Sam:** Let me ask about retirement accounts. Can I do this in my IRA?
+**Stella:** Let me ask about retirement accounts. Can I do this in my IRA?
 
-**Alex:** Absolutely. Cash-secured puts and covered calls are both allowed in most IRAs. And they are actually even more powerful in a Roth IRA because the premium income grows tax-free. You do not need margin for these strategies because they are fully cash-secured or covered by shares you already own.
+**Horace:** Absolutely. Cash-secured puts and covered calls are both allowed in most IRAs. And they are actually even more powerful in a Roth IRA because the premium income grows tax-free. You do not need margin for these strategies because they are fully cash-secured or covered by shares you already own.
 
 [VISUAL: "Options in Retirement Accounts" - Checkmarks next to: Cash-Secured Puts in IRA, Covered Calls in IRA, Cash-Secured Puts in Roth IRA, Covered Calls in Roth IRA. X marks next to: Naked Calls, Spreads (varies by broker), Margin-based strategies]
 
-**Sam:** One more question that I think a lot of viewers are wondering. How much time does this take? Do I need to watch the market all day?
+**Stella:** One more question that I think a lot of viewers are wondering. How much time does this take? Do I need to watch the market all day?
 
-**Alex:** Not at all. Here is what a typical month looks like. On day one, you spend 15-30 minutes selecting your puts or calls and placing the orders. Then you largely forget about it. Maybe you check in once a week for 5 minutes to see where the stock is relative to your strike. On expiration week, you spend another 15 minutes deciding whether to let the option expire or close it early. Total time per month: about one hour.
+**Horace:** Not at all. Here is what a typical month looks like. On day one, you spend 15-30 minutes selecting your puts or calls and placing the orders. Then you largely forget about it. Maybe you check in once a week for 5 minutes to see where the stock is relative to your strike. On expiration week, you spend another 15 minutes deciding whether to let the option expire or close it early. Total time per month: about one hour.
 
-**Sam:** One hour per month for potentially 10-15% additional annual income. That seems like a great return on time invested.
+**Stella:** One hour per month for potentially 10-15% additional annual income. That seems like a great return on time invested.
 
-**Alex:** It is. And this is why I call it the most efficient strategy in investing. The premium per hour of work is extraordinary compared to almost any other investment activity.
+**Horace:** It is. And this is why I call it the most efficient strategy in investing. The premium per hour of work is extraordinary compared to almost any other investment activity.
 
 [VISUAL: Calculator: "1 hour/month x 12 months = 12 hours/year. $2,400 annual premium / 12 hours = $200/hour effective rate"]
 
-**Alex:** Let me give you a complete example to tie everything together. Imagine you have $50,000 to invest. You have identified five stocks you want to own. Here is your monthly process.
+**Horace:** Let me give you a complete example to tie everything together. Imagine you have $50,000 to invest. You have identified five stocks you want to own. Here is your monthly process.
 
 [VISUAL: Spreadsheet showing 5 stocks with columns: Stock, Current Price, Target Buy Price (Strike), Put Premium, Monthly Income, Annualized Yield. Shows a total monthly income and annualized return.]
 
-**Alex:** You sell one put on each stock at your target buy prices. Total monthly premium might be $600-$800. Annualized, that is $7,200-$9,600, or 14-19% on your $50,000 capital. Each month, you either keep the premium and sell again, or you get assigned and start selling covered calls on your new shares.
+**Horace:** You sell one put on each stock at your target buy prices. Total monthly premium might be $600-$800. Annualized, that is $7,200-$9,600, or 14-19% on your $50,000 capital. Each month, you either keep the premium and sell again, or you get assigned and start selling covered calls on your new shares.
 
-**Sam:** And then the cycle continues. Put selling to buy, then covered call selling while you hold. Then if you are called away, you start selling puts again.
+**Stella:** And then the cycle continues. Put selling to buy, then covered call selling while you hold. Then if you are called away, you start selling puts again.
 
-**Alex:** You just described the wheel strategy, which we will formalize in Week 28. But yes, that is the continuous income-generating cycle.
+**Horace:** You just described the wheel strategy, which we will formalize in Week 28. But yes, that is the continuous income-generating cycle.
 
-**Sam:** Alex, I have to say, this mental model has completely changed how I think about options. They are not some exotic gambling tool. They are enhanced versions of orders I already use.
+**Stella:** Horace, I have to say, this mental model has completely changed how I think about options. They are not some exotic gambling tool. They are enhanced versions of orders I already use.
 
-**Alex:** That is exactly the mindset shift I was hoping for. Options are tools. Used wisely, they make your investing more efficient, more profitable, and more systematic. In the next two weeks, we will dive deep into each strategy: covered calls in Week 27 and cash-secured puts in Week 28.
+**Horace:** That is exactly the mindset shift I was hoping for. Options are tools. Used wisely, they make your investing more efficient, more profitable, and more systematic. In the next two weeks, we will dive deep into each strategy: covered calls in Week 27 and cash-secured puts in Week 28.
 
-**Sam:** Before we wrap up, let me ask about some common mistakes people make with this approach.
+**Stella:** Before we wrap up, let me ask about some common mistakes people make with this approach.
 
-**Alex:** Great question. The number one mistake is selling puts on stocks you do not want to own. People see a high premium on a volatile stock and think, easy money. Then the stock drops 30% and they are stuck buying 100 shares of something they have no conviction in.
+**Horace:** Great question. The number one mistake is selling puts on stocks you do not want to own. People see a high premium on a volatile stock and think, easy money. Then the stock drops 30% and they are stuck buying 100 shares of something they have no conviction in.
 
-**Sam:** So rule one: only sell puts on stocks you would happily buy at the strike price.
+**Stella:** So rule one: only sell puts on stocks you would happily buy at the strike price.
 
-**Alex:** If you would not buy 100 shares at the strike price with a regular order, do not sell a put at that strike. Period.
+**Horace:** If you would not buy 100 shares at the strike price with a regular order, do not sell a put at that strike. Period.
 
-**Sam:** Mistake number two?
+**Stella:** Mistake number two?
 
-**Alex:** Concentrating too much capital in one position. If you have $100,000 and you sell 5 puts on the same stock, tying up $70,000, one bad drop and you are in serious trouble. Diversify across 4-6 stocks, never more than 20% in any single name.
+**Horace:** Concentrating too much capital in one position. If you have $100,000 and you sell 5 puts on the same stock, tying up $70,000, one bad drop and you are in serious trouble. Diversify across 4-6 stocks, never more than 20% in any single name.
 
 [VISUAL: Two portfolio circles. Left: "BAD - 70% in one stock" with one oversized red segment. Right: "GOOD - Diversified" with 5 roughly equal segments in different colors]
 
-**Sam:** And mistake three?
+**Stella:** And mistake three?
 
-**Alex:** Ignoring the earnings calendar. Earnings can cause 10-20% overnight gaps. If you have a put expiring during earnings week, you are exposed to that gap risk. Always check when earnings are before selling a put.
+**Horace:** Ignoring the earnings calendar. Earnings can cause 10-20% overnight gaps. If you have a put expiring during earnings week, you are exposed to that gap risk. Always check when earnings are before selling a put.
 
-**Sam:** These are all very practical warnings. Any final thoughts?
+**Stella:** These are all very practical warnings. Any final thoughts?
 
-**Alex:** Start small. Sell one put on one stock. Watch the process. See how it feels when the option decays. See what happens at expiration. Get comfortable with the mechanics before scaling up. There is no rush.
+**Horace:** Start small. Sell one put on one stock. Watch the process. See how it feels when the option decays. See what happens at expiration. Get comfortable with the mechanics before scaling up. There is no rush.
 
-**Sam:** Patience and discipline. The themes of this entire course.
+**Stella:** Patience and discipline. The themes of this entire course.
 
-**Alex:** Exactly. Those two qualities are worth more than any strategy.
+**Horace:** Exactly. Those two qualities are worth more than any strategy.
 
-**Sam:** Looking forward to next week when we dive deep into covered calls. Thanks, everyone, for watching.
+**Stella:** Looking forward to next week when we dive deep into covered calls. Thanks, everyone, for watching.
 
-**Alex:** If this video helped you understand options differently, please like, subscribe, and share it with a friend who is intimidated by options. See you next week.
+**Horace:** If this video helped you understand options differently, please like, subscribe, and share it with a friend who is intimidated by options. See you next week.
 
 [VISUAL: End screen with subscribe button, playlist link, and preview thumbnails for Week 27 and Week 28]
 

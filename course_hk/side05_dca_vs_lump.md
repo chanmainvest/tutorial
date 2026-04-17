@@ -1,417 +1,414 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 05: Dollar-Cost Averaging vs. Lump Sum Investing -- The Math, the Data, and the Psychology
+# 附加課程 05：平均成本法與一次過投資 —— 數據、數學與心理學
 
 ---
 
-## PART 1: READING SECTION
+## 第一部分：閱讀章節
 
 ---
 
-### Why This Is Important
+### 為何這個課題重要
 
-At some point, nearly every investor faces this question: "I have a large sum of money to invest. Should I put it all in at once, or spread it out over time?" This comes up when you receive an inheritance, sell a property, get a bonus, roll over a retirement account, or simply accumulate a large cash position you have been meaning to invest.
+幾乎每位投資者都會面對這個問題：「我手上有一大筆錢想投資，應該一次過全部投入，還是分批投入？」這種情況在收到遺產、出售物業、獲得花紅、轉移退休帳戶，或累積了一大筆一直想投資但未有行動的現金時都會出現。
 
-The answer is not as simple as "the math says X, so do X." This is one of those rare financial questions where the mathematically optimal answer and the psychologically optimal answer genuinely diverge for many people. Understanding both sides -- the cold data and the warm reality of human emotion -- makes you a better investor and a better advisor.
+答案並不像「數學告訴你做X，所以就做X」那麼簡單。這是少數幾個在數學上最優的答案與心理上最優的答案對很多人來說確實分歧的財務問題。同時理解兩個層面——冷冰冰的數據與人類情緒的現實——才能讓你成為更好的投資者和更好的顧問。
 
-This lesson presents the evidence fairly, explains why the math favors one approach, and then makes the case for why the other approach can still be the right choice for certain investors in certain situations.
+本課將公正地呈現兩方面的依據，解釋為何數學上偏向其中一個方法，然後說明為何另一個方法對某些投資者在某些情況下仍可能是正確的選擇。
 
 ---
 
-### What You Need to Know
+### 你需要了解的知識
 
-#### Defining the Two Approaches
+#### 定義兩種方法
 
-**Lump Sum Investing (LSI):** You invest the entire amount immediately in your target allocation. If you receive $120,000, you invest all $120,000 on day one.
+**一次過投資（LSI）：** 你立刻將全部金額投入目標資產配置。如果你收到$120,000，你在第一天便全部投入$120,000。
 
-**Dollar-Cost Averaging (DCA):** You divide the total amount into equal portions and invest them at regular intervals over a predetermined period. If you have $120,000, you might invest $10,000 per month for 12 months, or $20,000 per month for 6 months.
+**平均成本法（DCA）：** 你將總金額分成等份，在預定的時間內定期投入。如果你有$120,000，你可以每月投入$10,000，持續12個月，或每月投入$20,000，持續6個月。
 
-**Important distinction:** DCA in this context refers specifically to spreading out a lump sum that is already available. It does not refer to investing from each paycheck as you earn it -- that is simply systematic investing, and it is the only option for most people who do not have a lump sum. Systematic investing is not a choice; it is the default for salaried workers contributing to 401(k)s or brokerage accounts from income.
+**重要區別：** 這裡所說的平均成本法，是指將一筆已到手的資金分批投入。這不是指每月從薪酬中投資——那只是系統性投資，是大多數沒有一筆過資金的人的唯一選擇。系統性投資並非一種選擇，而是薪酬受僱人士定期向強積金或證券帳戶供款的預設做法。
 
-**Common situations where this question arises:**
-- Receiving an inheritance or life insurance payout
-- Selling a home and deciding what to do with the proceeds
-- Rolling over a 401(k) from a former employer into an IRA
-- Receiving a large bonus, stock vesting event, or legal settlement
-- Liquidating a concentrated stock position and reinvesting the proceeds
-- Simply accumulating a large savings balance that you have been meaning to invest but have not yet committed
+**常見出現此問題的情況：**
+- 收到遺產或人壽保險理賠
+- 出售物業後決定如何處理所得款項
+- 將前僱主的退休金計劃轉移至個人退休帳戶
+- 收到大額花紅、股票歸屬或法律和解金
+- 將集中持股套現並重新投資所得款項
+- 累積了大量儲蓄，一直想投資但仍未承諾
 
-Each of these situations carries its own emotional weight. Money from an inheritance feels different from a work bonus, even if the dollar amount is the same. Recognizing the emotional context is important because it will affect your tolerance for different outcomes.
+每種情況都有其特定的情感重量。來自遺產的資金感覺與工作花紅不同，即使金額相同。認識情感背景很重要，因為它會影響你對不同結果的承受能力。
 
-#### The Math: Why Lump Sum Wins on Average
+#### 數學層面：為何一次過投資平均勝出
 
-The fundamental mathematical argument for lump sum investing is straightforward: markets have a positive expected return. Stocks have historically returned about 10% nominal per year. If the expected return is positive, then every day your money sits in cash waiting to be invested, it is earning less than it would in the market.
+支持一次過投資的基本數學論據很簡單：市場的預期回報是正數。股票歷史上名義年回報約為10%。如果預期回報為正，那麼你的資金每多一天放在現金中等待投資，就少賺了市場的一天回報。
 
-**The Vanguard Study (2012, updated periodically):**
-Vanguard's research compared lump sum investing to DCA over 12-month periods across US, UK, and Australian markets. Key findings:
+**先鋒集團研究（2012年，定期更新）：**
+先鋒集團的研究比較了在美國、英國和澳洲市場12個月期間的一次過投資與平均成本法。主要發現：
 
-- Lump sum investing outperformed DCA approximately two-thirds of the time (about 68% of the time in US markets)
-- The average outperformance was about 2.3% over the 12-month DCA period
-- The results held across different asset allocations (100% stocks, 60/40, etc.) and different markets
-- Longer DCA periods (24 months, 36 months) increased the advantage of lump sum because more potential return was foregone
+- 一次過投資在約三分之二（美國市場約68%）的情況下跑贏平均成本法
+- 平均跑贏幅度約為12個月平均成本法期間的2.3%
+- 結果在不同資產配置（100%股票、60/40等）和不同市場中均保持一致
+- 較長的平均成本法期間（24個月、36個月）擴大了一次過投資的優勢，因為放棄的潛在回報更多
 
-**Why two-thirds?** Because markets go up approximately two-thirds of the time. When markets rise during your DCA period, the money you have not yet invested misses out on those gains. You are buying at higher prices with each subsequent installment. Only when markets decline during the DCA period does DCA outperform -- and that happens roughly one-third of the time.
+**為何是三分之二？** 因為市場大約在三分之二的時間上升。當市場在你的平均成本法期間上升時，尚未投入的資金就錯失了這些升幅，你每期都在以更高的價格買入。只有當市場在平均成本法期間下跌時，平均成本法才會跑贏——而這大約在三分之一的時間發生。
 
-**A Simple Illustration:**
+**一個簡單的說明：**
 
-Assume you have $120,000 and are choosing between lump sum and 12-month DCA into an index fund.
+假設你有$120,000，正在選擇一次過投資和12個月平均成本法投入指數基金。
 
-*Scenario A: Market rises steadily, gaining 12% over the year*
+*場景A：市場穩定上升，全年升幅12%*
 
-- Lump Sum: $120,000 invested at start, ending value approximately $134,400
-- DCA: $10,000/month invested at progressively higher prices. The first installment gets 12% growth, the last gets roughly 1% growth. Ending value approximately $127,800
-- Lump sum wins by approximately $6,600
+- 一次過投資：開始時投入$120,000，最終價值約$134,400
+- 平均成本法：每月$10,000，以逐步上漲的價格投入。第一期獲得12%升幅，最後一期約獲1%升幅。最終價值約$127,800
+- 一次過投資勝出約$6,600
 
-*Scenario B: Market drops 20%, then recovers to flat*
+*場景B：市場下跌20%，然後回升至持平*
 
-- Lump Sum: $120,000 invested at start, ending value approximately $120,000
-- DCA: Purchases made at lower prices during the dip mean more shares acquired. Ending value approximately $126,000
-- DCA wins by approximately $6,000
+- 一次過投資：開始時投入$120,000，最終價值約$120,000
+- 平均成本法：在低位期間買入意味著以更低的價格購入更多份額。最終價值約$126,000
+- 平均成本法勝出約$6,000
 
-*Scenario C: Market drops steadily, losing 15% over the year*
+*場景C：市場持續下跌，全年跌幅15%*
 
-- Lump Sum: $120,000 invested at start, ending value approximately $102,000
-- DCA: Purchases made at progressively lower prices. Ending value approximately $109,200
-- DCA wins by approximately $7,200
+- 一次過投資：開始時投入$120,000，最終價值約$102,000
+- 平均成本法：以逐步下跌的價格買入。最終價值約$109,200
+- 平均成本法勝出約$7,200
 
-The problem: Scenario A occurs far more often than Scenarios B and C combined. Markets rise in roughly 75% of calendar years, and the years they rise tend to have larger gains than the average loss in declining years.
+問題在於：場景A出現的頻率遠高於場景B和C的總和。市場在大約75%的曆年中上升，而上升年份的升幅往往大於下跌年份的平均跌幅。
 
-*Scenario D: Market is volatile but ends flat*
+*場景D：市場波動但最終持平*
 
-- Lump Sum: $120,000 invested at start, ending value approximately $120,000
-- DCA: Purchases made at varying prices throughout the year. If the path was symmetrically volatile (equal dips and rallies), DCA may end up slightly ahead due to buying more shares during the dips. Ending value approximately $121,500
-- DCA wins by approximately $1,500
+- 一次過投資：開始時投入$120,000，最終價值約$120,000
+- 平均成本法：全年以不同價格買入。如果走勢是對稱波動（跌升相當），由於在低位買入更多份額，平均成本法可能略勝。最終價值約$121,500
+- 平均成本法勝出約$1,500
 
-This last scenario illustrates the mathematical property of DCA that its proponents love: the unit cost advantage. Because you buy a fixed dollar amount each period, you acquire more shares when prices are low and fewer when prices are high. Your average cost per share is always less than or equal to the average price per share. However, this advantage only matters if there is meaningful price variation within the DCA period, and it is small relative to the directional trend of the market.
+最後這個場景說明了平均成本法支持者喜愛的數學特性：單位成本優勢。由於每期投入固定金額，你在價格低時購入更多份額，在價格高時購入更少。你的每份平均成本永遠低於或等於平均價格。然而，只有當平均成本法期間價格出現明顯波動時，這個優勢才有意義，而且相對於市場的方向性趨勢，這個優勢並不大。
 
-#### The Historical Data in More Detail
+#### 更詳細的歷史數據
 
-Looking at every possible 12-month DCA period for the S&P 500 since 1926:
+查看1926年以來標普500每個可能的12個月平均成本法期間：
 
-- Lump sum beat DCA in approximately 68% of periods
-- When lump sum won, the average margin was about 2.4%
-- When DCA won, the average margin was about 1.8%
-- The worst outcome for lump sum was investing right before a major crash (1929, 2000, 2008)
-- Even in those worst cases, the lump sum investor recovered within 3-5 years
+- 一次過投資在約68%的期間跑贏平均成本法
+- 一次過投資跑贏時，平均優勢約2.4%
+- 平均成本法跑贏時，平均優勢約1.8%
+- 一次過投資最差的結果是在大型崩盤前投入（1929年、2000年、2008年）
+- 即使在最壞的情況下，一次過投資者也在3至5年內恢復
 
-**The 60/40 perspective:** For a balanced 60% stock / 40% bond allocation, lump sum still won approximately 65% of the time, with a smaller average margin of outperformance. This is because the bond allocation dampens both the upside of lump sum (less equity exposure to capture rising markets) and the downside risk.
+**60/40的角度：** 對於均衡的60%股票/40%債券組合，一次過投資仍在約65%的時間跑贏，平均跑贏幅度較小。這是因為債券配置同時削弱了一次過投資的上升潛力（較少股票敞口捕捉市場上升）和下行風險。
 
-**Rolling 10-year outcomes:** When measured over 10-year horizons (after the DCA period is complete), the difference between the two approaches shrinks dramatically. The choice between LSI and DCA primarily affects your first 1-2 years of returns. Over longer horizons, your asset allocation and savings rate matter far more.
+**滾動10年結果：** 以10年時間範圍衡量（平均成本法期間完成後），兩種方法之間的差異大幅縮小。選擇一次過投資或平均成本法主要影響你頭1至2年的回報。長期而言，你的資產配置和儲蓄率遠比入市方式重要。
 
-#### The Psychological Case for DCA
+#### 支持平均成本法的心理論據
 
-If the math clearly favors lump sum, why does DCA remain so popular and so frequently recommended?
+如果數學上明顯偏向一次過投資，為何平均成本法仍然如此流行並被頻繁推薦？
 
-**Regret aversion:** The pain of investing a lump sum right before a market crash is psychologically devastating. If you invest $200,000 on Monday and the market drops 30% by Friday, you have lost $60,000 in a week. Even though the expected value of lump sum is higher, the worst-case scenario is significantly worse. DCA limits the maximum possible regret.
+**後悔厭惡：** 在市場崩盤前投入一大筆錢的心理打擊是毀滅性的。如果你週一投入$200,000，而到週五市場下跌30%，你在一週內損失了$60,000。儘管一次過投資的預期價值更高，但最壞情況下的損失明顯更大。平均成本法限制了最大可能的後悔程度。
 
-**Loss aversion:** Research consistently shows that the pain of losses is roughly twice as intense as the pleasure of equivalent gains. This means the psychological cost of the scenarios where lump sum loses exceeds the psychological benefit of the more frequent scenarios where lump sum wins.
+**損失厭惡：** 研究一致表明，損失帶來的痛苦大約是等值收益帶來的喜悅的兩倍。這意味著一次過投資輸的場景的心理代價，超過了更頻繁出現的一次過投資贏的場景帶來的心理收益。
 
-**Action bias:** DCA provides a structured plan. Instead of making one terrifying large decision, you make twelve smaller, less scary decisions. Each installment is routine rather than monumental.
+**行動偏好：** 平均成本法提供了一個結構化的計劃。你不需要做出一個令人恐懼的重大決定，而是做出十二個較小、不那麼可怕的決定。每次投入都是例行公事，而非重大事件。
 
-**Commitment device:** DCA forces you to actually invest. Some investors who plan to invest a lump sum end up procrastinating indefinitely due to fear. They wait for the "right time," which never comes. DCA solves this by removing the decision about timing from the equation.
+**承諾機制：** 平均成本法迫使你真正去投資。一些計劃一次過投資的投資者因恐懼而無限期拖延。他們等待「合適的時機」，但這個時機永遠不會來。平均成本法通過排除擇時決策來解決這個問題。
 
-**Sleep-at-night factor:** The most important investment is the one you can stick with. If lump sum investing causes so much anxiety that you second-guess every downtick and eventually panic-sell, the mathematically superior strategy has produced a worse outcome than the suboptimal-on-paper DCA approach.
+**安睡因素：** 最重要的投資是你能堅持下去的那種。如果一次過投資讓你焦慮得對每次下跌都猶豫不決，最終恐慌出貨，那麼這個數學上優越的策略反而帶來比平均成本法更差的結果。
 
-#### The Compromise Approaches
+#### 折衷方法
 
-Several hybrid strategies attempt to capture some of lump sum's mathematical advantage while managing DCA's psychological benefits:
+幾種混合策略試圖兼顧一次過投資的數學優勢和平均成本法的心理好處：
 
-**Accelerated DCA:** Instead of 12 months, compress to 3-4 months. This reduces the opportunity cost of waiting while still providing psychological comfort. Some research suggests that 3-month DCA captures most of the "regret reduction" benefit with less drag on expected returns.
+**加速式平均成本法：** 將時間壓縮至3至4個月，而非12個月。這減少了等待的機會成本，同時仍提供不需要一天全部投入的心理安慰。一些研究表明，3個月的平均成本法能以較小的回報拖累獲得大部分「減少後悔」的好處。
 
-**Partial Lump Sum + DCA:** Invest 50% immediately and DCA the remaining 50% over 6-12 months. This captures much of the lump sum's expected value advantage while reducing the maximum potential regret.
+**部分一次過 + 平均成本法：** 立刻投入50%，其餘50%在6至12個月內平均投入。這能捕捉大部分一次過投資的預期價值優勢，同時將最大可能的後悔減半。
 
-**Value Averaging:** Instead of investing a fixed dollar amount each period, you adjust contributions to make the portfolio value follow a target growth path. When markets drop, you invest more. When markets rise, you invest less (or even sell). This approach is more complex but studies suggest it produces slightly better risk-adjusted returns than standard DCA.
+**價值平均法：** 不是每期投入固定金額，而是調整供款以使投資組合價值遵循目標增長路徑。當市場下跌時，你投入更多。當市場上升時，你投入更少（甚至出售）。這種方法較為複雜，但研究表明它能比標準平均成本法產生略好的風險調整後回報。
 
-**Tiered Entry:** Invest a fixed percentage of the remaining uninvested cash each month. For example, invest 25% of remaining cash each month. Month 1: invest $30,000 of $120,000. Month 2: invest $22,500 of remaining $90,000. Month 3: invest $16,875 of remaining $67,500. This front-loads the investment (getting more in early, which is closer to lump sum) while maintaining a DCA-like schedule. The exponential decay means most of the money is invested within the first few months.
+**分層入市：** 每月投入剩餘未投資現金的固定百分比。例如，每月投入剩餘現金的25%。第1個月：從$120,000中投入$30,000。第2個月：從剩餘$90,000中投入$22,500。第3個月：從剩餘$67,500中投入$16,875。這將投資前置（早期投入更多，更接近一次過投資），同時維持類似平均成本法的時間表。指數遞減意味著大部分資金在頭幾個月內完成投資。
 
-#### The Role of Risk Tolerance in the Decision
+#### 風險承受能力在決策中的作用
 
-One underappreciated factor: your risk tolerance should influence not just your asset allocation but also your entry strategy.
+一個被低估的因素：你的風險承受能力不僅影響你的資產配置，也影響你的入市策略。
 
-**High risk tolerance:** You are comfortable with large portfolio swings, you have a long time horizon, and you understand that short-term losses are temporary. Lump sum is the natural choice. You accept the variance in exchange for the higher expected return.
+**高風險承受能力：** 你能承受投資組合的大幅波動，你有很長的投資期，你明白短期損失是暫時的。一次過投資是自然的選擇。你以接受波動換取更高的預期回報。
 
-**Low risk tolerance:** You check your portfolio daily, you lose sleep over small declines, and a 20% drawdown would cause you to panic-sell. DCA is the better choice because it reduces the chance of a traumatic early experience that could lead to permanently leaving the market.
+**低風險承受能力：** 你每天查看投資組合，輕微下跌也讓你失眠，20%的回撤會讓你恐慌出貨。平均成本法是更好的選擇，因為它降低了早期有創傷性體驗的可能，那種體驗可能導致你永久離開市場。
 
-**Medium risk tolerance (most people):** The hybrid approaches -- accelerated DCA or partial lump sum -- hit the sweet spot. You get most of the mathematical advantage while limiting the emotional downside.
+**中等風險承受能力（大多數人）：** 混合方法——加速式平均成本法或部分一次過投資——找到了最佳平衡點。你獲得了大部分數學優勢，同時限制了情緒上的下行風險。
 
-The honest truth is that most people overestimate their risk tolerance during bull markets and underestimate it during bear markets. If you have never experienced a significant loss on a large lump sum investment, you may not know how you will react. Choosing a more conservative entry strategy as a form of self-insurance is entirely rational.
+誠實的說法是，大多數人在牛市中高估自己的風險承受能力，在熊市中低估它。如果你從未在大額一次過投資上經歷過重大損失，你可能不知道自己會如何反應。選擇更保守的入市策略作為一種自我保險是完全理性的。
 
-#### A Note on Tax Implications
+#### 關於稅務影響的說明
 
-The lump sum vs. DCA decision can have tax consequences that are rarely discussed:
+一次過投資與平均成本法的決定可能有稅務影響，但這很少被討論：
 
-**In taxable accounts:** Lump sum investing establishes one cost basis date for the entire investment. DCA creates multiple cost basis lots at different prices. This can be advantageous for future tax-loss harvesting because some lots may be at a loss even if the overall position is at a gain.
+**在應稅帳戶中：** 一次過投資為整個投資建立一個成本基礎日期。平均成本法在不同價格創建多個成本基礎批次。這對未來的稅務損失收割可能有利，因為即使整體持倉盈利，某些批次可能處於虧損狀態。
 
-**Capital gains implications:** If the lump sum comes from selling another investment, you may owe capital gains tax on the sale. In this case, spreading the sale over two tax years (selling half in December and half in January) can reduce the tax impact by spreading gains across two tax years and potentially staying in a lower bracket.
+**資本增值影響：** 如果一次過投資的資金來自出售另一項投資，你可能需要就出售繳納資本增值稅。在這種情況下，將出售分散至兩個稅務年度（12月出售一半，1月出售另一半），通過將增益分散至兩個稅務年度並可能維持在較低稅率級別來減少稅務影響。
 
-**In tax-advantaged accounts (IRA, 401k):** There are no tax implications of the entry strategy because gains, losses, dividends, and capital gains are not taxed until withdrawal. In these accounts, the decision is purely about expected return vs. regret management.
+**在稅務優惠帳戶（個人退休帳戶、401k）中：** 入市策略沒有稅務影響，因為增益、損失、股息和資本增值在提取前不徵稅。在這些帳戶中，決定純粹是關於預期回報與後悔管理的問題。
 
-**Trigger-Based Investing:** Invest the lump sum, but only after a predetermined trigger (a 5% market pullback, for example). The risk is that the trigger never occurs, and you have been waiting in cash while markets rose. Historical analysis shows that "buy the dip" strategies underperform buy-and-hold because dips are unpredictable and markets spend most of their time near highs.
+**觸發條件投資：** 投入一次過資金，但只在預定觸發條件（例如市場下跌5%）發生後才行動。風險在於觸發條件可能永遠不會出現，而你在市場上升時一直在現金中等待。歷史分析表明，「逢低買入」策略跑輸買入持有策略，因為低位難以預測，而市場大部分時間都接近高位。
 
-#### What the Research Really Says
+#### 研究的真正啟示
 
-The most honest summary of the research:
+最誠實的研究總結：
 
-1. **Lump sum is the better strategy in terms of expected wealth.** The math is clear and the historical evidence is robust.
+1. **一次過投資在預期財富方面是更好的策略。** 數學是清晰的，歷史依據是可靠的。
 
-2. **DCA is a reasonable strategy for investors who would otherwise not invest at all.** The best strategy is the one you will actually follow through on.
+2. **平均成本法對否則不會投資的投資者來說是合理的策略。** 最好的策略是你真正能夠堅持執行的那種。
 
-3. **The difference between the two is smaller than most people think.** Over a 30-year investing career, whether you lump-summed or DCA'd your initial investment matters far less than how much you saved, what your asset allocation was, and whether you stayed invested through downturns.
+3. **兩者之間的差異比大多數人認為的要小。** 在30年的投資生涯中，你最初的投資是一次過還是平均成本法，遠不如你儲蓄了多少、你的資產配置是什麼，以及你是否在下跌期間保持投資重要。
 
-4. **Neither approach involves market timing.** Lump sum is not "betting on the market going up." It is accepting the market's positive expected return. DCA is not "timing the market." It is deliberately delaying exposure to the market's positive expected return.
+4. **兩種方法都不涉及擇時。** 一次過投資不是「賭市場會上升」，而是接受市場的正預期回報。平均成本法不是「市場擇時」，而是故意延遲對市場正預期回報的敞口。
 
-5. **The question only arises with lump sums.** For ongoing contributions from income, systematic investing (which resembles DCA) is the only practical option and is an excellent strategy.
+5. **這個問題只在有一次過資金時才會出現。** 對於從收入持續供款，系統性投資（類似平均成本法）是唯一實際可行的選擇，也是一個出色的策略。
 
-#### What About International and Bond Allocations?
+#### 關於國際股票和債券配置？
 
-The lump sum vs. DCA debate is typically framed around equities, but it applies to all asset classes.
+一次過投資與平均成本法的爭論通常圍繞股票展開，但它適用於所有資產類別。
 
-**Bonds:** The advantage of lump sum is smaller for bonds because expected returns are lower and volatility is lower. The opportunity cost of waiting is smaller, and the downside risk of bad timing is smaller. For a pure bond allocation, the choice between LSI and DCA matters very little.
+**債券：** 一次過投資的優勢對債券來說不那麼明顯，因為預期回報較低，波動性也較低。等待的機會成本較小，擇時不當的下行風險也較小。對於純債券配置，一次過投資和平均成本法之間的差異微乎其微。
 
-**International equities:** The results are consistent with US equities. Vanguard's research across UK and Australian markets found similar two-thirds lump sum advantage. International markets have their own return characteristics, but the fundamental logic -- positive expected returns mean waiting costs money -- applies universally.
+**國際股票：** 結果與美國股票一致。先鋒集團在英國和澳洲市場的研究發現了類似的三分之二一次過投資優勢。國際市場有其自身的回報特徵，但基本邏輯——正預期回報意味著等待有代價——普遍適用。
 
-**60/40 portfolio:** Lump sum still wins approximately 65% of the time for a balanced portfolio. The margin of victory is smaller because the bond allocation dampens both upside and downside. For risk-averse investors choosing DCA for a balanced portfolio, the expected cost of DCA is quite small, often less than 1%.
+**60/40投資組合：** 對於均衡投資組合，一次過投資仍在約65%的時間跑贏。由於債券配置同時削弱了上行和下行空間，優勢幅度較小。對於選擇平均成本法的風險厭惡型投資者，平均成本法的預期代價相當小，通常不足1%。
 
-#### The Opportunity Cost of Cash
+#### 現金的機會成本
 
-While debating LSI vs. DCA, do not forget that cash is not return-free. If your uninvested cash earns 4-5% in a money market or high-yield savings account, the opportunity cost of DCA is reduced. The relevant comparison is not "invested vs. earning nothing" but "invested in your target allocation vs. earning the cash rate."
+在討論一次過投資與平均成本法時，不要忘記現金並非零回報的。如果你未投資的現金在貨幣市場或高息儲蓄帳戶獲得4至5%的回報，平均成本法的機會成本就會降低。相關比較不是「已投資與零回報」，而是「投資於目標配置與賺取現金利率」。
 
-In a high-rate environment (cash yielding 5%), the cost of 12-month DCA is smaller because the uninvested portion earns a reasonable return. In a low-rate environment (cash yielding 0.5%), the cost of DCA is larger because cash is essentially dead money.
+在高利率環境中（現金收益率5%），12個月平均成本法的代價較小，因為未投資部分獲得合理回報。在低利率環境中（現金收益率0.5%），平均成本法的代價較大，因為現金基本上是死錢。
 
-This nuance matters practically. If cash rates are high, the psychological comfort of DCA comes at a lower cost, making it a more reasonable choice. If cash rates are near zero, the argument for lump sum is even stronger.
+這個細微差別在實際操作中很重要。如果現金利率高，平均成本法的心理安慰代價較低，使其成為更合理的選擇。如果現金利率接近零，一次過投資的論點就更加強力。
 
-#### Behavioral Traps to Avoid
+#### 避免的行為陷阱
 
-**Analysis paralysis:** The worst outcome is deciding between lump sum and DCA and ending up doing neither. Cash sitting in a savings account earning 4% while you deliberate for three years about investing in a portfolio expected to earn 8% is costlier than either LSI or DCA.
+**分析癱瘓：** 最壞的結果是在一次過投資和平均成本法之間猶豫不決，最終什麼都不做。現金坐在儲蓄帳戶賺取4%，而你就是否投資於預期回報8%的投資組合爭論了三年，這比一次過投資或平均成本法的代價更大。
 
-**Moving the goalposts:** You decide on 12-month DCA, but after 4 months the market drops and you stop the plan, thinking you should wait for it to drop further. Now you are market timing, which is a worse strategy than either LSI or DCA.
+**移動目標：** 你決定12個月平均成本法，但4個月後市場下跌，你停止了計劃，認為應該等市場進一步下跌。現在你在進行市場擇時，這比一次過投資或平均成本法都是更差的策略。
 
-**Outcome bias:** If you lump sum and the market drops, do not conclude that you made a bad decision. You made a statistically sound decision that had an unfavorable outcome. If you flip a fair coin and bet on heads, and it comes up tails, the bet was still rational.
+**結果偏差：** 如果你一次過投資後市場下跌，不要認為你做了一個糟糕的決定。你做了一個統計上合理的決定，只是結果不利。如果你擲一枚公正的硬幣並押正面，但出現了反面，這個賭注仍然是理性的。
 
-**Recency bias:** If markets have been rising sharply, you might feel that a crash is imminent and choose DCA. If markets have been falling, you might feel they will continue falling and choose DCA. Both feelings are forms of recency bias. Markets are not mechanical -- recent performance does not reliably predict near-term future performance.
+**近因偏差：** 如果市場一直在急速上升，你可能覺得崩盤即將來臨並選擇平均成本法。如果市場一直在下跌，你可能覺得市場會繼續下跌並選擇平均成本法。這兩種感覺都是近因偏差的形式。市場不是機械的——近期表現並不能可靠地預測短期未來表現。
 
-**Anchoring to a past price:** "I will invest when it gets back to where it was three months ago." The market's previous price has no relevance to its future direction. Anchoring to a past price is market timing in disguise.
+**錨定過去價格：** 「我等市場回到三個月前的水平才投資。」市場的過去價格與其未來方向無關。錨定過去價格是偽裝成系統方法的市場擇時。
 
-#### Practical Recommendations
+#### 實際建議
 
-For most investors with a lump sum to invest:
+對於大多數手上有一次過資金的投資者：
 
-1. **If you can handle volatility emotionally and your time horizon is long (10+ years):** Lump sum invest and do not look at the portfolio for a month.
+1. **如果你能在情緒上承受波動且投資期很長（10年以上）：** 一次過投資，一個月內不要查看投資組合。
 
-2. **If you are anxious about a big market move and it is affecting your sleep or decision-making:** Use accelerated DCA over 3-6 months. The expected cost is small, and the psychological benefit is real.
+2. **如果你對大幅市場波動感到焦慮且影響了你的睡眠或決策：** 使用3至6個月的加速式平均成本法。預期代價很小，而心理好處是真實的。
 
-3. **If you are completely paralyzed and the alternative is keeping it all in cash:** DCA over 12 months. Getting invested slowly is infinitely better than never getting invested.
+3. **如果你完全陷入癱瘓且替代方案是全部留在現金中：** 12個月的平均成本法。緩慢地完成投資比永遠不投資好無數倍。
 
-4. **Regardless of approach:** Determine your target asset allocation first. Whether you invest all at once or over time, the target is the same. Do not let the investment method distract from the asset allocation decision, which matters far more in the long run.
+4. **無論採用哪種方法：** 首先確定你的目標資產配置。無論你是一次性投入還是分批投入，目標都是相同的。不要讓投資方式分散了你對資產配置決策的注意力，後者從長遠來看重要得多。
 
 ---
 
-### Common Misconceptions
+### 常見誤解
 
-**"DCA eliminates risk."**
-DCA does not eliminate risk. Once your DCA plan is complete, you have the same market exposure as a lump sum investor. DCA only reduces the risk of poor timing on the entry point. It does not protect you from a bear market that begins after your DCA is complete. Your long-term risk is determined by your asset allocation, not your entry strategy.
+**「平均成本法消除了風險。」**
+平均成本法不能消除風險。一旦你的平均成本法計劃完成，你的市場敞口與一次過投資者相同。平均成本法只是降低了入市時機不佳的風險。它不能保護你免受平均成本法完成後開始的熊市影響。你的長期風險由資產配置決定，而非入市策略。
 
-**"Lump sum investing is market timing."**
-No. Market timing means trying to predict whether the market will go up or down and adjusting your allocation accordingly. Lump sum investing accepts that you cannot predict the market's direction and invests immediately based on the long-term positive expected return. Ironically, DCA is closer to a market-timing bet -- it implicitly assumes that waiting is better than investing now, which requires the market to decline or stay flat.
+**「一次過投資是市場擇時。」**
+不是的。市場擇時是指試圖預測市場是否會上升或下跌，並相應地調整你的配置。一次過投資接受你無法預測市場方向，並根據長期正預期回報立即投資。諷刺的是，平均成本法更接近市場擇時的賭注——它隱含地假設等待比現在投資更好，這需要市場下跌或持平。
 
-**"DCA guarantees you buy more shares at lower prices."**
-DCA does cause you to buy more shares when prices are low and fewer when prices are high -- this is mathematically true and is called the "unit cost advantage." However, this advantage only helps if prices eventually recover above the average purchase price. In a steadily declining market that never recovers (rare for broad indices but possible for individual stocks or sectors), DCA simply means you keep buying into a losing position.
+**「平均成本法保證你以更低的價格買入更多份額。」**
+平均成本法確實讓你在價格低時買入更多份額，在價格高時買入更少——這在數學上是正確的，稱為「單位成本優勢」。然而，這個優勢只有在價格最終回升至平均買入成本以上時才有幫助。在持續下跌且從未恢復的市場中（對廣泛指數而言罕見，但對個別股票或板塊是可能的），平均成本法只是意味著你繼續買入一個虧損的倉位。
 
-**"The longer the DCA period, the safer I am."**
-Extending the DCA period beyond 12 months increases the opportunity cost without proportionally increasing the downside protection. You are not safer with 36-month DCA than 12-month DCA -- you just have more money sitting in cash earning less than its expected return for a longer time.
+**「平均成本法期間越長，我就越安全。」**
+將平均成本法期間延長至12個月以上，增加了機會成本但沒有相應增加下行保護。36個月的平均成本法並不比12個月的更安全——只是更多的現金在更長的時間內賺取低於預期回報的收益。
 
-**"I should DCA into the market right now because valuations are high."**
-This is a form of market timing disguised as a DCA decision. If you believe valuations are too high, you are making a prediction about future returns. Research shows that valuation metrics (like P/E ratios) have limited predictive power over short horizons and moderate predictive power only over 7-10 year horizons. If your investment horizon is 20+ years, current valuations should not drive your entry strategy.
+**「我現在應該以平均成本法入市，因為估值偏高。」**
+這是偽裝成平均成本法決定的市場擇時。如果你認為估值過高，你是在對未來回報做預測。研究表明，估值指標（如市盈率）在短期內的預測能力有限，只在7至10年視野上才有中等預測能力。如果你的投資期在20年以上，當前估值不應該驅動你的入市策略。
 
-**"Studies showing lump sum wins are biased because they use US data during a bull market."**
-Vanguard's research included UK and Australian markets and covered periods that included world wars, depressions, and deep bear markets. The results were consistent across geographies and time periods. The key driver is simply that markets have a positive expected return, which is true by definition for risk assets (if the expected return were not positive, no one would invest).
+**「顯示一次過投資獲勝的研究有偏差，因為它們使用了牛市期間的美國數據。」**
+先鋒集團的研究涵蓋了英國和澳洲市場，涵蓋了包括世界大戰、大蕭條和深度熊市在內的時期。結果在不同地域和時間段保持一致。關鍵驅動因素只是市場有正預期回報，這對風險資產來說是定義上正確的（如果預期回報不是正數，沒有人會投資）。
 
-**"I should wait for a pullback before investing."**
-This is market timing dressed up as prudence. Every day you wait for a pullback is a day the market may be going up. Pullbacks are unpredictable, and even when they occur, investors often cannot bring themselves to buy because the same fear that kept them out of the market is amplified during a decline. "I will invest when the market drops 10%" becomes "I will wait for 15% because it might fall further," and the opportunity is missed entirely. Research consistently shows that "buy the dip" strategies underperform immediate investing.
+**「我應該等市場回調後再投資。」**
+這是偽裝成謹慎的市場擇時。你每等一天等待回調，市場可能就在上升。回調是不可預測的，即使發生了，投資者往往無法鼓起勇氣買入，因為驅使他們遠離市場的恐懼在下跌期間被放大了。「市場跌10%我就投資」變成「等跌15%才投，因為可能還會更跌」，結果機會完全錯失。研究一致表明，「逢低買入」策略跑輸立刻投資。
 
-**"DCA is what I do with my paycheck, so I already use this strategy."**
-Investing each paycheck as it arrives is not DCA in the academic sense. It is simply investing money as it becomes available, which is the optimal and only practical approach for earned income. The DCA debate applies exclusively to the situation where you already have a lump sum and are choosing to delay deployment. Regular payroll contributions to a 401(k) are prompt investing, not dollar cost averaging.
-
----
-
-### Q&A Section
-
-**Q: I just inherited $500,000. What should I do?**
-A: First, do not rush. Take a few weeks to determine your financial goals, risk tolerance, and target asset allocation. These decisions matter far more than the lump sum vs. DCA question. If you decide on a 60/40 stock/bond portfolio, the data supports investing the full $500,000 into that allocation immediately. If the size of the investment makes you anxious, invest $250,000 immediately and DCA the rest over 3-6 months. Either way, get invested -- the worst outcome is leaving it in cash for years due to indecision.
-
-**Q: Does the answer change depending on market conditions?**
-A: The honest answer is "slightly, but not enough to change the recommendation for most people." During periods of elevated valuations (high CAPE ratio), lump sum's advantage narrows somewhat because expected forward returns are lower. But timing the market based on valuations is extremely difficult, and even in high-valuation environments, lump sum still outperforms DCA more often than not.
-
-**Q: What about investing a lump sum into bonds versus stocks?**
-A: The lump sum advantage is less pronounced for bonds because their expected returns are lower and their volatility is lower. The opportunity cost of waiting is smaller. For a pure bond allocation, the difference between LSI and DCA is modest enough that it barely matters.
-
-**Q: My friend invested a lump sum in January 2008 and lost 40%. Is not that proof that DCA is better?**
-A: It is proof that lump sum can have bad outcomes. But someone who invested a lump sum in January 2008 and held for 10 years still ended up with positive returns. The question is not whether bad outcomes are possible (they are) but whether they are probable (they are not) and whether the long-term outcome is acceptable (for patient investors, it usually is). Also, the person who DCA'd throughout 2008 ended up with a great outcome -- but this was knowable only in hindsight.
-
-**Q: Can I combine DCA with value averaging?**
-A: Yes, but it adds complexity. Value averaging requires you to invest more when markets drop and less when they rise, which means you need additional cash reserves. It also requires more attention and discipline. For most investors, simple DCA or lump sum is sufficient. Value averaging is a reasonable approach for those who enjoy optimizing and can commit to the process.
-
-**Q: Does systematic investing from each paycheck have the same issues?**
-A: No. Systematic investing from income is not a DCA-vs-lump-sum decision because you do not have the lump sum available upfront. You are investing as the money arrives, which is the optimal and only practical approach. Every paycheck contribution is itself a lump sum investment of whatever you can save that period. The academic DCA debate applies only when you already have the full sum and are choosing to delay investment.
-
-**Q: What is the ideal DCA interval if I decide to DCA?**
-A: Monthly installments over 3-12 months is the most common and practical approach. Weekly installments add complexity without meaningful benefit. Quarterly installments stretch the timeline too long. The sweet spot for most people is 4-6 monthly installments, which provides psychological comfort without excessive opportunity cost.
-
-**Q: If I lump sum and the market immediately crashes, should I sell?**
-A: Absolutely not. Selling after a crash locks in losses and converts a temporary decline into a permanent loss. If your asset allocation was appropriate before the crash, it is still appropriate after. Market crashes are temporary; the returns you miss by selling are permanent. This is why the asset allocation decision and your ability to stick with it matter far more than the entry strategy.
-
-**Q: I have been holding cash for two years waiting for a pullback. Is it too late to lump sum?**
-A: It is never too late. The same logic that favored lump sum investing two years ago applies today. Markets have a positive expected return from any starting point. If you invest today, you are making the statistically optimal decision going forward. Do not compound the cost of the past two years of missed returns by waiting even longer. The best time to invest was two years ago. The second best time is today.
-
-**Q: How does DCA interact with tax considerations?**
-A: In taxable accounts, DCA creates multiple tax lots purchased at different prices and dates, which can be advantageous for future tax-loss harvesting. If some lots decline while others appreciate, you can selectively harvest losses. Lump sum creates a single large tax lot. From a pure tax-optimization standpoint, multiple lots provide more flexibility. However, this modest advantage does not outweigh the expected return advantage of lump sum investing.
-
-**Q: What if I am investing a large sum into a volatile asset like small-cap stocks or emerging markets?**
-A: The more volatile the asset class, the wider the range of potential outcomes from lump sum investing -- both on the upside and the downside. This makes the psychological case for DCA somewhat stronger, even though the mathematical case for lump sum still holds (higher expected returns in volatile asset classes mean greater opportunity cost of waiting). If you are investing a lump sum into a particularly volatile asset class and find the risk uncomfortable, DCA over a shorter period of three to four months is a reasonable compromise.
-
-**Q: Should I use different approaches for different portions of my portfolio?**
-A: This is a pragmatic approach that some advisors recommend. You could lump sum the bond allocation (lower volatility, less emotional risk) and DCA the equity allocation (higher volatility, more emotional risk). Or lump sum into large-cap stocks and DCA into more volatile small-cap and international allocations. This hybrid approach acknowledges that different asset classes carry different psychological weight for investors.
+**「平均成本法就是我對薪水所做的，所以我已經在使用這個策略了。」**
+每月從薪水中投資並非學術意義上的平均成本法。這只是在資金到手時立即投資，是從勞動收入投資的最優且唯一可行的方法。每次薪水供款本身就是你在那個時期能儲蓄的金額的一次過投資。學術上的平均成本法爭論只適用於你已經擁有全部資金並選擇延遲部署的情況。每月向強積金供款是立即投資，不是平均成本法。
 
 ---
 
-## PART 2: YOUTUBE SCRIPT
+### 問答環節
+
+**問：我剛繼承了$500,000。我應該怎麼做？**
+答：首先，不要急。花幾週時間確定你的財務目標、風險承受能力和目標資產配置。這些決定遠比一次過投資與平均成本法的問題重要。如果你決定採用60/40的股票/債券組合，數據支持立即將全部$500,000投入該配置。如果投資的規模讓你感到焦慮，立刻投入$250,000，其餘在3至6個月內平均成本法投入。無論如何，要完成投資——最壞的結果是因猶豫不決而將其留在現金中多年。
+
+**問：答案會因市況而改變嗎？**
+答：誠實的回答是「略有，但不足以改變大多數人的建議。」在估值偏高（高周期調整市盈率）時期，一次過投資的優勢有所收窄，因為預期未來回報較低。但根據估值進行市場擇時極為困難，即使在高估值環境中，一次過投資仍然比平均成本法更頻繁地跑贏。
+
+**問：將一次過資金投入債券與股票的答案有何不同？**
+答：一次過投資對債券的優勢不那麼明顯，因為預期回報較低，波動性也較低。等待的機會成本較小。對於純債券配置，一次過投資和平均成本法之間的差異微乎其微。
+
+**問：我的朋友在2008年1月一次過投資，損失了40%。這不是證明平均成本法更好嗎？**
+答：這證明了一次過投資可能有糟糕的結果。但2008年1月一次過投資並持有10年的人仍然獲得了正回報。問題不是糟糕的結果是否可能（是的），而是它們是否可能發生（不太可能），以及長期結果是否可以接受（對有耐心的投資者來說通常是的）。另外，在整個2008年平均成本法投入的人最終獲得了很好的結果——但這只有事後才能知道。
+
+**問：我可以將平均成本法與價值平均法結合嗎？**
+答：可以，但這增加了複雜性。價值平均法需要你在市場下跌時投入更多，在市場上升時投入更少，這意味著你需要額外的現金儲備。它還需要更多關注和紀律。對大多數投資者來說，簡單的平均成本法或一次過投資就已足夠。價值平均法對喜歡優化且能承諾執行過程的投資者來說是合理的方法。
+
+**問：每月從薪水中系統性投資是否有同樣的問題？**
+答：不。從收入中系統性投資不是平均成本法與一次過投資的決定，因為你沒有預先準備好一次過資金。你在資金到手時投資，這是最優且唯一可行的方法。每次薪水供款本身就是你在那個時期所能儲蓄的金額的一次過投資。學術上的平均成本法爭論只適用於你已經擁有全部資金並選擇延遲部署的情況。
+
+**問：如果我決定使用平均成本法，理想的投資間隔是什麼？**
+答：12個月內的月度供款是最常見且實際的方法。週度供款增加了複雜性但沒有帶來顯著好處。季度供款拉長了時間線。大多數人的最佳選擇是4至6個月的月度供款，這在提供心理安慰的同時不會造成過多的機會成本。
+
+**問：如果我一次過投資後市場立即崩盤，我應該賣出嗎？**
+答：絕對不要。在崩盤後賣出會鎖定損失，並將臨時下跌轉變為永久損失。如果你在崩盤前的資產配置是合適的，崩盤後它仍然是合適的。市場崩盤是暫時的；你因賣出而錯失的回報是永久的。這就是為什麼資產配置決定和你堅持它的能力比入市策略重要得多。
+
+**問：我已經持有現金兩年等待回調。現在進行一次過投資還來得及嗎？**
+答：永遠都不算太晚。兩年前支持一次過投資的同樣邏輯今天仍然適用。市場從任何起點都有正預期回報。如果你今天投資，你正在做統計上最優的決定。不要因過去兩年錯失的回報而繼續等待。投資的最佳時機是兩年前。第二好的時機是今天。
+
+**問：平均成本法如何與稅務考慮互動？**
+答：在應稅帳戶中，平均成本法在不同價格和日期創建多個稅務批次，這對未來的稅務損失收割可能有利。如果一些批次下跌而其他批次升值，你可以選擇性地收割損失。一次過投資創建一個大型稅務批次。從純稅務優化角度來看，多個批次提供了更多靈活性。然而，這個適度的優勢並不超過一次過投資的預期回報優勢。
+
+**問：如果我將一大筆資金投入波動性較大的資產類別，如小型股票或新興市場，應該怎麼做？**
+答：資產類別波動性越大，一次過投資的潛在結果範圍就越廣——無論是上行還是下行。這使得平均成本法的心理論點更強，儘管一次過投資的數學論點仍然成立（波動性資產類別的更高預期回報意味著更大的等待機會成本）。如果你將一大筆資金投入特別波動的資產類別並對風險感到不舒適，3至4個月的平均成本法是合理的折衷方案。
+
+**問：我應該對投資組合的不同部分使用不同的方法嗎？**
+答：這是一些顧問推薦的實用方法。你可以對債券配置進行一次過投資（波動性較低，情緒風險較小）並對股票配置使用平均成本法（波動性較高，情緒風險較大）。或者對大型股票進行一次過投資，對更具波動性的小型股票和國際配置使用平均成本法。這種混合方法承認不同資產類別對投資者的心理重量不同。
 
 ---
 
-### "Lump Sum vs. Dollar-Cost Averaging: What the Data Actually Shows"
-
-**Target Length:** 16-20 minutes
-**Tone:** Balanced, data-driven, respectful of both sides
+## 第二部分：YouTube 影片腳本
 
 ---
 
-**[VISUAL: Person standing at a crossroads. One path labeled "Invest All Now" and the other "Spread It Out Over Time." Title card: "DCA vs. Lump Sum: The Real Answer"]**
+### 「平均成本法 vs. 一次過投資：數據到底說了什麼」
 
-**Alex:** You just got a hundred thousand dollars. Maybe it is an inheritance, a bonus, or you sold your house. You want to invest it. Do you put it all in today, or do you spread it out over the next year?
-
-**Sam:** I think most people's gut says spread it out. It feels safer.
-
-**Alex:** And that feeling is valid. But let us look at what the data actually says, because it might surprise you. And then let us talk about why the data might not be the final answer for everyone.
-
-**[VISUAL: Title card split: "THE MATH | THE PSYCHOLOGY"]**
-
-**Alex:** Let me start with the math. Vanguard published a landmark study comparing lump sum investing to dollar-cost averaging. They looked at every possible twelve-month period going back to 1926 in the US, and they also checked UK and Australian markets.
-
-**[VISUAL: Vanguard research paper cover, then a bar chart showing "Lump Sum Won: 68%" vs "DCA Won: 32%"]**
-
-**Alex:** The result: lump sum investing beat DCA about two-thirds of the time. And when it won, it won by an average of about two point three percent over the twelve-month period.
-
-**Sam:** Two-thirds of the time is a lot. Why?
-
-**Alex:** Simple logic. Markets go up more often than they go down. About seventy-five percent of calendar years are positive. If you have money sitting in cash waiting to be invested, and the market is likely to rise, every month of delay is a month of missed returns.
-
-**[ANIMATION: Timeline showing 12 months. $10,000 enters each month for DCA. Market line trends upward over the period. Each DCA installment buys at a progressively higher price. The first $10,000 gets 12 months of growth. The last $10,000 gets 1 month. Lump sum overlay shows all $120,000 getting 12 months of growth.]**
-
-**Alex:** Think of it this way. With DCA, your first installment is invested for twelve months, your second for eleven months, your third for ten, and so on. Your last installment only gets one month of market exposure. But with lump sum, every dollar gets the full twelve months. In a rising market, that is a big advantage.
-
-**Sam:** Okay, so what about the one-third of the time when DCA wins?
-
-**Alex:** That is when the market drops during the DCA period. In those cases, your later installments buy at lower prices, so you end up with more shares at a lower average cost. If the market then recovers, you come out ahead.
-
-**[ANIMATION: Same timeline but market line declining over the first 6 months then recovering. DCA installments buying at lower prices during the dip. DCA portfolio ends up worth more than lump sum portfolio.]**
-
-**Alex:** The problem is you cannot know in advance which scenario you are in. You are essentially betting on whether the next twelve months will be positive or negative. And historically, positive is more than twice as likely.
-
-**Sam:** Let me play devil's advocate. I hear you on the math. But imagine you inherit two hundred thousand dollars from a parent who just passed away. That money is deeply emotional. And you invest it all on Monday, and by Friday the market is down fifteen percent. You have lost thirty thousand dollars of your parent's legacy in a week.
-
-**[VISUAL: Empathetic imagery -- person looking at phone showing portfolio decline, with a family photo nearby]**
-
-**Alex:** And that scenario is why the math is not the whole story. The psychological cost of that experience could be enormous. You might panic-sell. You might develop a permanent fear of investing. You might lose sleep for months.
-
-**Sam:** So the best strategy you cannot stick with is worse than a suboptimal strategy you can stick with.
-
-**Alex:** Exactly. This is the core tension. Lump sum maximizes expected wealth. DCA minimizes maximum regret. And for many people, minimizing regret is the right objective.
-
-**[VISUAL: Two-panel comparison. Panel 1: "Lump Sum -- Maximize Expected Wealth" with a graph showing higher average outcome but wider range. Panel 2: "DCA -- Minimize Maximum Regret" with a graph showing slightly lower average but narrower range of outcomes.]**
-
-**Sam:** Is there a compromise?
-
-**Alex:** Several. My favorite is what I call accelerated DCA. Instead of twelve months, compress it to three or four months. You capture most of the lump sum's mathematical advantage while still getting the psychological comfort of not going all-in on one day.
-
-**[VISUAL: Three strategies on a spectrum. Far left: "Full DCA (12 months)" -- most conservative. Middle: "Accelerated DCA (3-4 months)" -- balanced. Far right: "Full Lump Sum" -- highest expected return.]**
-
-**Alex:** Another option: invest half immediately and DCA the other half over six months. Research suggests this captures about seventy-five percent of the lump sum advantage while cutting the maximum regret roughly in half.
-
-**Sam:** Let me ask the question nobody wants to answer. What if you invest a lump sum and the market crashes twenty percent?
-
-**Alex:** Let us look at real history. If you had the worst possible timing and invested a lump sum at the absolute peak before the 2008 financial crisis -- the very worst day you could have picked -- how long would it take to recover?
-
-**[VISUAL: Chart showing S&P 500 from October 2007 peak through recovery. The exact recovery date is marked.]**
-
-**Alex:** About five and a half years to break even. By 2013, you were back. By 2019, you had more than doubled your money. And remember, this is the absolute worst case. Most lump sum investments in most years never face anything close to a 50% drawdown.
-
-**Sam:** Five and a half years feels like a long time when you are living through it.
-
-**Alex:** It does. And this is where your time horizon matters. If you need this money in two years, neither lump sum nor DCA into stocks is appropriate -- it should be in short-term bonds or cash. If your time horizon is twenty or thirty years, a five-year recovery period is a blip.
-
-**[ANIMATION: Timeline showing 30-year investment horizon. The 2008 crash appears as a dip in years 1-6, but by year 10 it is barely visible. By year 30, it is a small bump on a long upward trajectory.]**
-
-**Sam:** What about the argument that DCA is not really a risk-reduction strategy, it is just delayed investing?
-
-**Alex:** That is correct, and it is an important point. Once your DCA plan is complete, you have the exact same market exposure as the lump sum investor. If a crash happens in month thirteen -- after your twelve-month DCA is done -- you take the same hit either way. DCA only protects you against crashes that happen during the DCA window. It does not reduce your long-term risk at all.
-
-**[ANIMATION: Two portfolios. Lump sum investor fully invested from month 1. DCA investor gradually reaching the same level by month 12. After month 12, both portfolios are identical. A crash at month 18 affects both equally.]**
-
-**Sam:** I think the key insight is that this question matters a lot less than people think.
-
-**Alex:** Absolutely. Let me put it in perspective. Over a thirty-year investment horizon, the difference between lump sum and twelve-month DCA on the initial investment affects maybe the first one or two percent of your total outcome. What drives the other ninety-eight percent? How much you save. What your asset allocation is. Whether you stay invested through downturns. Whether you rebalance. Whether you manage taxes well. Those factors dominate.
-
-**[VISUAL: Pie chart of "What Determines Your 30-Year Outcome." DCA vs. LSI: 1-2%. Savings Rate: 30%. Asset Allocation: 35%. Staying Invested: 20%. Tax Efficiency: 10-15%.]**
-
-**Sam:** So we are spending an entire episode on something that accounts for one to two percent of the outcome.
-
-**Alex:** We are, because it is the question that paralyzes people. And a paralyzed investor who never invests because they cannot decide between lump sum and DCA loses one hundred percent of the potential returns. The biggest risk is not choosing wrong between LSI and DCA. The biggest risk is not choosing at all.
-
-**[VISUAL: Three outcomes ranked. Worst: "Never invest (cash forever)." Better: "DCA over 12 months." Best (on average): "Lump sum." The gap between "Never invest" and either strategy is enormous. The gap between DCA and lump sum is modest.]**
-
-**Sam:** Let me bring up the "world's worst market timer" study you mentioned earlier. Tell me about that.
-
-**Alex:** Charles Schwab ran this fascinating analysis. They looked at five investors over twenty-year rolling periods, each investing two thousand dollars per year.
-
-**[VISUAL: Five investor profiles appear. "Perfect Timer: invests at yearly low." "Immediate Investor: invests on Jan 1." "DCA Investor: spreads across the year." "Bad Timer: invests at yearly high." "Cash Hoarder: never invests."]**
-
-**Alex:** Perfect Timer invested at the absolute lowest point each year. Immediate Investor put money in on the first trading day each year. DCA spread it out monthly. Bad Timer managed to invest at the absolute worst possible moment every single year. And Cash Hoarder kept everything in Treasury bills.
-
-**Sam:** What were the results?
-
-**Alex:** Perfect Timer did best, obviously. But Immediate Investor was remarkably close behind. DCA was third. Bad Timer was fourth. And Cash Hoarder was dead last, by an enormous margin.
-
-**[ANIMATION: Bar chart building from left to right showing twenty-year ending values. Each bar has a label and value. The gap between any investing strategy and Cash Hoarder is dramatically larger than the gap between the best and worst timers.]**
-
-**Sam:** So even the world's worst market timer -- someone who literally invested at the peak every single year -- dramatically outperformed the person who stayed in cash.
-
-**Alex:** By multiples. The lesson is clear: the difference between the best timing and the worst timing is small compared to the difference between investing and not investing. Time in the market overwhelms timing of the market. This is arguably the most important chart in all of personal finance.
-
-**Sam:** What about value averaging? You mentioned that briefly.
-
-**Alex:** Value averaging targets a specific portfolio growth rate. Instead of investing a fixed dollar amount each month, you adjust your investment to hit a target value. If the market drops, you invest more. If it rises, you invest less. It automatically buys more at low prices and less at high prices.
-
-**[ANIMATION: Two bar charts side by side over twelve months. Left: "DCA" -- equal bars each month. Right: "Value Averaging" -- tall bars in down months, short bars in up months. Total invested is similar but distribution is different.]**
-
-**Alex:** Some research suggests value averaging produces slightly better returns than standard DCA. But it is more complex, the cash flows are unpredictable, and it still does not beat lump sum on average. It is a reasonable middle path for investors who enjoy optimization and can handle variable contribution amounts.
-
-**Sam:** So what is the practical takeaway?
-
-**Alex:** If you can handle volatility and your time horizon is long, lump sum and move on with your life. If the thought of investing everything at once keeps you up at night, DCA over three to six months and sleep well. If you want a compromise, invest sixty percent immediately and DCA the rest. If you are paralyzed, set up automatic monthly investments and let the system do the work. The most important thing is to get invested and stay invested.
-
-**Sam:** Any approach that gets you from cash to your target allocation is a good approach.
-
-**Alex:** As long as you do not undo it when the market hiccups. And that brings us back to the real skill in investing -- not the entry strategy, but the emotional discipline to stay the course once you are in.
-
-**[VISUAL: Decision flowchart. "Have a lump sum?" -> "Can tolerate volatility?" -> Yes: "Lump sum today." No: "Can commit to a schedule?" -> Yes: "DCA over 3-6 months." No: "Invest 50-60% now, auto-invest the rest monthly." All paths converge at: "Stay invested. Do not sell in a downturn."]**
-
-**[VISUAL: Recap: "Lump Sum wins ~68% of the time | DCA reduces maximum regret | The difference is small long-term | The real risk is not investing at all | Choose the approach you can stick with"]**
-
-**Sam:** Perfect. See you in the next one.
-
-**[VISUAL: End card with channel info and "Next: Side Lesson 06 -- Understanding Inflation"]**
+**目標長度：** 16至20分鐘
+**語調：** 均衡、以數據為導向、尊重兩方觀點
 
 ---
 
-**END OF SIDE LESSON 05**
+**[VISUAL: 一個人站在十字路口。一條路標著「立刻全部投入」，另一條標著「分批逐步投入」。標題卡：「平均成本法 vs. 一次過投資：真正的答案」]**
+
+**Horace：** 你剛收到十萬元。也許是遺產、花紅，或者你賣掉了房子。你想投資它。你是今天全部投入，還是在接下來一年分批投入？
+
+**Stella：** 我覺得大多數人的直覺是分批投入，感覺更安全。
+
+**Horace：** 這種感覺是有道理的。但讓我們來看看數據實際說了什麼，因為它可能會讓你感到驚訝。然後我們再討論為什麼數據對每個人來說可能不是最終答案。
+
+**[VISUAL: 標題卡分成兩欄：「數學 | 心理學」]**
+
+**Horace：** 讓我先從數學說起。先鋒集團發表了一項比較一次過投資與平均成本法的里程碑式研究。他們研究了1926年以來美國每一個可能的12個月期間，並在英國和澳洲市場進行了驗證。
+
+**[VISUAL: 先鋒集團研究報告封面，然後是柱狀圖顯示「一次過投資勝出：68%」對比「平均成本法勝出：32%」]**
+
+**Horace：** 結果：一次過投資在大約三分之二的時間跑贏平均成本法。當它勝出時，在12個月的平均成本法期間平均跑贏約2.3%。
+
+**Stella：** 三分之二的時間是很多。為什麼？
+
+**Horace：** 邏輯很簡單。市場上升的時間多於下跌的時間。大約75%的曆年是正的。如果你的資金在現金中等待投資，而市場很可能上升，那麼每個月的延遲都是錯失回報的一個月。
+
+**[ANIMATION: 時間軸顯示12個月。平均成本法每月投入$10,000。市場線在整個期間呈上升趨勢。每次平均成本法供款都以逐步上漲的價格買入。第一筆$10,000獲得12個月的增長。最後一筆$10,000只獲得1個月。一次過投資疊加顯示全部$120,000獲得12個月的增長。]**
+
+**Horace：** 這樣想吧。使用平均成本法，你的第一筆供款投資12個月，第二筆11個月，第三筆10個月，以此類推。你的最後一筆供款只有1個月的市場敞口。但一次過投資，每一分錢都獲得完整的12個月。在上升的市場中，這是一個巨大的優勢。
+
+**Stella：** 好，那三分之一平均成本法勝出的情況呢？
+
+**Horace：** 那是市場在平均成本法期間下跌的時候。在這些情況下，你後來的供款以更低的價格買入，所以你以更低的平均成本獲得了更多份額。如果市場然後反彈，你就佔了上風。
+
+**[ANIMATION: 相同的時間軸，但市場線在前6個月下跌然後恢復。平均成本法供款在下跌期間以更低的價格買入。平均成本法投資組合最終比一次過投資組合價值更高。]**
+
+**Horace：** 問題是你事先無法知道你在哪個場景中。你基本上是在賭接下來12個月會是正還是負。從歷史上看，正面的可能性超過兩倍。
+
+**Stella：** 讓我來扮演魔鬼代言人。我聽到了你說的數學。但想像一下，你從剛過世的父母那裡繼承了二十萬元。那筆錢充滿了情感。你週一全部投入，到週五市場下跌了15%。你在一週內損失了三萬元父母的遺產。
+
+**[VISUAL: 富有同情心的影像——一個人看著顯示投資組合下跌的手機，旁邊有一張家庭照片]**
+
+**Horace：** 而這個場景正是為什麼數學不是全部的原因。那種經歷的心理代價可能是巨大的。你可能恐慌出貨。你可能對投資產生永久的恐懼。你可能幾個月都無法入睡。
+
+**Stella：** 所以你無法堅持的最佳策略，比你能堅持的次優策略更差。
+
+**Horace：** 完全正確。這是核心矛盾。一次過投資最大化預期財富。平均成本法最小化最大後悔。對很多人來說，最小化後悔是正確的目標。
+
+**[VISUAL: 兩欄對比。欄1：「一次過投資——最大化預期財富」，圖表顯示更高的平均結果但更寬的範圍。欄2：「平均成本法——最小化最大後悔」，圖表顯示略低的平均值但更窄的結果範圍。]**
+
+**Stella：** 有折衷方案嗎？
+
+**Horace：** 有幾個。我最喜歡的是我所說的加速式平均成本法。不是12個月，而是壓縮至3至4個月。這減少了等待的機會成本，同時仍然提供了不需要在一天內全部投入的心理安慰。
+
+**[VISUAL: 三種策略在一個範圍上。最左邊：「完整平均成本法（12個月）」——最保守。中間：「加速式平均成本法（3至4個月）」——均衡。最右邊：「完整一次過投資」——最高預期回報。]**
+
+**Horace：** 另一個選擇：立刻投入一半，其餘一半在6個月內以平均成本法投入。研究表明這能捕捉大約75%的一次過投資優勢，同時將最大後悔減少約一半。
+
+**Stella：** 讓我問一個沒有人想回答的問題。如果你一次過投資後市場下跌20%，該怎麼辦？
+
+**Horace：** 讓我們看看真實的歷史。如果你有最糟糕的時機，在2008年金融危機之前的絕對頂峰——你能選擇的最差一天——一次過投資，需要多長時間恢復？
+
+**[VISUAL: 圖表顯示從2007年10月頂峰到恢復的標普500走勢。確切的恢復日期有標記。]**
+
+**Horace：** 約5年半才能回到盈虧平衡。到2013年你已經恢復了。到2019年你的資金已經翻倍以上。記住，這是絕對最壞的情況。大多數一次過投資在大多數年份永遠不會面臨接近50%的回撤。
+
+**Stella：** 5年半在親身經歷時感覺很長。
+
+**Horace：** 確實如此。這就是你的投資期為何重要。如果你兩年後需要這筆錢，一次過投資還是平均成本法投入股票都不合適——它應該在短期債券或現金中。如果你的投資期是20或30年，5年的恢復期只是一個小插曲。
+
+**[ANIMATION: 時間軸顯示30年投資期。2008年崩盤在第1至6年出現為一個低谷，但到第10年已幾乎看不見。到第30年，它只是長期上升趨勢中的一個小凸起。]**
+
+**Stella：** 關於平均成本法實際上不是風險降低策略而只是延遲投資的論點呢？
+
+**Horace：** 這是正確的，而且是一個重要的觀點。一旦你的平均成本法計劃完成，你的市場敞口與一次過投資者完全相同。如果崩盤在第13個月發生——在你12個月的平均成本法完成後——你們兩個都受到同樣的衝擊。平均成本法只保護你免受在平均成本法窗口期間發生的崩盤影響，完全不會降低你的長期風險。
+
+**[ANIMATION: 兩個投資組合。一次過投資者從第1個月起完全投資。平均成本法投資者逐漸在第12個月達到相同水平。第12個月後，兩個投資組合完全相同。第18個月的崩盤對兩者產生同等影響。]**
+
+**Stella：** 我認為關鍵的洞察是，這個問題比人們認為的重要性要低得多。
+
+**Horace：** 完全正確。讓我把它放在背景中。在30年的投資期內，初始投資的一次過投資與12個月平均成本法之間的差異，影響的可能只是你總體結果的頭1至2%。是什麼驅動了其他98%？你儲蓄了多少。你的資產配置是什麼。你是否在下跌期間保持投資。你是否進行再平衡。你是否有效管理稅務。這些因素才是決定性的。
+
+**[VISUAL: 圓餅圖「決定你30年結果的因素」。平均成本法 vs. 一次過投資：1至2%。儲蓄率：30%。資產配置：35%。保持投資：20%。稅務效益：10至15%。]**
+
+**Stella：** 所以我們花了整整一集討論只影響1至2%結果的事情。
+
+**Horace：** 我們這樣做，是因為這個問題讓人們癱瘓了。一個從未投資的投資者，因為無法在一次過投資和平均成本法之間做出選擇，損失了100%的潛在回報。最大的風險不是在一次過投資和平均成本法之間選錯了。最大的風險是根本沒有選擇。
+
+**[VISUAL: 三種結果排名。最差：「永遠不投資（永遠持有現金）」。較好：「12個月平均成本法」。最好（平均而言）：「一次過投資」。「永遠不投資」與任何策略之間的差距是巨大的。平均成本法與一次過投資之間的差距是適度的。]**
+
+**Stella：** 讓我提到你之前提到的「世界上最糟糕的市場擇時者」研究。告訴我更多關於那個的事情。
+
+**Horace：** 嘉信理財進行了這項迷人的分析。他們研究了在20年滾動期間，每位每年投資兩千元的五名投資者。
+
+**[VISUAL: 出現五種投資者類型。「完美擇時者：在年度最低點投資。」「立刻投資者：1月1日投資。」「平均成本法投資者：全年分散投資。」「糟糕擇時者：在年度最高點投資。」「現金囤積者：永遠不投資。」]**
+
+**Horace：** 完美擇時者每年在絕對最低點投資。立刻投資者在每個交易年度的第一天投入資金。平均成本法投資者每月分散投入。糟糕擇時者每年都設法在絕對最差的時機投資。現金囤積者把一切都放在國庫券中。
+
+**Stella：** 結果是什麼？
+
+**Horace：** 完美擇時者做得最好，這是顯而易見的。但立刻投資者跟隨在後，非常接近。平均成本法排在第三。糟糕擇時者排在第四。現金囤積者遠遠墊底，差距巨大。
+
+**[ANIMATION: 柱狀圖從左到右逐步顯示20年後的最終價值。每根柱子都有標籤和數值。任何投資策略與現金囤積者之間的差距，遠大於最佳和最差擇時者之間的差距。]**
+
+**Stella：** 所以即使是世界上最糟糕的市場擇時者——某個每一年都在頂峰投資的人——也大幅跑贏了留在現金中的人。
+
+**Horace：** 以倍計。教訓是清晰的：最佳擇時和最差擇時之間的差異，相比投資和不投資之間的差異是微不足道的。在市場中的時間壓倒了市場擇時。這可以說是個人理財中最重要的一張圖表。
+
+**Stella：** 關於價值平均法呢？你簡短地提到過。
+
+**Horace：** 價值平均法針對特定的投資組合增長率。你不是每月投入固定金額，而是調整投資以達到目標價值。如果市場下跌，你投入更多。如果市場上升，你投入更少。它自動在低價位買入更多，在高價位買入更少。
+
+**[ANIMATION: 兩個柱狀圖並排顯示12個月。左邊：「平均成本法」——每月等高的柱子。右邊：「價值平均法」——下跌月份的高柱，上升月份的低柱。總投入相似，但分布不同。]**
+
+**Horace：** 一些研究表明，價值平均法比標準平均成本法產生略好的回報。但它更複雜，現金流不可預測，而且平均來說仍然不能跑贏一次過投資。對於喜歡優化且能承受可變供款金額的投資者來說，這是合理的中間道路。
+
+**Stella：** 那麼實際要點是什麼？
+
+**Horace：** 如果你能承受波動且投資期很長，一次過投資然後繼續過你的生活。如果想到一次性投入讓你夜不能寐，在3至6個月內以平均成本法投入，好好睡覺。如果你想要折衷，立刻投入60%並對其餘部分使用平均成本法。如果你陷入癱瘓，設置自動月度投資並讓系統完成工作。最重要的是完成投資並保持投資。
+
+**Stella：** 任何能讓你從現金轉移到目標配置的方法都是好方法。
+
+**Horace：** 只要你不在市場出現小波動時撤銷它。這讓我們回到了投資中的真正技能——不是入市策略，而是一旦入市後保持方向的情緒紀律。
+
+**[VISUAL: 決策流程圖。「有一次過資金？」-> 「能承受波動？」-> 是：「今天一次過投資。」否：「能承諾時間表？」-> 是：「3至6個月平均成本法。」否：「現在投入50至60%，其餘每月自動投資。」所有路徑匯聚至：「保持投資。不要在下跌時賣出。」]**
+
+**[VISUAL: 重點回顧：「一次過投資約68%的時間勝出 | 平均成本法降低最大後悔 | 長期差異很小 | 真正的風險是根本不投資 | 選擇你能堅持的方法」]**
+
+**Stella：** 非常好。下次見。
+
+**[VISUAL: 結束卡片顯示頻道資訊及「下一集：附加課程 06 — 認識通脹」]**
+
+---
+
+**附加課程 05 完**

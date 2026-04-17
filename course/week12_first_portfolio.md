@@ -1046,249 +1046,249 @@ A: Change your allocation when your life circumstances change, not when the mark
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Opening sequence with puzzle pieces representing different asset classes clicking together to form a complete portfolio]
 
-**Alex:** Welcome to what might be the most important episode in our entire series. For the past eleven weeks, we have been learning the building blocks -- stocks, bonds, risk, valuation, fees, behavioral biases. Today, we put it all together. Today, we build your first portfolio.
+**Horace:** Welcome to what might be the most important episode in our entire series. For the past eleven weeks, we have been learning the building blocks -- stocks, bonds, risk, valuation, fees, behavioral biases. Today, we put it all together. Today, we build your first portfolio.
 
-**Sam:** I have been looking forward to this one. But I have to be honest -- I am also a little nervous. There are so many choices. How do I know I am making the right ones?
+**Stella:** I have been looking forward to this one. But I have to be honest -- I am also a little nervous. There are so many choices. How do I know I am making the right ones?
 
-**Alex:** That anxiety is completely normal, and here is the first thing I want you to internalize: getting started matters infinitely more than getting it perfect. The difference between a good portfolio and a perfect portfolio is small. The difference between a good portfolio and no portfolio is enormous.
+**Horace:** That anxiety is completely normal, and here is the first thing I want you to internalize: getting started matters infinitely more than getting it perfect. The difference between a good portfolio and a perfect portfolio is small. The difference between a good portfolio and no portfolio is enormous.
 
 [VISUAL: Bar chart showing three scenarios over 30 years -- "Perfect Portfolio" at $2.1M, "Good Portfolio" at $1.9M, and "No Portfolio (savings account)" at $180K]
 
-**Sam:** When you show it that way, the gap between good and perfect is tiny compared to investing versus not investing.
+**Stella:** When you show it that way, the gap between good and perfect is tiny compared to investing versus not investing.
 
-**Alex:** Exactly. So let us get you off the sidelines. We are going to follow a six-step process, and by the end of this episode, you will have a complete, actionable plan.
+**Horace:** Exactly. So let us get you off the sidelines. We are going to follow a six-step process, and by the end of this episode, you will have a complete, actionable plan.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Six-step roadmap appearing as a path with milestones: Goals, Risk, Allocation, Instruments, Account, Implementation]
 
-**Alex:** Step one: define your goals. And I do not mean vague goals like "I want to be rich." I mean specific, measurable goals. What are you investing for? When do you need the money? How much do you need?
+**Horace:** Step one: define your goals. And I do not mean vague goals like "I want to be rich." I mean specific, measurable goals. What are you investing for? When do you need the money? How much do you need?
 
-**Sam:** Okay. My main goal is retirement. I am 28 years old, and I want to retire at 60. So that is 32 years. I think I need about $2 million.
+**Stella:** Okay. My main goal is retirement. I am 28 years old, and I want to retire at 60. So that is 32 years. I think I need about $2 million.
 
-**Alex:** Good. Now let us check if that is achievable. At a 9% average annual return, which is roughly what a stock-heavy portfolio has delivered historically, you would need to invest about $1,100 per month to reach $2 million in 32 years.
+**Horace:** Good. Now let us check if that is achievable. At a 9% average annual return, which is roughly what a stock-heavy portfolio has delivered historically, you would need to invest about $1,100 per month to reach $2 million in 32 years.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Compound interest calculator visualization showing $1,100/month growing to $2M over 32 years, with the final years showing explosive growth as compounding accelerates]
 
-**Sam:** $1,100 a month is a stretch right now, but I think I can do $800 and increase it as my salary grows.
+**Stella:** $1,100 a month is a stretch right now, but I think I can do $800 and increase it as my salary grows.
 
-**Alex:** That is a perfectly reasonable plan. Start with $800, and commit to increasing it by $100 every time you get a raise. The goal does not have to be achievable from day one -- it has to be achievable over the full time horizon. And here is something that will motivate you: the first $100,000 is the hardest. It might take you seven or eight years to reach that. But the second $100,000 might take only three years, the third only two. Compound interest accelerates the longer you are in the game.
+**Horace:** That is a perfectly reasonable plan. Start with $800, and commit to increasing it by $100 every time you get a raise. The goal does not have to be achievable from day one -- it has to be achievable over the full time horizon. And here is something that will motivate you: the first $100,000 is the hardest. It might take you seven or eight years to reach that. But the second $100,000 might take only three years, the third only two. Compound interest accelerates the longer you are in the game.
 
 [VISUAL: Timeline showing milestones -- $100K at year 8, $200K at year 11, $500K at year 17, $1M at year 23, $2M at year 32]
 
-**Sam:** That acceleration is incredible. Okay, I have my goal. What is step two?
+**Stella:** That acceleration is incredible. Okay, I have my goal. What is step two?
 
-**Alex:** Step two is assessing your risk tolerance. And this has two components that most people mix up. There is risk capacity -- what you can objectively afford to lose -- and risk willingness -- what you can emotionally handle losing. You need to respect both.
+**Horace:** Step two is assessing your risk tolerance. And this has two components that most people mix up. There is risk capacity -- what you can objectively afford to lose -- and risk willingness -- what you can emotionally handle losing. You need to respect both.
 
 [VISUAL: Two meter gauges side by side -- "Risk Capacity" and "Risk Willingness" -- with needles at different positions]
 
-**Sam:** How do I figure those out?
+**Stella:** How do I figure those out?
 
-**Alex:** For risk capacity, consider your time horizon, income stability, emergency fund, and dependents. You are 28, single, have a stable tech job, and a six-month emergency fund. Your risk capacity is high. For risk willingness, I use what I call the sleep test. Imagine your portfolio drops by various amounts in a single month. At what point do you start losing sleep?
+**Horace:** For risk capacity, consider your time horizon, income stability, emergency fund, and dependents. You are 28, single, have a stable tech job, and a six-month emergency fund. Your risk capacity is high. For risk willingness, I use what I call the sleep test. Imagine your portfolio drops by various amounts in a single month. At what point do you start losing sleep?
 
-**Sam:** I think I would be okay with a 20% drop. I would be nervous at 30%. I would be panicking at 40%.
+**Stella:** I think I would be okay with a 20% drop. I would be nervous at 30%. I would be panicking at 40%.
 
-**Alex:** So your sweet spot is probably somewhere in the range of 70 to 85% stocks. A portfolio of 80% stocks has historically had a worst-case single-year loss of about 35-40%. That is right at the edge of your comfort zone. If we back off to 75% stocks, the worst case drops to around 30%, which you said you could handle.
+**Horace:** So your sweet spot is probably somewhere in the range of 70 to 85% stocks. A portfolio of 80% stocks has historically had a worst-case single-year loss of about 35-40%. That is right at the edge of your comfort zone. If we back off to 75% stocks, the worst case drops to around 30%, which you said you could handle.
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Risk-return spectrum visualization showing different stock/bond splits with their historical maximum drawdowns and average returns, with Sam's comfort zone highlighted]
+[ANIMATION: animation/week12_portfolio_builder.py -- Risk-return spectrum visualization showing different stock/bond splits with their historical maximum drawdowns and average returns, with Stella's comfort zone highlighted]
 
-**Sam:** Let us go with 80% stocks and 20% bonds. I am young enough to handle the volatility, and I want the growth.
+**Stella:** Let us go with 80% stocks and 20% bonds. I am young enough to handle the volatility, and I want the growth.
 
-**Alex:** Good choice. Now let us talk about the single most important decision in portfolio construction -- asset allocation. This is step three.
+**Horace:** Good choice. Now let us talk about the single most important decision in portfolio construction -- asset allocation. This is step three.
 
 [VISUAL: Pie chart showing 80% stocks / 20% bonds, then splitting the stock portion into sub-categories]
 
-**Alex:** Research shows that asset allocation determines roughly 90% of your portfolio's long-term behavior. Not stock picking. Not market timing. The split between stocks and bonds is the decision that matters most.
+**Horace:** Research shows that asset allocation determines roughly 90% of your portfolio's long-term behavior. Not stock picking. Not market timing. The split between stocks and bonds is the decision that matters most.
 
-**Sam:** Wait, 90%? So the specific stocks I pick barely matter?
+**Stella:** Wait, 90%? So the specific stocks I pick barely matter?
 
-**Alex:** In the context of a diversified portfolio, correct. Whether you use the Vanguard S&P 500 fund or the iShares S&P 500 fund makes almost no difference. Whether you are 70/30 or 90/10 stocks-to-bonds makes a huge difference. Most people spend 90% of their time on the 10% that matters (picking stocks) and 10% of their time on the 90% that matters (setting allocation).
+**Horace:** In the context of a diversified portfolio, correct. Whether you use the Vanguard S&P 500 fund or the iShares S&P 500 fund makes almost no difference. Whether you are 70/30 or 90/10 stocks-to-bonds makes a huge difference. Most people spend 90% of their time on the 10% that matters (picking stocks) and 10% of their time on the 90% that matters (setting allocation).
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Pie chart showing factors determining portfolio returns: 90% asset allocation, 5% security selection, 3% market timing, 2% other factors, based on the Brinson study]
 
-**Alex:** So let us break down your 80% stock allocation. I recommend splitting it between US and international stocks. Something like 55% US and 25% international.
+**Horace:** So let us break down your 80% stock allocation. I recommend splitting it between US and international stocks. Something like 55% US and 25% international.
 
-**Sam:** Why international? The US market has crushed international for the past decade.
+**Stella:** Why international? The US market has crushed international for the past decade.
 
-**Alex:** That is recency bias talking -- remember Week 11? In the 2000 to 2009 decade, the S&P 500 had negative total returns while international stocks posted positive returns. The decade before that, both did well. The decade after favored the US. No one knows which market will lead over the next 30 years. By owning both, you guarantee you own whichever one wins.
+**Horace:** That is recency bias talking -- remember Week 11? In the 2000 to 2009 decade, the S&P 500 had negative total returns while international stocks posted positive returns. The decade before that, both did well. The decade after favored the US. No one knows which market will lead over the next 30 years. By owning both, you guarantee you own whichever one wins.
 
 [VISUAL: Decade-by-decade performance comparison chart showing US vs. International stocks, with leadership alternating]
 
-**Sam:** Fair point. So 55% US, 25% international, 20% bonds. What specific funds do I buy?
+**Stella:** Fair point. So 55% US, 25% international, 20% bonds. What specific funds do I buy?
 
-**Alex:** This is step four, and it is where most people overcomplicate things. I am going to show you something that will change how you think about investing. It is called the three-fund portfolio.
+**Horace:** This is step four, and it is where most people overcomplicate things. I am going to show you something that will change how you think about investing. It is called the three-fund portfolio.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Three fund boxes appearing one at a time with details: VTI (US stocks, 4,000 holdings, 0.03% fee), VXUS (International stocks, 8,000 holdings, 0.07% fee), BND (US bonds, 10,000 holdings, 0.03% fee)]
 
-**Alex:** Fund one: VTI, the Vanguard Total Stock Market ETF. This single fund gives you exposure to roughly 4,000 US stocks -- large, mid, and small cap. The expense ratio is 0.03%, which means you pay $3 per year for every $10,000 invested.
+**Horace:** Fund one: VTI, the Vanguard Total Stock Market ETF. This single fund gives you exposure to roughly 4,000 US stocks -- large, mid, and small cap. The expense ratio is 0.03%, which means you pay $3 per year for every $10,000 invested.
 
-**Sam:** Three dollars? That is nothing.
+**Stella:** Three dollars? That is nothing.
 
-**Alex:** Fund two: VXUS, the Vanguard Total International Stock Market ETF. This gives you about 8,000 non-US stocks from developed and emerging markets worldwide. Expense ratio: 0.07%. Fund three: BND, the Vanguard Total Bond Market ETF. This covers the entire US investment-grade bond market. Expense ratio: 0.03%.
+**Horace:** Fund two: VXUS, the Vanguard Total International Stock Market ETF. This gives you about 8,000 non-US stocks from developed and emerging markets worldwide. Expense ratio: 0.07%. Fund three: BND, the Vanguard Total Bond Market ETF. This covers the entire US investment-grade bond market. Expense ratio: 0.03%.
 
-**Sam:** So three funds cover basically the entire world?
+**Stella:** So three funds cover basically the entire world?
 
-**Alex:** Over 12,000 securities across every major market on Earth. Total annual cost: roughly $30 to $50 per $100,000 invested. That is less than a single lunch per year.
+**Horace:** Over 12,000 securities across every major market on Earth. Total annual cost: roughly $30 to $50 per $100,000 invested. That is less than a single lunch per year.
 
 [VISUAL: Globe visualization showing coverage of three funds, with pins lighting up across continents]
 
-**Sam:** And this simple approach actually works?
+**Stella:** And this simple approach actually works?
 
-**Alex:** It does not just work -- it beats the vast majority of professional money managers. The S&P SPIVA scorecard shows that over 15-year periods, roughly 90% of actively managed funds underperform their benchmark index. The three-fund portfolio essentially IS the benchmark. You are not settling for average -- you are choosing the strategy that beats 90% of the professionals.
+**Horace:** It does not just work -- it beats the vast majority of professional money managers. The S&P SPIVA scorecard shows that over 15-year periods, roughly 90% of actively managed funds underperform their benchmark index. The three-fund portfolio essentially IS the benchmark. You are not settling for average -- you are choosing the strategy that beats 90% of the professionals.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Bar chart building showing "Percentage of active funds that FAILED to beat the index" across categories: US Large Cap 92%, US Mid Cap 95%, US Small Cap 93%, International 88%]
 
-**Sam:** Okay, I am sold on the approach. So for my specific allocation, I would put 55% in VTI, 25% in VXUS, and 20% in BND?
+**Stella:** Okay, I am sold on the approach. So for my specific allocation, I would put 55% in VTI, 25% in VXUS, and 20% in BND?
 
-**Alex:** Exactly. On your $800 per month, that is $440 to VTI, $200 to VXUS, and $160 to BND. Simple.
+**Horace:** Exactly. On your $800 per month, that is $440 to VTI, $200 to VXUS, and $160 to BND. Simple.
 
 [VISUAL: Monthly investment breakdown: $440 VTI, $200 VXUS, $160 BND, total $800]
 
-**Sam:** Now, I have also heard about target-date funds. What are those and should I use one instead?
+**Stella:** Now, I have also heard about target-date funds. What are those and should I use one instead?
 
-**Alex:** Target-date funds are the ultimate "set it and forget it" option. You pick the fund closest to your retirement year -- in your case, a 2058 target-date fund. It starts aggressive and automatically shifts to bonds over time. One fund, no rebalancing, no decisions.
+**Horace:** Target-date funds are the ultimate "set it and forget it" option. You pick the fund closest to your retirement year -- in your case, a 2058 target-date fund. It starts aggressive and automatically shifts to bonds over time. One fund, no rebalancing, no decisions.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Glide path animation showing target-date fund allocation shifting from 90/10 stocks/bonds at age 28 to 50/50 at age 60 to 30/70 at age 75, with the slider moving automatically]
 
-**Sam:** That sounds even easier. Why would I not just do that?
+**Stella:** That sounds even easier. Why would I not just do that?
 
-**Alex:** It is a perfectly good option, and I would never discourage someone from using a target-date fund. The downsides are minor: slightly higher fees (0.08% versus 0.03-0.07% for individual funds), no customization, and less tax efficiency in taxable accounts. But if the simplicity means you actually invest instead of procrastinating, a target-date fund is far better than doing nothing.
+**Horace:** It is a perfectly good option, and I would never discourage someone from using a target-date fund. The downsides are minor: slightly higher fees (0.08% versus 0.03-0.07% for individual funds), no customization, and less tax efficiency in taxable accounts. But if the simplicity means you actually invest instead of procrastinating, a target-date fund is far better than doing nothing.
 
-**Sam:** I think I prefer the three-fund approach because I want to understand what I own. Where should I open my account?
+**Stella:** I think I prefer the three-fund approach because I want to understand what I own. Where should I open my account?
 
-**Alex:** Step five. Let us talk about account types first, because this is where people leave money on the table. You said you have a 401(k) through work with an employer match?
+**Horace:** Step five. Let us talk about account types first, because this is where people leave money on the table. You said you have a 401(k) through work with an employer match?
 
-**Sam:** Yes, they match 50% up to 6% of my salary.
+**Stella:** Yes, they match 50% up to 6% of my salary.
 
-**Alex:** That match is the single best investment return you will ever get. If you put in 6% of your salary and they match half, you are getting an immediate 50% return on that money. There is nothing in the stock market that competes with a guaranteed 50% return. So rule number one: always contribute at least enough to get the full match.
+**Horace:** That match is the single best investment return you will ever get. If you put in 6% of your salary and they match half, you are getting an immediate 50% return on that money. There is nothing in the stock market that competes with a guaranteed 50% return. So rule number one: always contribute at least enough to get the full match.
 
 [VISUAL: Dollar bill animation -- employee puts in $1, employer adds $0.50, total $1.50 from day one]
 
-**Sam:** I am already doing that. My salary is $85,000, so I contribute $5,100 per year and they match $2,550.
+**Stella:** I am already doing that. My salary is $85,000, so I contribute $5,100 per year and they match $2,550.
 
-**Alex:** Perfect. Now here is the priority order for additional investing. After the 401(k) match, open a Roth IRA and max it out at $7,000 per year -- that is about $583 per month. In a Roth, your money grows completely tax-free and you withdraw it tax-free in retirement. At 28, you are probably in a lower tax bracket than you will be in retirement, so paying taxes now and never again is a great deal.
+**Horace:** Perfect. Now here is the priority order for additional investing. After the 401(k) match, open a Roth IRA and max it out at $7,000 per year -- that is about $583 per month. In a Roth, your money grows completely tax-free and you withdraw it tax-free in retirement. At 28, you are probably in a lower tax bracket than you will be in retirement, so paying taxes now and never again is a great deal.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Account priority waterfall: 401(k) match first (highlighted as "FREE MONEY"), then Roth IRA (highlighted as "TAX-FREE GROWTH"), then back to 401(k), then taxable account]
 
-**Sam:** After the Roth IRA?
+**Stella:** After the Roth IRA?
 
-**Alex:** Go back to the 401(k) and increase your contributions if you have money left. The 401(k) limit is $23,000 per year. After that, open a regular taxable brokerage account for anything beyond. But at $800 per month total, your money will be split between the 401(k) contributions you are already making and a Roth IRA.
+**Horace:** Go back to the 401(k) and increase your contributions if you have money left. The 401(k) limit is $23,000 per year. After that, open a regular taxable brokerage account for anything beyond. But at $800 per month total, your money will be split between the 401(k) contributions you are already making and a Roth IRA.
 
-**Sam:** Which brokerage should I use for the Roth IRA?
+**Stella:** Which brokerage should I use for the Roth IRA?
 
-**Alex:** Fidelity, Schwab, or Vanguard. All three offer zero-commission trading on ETFs, excellent service, and low-cost index funds. Honestly, the differences between them are tiny. Pick whichever one you can open an account with in the next 15 minutes and move on.
+**Horace:** Fidelity, Schwab, or Vanguard. All three offer zero-commission trading on ETFs, excellent service, and low-cost index funds. Honestly, the differences between them are tiny. Pick whichever one you can open an account with in the next 15 minutes and move on.
 
 [VISUAL: Three brokerage logos side by side with "ALL GREAT CHOICES" banner]
 
-**Sam:** Should I not research them more carefully?
+**Stella:** Should I not research them more carefully?
 
-**Alex:** You could spend two weeks comparing fractional share support, mobile app features, and research tools. Or you could open an account tonight and start investing tomorrow. Analysis paralysis is a real wealth destroyer. All three are regulated by SIPC, all three have zero fees on ETFs, all three are stable, well-capitalized companies. The decision does not matter nearly as much as making one.
+**Horace:** You could spend two weeks comparing fractional share support, mobile app features, and research tools. Or you could open an account tonight and start investing tomorrow. Analysis paralysis is a real wealth destroyer. All three are regulated by SIPC, all three have zero fees on ETFs, all three are stable, well-capitalized companies. The decision does not matter nearly as much as making one.
 
-**Sam:** Okay, I will open a Fidelity account tonight. Now what -- step six?
+**Stella:** Okay, I will open a Fidelity account tonight. Now what -- step six?
 
-**Alex:** Step six is implementation, and I have a checklist for you.
+**Horace:** Step six is implementation, and I have a checklist for you.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Checklist items appearing one by one with check boxes, organized by Week 1 through Week 4]
 
-**Alex:** Week one: confirm your goals, risk tolerance, and allocation. You have already done this. Week two: open the account, link your bank, set up automatic transfers. Week three: make your first purchases and enable dividend reinvestment. Week four: set up your maintenance system -- a rebalancing schedule, a monthly portfolio check date, and write your Investment Policy Statement.
+**Horace:** Week one: confirm your goals, risk tolerance, and allocation. You have already done this. Week two: open the account, link your bank, set up automatic transfers. Week three: make your first purchases and enable dividend reinvestment. Week four: set up your maintenance system -- a rebalancing schedule, a monthly portfolio check date, and write your Investment Policy Statement.
 
-**Sam:** Investment Policy Statement -- what is that?
+**Stella:** Investment Policy Statement -- what is that?
 
-**Alex:** It is the most important document most investors never write. It is a one-page contract with yourself that states your goals, your allocation, your rules for buying and selling, and your commitment to stay the course during market turbulence. When the market crashes 30% and every fiber of your being wants to sell, you pull out your IPS and read it. It was written by a calm, rational version of you who planned for exactly this moment.
+**Horace:** It is the most important document most investors never write. It is a one-page contract with yourself that states your goals, your allocation, your rules for buying and selling, and your commitment to stay the course during market turbulence. When the market crashes 30% and every fiber of your being wants to sell, you pull out your IPS and read it. It was written by a calm, rational version of you who planned for exactly this moment.
 
 [VISUAL: IPS template document appearing on screen with key sections highlighted]
 
-**Sam:** That is brilliant. It is like a letter from your past self to your panicking future self.
+**Stella:** That is brilliant. It is like a letter from your past self to your panicking future self.
 
-**Alex:** Exactly. And write it by hand if you can. The physical act of writing increases commitment. Let me show you what a good IPS looks like.
+**Horace:** Exactly. And write it by hand if you can. The physical act of writing increases commitment. Let me show you what a good IPS looks like.
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Animated IPS being filled in with Sam's specific details: goals, 80/20 allocation, VTI/VXUS/BND, rebalancing rules, commitment to not panic sell]
+[ANIMATION: animation/week12_portfolio_builder.py -- Animated IPS being filled in with Stella's specific details: goals, 80/20 allocation, VTI/VXUS/BND, rebalancing rules, commitment to not panic sell]
 
-**Alex:** Now, one of the biggest questions beginners have: if you have a lump sum to invest, should you invest it all at once or spread it out over time?
+**Horace:** Now, one of the biggest questions beginners have: if you have a lump sum to invest, should you invest it all at once or spread it out over time?
 
-**Sam:** Yeah, I have actually been wondering about that. I have about $10,000 saved up. Should I invest it all now or dollar-cost average in?
+**Stella:** Yeah, I have actually been wondering about that. I have about $10,000 saved up. Should I invest it all now or dollar-cost average in?
 
-**Alex:** The math says invest it all now. Studies show lump sum investing beats dollar-cost averaging about two-thirds of the time because markets tend to go up. But here is the nuance: if investing $10,000 all at once would make you so anxious that you cannot sleep, or if it would cause you to panic sell during the first dip, then dollar-cost average over three to six months. The best investment strategy is the one you can actually stick with.
+**Horace:** The math says invest it all now. Studies show lump sum investing beats dollar-cost averaging about two-thirds of the time because markets tend to go up. But here is the nuance: if investing $10,000 all at once would make you so anxious that you cannot sleep, or if it would cause you to panic sell during the first dip, then dollar-cost average over three to six months. The best investment strategy is the one you can actually stick with.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Split-screen simulation: lump sum investor on left, DCA investor on right, both investing $10,000 over various market scenarios. Final comparison showing lump sum wins more often but DCA provides smoother ride]
 
-**Sam:** I think I would feel better spreading it out. Maybe $2,500 per month for four months?
+**Stella:** I think I would feel better spreading it out. Maybe $2,500 per month for four months?
 
-**Alex:** That is a reasonable plan. Just set a schedule and follow it regardless of what the market does during those four months. Do not try to time it. Do not wait for a dip. On the first of each month, invest $2,500, period.
+**Horace:** That is a reasonable plan. Just set a schedule and follow it regardless of what the market does during those four months. Do not try to time it. Do not wait for a dip. On the first of each month, invest $2,500, period.
 
-**Sam:** Got it. Now, let us say I have been investing for a year and my allocation has drifted. How do I handle rebalancing?
+**Stella:** Got it. Now, let us say I have been investing for a year and my allocation has drifted. How do I handle rebalancing?
 
-**Alex:** Rebalancing is how you maintain your target allocation over time. Say your target is 55% VTI, 25% VXUS, 20% BND. After a strong year for US stocks, your portfolio might drift to 62% VTI, 22% VXUS, 16% BND. You are now taking more risk than you planned.
+**Horace:** Rebalancing is how you maintain your target allocation over time. Say your target is 55% VTI, 25% VXUS, 20% BND. After a strong year for US stocks, your portfolio might drift to 62% VTI, 22% VXUS, 16% BND. You are now taking more risk than you planned.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Pie chart morphing from target allocation to drifted allocation, then snapping back to target after rebalancing]
 
-**Alex:** To rebalance, you sell some VTI and buy VXUS and BND to return to your targets. But here is a tax-efficient trick: instead of selling, use your new monthly contributions to buy only the underweight assets. Direct all your $800 toward VXUS and BND for a few months until the allocation gets back in line. No selling, no tax consequences.
+**Horace:** To rebalance, you sell some VTI and buy VXUS and BND to return to your targets. But here is a tax-efficient trick: instead of selling, use your new monthly contributions to buy only the underweight assets. Direct all your $800 toward VXUS and BND for a few months until the allocation gets back in line. No selling, no tax consequences.
 
-**Sam:** Smart. How often should I rebalance?
+**Stella:** Smart. How often should I rebalance?
 
-**Alex:** Once or twice a year is plenty. I like the "birthday and half-birthday" approach -- check on your birthday and six months later. Or use a threshold: any time an asset class drifts more than five percentage points from its target, rebalance. Do not check more frequently than monthly, and definitely do not rebalance weekly. Remember the behavioral biases lesson -- the more you look, the more tempted you are to tinker, and tinkering usually hurts.
+**Horace:** Once or twice a year is plenty. I like the "birthday and half-birthday" approach -- check on your birthday and six months later. Or use a threshold: any time an asset class drifts more than five percentage points from its target, rebalance. Do not check more frequently than monthly, and definitely do not rebalance weekly. Remember the behavioral biases lesson -- the more you look, the more tempted you are to tinker, and tinkering usually hurts.
 
 [VISUAL: Calendar with two dates circled six months apart, labeled "Rebalance Check"]
 
-**Sam:** What about life changes? When should I change my actual allocation?
+**Stella:** What about life changes? When should I change my actual allocation?
 
-**Alex:** Change your allocation when your life changes, not when the market changes. Getting married, having kids, buying a house, getting closer to retirement, losing a job -- these are valid reasons to revisit. A market crash is not a reason to change your allocation. Your IPS was written to withstand market crashes. Trust it.
+**Horace:** Change your allocation when your life changes, not when the market changes. Getting married, having kids, buying a house, getting closer to retirement, losing a job -- these are valid reasons to revisit. A market crash is not a reason to change your allocation. Your IPS was written to withstand market crashes. Trust it.
 
 [VISUAL: Life events timeline showing points where allocation should be reviewed: marriage, first child, home purchase, career change, age milestones]
 
-**Sam:** Let me recap the whole process to make sure I have it. Step one: I defined my goal -- $2 million by age 60. Step two: I assessed my risk tolerance -- 80% stocks, 20% bonds. Step three: I chose my allocation -- 55% US stocks, 25% international, 20% bonds. Step four: I selected my instruments -- VTI, VXUS, and BND. Step five: I am opening a Fidelity Roth IRA tonight. Step six: I will invest $800 per month, rebalance twice a year, and follow my IPS.
+**Stella:** Let me recap the whole process to make sure I have it. Step one: I defined my goal -- $2 million by age 60. Step two: I assessed my risk tolerance -- 80% stocks, 20% bonds. Step three: I chose my allocation -- 55% US stocks, 25% international, 20% bonds. Step four: I selected my instruments -- VTI, VXUS, and BND. Step five: I am opening a Fidelity Roth IRA tonight. Step six: I will invest $800 per month, rebalance twice a year, and follow my IPS.
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Six steps appearing as completed milestones on a path, each lighting up as Sam names them, ending with a trophy at the finish]
+[ANIMATION: animation/week12_portfolio_builder.py -- Six steps appearing as completed milestones on a path, each lighting up as Stella names them, ending with a trophy at the finish]
 
-**Alex:** That is a perfect plan. And I want to point out something remarkable: you just built a portfolio that will, with high probability, outperform 90% of professional money managers over the next 30 years. Three funds. Zero commissions. About $30 per year in fees per $100,000 invested. And roughly 20 minutes of maintenance per year.
+**Horace:** That is a perfect plan. And I want to point out something remarkable: you just built a portfolio that will, with high probability, outperform 90% of professional money managers over the next 30 years. Three funds. Zero commissions. About $30 per year in fees per $100,000 invested. And roughly 20 minutes of maintenance per year.
 
-**Sam:** It feels almost too simple.
+**Stella:** It feels almost too simple.
 
-**Alex:** That is the paradox. Simplicity is counterintuitive because we associate complexity with sophistication. But in investing, complexity usually serves the financial industry, not the investor. Every additional layer of complexity is an additional fee, an additional decision point where bias can creep in, and an additional thing that can go wrong. The three-fund portfolio is simple not because it is unsophisticated -- it is simple because financial science has conclusively shown that it is the best approach for the vast majority of people.
+**Horace:** That is the paradox. Simplicity is counterintuitive because we associate complexity with sophistication. But in investing, complexity usually serves the financial industry, not the investor. Every additional layer of complexity is an additional fee, an additional decision point where bias can creep in, and an additional thing that can go wrong. The three-fund portfolio is simple not because it is unsophisticated -- it is simple because financial science has conclusively shown that it is the best approach for the vast majority of people.
 
 [VISUAL: Two portfolios side by side -- "Simple: 3 Funds" and "Complex: 27 Funds" -- with performance lines converging over 30 years but the complex one showing slightly lower returns due to fees]
 
-**Sam:** One more question. I have friends who are into individual stocks, crypto, and all kinds of speculative stuff. They make it sound exciting. Am I missing out?
+**Stella:** One more question. I have friends who are into individual stocks, crypto, and all kinds of speculative stuff. They make it sound exciting. Am I missing out?
 
-**Alex:** Remember the 90/10 rule. Take 90% of your portfolio and invest it exactly as we just discussed -- boring, diversified, automatic. Then take 10% -- and only 10% -- as "play money." Use that to buy individual stocks, dabble in crypto, or try sector bets. If you are right, great. If you are wrong, the damage is contained. This scratches the itch without jeopardizing your future.
+**Horace:** Remember the 90/10 rule. Take 90% of your portfolio and invest it exactly as we just discussed -- boring, diversified, automatic. Then take 10% -- and only 10% -- as "play money." Use that to buy individual stocks, dabble in crypto, or try sector bets. If you are right, great. If you are wrong, the damage is contained. This scratches the itch without jeopardizing your future.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Portfolio pie splitting into 90% "Core" (with a shield icon) and 10% "Satellite" (with a rocket icon), showing that even if the satellite goes to zero, the core protects the overall portfolio]
 
-**Sam:** I love that framework. It is like having a safety net so you can take some calculated risks.
+**Stella:** I love that framework. It is like having a safety net so you can take some calculated risks.
 
-**Alex:** Exactly. And honestly, most people who try the satellite portion end up realizing the core performs better with less stress. But having the option keeps you engaged and reduces the temptation to blow up your main portfolio chasing the next hot thing.
+**Horace:** Exactly. And honestly, most people who try the satellite portion end up realizing the core performs better with less stress. But having the option keeps you engaged and reduces the temptation to blow up your main portfolio chasing the next hot thing.
 
-**Sam:** What about the people watching who are older? Is it too late for them to start?
+**Stella:** What about the people watching who are older? Is it too late for them to start?
 
-**Alex:** It is never too late. Let me show some numbers.
+**Horace:** It is never too late. Let me show some numbers.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Side-by-side wealth accumulation charts for investors starting at age 25, 35, 45, and 55, each investing $1,000/month, showing that while earlier is better, every starting age still builds significant wealth]
 
-**Alex:** Starting at 35 with $1,000 per month at 8.5% gets you about $1.2 million by 65. Starting at 45 gets you about $480,000. Starting at 55 gets you about $170,000. Is earlier better? Obviously. But $170,000 or $480,000 is dramatically better than zero. And older investors often have higher incomes, so they can contribute more per month. A 50-year-old investing $3,000 per month can absolutely build a significant nest egg in 15 years.
+**Horace:** Starting at 35 with $1,000 per month at 8.5% gets you about $1.2 million by 65. Starting at 45 gets you about $480,000. Starting at 55 gets you about $170,000. Is earlier better? Obviously. But $170,000 or $480,000 is dramatically better than zero. And older investors often have higher incomes, so they can contribute more per month. A 50-year-old investing $3,000 per month can absolutely build a significant nest egg in 15 years.
 
-**Sam:** That is encouraging. What if someone is already retired?
+**Stella:** That is encouraging. What if someone is already retired?
 
-**Alex:** Retirees need a different approach -- less growth, more income and stability. A 35% stocks, 55% bonds, 10% cash allocation is a common starting point. The stocks provide long-term growth to fight inflation. The bonds provide stability and income. The cash covers two to three years of living expenses so you never have to sell stocks during a downturn.
+**Horace:** Retirees need a different approach -- less growth, more income and stability. A 35% stocks, 55% bonds, 10% cash allocation is a common starting point. The stocks provide long-term growth to fight inflation. The bonds provide stability and income. The cash covers two to three years of living expenses so you never have to sell stocks during a downturn.
 
 [VISUAL: Retiree portfolio allocation pie chart with withdrawal strategy overlay showing the "bucket" approach -- near-term expenses from cash, medium-term from bonds, long-term growth from stocks]
 
-**Alex:** The famous 4% rule says you can withdraw 4% of your portfolio in the first year of retirement, then adjust for inflation each year, and your money will likely last 30 years. On a $1.5 million portfolio, that is $60,000 per year, plus Social Security.
+**Horace:** The famous 4% rule says you can withdraw 4% of your portfolio in the first year of retirement, then adjust for inflation each year, and your money will likely last 30 years. On a $1.5 million portfolio, that is $60,000 per year, plus Social Security.
 
-**Sam:** This has been incredibly helpful. Let me distill the key takeaways for everyone watching.
+**Stella:** This has been incredibly helpful. Let me distill the key takeaways for everyone watching.
 
 [VISUAL: Key takeaways appearing as a numbered list on screen]
 
-**Sam:** Number one: define specific goals with amounts and dates. Number two: assess your risk tolerance honestly -- use the sleep test. Number three: choose an asset allocation based on your time horizon and risk tolerance. Number four: use low-cost index funds -- the three-fund portfolio is hard to beat. Number five: open an account and start today -- do not wait for the "perfect" time. Number six: automate everything -- contributions, dividend reinvestment, and rebalancing. Number seven: write an Investment Policy Statement and follow it. Number eight: protect your portfolio from your own biases.
+**Stella:** Number one: define specific goals with amounts and dates. Number two: assess your risk tolerance honestly -- use the sleep test. Number three: choose an asset allocation based on your time horizon and risk tolerance. Number four: use low-cost index funds -- the three-fund portfolio is hard to beat. Number five: open an account and start today -- do not wait for the "perfect" time. Number six: automate everything -- contributions, dividend reinvestment, and rebalancing. Number seven: write an Investment Policy Statement and follow it. Number eight: protect your portfolio from your own biases.
 
-**Alex:** Perfect summary. And I want to leave everyone with this thought. The financial industry wants you to believe that investing is complicated. That you need their expensive products, their sophisticated strategies, their proprietary research. The truth is that a 28-year-old with a Roth IRA, three index funds, and an $800 monthly automatic transfer is doing more right than most investors with millions of dollars and teams of advisors.
+**Horace:** Perfect summary. And I want to leave everyone with this thought. The financial industry wants you to believe that investing is complicated. That you need their expensive products, their sophisticated strategies, their proprietary research. The truth is that a 28-year-old with a Roth IRA, three index funds, and an $800 monthly automatic transfer is doing more right than most investors with millions of dollars and teams of advisors.
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Closing animation showing a simple seed being planted (first investment), growing into a small tree (year 5), then a large tree (year 20), then a towering forest (year 40), with dollar amounts growing at each stage]
 
-**Sam:** The hardest part is just starting, is it not?
+**Stella:** The hardest part is just starting, is it not?
 
-**Alex:** The hardest part is starting. The second hardest part is not stopping. If you do just those two things -- start and keep going -- you will build more wealth than the vast majority of people. Not because you are smarter. Not because you have some secret strategy. But because you showed up, stayed disciplined, and let compound interest do the heavy lifting.
+**Horace:** The hardest part is starting. The second hardest part is not stopping. If you do just those two things -- start and keep going -- you will build more wealth than the vast majority of people. Not because you are smarter. Not because you have some secret strategy. But because you showed up, stayed disciplined, and let compound interest do the heavy lifting.
 
-**Sam:** I am opening my account tonight.
+**Stella:** I am opening my account tonight.
 
-**Alex:** That is the best thing I have heard all season. And for everyone watching -- do not wait until next week. Do not wait until you feel ready. Open an account, set up a transfer, buy your first share of a total market index fund. You can refine the details later. The first step is the one that matters most.
+**Horace:** That is the best thing I have heard all season. And for everyone watching -- do not wait until next week. Do not wait until you feel ready. Open an account, set up a transfer, buy your first share of a total market index fund. You can refine the details later. The first step is the one that matters most.
 
 [VISUAL: End screen with action items:
 1. Open a brokerage account TODAY (Fidelity, Schwab, or Vanguard)
@@ -1299,7 +1299,7 @@ A: Change your allocation when your life circumstances change, not when the mark
 
 [ANIMATION: animation/week12_portfolio_builder.py -- Final animation: confetti and celebration as a "Portfolio Created" badge appears, transitioning to a long road ahead with milestones at $100K, $500K, $1M, $2M]
 
-**Alex:** Thank you for joining us for the entire first quarter of this course. You now have the knowledge to build a real portfolio and the behavioral tools to protect it. Like, subscribe, and share this with someone who is still on the sidelines. The best time to invest was yesterday. The second best time is today. See you next week.
+**Horace:** Thank you for joining us for the entire first quarter of this course. You now have the knowledge to build a real portfolio and the behavioral tools to protect it. Like, subscribe, and share this with someone who is still on the sidelines. The best time to invest was yesterday. The second best time is today. See you next week.
 
 [VISUAL: End card with subscribe button, links to Weeks 1-11, and text: "Your journey starts now."]
 

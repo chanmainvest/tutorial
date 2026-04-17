@@ -1,8 +1,0 @@
-{
-  "name": "investment-tutorial-scripts",
-  "private": true,
-  "description": "Build and translation scripts for the investment tutorial",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0"
-  }
-}

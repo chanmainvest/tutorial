@@ -544,281 +544,281 @@ Look at the maximum drawdown during past crises. A well-diversified portfolio sh
 
 [VISUAL: Channel intro animation with upbeat music. Title card reads "Week 15: Multi-Asset Allocation -- Beyond Stocks and Bonds"]
 
-**Alex:** Welcome back, everyone. Today we are tackling one of the most important topics in all of investing: multi-asset allocation. Sam, pop quiz. What does your portfolio look like right now?
+**Horace:** Welcome back, everyone. Today we are tackling one of the most important topics in all of investing: multi-asset allocation. Stella, pop quiz. What does your portfolio look like right now?
 
-**Sam:** Um, I have got some US stock index funds, a little international stocks, and some bonds. Basically the classic three-fund portfolio.
+**Stella:** Um, I have got some US stock index funds, a little international stocks, and some bonds. Basically the classic three-fund portfolio.
 
-**Alex:** That is a great start, and honestly better than most people. But today we are going to explore why limiting yourself to just stocks and bonds is like painting with only two colors. The investment universe has a much richer palette.
+**Horace:** That is a great start, and honestly better than most people. But today we are going to explore why limiting yourself to just stocks and bonds is like painting with only two colors. The investment universe has a much richer palette.
 
 [VISUAL: An artist's palette with two colors labeled "Stocks" and "Bonds" transforming into a full palette with labels for Stocks, Bonds, REITs, Commodities, Gold, TIPS, and Alternatives]
 
-**Sam:** Okay, but I have heard that keeping things simple is the best approach. Why complicate things?
+**Stella:** Okay, but I have heard that keeping things simple is the best approach. Why complicate things?
 
-**Alex:** Simplicity is great, but there is a difference between simplicity and incompleteness. Harry Markowitz -- the father of modern portfolio theory -- said that diversification is the only free lunch in finance. And you cannot get a truly diversified meal with just two ingredients.
+**Horace:** Simplicity is great, but there is a difference between simplicity and incompleteness. Harry Markowitz -- the father of modern portfolio theory -- said that diversification is the only free lunch in finance. And you cannot get a truly diversified meal with just two ingredients.
 
-**Sam:** Free lunch? In finance? That sounds suspicious.
+**Stella:** Free lunch? In finance? That sounds suspicious.
 
-**Alex:** I know, right? But the math backs it up. When you combine assets that do not move in lockstep, the portfolio's risk decreases without a proportional decrease in return. You literally get a better risk-return trade-off from mixing than from holding any single asset alone.
+**Horace:** I know, right? But the math backs it up. When you combine assets that do not move in lockstep, the portfolio's risk decreases without a proportional decrease in return. You literally get a better risk-return trade-off from mixing than from holding any single asset alone.
 
 [VISUAL: Two wave patterns slightly out of phase, showing how their combination produces a smoother wave. Labels: "Asset A returns (volatile)", "Asset B returns (volatile)", "Combined portfolio (smoother)"]
 
-**Sam:** Okay, let us start at the beginning. What are all the asset classes we should know about?
+**Stella:** Okay, let us start at the beginning. What are all the asset classes we should know about?
 
-**Alex:** Let me walk through the major ones. First, you already know equities -- stocks. They have the highest long-term expected returns, roughly 7 to 10 percent per year after inflation historically. But they are also the most volatile, with annual swings of 15 to 20 percent being normal.
+**Horace:** Let me walk through the major ones. First, you already know equities -- stocks. They have the highest long-term expected returns, roughly 7 to 10 percent per year after inflation historically. But they are also the most volatile, with annual swings of 15 to 20 percent being normal.
 
-**Sam:** Right, stocks are the growth engine.
+**Stella:** Right, stocks are the growth engine.
 
-**Alex:** Exactly. Then you have fixed income -- bonds. Lower expected returns, maybe 1 to 4 percent after inflation, but much less volatile. They serve as ballast in your portfolio and tend to do well when the economy slows down.
+**Horace:** Exactly. Then you have fixed income -- bonds. Lower expected returns, maybe 1 to 4 percent after inflation, but much less volatile. They serve as ballast in your portfolio and tend to do well when the economy slows down.
 
 [VISUAL: Bar chart showing historical real returns for each major asset class over 1926-2025, with error bars showing the range of outcomes]
 
-**Sam:** Stocks for growth, bonds for stability. What else?
+**Stella:** Stocks for growth, bonds for stability. What else?
 
-**Alex:** Real estate, which you can access through REITs -- Real Estate Investment Trusts. These are companies that own properties and are required by law to pay out most of their income as dividends. Returns have been between stocks and bonds historically, roughly 5 to 7 percent real. They also provide inflation protection because rents tend to rise with inflation.
+**Horace:** Real estate, which you can access through REITs -- Real Estate Investment Trusts. These are companies that own properties and are required by law to pay out most of their income as dividends. Returns have been between stocks and bonds historically, roughly 5 to 7 percent real. They also provide inflation protection because rents tend to rise with inflation.
 
-**Sam:** I like the idea of owning real estate without being a landlord.
+**Stella:** I like the idea of owning real estate without being a landlord.
 
-**Alex:** Same. Then you have commodities -- physical goods like oil, copper, wheat, and natural gas. Commodities have low long-term real returns, maybe 0 to 2 percent. So why own them? Because they have very low correlation with stocks and bonds, and they tend to surge during inflationary periods -- exactly when your stocks and bonds are struggling.
+**Horace:** Same. Then you have commodities -- physical goods like oil, copper, wheat, and natural gas. Commodities have low long-term real returns, maybe 0 to 2 percent. So why own them? Because they have very low correlation with stocks and bonds, and they tend to surge during inflationary periods -- exactly when your stocks and bonds are struggling.
 
 [VISUAL: Timeline showing commodity performance during major inflationary periods: 1970s oil crisis, 2003-2008 commodity boom, 2021-2022 post-COVID inflation, with stock/bond returns shown for comparison]
 
-**Sam:** So commodities are like insurance against inflation?
+**Stella:** So commodities are like insurance against inflation?
 
-**Alex:** Precisely. And then there is gold, which deserves its own category. Gold has been a store of value for thousands of years. It has very low real returns over the long run, but it tends to spike during financial crises, geopolitical turmoil, and loss of confidence in governments and currencies.
+**Horace:** Precisely. And then there is gold, which deserves its own category. Gold has been a store of value for thousands of years. It has very low real returns over the long run, but it tends to spike during financial crises, geopolitical turmoil, and loss of confidence in governments and currencies.
 
-**Sam:** So gold is crisis insurance?
+**Stella:** So gold is crisis insurance?
 
-**Alex:** That is a perfect way to think about it. In 2008, when stocks fell roughly 50 percent, gold rose about 5 percent. During the early COVID panic in March 2020, gold held its value while stocks plunged. A small allocation to gold -- 5 to 10 percent -- can meaningfully reduce your portfolio's worst-case drawdown.
+**Horace:** That is a perfect way to think about it. In 2008, when stocks fell roughly 50 percent, gold rose about 5 percent. During the early COVID panic in March 2020, gold held its value while stocks plunged. A small allocation to gold -- 5 to 10 percent -- can meaningfully reduce your portfolio's worst-case drawdown.
 
-**Sam:** And the last one -- TIPS?
+**Stella:** And the last one -- TIPS?
 
-**Alex:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with inflation. So if inflation runs at 5 percent, your bond's face value increases by 5 percent. They are a direct hedge against unexpected inflation, which is one of the biggest risks to a traditional stock-bond portfolio.
+**Horace:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with inflation. So if inflation runs at 5 percent, your bond's face value increases by 5 percent. They are a direct hedge against unexpected inflation, which is one of the biggest risks to a traditional stock-bond portfolio.
 
 [VISUAL: Comparison of a regular Treasury bond vs. TIPS during an inflationary period, showing how the TIPS principal grows while the regular bond's real value shrinks]
 
-**Sam:** Alright, so we have got stocks, bonds, REITs, commodities, gold, and TIPS. How do we know which ones to combine and in what proportions?
+**Stella:** Alright, so we have got stocks, bonds, REITs, commodities, gold, and TIPS. How do we know which ones to combine and in what proportions?
 
-**Alex:** And that brings us to one of the most important concepts in all of investing: correlation.
+**Horace:** And that brings us to one of the most important concepts in all of investing: correlation.
 
 [VISUAL: Title card "Correlation: The Secret Sauce of Diversification"]
 
-**Sam:** Correlation -- how assets move relative to each other?
+**Stella:** Correlation -- how assets move relative to each other?
 
-**Alex:** Right. It is measured on a scale from negative one to positive one. A correlation of positive one means two assets move in perfect lockstep -- if one goes up 10 percent, the other goes up 10 percent. No diversification benefit at all. A correlation of zero means they move independently -- knowing what one did tells you nothing about the other. And negative one means they move in exactly opposite directions.
+**Horace:** Right. It is measured on a scale from negative one to positive one. A correlation of positive one means two assets move in perfect lockstep -- if one goes up 10 percent, the other goes up 10 percent. No diversification benefit at all. A correlation of zero means they move independently -- knowing what one did tells you nothing about the other. And negative one means they move in exactly opposite directions.
 
-**Sam:** And we want low or negative correlations in our portfolio?
+**Stella:** And we want low or negative correlations in our portfolio?
 
-**Alex:** Exactly. The lower the correlation, the more two assets reduce each other's risk when combined. Let me show you a real-world correlation matrix.
+**Horace:** Exactly. The lower the correlation, the more two assets reduce each other's risk when combined. Let me show you a real-world correlation matrix.
 
 [VISUAL: Full correlation matrix displayed as a heat map, with dark red for high positive correlation, white for zero, and dark blue for negative. Each cell shows the numerical value]
 
-**Alex:** Look at a few key relationships. US stocks and international stocks have a correlation of about 0.75. That is pretty high -- they move mostly together. Not much diversification there.
+**Horace:** Look at a few key relationships. US stocks and international stocks have a correlation of about 0.75. That is pretty high -- they move mostly together. Not much diversification there.
 
-**Sam:** So owning international stocks does not help as much as people think?
+**Stella:** So owning international stocks does not help as much as people think?
 
-**Alex:** For diversification purposes, much less than it used to. Globalization has linked equity markets together. But look at US stocks versus US government bonds: about negative 0.10. They tend to move in opposite directions. When stocks crash, investors flee to Treasuries, pushing bond prices up. That is powerful diversification.
+**Horace:** For diversification purposes, much less than it used to. Globalization has linked equity markets together. But look at US stocks versus US government bonds: about negative 0.10. They tend to move in opposite directions. When stocks crash, investors flee to Treasuries, pushing bond prices up. That is powerful diversification.
 
-**Sam:** What about commodities and gold?
+**Stella:** What about commodities and gold?
 
-**Alex:** Commodities have a correlation of about 0.15 with stocks -- nearly independent. Gold is roughly negative 0.05 to zero. These are the kinds of assets that provide genuine diversification, because they respond to different economic forces than stocks do.
+**Horace:** Commodities have a correlation of about 0.15 with stocks -- nearly independent. Gold is roughly negative 0.05 to zero. These are the kinds of assets that provide genuine diversification, because they respond to different economic forces than stocks do.
 
 [ANIMATION: animation/week15_efficient_frontier.py - Animated visualization showing how adding each new asset class to a portfolio shifts and extends the efficient frontier upward and to the left. Start with stocks only (a single dot), add bonds (a curve forms), add REITs (curve shifts up), add commodities (curve shifts left), add gold (curve shifts further left). Each addition is highlighted with a label showing the new asset class being incorporated.]
 
-**Sam:** That animation is incredible. Every time we add a new low-correlation asset, the curve moves up and to the left -- meaning more return for less risk.
+**Stella:** That animation is incredible. Every time we add a new low-correlation asset, the curve moves up and to the left -- meaning more return for less risk.
 
-**Alex:** Exactly. And that curve is called the efficient frontier, which brings us to modern portfolio theory.
+**Horace:** Exactly. And that curve is called the efficient frontier, which brings us to modern portfolio theory.
 
 [VISUAL: Title card "Modern Portfolio Theory: The Efficient Frontier"]
 
-**Alex:** In 1952, a young economist named Harry Markowitz published a paper that would eventually win the Nobel Prize. The core idea was deceptively simple: do not evaluate investments in isolation. What matters is how each investment contributes to the total portfolio.
+**Horace:** In 1952, a young economist named Harry Markowitz published a paper that would eventually win the Nobel Prize. The core idea was deceptively simple: do not evaluate investments in isolation. What matters is how each investment contributes to the total portfolio.
 
-**Sam:** Makes sense. A stock that is risky on its own might actually reduce portfolio risk if it has low correlation with everything else.
+**Stella:** Makes sense. A stock that is risky on its own might actually reduce portfolio risk if it has low correlation with everything else.
 
-**Alex:** Exactly right. Markowitz showed that for any given level of risk, there exists an optimal combination of assets that maximizes expected return. Plot all these optimal portfolios on a chart with risk on the x-axis and return on the y-axis, and you get a curve called the efficient frontier.
+**Horace:** Exactly right. Markowitz showed that for any given level of risk, there exists an optimal combination of assets that maximizes expected return. Plot all these optimal portfolios on a chart with risk on the x-axis and return on the y-axis, and you get a curve called the efficient frontier.
 
 [VISUAL: Clean diagram of the efficient frontier with clearly labeled axes, showing several portfolio points along the curve and a few sub-optimal portfolios below it]
 
-**Sam:** So any portfolio ON the curve is optimal, and anything below it is leaving money on the table?
+**Stella:** So any portfolio ON the curve is optimal, and anything below it is leaving money on the table?
 
-**Alex:** Correct. If your portfolio is below the efficient frontier, you could either earn more return for the same risk, or take less risk for the same return, by moving to the frontier. That is what portfolio optimization does -- it finds the weights that get you onto the frontier.
+**Horace:** Correct. If your portfolio is below the efficient frontier, you could either earn more return for the same risk, or take less risk for the same return, by moving to the frontier. That is what portfolio optimization does -- it finds the weights that get you onto the frontier.
 
-**Sam:** How does the math actually work? Can you give me an intuitive example?
+**Stella:** How does the math actually work? Can you give me an intuitive example?
 
-**Alex:** Sure. Let us take two assets. Asset A has an expected return of 10 percent and volatility of 15 percent -- think stocks. Asset B has an expected return of 4 percent and volatility of 5 percent -- think bonds. And they have a correlation of negative 0.10.
+**Horace:** Sure. Let us take two assets. Asset A has an expected return of 10 percent and volatility of 15 percent -- think stocks. Asset B has an expected return of 4 percent and volatility of 5 percent -- think bonds. And they have a correlation of negative 0.10.
 
-**Sam:** Classic stocks and bonds.
+**Stella:** Classic stocks and bonds.
 
-**Alex:** Now, if you put 60 percent in A and 40 percent in B, your expected return is simply the weighted average: 0.60 times 10 plus 0.40 times 4 equals 7.6 percent. Easy.
+**Horace:** Now, if you put 60 percent in A and 40 percent in B, your expected return is simply the weighted average: 0.60 times 10 plus 0.40 times 4 equals 7.6 percent. Easy.
 
-**Sam:** Right, that is just a weighted average.
+**Stella:** Right, that is just a weighted average.
 
-**Alex:** But here is where the magic happens. The portfolio's risk is NOT the weighted average. The weighted average risk would be 0.60 times 15 plus 0.40 times 5 equals 11 percent. But because of the negative correlation, the actual portfolio risk is only about 9 percent.
+**Horace:** But here is where the magic happens. The portfolio's risk is NOT the weighted average. The weighted average risk would be 0.60 times 15 plus 0.40 times 5 equals 11 percent. But because of the negative correlation, the actual portfolio risk is only about 9 percent.
 
 [VISUAL: Two side-by-side calculations. Left: "Expected Return = Weighted Average = 7.6%". Right: "Expected Risk =/= Weighted Average. Weighted Avg = 11%. Actual = 9.0%. Diversification benefit = 2 percentage points of FREE risk reduction"]
 
-**Sam:** Two full percentage points of risk just disappear?
+**Stella:** Two full percentage points of risk just disappear?
 
-**Alex:** They do not disappear -- they cancel out. When stocks zig down, bonds tend to zag up. The negative correlation term in the formula literally subtracts from total portfolio risk. This is the free lunch Markowitz was talking about.
+**Horace:** They do not disappear -- they cancel out. When stocks zig down, bonds tend to zag up. The negative correlation term in the formula literally subtracts from total portfolio risk. This is the free lunch Markowitz was talking about.
 
-**Sam:** That is genuinely amazing. But I have heard there are problems with this approach?
+**Stella:** That is genuinely amazing. But I have heard there are problems with this approach?
 
-**Alex:** Yes, and this is important. The efficient frontier is only as good as the inputs you feed it. You need three inputs: expected returns, expected volatilities, and expected correlations for every asset class. The problem is that expected returns are notoriously difficult to estimate. Small changes in your return assumptions can produce wildly different "optimal" portfolios.
+**Horace:** Yes, and this is important. The efficient frontier is only as good as the inputs you feed it. You need three inputs: expected returns, expected volatilities, and expected correlations for every asset class. The problem is that expected returns are notoriously difficult to estimate. Small changes in your return assumptions can produce wildly different "optimal" portfolios.
 
-**Sam:** So the theory is elegant but the practice is messy?
+**Stella:** So the theory is elegant but the practice is messy?
 
-**Alex:** Exactly. This is called estimation risk, and it is a serious problem. Run an optimizer with slightly different return estimates and you might get an allocation of 70 percent stocks and 5 percent gold one day, then 20 percent stocks and 40 percent gold the next. That kind of instability is not useful.
+**Horace:** Exactly. This is called estimation risk, and it is a serious problem. Run an optimizer with slightly different return estimates and you might get an allocation of 70 percent stocks and 5 percent gold one day, then 20 percent stocks and 40 percent gold the next. That kind of instability is not useful.
 
 [VISUAL: Three different efficient frontiers generated with slightly different return assumptions, showing how the optimal portfolio point shifts dramatically]
 
-**Sam:** So what do practitioners do about this?
+**Stella:** So what do practitioners do about this?
 
-**Alex:** Several things. First, many add constraints -- maximum and minimum weights for each asset class. You might say no single asset class can be more than 40 percent or less than 5 percent. Second, some use more robust estimation techniques. And third -- and this leads to our next topic -- some abandon return optimization entirely and focus on risk alone.
+**Horace:** Several things. First, many add constraints -- maximum and minimum weights for each asset class. You might say no single asset class can be more than 40 percent or less than 5 percent. Second, some use more robust estimation techniques. And third -- and this leads to our next topic -- some abandon return optimization entirely and focus on risk alone.
 
 [VISUAL: Title card "Risk Parity: A Different Philosophy"]
 
-**Sam:** Risk parity. I have heard this term but never really understood it.
+**Stella:** Risk parity. I have heard this term but never really understood it.
 
-**Alex:** Let me start with a simple observation about the traditional 60/40 portfolio. Stocks are allocated 60 percent of the weight. Bonds get 40 percent. Seems balanced, right?
+**Horace:** Let me start with a simple observation about the traditional 60/40 portfolio. Stocks are allocated 60 percent of the weight. Bonds get 40 percent. Seems balanced, right?
 
-**Sam:** Sure, 60/40 sounds balanced.
+**Stella:** Sure, 60/40 sounds balanced.
 
-**Alex:** But now look at the risk side. Stocks have roughly three times the volatility of bonds. So even though stocks are 60 percent of the portfolio by weight, they contribute about 90 percent of the portfolio's risk. The 60/40 portfolio is not balanced at all -- it is essentially a stock portfolio with a small bond buffer.
+**Horace:** But now look at the risk side. Stocks have roughly three times the volatility of bonds. So even though stocks are 60 percent of the portfolio by weight, they contribute about 90 percent of the portfolio's risk. The 60/40 portfolio is not balanced at all -- it is essentially a stock portfolio with a small bond buffer.
 
 [VISUAL: Two pie charts side by side. Left: "Weight Allocation" showing 60% stocks, 40% bonds. Right: "Risk Allocation" showing 90% stocks, 10% bonds. The contrast is dramatic and highlighted with color coding]
 
-**Sam:** Wait, 90 percent? So when stocks crash, the bonds can barely soften the blow?
+**Stella:** Wait, 90 percent? So when stocks crash, the bonds can barely soften the blow?
 
-**Alex:** Exactly. In 2008, the 60/40 portfolio fell about 30 to 35 percent. That is not what most people expect from a "balanced" portfolio. Risk parity says: instead of balancing by weight, balance by risk. Make each asset class contribute equally to portfolio risk.
+**Horace:** Exactly. In 2008, the 60/40 portfolio fell about 30 to 35 percent. That is not what most people expect from a "balanced" portfolio. Risk parity says: instead of balancing by weight, balance by risk. Make each asset class contribute equally to portfolio risk.
 
-**Sam:** How do you do that?
+**Stella:** How do you do that?
 
-**Alex:** Since bonds are less volatile than stocks, you need to hold more bonds per dollar of risk contribution. A simplified risk parity portfolio might look like 25 percent stocks, 55 percent bonds, and 20 percent commodities -- with each contributing roughly one-third of the portfolio's risk.
+**Horace:** Since bonds are less volatile than stocks, you need to hold more bonds per dollar of risk contribution. A simplified risk parity portfolio might look like 25 percent stocks, 55 percent bonds, and 20 percent commodities -- with each contributing roughly one-third of the portfolio's risk.
 
-**Sam:** But that is a lot of bonds. Will not the returns be too low?
+**Stella:** But that is a lot of bonds. Will not the returns be too low?
 
-**Alex:** In the pure risk parity approach, you use leverage to scale up the overall return. If the unlevered risk parity portfolio returns 5 percent with 6 percent volatility, you might lever it 1.5 times to get 7.5 percent return with 9 percent volatility -- similar return to 60/40 but with genuinely balanced risk.
+**Horace:** In the pure risk parity approach, you use leverage to scale up the overall return. If the unlevered risk parity portfolio returns 5 percent with 6 percent volatility, you might lever it 1.5 times to get 7.5 percent return with 9 percent volatility -- similar return to 60/40 but with genuinely balanced risk.
 
 [VISUAL: Bar chart comparing three portfolios: 60/40 (unlevered), Risk Parity (unlevered, low return), and Risk Parity (levered, comparable return). Show both return and risk metrics]
 
-**Sam:** Leverage sounds scary though. Is that safe?
+**Stella:** Leverage sounds scary though. Is that safe?
 
-**Alex:** That is the right concern. For most individual investors, I would not recommend levered risk parity. The good news is that even without leverage, a risk-parity-inspired portfolio -- one that tilts toward bonds and includes commodities, gold, and TIPS -- can provide better diversification than a traditional 60/40.
+**Horace:** That is the right concern. For most individual investors, I would not recommend levered risk parity. The good news is that even without leverage, a risk-parity-inspired portfolio -- one that tilts toward bonds and includes commodities, gold, and TIPS -- can provide better diversification than a traditional 60/40.
 
-**Sam:** Like a "risk parity lite"?
+**Stella:** Like a "risk parity lite"?
 
-**Alex:** Exactly. Something like 20 percent stocks, 30 percent long-term Treasuries, 15 percent TIPS, 10 percent gold, 10 percent commodities, 10 percent international stocks, and 5 percent REITs. No leverage needed, but much more balanced risk exposure than 60/40.
+**Horace:** Exactly. Something like 20 percent stocks, 30 percent long-term Treasuries, 15 percent TIPS, 10 percent gold, 10 percent commodities, 10 percent international stocks, and 5 percent REITs. No leverage needed, but much more balanced risk exposure than 60/40.
 
 [VISUAL: The Risk Parity Lite allocation displayed as a bar chart with risk contribution percentages shown for each asset class, demonstrating more balanced risk than 60/40]
 
-**Sam:** Let us talk about some complete portfolios people actually use. I have heard of things like the All-Weather portfolio and the Yale Model.
+**Stella:** Let us talk about some complete portfolios people actually use. I have heard of things like the All-Weather portfolio and the Yale Model.
 
-**Alex:** Great idea. Let me walk through several famous multi-asset portfolios that real investors use.
+**Horace:** Great idea. Let me walk through several famous multi-asset portfolios that real investors use.
 
 [VISUAL: Title card "Portfolio Models: From Simple to Sophisticated"]
 
-**Alex:** First, the Three-Fund Portfolio, popularized by Bogleheads. Just US stocks, international stocks, and US bonds. Something like 50-30-20. It is beautifully simple, incredibly low cost, and captures the basic diversification between equities and fixed income.
+**Horace:** First, the Three-Fund Portfolio, popularized by Bogleheads. Just US stocks, international stocks, and US bonds. Something like 50-30-20. It is beautifully simple, incredibly low cost, and captures the basic diversification between equities and fixed income.
 
-**Sam:** That is what I started with.
+**Stella:** That is what I started with.
 
-**Alex:** And it is a perfectly reasonable portfolio for many people. But we can improve on it. The Four-Fund Portfolio adds REITs as a fourth asset class. Something like 40 percent US stocks, 20 percent international stocks, 25 percent bonds, and 15 percent REITs. This adds real estate exposure and a bit more diversification.
+**Horace:** And it is a perfectly reasonable portfolio for many people. But we can improve on it. The Four-Fund Portfolio adds REITs as a fourth asset class. Something like 40 percent US stocks, 20 percent international stocks, 25 percent bonds, and 15 percent REITs. This adds real estate exposure and a bit more diversification.
 
 [VISUAL: Side-by-side comparison of the three-fund and four-fund portfolios, showing allocations and historical risk-return metrics]
 
-**Sam:** What about Ray Dalio's All-Weather portfolio? That is the one Bridgewater runs, right?
+**Stella:** What about Ray Dalio's All-Weather portfolio? That is the one Bridgewater runs, right?
 
-**Alex:** The simplified version for individual investors is roughly 30 percent US stocks, 40 percent long-term Treasuries, 15 percent intermediate Treasuries, 7.5 percent gold, and 7.5 percent commodities. It is designed to perform reasonably well in all four economic environments: rising growth, falling growth, rising inflation, and falling inflation.
+**Horace:** The simplified version for individual investors is roughly 30 percent US stocks, 40 percent long-term Treasuries, 15 percent intermediate Treasuries, 7.5 percent gold, and 7.5 percent commodities. It is designed to perform reasonably well in all four economic environments: rising growth, falling growth, rising inflation, and falling inflation.
 
-**Sam:** Why so many bonds? 55 percent seems like a lot.
+**Stella:** Why so many bonds? 55 percent seems like a lot.
 
-**Alex:** Because it is risk-parity-inspired. Bonds are less volatile, so you need more of them to balance the risk contribution of stocks. The gold and commodities provide inflation protection that bonds lack. The result is a portfolio that had remarkably small drawdowns historically.
+**Horace:** Because it is risk-parity-inspired. Bonds are less volatile, so you need more of them to balance the risk contribution of stocks. The gold and commodities provide inflation protection that bonds lack. The result is a portfolio that had remarkably small drawdowns historically.
 
-**Sam:** How did it actually perform?
+**Stella:** How did it actually perform?
 
-**Alex:** During the 2008 crisis, the All-Weather portfolio lost only about 3 to 4 percent while the S&P 500 fell nearly 40 percent. Over long periods, it returned about 7 to 8 percent per year with much smaller drawdowns than a stock-heavy portfolio. The trade-off is that it lags stocks during strong bull markets.
+**Horace:** During the 2008 crisis, the All-Weather portfolio lost only about 3 to 4 percent while the S&P 500 fell nearly 40 percent. Over long periods, it returned about 7 to 8 percent per year with much smaller drawdowns than a stock-heavy portfolio. The trade-off is that it lags stocks during strong bull markets.
 
 [VISUAL: Growth of $10,000 chart from 2005 to 2025 comparing All-Weather, 60/40, and 100% stocks. Show the 2008 drawdown, the 2020 COVID crash, and the 2022 rate-rising environment. All-Weather has the smoothest line but ends lower than 100% stocks]
 
-**Sam:** What about the Yale Model? I have heard David Swensen was a genius.
+**Stella:** What about the Yale Model? I have heard David Swensen was a genius.
 
-**Alex:** Swensen ran the Yale endowment for decades and pioneered the use of alternative assets in institutional portfolios. The simplified version for individual investors is something like 30 percent US stocks, 15 percent international developed, 10 percent emerging markets, 15 percent REITs, 15 percent TIPS, and 15 percent nominal bonds.
+**Horace:** Swensen ran the Yale endowment for decades and pioneered the use of alternative assets in institutional portfolios. The simplified version for individual investors is something like 30 percent US stocks, 15 percent international developed, 10 percent emerging markets, 15 percent REITs, 15 percent TIPS, and 15 percent nominal bonds.
 
-**Sam:** That is more stock-heavy than All-Weather.
+**Stella:** That is more stock-heavy than All-Weather.
 
-**Alex:** It is, and the real Yale portfolio also included private equity, venture capital, and hedge funds that are not available to individual investors. The key insight Swensen emphasized was that individual investors should stick to low-cost index funds for each asset class rather than trying to pick active managers.
+**Horace:** It is, and the real Yale portfolio also included private equity, venture capital, and hedge funds that are not available to individual investors. The key insight Swensen emphasized was that individual investors should stick to low-cost index funds for each asset class rather than trying to pick active managers.
 
 [VISUAL: Table comparing all five portfolio models with columns for allocation, historical return, historical volatility, maximum drawdown, and Sharpe ratio]
 
-**Sam:** How do I choose between all these models?
+**Stella:** How do I choose between all these models?
 
-**Alex:** It depends on your risk tolerance and your beliefs about the future economic environment. If you believe the future will look like the past 40 years -- falling interest rates, strong stock markets, low inflation -- then a stock-heavy portfolio like the Three-Fund or Yale Model will likely do best. If you are worried about inflation, rising rates, or economic uncertainty, the All-Weather or Risk Parity Lite approaches provide more protection.
+**Horace:** It depends on your risk tolerance and your beliefs about the future economic environment. If you believe the future will look like the past 40 years -- falling interest rates, strong stock markets, low inflation -- then a stock-heavy portfolio like the Three-Fund or Yale Model will likely do best. If you are worried about inflation, rising rates, or economic uncertainty, the All-Weather or Risk Parity Lite approaches provide more protection.
 
-**Sam:** What about just mixing approaches?
+**Stella:** What about just mixing approaches?
 
-**Alex:** Totally valid. You could start with the Three-Fund Portfolio as your core and then add 10 to 15 percent in real assets like gold, commodities, and TIPS as a satellite allocation. That gives you the simplicity of the core with some additional diversification on the edges.
+**Horace:** Totally valid. You could start with the Three-Fund Portfolio as your core and then add 10 to 15 percent in real assets like gold, commodities, and TIPS as a satellite allocation. That gives you the simplicity of the core with some additional diversification on the edges.
 
 [VISUAL: Diagram showing Core-Satellite approach: a large circle labeled "Core: Three-Fund Portfolio (70-80%)" surrounded by smaller circles labeled "Gold (5%)", "Commodities (5%)", "TIPS (5%)", "REITs (5%)"]
 
-**Sam:** Let me ask about something practical. I am going to set my allocation and then what? Just leave it alone?
+**Stella:** Let me ask about something practical. I am going to set my allocation and then what? Just leave it alone?
 
-**Alex:** Not quite. Over time, market movements will push your portfolio away from its target weights. If stocks have a great year, they might drift from 40 percent to 48 percent of your portfolio. You need to rebalance -- bring the weights back to targets.
+**Horace:** Not quite. Over time, market movements will push your portfolio away from its target weights. If stocks have a great year, they might drift from 40 percent to 48 percent of your portfolio. You need to rebalance -- bring the weights back to targets.
 
 [VISUAL: Title card "Rebalancing: The Discipline That Pays"]
 
-**Sam:** How often should I rebalance?
+**Stella:** How often should I rebalance?
 
-**Alex:** Research shows that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing just adds transaction costs. Some people use threshold-based rebalancing instead -- you rebalance whenever any asset class has drifted more than 5 percentage points from its target.
+**Horace:** Research shows that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing just adds transaction costs. Some people use threshold-based rebalancing instead -- you rebalance whenever any asset class has drifted more than 5 percentage points from its target.
 
-**Sam:** Is not rebalancing just selling your winners and buying your losers? That feels wrong.
+**Stella:** Is not rebalancing just selling your winners and buying your losers? That feels wrong.
 
-**Alex:** It does feel wrong, and that is exactly why it works. Rebalancing is a systematic way to buy low and sell high. When stocks surge, you trim them. When they crash, you buy more. Studies show this disciplined contrarian behavior has added roughly 0.3 to 0.5 percent per year in return historically.
+**Horace:** It does feel wrong, and that is exactly why it works. Rebalancing is a systematic way to buy low and sell high. When stocks surge, you trim them. When they crash, you buy more. Studies show this disciplined contrarian behavior has added roughly 0.3 to 0.5 percent per year in return historically.
 
 [VISUAL: Chart showing a portfolio that drifts away from target, gets rebalanced, drifts again, gets rebalanced again -- with annotations showing "Sell high" and "Buy low" at each rebalancing event]
 
-**Sam:** And the tax-efficient way to do this?
+**Stella:** And the tax-efficient way to do this?
 
-**Alex:** Great point. In taxable accounts, the best approach is to use new contributions to buy underweight assets rather than selling overweight ones. Direct your monthly investment to whatever has drifted furthest below its target. Also, if you receive dividends, reinvest them into the underweight asset classes. This way you rebalance over time without triggering capital gains taxes.
+**Horace:** Great point. In taxable accounts, the best approach is to use new contributions to buy underweight assets rather than selling overweight ones. Direct your monthly investment to whatever has drifted furthest below its target. Also, if you receive dividends, reinvest them into the underweight asset classes. This way you rebalance over time without triggering capital gains taxes.
 
-**Sam:** Clever. Let us talk about one more thing -- the practical implementation. How do I actually build a multi-asset portfolio with ETFs?
+**Stella:** Clever. Let us talk about one more thing -- the practical implementation. How do I actually build a multi-asset portfolio with ETFs?
 
-**Alex:** The amazing thing is that you can build an institutional-quality multi-asset portfolio with just five to seven low-cost ETFs. For US stocks, VTI at 0.03 percent expense ratio. For international stocks, VXUS at 0.07 percent. For bonds, BND at 0.03 percent. For long-term Treasuries, TLT at 0.15 percent. For TIPS, SCHP at 0.03 percent. For gold, GLDM at 0.10 percent. For commodities, PDBC at 0.59 percent.
+**Horace:** The amazing thing is that you can build an institutional-quality multi-asset portfolio with just five to seven low-cost ETFs. For US stocks, VTI at 0.03 percent expense ratio. For international stocks, VXUS at 0.07 percent. For bonds, BND at 0.03 percent. For long-term Treasuries, TLT at 0.15 percent. For TIPS, SCHP at 0.03 percent. For gold, GLDM at 0.10 percent. For commodities, PDBC at 0.59 percent.
 
 [VISUAL: A "shopping list" graphic showing each ETF with its ticker, name, asset class, and expense ratio, organized as a checklist]
 
-**Sam:** So total portfolio cost would be what, maybe 0.10 to 0.15 percent per year?
+**Stella:** So total portfolio cost would be what, maybe 0.10 to 0.15 percent per year?
 
-**Alex:** Something in that range, depending on the weights. Institutional investors pay tens of millions in management fees for similar strategies. You can do it for pennies on the dollar with ETFs.
+**Horace:** Something in that range, depending on the weights. Institutional investors pay tens of millions in management fees for similar strategies. You can do it for pennies on the dollar with ETFs.
 
-**Sam:** That is incredible.
+**Stella:** That is incredible.
 
-**Alex:** One important note on commodities ETFs. Most commodity ETFs use futures contracts, not physical commodities. Futures-based ETFs can suffer from something called "roll cost" or "contango" -- they lose money when they sell expiring contracts and buy new ones. This can drag on returns over time. Make sure you understand this before adding a commodity ETF.
+**Horace:** One important note on commodities ETFs. Most commodity ETFs use futures contracts, not physical commodities. Futures-based ETFs can suffer from something called "roll cost" or "contango" -- they lose money when they sell expiring contracts and buy new ones. This can drag on returns over time. Make sure you understand this before adding a commodity ETF.
 
 [VISUAL: Diagram showing how futures-based commodity ETFs work, with the "roll" process illustrated and the contango cost highlighted]
 
-**Sam:** Good warning. Let me make sure I understand the big picture. I should think about which economic environments I want to be protected against, then choose asset classes that perform well in those environments, then combine them with low correlations, and rebalance periodically?
+**Stella:** Good warning. Let me make sure I understand the big picture. I should think about which economic environments I want to be protected against, then choose asset classes that perform well in those environments, then combine them with low correlations, and rebalance periodically?
 
-**Alex:** That is a perfect summary. And remember the economic regime coverage map we discussed. Growth with low inflation favors stocks and REITs. Growth with high inflation favors commodities and TIPS. Recession with low inflation favors bonds. Recession with high inflation -- stagflation -- favors gold and commodities. A good multi-asset portfolio has some assets performing well in every one of those environments.
+**Horace:** That is a perfect summary. And remember the economic regime coverage map we discussed. Growth with low inflation favors stocks and REITs. Growth with high inflation favors commodities and TIPS. Recession with low inflation favors bonds. Recession with high inflation -- stagflation -- favors gold and commodities. A good multi-asset portfolio has some assets performing well in every one of those environments.
 
 [VISUAL: Four-quadrant economic regime grid with Growth/Recession on one axis and High/Low Inflation on the other, with each quadrant showing the best-performing asset classes]
 
-**Sam:** Before we wrap up, let me ask about a common concern I hear: "Is not this all just over-complicating things? Warren Buffett says just buy an S&P 500 index fund."
+**Stella:** Before we wrap up, let me ask about a common concern I hear: "Is not this all just over-complicating things? Warren Buffett says just buy an S&P 500 index fund."
 
-**Alex:** Buffett's advice is specifically for his estate after he dies -- for money his wife will not need for decades. And he is not wrong for that specific situation. A 100 percent stock portfolio has the highest expected long-term return. But most real people cannot stomach a 40 to 50 percent drawdown, which stocks have delivered multiple times. They panic-sell at the bottom and lock in losses. A multi-asset portfolio with smaller drawdowns is easier to hold through crises, and the portfolio you actually hold is infinitely better than the one you abandon.
+**Horace:** Buffett's advice is specifically for his estate after he dies -- for money his wife will not need for decades. And he is not wrong for that specific situation. A 100 percent stock portfolio has the highest expected long-term return. But most real people cannot stomach a 40 to 50 percent drawdown, which stocks have delivered multiple times. They panic-sell at the bottom and lock in losses. A multi-asset portfolio with smaller drawdowns is easier to hold through crises, and the portfolio you actually hold is infinitely better than the one you abandon.
 
-**Sam:** So it is about matching the portfolio to the investor, not just chasing the highest return.
+**Stella:** So it is about matching the portfolio to the investor, not just chasing the highest return.
 
-**Alex:** Exactly. The best portfolio is the one you can stick with for decades. Multi-asset allocation helps you find that portfolio by offering better risk-adjusted returns and smaller worst-case scenarios.
+**Horace:** Exactly. The best portfolio is the one you can stick with for decades. Multi-asset allocation helps you find that portfolio by offering better risk-adjusted returns and smaller worst-case scenarios.
 
 [VISUAL: Split-screen showing two investors during a market crash. Left: "100% Stocks" investor panics and sells at the bottom. Right: "Multi-Asset" investor stays calm because the portfolio only fell 15% instead of 40%]
 
-**Sam:** That makes a lot of sense. Three key takeaways from today?
+**Stella:** That makes a lot of sense. Three key takeaways from today?
 
-**Alex:** First, diversification beyond stocks and bonds is not complication -- it is completion. Asset classes like commodities, gold, REITs, and TIPS provide genuine diversification that different types of stocks do not. Second, what matters is not how many assets you own but how they correlate with each other. Focus on adding assets with low correlations to your existing portfolio. Third, the efficient frontier shows the optimal risk-return trade-off, but your inputs matter enormously -- consider simpler approaches like equal risk contribution if you are unsure about expected returns.
+**Horace:** First, diversification beyond stocks and bonds is not complication -- it is completion. Asset classes like commodities, gold, REITs, and TIPS provide genuine diversification that different types of stocks do not. Second, what matters is not how many assets you own but how they correlate with each other. Focus on adding assets with low correlations to your existing portfolio. Third, the efficient frontier shows the optimal risk-return trade-off, but your inputs matter enormously -- consider simpler approaches like equal risk contribution if you are unsure about expected returns.
 
-**Sam:** And maybe a bonus takeaway: rebalance regularly. That systematic buy-low, sell-high discipline adds real value over time.
+**Stella:** And maybe a bonus takeaway: rebalance regularly. That systematic buy-low, sell-high discipline adds real value over time.
 
-**Alex:** Great addition. Next week, we are going to talk about how the business cycle affects which sectors of the economy perform best, and how you can tilt your portfolio to take advantage of that cycle. It is called sector rotation, and it is fascinating.
+**Horace:** Great addition. Next week, we are going to talk about how the business cycle affects which sectors of the economy perform best, and how you can tilt your portfolio to take advantage of that cycle. It is called sector rotation, and it is fascinating.
 
-**Sam:** Can not wait. See everyone next week!
+**Stella:** Can not wait. See everyone next week!
 
 [VISUAL: End screen with subscribe button, links to previous lessons, and a preview thumbnail for Week 16: Business Cycles and Sector Rotation]
 

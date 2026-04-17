@@ -811,173 +811,173 @@ A: Over long periods, the wheel strategy typically generates higher income but m
 
 [VISUAL: Animated intro with show logo. Text: "Week 28: Cash-Secured Puts for Entry - Level 3: Advanced"]
 
-**Alex:** Welcome back. Over the past three weeks, we have built a complete foundation in options. We started with the basics in Week 25, then learned to think of options as conditional orders in Week 26, and mastered covered calls for income in Week 27. Today we complete the picture with cash-secured puts.
+**Horace:** Welcome back. Over the past three weeks, we have built a complete foundation in options. We started with the basics in Week 25, then learned to think of options as conditional orders in Week 26, and mastered covered calls for income in Week 27. Today we complete the picture with cash-secured puts.
 
-**Sam:** And then we are going to put it all together with the wheel strategy?
+**Stella:** And then we are going to put it all together with the wheel strategy?
 
-**Alex:** That is exactly right. Cash-secured puts are the entry mechanism of the wheel. They are how you get into stocks while getting paid to do so. By the end of today, you will have the complete toolkit.
+**Horace:** That is exactly right. Cash-secured puts are the entry mechanism of the wheel. They are how you get into stocks while getting paid to do so. By the end of today, you will have the complete toolkit.
 
 [VISUAL: A wheel diagram showing the cycle: "Cash -> Sell Puts -> Assigned -> Own Shares -> Sell Calls -> Called Away -> Cash" with today's focus "Sell Puts" highlighted]
 
-**Sam:** OK, let us start with the basics. What is a cash-secured put?
+**Stella:** OK, let us start with the basics. What is a cash-secured put?
 
-**Alex:** A cash-secured put is when you sell a put option and keep enough cash in your account to buy the shares if you are assigned. You are making a promise: I will buy this stock at this price if it drops to that level. In return, someone pays you a premium right now.
+**Horace:** A cash-secured put is when you sell a put option and keep enough cash in your account to buy the shares if you are assigned. You are making a promise: I will buy this stock at this price if it drops to that level. In return, someone pays you a premium right now.
 
-**Sam:** And the "cash-secured" part means I am not using borrowed money?
+**Stella:** And the "cash-secured" part means I am not using borrowed money?
 
-**Alex:** Exactly. Your broker holds the full amount, say $14,000 for a $140 put, as collateral. If you are assigned, that cash is used to buy the shares. No margin, no borrowed money, no surprises.
+**Horace:** Exactly. Your broker holds the full amount, say $14,000 for a $140 put, as collateral. If you are assigned, that cash is used to buy the shares. No margin, no borrowed money, no surprises.
 
 [VISUAL: Diagram showing a bank vault labeled "$14,000" connected to a put option contract. Arrow labeled "Premium $280" flowing from the option to the investor's pocket. Arrow labeled "If assigned" flowing from the vault to "100 shares"]
 
-**Sam:** Let me walk through an example. Apple is at $155 and I think $145 is a great price to buy.
+**Stella:** Let me walk through an example. Apple is at $155 and I think $145 is a great price to buy.
 
-**Alex:** Perfect setup. Instead of placing a limit order at $145, you sell one AAPL $145 put expiring in 30 days. Let us say the premium is $2.80. You receive $280 immediately, and your broker reserves $14,500 in cash.
+**Horace:** Perfect setup. Instead of placing a limit order at $145, you sell one AAPL $145 put expiring in 30 days. Let us say the premium is $2.80. You receive $280 immediately, and your broker reserves $14,500 in cash.
 
-**Sam:** And now what?
+**Stella:** And now what?
 
-**Alex:** Now you wait. And one of four things will happen.
+**Horace:** Now you wait. And one of four things will happen.
 
 [ANIMATION: Reference animation/week28_cash_secured_put.py - Animation showing a stock price chart with AAPL starting at $155 and a $145 strike line drawn horizontally. Four animated paths branch from the starting point: (1) stock stays flat around $155, (2) stock rises to $175, (3) stock drops to $144, (4) stock drops sharply to $125. For each path, the animation shows the outcome: premium kept or assignment occurring, with the effective cost calculator updating in real-time. A running P&L display shows the put seller's position at each stage.]
 
-**Alex:** Scenario one, the most common: Apple stays above $145. The put expires worthless. You keep the $280 and your $14,500 is freed up. You earned 1.9% in 30 days, which is 23.6% annualized. Then you sell another put for next month.
+**Horace:** Scenario one, the most common: Apple stays above $145. The put expires worthless. You keep the $280 and your $14,500 is freed up. You earned 1.9% in 30 days, which is 23.6% annualized. Then you sell another put for next month.
 
-**Sam:** Nice. Scenario two?
+**Stella:** Nice. Scenario two?
 
-**Alex:** Apple drops to exactly $145 or slightly below. You are assigned. You buy 100 shares at $145. But remember, you already received $2.80 per share in premium, so your effective cost is $142.20.
+**Horace:** Apple drops to exactly $145 or slightly below. You are assigned. You buy 100 shares at $145. But remember, you already received $2.80 per share in premium, so your effective cost is $142.20.
 
-**Sam:** Which is lower than what a limit order would have given me.
+**Stella:** Which is lower than what a limit order would have given me.
 
-**Alex:** By $2.80 per share. That is 1.9% better than a limit order. And it does not sound like much, but over many cycles, these savings compound dramatically.
+**Horace:** By $2.80 per share. That is 1.9% better than a limit order. And it does not sound like much, but over many cycles, these savings compound dramatically.
 
 [VISUAL: Two receipts side by side. Left: "Limit Order Receipt - 100 shares AAPL at $145.00 - Total: $14,500". Right: "Cash-Secured Put Receipt - 100 shares AAPL at $145.00 - Premium Received: -$280 - Effective Cost: $14,220 - Savings: $280"]
 
-**Sam:** What about scenario three, a big drop?
+**Stella:** What about scenario three, a big drop?
 
-**Alex:** Say Apple drops to $125. You are assigned at $145, effective cost $142.20. You are now sitting on an unrealized loss of $17.20 per share. This is the risk of the strategy.
+**Horace:** Say Apple drops to $125. You are assigned at $145, effective cost $142.20. You are now sitting on an unrealized loss of $17.20 per share. This is the risk of the strategy.
 
-**Sam:** But the limit order person is also sitting on a loss.
+**Stella:** But the limit order person is also sitting on a loss.
 
-**Alex:** Right. The limit order buyer at $145 has an unrealized loss of $20 per share. You have a loss of $17.20 per share. You are $2.80 better off. In a big drop, nobody wins, but the put seller loses slightly less.
+**Horace:** Right. The limit order buyer at $145 has an unrealized loss of $20 per share. You have a loss of $17.20 per share. You are $2.80 better off. In a big drop, nobody wins, but the put seller loses slightly less.
 
-**Sam:** And scenario four? Apple rockets higher?
+**Stella:** And scenario four? Apple rockets higher?
 
-**Alex:** Apple goes to $175. Your put expires worthless. You keep the $280 but you did not buy any shares. You "missed" the rally. But here is the thing: your limit order at $145 also was not filled. The limit order person also missed the rally and earned nothing. You at least earned $280.
+**Horace:** Apple goes to $175. Your put expires worthless. You keep the $280 but you did not buy any shares. You "missed" the rally. But here is the thing: your limit order at $145 also was not filled. The limit order person also missed the rally and earned nothing. You at least earned $280.
 
 [VISUAL: Scoreboard showing all four scenarios. For each, the put seller's outcome is compared to the limit order person's outcome. In every scenario, the put seller is equal to or better than the limit order approach.]
 
-**Alex:** In every single scenario, the put seller does at least as well as the limit order, and usually better. That is the fundamental mathematical advantage of this strategy.
+**Horace:** In every single scenario, the put seller does at least as well as the limit order, and usually better. That is the fundamental mathematical advantage of this strategy.
 
-**Sam:** That is compelling. Now let me ask about strike price selection. How do I decide what strike to sell?
+**Stella:** That is compelling. Now let me ask about strike price selection. How do I decide what strike to sell?
 
-**Alex:** There are several approaches, and the best one depends on your situation. The first approach is fundamental valuation. You estimate the stock's fair value and set your strike at or below that number.
+**Horace:** There are several approaches, and the best one depends on your situation. The first approach is fundamental valuation. You estimate the stock's fair value and set your strike at or below that number.
 
-**Sam:** So if I think Apple is worth $145 based on its PE ratio and earnings, I sell the $145 put?
+**Stella:** So if I think Apple is worth $145 based on its PE ratio and earnings, I sell the $145 put?
 
-**Alex:** Exactly. You are saying, I am willing to buy Apple at fair value, and I will accept premium for making that commitment. The second approach is using support levels from a price chart. If Apple has bounced off $148 three times in the past year, that is a strong support level and a logical strike.
+**Horace:** Exactly. You are saying, I am willing to buy Apple at fair value, and I will accept premium for making that commitment. The second approach is using support levels from a price chart. If Apple has bounced off $148 three times in the past year, that is a strong support level and a logical strike.
 
-**Sam:** And the third approach?
+**Stella:** And the third approach?
 
-**Alex:** Percentage below market. Simply go 5-10% below the current price. For Apple at $155, that is $140-$147. This is the simplest approach and works well for beginners.
+**Horace:** Percentage below market. Simply go 5-10% below the current price. For Apple at $155, that is $140-$147. This is the simplest approach and works well for beginners.
 
 [VISUAL: Three-panel display. Panel 1: Fundamental analysis showing PE ratio and earnings with a "Fair Value: $145" label. Panel 2: Price chart with support line at $148. Panel 3: Current price $155 with 5% and 10% arrows pointing to $147 and $140 respectively.]
 
-**Sam:** I notice there is always a tradeoff between the premium and the strike distance. Can you walk through that?
+**Stella:** I notice there is always a tradeoff between the premium and the strike distance. Can you walk through that?
 
-**Alex:** Absolutely. The further out of the money you go, the less premium you receive, but the lower your probability of being assigned. Think of it as a dial between income and safety.
+**Horace:** Absolutely. The further out of the money you go, the less premium you receive, but the lower your probability of being assigned. Think of it as a dial between income and safety.
 
 [VISUAL: A dial/gauge with "More Income" on the left and "More Safety" on the right. Specific strike prices are marked along the dial with their premiums and assignment probabilities.]
 
-**Alex:** At the $155 strike, right at the money, you might get $4.50 in premium. That is a 3% monthly return, but there is a 50% chance you get assigned. At the $145 strike, 6.5% out of the money, you get $1.70. That is a 1.2% monthly return with about a 25% chance of assignment. At $135, 13% out of the money, you get $0.50. That is 0.4% per month with only a 12% chance of assignment.
+**Horace:** At the $155 strike, right at the money, you might get $4.50 in premium. That is a 3% monthly return, but there is a 50% chance you get assigned. At the $145 strike, 6.5% out of the money, you get $1.70. That is a 1.2% monthly return with about a 25% chance of assignment. At $135, 13% out of the money, you get $0.50. That is 0.4% per month with only a 12% chance of assignment.
 
-**Sam:** So for conservative investors, the $140-$145 range seems like the sweet spot?
+**Stella:** So for conservative investors, the $140-$145 range seems like the sweet spot?
 
-**Alex:** For most people, yes. You are getting a meaningful premium, maybe 1-2% per month, with a 15-25% chance of assignment at a price you would love to own the stock. If you are assigned, you are happy. If you are not, you earned income. Win-win.
+**Horace:** For most people, yes. You are getting a meaningful premium, maybe 1-2% per month, with a 15-25% chance of assignment at a price you would love to own the stock. If you are assigned, you are happy. If you are not, you earned income. Win-win.
 
-**Sam:** Now let us talk about what happens after assignment. I sold a put, I got assigned, I now own 100 shares. What do I do?
+**Stella:** Now let us talk about what happens after assignment. I sold a put, I got assigned, I now own 100 shares. What do I do?
 
-**Alex:** This is where the wheel strategy comes alive. Step one: check that the stock's fundamentals are still intact. Is this drop temporary or permanent? If the company is still strong, step two: start selling covered calls on your new shares.
+**Horace:** This is where the wheel strategy comes alive. Step one: check that the stock's fundamentals are still intact. Is this drop temporary or permanent? If the company is still strong, step two: start selling covered calls on your new shares.
 
-**Sam:** So I immediately transition from put selling to covered call selling?
+**Stella:** So I immediately transition from put selling to covered call selling?
 
-**Alex:** Exactly. Let us say you were assigned on AAPL at $145, effective cost $142.20. The stock is now at $143. You sell a $155 covered call for $2.50. Now you are collecting income while you wait for the stock to recover.
+**Horace:** Exactly. Let us say you were assigned on AAPL at $145, effective cost $142.20. The stock is now at $143. You sell a $155 covered call for $2.50. Now you are collecting income while you wait for the stock to recover.
 
 [VISUAL: Transition animation showing the wheel turning from "Phase 1: Put Selling" to "Phase 2: Covered Call Selling". The investor's dashboard changes from showing a short put position to showing long shares plus a short call.]
 
-**Alex:** If Apple recovers to $155 and your shares are called away, your total profit on the cycle is: $155 minus $142.20 effective cost plus $2.50 call premium equals $15.30 per share. That is a $1,530 profit on a position that started with a put.
+**Horace:** If Apple recovers to $155 and your shares are called away, your total profit on the cycle is: $155 minus $142.20 effective cost plus $2.50 call premium equals $15.30 per share. That is a $1,530 profit on a position that started with a put.
 
-**Sam:** And then you go back to selling puts?
+**Stella:** And then you go back to selling puts?
 
-**Alex:** You go back to Phase 1. You have $15,500 in cash from the sale, plus the accumulated premiums. You sell another put and the wheel keeps turning.
+**Horace:** You go back to Phase 1. You have $15,500 in cash from the sale, plus the accumulated premiums. You sell another put and the wheel keeps turning.
 
 [VISUAL: The complete wheel cycle shown as a circular flow chart with dollar amounts at each stage, showing how capital grows through each phase]
 
-**Sam:** Let me ask about the complete portfolio approach. If I have $100,000, how should I set this up?
+**Stella:** Let me ask about the complete portfolio approach. If I have $100,000, how should I set this up?
 
-**Alex:** Divide your capital across 4-6 quality stocks in different sectors. Keep 15-20% as a cash buffer. Sell one monthly put on each stock.
+**Horace:** Divide your capital across 4-6 quality stocks in different sectors. Keep 15-20% as a cash buffer. Sell one monthly put on each stock.
 
 [VISUAL: Portfolio allocation pie chart with 5 stocks and a cash buffer segment, showing the specific positions and premiums]
 
-**Alex:** With $100,000, you might have five positions using about $80,000 in capital, with $20,000 in reserve. Each month, you collect roughly $1,000-$1,500 in total premiums. That is $12,000-$18,000 per year, or 12-18% on your total capital.
+**Horace:** With $100,000, you might have five positions using about $80,000 in capital, with $20,000 in reserve. Each month, you collect roughly $1,000-$1,500 in total premiums. That is $12,000-$18,000 per year, or 12-18% on your total capital.
 
-**Sam:** And if one or two get assigned?
+**Stella:** And if one or two get assigned?
 
-**Alex:** You start selling covered calls on those positions while continuing to sell puts on the others. Your portfolio evolves naturally between Phase 1 and Phase 2 positions. Some months you might have all puts. Other months, a mix of puts and covered calls. The income keeps flowing regardless.
+**Horace:** You start selling covered calls on those positions while continuing to sell puts on the others. Your portfolio evolves naturally between Phase 1 and Phase 2 positions. Some months you might have all puts. Other months, a mix of puts and covered calls. The income keeps flowing regardless.
 
-**Sam:** This is starting to feel like a real income business.
+**Stella:** This is starting to feel like a real income business.
 
-**Alex:** That is exactly what it is. And the best part is, it aligns perfectly with what a long-term investor already wants to do. You are buying quality stocks at good prices and selling them at higher prices. The wheel just pays you at every step of that process.
+**Horace:** That is exactly what it is. And the best part is, it aligns perfectly with what a long-term investor already wants to do. You are buying quality stocks at good prices and selling them at higher prices. The wheel just pays you at every step of that process.
 
 [ANIMATION: Reference animation/week28_cash_secured_put.py - A second animation sequence showing a 12-month wheel strategy simulation. The animation shows a portfolio of 3 stocks cycling through put selling and covered call phases. A monthly income tracker shows premiums accumulating. An equity curve shows the portfolio value growing steadily compared to a simple buy-and-hold approach. Key metrics update: total premiums collected, number of assignments, total return.]
 
-**Sam:** Let us talk about risk management. What are the things that could go wrong?
+**Stella:** Let us talk about risk management. What are the things that could go wrong?
 
-**Alex:** The biggest risk is a stock you sell puts on experiencing a fundamental deterioration. Imagine selling puts on a company that then announces massive fraud or a failed product. The stock drops 50% and you are forced to buy at your strike price.
+**Horace:** The biggest risk is a stock you sell puts on experiencing a fundamental deterioration. Imagine selling puts on a company that then announces massive fraud or a failed product. The stock drops 50% and you are forced to buy at your strike price.
 
-**Sam:** How do you protect against that?
+**Stella:** How do you protect against that?
 
-**Alex:** Three ways. First, only sell puts on high-quality companies with strong balance sheets, competitive moats, and consistent earnings. You are not selling puts on speculative biotech stocks or meme stocks. Second, diversify. If you have five positions and one stock drops 30%, it is painful but not devastating. Third, have a stop-loss mentality. If the stock starts dropping and the fundamental thesis changes, buy back the put at a loss. A $500 loss is much better than a $5,000 loss.
+**Horace:** Three ways. First, only sell puts on high-quality companies with strong balance sheets, competitive moats, and consistent earnings. You are not selling puts on speculative biotech stocks or meme stocks. Second, diversify. If you have five positions and one stock drops 30%, it is painful but not devastating. Third, have a stop-loss mentality. If the stock starts dropping and the fundamental thesis changes, buy back the put at a loss. A $500 loss is much better than a $5,000 loss.
 
 [VISUAL: Three pillars of risk management: "Quality Companies" (images of blue-chip logos), "Diversification" (pie chart), "Stop-Loss Discipline" (circuit breaker image)]
 
-**Sam:** What about market-wide crashes? Like 2008 or March 2020?
+**Stella:** What about market-wide crashes? Like 2008 or March 2020?
 
-**Alex:** In a broad market crash, if you have puts on five stocks and the market drops 25%, you could be assigned on all of them. This is where the cash buffer matters. If you have $100,000 and only $80,000 in put positions, you can handle the assignments without stress.
+**Horace:** In a broad market crash, if you have puts on five stocks and the market drops 25%, you could be assigned on all of them. This is where the cash buffer matters. If you have $100,000 and only $80,000 in put positions, you can handle the assignments without stress.
 
-**Alex:** But here is the silver lining: in a crash, you are buying stocks at your target prices during maximum fear. Historically, these have been the best times to buy. If you sold $145 puts on Apple and the market crashes to bring Apple to $130, you buy at an effective cost of $142.20. If Apple recovers to $200 over the next two years, which it historically does, you made an incredible entry.
+**Horace:** But here is the silver lining: in a crash, you are buying stocks at your target prices during maximum fear. Historically, these have been the best times to buy. If you sold $145 puts on Apple and the market crashes to bring Apple to $130, you buy at an effective cost of $142.20. If Apple recovers to $200 over the next two years, which it historically does, you made an incredible entry.
 
-**Sam:** So the short-term pain is real, but the long-term opportunity is also real.
+**Stella:** So the short-term pain is real, but the long-term opportunity is also real.
 
-**Alex:** Exactly. The put seller's advantage is that they entered at $142.20, not $145. Every dollar matters when you are buying at a low.
+**Horace:** Exactly. The put seller's advantage is that they entered at $142.20, not $145. Every dollar matters when you are buying at a low.
 
 [VISUAL: Historical chart showing S&P 500 crashes and recoveries: 2008, 2020, 2022. Arrows showing "Put sellers buying here" at the low points, with recovery trajectories and eventual profits.]
 
-**Sam:** Let me ask about expiration selection. We talked about 30-45 days being the sweet spot for covered calls. Is it the same for puts?
+**Stella:** Let me ask about expiration selection. We talked about 30-45 days being the sweet spot for covered calls. Is it the same for puts?
 
-**Alex:** Same principles apply. 30-45 days gives you the best balance of premium versus time commitment. Theta decay accelerates after 45 days, so you capture the most decay per day. Monthly cycles align well with most people's schedules: spend 30 minutes on expiration day managing positions, then forget about it for three weeks.
+**Horace:** Same principles apply. 30-45 days gives you the best balance of premium versus time commitment. Theta decay accelerates after 45 days, so you capture the most decay per day. Monthly cycles align well with most people's schedules: spend 30 minutes on expiration day managing positions, then forget about it for three weeks.
 
-**Sam:** What about weekly puts?
+**Stella:** What about weekly puts?
 
-**Alex:** Weekly puts give you higher annualized yields on paper, but they require weekly attention, have smaller absolute premiums per trade, and sometimes the bid-ask spread eats up a larger percentage of the premium. For most investors, monthly is the way to go. Weekly works for experienced traders who enjoy the process.
+**Horace:** Weekly puts give you higher annualized yields on paper, but they require weekly attention, have smaller absolute premiums per trade, and sometimes the bid-ask spread eats up a larger percentage of the premium. For most investors, monthly is the way to go. Weekly works for experienced traders who enjoy the process.
 
 [VISUAL: Calendar view showing monthly put selling schedule. One day per month highlighted as "Management Day" where positions are reviewed and new puts are sold.]
 
-**Sam:** Can I do all of this in my Roth IRA?
+**Stella:** Can I do all of this in my Roth IRA?
 
-**Alex:** Absolutely, and I strongly recommend it. In a Roth IRA, the premium income grows tax-free forever. No capital gains tax, no income tax on premiums. Over 20-30 years, the tax savings from doing this strategy in a Roth IRA can amount to tens or hundreds of thousands of dollars.
+**Horace:** Absolutely, and I strongly recommend it. In a Roth IRA, the premium income grows tax-free forever. No capital gains tax, no income tax on premiums. Over 20-30 years, the tax savings from doing this strategy in a Roth IRA can amount to tens or hundreds of thousands of dollars.
 
-**Sam:** That is huge. What about traditional IRAs?
+**Stella:** That is huge. What about traditional IRAs?
 
-**Alex:** Also excellent. The income grows tax-deferred. You pay taxes when you withdraw, but in the meantime, you can reinvest the full premium amount without any tax drag. Both IRA types are ideal for the wheel strategy.
+**Horace:** Also excellent. The income grows tax-deferred. You pay taxes when you withdraw, but in the meantime, you can reinvest the full premium amount without any tax drag. Both IRA types are ideal for the wheel strategy.
 
 [VISUAL: Comparison of three accounts: "Taxable: Premium taxed at 22-37%", "Traditional IRA: Tax-deferred", "Roth IRA: TAX-FREE". A 20-year growth chart shows the compounding difference.]
 
-**Sam:** Let us do one more complete example. Walk me through a full year of cash-secured put selling.
+**Stella:** Let us do one more complete example. Walk me through a full year of cash-secured put selling.
 
-**Alex:** Let us do it with Microsoft, currently at $420. We think $380 is a great entry price.
+**Horace:** Let us do it with Microsoft, currently at $420. We think $380 is a great entry price.
 
 [VISUAL: MSFT stock chart with $380 level marked. Monthly timeline below showing put selling activity.]
 
-**Alex:** Month 1: We sell the $380 put for $4.50. Microsoft stays at $415. Put expires. We keep $450.
+**Horace:** Month 1: We sell the $380 put for $4.50. Microsoft stays at $415. Put expires. We keep $450.
 
 Month 2: Sell $380 put for $3.80. Microsoft at $425. Expires. Keep $380.
 
@@ -989,99 +989,99 @@ Month 5: Sell $380 put for $6.50 (higher IV before earnings). Microsoft drops to
 
 Month 6: Sell $380 put for $4.00. Microsoft at $400. Expires. Keep $400.
 
-**Sam:** So after six months, we have collected $2,800 in premiums and Microsoft never hit our price.
+**Stella:** So after six months, we have collected $2,800 in premiums and Microsoft never hit our price.
 
-**Alex:** Right. $2,800 on $38,000 reserved capital is 7.4% in six months, or about 14.7% annualized. And we still have not bought the stock.
+**Horace:** Right. $2,800 on $38,000 reserved capital is 7.4% in six months, or about 14.7% annualized. And we still have not bought the stock.
 
 Month 7: Sell $380 put for $5.20. Microsoft drops to $375. We get assigned.
 
-**Sam:** So now we own 100 shares at $380.
+**Stella:** So now we own 100 shares at $380.
 
-**Alex:** Yes, but our effective cost is much lower. We collected $2,800 plus the final $520 premium. Total premiums: $3,320, or $33.20 per share. Our effective cost basis is $380 minus $33.20 equals $346.80.
+**Horace:** Yes, but our effective cost is much lower. We collected $2,800 plus the final $520 premium. Total premiums: $3,320, or $33.20 per share. Our effective cost basis is $380 minus $33.20 equals $346.80.
 
 [VISUAL: Calculator showing the running total: 7 months of premiums adding up to $3,320. Final effective cost: $346.80 vs original price of $420 when we started. Savings: $73.20 per share or 17.4%.]
 
-**Sam:** We effectively bought Microsoft at $346.80 when it was at $420 when we started. That is a 17% discount.
+**Stella:** We effectively bought Microsoft at $346.80 when it was at $420 when we started. That is a 17% discount.
 
-**Alex:** And now we start Phase 2. We sell covered calls on our 100 shares at a strike above our cost basis. Even though Microsoft is at $375 now, our cost is $346.80, so we have room to sell calls at $360, $370, or $380 and still make a profit if called away.
+**Horace:** And now we start Phase 2. We sell covered calls on our 100 shares at a strike above our cost basis. Even though Microsoft is at $375 now, our cost is $346.80, so we have room to sell calls at $360, $370, or $380 and still make a profit if called away.
 
-**Sam:** The wheel keeps turning.
+**Stella:** The wheel keeps turning.
 
-**Alex:** And income keeps flowing. That is the beauty of the system.
+**Horace:** And income keeps flowing. That is the beauty of the system.
 
-**Sam:** One last thing I want to address. Some people watching this are going to say, why not just buy the stock? Why go through all this?
+**Stella:** One last thing I want to address. Some people watching this are going to say, why not just buy the stock? Why go through all this?
 
-**Alex:** Fair question. If you have a stock you want to own right now and you believe it will go up significantly, buying at market is fine. Cash-secured puts are not about avoiding stock ownership. They are about making the process of building positions more efficient and profitable.
+**Horace:** Fair question. If you have a stock you want to own right now and you believe it will go up significantly, buying at market is fine. Cash-secured puts are not about avoiding stock ownership. They are about making the process of building positions more efficient and profitable.
 
-**Alex:** Think of it this way. A contractor could dig a foundation with a shovel or with an excavator. Both get the job done. But the excavator is more efficient. Cash-secured puts are the excavator. Same end result, stock ownership, but with income along the way and a better effective entry price.
+**Horace:** Think of it this way. A contractor could dig a foundation with a shovel or with an excavator. Both get the job done. But the excavator is more efficient. Cash-secured puts are the excavator. Same end result, stock ownership, but with income along the way and a better effective entry price.
 
 [VISUAL: Side-by-side: "Buying Stock = Shovel" (simple, direct) vs "Cash-Secured Puts = Excavator" (more efficient, better result)]
 
-**Sam:** I love that analogy. Let me summarize today. A cash-secured put means selling a put while holding enough cash to buy the shares. It is like a limit buy order that pays you. Your effective purchase price is always lower than the strike price because of the premium. If the stock stays above the strike, you keep the premium and try again. If you are assigned, you start selling covered calls. And this creates the wheel strategy: a continuous cycle of income generation.
+**Stella:** I love that analogy. Let me summarize today. A cash-secured put means selling a put while holding enough cash to buy the shares. It is like a limit buy order that pays you. Your effective purchase price is always lower than the strike price because of the premium. If the stock stays above the strike, you keep the premium and try again. If you are assigned, you start selling covered calls. And this creates the wheel strategy: a continuous cycle of income generation.
 
-**Alex:** Perfect. And I want to leave everyone with this thought: the wheel strategy is not about getting rich quick. It is about building a systematic, income-generating investment machine. Month after month, year after year, the premiums accumulate, the positions cycle, and your wealth grows with a level of consistency that few other strategies can match.
+**Horace:** Perfect. And I want to leave everyone with this thought: the wheel strategy is not about getting rich quick. It is about building a systematic, income-generating investment machine. Month after month, year after year, the premiums accumulate, the positions cycle, and your wealth grows with a level of consistency that few other strategies can match.
 
-**Sam:** Before we close, can we do a rapid-fire FAQ? I have a bunch of quick questions that viewers have sent in.
+**Stella:** Before we close, can we do a rapid-fire FAQ? I have a bunch of quick questions that viewers have sent in.
 
-**Alex:** Let us do it.
+**Horace:** Let us do it.
 
-**Sam:** Can I sell puts in a Roth IRA?
+**Stella:** Can I sell puts in a Roth IRA?
 
-**Alex:** Yes, and I highly recommend it. Premiums grow tax-free forever. Most brokers allow cash-secured puts and covered calls in Roth and traditional IRAs.
+**Horace:** Yes, and I highly recommend it. Premiums grow tax-free forever. Most brokers allow cash-secured puts and covered calls in Roth and traditional IRAs.
 
-**Sam:** What happens if I get assigned and the stock keeps dropping?
+**Stella:** What happens if I get assigned and the stock keeps dropping?
 
-**Alex:** You hold the stock and start selling covered calls. The premiums from covered calls reduce your cost basis further. If the company is still fundamentally sound, the stock will eventually recover, and you will profit from the recovery plus all the premiums collected.
+**Horace:** You hold the stock and start selling covered calls. The premiums from covered calls reduce your cost basis further. If the company is still fundamentally sound, the stock will eventually recover, and you will profit from the recovery plus all the premiums collected.
 
-**Sam:** Is there a minimum account size?
+**Stella:** Is there a minimum account size?
 
-**Alex:** For cash-secured puts, you need enough to buy 100 shares at the strike price. For a $55 stock like Coca-Cola, that is $5,500. For a $180 stock like JPMorgan, that is $18,000. Start with lower-priced quality stocks if you have a smaller account.
+**Horace:** For cash-secured puts, you need enough to buy 100 shares at the strike price. For a $55 stock like Coca-Cola, that is $5,500. For a $180 stock like JPMorgan, that is $18,000. Start with lower-priced quality stocks if you have a smaller account.
 
-**Sam:** Can I sell puts on ETFs?
+**Stella:** Can I sell puts on ETFs?
 
-**Alex:** Yes, SPY, QQQ, IWM, and sector ETFs all have active options markets. ETF puts are a great way to build positions in the broad market at lower prices. The premiums are slightly lower percentage-wise due to lower volatility, but the diversification benefit is significant.
+**Horace:** Yes, SPY, QQQ, IWM, and sector ETFs all have active options markets. ETF puts are a great way to build positions in the broad market at lower prices. The premiums are slightly lower percentage-wise due to lower volatility, but the diversification benefit is significant.
 
-**Sam:** What is the difference between a cash-secured put and a naked put?
+**Stella:** What is the difference between a cash-secured put and a naked put?
 
-**Alex:** Same option trade, different collateral. Cash-secured means you have 100% of the cash to buy the shares. Naked means you are using margin and only posting a fraction. We exclusively teach cash-secured because it eliminates margin risk. Never sell naked puts as a beginner.
+**Horace:** Same option trade, different collateral. Cash-secured means you have 100% of the cash to buy the shares. Naked means you are using margin and only posting a fraction. We exclusively teach cash-secured because it eliminates margin risk. Never sell naked puts as a beginner.
 
-**Sam:** How many stocks should I sell puts on at once?
+**Stella:** How many stocks should I sell puts on at once?
 
-**Alex:** Four to six is a good range. This gives you diversification without becoming unmanageable. Each position should use no more than 20% of your total capital, and you should keep 15-20% as a cash reserve.
+**Horace:** Four to six is a good range. This gives you diversification without becoming unmanageable. Each position should use no more than 20% of your total capital, and you should keep 15-20% as a cash reserve.
 
-**Sam:** What if I want to buy a stock right now? Should I still sell a put?
+**Stella:** What if I want to buy a stock right now? Should I still sell a put?
 
-**Alex:** If you want to buy immediately and you are bullish, just buy the stock. Cash-secured puts are for when you want to buy at a LOWER price. If you are patient and have a target entry, sell the put. If you think the stock is going up and you do not want to miss it, buy at market.
+**Horace:** If you want to buy immediately and you are bullish, just buy the stock. Cash-secured puts are for when you want to buy at a LOWER price. If you are patient and have a target entry, sell the put. If you think the stock is going up and you do not want to miss it, buy at market.
 
-**Sam:** Last question: what is the single biggest mistake new put sellers make?
+**Stella:** Last question: what is the single biggest mistake new put sellers make?
 
-**Alex:** Selling puts on stocks they would not actually want to own. They see a fat premium on a volatile stock and think, "This will never hit the strike." Then it does, and they are stuck owning 100 shares of a company they do not believe in. Only sell puts on stocks you love at prices you would celebrate buying at.
+**Horace:** Selling puts on stocks they would not actually want to own. They see a fat premium on a volatile stock and think, "This will never hit the strike." Then it does, and they are stuck owning 100 shares of a company they do not believe in. Only sell puts on stocks you love at prices you would celebrate buying at.
 
-**Sam:** Love it. Sell puts on stocks you love at prices you would celebrate. That should be on a poster.
+**Stella:** Love it. Sell puts on stocks you love at prices you would celebrate. That should be on a poster.
 
-**Alex:** Maybe I will make one.
+**Horace:** Maybe I will make one.
 
-**Sam:** Thank you all for joining us through these four weeks of options education. We started knowing nothing about options, and now we have a complete, practical framework.
+**Stella:** Thank you all for joining us through these four weeks of options education. We started knowing nothing about options, and now we have a complete, practical framework.
 
-**Alex:** If you have watched all four lessons, you now understand more about practical options strategies than most investors ever will. Start small, practice with one or two positions, and scale up as you gain confidence. The wheel rewards patience and discipline.
+**Horace:** If you have watched all four lessons, you now understand more about practical options strategies than most investors ever will. Start small, practice with one or two positions, and scale up as you gain confidence. The wheel rewards patience and discipline.
 
-**Sam:** Let me give our four-lesson summary for anyone who wants the big picture.
+**Stella:** Let me give our four-lesson summary for anyone who wants the big picture.
 
 [VISUAL: Four-panel summary appearing one by one]
 
-**Sam:** Week 25: We learned what options are. Calls, puts, strike prices, expiration, time decay. The building blocks.
+**Stella:** Week 25: We learned what options are. Calls, puts, strike prices, expiration, time decay. The building blocks.
 
-**Sam:** Week 26: We learned to think of options as conditional orders. Puts are paid limit buys. Calls are paid limit sells. This is the mental model that makes everything click.
+**Stella:** Week 26: We learned to think of options as conditional orders. Puts are paid limit buys. Calls are paid limit sells. This is the mental model that makes everything click.
 
-**Sam:** Week 27: We mastered covered calls. Own shares, sell calls, generate income. Premium income can be 2-3 times dividends or more.
+**Stella:** Week 27: We mastered covered calls. Own shares, sell calls, generate income. Premium income can be 2-3 times dividends or more.
 
-**Sam:** Week 28: We completed the picture with cash-secured puts. Get paid to wait for your buy price. When assigned, start selling covered calls. The wheel keeps turning.
+**Stella:** Week 28: We completed the picture with cash-secured puts. Get paid to wait for your buy price. When assigned, start selling covered calls. The wheel keeps turning.
 
-**Alex:** And here is the beautiful thing: these four lessons give you a complete, practical system. You do not need to learn straddles, strangles, iron condors, or butterfly spreads. The wheel strategy, using only cash-secured puts and covered calls, is all most long-term investors will ever need.
+**Horace:** And here is the beautiful thing: these four lessons give you a complete, practical system. You do not need to learn straddles, strangles, iron condors, or butterfly spreads. The wheel strategy, using only cash-secured puts and covered calls, is all most long-term investors will ever need.
 
-**Sam:** Simple, powerful, and proven. Thanks for watching, everyone.
+**Stella:** Simple, powerful, and proven. Thanks for watching, everyone.
 
-**Alex:** Please like and subscribe if this series has been valuable. And leave a comment telling us about your first cash-secured put or covered call trade. We love hearing your stories. See you in the next lesson.
+**Horace:** Please like and subscribe if this series has been valuable. And leave a comment telling us about your first cash-secured put or covered call trade. We love hearing your stories. See you in the next lesson.
 
 [VISUAL: End screen with subscribe button. Series recap showing all four weeks: "Week 25: Options Basics -> Week 26: Options as Orders -> Week 27: Covered Calls -> Week 28: Cash-Secured Puts". Text: "You now have the complete toolkit. Start the wheel."]
 

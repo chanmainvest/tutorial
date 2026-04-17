@@ -895,237 +895,237 @@ A: Modestly increasing cash or short-term bond holdings during late-cycle period
 
 [VISUAL: Animated intro with title "Week 10: Economic Cycles and Your Portfolio"]
 
-**Alex:** Welcome back everyone. Last week we pulled apart market indexes and learned what is really inside an index fund. Today we are zooming out even further to look at the biggest force driving financial markets -- the business cycle. This is the rhythm of the economy, and once you understand it, a lot of market behavior that seems random starts to make sense.
+**Horace:** Welcome back everyone. Last week we pulled apart market indexes and learned what is really inside an index fund. Today we are zooming out even further to look at the biggest force driving financial markets -- the business cycle. This is the rhythm of the economy, and once you understand it, a lot of market behavior that seems random starts to make sense.
 
-**Sam:** I have heard people talk about "where we are in the cycle" but I have never fully understood what that means. Is the economy just going in circles?
+**Stella:** I have heard people talk about "where we are in the cycle" but I have never fully understood what that means. Is the economy just going in circles?
 
-**Alex:** Not exactly circles, but cycles -- the economy expands, reaches a peak, contracts, hits a trough, and then expands again. It is like the seasons. Winter always ends and spring arrives, but you do not know exactly when the first warm day will come or how harsh the winter will be.
+**Horace:** Not exactly circles, but cycles -- the economy expands, reaches a peak, contracts, hits a trough, and then expands again. It is like the seasons. Winter always ends and spring arrives, but you do not know exactly when the first warm day will come or how harsh the winter will be.
 
 [VISUAL: Animated sine wave showing the business cycle with seasons overlaid -- spring for recovery, summer for expansion, fall for peak, winter for contraction. Trees and landscape change with each season.]
 
-**Sam:** So there are four phases?
+**Stella:** So there are four phases?
 
-**Alex:** Yes. Let me walk you through each one.
+**Horace:** Yes. Let me walk you through each one.
 
 [ANIMATION: animation/week10_business_cycle.py - Animated business cycle diagram. A smooth curve oscillates over time, with GDP growth rate on the y-axis and time on the x-axis. As the cycle progresses, each phase lights up in a different color: trough in blue, expansion in green, peak in orange, contraction in red. Key characteristics appear alongside each phase -- unemployment direction, corporate earnings, consumer confidence, Fed policy. A small dashboard in the corner shows real-time values for these indicators as the animation moves through the cycle.]
 
-**Alex:** Phase one is the trough, also called the early recovery. This is the bottom. The economy has been shrinking, unemployment is high, businesses have cut costs to the bone, and everyone is pessimistic. But paradoxically, this is when the foundation for recovery is being laid. Interest rates are low because the Fed has been cutting to stimulate growth. Inventories are depleted, which means any pickup in demand requires new production. And importantly, asset prices are cheap.
+**Horace:** Phase one is the trough, also called the early recovery. This is the bottom. The economy has been shrinking, unemployment is high, businesses have cut costs to the bone, and everyone is pessimistic. But paradoxically, this is when the foundation for recovery is being laid. Interest rates are low because the Fed has been cutting to stimulate growth. Inventories are depleted, which means any pickup in demand requires new production. And importantly, asset prices are cheap.
 
-**Sam:** So the trough is actually a good time to invest? Even though everything feels terrible?
+**Stella:** So the trough is actually a good time to invest? Even though everything feels terrible?
 
-**Alex:** One of the best. And I want to stress how counterintuitive that is. At the trough, the news is relentlessly negative. Headlines are about layoffs, bankruptcies, and financial stress. Your instinct is to sell everything and hide in cash. But historically, the biggest gains come from investing when fear is at its peak.
+**Horace:** One of the best. And I want to stress how counterintuitive that is. At the trough, the news is relentlessly negative. Headlines are about layoffs, bankruptcies, and financial stress. Your instinct is to sell everything and hide in cash. But historically, the biggest gains come from investing when fear is at its peak.
 
-**Sam:** That takes serious discipline.
+**Stella:** That takes serious discipline.
 
-**Alex:** It does. And this is why understanding the cycle matters so much -- it gives you the intellectual framework to act against your emotions. You know that troughs do not last forever because they never have.
+**Horace:** It does. And this is why understanding the cycle matters so much -- it gives you the intellectual framework to act against your emotions. You know that troughs do not last forever because they never have.
 
 [VISUAL: Timeline showing every U.S. recession since 1945 with duration bars. Each recession is followed by a much longer expansion bar, visually demonstrating that recoveries dwarf contractions.]
 
-**Sam:** What about phase two -- the expansion?
+**Stella:** What about phase two -- the expansion?
 
-**Alex:** The expansion is the good times. The economy is growing, unemployment is falling, businesses are hiring and investing, consumers are spending, and corporate earnings are rising. This is the longest phase of the cycle -- historically, expansions have lasted about five years on average, and they have been getting longer over time. The expansion from 2009 to 2020 lasted nearly 11 years.
+**Horace:** The expansion is the good times. The economy is growing, unemployment is falling, businesses are hiring and investing, consumers are spending, and corporate earnings are rising. This is the longest phase of the cycle -- historically, expansions have lasted about five years on average, and they have been getting longer over time. The expansion from 2009 to 2020 lasted nearly 11 years.
 
-**Sam:** Is there a danger in the expansion?
+**Stella:** Is there a danger in the expansion?
 
-**Alex:** The danger is complacency. As the expansion continues and everything feels good, people take on more risk. They borrow more, speculate more, and assume the good times will continue forever. Corporations take on debt, banks loosen lending standards, and valuations climb. These excesses plant the seeds of the next contraction.
+**Horace:** The danger is complacency. As the expansion continues and everything feels good, people take on more risk. They borrow more, speculate more, and assume the good times will continue forever. Corporations take on debt, banks loosen lending standards, and valuations climb. These excesses plant the seeds of the next contraction.
 
-**Sam:** So the expansion creates the conditions for its own end?
+**Stella:** So the expansion creates the conditions for its own end?
 
-**Alex:** That is a really important insight, and yes, historically that is exactly what happens. The late-cycle phase -- the peak -- is where those excesses become unsustainable.
+**Horace:** That is a really important insight, and yes, historically that is exactly what happens. The late-cycle phase -- the peak -- is where those excesses become unsustainable.
 
 [VISUAL: Animated chart showing key indicators during a typical expansion: GDP rising, unemployment falling, corporate debt rising, stock valuations rising, consumer confidence rising -- with accelerating slope in the late stage indicating overheating]
 
-**Alex:** At the peak, the economy is running hot. Unemployment is very low, which sounds great, but it means labor is scarce. Wages are rising fast, which squeezes corporate margins. Inflation is elevated. The Fed is raising rates to cool things down. And here is the critical tension -- the Fed is trying to slow the economy enough to control inflation without tipping it into recession.
+**Horace:** At the peak, the economy is running hot. Unemployment is very low, which sounds great, but it means labor is scarce. Wages are rising fast, which squeezes corporate margins. Inflation is elevated. The Fed is raising rates to cool things down. And here is the critical tension -- the Fed is trying to slow the economy enough to control inflation without tipping it into recession.
 
-**Sam:** That sounds like a tightrope walk.
+**Stella:** That sounds like a tightrope walk.
 
-**Alex:** It is, and it is called the "soft landing" challenge. The problem is that monetary policy works with a lag. When the Fed raises rates today, the full effect does not hit the economy for 12 to 18 months. So the Fed is essentially driving while looking in the rearview mirror, pressing the brake pedal and not knowing for over a year whether it was too much or too little.
+**Horace:** It is, and it is called the "soft landing" challenge. The problem is that monetary policy works with a lag. When the Fed raises rates today, the full effect does not hit the economy for 12 to 18 months. So the Fed is essentially driving while looking in the rearview mirror, pressing the brake pedal and not knowing for over a year whether it was too much or too little.
 
 [VISUAL: Car analogy showing a driver on an icy road labeled "The Economy." The brake pedal is labeled "Rate Hikes" and there is a sign that says "Effect Delay: 12-18 months." Two possible outcomes are shown: a smooth stop (soft landing) and skidding off the road (recession).]
 
-**Sam:** And the fourth phase is the contraction -- the recession.
+**Stella:** And the fourth phase is the contraction -- the recession.
 
-**Alex:** Right. A contraction is when economic activity actually declines. Businesses cut costs, lay off workers, and reduce investment. Consumer spending falls. Corporate earnings drop. Defaults and bankruptcies rise. The stock market falls, often sharply. It is painful. But -- and this is crucial -- every single contraction in modern American history has been followed by a recovery.
+**Horace:** Right. A contraction is when economic activity actually declines. Businesses cut costs, lay off workers, and reduce investment. Consumer spending falls. Corporate earnings drop. Defaults and bankruptcies rise. The stock market falls, often sharply. It is painful. But -- and this is crucial -- every single contraction in modern American history has been followed by a recovery.
 
-**Sam:** How long do recessions typically last?
+**Stella:** How long do recessions typically last?
 
-**Alex:** The average post-World War II recession has lasted about 10 months. The shortest was the COVID recession at just 2 months. The longest was the Great Recession at 18 months. By contrast, the average expansion has lasted about five years. So the economy spends roughly five times as much time growing as it does shrinking.
+**Horace:** The average post-World War II recession has lasted about 10 months. The shortest was the COVID recession at just 2 months. The longest was the Great Recession at 18 months. By contrast, the average expansion has lasted about five years. So the economy spends roughly five times as much time growing as it does shrinking.
 
 [VISUAL: Horizontal timeline showing alternating expansion (green) and contraction (red) bars since 1945. The expansions are dramatically longer than the contractions, visually reinforcing that growth is the default state.]
 
-**Sam:** That is reassuring. Now, you mentioned economic indicators earlier. How do we actually track where we are in the cycle?
+**Stella:** That is reassuring. Now, you mentioned economic indicators earlier. How do we actually track where we are in the cycle?
 
-**Alex:** Great question. Economic indicators fall into three categories based on their timing relationship to the cycle: leading, coincident, and lagging. And understanding the difference is absolutely critical.
+**Horace:** Great question. Economic indicators fall into three categories based on their timing relationship to the cycle: leading, coincident, and lagging. And understanding the difference is absolutely critical.
 
-**Sam:** What is the difference?
+**Stella:** What is the difference?
 
-**Alex:** Leading indicators move before the economy turns. They are your early warning system. Coincident indicators move at the same time as the economy -- they tell you where you are right now. And lagging indicators move after the economy has already turned -- they confirm what already happened.
+**Horace:** Leading indicators move before the economy turns. They are your early warning system. Coincident indicators move at the same time as the economy -- they tell you where you are right now. And lagging indicators move after the economy has already turned -- they confirm what already happened.
 
 [VISUAL: Three traffic signals side by side. The first (leading) is yellow/caution, labeled "What's ahead." The second (coincident) is green, labeled "Where you are." The third (lagging) is red/confirmation, labeled "What just happened." Examples appear below each.]
 
-**Sam:** Give me the most important indicator in each category.
+**Stella:** Give me the most important indicator in each category.
 
-**Alex:** For leading indicators, I would say the yield curve is the most powerful single predictor. When long-term interest rates fall below short-term rates -- a condition called an inverted yield curve -- it has preceded every U.S. recession since 1960.
+**Horace:** For leading indicators, I would say the yield curve is the most powerful single predictor. When long-term interest rates fall below short-term rates -- a condition called an inverted yield curve -- it has preceded every U.S. recession since 1960.
 
-**Sam:** Every single one?
+**Stella:** Every single one?
 
-**Alex:** Every single one, with only one false signal. The challenge is timing -- the recession can come 6 months later or 24 months later. So the yield curve tells you a recession is coming, but not exactly when.
+**Horace:** Every single one, with only one false signal. The challenge is timing -- the recession can come 6 months later or 24 months later. So the yield curve tells you a recession is coming, but not exactly when.
 
 [ANIMATION: animation/week10_business_cycle.py - Animated yield curve visualization. Three bond yield curves are shown: normal (upward sloping), flat, and inverted (downward sloping). The animation transitions between the three shapes, showing how the curve evolves through the business cycle. Historical overlays show the actual 10Y-2Y spread over time, with shaded bars marking recessions. The relationship between inversion and subsequent recession onset is highlighted with connecting arrows and time-lag labels.]
 
-**Sam:** What about the PMI? I have seen that mentioned a lot.
+**Stella:** What about the PMI? I have seen that mentioned a lot.
 
-**Alex:** The Purchasing Managers' Index is one of the most valuable monthly indicators. It surveys purchasing managers at companies across the country about new orders, production, employment, and inventories. The magic number is 50 -- above 50 means the manufacturing sector is expanding, below 50 means it is contracting.
+**Horace:** The Purchasing Managers' Index is one of the most valuable monthly indicators. It surveys purchasing managers at companies across the country about new orders, production, employment, and inventories. The magic number is 50 -- above 50 means the manufacturing sector is expanding, below 50 means it is contracting.
 
-**Sam:** So if the PMI is 48, that is bad?
+**Stella:** So if the PMI is 48, that is bad?
 
-**Alex:** It means manufacturing is contracting, yes. But here is a more nuanced way to use it. Look at the new orders component separately -- it is the most forward-looking part of the PMI. If new orders are falling while finished goods inventories are rising, it means companies are making stuff that is not selling. That signals production cuts are coming, which means layoffs, which means less consumer spending. One indicator tells you a cascading story.
+**Horace:** It means manufacturing is contracting, yes. But here is a more nuanced way to use it. Look at the new orders component separately -- it is the most forward-looking part of the PMI. If new orders are falling while finished goods inventories are rising, it means companies are making stuff that is not selling. That signals production cuts are coming, which means layoffs, which means less consumer spending. One indicator tells you a cascading story.
 
 [VISUAL: Flowchart showing the cascade: Falling New Orders -> Rising Inventories -> Production Cuts -> Layoffs -> Less Consumer Spending -> Lower GDP. Each step is connected with arrows and timing estimates.]
 
-**Sam:** That is powerful. What about coincident indicators?
+**Stella:** That is powerful. What about coincident indicators?
 
-**Alex:** The big one is nonfarm payrolls -- the monthly jobs report. It tells you how many jobs the economy added or lost in the previous month. If the economy is adding 200,000 or more jobs per month, it is healthy. If that number starts falling toward zero or goes negative, the economy is weakening in real time.
+**Horace:** The big one is nonfarm payrolls -- the monthly jobs report. It tells you how many jobs the economy added or lost in the previous month. If the economy is adding 200,000 or more jobs per month, it is healthy. If that number starts falling toward zero or goes negative, the economy is weakening in real time.
 
-**Sam:** And lagging indicators?
+**Stella:** And lagging indicators?
 
-**Alex:** The unemployment rate is the classic lagging indicator, and understanding this is so important. The unemployment rate typically does not peak until after the recession is already over. Let me say that again -- by the time unemployment is at its worst, the economy is usually already recovering.
+**Horace:** The unemployment rate is the classic lagging indicator, and understanding this is so important. The unemployment rate typically does not peak until after the recession is already over. Let me say that again -- by the time unemployment is at its worst, the economy is usually already recovering.
 
-**Sam:** That is really counterintuitive. So if I wait until unemployment improves to start investing, I have already missed the recovery?
+**Stella:** That is really counterintuitive. So if I wait until unemployment improves to start investing, I have already missed the recovery?
 
-**Alex:** Exactly. The stock market typically bottoms about 6 months before the economy does, and the economy recovers about 6 months before unemployment peaks. So there is roughly a 12-month gap between when the market bottoms and when unemployment is at its worst. If you are using unemployment as your signal, you are about a year late.
+**Horace:** Exactly. The stock market typically bottoms about 6 months before the economy does, and the economy recovers about 6 months before unemployment peaks. So there is roughly a 12-month gap between when the market bottoms and when unemployment is at its worst. If you are using unemployment as your signal, you are about a year late.
 
 [VISUAL: Three overlapping timelines showing the stock market bottom, the economic trough, and the unemployment peak, with 6-month gaps between each. A stick figure labeled "Waiting for unemployment to improve" is standing at the far right, watching the market rally pass by.]
 
-**Sam:** So what should investors do with all this information?
+**Stella:** So what should investors do with all this information?
 
-**Alex:** The most important thing is to understand what the data is telling you so you do not make emotional mistakes. During a recession, when the data is terrible and the news is frightening, you need to recognize that the market has already priced in much of the bad news and is likely looking ahead to recovery. During a peak, when the data looks great and everyone is euphoric, you need to recognize that risks are building even though nothing bad has happened yet.
+**Horace:** The most important thing is to understand what the data is telling you so you do not make emotional mistakes. During a recession, when the data is terrible and the news is frightening, you need to recognize that the market has already priced in much of the bad news and is likely looking ahead to recovery. During a peak, when the data looks great and everyone is euphoric, you need to recognize that risks are building even though nothing bad has happened yet.
 
-**Sam:** Are there specific portfolio adjustments I should make based on the cycle?
+**Stella:** Are there specific portfolio adjustments I should make based on the cycle?
 
-**Alex:** Let me show you how different asset classes perform in each phase.
+**Horace:** Let me show you how different asset classes perform in each phase.
 
 [VISUAL: Four-quadrant chart showing the business cycle phases with top-performing asset classes in each quadrant. Trough: bonds and early-cycle stocks. Expansion: stocks broadly. Peak: commodities and energy. Contraction: government bonds and cash.]
 
-**Alex:** In the early recovery -- the trough -- the best-performing assets tend to be small-cap stocks, high-yield bonds, and interest-rate-sensitive sectors like financials and real estate. These are the beaten-down areas that benefit most from the recovery in confidence and declining interest rates.
+**Horace:** In the early recovery -- the trough -- the best-performing assets tend to be small-cap stocks, high-yield bonds, and interest-rate-sensitive sectors like financials and real estate. These are the beaten-down areas that benefit most from the recovery in confidence and declining interest rates.
 
-**Sam:** What about during the expansion?
+**Stella:** What about during the expansion?
 
-**Alex:** Mid-cycle is broadly good for stocks, especially technology and industrials. Business investment is growing, corporate earnings are rising, and the economy has a healthy growth-inflation balance. This is the "Goldilocks" phase -- not too hot, not too cold.
+**Horace:** Mid-cycle is broadly good for stocks, especially technology and industrials. Business investment is growing, corporate earnings are rising, and the economy has a healthy growth-inflation balance. This is the "Goldilocks" phase -- not too hot, not too cold.
 
-**Sam:** And late cycle?
+**Stella:** And late cycle?
 
-**Alex:** Late cycle tends to favor commodities, energy stocks, and defensive sectors like healthcare and consumer staples. Inflation is picking up, which benefits real assets. Defensive sectors hold up because their businesses are less economically sensitive -- people need electricity, medicine, and food regardless of the cycle.
+**Horace:** Late cycle tends to favor commodities, energy stocks, and defensive sectors like healthcare and consumer staples. Inflation is picking up, which benefits real assets. Defensive sectors hold up because their businesses are less economically sensitive -- people need electricity, medicine, and food regardless of the cycle.
 
-**Sam:** What performs best during a recession?
+**Stella:** What performs best during a recession?
 
-**Alex:** Government bonds are the classic recession winner. When the economy contracts, the Fed cuts rates, which pushes bond prices up. Cash also outperforms on a relative basis simply by not losing money. Defensive stocks -- utilities, staples, healthcare -- tend to fall less than the broader market.
+**Horace:** Government bonds are the classic recession winner. When the economy contracts, the Fed cuts rates, which pushes bond prices up. Cash also outperforms on a relative basis simply by not losing money. Defensive stocks -- utilities, staples, healthcare -- tend to fall less than the broader market.
 
 [ANIMATION: animation/week10_business_cycle.py - Animated sector rotation wheel showing sectors highlighted as the cycle progresses. The animation moves clockwise through the four phases, with outperforming sectors lighting up in green and underperforming sectors dimming to gray. A performance bar chart updates in real time, showing the relative returns of each sector during the highlighted phase. Historical data from actual cycles is used to calibrate the magnitudes.]
 
-**Sam:** This is like a playbook for the cycle.
+**Stella:** This is like a playbook for the cycle.
 
-**Alex:** It is a historical tendency, not a playbook -- and that distinction matters. Every cycle is different. The 2020 recession was caused by a pandemic, not an overheating economy, and the recovery was V-shaped because of massive fiscal stimulus. The 2007-2009 recession was caused by a financial crisis and the recovery was slow and grinding. The sectors and assets that outperformed in each case did not perfectly match the textbook rotation.
+**Horace:** It is a historical tendency, not a playbook -- and that distinction matters. Every cycle is different. The 2020 recession was caused by a pandemic, not an overheating economy, and the recovery was V-shaped because of massive fiscal stimulus. The 2007-2009 recession was caused by a financial crisis and the recovery was slow and grinding. The sectors and assets that outperformed in each case did not perfectly match the textbook rotation.
 
-**Sam:** So how should I use this information without treating it as a crystal ball?
+**Stella:** So how should I use this information without treating it as a crystal ball?
 
-**Alex:** Three practical guidelines. First, maintain a diversified portfolio that includes assets that perform well in different phases. This way, you do not need to predict the cycle -- your portfolio has something working in every environment. Second, make modest tilts, not wholesale changes. If you believe you are in a late-cycle environment, maybe increase your allocation to defensive stocks from 15% to 20% and trim your most speculative holdings. But do not go to 100% cash or 100% commodities. Third, use the indicators as a risk management tool, not a timing tool. They tell you when to be more cautious and when to be more aggressive, but the timing will never be precise.
+**Horace:** Three practical guidelines. First, maintain a diversified portfolio that includes assets that perform well in different phases. This way, you do not need to predict the cycle -- your portfolio has something working in every environment. Second, make modest tilts, not wholesale changes. If you believe you are in a late-cycle environment, maybe increase your allocation to defensive stocks from 15% to 20% and trim your most speculative holdings. But do not go to 100% cash or 100% commodities. Third, use the indicators as a risk management tool, not a timing tool. They tell you when to be more cautious and when to be more aggressive, but the timing will never be precise.
 
 [VISUAL: Two portfolio pie charts side by side -- "Early/Mid Cycle Tilt" and "Late Cycle / Defensive Tilt" -- showing modest shifts in allocation rather than dramatic changes. The differences are highlighted with arrows showing which wedges grew and which shrank.]
 
-**Sam:** Let me ask about something I see in the news all the time -- GDP. What exactly is it and why does everyone care so much?
+**Stella:** Let me ask about something I see in the news all the time -- GDP. What exactly is it and why does everyone care so much?
 
-**Alex:** GDP -- Gross Domestic Product -- is the total value of everything produced in the economy over a period. It is the broadest single measure of economic activity. In the U.S., it is reported quarterly. The key thing to know is that nearly 70% of U.S. GDP is consumer spending. So the American economy is fundamentally driven by whether consumers are spending money.
+**Horace:** GDP -- Gross Domestic Product -- is the total value of everything produced in the economy over a period. It is the broadest single measure of economic activity. In the U.S., it is reported quarterly. The key thing to know is that nearly 70% of U.S. GDP is consumer spending. So the American economy is fundamentally driven by whether consumers are spending money.
 
-**Sam:** That is a lot. So if consumers pull back, the whole economy suffers?
+**Stella:** That is a lot. So if consumers pull back, the whole economy suffers?
 
-**Alex:** Exactly. And this is why consumer confidence surveys, retail sales data, and employment figures are so closely watched -- they all feed into whether consumers will keep spending. When people lose their jobs, their confidence drops, and they cut spending. When spending drops, businesses see lower revenue. When revenue drops, businesses cut costs, including laying off workers. That is the vicious cycle of a recession.
+**Horace:** Exactly. And this is why consumer confidence surveys, retail sales data, and employment figures are so closely watched -- they all feed into whether consumers will keep spending. When people lose their jobs, their confidence drops, and they cut spending. When spending drops, businesses see lower revenue. When revenue drops, businesses cut costs, including laying off workers. That is the vicious cycle of a recession.
 
 [VISUAL: Circular diagram showing the recession feedback loop: Job Losses -> Lower Confidence -> Less Spending -> Lower Revenue -> Cost Cuts -> More Job Losses, with arrows connecting each step in a circle]
 
-**Sam:** What about inflation? Where does that fit in?
+**Stella:** What about inflation? Where does that fit in?
 
-**Alex:** Inflation is the silent tax on your portfolio and the central obsession of the Federal Reserve. There are two main measures -- CPI, the Consumer Price Index, which gets all the headlines, and PCE, the Personal Consumption Expenditures index, which is what the Fed actually targets. The Fed's target is 2% annual PCE inflation.
+**Horace:** Inflation is the silent tax on your portfolio and the central obsession of the Federal Reserve. There are two main measures -- CPI, the Consumer Price Index, which gets all the headlines, and PCE, the Personal Consumption Expenditures index, which is what the Fed actually targets. The Fed's target is 2% annual PCE inflation.
 
-**Sam:** Why 2%? Why not zero?
+**Stella:** Why 2%? Why not zero?
 
-**Alex:** Zero inflation, or worse, deflation -- falling prices -- is actually more dangerous than moderate inflation. If consumers expect prices to fall, they delay purchases. Why buy a car today if it will be cheaper next month? That delay in spending slows the economy. A small positive inflation rate encourages spending and investment. Two percent is considered the sweet spot -- enough to encourage economic activity without eroding purchasing power too quickly.
+**Horace:** Zero inflation, or worse, deflation -- falling prices -- is actually more dangerous than moderate inflation. If consumers expect prices to fall, they delay purchases. Why buy a car today if it will be cheaper next month? That delay in spending slows the economy. A small positive inflation rate encourages spending and investment. Two percent is considered the sweet spot -- enough to encourage economic activity without eroding purchasing power too quickly.
 
 [VISUAL: Temperature gauge showing the "Goldilocks zone" for inflation. Below 1% is labeled "Too Cold (Deflation Risk)." Between 1.5% and 2.5% is green and labeled "Just Right." Between 2.5% and 4% is yellow. Above 4% is red and labeled "Too Hot (Aggressive Tightening)."]
 
-**Sam:** How does inflation affect my investments specifically?
+**Stella:** How does inflation affect my investments specifically?
 
-**Alex:** It depends on the asset. Stocks of companies with pricing power -- meaning they can raise prices and customers still buy -- tend to do fine in moderate inflation. Think consumer staples brands or tech companies with subscription models. Bonds get hurt because their fixed interest payments lose purchasing power. If you own a bond paying 3% and inflation is 4%, your real return is negative 1%. Commodities and real estate tend to benefit from inflation because they are real assets whose prices rise with the general price level. And cash under the mattress is the worst -- it loses purchasing power every single day.
+**Horace:** It depends on the asset. Stocks of companies with pricing power -- meaning they can raise prices and customers still buy -- tend to do fine in moderate inflation. Think consumer staples brands or tech companies with subscription models. Bonds get hurt because their fixed interest payments lose purchasing power. If you own a bond paying 3% and inflation is 4%, your real return is negative 1%. Commodities and real estate tend to benefit from inflation because they are real assets whose prices rise with the general price level. And cash under the mattress is the worst -- it loses purchasing power every single day.
 
-**Sam:** So in an inflationary environment, you want to own things, not hold paper?
+**Stella:** So in an inflationary environment, you want to own things, not hold paper?
 
-**Alex:** That is a good rule of thumb for high inflation environments, yes. TIPS -- Treasury Inflation-Protected Securities -- are specifically designed for this. Their principal adjusts with inflation, so your purchasing power is protected. They are essentially a bond with built-in inflation insurance.
+**Horace:** That is a good rule of thumb for high inflation environments, yes. TIPS -- Treasury Inflation-Protected Securities -- are specifically designed for this. Their principal adjusts with inflation, so your purchasing power is protected. They are essentially a bond with built-in inflation insurance.
 
-**Sam:** Let us talk about the Fed for a minute. I know they set interest rates, but how does that actually transmit through the economy?
+**Stella:** Let us talk about the Fed for a minute. I know they set interest rates, but how does that actually transmit through the economy?
 
-**Alex:** The Fed controls the federal funds rate, which is the overnight lending rate between banks. When the Fed raises this rate, it becomes more expensive for banks to borrow, so they raise the rates they charge consumers and businesses. Mortgage rates go up, auto loan rates go up, business borrowing costs go up. This slows spending and investment, which cools the economy. When the Fed cuts the rate, the opposite happens -- borrowing gets cheaper, spending increases, the economy accelerates.
+**Horace:** The Fed controls the federal funds rate, which is the overnight lending rate between banks. When the Fed raises this rate, it becomes more expensive for banks to borrow, so they raise the rates they charge consumers and businesses. Mortgage rates go up, auto loan rates go up, business borrowing costs go up. This slows spending and investment, which cools the economy. When the Fed cuts the rate, the opposite happens -- borrowing gets cheaper, spending increases, the economy accelerates.
 
 [VISUAL: Transmission mechanism diagram showing the Fed at the top, with arrows flowing down through bank lending rates, then branching to mortgages (affecting housing), business loans (affecting investment), and consumer credit (affecting spending). Each branch shows real-world examples.]
 
-**Sam:** How long does it take for a rate change to affect the economy?
+**Stella:** How long does it take for a rate change to affect the economy?
 
-**Alex:** That is the million-dollar question. The consensus is 12 to 18 months for the full effect to be felt. This lag is what makes monetary policy so difficult. The Fed is making decisions today based on where they think the economy will be a year from now. If they get it wrong -- if they tighten too much and cause a recession, or too little and let inflation run -- the consequences are severe and they cannot be reversed quickly.
+**Horace:** That is the million-dollar question. The consensus is 12 to 18 months for the full effect to be felt. This lag is what makes monetary policy so difficult. The Fed is making decisions today based on where they think the economy will be a year from now. If they get it wrong -- if they tighten too much and cause a recession, or too little and let inflation run -- the consequences are severe and they cannot be reversed quickly.
 
-**Sam:** So when the Fed raises rates, the economy might still look fine for a year?
+**Stella:** So when the Fed raises rates, the economy might still look fine for a year?
 
-**Alex:** Exactly. And this causes a dangerous illusion. People look at the strong economy and say "see, the rate hikes are not a problem." But the full impact has not hit yet. This is why watching leading indicators is so important -- they can detect the cracks forming before the lagging data confirms the damage.
+**Horace:** Exactly. And this causes a dangerous illusion. People look at the strong economy and say "see, the rate hikes are not a problem." But the full impact has not hit yet. This is why watching leading indicators is so important -- they can detect the cracks forming before the lagging data confirms the damage.
 
-**Sam:** Let us pull this all together. If I am a regular investor with a diversified portfolio, what is the practical takeaway from all of this?
+**Stella:** Let us pull this all together. If I am a regular investor with a diversified portfolio, what is the practical takeaway from all of this?
 
-**Alex:** I think there are five key principles.
+**Horace:** I think there are five key principles.
 
-**Sam:** Give me all five.
+**Stella:** Give me all five.
 
-**Alex:** First, the economy is cyclical and that is normal. Recessions are not failures of the system -- they are a natural part of how the economy self-corrects. Knowing this keeps you from panicking when a contraction inevitably arrives.
+**Horace:** First, the economy is cyclical and that is normal. Recessions are not failures of the system -- they are a natural part of how the economy self-corrects. Knowing this keeps you from panicking when a contraction inevitably arrives.
 
-**Sam:** Second?
+**Stella:** Second?
 
-**Alex:** Second, watch leading indicators, not lagging ones. If you are making decisions based on the unemployment rate or last quarter's GDP, you are looking in the rearview mirror. The yield curve, PMI, initial jobless claims, and building permits tell you what is coming.
+**Horace:** Second, watch leading indicators, not lagging ones. If you are making decisions based on the unemployment rate or last quarter's GDP, you are looking in the rearview mirror. The yield curve, PMI, initial jobless claims, and building permits tell you what is coming.
 
 [VISUAL: Dashboard layout showing "What to Watch" with four panels: Yield Curve (10Y-2Y spread chart), ISM Manufacturing PMI (monthly bar chart), Initial Jobless Claims (weekly line chart), and Building Permits (monthly line chart). Each panel has a green/yellow/red signal indicator based on current readings.]
 
-**Sam:** Third?
+**Stella:** Third?
 
-**Alex:** Third, different assets perform differently at different phases. You do not need to perfectly time the cycle, but understanding these relationships helps you maintain realistic expectations and avoid emotional decisions. If your stock portfolio is struggling during a contraction, knowing that bonds and cash are doing their job in the background helps you stay the course.
+**Horace:** Third, different assets perform differently at different phases. You do not need to perfectly time the cycle, but understanding these relationships helps you maintain realistic expectations and avoid emotional decisions. If your stock portfolio is struggling during a contraction, knowing that bonds and cash are doing their job in the background helps you stay the course.
 
-**Sam:** Fourth?
+**Stella:** Fourth?
 
-**Alex:** Fourth, do not try to be a hero with cycle timing. Making modest tilts based on where you think you are in the cycle is reasonable. Going all-in on any single thesis -- "we are definitely going into a recession" or "this expansion will never end" -- is dangerous. The history of investing is littered with people who were right about the direction but wrong about the timing, and being wrong about timing can be just as costly as being wrong about direction.
+**Horace:** Fourth, do not try to be a hero with cycle timing. Making modest tilts based on where you think you are in the cycle is reasonable. Going all-in on any single thesis -- "we are definitely going into a recession" or "this expansion will never end" -- is dangerous. The history of investing is littered with people who were right about the direction but wrong about the timing, and being wrong about timing can be just as costly as being wrong about direction.
 
-**Sam:** And fifth?
+**Stella:** And fifth?
 
-**Alex:** Fifth, use the cycle framework to make better personal finance decisions, not just portfolio decisions. If you think you are in a late-cycle environment, this is a good time to build your emergency fund, pay down variable-rate debt, and make sure your job skills are current. If you think you are in an early-cycle environment, this is a good time to invest aggressively, lock in low mortgage rates, and negotiate for a raise because labor demand is growing.
+**Horace:** Fifth, use the cycle framework to make better personal finance decisions, not just portfolio decisions. If you think you are in a late-cycle environment, this is a good time to build your emergency fund, pay down variable-rate debt, and make sure your job skills are current. If you think you are in an early-cycle environment, this is a good time to invest aggressively, lock in low mortgage rates, and negotiate for a raise because labor demand is growing.
 
 [VISUAL: Split screen showing "Portfolio Decisions" on the left (asset allocation, rebalancing, sector tilts) and "Personal Finance Decisions" on the right (emergency fund, debt management, career moves, home buying) -- both connected to a central business cycle diagram]
 
-**Sam:** That last point is really powerful. The business cycle affects way more than just my brokerage account.
+**Stella:** That last point is really powerful. The business cycle affects way more than just my brokerage account.
 
-**Alex:** It affects your whole financial life. And the investors who understand this big picture -- who can zoom out from individual stock picks and see the economic forest -- tend to make better decisions across the board. They buy homes when rates are low and sellers are desperate. They negotiate raises when the labor market is tight. They invest aggressively when everyone else is terrified. And they build reserves when everyone else is celebrating.
+**Horace:** It affects your whole financial life. And the investors who understand this big picture -- who can zoom out from individual stock picks and see the economic forest -- tend to make better decisions across the board. They buy homes when rates are low and sellers are desperate. They negotiate raises when the labor market is tight. They invest aggressively when everyone else is terrified. And they build reserves when everyone else is celebrating.
 
-**Sam:** Three takeaways for the summary?
+**Stella:** Three takeaways for the summary?
 
-**Alex:** First, the business cycle has four predictable phases -- trough, expansion, peak, and contraction. Different assets perform best in different phases, and understanding this helps you build a resilient portfolio and maintain realistic expectations.
+**Horace:** First, the business cycle has four predictable phases -- trough, expansion, peak, and contraction. Different assets perform best in different phases, and understanding this helps you build a resilient portfolio and maintain realistic expectations.
 
-**Sam:** Second?
+**Stella:** Second?
 
-**Alex:** Leading indicators like the yield curve, PMI, and initial jobless claims tell you where the economy is headed. Lagging indicators like the unemployment rate tell you where it has been. Do not confuse the two -- decisions based on lagging data will consistently leave you behind the curve.
+**Horace:** Leading indicators like the yield curve, PMI, and initial jobless claims tell you where the economy is headed. Lagging indicators like the unemployment rate tell you where it has been. Do not confuse the two -- decisions based on lagging data will consistently leave you behind the curve.
 
-**Sam:** And third?
+**Stella:** And third?
 
-**Alex:** Do not try to time the cycle perfectly -- nobody can. Instead, use your understanding of the cycle to make modest, informed adjustments to your portfolio and your broader financial decisions. Diversification across asset classes that perform well in different environments is far more reliable than trying to predict the exact turning points.
+**Horace:** Do not try to time the cycle perfectly -- nobody can. Instead, use your understanding of the cycle to make modest, informed adjustments to your portfolio and your broader financial decisions. Diversification across asset classes that perform well in different environments is far more reliable than trying to predict the exact turning points.
 
 [VISUAL: Summary card with three key takeaways. A preview graphic for next week's lesson appears at the bottom.]
 
-**Sam:** This was one of the most valuable lessons yet. I feel like I have a new lens for looking at the financial world.
+**Stella:** This was one of the most valuable lessons yet. I feel like I have a new lens for looking at the financial world.
 
-**Alex:** That is exactly the goal -- to give you a framework that makes the noise of daily financial news less overwhelming and more interpretable. When you hear "the PMI came in at 48" or "the yield curve just inverted," you now know what those signals mean and how they fit into the bigger picture. Next week, we continue building your toolkit. See you then.
+**Horace:** That is exactly the goal -- to give you a framework that makes the noise of daily financial news less overwhelming and more interpretable. When you hear "the PMI came in at 48" or "the yield curve just inverted," you now know what those signals mean and how they fit into the bigger picture. Next week, we continue building your toolkit. See you then.
 
-**Sam:** Thanks everyone for watching!
+**Stella:** Thanks everyone for watching!
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

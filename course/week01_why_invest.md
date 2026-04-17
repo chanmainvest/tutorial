@@ -583,8 +583,8 @@ unpaid debt.
 **RUNTIME TARGET:** ~25 minutes
 
 **HOSTS:**
-- **Alex** (teacher): Experienced investor, explains concepts clearly
-- **Sam** (student): Curious beginner, asks questions the audience is thinking
+- **Horace** (teacher): Experienced retail trader, explains concepts from years of market experience
+- **Stella** (student): Recent college graduate learning to invest her savings, asks the questions viewers are thinking
 
 ---
 
@@ -594,23 +594,23 @@ unpaid debt.
 
 [ANIMATION: A clock ticking while dollar bills slowly shrink in size]
 
-**Alex:** Welcome to Week 1 of our investment fundamentals course. I am Alex, and
+**Horace:** Welcome to Week 1 of our investment fundamentals course. I am Horace, and
 this is the lesson that changes how you think about money forever.
 
-**Sam:** And I am Sam. I will be asking all the beginner questions, so do not worry
+**Stella:** And I am Stella. I will be asking all the beginner questions, so do not worry
 if you are brand new to this. I am right there with you.
 
-**Alex:** Today we are answering one of the most important financial questions you
+**Horace:** Today we are answering one of the most important financial questions you
 will ever face: Why should you invest at all?
 
-**Sam:** Right, because honestly, investing feels risky. Why not just save money in
+**Stella:** Right, because honestly, investing feels risky. Why not just save money in
 a bank account where it is safe?
 
-**Alex:** That is exactly where we are going to start. Because the surprising truth
+**Horace:** That is exactly where we are going to start. Because the surprising truth
 is that keeping your money "safe" in a bank account is one of the riskiest things
 you can do with it.
 
-**Sam:** Wait, how is that possible?
+**Stella:** Wait, how is that possible?
 
 [VISUAL: Title card -- "Part 1: The Invisible Thief -- Inflation"]
 
@@ -618,51 +618,51 @@ you can do with it.
 
 **[SEGMENT 1: INFLATION]**
 
-**Alex:** Let me tell you about the invisible thief that is robbing you right now.
+**Horace:** Let me tell you about the invisible thief that is robbing you right now.
 It is called inflation.
 
 [ANIMATION: A basket of groceries. The price tag starts at $50 and slowly ticks
 up to $75, then $100, while the basket stays the same size. Reference:
 animation/week01_compound_growth.py -- inflation_scene()]
 
-**Sam:** Inflation. I have heard the word, but what does it actually mean for my
+**Stella:** Inflation. I have heard the word, but what does it actually mean for my
 wallet?
 
-**Alex:** Inflation means prices go up over time. Not because products get better,
+**Horace:** Inflation means prices go up over time. Not because products get better,
 but because the currency loses value. In 1995, a movie ticket cost about four
 dollars. Today, it costs fifteen. Same movie experience. But your dollar buys
 less.
 
-**Sam:** So my money is getting weaker even if I do not spend it?
+**Stella:** So my money is getting weaker even if I do not spend it?
 
-**Alex:** Exactly. And here is what makes it dangerous.
+**Horace:** Exactly. And here is what makes it dangerous.
 
 [VISUAL: Split screen showing two jars. Left jar labeled "$10,000 in 2005."
 Right jar labeled "$10,000 in 2025." The right jar shows items being removed
 one by one to represent lost purchasing power.]
 
-**Alex:** If you had put ten thousand dollars under your mattress in 2005 and
+**Horace:** If you had put ten thousand dollars under your mattress in 2005 and
 pulled it out in 2025, you would still have ten thousand dollars. But that ten
 thousand dollars would only buy what about six thousand dollars bought in 2005.
 You lost roughly forty percent of your purchasing power by doing absolutely
 nothing.
 
-**Sam:** Forty percent? That is huge. But banks pay interest, right? Does that
+**Stella:** Forty percent? That is huge. But banks pay interest, right? Does that
 help?
 
-**Alex:** Let me show you the math.
+**Horace:** Let me show you the math.
 
 [ANIMATION: Bar chart comparing "Savings Account Rate: 0.5%" vs
 "Inflation Rate: 3%" with a gap labeled "Real Loss: -2.5% per year"]
 
-**Alex:** The average savings account in the US has paid about half a percent
+**Horace:** The average savings account in the US has paid about half a percent
 interest in recent years. Meanwhile, inflation has averaged around three percent.
 That means every year, your savings account loses about two and a half percent
 in real purchasing power.
 
-**Sam:** So I am actually losing money by saving it?
+**Stella:** So I am actually losing money by saving it?
 
-**Alex:** In real terms, yes. And that brings us to the most important concept in
+**Horace:** In real terms, yes. And that brings us to the most important concept in
 all of finance.
 
 [VISUAL: Title card -- "Part 2: The Time Value of Money"]
@@ -671,41 +671,41 @@ all of finance.
 
 **[SEGMENT 2: TIME VALUE OF MONEY]**
 
-**Alex:** The Time Value of Money -- TVM for short -- is the idea that a dollar
+**Horace:** The Time Value of Money -- TVM for short -- is the idea that a dollar
 today is worth more than a dollar tomorrow.
 
-**Sam:** Why? A dollar is a dollar, right?
+**Stella:** Why? A dollar is a dollar, right?
 
-**Alex:** Think of it this way. If I offer you a thousand dollars right now or a
+**Horace:** Think of it this way. If I offer you a thousand dollars right now or a
 thousand dollars one year from now, which would you take?
 
-**Sam:** Right now, obviously.
+**Stella:** Right now, obviously.
 
-**Alex:** Why?
+**Horace:** Why?
 
-**Sam:** Because... I could use it now? And who knows what happens in a year?
+**Stella:** Because... I could use it now? And who knows what happens in a year?
 
-**Alex:** You just named two of the three reasons.
+**Horace:** You just named two of the three reasons.
 
 [VISUAL: Three pillars graphic:
 Pillar 1 -- "Opportunity: Invest it now, earn returns"
 Pillar 2 -- "Inflation: Future dollars buy less"
 Pillar 3 -- "Risk: Future payment might not come"]
 
-**Alex:** First, opportunity. If you have the money now, you can invest it and
+**Horace:** First, opportunity. If you have the money now, you can invest it and
 earn a return. Second, inflation. That future dollar will buy less than today's
 dollar. Third, risk. The person promising you money in the future might not
 follow through.
 
-**Sam:** So time literally makes money less valuable?
+**Stella:** So time literally makes money less valuable?
 
-**Alex:** Unless you put it to work. And that is where investing comes in. Investing
+**Horace:** Unless you put it to work. And that is where investing comes in. Investing
 is how you fight the time value of money. Instead of letting time erode your
 wealth, you harness time to grow it.
 
-**Sam:** How?
+**Stella:** How?
 
-**Alex:** Two words: compound interest.
+**Horace:** Two words: compound interest.
 
 [VISUAL: Title card -- "Part 3: Compound Interest -- The Eighth Wonder"]
 
@@ -717,12 +717,12 @@ wealth, you harness time to grow it.
 Starting with a single coin, it duplicates. Then each duplicate duplicates.
 The pile grows slowly at first, then explosively.]
 
-**Alex:** Albert Einstein reportedly called compound interest the eighth wonder
+**Horace:** Albert Einstein reportedly called compound interest the eighth wonder
 of the world. Whether he actually said it or not, the math backs it up.
 
-**Sam:** What makes compound interest different from regular interest?
+**Stella:** What makes compound interest different from regular interest?
 
-**Alex:** Great question. Simple interest means you earn a fixed percentage on your
+**Horace:** Great question. Simple interest means you earn a fixed percentage on your
 original amount every year. Compound interest means you earn interest on your
 interest.
 
@@ -732,20 +732,20 @@ as equal-sized blocks stacking up.
 Right side: "Compound Interest" -- $1,000 grows by increasing amounts each
 year, blocks get larger as they stack.]
 
-**Alex:** Let us say you invest one thousand dollars at eight percent. With simple
+**Horace:** Let us say you invest one thousand dollars at eight percent. With simple
 interest, you earn eighty dollars every year. After ten years, you have one
 thousand eight hundred dollars.
 
-**Sam:** That seems fine.
+**Stella:** That seems fine.
 
-**Alex:** Now with compound interest, in year one you still earn eighty dollars.
+**Horace:** Now with compound interest, in year one you still earn eighty dollars.
 But in year two, you earn eight percent of one thousand eighty dollars, which
 is eighty-six dollars and forty cents. In year three, you earn eight percent of
 one thousand one hundred sixty-six dollars and forty cents.
 
-**Sam:** So each year the interest payment gets bigger?
+**Stella:** So each year the interest payment gets bigger?
 
-**Alex:** Exactly. And after ten years, instead of one thousand eight hundred
+**Horace:** Exactly. And after ten years, instead of one thousand eight hundred
 dollars, you have two thousand one hundred fifty-nine dollars.
 
 [VISUAL: Table on screen:
@@ -753,30 +753,30 @@ Simple: $1,000 -> $1,800 after 10 years
 Compound: $1,000 -> $2,159 after 10 years
 Difference: $359]
 
-**Sam:** Three hundred and fifty-nine dollars more. That is nice but not exactly
+**Stella:** Three hundred and fifty-nine dollars more. That is nice but not exactly
 life-changing.
 
-**Alex:** You are right. After ten years, it is a nice bonus. But here is where
+**Horace:** You are right. After ten years, it is a nice bonus. But here is where
 it gets wild. Let us extend the timeline.
 
 [ANIMATION: Graph showing both curves extending to 40 years. The compound curve
 begins to separate dramatically from the simple interest line around year 20,
 and by year 40, it is far above.]
 
-**Alex:** After twenty years, the compound interest total is four thousand six
+**Horace:** After twenty years, the compound interest total is four thousand six
 hundred sixty-one dollars versus two thousand six hundred dollars for simple.
 After thirty years, it is ten thousand sixty-three versus three thousand four
 hundred. And after forty years...
 
-**Sam:** Let me guess -- it gets crazy?
+**Stella:** Let me guess -- it gets crazy?
 
-**Alex:** Twenty-one thousand seven hundred fifteen dollars. Compared to four
+**Horace:** Twenty-one thousand seven hundred fifteen dollars. Compared to four
 thousand two hundred for simple interest. Your money has grown to over twenty-one
 times what you started with.
 
-**Sam:** From just one thousand dollars?
+**Stella:** From just one thousand dollars?
 
-**Alex:** From just one thousand dollars. And that is without adding a single extra
+**Horace:** From just one thousand dollars. And that is without adding a single extra
 penny. Just letting compound interest do its thing for forty years.
 
 [VISUAL: Final comparison graphic:
@@ -784,9 +784,9 @@ $1,000 at 8% for 40 years:
 Simple Interest: $4,200
 Compound Interest: $21,715]
 
-**Sam:** Okay, that is genuinely impressive. But who has forty years?
+**Stella:** Okay, that is genuinely impressive. But who has forty years?
 
-**Alex:** Anyone who starts in their twenties and retires in their sixties. And most
+**Horace:** Anyone who starts in their twenties and retires in their sixties. And most
 people are not investing just a one-time lump sum. They are adding money regularly.
 Let me show you what happens when you combine regular contributions with compound
 interest.
@@ -794,19 +794,19 @@ interest.
 [ANIMATION: A piggy bank receiving coins monthly. A growth meter next to it
 accelerates upward. Numbers tick from $0 to $500,000 to $1,000,000.]
 
-**Alex:** If you invest five hundred dollars a month starting at age twenty-five,
+**Horace:** If you invest five hundred dollars a month starting at age twenty-five,
 at an average return of ten percent per year, by age sixty-five you will have
 approximately two million six hundred thousand dollars.
 
-**Sam:** Two point six million? From five hundred a month?
+**Stella:** Two point six million? From five hundred a month?
 
-**Alex:** Your total contributions would be two hundred forty thousand dollars. The
+**Horace:** Your total contributions would be two hundred forty thousand dollars. The
 remaining two point three six million is pure compound growth.
 
-**Sam:** That is ninety percent growth and only ten percent contributions. That is
+**Stella:** That is ninety percent growth and only ten percent contributions. That is
 unbelievable.
 
-**Alex:** That is the power of time plus compounding. And this is exactly why
+**Horace:** That is the power of time plus compounding. And this is exactly why
 starting early matters so much.
 
 [VISUAL: Title card -- "Part 4: The Cost of Waiting"]
@@ -819,14 +819,14 @@ starting early matters so much.
 "Waiting Will" starts at age 35. Both walk toward age 65. Emma's wealth bar
 grows much taller than Will's.]
 
-**Alex:** Let me introduce you to two hypothetical investors. Early Emma starts
+**Horace:** Let me introduce you to two hypothetical investors. Early Emma starts
 investing five thousand dollars per year at age twenty-five. Waiting Will starts
 the same amount at age thirty-five. Both invest until age sixty-five, both earn
 ten percent per year on average.
 
-**Sam:** So Emma invests for forty years and Will for thirty years?
+**Stella:** So Emma invests for forty years and Will for thirty years?
 
-**Alex:** Right. Emma invests a total of two hundred thousand dollars. Will invests
+**Horace:** Right. Emma invests a total of two hundred thousand dollars. Will invests
 a total of one hundred fifty thousand dollars. So Emma puts in fifty thousand
 more. But look at the results.
 
@@ -834,16 +834,16 @@ more. But look at the results.
 Emma (starts at 25): Invested $200,000 -> Final value $2,212,963
 Will (starts at 35): Invested $150,000 -> Final value $822,470]
 
-**Sam:** Emma has almost three times as much money? From only fifty thousand dollars
+**Stella:** Emma has almost three times as much money? From only fifty thousand dollars
 more in contributions?
 
-**Alex:** One point four million dollars more in final value from fifty thousand
+**Horace:** One point four million dollars more in final value from fifty thousand
 more in contributions. That is a twenty-eight to one ratio. Every dollar Emma
 invested in those first ten years multiplied enormously over the next thirty years.
 
-**Sam:** So the early years are the most valuable?
+**Stella:** So the early years are the most valuable?
 
-**Alex:** By far. The first dollars you invest have the longest time to compound.
+**Horace:** By far. The first dollars you invest have the longest time to compound.
 A dollar invested at age twenty-five has forty years to grow. A dollar invested
 at age fifty-five only has ten years. The twenty-five-year-old dollar could grow
 to forty-five dollars. The fifty-five-year-old dollar only grows to about two
@@ -855,48 +855,48 @@ dollars and sixty cents.
 
 **[SEGMENT 5: RULE OF 72]**
 
-**Sam:** This is all great, but doing compound interest math in my head sounds
+**Stella:** This is all great, but doing compound interest math in my head sounds
 impossible.
 
-**Alex:** It would be, except there is a beautiful shortcut called the Rule of 72.
+**Horace:** It would be, except there is a beautiful shortcut called the Rule of 72.
 
 [VISUAL: Large "72" on screen with a division sign]
 
-**Alex:** To estimate how many years it takes to double your money, just divide
+**Horace:** To estimate how many years it takes to double your money, just divide
 seventy-two by the annual return rate.
 
-**Sam:** That is it?
+**Stella:** That is it?
 
-**Alex:** That is it. At six percent, your money doubles in twelve years. At eight
+**Horace:** That is it. At six percent, your money doubles in twelve years. At eight
 percent, nine years. At twelve percent, just six years.
 
 [ANIMATION: A $1 bill doubling into $2, then $4, then $8, then $16, with
 timestamps showing the years at 8% return: 0, 9, 18, 27, 36 years]
 
-**Sam:** So at eight percent, one dollar becomes two in nine years, four in
+**Stella:** So at eight percent, one dollar becomes two in nine years, four in
 eighteen years, eight in twenty-seven years, and sixteen in thirty-six years?
 
-**Alex:** Exactly. Four doublings in thirty-six years. And here is a great use of
+**Horace:** Exactly. Four doublings in thirty-six years. And here is a great use of
 this rule in reverse. You can estimate how fast inflation destroys your money.
 
-**Sam:** How?
+**Stella:** How?
 
-**Alex:** At three percent inflation, seventy-two divided by three is twenty-four.
+**Horace:** At three percent inflation, seventy-two divided by three is twenty-four.
 Your money loses half its value every twenty-four years.
 
-**Sam:** So if I am thirty years old and retirement is thirty-five years away, my
+**Stella:** So if I am thirty years old and retirement is thirty-five years away, my
 money could lose more than half its value if I just hold cash?
 
-**Alex:** More than half. At three percent inflation over thirty-five years, a
+**Horace:** More than half. At three percent inflation over thirty-five years, a
 dollar is worth about thirty-five cents. You would lose about sixty-five percent
 of your purchasing power.
 
 [VISUAL: Dollar bill with 65% of it shaded out/faded, labeled "Lost to Inflation
 Over 35 Years (3% annual)"]
 
-**Sam:** That is terrifying.
+**Stella:** That is terrifying.
 
-**Alex:** It should be motivating. Because once you understand this, you understand
+**Horace:** It should be motivating. Because once you understand this, you understand
 that not investing is the real risk.
 
 [VISUAL: Title card -- "Part 6: Real vs. Nominal Returns"]
@@ -905,26 +905,26 @@ that not investing is the real risk.
 
 **[SEGMENT 6: REAL VS. NOMINAL RETURNS]**
 
-**Alex:** Before we wrap up, I want to clarify something that trips up a lot of
+**Horace:** Before we wrap up, I want to clarify something that trips up a lot of
 people. When you hear that the stock market returns ten percent per year, that
 is the nominal return.
 
-**Sam:** Nominal meaning the headline number?
+**Stella:** Nominal meaning the headline number?
 
-**Alex:** Right. The actual number before adjusting for inflation. But what matters
+**Horace:** Right. The actual number before adjusting for inflation. But what matters
 for your purchasing power is the real return -- the nominal return minus inflation.
 
 [ANIMATION: A thermometer-style graphic. "Nominal Return" shows 10%.
 "Inflation" shows 3% being subtracted. "Real Return" shows 7%.]
 
-**Alex:** If the stock market returns ten percent and inflation is three percent,
+**Horace:** If the stock market returns ten percent and inflation is three percent,
 your real return is about seven percent. That seven percent represents your
 actual increase in purchasing power -- the additional goods and services you can
 now afford.
 
-**Sam:** So I should always think about returns after inflation?
+**Stella:** So I should always think about returns after inflation?
 
-**Alex:** For long-term planning, absolutely. And here is why it matters. Look at
+**Horace:** For long-term planning, absolutely. And here is why it matters. Look at
 this comparison.
 
 [VISUAL: Table on screen:
@@ -934,13 +934,13 @@ Bonds           |      5%        |                     |    2%
 Savings Account |      2%        |                     |   -1%
 Cash            |      0%        |                     |   -3%]
 
-**Alex:** A savings account with a two percent return seems like it is growing your
+**Horace:** A savings account with a two percent return seems like it is growing your
 money. But after three percent inflation, you are actually losing one percent per
 year. Cash under the mattress is losing three percent per year.
 
-**Sam:** So stocks are really the only option that significantly grows your wealth?
+**Stella:** So stocks are really the only option that significantly grows your wealth?
 
-**Alex:** Over long periods, stocks have been the strongest wealth-building tool
+**Horace:** Over long periods, stocks have been the strongest wealth-building tool
 available to ordinary investors. Bonds play an important role too, and we will
 cover asset allocation later in the course. But yes, for long-term growth, equities
 are the primary engine.
@@ -951,19 +951,19 @@ are the primary engine.
 
 **[SEGMENT 7: FV AND PV]**
 
-**Alex:** Let me give you two formulas that will come up again and again.
+**Horace:** Let me give you two formulas that will come up again and again.
 
 [VISUAL: Two formula cards side by side:
 Left: "Future Value: FV = PV x (1 + r)^n"
 Right: "Present Value: PV = FV / (1 + r)^n"]
 
-**Alex:** Future value answers the question: "If I invest this money now, how much
+**Horace:** Future value answers the question: "If I invest this money now, how much
 will I have later?" Present value answers the reverse: "What is a future payment
 worth to me today?"
 
-**Sam:** Can you give me a real example?
+**Stella:** Can you give me a real example?
 
-**Alex:** Sure. Say you have ten thousand dollars and you can earn eight percent per
+**Horace:** Sure. Say you have ten thousand dollars and you can earn eight percent per
 year for twenty-five years. The future value is ten thousand times one point oh
 eight to the power of twenty-five. That equals sixty-eight thousand four hundred
 eighty-five dollars.
@@ -971,34 +971,34 @@ eighty-five dollars.
 [ANIMATION: $10,000 growing in a bar chart over 25 years, reaching $68,485.
 Key milestones highlighted: $21,589 at year 10, $46,610 at year 20.]
 
-**Sam:** Almost seven times the original amount. Nice.
+**Stella:** Almost seven times the original amount. Nice.
 
-**Alex:** Now the reverse. Your company offers you a bonus of one hundred thousand
+**Horace:** Now the reverse. Your company offers you a bonus of one hundred thousand
 dollars payable in twenty years. What is that worth today, assuming you could earn
 eight percent investing on your own?
 
-**Sam:** Let me think. One hundred thousand divided by one point oh eight to the
+**Stella:** Let me think. One hundred thousand divided by one point oh eight to the
 twentieth power...
 
-**Alex:** Which equals...
+**Horace:** Which equals...
 
-**Sam:** I have no idea how to calculate that in my head.
+**Stella:** I have no idea how to calculate that in my head.
 
-**Alex:** It is twenty-one thousand four hundred fifty-five dollars. That future
+**Horace:** It is twenty-one thousand four hundred fifty-five dollars. That future
 hundred thousand is only worth about twenty-one thousand today.
 
 [VISUAL: $100,000 shrinking backward through time to $21,455]
 
-**Sam:** So if someone offered me twenty-five thousand dollars right now instead, I
+**Stella:** So if someone offered me twenty-five thousand dollars right now instead, I
 should take the cash?
 
-**Alex:** From a pure time-value-of-money perspective, yes. Twenty-five thousand
+**Horace:** From a pure time-value-of-money perspective, yes. Twenty-five thousand
 now is worth more than one hundred thousand in twenty years, if you can earn eight
 percent.
 
-**Sam:** This completely changes how I think about money.
+**Stella:** This completely changes how I think about money.
 
-**Alex:** And that is exactly the point of this lesson.
+**Horace:** And that is exactly the point of this lesson.
 
 [VISUAL: Title card -- "Key Takeaways"]
 
@@ -1008,67 +1008,67 @@ percent.
 
 [ANIMATION: Summary slide building point by point]
 
-**Alex:** Let us recap what we learned today.
+**Horace:** Let us recap what we learned today.
 
 [VISUAL: Bullet points appearing one by one]
 
-**Alex:** Number one: Inflation silently destroys your purchasing power. At three
+**Horace:** Number one: Inflation silently destroys your purchasing power. At three
 percent inflation, money loses half its value in about twenty-four years.
 
-**Sam:** The invisible thief.
+**Stella:** The invisible thief.
 
-**Alex:** Number two: Compound interest is the most powerful force in building
+**Horace:** Number two: Compound interest is the most powerful force in building
 wealth. You earn interest on your interest, and over decades, this creates
 exponential growth.
 
-**Sam:** The eighth wonder.
+**Stella:** The eighth wonder.
 
-**Alex:** Number three: The Rule of 72. Divide seventy-two by your return rate to
+**Horace:** Number three: The Rule of 72. Divide seventy-two by your return rate to
 estimate doubling time. Quick, easy, and surprisingly accurate.
 
-**Sam:** Seventy-two divided by the rate. Got it.
+**Stella:** Seventy-two divided by the rate. Got it.
 
-**Alex:** Number four: Starting early is more important than investing large amounts.
+**Horace:** Number four: Starting early is more important than investing large amounts.
 The first dollars you invest have the most time to compound and create the most
 wealth.
 
-**Sam:** Early Emma beat Waiting Will by a mile.
+**Stella:** Early Emma beat Waiting Will by a mile.
 
-**Alex:** Number five: Always think in real returns, not nominal. What matters is
+**Horace:** Number five: Always think in real returns, not nominal. What matters is
 your purchasing power after inflation, not the raw number in your account.
 
-**Sam:** Ten percent minus three percent inflation equals seven percent real growth.
+**Stella:** Ten percent minus three percent inflation equals seven percent real growth.
 
-**Alex:** And number six: Future value and present value are the foundational tools
+**Horace:** And number six: Future value and present value are the foundational tools
 for evaluating any financial decision. Every investment, every loan, every financial
 offer can be evaluated using these concepts.
 
 [VISUAL: Animated graphic showing a timeline from "Today" to "Future" with arrows
 showing FV going forward and PV coming back]
 
-**Sam:** So what should someone do right now, today, after watching this video?
+**Stella:** So what should someone do right now, today, after watching this video?
 
-**Alex:** Three things. First, check what your savings account is paying. If it is
+**Horace:** Three things. First, check what your savings account is paying. If it is
 less than inflation, understand that you are losing money. Second, open an
 investment account if you do not have one. Many brokerages have zero minimums and
 zero commissions. Third, start investing, even if it is just fifty dollars a month.
 The amount matters less than the habit.
 
-**Sam:** Because time is the most important ingredient.
+**Stella:** Because time is the most important ingredient.
 
-**Alex:** Exactly. Every day you wait is a day of compounding you will never get
+**Horace:** Exactly. Every day you wait is a day of compounding you will never get
 back.
 
 [VISUAL: End card with course logo]
 
-**Alex:** Next week, we are going to talk about the easiest, most proven way for
+**Horace:** Next week, we are going to talk about the easiest, most proven way for
 beginners to invest: index funds and ETFs. You will learn why most professional
 fund managers cannot beat a simple index fund, and how you can get started with
 one for practically nothing.
 
-**Sam:** That sounds great. See you all next week.
+**Stella:** That sounds great. See you all next week.
 
-**Alex:** Thanks for watching. If you found this helpful, subscribe and hit the
+**Horace:** Thanks for watching. If you found this helpful, subscribe and hit the
 notification bell so you do not miss Week 2. See you then.
 
 [ANIMATION: Outro animation with subscribe button graphic and "Next Week:

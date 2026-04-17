@@ -1,105 +1,101 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 38: LEAPS and Long-Term Options
+# 第38週：長期期權與長線期權策略
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何本課題重要
 
-LEAPS -- Long-Term Equity Anticipation Securities -- are options with expiration dates one to two or more years in the future. They occupy a unique and valuable niche in the options universe, bridging the gap between short-term options trading and long-term stock ownership.
+長期期權（LEAPS）——Long-Term Equity Anticipation Securities——是到期日在一至兩年或以上的期權合約。它們在期權世界中佔據獨特而寶貴的位置，架起了短線期權交易與長線股票持有之間的橋樑。
 
-Understanding LEAPS is critical because:
+理解長期期權至關重要，原因如下：
 
-- **Time is on your side (relatively)**: Unlike short-dated options that bleed value daily, LEAPS have much slower time decay. This gives your investment thesis months or years to play out, dramatically changing the risk/reward calculus of options strategies.
-- **Stock replacement**: Deep in-the-money LEAPS can replicate the return profile of stock ownership at a fraction of the capital. This makes them a legitimate tool for capital-efficient long-term investing, not just speculation.
-- **Income generation**: The "poor man's covered call" strategy uses LEAPS as a substitute for stock in a covered call setup, generating income with far less capital than owning shares outright.
-- **Portfolio construction**: LEAPS allow sophisticated investors to construct portfolios with defined risk, leveraged exposure, and capital efficiency that is impossible with stocks and margin alone.
+- **時間相對站在你一邊**：不同於每日不斷消耗價值的短期期權，長期期權的時間值衰減速度慢得多。這讓你的投資論點有數個月乃至數年的時間逐步兌現，從根本上改變了期權策略的風險回報計算方式。
+- **股票替代品**：深度價內的長期期權能以較小的資本複製持有股票的回報特徵。這使其成為資本效益型長線投資的合法工具，而非純粹用於投機。
+- **創造收入**：「窮人版備兌認購期權」策略以長期期權代替股票，建立備兌認購期權架構，以遠少於直接持股的資本產生收入。
+- **投資組合建構**：長期期權讓成熟投資者得以建構具備明確風險、槓桿敞口及資本效益的投資組合，這是單純依靠股票與保證金所無法實現的。
 
-The catch is that LEAPS still have an expiration date. They still have time decay, even if it is slower. They still have extrinsic value that represents a real cost. And they require active management -- rolling, adjusting, and monitoring -- that stock ownership does not.
+當然，長期期權仍有到期日。時間值衰減依然存在，只是速度較慢。外在價值代表實際成本。此外，它們需要積極的管理——滾動、調整與監察——而持有股票則毋須如此。
 
-This lesson teaches you how to use LEAPS intelligently: when they are a superior alternative to stock, when they are not, how to select strikes and expirations, and how to manage them over their lifetime.
+本課將教你如何善用長期期權：何時它是比股票更優勝的選擇，何時並非如此，如何選擇行使價與到期日，以及如何在持倉期間持續管理。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. What Are LEAPS?
+#### 1. 什麼是長期期權？
 
-LEAPS are simply options contracts with longer expiration dates. While standard options typically expire within a few weeks to a few months, LEAPS have expirations extending one to two and a half years into the future. The term "LEAPS" is a trademark of the CBOE, but traders use it generically to refer to any long-dated option.
+長期期權本質上就是到期日較長的期權合約。普通期權通常在數週至數個月內到期，而長期期權的到期日則延伸至一至兩年半後。「LEAPS」一詞是芝加哥期權交易所的商標，但交易員普遍用它泛指任何長期期權。
 
 ```
-LEAPS vs. STANDARD OPTIONS
+長期期權與普通期權比較
 
-Feature                Standard Options      LEAPS
+特徵                普通期權              長期期權
 ----------------------------------------------------------
-Expiration             1 week - 6 months     1 - 2.5 years
-Typical theta decay    Fast, accelerating     Slow, gradual
-Premium cost           Lower absolute         Higher absolute
-Extrinsic value        Higher % of premium    Lower % (if deep ITM)
-Delta stability        Changes rapidly        More stable
-Vega sensitivity       Lower                  Higher
-Liquidity              Generally higher       Often lower
-Bid-ask spread         Tighter                Wider
-Available on           Most optionable        Most large-cap
-                       stocks                 stocks and ETFs
+到期日              1週至6個月            1至2.5年
+典型時間值衰減      快速，加速遞增        緩慢，逐步遞減
+期權金成本          絕對值較低            絕對值較高
+外在價值            佔期權金比例較高      深度價內時比例較低
+Delta穩定性         變化較快              相對穩定
+Vega敏感度          較低                  較高
+流動性              一般較高              往往較低
+買賣差價            較窄                  較寬
+適用標的            大多數可交易期權      主要大型股及
+                    股票                  交易所買賣基金
 ```
 
-**Key point**: LEAPS are available on most large-cap stocks and major ETFs. They typically get listed about 2.5 years before expiration and are available in January expirations (and sometimes other months). When a LEAPS contract gets within 9 months of expiration, it is no longer considered a LEAPS -- it becomes a regular option.
+**要點**：長期期權適用於大多數大型股及主要交易所買賣基金。它們通常在到期日前約2.5年掛牌，提供一月份到期日（有時亦包含其他月份）。當長期期權合約距離到期日不足9個月時，便不再被視為長期期權，而成為普通期權。
 
-#### 2. Advantages of LEAPS
+#### 2. 長期期權的優勢
 
-**Advantage 1: Time for Your Thesis to Play Out**
+**優勢一：讓你的投資論點有足夠時間兌現**
 
-This is the single most important advantage. Short-dated options require you to be right about both *direction* and *timing*. LEAPS relax the timing constraint significantly.
-
-```
-SCENARIO: You believe NVDA will benefit from AI growth over
-the next 18 months. NVDA is at $800.
-
-3-Month ATM Call ($800 strike, $45 premium):
-  - Must be right within 3 months
-  - Breakeven: $845 (+5.6%)
-  - If NVDA trades sideways for 2 months then rallies: 
-    most of your premium is gone before the move happens
-
-18-Month LEAPS Call ($800 strike, $130 premium):
-  - Have 18 months to be right
-  - Breakeven: $930 (+16.3%) -- higher, but much more time
-  - If NVDA trades sideways for 6 months then rallies:
-    you still have 12 months of time value remaining
-  - Theta burn during sideways period: ~$0.20/day vs ~$0.50/day
-```
-
-**Advantage 2: Lower Theta Decay**
-
-Theta (time decay) is not linear. It accelerates as expiration approaches. This works enormously in favor of LEAPS holders.
+這是最重要的單一優勢。短期期權要求你在方向與時機上同時判斷正確。長期期權則大幅放寬了時機要求。
 
 ```
-THETA DECAY PROFILE (ATM option, 30% IV, $200 stock)
+情境：你認為英偉達將在未來18個月受惠於人工智能增長。
+英偉達現價800美元。
 
-Days to          Daily Theta     Monthly Theta     % of Premium
-Expiration       ($/day)         ($/month)         Lost/Month
+3個月平值認購期權（行使價800美元，期權金45美元）：
+  - 必須在3個月內判斷正確
+  - 盈虧平衡點：845美元（+5.6%）
+  - 若英偉達橫行2個月後才上升：
+    大部分期權金在升市之前已消耗殆盡
+
+18個月長期認購期權（行使價800美元，期權金130美元）：
+  - 有18個月時間等待判斷兌現
+  - 盈虧平衡點：930美元（+16.3%）——較高，但時間充裕得多
+  - 若英偉達橫行6個月後才上升：
+    你仍有12個月的時間值剩餘
+  - 橫行期間每日時間值衰減：約0.20美元/日，而非0.50美元/日
+```
+
+**優勢二：時間值衰減較慢**
+
+Theta（時間值衰減）並非線性遞減，而是隨到期日臨近而加速。這對長期期權持有人極為有利。
+
+```
+時間值衰減特徵（平值期權，隱含波動率30%，股價200美元）
+
+距到期日         每日Theta     每月Theta     每月損耗
+（天數）         （美元/日）   （美元/月）   佔期權金比例
 ----------------------------------------------------------------
-730 (2 years)    $0.04           $1.20             0.5%
-548 (1.5 yr)     $0.05           $1.50             0.7%
-365 (1 year)     $0.06           $1.80             1.0%
-180 (6 months)   $0.09           $2.70             1.8%
-90  (3 months)   $0.13           $3.90             3.3%
-30  (1 month)    $0.22           $6.60             8.5%
-7   (1 week)     $0.46           N/A               ~30%
+730（2年）       0.04          1.20          0.5%
+548（1.5年）     0.05          1.50          0.7%
+365（1年）       0.06          1.80          1.0%
+180（6個月）     0.09          2.70          1.8%
+90（3個月）      0.13          3.90          3.3%
+30（1個月）      0.22          6.60          8.5%
+7（1週）         0.46          N/A           約30%
 
-KEY INSIGHT: A 2-year LEAPS loses 0.5% of its value per month
-to theta. A 1-month option loses 8.5%. That is a 17x difference
-in the cost of maintaining the position.
+關鍵洞察：一份2年期長期期權每月因Theta損耗約0.5%價值。
+1個月期期權每月損耗8.5%。兩者相差17倍。
 ```
 
 ```
-THETA DECAY CURVE (ASCII Visualization)
+時間值衰減曲線（ASCII示意圖）
 
-Premium
+期權金
   ^
   |****
   |    ****
@@ -113,778 +109,773 @@ Premium
   |                                                     *****
   +---+---+---+---+---+---+---+---+---+---+---+---+---+--->
   24  22  20  18  16  14  12  10   8   6   4   2   0
-                    Months to Expiration
+                    距到期月數
 
-  The curve shows that decay is gradual for the first 12-18
-  months, then accelerates dramatically in the final 6 months.
-  This is why most LEAPS traders roll or close positions when
-  they reach 6-9 months to expiration.
+  曲線顯示：首12至18個月衰減平緩，
+  最後6個月則急劇加速。
+  因此大多數長期期權交易員會在距到期
+  6至9個月時滾動或平倉。
 ```
 
-**Advantage 3: Higher Vega Sensitivity**
+**優勢三：較高的Vega敏感度**
 
-LEAPS have higher vega than short-dated options. This means they benefit more from increases in implied volatility. If you buy a LEAPS when IV is low and IV subsequently increases, you can profit from the volatility expansion even if the stock moves only modestly.
+長期期權的Vega高於短期期權，意味著它們能從隱含波動率上升中獲益更多。若你在隱含波動率低時買入長期期權，其後隱含波動率上升，即使股價僅小幅波動，你亦可從波動性擴張中獲利。
 
 ```
-VEGA COMPARISON ($200 stock, ATM call)
+Vega比較（股價200美元，平值認購期權）
 
-Expiration        Vega (per 1% IV change)
+到期日            Vega（每1%隱含波動率變化）
 ------------------------------------------
-30-day call       $0.23
-90-day call       $0.40
-180-day call      $0.56
-365-day call      $0.79
-730-day LEAPS     $1.12
+30日認購期權      0.23美元
+90日認購期權      0.40美元
+180日認購期權     0.56美元
+365日認購期權     0.79美元
+730日長期期權     1.12美元
 
-A 5% increase in IV adds:
-  30-day call:    $1.15 per share
-  730-day LEAPS:  $5.60 per share
+隱含波動率上升5%的影響：
+  30日認購期權：  每股增加1.15美元
+  730日長期期權： 每股增加5.60美元
 
-This is both an advantage and a risk. If IV drops,
-LEAPS lose more value than short-dated options.
+這既是優勢，亦是風險。若隱含波動率下跌，
+長期期權的損失將多於短期期權。
 ```
 
-#### 3. Deep ITM LEAPS as Stock Replacement
+#### 3. 深度價內長期期權作為股票替代品
 
-This is the most practical and powerful use of LEAPS for long-term investors. By purchasing deep in-the-money LEAPS calls, you can replicate the return profile of stock ownership with significantly less capital.
+這是長線投資者運用長期期權最實用、最有效的方式。透過買入深度價內的長期認購期權，你能以大幅減少的資本複製持有股票的回報特徵。
 
-**How it works:**
+**運作原理：**
 
-Buy a LEAPS call with a delta of 0.80 or higher (deep ITM). This option will move almost dollar-for-dollar with the stock and contains minimal extrinsic value relative to its total premium.
-
-```
-STOCK REPLACEMENT EXAMPLE: AAPL at $185
-
-Option 1: Buy 100 shares of AAPL
-  Cost:            $18,500
-  Dividend income: ~$100/year (0.54% yield)
-  Risk:            Full downside to $0
-
-Option 2: Buy 1 LEAPS $140 call, 2-year expiry
-  Delta:           0.88
-  Premium:         $52 per share ($5,200 total)
-  Intrinsic value: $185 - $140 = $45
-  Extrinsic value: $52 - $45 = $7 per share ($700 total)
-
-Capital comparison:
-  Stock:           $18,500
-  LEAPS:           $5,200
-  Capital freed:   $13,300 (72% less capital deployed)
-
-Return comparison if AAPL goes to $220 (+19%) in 18 months:
-  Stock return:    $3,500 + $150 dividends = $3,650 (19.7%)
-  LEAPS return:    ($220-$140) - $52 = $28 per share = $2,800 (53.8%)
-
-  LEAPS made less in absolute dollars ($2,800 vs $3,650)
-  but much more in percentage terms (53.8% vs 19.7%)
-  and deployed $13,300 less capital
-
-Return comparison if AAPL drops to $150 (-19%) in 18 months:
-  Stock loss:      -$3,500 + $150 dividends = -$3,350 (-18.1%)
-  LEAPS loss:      ($150-$140) - $52 = -$42 per share + ~$2 time = -$4,000 (-77%)
-
-  Wait -- LEAPS lost MORE in absolute dollars and percentage!
-  Yes, because of the extrinsic value decay. But the maximum
-  loss is capped at $5,200 (the premium), whereas the stock
-  could theoretically drop to zero (loss = $18,500).
-```
-
-**When stock replacement works:**
-- The stock is expected to appreciate significantly (more than the extrinsic value cost)
-- You want to free up capital for diversification or other investments
-- You want defined-risk exposure to a volatile name
-- The freed-up capital can earn a meaningful return (bonds, money market)
-
-**When stock replacement fails:**
-- The stock trades sideways (extrinsic value decays with no offsetting gain)
-- The stock pays a significant dividend (you miss the income)
-- You need indefinite holding period (LEAPS expire, stocks do not)
-- Bid-ask spreads are wide (transaction costs erode returns)
-
-#### 4. Selecting the Right LEAPS
-
-**Strike selection:**
+買入Delta達0.80或以上（深度價內）的長期認購期權。該期權將幾乎與股票同步升跌，且相對其總期權金而言外在價值極低。
 
 ```
-LEAPS STRIKE SELECTION GUIDE
+股票替代示例：蘋果公司現價185美元
 
-For Stock Replacement (conservative):
-  Target delta: 0.80 - 0.90
-  Typical strike: 15-25% below current stock price
-  Extrinsic value: Usually 3-8% of premium
-  Leverage: 3-5x
-  Probability of expiring ITM: 75-85%
+選項一：買入100股蘋果公司股票
+  成本：            18,500美元
+  股息收入：        約100美元/年（收益率0.54%）
+  風險：            完全承受下行風險至0
 
-For Moderate Leverage:
-  Target delta: 0.60 - 0.75
-  Typical strike: 5-15% below current stock price
-  Extrinsic value: Usually 15-30% of premium
-  Leverage: 5-8x
-  Probability of expiring ITM: 60-70%
+選項二：買入1份長期期權，行使價140美元，2年期
+  Delta：           0.88
+  期權金：          每股52美元（合計5,200美元）
+  內在價值：        185 - 140 = 45美元
+  外在價值：        52 - 45 = 7美元/股（合計700美元）
 
-For Aggressive Leverage:
-  Target delta: 0.40 - 0.55
-  Typical strike: At-the-money or slightly OTM
-  Extrinsic value: 100% of premium (all time value)
-  Leverage: 8-15x
-  Probability of expiring ITM: 40-50%
+資本比較：
+  股票：            18,500美元
+  長期期權：        5,200美元
+  釋放資本：        13,300美元（減少72%資本運用）
 
-RECOMMENDATION: For most investors, the conservative
-stock replacement approach (delta 0.80-0.90) offers
-the best balance of leverage, cost, and probability.
+若蘋果18個月後升至220美元（+19%）的回報比較：
+  股票回報：        3,500美元 + 150美元股息 = 3,650美元（19.7%）
+  長期期權回報：    （220-140）- 52 = 28美元/股 = 2,800美元（53.8%）
+
+  長期期權的絕對回報較少（2,800美元 vs 3,650美元），
+  但百分比回報高得多（53.8% vs 19.7%），
+  且少運用13,300美元資本
+
+若蘋果18個月後跌至150美元（-19%）的回報比較：
+  股票損失：        -3,500美元 + 150美元股息 = -3,350美元（-18.1%）
+  長期期權損失：    （150-140）- 52 = -42美元/股，加上約2美元時間值 = -4,000美元（-77%）
+
+  等等——長期期權的絕對損失及百分比損失都更大！
+  是的，因為有外在價值的衰減。但最大損失
+  上限為5,200美元（即期權金），而股票理論上
+  可跌至零（損失 = 18,500美元）。
 ```
 
-**Expiration selection:**
+**股票替代策略奏效的情況：**
+- 股票預期大幅升值（升幅超過外在價值成本）
+- 你希望釋放資本作分散投資或其他用途
+- 你希望以明確風險持有波動性較大的股票敞口
+- 釋放的資本能取得可觀回報（債券、貨幣市場）
 
-Choose the longest available expiration in most cases. Here is why:
+**股票替代策略失效的情況：**
+- 股票橫行（外在價值衰減而無相應收益）
+- 股票派發豐厚股息（你將錯失收入）
+- 你需要無限期持倉（長期期權有到期日，股票沒有）
+- 買賣差價較寬（交易成本侵蝕回報）
 
-```
-COST OF ROLLING vs. BUYING LONGER DURATION
+#### 4. 選擇合適的長期期權
 
-Strategy A: Buy 1-year LEAPS and roll annually
-  Year 1 extrinsic: $7/share
-  Year 2 extrinsic: $7/share (after rolling)
-  Total cost over 2 years: $14/share
-
-Strategy B: Buy 2-year LEAPS upfront
-  Extrinsic value: $10/share
-
-  Savings: $4/share (29% less extrinsic value cost)
-
-Theta is non-linear, so a 2-year option does NOT cost
-twice as much extrinsic value as a 1-year option.
-The longer you go, the cheaper the per-day cost of time.
-```
-
-#### 5. LEAPS Covered Calls (Poor Man's Covered Call)
-
-The "poor man's covered call" (PMCC) is one of the most capital-efficient income strategies available. Instead of buying 100 shares of stock to sell covered calls against, you buy a deep ITM LEAPS call and sell short-dated calls against it.
+**行使價選擇：**
 
 ```
-TRADITIONAL COVERED CALL vs. POOR MAN'S COVERED CALL
+長期期權行使價選擇指引
 
-Traditional Covered Call on MSFT at $400:
-  Buy 100 shares:                     $40,000
-  Sell 1 monthly $410 call:           +$6.00/share (+$600)
-  Monthly income:                     $600
-  Return on capital (monthly):        1.5%
-  Capital required:                   $40,000
+保守型股票替代（Conservative）：
+  目標Delta：0.80 - 0.90
+  典型行使價：低於現股價15-25%
+  外在價值：通常佔期權金3-8%
+  槓桿：3至5倍
+  到期時價內概率：75-85%
 
-Poor Man's Covered Call on MSFT at $400:
-  Buy 1 LEAPS $340 call (18-month):   $72/share ($7,200)
-    Delta: 0.82
-    Intrinsic: $60
-    Extrinsic: $12
-  Sell 1 monthly $410 call:           +$6.00/share (+$600)
-  Monthly income:                     $600
-  Return on capital (monthly):        8.3%
-  Capital required:                   $7,200
+中等槓桿型：
+  目標Delta：0.60 - 0.75
+  典型行使價：低於現股價5-15%
+  外在價值：通常佔期權金15-30%
+  槓桿：5至8倍
+  到期時價內概率：60-70%
 
-SAME income. 82% less capital deployed.
-Return on capital is 5.5x higher.
+進取型槓桿：
+  目標Delta：0.40 - 0.55
+  典型行使價：平值或輕微價外
+  外在價值：佔期權金100%（全為時間值）
+  槓桿：8至15倍
+  到期時價內概率：40-50%
+
+建議：對大多數投資者而言，保守型股票替代方式
+（Delta 0.80-0.90）在槓桿、成本與概率之間
+提供最佳平衡。
 ```
 
-**PMCC Rules and Guidelines:**
+**到期日選擇：**
+
+大多數情況下選擇最長可用到期日，原因如下：
 
 ```
-PMCC SETUP RULES
+滾動成本對比直接買入較長期限
 
-1. LEAPS Selection:
-   - Minimum delta: 0.75 (prefer 0.80+)
-   - Minimum expiration: 12 months (prefer 18+)
-   - Strike deep enough that intrinsic > short call premium
+策略A：買入1年期長期期權並每年滾動
+  第1年外在價值：7美元/股
+  第2年外在價值：7美元/股（滾動後）
+  2年總成本：    14美元/股
+
+策略B：直接買入2年期長期期權
+  外在價值：     10美元/股
+
+  節省：4美元/股（外在價值成本減少29%）
+
+由於Theta並非線性，2年期期權的外在價值並不等於
+1年期的兩倍。期限越長，每日時間值成本越低。
+```
+
+#### 5. 長期期權備兌認購期權（窮人版備兌認購期權）
+
+「窮人版備兌認購期權」（PMCC）是現有最具資本效益的收入策略之一。你無需買入100股股票來賣出備兌認購期權，而是買入深度價內的長期認購期權，再賣出短期期權。
+
+```
+傳統備兌認購期權與窮人版備兌認購期權比較
+
+微軟現價400美元的傳統備兌認購期權：
+  買入100股：                         40,000美元
+  賣出1份每月到期410美元認購期權：    +6.00美元/股（+600美元）
+  每月收入：                          600美元
+  每月資本回報率：                    1.5%
+  所需資本：                          40,000美元
+
+微軟現價400美元的窮人版備兌認購期權：
+  買入1份長期期權，行使價340美元（18個月）：72美元/股（7,200美元）
+    Delta：0.82
+    內在價值：60美元
+    外在價值：12美元
+  賣出1份每月到期410美元認購期權：    +6.00美元/股（+600美元）
+  每月收入：                          600美元
+  每月資本回報率：                    8.3%
+  所需資本：                          7,200美元
+
+相同收入。資本減少82%。
+資本回報率高出5.5倍。
+```
+
+**窮人版備兌認購期權規則與指引：**
+
+```
+窮人版備兌認購期權建倉規則
+
+1. 長期期權選擇：
+   - 最低Delta：0.75（建議0.80以上）
+   - 最短到期日：12個月（建議18個月以上）
+   - 行使價須足夠低，使得內在價值 > 短期認購期權期權金
    
-2. Short Call Selection:
-   - Expiration: 30-45 days
-   - Delta: 0.20-0.30 (OTM)
-   - Strike above LEAPS breakeven if possible
+2. 短期認購期權選擇：
+   - 到期日：30至45天
+   - Delta：0.20至0.30（價外）
+   - 行使價盡量高於長期期權盈虧平衡點
    
-3. Risk Management:
-   - Width between LEAPS strike and short call strike
-     should be greater than total LEAPS extrinsic value paid
-   - Roll short call if it goes ITM
-   - Roll LEAPS when it reaches 6-9 months to expiry
+3. 風險管理：
+   - 長期期權行使價與短期認購期權行使價之間的距離
+     應大於所支付的長期期權外在價值總額
+   - 若短期認購期權變為價內，應及時滾動
+   - 長期期權到期前6至9個月時滾動
 
-MAXIMUM PROFIT CALCULATION:
-  Max profit = (Short call strike - LEAPS strike) - Net debit
+最大利潤計算：
+  最大利潤 = （短期認購期權行使價 - 長期期權行使價）- 淨支出
   
-  Example: LEAPS $340 cost $72, Short $410 call received $6
-  Net debit = $72 - $6 = $66
-  Max profit = ($410 - $340) - $66 = $70 - $66 = $4/share
+  示例：長期期權（行使價340）成本72美元，
+        收取短期410認購期權期權金6美元
+  淨支出 = 72 - 6 = 66美元
+  最大利潤 = （410 - 340）- 66 = 70 - 66 = 4美元/股
   
-  Wait -- that seems small! But that is per expiration cycle.
-  Over 12 monthly cycles: 12 x $6 = $72 in premiums collected.
-  If stock stays between $340 and $410, total return potential
-  is much higher.
+  等等——這看起來很少！但這是每個到期週期的利潤。
+  12個月合計：12 x 6 = 72美元期權金收入。
+  若股價維持在340至410美元之間，整體回報潛力
+  遠不止於此。
 ```
 
-**Scenario Analysis for PMCC:**
+**窮人版備兌認購期權情境分析：**
 
 ```
-PMCC: MSFT $340 LEAPS call / Short monthly $410 call
-Net debit: $66/share. MSFT currently at $400.
+窮人版備兌認購期權：微軟340長期認購期權 / 每月短期410認購期權
+淨支出：66美元/股。微軟現價400美元。
 
-Scenario 1: MSFT rises slowly to $420 over 6 months
-  Short calls collected: ~$36 (6 months x $6 avg)
-  LEAPS appreciation: $400 -> $420 = ~$16 (delta 0.82)
-  BUT: short $410 call is challenged
-  Action: Roll short call up and out for credit
-  Estimated profit: $30-40/share over 6 months (45-60% return)
+情境一：微軟在6個月內緩步上升至420美元
+  收取短期認購期權期權金：約36美元（6個月，平均6美元/月）
+  長期期權升值：400美元→420美元，約+16美元（Delta 0.82）
+  但：短期410認購期權受到挑戰
+  操作：向上並向後滾動短期認購期權以收取淨期權金
+  預計6個月利潤：約30至40美元/股（回報率45-60%）
 
-Scenario 2: MSFT trades sideways at $400 for 12 months
-  Short calls collected: ~$72 (12 months x $6 avg)
-  LEAPS theta decay: ~$8 over 12 months
-  Net income: $72 - $8 = $64/share (89% return on $72 LEAPS)
+情境二：微軟在12個月內橫行於400美元
+  收取短期認購期權期權金：約72美元（12個月，平均6美元/月）
+  長期期權時間值衰減：約8美元（12個月）
+  淨收入：72 - 8 = 64美元/股（對72美元長期期權回報率89%）
 
-Scenario 3: MSFT drops to $360 over 6 months
-  Short calls collected: ~$24 (lower premiums as stock drops)
-  LEAPS depreciation: ~$36 (delta-adjusted)
-  Net loss: -$36 + $24 = -$12/share (-17% return)
-  LEAPS still has 12+ months of time value
-  Can continue selling calls at lower strikes
+情境三：微軟在6個月內下跌至360美元
+  收取短期認購期權期權金：約24美元（股價下跌後期權金較低）
+  長期期權貶值：約36美元（按Delta計算）
+  淨損失：-36 + 24 = -12美元/股（回報率-17%）
+  長期期權仍有12個月以上的時間值
+  可繼續以較低行使價賣出認購期權
 
-Scenario 4: MSFT crashes to $300
-  Short calls collected: ~$12
-  LEAPS value: approximately $5-10 (deep OTM now)
-  Net loss: -$54 to -$59/share (-75-82% return)
-  This is the tail risk of PMCC -- similar to stock ownership
+情境四：微軟急跌至300美元
+  收取短期認購期權期權金：約12美元
+  長期期權價值：約5至10美元（現已深度價外）
+  淨損失：-54至-59美元/股（回報率-75%至-82%）
+  這是窮人版備兌認購期權的尾部風險——與持股風險相近
 ```
 
-#### 6. Cost Comparison to Stock Ownership
+#### 6. 與持有股票的成本比較
 
-Let us do a comprehensive cost analysis over different time periods:
-
-```
-TOTAL COST OF OWNERSHIP: $200 STOCK, 3-YEAR PERIOD
-
-Strategy 1: Buy and Hold Stock
-  Initial investment:    $20,000
-  Dividends received:    $900 (1.5% annual yield)
-  Transaction costs:     $0 (commission-free)
-  Opportunity cost:      $0 (capital is fully deployed)
-  Total cost:            -$900 (net income from dividends)
-  Net cost of ownership: Stock price change +/- $900
-
-Strategy 2: Roll Annual LEAPS (deep ITM, delta 0.85)
-  Year 1 LEAPS cost:    $5,500 (extrinsic: $700)
-  Year 2 LEAPS cost:    $5,800* (extrinsic: $750, roll cost ~$100)
-  Year 3 LEAPS cost:    $6,100* (extrinsic: $800, roll cost ~$100)
-  Total extrinsic paid: $2,250 over 3 years
-  Capital freed:         ~$14,000 (invested at 4% = $1,680)
-  Dividends missed:      -$900
-  Net cost:              $2,250 + $900 - $1,680 = $1,470
-
-  *Approximate, depends on stock price at roll time
-
-BREAK-EVEN ANALYSIS:
-  LEAPS are cheaper than stock when:
-  Interest on freed capital > Extrinsic value + Missed dividends
-  $14,000 x r > $750/year + $300/year
-  r > 7.5% (approximate)
-
-  In a high interest rate environment (5%+), LEAPS become
-  more cost-competitive because the freed capital earns more.
-  In low rate environments, stock ownership is usually cheaper.
-```
-
-#### 7. Managing LEAPS Positions
-
-LEAPS require ongoing management. Here is a comprehensive management framework:
-
-**Rolling:**
-
-Rolling means closing your current LEAPS position and opening a new one with a later expiration. This is necessary because LEAPS eventually become short-dated options with accelerating theta decay.
+讓我們針對不同時間段進行全面成本分析：
 
 ```
-WHEN TO ROLL LEAPS
+持有成本比較：股價200美元，持有期3年
 
-Trigger 1: Time-based
-  Roll when LEAPS reaches 6-9 months to expiration
-  Reason: Theta acceleration begins in earnest
+策略一：買入並持有股票
+  初始投資：    20,000美元
+  收取股息：    900美元（年收益率1.5%）
+  交易成本：    0美元（免佣）
+  機會成本：    0美元（資本已全數投入）
+  總成本：      -900美元（股息淨收入）
+  淨持有成本：  股價漲跌 +/- 900美元
+
+策略二：每年滾動長期期權（深度價內，Delta 0.85）
+  第1年長期期權成本：5,500美元（外在價值：700美元）
+  第2年長期期權成本：5,800美元*（外在價值：750美元，滾動成本約100美元）
+  第3年長期期權成本：6,100美元*（外在價值：800美元，滾動成本約100美元）
+  3年共支付外在價值：2,250美元
+  釋放資本：         約14,000美元（以4%投資 = 1,680美元）
+  錯失股息：         -900美元
+  淨成本：           2,250 + 900 - 1,680 = 1,470美元
+
+  *為估計值，視滾動時股價而定
+
+盈虧平衡分析：
+  當以下條件成立時，長期期權的成本低於持股：
+  釋放資本的利息收入 > 外在價值 + 錯失股息
+  14,000美元 x r > 750美元/年 + 300美元/年
+  r > 7.5%（約）
+
+  在高利率環境（5%以上），長期期權的成本效益
+  更具競爭力，因為釋放的資本能賺取更多回報。
+  在低利率環境，持有股票通常成本更低。
+```
+
+#### 7. 管理長期期權持倉
+
+長期期權需要持續管理。以下是全面的管理框架：
+
+**滾動：**
+
+滾動是指平倉現有長期期權持倉，並建立到期日更遠的新倉位。這是必要的，因為長期期權終將成為加速衰減的短期期權。
+
+```
+何時滾動長期期權
+
+觸發條件一：基於時間
+  在長期期權距到期日6至9個月時滾動
+  原因：Theta加速衰減正式開始
   
-  Example: Bought 24-month LEAPS in January 2024
-  Expiration: January 2026
-  Roll window: April-July 2025 (6-9 months before expiry)
-  Roll to: January 2027 LEAPS
+  示例：2024年1月買入24個月長期期權
+  到期日：2026年1月
+  滾動窗口：2025年4至7月（到期前6至9個月）
+  滾動至：2027年1月長期期權
 
-Trigger 2: Delta-based
-  Roll when delta drops below 0.65 (for stock replacement)
-  Reason: Position is losing its stock-like characteristics
+觸發條件二：基於Delta
+  當Delta跌破0.65（適用於股票替代倉位）時滾動
+  原因：持倉正失去類股票特性
   
-  Example: Bought $160 LEAPS call when stock was $200 (delta 0.85)
-  Stock drops to $175. Delta is now 0.70. Not yet at trigger.
-  Stock drops to $165. Delta is now 0.58. Roll to lower strike
-  or close position.
+  示例：股價200美元時買入行使價160的長期期權（Delta 0.85）
+  股價跌至175美元，Delta現為0.70。尚未觸發條件。
+  股價跌至165美元，Delta現為0.58。滾動至較低行使價
+  或平倉。
 
-Trigger 3: Profit-based
-  Consider rolling when position is up 50-80%
-  Reason: Lock in profits while maintaining exposure
+觸發條件三：基於盈利
+  當持倉升值50-80%時考慮滾動
+  原因：鎖定利潤同時維持敞口
   
-  Example: Bought $160 LEAPS for $52. Stock rose to $240.
-  LEAPS now worth $85. Profit: $33 (63%).
-  Sell current LEAPS, buy new $200 strike LEAPS for $55.
-  Lock in $30 of profit, maintain bullish exposure.
+  示例：以52美元買入行使價160的長期期權。股價升至240美元。
+  長期期權現值85美元。利潤：33美元（63%）。
+  賣出現有長期期權，以55美元買入行使價200的新長期期權。
+  鎖定30美元利潤，維持看漲敞口。
 
-ROLL MECHANICS:
-  Roll = Sell current LEAPS + Buy new LEAPS
-  Net cost = New LEAPS premium - Current LEAPS value
-  The roll is a debit (costs money) if buying more time
-  Track cumulative roll costs to know true break-even
+滾動操作：
+  滾動 = 賣出現有長期期權 + 買入新長期期權
+  淨成本 = 新長期期權期權金 - 現有長期期權價值
+  若買入更長期限，滾動通常為淨支出（需要付費）
+  追蹤累計滾動成本以了解真實盈虧平衡點
 ```
 
-**Tax considerations:**
+**稅務考量：**
 
-LEAPS can have significant tax implications. Positions held for more than 12 months and sold for a profit qualify for long-term capital gains treatment. This is a major advantage over short-dated options, which almost always generate short-term capital gains.
-
-```
-TAX COMPARISON (assuming 37% income / 20% LTCG brackets)
-
-Short-term option trade (held < 1 year):
-  $5,000 profit
-  Tax: $5,000 x 37% = $1,850
-  After-tax profit: $3,150
-
-LEAPS (held > 1 year):
-  $5,000 profit
-  Tax: $5,000 x 20% = $1,000
-  After-tax profit: $4,000
-
-  Difference: $850 more after-tax profit with LEAPS
-  That is 27% more money in your pocket.
-
-IMPORTANT: To qualify for LTCG, you must hold the LEAPS
-for more than 12 months. Buy a 2-year LEAPS and you have
-plenty of time to exceed the 12-month threshold before
-you need to roll.
-```
-
-#### 8. LEAPS on ETFs
-
-LEAPS on broad market ETFs (SPY, QQQ, IWM) deserve special mention because they offer leveraged exposure to diversified indices with defined risk.
+長期期權可能帶來重大稅務影響。持有超過12個月並獲利平倉的持倉，符合長期資本利得稅率的條件。相較於幾乎總是產生短期資本利得的短期期權，這是一大優勢。
 
 ```
-LEAPS ON SPY: LEVERAGED INDEX EXPOSURE
+稅務比較（假設37%個人所得稅率 / 20%長期資本利得稅率）
 
-SPY at $500. You want $100,000 of S&P 500 exposure.
+短期期權交易（持有不足1年）：
+  盈利5,000美元
+  稅款：5,000美元 x 37% = 1,850美元
+  稅後利潤：3,150美元
 
-Traditional: Buy 200 shares of SPY
-  Cost: $100,000
-  Annual dividends: ~$1,400 (1.4% yield)
+長期期權（持有超過1年）：
+  盈利5,000美元
+  稅款：5,000美元 x 20% = 1,000美元
+  稅後利潤：4,000美元
 
-LEAPS: Buy 2 deep ITM LEAPS $420 calls, 2-year expiry
-  Delta: 0.85
-  Premium: $95/share ($19,000 total)
-  Intrinsic: $80/share ($16,000)
-  Extrinsic: $15/share ($3,000)
-  Effective exposure: 200 shares x 0.85 = 170 share equivalents
+  差額：持有長期期權可多得850美元稅後利潤
+  即多留下27%的資金在口袋裡。
 
-Capital freed: $81,000
-$81,000 invested in Treasury bills at 4.5% = $3,645/year
-
-Net cost of LEAPS strategy:
-  Extrinsic value decay: ~$3,000 over 2 years = $1,500/year
-  Missed dividends: $1,400/year
-  Treasury bill income: +$3,645/year
-  Net annual benefit: +$745/year
-
-In this high-rate environment, the LEAPS strategy actually
-MAKES money compared to stock ownership, while freeing up
-$81,000 of capital and providing defined downside risk.
-
-Caveat: If rates drop below ~3%, the economics reverse.
+重要提示：要符合長期資本利得稅率，
+你必須持有長期期權超過12個月。
+買入2年期長期期權，你有充裕時間超過
+12個月門檻，而毋須在滾動前倉皇出場。
 ```
 
-#### 9. Advanced LEAPS Strategies
+#### 8. 交易所買賣基金的長期期權
 
-**LEAPS Diagonal Spread:**
-
-```
-Buy LEAPS $420 call (24-month, delta 0.85): -$95
-Sell near-term $510 call (45-day, delta 0.25): +$7
-
-Net debit: $88/share
-Max profit zone: $510 at short call expiry
-Monthly income potential: ~$7/month ($84/year)
-Income covers: 56% of LEAPS annual extrinsic decay
-
-This is the PMCC structure applied systematically
-over the life of the LEAPS.
-```
-
-**LEAPS Collar:**
+掛鉤大市指數交易所買賣基金（SPY、QQQ、IWM）的長期期權值得特別關注，因為它們以明確風險提供多元化指數的槓桿敞口。
 
 ```
-Own LEAPS $420 call (24-month): $95
-Buy LEAPS $450 put (24-month): $30
-Sell LEAPS $550 call (same expiry): -$18
+SPY長期期權：槓桿式指數敞口
 
-Total cost: $95 + $30 - $18 = $107
-Maximum loss: $107 - ($450 - $420) = $107 - $30 = $77/share
-Maximum gain: ($550 - $420) - $107 = $130 - $107 = $23/share
+SPY現價500美元。你希望獲取100,000美元的標普500敞口。
 
-This creates a defined-risk, defined-reward position
-that caps both upside and downside over 2 years.
+傳統方式：買入200股SPY
+  成本：100,000美元
+  年度股息：約1,400美元（收益率1.4%）
+
+長期期權方式：買入2份深度價內長期期權，行使價420美元，2年期
+  Delta：0.85
+  期權金：95美元/股（合計19,000美元）
+  內在價值：80美元/股（合計16,000美元）
+  外在價值：15美元/股（合計3,000美元）
+  實際敞口：200股 x 0.85 = 相當於170股
+
+釋放資本：81,000美元
+81,000美元投入國庫券（收益率4.5%）= 3,645美元/年
+
+長期期權策略淨成本：
+  外在價值衰減：約3,000美元（2年）= 1,500美元/年
+  錯失股息：1,400美元/年
+  國庫券收入：+3,645美元/年
+  年度淨優勢：+745美元/年
+
+在當前高利率環境下，長期期權策略相較於
+直接持有交易所買賣基金，實際上能為你帶來額外收益，
+同時釋放81,000美元資本並提供明確的下行風險保護。
+
+注意：若利率跌破約3%，此算式將逆轉。
 ```
 
-**LEAPS Calendar Spread:**
+#### 9. 進階長期期權策略
+
+**長期期權對角價差：**
 
 ```
-Sell 6-month $500 call: +$22
-Buy 24-month $500 call: -$48
+買入長期期權行使價420認購期權（24個月，Delta 0.85）：-95美元
+賣出短期行使價510認購期權（45天，Delta 0.25）：+7美元
 
-Net debit: $26/share
-Profit driver: Faster decay of short-term option
-Sweet spot: Stock near $500 at short option expiry
+淨支出：88美元/股
+最大利潤區間：短期認購期權到期時股價於510美元
+每月潛在收入：約7美元/月（84美元/年）
+收入可覆蓋：長期期權年度外在價值衰減的56%
 
-If stock is at $500 when short call expires:
-  Short call expires worthless: +$22
-  LEAPS still has ~18 months of value: ~$40
-  Net position value: $40 on $26 investment = +54%
+這是窮人版備兌認購期權架構在長期期權
+整個持有期間的系統性應用。
 ```
 
-#### 10. Common Pitfalls with LEAPS
+**長期期權領式策略：**
 
 ```
-PITFALL                          SOLUTION
+持有長期期權行使價420認購期權（24個月）：95美元
+買入長期期權行使價450認沽期權（24個月）：30美元
+賣出長期期權行使價550認購期權（相同到期日）：-18美元
+
+總成本：95 + 30 - 18 = 107美元
+最大損失：107 - （450 - 420）= 107 - 30 = 77美元/股
+最大盈利：（550 - 420）- 107 = 130 - 107 = 23美元/股
+
+這建立了一個在2年內風險與回報均明確界定的持倉，
+同時限制了上行及下行空間。
+```
+
+**長期期權日曆價差：**
+
+```
+賣出6個月行使價500認購期權：+22美元
+買入24個月行使價500認購期權：-48美元
+
+淨支出：26美元/股
+盈利驅動因素：短期期權的衰減速度更快
+最佳結果：短期期權到期時股價接近500美元
+
+若短期認購期權到期時股價為500美元：
+  短期認購期權到期無價值：+22美元
+  長期期權仍剩約18個月價值：約40美元
+  持倉淨值：26美元成本換取40美元 = +54%
+```
+
+#### 10. 使用長期期權的常見陷阱
+
+```
+陷阱                             解決方案
 -------------------------------------------------------------------
-1. Buying ATM LEAPS for         Buy deep ITM (delta 0.80+) for
-   stock replacement             stock replacement; ATM has too
-                                 much extrinsic value
+1. 為股票替代目的               買入深度價內長期期權（Delta 0.80以上）
+   買入平值長期期權               作為股票替代；平值期權外在價值過高
 
-2. Forgetting to roll            Set calendar alerts for 9 months
-                                 before expiration
+2. 忘記滾動                     在距到期9個月前設定日曆提醒
 
-3. Ignoring dividends            Factor in missed dividends when
-                                 comparing cost to stock
+3. 忽略股息因素                 將錯失股息納入與持股的成本比較
 
-4. Wide bid-ask spreads          Use limit orders at midpoint;
-                                 be patient; trade liquid names
+4. 買賣差價較寬                 以中間價掛限價盤；耐心等待；
+                                 選擇流動性高的標的
 
-5. Over-leveraging because       Treat LEAPS premium as full
-   "it is long-term"             position size for risk purposes
+5. 因為「是長線投資」           以長期期權期權金全額計算
+   而過度使用槓桿                 持倉風險敞口
 
-6. Not accounting for IV         LEAPS have high vega; buying
-                                 when IV is elevated means you
-                                 overpay for the position
+6. 未考慮隱含波動率因素         長期期權Vega較高；在隱含波動率
+                                 偏高時買入意味著支付過多
 
-7. Rolling too late              Rolling at 3 months costs more
-                                 than rolling at 9 months because
-                                 of theta acceleration
+7. 滾動時機過晚                 在3個月前滾動比9個月前更昂貴，
+                                 因為Theta加速衰減
 
-8. Treating LEAPS as stock       LEAPS expire. Stocks do not.
-                                 Always have a management plan.
+8. 將長期期權視同股票對待       長期期權有到期日，股票沒有。
+                                 必須事先制定管理計劃。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "LEAPS do not have time decay."**
+**誤解一：「長期期權沒有時間值衰減。」**
 
-This is dangerously wrong. LEAPS absolutely have time decay -- it is just slower. A 2-year ATM LEAPS on a $200 stock might lose $0.04 per day to theta. Over 30 days, that is $1.20. Over a year, it is $14.60. That is real money. The advantage is not the absence of decay but the rate: $0.04/day versus $0.22/day for a 1-month option. But do not confuse "slower" with "none."
+這種說法極為危險。長期期權絕對有時間值衰減——只是速度較慢。一份股價200美元的2年期平值長期期權，每日因Theta損耗約0.04美元。30天合計1.20美元，一年合計14.60美元。這是真實的損耗。優勢不在於沒有衰減，而在於衰減速度：0.04美元/日對比1個月期期權的0.22美元/日。但請勿將「較慢」混淆為「沒有」。
 
-**Misconception 2: "LEAPS are always cheaper than owning stock."**
+**誤解二：「長期期權的持有成本永遠低於股票。」**
 
-Only sometimes. In low interest rate environments with high-dividend stocks, owning stock is often cheaper. The extrinsic value of LEAPS, plus missed dividends, can exceed the opportunity cost of tying up capital in stock. LEAPS are most cost-effective on low-dividend stocks in high interest rate environments, where the freed-up capital earns meaningful returns.
+這只是有時成立。在低利率環境中，對於高股息股票，持股往往成本更低。長期期權的外在價值加上錯失股息，可能超過將資金鎖在股票中的機會成本。長期期權在低股息股票及高利率環境下最具成本效益，因為釋放的資本能賺取可觀回報。
 
-**Misconception 3: "I should buy ATM LEAPS for maximum leverage."**
+**誤解三：「我應買入平值長期期權以獲得最大槓桿。」**
 
-ATM LEAPS offer more leverage but at a much higher cost. All of the premium is extrinsic value, meaning 100% of your investment decays over time. For stock replacement, deep ITM LEAPS (delta 0.80+) are far superior because most of the premium is intrinsic value (which does not decay) and only a small portion is extrinsic value.
+平值長期期權槓桿更高，但成本亦大得多。所有期權金均為外在價值，意味著你的投資會隨時間全部衰減。對於股票替代目的，深度價內長期期權（Delta 0.80以上）遠勝於此，因為大部分期權金為不會衰減的內在價值，外在價值僅佔一小部分。
 
-**Misconception 4: "LEAPS are set-it-and-forget-it investments."**
+**誤解四：「長期期權是買入後不用管理的投資。」**
 
-LEAPS require active management. You need to monitor delta, theta acceleration, and the overall thesis. Most importantly, you need to roll before theta accelerates, typically at the 6-9 month mark. Treating LEAPS like stock and ignoring them leads to time decay eating away profits and eventually leaving you with a short-dated option that behaves nothing like your original position.
+長期期權需要積極管理。你需要監察Delta、Theta加速情況及整體投資論點。最重要的是，在Theta加速前——通常在距到期6至9個月時——進行滾動。若將長期期權視同股票而置之不理，時間值衰減將侵蝕利潤，最終令你持有一份與原有倉位截然不同的短期期權。
 
-**Misconception 5: "The poor man's covered call is strictly better than a regular covered call."**
+**誤解五：「窮人版備兌認購期權絕對優於傳統備兌認購期權。」**
 
-The PMCC is more capital-efficient, but it has a higher risk per dollar invested. If the stock drops 30%, the stock-based covered call might lose 25% of its value (offset by premium collected). The PMCC might lose 70-80% of its value, because the LEAPS loses significantly more of its value on a percentage basis. The PMCC is also more complex to manage and has wider bid-ask spreads.
+窮人版備兌認購期權的資本效益更高，但每元投資的風險亦更大。若股票下跌30%，以股票建立的備兌認購期權可能損失約25%的價值（由所收期權金抵銷部分損失）。窮人版備兌認購期權則可能損失70-80%，因為長期期權以百分比計損失遠更嚴重。窮人版備兌認購期權的管理亦更為複雜，且買賣差價較寬。
 
-**Misconception 6: "I can always roll my LEAPS at a reasonable cost."**
+**誤解六：「我可以隨時以合理成本滾動我的長期期權。」**
 
-Rolling costs depend on implied volatility, bid-ask spreads, and how far the stock has moved. If the stock has dropped significantly, your current LEAPS may be worth very little, and the new LEAPS costs a substantial premium. In practice, rolling a losing position can be very expensive, and at some point it is better to close the position and reassess.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How deep in-the-money should I go for stock replacement LEAPS?**
-
-A: Target a delta of 0.80 to 0.90. This typically means a strike price 15-25% below the current stock price. The deeper you go, the more the LEAPS behaves like stock (less leverage, less extrinsic value, higher probability of success). Going too deep (delta > 0.95) means you are paying almost full stock price, which defeats the capital efficiency purpose. Going too shallow (delta < 0.70) means too much of your premium is extrinsic value, increasing your cost of carry.
-
-**Q2: How do I handle dividends when using LEAPS instead of stock?**
-
-A: You do not receive dividends on LEAPS. However, dividends are partially priced into the option: the call premium is reduced (and put premium is increased) by the expected dividend stream. So you are not entirely "missing" the dividend -- you are paying less for the LEAPS because of it. For high-dividend stocks (yield > 3%), the missed income makes LEAPS less attractive. For low-dividend or no-dividend stocks, this is not an issue.
-
-**Q3: When should I roll my LEAPS?**
-
-A: The standard guideline is to roll when you reach 6-9 months to expiration. At this point, theta begins accelerating meaningfully. Roll to the longest available expiration for the lowest per-day time decay cost. If your position is profitable, consider rolling to a higher strike to lock in some gains. If the position is losing, assess whether your thesis is still valid before committing capital to a new LEAPS.
-
-**Q4: Can I use LEAPS in a retirement account?**
-
-A: Yes. Most IRAs allow buying LEAPS calls and puts. LEAPS are particularly attractive in IRAs because of the tax treatment. Since LEAPS are held long-term (over 12 months), they would qualify for long-term capital gains treatment in a taxable account. In an IRA, all gains are tax-deferred (traditional) or tax-free (Roth) regardless, so there is no tax advantage difference. But the capital efficiency of LEAPS is still valuable in IRAs, where you cannot use margin.
-
-**Q5: What happens to my LEAPS if the company is acquired?**
-
-A: If the acquisition is for cash at a fixed price, your call options will be adjusted and eventually settled at the acquisition price minus your strike. If the acquisition is for stock, your options will be adjusted to reference the acquiring company's stock. In either case, options protect you -- you will receive the appropriate value. However, the time value of your LEAPS will collapse to near zero after an acquisition announcement, since the stock price becomes fixed.
-
-**Q6: How do LEAPS perform in a bear market?**
-
-A: LEAPS calls lose value in bear markets, but their performance depends on the depth of ITM. A deep ITM LEAPS (delta 0.90) will lose roughly 90% of the stock's decline in dollar terms, but potentially more in percentage terms (due to leverage). However, the key advantage of LEAPS in bear markets is that your maximum loss is capped at the premium paid. If you own $5,000 of LEAPS instead of $20,000 of stock and the stock drops 60%, you lose at most $5,000 versus $12,000.
-
-**Q7: Should I use LEAPS calls or LEAPS puts for hedging?**
-
-A: For hedging existing stock positions, LEAPS puts are the standard tool. A LEAPS put gives you the right to sell at a specific price, providing a "floor" for your position. The advantage over short-dated puts is the extended protection period with lower annualized cost. A 2-year LEAPS put might cost 8-10% of the stock price, providing 2 years of downside protection at an annualized cost of 4-5%.
-
-**Q8: How does interest rate change affect LEAPS pricing?**
-
-A: LEAPS are more sensitive to interest rates than short-dated options (they have higher rho). Rising interest rates increase call prices and decrease put prices. In the current high-rate environment, LEAPS calls are more expensive than they were when rates were near zero. Conversely, LEAPS puts are cheaper. This is because higher rates increase the cost of carry for the replicating portfolio (stock plus borrowing).
+滾動成本取決於隱含波動率、買賣差價及股票的實際移動幅度。若股票大幅下跌，你現有的長期期權可能所值無幾，而新的長期期權則需支付相當大的期權金。在實際操作中，滾動虧損持倉可能代價極高，某些情況下不如直接平倉重新評估。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Opening title card -- "Week 38: LEAPS and Long-Term Options" with a calendar showing months stretching into the future]
+**問題一：股票替代長期期權應選多深度的價內期權？**
 
-**Alex**: Welcome back. Last week we covered options leverage, and I mentioned that there is a way to get leverage with much less time pressure. That brings us to today's topic: LEAPS. Sam, have you heard of LEAPS before?
+答：目標Delta為0.80至0.90。這通常意味著行使價低於現股價15-25%。愈深度價內，長期期權的行為愈接近股票（槓桿較低、外在價值較少、成功概率較高）。若過深（Delta > 0.95），你支付的費用幾乎與股票等同，失去資本效益的意義。若過淺（Delta < 0.70），你的期權金中外在價值佔比過高，增加了持倉成本。
 
-**Sam**: I know the acronym -- Long-Term Equity Anticipation Securities. They are just options with really long expiration dates, right? One to two years out?
+**問題二：以長期期權替代股票時，如何處理股息問題？**
 
-**Alex**: That is the basic definition, yes. But they are much more than just "long options." LEAPS change the entire dynamic of how options work in your portfolio. The time factor -- which is usually the enemy of option buyers -- becomes much more manageable. Let me show you why that matters.
+答：持有長期期權無法收取股息。然而，股息已部分計入期權定價：認購期權的期權金會因預期股息流而降低（認沽期權則相應上升）。因此你並非完全「錯失」股息——而是因此支付較低的長期期權費用。對於高股息股票（收益率 > 3%），錯失的收入令長期期權吸引力下降。對於低股息或零股息股票，這並非問題所在。
 
-[VISUAL: Side-by-side comparison of theta decay curves for 30-day option vs 2-year LEAPS]
+**問題三：何時應滾動我的長期期權？**
 
-**Alex**: Look at these two theta decay curves. The 30-day option loses value rapidly -- almost half its value in the final two weeks. The 2-year LEAPS? It barely moves for the first year. The daily theta on a 2-year LEAPS is about one-fifth of a 30-day option of the same strike.
+答：標準做法是在距到期日6至9個月時滾動。此時Theta開始顯著加速。滾動至最長可用到期日，以取得最低的每日時間值衰減成本。若持倉獲利，考慮滾動至更高行使價以鎖定部分利潤。若持倉虧損，在投入新資本於新長期期權前，先評估你的投資論點是否仍然成立。
 
-**Sam**: So the time decay is there, but it is slow enough that your thesis has time to play out.
+**問題四：我可以在退休賬戶中使用長期期權嗎？**
 
-**Alex**: Exactly. And that is the single biggest advantage. With short-dated options, you need to be right about direction AND timing. With LEAPS, timing becomes much less critical. If you believe NVIDIA will benefit from AI spending over the next 18 months, a LEAPS call lets you express that view without needing NVIDIA to rally next week.
+答：可以。大多數個人退休賬戶允許買入長期認購期權及認沽期權。長期期權在個人退休賬戶中尤具吸引力，正是因為稅務處理方式的差異。由於長期期權需持有較長時間（超過12個月），在應稅賬戶中將符合長期資本利得稅率的條件。在個人退休賬戶中，所有收益均可遞延繳稅（傳統型）或免稅（Roth型），與持有期無關，故稅務優勢差異不存在。但長期期權的資本效益在不能使用保證金的個人退休賬戶中仍具實用價值。
 
-[ANIMATION: animation/week38_leaps_decay.py -- Animated visualization of theta decay over time for options at different expirations. The animation starts with four option premium bars representing 3-month, 6-month, 12-month, and 24-month options. A simulated clock advances day by day. As time passes, each bar shrinks at its own rate -- the 3-month option shrinks rapidly and hits zero quickly, the 6-month follows, while the 12-month and 24-month bars barely move initially. The animation clearly shows the non-linear acceleration of theta decay, with the curve steepening dramatically in the final 60-90 days. Key milestones are labeled: "theta begins accelerating" at 90 days, "danger zone" at 30 days.]
+**問題五：若公司被收購，我的長期期權會如何？**
 
-**Sam**: That animation makes it so clear. The decay is almost invisible for the 2-year option during the first year. It is the final few months where things get aggressive.
+答：若收購以固定現金價格進行，你的認購期權將被調整，最終按收購價格減去你的行使價進行結算。若收購以換股方式進行，你的期權將被調整為掛鉤收購方公司的股票。無論哪種情況，期權均保護了你——你將收到相應的合理價值。然而，收購公告發出後，你的長期期權時間值幾乎會立即崩潰至接近零，因為股價此後趨於固定。
 
-**Alex**: Right, and that is why LEAPS traders have a critical rule: roll your LEAPS when they reach six to nine months to expiration. You want to exit before that steep part of the curve.
+**問題六：在熊市中長期期權表現如何？**
 
-**Sam**: Got it. So what are the main ways people use LEAPS?
+答：在熊市中，長期認購期權會貶值，但表現取決於深度價內的程度。深度價內長期期權（Delta 0.90）的美元損失大約等同於股票跌幅的90%，但以百分比計可能更大（因槓桿效應）。然而，在熊市中持有長期期權的關鍵優勢在於：你的最大損失上限為所支付的期權金。若你持有5,000美元的長期期權而非20,000美元的股票，而股票下跌60%，你最多損失5,000美元，而非12,000美元。
 
-**Alex**: There are three primary strategies. The first and most important is stock replacement.
+**問題七：對沖現有持股應使用長期認購期權還是長期認沽期權？**
 
-[VISUAL: Slide titled "Deep ITM LEAPS as Stock Replacement"]
+答：對沖現有股票持倉，標準工具為長期認沽期權。長期認沽期權賦予你以特定價格賣出的權利，為你的持倉提供「下行保障」。相較於短期認沽期權，其優勢在於以更低的年化成本提供更長的保護期。一份2年期長期認沽期權的成本可能約為股票價格的8-10%，以年化成本4-5%提供2年的下行風險保障。
 
-**Alex**: The idea is simple. Instead of buying 100 shares of Apple at $185 for $18,500, you buy a deep in-the-money LEAPS call -- say a $140 strike call expiring in two years -- for about $52 per share, or $5,200.
+**問題八：利率變動如何影響長期期權定價？**
 
-**Sam**: That is 72% less capital. But how closely does it track the stock?
-
-**Alex**: With a delta of 0.88, it moves 88 cents for every dollar Apple moves. It is not a perfect substitute, but it is close. And here is the key math.
-
-[VISUAL: Comparison table showing stock vs LEAPS returns at various Apple price points]
-
-**Alex**: If Apple goes to $220, a 19% gain, your stock position makes $3,500. Your LEAPS makes about $2,800. Less in absolute dollars, but that is a 54% return on $5,200 of capital. Meanwhile, you had $13,300 freed up. Put that in Treasury bills at 4.5% and you earn another $600 a year.
-
-**Sam**: So the LEAPS gives me most of the upside, uses way less capital, and the freed capital earns a return. What is the catch?
-
-**Alex**: Several catches. First, you miss dividends. Apple pays about $100 a year on 100 shares -- small for Apple, but it can be significant for higher-yielding stocks. Second, if Apple drops, you lose a higher percentage on the LEAPS than on the stock, because of leverage. And third, there is the extrinsic value -- the $7 per share of time premium. That decays over time.
-
-**Sam**: How much does that extrinsic value matter?
-
-**Alex**: Let us calculate it. Seven dollars per share of extrinsic value over two years is $3.50 per year, or about 1.9% of the stock price annually. If you compare that to margin interest -- which is 5-8% per year -- it is actually quite reasonable. And if the freed capital earns 4.5%, you are more than covering the extrinsic value cost.
-
-[VISUAL: Cost comparison chart -- LEAPS extrinsic value vs margin interest vs freed capital return]
-
-**Sam**: That makes sense in a high interest rate environment. What about when rates are low?
-
-**Alex**: Great question. When rates were near zero in 2020-2021, the LEAPS strategy was less attractive because the freed capital earned nothing. The break-even interest rate for this to work is roughly the extrinsic value cost plus missed dividends divided by the freed capital. For most stocks, that is around 3-4%. Below that, just buy the stock.
-
-**Sam**: OK, let us talk about the second strategy. You mentioned the "poor man's covered call."
-
-**Alex**: Yes, this is one of my favorite strategies.
-
-[VISUAL: Diagram showing PMCC structure -- long deep ITM LEAPS plus short near-term OTM call]
-
-**Alex**: A traditional covered call requires you to buy 100 shares and sell a call against it. On Microsoft at $400, that is $40,000 of capital to generate maybe $600 per month in premium. The poor man's covered call replaces the stock with a deep ITM LEAPS.
-
-**Sam**: So instead of $40,000 in stock, I buy a LEAPS for maybe $7,000 to $8,000?
-
-**Alex**: Exactly. You buy a $340 strike LEAPS call for $72 per share -- $7,200 total. Then you sell the same monthly $410 call for $6, collecting $600 per month. Same income, but on $7,200 of capital instead of $40,000.
-
-**Sam**: That is the same $600 monthly income on 82% less capital. The return on capital jumps from 1.5% per month to over 8% per month!
-
-**Alex**: In percentage terms, yes. But I need to be careful here because the risk profile is different.
-
-[VISUAL: Risk comparison for traditional CC vs PMCC]
-
-**Alex**: With the traditional covered call, if Microsoft drops 30%, you lose about $12,000 on the stock minus the premiums collected. Your position still exists -- you still own the shares. With the PMCC, if Microsoft drops 30%, your LEAPS might lose 70-80% of its value. The position could be nearly wiped out.
-
-**Sam**: So the higher percentage returns come with higher percentage risk.
-
-**Alex**: Exactly. The PMCC is more capital-efficient but not inherently safer. You need to be comfortable with the idea that your LEAPS can lose most of its value in a severe downturn.
-
-**Sam**: How do you manage it on an ongoing basis?
-
-**Alex**: There are three key management actions.
-
-[VISUAL: Three management pillars for PMCC]
-
-**Alex**: First, managing the short call. If the stock rallies and your short call goes in-the-money, you roll it up and out -- close the current one, open a new one at a higher strike with a later expiration, ideally for a credit.
-
-**Sam**: What if I cannot roll for a credit?
-
-**Alex**: Then you have two choices. Take the assignment -- close the LEAPS and the short call simultaneously, locking in the maximum profit of the spread. Or roll for a small debit if you still want the position. Never roll for a large debit -- that destroys the income strategy's economics.
-
-**Alex**: Second management action: rolling the LEAPS. When the LEAPS reaches six to nine months to expiration, you sell it and buy a new one further out. You want to do this before theta accelerates.
-
-**Sam**: And the third?
-
-**Alex**: Adjusting strike width. If the stock has moved significantly, your LEAPS might be very deep ITM or moving toward ATM. If it is getting too close to ATM, consider rolling to a deeper strike to maintain the stock-like characteristics.
-
-**Sam**: Let us talk about selecting the right LEAPS. How do I choose the strike and expiration?
-
-[VISUAL: LEAPS selection decision tree]
-
-**Alex**: For stock replacement, your target delta is 0.80 to 0.90. This usually means a strike 15-25% below the current stock price. Go deeper and you are paying too much (nearly stock price). Go shallower and you are getting too much leverage and extrinsic value.
-
-**Sam**: And for expiration?
-
-**Alex**: Always buy the longest available expiration. Time value is not linear -- a two-year LEAPS does not cost twice as much extrinsic value as a one-year. The per-day cost of time is lower the longer you go. This means buying a two-year LEAPS and rolling once is cheaper than buying two consecutive one-year LEAPS.
-
-[VISUAL: Chart comparing extrinsic value per day for different expirations]
-
-**Sam**: That is an important insight. Let me make sure I understand. If a 1-year LEAPS has $7 of extrinsic value and a 2-year has $10, I am paying $10 for two years versus $14 for two consecutive 1-year positions. I save $4.
-
-**Alex**: Exactly. That $4 savings is real money, especially when you are rolling positions year after year. Over a decade of stock replacement using LEAPS, the savings from buying longer duration add up to many thousands of dollars.
-
-**Sam**: What about LEAPS on ETFs? Is that a good idea?
-
-**Alex**: LEAPS on broad market ETFs like SPY and QQQ are one of my favorite applications.
-
-[VISUAL: LEAPS on SPY example with capital allocation diagram]
-
-**Alex**: Consider this. You want $100,000 of S&P 500 exposure. You can buy 200 shares of SPY at $500 each. Or you can buy 2 deep ITM LEAPS calls for about $19,000 and invest the remaining $81,000 in Treasury bills.
-
-**Sam**: And the math works because...
-
-**Alex**: The LEAPS costs about $3,000 in extrinsic value over two years, or $1,500 per year. You miss about $1,400 in dividends per year. Total cost: $2,900 per year. But $81,000 in T-bills at 4.5% earns $3,645 per year. You are actually ahead by $745 per year.
-
-**Sam**: So in a high-rate environment, LEAPS on SPY actually make you money compared to owning the ETF outright?
-
-**Alex**: Yes, with the caveat that you have slightly less upside capture (delta 0.85 instead of 1.00) and you have to manage the position -- rolling, monitoring, paying attention to bid-ask spreads. It is not truly passive like owning SPY.
-
-**Sam**: What about the tax angle?
-
-[VISUAL: Tax comparison slide]
-
-**Alex**: Big advantage for LEAPS. If you hold a LEAPS for more than 12 months, the gain qualifies for long-term capital gains treatment. Currently that is 20% versus 37% for short-term gains. On a $5,000 profit, that is $850 more in your pocket after taxes with LEAPS.
-
-**Sam**: That is a significant difference. Buy a 2-year LEAPS, hold it for 13 months, sell it, and you get the favorable tax rate.
-
-**Alex**: Exactly. And this is another reason to buy the longest duration available. It gives you more time to qualify for long-term capital gains.
-
-**Sam**: What are the biggest mistakes people make with LEAPS?
-
-**Alex**: Let me give you the top five.
-
-[VISUAL: "Top 5 LEAPS Mistakes" list appearing one by one]
-
-**Alex**: Number one: buying ATM LEAPS for stock replacement. This is wrong because all the premium is extrinsic value. You want deep ITM so most of your premium is intrinsic and will not decay.
-
-**Sam**: Because intrinsic value is real value -- it does not evaporate with time.
-
-**Alex**: Exactly. Number two: forgetting to roll. Traders buy a 2-year LEAPS, put it in their portfolio, and forget about it. Eighteen months later, it is a 6-month option with rapidly accelerating theta. Set calendar reminders.
-
-**Alex**: Number three: ignoring implied volatility when buying. LEAPS have high vega, meaning they are very sensitive to IV changes. If you buy when IV is elevated -- say after a market crash when VIX is at 35 -- you are overpaying. When IV normalizes, your LEAPS loses value from vega even if the stock goes up.
-
-**Sam**: So I should buy LEAPS when IV is low?
-
-**Alex**: Ideally, yes. Or at least be aware of the IV environment. Check the IV rank or IV percentile before buying.
-
-**Alex**: Number four: over-leveraging. Just because LEAPS give you leverage does not mean you should lever up your entire portfolio. Use LEAPS to replace stock positions you would hold anyway, not to speculate with five times more exposure than you would normally take.
-
-**Sam**: And number five?
-
-**Alex**: Treating LEAPS as if they were stock. They are not. They expire. They have time decay. They do not pay dividends. They can lose 100% of their value. Always have a management plan: when will you roll, when will you close, what are your exit criteria?
-
-**Sam**: This has been incredibly informative. LEAPS seem like a genuinely useful tool for long-term investors who understand the trade-offs.
-
-**Alex**: They are. But the key word there is "understand." Do not use LEAPS until you can explain the extrinsic value cost, the rolling mechanics, and the risk profile. Paper trade a few positions first. Track them for a few months. Then start small with real capital.
-
-[VISUAL: Summary slide with three key takeaways]
-
-**Sam**: Before we wrap up, can we walk through a real LEAPS management scenario from start to finish? I think that would really solidify the concepts.
-
-**Alex**: Great idea. Let us trace a full lifecycle.
-
-[VISUAL: Timeline graphic showing LEAPS lifecycle over 18 months]
-
-**Alex**: January 2025. You decide to use a LEAPS to get exposure to Amazon, which is trading at $190. You buy a $150 strike call expiring in January 2027 -- that is 24 months out. Premium is $52 per share. Delta is 0.84.
-
-**Sam**: So $5,200 total investment. Intrinsic value is $40, extrinsic is $12.
-
-**Alex**: Correct. Your breakeven at expiration is $202. But remember, you plan to manage this actively, not hold to expiration.
-
-**Sam**: What happens in month three?
-
-**Alex**: March 2025. Amazon has risen to $205. Your LEAPS is now worth $62. That is $10 of profit, a 19% return in three months. The stock moved 7.9%, so you captured about 2.4x the stock's return on a percentage basis. Your delta is now 0.89 -- deeper ITM. Everything is working.
-
-**Sam**: Do you take profits?
-
-**Alex**: Not yet. Your thesis was for Amazon to appreciate over 12-18 months. Three months is too early to exit unless you have a specific reason to doubt the thesis.
-
-**Sam**: OK, month six.
-
-**Alex**: June 2025. Amazon has pulled back to $185. Your LEAPS is now worth $44. You are down $8 from your purchase price, a 15% loss. Delta has dropped to 0.78.
-
-[VISUAL: P&L chart showing the fluctuation]
-
-**Sam**: That 2.6% stock decline turned into a 15% LEAPS decline. The leverage is working against me now.
-
-**Alex**: Yes, but notice -- your LEAPS still has 18 months of life, plenty of time for the thesis to play out. If you had bought a 3-month option in January, it would be expiring right now with the stock below your breakeven. You would have lost most of your investment. The time buffer is saving you.
-
-**Sam**: What about month twelve? That is when rolling becomes relevant, right?
-
-**Alex**: January 2026. Amazon is at $210. Your LEAPS, now with 12 months to expiration, is worth $67. Profit: $15 per share, 29% return. Delta is 0.90. But here is where you need to start thinking about the roll.
-
-**Sam**: Why? You said roll at six to nine months.
-
-**Alex**: True, but I also want to highlight the tax angle. You have now held the LEAPS for 12 months. If you sell now, your $1,500 profit qualifies for long-term capital gains -- 20% tax rate instead of 37%. That is $255 saved versus selling at month eleven.
-
-[VISUAL: Tax calendar showing 12-month threshold]
-
-**Sam**: So the ideal window is: hold past 12 months for tax purposes, but roll before 6 months to expiration for theta purposes.
-
-**Alex**: You have got it. In this case, you have months 12 through 18 as your sweet spot for rolling. Let us say you decide to roll in month 15 -- April 2026. Amazon is at $215. Your current LEAPS, now with 9 months left, is worth $70. You sell it for $7,000.
-
-**Sam**: And buy a new one?
-
-**Alex**: You buy a new January 2028 LEAPS, $170 strike, for $58 per share -- $5,800. This one has delta 0.86, 22 months to expiration, and puts you right back in the optimal zone.
-
-[VISUAL: Roll transaction summary showing sale and purchase]
-
-**Alex**: Your net cash flow on the roll: +$7,000 from selling minus $5,800 for buying equals $1,200 in your pocket. Plus you captured the long-term capital gain on the original position. And you now have a fresh LEAPS with low theta decay and plenty of time.
-
-**Sam**: That is a beautiful illustration of the full lifecycle. The discipline of rolling, the tax planning, the theta management -- it all comes together.
-
-**Alex**: And this is why I say LEAPS are not set-and-forget. They reward active, thoughtful management. The investor who does this well captures most of the stock's upside with a fraction of the capital, pays reasonable costs for the leverage, and maintains defined risk throughout.
-
-**Sam**: One more question. What if Amazon had dropped to $140 instead? Below the strike price?
-
-**Alex**: That is the nightmare scenario. Your LEAPS would be out of the money. With 12 months to expiration, it might still be worth $8-12 depending on IV. Your loss would be about $40-44 per share, or $4,000-4,400 -- a 77-85% loss on the LEAPS.
-
-**Sam**: Compared to a stock loss of $50 per share, or $5,000.
-
-**Alex**: Right. You lost less in dollar terms with the LEAPS ($4,400 max versus $5,000 on stock), and your loss was capped -- it could not get worse than $5,200, your total premium. Meanwhile, the stock could have dropped to $100 for a $9,000 loss. The LEAPS floor saved you from the worst outcomes. But the percentage loss was devastating, which is the leverage at work.
-
-**Sam**: So even in the worst case, the LEAPS framework holds up -- you lose less in dollars, more in percentage, but your risk was defined from day one.
-
-**Alex**: Exactly. That is the trade-off, and it is a trade-off you should make consciously before entering the position.
-
-**Sam**: Can you give us the three key takeaways?
-
-**Alex**: One: LEAPS are a capital-efficient alternative to stock ownership, not a replacement. They have costs and risks that stocks do not. Two: For stock replacement, use deep ITM LEAPS with delta 0.80 or higher. Most of your premium should be intrinsic value. Three: Always roll at six to nine months before expiration, and always have a management plan.
-
-**Sam**: Perfect. Next week, we are shifting gears to a completely different market -- futures. See you then!
-
-[VISUAL: End card -- "Next Week: Week 39 -- Futures Markets Introduction"]
+答：長期期權對利率的敏感度高於短期期權（具有更高的Rho）。利率上升會提高認購期權價格，並降低認沽期權價格。在當前高利率環境中，長期認購期權比利率接近零時更為昂貴。相反，長期認沽期權則更便宜。這是因為較高的利率增加了複製投資組合（股票加借貸）的持倉成本。
 
 ---
 
-*End of Week 38*
+## YouTube腳本
+
+[VISUAL: 開場標題卡——「第38週：長期期權與長線期權策略」，配以延伸至未來的月曆畫面]
+
+**Horace（陳馬）**：歡迎回來。上週我們講了期權的槓桿，我提到過有一種方法可以在時間壓力小得多的情況下取得槓桿效果。這就引出了今天的主題：長期期權。小魚，你之前有聽說過長期期權嗎？
+
+**Stella（小魚）**：知道這個縮寫——Long-Term Equity Anticipation Securities，長期股票預期證券。它們就只是到期日很長的期權，對吧？到期日在一兩年後？
+
+**Horace（陳馬）**：這是基本定義，沒錯。但它們的意義遠不止於「只是期限長的期權」。長期期權從根本上改變了期權在你投資組合中的運作方式。時間因素——通常是期權買方的大敵——變得容易管理得多。讓我告訴你為什麼這很重要。
+
+[VISUAL: 30天期期權與2年期長期期權的Theta衰減曲線並排比較]
+
+**Horace（陳馬）**：看看這兩條時間值衰減曲線。30天期期權的價值損耗很快——在最後兩週幾乎損耗了一半的價值。2年期的長期期權呢？在第一年幾乎紋絲不動。相同行使價的2年期長期期權，每日Theta大約是30天期期權的五分之一。
+
+**Stella（小魚）**：所以時間值衰減是存在的，但速度慢得足以讓你的投資論點有時間兌現。
+
+**Horace（陳馬）**：正是。這是最大的單一優勢。使用短期期權，你在方向與時機上都必須判斷正確。使用長期期權，時機要求大幅放寬。若你認為英偉達在未來18個月將受惠於人工智能支出，長期認購期權讓你表達這個觀點，而無需英偉達下週就要上漲。
+
+[ANIMATION: animation/week38_leaps_decay.py——動畫展示不同到期日期權的時間值衰減。動畫從四條代表3個月、6個月、12個月及24個月期權的期權金條形圖開始，模擬時鐘逐日推進。隨著時間流逝，每條柱以各自的速率縮短——3個月期期權迅速縮短並歸零，6個月期緊隨其後，而12個月期及24個月期的柱最初幾乎沒有變化。動畫清晰展示Theta衰減的非線性加速，曲線在最後60至90天急劇變陡。關鍵時間節點以文字標示：「Theta開始加速」在90天時，「危險區域」在30天時。]
+
+**Stella（小魚）**：這個動畫太清楚了。2年期期權在第一年的衰減幾乎看不見，到最後幾個月才變得激烈。
+
+**Horace（陳馬）**：對，所以長期期權交易員有一條關鍵規則：在距到期日六至九個月時滾動你的長期期權。你要在曲線急劇下斜之前離場。
+
+**Stella（小魚）**：明白了。那麼使用長期期權的主要方式有哪些？
+
+**Horace（陳馬）**：主要有三種策略。第一種也是最重要的一種，是股票替代。
+
+[VISUAL: 標題為「深度價內長期期權作為股票替代品」的幻燈片]
+
+**Horace（陳馬）**：概念很簡單。你不是以185美元的價格買入100股蘋果股票，花費18,500美元，而是買入一份深度價內的長期認購期權——比如說，行使價140美元、兩年期的認購期權，費用大約是每股52美元，合計5,200美元。
+
+**Stella（小魚）**：那足足少了72%的資本。但這份期權跟蹤股票的準確度如何？
+
+**Horace（陳馬）**：Delta為0.88，意味著蘋果每升跌一美元，期權相應升跌0.88美元。雖然不是完美替代，但已非常接近。而以下的計算才是關鍵。
+
+[VISUAL: 對比表格，顯示蘋果股價在不同水平下，股票與長期期權的回報比較]
+
+**Horace（陳馬）**：若蘋果升至220美元，漲幅19%，你的股票持倉賺了3,500美元。你的長期期權賺了約2,800美元。絕對金額較少，但那是5,200美元資本的54%回報。與此同時，你釋放了13,300美元。把這筆錢放入年息4.5%的國庫券，每年再賺約600美元。
+
+**Stella（小魚）**：所以長期期權給了我大部分的上漲回報，使用的資本少得多，而且釋放的資本還能賺取收益。那有什麼代價呢？
+
+**Horace（陳馬）**：幾個代價。首先，你錯失股息。蘋果每年每100股派約100美元——對蘋果來說不算大，但對高股息股票而言可以相當可觀。其次，若蘋果下跌，你在長期期權上損失的百分比高於股票，因為有槓桿效應。第三，有外在價值的問題——每股7美元的時間溢價，會隨時間衰減。
+
+**Stella（小魚）**：那外在價值的影響有多大？
+
+**Horace（陳馬）**：讓我們來計算一下。2年共7美元/股的外在價值，即每年3.5美元，約佔股價1.9%。若將其與保證金利率——每年5-8%——相比，實際上相當合理。而且若釋放的資本能賺取4.5%，你的收益完全覆蓋了外在價值的成本。
+
+[VISUAL: 成本比較圖——長期期權外在價值 vs 保證金利率 vs 釋放資本回報]
+
+**Stella（小魚）**：在高利率環境中這很說得通。那利率偏低的時候呢？
+
+**Horace（陳馬）**：好問題。當2020至2021年利率接近零時，長期期權策略吸引力較低，因為釋放的資本幾乎沒有回報。這個策略能否成立的盈虧平衡利率，大致是外在價值成本加錯失股息，除以釋放的資本。對大多數股票而言，這個數字約為3-4%。若低於此水平，直接買股票更划算。
+
+**Stella（小魚）**：好的，讓我們談談第二種策略。你提到了「窮人版備兌認購期權」。
+
+**Horace（陳馬）**：對，這是我最喜歡的策略之一。
+
+[VISUAL: 圖解窮人版備兌認購期權架構——長期深度價內認購期權加上短期價外認購期權]
+
+**Horace（陳馬）**：傳統備兌認購期權要求你買入100股，再賣出一份認購期權。微軟現價400美元，這需要40,000美元的資本，才能每月賺取大約600美元的期權金。窮人版備兌認購期權以深度價內的長期期權取代股票。
+
+**Stella（小魚）**：所以我不需要40,000美元的股票，而是以大約7,000至8,000美元買入一份長期期權？
+
+**Horace（陳馬）**：正是。你以每股72美元——合計7,200美元——買入行使價340美元的長期認購期權。然後賣出相同的每月到期410美元認購期權，收取6美元期權金，每月進賬600美元。相同收入，卻只用了7,200美元資本，而非40,000美元。
+
+**Stella（小魚）**：就是以少了82%的資本賺取相同的每月600美元收入。每月資本回報率從1.5%跳升至超過8%！
+
+**Horace（陳馬）**：以百分比計算確實如此。但我必須在這裡謹慎說明，因為風險特徵是不同的。
+
+[VISUAL: 傳統備兌認購期權與窮人版備兌認購期權的風險比較]
+
+**Horace（陳馬）**：以傳統備兌認購期權，若微軟下跌30%，你在股票上損失約12,000美元，減去收取的期權金。你的倉位仍然存在——你仍持有股份。以窮人版備兌認購期權，若微軟下跌30%，你的長期期權可能損失70-80%的價值，倉位幾乎全毀。
+
+**Stella（小魚）**：所以更高的百分比回報伴隨著更高的百分比風險。
+
+**Horace（陳馬）**：正是。窮人版備兌認購期權資本效益更高，但本質上並不更安全。你必須坦然接受，在嚴重下跌時，你的長期期權可能損失大部分價值。
+
+**Stella（小魚）**：那日常管理如何進行？
+
+**Horace（陳馬）**：有三個關鍵管理動作。
+
+[VISUAL: 窮人版備兌認購期權的三大管理支柱]
+
+**Horace（陳馬）**：第一，管理短期認購期權。若股票上升，你的短期認購期權變成價內，你就向上並向後滾動——平掉現有的，以更高行使價及更遠到期日開新倉，理想情況下收取淨期權金。
+
+**Stella（小魚）**：若無法以淨收取方式滾動怎辦？
+
+**Horace（陳馬）**：那你有兩個選擇。接受行權——同時平掉長期期權和短期認購期權，鎖定價差的最大利潤。或者以小幅支出的方式滾動，前提是你仍然看好這個倉位。絕對不要以大額支出滾動——這會破壞收入策略的經濟邏輯。
+
+**Horace（陳馬）**：第二個管理動作：滾動長期期權。當長期期權距到期日達六至九個月時，賣掉它並買入到期日更遠的新倉。你要在Theta加速前完成這個動作。
+
+**Stella（小魚）**：那第三個呢？
+
+**Horace（陳馬）**：調整行使價距離。若股票大幅移動，你的長期期權可能已深度價內，或正向平值靠攏。若其過於接近平值，考慮滾動至更深的行使價，以維持類股票的特性。
+
+**Stella（小魚）**：讓我們談談如何選擇合適的長期期權。怎樣選擇行使價和到期日？
+
+[VISUAL: 長期期權選擇決策樹]
+
+**Horace（陳馬）**：對於股票替代，目標Delta是0.80至0.90。這通常意味著行使價低於現股價15-25%。行使價太深，你支付的費用接近股票價格（槓桿太低）；行使價太淺，你承擔過多槓桿和外在價值。
+
+**Stella（小魚）**：那到期日呢？
+
+**Horace（陳馬）**：永遠選擇最長可用的到期日。時間值並非線性——2年期長期期權的外在價值不等於1年期的兩倍。持有期越長，每日時間值成本越低。這意味著買入2年期長期期權並滾動一次，比買入兩份連續的1年期長期期權更便宜。
+
+[VISUAL: 圖表比較不同到期日期權的每日外在價值成本]
+
+**Stella（小魚）**：這是個重要的洞察。讓我確認一下我理解正確：若1年期長期期權有7美元外在價值，2年期有10美元，那我支付10美元換取兩年，對比兩份連續1年期合計支付14美元，節省了4美元。
+
+**Horace（陳馬）**：正是。那4美元的節省是真實的，尤其是當你年復一年地滾動倉位時，節省更是可觀。十年下來，透過購買較長期限而節省的費用，累積起來可達數千美元。
+
+**Stella（小魚）**：那掛鉤交易所買賣基金的長期期權呢？這是個好主意嗎？
+
+**Horace（陳馬）**：掛鉤大市指數交易所買賣基金——例如SPY及QQQ——的長期期權，是我最喜歡的應用場景之一。
+
+[VISUAL: SPY長期期權示例，配以資本配置示意圖]
+
+**Horace（陳馬）**：考慮這個情境：你希望獲取100,000美元的標普500敞口，可以買入200股每股500美元的SPY。或者，你買入2份深度價內的長期認購期權，合計約19,000美元，再把剩餘的81,000美元投入國庫券。
+
+**Stella（小魚）**：這個算式之所以成立，是因為……
+
+**Horace（陳馬）**：長期期權在2年內的外在價值衰減約為3,000美元，即每年1,500美元。每年錯失股息約1,400美元。總成本：每年2,900美元。但81,000美元的國庫券，以年息4.5%計算，每年賺取3,645美元。你實際上每年多出745美元。
+
+**Stella（小魚）**：所以在高利率環境下，長期期權SPY策略相較於直接持有交易所買賣基金，實際上能為你帶來額外收益？
+
+**Horace（陳馬）**：是的，但有幾點注意事項：你的上漲回報捕捉率略低（Delta 0.85而非1.00），而且你必須積極管理倉位——滾動、監察、留意買賣差價。這並不像持有SPY那樣真正被動。
+
+**Stella（小魚）**：那稅務方面呢？
+
+[VISUAL: 稅務比較幻燈片]
+
+**Horace（陳馬）**：長期期權在稅務上有重大優勢。若你持有長期期權超過12個月，所獲利潤符合長期資本利得稅率的條件。目前這個稅率是20%，而短線收益稅率是37%。在5,000美元的利潤上，持有長期期權後稅後可多留850美元。
+
+**Stella（小魚）**：差別相當顯著。買入2年期長期期權，持有13個月後賣出，便可享受優惠稅率。
+
+**Horace（陳馬）**：正是。這也是另一個理由讓你盡量選擇最長可用期限。它給了你更多時間符合長期資本利得稅率的條件。
+
+**Stella（小魚）**：人們在使用長期期權時最常犯的錯誤有哪些？
+
+**Horace（陳馬）**：讓我告訴你最重要的五個。
+
+[VISUAL: 「長期期權五大常見錯誤」清單，逐一顯示]
+
+**Horace（陳馬）**：第一：為股票替代目的而買入平值長期期權。這是錯的，因為所有期權金均為外在價值。你需要深度價內的長期期權，讓大部分期權金成為不會衰減的內在價值。
+
+**Stella（小魚）**：因為內在價值是真實價值——不會隨時間消逝。
+
+**Horace（陳馬）**：正確。第二：忘記滾動。交易員買入2年期長期期權，放進投資組合後就不再理會。18個月後，它已成為一份Theta急速衰減的6個月期期權。請設定日曆提醒。
+
+**Horace（陳馬）**：第三：買入時忽略隱含波動率。長期期權的Vega較高，對隱含波動率的變化極為敏感。若你在隱含波動率偏高時買入——例如市場崩盤後波動率指數（VIX）升至35時——你支付了過高的費用。隨後當隱含波動率正常化，即使股票上升，你的長期期權仍會因Vega而貶值。
+
+**Stella（小魚）**：所以我應在隱含波動率偏低時買入長期期權？
+
+**Horace（陳馬）**：理想情況下是的。或者至少要對隱含波動率環境保持清醒認識。買入前查看隱含波動率排名（IV Rank）或隱含波動率百分位數。
+
+**Horace（陳馬）**：第四：過度使用槓桿。長期期權提供槓桿，不代表你應該用五倍於正常水平的敞口槓桿整個投資組合。使用長期期權來替代你本來就打算持有的股票倉位，而非用來投機。
+
+**Stella（小魚）**：那第五個呢？
+
+**Horace（陳馬）**：將長期期權視同股票對待。它們不是股票。它們有到期日。它們有時間值衰減。它們不派股息。它們可能損失100%的價值。你必須事先制定管理計劃：何時滾動、何時平倉、你的離場準則是什麼？
+
+**Stella（小魚）**：這堂課內容非常豐富。長期期權對於理解其取捨的長線投資者來說，確實是一個真正有用的工具。
+
+**Horace（陳馬）**：是的。但關鍵字在於「理解」。在你能清楚解釋外在價值成本、滾動機制及風險特徵之前，不要使用長期期權。先用紙上交易演練幾個倉位，追蹤幾個月，再以小額真實資金入場。
+
+[VISUAL: 包含三大要點的總結幻燈片]
+
+**Stella（小魚）**：在結束之前，可以帶我們走過一個完整的長期期權管理場景嗎？從頭到尾。我認為這樣能真正鞏固這些概念。
+
+**Horace（陳馬）**：好主意。讓我們追蹤一個完整的生命周期。
+
+[VISUAL: 時間軸圖示，展示長期期權在18個月內的生命周期]
+
+**Horace（陳馬）**：2025年1月。你決定用長期期權獲取亞馬遜的敞口，當時亞馬遜交易於190美元。你買入一份到期日為2027年1月的行使價150美元認購期權——即24個月後到期。期權金為每股52美元，Delta為0.84。
+
+**Stella（小魚）**：所以合計投入5,200美元。內在價值40美元，外在價值12美元。
+
+**Horace（陳馬）**：正確。到期時的盈虧平衡點是202美元。但請記住，你計劃積極管理，而非持有至到期。
+
+**Stella（小魚）**：第三個月發生什麼？
+
+**Horace（陳馬）**：2025年3月。亞馬遜升至205美元。你的長期期權現值62美元，盈利10美元，即19%回報。股票升了7.9%，你的期權以百分比計錄得約2.4倍的回報。Delta現為0.89，更深度價內。一切順利。
+
+**Stella（小魚）**：你會在這時平倉獲利嗎？
+
+**Horace（陳馬）**：還不會。你的投資論點是亞馬遜在12至18個月內升值。三個月太早離場，除非你有特定理由質疑這個論點。
+
+**Stella（小魚）**：好，第六個月呢？
+
+**Horace（陳馬）**：2025年6月。亞馬遜回落至185美元。你的長期期權現值44美元，較買入價下跌8美元，虧損15%。Delta降至0.78。
+
+[VISUAL: 損益圖表，顯示波動走勢]
+
+**Stella（小魚）**：2.6%的股票跌幅，換來15%的長期期權跌幅。槓桿現在對我不利了。
+
+**Horace（陳馬）**：是的，但請注意——你的長期期權仍有18個月的生命，投資論點有充裕時間兌現。若你在一月份買的是3個月期期權，現在它就到期了，而股價還在你的盈虧平衡點以下。你幾乎損失了全部投資。時間緩衝正在保護你。
+
+**Stella（小魚）**：那第十二個月呢？那是滾動變得相關的時候，對吧？
+
+**Horace（陳馬）**：2026年1月。亞馬遜升至210美元。你的長期期權現距到期12個月，現值67美元。利潤：每股15美元，29%回報。Delta為0.90。但這時你要開始考慮滾動了。
+
+**Stella（小魚）**：為什麼？你說的是六至九個月時滾動。
+
+**Horace（陳馬）**：是的，但我也想強調稅務角度。你現在已持有這份長期期權12個月。若現在賣出，1,500美元的利潤符合長期資本利得稅率——20%，而非37%。這比在第十一個月賣出多節省255美元的稅款。
+
+[VISUAL: 稅務日曆，標示12個月門檻]
+
+**Stella（小魚）**：所以理想的操作窗口是：超過12個月持有期以符合稅務要求，但在距到期6個月前滾動以應對Theta因素。
+
+**Horace（陳馬）**：你完全掌握了。在這個例子中，第12至18個月就是你的最佳滾動窗口。假設你決定在第15個月——2026年4月——滾動。當時亞馬遜升至215美元。你現有的長期期權還剩9個月，現值70美元。你以7,000美元賣出。
+
+**Stella（小魚）**：然後買入新的？
+
+**Horace（陳馬）**：你買入一份新的2028年1月長期期權，行使價170美元，每股58美元——合計5,800美元。這份新期權Delta為0.86，距到期22個月，讓你重回最佳區間。
+
+[VISUAL: 滾動交易摘要，展示賣出與買入明細]
+
+**Horace（陳馬）**：這次滾動的淨現金流：賣出收取7,000美元，減去買入支付5,800美元，你口袋多了1,200美元。加上原有持倉實現了長期資本利得。而你現在持有一份新的長期期權，Theta衰減低，時間充裕。
+
+**Stella（小魚）**：這完美展示了整個生命周期。滾動的紀律、稅務規劃、Theta管理——所有一切融為一體。
+
+**Horace（陳馬）**：這就是為什麼我說長期期權不是買入後置之不理的投資。積極、用心的管理是有回報的。做得好的投資者，能以一小部分資本捕捉大部分股票升幅，合理支付槓桿成本，並在整個過程中保持明確的風險界定。
+
+**Stella（小魚）**：再問最後一個問題。如果亞馬遜跌至140美元，低於行使價，會怎樣？
+
+**Horace（陳馬）**：那是最壞的情境。你的長期期權將變成價外。若距到期還有12個月，視隱含波動率而定，它可能仍值8至12美元。你的損失約為每股40至44美元，即4,000至4,400美元——相當於長期期權77-85%的損失。
+
+**Stella（小魚）**：相比之下，股票損失是每股50美元，即5,000美元。
+
+**Horace（陳馬）**：對。你在長期期權上的絕對損失更少（最多4,400美元，對比股票的5,000美元），而且你的損失是有上限的——最多不超過5,200美元（即你支付的全部期權金）。股票理論上可以跌至100美元，損失達9,000美元。長期期權的底線保護了你免受最壞的結果。但以百分比計的損失是驚人的，這正是槓桿的代價。
+
+**Stella（小魚）**：即使是最壞的情況，長期期權的框架依然成立——絕對損失更少，百分比損失更大，但你的風險從第一天起就是明確的。
+
+**Horace（陳馬）**：正是。這是你在建立倉位之前，必須有意識地接受的取捨。
+
+**Stella（小魚）**：能給我們三個關鍵要點嗎？
+
+**Horace（陳馬）**：第一：長期期權是持有股票的資本效益型替代方案，而非完全替代品。它有股票所沒有的成本與風險。第二：用於股票替代時，使用Delta 0.80或以上的深度價內長期期權。大部分期權金應為內在價值。第三：永遠在距到期六至九個月前滾動，並時刻備有管理計劃。
+
+**Stella（小魚）**：完美。下週我們將轉換跑道，進入一個完全不同的市場——期貨。下週見！
+
+[VISUAL: 結尾字卡——「下週：第39週——期貨市場入門」]
+
+---
+
+*第38週完*

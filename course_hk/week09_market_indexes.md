@@ -1,896 +1,895 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 9: Understanding Market Indexes
+# 第九週：認識市場指數
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何這很重要
 
-Every day, you hear phrases like "the Dow is up 200 points" or "the S&P 500 hit a new all-time high." These market indexes are the scoreboard of the financial world. They tell you how the market is performing, they serve as benchmarks against which your own portfolio is measured, and they form the backbone of the largest investment products on earth -- index funds and ETFs. If you do not understand how indexes are constructed, you cannot understand what you are actually buying when you invest in an index fund, and you cannot evaluate whether your own performance is good, bad, or mediocre.
+每天你都會聽到「道指升了200點」或「標普500創歷史新高」之類的說法。這些市場指數就是金融世界的計分板。它們告訴你市場的表現如何，是衡量你自己投資組合的基準，也是全球最大投資產品的基石——指數基金和交易所買賣基金。如果你不了解指數的構建方式，你就無法真正明白投資指數基金時買的是什麼，也無法評估自己的表現是好、是差，還是平平無奇。
 
-Understanding indexes matters for several critical reasons:
+理解指數的重要性體現在幾個關鍵層面：
 
-1. **Indexes define the market.** When someone says "the market was up 2% today," they are referring to an index. But which index? The Dow Jones Industrial Average, which tracks just 30 large U.S. stocks? The S&P 500, which covers 500? The Russell 2000, which focuses on small companies? Each tells a different story, and conflating them leads to confusion and poor decisions.
+1. **指數定義了市場。** 當有人說「今天市場升了2%」，他們指的是某個指數。但是哪個指數？只追蹤30隻美國大型股票的道瓊斯工業平均指數？涵蓋500隻股票的標普500？還是專注於小型公司的羅素2000？每個指數所呈現的故事都不同，混淆它們只會帶來困惑和錯誤決策。
 
-2. **Most investors own index funds.** Over the past two decades, index investing has become the dominant investment strategy. More than $15 trillion is invested in index funds globally. When you buy an S&P 500 index fund, you are making an implicit bet on every design choice embedded in that index -- how it selects stocks, how it weights them, and how it rebalances. These seemingly technical details have real consequences for your returns.
+2. **大多數投資者持有指數基金。** 過去二十年，指數投資已成為主流的投資策略。全球有超過15萬億美元投資於指數基金。當你買入標普500指數基金，你實際上是在對該指數每一個設計選擇作出隱含的押注——包括它如何選股、如何加權，以及如何再平衡。這些看似技術性的細節，對你的回報有著切實的影響。
 
-3. **Index construction creates market distortions.** When a stock is added to or removed from a major index, billions of dollars of forced buying and selling occur as index funds adjust their holdings. These mechanical flows can move stock prices by 3-7% or more, creating both risks and opportunities for informed investors. If you understand the plumbing, you can avoid being harmed by it and potentially benefit.
+3. **指數構建會造成市場扭曲。** 當一隻股票被納入或剔除主要指數時，指數基金調整持倉所引發的強制性買賣可高達數十億美元。這些機械性資金流動可使股價移動3%至7%甚至更多，既為知情投資者帶來機遇，也帶來風險。如果你了解這套運作機制，便能避免受其拖累，甚至從中獲益。
 
-4. **Benchmarking requires the right benchmark.** If you hold a portfolio of small-cap growth stocks and compare your returns to the S&P 500, you are comparing apples to oranges. Choosing the right benchmark is essential for honestly evaluating your performance, and that requires understanding what each index actually represents.
+4. **基準比較需要選對基準。** 如果你持有一個由小型成長股構成的投資組合，卻拿來跟標普500比較回報，那就是在比較蘋果與橙。選擇正確的基準，對於誠實評估自己的表現至關重要，而這需要你了解每個指數實際代表什麼。
 
-5. **Global perspective demands index literacy.** Investing internationally means navigating dozens of indexes -- the FTSE 100, Nikkei 225, MSCI Emerging Markets, and many more. Each has its own methodology, biases, and quirks. Understanding the principles of index construction allows you to evaluate any index, anywhere in the world.
+5. **全球視野需要指數識讀能力。** 國際投資意味著要駕馭數十個指數——富時100、日經225、MSCI新興市場指數等等，不勝枚舉。每個指數都有其自身的方法論、偏差和特性。掌握指數構建的原則，讓你能夠評估世界任何地方的任何指數。
 
-This lesson covers how indexes are built, the critical differences between weighting methods, how reconstitution and rebalancing work, and what this all means for you as an investor.
+本課涵蓋指數的構建方式、各種加權方法之間的關鍵差異、重組與再平衡的運作原理，以及這一切對你這位投資者的實際意義。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知識
 
-#### 1. What Is a Market Index?
+#### 1. 什麼是市場指數？
 
-A market index is a statistical measure that tracks the performance of a selected group of stocks. It is not something you can buy directly. Instead, it is a calculation -- a number that goes up or down based on the collective movement of its component stocks.
+市場指數是追蹤一組精選股票表現的統計量度工具。你無法直接買入指數本身，它是一個計算結果——一個根據成分股的整體走勢而升降的數字。
 
-Think of an index like a recipe. The recipe specifies which ingredients (stocks) to include and how much of each ingredient to use (the weighting method). Different recipes produce different dishes, even if some of the same ingredients appear in multiple recipes.
+把指數想像成一個食譜。食譜規定了要加入哪些材料（股票），以及每種材料的用量（加權方法）。不同的食譜會做出不同的菜式，即使某些相同的材料出現在多個食譜之中。
 
 ```
-ANATOMY OF A MARKET INDEX
+市場指數的構成要素
 ===========================
 
-Every index has three key design choices:
+每個指數都有三個關鍵設計選擇：
 
-1. SELECTION RULES       What stocks are included?
-   (Universe)            - Size criteria (market cap thresholds)
-                         - Liquidity requirements
-                         - Sector representation
-                         - Domicile / listing exchange
+1. 選股規則         納入哪些股票？
+   （選股範疇）     - 規模標準（市值門檻）
+                    - 流動性要求
+                    - 板塊代表性
+                    - 公司註冊地／上市交易所
 
-2. WEIGHTING METHOD      How much does each stock count?
-   (Recipe)              - Price-weighted
-                         - Market-cap-weighted
-                         - Equal-weighted
-                         - Factor-weighted (smart beta)
+2. 加權方法         每隻股票佔多大比重？
+   （食譜）         - 價格加權
+                    - 市值加權
+                    - 等權重
+                    - 因子加權（聰明貝塔）
 
-3. MAINTENANCE RULES     How often is the list updated?
-   (Rebalancing)         - Scheduled reconstitution
-                         - Buffer rules for additions/deletions
-                         - Corporate action adjustments
+3. 維護規則         名單多久更新一次？
+   （再平衡）       - 定期重組
+                    - 增刪成分股的緩衝規則
+                    - 公司行動調整
 ```
 
-These three design choices produce dramatically different outcomes. Two indexes can hold many of the same stocks but deliver very different returns depending on how they weight those stocks.
+這三個設計選擇所產生的結果可以截然不同。兩個指數可能持有許多相同的股票，但因為加權方式不同，所帶來的回報也大相徑庭。
 
 ---
 
-#### 2. The Three Major Weighting Methods
+#### 2. 三大主要加權方法
 
-This is the most important concept in this lesson. The weighting method determines how much influence each stock has on the index's movement.
+這是本課最重要的概念。加權方法決定了每隻股票對指數走勢的影響力。
 
-**Price-Weighted Index**
+**價格加權指數**
 
-In a price-weighted index, stocks with higher share prices have more influence, regardless of company size. The index value is calculated by adding up all the share prices and dividing by a divisor.
+在價格加權指數中，股價較高的股票具有更大影響力，無論公司規模大小。指數值的計算方法是將所有股票的股價相加，再除以一個除數。
 
 ```
-PRICE-WEIGHTED INDEX EXAMPLE
+價格加權指數示例
 ==============================
 
-Stock       Price      Weight in Index
------       -----      ---------------
-Stock A     $300       300/600 = 50.0%
-Stock B     $200       200/600 = 33.3%
-Stock C     $100       100/600 = 16.7%
-                       ---------
-Total       $600       100.0%
+股票       股價        在指數中的權重
+-----       -----       ---------------
+股票A       $300        300/600 = 50.0%
+股票B       $200        200/600 = 33.3%
+股票C       $100        100/600 = 16.7%
+                        ---------
+合計        $600        100.0%
 
-Index Value = Sum of Prices / Divisor
-            = $600 / Divisor
+指數值 = 股價總和 / 除數
+       = $600 / 除數
 
-Key Problem: Stock A has 3x the influence of Stock C,
-even if Stock C is a much LARGER company by market cap.
+主要問題：股票A的影響力是股票C的3倍，
+即使股票C以市值計算是一家規模大得多的公司。
 
-If Stock A rises 1%: Index moves ~0.50%
-If Stock C rises 1%: Index moves ~0.17%
+若股票A升1%：指數移動約0.50%
+若股票C升1%：指數移動約0.17%
 ```
 
-The Dow Jones Industrial Average is the most famous price-weighted index. This is why a $5 move in a $300 stock (1.7%) affects the Dow more than a $5 move in a $50 stock (10%), even though the percentage move in the cheaper stock is much larger. This makes price-weighted indexes somewhat arbitrary, since a company's share price is largely a cosmetic choice -- a stock trading at $300 could just as easily trade at $150 if the company did a 2-for-1 stock split.
+道瓊斯工業平均指數是最著名的價格加權指數。這就是為何一隻$300股票的$5升幅（1.7%）對道指的影響，比一隻$50股票的$5升幅（10%）更大——儘管較低價股票的百分比升幅遠為顯著。這令價格加權指數顯得相當隨意，因為一家公司的股價在很大程度上只是一個形式上的選擇——一隻以$300交易的股票，若公司進行2合1股票分拆，股價便輕易降至$150。
 
-**Market-Capitalization-Weighted Index**
+**市值加權指數**
 
-In a cap-weighted index, stocks are weighted by their total market value (share price times shares outstanding). Larger companies have more influence. This is the most common methodology worldwide.
+在市值加權指數中，股票按其總市值（股價乘以已發行股數）加權，規模較大的公司具有更大影響力。這是目前全球最普遍的方法論。
 
 ```
-MARKET-CAP-WEIGHTED INDEX EXAMPLE
+市值加權指數示例
 ====================================
 
-Stock       Price     Shares Out    Market Cap       Weight
------       -----     ----------    ----------       ------
-Stock A     $300      1 billion     $300 billion     50.0%
-Stock B     $200      500 million   $100 billion     16.7%
-Stock C     $100      2 billion     $200 billion     33.3%
-                                    ------------     ------
-                                    $600 billion     100.0%
+股票   股價    已發行股數    市值             權重
+-----  -----   ----------   ----------       ------
+股票A  $300    10億股        3,000億美元      50.0%
+股票B  $200    5億股         1,000億美元      16.7%
+股票C  $100    20億股        2,000億美元      33.3%
+                             ------------     ------
+                             6,000億美元      100.0%
 
-Now Stock A is the largest COMPANY and gets the most weight.
-Stock C is second, despite having the lowest PRICE.
+現在股票A是市值最大的公司，獲得最高權重。
+股票C位居第二，儘管其股價最低。
 
-Notice: Stock C went from 16.7% (price-weighted) to 33.3%
-(cap-weighted) because it has a large market cap despite
-its lower share price.
+注意：股票C的權重從價格加權下的16.7%
+升至市值加權下的33.3%，因為儘管
+股價較低，它的市值卻相當龐大。
 ```
 
-The S&P 500, NASDAQ Composite, and most international indexes use cap-weighting. It has a natural logic -- larger companies represent more economic activity, so they should have more influence. However, it also means a small number of mega-cap stocks can dominate the index. In recent years, the top 10 stocks in the S&P 500 have sometimes accounted for over 30% of the entire index's weight.
+標普500、納斯達克綜合指數，以及大多數國際指數均採用市值加權。這種方法有其自然邏輯——規模較大的公司代表更多的經濟活動，因此理應有更大的影響力。然而，這也意味著少數超大型股票可能主宰整個指數。近年來，標普500中排名前十的股票有時佔整個指數權重逾30%。
 
 ```
-CONCENTRATION RISK IN CAP-WEIGHTED INDEXES
+市值加權指數的集中度風險
 =============================================
 
-S&P 500 Weight Distribution (Illustrative):
+標普500的權重分布（示意）：
 
-Top 10 stocks:    ~30-35%  ||||||||||||||||
-Next 40 stocks:   ~25-30%  ||||||||||||||
-Next 50 stocks:   ~15-18%  ||||||||
-Next 100 stocks:  ~12-15%  ||||||
-Bottom 300:       ~8-10%   ||||
+前10隻股票：    約30-35%  ||||||||||||||||
+次40隻股票：    約25-30%  ||||||||||||||
+次50隻股票：    約15-18%  ||||||||
+次100隻股票：   約12-15%  ||||||
+其餘300隻股票： 約8-10%   ||||
 
-The "500" in S&P 500 is somewhat misleading.
-The index behaves more like a portfolio of
-50-100 stocks with 400 small positions.
+標普500中的「500」這個數字有點誤導性。
+該指數的實際表現更像是一個由
+50至100隻股票組成、加上400個小持倉的投資組合。
 ```
 
-**Equal-Weighted Index**
+**等權重指數**
 
-In an equal-weighted index, every stock gets the same weight, regardless of price or market cap. A $10 billion company has the same influence as a $1 trillion company.
+在等權重指數中，每隻股票的權重相同，無論股價或市值高低。一家100億美元的公司與一家10萬億美元的公司具有相同的影響力。
 
 ```
-EQUAL-WEIGHTED INDEX EXAMPLE
+等權重指數示例
 ===============================
 
-Stock       Price     Market Cap       Weight
------       -----     ----------       ------
-Stock A     $300      $300 billion     33.3%
-Stock B     $200      $100 billion     33.3%
-Stock C     $100      $200 billion     33.3%
-                                       ------
-                                       100.0%
+股票   股價    市值             權重
+-----  -----   ----------       ------
+股票A  $300    3,000億美元      33.3%
+股票B  $200    1,000億美元      33.3%
+股票C  $100    2,000億美元      33.3%
+                                ------
+                                100.0%
 
-Every stock contributes equally to returns.
+每隻股票對回報的貢獻相等。
 
-If all three rise 10%: Index rises 10%
-(same as cap-weighted and price-weighted)
+若三者同升10%：指數升10%
+（與市值加權及價格加權相同）
 
-If only Stock C rises 10%:
-Equal-weighted:  +3.33%  (10% x 33.3%)
-Cap-weighted:    +3.33%  (10% x 33.3%)  <-- coincidence here
-Price-weighted:  +1.67%  (10% x 16.7%)
+若只有股票C升10%：
+等權重：  +3.33%  （10% x 33.3%）
+市值加權：+3.33%  （10% x 33.3%）  <-- 此處為巧合
+價格加權：+1.67%  （10% x 16.7%）
 
-But if only Stock B rises 10%:
-Equal-weighted:  +3.33%  (10% x 33.3%)
-Cap-weighted:    +1.67%  (10% x 16.7%)
-Price-weighted:  +3.33%  (10% x 33.3%)
+但若只有股票B升10%：
+等權重：  +3.33%  （10% x 33.3%）
+市值加權：+1.67%  （10% x 16.7%）
+價格加權：+3.33%  （10% x 33.3%）
 ```
 
-Equal-weighting gives more influence to smaller companies compared to cap-weighting. Historically, equal-weighted versions of the S&P 500 have outperformed the cap-weighted version over long periods, largely because they have greater exposure to the "size" and "value" factors. However, equal-weighted indexes require frequent rebalancing (selling winners, buying losers), which generates higher transaction costs and potential tax consequences.
+與市值加權相比，等權重賦予較小型公司更大的影響力。歷史上，標普500的等權重版本在長時期內的表現優於市值加權版本，主要是因為其對「規模」和「價值」因子有更大的敞口。然而，等權重指數需要頻繁的再平衡（賣出升幅較大的股票，買入表現落後的股票），從而產生較高的交易成本及潛在的稅務影響。
 
 ---
 
-#### 3. Comparing the Three Methods Side by Side
+#### 3. 三種方法的並排比較
 
 ```
-WEIGHTING METHOD COMPARISON
+加權方法比較
 =============================
 
-Feature             Price-Wt     Cap-Wt       Equal-Wt
--------             --------     ------       --------
-Driver of weight    Share price  Market cap   None (fixed)
-Largest stock       Highest      Biggest      Same as
-influence           priced       company      smallest
+特點          價格加權      市值加權      等權重
+-------       --------      ------        --------
+權重決定因素  股價          市值          無（固定）
+影響力最大    股價最高      最大型        與最小型
+的股票        的股票        公司          公司相同
 
-Bias toward         High-price   Large-cap    Small/mid-cap
-                    stocks       stocks       stocks
+偏向          高股價        大型股        中小型股
+              股票
 
-Rebalancing need    Minimal      Minimal      Frequent
-Turnover            Low          Low          High
-Concentration risk  Arbitrary    High         Low
+再平衡需求    極少          極少          頻繁
+換手率        低            低            高
+集中度風險    隨意          高            低
 
-Famous example      Dow Jones    S&P 500      S&P 500
-                    (DJIA)       NASDAQ       Equal Weight
-                                 Russell      (RSP)
+著名例子      道瓊斯        標普500       標普500
+              （道指）      納斯達克      等權重
+                            羅素          （RSP）
 
-Historical return   Moderate     Moderate     Higher
-(long-term)                                   (with caveats)
+長期歷史回報  中等          中等          較高
+                                          （附但書）
 ```
 
 ---
 
-#### 4. Major U.S. Indexes in Detail
+#### 4. 主要美國指數詳解
 
-**The Dow Jones Industrial Average (DJIA)**
+**道瓊斯工業平均指數（道指）**
 
 ```
-DOW JONES INDUSTRIAL AVERAGE
+道瓊斯工業平均指數
 ==============================
 
-Established:     1896 (one of the oldest indexes)
-Components:      30 large-cap U.S. stocks
-Weighting:       Price-weighted
-Selection:       Chosen by a committee at S&P Dow Jones
-                 Indices (subjective, not formula-based)
-Divisor:         Adjusted for stock splits and changes
-                 (the "Dow Divisor" is published daily)
+成立時間：     1896年（最古老的指數之一）
+成分股：       30隻美國大型股票
+加權方法：     價格加權
+選股方式：     由標普道瓊斯指數公司委員會選定
+               （主觀判斷，非公式化）
+除數：         因股票分拆及成分股變動而調整
+               （「道指除數」每日公布）
 
-Strengths:
-- Long history, cultural significance
-- Blue-chip companies, household names
-- Simple to understand conceptually
+優點：
+- 歷史悠久，具文化象徵意義
+- 藍籌公司，家喻戶曉的名字
+- 概念上易於理解
 
-Weaknesses:
-- Only 30 stocks -- very narrow
-- Price-weighting is arbitrary
-- Committee-selected, not rules-based
-- No small or mid-cap exposure
-- A stock split changes its index influence
+缺點：
+- 只有30隻股票——覆蓋範圍極窄
+- 價格加權方式隨意
+- 委員會選定，非規則化
+- 無中小型股敞口
+- 股票分拆即改變其在指數中的影響力
 
-Current Dow Divisor:
-When the Dow was created, the divisor was 30 (the number
-of stocks). Due to decades of splits and substitutions,
-the divisor is now a fraction less than 1. This means a
-$1 move in ANY Dow stock moves the index by more than
-1 point.
+關於道指除數：
+道指創立時，除數為30（即股票數量）。
+由於數十年來的分拆及成分股替換，
+除數現在已是一個小於1的分數。
+這意味著任何一隻道指成分股每移動$1，
+指數的移動幅度均超過1點。
 ```
 
-**The S&P 500**
+**標普500**
 
 ```
-S&P 500
+標普500
 ========
 
-Established:     1957 (with back-calculated data to 1928)
-Components:      ~500 large-cap U.S. stocks
-Weighting:       Float-adjusted market-cap-weighted
-Selection:       Committee-selected based on criteria:
-                 - U.S. company
-                 - Market cap >= ~$14.5 billion (as of 2024)
-                 - Positive earnings (most recent quarter
-                   and sum of last four quarters)
-                 - Adequate liquidity
-                 - Public float >= 50%
+成立時間：     1957年（數據回溯至1928年）
+成分股：       約500隻美國大型股票
+加權方法：     自由流通量調整市值加權
+選股方式：     委員會根據以下標準選定：
+               - 美國公司
+               - 市值 >= 約145億美元（截至2024年）
+               - 正盈利（最近一個季度及過去四個季度合計）
+               - 充裕的流動性
+               - 自由流通股份 >= 50%
 
-"Float-adjusted" means:
-Only shares available for public trading are counted.
-Shares held by insiders, governments, or other companies
-are excluded from the weight calculation.
+「自由流通量調整」的含義：
+只計算可供公眾交易的股份。
+由內部人士、政府或其他公司持有的股份
+不計入權重計算。
 
-Why it matters:
-A company with 1 billion shares outstanding but 400
-million held by the founder has a float of 600 million.
-The index uses 600M x price, not 1B x price.
+為何重要：
+一家公司有10億股已發行股份，
+但4億股由創辦人持有，
+其自由流通股為6億股。
+指數採用6億股x股價，而非10億股x股價。
 
-Strengths:
-- Broad representation of U.S. large-cap market
-- The single most-tracked benchmark globally
-- Trillions of dollars indexed to it
-- Float-adjustment reflects investable reality
+優點：
+- 廣泛代表美國大型股市場
+- 全球最受追蹤的單一基準
+- 數萬億美元資金追蹤此指數
+- 自由流通量調整反映可投資的實際狀況
 
-Weaknesses:
-- Committee subjectivity in additions/deletions
-- Earnings requirement excludes some large companies
-- Cap-weighting leads to concentration
-- Only large-cap; excludes mid, small, micro-cap
+缺點：
+- 委員會在增刪成分股時有主觀判斷
+- 盈利要求排除了部分大型公司
+- 市值加權導致集中度過高
+- 只覆蓋大型股；不包括中小型及微型股
 ```
 
-**The NASDAQ Composite and NASDAQ-100**
+**納斯達克綜合指數與納斯達克100**
 
 ```
-NASDAQ COMPOSITE vs. NASDAQ-100
+納斯達克綜合指數 vs. 納斯達克100
 ==================================
 
-                    NASDAQ Composite       NASDAQ-100
+                    納斯達克綜合指數       納斯達克100
                     ----------------       ----------
-Components          ~3,000+ stocks         100 stocks
-Exchange            All NASDAQ-listed      Largest non-financial
-                                           NASDAQ-listed
-Weighting           Cap-weighted           Modified cap-weighted
-Financial cos.      Included               Excluded
-Technology bias     Significant            Very significant
+成分股              逾3,000隻股票          100隻股票
+交易所              所有在納斯達克上市     規模最大的非金融類
+                                           納斯達克上市公司
+加權方法            市值加權               修訂市值加權
+金融類公司          包含                   不包含
+科技偏重程度        顯著                   非常顯著
 
-The NASDAQ-100 (tracked by QQQ ETF) is heavily tilted
-toward technology. The top 10 holdings often represent
-50%+ of the index.
+納斯達克100（由QQQ交易所買賣基金追蹤）嚴重偏向
+科技板塊。前十大持倉往往佔指數逾50%。
 
-NASDAQ-100 SECTOR BREAKDOWN (Illustrative):
+納斯達克100板塊分布（示意）：
 +--------------------------------------------+
-| Technology         ~50-55%  |||||||||||||||  |
-| Comm. Services     ~15-18%  |||||           |
-| Consumer Disc.     ~12-15%  ||||            |
-| Healthcare         ~6-8%    ||              |
-| Other              ~5-10%   ||              |
+| 科技            約50-55%  |||||||||||||||  |
+| 通訊服務        約15-18%  |||||            |
+| 非必需消費品    約12-15%  ||||             |
+| 醫療保健        約6-8%    ||               |
+| 其他            約5-10%   ||               |
 +--------------------------------------------+
 
-Important: NASDAQ does NOT mean "tech index."
-It is an exchange. Many non-tech companies list
-on NASDAQ. But the cap-weighting and concentration
-of large tech firms create a de facto tech tilt.
+重要提示：納斯達克並不等同於「科技指數」。
+它是一個交易所。許多非科技公司也在
+納斯達克上市。但大型科技公司的市值
+集中效應，使其實際上呈現科技板塊的傾斜。
 ```
 
-**The Russell Indexes**
+**羅素指數系列**
 
 ```
-RUSSELL INDEX FAMILY
+羅素指數系列
 ======================
 
-Russell 3000: Broadest U.S. index (~3,000 stocks)
-              Covers ~98% of U.S. investable equity
-              |
-              +-- Russell 1000: Top 1,000 by market cap
-              |   (large + mid cap, ~93% of market)
-              |   |
-              |   +-- Russell 1000 Growth
-              |   +-- Russell 1000 Value
-              |
-              +-- Russell 2000: Next 2,000 by market cap
-                  (small cap, ~7% of market)
+羅素3000：最廣泛的美國指數（約3,000隻股票）
+          涵蓋約98%的美國可投資股票市場
+          |
+          +-- 羅素1000：按市值排名前1,000隻股票
+          |   （大型股+中型股，約佔市場93%）
+          |   |
+          |   +-- 羅素1000成長股指數
+          |   +-- 羅素1000價值股指數
+          |
+          +-- 羅素2000：按市值排名次2,000隻股票
+                  （小型股，約佔市場7%）
                   |
-                  +-- Russell 2000 Growth
-                  +-- Russell 2000 Value
+                  +-- 羅素2000成長股指數
+                  +-- 羅素2000價值股指數
 
-KEY DIFFERENCES from S&P indexes:
-- Rules-based selection (no committee)
-- Annual reconstitution on one day (late June)
-- Clear market-cap breakpoints
-- Growth/Value split based on quantitative factors
+與標普指數的主要區別：
+- 規則化選股（無委員會）
+- 每年在同一天進行重組（六月下旬）
+- 清晰的市值分界點
+- 根據量化因子劃分成長/價值
 
-The Russell 2000 is THE benchmark for small-cap stocks.
-If you invest in small-cap funds, their performance
-is measured against the Russell 2000.
+羅素2000是小型股的基準指數。
+若你投資於小型股基金，其表現
+以羅素2000作為衡量標準。
 ```
 
 ---
 
-#### 5. How Indexes Are Maintained: Rebalancing and Reconstitution
+#### 5. 指數的維護：再平衡與重組
 
-Indexes are not static. They must be updated to reflect changes in the market. This maintenance happens through two distinct processes:
+指數並非一成不變。它們必須更新以反映市場的變化。這種維護通過兩個不同的流程進行：
 
 ```
-REBALANCING vs. RECONSTITUTION
+再平衡 vs. 重組
 =================================
 
-REBALANCING:
-- Adjusting the weights of EXISTING members
-- Happens quarterly for most cap-weighted indexes
-- For equal-weighted: selling winners, buying losers
-  to restore equal weights
-- Minimal impact on stock prices
+再平衡：
+- 調整現有成分股的權重
+- 大多數市值加權指數每季進行一次
+- 等權重指數：賣出漲幅較大的，買入漲幅較少的，
+  以恢復等權重
+- 對股價的影響輕微
 
-RECONSTITUTION:
-- Adding and removing members entirely
-- Happens on a schedule (annually for Russell,
-  quarterly review for S&P 500)
-- Can cause LARGE price impacts
-- Creates forced buying (additions) and forced
-  selling (deletions) by index funds
+重組：
+- 完全增加或刪除成分股
+- 按固定時間表進行（羅素每年一次，
+  標普500每季審查）
+- 可能造成股價的巨大波動
+- 為指數基金製造強制性買入（新增）
+  及強制性賣出（刪除）
 
-Timeline example (S&P 500):
+時間線示例（標普500）：
 +--------+----------+----------+---------+
-|Announce|  Market   |Effective |  Actual |
-| Date   | Reacts    |  Date    | Trading |
+|公布    |  市場    |生效      |  實際   |
+|日期    |  反應    |  日期    |  交易   |
 +--------+----------+----------+---------+
-  Day 0     Day 0-5    Day 5-10   Day 10
+  第0天    第0-5天    第5-10天   第10天
   |         |          |          |
-  Index     Traders    More       Index
-  announces front-run  buying/    funds
-  change    the change selling    execute
+  指數       交易者    更多       指數
+  公布       搶先      買入/      基金
+  變動       交易      賣出       執行
 ```
 
 ---
 
-#### 6. Index Flow Effects: Why Additions and Deletions Move Prices
+#### 6. 指數資金流動效應：增刪成分股為何影響股價
 
-When a stock is added to a major index like the S&P 500, every index fund tracking that benchmark must buy shares. This creates enormous demand. Conversely, when a stock is deleted, index funds must sell.
+當一隻股票被納入標普500等主要指數時，追蹤該基準的每個指數基金都必須買入相關股份，由此產生龐大需求。反之，當股票被剔除時，指數基金必須賣出。
 
 ```
-THE INDEX ADDITION EFFECT
+指數納入效應
 ============================
 
-Announcement: "Company XYZ added to S&P 500"
+公告：「XYZ公司被納入標普500」
 
-What happens next:
+接下來發生什麼：
 
-1. ACTIVE TRADERS (Day 0-1):
-   Front-run the forced buying
-   Stock price jumps 2-4%
+1. 主動交易者（第0-1天）：
+   搶先部署，提前買入，迎接強制性買盤
+   股價跳升2-4%
 
-2. INDEX FUNDS (Day 1-5):
-   Begin accumulating shares
-   Continued upward pressure
+2. 指數基金（第1-5天）：
+   開始積累股份
+   股價持續受上升壓力
 
-3. EFFECTIVE DATE:
-   All index funds must own the stock
-   Final burst of buying at close
+3. 生效日期：
+   所有指數基金必須持有該股票
+   收市前的最後一波買盤
 
-4. POST-ADDITION (Days 5-30):
-   Price may partially revert as
-   front-runners sell
+4. 納入後（第5-30天）：
+   股價或部分回落，
+   因搶先交易者逐步平倉
 
-TYPICAL PRICE PATTERN:
+典型股價走勢：
 
-Price
+股價
   |         _____
-  |        /     \______ (new equilibrium)
+  |        /     \______ （新均衡水平）
   |       /
   |      /
   |_____/
   |
-  +-----|------|------|----- Time
-     Announce  Eff.   +30d
-               Date
+  +-----|------|------|----- 時間
+     公告日   生效   +30天
+               日期
 
-Average excess return around S&P 500 addition:
-+3% to +7% (varies by study and time period)
-Average excess return around deletion:
--3% to -10% (deletions often hurt more)
+標普500納入帶來的平均超額回報：
++3%至+7%（因研究及時期而異）
+被剔除帶來的平均超額回報：
+-3%至-10%（被剔除的跌幅往往更大）
 ```
 
-This effect matters because it represents a real cost to index fund investors. The stocks they must buy are more expensive (because others front-run the purchase), and the stocks they must sell are cheaper (because others front-run the sale). This is sometimes called the "index inclusion tax."
+這種效應影響實際，因為它是指數基金投資者需要承擔的真實成本。他們必須買入的股票價格更高（因為其他人提前搶先買入），而他們必須賣出的股票價格更低（因為其他人提前搶先賣出）。這有時被稱為「指數納入稅」。
 
 ---
 
-#### 7. Float Adjustment and Its Consequences
+#### 7. 自由流通量調整及其影響
 
-Most modern cap-weighted indexes use "float-adjusted" market caps rather than total market caps.
+大多數現代市值加權指數採用「自由流通量調整」市值，而非總市值。
 
 ```
-FLOAT ADJUSTMENT EXPLAINED
+自由流通量調整解析
 =============================
 
-Total Shares Outstanding:     1,000,000,000
-Less:
-  Founder/Insider holdings:   -200,000,000
-  Government holdings:        -100,000,000
-  Strategic investors:         -50,000,000
-  Restricted shares:           -50,000,000
-                              -------------
-Free Float Shares:             600,000,000
+已發行股份總數：          1,000,000,000
+減：
+  創辦人／內部人士持股：   -200,000,000
+  政府持股：               -100,000,000
+  策略性投資者持股：        -50,000,000
+  受限制股份：              -50,000,000
+                           -------------
+自由流通股份：               600,000,000
 
-Total Market Cap:    1B shares x $100 = $100 billion
-Float Market Cap:    600M shares x $100 = $60 billion
+總市值：    10億股 x $100 = 1,000億美元
+自由流通市值：6億股 x $100 = 600億美元
 
-Index weight based on $60B, not $100B.
+指數權重以600億美元計算，而非1,000億美元。
 
-WHY THIS MATTERS:
-- Companies with large insider ownership get less
-  index weight than their total value suggests
-- When insiders sell (increasing float), the stock's
-  index weight increases, forcing more index buying
-- IPO lockup expirations increase float, changing
-  index dynamics
+為何重要：
+- 內部人士持股比例較大的公司，
+  其指數權重低於其總市值所顯示的水平
+- 當內部人士賣出股份（增加自由流通量），
+  該股票的指數權重上升，
+  迫使指數基金增加買入
+- 首次公開招股的鎖定期屆滿會增加自由流通量，
+  改變指數動態
 ```
 
 ---
 
-#### 8. Global Indexes
+#### 8. 全球指數
 
-Investing internationally requires familiarity with major global indexes and the index providers that create them.
+國際投資需要熟悉主要的全球指數及創建這些指數的提供商。
 
 ```
-MAJOR GLOBAL INDEXES
+主要全球指數
 ======================
 
-AMERICAS:
-  S&P 500 (U.S.)              500 large-cap U.S.
-  S&P/TSX Composite (Canada)  ~230 Canadian stocks
-  Bovespa (Brazil)             ~80 Brazilian stocks
+美洲：
+  標普500（美國）              500隻美國大型股票
+  標普/多倫多綜合指數（加拿大） 約230隻加拿大股票
+  巴西股票交易所指數（巴西）    約80隻巴西股票
 
-EUROPE:
-  FTSE 100 (UK)               100 largest on London SE
-  DAX 40 (Germany)             40 largest on Frankfurt
-  CAC 40 (France)              40 largest on Euronext Paris
-  Euro Stoxx 50 (Eurozone)     50 largest eurozone stocks
-  STOXX Europe 600             600 stocks across 17 countries
+歐洲：
+  富時100（英國）              倫敦交易所100隻最大股票
+  德國DAX40（德國）            法蘭克福40隻最大股票
+  法國CAC40（法國）            泛歐交易所40隻最大股票
+  歐洲斯托克50（歐元區）       50隻最大的歐元區股票
+  斯托克歐洲600               橫跨17個國家的600隻股票
 
-ASIA-PACIFIC:
-  Nikkei 225 (Japan)           225 stocks, PRICE-WEIGHTED
-  TOPIX (Japan)                ~2,000 stocks, cap-weighted
-  Hang Seng (Hong Kong)        ~80 stocks
-  SSE Composite (China)        All Shanghai-listed stocks
-  S&P/ASX 200 (Australia)      200 Australian stocks
-  KOSPI (South Korea)          All stocks on Korea Exchange
+亞太地區：
+  日經225（日本）              225隻股票，價格加權
+  東証指數（日本）             約2,000隻股票，市值加權
+  恒生指數（香港）             約80隻股票
+  上証綜合指數（中國）         所有在上海上市的股票
+  標普/澳交所200（澳洲）       200隻澳洲股票
+  韓國綜合股價指數（南韓）     韓國交易所所有股票
 
-Note: Nikkei 225 is price-weighted, like the Dow.
-TOPIX is cap-weighted and is the more representative
-measure of the Japanese equity market.
+注意：日經225採用價格加權，與道指相同。
+東証指數採用市值加權，是更具代表性的
+日本股票市場衡量指標。
 ```
 
-**Global Index Providers**
+**全球指數提供商**
 
 ```
-THE BIG THREE INDEX PROVIDERS
+三大指數提供商
 ================================
 
-1. S&P Dow Jones Indices
-   - S&P 500, S&P MidCap 400, S&P SmallCap 600
-   - S&P Global 1200, S&P Developed, S&P Emerging
-   - Dow Jones Industrial Average
+1. 標普道瓊斯指數公司
+   - 標普500、標普中型股400、標普小型股600
+   - 標普全球1200、標普已發展市場、標普新興市場
+   - 道瓊斯工業平均指數
 
-2. MSCI (Morgan Stanley Capital International)
-   - MSCI World (23 developed markets)
-   - MSCI ACWI (All Country World Index: 23 dev + 24 EM)
-   - MSCI Emerging Markets (24 countries)
-   - Used by most international ETFs and mutual funds
+2. MSCI（摩根士丹利資本國際）
+   - MSCI世界指數（23個已發展市場）
+   - MSCI全球所有國家指數（23個已發展 + 24個新興市場）
+   - MSCI新興市場指數（24個國家）
+   - 被大多數國際交易所買賣基金及互惠基金採用
 
-3. FTSE Russell
-   - Russell 1000, Russell 2000, Russell 3000
-   - FTSE 100, FTSE All-World
-   - FTSE Global All Cap
+3. 富時羅素
+   - 羅素1000、羅素2000、羅素3000
+   - 富時100、富時全球所有股票指數
+   - 富時全球全市值指數
 
-MSCI WORLD vs. MSCI ACWI vs. MSCI EM:
+MSCI世界 vs. MSCI全球所有國家 vs. MSCI新興市場：
 
-    MSCI ACWI (All Country World Index)
+    MSCI全球所有國家指數
     +-------------------------------------------------+
     |                                                 |
-    |  MSCI World (Developed Markets)      ~88%       |
-    |  +-----------------------------------------+    |
-    |  |  U.S.            ~62%                   |    |
-    |  |  Japan            ~6%                   |    |
-    |  |  UK               ~4%                   |    |
-    |  |  Other Developed  ~16%                  |    |
-    |  +-----------------------------------------+    |
+    |  MSCI世界指數（已發展市場）          約88%      |
+    |  +-----------------------------------------+   |
+    |  |  美國              約62%               |   |
+    |  |  日本              約6%                |   |
+    |  |  英國              約4%                |   |
+    |  |  其他已發展市場    約16%               |   |
+    |  +-----------------------------------------+   |
     |                                                 |
-    |  MSCI Emerging Markets               ~12%       |
-    |  +-----------------------------------------+    |
-    |  |  China            ~3%                   |    |
-    |  |  India            ~2%                   |    |
-    |  |  Taiwan           ~2%                   |    |
-    |  |  Other EM         ~5%                   |    |
-    |  +-----------------------------------------+    |
+    |  MSCI新興市場指數                    約12%      |
+    |  +-----------------------------------------+   |
+    |  |  中國              約3%                |   |
+    |  |  印度              約2%                |   |
+    |  |  台灣              約2%                |   |
+    |  |  其他新興市場      約5%                |   |
+    |  +-----------------------------------------+   |
     |                                                 |
     +-------------------------------------------------+
 
-    Note: A "World" index (MSCI World, FTSE Developed)
-    does NOT include emerging markets despite the name.
+    注意：「世界」指數（MSCI世界指數、富時已發展市場）
+    儘管名稱如此，卻不包含新興市場。
 ```
 
 ---
 
-#### 9. Choosing the Right Benchmark for Your Portfolio
+#### 9. 為你的投資組合選擇合適的基準
 
 ```
-BENCHMARK SELECTION GUIDE
+基準選擇指南
 ============================
 
-Your Portfolio                  Appropriate Benchmark
+你的投資組合                    適合的基準
 --------------                  ---------------------
-U.S. large-cap stocks           S&P 500 or Russell 1000
-U.S. small-cap stocks           Russell 2000
-U.S. total market               Russell 3000 or Wilshire 5000
-International developed         MSCI EAFE or FTSE Developed ex-US
-Emerging markets                MSCI EM or FTSE Emerging
-Global all-cap                  MSCI ACWI or FTSE Global All Cap
-U.S. growth stocks              Russell 1000 Growth
-U.S. value stocks               Russell 1000 Value
-60/40 balanced portfolio        60% S&P 500 / 40% Bloomberg Agg
+美國大型股票                    標普500 或 羅素1000
+美國小型股票                    羅素2000
+美國全市場                      羅素3000 或 威爾遜5000
+國際已發展市場                  MSCI歐澳遠東指數 或 富時已發展市場（不含美國）
+新興市場                        MSCI新興市場 或 富時新興市場
+全球全市值                      MSCI全球所有國家 或 富時全球全市值
+美國成長股                      羅素1000成長股
+美國價值股                      羅素1000價值股
+六四均衡組合                    60% 標普500 / 40% 彭博綜合債券指數
 
-COMMON MISTAKE:
-Comparing a portfolio of small-cap value stocks
-to the S&P 500. If small caps are out of favor,
-you will look bad even if you are beating the
-correct benchmark (Russell 2000 Value).
+常見錯誤：
+把一個小型價值股投資組合拿來
+跟標普500比較。若小型股暫時失利，
+你的表現看起來很差，即使你跑贏了
+正確基準（羅素2000價值股）。
 
-The benchmark should match:
-1. Geographic exposure
-2. Market-cap range
-3. Style (growth vs. value)
-4. Asset class (equity, fixed income, multi-asset)
+基準應與以下項目匹配：
+1. 地域敞口
+2. 市值範圍
+3. 風格（成長股 vs. 價值股）
+4. 資產類別（股票、固定收益、多元資產）
 ```
 
 ---
 
-#### 10. Practical Implications for Index Fund Investors
+#### 10. 指數基金投資者的實務啟示
 
 ```
-WHAT INDEX FUND INVESTORS SHOULD KNOW
+指數基金投資者須知
 ========================================
 
-1. YOU ARE MAKING ACTIVE CHOICES
-   Choosing "the S&P 500" over "the total market" is an
-   active decision to exclude mid-caps, small-caps, and
-   micro-caps. Know what you own and what you do not.
+1. 你正在作出主動選擇
+   選擇「標普500」而非「全市場」，
+   是主動決定排除中型股、小型股及微型股。
+   了解你持有什麼，以及你沒有持有什麼。
 
-2. CONCENTRATION RISK IS REAL
-   Cap-weighted indexes become top-heavy over time. If
-   the top 7 stocks fall 30% but everything else is flat,
-   a cap-weighted S&P 500 fund can drop 10%+ while an
-   equal-weighted fund barely moves.
+2. 集中度風險是真實存在的
+   市值加權指數會隨時間而頭重腳輕。若
+   前7隻股票跌30%但其他股票持平，
+   市值加權的標普500基金可能下跌逾10%，
+   而等權重基金幾乎不受影響。
 
-3. EQUAL-WEIGHT HAS HIGHER COSTS
-   The RSP (S&P 500 Equal Weight ETF) has an expense
-   ratio of ~0.20% vs. ~0.03% for VOO (S&P 500 cap-
-   weighted). It also has higher turnover and potential
-   tax drag from frequent rebalancing.
+3. 等權重的成本較高
+   RSP（標普500等權重交易所買賣基金）的
+   費用比率約0.20%，相比之下，
+   VOO（標普500市值加權）約0.03%。
+   等權重亦有較高換手率及因頻繁再平衡
+   引起的潛在稅務拖累。
 
-4. THE INDEX PROVIDER MATTERS
-   S&P uses committee selection. Russell uses rules.
-   This creates different experiences around reconstitution
-   events. Russell's annual reconstitution causes massive
-   volume spikes in late June.
+4. 指數提供商的選擇至關重要
+   標普採用委員會選股，羅素採用規則化方法。
+   這在重組事件前後帶來截然不同的體驗。
+   羅素每年的重組在六月下旬造成龐大的
+   交易量飆升。
 
-5. INTERNATIONAL INDEX CHOICE MATTERS
-   MSCI and FTSE classify countries differently. South
-   Korea is "emerging" in MSCI but "developed" in FTSE.
-   If you mix ETFs from different providers, you may
-   have unintended gaps or overlaps.
+5. 國際指數選擇舉足輕重
+   MSCI和富時對國家的分類方式不同。
+   南韓在MSCI屬「新興市場」，
+   但在富時屬「已發展市場」。
+   若你混用不同提供商的交易所買賣基金，
+   可能出現意外的敞口缺口或重疊。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "The Dow Jones IS the market."**
+**誤解一：「道瓊斯指數就代表整個市場。」**
 
-Reality: The Dow tracks only 30 stocks using an outdated price-weighting methodology. It is a culturally significant but statistically poor representation of the U.S. market. The S&P 500 or Russell 3000 provides a much broader and more representative picture. The Dow persists in headlines primarily because of its 130-year history and name recognition, not because of its analytical superiority.
+現實：道指只追蹤30隻股票，採用過時的價格加權方法論。儘管在文化上具有重要意義，但在統計上，它對美國市場的代表性很差。標普500或羅素3000能提供更廣泛且更具代表性的市場圖像。道指之所以繼續出現在頭條新聞，主要是因為其長達130年的歷史及知名度，而非其分析上的優越性。
 
-**Misconception 2: "A higher index value means a more expensive market."**
+**誤解二：「較高的指數水平意味著市場估值較貴。」**
 
-Reality: The index level itself tells you nothing about valuation. The S&P 500 at 5,000 is not "more expensive" than the S&P 500 at 2,000 -- it depends entirely on how much the underlying companies are earning. If earnings doubled while the index doubled, valuations have not changed at all. To assess whether the market is expensive, you need to look at valuation metrics like P/E ratios, not index levels.
+現實：指數水平本身對估值毫無說明。標普500在5,000點並不比標普500在2,000點時「更貴」——這完全取決於相關公司的盈利水平。若盈利翻倍的同時指數也翻倍，估值實際上毫無變化。要評估市場是否偏貴，你需要參考市盈率等估值指標，而非指數水平。
 
-**Misconception 3: "An S&P 500 index fund is fully diversified."**
+**誤解三：「標普500指數基金已完全多元化。」**
 
-Reality: The S&P 500 excludes mid-cap, small-cap, and international stocks. Even within its own universe, cap-weighting can create significant concentration. A total market fund (Russell 3000 or Wilshire 5000) combined with international exposure provides much broader diversification than the S&P 500 alone.
+現實：標普500不包括中型股、小型股及國際股票。即使在其自身覆蓋的範圍內，市值加權也可能造成顯著的集中度問題。全市場基金（羅素3000或威爾遜5000）結合國際敞口，所提供的多元化程度遠比單一標普500廣泛。
 
-**Misconception 4: "All S&P 500 index funds are identical."**
+**誤解四：「所有標普500指數基金都完全相同。」**
 
-Reality: While all S&P 500 funds track the same index, they differ in expense ratios, tracking error, securities lending revenue, tax efficiency, and the timing of reconstitution trades. These small differences compound over decades. The difference between a 0.03% expense ratio and a 0.15% expense ratio over 30 years on a $100,000 investment at 10% annual returns is approximately $22,000.
+現實：雖然所有標普500基金追蹤同一指數，但它們在費用比率、追蹤誤差、證券借貸收入、稅務效率，以及重組交易的執行時機上各有差異。這些微小的差別日積月累，影響深遠。費用比率0.03%與0.15%之間的差距，在一個以每年10%回報增長的10萬美元投資組合上，30年間的累計差距約為2.2萬美元。
 
-**Misconception 5: "Price-weighted and cap-weighted indexes produce similar returns."**
+**誤解五：「價格加權和市值加權指數的回報相近。」**
 
-Reality: Over long periods, the difference between weighting methods can be substantial. Because the Dow is price-weighted and holds only 30 stocks, its returns frequently diverge from the S&P 500. In some years, the difference exceeds 5-10 percentage points. The weighting method is not a minor technicality -- it fundamentally determines the portfolio you own.
+現實：長期而言，不同加權方法所帶來的差異可能相當顯著。由於道指採用價格加權並只持有30隻股票，其回報往往與標普500有所出入。某些年份兩者的差距可超過5至10個百分點。加權方法並非小事——它從根本上決定了你所持有的投資組合。
 
-**Misconception 6: "When a stock is added to an index, it means the company is doing well."**
+**誤解六：「股票被納入指數意味著該公司表現良好。」**
 
-Reality: Addition to an index like the S&P 500 indicates that a company meets specific criteria (size, liquidity, profitability, domicile), not that it is a good investment. Some stocks are added near their peaks. Similarly, deletion does not necessarily mean the company is failing -- it might be due to a merger, privatization, or shift in index methodology.
-
----
-
-### d) Q&A
-
-**Q1: Why does the Dow still exist if it is such a flawed index?**
-
-A: Inertia, brand recognition, and a 130-year track record. The Dow was one of the first stock market indexes, and its daily movements have been reported in newspapers since the late 1800s. Despite its flaws, it has enormous cultural significance. Financial media continue to report it because audiences recognize it. Additionally, it does capture the general direction of the market most of the time -- it just does so with unnecessary distortions from price-weighting and its narrow 30-stock composition.
-
-**Q2: What happens to the Dow divisor when a stock splits?**
-
-A: When a Dow component does a stock split, the divisor is adjusted downward so that the index level does not change purely due to the split. For example, if a $300 stock does a 3-for-1 split, its price drops to $100. Without adjusting the divisor, the Dow would plunge even though no actual value was destroyed. The divisor is recalculated so the index value stays continuous. This is why the Dow divisor today is a small fraction (less than 1) rather than the original value of 30. Decades of splits and constituent changes have compounded these adjustments.
-
-**Q3: How does a stock get added to the S&P 500?**
-
-A: A committee at S&P Dow Jones Indices selects stocks based on several criteria: U.S. domicile, market capitalization above approximately $14.5 billion, positive earnings in the most recent quarter and over the trailing four quarters, adequate trading liquidity, and at least 50% public float. Meeting these criteria does not guarantee inclusion -- the committee uses judgment about sector representation and other qualitative factors. This subjectivity is both a strength (the committee can exclude companies with questionable earnings quality) and a weakness (it introduces human bias).
-
-**Q4: What is the "Russell Reconstitution" and why does it matter?**
-
-A: Every year in late June, FTSE Russell reconstitutes the Russell indexes based on market capitalizations measured on a specific "rank day" in May. Companies that have grown may move from the Russell 2000 (small-cap) to the Russell 1000 (large-cap), and vice versa. Because this happens on a single day with fixed rules, the trading volume on reconstitution day is astronomical -- often 2-3 times normal volume. Index funds must buy all new additions and sell all deletions at the close on that day. This creates predictable trading patterns that hedge funds actively exploit.
-
-**Q5: Should I invest in an equal-weighted index fund instead of a cap-weighted one?**
-
-A: It depends on your goals. Equal-weighted funds historically have slightly outperformed cap-weighted funds over very long periods due to their tilt toward smaller companies and their systematic rebalancing (selling high, buying low). However, they come with higher expense ratios, higher turnover, greater tax drag, and periods of significant underperformance -- particularly when mega-cap stocks are leading the market. For most investors, a cap-weighted total market fund at very low cost is the simplest and most tax-efficient choice. If you want small-cap exposure, adding a dedicated small-cap fund to a cap-weighted core may be more efficient than using equal-weighting.
-
-**Q6: What does "float-adjusted" mean and why should I care?**
-
-A: Float adjustment excludes shares that are not available for public trading -- insider holdings, government stakes, strategic cross-holdings, and restricted shares. Only freely tradable shares count toward the index weight. This matters because it aligns the index with investable reality. If a company has a $100 billion total market cap but half the shares are locked up by insiders, only $50 billion worth of stock can actually be bought by investors. Float adjustment prevents index funds from trying to buy shares that are not available.
-
-**Q7: How do country classifications affect my international investments?**
-
-A: MSCI and FTSE classify countries differently between "developed" and "emerging" markets. The most notable discrepancy is South Korea, which MSCI classifies as emerging but FTSE classifies as developed. If you use an MSCI-based developed markets ETF and an FTSE-based emerging markets ETF, you will have no exposure to South Korea at all. If you use both from the same provider, you will have the intended coverage. Always check which index provider your ETFs use.
-
-**Q8: Can I use index movements to time the market?**
-
-A: Index levels and short-term movements are very poor timing signals. Indexes hitting all-time highs is normal in a long-term upward trend -- the market spends a surprisingly large percentage of time near all-time highs. Trying to time entries and exits based on index levels typically leads to worse returns than simply staying invested. However, valuation measures derived from index data (like the Shiller CAPE ratio of the S&P 500) can provide useful context about long-term expected returns.
-
-**Q9: What is a "total return" index versus a "price" index?**
-
-A: A price index (like the commonly quoted S&P 500 level) only tracks the change in stock prices. A total return index also includes dividends reinvested. Over long periods, the difference is enormous. Including dividends, the S&P 500 has returned approximately 10% per year historically. Excluding dividends, the return is only about 7% per year. When evaluating your own performance, always compare against a total return benchmark. Most index funds aim to match the total return, not just the price return.
-
-**Q10: Why do some ETFs track the same index but have different returns?**
-
-A: Several factors cause tracking differences. Expense ratios are the most obvious -- a fund charging 0.10% will lag one charging 0.03% by 7 basis points. Securities lending revenue can offset some costs; large funds lend out shares to short sellers and earn income. Transaction costs from rebalancing and reconstitution trading affect returns. Cash drag occurs because funds hold a small cash buffer for redemptions, which slightly dilutes equity exposure. Sampling approaches (holding a representative subset rather than all 500 stocks) can cause both positive and negative tracking error. Over long periods, these small differences compound significantly.
+現實：被納入標普500等指數，代表公司符合特定標準（規模、流動性、盈利能力、公司註冊地），而非意味著它是一項好投資。有些股票在接近高位時才被納入指數。同樣地，被剔除也不一定意味著公司在走下坡——可能是由於合併、私有化，或指數方法論的調整。
 
 ---
 
-## YouTube Script
+### d) 問答
 
-[VISUAL: Animated intro with title "Week 9: Understanding Market Indexes"]
+**問題一：道指如此缺陷重重，為何仍然存在？**
 
-**Alex:** Welcome back everyone. Today we are going to pull back the curtain on something you hear about every single day but probably do not fully understand -- market indexes. The Dow is up, the S&P is down, the NASDAQ hit a record. What do all these numbers actually mean, and why should you care?
+答：慣性、品牌認知度，以及130年的追蹤記錄。道指是最早的股票市場指數之一，其每日走勢自19世紀末便一直見於報端。儘管有種種缺陷，它仍具有龐大的文化意義。財經媒體繼續報導它，是因為觀眾對它耳熟能詳。此外，公平地說，從長期角度來看，道指的走勢大致與更廣泛的市場同步——因為其30個成分股與標普500有大量重疊。只是它以不必要的噪音和扭曲來反映這種走勢而已。
 
-**Sam:** Honestly, I have always just assumed they all measure the same thing -- you know, how the stock market is doing. Are they really that different?
+**問題二：道指成分股進行股票分拆後，除數會如何變化？**
 
-**Alex:** They are very different, and understanding those differences is crucial. Let me ask you this -- if I told you "the Dow was up 1% today but the S&P 500 was down 0.5%," what would you think?
+答：當道指成分股進行股票分拆，除數會向下調整，使指數水平不會純粹因分拆而波動。例如，若一隻$300的股票進行3合1分拆，股價跌至$100。若不調整除數，即使實際並無任何價值遭到損毀，道指也會大幅下挫。除數經重新計算後，指數水平得以保持連貫性。這就是為何道指除數今天是一個小數（小於1），而非最初的30。數十年來的分拆及成分股更替已多次累積調整。
 
-**Sam:** I would be confused. How can the market be up and down at the same time?
+**問題三：一隻股票如何被納入標普500？**
 
-**Alex:** Exactly. And that confusion disappears once you understand what each index actually measures and how it is built. Think of indexes like recipes. The S&P 500 and the Dow share some of the same ingredients -- they both include Apple, Microsoft, and other big companies. But the recipes are different. Different quantities, different preparation methods, different results.
+答：標普道瓊斯指數公司的委員會根據以下幾項標準選定股票：在美國設立、市值高於約145億美元、最近一個季度及過去四個季度的合計盈利為正數、有充裕的交易流動性，以及至少50%的公眾持股比例。符合這些標準並不保證被納入——委員會會就板塊代表性及其他定性因素作出判斷。這種主觀性既是優點（委員會可排除盈利質素存疑的公司），也是弱點（它引入了人為偏見）。
 
-[VISUAL: Kitchen analogy showing two recipes side by side, same ingredients but different proportions, producing different dishes. Labels show "Dow Recipe: 30 ingredients, measure by price" and "S&P 500 Recipe: 500 ingredients, measure by size"]
+**問題四：什麼是「羅素重組」？為何它如此重要？**
 
-**Sam:** So what is the recipe for an index? What are the key design choices?
+答：每年六月下旬，富時羅素根據五月某個特定「排名日」所測量的市值，對羅素指數系列進行重組。規模已增長到足夠程度的公司可能從羅素2000（小型股）晉升至羅素1000（大型股），反之亦然。由於這一切都在同一天按固定規則進行，重組日的交易量極為驚人——往往是正常水平的兩至三倍。指數基金必須在當天收市時買入所有新增成分股、賣出所有被剔除的成分股。這就創造了可預測的交易規律，被對沖基金積極加以利用。
 
-**Alex:** Every index has three critical design decisions. First, which stocks to include -- the selection rules. Second, how much weight to give each stock -- the weighting method. And third, how and when to update the list -- the maintenance rules. Let us start with the weighting method because that is where the biggest differences lie.
+**問題五：我應該投資等權重指數基金，而非市值加權的嗎？**
 
-[VISUAL: Three pillars labeled "Selection," "Weighting," and "Maintenance" supporting a platform labeled "Market Index"]
+答：視乎你的目標而定。從非常長期的角度來看，等權重基金的歷史表現略優於市值加權基金，主要是因為其傾向較小型公司，並且系統性地進行再平衡（高賣低買）。然而，等權重基金費用比率較高、換手率較高、稅務拖累較大，且在超大型股引領市場時，往往會出現明顯的跑輸時期。對大多數投資者而言，以極低成本持有市值加權的全市場基金，是最簡單且最具稅務效益的選擇。如果你想要小型股敞口，相較於採用等權重策略，在市值加權的核心持倉基礎上加入一隻專注小型股的基金可能更為有效。
 
-**Sam:** Okay, what are the different weighting methods?
+**問題六：「自由流通量調整」是什麼意思？我為何需要關心？**
 
-**Alex:** There are three main ones: price-weighted, market-cap-weighted, and equal-weighted. Let me illustrate with a simple example. Imagine an index with just three stocks.
+答：自由流通量調整，即從計算中排除不可供公眾交易的股份——包括內部人士持股、政府持股、策略性交叉持股，以及受限制的股份。只有可自由交易的股份才計入指數權重。這點之所以重要，是因為它令指數與可投資的現實相符。若一家公司的總市值達1,000億美元，但一半股份由內部人士鎖定，投資者實際上只能買入500億美元的股份。自由流通量調整可防止指數基金試圖買入實際上無從取得的股份。
 
-[ANIMATION: animation/week09_index_construction.py - Animated comparison of three weighting methods using three hypothetical stocks. The animation shows three columns, each representing a different weighting approach. Stock A has a high price but medium market cap, Stock B has a medium price and small market cap, and Stock C has a low price but large market cap. The bars dynamically resize as the user watches, showing how the same three stocks produce completely different portfolio weights depending on the method chosen. The animation then shows a simulated day where Stock C rises 10% and illustrates how the index return differs across all three methods.]
+**問題七：國家分類如何影響我的國際投資？**
 
-**Alex:** Stock A trades at $300 per share, Stock B at $200, and Stock C at $100. In a price-weighted index, like the Dow, Stock A dominates simply because it has the highest share price. It gets 50% of the weight.
+答：MSCI和富時對「已發展市場」及「新興市場」的國家分類方式不同。最顯著的差異是南韓：MSCI將其劃為新興市場，但富時將其劃為已發展市場。若你使用以MSCI為基礎的已發展市場交易所買賣基金，並配以以富時為基礎的新興市場交易所買賣基金，你將完全沒有南韓的敞口——它從縫隙中溜走了。若你兩者均採用同一提供商，便能獲得預期的覆蓋。請務必確認你的國際交易所買賣基金使用的是同一指數提供商。
 
-**Sam:** Wait, so a stock gets more influence just because its price per share happens to be higher? That seems arbitrary.
+**問題八：我可以利用指數走勢來把握市場時機嗎？**
 
-**Alex:** It is arbitrary! And that is the fundamental flaw of price-weighting. A company's share price is largely a cosmetic choice. A $300 stock could easily be a $150 stock if the company did a 2-for-1 split. The company's actual value has not changed at all, but its influence in a price-weighted index just got cut in half.
+答：指數水平及短期走勢是非常不可靠的擇時信號。在長期向上的趨勢中，指數觸及歷史新高是正常現象——市場有相當長的時間是在接近歷史高位的水平度過的。試圖根據指數水平來決定進出時機，往往帶來比持續持有更差的回報。然而，從指數數據衍生的估值指標（例如標普500的席勒周期調整市盈率），可為長期預期回報提供有用的參考背景。
 
-**Sam:** So when a Dow stock splits, it immediately loses influence in the Dow?
+**問題九：「總回報」指數與「價格」指數有何分別？**
 
-**Alex:** Exactly. And the Dow has to adjust its divisor -- a special number it divides by -- to keep the index level from jumping around. The Dow divisor has been adjusted so many times over the decades that it is now less than 1. The original divisor was 30 -- just the number of stocks.
+答：價格指數（即通常報導的標普500水平）只追蹤股票價格的變化。總回報指數則包括股息的再投資。長期而言，兩者的差距極為顯著。包括股息在內，標普500的歷史年化回報約為10%。不計股息，回報僅約7%。評估自己的表現時，請務必與總回報基準作比較。大多數指數基金的目標是追蹤總回報，而非僅追蹤價格回報。
 
-[VISUAL: Timeline showing the Dow divisor from 1928 (value of 30) to present (value less than 1), with major adjustments labeled for stock splits and constituent changes]
+**問題十：為何有些交易所買賣基金追蹤同一指數，回報卻有所不同？**
 
-**Sam:** Okay, so price-weighting has problems. What about cap-weighting?
+答：多種因素導致追蹤差異。費用比率是最顯而易見的——收取0.10%的基金較收取0.03%的基金每年落後7個基點。證券借貸收入可抵銷部分成本；規模較大的基金將股份借出予沽空者，從中賺取收入。再平衡及重組交易的交易成本影響回報。現金拖累的出現，是因為基金持有少量現金以應付贖回，這略微稀釋了股票敞口。抽樣方法（持有具代表性的子集而非全部500隻股票）可能造成正面或負面的追蹤誤差。長期累積下來，這些微小差異的影響相當顯著。
 
-**Alex:** Market-cap weighting is what the S&P 500 and most modern indexes use. Instead of weighting by share price, you weight by total market value -- share price times the number of shares outstanding. So a trillion-dollar company gets ten times the weight of a hundred-billion-dollar company. This makes much more economic sense. The biggest companies should have the most influence because they represent the most economic activity.
+---
 
-**Sam:** That sounds more logical. Is there a downside?
+## YouTube腳本
 
-**Alex:** The big downside is concentration. When a handful of companies get extremely large, they dominate the index. In recent years, the top 10 stocks in the S&P 500 have represented over 30% of the entire index. So when someone says "I own an S&P 500 index fund for diversification," they should realize that almost a third of their money is in just 10 companies.
+[VISUAL: 動畫片頭，顯示標題「第九週：認識市場指數」]
 
-[VISUAL: Pie chart of S&P 500 showing the top 10 stocks as a large wedge, with the remaining 490 stocks divided into progressively smaller segments. Animated transition showing how this concentration has grown over the past 20 years.]
+**Horace：** 歡迎大家回來。今天我們要揭開一樣你每天都會聽到、但可能從未完全理解的東西——市場指數。道指升了、標普跌了、納指創新高。這些數字究竟代表什麼？你又為何需要在意？
 
-**Sam:** That is surprising. I always thought of the S&P 500 as this perfectly diversified portfolio of 500 companies.
+**Stella：** 老實說，我一直以為它們量度的都是同一件事——就是股票市場的整體走勢。它們真的差那麼多嗎？
 
-**Alex:** It is 500 companies, but it is not 500 equal positions. The bottom 300 stocks combined might make up less than 10% of the index. So really, the S&P 500 behaves more like a portfolio of 50 to 100 meaningful positions with 400 rounding errors.
+**Horace：** 差異非常大，而且理解這些差異至關重要。讓我問你——如果我告訴你「今天道指升了1%，但標普500跌了0.5%」，你會怎麼想？
 
-**Sam:** Harsh but fair. What about equal-weighting?
+**Stella：** 我會一頭霧水。市場怎麼可能同時升又跌？
 
-**Alex:** Equal-weighting is exactly what it sounds like. Every stock gets the same weight, regardless of its price or its market cap. In a 500-stock index, each stock is 0.2% of the portfolio. A $10 billion company has the same influence as a $3 trillion company.
+**Horace：** 正是。一旦你明白每個指數實際量度什麼、它是如何構建的，這種困惑便迎刃而解。把指數想像成食譜。標普500和道指共用一些相同的材料——它們都包含蘋果、微軟等大公司。但食譜不同：材料分量不同，烹調方法不同，做出來的菜式也不同。
 
-**Sam:** That seems more democratic. Does it perform better?
+[VISUAL: 廚房比喻，並排展示兩個食譜，相同材料但比例不同，做出兩道不同的菜。標籤顯示「道指食譜：30種材料，按價格量度」及「標普500食譜：500種材料，按規模量度」]
 
-**Alex:** Historically, yes -- over very long periods, the equal-weighted S&P 500 has modestly outperformed the cap-weighted version. But there are two important caveats. First, equal-weighting requires constant rebalancing. Every quarter, you have to sell your winners and buy your losers to get back to equal weights. That generates transaction costs and tax consequences. Second, it does not always outperform. When mega-cap stocks are on a tear, the cap-weighted version wins handily.
+**Stella：** 那指數的食譜是什麼？關鍵的設計選擇有哪些？
 
-[VISUAL: Performance chart comparing S&P 500 (cap-weighted) vs. S&P 500 Equal Weight (RSP) over 20 years, with shaded periods showing which method was winning during each phase]
+**Horace：** 每個指數都有三個關鍵的設計決策。第一，選股規則——納入哪些股票。第二，加權方法——給每隻股票多少比重。第三，維護規則——如何及何時更新名單。我們先從加權方法說起，因為這裡的差異最大。
 
-**Sam:** So there is no perfect weighting method.
+[VISUAL: 三根柱子，分別標註「選股」、「加權」及「維護」，支撐著一個標有「市場指數」的平台]
 
-**Alex:** No, there is not. Each has trade-offs. Let me summarize with a quick comparison.
+**Stella：** 好的，加權方法有哪幾種？
 
-[VISUAL: Three-column comparison table showing Price-Weighted, Cap-Weighted, and Equal-Weighted side by side, with rows for: what drives weight, concentration risk, rebalancing needs, turnover, bias, and famous examples]
+**Horace：** 主要有三種：價格加權、市值加權，以及等權重。讓我用一個簡單的例子說明。假設一個只有三隻股票的指數。
 
-**Sam:** Got it. Now let us talk about the actual indexes. Can you walk me through the big ones? Starting with the Dow?
+[ANIMATION: animation/week09_index_construction.py — 以三隻假設股票為例，動態比較三種加權方法。動畫展示三欄，各代表一種不同的加權方式。股票A股價高但市值中等，股票B股價中等但市值小，股票C股價低但市值大。用戶觀看時，柱狀圖動態調整大小，顯示同樣三隻股票在不同方法下如何產生截然不同的投資組合比重。動畫隨後模擬股票C升10%的情境，說明三種方法下的指數回報有何差異。]
 
-**Alex:** The Dow Jones Industrial Average was created in 1896. It tracks just 30 stocks and uses price-weighting. The stocks are hand-picked by a committee -- there is no formula for selection. It is one of the oldest and most recognized market indicators in the world, but from an analytical standpoint, it is probably the weakest of the major indexes.
+**Horace：** 股票A的股價是每股$300，股票B是$200，股票C是$100。在價格加權指數（例如道指）中，股票A僅因股價最高便佔主導地位，獲得50%的比重。
 
-**Sam:** If it is so flawed, why does everyone still talk about it?
+**Stella：** 等等，一隻股票只因為每股價格碰巧較高，就獲得更大影響力？這不是很隨意嗎？
 
-**Alex:** Tradition and brand recognition. "The Dow was up 300 points" has been a headline for over a century. Financial media keep reporting it because audiences recognize it. And to be fair, over the very long term, the Dow roughly tracks the broader market because its 30 components are major companies that overlap significantly with the S&P 500. It just does so with more noise and distortion than necessary.
+**Horace：** 確實隨意！而這正是價格加權的根本缺陷。一家公司的股價在很大程度上只是一個形式上的選擇。若公司進行2合1分拆，$300的股票輕易變成$150的股票，公司的實際價值根本沒有改變，但它在價格加權指數中的影響力卻即時減半。
 
-[VISUAL: Side-by-side chart of Dow Jones and S&P 500 over 50 years showing similar general trajectory but notable divergences in certain years, with percentage difference highlighted]
+**Stella：** 所以當一隻道指成分股進行分拆，它在道指中的影響力就立即降低？
 
-**Sam:** What about the S&P 500? That seems like the gold standard.
+**Horace：** 正是。道指必須調整其除數——一個它用來作除法的特殊數字——以防止指數水平因此而大幅波動。道指的除數在過去數十年中已被調整了無數次，現在已小於1。最初的除數是30——就是成分股的數目。
 
-**Alex:** It is. The S&P 500 is the single most important benchmark in global finance. It covers about 500 large-cap U.S. stocks, representing roughly 80% of the total U.S. stock market value. It uses float-adjusted market-cap weighting, and its components are selected by a committee based on specific criteria -- size, profitability, liquidity, and public float.
+[VISUAL: 時間線，顯示道指除數從1928年（值為30）至今（值小於1）的變化，並標記因股票分拆及成分股更替而作出的主要調整]
 
-**Sam:** What does float-adjusted mean?
+**Stella：** 好的，所以價格加權有問題。市值加權又如何？
 
-**Alex:** Great question. Float adjustment means the index only counts shares that are actually available for public trading. If a company has a billion shares outstanding but the founder holds 300 million of them, only 700 million count toward the index weight. This makes sense because index funds cannot buy shares that are locked up by insiders. The weight should reflect what is actually investable.
+**Horace：** 市值加權是標普500及大多數現代指數所採用的方法。它不以股價加權，而是以總市值加權——即股價乘以已發行股數。因此，一家萬億美元的公司，其比重是一家千億美元公司的十倍。這在經濟邏輯上更加合理。規模最大的公司代表最多的經濟活動，理應具有最大影響力。
 
-[VISUAL: Diagram of a company's shares showing Total Shares Outstanding as a full circle, with insider holdings, government holdings, and restricted shares carved out, leaving the "free float" portion. An arrow shows this float being used for index weight calculation.]
+**Stella：** 聽起來更有道理。有什麼缺點嗎？
 
-**Sam:** And the NASDAQ?
+**Horace：** 最大的缺點是集中度。當少數幾家公司規模極為龐大，它們便主宰了整個指數。近年來，標普500中排名前十的股票已佔整個指數超過30%的比重。所以當有人說「我持有標普500指數基金，作為分散投資」，他們應該意識到，自己近三分一的資金其實只集中在10隻股票上。
 
-**Alex:** You need to distinguish between the NASDAQ Composite and the NASDAQ-100. The NASDAQ Composite includes all 3,000-plus stocks listed on the NASDAQ exchange. The NASDAQ-100, which is what the famous QQQ ETF tracks, includes only the 100 largest non-financial companies on the exchange. Because so many large technology companies are listed on NASDAQ, the NASDAQ-100 has a very heavy technology tilt -- often 50% or more of its weight is in tech stocks.
+[VISUAL: 標普500的餅圖，顯示前10隻股票佔據一個龐大的份額，其餘490隻股票被分割成越來越小的部分。動態展示過去20年間這種集中度如何持續擴大。]
 
-**Sam:** So when people say "the NASDAQ was up 2%," they are basically saying tech stocks did well?
+**Stella：** 這真令人驚訝。我一直以為標普500是一個由500家公司構成的完美分散投資組合。
 
-**Alex:** Usually, yes. Although technically the NASDAQ is an exchange, not a sector index, the concentration of tech mega-caps makes it behave like one. That is important to understand -- if you own a NASDAQ-100 ETF and also hold individual tech stocks, you may be much more concentrated in technology than you realize.
+**Horace：** 確實有500家公司，但並非500個等量持倉。排名最後的300隻股票合計可能佔指數不足10%。所以實際上，標普500的行為更像一個由50至100個有意義持倉組成的投資組合，加上400個微不足道的零頭。
 
-[VISUAL: NASDAQ-100 sector breakdown as a stacked bar chart, with technology dominating. A second bar shows a hypothetical portfolio combining QQQ with individual tech stocks, revealing extreme sector concentration.]
+**Stella：** 說法嚴苛，但頗為貼切。等權重又如何？
 
-**Sam:** Now, what about the Russell indexes? I hear about the Russell 2000 a lot.
+**Horace：** 等權重正如其名。每隻股票獲得相同的比重，無論股價或市值高低。在一個500隻股票的指數中，每隻股票各佔0.2%的投資組合。一家100億美元的公司與一家3萬億美元的公司具有相同影響力。
 
-**Alex:** The Russell family is unique because it is entirely rules-based -- no committee picks and chooses. The Russell 3000 is the broadest U.S. index, covering about 98% of the investable U.S. equity market. It splits into the Russell 1000 for the top thousand stocks by market cap and the Russell 2000 for the next two thousand. The Russell 2000 is THE benchmark for small-cap stocks.
+**Stella：** 這似乎更民主。它的表現更好嗎？
 
-**Sam:** What is special about how Russell updates its indexes?
+**Horace：** 從歷史上看，是的——在非常長的時期內，等權重的標普500表現略優於市值加權版本。但有兩個重要注意事項。第一，等權重需要持續的再平衡。每個季度，你必須賣出升幅最大的股票，買入表現落後的股票，以恢復等比重。這會產生交易成本和稅務影響。第二，它並非一直跑贏。當超大型股強勢上漲，市值加權版本便輕鬆勝出。
 
-**Alex:** The Russell indexes reconstitute once per year, in late June, based on market caps measured on a specific "rank day" in May. This is a massive event. Every stock that has grown enough crosses from the Russell 2000 to the Russell 1000, and every stock that has shrunk moves the other direction. Because this all happens on a single day with completely predictable rules, the trading volume is extraordinary.
+[VISUAL: 表現對比圖，比較標普500（市值加權）與標普500等權重（RSP）過去20年的表現，並以陰影標示各階段哪種方法佔優]
 
-[ANIMATION: animation/week09_index_construction.py - Animated calendar showing the Russell reconstitution timeline: rank day in May, preliminary lists published in June, final reconstitution at market close on the last Friday of June. Volume bars show the massive spike in trading on reconstitution day, with the dollar value of forced index fund trades labeled. Stocks are shown visually migrating from one index to another as size thresholds are crossed.]
+**Stella：** 所以沒有完美的加權方法。
 
-**Sam:** How big is the volume spike?
+**Horace：** 沒有，每種方法都有取捨。讓我用一個簡單比較來總結。
 
-**Alex:** On Russell reconstitution day, trading volume can be two to three times normal levels. Billions of dollars of forced buying and selling occur as index funds adjust. This creates predictable price patterns that hedge funds actively exploit. Small-cap stocks being promoted to the Russell 1000 often see price increases in the weeks leading up to reconstitution as traders front-run the forced buying.
+[VISUAL: 三欄對比表，並排展示價格加權、市值加權及等權重，各行涵蓋：權重決定因素、集中度風險、再平衡需求、換手率、偏向及著名例子]
 
-**Sam:** That seems like a disadvantage for index fund investors.
+**Stella：** 明白了。現在我們來談談實際的指數。能否帶我逐一認識主要指數？先從道指說起？
 
-**Alex:** It is, and it is called the "index inclusion tax." When index funds must buy a newly added stock, they are buying from traders who already bought at a lower price in anticipation. And when they must sell a deleted stock, they are selling to traders who will buy at a lower price. The index fund is systematically on the wrong side of these predictable trades. The cost is estimated at 20 to 80 basis points per year for some small-cap index funds.
+**Horace：** 道瓊斯工業平均指數於1896年創立，只追蹤30隻股票，採用價格加權。成分股由委員會人手挑選——選股沒有公式可言。它是世界上歷史最悠久、最廣為人知的市場指標之一，但從分析角度而言，它大概是主要指數中最薄弱的一個。
 
-[VISUAL: Price chart of a stock being added to the S&P 500 showing the announcement date, the run-up in price as traders front-run, the effective date spike, and the partial reversion afterward. Key price levels and the cost to index fund investors are labeled.]
+**Stella：** 既然如此缺陷重重，為何大家仍然談論它？
 
-**Sam:** Is there any way to reduce that cost?
+**Horace：** 傳統和品牌認知度。「道指升了300點」已是超過一個世紀的新聞標題了。財經媒體繼續報導它，是因為觀眾認識它。公平地說，從極長期來看，道指大致追蹤更廣泛的市場，因為其30個成分股都是主要公司，與標普500有大量重疊。只是它以更多噪音和扭曲來完成這件事。
 
-**Alex:** Some fund managers use patient trading strategies, spreading their reconstitution trades over several days instead of executing everything at the close on the effective date. Others use "reconstitution-aware" indexing that anticipates changes and trades gradually. Vanguard, for example, is known for being thoughtful about minimizing these costs.
+[VISUAL: 道指與標普500過去50年的並排圖表，顯示相近的整體走勢，但在特定年份有明顯背離，並以百分點差距加以標示]
 
-**Sam:** Let us talk about global indexes for a minute. If I want to invest internationally, what do I need to know?
+**Stella：** 標普500呢？那似乎是黃金標準。
 
-**Alex:** The two dominant providers for international indexes are MSCI and FTSE. MSCI World covers 23 developed markets. MSCI Emerging Markets covers 24 emerging market countries. MSCI ACWI combines both. FTSE has similar products. One important gotcha -- an index labeled "World" typically means developed markets only, which can be confusing.
+**Horace：** 確實如此。標普500是全球金融界最重要的單一基準，涵蓋約500隻美國大型股票，代表約80%的美國股票市場總市值。它採用自由流通量調整的市值加權，成分股由委員會根據特定標準選定——包括規模、盈利能力、流動性及公眾持股比例。
 
-**Sam:** So MSCI World does not include the whole world?
+**Stella：** 「自由流通量調整」是什麼意思？
 
-**Alex:** Correct. MSCI World excludes emerging markets. If you want true global coverage, you need MSCI ACWI -- All Country World Index -- which combines developed and emerging markets. Or you need to combine a developed markets fund with a separate emerging markets fund.
+**Horace：** 好問題。自由流通量調整，即指數只計算實際可供公眾交易的股份。若一家公司有10億股已發行股份，但創辦人持有3億股，則只有7億股計入指數比重。這是合理的，因為指數基金無法買入被內部人士鎖定的股份。比重應反映真正可投資的部分。
 
-[VISUAL: Nested box diagram showing MSCI ACWI as the outer box containing MSCI World (developed) and MSCI Emerging Markets. Country flags are placed in each box with approximate weights. A callout points to South Korea, which appears in MSCI EM but FTSE Developed.]
+[VISUAL: 圖表顯示一家公司股份的組成，以完整圓圈代表已發行股份總數，再從中劃出內部人士持股、政府持股及受限制股份，留下「自由流通股份」的部分。一個箭頭顯示此自由流通量被用於計算指數比重。]
 
-**Sam:** You mentioned something about South Korea and a classification discrepancy?
+**Stella：** 那納斯達克呢？
 
-**Alex:** Yes, this is a real-world gotcha. MSCI classifies South Korea as an emerging market. FTSE classifies it as a developed market. If you buy, say, an MSCI-based developed markets ETF and pair it with an FTSE-based emerging markets ETF, you will have zero exposure to South Korea -- it falls through the cracks. Always check that your international ETFs use the same index provider, or at least verify that you are not creating unintended gaps.
+**Horace：** 你需要區分納斯達克綜合指數和納斯達克100。納斯達克綜合指數包含在納斯達克交易所上市的逾3,000隻股票。納斯達克100（即著名的QQQ交易所買賣基金所追蹤的指數）只包含該交易所規模最大的100家非金融公司。由於眾多大型科技公司在納斯達克上市，納斯達克100對科技股的傾斜非常顯著——往往有50%甚至更高比例的比重落在科技股上。
 
-**Sam:** That is something I never would have thought to check.
+**Stella：** 所以當人們說「納斯達克升了2%」，基本上等於說科技股表現良好？
 
-**Alex:** It is the kind of detail that only matters until you realize your portfolio has been underweight one of the largest economies in Asia for years. The fix is simple -- just use ETFs from the same provider family.
+**Horace：** 通常是這樣。雖然從技術上說，納斯達克是一個交易所，而非一個板塊指數，但超大型科技公司的集中效應，使它的行為實際上等同於一個科技板塊指數。這點很重要——若你持有納斯達克100的交易所買賣基金，同時又直接持有個別科技股，你在科技板塊上的集中度可能遠超你的想像。
 
-**Sam:** Okay, let us talk about choosing benchmarks. How do I know which index to compare my portfolio against?
+[VISUAL: 堆疊柱狀圖顯示納斯達克100的板塊分布，科技板塊佔壓倒性比例。第二個柱狀圖顯示一個假設的投資組合，將QQQ與個別科技股結合，揭示極度的板塊集中。]
 
-**Alex:** The benchmark should match your portfolio across four dimensions: geography, market cap, style, and asset class. If you own U.S. large-cap stocks, benchmark against the S&P 500 or Russell 1000. If you own U.S. small-cap stocks, use the Russell 2000. If you own international developed markets, use MSCI EAFE or FTSE Developed ex-US.
+**Stella：** 現在說說羅素指數吧。我經常聽到羅素2000。
 
-**Sam:** What happens if you pick the wrong benchmark?
+**Horace：** 羅素系列的獨特之處在於它完全以規則為本——沒有委員會的主觀判斷。羅素3000是最廣泛的美國指數，涵蓋約98%的美國可投資股票市場。它分為羅素1000（按市值排名前1,000隻股票）和羅素2000（次2,000隻股票）。羅素2000是小型股的核心基準。
 
-**Alex:** You get a distorted picture of your performance. Imagine you built a portfolio of small-cap value stocks in a year when large-cap growth stocks dominated the market. Against the S&P 500, you might look terrible -- maybe you returned 8% while the S&P returned 25%. But against the Russell 2000 Value, which returned 5%, you actually outperformed by 3 percentage points. The right benchmark reveals your actual skill; the wrong benchmark creates an illusion in either direction.
+**Stella：** 羅素更新指數的方式有什麼特別之處？
 
-[VISUAL: Bar chart showing the same portfolio return (8%) compared against three different benchmarks -- S&P 500 (25%), Russell 2000 (10%), and Russell 2000 Value (5%) -- showing how the portfolio looks bad, okay, or great depending on benchmark choice]
+**Horace：** 羅素指數每年重組一次，在六月下旬，以五月某個特定「排名日」的市值為基準進行。這是一個重大事件。規模增長足夠的股票從羅素2000晉升至羅素1000，規模縮水的股票則反向移動。由於一切都在同一天按完全可預測的規則發生，交易量之龐大令人咋舌。
 
-**Sam:** So benchmark selection is not just an academic exercise -- it actually changes how you evaluate yourself.
+[ANIMATION: animation/week09_index_construction.py — 動態日曆展示羅素重組時間線：五月的排名日、六月公布初步名單、最後在六月最後一個星期五收市時完成重組。交易量柱狀圖顯示重組日的龐大交易量飆升，並標示指數基金被迫交易的美元金額。以視覺化方式展示股票因越過規模門檻而在不同指數之間移動。]
 
-**Alex:** Exactly. And it changes your behavior. If you benchmark against the wrong index and feel like you are underperforming, you might abandon a perfectly good strategy out of frustration. That is one of the most expensive mistakes an investor can make.
+**Stella：** 交易量飆升幅度有多大？
 
-**Sam:** Let me ask about something practical. When I buy an S&P 500 index fund, am I really getting the same returns as the S&P 500?
+**Horace：** 在羅素重組日，交易量可達正常水平的兩至三倍。數十億美元的強制性買賣在指數基金調整持倉時湧現。這創造了可預測的價格走勢，被對沖基金積極加以利用。在重組前數週，即將晉升至羅素1000的小型股往往因交易者提前佈局而股價上漲。
 
-**Alex:** Very close, but not identical. The fund has an expense ratio -- the annual fee -- that drags on returns. Even at 0.03%, which is what the cheapest S&P 500 funds charge, that is money you do not get. Beyond that, there is tracking error from cash drag -- the fund holds a tiny bit of cash for redemptions. There is also the reconstitution cost we discussed. And there is the timing of reconstitution trades -- the fund may not execute at exactly the same prices the index calculation assumes.
+**Stella：** 這對指數基金投資者來說似乎是個劣勢。
 
-**Sam:** How much do all those factors add up to?
+**Horace：** 確實，這被稱為「指數納入稅」。當指數基金必須買入一隻新增的股票，它們是從已在較低價格提前買入的交易者手中購買。當它們必須賣出被剔除的股票，它們是向將以更低價格買入的交易者出售。指數基金系統性地處於這些可預測交易的不利一方。據估計，部分小型股指數基金每年因此損失的成本達20至80個基點。
 
-**Alex:** For the best S&P 500 funds, total tracking difference is often less than 5 basis points -- so $50 per $100,000 invested per year. For less efficient funds or more exotic indexes, it can be much larger. This is why comparing expense ratios alone is not sufficient. You should also look at the fund's tracking difference -- the gap between the fund's actual return and the index's return -- over multiple years.
+[VISUAL: 一隻被納入標普500的股票價格走勢圖，顯示公告日、交易者搶先部署期間的股價上升、生效日的最後一波漲升，以及其後的部分回落。標示關鍵價格水平及指數基金投資者所承擔的成本。]
 
-[VISUAL: Chart showing the cumulative cost of tracking difference over 30 years for three hypothetical funds tracking the same index: Fund A (0.03% tracking difference), Fund B (0.10%), and Fund C (0.25%). The compounding effect over decades turns small differences into meaningful dollar amounts.]
+**Stella：** 有辦法減少這種成本嗎？
 
-**Sam:** One more question -- what is the difference between a price index and a total return index?
+**Horace：** 部分基金管理人採用耐心交易策略，將重組交易分攤到數天執行，而非在生效日收市時一次性完成。其他人則採用「重組預判」式指數投資，提前預期變動並逐步交易。例如，先鋒（Vanguard）便以善用心思來盡量降低這些成本而著稱。
 
-**Alex:** This is critical and most people do not realize it. The S&P 500 level you see quoted on the news -- 5,000, 5,200, whatever -- is the price index. It only tracks stock price changes. But stocks also pay dividends. The total return index reinvests those dividends, and over long periods, the difference is enormous. Historically, dividends have contributed about 2 to 3 percentage points of annual return. Over 30 years, reinvested dividends can account for more than half of your total wealth accumulation.
+**Stella：** 讓我們談談全球指數。如果我想作國際投資，需要了解什麼？
 
-**Sam:** So when I compare my portfolio return to "the S&P 500," I should make sure I am comparing to the total return version?
+**Horace：** 國際指數的兩大主要提供商是MSCI和富時。MSCI世界指數涵蓋23個已發展市場；MSCI新興市場指數涵蓋24個新興市場國家；MSCI全球所有國家指數將兩者合而為一。富時有類似的產品線。有一個重要的陷阱——標有「世界」的指數，通常只代表已發展市場，這點容易令人混淆。
 
-**Alex:** Absolutely. If your index fund returned 10% and you compare it to the price-only S&P 500 return of 7.5%, you might think you crushed the index. But really, you just matched it -- the difference was dividends. Always benchmark against total return.
+**Stella：** 所以MSCI世界指數並不包含全世界？
 
-[VISUAL: Two line charts growing from the same starting point -- one labeled "S&P 500 Price Return" and one labeled "S&P 500 Total Return (with dividends)." The gap between them widens dramatically over 30 years, with the total return line ending roughly 2x higher.]
+**Horace：** 正確。MSCI世界指數不包括新興市場。如果你想要真正的全球覆蓋，你需要MSCI全球所有國家指數——它將已發展市場和新興市場合而為一。或者你需要將一個已發展市場基金與一個獨立的新興市場基金結合使用。
 
-**Sam:** That gap is striking. All right, let us do our summary. Give me the key takeaways from today.
+[VISUAL: 嵌套方框圖，以外框代表MSCI全球所有國家指數，內含MSCI世界指數（已發展市場）和MSCI新興市場指數。各國國旗按大致比重放置在相應的方框內。一個標注指向南韓，顯示它出現在MSCI新興市場，但在富時已發展市場中。]
 
-**Alex:** Three things to remember. First, the weighting method is the single most important design choice in an index. Price-weighted, cap-weighted, and equal-weighted produce meaningfully different portfolios and returns from the same set of stocks. Know what method your index fund uses and understand its biases.
+**Stella：** 你剛才提到南韓分類存在差異？
 
-**Sam:** Second?
+**Horace：** 是的，這是一個現實中的陷阱。MSCI將南韓歸類為新興市場，富時則將其歸類為已發展市場。如果你買入一隻以MSCI為基礎的已發展市場交易所買賣基金，再配一隻以富時為基礎的新興市場交易所買賣基金，你對南韓的敞口將是零——它從兩者的縫隙中溜走了。解決方法很簡單——確保你的國際交易所買賣基金使用同一個提供商系列。
 
-**Alex:** Cap-weighted indexes, which are by far the most popular, have an inherent concentration risk. A small number of mega-cap stocks can dominate the index. That is not necessarily bad, but you should own that risk consciously, not by accident.
+**Stella：** 這種細節我從來不會想到要核查。
 
-**Sam:** And third?
+**Horace：** 正是這種細節，等到你意識到自己的投資組合對亞洲最大經濟體之一低配了多年，才恍然大悟。解決方法不複雜——使用同一家提供商的系列產品便是了。
 
-**Alex:** Index reconstitution and rebalancing create predictable trading patterns that impose costs on index fund investors. These costs are generally small for large-cap indexes like the S&P 500 but can be meaningful for small-cap indexes. Understanding these mechanics helps you choose better funds and set more realistic return expectations.
+**Stella：** 好，我們來談談選擇基準。我怎樣才知道應以哪個指數來比較我的投資組合？
 
-[VISUAL: Summary card with three key takeaways. A preview graphic for next week's lesson on economic cycles shows a sine wave with labels for expansion, peak, contraction, and trough.]
+**Horace：** 基準應在四個維度上與你的投資組合匹配：地域、市值、風格，以及資產類別。若你持有美國大型股，就以標普500或羅素1000為基準。若你持有美國小型股，就用羅素2000。若你持有國際已發展市場，就用MSCI歐澳遠東指數或富時已發展市場（不含美國）。
 
-**Sam:** This was really eye-opening. I never realized there was so much going on under the hood of something as simple as an index fund.
+**Stella：** 選錯基準會怎樣？
 
-**Alex:** That is the thing -- index funds are simple to own but not simple in their construction. The more you understand the machinery, the better decisions you will make. Next week, we are diving into economic cycles -- how the economy moves through expansion, peak, contraction, and trough, and what that means for your portfolio. See you then.
+**Horace：** 你會對自己的表現產生扭曲的看法。想像你建立了一個由小型價值股組成的投資組合，而在那一年，大型成長股主導了市場。與標普500相比，你的表現可能很糟糕——你的回報或許是8%，而標普500是25%。但與同期回報5%的羅素2000價值股指數相比，你實際上跑贏了3個百分點。選對基準才能真實反映你的能力；選錯基準只會在任何一個方向製造幻覺。
 
-**Sam:** Can not wait. Thanks everyone for watching!
+[VISUAL: 柱狀圖顯示同一個投資組合的回報（8%），與三個不同基準作比較——標普500（25%）、羅素2000（10%）及羅素2000價值股（5%）——說明同一個投資組合在不同基準下看起來很差、尚可，或非常出色]
 
-[VISUAL: End screen with subscribe button and links to previous lessons]
+**Stella：** 所以選擇基準並非純粹是學術討論——它實際上改變了你如何評估自己。
+
+**Horace：** 完全正確。它也改變你的行為。若你以錯誤的指數為基準，感覺自己在跑輸，你可能因沮喪而放棄一個本來完全沒問題的策略。這是投資者可以犯的最昂貴的錯誤之一。
+
+**Stella：** 讓我問一個實際問題。當我買入標普500指數基金，我真的能獲得與標普500完全相同的回報嗎？
+
+**Horace：** 非常接近，但並不完全相同。基金的費用比率——年費——會對回報造成拖累。即使是最便宜的標普500基金收取的0.03%，也是你拿不到的錢。除此之外，還有現金拖累帶來的追蹤誤差——基金持有少量現金以應付贖回。還有我們剛才提到的重組成本。此外還有重組交易的執行時機——基金可能無法以指數計算所假設的完全相同價格完成交易。
+
+**Stella：** 這些因素加起來有多少？
+
+**Horace：** 對於最優秀的標普500基金，總追蹤差異往往低於5個基點——即每投資10萬美元，每年約損失50美元。對於效率較低的基金或更複雜的指數，差距可能大得多。這就是為何單純比較費用比率並不足夠。你還應該查看基金的追蹤差異——基金實際回報與指數回報之間的差距——跨越多年的數據。
+
+[VISUAL: 圖表顯示三個假設基金在追蹤同一指數30年後的累計成本差異：基金A（追蹤差異0.03%）、基金B（0.10%）及基金C（0.25%）。複利效應將多年來的微小差異轉化為顯著的金額差距。]
+
+**Stella：** 最後一個問題——價格指數和總回報指數有什麼分別？
+
+**Horace：** 這點至關重要，但大多數人都沒有意識到。你在新聞上看到的標普500水平——5,000點、5,200點，諸如此類——是價格指數，它只追蹤股票價格的變化。但股票還派發股息。總回報指數將這些股息再投資，而長期而言，兩者的差距極為驚人。歷史上，股息貢獻了每年約2至3個百分點的回報。30年下來，再投資的股息可能佔你總財富積累的一半以上。
+
+**Stella：** 所以當我把自己的投資組合回報與「標普500」相比時，應確保對比的是總回報版本？
+
+**Horace：** 絕對如此。如果你的指數基金回報是10%，而你拿來與標普500的價格回報7.5%相比，你可能以為自己大幅跑贏指數。但實際上你只是與它持平——差異來自股息。永遠以總回報為基準。
+
+[VISUAL: 兩條折線從同一起點出發——一條標為「標普500價格回報」，另一條標為「標普500總回報（含股息）」。兩者之間的差距在30年間急劇擴大，總回報那條線最終約比前者高出一倍。]
+
+**Stella：** 這個差距真的非常驚人。好，我們來做總結。告訴我今天的重點要點。
+
+**Horace：** 記住三件事。第一，加權方法是指數設計中最重要的選擇。價格加權、市值加權及等權重，從同一組股票中產生截然不同的投資組合和回報。了解你的指數基金採用哪種方法，以及其偏向何方。
+
+**Stella：** 第二呢？
+
+**Horace：** 市值加權指數是目前最普遍的，但它有固有的集中度風險。少數超大型股票可能主宰整個指數。這未必是壞事，但你應該有意識地承受這種風險，而非在不知情的情況下接受它。
+
+**Stella：** 第三呢？
+
+**Horace：** 指數重組和再平衡會產生可預測的交易規律，對指數基金投資者造成成本。這些成本對於大型股指數（如標普500）通常較小，但對小型股指數可能相當可觀。了解這些機制，有助你選擇更好的基金，並對回報設定更切實際的預期。
+
+[VISUAL: 總結卡片，列出三個重要要點。下週課程關於經濟周期的預告圖，以一條正弦曲線展示擴張、頂峰、收縮及谷底。]
+
+**Stella：** 今天真的大開眼界。我從未意識到指數基金這麼簡單的東西，背後竟然有這麼多學問。
+
+**Horace：** 正是這樣——指數基金持有起來簡單，但其構建絕非簡單。你對這套機制了解得越深入，你的投資決策就會越明智。下週，我們要深入探討經濟周期——經濟如何經歷擴張、頂峰、收縮和谷底，以及這對你的投資組合意味著什麼。下週見。
+
+**Stella：** 等不及了！感謝大家收看！
+
+[VISUAL: 結尾畫面，附訂閱按鈕及連結至往期課程]
 
 ---

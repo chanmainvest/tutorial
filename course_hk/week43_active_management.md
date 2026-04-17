@@ -1,1031 +1,1011 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 43: Active Portfolio Management
+# 第43週：主動投資組合管理
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-### a) Why This Is Important
+### a) 為何此課題至關重要
 
-Active management -- the attempt to outperform a benchmark through security selection, factor timing, or tactical allocation -- is the most debated topic in finance. Trillions of dollars in fees are at stake. The active management industry collects over $100 billion per year in fees from investors who believe their managers can beat the market. Understanding the tools for evaluating active management is critical for every investor, whether you manage your own money or hire someone to do it.
+主動管理——即試圖透過選股、因子擇時或戰術性資產配置跑贏基準指數——是金融界爭議最大的課題。當中牽涉的費用高達數萬億美元。主動管理行業每年向相信其基金經理能跑贏市場的投資者收取逾1,000億美元的費用。無論你是自己打理資金，還是委託他人代勞，掌握評估主動管理的工具，對每位投資者而言都至關重要。
 
-Understanding active management metrics is critical because:
+理解主動管理指標之所以重要，原因如下：
 
-- **You need to know if your manager (or you) are adding value**: Beating the market in a single year proves nothing. A monkey throwing darts at a stock page will beat the market roughly half the time. The metrics in this lesson -- alpha, information ratio, active share -- distinguish genuine skill from luck over meaningful time periods.
-- **Most active managers underperform after fees**: The SPIVA (S&P Indices Versus Active) scorecard consistently shows that 80-90% of active large-cap managers underperform the S&P 500 over 15-year periods. If you are paying for active management, you need tools to evaluate whether your manager is in the skilled minority or the underperforming majority.
-- **Understanding performance attribution reveals whether outperformance is genuine**: A manager who beat the benchmark by 3% might have done so through brilliant stock picking, or by simply overweighting a sector that happened to do well. Performance attribution decomposes returns into allocation decisions and selection decisions, revealing the true source of performance.
-- **The Fundamental Law of Active Management connects skill, breadth, and performance**: This framework helps you understand why some strategies have higher potential than others, and why adding more independent bets can be more valuable than increasing the accuracy of each bet.
-- **Active share predicts future performance better than past performance does**: Research shows that managers with truly differentiated portfolios (high active share) have a better chance of outperforming than closet indexers who charge active fees for index-like portfolios. Knowing how to measure active share protects you from paying fees for nothing.
+- **你需要了解你的基金經理（或你自己）是否在創造價值**：在單一年份跑贏市場並不能說明任何問題。一隻猴子隨機向股票版面擲飛鏢，約有一半機率跑贏市場。本課程介紹的指標——阿爾法、資訊比率、主動份額——能在具意義的時間跨度內區分真實技巧與運氣。
+- **大多數主動基金經理在扣除費用後跑輸市場**：SPIVA（標普指數對比主動管理）計分卡的數據一貫顯示，在15年期間內，80至90%的主動大型股基金經理跑輸標普500指數。若你正在支付主動管理費用，你需要工具來評估你的基金經理究竟屬於技術過人的少數，還是跑輸市場的多數。
+- **績效歸因分析揭示超額表現是否真實**：一位跑贏基準指數3%的基金經理，可能是憑藉出色的選股能力，也可能僅僅是因為增持了某個恰好表現出色的板塊。績效歸因將回報分解為配置決策和選股決策，從而揭示業績的真正來源。
+- **主動管理基本定律將技巧、廣度與業績連繫起來**：這個框架有助你理解為何某些策略具備更高潛力，以及為何增加更多獨立投注往往比提升每次投注的準確性更有價值。
+- **主動份額預測未來業績的能力優於過去業績**：研究顯示，持有真正具差異化投資組合的基金經理（高主動份額），比以接近指數的投資組合收取主動管理費用的「隱形指數」基金經理，有更大機會跑贏市場。掌握主動份額的計算方法，可保護你免於為毫無價值的服務支付費用。
 
-This lesson will teach you the complete toolkit for evaluating active management: alpha, beta, tracking error, information ratio, active share, the Fundamental Law of Active Management, and multi-factor performance attribution.
+本課程將傳授評估主動管理的完整工具：阿爾法、貝塔、追蹤誤差、資訊比率、主動份額、主動管理基本定律，以及多因子績效歸因。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. Alpha and Beta: The Foundation
+#### 1. 阿爾法與貝塔：基礎概念
 
-Alpha and beta are the two most fundamental concepts in active management evaluation. Beta measures market exposure. Alpha measures everything else -- the value added (or destroyed) by active decisions.
-
-```
-ALPHA AND BETA: DEFINITIONS
-
-The Capital Asset Pricing Model (CAPM):
-  E(Rp) = Rf + Beta x (Rm - Rf) + Alpha
-
-Where:
-  E(Rp) = Expected portfolio return
-  Rf    = Risk-free rate
-  Beta  = Sensitivity to market returns
-  Rm    = Market return
-  Alpha = Excess return not explained by market exposure
-
-BETA: How much does the portfolio move with the market?
-  Beta = 1.0: Moves exactly with the market
-  Beta = 1.2: Moves 20% more than the market
-  Beta = 0.8: Moves 20% less than the market
-  Beta = 0.0: Unrelated to market movement
-  
-ALPHA: What return is left after accounting for beta?
-  Alpha > 0: Manager added value beyond market exposure
-  Alpha = 0: Manager's return is fully explained by beta
-  Alpha < 0: Manager destroyed value relative to risk taken
-
-EXAMPLE:
-  Portfolio return:     +12%
-  Risk-free rate:       4%
-  Market return:        +10%
-  Portfolio beta:       1.2
-
-  Expected return = 4% + 1.2 x (10% - 4%) = 11.2%
-  Alpha = 12% - 11.2% = +0.8%
-
-  The portfolio returned 12%, but 11.2% was explained
-  by market exposure (beta of 1.2). Only 0.8% was
-  genuine value-added -- alpha.
-```
+阿爾法與貝塔是主動管理評估中最基本的兩個概念。貝塔衡量市場敞口；阿爾法則衡量其他一切——即主動決策所創造（或摧毀）的價值。
 
 ```
-ALPHA INTERPRETATION: CRITICAL NUANCES
+阿爾法與貝塔：定義
 
-IS ALPHA STATISTICALLY SIGNIFICANT?
-  
-  A +0.8% alpha might sound good, but is it real or luck?
-  
-  To determine significance, you need:
-  - The t-statistic of alpha
-  - t = alpha / standard error of alpha
-  - t > 2.0 is statistically significant at 95% confidence
-  
-  ROUGH RULE OF THUMB:
+資本資產定價模型（CAPM）：
+  E(Rp) = Rf + 貝塔 x (Rm - Rf) + 阿爾法
+
+其中：
+  E(Rp) = 投資組合預期回報
+  Rf    = 無風險利率
+  貝塔  = 對市場回報的敏感度
+  Rm    = 市場回報
+  阿爾法 = 市場敞口無法解釋的超額回報
+
+貝塔：投資組合隨市場波動的幅度？
+  貝塔 = 1.0：與市場完全同步波動
+  貝塔 = 1.2：波動幅度比市場多20%
+  貝塔 = 0.8：波動幅度比市場少20%
+  貝塔 = 0.0：與市場走勢無關
+
+阿爾法：扣除貝塔因素後的剩餘回報？
+  阿爾法 > 0：基金經理在市場敞口之外創造了價值
+  阿爾法 = 0：基金經理的回報完全由貝塔解釋
+  阿爾法 < 0：相對於所承擔的風險，基金經理摧毀了價值
+
+示例：
+  投資組合回報：    +12%
+  無風險利率：      4%
+  市場回報：        +10%
+  投資組合貝塔：    1.2
+
+  預期回報 = 4% + 1.2 x (10% - 4%) = 11.2%
+  阿爾法 = 12% - 11.2% = +0.8%
+
+  投資組合回報為12%，但其中11.2%由
+  市場敞口（貝塔1.2）所解釋。只有0.8%
+  是真正的附加價值——阿爾法。
+```
+
+```
+阿爾法解讀：關鍵細節
+
+阿爾法是否具統計顯著性？
+
+  +0.8%的阿爾法聽起來不錯，但它是真實的還是運氣？
+
+  要確定其顯著性，你需要：
+  - 阿爾法的t統計量
+  - t = 阿爾法 / 阿爾法的標準誤差
+  - t > 2.0 表示在95%置信水平下具統計顯著性
+
+  粗略估算法則：
   ┌─────────────────────────────────────────────────┐
-  │  To have a significant alpha at 95% confidence: │
+  │  要在95%置信水平下取得顯著阿爾法：             │
   │                                                 │
-  │  Annual alpha    Years of data needed           │
-  │  ───────────────────────────────────────────    │
-  │  1%              ~16 years                      │
-  │  2%              ~8 years                       │
-  │  3%              ~5 years                       │
-  │  5%              ~3 years                       │
+  │  年化阿爾法      所需數據年數                  │
+  │  ───────────────────────────────────────────   │
+  │  1%              約16年                         │
+  │  2%              約8年                          │
+  │  3%              約5年                          │
+  │  5%              約3年                          │
   │                                                 │
-  │  Most fund managers do not have 16 years of     │
-  │  data. This is why proving 1% annual alpha      │
-  │  is extraordinarily difficult statistically.    │
+  │  大多數基金經理沒有16年的數據。這正是為何        │
+  │  在統計上證明1%年化阿爾法極為困難。             │
   └─────────────────────────────────────────────────┘
 
-  IMPLICATION: Most observed alpha is consistent
-  with randomness. A manager with 3 years of 2%
-  annual alpha CANNOT be distinguished from luck.
-  This does not mean there is no skill -- it means
-  the evidence is insufficient to prove it.
+  含義：大多數觀察到的阿爾法與隨機性一致。
+  一位在3年內取得2%年化阿爾法的基金經理，
+  在統計上無法與純屬運氣加以區分。
+  這並不意味著不存在技巧——而是意味著
+  證據不足以加以證明。
 
-ALPHA IS NET-OF-FEES:
-  Gross alpha (before fees): +1.5%
-  Management fee:            -1.0%
-  Net alpha:                 +0.5%
-  
-  Many funds generate positive gross alpha but negative
-  net alpha. The manager has skill, but not enough to
-  overcome their fee. You, the investor, are worse off
-  than indexing.
+阿爾法以扣除費用後的數字計算：
+  扣費前總阿爾法：   +1.5%
+  管理費：           -1.0%
+  扣費後淨阿爾法：   +0.5%
+
+  許多基金產生正的總阿爾法，但淨阿爾法為負。
+  基金經理有技巧，但不足以抵銷費用。
+  作為投資者，你的結果比指數投資更差。
 ```
 
-#### 2. Tracking Error
+#### 2. 追蹤誤差
 
-Tracking error measures how much a portfolio's returns deviate from its benchmark. It is the standard deviation of the difference between portfolio returns and benchmark returns.
+追蹤誤差衡量投資組合回報偏離基準指數回報的程度。它是投資組合回報與基準指數回報之差的標準差。
 
 ```
-TRACKING ERROR: DEFINITION AND CALCULATION
+追蹤誤差：定義與計算
 
-Tracking Error (TE) = StdDev(Rp - Rb)
+追蹤誤差（TE）= StdDev(Rp - Rb)
 
-Where:
-  Rp = Portfolio return
-  Rb = Benchmark return
+其中：
+  Rp = 投資組合回報
+  Rb = 基準指數回報
 
-EXAMPLE: Monthly returns over 12 months
-  Month    Portfolio    Benchmark    Difference
+示例：12個月的月度回報
+  月份     投資組合    基準指數    差值
   ─────────────────────────────────────────────
-  Jan      +2.1%       +1.8%        +0.3%
-  Feb      -1.5%       -1.2%        -0.3%
-  Mar      +3.2%       +2.5%        +0.7%
-  Apr      +0.8%       +1.1%        -0.3%
-  May      -0.5%       -0.2%        -0.3%
-  Jun      +1.9%       +1.5%        +0.4%
-  Jul      +2.8%       +2.0%        +0.8%
-  Aug      -2.1%       -1.8%        -0.3%
-  Sep      +1.2%       +0.9%        +0.3%
-  Oct      +0.5%       +0.4%        +0.1%
-  Nov      +3.1%       +2.3%        +0.8%
-  Dec      +1.5%       +1.2%        +0.3%
+  1月      +2.1%       +1.8%        +0.3%
+  2月      -1.5%       -1.2%        -0.3%
+  3月      +3.2%       +2.5%        +0.7%
+  4月      +0.8%       +1.1%        -0.3%
+  5月      -0.5%       -0.2%        -0.3%
+  6月      +1.9%       +1.5%        +0.4%
+  7月      +2.8%       +2.0%        +0.8%
+  8月      -2.1%       -1.8%        -0.3%
+  9月      +1.2%       +0.9%        +0.3%
+  10月     +0.5%       +0.4%        +0.1%
+  11月     +3.1%       +2.3%        +0.8%
+  12月     +1.5%       +1.2%        +0.3%
   ─────────────────────────────────────────────
-  Average difference: +0.18% per month
-  StdDev of differences: 0.40% per month
-  Annualized TE: 0.40% x sqrt(12) = 1.39%
+  差值平均：每月+0.18%
+  差值標準差：每月0.40%
+  年化追蹤誤差：0.40% x sqrt(12) = 1.39%
 
-TRACKING ERROR INTERPRETATION:
+追蹤誤差解讀：
 
-  TE Range      Description            Portfolio Type
-  ──────────────────────────────────────────────────────
-  0%            Perfect index match    Index fund
-  0.1-0.5%     Near-index             Enhanced index
-  0.5-2%       Low active risk        Core active fund
-  2-5%         Moderate active risk   Typical active fund
-  5-10%        High active risk       Concentrated fund
-  10-15%       Very high active risk  Hedge fund / 
-                                      sector fund
-  > 15%        Extreme active risk    Highly concentrated
-                                      or leveraged
+  追蹤誤差範圍  描述              投資組合類型
+  ──────────────────────────────────────────────
+  0%            完全複製指數     指數基金
+  0.1-0.5%     接近指數         增強型指數
+  0.5-2%       低主動風險       核心主動基金
+  2-5%         中等主動風險     典型主動基金
+  5-10%        高主動風險       集中型基金
+  10-15%       極高主動風險     對沖基金／
+                                 板塊基金
+  > 15%        極端主動風險     高度集中
+                                 或高槓桿
 ```
 
 ```
-TRACKING ERROR: WHAT IT REVEALS
+追蹤誤差：所揭示的資訊
 
-TRACKING ERROR AS A RISK BUDGET FOR ACTIVE DECISIONS:
+追蹤誤差作為主動決策的風險預算：
 
-  Total portfolio risk = Benchmark risk + Active risk
-  
-  If benchmark volatility = 16%
-  and tracking error = 4%
-  
-  Portfolio volatility = approx sqrt(16^2 + 4^2)
-                       = approx 16.5%
-  
-  The active decisions add only 0.5% to total volatility
-  but can significantly impact returns (positively or
-  negatively).
+  投資組合總風險 = 基準指數風險 + 主動風險
 
-WHY TRACKING ERROR MATTERS:
+  若基準指數波動性 = 16%
+  且追蹤誤差 = 4%
 
-  High TE:
+  投資組合波動性 = 約 sqrt(16^2 + 4^2)
+                 = 約 16.5%
+
+  主動決策僅為總波動性增加0.5%，
+  但可對回報產生顯著影響（正面或負面）。
+
+追蹤誤差的重要性：
+
+  高追蹤誤差：
     ┌──────────────────────────────────────────────┐
-    │  Portfolio differs significantly from benchmark │
-    │  + Can generate large alpha (positive or negative)│
-    │  + Truly active management                       │
-    │  - Higher risk of large underperformance         │
-    │  - May not match benchmark in any given period   │
+    │  投資組合與基準指數顯著不同                     │
+    │  + 可產生大幅阿爾法（正面或負面）               │
+    │  + 真正的主動管理                               │
+    │  - 大幅跑輸的風險較高                           │
+    │  - 任何給定時期或許無法貼近基準指數             │
     └──────────────────────────────────────────────┘
 
-  Low TE:
+  低追蹤誤差：
     ┌──────────────────────────────────────────────┐
-    │  Portfolio closely tracks benchmark              │
-    │  + Returns predictably near benchmark            │
-    │  + Low risk of large underperformance            │
-    │  - Limited ability to generate alpha             │
-    │  - May be a "closet indexer" charging active fees│
+    │  投資組合緊貼基準指數                           │
+    │  + 回報可預期地接近基準指數                     │
+    │  + 大幅跑輸的風險較低                           │
+    │  - 產生阿爾法的能力有限                         │
+    │  - 可能是收取主動管理費的「隱形指數」基金       │
     └──────────────────────────────────────────────┘
-    
-  CLOSET INDEXER WARNING:
-  If TE < 2% and the fund charges 0.8%+ in fees,
-  the manager is effectively charging active fees
-  to deliver near-index returns. This is the worst
-  outcome for investors: paying for active management
-  but getting passive results minus fees.
+
+  隱形指數警告：
+  若追蹤誤差 < 2%，而基金收取0.8%以上費用，
+  基金經理實際上是在收取主動管理費，
+  卻提供接近指數的回報。這對投資者而言是最差的結果：
+  支付主動管理費，卻得到扣除費用後的被動回報。
 ```
 
-#### 3. Information Ratio
+#### 3. 資訊比率
 
-The information ratio combines alpha and tracking error into a single measure of risk-adjusted active performance. It answers: "How much alpha did the manager generate per unit of active risk taken?"
+資訊比率將阿爾法與追蹤誤差合而為一，形成單一的風險調整後主動業績指標。它回答的問題是：「基金經理每承擔一單位主動風險，能產生多少阿爾法？」
 
 ```
-INFORMATION RATIO: DEFINITION
+資訊比率：定義
 
-  IR = Alpha / Tracking Error
+  資訊比率 = 阿爾法 / 追蹤誤差
 
-  IR = (Portfolio return - Benchmark return) / TE
+  資訊比率 = （投資組合回報 - 基準指數回報）/ 追蹤誤差
 
-INTERPRETATION:
-  IR > 0.5:   Very good (top quartile active manager)
-  IR > 0.75:  Excellent (top decile)
-  IR > 1.0:   Exceptional (extremely rare, sustained)
-  IR = 0:     No value added
-  IR < 0:     Value destroyed (worse than index)
+解讀：
+  資訊比率 > 0.5：  非常好（主動基金經理前四分位）
+  資訊比率 > 0.75： 優秀（前十分位）
+  資訊比率 > 1.0：  卓越（極為罕見，難以持續）
+  資訊比率 = 0：    無附加價值
+  資訊比率 < 0：    摧毀價值（跑輸指數）
 
-EXAMPLE:
-  Manager A: Alpha = 2%, TE = 6%   -> IR = 0.33
-  Manager B: Alpha = 1%, TE = 2%   -> IR = 0.50
-  Manager C: Alpha = 3%, TE = 8%   -> IR = 0.38
-  
-  Manager B has the highest IR despite the lowest alpha.
-  Per unit of active risk, Manager B is the most efficient.
-  
-  KEY INSIGHT: IR measures the EFFICIENCY of active
-  management, not the magnitude. A high IR means the
-  manager is generating alpha without taking excessive
-  active risk.
+示例：
+  基金經理A：阿爾法 = 2%，追蹤誤差 = 6%   -> 資訊比率 = 0.33
+  基金經理B：阿爾法 = 1%，追蹤誤差 = 2%   -> 資訊比率 = 0.50
+  基金經理C：阿爾法 = 3%，追蹤誤差 = 8%   -> 資訊比率 = 0.38
 
-COMPARING MANAGERS USING IR:
+  儘管阿爾法最低，基金經理B的資訊比率最高。
+  每單位主動風險，基金經理B效率最高。
+
+  核心洞見：資訊比率衡量的是主動管理的效率，
+  而非規模。高資訊比率意味著基金經理
+  在不承擔過多主動風險的情況下產生阿爾法。
+
+利用資訊比率比較基金經理：
 
   ┌──────────────────────────────────────────────────┐
-  │  Manager     Alpha   TE      IR      Assessment  │
+  │  基金經理    阿爾法  追蹤誤差  資訊比率  評估     │
   │──────────────────────────────────────────────────│
-  │  Fund A      +3.0%   12%     0.25    Inefficient │
-  │  Fund B      +1.5%   3%      0.50    Efficient   │
-  │  Fund C      +2.0%   5%      0.40    Moderate    │
-  │  Fund D      -0.5%   2%     -0.25    Destroying  │
-  │  Fund E      +0.8%   8%      0.10    Not worth it│
-  │  Index Fund   0.0%   0%      N/A     Baseline    │
+  │  基金A      +3.0%   12%      0.25    效率低      │
+  │  基金B      +1.5%   3%       0.50    效率高      │
+  │  基金C      +2.0%   5%       0.40    中等        │
+  │  基金D      -0.5%   2%      -0.25    摧毀價值    │
+  │  基金E      +0.8%   8%       0.10    不值得      │
+  │  指數基金    0.0%   0%       不適用  基準        │
   └──────────────────────────────────────────────────┘
-  
-  Fund B is the best choice: modest alpha but very
-  consistent, with low tracking error.
-  
-  Fund A has the highest alpha but also the most risk.
-  Fund E takes significant active risk for negligible alpha.
-  Fund D is actively destroying value.
+
+  基金B是最佳選擇：阿爾法適中但非常穩定，
+  追蹤誤差低。
+  基金A的阿爾法最高，但同時風險最大。
+  基金E承擔大量主動風險，阿爾法卻微乎其微。
+  基金D正在主動摧毀價值。
 ```
 
 ```
-IR AND THE INFORMATION COEFFICIENT:
+資訊比率與資訊係數：
 
-  The IR can be decomposed:
-  
-  IR = IC x sqrt(BR)
-  
-  Where:
-    IC = Information Coefficient (correlation between
-         forecasts and actual outcomes, a measure of SKILL)
-    BR = Breadth (number of independent bets per year)
-  
-  This is the FUNDAMENTAL LAW OF ACTIVE MANAGEMENT.
-  We will cover it in detail in section 5.
-  
-  PREVIEW:
-    A manager with modest skill (IC = 0.05)
-    making many independent bets (BR = 100)
-    can achieve: IR = 0.05 x sqrt(100) = 0.50
-    
-    A manager with higher skill (IC = 0.10)
-    making few bets (BR = 25)
-    achieves: IR = 0.10 x sqrt(25) = 0.50
-    
-    SAME IR, different approach.
-    Skill and breadth are substitutes.
+  資訊比率可作分解：
+
+  資訊比率 = 資訊係數 x sqrt(廣度)
+
+  其中：
+    資訊係數 = 預測與實際結果之間的相關性
+               （技巧的衡量指標）
+    廣度     = 每年獨立投注的次數
+
+  這就是主動管理基本定律。
+  詳情將在第5節介紹。
+
+  預覽：
+    一位技巧適中的基金經理（資訊係數 = 0.05）
+    進行大量獨立投注（廣度 = 100）
+    可達到：資訊比率 = 0.05 x sqrt(100) = 0.50
+
+    一位技巧更強的基金經理（資訊係數 = 0.10）
+    進行較少投注（廣度 = 25）
+    達到：資訊比率 = 0.10 x sqrt(25) = 0.50
+
+    資訊比率相同，方法截然不同。
+    技巧與廣度可互相替代。
 ```
 
-#### 4. Active Share
+#### 4. 主動份額
 
-Active share measures how different a portfolio is from its benchmark. It is the percentage of the portfolio that differs from the benchmark holdings.
-
-```
-ACTIVE SHARE: DEFINITION AND CALCULATION
-
-Active Share = (1/2) x Sum of |Wp,i - Wb,i|
-               for all securities i
-
-Where:
-  Wp,i = Weight of security i in the portfolio
-  Wb,i = Weight of security i in the benchmark
-
-EXAMPLE:
-  Security    Portfolio Weight    Benchmark Weight    |Difference|
-  ─────────────────────────────────────────────────────────────
-  AAPL        8%                  7%                  1%
-  MSFT        6%                  6%                  0%
-  GOOG        0%                  4%                  4%
-  AMZN        10%                 3%                  7%
-  NVDA        12%                 5%                  7%
-  META        0%                  2%                  2%
-  JPM         4%                  2%                  2%
-  XYZ Corp    5%                  0%                  5%
-  (other)     55%                 71%                 --
-  Sum of |diff| for all positions:                    52%
-  Active Share = 52% / 2 = 26%
-  
-  NOTE: This is a simplified example. In practice,
-  the sum is over ALL securities in both the portfolio
-  and the benchmark (potentially thousands).
-
-ACTIVE SHARE CATEGORIES:
-
-  Active Share    Category              Implication
-  ────────────────────────────────────────────────────
-  0-20%           Closet indexer        Paying active fees
-                                        for passive returns
-  
-  20-40%          Factor bet            Mild tilt but
-                                        mostly indexing
-  
-  40-60%          Moderately active     Some differentiation
-  
-  60-80%          Distinctly active     Meaningfully different
-                                        from benchmark
-  
-  80-100%         Highly active         Very different portfolio
-                                        (stock picker or
-                                         concentrated fund)
-```
+主動份額衡量投資組合與基準指數的差異程度。它是投資組合中與基準指數持倉不同的比例。
 
 ```
-ACTIVE SHARE AND PERFORMANCE: THE RESEARCH
+主動份額：定義與計算
 
-Cremers & Petajisto (2009) landmark study found:
+主動份額 = (1/2) x Sum of |Wp,i - Wb,i|
+            對所有證券 i 求和
+
+其中：
+  Wp,i = 證券 i 在投資組合中的權重
+  Wb,i = 證券 i 在基準指數中的權重
+
+示例：
+  證券       投資組合權重  基準指數權重  |差值|
+  ─────────────────────────────────────────────────────────
+  AAPL       8%           7%           1%
+  MSFT       6%           6%           0%
+  GOOG       0%           4%           4%
+  AMZN       10%          3%           7%
+  NVDA       12%          5%           7%
+  META       0%           2%           2%
+  JPM        4%           2%           2%
+  XYZ Corp   5%           0%           5%
+  （其他）   55%          71%          --
+  所有持倉|差值|之和：                 52%
+  主動份額 = 52% / 2 = 26%
+
+  注意：這是簡化示例。實際上，
+  求和涵蓋投資組合和基準指數中的所有證券
+  （可能多達數千隻）。
+
+主動份額分類：
+
+  主動份額    類別              含義
+  ────────────────────────────────────────────────
+  0-20%       隱形指數          以被動回報
+                                支付主動費用
+
+  20-40%      因子投注          輕微傾斜但
+                                基本上等同指數
+
+  40-60%      中等主動          具一定差異化
+
+  60-80%      明顯主動          與基準指數有
+                                實質差異
+
+  80-100%     高度主動          投資組合差異甚大
+                                （選股型或集中型基金）
+```
+
+```
+主動份額與業績：相關研究
+
+Cremers及Petajisto（2009年）的里程碑研究發現：
 
   ┌─────────────────────────────────────────────────────┐
-  │  ACTIVE SHARE vs. FUTURE PERFORMANCE                │
+  │  主動份額與未來業績                                 │
   │                                                     │
-  │  Funds with Active Share > 80%:                     │
-  │    Average outperformance: +1.5% per year           │
-  │    (before fees; modest after fees)                 │
+  │  主動份額 > 80%的基金：                             │
+  │    平均超額表現：每年+1.5%                          │
+  │    （扣費前；扣費後適中）                           │
   │                                                     │
-  │  Funds with Active Share 20-60%:                    │
-  │    Average outperformance: -0.3% per year           │
-  │    (closet indexers underperform by their fee)      │
+  │  主動份額20-60%的基金：                             │
+  │    平均超額表現：每年-0.3%                          │
+  │    （隱形指數基金的跑輸幅度約等於其費用）           │
   │                                                     │
-  │  Funds with Active Share < 20%:                     │
-  │    Average outperformance: -1.0% per year           │
-  │    (essentially index minus fees)                   │
+  │  主動份額 < 20%的基金：                             │
+  │    平均超額表現：每年-1.0%                          │
+  │    （本質上等同指數扣除費用）                       │
   │                                                     │
-  │  KEY INSIGHT:                                       │
-  │  High active share is necessary but not sufficient  │
-  │  for outperformance. You must be different AND      │
-  │  right. Being different and wrong is disastrous.    │
+  │  核心洞見：                                         │
+  │  高主動份額是超額表現的必要條件，但並非充分條件。   │
+  │  你必須與眾不同，同時做出正確判斷。                 │
+  │  與眾不同但判斷錯誤，後果將極為嚴重。               │
   └─────────────────────────────────────────────────────┘
 
-ACTIVE SHARE + TRACKING ERROR MATRIX:
+主動份額 + 追蹤誤差矩陣：
 
-                    Low TE              High TE
-                    (<4%)               (>4%)
-                ┌────────────────┬────────────────┐
-  High Active   │ Diversified    │ Concentrated   │
-  Share (>60%)  │ stock picker   │ stock picker   │
-                │ BEST CATEGORY  │ High risk/     │
-                │ for alpha      │ high reward    │
-                ├────────────────┼────────────────┤
-  Low Active    │ Closet         │ Factor bet     │
-  Share (<60%)  │ indexer        │ (sector/style  │
-                │ WORST CATEGORY │  rotation)     │
-                │ fees for nothing│               │
-                └────────────────┴────────────────┘
+                   低追蹤誤差          高追蹤誤差
+                   (<4%)               (>4%)
+               ┌────────────────┬────────────────┐
+  高主動份額   │ 分散化         │ 集中型         │
+  (>60%)       │ 選股型         │ 選股型         │
+               │ 產生阿爾法的   │ 高風險／       │
+               │ 最佳類別       │ 高回報         │
+               ├────────────────┼────────────────┤
+  低主動份額   │ 隱形指數       │ 因子投注       │
+  (<60%)       │ 最差類別       │ （板塊／風格   │
+               │ 費用換來零回報 │  輪動）        │
+               └────────────────┴────────────────┘
 
-  The combination of HIGH active share and LOW tracking
-  error identifies "diversified stock pickers" -- managers
-  who pick many different stocks from the benchmark but
-  whose overall portfolio risk is similar to the benchmark.
-  Research shows this is the group most likely to outperform.
+  高主動份額與低追蹤誤差的組合，
+  識別出「分散化選股型」基金經理——他們從基準指數
+  挑選大量不同股票，但整體投資組合風險與基準指數相近。
+  研究顯示，這個群組最有可能跑贏市場。
 ```
 
-#### 5. The Fundamental Law of Active Management
+#### 5. 主動管理基本定律
 
-The Fundamental Law, developed by Grinold and Kahn, provides a theoretical framework for understanding the drivers of active management performance.
+主動管理基本定律由Grinold及Kahn提出，為理解主動管理業績的驅動因素提供了理論框架。
 
 ```
-THE FUNDAMENTAL LAW OF ACTIVE MANAGEMENT
+主動管理基本定律
 
-  IR = IC x sqrt(BR)
+  資訊比率 = 資訊係數 x sqrt(廣度)
 
-Where:
-  IR = Information Ratio (risk-adjusted alpha)
-  IC = Information Coefficient (skill per bet)
-  BR = Breadth (number of independent bets per year)
+其中：
+  資訊比率 = 風險調整後的阿爾法
+  資訊係數 = 每次投注的技巧
+  廣度     = 每年獨立投注的次數
 
-IC (INFORMATION COEFFICIENT):
-  Measures the correlation between your forecasts and
-  actual outcomes. Ranges from -1 to +1.
-  
-  IC = 0.00: No forecasting ability (random)
-  IC = 0.05: Modest skill (typical active manager)
-  IC = 0.10: Good skill (above-average manager)
-  IC = 0.15: Excellent skill (top-tier manager)
-  IC = 0.20: Exceptional skill (extremely rare)
-  
-  NOTE: Even IC = 0.05 represents meaningful skill.
-  It means your forecasts are slightly better than
-  random. Over many bets, this compounds.
+資訊係數（IC）：
+  衡量你的預測與實際結果之間的相關性。
+  範圍介乎-1至+1。
 
-BR (BREADTH):
-  The number of INDEPENDENT investment decisions per year.
-  
-  KEY WORD: INDEPENDENT.
-  Buying 50 tech stocks is NOT 50 independent bets.
-  These stocks are highly correlated, so the effective
-  breadth might be 5-10 independent bets, not 50.
-  
-  True breadth comes from:
-  - Investing across uncorrelated sectors
-  - Investing across different countries
-  - Investing across different time horizons
-  - Using different types of strategies
-  
-EXAMPLE CALCULATIONS:
+  資訊係數 = 0.00：無預測能力（隨機）
+  資訊係數 = 0.05：適中技巧（典型主動基金經理）
+  資訊係數 = 0.10：良好技巧（高於平均水平的基金經理）
+  資訊係數 = 0.15：出色技巧（頂尖基金經理）
+  資訊係數 = 0.20：卓越技巧（極為罕見）
 
-  Stock picker (IC=0.05, BR=100):
-    IR = 0.05 x sqrt(100) = 0.50     (Very good)
-  
-  Macro trader (IC=0.15, BR=10):
-    IR = 0.15 x sqrt(10) = 0.47      (Good)
-  
-  Sector rotator (IC=0.08, BR=30):
-    IR = 0.08 x sqrt(30) = 0.44      (Good)
-  
-  Concentrated fund (IC=0.10, BR=15):
-    IR = 0.10 x sqrt(15) = 0.39      (Moderate)
+  注意：即使資訊係數 = 0.05 也代表有意義的技巧。
+  這意味著你的預測略優於隨機。
+  在大量投注的情況下，這種優勢會不斷複利累積。
+
+廣度（BR）：
+  每年獨立投資決策的次數。
+
+  關鍵詞：獨立。
+  買入50隻科技股並非50次獨立投注。
+  這些股票高度相關，因此有效廣度
+  可能只有5至10次獨立投注，而非50次。
+
+  真正的廣度來自：
+  - 跨不相關板塊投資
+  - 跨不同國家投資
+  - 跨不同時間跨度投資
+  - 採用不同類型的策略
+
+計算示例：
+
+  選股型（資訊係數=0.05，廣度=100）：
+    資訊比率 = 0.05 x sqrt(100) = 0.50     （非常好）
+
+  宏觀交易員（資訊係數=0.15，廣度=10）：
+    資訊比率 = 0.15 x sqrt(10) = 0.47      （好）
+
+  板塊輪動型（資訊係數=0.08，廣度=30）：
+    資訊比率 = 0.08 x sqrt(30) = 0.44      （好）
+
+  集中型基金（資訊係數=0.10，廣度=15）：
+    資訊比率 = 0.10 x sqrt(15) = 0.39      （中等）
 ```
 
 ```
-FUNDAMENTAL LAW: IMPLICATIONS
+基本定律：啟示
 
-IMPLICATION 1: BREADTH AND SKILL ARE SUBSTITUTES
+啟示一：廣度與技巧可互相替代
   ┌─────────────────────────────────────────────────┐
-  │  To achieve IR = 0.50:                          │
+  │  要達到資訊比率 = 0.50：                        │
   │                                                 │
-  │  IC = 0.05 needs BR = 100 (many bets, low skill)│
-  │  IC = 0.10 needs BR = 25  (fewer bets, more skill)│
-  │  IC = 0.25 needs BR = 4   (very few bets, very  │
-  │                             high skill)          │
+  │  資訊係數 = 0.05 需要廣度 = 100（多次投注，低技巧）│
+  │  資訊係數 = 0.10 需要廣度 = 25 （較少投注，更高技巧）│
+  │  資訊係數 = 0.25 需要廣度 = 4  （極少投注，極高技巧）│
   │                                                 │
-  │  If you have modest skill, make many bets.       │
-  │  If you have high skill, you can concentrate.    │
-  │  Most investors should assume modest skill and   │
-  │  make many independent bets.                     │
+  │  若技巧適中，應進行大量投注。                   │
+  │  若技巧出眾，則可以集中。                       │
+  │  大多數投資者應假設技巧適中，                   │
+  │  並進行大量獨立投注。                           │
   └─────────────────────────────────────────────────┘
 
-IMPLICATION 2: DIVERSIFICATION HELPS EVEN SKILLED MANAGERS
-  
-  Skill (IC)      BR = 10    BR = 25    BR = 50    BR = 100
+啟示二：分散化對技術出色的基金經理同樣有益
+
+  技巧（資訊係數）  廣度=10   廣度=25   廣度=50   廣度=100
   ──────────────────────────────────────────────────────────
-  IC = 0.05       0.16       0.25       0.35       0.50
-  IC = 0.10       0.32       0.50       0.71       1.00
-  IC = 0.15       0.47       0.75       1.06       1.50
-  
-  Doubling breadth is equivalent to multiplying skill
-  by 1.41 (sqrt(2)). It is often easier to find more
-  independent bets than to get significantly better
-  at forecasting.
+  資訊係數 = 0.05   0.16      0.25      0.35      0.50
+  資訊係數 = 0.10   0.32      0.50      0.71      1.00
+  資訊係數 = 0.15   0.47      0.75      1.06      1.50
 
-IMPLICATION 3: CORRELATION REDUCES EFFECTIVE BREADTH
-  
-  If you make 50 stock picks but they are all in tech:
-    Average correlation between picks: 0.6
-    Effective breadth = N / (1 + (N-1) x rho)
-                      = 50 / (1 + 49 x 0.6)
-                      = 50 / 30.4
-                      = 1.6 independent bets
-  
-  50 correlated bets = 1.6 independent bets!
-  
-  LESSON: Diversification across uncorrelated
-  opportunities is FAR more valuable than taking
-  many correlated bets.
+  廣度翻倍相當於技巧乘以1.41（sqrt(2)）。
+  尋找更多獨立投注機會，往往比大幅提升
+  預測能力更容易實現。
+
+啟示三：相關性降低有效廣度
+
+  若你進行50次選股但全部集中於科技股：
+    投注之間的平均相關性：0.6
+    有效廣度 = N / (1 + (N-1) x 相關係數)
+             = 50 / (1 + 49 x 0.6)
+             = 50 / 30.4
+             = 1.6次獨立投注
+
+  50次相關投注 = 1.6次獨立投注！
+
+  啟示：跨不相關機會進行分散化，
+  遠比進行大量相關投注更有價值。
 ```
 
-#### 6. Performance Attribution
+#### 6. 績效歸因
 
-Performance attribution decomposes a portfolio's return relative to its benchmark into specific decision categories. It answers: "WHERE did the outperformance or underperformance come from?"
+績效歸因將投資組合相對於基準指數的回報分解為具體決策類別。它回答的問題是：「超額或落後表現從何而來？」
 
 ```
-BRINSON ATTRIBUTION MODEL
+布林森歸因模型
 
-The Brinson model decomposes active return into:
-  1. ALLOCATION EFFECT: Over/underweighting sectors
-  2. SELECTION EFFECT: Picking stocks within sectors
-  3. INTERACTION EFFECT: Combination of allocation + selection
+布林森模型將主動回報分解為：
+  1. 配置效應：對板塊進行增持或減持
+  2. 選股效應：在各板塊內挑選股票
+  3. 交互效應：配置與選股的組合
 
-FORMULAS:
-  Allocation = Sum of (Wp,s - Wb,s) x (Rb,s - Rb)
-  Selection  = Sum of Wb,s x (Rp,s - Rb,s)
-  Interaction = Sum of (Wp,s - Wb,s) x (Rp,s - Rb,s)
+公式：
+  配置效應 = Sum of (Wp,s - Wb,s) x (Rb,s - Rb)
+  選股效應 = Sum of Wb,s x (Rp,s - Rb,s)
+  交互效應 = Sum of (Wp,s - Wb,s) x (Rp,s - Rb,s)
 
-Where:
-  Wp,s = Portfolio weight in sector s
-  Wb,s = Benchmark weight in sector s
-  Rp,s = Portfolio return in sector s
-  Rb,s = Benchmark return in sector s
-  Rb   = Total benchmark return
+其中：
+  Wp,s = 投資組合在板塊s的權重
+  Wb,s = 基準指數在板塊s的權重
+  Rp,s = 投資組合在板塊s的回報
+  Rb,s = 基準指數在板塊s的回報
+  Rb   = 基準指數總回報
 
-ALLOCATION EFFECT:
-  Did overweighting winners and underweighting
-  losers add value?
-  
-  If you overweighted tech (+5% vs benchmark)
-  and tech outperformed, allocation effect is positive.
-  
-SELECTION EFFECT:
-  Did picking stocks within each sector add value?
-  
-  If your tech stocks returned 15% while the benchmark's
-  tech stocks returned 12%, selection effect is positive.
+配置效應：
+  增持表現出色的板塊、減持表現欠佳的板塊，
+  是否創造了價值？
 
-INTERACTION EFFECT:
-  The cross-product of allocation and selection.
-  Positive when you overweighted sectors where you
-  also picked well.
+  若你增持科技股（比基準指數多5%），
+  而科技股跑贏大市，則配置效應為正。
+
+選股效應：
+  在各板塊內挑選個股是否創造了價值？
+
+  若你的科技股回報15%，而基準指數的科技股
+  回報12%，則選股效應為正。
+
+交互效應：
+  配置與選股的交叉乘積。
+  當你增持的板塊同時選股表現出色時，交互效應為正。
 ```
 
 ```
-PERFORMANCE ATTRIBUTION: WORKED EXAMPLE
+績效歸因：完整示例
 
-Portfolio vs. S&P 500, annual returns
+投資組合對比標普500，年度回報
 
-Sector       Port    Bench   Port    Bench    Bench
-             Weight  Weight  Return  Return   Sector
-                                              Return
+板塊         組合     基準     組合     基準     基準板塊
+             權重     權重     回報     回報     回報
 ─────────────────────────────────────────────────────
-Technology   30%     28%     +18%    +15%     +15%
-Healthcare   15%     13%     +8%     +10%     +10%
-Financials   12%     13%     +12%    +11%     +11%
-Energy       3%      4%      -5%     -3%      -3%
-Cons Disc    15%     10%     +14%    +9%      +9%
-Cons Staples 5%      7%      +5%     +6%      +6%
-Industrials  10%     10%     +11%    +10%     +10%
-Other        10%     15%     +7%     +8%      +8%
+科技         30%      28%      +18%    +15%     +15%
+醫療保健     15%      13%      +8%     +10%     +10%
+金融         12%      13%      +12%    +11%     +11%
+能源         3%       4%       -5%     -3%      -3%
+非必需消費   15%      10%      +14%    +9%      +9%
+必需消費     5%       7%       +5%     +6%      +6%
+工業         10%      10%      +11%    +10%     +10%
+其他         10%      15%      +7%     +8%      +8%
 ─────────────────────────────────────────────────────
-TOTAL        100%    100%    +12.2%  +10.5%
+合計         100%     100%     +12.2%  +10.5%
 
-Total active return = +1.7%
+總主動回報 = +1.7%
 
-ATTRIBUTION DECOMPOSITION:
+歸因分解：
 
-ALLOCATION EFFECT:
-  Tech:     (30%-28%) x (15%-10.5%) = +0.09%
-  Health:   (15%-13%) x (10%-10.5%) = -0.01%
-  Finance:  (12%-13%) x (11%-10.5%) = -0.005%
-  Energy:   (3%-4%)   x (-3%-10.5%) = +0.135%
-  ConsDis:  (15%-10%) x (9%-10.5%)  = -0.075%
-  ConsStap: (5%-7%)   x (6%-10.5%)  = +0.09%
-  Indust:   (10%-10%) x (10%-10.5%) = 0%
-  Other:    (10%-15%) x (8%-10.5%)  = +0.125%
+配置效應：
+  科技：    (30%-28%) x (15%-10.5%) = +0.09%
+  醫療：    (15%-13%) x (10%-10.5%) = -0.01%
+  金融：    (12%-13%) x (11%-10.5%) = -0.005%
+  能源：    (3%-4%)   x (-3%-10.5%) = +0.135%
+  非必需：  (15%-10%) x (9%-10.5%)  = -0.075%
+  必需：    (5%-7%)   x (6%-10.5%)  = +0.09%
+  工業：    (10%-10%) x (10%-10.5%) = 0%
+  其他：    (10%-15%) x (8%-10.5%)  = +0.125%
   ─────────────────────────────────────────
-  TOTAL ALLOCATION EFFECT:             +0.37%
+  配置效應合計：                       +0.37%
 
-SELECTION EFFECT:
-  Tech:     28% x (18%-15%) = +0.84%
-  Health:   13% x (8%-10%)  = -0.26%
-  Finance:  13% x (12%-11%) = +0.13%
-  Energy:   4%  x (-5%--3%) = -0.08%
-  ConsDis:  10% x (14%-9%)  = +0.50%
-  ConsStap: 7%  x (5%-6%)   = -0.07%
-  Indust:   10% x (11%-10%) = +0.10%
-  Other:    15% x (7%-8%)   = -0.15%
+選股效應：
+  科技：    28% x (18%-15%) = +0.84%
+  醫療：    13% x (8%-10%)  = -0.26%
+  金融：    13% x (12%-11%) = +0.13%
+  能源：    4%  x (-5%--3%) = -0.08%
+  非必需：  10% x (14%-9%)  = +0.50%
+  必需：    7%  x (5%-6%)   = -0.07%
+  工業：    10% x (11%-10%) = +0.10%
+  其他：    15% x (7%-8%)   = -0.15%
   ─────────────────────────────────────────
-  TOTAL SELECTION EFFECT:              +1.01%
+  選股效應合計：                       +1.01%
 
-INTERACTION EFFECT:
-  (Remaining: 1.7% - 0.37% - 1.01% = +0.32%)
+交互效應：
+  （餘額：1.7% - 0.37% - 1.01% = +0.32%）
 
-INTERPRETATION:
+解讀：
   ┌──────────────────────────────────────────────────┐
-  │  Total outperformance:     +1.70%                │
+  │  總超額表現：        +1.70%                      │
   │                                                  │
-  │  Allocation effect:        +0.37%  (22%)         │
-  │  Selection effect:         +1.01%  (59%)         │
-  │  Interaction effect:       +0.32%  (19%)         │
+  │  配置效應：          +0.37%（22%）               │
+  │  選股效應：          +1.01%（59%）               │
+  │  交互效應：          +0.32%（19%）               │
   │                                                  │
-  │  CONCLUSION: Most of the outperformance came     │
-  │  from stock SELECTION, not sector allocation.    │
-  │  The manager is a stock picker, not a sector     │
-  │  rotator. This is valuable information for       │
-  │  evaluating whether the skill is sustainable.    │
+  │  結論：大部分超額表現來自個股選擇，              │
+  │  而非板塊配置。該基金經理是選股型，              │
+  │  而非板塊輪動型。這對評估技巧                    │
+  │  是否可持續而言是重要資訊。                      │
   └──────────────────────────────────────────────────┘
 ```
 
-#### 7. Multi-Factor Attribution
+#### 7. 多因子歸因
 
-Modern performance attribution goes beyond the Brinson sector model to decompose returns by factor exposures.
+現代績效歸因超越了布林森板塊模型，將回報按因子敞口進行分解。
 
 ```
-MULTI-FACTOR ATTRIBUTION
+多因子歸因
 
-Instead of sectors, decompose returns by factor:
+以因子取代板塊，對回報進行分解：
 
-  Portfolio return = Risk-free rate
-                   + Market exposure
-                   + Size exposure
-                   + Value exposure
-                   + Momentum exposure
-                   + Quality exposure
-                   + Alpha (residual)
+  投資組合回報 = 無風險利率
+               + 市場敞口
+               + 規模敞口
+               + 價值敞口
+               + 動量敞口
+               + 質量敞口
+               + 阿爾法（殘差）
 
-EXAMPLE:
-  Portfolio annual return:     +14.0%
-  Risk-free rate:              +4.0%
+示例：
+  投資組合年回報：      +14.0%
+  無風險利率：          +4.0%
   ───────────────────────────────────
-  Excess return:               +10.0%
+  超額回報：            +10.0%
 
-  Market (beta=1.1, mkt=+8%):  +8.8%
-  Size (small cap tilt):        +0.5%
-  Value (growth tilt):          -0.3%
-  Momentum (momentum tilt):    +0.8%
-  Quality (quality tilt):      +0.4%
+  市場（貝塔=1.1，市場=+8%）：  +8.8%
+  規模（小型股傾斜）：           +0.5%
+  價值（成長股傾斜）：           -0.3%
+  動量（動量傾斜）：             +0.8%
+  質量（質量傾斜）：             +0.4%
   ───────────────────────────────────
-  Factor-explained return:     +10.2%
-  
-  Residual alpha:              -0.2%
+  因子解釋回報：        +10.2%
 
-  INTERPRETATION:
+  殘差阿爾法：          -0.2%
+
+  解讀：
   ┌────────────────────────────────────────────────┐
-  │  This manager appears to have returned +14%,   │
-  │  beating the market's +12%.                    │
+  │  此基金經理表面上回報+14%，                    │
+  │  跑贏市場的+12%。                              │
   │                                                │
-  │  But factor decomposition reveals:             │
-  │  - Higher market beta explains most excess     │
-  │  - Momentum and quality tilts added returns    │
-  │  - After accounting for ALL factor exposures,  │
-  │    the residual alpha is actually NEGATIVE     │
+  │  但因子分解揭示：                             │
+  │  - 較高的市場貝塔解釋了大部分超額回報          │
+  │  - 動量和質量傾斜貢獻了部分回報               │
+  │  - 計入所有因子敞口後，                        │
+  │    殘差阿爾法實際上為負                        │
   │                                                │
-  │  CONCLUSION: No genuine stock-picking skill.   │
-  │  The "outperformance" is entirely explained    │
-  │  by systematic factor exposures that could be  │
-  │  replicated cheaply with factor ETFs.          │
+  │  結論：不存在真正的選股技巧。                  │
+  │  所謂「超額表現」完全由系統性因子敞口解釋，    │
+  │  而這些敞口可透過因子交易所買賣基金            │
+  │  以低廉成本複製。                              │
   └────────────────────────────────────────────────┘
 ```
 
 ```
-FACTOR ATTRIBUTION DIAGRAM
+因子歸因圖示
 
-  Total excess return: +10.0%
-  
+  總超額回報：+10.0%
+
   ┌──────────────────────────────────────────────┐
   │ ████████████████████████████████████░░░░░░░  │
-  │ Market                              Other    │
-  │ +8.8%                              factors   │
-  │ (88% of excess return)                       │
+  │ 市場                                其他     │
+  │ +8.8%                               因子     │
+  │ （佔超額回報88%）                            │
   └──────────────────────────────────────────────┘
-  
-  Zooming into "Other factors":
+
+  放大「其他因子」：
   ┌──────────────────────────────────────────────┐
   │ ████ ░░░ ████ ████ ▓▓▓▓                     │
-  │ Size Val  Mom  Qual Alpha                    │
+  │ 規模 價值  動量  質量  阿爾法                │
   │+0.5% -0.3% +0.8% +0.4% -0.2%              │
   └──────────────────────────────────────────────┘
-  
-  Most of the return is from MARKET EXPOSURE (beta).
-  The factor tilts add modest amounts.
-  True alpha (stock selection skill) is negligible.
 
-WHAT THIS MEANS FOR INVESTORS:
+  大部分回報來自市場敞口（貝塔）。
+  因子傾斜貢獻適中。
+  真正的阿爾法（選股技巧）微乎其微。
 
-  Before factor attribution:
-    "This fund beat the market by 2%! Great manager!"
-  
-  After factor attribution:
-    "This fund has beta of 1.1 and tilts toward
-     momentum and quality. The market exposure and
-     factor tilts explain 102% of excess return.
-     There is no alpha. I could replicate this with
-     a market ETF + factor ETFs for 0.1% in fees
-     instead of 0.8%."
+這對投資者的意義：
+
+  因子歸因前：
+    「這隻基金跑贏市場2%！出色的基金經理！」
+
+  因子歸因後：
+    「這隻基金貝塔為1.1，並偏向動量和質量。
+     市場敞口與因子傾斜解釋了102%的超額回報。
+     不存在阿爾法。我可以用市場交易所買賣基金
+     加上因子交易所買賣基金複製，費用僅0.1%，
+     而非0.8%。」
 ```
 
-#### 8. Evaluating Active Managers: A Complete Framework
+#### 8. 評估主動基金經理：完整框架
 
 ```
-ACTIVE MANAGER EVALUATION CHECKLIST
+主動基金經理評估清單
 
-STEP 1: BASIC PERFORMANCE METRICS
-  [ ] Total return vs. benchmark (3, 5, 10 years)
-  [ ] Alpha (net of fees)
-  [ ] Is alpha statistically significant? (t-stat > 2)
-  [ ] Maximum drawdown vs. benchmark drawdown
-  [ ] Performance in up markets vs. down markets
+第一步：基本績效指標
+  [ ] 相對基準指數的總回報（3年、5年、10年）
+  [ ] 阿爾法（扣除費用後）
+  [ ] 阿爾法是否具統計顯著性？（t統計量 > 2）
+  [ ] 最大回撤對比基準指數回撤
+  [ ] 牛市與熊市中的表現
 
-STEP 2: RISK-ADJUSTED METRICS
-  [ ] Tracking error (how much active risk?)
-  [ ] Information ratio (alpha per unit of active risk)
-  [ ] Sharpe ratio vs. benchmark Sharpe ratio
-  [ ] Upside capture ratio vs. downside capture ratio
+第二步：風險調整後指標
+  [ ] 追蹤誤差（承擔多少主動風險？）
+  [ ] 資訊比率（每單位主動風險的阿爾法）
+  [ ] 夏普比率對比基準指數夏普比率
+  [ ] 上行捕獲率對比下行捕獲率
 
-STEP 3: PORTFOLIO CHARACTERISTICS
-  [ ] Active share (how different from benchmark?)
-  [ ] Number of holdings (concentrated or diversified?)
-  [ ] Sector concentrations
-  [ ] Factor exposures (style tilts)
-  [ ] Portfolio turnover (high turnover = high costs)
+第三步：投資組合特徵
+  [ ] 主動份額（與基準指數的差異程度？）
+  [ ] 持倉數量（集中型還是分散型？）
+  [ ] 板塊集中度
+  [ ] 因子敞口（風格傾斜）
+  [ ] 投資組合換手率（高換手率 = 高成本）
 
-STEP 4: ATTRIBUTION ANALYSIS
-  [ ] Is outperformance from allocation or selection?
-  [ ] Is it from factor tilts or stock picking?
-  [ ] Is the alpha coming from a few lucky positions
-      or broad-based skill?
+第四步：歸因分析
+  [ ] 超額表現來自配置還是選股？
+  [ ] 是否來自因子傾斜或選股？
+  [ ] 阿爾法是來自少數幸運持倉
+      還是廣泛的技巧？
 
-STEP 5: QUALITATIVE FACTORS
-  [ ] Is the manager investing their own money?
-  [ ] Has the process been consistent over time?
-  [ ] Has the fund gotten too large for the strategy?
-  [ ] Is the team stable?
-  [ ] Are fees reasonable for the active share?
+第五步：定性因素
+  [ ] 基金經理是否將自有資金一同投入？
+  [ ] 投資流程是否保持一貫？
+  [ ] 基金規模是否過大，影響策略執行？
+  [ ] 團隊是否穩定？
+  [ ] 費用與主動份額是否相稱？
 
-COMBINING METRICS INTO A SCORECARD:
+將指標整合為計分卡：
 
-  Metric               Red Flag          Green Flag
+  指標               警示訊號          正面訊號
   ─────────────────────────────────────────────────
-  Alpha (5yr, net)     < 0%              > 1%
-  IR                   < 0               > 0.40
-  Active Share         < 30%             > 60%
-  TE                   < 2% with high    2-8%
-                       fees
-  Attribution          All from factors  Genuine
-                                         selection alpha
-  Turnover             > 100%            < 50%
-  Manager ownership    $0                > $1M
-  Fee reasonableness   1%+ for low AS    < 0.5% or
-                                         performance-based
+  阿爾法（5年，扣費） < 0%             > 1%
+  資訊比率            < 0              > 0.40
+  主動份額            < 30%            > 60%
+  追蹤誤差            < 2%卻收取       2-8%
+                      高費用
+  歸因結果            全由因子解釋     真正的選股阿爾法
+  換手率              > 100%           < 50%
+  基金經理自有投資    0元              > 100萬元
+  費用合理性          低主動份額卻     < 0.5%或以
+                      收取1%以上       業績為基礎
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "A fund that beat the market last year is a good fund."**
+**誤解一：「去年跑贏市場的基金就是好基金。」**
 
-One year of outperformance is statistically meaningless. With thousands of active funds, hundreds will beat the market in any given year by pure chance. The probability that last year's winners will repeat next year is only slightly better than 50/50. You need at minimum 5 years of consistent outperformance, and ideally 10+, to begin distinguishing skill from luck. Even then, factor attribution is essential -- was the outperformance from genuine stock picking or from factor tilts that happened to work?
+一年的超額表現在統計上毫無意義。市場上有數以千計的主動基金，每年都有數百隻純粹憑運氣跑贏市場。去年的贏家在明年重複勝績的概率，只比五五波略高一點。你至少需要持續5年的超額表現，理想情況下是10年以上，才能開始區分技巧與運氣。即便如此，因子歸因同樣不可缺少——超額表現究竟來自真正的選股，還是恰好奏效的因子傾斜？
 
-**Misconception 2: "Low tracking error means low risk."**
+**誤解二：「低追蹤誤差意味著低風險。」**
 
-Low tracking error means the portfolio closely tracks its benchmark. This does not mean the portfolio is low risk -- it means it has low ACTIVE risk (risk of deviating from the benchmark). If the benchmark drops 40%, a low-tracking-error portfolio will also drop approximately 40%. Low tracking error is desirable only if the benchmark's risk is appropriate for you. An S&P 500 index fund with zero tracking error still has significant market risk.
+低追蹤誤差意味著投資組合緊貼基準指數，但這並不代表低風險——它代表的是低主動風險（偏離基準指數的風險）。若基準指數下跌40%，追蹤誤差低的投資組合同樣會跌約40%。只有在基準指數的風險水平適合你的情況下，低追蹤誤差才是可取的。追蹤誤差為零的標普500指數基金，仍然面臨顯著的市場風險。
 
-**Misconception 3: "High active share guarantees outperformance."**
+**誤解三：「高主動份額保證超額表現。」**
 
-High active share is necessary but not sufficient. It means the portfolio is different from the benchmark -- but being different can mean being different in a bad way. A manager who avoids the best-performing stocks has high active share and underperforms dramatically. The research shows that high active share gives managers the OPPORTUNITY to outperform, but they must also have genuine skill (positive IC). High active share without skill is a recipe for large underperformance.
+高主動份額是必要條件，但非充分條件。它意味著投資組合與基準指數不同——但不同既可以是好的，也可以是壞的。若一位基金經理迴避了表現最佳的股票，其主動份額高，卻大幅落後。研究顯示，高主動份額給予基金經理超額表現的機會，但他們同時必須具備真正的技巧（正的資訊係數）。沒有技巧的高主動份額，是大幅跑輸的根源。
 
-**Misconception 4: "Alpha is the manager's return minus the benchmark's return."**
+**誤解四：「阿爾法是基金經理的回報減去基準指數的回報。」**
 
-This is a simplified version that ignores risk. True alpha adjusts for the portfolio's beta (and potentially other factor exposures). A portfolio that returned 15% when the benchmark returned 12% might have zero alpha if the portfolio has a beta of 1.3. The excess return is fully explained by taking more market risk, not by skillful stock picking. Always calculate risk-adjusted alpha.
+這是忽略風險的簡化版本。真正的阿爾法會調整投資組合的貝塔（以及可能的其他因子敞口）。當基準指數回報12%，投資組合回報15%，若投資組合的貝塔為1.3，其阿爾法可能為零。超額回報完全由承擔更多市場風險解釋，而非出色的選股。計算阿爾法時，應始終以風險調整後的數字為準。
 
-**Misconception 5: "More holdings means more diversification and therefore better."**
+**誤解五：「持倉數量越多，分散化越充分，因此越好。」**
 
-More holdings increase diversification of stock-specific risk, which reduces tracking error. But this comes at a cost. Each additional holding dilutes the impact of the manager's best ideas. If a manager has genuine skill in picking 20 stocks, adding 80 mediocre stocks to "diversify" will actually REDUCE alpha while reducing tracking error. The Fundamental Law tells us that what matters is INDEPENDENT bets, not just more bets. 50 correlated tech stocks provide almost no diversification benefit.
+更多持倉能提高個股特定風險的分散化程度，從而降低追蹤誤差。但這需要付出代價。每增加一個持倉，就會稀釋基金經理最佳投資理念的影響力。若一位基金經理真正擅長挑選20隻股票，為了「分散化」而加入80隻平庸的股票，實際上會在降低追蹤誤差的同時，減少阿爾法。基本定律告訴我們，重要的是獨立投注，而不僅僅是更多投注。50隻相關的科技股幾乎沒有任何分散化效益。
 
-**Misconception 6: "Performance attribution proves why a manager outperformed."**
+**誤解六：「績效歸因能證明基金經理超額表現的原因。」**
 
-Attribution tells you where returns came from but does not tell you whether the source was intentional. A manager might have overweighted energy because of a bullish thesis, or because they inherited a position and never sold it. Attribution shows the WHAT, not the WHY. Always combine attribution with qualitative understanding of the manager's process.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I calculate alpha and tracking error for my own portfolio?**
-
-A: Download your portfolio's monthly returns and the benchmark's monthly returns for at least 36 months. Subtract the benchmark return from the portfolio return each month. The average of these differences (annualized) is approximately your alpha. The standard deviation of these differences (annualized by multiplying by sqrt(12)) is your tracking error. For true risk-adjusted alpha, regress your excess returns against the benchmark excess returns; the intercept of the regression is alpha and the slope is beta.
-
-**Q2: What is a reasonable fee for active management given these metrics?**
-
-A: The fee should be less than the expected gross alpha. If a manager has historically generated 2% gross alpha with an IR of 0.50, a fee of 0.8% leaves you with 1.2% net alpha -- reasonable. But if the gross alpha is only 1% and the fee is 0.8%, you are paying 80% of the value-added as fees and keeping only 0.2%. As a rough rule, fees should be no more than one-third to one-half of gross alpha. If you cannot estimate gross alpha, check active share. If active share is below 40%, the manager is a closet indexer and almost no fee is justified -- just buy an index fund.
-
-**Q3: How long should I give a manager before judging their performance?**
-
-A: At minimum, a full market cycle (typically 5-7 years, encompassing both bull and bear markets). Three years is the absolute minimum for any statistical reliability. Firing a manager after one bad year is usually a mistake, as even skilled managers underperform 30-40% of the time due to normal variance. However, you should fire a manager immediately if there are non-performance concerns: style drift, loss of key personnel, regulatory issues, or violations of stated investment guidelines.
-
-**Q4: Is it better to have one concentrated manager or multiple diversified managers?**
-
-A: Multiple managers reduce manager-specific risk but can create "di-worsification" -- the combined portfolio may look like an expensive index fund. The key metric is the active share of the COMBINED portfolio of managers. If you hire five active managers and their combined portfolio has active share below 30%, you have achieved index-like results at active management prices. Better approaches include: one high-conviction manager plus an index fund for the remainder, or multiple managers with uncorrelated styles (one value, one growth, one international).
-
-**Q5: Does the Fundamental Law work in practice?**
-
-A: The Fundamental Law is a useful conceptual framework, but it has limitations in practice. The assumption that all bets are independent is almost never true. Stock picks within the same sector are correlated, reducing effective breadth. The Information Coefficient is assumed to be constant across all bets, but in reality, some bets are better than others. Despite these limitations, the core insight is robust: diversify your active bets across uncorrelated opportunities and focus on having at least modest skill per bet.
-
-**Q6: What should I look for in performance attribution?**
-
-A: Look for consistency and intentionality. Good signs: selection alpha across multiple sectors (broad skill, not one lucky pick), consistent allocation effect (the manager has genuine macro/sector views), and alpha that does not disappear when factor exposures are accounted for. Bad signs: all alpha from one sector or one stock (concentrated luck), allocation alpha from one sector that happened to rally (unintentional exposure), and alpha that is fully explained by factor tilts (no genuine stock-picking skill).
-
-**Q7: How do I know if I am a closet indexer in my own portfolio?**
-
-A: Calculate your active share relative to a broad index like the S&P 500 or total market index. If more than 60% of your portfolio is in index funds or ETFs, and your individual stock picks collectively represent less than 30% of the portfolio, your active share is low. This is not necessarily bad -- it means your costs are low and your risk is benchmark-like. But if you are spending significant time researching individual stocks for only 10% of your portfolio, the effort may not be worth the potential impact.
+歸因分析告訴你回報從何而來，但無法告訴你這個來源是否出於主動意圖。基金經理可能因為看好後市而增持能源股，也可能只是繼承了某個持倉而從未賣出。歸因分析揭示的是「是什麼」，而非「為什麼」。應始終將歸因分析與對基金經理投資流程的定性理解相結合。
 
 ---
 
+### d) 常見問題與解答
+
+**問題一：如何為自己的投資組合計算阿爾法和追蹤誤差？**
+
+答：下載你的投資組合及基準指數至少36個月的月度回報。每個月以投資組合回報減去基準指數回報。這些差值的平均數（年化後）約為你的阿爾法。這些差值的標準差（乘以sqrt(12)年化後）即為你的追蹤誤差。若要計算真正的風險調整後阿爾法，可將你的超額回報對基準指數超額回報進行回歸；回歸截距即為阿爾法，斜率即為貝塔。
+
+**問題二：根據這些指標，主動管理的合理費用是多少？**
+
+答：費用應低於預期的總阿爾法。若一位基金經理歷史上產生了2%的總阿爾法，資訊比率為0.50，0.8%的費用讓你保留1.2%的淨阿爾法——這是合理的。但若總阿爾法只有1%而費用為0.8%，你便在將所創造價值的80%支付為費用，僅保留0.2%。粗略而言，費用不應超過總阿爾法的三分之一至二分之一。若無法估算總阿爾法，可查看主動份額。若主動份額低於40%，該基金經理是隱形指數，幾乎不值得支付任何費用——直接購買指數基金即可。
+
+**問題三：評判一位基金經理的業績前，應給予多長時間？**
+
+答：至少需要一個完整的市場週期（通常為5至7年，涵蓋牛市和熊市）。三年是獲得任何統計可靠性的絕對最低要求。在一個差年份後便解僱基金經理，通常是錯誤的，因為即使技術出色的基金經理，也有30至40%的概率因正常波動而跑輸。然而，若出現非業績方面的問題——風格漂移、關鍵人員流失、監管問題，或違反既定投資指引——則應立即解僱。
+
+**問題四：持有一位集中型基金經理，還是多位分散型基金經理，哪個更好？**
+
+答：多位基金經理能降低基金經理特定風險，但可能造成「過度分散」——合併後的投資組合可能看起來像一隻昂貴的指數基金。關鍵指標是多位基金經理合併投資組合的主動份額。若你聘請了五位主動基金經理，而他們合併投資組合的主動份額低於30%，你便以主動管理的價格取得了接近指數的結果。更好的做法包括：一位高信念基金經理加上其餘資金配置於指數基金，或多位風格不相關的基金經理（一位價值型、一位成長型、一位國際型）。
+
+**問題五：主動管理基本定律在實踐中是否有效？**
+
+答：主動管理基本定律是一個有用的概念框架，但在實踐中存在局限性。所有投注均獨立的假設在現實中幾乎從不成立。同一板塊的選股之間存在相關性，從而降低了有效廣度。資訊係數被假設為各次投注的常數，但現實中部分投注優於其他投注。儘管存在這些局限性，其核心洞見是穩健的：在不相關機會之間分散主動投注，並專注於在每次投注中保持至少適中的技巧。
+
+**問題六：績效歸因分析應重點關注哪些方面？**
+
+答：應關注一貫性與主動意圖。正面訊號包括：跨多個板塊的選股阿爾法（廣泛技巧，而非單一幸運選股）、一貫的配置效應（基金經理具備真正的宏觀或板塊觀點），以及在計入因子敞口後依然存在的阿爾法。負面訊號包括：所有阿爾法來自單一板塊或個股（集中的運氣成分）、來自某個恰好大幅上漲板塊的配置阿爾法（非刻意的敞口），以及完全由因子傾斜解釋的阿爾法（不存在真正的選股技巧）。
+
+**問題七：如何判斷自己的投資組合是否是隱形指數？**
+
+答：計算你的投資組合相對於標普500或全市場指數等廣泛指數的主動份額。若你的投資組合中有逾60%配置於指數基金或交易所買賣基金，而個股選擇合計佔投資組合不足30%，則你的主動份額偏低。這不一定是壞事——這意味著你的成本低，風險接近基準指數水平。但若你每週花大量時間研究個股，而這些個股只佔投資組合的10%，這些精力或許並不值得。
+
 ---
 
-## YouTube Script
+---
 
-**Week 43: Active Portfolio Management**
+## YouTube 腳本
 
-[VISUAL: Title card -- "Alpha, Beta, and the Art of Active Management"]
+**第43週：主動投資組合管理**
 
-**Alex**: Today we tackle one of the most contentious topics in finance: does active management work? And how do you measure whether it is working?
+[VISUAL: 標題畫面——「阿爾法、貝塔與主動管理的藝術」]
 
-**Sam**: This is the "stock picking versus index funds" debate?
+**Horace**：今天我們要探討金融界最具爭議的話題之一：主動管理是否真的有效？以及如何衡量它是否奏效？
 
-**Alex**: It goes much deeper than that. We are going to cover the precise tools that professionals use to evaluate active management -- alpha, tracking error, information ratio, active share, the Fundamental Law of Active Management, and performance attribution.
+**Stella**：這就是「選股對比指數基金」的爭論？
 
-**Sam**: Why do these matter for regular investors?
+**Horace**：這個議題遠不止於此。我們將深入介紹專業人士評估主動管理所用的精確工具——阿爾法、追蹤誤差、資訊比率、主動份額、主動管理基本定律，以及績效歸因。
 
-**Alex**: Because the active management industry collects over $100 billion a year in fees. If you own any actively managed fund, or if you pick individual stocks yourself, you need to know whether that activity is adding value or destroying it.
+**Stella**：這些對普通投資者有什麼意義？
 
-[VISUAL: SPIVA scorecard statistics]
+**Horace**：因為主動管理行業每年收取逾1,000億美元的費用。若你持有任何主動管理基金，或者你自己選股，你必須知道這些行為是在創造價值還是在摧毀價值。
 
-**Sam**: And the statistics are not encouraging for active managers, right?
+[VISUAL: SPIVA計分卡統計數據]
 
-**Alex**: The SPIVA scorecard consistently shows that over 15-year periods, roughly 85-90% of US large-cap active managers underperform the S&P 500. But -- and this is important -- some managers DO outperform consistently. The tools we are learning today help you identify which ones.
+**Stella**：而且數據對主動基金經理來說並不好看，對嗎？
 
-**Sam**: Let us start at the beginning. Alpha and beta.
+**Horace**：SPIVA計分卡的數據一貫顯示，在15年期間，約85至90%的美國大型股主動基金經理跑輸標普500指數。但——這一點非常重要——確實有部分基金經理能夠持續跑贏市場。我們今天學習的工具，正是幫助你識別這些人。
 
-[VISUAL: "Alpha and Beta" section header]
+**Stella**：讓我們從最基礎的開始。阿爾法和貝塔。
 
-**Alex**: Beta measures how much your portfolio moves with the market. A beta of 1 means your portfolio moves in lockstep with the market. Beta of 1.2 means you move 20% more -- you are up more in bull markets and down more in bear markets. Beta of 0.8 means you move 20% less.
+[VISUAL: 「阿爾法與貝塔」章節標題]
 
-**Sam**: And alpha?
+**Horace**：貝塔衡量你的投資組合與市場的聯動程度。貝塔為1代表你的投資組合與市場完全同步。貝塔1.2代表你的波動幅度比市場多20%——牛市時漲得更多，熊市時跌得更深。貝塔0.8代表波動幅度比市場少20%。
 
-**Alex**: Alpha is the return that is left over after you account for beta. Here is a critical example. A portfolio returns 15% in a year when the market returns 10%. Most people would say the manager outperformed by 5%. But if the portfolio has a beta of 1.3, the expected return based purely on market exposure was 4% plus 1.3 times 6%, which equals 11.8%.
+**Stella**：那阿爾法呢？
 
-[VISUAL: Alpha calculation worked through step by step]
+**Horace**：阿爾法是計入貝塔後的剩餘回報。舉一個關鍵例子。某年市場回報10%，一個投資組合回報15%。大多數人會說基金經理跑贏了市場5%。但若該投資組合的貝塔為1.3，則純粹基於市場敞口的預期回報為4%加上1.3乘以6%，即11.8%。
 
-**Sam**: So the manager's alpha is only 15% minus 11.8%, which is 3.2%, not 5%.
+[VISUAL: 逐步演算阿爾法計算過程]
 
-**Alex**: Exactly. And that is a generous example. Many managers who appear to beat the market have simply taken more market risk -- higher beta. Their alpha, after adjusting for risk, is zero or negative.
+**Stella**：所以基金經理的阿爾法只有15%減11.8%，即3.2%，而非5%。
 
-**Sam**: How do I know if alpha is real or just luck?
+**Horace**：完全正確。而且這還是較為樂觀的例子。許多看似跑贏市場的基金經理，不過是承擔了更多市場風險——即更高的貝塔。他們的阿爾法在風險調整後為零甚至為負。
 
-**Alex**: This is the hardest question in finance. The answer requires statistical significance testing. For a 1% annual alpha to be statistically significant at 95% confidence, you typically need about 16 years of data. For 2% alpha, about 8 years. For 3%, about 5 years.
+**Stella**：我怎麼判斷阿爾法是真實的還是純屬運氣？
 
-[ANIMATION: animation/week43_alpha_significance.py -- Animated simulation showing 100 fund managers with zero true alpha (they are all coin flippers). Each manager runs for 1, 3, 5, 10, and 20 years. At each time horizon, the animation shows how many managers appear to have "significant" alpha. After 1 year, about 40-45 managers show positive alpha. After 3 years, about 30. After 5 years, about 20. After 10 years, about 10-12. After 20 years, about 5 managers still show positive alpha even though NONE of them have genuine skill. The point is made visually: even with zero skill, some managers will always look good by pure luck, and longer track records are needed to distinguish skill from luck.]
+**Horace**：這是金融界最難回答的問題。答案需要統計顯著性檢驗。要讓1%的年化阿爾法在95%置信水平下具有統計顯著性，通常需要約16年的數據。2%的阿爾法約需8年，3%約需5年。
 
-**Sam**: That is sobering. Even with NO skill, some managers will always appear to outperform just by chance.
+[ANIMATION: animation/week43_alpha_significance.py——動態模擬展示100位真實阿爾法為零的基金經理（全部是拋硬幣）。每位基金經理分別運行1年、3年、5年、10年和20年。在每個時間節點，動畫展示有多少基金經理看似取得了「顯著」的阿爾法。1年後，約40至45位基金經理呈現正阿爾法。3年後，約30位。5年後，約20位。10年後，約10至12位。20年後，仍有約5位基金經理呈現正阿爾法，儘管他們之中沒有一位具備真正的技巧。動畫直觀呈現以下論點：即使毫無技巧，永遠會有部分基金經理純粹憑藉運氣看起來表現出色；需要更長的業績記錄，才能將技巧與運氣加以區分。]
 
-**Alex**: And here is the cruel corollary. The fund industry has thousands of managers. If 5% of zero-skill managers appear to outperform over 10 years, and you have 5,000 managers, that is 250 managers who look skilled but are not. Separating the truly skilled from the lucky is extremely difficult.
+**Stella**：這令人警醒。即使完全沒有技巧，部分基金經理也會僅憑運氣看起來跑贏市場。
 
-**Sam**: Is it even possible?
+**Horace**：而且還有一個殘酷的推論。基金行業有數以千計的基金經理。若5%的零技巧基金經理在10年後看起來技術出色，而行業共有5,000位基金經理，那就有250位看起來有技巧但實際上並沒有的基金經理。要從中找出真正技術出色的人，難度極高。
 
-**Alex**: Yes, but you need multiple tools, not just returns. That is where tracking error and information ratio come in.
+**Stella**：這真的可能做到嗎？
 
-[VISUAL: "Tracking Error and Information Ratio" section header]
+**Horace**：可以，但你需要多種工具，而不僅僅是看回報。這就是追蹤誤差和資訊比率的用武之地。
 
-**Alex**: Tracking error measures how much your portfolio's returns deviate from the benchmark. It is the standard deviation of the return difference. A tracking error of zero means you are an index fund. A tracking error of 5% means your monthly returns typically differ from the benchmark by about 1.4% in any given month.
+[VISUAL: 「追蹤誤差與資訊比率」章節標題]
 
-**Sam**: And that tells me how active the manager is?
+**Horace**：追蹤誤差衡量你的投資組合回報偏離基準指數的程度。它是回報差值的標準差。追蹤誤差為零意味著你是指數基金。追蹤誤差5%意味著你的月度回報在任何給定月份通常與基準指數相差約1.4%。
 
-**Alex**: It tells you how much active RISK the manager is taking. And that is important because it is one thing to outperform by 2% with 3% tracking error -- that means the active bets were efficient. It is quite another to outperform by 2% with 12% tracking error -- that means the active bets were large and sloppy, and you just happened to get lucky.
+**Stella**：這告訴我基金經理的主動程度？
 
-**Sam**: So the ratio of alpha to tracking error matters.
+**Horace**：它告訴你基金經理承擔了多少主動風險。這一點很重要，因為以3%的追蹤誤差跑贏2%，與以12%的追蹤誤差跑贏2%，是截然不同的兩件事。前者意味著主動投注高效，後者意味著主動投注規模大而凌亂，你只是碰巧運氣好。
 
-**Alex**: That is exactly the information ratio. IR equals alpha divided by tracking error. It measures how much return you get per unit of active risk. Think of it as the Sharpe ratio for active management.
+**Stella**：所以阿爾法與追蹤誤差的比率很重要。
 
-[VISUAL: Information ratio calculation and interpretation scale]
+**Horace**：這正是資訊比率的定義。資訊比率等於阿爾法除以追蹤誤差。它衡量每單位主動風險所取得的回報。可以將它理解為主動管理版的夏普比率。
 
-**Alex**: An IR above 0.5 is very good -- top quartile among active managers. Above 0.75 is excellent. Above 1.0 is exceptional and almost impossible to sustain over long periods.
+[VISUAL: 資訊比率計算及解讀刻度]
 
-**Sam**: What is a typical IR?
+**Horace**：資訊比率超過0.5是非常好的成績——相當於主動基金經理的前四分位。超過0.75是優秀。超過1.0是卓越，幾乎不可能長期維持。
 
-**Alex**: The median active manager has an IR near zero -- their alpha is negligible after fees. The top quartile has an IR around 0.3-0.5. Top decile is 0.5-0.8. If someone claims a sustained IR above 1.0, they are either Warren Buffett, Renaissance Technologies, or lying.
+**Stella**：典型的資訊比率是多少？
 
-[VISUAL: Distribution of information ratios across active managers]
+**Horace**：中位數主動基金經理的資訊比率接近零——扣除費用後的阿爾法微乎其微。前四分位約在0.3至0.5之間。前十分位是0.5至0.8。若有人聲稱持續維持1.0以上的資訊比率，他們要麼是巴菲特，要麼是文藝復興科技，要麼是在說謊。
 
-**Sam**: I want to understand active share. I have heard it mentioned as a way to identify closet indexers.
+[VISUAL: 主動基金經理資訊比率的分佈情況]
 
-[VISUAL: "Active Share" section header]
+**Stella**：我想了解主動份額。我聽說它是識別隱形指數的方法。
 
-**Alex**: Active share measures how different your portfolio is from the benchmark, position by position. It is calculated by summing the absolute differences between your portfolio weights and the benchmark weights for every security, then dividing by two.
+[VISUAL: 「主動份額」章節標題]
 
-**Sam**: Give me an example.
+**Horace**：主動份額逐一持倉地衡量你的投資組合與基準指數的差異程度。計算方法是將每隻證券的投資組合權重與基準指數權重之差的絕對值加總，再除以二。
 
-**Alex**: Say the benchmark has 7% in Apple, and your fund has 10% in Apple. That is a 3% difference. The benchmark has 4% in Google, and your fund has zero. That is a 4% difference. You do this for every stock in both the portfolio and the benchmark, sum up all the absolute differences, and divide by two. If your active share is 80%, it means 80% of your portfolio differs from the benchmark.
+**Stella**：能舉個例子嗎？
 
-[VISUAL: Active share calculation example with several stocks]
+**Horace**：假設基準指數持有7%的蘋果，而你的基金持有10%。差值為3%。基準指數持有4%的谷歌，而你的基金持有零。差值為4%。對投資組合和基準指數中的每隻股票重複這個步驟，將所有絕對差值加總，再除以二。若你的主動份額為80%，意味著你的投資組合有80%的部分與基準指數不同。
 
-**Sam**: What does research say about active share and performance?
+[VISUAL: 含多隻股票的主動份額計算示例]
 
-**Alex**: The landmark Cremers and Petajisto study from 2009 divided funds into categories based on active share. Funds with active share above 80% -- truly differentiated portfolios -- outperformed their benchmarks by about 1.5% per year before fees. Funds with active share below 40% -- closet indexers -- underperformed by about the amount of their fee. They were charging for active management but delivering index-like returns.
+**Stella**：研究對主動份額與業績有何發現？
 
-**Sam**: So if you are going to be active, be REALLY active?
+**Horace**：2009年Cremers及Petajisto的里程碑研究將基金按主動份額分類。主動份額超過80%的基金——真正具差異化的投資組合——在扣費前每年平均跑贏基準指數約1.5%。主動份額低於40%的基金——隱形指數——跑輸幅度約等於其費用。它們收取主動管理費，卻提供接近指數的回報。
 
-**Alex**: Yes, but with a caveat. High active share is necessary but not sufficient. Being different from the benchmark is only valuable if you are different in the RIGHT way. A manager who avoids the 10 best-performing stocks has high active share and terrible returns. You need high active share AND skill.
+**Stella**：所以如果要主動管理，就要真正主動？
 
-[ANIMATION: animation/week43_active_share.py -- Animated scatter plot comparing active share (x-axis) to future 5-year alpha (y-axis) for 500 simulated funds. The animation builds up over time, showing four quadrants: low active share with negative alpha (closet indexers, bottom left), low active share with small positive alpha (enhanced indexers, top left), high active share with negative alpha (unskilled stock pickers, bottom right), and high active share with positive alpha (skilled stock pickers, top right). The best-performing funds cluster in the top right, confirming that high active share is necessary for significant outperformance. But the bottom right quadrant also has many funds, showing that high active share without skill leads to large underperformance. A text annotation summarizes: "High active share gives you the opportunity to outperform -- and the risk of underperforming significantly."]
+**Horace**：是的，但有一個重要前提。高主動份額是必要條件，但非充分條件。與基準指數不同只有在「以正確的方式」不同時才有價值。若一位基金經理迴避了表現最佳的10隻股票，其主動份額高，回報卻很差。你需要高主動份額加上真正的技巧。
 
-**Sam**: So the key combination is high active share plus genuine skill.
+[ANIMATION: animation/week43_active_share.py——動態散點圖，以主動份額（x軸）對比未來5年阿爾法（y軸），展示500隻模擬基金。動畫逐步建立，顯示四個象限：低主動份額、負阿爾法（隱形指數，左下）；低主動份額、小幅正阿爾法（增強型指數，左上）；高主動份額、負阿爾法（技巧不足的選股型，右下）；高主動份額、正阿爾法（技術出色的選股型，右上）。表現最佳的基金集中於右上象限，確認高主動份額是顯著超額表現的必要條件。但右下象限同樣有大量基金，顯示沒有技巧的高主動份額會導致大幅跑輸。文字注釋總結：「高主動份額給予你跑贏市場的機會——以及大幅跑輸的風險。」]
 
-**Alex**: Exactly. And there is an even more useful matrix. Plot active share against tracking error. Funds with high active share but low tracking error are "diversified stock pickers" -- they pick many different stocks but the overall portfolio risk is similar to the benchmark. Research shows this is the category most likely to outperform. Funds with low active share and low tracking error are closet indexers. Funds with high active share and high tracking error are concentrated bets -- they can outperform hugely or underperform hugely.
+**Stella**：所以關鍵組合是高主動份額加上真正的技巧。
 
-[VISUAL: Active share vs. tracking error 2x2 matrix]
+**Horace**：完全正確。還有一個更實用的矩陣。以主動份額對比追蹤誤差作圖。高主動份額但低追蹤誤差的基金是「分散化選股型」——他們挑選大量不同的個股，但整體投資組合風險與基準指數相近。研究顯示，這個類別最有可能跑贏市場。低主動份額、低追蹤誤差的是隱形指數。高主動份額、高追蹤誤差的是集中型投注——可能大幅跑贏，也可能大幅跑輸。
 
-**Sam**: Now I want to understand the Fundamental Law. This sounds like it ties everything together.
+[VISUAL: 主動份額對比追蹤誤差的2x2矩陣]
 
-[VISUAL: "The Fundamental Law of Active Management" section header]
+**Stella**：現在我想了解基本定律。感覺它把所有東西都串連起來了。
 
-**Alex**: The Fundamental Law, developed by Grinold and Kahn, is one of the most elegant frameworks in finance. It says: Information Ratio equals the Information Coefficient times the square root of Breadth. IR equals IC times square root of BR.
+[VISUAL: 「主動管理基本定律」章節標題]
 
-**Sam**: Break those components down.
+**Horace**：主動管理基本定律由Grinold及Kahn提出，是金融界最優雅的框架之一。它的表達式為：資訊比率等於資訊係數乘以廣度的平方根。
 
-**Alex**: The Information Coefficient, IC, measures your skill per bet. It is the correlation between your forecasts and actual outcomes. An IC of zero means your predictions are random. An IC of 0.05 means you have a very slight edge -- your predictions are slightly better than chance. An IC of 0.10 is quite good. An IC of 0.15 is exceptional.
+**Stella**：可以逐一說明這些組成部分嗎？
 
-**Sam**: Those sound really small.
+**Horace**：資訊係數衡量每次投注的技巧。它是你的預測與實際結果之間的相關性。資訊係數為零意味著你的預測是隨機的。資訊係數為0.05意味著你具備非常微小的優勢——你的預測略優於隨機。資訊係數為0.10是相當不錯的水平。資訊係數為0.15則相當出色。
 
-**Alex**: They are. Even the best investors in the world have ICs in the 0.05 to 0.15 range. Nobody consistently predicts stock returns with high accuracy. But even a tiny edge, compounded over many bets, produces significant alpha.
+**Stella**：這些數字聽起來非常小。
 
-**Sam**: And that is where breadth comes in.
+**Horace**：確實很小。即使是世界上最出色的投資者，其資訊係數也介乎0.05至0.15之間。沒有人能持續以高準確率預測股票回報。但即使是微小的優勢，在大量投注的情況下累積，也能產生顯著的阿爾法。
 
-**Alex**: Breadth, BR, is the number of independent bets per year. The key word is INDEPENDENT. If you buy 50 tech stocks, those are not 50 independent bets -- they are highly correlated. The effective breadth might be only 5-10.
+**Stella**：這就是廣度的作用所在。
 
-[VISUAL: Formula with examples at different IC and BR combinations]
+**Horace**：廣度，即BR，是每年獨立投注的次數。關鍵詞是「獨立」。若你買入50隻科技股，這並非50次獨立投注——它們高度相關。有效廣度可能只有5至10次。
 
-**Alex**: Here is the magic. A manager with modest skill -- IC of 0.05 -- making 100 independent bets achieves an IR of 0.05 times the square root of 100, which equals 0.50. That is a very good IR. A manager with twice the skill -- IC of 0.10 -- making only 25 bets achieves 0.10 times the square root of 25, which equals 0.50. Same IR, completely different approach.
+[VISUAL: 含不同資訊係數和廣度組合的公式示例]
 
-**Sam**: So skill and breadth are substitutes.
+**Horace**：這裡有一個神奇之處。技巧適中的基金經理——資訊係數0.05——進行100次獨立投注，可達到資訊比率0.05乘以100的平方根，即0.50。這是一個非常不錯的資訊比率。技巧提高一倍——資訊係數0.10——但只進行25次投注，則達到0.10乘以25的平方根，即0.50。資訊比率相同，方法完全不同。
 
-**Alex**: Exactly. If you have modest forecasting ability -- which is what most investors have -- you should make MANY independent bets. Diversify across sectors, countries, and styles. Each bet on its own will not be impressively profitable, but the cumulative effect of many small edges is a strong information ratio.
+**Stella**：所以技巧與廣度可以互相替代。
 
-**Sam**: And if you are Warren Buffett with higher skill per bet?
+**Horace**：完全正確。若你的預測能力適中——這正是大多數投資者的水平——你應該進行大量獨立投注。跨板塊、跨國家、跨風格進行分散化。每次單獨的投注未必能帶來令人印象深刻的回報，但大量微小優勢的累積效果，會帶來強勁的資訊比率。
 
-**Alex**: Then you can concentrate -- make fewer, larger bets and still achieve a strong IR. But most people overestimate their IC. They think they are Buffett when they are actually average. The safe strategy is to assume modest skill and diversify.
+**Stella**：若你是擁有更強技巧的巴菲特呢？
 
-[VISUAL: Table showing IC/BR combinations and resulting IR]
+**Horace**：那你可以集中——進行更少、更大的投注，同樣能取得強勁的資訊比率。但大多數人高估了自己的資訊係數。他們以為自己是巴菲特，實際上只是普通水平。安全的策略是假設自己技巧適中，然後進行分散化。
 
-**Sam**: This has a practical implication for me. I should spread my stock picks across different sectors and countries, not concentrate in what I know best?
+[VISUAL: 資訊係數／廣度組合及對應資訊比率的表格]
 
-**Alex**: Unless what you know best truly gives you an edge. But here is a reality check: if you pick 50 stocks all in the tech sector, your effective breadth is not 50. Because those stocks are correlated at about 0.5-0.7 with each other, your effective breadth is more like 5-8 independent bets. You have done a lot of research for very little diversification benefit.
+**Stella**：這對我有實際啟示。我應該將選股分散到不同板塊和國家，而不是集中在我最熟悉的領域？
 
-**Sam**: Let us move to performance attribution. How do I figure out WHERE my returns came from?
+**Horace**：除非你最熟悉的領域真正賦予你優勢。但這裡有一個現實考驗：若你在科技板塊挑選50隻股票，你的有效廣度並不是50。因為這些股票之間的相關性約為0.5至0.7，你的有效廣度更接近5至8次獨立投注。你做了大量研究，卻幾乎沒有得到任何分散化效益。
 
-[VISUAL: "Performance Attribution" section header]
+**Stella**：讓我們說說績效歸因。我如何找出回報從何而來？
 
-**Alex**: Performance attribution decomposes your active return -- the difference between your portfolio and the benchmark -- into specific sources. The classic Brinson model splits it into allocation effect and selection effect.
+[VISUAL: 「績效歸因」章節標題]
 
-**Sam**: What is the difference?
+**Horace**：績效歸因將你的主動回報——即你的投資組合與基準指數之間的差值——分解為具體來源。經典的布林森模型將其分為配置效應和選股效應。
 
-**Alex**: Allocation effect measures whether you added value by over- or underweighting sectors. If you overweighted technology and technology outperformed the market, your allocation effect in tech is positive. Selection effect measures whether you picked good stocks within each sector. If your tech stocks returned 18% while the benchmark's tech stocks returned 15%, your selection effect in tech is positive.
+**Stella**：兩者有什麼分別？
 
-[VISUAL: Attribution example with sector-by-sector breakdown]
+**Horace**：配置效應衡量你是否透過增持或減持板塊創造了價值。若你增持了科技股而科技板塊跑贏大市，你的科技板塊配置效應便是正的。選股效應衡量你是否在各板塊內挑選了優質股票。若你的科技股回報18%，而基準指數的科技股回報15%，你的科技板塊選股效應便是正的。
 
-**Alex**: Let me walk through a real example. Say your portfolio returned 12.2% and the benchmark returned 10.5%. That is 1.7% outperformance. Attribution decomposes this as: 0.37% from sector allocation, 1.01% from stock selection, and 0.32% from the interaction between the two.
+[VISUAL: 含板塊逐一分解的歸因示例]
 
-**Sam**: So most of the outperformance came from picking good stocks, not from overweighting the right sectors.
+**Horace**：讓我用一個真實例子來說明。假設你的投資組合回報12.2%，而基準指數回報10.5%。超額表現為1.7%。歸因分解如下：0.37%來自板塊配置，1.01%來自個股選擇，0.32%來自兩者的交互效應。
 
-**Alex**: Exactly. And that distinction matters. Sector allocation is hard to repeat -- it requires macro forecasting, which is notoriously difficult. Stock selection tends to be more repeatable because it is based on company-level analysis. A manager whose outperformance comes primarily from selection is more likely to continue outperforming than one whose outperformance comes from a lucky sector bet.
+**Stella**：所以大部分超額表現來自挑選優質股票，而非增持了正確的板塊。
 
-**Sam**: What about factor attribution?
+**Horace**：完全正確。而這個區別至關重要。板塊配置難以重複——它需要宏觀預測能力，而這是出了名的困難。個股選擇往往更具可重複性，因為它建立於公司層面的分析之上。超額表現主要來自選股的基金經理，比超額表現來自幸運板塊押注的基金經理，更有可能持續跑贏市場。
 
-**Alex**: Factor attribution goes even deeper. Instead of asking "did the manager pick good stocks in tech?", it asks "is the outperformance explained by the manager's tilt toward growth stocks, or momentum stocks, or small caps?" This is crucial because factor tilts can be replicated cheaply with ETFs.
+**Stella**：因子歸因又是怎麼一回事？
 
-[ANIMATION: animation/week43_factor_attribution.py -- Animated waterfall chart showing a manager's 14% total return being decomposed step by step. The animation starts with the full 14% bar. First, the risk-free rate of 4% is separated out. Then market exposure (beta of 1.1 contributing 8.8%) is peeled away. Then size, value, momentum, and quality factor exposures are separated one by one, each showing their contribution. What remains at the end is the residual alpha -- in this case, approximately -0.2%. The animation emphasizes that the impressive-looking 14% total return and 2% "outperformance" versus the 12% market return is entirely explained by factor exposures. There is no genuine stock-picking alpha.]
+**Horace**：因子歸因分析更為深入。它不再問「基金經理是否在科技板塊挑選了好股票」，而是問「超額表現是否由基金經理對成長股、動量股或小型股的傾斜來解釋？」這一點至關重要，因為因子傾斜可以用交易所買賣基金低廉地複製。
 
-**Sam**: That is devastating. The manager looked like a 2% outperformer, but after factor attribution, they actually have slightly negative alpha?
+[ANIMATION: animation/week43_factor_attribution.py——動態瀑布圖，逐步分解基金經理14%的總回報。動畫從完整的14%柱狀圖開始。首先分離出4%的無風險利率。然後逐步剝離市場敞口（貝塔1.1，貢獻8.8%）。接著逐一分離規模、價值、動量和質量因子敞口，分別展示各自的貢獻。最後剩餘的是殘差阿爾法——在本例中約為-0.2%。動畫強調，看起來令人印象深刻的14%總回報，以及相對於12%市場回報的2%「超額表現」，完全由因子敞口解釋。不存在真正的選股阿爾法。]
 
-**Alex**: This is incredibly common. Studies show that a large majority of active fund "alpha" is actually factor exposure in disguise. The manager tilts toward momentum, or quality, or small caps, and when those factors perform well, the fund outperforms. When those factors reverse, the fund underperforms. The manager has no genuine stock-picking skill -- they are just a factor bet dressed up as active management.
+**Stella**：這太令人震驚了。基金經理看起來跑贏了2%，但經過因子歸因後，阿爾法實際上略為負數？
 
-**Sam**: And I could replicate that factor bet with cheap ETFs.
+**Horace**：這種情況極為普遍。研究顯示，主動基金「阿爾法」的很大一部分，實際上是偽裝成阿爾法的因子敞口。基金經理偏向動量股、質量股或小型股，當這些因子表現出色時，基金便跑贏市場；當這些因子反轉時，基金便跑輸市場。基金經理並無真正的選股技巧——他們不過是穿著主動管理外衣的因子投注。
 
-**Alex**: For about 0.1% in fees instead of 0.8% or 1.0%. This is one of the most important insights from modern finance: much of what the active management industry sells as "alpha" is actually "beta in disguise" -- systematic factor exposure that can be obtained far more cheaply.
+**Stella**：而我可以用廉價的交易所買賣基金複製這種因子投注。
 
-**Sam**: So how do I use all of this practically?
+**Horace**：費用約為0.1%，而非0.8%或1.0%。這是現代金融最重要的洞見之一：主動管理行業所銷售的大部分「阿爾法」，實際上是「偽裝的貝塔」——可以更低廉地獲取的系統性因子敞口。
 
-[VISUAL: "Putting It All Together" section header]
+**Stella**：那我如何在實踐中應用所有這些知識？
 
-**Alex**: Here is my framework for evaluating any active manager -- including yourself if you pick individual stocks.
+[VISUAL: 「整合應用」章節標題]
 
-**Alex**: Step one: look at alpha net of fees over at least 5 years, ideally 10. Is it positive? Is it statistically significant?
+**Horace**：以下是我評估任何主動基金經理——包括你自己若你選個股——的框架。
 
-**Sam**: Most managers will fail at this step.
+**Horace**：第一步：查看至少5年、理想情況下10年的扣費後淨阿爾法。是否為正？是否具統計顯著性？
 
-**Alex**: Correct. Step two: check the information ratio. An IR below 0.3 is not worth paying for. You can get similar results with an index fund and zero active risk.
+**Stella**：大多數基金經理會在這一步落敗。
 
-**Alex**: Step three: check active share. If it is below 40%, you have a closet indexer. Do not pay active management fees for index-like returns.
+**Horace**：正確。第二步：查看資訊比率。低於0.3的資訊比率不值得支付費用。你可以用指數基金取得類似結果，同時不承擔任何主動風險。
 
-**Alex**: Step four: run factor attribution. Is the alpha explained by factor tilts, or is there genuine residual stock-picking alpha? If it is all factor tilts, buy factor ETFs instead.
+**Horace**：第三步：查看主動份額。若低於40%，你面對的是隱形指數。不要為接近指數的回報支付主動管理費用。
 
-**Alex**: Step five: look at performance attribution. Is the alpha coming from broad-based stock selection across sectors, or from one or two lucky bets?
+**Horace**：第四步：進行因子歸因。阿爾法是否由因子傾斜解釋，還是存在真正的殘差選股阿爾法？若全部是因子傾斜，直接購買因子交易所買賣基金。
 
-[VISUAL: Five-step evaluation framework as a flowchart]
+**Horace**：第五步：審視績效歸因。阿爾法是否來自跨板塊的廣泛選股，還是來自一兩次幸運押注？
 
-**Sam**: If a manager passes all five steps, is it a good investment?
+[VISUAL: 五步評估框架流程圖]
 
-**Alex**: It is a CANDIDATE for investment. You still need to assess qualitative factors: is the manager investing their own money alongside clients? Has the process been consistent? Has the fund grown too large for its strategy? Are key personnel stable? But passing the quantitative tests is a prerequisite.
+**Stella**：若一位基金經理通過了全部五步測試，這就是一個好的投資？
 
-**Sam**: What percentage of active managers pass all five tests?
+**Horace**：這使其成為投資的候選對象。你仍需評估定性因素：基金經理是否與客戶共同投資？投資流程是否保持一貫？基金規模是否過大而影響策略執行？核心人員是否穩定？但通過定量測試是先決條件。
 
-**Alex**: Generously? Maybe 5-10%. More realistically, 3-5%. The vast majority of active managers either have no alpha, are closet indexers, or have alpha that is fully explained by factor exposures.
+**Stella**：有多少百分比的主動基金經理能通過全部五項測試？
 
-**Sam**: So the default should be index funds?
+**Horace**：寬鬆估計？大概5至10%。更現實地說，3至5%。絕大多數主動基金經理要麼沒有阿爾法，要麼是隱形指數，要麼其阿爾法完全由因子敞口解釋。
 
-**Alex**: For most investors, yes. The evidence overwhelmingly supports passive investing for the majority of a portfolio. BUT -- and this is important -- the fact that most active managers fail does not mean ALL active management is worthless. The small minority of genuinely skilled managers can add meaningful value. The tools we learned today help you identify them.
+**Stella**：所以默認選擇應該是指數基金？
 
-**Sam**: Let me summarize. Alpha measures value-added after adjusting for risk. Tracking error measures active risk. Information ratio is alpha per unit of tracking error. Active share measures portfolio differentiation. The Fundamental Law says IR equals skill times the square root of breadth. Performance attribution decomposes returns into allocation and selection. Factor attribution reveals whether alpha is genuine or just factor exposure.
+**Horace**：對大多數投資者而言，是的。壓倒性的證據支持對投資組合的大部分進行被動投資。但——這一點很重要——大多數主動基金經理失敗，並不意味著所有主動管理都毫無價值。真正技術出色的少數基金經理確實能創造有意義的價值。我們今天學到的工具，正是幫助你識別他們。
 
-**Alex**: Perfect. And the overarching message: be skeptical but not cynical. Most active management destroys value after fees. But the tools exist to separate the wheat from the chaff. Use them.
+**Stella**：讓我來總結一下。阿爾法衡量風險調整後的附加價值；追蹤誤差衡量主動風險；資訊比率是每單位追蹤誤差的阿爾法；主動份額衡量投資組合的差異化程度；基本定律指出資訊比率等於技巧乘以廣度的平方根；績效歸因將回報分解為配置和選股效應；因子歸因揭示阿爾法是否真實，還是只是因子敞口。
 
-**Sam**: This has completely changed how I will evaluate fund managers -- and my own stock picks.
+**Horace**：完美。而且最重要的信息是：保持懷疑，但不要憤世嫉俗。大多數主動管理在扣除費用後會摧毀價值。但工具是存在的，可以將優秀者與平庸者加以區分。好好運用這些工具。
 
-**Alex**: That is the goal. And do not forget to apply these tools to yourself. If you are spending 10 hours a week researching stocks and your portfolio has an information ratio near zero, your time might be better spent elsewhere. Index the core of your portfolio and concentrate your active bets where you have a genuine informational edge.
+**Stella**：這徹底改變了我評估基金經理——以及自己選股——的方式。
 
-[VISUAL: "Next week: Market Microstructure"]
+**Horace**：這正是我們的目標。而且別忘了將這些工具應用於自身。若你每週花10小時研究股票，而你的投資組合資訊比率接近零，你的時間或許有更好的用途。將核心投資組合配置於指數，並將主動投注集中在你真正擁有資訊優勢的領域。
 
-**Alex**: Next week we go inside the machine. We will learn about bid-ask spreads, market makers, order types, price impact, slippage, implementation shortfall, and dark pools. This is the plumbing of financial markets -- and understanding it can save you significant money on every trade you make.
+[VISUAL: 「下週：市場微觀結構」]
 
-**Sam**: From measuring performance to executing trades efficiently.
+**Horace**：下週我們深入機器內部。我們將學習買賣差價、莊家、委託類型、價格衝擊、滑點、執行缺口，以及暗盤交易。這是金融市場的運作機制——了解它，可以幫你在每次交易中節省可觀的成本。
 
-**Alex**: Exactly. All the alpha in the world does not help if you give it back in transaction costs. See you next week.
+**Stella**：從衡量業績到有效率地執行交易。
 
-**Sam**: Thanks, Alex.
+**Horace**：完全正確。世界上所有的阿爾法，若在交易成本中拱手相讓，都毫無意義。下週見。
 
-[VISUAL: End card with channel subscribe prompt and links to previous videos]
+**Stella**：多謝你，Horace。
+
+[VISUAL: 尾卡，包含頻道訂閱提示及往期視頻連結]

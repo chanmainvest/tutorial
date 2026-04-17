@@ -697,159 +697,159 @@ A: Equity index futures (ES, NQ) trade nearly 24 hours a day, while the stock ma
 
 [VISUAL: Opening title card -- "Week 39: Futures Markets Introduction" with images of the CME trading floor transitioning to modern electronic trading screens]
 
-**Alex**: Welcome to Week 39. We have spent the last two weeks deep in options territory, and today we are moving into a completely different arena -- futures markets. Sam, what do you know about futures?
+**Horace**: Welcome to Week 39. We have spent the last two weeks deep in options territory, and today we are moving into a completely different arena -- futures markets. Stella, what do you know about futures?
 
-**Sam**: Honestly, not much. I know they are contracts to buy or sell something at a future date. Farmers use them, oil companies use them. But I always thought they were too complicated or too risky for regular investors.
+**Stella**: Honestly, not much. I know they are contracts to buy or sell something at a future date. Farmers use them, oil companies use them. But I always thought they were too complicated or too risky for regular investors.
 
-**Alex**: That was true until about 2019. The introduction of micro futures changed everything. But let us start from the beginning, because futures are actually simpler in many ways than options.
+**Horace**: That was true until about 2019. The introduction of micro futures changed everything. But let us start from the beginning, because futures are actually simpler in many ways than options.
 
 [VISUAL: Simple diagram of a futures contract between two parties]
 
-**Alex**: A futures contract is an agreement between two parties. One party agrees to buy a specific asset at a specific price on a specific date. The other party agrees to sell. Both sides are obligated. That is the key difference from options, where only the seller is obligated.
+**Horace**: A futures contract is an agreement between two parties. One party agrees to buy a specific asset at a specific price on a specific date. The other party agrees to sell. Both sides are obligated. That is the key difference from options, where only the seller is obligated.
 
-**Sam**: So it is like a forward contract?
+**Stella**: So it is like a forward contract?
 
-**Alex**: Very similar. The main difference is that futures are standardized and traded on an exchange, which eliminates counterparty risk. The exchange's clearinghouse guarantees both sides of every trade. If the person on the other side of your trade goes bankrupt, the clearinghouse still honors your contract.
+**Horace**: Very similar. The main difference is that futures are standardized and traded on an exchange, which eliminates counterparty risk. The exchange's clearinghouse guarantees both sides of every trade. If the person on the other side of your trade goes bankrupt, the clearinghouse still honors your contract.
 
-**Sam**: That sounds important. So what are the most common futures contracts?
+**Stella**: That sounds important. So what are the most common futures contracts?
 
 [VISUAL: Table of major futures markets organized by category]
 
-**Alex**: There are four main categories. Equity index futures -- S&P 500, Nasdaq 100, Dow Jones, Russell 2000. Treasury futures -- 2-year, 5-year, 10-year, 30-year bonds. Commodity futures -- crude oil, gold, silver, natural gas, corn, soybeans. And currency futures -- euro, yen, pound.
+**Horace**: There are four main categories. Equity index futures -- S&P 500, Nasdaq 100, Dow Jones, Russell 2000. Treasury futures -- 2-year, 5-year, 10-year, 30-year bonds. Commodity futures -- crude oil, gold, silver, natural gas, corn, soybeans. And currency futures -- euro, yen, pound.
 
-**Sam**: The equity index ones seem most relevant for stock investors.
+**Stella**: The equity index ones seem most relevant for stock investors.
 
-**Alex**: They are, and that is where we will focus. The E-mini S&P 500, ticker ES, is the most widely traded futures contract in the world. One contract is worth $50 times the S&P 500 index level. At S&P 5,000, that is $250,000 per contract.
+**Horace**: They are, and that is where we will focus. The E-mini S&P 500, ticker ES, is the most widely traded futures contract in the world. One contract is worth $50 times the S&P 500 index level. At S&P 5,000, that is $250,000 per contract.
 
-**Sam**: $250,000? That is enormous. How can a regular person trade that?
+**Stella**: $250,000? That is enormous. How can a regular person trade that?
 
-**Alex**: Two answers. First, the margin requirement is only about $12,500 -- about 5% of the contract value. That gives you 20 to 1 leverage.
+**Horace**: Two answers. First, the margin requirement is only about $12,500 -- about 5% of the contract value. That gives you 20 to 1 leverage.
 
-**Sam**: That is terrifying.
+**Stella**: That is terrifying.
 
-**Alex**: It can be. Which brings me to the second answer: micro futures. The Micro E-mini S&P 500, ticker MES, is one-tenth the size. $5 per point instead of $50. Contract value around $25,000. Margin around $1,250.
+**Horace**: It can be. Which brings me to the second answer: micro futures. The Micro E-mini S&P 500, ticker MES, is one-tenth the size. $5 per point instead of $50. Contract value around $25,000. Margin around $1,250.
 
 [VISUAL: Side-by-side comparison of ES vs MES contract specifications]
 
-**Sam**: OK, $1,250 in margin to control $25,000 of S&P 500 exposure. That is still 20 to 1 leverage, but the dollar amounts are manageable.
+**Stella**: OK, $1,250 in margin to control $25,000 of S&P 500 exposure. That is still 20 to 1 leverage, but the dollar amounts are manageable.
 
-**Alex**: Exactly. And this is where I need to explain how futures margin works, because it is nothing like stock margin.
+**Horace**: Exactly. And this is where I need to explain how futures margin works, because it is nothing like stock margin.
 
 [ANIMATION: animation/week39_futures_margin.py -- Animated visualization of the futures margin system. The animation shows a vertical "account balance" bar starting at the initial margin level. As simulated market data plays, the bar rises and falls in real-time representing mark-to-market gains and losses. Three horizontal reference lines are shown: initial margin (green), maintenance margin (yellow), and zero (red). When the account balance drops below the maintenance margin line, a "MARGIN CALL" alert flashes on screen, and the bar is shown being topped back up to the initial margin level with an arrow labeled "Variation Margin Deposit." The animation cycles through several days of simulated trading, showing both profitable and losing days.]
 
-**Sam**: So the margin is more like a security deposit than a loan.
+**Stella**: So the margin is more like a security deposit than a loan.
 
-**Alex**: Perfect analogy. When you buy stock on margin, your broker lends you money, and you pay interest. When you trade futures, you post a performance bond. There is no loan and no interest. The leverage comes from the fact that you only need a small percentage of the contract value as your deposit.
+**Horace**: Perfect analogy. When you buy stock on margin, your broker lends you money, and you pay interest. When you trade futures, you post a performance bond. There is no loan and no interest. The leverage comes from the fact that you only need a small percentage of the contract value as your deposit.
 
-**Sam**: And mark-to-market means gains and losses are settled every day?
+**Stella**: And mark-to-market means gains and losses are settled every day?
 
-**Alex**: Every single day. At the end of the trading day, your position is priced at the settlement price. If you made money, it is credited to your account in cash. If you lost money, it is debited. This is called variation margin.
+**Horace**: Every single day. At the end of the trading day, your position is priced at the settlement price. If you made money, it is credited to your account in cash. If you lost money, it is debited. This is called variation margin.
 
 [VISUAL: Day-by-day mark-to-market example with account balance tracking]
 
-**Alex**: Let me walk you through an example. You buy one MES at 5,000 with $1,250 in initial margin. Day one, the S&P drops 30 points to 4,970. That is 30 times $5 equals $150 debited from your account. Your balance is now $1,100.
+**Horace**: Let me walk you through an example. You buy one MES at 5,000 with $1,250 in initial margin. Day one, the S&P drops 30 points to 4,970. That is 30 times $5 equals $150 debited from your account. Your balance is now $1,100.
 
-**Sam**: And the maintenance margin is...
+**Stella**: And the maintenance margin is...
 
-**Alex**: About $1,130 for MES. So at $1,100, you are below maintenance. Margin call. You need to deposit enough to get back to initial margin -- about $150.
+**Horace**: About $1,130 for MES. So at $1,100, you are below maintenance. Margin call. You need to deposit enough to get back to initial margin -- about $150.
 
-**Sam**: A 30-point drop in the S&P is only 0.6%. And I already got a margin call?
+**Stella**: A 30-point drop in the S&P is only 0.6%. And I already got a margin call?
 
-**Alex**: Now you understand why position sizing is so important in futures. With 20 to 1 leverage, a 0.6% move creates a 12% change in your margin account. This is why I recommend having at least $5,000 per MES contract, not the minimum $1,250.
+**Horace**: Now you understand why position sizing is so important in futures. With 20 to 1 leverage, a 0.6% move creates a 12% change in your margin account. This is why I recommend having at least $5,000 per MES contract, not the minimum $1,250.
 
-**Sam**: $5,000 gives you a lot more room.
+**Stella**: $5,000 gives you a lot more room.
 
-**Alex**: Right. With $5,000, the S&P could drop 750 points -- 15% -- before you face a margin call. That covers most normal market events.
+**Horace**: Right. With $5,000, the S&P could drop 750 points -- 15% -- before you face a margin call. That covers most normal market events.
 
 [VISUAL: Account sizing recommendation chart]
 
-**Sam**: Let us talk about something I have heard but never understood: contango and backwardation.
+**Stella**: Let us talk about something I have heard but never understood: contango and backwardation.
 
-**Alex**: These are the shapes of the futures price curve, and they are absolutely critical for understanding commodities, volatility products, and many ETFs.
+**Horace**: These are the shapes of the futures price curve, and they are absolutely critical for understanding commodities, volatility products, and many ETFs.
 
 [VISUAL: Two curves side by side -- contango (upward sloping) and backwardation (downward sloping)]
 
-**Alex**: Contango means the futures price is higher than the spot price, and each successive contract month is more expensive. This is the normal state for most markets because it reflects the cost of carry -- storage costs, insurance, and financing.
+**Horace**: Contango means the futures price is higher than the spot price, and each successive contract month is more expensive. This is the normal state for most markets because it reflects the cost of carry -- storage costs, insurance, and financing.
 
-**Sam**: Give me an example.
+**Stella**: Give me an example.
 
-**Alex**: Gold. If gold spot is $2,200 per ounce, the 1-month future might be $2,205, the 3-month $2,215, the 6-month $2,230. The premium reflects the cost of storing and insuring gold for those extra months.
+**Horace**: Gold. If gold spot is $2,200 per ounce, the 1-month future might be $2,205, the 3-month $2,215, the 6-month $2,230. The premium reflects the cost of storing and insuring gold for those extra months.
 
-**Sam**: That makes sense. And backwardation is the opposite?
+**Stella**: That makes sense. And backwardation is the opposite?
 
-**Alex**: Yes. In backwardation, the futures price is below the spot price. This typically happens when there is strong immediate demand or a supply shortage. Think of crude oil during a war or natural gas during a cold snap. People want the commodity now, so the spot price is bid up relative to future delivery.
+**Horace**: Yes. In backwardation, the futures price is below the spot price. This typically happens when there is strong immediate demand or a supply shortage. Think of crude oil during a war or natural gas during a cold snap. People want the commodity now, so the spot price is bid up relative to future delivery.
 
-**Sam**: So which one is better for investors?
+**Stella**: So which one is better for investors?
 
-**Alex**: If you are long futures and rolling your position, backwardation is your friend and contango is your enemy. Let me explain why.
+**Horace**: If you are long futures and rolling your position, backwardation is your friend and contango is your enemy. Let me explain why.
 
 [VISUAL: Roll mechanics animation showing contract expiry and new contract purchase]
 
-**Alex**: When your futures contract expires, you need to sell it and buy the next month. In contango, the next month is more expensive. You sell low, buy high. That is a loss every time you roll. Over a year of monthly rolls, this "negative roll yield" can cost you 10-30% depending on the market.
+**Horace**: When your futures contract expires, you need to sell it and buy the next month. In contango, the next month is more expensive. You sell low, buy high. That is a loss every time you roll. Over a year of monthly rolls, this "negative roll yield" can cost you 10-30% depending on the market.
 
-**Sam**: That is why commodity ETFs underperform spot prices!
+**Stella**: That is why commodity ETFs underperform spot prices!
 
-**Alex**: Exactly. USO, the popular oil ETF, uses oil futures and rolls them monthly. Over the years, contango has destroyed enormous amounts of value for USO holders. The spot price of oil might be flat, but USO is down because of contango drag.
+**Horace**: Exactly. USO, the popular oil ETF, uses oil futures and rolls them monthly. Over the years, contango has destroyed enormous amounts of value for USO holders. The spot price of oil might be flat, but USO is down because of contango drag.
 
-**Sam**: In backwardation, it is the opposite? You sell high and buy low?
+**Stella**: In backwardation, it is the opposite? You sell high and buy low?
 
-**Alex**: Right. Positive roll yield -- you actually earn money from rolling. This is why some commodity trading strategies specifically target markets in backwardation.
+**Horace**: Right. Positive roll yield -- you actually earn money from rolling. This is why some commodity trading strategies specifically target markets in backwardation.
 
-**Sam**: Let us talk about the practical stuff. How do futures compare to just buying an ETF like SPY?
+**Stella**: Let us talk about the practical stuff. How do futures compare to just buying an ETF like SPY?
 
 [VISUAL: Detailed comparison table -- MES vs SPY]
 
-**Alex**: There are several key differences. First, trading hours. SPY trades from 9:30 AM to 4 PM Eastern. MES trades nearly 24 hours a day, Sunday evening through Friday afternoon. If there is an earthquake in Japan at 2 AM, you can adjust your position immediately with futures. With SPY, you wait until the morning.
+**Horace**: There are several key differences. First, trading hours. SPY trades from 9:30 AM to 4 PM Eastern. MES trades nearly 24 hours a day, Sunday evening through Friday afternoon. If there is an earthquake in Japan at 2 AM, you can adjust your position immediately with futures. With SPY, you wait until the morning.
 
-**Sam**: That seems like a big deal.
+**Stella**: That seems like a big deal.
 
-**Alex**: It is, especially for risk management. Second, the 60/40 tax rule. Under IRS Section 1256, all regulated futures contracts get special tax treatment. Sixty percent of your gains are taxed at the long-term capital gains rate, and 40% at the short-term rate, no matter how long you held the position.
+**Horace**: It is, especially for risk management. Second, the 60/40 tax rule. Under IRS Section 1256, all regulated futures contracts get special tax treatment. Sixty percent of your gains are taxed at the long-term capital gains rate, and 40% at the short-term rate, no matter how long you held the position.
 
-**Sam**: So even a day trade gets 60% long-term treatment?
+**Stella**: So even a day trade gets 60% long-term treatment?
 
-**Alex**: Yes. On $10,000 of profit, you would pay about $2,680 in tax with the 60/40 rule versus $3,700 as a short-term stock gain. That is over $1,000 saved. For active traders, this adds up to thousands per year.
+**Horace**: Yes. On $10,000 of profit, you would pay about $2,680 in tax with the 60/40 rule versus $3,700 as a short-term stock gain. That is over $1,000 saved. For active traders, this adds up to thousands per year.
 
 [VISUAL: Tax comparison showing dollar savings]
 
-**Sam**: What are the downsides of futures versus ETFs?
+**Stella**: What are the downsides of futures versus ETFs?
 
-**Alex**: The biggest one is that you have to roll your contracts. Every quarter for equity index futures, you need to close the expiring contract and open the next one. It takes about 2 minutes, but it is a step that does not exist with ETFs. Second, there is no automatic dividend reinvestment. Dividends are already priced into the futures, so you are not missing them, but you do not receive quarterly cash payments. Third, leverage is a double-edged sword -- it is there whether you want it or not.
+**Horace**: The biggest one is that you have to roll your contracts. Every quarter for equity index futures, you need to close the expiring contract and open the next one. It takes about 2 minutes, but it is a step that does not exist with ETFs. Second, there is no automatic dividend reinvestment. Dividends are already priced into the futures, so you are not missing them, but you do not receive quarterly cash payments. Third, leverage is a double-edged sword -- it is there whether you want it or not.
 
-**Sam**: Can you manage the leverage down?
+**Stella**: Can you manage the leverage down?
 
-**Alex**: Yes, by keeping your position size small relative to your account. If you have $50,000 and trade one MES contract worth $25,000, your effective leverage is only 0.5x. You are actually less leveraged than owning 100% stocks.
+**Horace**: Yes, by keeping your position size small relative to your account. If you have $50,000 and trade one MES contract worth $25,000, your effective leverage is only 0.5x. You are actually less leveraged than owning 100% stocks.
 
-**Sam**: That is a good point. You do not have to use the full leverage.
+**Stella**: That is a good point. You do not have to use the full leverage.
 
-**Alex**: Exactly. The available leverage is 20x, but nobody is forcing you to use it. Professional futures traders typically use 2-5x leverage, not 20x.
+**Horace**: Exactly. The available leverage is 20x, but nobody is forcing you to use it. Professional futures traders typically use 2-5x leverage, not 20x.
 
-**Sam**: What about risk management? How do I protect myself from a big overnight move?
+**Stella**: What about risk management? How do I protect myself from a big overnight move?
 
 [VISUAL: Risk management framework for futures trading]
 
-**Alex**: Three critical rules. One, position size based on account equity, not margin. If your account is $50,000, risk no more than 1% per trade, which is $500. With MES at $5 per point, that is a 100-point stop loss. Plenty of room.
+**Horace**: Three critical rules. One, position size based on account equity, not margin. If your account is $50,000, risk no more than 1% per trade, which is $500. With MES at $5 per point, that is a 100-point stop loss. Plenty of room.
 
-**Sam**: And if I am trading ES instead of MES?
+**Stella**: And if I am trading ES instead of MES?
 
-**Alex**: ES is $50 per point. A $500 risk gives you only a 10-point stop, which is 0.2% of the S&P. That is absurdly tight -- you will get stopped out on normal noise. This is why ES requires at least $200,000 in my view for proper risk management. For accounts under $100,000, stick to MES.
+**Horace**: ES is $50 per point. A $500 risk gives you only a 10-point stop, which is 0.2% of the S&P. That is absurdly tight -- you will get stopped out on normal noise. This is why ES requires at least $200,000 in my view for proper risk management. For accounts under $100,000, stick to MES.
 
-**Sam**: That is really useful guidance.
+**Stella**: That is really useful guidance.
 
-**Alex**: Rule two: always use stop-loss orders. Futures markets can gap -- especially on weekends or during major news events. A stop does not guarantee your exit price, but it guarantees your position will be closed. Without a stop, a 5% overnight gap on one ES contract is a $12,500 loss.
+**Horace**: Rule two: always use stop-loss orders. Futures markets can gap -- especially on weekends or during major news events. A stop does not guarantee your exit price, but it guarantees your position will be closed. Without a stop, a 5% overnight gap on one ES contract is a $12,500 loss.
 
-**Sam**: And rule three?
+**Stella**: And rule three?
 
-**Alex**: Never use more than 25-50% of your account as margin. If your account is $50,000, your total margin requirement across all positions should not exceed $12,500 to $25,000. This ensures you have enough buffer for adverse moves and margin calls.
+**Horace**: Never use more than 25-50% of your account as margin. If your account is $50,000, your total margin requirement across all positions should not exceed $12,500 to $25,000. This ensures you have enough buffer for adverse moves and margin calls.
 
 [VISUAL: Portfolio allocation showing margin used vs free capital]
 
-**Sam**: Can you show me how a real futures trade works from start to finish?
+**Stella**: Can you show me how a real futures trade works from start to finish?
 
-**Alex**: Let us walk through it.
+**Horace**: Let us walk through it.
 
 [VISUAL: Step-by-step trade example with MES]
 
-**Alex**: Say you are bullish on the S&P 500. Account size: $25,000. You decide to buy one MES contract.
+**Horace**: Say you are bullish on the S&P 500. Account size: $25,000. You decide to buy one MES contract.
 
 Step one: Check the contract specifications. MES, $5 per point, quarterly expiration. Current front month is trading at 5,010.
 
@@ -859,41 +859,41 @@ Step three: Determine your profit target. You are targeting 100 points of upside
 
 Step four: Place a bracket order -- buy 1 MES at market (or limit at 5,010), with a stop at 4,960 and a target at 5,110.
 
-**Sam**: And then what?
+**Stella**: And then what?
 
-**Alex**: The trade is live. Each day, your account is marked to market. If MES goes to 5,030 on day one, you have $100 credited to your account. If it drops to 4,990 on day two, you have $200 debited ($40 movement x $5). Your running P&L is -$100.
+**Horace**: The trade is live. Each day, your account is marked to market. If MES goes to 5,030 on day one, you have $100 credited to your account. If it drops to 4,990 on day two, you have $200 debited ($40 movement x $5). Your running P&L is -$100.
 
-**Sam**: And if it hits my stop at 4,960?
+**Stella**: And if it hits my stop at 4,960?
 
-**Alex**: Your position is automatically closed. Total loss: 50 points times $5 equals $250, which is 1% of your account. Painful but manageable.
+**Horace**: Your position is automatically closed. Total loss: 50 points times $5 equals $250, which is 1% of your account. Painful but manageable.
 
-**Sam**: And if it hits my target?
+**Stella**: And if it hits my target?
 
-**Alex**: The position is closed at 5,110. Profit: 100 points times $5 equals $500, which is 2% of your account.
+**Horace**: The position is closed at 5,110. Profit: 100 points times $5 equals $500, which is 2% of your account.
 
 [VISUAL: P&L scenarios at different exit points]
 
-**Sam**: This all seems very systematic. What are the biggest mistakes beginners make?
+**Stella**: This all seems very systematic. What are the biggest mistakes beginners make?
 
-**Alex**: Number one: oversizing positions. Trading ES on a $20,000 account is a recipe for blowing up. Number two: not understanding roll dates and accidentally holding to expiration. Number three: ignoring overnight risk -- futures trade 23 hours a day, and big moves can happen while you sleep. Number four: treating futures like a casino because of the leverage. Number five: not accounting for the tax implications -- both the benefit of 60/40 treatment and the requirement to mark positions to market at year-end.
+**Horace**: Number one: oversizing positions. Trading ES on a $20,000 account is a recipe for blowing up. Number two: not understanding roll dates and accidentally holding to expiration. Number three: ignoring overnight risk -- futures trade 23 hours a day, and big moves can happen while you sleep. Number four: treating futures like a casino because of the leverage. Number five: not accounting for the tax implications -- both the benefit of 60/40 treatment and the requirement to mark positions to market at year-end.
 
 [VISUAL: "Top 5 Futures Mistakes" checklist]
 
-**Sam**: That last point is interesting. You owe taxes on unrealized gains in futures?
+**Stella**: That last point is interesting. You owe taxes on unrealized gains in futures?
 
-**Alex**: Yes. Even if you hold a position over December 31, you must report the unrealized gain or loss as if you had closed it. This is unique to Section 1256 contracts. It is not necessarily a bad thing -- it forces you to recognize gains and losses regularly -- but it catches some people off guard at tax time.
+**Horace**: Yes. Even if you hold a position over December 31, you must report the unrealized gain or loss as if you had closed it. This is unique to Section 1256 contracts. It is not necessarily a bad thing -- it forces you to recognize gains and losses regularly -- but it catches some people off guard at tax time.
 
-**Sam**: This has been incredibly helpful. I feel like futures are much more accessible than I thought, especially with micro contracts.
+**Stella**: This has been incredibly helpful. I feel like futures are much more accessible than I thought, especially with micro contracts.
 
-**Alex**: They are. Micro futures have democratized access to markets that were previously reserved for institutional players. But remember -- the leverage is real, the risks are real, and the daily mark-to-market means you need adequate capital. Start with MES, one contract, proper stops, and build from there.
+**Horace**: They are. Micro futures have democratized access to markets that were previously reserved for institutional players. But remember -- the leverage is real, the risks are real, and the daily mark-to-market means you need adequate capital. Start with MES, one contract, proper stops, and build from there.
 
 [VISUAL: Summary slide with key takeaways]
 
-**Sam**: Three key takeaways?
+**Stella**: Three key takeaways?
 
-**Alex**: One: futures margin is a performance bond, not a loan. Understand mark-to-market before you trade. Two: contango and backwardation affect every futures-based product, including popular ETFs. Know which regime you are in. Three: use micro futures if your account is under $100,000, and never use more than 25% of your account as margin.
+**Horace**: One: futures margin is a performance bond, not a loan. Understand mark-to-market before you trade. Two: contango and backwardation affect every futures-based product, including popular ETFs. Know which regime you are in. Three: use micro futures if your account is under $100,000, and never use more than 25% of your account as margin.
 
-**Sam**: Next week, we are going to explore one of the most fascinating and dangerous corners of the market -- the VIX and volatility trading. See you then!
+**Stella**: Next week, we are going to explore one of the most fascinating and dangerous corners of the market -- the VIX and volatility trading. See you then!
 
 [VISUAL: End card -- "Next Week: Week 40 -- Trading the VIX and Volatility"]
 

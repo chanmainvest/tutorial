@@ -791,166 +791,166 @@ A: Absolutely. Adding eight different factor ETFs to a portfolio that already ha
 
 [VISUAL: Animated intro with title "Week 23: Factor Investing Introduction" and abstract geometric shapes representing different factors]
 
-**Alex:** Welcome back everyone. Today we are going to pull back the curtain on one of the most important developments in modern investing -- something that explains why stocks move the way they do. This is factor investing, and once you understand it, you will never look at the stock market the same way.
+**Horace:** Welcome back everyone. Today we are going to pull back the curtain on one of the most important developments in modern investing -- something that explains why stocks move the way they do. This is factor investing, and once you understand it, you will never look at the stock market the same way.
 
-**Sam:** Factor investing. I have heard the term "smart beta" thrown around. Is that the same thing?
+**Stella:** Factor investing. I have heard the term "smart beta" thrown around. Is that the same thing?
 
-**Alex:** Smart beta is the marketing name that the investment industry gave to this concept. Factor investing is the academic term, and it has decades of rigorous research behind it. Let me start with a question for you. When a stock goes up, why does it go up?
+**Horace:** Smart beta is the marketing name that the investment industry gave to this concept. Factor investing is the academic term, and it has decades of rigorous research behind it. Let me start with a question for you. When a stock goes up, why does it go up?
 
-**Sam:** Well, because the company did well? Good earnings, growing revenue?
+**Stella:** Well, because the company did well? Good earnings, growing revenue?
 
-**Alex:** That is part of it. But research has shown that company-specific news actually explains a surprisingly small portion of stock returns. Most of the return comes from broader forces -- systematic drivers that affect groups of stocks with similar characteristics. These systematic drivers are called factors.
+**Horace:** That is part of it. But research has shown that company-specific news actually explains a surprisingly small portion of stock returns. Most of the return comes from broader forces -- systematic drivers that affect groups of stocks with similar characteristics. These systematic drivers are called factors.
 
 [VISUAL: Single stock return being decomposed into components like a prism splitting white light into a rainbow: Market factor (blue), Value factor (green), Size factor (orange), Momentum factor (red), Quality factor (purple), Residual (gray)]
 
-**Sam:** Can you give me an example?
+**Stella:** Can you give me an example?
 
-**Alex:** Sure. Imagine you bought a small pharmaceutical company last year and it returned 25%. You might think you are a genius stock picker. But let us decompose that return. The overall market was up 12% -- so about half your return was just market exposure. Small stocks outperformed large stocks by 4% -- that is the size factor helping you. Healthcare was cheap and rebounding -- the value factor added 5%. And your specific stock had genuinely good news that added another 4%. Your 25% return was not mainly about picking a good stock -- it was mainly about having the right factor exposures.
+**Horace:** Sure. Imagine you bought a small pharmaceutical company last year and it returned 25%. You might think you are a genius stock picker. But let us decompose that return. The overall market was up 12% -- so about half your return was just market exposure. Small stocks outperformed large stocks by 4% -- that is the size factor helping you. Healthcare was cheap and rebounding -- the value factor added 5%. And your specific stock had genuinely good news that added another 4%. Your 25% return was not mainly about picking a good stock -- it was mainly about having the right factor exposures.
 
-**Sam:** That is humbling. So when people think they are picking great stocks, they might just be riding factor tailwinds?
+**Stella:** That is humbling. So when people think they are picking great stocks, they might just be riding factor tailwinds?
 
-**Alex:** Exactly. And this is one of the most important insights from factor research. Many professional fund managers who appeared to be generating "alpha" -- genuine skill-based returns -- were actually just taking on certain factor exposures. When you strip away the factor contributions, a lot of that alpha evaporates.
+**Horace:** Exactly. And this is one of the most important insights from factor research. Many professional fund managers who appeared to be generating "alpha" -- genuine skill-based returns -- were actually just taking on certain factor exposures. When you strip away the factor contributions, a lot of that alpha evaporates.
 
 [VISUAL: Bar chart showing a fund's total return, then peeling away layers: market return, value factor, size factor, momentum factor -- leaving a tiny sliver of "true alpha"]
 
-**Sam:** So what are the main factors I need to know about?
+**Stella:** So what are the main factors I need to know about?
 
-**Alex:** There are five that matter most for stock investors. Let me walk through each one.
+**Horace:** There are five that matter most for stock investors. Let me walk through each one.
 
-**Alex:** Factor number one: Value. This is the granddaddy of all factors. It says that stocks that are cheap relative to their fundamentals -- low P/E, low price-to-book -- tend to outperform stocks that are expensive. This has been true across every developed stock market, going back to the 1920s.
+**Horace:** Factor number one: Value. This is the granddaddy of all factors. It says that stocks that are cheap relative to their fundamentals -- low P/E, low price-to-book -- tend to outperform stocks that are expensive. This has been true across every developed stock market, going back to the 1920s.
 
-**Sam:** Why would cheap stocks outperform?
+**Stella:** Why would cheap stocks outperform?
 
-**Alex:** There are a few theories. The risk explanation says cheap stocks are cheap for a reason -- they are riskier, maybe facing financial distress or in declining industries -- and the higher return is compensation for that risk. The behavioral explanation says investors consistently overpay for exciting growth stories and neglect boring, out-of-favor companies, creating a predictable pricing error.
+**Horace:** There are a few theories. The risk explanation says cheap stocks are cheap for a reason -- they are riskier, maybe facing financial distress or in declining industries -- and the higher return is compensation for that risk. The behavioral explanation says investors consistently overpay for exciting growth stories and neglect boring, out-of-favor companies, creating a predictable pricing error.
 
 [ANIMATION: animation/week23_factor_returns.py - Animated chart showing two portfolios over time: a "Value" portfolio (buying the cheapest 30% of stocks each year) and a "Growth" portfolio (buying the most expensive 30%). The animation shows both lines growing over decades with the value line ending significantly higher, but with periods where growth dominates highlighted in shading. The cumulative difference is displayed as the "value premium".]
 
-**Sam:** What is the actual premium? How much more do value stocks return?
+**Stella:** What is the actual premium? How much more do value stocks return?
 
-**Alex:** Historically, about 3 to 5 percent per year. But here is the critical caveat -- that is a long-term average. In any given year, value might underperform by 10, 15, even 20 percent. From 2016 to 2020, growth stocks crushed value stocks. The value premium was deeply negative. Many people declared value investing dead.
+**Horace:** Historically, about 3 to 5 percent per year. But here is the critical caveat -- that is a long-term average. In any given year, value might underperform by 10, 15, even 20 percent. From 2016 to 2020, growth stocks crushed value stocks. The value premium was deeply negative. Many people declared value investing dead.
 
-**Sam:** But then?
+**Stella:** But then?
 
-**Alex:** Then in 2022, when interest rates rose sharply and speculative growth stocks collapsed, value came roaring back. The people who had patiently held their value exposure were rewarded. The people who abandoned value at the bottom missed the recovery.
+**Horace:** Then in 2022, when interest rates rose sharply and speculative growth stocks collapsed, value came roaring back. The people who had patiently held their value exposure were rewarded. The people who abandoned value at the bottom missed the recovery.
 
-**Sam:** Lesson learned: you need patience.
+**Stella:** Lesson learned: you need patience.
 
-**Alex:** Enormous patience. This is why factor investing is psychologically difficult. You need to hold through years of underperformance, which feels terrible, to capture the long-term premium.
+**Horace:** Enormous patience. This is why factor investing is psychologically difficult. You need to hold through years of underperformance, which feels terrible, to capture the long-term premium.
 
 [VISUAL: Calendar showing years of value vs growth performance, color-coded green and red, demonstrating the streakiness of factor returns]
 
-**Alex:** Factor number two: Momentum. This one surprises people. It says that stocks that have gone up over the past 6 to 12 months tend to continue going up, and stocks that have gone down tend to continue going down.
+**Horace:** Factor number two: Momentum. This one surprises people. It says that stocks that have gone up over the past 6 to 12 months tend to continue going up, and stocks that have gone down tend to continue going down.
 
-**Sam:** Wait -- that sounds like trend following. Is not that just "buy high, sell higher"?
+**Stella:** Wait -- that sounds like trend following. Is not that just "buy high, sell higher"?
 
-**Alex:** It does, and it feels counterintuitive, especially to value investors who want to buy low. But momentum has the highest historical premium of any factor -- roughly 6 to 8 percent per year.
+**Horace:** It does, and it feels counterintuitive, especially to value investors who want to buy low. But momentum has the highest historical premium of any factor -- roughly 6 to 8 percent per year.
 
-**Sam:** That is huge! Why does it work?
+**Stella:** That is huge! Why does it work?
 
-**Alex:** Information travels slowly through the market. When a company reports great earnings, the stock goes up, but not by as much as it should. Over the following weeks and months, more investors catch on, analysts upgrade the stock, and the price continues to drift upward. Momentum captures this slow information diffusion.
+**Horace:** Information travels slowly through the market. When a company reports great earnings, the stock goes up, but not by as much as it should. Over the following weeks and months, more investors catch on, analysts upgrade the stock, and the price continues to drift upward. Momentum captures this slow information diffusion.
 
 [VISUAL: Diagram showing news event, initial price jump, then slow drift upward as more investors respond -- the "momentum" zone is highlighted]
 
-**Alex:** But momentum has a dark side. At major market turning points -- the transition from a bull market to a bear market, or vice versa -- momentum can crash spectacularly. In March 2009, momentum strategies lost roughly 40% in a single month as all the recent losers suddenly reversed and shot upward.
+**Horace:** But momentum has a dark side. At major market turning points -- the transition from a bull market to a bear market, or vice versa -- momentum can crash spectacularly. In March 2009, momentum strategies lost roughly 40% in a single month as all the recent losers suddenly reversed and shot upward.
 
-**Sam:** Yikes. So momentum gives you the highest average return but also the most stomach-churning drawdowns.
+**Stella:** Yikes. So momentum gives you the highest average return but also the most stomach-churning drawdowns.
 
-**Alex:** Exactly. And this is where factor diversification becomes critical. Here is the beautiful thing: value and momentum are negatively correlated.
+**Horace:** Exactly. And this is where factor diversification becomes critical. Here is the beautiful thing: value and momentum are negatively correlated.
 
-**Sam:** What does that mean in practice?
+**Stella:** What does that mean in practice?
 
-**Alex:** When value is doing poorly, momentum is often doing well, and vice versa. So if you hold both value and momentum in your portfolio, the combination is much smoother than either factor alone. The bad years for value tend to be good years for momentum, and the bad years for momentum tend to be good years for value.
+**Horace:** When value is doing poorly, momentum is often doing well, and vice versa. So if you hold both value and momentum in your portfolio, the combination is much smoother than either factor alone. The bad years for value tend to be good years for momentum, and the bad years for momentum tend to be good years for value.
 
 [VISUAL: Two lines showing value and momentum performance side by side, with a third line showing the combined portfolio -- much smoother than either individual factor]
 
-**Alex:** Factor number three: Quality. This one is perhaps the most intuitive. Companies with high profitability, low debt, stable earnings, and strong competitive advantages tend to outperform companies with the opposite characteristics.
+**Horace:** Factor number three: Quality. This one is perhaps the most intuitive. Companies with high profitability, low debt, stable earnings, and strong competitive advantages tend to outperform companies with the opposite characteristics.
 
-**Sam:** That makes total sense. Good companies do better. Why is that even a "factor"?
+**Stella:** That makes total sense. Good companies do better. Why is that even a "factor"?
 
-**Alex:** Because the market does not always price quality correctly. Low-quality, speculative companies attract a lot of investor attention precisely because they are volatile and exciting. Investors overpay for the lottery-ticket potential of junk stocks. Meanwhile, boring, high-quality companies like consumer staples firms are ignored because they are not exciting. The quality premium is about 3 to 4 percent per year, and it comes with lower volatility than the market.
+**Horace:** Because the market does not always price quality correctly. Low-quality, speculative companies attract a lot of investor attention precisely because they are volatile and exciting. Investors overpay for the lottery-ticket potential of junk stocks. Meanwhile, boring, high-quality companies like consumer staples firms are ignored because they are not exciting. The quality premium is about 3 to 4 percent per year, and it comes with lower volatility than the market.
 
-**Sam:** So quality gives you a premium AND lower risk?
+**Stella:** So quality gives you a premium AND lower risk?
 
-**Alex:** Essentially, yes. Quality is the most Buffett-like factor. Warren Buffett's portfolio, when decomposed into factors, loads heavily on quality, with significant value and low-volatility exposure as well. Buffett basically runs a multi-factor strategy, though he would never describe it that way.
+**Horace:** Essentially, yes. Quality is the most Buffett-like factor. Warren Buffett's portfolio, when decomposed into factors, loads heavily on quality, with significant value and low-volatility exposure as well. Buffett basically runs a multi-factor strategy, though he would never describe it that way.
 
 [VISUAL: Buffett's portfolio decomposed into factor exposures: large quality bar, moderate value bar, moderate low-vol bar, small momentum bar]
 
-**Alex:** Factor number four: Size. Small-cap stocks have historically outperformed large-cap stocks. The premium is about 2 to 3 percent per year, though this is the most debated factor.
+**Horace:** Factor number four: Size. Small-cap stocks have historically outperformed large-cap stocks. The premium is about 2 to 3 percent per year, though this is the most debated factor.
 
-**Sam:** Why is it debated?
+**Stella:** Why is it debated?
 
-**Alex:** Because the size premium was strongest before it was discovered and has weakened considerably since. Some researchers argue it has been arbitraged away. Others point out that the premium still exists when you combine size with value -- small value stocks remain one of the strongest performing categories in market history.
+**Horace:** Because the size premium was strongest before it was discovered and has weakened considerably since. Some researchers argue it has been arbitraged away. Others point out that the premium still exists when you combine size with value -- small value stocks remain one of the strongest performing categories in market history.
 
-**Sam:** So small stocks alone might not give you much, but small VALUE stocks are powerful?
+**Stella:** So small stocks alone might not give you much, but small VALUE stocks are powerful?
 
-**Alex:** Exactly. The interaction between size and value is where the magic happens. Small, cheap stocks have outperformed large, expensive stocks by roughly 5 to 7 percent per year over long periods. That is a massive premium.
+**Horace:** Exactly. The interaction between size and value is where the magic happens. Small, cheap stocks have outperformed large, expensive stocks by roughly 5 to 7 percent per year over long periods. That is a massive premium.
 
 [VISUAL: 2x2 matrix showing returns by size and value: Small Value (highest), Large Value (good), Small Growth (modest), Large Growth (lowest)]
 
-**Alex:** And factor number five: Low Volatility. This is the weirdest factor because it violates the most basic principle of finance -- the idea that more risk should mean more return.
+**Horace:** And factor number five: Low Volatility. This is the weirdest factor because it violates the most basic principle of finance -- the idea that more risk should mean more return.
 
-**Sam:** Higher risk, higher reward. That is Finance 101.
+**Stella:** Higher risk, higher reward. That is Finance 101.
 
-**Alex:** Right, but empirically it does not hold for the most volatile stocks. Stocks with the lowest price volatility have delivered returns similar to the overall market, but with 25 to 40 percent less risk. Meanwhile, the most volatile stocks have delivered disappointing returns relative to their high risk.
+**Horace:** Right, but empirically it does not hold for the most volatile stocks. Stocks with the lowest price volatility have delivered returns similar to the overall market, but with 25 to 40 percent less risk. Meanwhile, the most volatile stocks have delivered disappointing returns relative to their high risk.
 
-**Sam:** Why would anyone buy volatile stocks if they do not get rewarded?
+**Stella:** Why would anyone buy volatile stocks if they do not get rewarded?
 
-**Alex:** Lottery-ticket mentality. Volatile stocks have the potential for huge short-term gains, and that excites investors. Think of it like a casino -- people know the odds are against them, but the potential payoff draws them in. This behavioral tendency causes investors to overpay for volatile stocks and underpay for boring, stable ones.
+**Horace:** Lottery-ticket mentality. Volatile stocks have the potential for huge short-term gains, and that excites investors. Think of it like a casino -- people know the odds are against them, but the potential payoff draws them in. This behavioral tendency causes investors to overpay for volatile stocks and underpay for boring, stable ones.
 
 [VISUAL: Chart showing the risk-return plot with low-vol stocks earning similar returns to the market at much lower risk, while high-vol stocks earn similar or even lower returns at much higher risk. The theoretical straight line (CAPM) is shown versus the actual curved line.]
 
-**Sam:** So how do I actually use all of this? Should I buy five different factor ETFs?
+**Stella:** So how do I actually use all of this? Should I buy five different factor ETFs?
 
-**Alex:** Not necessarily. Let me give you a practical framework. First, your core holding should always be a broad market index fund. That captures market beta, which is the single most important and reliable factor. Then, you can add factor tilts on top.
+**Horace:** Not necessarily. Let me give you a practical framework. First, your core holding should always be a broad market index fund. That captures market beta, which is the single most important and reliable factor. Then, you can add factor tilts on top.
 
-**Sam:** What is a good starting allocation?
+**Stella:** What is a good starting allocation?
 
-**Alex:** A simple approach: 60 to 70 percent broad market index, and 30 to 40 percent split among factor strategies. If you want to keep it really simple, just add a value tilt -- maybe 70% total market and 30% value ETF. If you want more factor diversification, split that 30% across value, momentum, and quality.
+**Horace:** A simple approach: 60 to 70 percent broad market index, and 30 to 40 percent split among factor strategies. If you want to keep it really simple, just add a value tilt -- maybe 70% total market and 30% value ETF. If you want more factor diversification, split that 30% across value, momentum, and quality.
 
 [VISUAL: Three portfolio pie charts showing increasing factor sophistication:
 Simple: 70% Market + 30% Value
 Moderate: 60% Market + 15% Value + 15% Momentum + 10% Quality
 Multi-factor: 60% Market + 40% Multi-Factor ETF]
 
-**Sam:** What about just using a multi-factor ETF that does everything in one fund?
+**Stella:** What about just using a multi-factor ETF that does everything in one fund?
 
-**Alex:** That is a perfectly valid approach and arguably the most efficient. A multi-factor ETF screens for multiple factors simultaneously at the stock level, which avoids the problem of one factor telling you to buy a stock while another tells you to sell it. The drawback is less transparency -- you are trusting the ETF provider's methodology.
+**Horace:** That is a perfectly valid approach and arguably the most efficient. A multi-factor ETF screens for multiple factors simultaneously at the stock level, which avoids the problem of one factor telling you to buy a stock while another tells you to sell it. The drawback is less transparency -- you are trusting the ETF provider's methodology.
 
-**Sam:** You mentioned that factors go through cycles. How long do the bad periods last?
+**Stella:** You mentioned that factors go through cycles. How long do the bad periods last?
 
-**Alex:** This is crucial to understand. Value has had drawdowns lasting three to five years or more. Momentum has had one-month crashes of 30 to 40 percent. Low volatility can underperform for years during strong bull markets. If you are going to invest in factors, you must commit to holding through these drawdowns. Factor investing rewards patience and punishes performance chasers.
+**Horace:** This is crucial to understand. Value has had drawdowns lasting three to five years or more. Momentum has had one-month crashes of 30 to 40 percent. Low volatility can underperform for years during strong bull markets. If you are going to invest in factors, you must commit to holding through these drawdowns. Factor investing rewards patience and punishes performance chasers.
 
 [VISUAL: Timeline showing the longest drawdown periods for each factor, with value having the longest sustained underperformance, momentum having the sharpest but shorter crashes]
 
-**Sam:** What is the biggest risk of factor investing?
+**Stella:** What is the biggest risk of factor investing?
 
-**Alex:** I would say it is behavioral. The factor premiums exist in part because they are painful to harvest. Holding value stocks while growth is soaring requires you to look foolish for years. Holding momentum when it crashes requires iron nerves. Most investors, including professionals, cannot handle the tracking error -- the deviation from what "everyone else" seems to be earning. They abandon their factor strategy at the worst possible time, locking in the underperformance and missing the rebound.
+**Horace:** I would say it is behavioral. The factor premiums exist in part because they are painful to harvest. Holding value stocks while growth is soaring requires you to look foolish for years. Holding momentum when it crashes requires iron nerves. Most investors, including professionals, cannot handle the tracking error -- the deviation from what "everyone else" seems to be earning. They abandon their factor strategy at the worst possible time, locking in the underperformance and missing the rebound.
 
-**Sam:** So the premium is partly a compensation for emotional discomfort.
+**Stella:** So the premium is partly a compensation for emotional discomfort.
 
-**Alex:** Beautifully put. Yes. The factors that are hardest to hold psychologically tend to offer the highest premiums. That is not a coincidence.
+**Horace:** Beautifully put. Yes. The factors that are hardest to hold psychologically tend to offer the highest premiums. That is not a coincidence.
 
 [VISUAL: Diagram showing the "pain gap" between holding a factor through underperformance and the eventual premium, with most investors bailing out in the middle]
 
-**Sam:** One more question. You said factor premiums might be shrinking as more money chases them. Should I be worried?
+**Stella:** One more question. You said factor premiums might be shrinking as more money chases them. Should I be worried?
 
-**Alex:** It is a legitimate concern. As factor investing becomes more popular and more capital flows into these strategies, the premiums should theoretically shrink. And there is some evidence this has happened, particularly for the size premium. However, the premiums are unlikely to disappear entirely because they are rooted in fundamental risk (value stocks really are riskier) and behavioral biases (humans will always overpay for lottery tickets and exciting stories). Think of it this way: the premiums may go from 4% per year to 2% per year, but 2% per year compounded over decades is still enormously valuable.
+**Horace:** It is a legitimate concern. As factor investing becomes more popular and more capital flows into these strategies, the premiums should theoretically shrink. And there is some evidence this has happened, particularly for the size premium. However, the premiums are unlikely to disappear entirely because they are rooted in fundamental risk (value stocks really are riskier) and behavioral biases (humans will always overpay for lottery tickets and exciting stories). Think of it this way: the premiums may go from 4% per year to 2% per year, but 2% per year compounded over decades is still enormously valuable.
 
-**Sam:** Especially at low cost.
+**Stella:** Especially at low cost.
 
-**Alex:** Exactly. A factor ETF charging 0.15% per year that captures even a 1.5 to 2% premium is an excellent deal. Compare that to an active manager charging 1% for factor exposure they could not even articulate.
+**Horace:** Exactly. A factor ETF charging 0.15% per year that captures even a 1.5 to 2% premium is an excellent deal. Compare that to an active manager charging 1% for factor exposure they could not even articulate.
 
 [VISUAL: Comparison showing the net-of-fees factor premium from a low-cost ETF vs. the net-of-fees "alpha" from a typical active fund, demonstrating that the ETF is often the better deal]
 
-**Sam:** This has been really enlightening. I feel like I understand returns so much better now. It is not just about picking stocks -- it is about the characteristics of the stocks you own.
+**Stella:** This has been really enlightening. I feel like I understand returns so much better now. It is not just about picking stocks -- it is about the characteristics of the stocks you own.
 
-**Alex:** That is the key insight. The specific stocks matter less than the factors they represent. A portfolio of small, cheap, high-quality stocks that have been going up recently will behave very differently from a portfolio of large, expensive, low-quality stocks that have been going down -- regardless of which specific companies are in each portfolio.
+**Horace:** That is the key insight. The specific stocks matter less than the factors they represent. A portfolio of small, cheap, high-quality stocks that have been going up recently will behave very differently from a portfolio of large, expensive, low-quality stocks that have been going down -- regardless of which specific companies are in each portfolio.
 
-**Sam:** So factor investing is really about being intentional about the characteristics of your portfolio.
+**Stella:** So factor investing is really about being intentional about the characteristics of your portfolio.
 
-**Alex:** Exactly. And next week, we are going to tie everything together. We will talk about building a multi-strategy portfolio -- combining all the concepts we have covered in this course into a coherent, diversified investment plan.
+**Horace:** Exactly. And next week, we are going to tie everything together. We will talk about building a multi-strategy portfolio -- combining all the concepts we have covered in this course into a coherent, diversified investment plan.
 
-**Sam:** That sounds like the culmination of everything we have learned. Looking forward to it. Thanks for watching, everyone!
+**Stella:** That sounds like the culmination of everything we have learned. Looking forward to it. Thanks for watching, everyone!
 
 [VISUAL: End screen with key factor summary table, subscribe button, and preview of Week 24]
 

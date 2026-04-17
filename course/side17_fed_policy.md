@@ -230,9 +230,9 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [VISUAL: Federal Reserve building in Washington, D.C., with dramatic lighting. Cut to FOMC press conference footage]
 
-**Alex:** Eight times a year, a group of people sit in a room in Washington, D.C., and make a decision that affects virtually every financial asset on the planet. Your mortgage rate, your stock portfolio, the interest on your savings account -- all of it traces back to this room.
+**Horace:** Eight times a year, a group of people sit in a room in Washington, D.C., and make a decision that affects virtually every financial asset on the planet. Your mortgage rate, your stock portfolio, the interest on your savings account -- all of it traces back to this room.
 
-**Sam:** The Federal Reserve is the most powerful financial institution in the world. And yet, most investors have only a vague idea of how it works. Today, we are changing that.
+**Stella:** The Federal Reserve is the most powerful financial institution in the world. And yet, most investors have only a vague idea of how it works. Today, we are changing that.
 
 [VISUAL: Title card "The Federal Reserve: How Monetary Policy Moves Your Money"]
 
@@ -242,21 +242,21 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [ANIMATION: Organizational chart of the Federal Reserve System showing Board of Governors, 12 Regional Banks, and FOMC]
 
-**Alex:** The Federal Reserve was created in 1913 after a series of banking panics. Its structure is designed to be independent from politics while still accountable to Congress.
+**Horace:** The Federal Reserve was created in 1913 after a series of banking panics. Its structure is designed to be independent from politics while still accountable to Congress.
 
-**Sam:** At the top, you have the Board of Governors -- seven people appointed by the President and confirmed by the Senate, serving 14-year terms. Those long terms are intentional -- they insulate governors from political pressure.
+**Stella:** At the top, you have the Board of Governors -- seven people appointed by the President and confirmed by the Senate, serving 14-year terms. Those long terms are intentional -- they insulate governors from political pressure.
 
-**Alex:** Then there are 12 regional Federal Reserve Banks spread across the country, from Boston to San Francisco. These banks gather economic intelligence from their districts and provide banking services.
+**Horace:** Then there are 12 regional Federal Reserve Banks spread across the country, from Boston to San Francisco. These banks gather economic intelligence from their districts and provide banking services.
 
 [VISUAL: Map of the United States showing the 12 Federal Reserve districts]
 
-**Sam:** But the body that gets all the attention is the FOMC -- the Federal Open Market Committee. This is where interest rate decisions are made. It includes all seven governors plus five Reserve Bank presidents on a rotating basis, with the New York Fed president always having a vote.
+**Stella:** But the body that gets all the attention is the FOMC -- the Federal Open Market Committee. This is where interest rate decisions are made. It includes all seven governors plus five Reserve Bank presidents on a rotating basis, with the New York Fed president always having a vote.
 
-**Alex:** The FOMC meets eight times a year, and their mandate from Congress boils down to two things: maximum employment and stable prices. That is the dual mandate. Keep as many people employed as possible without letting inflation get out of control.
+**Horace:** The FOMC meets eight times a year, and their mandate from Congress boils down to two things: maximum employment and stable prices. That is the dual mandate. Keep as many people employed as possible without letting inflation get out of control.
 
 [VISUAL: Scale graphic balancing "Maximum Employment" and "Stable Prices (2% inflation target)"]
 
-**Sam:** When these two goals conflict -- like when inflation is high but raising rates could cause job losses -- that is when the Fed's job gets really difficult. And that is exactly what happened in 2022 and 2023.
+**Stella:** When these two goals conflict -- like when inflation is high but raising rates could cause job losses -- that is when the Fed's job gets really difficult. And that is exactly what happened in 2022 and 2023.
 
 ---
 
@@ -264,17 +264,17 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [ANIMATION: Water flowing through an economy -- the Fed controlling the main valve, which feeds into smaller pipes labeled Mortgages, Business Loans, Credit Cards, Savings Accounts]
 
-**Alex:** The Fed's primary tool is the federal funds rate -- the rate banks charge each other for overnight loans. When the Fed changes this rate, it ripples through the entire economy.
+**Horace:** The Fed's primary tool is the federal funds rate -- the rate banks charge each other for overnight loans. When the Fed changes this rate, it ripples through the entire economy.
 
-**Sam:** Think of it like a master dial. Turn it down, and borrowing gets cheaper everywhere. Businesses take out loans to expand, consumers finance homes and cars more easily, and the economy heats up.
+**Stella:** Think of it like a master dial. Turn it down, and borrowing gets cheaper everywhere. Businesses take out loans to expand, consumers finance homes and cars more easily, and the economy heats up.
 
-**Alex:** Turn it up, and the opposite happens. Borrowing gets more expensive, spending slows down, and the economy cools off. The goal is to find the sweet spot where the economy grows steadily without overheating.
+**Horace:** Turn it up, and the opposite happens. Borrowing gets more expensive, spending slows down, and the economy cools off. The goal is to find the sweet spot where the economy grows steadily without overheating.
 
 [ANIMATION: Goldilocks zone between "Too Cold" (recession) and "Too Hot" (high inflation) with "Just Right" in the middle]
 
-**Sam:** But here is the tricky part. Rate changes take 12 to 18 months to fully affect the real economy. The Fed is essentially driving while looking in the rearview mirror, making decisions today based on data that is already weeks or months old, knowing the effects will not be felt for over a year.
+**Stella:** But here is the tricky part. Rate changes take 12 to 18 months to fully affect the real economy. The Fed is essentially driving while looking in the rearview mirror, making decisions today based on data that is already weeks or months old, knowing the effects will not be felt for over a year.
 
-**Alex:** That lag is why the Fed sometimes overtightens -- raises rates too much and causes a recession -- or under-tightens -- keeps rates too low and lets inflation get out of control. It is an imprecise science.
+**Horace:** That lag is why the Fed sometimes overtightens -- raises rates too much and causes a recession -- or under-tightens -- keeps rates too low and lets inflation get out of control. It is an imprecise science.
 
 ---
 
@@ -282,23 +282,23 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [VISUAL: Fed balance sheet chart from 2008 to present, showing dramatic expansion during QE periods]
 
-**Sam:** In 2008, the Fed hit a wall. They had already cut the federal funds rate to zero, and the economy was still in free fall. What do you do when your main tool stops working?
+**Stella:** In 2008, the Fed hit a wall. They had already cut the federal funds rate to zero, and the economy was still in free fall. What do you do when your main tool stops working?
 
-**Alex:** You invent new ones. Enter quantitative easing, or QE. The Fed started buying massive amounts of Treasury bonds and mortgage-backed securities from banks and financial institutions.
+**Horace:** You invent new ones. Enter quantitative easing, or QE. The Fed started buying massive amounts of Treasury bonds and mortgage-backed securities from banks and financial institutions.
 
 [ANIMATION: Simplified flow showing Fed buying bonds -> banks receive cash -> cash flows into economy -> interest rates fall across the board]
 
-**Sam:** By buying bonds, the Fed pushed their prices up and their yields down. This lowered long-term interest rates -- mortgage rates, corporate bond rates -- even though the short-term rate was already at zero.
+**Stella:** By buying bonds, the Fed pushed their prices up and their yields down. This lowered long-term interest rates -- mortgage rates, corporate bond rates -- even though the short-term rate was already at zero.
 
-**Alex:** It also created what economists call the "portfolio balance effect." As Treasury yields fell to near zero, investors were pushed into riskier assets -- stocks, corporate bonds, real estate -- seeking higher returns. This pushed asset prices up broadly.
+**Horace:** It also created what economists call the "portfolio balance effect." As Treasury yields fell to near zero, investors were pushed into riskier assets -- stocks, corporate bonds, real estate -- seeking higher returns. This pushed asset prices up broadly.
 
-**Sam:** The Fed did three rounds of QE after 2008 and then launched unlimited QE in March 2020 during the COVID crisis. At its peak, the Fed's balance sheet reached nearly $9 trillion -- about 35 percent of U.S. GDP.
+**Stella:** The Fed did three rounds of QE after 2008 and then launched unlimited QE in March 2020 during the COVID crisis. At its peak, the Fed's balance sheet reached nearly $9 trillion -- about 35 percent of U.S. GDP.
 
 [VISUAL: Fed balance sheet size expressed as percentage of GDP over time]
 
-**Alex:** Now, quantitative tightening -- QT -- is the reverse process. The Fed lets bonds on its balance sheet mature without replacing them, effectively removing money from the system. They started QT in 2022, letting up to $95 billion per month roll off.
+**Horace:** Now, quantitative tightening -- QT -- is the reverse process. The Fed lets bonds on its balance sheet mature without replacing them, effectively removing money from the system. They started QT in 2022, letting up to $95 billion per month roll off.
 
-**Sam:** QT puts upward pressure on long-term rates and tightens financial conditions. But it is a tricky operation. In 2019, QT drained too many reserves and caused a spike in overnight lending rates, forcing the Fed to intervene. Unwinding trillions of dollars in asset purchases is uncharted territory.
+**Stella:** QT puts upward pressure on long-term rates and tightens financial conditions. But it is a tricky operation. In 2019, QT drained too many reserves and caused a spike in overnight lending rates, forcing the Fed to intervene. Unwinding trillions of dollars in asset purchases is uncharted territory.
 
 ---
 
@@ -306,19 +306,19 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [VISUAL: Dot plot graphic from a recent FOMC meeting]
 
-**Alex:** Beyond rates and the balance sheet, the Fed has a third powerful tool: its words. Forward guidance is the practice of communicating future policy intentions to influence market behavior today.
+**Horace:** Beyond rates and the balance sheet, the Fed has a third powerful tool: its words. Forward guidance is the practice of communicating future policy intentions to influence market behavior today.
 
-**Sam:** If the Fed says "we expect to keep rates near zero for the next two years," that immediately affects long-term rates, because investors price in those expectations. The Fed does not have to actually do anything -- just saying it moves markets.
+**Stella:** If the Fed says "we expect to keep rates near zero for the next two years," that immediately affects long-term rates, because investors price in those expectations. The Fed does not have to actually do anything -- just saying it moves markets.
 
 [ANIMATION: Speech bubble from Fed saying "Rates will stay low" -> Bond yields falling -> Stock prices rising]
 
-**Alex:** One of the most closely watched pieces of forward guidance is the dot plot. Four times a year, each FOMC participant projects where they think the federal funds rate will be at the end of each year and in the longer run. These projections are plotted as dots on a chart.
+**Horace:** One of the most closely watched pieces of forward guidance is the dot plot. Four times a year, each FOMC participant projects where they think the federal funds rate will be at the end of each year and in the longer run. These projections are plotted as dots on a chart.
 
-**Sam:** The median dot gives you the Committee's central expectation. If the current rate is 5 percent and the median dot for next year is 4 percent, the market interprets that as the Fed expecting to cut rates by about one percentage point over the next year.
+**Stella:** The median dot gives you the Committee's central expectation. If the current rate is 5 percent and the median dot for next year is 4 percent, the market interprets that as the Fed expecting to cut rates by about one percentage point over the next year.
 
 [VISUAL: How to read a dot plot, with annotations showing median, range, and how to interpret shifts]
 
-**Alex:** But here is an important caveat. The dot plot is not a promise. It is a projection based on current data, and it changes every quarter. The dots have been spectacularly wrong at times. In December 2021, the median dot projected rates would be around 0.9 percent by the end of 2022. The actual rate ended up at 4.5 percent.
+**Horace:** But here is an important caveat. The dot plot is not a promise. It is a projection based on current data, and it changes every quarter. The dots have been spectacularly wrong at times. In December 2021, the median dot projected rates would be around 0.9 percent by the end of 2022. The actual rate ended up at 4.5 percent.
 
 ---
 
@@ -326,21 +326,21 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [VISUAL: "Investing Through Fed Cycles" framework]
 
-**Sam:** So how do you use all of this as an investor? Here is a practical framework.
+**Stella:** So how do you use all of this as an investor? Here is a practical framework.
 
-**Alex:** When the Fed is cutting rates, it generally supports both stocks and bonds. Lower rates boost stock valuations and push bond prices higher. This is typically a good environment for risk assets, especially if the rate cuts are precautionary rather than in response to a crisis.
+**Horace:** When the Fed is cutting rates, it generally supports both stocks and bonds. Lower rates boost stock valuations and push bond prices higher. This is typically a good environment for risk assets, especially if the rate cuts are precautionary rather than in response to a crisis.
 
 [ANIMATION: Traffic light showing Green for "Fed Cutting + Strong Economy," Yellow for "Fed Cutting + Weak Economy," Red for "Fed Hiking Aggressively"]
 
-**Sam:** When the Fed is raising rates, be more cautious but do not panic. Stocks have historically performed well in the early stages of rate hikes, because the economy is usually strong enough to handle it. The danger zone is late in the hiking cycle, when the cumulative tightening starts to bite.
+**Stella:** When the Fed is raising rates, be more cautious but do not panic. Stocks have historically performed well in the early stages of rate hikes, because the economy is usually strong enough to handle it. The danger zone is late in the hiking cycle, when the cumulative tightening starts to bite.
 
-**Alex:** The classic Wall Street saying is "do not fight the Fed." When the Fed is easing, lean into risk. When the Fed is tightening, lean toward safety. It is not a perfect timing tool, but it has been a reliable directional guide over decades.
+**Horace:** The classic Wall Street saying is "do not fight the Fed." When the Fed is easing, lean into risk. When the Fed is tightening, lean toward safety. It is not a perfect timing tool, but it has been a reliable directional guide over decades.
 
-**Sam:** Also, pay attention to the bond market's reaction to Fed moves. If the Fed is hiking rates but long-term bond yields are falling, the bond market is signaling that it expects the economy to weaken and the Fed to eventually reverse course. That is called a yield curve inversion, and it has preceded every U.S. recession since 1960.
+**Stella:** Also, pay attention to the bond market's reaction to Fed moves. If the Fed is hiking rates but long-term bond yields are falling, the bond market is signaling that it expects the economy to weaken and the Fed to eventually reverse course. That is called a yield curve inversion, and it has preceded every U.S. recession since 1960.
 
 [VISUAL: Yield curve chart showing normal, flat, and inverted curves with recession indicators]
 
-**Alex:** The bottom line: you do not need to predict every Fed move. You need to understand the direction of policy and position your portfolio accordingly. And you need to remember that the Fed's power, while enormous, is not unlimited. Sometimes the economy and markets move despite what the Fed wants.
+**Horace:** The bottom line: you do not need to predict every Fed move. You need to understand the direction of policy and position your portfolio accordingly. And you need to remember that the Fed's power, while enormous, is not unlimited. Sometimes the economy and markets move despite what the Fed wants.
 
 [VISUAL: End card with channel logo and "Next: Global Markets and International Investing"]
 
@@ -350,24 +350,24 @@ A: The Fed's influence extends well beyond U.S. borders. Higher U.S. interest ra
 
 [ANIMATION: Three yield curve shapes -- normal (upward sloping), flat, and inverted (downward sloping) -- transitioning between each other]
 
-**Sam:** Before we close, let us talk about one of the most powerful recession indicators that comes directly from the bond market -- the yield curve.
+**Stella:** Before we close, let us talk about one of the most powerful recession indicators that comes directly from the bond market -- the yield curve.
 
-**Alex:** The yield curve plots interest rates across different maturities. Normally, longer-term bonds pay higher yields than shorter-term bonds, so the curve slopes upward. But sometimes the curve flattens or even inverts -- meaning short-term rates are higher than long-term rates.
+**Horace:** The yield curve plots interest rates across different maturities. Normally, longer-term bonds pay higher yields than shorter-term bonds, so the curve slopes upward. But sometimes the curve flattens or even inverts -- meaning short-term rates are higher than long-term rates.
 
-**Sam:** An inverted yield curve has preceded every U.S. recession since 1960. Every single one. It is one of the most reliable recession signals we have.
+**Stella:** An inverted yield curve has preceded every U.S. recession since 1960. Every single one. It is one of the most reliable recession signals we have.
 
 [VISUAL: Historical chart showing yield curve inversions marked alongside recession periods from 1960 to present]
 
-**Alex:** Why does inversion signal recession? Because it means the bond market expects the Fed will be forced to cut short-term rates in the future due to economic weakness. Long-term rates reflect expectations of future short-term rates. If investors believe rates will fall, long-term rates drop below short-term rates.
+**Horace:** Why does inversion signal recession? Because it means the bond market expects the Fed will be forced to cut short-term rates in the future due to economic weakness. Long-term rates reflect expectations of future short-term rates. If investors believe rates will fall, long-term rates drop below short-term rates.
 
-**Sam:** The most closely watched spread is the 10-year Treasury yield minus the 2-year Treasury yield. When this goes negative, alarm bells ring. But the timing between inversion and recession has ranged from 6 months to over 2 years, so it is not a precise timing tool.
+**Stella:** The most closely watched spread is the 10-year Treasury yield minus the 2-year Treasury yield. When this goes negative, alarm bells ring. But the timing between inversion and recession has ranged from 6 months to over 2 years, so it is not a precise timing tool.
 
-**Alex:** As an investor, watch the yield curve as a leading indicator, but do not try to time the market based on it alone. Use it as one input among many to assess the overall risk environment. If the curve inverts, it may be a good time to review your asset allocation and ensure you are comfortable with your risk level.
+**Horace:** As an investor, watch the yield curve as a leading indicator, but do not try to time the market based on it alone. Use it as one input among many to assess the overall risk environment. If the curve inverts, it may be a good time to review your asset allocation and ensure you are comfortable with your risk level.
 
-**Sam:** And remember, the yield curve inverted in 2022 and remained inverted for an extended period. Whether that leads to a traditional recession or a different outcome depends on many other factors. The signal is not infallible, but its track record demands attention.
+**Stella:** And remember, the yield curve inverted in 2022 and remained inverted for an extended period. Whether that leads to a traditional recession or a different outcome depends on many other factors. The signal is not infallible, but its track record demands attention.
 
 [VISUAL: End card with channel logo and "Next: Global Markets and International Investing"]
 
-**Alex:** Next time, we are going global -- exploring developed versus emerging markets and how to invest beyond your home country. See you there.
+**Horace:** Next time, we are going global -- exploring developed versus emerging markets and how to invest beyond your home country. See you there.
 
 [END - 15:30]

@@ -249,9 +249,9 @@ A: Before earnings, implied volatility rises (because uncertainty increases), bo
 
 [VISUAL: Dashboard showing multiple Greek values updating in real-time as a stock price moves, with gauges and meters for each Greek]
 
-**Alex:** If you have been following our options lessons, you know about delta -- how much an option moves when the stock moves. But delta is just the beginning. There is a whole world of sensitivities beneath the surface that professional traders track obsessively.
+**Horace:** If you have been following our options lessons, you know about delta -- how much an option moves when the stock moves. But delta is just the beginning. There is a whole world of sensitivities beneath the surface that professional traders track obsessively.
 
-**Sam:** Gamma, rho, charm, vanna -- these sound like characters from a Greek mythology class, but they are actually the keys to understanding why options sometimes behave in ways that surprise you. Today, we are going deep on the Greeks.
+**Stella:** Gamma, rho, charm, vanna -- these sound like characters from a Greek mythology class, but they are actually the keys to understanding why options sometimes behave in ways that surprise you. Today, we are going deep on the Greeks.
 
 [VISUAL: Title card "Options Greeks Deep Dive: Beyond Delta"]
 
@@ -261,19 +261,19 @@ A: Before earnings, implied volatility rises (because uncertainty increases), bo
 
 [ANIMATION: A speedometer showing delta, with gamma as the needle showing how fast the speedometer is changing]
 
-**Alex:** Let us start with gamma, because it is the most important Greek after delta. If delta tells you how fast your option price changes, gamma tells you how fast delta itself changes.
+**Horace:** Let us start with gamma, because it is the most important Greek after delta. If delta tells you how fast your option price changes, gamma tells you how fast delta itself changes.
 
-**Sam:** Think of it like driving a car. Delta is your speed. Gamma is your acceleration. A delta of 0.50 means you are going 50 miles per hour. A gamma of 0.05 means for every $1 the stock moves, your speed increases by 5 miles per hour.
+**Stella:** Think of it like driving a car. Delta is your speed. Gamma is your acceleration. A delta of 0.50 means you are going 50 miles per hour. A gamma of 0.05 means for every $1 the stock moves, your speed increases by 5 miles per hour.
 
 [VISUAL: Car analogy: Delta = Speed, Gamma = Acceleration, with option values changing alongside]
 
-**Alex:** Here is why this matters. If you buy an option with a delta of 0.50 and a gamma of 0.05, and the stock goes up $1, your delta becomes 0.55. Now you are making more money per dollar of stock movement than before.
+**Horace:** Here is why this matters. If you buy an option with a delta of 0.50 and a gamma of 0.05, and the stock goes up $1, your delta becomes 0.55. Now you are making more money per dollar of stock movement than before.
 
-**Sam:** And if the stock goes up another dollar, delta becomes 0.60. Then 0.65. The option is accelerating in your favor. This is the beauty of positive gamma for option buyers -- the more the stock moves in your direction, the faster your profits grow.
+**Stella:** And if the stock goes up another dollar, delta becomes 0.60. Then 0.65. The option is accelerating in your favor. This is the beauty of positive gamma for option buyers -- the more the stock moves in your direction, the faster your profits grow.
 
 [ANIMATION: Profit curve showing non-linear acceleration of gains for long option position vs linear gains for stock position]
 
-**Alex:** But here is the flip side. If you are selling options, you have negative gamma. The stock moves against you, and your losses accelerate. The more it moves, the faster you lose.
+**Horace:** But here is the flip side. If you are selling options, you have negative gamma. The stock moves against you, and your losses accelerate. The more it moves, the faster you lose.
 
 ---
 
@@ -281,19 +281,19 @@ A: Before earnings, implied volatility rises (because uncertainty increases), bo
 
 [VISUAL: Balance scale with "Gamma (Movement Opportunity)" on one side and "Theta (Time Decay Cost)" on the other]
 
-**Sam:** Now here is the fundamental trade-off in options trading. Gamma and theta are enemies. You cannot have one without paying for it with the other.
+**Stella:** Now here is the fundamental trade-off in options trading. Gamma and theta are enemies. You cannot have one without paying for it with the other.
 
-**Alex:** If you buy options, you get positive gamma -- you benefit from big moves. But you pay for it through negative theta -- time decay erodes your option's value every day.
+**Horace:** If you buy options, you get positive gamma -- you benefit from big moves. But you pay for it through negative theta -- time decay erodes your option's value every day.
 
-**Sam:** If you sell options, you get positive theta -- you collect time decay like a landlord collecting rent. But you pay for it through negative gamma -- big moves hurt you, and the bigger the move, the worse it gets.
+**Stella:** If you sell options, you get positive theta -- you collect time decay like a landlord collecting rent. But you pay for it through negative gamma -- big moves hurt you, and the bigger the move, the worse it gets.
 
 [ANIMATION: Two scenarios playing out side by side:
 Left: Option buyer -- stock moves big, gamma kicks in, profits exceed theta losses
 Right: Option buyer -- stock stays flat, theta drains value day after day]
 
-**Alex:** This is why selling options feels great in calm markets. Theta drips into your account every day like a dividend. But when the market suddenly moves -- and it always does eventually -- negative gamma can wipe out weeks or months of theta in a single session.
+**Horace:** This is why selling options feels great in calm markets. Theta drips into your account every day like a dividend. But when the market suddenly moves -- and it always does eventually -- negative gamma can wipe out weeks or months of theta in a single session.
 
-**Sam:** The sweet spot for option sellers is usually 30 to 60 days until expiration. You get decent theta, but gamma is not yet extreme. Selling options with only a week to expiration gives you amazing daily theta but dangerously high gamma.
+**Stella:** The sweet spot for option sellers is usually 30 to 60 days until expiration. You get decent theta, but gamma is not yet extreme. Selling options with only a week to expiration gives you amazing daily theta but dangerously high gamma.
 
 [VISUAL: Chart showing gamma and theta curves as a function of days to expiration, with the "danger zone" near expiration highlighted]
 
@@ -303,21 +303,21 @@ Right: Option buyer -- stock stays flat, theta drains value day after day]
 
 [VISUAL: Three-dimensional surface showing how delta changes with both stock price AND implied volatility]
 
-**Alex:** Now let us move to the more exotic Greeks. Vanna measures how delta changes when implied volatility changes. And it explains something that confuses a lot of option traders.
+**Horace:** Now let us move to the more exotic Greeks. Vanna measures how delta changes when implied volatility changes. And it explains something that confuses a lot of option traders.
 
-**Sam:** Have you ever held an out-of-the-money call, the stock barely moved, but the option still gained or lost significant value? That is often vanna at work.
+**Stella:** Have you ever held an out-of-the-money call, the stock barely moved, but the option still gained or lost significant value? That is often vanna at work.
 
-**Alex:** Here is how it works. Say you own an OTM call with a delta of 0.25. Suddenly, implied volatility spikes -- maybe bad news hits the market. Normally, you would think rising volatility helps you because your option has positive vega. And it does. But vanna also pushes your delta higher. Your 0.25 delta option might become a 0.35 delta option, making your position more sensitive to the stock's movements.
+**Horace:** Here is how it works. Say you own an OTM call with a delta of 0.25. Suddenly, implied volatility spikes -- maybe bad news hits the market. Normally, you would think rising volatility helps you because your option has positive vega. And it does. But vanna also pushes your delta higher. Your 0.25 delta option might become a 0.35 delta option, making your position more sensitive to the stock's movements.
 
 [ANIMATION: OTM call option with delta arrow growing as IV increases, showing the vanna effect]
 
-**Sam:** In institutional markets, these vanna effects drive what traders call "vanna flows." When implied volatility drops -- like after an earnings announcement -- market makers have to buy stock to adjust their delta hedges. This buying pressure pushes stocks higher. It is one reason why stocks often rally after the uncertainty of an event passes.
+**Stella:** In institutional markets, these vanna effects drive what traders call "vanna flows." When implied volatility drops -- like after an earnings announcement -- market makers have to buy stock to adjust their delta hedges. This buying pressure pushes stocks higher. It is one reason why stocks often rally after the uncertainty of an event passes.
 
-**Alex:** Then there is charm, which is how delta changes with time. An out-of-the-money option's delta drifts toward zero as expiration approaches. Charm tells you how fast this drift happens.
+**Horace:** Then there is charm, which is how delta changes with time. An out-of-the-money option's delta drifts toward zero as expiration approaches. Charm tells you how fast this drift happens.
 
 [VISUAL: OTM call option delta declining over time as expiration approaches, with charm as the slope of the decline]
 
-**Sam:** Charm matters most over weekends and holidays. If you are delta-hedged going into a Friday and the stock does not move over the weekend, your delta has still changed by Monday morning because two days of charm have accumulated. Professional traders adjust for this, which is one reason why Monday mornings can have unusual options-related trading activity.
+**Stella:** Charm matters most over weekends and holidays. If you are delta-hedged going into a Friday and the stock does not move over the weekend, your delta has still changed by Monday morning because two days of charm have accumulated. Professional traders adjust for this, which is one reason why Monday mornings can have unusual options-related trading activity.
 
 ---
 
@@ -325,21 +325,21 @@ Right: Option buyer -- stock stays flat, theta drains value day after day]
 
 [VISUAL: "Greek Dashboard" showing a sample portfolio with aggregate delta, gamma, theta, and vega values]
 
-**Alex:** Professional options traders do not think about individual options. They think about their entire portfolio as a set of Greek exposures.
+**Horace:** Professional options traders do not think about individual options. They think about their entire portfolio as a set of Greek exposures.
 
-**Sam:** Imagine a dashboard with four gauges. Delta -- your directional exposure. Gamma -- your exposure to big moves. Theta -- your daily time decay income or cost. Vega -- your exposure to volatility changes.
+**Stella:** Imagine a dashboard with four gauges. Delta -- your directional exposure. Gamma -- your exposure to big moves. Theta -- your daily time decay income or cost. Vega -- your exposure to volatility changes.
 
 [ANIMATION: Dashboard gauges for a delta-neutral, negative gamma, positive theta, short vega portfolio -- typical for option sellers]
 
-**Alex:** An option-selling portfolio might show: delta near zero (market-neutral), negative gamma (hurt by big moves), positive theta (collecting daily income), and negative vega (hurt by rising volatility). That is the profile of strategies like iron condors and short strangles.
+**Horace:** An option-selling portfolio might show: delta near zero (market-neutral), negative gamma (hurt by big moves), positive theta (collecting daily income), and negative vega (hurt by rising volatility). That is the profile of strategies like iron condors and short strangles.
 
-**Sam:** A long options portfolio shows the opposite: positive gamma (benefits from big moves), negative theta (paying daily time decay), and positive vega (benefits from rising volatility).
+**Stella:** A long options portfolio shows the opposite: positive gamma (benefits from big moves), negative theta (paying daily time decay), and positive vega (benefits from rising volatility).
 
-**Alex:** The art of portfolio management is keeping each Greek within your risk tolerance while generating positive expected returns. If your gamma gets too negative, you might buy some options to bring it back. If your vega gets too positive, you might sell some to reduce it.
+**Horace:** The art of portfolio management is keeping each Greek within your risk tolerance while generating positive expected returns. If your gamma gets too negative, you might buy some options to bring it back. If your vega gets too positive, you might sell some to reduce it.
 
 [VISUAL: Risk management example showing a position that exceeds gamma limits and the adjustment trade to bring it back in line]
 
-**Sam:** For individual investors, you do not need to manage Greeks this precisely. But understanding the concepts helps you recognize when your options portfolio is exposed to risks you did not intend. If you sold a bunch of puts and your gamma is very negative, you know that a sharp market drop will hurt you disproportionately. That awareness alone is valuable.
+**Stella:** For individual investors, you do not need to manage Greeks this precisely. But understanding the concepts helps you recognize when your options portfolio is exposed to risks you did not intend. If you sold a bunch of puts and your gamma is very negative, you know that a sharp market drop will hurt you disproportionately. That awareness alone is valuable.
 
 ---
 
@@ -347,24 +347,24 @@ Right: Option buyer -- stock stays flat, theta drains value day after day]
 
 [VISUAL: GEX chart showing aggregate market maker gamma exposure at different stock price levels]
 
-**Alex:** Let us end with something fascinating -- how gamma affects the entire stock market, not just individual options.
+**Horace:** Let us end with something fascinating -- how gamma affects the entire stock market, not just individual options.
 
-**Sam:** Options market makers hold enormous positions. Their aggregate gamma exposure at different stock price levels actually influences how the market behaves.
+**Stella:** Options market makers hold enormous positions. Their aggregate gamma exposure at different stock price levels actually influences how the market behaves.
 
-**Alex:** When market makers have positive gamma overall, they buy stocks when the price falls and sell when it rises. This acts like a shock absorber, dampening volatility. It is one reason why the market can feel "pinned" near large option strikes -- market maker hedging activity pushes the price back toward the strike.
+**Horace:** When market makers have positive gamma overall, they buy stocks when the price falls and sell when it rises. This acts like a shock absorber, dampening volatility. It is one reason why the market can feel "pinned" near large option strikes -- market maker hedging activity pushes the price back toward the strike.
 
 [ANIMATION: Ball rolling in a valley near a strike price, with positive gamma walls on either side pushing it back toward the center]
 
-**Sam:** But when market makers have negative gamma -- often after selling a lot of put options to hedgers -- they have to sell when the stock falls and buy when it rises. This amplifies moves instead of dampening them. Markets with negative gamma exposure tend to be more volatile and prone to sharp selloffs.
+**Stella:** But when market makers have negative gamma -- often after selling a lot of put options to hedgers -- they have to sell when the stock falls and buy when it rises. This amplifies moves instead of dampening them. Markets with negative gamma exposure tend to be more volatile and prone to sharp selloffs.
 
 [ANIMATION: Ball on a hilltop, with negative gamma slopes accelerating movement away from the center in either direction]
 
-**Alex:** This is why some traders track aggregate gamma exposure data. When dealer gamma flips from positive to negative, it can signal that volatility is about to increase -- because the mechanical hedging flows that normally stabilize the market are now destabilizing it.
+**Horace:** This is why some traders track aggregate gamma exposure data. When dealer gamma flips from positive to negative, it can signal that volatility is about to increase -- because the mechanical hedging flows that normally stabilize the market are now destabilizing it.
 
-**Sam:** You do not need to trade based on gamma exposure data as a retail investor. But understanding this mechanism helps explain why markets sometimes move sharply for no apparent fundamental reason -- it is often the Greeks at work behind the scenes.
+**Stella:** You do not need to trade based on gamma exposure data as a retail investor. But understanding this mechanism helps explain why markets sometimes move sharply for no apparent fundamental reason -- it is often the Greeks at work behind the scenes.
 
 [VISUAL: End card with channel logo and "Next: Margin and Leverage"]
 
-**Alex:** Next time, we are covering a topic that can make or break your investing journey -- margin accounts, leverage, and the regulations that govern them. See you there.
+**Horace:** Next time, we are covering a topic that can make or break your investing journey -- margin accounts, leverage, and the regulations that govern them. See you there.
 
 [END - 13:30]

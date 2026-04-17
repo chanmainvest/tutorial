@@ -1,75 +1,72 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 45: Quantitative Methods for Investors
+# 第45週：投資人的量化方法
 
 ---
 
-## Reading Section
+## 閱讀單元
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Behind every investment decision lies a number, a relationship, or a pattern that someone claims to have discovered. Fund managers say their strategy "generates alpha." Financial advisors show charts proving that their method "works." Bloggers proclaim that gold prices predict stock market crashes, or that the January effect guarantees profits. But how do you know if any of these claims are real?
+每一個投資決策的背後，都藏著某個數字、某種關係，或某個有人聲稱已發現的規律。基金經理說他們的策略「能創造阿爾法」。理財顧問展示圖表，聲稱他們的方法「確實有效」。部落客大聲宣告黃金價格可以預測股市崩盤，或一月效應保證獲利。但你怎麼知道這些說法究竟是不是真的？
 
-Quantitative methods -- the application of statistical and mathematical tools to financial data -- are the investor's defense against being fooled by randomness, sold on spurious patterns, and misled by well-intentioned but statistically illiterate analysis. Understanding these tools is critical because:
+量化方法——將統計與數學工具應用於金融數據——是投資人的防身武器，讓你不被隨機性愚弄、不被虛假規律所欺騙，也不被出發點良善但欠缺統計素養的分析所誤導。理解這些工具至關重要，原因如下：
 
-- **Most claimed patterns in financial data are false**: With thousands of researchers testing millions of combinations of variables, many "discoveries" are statistical noise that masqueraded as signal. The practice of p-hacking -- running analysis after analysis until something passes the significance threshold -- produces a steady stream of published "findings" that fail to replicate. The replication crisis in finance is severe: studies suggest that at least 50% of published anomalies in financial journals do not hold up out of sample.
+- **金融數據中絕大多數聲稱的規律都是假的**：成千上萬的研究人員測試了數以百萬計的變數組合，許多「發現」不過是偽裝成信號的統計雜訊。所謂「p值操弄」——反覆進行分析直到某個結果通過顯著性門檻——源源不斷地製造出一批批發表後卻無法複現的「研究發現」。金融領域的複現危機相當嚴峻：研究顯示，財務學術期刊中至少50%的異常現象，在樣本外均無法成立。
 
-- **Linear regression is the workhorse of factor analysis**: When someone says "value stocks outperform growth stocks," they are implicitly describing a regression result. When your fund manager claims to generate 3% alpha per year, that claim is based on a regression of fund returns against benchmark returns. If you cannot interpret a regression -- understand its coefficients, assess its significance, and evaluate its limitations -- you cannot critically evaluate these claims.
+- **線性迴歸是因子分析的主力工具**：當有人說「價值股的表現優於成長股」，他們隱含的其實是一個迴歸結果。當你的基金經理聲稱每年創造3%的阿爾法，那個說法是根據基金報酬對基準報酬的迴歸而來。如果你看不懂迴歸——無法理解其係數、評估其顯著性、判斷其局限——你就無法批判性地審視這些說法。
 
-- **R-squared is the most misunderstood statistic in finance**: Investors routinely confuse R-squared (the percentage of variance explained by a model) with predictive power or quality of fit. An R-squared of 0.90 does not mean a model is good. An R-squared of 0.05 does not mean a model is useless. Understanding what R-squared does and does not tell you prevents costly misinterpretation.
+- **R平方是金融界最常被誤解的統計量**：投資人習慣性地把R平方（模型可解釋的變異量百分比）與預測能力或配適品質畫上等號。R平方為0.90不代表模型很好；R平方為0.05也不代表模型沒用。理解R平方能告訴你什麼、不能告訴你什麼，能防止你做出代價高昂的錯誤解讀。
 
-- **Time series behavior determines which strategies can work**: Financial data is ordered in time, and its behavior over time -- whether it trends, reverts to a mean, or wanders randomly -- determines which strategies are viable. If a stock price follows a random walk, then mean-reversion strategies cannot work. If it trends, then momentum strategies have an edge. Understanding stationarity, autocorrelation, and mean reversion is fundamental to strategy selection.
+- **時間序列的行為決定哪些策略能夠奏效**：金融數據是按時間順序排列的，其隨時間的變化行為——究竟是趨勢延續、均值回歸，還是隨機漫步——決定了哪些策略具有可行性。如果股價遵循隨機漫步，均值回歸策略就行不通；如果股價有趨勢，動能策略就佔有優勢。理解定常性、自相關性和均值回歸，是策略選擇的基本功。
 
-- **Correlation is not causation, and everyone knows this, and nobody acts on it**: Every investor has heard that correlation does not imply causation. Yet every day, investment decisions are made on the basis of observed correlations treated as causal relationships. Understanding the difference -- and the specific mechanisms by which correlations mislead -- is essential to avoiding costly errors.
+- **相關性不等於因果關係，每個人都知道這一點，卻沒有人真的照著做**：每個投資人都聽過相關性不代表因果關係。然而每一天，投資決策都在把觀察到的相關性當作因果關係來使用。理解兩者的差異——以及相關性讓人誤入歧途的具體機制——對於避免代價高昂的錯誤至關重要。
 
-- **Statistical pitfalls can cost you your entire investment thesis**: Survivorship bias, look-ahead bias, multiple comparisons, data snooping, overfitting, small sample sizes -- each of these can make a worthless strategy look brilliant on paper. A single statistical mistake can cause you to deploy real capital on a strategy that never had a genuine edge.
+- **統計陷阱可以讓你的整個投資論據徹底崩潰**：存活者偏差、前瞻性偏誤、多重比較、數據探勘、過度配適、樣本量過小——每一個都能讓一個毫無價值的策略在紙上看起來光彩奪目。一個統計錯誤就能讓你把真實資金投入一個從來就沒有真正優勢的策略。
 
-This lesson will equip you with the statistical toolkit needed to separate genuine investment insights from statistical mirages.
+本課將為你備齊所需的統計工具箱，讓你能夠區分真正的投資洞見與統計海市蜃樓。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的內容
 
-#### 1. Linear Regression for Factor Analysis
+#### 1. 用於因子分析的線性迴歸
 
-Linear regression is the foundation of nearly all empirical finance. At its core, regression asks: "How does one variable (the dependent variable) change when another variable (the independent variable) changes?"
+線性迴歸是幾乎所有實證財務學的基礎。迴歸的核心問題是：「當一個變數（自變數）改變時，另一個變數（應變數）會如何變化？」
 
 ```
-LINEAR REGRESSION: THE BASICS
+線性迴歸：基本概念
 
-THE MODEL:
-  Y = a + b * X + error
+模型：
+  Y = a + b * X + 誤差
 
-  Y = dependent variable (what you are trying to explain)
-  X = independent variable (the explanatory factor)
-  a = intercept (value of Y when X is zero)
-  b = slope (how much Y changes for a one-unit change in X)
-  error = what the model cannot explain (residual)
+  Y = 應變數（你試圖解釋的變數）
+  X = 自變數（解釋因子）
+  a = 截距（當 X 為零時 Y 的值）
+  b = 斜率（X 每變動一個單位，Y 的變動量）
+  誤差 = 模型無法解釋的部分（殘差）
 
-EXAMPLE: CAPM REGRESSION
+範例：CAPM 迴歸
 
-  Fund Return = Alpha + Beta * Market Return + Error
+  基金報酬 = 阿爾法 + 貝塔 × 市場報酬 + 誤差
 
-  Y = Fund monthly return
-  X = Market monthly return (e.g., S&P 500)
-  a = Alpha (excess return not explained by market)
-  b = Beta (sensitivity to the market)
+  Y = 基金月報酬
+  X = 市場月報酬（例如 S&P 500）
+  a = 阿爾法（不能被市場解釋的超額報酬）
+  b = 貝塔（對市場的敏感度）
 
-  If regression yields:
-    Alpha = 0.25% per month (3% annualized)
-    Beta = 1.15
+  若迴歸結果為：
+    阿爾法 = 每月 0.25%（年化 3%）
+    貝塔  = 1.15
 
-  Interpretation:
-  - For every 1% the market moves, this fund moves 1.15%
-  - The fund generates 0.25% per month ABOVE what
-    its market exposure would predict
-  - This alpha is the "skill" of the manager (if real)
+  解讀：
+  - 市場每波動 1%，此基金波動 1.15%
+  - 基金每月在市場敞口所預測的報酬之上，
+    額外獲得 0.25%
+  - 此阿爾法即為經理人的「技能」（若屬真實）
 
-VISUAL REPRESENTATION:
+視覺呈現：
 
-  Fund
-  Return
+  基金
+  報酬
   (%)
    8 |                               *
    6 |                         *  *
@@ -82,231 +79,230 @@ VISUAL REPRESENTATION:
   -8 |/  *
      |________________________________
      -8  -6  -4  -2   0   2   4   6   8
-              Market Return (%)
+              市場報酬 (%)
 
-  The line is the regression line.
-  The slope = beta = 1.15
-  The intercept = alpha = 0.25%
-  Points above the line = positive residuals
-  Points below the line = negative residuals
+  直線即為迴歸線。
+  斜率 = 貝塔 = 1.15
+  截距 = 阿爾法 = 0.25%
+  位於直線上方的點 = 正殘差
+  位於直線下方的點 = 負殘差
 ```
 
 ```
-MULTIPLE REGRESSION: FAMA-FRENCH FACTORS
+多元迴歸：Fama-French 因子
 
-Single regression uses ONE factor. Multiple regression
-uses SEVERAL factors simultaneously:
+單一迴歸使用一個因子。多元迴歸
+同時使用多個因子：
 
-  Return = Alpha + b1*Market + b2*Size + b3*Value + Error
+  報酬 = 阿爾法 + b1×市場 + b2×規模 + b3×價值 + 誤差
 
-FAMA-FRENCH THREE-FACTOR MODEL:
+Fama-French 三因子模型：
 
-  Ri - Rf = ai + bi*(Rm-Rf) + si*SMB + hi*HML + ei
+  Ri - Rf = ai + bi×(Rm-Rf) + si×SMB + hi×HML + ei
 
-  Where:
-  Ri - Rf  = Fund excess return (above risk-free rate)
-  Rm - Rf  = Market excess return
-  SMB      = Small Minus Big (small-cap premium)
-  HML      = High Minus Low (value premium)
-  ai       = Alpha (true skill after adjusting for factors)
-  bi,si,hi = Factor loadings (sensitivities)
+  其中：
+  Ri - Rf  = 基金超額報酬（高於無風險利率）
+  Rm - Rf  = 市場超額報酬
+  SMB      = 小減大（小型股溢酬）
+  HML      = 高減低（價值股溢酬）
+  ai       = 阿爾法（調整因子後的真實技能）
+  bi,si,hi = 因子負荷（敏感度）
 
-EXAMPLE OUTPUT:
+範例輸出：
 
-  Factor       Coefficient   t-stat   p-value
+  因子           係數        t統計量  p值
   ──────────────────────────────────────────────
-  Alpha        0.15%/mo      1.8      0.072
-  Market       1.05          28.3     0.000
-  SMB (Size)   0.35          4.2      0.000
-  HML (Value)  0.22          2.9      0.004
+  阿爾法        0.15%/月     1.8      0.072
+  市場          1.05         28.3     0.000
+  SMB（規模）   0.35         4.2      0.000
+  HML（價值）   0.22         2.9      0.004
 
-  Interpretation:
-  - Manager has beta of 1.05 (slightly above market)
-  - Tilts toward small caps (SMB loading = 0.35)
-  - Tilts toward value stocks (HML loading = 0.22)
-  - Alpha of 0.15%/month is NOT statistically significant
-    (p-value = 0.072 > 0.05 threshold)
+  解讀：
+  - 經理人的貝塔為 1.05（略高於市場）
+  - 偏向小型股（SMB 負荷 = 0.35）
+  - 偏向價值股（HML 負荷 = 0.22）
+  - 每月阿爾法 0.15% 在統計上不顯著
+    （p值 = 0.072 > 0.05 門檻）
 
-  CONCLUSION: This manager's returns are EXPLAINED by
-  exposure to market, size, and value factors. There
-  is no statistically significant evidence of skill.
-  The "alpha" from a single-factor model was actually
-  compensation for taking size and value risk.
+  結論：此經理人的報酬可由
+  市場、規模與價值因子的敞口來解釋。
+  沒有統計上顯著的技能證據。
+  來自單因子模型的「阿爾法」，實際上是
+  承擔規模與價值風險所獲得的補償。
 
   ┌──────────────────────────────────────────────┐
-  │  WHY THIS MATTERS:                           │
-  │  Many "alpha-generating" managers are simply  │
-  │  taking factor exposures that can be obtained │
-  │  cheaply through index funds. You should not  │
-  │  pay 1-2% fees for factor exposure you can    │
-  │  get for 0.05-0.20%.                          │
+  │  為何這很重要：                              │
+  │  許多「創造阿爾法」的經理人，不過是在       │
+  │  承擔因子敞口，而這些敞口可以透過           │
+  │  低成本指數基金輕易複製。你不應該           │
+  │  為可以用 0.05-0.20% 費率取得的             │
+  │  因子敞口，支付 1-2% 的費用。               │
   └──────────────────────────────────────────────┘
 ```
 
-#### 2. R-Squared and Statistical Significance
+#### 2. R平方與統計顯著性
 
-R-squared and p-values are the two most commonly cited statistics in financial research. Both are routinely misunderstood.
+R平方與p值是財務研究中最常被引用的兩個統計量，也都是最常遭到誤解的統計量。
 
 ```
-R-SQUARED (COEFFICIENT OF DETERMINATION)
+R平方（決定係數）
 
-DEFINITION:
-  R-squared = 1 - (Sum of Squared Residuals / Total Sum of Squares)
+定義：
+  R平方 = 1 - （殘差平方和 / 總平方和）
 
-  In plain language:
-  "What fraction of the variation in Y is explained by X?"
+  用白話說：
+  「Y 的變異有多少比例可以被 X 解釋？」
 
-  R-squared = 0.00: X explains nothing about Y
-  R-squared = 1.00: X explains everything about Y
-  R-squared = 0.65: X explains 65% of Y's variation
+  R平方 = 0.00：X 對 Y 毫無解釋力
+  R平方 = 1.00：X 完全解釋 Y
+  R平方 = 0.65：X 解釋了 Y 65% 的變異
 
-EXAMPLE:
+範例：
 
-  Model: Fund Return = Alpha + Beta * Market Return
+  模型：基金報酬 = 阿爾法 + 貝塔 × 市場報酬
 
-  R-squared = 0.85
+  R平方 = 0.85
 
-  Meaning: 85% of this fund's return variation is
-  explained by market movements. 15% comes from
-  stock selection, sector bets, or randomness.
+  含義：此基金報酬變異的 85%，
+  可由市場走勢解釋。剩下 15% 來自
+  選股、類股押注，或純粹的隨機性。
 
   ┌────────────────────────────────────────┐
-  │  TOTAL VARIATION IN FUND RETURNS       │
+  │  基金報酬的總變異                      │
   │                                        │
   │  ████████████████████████████████████  │
   │  ████████████████████░░░░░░░░░░░░░░░  │
   │  ▲                    ▲                │
-  │  Explained by         Unexplained      │
-  │  market (85%)         (15%)            │
+  │  由市場解釋           無法解釋         │
+  │  （85%）              （15%）          │
   └────────────────────────────────────────┘
 
-COMMON R-SQUARED VALUES IN FINANCE:
+金融界常見的 R平方值：
 
-  Model                                 Typical R-sq
-  ──────────────────────────────────────────────────
-  S&P 500 index fund vs. S&P 500       0.999
-  Large-cap active fund vs. S&P 500    0.85-0.95
-  Hedge fund vs. S&P 500               0.30-0.70
-  Individual stock vs. S&P 500         0.10-0.50
-  Stock returns vs. GDP growth         0.03-0.08
-  Monthly return predictions            0.01-0.05
-  Daily return predictions              0.00-0.02
+  模型                                   典型 R平方
+  ──────────────────────────────────────────────
+  S&P 500 指數基金 vs. S&P 500          0.999
+  大型股主動型基金 vs. S&P 500          0.85-0.95
+  避險基金 vs. S&P 500                  0.30-0.70
+  個股 vs. S&P 500                      0.10-0.50
+  股票報酬 vs. GDP 成長                 0.03-0.08
+  月報酬預測                            0.01-0.05
+  日報酬預測                            0.00-0.02
 
-THE R-SQUARED TRAP:
+R平方陷阱：
 
-  TRAP 1: "High R-squared = good model"
-    A stock's regression on the market with R-sq = 0.92
-    does NOT mean you can predict the stock's returns.
-    It means the stock moves WITH the market.
-    The 8% unexplained variance can still be huge.
+  陷阱一：「高 R平方 = 好模型」
+    某支股票對市場的迴歸 R平方 = 0.92，
+    並不代表你能預測該股的報酬。
+    它只代表該股與市場同步波動。
+    剩下 8% 無法解釋的變異仍然可能很大。
 
-  TRAP 2: "Low R-squared = useless model"
-    A model predicting monthly returns with R-sq = 0.02
-    seems pathetically weak. But 2% predictability in
-    financial returns is ENORMOUSLY valuable.
+  陷阱二：「低 R平方 = 無用的模型」
+    一個預測月報酬的模型 R平方 = 0.02，
+    看似微不足道。但 2% 的可預測性
+    在金融報酬中，具有巨大的價值。
 
-    If you can predict 2% of return variance consistently,
-    you can make billions of dollars in the markets.
-    Renaissance Technologies allegedly operates with
-    predictive R-squared values of 0.01-0.05.
+    如果你能持續預測 2% 的報酬變異，
+    你可以在市場上賺進數十億。
+    文藝復興科技據傳的預測性
+    R平方就在 0.01-0.05 之間。
 
-  TRAP 3: "R-squared can only go up"
-    Adding more variables to a model ALWAYS increases
-    R-squared. This does NOT mean the model is better.
-    Use adjusted R-squared, which penalizes for the
-    number of variables:
+  陷阱三：「R平方只會增加」
+    向模型中加入更多變數，R平方必然上升。
+    這並不代表模型變得更好。
+    請改用調整後 R平方，它會對
+    變數數量進行懲罰：
     
-    Adjusted R-sq = 1 - [(1-R-sq)(n-1)/(n-k-1)]
+    調整後 R平方 = 1 - [(1-R平方)(n-1)/(n-k-1)]
     
-    Where n = observations, k = number of variables
+    其中 n = 觀測值數量，k = 變數數量
 ```
 
 ```
-STATISTICAL SIGNIFICANCE AND P-VALUES
+統計顯著性與 p 值
 
-THE P-VALUE:
-  "If the true effect were ZERO, what is the probability
-  of observing a result as extreme as what we found?"
+p值：
+  「如果真實效果為零，觀察到我們所得到的
+  這麼極端的結果，機率是多少？」
 
-  p-value = 0.05 means: There is a 5% chance of seeing
-  this result if there were truly no effect.
+  p值 = 0.05 代表：若真實上毫無效果，
+  有 5% 的機率看到這樣的結果。
 
-  Convention:
-  p < 0.05  -> "Statistically significant" (reject null)
-  p >= 0.05 -> "Not significant" (fail to reject null)
+  慣例：
+  p < 0.05  -> 「統計上顯著」（拒絕虛無假設）
+  p >= 0.05 -> 「不顯著」（無法拒絕虛無假設）
 
-THE T-STATISTIC:
-  t-stat = coefficient / standard error
+t統計量：
+  t統計量 = 係數 / 標準誤
 
-  Rule of thumb:
-  |t-stat| > 2.0  -> approximately significant at 5% level
-  |t-stat| > 2.6  -> approximately significant at 1% level
-  |t-stat| > 3.3  -> approximately significant at 0.1% level
+  經驗法則：
+  |t統計量| > 2.0  -> 約在 5% 水準顯著
+  |t統計量| > 2.6  -> 約在 1% 水準顯著
+  |t統計量| > 3.3  -> 約在 0.1% 水準顯著
 
-  Higher t-stat = more confident the coefficient is real
+  t統計量越高 = 對係數為真越有信心
 
-EXAMPLE: IS THIS FUND'S ALPHA REAL?
+範例：這支基金的阿爾法是真實的嗎？
 
-  Regression result: Alpha = 0.30% per month
+  迴歸結果：阿爾法 = 每月 0.30%
 
-  Scenario A: t-stat = 0.8, p-value = 0.42
-    NOT significant. Alpha could easily be zero.
-    We cannot distinguish 0.30% from noise.
-    DO NOT pay high fees for this "alpha."
+  情境 A：t統計量 = 0.8，p值 = 0.42
+    不顯著。阿爾法很可能為零。
+    無法區分 0.30% 與雜訊。
+    不要為這個「阿爾法」支付高費用。
 
-  Scenario B: t-stat = 2.5, p-value = 0.014
-    Significant at 5% level. Fairly confident alpha
-    is not zero. But could still be overstated.
-    Consider the fund, but verify out of sample.
+  情境 B：t統計量 = 2.5，p值 = 0.014
+    在 5% 水準顯著。相當有信心
+    阿爾法不為零。但仍可能被高估。
+    考慮這支基金，但務必進行樣本外驗證。
 
-  Scenario C: t-stat = 4.2, p-value = 0.0001
-    Highly significant. Very unlikely to be zero.
-    Strong evidence of genuine skill.
-    But still check: is the track record long enough?
-    Are there hidden risks? Survivorship bias?
+  情境 C：t統計量 = 4.2，p值 = 0.0001
+    高度顯著。阿爾法為零的可能性極低。
+    有力的真實技能證據。
+    但仍需確認：業績紀錄夠長嗎？
+    是否存在隱藏風險？存活者偏差？
 
-CRITICAL WARNING:
+重要警告：
   ┌──────────────────────────────────────────────┐
-  │  STATISTICAL SIGNIFICANCE != PRACTICAL       │
-  │  SIGNIFICANCE                                │
+  │  統計顯著性 ≠ 實際顯著性                    │
   │                                              │
-  │  With enough data, even a tiny, meaningless  │
-  │  effect becomes "statistically significant." │
+  │  數據量夠大時，即便微小、毫無意義的效果     │
+  │  也會「統計上顯著」。                        │
   │                                              │
-  │  A fund with alpha = 0.01% per month         │
-  │  (0.12%/year) with t-stat = 3.5 is           │
-  │  statistically significant but practically   │
-  │  meaningless. After fees, the alpha is gone.  │
+  │  一支基金每月阿爾法 = 0.01%                 │
+  │  （年化 0.12%），t統計量 = 3.5，             │
+  │  在統計上顯著，但實際上毫無意義。            │
+  │  扣除費用後，阿爾法蕩然無存。               │
   │                                              │
-  │  Always ask: Is the effect LARGE ENOUGH       │
-  │  to matter after fees and costs?              │
+  │  永遠要問：扣除費用與成本後，               │
+  │  這個效果是否大到足以產生影響？             │
   └──────────────────────────────────────────────┘
 ```
 
-#### 3. Time Series Basics: Stationarity and Autocorrelation
+#### 3. 時間序列基礎：定常性與自相關性
 
-Financial data is ordered in time. This temporal structure has profound implications for analysis and strategy design.
+金融數據按時間排序，這種時間結構對分析方法與策略設計具有深遠影響。
 
 ```
-STATIONARITY
+定常性
 
-DEFINITION:
-  A time series is stationary if its statistical
-  properties (mean, variance, autocorrelation) do not
-  change over time.
+定義：
+  若一個時間序列的統計特性
+  （均值、變異數、自相關性）不隨時間改變，
+  則稱之為定常序列。
 
-STATIONARY SERIES:
+定常序列：
   ┌──────────────────────────────────────────────┐
   │           *   *       *     *                 │
   │   *    *     * *   *    *      *    *         │
-  │ ----*----------*---*------*-----*----- mean   │
+  │ ----*----------*---*------*-----*----- 均值   │
   │    *  *     *    *     *    *      *          │
   │        *            *        *               │
   └──────────────────────────────────────────────┘
-  Properties stay constant. Fluctuates around a
-  fixed mean. Good for statistical analysis.
+  統計特性保持恆定，圍繞固定均值波動，
+  適合進行統計分析。
 
-NON-STATIONARY SERIES (trending):
+非定常序列（趨勢型）：
   ┌──────────────────────────────────────────────┐
   │                                         *    │
   │                                      *   *   │
@@ -317,10 +313,10 @@ NON-STATIONARY SERIES (trending):
   │        *  *                                  │
   │  *  *                                        │
   └──────────────────────────────────────────────┘
-  Mean changes over time. Standard regression
-  produces SPURIOUS results on trending data.
+  均值隨時間改變。對趨勢型數據進行
+  標準迴歸會產生虛假結果。
 
-NON-STATIONARY SERIES (random walk):
+非定常序列（隨機漫步）：
   ┌──────────────────────────────────────────────┐
   │        *                                     │
   │       * *                               *    │
@@ -331,820 +327,811 @@ NON-STATIONARY SERIES (random walk):
   │              *    * *                        │
   │                    *                         │
   └──────────────────────────────────────────────┘
-  Wanders without returning to any mean.
-  Stock prices are approximately random walks.
-  Each step is independent of previous steps.
+  漫無目的地游走，不回歸任何均值。
+  股價近似隨機漫步，每一步都與前一步無關。
 
-WHY STATIONARITY MATTERS:
+為何定常性很重要：
 
-  STOCK PRICES are non-stationary (random walk-ish).
-  STOCK RETURNS are approximately stationary.
+  股票「價格」是非定常的（類隨機漫步）。
+  股票「報酬」近似定常。
 
-  WRONG: Regress stock PRICE on GDP level.
-    Both trend upward over time.
-    You will find a "significant" relationship
-    that is entirely spurious.
-    R-squared will be very high (0.90+) and
-    completely meaningless.
+  錯誤做法：對 GDP 水準迴歸股票「價格」。
+    兩者均隨時間向上趨勢。
+    你會找到一個「顯著」的關係，
+    但完全是虛假的。
+    R平方會非常高（0.90+），
+    但毫無意義。
 
-  RIGHT: Regress stock RETURNS on GDP GROWTH.
-    Both are (approximately) stationary.
-    Any relationship found is more likely genuine.
+  正確做法：對 GDP「成長率」迴歸股票「報酬」。
+    兩者均（近似）定常。
+    所發現的任何關係更可能是真實的。
 
-  RULE: Always work with RETURNS (or changes),
-  not LEVELS, when doing regression analysis
-  on financial data.
+  原則：對金融數據進行迴歸分析時，
+  永遠使用「報酬」（或變動量），
+  而非「水準值」。
 ```
 
 ```
-AUTOCORRELATION
+自相關性
 
-DEFINITION:
-  Autocorrelation measures how much a time series
-  is correlated with its own past values.
+定義：
+  自相關性衡量一個時間序列與其自身
+  過去值的相關程度。
 
-  Autocorrelation at lag k =
-    Correlation between Y(t) and Y(t-k)
+  第 k 期自相關性 =
+    Y(t) 與 Y(t-k) 之間的相關係數
 
-INTERPRETATION:
+解讀：
 
-  Positive autocorrelation (momentum):
-    If today's return is positive, tomorrow's return
-    is more likely to be positive.
+  正自相關性（動能）：
+    若今日報酬為正，明日報酬
+    更可能為正。
     
     + + + + - - - - + + + + - - - -
-    (Runs of same sign)
+    （同方向連續出現）
 
-  Negative autocorrelation (mean reversion):
-    If today's return is positive, tomorrow's return
-    is more likely to be negative.
+  負自相關性（均值回歸）：
+    若今日報酬為正，明日報酬
+    更可能為負。
     
     + - + - + - + - + - + - + - + -
-    (Alternating signs)
+    （正負交替出現）
 
-  Zero autocorrelation (random walk):
-    Today's return tells you nothing about tomorrow.
+  零自相關性（隨機漫步）：
+    今日報酬對明日毫無資訊。
     
     + - - + + - + - - - + + - + - +
-    (No pattern)
+    （無規律可循）
 
-AUTOCORRELATION IN FINANCIAL MARKETS:
+金融市場中的自相關性：
 
-  Asset/Timeframe          Autocorrelation  Implication
-  ──────────────────────────────────────────────────────
-  Daily stock returns      ~0 to slightly   Approx random
-                           negative         walk
-  Monthly stock returns    Slightly         Weak short-term
-                           positive         momentum
-  1-year stock returns     Negative at      Long-term mean
-                           3-5 year lags    reversion
-  Daily bond returns       Slightly         Weak momentum
-                           positive
-  Currency returns         Mixed            Varies by pair
-  Commodity returns        Positive at      Momentum in
-                           medium term      trends
+  資產/時間框架          自相關性       含義
+  ──────────────────────────────────────────────
+  日股票報酬            接近零或       近似隨機
+                        略為負值       漫步
+  月股票報酬            略為正值       弱短期動能
+  1年期股票報酬         在3-5年        長期均值
+                        落後為負值     回歸
+  日債券報酬            略為正值       弱動能
+  貨幣報酬              混合           因貨幣對而異
+  大宗商品報酬          中期為正值     趨勢中的動能
 
-  KEY INSIGHT:
-  - Short-term (days): Markets are nearly random
-  - Medium-term (3-12 months): Weak momentum exists
-  - Long-term (3-5 years): Mean reversion appears
+  關鍵洞見：
+  - 短期（數日）：市場近似隨機
+  - 中期（3-12個月）：存在弱動能
+  - 長期（3-5年）：均值回歸浮現
 
-  This pattern supports both momentum strategies
-  (medium horizon) and value/mean-reversion strategies
-  (long horizon), and neither contradicts efficient
-  markets at short horizons.
+  這個規律同時支持動能策略（中期）
+  與價值／均值回歸策略（長期），
+  且兩者都與短期的效率市場假說不矛盾。
 
-LJUNG-BOX TEST:
-  Tests whether a set of autocorrelations are jointly
-  zero (i.e., whether ANY predictability exists).
+Ljung-Box 檢定：
+  檢驗一組自相關係數是否聯合為零
+  （即是否存在任何可預測性）。
   
-  p-value < 0.05: Significant autocorrelation exists
-  p-value > 0.05: No significant autocorrelation
+  p值 < 0.05：存在顯著自相關性
+  p值 > 0.05：無顯著自相關性
   
-  Most daily stock return series fail to reject the
-  null of zero autocorrelation. They are approximately
-  random walks at the daily frequency.
+  大多數日股票報酬序列，無法拒絕
+  零自相關的虛無假設。
+  在日頻率上，它們近似隨機漫步。
 ```
 
-#### 4. Mean Reversion Testing
+#### 4. 均值回歸檢定
 
-Mean reversion -- the tendency of a variable to return to its average over time -- is one of the most important concepts in finance and the basis for many investment strategies.
+均值回歸——某一變數趨於隨時間回歸其長期平均值的傾向——是金融界最重要的概念之一，也是許多投資策略的基礎。
 
 ```
-MEAN REVERSION
+均值回歸
 
-CONCEPT:
-  If a variable tends to return to its long-term
-  average, it exhibits mean reversion.
+概念：
+  若某一變數傾向於回歸其長期平均值，
+  則表現出均值回歸特性。
 
   ┌──────────────────────────────────────────────┐
   │                                              │
   │      *                          *            │
   │     * *                        * *           │
   │    *   *            *         *   *          │
-  │ --*-----*----*-----*-*-------*-----*--- mean │
+  │ --*-----*----*-----*-*-------*-----*--- 均值 │
   │          *  * *   *   *     *       *        │
   │           *    * *     *   *         *       │
   │                 *       * *           *      │
   │                          *                   │
   └──────────────────────────────────────────────┘
   
-  Mean reverting: Variable oscillates around a
-  stable mean and tends to return when displaced.
+  均值回歸：變數圍繞穩定均值振盪，
+  偏離後傾向回歸。
 
-WHAT MEAN REVERTS IN FINANCE:
+金融中哪些指標具有均值回歸性：
 
-  Strong evidence of mean reversion:
-  - Valuation ratios (P/E, P/B, CAPE)
-  - Interest rate spreads (credit, term)
-  - Volatility (VIX, realized vol)
-  - Currency relative to purchasing power parity
-  - Profit margins (sector-level, economy-wide)
+  有力的均值回歸證據：
+  - 估值比率（本益比、股價淨值比、CAPE）
+  - 利差（信用利差、期限利差）
+  - 波動性（波動率指數、已實現波動率）
+  - 貨幣相對購買力平價的偏離
+  - 獲利率（類股層面、全經濟層面）
 
-  Weak or no evidence of mean reversion:
-  - Stock PRICES (approximately random walk)
-  - GDP levels (trending upward)
-  - Technological disruption effects
-
-  ┌──────────────────────────────────────────────┐
-  │  CRITICAL DISTINCTION:                       │
-  │                                              │
-  │  Stock PRICES do NOT mean revert.            │
-  │  Stock VALUATIONS do mean revert.            │
-  │                                              │
-  │  A stock at $100 does NOT tend to return     │
-  │  to $100 after falling to $50.               │
-  │                                              │
-  │  But a stock with P/E of 40 does tend to     │
-  │  return toward a P/E of 15-20 over time      │
-  │  (through price decline or earnings growth). │
-  └──────────────────────────────────────────────┘
-
-TESTING FOR MEAN REVERSION:
-
-METHOD 1: AUGMENTED DICKEY-FULLER (ADF) TEST
-  Tests whether a time series has a unit root
-  (i.e., is a random walk).
-
-  Null hypothesis: Series has a unit root (no mean reversion)
-  Alternative: Series is stationary (mean reverting)
-
-  If p-value < 0.05: Reject null -> evidence of mean reversion
-  If p-value > 0.05: Fail to reject -> no evidence
-
-  Typical results:
-    Stock prices: p = 0.80 (NOT mean reverting)
-    Stock returns: p = 0.001 (stationary)
-    CAPE ratio: p = 0.04 (weakly mean reverting)
-    VIX: p = 0.001 (strongly mean reverting)
-
-METHOD 2: VARIANCE RATIO TEST
-  If returns are random walk:
-    Variance of k-period returns = k * Variance of 1-period returns
-
-  If variance ratio < 1: Mean reversion (returns "cancel out")
-  If variance ratio > 1: Momentum (returns "build up")
-  If variance ratio = 1: Random walk
-
-  Typical variance ratios for S&P 500:
-    2-day vs. 1-day:   ~1.00 (random at short horizon)
-    1-month vs. 1-week: ~0.98 (slight mean reversion)
-    1-year vs. 1-month: ~0.95 (moderate mean reversion)
-    5-year vs. 1-year:  ~0.80 (meaningful mean reversion)
-
-METHOD 3: HALF-LIFE OF MEAN REVERSION
-  How long does it take for a deviation from the
-  mean to be reduced by half?
-
-  Short half-life (days/weeks): Fast mean reversion,
-    tradable with short-term strategies
-  Long half-life (years): Slow mean reversion,
-    relevant for long-term asset allocation
-  Infinite half-life: No mean reversion (random walk)
-
-  Typical half-lives:
-    VIX:                ~2-4 weeks
-    Interest rate spreads: ~3-6 months
-    CAPE ratio:         ~3-7 years
-    Currency PPP:       ~3-5 years
-```
-
-#### 5. Common Statistical Pitfalls
-
-These are the errors that cause investors to deploy real capital on strategies that never had a genuine edge.
-
-```
-PITFALL 1: P-HACKING (DATA SNOOPING)
-
-DEFINITION:
-  Running many tests on the same data until one
-  produces a "significant" result by chance.
-
-EXAMPLE:
-  You test 100 different "signals" for predicting
-  stock returns. By chance alone, 5 will be
-  "significant" at the 5% level (0.05 * 100 = 5).
-
-  These 5 "significant" signals are false positives.
-  They look real but are purely random.
+  弱或無均值回歸證據：
+  - 股票「價格」（近似隨機漫步）
+  - GDP 水準（向上趨勢）
+  - 科技顛覆的影響
 
   ┌──────────────────────────────────────────────┐
-  │  WHAT THE RESEARCHER REPORTS:                │
+  │  關鍵區分：                                  │
   │                                              │
-  │  "We found that the ratio of CEO surname     │
-  │  length to company name length predicts      │
-  │  stock returns with t-stat = 2.3 (p = 0.02)"│
+  │  股票「價格」不具均值回歸性。                │
+  │  股票「估值」具有均值回歸性。                │
   │                                              │
-  │  WHAT ACTUALLY HAPPENED:                     │
+  │  一支從 100 元跌到 50 元的股票，             │
+  │  並不傾向回到 100 元。                       │
   │                                              │
-  │  They tested 200 variables. This was the     │
-  │  one that happened to be "significant."      │
-  │  The other 199 failures are never reported.  │
-  │  This is the FILE DRAWER PROBLEM.            │
+  │  但本益比達 40 倍的股票，確實傾向於          │
+  │  隨著時間回到 15-20 倍的均值水準            │
+  │  （透過股價下跌或盈餘成長）。               │
   └──────────────────────────────────────────────┘
 
-HOW TO DETECT P-HACKING:
-  - Does the paper test only ONE hypothesis?
-    Suspicious if "we tested only this one thing"
-  - Is there an economic rationale for the signal?
-    If not, it is likely data-mined.
-  - Does it replicate out of sample?
-  - Apply Bonferroni correction or similar:
-    Required p-value = 0.05 / number of tests
-    100 tests -> need p < 0.0005 to be credible
+均值回歸檢定方法：
 
-PITFALL 2: MULTIPLE COMPARISONS
+方法一：擴增型迪基-富勒（ADF）檢定
+  檢驗時間序列是否存在單位根
+  （即是否為隨機漫步）。
 
-  Related to p-hacking but more subtle.
+  虛無假設：序列有單位根（無均值回歸）
+  對立假設：序列為定常（均值回歸）
 
-  EXAMPLE: Backtesting factor strategies
+  若 p值 < 0.05：拒絕虛無假設 -> 均值回歸的證據
+  若 p值 > 0.05：無法拒絕 -> 無均值回歸證據
+
+  典型結果：
+    股票價格：p = 0.80（不具均值回歸性）
+    股票報酬：p = 0.001（定常）
+    CAPE 比率：p = 0.04（弱均值回歸）
+    波動率指數：p = 0.001（強均值回歸）
+
+方法二：變異數比率檢定
+  若報酬為隨機漫步：
+    k期報酬的變異數 = k × 1期報酬的變異數
+
+  若變異數比率 < 1：均值回歸（報酬相互抵消）
+  若變異數比率 > 1：動能（報酬累積疊加）
+  若變異數比率 = 1：隨機漫步
+
+  S&P 500 的典型變異數比率：
+    2日 vs. 1日：~1.00（短期隨機）
+    1月 vs. 1週：~0.98（輕微均值回歸）
+    1年 vs. 1月：~0.95（溫和均值回歸）
+    5年 vs. 1年：~0.80（具意義的均值回歸）
+
+方法三：均值回歸的半衰期
+  偏離均值的程度減少一半，需要多長時間？
+
+  短半衰期（數日/數週）：快速均值回歸，
+    可用短期策略進行交易
+  長半衰期（數年）：緩慢均值回歸，
+    與長期資產配置相關
+  無限半衰期：無均值回歸（隨機漫步）
+
+  典型半衰期：
+    波動率指數：          ~2-4 週
+    利差：                ~3-6 個月
+    CAPE 比率：           ~3-7 年
+    貨幣購買力平價：      ~3-5 年
+```
+
+#### 5. 常見統計陷阱
+
+以下是導致投資人將真實資金部署在從未具備真正優勢之策略上的種種錯誤。
+
+```
+陷阱一：p值操弄（數據探勘）
+
+定義：
+  對同一數據反覆進行多次檢定，
+  直到有一個偶然產生「顯著」結果為止。
+
+範例：
+  你測試 100 個不同的「信號」來預測股票報酬。
+  單憑機率，100個中有 5 個會在 5% 水準「顯著」
+  （0.05 × 100 = 5）。
+
+  這 5 個「顯著」信號是假陽性。
+  它們看起來真實，但純屬隨機。
+
+  ┌──────────────────────────────────────────────┐
+  │  研究者所報告的：                            │
+  │                                              │
+  │  「我們發現，執行長姓名長度與                │
+  │  公司名稱長度之比，能以 t統計量 = 2.3       │
+  │  （p = 0.02）預測股票報酬」                 │
+  │                                              │
+  │  實際發生的：                                │
+  │                                              │
+  │  他們測試了 200 個變數。這只是               │
+  │  碰巧「顯著」的那一個。                      │
+  │  其餘 199 次失敗從未被報告。                 │
+  │  這就是「檔案抽屜問題」。                    │
+  └──────────────────────────────────────────────┘
+
+如何辨識 p值操弄：
+  - 這篇論文只測試了「一個」假設嗎？
+    若說「我們只測試了這一件事」，令人起疑
+  - 這個信號有沒有經濟學上的合理依據？
+    若無，很可能是數據挖掘的結果
+  - 能在樣本外複現嗎？
+  - 應用 Bonferroni 校正或類似方法：
+    所需 p值 = 0.05 / 測試次數
+    100 次測試 -> 需要 p < 0.0005 才可信
+
+陷阱二：多重比較
+
+  與 p值操弄相關，但更為隱晦。
+
+  範例：回測因子策略
   
-  You test these factors for US stocks 1990-2020:
-  - Price/Earnings (4 variants)
-  - Price/Book (3 variants)
-  - Momentum (6 variants: different lookbacks)
-  - Quality metrics (5 variants)
-  - Low volatility (3 variants)
-  - Size (2 variants)
-  - Dividend yield (3 variants)
-  - Technical signals (10 variants)
-  ─────────────────────────────────
-  Total: 36 independent tests
+  你對美股 1990-2020 的數據測試以下因子：
+  - 本益比（4種變體）
+  - 股價淨值比（3種變體）
+  - 動能（6種變體：不同回望期）
+  - 品質指標（5種變體）
+  - 低波動性（3種變體）
+  - 規模（2種變體）
+  - 股利殖利率（3種變體）
+  - 技術信號（10種變體）
+  ─────────────────────────────
+  合計：36次獨立檢定
 
-  At 5% significance: 36 * 0.05 = 1.8 expected
-  false positives. Nearly 2 "significant" factors
-  that are actually noise.
+  在 5% 顯著水準下：36 × 0.05 = 1.8 個
+  預期的假陽性。近乎 2 個「顯著」因子
+  實際上是雜訊。
 
-  BONFERRONI CORRECTION:
-    Required p-value = 0.05 / 36 = 0.0014
-    Required t-stat approximately 3.2
+  BONFERRONI 校正：
+    所需 p值 = 0.05 / 36 = 0.0014
+    所需 t統計量約為 3.2
 
-  HARVEY, LIU, AND ZHU (2016):
-    In finance, the threshold for a new factor should be
-    t-stat > 3.0, not the traditional 2.0, because of
-    the massive number of factors already tested across
-    all published research.
+  HARVEY、LIU 與 ZHU（2016年）：
+    在金融領域，新因子的門檻應為
+    t統計量 > 3.0，而非傳統的 2.0，
+    因為所有已發表研究中已測試的因子數量龐大。
 
-PITFALL 3: OVERFITTING
+陷阱三：過度配適
 
-  Building a model so complex that it fits the noise
-  in historical data, not the signal.
+  建立一個極為複雜的模型，配適的是歷史
+  數據中的雜訊，而非真正的信號。
 
-  IN-SAMPLE vs. OUT-OF-SAMPLE:
+  樣本內 vs. 樣本外：
   
   ┌──────────────────────────────────────────────┐
-  │  IN-SAMPLE (training data):                  │
+  │  樣本內（訓練數據）：                        │
   │                                              │
-  │  Simple model:  * *  * *  * *                │
-  │                /  \ / \ / \                  │
-  │  Good fit but  not perfect. R-sq = 0.65      │
+  │  簡單模型：  * *  * *  * *                   │
+  │             /  \ / \ / \                     │
+  │  配適良好但並非完美。R平方 = 0.65            │
   │                                              │
-  │  Complex model: ****************************  │
-  │  Hits every point perfectly. R-sq = 0.99     │
+  │  複雜模型：  ****************************    │
+  │  完美命中每個數據點。R平方 = 0.99           │
   │                                              │
-  │  OUT-OF-SAMPLE (new data):                   │
+  │  樣本外（新數據）：                          │
   │                                              │
-  │  Simple model:  Still works. R-sq = 0.55     │
-  │  Complex model: Falls apart. R-sq = 0.10    │
+  │  簡單模型：  仍然有效。R平方 = 0.55          │
+  │  複雜模型：  徹底崩潰。R平方 = 0.10         │
   │                                              │
-  │  The complex model memorized the noise.      │
-  │  The simple model captured the signal.       │
+  │  複雜模型記住了雜訊。                        │
+  │  簡單模型捕捉到了信號。                      │
   └──────────────────────────────────────────────┘
 
-  RULE OF THUMB (DEGREES OF FREEDOM):
-    Minimum observations per parameter:
-    10:1 is bare minimum
-    20:1 is reasonable
-    50:1 is good
+  自由度經驗法則：
+    每個參數所需的最少觀測值：
+    10:1 是最低底限
+    20:1 是合理水準
+    50:1 是良好水準
 
-    If you have 60 months of data and a model
-    with 10 parameters, you have 6:1 ratio.
-    This is almost certainly overfit.
+    若你有 60 個月的數據，模型有
+    10 個參數，比例為 6:1。
+    這幾乎可以確定是過度配適。
 ```
 
 ```
-PITFALL 4: SURVIVORSHIP BIAS
+陷阱四：存活者偏差
 
-  Analyzing only the data that "survived" -- ignoring
-  the data that was removed due to failure.
+  只分析「存活下來」的數據——忽略
+  因失敗而被移除的數據。
 
-  MUTUAL FUND EXAMPLE:
-    You study fund returns from 2000-2020.
-    Your database has 3,000 funds.
-    But 2,000 funds that existed in 2000 have since
-    closed (most due to poor performance).
+  共同基金範例：
+    你研究 2000-2020 年的基金報酬。
+    你的資料庫有 3,000 支基金。
+    但 2000 年時存在、此後已關閉的
+    2,000 支基金（大多因表現不佳），
+    並未納入你的分析。
     
-    Your analysis includes only the 3,000 survivors.
-    Average return appears higher than reality because
-    the failures are excluded.
+    你的分析只包含 3,000 支存活者。
+    平均報酬看起來比實際高，
+    因為失敗的案例被排除在外。
 
-    True average annual return: 7.5%
-    Survivorship-biased average: 9.2%
-    Bias: +1.7% per year
+    真實年化報酬：7.5%
+    存活者偏差後的平均：9.2%
+    偏差量：每年 +1.7%
 
-  STOCK INDEX EXAMPLE:
-    "S&P 500 stocks returned 10% per year since 1990."
-    But the current S&P 500 constituents are DIFFERENT
-    from the 1990 constituents. Failed companies were
-    removed. Winners were added. Using CURRENT members
-    retroactively overstates historical returns.
+  股票指數範例：
+    「S&P 500 股票自 1990 年以來年化報酬 10%」。
+    但目前的 S&P 500 成分股與 1990 年時
+    大相逕庭。失敗的公司被剔除，贏家被加入。
+    將「現有成分股」回溯套用，會高估歷史報酬。
 
-  HEDGE FUND EXAMPLE:
-    Hedge fund databases are self-reported and voluntary.
-    Funds that perform badly stop reporting.
-    This creates survivorship bias estimated at
-    3-5% per year in hedge fund databases.
+  避險基金範例：
+    避險基金資料庫採自願申報制。
+    表現差的基金停止申報。
+    這造成存活者偏差，估計高達
+    每年 3-5%。
 
     ┌──────────────────────────────────────────┐
-    │  "Hedge funds returned 12% per year"     │
+    │  「避險基金年化報酬 12%」                │
     │                                          │
-    │  After survivorship bias: ~8% per year   │
-    │  After fees (2/20): ~5% per year         │
-    │  After backfill bias: ~4% per year       │
-    │  Risk-adjusted: Worse than index funds   │
+    │  扣除存活者偏差後：~8% 每年             │
+    │  扣除費用（2/20）後：~5% 每年           │
+    │  扣除回填偏差後：~4% 每年               │
+    │  風險調整後：遜於指數基金               │
     └──────────────────────────────────────────┘
 
-PITFALL 5: SMALL SAMPLE SIZE
+陷阱五：樣本量過小
 
-  Financial data has far fewer independent
-  observations than people realize.
+  金融數據的獨立觀測值，
+  遠比人們意識到的要少。
 
-  "I backtested 30 years of data!"
+  「我回測了 30 年的數據！」
   
-  30 years of DAILY data = 7,500 observations.
-  Sounds like a lot. But:
+  30 年的「日」數據 = 7,500 個觀測值。
+  聽起來很多。但事實是：
   
-  - Daily returns are not independent
-    (autocorrelation, clustering)
-  - Different market regimes reduce effective
-    sample size (maybe 4-6 truly independent
-    market environments in 30 years)
-  - Monthly data: 360 observations
-  - Annual recessions: maybe 4-5 in sample
-  - Crashes: 2-3 major events
+  - 日報酬並非獨立
+    （自相關性、波動聚集）
+  - 不同市場情境縮減了有效樣本量
+    （30 年中可能只有 4-6 個真正獨立
+    的市場環境）
+  - 月數據：360 個觀測值
+  - 年度衰退：樣本中大約 4-5 次
+  - 崩盤：2-3 次重大事件
   
-  For strategies that depend on rare events
-  (crashes, regime changes), 30 years gives you
-  only 2-5 observations of the relevant event.
+  對於依賴罕見事件（崩盤、情境轉換）
+  的策略，30 年的數據只給你
+  2-5 個相關事件的觀測值。
   
-  Standard error scales with 1/sqrt(n).
-  With only 5 crash observations, your estimate
-  of crash behavior has a standard error of
-  1/sqrt(5) = 45% of the true value.
-  Essentially meaningless precision.
+  標準誤隨 1/sqrt(n) 縮小。
+  只有 5 個崩盤觀測值時，你對崩盤
+  行為的估計標準誤為
+  1/sqrt(5) = 真實值的 45%。
+  精確度幾乎毫無意義。
 ```
 
-#### 6. Correlation vs. Causation
+#### 6. 相關性vs.因果關係
 
 ```
-CORRELATION vs. CAUSATION
+相關性 vs. 因果關係
 
-CORRELATION:
-  Two variables tend to move together.
-  Says nothing about WHY.
+相關性：
+  兩個變數傾向於同向移動。
+  對於「為什麼」毫無說明。
 
-CAUSATION:
-  One variable CAUSES changes in the other.
-  Requires a mechanism, not just co-movement.
+因果關係：
+  一個變數「導致」另一個變數的變化。
+  需要一個機制，而非僅是同向移動。
 
-TYPES OF SPURIOUS CORRELATION:
+虛假相關性的類型：
 
-1. COINCIDENCE (pure randomness)
-   "The number of films Nicolas Cage appeared in
-   correlates with swimming pool drownings."
-   Correlation: r = 0.87
-   Causation: None. Random coincidence.
+1. 巧合（純粹隨機性）
+   「尼可拉斯·凱吉出演的電影部數
+   與游泳池溺死人數相關。」
+   相關性：r = 0.87
+   因果關係：無。純屬隨機巧合。
 
-2. CONFOUNDING VARIABLE (common cause)
-   "Ice cream sales correlate with drowning deaths."
+2. 混淆變數（共同原因）
+   「冰淇淋銷售額與溺死人數相關。」
    
-   Ice cream sales ←─── HEAT ───→ Drowning deaths
-                    (confounding variable)
+   冰淇淋銷售 ←── 高溫 ──→ 溺死人數
+                  （混淆變數）
    
-   Heat causes both. Ice cream does not cause drowning.
+   高溫同時導致兩者。冰淇淋不會導致溺死。
    
-   FINANCIAL EXAMPLE:
-   "Countries with more McDonald's have higher GDPs."
+   金融範例：
+   「擁有更多麥當勞的國家，GDP 更高。」
    
-   McDonald's ←── DEVELOPMENT ──→ GDP
+   麥當勞 ←── 經濟發展 ──→ GDP
    
-   Both are caused by economic development.
-   Opening more McDonald's will not raise GDP.
+   兩者都由經濟發展所驅動。
+   開更多麥當勞不會提升 GDP。
 
-3. REVERSE CAUSATION
-   "Companies that advertise more have higher revenues."
+3. 反向因果關係
+   「投入更多廣告費的公司，營收更高。」
    
-   Maybe advertising causes revenue.
-   Or maybe high revenue enables advertising spending.
-   Or both.
+   也許廣告帶動了營收。
+   或者也許高營收使廣告投入成為可能。
+   或者兩者皆有。
    
-   FINANCIAL EXAMPLE:
-   "High P/E stocks have faster earnings growth."
-   Maybe high P/E reflects EXPECTED future growth
-   (the market anticipates growth and bids up price).
-   The high P/E did not CAUSE the growth.
+   金融範例：
+   「高本益比股票的盈餘成長更快。」
+   高本益比也許反映了市場「預期」的未來成長
+   （市場預見成長並推高股價）。
+   高本益比並不是「造成」成長的原因。
 
-4. DATA MINING (ex-post pattern fitting)
-   "Super Bowl winner (NFC vs. AFC) predicts
-   stock market direction."
+4. 數據挖掘（事後規律配適）
+   「超級盃冠軍（NFC vs. AFC）預測
+   股市走向。」
    
-   This "worked" for decades by coincidence.
-   It has no mechanism. It has since stopped working.
+   這個「規律」憑巧合「奏效」了數十年。
+   它沒有任何機制可言，之後也失靈了。
 
-CORRELATION IN FINANCE - PRACTICAL CONCERNS:
+金融中的相關性——實務面的考量：
 
-  UNSTABLE CORRELATIONS:
+  不穩定的相關性：
   ┌──────────────────────────────────────────────┐
-  │  Stock-Bond Correlation Over Time:           │
+  │  股票與債券相關性的歷時變化：                │
   │                                              │
-  │  1960-2000: Positive (+0.2 to +0.5)         │
-  │  2000-2020: Negative (-0.3 to -0.1)         │
-  │  2022:      Positive again (+0.3)            │
+  │  1960-2000：正相關（+0.2 至 +0.5）          │
+  │  2000-2020：負相關（-0.3 至 -0.1）          │
+  │  2022年：   再度轉為正相關（+0.3）           │
   │                                              │
-  │  If you built a portfolio assuming negative   │
-  │  stock-bond correlation, 2022 was painful.   │
-  │  Correlations CHANGE over time.              │
+  │  若你基於負的股債相關性建構投資組合，        │
+  │  2022 年必定相當痛苦。                       │
+  │  相關性「會隨時間改變」。                    │
   └──────────────────────────────────────────────┘
 
-  CRISIS CORRELATIONS:
-  During market crises, correlations among risky
-  assets spike toward 1.0. The diversification you
-  thought you had disappears exactly when you need
-  it most.
+  危機中的相關性：
+  市場危機期間，風險性資產之間的相關性
+  急劇攀升至接近 1.0。你以為自己擁有的
+  分散投資效果，恰恰在最需要它的時候消失了。
 
-  Normal times:  Stock-Commodity corr = 0.15
-  Crisis (2008): Stock-Commodity corr = 0.85
+  正常時期：股票-大宗商品相關性 = 0.15
+  危機（2008年）：股票-大宗商品相關性 = 0.85
 
-  This is the "correlation breakdown" problem.
-  Diversification benefits are overstated by
-  average correlation figures because averages
-  include calm periods when you do not need
-  diversification.
+  這就是「相關性瓦解」問題。
+  用平均相關性數值高估了分散投資的好處，
+  因為平均值包含了你不需要
+  分散投資時的平靜時期。
 ```
 
-#### 7. Practical Tools
+#### 7. 實用工具
 
 ```
-PRACTICAL QUANTITATIVE TOOLS FOR INVESTORS
+投資人的實用量化工具
 
-TOOL 1: PYTHON + STATSMODELS
-  Most common platform for financial analysis.
+工具一：Python + Statsmodels
+  最常用的金融分析平台。
   
-  Key functions:
-  - OLS regression: sm.OLS(y, X).fit()
-  - ADF test: adfuller(series)
-  - Autocorrelation: acf(series, nlags=20)
-  - Variance ratio: manual calculation
+  關鍵函數：
+  - 最小平方法迴歸：sm.OLS(y, X).fit()
+  - ADF 檢定：adfuller(series)
+  - 自相關性：acf(series, nlags=20)
+  - 變異數比率：手動計算
 
-TOOL 2: EXCEL / GOOGLE SHEETS
-  For simple regression and correlation:
-  - LINEST() function for regression
-  - CORREL() for correlation
-  - RSQ() for R-squared
-  - T.TEST() for significance testing
+工具二：Excel / Google 試算表
+  用於簡單迴歸與相關性分析：
+  - LINEST() 函數進行迴歸
+  - CORREL() 計算相關性
+  - RSQ() 計算 R平方
+  - T.TEST() 進行顯著性檢定
   
-  Limitation: Cannot handle complex time series
-  analysis, bootstrapping, or rolling regressions.
+  限制：無法處理複雜的時間序列
+  分析、拔靴法或滾動迴歸。
 
-TOOL 3: KEY LIBRARIES FOR PYTHON
+工具三：Python 的關鍵套件
 
-  import pandas as pd          # Data manipulation
-  import numpy as np           # Numerical computing
-  import statsmodels.api as sm # Regression, time series
-  from scipy import stats      # Statistical tests
-  import matplotlib.pyplot as plt  # Visualization
+  import pandas as pd              # 數據處理
+  import numpy as np               # 數值運算
+  import statsmodels.api as sm     # 迴歸、時間序列
+  from scipy import stats          # 統計檢定
+  import matplotlib.pyplot as plt  # 數據視覺化
 
-PRACTICAL CHECKLIST FOR EVALUATING CLAIMS:
+評估聲明的實務檢查清單：
 
-  1. What is the sample period and size?
-     [ ] At least 20 years of monthly data?
-     [ ] Multiple market cycles included?
+  1. 樣本期間與樣本量為何？
+     [ ] 至少 20 年的月數據？
+     [ ] 涵蓋多個市場週期？
 
-  2. Is the data clean?
-     [ ] Survivorship bias addressed?
-     [ ] Look-ahead bias eliminated?
-     [ ] Total return (including dividends)?
+  2. 數據是否乾淨？
+     [ ] 存活者偏差已處理？
+     [ ] 前瞻性偏誤已消除？
+     [ ] 使用總報酬（含股利）？
 
-  3. Is the analysis appropriate?
-     [ ] Stationary variables used?
-     [ ] Appropriate significance tests?
-     [ ] Multiple comparisons adjusted for?
+  3. 分析方法是否合適？
+     [ ] 使用定常變數？
+     [ ] 採用合適的顯著性檢定？
+     [ ] 已針對多重比較進行調整？
 
-  4. Is it economically sensible?
-     [ ] Does the effect have a logical mechanism?
-     [ ] Is the magnitude plausible?
-     [ ] Why would the effect persist?
+  4. 結論在經濟學上是否合理？
+     [ ] 這個效果有沒有邏輯機制？
+     [ ] 效果的大小是否合理？
+     [ ] 為何這個效果能夠持續存在？
 
-  5. Does it replicate?
-     [ ] Out-of-sample test performed?
-     [ ] Different time periods?
-     [ ] Different markets/geographies?
-     [ ] Transaction costs deducted?
+  5. 能否複現？
+     [ ] 有進行樣本外檢定？
+     [ ] 不同時間期間？
+     [ ] 不同市場／地區？
+     [ ] 已扣除交易成本？
 
-  If ANY of these fail, treat the claim with
-  extreme skepticism.
+  上述任何一項若無法通過，
+  對該聲明應保持極度懷疑。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "A high R-squared means the model is good and predictive."**
+**誤解一：「高 R平方代表模型很好、有預測力。」**
 
-R-squared measures how much variation is explained by the model on the data it was fitted to. It says nothing about out-of-sample predictive power. A model with 50 parameters fitted to 60 data points can achieve R-squared of 0.99 while having zero predictive ability. Conversely, a model with R-squared of 0.02 that genuinely predicts 2% of return variance is extraordinarily valuable. In finance, R-squared should be used to understand how much of a fund's returns are attributable to factor exposures, not to assess whether a model will predict the future.
+R平方衡量的是模型在「所配適的數據上」能解釋多少變異，與樣本外預測能力毫無關聯。一個有 50 個參數、配適 60 個數據點的模型，可以達到 R平方 0.99，卻完全沒有預測能力。相反地，一個真正能預測 2% 報酬變異的模型，即便 R平方只有 0.02，也具有無比巨大的價值。在金融領域，R平方應被用來理解基金報酬有多少比例可歸因於因子敞口，而非用來評估模型能否預測未來。
 
-**Misconception 2: "If a correlation is statistically significant, the relationship is real and useful."**
+**誤解二：「若相關性在統計上顯著，代表這個關係是真實且有用的。」**
 
-Statistical significance tells you that an observed correlation is unlikely to have occurred by chance alone. It does not tell you that the correlation is stable over time, that it will persist in the future, or that it reflects a causal relationship you can exploit. A correlation between two variables computed over 50 years of data may be driven by a specific sub-period, may be caused by a third variable, or may have already been arbitraged away by other investors who noticed it earlier. Significant correlations in financial data are common; reliably profitable correlations are rare.
+統計顯著性告訴你，觀察到的相關性不太可能純屬偶然。它並不代表這個相關性會隨時間保持穩定、未來仍會持續，或者它反映了可以善加利用的因果關係。在長達 50 年的數據中，兩個變數之間的顯著相關性，可能是由特定子期間所驅動、可能由第三個變數所造成，或者可能已被更早發現它的其他投資人套利掉了。金融數據中的顯著相關性並不罕見；可以可靠獲利的相關性，則極為稀少。
 
-**Misconception 3: "More data always leads to better analysis."**
+**誤解三：「數據越多，分析就越好。」**
 
-More data helps only if the data is relevant and the underlying process is stable. Using 100 years of stock market data to calibrate a model sounds rigorous, but if the market's structure has fundamentally changed -- as it did with the shift from physical trading floors to electronic markets, or the rise of passive investing -- old data may be more misleading than helpful. Using data from 1930 to predict behavior in 2025 assumes a stable data-generating process that almost certainly does not exist. The right amount of data is enough to cover multiple market cycles while remaining in a reasonably consistent structural regime.
+數據量增加只有在數據相關、且底層過程穩定的前提下才有幫助。使用 100 年的股市數據來校正模型，聽起來很嚴謹，但若市場結構已發生根本性改變——例如從實體交易場所轉向電子市場，或被動投資的興起——舊數據的誤導性可能大於其幫助。用 1930 年代的數據預測 2025 年的行為，假設了一個幾乎不可能存在的穩定數據生成過程。適當的數據量，是足以涵蓋多個市場週期、同時維持在相對一致的結構情境之內。
 
-**Misconception 4: "If a strategy worked in a backtest, it should work going forward."**
+**誤解四：「策略在回測中有效，就應該在實際操作中奏效。」**
 
-Backtests are subject to at least a dozen biases including survivorship bias, look-ahead bias, overfitting, data snooping, and transaction cost underestimation. The gap between backtested performance and live performance is consistently negative -- strategies perform worse live than in backtests. A responsible evaluation of a backtested strategy requires out-of-sample testing, realistic transaction costs, slippage estimates, and a credible economic rationale for why the edge exists and why it has not been arbitraged away.
+回測至少受到十幾種偏差的影響，包括存活者偏差、前瞻性偏誤、過度配適、數據探勘，以及交易成本低估。回測績效與實盤績效之間的落差，幾乎總是對策略不利的——實盤表現一貫比回測差。對一個回測策略負責任的評估，需要樣本外測試、真實交易成本、滑點估計，以及一個說得通的經濟理由，解釋為何這個優勢存在、且尚未被套利所消除。
 
-**Misconception 5: "Correlation between two assets is a fixed number."**
+**誤解五：「兩個資產之間的相關性是一個固定數值。」**
 
-Correlations are not constants -- they are summary statistics of a particular sample period that change dramatically over time. Stock-bond correlations have been positive for decades, negative for decades, and then positive again. Correlations among equity markets spike during crises, precisely when diversification is most needed. Any portfolio construction or risk management built on the assumption of stable correlations will eventually fail when correlations shift.
+相關性不是常數——它是特定樣本期間的彙總統計量，且會隨時間大幅改變。股債相關性曾有數十年為正值、數十年為負值，之後又再度轉正。股票市場之間的相關性在危機期間急劇攀升，而危機正是最需要分散投資的時刻。任何以穩定相關性為前提建構的投資組合或風險管理，最終都將在相關性改變時告敗。
 
-**Misconception 6: "I found a pattern that works, so I should trade on it."**
+**誤解六：「我發現了一個有效的規律，所以應該根據它來交易。」**
 
-Finding a pattern in data is the easiest part of quantitative investing. The hard part is determining whether the pattern is real or spurious. Before trading on any pattern, you must answer: Does it have a logical economic mechanism? Does it survive out-of-sample testing? Does it survive after transaction costs? Would it survive if other investors discovered it? Has it been documented in academic literature (if so, it may have already been arbitraged)? If any answer is "no," the pattern is likely noise.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How many observations do I need for a reliable regression?**
-
-A: The minimum depends on the number of parameters in your model. A conservative rule is 50 observations per parameter. For a single-factor regression, 50 monthly observations (about 4 years) is a bare minimum, and 120 (10 years) is much better. For a five-factor model, you want at least 250 monthly observations (20+ years). These minimums assume stationary data with reasonably stable relationships. For non-stationary data or unstable relationships, no sample size is sufficient -- you need to fix the data issues first. Remember that the effective sample size may be smaller than the number of observations due to autocorrelation and regime changes.
-
-**Q2: What is the difference between the Sharpe ratio and statistical significance of alpha?**
-
-A: The Sharpe ratio measures risk-adjusted return: excess return divided by standard deviation. It does not require a regression or a benchmark. Statistical significance of alpha, measured by the t-statistic from a regression, tests whether the fund's return above its benchmark exposure is distinguishable from zero. A fund can have a high Sharpe ratio but insignificant alpha if its returns are explained by factor exposures. Conversely, a fund with low Sharpe ratio could have significant alpha if it generates consistent returns uncorrelated with its benchmark. For evaluating manager skill, the t-statistic of alpha is more informative. For evaluating a standalone investment, the Sharpe ratio is more relevant.
-
-**Q3: How do I test whether a series is mean reverting?**
-
-A: Use the Augmented Dickey-Fuller (ADF) test. In Python: `from statsmodels.tsa.stattools import adfuller; result = adfuller(series)`. If the p-value is below 0.05, you have evidence of mean reversion. You can also calculate the half-life of mean reversion by fitting an AR(1) model: Y(t) - Y(t-1) = a + b*Y(t-1) + error. The half-life = -ln(2)/ln(1+b). If b is close to zero, mean reversion is slow; if b is close to -1, mean reversion is fast. Be cautious: mean reversion tests have low power with short samples, meaning they frequently fail to detect mean reversion that actually exists. Use 10+ years of data if possible.
-
-**Q4: Why is time series regression different from cross-sectional regression?**
-
-A: In cross-sectional regression, you compare different entities at one point in time (e.g., the returns of 500 stocks in January 2025). In time series regression, you follow one entity over many time periods (e.g., the returns of one fund over 120 months). Time series data has temporal dependencies -- today's observation is related to yesterday's -- which violates the independence assumption of standard regression. This means standard errors may be too small, making results look more significant than they are. Time series regression requires checks for autocorrelation (Durbin-Watson or Breusch-Godfrey test), heteroscedasticity (ARCH effects in financial data), and stationarity. Use Newey-West standard errors or HAC (heteroscedasticity and autocorrelation consistent) standard errors to correct for these issues.
-
-**Q5: How can I tell if a factor (like value or momentum) is actually being compensated by the market?**
-
-A: A factor is considered "compensated" if it has a persistent, positive risk premium with a plausible economic explanation. Test this by examining: (1) the average return of a long-short portfolio sorted on the factor over a long period (50+ years, multiple countries), (2) the t-statistic of this average return (should be above 3.0 given the multiple testing problem), (3) whether the factor survives after transaction costs, (4) whether it has an economic rationale (risk-based: investors are compensated for bearing a risk; behavioral: investors systematically make errors), and (5) whether it persists out of sample and in international markets. Value and momentum pass all five tests. Most other factors fail at least one.
-
-**Q6: What is the practical relevance of quantitative methods for a buy-and-hold index investor?**
-
-A: Even if you never run a regression, understanding quantitative methods protects you from being misled. When an advisor shows you a "proven" strategy, you can ask about out-of-sample testing, survivorship bias, and transaction costs. When a fund manager claims alpha, you can assess whether the t-statistic is meaningful. When financial media promotes a correlation (e.g., "the January effect," "sell in May"), you can evaluate whether it is statistically robust or data-mined noise. Quantitative literacy is defense against the constant stream of spurious claims in the financial industry. It is also essential for understanding factor investing and making informed decisions about factor tilts in your portfolio.
-
-**Q7: How should I handle the fact that financial data has fat tails and is not normally distributed?**
-
-A: Standard regression assumes normally distributed errors. Financial returns have fat tails (extreme events occur much more frequently than a normal distribution predicts) and sometimes skewness. This means standard significance tests can be unreliable. Practical remedies include: (1) using robust standard errors (HAC, bootstrapped), (2) checking results with non-parametric tests that do not assume normality, (3) being especially cautious about results that depend on extreme observations (remove them and see if results hold), and (4) recognizing that models calibrated to "average" market conditions will underestimate tail risk. For portfolio construction, consider using the t-distribution or historical simulation rather than assuming normal distributions.
+在數據中找到規律是量化投資中最容易的部分。困難的在於判斷這個規律究竟是真實的還是虛假的。在根據任何規律進行交易之前，你必須回答：它有沒有邏輯上的經濟機制？它能否通過樣本外檢定？扣除交易成本後仍然成立嗎？若其他投資人發現它，它還能存活嗎？它在學術文獻中有沒有記載？（若有，它可能已被套利掉了。）若任何一個答案是「否」，這個規律很可能只是偽裝成信號的雜訊。
 
 ---
 
+### d) 常見問題與解答
+
+**問題一：進行可靠的迴歸分析，需要多少觀測值？**
+
+答：最低需求取決於模型中的參數數量。保守的法則是每個參數需要 50 個觀測值。對於單因子迴歸，50 個月的觀測值（約 4 年）是最低底限，120 個（10 年）會好得多。對於五因子模型，你至少需要 250 個月的觀測值（20 年以上）。這些最低標準假設數據是定常的，且關係相對穩定。若數據不定常或關係不穩定，再多的樣本量都不夠——你需要先解決數據問題。請記住，由於自相關性與情境轉換，有效樣本量可能小於觀測值的數量。
+
+**問題二：夏普比率與阿爾法的統計顯著性有何不同？**
+
+答：夏普比率衡量的是風險調整後報酬：超額報酬除以標準差，不需要迴歸或基準。阿爾法的統計顯著性，則透過迴歸的 t統計量，檢定基金在扣除其基準敞口後的超額報酬是否可與零值區分。一支基金可能夏普比率很高，但阿爾法不顯著——若其報酬可由因子敞口解釋的話。反之，一支低夏普比率的基金，若能產生與基準不相關的穩定報酬，也可能有顯著的阿爾法。評估經理人技能時，阿爾法的 t統計量更具參考價值；評估一項獨立投資時，夏普比率更為相關。
+
+**問題三：如何檢定一個序列是否具有均值回歸性？**
+
+答：使用擴增型迪基-富勒（ADF）檢定。在 Python 中：`from statsmodels.tsa.stattools import adfuller; result = adfuller(series)`。若 p值低於 0.05，你有均值回歸的證據。你也可以透過配適 AR(1) 模型來計算均值回歸的半衰期：Y(t) - Y(t-1) = a + b×Y(t-1) + 誤差。半衰期 = -ln(2)/ln(1+b)。若 b 接近零，均值回歸緩慢；若 b 接近 -1，均值回歸迅速。請注意：在樣本較短的情況下，均值回歸檢定的統計效力不足，意味著即使實際上存在均值回歸，也常常無法偵測到。若可能，請使用 10 年以上的數據。
+
+**問題四：時間序列迴歸與橫截面迴歸有何不同？**
+
+答：在橫截面迴歸中，你在「同一時間點」比較不同的個體（例如，2025 年 1 月 500 支股票的報酬）。在時間序列迴歸中，你追蹤「同一個體」隨時間的變化（例如，某一基金 120 個月的報酬）。時間序列數據具有時間相依性——今天的觀測值與昨天相關——這違反了標準迴歸的獨立性假設。這代表標準誤可能過小，使結果看起來比實際更顯著。時間序列迴歸需要檢查自相關性（Durbin-Watson 或 Breusch-Godfrey 檢定）、異方差性（金融數據中的 ARCH 效應）與定常性。請使用 Newey-West 標準誤或 HAC（異方差自相關一致）標準誤來修正這些問題。
+
+**問題五：如何判斷一個因子（例如價值或動能）在市場上是否真正受到補償？**
+
+答：若一個因子具有持久的正風險溢酬，且有可信的經濟學解釋，則視為「受到補償」。可從以下幾個面向加以檢驗：（1）長期（50年以上、多個國家）多空投資組合（按因子排序）的平均報酬；（2）此平均報酬的 t統計量（鑑於多重比較問題，應高於 3.0）；（3）因子在扣除交易成本後仍能成立；（4）是否有經濟學上的合理依據（基於風險：投資人因承擔風險而獲得補償；基於行為：投資人系統性地犯錯）；（5）能否在樣本外及國際市場中持續成立。價值因子和動能因子通過了所有五項檢驗。多數其他因子至少在一項上失敗。
+
+**問題六：量化方法對買進持有的指數投資人有什麼實際意義？**
+
+答：即使你從不跑迴歸，理解量化方法也能保護你免於被誤導。當顧問向你展示某個「經過驗證」的策略時，你可以詢問樣本外檢定、存活者偏差和交易成本的問題。當基金經理聲稱擁有阿爾法時，你可以評估 t統計量是否具有意義。當財務媒體推廣某種相關性（例如「一月效應」、「五月賣出」），你可以判斷它在統計上是否穩健，或只是數據挖掘的產物。量化素養是抵禦金融業源源不絕的虛假聲明之防護盾，也是理解因子投資、在投資組合中做出明智因子傾斜決策的必要工具。
+
+**問題七：金融數據具有厚尾分佈且非常態分配，我應如何處理？**
+
+答：標準迴歸假設誤差項服從常態分配。金融報酬具有厚尾（極端事件的發生頻率遠高於常態分配的預測），有時還有偏態。這代表標準顯著性檢定可能不可靠。實務上的因應方法包括：（1）使用穩健標準誤（HAC、拔靴法）；（2）用不假設常態性的無母數檢定驗證結果；（3）特別小心依賴極端觀測值的結果（移除這些觀測值，看結果是否仍然成立）；（4）認識到根據「正常」市場環境所校正的模型，會低估尾部風險。在投資組合建構方面，考慮使用 t分配或歷史模擬法，而非假設常態分配。
+
 ---
 
-## YouTube Script
+---
 
-**Week 45: Quantitative Methods for Investors**
+## YouTube 腳本
 
-[VISUAL: Title card -- "Numbers Game: Statistical Tools Every Investor Needs"]
+**第45週：投資人的量化方法**
 
-**Alex**: Today we are going to talk about math. Not the kind you hated in school -- the kind that keeps you from being fooled out of your money. Quantitative methods are the investor's toolkit for separating real patterns from random noise. And in financial markets, most "patterns" are noise.
+[VISUAL: 標題卡 ——「數字遊戲：每位投資人都需要的統計工具」]
 
-**Sam**: I have seen plenty of charts that seem to show patterns. Stock X goes up every January. Indicator Y predicts recessions. How do I know which ones are real?
+**Horace**：今天我們要來談談數學。不是你在學校痛恨的那種——而是那種能讓你不被人從口袋裡騙走錢的數學。量化方法是投資人分辨真實規律與隨機雜訊的工具箱。而在金融市場裡，大多數「規律」都是雜訊。
 
-**Alex**: That is exactly the right question, and the answer involves understanding a few core statistical concepts: regression, R-squared, significance testing, time series behavior, and the many ways data can lie to you. Let us start with the most important tool in empirical finance: linear regression.
+**Stella**：我看過不少圖表，感覺好像真的有規律存在。X股票每年一月都上漲，Y指標預測衰退。我要怎麼判斷哪些是真的？
 
-[VISUAL: "Linear Regression" section header]
+**Horace**：這正是最關鍵的問題，而答案需要理解幾個核心統計概念：迴歸、R平方、顯著性檢定、時間序列行為，以及數據騙人的各種方式。先從實證財務學最重要的工具開始：線性迴歸。
 
-**Alex**: Regression answers a simple question: how does one variable change when another variable changes? In finance, the most common application is the CAPM regression. You take a fund's monthly returns and regress them against the market's monthly returns.
+[VISUAL: 「線性迴歸」章節標題]
 
-[ANIMATION: animation/week45_regression.py -- Animated scatter plot of fund returns (Y-axis) versus market returns (X-axis). Points appear one by one as monthly observations. A regression line is fitted dynamically as each point appears, showing how the line shifts and stabilizes as more data accumulates. The slope of the line is labeled as "Beta" and updates in real time. The Y-intercept is labeled as "Alpha" and also updates. After all 60 months of data are plotted, the final regression line is drawn in bold with the equation displayed. Residuals are shown as vertical dashed lines from each point to the regression line. A second phase shows the addition of a second factor (SMB, the size factor), transitioning the 2D scatter to a 3D view where the regression plane is visible, demonstrating how alpha shrinks when additional factors are included. The animation concludes by showing R-squared as a percentage bar that fills up proportional to explained variance.]
+**Horace**：迴歸回答的是一個簡單問題：當一個變數改變時，另一個變數會怎麼變？在金融界，最常見的應用是 CAPM 迴歸。你拿一支基金每月的報酬，對市場每月的報酬進行迴歸。
 
-**Sam**: So the slope of that line is beta -- how sensitive the fund is to the market -- and the intercept is alpha -- the return the fund generates above what you would expect from its market exposure.
+[ANIMATION: animation/week45_regression.py —— 以動畫呈現基金報酬（Y軸）對市場報酬（X軸）的散布圖。月度觀測值一個接一個出現，同時動態配適迴歸線，顯示隨著數據增加，直線如何移動並趨於穩定。直線的斜率標記為「貝塔」並即時更新，Y截距標記為「阿爾法」也同步更新。60個月數據全數呈現後，最終迴歸線以粗體繪出，並顯示方程式。以垂直虛線從每個點連至迴歸線，呈現殘差。第二個階段加入第二個因子（SMB，規模因子），將二維散布圖轉換為三維視角，顯示迴歸平面，示範加入更多因子後阿爾法如何縮小。動畫最後將 R平方以百分比長條圖呈現，按可解釋變異量的比例填充。]
 
-**Alex**: Exactly. And this is where it gets interesting. Suppose a fund manager tells you they have generated 3% alpha per year over the past 5 years. Sounds great. You run the CAPM regression and confirm: alpha is 0.25% per month, or 3% annualized, with a beta of 1.05.
+**Stella**：所以那條線的斜率就是貝塔——基金對市場的敏感度——截距就是阿爾法——也就是基金超出市場敞口所能預測的額外報酬。
 
-**Sam**: So the manager has skill?
+**Horace**：完全正確。這就是有意思的地方了。假設一位基金經理告訴你，他們過去五年每年創造了 3% 的阿爾法。聽起來很棒。你跑 CAPM 迴歸，確認：阿爾法每月 0.25%，年化 3%，貝塔 1.05。
 
-**Alex**: Maybe. But then you run a multi-factor regression -- the Fama-French three-factor model. You add the size factor (small stocks minus big stocks) and the value factor (cheap stocks minus expensive stocks). Suddenly, the alpha drops to 0.08% per month and is no longer statistically significant.
+**Stella**：所以這位經理人有真本事？
 
-**Sam**: What happened?
+**Horace**：也許吧。但接著你跑多因子迴歸——Fama-French 三因子模型。你加入規模因子（小型股減大型股）和價值因子（便宜股減貴股）。突然間，阿爾法掉到每月 0.08%，而且在統計上不再顯著了。
 
-**Alex**: The manager's "alpha" was actually just exposure to the size and value factors. They were buying small-cap value stocks, which have historically outperformed. The "skill" was really just a factor tilt that you can replicate with cheap index funds charging 0.05% instead of the manager's 1.5% fee.
+**Stella**：發生了什麼事？
 
-[VISUAL: Side-by-side comparison -- CAPM alpha vs. three-factor alpha for a hypothetical fund]
+**Horace**：這位經理人的「阿爾法」，實際上不過是對規模與價值因子的敞口。他們買的是小型價值股，而這類股票歷史上一直表現較佳。所謂的「技能」，其實只是一種因子傾斜，你完全可以用費率 0.05% 的低成本指數基金複製，而非付給這位經理人 1.5% 的費用。
 
-**Sam**: That is a powerful tool. But how do I know if the regression results are reliable?
+[VISUAL: 並排比較——假設基金的 CAPM 阿爾法 vs. 三因子阿爾法]
 
-[VISUAL: "R-Squared and Significance" section header]
+**Stella**：這是個強而有力的工具。但我怎麼知道迴歸結果是不是可靠的？
 
-**Alex**: Two key statistics: R-squared and the p-value. R-squared tells you what fraction of the fund's return variation is explained by the factors. A typical large-cap equity fund has an R-squared of 0.85 to 0.95 against the market -- meaning 85-95% of its movement is driven by market movements.
+[VISUAL: 「R平方與顯著性」章節標題]
 
-**Sam**: So a high R-squared means the model is a good fit?
+**Horace**：兩個關鍵統計量：R平方和 p值。R平方告訴你，基金報酬的變異有多少比例可由因子解釋。一般的大型股股票基金對市場的 R平方在 0.85 到 0.95 之間——也就是說，它 85-95% 的波動是由市場波動所驅動。
 
-**Alex**: This is one of the most common traps. High R-squared means the model explains a lot of the variation in the PAST data. It does NOT mean the model will predict the future. And low R-squared does NOT mean the model is useless.
+**Stella**：所以高 R平方代表模型配適很好？
 
-**Sam**: How can low R-squared be useful?
+**Horace**：這是最常見的陷阱之一。高 R平方代表模型能解釋「過去」數據中很大比例的變異，並不代表模型能預測未來。而低 R平方也不代表模型沒有用。
 
-**Alex**: In financial return prediction, an R-squared of 0.02 -- two percent -- sounds pathetic. But if you can genuinely predict 2% of the variance in stock returns, you can generate enormous profits. Renaissance Technologies, the most successful hedge fund in history, is rumored to operate with predictive R-squared values in the 1-5% range. They make billions.
+**Stella**：低 R平方怎麼可能有用？
 
-**Sam**: So 2% predictability in market returns is actually a lot?
+**Horace**：在金融報酬預測中，R平方 0.02——也就是百分之二——聽起來悽慘。但如果你能真正持續預測股票報酬 2% 的變異，你可以獲得巨大的利潤。文藝復興科技是史上最成功的避險基金，據傳其預測性 R平方就在 1% 到 5% 的範圍內，卻賺進了數十億。
 
-**Alex**: In a competitive market where millions of participants are trying to find edges, predicting even 1% of variance consistently puts you in an elite category. The mistake people make is comparing financial R-squared values to R-squared values from, say, physics experiments, where R-squared of 0.99 is common. Finance is a social science with much more noise.
+**Stella**：所以在市場報酬中，2% 的可預測性其實很多？
 
-[VISUAL: Scale showing R-squared values -- physics (0.99), engineering (0.90), social science (0.30), finance predictions (0.02)]
+**Horace**：在一個數百萬個參與者都在努力尋找優勢的競爭市場中，能夠持續預測哪怕 1% 的變異，就已經讓你進入菁英行列。人們犯的錯誤，是把金融的 R平方值拿來和物理實驗的 R平方值相比——後者 R平方 0.99 很常見。金融是社會科學，有多得多的雜訊。
 
-**Alex**: Now, the p-value and t-statistic tell you something different. They tell you whether the coefficient -- say, the alpha -- is statistically distinguishable from zero.
+[VISUAL: 量尺呈現 R平方值——物理學（0.99）、工程學（0.90）、社會科學（0.30）、金融預測（0.02）]
 
-**Sam**: Meaning: is the alpha real, or could it be random noise?
+**Horace**：至於 p值和 t統計量，告訴你的是另一件事。它們告訴你，係數——例如阿爾法——在統計上是否可與零值區分。
 
-**Alex**: Right. The t-statistic is the coefficient divided by its standard error. A t-stat above 2 is roughly "significant at the 5% level" -- meaning there is less than a 5% chance you would see a result this extreme if the true alpha were zero.
+**Stella**：也就是說：阿爾法是真實的，還是只是隨機雜訊？
 
-**Sam**: So a t-stat of 2.5 on a fund's alpha means I should believe the alpha is real?
+**Horace**：對。t統計量就是係數除以其標準誤。t統計量高於 2，大約代表「在 5% 水準顯著」——意思是，若真實阿爾法為零，看到這麼極端的結果的機率低於 5%。
 
-**Alex**: It means the evidence is reasonably strong, but you need context. How many months of data? Was the period unusual? Did you test many funds and report only the one with the best result? And critically: is the alpha large enough to matter after fees?
+**Stella**：所以基金阿爾法的 t統計量為 2.5，代表我應該相信這個阿爾法是真實的？
 
-**Sam**: What do you mean?
+**Horace**：這代表證據相當有說服力，但需要結合背景來判斷。數據涵蓋幾個月？那段期間是否特殊？你是否測試了許多基金，然後只報告結果最好的那一支？最關鍵的是：扣除費用後，這個阿爾法夠不夠大？
 
-**Alex**: Suppose a fund has alpha of 0.01% per month -- that is 0.12% per year -- with a t-statistic of 3.0. Statistically significant! But 0.12% per year is utterly irrelevant to your wealth. After fees and transaction costs, it is gone. Statistical significance is not the same as practical significance.
+**Stella**：你說的是什麼意思？
 
-[VISUAL: Table comparing statistically significant alphas that are practically meaningless vs. practically meaningful]
+**Horace**：假設一支基金的阿爾法是每月 0.01%——也就是年化 0.12%——但 t統計量高達 3.0。統計上顯著！但年化 0.12% 對你的財富毫無意義，扣掉費用和交易成本之後，阿爾法就消失了。統計顯著性不等於實際顯著性。
 
-**Sam**: That is an important distinction. So what about time series? You mentioned stationarity.
+[VISUAL: 表格比較統計顯著但實際無意義的阿爾法，以及統計顯著且實際有意義的阿爾法]
 
-[VISUAL: "Time Series Basics" section header]
+**Stella**：這個區別很重要。那時間序列呢？你提到了定常性。
 
-**Alex**: This is crucial and overlooked. Financial data is ordered in time, and the behavior of data over time determines what kind of analysis is valid and what kind of strategies can work.
+[VISUAL: 「時間序列基礎」章節標題]
 
-**Alex**: The most important concept is stationarity. A stationary time series has statistical properties -- mean, variance -- that do not change over time. Stock RETURNS are approximately stationary: the average monthly return of the S&P 500 is roughly the same in any decade (around 0.7-0.9% per month). But stock PRICES are not stationary -- they trend upward over time.
+**Horace**：這非常關鍵，卻常常被忽視。金融數據按時間排序，數據隨時間的行為方式，決定了哪種分析是有效的，以及哪種策略可能奏效。
 
-**Sam**: Why does that distinction matter?
+**Horace**：最重要的概念是定常性。定常的時間序列，其統計特性——均值、變異數——不會隨時間改變。股票「報酬」近似定常：S&P 500 的月均報酬在任何一個十年大致相同（約每月 0.7-0.9%）。但股票「價格」不是定常的——它會隨時間趨勢向上。
 
-**Alex**: Because running a regression on non-stationary data produces nonsense. This is one of the most common errors in amateur financial analysis. If you regress the S&P 500 price level on US GDP level, you will find an R-squared of 0.95 and a hugely significant coefficient.
+**Stella**：這個區別為什麼重要？
 
-**Sam**: That sounds like a strong result.
+**Horace**：因為對非定常數據跑迴歸，結果會是一派胡言。這是業餘金融分析中最常見的錯誤之一。如果你把 S&P 500 的價格水準對美國 GDP 水準做迴歸，你會得到 R平方 0.95，以及高度顯著的係數。
 
-**Alex**: It is completely spurious. Both series trend upward over time. You would find the same "significant" relationship between the S&P 500 and the number of iPhones sold, or world population, or the cumulative number of Marvel movies released. Any two trending series will show a spurious correlation.
+**Stella**：聽起來很強的結果。
 
-**Sam**: So how do you avoid this?
+**Horace**：完全是虛假的。兩個序列都隨時間向上趨勢。你用相同的方法，也會發現 S&P 500 和 iPhone 總銷量之間、或世界人口之間、或漫威電影累計部數之間，存在「顯著」的關係。任何兩個趨勢向上的序列，都會呈現虛假的相關性。
 
-**Alex**: Work with returns or changes instead of levels. Regress stock RETURNS on GDP GROWTH, not stock prices on GDP levels. Returns and growth rates are (approximately) stationary, so any relationship you find is much more likely to be genuine.
+**Stella**：所以怎麼避免這個問題？
 
-[VISUAL: Side-by-side regression -- S&P 500 price vs. GDP (spurious, R-sq = 0.95) next to S&P 500 returns vs. GDP growth (genuine, R-sq = 0.04)]
+**Horace**：用報酬或變動量，而非水準值。對 GDP「成長率」迴歸股票「報酬」，而非對 GDP 水準迴歸股票價格。報酬和成長率是（近似）定常的，因此你所發現的任何關係，更有可能是真實的。
 
-**Alex**: The second important time series concept is autocorrelation -- how much a series is correlated with its own past values. If today's stock return is positive, is tomorrow's more likely to be positive (momentum), negative (mean reversion), or unrelated (random walk)?
+[VISUAL: 並排迴歸——S&P 500 價格 vs. GDP（虛假的，R平方 = 0.95）和 S&P 500 報酬 vs. GDP 成長率（真實的，R平方 = 0.04）]
 
-**Sam**: And the answer is...?
+**Horace**：第二個重要的時間序列概念是自相關性——一個序列與其自身過去值的相關程度。若今日股票報酬為正，明日更可能為正（動能）、為負（均值回歸），還是不相關（隨機漫步）？
 
-**Alex**: At the daily level, stock returns are approximately random -- no significant autocorrelation. At the monthly to annual level, there is weak positive autocorrelation -- a hint of momentum. At the multi-year level, there is negative autocorrelation -- evidence of mean reversion. This pattern actually supports both momentum strategies at medium horizons and value strategies at long horizons.
+**Stella**：答案是？
 
-**Sam**: You mentioned mean reversion. How do you test for it?
+**Horace**：在日頻率上，股票報酬近似隨機——無顯著自相關性。在月度到年度的頻率上，有弱正自相關性——動能的微弱跡象。在多年期的頻率上，有負自相關性——均值回歸的證據。這個規律實際上同時支持中期的動能策略，和長期的價值策略。
 
-[VISUAL: "Mean Reversion" section header]
+**Stella**：你提到了均值回歸。你怎麼檢定它？
 
-**Alex**: Mean reversion means a variable tends to return to its long-term average after being displaced. This is enormously important because if something mean-reverts, you can build a strategy around buying when it is below average and selling when it is above.
+[VISUAL: 「均值回歸」章節標題]
 
-**Sam**: Like buying stocks when the P/E ratio is low and selling when it is high?
+**Horace**：均值回歸是指某個變數在偏離後，傾向於回歸其長期平均值。這非常重要，因為若某個東西具有均值回歸特性，你就可以建立策略——在低於均值時買進，在高於均值時賣出。
 
-**Alex**: Exactly -- because the P/E ratio IS mean reverting. The CAPE ratio (cyclically adjusted P/E) for the US market has fluctuated between about 5 and 45 over the past century, but it always returns toward its long-term average of about 17. The key question is how fast it reverts. The half-life of mean reversion for the CAPE ratio is about 3-7 years, meaning it takes several years for a deviation to be halfway corrected. That is too slow for a trading strategy but valuable for long-term asset allocation.
+**Stella**：就像在本益比低的時候買股票，高的時候賣出？
 
-**Sam**: What about stock prices themselves?
+**Horace**：正是——因為本益比確實具有均值回歸性。美股的週期調整本益比（CAPE）在過去一個世紀在約 5 到 45 之間波動，但總是回歸其長期均值約 17 倍左右。關鍵問題是回歸速度。CAPE 的均值回歸半衰期約 3-7 年，意味著偏差需要數年才能修正一半。這對交易策略來說太慢，但對長期資產配置很有價值。
 
-**Alex**: Stock prices do NOT mean revert. This is a critical distinction. A stock at $100 that drops to $50 does not tend to return to $100. It could go to $25 or $200 or anywhere. The price is approximately a random walk. But the VALUATION -- the P/E ratio, the price-to-book ratio -- does mean revert. The distinction between prices and valuations is essential.
+**Stella**：那股票價格本身呢？
 
-[VISUAL: Two charts side by side -- stock price (random walk, no mean reversion) and P/E ratio (oscillating around a mean)]
+**Horace**：股票「價格」不具均值回歸性，這是一個關鍵的區分。一支從 100 元跌到 50 元的股票，並不傾向於回到 100 元。它可能跌到 25 元，漲到 200 元，或任何地方。價格近似隨機漫步。但「估值」——本益比、股價淨值比——確實具有均值回歸性。區分價格與估值，至關重要。
 
-**Alex**: The standard test for mean reversion is the Augmented Dickey-Fuller test, which checks whether a series has a "unit root" -- essentially, whether it is a random walk. If the test rejects the unit root, the series is likely stationary and mean-reverting.
+[VISUAL: 並排兩張圖——股票價格（隨機漫步，無均值回歸）和本益比（圍繞均值振盪）]
 
-**Sam**: This brings us to the pitfalls. You said most claimed patterns are false.
+**Horace**：均值回歸的標準檢定是擴增型迪基-富勒檢定，它檢驗一個序列是否具有「單位根」——本質上，它是否是一個隨機漫步。若檢定拒絕單位根，序列很可能是定常且具有均值回歸性的。
 
-[VISUAL: "Statistical Pitfalls" section header]
+**Stella**：這帶我們來到陷阱的部分。你說大多數聲稱的規律都是假的。
 
-**Alex**: Let me describe the biggest one first: p-hacking, also called data snooping. Imagine you are a researcher. You have a dataset of stock returns and 200 potential explanatory variables -- everything from earnings ratios to weather patterns to CEO demographics.
+[VISUAL: 「統計陷阱」章節標題]
 
-**Sam**: Two hundred variables is a lot.
+**Horace**：先說最大的那個：p值操弄，也叫數據探勘。想像你是一位研究員，有一個股票報酬數據集，以及 200 個潛在的解釋變數——從盈餘比率到天氣規律，到執行長的人口統計特徵，無所不包。
 
-**Alex**: And that is the point. At the 5% significance level, you expect 10 of those 200 variables to show a "significant" relationship with returns purely by chance. Five percent times 200 equals 10 false positives.
+**Stella**：200 個變數很多耶。
 
-**Sam**: So you just test 200 things, find 10 that "work," publish the best one, and you look like a genius.
+**Horace**：這正是重點所在。在 5% 的顯著水準下，你預期那 200 個變數中，純粹憑機率就有 10 個會顯示出與報酬「顯著」的關係。百分之五乘以 200 等於 10 個假陽性。
 
-**Alex**: And nobody ever sees the 190 failures. This is called the file drawer problem -- the failed tests go into the file drawer and never get published. The researcher writes a paper titled "The Predictive Power of CEO Surname Length on Stock Returns" with a t-statistic of 2.3 and gets it published. It is complete nonsense, but it looks rigorous.
+**Stella**：所以你只要測試 200 個東西，找到 10 個「有效」的，發表最好的那個，你就看起來像天才。
 
-[VISUAL: Diagram showing 200 tests with 10 false positives highlighted, then one being selected for publication]
+**Horace**：而且從來沒有人看到那 190 次失敗。這就叫做「檔案抽屜問題」——失敗的測試被塞進檔案抽屜，永遠不被發表。研究員寫了一篇標題為「執行長姓名長度對股票報酬的預測力」的論文，t統計量 2.3，然後被期刊接受發表。完全是無稽之談，但看起來有模有樣。
 
-**Alex**: Harvey, Liu, and Zhu published an influential paper in 2016 arguing that the traditional significance threshold of t-stat > 2.0 is far too low for financial research. Given the sheer number of factors that have been tested across all published studies, they recommend t-stat > 3.0 as the minimum for a new factor to be credible.
+[VISUAL: 示意圖呈現 200 次測試，標出 10 個假陽性，再從中選出一個發表]
 
-**Sam**: So a lot of published research is probably wrong?
+**Horace**：Harvey、Liu 和 Zhu 在 2016 年發表了一篇極具影響力的論文，主張在金融研究中，傳統的 t統計量 > 2.0 顯著門檻遠遠不夠。鑑於所有已發表研究中已測試的因子總量，他們建議一個新因子要站得住腳，t統計量至少要 > 3.0。
 
-**Alex**: A substantial fraction, yes. And the problem is worse than just published research. Every quantitative investor, every hedge fund quant, every retail trader running backtests -- they are all searching through the same data. The cumulative amount of data snooping across the entire industry is staggering.
+**Stella**：所以大量的已發表研究很可能是錯的？
 
-**Sam**: How do you protect against this?
+**Horace**：相當大的比例，是的。而且問題比已發表的研究更嚴重。每一位量化投資人、每一個避險基金量化分析師、每一位跑回測的散戶投資人——都在搜索同一批數據。整個行業累積的數據探勘量，是驚人的。
 
-**Alex**: Five defenses. First, require an economic rationale -- the pattern must make logical sense, not just statistical sense. Second, demand out-of-sample testing -- does it work on data the model has never seen? Third, check international markets -- does the US pattern appear in Japan, Europe, emerging markets? Fourth, apply Bonferroni correction -- if you tested 100 variables, your significance threshold should be 0.05/100 = 0.0005, not 0.05. Fifth, be suspicious of any result that seems too clean or too good.
+**Stella**：怎麼防範這個問題？
 
-[VISUAL: "Five Defenses Against Data Snooping" bullet list]
+**Horace**：五道防線。第一，要求有經濟學上的合理依據——這個規律在邏輯上必須說得通，而不僅是統計上顯著。第二，要求樣本外檢定——它能在模型從未見過的數據上運作嗎？第三，確認國際市場——美國的規律是否也出現在日本、歐洲、新興市場？第四，應用 Bonferroni 校正——若你測試了 100 個變數，你的顯著性門檻應為 0.05/100 = 0.0005，而非 0.05。第五，對任何看起來過於乾淨或過於美好的結果抱持高度懷疑。
 
-**Sam**: What about overfitting? How is that different from p-hacking?
+[VISUAL: 「對抗數據探勘的五道防線」條列清單]
 
-**Alex**: P-hacking is about testing too many hypotheses. Overfitting is about making your model too complex for the data you have. Imagine fitting a model to 60 months of stock returns. A simple model with one factor captures the broad trend. A complex model with 20 parameters can fit every wiggle in the data perfectly.
+**Stella**：那過度配適呢？和 p值操弄有何不同？
 
-**Sam**: And the complex model would look much better on historical data.
+**Horace**：p值操弄是關於測試太多假設。過度配適是讓你的模型比手上的數據所能支撐的還要複雜。想像你用 60 個月的股票報酬來配適模型。一個只有一個因子的簡單模型，能捕捉到大致的趨勢。一個有 20 個參數的複雜模型，則可以完美配適數據中的每一個波動。
 
-**Alex**: In sample, yes. It has R-squared of 0.99. But on NEW data, it falls apart. R-squared drops to 0.05. The complex model memorized the noise in the historical data. The simple model, with its modest R-squared of 0.30, actually performs better out of sample because it captured the signal, not the noise.
+**Stella**：而複雜的模型在歷史數據上看起來好多了。
 
-**Sam**: Is there a rule of thumb for how complex a model can be?
+**Horace**：在樣本內，是的。R平方 0.99。但用在新數據上，它就崩潰了。R平方掉到 0.05。複雜的模型記住了歷史數據中的雜訊。簡單模型，儘管 R平方只有 0.30，在樣本外反而表現更好，因為它捕捉到的是信號，而非雜訊。
 
-**Alex**: A rough guideline is at least 20 observations per parameter, preferably 50. With 60 months of data, your model should have at most 3 parameters (60/20). A model with 10 parameters on 60 observations is almost certainly overfit.
+**Stella**：有沒有關於模型複雜度的經驗法則？
 
-[VISUAL: In-sample vs. out-of-sample performance -- simple model stable, complex model collapses]
+**Horace**：粗略的準則是每個參數至少需要 20 個觀測值，最好是 50 個。有 60 個月的數據，你的模型最多只應該有 3 個參數（60 除以 20）。一個擁有 10 個參數、卻只有 60 個觀測值的模型，幾乎可以確定是過度配適的。
 
-**Alex**: Another critical pitfall is survivorship bias. This is subtle and devastating.
+[VISUAL: 樣本內 vs. 樣本外表現——簡單模型穩定，複雜模型崩潰]
 
-**Sam**: I know the concept -- you only look at the survivors, not the failures.
+**Horace**：另一個關鍵陷阱是存活者偏差。這個問題很隱晦，但殺傷力很大。
 
-**Alex**: Right. But in finance, the magnitude of the bias is larger than most people realize. Take mutual funds. You want to study the average return of equity mutual funds from 2000 to 2020. You pull data on 3,000 currently existing funds. But 2,000 funds that existed in 2000 have since been closed or merged -- mostly because they performed badly. Your sample contains only the winners.
+**Stella**：我知道這個概念——你只看倖存者，忽略失敗者。
 
-**Sam**: So the average return looks better than it really was.
+**Horace**：對。但在金融界，這個偏差的幅度比多數人意識到的要大得多。以共同基金為例，你想研究 2000 到 2020 年股票基金的平均報酬。你調出 3,000 支現存基金的數據。但 2000 年時存在、此後已關閉或合併的 2,000 支基金——大多是因為表現太差——並不在你的樣本裡。
 
-**Alex**: Survivorship bias in mutual fund databases is estimated at 1-2% per year. In hedge fund databases, it is 3-5% per year because hedge funds voluntarily report and stop reporting when they do badly. After adjusting for survivorship bias and backfill bias (funds report historical performance only after they have a good track record), the average hedge fund's return drops from the claimed 10-12% to something like 4-6%.
+**Stella**：所以平均報酬看起來比實際高。
 
-**Sam**: What about stock-level survivorship bias?
+**Horace**：共同基金資料庫中的存活者偏差，估計每年高達 1-2%。避險基金資料庫的偏差甚至達到每年 3-5%，因為避險基金是自願申報的，表現不好的時候就停止申報。調整存活者偏差和回填偏差（基金只有在建立良好業績紀錄後才開始申報歷史表現）之後，平均避險基金的報酬，從聲稱的 10-12%，掉到大約 4-6%。
 
-**Alex**: Same issue. If you analyze the historical returns of current S&P 500 members going back to 1990, you are including Apple, Amazon, and Google (which were added after they became huge winners) and excluding Enron, WorldCom, and Lehman Brothers (which were removed when they went bankrupt). This inflates historical returns significantly.
+**Stella**：個股層面的存活者偏差呢？
 
-[VISUAL: Histogram showing hedge fund returns before and after survivorship bias correction]
+**Horace**：同樣的問題。如果你把目前 S&P 500 成分股的歷史報酬往回追溯到 1990 年，你把蘋果、亞馬遜、Google（它們是在變成超級贏家後才被納入的）算進去，同時排除了安隆、世界通訊、雷曼兄弟（它們在破產後被剔除了）。這會大幅高估歷史報酬。
 
-**Sam**: Let me ask about correlation. Everyone says "correlation does not equal causation." But what does that actually mean in practice?
+[VISUAL: 長條圖呈現避險基金報酬——調整存活者偏差前後的比較]
 
-[VISUAL: "Correlation vs. Causation" section header]
+**Stella**：我想問問相關性的問題。大家都說「相關性不等於因果關係」，但這在實際操作上到底是什麼意思？
 
-**Alex**: Let me give you a real example. In the 2000s, many quantitative models used the correlation between housing prices and mortgage default rates. Housing prices always went up nationally, so defaults were always low, so the models said mortgage-backed securities were safe.
+[VISUAL: 「相關性 vs. 因果關係」章節標題]
 
-**Sam**: And then housing prices fell nationally for the first time in decades.
+**Horace**：讓我給你一個真實的例子。2000 年代，許多量化模型使用了房價與房貸違約率之間的相關性。全國房價一直上漲，所以違約率一直很低，模型因此認定房貸抵押擔保證券是安全的。
 
-**Alex**: The correlation was real -- historically, rising housing prices were indeed associated with low defaults. But the models confused correlation with causation. The CAUSE of low defaults was not rising prices per se, but the economic conditions that produced rising prices. When those conditions changed, the correlation flipped, and trillions of dollars in "safe" assets became toxic.
+**Stella**：然後房價在幾十年內首次全國性下跌。
 
-**Sam**: So the correlation was only valid in one economic regime.
+**Horace**：那個相關性在歷史上是真實的——房價上漲確實與低違約率相關。但模型把相關性混淆成因果關係了。違約率低的「原因」，並非房價上漲本身，而是產生房價上漲的經濟環境。當那些條件改變，相關性就翻轉了，數兆美元的「安全」資產變成了有毒廢物。
 
-**Alex**: Exactly. And this illustrates a fundamental problem: correlations in financial markets are not stable. Stock-bond correlations have been positive, then negative, then positive again over the past 60 years. Building a portfolio that assumes stable correlations is building on quicksand.
+**Stella**：所以那個相關性只在特定的經濟情境下成立。
 
-[VISUAL: Chart of rolling stock-bond correlation 1960-2025, showing regime changes]
+**Horace**：正是。這說明了一個根本性的問題：金融市場中的相關性並不穩定。股債相關性在過去 60 年裡，先是正值，後是負值，現在又變回正值了。以穩定相關性為前提來建構投資組合，就是在流沙上蓋房子。
 
-**Alex**: Perhaps the most dangerous aspect of correlations is that they spike during crises. During normal times, asset classes have moderate correlations. During a crisis, everything falls together. The diversification you thought you had evaporates precisely when you need it most.
+[VISUAL: 1960-2025 年滾動股債相關性圖表，顯示情境轉換]
 
-**Sam**: So diversification is less reliable than it looks?
+**Horace**：相關性最危險的面向，也許是危機期間的急劇攀升。正常時期，各資產類別有適度的相關性。危機期間，所有東西一起下跌。你以為自己擁有的分散投資效果，恰恰在最需要它的時刻消失了。
 
-**Alex**: On average, it works. During crises, it works less well. This is called the "correlation asymmetry" problem -- correlations are higher on the downside than on the upside. Risk models that use average correlations systematically underestimate tail risk.
+**Stella**：所以分散投資沒有表面上看起來那麼可靠？
 
-**Sam**: Let us talk about practical tools. If I want to actually do some of this analysis, what do I need?
+**Horace**：平均而言，它是有效的。在危機期間，效果較差。這就是「相關性不對稱」問題——下行時的相關性高於上行時。使用平均相關性的風險模型，系統性地低估了尾部風險。
 
-[VISUAL: "Practical Tools" section header]
+**Stella**：我們來談談實用工具。如果我真的想做這些分析，我需要什麼？
 
-**Alex**: Python is the standard tool. With the libraries pandas, numpy, and statsmodels, you can do everything we have discussed. Running a regression is one line of code: `sm.OLS(y, X).fit()`. Testing for stationarity: `adfuller(series)`. Computing autocorrelation: `acf(series, nlags=20)`.
+[VISUAL: 「實用工具」章節標題]
 
-**Sam**: And for people who do not code?
+**Horace**：Python 是標準工具。有了 pandas、numpy 和 statsmodels 這些套件，你可以做到我們討論過的一切。跑迴歸只需要一行程式碼：`sm.OLS(y, X).fit()`。定常性檢定：`adfuller(series)`。計算自相關性：`acf(series, nlags=20)`。
 
-**Alex**: Excel can handle basic regression (use the LINEST function or the Analysis Toolpak). Google Sheets has built-in functions for correlation (CORREL) and R-squared (RSQ). These are sufficient for single-factor regressions and basic correlation analysis. For anything more complex -- multi-factor models, time series tests, rolling regressions -- you really need Python or R.
+**Stella**：對於不寫程式的人呢？
 
-**Sam**: What is the one thing I should take away from this lesson?
+**Horace**：Excel 可以處理基本迴歸（使用 LINEST 函數或分析工具箱）。Google 試算表有內建的相關性（CORREL）和 R平方（RSQ）函數。這些對於單因子迴歸和基本相關性分析已經足夠。對於更複雜的需求——多因子模型、時間序列檢定、滾動迴歸——你真的需要 Python 或 R。
 
-**Alex**: Skepticism. Informed, quantitative skepticism. Whenever someone presents a financial pattern, strategy, or claim backed by data, ask five questions. What is the sample size? Was it tested out of sample? Is there survivorship bias? How many other hypotheses were tested? And does it make economic sense? If any answer is unsatisfactory, the claim is probably noise dressed up as signal.
+**Stella**：這堂課我應該帶走什麼最重要的一件事？
 
-**Sam**: And noise dressed up as signal can cost you real money.
+**Horace**：懷疑精神。有依據的、量化的懷疑精神。每當有人提出一個有數據支撐的金融規律、策略或主張，問五個問題：樣本量有多大？有沒有做過樣本外檢定？是否存在存活者偏差？測試了多少其他假設？它在經濟學上說得通嗎？若任何答案不令人滿意，這個主張大概就是偽裝成信號的雜訊。
 
-**Alex**: It costs investors billions every year. Fees paid to managers whose "alpha" is just factor exposure. Money lost on strategies that were overfit to historical data. Capital deployed on correlations that reversed in the next market regime. Quantitative literacy is your defense. You do not need to become a quant -- you just need to know enough to ask the right questions.
+**Stella**：而偽裝成信號的雜訊，會讓你賠掉真實的錢。
 
-[VISUAL: Summary card -- "Key Takeaways: R-squared is not predictive power, t-stat > 3.0 for new factors, work with returns not prices, demand out-of-sample evidence, correlation is not causation and is not stable"]
+**Horace**：每年讓投資人損失數十億。付給那些「阿爾法」不過是因子敞口的經理人的費用。押在過度配適於歷史數據的策略上而蒸發的資金。部署在下一個市場情境中就反轉的相關性上的資本。量化素養是你的防護盾。你不需要成為量化分析師——你只需要懂得提出正確的問題。
 
-**Sam**: Thanks, Alex. Next week, we will take these concepts further and look at how to properly test investment strategies through backtesting.
+[VISUAL: 摘要卡 ——「重點整理：R平方不等於預測能力；新因子 t統計量需 > 3.0；使用報酬而非價格；要求樣本外證據；相關性不等於因果關係，且相關性並不穩定」]
 
-**Alex**: That is right. Week 46 will cover backtesting frameworks, the many biases that make backtests unreliable, and how to tell when a backtest result is genuine versus an artifact. It is one of the most practically important lessons in this entire series.
+**Stella**：謝謝你，Horace（陳馬）。下週，我們會進一步深入這些概念，探討如何透過回測來正確檢驗投資策略。
 
-[VISUAL: End card -- "Next Week: Backtesting and Strategy Validation"]
+**Horace**：沒錯。第46週將涵蓋回測框架、使回測不可靠的種種偏差，以及如何判斷回測結果究竟是真實的，還是一個假象。這是整個系列中最具實際意義的課程之一。
+
+[VISUAL: 結尾卡 ——「下週：回測與策略驗證」]

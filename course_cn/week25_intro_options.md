@@ -1,262 +1,257 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第25周：期权入门
 
-# Week 25: Introduction to Options
+## 阅读材料
 
-## Reading Section
+### a) 为什么这很重要
 
-### a) Why This Is Important
+期权是个人投资者可用的最强大、最灵活的金融工具之一。然而，它也是最容易被误解的工具之一。许多投资者因为期权看起来复杂或风险高，就完全回避它。也有人在缺乏充分了解的情况下盲目入场，结果蒙受惨重损失。这两种方式都不可取。
 
-Options are one of the most powerful and versatile financial instruments available to individual investors. Yet they are also one of the most misunderstood. Many investors avoid options entirely because they seem complex or risky. Others dive in without proper understanding and suffer painful losses. Neither approach is optimal.
+了解期权之所以重要，原因有以下几点：
 
-Understanding options is important for several reasons:
+**风险管理（对冲）：** 期权最初就是作为保险合约而创建的。就像你购买房屋保险以防范灾难性损失一样，你也可以购买期权来保护你的投资组合。一位持有50万美元股票的长期投资者，可以花费其中一小部分资金购买保护性看跌期权，确保即使在市场崩溃时也不会损失超过预定比例。不懂期权，就相当于无险驾车上路。
 
-**Risk Management (Hedging):** Options were originally created as insurance contracts. Just as you buy home insurance to protect against catastrophic loss, you can buy options to protect your investment portfolio. A long-term investor holding $500,000 in stocks can purchase protective puts for a fraction of that amount, ensuring they will never lose more than a predetermined percentage even in a market crash. Without options knowledge, you are essentially driving without insurance.
+**创造收入：** 期权可以对你已持有或希望持有的股票产生稳定的收入。备兑看涨期权和现金担保看跌期权（我们将在第27周和第28周深入探讨）每年可产生8%至15%的收益率，通常是单纯股息的2至3倍。在震荡或温和上涨的市场中，这部分收入可以显著改善你的总收益。
 
-**Income Generation:** Options can generate consistent income on stocks you already own or stocks you would like to own. Covered calls and cash-secured puts (which we will explore in Weeks 27 and 28) can produce yields of 8-15% annually, often 2-3 times what dividends alone would provide. In a flat or mildly bullish market, this income can make a significant difference in your total returns.
+**资金效率：** 期权允许你用相对少量的资金控制大量股票。一份期权合约控制100股。这种杠杆可以被负责任地用于提升收益，也可以被不负责任地用来爆仓。理解其运作机制，有助于你始终处于正确的那一侧。
 
-**Capital Efficiency:** Options allow you to control a large amount of stock with a relatively small capital outlay. One options contract controls 100 shares. This leverage can be used responsibly to enhance returns or irresponsibly to blow up an account. Understanding the mechanics helps you stay on the right side of that line.
+**洞察市场：** 即使你从未交易过一份期权，了解期权市场的运作方式也能让你对市场情绪有深刻的洞察。波动率指数（VIX）、隐含波动率、认沽/认购比率以及异常期权活动，都能传递关于大型机构投资者对市场预期的信号。对于懂得如何解读的人来说，这些信息就摆在那里，触手可及。
 
-**Market Insight:** Even if you never trade a single option, understanding how the options market works gives you valuable insight into market sentiment. The VIX (Volatility Index), implied volatility, put/call ratios, and unusual options activity all provide signals about what large, sophisticated investors expect the market to do. This information is hiding in plain sight for those who understand how to read it.
+**成为更好的股票投资者：** 了解期权能让你成为更优秀的股票投资者。当你理解时间价值衰减和隐含波动率等概念时，你会对时间和不确定性在所有投资中所扮演的角色有更深刻的理解，而不仅仅局限于期权。你会开始用概率思维看待问题，这正是世界上最优秀的投资者面对市场时的方式。
 
-**Better Stock Investing:** Options knowledge makes you a better stock investor. When you understand concepts like time decay and implied volatility, you gain a deeper appreciation for the role that time and uncertainty play in all investments, not just options. You begin to think probabilistically, which is how the best investors in the world approach markets.
-
-In this course, we focus on four specific, conservative options strategies that complement a long-term investment approach. We are not teaching you to be a day trader or a speculative options gambler. We are teaching you to use options as tools that enhance your existing investment strategy.
+在本课程中，我们专注于四种具体的、保守的期权策略，这些策略能与长期投资方式形成良好互补。我们不是要把你培养成日内交易者或期权投机赌徒，而是教你把期权当作工具，用来强化你现有的投资策略。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知识
 
-#### What Is an Option?
+#### 什么是期权？
 
-An option is a contract that gives the buyer the **right, but not the obligation**, to buy or sell a specific stock at a specific price on or before a specific date. This is the single most important sentence in options education. Read it again.
+期权是一种合约，赋予买方**在特定日期或之前，以特定价格买入或卖出特定股票的权利，而非义务**。这是期权教育中最重要的一句话。请再读一遍。
 
-The key word is **right**. The buyer of an option has a choice. They can exercise the option if it benefits them, or they can let it expire worthless if it does not. The seller (also called the writer) of an option has an **obligation**. If the buyer chooses to exercise, the seller must fulfill the contract.
+关键词是**权利**。期权买方拥有选择权。若对自己有利，他们可以行权；若无利可图，他们可以让期权到期作废。期权的卖方（也称为立权方）则承担**义务**。一旦买方选择行权，卖方必须履行合约。
 
-This asymmetry between rights and obligations is what makes options unique and is the foundation of everything that follows.
+这种权利与义务之间的不对称性，正是期权的独特之处，也是一切后续内容的基础。
 
-#### The Two Types: Calls and Puts
+#### 两种类型：看涨期权与看跌期权
 
-There are only two types of options:
+期权只有两种类型：
 
-**Call Option:** Gives the buyer the right to **buy** a stock at a specific price.
-- You buy a call when you think the stock will go UP.
-- Think of it as a "reservation to buy."
+**看涨期权：** 赋予买方以特定价格**买入**股票的权利。
+- 当你认为股票会**上涨**时，买入看涨期权。
+- 把它想象成一张"购买预约单"。
 
-**Put Option:** Gives the buyer the right to **sell** a stock at a specific price.
-- You buy a put when you think the stock will go DOWN (or want to protect against it).
-- Think of it as an "insurance policy."
+**看跌期权：** 赋予买方以特定价格**卖出**股票的权利。
+- 当你认为股票会**下跌**（或想对此加以保护）时，买入看跌期权。
+- 把它想象成一份"保险合约"。
 
-Every option contract has four essential components:
+每份期权合约都有四个基本要素：
 
 ```
 +----------------------------------------------------------+
-|                    OPTION CONTRACT                        |
+|                      期权合约                             |
 |                                                          |
-|  1. UNDERLYING ASSET:  The stock (e.g., AAPL, MSFT)     |
-|  2. STRIKE PRICE:      The agreed upon price             |
-|  3. EXPIRATION DATE:   When the contract expires         |
-|  4. TYPE:              Call or Put                        |
+|  1. 标的资产：  股票（例如 AAPL、MSFT）                   |
+|  2. 行权价：    约定的价格                                 |
+|  3. 到期日：    合约到期的日期                             |
+|  4. 类型：      看涨期权或看跌期权                         |
 |                                                          |
-|  Example: "AAPL Jan 17 2026 $200 Call"                   |
-|  = Right to BUY 100 shares of AAPL at $200/share        |
-|    on or before January 17, 2026                         |
+|  示例："AAPL 2026年1月17日 $200 看涨期权"                 |
+|  = 在2026年1月17日或之前，以每股$200的价格                 |
+|    买入100股苹果公司股票的权利                             |
 +----------------------------------------------------------+
 ```
 
-#### Contract Size
+#### 合约规模
 
-One options contract controls **100 shares** of the underlying stock. This is standard across U.S. equity options. When you see an option quoted at $3.50, you pay $3.50 per share, meaning $350 per contract ($3.50 x 100 shares).
+一份期权合约控制标的股票的**100股**。这是美国股票期权的统一标准。当你看到一份期权报价为$3.50时，你支付的是每股$3.50，即每份合约$350（$3.50 × 100股）。
 
 ```
-Option Price (Premium):   $3.50 per share
-Shares per Contract:      x 100
-Total Cost per Contract:  = $350.00
+期权价格（期权费）：  $3.50 每股
+每份合约股数：       × 100
+每份合约总成本：     = $350.00
 ```
 
-#### Rights vs. Obligations
+#### 权利与义务
 
-This table clarifies who has rights and who has obligations:
+下表厘清了谁拥有权利、谁承担义务：
 
 ```
 +------------------+------------------------+------------------------+
-|                  |     CALL OPTION        |     PUT OPTION         |
+|                  |      看涨期权           |      看跌期权           |
 +------------------+------------------------+------------------------+
-|  BUYER (Long)    | Right to BUY stock     | Right to SELL stock    |
-|                  | at strike price        | at strike price        |
-|                  | Pays premium           | Pays premium           |
-|                  | Max loss = premium     | Max loss = premium     |
+|  买方（多头）    | 以行权价买入股票的权利  | 以行权价卖出股票的权利  |
+|                  | 支付期权费              | 支付期权费              |
+|                  | 最大亏损 = 期权费       | 最大亏损 = 期权费       |
 +------------------+------------------------+------------------------+
-|  SELLER (Short)  | Obligation to SELL     | Obligation to BUY      |
-|                  | stock at strike price  | stock at strike price  |
-|                  | Receives premium       | Receives premium       |
-|                  | Max loss = unlimited*  | Max loss = large**     |
+|  卖方（空头）    | 有义务以行权价卖出股票  | 有义务以行权价买入股票  |
+|                  | 收取期权费              | 收取期权费              |
+|                  | 最大亏损 = 无限*        | 最大亏损 = 较大**       |
 +------------------+------------------------+------------------------+
 
-*  For naked calls, loss is theoretically unlimited as stock can rise infinitely.
-** For naked puts, max loss = strike price x 100 (if stock goes to $0).
+*  裸卖看涨期权的亏损理论上无限，因为股票价格可以无限上涨。
+** 裸卖看跌期权的最大亏损 = 行权价 × 100（若股票跌至$0）。
 ```
 
-#### Strike Price and Moneyness
+#### 行权价与价值状态
 
-The **strike price** (also called the exercise price) is the price at which the option holder can buy (for calls) or sell (for puts) the underlying stock.
+**行权价**（也称为执行价格）是期权持有人可以买入（看涨期权）或卖出（看跌期权）标的股票的价格。
 
-The relationship between the strike price and the current stock price determines the option's **moneyness**:
+行权价与当前股价之间的关系决定了期权的**价值状态**：
 
-**For Call Options:**
+**对于看涨期权：**
 
 ```
-Stock Price = $150
+股票价格 = $150
 
-  In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-  Strike < Stock Price    Strike = Stock Price   Strike > Stock Price
-  Strike = $140           Strike = $150          Strike = $160
-  Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
+  实值（ITM）              平值（ATM）             虚值（OTM）
+  行权价 < 股票价格        行权价 = 股票价格        行权价 > 股票价格
+  行权价 = $140            行权价 = $150            行权价 = $160
+  内在价值 = $10           内在价值 = $0            内在价值 = $0
        |                       |                       |
        v                       v                       v
   [====|==========]       [=========|=]           [==========|====]
   $130  $140  $150        $140  $150  $160        $150  $160  $170
-       Higher Value            Some Value              Lower Value
-       Higher Premium          Moderate Premium        Lower Premium
+       价值较高                价值居中                价值较低
+       期权费较高              期权费适中              期权费较低
 ```
 
-**For Put Options (opposite direction):**
+**对于看跌期权（方向相反）：**
 
 ```
-Stock Price = $150
+股票价格 = $150
 
-  In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-  Strike > Stock Price    Strike = Stock Price   Strike < Stock Price
-  Strike = $160           Strike = $150          Strike = $140
-  Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
+  实值（ITM）              平值（ATM）             虚值（OTM）
+  行权价 > 股票价格        行权价 = 股票价格        行权价 < 股票价格
+  行权价 = $160            行权价 = $150            行权价 = $140
+  内在价值 = $10           内在价值 = $0            内在价值 = $0
 ```
 
-The moneyness of an option directly affects its price and behavior. ITM options are more expensive, move more closely with the stock, and have higher probability of being exercised. OTM options are cheaper, move less with the stock, and usually expire worthless.
+期权的价值状态直接影响其价格和行为表现。实值期权价格更高，与股票的联动更紧密，被行权的概率也更高。虚值期权价格更低，与股票的联动更弱，通常会到期作废。
 
-#### Intrinsic Value vs. Extrinsic Value
+#### 内在价值与外在价值
 
-Every option's price (called the **premium**) is composed of two parts:
+每份期权的价格（称为**期权费**）由两部分组成：
 
-**Intrinsic Value** = The amount the option is in the money. This is the value the option would have if exercised right now.
-- For calls: max(0, Stock Price - Strike Price)
-- For puts: max(0, Strike Price - Stock Price)
+**内在价值** = 期权实值的金额。这是期权若立即行权所具有的价值。
+- 看涨期权：max(0, 股票价格 - 行权价)
+- 看跌期权：max(0, 行权价 - 股票价格)
 
-**Extrinsic Value** (also called Time Value) = Everything else. This is the extra premium above intrinsic value that reflects the possibility of the option becoming more valuable before expiration.
+**外在价值**（也称为时间价值）= 其余所有部分。这是超出内在价值的额外期权费，反映了期权在到期前可能进一步升值的可能性。
 
 ```
-Option Premium = Intrinsic Value + Extrinsic Value
+期权费 = 内在价值 + 外在价值
 
-Example: AAPL trading at $155
-AAPL $150 Call trading at $8.50
+示例：苹果公司股价 $155
+苹果公司 $150 看涨期权报价 $8.50
 
-Intrinsic Value  = $155 - $150 = $5.00  (the option is $5 in the money)
-Extrinsic Value  = $8.50 - $5.00 = $3.50 (time value, volatility premium)
-Total Premium    = $5.00 + $3.50 = $8.50
+内在价值  = $155 - $150 = $5.00（期权实值$5）
+外在价值  = $8.50 - $5.00 = $3.50（时间价值、波动性溢价）
+期权费合计 = $5.00 + $3.50 = $8.50
 
 +---------------------------------------------------+
-|              OPTION PREMIUM: $8.50                 |
+|              期权费合计：$8.50                      |
 |                                                    |
-|  [===== INTRINSIC: $5.00 =====][== EXTRINSIC ==]  |
-|  [===== (In the Money) =======][== $3.50 ======]  |
+|  [===== 内在价值：$5.00 =====][=== 外在价值 ===]  |
+|  [===== （实值部分）=========][=== $3.50 ======]  |
 |                                                    |
-|  Intrinsic: Real, tangible     Extrinsic: Hope,   |
-|  value right now.              time, uncertainty.  |
-|  Cannot be negative.           Decays over time.   |
+|  内在价值：真实、有形的      外在价值：预期、         |
+|  当前价值。不能为负。        时间、不确定性。         |
+|                              随时间流逝而衰减。       |
 +---------------------------------------------------+
 ```
 
-An out-of-the-money option has **zero intrinsic value**. Its entire premium is extrinsic value, meaning it is purely a bet on future movement.
+虚值期权的**内在价值为零**。其全部期权费均为外在价值，意味着它纯粹是对未来价格走势的押注。
 
-#### The Option Chain
+#### 期权链
 
-An **option chain** is the full listing of all available options for a particular stock. It shows every available combination of strike price, expiration date, and type (call/put). Here is a simplified representation:
+**期权链**是特定股票所有可用期权的完整列表。它展示了该股票每个到期日和类型（看涨/看跌）下所有可用的行权价组合。以下是一个简化示意：
 
 ```
-                    AAPL Option Chain - Stock Price: $155.00
-                    Expiration: March 21, 2026
+                苹果公司期权链 - 股票价格：$155.00
+                到期日：2026年3月21日
 
-    ====================== CALLS ======================  ====== PUTS ======
-    Bid    Ask    Last   Volume  OI    Strike   Bid    Ask    Last   Volume  OI
-    -----------------------------------------------------------------------
-    17.20  17.50  17.35   1,205  8,432  $140    1.85   1.95   1.90    892  5,210
-    12.40  12.70  12.55   2,847  12,105 $145    3.10   3.25   3.15  1,540  7,890
-     8.30   8.55   8.42   5,120  18,760 $150    5.20   5.40   5.30  3,210  11,450
-     5.10   5.30   5.20   8,450  22,340 $155    7.80   8.05   7.90  2,870  9,870
-     2.85   3.00   2.92   6,780  19,540 $160   11.50  11.80  11.65  1,650  6,540
-     1.40   1.55   1.47   4,320  14,890 $165   16.20  16.50  16.35    780  3,210
-     0.55   0.65   0.60   2,150   9,870 $170   21.30  21.60  21.45    340  1,890
+    ================= 看涨期权 =================  ====== 看跌期权 ======
+    买价   卖价   最新   成交量  未平仓  行权价  买价   卖价   最新   成交量  未平仓
+    -------------------------------------------------------------------------
+    17.20  17.50  17.35   1,205  8,432  $140   1.85   1.95   1.90    892  5,210
+    12.40  12.70  12.55   2,847  12,105 $145   3.10   3.25   3.15  1,540  7,890
+     8.30   8.55   8.42   5,120  18,760 $150   5.20   5.40   5.30  3,210  11,450
+     5.10   5.30   5.20   8,450  22,340 $155   7.80   8.05   7.90  2,870  9,870
+     2.85   3.00   2.92   6,780  19,540 $160  11.50  11.80  11.65  1,650  6,540
+     1.40   1.55   1.47   4,320  14,890 $165  16.20  16.50  16.35    780  3,210
+     0.55   0.65   0.60   2,150   9,870 $170  21.30  21.60  21.45    340  1,890
 
-    ITM calls are above this line    <--- ATM ($155) --->    ITM puts are above
-    OTM calls are below this line                            OTM puts are below
+    此线以上为实值看涨期权  <--- 平值（$155）--->  此线以上为实值看跌期权
+    此线以下为虚值看涨期权                         此线以下为虚值看跌期权
 
-    Key:  Bid = highest price buyers will pay
-          Ask = lowest price sellers will accept
-          OI  = Open Interest (number of existing contracts)
+    说明：买价 = 买方愿意支付的最高价格
+          卖价 = 卖方愿意接受的最低价格
+          未平仓 = 未平仓合约数量（现有合约总数）
 ```
 
-Notice several important patterns:
-- As you move away from ATM in either direction, premiums decrease.
-- ITM options have higher premiums because they contain intrinsic value.
-- ATM options typically have the highest volume and open interest (most liquid).
-- The bid-ask spread is tightest for ATM options and widens for deep ITM/OTM.
+注意几个重要规律：
+- 从平值向两侧移动，期权费均随之降低。
+- 实值期权期权费较高，因为其中包含内在价值。
+- 平值期权的成交量和未平仓量通常最高（流动性最好）。
+- 平值期权的买卖价差最窄，深度实值/虚值期权的买卖价差则较宽。
 
-#### Expiration Dates
+#### 到期日
 
-Options do not last forever. Every option has an **expiration date**, which is the last day the option can be exercised. After this date, the option ceases to exist.
+期权不会永久存在。每份期权都有一个**到期日**，即期权可被行权的最后一天。过了这一天，期权便不再存在。
 
-Common expiration cycles:
+常见的到期周期：
 
 ```
 +-------------------------------------------------------------------+
-|  TYPE              | EXPIRATION          | TYPICAL USE             |
+|  类型            | 到期日              | 典型用途                  |
 +-------------------------------------------------------------------+
-|  Weekly Options    | Every Friday        | Short-term trading      |
-|  Monthly Options   | 3rd Friday of month | Most common, liquid     |
-|  Quarterly Options | End of quarter      | Index options           |
-|  LEAPS             | 1-3 years out       | Long-term strategies    |
+|  周期权          | 每周五              | 短线交易                  |
+|  月度期权        | 每月第三个周五      | 最常见、流动性最好          |
+|  季度期权        | 季末               | 指数期权                   |
+|  长期期权        | 1至3年后            | 长期策略                   |
 +-------------------------------------------------------------------+
 
-Timeline Example (from today):
+时间轴示例（从今天起）：
 
-  Today          2 weeks       1 month        3 months       1 year
+  今天          2周后         1个月后        3个月后       1年后
     |               |             |               |             |
     v               v             v               v             v
-  [NOW]---[Weekly]---[Monthly]---[Quarterly]------[LEAPS]-------->
+  [现在]---[周期权]---[月度期权]---[季度期权]------[长期期权]-------->
 
-  Higher Theta <--------------------------------> Lower Theta
-  (faster decay)                                  (slower decay)
-  Lower Premium <--------------------------------> Higher Premium
+  Theta较高 <--------------------------------> Theta较低
+  （衰减较快）                                  （衰减较慢）
+  期权费较低 <--------------------------------> 期权费较高
 ```
 
-**LEAPS** (Long-Term Equity Anticipation Securities) are options with expiration dates more than one year in the future. They are particularly useful for long-term investors because they allow you to take positions with less time decay pressure.
+**长期期权**（Long-Term Equity Anticipation Securities，LEAPS）是指到期日在一年以上的期权。由于时间价值衰减的压力较小，它们对长期投资者尤为适用，可以让你在更从容的时间框架内建立仓位。
 
-#### American vs. European Style Options
+#### 美式期权与欧式期权
 
-**American-Style Options:** Can be exercised at any time before expiration. Most individual stock options in the U.S. are American-style.
+**美式期权：** 可在到期日之前的任何时间行权。美国大多数个股期权均为美式期权。
 
-**European-Style Options:** Can only be exercised on the expiration date itself. Most index options (SPX, NDX) are European-style.
-
-```
-American Style:
-  [Purchase]=====[Can Exercise Any Time]=====[Expiration]
-       |                                          |
-       +------ Exercise window is OPEN -----------+
-
-European Style:
-  [Purchase]=====[Cannot Exercise]=====[Expiration]
-       |                                    |
-       +-- Can ONLY exercise on this day ---+
-```
-
-For our purposes in this course, we will focus on American-style options on individual stocks. The practical difference matters primarily for early assignment risk, which we will address in the covered calls lesson (Week 27).
-
-#### Time Decay (Theta)
-
-One of the most important concepts in options is **time decay**, also known as **theta**. Extrinsic value decays as the option approaches expiration. This decay is not linear; it accelerates as expiration nears.
+**欧式期权：** 只能在到期日当天行权。大多数指数期权（SPX、NDX）均为欧式期权。
 
 ```
-  Extrinsic
-  Value ($)
+美式期权：
+  [买入]=====[ 可在任意时间行权 ]=====[到期日]
+     |                                    |
+     +------- 行权窗口全程开放 -----------+
+
+欧式期权：
+  [买入]=====[ 不可提前行权 ]=====[到期日]
+     |                               |
+     +--- 只能在此日行权 ------------+
+```
+
+在本课程中，我们将重点介绍个股的美式期权。两者之间的实际差异主要体现在提前被行权的风险上，我们将在备兑看涨期权课程（第27周）中详细讨论这一问题。
+
+#### 时间价值衰减（Theta）
+
+期权中最重要的概念之一是**时间价值衰减**，也称为**Theta**。外在价值会随着期权临近到期而衰减。这种衰减并非线性的，而是随着到期日的临近而加速。
+
+```
+  外在价值
+  （美元）
     |
   8 |*
     |  *
@@ -276,422 +271,573 @@ One of the most important concepts in options is **time decay**, also known as *
     |                                 *******
   0 |____________________________________*****__
     90   75   60   45   30   15    5    0
-                Days to Expiration
+                距到期日天数
 
-  Key observation: Most time decay occurs in the LAST 30 days.
-  The curve accelerates dramatically in the final 2 weeks.
+  关键观察：大部分时间价值衰减发生在最后30天内。
+  在最后两周，衰减曲线急剧加速。
 ```
 
-This decay curve has enormous practical implications:
+这条衰减曲线具有深远的实际意义：
 
-- **Option buyers** are fighting against time. Every day that passes, their option loses value, all else being equal. They need the stock to move enough, fast enough, to overcome this decay.
-- **Option sellers** benefit from time decay. They collect premium upfront and profit as that premium erodes. Time is literally on their side.
+- **期权买方**在与时间赛跑。每过一天，期权就会在其他条件不变的情况下损失一部分价值。他们需要股票在足够短的时间内，移动足够大的幅度，才能克服这种衰减。
+- **期权卖方**则从时间价值衰减中获益。他们预先收取期权费，并随着期权费的侵蚀而获利。时间，实实在在地站在他们这一边。
 
-This is why, in this course, we focus primarily on **option selling strategies** (covered calls and cash-secured puts). As conservative investors, we want time working for us, not against us.
+这正是本课程主要聚焦于**期权卖出策略**（备兑看涨期权和现金担保看跌期权）的原因。作为保守型投资者，我们希望时间为我们所用，而非与我们为敌。
 
-#### Why Options Exist: Three Primary Purposes
+#### 期权存在的原因：三大核心用途
 
-**1. Hedging (Insurance)**
+**1. 对冲（保险）**
 
-A portfolio manager holding $10 million in stocks can buy put options as insurance against a market crash. If the market drops 30%, the puts increase in value, offsetting the stock losses. The cost of this insurance (the put premium) is the price of sleeping well at night.
-
-```
-Without Hedging:                    With Protective Puts:
-Portfolio: $10M                     Portfolio: $10M
-                                    Put Cost: $200K (2%)
-
-Market drops 30%:                   Market drops 30%:
-Portfolio: $7M                      Stocks: $7M
-Loss: -$3M (-30%)                   Puts gain: +$2.8M
-                                    Net: $9.8M - $0.2M = $9.6M
-                                    Loss: -$400K (-4%)
-```
-
-**2. Speculation (Leverage)**
-
-A trader who believes AAPL will rise from $155 to $175 in the next month could:
-- Buy 100 shares at $155 = $15,500 investment, $2,000 profit (+12.9%)
-- Buy 1 ATM call for $5.20 = $520 investment, ~$1,480 profit (+284.6%)
-
-The option provides much higher percentage returns but also much higher risk of total loss if the stock does not move as expected.
-
-**3. Income Generation**
-
-An investor holding 500 shares of AAPL at $155 ($77,500 in stock) can sell 5 covered call contracts at the $165 strike for $1.47 each, collecting $735 in premium. If the stock stays below $165, they keep the shares and the $735. Repeating this monthly could generate $8,820 per year, an 11.4% annual yield on top of dividends.
+持有1000万美元股票的基金经理，可以买入看跌期权，为市场崩溃提供保险。若市场下跌30%，看跌期权价值上升，抵消股票损失。这份保险的成本（看跌期权费）就是安心入眠的代价。
 
 ```
-Income Comparison (on $77,500 portfolio):
+未对冲：                            配置保护性看跌期权：
+投资组合：$1000万                   投资组合：$1000万
+                                    看跌期权费：$20万（2%）
 
-  Dividends Only:          Dividends + Covered Calls:
-  AAPL dividend ~0.65%     AAPL dividend ~0.65%
-  Annual: ~$504            Covered call income: ~$8,820
-                           Annual: ~$9,324
-                           Yield: ~12.0%
+市场下跌30%：                       市场下跌30%：
+投资组合：$700万                    股票：$700万
+亏损：-$300万（-30%）               看跌期权盈利：+$280万
+                                    净值：$980万 - $20万 = $960万
+                                    亏损：-$40万（-4%）
 ```
 
-#### Option Pricing: What Determines the Premium?
+**2. 投机（杠杆）**
 
-Six factors affect an option's price:
+一位认为苹果公司股价将在下个月从$155涨至$175的交易者，可以：
+- 买入100股，成本$155 = 投入$15,500，盈利$2,000（+12.9%）
+- 买入1份平值看涨期权，成本$5.20 = 投入$520，约盈利$1,480（+284.6%）
+
+期权提供了更高的百分比回报，但若股票走势未如预期，全损的风险也更高。
+
+**3. 创造收入**
+
+持有500股苹果公司股票（股价$155，市值$77,500）的投资者，可以卖出5份$165行权价的备兑看涨期权，每份收取$1.47的期权费，合计获得$735。若股价维持在$165以下，他们保留股票和$735期权费。每月重复操作，每年可产生约$8,820，相当于在股息之外额外获得约11.4%的年化收益率。
+
+```
+收入对比（基于$77,500的投资组合）：
+
+  仅靠股息：                    股息 + 备兑看涨期权：
+  苹果公司股息约0.65%           苹果公司股息约0.65%
+  年收入：约$504                备兑看涨期权收入：约$8,820
+                                年收入：约$9,324
+                                年化收益率：约12.0%
+```
+
+#### 期权定价：什么决定期权费？
+
+六个因素影响期权价格：
 
 ```
 +----------------------------------------------------------------+
-| FACTOR               | CALL EFFECT      | PUT EFFECT           |
+| 因素                 | 对看涨期权的影响  | 对看跌期权的影响       |
 +----------------------------------------------------------------+
-| Stock price UP       | Premium UP       | Premium DOWN         |
-| Stock price DOWN     | Premium DOWN     | Premium UP           |
-| Strike price (high)  | Premium DOWN     | Premium UP           |
-| Time to expiration+  | Premium UP       | Premium UP           |
-| Volatility UP        | Premium UP       | Premium UP           |
-| Interest rates UP    | Premium UP       | Premium DOWN (minor) |
-| Dividends UP         | Premium DOWN     | Premium UP           |
+| 股价上涨             | 期权费上涨        | 期权费下跌             |
+| 股价下跌             | 期权费下跌        | 期权费上涨             |
+| 行权价（较高）        | 期权费下跌        | 期权费上涨             |
+| 距到期日时间（较长）  | 期权费上涨        | 期权费上涨             |
+| 波动性上升           | 期权费上涨        | 期权费上涨             |
+| 利率上升             | 期权费上涨        | 期权费下跌（影响较小）  |
+| 股息上升             | 期权费下跌        | 期权费上涨             |
 +----------------------------------------------------------------+
 
-Most Important Factors (in order):
-1. Stock price relative to strike (intrinsic value)
-2. Time to expiration (time value)
-3. Implied volatility (market's expected movement)
+最重要的因素（按重要性排序）：
+1. 股价相对于行权价的位置（内在价值）
+2. 距到期日的时间（时间价值）
+3. 隐含波动率（市场预期的价格波动幅度）
 ```
 
-**Implied Volatility (IV)** deserves special attention. IV represents the market's expectation of how much the stock will move in the future. High IV means the market expects large moves (perhaps before an earnings report), so options are expensive. Low IV means the market expects calm conditions, so options are cheap.
+**隐含波动率（IV）** 值得特别关注。隐含波动率代表市场对股票未来走势幅度的预期。高隐含波动率意味着市场预期出现大幅波动（例如财报公布前），因此期权价格较贵。低隐含波动率意味着市场预期较为平静，期权价格则较便宜。
 
 ```
-Implied Volatility and Option Prices:
+隐含波动率与期权价格：
 
-  Low IV (15-20%):                    High IV (40-50%):
-  Stock is expected to be calm.       Stock is expected to be volatile.
-  Options are CHEAP.                  Options are EXPENSIVE.
+  低隐含波动率（15-20%）：            高隐含波动率（40-50%）：
+  预期股票走势平稳。                  预期股票走势剧烈。
+  期权价格便宜。                      期权价格昂贵。
   
-  Example: AAPL $155, ATM Call        Example: AAPL $155, ATM Call
-  30 days, IV = 18%                   30 days, IV = 45%
-  Premium: ~$3.20                     Premium: ~$7.80
+  示例：苹果公司$155，平值看涨期权    示例：苹果公司$155，平值看涨期权
+  30天，隐含波动率 = 18%              30天，隐含波动率 = 45%
+  期权费：约$3.20                     期权费：约$7.80
 
-  Good time to BUY options.           Good time to SELL options.
+  适合买入期权的时机。                适合卖出期权的时机。
 ```
 
-#### A Complete Example
+#### 希腊字母：实用入门
 
-Let us walk through a complete, practical example to tie all these concepts together.
-
-**Scenario:** AAPL is trading at $155. You believe it will rise to $170 within 60 days.
-
-**Option chosen:** AAPL $160 Call, expiring in 60 days, trading at $3.50.
+虽然本课程中的策略不需要深入理解希腊字母的数学原理，但对四个主要希腊字母有基本认识，能帮助你做出更明智的决策。
 
 ```
-Analysis:
-  Type:              Call (right to buy)
-  Strike:            $160
-  Current Stock:     $155
-  Moneyness:         Out-of-the-money ($5 OTM)
-  Intrinsic Value:   $0 (OTM, no intrinsic value)
-  Extrinsic Value:   $3.50 (entire premium is time value)
-  Cost:              $3.50 x 100 = $350 per contract
-  Breakeven:         $160 + $3.50 = $163.50
+四个主要希腊字母：
 
-Possible Outcomes at Expiration:
++-------------------------------------------------------------------+
+| 希腊字母 | 衡量内容                | 实际含义                      |
++-------------------------------------------------------------------+
+| Delta  | 对股价变动的价格敏感性   | 股价每变动$1，期权移动的幅度  |
+|  (Δ)   | 范围：0至1.0（看涨期权） | Delta 0.50 = 每$1股价变动     |
+|        | 范围：0至-1.0（看跌期权）| 期权移动$0.50                 |
++-------------------------------------------------------------------+
+| Gamma  | Delta的变化速率         | 股价每变动$1，Delta变化的幅度  |
+|  (Γ)   |                        | 平值期权的Gamma值最高          |
++-------------------------------------------------------------------+
+| Theta  | 每日时间价值衰减         | 每天仅由时间流逝导致的         |
+|  (Θ)   | 多头期权始终为负值       | 期权价值损失量                |
++-------------------------------------------------------------------+
+| Vega   | 对隐含波动率变化的敏感性 | 隐含波动率每变动1%，           |
+|  (V)   |                        | 期权价格的变化量               |
++-------------------------------------------------------------------+
+```
 
-  Stock at $170:  Option worth $10.00  -> Profit: $650 (+185.7%)
-  Stock at $165:  Option worth $5.00   -> Profit: $150 (+42.9%)
-  Stock at $163.50: Option worth $3.50 -> Breakeven ($0)
-  Stock at $160:  Option worth $0.00   -> Loss: -$350 (-100%)
-  Stock at $155:  Option worth $0.00   -> Loss: -$350 (-100%)
-  Stock at $150:  Option worth $0.00   -> Loss: -$350 (-100%)
+**Delta的实际应用：**
 
-Payoff Diagram:
+Delta有双重作用。它告诉你期权价格将变动多少，同时也为你提供期权在到期时处于实值状态的近似概率。
 
-  Profit
-  ($)
+```
+DELTA 作为概率参考指标：
+
+  Delta    到期时处于实值的近似概率    价值状态
+  =====    =====================      ===========
+  0.80     约80%概率到期实值           深度实值
+  0.60     约60%概率到期实值           轻度实值
+  0.50     约50%概率到期实值           平值
+  0.30     约30%概率到期实值           轻度虚值
+  0.15     约15%概率到期实值           虚值
+  0.05     约5%概率到期实值            深度虚值
+
+  备兑看涨期权：卖出Delta为0.20至0.30的看涨期权
+    （被行权转让股票的概率为20%至30%）
+  
+  现金担保看跌期权：卖出Delta为-0.20至-0.30的看跌期权
+    （被行权买入股票的概率为20%至30%）
+```
+
+**Theta的实际应用：**
+
+Theta告诉你持有期权每天支付的"租金"（若你是买方）或每天收取的"租金"（若你是卖方）。
+
+```
+THETA 示例：
+
+  苹果公司 $155 看涨期权，距到期日30天
+  价格：$4.20
+  Theta：-$0.08
+
+  这意味着：
+  - 每天因时间价值衰减，期权损失每股$0.08
+  - 每份合约：$0.08 × 100 = 每天$8.00
+  - 一周内：约$56的衰减（其他条件不变）
+  - 整个30天内：并非$240（因为Theta会加速）
+    而是约$350至$400（因为每日Theta递增）
+
+  对于卖方：你每天赚取这笔Theta，包括周末。
+  对于买方：你每天损失这笔Theta，时钟从不停歇。
+```
+
+#### 读懂期权报价
+
+当你在券商平台上查看期权时，会看到标准化的格式。让我们来学习如何解读：
+
+```
+期权报价解析：
+
+  AAPL  2026年3月21日  $160  看涨期权
+
+  |       |            |     |
+  |       |            |     +-- 类型：看涨期权
+  |       |            +-------- 行权价：每股$160
+  |       +--------------------- 到期日：2026年3月21日
+  +----------------------------- 标的资产：苹果公司
+
+  买价：     $3.20     （买方愿意支付给你的价格）
+  卖价：     $3.40     （你买入时需支付的价格）
+  最新成交：  $3.30     （最近成交价）
+  成交量：   2,847     （今日成交合约数）
+  未平仓量：  18,760    （现有合约总数）
+  
+  希腊字母：
+  Delta：   0.35      （苹果公司股价每移动$1，期权移动$0.35）
+  Gamma：   0.025     （股价每移动$1，Delta变化0.025）
+  Theta：   -0.065    （每天每股损失$0.065时间价值）
+  Vega：    0.18      （隐含波动率每变动1%，期权变化$0.18）
+  隐含波动率：  24.3%     （隐含波动率）
+```
+
+#### 波动率指数：市场的"恐惧计"
+
+**波动率指数**（CBOE波动率指数，VIX）衡量标普500指数期权的隐含波动率。它常被称为"恐惧计"，因为投资者情绪紧张时它上升，情绪平稳时它下降。
+
+```
+波动率指数水平及其含义：
+
+  波动率指数水平  市场情绪           对期权的影响
+  ===========    ===========        ==================
+  10-15          非常平静/过度乐观   期权价格便宜
+  15-20          正常               期权价格合理
+  20-25          担忧情绪升温        期权价格开始偏贵
+  25-30          恐惧               期权价格贵（适合卖出）
+  30-40          非常恐惧            期权价格很贵
+  40+            恐慌               期权价格极贵
+                                    （罕见：2008年、2020年新冠崩盘）
+
+  对期权卖方的关键提示：
+  当波动率指数高企（25以上）时，期权费丰厚。
+  此时是卖出备兑看涨期权和现金担保看跌期权的最佳时机。
+  同样的义务，能获得更高的报酬。
+
+  当波动率指数低迷（12-15）时，期权费单薄。
+  你可能需要减少期权卖出操作，或使用更保守的行权价。
+```
+
+了解波动率指数，让你在期权交易时机的把握上拥有优势。你不需要预测市场方向，但了解期权是便宜还是昂贵，有助于你判断卖出期权费时应采取多积极的策略。
+
+#### 完整案例演示
+
+让我们通过一个完整的实际案例，将以上所有概念串联起来。
+
+**情景：** 苹果公司股价为$155。你认为它将在60天内涨至$170。
+
+**选择的期权：** 苹果公司 $160 看涨期权，60天后到期，报价$3.50。
+
+```
+分析：
+  类型：              看涨期权（买入权利）
+  行权价：            $160
+  当前股价：          $155
+  价值状态：          虚值（虚值$5）
+  内在价值：          $0（虚值，无内在价值）
+  外在价值：          $3.50（全部期权费均为时间价值）
+  成本：              $3.50 × 100 = 每份合约$350
+  盈亏平衡点：        $160 + $3.50 = $163.50
+
+到期时的可能结果：
+
+  股价 $170：  期权价值$10.00  -> 盈利：$650（+185.7%）
+  股价 $165：  期权价值$5.00   -> 盈利：$150（+42.9%）
+  股价 $163.50：期权价值$3.50  -> 盈亏平衡（$0）
+  股价 $160：  期权价值$0.00   -> 亏损：-$350（-100%）
+  股价 $155：  期权价值$0.00   -> 亏损：-$350（-100%）
+  股价 $150：  期权价值$0.00   -> 亏损：-$350（-100%）
+
+收益图：
+
+  盈亏
+  （美元）
     |
  +650|                                          *****
     |                                      ****
  +300|                                 ****
     |                            ****
-    0|----------------------*****----- Stock Price ($) --->
+    0|----------------------*****----- 股票价格（美元）--->
     |                  *
- -350|*****************    <-- Max loss = premium paid
+ -350|*****************    <-- 最大亏损 = 已付期权费
     |
     +---|---|---|---|---|---|---|---|---
        140  145  150  155  160  165  170  175
 
-  Breakeven at $163.50 (Strike + Premium)
+  盈亏平衡点在$163.50（行权价 + 期权费）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "Options are always risky and speculative."**
+**误区一："期权总是充满风险和投机性的。"**
 
-This is perhaps the most damaging misconception. Options themselves are neither inherently risky nor safe. They are tools, and like any tool, their risk depends entirely on how you use them. Buying far out-of-the-money weekly options with your entire account is extremely risky. Selling covered calls on stocks you already own is one of the most conservative strategies in investing. A chain saw is dangerous in the hands of a child, but a lumberjack uses one safely every day. The same principle applies to options.
+这可能是危害最大的误区。期权本身既不天然危险，也不天然安全。它们是工具，就像任何工具一样，风险完全取决于你如何使用。将全部账户资金用于买入极度虚值的周期权，风险极高。对你已持有的股票卖出备兑看涨期权，则是投资领域最保守的策略之一。电锯在孩子手中危险无比，但伐木工每天都能安全操作。期权也是同样的道理。
 
-**Misconception 2: "Most options expire worthless, so selling options is free money."**
+**误区二："大多数期权到期作废，所以卖出期权就是白捡钱。"**
 
-While it is true that a significant percentage of options expire worthless (roughly 60-70% of options that are held to expiration), this statistic is misleading. Many options are closed before expiration for a profit. Additionally, when an option seller loses, the loss can be much larger than the premium collected. Selling options is not free money; it is accepting a high probability of small gains in exchange for a low probability of large losses. Responsible position sizing is essential.
+确实，相当大比例的期权到期时变得一文不值（大约60%至70%持有至到期的期权如此），但这个数据具有误导性。许多期权在到期前就已被平仓获利。此外，期权卖方一旦亏损，损失可能远大于所收取的期权费。卖出期权不是白捡钱，而是以高概率的小额收益，换取低概率的重大亏损。负责任的仓位管理至关重要。
 
-**Misconception 3: "Options are too complicated for regular investors."**
+**误区三："期权对普通投资者来说太复杂了。"**
 
-The basic strategies we cover in this course (covered calls and cash-secured puts) are straightforward once you understand the fundamentals. You do not need to understand the Black-Scholes model, Greek calculations, or complex multi-leg strategies to use options effectively. A 30-year-old learning to drive does not need to understand internal combustion engineering. Similarly, you can use basic options strategies effectively with a solid understanding of the concepts in this lesson.
+本课程涵盖的基础策略（备兑看涨期权和现金担保看跌期权），一旦你理解了基本原理，其实非常直观。你不需要了解布莱克-斯科尔斯模型、希腊字母的计算方法，或者复杂的多腿策略，就能有效地使用期权。一位30岁才学开车的人，不需要了解内燃机工程原理。同样，掌握本课内容中的概念，你就能有效地运用基础期权策略。
 
-**Misconception 4: "If I buy a call option, I have to buy the stock."**
+**误区四："如果我买了看涨期权，我就必须买那只股票。"**
 
-No. The buyer of an option has the **right**, not the obligation. If the option is profitable at expiration, you can either exercise it (buy the stock at the strike price) or simply sell the option to close your position and pocket the profit. Most options traders never exercise; they simply trade the options themselves. If the option is not profitable, you simply let it expire and lose only the premium you paid.
+不对。期权买方拥有的是**权利**，而非义务。如果到期时期权处于盈利状态，你可以选择行权（以行权价买入股票），也可以直接在市场上卖出期权来平仓，锁定盈利。大多数期权交易者从不行权，他们只是交易期权本身。如果期权无利可图，让它到期作废，你损失的只是所付的期权费。
 
-**Misconception 5: "Implied volatility is the same as historical volatility."**
+**误区五："隐含波动率和历史波动率是一回事。"**
 
-Historical volatility measures how much the stock has actually moved in the past. Implied volatility is the market's expectation of how much it will move in the future. They are related but different. Before earnings announcements, implied volatility can spike well above historical volatility because the market expects a large move. After the announcement, IV typically collapses (known as "IV crush"), even if the stock moves significantly. Understanding this difference is crucial for timing options trades.
+历史波动率衡量的是股票过去实际发生的价格波动幅度。隐含波动率则是市场对其未来走势幅度的预期。两者相关，但并不相同。财报公布前，隐含波动率往往远超历史波动率，因为市场预期将出现大幅波动。公告发布后，隐含波动率通常会骤然下跌（称为"波动率坍缩"），即使股价出现了显著移动也不例外。理解这一区别，对于把握期权交易时机至关重要。
 
-**Misconception 6: "A stock option is the same as an employee stock option."**
+**误区六："股票期权和员工股票期权是一回事。"**
 
-Exchange-traded options (what we discuss in this course) are standardized contracts traded on public exchanges. Employee stock options (ESOs) are compensation grants from employers with different rules regarding exercise, expiration, taxation, and transferability. While they share the same underlying concept, the mechanics and strategies differ significantly.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much money do I need to start trading options?**
-
-A: The capital requirement depends on the strategy. Buying a single option contract might cost as little as $50-$500. Selling cash-secured puts requires enough cash to buy 100 shares at the strike price (e.g., a $150 strike put requires $15,000 in cash). Covered calls require owning 100 shares of the underlying stock. For most investors starting with conservative options strategies, $10,000-$25,000 is a reasonable starting point, though some brokers allow smaller accounts.
-
-**Q2: What happens if I just let an option expire?**
-
-A: If the option is out of the money at expiration, it expires worthless. You lose the premium you paid (if you bought it) or keep the premium (if you sold it). If the option is in the money at expiration, most brokers will automatically exercise it (known as "auto-exercise"). If you bought an ITM call, you will end up buying 100 shares at the strike price. If you cannot afford this, close the position before expiration.
-
-**Q3: Can I lose more than the premium I paid when buying an option?**
-
-A: No. When you buy an option (long call or long put), your maximum loss is always limited to the premium you paid. This is one of the key advantages of buying options. However, when you sell options (short call or short put), your potential losses can be much larger than the premium received.
-
-**Q4: What is the difference between "open interest" and "volume"?**
-
-A: Volume is the number of contracts traded on a particular day. Open interest is the total number of contracts that currently exist and have not been closed or exercised. High open interest indicates a liquid option with tight bid-ask spreads. Increasing open interest suggests new money is flowing into that option. Volume can exceed open interest if there is heavy day trading.
-
-**Q5: Why should I care about the bid-ask spread?**
-
-A: The bid-ask spread is the difference between the price buyers are willing to pay (bid) and the price sellers are asking (ask). A wide spread means higher transaction costs and makes it harder to enter and exit positions profitably. For example, an option with a bid of $2.00 and ask of $2.50 has a $0.50 spread, meaning you immediately lose $50 per contract when you buy. Always look for options with tight spreads, typically found in high-volume, liquid stocks.
-
-**Q6: Do I need to understand the Greeks to trade options?**
-
-A: For the basic strategies in this course, a deep understanding of the Greeks is not required, but a conceptual understanding of two key Greeks is helpful:
-- **Delta:** How much the option price moves when the stock moves $1. A delta of 0.50 means the option gains $0.50 for every $1 the stock rises (for calls).
-- **Theta:** How much value the option loses each day from time decay. A theta of -0.05 means the option loses $5 per day ($0.05 x 100 shares).
-Understanding delta helps you select appropriate strike prices, and understanding theta helps you appreciate why time works for sellers and against buyers.
-
-**Q7: What stocks are best for options trading?**
-
-A: Look for stocks with: (1) high trading volume and open interest for tight bid-ask spreads, (2) moderate implied volatility for reasonable premiums, (3) stocks you are willing to own long-term (for put selling and covered call strategies), and (4) stocks in the $50-$300 range for manageable position sizes. Popular options-friendly stocks include large-cap names like AAPL, MSFT, AMZN, GOOGL, JPM, and broad ETFs like SPY, QQQ, and IWM.
-
-**Q8: Is there a difference between closing an option and exercising it?**
-
-A: Yes, and this distinction is important. Closing an option means selling it back in the market (if you bought it) or buying it back (if you sold it). Exercising means using the right the option gives you to buy or sell the underlying stock. In most cases, closing is preferable to exercising because closing captures the remaining extrinsic value, while exercising only captures intrinsic value. The only common reason to exercise early is to capture a dividend on an ITM call option.
-
-**Q9: What is assignment, and should I be worried about it?**
-
-A: Assignment occurs when an option seller is required to fulfill their obligation because the option buyer exercised their right. If you sold a call and get assigned, you must sell 100 shares at the strike price. If you sold a put and get assigned, you must buy 100 shares at the strike price. Early assignment is possible with American-style options but is uncommon except when (a) the option is deep in the money near expiration, or (b) there is an upcoming dividend. For the covered call and cash-secured put strategies we teach, assignment is not a disaster; it simply means you sold your stock at your target price (for calls) or bought stock at your target price (for puts).
-
-**Q10: How are options taxed?**
-
-A: Options taxation depends on the strategy and holding period. Generally, option premiums received from selling options are treated as short-term capital gains. If you are assigned on a covered call, the premium is added to your selling price. If you are assigned on a cash-secured put, the premium reduces your cost basis. LEAPS held for more than one year may qualify for long-term capital gains rates. Consult a tax professional for your specific situation, as options taxation can be complex.
+场内交易期权（本课程讨论的内容）是在公开交易所上市的标准化合约。员工股票期权（ESO）是雇主给予的薪酬授予，在行权、到期、税务和可转让性等方面有不同的规则。虽然两者基于相同的底层概念，但运作机制和适用策略有显著差异。
 
 ---
 
-## YouTube Script
+### d) 常见问题解答
+
+**问题一：我需要多少资金才能开始交易期权？**
+
+答：所需资金因策略而异。买入一份期权合约可能只需50至500美元。卖出现金担保看跌期权需要足够的现金来购买100股标的股票（例如，行权价$150的看跌期权需要$15,000现金）。备兑看涨期权则需要持有100股标的股票。对于大多数从保守期权策略入手的投资者而言，1万至2.5万美元是较为合理的起步规模，不过部分券商也接受规模更小的账户。
+
+**问题二：如果我让期权自然到期会怎样？**
+
+答：如果期权在到期时处于虚值状态，它将到期作废。你损失所付的期权费（若你是买方），或保留收取的期权费（若你是卖方）。如果期权在到期时处于实值状态，大多数券商会自动行权（称为"自动行权"）。若你买入的是实值看涨期权，你将以行权价买入100股。如果你无力承担这笔费用，请在到期前平仓。
+
+**问题三：买入期权时，我的亏损会超过所付的期权费吗？**
+
+答：不会。当你买入期权（多头看涨或多头看跌），你的最大亏损始终不超过你所付的期权费。这是买入期权的核心优势之一。然而，当你卖出期权（空头看涨或空头看跌）时，潜在亏损可能远超收取的期权费。
+
+**问题四："未平仓量"与"成交量"有什么区别？**
+
+答：成交量是特定日期内的合约成交数量。未平仓量是目前存在且尚未平仓或行权的合约总数。高未平仓量表明该期权流动性良好、买卖价差较窄。未平仓量增加，意味着新资金正在流入该期权。若存在大量日内交易，成交量可能超过未平仓量。
+
+**问题五：为什么我应该关注买卖价差？**
+
+答：买卖价差是买方愿意支付的价格（买价）与卖方要求的价格（卖价）之差。价差越宽，交易成本越高，盈利出入仓的难度也越大。例如，买价$2.00、卖价$2.50的期权，买卖价差为$0.50，意味着你一买入就立即损失每份合约$50。务必寻找价差较窄的期权，通常见于成交量大、流动性好的股票期权中。
+
+**问题六：我需要了解希腊字母才能交易期权吗？**
+
+答：对于本课程中的基础策略，不需要深入理解希腊字母，但对两个关键希腊字母有概念性认识会有所帮助：
+- **Delta：** 股价每变动$1，期权价格的变动幅度。Delta为0.50意味着股价每上涨$1，看涨期权获利$0.50。
+- **Theta：** 期权每天因时间价值衰减损失的价值。Theta为-0.05意味着期权每天损失$5（$0.05 × 100股）。
+理解Delta有助于你选择合适的行权价，理解Theta有助于你认识到为何时间对卖方有利、对买方不利。
+
+**问题七：哪些股票最适合期权交易？**
+
+答：寻找具备以下特征的股票：（1）高成交量和高未平仓量，以确保买卖价差较窄；（2）适中的隐含波动率，以获得合理的期权费收入；（3）你愿意长期持有的股票（适用于卖出看跌期权和备兑看涨期权策略）；（4）股价在$50至$300区间，便于管理仓位规模。常见的期权友好型股票包括大盘蓝筹股，如AAPL、MSFT、AMZN、GOOGL、JPM，以及宽基交易所交易基金，如SPY、QQQ和IWM。
+
+**问题八：平仓和行权有什么区别？**
+
+答：有，而且这个区别很重要。平仓是指在市场上将期权卖回（若你是买方）或买回（若你是卖方）。行权是指使用期权赋予的权利来买入或卖出标的股票。在大多数情况下，平仓优于行权，因为平仓能捕获剩余的外在价值，而行权只能捕获内在价值。提前行权的唯一常见原因，是为了在实值看涨期权上捕获即将到来的股息。
+
+**问题九：什么是被行权？我需要担心吗？**
+
+答：被行权发生在期权卖方因期权买方行权而被要求履行义务时。若你卖出了看涨期权并被行权，你必须以行权价卖出100股股票。若你卖出了看跌期权并被行权，你必须以行权价买入100股股票。美式期权的提前行权虽然可能，但并不常见，通常发生在以下情形：（a）期权在到期前深度实值；或（b）即将到来的除息日。对于本课程教授的备兑看涨期权和现金担保看跌期权策略而言，被行权并非灾难——它只是意味着你以目标价格卖出了股票（看涨期权），或者以目标价格买入了股票（看跌期权）。
+
+**问题十：期权如何纳税？**
+
+答：期权的税务处理取决于具体策略和持有期限。一般而言，卖出期权所收取的期权费按短期资本利得处理。若你的备兑看涨期权被行权，期权费将计入你的卖出价格。若你的现金担保看跌期权被行权，期权费将降低你的持仓成本。持有超过一年的长期期权可能符合长期资本利得税率的条件。由于期权税务处理可能较为复杂，建议针对你的具体情况咨询税务专业人士。
+
+---
+
+## YouTube 脚本
 
 [VISUAL: Animated intro with show logo. Text: "Week 25: Introduction to Options - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are stepping into what I consider one of the most important topics in this entire course. We are talking about options.
+**Horace（陳馬）：** 欢迎回来，各位。今天我们要进入我认为整个课程中最重要的话题之一，我们来聊聊期权。
 
-**Sam:** Options. I have to be honest, Alex, this is the topic I have been both excited about and a little nervous about. I hear people talk about options and it sounds like gambling.
+**Stella（小魚）：** 期权。说实话，陳馬，这个话题让我既期待又有点紧张。我听到身边有人聊期权，感觉怎么都像在赌博。
 
-**Alex:** And that is exactly the misconception we need to address right at the start. Options are tools. A hammer can build a house or break a window. Options can protect your portfolio like insurance, or they can blow up your account like a casino bet. It all depends on how you use them.
+**Horace（陳馬）：** 这正是我们在开始就需要澄清的误区。期权是工具。锤子可以建房子，也可以砸碎窗户。期权可以像保险一样保护你的投资组合，也可以像赌场押注一样让你爆仓。关键在于你怎么用它。
 
-[VISUAL: Split screen showing two scenarios - Left: "Options as Insurance" with a shield icon and a portfolio being protected, Right: "Options as Gambling" with dice and a portfolio going to zero]
+[VISUAL: Split screen showing two scenarios - Left: "期权作为保险" with a shield icon and a portfolio being protected, Right: "期权作为赌博" with dice and a portfolio going to zero]
 
-**Sam:** OK so let us start from the very beginning. What actually IS an option?
+**Stella（小魚）：** 好，那我们就从最基础的开始。期权到底是什么？
 
-**Alex:** An option is a contract. It gives the buyer the right, but not the obligation, to buy or sell a specific stock at a specific price on or before a specific date. Let me repeat that because it is the single most important definition you will learn today. The right, but not the obligation.
+**Horace（陳馬）：** 期权是一种合约。它赋予买方在特定日期或之前，以特定价格买入或卖出特定股票的权利，而非义务。我再重复一遍，因为这是你今天会学到的最重要的定义——权利，而非义务。
 
-**Sam:** So it is like a choice. I have the option to do something, but I do not have to.
+**Stella（小魚）：** 所以它是一种选择权。我有权利做某件事，但我不是非做不可。
 
-**Alex:** Exactly. And this is what separates options from other financial instruments. When you buy stock, you own it, period. When you buy a futures contract, you are obligated to fulfill it. But when you buy an option, you have a choice. You will only exercise it if it benefits you.
+**Horace（陳馬）：** 完全正确。这正是期权区别于其他金融工具的地方。当你买入股票，你就是持有它了，没有退路。当你买入期货合约，你有义务必须履约。但当你买入期权，你有选择权。只有当它对你有利时，你才会行权。
 
-[VISUAL: Three boxes side by side: "Stock = You OWN it", "Futures = You MUST fulfill", "Option = You CHOOSE"]
+[VISUAL: Three boxes side by side: "股票 = 你持有" "期货 = 你必须履约" "期权 = 你来选择"]
 
-**Sam:** Got it. So there are two types, right? Calls and puts?
+**Stella（小魚）：** 明白了。那有两种类型对吗？看涨期权和看跌期权？
 
-**Alex:** Right. A call option gives you the right to BUY a stock at a specific price. A put option gives you the right to SELL a stock at a specific price. That is it. Those are the only two building blocks. Every options strategy in existence is built from some combination of calls and puts.
+**Horace（陳馬）：** 对。看涨期权赋予你以特定价格**买入**股票的权利。看跌期权赋予你以特定价格**卖出**股票的权利。就这两种，没有别的。世界上所有的期权策略，都是由看涨期权和看跌期权的某种组合构成的。
 
-**Sam:** Let me make sure I have this straight. If I think a stock is going up, I want a call because that gives me the right to buy at a lower price?
+**Stella（小魚）：** 让我确认一下我理解正确了。如果我认为一只股票要涨，我就想买看涨期权，因为它给了我以更低价格买入的权利？
 
-**Alex:** Exactly right. And if you think a stock is going down, or if you want to protect against a drop, you want a put because that gives you the right to sell at a higher price.
+**Horace（陳馬）：** 完全正确。而如果你认为一只股票要跌，或者你想对此加以保护，你就想买看跌期权，因为它给了你以更高价格卖出的权利。
 
-[VISUAL: Two cards appear - "CALL: Right to BUY - Bullish bet" and "PUT: Right to SELL - Bearish bet / Insurance"]
+[VISUAL: Two cards appear - "看涨期权：买入权利 - 看涨押注" and "看跌期权：卖出权利 - 看跌押注 / 保险"]
 
-**Sam:** Now I have heard the terms "strike price" and "expiration date." Can you explain those?
+**Stella（小魚）：** 我听过"行权价"和"到期日"这两个词。你能解释一下吗？
 
-**Alex:** Sure. Every option has four essential components. The underlying stock, like Apple or Microsoft. The type, call or put. The strike price, which is the agreed-upon price for the transaction. And the expiration date, which is when the contract expires.
+**Horace（陳馬）：** 当然。每份期权都有四个基本要素。标的股票，比如苹果或微软。类型，看涨期权或看跌期权。行权价，即交易的约定价格。还有到期日，即合约到期的日期。
 
 [ANIMATION: Reference animation/week25_option_payoff.py - Animation showing an option contract being assembled piece by piece. First the stock ticker appears, then the type (call/put), then the strike price slides in, then the expiration date stamps on. The assembled contract then shows a payoff diagram that builds as the stock price moves along the x-axis.]
 
-**Alex:** Let me give you a concrete example. Let us say Apple is trading at $155. You buy an "AAPL January 17, 2026, $160 Call." That means you have the right to buy 100 shares of Apple at $160 per share, any time before January 17, 2026.
+**Horace（陳馬）：** 给你一个具体例子。假设苹果公司股价是$155。你买入一份"AAPL 2026年1月17日 $160 看涨期权"。这意味着你拥有在2026年1月17日或之前，以每股$160的价格买入100股苹果公司股票的权利。
 
-**Sam:** Wait, did you say 100 shares? Why 100?
+**Stella（小魚）：** 等等，你说100股？为什么是100股？
 
-**Alex:** Every standard options contract controls 100 shares. This is important because it affects your calculations. If the option is quoted at $3.50, you are not paying $3.50. You are paying $3.50 per share times 100 shares, which equals $350 per contract.
+**Horace（陳馬）：** 每份标准期权合约控制100股标的股票。这一点非常重要，因为它直接影响你的计算结果。如果一份期权报价$3.50，你支付的不是$3.50，而是每股$3.50乘以100股，也就是每份合约$350。
 
-**Sam:** Oh, that is something I could see tripping people up.
+**Stella（小魚）：** 哦，这个地方很容易让人踩坑。
 
-**Alex:** Absolutely. It trips up beginners all the time. Always multiply by 100 to get your actual cost.
+**Horace（陳馬）：** 确实。这是新手最常犯的错误。永远记得乘以100，才是你实际支付的金额。
 
-[VISUAL: Calculator animation: "$3.50 per share x 100 shares = $350 per contract"]
+[VISUAL: Calculator animation: "每股$3.50 × 100股 = 每份合约$350"]
 
-**Sam:** OK, so I have heard the phrase "in the money" thrown around a lot. What does that mean?
+**Stella（小魚）：** 好的，我还经常听到"实值"这个说法。这是什么意思？
 
-**Alex:** Great question. This is about the relationship between the strike price and the current stock price. We call it "moneyness." There are three states. In the money means the option has intrinsic value right now. At the money means the strike price equals the stock price. Out of the money means the option has no intrinsic value.
+**Horace（陳馬）：** 好问题。这涉及行权价与当前股价的关系，我们称之为"价值状态"。一共有三种状态：实值意味着期权现在就有内在价值；平值意味着行权价等于股价；虚值意味着期权没有内在价值。
 
-**Sam:** Can you give me an example?
+**Stella（小魚）：** 能举个例子吗？
 
-**Alex:** Sure. Apple is at $155. If you have a call option with a $140 strike, that is in the money because you could buy the stock at $140 and it is worth $155. That is $15 of intrinsic value. If your call has a $155 strike, it is at the money. And if your call has a $170 strike, it is out of the money because it would not make sense to exercise the right to buy at $170 when the stock is only at $155.
+**Horace（陳馬）：** 当然。苹果公司股价$155。如果你持有行权价$140的看涨期权，那就是实值，因为你可以以$140买入一只市值$155的股票，有$15的内在价值。如果你的看涨期权行权价是$155，那就是平值。如果行权价是$170，那就是虚值，因为在股价仅为$155的情况下，以$170的价格买入毫无意义。
 
-[VISUAL: A number line showing stock price at $155, with markers at different strike prices. $140 labeled "ITM - $15 intrinsic value", $155 labeled "ATM", $170 labeled "OTM - no intrinsic value". Color coding: green for ITM, yellow for ATM, red for OTM]
+[VISUAL: A number line showing stock price at $155, with markers at different strike prices. $140 labeled "实值 - $15内在价值", $155 labeled "平值", $170 labeled "虚值 - 无内在价值". Color coding: green for 实值, yellow for 平值, red for 虚值]
 
-**Sam:** And for puts it is the opposite?
+**Stella（小魚）：** 看跌期权方向相反？
 
-**Alex:** Exactly. A put with a $170 strike is in the money when the stock is at $155, because you could sell at $170 when it is only worth $155. A put with a $140 strike is out of the money.
+**Horace（陳馬）：** 完全正确。当股价$155时，行权价$170的看跌期权是实值，因为你可以以$170卖出一只市价仅$155的股票。行权价$140的看跌期权则是虚值。
 
-**Sam:** This brings up another question. You mentioned intrinsic value. What is the other part of the option's price?
+**Stella（小魚）：** 这引出了另一个问题。你提到了内在价值，那期权价格的另一部分是什么？
 
-**Alex:** Every option's price, which we call the premium, has two components. Intrinsic value, which is the real tangible value, and extrinsic value, which is everything else. Extrinsic value is also called time value, though that is slightly imprecise because it also includes volatility premium.
+**Horace（陳馬）：** 每份期权的价格（我们称之为期权费）由两部分构成：内在价值，即真实的、有形的价值；以及外在价值，也就是其余所有部分。外在价值也叫时间价值，虽然这个叫法不够精确，因为它还包含了波动性溢价。
 
-**Sam:** Can you break that down with numbers?
+**Stella（小魚）：** 能用具体数字分解一下吗？
 
-**Alex:** Let us say Apple is at $155 and the $150 call is trading at $8.50. The intrinsic value is $5, because the stock is $5 above the strike price. The extrinsic value is $8.50 minus $5, which is $3.50. That $3.50 represents the market's assessment of the possibility that the option could become even more valuable before it expires.
+**Horace（陳馬）：** 假设苹果公司股价$155，$150看涨期权报价$8.50。内在价值是$5，因为股价比行权价高$5。外在价值是$8.50减去$5，等于$3.50。这$3.50代表市场对期权在到期前可能进一步升值的预期。
 
-[VISUAL: A stacked bar chart showing the option premium of $8.50 broken into two segments: $5.00 intrinsic (solid green) and $3.50 extrinsic (striped blue)]
+[VISUAL: A stacked bar chart showing the option premium of $8.50 broken into two segments: $5.00 内在价值 (solid green) and $3.50 外在价值 (striped blue)]
 
-**Sam:** And an out-of-the-money option has no intrinsic value?
+**Stella（小魚）：** 虚值期权没有内在价值？
 
-**Alex:** Correct. An out-of-the-money option's entire premium is extrinsic value. It is all hope and time. That is why OTM options are cheaper, and it is also why they lose value faster as expiration approaches.
+**Horace（陳馬）：** 正确。虚值期权的全部期权费都是外在价值。它全靠预期和时间支撑。这就是为什么虚值期权更便宜，也是为什么它们随着到期临近会更快地失去价值。
 
-**Sam:** That leads perfectly into time decay, which I keep hearing about. Can you explain that?
+**Stella（小魚）：** 这完美地引出了时间价值衰减的话题，我一直听说这个概念。能解释一下吗？
 
-**Alex:** Time decay, technically called theta, is the rate at which an option loses extrinsic value as it approaches expiration. And here is the critical thing: it is not linear. The decay accelerates as you get closer to expiration.
+**Horace（陳馬）：** 时间价值衰减，技术上称为Theta，是指期权临近到期时外在价值的流失速率。关键在于：这种衰减不是线性的，随着到期日的临近，衰减会加速。
 
 [ANIMATION: Reference animation/week25_option_payoff.py - A second animation sequence showing a time decay curve. An option starts with 90 days to expiration and $8 of extrinsic value. As a clock ticks and days count down, the extrinsic value decreases slowly at first, then the curve steepens dramatically in the last 30 days, with the last week showing the fastest decay. Numbers update in real-time. A "days remaining" counter ticks down alongside.]
 
-**Alex:** Imagine you have 90 days until expiration. In the first 30 days, the option might lose about 15% of its time value. In the middle 30 days, maybe another 25%. But in the last 30 days, it loses the remaining 60%. And in the final week, the decay is brutal.
+**Horace（陳馬）：** 想象你距到期日还有90天。在最初的30天里，期权可能损失约15%的时间价值。中间30天，再损失约25%。但在最后30天，剩余60%的时间价值都会流失。而最后一周，衰减的速度相当惊人。
 
-**Sam:** So if you are buying options, time is your enemy.
+**Stella（小魚）：** 所以如果你是买入期权的一方，时间就是你的敌人。
 
-**Alex:** Precisely. Every single day, your option loses a little value, and that loss accelerates. You need the stock to move enough, in the right direction, fast enough, to overcome this natural erosion.
+**Horace（陳馬）：** 正是。每过一天，你的期权就会损失一部分价值，而这种损失还在加速。你需要股票以足够快的速度，向正确的方向移动足够大的幅度，才能克服这种自然侵蚀。
 
-**Sam:** And if you are selling options?
+**Stella（小魚）：** 那如果你是卖出期权的一方呢？
 
-**Alex:** Then time is your best friend. You collect premium upfront and profit as it decays. This is why, in this course, we focus heavily on option selling strategies. We want time on our side.
+**Horace（陳馬）：** 那时间就是你最好的朋友。你预先收取期权费，随着期权费的衰减而获利。这正是本课程大力聚焦期权卖出策略的原因。我们希望时间站在我们这一边。
 
-[VISUAL: Two panels - Left: "Option Buyer" with a melting ice cream cone labeled "Time Value" and text "Time is your ENEMY". Right: "Option Seller" with a piggy bank getting larger as coins drop in, text "Time is your FRIEND"]
+[VISUAL: Two panels - Left: "期权买方" with a melting ice cream cone labeled "时间价值" and text "时间是你的敌人". Right: "期权卖方" with a piggy bank getting larger as coins drop in, text "时间是你的朋友"]
 
-**Sam:** Speaking of buying and selling, can we talk about the difference between the buyer and the seller? Because I know one has rights and the other has obligations.
+**Stella（小魚）：** 说到买卖，我们能聊聊买方和卖方的区别吗？因为我知道一方拥有权利，另一方承担义务。
 
-**Alex:** This is crucial. The buyer of an option pays the premium and gets a right. The seller of an option collects the premium and takes on an obligation. Let me walk through each scenario.
+**Horace（陳馬）：** 这一点至关重要。期权买方支付期权费，获得权利。期权卖方收取期权费，承担义务。让我逐一分解。
 
-**Alex:** If you buy a call, you have the right to buy stock at the strike price. Your maximum loss is the premium you paid. If you sell a call, you have the obligation to sell stock at the strike price if the buyer exercises. Your maximum loss is theoretically unlimited because the stock could keep going up forever.
+**Horace（陳馬）：** 如果你买入看涨期权，你有权利以行权价买入股票。你的最大亏损是所付的期权费。如果你卖出看涨期权，你有义务在买方行权时，以行权价卖出股票。你的最大亏损理论上是无限的，因为股票可以无限上涨。
 
-**Sam:** Unlimited loss? That sounds terrifying.
+**Stella（小魚）：** 无限亏损？听起来太可怕了。
 
-**Alex:** It is, for a naked call. But a covered call, where you already own the stock, caps your risk. The stock gets called away at the strike price, and you miss out on gains above that price, but you never actually lose money on the option itself. That is why we only teach covered calls in this course, never naked calls.
+**Horace（陳馬）：** 确实，对于裸卖看涨期权而言是这样。但备兑看涨期权——也就是你已经持有股票的情况——会限制你的风险。股票在行权价被转让，你错过了行权价以上的涨幅，但你在期权本身上并不会实际亏损。这就是为什么本课程只教备兑看涨期权，绝不教裸卖看涨期权。
 
-[VISUAL: Risk comparison chart: "Naked Call = Unlimited Risk" (red, warning sign), "Covered Call = Limited, Defined Risk" (green, checkmark)]
+[VISUAL: Risk comparison chart: "裸卖看涨期权 = 无限风险" (red, warning sign), "备兑看涨期权 = 有限、明确的风险" (green, checkmark)]
 
-**Sam:** What about puts?
+**Stella（小魚）：** 那看跌期权呢？
 
-**Alex:** If you buy a put, you have the right to sell stock at the strike price. Max loss is the premium. If you sell a put, you have the obligation to buy stock at the strike price. Your max loss is the strike price times 100 minus the premium, which would happen if the stock went to zero. That sounds scary, but if it is a stock you actually want to own, then getting assigned on a put just means you bought the stock at a discount.
+**Horace（陳馬）：** 如果你买入看跌期权，你有权利以行权价卖出股票。最大亏损是期权费。如果你卖出看跌期权，你有义务以行权价买入股票。最大亏损是行权价乘以100减去期权费，发生在股价跌至零的情况下。听起来很吓人，但如果这本就是你想持有的股票，那么在看跌期权上被行权，不过意味着你以折扣价买入了这只股票。
 
-**Sam:** That is actually a really nice way to think about it. You are getting paid to promise to buy a stock you already want.
+**Stella（小魚）：** 这个理解角度真的很棒。你在获得报酬的同时，承诺购买一只你本来就想要的股票。
 
-**Alex:** Exactly. And that is the philosophy behind the cash-secured put strategy we will cover in Week 28.
+**Horace（陳馬）：** 正是。这正是我们将在第28周介绍的现金担保看跌期权策略背后的核心逻辑。
 
-**Sam:** Let us talk about the option chain. When I look at my brokerage account, I see this huge grid of numbers. It is overwhelming.
+**Stella（小魚）：** 我们来聊聊期权链吧。当我打开券商账户，看到那一大张密密麻麻的数字表格，真的让我不知所措。
 
-**Alex:** The option chain is just a listing of all available options for a particular stock. It shows you every available strike price for each expiration date, separated into calls on one side and puts on the other.
+**Horace（陳馬）：** 期权链不过是特定股票所有可用期权的完整列表。它向你展示每个到期日下所有可用的行权价，看涨期权在一侧，看跌期权在另一侧。
 
-[VISUAL: A real-looking option chain table for AAPL, with columns labeled: Bid, Ask, Last, Volume, Open Interest, Strike, and the same columns repeated for puts. The ATM strike is highlighted. ITM options have a shaded background.]
+[VISUAL: A real-looking option chain table for AAPL, with columns labeled: 买价, 卖价, 最新成交, 成交量, 未平仓量, 行权价, and the same columns repeated for 看跌期权. The ATM strike is highlighted. ITM options have a shaded background.]
 
-**Alex:** The key things to look at are the bid and ask prices, which tell you what you can buy and sell for. The volume, which tells you how active that specific option is today. And the open interest, which tells you how many existing contracts are out there. High open interest means the option is liquid and you will get better pricing.
+**Horace（陳馬）：** 重点关注以下几项：买价和卖价，告诉你可以以什么价格买入和卖出；成交量，告诉你今天这份特定期权的活跃程度；以及未平仓量，告诉你市场上有多少份现有合约。未平仓量高，意味着期权流动性好，你能获得更好的定价。
 
-**Sam:** What about the bid-ask spread?
+**Stella（小魚）：** 那买卖价差呢？
 
-**Alex:** The bid-ask spread is the difference between the bid and ask. A tight spread, like $0.05, means low transaction costs. A wide spread, like $0.50, means expensive. On a $3.00 option, a $0.50 spread means you are paying about 17% just to get into the trade. Always check the spread.
+**Horace（陳馬）：** 买卖价差是买价和卖价之间的差额。价差窄，比如$0.05，意味着交易成本低。价差宽，比如$0.50，意味着成本高昂。对于一份$3.00的期权，$0.50的价差意味着你仅为进场就要支付约17%的成本。务必检查价差。
 
-**Sam:** Now I want to ask about American versus European options. Does that matter?
+**Stella（小魚）：** 关于美式期权和欧式期权，这个区别重要吗？
 
-**Alex:** For most individual investors trading stock options, you are dealing with American-style options, which means they can be exercised at any time before expiration. European-style options can only be exercised on the expiration date. Most index options like SPX and NDX are European-style.
+**Horace（陳馬）：** 对于大多数交易个股期权的普通投资者来说，你接触到的是美式期权，可以在到期日之前的任何时间行权。欧式期权只能在到期日当天行权。大多数指数期权，如SPX和NDX，都是欧式期权。
 
-**Sam:** When would someone exercise early?
+**Stella（小魚）：** 什么情况下会有人提前行权呢？
 
-**Alex:** Early exercise is rare but it happens most commonly when there is a dividend coming. If you own a deep in-the-money call on a stock that is about to go ex-dividend, you might exercise early to capture the dividend. Otherwise, it is almost always better to sell the option rather than exercise it, because selling captures both intrinsic and extrinsic value.
+**Horace（陳馬）：** 提前行权比较少见，但最常见于即将到来的股息日。如果你持有一份深度实值看涨期权，而标的股票即将除息，你可能会选择提前行权来捕获股息。除此之外，卖出期权几乎总是优于行权，因为卖出能同时捕获内在价值和外在价值。
 
 [VISUAL: Timeline showing American vs European exercise windows, with American having a full bar across the entire period and European having only a marker at expiration]
 
-**Sam:** Let us talk about why options exist in the first place. What is the purpose?
+**Stella（小魚）：** 我们来聊聊期权存在的意义。它的根本用途是什么？
 
-**Alex:** Three main purposes. First, hedging. Options were originally created so farmers could lock in prices for their crops. Today, portfolio managers use options to protect against market crashes. It is insurance.
+**Horace（陳馬）：** 三大主要用途。第一，对冲。期权最初就是为了让农民锁定农作物价格而创造的。如今，基金经理用期权抵御市场崩溃风险，这就是保险。
 
-**Sam:** Like buying a put on your portfolio?
+**Stella（小魚）：** 就像给投资组合买看跌期权一样？
 
-**Alex:** Exactly. If you own $500,000 in stocks and you are worried about a crash, you can buy puts on SPY or on your individual holdings. If the market drops 30%, your puts gain value and offset your stock losses. The cost of the puts is your insurance premium.
+**Horace（陳馬）：** 完全正确。如果你持有$50万的股票，担心市场崩盘，你可以买入SPY的看跌期权，或者针对你的个股持仓买入相应的看跌期权。若市场下跌30%，你的看跌期权升值，抵消股票损失。看跌期权的成本就是你的保险费。
 
-**Alex:** Second purpose is speculation. Options provide leverage. Instead of buying 100 shares of Apple for $15,500, you can buy one call option for maybe $350 and control those same 100 shares. If Apple goes up 10%, the stock investor makes about $1,550, or 10%. But the option might go up 200% or more.
+**Horace（陳馬）：** 第二种用途是投机。期权提供杠杆。与其花$15,500买入100股苹果公司股票，你可以用大约$350买入一份平值看涨期权，同样控制这100股。如果苹果上涨10%，股票投资者赚约$1,550，涨幅约10%。而期权可能涨200%甚至更多。
 
-**Sam:** But if Apple stays flat or goes down?
+**Stella（小魚）：** 但如果苹果横盘或下跌呢？
 
-**Alex:** The stock investor still has their shares and might only be down temporarily. The option buyer could lose their entire $350. Leverage cuts both ways. That is why speculation with options requires discipline and proper position sizing.
+**Horace（陳馬）：** 股票投资者仍然持有股票，可能只是短暂浮亏。而期权买方可能会损失全部$350。杠杆是把双刃剑。这就是为什么用期权投机需要纪律性和合理的仓位管理。
 
-[VISUAL: Side-by-side comparison: Stock buyer puts in $15,500, options buyer puts in $350. Three scenarios shown: stock up 10%, flat, and down 10%, showing both dollar and percentage returns for each]
+[VISUAL: Side-by-side comparison: 股票买方投入$15,500，期权买方投入$350. Three scenarios shown: 股价上涨10%、横盘、下跌10%，showing both dollar and percentage returns for each]
 
-**Alex:** The third purpose is income generation. This is what we will focus on most. If you own stocks, you can sell covered calls against them. If you have cash and a list of stocks you want to buy, you can sell cash-secured puts. Both strategies generate regular income.
+**Horace（陳馬）：** 第三种用途是创造收入。这也是我们最重点介绍的内容。如果你持有股票，你可以针对它们卖出备兑看涨期权。如果你有现金，并且有一份想买入的股票清单，你可以卖出现金担保看跌期权。两种策略都能定期创造收入。
 
-**Sam:** And the income from options can be significant, right?
+**Stella（小魚）：** 期权创造的收入相当可观，对吗？
 
-**Alex:** It can be. A well-executed covered call strategy on a diversified portfolio can generate 8 to 15 percent annually. Compare that to the average dividend yield of the S&P 500, which is around 1.3 percent. We are talking about potentially 6 to 10 times the income from dividends alone.
+**Horace（陳馬）：** 可以相当可观。执行得当的备兑看涨期权策略，对于一个分散化的投资组合，每年可以创造8%至15%的收益率。相比之下，标普500指数的平均股息率大约只有1.3%。我们说的可能是单纯股息的6至10倍收入。
 
-**Sam:** That is remarkable. Why does not everyone do it?
+**Stella（小魚）：** 这太惊人了。为什么不是每个人都这么做呢？
 
-**Alex:** Because there are tradeoffs. Covered calls cap your upside. If the stock rockets higher, you miss out on gains above the strike price. Cash-secured puts require you to buy the stock if it drops, which means you take on the downside risk. There is no free lunch. But for investors with the right temperament and the right portfolio, these strategies can significantly enhance returns.
+**Horace（陳馬）：** 因为有得必有失。备兑看涨期权会封住你的上行空间。如果股票暴涨，行权价以上的涨幅你就享受不到了。现金担保看跌期权要求你在股价下跌时买入股票，意味着你承担了下行风险。天下没有免费的午餐。但对于心态合适、持仓结构合理的投资者来说，这些策略可以显著提升收益。
 
-[VISUAL: Bar chart comparing income sources: "Dividends Only: ~1.3%/year" vs "Dividends + Options Income: ~9-16%/year"]
+[VISUAL: Bar chart comparing income sources: "仅靠股息：约1.3%/年" vs "股息 + 期权收入：约9-16%/年"]
 
-**Sam:** Before we wrap up, can we talk about what makes option pricing work? Like, why does an option cost what it costs?
+**Stella（小魚）：** 在结束之前，我们能聊聊期权定价的原理吗？就是为什么一份期权的定价是它现在这个价格？
 
-**Alex:** Six main factors. The stock price relative to the strike, which determines intrinsic value. The time to expiration, more time means more premium. Implied volatility, which is the market's expectation of how much the stock will move. Interest rates, which have a minor effect. Dividends, which affect calls and puts differently. And the strike price itself.
+**Horace（陳馬）：** 六个主要因素。股价相对于行权价的位置，决定内在价值。距到期日的时间，时间越长期权费越高。隐含波动率，即市场对股票将移动多少幅度的预期。利率，影响相对较小。股息，对看涨和看跌期权的影响方向不同。还有行权价本身。
 
-**Sam:** Implied volatility sounds important. Can you explain it simply?
+**Stella（小魚）：** 隐含波动率听起来很重要。能简单解释一下吗？
 
-**Alex:** Think of it this way. If a stock has been moving 1% per day on average, options will be priced for that level of movement. But if the company has earnings coming up next week and everyone expects a big move, the options will get more expensive because the market expects 3-4% movement. That higher expected movement is reflected in higher implied volatility.
+**Horace（陳馬）：** 这样理解：如果一只股票平均每天移动1%，期权定价就会反映这个波动水平。但如果该公司下周要发布财报，市场预期会出现大幅波动，期权就会变贵，因为市场预期股价可能移动3%至4%。这种更高的预期波动，就体现在更高的隐含波动率上。
 
-**Sam:** So options before earnings are expensive?
+**Stella（小魚）：** 所以财报前的期权很贵？
 
-**Alex:** Very expensive. And right after earnings, implied volatility collapses, a phenomenon called IV crush. This is why buying options before earnings is generally a losing strategy. Even if you are right about the direction, the IV crush can eat up your profits.
+**Horace（陳馬）：** 非常贵。财报发布后，隐含波动率会骤然下跌，这种现象称为"波动率坍缩"。这就是为什么在财报前买入期权通常是一笔亏钱的买卖。即使你判断方向正确，波动率坍缩也可能吃掉你的盈利。
 
-[VISUAL: Graph showing implied volatility building up before an earnings date, then sharply dropping. Label: "IV Crush" at the drop point. Shows option price declining despite stock moving in the right direction]
+[VISUAL: Graph showing implied volatility building up before an earnings date, then sharply dropping. Label: "波动率坍缩" at the drop point. Shows option price declining despite stock moving in the right direction]
 
-**Sam:** That is a trap a lot of beginners fall into, I bet.
+**Stella（小魚）：** 这肯定是很多初学者踩的坑。
 
-**Alex:** One of the most common traps. We will teach you how to be on the right side of that trade.
+**Horace（陳馬）：** 最常见的坑之一。我们会教你如何站在正确的那一侧。
 
-**Sam:** So to summarize today's lesson: options are contracts that give buyers rights and sellers obligations. There are calls for bullish bets and puts for bearish bets or protection. Every option has a strike price, expiration date, and type. Options are priced based on intrinsic value and extrinsic value, and extrinsic value decays over time. And the three main uses are hedging, speculation, and income generation.
+**Stella（小魚）：** 那我来总结一下今天的内容：期权是赋予买方权利、卖方义务的合约；看涨期权用于看涨押注，看跌期权用于看跌押注或风险保护；每份期权都有行权价、到期日和类型；期权价格由内在价值和外在价值构成，外在价值随时间流逝而衰减；三大核心用途分别是对冲、投机和创造收入。
 
-**Alex:** Perfect summary. And the key takeaway for our course is that we will focus on selling options for income, specifically covered calls and cash-secured puts. These are conservative strategies where time decay works in our favor.
+**Horace（陳馬）：** 总结得非常完整。本课程的核心要点是：我们将专注于以卖出期权的方式创造收入，具体包括备兑看涨期权和现金担保看跌期权。这些都是保守型策略，时间价值衰减对我们有利。
 
-**Sam:** I am actually excited about this. It seems much less scary than I expected.
+**Stella（小魚）：** 我现在其实有点兴奋了。感觉比我预期的要好理解得多。
 
-**Alex:** That is the goal. In the next lesson, we are going to look at one of my favorite mental models: options as conditional orders. It will change the way you think about selling puts and calls forever.
+**Horace（陳馬）：** 这正是我们的目标。下一节课，我们将介绍我最喜欢的一个思维模型：把期权理解为条件委托单。这会彻底改变你对卖出看跌期权和看涨期权的思考方式。
 
-[VISUAL: Preview slide for Week 26 with text "Next Week: Options as Conditional Orders - Rethinking How You Buy and Sell Stocks"]
+[VISUAL: Preview slide for Week 26 with text "下周预告：期权作为条件委托单 - 重新理解买卖股票的方式"]
 
-**Sam:** Can not wait. See everyone next week.
+**Stella（小魚）：** 在结束之前，我们来做一个快问快答环节吧？我有几个来自观众的速问题。
 
-**Alex:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 26.
+**Horace（陳馬）：** 来吧。
+
+**Stella（小魚）：** 第一问：期权可以在盘后交易吗？
+
+**Horace（陳馬）：** 不行。期权只在正常交易时段内交易，即东部时间上午9:30至下午4:00。部分指数期权有延伸交易时段，但股票期权只能在正常交易时段内交易。
+
+**Stella（小魚）：** 我可以同时买入一份期权并卖出另一份吗？
+
+**Horace（陳馬）：** 可以，这类操作称为价差策略，包括牛市看涨价差、熊市看跌价差、铁鹰策略等，都是多腿策略。本课程不涉及这些内容，因为它们更复杂，但都是常见的中级策略。
+
+**Stella（小魚）：** 期权交易的最低账户规模是多少？
+
+**Horace（陳馬）：** 没有统一的最低门槛，但大多数券商要求开立基础期权账户需要$2,000至$5,000。卖出现金担保看跌期权，需要足够的现金来购买行权价对应的100股股票。买入期权，只需支付期权费即可。我建议在开始操作备兑看涨期权或现金担保看跌期权时，账户规模至少达到$10,000。
+
+**Stella（小魚）：** 所有股票都可以做期权吗？
+
+**Horace（陳馬）：** 不是所有股票都有期权。股票需要在交易所上市，并满足股价、成交量和流通股规模的最低要求。大多数大盘股都有期权，许多小盘股则没有。你的券商会显示哪些股票有期权可供交易。
+
+**Stella（小魚）：** 最后一问：对于期权初学者，最重要的一件事是什么？
+
+**Horace（陳馬）：** 在进入任何一笔交易之前，先弄清楚你的最大亏损是多少。买入期权，最大亏损是期权费。卖出期权，计算最坏情况，确保自己能够承受。仓位管理和风险控制，比任何策略都重要。
+
+**Stella（小魚）：** 很好的建议。谢谢大家，我们下周见。
+
+**Horace（陳馬）：** 感谢收看。如果你觉得有所收获，请点赞并订阅。第26周见。
 
 [VISUAL: End screen with subscribe button, playlist link to Level 3: Options series, and social media handles]
 
 ---
 
-*Animation Reference: animation/week25_option_payoff.py - This animation builds an interactive payoff diagram for call and put options. Users can adjust the strike price and premium to see how the payoff profile changes. The animation also includes a time decay visualization showing how extrinsic value erodes as expiration approaches, with the decay curve accelerating in the final 30 days.*
+*动画参考：animation/week25_option_payoff.py — 该动画构建了一个看涨期权和看跌期权的交互式收益图。用户可以调整行权价和期权费，观察收益曲线的变化。动画还包括时间价值衰减的可视化演示，展示外在价值如何随到期日临近而侵蚀，衰减曲线在最后30天内急剧加速。*

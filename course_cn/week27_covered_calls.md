@@ -1,82 +1,76 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第27周：备兑看涨期权增收策略
 
-# Week 27: Covered Calls for Income
+## 阅读材料
 
-## Reading Section
+### a）为何重要
 
-### a) Why This Is Important
+备兑看涨期权是全球使用最广泛的期权策略之一，且有充分的理由。它能让你从已持有的股票中创造收入，相当于创造一种"合成股息"，其收益率往往远超单纯股息。大型养老基金、捐赠基金和机构投资者都将备兑看涨期权作为核心收入策略的组成部分。它并不深奥，也不带有投机性，而是一种经过深入理解、有章可循的投资组合收益增强方式。
 
-A covered call is one of the most widely used options strategies in the world, and for good reason. It allows you to generate income from stocks you already own, effectively creating a "synthetic dividend" that can produce yields far exceeding what dividends alone provide. Major pension funds, endowments, and institutional investors use covered calls as a core part of their income strategies. It is not exotic. It is not speculative. It is a disciplined, well-understood approach to enhancing portfolio returns.
+**现代投资中的收入难题：** 标普500指数的平均股息收益率已从1980年代的逾4%降至如今的约1.3%。对于持有50万美元投资组合的投资者而言，每年仅能获得6,500美元的股息收入。许多退休人士和收益型投资者认为这远远不够。备兑看涨期权每年可额外创造6%至12%的收益，有望将那6,500美元变成每年36,500至66,500美元，且无需改变底层投资组合。
 
-**The income problem in modern investing:** The average dividend yield of the S&P 500 has fallen from over 4% in the 1980s to approximately 1.3% today. For an investor with a $500,000 portfolio, that is only $6,500 per year in dividend income. Many retirees and income-focused investors find this insufficient. Covered calls can generate an additional 6-12% annually, potentially turning that $6,500 into $36,500-$66,500 per year without changing the underlying portfolio.
+**为何每位股票投资者都应了解备兑看涨期权：**
 
-**Why covered calls are important for every stock investor:**
+1. **收入增强：** 对于股息收益率为1.5%的股票，叠加备兑看涨期权后，总收益率可提升至8%至15%。这对收益型投资者而言极具价值。
 
-1. **Income Enhancement:** On a stock yielding 1.5% in dividends, adding covered calls can bring total yield to 8-15%. This is transformative for income investors.
+2. **下行缓冲：** 收取的期权费可作为抵御价格下跌的小型缓冲垫。若你收取了2美元的期权费，而股票下跌了1美元，你仍比单纯持股更占优势。
 
-2. **Downside Cushion:** The premium received acts as a small buffer against price declines. If you collect $2 in premium and the stock drops $1, you still come out ahead versus holding without the call.
+3. **纪律性卖出：** 备兑看涨期权迫使你提前思考退出价格，从而避免无限期持股、毫无卖出计划这一常见错误。
 
-3. **Disciplined Selling:** Covered calls force you to think about your exit price in advance. This prevents the common mistake of holding a stock indefinitely without any sell plan.
+4. **降低投资组合波动性：** 研究表明，备兑看涨期权策略的投资组合波动性低于纯多头股票投资组合。芝加哥期权交易所买入-卖出指数（BXM）历史上提供了与标普500相近的收益，但波动性低约30%。
 
-4. **Portfolio Volatility Reduction:** Studies show that covered call strategies have lower portfolio volatility than long-only stock portfolios. The CBOE BuyWrite Index (BXM) has historically delivered similar returns to the S&P 500 with about 30% less volatility.
+5. **适用于强劲上涨之外的所有市场：** 在横盘、小幅下跌和温和上涨的市场中，备兑看涨期权均优于买入持有策略。唯一落后的情形是强劲持续上涨时，上行收益的封顶成为显著的代价。
 
-5. **Works in All Markets Except Strong Rallies:** Covered calls outperform buy-and-hold in flat markets, slightly down markets, and mildly bullish markets. The only scenario where they lag is in a strong, sustained rally where the cap on upside becomes a significant cost.
-
-This lesson will teach you the complete mechanics of covered calls: how they work, how to select strike prices and expirations, how to calculate your yield, when to use them, and how to manage the strategy over time.
+本课将完整讲授备兑看涨期权的机制：运作原理、行权价与到期日的选择、收益率计算方法、适用时机，以及长期管理策略。
 
 ---
 
-### b) What You Need to Know
+### b）核心知识点
 
-#### What Is a Covered Call?
+#### 什么是备兑看涨期权？
 
-A **covered call** is a two-part position:
+**备兑看涨期权**是一个由两部分组成的头寸：
 
-1. **Own 100 shares** of a stock (the "covered" part)
-2. **Sell 1 call option** on that stock (the "call" part)
+1. **持有100股**某股票（"备兑"部分）
+2. **卖出1份**该股票的看涨期权（"看涨期权"部分）
 
-The call is "covered" because you own the shares needed to fulfill your obligation if the buyer exercises. This is what makes it a conservative strategy. You are not making a naked promise; you already have the goods to deliver.
+这份看涨期权之所以是"备兑"的，是因为你已持有在买方行权时用于交割的股票。这正是它成为保守策略的原因——你并非在做出空头承诺，你已备好可交付的货物。
 
 ```
-COVERED CALL STRUCTURE:
+备兑看涨期权结构：
 
   +------------------------------------------+
-  |  POSITION:                               |
+  |  头寸：                                   |
   |                                          |
-  |  LONG:   100 shares of AAPL at $155      |
-  |  SHORT:  1 AAPL $170 Call, 30 days out   |
-  |          Premium received: $2.50/share   |
+  |  多头：   100股苹果公司（AAPL），成本$155  |
+  |  空头：   1份AAPL $170看涨期权，30天后到期 |
+  |          收取期权费：$2.50/股             |
   |                                          |
-  |  NET EFFECT:                             |
-  |  - You own the stock (benefit from       |
-  |    appreciation up to $170)              |
-  |  - You collected $250 in premium         |
-  |  - If AAPL goes above $170, your shares  |
-  |    are "called away" (sold at $170)      |
-  |  - If AAPL stays below $170, you keep    |
-  |    shares and premium                    |
+  |  实际效果：                               |
+  |  - 持有股票（享有涨至$170前的升值收益）    |
+  |  - 已收取$250期权费                       |
+  |  - 若AAPL涨超$170，股票被"买走"          |
+  |    （以$170卖出）                         |
+  |  - 若AAPL维持$170以下，保留股票及期权费   |
   +------------------------------------------+
 ```
 
-#### The Payoff Diagram
+#### 收益图
 
-The payoff diagram for a covered call shows a unique shape that is capped on the upside but cushioned on the downside:
+备兑看涨期权的收益图呈现独特形态——上行收益有顶、下行有一定缓冲：
 
 ```
-  Profit/Loss
-  Per Share ($)
+  每股盈亏（美元）
     |
     |
- +17.50|. . . . . . . . . . . . . . . . . .************  Max profit
+ +17.50|. . . . . . . . . . . . . . . . . .************  最大盈利
     |                                   ****              ($170-$155+$2.50)
  +10.00|                              ***
     |                            ***
   +5.00|                        ***
     |                      ***
-  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  Premium cushion
+  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  期权费缓冲
     |              ***
-   0.00|----------**---------- Stock Price at Expiration -->
+   0.00|----------**---------- 到期时股价 -->
     |        ***
   -5.00|     ***
     |    **
@@ -87,855 +81,851 @@ The payoff diagram for a covered call shows a unique shape that is capped on the
     +---|---|---|---|---|---|---|---|---|---
        135  140  145  150  155  160  165  170  175  180
 
-  Key Points:
-  - Max profit = $17.50/share (at $170 or above)
-    ($170 strike - $155 cost + $2.50 premium)
-  - Breakeven = $152.50 ($155 cost - $2.50 premium)
-  - The premium shifts the breakeven DOWN by $2.50
-  - Above $170: Profit is CAPPED (shares called away)
-  - Below $152.50: Net loss (but $2.50 better than stock alone)
+  关键点：
+  - 最大盈利 = $17.50/股（$170或以上时）
+    （$170行权价 - $155成本 + $2.50期权费）
+  - 盈亏平衡点 = $152.50（$155成本 - $2.50期权费）
+  - 期权费将盈亏平衡点下移$2.50
+  - $170以上：盈利封顶（股票被买走）
+  - $152.50以下：净亏损（但比单纯持股多$2.50）
 
-  Comparison to holding stock without covered call:
-  - Below $155: Covered call loses LESS (premium cushion)
-  - $155 to $170: Covered call earns MORE (premium added)
-  - Above $172.50: Stock alone earns MORE (no cap)
+  与不卖备兑看涨期权的单纯持股对比：
+  - $155以下：备兑看涨期权亏损更少（期权费缓冲）
+  - $155至$170：备兑看涨期权盈利更多（叠加期权费）
+  - $172.50以上：单纯持股盈利更多（无封顶）
 ```
 
-The covered call outperforms the stock in two out of three scenarios. It underperforms only when the stock makes a large upward move. This is the core tradeoff: you sacrifice unlimited upside for steady income and downside protection.
+在三种情景中，备兑看涨期权有两种优于单纯持股。唯有股票大幅上涨时才会落后。这正是核心取舍：以无限上行潜力换取稳定收入和下行保护。
 
-#### Mechanics: Step by Step
+#### 操作步骤详解
 
-**Step 1: Own 100 shares (or multiples of 100)**
+**第一步：持有100股（或100的整数倍）**
 
-You must own at least 100 shares of the stock to sell 1 covered call. For 2 contracts, you need 200 shares, and so on. You cannot sell fractional contracts.
-
-```
-Shares Owned    Calls You Can Sell
-============    ==================
-100             1 contract
-200             2 contracts
-300             3 contracts
-500             5 contracts
-1,000           10 contracts
-```
-
-**Step 2: Select the strike price**
-
-The strike price is your "conditional sell price." If the stock reaches this price, your shares will be called away.
+卖出1份备兑看涨期权，须至少持有100股该股票。卖2份合约须持有200股，以此类推，不可卖出零散合约。
 
 ```
-STRIKE PRICE SELECTION GUIDE:
-
-Stock Price: $155
-
-  Conservative (far OTM):     $175-$180 strike (13-16% above)
-    - Lower premium ($0.50-$1.00)
-    - Very unlikely to be called away (<5%)
-    - Lower annualized yield (3-6%)
-    - Best when: You are very bullish and want to keep shares
-
-  Moderate (moderately OTM):  $165-$170 strike (6-10% above)
-    - Moderate premium ($1.50-$3.00)
-    - Moderate chance of assignment (10-20%)
-    - Good annualized yield (8-15%)
-    - Best when: Mildly bullish, want balance of income and upside
-
-  Aggressive (near ATM):      $155-$160 strike (0-3% above)
-    - Higher premium ($3.50-$5.50)
-    - High chance of assignment (30-50%)
-    - Highest annualized yield (15-30%)
-    - Best when: Neutral outlook, prioritize income over appreciation
+持股数量    可卖合约数
+========    ==========
+100         1份
+200         2份
+300         3份
+500         5份
+1,000       10份
 ```
 
-**Step 3: Select the expiration date**
+**第二步：选择行权价**
+
+行权价是你的"条件性卖出价格"。若股票触及此价格，你的股票将被买走。
 
 ```
-EXPIRATION SELECTION:
+行权价选择指南：
 
-  Weekly (5-7 days):
-    Pros: Fast turnover, high annualized yield if repeated
-    Cons: Very small premium per trade, high management effort
-    Yield per trade: 0.3-0.5%
-    Management: Weekly attention required
+股价：$155
 
-  Monthly (25-35 days):    <--- RECOMMENDED
-    Pros: Good premium, reasonable management schedule
-    Cons: Moderate time commitment
-    Yield per trade: 1.0-2.5%
-    Management: Monthly check-ins
+  保守型（深度虚值）：     $175-$180行权价（高出13%-16%）
+    - 期权费较低（$0.50-$1.00）
+    - 被买走概率极低（<5%）
+    - 年化收益率较低（3%-6%）
+    - 适用：看涨情绪强烈、希望保留股票时
 
-  45 Days:                 <--- ALSO EXCELLENT
-    Pros: Optimal theta decay zone, good premium
-    Cons: Slightly longer capital commitment
-    Yield per trade: 1.5-3.5%
-    Management: Close at 50% profit, typically around day 21
+  均衡型（适度虚值）：     $165-$170行权价（高出6%-10%）
+    - 期权费适中（$1.50-$3.00）
+    - 被买走概率适中（10%-20%）
+    - 年化收益率良好（8%-15%）
+    - 适用：温和看涨、兼顾收入与上行空间时
 
-  60-90 Days:
-    Pros: Higher total premium, less frequent management
-    Cons: Slower theta decay, more exposure to earnings events
-    Yield per trade: 2.5-5.0%
-    Management: Biweekly check-ins
+  进取型（接近平值）：     $155-$160行权价（高出0%-3%）
+    - 期权费较高（$3.50-$5.50）
+    - 被买走概率较高（30%-50%）
+    - 年化收益率最高（15%-30%）
+    - 适用：中性预期、优先追求收入而非升值时
 ```
 
-**Step 4: Sell the call**
-
-On your brokerage platform, you will see options listed under "Sell to Open." You select the expiration date and strike price, choose "Sell" (not "Buy"), and submit the order. The premium is credited to your account immediately.
-
-**Step 5: Wait and manage**
-
-After selling the call, you have three possible management actions:
+**第三步：选择到期日**
 
 ```
-MANAGEMENT DECISION TREE:
+到期日选择：
 
-  Option is losing value (stock flat or declining):
-    -> GOOD: Time decay is working in your favor
-    -> Action: Wait, or buy back at 50-75% profit and sell a new one
+  周期权（5-7天）：
+    优点：周转快，重复操作年化收益率高
+    缺点：单次期权费极低，管理频率高
+    单次收益率：0.3%-0.5%
+    管理要求：每周关注
+
+  月度期权（25-35天）：    <--- 推荐
+    优点：期权费充足，管理周期合理
+    缺点：需一定时间投入
+    单次收益率：1.0%-2.5%
+    管理要求：每月核查
+
+  45天期权：               <--- 同样优秀
+    优点：处于时间价值衰减最佳区间，期权费良好
+    缺点：资金占用时间稍长
+    单次收益率：1.5%-3.5%
+    管理要求：盈利50%时平仓，通常约在第21天
+
+  60-90天期权：
+    优点：总期权费较高，管理频率较低
+    缺点：时间价值衰减较慢，更多暴露于财报风险
+    单次收益率：2.5%-5.0%
+    管理要求：每两周核查
+```
+
+**第四步：卖出看涨期权**
+
+在券商平台上，于期权列表中选择"卖出开仓"（Sell to Open）。选定到期日和行权价，选择"卖出"（而非"买入"），提交订单。期权费将立即计入你的账户。
+
+**第五步：等待与管理**
+
+卖出期权后，共有三种可能的管理操作：
+
+```
+管理决策树：
+
+  期权在贬值（股票横盘或下跌）：
+    -> 良好：时间价值衰减正在为你发挥作用
+    -> 操作：等待，或盈利50%-75%时买回并卖出新期权
   
-  Option is gaining value (stock rising toward strike):
-    -> Monitor: Is stock likely to exceed strike by expiration?
-    -> If YES and you are OK selling: Let it ride, accept assignment
-    -> If YES and you want to keep shares: Roll the position (see below)
-    -> If NO: Wait for expiration
+  期权在升值（股票上涨接近行权价）：
+    -> 关注：到期前股票是否可能超过行权价？
+    -> 若是且接受卖出：持仓不动，接受被买走
+    -> 若是但想保留股票：展期（详见下文）
+    -> 若否：等待到期
   
-  Expiration is approaching:
-    -> If stock is below strike: Let option expire worthless, sell new one
-    -> If stock is near strike: Decide whether to accept assignment or roll
-    -> If stock is above strike: Accept assignment or roll up and out
+  临近到期日：
+    -> 若股价低于行权价：让期权自然到期失效，再卖新期权
+    -> 若股价接近行权价：决定接受被买走还是展期
+    -> 若股价高于行权价：接受被买走或向上展期
 ```
 
-#### Calculating Your Yield
+#### 计算你的收益率
 
-Understanding your potential return is essential for comparing covered calls to other income strategies.
+理解潜在回报对于将备兑看涨期权与其他收入策略进行比较至关重要。
 
-**Per-Trade Yield:**
-
-```
-Premium Yield = (Premium Received / Stock Price) x 100
-
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Yield: $2.50 / $155 = 1.61%
-```
-
-**Annualized Yield:**
+**单次收益率：**
 
 ```
-Annualized Yield = (Premium / Stock Price) x (365 / Days to Expiration) x 100
+期权费收益率 = （收取期权费 / 股价）× 100
 
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Days to expiration: 30
-  Annualized: ($2.50 / $155) x (365 / 30) x 100 = 19.6%
+示例：
+  股价：$155
+  看涨期权期权费：$2.50
+  收益率：$2.50 / $155 = 1.61%
 ```
 
-**If-Called Return (total return if shares are called away):**
+**年化收益率：**
 
 ```
-If-Called Return = [(Strike - Cost Basis + Premium) / Cost Basis] x 100
+年化收益率 = （期权费 / 股价）×（365 / 到期天数）× 100
 
-Example:
-  Cost basis: $145 (bought shares at $145)
-  Current stock: $155
-  Strike: $170
-  Premium: $2.50
-  Days: 30
-
-  If-Called Return = [($170 - $145 + $2.50) / $145] x 100 = 18.97%
-  Annualized If-Called = 18.97% x (365/30) = 230.7% (annualized)
-
-  Note: The annualized if-called number can look unrealistically large
-  for short timeframes. It is most useful for comparing relative
-  attractiveness of different strikes and expirations.
+示例：
+  股价：$155
+  看涨期权期权费：$2.50
+  到期天数：30天
+  年化：（$2.50 / $155）×（365 / 30）× 100 = 19.6%
 ```
 
-**Return Comparison Table:**
+**被买走总回报（股票被买走时的总收益率）：**
 
 ```
-COVERED CALL INCOME vs. DIVIDENDS
-(on a $100,000 stock portfolio)
+被买走总回报 = [（行权价 - 成本基础 + 期权费）/ 成本基础] × 100
 
-+-------------------------------------------------------------+
-| SOURCE              | ANNUAL YIELD | ANNUAL INCOME           |
-+-------------------------------------------------------------+
-| Dividends only      | 1.5%         | $1,500                  |
-| Covered calls only  | 8-12%        | $8,000 - $12,000        |
-| Combined            | 9.5-13.5%    | $9,500 - $13,500        |
-+-------------------------------------------------------------+
+示例：
+  成本基础：$145（以$145买入股票）
+  当前股价：$155
+  行权价：$170
+  期权费：$2.50
+  天数：30天
 
-Covered calls can produce 5-8x the income of dividends alone.
+  被买走总回报 = [($170 - $145 + $2.50) / $145] × 100 = 18.97%
+  年化被买走回报 = 18.97% × (365/30) = 230.7%（年化）
 
-Monthly Income Comparison:
-  Dividends: $1,500/12 = $125/month
-  With Covered Calls: $9,500/12 = $792/month  (or higher)
+  注意：短期的年化被买走收益数字可能看起来不切实际地高。
+  它最适合用于比较不同行权价和到期日的相对吸引力。
 ```
 
-#### When Covered Calls Work Best
-
-The covered call strategy is not a one-size-fits-all solution. It excels in specific market conditions:
+**收益对比表：**
 
 ```
-MARKET CONDITION        | COVERED CALL    | STOCK ALONE
-                        | PERFORMANCE     | PERFORMANCE
-========================|=================|================
-Flat/Sideways Market    | EXCELLENT       | Poor (no gains)
-                        | Premium = income| Just dividends
-                        |                 |
-Mildly Bullish (+5%)   | VERY GOOD       | Good
-                        | Gains + premium | Just gains
-                        |                 |
-Mildly Bearish (-5%)   | GOOD            | Poor
-                        | Premium cushion | Loss
-                        |                 |
-Strongly Bullish (+20%)| FAIR            | EXCELLENT
-                        | Capped at strike| Full upside
-                        |                 |
-Strongly Bearish (-20%)| POOR (but       | VERY POOR
-                        | better than     | Full loss
-                        | stock alone)    |
+备兑看涨期权收入 vs. 股息
+（基于10万美元股票投资组合）
 
-Summary: Covered calls outperform in 3 out of 5 market scenarios.
-They underperform only in strong rallies.
++----------------------------------------------------------+
+| 来源               | 年化收益率 | 年度收入                |
++----------------------------------------------------------+
+| 仅股息             | 1.5%       | $1,500                  |
+| 仅备兑看涨期权     | 8%-12%     | $8,000 - $12,000        |
+| 两者合计           | 9.5%-13.5% | $9,500 - $13,500        |
++----------------------------------------------------------+
+
+备兑看涨期权可创造单纯股息5至8倍的收入。
+
+月度收入对比：
+  仅股息：$1,500/12 = $125/月
+  叠加备兑看涨期权：$9,500/12 = $792/月（或更高）
 ```
 
-The ideal environment for covered calls is a stock that is moving sideways or grinding slowly higher. In these conditions, the premium income is "free money" because the stock rarely reaches the strike price. This is also why covered calls are popular during periods of high implied volatility but low actual movement (high IV, low realized volatility).
+#### 备兑看涨期权最适用的情形
 
-#### The Risk of Assignment
-
-Assignment occurs when the call buyer exercises their right, requiring you to sell your shares at the strike price. Let us demystify this:
+备兑看涨期权并非万能策略，它在特定市场环境中表现最为出色：
 
 ```
-ASSIGNMENT: WHAT ACTUALLY HAPPENS
+市场状况           | 备兑看涨期权   | 单纯持股
+                   | 表现          | 表现
+===================|===============|================
+横盘/震荡市场      | 极佳          | 较差（无收益）
+                   | 期权费=收入   | 仅有股息
+                   |               |
+温和上涨（+5%）   | 非常好        | 良好
+                   | 资本利得+期权费| 仅资本利得
+                   |               |
+温和下跌（-5%）   | 良好          | 较差
+                   | 期权费缓冲    | 亏损
+                   |               |
+大幅上涨（+20%）  | 一般          | 极佳
+                   | 被行权价封顶  | 享有全部上行
+                   |               |
+大幅下跌（-20%）  | 较差（但仍    | 极差
+                   | 优于单纯持股）| 全额亏损
 
-Before Assignment:
-  Account: 100 shares AAPL ($15,500 value)
-           Short 1 AAPL $170 Call
-           Cash: $250 (premium received)
-
-After Assignment:
-  Account: 0 shares AAPL
-           No option position
-           Cash: $17,250 ($17,000 from sale + $250 premium)
-
-Net Result:
-  Sold 100 shares at $170 = $17,000
-  Plus premium received = $250
-  Total proceeds = $17,250
-  Original cost (at $155) = $15,500
-  Total profit = $1,750 (11.3%)
-
-This is a GOOD OUTCOME. You sold at your target price.
+总结：备兑看涨期权在5种市场情景中的3种优于买入持有。
+仅在强劲上涨时落后。
 ```
 
-**When does assignment happen?**
+备兑看涨期权最理想的环境，是股票横盘震荡或缓慢温和上涨。在此条件下，期权费收入几乎是"无风险收益"，因为股价很少触及行权价。这也是为何备兑看涨期权在隐含波动率高但实际波动率低（高隐含波动率、低实现波动率）的时期尤为受欢迎。
 
-- Most commonly at expiration if the option is in the money.
-- Occasionally before expiration ("early assignment"), usually just before an ex-dividend date.
-- Almost never happens when the option is out of the money.
+#### 被买走风险
 
-**Early Assignment:**
-
-Early assignment is rare but can happen. The most common trigger is an upcoming dividend. If the call is deep in the money and the dividend is larger than the remaining extrinsic value, the call buyer may exercise early to capture the dividend. You can largely avoid early assignment by:
-
-1. Not selling calls that are deep in the money.
-2. Being aware of ex-dividend dates.
-3. If you are concerned, buying back the call before the ex-dividend date.
+被买走（Assignment）发生于看涨期权买方行权，要求你以行权价卖出股票。让我们来揭开它的神秘面纱：
 
 ```
-EARLY ASSIGNMENT RISK ASSESSMENT:
+被买走：实际发生了什么
 
-  Extrinsic value remaining in the call: $0.80
-  Upcoming dividend: $0.65
+被买走前：
+  账户：100股苹果公司（AAPL）（价值$15,500）
+        空头1份AAPL $170看涨期权
+        现金：$250（已收期权费）
 
-  Extrinsic > Dividend ($0.80 > $0.65):
-    -> Early assignment UNLIKELY (buyer would lose $0.15 by exercising)
+被买走后：
+  账户：0股苹果公司
+        无期权头寸
+        现金：$17,250（卖股所得$17,000 + 期权费$250）
 
-  Extrinsic < Dividend ($0.30 < $0.65):
-    -> Early assignment POSSIBLE (buyer gains $0.35 by exercising)
+净结果：
+  以$170卖出100股 = $17,000
+  加已收期权费 = $250
+  总所得 = $17,250
+  原始成本（以$155计）= $15,500
+  总盈利 = $1,750（11.3%）
+
+这是一个良好结果。你以目标价卖出了股票。
 ```
 
-#### Rolling Covered Calls
+**何时发生被买走？**
 
-**Rolling** means closing your current call position and opening a new one. This is how you manage covered calls that are challenged (stock approaching or exceeding the strike price).
+- 最常见：到期时期权处于实值状态。
+- 偶尔：到期前提前被买走（"提前行权"），通常发生在除息日前夕。
+- 几乎不会：期权虚值时不会发生被买走。
 
-There are three types of rolls:
+**提前行权：**
+
+提前行权较为罕见，但确实会发生。最常见的触发因素是即将到来的股息。若看涨期权深度实值且股息大于剩余时间价值，期权买方可能提前行权以获取股息。你可以通过以下方式基本规避提前行权风险：
+
+1. 不卖出深度实值的看涨期权。
+2. 留意除息日。
+3. 若有顾虑，在除息日前买回看涨期权。
 
 ```
-ROLLING STRATEGIES:
+提前行权风险评估：
 
-1. ROLL OUT (Same Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $170 Call, April expiry (sell)
+  看涨期权剩余时间价值：$0.80
+  即将到来的股息：$0.65
+
+  时间价值 > 股息（$0.80 > $0.65）：
+    -> 提前行权可能性低（买方行权将损失$0.15）
+
+  时间价值 < 股息（$0.30 < $0.65）：
+    -> 提前行权存在可能（买方行权可获$0.35）
+```
+
+#### 展期备兑看涨期权
+
+**展期**是指平仓当前期权头寸，同时开立新头寸。这是在受到挑战时（股价接近或超过行权价）管理备兑看涨期权的方式。
+
+展期分三种类型：
+
+```
+展期策略：
+
+1. 向后展期（相同行权价，更晚到期日）
+   平仓：AAPL $170看涨期权，3月到期（买回）
+   开仓：AAPL $170看涨期权，4月到期（卖出）
    
-   Purpose: Extend time, collect additional premium
-   When: Stock is near strike, you want to keep shares a bit longer
-   Net credit: Usually $0.50-$2.00 per share
+   目的：延长时间，收取额外期权费
+   适用：股价接近行权价，想多持有一段时间
+   净收入：通常每股$0.50-$2.00
 
-2. ROLL UP AND OUT (Higher Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $180 Call, April expiry (sell)
+2. 向上向后展期（更高行权价，更晚到期日）
+   平仓：AAPL $170看涨期权，3月到期（买回）
+   开仓：AAPL $180看涨期权，4月到期（卖出）
    
-   Purpose: Raise the selling price, extend time
-   When: Stock has rallied, you want more upside room
-   Net credit: May be a small credit or even a debit
+   目的：提高卖出价格，延长时间
+   适用：股票已上涨，希望保留更多上行空间
+   净收入：可能是小额净收入，也可能净付出
    
-3. ROLL DOWN (Lower Strike, Same or Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back for cheap)
-   Open:  AAPL $160 Call, March or April expiry (sell for more)
+3. 向下展期（更低行权价，相同或更晚到期日）
+   平仓：AAPL $170看涨期权，3月到期（低价买回）
+   开仓：AAPL $160看涨期权，3月或4月到期（卖出更多）
    
-   Purpose: Collect more premium after stock declined
-   When: Stock has dropped, $170 call is nearly worthless
-   Net credit: Usually $1.00-$4.00 per share
+   目的：在股价下跌后收取更多期权费
+   适用：股票下跌，$170看涨期权几近一文不值
+   净收入：通常每股$1.00-$4.00
 ```
 
-**Rolling Example:**
+**展期示例：**
 
 ```
-ROLL UP AND OUT EXAMPLE:
+向上向后展期示例：
 
-Original position:
-  Own 100 AAPL at $155
-  Sold $170 Call, March expiry, for $2.50 (received $250)
+原始头寸：
+  持有100股AAPL，成本$155
+  以$2.50卖出$170看涨期权，3月到期（收取$250）
   
-Stock rallies to $172. The $170 call is now worth $5.00.
+股价上涨至$172，$170看涨期权现价约$5.00。
 
-Without rolling: Shares called away at $170.
-  Profit: $170 - $155 + $2.50 = $17.50/share ($1,750)
+不展期：股票在$170被买走。
+  盈利：$170 - $155 + $2.50 = $17.50/股（$1,750）
 
-With rolling:
-  Buy back $170 March Call at $5.00 (pay $500)
-  Sell $180 April Call at $3.50 (receive $350)
-  Net cost of roll: $500 - $350 = $150 debit
+展期操作：
+  以$5.00买回$170看涨期权（支付$500）
+  以$3.50卖出$180看涨期权，4月到期（收取$350）
+  展期净成本：$500 - $350 = $150净支出
 
-  If stock stays below $180 by April:
-    Keep shares, net premium = $250 (original) - $150 (roll cost) = $100
-    Stock appreciation: still holding at (let us say) $175 = $2,000 gain
-    Total: $2,100
+  若股价在4月前维持$180以下：
+    保留股票，净期权费 = $250（原始）- $150（展期成本）= $100
+    股票升值：假设持有至$175 = $2,000盈利
+    合计：$2,100
 
-  If stock rises above $180 by April:
-    Shares called away at $180
-    Profit: $180 - $155 + $2.50 (orig) - $1.50 (roll cost) = $26.00/share
-    Total: $2,600
+  若股价在4月前涨超$180：
+    股票在$180被买走
+    盈利：$180 - $155 + $2.50（原始）- $1.50（展期成本）= $26.00/股
+    合计：$2,600
 
-  Rolling raised your potential sale price from $170 to $180
-  at a cost of $1.50 per share in net premium.
+  展期将潜在卖出价从$170提高到$180，
+  代价是净期权费减少$1.50/股。
 ```
 
-#### Premium as Enhanced Yield: The 2-3x Dividend Comparison
+#### 期权费作为增强收益：与股息2-3倍的对比
 
-One of the most compelling aspects of covered calls is how they compare to dividends as an income source.
-
-```
-INCOME COMPARISON: DIVIDENDS vs. COVERED CALLS
-
-Stock: Johnson & Johnson (JNJ)
-Price: $160
-Annual Dividend: $4.76 per share (2.98% yield)
-
-Covered Call Strategy (monthly, moderate strike):
-  Average monthly premium: $2.00 per share
-  Annual premium income: $2.00 x 12 = $24.00 per share
-  Premium yield: $24.00 / $160 = 15.0%
-
-  Total yield with covered calls:
-    Dividend: 2.98%
-    Premium:  15.0%
-    Total:    17.98%
-
-  Multiplier: 17.98% / 2.98% = 6.0x dividend yield alone
-
-  Even with conservative strike selection:
-    Average monthly premium: $1.00 per share
-    Annual premium income: $12.00 per share
-    Premium yield: 7.5%
-    Total yield: 10.48%
-    Multiplier: 3.5x dividend yield alone
-```
+备兑看涨期权最具吸引力的方面之一，是其与股息作为收入来源的对比。
 
 ```
-MORE EXAMPLES ACROSS DIFFERENT STOCKS:
+收入对比：股息 vs. 备兑看涨期权
 
-+-----------------------------------------------------------------+
-| STOCK  | PRICE | DIV YIELD | CC YIELD* | TOTAL  | MULTIPLIER    |
-+-----------------------------------------------------------------+
-| AAPL   | $155  | 0.65%     | 10-14%    | 10.7-14.7% | 16-22x   |
-| MSFT   | $420  | 0.72%     | 8-12%     | 8.7-12.7%  | 12-18x   |
-| JNJ    | $160  | 2.98%     | 8-12%     | 11.0-15.0% | 3.7-5.0x |
-| JPM    | $200  | 2.20%     | 10-15%    | 12.2-17.2% | 5.5-7.8x |
-| KO     | $62   | 3.10%     | 6-10%     | 9.1-13.1%  | 2.9-4.2x |
-+-----------------------------------------------------------------+
-* CC Yield = Covered Call annualized yield, varies with IV and strike
+股票：强生公司（JNJ）
+股价：$160
+年度股息：每股$4.76（收益率2.98%）
 
-Average multiplier across these stocks: 2-3x (conservative) to 5-8x
+备兑看涨期权策略（月度，均衡行权价）：
+  月均期权费：$2.00/股
+  年度期权费收入：$2.00 × 12 = $24.00/股
+  期权费收益率：$24.00 / $160 = 15.0%
+
+  叠加备兑看涨期权后的总收益率：
+    股息：2.98%
+    期权费：15.0%
+    合计：17.98%
+
+  倍数：17.98% / 2.98% = 仅股息收益率的6.0倍
+
+  即使采用保守行权价：
+    月均期权费：$1.00/股
+    年度期权费收入：$12.00/股
+    期权费收益率：7.5%
+    总收益率：10.48%
+    倍数：仅股息收益率的3.5倍
 ```
 
-The "2-3x dividend yield" comparison is conservative and achievable for most investors using moderate covered call strategies. More aggressive strike selection can produce even higher multiples, but at the cost of more frequent assignment.
-
-#### Managing Your Covered Call Portfolio
-
-A systematic approach to covered calls involves establishing clear rules:
-
 ```
-COVERED CALL MANAGEMENT RULES:
+不同股票的更多示例：
 
-  ENTRY RULES:
-  1. Sell calls on stocks you are willing to part with at the strike
-  2. Select strikes 5-10% above current price (moderate approach)
-  3. Use 30-45 day expirations
-  4. Sell on days with higher implied volatility if possible
-  5. Avoid selling calls right before earnings (unless you want out)
++-------------------------------------------------------------------+
+| 股票  | 股价  | 股息率  | 期权费率* | 总计       | 倍数          |
++-------------------------------------------------------------------+
+| AAPL  | $155  | 0.65%   | 10%-14%  | 10.7%-14.7% | 16-22倍     |
+| MSFT  | $420  | 0.72%   | 8%-12%   | 8.7%-12.7%  | 12-18倍     |
+| JNJ   | $160  | 2.98%   | 8%-12%   | 11.0%-15.0% | 3.7-5.0倍   |
+| JPM   | $200  | 2.20%   | 10%-15%  | 12.2%-17.2% | 5.5-7.8倍   |
+| KO    | $62   | 3.10%   | 6%-10%   | 9.1%-13.1%  | 2.9-4.2倍   |
++-------------------------------------------------------------------+
+* 期权费率 = 备兑看涨期权年化收益率，随隐含波动率和行权价而变化
 
-  PROFIT-TAKING RULES:
-  1. If the call loses 50-75% of its value quickly, buy it back
-     and sell a new call (captures most of the profit, resets time)
-  2. Example: Sold for $2.50, now worth $0.75 -> Buy back ($0.75)
-     Profit captured: $1.75 (70%). Sell new call for fresh premium.
-
-  LOSS MANAGEMENT RULES:
-  1. If stock drops significantly, let the call expire worthless
-  2. Then reassess: Do you still want to own the stock?
-     - If YES: Sell a new call (possibly at a lower strike)
-     - If NO: Sell the stock (the call has already expired)
-  3. Never sell calls below your cost basis unless you are prepared
-     to sell at a loss
-
-  ASSIGNMENT RULES:
-  1. If stock exceeds strike near expiration: Let it be assigned
-     (you sold at your target price - this is success!)
-  2. If you want to keep shares: Roll up and out for a credit
-  3. After assignment: Consider selling puts to re-enter
-     (this starts the "wheel" strategy cycle)
-
-  EARNINGS RULES:
-  1. Do not sell calls expiring during earnings week
-     (IV crush + potential gap = unpredictable outcomes)
-  2. Sell calls AFTER earnings when IV has settled
-  3. Exception: Sell calls THROUGH earnings if you want to
-     exit the position anyway
+这些股票的平均倍数：2-3倍（保守型）至5-8倍
 ```
 
-#### Complete Portfolio Example
+"股息2-3倍"的比较是保守且大多数投资者可以实现的。采用更进取的行权价可产生更高倍数，但代价是更频繁地被买走。
+
+#### 管理你的备兑看涨期权投资组合
+
+系统化管理备兑看涨期权，需要建立清晰的操作规则：
 
 ```
-COVERED CALL PORTFOLIO: $200,000 invested in 5 stocks
+备兑看涨期权管理规则：
 
-+---------------------------------------------------------------------+
-| STOCK | SHARES | COST   | CURRENT| CALLS SOLD       | PREMIUM/MO   |
-+---------------------------------------------------------------------+
-| AAPL  | 200    | $145   | $155   | 2x $170 Call     | $500          |
-| MSFT  | 100    | $380   | $420   | 1x $450 Call     | $300          |
-| JPM   | 200    | $175   | $200   | 2x $220 Call     | $400          |
-| JNJ   | 200    | $150   | $160   | 2x $175 Call     | $360          |
-| KO    | 300    | $55    | $62    | 3x $67 Call      | $270          |
-+---------------------------------------------------------------------+
-| TOTAL                                               | $1,830/month  |
-+---------------------------------------------------------------------+
+  入场规则：
+  1. 仅对愿意以行权价卖出的股票卖看涨期权
+  2. 选择高于当前股价5%-10%的行权价（均衡方式）
+  3. 使用30-45天到期日
+  4. 尽可能在隐含波动率较高的日子卖出
+  5. 财报公布前不卖看涨期权（除非本就想卖股票）
 
-Annual Summary:
-  Covered call income: $1,830 x 12 = $21,960 (11.0% yield)
-  Dividend income: ~$3,800 (1.9% yield)
-  Total income: $25,760 (12.9% yield)
+  止盈规则：
+  1. 若期权价值迅速缩水50%-75%，买回平仓
+     并卖出新期权（锁定大部分盈利，重置时间价值）
+  2. 示例：以$2.50卖出，现价$0.75 -> 以$0.75买回
+     已锁定盈利：$1.75（70%）。再卖新期权，获取新期权费。
 
-  Monthly income: $2,147 (calls + dividends)
+  亏损管理规则：
+  1. 若股票大幅下跌，让看涨期权自然到期失效
+  2. 再评估：你是否仍想持有该股票？
+     - 若是：卖出新看涨期权（可能以更低行权价）
+     - 若否：卖出股票（看涨期权已到期失效）
+  3. 永远不要以低于成本基础的行权价卖看涨期权，
+     除非你准备好亏损卖出
+
+  被买走规则：
+  1. 临近到期时股价超过行权价：顺其自然被买走
+     （你以目标价卖出 - 这是成功！）
+  2. 若想保留股票：向上向后展期，争取净收入
+  3. 被买走后：考虑卖看跌期权重新入场
+     （这开启了"轮转"策略循环）
+
+  财报规则：
+  1. 不卖在财报周到期的看涨期权
+     （隐含波动率骤降 + 潜在跳空 = 不可预期的结果）
+  2. 待隐含波动率企稳后，在财报公布后卖期权
+  3. 例外：若本就打算退出该头寸，可卖穿越财报的期权
 ```
 
-This is the power of covered calls at scale. A $200,000 portfolio generating over $25,000 per year in income, without selling a single share (assuming no assignments). In a flat market, this income alone provides a double-digit return.
-
-#### Common Covered Call Scenarios: Month-by-Month Walkthrough
-
-To make this concrete, let us trace a single covered call position through an entire year:
+#### 完整投资组合示例
 
 ```
-12-MONTH COVERED CALL DIARY: AAPL
+备兑看涨期权投资组合：20万美元，配置5只股票
 
-Starting: Own 100 shares at $155 cost basis
++-----------------------------------------------------------------------+
+| 股票  | 股数  | 成本  | 现价  | 已卖期权            | 月度期权费        |
++-----------------------------------------------------------------------+
+| AAPL  | 200   | $145  | $155  | 2份 $170看涨期权    | $500              |
+| MSFT  | 100   | $380  | $420  | 1份 $450看涨期权    | $300              |
+| JPM   | 200   | $175  | $200  | 2份 $220看涨期权    | $400              |
+| JNJ   | 200   | $150  | $160  | 2份 $175看涨期权    | $360              |
+| KO    | 300   | $55   | $62   | 3份 $67看涨期权     | $270              |
++-----------------------------------------------------------------------+
+| 合计                                               | $1,830/月         |
++-----------------------------------------------------------------------+
 
-JANUARY (Stock at $155):
-  Sell $170 Call, Feb expiry, for $2.50
-  AAPL ends Jan at $158 -> Call expires Feb at $157
-  Result: Call expires worthless. Keep $250. Sell new call.
+年度总结：
+  备兑看涨期权收入：$1,830 × 12 = $21,960（年化收益率11.0%）
+  股息收入：约$3,800（年化收益率1.9%）
+  总收入：$25,760（年化收益率12.9%）
 
-FEBRUARY (Stock at $157):
-  Sell $172 Call, Mar expiry, for $2.30
-  AAPL ends Feb at $162
-  Result: Call expires worthless. Keep $230. Sell new call.
-
-MARCH (Stock at $162):
-  Sell $175 Call, Apr expiry, for $2.80
-  AAPL approaches $174 at expiration
-  Result: Call expires worthless (barely). Keep $280. Close call.
-
-APRIL (Stock at $173, earnings upcoming):
-  SKIP covered call (earnings in late April)
-  Hold shares through earnings.
-  AAPL reports good earnings, stock jumps to $182.
-
-MAY (Stock at $182):
-  Sell $195 Call, Jun expiry, for $2.60
-  AAPL ends May at $179
-  Result: Call expires worthless. Keep $260. Sell new call.
-
-JUNE (Stock at $179):
-  Sell $192 Call, Jul expiry, for $2.40
-  AAPL ends Jun at $176
-  Result: Call expires worthless. Keep $240. Sell new call.
-
-JULY (Stock at $176, earnings upcoming):
-  Sell short-term $185 Call, 2-week expiry, for $1.20
-  Expires before earnings.
-  Result: Call expires worthless. Keep $120.
-  Hold through July earnings. AAPL dips to $168.
-
-AUGUST (Stock at $168):
-  Sell $180 Call, Sep expiry, for $2.00
-  AAPL recovers to $172
-  Result: Call expires worthless. Keep $200. Sell new call.
-
-SEPTEMBER (Stock at $172):
-  Sell $185 Call, Oct expiry, for $2.20
-  AAPL ends Sep at $175
-  Result: Call expires worthless. Keep $220. Sell new call.
-
-OCTOBER (Stock at $175, earnings upcoming):
-  SKIP covered call (October earnings).
-  AAPL reports mixed results, stock drops to $165.
-
-NOVEMBER (Stock at $165):
-  Sell $178 Call, Dec expiry, for $1.90
-  AAPL year-end rally to $171
-  Result: Call expires worthless. Keep $190. Sell new call.
-
-DECEMBER (Stock at $171):
-  Sell $185 Call, Jan expiry, for $2.10
-  AAPL finishes year at $174.
-  Result: Call expires worthless in January. Keep $210.
-
-ANNUAL SUMMARY:
-  Total premiums collected: $250+$230+$280+$260+$240+$120+$200+$220+$190+$210
-  = $2,200 (10 cycles, 2 skipped for earnings)
-
-  Premium yield: $2,200 / $15,500 = 14.2%
-  Dividends received: ~$100 (4 quarterly dividends)
-  Capital appreciation: $174 - $155 = $19/share = $1,900 (12.3%)
-  TOTAL RETURN: $2,200 + $100 + $1,900 = $4,200 (27.1%)
-
-  Without covered calls:
-  Capital appreciation + dividends only = $2,000 (12.9%)
-
-  Covered calls added $2,200 (14.2%) to total return.
+  月度总收入：$2,147（期权费 + 股息）
 ```
 
-This example illustrates several important practical points: you skip cycles around earnings, premium amounts vary with market conditions, and the cumulative effect over a year is significant.
+这正是备兑看涨期权规模化的魅力。20万美元投资组合每年创造逾25,000美元收入，且无需卖出任何股票（假设未被买走）。在横盘市场中，这笔收入本身就提供了两位数的回报。
 
-#### The Psychology of Covered Calls
+#### 备兑看涨期权常见情景：逐月实战演练
 
-Success with covered calls requires the right mental framework:
+为了更加直观，我们来追踪一个备兑看涨期权头寸完整一年的经历：
 
 ```
-PSYCHOLOGICAL CHALLENGES AND SOLUTIONS:
+备兑看涨期权12个月操作日记：苹果公司（AAPL）
 
-  CHALLENGE: "I hate seeing the stock go above my strike."
-  SOLUTION: Reframe assignment as success. You set a target price
-  and the stock reached it. That is your plan working, not failing.
-  Pre-commit to being satisfied with your strike price BEFORE selling.
+起始：持有100股，成本基础$155
 
-  CHALLENGE: "The premium seems too small to bother."
-  SOLUTION: Think annually, not monthly. A $200 premium seems small.
-  $2,400 per year on one position is meaningful. On 5 positions,
-  that is $12,000. Over 10 years, reinvested, that is $200,000+.
+一月（股价$155）：
+  卖出$170看涨期权，二月到期，期权费$2.50
+  AAPL一月末股价$158 -> 二月到期时股价$157
+  结果：期权到期失效。保留$250。卖出新期权。
 
-  CHALLENGE: "I keep getting called away and missing rallies."
-  SOLUTION: Sell further OTM calls (lower delta). If you are getting
-  called away more than 20% of the time, your strikes are too close
-  to the current price.
+二月（股价$157）：
+  卖出$172看涨期权，三月到期，期权费$2.30
+  AAPL二月末股价$162
+  结果：期权到期失效。保留$230。卖出新期权。
 
-  CHALLENGE: "I do not want to sell my shares at any price."
-  SOLUTION: Maybe covered calls are not right for this stock.
-  It is OK to have some stocks that you never sell calls on.
-  Only use covered calls on positions where you have a sell target.
+三月（股价$162）：
+  卖出$175看涨期权，四月到期，期权费$2.80
+  AAPL临近到期时股价接近$174
+  结果：期权险些失效（勉强未触发）。保留$280。平仓。
+
+四月（股价$173，即将公布财报）：
+  跳过备兑看涨期权（四月下旬有财报）
+  持股度过财报期。
+  AAPL财报表现亮眼，股价跳升至$182。
+
+五月（股价$182）：
+  卖出$195看涨期权，六月到期，期权费$2.60
+  AAPL五月末股价$179
+  结果：期权到期失效。保留$260。卖出新期权。
+
+六月（股价$179）：
+  卖出$192看涨期权，七月到期，期权费$2.40
+  AAPL六月末股价$176
+  结果：期权到期失效。保留$240。卖出新期权。
+
+七月（股价$176，即将公布财报）：
+  卖出短期$185看涨期权，2周到期，期权费$1.20
+  财报前到期。
+  结果：期权到期失效。保留$120。
+  持股度过七月财报。AAPL股价下跌至$168。
+
+八月（股价$168）：
+  卖出$180看涨期权，九月到期，期权费$2.00
+  AAPL回升至$172
+  结果：期权到期失效。保留$200。卖出新期权。
+
+九月（股价$172）：
+  卖出$185看涨期权，十月到期，期权费$2.20
+  AAPL九月末股价$175
+  结果：期权到期失效。保留$220。卖出新期权。
+
+十月（股价$175，即将公布财报）：
+  跳过备兑看涨期权（十月财报）。
+  AAPL财报表现参差，股价下跌至$165。
+
+十一月（股价$165）：
+  卖出$178看涨期权，十二月到期，期权费$1.90
+  AAPL年末上涨至$171
+  结果：期权到期失效。保留$190。卖出新期权。
+
+十二月（股价$171）：
+  卖出$185看涨期权，一月到期，期权费$2.10
+  AAPL年末收于$174。
+  结果：期权于一月到期失效。保留$210。
+
+全年总结：
+  累计期权费：$250+$230+$280+$260+$240+$120+$200+$220+$190+$210
+  = $2,200（共10个周期，2次因财报跳过）
+
+  期权费收益率：$2,200 / $15,500 = 14.2%
+  已收股息：约$100（4次季度股息）
+  资本升值：$174 - $155 = $19/股 = $1,900（12.3%）
+  总回报：$2,200 + $100 + $1,900 = $4,200（27.1%）
+
+  不卖备兑看涨期权时：
+  仅资本升值 + 股息 = $2,000（12.9%）
+
+  备兑看涨期权额外贡献$2,200（14.2%）的总回报。
+```
+
+这个例子揭示了几个重要的实操要点：财报前后跳过周期、期权费金额随市况波动、以及一年积累下来的显著复利效应。
+
+#### 备兑看涨期权的心理建设
+
+成功运用备兑看涨期权，需要正确的心态框架：
+
+```
+心理挑战与应对方案：
+
+  挑战："看到股价涨过行权价我很难受。"
+  解决：重新框定被买走的含义——那是成功。你设定了目标价，
+  股票到达了。这是你的计划在运作，而非失败。
+  卖出期权前，预先承诺对自己的行权价感到满足。
+
+  挑战："期权费太少，不值得折腾。"
+  解决：以年度而非月度来思考。$200的期权费看似微薄，
+  一年$2,400则意义重大。5个头寸合计即$12,000。
+  10年复利下来，那是逾$200,000。
+
+  挑战："我老是被买走，错过上涨行情。"
+  解决：卖出更深虚值的期权（更低的贝塔值）。若被买走频率
+  超过20%，说明你的行权价距当前股价太近。
+
+  挑战："我完全不想以任何价格卖掉我的股票。"
+  解决：对这只股票来说，备兑看涨期权可能并不适合。
+  对某些股票永远不卖看涨期权，这完全没问题。
+  只对有明确卖出目标价的持仓使用备兑看涨期权。
   
-  CHALLENGE: "What if I sell a call and bad news comes out?"
-  SOLUTION: If the stock drops, the call expires worthless and you
-  keep the premium. Bad news actually helps the covered call writer
-  (though it hurts the stock position). The premium is a cushion.
+  挑战："卖了期权后，万一出了坏消息怎么办？"
+  解决：若股票下跌，看涨期权到期失效，你保留期权费。
+  坏消息实际上对备兑看涨期权的卖方有利
+  （尽管对股票头寸不利）。期权费就是缓冲垫。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c）常见误解
 
-**Misconception 1: "Covered calls are risk-free income."**
+**误解一："备兑看涨期权是无风险收入。"**
 
-No investment strategy is risk-free. While covered calls reduce risk compared to holding stock alone (because the premium provides a downside cushion), you still bear the full downside risk of stock ownership minus the premium. If the stock drops 30%, you lose 30% minus the 1-2% premium cushion. The call premium is income, not insurance. Do not confuse the two.
+没有任何投资策略是无风险的。虽然备兑看涨期权比单纯持股风险更低（因为期权费提供了下行缓冲），但你仍承担持股的全部下行风险，减去期权费的缓冲部分。若股票下跌30%，你亏损30%减去1%至2%的期权费缓冲。期权费是收入，不是保险，切勿混淆。
 
-**Misconception 2: "I should sell covered calls on all my stocks."**
+**误解二："我应该对所有股票都卖备兑看涨期权。"**
 
-Not necessarily. If you own a stock with enormous growth potential and you are in it for the long-term appreciation, capping your upside with covered calls may cost you far more than the premium income provides. For example, selling covered calls on a stock that subsequently doubles would mean you sold at a fraction of its potential. Covered calls work best on mature, stable companies where you do not expect explosive growth.
+未必如此。若你持有某只极具成长潜力的股票，且作长线升值持有，用备兑看涨期权封顶上行空间的代价可能远超期权费收入。例如，若你对一只后来翻倍的股票卖了备兑看涨期权，就意味着你以其潜在价值的一小部分卖出了。备兑看涨期权最适用于你不预期爆发式增长的成熟、稳健型公司。
 
-**Misconception 3: "If the stock goes above my strike, I made a mistake."**
+**误解三："股价涨过我的行权价，说明我犯了错。"**
 
-This is the most psychologically challenging misconception. If you sold a $170 call and the stock goes to $190, you "missed out" on $20 of gains. But you still made money. You sold at $170 plus the premium. That was your target. A covered call that results in assignment is a **successful trade**, not a failed one. The mistake is not in selling the call; it would be in choosing a strike price that does not represent a genuine target.
+这是心理上最具挑战性的误解。若你卖了$170的看涨期权，股价涨至$190，你"错过"了$20的涨幅。但你依然赚到了钱——你以$170加期权费的价格卖出，而那正是你的目标。因被买走而结束的备兑看涨期权是一笔**成功的交易**，而非失败。错误不在于卖出期权，而在于选择了一个并非真实目标价的行权价。
 
-**Misconception 4: "Covered calls are not worth it because premiums are too small."**
+**误解四："备兑看涨期权不值得，因为期权费太少。"**
 
-A $2 premium on a $155 stock is 1.3% in one month. That is 15.6% annualized. Where else can you earn 15.6% with moderate risk? If you think 1.3% per month is small, calculate what it amounts to over 10 years of compounding. At 12% annual yield (conservative for covered calls), $200,000 grows to approximately $621,000 from income alone, assuming reinvestment.
+$155股票上的$2期权费是1.3%，仅一个月。年化为15.6%。你还能在哪里以适中的风险获得15.6%的回报？若你认为每月1.3%微不足道，算算10年复利下来是多少。以12%的年化收益率（备兑看涨期权的保守估计），20万美元仅从收入就可增长至约62万美元（假设再投资）。
 
-**Misconception 5: "I should never sell calls below my cost basis."**
+**误解五："我永远不应该以低于成本基础的行权价卖看涨期权。"**
 
-This is generally good advice, but it is a guideline, not an absolute rule. If you bought a stock at $180 and it has fallen to $140, selling a $170 call would lock in a loss if assigned. However, if the stock is unlikely to recover to $180, selling the $170 call and collecting premium while waiting may be a rational choice. The premium collected reduces your breakeven point. Each situation requires judgment.
+这通常是好建议，但只是指导原则，并非铁律。若你以$180买入股票，股价已跌至$140，卖出$170看涨期权一旦被买走将锁定亏损。然而，若股票回升至$180的可能性不大，在等待期间卖出$170看涨期权并收取期权费，可能是合理的选择。收取的期权费会降低你的盈亏平衡点。每种情况都需要具体判断。
 
-**Misconception 6: "Rolling is always better than accepting assignment."**
+**误解六："展期总是优于接受被买走。"**
 
-Sometimes the best action is to let the shares be called away. If the stock has reached your fair value estimate, if the fundamentals have changed, or if better opportunities exist elsewhere, accepting assignment and moving on is the right choice. Rolling should be used when you still want to hold the stock and believe it has more upside, not as a reflexive response to avoid assignment.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens to my dividend if I sell a covered call?**
-
-A: You continue to receive dividends as long as you own the shares. The covered call does not affect your dividend rights unless you are assigned before the ex-dividend date. If you are assigned early (which happens occasionally to capture the dividend), you sell the shares and no longer receive the dividend, but you keep the call premium and the proceeds from the sale.
-
-**Q2: Can I sell covered calls on ETFs like SPY or QQQ?**
-
-A: Absolutely. ETFs are excellent for covered calls because they have high liquidity, tight bid-ask spreads, no single-stock risk, and no earnings surprises. SPY, QQQ, IWM, and sector ETFs like XLF (financials) and XLE (energy) all have active options markets. The premiums may be slightly lower per dollar of stock price (because ETFs are less volatile than individual stocks), but the consistency and reduced risk make them attractive.
-
-**Q3: How do I handle covered calls during earnings season?**
-
-A: There are two approaches. The conservative approach is to avoid having calls expire during earnings week. Sell calls that expire before or after earnings. The aggressive approach is to sell calls through earnings, which provides higher premium (due to elevated IV) but risks a gap move that causes assignment or an unwanted stock position after a large drop. For most investors in this course, the conservative approach is recommended: let the call expire before earnings, skip one cycle, then resume after earnings are announced.
-
-**Q4: Should I sell calls on my entire position or just part of it?**
-
-A: Selling calls on your entire position maximizes income but caps all upside. Selling calls on a portion (e.g., 50-75%) provides income while leaving some shares uncovered for potential upside. A common approach is to sell calls on 50% of your shares, giving you income while maintaining some growth exposure. This is a personal choice based on your outlook and income needs.
-
-**Q5: What if the stock drops after I sell a covered call?**
-
-A: The call will lose value (good for you as the seller) and likely expire worthless. You keep the premium. However, you still hold the stock at a lower price, so you have an unrealized loss on the stock position. The premium partially offsets this loss. After the call expires, you can sell a new call at a lower strike or wait for the stock to recover. The key question is always: do you still want to own the stock?
-
-**Q6: How do commissions affect covered call profitability?**
-
-A: Most major brokers now offer commission-free options trading (Schwab, Fidelity, Interactive Brokers Lite). Even at brokers that charge, the typical cost is $0.50-$0.65 per contract. On a $250 premium, that is about 0.2-0.3% of the premium. Commissions are no longer a meaningful impediment to covered call strategies unless you are trading very small premiums on weekly options.
-
-**Q7: What is the "Buy-Write" strategy?**
-
-A: A buy-write is when you simultaneously buy 100 shares and sell a call in a single trade. Many brokers allow you to enter this as a combined order. The advantage is that you get a single fill price for the combined position. For example, instead of buying AAPL at $155 and separately selling the $170 call for $2.50, you enter a buy-write order for a net cost of $152.50 ($155 - $2.50). This guarantees you get both legs filled at your target net price.
-
-**Q8: How far out of the money should I sell my calls?**
-
-A: This depends on your goals. As a general guideline:
-- Income focus: 3-5% OTM (higher premium, more assignment risk)
-- Balanced approach: 5-10% OTM (moderate premium, moderate risk)
-- Growth focus: 10-15% OTM (lower premium, rare assignment)
-- Use delta as a guide: a 0.20-0.30 delta call is 5-10% OTM and has roughly a 20-30% chance of being in the money at expiration.
-
-**Q9: Can I sell covered calls in an IRA?**
-
-A: Yes. Covered calls are approved for virtually all IRA accounts (traditional, Roth, rollover). They are classified as Level 1 options, the most basic and conservative level. You do not need margin to sell covered calls because you already own the shares. The tax advantage of an IRA makes covered calls even more attractive because the premium income is not taxed until withdrawal (traditional) or not taxed at all (Roth).
-
-**Q10: What is the "collar" strategy, and how does it relate to covered calls?**
-
-A: A collar combines a covered call with a protective put. You own the stock, sell a call (collecting premium), and use some or all of that premium to buy a put (protection). For example: own AAPL at $155, sell the $170 call for $2.50, buy the $140 put for $2.00. Net premium: $0.50. You have capped your upside at $170 but protected your downside below $140. Your stock can only move between $140 and $170, and you collected $0.50 for accepting this range. Collars are excellent for protecting large positions with minimal cost.
+有时最佳操作就是让股票被买走。若股票已达到你的合理价值估算、基本面已发生变化，或者存在更好的投资机会，接受被买走、重新出发才是正确选择。展期应在你仍想持有股票且认为还有上涨空间时使用，而非为了逃避被买走的条件反射式反应。
 
 ---
 
-## YouTube Script
+### d）常见问题解答
 
-[VISUAL: Animated intro with show logo. Text: "Week 27: Covered Calls for Income - Level 3: Advanced"]
+**Q1：卖了备兑看涨期权，我的股息还能收到吗？**
 
-**Alex:** Welcome back. Today we are diving into one of my absolute favorite strategies for long-term investors: the covered call. If you own stocks and you are not at least considering covered calls, you are leaving money on the table.
+A：只要你持有股票，就继续享有股息收取权。备兑看涨期权不影响你的股息权利，除非在除息日前发生提前被买走的情况。若发生提前行权（偶尔会发生以获取股息），你卖出股票，不再收取该次股息，但你保留了期权费和卖股所得。
 
-**Sam:** That is a bold statement. Tell me why.
+**Q2：我可以对SPY或QQQ等交易所交易基金卖备兑看涨期权吗？**
 
-**Alex:** I will prove it to you with numbers. If you own a typical $200,000 stock portfolio, you are probably earning about $3,000-$4,000 per year in dividends. With covered calls, you could add another $16,000 to $24,000 per year in income. That is 5 to 8 times what dividends provide.
+A：完全可以。交易所交易基金非常适合备兑看涨期权，因为它们流动性高、买卖价差紧、无单股风险、无财报意外。SPY、QQQ、IWM以及XLF（金融）、XLE（能源）等行业交易所交易基金都有活跃的期权市场。期权费相对于股价可能略低（因交易所交易基金波动率低于个股），但其稳定性和较低风险具有吸引力。
 
-**Sam:** $20,000 in additional income without selling my stocks? Walk me through this.
+**Q3：财报季期间如何处理备兑看涨期权？**
 
-[VISUAL: Bar chart comparison: "Dividends Only: ~$3,500/year" vs "Dividends + Covered Calls: ~$22,000/year" on a $200,000 portfolio]
+A：有两种思路。保守型：避免让看涨期权在财报周到期，卖出在财报前后到期的期权。进取型：卖出穿越财报的期权，可获得更高期权费（因隐含波动率提升），但面临跳空风险，可能导致被买走或财报后大幅下跌。对本课大多数学员，推荐保守型：让期权在财报前到期，跳过一个周期，财报公布后再恢复操作。
 
-**Alex:** Let us start with exactly what a covered call is. It is a two-part position. Part one: you own at least 100 shares of a stock. Part two: you sell one call option against those shares. The call is "covered" because your shares are the collateral. If the buyer exercises, you simply deliver your existing shares.
+**Q4：我应该对全部持仓还是部分持仓卖看涨期权？**
 
-**Sam:** So I am selling someone the right to buy my shares at a specific price?
+A：对全部持仓卖期权可最大化收入，但封顶了所有上行空间。对部分持仓卖期权（如50%-75%）可在获取收入的同时，保留部分股票的潜在升值空间。常见做法是对50%的股票卖看涨期权，在获得收入的同时维持一定的成长敞口。这取决于你的市场预期和收入需求。
 
-**Alex:** Exactly. Think of it as placing a limit sell order on your stock and getting paid for it. We covered this concept last week. Today we are going deep into the mechanics.
+**Q5：卖了备兑看涨期权后股票下跌怎么办？**
 
-[VISUAL: Diagram showing the covered call structure - "Long 100 shares" connected to "Short 1 Call" with an equals sign leading to "Covered Call Position"]
+A：看涨期权将贬值（对你作为卖方有利），很可能到期失效。你保留期权费。但你仍以较低价格持有股票，产生浮亏。期权费部分抵消了这一亏损。看涨期权到期后，你可以以更低的行权价卖新期权，或等待股票回升。关键问题始终是：你是否仍想持有这只股票？
 
-**Sam:** Let us use a real example.
+**Q6：交易费用如何影响备兑看涨期权的盈利能力？**
 
-**Alex:** Perfect. Let us say you own 100 shares of Apple at $155. You sell one Apple $170 call option, expiring in 30 days, for $2.50 per share. That is $250 in your account immediately.
+A：目前大多数主要券商提供免佣金期权交易（嘉信理财、富达、盈透证券Lite版）。即使收取佣金的券商，典型费用约为每份合约$0.50-$0.65。以$250的期权费计，约占期权费的0.2%-0.3%。除非你交易期权费极低的周期权，否则交易费用已不再是备兑看涨期权策略的实质障碍。
 
-**Sam:** And what happens from there?
+**Q7：什么是"买入-卖出"策略？**
 
-**Alex:** Three possible scenarios. Let me walk through each one.
+A：买入-卖出（Buy-Write）是指同时买入100股股票并卖出一份看涨期权，合为一笔交易。许多券商允许你作为组合订单同时提交两个腿。优点是你可以以一个综合价格成交整个头寸。例如，不是分别以$155买入苹果公司股票、再以$2.50单独卖出$170看涨期权，而是直接以$152.50的净价（$155 - $2.50）提交买入-卖出订单，保证你以目标净价同时成交两个腿。
+
+**Q8：我应该将看涨期权卖到多远的虚值位置？**
+
+A：这取决于你的目标。一般指导原则如下：
+- 收入优先型：高出当前股价3%-5%（期权费较高，被买走风险较高）
+- 均衡型：高出5%-10%（期权费适中，风险适中）
+- 成长优先型：高出10%-15%（期权费较低，很少被买走）
+- 以贝塔值为参考：贝塔值0.20-0.30的看涨期权约高出股价5%-10%，到期时处于实值的概率约为20%-30%。
+
+**Q9：我可以在个人退休账户中卖备兑看涨期权吗？**
+
+A：可以。备兑看涨期权几乎适用于所有类型的个人退休账户（传统型、罗斯型、滚存型）。它们被归类为第一级期权，即最基础、最保守的级别。由于你已持有股票，无需保证金即可卖出备兑看涨期权。个人退休账户的税收优惠使备兑看涨期权更具吸引力：期权费收入在提取前免税（传统型），或完全免税（罗斯型）。
+
+**Q10：什么是"领口"策略？它与备兑看涨期权有何关联？**
+
+A：领口策略（Collar）将备兑看涨期权与保护性看跌期权相结合。你持有股票，卖出看涨期权（收取期权费），并用部分或全部期权费买入看跌期权（提供保护）。例如：持有苹果公司股票（股价$155），卖出$170看涨期权收取$2.50，买入$140看跌期权支付$2.00，净期权费$0.50。你的上行被封顶在$170，下行在$140以下获得保护。股票只能在$140至$170之间波动，而你为接受这一区间收取了$0.50。领口策略非常适合以极低成本保护大额头寸。
+
+---
+
+## YouTube 视频脚本
+
+[VISUAL: Animated intro with show logo. Text: "第27周：备兑看涨期权增收策略 - 第三级：进阶"]
+
+**Horace：** 欢迎回来。今天我们要深入探讨我最喜欢的长线投资策略之一——备兑看涨期权。如果你持有股票却从未认真考虑过备兑看涨期权，那你真的在白白浪费赚钱的机会。
+
+**Stella：** 这话说得很大胆。用数据来说服我。
+
+**Horace：** 我用数字来证明。假设你持有一个典型的20万美元股票投资组合，每年大概能收到3,000到4,000美元的股息。叠加备兑看涨期权后，你每年可以额外创造16,000到24,000美元的收入。这是股息的五到八倍。
+
+**Stella：** 不卖股票就能多赚2万美元？你带我一步步看清楚。
+
+[VISUAL: Bar chart comparison: "仅股息：约$3,500/年" vs "股息+备兑看涨期权：约$22,000/年"（基于20万美元投资组合）]
+
+**Horace：** 我们先从备兑看涨期权的定义说起。它是一个由两部分组成的头寸。第一部分：你持有至少100股某只股票。第二部分：你对这些股票卖出一份看涨期权。这份看涨期权是"备兑"的，因为你持有的股票就是担保。买方行权时，你直接交付手中已有的股票。
+
+**Stella：** 所以我是在把以特定价格买我股票的权利卖给别人？
+
+**Horace：** 正是。把它理解成：你在股票上挂了一个限价卖单，还因此拿到了一笔钱。上周我们讲过这个概念，今天我们来深入拆解它的机制。
+
+[VISUAL: Diagram showing the covered call structure - "持有100股"与"卖出1份看涨期权"通过等号连接，指向"备兑看涨期权头寸"]
+
+**Stella：** 给我们举个实际例子。
+
+**Horace：** 完美。假设你持有100股苹果公司（AAPL），成本$155。你卖出一份苹果公司$170看涨期权，30天后到期，每股期权费$2.50，即$250立刻入账。
+
+**Stella：** 接下来会发生什么？
+
+**Horace：** 有三种可能的情景，我来逐一分析。
 
 [ANIMATION: Reference animation/week27_covered_call.py - Animation showing a stock price chart with the current price at $155 and a horizontal dashed line at $170 (strike price). Three animated paths branch out: Path 1 shows the stock staying flat around $155, Path 2 shows the stock rising to $165, and Path 3 shows the stock rising above $170. For each path, a calculator shows the profit/loss calculation including the premium. The animation highlights the "cap" at $170 and shows how the premium cushions the position on the downside.]
 
-**Alex:** Scenario one: Apple stays below $170 at expiration. The call expires worthless. You keep your 100 shares, and you keep the $250 premium. You can sell another call next month. Repeat forever.
+**Horace：** 情景一：苹果公司到期时股价维持在$170以下。看涨期权到期失效，你保留100股股票，同时保留$250期权费。下个月继续卖期权，如此循环。
 
-**Sam:** That is the best-case scenario for the strategy.
+**Stella：** 这是该策略最理想的情景。
 
-**Alex:** It is the most common scenario. With a strike 10% above the current price, this happens about 80-85% of the time for monthly options.
+**Horace：** 也是最常见的情景。对于高出当前股价10%的行权价，月度期权大约80%到85%的概率会以这种方式收场。
 
-**Sam:** Scenario two?
+**Stella：** 情景二呢？
 
-**Alex:** Apple rises above $170. Your shares are called away. You sell 100 shares at $170 and keep the $250 premium. Total proceeds: $172.50 per share. On your $155 cost basis, that is a profit of $17.50 per share, or $1,750 total. An 11.3% return in 30 days.
+**Horace：** 苹果公司股价涨超$170，你的股票被买走。你以$170卖出100股并保留$250期权费。总所得：每股$172.50。以你$155的成本计算，盈利$17.50/股，合计$1,750，30天内收益率11.3%。
 
-**Sam:** But I missed out on anything above $170.
+**Stella：** 但我错过了$170以上的涨幅。
 
-**Alex:** True. If Apple went to $200, you "only" made $17.50 per share instead of $45 per share. But here is my question: is making $1,750 in 30 days a bad outcome?
+**Horace：** 没错。如果苹果公司涨到$200，你"只赚"了每股$17.50，而不是$45。但我想问你：30天内赚到$1,750，这算是坏结果吗？
 
-[VISUAL: Two investors. "Investor A" sold covered call, made $1,750 in 30 days, looks satisfied. "Investor B" held without call, made $4,500, looks slightly happier but also stressed. Text: "Both made money. The covered call writer had a PLAN."]
+[VISUAL: Two investors. "投资者A"卖了备兑看涨期权，30天赚$1,750，神情满足。"投资者B"不卖期权持股，赚了$4,500，略显开心但也带着几分担忧。下方文字："两人都赚了钱。备兑看涨期权卖方有一个计划。"]
 
-**Sam:** When you put it that way, no. It is still a great return.
+**Stella：** 这么一说，确实不差，而且回报相当不错。
 
-**Alex:** And remember, you chose $170 as your target sell price. Assignment means your plan worked.
+**Horace：** 而且记住，$170是你设定的目标卖出价。被买走意味着你的计划奏效了。
 
-**Sam:** What about scenario three? What if Apple drops?
+**Stella：** 情景三呢？苹果公司下跌怎么办？
 
-**Alex:** If Apple drops to, say, $148, the call expires worthless and you keep the $250 premium. You still hold your shares at a loss, but your effective cost basis is now $152.50 instead of $155 because the premium reduces your cost. You are $2.50 per share better off than if you had not sold the call.
+**Horace：** 假设苹果公司跌至$148，看涨期权到期失效，你保留$250期权费。股票仍有浮亏，但你的实际成本基础已从$155降至$152.50，因为期权费降低了你的成本。比不卖期权的情形每股多了$2.50。
 
-**Sam:** So the premium is like a small cushion.
+**Stella：** 所以期权费是一个小缓冲垫。
 
-**Alex:** Exactly. It does not eliminate downside risk, but it reduces it. Over time, these premiums accumulate and significantly lower your average cost basis.
+**Horace：** 正是。它不能消除下行风险，但确实能减少损失。随着时间推移，这些期权费不断积累，能显著降低你的平均成本基础。
 
-[VISUAL: Waterfall chart showing cost basis reduction over 12 months of covered call selling. Starting at $155, each month the cost basis drops by $1.50-$2.50 as premiums are collected, ending around $130 after 12 months]
+[VISUAL: Waterfall chart showing cost basis reduction over 12 months of covered call selling. 起始$155，每月随期权费收入下降$1.50-$2.50，12个月后降至约$130]
 
-**Sam:** Let us talk about how to choose the right strike price. That seems like a critical decision.
+**Stella：** 我们来聊聊怎么选行权价。这好像是个关键决策。
 
-**Alex:** It is the most important decision in the strategy. There are three approaches. Conservative: sell calls 10-15% out of the money. You get smaller premiums but rarely lose your shares. Moderate: 5-10% out of the money. Good balance of income and retention. Aggressive: at the money or just above. Maximum income but high assignment probability.
+**Horace：** 这是策略中最重要的决策。有三种方式：保守型——卖出高出股价10%至15%的虚值期权，期权费较低，但很少被买走；均衡型——高出5%至10%，收入与保留股票之间取得平衡；进取型——平值或略高于股价，期权费最高，但被买走概率也最高。
 
-**Sam:** Which do you recommend for someone starting out?
+**Stella：** 你建议刚起步的人用哪种？
 
-**Alex:** The moderate approach. For a stock at $155, that means the $165 to $175 range. Specifically, I like the delta 0.20 to 0.30 range, which roughly corresponds to a 20-30% chance the stock reaches the strike.
+**Horace：** 均衡型。对于股价$155的股票，就是$165至$175这个区间。具体来说，我偏好贝塔值0.20至0.30的范围，大致对应股价触及行权价20%至30%的概率。
 
-[VISUAL: Number line showing strike prices. $155 current price in the center. Ranges marked: "$155-$160 Aggressive (high income, high assignment)", "$165-$170 Moderate (balanced)", "$175-$180 Conservative (low income, low assignment)"]
+[VISUAL: Number line showing strike prices. $155当前股价在中间。区间标注："$155-$160 进取型（高收入，高被买走概率）"，"$165-$170 均衡型（平衡兼顾）"，"$175-$180 保守型（低收入，低被买走概率）"]
 
-**Sam:** What about expiration? How far out should the option expire?
+**Stella：** 到期日呢？应该选多远的？
 
-**Alex:** 30 to 45 days is the sweet spot. Here is why. Remember the time decay curve from last week? Theta, the daily rate of decay, accelerates in the last 45 days. By selling in this window, you get the best ratio of premium to time. Selling a 30-day call gives you roughly 60-70% of the premium of a 60-day call but in half the time.
+**Horace：** 30至45天是最佳区间。原因在于——还记得上周的时间价值衰减曲线吗？时间价值（Theta）每日衰减速度在最后45天加速。在这个窗口卖期权，你能获得最佳的期权费与时间比。卖一份30天期权，大约能拿到60天期权期权费的60%至70%，但只用一半的时间。
 
-**Sam:** So I get nearly the same premium but I can do it twice in the same timeframe?
+**Stella：** 所以在相同时间内，我能做两次，拿到接近相同的期权费？
 
-**Alex:** Exactly. Two 30-day cycles at $2.00 each = $4.00 total. One 60-day cycle at $3.00 total. Two cycles wins. Plus, shorter duration means less exposure to unexpected events.
+**Horace：** 正是。两次30天周期，每次$2.00，合计$4.00；一次60天周期，合计$3.00——两次周期完胜。而且，更短的到期日意味着暴露于意外事件的时间更少。
 
-[VISUAL: Comparison: "Two 30-day cycles: $2.00 + $2.00 = $4.00" vs "One 60-day cycle: $3.00". The two-cycle approach clearly generates more income.]
+[VISUAL: Comparison: "两次30天周期：$2.00 + $2.00 = $4.00" vs "一次60天周期：$3.00"。两次周期的方式明显创造更多收入。]
 
-**Sam:** Now I want to know about the yield math. How do I calculate my return?
+**Stella：** 现在来讲收益率的计算。怎么算我的回报？
 
-**Alex:** Simple formula. Take the premium, divide by the stock price, and annualize it. If you receive $2.50 on a $155 stock for a 30-day option, that is $2.50 divided by $155, which is 1.6%. Annualized: 1.6% times 365 divided by 30 equals 19.6%.
+**Horace：** 公式很简单。期权费除以股价，再年化。假设$155的股票收到$2.50期权费，30天到期，$2.50除以$155等于1.6%，年化：1.6%乘以365再除以30，等于19.6%。
 
-**Sam:** 19.6% annualized? That seems high.
+**Stella：** 年化19.6%？听起来很高。
 
-**Alex:** It is high when conditions are favorable. In practice, you will not achieve that every month. Some months the premium will be lower. Some months you might skip a cycle around earnings. A realistic annual covered call yield is 8-15% for a moderate approach on high-quality stocks.
+**Horace：** 条件有利时确实很高。实际上，并非每个月都能达到这个水平。有些月份期权费会低一些，有些周期可能因财报而跳过。均衡型策略在优质蓝筹股上，实际年化收益率在8%至15%之间更为现实。
 
-[VISUAL: Calculator showing the yield formula with an example. Then a "Reality Check" adjustment showing: Theoretical max ~20%, Practical annual yield ~8-15%, with adjustments for "Months skipped for earnings", "Varying IV levels", "Cycles when assigned"]
+[VISUAL: Calculator showing the yield formula with an example. Then a "现实核查"调整，显示：理论上限约20%，实际年化收益率约8%-15%，并附加调整项："财报跳过的月份"、"不同隐含波动率水平"、"被买走时的周期"]
 
-**Sam:** Let us talk about what to do when things do not go as planned. What if the stock is approaching my strike price with a week to go?
+**Stella：** 我们来聊聊事与愿违的情况。如果距到期还有一周，股价已经接近行权价怎么办？
 
-**Alex:** You have two choices. First, let it happen. If you are happy selling at the strike price, just let the shares be called away. Remember, assignment is success, not failure. Second, roll the position.
+**Horace：** 你有两个选择。第一，顺其自然。如果你愿意以行权价卖出，就让股票被买走。记住，被买走是成功，不是失败。第二，展期。
 
-**Sam:** What does rolling mean?
+**Stella：** 展期是什么意思？
 
-**Alex:** Rolling means closing your current call by buying it back, and simultaneously selling a new call with a later expiration and usually a higher strike. This extends your time in the position and often generates a net credit.
+**Horace：** 展期就是买回当前看涨期权平仓，同时卖出一份到期日更晚、通常行权价也更高的新期权。这延长了你持仓的时间，通常能获得净收入。
 
-[VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "Buy Back" the current call, then "Sell New" call with later expiry and higher strike. Net credit amount is displayed.]
+[VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "买回"当前看涨期权，然后"卖出新期权"，到期日更晚，行权价更高。显示净收入金额。]
 
-**Alex:** Here is an example. You sold the AAPL $170 call for $2.50 and the stock is now at $172 with a week to go. The call is worth about $4.00. You buy it back for $4.00, then sell the AAPL $180 call expiring next month for $3.00. Your net cost on the roll is $1.00. But you have raised your selling price from $170 to $180 and given yourself another month.
+**Horace：** 举个例子：你以$2.50卖出AAPL $170看涨期权，距到期一周，股价已涨至$172，期权现在值约$4.00。你以$4.00买回，同时卖出AAPL $180看涨期权，下月到期，收入$3.00。这次展期的净成本为$1.00。但你的卖出价已从$170提高到$180，并多争取了一个月的时间。
 
-**Sam:** So rolling is a way to "push back" the selling point?
+**Stella：** 所以展期是一种"推后"卖出时机的方式？
 
-**Alex:** Exactly. You are saying, I do not want to sell at $170 anymore, I want to sell at $180, and I am willing to give up $1.00 per share in net premium to get that $10 higher selling price. If Apple stays below $180, you still keep the new premium minus the roll cost.
+**Horace：** 正是。你在说：我不想以$170卖了，我想以$180卖，我愿意付出每股$1.00的净期权费差价来换取那$10更高的卖出价。如果苹果公司到4月前维持$180以下，你仍保留扣除展期成本后的净期权费。
 
-**Sam:** When should you roll versus just accepting assignment?
+**Stella：** 什么情况下应该展期，什么情况下直接接受被买走？
 
-**Alex:** Roll when: you still want to own the stock, you believe it has more upside, and you can roll for a credit or a small debit. Accept assignment when: the stock has reached your fair value, the fundamentals have changed, or better opportunities exist elsewhere.
+**Horace：** 展期的条件：你仍想持有这只股票、认为它还有上涨空间，且能以净收入或小额净支出完成展期。接受被买走的条件：股票已到达你的合理价值估算、基本面发生变化，或存在更好的投资机会。
 
-[VISUAL: Decision flowchart. "Stock approaching strike price?" -> "Do you still want to own it?" If YES -> "Can you roll for a credit?" If YES -> "ROLL". If NO to either -> "LET IT BE ASSIGNED"]
+[VISUAL: Decision flowchart. "股价接近行权价？"-> "你是否仍想持有？" 若是 -> "能否以净收入展期？" 若是 -> "展期"。若任一选项为否 -> "接受被买走"]
 
-**Sam:** Now I want to address the elephant in the room. What about that scenario where the stock absolutely rockets higher and you miss out on a huge gain?
+**Stella：** 现在我想直面那头"大象"。万一股票大涨，你错过了一大段涨幅怎么办？
 
-**Alex:** Let me give you two perspectives. Mathematically, the covered call underperforms when stocks rally more than 10-15% in a single month. This happens maybe 10-15% of the time for a typical large-cap stock. The other 85-90% of the time, the covered call earns the same capital gain plus the premium.
+**Horace：** 我从两个角度来看这个问题。从数学角度，备兑看涨期权在股票单月涨幅超过10%至15%时表现落后，这对典型大盘蓝筹股来说大约发生10%至15%的时间。其余85%至90%的时间，备兑看涨期权能获得同等资本利得，还额外叠加期权费。
 
-**Sam:** So 85% of the time you win, and 15% of the time you "win less."
+**Stella：** 所以85%的时间你赢，15%的时间你"赢得少一些"。
 
-**Alex:** Exactly. And notice I said "win less," not "lose." Even when the stock blasts through your strike, you still make a profit. You made the strike price minus your cost, plus the premium. You just did not make the maximum possible profit.
+**Horace：** 正是。注意我说的是"赢得少"，不是"输"。即使股价大幅突破行权价，你仍然盈利——你赚到了行权价减去成本加上期权费。只是没有赚到理论上的最大利润。
 
-**Sam:** That is an important distinction.
+**Stella：** 这个区别很重要。
 
-**Alex:** And here is the psychological perspective. Professional investors know that missing a moonshot is the cost of consistent income. A bird in the hand versus two in the bush. The premiums you collect month after month are certain. The possibility that the stock will rocket 25% in any given month is uncertain.
+**Horace：** 从心理角度来说，专业投资者明白：错过暴涨是换取稳定收入的代价——宁要手中鸟，不要林中鸟。每月收取的期权费是确定的，而股票在任意月份暴涨25%的可能性是不确定的。
 
-[VISUAL: Two columns: "CERTAIN: Monthly premium income of $250" vs "UNCERTAIN: Possibility of catching a 25% monthly rally". Text below: "Covered calls trade uncertain upside for certain income."]
+[VISUAL: Two columns: "确定：每月$250的期权费收入" vs "不确定：抓住某月25%暴涨的可能性"。下方文字："备兑看涨期权以不确定的上行空间换取确定的收入。"]
 
-**Sam:** Let us talk about the overall income comparison. You said covered calls can produce 2-3 times what dividends provide?
+**Stella：** 我们来看看整体收入对比。你说备兑看涨期权能创造2到3倍于股息的收益？
 
-**Alex:** Actually, for many stocks, it is far more than that. Let me show you.
+**Horace：** 实际上，对很多股票来说，远不止2到3倍。我来展示给你看。
 
 [VISUAL: Table on screen comparing 5 stocks with their dividend yield vs covered call yield vs combined yield]
 
-**Alex:** Take Apple. Dividend yield is about 0.65%. With monthly covered calls, you can add 10-14% in premium income. Your total yield goes from 0.65% to roughly 11-15%. That is not 2-3 times the dividend. That is more like 17 to 23 times.
+**Horace：** 以苹果公司为例，股息率约0.65%。叠加月度备兑看涨期权后，可额外增加10%至14%的期权费收入，总收益率从0.65%提升至约11%至15%。这不是2到3倍，而是17到23倍。
 
-**Sam:** That is staggering.
+**Stella：** 这个数字太惊人了。
 
-**Alex:** For a higher-dividend stock like Johnson and Johnson at about 3% dividend yield, covered calls add 8-12%, bringing total yield to 11-15%, which is about 4-5 times the dividend alone. The "2-3 times" guideline is actually conservative. The real multiplier depends on the stock's volatility and the aggressiveness of your strike selection.
+**Horace：** 对于股息率约3%的强生公司，备兑看涨期权可额外增加8%至12%，总收益率达11%至15%，约为单纯股息的4到5倍。"2到3倍"的说法其实是保守的。实际倍数取决于股票的波动率和行权价的激进程度。
 
-**Sam:** Can you walk through what a complete covered call portfolio looks like? For someone with, say, $200,000?
+**Stella：** 你能演示一下完整的备兑看涨期权投资组合是什么样的吗？比如20万美元的规模？
 
-**Alex:** Sure. Picture five stocks, each a blue-chip name in a different sector. Apple for tech, JPMorgan for finance, Johnson and Johnson for healthcare, Coca-Cola for consumer staples, and Microsoft for more tech. You own 100-300 shares of each, and you sell covered calls monthly.
+**Horace：** 当然。想象五只股票，每只是不同板块的蓝筹：科技板块选苹果，金融板块选摩根大通，医疗板块选强生，必需消费品板块选可口可乐，再加一只微软扩充科技配置。每只持有100至300股，每月卖出备兑看涨期权。
 
 [VISUAL: Portfolio dashboard showing 5 stocks with shares owned, cost basis, current price, call sold, premium collected, and annualized yield for each. Bottom shows total monthly income and annual projected income.]
 
-**Alex:** Your total monthly premium might be around $1,800. Add dividends of about $300 per month, and you are generating $2,100 per month in income from a $200,000 portfolio. That is $25,200 per year, or a 12.6% annual income yield.
+**Horace：** 每月总期权费大约在$1,800左右。加上每月约$300的股息，你从20万美元的投资组合每月创造约$2,100的收入，全年合计$25,200，年化收益率12.6%。
 
-**Sam:** That is incredible. Most people would be thrilled with that kind of income.
+**Stella：** 太厉害了。这种收入水平对大多数人来说已经是非常理想的了。
 
-**Alex:** And the beauty is, you still own all the stocks. They can still appreciate. You can still receive dividends. The covered calls just add a third stream of income on top.
+**Horace：** 而且美妙之处在于，你的股票仍然都在手里，仍然可以升值，仍然可以收股息。备兑看涨期权只是在此基础上叠加了第三条收入来源。
 
-**Sam:** Let me ask about the management side. How much time does this take?
+**Stella：** 聊聊管理层面。这需要花多少时间？
 
-**Alex:** Here is my monthly routine. On expiration week, I spend about 30 minutes reviewing my positions. For any calls that expired worthless, I sell new calls for the next month, takes maybe 10 minutes per stock. For any that are being challenged, I decide whether to roll or accept assignment, another 10 minutes. Total time per month: about 45-60 minutes.
+**Horace：** 我的月度流程是这样的：在期权到期周，大约花30分钟审视一下持仓。对已到期失效的期权，卖出下个月的新期权，每只股票大约10分钟。对受到挑战的期权，决定展期还是接受被买走，再花10分钟。每月总时间：大约45到60分钟。
 
-**Sam:** Under an hour a month for $25,000 per year in extra income.
+**Stella：** 每月不到一小时，换来每年$25,000的额外收入。
 
-**Alex:** When you think about it in terms of hourly rate, you are earning over $2,000 per hour for the time spent managing covered calls.
+**Horace：** 换算成时薪，你管理备兑看涨期权的时薪超过$2,000。
 
-[VISUAL: Calculator: "45 minutes/month x 12 months = 9 hours/year. $25,200 / 9 hours = $2,800/hour"]
+[VISUAL: Calculator: "45分钟/月 × 12个月 = 9小时/年。$25,200 / 9小时 = $2,800/小时"]
 
-**Sam:** OK, I have to ask about the tricky situations. What do I do around earnings?
+**Stella：** 好，我想问一些棘手的情况。财报季怎么处理？
 
-**Alex:** My rule is simple: do not have calls expiring during earnings week. Earnings can cause the stock to gap up or down significantly. If it gaps up, you might be assigned at a bad price. If it gaps down, the call premium you collected is tiny compared to the stock loss. Either way, earnings week adds unpredictable risk. Sell calls that expire before earnings or after earnings, but not during.
+**Horace：** 我的规则很简单：不让看涨期权在财报周到期。财报可能引发股价大幅跳空，无论上下。向上跳空可能导致以不理想的价格被买走；向下跳空时，你收到的区区期权费相比股票亏损微不足道。无论哪种情况，财报周都增加了不可预知的风险。卖在财报前或财报后到期的期权，而非财报期间。
 
-**Sam:** So you skip a cycle?
+**Stella：** 所以你会跳过一个周期？
 
-**Alex:** Sometimes. Or you sell a shorter-term call that expires before earnings, then sell a new call after the announcement. The key is not to be short a call when a binary event is about to happen unless you are specifically trying to exit the position.
+**Horace：** 有时是的。或者卖一份在财报前到期的短期期权，财报公布后再卖新期权。关键是：不要在即将发生重大事件时持有空头看涨期权，除非你本就打算退出这个头寸。
 
-[VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "No Calls" in red]
+[VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "禁卖期权" in red]
 
-**Sam:** What about tax considerations?
+**Stella：** 税务方面呢？
 
-**Alex:** In a taxable account, covered call premiums are generally short-term capital gains, taxed at your ordinary income rate. If your shares are called away, the premium is added to the sale proceeds for capital gains calculation. If the call expires worthless, the premium is a standalone short-term gain. In an IRA or Roth IRA, none of this matters because the income grows tax-deferred or tax-free. This is why I especially like covered calls in Roth IRAs; the premium income is never taxed.
+**Horace：** 在应税账户中，备兑看涨期权的期权费通常被视为短期资本利得，按普通所得税率缴税。若股票被买走，期权费计入卖股所得，计算资本利得税。若期权到期失效，期权费作为独立的短期资本利得处理。在个人退休账户或罗斯退休账户中，这些都不重要，因为收入在账户内免税增长或延税增长。这正是我特别青睐在罗斯退休账户中运用备兑看涨期权的原因——期权费收入永远不用缴税。
 
-**Sam:** So Roth IRA is the ideal account for this strategy.
+**Stella：** 所以罗斯退休账户是这个策略的理想账户。
 
-**Alex:** If you have one with sufficient funds to own 100-share lots, absolutely. The premiums grow tax-free and can be reinvested to compound over decades.
+**Horace：** 如果你的罗斯账户有足够资金持有100股的整数倍，那绝对是首选。期权费免税增长，并可再投资，数十年复利下来效果惊人。
 
-[VISUAL: Two columns showing "Taxable Account: Premium taxed at ordinary income rate (22-37%)" vs "Roth IRA: Premium grows tax-FREE"]
+[VISUAL: Two columns showing "应税账户：期权费按普通所得税率（22%-37%）缴税" vs "罗斯退休账户：期权费完全免税增长"]
 
-**Sam:** Let me summarize what we learned today. A covered call is owning 100 shares and selling a call against them. It caps your upside at the strike price but generates premium income. The ideal market is flat to mildly bullish. Premium income can be 2-3 times dividends or more. The sweet spot is 30-45 day expiration at 5-10% out of the money. And if your stock hits the strike, it is not a failure, it is a successful exit at your target price.
+**Stella：** 让我来总结今天学到的内容。备兑看涨期权就是持有100股的同时卖出一份看涨期权；它以行权价封顶上行，但能创造期权费收入；最适合横盘到温和看涨的市场；期权费收入可以是股息的2至3倍乃至更多；最佳选择是30至45天到期日，高出股价5%至10%的行权价；如果股票触及行权价——这不是失败，而是以目标价成功退出。
 
-**Alex:** Perfect summary. And one thing I want to emphasize: this is not a one-time strategy. The power comes from doing it month after month, year after year. The premiums compound. Your cost basis drops. And your total return significantly outpaces a passive buy-and-hold approach in most market conditions.
+**Horace：** 总结得完美。我想特别强调一点：这不是一次性策略，它的威力来自月复一月、年复一年的坚持执行。期权费不断复利，成本基础持续下降，在大多数市场环境下，总回报率显著优于被动买入持有。
 
-**Sam:** Next week we are covering cash-secured puts, which is the other side of this coin.
+**Stella：** 下周我们将讲解现金担保看跌期权，也就是这枚硬币的另一面。
 
-**Alex:** Right. Covered calls are about getting paid to sell at your target. Cash-secured puts are about getting paid to buy at your target. Together, they form the wheel strategy, which is one of the most elegant income strategies in investing.
+**Horace：** 没错。备兑看涨期权是让你拿到钱等着以目标价卖出；现金担保看跌期权是让你拿到钱等着以目标价买入。两者结合，就构成"轮转"策略——投资领域最优雅的收入策略之一。
 
-**Sam:** Looking forward to it. Thanks for watching, everyone.
+**Stella：** 非常期待！感谢大家的收看。
 
-**Alex:** Like, subscribe, and we will see you in Week 28.
+**Horace：** 别忘了点赞、订阅，我们第28周见。
 
 [VISUAL: End screen with subscribe button, playlist link, and preview of Week 28: Cash-Secured Puts for Entry]
 
 ---
 
-*Animation Reference: animation/week27_covered_call.py - This animation displays a stock price chart with the covered call position overlaid. It shows the current stock price, the strike price as a horizontal ceiling line, and three animated price paths (flat, moderate rise, strong rise). For each path, a profit calculator updates in real-time, showing the combined profit from stock appreciation plus premium income, with the cap at the strike price clearly illustrated. When the stock crosses the strike, the animation shows the shares being "called away" with a visual handoff. The payoff diagram is also animated, showing how the premium shifts the breakeven point lower and how the profit caps at the strike.*
+*动画参考：animation/week27_covered_call.py - 该动画呈现一张股价走势图，叠加备兑看涨期权头寸。图中显示当前股价、作为上限天花板的行权价水平虚线，以及三条动态模拟的股价走势路径（横盘、温和上涨、强劲上涨）。每条路径对应一个实时更新的盈亏计算器，显示股票升值与期权费收入的综合盈利，并清晰标注行权价处的收益封顶。当股价穿越行权价时，动画展示股票"被买走"的过程及视觉化的股票交割。收益图同步动态呈现，展示期权费如何下移盈亏平衡点，以及盈利在行权价处被封顶的效果。*

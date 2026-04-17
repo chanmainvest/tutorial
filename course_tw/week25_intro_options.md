@@ -1,262 +1,257 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第 25 週：選擇權入門
 
-# Week 25: Introduction to Options
+## 閱讀單元
 
-## Reading Section
+### a) 為何這個主題至關重要
 
-### a) Why This Is Important
+選擇權是個人投資者所能運用的最強大、最靈活的金融工具之一，然而也是最容易被誤解的。許多投資者因為選擇權看起來複雜或高風險，而完全敬而遠之；另一些人則在缺乏充分了解的情況下貿然投入，結果蒙受慘痛損失。這兩種做法都不是最佳選擇。
 
-Options are one of the most powerful and versatile financial instruments available to individual investors. Yet they are also one of the most misunderstood. Many investors avoid options entirely because they seem complex or risky. Others dive in without proper understanding and suffer painful losses. Neither approach is optimal.
+了解選擇權的重要性體現在以下幾個面向：
 
-Understanding options is important for several reasons:
+**風險管理（避險）：** 選擇權最初就是作為保險契約而誕生的。就像您購買住宅保險以防範重大損失，您也可以買進選擇權來保護您的投資組合。持有 50 萬美元股票的長期投資者，只需花費其中一小部分資金購買保護性賣權，即可確保在市場崩盤時損失不超過預設比例。不懂選擇權，就像開車卻沒有保險一樣。
 
-**Risk Management (Hedging):** Options were originally created as insurance contracts. Just as you buy home insurance to protect against catastrophic loss, you can buy options to protect your investment portfolio. A long-term investor holding $500,000 in stocks can purchase protective puts for a fraction of that amount, ensuring they will never lose more than a predetermined percentage even in a market crash. Without options knowledge, you are essentially driving without insurance.
+**創造收益：** 選擇權可以針對您已持有或有意買進的股票，穩定創造收益。掩護性買權與現金擔保賣權（將於第 27 和第 28 週深入探討）每年可產生 8-15% 的殖利率，往往是股利殖利率的 2-3 倍。在盤整或溫和多頭的市場中，這些收益能大幅提升您的整體報酬。
 
-**Income Generation:** Options can generate consistent income on stocks you already own or stocks you would like to own. Covered calls and cash-secured puts (which we will explore in Weeks 27 and 28) can produce yields of 8-15% annually, often 2-3 times what dividends alone would provide. In a flat or mildly bullish market, this income can make a significant difference in your total returns.
+**資金效率：** 選擇權讓您以相對較少的資金，掌控大量股票的曝險。一份選擇權合約掌控 100 股。這種槓桿可以用得負責任——提升報酬；也可以用得不負責任——讓帳戶爆倉。理解其運作機制，有助於您走在正確的那一側。
 
-**Capital Efficiency:** Options allow you to control a large amount of stock with a relatively small capital outlay. One options contract controls 100 shares. This leverage can be used responsibly to enhance returns or irresponsibly to blow up an account. Understanding the mechanics helps you stay on the right side of that line.
+**市場洞察：** 即使您從未交易過任何一張選擇權，理解選擇權市場的運作方式也能讓您對市場情緒有寶貴的認識。波動率指數（VIX）、隱含波動率、賣權/買權比率，以及異常選擇權成交量，都能提供大型機構投資人對市場走向預期的訊號。對懂得解讀這些訊號的人而言，這些資訊就在眼前，俯拾即是。
 
-**Market Insight:** Even if you never trade a single option, understanding how the options market works gives you valuable insight into market sentiment. The VIX (Volatility Index), implied volatility, put/call ratios, and unusual options activity all provide signals about what large, sophisticated investors expect the market to do. This information is hiding in plain sight for those who understand how to read it.
+**成為更好的股票投資者：** 選擇權知識能讓您成為更出色的股票投資者。當您理解時間衰減與隱含波動率等概念，您對時間與不確定性在所有投資中所扮演角色的理解將更為深刻，而不僅限於選擇權。您將開始以機率思維看待事物，而這正是全球頂尖投資者面對市場的方式。
 
-**Better Stock Investing:** Options knowledge makes you a better stock investor. When you understand concepts like time decay and implied volatility, you gain a deeper appreciation for the role that time and uncertainty play in all investments, not just options. You begin to think probabilistically, which is how the best investors in the world approach markets.
-
-In this course, we focus on four specific, conservative options strategies that complement a long-term investment approach. We are not teaching you to be a day trader or a speculative options gambler. We are teaching you to use options as tools that enhance your existing investment strategy.
+本課程聚焦於四種特定且保守的選擇權策略，這些策略能與長期投資方針相輔相成。我們的目標不是培訓您成為當沖交易者或投機的選擇權賭客，而是教您將選擇權作為工具，用以強化您現有的投資策略。
 
 ---
 
-### b) What You Need to Know
+### b) 必備知識
 
-#### What Is an Option?
+#### 什麼是選擇權？
 
-An option is a contract that gives the buyer the **right, but not the obligation**, to buy or sell a specific stock at a specific price on or before a specific date. This is the single most important sentence in options education. Read it again.
+選擇權是一種合約，賦予買方**權利，而非義務**，得以在特定日期或之前，以特定價格買入或賣出特定股票。這是選擇權教育中最重要的一句話，請再讀一遍。
 
-The key word is **right**. The buyer of an option has a choice. They can exercise the option if it benefits them, or they can let it expire worthless if it does not. The seller (also called the writer) of an option has an **obligation**. If the buyer chooses to exercise, the seller must fulfill the contract.
+關鍵字是**權利**。選擇權的買方擁有選擇的自由：若對自己有利，可以執行；若無利可圖，則可讓它到期作廢。選擇權的賣方（又稱為賣出方）則承擔**義務**。若買方選擇執行，賣方必須履行合約。
 
-This asymmetry between rights and obligations is what makes options unique and is the foundation of everything that follows.
+這種權利與義務之間的不對稱性，是選擇權獨特之處的根本，也是後續一切概念的基礎。
 
-#### The Two Types: Calls and Puts
+#### 兩種類型：買權與賣權
 
-There are only two types of options:
+選擇權只有兩種類型：
 
-**Call Option:** Gives the buyer the right to **buy** a stock at a specific price.
-- You buy a call when you think the stock will go UP.
-- Think of it as a "reservation to buy."
+**買權（Call Option）：** 賦予買方**買進**股票的權利，成交價格為特定的履約價。
+- 當您看漲某檔股票時，買進買權。
+- 可以把它想像成「預約買入的權利」。
 
-**Put Option:** Gives the buyer the right to **sell** a stock at a specific price.
-- You buy a put when you think the stock will go DOWN (or want to protect against it).
-- Think of it as an "insurance policy."
+**賣權（Put Option）：** 賦予買方**賣出**股票的權利，成交價格為特定的履約價。
+- 當您看跌某檔股票（或想防範下跌風險）時，買進賣權。
+- 可以把它想像成「保險單」。
 
-Every option contract has four essential components:
+每份選擇權合約都包含四個基本要素：
 
 ```
 +----------------------------------------------------------+
-|                    OPTION CONTRACT                        |
+|                    選擇權合約                             |
 |                                                          |
-|  1. UNDERLYING ASSET:  The stock (e.g., AAPL, MSFT)     |
-|  2. STRIKE PRICE:      The agreed upon price             |
-|  3. EXPIRATION DATE:   When the contract expires         |
-|  4. TYPE:              Call or Put                        |
+|  1. 標的資產：    股票（例如 AAPL、MSFT）                 |
+|  2. 履約價：      雙方議定的成交價格                       |
+|  3. 到期日：      合約到期的日期                           |
+|  4. 類型：        買權或賣權                              |
 |                                                          |
-|  Example: "AAPL Jan 17 2026 $200 Call"                   |
-|  = Right to BUY 100 shares of AAPL at $200/share        |
-|    on or before January 17, 2026                         |
+|  範例：「AAPL Jan 17 2026 $200 Call」                    |
+|  = 在 2026 年 1 月 17 日或之前，以每股 $200 的價格       |
+|    買進 100 股蘋果公司股票的權利                          |
 +----------------------------------------------------------+
 ```
 
-#### Contract Size
+#### 合約規格
 
-One options contract controls **100 shares** of the underlying stock. This is standard across U.S. equity options. When you see an option quoted at $3.50, you pay $3.50 per share, meaning $350 per contract ($3.50 x 100 shares).
+一份選擇權合約掌控標的股票 **100 股**。這是美國股票選擇權的統一標準。當您看到某個選擇權報價為 3.50 美元，您支付的是每股 3.50 美元，也就是每份合約 350 美元（3.50 美元 × 100 股）。
 
 ```
-Option Price (Premium):   $3.50 per share
-Shares per Contract:      x 100
-Total Cost per Contract:  = $350.00
+選擇權價格（權利金）：   每股 $3.50
+每份合約股數：           × 100
+每份合約總成本：         = $350.00
 ```
 
-#### Rights vs. Obligations
+#### 權利與義務
 
-This table clarifies who has rights and who has obligations:
+下表說明誰擁有權利、誰承擔義務：
 
 ```
 +------------------+------------------------+------------------------+
-|                  |     CALL OPTION        |     PUT OPTION         |
+|                  |     買權（Call）        |     賣權（Put）         |
 +------------------+------------------------+------------------------+
-|  BUYER (Long)    | Right to BUY stock     | Right to SELL stock    |
-|                  | at strike price        | at strike price        |
-|                  | Pays premium           | Pays premium           |
-|                  | Max loss = premium     | Max loss = premium     |
+|  買方（做多）     | 以履約價買進股票的權利  | 以履約價賣出股票的權利  |
+|                  | 支付權利金              | 支付權利金              |
+|                  | 最大損失 = 權利金        | 最大損失 = 權利金        |
 +------------------+------------------------+------------------------+
-|  SELLER (Short)  | Obligation to SELL     | Obligation to BUY      |
-|                  | stock at strike price  | stock at strike price  |
-|                  | Receives premium       | Receives premium       |
-|                  | Max loss = unlimited*  | Max loss = large**     |
+|  賣方（做空）     | 以履約價賣出股票的義務  | 以履約價買進股票的義務  |
+|                  | 收取權利金              | 收取權利金              |
+|                  | 最大損失 = 無限*        | 最大損失 = 大額損失**   |
 +------------------+------------------------+------------------------+
 
-*  For naked calls, loss is theoretically unlimited as stock can rise infinitely.
-** For naked puts, max loss = strike price x 100 (if stock goes to $0).
+*  裸賣買權的損失理論上無上限，因為股價可以無限上漲。
+** 裸賣賣權的最大損失 = 履約價 × 100（股價跌至零時）。
 ```
 
-#### Strike Price and Moneyness
+#### 履約價與價值狀態
 
-The **strike price** (also called the exercise price) is the price at which the option holder can buy (for calls) or sell (for puts) the underlying stock.
+**履約價**（又稱執行價）是選擇權持有人可以買進（買權）或賣出（賣權）標的股票的約定價格。
 
-The relationship between the strike price and the current stock price determines the option's **moneyness**:
+履約價與當前股價的關係，決定了選擇權的**價值狀態**：
 
-**For Call Options:**
+**買權的價值狀態：**
 
 ```
-Stock Price = $150
+股價 = $150
 
-  In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-  Strike < Stock Price    Strike = Stock Price   Strike > Stock Price
-  Strike = $140           Strike = $150          Strike = $160
-  Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
+  價內（ITM）              價平（ATM）              價外（OTM）
+  履約價 < 股價            履約價 = 股價            履約價 > 股價
+  履約價 = $140            履約價 = $150            履約價 = $160
+  內含價值 = $10           內含價值 = $0            內含價值 = $0
        |                       |                       |
        v                       v                       v
   [====|==========]       [=========|=]           [==========|====]
   $130  $140  $150        $140  $150  $160        $150  $160  $170
-       Higher Value            Some Value              Lower Value
-       Higher Premium          Moderate Premium        Lower Premium
+      價值較高                  中等價值                 價值較低
+      權利金較高                中等權利金               權利金較低
 ```
 
-**For Put Options (opposite direction):**
+**賣權的價值狀態（方向相反）：**
 
 ```
-Stock Price = $150
+股價 = $150
 
-  In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-  Strike > Stock Price    Strike = Stock Price   Strike < Stock Price
-  Strike = $160           Strike = $150          Strike = $140
-  Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
+  價內（ITM）              價平（ATM）              價外（OTM）
+  履約價 > 股價            履約價 = 股價            履約價 < 股價
+  履約價 = $160            履約價 = $150            履約價 = $140
+  內含價值 = $10           內含價值 = $0            內含價值 = $0
 ```
 
-The moneyness of an option directly affects its price and behavior. ITM options are more expensive, move more closely with the stock, and have higher probability of being exercised. OTM options are cheaper, move less with the stock, and usually expire worthless.
+選擇權的價值狀態直接影響其價格和行為。價內選擇權較昂貴，與股票連動程度較高，被執行的機率也較大。價外選擇權較便宜，與股票連動程度較低，通常到期作廢。
 
-#### Intrinsic Value vs. Extrinsic Value
+#### 內含價值與外含價值
 
-Every option's price (called the **premium**) is composed of two parts:
+每份選擇權的價格（即**權利金**）由兩個部分組成：
 
-**Intrinsic Value** = The amount the option is in the money. This is the value the option would have if exercised right now.
-- For calls: max(0, Stock Price - Strike Price)
-- For puts: max(0, Strike Price - Stock Price)
+**內含價值** = 選擇權處於價內的金額。這是若立即執行選擇權所能實現的價值。
+- 買權：max(0, 股價 - 履約價)
+- 賣權：max(0, 履約價 - 股價)
 
-**Extrinsic Value** (also called Time Value) = Everything else. This is the extra premium above intrinsic value that reflects the possibility of the option becoming more valuable before expiration.
+**外含價值**（又稱時間價值）= 其他一切。這是超出內含價值的額外權利金，反映了選擇權在到期前可能變得更有價值的可能性。
 
 ```
-Option Premium = Intrinsic Value + Extrinsic Value
+選擇權權利金 = 內含價值 + 外含價值
 
-Example: AAPL trading at $155
-AAPL $150 Call trading at $8.50
+範例：AAPL 股價 $155
+AAPL $150 買權報價 $8.50
 
-Intrinsic Value  = $155 - $150 = $5.00  (the option is $5 in the money)
-Extrinsic Value  = $8.50 - $5.00 = $3.50 (time value, volatility premium)
-Total Premium    = $5.00 + $3.50 = $8.50
+內含價值  = $155 - $150 = $5.00  （選擇權處於 $5 的價內）
+外含價值  = $8.50 - $5.00 = $3.50（時間價值、波動率溢酬）
+總權利金  = $5.00 + $3.50 = $8.50
 
 +---------------------------------------------------+
-|              OPTION PREMIUM: $8.50                 |
+|              選擇權權利金：$8.50                   |
 |                                                    |
-|  [===== INTRINSIC: $5.00 =====][== EXTRINSIC ==]  |
-|  [===== (In the Money) =======][== $3.50 ======]  |
+|  [===== 內含：$5.00 =======][==== 外含 =========] |
+|  [===== （價內部分）========][==== $3.50 ========] |
 |                                                    |
-|  Intrinsic: Real, tangible     Extrinsic: Hope,   |
-|  value right now.              time, uncertainty.  |
-|  Cannot be negative.           Decays over time.   |
+|  內含價值：真實、有形的      外含價值：預期、時間、  |
+|  當下即存在的價值。          不確定性。              |
+|  不會為負。                  隨時間流逝而衰減。      |
 +---------------------------------------------------+
 ```
 
-An out-of-the-money option has **zero intrinsic value**. Its entire premium is extrinsic value, meaning it is purely a bet on future movement.
+價外選擇權的內含價值為**零**，其整個權利金都是外含價值，意味著它純粹是對未來價格移動的押注。
 
-#### The Option Chain
+#### 選擇權報價表
 
-An **option chain** is the full listing of all available options for a particular stock. It shows every available combination of strike price, expiration date, and type (call/put). Here is a simplified representation:
+**選擇權報價表**是特定股票所有可交易選擇權的完整清單，列出每種可用的履約價、到期日與類型（買權/賣權）的組合。以下是簡化示意：
 
 ```
-                    AAPL Option Chain - Stock Price: $155.00
-                    Expiration: March 21, 2026
+                    AAPL 選擇權報價表 - 股價：$155.00
+                    到期日：2026 年 3 月 21 日
 
-    ====================== CALLS ======================  ====== PUTS ======
-    Bid    Ask    Last   Volume  OI    Strike   Bid    Ask    Last   Volume  OI
+    ===================== 買權（Call）====================  ===== 賣權（Put）=====
+    買價   賣價   成交   成交量  未平倉   履約價  買價   賣價   成交   成交量  未平倉
     -----------------------------------------------------------------------
-    17.20  17.50  17.35   1,205  8,432  $140    1.85   1.95   1.90    892  5,210
-    12.40  12.70  12.55   2,847  12,105 $145    3.10   3.25   3.15  1,540  7,890
-     8.30   8.55   8.42   5,120  18,760 $150    5.20   5.40   5.30  3,210  11,450
-     5.10   5.30   5.20   8,450  22,340 $155    7.80   8.05   7.90  2,870  9,870
-     2.85   3.00   2.92   6,780  19,540 $160   11.50  11.80  11.65  1,650  6,540
-     1.40   1.55   1.47   4,320  14,890 $165   16.20  16.50  16.35    780  3,210
-     0.55   0.65   0.60   2,150   9,870 $170   21.30  21.60  21.45    340  1,890
+    17.20  17.50  17.35  1,205  8,432   $140   1.85   1.95   1.90    892  5,210
+    12.40  12.70  12.55  2,847  12,105  $145   3.10   3.25   3.15  1,540  7,890
+     8.30   8.55   8.42  5,120  18,760  $150   5.20   5.40   5.30  3,210  11,450
+     5.10   5.30   5.20  8,450  22,340  $155   7.80   8.05   7.90  2,870  9,870
+     2.85   3.00   2.92  6,780  19,540  $160  11.50  11.80  11.65  1,650  6,540
+     1.40   1.55   1.47  4,320  14,890  $165  16.20  16.50  16.35    780  3,210
+     0.55   0.65   0.60  2,150   9,870  $170  21.30  21.60  21.45    340  1,890
 
-    ITM calls are above this line    <--- ATM ($155) --->    ITM puts are above
-    OTM calls are below this line                            OTM puts are below
+    此線以上為買權價內    <--- 價平（$155）--->    此線以上為賣權價內
+    此線以下為買權價外                             此線以下為賣權價外
 
-    Key:  Bid = highest price buyers will pay
-          Ask = lowest price sellers will accept
-          OI  = Open Interest (number of existing contracts)
+    說明：買價 = 買方願意支付的最高價格
+          賣價 = 賣方願意接受的最低價格
+          未平倉 = 現有合約總數
 ```
 
-Notice several important patterns:
-- As you move away from ATM in either direction, premiums decrease.
-- ITM options have higher premiums because they contain intrinsic value.
-- ATM options typically have the highest volume and open interest (most liquid).
-- The bid-ask spread is tightest for ATM options and widens for deep ITM/OTM.
+請注意幾個重要規律：
+- 向價平的任何方向移動，權利金都會遞減。
+- 價內選擇權因含有內含價值，故權利金較高。
+- 價平選擇權的成交量和未平倉量通常最高（流動性最佳）。
+- 買賣價差在價平選擇權最窄，在深度價內/價外選擇權則較寬。
 
-#### Expiration Dates
+#### 到期日
 
-Options do not last forever. Every option has an **expiration date**, which is the last day the option can be exercised. After this date, the option ceases to exist.
+選擇權不會永久存在。每份選擇權都有**到期日**，這是合約可被執行的最後一天，過了這天，選擇權即失效。
 
-Common expiration cycles:
+常見到期週期：
 
 ```
 +-------------------------------------------------------------------+
-|  TYPE              | EXPIRATION          | TYPICAL USE             |
+|  類型              | 到期時間              | 常見用途              |
 +-------------------------------------------------------------------+
-|  Weekly Options    | Every Friday        | Short-term trading      |
-|  Monthly Options   | 3rd Friday of month | Most common, liquid     |
-|  Quarterly Options | End of quarter      | Index options           |
-|  LEAPS             | 1-3 years out       | Long-term strategies    |
+|  週選擇權          | 每週五                | 短線交易              |
+|  月選擇權          | 每月第三個週五        | 最常見、流動性最佳     |
+|  季選擇權          | 每季末                | 指數選擇權            |
+|  長期期權（LEAPS） | 1-3 年後              | 長期策略              |
 +-------------------------------------------------------------------+
 
-Timeline Example (from today):
+時間軸範例（從今日起算）：
 
-  Today          2 weeks       1 month        3 months       1 year
+  今日          2 週          1 個月         3 個月         1 年
     |               |             |               |             |
     v               v             v               v             v
-  [NOW]---[Weekly]---[Monthly]---[Quarterly]------[LEAPS]-------->
+  [現在]---[週選擇權]---[月選擇權]---[季選擇權]------[長期期權]-------->
 
-  Higher Theta <--------------------------------> Lower Theta
-  (faster decay)                                  (slower decay)
-  Lower Premium <--------------------------------> Higher Premium
+  希塔較高 <--------------------------------> 希塔較低
+  （衰減較快）                               （衰減較慢）
+  權利金較低 <--------------------------------> 權利金較高
 ```
 
-**LEAPS** (Long-Term Equity Anticipation Securities) are options with expiration dates more than one year in the future. They are particularly useful for long-term investors because they allow you to take positions with less time decay pressure.
+**長期期權（LEAPS）**（Long-Term Equity Anticipation Securities，長期股票預期證券）是到期日超過一年的選擇權。它們對長期投資者特別有用，因為可以在時間衰減壓力較小的情況下建立部位。
 
-#### American vs. European Style Options
+#### 美式與歐式選擇權
 
-**American-Style Options:** Can be exercised at any time before expiration. Most individual stock options in the U.S. are American-style.
+**美式選擇權：** 可在到期日前的任何時間執行。美國大多數個股選擇權均為美式。
 
-**European-Style Options:** Can only be exercised on the expiration date itself. Most index options (SPX, NDX) are European-style.
-
-```
-American Style:
-  [Purchase]=====[Can Exercise Any Time]=====[Expiration]
-       |                                          |
-       +------ Exercise window is OPEN -----------+
-
-European Style:
-  [Purchase]=====[Cannot Exercise]=====[Expiration]
-       |                                    |
-       +-- Can ONLY exercise on this day ---+
-```
-
-For our purposes in this course, we will focus on American-style options on individual stocks. The practical difference matters primarily for early assignment risk, which we will address in the covered calls lesson (Week 27).
-
-#### Time Decay (Theta)
-
-One of the most important concepts in options is **time decay**, also known as **theta**. Extrinsic value decays as the option approaches expiration. This decay is not linear; it accelerates as expiration nears.
+**歐式選擇權：** 只能在到期日當天執行。大多數指數選擇權（如 SPX、NDX）為歐式。
 
 ```
-  Extrinsic
-  Value ($)
+美式選擇權：
+  [買進]=====[可於任何時間執行]=====[到期日]
+     |                                 |
+     +------- 執行窗口全程開放 ---------+
+
+歐式選擇權：
+  [買進]=====[期間無法執行]=====[到期日]
+     |                              |
+     +-- 僅能在此日執行 ------------+
+```
+
+本課程將聚焦於個股的美式選擇權。實際差異主要體現在提前指派風險上，我們將在掩護性買權課程（第 27 週）中詳細說明。
+
+#### 時間衰減（希塔）
+
+選擇權中最重要的概念之一是**時間衰減**，技術上稱為**希塔（Theta）**。外含價值隨選擇權趨近到期日而衰減，且這種衰減並非線性，而是隨到期日臨近而加速。
+
+```
+  外含
+  價值（$）
     |
   8 |*
     |  *
@@ -276,422 +271,573 @@ One of the most important concepts in options is **time decay**, also known as *
     |                                 *******
   0 |____________________________________*****__
     90   75   60   45   30   15    5    0
-                Days to Expiration
+                距到期日天數
 
-  Key observation: Most time decay occurs in the LAST 30 days.
-  The curve accelerates dramatically in the final 2 weeks.
+  關鍵觀察：大部分時間衰減發生在最後 30 天。
+  曲線在最後 2 週急劇加速。
 ```
 
-This decay curve has enormous practical implications:
+這條衰減曲線具有巨大的實務意涵：
 
-- **Option buyers** are fighting against time. Every day that passes, their option loses value, all else being equal. They need the stock to move enough, fast enough, to overcome this decay.
-- **Option sellers** benefit from time decay. They collect premium upfront and profit as that premium erodes. Time is literally on their side.
+- **選擇權買方**要與時間賽跑。每過一天，在其他條件不變的情況下，選擇權都會失去一些價值。他們需要股票在足夠短的時間內移動足夠大的幅度，才能克服這種衰減。
+- **選擇權賣方**則受益於時間衰減。他們預先收取權利金，並隨著權利金侵蝕而獲利。時間文字面上是站在他們那邊的。
 
-This is why, in this course, we focus primarily on **option selling strategies** (covered calls and cash-secured puts). As conservative investors, we want time working for us, not against us.
+這正是本課程主要聚焦於**賣出選擇權策略**（掩護性買權和現金擔保賣權）的原因。作為保守型投資者，我們希望時間為我們效勞，而非對我們不利。
 
-#### Why Options Exist: Three Primary Purposes
+#### 選擇權存在的三大目的
 
-**1. Hedging (Insurance)**
+**1. 避險（保險）**
 
-A portfolio manager holding $10 million in stocks can buy put options as insurance against a market crash. If the market drops 30%, the puts increase in value, offsetting the stock losses. The cost of this insurance (the put premium) is the price of sleeping well at night.
-
-```
-Without Hedging:                    With Protective Puts:
-Portfolio: $10M                     Portfolio: $10M
-                                    Put Cost: $200K (2%)
-
-Market drops 30%:                   Market drops 30%:
-Portfolio: $7M                      Stocks: $7M
-Loss: -$3M (-30%)                   Puts gain: +$2.8M
-                                    Net: $9.8M - $0.2M = $9.6M
-                                    Loss: -$400K (-4%)
-```
-
-**2. Speculation (Leverage)**
-
-A trader who believes AAPL will rise from $155 to $175 in the next month could:
-- Buy 100 shares at $155 = $15,500 investment, $2,000 profit (+12.9%)
-- Buy 1 ATM call for $5.20 = $520 investment, ~$1,480 profit (+284.6%)
-
-The option provides much higher percentage returns but also much higher risk of total loss if the stock does not move as expected.
-
-**3. Income Generation**
-
-An investor holding 500 shares of AAPL at $155 ($77,500 in stock) can sell 5 covered call contracts at the $165 strike for $1.47 each, collecting $735 in premium. If the stock stays below $165, they keep the shares and the $735. Repeating this monthly could generate $8,820 per year, an 11.4% annual yield on top of dividends.
+持有 1,000 萬美元股票的投資組合經理，可以買進賣權作為市場崩盤的保險。若市場下跌 30%，賣權增值可抵消股票損失。這筆保險的成本（賣權的權利金），就是安心睡覺的代價。
 
 ```
-Income Comparison (on $77,500 portfolio):
+未避險：                          持有保護性賣權：
+投資組合：$1,000 萬               投資組合：$1,000 萬
+                                  賣權成本：$20 萬（2%）
 
-  Dividends Only:          Dividends + Covered Calls:
-  AAPL dividend ~0.65%     AAPL dividend ~0.65%
-  Annual: ~$504            Covered call income: ~$8,820
-                           Annual: ~$9,324
-                           Yield: ~12.0%
+市場下跌 30%：                    市場下跌 30%：
+投資組合：$700 萬                 股票：$700 萬
+損失：-$300 萬（-30%）            賣權獲利：+$280 萬
+                                  淨值：$980 萬 - $20 萬 = $960 萬
+                                  損失：-$40 萬（-4%）
 ```
 
-#### Option Pricing: What Determines the Premium?
+**2. 投機（槓桿）**
 
-Six factors affect an option's price:
+若一位交易者預期 AAPL 將在下個月從 155 美元漲至 175 美元，可以選擇：
+- 買進 100 股，成本 $15,500，獲利 $2,000（+12.9%）
+- 買進 1 張價平買權，成本 $520，獲利約 $1,480（+284.6%）
+
+選擇權提供更高的百分比報酬，但若股票未如預期移動，也面臨全額虧損的更高風險。
+
+**3. 創造收益**
+
+持有 500 股 AAPL（股價 $155，持股市值 $77,500）的投資者，可以以每股 $1.47 的價格賣出 5 張履約價 $165 的掩護性買權，收取 $735 的權利金。若股價維持在 $165 以下，他們保留股票和 $735。每月重複操作，全年可創造約 $8,820 的收益，相當於在股利之外額外獲得 11.4% 的年化殖利率。
+
+```
+收益比較（$77,500 投資組合）：
+
+  純股利收益：                    股利 + 掩護性買權收益：
+  AAPL 股利殖利率約 0.65%         AAPL 股利殖利率約 0.65%
+  年度收益：約 $504               掩護性買權收益：約 $8,820
+                                  年度總收益：約 $9,324
+                                  總殖利率：約 12.0%
+```
+
+#### 選擇權定價：什麼決定了權利金？
+
+六個因素影響選擇權的價格：
 
 ```
 +----------------------------------------------------------------+
-| FACTOR               | CALL EFFECT      | PUT EFFECT           |
+| 因素                  | 買權效果             | 賣權效果          |
 +----------------------------------------------------------------+
-| Stock price UP       | Premium UP       | Premium DOWN         |
-| Stock price DOWN     | Premium DOWN     | Premium UP           |
-| Strike price (high)  | Premium DOWN     | Premium UP           |
-| Time to expiration+  | Premium UP       | Premium UP           |
-| Volatility UP        | Premium UP       | Premium UP           |
-| Interest rates UP    | Premium UP       | Premium DOWN (minor) |
-| Dividends UP         | Premium DOWN     | Premium UP           |
+| 股價上漲              | 權利金上升           | 權利金下降        |
+| 股價下跌              | 權利金下降           | 權利金上升        |
+| 履約價（較高）         | 權利金下降           | 權利金上升        |
+| 距到期日時間+          | 權利金上升           | 權利金上升        |
+| 波動性上升             | 權利金上升           | 權利金上升        |
+| 利率上升              | 權利金上升           | 權利金下降（幅度小）|
+| 股利上升              | 權利金下降           | 權利金上升        |
 +----------------------------------------------------------------+
 
-Most Important Factors (in order):
-1. Stock price relative to strike (intrinsic value)
-2. Time to expiration (time value)
-3. Implied volatility (market's expected movement)
+最重要因素（依序排列）：
+1. 股價相對履約價的位置（內含價值）
+2. 距到期日的時間（時間價值）
+3. 隱含波動率（市場預期的價格移動幅度）
 ```
 
-**Implied Volatility (IV)** deserves special attention. IV represents the market's expectation of how much the stock will move in the future. High IV means the market expects large moves (perhaps before an earnings report), so options are expensive. Low IV means the market expects calm conditions, so options are cheap.
+**隱含波動率（IV）**值得特別關注。隱含波動率代表市場對該股票未來將移動幅度的預期。高隱含波動率意味著市場預期大幅波動（例如財報公布前），選擇權因此較昂貴；低隱含波動率意味著市場預期平穩，選擇權相對便宜。
 
 ```
-Implied Volatility and Option Prices:
+隱含波動率與選擇權價格：
 
-  Low IV (15-20%):                    High IV (40-50%):
-  Stock is expected to be calm.       Stock is expected to be volatile.
-  Options are CHEAP.                  Options are EXPENSIVE.
+  低隱含波動率（15-20%）：              高隱含波動率（40-50%）：
+  股票預期走勢平穩。                    股票預期大幅波動。
+  選擇權價格便宜。                      選擇權價格昂貴。
   
-  Example: AAPL $155, ATM Call        Example: AAPL $155, ATM Call
-  30 days, IV = 18%                   30 days, IV = 45%
-  Premium: ~$3.20                     Premium: ~$7.80
+  範例：AAPL $155，價平買權             範例：AAPL $155，價平買權
+  30 天到期，隱含波動率 = 18%           30 天到期，隱含波動率 = 45%
+  權利金：約 $3.20                      權利金：約 $7.80
 
-  Good time to BUY options.           Good time to SELL options.
+  適合買進選擇權的時機。                適合賣出選擇權的時機。
 ```
 
-#### A Complete Example
+#### 希臘字母：實用入門
 
-Let us walk through a complete, practical example to tie all these concepts together.
-
-**Scenario:** AAPL is trading at $155. You believe it will rise to $170 within 60 days.
-
-**Option chosen:** AAPL $160 Call, expiring in 60 days, trading at $3.50.
+雖然本課程的策略並不需要深入了解希臘字母的數學原理，但對四個主要希臘字母有基本認識，能幫助您做出更好的決策。
 
 ```
-Analysis:
-  Type:              Call (right to buy)
-  Strike:            $160
-  Current Stock:     $155
-  Moneyness:         Out-of-the-money ($5 OTM)
-  Intrinsic Value:   $0 (OTM, no intrinsic value)
-  Extrinsic Value:   $3.50 (entire premium is time value)
-  Cost:              $3.50 x 100 = $350 per contract
-  Breakeven:         $160 + $3.50 = $163.50
+四大主要希臘字母：
 
-Possible Outcomes at Expiration:
++-------------------------------------------------------------------+
+| 符號   | 衡量項目                   | 實務意涵                      |
++-------------------------------------------------------------------+
+| 德爾塔 | 對股價變動的敏感度         | 股價每移動 $1，選擇權價格      |
+|  (Δ)  | 範圍：0 到 1.0（買權）     | 移動的金額                    |
+|        | 範圍：0 到 -1.0（賣權）    | 德爾塔 0.50 = 移動 $0.50      |
++-------------------------------------------------------------------+
+| 伽瑪   | 德爾塔的變化率             | 股價每移動 $1，德爾塔          |
+|  (Γ)  |                            | 的變化量；價平時最高           |
++-------------------------------------------------------------------+
+| 希塔   | 每日時間衰減               | 選擇權因時間流逝               |
+|  (Θ)  | 做多選擇權時恆為負值       | 每天損失的價值                 |
++-------------------------------------------------------------------+
+| 維加   | 對隱含波動率變動的敏感度   | 隱含波動率每變動 1%，           |
+|  (V)  |                            | 選擇權價格的變化量             |
++-------------------------------------------------------------------+
+```
 
-  Stock at $170:  Option worth $10.00  -> Profit: $650 (+185.7%)
-  Stock at $165:  Option worth $5.00   -> Profit: $150 (+42.9%)
-  Stock at $163.50: Option worth $3.50 -> Breakeven ($0)
-  Stock at $160:  Option worth $0.00   -> Loss: -$350 (-100%)
-  Stock at $155:  Option worth $0.00   -> Loss: -$350 (-100%)
-  Stock at $150:  Option worth $0.00   -> Loss: -$350 (-100%)
+**德爾塔的實際應用：**
 
-Payoff Diagram:
+德爾塔具有雙重用途：它告訴您選擇權價格將移動多少，同時也提供選擇權在到期時處於價內的近似機率。
 
-  Profit
-  ($)
+```
+德爾塔作為機率參考指標：
+
+  德爾塔   到期時處於價內的近似機率   價值狀態
+  =====    ========================   ===========
+  0.80     約 80% 機率在價內          深度價內
+  0.60     約 60% 機率在價內          輕微價內
+  0.50     約 50% 機率在價內          價平
+  0.30     約 30% 機率在價內          輕微價外
+  0.15     約 15% 機率在價內          價外
+  0.05     約 5% 機率在價內           深度價外
+
+  掩護性買權：賣出德爾塔 0.20-0.30 的買權
+    （20-30% 的機率股票被賣走）
+  
+  現金擔保賣權：賣出德爾塔 -0.20 到 -0.30 的賣權
+    （20-30% 的機率被指派買進股票）
+```
+
+**希塔的實際應用：**
+
+希塔告訴您持有選擇權每天需支付的「租金」（若您是買方），或每天可收取的「租金」（若您是賣方）。
+
+```
+希塔範例：
+
+  AAPL $155 買權，距到期日 30 天
+  價格：$4.20
+  希塔：-$0.08
+
+  這意味著：
+  - 選擇權因時間衰減每股每天損失 $0.08
+  - 每份合約：$0.08 × 100 = 每天 $8.00
+  - 一週：衰減 $56（其他條件不變）
+  - 完整 30 天：並非 $240（因為希塔會加速）
+    而是大約 $350-$400（希塔每天遞增）
+
+  對賣方而言：您每天賺取這個希塔值，包括週末。
+  對買方而言：您每天損失這個希塔值，時鐘永不停歇。
+```
+
+#### 解讀選擇權報價
+
+當您在券商平台查看選擇權時，會看到標準化格式，讓我們學習如何解讀：
+
+```
+選擇權報價解析：
+
+  AAPL  Mar 21 2026  $160  Call
+
+  |       |            |     |
+  |       |            |     +-- 類型：買權
+  |       |            +-------- 履約價：每股 $160
+  |       +--------------------- 到期日：2026 年 3 月 21 日
+  +----------------------------- 標的：蘋果公司
+
+  買價：     $3.20     （買方願意支付給您的價格）
+  賣價：     $3.40     （您買進時需支付的價格）
+  最新成交：  $3.30     （最近一筆成交價）
+  成交量：   2,847     （今日成交合約數）
+  未平倉量：18,760     （現有合約總數）
+  
+  希臘字母：
+  德爾塔：   0.35      （AAPL 每移動 $1，選擇權移動 $0.35）
+  伽瑪：     0.025     （股價每移動 $1，德爾塔變化 0.025）
+  希塔：     -0.065    （每天每股損失 $0.065）
+  維加：     0.18      （隱含波動率每變動 1%，價格變化 $0.18）
+  隱含波動率：24.3%    （隱含波動率）
+```
+
+#### 波動率指數：市場的恐慌指標
+
+**波動率指數（VIX）**（CBOE 波動率指數）衡量標準普爾 500 指數選擇權的隱含波動率。它常被稱為「恐慌指標」，因為投資者緊張時它上升，情緒穩定時它下降。
+
+```
+波動率指數水準及其含義：
+
+  VIX 水準    市場情緒          選擇權意涵
+  =========   ===========       ==================
+  10-15       非常平靜/自滿      選擇權價格便宜
+  15-20       正常               選擇權定價合理
+  20-25       關切升溫           選擇權開始昂貴
+  25-30       恐懼               選擇權昂貴（賣方佳機）
+  30-40       非常恐懼           選擇權非常昂貴
+  40+         恐慌               選擇權極度昂貴
+                                 （罕見：2008 年、2020 年新冠崩盤）
+
+  選擇權賣方的關鍵洞察：
+  當波動率指數高（25+），權利金豐厚。
+  這是賣出掩護性買權和現金擔保賣權的最佳時機。
+  您為相同的義務獲得更多報酬。
+
+  當波動率指數低（12-15），權利金稀薄。
+  您可能需要減少賣出選擇權，或使用更保守的履約價。
+```
+
+了解波動率指數能讓您在操作選擇權時具備優勢。您不需要預測市場方向，但知道選擇權是便宜還是昂貴，有助於您決定賣出權利金的積極程度。
+
+#### 完整範例
+
+讓我們通過一個完整的實際範例，將以上所有概念串聯起來。
+
+**情境：** AAPL 股價為 $155，您認為它將在 60 天內漲至 $170。
+
+**選擇的選擇權：** AAPL $160 買權，60 天後到期，報價 $3.50。
+
+```
+分析：
+  類型：             買權（買進股票的權利）
+  履約價：           $160
+  當前股價：         $155
+  價值狀態：         價外（價外 $5）
+  內含價值：         $0（價外，無內含價值）
+  外含價值：         $3.50（全部權利金均為時間價值）
+  成本：             $3.50 × 100 = 每份合約 $350
+  損益兩平點：       $160 + $3.50 = $163.50
+
+到期時的可能結果：
+
+  股價 $170：  選擇權價值 $10.00  -> 獲利：$650（+185.7%）
+  股價 $165：  選擇權價值 $5.00   -> 獲利：$150（+42.9%）
+  股價 $163.50：選擇權價值 $3.50  -> 損益兩平（$0）
+  股價 $160：  選擇權價值 $0.00   -> 損失：-$350（-100%）
+  股價 $155：  選擇權價值 $0.00   -> 損失：-$350（-100%）
+  股價 $150：  選擇權價值 $0.00   -> 損失：-$350（-100%）
+
+損益圖：
+
+  損益
+  （$）
     |
  +650|                                          *****
     |                                      ****
  +300|                                 ****
     |                            ****
-    0|----------------------*****----- Stock Price ($) --->
+    0|----------------------*****----- 股價（$）--->
     |                  *
- -350|*****************    <-- Max loss = premium paid
+ -350|*****************    <-- 最大損失 = 已支付的權利金
     |
     +---|---|---|---|---|---|---|---|---
        140  145  150  155  160  165  170  175
 
-  Breakeven at $163.50 (Strike + Premium)
+  損益兩平點在 $163.50（履約價 + 權利金）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Options are always risky and speculative."**
+**迷思一：「選擇權一定風險高、帶有投機性。」**
 
-This is perhaps the most damaging misconception. Options themselves are neither inherently risky nor safe. They are tools, and like any tool, their risk depends entirely on how you use them. Buying far out-of-the-money weekly options with your entire account is extremely risky. Selling covered calls on stocks you already own is one of the most conservative strategies in investing. A chain saw is dangerous in the hands of a child, but a lumberjack uses one safely every day. The same principle applies to options.
+這或許是最具破壞性的迷思。選擇權本身並無固有的高風險或低風險之分，它們是工具，就像任何工具一樣，風險完全取決於您如何使用。用全部資金買進深度價外的週選擇權，風險極高；針對已持有的股票賣出掩護性買權，卻是投資領域中最保守的策略之一。電鋸在孩子手中很危險，但伐木工每天都能安全地使用。選擇權亦然。
 
-**Misconception 2: "Most options expire worthless, so selling options is free money."**
+**迷思二：「大多數選擇權到期作廢，所以賣出選擇權是無本生意。」**
 
-While it is true that a significant percentage of options expire worthless (roughly 60-70% of options that are held to expiration), this statistic is misleading. Many options are closed before expiration for a profit. Additionally, when an option seller loses, the loss can be much larger than the premium collected. Selling options is not free money; it is accepting a high probability of small gains in exchange for a low probability of large losses. Responsible position sizing is essential.
+雖然持有至到期的選擇權中，確實有相當比例（約 60-70%）到期作廢，但這個數據具有誤導性。許多選擇權在到期前就已平倉獲利。此外，賣方一旦虧損，損失往往遠大於所收取的權利金。賣出選擇權並非無本生意，而是以高機率的小額獲利，換取低機率的大額損失。嚴格控管部位規模至關重要。
 
-**Misconception 3: "Options are too complicated for regular investors."**
+**迷思三：「選擇權太複雜，一般投資者難以駕馭。」**
 
-The basic strategies we cover in this course (covered calls and cash-secured puts) are straightforward once you understand the fundamentals. You do not need to understand the Black-Scholes model, Greek calculations, or complex multi-leg strategies to use options effectively. A 30-year-old learning to drive does not need to understand internal combustion engineering. Similarly, you can use basic options strategies effectively with a solid understanding of the concepts in this lesson.
+本課程所涵蓋的基本策略（掩護性買權和現金擔保賣權），一旦掌握基礎概念後，其實相當直觀。您不需要理解布萊克-休斯模型、希臘字母的計算方法，或複雜的多腳策略，就能有效運用選擇權。30 歲的駕訓學員不需要了解內燃機工程，同樣地，只需透徹理解本課程的概念，您便能有效運用基本的選擇權策略。
 
-**Misconception 4: "If I buy a call option, I have to buy the stock."**
+**迷思四：「如果我買了買權，就必須買進那檔股票。」**
 
-No. The buyer of an option has the **right**, not the obligation. If the option is profitable at expiration, you can either exercise it (buy the stock at the strike price) or simply sell the option to close your position and pocket the profit. Most options traders never exercise; they simply trade the options themselves. If the option is not profitable, you simply let it expire and lose only the premium you paid.
+不對。選擇權的買方擁有**權利**，而非義務。若選擇權到期時獲利，您可以選擇執行（以履約價買入股票），或直接在市場上賣出選擇權平倉，賺取差價。大多數選擇權交易者從不執行，只是直接買賣選擇權本身。若選擇權無利可圖，就讓它到期，損失僅限於已支付的權利金。
 
-**Misconception 5: "Implied volatility is the same as historical volatility."**
+**迷思五：「隱含波動率與歷史波動率相同。」**
 
-Historical volatility measures how much the stock has actually moved in the past. Implied volatility is the market's expectation of how much it will move in the future. They are related but different. Before earnings announcements, implied volatility can spike well above historical volatility because the market expects a large move. After the announcement, IV typically collapses (known as "IV crush"), even if the stock moves significantly. Understanding this difference is crucial for timing options trades.
+歷史波動率衡量股票過去實際移動了多少；隱含波動率則是市場對未來移動幅度的預期。兩者相關但不相同。在財報公布前，隱含波動率可能遠高於歷史波動率，因為市場預期將出現大幅波動。財報公布後，即便股票確實大幅移動，隱含波動率通常也會急劇崩潰（稱為「隱含波動率崩潰」）。理解這個差異，對選擇權交易的時機掌握至關重要。
 
-**Misconception 6: "A stock option is the same as an employee stock option."**
+**迷思六：「股票選擇權與員工認股選擇權相同。」**
 
-Exchange-traded options (what we discuss in this course) are standardized contracts traded on public exchanges. Employee stock options (ESOs) are compensation grants from employers with different rules regarding exercise, expiration, taxation, and transferability. While they share the same underlying concept, the mechanics and strategies differ significantly.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much money do I need to start trading options?**
-
-A: The capital requirement depends on the strategy. Buying a single option contract might cost as little as $50-$500. Selling cash-secured puts requires enough cash to buy 100 shares at the strike price (e.g., a $150 strike put requires $15,000 in cash). Covered calls require owning 100 shares of the underlying stock. For most investors starting with conservative options strategies, $10,000-$25,000 is a reasonable starting point, though some brokers allow smaller accounts.
-
-**Q2: What happens if I just let an option expire?**
-
-A: If the option is out of the money at expiration, it expires worthless. You lose the premium you paid (if you bought it) or keep the premium (if you sold it). If the option is in the money at expiration, most brokers will automatically exercise it (known as "auto-exercise"). If you bought an ITM call, you will end up buying 100 shares at the strike price. If you cannot afford this, close the position before expiration.
-
-**Q3: Can I lose more than the premium I paid when buying an option?**
-
-A: No. When you buy an option (long call or long put), your maximum loss is always limited to the premium you paid. This is one of the key advantages of buying options. However, when you sell options (short call or short put), your potential losses can be much larger than the premium received.
-
-**Q4: What is the difference between "open interest" and "volume"?**
-
-A: Volume is the number of contracts traded on a particular day. Open interest is the total number of contracts that currently exist and have not been closed or exercised. High open interest indicates a liquid option with tight bid-ask spreads. Increasing open interest suggests new money is flowing into that option. Volume can exceed open interest if there is heavy day trading.
-
-**Q5: Why should I care about the bid-ask spread?**
-
-A: The bid-ask spread is the difference between the price buyers are willing to pay (bid) and the price sellers are asking (ask). A wide spread means higher transaction costs and makes it harder to enter and exit positions profitably. For example, an option with a bid of $2.00 and ask of $2.50 has a $0.50 spread, meaning you immediately lose $50 per contract when you buy. Always look for options with tight spreads, typically found in high-volume, liquid stocks.
-
-**Q6: Do I need to understand the Greeks to trade options?**
-
-A: For the basic strategies in this course, a deep understanding of the Greeks is not required, but a conceptual understanding of two key Greeks is helpful:
-- **Delta:** How much the option price moves when the stock moves $1. A delta of 0.50 means the option gains $0.50 for every $1 the stock rises (for calls).
-- **Theta:** How much value the option loses each day from time decay. A theta of -0.05 means the option loses $5 per day ($0.05 x 100 shares).
-Understanding delta helps you select appropriate strike prices, and understanding theta helps you appreciate why time works for sellers and against buyers.
-
-**Q7: What stocks are best for options trading?**
-
-A: Look for stocks with: (1) high trading volume and open interest for tight bid-ask spreads, (2) moderate implied volatility for reasonable premiums, (3) stocks you are willing to own long-term (for put selling and covered call strategies), and (4) stocks in the $50-$300 range for manageable position sizes. Popular options-friendly stocks include large-cap names like AAPL, MSFT, AMZN, GOOGL, JPM, and broad ETFs like SPY, QQQ, and IWM.
-
-**Q8: Is there a difference between closing an option and exercising it?**
-
-A: Yes, and this distinction is important. Closing an option means selling it back in the market (if you bought it) or buying it back (if you sold it). Exercising means using the right the option gives you to buy or sell the underlying stock. In most cases, closing is preferable to exercising because closing captures the remaining extrinsic value, while exercising only captures intrinsic value. The only common reason to exercise early is to capture a dividend on an ITM call option.
-
-**Q9: What is assignment, and should I be worried about it?**
-
-A: Assignment occurs when an option seller is required to fulfill their obligation because the option buyer exercised their right. If you sold a call and get assigned, you must sell 100 shares at the strike price. If you sold a put and get assigned, you must buy 100 shares at the strike price. Early assignment is possible with American-style options but is uncommon except when (a) the option is deep in the money near expiration, or (b) there is an upcoming dividend. For the covered call and cash-secured put strategies we teach, assignment is not a disaster; it simply means you sold your stock at your target price (for calls) or bought stock at your target price (for puts).
-
-**Q10: How are options taxed?**
-
-A: Options taxation depends on the strategy and holding period. Generally, option premiums received from selling options are treated as short-term capital gains. If you are assigned on a covered call, the premium is added to your selling price. If you are assigned on a cash-secured put, the premium reduces your cost basis. LEAPS held for more than one year may qualify for long-term capital gains rates. Consult a tax professional for your specific situation, as options taxation can be complex.
+在公開交易所交易的選擇權（即本課程所討論的內容）是標準化合約。員工認股選擇權（ESO）是雇主提供的薪酬型授予，在執行規則、到期日、稅務處理和可轉讓性方面均有不同規定。雖然兩者基於相同的核心概念，但操作機制和策略有顯著差異。
 
 ---
 
-## YouTube Script
+### d) 常見問題解答
+
+**Q1：我需要多少資金才能開始交易選擇權？**
+
+A：資金需求因策略而異。買進一份選擇權合約的成本可能僅需 50-500 美元。賣出現金擔保賣權則需要足夠的現金買進 100 股標的股票（例如，履約價 $150 的賣權需要 $15,000 的現金）。掩護性買權需要持有 100 股標的股票。對大多數以保守選擇權策略起步的投資者而言，10,000-25,000 美元是合理的起始資金，不過部分券商允許較小的帳戶操作。
+
+**Q2：如果讓選擇權到期會怎樣？**
+
+A：若選擇權在到期日處於價外，它將到期作廢。您損失已支付的權利金（若您買進）或保留權利金（若您賣出）。若選擇權在到期日處於價內，大多數券商會自動執行（稱為「自動履約」）。若您買進了一個價內買權，您將以履約價買入 100 股股票。若您負擔不起，請在到期前平倉。
+
+**Q3：買進選擇權時，我的損失可能超過已支付的權利金嗎？**
+
+A：不會。當您買進選擇權（做多買權或做多賣權）時，您的最大損失永遠限於已支付的權利金。這是買進選擇權的核心優勢之一。然而，當您賣出選擇權（賣出買權或賣出賣權）時，潛在損失可能遠大於所收取的權利金。
+
+**Q4：「未平倉量」和「成交量」有什麼差異？**
+
+A：成交量是某一天內成交的合約數量；未平倉量是目前仍存在且未平倉或未執行的合約總數。未平倉量高表示該選擇權流動性好、買賣價差緊縮。未平倉量增加代表新資金流入該選擇權。若當天交易頻繁，成交量可能超過未平倉量。
+
+**Q5：為什麼我要關注買賣價差？**
+
+A：買賣價差是買方願意支付的價格（買價）與賣方要求的價格（賣價）之間的差距。價差寬意味著更高的交易成本，也讓進出場獲利更加困難。舉例來說，買價 $2.00、賣價 $2.50 的選擇權，價差為 $0.50，表示您每買進一份合約，立即損失 $50。請優先選擇買賣價差緊的選擇權，通常存在於高成交量的大型流動性股票中。
+
+**Q6：我需要了解希臘字母才能交易選擇權嗎？**
+
+A：對本課程的基本策略而言，不需要深入理解希臘字母，但對兩個主要希臘字母的概念性認識很有幫助：
+- **德爾塔：** 股票移動 $1 時，選擇權價格移動的幅度。德爾塔 0.50 表示股票每上漲 $1，買權獲利 $0.50。
+- **希塔：** 選擇權每天因時間衰減損失的價值。希塔 -0.05 表示選擇權每天損失 $5（$0.05 × 100 股）。
+了解德爾塔有助於選擇合適的履約價；了解希塔有助於理解為何時間對賣方有利、對買方不利。
+
+**Q7：哪些股票最適合交易選擇權？**
+
+A：尋找以下特質的股票：（1）高成交量和未平倉量，以確保買賣價差緊縮；（2）適中的隱含波動率，以獲得合理的權利金；（3）您長期有意持有的股票（適用於賣出賣權和掩護性買權策略）；（4）股價在 50-300 美元之間，以確保可管理的部位規模。熱門的選擇權友善股票包括大型藍籌股，如 AAPL、MSFT、AMZN、GOOGL、JPM，以及廣泛型指數股票型基金，如 SPY、QQQ 和 IWM。
+
+**Q8：平倉選擇權和執行選擇權有什麼差別？**
+
+A：這個區別很重要。平倉是在市場上賣出選擇權（若您持有做多部位）或買回選擇權（若您持有做空部位）。執行是使用選擇權賦予您的權利，買入或賣出標的股票。在大多數情況下，平倉優於執行，因為平倉能捕捉剩餘的外含價值，而執行只能捕捉內含價值。提前執行的常見理由，是為了在即將到來的股利除息日前捕捉股利。
+
+**Q9：什麼是指派（Assignment），我需要擔心嗎？**
+
+A：指派發生在選擇權賣方因買方執行其權利而被要求履行義務時。若您賣出了買權並被指派，您必須以履約價賣出 100 股股票。若您賣出了賣權並被指派，您必須以履約價買入 100 股股票。對美式選擇權而言，提前指派是可能的，但並不常見，主要發生在：（a）選擇權在到期前深度價內，或（b）即將進行股利除息。對本課程所教授的掩護性買權和現金擔保賣權策略而言，被指派並不是災難，只是意味著您以目標價格賣出了股票（買權），或以目標價格買入了股票（賣權）。
+
+**Q10：選擇權如何課稅？**
+
+A：選擇權的稅務取決於策略和持有期間。一般而言，賣出選擇權收取的權利金被視為短期資本利得。若因掩護性買權被指派，權利金會計入您的賣出價格。若因現金擔保賣權被指派，權利金會降低您的持股成本。持有超過一年的長期期權（LEAPS）可能符合長期資本利得稅率的適用條件。由於選擇權稅務較為複雜，請諮詢您的稅務顧問，了解您的具體情況。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 25: Introduction to Options - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are stepping into what I consider one of the most important topics in this entire course. We are talking about options.
+**Horace：** 歡迎回來，大家好。今天我們要進入我認為整個課程中最重要的主題之一——選擇權。
 
-**Sam:** Options. I have to be honest, Alex, this is the topic I have been both excited about and a little nervous about. I hear people talk about options and it sounds like gambling.
+**Stella：** 選擇權。老實說，Horace，這個主題讓我又期待又有點緊張。我聽到別人談選擇權，感覺就像在賭博。
 
-**Alex:** And that is exactly the misconception we need to address right at the start. Options are tools. A hammer can build a house or break a window. Options can protect your portfolio like insurance, or they can blow up your account like a casino bet. It all depends on how you use them.
+**Horace：** 這正是我們一開始就必須釐清的迷思。選擇權是工具。一把鎚子可以蓋房子，也可以打破窗戶。選擇權可以像保險一樣保護您的投資組合，也可以像在賭場押注一樣讓帳戶爆倉。關鍵完全在於您怎麼使用它。
 
-[VISUAL: Split screen showing two scenarios - Left: "Options as Insurance" with a shield icon and a portfolio being protected, Right: "Options as Gambling" with dice and a portfolio going to zero]
+[VISUAL: Split screen showing two scenarios - Left: "選擇權作為保險" with a shield icon and a portfolio being protected, Right: "選擇權作為賭博" with dice and a portfolio going to zero]
 
-**Sam:** OK so let us start from the very beginning. What actually IS an option?
+**Stella：** 好，那我們就從最基本的地方開始。選擇權到底是什麼？
 
-**Alex:** An option is a contract. It gives the buyer the right, but not the obligation, to buy or sell a specific stock at a specific price on or before a specific date. Let me repeat that because it is the single most important definition you will learn today. The right, but not the obligation.
+**Horace：** 選擇權是一種合約，賦予買方**權利，而非義務**，得以在特定日期或之前，以特定價格買入或賣出特定股票。我再說一遍，因為這是您今天會學到的最重要的一句話——是**權利**，而非義務。
 
-**Sam:** So it is like a choice. I have the option to do something, but I do not have to.
+**Stella：** 所以它就像一個選擇。我有選擇去做某件事的選項，但我不一定要做。
 
-**Alex:** Exactly. And this is what separates options from other financial instruments. When you buy stock, you own it, period. When you buy a futures contract, you are obligated to fulfill it. But when you buy an option, you have a choice. You will only exercise it if it benefits you.
+**Horace：** 完全正確。這就是選擇權與其他金融工具的根本區別。當您買進股票，您就擁有它，就是這樣。當您買進期貨合約，您有義務履約。但當您買進選擇權，您擁有選擇的自由，只有在對您有利的情況下，您才會選擇執行。
 
-[VISUAL: Three boxes side by side: "Stock = You OWN it", "Futures = You MUST fulfill", "Option = You CHOOSE"]
+[VISUAL: Three boxes side by side: "股票 = 您擁有它", "期貨 = 您必須履約", "選擇權 = 您自由選擇"]
 
-**Sam:** Got it. So there are two types, right? Calls and puts?
+**Stella：** 明白了。所以有兩種類型，對吧？買權和賣權？
 
-**Alex:** Right. A call option gives you the right to BUY a stock at a specific price. A put option gives you the right to SELL a stock at a specific price. That is it. Those are the only two building blocks. Every options strategy in existence is built from some combination of calls and puts.
+**Horace：** 對。買權賦予您以特定價格**買進**股票的權利；賣權賦予您以特定價格**賣出**股票的權利。就這樣。這是唯一的兩個基本構件，世界上所有的選擇權策略，都是由買權和賣權的某種組合建構而成的。
 
-**Sam:** Let me make sure I have this straight. If I think a stock is going up, I want a call because that gives me the right to buy at a lower price?
+**Stella：** 讓我確認一下我理解正確。如果我看多一檔股票，我想要買權，因為它賦予我以較低價格買入的權利？
 
-**Alex:** Exactly right. And if you think a stock is going down, or if you want to protect against a drop, you want a put because that gives you the right to sell at a higher price.
+**Horace：** 完全正確。如果您認為股票會下跌，或者您想防範下跌風險，您就要買賣權，因為它賦予您以較高價格賣出的權利。
 
-[VISUAL: Two cards appear - "CALL: Right to BUY - Bullish bet" and "PUT: Right to SELL - Bearish bet / Insurance"]
+[VISUAL: Two cards appear - "買權：買進股票的權利 - 看多押注" and "賣權：賣出股票的權利 - 看空押注 / 保險"]
 
-**Sam:** Now I have heard the terms "strike price" and "expiration date." Can you explain those?
+**Stella：** 我聽過「履約價」和「到期日」這兩個術語，您能解釋一下嗎？
 
-**Alex:** Sure. Every option has four essential components. The underlying stock, like Apple or Microsoft. The type, call or put. The strike price, which is the agreed-upon price for the transaction. And the expiration date, which is when the contract expires.
+**Horace：** 當然。每份選擇權有四個基本要素：標的股票（例如蘋果或微軟）、類型（買權或賣權）、履約價（交易約定的價格），以及到期日（合約到期的時間）。
 
 [ANIMATION: Reference animation/week25_option_payoff.py - Animation showing an option contract being assembled piece by piece. First the stock ticker appears, then the type (call/put), then the strike price slides in, then the expiration date stamps on. The assembled contract then shows a payoff diagram that builds as the stock price moves along the x-axis.]
 
-**Alex:** Let me give you a concrete example. Let us say Apple is trading at $155. You buy an "AAPL January 17, 2026, $160 Call." That means you have the right to buy 100 shares of Apple at $160 per share, any time before January 17, 2026.
+**Horace：** 讓我舉個具體的例子。假設蘋果股價是 $155，您買進「AAPL 2026 年 1 月 17 日 $160 買權」。這意味著您有權利在 2026 年 1 月 17 日或之前，以每股 $160 的價格買入 100 股蘋果股票。
 
-**Sam:** Wait, did you say 100 shares? Why 100?
+**Stella：** 等等，您說了 100 股？為什麼是 100 股？
 
-**Alex:** Every standard options contract controls 100 shares. This is important because it affects your calculations. If the option is quoted at $3.50, you are not paying $3.50. You are paying $3.50 per share times 100 shares, which equals $350 per contract.
+**Horace：** 每份標準選擇權合約掌控 100 股。這一點非常重要，因為它影響您所有的計算。如果選擇權報價是 $3.50，您付的不是 $3.50，而是每股 $3.50 乘以 100 股，等於每份合約 $350。
 
-**Sam:** Oh, that is something I could see tripping people up.
+**Stella：** 哦，這個細節真的很容易讓人踩坑。
 
-**Alex:** Absolutely. It trips up beginners all the time. Always multiply by 100 to get your actual cost.
+**Horace：** 絕對是。初學者最常犯的錯誤之一。記住，永遠要乘以 100 才是您的實際成本。
 
-[VISUAL: Calculator animation: "$3.50 per share x 100 shares = $350 per contract"]
+[VISUAL: Calculator animation: "每股 $3.50 × 100 股 = 每份合約 $350"]
 
-**Sam:** OK, so I have heard the phrase "in the money" thrown around a lot. What does that mean?
+**Stella：** 好，我還常聽到「價內」這個說法。那是什麼意思？
 
-**Alex:** Great question. This is about the relationship between the strike price and the current stock price. We call it "moneyness." There are three states. In the money means the option has intrinsic value right now. At the money means the strike price equals the stock price. Out of the money means the option has no intrinsic value.
+**Horace：** 好問題。這和履約價與當前股價的關係有關，我們稱之為「價值狀態」。有三種狀態：價內表示選擇權現在就有內含價值；價平表示履約價等於股價；價外表示選擇權沒有內含價值。
 
-**Sam:** Can you give me an example?
+**Stella：** 可以給我一個例子嗎？
 
-**Alex:** Sure. Apple is at $155. If you have a call option with a $140 strike, that is in the money because you could buy the stock at $140 and it is worth $155. That is $15 of intrinsic value. If your call has a $155 strike, it is at the money. And if your call has a $170 strike, it is out of the money because it would not make sense to exercise the right to buy at $170 when the stock is only at $155.
+**Horace：** 當然。蘋果股價在 $155。如果您持有一個履約價 $140 的買權，那就是價內，因為您可以用 $140 買進市值 $155 的股票，其中有 $15 的內含價值。如果您的買權履約價是 $155，那就是價平。如果您的買權履約價是 $170，那就是價外，因為在股價只有 $155 的情況下，以 $170 買入並不合理。
 
-[VISUAL: A number line showing stock price at $155, with markers at different strike prices. $140 labeled "ITM - $15 intrinsic value", $155 labeled "ATM", $170 labeled "OTM - no intrinsic value". Color coding: green for ITM, yellow for ATM, red for OTM]
+[VISUAL: A number line showing stock price at $155, with markers at different strike prices. $140 labeled "價內 - $15 內含價值", $155 labeled "價平", $170 labeled "價外 - 無內含價值". Color coding: green for ITM, yellow for ATM, red for OTM]
 
-**Sam:** And for puts it is the opposite?
+**Stella：** 賣權的方向是相反的？
 
-**Alex:** Exactly. A put with a $170 strike is in the money when the stock is at $155, because you could sell at $170 when it is only worth $155. A put with a $140 strike is out of the money.
+**Horace：** 完全正確。當股價在 $155 時，履約價 $170 的賣權是價內，因為您可以用 $170 賣出只值 $155 的股票。履約價 $140 的賣權則是價外。
 
-**Sam:** This brings up another question. You mentioned intrinsic value. What is the other part of the option's price?
+**Stella：** 這帶出了另一個問題。您提到了內含價值，那選擇權價格的另一部分是什麼？
 
-**Alex:** Every option's price, which we call the premium, has two components. Intrinsic value, which is the real tangible value, and extrinsic value, which is everything else. Extrinsic value is also called time value, though that is slightly imprecise because it also includes volatility premium.
+**Horace：** 每份選擇權的價格（也就是我們說的權利金）由兩個部分組成：內含價值（真實有形的價值）和外含價值（其他一切）。外含價值也稱為時間價值，雖然這個說法稍微不那麼精確，因為它也包含了波動率溢酬。
 
-**Sam:** Can you break that down with numbers?
+**Stella：** 可以用數字說明嗎？
 
-**Alex:** Let us say Apple is at $155 and the $150 call is trading at $8.50. The intrinsic value is $5, because the stock is $5 above the strike price. The extrinsic value is $8.50 minus $5, which is $3.50. That $3.50 represents the market's assessment of the possibility that the option could become even more valuable before it expires.
+**Horace：** 假設蘋果股價是 $155，而 $150 買權報價是 $8.50。內含價值是 $5，因為股價比履約價高 $5。外含價值是 $8.50 減 $5，等於 $3.50。這 $3.50 代表市場對於選擇權在到期前可能進一步升值的可能性所做的評估。
 
 [VISUAL: A stacked bar chart showing the option premium of $8.50 broken into two segments: $5.00 intrinsic (solid green) and $3.50 extrinsic (striped blue)]
 
-**Sam:** And an out-of-the-money option has no intrinsic value?
+**Stella：** 價外選擇權沒有內含價值？
 
-**Alex:** Correct. An out-of-the-money option's entire premium is extrinsic value. It is all hope and time. That is why OTM options are cheaper, and it is also why they lose value faster as expiration approaches.
+**Horace：** 正確。價外選擇權的整個權利金都是外含價值，全部都是預期與時間。這正是為什麼價外選擇權較便宜，也是為什麼它們隨著到期日臨近流失價值的速度更快。
 
-**Sam:** That leads perfectly into time decay, which I keep hearing about. Can you explain that?
+**Stella：** 這完美引出了時間衰減的話題，我一直常聽到這個詞。您能解釋一下嗎？
 
-**Alex:** Time decay, technically called theta, is the rate at which an option loses extrinsic value as it approaches expiration. And here is the critical thing: it is not linear. The decay accelerates as you get closer to expiration.
+**Horace：** 時間衰減，技術上稱為希塔（Theta），是選擇權隨著趨近到期日而失去外含價值的速率。關鍵在於：這並非線性的，衰減會隨著到期日越來越近而加速。
 
 [ANIMATION: Reference animation/week25_option_payoff.py - A second animation sequence showing a time decay curve. An option starts with 90 days to expiration and $8 of extrinsic value. As a clock ticks and days count down, the extrinsic value decreases slowly at first, then the curve steepens dramatically in the last 30 days, with the last week showing the fastest decay. Numbers update in real-time. A "days remaining" counter ticks down alongside.]
 
-**Alex:** Imagine you have 90 days until expiration. In the first 30 days, the option might lose about 15% of its time value. In the middle 30 days, maybe another 25%. But in the last 30 days, it loses the remaining 60%. And in the final week, the decay is brutal.
+**Horace：** 想像您距到期日還有 90 天。在最初的 30 天，選擇權可能損失大約 15% 的時間價值。中間的 30 天，再損失大約 25%。但在最後的 30 天，剩餘的 60% 全部流失。而在最後一週，衰減的速度是非常驚人的。
 
-**Sam:** So if you are buying options, time is your enemy.
+**Stella：** 所以如果您在買進選擇權，時間就是您的敵人。
 
-**Alex:** Precisely. Every single day, your option loses a little value, and that loss accelerates. You need the stock to move enough, in the right direction, fast enough, to overcome this natural erosion.
+**Horace：** 完全正確。每過一天，您的選擇權就會失去一點價值，而這種流失還在加速。您需要股票在夠短的時間內、朝正確的方向移動足夠的幅度，才能克服這種自然侵蝕。
 
-**Sam:** And if you are selling options?
+**Stella：** 如果您在賣出選擇權呢？
 
-**Alex:** Then time is your best friend. You collect premium upfront and profit as it decays. This is why, in this course, we focus heavily on option selling strategies. We want time on our side.
+**Horace：** 那麼時間就是您最好的朋友。您預先收取權利金，並隨著它衰減而獲利。這正是本課程大量聚焦於選擇權賣出策略的原因，我們希望時間站在我們這邊。
 
-[VISUAL: Two panels - Left: "Option Buyer" with a melting ice cream cone labeled "Time Value" and text "Time is your ENEMY". Right: "Option Seller" with a piggy bank getting larger as coins drop in, text "Time is your FRIEND"]
+[VISUAL: Two panels - Left: "選擇權買方" with a melting ice cream cone labeled "時間價值" and text "時間是您的敵人". Right: "選擇權賣方" with a piggy bank getting larger as coins drop in, text "時間是您的朋友"]
 
-**Sam:** Speaking of buying and selling, can we talk about the difference between the buyer and the seller? Because I know one has rights and the other has obligations.
+**Stella：** 說到買進和賣出，我們能談談買方和賣方的差異嗎？我知道一方有權利，另一方有義務。
 
-**Alex:** This is crucial. The buyer of an option pays the premium and gets a right. The seller of an option collects the premium and takes on an obligation. Let me walk through each scenario.
+**Horace：** 這非常關鍵。選擇權的買方支付權利金並取得一項權利；賣方收取權利金並承擔一項義務。讓我逐一說明。
 
-**Alex:** If you buy a call, you have the right to buy stock at the strike price. Your maximum loss is the premium you paid. If you sell a call, you have the obligation to sell stock at the strike price if the buyer exercises. Your maximum loss is theoretically unlimited because the stock could keep going up forever.
+**Horace：** 如果您買進買權，您有權以履約價買入股票，最大損失是您支付的權利金。如果您賣出買權，當買方決定執行時，您有義務以履約價賣出股票，理論上損失無上限，因為股票可以一直漲。
 
-**Sam:** Unlimited loss? That sounds terrifying.
+**Stella：** 無限損失？聽起來很可怕。
 
-**Alex:** It is, for a naked call. But a covered call, where you already own the stock, caps your risk. The stock gets called away at the strike price, and you miss out on gains above that price, but you never actually lose money on the option itself. That is why we only teach covered calls in this course, never naked calls.
+**Horace：** 確實，對裸賣買權而言是如此。但掩護性買權——也就是您已持有標的股票——會封頂您的風險。股票在履約價被賣走，您錯過了超過該價位的漲幅，但您在選擇權本身上不會真的虧損。這正是本課程只教授掩護性買權，絕不涉及裸賣買權的原因。
 
-[VISUAL: Risk comparison chart: "Naked Call = Unlimited Risk" (red, warning sign), "Covered Call = Limited, Defined Risk" (green, checkmark)]
+[VISUAL: Risk comparison chart: "裸賣買權 = 無限風險" (red, warning sign), "掩護性買權 = 有限、確定的風險" (green, checkmark)]
 
-**Sam:** What about puts?
+**Stella：** 那賣權呢？
 
-**Alex:** If you buy a put, you have the right to sell stock at the strike price. Max loss is the premium. If you sell a put, you have the obligation to buy stock at the strike price. Your max loss is the strike price times 100 minus the premium, which would happen if the stock went to zero. That sounds scary, but if it is a stock you actually want to own, then getting assigned on a put just means you bought the stock at a discount.
+**Horace：** 如果您買進賣權，您有權以履約價賣出股票，最大損失是權利金。如果您賣出賣權，您有義務以履約價買入股票，若股票跌至零，最大損失是履約價乘以 100 再減去權利金。聽起來很嚇人，但如果那是您本來就想持有的股票，被指派只不過意味著您以折扣價買到了股票。
 
-**Sam:** That is actually a really nice way to think about it. You are getting paid to promise to buy a stock you already want.
+**Stella：** 這個角度真的很棒。您是在收錢承諾買入一檔您本來就想要的股票。
 
-**Alex:** Exactly. And that is the philosophy behind the cash-secured put strategy we will cover in Week 28.
+**Horace：** 完全正確。這就是我們在第 28 週會深入介紹的現金擔保賣權策略背後的核心邏輯。
 
-**Sam:** Let us talk about the option chain. When I look at my brokerage account, I see this huge grid of numbers. It is overwhelming.
+**Stella：** 我們來聊聊選擇權報價表。當我查看券商帳戶時，看到一個巨大的數字格，令人不知所措。
 
-**Alex:** The option chain is just a listing of all available options for a particular stock. It shows you every available strike price for each expiration date, separated into calls on one side and puts on the other.
+**Horace：** 選擇權報價表只是列出特定股票所有可交易選擇權的清單，顯示每個到期日下所有可用的履約價，買權在一側，賣權在另一側。
 
-[VISUAL: A real-looking option chain table for AAPL, with columns labeled: Bid, Ask, Last, Volume, Open Interest, Strike, and the same columns repeated for puts. The ATM strike is highlighted. ITM options have a shaded background.]
+[VISUAL: A real-looking option chain table for AAPL, with columns labeled: 買價, 賣價, 成交, 成交量, 未平倉量, 履約價, and the same columns repeated for puts. The ATM strike is highlighted. ITM options have a shaded background.]
 
-**Alex:** The key things to look at are the bid and ask prices, which tell you what you can buy and sell for. The volume, which tells you how active that specific option is today. And the open interest, which tells you how many existing contracts are out there. High open interest means the option is liquid and you will get better pricing.
+**Horace：** 主要關注幾個項目：買價和賣價，告訴您可以用什麼價格買賣；成交量，告訴您今天這個特定選擇權有多活躍；以及未平倉量，告訴您目前有多少現有合約。未平倉量高代表流動性好，您能獲得更好的報價。
 
-**Sam:** What about the bid-ask spread?
+**Stella：** 那買賣價差呢？
 
-**Alex:** The bid-ask spread is the difference between the bid and ask. A tight spread, like $0.05, means low transaction costs. A wide spread, like $0.50, means expensive. On a $3.00 option, a $0.50 spread means you are paying about 17% just to get into the trade. Always check the spread.
+**Horace：** 買賣價差是買價和賣價之間的差距。價差緊（如 $0.05）表示交易成本低；價差寬（如 $0.50）代表成本昂貴。對一個 $3.00 的選擇權而言，$0.50 的價差意味著光是進場就要付出約 17% 的成本。一定要先看價差。
 
-**Sam:** Now I want to ask about American versus European options. Does that matter?
+**Stella：** 我想問一下美式和歐式選擇權的差異，這個重要嗎？
 
-**Alex:** For most individual investors trading stock options, you are dealing with American-style options, which means they can be exercised at any time before expiration. European-style options can only be exercised on the expiration date. Most index options like SPX and NDX are European-style.
+**Horace：** 對大多數交易個股選擇權的投資者而言，您面對的是美式選擇權，意味著可在到期日前的任何時間執行。歐式選擇權只能在到期日當天執行，大多數指數選擇權（如 SPX 和 NDX）採用歐式。
 
-**Sam:** When would someone exercise early?
+**Stella：** 什麼情況下會有人提前執行？
 
-**Alex:** Early exercise is rare but it happens most commonly when there is a dividend coming. If you own a deep in-the-money call on a stock that is about to go ex-dividend, you might exercise early to capture the dividend. Otherwise, it is almost always better to sell the option rather than exercise it, because selling captures both intrinsic and extrinsic value.
+**Horace：** 提前執行很少見，最常見的情況是即將除息。若您持有一個深度價內的股票買權，且該股票即將除息，您可能會選擇提前執行以捕捉股利。否則，幾乎在所有情況下，賣出選擇權平倉都優於執行，因為平倉能同時捕捉內含價值和外含價值。
 
 [VISUAL: Timeline showing American vs European exercise windows, with American having a full bar across the entire period and European having only a marker at expiration]
 
-**Sam:** Let us talk about why options exist in the first place. What is the purpose?
+**Stella：** 我們來聊聊選擇權存在的原始目的。它的用途是什麼？
 
-**Alex:** Three main purposes. First, hedging. Options were originally created so farmers could lock in prices for their crops. Today, portfolio managers use options to protect against market crashes. It is insurance.
+**Horace：** 三個主要目的。第一，避險。選擇權最初的創立，就是為了讓農夫能鎖定農產品的銷售價格。如今，投資組合經理用選擇權來防範市場崩盤，它就是一種保險。
 
-**Sam:** Like buying a put on your portfolio?
+**Stella：** 就像買投資組合的賣權？
 
-**Alex:** Exactly. If you own $500,000 in stocks and you are worried about a crash, you can buy puts on SPY or on your individual holdings. If the market drops 30%, your puts gain value and offset your stock losses. The cost of the puts is your insurance premium.
+**Horace：** 完全正確。如果您持有 50 萬美元的股票，擔心市場崩盤，您可以買進 SPY 或個股的賣權。若市場下跌 30%，賣權升值，抵消股票損失。賣權的成本就是您的保險費。
 
-**Alex:** Second purpose is speculation. Options provide leverage. Instead of buying 100 shares of Apple for $15,500, you can buy one call option for maybe $350 and control those same 100 shares. If Apple goes up 10%, the stock investor makes about $1,550, or 10%. But the option might go up 200% or more.
+**Horace：** 第二個目的是投機，也就是槓桿。選擇權提供槓桿效果。與其花 $15,500 買進 100 股蘋果，您可以花大約 $350 買進一張買權，掌控同樣的 100 股。若蘋果上漲 10%，股票投資者賺約 $1,550，報酬率 10%，而選擇權的漲幅可能達到 200% 甚至更多。
 
-**Sam:** But if Apple stays flat or goes down?
+**Stella：** 但如果蘋果股價持平或下跌呢？
 
-**Alex:** The stock investor still has their shares and might only be down temporarily. The option buyer could lose their entire $350. Leverage cuts both ways. That is why speculation with options requires discipline and proper position sizing.
+**Horace：** 股票投資者仍然持有股票，頂多是暫時帳面虧損。但選擇權買方可能損失全部的 $350。槓桿是把雙面刃，這正是為什麼投機性的選擇權操作需要嚴格的紀律和妥善的部位規模控管。
 
-[VISUAL: Side-by-side comparison: Stock buyer puts in $15,500, options buyer puts in $350. Three scenarios shown: stock up 10%, flat, and down 10%, showing both dollar and percentage returns for each]
+[VISUAL: Side-by-side comparison: 股票買方投入 $15,500，選擇權買方投入 $350. Three scenarios shown: 股票上漲 10%, 持平, and 下跌 10%, showing both dollar and percentage returns for each]
 
-**Alex:** The third purpose is income generation. This is what we will focus on most. If you own stocks, you can sell covered calls against them. If you have cash and a list of stocks you want to buy, you can sell cash-secured puts. Both strategies generate regular income.
+**Horace：** 第三個目的是創造收益，也是我們最重點聚焦的部分。如果您持有股票，可以對其賣出掩護性買權。如果您手上有閒置資金，又有想買入的股票清單，可以賣出現金擔保賣權。這兩種策略都能定期創造收益。
 
-**Sam:** And the income from options can be significant, right?
+**Stella：** 選擇權帶來的收益可以很可觀，對嗎？
 
-**Alex:** It can be. A well-executed covered call strategy on a diversified portfolio can generate 8 to 15 percent annually. Compare that to the average dividend yield of the S&P 500, which is around 1.3 percent. We are talking about potentially 6 to 10 times the income from dividends alone.
+**Horace：** 可以相當顯著。執行良好的掩護性買權策略，每年可為多元化的投資組合創造 8 到 15% 的報酬，對比標準普爾 500 指數平均約 1.3% 的股利殖利率，我們談的是潛在收益高出股利 6 到 10 倍。
 
-**Sam:** That is remarkable. Why does not everyone do it?
+**Stella：** 這很驚人。為什麼不是每個人都這樣做呢？
 
-**Alex:** Because there are tradeoffs. Covered calls cap your upside. If the stock rockets higher, you miss out on gains above the strike price. Cash-secured puts require you to buy the stock if it drops, which means you take on the downside risk. There is no free lunch. But for investors with the right temperament and the right portfolio, these strategies can significantly enhance returns.
+**Horace：** 因為有取捨。掩護性買權會封頂您的上漲空間。若股票暴漲，您就錯過了超過履約價以上的漲幅。現金擔保賣權要求您在股票下跌時買入，意味著您承擔了下行風險。天下沒有白吃的午餐。但對具備正確心態和正確投資組合的投資者而言，這些策略能大幅提升報酬。
 
-[VISUAL: Bar chart comparing income sources: "Dividends Only: ~1.3%/year" vs "Dividends + Options Income: ~9-16%/year"]
+[VISUAL: Bar chart comparing income sources: "純股利收益：約 1.3%/年" vs "股利 + 選擇權收益：約 9-16%/年"]
 
-**Sam:** Before we wrap up, can we talk about what makes option pricing work? Like, why does an option cost what it costs?
+**Stella：** 在結束前，我們能聊聊選擇權定價的原理嗎？為什麼選擇權的報價是那個數字？
 
-**Alex:** Six main factors. The stock price relative to the strike, which determines intrinsic value. The time to expiration, more time means more premium. Implied volatility, which is the market's expectation of how much the stock will move. Interest rates, which have a minor effect. Dividends, which affect calls and puts differently. And the strike price itself.
+**Horace：** 有六個主要因素：股價相對履約價的位置（決定內含價值）、距到期日的時間（時間越長，權利金越高）、隱含波動率（市場預期股票移動幅度的高低）、利率（影響較小）、股利（對買權和賣權的影響方向不同），以及履約價本身。
 
-**Sam:** Implied volatility sounds important. Can you explain it simply?
+**Stella：** 隱含波動率聽起來很重要，您能簡單解釋一下嗎？
 
-**Alex:** Think of it this way. If a stock has been moving 1% per day on average, options will be priced for that level of movement. But if the company has earnings coming up next week and everyone expects a big move, the options will get more expensive because the market expects 3-4% movement. That higher expected movement is reflected in higher implied volatility.
+**Horace：** 這樣想：如果一檔股票平均每天移動 1%，選擇權就會按這個移動幅度定價。但如果這家公司下週要發布財報，每個人都預期會有大幅波動，選擇權就會變貴，因為市場預期可能出現 3-4% 的移動。這種較高的預期移動幅度，就反映在較高的隱含波動率上。
 
-**Sam:** So options before earnings are expensive?
+**Stella：** 所以財報前的選擇權很貴？
 
-**Alex:** Very expensive. And right after earnings, implied volatility collapses, a phenomenon called IV crush. This is why buying options before earnings is generally a losing strategy. Even if you are right about the direction, the IV crush can eat up your profits.
+**Horace：** 非常貴。而財報公布後，隱含波動率通常立刻崩潰，這種現象稱為「隱含波動率崩潰」。這就是為什麼在財報前買進選擇權通常是虧損策略。即使您判斷方向正確，隱含波動率崩潰也可能吃掉您的獲利。
 
-[VISUAL: Graph showing implied volatility building up before an earnings date, then sharply dropping. Label: "IV Crush" at the drop point. Shows option price declining despite stock moving in the right direction]
+[VISUAL: Graph showing implied volatility building up before an earnings date, then sharply dropping. Label: "隱含波動率崩潰" at the drop point. Shows option price declining despite stock moving in the right direction]
 
-**Sam:** That is a trap a lot of beginners fall into, I bet.
+**Stella：** 我猜這是很多初學者都會踩的坑。
 
-**Alex:** One of the most common traps. We will teach you how to be on the right side of that trade.
+**Horace：** 最常見的坑之一。我們會教您如何站在這個交易的對的那側。
 
-**Sam:** So to summarize today's lesson: options are contracts that give buyers rights and sellers obligations. There are calls for bullish bets and puts for bearish bets or protection. Every option has a strike price, expiration date, and type. Options are priced based on intrinsic value and extrinsic value, and extrinsic value decays over time. And the three main uses are hedging, speculation, and income generation.
+**Stella：** 那麼總結今天的課：選擇權是合約，賦予買方權利、賣方承擔義務。買權用於看多押注，賣權用於看空押注或保護。每份選擇權都有履約價、到期日和類型。選擇權的定價基於內含價值和外含價值，外含價值隨時間流逝而衰減。三大主要用途是避險、投機和創造收益。
 
-**Alex:** Perfect summary. And the key takeaway for our course is that we will focus on selling options for income, specifically covered calls and cash-secured puts. These are conservative strategies where time decay works in our favor.
+**Horace：** 完美的總結。本課程最重要的結論是：我們將聚焦於賣出選擇權創造收益的策略，特別是掩護性買權和現金擔保賣權。這些是保守型策略，讓時間衰減為我們效勞。
 
-**Sam:** I am actually excited about this. It seems much less scary than I expected.
+**Stella：** 我現在對這個主題真的很期待，感覺比我想像的要好理解多了。
 
-**Alex:** That is the goal. In the next lesson, we are going to look at one of my favorite mental models: options as conditional orders. It will change the way you think about selling puts and calls forever.
+**Horace：** 這就是我們的目標。下一課，我們將介紹我最喜歡的一個思維框架：把選擇權看作附條件的委託單。這個框架將徹底改變您對賣出賣權和買權的思考方式。
 
-[VISUAL: Preview slide for Week 26 with text "Next Week: Options as Conditional Orders - Rethinking How You Buy and Sell Stocks"]
+[VISUAL: Preview slide for Week 26 with text "下週預告：把選擇權當作附條件委託單 - 重新思考買賣股票的方式"]
 
-**Sam:** Can not wait. See everyone next week.
+**Stella：** 走之前，我們來一個快問快答吧？我有幾個觀眾提出的問題。
 
-**Alex:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 26.
+**Horace：** 來吧。
+
+**Stella：** 第一個問題：可以在盤後交易選擇權嗎？
+
+**Horace：** 不行。選擇權只在正常交易時段交易，也就是美東時間上午 9 點 30 分到下午 4 點。部分指數選擇權有延伸時段，但個股選擇權只在正常時段交易。
+
+**Stella：** 可以同時買進一張選擇權、賣出另一張嗎？
+
+**Horace：** 可以，那些稱為價差策略。多頭買權價差、空頭賣權價差、鐵禿鷹策略，這些都是多腳策略。本課程不涵蓋這些，因為它們較為複雜，但它們是常見的中階策略。
+
+**Stella：** 開始交易選擇權的最低資金是多少？
+
+**Horace：** 沒有統一的最低門檻，但大多數券商需要 2,000-5,000 美元才能開立基本的選擇權帳戶。賣出現金擔保賣權，您需要足夠的資金以履約價買入 100 股。買進選擇權，只需要足夠支付權利金。我建議從掩護性買權或現金擔保賣權起步，至少準備 10,000 美元。
+
+**Stella：** 可以在任何股票上交易選擇權嗎？
+
+**Horace：** 不是每檔股票都有選擇權。股票需要在交易所掛牌，且需符合股價、成交量和流通股數的最低要求。大多數大型藍籌股都有選擇權，許多小型股則沒有。您的券商會顯示哪些股票有可用的選擇權。
+
+**Stella：** 最後一個問題：初學者關於選擇權最需要知道的一件事是什麼？
+
+**Horace：** 在進入任何交易之前，先知道您的最大損失。如果您買進選擇權，最大損失就是權利金。如果您賣出選擇權，計算最壞的情況，確認您能承受。部位規模控管和風險管理，比任何策略都更重要。
+
+**Stella：** 非常好的建議。謝謝大家，我們下週見。
+
+**Horace：** 感謝收看。如果您覺得這集對您有幫助，請按讚和訂閱，我們第 26 週見。
 
 [VISUAL: End screen with subscribe button, playlist link to Level 3: Options series, and social media handles]
 
 ---
 
-*Animation Reference: animation/week25_option_payoff.py - This animation builds an interactive payoff diagram for call and put options. Users can adjust the strike price and premium to see how the payoff profile changes. The animation also includes a time decay visualization showing how extrinsic value erodes as expiration approaches, with the decay curve accelerating in the final 30 days.*
+*動畫參考：animation/week25_option_payoff.py - 此動畫構建了一個互動式的買權和賣權損益圖。使用者可以調整履約價和權利金，觀察損益結構如何變化。動畫還包含時間衰減視覺化，展示外含價值隨到期日臨近而侵蝕的過程，曲線在最後 30 天急劇加速。*

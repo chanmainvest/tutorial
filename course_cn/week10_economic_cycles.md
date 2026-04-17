@@ -1,1134 +1,1121 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
-
-# Week 10: Economic Cycles and Your Portfolio
+# 第十周：经济周期与你的投资组合
 
 ---
 
-## Reading Section
+## 阅读部分
 
-### a) Why This Is Important
+### a) 为何重要
 
-The economy does not move in a straight line. It expands, peaks, contracts, and recovers in a recurring pattern known as the business cycle. These cycles affect everything -- corporate earnings, interest rates, employment, consumer spending, and ultimately, the returns on your investments. Understanding where you are in the cycle does not give you a crystal ball, but it gives you a compass. It helps you understand why certain assets are performing well or poorly, what risks are building, and how to position your portfolio with greater awareness.
+经济不会沿直线运行。它经历扩张、见顶、收缩与复苏，循环往复，这一规律性模式称为商业周期。这些周期影响一切——企业盈利、利率、就业、消费者支出，乃至你投资组合的最终收益。了解自己身处周期的哪个阶段，并不会赋予你预言未来的能力，但它能给你一个指南针。它帮助你理解为何某些资产表现优异或低迷，哪些风险正在积聚，以及如何更有把握地布局你的投资组合。
 
-Understanding economic cycles matters for several critical reasons:
+了解经济周期至关重要，原因如下：
 
-1. **Different assets perform best at different phases.** Stocks, bonds, commodities, and cash each have phases where they shine and phases where they struggle. A portfolio that works brilliantly during an expansion may be devastated during a contraction. Understanding the cycle helps you build a portfolio that is resilient across environments, not one that only works when times are good.
+1. **不同资产在不同阶段各领风骚。** 股票、债券、大宗商品和现金，各有其表现亮眼的阶段，也有其举步维艰的阶段。一个在扩张期表现出色的投资组合，可能在收缩期遭受重创。了解周期，有助于你构建一个在各种环境下都能保持韧性的投资组合，而不是一个只在顺风时才奏效的组合。
 
-2. **Cycles explain market behavior that otherwise seems random.** When the stock market drops 20% and the news is full of panic, understanding that contractions are a normal and inevitable part of the cycle provides psychological grounding. You are less likely to sell at the bottom if you recognize that every contraction in modern history has been followed by a recovery and a new expansion.
+2. **周期能解释那些看似随机的市场行为。** 当股市下跌20%、新闻充斥着恐慌情绪时，了解收缩期是周期中正常且不可避免的一部分，能给你提供心理上的定力。如果你认识到现代史上每一次收缩都曾被随后的复苏和新一轮扩张所取代，你就不太可能在底部割肉离场。
 
-3. **Economic indicators are publicly available and free.** Unlike company-specific financial data that requires analysis skills, key economic indicators -- GDP growth, unemployment, PMI, consumer confidence -- are published on regular schedules and widely reported. You do not need a Bloomberg terminal or a finance degree to track them. You just need to know which ones matter and what they are telling you.
+3. **经济指标公开且免费。** 不同于需要分析技能的公司特定财务数据，关键经济指标——GDP增速、失业率、PMI、消费者信心——都按固定周期发布并被广泛报道。你不需要彭博终端或金融学位来追踪它们。你只需要知道哪些指标重要，以及它们传递着什么信号。
 
-4. **Central bank policy follows the cycle.** The Federal Reserve and other central banks adjust interest rates and monetary policy in response to the business cycle. When you understand the cycle, you can better anticipate policy changes and their effects on bond yields, stock valuations, and mortgage rates. This knowledge has direct practical value in your financial life.
+4. **央行政策跟随周期运转。** 美联储及其他央行会根据商业周期调整利率和货币政策。了解周期，你就能更好地预判政策变化及其对债券收益率、股票估值和房贷利率的影响。这些知识在你的实际财务生活中具有直接的实用价值。
 
-5. **Career and personal finance decisions are cycle-sensitive.** The business cycle affects more than your portfolio. It affects your job security, your salary growth, the housing market, and the cost of borrowing. Understanding where you are in the cycle helps you make better decisions about when to buy a home, when to negotiate a raise, and when to build an emergency fund.
+5. **职业与个人理财决策对周期敏感。** 商业周期的影响不仅限于你的投资组合。它还影响你的工作稳定性、薪资增长、房地产市场以及借贷成本。了解自己身处周期的哪个阶段，有助于你做出更明智的决策——何时买房、何时谈薪、何时建立应急资金。
 
-This lesson covers the four phases of the business cycle, the three categories of economic indicators, the most important specific indicators you should track, and how different asset classes historically perform during each phase.
+本课涵盖商业周期的四个阶段、经济指标的三大类别、你应当追踪的最重要的具体指标，以及不同资产类别在各阶段的历史表现。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知识
 
-#### 1. The Four Phases of the Business Cycle
+#### 1. 商业周期的四个阶段
 
-The business cycle describes the natural fluctuation of economic activity over time. While no two cycles are identical in duration or magnitude, they all follow the same general pattern of four phases:
+商业周期描述的是经济活动随时间产生的自然波动。尽管没有两个周期在持续时间或幅度上完全相同，但它们都遵循相同的四阶段一般规律：
 
 ```
-THE BUSINESS CYCLE
+商业周期
 ====================
 
-                          PEAK
+                          顶峰
                          /    \
                         /      \
                        /        \
-         EXPANSION    /          \    CONTRACTION
-                     /            \   (Recession)
+         扩张期        /          \    收缩期
+                     /            \   （衰退）
                     /              \
                    /                \
-        TROUGH ---+                  +--- TROUGH
-        (Recovery)                        (Next cycle begins)
+        谷底 ---+                  +--- 谷底
+        （复苏）                        （新一轮周期开始）
 
 
 GDP
-Growth  ^
-Rate    |     . .
-        |    .     .
-   +2%  |   .       .
-        |  .         .
-    0%  |-.-----------.------------
-        | .            .         .
-   -2%  |.              .       .
-        |                .     .
-   -4%  |                 . . .
-        +-----|-----|-----|-----|----> Time
-         Trough  Expansion Peak Contraction
-              (Recovery)
+增速  ^
+      |     . .
+      |    .     .
+  +2% |   .       .
+      |  .         .
+   0% |-.-----------.------------
+      | .            .         .
+  -2% |.              .       .
+      |                .     .
+  -4% |                 . . .
+      +-----|-----|-----|-----|----> 时间
+       谷底  扩张期  顶峰  收缩期
+           （复苏）
 
-Average U.S. business cycle since 1945:
-- Expansion: ~58 months (about 5 years)
-- Contraction: ~11 months (about 1 year)
-- Full cycle: ~69 months (about 5.75 years)
+1945年以来美国商业周期平均数据：
+- 扩张期：约58个月（约5年）
+- 收缩期：约11个月（约1年）
+- 完整周期：约69个月（约5.75年）
 
-Key insight: Expansions last roughly 5x longer
-than contractions. The economy spends most of
-its time growing, not shrinking.
+核心洞见：扩张期持续时间约为收缩期的5倍。
+经济大部分时间处于增长状态，而非萎缩状态。
 ```
 
-**Phase 1: Trough (Early Recovery)**
+**第一阶段：谷底（早期复苏）**
 
-The trough is the bottom of the cycle. The economy has been contracting and has reached its lowest point. Unemployment is high, consumer confidence is low, businesses have cut costs and inventory, and asset prices are often depressed. However, the seeds of recovery are being planted: interest rates are typically low (the central bank has cut rates to stimulate growth), inventories are lean (meaning any pickup in demand requires new production), and the worst news is usually priced into markets.
+谷底是周期的最低点。经济持续收缩并触及最低点。失业率高企，消费者信心低迷，企业已大幅削减成本和库存，资产价格往往受到压制。然而，复苏的种子正在播下：利率通常处于低位（央行已降息以刺激增长），库存告罄（意味着任何需求回升都需要新一轮生产），最坏的消息通常已被市场消化。
 
 ```
-TROUGH CHARACTERISTICS
+谷底特征
 ========================
 
-Economy:
-- GDP growth: negative or barely positive
-- Unemployment: at or near cycle high
-- Consumer confidence: low
-- Business investment: minimal
-- Inventory levels: depleted
+经济层面：
+- GDP增速：负值或勉强为正
+- 失业率：处于或接近周期高点
+- 消费者信心：低迷
+- 企业投资：极少
+- 库存水平：耗尽
 
-Policy:
-- Interest rates: low (stimulative)
-- Fiscal policy: expansionary (stimulus spending)
-- Central bank: accommodative
+政策层面：
+- 利率：低位（宽松刺激）
+- 财政政策：扩张性（刺激支出）
+- 央行：宽松立场
 
-Markets:
-- Stock prices: often near cycle lows
-- Bond yields: low (prices high)
-- Credit spreads: wide (fear of default)
-- Commodities: weak (low demand)
+市场层面：
+- 股价：往往接近周期低点
+- 债券收益率：低位（价格高）
+- 信用利差：偏宽（违约担忧）
+- 大宗商品：疲软（需求低迷）
 
-Investor sentiment: FEAR / DESPAIR
-(This is often the best time to invest)
+投资者情绪：恐惧 / 绝望
+（这往往是投资的最佳时机）
 ```
 
-**Phase 2: Expansion (Mid-Cycle)**
+**第二阶段：扩张期（周期中段）**
 
-The expansion is the longest phase. The economy is growing: businesses are hiring, consumers are spending, corporate earnings are rising, and confidence is building. Early in the expansion, there is still significant slack in the economy -- unused factory capacity, unemployed workers -- which allows growth without much inflation. As the expansion matures, slack diminishes, wages begin rising, and inflationary pressures start to build.
+扩张期是持续时间最长的阶段。经济处于增长状态：企业积极招聘，消费者持续消费，企业盈利不断提升，信心与日俱增。在扩张初期，经济中仍有相当大的闲置产能——未使用的工厂产能和失业工人——这使得经济可以在不产生明显通胀的情况下增长。随着扩张期成熟，闲置产能减少，薪资开始上涨，通胀压力逐渐积聚。
 
 ```
-EXPANSION CHARACTERISTICS
+扩张期特征
 ===========================
 
-Economy:
-- GDP growth: positive and accelerating
-- Unemployment: declining steadily
-- Consumer confidence: rising
-- Business investment: increasing
-- Credit growth: expanding
+经济层面：
+- GDP增速：为正且加速
+- 失业率：稳步下降
+- 消费者信心：回升
+- 企业投资：增加
+- 信贷增长：扩张
 
-Policy:
-- Interest rates: gradually rising
-- Central bank: shifting from easing to neutral
-- Fiscal policy: normalizing
+政策层面：
+- 利率：逐步上升
+- 央行：从宽松转向中性
+- 财政政策：逐步正常化
 
-Markets:
-- Stock prices: rising, driven by earnings growth
-- Bond yields: slowly rising (prices falling)
-- Credit spreads: narrowing (confidence)
-- Commodities: strengthening (rising demand)
+市场层面：
+- 股价：上涨，由盈利增长驱动
+- 债券收益率：缓慢上升（价格下跌）
+- 信用利差：收窄（信心提振）
+- 大宗商品：走强（需求回升）
 
-Investor sentiment: OPTIMISM -> ENTHUSIASM
-(Stocks generally perform well, but best
-returns are typically in early expansion)
+投资者情绪：乐观 -> 亢奋
+（股票总体表现良好，但最佳
+收益通常出现在扩张初期）
 ```
 
-**Phase 3: Peak (Late Cycle)**
+**第三阶段：顶峰（周期晚期）**
 
-The peak marks the transition from expansion to contraction. The economy is running hot: unemployment is very low, wages are rising rapidly, inflation is elevated, and capacity constraints are binding. The central bank is typically raising interest rates to cool the economy and prevent inflation from spiraling. Corporate profit margins may be under pressure from rising input costs (wages, raw materials, borrowing costs). Asset valuations are often stretched, and speculative behavior increases.
+顶峰标志着从扩张向收缩的过渡。经济运行过热：失业率极低，薪资快速上涨，通胀高企，产能约束趋于紧绷。央行通常正在加息以为经济降温，防止通胀失控。企业利润率可能因投入成本上升（薪资、原材料、融资成本）而承压。资产估值往往过度拉伸，投机行为愈演愈烈。
 
 ```
-PEAK CHARACTERISTICS
+顶峰特征
 ======================
 
-Economy:
-- GDP growth: positive but decelerating
-- Unemployment: at cycle low
-- Inflation: elevated and possibly accelerating
-- Wage growth: strong (labor shortages)
-- Capacity utilization: high
+经济层面：
+- GDP增速：为正但正在减速
+- 失业率：处于周期低点
+- 通胀：高企且可能加速
+- 薪资增长：强劲（劳动力短缺）
+- 产能利用率：高位
 
-Policy:
-- Interest rates: at or near cycle high
-- Central bank: restrictive (fighting inflation)
-- Yield curve: flat or inverted
+政策层面：
+- 利率：处于或接近周期高点
+- 央行：偏紧（对抗通胀）
+- 收益率曲线：平坦或倒挂
 
-Markets:
-- Stock prices: elevated, volatility increasing
-- Bond yields: high (prices low)
-- Credit spreads: starting to widen
-- Commodities: strong (supply constraints)
+市场层面：
+- 股价：高位，波动性上升
+- 债券收益率：高位（价格低）
+- 信用利差：开始走阔
+- 大宗商品：强势（供应约束）
 
-Investor sentiment: EUPHORIA -> ANXIETY
-(Danger zone: valuations stretched, risk high)
+投资者情绪：狂喜 -> 焦虑
+（危险区域：估值过度拉伸，风险高企）
 ```
 
-**Phase 4: Contraction (Recession)**
+**第四阶段：收缩期（衰退）**
 
-A contraction (recession) occurs when economic activity declines. The textbook definition is two consecutive quarters of negative GDP growth, although the official arbiter in the United States -- the NBER -- uses a broader set of criteria. During contractions, businesses cut costs, lay off workers, and reduce investment. Consumers pull back spending. Earnings decline, defaults rise, and asset prices fall. The central bank responds by cutting interest rates, and the government may implement fiscal stimulus.
+收缩期（衰退）发生于经济活动出现下滑之时。教科书式定义是连续两个季度GDP负增长，但美国官方裁定机构——全国经济研究局（NBER）——采用更宽泛的判断标准。在收缩期，企业削减成本、裁减员工、减少投资。消费者缩减支出，盈利下滑，违约率上升，资产价格下跌。央行随之降息，政府也可能实施财政刺激。
 
 ```
-CONTRACTION CHARACTERISTICS
+收缩期特征
 ==============================
 
-Economy:
-- GDP growth: negative
-- Unemployment: rising rapidly
-- Consumer confidence: plunging
-- Business investment: falling
-- Credit conditions: tightening (banks cautious)
-- Defaults: rising
+经济层面：
+- GDP增速：负值
+- 失业率：快速攀升
+- 消费者信心：骤降
+- 企业投资：下滑
+- 信贷环境：收紧（银行趋于谨慎）
+- 违约率：上升
 
-Policy:
-- Interest rates: being cut aggressively
-- Central bank: stimulative / emergency measures
-- Fiscal policy: stimulus packages
+政策层面：
+- 利率：大幅降息
+- 央行：宽松 / 紧急应对措施
+- 财政政策：刺激方案
 
-Markets:
-- Stock prices: falling, high volatility
-- Bond yields: falling sharply (prices rising)
-- Credit spreads: spiking (fear of default)
-- Commodities: falling (demand destruction)
+市场层面：
+- 股价：下跌，波动性高
+- 债券收益率：急剧下滑（价格上涨）
+- 信用利差：飙升（违约担忧）
+- 大宗商品：下跌（需求毁灭）
 
-Investor sentiment: ANXIETY -> PANIC -> DESPAIR
-(Pain feels unbearable, but this is when the
-foundation for the next bull market is laid)
+投资者情绪：焦虑 -> 恐慌 -> 绝望
+（痛苦难以承受，但这正是
+下一轮牛市奠基的时刻）
 ```
 
 ---
 
-#### 2. The Three Categories of Economic Indicators
+#### 2. 经济指标的三大类别
 
-Economists classify indicators by their timing relationship to the overall business cycle. Understanding this classification is essential for interpreting economic data correctly.
+经济学家根据指标与整体商业周期的时序关系对其进行分类。正确理解这一分类，对于准确解读经济数据至关重要。
 
 ```
-THREE TYPES OF ECONOMIC INDICATORS
+经济指标的三大类型
 =====================================
 
-LEADING INDICATORS (Predict future direction)
+先行指标（预测未来方向）
 +--------------------------------------------------+
-| These move BEFORE the economy turns.             |
-| They are your early warning system.              |
+| 这类指标在经济转向之前移动。                     |
+| 它们是你的预警系统。                             |
 |                                                  |
-| Examples:                                        |
-| - Stock market (S&P 500)                         |
-| - Yield curve (10Y minus 2Y Treasury)            |
-| - Building permits                               |
-| - Initial jobless claims (inverted)              |
-| - ISM Manufacturing New Orders                   |
-| - Consumer expectations                          |
-| - Average weekly hours (manufacturing)           |
-| - Leading Economic Index (LEI)                   |
+| 例如：                                           |
+| - 股市（标普500指数）                            |
+| - 收益率曲线（10年期减2年期美国国债）            |
+| - 建筑许可证                                     |
+| - 首次申请失业救济人数（反向）                   |
+| - ISM制造业新订单                                |
+| - 消费者预期                                     |
+| - 制造业平均周工时                               |
+| - 领先经济指数（LEI）                            |
 +--------------------------------------------------+
            |
-           | (Leads by 6-12 months typically)
+           | （通常领先6至12个月）
            v
-COINCIDENT INDICATORS (Move with the economy)
+同步指标（与经济同步移动）
 +--------------------------------------------------+
-| These move AT THE SAME TIME as the economy.      |
-| They tell you where you ARE right now.           |
+| 这类指标与经济同步移动。                         |
+| 它们告诉你当前所处的位置。                       |
 |                                                  |
-| Examples:                                        |
-| - GDP (Gross Domestic Product)                   |
-| - Industrial production                          |
-| - Personal income (ex-transfers)                 |
-| - Nonfarm payrolls (employment)                  |
-| - Retail sales                                   |
-| - Manufacturing and trade sales                  |
+| 例如：                                           |
+| - GDP（国内生产总值）                            |
+| - 工业生产                                       |
+| - 个人收入（剔除转移支付）                       |
+| - 非农就业人数                                   |
+| - 零售额                                         |
+| - 制造业与贸易销售额                             |
 +--------------------------------------------------+
            |
-           | (Follows by 3-9 months typically)
+           | （通常滞后3至9个月）
            v
-LAGGING INDICATORS (Confirm past direction)
+滞后指标（确认过去方向）
 +--------------------------------------------------+
-| These move AFTER the economy has already turned. |
-| They confirm what already happened.              |
+| 这类指标在经济已经转向后才移动。                 |
+| 它们确认已经发生的事情。                         |
 |                                                  |
-| Examples:                                        |
-| - Unemployment rate                              |
-| - CPI inflation (core)                           |
-| - Corporate profits (reported)                   |
-| - Bank lending (commercial loans)                |
-| - Average duration of unemployment               |
-| - Labor cost per unit of output                  |
-| - Consumer credit to income ratio                |
+| 例如：                                           |
+| - 失业率                                         |
+| - CPI通胀（核心）                                |
+| - 企业盈利（已披露）                             |
+| - 银行贷款（商业贷款）                           |
+| - 平均失业持续时间                               |
+| - 单位产出劳动力成本                             |
+| - 消费者信贷与收入之比                           |
 +--------------------------------------------------+
 
-KEY INSIGHT:
-The unemployment rate is a LAGGING indicator.
-By the time unemployment peaks, the recession
-is usually already over. This is counterintuitive
-but critical to understand.
+核心洞见：
+失业率是滞后指标。
+等到失业率见顶时，衰退
+通常已经结束。这一点违反直觉，
+但至关重要，务必理解。
 ```
 
-This classification has profound implications. If you wait for lagging indicators like unemployment to improve before investing, you will miss the early (and often strongest) portion of the recovery. The stock market itself is a leading indicator -- it typically bottoms 3 to 6 months before the economy does.
+这一分类具有深远意义。如果你等到失业率等滞后指标改善后才开始投资，你将错过复苏的早期阶段（往往也是涨幅最强劲的阶段）。股市本身就是一个先行指标——它通常在经济触底前3至6个月就已见底。
 
 ```
-TIMING RELATIONSHIP: MARKETS vs. ECONOMY
+时序关系：市场 vs. 经济
 ==========================================
 
-         Stock Market    Economy    Unemployment
-              |             |            |
-              v             v            v
-   Bottoms HERE      Bottoms HERE   Peaks HERE
+         股市          经济          失业率
+          |             |              |
+          v             v              v
+    在此见底      在此见底       在此见顶
         |                 |              |
-   |----+------6 mo------+-----6 mo-----+---->
-   |         (approx)          (approx)
+   |----+------6个月------+-----6个月-----+---->
+   |         （约）              （约）
    |
-   Stock market leads the economy by ~6 months.
-   Unemployment lags the economy by ~6 months.
-   Total gap between market bottom and unemployment
-   peak: approximately 12 months.
+   股市领先经济约6个月。
+   失业率滞后经济约6个月。
+   市场见底与失业率见顶之间的
+   总时间差：约12个月。
 
-   This is why "waiting for things to get better"
-   before investing is a losing strategy. By the
-   time things LOOK better, the market has already
-   recovered significantly.
+   这就是为什么在"等待情况好转"
+   之后才投资是一种失败策略。当情况
+   看起来好转时，市场往往已经大幅反弹。
 ```
 
 ---
 
-#### 3. Key Economic Indicators in Detail
+#### 3. 关键经济指标详解
 
-**GDP (Gross Domestic Product)**
+**GDP（国内生产总值）**
 
-GDP is the broadest measure of economic activity. It represents the total value of all goods and services produced within a country's borders over a specific period. GDP is reported quarterly in the United States, with advance, second, and third estimates released in successive months.
+GDP是衡量经济活动最宽泛的指标。它代表一个国家在特定时期内生产的所有商品和服务的总价值。在美国，GDP按季度公布，后续数月分别发布初值、修正值和终值。
 
 ```
-GDP COMPONENTS
+GDP构成
 ================
 
 GDP = C + I + G + (X - M)
 
-Where:
-C = Consumer Spending        (~68% of U.S. GDP)
-I = Business Investment      (~18% of U.S. GDP)
-G = Government Spending      (~17% of U.S. GDP)
-(X-M) = Net Exports          (~-3% of U.S. GDP)
-                              (negative = trade deficit)
+其中：
+C = 消费者支出        （约占美国GDP的68%）
+I = 企业投资          （约占美国GDP的18%）
+G = 政府支出          （约占美国GDP的17%）
+(X-M) = 净出口        （约占美国GDP的-3%）
+                      （负值=贸易逆差）
 
 +---------------------------------------------------+
-|                    U.S. GDP                        |
+|                    美国GDP                         |
 |                                                   |
 |  +---------------------------------------------+ |
-|  |           Consumer Spending (68%)            | |
+|  |           消费者支出（68%）                  | |
 |  +---------------------------------------------+ |
 |  +------------------+  +-----------------+        |
-|  | Business Inv(18%)|  | Government (17%)|        |
+|  | 企业投资（18%）  |  | 政府支出（17%） |        |
 |  +------------------+  +-----------------+        |
 |  +-----+                                          |
-|  |Net X|  (Net Exports is small/negative)         |
+|  |净出口|  （净出口规模小，且为负值）             |
 |  |(-3%)|                                          |
 |  +-----+                                          |
 +---------------------------------------------------+
 
-KEY INSIGHT: The U.S. economy is overwhelmingly
-driven by consumer spending. When consumers stop
-spending, the economy contracts. This is why
-consumer confidence and retail sales data are
-so closely watched.
+核心洞见：美国经济在绝大程度上
+由消费者支出驱动。当消费者停止
+消费，经济便会收缩。这就是为什么
+消费者信心与零售额数据受到如此密切关注。
 ```
 
-**Real GDP vs. Nominal GDP:** Nominal GDP includes the effect of price changes (inflation). Real GDP strips out inflation to show the actual change in output. When economists say "GDP grew 2.5%," they almost always mean real GDP. If nominal GDP grew 5% and inflation was 2.5%, then real GDP grew approximately 2.5%.
+**实际GDP vs. 名义GDP：** 名义GDP包含价格变动（通胀）的影响。实际GDP剔除通胀，呈现产出的实际变化。当经济学家说"GDP增长2.5%"时，几乎始终指的是实际GDP。若名义GDP增长5%而通胀率为2.5%，则实际GDP增速约为2.5%。
 
-**The Unemployment Rate and the Jobs Report**
+**失业率与就业报告**
 
-The monthly employment report from the Bureau of Labor Statistics is arguably the single most market-moving economic release. It contains two key numbers:
+美国劳工统计局（BLS）发布的月度就业报告，堪称对市场影响最大的单一经济数据发布，包含两个关键数字：
 
 ```
-THE EMPLOYMENT REPORT
+就业报告
 =======================
 
-1. NONFARM PAYROLLS (from establishment survey)
-   - Number of jobs added or lost in the month
-   - Covers ~145,000 businesses and government agencies
-   - Considered more reliable for job COUNTS
+1. 非农就业人数（来自机构调查）
+   - 当月新增或减少的就业岗位数
+   - 涵盖约145,000家企业和政府机构
+   - 在统计就业人数方面被认为更为可靠
    
-   Interpretation:
-   +300,000 or more = Very strong
-   +150,000 to +300,000 = Healthy
-   +50,000 to +150,000 = Slowing
-   Below +50,000 = Weak / recessionary risk
-   Negative = Job losses (contraction)
+   解读：
+   +30万或以上 = 非常强劲
+   +15万至+30万 = 健康
+   +5万至+15万 = 放缓
+   低于+5万    = 疲弱 / 衰退风险
+   负值        = 就业减少（收缩）
 
-2. UNEMPLOYMENT RATE (from household survey)
-   - Percentage of labor force without a job
-   - Surveys ~60,000 households
-   - Considered more reliable for RATE
+2. 失业率（来自住户调查）
+   - 劳动力中无业人员的百分比
+   - 调查约60,000户家庭
+   - 在统计比率方面被认为更为可靠
 
-   The unemployment rate:
-   - Typically ranges from 3.5% to 10% over a cycle
-   - Below 4%: tight labor market (late cycle)
-   - 4-5%: roughly "full employment"
-   - 5-7%: elevated (early recovery or slowdown)
-   - Above 7%: recessionary conditions
+   失业率：
+   - 在一个周期内通常在3.5%至10%之间波动
+   - 低于4%：劳动力市场紧张（周期晚期）
+   - 4%-5%：大致属于"充分就业"
+   - 5%-7%：偏高（早期复苏或放缓）
+   - 高于7%：衰退性状态
 
-IMPORTANT NUANCE:
-The unemployment rate can FALL for bad reasons.
-If people stop looking for work (leave the labor
-force), they are no longer counted as "unemployed."
-The LABOR FORCE PARTICIPATION RATE captures this:
+重要细节：
+失业率可能因不良原因而下降。
+若人们停止求职（退出劳动力大军），
+他们将不再被计入"失业"人群。
+劳动参与率（LFPR）能够捕捉这一现象：
 
-LFPR = (Employed + Unemployed looking) / Working Age Pop
+劳动参与率 = （就业人数 + 正在求职的失业人数）/ 劳动年龄人口
 
-A falling unemployment rate with a falling LFPR
-is NOT good news -- people are giving up.
+失业率下降但劳动参与率也下降，
+并非好消息——这意味着人们已放弃求职。
 ```
 
-**PMI (Purchasing Managers' Index)**
+**PMI（采购经理人指数）**
 
-The PMI is one of the most reliable leading indicators and one of the first data points released each month. It surveys purchasing managers at hundreds of companies about new orders, production, employment, supplier deliveries, and inventories.
+PMI是最可靠的先行指标之一，也是每月最早发布的数据之一。它对数百家企业的采购经理人进行调查，涵盖新订单、生产、就业、供应商交货时间和库存。
 
 ```
-PMI INTERPRETATION
+PMI解读
 ====================
 
-The ISM Manufacturing PMI:
+ISM制造业PMI：
 
-     60+ |  Very strong growth / overheating
+     60+ |  增长非常强劲 / 过热
          |
-     55  |  Solid expansion
+     55  |  稳健扩张
          |
-  -> 50  |  DIVIDING LINE: above = growth, below = contraction
+  -> 50  |  分水岭：高于50=扩张，低于50=收缩
          |
-     45  |  Moderate contraction
+     45  |  温和收缩
          |
-     40  |  Severe contraction (recession likely)
+     40  |  严重收缩（可能进入衰退）
 
-How to read the components:
+如何解读各分项：
 
-  New Orders       Most forward-looking component.
-                   Rising orders = future production growth.
+  新订单       最具前瞻性的分项。
+               订单增加=未来生产增长。
 
-  Production       Current activity level.
-                   Confirms or contradicts new orders signal.
+  生产         当前活动水平。
+               印证或与新订单信号相矛盾。
 
-  Employment       Hiring/firing intentions.
-                   Leads the official jobs report.
+  就业         招聘/裁员意向。
+               领先于官方就业报告。
 
-  Supplier         Longer deliveries = supply chain stress
-  Deliveries       (counterintuitively, this ADDS to PMI)
+  供应商       交货时间延长=供应链紧张
+  交货时间     （反直觉的是，这反而会拉高PMI）
 
-  Inventories      Rising inventories can mean slowing demand
-                   (involuntary buildup) or preparation for
-                   expected demand (voluntary buildup). Context
-                   matters.
+  库存         库存上升可能意味着需求放缓
+               （被动积压）或为预期需求
+               进行备货（主动积累）。
+               需结合背景判断。
 
-KEY INSIGHT: Watch the NEW ORDERS minus INVENTORIES
-spread. When new orders are falling but inventories
-are rising, it signals production cuts ahead. This
-spread often leads the headline PMI by 1-2 months.
+核心洞见：关注新订单与库存的差值。
+当新订单下滑但库存上升时，
+预示着未来将削减生产。
+这一价差往往领先于PMI总指数1至2个月。
 ```
 
-There are two PMI surveys: ISM Manufacturing (covers ~12% of GDP but is highly cyclical and leading) and ISM Services (covers ~80% of GDP and is more stable). Both matter, but the manufacturing PMI tends to turn first.
+PMI调查有两类：ISM制造业PMI（覆盖约12%的GDP，但具有高度周期性和领先性）和ISM服务业PMI（覆盖约80%的GDP，更为稳定）。两者均重要，但制造业PMI往往率先转向。
 
-**The Yield Curve**
+**收益率曲线**
 
-The yield curve plots the interest rates on government bonds of different maturities. Under normal conditions, longer-term bonds have higher yields than shorter-term bonds (because investors demand compensation for the additional risk of lending for longer periods). When short-term rates rise above long-term rates, the curve "inverts," and this is one of the most reliable recession predictors in history.
+收益率曲线描绘的是不同期限政府债券的利率水平。在正常情况下，长期债券的收益率高于短期债券（因为投资者要求对更长期限的贷款风险获得补偿）。当短期利率升至高于长期利率时，曲线"倒挂"，这是历史上最可靠的衰退预测信号之一。
 
 ```
-YIELD CURVE SHAPES
+收益率曲线形态
 ====================
 
-NORMAL (Expansion -- economy healthy):
-Yield ^
-      |                        ___...---
-      |                  _.---'
-      |            _.---'
-      |      _.---'
-      |_.---'
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields > short-term yields
+正常（扩张期——经济健康）：
+收益率 ^
+       |                        ___...---
+       |                  _.---'
+       |            _.---'
+       |      _.---'
+       |_.---'
+       +-----|-----|-----|-----|-----|----> 期限
+            3月   1年   5年   10年  30年
+长期收益率 > 短期收益率
 
 
-FLAT (Transition -- late cycle warning):
-Yield ^
-      |
-      |     ___________________________
-      |----'
-      |
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields = short-term yields
+平坦（过渡期——周期晚期预警）：
+收益率 ^
+       |
+       |     ___________________________
+       |----'
+       |
+       +-----|-----|-----|-----|-----|----> 期限
+            3月   1年   5年   10年  30年
+长期收益率 = 短期收益率
 
 
-INVERTED (Recession signal -- danger):
-Yield ^
-      |
-      |___
-      |    '---.__
-      |           '---.__
-      |                   '---.__
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields < short-term yields
-(Market expects rates to FALL, meaning the
- central bank will need to cut due to recession)
+倒挂（衰退信号——危险）：
+收益率 ^
+       |
+       |___
+       |    '---.__
+       |           '---.__
+       |                   '---.__
+       +-----|-----|-----|-----|-----|----> 期限
+            3月   1年   5年   10年  30年
+长期收益率 < 短期收益率
+（市场预期利率将下降，意味着
+ 央行将因衰退而需要降息）
 
 
-THE TRACK RECORD:
-An inverted yield curve (10Y minus 2Y < 0) has
-preceded EVERY U.S. recession since 1960 with
-only one false signal. The lead time varies
-from 6 to 24 months, making it a reliable but
-imprecise timing tool.
+历史记录：
+自1960年以来，倒挂的收益率曲线（10年期减2年期<0）
+仅有一次误判，其余均领先于美国每次经济衰退。
+领先时间从6个月到24个月不等，
+使其成为可靠但时间精度较低的工具。
 ```
 
-**Consumer Confidence and Sentiment**
+**消费者信心与消费者情绪**
 
-Two major surveys measure consumer attitudes: the Conference Board Consumer Confidence Index and the University of Michigan Consumer Sentiment Index. Both gauge how consumers feel about current conditions and future expectations.
+衡量消费者态度的主要调查有两项：经济咨商局消费者信心指数和密歇根大学消费者情绪指数。两者均测量消费者对当前状况和未来预期的看法。
 
 ```
-CONSUMER CONFIDENCE COMPONENTS
+消费者信心构成
 =================================
 
-Conference Board Index:
-  Present Situation  -->  How do consumers view
-                          the economy RIGHT NOW?
-                          (coincident indicator)
+经济咨商局指数：
+  现状指数      -->  消费者如何看待
+                     当前经济？
+                     （同步指标）
 
-  Expectations       -->  How do consumers expect
-                          the economy to perform
-                          in 6 MONTHS?
-                          (leading indicator)
+  预期指数      -->  消费者预期
+                     6个月后经济
+                     将如何表现？
+                     （先行指标）
 
-When to worry:
-- Present Situation falls while Expectations are
-  already low = recession is arriving
-- Expectations plunge while Present Situation holds =
-  recession may be coming but has not arrived yet
+何时需要警惕：
+- 现状指数下滑而预期指数已处于低位 =
+  衰退正在到来
+- 预期指数骤降而现状指数仍维持 =
+  衰退可能来临但尚未到来
 
-Why it matters:
-Consumer spending = 68% of GDP
-Consumer confidence drives spending decisions
-Especially for big-ticket items:
-  - Cars (financed purchases)
-  - Homes (largest purchase most people make)
-  - Appliances and furniture
-  - Vacations and discretionary services
+为何重要：
+消费者支出 = GDP的68%
+消费者信心驱动消费决策
+尤其对于大额消费品：
+  - 汽车（融资购买）
+  - 住房（多数人一生中最大的购买）
+  - 家电和家具
+  - 旅行和可选服务
 ```
 
-**Inflation Indicators: CPI and PCE**
+**通胀指标：CPI与PCE**
 
 ```
-INFLATION MEASURES
+通胀衡量指标
 ====================
 
-CPI (Consumer Price Index):
-- Published by Bureau of Labor Statistics
-- Measures price changes for a basket of
-  consumer goods and services
-- Most widely reported inflation measure
-- Headline CPI includes food and energy
-- Core CPI excludes food and energy (volatile)
+CPI（消费者价格指数）：
+- 由美国劳工统计局发布
+- 衡量消费品与服务篮子的价格变动
+- 最广泛报道的通胀指标
+- 整体CPI包含食品和能源
+- 核心CPI剔除食品和能源（波动较大）
 
-PCE (Personal Consumption Expenditures):
-- Published by Bureau of Economic Analysis
-- THE FED'S PREFERRED INFLATION MEASURE
-- Broader coverage than CPI
-- Accounts for substitution effects
-  (if beef gets expensive, people buy chicken)
-- Tends to run ~0.3% lower than CPI
+PCE（个人消费支出）：
+- 由美国经济分析局发布
+- 美联储首选的通胀衡量指标
+- 覆盖范围比CPI更广
+- 考虑替代效应
+  （若牛肉价格上涨，消费者会转而购买鸡肉）
+- 通常比CPI低约0.3个百分点
 
-Fed Target: 2% annual PCE inflation
+美联储目标：2%的年度PCE通胀率
 
-Interpretation:
-Below 1.5%:   Disinflation risk (too low)
-1.5% - 2.5%:  Goldilocks zone (on target)
-2.5% - 4.0%:  Elevated (Fed may tighten)
-Above 4.0%:   Concerning (aggressive tightening)
-Above 6.0%:   Crisis-level (emergency response)
+解读：
+低于1.5%：通缩风险（过低）
+1.5%-2.5%：黄金区间（接近目标）
+2.5%-4.0%：偏高（美联储可能收紧）
+高于4.0%：令人担忧（激进收紧）
+高于6.0%：危机级别（紧急应对）
 
-CORE vs. HEADLINE:
-The Fed focuses on core PCE because food and
-energy prices are volatile and often driven by
-supply shocks (weather, geopolitics) rather than
-underlying economic conditions. However, consumers
-experience HEADLINE inflation (they buy food and
-gas), creating a disconnect between policy focus
-and public perception.
+核心 vs. 整体：
+美联储关注核心PCE，因为食品和
+能源价格波动较大，且往往受供给冲击
+（天气、地缘政治）驱动，而非
+经济基本面状况。然而，消费者
+感受的是整体通胀（他们需要购买食品
+和汽油），由此造成政策关注点
+与公众感受之间的落差。
 ```
 
 ---
 
-#### 4. Asset Performance Across the Business Cycle
+#### 4. 资产在商业周期各阶段的表现
 
-Different asset classes perform predictably differently at each phase of the cycle. While no relationship is guaranteed, understanding historical patterns provides valuable context.
+不同资产类别在周期各阶段的表现存在规律性差异。尽管没有任何关系是一成不变的，但了解历史规律能为你提供宝贵的参考。
 
 ```
-ASSET PERFORMANCE BY CYCLE PHASE
+各周期阶段的资产表现
 ====================================
 
-              Trough/       Mid-         Late
-              Early         Cycle        Cycle        Contraction
-              Recovery      Expansion    (Peak)       (Recession)
+              谷底/          周期         周期
+              早期复苏       中段          晚期（顶峰）  收缩期（衰退）
               ---------     ---------    ---------    -----------
-Stocks
-  Large-Cap   +++           ++           +/-          ---
-  Small-Cap   ++++          ++           -            ---
-  Growth      +++           +++          +/-          --
-  Value       ++++          +            +            --
-  Cyclicals   ++++          ++           -            ---
-  Defensives  +             +            ++           -
+股票
+  大盘股      +++           ++           +/-          ---
+  小盘股      ++++          ++           -            ---
+  成长股      +++           +++          +/-          --
+  价值股      ++++          +            +            --
+  周期股      ++++          ++           -            ---
+  防御股      +             +            ++           -
 
-Bonds
-  Government  +             -            +/-          +++
-  Corporate   ++            +            -            +/-
-  High-Yield  +++           +            -            ---
+债券
+  政府债券    +             -            +/-          +++
+  企业债券    ++            +            -            +/-
+  高收益债券  +++           +            -            ---
 
-Other
-  Commodities +/-           ++           +++          ---
-  Real Estate ++            ++           +/-          --
-  Cash        -             -            +            ++
+其他
+  大宗商品    +/-           ++           +++          ---
+  房地产      ++            ++           +/-          --
+  现金        -             -            +            ++
 
-Legend: ++++ = Strongest  --- = Weakest
-        +    = Moderate    -  = Underperform
+图例：++++ = 最强  --- = 最弱
+      +    = 适中   -  = 跑输
 
-CAUTION: These are HISTORICAL TENDENCIES, not
-guarantees. Every cycle is different. Use this
-as a framework, not a recipe.
+注意：这些是历史规律，并非保证。
+每个周期各有不同。请将此作为
+框架，而非操作手册。
 ```
 
 ```
-THE INVESTMENT CLOCK
+投资时钟
 ======================
 
-The "Investment Clock" (also called the "Business
-Cycle Clock") maps asset performance to cycle phases:
+"投资时钟"（也称"商业周期时钟"）
+将资产表现映射到周期各阶段：
 
-               PEAK (Overheating)
-              Commodities shine
-             Rising inflation
+               顶峰（过热）
+              大宗商品表现亮眼
+             通胀上升
             /                \
            /                  \
-      EXPANSION               CONTRACTION
-      (Goldilocks)            (Stagflation)
-      Stocks shine            Cash is king
-      Moderate growth &       Falling growth &
-      low inflation           high inflation
+      扩张期                   收缩期
+      （金发姑娘）             （滞胀）
+      股票表现亮眼             现金为王
+      适度增长与               增长下滑与
+      低通胀                   高通胀
            \                  /
             \                /
              \              /
-              TROUGH (Deflation)
-              Bonds shine
-              Falling inflation
+              谷底（通缩）
+              债券表现亮眼
+              通胀下降
 
          +----------+----------+
          |          |          |
-         | BONDS    | COMMOD.  |
-         | (Trough) | (Peak)   |
+         | 债券     | 大宗商品 |
+         | （谷底） | （顶峰） |
          |          |          |
          +----------+----------+
          |          |          |
-         | STOCKS   | CASH     |
-         | (Expand) | (Contract)|
+         | 股票     | 现金     |
+         | （扩张期）|（收缩期）|
          |          |          |
          +----------+----------+
 
-This is a simplified model. In practice, the
-transitions are gradual and asset performance
-overlaps between phases.
+这是一个简化模型。实际上，
+各阶段之间的过渡是渐进的，
+不同资产类别的表现往往相互交叠。
 ```
 
 ---
 
-#### 5. Sector Rotation Through the Cycle
+#### 5. 周期内的板块轮动
 
-Just as asset classes rotate, sectors within the stock market also rotate based on the business cycle:
+正如资产类别轮动一样，股市内部的各板块也会随商业周期进行轮动：
 
 ```
-SECTOR ROTATION THROUGH THE CYCLE
+周期内的板块轮动
 =====================================
 
-EARLY RECOVERY (Trough -> Early Expansion):
-Best sectors:   Consumer Discretionary, Financials,
-                Industrials, Real Estate
-Why:            Rate-sensitive sectors benefit from
-                low/falling rates. Pent-up demand
-                is unleashed. Credit begins flowing.
+早期复苏（谷底 -> 扩张初期）：
+最佳板块：   可选消费、金融、
+             工业、房地产
+原因：       对利率敏感的板块受益于
+             低利率/降息环境。压抑已久的
+             需求集中释放。信贷开始流动。
 
-MID-CYCLE (Expansion):
-Best sectors:   Technology, Industrials,
-                Communication Services
-Why:            Business investment accelerates.
-                Corporate spending on tech and
-                equipment. Ad spending rises.
+周期中段（扩张期）：
+最佳板块：   科技、工业、
+             通信服务
+原因：       企业投资加速。
+             企业在科技和设备上的支出增加。
+             广告支出上升。
 
-LATE CYCLE (Peak):
-Best sectors:   Energy, Materials, Staples,
-                Healthcare
-Why:            Commodity prices rise with inflation.
-                Defensive sectors hold up as growth
-                decelerates. Energy benefits from
-                supply constraints.
+周期晚期（顶峰）：
+最佳板块：   能源、材料、必需消费品、
+             医疗健康
+原因：       大宗商品价格随通胀上涨。
+             增长减速时防御性板块展现韧性。
+             能源板块受益于供应约束。
 
-CONTRACTION (Recession):
-Best sectors:   Utilities, Healthcare,
-                Consumer Staples
-Why:            Defensive sectors with stable demand.
-                People still need electricity, medicine,
-                and food regardless of the economy.
-                Often pay reliable dividends.
+收缩期（衰退）：
+最佳板块：   公用事业、医疗健康、
+             必需消费品
+原因：       需求稳定的防御性板块。
+             无论经济状况如何，
+             人们仍需用电、医疗和食品。
+             通常派发稳定股息。
 
-SECTOR ROTATION MAP:
-                    PEAK
-                   Energy
-                  Materials
+板块轮动图：
+                    顶峰
+                   能源
+                  材料
                  /         \
-           Tech /           \ Staples
-          Ind. /             \ Health
+           科技 /           \ 必需消费品
+          工业 /             \ 医疗健康
               /               \
-    EXPANSION                  CONTRACTION
+    扩张期                       收缩期
               \               /
-          Fin. \             / Utilities
-         Disc. \           / Healthcare
-          RE    \         /  Staples
-                 TROUGH
+          金融 \             / 公用事业
+         可选  \           / 医疗健康
+          房地产 \         /  必需消费品
+                 谷底
 ```
 
 ---
 
-#### 6. The Role of the Federal Reserve
+#### 6. 美联储的角色
 
-The Federal Reserve (the "Fed") is the central bank of the United States. Its primary tools are the federal funds rate (the overnight lending rate between banks) and its balance sheet (quantitative easing or tightening). The Fed's actions are deeply intertwined with the business cycle.
+美联储（"Fed"）是美国的中央银行。其主要工具是联邦基金利率（银行间隔夜拆借利率）和资产负债表（量化宽松或量化紧缩）。美联储的行动与商业周期密切相连。
 
 ```
-FED POLICY THROUGH THE CYCLE
+美联储政策与周期
 ===============================
 
-TROUGH / EARLY RECOVERY:
-- Rates: at or near zero
-- Balance sheet: expanding (QE)
-- Language: "accommodative," "patient"
-- Goal: stimulate borrowing and spending
-- Effect: pushes investors into riskier assets
-         (stocks, corporate bonds) because safe
-         assets yield almost nothing
+谷底 / 早期复苏：
+- 利率：处于或接近零
+- 资产负债表：扩张（量化宽松）
+- 措辞："宽松"、"耐心"
+- 目标：刺激借贷和消费
+- 效果：将投资者推向风险较高的资产
+         （股票、企业债券），因为安全
+         资产几乎没有任何收益率
 
-MID-CYCLE EXPANSION:
-- Rates: gradually rising
-- Balance sheet: stable or beginning to shrink
-- Language: "data dependent," "gradual"
-- Goal: normalize policy, remove accommodation
-- Effect: valuations may compress, but earnings
-         growth typically offsets rate increases
+周期中段扩张期：
+- 利率：逐步上升
+- 资产负债表：保持稳定或开始收缩
+- 措辞："数据驱动"、"渐进"
+- 目标：政策正常化，撤回宽松措施
+- 效果：估值可能受压，但盈利增长
+         通常能抵消加息影响
 
-LATE CYCLE / PEAK:
-- Rates: at or near cycle high
-- Balance sheet: shrinking (QT)
-- Language: "restrictive," "inflation target"
-- Goal: cool the economy, control inflation
-- Effect: higher borrowing costs pressure housing,
-         autos, business investment. Yield curve
-         may invert.
+周期晚期 / 顶峰：
+- 利率：处于或接近周期高点
+- 资产负债表：收缩（量化紧缩）
+- 措辞："收紧"、"通胀目标"
+- 目标：为经济降温，控制通胀
+- 效果：更高的借贷成本对住房、
+         汽车、企业投资造成压力。
+         收益率曲线可能倒挂。
 
-CONTRACTION:
-- Rates: being cut, sometimes aggressively
-- Balance sheet: expanding again (new QE)
-- Language: "whatever it takes," "emergency"
-- Goal: prevent financial crisis, stimulate recovery
-- Effect: stabilizes markets, lowers borrowing
-         costs, sets stage for next recovery
+收缩期：
+- 利率：被降息，有时力度较大
+- 资产负债表：再次扩张（新一轮量化宽松）
+- 措辞："不惜一切"、"紧急"
+- 目标：防止金融危机，刺激复苏
+- 效果：稳定市场，降低借贷成本，
+         为下一轮复苏奠定基础
 
-THE FED'S DILEMMA:
-Move too slowly -> inflation gets out of control
-Move too fast   -> trigger the recession you are
-                   trying to prevent
+美联储的两难困境：
+行动过慢 -> 通胀失控
+行动过快 -> 引发本想避免的衰退
 
-This is why "soft landings" (slowing growth without
-recession) are so difficult and rare.
+这就是为什么"软着陆"（在不引发
+衰退的情况下放缓增长）如此困难且罕见。
 ```
 
 ---
 
-#### 7. Putting It All Together: Building an Economic Dashboard
+#### 7. 融会贯通：构建你的经济监测仪表盘
 
 ```
-YOUR PERSONAL ECONOMIC DASHBOARD
+你的个人经济监测仪表盘
 ====================================
 
-Indicator              Where to Find It       Frequency
----------              ----------------       ---------
-GDP Growth             BEA (bea.gov)          Quarterly
-Nonfarm Payrolls       BLS (bls.gov)          Monthly
-Unemployment Rate      BLS (bls.gov)          Monthly
-ISM Manufacturing PMI  ISM (ismworld.org)     Monthly
-ISM Services PMI       ISM (ismworld.org)     Monthly
-CPI Inflation          BLS (bls.gov)          Monthly
-PCE Inflation          BEA (bea.gov)          Monthly
-Consumer Confidence    Conf. Board            Monthly
-Yield Curve (10Y-2Y)   FRED (fred.stlouisfed) Daily
-Initial Jobless Claims DOL (dol.gov)          Weekly
-S&P 500 Performance    Any financial site     Daily
+指标                   数据来源                   频率
+---------              ----------------           ---------
+GDP增速                美国经济分析局（bea.gov）  季度
+非农就业人数           美国劳工统计局（bls.gov）  月度
+失业率                 美国劳工统计局（bls.gov）  月度
+ISM制造业PMI           ISM（ismworld.org）        月度
+ISM服务业PMI           ISM（ismworld.org）        月度
+CPI通胀                美国劳工统计局（bls.gov）  月度
+PCE通胀                美国经济分析局（bea.gov）  月度
+消费者信心             经济咨商局                 月度
+收益率曲线（10年-2年） 圣路易斯联储FRED数据库     日度
+首次申请失业救济人数   美国劳工部（dol.gov）      周度
+标普500指数表现        任何财经网站               日度
 
-HOW TO USE THE DASHBOARD:
-1. Check leading indicators FIRST
-   (PMI, yield curve, initial claims, LEI)
-2. Confirm with coincident indicators
-   (GDP, payrolls, industrial production)
-3. Use lagging indicators for context
-   (unemployment rate, CPI, corporate profits)
+如何使用这一仪表盘：
+1. 首先查看先行指标
+   （PMI、收益率曲线、首请失业救济、领先经济指数）
+2. 用同步指标加以印证
+   （GDP、非农就业、工业生产）
+3. 将滞后指标用于提供背景参考
+   （失业率、CPI、企业盈利）
 
-If leading indicators are deteriorating while
-coincident indicators are still strong, prepare
-for a potential slowdown. If leading indicators
-are improving while lagging indicators are still
-weak, the recovery is likely underway.
+若先行指标正在恶化而同步指标仍保持强劲，
+应为潜在放缓做好准备。若先行指标正在改善
+而滞后指标仍然疲弱，复苏很可能已经启动。
 ```
 
 ---
 
-#### 8. Historical Perspective: U.S. Business Cycles Since 1945
+#### 8. 历史视角：1945年以来的美国商业周期
 
 ```
-U.S. BUSINESS CYCLES (POST-WWII)
+美国商业周期（二战后）
 ====================================
 
-Peak        Trough      Duration    Duration
-                        (Expansion) (Contraction)
--------     -------     ----------  ------------
-Nov 1948    Oct 1949    37 months   11 months
-Jul 1953    May 1954    45 months   10 months
-Aug 1957    Apr 1958    39 months    8 months
-Apr 1960    Feb 1961    24 months   10 months
-Dec 1969    Nov 1970   106 months   11 months
-Nov 1973    Mar 1975    36 months   16 months
-Jan 1980    Jul 1980    58 months    6 months
-Jul 1981    Nov 1982    12 months   16 months
-Jul 1990    Mar 1991    92 months    8 months
-Mar 2001    Nov 2001   120 months    8 months
-Dec 2007    Jun 2009    73 months   18 months
-Feb 2020    Apr 2020   128 months    2 months
+顶峰        谷底        持续时间      持续时间
+                        （扩张期）    （收缩期）
+-------     -------     ----------    ------------
+1948年11月  1949年10月  37个月        11个月
+1953年7月   1954年5月   45个月        10个月
+1957年8月   1958年4月   39个月        8个月
+1960年4月   1961年2月   24个月        10个月
+1969年12月  1970年11月  106个月       11个月
+1973年11月  1975年3月   36个月        16个月
+1980年1月   1980年7月   58个月        6个月
+1981年7月   1982年11月  12个月        16个月
+1990年7月   1991年3月   92个月        8个月
+2001年3月   2001年11月  120个月       8个月
+2007年12月  2009年6月   73个月        18个月
+2020年2月   2020年4月   128个月       2个月
 
-OBSERVATIONS:
-1. Expansions have gotten LONGER over time
-   (average 58 months pre-1980, 103 months post-1980)
-2. Contractions have gotten SHORTER
-   (average 10 months pre-1980, 9 months post-1980,
-    excluding the anomalous 2-month COVID recession)
-3. The 2007-2009 contraction (Great Recession) was
-   the deepest since the Great Depression
-4. The 2020 contraction was the shortest on record
-   but also one of the sharpest in terms of GDP decline
+观察：
+1. 扩张期随时间推移变得越来越长
+   （1980年前平均58个月，1980年后平均103个月）
+2. 收缩期已变得越来越短
+   （1980年前平均10个月，1980年后平均9个月，
+    不含历时仅2个月的新冠疫情特殊衰退）
+3. 2007至2009年的收缩期（大衰退）是
+   大萧条以来最深的一次
+4. 2020年的收缩期是有记录以来最短的，
+   但就GDP跌幅而言也是最急剧的之一
 
-IMPORTANT: These are identified by the NBER
-(National Bureau of Economic Research) after
-the fact. You often do not know you are in a
-recession until months after it has begun.
+重要提示：上述数据由NBER
+（全国经济研究局）在事后认定。
+衰退开始数月后，你通常才会意识到
+自己正身处衰退之中。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误解
 
-**Misconception 1: "Two quarters of negative GDP growth equals a recession."**
+**误解一："连续两个季度GDP负增长即等于衰退。"**
 
-Reality: This is a popular rule of thumb, but it is not the official definition. In the United States, recessions are declared by the National Bureau of Economic Research (NBER), which considers a broad range of factors including employment, industrial production, personal income, and retail sales. It is possible to have two quarters of slightly negative GDP growth without the NBER calling it a recession (if employment and income remain strong), and it is possible to have a recession without two consecutive negative quarters (if one quarter is deeply negative followed by a tiny positive quarter).
+现实：这是一个流行的经验法则，但并非官方定义。在美国，衰退由全国经济研究局（NBER）宣布，该机构综合考量就业、工业生产、个人收入和零售额等多项因素。可能出现连续两个季度GDP略微负增长但NBER不将其认定为衰退的情况（若就业和收入保持强劲），也可能在没有连续两个季度负增长的情况下出现衰退（若某季度深度负增长后紧接着出现微小正增长）。
 
-**Misconception 2: "The unemployment rate tells you where the economy is heading."**
+**误解二："失业率告诉你经济走向何方。"**
 
-Reality: The unemployment rate is a lagging indicator. It peaks after the recession has already ended, sometimes by 6 to 12 months. If you wait for unemployment to improve before investing, you will miss a substantial portion of the recovery. Initial jobless claims (a weekly measure of new unemployment filings) is a much better leading indicator -- it tends to turn before the economy does.
+现实：失业率是滞后指标。它在衰退结束后才达到峰值，有时滞后6至12个月。若等到失业率改善后才开始投资，你将错过复苏的相当一部分涨幅。首次申请失业救济人数（每周衡量新增失业申请的指标）是更优质的先行指标——它往往在经济转向之前就先行转向。
 
-**Misconception 3: "A yield curve inversion means a recession is starting now."**
+**误解三："收益率曲线倒挂意味着衰退现在就开始了。"**
 
-Reality: The yield curve is a reliable recession predictor, but the timing is imprecise. Historically, recessions have begun 6 to 24 months after the initial inversion. Some of the strongest stock market returns in history have occurred between the inversion signal and the actual recession. Inverting your portfolio to 100% cash at the first sign of inversion would have caused you to miss significant gains in many past cycles.
+现实：收益率曲线是可靠的衰退预测指标，但时间精度不高。历史上，衰退通常在初次倒挂后的6至24个月内开始。历史上一些最强劲的股市涨幅，恰恰发生在倒挂信号出现与实际衰退到来之间。在首次出现倒挂信号时就将投资组合全部切换为现金，在过去许多周期中都会错过可观的涨幅。
 
-**Misconception 4: "You should sell stocks before a recession and buy them back at the bottom."**
+**误解四："衰退前应该卖出股票，等到底部再买回来。"**
 
-Reality: This sounds logical but is nearly impossible to execute. You would need to correctly identify both the peak (when to sell) and the trough (when to buy). Professional investors, with teams of analysts and decades of experience, consistently fail to do this reliably. Even if you correctly sold before the downturn, the anxiety of deciding when to buy back in typically causes you to miss the sharpest recovery moves. A better approach is to maintain a diversified portfolio and rebalance systematically.
+现实：这听起来合情合理，但在实际执行中几乎不可能实现。你需要同时准确判断顶峰（何时卖出）和谷底（何时买入）。拥有分析师团队和数十年经验的专业投资者，也无法可靠地做到这一点。即便你真的在下跌前成功卖出，决定何时买回的焦虑通常会导致你错过最急剧的反弹行情。更好的做法是维持多元化的投资组合，系统性地进行再平衡。
 
-**Misconception 5: "Recessions are caused by external shocks that cannot be predicted."**
+**误解五："衰退是由无法预测的外部冲击引发的。"**
 
-Reality: While external shocks (pandemics, geopolitical events) can trigger recessions, most recessions are caused by internal imbalances -- excessive leverage, asset bubbles, overheating, or policy mistakes. These imbalances build up during expansions and are visible in the economic data if you know where to look. The yield curve, credit spreads, debt-to-income ratios, and leading indicators often signal trouble well in advance. The 2020 COVID recession was an exception, caused by an exogenous health shock, but even then, the severity was amplified by pre-existing vulnerabilities.
+现实：虽然外部冲击（疫情、地缘政治事件）可以引发衰退，但大多数衰退是由内部失衡造成的——过度杠杆、资产泡沫、经济过热或政策失误。这些失衡在扩张期逐渐积聚，如果你知道从哪里入手，在经济数据中是可以看到的。收益率曲线、信用利差、债务收入比和先行指标往往能提前发出警报。2020年新冠疫情引发的衰退是例外，由外生性健康冲击造成，但即便如此，其严重程度也因已存在的脆弱性而加剧。
 
-**Misconception 6: "The best time to invest is when the economy is strong."**
+**误解六："经济强劲时才是最佳投资时机。"**
 
-Reality: If you buy when everyone is optimistic and the economy is booming, you are buying at elevated valuations. Historically, the best forward returns come from investing when the economy is weak and sentiment is negative -- near the trough. This is psychologically very difficult because everything feels terrible at the bottom. But $10,000 invested at the March 2009 bottom grew to over $70,000 by 2024, while the same amount invested at the October 2007 peak took years just to break even.
-
----
-
-### d) Q&A
-
-**Q1: How do I know which phase of the business cycle we are currently in?**
-
-A: You generally cannot know with precision in real time. The NBER, which officially dates recessions, typically does not make its call until 6 to 12 months after a recession has begun. However, you can use a weight-of-the-evidence approach by examining multiple indicators simultaneously. If the PMI is above 50 and rising, payrolls are growing, consumer confidence is improving, and leading indicators are positive, you are likely in an expansion. If the PMI is falling below 50, initial claims are rising, and the yield curve has recently inverted, you may be approaching a contraction. No single indicator is definitive -- look at the mosaic.
-
-**Q2: Should I try to adjust my portfolio based on the business cycle?**
-
-A: For most individual investors, aggressive tactical allocation based on cycle timing does more harm than good. The transitions between phases are difficult to identify in real time, and the penalties for being wrong are severe (missing a recovery rally, for example). A better approach is to maintain a strategically diversified portfolio and make modest tilts based on where you believe you are in the cycle. For example, if you believe you are in a late-cycle environment, you might slightly increase your allocation to defensive sectors and reduce your most speculative positions -- but you should not overhaul your entire portfolio.
-
-**Q3: What is the most reliable recession indicator?**
-
-A: The yield curve (specifically, the 10-year minus 2-year Treasury spread going negative) has the strongest track record, having preceded every U.S. recession since 1960 with only one false signal. However, the lead time varies widely (6 to 24 months), making it useful for awareness but poor for precise timing. Initial jobless claims are also very reliable -- a sustained trend of rising claims (moving above the 4-week average by more than 10-15%) has historically signaled recession onset within 3 to 6 months.
-
-**Q4: Why do stock prices often fall before a recession is officially declared?**
-
-A: Because the stock market is a leading indicator. Market participants are forward-looking -- they trade on expectations about future earnings, not past earnings. When investors see leading indicators deteriorating (falling PMI, rising initial claims, inverted yield curve), they begin pricing in lower future earnings before those lower earnings actually materialize. This is why the market often peaks months before the economy does and bottoms months before the economy recovers.
-
-**Q5: What does the Fed mean by a "soft landing"?**
-
-A: A soft landing occurs when the Fed raises interest rates enough to slow inflation and cool an overheating economy without triggering a recession. The economy decelerates from an unsustainable pace to a healthy one, and unemployment rises only modestly. Soft landings are rare because the lag between rate hikes and their economic effects makes calibration extremely difficult. The Fed is essentially trying to slow a car on an icy road -- the brakes work with a delay, so you do not know if you have applied enough pressure until it is too late to adjust.
-
-**Q6: How does inflation affect my portfolio in practical terms?**
-
-A: Inflation erodes purchasing power. If your portfolio returns 7% in a year when inflation is 5%, your real (inflation-adjusted) return is only about 2%. Different asset classes respond differently to inflation. Stocks of companies with pricing power (they can raise prices) tend to hold up well. Fixed-rate bonds suffer because their fixed payments are worth less in real terms. Commodities often rise with inflation. Real estate generally keeps pace. Cash and savings accounts lose purchasing power unless their rates match or exceed inflation. TIPS (Treasury Inflation-Protected Securities) are explicitly designed to hedge inflation risk.
-
-**Q7: What is the Conference Board's Leading Economic Index (LEI)?**
-
-A: The LEI is a composite of 10 leading indicators combined into a single number. It includes the yield curve spread, stock market returns, building permits, initial claims, ISM new orders, consumer expectations, and several other components. The rule of thumb is that three consecutive monthly declines in the LEI signal a potential recession within the next 12 months. It is a convenient summary statistic, but examining the individual components provides richer information about which parts of the economy are weakening.
-
-**Q8: Do business cycles affect the bond market the same way they affect stocks?**
-
-A: In some ways, bonds and stocks respond inversely to the cycle. During expansions, stock returns are generally strong while bond returns are weak (because rising rates push bond prices down). During contractions, government bond returns are typically strong (because falling rates push bond prices up) while stock returns are poor. This is the fundamental reason why a stock-bond portfolio provides diversification -- the two asset classes tend to perform well at different times. However, this relationship breaks down during periods of rising inflation, when both stocks and bonds can suffer simultaneously (as occurred in 2022).
-
-**Q9: How long do recessions typically last, and how severe are they?**
-
-A: Post-World War II U.S. recessions have averaged about 10 months in duration. The shortest was the COVID recession at 2 months (February to April 2020), and the longest was the Great Recession at 18 months (December 2007 to June 2009). In terms of severity, the average peak-to-trough GDP decline has been about 2.5%, though the Great Recession saw a decline of about 4.3% and the COVID recession saw a decline of about 9.1% (annualized) in its worst quarter. Stock market declines during recessions have ranged from about 14% to 57%.
-
-**Q10: Should I hold more cash during late-cycle periods?**
-
-A: Modestly increasing cash or short-term bond holdings during late-cycle periods is a reasonable risk management strategy, but be careful not to overdo it. Late-cycle periods can last much longer than expected -- the market can continue rising for a year or more after you think it is "too late." A common approach is to raise cash from 5% to 10-15% of your portfolio during late-cycle environments, funded by trimming your most speculative positions. This gives you dry powder to deploy during the next downturn without sacrificing too much upside if the cycle extends. But going to 50% cash because you think a recession is coming is a timing bet that usually costs more than it saves.
+现实：若在所有人都乐观、经济一片繁荣时买入，你是以偏高的估值买入。历史上，最佳的远期收益来自于经济疲弱、情绪悲观之时——也就是接近谷底的时候。这在心理上极为困难，因为在底部时一切都感觉糟透了。但2009年3月投入的10,000美元，到2024年已增长至逾70,000美元；而同样的金额若在2007年10月市场顶峰时买入，仅仅回本就花了数年时间。
 
 ---
 
-## YouTube Script
+### d) 问答环节
+
+**Q1：我如何判断当前处于商业周期的哪个阶段？**
+
+A：通常无法实时精确判断。NBER正式认定衰退的时间，通常比衰退实际开始晚6至12个月。然而，你可以采用"证据权重法"，同时审视多项指标。若PMI高于50且持续上升，非农就业人数在增加，消费者信心在改善，先行指标为正，你很可能身处扩张期。若PMI持续跌破50，首请失业救济人数上升，且收益率曲线近期出现倒挂，你可能正在接近收缩期。没有任何单一指标是决定性的——要综合审视全貌。
+
+**Q2：我是否应该根据商业周期调整投资组合？**
+
+A：对于大多数个人投资者而言，基于周期时机的激进战术配置弊大于利。各阶段之间的过渡很难实时识别，而判断失误的代价极为惨重（例如错过复苏反弹）。更好的做法是维持战略性多元化的投资组合，并根据你对周期所处位置的判断做出适度倾斜。例如，若你认为当前处于周期晚期，可以略微增加防御性板块的配置、削减最具投机性的仓位——但不应对整个投资组合进行彻底改造。
+
+**Q3：最可靠的衰退预测指标是什么？**
+
+A：收益率曲线（具体而言，10年期减2年期美国国债利差转负）的历史记录最为突出，自1960年以来仅有一次误判，此后美国每次衰退都被其提前预告。然而，领先时间差异悬殊（6至24个月），使其适合用于提升认知，但不适合精确择时。首次申请失业救济人数同样非常可靠——若其出现持续上升趋势（超过4周均值10%-15%以上），历史上预示着3至6个月内衰退开始。
+
+**Q4：为何股价往往在衰退被正式宣布之前就已下跌？**
+
+A：因为股市是先行指标。市场参与者具有前瞻性——他们基于对未来盈利的预期进行交易，而非过去的盈利。当投资者看到先行指标恶化（PMI下滑、首请失业救济人数上升、收益率曲线倒挂），他们会在较低的盈利实际发生之前就开始为其定价。这就是为什么市场通常比经济提前数月见顶，也提前数月触底。
+
+**Q5：美联储所说的"软着陆"是什么意思？**
+
+A：软着陆是指美联储将利率提升至足以抑制通胀、为过热经济降温的水平，同时又不引发衰退。经济从不可持续的高速增长减速至健康水平，失业率仅温和上升。软着陆之所以罕见，是因为加息与其产生经济效果之间存在滞后，校准极为困难。美联储基本上是在尝试在结冰的道路上为一辆汽车减速——刹车的效果存在延迟，因此你不知道力度是否恰当，直到来不及调整时才能察觉。
+
+**Q6：通胀在实际层面如何影响我的投资组合？**
+
+A：通胀侵蚀购买力。若你的投资组合在通胀率为5%的年份取得了7%的收益，你的实际（经通胀调整后的）收益仅约为2%。不同资产类别对通胀的反应各异。具有定价权的企业的股票（能够提价而客户不流失）往往表现稳健。固定利率债券受损，因为其固定付息额的实际价值下降。大宗商品往往随通胀上涨。房地产通常能跟上通胀步伐。现金和储蓄账户则会损失购买力，除非其利率与通胀率持平甚至更高。通胀保值债券（TIPS）则专门用于对冲通胀风险。
+
+**Q7：经济咨商局的领先经济指数（LEI）是什么？**
+
+A：LEI是10个先行指标综合而成的单一数值。它包含收益率曲线利差、股市收益、建筑许可证、首请失业救济人数、ISM新订单、消费者预期及其他几项分项。经验法则是：LEI连续三个月下滑，预示着未来12个月内可能出现衰退。这是一个便捷的汇总统计数据，但深入审视各分项，能够提供更丰富的信息，揭示经济哪些领域正在走弱。
+
+**Q8：商业周期对债券市场的影响是否与对股票的影响相同？**
+
+A：在某种程度上，债券和股票对周期的反应方向相反。在扩张期，股票收益通常强劲，而债券收益疲弱（因为利率上升会压低债券价格）。在收缩期，政府债券收益通常强劲（因为利率下降会推高债券价格），而股票收益较差。这正是股债组合能够提供多元化效果的根本原因——两类资产往往在不同时期表现良好。然而，在通胀上升时期，这一关系会失效，股票和债券可能同时遭受损失（2022年正是如此）。
+
+**Q9：衰退通常持续多久，严重程度如何？**
+
+A：二战后美国衰退的平均持续时间约为10个月。最短的是2020年新冠疫情引发的衰退，仅持续2个月（2020年2月至4月）；最长的是大衰退，持续18个月（2007年12月至2009年6月）。就严重程度而言，GDP平均峰谷跌幅约为2.5%，但大衰退的跌幅约为4.3%，而新冠疫情引发的衰退在最差季度的年化跌幅约为9.1%。衰退期间股市跌幅从约14%到57%不等。
+
+**Q10：在周期晚期，我是否应该持有更多现金？**
+
+A：在周期晚期适度增加现金或短期债券持仓，是合理的风险管理策略，但切忌矫枉过正。周期晚期可能比预期持续更长时间——即便你认为"已经太晚了"，市场可能仍会继续上涨一年甚至更久。一种常见做法是在周期晚期将现金从5%提升至10%-15%，资金来源于削减最具投机性的仓位。这能为你储备弹药，以便在下次下行期部署，同时又不会因周期延续而牺牲过多上行空间。但因为你认为衰退即将到来就把仓位切换至50%现金，是一种择时赌注，通常得不偿失。
+
+---
+
+## YouTube脚本
 
 [VISUAL: Animated intro with title "Week 10: Economic Cycles and Your Portfolio"]
 
-**Alex:** Welcome back everyone. Last week we pulled apart market indexes and learned what is really inside an index fund. Today we are zooming out even further to look at the biggest force driving financial markets -- the business cycle. This is the rhythm of the economy, and once you understand it, a lot of market behavior that seems random starts to make sense.
+**Horace（陳馬）：** 欢迎回来，大家好。上周我们拆解了市场指数，深入了解了指数基金里究竟装着什么。今天我们要把视野放得更远，来看看驱动金融市场最强大的力量——商业周期。这是经济运行的节律，一旦你理解了它，很多看似随机的市场行为都会变得有迹可循。
 
-**Sam:** I have heard people talk about "where we are in the cycle" but I have never fully understood what that means. Is the economy just going in circles?
+**Stella（小魚）：** 我经常听人说"我们现在处于周期的哪个阶段"，但我从来没有真正搞懂这是什么意思。经济是在原地打转吗？
 
-**Alex:** Not exactly circles, but cycles -- the economy expands, reaches a peak, contracts, hits a trough, and then expands again. It is like the seasons. Winter always ends and spring arrives, but you do not know exactly when the first warm day will come or how harsh the winter will be.
+**Horace（陳馬）：** 不完全是转圈，而是循环——经济扩张、见顶、收缩、触底，然后再次扩张。就像四季轮回一样。冬天终会结束，春天终将到来，但你无法准确知道第一个暖和的日子几时会来，也不知道这个冬天会多么严酷。
 
 [VISUAL: Animated sine wave showing the business cycle with seasons overlaid -- spring for recovery, summer for expansion, fall for peak, winter for contraction. Trees and landscape change with each season.]
 
-**Sam:** So there are four phases?
+**Stella（小魚）：** 所以一共有四个阶段？
 
-**Alex:** Yes. Let me walk you through each one.
+**Horace（陳馬）：** 是的。我来逐一带你们过一遍。
 
 [ANIMATION: animation/week10_business_cycle.py - Animated business cycle diagram. A smooth curve oscillates over time, with GDP growth rate on the y-axis and time on the x-axis. As the cycle progresses, each phase lights up in a different color: trough in blue, expansion in green, peak in orange, contraction in red. Key characteristics appear alongside each phase -- unemployment direction, corporate earnings, consumer confidence, Fed policy. A small dashboard in the corner shows real-time values for these indicators as the animation moves through the cycle.]
 
-**Alex:** Phase one is the trough, also called the early recovery. This is the bottom. The economy has been shrinking, unemployment is high, businesses have cut costs to the bone, and everyone is pessimistic. But paradoxically, this is when the foundation for recovery is being laid. Interest rates are low because the Fed has been cutting to stimulate growth. Inventories are depleted, which means any pickup in demand requires new production. And importantly, asset prices are cheap.
+**Horace（陳馬）：** 第一阶段是谷底，也叫早期复苏。这是最低点。经济一直在收缩，失业率高企，企业已把成本削减到骨子里，所有人都悲观。但矛盾的是，正是在这个时候，复苏的根基正在夯实。由于美联储一直在降息以刺激增长，利率处于低位。库存也耗尽了，这意味着任何需求的回暖都需要新一轮生产。更重要的是，资产价格很便宜。
 
-**Sam:** So the trough is actually a good time to invest? Even though everything feels terrible?
+**Stella（小魚）：** 所以谷底其实是投资的好时机？即便感觉一切都很糟糕？
 
-**Alex:** One of the best. And I want to stress how counterintuitive that is. At the trough, the news is relentlessly negative. Headlines are about layoffs, bankruptcies, and financial stress. Your instinct is to sell everything and hide in cash. But historically, the biggest gains come from investing when fear is at its peak.
+**Horace（陳馬）：** 是最好的时机之一。我要特别强调这有多么违反直觉。在谷底，新闻铺天盖地都是裁员、破产和金融压力。你的本能是把一切都卖掉，躲进现金里。但历史上，最大的收益往往来自于恐惧达到顶点时的投入。
 
-**Sam:** That takes serious discipline.
+**Stella（小魚）：** 这需要相当强的定力。
 
-**Alex:** It does. And this is why understanding the cycle matters so much -- it gives you the intellectual framework to act against your emotions. You know that troughs do not last forever because they never have.
+**Horace（陳馬）：** 的确如此。这也正是理解周期如此重要的原因——它给了你一个与情绪对抗的思维框架。你知道谷底不会永远持续，因为历史上从未如此。
 
 [VISUAL: Timeline showing every U.S. recession since 1945 with duration bars. Each recession is followed by a much longer expansion bar, visually demonstrating that recoveries dwarf contractions.]
 
-**Sam:** What about phase two -- the expansion?
+**Stella（小魚）：** 第二阶段呢——扩张期？
 
-**Alex:** The expansion is the good times. The economy is growing, unemployment is falling, businesses are hiring and investing, consumers are spending, and corporate earnings are rising. This is the longest phase of the cycle -- historically, expansions have lasted about five years on average, and they have been getting longer over time. The expansion from 2009 to 2020 lasted nearly 11 years.
+**Horace（陳馬）：** 扩张期就是好日子。经济在增长，失业率在下降，企业在招聘和投资，消费者在消费，企业盈利在攀升。这是周期中持续时间最长的阶段——历史上扩张期平均持续约五年，而且随着时间推移越来越长。从2009年到2020年的那轮扩张期持续了将近11年。
 
-**Sam:** Is there a danger in the expansion?
+**Stella（小魚）：** 扩张期有什么危险吗？
 
-**Alex:** The danger is complacency. As the expansion continues and everything feels good, people take on more risk. They borrow more, speculate more, and assume the good times will continue forever. Corporations take on debt, banks loosen lending standards, and valuations climb. These excesses plant the seeds of the next contraction.
+**Horace（陳馬）：** 危险在于自满。随着扩张期延续、一切顺风顺水，人们开始承担更多风险。他们借得更多，投机得更多，并认为好日子会永远持续下去。企业加杠杆，银行放松贷款标准，估值节节攀升。这些过度行为，正是为下一次收缩埋下的种子。
 
-**Sam:** So the expansion creates the conditions for its own end?
+**Stella（小魚）：** 所以扩张期制造了终结自己的条件？
 
-**Alex:** That is a really important insight, and yes, historically that is exactly what happens. The late-cycle phase -- the peak -- is where those excesses become unsustainable.
+**Horace（陳馬）：** 这是一个非常重要的洞见，历史上正是如此。周期晚期——顶峰阶段——这些过度行为变得难以为继。
 
 [VISUAL: Animated chart showing key indicators during a typical expansion: GDP rising, unemployment falling, corporate debt rising, stock valuations rising, consumer confidence rising -- with accelerating slope in the late stage indicating overheating]
 
-**Alex:** At the peak, the economy is running hot. Unemployment is very low, which sounds great, but it means labor is scarce. Wages are rising fast, which squeezes corporate margins. Inflation is elevated. The Fed is raising rates to cool things down. And here is the critical tension -- the Fed is trying to slow the economy enough to control inflation without tipping it into recession.
+**Horace（陳馬）：** 在顶峰，经济运行过热。失业率很低，听起来不错，但这意味着劳动力供应紧张。薪资快速上涨，挤压企业利润率。通胀高企。美联储正在加息以为经济降温。这里有一个关键矛盾——美联储试图在不推动经济陷入衰退的前提下，将其放缓至足以控制通胀的程度。
 
-**Sam:** That sounds like a tightrope walk.
+**Stella（小魚）：** 听起来像走钢丝。
 
-**Alex:** It is, and it is called the "soft landing" challenge. The problem is that monetary policy works with a lag. When the Fed raises rates today, the full effect does not hit the economy for 12 to 18 months. So the Fed is essentially driving while looking in the rearview mirror, pressing the brake pedal and not knowing for over a year whether it was too much or too little.
+**Horace（陳馬）：** 正是，这就是"软着陆"难题。问题在于货币政策存在滞后效应。美联储今天加息，其完整影响要在12至18个月后才能完全传导到经济层面。所以美联储本质上是边盯着后视镜边开车，踩下刹车踏板，过了一年多才知道力度是否合适。
 
-[VISUAL: Car analogy showing a driver on an icy road labeled "The Economy." The brake pedal is labeled "Rate Hikes" and there is a sign that says "Effect Delay: 12-18 months." Two possible outcomes are shown: a smooth stop (soft landing) and skidding off the road (recession).]
+[VISUAL: Car analogy showing a driver on an icy road labeled "经济". The brake pedal is labeled "加息" and there is a sign that says "效果延迟：12-18个月". Two possible outcomes are shown: a smooth stop (软着陆) and skidding off the road (衰退).]
 
-**Sam:** And the fourth phase is the contraction -- the recession.
+**Stella（小魚）：** 第四阶段是收缩期——衰退。
 
-**Alex:** Right. A contraction is when economic activity actually declines. Businesses cut costs, lay off workers, and reduce investment. Consumer spending falls. Corporate earnings drop. Defaults and bankruptcies rise. The stock market falls, often sharply. It is painful. But -- and this is crucial -- every single contraction in modern American history has been followed by a recovery.
+**Horace（陳馬）：** 对。收缩期就是经济活动实际下滑的时候。企业削减成本、裁减员工、缩减投资。消费者支出萎缩，企业盈利下降，违约和破产上升。股市下跌，往往跌幅剧烈。这很痛苦。但——这一点至关重要——现代美国历史上每一次收缩都被随后的复苏所取代。
 
-**Sam:** How long do recessions typically last?
+**Stella（小魚）：** 衰退通常持续多久？
 
-**Alex:** The average post-World War II recession has lasted about 10 months. The shortest was the COVID recession at just 2 months. The longest was the Great Recession at 18 months. By contrast, the average expansion has lasted about five years. So the economy spends roughly five times as much time growing as it does shrinking.
+**Horace（陳馬）：** 二战后平均每次衰退持续约10个月。最短的是2020年新冠疫情引发的衰退，仅历时2个月。最长的是大衰退，持续了18个月。相比之下，平均扩张期约为五年。所以经济增长的时间大约是萎缩时间的五倍。
 
 [VISUAL: Horizontal timeline showing alternating expansion (green) and contraction (red) bars since 1945. The expansions are dramatically longer than the contractions, visually reinforcing that growth is the default state.]
 
-**Sam:** That is reassuring. Now, you mentioned economic indicators earlier. How do we actually track where we are in the cycle?
+**Stella（小魚）：** 这让人安心。说到经济指标，我们应该如何追踪自己处于周期的哪个位置？
 
-**Alex:** Great question. Economic indicators fall into three categories based on their timing relationship to the cycle: leading, coincident, and lagging. And understanding the difference is absolutely critical.
+**Horace（陳馬）：** 好问题。经济指标按其与周期的时序关系分为三类：先行指标、同步指标和滞后指标。理解这三者的区别绝对至关重要。
 
-**Sam:** What is the difference?
+**Stella（小魚）：** 有什么区别？
 
-**Alex:** Leading indicators move before the economy turns. They are your early warning system. Coincident indicators move at the same time as the economy -- they tell you where you are right now. And lagging indicators move after the economy has already turned -- they confirm what already happened.
+**Horace（陳馬）：** 先行指标在经济转向之前移动，是你的预警系统。同步指标与经济同步移动，告诉你当前所处的位置。滞后指标在经济已经转向后才移动，用于确认已经发生的事情。
 
-[VISUAL: Three traffic signals side by side. The first (leading) is yellow/caution, labeled "What's ahead." The second (coincident) is green, labeled "Where you are." The third (lagging) is red/confirmation, labeled "What just happened." Examples appear below each.]
+[VISUAL: Three traffic signals side by side. The first (leading) is yellow/caution, labeled "前方情况". The second (coincident) is green, labeled "当前位置". The third (lagging) is red/confirmation, labeled "刚刚发生的事". Examples appear below each.]
 
-**Sam:** Give me the most important indicator in each category.
+**Stella（小魚）：** 给我每类指标中最重要的一个。
 
-**Alex:** For leading indicators, I would say the yield curve is the most powerful single predictor. When long-term interest rates fall below short-term rates -- a condition called an inverted yield curve -- it has preceded every U.S. recession since 1960.
+**Horace（陳馬）：** 在先行指标中，我认为收益率曲线是最有力的单一预测指标。当长期利率跌至低于短期利率时——这种情况被称为收益率曲线倒挂——自1960年以来，它已经领先预示了美国的每一次衰退。
 
-**Sam:** Every single one?
+**Stella（小魚）：** 每一次？
 
-**Alex:** Every single one, with only one false signal. The challenge is timing -- the recession can come 6 months later or 24 months later. So the yield curve tells you a recession is coming, but not exactly when.
+**Horace（陳馬）：** 每一次，只有一次误判。难点在于时机——衰退可能在6个月后到来，也可能是24个月后。所以收益率曲线能告诉你衰退要来了，但无法告诉你确切的时间。
 
 [ANIMATION: animation/week10_business_cycle.py - Animated yield curve visualization. Three bond yield curves are shown: normal (upward sloping), flat, and inverted (downward sloping). The animation transitions between the three shapes, showing how the curve evolves through the business cycle. Historical overlays show the actual 10Y-2Y spread over time, with shaded bars marking recessions. The relationship between inversion and subsequent recession onset is highlighted with connecting arrows and time-lag labels.]
 
-**Sam:** What about the PMI? I have seen that mentioned a lot.
+**Stella（小魚）：** PMI呢？我见过很多地方提到这个指标。
 
-**Alex:** The Purchasing Managers' Index is one of the most valuable monthly indicators. It surveys purchasing managers at companies across the country about new orders, production, employment, and inventories. The magic number is 50 -- above 50 means the manufacturing sector is expanding, below 50 means it is contracting.
+**Horace（陳馬）：** 采购经理人指数是最有价值的月度指标之一。它调查全国各企业的采购经理人，涵盖新订单、生产、就业和库存情况。50这个数字是关键分水岭——高于50意味着制造业在扩张，低于50意味着在收缩。
 
-**Sam:** So if the PMI is 48, that is bad?
+**Stella（小魚）：** 如果PMI是48，那是坏信号吗？
 
-**Alex:** It means manufacturing is contracting, yes. But here is a more nuanced way to use it. Look at the new orders component separately -- it is the most forward-looking part of the PMI. If new orders are falling while finished goods inventories are rising, it means companies are making stuff that is not selling. That signals production cuts are coming, which means layoffs, which means less consumer spending. One indicator tells you a cascading story.
+**Horace（陳馬）：** 意味着制造业在收缩，是的。但有一种更精细的使用方式。单独观察新订单分项——它是PMI中最具前瞻性的部分。如果新订单在下滑，而产成品库存在上升，说明企业生产出来的东西卖不出去。这预示着生产削减在即，接着是裁员，进而是消费支出减少。一个指标，就能讲出一个环环相扣的故事。
 
-[VISUAL: Flowchart showing the cascade: Falling New Orders -> Rising Inventories -> Production Cuts -> Layoffs -> Less Consumer Spending -> Lower GDP. Each step is connected with arrows and timing estimates.]
+[VISUAL: Flowchart showing the cascade: 新订单下滑 -> 库存上升 -> 削减生产 -> 裁员 -> 消费支出减少 -> GDP下滑. Each step is connected with arrows and timing estimates.]
 
-**Sam:** That is powerful. What about coincident indicators?
+**Stella（小魚）：** 很有洞察力。同步指标呢？
 
-**Alex:** The big one is nonfarm payrolls -- the monthly jobs report. It tells you how many jobs the economy added or lost in the previous month. If the economy is adding 200,000 or more jobs per month, it is healthy. If that number starts falling toward zero or goes negative, the economy is weakening in real time.
+**Horace（陳馬）：** 最重要的是非农就业人数——也就是月度就业报告。它告诉你上个月经济新增或减少了多少就业岗位。如果每月新增20万或更多就业，经济就是健康的。如果这个数字开始向零靠拢甚至转负，经济在实时弱化。
 
-**Sam:** And lagging indicators?
+**Stella（小魚）：** 滞后指标呢？
 
-**Alex:** The unemployment rate is the classic lagging indicator, and understanding this is so important. The unemployment rate typically does not peak until after the recession is already over. Let me say that again -- by the time unemployment is at its worst, the economy is usually already recovering.
+**Horace（陳馬）：** 失业率是最典型的滞后指标，理解这一点极为重要。失业率通常要等衰退已经结束后才会见顶。我再说一遍——当失业率处于最糟糕的时候，经济往往已经在复苏了。
 
-**Sam:** That is really counterintuitive. So if I wait until unemployment improves to start investing, I have already missed the recovery?
+**Stella（小魚）：** 这真的很违反直觉。所以如果我等到失业率改善再投资，我已经错过复苏了？
 
-**Alex:** Exactly. The stock market typically bottoms about 6 months before the economy does, and the economy recovers about 6 months before unemployment peaks. So there is roughly a 12-month gap between when the market bottoms and when unemployment is at its worst. If you are using unemployment as your signal, you are about a year late.
+**Horace（陳馬）：** 正是。股市通常在经济见底前约6个月触底，而经济复苏大约比失业率见顶早6个月。所以从市场触底到失业率见顶，大概有12个月的时间差。如果你把失业率当作入场信号，你已经整整晚了一年。
 
-[VISUAL: Three overlapping timelines showing the stock market bottom, the economic trough, and the unemployment peak, with 6-month gaps between each. A stick figure labeled "Waiting for unemployment to improve" is standing at the far right, watching the market rally pass by.]
+[VISUAL: Three overlapping timelines showing the stock market bottom, the economic trough, and the unemployment peak, with 6-month gaps between each. A stick figure labeled "等待失业率好转" is standing at the far right, watching the market rally pass by.]
 
-**Sam:** So what should investors do with all this information?
+**Stella（小魚）：** 那投资者应该如何利用这些信息呢？
 
-**Alex:** The most important thing is to understand what the data is telling you so you do not make emotional mistakes. During a recession, when the data is terrible and the news is frightening, you need to recognize that the market has already priced in much of the bad news and is likely looking ahead to recovery. During a peak, when the data looks great and everyone is euphoric, you need to recognize that risks are building even though nothing bad has happened yet.
+**Horace（陳馬）：** 最重要的是理解数据在告诉你什么，这样你就不会做出情绪化的错误决策。在衰退期间，当数据一片惨淡、新闻令人恐惧时，你需要认识到市场已经消化了大量坏消息，很可能已经在展望复苏。在顶峰时期，当数据看起来亮眼、所有人都在狂欢时，你需要认识到风险正在积聚，即便还没有任何坏事发生。
 
-**Sam:** Are there specific portfolio adjustments I should make based on the cycle?
+**Stella（小魚）：** 我是否应该根据周期对投资组合做出具体调整？
 
-**Alex:** Let me show you how different asset classes perform in each phase.
+**Horace（陳馬）：** 让我来展示一下不同资产类别在各阶段的表现规律。
 
 [VISUAL: Four-quadrant chart showing the business cycle phases with top-performing asset classes in each quadrant. Trough: bonds and early-cycle stocks. Expansion: stocks broadly. Peak: commodities and energy. Contraction: government bonds and cash.]
 
-**Alex:** In the early recovery -- the trough -- the best-performing assets tend to be small-cap stocks, high-yield bonds, and interest-rate-sensitive sectors like financials and real estate. These are the beaten-down areas that benefit most from the recovery in confidence and declining interest rates.
+**Horace（陳馬）：** 在早期复苏——谷底阶段——表现最好的资产往往是小盘股、高收益债券，以及对利率敏感的金融和房地产板块。这些都是跌幅最深的领域，最能从信心复苏和利率下降中受益。
 
-**Sam:** What about during the expansion?
+**Stella（小魚）：** 扩张期呢？
 
-**Alex:** Mid-cycle is broadly good for stocks, especially technology and industrials. Business investment is growing, corporate earnings are rising, and the economy has a healthy growth-inflation balance. This is the "Goldilocks" phase -- not too hot, not too cold.
+**Horace（陳馬）：** 周期中段对股票整体有利，尤其是科技和工业板块。企业投资加速，企业盈利攀升，经济处于健康的增长与通胀均衡状态。这就是"金发姑娘"阶段——不冷不热，恰到好处。
 
-**Sam:** And late cycle?
+**Stella（小魚）：** 周期晚期呢？
 
-**Alex:** Late cycle tends to favor commodities, energy stocks, and defensive sectors like healthcare and consumer staples. Inflation is picking up, which benefits real assets. Defensive sectors hold up because their businesses are less economically sensitive -- people need electricity, medicine, and food regardless of the cycle.
+**Horace（陳馬）：** 周期晚期往往有利于大宗商品、能源股，以及医疗健康和必需消费品等防御性板块。通胀上升令实物资产受益。防御性板块展现韧性，因为其业务对经济敏感度较低——无论经济周期如何，人们仍然需要用电、就医和购买食品。
 
-**Sam:** What performs best during a recession?
+**Stella（小魚）：** 衰退期间哪类资产表现最好？
 
-**Alex:** Government bonds are the classic recession winner. When the economy contracts, the Fed cuts rates, which pushes bond prices up. Cash also outperforms on a relative basis simply by not losing money. Defensive stocks -- utilities, staples, healthcare -- tend to fall less than the broader market.
+**Horace（陳馬）：** 政府债券是经典的衰退赢家。经济收缩时，美联储降息，推动债券价格上涨。现金以相对不亏钱的方式也算跑赢。防御性股票——公用事业、必需消费品、医疗健康——跌幅通常小于整体市场。
 
 [ANIMATION: animation/week10_business_cycle.py - Animated sector rotation wheel showing sectors highlighted as the cycle progresses. The animation moves clockwise through the four phases, with outperforming sectors lighting up in green and underperforming sectors dimming to gray. A performance bar chart updates in real time, showing the relative returns of each sector during the highlighted phase. Historical data from actual cycles is used to calibrate the magnitudes.]
 
-**Sam:** This is like a playbook for the cycle.
+**Stella（小魚）：** 这简直就是一本周期操作手册。
 
-**Alex:** It is a historical tendency, not a playbook -- and that distinction matters. Every cycle is different. The 2020 recession was caused by a pandemic, not an overheating economy, and the recovery was V-shaped because of massive fiscal stimulus. The 2007-2009 recession was caused by a financial crisis and the recovery was slow and grinding. The sectors and assets that outperformed in each case did not perfectly match the textbook rotation.
+**Horace（陳馬）：** 它是历史规律，而非操作手册——这个区别很重要。每个周期都各有不同。2020年的衰退是由疫情引发的，而非经济过热，加之大规模财政刺激，复苏呈V形。2007年至2009年的衰退由金融危机引发，复苏缓慢且艰难。在这两次周期中，各板块和资产类别的表现并不完全符合教科书式的轮动规律。
 
-**Sam:** So how should I use this information without treating it as a crystal ball?
+**Stella（小魚）：** 那我应该如何利用这些信息，而不是把它当成水晶球来用呢？
 
-**Alex:** Three practical guidelines. First, maintain a diversified portfolio that includes assets that perform well in different phases. This way, you do not need to predict the cycle -- your portfolio has something working in every environment. Second, make modest tilts, not wholesale changes. If you believe you are in a late-cycle environment, maybe increase your allocation to defensive stocks from 15% to 20% and trim your most speculative holdings. But do not go to 100% cash or 100% commodities. Third, use the indicators as a risk management tool, not a timing tool. They tell you when to be more cautious and when to be more aggressive, but the timing will never be precise.
+**Horace（陳馬）：** 三条实用原则。第一，维持多元化的投资组合，纳入在不同阶段各有发挥的资产。这样你就无需预测周期——你的投资组合在任何环境下都有发挥作用的部分。第二，做适度倾斜，而非大幅改变。如果你认为处于周期晚期，也许可以将防御性股票的配置从15%增加到20%，削减最具投机性的持仓。但不要把仓位全部切换到现金或大宗商品。第三，将指标作为风险管理工具，而非择时工具。它们告诉你何时应更谨慎、何时可更积极，但时机永远不会精确。
 
-[VISUAL: Two portfolio pie charts side by side -- "Early/Mid Cycle Tilt" and "Late Cycle / Defensive Tilt" -- showing modest shifts in allocation rather than dramatic changes. The differences are highlighted with arrows showing which wedges grew and which shrank.]
+[VISUAL: Two portfolio pie charts side by side -- "扩张初期/中段配置倾斜" and "周期晚期/防御性配置倾斜" -- showing modest shifts in allocation rather than dramatic changes. The differences are highlighted with arrows showing which wedges grew and which shrank.]
 
-**Sam:** Let me ask about something I see in the news all the time -- GDP. What exactly is it and why does everyone care so much?
+**Stella（小魚）：** 我想问一个新闻里经常提到的概念——GDP。它到底是什么，为什么所有人都那么重视它？
 
-**Alex:** GDP -- Gross Domestic Product -- is the total value of everything produced in the economy over a period. It is the broadest single measure of economic activity. In the U.S., it is reported quarterly. The key thing to know is that nearly 70% of U.S. GDP is consumer spending. So the American economy is fundamentally driven by whether consumers are spending money.
+**Horace（陳馬）：** GDP——国内生产总值——是经济中所有产品和服务在一段时期内的总价值。它是衡量经济活动最宽泛的单一指标。在美国，它按季度公布。最关键的一点是：美国GDP近70%来自消费者支出。所以美国经济在根本上是由消费者是否愿意花钱来驱动的。
 
-**Sam:** That is a lot. So if consumers pull back, the whole economy suffers?
+**Stella（小魚）：** 比例这么高。所以消费者一旦收手，整个经济就会受到冲击？
 
-**Alex:** Exactly. And this is why consumer confidence surveys, retail sales data, and employment figures are so closely watched -- they all feed into whether consumers will keep spending. When people lose their jobs, their confidence drops, and they cut spending. When spending drops, businesses see lower revenue. When revenue drops, businesses cut costs, including laying off workers. That is the vicious cycle of a recession.
+**Horace（陳馬）：** 正是。这就是为什么消费者信心调查、零售额数据和就业数据受到如此密切的关注——它们都指向消费者是否会继续消费。当人们失业，信心就会下滑，消费就会缩减。消费缩减，企业营收下降。营收下降，企业削减成本，包括裁员。这就是衰退的恶性循环。
 
-[VISUAL: Circular diagram showing the recession feedback loop: Job Losses -> Lower Confidence -> Less Spending -> Lower Revenue -> Cost Cuts -> More Job Losses, with arrows connecting each step in a circle]
+[VISUAL: Circular diagram showing the recession feedback loop: 失业 -> 信心下滑 -> 消费减少 -> 营收下降 -> 成本削减 -> 更多失业, with arrows connecting each step in a circle]
 
-**Sam:** What about inflation? Where does that fit in?
+**Stella（小魚）：** 通胀又是怎么回事？它在这里扮演什么角色？
 
-**Alex:** Inflation is the silent tax on your portfolio and the central obsession of the Federal Reserve. There are two main measures -- CPI, the Consumer Price Index, which gets all the headlines, and PCE, the Personal Consumption Expenditures index, which is what the Fed actually targets. The Fed's target is 2% annual PCE inflation.
+**Horace（陳馬）：** 通胀是对你投资组合无声的税收，也是美联储最核心的关注点。主要有两个衡量指标——登上头条的CPI（消费者价格指数），以及美联储实际盯住的PCE（个人消费支出）。美联储的目标是年度PCE通胀率达到2%。
 
-**Sam:** Why 2%? Why not zero?
+**Stella（小魚）：** 为什么是2%？为什么不是零？
 
-**Alex:** Zero inflation, or worse, deflation -- falling prices -- is actually more dangerous than moderate inflation. If consumers expect prices to fall, they delay purchases. Why buy a car today if it will be cheaper next month? That delay in spending slows the economy. A small positive inflation rate encourages spending and investment. Two percent is considered the sweet spot -- enough to encourage economic activity without eroding purchasing power too quickly.
+**Horace（陳馬）：** 零通胀，甚至通缩——价格下跌——实际上比温和通胀更危险。如果消费者预期价格会下跌，他们就会推迟消费。为什么今天买车，如果下个月会更便宜？这种消费推迟会拖慢经济。小幅正向通胀能鼓励消费和投资。2%被认为是甜蜜点——足以促进经济活动，又不会过快侵蚀购买力。
 
-[VISUAL: Temperature gauge showing the "Goldilocks zone" for inflation. Below 1% is labeled "Too Cold (Deflation Risk)." Between 1.5% and 2.5% is green and labeled "Just Right." Between 2.5% and 4% is yellow. Above 4% is red and labeled "Too Hot (Aggressive Tightening)."]
+[VISUAL: Temperature gauge showing the "Goldilocks zone" for inflation. Below 1% is labeled "过冷（通缩风险）". Between 1.5% and 2.5% is green and labeled "恰到好处". Between 2.5% and 4% is yellow. Above 4% is red and labeled "过热（激进收紧）".]
 
-**Sam:** How does inflation affect my investments specifically?
+**Stella（小魚）：** 通胀具体会如何影响我的投资？
 
-**Alex:** It depends on the asset. Stocks of companies with pricing power -- meaning they can raise prices and customers still buy -- tend to do fine in moderate inflation. Think consumer staples brands or tech companies with subscription models. Bonds get hurt because their fixed interest payments lose purchasing power. If you own a bond paying 3% and inflation is 4%, your real return is negative 1%. Commodities and real estate tend to benefit from inflation because they are real assets whose prices rise with the general price level. And cash under the mattress is the worst -- it loses purchasing power every single day.
+**Horace（陳馬）：** 视资产类别而定。具有定价权的企业的股票——即能够提价而客户仍然买单的企业——在温和通胀下往往表现良好。想想必需消费品品牌或拥有订阅模式的科技公司。债券受到冲击，因为其固定利息支付的购买力在下降。如果你持有一只收益率3%的债券，而通胀率是4%，你的实际收益是负1%。大宗商品和房地产往往随通胀受益，因为它们是实物资产，价格随总体物价水平上涨。而把现金放在家里则是最糟糕的——它每天都在损失购买力。
 
-**Sam:** So in an inflationary environment, you want to own things, not hold paper?
+**Stella（小魚）：** 所以在通胀环境下，你想持有实物，而不是持有纸币？
 
-**Alex:** That is a good rule of thumb for high inflation environments, yes. TIPS -- Treasury Inflation-Protected Securities -- are specifically designed for this. Their principal adjusts with inflation, so your purchasing power is protected. They are essentially a bond with built-in inflation insurance.
+**Horace（陳馬）：** 对于高通胀环境，这是一个很好的经验法则。通胀保值债券（TIPS）正是专门为此设计的。它们的本金随通胀调整，因此你的购买力受到保护。本质上是一种内嵌通胀保险的债券。
 
-**Sam:** Let us talk about the Fed for a minute. I know they set interest rates, but how does that actually transmit through the economy?
+**Stella（小魚）：** 我们来聊聊美联储。我知道它制定利率，但这究竟是如何传导到经济中去的？
 
-**Alex:** The Fed controls the federal funds rate, which is the overnight lending rate between banks. When the Fed raises this rate, it becomes more expensive for banks to borrow, so they raise the rates they charge consumers and businesses. Mortgage rates go up, auto loan rates go up, business borrowing costs go up. This slows spending and investment, which cools the economy. When the Fed cuts the rate, the opposite happens -- borrowing gets cheaper, spending increases, the economy accelerates.
+**Horace（陳馬）：** 美联储控制联邦基金利率，即银行间的隔夜拆借利率。当美联储提高这一利率，银行的借贷成本上升，它们就会提高向消费者和企业收取的利率。房贷利率上升，汽车贷款利率上升，企业借贷成本上升。这会放缓支出和投资，从而为经济降温。当美联储降息时，相反的情形发生——借贷变得更便宜，支出增加，经济加速。
 
 [VISUAL: Transmission mechanism diagram showing the Fed at the top, with arrows flowing down through bank lending rates, then branching to mortgages (affecting housing), business loans (affecting investment), and consumer credit (affecting spending). Each branch shows real-world examples.]
 
-**Sam:** How long does it take for a rate change to affect the economy?
+**Stella（小魚）：** 利率变动对经济的影响要多久才能显现？
 
-**Alex:** That is the million-dollar question. The consensus is 12 to 18 months for the full effect to be felt. This lag is what makes monetary policy so difficult. The Fed is making decisions today based on where they think the economy will be a year from now. If they get it wrong -- if they tighten too much and cause a recession, or too little and let inflation run -- the consequences are severe and they cannot be reversed quickly.
+**Horace（陳馬）：** 这是那个价值百万的问题。普遍的共识是，完整的传导效果需要12至18个月才能在经济层面体现。这种滞后正是货币政策如此困难的原因。美联储今天做出的决策，是基于他们对一年后经济走势的判断。如果他们判断失误——收紧过度引发衰退，或收紧不足让通胀失控——后果都很严重，而且无法迅速纠偏。
 
-**Sam:** So when the Fed raises rates, the economy might still look fine for a year?
+**Stella（小魚）：** 所以当美联储加息时，经济可能还能再撑一年？
 
-**Alex:** Exactly. And this causes a dangerous illusion. People look at the strong economy and say "see, the rate hikes are not a problem." But the full impact has not hit yet. This is why watching leading indicators is so important -- they can detect the cracks forming before the lagging data confirms the damage.
+**Horace（陳馬）：** 正是。而这会制造一种危险的错觉。人们看着强劲的经济说："看，加息没什么问题。"但完整的冲击还没有到来。这就是为什么关注先行指标如此重要——它们能在滞后数据确认损害之前，率先发现正在形成的裂缝。
 
-**Sam:** Let us pull this all together. If I am a regular investor with a diversified portfolio, what is the practical takeaway from all of this?
+**Stella（小魚）：** 让我们把这一切融合起来。如果我是一位持有多元化投资组合的普通投资者，这些内容的实际要点是什么？
 
-**Alex:** I think there are five key principles.
+**Horace（陳馬）：** 我认为有五条核心原则。
 
-**Sam:** Give me all five.
+**Stella（小魚）：** 全部说给我听。
 
-**Alex:** First, the economy is cyclical and that is normal. Recessions are not failures of the system -- they are a natural part of how the economy self-corrects. Knowing this keeps you from panicking when a contraction inevitably arrives.
+**Horace（陳馬）：** 第一，经济是周期性的，这很正常。衰退不是体制失灵——它是经济自我修正机制的自然组成部分。了解这一点，能让你在收缩期不可避免地到来时，不至于恐慌。
 
-**Sam:** Second?
+**Stella（小魚）：** 第二条？
 
-**Alex:** Second, watch leading indicators, not lagging ones. If you are making decisions based on the unemployment rate or last quarter's GDP, you are looking in the rearview mirror. The yield curve, PMI, initial jobless claims, and building permits tell you what is coming.
+**Horace（陳馬）：** 第二，关注先行指标，而非滞后指标。如果你的决策依据是失业率或上季度的GDP，你是在看后视镜。收益率曲线、PMI、首请失业救济人数和建筑许可证，才能告诉你前方的走势。
 
-[VISUAL: Dashboard layout showing "What to Watch" with four panels: Yield Curve (10Y-2Y spread chart), ISM Manufacturing PMI (monthly bar chart), Initial Jobless Claims (weekly line chart), and Building Permits (monthly line chart). Each panel has a green/yellow/red signal indicator based on current readings.]
+[VISUAL: Dashboard layout showing "值得关注的指标" with four panels: 收益率曲线（10年期-2年期利差图表）, ISM制造业PMI（月度柱状图）, 首次申请失业救济人数（周度折线图）, and 建筑许可证（月度折线图）. Each panel has a green/yellow/red signal indicator based on current readings.]
 
-**Sam:** Third?
+**Stella（小魚）：** 第三条？
 
-**Alex:** Third, different assets perform differently at different phases. You do not need to perfectly time the cycle, but understanding these relationships helps you maintain realistic expectations and avoid emotional decisions. If your stock portfolio is struggling during a contraction, knowing that bonds and cash are doing their job in the background helps you stay the course.
+**Horace（陳馬）：** 第三，不同资产在不同阶段表现各异。你不需要完美地把握周期时机，但了解这些规律有助于你树立合理预期、避免情绪化决策。如果你的股票投资组合在收缩期表现不佳，知道债券和现金正在发挥作用，能帮助你坚守初心。
 
-**Sam:** Fourth?
+**Stella（小魚）：** 第四条？
 
-**Alex:** Fourth, do not try to be a hero with cycle timing. Making modest tilts based on where you think you are in the cycle is reasonable. Going all-in on any single thesis -- "we are definitely going into a recession" or "this expansion will never end" -- is dangerous. The history of investing is littered with people who were right about the direction but wrong about the timing, and being wrong about timing can be just as costly as being wrong about direction.
+**Horace（陳馬）：** 第四，不要试图在周期时机上大显身手。基于对周期位置的判断做出适度倾斜是合理的。但对任何单一判断孤注一掷——"我们肯定要进入衰退"或"这轮扩张永远不会结束"——都是危险的。投资史上不乏这样的案例：方向判断对了，时机却错了，而时机判断失误与方向判断失误同样代价高昂。
 
-**Sam:** And fifth?
+**Stella（小魚）：** 第五条？
 
-**Alex:** Fifth, use the cycle framework to make better personal finance decisions, not just portfolio decisions. If you think you are in a late-cycle environment, this is a good time to build your emergency fund, pay down variable-rate debt, and make sure your job skills are current. If you think you are in an early-cycle environment, this is a good time to invest aggressively, lock in low mortgage rates, and negotiate for a raise because labor demand is growing.
+**Horace（陳馬）：** 第五，利用周期框架做出更好的个人理财决策，而不仅仅是投资组合决策。如果你认为处于周期晚期，现在正是建立应急资金、偿还浮动利率债务、确保技能与时俱进的好时机。如果你认为处于早期复苏，现在正是积极投资、锁定低房贷利率、争取加薪的好时机，因为劳动力需求正在增长。
 
-[VISUAL: Split screen showing "Portfolio Decisions" on the left (asset allocation, rebalancing, sector tilts) and "Personal Finance Decisions" on the right (emergency fund, debt management, career moves, home buying) -- both connected to a central business cycle diagram]
+[VISUAL: Split screen showing "投资组合决策" on the left (资产配置、再平衡、板块倾斜) and "个人理财决策" on the right (应急资金、债务管理、职业规划、买房时机) -- both connected to a central business cycle diagram]
 
-**Sam:** That last point is really powerful. The business cycle affects way more than just my brokerage account.
+**Stella（小魚）：** 最后这一点真的很有力量。商业周期影响的远不止我的证券账户。
 
-**Alex:** It affects your whole financial life. And the investors who understand this big picture -- who can zoom out from individual stock picks and see the economic forest -- tend to make better decisions across the board. They buy homes when rates are low and sellers are desperate. They negotiate raises when the labor market is tight. They invest aggressively when everyone else is terrified. And they build reserves when everyone else is celebrating.
+**Horace（陳馬）：** 它影响你整个财务人生。能够理解这一宏观图景的投资者——能够从个股选择中跳脱出来，看清经济全局的人——往往在各个层面都能做出更好的决策。他们在利率低迷、卖家急于脱手时买房。他们在劳动力市场紧张时谈薪。他们在所有人都惶恐不安时积极投资。他们在所有人欢天喜地时积累储备。
 
-**Sam:** Three takeaways for the summary?
+**Stella（小魚）：** 三条总结要点？
 
-**Alex:** First, the business cycle has four predictable phases -- trough, expansion, peak, and contraction. Different assets perform best in different phases, and understanding this helps you build a resilient portfolio and maintain realistic expectations.
+**Horace（陳馬）：** 第一，商业周期有四个可预期的阶段——谷底、扩张期、顶峰和收缩期。不同资产在各阶段表现各异，了解这一点有助于你构建一个具有韧性的投资组合，并树立合理预期。
 
-**Sam:** Second?
+**Stella（小魚）：** 第二条？
 
-**Alex:** Leading indicators like the yield curve, PMI, and initial jobless claims tell you where the economy is headed. Lagging indicators like the unemployment rate tell you where it has been. Do not confuse the two -- decisions based on lagging data will consistently leave you behind the curve.
+**Horace（陳馬）：** 收益率曲线、PMI、首请失业救济人数等先行指标告诉你经济走向何方。失业率等滞后指标告诉你经济曾经走过哪里。不要混淆两者——基于滞后数据做出的决策，将让你始终慢一拍。
 
-**Sam:** And third?
+**Stella（小魚）：** 第三条？
 
-**Alex:** Do not try to time the cycle perfectly -- nobody can. Instead, use your understanding of the cycle to make modest, informed adjustments to your portfolio and your broader financial decisions. Diversification across asset classes that perform well in different environments is far more reliable than trying to predict the exact turning points.
+**Horace（陳馬）：** 不要试图完美地把握周期时机——没有人能做到。取而代之的是，用你对周期的理解，对投资组合和更广泛的财务决策做出适度而有根据的调整。在不同环境下各有发挥的多元化资产配置，远比试图预测精确转折点更为可靠。
 
 [VISUAL: Summary card with three key takeaways. A preview graphic for next week's lesson appears at the bottom.]
 
-**Sam:** This was one of the most valuable lessons yet. I feel like I have a new lens for looking at the financial world.
+**Stella（小魚）：** 这是迄今为止最有价值的课程之一。我感觉自己有了一副看待金融世界的全新眼镜。
 
-**Alex:** That is exactly the goal -- to give you a framework that makes the noise of daily financial news less overwhelming and more interpretable. When you hear "the PMI came in at 48" or "the yield curve just inverted," you now know what those signals mean and how they fit into the bigger picture. Next week, we continue building your toolkit. See you then.
+**Horace（陳馬）：** 这正是我们的目标——给你一个框架，让日常财经新闻的噪音变得不那么令人窒息，变得更加可解读。当你听到"PMI报于48"或"收益率曲线刚刚倒挂"时，你现在知道这些信号意味着什么，以及它们如何嵌入更宏观的图景。下周我们继续丰富你的工具箱，到时见。
 
-**Sam:** Thanks everyone for watching!
+**Stella（小魚）：** 感谢大家的观看！
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

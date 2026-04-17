@@ -1,828 +1,823 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 15: Multi-Asset Allocation
+# 第十五週：多資產配置
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何這個課題至關重要
 
-Most beginning investors think of investing as choosing between stocks and bonds. This two-asset mental model is dangerously incomplete. The investment universe is vast -- it includes real estate, commodities, private equity, infrastructure, hedge fund strategies, and more. Each asset class has its own return profile, risk characteristics, and sensitivity to economic conditions. By limiting yourself to two ingredients, you are cooking with one hand tied behind your back.
+大多數初學投資者認為投資就是在股票和債券之間作選擇。這種二元思維框架存在嚴重缺陷。投資領域極為廣闊——它涵蓋房地產、商品、私募股權、基礎設施、對沖基金策略等等。每個資產類別都有其獨特的回報特性、風險特徵，以及對不同經濟環境的敏感程度。將自己局限於兩種投資工具，猶如以一隻手綁在背後烹飪。
 
-Multi-asset allocation matters for three fundamental reasons:
+多資產配置的重要性體現在三個根本原因上：
 
-1. **Diversification is the only free lunch in finance.** Nobel laureate Harry Markowitz said this, and decades of evidence support it. By combining assets that do not move in lockstep, you can earn higher returns per unit of risk than any single asset can deliver alone. A portfolio of five uncorrelated return streams is categorically different from a portfolio of one.
+1. **分散投資是金融界唯一的免費午餐。** 諾貝爾獎得主哈里·馬科維茨如是說，數十年的實證數據亦支持這一論點。透過結合走勢並不一致的資產，你所承受的每單位風險能夠獲得比任何單一資產更高的回報。由五條不相關回報流組成的投資組合，與只有一條回報流的投資組合，性質截然不同。
 
-2. **The 60/40 portfolio is not a law of nature.** The traditional 60% stocks / 40% bonds split served investors well for decades, but it was a product of a specific interest rate environment. When rates were high and falling, bonds provided both income and diversification. In a low-rate or rising-rate world, the 60/40 portfolio may not work as advertised. You need alternatives.
+2. **60/40投資組合並非自然法則。** 傳統的60%股票／40%債券配置在數十年間為投資者帶來豐厚回報，但這是特定利率環境下的產物。在利率高企並持續下降的時期，債券既提供收入，又具備分散風險的功能。在低利率或利率上升的環境下，60/40投資組合可能無法如預期般發揮作用。你需要尋找替代方案。
 
-3. **Asset allocation drives the vast majority of portfolio returns.** Landmark studies by Brinson, Hood, and Beebower found that over 90% of the variation in portfolio returns over time is explained by the asset allocation decision -- not stock picking, not market timing. Getting the big picture right matters more than getting any single holding right.
+3. **資產配置主導投資組合回報的絕大部分。** 布林森、胡德和比鮑爾的里程碑式研究發現，投資組合回報隨時間變化中，超過90%可歸因於資產配置決策——而非選股或擇時。把握整體方向，比任何單一持倉都更為重要。
 
-4. **Different assets protect you in different environments.** Stocks do well during economic growth. Bonds do well when growth slows and rates fall. Commodities do well during inflation. Real estate provides income and inflation protection. Gold protects against extreme uncertainty. No single asset handles every scenario. A multi-asset portfolio gives you coverage across multiple economic regimes.
+4. **不同資產在不同環境下保護你的財富。** 股票在經濟增長期表現良好。債券在增長放緩及利率下跌時表現良好。商品在通脹期間表現良好。房地產提供收入及通脹保護。黃金在極度不確定性下發揮保值作用。沒有任何單一資產能應對所有情境。多資產投資組合讓你在多種經濟環境下都有所佈置。
 
-5. **Institutional investors already know this.** Endowments like Yale and Harvard, sovereign wealth funds, and pension funds have long used multi-asset approaches. David Swensen's Yale Model famously emphasized alternative assets and earned extraordinary risk-adjusted returns over decades. Individual investors can apply the same principles on a smaller scale using ETFs and low-cost funds.
+5. **機構投資者早已深諳此道。** 耶魯和哈佛等捐贈基金、主權財富基金及退休基金，長期以來一直採用多資產方式。大衛·斯文森的耶魯模式以強調另類資產著稱，數十年間創造了卓越的風險調整後回報。個人投資者可以利用交易所買賣基金和低成本基金，在較小規模上應用相同原則。
 
-This lesson will teach you the major asset classes, how they interact through correlation, how to build an efficient portfolio using modern portfolio theory, and how more advanced approaches like risk parity attempt to improve on traditional allocation methods.
+本課將帶你認識主要資產類別、它們如何透過相關性相互影響、如何運用現代投資組合理論構建效率投資組合，以及風險平價等更進階的方法如何嘗試改善傳統配置方式。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. The Major Asset Classes
+#### 1. 主要資產類別
 
-An asset class is a broad category of investments that share similar characteristics, behave similarly in the market, and are subject to the same laws and regulations. Here are the primary asset classes available to individual investors:
+資產類別是一個廣泛的投資類別，其中的投資工具擁有相似特性、在市場上表現相近，並受相同法律法規約束。以下是個人投資者可接觸的主要資產類別：
 
-**Equities (Stocks)**
-- Ownership stakes in companies
-- Highest long-term expected returns (~7-10% real historically)
-- Highest volatility (~15-20% annual standard deviation)
-- Sensitive to economic growth and corporate earnings
-- Sub-categories: domestic large-cap, small-cap, international developed, emerging markets
+**股票（股票）**
+- 公司的所有權份額
+- 長期預期回報最高（歷史上實際年化約7-10%）
+- 波動性最高（年度標準差約15-20%）
+- 對經濟增長和企業盈利敏感
+- 子類別：本地大型股、小型股、國際已發展市場、新興市場
 
-**Fixed Income (Bonds)**
-- Loans to governments or corporations
-- Lower expected returns (~1-4% real historically)
-- Lower volatility (~4-8% annual standard deviation)
-- Sensitive to interest rates and inflation expectations
-- Sub-categories: government, investment-grade corporate, high-yield, TIPS, international
+**固定收益（債券）**
+- 向政府或企業提供的貸款
+- 預期回報較低（歷史上實際年化約1-4%）
+- 波動性較低（年度標準差約4-8%）
+- 對利率和通脹預期敏感
+- 子類別：政府債券、投資級別企業債券、高收益債券、通脹掛鉤債券、國際債券
 
-**Real Estate (REITs)**
-- Ownership of physical property or property-related securities
-- Returns between stocks and bonds (~5-7% real historically)
-- Moderate volatility
-- Provides income through rents and inflation protection
-- Accessible through publicly traded REITs and REIT ETFs
+**房地產（房地產信託基金）**
+- 持有實體物業或房地產相關證券
+- 回報介乎股票與債券之間（歷史上實際年化約5-7%）
+- 中等波動性
+- 透過租金提供收入及通脹保護
+- 可透過上市房地產信託基金及房地產信託基金交易所買賣基金進行投資
 
-**Commodities**
-- Physical goods: energy, metals, agriculture
-- Low long-term real returns (~0-2%) but valuable diversifier
-- High volatility, low correlation with stocks and bonds
-- Strong inflation hedge
-- Accessible through commodity futures ETFs and commodity-producing company stocks
+**商品**
+- 實物商品：能源、金屬、農產品
+- 長期實際回報較低（約0-2%），但具有寶貴的分散風險功能
+- 高波動性，與股票和債券的相關性低
+- 強力的通脹對沖工具
+- 可透過商品期貨交易所買賣基金及商品生產公司股票進行投資
 
-**Gold and Precious Metals**
-- Store of value for thousands of years
-- Low long-term real returns (~0-1%)
-- Valuable as a crisis hedge and inflation hedge
-- Tends to do well when confidence in governments and currencies declines
-- Accessible through gold ETFs (GLD, IAU) and mining stocks
+**黃金及貴金屬**
+- 數千年來的價值儲存工具
+- 長期實際回報低（約0-1%）
+- 作為危機對沖及通脹對沖工具具有重要價值
+- 在市場對政府及貨幣信心下跌時往往表現良好
+- 可透過黃金交易所買賣基金（GLD、IAU）及礦業股票進行投資
 
-**Cash and Cash Equivalents**
-- Treasury bills, money market funds, savings accounts
-- Lowest returns but zero volatility in nominal terms
-- Provides optionality -- the ability to buy assets during crashes
-- Often overlooked as a strategic allocation
+**現金及現金等價物**
+- 國庫券、貨幣市場基金、儲蓄賬戶
+- 回報最低，但以名義值計算波動性為零
+- 提供靈活性——在市場崩潰時能夠買入資產的能力
+- 常被忽視為策略性配置
 
 ```
-ASSET CLASS RISK-RETURN SPECTRUM
+資產類別風險回報圖譜
 ================================
 
-Expected                                              Emerging
-Real Return                                           Markets
-(%)                                                     *
-  10 |                                               *
-     |                                          Small-Cap
-   8 |                                        *
-     |                                  Large-Cap US
-   6 |                                *
-     |                          REITs
-   5 |                        *
-     |                  Corp Bonds
-   4 |                *
-     |          Gov Bonds
-   3 |        *
-     |    TIPS
-   2 |  *
-     | * Gold
-   1 |* Commodities
+預期                                              新興
+實際回報                                          市場
+(%)                                               *
+  10 |                                          *
+     |                                     小型股
+   8 |                                   *
+     |                             美國大型股
+   6 |                           *
+     |                     房地產信託基金
+   5 |                   *
+     |             企業債券
+   4 |           *
+     |      政府債券
+   3 |     *
+     | 通脹掛鉤債券
+   2 |*
+     |* 黃金
+   1 |* 商品
      |
    0 +--*--+-----+-----+-----+-----+-----+-----+---
-     Cash  5    10    15    20    25    30    35
-                Volatility (Std Dev %)
+     現金  5    10    15    20    25    30    35
+                  波動性（標準差 %）
 
-Higher return generally requires accepting higher risk.
-Multi-asset allocation tries to find the best trade-off.
+較高回報通常需要承受較高風險。
+多資產配置旨在尋找最佳取捨點。
 ```
 
 ---
 
-#### 2. Correlation -- The Key to Diversification
+#### 2. 相關性——分散投資的關鍵
 
-The power of multi-asset investing comes not from individual asset class returns but from how assets move relative to each other. Correlation measures this co-movement on a scale from -1 to +1.
+多資產投資的威力，並非來自個別資產類別的回報，而是來自資產之間的相對走勢。相關性衡量這種共同走勢，範圍介於-1至+1之間。
 
-- **Correlation = +1.0:** Assets move in perfect lockstep. No diversification benefit.
-- **Correlation = 0.0:** Assets move independently. Good diversification.
-- **Correlation = -1.0:** Assets move in opposite directions. Maximum diversification.
+- **相關性 = +1.0：** 資產走勢完全一致。無任何分散投資效益。
+- **相關性 = 0.0：** 資產走勢相互獨立。良好的分散投資效果。
+- **相關性 = -1.0：** 資產走勢方向相反。最大的分散投資效益。
 
-The lower the correlation between two assets, the more they reduce each other's risk when combined. Even a correlation of +0.3 provides meaningful diversification -- the assets are related but far from identical.
+兩項資產之間的相關性越低，組合後相互降低風險的效果越顯著。即使相關性為+0.3，也能提供有意義的分散效果——資產之間有所關聯，但遠未達到相同走勢。
 
 ```
-CORRELATION MATRIX (APPROXIMATE HISTORICAL VALUES)
+相關性矩陣（近似歷史數值）
 ====================================================
 
-              US      Intl    EM     US     Corp   Commod  Gold   REITs
-             Stocks  Stocks  Stocks  Bonds  Bonds  -ities
-US Stocks    1.00
-Intl Stocks  0.75    1.00
-EM Stocks    0.65    0.70    1.00
-US Bonds    -0.10    0.00    0.05   1.00
-Corp Bonds   0.25    0.15    0.20   0.75   1.00
-Commodities  0.15    0.20    0.30  -0.10   0.00   1.00
-Gold        -0.05    0.05    0.05   0.30   0.10   0.25   1.00
-REITs        0.55    0.40    0.40   0.15   0.25   0.10   0.05   1.00
+              美國    國際    新興    美國    企業   商品    黃金   房地產
+             股票    股票    市場    債券    債券          信託基金
+                                    股票
+美國股票     1.00
+國際股票     0.75    1.00
+新興市場股票 0.65    0.70    1.00
+美國債券    -0.10    0.00    0.05   1.00
+企業債券     0.25    0.15    0.20   0.75   1.00
+商品         0.15    0.20    0.30  -0.10   0.00   1.00
+黃金        -0.05    0.05    0.05   0.30   0.10   0.25   1.00
+房地產信託基金0.55   0.40    0.40   0.15   0.25   0.10   0.05   1.00
 
-Key insights from this matrix:
-- US and Intl stocks are highly correlated (0.75) -- limited diversification
-- US Bonds are negatively correlated with stocks -- strong diversifier
-- Commodities have low correlation with almost everything -- valuable addition
-- Gold is near-zero with stocks -- crisis hedge
-- REITs are moderately correlated with stocks -- some diversification
+矩陣關鍵洞察：
+- 美國股票與國際股票高度相關（0.75）——分散效益有限
+- 美國債券與股票呈負相關——強效分散工具
+- 商品與幾乎所有資產的相關性均低——具有重要配置價值
+- 黃金與股票相關性接近零——危機對沖工具
+- 房地產信託基金與股票中度相關——具有一定分散效益
 ```
 
-**Critical warning: correlations are not constant.** During market crises, correlations tend to spike. Assets that seemed uncorrelated during calm periods may suddenly move together during a panic. This is called "correlation breakdown" and it is one of the biggest risks in portfolio construction. The 2008 financial crisis demonstrated this vividly -- almost everything except Treasury bonds and gold fell together.
+**重要警告：相關性並非一成不變。** 在市場危機期間，相關性往往急劇攀升。在平靜時期看似不相關的資產，在恐慌期間可能突然同步下跌。這被稱為「相關性崩潰」，是投資組合構建中最大的風險之一。2008年金融危機清楚地說明了這一點——除美國國庫債券和黃金外，幾乎所有資產均同步下跌。
 
 ```
-CORRELATION BEHAVIOR DURING STRESS
+壓力環境下的相關性行為
 ====================================
 
-Normal Markets:              Crisis Markets:
-                              (Correlations Spike)
+正常市場：                   危機市場：
+                              （相關性急升）
 
-  Stock A     Bond            Stock A     Bond
+  股票A       債券            股票A       債券
     \        /                  \          |
-     \      /                    \         |  (still some
-      \    /                      \        |   diversification)
+     \      /                    \         |  （仍有一定
+      \    /                      \        |   分散效益）
        \/                          \       |
-    Low/Negative                    --------
-    Correlation                     Moderate
-                                    Correlation
+    低／負相關                      --------
+                                    中度相關
 
-  Stock A     Gold            Stock A     Gold
+  股票A       黃金            股票A       黃金
     \        /                  |         /
-     \      /  Near-zero        |        /  Negative
-      \    /   Correlation      |       /   (Gold rises
-       \/                       |      /    when stocks crash)
+     \      /  接近零             |        /  負相關
+      \    /   相關性             |       /   （股票崩潰時
+       \/                        |      /    黃金上漲）
                                 ------
 
-Lesson: Build portfolios for the storm, not just fair weather.
+啟示：構建投資組合時，要為風暴做好準備，而非只為晴天規劃。
 ```
 
 ---
 
-#### 3. Modern Portfolio Theory and the Efficient Frontier
+#### 3. 現代投資組合理論與效率前沿
 
-In 1952, Harry Markowitz published a paper that would earn him a Nobel Prize. The core insight was revolutionary in its simplicity: investors should not evaluate assets in isolation. What matters is how each asset contributes to the overall portfolio's risk and return.
+1952年，哈里·馬科維茨發表了一篇最終為他贏得諾貝爾獎的論文。核心洞見革命性地簡單：投資者不應孤立地評估資產。重要的是每項資產如何影響整體投資組合的風險與回報。
 
-**The key idea:** For any given level of risk, there exists an optimal combination of assets that maximizes expected return. The set of all such optimal portfolios forms a curve called the efficient frontier.
+**核心理念：** 對於任何給定的風險水平，存在一種最優資產組合，能夠最大化預期回報。所有此類最優投資組合的集合，構成一條稱為效率前沿的曲線。
 
 ```
-THE EFFICIENT FRONTIER
+效率前沿
 =======================
 
-Expected
-Return (%)
-    |                                          * Aggressive
-    |                                       *    (90/10 stocks/bonds)
+預期
+回報 (%)
+    |                                          * 進取型
+    |                                       *    （90/10 股票/債券）
  12 |                                    *
     |                                 *
- 10 |                              *   <-- EFFICIENT FRONTIER
-    |                           *        (Best risk/return trade-off)
+ 10 |                              *   <-- 效率前沿
+    |                           *        （最佳風險/回報取捨）
   8 |                        *
-    |                    *  * Balanced (60/40)
+    |                    *  * 均衡型（60/40）
   6 |                 *
     |              *
-  5 |           * Conservative (30/70)
+  5 |           * 保守型（30/70）
     |        *
   4 |     *
-    |  * 100% Bonds
+    |  * 100% 債券
   3 |*
     |
   2 |
     +----+----+----+----+----+----+----+----+----+---
     0    2    4    6    8   10   12   14   16   18
-              Portfolio Risk (Std Dev %)
+              投資組合風險（標準差 %）
 
           x                      x
-          Portfolios below       Individual assets
-          the frontier are       typically fall below
-          INEFFICIENT            the frontier
+          位於前沿以下的           個別資產
+          投資組合屬               通常落在
+          低效率                   前沿以下
 
-Any portfolio BELOW the curve is sub-optimal: you could earn more
-return for the same risk, or take less risk for the same return,
-by moving to the frontier.
+任何位於曲線以下的投資組合均屬次優：透過移向前沿，
+你可以在相同風險下獲取更高回報，或在相同回報下承受更低風險。
 ```
 
-**How to read the efficient frontier:**
+**如何解讀效率前沿：**
 
-1. Every point ON the curve represents the best possible portfolio for that level of risk
-2. Points BELOW the curve are inefficient -- they take on unnecessary risk for their return level
-3. There is no way to get ABOVE the curve without adding leverage or finding a new asset class
-4. Moving along the curve represents the trade-off between risk and return
-5. The leftmost point is the minimum variance portfolio -- lowest possible risk
+1. 曲線上的每個點代表該風險水平下最佳的投資組合
+2. 曲線以下的點屬於低效率——其回報水平所承受的風險過高
+3. 若不使用槓桿或引入新資產類別，無法在曲線以上獲得更高回報
+4. 沿曲線移動代表風險與回報之間的取捨
+5. 最左端的點是最小方差投資組合——風險最低的可能配置
 
-**Building a portfolio on the efficient frontier requires three inputs:**
+**構建位於效率前沿上的投資組合需要三項輸入：**
 
-1. Expected returns for each asset class
-2. Expected volatility (standard deviation) for each asset class
-3. Expected correlations between all pairs of asset classes
+1. 各資產類別的預期回報
+2. 各資產類別的預期波動性（標準差）
+3. 各資產類別之間的預期相關性
 
-The mathematics of portfolio optimization then finds the weights that maximize return for each level of risk. The formula for a two-asset portfolio's risk illustrates why diversification works:
+投資組合優化的數學計算，在此基礎上找出在每個風險水平下最大化回報的權重。以下兩項資產投資組合的風險公式，說明了分散投資的原理：
 
 ```
-PORTFOLIO RISK FORMULA (TWO ASSETS)
+投資組合風險公式（兩項資產）
 ====================================
 
-Portfolio_Variance = w1^2 * var1 + w2^2 * var2 + 2 * w1 * w2 * cov(1,2)
+投資組合方差 = w1^2 * 方差1 + w2^2 * 方差2 + 2 * w1 * w2 * 協方差(1,2)
 
-Where:
-  w1, w2     = portfolio weights (must sum to 1.0)
-  var1, var2 = variance of each asset
-  cov(1,2)   = covariance = correlation * stddev1 * stddev2
+其中：
+  w1, w2       = 投資組合權重（總和必須為1.0）
+  方差1, 方差2 = 各資產的方差
+  協方差(1,2)  = 協方差 = 相關性 * 標準差1 * 標準差2
 
-EXAMPLE:
-  Asset A: weight = 60%, stddev = 15%
-  Asset B: weight = 40%, stddev = 5%
-  Correlation = -0.10
+示例：
+  資產A：權重 = 60%，標準差 = 15%
+  資產B：權重 = 40%，標準差 = 5%
+  相關性 = -0.10
 
-  Portfolio Variance = (0.60)^2 * (0.15)^2
-                     + (0.40)^2 * (0.05)^2
-                     + 2 * (0.60) * (0.40) * (-0.10) * (0.15) * (0.05)
+  投資組合方差 = (0.60)^2 * (0.15)^2
+               + (0.40)^2 * (0.05)^2
+               + 2 * (0.60) * (0.40) * (-0.10) * (0.15) * (0.05)
 
-                     = 0.0081 + 0.0004 + (-0.00036)
+               = 0.0081 + 0.0004 + (-0.00036)
 
-                     = 0.00814
+               = 0.00814
 
-  Portfolio StdDev   = sqrt(0.00814) = 9.02%
+  投資組合標準差 = sqrt(0.00814) = 9.02%
 
-Notice: 60% in a 15% volatility asset and 40% in a 5% volatility asset
-gives a portfolio with only 9.02% volatility -- LESS than the weighted
-average of 11% (0.60*15 + 0.40*5). This is diversification at work!
-The negative correlation term SUBTRACTS from total risk.
+注意：60%配置於波動性15%的資產，40%配置於波動性5%的資產，
+投資組合波動性僅為9.02%——低於加權平均值11%（0.60*15 + 0.40*5）。
+這正是分散投資的效果！
+負相關項從總風險中抵銷了部分風險。
 ```
 
 ---
 
-#### 4. Beyond Mean-Variance: Risk Parity
+#### 4. 超越均值-方差：風險平價
 
-Modern Portfolio Theory has a well-known weakness: it is extremely sensitive to the inputs. Small changes in expected returns can produce wildly different portfolio allocations. And estimating expected returns is very difficult.
+現代投資組合理論有一個眾所周知的弱點：對輸入數據極為敏感。預期回報的微小變化，可能產生截然不同的投資組合配置。而預期回報的估算本身極為困難。
 
-Risk parity takes a different approach. Instead of optimizing for returns, it focuses entirely on risk. The idea: equalize the risk contribution from each asset class so that no single asset dominates the portfolio's risk profile.
+風險平價採取了不同的方法。它不以回報優化為目標，而是完全聚焦於風險。其理念是：平衡每個資產類別的風險貢獻，使任何單一資產都不會主導投資組合的整體風險特徵。
 
-**The problem with 60/40:**
+**60/40的問題所在：**
 
 ```
-60/40 PORTFOLIO: RISK CONTRIBUTION ANALYSIS
+60/40投資組合：風險貢獻分析
 =============================================
 
-               Allocation    Risk Contribution
-               (by weight)   (by variance)
+               配置比例        風險貢獻
+               （按權重）       （按方差）
               +-----------+  +-----------------+
-  Stocks      |           |  |                              |
-  60%         |   60%     |  |         ~90%                 |
-              |           |  |                              |
-              +-----------+  +-----------------+
-  Bonds       |           |  |    |
-  40%         |   40%     |  |~10%|
-              +-----------+  +----+
+  股票         |           |  |                              |
+  60%          |   60%     |  |         ~90%                 |
+               |           |  |                              |
+               +-----------+  +-----------------+
+  債券         |           |  |    |
+  40%          |   40%     |  |~10%|
+               +-----------+  +----+
 
-Despite being 40% of the portfolio by weight, bonds contribute
-only ~10% of the portfolio's risk. The portfolio is essentially
-a leveraged bet on stocks.
+儘管債券佔投資組合權重的40%，其風險貢獻僅約10%。
+該投資組合本質上是一個以槓桿押注股票的投資組合。
 
-When stocks crash, the 60/40 portfolio crashes too -- the bonds
-barely cushion the blow because their risk contribution is tiny.
+當股票崩潰時，60/40投資組合亦隨之下跌——
+債券的緩衝作用微乎其微，因為其風險貢獻微不足道。
 ```
 
-**Risk parity solution:** Allocate so that each asset class contributes equally to portfolio risk. Since bonds are less volatile than stocks, this means holding more bonds (and often using leverage to achieve competitive returns).
+**風險平價解決方案：** 配置時使每個資產類別對投資組合風險的貢獻相等。由於債券波動性低於股票，這意味著需要持有更多債券（通常使用槓桿以達到具競爭力的回報）。
 
 ```
-RISK PARITY PORTFOLIO CONCEPT
+風險平價投資組合概念
 ==============================
 
-Traditional 60/40:              Risk Parity:
+傳統60/40：                   風險平價：
 
-Weight:  Risk:                  Weight:      Risk:
-+------+--------+              +-----------+------+
-|Stock | Stock  |              |   Bonds   |Bond  |
-| 60%  |  90%   |              |   ~55%    | ~33% |
-+------+--------+              +-----------+------+
-|Bond  |Bond    |              |Stock ~25% |Stock |
-| 40%  | 10%    |              |           | ~33% |
-+------+--------+              +-----+-----+------+
-                               |Commod ~20%|Commod|
-                               |           | ~33% |
-                               +-----------+------+
+權重：      風險：              權重：           風險：
++------+--------+             +-----------+------+
+|股票  | 股票   |             |   債券    | 債券 |
+| 60%  |  90%   |             |   ~55%    | ~33% |
++------+--------+             +-----------+------+
+|債券  | 債券   |             |股票 ~25%  | 股票 |
+| 40%  | 10%    |             |           | ~33% |
++------+--------+             +-----+-----+------+
+                              |商品 ~20%  | 商品 |
+                              |           | ~33% |
+                              +-----------+------+
 
-Risk parity allocates MORE to low-vol assets (bonds)
-and LESS to high-vol assets (stocks), then may use
-leverage to scale up the total return.
+風險平價向低波動性資產（債券）配置更多，
+向高波動性資產（股票）配置更少，
+再透過槓桿提升整體回報。
 
-Result: each asset class contributes ~33% of risk,
-so no single asset class can dominate portfolio losses.
+結果：每個資產類別貢獻約33%的風險，
+因此沒有任何單一資產類別能主導投資組合的損失。
 ```
 
-**Advantages of risk parity:**
-- More balanced risk exposure across economic environments
-- Less sensitive to expected return estimates
-- Performed well historically during both growth and recession
-- Used by major hedge funds (Bridgewater's All Weather fund)
+**風險平價的優勢：**
+- 更均衡的跨經濟環境風險敞口
+- 對預期回報估算的敏感性較低
+- 歷史上在增長期和衰退期均表現良好
+- 被主要對沖基金採用（橋水基金的全天候投資組合）
 
-**Disadvantages of risk parity:**
-- Often requires leverage to achieve target returns
-- Heavy bond allocation can suffer in rising rate environments
-- Leverage introduces its own risks and costs
-- More complex to implement than traditional allocation
+**風險平價的劣勢：**
+- 通常需要槓桿才能達到目標回報
+- 大量債券配置在利率上升環境下可能受損
+- 槓桿本身帶來額外風險和成本
+- 實施難度高於傳統配置
 
 ---
 
-#### 5. Sample Multi-Asset Portfolios
+#### 5. 多資產投資組合範例
 
-Here are several well-known multi-asset portfolio templates, ranging from simple to sophisticated:
+以下是幾個廣為人知的多資產投資組合模板，從簡單到複雜排列：
 
 ```
-SAMPLE MULTI-ASSET PORTFOLIOS
+多資產投資組合範例
 ==============================
 
-1. THREE-FUND PORTFOLIO (Bogle/Boglehead Classic)
-   Simple, effective, low-cost
+1. 三基金投資組合（布格頭經典）
+   簡單、有效、低成本
    +------------------------------------------+
-   | US Total Stock Market          |   50%    |
-   | International Stock Market     |   30%    |
-   | US Total Bond Market           |   20%    |
+   | 美國全市場股票                  |   50%    |
+   | 國際股票市場                    |   30%    |
+   | 美國全市場債券                  |   20%    |
    +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.03-0.05%
+   總計：100%   管理費比率：約0.03-0.05%
 
-2. FOUR-FUND WITH REAL ASSETS
-   Adds inflation protection
+2. 加入實物資產的四基金投資組合
+   加入通脹保護
    +------------------------------------------+
-   | US Total Stock Market          |   40%    |
-   | International Stocks           |   20%    |
-   | US Total Bond Market           |   25%    |
-   | REITs                          |   15%    |
+   | 美國全市場股票                  |   40%    |
+   | 國際股票                        |   20%    |
+   | 美國全市場債券                  |   25%    |
+   | 房地產信託基金                  |   15%    |
    +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.05-0.08%
+   總計：100%   管理費比率：約0.05-0.08%
 
-3. ALL-WEATHER INSPIRED (Simplified Ray Dalio)
-   Designed for all economic environments
+3. 全天候啟發型（簡化版瑞·達利歐）
+   為所有經濟環境而設
    +------------------------------------------+
-   | US Stocks                      |   30%    |
-   | Long-Term Treasury Bonds       |   40%    |
-   | Intermediate Treasury Bonds    |   15%    |
-   | Gold                           |    7.5%  |
-   | Commodities                    |    7.5%  |
+   | 美國股票                        |   30%    |
+   | 長期國庫債券                    |   40%    |
+   | 中期國庫債券                    |   15%    |
+   | 黃金                            |    7.5%  |
+   | 商品                            |    7.5%  |
    +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.10-0.20%
+   總計：100%   管理費比率：約0.10-0.20%
 
-4. YALE ENDOWMENT INSPIRED (Simplified Swensen)
-   Emphasizes alternatives and diversification
+4. 耶魯捐贈基金啟發型（簡化版斯文森）
+   強調另類資產和分散投資
    +------------------------------------------+
-   | US Stocks                      |   30%    |
-   | International Developed        |   15%    |
-   | Emerging Markets               |   10%    |
-   | REITs                          |   15%    |
-   | TIPS (Inflation-Protected)     |   15%    |
-   | Nominal Bonds                  |   15%    |
+   | 美國股票                        |   30%    |
+   | 國際已發展市場                  |   15%    |
+   | 新興市場                        |   10%    |
+   | 房地產信託基金                  |   15%    |
+   | 通脹掛鉤債券（通脹保護）        |   15%    |
+   | 名義債券                        |   15%    |
    +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.08-0.15%
+   總計：100%   管理費比率：約0.08-0.15%
 
-5. RISK PARITY LITE (No Leverage)
-   Equal risk contribution without leverage
+5. 輕量風險平價（無槓桿）
+   無需槓桿的等風險貢獻
    +------------------------------------------+
-   | US Stocks                      |   20%    |
-   | International Stocks           |   10%    |
-   | Long-Term Treasuries           |   30%    |
-   | TIPS                           |   15%    |
-   | Gold                           |   10%    |
-   | Commodities                    |   10%    |
-   | REITs                          |    5%    |
+   | 美國股票                        |   20%    |
+   | 國際股票                        |   10%    |
+   | 長期國庫債券                    |   30%    |
+   | 通脹掛鉤債券                    |   15%    |
+   | 黃金                            |   10%    |
+   | 商品                            |   10%    |
+   | 房地產信託基金                  |    5%    |
    +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.10-0.20%
+   總計：100%   管理費比率：約0.10-0.20%
 ```
 
 ```
-ECONOMIC REGIME COVERAGE MAP
+經濟環境覆蓋圖
 ==============================
 
-Economic        | Growth | Growth | Recession | Recession
-Environment:    | + Low  | + High | + Low     | + High
-                | Inflat | Inflat | Inflation | Inflation
-                | (Boom) |(Overheat)|(Deflation)|(Stagflat)
-----------------+--------+--------+-----------+----------
-Stocks          |  +++   |   +    |   ---     |   --
-Bonds           |   +    |   --   |   +++     |   --
-Commodities     |   +    |  +++   |    -      |   ++
-Gold            |   -    |   ++   |    +      |  +++
-REITs           |  +++   |   +    |   --      |    -
-TIPS            |   +    |   ++   |    +      |   ++
-Cash            |   -    |    -   |    +      |    +
-----------------+--------+--------+-----------+----------
+經濟環境：       | 增長   | 增長   | 衰退       | 衰退
+                 | +低    | +高    | +低        | +高
+                 | 通脹   | 通脹   | 通脹       | 通脹
+                 |（繁榮）|（過熱）|（通縮）    |（滯脹）
+-----------------+--------+--------+------------+----------
+股票             |  +++   |   +    |   ---      |   --
+債券             |   +    |   --   |   +++      |   --
+商品             |   +    |  +++   |    -       |   ++
+黃金             |   -    |   ++   |    +       |  +++
+房地產信託基金   |  +++   |   +    |   --       |    -
+通脹掛鉤債券     |   +    |   ++   |    +       |   ++
+現金             |   -    |    -   |    +       |    +
+-----------------+--------+--------+------------+----------
 
-+++ = strong performance    + = modest positive
- -  = modest negative     --- = poor performance
++++ = 表現強勁    + = 小幅正回報
+ -  = 小幅負回報  --- = 表現欠佳
 
-A multi-asset portfolio has SOME assets performing well
-in EVERY economic environment. That is the whole point.
+多資產投資組合在每種經濟環境下，
+都有部分資產表現良好。這正是多資產配置的核心所在。
 ```
 
 ---
 
-#### 6. Rebalancing a Multi-Asset Portfolio
+#### 6. 多資產投資組合的再平衡
 
-Once you have set your target allocation, markets will move your actual weights away from those targets. Rebalancing is the process of bringing your portfolio back to its target weights.
+設定目標配置後，市場走勢將使實際權重偏離目標。再平衡是將投資組合恢復至目標權重的過程。
 
-**Calendar rebalancing:** Check and rebalance at fixed intervals (quarterly, semi-annually, annually). Simple to implement but may rebalance unnecessarily or too late.
+**定期再平衡：** 按固定時間間隔（每季、每半年、每年）檢查並再平衡。操作簡單，但可能過早或過遲進行再平衡。
 
-**Threshold rebalancing:** Rebalance whenever any asset class drifts more than a set amount (e.g., 5 percentage points) from its target. More responsive but requires monitoring.
+**閾值再平衡：** 當任何資產類別偏離目標超過設定幅度（如5個百分點）時進行再平衡。反應更靈敏，但需要持續監察。
 
-**Cost-aware rebalancing:** Factor in transaction costs and tax implications. Use new contributions to buy underweight assets rather than selling overweight ones. Direct dividends to underweight positions.
+**成本敏感再平衡：** 將交易成本和稅務影響納入考慮。利用新增資金購買比重偏低的資產，而非出售比重偏高的資產。將股息直接投向比重偏低的持倉。
 
 ```
-REBALANCING ILLUSTRATION
+再平衡示意圖
 =========================
 
-Target Allocation:           After Market Movement:
-US Stocks   40%              US Stocks   48%  (+8)  --> SELL
-Intl Stocks 20%              Intl Stocks 17%  (-3)  --> BUY
-Bonds       25%              Bonds       22%  (-3)  --> BUY
-Gold        10%              Gold         8%  (-2)  --> BUY
-REITs        5%              REITs        5%  ( 0)  --> HOLD
+目標配置：                  市場波動後：
+美國股票   40%              美國股票   48%  (+8)  --> 賣出
+國際股票   20%              國際股票   17%  (-3)  --> 買入
+債券       25%              債券       22%  (-3)  --> 買入
+黃金       10%              黃金        8%  (-2)  --> 買入
+房地產信託基金 5%           房地產信託基金 5%  ( 0)  --> 持有
 
-Rebalancing means selling winners and buying losers.
-This feels counterintuitive but it enforces "buy low, sell high."
+再平衡意味著賣出表現良好的資產，買入表現落後的資產。
+這看似違反直覺，但實際上是執行「低買高賣」策略。
 
-Rebalancing bonus: historically adds 0.3-0.5% per year in return
-through this systematic contrarian behavior.
+再平衡紅利：歷史上每年可透過這種系統性逆向操作
+額外增加約0.3-0.5%的回報。
 ```
 
 ---
 
-#### 7. Implementation with ETFs
+#### 7. 利用交易所買賣基金實施多資產配置
 
-The practical beauty of multi-asset investing is that you can implement sophisticated institutional-quality portfolios using low-cost ETFs. Here is a reference table:
+多資產投資的實際優勢在於，你可以使用低成本交易所買賣基金，構建媲美機構的高質量投資組合。以下是各資產類別與交易所買賣基金的對照表：
 
 ```
-ASSET CLASS TO ETF MAPPING
+資產類別與交易所買賣基金對照表
 ============================
 
-Asset Class              | Popular ETFs      | Expense Ratio
--------------------------+-------------------+--------------
-US Total Stock Market    | VTI, ITOT, SPTM   | 0.03%
-US Large-Cap             | VOO, IVV, SPY     | 0.03-0.09%
-US Small-Cap             | VB, IJR, SCHA     | 0.04-0.06%
-International Developed  | VXUS, IXUS, EFA   | 0.05-0.07%
-Emerging Markets         | VWO, IEMG, EEM    | 0.08-0.11%
-US Total Bond Market     | BND, AGG, SCHZ    | 0.03-0.04%
-Long-Term Treasuries     | TLT, VGLT, SPTL   | 0.04-0.06%
-TIPS                     | TIP, SCHP, VTIP   | 0.03-0.05%
-Corporate Bonds          | LQD, VCIT, IGIB   | 0.04-0.06%
-REITs                    | VNQ, SCHH, IYR    | 0.07-0.12%
-Gold                     | GLD, IAU, GLDM    | 0.10-0.40%
-Broad Commodities        | DJP, GSG, PDBC    | 0.45-0.75%
+資產類別                | 常用交易所買賣基金    | 管理費比率
+------------------------+---------------------+--------------
+美國全市場股票          | VTI, ITOT, SPTM     | 0.03%
+美國大型股              | VOO, IVV, SPY       | 0.03-0.09%
+美國小型股              | VB, IJR, SCHA       | 0.04-0.06%
+國際已發展市場          | VXUS, IXUS, EFA     | 0.05-0.07%
+新興市場                | VWO, IEMG, EEM      | 0.08-0.11%
+美國全市場債券          | BND, AGG, SCHZ      | 0.03-0.04%
+長期國庫債券            | TLT, VGLT, SPTL     | 0.04-0.06%
+通脹掛鉤債券            | TIP, SCHP, VTIP     | 0.03-0.05%
+企業債券                | LQD, VCIT, IGIB     | 0.04-0.06%
+房地產信託基金          | VNQ, SCHH, IYR      | 0.07-0.12%
+黃金                    | GLD, IAU, GLDM      | 0.10-0.40%
+廣泛商品                | DJP, GSG, PDBC      | 0.45-0.75%
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "More asset classes always means better diversification."**
+**誤解一：「資產類別越多，分散投資效果越好。」**
 
-Not true. Adding a tenth asset class that is 90% correlated with assets already in your portfolio adds complexity without meaningful diversification. What matters is the correlation structure, not the number of line items. A five-asset portfolio with low correlations can be far better diversified than a ten-asset portfolio with high cross-correlations.
+並非如此。若加入第十個資產類別，而它與現有投資組合的相關性高達90%，只會增加複雜性而無法帶來實質的分散效益。重要的是相關性結構，而非資產類別的數量。五個低相關性資產類別組成的投資組合，可能遠比十個高度相關資產類別的投資組合更為分散。
 
-**Misconception 2: "International stocks provide significant diversification from US stocks."**
+**誤解二：「國際股票能為美國股票提供顯著的分散效益。」**
 
-Less true than it used to be. Globalization has increased correlations among developed equity markets. US and international developed stocks now have a correlation of roughly 0.75 to 0.85, which provides only modest diversification. Emerging markets and non-equity asset classes (commodities, gold, bonds) provide more meaningful diversification benefits.
+這一說法的準確性已大不如前。全球化推高了已發展股票市場之間的相關性。美國股票與國際已發展市場股票的相關性現約為0.75至0.85，分散效益相當有限。新興市場及非股票類資產（商品、黃金、債券）提供更具實質意義的分散效益。
 
-**Misconception 3: "The efficient frontier tells you the optimal portfolio."**
+**誤解三：「效率前沿告訴你最優的投資組合。」**
 
-The efficient frontier tells you the set of optimal portfolios, but only if your inputs are correct. In practice, expected returns, volatilities, and correlations are estimated with error. Small estimation errors can produce wildly different "optimal" portfolios -- a phenomenon called estimation risk. This is why many practitioners prefer simpler approaches like equal weighting or risk parity over unconstrained mean-variance optimization.
+效率前沿告訴你一組最優投資組合，但前提是你的輸入數據準確無誤。實際操作中，預期回報、波動性和相關性的估算均存在誤差。微小的估算誤差可能產生截然不同的「最優」投資組合——這種現象稱為估算風險。正因如此，許多從業者更傾向採用均等權重或風險平價等較簡單的方法，而非無約束的均值-方差優化。
 
-**Misconception 4: "Risk parity is always better than 60/40."**
+**誤解四：「風險平價永遠優於60/40。」**
 
-Risk parity outperformed during the three-decade bond bull market from 1981 to 2020 because its heavy bond allocation benefited from steadily falling interest rates. In a rising rate environment, the large bond allocation becomes a liability. No allocation strategy is universally superior -- each has environments where it shines and environments where it struggles.
+風險平價在1981年至2020年三十年債券牛市期間表現優越，因為其大量債券配置受益於利率持續下降。在利率上升的環境下，大量債券配置則成為負擔。沒有任何配置策略在所有環境下都佔優——每種策略都有其表現突出的環境，也有其遭遇逆境的環境。
 
-**Misconception 5: "Gold is a bad investment because it does not produce cash flow."**
+**誤解五：「黃金是不好的投資，因為它不產生現金流。」**
 
-Gold is not meant to be a return engine. It is a portfolio insurance policy. It tends to rise sharply during exactly the environments when everything else is falling -- financial crises, geopolitical turmoil, loss of confidence in fiat currencies. A small allocation (5-10%) can meaningfully reduce portfolio drawdowns without significantly dragging on long-term returns.
+黃金並非設計來作為回報引擎。它是一種投資組合保險。它往往在其他一切資產下跌的環境中急速上漲——金融危機、地緣政治動盪、對法定貨幣信心喪失之際。小量配置（5-10%）能夠有效降低投資組合的最大回撤，而對長期回報的拖累相對有限。
 
-**Misconception 6: "I can just use a target-date fund and not worry about this."**
+**誤解六：「我只需使用目標日期基金，無需擔心這些問題。」**
 
-Target-date funds are a reasonable default, but they typically use only stocks and bonds, missing asset classes like commodities, gold, and REITs that can improve diversification. They also use a one-size-fits-all glide path that may not match your specific risk tolerance, financial situation, or views on the economy. Understanding multi-asset allocation empowers you to evaluate and improve upon these defaults.
-
----
-
-### d) Questions and Answers
-
-**Q1: How many asset classes should I include in my portfolio?**
-
-For most individual investors, four to seven asset classes is the sweet spot. This provides meaningful diversification without excessive complexity. A core portfolio of US stocks, international stocks, bonds, and one or two real assets (REITs, gold, or commodities) captures most of the diversification benefit. Beyond seven or eight asset classes, each additional one provides diminishing marginal benefit and adds rebalancing complexity.
-
-**Q2: How do I estimate expected returns for building an efficient frontier?**
-
-This is the hardest part of portfolio construction. Common approaches include: (a) using long-term historical averages (simple but backward-looking), (b) using current yields and valuations as starting points (e.g., bond yield as expected bond return, earnings yield plus growth as expected stock return), (c) using the approach of building blocks -- start with risk-free rate and add risk premiums for each asset class. Approach (b) tends to produce the most reliable forward-looking estimates.
-
-**Q3: Should I use leverage in a risk parity portfolio?**
-
-For most individual investors, no. Leverage introduces additional risks including margin calls, borrowing costs, and the risk of forced liquidation at the worst possible time. The simplified "risk parity lite" portfolios that tilt toward bonds and include multiple asset classes can capture much of the benefit without leverage. Leave leveraged risk parity to institutional investors with stable capital bases.
-
-**Q4: How often should I rebalance my multi-asset portfolio?**
-
-Research suggests that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing increases transaction costs without significantly improving risk-adjusted returns. The exception is during extreme market events -- if an asset class has moved 10+ percentage points from its target, rebalancing sooner may be warranted. Using new contributions to buy underweight assets is the most tax-efficient rebalancing method.
-
-**Q5: Correlations seem to change over time. How do I account for that?**
-
-Use longer historical windows (10-20 years) to estimate baseline correlations, but be aware that crises tend to increase correlations across risky assets. Build your portfolio assuming correlations will be higher than historical averages during bad times. This means holding genuinely different asset classes -- bonds, gold, commodities -- rather than relying on diversification among different types of equities, which tends to disappear when you need it most.
-
-**Q6: What is the difference between strategic and tactical asset allocation?**
-
-Strategic allocation sets long-term target weights based on your risk tolerance, time horizon, and return objectives. You stick to these weights through rebalancing regardless of market conditions. Tactical allocation makes short-term deviations from strategic weights based on market outlook -- for example, overweighting stocks when valuations are low or underweighting bonds when rates are about to rise. Most investors should focus on strategic allocation and leave tactical moves, if any, to small tilts rather than wholesale changes.
-
-**Q7: Is there an easy way to tell if my portfolio is well-diversified?**
-
-Look at the maximum drawdown during past crises. A well-diversified portfolio should have a significantly smaller drawdown than a 100% stock portfolio during events like 2008 or 2020. You can also calculate the portfolio's effective number of independent bets -- if it is close to 1, you are not diversified regardless of how many funds you own. If it is 3 or higher, you have meaningful diversification.
+目標日期基金是合理的預設選擇，但通常只使用股票和債券，缺乏商品、黃金和房地產信託基金等能夠改善分散效果的資產類別。它們採用千人一面的配置滑道，可能與你的具體風險承受能力、財務狀況或對經濟前景的看法不符。理解多資產配置，讓你有能力評估並改善這些預設選項。
 
 ---
 
-## YouTube Script
+### d) 問答環節
+
+**問題一：我的投資組合應包含多少個資產類別？**
+
+對大多數個人投資者而言，四至七個資產類別最為合適。這能提供有意義的分散效益，而又不會過於複雜。以美國股票、國際股票、債券及一至兩種實物資產（房地產信託基金、黃金或商品）為核心的投資組合，能捕捉大部分分散效益。超過七至八個資產類別後，每新增一個類別的邊際效益遞減，且會增加再平衡的複雜性。
+
+**問題二：構建效率前沿時，如何估算預期回報？**
+
+這是投資組合構建中最困難的部分。常見方法包括：（a）使用長期歷史平均值（簡單但具滯後性）；（b）以當前收益率和估值作為起點（例如，以債券收益率作為預期債券回報，以盈利率加增長率估算預期股票回報）；（c）採用積木方式——從無風險利率出發，為各資產類別加上相應的風險溢價。方法（b）通常能產生最可靠的前瞻性估算。
+
+**問題三：我應否在風險平價投資組合中使用槓桿？**
+
+對大多數個人投資者而言，答案是否定的。槓桿帶來額外風險，包括補倉要求、借貸成本，以及在最不利時機被迫平倉的風險。無需槓桿的簡化「輕量風險平價」投資組合——傾向債券並包含多種資產類別——能夠在不使用槓桿的情況下捕捉大部分效益。有槓桿的風險平價策略留給資金基礎穩定的機構投資者。
+
+**問題四：多資產投資組合應多久再平衡一次？**
+
+研究表明，每年或每半年再平衡一次已能捕捉大部分效益。更頻繁的再平衡只會增加交易成本，而風險調整後回報的改善幅度不大。例外情況是市場出現極端波動時——若某資產類別已偏離目標超過10個百分點，提前再平衡可能較為適宜。使用新增資金購買比重偏低的資產，是最具稅務效益的再平衡方法。
+
+**問題五：相關性似乎隨時間變化，我應如何應對？**
+
+採用較長的歷史時間窗口（10-20年）估算基準相關性，但須意識到危機時期風險資產之間的相關性往往上升。構建投資組合時，假設相關性在市場低迷期間將高於歷史平均水平。這意味著應持有真正不同的資產類別——債券、黃金、商品——而非依賴不同類型股票之間的分散效益，後者往往在最需要的時候失效。
+
+**問題六：策略性資產配置與戰術性資產配置有何分別？**
+
+策略性配置根據你的風險承受能力、投資期限和回報目標，設定長期目標權重。無論市場狀況如何，均透過再平衡維持這些權重。戰術性配置則根據市場展望，對策略性權重作出短期調整——例如，在估值偏低時增持股票，或在利率即將上升前減持債券。大多數投資者應專注於策略性配置，若有任何戰術調整，也應限於小幅傾斜，而非大幅改變整體配置。
+
+**問題七：有沒有簡單的方法判斷我的投資組合是否充分分散？**
+
+觀察過往危機期間的最大回撤。一個充分分散的投資組合，在2008年或2020年等事件中，其回撤幅度應遠小於100%股票投資組合。你也可以計算投資組合的有效獨立投注數——若接近1，無論你持有多少基金，均代表你並未分散投資；若達到3或以上，則代表你的分散程度具有實質意義。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Channel intro animation with upbeat music. Title card reads "Week 15: Multi-Asset Allocation -- Beyond Stocks and Bonds"]
 
-**Alex:** Welcome back, everyone. Today we are tackling one of the most important topics in all of investing: multi-asset allocation. Sam, pop quiz. What does your portfolio look like right now?
+**Horace：** 歡迎回來，各位！今天我們要深入探討投資中最重要的課題之一——多資產配置。Stella，考你一考。你現在的投資組合是什麼樣的？
 
-**Sam:** Um, I have got some US stock index funds, a little international stocks, and some bonds. Basically the classic three-fund portfolio.
+**Stella：** 嗯，我有一些美國股票指數基金、少量國際股票，還有一些債券。基本上就是經典的三基金投資組合。
 
-**Alex:** That is a great start, and honestly better than most people. But today we are going to explore why limiting yourself to just stocks and bonds is like painting with only two colors. The investment universe has a much richer palette.
+**Horace：** 這個起步已經相當不錯，老實說比大多數人都好。但今天我們要探討，為何將自己局限於股票和債券，就好比只用兩種顏色作畫。投資領域的色彩可豐富得多。
 
-[VISUAL: An artist's palette with two colors labeled "Stocks" and "Bonds" transforming into a full palette with labels for Stocks, Bonds, REITs, Commodities, Gold, TIPS, and Alternatives]
+[VISUAL: An artist's palette with two colors labeled "股票" and "債券" transforming into a full palette with labels for 股票, 債券, 房地產信託基金, 商品, 黃金, 通脹掛鉤債券, and 另類資產]
 
-**Sam:** Okay, but I have heard that keeping things simple is the best approach. Why complicate things?
+**Stella：** 好的，但我聽說保持簡單才是最佳策略。為何要把事情複雜化？
 
-**Alex:** Simplicity is great, but there is a difference between simplicity and incompleteness. Harry Markowitz -- the father of modern portfolio theory -- said that diversification is the only free lunch in finance. And you cannot get a truly diversified meal with just two ingredients.
+**Horace：** 簡單確實很好，但簡單和不完整之間有本質上的分別。哈里·馬科維茨——現代投資組合理論之父——說過，分散投資是金融界唯一的免費午餐。而你無法用兩種食材做出一頓真正豐盛的大餐。
 
-**Sam:** Free lunch? In finance? That sounds suspicious.
+**Stella：** 免費午餐？在金融界？聽起來很可疑。
 
-**Alex:** I know, right? But the math backs it up. When you combine assets that do not move in lockstep, the portfolio's risk decreases without a proportional decrease in return. You literally get a better risk-return trade-off from mixing than from holding any single asset alone.
+**Horace：** 我明白，這聽起來是有點不可思議！但數學支持這一點。當你把走勢並不一致的資產組合在一起，投資組合的風險會下降，而回報的降幅並不成比例。混搭能帶來比持有任何單一資產更好的風險回報比——這是實實在在的效益。
 
-[VISUAL: Two wave patterns slightly out of phase, showing how their combination produces a smoother wave. Labels: "Asset A returns (volatile)", "Asset B returns (volatile)", "Combined portfolio (smoother)"]
+[VISUAL: Two wave patterns slightly out of phase, showing how their combination produces a smoother wave. Labels: "資產A回報（波動）", "資產B回報（波動）", "組合投資組合（更平穩）"]
 
-**Sam:** Okay, let us start at the beginning. What are all the asset classes we should know about?
+**Stella：** 好，讓我們從基礎開始。我們需要了解的資產類別都有哪些？
 
-**Alex:** Let me walk through the major ones. First, you already know equities -- stocks. They have the highest long-term expected returns, roughly 7 to 10 percent per year after inflation historically. But they are also the most volatile, with annual swings of 15 to 20 percent being normal.
+**Horace：** 讓我逐一介紹主要的資產類別。首先，你已經認識股票。它們擁有最高的長期預期回報，歷史上扣除通脹後每年大約7至10%。但同時波動性也最高，每年15至20%的波幅屬於正常範圍。
 
-**Sam:** Right, stocks are the growth engine.
+**Stella：** 對，股票是增長引擎。
 
-**Alex:** Exactly. Then you have fixed income -- bonds. Lower expected returns, maybe 1 to 4 percent after inflation, but much less volatile. They serve as ballast in your portfolio and tend to do well when the economy slows down.
+**Horace：** 完全正確。然後是固定收益——債券。預期回報較低，扣除通脹後大約1至4%，但波動性也低得多。它們在投資組合中發揮壓艙石的作用，在經濟放緩時往往表現良好。
 
 [VISUAL: Bar chart showing historical real returns for each major asset class over 1926-2025, with error bars showing the range of outcomes]
 
-**Sam:** Stocks for growth, bonds for stability. What else?
+**Stella：** 股票求增長，債券求穩定。還有什麼？
 
-**Alex:** Real estate, which you can access through REITs -- Real Estate Investment Trusts. These are companies that own properties and are required by law to pay out most of their income as dividends. Returns have been between stocks and bonds historically, roughly 5 to 7 percent real. They also provide inflation protection because rents tend to rise with inflation.
+**Horace：** 房地產，你可以透過房地產信託基金——即房地產投資信託基金——投資。這些公司持有物業，法律規定須將大部分收入以股息形式派發。歷史上回報介乎股票和債券之間，實際年化大約5至7%。它們還提供通脹保護，因為租金往往隨通脹上漲。
 
-**Sam:** I like the idea of owning real estate without being a landlord.
+**Stella：** 我很喜歡這種不必做房東就能投資房地產的方式。
 
-**Alex:** Same. Then you have commodities -- physical goods like oil, copper, wheat, and natural gas. Commodities have low long-term real returns, maybe 0 to 2 percent. So why own them? Because they have very low correlation with stocks and bonds, and they tend to surge during inflationary periods -- exactly when your stocks and bonds are struggling.
+**Horace：** 我也是。然後是商品——石油、銅、小麥、天然氣等實物商品。商品的長期實際回報不高，大約0至2%。那為什麼要持有它們？因為它們與股票和債券的相關性非常低，而且在通脹時期往往大幅飆升——恰好是你的股票和債券面臨壓力的時候。
 
-[VISUAL: Timeline showing commodity performance during major inflationary periods: 1970s oil crisis, 2003-2008 commodity boom, 2021-2022 post-COVID inflation, with stock/bond returns shown for comparison]
+[VISUAL: Timeline showing commodity performance during major inflationary periods: 1970年代石油危機, 2003-2008年商品繁榮, 2021-2022年後疫情通脹, with stock/bond returns shown for comparison]
 
-**Sam:** So commodities are like insurance against inflation?
+**Stella：** 所以商品就像是抵抗通脹的保險？
 
-**Alex:** Precisely. And then there is gold, which deserves its own category. Gold has been a store of value for thousands of years. It has very low real returns over the long run, but it tends to spike during financial crises, geopolitical turmoil, and loss of confidence in governments and currencies.
+**Horace：** 說得太好了。然後是黃金，它值得單獨成為一個類別。黃金數千年來一直是價值儲存工具。長期實際回報非常低，但在金融危機、地緣政治動盪以及市場對政府和法定貨幣失去信心時，往往大幅攀升。
 
-**Sam:** So gold is crisis insurance?
+**Stella：** 所以黃金是危機保險？
 
-**Alex:** That is a perfect way to think about it. In 2008, when stocks fell roughly 50 percent, gold rose about 5 percent. During the early COVID panic in March 2020, gold held its value while stocks plunged. A small allocation to gold -- 5 to 10 percent -- can meaningfully reduce your portfolio's worst-case drawdown.
+**Horace：** 這是絕佳的比喻。2008年，當股票下跌約50%時，黃金上漲了約5%。2020年3月新冠肺炎初期的恐慌中，股票暴跌，黃金卻保持穩定。小量配置黃金——5至10%——能夠有效降低投資組合的最大回撤。
 
-**Sam:** And the last one -- TIPS?
+**Stella：** 最後一個——通脹掛鉤債券？
 
-**Alex:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with inflation. So if inflation runs at 5 percent, your bond's face value increases by 5 percent. They are a direct hedge against unexpected inflation, which is one of the biggest risks to a traditional stock-bond portfolio.
+**Horace：** 通脹掛鉤債券，即TIPS。這是政府債券，本金會隨通脹調整。若通脹達到5%，你的債券面值就增加5%。它們是應對意外通脹的直接對沖工具，而通脹正是傳統股債投資組合面臨的最大風險之一。
 
 [VISUAL: Comparison of a regular Treasury bond vs. TIPS during an inflationary period, showing how the TIPS principal grows while the regular bond's real value shrinks]
 
-**Sam:** Alright, so we have got stocks, bonds, REITs, commodities, gold, and TIPS. How do we know which ones to combine and in what proportions?
+**Stella：** 好的，我們有了股票、債券、房地產信託基金、商品、黃金和通脹掛鉤債券。那我們怎麼知道該把哪些組合在一起，以及各佔多少比例？
 
-**Alex:** And that brings us to one of the most important concepts in all of investing: correlation.
+**Horace：** 這就引出了投資中最重要的概念之一：相關性。
 
-[VISUAL: Title card "Correlation: The Secret Sauce of Diversification"]
+[VISUAL: Title card "相關性：分散投資的秘密武器"]
 
-**Sam:** Correlation -- how assets move relative to each other?
+**Stella：** 相關性——資產之間相對走勢的衡量指標？
 
-**Alex:** Right. It is measured on a scale from negative one to positive one. A correlation of positive one means two assets move in perfect lockstep -- if one goes up 10 percent, the other goes up 10 percent. No diversification benefit at all. A correlation of zero means they move independently -- knowing what one did tells you nothing about the other. And negative one means they move in exactly opposite directions.
+**Horace：** 對。以負一到正一的範圍衡量。正一相關意味著兩項資產走勢完全一致——一個上漲10%，另一個也上漲10%。毫無分散效益。零相關意味著走勢相互獨立——知道一個的表現，對另一個的表現毫無參考價值。負一則意味著走勢方向完全相反。
 
-**Sam:** And we want low or negative correlations in our portfolio?
+**Stella：** 我們希望投資組合中的資產具有低相關性或負相關性？
 
-**Alex:** Exactly. The lower the correlation, the more two assets reduce each other's risk when combined. Let me show you a real-world correlation matrix.
+**Horace：** 完全正確。兩項資產的相關性越低，組合後相互降低風險的效果越顯著。讓我展示一個真實的相關性矩陣。
 
 [VISUAL: Full correlation matrix displayed as a heat map, with dark red for high positive correlation, white for zero, and dark blue for negative. Each cell shows the numerical value]
 
-**Alex:** Look at a few key relationships. US stocks and international stocks have a correlation of about 0.75. That is pretty high -- they move mostly together. Not much diversification there.
+**Horace：** 看幾個關鍵的關係。美國股票與國際股票的相關性約為0.75。這相當高——它們走勢基本一致。分散效益不大。
 
-**Sam:** So owning international stocks does not help as much as people think?
+**Stella：** 所以持有國際股票的分散效益，並不如人們想像中那麼顯著？
 
-**Alex:** For diversification purposes, much less than it used to. Globalization has linked equity markets together. But look at US stocks versus US government bonds: about negative 0.10. They tend to move in opposite directions. When stocks crash, investors flee to Treasuries, pushing bond prices up. That is powerful diversification.
+**Horace：** 就分散投資而言，效果遠不如以前。全球化將股票市場緊密連接在一起。但看看美國股票與美國政府債券的相關性：約為負0.10。它們往往走勢相反。當股票崩潰，投資者湧入國庫債券避險，推高債券價格。這是強力的分散效果。
 
-**Sam:** What about commodities and gold?
+**Stella：** 商品和黃金呢？
 
-**Alex:** Commodities have a correlation of about 0.15 with stocks -- nearly independent. Gold is roughly negative 0.05 to zero. These are the kinds of assets that provide genuine diversification, because they respond to different economic forces than stocks do.
+**Horace：** 商品與股票的相關性約為0.15——幾乎相互獨立。黃金約為負0.05至零。這些資產提供真正的分散效益，因為它們對不同的經濟力量作出反應，與股票截然不同。
 
 [ANIMATION: animation/week15_efficient_frontier.py - Animated visualization showing how adding each new asset class to a portfolio shifts and extends the efficient frontier upward and to the left. Start with stocks only (a single dot), add bonds (a curve forms), add REITs (curve shifts up), add commodities (curve shifts left), add gold (curve shifts further left). Each addition is highlighted with a label showing the new asset class being incorporated.]
 
-**Sam:** That animation is incredible. Every time we add a new low-correlation asset, the curve moves up and to the left -- meaning more return for less risk.
+**Stella：** 這個動畫太精彩了。每次加入一個低相關性的新資產類別，曲線就向左上方移動——意味著以更低的風險獲得更高的回報。
 
-**Alex:** Exactly. And that curve is called the efficient frontier, which brings us to modern portfolio theory.
+**Horace：** 正是。而這條曲線就叫做效率前沿，這就引出了現代投資組合理論。
 
-[VISUAL: Title card "Modern Portfolio Theory: The Efficient Frontier"]
+[VISUAL: Title card "現代投資組合理論：效率前沿"]
 
-**Alex:** In 1952, a young economist named Harry Markowitz published a paper that would eventually win the Nobel Prize. The core idea was deceptively simple: do not evaluate investments in isolation. What matters is how each investment contributes to the total portfolio.
+**Horace：** 1952年，一位年輕的經濟學家哈里·馬科維茨發表了一篇最終為他贏得諾貝爾獎的論文。核心理念看似簡單，卻具有革命性：不要孤立地評估投資。重要的是每項投資如何影響整體投資組合。
 
-**Sam:** Makes sense. A stock that is risky on its own might actually reduce portfolio risk if it has low correlation with everything else.
+**Stella：** 說得有道理。一隻單獨看來風險頗高的股票，若與其他持倉的相關性很低，實際上可能有助降低投資組合的整體風險。
 
-**Alex:** Exactly right. Markowitz showed that for any given level of risk, there exists an optimal combination of assets that maximizes expected return. Plot all these optimal portfolios on a chart with risk on the x-axis and return on the y-axis, and you get a curve called the efficient frontier.
+**Horace：** 完全正確。馬科維茨指出，對於任何給定的風險水平，都存在一種最優的資產組合，能夠最大化預期回報。將所有這些最優投資組合在橫軸為風險、縱軸為回報的圖表上繪製出來，就得到一條稱為效率前沿的曲線。
 
 [VISUAL: Clean diagram of the efficient frontier with clearly labeled axes, showing several portfolio points along the curve and a few sub-optimal portfolios below it]
 
-**Sam:** So any portfolio ON the curve is optimal, and anything below it is leaving money on the table?
+**Stella：** 所以曲線上的每個點都是最優的，曲線以下的任何點都是在浪費潛力？
 
-**Alex:** Correct. If your portfolio is below the efficient frontier, you could either earn more return for the same risk, or take less risk for the same return, by moving to the frontier. That is what portfolio optimization does -- it finds the weights that get you onto the frontier.
+**Horace：** 正確。若你的投資組合位於效率前沿以下，透過移向前沿，你可以在相同風險下獲取更高回報，或在相同回報下承受更低風險。這正是投資組合優化所做的——找到讓你到達前沿的權重。
 
-**Sam:** How does the math actually work? Can you give me an intuitive example?
+**Stella：** 具體的數學計算是怎樣的？能舉個直觀的例子嗎？
 
-**Alex:** Sure. Let us take two assets. Asset A has an expected return of 10 percent and volatility of 15 percent -- think stocks. Asset B has an expected return of 4 percent and volatility of 5 percent -- think bonds. And they have a correlation of negative 0.10.
+**Horace：** 當然。假設兩項資產。資產A預期回報10%，波動性15%——想象成股票。資產B預期回報4%，波動性5%——想象成債券。兩者相關性為負0.10。
 
-**Sam:** Classic stocks and bonds.
+**Stella：** 典型的股票和債券組合。
 
-**Alex:** Now, if you put 60 percent in A and 40 percent in B, your expected return is simply the weighted average: 0.60 times 10 plus 0.40 times 4 equals 7.6 percent. Easy.
+**Horace：** 現在，若你把60%放在A，40%放在B，預期回報就是加權平均：0.60乘以10加0.40乘以4，等於7.6%。這個簡單。
 
-**Sam:** Right, that is just a weighted average.
+**Stella：** 對，那只是加權平均。
 
-**Alex:** But here is where the magic happens. The portfolio's risk is NOT the weighted average. The weighted average risk would be 0.60 times 15 plus 0.40 times 5 equals 11 percent. But because of the negative correlation, the actual portfolio risk is only about 9 percent.
+**Horace：** 但神奇的地方來了。投資組合的風險並非加權平均。加權平均風險是0.60乘以15加0.40乘以5，等於11%。但由於負相關性的作用，實際投資組合風險僅約9%。
 
-[VISUAL: Two side-by-side calculations. Left: "Expected Return = Weighted Average = 7.6%". Right: "Expected Risk =/= Weighted Average. Weighted Avg = 11%. Actual = 9.0%. Diversification benefit = 2 percentage points of FREE risk reduction"]
+[VISUAL: Two side-by-side calculations. Left: "預期回報 = 加權平均 = 7.6%". Right: "預期風險 ≠ 加權平均。加權平均 = 11%。實際 = 9.0%。分散效益 = 免費減少2個百分點風險"]
 
-**Sam:** Two full percentage points of risk just disappear?
+**Stella：** 整整兩個百分點的風險就這樣消失了？
 
-**Alex:** They do not disappear -- they cancel out. When stocks zig down, bonds tend to zag up. The negative correlation term in the formula literally subtracts from total portfolio risk. This is the free lunch Markowitz was talking about.
+**Horace：** 它們不是消失了——而是相互抵銷了。當股票下跌，債券往往上升。公式中的負相關項從總投資組合風險中字面上扣除了一部分。這正是馬科維茨所說的免費午餐。
 
-**Sam:** That is genuinely amazing. But I have heard there are problems with this approach?
+**Stella：** 這真的令人驚嘆。但我聽說這個方法存在一些問題？
 
-**Alex:** Yes, and this is important. The efficient frontier is only as good as the inputs you feed it. You need three inputs: expected returns, expected volatilities, and expected correlations for every asset class. The problem is that expected returns are notoriously difficult to estimate. Small changes in your return assumptions can produce wildly different "optimal" portfolios.
+**Horace：** 是的，這一點很重要。效率前沿的質量取決於你輸入的數據。你需要三項輸入：每個資產類別的預期回報、預期波動性，以及所有資產類別之間的預期相關性。問題在於，預期回報出了名地難以估算。回報假設的微小變化，可能產生截然不同的「最優」投資組合。
 
-**Sam:** So the theory is elegant but the practice is messy?
+**Stella：** 所以理論很優雅，但實踐起來很複雜？
 
-**Alex:** Exactly. This is called estimation risk, and it is a serious problem. Run an optimizer with slightly different return estimates and you might get an allocation of 70 percent stocks and 5 percent gold one day, then 20 percent stocks and 40 percent gold the next. That kind of instability is not useful.
+**Horace：** 正是。這被稱為估算風險，是一個嚴重的問題。用略有不同的回報估算運行優化器，你某天可能得到70%股票和5%黃金的配置，第二天卻變成20%股票和40%黃金。這種不穩定性毫無實用價值。
 
 [VISUAL: Three different efficient frontiers generated with slightly different return assumptions, showing how the optimal portfolio point shifts dramatically]
 
-**Sam:** So what do practitioners do about this?
+**Stella：** 那從業者如何應對這個問題？
 
-**Alex:** Several things. First, many add constraints -- maximum and minimum weights for each asset class. You might say no single asset class can be more than 40 percent or less than 5 percent. Second, some use more robust estimation techniques. And third -- and this leads to our next topic -- some abandon return optimization entirely and focus on risk alone.
+**Horace：** 有幾種方法。首先，許多人加入限制條件——為各資產類別設定最高和最低權重。例如，規定任何資產類別不得超過40%或低於5%。其次，一些人採用更穩健的估算技術。第三——這引出我們的下一個課題——有些人完全放棄回報優化，轉而專注於風險管理。
 
-[VISUAL: Title card "Risk Parity: A Different Philosophy"]
+[VISUAL: Title card "風險平價：另一種哲學"]
 
-**Sam:** Risk parity. I have heard this term but never really understood it.
+**Stella：** 風險平價。我聽說過這個詞，但從未真正理解它。
 
-**Alex:** Let me start with a simple observation about the traditional 60/40 portfolio. Stocks are allocated 60 percent of the weight. Bonds get 40 percent. Seems balanced, right?
+**Horace：** 讓我從一個簡單的觀察開始說起傳統60/40投資組合。股票佔60%的權重，債券佔40%。聽起來很均衡，對吧？
 
-**Sam:** Sure, 60/40 sounds balanced.
+**Stella：** 當然，60/40聽起來很均衡。
 
-**Alex:** But now look at the risk side. Stocks have roughly three times the volatility of bonds. So even though stocks are 60 percent of the portfolio by weight, they contribute about 90 percent of the portfolio's risk. The 60/40 portfolio is not balanced at all -- it is essentially a stock portfolio with a small bond buffer.
+**Horace：** 但現在看看風險那邊。股票的波動性大約是債券的三倍。所以儘管股票佔投資組合權重的60%，它們貢獻了大約90%的投資組合風險。60/40投資組合根本不均衡——它本質上是一個帶有小型債券緩衝的股票投資組合。
 
-[VISUAL: Two pie charts side by side. Left: "Weight Allocation" showing 60% stocks, 40% bonds. Right: "Risk Allocation" showing 90% stocks, 10% bonds. The contrast is dramatic and highlighted with color coding]
+[VISUAL: Two pie charts side by side. Left: "權重配置" showing 60%股票, 40%債券. Right: "風險配置" showing 90%股票, 10%債券. The contrast is dramatic and highlighted with color coding]
 
-**Sam:** Wait, 90 percent? So when stocks crash, the bonds can barely soften the blow?
+**Stella：** 等等，90%？所以當股票崩潰時，債券幾乎無法緩衝衝擊？
 
-**Alex:** Exactly. In 2008, the 60/40 portfolio fell about 30 to 35 percent. That is not what most people expect from a "balanced" portfolio. Risk parity says: instead of balancing by weight, balance by risk. Make each asset class contribute equally to portfolio risk.
+**Horace：** 完全正確。2008年，60/40投資組合下跌了約30至35%。這並不符合大多數人對「均衡」投資組合的預期。風險平價的理念是：與其按權重均衡，不如按風險均衡。讓每個資產類別對投資組合風險的貢獻相等。
 
-**Sam:** How do you do that?
+**Stella：** 如何做到這一點？
 
-**Alex:** Since bonds are less volatile than stocks, you need to hold more bonds per dollar of risk contribution. A simplified risk parity portfolio might look like 25 percent stocks, 55 percent bonds, and 20 percent commodities -- with each contributing roughly one-third of the portfolio's risk.
+**Horace：** 由於債券的波動性低於股票，你需要持有更多債券才能達到相等的風險貢獻。一個簡化的風險平價投資組合可能看起來像是25%股票、55%債券和20%商品——每個類別各貢獻約三分之一的投資組合風險。
 
-**Sam:** But that is a lot of bonds. Will not the returns be too low?
+**Stella：** 但這樣持有很多債券。回報不會太低嗎？
 
-**Alex:** In the pure risk parity approach, you use leverage to scale up the overall return. If the unlevered risk parity portfolio returns 5 percent with 6 percent volatility, you might lever it 1.5 times to get 7.5 percent return with 9 percent volatility -- similar return to 60/40 but with genuinely balanced risk.
+**Horace：** 在純粹的風險平價方法中，你使用槓桿來提升整體回報。若無槓桿的風險平價投資組合回報5%，波動性6%，你可能以1.5倍槓桿放大，得到7.5%回報和9%波動性——與60/40回報相近，但風險真正均衡。
 
-[VISUAL: Bar chart comparing three portfolios: 60/40 (unlevered), Risk Parity (unlevered, low return), and Risk Parity (levered, comparable return). Show both return and risk metrics]
+[VISUAL: Bar chart comparing three portfolios: 60/40（無槓桿）, 風險平價（無槓桿，回報較低）, and 風險平價（有槓桿，回報相當）. Show both return and risk metrics]
 
-**Sam:** Leverage sounds scary though. Is that safe?
+**Stella：** 但槓桿聽起來很危險。這樣安全嗎？
 
-**Alex:** That is the right concern. For most individual investors, I would not recommend levered risk parity. The good news is that even without leverage, a risk-parity-inspired portfolio -- one that tilts toward bonds and includes commodities, gold, and TIPS -- can provide better diversification than a traditional 60/40.
+**Horace：** 這個顧慮是對的。對大多數個人投資者而言，我不建議使用有槓桿的風險平價。好消息是，即使不用槓桿，一個受風險平價啟發的投資組合——傾向債券，並包含商品、黃金和通脹掛鉤債券——也能比傳統60/40提供更好的分散效果。
 
-**Sam:** Like a "risk parity lite"?
+**Stella：** 就像「輕量風險平價」？
 
-**Alex:** Exactly. Something like 20 percent stocks, 30 percent long-term Treasuries, 15 percent TIPS, 10 percent gold, 10 percent commodities, 10 percent international stocks, and 5 percent REITs. No leverage needed, but much more balanced risk exposure than 60/40.
+**Horace：** 正是。例如20%股票、30%長期國庫債券、15%通脹掛鉤債券、10%黃金、10%商品、10%國際股票和5%房地產信託基金。無需槓桿，但風險敞口比60/40均衡得多。
 
 [VISUAL: The Risk Parity Lite allocation displayed as a bar chart with risk contribution percentages shown for each asset class, demonstrating more balanced risk than 60/40]
 
-**Sam:** Let us talk about some complete portfolios people actually use. I have heard of things like the All-Weather portfolio and the Yale Model.
+**Stella：** 讓我們談談人們實際使用的完整投資組合。我聽說過全天候投資組合和耶魯模式。
 
-**Alex:** Great idea. Let me walk through several famous multi-asset portfolios that real investors use.
+**Horace：** 好主意。讓我介紹幾個真實投資者採用的著名多資產投資組合。
 
-[VISUAL: Title card "Portfolio Models: From Simple to Sophisticated"]
+[VISUAL: Title card "投資組合模型：從簡單到複雜"]
 
-**Alex:** First, the Three-Fund Portfolio, popularized by Bogleheads. Just US stocks, international stocks, and US bonds. Something like 50-30-20. It is beautifully simple, incredibly low cost, and captures the basic diversification between equities and fixed income.
+**Horace：** 首先是三基金投資組合，由布格頭社群推廣。只需美國股票、國際股票和美國債券。比例大約50-30-20。它極為簡單、成本極低，涵蓋了股票和固定收益之間基本的分散投資。
 
-**Sam:** That is what I started with.
+**Stella：** 這正是我的起點。
 
-**Alex:** And it is a perfectly reasonable portfolio for many people. But we can improve on it. The Four-Fund Portfolio adds REITs as a fourth asset class. Something like 40 percent US stocks, 20 percent international stocks, 25 percent bonds, and 15 percent REITs. This adds real estate exposure and a bit more diversification.
+**Horace：** 對很多人來說，這是一個完全合理的投資組合。但我們可以在此基礎上改進。四基金投資組合加入了房地產信託基金作為第四個資產類別。大約40%美國股票、20%國際股票、25%債券和15%房地產信託基金。這增加了房地產敞口，帶來多一點分散效益。
 
 [VISUAL: Side-by-side comparison of the three-fund and four-fund portfolios, showing allocations and historical risk-return metrics]
 
-**Sam:** What about Ray Dalio's All-Weather portfolio? That is the one Bridgewater runs, right?
+**Stella：** 那瑞·達利歐的全天候投資組合呢？橋水基金管理的那個？
 
-**Alex:** The simplified version for individual investors is roughly 30 percent US stocks, 40 percent long-term Treasuries, 15 percent intermediate Treasuries, 7.5 percent gold, and 7.5 percent commodities. It is designed to perform reasonably well in all four economic environments: rising growth, falling growth, rising inflation, and falling inflation.
+**Horace：** 面向個人投資者的簡化版本大致是30%美國股票、40%長期國庫債券、15%中期國庫債券、7.5%黃金和7.5%商品。它的設計目標是在四種經濟環境下都能表現合理：增長上升、增長下降、通脹上升和通脹下降。
 
-**Sam:** Why so many bonds? 55 percent seems like a lot.
+**Stella：** 為何債券佔這麼多？55%感覺很高。
 
-**Alex:** Because it is risk-parity-inspired. Bonds are less volatile, so you need more of them to balance the risk contribution of stocks. The gold and commodities provide inflation protection that bonds lack. The result is a portfolio that had remarkably small drawdowns historically.
+**Horace：** 因為它受風險平價啟發。債券波動性較低，所以需要持有更多才能平衡股票的風險貢獻。黃金和商品提供債券所缺乏的通脹保護。結果是一個歷史上回撤幅度相當小的投資組合。
 
-**Sam:** How did it actually perform?
+**Stella：** 它的實際表現如何？
 
-**Alex:** During the 2008 crisis, the All-Weather portfolio lost only about 3 to 4 percent while the S&P 500 fell nearly 40 percent. Over long periods, it returned about 7 to 8 percent per year with much smaller drawdowns than a stock-heavy portfolio. The trade-off is that it lags stocks during strong bull markets.
+**Horace：** 2008年危機期間，全天候投資組合只下跌了約3至4%，而標普500指數跌幅接近40%。長期來看，它每年回報約7至8%，回撤遠小於重倉股票的投資組合。代價是在強勁牛市期間會落後於股票。
 
-[VISUAL: Growth of $10,000 chart from 2005 to 2025 comparing All-Weather, 60/40, and 100% stocks. Show the 2008 drawdown, the 2020 COVID crash, and the 2022 rate-rising environment. All-Weather has the smoothest line but ends lower than 100% stocks]
+[VISUAL: Growth of $10,000 chart from 2005 to 2025 comparing 全天候, 60/40, and 100%股票. Show the 2008回撤, the 2020新冠肺炎崩潰, and the 2022利率上升環境. 全天候 has the smoothest line but ends lower than 100%股票]
 
-**Sam:** What about the Yale Model? I have heard David Swensen was a genius.
+**Stella：** 那耶魯模式呢？我聽說大衛·斯文森是個天才。
 
-**Alex:** Swensen ran the Yale endowment for decades and pioneered the use of alternative assets in institutional portfolios. The simplified version for individual investors is something like 30 percent US stocks, 15 percent international developed, 10 percent emerging markets, 15 percent REITs, 15 percent TIPS, and 15 percent nominal bonds.
+**Horace：** 斯文森管理耶魯捐贈基金數十年，開創了機構投資組合使用另類資產的先河。面向個人投資者的簡化版本大致是30%美國股票、15%國際已發展市場、10%新興市場、15%房地產信託基金、15%通脹掛鉤債券和15%名義債券。
 
-**Sam:** That is more stock-heavy than All-Weather.
+**Stella：** 這比全天候投資組合的股票比重更高。
 
-**Alex:** It is, and the real Yale portfolio also included private equity, venture capital, and hedge funds that are not available to individual investors. The key insight Swensen emphasized was that individual investors should stick to low-cost index funds for each asset class rather than trying to pick active managers.
+**Horace：** 是的，而真正的耶魯投資組合還包括個人投資者無法接觸的私募股權、創業投資和對沖基金。斯文森強調的關鍵洞見是，個人投資者應堅持為每個資產類別使用低成本指數基金，而非嘗試挑選主動型基金經理。
 
-[VISUAL: Table comparing all five portfolio models with columns for allocation, historical return, historical volatility, maximum drawdown, and Sharpe ratio]
+[VISUAL: Table comparing all five portfolio models with columns for 配置, 歷史回報, 歷史波動性, 最大回撤, and 夏普比率]
 
-**Sam:** How do I choose between all these models?
+**Stella：** 我如何在這些模型之間作選擇？
 
-**Alex:** It depends on your risk tolerance and your beliefs about the future economic environment. If you believe the future will look like the past 40 years -- falling interest rates, strong stock markets, low inflation -- then a stock-heavy portfolio like the Three-Fund or Yale Model will likely do best. If you are worried about inflation, rising rates, or economic uncertainty, the All-Weather or Risk Parity Lite approaches provide more protection.
+**Horace：** 這取決於你的風險承受能力和你對未來經濟環境的判斷。若你認為未來將與過去40年相似——利率下降、股市強勁、通脹低企——那麼重倉股票的投資組合（如三基金或耶魯模式）可能表現最好。若你擔心通脹、利率上升或經濟不確定性，全天候或輕量風險平價方法能提供更多保護。
 
-**Sam:** What about just mixing approaches?
+**Stella：** 若把不同方法結合起來又如何？
 
-**Alex:** Totally valid. You could start with the Three-Fund Portfolio as your core and then add 10 to 15 percent in real assets like gold, commodities, and TIPS as a satellite allocation. That gives you the simplicity of the core with some additional diversification on the edges.
+**Horace：** 完全可以。你可以以三基金投資組合作為核心，再加入10至15%的實物資產（如黃金、商品和通脹掛鉤債券）作為衛星配置。這樣既保留了核心的簡單性，又在邊緣增加了額外的分散效益。
 
-[VISUAL: Diagram showing Core-Satellite approach: a large circle labeled "Core: Three-Fund Portfolio (70-80%)" surrounded by smaller circles labeled "Gold (5%)", "Commodities (5%)", "TIPS (5%)", "REITs (5%)"]
+[VISUAL: Diagram showing Core-Satellite approach: a large circle labeled "核心：三基金投資組合（70-80%）" surrounded by smaller circles labeled "黃金（5%）", "商品（5%）", "通脹掛鉤債券（5%）", "房地產信託基金（5%）"]
 
-**Sam:** Let me ask about something practical. I am going to set my allocation and then what? Just leave it alone?
+**Stella：** 讓我問一個實際問題。我設定好配置後，接下來怎麼辦？就這樣放著不管嗎？
 
-**Alex:** Not quite. Over time, market movements will push your portfolio away from its target weights. If stocks have a great year, they might drift from 40 percent to 48 percent of your portfolio. You need to rebalance -- bring the weights back to targets.
+**Horace：** 不完全是。隨著時間推移，市場走勢會使你的投資組合偏離目標權重。若股票有個好年頭，它在投資組合中的比例可能從40%攀升至48%。你需要再平衡——把權重拉回目標。
 
-[VISUAL: Title card "Rebalancing: The Discipline That Pays"]
+[VISUAL: Title card "再平衡：帶來回報的自律"]
 
-**Sam:** How often should I rebalance?
+**Stella：** 多久應該再平衡一次？
 
-**Alex:** Research shows that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing just adds transaction costs. Some people use threshold-based rebalancing instead -- you rebalance whenever any asset class has drifted more than 5 percentage points from its target.
+**Horace：** 研究顯示，每年或每半年再平衡一次已能捕捉大部分效益。更頻繁的再平衡只會增加交易成本，而風險調整後回報的改善幅度不大。有些人改用閾值再平衡——當任何資產類別偏離目標超過5個百分點時就再平衡。
 
-**Sam:** Is not rebalancing just selling your winners and buying your losers? That feels wrong.
+**Stella：** 再平衡不就是賣掉表現好的資產、買入表現差的資產嗎？這感覺很違反直覺。
 
-**Alex:** It does feel wrong, and that is exactly why it works. Rebalancing is a systematic way to buy low and sell high. When stocks surge, you trim them. When they crash, you buy more. Studies show this disciplined contrarian behavior has added roughly 0.3 to 0.5 percent per year in return historically.
+**Horace：** 確實違反直覺，但這正是它有效的原因。再平衡是系統性地低買高賣的方式。當股票大漲，你減持。當股票崩潰，你增持。研究顯示，這種紀律嚴明的逆向操作歷史上每年額外帶來約0.3至0.5%的回報。
 
-[VISUAL: Chart showing a portfolio that drifts away from target, gets rebalanced, drifts again, gets rebalanced again -- with annotations showing "Sell high" and "Buy low" at each rebalancing event]
+[VISUAL: Chart showing a portfolio that drifts away from target, gets rebalanced, drifts again, gets rebalanced again -- with annotations showing "高賣" and "低買" at each rebalancing event]
 
-**Sam:** And the tax-efficient way to do this?
+**Stella：** 那稅務效益最高的再平衡方法是什麼？
 
-**Alex:** Great point. In taxable accounts, the best approach is to use new contributions to buy underweight assets rather than selling overweight ones. Direct your monthly investment to whatever has drifted furthest below its target. Also, if you receive dividends, reinvest them into the underweight asset classes. This way you rebalance over time without triggering capital gains taxes.
+**Horace：** 問得好。在應稅賬戶中，最佳方法是用新增資金購買比重偏低的資產，而非賣出比重偏高的資產。將每月投資額投入偏離目標最遠的資產類別。同樣，若你收到股息，也將其再投資於比重偏低的資產類別。這樣你隨時間漸進地再平衡，而無需觸發資本增值稅。
 
-**Sam:** Clever. Let us talk about one more thing -- the practical implementation. How do I actually build a multi-asset portfolio with ETFs?
+**Stella：** 很聰明。讓我們再談最後一個話題——實際操作。如何利用交易所買賣基金構建多資產投資組合？
 
-**Alex:** The amazing thing is that you can build an institutional-quality multi-asset portfolio with just five to seven low-cost ETFs. For US stocks, VTI at 0.03 percent expense ratio. For international stocks, VXUS at 0.07 percent. For bonds, BND at 0.03 percent. For long-term Treasuries, TLT at 0.15 percent. For TIPS, SCHP at 0.03 percent. For gold, GLDM at 0.10 percent. For commodities, PDBC at 0.59 percent.
+**Horace：** 令人驚嘆的是，你只需五至七隻低成本交易所買賣基金，就能構建機構級別的多資產投資組合。美國股票用VTI，管理費比率0.03%。國際股票用VXUS，0.07%。債券用BND，0.03%。長期國庫債券用TLT，0.15%。通脹掛鉤債券用SCHP，0.03%。黃金用GLDM，0.10%。商品用PDBC，0.59%。
 
-[VISUAL: A "shopping list" graphic showing each ETF with its ticker, name, asset class, and expense ratio, organized as a checklist]
+[VISUAL: A "購物清單" graphic showing each ETF with its ticker, name, asset class, and expense ratio, organized as a checklist]
 
-**Sam:** So total portfolio cost would be what, maybe 0.10 to 0.15 percent per year?
+**Stella：** 所以整個投資組合的總成本大約是每年0.10至0.15%？
 
-**Alex:** Something in that range, depending on the weights. Institutional investors pay tens of millions in management fees for similar strategies. You can do it for pennies on the dollar with ETFs.
+**Horace：** 大概在這個範圍，視乎各資產的權重而定。機構投資者為類似策略支付數千萬的管理費。你用交易所買賣基金，以極低的成本就能實現。
 
-**Sam:** That is incredible.
+**Stella：** 這真的太驚人了。
 
-**Alex:** One important note on commodities ETFs. Most commodity ETFs use futures contracts, not physical commodities. Futures-based ETFs can suffer from something called "roll cost" or "contango" -- they lose money when they sell expiring contracts and buy new ones. This can drag on returns over time. Make sure you understand this before adding a commodity ETF.
+**Horace：** 關於商品交易所買賣基金有一個重要提示。大多數商品交易所買賣基金使用期貨合約，而非實物商品。基於期貨的交易所買賣基金可能因「展期成本」或「期貨升水」而受損——它們在賣出到期合約並買入新合約時，可能出現虧損。這會隨時間拖累回報。在加入商品交易所買賣基金前，務必了解這一點。
 
-[VISUAL: Diagram showing how futures-based commodity ETFs work, with the "roll" process illustrated and the contango cost highlighted]
+[VISUAL: Diagram showing how futures-based commodity ETFs work, with the "展期"過程 illustrated and the 期貨升水成本 highlighted]
 
-**Sam:** Good warning. Let me make sure I understand the big picture. I should think about which economic environments I want to be protected against, then choose asset classes that perform well in those environments, then combine them with low correlations, and rebalance periodically?
+**Stella：** 很重要的提醒。讓我確認自己理解了整體思路。我應該考慮自己希望抵御哪些經濟環境的衝擊，然後選擇在這些環境中表現良好的資產類別，以低相關性組合它們，再定期再平衡？
 
-**Alex:** That is a perfect summary. And remember the economic regime coverage map we discussed. Growth with low inflation favors stocks and REITs. Growth with high inflation favors commodities and TIPS. Recession with low inflation favors bonds. Recession with high inflation -- stagflation -- favors gold and commodities. A good multi-asset portfolio has some assets performing well in every one of those environments.
+**Horace：** 這個總結太精準了。記住我們討論的經濟環境覆蓋圖。低通脹增長期有利於股票和房地產信託基金。高通脹增長期有利於商品和通脹掛鉤債券。低通脹衰退期有利於債券。高通脹衰退——即滯脹——有利於黃金和商品。一個好的多資產投資組合，在每種經濟環境下都有部分資產表現良好。
 
-[VISUAL: Four-quadrant economic regime grid with Growth/Recession on one axis and High/Low Inflation on the other, with each quadrant showing the best-performing asset classes]
+[VISUAL: Four-quadrant economic regime grid with 增長/衰退 on one axis and 高/低通脹 on the other, with each quadrant showing the best-performing asset classes]
 
-**Sam:** Before we wrap up, let me ask about a common concern I hear: "Is not this all just over-complicating things? Warren Buffett says just buy an S&P 500 index fund."
+**Stella：** 在結束之前，讓我問一個常見的顧慮：「這一切不只是把事情複雜化嗎？沃倫·巴菲特說，只需買標普500指數基金就好了。」
 
-**Alex:** Buffett's advice is specifically for his estate after he dies -- for money his wife will not need for decades. And he is not wrong for that specific situation. A 100 percent stock portfolio has the highest expected long-term return. But most real people cannot stomach a 40 to 50 percent drawdown, which stocks have delivered multiple times. They panic-sell at the bottom and lock in losses. A multi-asset portfolio with smaller drawdowns is easier to hold through crises, and the portfolio you actually hold is infinitely better than the one you abandon.
+**Horace：** 巴菲特的建議是針對他身後的遺產——那是他的妻子數十年都不需要動用的資金。就那個具體情況而言，他並沒有說錯。100%股票投資組合擁有最高的長期預期回報。但大多數真實的人無法承受40至50%的回撤——股票歷史上多次出現過這種情況。他們往往在最低點恐慌性拋售，鎖定虧損。一個回撤幅度較小的多資產投資組合更容易在危機中堅守，而你真正持有的投資組合，比你半途放棄的投資組合強無數倍。
 
-**Sam:** So it is about matching the portfolio to the investor, not just chasing the highest return.
+**Stella：** 所以關鍵是讓投資組合配合投資者本身，而不只是追逐最高回報。
 
-**Alex:** Exactly. The best portfolio is the one you can stick with for decades. Multi-asset allocation helps you find that portfolio by offering better risk-adjusted returns and smaller worst-case scenarios.
+**Horace：** 正是。最好的投資組合，是你能夠堅持數十年的那個。多資產配置透過提供更好的風險調整後回報和更小的最差情境，幫助你找到這樣的投資組合。
 
-[VISUAL: Split-screen showing two investors during a market crash. Left: "100% Stocks" investor panics and sells at the bottom. Right: "Multi-Asset" investor stays calm because the portfolio only fell 15% instead of 40%]
+[VISUAL: Split-screen showing two investors during a market crash. Left: "100%股票"投資者恐慌性賣出，在最低點出場. Right: "多資產"投資者保持冷靜，因為投資組合只跌了15%而非40%]
 
-**Sam:** That makes a lot of sense. Three key takeaways from today?
+**Stella：** 說得很有道理。今天的三個重點要點？
 
-**Alex:** First, diversification beyond stocks and bonds is not complication -- it is completion. Asset classes like commodities, gold, REITs, and TIPS provide genuine diversification that different types of stocks do not. Second, what matters is not how many assets you own but how they correlate with each other. Focus on adding assets with low correlations to your existing portfolio. Third, the efficient frontier shows the optimal risk-return trade-off, but your inputs matter enormously -- consider simpler approaches like equal risk contribution if you are unsure about expected returns.
+**Horace：** 第一，超越股票和債券的分散投資並非複雜化——而是完整化。商品、黃金、房地產信託基金和通脹掛鉤債券等資產類別，提供不同類型股票無法比擬的真正分散效益。第二，重要的不是你持有多少種資產，而是它們之間的相關性。專注於加入與現有投資組合低相關性的資產。第三，效率前沿展示了最優的風險回報取捨，但輸入數據至關重要——若對預期回報不確定，可考慮採用等風險貢獻等更簡單的方法。
 
-**Sam:** And maybe a bonus takeaway: rebalance regularly. That systematic buy-low, sell-high discipline adds real value over time.
+**Stella：** 還有一個額外要點：定期再平衡。這種系統性的低買高賣紀律，長期而言能帶來真實的價值。
 
-**Alex:** Great addition. Next week, we are going to talk about how the business cycle affects which sectors of the economy perform best, and how you can tilt your portfolio to take advantage of that cycle. It is called sector rotation, and it is fascinating.
+**Horace：** 補充得很好。下週，我們將探討商業周期如何影響不同經濟板塊的表現，以及你如何調整投資組合來把握這一周期。這就是板塊輪動，非常精彩。
 
-**Sam:** Can not wait. See everyone next week!
+**Stella：** 期待下週！各位再見！
 
-[VISUAL: End screen with subscribe button, links to previous lessons, and a preview thumbnail for Week 16: Business Cycles and Sector Rotation]
+[VISUAL: End screen with subscribe button, links to previous lessons, and a preview thumbnail for Week 16: 商業周期與板塊輪動]
 
 ---

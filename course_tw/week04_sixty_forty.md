@@ -1,78 +1,75 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 4: The 60/40 Portfolio
+# 第四週：60/40 投資組合
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-The 60/40 portfolio -- 60% stocks and 40% bonds -- is the most famous asset allocation in the history of investing. It has been the default recommendation of financial advisors for decades, the benchmark against which balanced funds are measured, and the starting point for almost every serious conversation about portfolio construction. If you invest in a target-date retirement fund, you are likely in some variation of 60/40 right now.
+60/40 投資組合——60% 股票加上 40% 債券——是投資史上最廣為人知的資產配置方式。數十年來，它一直是理財顧問的預設建議，是衡量均衡型基金的基準，也是幾乎所有嚴肅的投資組合建構討論的起點。如果你現在投資的是目標日期退休基金，你很可能已經持有某種形式的 60/40 配置。
 
-Understanding the 60/40 portfolio matters for every investor, whether you ultimately adopt it, modify it, or reject it entirely:
+了解 60/40 投資組合對每位投資人都至關重要，無論你最終選擇採用、調整，還是完全捨棄它：
 
-1. **It is the baseline.** In the same way that a doctor needs to understand the human body before diagnosing disease, an investor needs to understand 60/40 before evaluating more complex strategies. It is the control group against which everything else is measured. When a hedge fund manager says they beat "the benchmark," they often mean they outperformed a 60/40 portfolio on a risk-adjusted basis.
+1. **它是基準線。** 就像醫生在診斷疾病之前需要了解人體一樣，投資人在評估更複雜的策略之前，需要先了解 60/40。它是衡量其他一切的對照組。當避險基金經理說他們「打敗了基準」，他們通常是指在風險調整後的基礎上優於 60/40 投資組合。
 
-2. **It demonstrates the power of diversification.** The 60/40 portfolio is not simply a watered-down stock portfolio. Because of the historical relationship between stocks and bonds, a 60/40 mix has historically delivered roughly 80% of the stock market's return with only about 60% of its risk. That is diversification working its magic -- you give up a little return but shed disproportionately more risk.
+2. **它展示了分散投資的力量。** 60/40 投資組合並非單純是稀釋版的股票投資組合。由於股票與債券之間的歷史關係，60/40 的組合在歷史上大約能獲得股市報酬的 80%，卻只承擔約 60% 的風險。這就是分散投資的魔力——你放棄了一點報酬，但卻以不成比例的方式大幅降低了風險。
 
-3. **It reveals the limits of diversification.** The year 2022 delivered a painful lesson: when both stocks and bonds fall simultaneously, the 60/40 portfolio offers no shelter. Understanding why 2022 happened -- and whether it could happen again -- is essential for building resilient portfolios.
+3. **它揭示了分散投資的侷限。** 2022 年帶來了一個痛苦的教訓：當股票與債券同步下跌時，60/40 投資組合毫無遮蔽效果。了解 2022 年為何會發生——以及它是否可能再次發生——對於建構具有韌性的投資組合至關重要。
 
-4. **It teaches you about correlation.** The stock-bond correlation is the single most important variable in portfolio construction. When stocks and bonds move in opposite directions (negative correlation), 60/40 works beautifully. When they move together (positive correlation), it fails. Understanding what drives correlation shifts is one of the most valuable things you can learn.
+4. **它教會你認識相關性。** 股債相關性是投資組合建構中最關鍵的單一變數。當股票與債券朝相反方向移動（負相關）時，60/40 表現絕佳。當兩者同向移動（正相關）時，它就失靈了。了解驅動相關性變化的因素，是你能學到的最有價值的事情之一。
 
-5. **It forces you to think about what comes next.** With interest rates, inflation regimes, and global economic structures evolving, blindly following a 60/40 allocation from past decades may not be optimal going forward. But you need to understand why it worked before you can intelligently adapt it.
+5. **它迫使你思考未來的走向。** 隨著利率、通膨環境與全球經濟結構不斷演變，盲目沿用數十年前的 60/40 配置未必是最佳選擇。但你必須先了解它過去為何有效，才能明智地加以調整。
 
-This lesson covers the origin and logic of the 60/40 portfolio, its historical performance, the mechanics of stock-bond correlation, how it reduces drawdowns, the 2022 debacle and what it taught us, and modern alternatives and adaptations.
+本課程涵蓋 60/40 投資組合的起源與邏輯、其歷史績效、股債相關性的運作機制、它如何降低回撤、2022 年的挫敗及其啟示，以及現代的替代方案與調整做法。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的事
 
-#### 1. Origin and Logic of the 60/40 Portfolio
+#### 1. 60/40 投資組合的起源與邏輯
 
-The 60/40 portfolio did not emerge from a single paper or theory. It evolved over decades as a practical compromise between growth and stability.
+60/40 投資組合並非源自某篇單一論文或理論，而是在數十年間作為成長與穩定之間的實用折衷方案逐步演化而來。
 
-**The intellectual roots:**
+**理論根源：**
 
-- **1952:** Harry Markowitz publishes "Portfolio Selection," introducing Modern Portfolio Theory (MPT). He mathematically proves that combining assets with different return patterns can produce portfolios with better risk-return characteristics than any single asset alone.
+- **1952 年：** 哈利·馬可維茲發表《投資組合選擇》，提出現代投資組合理論（MPT）。他以數學方式證明，將具有不同報酬型態的資產組合在一起，能夠產生風險報酬特性優於任何單一資產的投資組合。
 
-- **1960s-1970s:** The concept of a "balanced fund" gains popularity. Pension funds and endowments begin adopting stock-bond mixes rather than holding only one asset class.
+- **1960 至 1970 年代：** 「均衡型基金」的概念日益普及。退休基金與捐贈基金開始採用股債混合配置，而非只持有單一資產類別。
 
-- **1980s-1990s:** Financial advisors standardize around 60/40 as the "moderate" or "balanced" allocation. The strong performance of both stocks and bonds during this period cements 60/40 as the default.
+- **1980 至 1990 年代：** 理財顧問將 60/40 標準化為「穩健」或「均衡」配置。這段時期股票與債券均表現強勁，進一步鞏固了 60/40 作為預設選擇的地位。
 
-**Why 60% stocks and 40% bonds specifically?**
+**為什麼是 60% 股票和 40% 債券？**
 
-The 60/40 split represents a sweet spot in the risk-return tradeoff:
+60/40 的比例代表了風險報酬權衡中的一個甜蜜點：
 
 ```
-WHY 60/40 IS THE "SWEET SPOT"
+為何 60/40 是「甜蜜點」
 ================================
 
-Allocation      Expected    Standard    Sharpe    Max
-(Stock/Bond)    Return      Deviation   Ratio     Drawdown
-                                        (approx)
------------     --------    ---------   ------    --------
-0/100  Bonds      5.5%        6%         0.37      -18%
-20/80             6.4%        7%         0.49      -20%
-40/60             7.4%        9%         0.49      -26%
-60/40             8.4%       10%         0.49      -33%    <--
-80/20             9.3%       13%         0.45      -42%
-100/0  Stocks    10.3%       16%         0.41      -51%
+配置          預期        標準        夏普    最大
+（股票/債券）  報酬        差          比率    回撤
+                                      （約）
+-----------   --------    ---------   ------  --------
+0/100  債券     5.5%        6%          0.37    -18%
+20/80           6.4%        7%          0.49    -20%
+40/60           7.4%        9%          0.49    -26%
+60/40           8.4%       10%          0.49    -33%    <--
+80/20           9.3%       13%          0.45    -42%
+100/0  股票    10.3%       16%          0.41    -51%
 
-Key observations:
-- Return increases roughly linearly with stock allocation
-- Risk increases FASTER than return beyond 60/40
-- Sharpe Ratio peaks around 40-60% stocks
-- Maximum drawdown escalates rapidly above 60% stocks
+關鍵觀察：
+- 報酬隨股票配置比例大致線性增加
+- 超過 60/40 後，風險的增速「快於」報酬
+- 夏普比率在股票配置 40-60% 附近達到高峰
+- 最大回撤在股票超過 60% 後急速惡化
 ```
 
 ```
-RISK-RETURN TRADEOFF VISUALIZATION
+風險報酬權衡視覺化
 =====================================
 
-Expected
-Return
+預期
+報酬
    |                                        * 100/0
    |                                     *
 10%|                                  *
@@ -85,58 +82,57 @@ Return
    |           *
  6%|        * 20/80
    |     *
- 5%|  * 0/100                  Notice: the curve BENDS
-   |                           The first 60% in stocks
-   |                           adds a lot of return for
-   |                           moderate risk. The last
-   |                           40% adds less return but
-   |                           much more risk.
-   +--|--|--|--|--|--|--|--|--|-> Risk (Std Dev)
+ 5%|  * 0/100                  注意：曲線「彎曲」了
+   |                           前 60% 的股票配置
+   |                           以適度風險帶來豐厚報酬
+   |                           最後 40% 帶來的報酬更少
+   |                           但風險卻大幅增加
+   +--|--|--|--|--|--|--|--|--|-> 風險（標準差）
       4  6  8  10 12 14 16 18
 ```
 
-**The intuition:** Moving from 0% stocks to 60% stocks dramatically improves returns while risk increases only moderately. But moving from 60% to 100% stocks adds diminishing returns while risk accelerates. The "bang for your buck" in terms of risk-adjusted return is maximized around the 40-60% stock allocation range.
+**直覺理解：** 從 0% 股票增加至 60% 股票，報酬大幅提升，而風險僅適度增加。但從 60% 增加至 100% 股票，報酬邊際遞減，風險卻加速上升。就風險調整後報酬而言，「每單位風險所獲得的報酬」在股票配置約 40-60% 的範圍內達到最大值。
 
 ---
 
-#### 2. Historical Performance of 60/40
+#### 2. 60/40 的歷史績效
 
-The 60/40 portfolio has delivered remarkably strong results over long periods, particularly in the United States.
+60/40 投資組合在長期間內交出了相當亮眼的成績，在美國尤其如此。
 
 ```
-60/40 PORTFOLIO PERFORMANCE BY DECADE
+60/40 投資組合各年代績效
 ========================================
 
-Decade          60/40        S&P 500     Bonds     60/40
-                Return       Return      Return    Max DD
-                (Ann.)       (Ann.)      (Ann.)
----------       ------       ------      ------    ------
-1930s            5.2%         0.0%       +4.9%      -28%
-1940s            7.1%         9.2%       +2.7%      -13%
-1950s           10.2%        19.4%       -0.1%       -8%
-1960s            5.8%         7.8%       +1.7%      -14%
-1970s            6.7%         5.9%       +5.5%      -18%
-1980s           14.5%        17.5%      +12.6%       -8%
-1990s           12.8%        18.2%       +7.7%       -6%
-2000s            4.0%        -0.9%       +6.3%      -33%
-2010s            8.7%        13.6%       +3.7%      -10%
-2020-24          4.8%         9.6%      -0.5%       -22%
+年代            60/40        S&P 500     債券        60/40
+                報酬         報酬        報酬        最大回撤
+                （年化）     （年化）    （年化）
+---------       ------       ------      ------      ------
+1930 年代        5.2%         0.0%       +4.9%       -28%
+1940 年代        7.1%         9.2%       +2.7%       -13%
+1950 年代       10.2%        19.4%       -0.1%        -8%
+1960 年代        5.8%         7.8%       +1.7%       -14%
+1970 年代        6.7%         5.9%       +5.5%       -18%
+1980 年代       14.5%        17.5%      +12.6%        -8%
+1990 年代       12.8%        18.2%       +7.7%        -6%
+2000 年代        4.0%        -0.9%       +6.3%       -33%
+2010 年代        8.7%        13.6%       +3.7%       -10%
+2020-24          4.8%         9.6%      -0.5%        -22%
 
-Full Period     ~8.0%       ~10.2%      ~5.0%      -33%
-(1926-2024)
+整段期間        ~8.0%       ~10.2%      ~5.0%       -33%
+（1926-2024）
 
-Notable: 60/40 was positive in 82% of calendar years.
-The S&P 500 alone was positive in 73% of calendar years.
+值得注意：60/40 在約 82% 的曆年中呈正報酬。
+S&P 500 單獨持有則在約 73% 的曆年中呈正報酬。
 ```
 
 ```
-GROWTH OF $100,000 IN 60/40 vs. ALL-STOCK vs. ALL-BOND
+$100,000 投入 60/40、全股票、全債券的成長比較
 ========================================================
-(1990-2024, logarithmic scale)
+（1990-2024，對數刻度）
 
-Value
+金額
   |
-$2M +                                            * All-Stock
+$2M +                                            * 全股票
     |                                          *
     |                                       *
 $1M +                                    *   * 60/40
@@ -146,82 +142,82 @@ $1M +                                    *   * 60/40
 $500K                        *    *
     |                     *    *
     |                  *    *
-    |               *    *         * All-Bond
+    |               *    *         * 全債券
 $250K            *    *         *
     |         *    *         *
     |      *    *         *
 $100K  *----*---------*-------->
     1990    2000    2010    2024
 
-All-Stock:  $100K -> ~$2.1M  (higher return, bigger swings)
-60/40:      $100K -> ~$1.1M  (solid return, smoother ride)
-All-Bond:   $100K -> ~$350K  (lower return, least volatility)
+全股票：  $100K -> ~$210 萬  （較高報酬，波動較大）
+60/40：   $100K -> ~$110 萬  （穩健報酬，走勢較平順）
+全債券：  $100K -> ~$35 萬   （較低報酬，波動最小）
 ```
 
-**The "lost decade" example:** From 2000 to 2009, the S&P 500 had a negative total return. This was the era of the dot-com crash and the financial crisis. But the 60/40 portfolio returned about 4% annualized over the same period because bonds performed well. This is the core promise of 60/40: bonds provide a cushion when stocks stumble.
+**「失落的十年」範例：** 從 2000 年至 2009 年，S&P 500 的總報酬為負。這是科技泡沫崩潰與金融危機的年代。但 60/40 投資組合在同一期間的年化報酬約為 4%，原因是債券表現良好。這正是 60/40 的核心承諾：當股票跌跌不休時，債券提供緩衝。
 
 ---
 
-#### 3. Stock-Bond Correlation: The Engine That Drives 60/40
+#### 3. 股債相關性：驅動 60/40 的引擎
 
-The 60/40 portfolio works because of a critical assumption: stocks and bonds do not always move in the same direction. In statistical terms, they have a low or negative correlation.
+60/40 投資組合之所以有效，是基於一個關鍵假設：股票與債券並非總是朝同一方向移動。以統計術語而言，兩者之間具有低度或負相關性。
 
-**Understanding correlation:**
+**理解相關性：**
 
 ```
-CORRELATION EXPLAINED
+相關性解析
 ========================
 
-Correlation = -1.0    Perfect opposite movement
-                       When stocks go UP, bonds go DOWN (same %)
-                       Maximum diversification benefit
+相關性 = -1.0    完全反向移動
+                  股票上漲時，債券下跌（相同幅度）
+                  分散投資效益最大化
 
-Correlation = 0.0     No relationship
-                       Stocks and bonds move independently
-                       Good diversification benefit
+相關性 = 0.0     毫無關聯
+                  股票與債券各自獨立移動
+                  良好的分散投資效益
 
-Correlation = +1.0    Perfect same-direction movement
-                       When stocks go UP, bonds go UP (same %)
-                       ZERO diversification benefit
+相關性 = +1.0    完全同向移動
+                  股票上漲時，債券也上漲（相同幅度）
+                  分散投資效益為「零」
 
 
-WHAT HAPPENS TO 60/40 AT DIFFERENT CORRELATIONS
+不同相關性下 60/40 的表現
 =================================================
 
-Correlation    60/40 Std Dev    Diversification    60/40 Benefit
-               (approx)        Benefit            vs. All-Stock
------------    -------------    ---------------    -------------
--0.5            7.5%            Maximum             Excellent
--0.2            9.0%            Strong              Very Good
- 0.0           10.0%            Good                Good
-+0.2           11.0%            Moderate             Fair
-+0.5           12.5%            Minimal              Limited
-+1.0           14.0%            NONE                 None
+相關性      60/40 標準差    分散投資      60/40 相對
+            （約）          效益          全股票的優勢
+-----------  -------------  ---------------  -------------
+-0.5          7.5%          最大              極佳
+-0.2          9.0%          顯著              非常好
+ 0.0         10.0%          良好              良好
++0.2         11.0%          適中              尚可
++0.5         12.5%          有限              有限
++1.0         14.0%          「無」            無
 ```
 
-**Historical correlation regimes:**
+**歷史相關性環境：**
 
-The stock-bond correlation has not been constant. It has shifted dramatically over time, and understanding why is critical:
+股債相關性並非固定不變，它隨著時間大幅波動。了解其背後原因至關重要：
 
 ```
-STOCK-BOND CORRELATION THROUGH HISTORY
+股債相關性的歷史演變
 =========================================
 
-Period            Correlation    Regime              Why
------------       -----------    ------              ---
-1960-1970          +0.3          Positive            Rising inflation
-1970-1980          +0.4          Positive            High and volatile
-                                                    inflation
-1980-1999          +0.2          Mildly positive     Falling inflation,
-                                                    falling rates
-2000-2020          -0.3          NEGATIVE            Deflation fears,
-                                                    low stable inflation,
-                                                    "flight to quality"
-2021-2023          +0.5          POSITIVE            Inflation shock,
-                                                    aggressive rate hikes
+期間              相關性      環境                原因
+-----------       ----------- ------              ---
+1960-1970          +0.3        正相關              通膨上升
+1970-1980          +0.4        正相關              高且不穩定
+                                                   的通膨
+1980-1999          +0.2        輕微正相關          通膨下降、
+                                                   利率下降
+2000-2020          -0.3        「負相關」          通縮疑慮、
+                                                   低且穩定的通膨、
+                                                   「避險資金流入」
+2021-2023          +0.5        「正相關」          通膨衝擊、
+                                                   積極升息
 
 
-Correlation
+相關性
 +0.6  |         *
       |        * *                                    *
 +0.4  |       *   *                                  * *
@@ -237,873 +233,865 @@ Correlation
       +--|--|--|--|--|--|--|--|--|--|--|--|--|-->
        1960 1970 1980 1990 2000 2010 2020
 
-       INFLATION          DEFLATION         INFLATION
-       REGIME             REGIME            RETURNS
-       (positive          (negative         (positive
-        correlation)       correlation)      correlation)
+       通膨              通縮              通膨
+       環境              環境              捲土重來
+       （正相關）         （負相關）         （正相關）
 ```
 
-**The key insight:** The correlation between stocks and bonds is driven primarily by the inflation regime:
+**關鍵洞見：** 股債相關性主要受通膨環境驅動：
 
-- **When inflation is the dominant concern** (1960s-1970s, 2021-2023): Both stocks and bonds suffer from inflation. Rising rates hurt bonds directly (prices fall). Inflation also hurts stocks by increasing costs and compressing valuations. Correlation is positive, and 60/40 struggles.
+- **當通膨是主要隱憂時**（1960-1970 年代、2021-2023 年）：股票與債券同時受到通膨衝擊。利率上升直接導致債券價格下跌；通膨也因拉高成本、壓縮估值而傷害股票。相關性為正，60/40 表現掙扎。
 
-- **When deflation or recession is the dominant concern** (2000-2020): Stocks fall because of economic weakness, but bonds rally because central banks cut rates and investors flee to safety. Correlation is negative, and 60/40 shines.
+- **當通縮或衰退是主要隱憂時**（2000-2020 年）：股票因經濟疲弱而下跌，但央行降息、投資人尋求避風港，債券隨之走揚。相關性為負，60/40 大放異彩。
 
 ---
 
-#### 4. How 60/40 Reduces Drawdowns
+#### 4. 60/40 如何降低回撤
 
-The practical benefit of the 60/40 portfolio is most visible during market crises. By holding 40% in bonds, the portfolio has a built-in shock absorber.
+60/40 投資組合的實際效益，在市場危機期間最為明顯。持有 40% 的債券，使投資組合內建了一個緩衝機制。
 
 ```
-DRAWDOWN COMPARISON: 60/40 vs. ALL-STOCK
+60/40 與全股票的回撤比較
 ==========================================
 
-                        All-Stock    60/40       60/40
-Event                   Drawdown     Drawdown    Savings
------------             ---------    --------    -------
-Black Monday 1987         -34%        -19%        15%
-Asian/LTCM 1997-98        -19%        -10%         9%
-Dot-Com 2000-02           -49%        -22%        27%
-Financial Crisis 07-09    -57%        -33%        24%
-COVID Crash 2020          -34%        -22%        12%
-2022 Bear Market          -25%        -22%         3% *
+                        全股票      60/40       60/40
+事件                    回撤        回撤        減少的損失
+-----------             ---------   --------    -------
+1987 年黑色星期一        -34%        -19%        15%
+1997-98 亞洲/長期資本    -19%        -10%         9%
+  管理公司危機
+2000-02 科技泡沫         -49%        -22%        27%
+2007-09 金融海嘯         -57%        -33%        24%
+2020 年 COVID 崩盤       -34%        -22%        12%
+2022 年空頭市場          -25%        -22%         3% *
 
-* 2022 was unusual: bonds fell too, so 60/40
-  provided almost no cushion. More on this below.
+* 2022 年較為異常：債券也同步下跌，因此 60/40
+  幾乎毫無緩衝效果。詳見下文。
 ```
 
 ```
-ANATOMY OF 60/40 IN A NORMAL CRISIS (2008-2009)
+60/40 在一般危機中的解剖（2008-2009）
 ==================================================
 
-What happened:
-- Stocks fell 57% from peak to trough
-- Bonds ROSE about 5% during the same period
-- Stock-bond correlation was strongly negative
+發生了什麼：
+- 股票從高點到低點下跌 57%
+- 同期間債券「上漲」約 5%
+- 股債相關性強烈為負
 
-Portfolio math:
-- Stock portion (60%): -57% x 0.60 = -34.2%
-- Bond portion  (40%):  +5% x 0.40 = +2.0%
-- Total 60/40 drawdown:               -32.2%
+投資組合數學：
+- 股票部位（60%）：-57% x 0.60 = -34.2%
+- 債券部位（40%）：+5% x 0.40 =  +2.0%
+- 60/40 總回撤：                  -32.2%
 
-     Stocks    |XXXXXXXXX                    |  -57%
+     股票      |XXXXXXXXX                    |  -57%
                |XXXXXXXXX                    |
-     Bonds     |       BBB                   |  +5%
+     債券      |       BBB                   |  +5%
                |                             |
      60/40     |XXXXXX                       |  -32%
                |                             |
                0%   -20%   -40%   -60%
 
-The bonds acted as a SHOCK ABSORBER, reducing the
-total portfolio damage by nearly half.
+債券發揮了「緩衝」作用，將整體投資組合損失
+減少了將近一半。
 ```
 
 ```
-ANATOMY OF 60/40 IN THE 2022 CRISIS
+60/40 在 2022 年危機中的解剖
 ======================================
 
-What happened:
-- Stocks fell about 25% from peak to trough
-- Bonds ALSO fell about 13% (worst bond year since 1800s)
-- Stock-bond correlation was strongly POSITIVE
+發生了什麼：
+- 股票從高點到低點下跌約 25%
+- 債券「也」下跌約 13%（1800 年代以來最糟糕的債券年度）
+- 股債相關性強烈為「正」
 
-Portfolio math:
-- Stock portion (60%): -25% x 0.60 = -15.0%
-- Bond portion  (40%): -13% x 0.40 =  -5.2%
-- Total 60/40 drawdown:               -20.2%
+投資組合數學：
+- 股票部位（60%）：-25% x 0.60 = -15.0%
+- 債券部位（40%）：-13% x 0.40 =  -5.2%
+- 60/40 總回撤：                  -20.2%
 
-     Stocks    |XXXXXXXX                     |  -25%
+     股票      |XXXXXXXX                     |  -25%
                |                             |
-     Bonds     |XXXX                         |  -13%
+     債券      |XXXX                         |  -13%
                |                             |
      60/40     |XXXXXXX                      |  -20%
                |                             |
                0%   -10%   -20%   -30%
 
-The bonds PROVIDED ALMOST NO CUSHION. Instead of
-offsetting stock losses, they added to them.
-This was a failure of the 60/40 premise.
+債券幾乎「毫無緩衝」。它們非但沒有抵消股票損失，
+反而雪上加霜。這是 60/40 前提的失敗。
 ```
 
-**Recovery times also matter:**
+**回復時間同樣重要：**
 
 ```
-TIME TO RECOVER FROM MAJOR DRAWDOWNS
+從重大回撤中恢復的時間
 =======================================
 
-Event                   All-Stock      60/40
-                        Recovery       Recovery
------------             ---------      --------
-Dot-Com 2000-02         7 years        3 years
-Financial Crisis 07-09  5.5 years      3 years
-COVID 2020              5 months       4 months
-2022 Bear Market        2 years        1.5 years
+事件                    全股票          60/40
+                        回復時間        回復時間
+-----------             ---------       --------
+2000-02 科技泡沫         7 年            3 年
+2007-09 金融海嘯         5.5 年          3 年
+2020 年 COVID            5 個月          4 個月
+2022 年空頭市場          2 年            1.5 年
 
-60/40 recovers faster because:
-1. The drawdown is smaller (less ground to make up)
-2. Rebalancing buys stocks at depressed prices
-3. Bond income provides cash flow during recovery
+60/40 回復較快，原因如下：
+1. 回撤幅度較小（需要彌補的缺口較少）
+2. 再平衡在低點買進股票
+3. 債券利息在回復期間提供現金流
 ```
 
 ---
 
-#### 5. When 60/40 Fails: The 2022 Case Study
+#### 5. 60/40 失靈之時：2022 年案例研究
 
-The year 2022 was a watershed moment for the 60/40 portfolio. For the first time in decades, both stocks and bonds suffered significant losses simultaneously, challenging the fundamental premise of balanced investing.
+2022 年對 60/40 投資組合而言是一個分水嶺。數十年來首次，股票與債券同步出現重大損失，從根本上挑戰了均衡投資的核心前提。
 
-**What happened in 2022:**
+**2022 年發生了什麼：**
 
 ```
-2022 ASSET CLASS RETURNS
+2022 年各資產類別報酬
 ==========================
 
-Asset                         Return
+資產                          報酬
 ----                          ------
 S&P 500                       -18.1%
-Nasdaq                        -32.5%
-International Stocks          -16.0%
-U.S. Aggregate Bonds          -13.0%
-Long-Term Treasuries          -29.3%
-60/40 Portfolio               -16.9%
-TIPS (Inflation-Protected)     -11.9%
-Commodities (broad)           +16.1%
-Cash / T-Bills                 +1.5%
+那斯達克                       -32.5%
+國際股票                       -16.0%
+美國綜合債券                   -13.0%
+長期公債                       -29.3%
+60/40 投資組合                 -16.9%
+抗通膨公債（TIPS）             -11.9%
+大宗商品（廣泛）               +16.1%
+現金／短期國庫券               +1.5%
 
-The traditional 60/40 had its WORST year since 2008,
-and one of its worst years since the Great Depression.
+傳統 60/40 自 2008 年以來表現最差，
+也是大蕭條以來最糟糕的年度之一。
 ```
 
-**Why 2022 was different:**
+**為何 2022 年如此不同：**
 
-The root cause was the return of inflation after decades of dormancy. From 2000 to 2020, the world lived in a low-inflation environment. Central banks kept interest rates near zero. Bonds rallied persistently. Whenever stocks fell (2001, 2008, 2020), bonds rose because central banks cut rates aggressively. The negative stock-bond correlation became something investors took for granted.
+根本原因是通膨在沉寂數十年後捲土重來。從 2000 年至 2020 年，全球處於低通膨環境。各國央行將利率維持在接近零的水準。債券持續上漲。每當股票下跌（2001 年、2008 年、2020 年），央行積極降息，債券隨之走揚。負的股債相關性成為投資人視為理所當然的事。
 
-In 2022, inflation surged to 9%, its highest level in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. This created a scenario where:
+2022 年，通膨飆升至 9%，創下 40 年來最高水準。聯準會以史上最快速度升息。這造成了以下情形：
 
-1. **Bonds fell** because rising rates mechanically push bond prices down. The longer the duration of the bond, the greater the damage. Long-term Treasuries lost nearly 30%.
+1. **債券下跌**，因為利率上升在機械上直接推低債券價格。債券的存續期間越長，損失越慘重。長期公債幾乎損失了近 30%。
 
-2. **Stocks fell** because higher interest rates increase the discount rate applied to future cash flows, compressing valuations. Growth stocks, whose value depends heavily on distant future earnings, were hit hardest.
+2. **股票下跌**，因為更高的利率提高了未來現金流的折現率，壓縮了估值。未來盈餘仍在遙遠未來的成長型股票首當其衝。
 
-3. **The correlation flipped positive.** Both asset classes were responding to the same force -- inflation and rate hikes -- in the same direction. The diversification benefit of holding bonds alongside stocks evaporated.
+3. **相關性翻轉為正。** 兩種資產類別都在對同一股力量——通膨與升息——做出同方向的反應。持有股票搭配債券的分散投資效益消失殆盡。
 
 ```
-THE INFLATION MECHANISM
+通膨傳導機制
 =========================
 
-Inflation rises
+通膨上升
       |
       v
-Central Bank raises rates
+央行升息
       |
       +---------+---------+
       |                   |
       v                   v
-Bond prices              Stock valuations
-FALL                     COMPRESSED
-(rates up =              (higher discount rate
- prices down)             = lower present value
-                          of future earnings)
+債券價格                 股票估值
+「下跌」                 「受壓縮」
+（利率升 =              （更高折現率
+ 價格降）                = 未來盈餘現值降低）
       |                   |
       v                   v
-BOTH STOCKS AND BONDS FALL TOGETHER
+股票與債券「同步下跌」
       |
       v
-60/40 diversification FAILS
+60/40 分散投資「失效」
 ```
 
-**Was 2022 a one-time anomaly or a new regime?**
+**2022 年是一次性異象，還是新的環境？**
 
-This is the most important question for investors going forward. History suggests the answer is nuanced:
+這是投資人往後最重要的問題。歷史表明答案是微妙的：
 
 ```
-HISTORICAL CONTEXT FOR SIMULTANEOUS DECLINES
+股債同步下跌的歷史背景
 ===============================================
 
-Year(s)         Stocks      Bonds       Cause
+年度            股票        債券        原因
 -------         ------      -----       -----
-1931            -43%        -2%         Depression + deflation
-1941            -11%        -2%         WWII
-1969            -8%         -5%         Vietnam, inflation
-1973-74         -37%        -4%         Oil crisis, inflation
-2022            -18%        -13%        Post-COVID inflation
+1931            -43%        -2%         大蕭條 + 通縮
+1941            -11%        -2%         二次世界大戰
+1969             -8%        -5%         越戰，通膨
+1973-74         -37%        -4%         石油危機，通膨
+2022            -18%        -13%        後疫情通膨
 
-Key observation: Simultaneous stock-bond declines are RARE
-but NOT unprecedented. They tend to occur during inflationary
-periods or regime changes. The 2000-2020 negative correlation
-was the exception, not the rule, when viewed over 100 years.
+關鍵觀察：股債同步下跌「罕見」
+但並非史無前例。它們往往發生在通膨期間
+或環境轉換時期。從百年視角來看，
+2000-2020 年的負相關性才是例外，而非常態。
 ```
 
 ---
 
-#### 6. The Bond Math: Why Duration Matters
+#### 6. 債券數學：為何存續期間至關重要
 
-To understand why bonds sometimes help and sometimes hurt in a 60/40 portfolio, you need to understand duration -- a measure of how sensitive a bond's price is to interest rate changes.
+要了解債券在 60/40 投資組合中有時提供幫助、有時帶來傷害，你需要理解存續期間——衡量債券價格對利率變化敏感程度的指標。
 
 ```
-DURATION AND INTEREST RATE SENSITIVITY
+存續期間與利率敏感度
 =========================================
 
-Duration     Rate Change     Price Impact
-(years)      (1% increase)   (approximate)
---------     -------------   ------------
-2 years          +1%           -2%
-5 years          +1%           -5%
-10 years         +1%          -10%
-20 years         +1%          -20%
-30 years         +1%          -30%
+存續期間     利率變化          價格影響
+（年）       （上升 1%）       （約）
+--------     -------------     ------------
+2 年             +1%            -2%
+5 年             +1%            -5%
+10 年            +1%           -10%
+20 年            +1%           -20%
+30 年            +1%           -30%
 
-The U.S. Aggregate Bond Index has a duration of ~6 years.
-A 1% rise in rates = ~6% loss in bond value.
+美國綜合債券指數的存續期間約為 6 年。
+利率上升 1% = 債券價值損失約 6%。
 
-In 2022, rates rose about 3% across the curve:
-6-year duration x 3% rate increase = ~18% loss estimate
-Actual loss of Agg Bond Index: -13% (coupon income offset some)
+2022 年，利率沿殖利率曲線上升約 3%：
+6 年存續期間 x 3% 利率上升 = 估計損失約 18%
+綜合債券指數實際損失：-13%（票面利率收入部分抵消）
 ```
 
 ```
-CHOOSING THE RIGHT BONDS FOR 60/40
+為 60/40 選擇合適的債券
 =====================================
 
-Bond Type           Duration    2022 Return    Hedge Quality
----------           --------    -----------    ------------
-T-Bills / Cash       0.1yr       +1.5%         No hedge, but
-                                               no damage either
-Short-Term Bonds     2 yrs       -4.5%         Poor hedge,
-                                               limited damage
-Intermediate Bonds   5 yrs       -10%          Moderate hedge
-                                               in normal times
-Aggregate Index      6 yrs       -13%          Good hedge in
-                                               deflation, bad
-                                               in inflation
-Long-Term Bonds     20 yrs       -29%          Best deflation
-                                               hedge, worst
-                                               inflation result
-TIPS                 7 yrs       -12%          Should hedge
-                                               inflation, but
-                                               duration still
-                                               hurts in 2022
+債券類型           存續期間    2022 年報酬    避險品質
+---------          --------    -----------    ------------
+短期國庫券／現金    0.1 年      +1.5%         無避險效果，但
+                                             也不造成損失
+短期債券            2 年        -4.5%         避險效果差，
+                                             損失有限
+中期債券            5 年        -10%          一般情況下具有
+                                             適度避險效果
+綜合債券指數        6 年        -13%          通縮時避險效果好，
+                                             通膨時效果差
+長期債券           20 年        -29%          最佳通縮避險工具，
+                                             通膨時損失最慘重
+抗通膨公債（TIPS） 7 年        -12%          理應對沖通膨，但
+                                             2022 年存續期間
+                                             仍造成損傷
 ```
 
-**The 60/40 duration decision is critical:** The type of bonds you hold in the 40% allocation dramatically changes the portfolio's behavior. Short-duration bonds provide stability but limited crisis protection. Long-duration bonds provide maximum crisis protection in deflationary recessions but maximum damage in inflationary environments.
+**60/40 的存續期間決策至關重要：** 你在 40% 債券部位中持有的債券類型，會大幅改變投資組合的行為。短存續期間債券提供穩定性，但危機保護有限。長存續期間債券在通縮型衰退中提供最大危機保護，但在通膨環境中損失最為慘重。
 
 ---
 
-#### 7. Modern Alternatives and Adaptations
+#### 7. 現代替代方案與調整做法
 
-The 2022 experience has prompted investors and advisors to reconsider the traditional 60/40 and explore alternatives. Here are the most common adaptations:
+2022 年的經歷促使投資人與理財顧問重新審視傳統 60/40，並探索替代方案。以下是最常見的幾種調整做法：
 
-**Alternative 1: Shorten Bond Duration**
+**替代方案一：縮短債券存續期間**
 
-Replace intermediate and long-term bonds with short-term bonds or T-bills. This sacrifices yield but dramatically reduces interest rate sensitivity.
+以短期債券或短期國庫券取代中長期債券。這樣做雖然犧牲了殖利率，但大幅降低了利率敏感度。
 
 ```
-60/40 WITH SHORT BONDS vs. TRADITIONAL 60/40
+短存續期間債券 60/40 vs. 傳統 60/40
 ===============================================
 
-                        Traditional     Short-Bond
-                        60/40           60/40
-                        -----------     ----------
-2022 Return              -16.9%          -10.2%
-2008 Return              -22.1%          -26.8%
-Avg Return (2000-24)      5.8%            5.2%
-Std Dev (2000-24)         9.8%           10.5%
+                        傳統          短期債券
+                        60/40         60/40
+                        -----------   ----------
+2022 年報酬              -16.9%        -10.2%
+2008 年報酬              -22.1%        -26.8%
+平均報酬（2000-24）       5.8%           5.2%
+標準差（2000-24）         9.8%          10.5%
 
-Tradeoff: Better in inflation, worse in deflation.
-The short-bond version was less damaged in 2022,
-but it also did not benefit from the bond rally in 2008.
+取捨：通膨環境下表現較好，通縮環境下表現較差。
+短期債券版本在 2022 年損失較少，
+但在 2008 年也未能受益於債券大漲。
 ```
 
-**Alternative 2: Add Real Assets (Commodities, TIPS, Real Estate)**
+**替代方案二：加入實物資產（大宗商品、抗通膨公債、不動產）**
 
-Real assets tend to perform well during inflationary periods, providing a third source of diversification.
+實物資產在通膨期間往往表現良好，提供第三個分散來源。
 
 ```
-"ALL-WEATHER" PORTFOLIO CONCEPT
+「全天候」投資組合概念
 ==================================
 
-          Traditional 60/40       All-Weather Alternative
+          傳統 60/40              全天候替代方案
           -----------------       ----------------------
-Stocks:       60%                      40%
-Bonds:        40%                      20%
-Commodities:   0%                      15%
-TIPS:          0%                      10%
-Real Estate:   0%                      10%
-Gold:          0%                       5%
+股票：       60%                      40%
+債券：       40%                      20%
+大宗商品：    0%                      15%
+抗通膨公債：  0%                      10%
+不動產：      0%                      10%
+黃金：        0%                       5%
 
                                       100%
 
-Performance comparison (approximate):
-                     60/40      All-Weather
-2008 (deflation)    -22%          -18%
-2022 (inflation)    -17%          -10%
-2010s avg return    +8.7%         +6.5%
-Worst drawdown      -33%          -25%
+績效比較（約略）：
+                     60/40      全天候
+2008（通縮）         -22%        -18%
+2022（通膨）         -17%        -10%
+2010 年代平均報酬    +8.7%       +6.5%
+最大回撤             -33%        -25%
 
-Tradeoff: More consistent, but lower returns in
-strong stock markets. You sacrifice upside for
-better downside protection across regimes.
+取捨：更為穩定一致，但在股市強勢期間報酬較低。
+你放棄了上漲空間，換取跨越不同環境時更好的
+下行保護。
 ```
 
-**Alternative 3: Factor-Based Bond Allocation**
+**替代方案三：因子型債券配置**
 
-Instead of a static 40% in bonds, dynamically adjust the type and duration of bonds based on the inflation and rate environment.
+不採用靜態的 40% 債券配置，而是根據通膨與利率環境，動態調整債券的類型與存續期間。
 
 ```
-ADAPTIVE BOND ALLOCATION FRAMEWORK
+動態債券配置框架
 =====================================
 
-Inflation Regime          Bond Strategy
+通膨環境                  債券策略
 ----------------          -------------
-Low and stable            Long-duration Treasuries
-  (like 2010-2019)        (maximum deflation hedge)
+低且穩定                  長存續期間公債
+  （如 2010-2019）         （最大通縮避險效果）
 
-Rising inflation          Short-duration + TIPS +
-  (like 2021-2023)        Commodities
-                          (minimize rate risk, hedge
-                           inflation)
+通膨上升                  短存續期間 + 抗通膨公債 +
+  （如 2021-2023）         大宗商品
+                          （最小化利率風險，
+                           對沖通膨）
 
-High but falling          Intermediate bonds
-  (like 1982-1990)        (lock in high yields as
-                           rates decline)
+高但下行                  中期債券
+  （如 1982-1990）         （在利率下行時
+                           鎖定高殖利率）
 
-Deflation risk            Long-duration Treasuries
-  (like 2008-2009)        (maximum capital gain
-                           potential as rates fall
-                           toward zero)
+通縮風險                  長存續期間公債
+  （如 2008-2009）         （隨著利率向零趨近，
+                           資本利得潛力最大）
 ```
 
-**Alternative 4: The "Risk Parity" Approach**
+**替代方案四：「風險平價」方式**
 
-Instead of allocating 60% of capital to stocks and 40% to bonds, allocate based on risk contribution. Since stocks are much more volatile than bonds, a 60/40 portfolio actually has about 90% of its risk coming from stocks. Risk parity equalizes this.
+不以 60% 資本配置股票、40% 配置債券，而是依風險貢獻度來配置。由於股票的波動性遠高於債券，60/40 投資組合實際上約有 90% 的風險來自股票。風險平價使兩者均等化。
 
 ```
-60/40 vs. RISK PARITY: WHERE THE RISK ACTUALLY IS
+60/40 vs. 風險平價：風險究竟從哪裡來
 ====================================================
 
-Traditional 60/40:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:              60%          ------->      ~90%
-Bonds:               40%          ------->      ~10%
+傳統 60/40：
+                資金配置                 風險貢獻
+                ------------------       -----------------
+股票：              60%          ------->      ~90%
+債券：              40%          ------->      ~10%
 
-The portfolio is dominated by stock risk despite
-looking "balanced" in dollar terms.
-
-
-Risk Parity:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:             ~25%          ------->      ~50%
-Bonds:              ~75%          ------->      ~50%
-(with leverage)
-
-In a risk parity portfolio, each asset class
-contributes equally to total portfolio risk.
-This usually requires leverage on the bond side
-to achieve competitive returns.
+儘管帳面上看起來「均衡」，
+投資組合卻被股票風險所主導。
 
 
-Comparison:
-                    60/40       Risk Parity
-Avg Return          8.0%          7.5%
-Std Dev            10.0%          6.5%
-Sharpe Ratio        0.40          0.54
-Max Drawdown       -33%          -18%
+風險平價：
+                資金配置                 風險貢獻
+                ------------------       -----------------
+股票：             ~25%          ------->      ~50%
+債券：             ~75%          ------->      ~50%
+（使用槓桿）
 
-Risk Parity has better risk-adjusted returns but
-requires leverage, which introduces its own risks.
+在風險平價投資組合中，每個資產類別
+對投資組合總風險的貢獻相等。
+債券端通常需要使用槓桿，才能達到具競爭力的報酬。
+
+
+比較：
+                    60/40       風險平價
+平均報酬            8.0%          7.5%
+標準差             10.0%          6.5%
+夏普比率            0.40          0.54
+最大回撤           -33%          -18%
+
+風險平價有更好的風險調整後報酬，但
+需要槓桿，而槓桿本身帶來額外風險。
 ```
 
-**Alternative 5: Include International Bonds**
+**替代方案五：納入國際債券**
 
-U.S.-centric 60/40 misses the diversification benefit of international bonds, which respond to different central bank policies and economic cycles.
+以美國為中心的 60/40 錯失了國際債券的分散投資效益，而國際債券對不同央行政策與經濟週期有不同的反應。
 
 ---
 
-#### 8. Building a Modern 60/40
+#### 8. 建構現代 60/40
 
-Taking all lessons into account, here is a framework for constructing a modern version of the 60/40 portfolio:
+綜合所有教訓，以下是建構現代版 60/40 投資組合的框架：
 
 ```
-MODERN 60/40 FRAMEWORK
+現代 60/40 框架
 =========================
 
-STEP 1: DEFINE YOUR EQUITY SLEEVE (60%)
+第一步：定義你的股票部位（60%）
 -----------------------------------------
-U.S. Large Cap (S&P 500 or Total Market)     35%
-International Developed (EAFE)               15%
-Emerging Markets                             10%
-                                             ---
-                                             60%
+美國大型股（S&P 500 或全市場）              35%
+國際已開發市場（EAFE）                      15%
+新興市場                                    10%
+                                            ---
+                                            60%
 
-STEP 2: DEFINE YOUR DEFENSIVE SLEEVE (40%)
+第二步：定義你的防禦部位（40%）
 -----------------------------------------
-Core: Intermediate Treasuries / Agg Bond     15%
-Inflation Protection: TIPS                    8%
-Short-Term: T-Bills / Short Bonds             7%
-Real Assets: Commodities / REITs              5%
-International Bonds (hedged)                  5%
-                                             ---
-                                             40%
+核心：中期公債／綜合債券                    15%
+通膨保護：抗通膨公債（TIPS）                 8%
+短期：短期國庫券／短期債券                   7%
+實物資產：大宗商品／不動產投資信託           5%
+國際債券（已對沖）                           5%
+                                            ---
+                                            40%
 
-STEP 3: REBALANCE
+第三步：執行再平衡
 -----------------------------------------
-- Rebalance back to targets annually or when
-  any allocation drifts more than 5% from target
-- Rebalancing forces you to buy low and sell high
+- 每年再平衡，或在任何配置偏離目標超過
+  5% 時進行再平衡
+- 再平衡迫使你低買高賣
 
 
-STEP 4: STRESS TEST
+第四步：壓力測試
 -----------------------------------------
-Ask: How does this portfolio perform under:
-- 2008-style deflation crisis?
-- 2022-style inflation shock?
-- 1970s-style stagflation?
-- Normal economic growth?
+問：此投資組合在以下情境中的表現如何？
+- 2008 年式通縮危機？
+- 2022 年式通膨衝擊？
+- 1970 年代式停滯性通膨？
+- 正常經濟成長？
 
-If any scenario produces unacceptable losses,
-adjust the allocation.
+若任何情境產生無法接受的損失，
+調整配置。
 ```
 
 ---
 
-#### 9. The Rebalancing Bonus
+#### 9. 再平衡的額外報酬
 
-One underappreciated feature of the 60/40 portfolio is the **rebalancing bonus** -- the extra return generated by systematically buying low and selling high as you restore your target allocation.
+60/40 投資組合一個被低估的特點是**再平衡的額外報酬**——藉由系統性地在恢復目標配置的過程中低買高賣所產生的額外報酬。
 
 ```
-HOW REBALANCING WORKS IN A CRISIS
+危機中再平衡的運作方式
 =====================================
 
-STARTING POINT:
-  Stocks: $600,000 (60%)
-  Bonds:  $400,000 (40%)
-  Total:  $1,000,000
+起始點：
+  股票：$600,000（60%）
+  債券：$400,000（40%）
+  合計：$1,000,000
 
-AFTER STOCK CRASH (-40% stocks, +5% bonds):
-  Stocks: $360,000 (46%)   <-- now underweight
-  Bonds:  $420,000 (54%)   <-- now overweight
-  Total:  $780,000
+股票崩盤後（股票 -40%，債券 +5%）：
+  股票：$360,000（46%）   <-- 現在低於目標
+  債券：$420,000（54%）   <-- 現在高於目標
+  合計：$780,000
 
-REBALANCE TO 60/40:
-  Target stocks: $780K x 60% = $468,000
-  Target bonds:  $780K x 40% = $312,000
-  Action: Sell $108K bonds, buy $108K stocks
+再平衡至 60/40：
+  目標股票：$780K x 60% = $468,000
+  目標債券：$780K x 40% = $312,000
+  動作：賣出 $108K 債券，買入 $108K 股票
 
-  You are buying stocks at depressed prices
-  using money from bonds that held their value.
+  你用保值的債券資金，在低點買進股票。
 
-AFTER RECOVERY (stocks +67% from trough, bonds flat):
-  Without rebalancing:
-    Stocks: $360K x 1.67 = $601K
-    Bonds:  $420K x 1.00 = $420K
-    Total: $1,021K  (+2.1% from start)
+回復後（股票從低點上漲 67%，債券持平）：
+  未再平衡：
+    股票：$360K x 1.67 = $601K
+    債券：$420K x 1.00 = $420K
+    合計：$1,021K  （較起始增加 2.1%）
 
-  With rebalancing:
-    Stocks: $468K x 1.67 = $782K
-    Bonds:  $312K x 1.00 = $312K
-    Total: $1,094K  (+9.4% from start)
+  已再平衡：
+    股票：$468K x 1.67 = $782K
+    債券：$312K x 1.00 = $312K
+    合計：$1,094K  （較起始增加 9.4%）
 
-  Rebalancing bonus: ~7% in this example
+  本例中再平衡的額外報酬：約 7%
 ```
 
-The rebalancing bonus is not guaranteed in every period, but over long horizons, it has historically added 0.5% to 1.0% per year to portfolio returns. It works because it enforces the discipline of buying assets that have fallen (and are therefore cheaper) and selling assets that have risen (and are therefore more expensive).
+再平衡的額外報酬並非每個時期都能保證，但從長期來看，歷史上平均每年可為投資組合報酬增加 0.5% 至 1.0%。其原理是強制執行「買進已下跌（因此較便宜）的資產，賣出已上漲（因此較昂貴）的資產」的紀律。
 
 ---
 
-#### 10. When to Deviate from 60/40
+#### 10. 何時偏離 60/40
 
-The 60/40 portfolio is a starting point, not a destination. Several factors should cause you to deviate:
+60/40 投資組合是起點，而非終點。若干因素應促使你做出調整：
 
 ```
-REASONS TO HOLD MORE STOCKS (>60%)
+持有更多股票的理由（>60%）
 =====================================
-- Long time horizon (20+ years)
-- Stable income not dependent on portfolio
-- High risk tolerance confirmed by experience
-- Large savings rate that can offset losses
-- No near-term spending needs from portfolio
+- 時間跨度很長（20 年以上）
+- 穩定收入來源，不依賴投資組合
+- 經歷驗證後，風險承受能力確實較高
+- 儲蓄率高，足以彌補潛在損失
+- 近期無需動用投資組合中的資金
 
-REASONS TO HOLD FEWER STOCKS (<60%)
+持有更少股票的理由（<60%）
 =====================================
-- Short time horizon (<10 years)
-- Dependent on portfolio for income
-- Low risk tolerance (would panic in a crash)
-- Concentrated wealth (e.g., company stock)
-- Near-term spending needs (house purchase, etc.)
+- 時間跨度較短（不足 10 年）
+- 依賴投資組合提供收入
+- 風險承受能力低（崩盤時容易恐慌）
+- 財富集中（例如持有公司股票）
+- 近期有重大支出（買房等）
 
-REASONS TO MODIFY THE BOND ALLOCATION
+調整債券配置的理由
 ========================================
-- High inflation: shorten duration, add TIPS/commodities
-- Low rates: reduce bond allocation, add alternatives
-- Rising rates: favor short-duration bonds
-- Deflation risk: favor long-duration Treasuries
+- 高通膨：縮短存續期間，增加抗通膨公債／大宗商品
+- 低利率：降低債券比例，增加替代資產
+- 利率上升：偏向短存續期間債券
+- 通縮風險：偏向長存續期間公債
 ```
 
 ```
-AGE-BASED ADAPTATION OF 60/40
+以年齡為基礎調整 60/40
 ================================
 
-Age Range        Suggested            Rationale
-                 Stock/Bond
----------        ----------           ---------
-25-35            80/20 to 90/10       Very long horizon,
-                                      human capital is
-                                      a "bond-like" asset
-36-50            60/40 to 80/20       Peak earning years,
-                                      long horizon
-51-60            50/50 to 60/40       Approaching retirement,
-                                      sequence risk matters
-61-70            40/60 to 50/50       In or near retirement,
-                                      capital preservation
-71+              30/70 to 40/60       Draw-down phase,
-                                      income and stability
+年齡範圍        建議股票／債券比      理由
+---------       ----------            ---------
+25-35 歲        80/20 至 90/10        時間跨度極長，
+                                      人力資本是
+                                      「類債券」資產
+36-50 歲        60/40 至 80/20        收入高峰期，
+                                      時間跨度仍長
+51-60 歲        50/50 至 60/40        接近退休，
+                                      報酬順序風險
+                                      開始重要
+61-70 歲        40/60 至 50/50        接近或已退休，
+                                      資本保全優先
+71 歲以上       30/70 至 40/60        提領階段，
+                                      重視收入與穩定性
 
-These are guidelines, not rules. Individual
-circumstances vary enormously.
+以上為參考指引，並非硬性規定。
+個人情況差異極大。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "60/40 is dead after 2022."**
+**誤解一：「2022 年之後，60/40 已死。」**
 
-Reality: 2022 was a painful year for 60/40, but one bad year does not invalidate a strategy that has worked for decades. The 60/40 portfolio failed in 2022 because of a specific set of circumstances -- an inflation shock after a decade of zero interest rates. If inflation returns to moderate levels and the stock-bond correlation reverts to negative (as it often does during recessions), 60/40 will work again. The lesson of 2022 is not that 60/40 is dead, but that it should not be blindly applied without understanding the macro environment.
+事實：2022 年對 60/40 而言確實痛苦，但一個壞年份無法否定一個運作了數十年的策略。60/40 在 2022 年失效，是因為一組特定的情境——在零利率十年後爆發的通膨衝擊。如果通膨回歸溫和水準，且股債相關性恢復負值（如衰退期間常見的情況），60/40 將再度有效。2022 年的教訓不是「60/40 已死」，而是它不應在未理解總體環境的情況下盲目套用。
 
-**Misconception 2: "40% in bonds is too conservative for young investors."**
+**誤解二：「40% 配置債券對年輕投資人來說太保守了。」**
 
-Reality: For investors with truly long time horizons (30+ years) and stable income, 60/40 may indeed be too conservative. A 25-year-old with decades until retirement might be better served by 80/20 or even 90/10. But "too conservative" is not the same as "wrong." A young investor in 60/40 will still build substantial wealth -- they will just build it slightly slower than someone in a higher-equity portfolio. And if the higher-equity investor panics during a crash and sells, the 60/40 investor who stayed the course wins.
+事實：對於真正擁有長時間跨度（30 年以上）且有穩定收入的投資人，60/40 可能確實過於保守。一位距退休還有數十年的 25 歲投資人，可能更適合 80/20 甚至 90/10。但「太保守」不等於「錯誤」。持有 60/40 的年輕投資人仍能積累可觀財富——只是速度比高股票比例的投資組合略慢。而如果高股票比例的投資人在崩盤時恐慌拋售，堅守 60/40 的投資人反而勝出。
 
-**Misconception 3: "You can just hold stocks and ride out the dips."**
+**誤解三：「只要持有股票，撐過低谷就好。」**
 
-Reality: In theory, yes. In practice, very few investors can actually stomach a 50% decline without making emotional decisions. The 60/40 portfolio exists partly as a behavioral tool -- it reduces volatility enough that most investors can stay invested through downturns. An all-stock portfolio that you abandon during a crash underperforms a 60/40 portfolio that you maintain.
+事實：理論上是的。但實際上，很少有投資人能真正承受 50% 的下跌而不做出情緒化的決定。60/40 投資組合的存在，部分原因正是作為一種行為工具——它將波動性降低到足以讓大多數投資人在低迷時期堅持投資的程度。一個你在崩盤中出清的全股票投資組合，其表現遠不如你一直維持的 60/40 投資組合。
 
-**Misconception 4: "Bonds always go up when stocks go down."**
+**誤解四：「債券在股票下跌時一定會上漲。」**
 
-Reality: This was roughly true from 2000 to 2020, but it is not a law of nature. It is a consequence of specific macroeconomic conditions -- low inflation and central banks cutting rates during crises. In inflationary environments, bonds and stocks can fall together, as 2022 demonstrated. The stock-bond correlation is a variable, not a constant.
+事實：這個說法在 2000 至 2020 年大致成立，但它並非自然法則，而是特定總體經濟條件的產物——低通膨，以及央行在危機時降息。在通膨環境中，股票與債券可能同步下跌，正如 2022 年所示。股債相關性是一個變數，而非常數。
 
-**Misconception 5: "A target-date fund is the same as 60/40."**
+**誤解五：「目標日期基金等同於 60/40。」**
 
-Reality: Target-date funds start with high equity allocations (often 90%) for young investors and gradually shift to more conservative allocations as the target date approaches. A target-date fund for someone retiring in 2060 looks nothing like 60/40 today -- it might be 90/10. Only near the target date does it resemble 60/40 or even more conservative allocations. Target-date funds are a glide path, not a fixed allocation.
+事實：目標日期基金的年輕投資人階段，股票配置往往很高（通常為 90%），隨著目標日期臨近，才逐步轉向更保守的配置。一支 2060 年到期的目標日期基金，目前的面貌可能完全不像 60/40——它可能是 90/10。只有在目標日期附近，它才會接近 60/40 甚至更保守的配置。目標日期基金是一條滑行路徑，而非固定的配置比例。
 
-**Misconception 6: "60/40 means 60% S&P 500 and 40% U.S. Aggregate Bonds."**
+**誤解六：「60/40 是指 60% S&P 500 加上 40% 美國綜合債券。」**
 
-Reality: That is the most common implementation, but 60/40 is a concept, not a prescription. The 60% equity portion could include international stocks, small caps, or emerging markets. The 40% bond portion could include TIPS, international bonds, short-duration bonds, or even alternatives like commodities and REITs. How you fill the buckets matters as much as the bucket sizes.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: If I am 30 years old, should I use 60/40?**
-
-A: Probably not exactly 60/40. With a 30-35 year investment horizon, you have the capacity to take more equity risk. A 70/30 or 80/20 allocation is likely more appropriate. However, 60/40 is better than any allocation you cannot maintain during a downturn. If 80/20 would cause you to panic-sell during a crash, 60/40 is the better choice for you. Your actual allocation should be the most aggressive one you can hold through the worst markets without selling.
-
-**Q2: What specific funds should I use to build a 60/40 portfolio?**
-
-A: The simplest implementation uses two funds: a total U.S. stock market index fund (like VTI or SWTSX) for the 60% equity allocation and a total U.S. bond market index fund (like BND or SCHZ) for the 40% bond allocation. A more diversified version might add an international stock fund (VXUS), a TIPS fund (SCHP), and possibly a short-term bond fund (VGSH). Many providers also offer all-in-one balanced funds that maintain a 60/40 allocation automatically, such as Vanguard Balanced Index Fund (VBIAX).
-
-**Q3: How often should I rebalance my 60/40 portfolio?**
-
-A: Research suggests that annual rebalancing captures most of the benefit. Some advisors prefer threshold-based rebalancing -- only rebalancing when an allocation drifts more than 5% from its target. Either approach works. More frequent rebalancing (monthly or quarterly) generates more trading costs without meaningful improvement in returns. In tax-advantaged accounts like IRAs and 401(k)s, the tax cost of rebalancing is zero, so annual rebalancing is straightforward. In taxable accounts, consider directing new contributions to the underweight asset class rather than selling the overweight one.
-
-**Q4: Does 60/40 work outside the United States?**
-
-A: The 60/40 strategy has generally worked in other developed markets, but the results have been more mixed than in the U.S. The United States had an unusually strong stock market in the 20th century, which flatters 60/40 historical returns. In Japan, where stocks declined for three decades after 1989, a 60/40 portfolio would have been saved by strong bond returns but would still have underperformed a 100% bond portfolio for extended periods. Investors should avoid assuming that U.S. historical returns represent a universal truth.
-
-**Q5: What is the tax efficiency of 60/40?**
-
-A: Stocks are generally more tax-efficient than bonds because stock returns come partly from capital gains (which are taxed at lower rates and can be deferred) while bond returns come primarily from interest income (taxed at ordinary income rates). In a taxable account, consider holding bonds in tax-advantaged accounts (IRA, 401k) and stocks in taxable accounts. This asset location strategy can add 0.3-0.5% per year in after-tax returns without changing your overall allocation.
-
-**Q6: How did the 60/40 portfolio perform during the 1970s stagflation?**
-
-A: The 1970s were a challenging period for 60/40. Stocks had mediocre returns due to high inflation and economic stagnation. Bonds also suffered as interest rates rose from about 6% to over 15%. The 60/40 portfolio returned roughly 6-7% annualized during the 1970s, which sounds acceptable until you consider that inflation averaged nearly 7.4%. In real (inflation-adjusted) terms, 60/40 investors barely broke even. This is the scenario that most closely resembles the 2022 concern -- and it is why adding inflation-hedging assets (commodities, TIPS, real estate) to a modern 60/40 is prudent.
-
-**Q7: Is there a better ratio than 60/40?**
-
-A: There is no universally "best" ratio. Research suggests that on a risk-adjusted basis (Sharpe Ratio), allocations between 40% and 60% stocks tend to perform similarly well. The "optimal" allocation depends entirely on the time period studied, the specific assets used, and the investor's personal situation. A more useful framework is to think in terms of a range: aggressive investors should be 70-90% stocks, moderate investors 50-70%, and conservative investors 30-50%. The exact percentages matter less than maintaining the allocation through market cycles.
-
-**Q8: What about adding gold to a 60/40 portfolio?**
-
-A: Gold has historically had low correlation to both stocks and bonds, making it a potential diversifier. A small allocation (5-10%) can improve risk-adjusted returns in certain environments, particularly during inflationary periods or currency crises. However, gold produces no income and has long periods of poor performance. From 1980 to 2000, gold lost about 70% of its real value. It is best thought of as insurance -- a small position that you hope you never need but are glad to have when crisis strikes.
-
-**Q9: What return should I expect from a 60/40 portfolio going forward?**
-
-A: Forward-looking returns depend heavily on starting valuations and interest rates. With stock valuations above historical averages and bond yields around 4-5%, a reasonable expectation for a 60/40 portfolio might be 5-7% nominal (before inflation) compared to the historical 8%. Lower expected returns do not mean 60/40 is broken -- they reflect the starting conditions. If bond yields rise to 5-6% and stock valuations normalize, forward returns will improve. The key point is that past returns should not be extrapolated without adjusting for current conditions.
-
-**Q10: Should I abandon 60/40 during inflationary periods?**
-
-A: You should not abandon 60/40, but you should adapt it. During inflationary periods, consider: shortening bond duration (swap long-term bonds for short-term), adding TIPS (Treasury Inflation-Protected Securities), adding commodities (historically the best inflation hedge), and adding real estate (rents tend to rise with inflation). The core principle of holding both growth assets and defensive assets remains sound. You are simply adjusting the composition of each sleeve to reflect the current regime. Making dramatic changes based on short-term macro predictions is dangerous -- most investors are poor macro forecasters.
+事實：這是最常見的實作方式，但 60/40 是一個概念，而非處方。60% 的股票部位可以包含國際股票、小型股或新興市場；40% 的債券部位可以包含抗通膨公債、國際債券、短存續期間債券，甚至大宗商品和不動產投資信託等替代資產。如何填充各個槽位，和槽位大小本身同樣重要。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問一：我 30 歲，應該採用 60/40 嗎？**
+
+答：可能不需要完全按照 60/40。擁有 30 至 35 年投資時間跨度，你有能力承擔更高的股票風險。70/30 或 80/20 的配置可能更為適合。然而，60/40 勝過任何你在低迷時期無法堅持的配置。如果 80/20 會讓你在崩盤時恐慌拋售，那麼 60/40 對你來說才是更好的選擇。你實際的配置比例，應該是你能夠在最糟糕的市場環境中持有而不賣出的最進取配置。
+
+**問二：建構 60/40 投資組合應該使用哪些具體的基金？**
+
+答：最簡單的做法是使用兩支基金：一支全美股票市場指數基金（如 VTI 或 SWTSX）作為 60% 的股票配置，以及一支全美債券市場指數基金（如 BND 或 SCHZ）作為 40% 的債券配置。更分散的版本可以加入國際股票基金（VXUS）、抗通膨公債基金（SCHP），以及短期債券基金（VGSH）。許多業者也提供能自動維持 60/40 配置的一站式均衡基金，例如先鋒均衡指數基金（VBIAX）。
+
+**問三：60/40 投資組合應該多久再平衡一次？**
+
+答：研究顯示，每年再平衡即能獲得大部分的效益。部分顧問偏好以閾值為基準的再平衡——只有在配置偏離目標超過 5% 時才執行。兩種方式都有效。更頻繁的再平衡（每月或每季）會增加交易成本，卻無法顯著提升報酬。在 IRA 和 401(k) 等稅賦優惠帳戶中，再平衡的稅務成本為零，因此每年再平衡輕而易舉。在一般應稅帳戶中，可考慮將新資金投入低於目標比例的資產，而非賣出超過目標的資產。
+
+**問四：60/40 在美國以外的地區有效嗎？**
+
+答：60/40 策略在其他已開發市場大致有效，但表現比美國更為參差不齊。美國在 20 世紀擁有異常強勁的股市，這美化了 60/40 的歷史報酬。在日本，股市於 1989 年後下跌長達三十年，60/40 投資組合雖因強勁的債券報酬而得以倖存，但仍在相當長的時間內落後於 100% 債券投資組合。投資人不應假設美國的歷史報酬代表普世真理。
+
+**問五：60/40 的稅務效率如何？**
+
+答：股票的稅務效率通常高於債券，因為股票報酬部分來自資本利得（稅率較低，且可遞延），而債券報酬主要來自利息收入（按一般所得稅率課稅）。在應稅帳戶中，可考慮將債券放入稅賦優惠帳戶（IRA、401(k)），將股票放在應稅帳戶。這種資產擺放策略，在不改變整體配置的情況下，每年可增加約 0.3% 至 0.5% 的稅後報酬。
+
+**問六：60/40 投資組合在 1970 年代停滯性通膨期間的表現如何？**
+
+答：1970 年代對 60/40 而言是一段艱困時期。高通膨與經濟停滯使股票報酬平平。債券也因利率從約 6% 攀升至逾 15% 而受到衝擊。60/40 投資組合在 1970 年代的年化報酬約為 6% 至 7%，聽起來尚可接受，但若考量到通膨平均接近 7.4%，實際（通膨調整後）報酬幾乎是零。這是與 2022 年隱憂最相近的情境——也正是為何在現代 60/40 中加入通膨對沖資產（大宗商品、抗通膨公債、不動產）是明智之舉。
+
+**問七：是否有比 60/40 更好的比例？**
+
+答：沒有普遍意義上「最佳」的比例。研究顯示，在風險調整後的表現（夏普比率）上，股票配置在 40% 至 60% 之間的投資組合表現相當接近。「最優」的配置完全取決於研究的時間段、使用的特定資產，以及投資人的個人情況。更實用的框架是以區間思考：進取型投資人應配置 70% 至 90% 的股票，穩健型投資人配置 50% 至 70%，保守型投資人配置 30% 至 50%。精確的百分比數字遠不如在市場週期中維持配置重要。
+
+**問八：在 60/40 投資組合中加入黃金如何？**
+
+答：黃金在歷史上與股票和債券的相關性均低，使其成為潛在的分散投資工具。小幅配置（5% 至 10%）在某些環境下——尤其是通膨期間或貨幣危機時——能改善風險調整後的報酬。然而，黃金不產生任何收益，且有漫長的表現不佳時期。從 1980 年至 2000 年，黃金損失了約 70% 的實質價值。最好將黃金視為一種保險——小幅配置，希望永遠用不上，但危機來臨時慶幸自己持有它。
+
+**問九：未來 60/40 投資組合應預期多少報酬？**
+
+答：前瞻性報酬很大程度上取決於起始估值與利率水準。考量到股票估值高於歷史平均，以及債券殖利率約在 4% 至 5% 左右，60/40 投資組合的合理預期名目報酬（通膨前）可能為 5% 至 7%，低於歷史上的約 8%。較低的預期報酬並不代表 60/40 失效——它反映的是當前的起始條件。若債券殖利率升至 5% 至 6% 且股票估值正常化，前瞻性報酬將隨之改善。關鍵是過去的報酬不應在未調整當前條件的情況下直接外推。
+
+**問十：在通膨期間應該放棄 60/40 嗎？**
+
+答：你不應放棄 60/40，但應該對其進行調整。在通膨期間，可考慮：縮短債券存續期間（將長期債券換成短期債券）、增加抗通膨公債（隨通膨調整的政府債券）、增加大宗商品（歷史上最佳的通膨對沖工具），以及增加不動產（租金往往隨通膨上升）。持有成長資產與防禦資產的核心原則依然健全，你只是在調整各部位的組成，以反映當前的環境。根據短期總體預測做出大幅變動是危險的——大多數投資人都不擅長預測總體經濟走勢。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with title "Week 4: The 60/40 Portfolio"]
 
-**Alex:** Welcome back everyone. Last week we covered risk and return -- the foundation of investing. Today we are going to take those concepts and apply them to the most famous portfolio allocation in history: the 60/40 portfolio. Sixty percent stocks, forty percent bonds. If you have a 401(k) or any kind of retirement account, there is a good chance you are already invested in some version of this.
+**Horace（陳馬）：** 歡迎回來，各位。上週我們介紹了風險與報酬——投資的基礎。今天我們要將這些概念應用到投資史上最有名的投資組合配置：60/40 投資組合。60% 股票，40% 債券。如果你有 401(k) 或任何形式的退休帳戶，你很可能已經投資了某種版本的 60/40。
 
-**Sam:** I have definitely heard of 60/40, but I always thought it was kind of boring. Like, it is what your parents' financial advisor recommends. Is it actually worth a whole lesson?
+**Stella（小魚）：** 我聽過 60/40，但我一直覺得它有點無聊。就像，這是你父母的理財顧問會建議的東西。它真的值得用一整堂課來討論嗎？
 
-**Alex:** That is a fair reaction, and you are not alone. A lot of younger investors dismiss 60/40 as too conservative or too basic. But here is the thing -- understanding why 60/40 works, when it works, and when it does not is essential to becoming a serious investor. It is the benchmark against which everything else is measured.
+**Horace（陳馬）：** 這個反應很合理，你不是唯一這樣想的人。許多年輕投資人確實認為 60/40 太保守、太基本。但問題是——理解 60/40 為何有效、何時有效、何時無效，是成為嚴肅投資人的必修課。它是衡量其他一切的基準。
 
-[VISUAL: Text appears: "60/40 is not just a portfolio -- it is a framework for understanding diversification"]
+[VISUAL: Text appears: "60/40 不只是一個投資組合——它是理解分散投資的框架"]
 
-**Sam:** Okay, sell me on it. Where did 60/40 even come from?
+**Stella（小魚）：** 好，說服我。60/40 到底從哪裡來的？
 
-**Alex:** It evolved over several decades. The intellectual foundation goes back to 1952, when Harry Markowitz published his groundbreaking paper on Modern Portfolio Theory. He proved mathematically that combining assets with different return patterns -- like stocks and bonds -- can produce a portfolio with better risk-return characteristics than either asset alone.
+**Horace（陳馬）：** 它歷經了數十年的演化。理論根基可追溯至 1952 年，哈利·馬可維茲發表了他的開創性論文——現代投資組合理論。他用數學方式證明，將具有不同報酬型態的資產組合在一起——例如股票與債券——能產生風險報酬特性優於任何單一資產的投資組合。
 
-**Sam:** What do you mean by "better risk-return characteristics"?
+**Stella（小魚）：** 「更好的風險報酬特性」是什麼意思？
 
-**Alex:** I mean you get more return per unit of risk. Think of it this way. If stocks return 10% with 16% volatility and bonds return 5% with 6% volatility, you might expect a 60/40 mix to return about 8% with maybe 12% volatility -- just a weighted average. But because stocks and bonds do not move in perfect lockstep, the actual volatility of a 60/40 portfolio is only about 10%. You get roughly 80% of the stock market's return with only about 60% of its risk.
+**Horace（陳馬）：** 意思是你每承擔一單位風險，能獲得更多報酬。這樣想：如果股票報酬 10%、波動性 16%，債券報酬 5%、波動性 6%，你可能預期 60/40 組合的報酬約為 8%，波動性約為 12%——就是加權平均。但由於股票與債券並非完全同步移動，60/40 投資組合的實際波動性只有約 10%。你大約能獲得股市報酬的 80%，卻只承擔約 60% 的風險。
 
 [VISUAL: Animated bar chart showing expected return and risk for different allocations from 100% bonds to 100% stocks. The return line rises roughly linearly, but the risk line curves -- it rises slowly at first, then accelerates. The 60/40 point is highlighted where the gap between return and risk is favorable.]
 
-**Sam:** Wait, that math does not add up. How can the risk be lower than the weighted average?
+**Stella（小魚）：** 等等，這個數學說不通。風險怎麼可能低於加權平均？
 
-**Alex:** That is the magic of diversification, and it is exactly what Markowitz proved. When you combine two assets that do not move in perfect sync, the ups and downs partially cancel each other out. On a day when stocks drop 2%, bonds might rise 1%. The 60/40 portfolio drops only about 0.8% instead of 1.2%. Over time, this smoothing effect reduces overall volatility below what you would expect from a simple average.
+**Horace（陳馬）：** 這就是分散投資的魔力，也正是馬可維茲所證明的。當你將兩種不完全同步移動的資產組合在一起，漲跌會部分抵消。股票某天跌 2% 時，債券可能漲 1%。60/40 投資組合只下跌約 0.8%，而非 1.2%。隨著時間累積，這種平滑效果將整體波動性降低到低於簡單加權平均的水準。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Two sine waves representing stock returns (large amplitude, high frequency) and bond returns (small amplitude, different phase). As they combine into a 60/40 weighted average, the resulting wave has noticeably smaller amplitude than even the weighted average would suggest. Key moments where the waves move in opposite directions are highlighted, showing how the cancellation effect works.]
 
-**Sam:** So the key is that stocks and bonds move differently from each other?
+**Stella（小魚）：** 所以關鍵在於股票與債券的走勢不同？
 
-**Alex:** Exactly. And the technical term for this is correlation. When stocks and bonds have low or negative correlation -- meaning they tend to move in different directions -- the diversification benefit is strong. This is why 60/40 has worked so well historically.
+**Horace（陳馬）：** 完全正確。這在統計上稱為「相關性」。當股票與債券的相關性低或為負——代表兩者傾向於朝相反方向移動——分散投資的效益就很強。這就是 60/40 在歷史上之所以有效的原因。
 
-**Sam:** You said "historically." Has the correlation always been negative?
+**Stella（小魚）：** 你說「在歷史上」。相關性一直都是負的嗎？
 
-**Alex:** Great catch, and this is where the story gets really important. The stock-bond correlation has not been constant. It has actually changed dramatically over time.
+**Horace（陳馬）：** 問得好，這正是故事中最關鍵的部分。股債相關性並非固定不變，它實際上隨時間大幅變化。
 
 [VISUAL: Historical chart showing stock-bond correlation from 1960 to 2024. The line fluctuates between +0.5 and -0.4, with distinct regimes labeled]
 
-**Alex:** From the 1960s through the early 1990s, stocks and bonds were actually positively correlated -- they tended to move in the same direction. Then from about 1997 to 2020, the correlation flipped negative. Stocks and bonds moved in opposite directions, which is the golden era for 60/40. Bonds rallied during every stock market crisis, acting as a perfect hedge.
+**Horace（陳馬）：** 從 1960 年代到 1990 年代初，股票與債券實際上是正相關的——傾向於同方向移動。然後從大約 1997 年至 2020 年，相關性翻轉為負。股票與債券朝相反方向移動，這正是 60/40 的黃金時代。每次股市危機，債券都大漲，成為完美的避險工具。
 
-**Sam:** What caused the flip?
+**Stella（小魚）：** 是什麼造成了這個翻轉？
 
-**Alex:** Inflation. Or rather, the absence of inflation. During the 1960s and 1970s, inflation was the dominant economic force. When inflation rises, it hurts both stocks and bonds simultaneously. Stocks suffer because costs rise and valuations compress. Bonds suffer because interest rates rise and bond prices fall.
+**Horace（陳馬）：** 通膨。或者說，通膨的缺席。在 1960 至 1970 年代，通膨是主導的經濟力量。當通膨上升時，它同時傷害股票和債券。股票受苦，因為成本上升、估值受壓；債券受苦，因為利率上升導致債券價格下跌。
 
-**Sam:** And from the late 1990s onward?
+**Stella（小魚）：** 那 1990 年代末以後呢？
 
-**Alex:** Inflation became a non-issue. It was low and stable. The dominant concern shifted from inflation to deflation and recession. In that environment, when stocks fell due to economic weakness, central banks cut interest rates aggressively, which caused bond prices to rise. Stocks went down, bonds went up. The correlation was negative. And 60/40 was beautiful.
+**Horace（陳馬）：** 通膨不再是問題，低且穩定。主要的隱憂從通膨轉向了通縮和衰退。在那樣的環境下，股票因經濟疲弱而下跌時，央行會積極降息，使債券價格上漲。股票跌，債券漲——相關性為負，60/40 表現亮眼。
 
-[VISUAL: Two-panel diagram. Left panel labeled "Inflationary Regime" shows stocks and bonds both falling with arrows pointing down. Right panel labeled "Deflationary/Low Inflation Regime" shows stocks falling and bonds rising with arrows in opposite directions]
+[VISUAL: Two-panel diagram. Left panel labeled "通膨環境" shows stocks and bonds both falling with arrows pointing down. Right panel labeled "通縮／低通膨環境" shows stocks falling and bonds rising with arrows in opposite directions]
 
-**Sam:** I think I know where this is going. 2022?
+**Stella（小魚）：** 我想我知道接下來要說什麼了——2022 年？
 
-**Alex:** Exactly. In 2022, inflation came roaring back. The consumer price index hit 9%, the highest in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. And suddenly, stocks and bonds were falling together again -- just like in the 1970s.
+**Horace（陳馬）：** 完全正確。2022 年，通膨強勢回歸。消費者物價指數衝至 9%，創 40 年來最高。聯準會以史上最快速度升息。突然之間，股票與債券再度同步下跌——就像 1970 年代一樣。
 
 [VISUAL: Chart showing 2022 performance: S&P 500 down 18%, U.S. Aggregate Bonds down 13%, 60/40 portfolio down 17%]
 
-**Alex:** The S&P 500 fell about 18%. But here is the part that shocked people -- the U.S. bond market fell 13%. It was the worst year for bonds since anyone could remember. Long-term Treasuries lost nearly 30%.
+**Horace（陳馬）：** S&P 500 下跌約 18%。但真正讓人震驚的是——美國債券市場也跌了 13%，是幾十年來最糟的債券年度。長期公債甚至損失了將近 30%。
 
-**Sam:** So the 60/40 portfolio got hit from both sides?
+**Stella（小魚）：** 所以 60/40 投資組合從兩面受到衝擊？
 
-**Alex:** Exactly. The 40% in bonds, which was supposed to cushion the blow, actually added to the losses. A 60/40 portfolio lost about 17% in 2022. The bonds provided almost no protection.
+**Horace（陳馬）：** 完全正確。原本應該緩衝衝擊的 40% 債券，反而加重了損失。60/40 投資組合在 2022 年損失了約 17%，債券幾乎毫無保護作用。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Side-by-side comparison of two crisis years: 2008 and 2022. In 2008, show a portfolio bar where stocks drop significantly (red section) but bonds rise (green section), with the net 60/40 result being a moderate loss. In 2022, show both the stock section and bond section dropping (both red), with the net 60/40 result being nearly as bad as stocks alone. Animate the bond bar "flipping" from green (helpful) in 2008 to red (harmful) in 2022.]
 
-**Sam:** So is 60/40 dead? I have seen a lot of headlines saying that.
+**Stella（小魚）：** 所以 60/40 已死嗎？我看過很多這樣的標題。
 
-**Alex:** Those headlines make for good clicks, but the answer is no. Let me explain why. First, one bad year does not invalidate a strategy that has worked for nearly a century. The 60/40 portfolio has had bad years before -- not this specific failure mode, but it has had down years. It recovered every time.
+**Horace（陳馬）：** 這種標題很吸睛，但答案是否定的。讓我解釋原因。首先，一個壞年份無法否定一個運作了將近百年的策略。60/40 投資組合以前也有過糟糕的年份——雖然不是這種特定的失效模式——但它每次都回復了。
 
-**Sam:** But what if we are entering a new regime where stocks and bonds are positively correlated?
+**Stella（小魚）：** 但如果我們正在進入一個股票與債券正相關的新環境呢？
 
-**Alex:** That is the real question, and I want to give you an honest answer. The correlation between stocks and bonds is driven primarily by the inflation regime. If we return to a world of low, stable inflation -- which is what central banks are trying to achieve -- the correlation should eventually flip back to negative, and 60/40 will work as advertised. But if inflation remains elevated or volatile for years, the positive correlation could persist, and 60/40 will struggle.
+**Horace（陳馬）：** 這才是真正的問題，我想給你一個誠實的答案。股債相關性主要受通膨環境驅動。如果我們回到低且穩定的通膨環境——這正是各國央行努力達成的目標——相關性最終應該會翻轉回負值，60/40 就會重新發揮效用。但如果通膨持續偏高或維持波動，正相關性可能持續，60/40 就會繼續掙扎。
 
-**Sam:** So what should investors do?
+**Stella（小魚）：** 那投資人該怎麼辦？
 
-**Alex:** The lesson is not to abandon 60/40 but to modernize it. The original 60/40 assumed a world where inflation was not a concern. A modern 60/40 needs to account for the possibility of inflation.
+**Horace（陳馬）：** 教訓不是放棄 60/40，而是將它現代化。傳統 60/40 假設的是一個通膨不成問題的世界。現代的 60/40 需要將通膨的可能性納入考量。
 
 [VISUAL: Two portfolio pie charts side by side. Traditional 60/40: 60% stocks, 40% bonds. Modern 60/40: 40% stocks, 15% bonds, 10% TIPS, 15% international stocks, 10% real estate/commodities, 10% short-term bonds]
 
-**Alex:** Instead of putting the entire 40% defensive allocation into traditional bonds, consider splitting it up. Keep some in traditional intermediate bonds for deflation protection. Add TIPS -- Treasury Inflation-Protected Securities -- which adjust for inflation. Add some short-term bonds or T-bills that are less sensitive to rate changes. And consider a small allocation to commodities or real estate, which tend to perform well during inflationary periods.
+**Horace（陳馬）：** 不要把所有 40% 的防禦配置都放在傳統債券上，可以考慮分散配置。保留一部分在傳統中期債券以應對通縮。加入抗通膨公債——也就是 TIPS，它會根據通膨調整本金。加入一些對利率變化較不敏感的短期債券或短期國庫券。還可以考慮少量配置大宗商品或不動產，這些資產在通膨期間往往表現良好。
 
-**Sam:** So you are diversifying within the bond allocation, not just between stocks and bonds.
+**Stella（小魚）：** 所以你不只是在股票和債券之間分散，還在債券配置內部也做分散。
 
-**Alex:** Exactly. The traditional 60/40 diversified across two dimensions: stocks and bonds. A modern 60/40 diversifies across three dimensions: growth assets, deflation hedges, and inflation hedges. That way, you have something working in your favor regardless of the economic environment.
+**Horace（陳馬）：** 完全正確。傳統 60/40 沿著兩個維度分散：股票和債券。現代 60/40 則沿著三個維度分散：成長資產、通縮避險工具，以及通膨避險工具。這樣一來，無論什麼樣的經濟環境，你都有某個部位在為你效力。
 
-[VISUAL: Three-column framework: "Growth Assets" (stocks, REITs), "Deflation Hedges" (long-term bonds), "Inflation Hedges" (TIPS, commodities, short-term bonds). Arrows show that in any environment, at least one column should perform well]
+[VISUAL: Three-column framework: "成長資產"（股票、不動產投資信託）、"通縮避險工具"（長期債券）、"通膨避險工具"（抗通膨公債、大宗商品、短期債券）. Arrows show that in any environment, at least one column should perform well]
 
-**Sam:** That is smart. Let us go back to the basics for a minute. How has 60/40 actually performed over long periods?
+**Stella（小魚）：** 這很聰明。我們先回到基本面——60/40 在長期間實際上表現如何？
 
-**Alex:** Over the past century, a U.S. 60/40 portfolio has returned roughly 8 to 9 percent per year before inflation, or about 5 to 6 percent after inflation. It has been positive in about 82 percent of calendar years, compared to 73 percent for stocks alone.
+**Horace（陳馬）：** 在過去一個世紀中，美國 60/40 投資組合每年的名目報酬約為 8% 至 9%，扣除通膨後約為 5% 至 6%。它在約 82% 的曆年中呈正報酬，相比之下，純股票投資組合在 73% 的曆年中呈正報酬。
 
-**Sam:** So it is positive more often than stocks?
+**Stella（小魚）：** 所以它比股票更常是正報酬？
 
-**Alex:** Yes, because the bond cushion prevents many of those marginal stock market down years from turning into portfolio down years. In a year where stocks lose 5% and bonds gain 4%, the 60/40 portfolio is roughly flat instead of negative.
+**Horace（陳馬）：** 是的，因為債券緩衝讓許多股市小幅下跌的年份不至於成為投資組合下跌的年份。當股票某年跌 5%、債券漲 4%，60/40 投資組合大約持平，而非出現虧損。
 
 [VISUAL: Calendar heat map showing annual returns for stocks, bonds, and 60/40 from 1990 to 2024. Red cells for negative years, green for positive. The 60/40 row has notably fewer red cells than the stocks row]
 
-**Sam:** What about the really bad years? How does 60/40 handle crashes?
+**Stella（小魚）：** 那真正糟糕的年份呢？60/40 如何應對崩盤？
 
-**Alex:** This is where 60/40 really earns its reputation. In the 2008 financial crisis, stocks fell 57 percent from peak to trough. That is catastrophic. The 60/40 portfolio fell about 33 percent. Still painful, but much more survivable.
+**Horace（陳馬）：** 這正是 60/40 最能彰顯其價值的地方。在 2008 年金融海嘯中，股票從高點至低點下跌了 57%——這是毀滅性的。60/40 投資組合跌了約 33%，雖然仍然很痛，但遠比較容易承受。
 
-**Sam:** Why such a big difference?
+**Stella（小魚）：** 為什麼差距這麼大？
 
-**Alex:** Two reasons. First, the 40% in bonds acted as ballast. While stocks were cratering, investment-grade bonds actually rose about 5% during the worst of the crisis as investors fled to safety and the Fed slashed interest rates to zero. Second -- and this is less obvious -- if you were rebalancing, the 60/40 framework forced you to sell bonds at high prices and buy stocks at depressed prices.
+**Horace（陳馬）：** 兩個原因。第一，40% 的債券部位發揮了壓艙石的作用。股票崩跌之際，投資等級債券在危機最嚴峻時實際上上漲了約 5%，因為投資人尋求避風港，聯準會也將利率削減至零。第二——這個比較不明顯——如果你在執行再平衡，60/40 的框架迫使你高價賣出債券，然後低價買進股票。
 
 [VISUAL: Step-by-step rebalancing example: Starting with $600K stocks / $400K bonds. After crash: $360K stocks / $420K bonds (now 46/54). Rebalance: sell bonds, buy stocks at low prices. After recovery: portfolio with rebalancing is worth $1.09M vs. $1.02M without rebalancing]
 
-**Sam:** Wait, that is really clever. Rebalancing automatically makes you buy low and sell high?
+**Stella（小魚）：** 等等，這真的很妙。再平衡自動讓你低買高賣？
 
-**Alex:** Exactly. It is systematic contrarian investing. When stocks crash, they become a smaller percentage of your portfolio, so rebalancing forces you to buy more stocks at cheap prices. When stocks soar, they become a larger percentage, so rebalancing forces you to trim and lock in gains. Over time, this rebalancing bonus has added roughly 0.5 to 1 percent per year.
+**Horace（陳馬）：** 完全正確。這是系統性的逆勢投資。股票崩盤時，它在投資組合中的比例變小，再平衡就迫使你以便宜的價格買進更多股票。股票大漲時，比例變大，再平衡就迫使你修剪並鎖定獲利。隨著時間累積，這種再平衡的額外報酬每年大約能增加 0.5% 至 1%。
 
-**Sam:** That is free return just from maintaining discipline.
+**Stella（小魚）：** 只靠維持紀律就能獲得額外的報酬。
 
-**Alex:** It is not free -- it requires the emotional discipline to buy stocks during a panic and sell them during euphoria. That is very hard to do. The 60/40 framework gives you a mechanical reason to do the right thing.
+**Horace（陳馬）：** 這不是免費的——它需要在恐慌中買進股票、在狂熱中賣出股票的情緒紀律。這非常困難。60/40 的框架給了你一個機械式的理由去做正確的事。
 
-[VISUAL: Emotional decision-making chart showing that rebalancing forces buy/sell decisions that are the opposite of natural human instinct: "Market crashes -- Instinct: SELL, Rebalancing: BUY" and "Market soars -- Instinct: BUY MORE, Rebalancing: SELL"]
+[VISUAL: Emotional decision-making chart showing that rebalancing forces buy/sell decisions that are the opposite of natural human instinct: "市場崩盤——本能：賣出，再平衡：買進" and "市場大漲——本能：追加買進，再平衡：賣出"]
 
-**Sam:** Let us talk about who should actually use 60/40. Is it right for everyone?
+**Stella（小魚）：** 我們來談談誰真的應該使用 60/40。它適合每個人嗎？
 
-**Alex:** Definitely not. The right allocation depends entirely on your personal situation. For young investors in their twenties and thirties with stable incomes and long time horizons, 60/40 is probably too conservative. They have decades to ride out market volatility and should likely hold 70 to 90 percent in stocks.
+**Horace（陳馬）：** 絕對不是。正確的配置完全取決於你的個人情況。對於二三十歲、有穩定收入且時間跨度很長的年輕投資人，60/40 可能過於保守。他們有幾十年的時間可以承受市場波動，應該持有 70% 至 90% 的股票。
 
-**Sam:** When does 60/40 make sense?
+**Stella（小魚）：** 什麼時候 60/40 才合理？
 
-**Alex:** For investors in their forties and fifties who are in their peak earning years but starting to think about retirement, 60/40 is a reasonable starting point. For investors in their sixties and beyond who are approaching or in retirement, 60/40 might actually be too aggressive -- they might want 40/60 or 50/50.
+**Horace（陳馬）：** 對於四五十歲、處於收入高峰且開始認真規劃退休的投資人，60/40 是合理的起點。對於六十歲以上、接近或已經退休的投資人，60/40 可能還是太進取——他們可能需要 40/60 或 50/50。
 
 [VISUAL: Age-based allocation spectrum showing a sliding scale from 90/10 stocks/bonds at age 25, gradually shifting to 60/40 around age 50, and 30/70 at age 75. Each point on the spectrum has a brief annotation explaining the rationale]
 
-**Sam:** What about the old rule of thumb -- "your age in bonds"?
+**Stella（小魚）：** 那個「年齡決定債券比例」的經驗法則呢？
 
-**Alex:** That rule says a 30-year-old should be 30% bonds and a 70-year-old should be 70% bonds. It is a rough approximation that gets the directional move right -- more bonds as you age. But it is probably too conservative for most people today. With longer lifespans and lower bond yields, many advisors now suggest "your age minus 20 in bonds" or even "your age minus 30 in bonds." A 30-year-old under the updated rule would be 0-10% bonds rather than 30%.
+**Horace（陳馬）：** 這個法則說，30 歲的人應持有 30% 債券，70 歲的人應持有 70% 債券。這是個粗略的近似，大方向——隨年齡增加更多債券——是對的。但對大多數人來說可能過於保守。考量到更長的壽命和較低的債券殖利率，許多顧問現在建議「年齡減 20 等於債券比例」，甚至「年齡減 30 等於債券比例」。在更新版的規則下，30 歲的人應持有 0% 至 10% 的債券，而非 30%。
 
-**Sam:** So what actually matters more than the specific numbers?
+**Stella（小魚）：** 那麼，比具體數字更重要的是什麼？
 
-**Alex:** Two things. First, your time horizon -- how many years until you need the money. Second, your behavioral risk tolerance -- the most aggressive portfolio you can hold without panic-selling during a crash. The optimal allocation is the one that maximizes returns subject to the constraint that you will actually stick with it.
+**Horace（陳馬）：** 兩件事。第一是你的時間跨度——你需要動用這筆錢要等多少年。第二是你的行為風險承受能力——你能持有的、在崩盤中不至於恐慌拋售的最進取配置。最優的配置，是在你確實能堅持的前提下，使報酬最大化的那個。
 
-[VISUAL: Decision tree: "Time Horizon > 20 years?" leads to 70-90% stocks. "Time Horizon 10-20 years?" leads to 50-70% stocks. "Time Horizon < 10 years?" leads to 30-50% stocks. Each branch has a secondary check: "Can you handle a 30%+ drawdown?" If no, shift one level more conservative]
+[VISUAL: Decision tree: "時間跨度 > 20 年？" 指向 70-90% 股票。"時間跨度 10-20 年？" 指向 50-70% 股票。"時間跨度 < 10 年？" 指向 30-50% 股票。每個分支都有次要的核查：「你能承受 30%+ 的回撤嗎？」若否，往更保守的方向調整一級]
 
-**Sam:** I want to talk more about the bond side. You mentioned earlier that the type of bonds matters a lot. Can you go deeper?
+**Stella（小魚）：** 我想更深入探討債券的部分。你之前提到債券的類型非常重要，可以進一步說明嗎？
 
-**Alex:** Absolutely. This is one of the most important and least understood aspects of 60/40. Not all bonds are created equal, and the type of bonds in your 40% allocation dramatically changes the portfolio's behavior.
+**Horace（陳馬）：** 當然。這是 60/40 中最重要、也最少被人理解的面向之一。並非所有債券都是一樣的，你在 40% 配置中持有的債券類型，會大幅改變投資組合的行為。
 
-[VISUAL: Bond spectrum from left to right: T-Bills (safest, lowest yield) to Short-Term Bonds to Intermediate Bonds to Long-Term Bonds (most volatile, highest yield in normal conditions)]
+[VISUAL: Bond spectrum from left to right: 短期國庫券（最安全、殖利率最低）到短期債券到中期債券到長期債券（波動最大、正常情況下殖利率最高）]
 
-**Alex:** The key concept is duration. Duration measures how sensitive a bond is to interest rate changes. A bond with a duration of 2 years will lose about 2% if interest rates rise 1%. A bond with a duration of 20 years will lose about 20% for the same rate increase.
+**Horace（陳馬）：** 關鍵概念是「存續期間」。存續期間衡量的是債券對利率變化的敏感程度。存續期間 2 年的債券，在利率上升 1% 時，會損失約 2%。存續期間 20 年的債券，面對同樣的利率上升，損失約為 20%。
 
-**Sam:** That is a tenfold difference in sensitivity.
+**Stella（小魚）：** 敏感度差了十倍。
 
-**Alex:** Exactly. In 2022, the U.S. Aggregate Bond Index had a duration of about 6 years. When rates rose roughly 3 percentage points, the index lost about 13%. But if your 40% had been in short-term bonds with a duration of 2 years, you would have lost only about 4-5% on the bond side. The total 60/40 portfolio would have been down maybe 13% instead of 17%.
+**Horace（陳馬）：** 完全正確。2022 年，美國綜合債券指數的存續期間約為 6 年。當利率上升約 3 個百分點，指數損失了約 13%。但如果你的 40% 投資的是存續期間 2 年的短期債券，債券端的損失只有約 4% 至 5%。60/40 整體投資組合可能只跌 13%，而非 17%。
 
-**Sam:** So why does not everyone just use short-term bonds?
+**Stella（小魚）：** 那為什麼不是每個人都使用短期債券？
 
-**Alex:** Because in a deflationary crisis -- like 2008 -- long-duration bonds are what save you. When the Fed cuts rates to zero, long-term bond prices surge. Long-term Treasuries gained about 26% in 2008. Short-term bonds barely moved. The 60/40 portfolio with long-duration bonds was down about 22%, but the version with short-term bonds was down about 27%.
+**Horace（陳馬）：** 因為在通縮型危機——像 2008 年——長存續期間債券才是救你的東西。當聯準會將利率降至零時，長期債券價格大漲。長期公債在 2008 年上漲了約 26%，短期債券幾乎紋風不動。持有長存續期間債券的 60/40 投資組合跌了約 22%，但持有短期債券的版本跌了約 27%。
 
-[VISUAL: Two-by-two matrix: "Crisis Type" on one axis (Deflationary vs. Inflationary), "Bond Duration" on the other (Short vs. Long). Shows which combination wins in each scenario: Long duration wins in deflation, Short duration wins in inflation]
+[VISUAL: Two-by-two matrix: "危機類型" 在一個軸（通縮 vs. 通膨），"債券存續期間" 在另一個軸（短期 vs. 長期）。顯示在每種情境中哪種組合勝出：長存續期間在通縮時勝出，短存續期間在通膨時勝出]
 
-**Sam:** So it is a tradeoff -- you are choosing between protection against deflation and protection against inflation?
+**Stella（小魚）：** 所以這是一種取捨——你在選擇對抗通縮的保護和對抗通膨的保護？
 
-**Alex:** Precisely. And the elegant solution is to not choose. Hold both. Split your 40% bond allocation between some long-duration bonds for deflation protection, some short-duration bonds or TIPS for inflation protection, and some intermediate bonds as a core holding.
+**Horace（陳馬）：** 完全正確。而優雅的解決方案是不做選擇——兩者都持有。將你 40% 的債券配置分成：一部分長存續期間債券以應對通縮、一部分短存續期間債券或抗通膨公債以應對通膨，再加上一些中期債券作為核心持倉。
 
-**Sam:** That is the "modern 60/40" you mentioned earlier.
+**Stella（小魚）：** 這就是你之前提到的「現代 60/40」。
 
-**Alex:** Right. You are not just diversifying between stocks and bonds -- you are diversifying within the bond allocation to handle multiple types of crises.
+**Horace（陳馬）：** 對。你不只是在股票和債券之間分散，還在債券配置內部進行分散，以應對多種類型的危機。
 
-[VISUAL: Pie chart showing a diversified bond allocation: 40% total split into Intermediate Bonds (15%), Short-Term/T-Bills (10%), TIPS (8%), International Bonds (7%)]
+[VISUAL: Pie chart showing a diversified bond allocation: 40% total split into 中期債券（15%）、短期債券／短期國庫券（10%）、抗通膨公債（8%）、國際債券（7%）]
 
-**Sam:** Let me ask about something I see a lot online. People say "just go all in on stocks, you are young, ride it out." What is wrong with that advice?
+**Stella（小魚）：** 我想聊聊網路上常見的說法。很多人說「全押股票就好，你還年輕，撐過去就贏了。」這種建議有什麼問題？
 
-**Alex:** Nothing is wrong with it in theory. Over 30-year periods, stocks have always outperformed bonds. So purely from a mathematical standpoint, a 25-year-old maximizes expected wealth by being 100% in stocks. But there are two practical problems.
+**Horace（陳馬）：** 理論上沒問題。在 30 年的時間跨度中，股票總是優於債券。純粹從數學角度來看，25 歲的投資人透過 100% 股票能最大化預期財富。但在實務上有兩個問題。
 
-**Sam:** Which are?
+**Stella（小魚）：** 是哪兩個？
 
-**Alex:** First, human behavior. It is easy to say "I will ride it out" when the market is going up. It is extraordinarily difficult when your $200,000 portfolio has become $120,000 and the news is screaming that the economy is collapsing. Most people who say they will "ride it out" have never actually experienced a 40% decline. The research shows that even professional investors make worse decisions under stress.
+**Horace（陳馬）：** 第一是人類行為。當市場上漲時，說「我會撐過去」很容易。當你的 20 萬元投資組合變成 12 萬元、新聞標題喊著經濟崩潰的時候，就難如登天了。大多數說自己「會撐過去」的人，從未真正經歷過 40% 的下跌。研究顯示，就連專業投資人在壓力下也會做出更糟的決定。
 
 [VISUAL: Graph showing investor cash flows into and out of stock funds, overlaid with market performance. Shows massive outflows at market bottoms (2009, 2020) and massive inflows at market tops -- proving that many investors who plan to "ride it out" actually do the opposite]
 
-**Alex:** Second, sequence of returns risk. This matters most for people approaching or in retirement. If you are 100% in stocks and the market drops 50% in your first year of retirement, you are in serious trouble even if the market eventually recovers. You are selling shares at depressed prices to fund your living expenses, and those shares are gone -- they do not participate in the recovery.
+**Horace（陳馬）：** 第二是報酬順序風險。這對接近或已退休的人最為重要。如果你在退休第一年 100% 持有股票，市場卻跌了 50%，即使市場最終回復，你也陷入嚴重困境。你必須以低價賣出股票來支應生活開銷，而那些賣掉的股票已經消失了——無法參與後來的回升。
 
-**Sam:** So bonds are not just for returns -- they are for behavioral management and sequence risk.
+**Stella（小魚）：** 所以債券不只是為了報酬，也是為了行為管理和報酬順序風險。
 
-**Alex:** Exactly. Bonds serve three functions in a portfolio. One, they provide modest but stable returns. Two, they reduce drawdowns so you can sleep at night and avoid panic-selling. Three, they provide a source of funds during stock market crashes so you do not have to sell stocks at the worst time.
+**Horace（陳馬）：** 完全正確。債券在投資組合中扮演三個角色：第一，提供適度但穩定的報酬；第二，降低回撤，讓你夜裡睡得著、避免恐慌拋售；第三，在股市崩盤時提供資金來源，讓你不必在最糟糕的時機賣股票。
 
-[VISUAL: Three pillars labeled "Returns" (small), "Behavioral Anchor" (medium), and "Liquidity Buffer" (tall), showing that the non-return benefits of bonds are arguably more valuable than the return contribution]
+[VISUAL: Three pillars labeled "報酬"（小）、"行為錨點"（中）、"流動性緩衝"（高），showing that the non-return benefits of bonds are arguably more valuable than the return contribution]
 
-**Sam:** What about alternatives to bonds in the 40% allocation? People talk about gold, real estate, crypto...
+**Stella（小魚）：** 那麼 40% 配置中的替代選項呢？大家談到黃金、不動產、加密貨幣……**
 
-**Alex:** Let us take them one by one. Gold has historically had low correlation to both stocks and bonds, which makes it a genuine diversifier. A 5% allocation to gold can improve risk-adjusted returns. But gold produces no income, has long stretches of poor performance, and is volatile in its own right. I think of gold as portfolio insurance, not a core holding.
+**Horace（陳馬）：** 讓我們一個一個來看。黃金在歷史上與股票和債券的相關性均低，使它成為真正的分散工具。5% 的黃金配置在某些環境下——尤其是通膨期間或貨幣危機時——能改善風險調整後的報酬。但黃金不產生任何收益，有漫長的低迷時期，且本身也具有波動性。我把黃金視為投資組合的保險，而非核心持倉。
 
-**Sam:** Real estate?
+**Stella（小魚）：** 不動產呢？
 
-**Alex:** Real estate, through REITs, can be a useful addition. REITs provide income, tend to benefit from inflation (rents rise with prices), and have moderate correlation to stocks. But they are not bonds -- they can drop 40% in a crisis, as they did in 2008. Including REITs at 5-10% of a portfolio is reasonable, but they do not replace bonds.
+**Horace（陳馬）：** 透過不動產投資信託持有不動產，可能是有用的補充。不動產投資信託提供收益、受惠於通膨（租金隨物價上漲），且與股票的相關性適中。但它不是債券——它在危機中可能下跌 40%，就像 2008 年一樣。在投資組合中配置 5% 至 10% 的不動產投資信託是合理的，但它無法取代債券。
 
-**Sam:** And crypto?
+**Stella（小魚）：** 那加密貨幣呢？
 
-**Alex:** Cryptocurrency, as of now, behaves more like a high-volatility growth asset than a defensive asset. Its correlation to stocks has increased over time. Bitcoin dropped over 60% in 2022 while providing no diversification benefit. Regardless of what you think about crypto's future, it is not a bond substitute. If you include it, it should come from the equity allocation, not the bond allocation.
+**Horace（陳馬）：** 目前，加密貨幣的行為更像是高波動性的成長資產，而非防禦性資產。它與股票的相關性隨著時間增加。比特幣在 2022 年下跌了逾 60%，完全沒有提供任何分散效益。不管你對加密貨幣的未來有什麼看法，它都不是債券的替代品。如果你要配置，它應該來自股票配置，而非債券配置。
 
-[VISUAL: Correlation matrix showing how different assets correlate with each other: Stocks/Bonds (low), Stocks/Gold (low), Stocks/REITs (moderate), Stocks/Bitcoin (moderate-high), Stocks/Commodities (moderate)]
+[VISUAL: Correlation matrix showing how different assets correlate with each other: 股票／債券（低）、股票／黃金（低）、股票／不動產投資信託（適中）、股票／比特幣（中高）、股票／大宗商品（適中）]
 
-**Sam:** Okay, let me ask the big-picture question. If I am building a portfolio today, in 2026, what should I do? Should I use 60/40 or something else?
+**Stella（小魚）：** 好，讓我問一個大方向的問題。如果我今天、2026 年要建構一個投資組合，我應該怎麼做？應該使用 60/40 還是其他方式？
 
-**Alex:** Here is my framework. Start with 60/40 as your baseline. Then adjust based on three factors.
+**Horace（陳馬）：** 以下是我的框架。以 60/40 作為基準線，然後根據三個因素進行調整。
 
-**Sam:** What are the three factors?
+**Stella（小魚）：** 是哪三個因素？
 
-**Alex:** First, your time horizon. If you have more than 20 years, shift toward more stocks -- maybe 70/30 or 80/20. If you have less than 10 years, shift toward more bonds -- maybe 50/50 or 40/60.
+**Horace（陳馬）：** 第一是你的時間跨度。如果你有超過 20 年，就向更多股票方向調整——也許是 70/30 或 80/20。如果不足 10 年，就向更多債券方向調整——也許是 50/50 或 40/60。
 
-Second, the current environment. Today, bond yields are around 4-5%, which means bonds are finally paying you something reasonable. That actually makes the 40% bond allocation more attractive than it was during the zero-rate era of 2010-2020 when bonds yielded almost nothing.
+第二是當前環境。目前，債券殖利率約在 4% 至 5% 左右，這意味著債券終於在為你提供相當合理的收益。這實際上使 40% 的債券配置比 2010 至 2020 年代的零利率時代更具吸引力——那時的債券幾乎什麼都不付。
 
-Third, diversify within each sleeve. Do not put all 60% in the S&P 500 -- add international stocks. Do not put all 40% in the U.S. Aggregate Bond Index -- add TIPS, short-term bonds, and maybe some real assets.
+第三是在各個部位內部進行分散。不要把所有 60% 都放在 S&P 500——加入國際股票。不要把所有 40% 都放在美國綜合債券指數——加入抗通膨公債、短期債券，可能還有一些實物資產。
 
 [ANIMATION: animation/week04_portfolio_comparison.py - Start with a basic 60/40 pie chart. Animate it transforming step by step: first the equity slice breaks into domestic and international segments, then the bond slice breaks into core bonds, TIPS, short-term, and alternatives. Show the risk metrics changing as each diversification step is added -- each step either reduces risk or improves return or both. Final state shows a fully diversified modern portfolio with expected return and volatility displayed.]
 
-**Sam:** What about the "risk parity" approach I have heard about?
+**Stella（小魚）：** 那我聽說的「風險平價」方式呢？
 
-**Alex:** Risk parity is a fascinating concept. In a traditional 60/40, even though you have 40% in bonds by dollars, about 90% of your portfolio's risk comes from stocks because stocks are so much more volatile than bonds. Your 60/40 portfolio is really a "90/10 risk portfolio."
+**Horace（陳馬）：** 風險平價是個很有趣的概念。在傳統 60/40 中，雖然你在債券上配置了 40% 的資金，但投資組合中約 90% 的風險其實來自股票，因為股票的波動性遠高於債券。你的 60/40 投資組合，在風險上其實更像是「90/10」。
 
-**Sam:** That is misleading.
+**Stella（小魚）：** 這讓人誤以為很均衡。
 
-**Alex:** It is. Risk parity says: instead of allocating by dollars, allocate by risk. Make each asset class contribute equally to total portfolio risk. In practice, this means holding a lot more bonds and a lot less stocks. Maybe 25% stocks and 75% bonds by dollars, which gives you roughly 50/50 risk contribution.
+**Horace（陳馬）：** 正是。風險平價的做法是：不按資金分配，而按風險貢獻來配置。讓每個資產類別對投資組合總風險的貢獻相等。在實務上，這意味著持有更多債券、更少股票。按資金計算，可能是 25% 股票和 75% 債券，使兩者的風險貢獻各約 50%。
 
-**Sam:** But that sounds like the returns would be terrible.
+**Stella（小魚）：** 但那樣的報酬聽起來會很慘。
 
-**Alex:** On an unlevered basis, yes. But risk parity funds typically use leverage -- they borrow to buy more bonds -- so the total return is competitive with 60/40. The Sharpe Ratio of risk parity portfolios has historically been higher than 60/40, meaning better risk-adjusted returns.
+**Horace（陳馬）：** 在未使用槓桿的情況下，確實如此。但風險平價基金通常會使用槓桿——借錢買進更多債券——因此整體報酬與 60/40 具有競爭力。歷史上，風險平價投資組合的夏普比率高於 60/40，意味著更好的風險調整後報酬。
 
-[VISUAL: Side-by-side comparison of 60/40 and Risk Parity: capital allocation pie charts, risk contribution pie charts, return comparison, and Sharpe Ratio comparison. Risk Parity shows more balanced risk contribution and higher Sharpe Ratio]
+[VISUAL: Side-by-side comparison of 60/40 and Risk Parity: 資金配置圓餅圖、風險貢獻圓餅圖、報酬比較、夏普比率比較。風險平價顯示更均衡的風險貢獻和更高的夏普比率]
 
-**Sam:** What are the downsides of risk parity?
+**Stella（小魚）：** 風險平價的缺點是什麼？
 
-**Alex:** Leverage introduces its own risks. If bond markets seize up -- as they briefly did in March 2020 -- leveraged bond positions can blow up. The strategy also depends on bonds having decent returns, which was questionable when yields were near zero. And the fees for risk parity funds tend to be much higher than a simple 60/40 index portfolio.
+**Horace（陳馬）：** 槓桿帶來了自身的風險。如果債券市場出現動盪——就像 2020 年 3 月短暫發生的情況——槓桿的債券部位可能會崩潰。這個策略也依賴債券提供不錯的報酬，當殖利率接近零時，這點值得商榷。此外，風險平價基金的費用往往遠高於簡單的 60/40 指數基金投資組合。
 
-**Sam:** So it is more sophisticated but not necessarily better?
+**Stella（小魚）：** 所以它更複雜，但未必更好？
 
-**Alex:** For most individual investors, a well-constructed 60/40 or 70/30 portfolio using low-cost index funds will outperform a risk parity fund on an after-fee basis. Risk parity is an interesting institutional approach, but for retail investors, simplicity usually wins.
+**Horace（陳馬）：** 對大多數個人投資人來說，使用低成本指數基金建構的 60/40 或 70/30 投資組合，在扣除費用後的表現通常優於風險平價基金。風險平價是一種有趣的機構方法，但對一般投資人而言，簡單往往勝出。
 
-**Sam:** Let me ask one more practical question. Let us say I have a 60/40 portfolio and stocks crash 30%. I am feeling scared. What do I actually do?
+**Stella（小魚）：** 讓我再問一個實際的問題。假設我持有 60/40 投資組合，股票崩跌了 30%，我很害怕，我實際上應該怎麼做？
 
-**Alex:** First, do nothing impulsive. Close the brokerage app. Go for a walk. Do not make decisions when you are in an emotional state. Second, remind yourself that a 30% decline is a normal, expected event. It has happened many times before and the market has always recovered. Third, if you have the discipline, rebalance. Your portfolio has drifted from 60/40 to maybe 50/50 because stocks fell. Sell some bonds and buy stocks at depressed prices. This is the hardest thing in investing -- buying when everyone else is selling.
+**Horace（陳馬）：** 第一，不要衝動。關掉券商的 App，去散個步，不要在情緒激動的狀態下做決定。第二，提醒自己，30% 的跌幅是正常、可預期的事件，以前發生過很多次，市場每次都恢復了。第三，如果你有足夠的紀律，就執行再平衡。股票下跌後，你的投資組合已從 60/40 偏移至大約 50/50，再平衡會迫使你賣出一些債券，以低廉的價格買進更多股票。這是投資中最困難的事——在所有人都在拋售時買進。
 
-**Sam:** And if I cannot bring myself to do that?
+**Stella（小魚）：** 如果我做不到呢？
 
-**Alex:** Then your allocation was probably too aggressive. If a 30% drop makes you want to sell everything, you should have been in 50/50 or 40/60, not 60/40. The right allocation is the one where you can rebalance during a crisis rather than flee from it. That is why understanding your own risk tolerance is so important -- not the theoretical kind, but the kind you feel in your stomach when your portfolio drops.
+**Horace（陳馬）：** 那麼你的配置可能原本就太進取了。如果 30% 的跌幅讓你想賣掉一切，你應該持有的是 50/50 或 40/60，而不是 60/40。正確的配置是在危機中你能夠再平衡、而不是逃跑的那個。這正是了解自身風險承受能力如此重要的原因——不是理論上的那種，而是投資組合下跌時你胃裡的那種感覺。
 
-[VISUAL: "Crisis Protocol" checklist: 1) Do not check your portfolio daily, 2) Review your time horizon, 3) Rebalance if possible, 4) Continue regular contributions, 5) Remember: this has happened before and markets recovered]
+[VISUAL: "危機應對守則" checklist: 1）不要每天查看投資組合，2）審視你的時間跨度，3）盡可能執行再平衡，4）持續定期定額投資，5）記住：這以前發生過，市場每次都恢復了]
 
-**Sam:** This has been incredibly helpful. Can you summarize the key takeaways?
+**Stella（小魚）：** 這真的非常有幫助。可以幫我們總結一下重點嗎？
 
-**Alex:** Five things to remember about the 60/40 portfolio.
+**Horace（陳馬）：** 關於 60/40 投資組合，有五件事要記住。
 
-One, it works because of the stock-bond correlation. When stocks and bonds move in opposite directions, the diversification benefit is powerful. But this correlation is not fixed -- it depends on the inflation regime.
+第一，它之所以有效，是因為股債相關性。當股票與債券朝相反方向移動時，分散投資的效益非常強大。但這種相關性並不固定——它取決於通膨環境。
 
-Two, 60/40 is a starting point, not a mandate. Younger investors should likely hold more stocks, older investors more bonds. The specific numbers matter less than the framework.
+第二，60/40 是起點，而非規定。年輕的投資人應該持有更多股票，年長的投資人則要持有更多債券。具體的數字，遠不如整個框架重要。
 
-Three, the type of bonds matters enormously. Traditional long-duration bonds protect you in deflationary crises but hurt you in inflationary ones. A modern bond allocation should include short-duration bonds and TIPS as well.
+第三，債券的類型至關重要。傳統的長存續期間債券在通縮型危機中保護你，但在通膨環境中傷害你。現代的債券配置應同時包含短存續期間債券和抗通膨公債。
 
-Four, rebalancing is your secret weapon. It forces you to buy low and sell high, and it has added meaningful returns over time.
+第四，再平衡是你的秘密武器。它迫使你低買高賣，並且隨著時間累積，為報酬帶來有意義的貢獻。
 
-Five, the biggest risk is not the market -- it is you. The best portfolio in the world is worthless if you abandon it during a crisis. Choose an allocation you can stick with through the worst markets.
+第五，最大的風險不是市場——而是你自己。世界上最好的投資組合，如果你在危機中棄之不顧，也毫無價值。選擇一個你在最糟糕的市場環境中也能堅持的配置。
 
 [VISUAL: Summary card with the five key takeaways, each with a simple icon]
 
-**Sam:** That last point is really the one that ties everything together. It is not about finding the perfect allocation -- it is about finding one you can live with.
+**Stella（小魚）：** 最後那點真的把所有事情串在一起了。不是要找到完美的配置，而是找到你能夠與之共存的那個。
 
-**Alex:** Perfectly said. The best allocation is not the one that looks best on a backtest. It is the one you can maintain through the inevitable storms.
+**Horace（陳馬）：** 說得太好了。最好的配置，不是在回測中看起來最漂亮的那個，而是你能在不可避免的風暴中堅持下去的那個。
 
-**Sam:** What is coming up next week?
+**Stella（小魚）：** 下週的主題是什麼？
 
-**Alex:** Next week we are diving into asset allocation strategies -- how to think about dividing your money across different asset classes beyond just stocks and bonds. We will cover the endowment model, the three-fund portfolio, and how to think about alternative assets. It is going to build directly on what we learned today.
+**Horace（陳馬）：** 下週我們要深入探討資產配置策略——如何思考如何在股票與債券以外的各種資產類別之間分配資金。我們將介紹捐贈基金模型、三基金投資組合，以及如何思考另類資產。這會直接建立在今天所學的基礎上。
 
-**Sam:** Cannot wait. Thanks for watching everyone, and we will see you next week.
+**Stella（小魚）：** 迫不及待了。感謝各位的收看，我們下週見。
 
 [VISUAL: End screen with subscribe button and links to previous lessons. Preview card for Week 5: Asset Allocation Strategies]
 

@@ -892,220 +892,220 @@ A: VaR's fundamental flaw is that it ignores the severity of tail losses. Two po
 
 [VISUAL: Title card -- "VaR, CVaR, and Risk Models: Quantifying Portfolio Risk"]
 
-**Alex**: Last week we covered the conceptual foundations of risk management. This week we are going to put numbers on everything. We are going to learn how institutions measure risk, where those measurements fail, and how to build a complete risk framework.
+**Horace**: Last week we covered the conceptual foundations of risk management. This week we are going to put numbers on everything. We are going to learn how institutions measure risk, where those measurements fail, and how to build a complete risk framework.
 
-**Sam**: This is the quantitative side -- the math behind risk management.
+**Stella**: This is the quantitative side -- the math behind risk management.
 
-**Alex**: Right. And the centerpiece of institutional risk measurement is Value at Risk, or VaR. It is the most widely used risk metric in finance.
+**Horace**: Right. And the centerpiece of institutional risk measurement is Value at Risk, or VaR. It is the most widely used risk metric in finance.
 
-**Sam**: I have heard the term but never really understood what it means.
+**Stella**: I have heard the term but never really understood what it means.
 
 [VISUAL: VaR definition with bell curve diagram]
 
-**Alex**: VaR answers one specific question: "What is the maximum loss I should expect on a normal day, at a given confidence level?" For example, "there is a 95% probability that the portfolio will not lose more than $50,000 in a single day." That is a 95% 1-day VaR of $50,000.
+**Horace**: VaR answers one specific question: "What is the maximum loss I should expect on a normal day, at a given confidence level?" For example, "there is a 95% probability that the portfolio will not lose more than $50,000 in a single day." That is a 95% 1-day VaR of $50,000.
 
-**Sam**: So on 95 out of 100 days, losses will be less than $50,000?
+**Stella**: So on 95 out of 100 days, losses will be less than $50,000?
 
-**Alex**: Exactly. But here is the critical nuance that most people miss. VaR says NOTHING about what happens on the other 5 days. The loss could be $55,000 or $5 million. VaR only tells you about the boundary -- the 95th percentile. It is a fence, not a wall.
+**Horace**: Exactly. But here is the critical nuance that most people miss. VaR says NOTHING about what happens on the other 5 days. The loss could be $55,000 or $5 million. VaR only tells you about the boundary -- the 95th percentile. It is a fence, not a wall.
 
-**Sam**: That seems like a pretty big gap. How do you know what happens beyond the fence?
+**Stella**: That seems like a pretty big gap. How do you know what happens beyond the fence?
 
-**Alex**: That is exactly the right question, and it is what led to the 2008 crisis. But we will get there. First, let me explain the three ways VaR is calculated, because the method matters a lot.
+**Horace**: That is exactly the right question, and it is what led to the 2008 crisis. But we will get there. First, let me explain the three ways VaR is calculated, because the method matters a lot.
 
 [VISUAL: "Three Methods of Calculating VaR" overview slide]
 
-**Alex**: Method one is parametric VaR, also called the variance-covariance method. It is the simplest. You assume that returns follow a normal distribution -- the classic bell curve. Then VaR is just a formula.
+**Horace**: Method one is parametric VaR, also called the variance-covariance method. It is the simplest. You assume that returns follow a normal distribution -- the classic bell curve. Then VaR is just a formula.
 
-**Sam**: What is the formula?
+**Stella**: What is the formula?
 
-**Alex**: VaR equals your portfolio value times the z-score times the portfolio's daily standard deviation. For 95% confidence, the z-score is 1.65. For 99%, it is 2.33. If your portfolio is $500,000 and the daily standard deviation is 1%, your 95% VaR is $500,000 times 1.65 times 0.01, which equals $8,250.
+**Horace**: VaR equals your portfolio value times the z-score times the portfolio's daily standard deviation. For 95% confidence, the z-score is 1.65. For 99%, it is 2.33. If your portfolio is $500,000 and the daily standard deviation is 1%, your 95% VaR is $500,000 times 1.65 times 0.01, which equals $8,250.
 
 [VISUAL: Step-by-step parametric VaR calculation]
 
-**Sam**: That seems straightforward. What is the catch?
+**Stella**: That seems straightforward. What is the catch?
 
-**Alex**: The catch is the assumption of normality. Real stock market returns have fat tails -- extreme events happen far more often than a normal distribution predicts. A normal distribution says a 4-sigma event should happen once every 126 years. In reality, it happens every 2-5 years. A 5-sigma event should theoretically happen once in 3.5 million years. The stock market has had several in just the last few decades.
+**Horace**: The catch is the assumption of normality. Real stock market returns have fat tails -- extreme events happen far more often than a normal distribution predicts. A normal distribution says a 4-sigma event should happen once every 126 years. In reality, it happens every 2-5 years. A 5-sigma event should theoretically happen once in 3.5 million years. The stock market has had several in just the last few decades.
 
 [ANIMATION: animation/week42_fat_tails.py -- Animated overlay of the normal distribution (bell curve) and the actual distribution of S&P 500 daily returns from 1950 to 2025. The animation starts with both distributions overlapping at the center, looking nearly identical. Then it zooms into the left tail (losses), where the actual distribution dramatically exceeds the normal distribution. Annotations appear pointing to specific extreme days: Black Monday 1987 (-22.6%), COVID crash March 2020 (-12%), Flash Crash 2010 (-9%), and several other events. A counter tallies the number of actual events beyond 3, 4, and 5 standard deviations compared to what the normal distribution predicts. The difference is striking: hundreds of events where the normal model predicted single digits.]
 
-**Sam**: That is shocking. The fat tails are dramatically thicker than the normal distribution predicts. So parametric VaR, which assumes normality, systematically underestimates the probability of extreme losses?
+**Stella**: That is shocking. The fat tails are dramatically thicker than the normal distribution predicts. So parametric VaR, which assumes normality, systematically underestimates the probability of extreme losses?
 
-**Alex**: Precisely. Parametric VaR works fine for measuring the risk of ordinary daily movements. But it fails catastrophically at measuring tail risk -- the very risk that can destroy your portfolio.
+**Horace**: Precisely. Parametric VaR works fine for measuring the risk of ordinary daily movements. But it fails catastrophically at measuring tail risk -- the very risk that can destroy your portfolio.
 
-**Sam**: What is method two?
+**Stella**: What is method two?
 
-**Alex**: Historical simulation. Instead of assuming a distribution, you take actual historical data. You collect hundreds of past daily returns for your portfolio's assets. Then you apply each historical day's returns to your current portfolio and ask, "What would my P&L have been?" You sort all the hypothetical P&L values from worst to best, and VaR is just the loss at the 5th percentile.
+**Horace**: Historical simulation. Instead of assuming a distribution, you take actual historical data. You collect hundreds of past daily returns for your portfolio's assets. Then you apply each historical day's returns to your current portfolio and ask, "What would my P&L have been?" You sort all the hypothetical P&L values from worst to best, and VaR is just the loss at the 5th percentile.
 
 [VISUAL: Sorted histogram of historical simulation results with VaR marked]
 
-**Sam**: That seems much better. No assumptions about normality.
+**Stella**: That seems much better. No assumptions about normality.
 
-**Alex**: It has advantages. It captures fat tails because they are in the actual data. It captures the actual correlations between assets. And it handles non-linear instruments like options better than parametric VaR.
+**Horace**: It has advantages. It captures fat tails because they are in the actual data. It captures the actual correlations between assets. And it handles non-linear instruments like options better than parametric VaR.
 
-**Sam**: But there is a catch here too.
+**Stella**: But there is a catch here too.
 
-**Alex**: Two catches. First, it assumes the future will look like the past. If your historical window is 2015-2019 -- a calm bull market -- your VaR will be low because there were no crises in that period. But that does not mean crises will not happen going forward.
+**Horace**: Two catches. First, it assumes the future will look like the past. If your historical window is 2015-2019 -- a calm bull market -- your VaR will be low because there were no crises in that period. But that does not mean crises will not happen going forward.
 
-**Sam**: Cherry-picking the sample period.
+**Stella**: Cherry-picking the sample period.
 
-**Alex**: It does not even require intentional cherry-picking. Any fixed window automatically excludes some historical events. The second catch is the ghost effect. When an extreme day rolls off the end of your data window, VaR can drop overnight even though nothing about your portfolio changed. On January 1st of a new year, the worst day from four years ago might fall out of your 1000-day window, and suddenly your VaR looks 20% lower.
+**Horace**: It does not even require intentional cherry-picking. Any fixed window automatically excludes some historical events. The second catch is the ghost effect. When an extreme day rolls off the end of your data window, VaR can drop overnight even though nothing about your portfolio changed. On January 1st of a new year, the worst day from four years ago might fall out of your 1000-day window, and suddenly your VaR looks 20% lower.
 
 [VISUAL: Timeline showing data window shifting and extreme events falling off]
 
-**Sam**: That is unsettling. What about the third method?
+**Stella**: That is unsettling. What about the third method?
 
-**Alex**: Monte Carlo simulation. This is the most sophisticated approach. You build a mathematical model of how your assets behave -- their expected returns, volatilities, correlations, and importantly, the shape of the return distribution including fat tails. Then you generate thousands of random scenarios from this model and calculate VaR from the simulated distribution.
+**Horace**: Monte Carlo simulation. This is the most sophisticated approach. You build a mathematical model of how your assets behave -- their expected returns, volatilities, correlations, and importantly, the shape of the return distribution including fat tails. Then you generate thousands of random scenarios from this model and calculate VaR from the simulated distribution.
 
 [ANIMATION: animation/week42_monte_carlo.py -- Animated Monte Carlo simulation for a two-asset portfolio. The animation begins with 100 random return pairs being generated and plotted on a scatter plot, showing the correlation structure between the two assets. This scales up rapidly to 1,000, then 5,000, then 10,000 scenarios. A histogram of total portfolio returns builds up on the side as scenarios accumulate. The 95th percentile loss is marked and labeled as VaR. A convergence chart in the corner shows how the VaR estimate stabilizes as more scenarios are added, starting volatile with few scenarios and settling to a stable value by 10,000. The final frame compares the Monte Carlo VaR to the parametric VaR, showing the Monte Carlo estimate is larger due to the fat-tailed distribution used in the simulation.]
 
-**Sam**: So Monte Carlo can model fat tails if you tell it to?
+**Stella**: So Monte Carlo can model fat tails if you tell it to?
 
-**Alex**: Exactly. You can use Student's t-distribution or other fat-tailed distributions instead of the normal distribution. You can model time-varying volatility. You can model regime changes. Monte Carlo is as good as the model you put into it.
+**Horace**: Exactly. You can use Student's t-distribution or other fat-tailed distributions instead of the normal distribution. You can model time-varying volatility. You can model regime changes. Monte Carlo is as good as the model you put into it.
 
-**Sam**: And that is also its weakness -- it is only as good as the model.
+**Stella**: And that is also its weakness -- it is only as good as the model.
 
-**Alex**: Right. If your model is wrong, running 10,000 scenarios of a wrong model just gives you 10,000 wrong answers. This is called model risk. The output looks precise and scientific -- four decimal places, thousands of scenarios -- but the precision is meaningless if the underlying assumptions are flawed.
+**Horace**: Right. If your model is wrong, running 10,000 scenarios of a wrong model just gives you 10,000 wrong answers. This is called model risk. The output looks precise and scientific -- four decimal places, thousands of scenarios -- but the precision is meaningless if the underlying assumptions are flawed.
 
 [VISUAL: Comparison table of three VaR methods -- strengths and weaknesses]
 
-**Sam**: OK, so all three VaR methods have limitations. What do we do about it?
+**Stella**: OK, so all three VaR methods have limitations. What do we do about it?
 
-**Alex**: This is where CVaR -- Conditional Value at Risk, also called Expected Shortfall -- comes in. CVaR answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
+**Horace**: This is where CVaR -- Conditional Value at Risk, also called Expected Shortfall -- comes in. CVaR answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
 
 [VISUAL: Bell curve diagram showing VaR boundary and CVaR region in the tail]
 
-**Alex**: VaR tells you the boundary of the worst 5% of outcomes. CVaR tells you the AVERAGE loss within that worst 5%. If your 95% VaR is $50,000, your CVaR might be $78,000. That means when you have a really bad day -- worse than VaR -- the average loss is about $78,000, not $50,000.
+**Horace**: VaR tells you the boundary of the worst 5% of outcomes. CVaR tells you the AVERAGE loss within that worst 5%. If your 95% VaR is $50,000, your CVaR might be $78,000. That means when you have a really bad day -- worse than VaR -- the average loss is about $78,000, not $50,000.
 
-**Sam**: Why is that distinction important?
+**Stella**: Why is that distinction important?
 
-**Alex**: Because two portfolios can have identical VaR but completely different CVaR. Imagine Portfolio A and Portfolio B both have a 95% VaR of $50,000. But Portfolio A's worst days are clustered around $55,000-$65,000, while Portfolio B's worst days include occasional losses of $200,000 or even $500,000. Portfolio A's CVaR might be $58,000. Portfolio B's CVaR might be $168,000.
+**Horace**: Because two portfolios can have identical VaR but completely different CVaR. Imagine Portfolio A and Portfolio B both have a 95% VaR of $50,000. But Portfolio A's worst days are clustered around $55,000-$65,000, while Portfolio B's worst days include occasional losses of $200,000 or even $500,000. Portfolio A's CVaR might be $58,000. Portfolio B's CVaR might be $168,000.
 
-**Sam**: Same VaR, totally different risk.
+**Stella**: Same VaR, totally different risk.
 
-**Alex**: Exactly. And this is not a theoretical concern. Before 2008, many banks had portfolios with moderate VaR but extreme CVaR. They were selling insurance on rare events -- credit default swaps, deep out-of-the-money options -- which had small daily risk but catastrophic tail risk. VaR could not see the difference. CVaR can.
+**Horace**: Exactly. And this is not a theoretical concern. Before 2008, many banks had portfolios with moderate VaR but extreme CVaR. They were selling insurance on rare events -- credit default swaps, deep out-of-the-money options -- which had small daily risk but catastrophic tail risk. VaR could not see the difference. CVaR can.
 
-**Sam**: Is that why regulators switched from VaR to CVaR after the crisis?
+**Stella**: Is that why regulators switched from VaR to CVaR after the crisis?
 
-**Alex**: Precisely. The Basel Committee, which sets global banking regulations, introduced the Fundamental Review of the Trading Book, which replaces VaR with Expected Shortfall as the primary risk measure. CVaR penalizes tail severity, so banks can no longer hide tail risk behind low VaR numbers.
+**Horace**: Precisely. The Basel Committee, which sets global banking regulations, introduced the Fundamental Review of the Trading Book, which replaces VaR with Expected Shortfall as the primary risk measure. CVaR penalizes tail severity, so banks can no longer hide tail risk behind low VaR numbers.
 
 [VISUAL: VaR vs. CVaR for two portfolios with identical VaR but different tail risk]
 
-**Sam**: Let us talk about stress testing. You mentioned this last week as a complement to statistical models.
+**Stella**: Let us talk about stress testing. You mentioned this last week as a complement to statistical models.
 
 [VISUAL: "Stress Testing" section header]
 
-**Alex**: Stress testing is fundamentally different from VaR and CVaR. Those are statistical -- they ask, "What is the probability distribution of losses?" Stress testing is scenario-based -- it asks, "What happens if THIS specific thing occurs?"
+**Horace**: Stress testing is fundamentally different from VaR and CVaR. Those are statistical -- they ask, "What is the probability distribution of losses?" Stress testing is scenario-based -- it asks, "What happens if THIS specific thing occurs?"
 
-**Sam**: Give me examples of stress scenarios.
+**Stella**: Give me examples of stress scenarios.
 
-**Alex**: There are three types. First, historical stress tests. You take actual past crises and apply them to your current portfolio. What would have happened to my portfolio during the 2008 financial crisis? During the COVID crash? During the 2022 rate shock?
+**Horace**: There are three types. First, historical stress tests. You take actual past crises and apply them to your current portfolio. What would have happened to my portfolio during the 2008 financial crisis? During the COVID crash? During the 2022 rate shock?
 
-**Sam**: But my portfolio is different from what I would have held during those periods.
+**Stella**: But my portfolio is different from what I would have held during those periods.
 
-**Alex**: That is exactly the point. You apply those historical market moves to your CURRENT portfolio. You know that during the 2008 crisis, the S&P 500 fell 57%, international stocks fell 55%, US bonds rose 8%, REITs fell 65%, and gold rose 25%. Apply those moves to whatever you are holding today.
+**Horace**: That is exactly the point. You apply those historical market moves to your CURRENT portfolio. You know that during the 2008 crisis, the S&P 500 fell 57%, international stocks fell 55%, US bonds rose 8%, REITs fell 65%, and gold rose 25%. Apply those moves to whatever you are holding today.
 
 [VISUAL: Historical stress test applied to a sample portfolio]
 
-**Alex**: Second type: hypothetical stress tests. You design scenarios that have not happened but are plausible. What if China invades Taiwan and global supply chains collapse? What if the US government defaults on its debt? What if AI causes a technology sector crash of 60%?
+**Horace**: Second type: hypothetical stress tests. You design scenarios that have not happened but are plausible. What if China invades Taiwan and global supply chains collapse? What if the US government defaults on its debt? What if AI causes a technology sector crash of 60%?
 
-**Sam**: Those sound extreme.
+**Stella**: Those sound extreme.
 
-**Alex**: They are extreme. That is the point. You are testing the limits of your portfolio's resilience. If a plausible extreme scenario would destroy your portfolio, you need to know that before it happens, not after.
+**Horace**: They are extreme. That is the point. You are testing the limits of your portfolio's resilience. If a plausible extreme scenario would destroy your portfolio, you need to know that before it happens, not after.
 
-**Sam**: And the third type?
+**Stella**: And the third type?
 
-**Alex**: Sensitivity analysis or factor shocks. You change one risk factor at a time and measure the impact. What happens if interest rates rise 200 basis points? What happens if the S&P drops 30%? What happens if the VIX spikes to 60? This gives you a factor-by-factor understanding of your portfolio's vulnerabilities.
+**Horace**: Sensitivity analysis or factor shocks. You change one risk factor at a time and measure the impact. What happens if interest rates rise 200 basis points? What happens if the S&P drops 30%? What happens if the VIX spikes to 60? This gives you a factor-by-factor understanding of your portfolio's vulnerabilities.
 
 [ANIMATION: animation/week42_stress_test.py -- Interactive stress test dashboard animation. A sample portfolio is displayed: 40% US equities, 20% international equities, 25% bonds, 10% REITs, 5% gold. Five stress scenarios appear as tabs: 2008 crisis, COVID crash, 2022 rate shock, stagflation, and tech bubble burst. When each tab is selected, the portfolio bars animate to show the impact of each scenario on each asset class, with the total portfolio loss prominently displayed. The worst scenario (2008 crisis) is highlighted with a red warning, showing a -34% total portfolio loss. The animation then shows the portfolio being rebalanced -- reducing equities, adding more bonds and gold -- and the stress test results recalculate in real-time, showing improvement in the worst-case scenario.]
 
-**Sam**: That is really powerful. You can see exactly how portfolio changes affect your worst-case outcomes.
+**Stella**: That is really powerful. You can see exactly how portfolio changes affect your worst-case outcomes.
 
-**Alex**: And notice that the 2008 scenario and the 2022 scenario stress different parts of the portfolio. In 2008, stocks were devastated but bonds were a safe haven. In 2022, BOTH stocks and bonds fell because rising interest rates hurt both. A portfolio that survived 2008 might not survive a repeat of 2022, and vice versa. Good stress testing uses multiple scenarios.
+**Horace**: And notice that the 2008 scenario and the 2022 scenario stress different parts of the portfolio. In 2008, stocks were devastated but bonds were a safe haven. In 2022, BOTH stocks and bonds fell because rising interest rates hurt both. A portfolio that survived 2008 might not survive a repeat of 2022, and vice versa. Good stress testing uses multiple scenarios.
 
-**Sam**: Let us move to factor risk models. What are those?
+**Stella**: Let us move to factor risk models. What are those?
 
 [VISUAL: "Factor Risk Models" section header]
 
-**Alex**: Factor risk models decompose your portfolio's total risk into components. Instead of saying "my portfolio has 14% volatility," a factor model says "6% of that volatility comes from market exposure, 3% comes from your tilt toward growth stocks, 2% comes from tech sector concentration, and 3% comes from individual stock selection."
+**Horace**: Factor risk models decompose your portfolio's total risk into components. Instead of saying "my portfolio has 14% volatility," a factor model says "6% of that volatility comes from market exposure, 3% comes from your tilt toward growth stocks, 2% comes from tech sector concentration, and 3% comes from individual stock selection."
 
-**Sam**: So it tells you WHERE your risk is coming from?
+**Stella**: So it tells you WHERE your risk is coming from?
 
-**Alex**: Exactly. And that is incredibly valuable because it tells you whether your risk is intentional or accidental. If you are a growth investor and 25% of your risk comes from your growth factor exposure, that is intentional -- you chose to tilt toward growth. But if 15% of your risk comes from an unintended concentration in technology, that might be accidental, and you might want to fix it.
+**Horace**: Exactly. And that is incredibly valuable because it tells you whether your risk is intentional or accidental. If you are a growth investor and 25% of your risk comes from your growth factor exposure, that is intentional -- you chose to tilt toward growth. But if 15% of your risk comes from an unintended concentration in technology, that might be accidental, and you might want to fix it.
 
 [VISUAL: Factor risk decomposition pie chart for a sample portfolio]
 
-**Alex**: The major risk factors in equity markets are market (overall market direction), size (small vs. large cap), value (value vs. growth), momentum (recent winners vs. losers), quality (profitable vs. unprofitable companies), and low volatility (calm vs. volatile stocks). Then there are sector factors and country factors.
+**Horace**: The major risk factors in equity markets are market (overall market direction), size (small vs. large cap), value (value vs. growth), momentum (recent winners vs. losers), quality (profitable vs. unprofitable companies), and low volatility (calm vs. volatile stocks). Then there are sector factors and country factors.
 
-**Sam**: How does this help me practically?
+**Stella**: How does this help me practically?
 
-**Alex**: Let me give you a concrete example. Say you have 15 stocks and your factor model tells you: market exposure contributes 42% of your risk, growth tilt contributes 18%, tech sector contributes 14%, and momentum contributes 8%. The remaining 18% is stock-specific.
+**Horace**: Let me give you a concrete example. Say you have 15 stocks and your factor model tells you: market exposure contributes 42% of your risk, growth tilt contributes 18%, tech sector contributes 14%, and momentum contributes 8%. The remaining 18% is stock-specific.
 
-**Sam**: That sounds like a typical growth-oriented tech portfolio.
+**Stella**: That sounds like a typical growth-oriented tech portfolio.
 
-**Alex**: It is. And the factor model reveals something important. If the market drops 20%, you can expect to lose about 23% because your market beta is 1.15. If growth stocks specifically underperform value by 10%, you will lose an additional 4.5% from your growth tilt. If the tech sector drops relative to the market, there is another hit. Your risks are stacked.
+**Horace**: It is. And the factor model reveals something important. If the market drops 20%, you can expect to lose about 23% because your market beta is 1.15. If growth stocks specifically underperform value by 10%, you will lose an additional 4.5% from your growth tilt. If the tech sector drops relative to the market, there is another hit. Your risks are stacked.
 
-**Sam**: And those risks are correlated. They could all hit at once.
+**Stella**: And those risks are correlated. They could all hit at once.
 
-**Alex**: Which is exactly what happened in 2022. The market dropped, growth underperformed value dramatically, and tech was one of the worst-performing sectors. A portfolio with heavy market, growth, and tech factor exposure got hit three different ways simultaneously.
+**Horace**: Which is exactly what happened in 2022. The market dropped, growth underperformed value dramatically, and tech was one of the worst-performing sectors. A portfolio with heavy market, growth, and tech factor exposure got hit three different ways simultaneously.
 
 [VISUAL: Factor exposure diagram showing how multiple factor risks can stack]
 
-**Sam**: So factor models help you avoid unintentional risk concentration across factors?
+**Stella**: So factor models help you avoid unintentional risk concentration across factors?
 
-**Alex**: Precisely. If you want to take growth risk, do it knowingly and limit it. If you want tech exposure, size it appropriately. Factor models turn a vague sense of "I think I am diversified" into a precise measurement of where your risk actually sits.
+**Horace**: Precisely. If you want to take growth risk, do it knowingly and limit it. If you want tech exposure, size it appropriately. Factor models turn a vague sense of "I think I am diversified" into a precise measurement of where your risk actually sits.
 
-**Sam**: Let us come back to the limitations we keep hinting at. VaR failed spectacularly in 2008. What happened?
+**Stella**: Let us come back to the limitations we keep hinting at. VaR failed spectacularly in 2008. What happened?
 
 [VISUAL: "When Risk Models Fail" section header]
 
-**Alex**: The 2008 crisis is the definitive case study of VaR failure. Let me walk through what went wrong.
+**Horace**: The 2008 crisis is the definitive case study of VaR failure. Let me walk through what went wrong.
 
-**Alex**: Before the crisis, banks held enormous portfolios of mortgage-backed securities. Their VaR models used historical data from a period when housing prices had never declined nationwide. The models showed low risk because the historical data contained no housing crashes.
+**Horace**: Before the crisis, banks held enormous portfolios of mortgage-backed securities. Their VaR models used historical data from a period when housing prices had never declined nationwide. The models showed low risk because the historical data contained no housing crashes.
 
-**Sam**: So the models literally could not imagine the scenario that occurred?
+**Stella**: So the models literally could not imagine the scenario that occurred?
 
-**Alex**: Correct. And it was worse than that. VaR created a false sense of security that encouraged banks to take MORE risk. "Our VaR is only $50 million, so we can lever up further." The low VaR number was used to justify 30-to-1 leverage. When the crisis hit and losses exceeded VaR by 10 to 50 times, the leverage amplified those losses into existential threats.
+**Horace**: Correct. And it was worse than that. VaR created a false sense of security that encouraged banks to take MORE risk. "Our VaR is only $50 million, so we can lever up further." The low VaR number was used to justify 30-to-1 leverage. When the crisis hit and losses exceeded VaR by 10 to 50 times, the leverage amplified those losses into existential threats.
 
 [VISUAL: Pre-crisis bank leverage ratios and VaR estimates vs. actual losses]
 
-**Alex**: There is also the procyclicality problem. When markets are calm, VaR is low, which encourages risk-taking. When markets become volatile, VaR rises, which forces selling. The forced selling makes markets more volatile, which raises VaR further, which forces more selling. VaR-based risk management can amplify market crashes instead of preventing them.
+**Horace**: There is also the procyclicality problem. When markets are calm, VaR is low, which encourages risk-taking. When markets become volatile, VaR rises, which forces selling. The forced selling makes markets more volatile, which raises VaR further, which forces more selling. VaR-based risk management can amplify market crashes instead of preventing them.
 
-**Sam**: It is a feedback loop -- the same kind we saw with volatility products.
+**Stella**: It is a feedback loop -- the same kind we saw with volatility products.
 
-**Alex**: Exactly. And there is one more subtle problem called the cobra effect. When traders are given VaR limits, they find ways to minimize reported VaR while taking on enormous tail risk. Selling deep out-of-the-money options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic. VaR cannot see it.
+**Horace**: Exactly. And there is one more subtle problem called the cobra effect. When traders are given VaR limits, they find ways to minimize reported VaR while taking on enormous tail risk. Selling deep out-of-the-money options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic. VaR cannot see it.
 
-**Sam**: So VaR is actually dangerous if it is your only risk measure?
+**Stella**: So VaR is actually dangerous if it is your only risk measure?
 
-**Alex**: It is potentially more dangerous than having no risk measure at all, because it creates an illusion of safety. That is why the modern approach uses VaR as one tool among many: VaR for daily risk monitoring, CVaR for tail severity, stress tests for extreme scenarios, factor models for risk decomposition, and concentration analysis for single-name risk.
+**Horace**: It is potentially more dangerous than having no risk measure at all, because it creates an illusion of safety. That is why the modern approach uses VaR as one tool among many: VaR for daily risk monitoring, CVaR for tail severity, stress tests for extreme scenarios, factor models for risk decomposition, and concentration analysis for single-name risk.
 
 [VISUAL: Complete risk measurement framework showing all tools and their purposes]
 
-**Sam**: How should an individual investor use all of this?
+**Stella**: How should an individual investor use all of this?
 
-**Alex**: Here is my practical recommendation. First, calculate your portfolio's VaR using a free tool like Portfolio Visualizer. This gives you a baseline daily risk number. Second, understand that your actual worst-case loss is probably 2-3 times your VaR -- that is a rough CVaR estimate. Third, run simple stress tests in a spreadsheet. Take your positions and apply 2008-style returns, 2020-style returns, and 2022-style returns. If any scenario produces a loss you cannot tolerate, reduce risk. Fourth, check your factor exposures. Most brokerages now show you this. Are you unintentionally concentrated in growth, tech, or momentum?
+**Horace**: Here is my practical recommendation. First, calculate your portfolio's VaR using a free tool like Portfolio Visualizer. This gives you a baseline daily risk number. Second, understand that your actual worst-case loss is probably 2-3 times your VaR -- that is a rough CVaR estimate. Third, run simple stress tests in a spreadsheet. Take your positions and apply 2008-style returns, 2020-style returns, and 2022-style returns. If any scenario produces a loss you cannot tolerate, reduce risk. Fourth, check your factor exposures. Most brokerages now show you this. Are you unintentionally concentrated in growth, tech, or momentum?
 
-**Sam**: That is manageable. VaR for daily monitoring, stress tests for extreme scenarios, and factor analysis for understanding risk sources.
+**Stella**: That is manageable. VaR for daily monitoring, stress tests for extreme scenarios, and factor analysis for understanding risk sources.
 
-**Alex**: And always remember: every model is wrong. The goal is not to predict the future perfectly. The goal is to be approximately right about the range of outcomes, prepare for the worst plausible case, and have a plan for when the models fail -- because they will fail.
+**Horace**: And always remember: every model is wrong. The goal is not to predict the future perfectly. The goal is to be approximately right about the range of outcomes, prepare for the worst plausible case, and have a plan for when the models fail -- because they will fail.
 
-**Sam**: Let me summarize. VaR measures the maximum expected loss at a given confidence level. Three methods: parametric (simple, assumes normality), historical simulation (uses real data, limited by history), and Monte Carlo (flexible, limited by model quality). CVaR measures the average loss in the tail. Stress testing measures the impact of specific extreme scenarios. Factor models decompose risk into systematic components. And no single tool is sufficient -- you need all of them, plus healthy skepticism.
+**Stella**: Let me summarize. VaR measures the maximum expected loss at a given confidence level. Three methods: parametric (simple, assumes normality), historical simulation (uses real data, limited by history), and Monte Carlo (flexible, limited by model quality). CVaR measures the average loss in the tail. Stress testing measures the impact of specific extreme scenarios. Factor models decompose risk into systematic components. And no single tool is sufficient -- you need all of them, plus healthy skepticism.
 
-**Alex**: Perfect. And if you remember nothing else from today, remember this: the models that failed in 2008 were not stupid. They were built by brilliant people with PhDs. They failed because they assumed the future would look like the recent past, and it did not. The same models might fail again, in a different way. Risk management is not about having the right model. It is about knowing that every model is wrong and planning accordingly.
+**Horace**: Perfect. And if you remember nothing else from today, remember this: the models that failed in 2008 were not stupid. They were built by brilliant people with PhDs. They failed because they assumed the future would look like the recent past, and it did not. The same models might fail again, in a different way. Risk management is not about having the right model. It is about knowing that every model is wrong and planning accordingly.
 
-**Sam**: That is a humbling thought.
+**Stella**: That is a humbling thought.
 
-**Alex**: It should be. Humility is the most important risk management tool of all. If you think your model has captured all the risks, you are the most dangerous person in the room.
+**Horace**: It should be. Humility is the most important risk management tool of all. If you think your model has captured all the risks, you are the most dangerous person in the room.
 
 [VISUAL: "Next week: Active Portfolio Management"]
 
-**Alex**: Next week we shift gears from risk to return. We will cover alpha, beta, tracking error, information ratio, active share, and performance attribution -- the tools for understanding whether active management is actually adding value.
+**Horace**: Next week we shift gears from risk to return. We will cover alpha, beta, tracking error, information ratio, active share, and performance attribution -- the tools for understanding whether active management is actually adding value.
 
-**Sam**: From measuring risk to measuring skill.
+**Stella**: From measuring risk to measuring skill.
 
-**Alex**: Exactly. And spoiler alert -- most active managers do not have as much skill as they think they do. The tools we will learn next week help you tell the difference.
+**Horace**: Exactly. And spoiler alert -- most active managers do not have as much skill as they think they do. The tools we will learn next week help you tell the difference.
 
-**Sam**: Looking forward to it. Thanks, Alex.
+**Stella**: Looking forward to it. Thanks, Horace.
 
-**Alex**: Thank you, Sam. Remember -- the model is always wrong. Plan for it. See you next week.
+**Horace**: Thank you, Stella. Remember -- the model is always wrong. Plan for it. See you next week.
 
 [VISUAL: End card with channel subscribe prompt and links to previous videos]

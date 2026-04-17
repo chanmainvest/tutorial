@@ -1,186 +1,248 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 13: IPOs, SPACs, and Spin-Offs
+# 補充課程第13課：IPO、SPAC與分拆
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-When a company decides to go public, it marks one of the most significant milestones in its corporate life. An Initial Public Offering (IPO) transforms a private business into a publicly traded entity, opening it up to millions of investors while subjecting it to new regulations, scrutiny, and market forces. But the traditional IPO is not the only route to the public markets. Special Purpose Acquisition Companies (SPACs) and corporate spin-offs offer alternative paths, each with distinct advantages and risks. Understanding how these processes work -- and the pitfalls they present -- is essential for any investor who wants to participate in newly public companies.
-
----
-
-### a) Why This Is Important
-
-**Access to Growth.** Some of the most exciting investment opportunities arise when companies first become publicly traded. Early investors in companies like Amazon, Google, and Tesla gained access at relatively modest valuations before these firms grew into trillion-dollar enterprises. Understanding the IPO process helps investors evaluate whether a newly public company is worth buying -- and at what price.
-
-**Understanding Underpricing.** IPOs are frequently priced below their first-day trading value, a phenomenon known as underpricing. This is not accidental -- it serves specific purposes for underwriters and issuers. However, retail investors rarely benefit from this underpricing because they seldom receive IPO allocations. Knowing why underpricing occurs helps you avoid the trap of buying at inflated first-day prices driven by hype.
-
-**Evaluating Alternative Structures.** SPACs exploded in popularity during 2020 and 2021, bringing hundreds of companies public through reverse mergers. Many of these performed poorly after the merger closed. Understanding SPAC mechanics -- including sponsor economics, dilution, and the redemption feature -- can save you from making costly mistakes.
-
-**Spin-Off Opportunities.** When large corporations spin off divisions into standalone companies, the resulting entities are often overlooked, misunderstood, or initially mispriced. Academic research has shown that spin-offs tend to outperform the broader market over the following one to three years. Knowing why this pattern exists can help you identify opportunities.
-
-**Lock-Up Awareness.** Many investors are surprised when a stock they bought post-IPO suddenly drops as insiders sell their shares after the lock-up period expires. Understanding lock-up dynamics helps you anticipate potential selling pressure and make better timing decisions.
-
-**Risk Management.** Newly public companies lack the long track record of established public firms. Financial histories may be limited, management teams may be untested in the public spotlight, and early financial results can be volatile. A clear understanding of these risks is fundamental to making sound investment decisions.
+當一家公司決定公開上市時，這標誌著其企業生命中最重要的里程碑之一。首次公開募股（IPO）將私人企業轉變為公開交易實體，向數百萬投資人開放，同時使其受到新法規、審查與市場力量的約束。但傳統IPO並非進入公開市場的唯一途徑。特殊目的收購公司（SPAC）與企業分拆提供了替代路徑，各有其獨特的優勢與風險。了解這些流程的運作方式——以及其中的陷阱——對任何想要參與新上市公司投資的投資人而言都是不可或缺的。
 
 ---
 
-### b) What You Need to Know
+### a) 為什麼這很重要
 
-#### The Traditional IPO Process
+**掌握成長機會。** 一些最令人興奮的投資機會出現在公司首次公開交易之際。亞馬遜、Google和特斯拉等公司的早期投資人，在這些企業成長為兆元級企業之前，以相對合理的估值取得入場機會。了解IPO流程有助於投資人評估一家新上市公司是否值得買進——以及以什麼價格買進。
 
-An Initial Public Offering is the process by which a private company offers shares to the public for the first time. The journey from private to public typically takes six to twelve months and involves several key stages.
+**認識低估定價現象。** IPO的訂價往往低於首日交易價值，這一現象稱為低估定價。這並非偶然——它服務於承銷商和發行人的特定目的。然而，散戶投資人鮮少能從低估定價中獲益，因為他們幾乎拿不到IPO配售額度。了解低估定價為何發生，有助於避免在炒作帶動的首日高價中買進的陷阱。
 
-**Selecting Underwriters.** The company chooses one or more investment banks to serve as underwriters. The lead underwriter (also called the bookrunner) manages the process, while co-managers assist. Major underwriters include Goldman Sachs, Morgan Stanley, and JPMorgan. The choice of underwriter signals credibility and influences investor interest.
+**評估替代架構。** SPAC在2020至2021年間爆炸性成長，透過反向合併將數百家公司推上市。許多公司在合併完成後表現不佳。了解SPAC機制——包括發起人酬勞、稀釋效應和贖回功能——可以讓你避免代價高昂的錯誤。
 
-**Due Diligence and Filing.** The company works with its underwriters and legal teams to prepare the S-1 registration statement filed with the SEC. This document contains extensive information about the company's business, financials, risks, management team, and intended use of IPO proceeds. The SEC reviews the filing and may request amendments or additional disclosures.
+**分拆帶來的機會。** 當大型企業將部門分拆為獨立公司時，所產生的實體往往被忽視、被誤解，或初期定價失當。學術研究顯示，分拆公司在其後一至三年往往優於大盤表現。了解這一規律存在的原因，有助於識別投資機會。
 
-**The Roadshow.** Company executives and underwriters conduct a series of presentations to institutional investors -- mutual funds, hedge funds, pension funds, and others. The roadshow typically lasts one to two weeks and takes place in major financial centers. During the roadshow, underwriters gauge investor interest and begin building the "book" of orders.
+**鎖定期意識。** 許多投資人在IPO後買進股票，卻在鎖定期屆滿、內部人士開始賣出股票時猝不及防地看著股價大跌。了解鎖定期動態有助於你預見潛在的賣壓，並做出更好的時機決策。
 
-**Pricing.** Based on investor demand gathered during the roadshow, the underwriters set the IPO price the night before trading begins. This price is typically within a previously announced range (for example, $18 to $22 per share) but can be adjusted higher or lower depending on demand. The pricing decision balances multiple objectives: raising adequate capital for the company, ensuring a successful first day of trading, and compensating the underwriters.
-
-**Allocation.** Shares are allocated primarily to institutional investors. Retail investors typically receive very small allocations, if any. Underwriters prioritize investors they believe will hold shares long-term, reducing early selling pressure. This allocation process has been criticized for favoring well-connected institutional clients.
-
-**First Day of Trading.** When the stock begins trading on its designated exchange, the opening price is determined by supply and demand in the public market. If demand exceeds supply, the stock opens above the IPO price -- this is the "pop" that generates media attention.
-
-#### IPO Underpricing
-
-One of the most extensively studied phenomena in finance is IPO underpricing -- the tendency for IPO stocks to close on their first day of trading well above the offer price. Historical data shows that U.S. IPOs are underpriced by an average of 15-20%, meaning the first-day closing price is typically 15-20% higher than the price paid by IPO investors.
-
-**Why Underpricing Occurs:**
-
-- **Winner's Curse Compensation.** Uninformed investors face the risk that they receive full allocations only in overpriced IPOs (because informed investors avoid them) and minimal allocations in underpriced IPOs (because everyone wants them). Underpricing compensates uninformed investors for this adverse selection.
-- **Underwriter Reputation.** Investment banks prefer a successful first-day pop because it makes their clients happy and builds their reputation. A broken IPO (one that trades below the offer price) damages the underwriter's brand.
-- **Signaling.** Companies may deliberately leave money on the table to signal quality. A successful IPO generates positive media coverage, analyst attention, and investor goodwill that can benefit the company in future capital raises.
-- **Legal Liability.** Setting a lower price reduces the risk of lawsuits from investors who might claim they were misled about the company's value.
-
-**The Retail Investor Problem.** While underpricing sounds like free money, retail investors rarely benefit. They do not receive IPO allocations and instead buy shares on the open market at the already-elevated post-IPO price. Research shows that investors who buy IPOs on the first day of trading and hold them for one to three years tend to underperform the broader market -- a phenomenon known as long-run IPO underperformance.
-
-#### Lock-Up Periods
-
-A lock-up period is a contractual agreement that prevents insiders -- founders, executives, early investors, and employees with stock options -- from selling their shares for a specified period after the IPO, typically 90 to 180 days.
-
-**Purpose of Lock-Ups.** Lock-ups exist to prevent a flood of insider selling immediately after the IPO, which would depress the stock price and undermine investor confidence. They give the market time to establish a fair price based on public information and trading activity.
-
-**Lock-Up Expiration Effects.** When the lock-up period ends, insiders can sell their shares for the first time. Research consistently shows that stocks experience abnormal trading volume and negative price pressure around lock-up expirations. The magnitude depends on several factors:
-
-- The size of the locked-up shareholding relative to the public float.
-- Whether the stock has performed well since the IPO (insiders are more motivated to sell if gains are large).
-- The presence of venture capital or private equity investors who may need to distribute shares to their own investors.
-
-Smart investors track lock-up expiration dates and consider this potential selling pressure before purchasing post-IPO stocks. Services like IPOScoop, SEC filings, and brokerage research tools provide lock-up expiration information.
-
-#### SPACs: Special Purpose Acquisition Companies
-
-A SPAC is a publicly traded shell company that raises capital through its own IPO with the sole purpose of acquiring a private company, thereby taking that company public through a reverse merger.
-
-**How SPACs Work:**
-
-1. **SPAC IPO.** A sponsor (typically an experienced investor or management team) creates a SPAC and takes it public, usually at $10 per share. The proceeds go into a trust account invested in short-term government securities.
-
-2. **Target Search.** The SPAC has a limited time -- typically 18 to 24 months -- to identify and complete a merger with a target company. If no deal is completed, the SPAC liquidates and returns the trust money to shareholders.
-
-3. **Merger Announcement.** When a target is identified, the SPAC announces the proposed merger (called a de-SPAC transaction). Shareholders vote on whether to approve the deal.
-
-4. **Redemption Right.** Before the merger closes, SPAC shareholders can redeem their shares for approximately $10 per share (plus interest earned in trust). This provides downside protection -- if you do not like the proposed deal, you get your money back.
-
-5. **Merger Completion.** If approved, the merger closes and the target company becomes publicly traded under a new ticker symbol.
-
-**SPAC Economics and Sponsor Incentives:**
-
-The SPAC structure creates significant conflicts of interest. Sponsors typically receive "founder shares" representing 20% of the post-IPO shares for a nominal investment. This means the sponsor is massively incentivized to complete any deal, even a bad one, because walking away means losing their founder shares. This 20% dilution (known as the "promote") comes directly at the expense of other SPAC shareholders.
-
-Additionally, SPACs often issue warrants alongside shares. These warrants allow holders to buy additional shares at a fixed price, creating further dilution.
-
-**SPAC Performance.** Research from multiple academic studies has found that SPAC mergers significantly underperform the broader market on average. A study by Stanford Law professor Michael Klausner found that the median SPAC delivered returns of negative 65% from merger close to one year later. The combination of sponsor dilution, warrant dilution, and the adverse selection of target companies (the best companies prefer traditional IPOs) weighs heavily on returns.
-
-#### Spin-Offs
-
-A spin-off occurs when a parent company distributes shares of a subsidiary or division to its existing shareholders, creating a new independent publicly traded company.
-
-**How Spin-Offs Work.** Shareholders of the parent company receive shares in the new company proportional to their existing holdings. For example, if you own 100 shares of ParentCo and the spin-off ratio is 1:4, you receive 25 shares of NewCo. The parent company's share price adjusts downward to reflect the separated value.
-
-**Why Companies Spin Off Divisions:**
-
-- **Unlocking Value.** A division may be undervalued within a large conglomerate. As a standalone company, it can attract investors who specialize in its industry and be valued more appropriately.
-- **Strategic Focus.** Both the parent and the spin-off can focus on their core businesses without the distraction and complexity of managing unrelated operations.
-- **Tax Efficiency.** Under Section 355 of the Internal Revenue Code, spin-offs can be structured as tax-free transactions for both the company and its shareholders.
-- **Management Incentives.** Standalone companies can offer stock-based compensation tied directly to their own performance, attracting and motivating management more effectively.
-
-**Why Spin-Offs Often Outperform:**
-
-Academic research by Patrick Cusatis, James Miles, and J. Randall Woolridge found that spin-offs outperformed the S&P 500 by about 10 percentage points annually in the first three years. Several explanations have been proposed:
-
-- **Forced Selling.** Index funds and institutional investors who held the parent may be forced to sell the spin-off if it does not fit their mandate or is too small for their portfolio. This indiscriminate selling creates temporary price depression.
-- **Neglect.** Newly spun-off companies often lack analyst coverage initially. They may be too small for large institutional investors to notice, leading to mispricing.
-- **Improved Focus.** Management teams freed from corporate bureaucracy can make faster, better decisions. Incentive alignment improves when compensation is tied to the spin-off's own stock performance.
-
-Not all spin-offs outperform. Companies spun off primarily to shed debt or liabilities (sometimes called "bad bank" spin-offs) often struggle. Evaluating the financial health and strategic rationale behind each spin-off is crucial.
-
-#### Direct Listings
-
-A direct listing (also called a direct floor listing or direct public offering) is an alternative to the traditional IPO in which a company goes public by allowing existing shareholders to sell their shares directly on a stock exchange without an underwriter.
-
-**Key Differences from IPOs:**
-
-- No new shares are issued, so the company does not raise new capital (though SEC rule changes now allow capital raises in direct listings).
-- No underwriter sets the price -- the opening price is determined by supply and demand on the exchange.
-- No lock-up period, so all existing shareholders can sell immediately.
-- No underwriting fees, which can save the company 3-7% of gross proceeds.
-
-Notable direct listings include Spotify (2018), Slack (2019), Coinbase (2021), and Roblox (2021). Direct listings work best for well-known companies that do not need to raise capital and want to avoid the costs and restrictions of a traditional IPO.
+**風險管理。** 新上市公司缺乏成熟公開公司的長期紀錄。財務歷史可能有限，管理團隊可能尚未經過公開市場的考驗，早期財務業績可能波動劇烈。清楚理解這些風險是做出合理投資決策的基礎。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要了解的知識
 
-**"IPOs are a great way for retail investors to get in early."** In reality, retail investors rarely receive IPO allocations. By the time you can buy shares on the open market, the stock has often already jumped 15-30% above the IPO price. Research shows that buying on the first day and holding long-term tends to underperform the market.
+#### 傳統IPO流程
 
-**"A big first-day pop means the IPO was successful."** A large first-day gain actually means the company left money on the table. If a stock opens 50% above the IPO price, the company could have raised significantly more capital. The "pop" benefits IPO allocators (mostly institutions), not the issuing company.
+首次公開募股是私人公司首次向公眾公開發售股票的過程。從私人到公開的旅程通常需要六至十二個月，涉及幾個關鍵階段。
 
-**"SPACs are just like IPOs."** SPACs involve fundamentally different economics due to the sponsor promote, warrant dilution, and the fact that the target company negotiates its valuation directly with the SPAC sponsor rather than being priced by the market. The incentive structure makes SPACs more favorable to sponsors than to ordinary shareholders.
+**選擇承銷商。** 公司選擇一家或多家投資銀行擔任承銷商。主承銷商（也稱為帳簿管理人）負責管理整個流程，聯合承銷商提供協助。主要承銷商包括高盛、摩根士丹利和摩根大通。承銷商的選擇傳遞公司信譽訊號，並影響投資人的興趣。
 
-**"All spin-offs are good investments."** While spin-offs have historically outperformed on average, individual results vary enormously. Spin-offs burdened with excessive debt, loaded with the parent's worst assets, or lacking viable standalone business models can be disastrous investments.
+**盡職調查與申報。** 公司與承銷商和法律團隊合作，準備向美國證券交易委員會（SEC）提交的S-1申請書。這份文件包含公司業務、財務狀況、風險、管理團隊及IPO募集資金預定用途的詳盡資訊。SEC審查申請書，可能要求修訂或補充揭露。
 
-**"The lock-up period protects retail investors."** Lock-ups protect the stock price temporarily, but they create a delayed wave of selling pressure. Some investors buy post-IPO stocks without realizing that millions of additional shares will become available for sale in a few months.
+**巡迴說明會。** 公司高階主管與承銷商對機構投資人——共同基金、避險基金、退休基金等——進行一系列簡報。巡迴說明會通常歷時一至兩週，在主要金融中心舉行。在此期間，承銷商評估投資人興趣，並開始建立訂單。
 
-**"You should always invest in companies you know and use."** While familiarity can provide insight, many popular consumer brands have been terrible investments post-IPO. Companies like Blue Apron, Peloton (at its peak valuation), and WeWork (via SPAC) were well-known brands that destroyed shareholder value.
+**定價。** 根據巡迴說明會期間收集的投資人需求，承銷商在交易開始前一晚確定IPO價格。這個價格通常在事先公布的區間內（例如每股18至22美元），但可根據需求調整高低。定價決策需平衡多重目標：為公司籌集足夠資金、確保首日交易成功，以及給予承銷商合理報酬。
+
+**配售。** 股票主要配售給機構投資人。散戶投資人通常僅獲得極少的配售額度（如有的話）。承銷商優先考慮預期長期持股的投資人，以減少早期賣壓。這種配售過程因偏袒人脈深厚的機構客戶而飽受批評。
+
+**首日交易。** 當股票在指定交易所開始交易時，開盤價由公開市場的供需決定。若需求超過供給，股票開盤價高於IPO價格——這就是引發媒體關注的「首日漲幅」。
+
+#### IPO低估定價
+
+金融學中研究最廣泛的現象之一是IPO低估定價——IPO股票首日收盤價往往遠高於發行價的傾向。歷史數據顯示，美國IPO平均低估定價幅度約為15-20%，即首日收盤價通常比IPO投資人支付的價格高出15-20%。
+
+**低估定價為何發生：**
+
+- **贏家詛咒補償。** 不知情的投資人面臨一種風險：他們只在定價過高的IPO中獲得完整配售（因為知情投資人會迴避），而在定價偏低的IPO中僅獲得少量配售（因為人人都想要）。低估定價是對不知情投資人承擔逆向選擇風險的補償。
+- **承銷商聲譽。** 投資銀行偏好首日漲幅亮眼，因為這讓客戶滿意並建立其聲譽。破發的IPO（股票跌破發行價）會損害承銷商的品牌。
+- **訊號傳遞。** 公司可能刻意「讓利」以彰顯其品質。成功的IPO帶來正面媒體報導、分析師關注和投資人好感，這些在未來融資時都能為公司帶來好處。
+- **法律責任。** 較低的定價降低了投資人以被誤導公司價值為由提出訴訟的風險。
+
+**散戶投資人的困境。** 儘管低估定價聽起來像是免費的錢，散戶投資人卻鮮少獲益。他們拿不到IPO配售，只能在公開市場以已經拉升的IPO後價格買入股票。研究顯示，在首日交易時買進IPO股票並持有一至三年的投資人，其表現往往不及大盤——這一現象稱為IPO長期表現不佳。
+
+#### 鎖定期
+
+鎖定期是一種合約安排，禁止內部人士——創辦人、高階主管、早期投資人及持有股票選擇權的員工——在IPO後的特定期間（通常為90至180天）內出售股票。
+
+**鎖定期的目的。** 鎖定期的存在是為了防止IPO後內部人士立即大量拋售，從而壓低股價並動搖投資人信心。鎖定期讓市場有時間根據公開資訊和交易活動建立公允價格。
+
+**鎖定期屆滿的影響。** 當鎖定期結束時，內部人士可以首次出售股票。研究一致顯示，股票在鎖定期屆滿前後出現異常交易量和負面價格壓力。影響程度取決於幾個因素：
+
+- 鎖定股份相對於流通股的規模。
+- 自IPO以來股票是否表現良好（若帳面獲利豐厚，內部人士出售動機更強）。
+- 是否有創業投資或私募股權投資人持有倉位，他們可能需要向自己的投資人分配股票。
+
+聰明的投資人會追蹤鎖定期屆滿日期，並在購買IPO後股票前考慮這一潛在賣壓。IPOScoop、SEC申報文件和券商研究工具均提供鎖定期屆滿資訊。
+
+#### SPAC：特殊目的收購公司
+
+SPAC是一家公開掛牌的空殼公司，透過自身的IPO募集資金，唯一目的是收購一家私人公司，從而通過反向合併使該公司上市。
+
+**SPAC的運作方式：**
+
+1. **SPAC IPO。** 發起人（通常是有經驗的投資人或管理團隊）創建SPAC並將其公開上市，通常以每股10美元的價格發行。募集資金存入投資於短期公債的信託帳戶。
+
+2. **尋找目標。** SPAC有一定時間——通常為18至24個月——識別並完成與目標公司的合併。若未能完成交易，SPAC將進行清算並將信託資金返還給股東。
+
+3. **宣布合併。** 確認目標後，SPAC宣布擬議合併（稱為SPAC去殼交易）。股東就是否批准交易進行投票。
+
+4. **贖回權。** 在合併完成前，SPAC股東可以約每股10美元的價格（加上信託賬戶所賺取的利息）贖回股票。這提供了下行保護——若你不喜歡擬議交易，可以拿回資金。
+
+5. **合併完成。** 若獲批准，合併完成，目標公司以新的股票代碼公開交易。
+
+**SPAC的經濟結構與發起人激勵：**
+
+SPAC架構產生重大的利益衝突。發起人通常以象徵性投資取得代表IPO後股份20%的「創辦人股份」。這意味著發起人有強烈動機完成任何交易，哪怕是一筆糟糕的交易，因為不成交意味著失去創辦人股份。這20%的稀釋（稱為「酬勞股」）直接由其他SPAC股東承擔。
+
+此外，SPAC通常在發行股票的同時附帶認股權證，製造進一步的稀釋效應。
+
+**SPAC的績效。** 多項學術研究的結果均顯示，SPAC合併的平均表現顯著遜於大盤。史丹佛法學院教授Michael Klausner的研究發現，SPAC合併完成至一年後的報酬率中位數為負65%。發起人酬勞股的稀釋、認股權證的稀釋，以及目標公司逆向選擇（最優質的公司偏好傳統IPO）的組合，對報酬率形成沉重拖累。
+
+#### 分拆
+
+分拆是指母公司將子公司或事業部門的股份分配給現有股東，從而創建一家新的獨立公開交易公司的過程。
+
+**分拆的運作方式。** 母公司股東按其現有持股比例收到新公司股份。例如，若你持有100股母公司（ParentCo）股票，且分拆比例為1:4，你將收到25股新公司（NewCo）股票。母公司股價隨之向下調整，以反映分離出去的價值。
+
+**企業分拆部門的原因：**
+
+- **釋放價值。** 某一部門在大型企業集團中可能被低估。作為獨立公司，它能吸引該行業的專業投資人，獲得更合理的估值。
+- **聚焦策略。** 母公司和被分拆公司都能專注於各自的核心業務，不再因管理無關業務的複雜性而分心。
+- **稅務效率。** 根據美國稅法第355條，分拆可以結構化為對公司和股東均免稅的交易。
+- **管理激勵。** 獨立公司可以提供與自身業績直接掛鉤的股權薪酬，更有效地吸引和激勵管理層。
+
+**分拆公司為何往往表現優異：**
+
+Patrick Cusatis、James Miles和J. Randall Woolridge的學術研究發現，分拆公司在前三年每年的績效超越標普500指數約10個百分點。目前已有幾種解釋：
+
+- **被動賣出。** 持有母公司的指數基金和機構投資人，若被分拆公司不符合其投資授權或規模太小，可能被迫賣出。這種非選擇性賣出製造暫時性的價格低迷。
+- **被忽視。** 新分拆的公司初期往往缺乏分析師追蹤。大型機構投資人可能根本沒有注意到它，導致定價失當。
+- **專注度提升。** 從企業官僚體制中解放出來的管理團隊能做出更快、更好的決策。當薪酬與分拆公司自身的股票表現掛鉤時，激勵機制得到改善。
+
+並非所有分拆都能表現優異。主要為了甩掉債務或負債而進行的分拆（有時稱為「壞銀行」分拆）往往表現掙扎。評估每次分拆背後的財務狀況和策略依據至關重要。
+
+#### 直接上市
+
+直接上市（也稱為直接掛牌或直接公開發行）是傳統IPO的一種替代方式，公司直接允許現有股東在交易所出售股份，而無需承銷商。
+
+**與IPO的主要差異：**
+
+- 不發行新股，因此公司不籌集新資金（儘管SEC規則的修改現在允許直接上市進行融資）。
+- 沒有承銷商設定價格——開盤價由交易所的供需決定。
+- 沒有鎖定期，所有現有股東可立即出售。
+- 無承銷費，可節省公司募集總額的3-7%。
+
+知名的直接上市案例包括Spotify（2018年）、Slack（2019年）、Coinbase（2021年）和Roblox（2021年）。直接上市最適合知名度高、不需要籌集資金且希望避免傳統IPO成本與限制的公司。
+
+#### 評估IPO：需要關注什麼
+
+若你考慮投資近期上市的公司，除了常規的基本面分析外，還有幾個因素值得關注。
+
+**營收成長軌跡。** 大多數上市公司都處於高速成長階段。觀察過去幾年的營收成長率。它在加速、穩定還是放緩？IPO前成長放緩是警示訊號——如果在公司上市前成長就在減速，上市後可能隨著公司成熟而繼續放緩。
+
+**獲利路徑。** 許多IPO公司尚未獲利。評估公司是否有可信的獲利路徑。觀察毛利率（是否在改善？）、營業費用佔營收的比例（是否在下降？），以及管理層對何時達到獲利的預期指引。
+
+**客戶集中度。** 從少數客戶獲得大比例營收的公司面臨重大集中度風險。若一個主要客戶離開，對營收的衝擊可能是毀滅性的。在S-1申請書的風險因素和財務揭露中尋找這方面的資訊。
+
+**內部人持股。** 檢查創辦人和管理團隊在IPO後持有多少股份。較高的內部人持股使管理層的利益與外部股東保持一致。若內部人士在IPO中積極賣出，可能表示他們對公司前景的信心不足。
+
+**募集資金用途。** S-1申請書揭露公司計劃如何使用所募集的資金。用於成長（研發、擴張、收購）的資金一般是正面訊號。主要用於償債或補貼持續營業虧損的資金則令人擔憂。
+
+**競爭格局。** 了解公司的競爭地位。它是市場領導者，還是在與規模更大、資金更雄厚的競爭對手角力？S-1申請書中的競爭格局章節往往經過美化，因此獨立研究非常重要。
+
+#### 不同年代的IPO表現
+
+IPO的表現在不同市場環境中差異顯著。
+
+**1990年代IPO。** 1990年代末網路泡沫時代創造了IPO史上最極端的首日漲幅。1999年IPO的平均首日報酬率約為70%。VA Linux（首日報酬率698%）和theGlobe.com（首日報酬率606%）等公司創下了驚人的單日漲幅。然而，這些公司中絕大多數最終倒閉，在高峰估值買進的投資人遭受了巨大損失。
+
+**2000年代IPO。** 網路泡沫後的環境平靜許多。IPO數量大幅下降，首日報酬率趨於溫和。這一時期上市的公司往往比1990年代末的前輩更為成熟且具備獲利能力。Google 2004年的IPO——採用荷蘭式拍賣流程以減少低估定價——是一項值得關注的創新。
+
+**2010年代IPO。** 獨角獸時代見證了Facebook（2012年）、阿里巴巴（2014年）和Uber（2019年）等公司以龐大估值上市。社群媒體公司主導了IPO市場。平均首日報酬率溫和，但長期表現差異懸殊。Facebook最初令人失望，後來成為十年來表現最好的股票之一。Uber和Lyft則在IPO後多年艱難前行。
+
+**2020年代IPO。** SPAC熱潮主導了2020至2021年的上市市場，隨後在2022至2023年隨著利率上升和估值下滑，IPO活動急劇萎縮，公開市場吸引力降低。隨後的復甦呈現出更為審慎的定價和回歸傳統IPO流程的趨勢。
+
+了解這些歷史規律有助於校準預期。當前的IPO環境始終受到更廣泛的市場狀況、利率和投資人情緒的影響。
+
+#### 創業投資在IPO生態中的角色
+
+IPO市場深受創業投資（VC）產業的影響，正是後者為最終上市的私人公司提供資金。
+
+**VC資金與IPO時機。** VC支持的公司在條件有利時上市——多頭市場、高估值和強勁的投資人需求。在空頭市場期間，IPO管線凍結。這創造了一個與更廣泛市場情緒呼應的IPO活動榮枯循環。
+
+**雙重股權結構。** 許多VC支持的IPO採用雙重股權結構，賦予創辦人和早期投資人不成比例的投票權。Google（現為Alphabet）、Facebook（Meta）和Snap等公司上市時採用的結構使創辦人每股擁有10倍或更多的投票權。這意味著作為公開市場投資人，你持有的股票可能治理權有限。投資前請評估雙重股權結構是否符合你的利益。
+
+**IPO前次級市場。** 在上市之前，後期私人公司的股份交易越來越多地在Nasdaq Private Market、Forge Global和SharesPost等平台上進行。這種上市前的交易提供了價格發現功能，並能顯示投資人對公司前景的情緒。然而，上市前價格並不總是上市後表現的可靠指標，因為私人和公開市場的買家結構和資訊可得性差異顯著。
+
+#### IPO和SPAC的稅務影響
+
+**透過雇主獲得的IPO股票。** 若你透過員工股票計劃（限制性股票單位、激勵性股票選擇權或員工股票購買計劃）獲得IPO股份，稅務處理可能相當複雜。限制性股票單位的歸屬觸發以歸屬時市場價值計算的一般所得稅。行使激勵性股票選擇權可能觸發替代最低稅（AMT）。在出售雇主IPO股份之前，特別是若該倉位相對於你的投資組合規模較大時，請諮詢稅務專業人士。
+
+**SPAC認股權證。** 作為SPAC投資一部分收到的認股權證有其自身的成本基礎（從單位購買價格中分配），並在行使或出售時課稅。購買時股份與認股權證之間的分配，以及後續的稅務處理，可能較為複雜，詳見SPAC的公開說明書。部分投資人對SPAC認股權證交易產生的意外稅務後果感到錯愕。
+
+**分拆的成本基礎分配。** 如前所述，美國稅法第355條下的免稅分拆不會立即產生稅務負擔。相反地，你在母公司的原始成本基礎需根據分離日母公司與分拆公司的相對公允市場價值，在兩者之間進行分配。母公司通常提供國稅局資訊信函，說明分配比例。請保留此信函——當你最終出售母公司股份或分拆公司股份以計算資本利得或損失時，你將需要它。
+
+**分拆的持有期間。** 在免稅分拆中，你的分拆公司股份的持有期間包含你持有母公司股份的時間。這意味著若你在分拆前已持有母公司超過一年，即使分拆公司剛剛公開交易，你對分拆公司股份的任何利得也可立即適用長期資本利得的稅率。
+
+**首日IPO出售的資本利得。** 若你獲得IPO配售並在首日以獲利賣出，該利得屬於短期資本利得，按一般所得稅率課稅。加上散戶投資人鮮少獲得大量IPO配售的現實，IPO「炒股」的稅後經濟效益比稅前數字所顯示的更不吸引人。
 
 ---
 
-### d) Q&A
+### c) 常見迷思
 
-**Q: How can retail investors participate in IPOs?**
-A: Some brokerages now offer IPO access programs. Fidelity, Schwab, and others may give eligible customers access to select IPO allocations. However, the allocations are typically small, and the best IPOs (with the highest demand) are hardest to access. Another approach is to wait and buy shares after the initial hype fades, typically three to six months post-IPO, once you have more financial data and analyst coverage to evaluate.
+**「IPO是散戶投資人提早入場的好方法。」** 事實上，散戶投資人很少獲得IPO配售。當你能在公開市場買到股票時，股價往往已較IPO價格上漲了15-30%。研究顯示，在首日買進並長期持有往往跑輸大盤。
 
-**Q: What is the typical timeline from IPO filing to trading?**
-A: From filing the initial S-1 to the first day of trading typically takes three to six months, though it can be shorter or longer depending on SEC review times and market conditions. Companies sometimes delay or withdraw their IPOs if market conditions deteriorate.
+**「首日大漲意味著IPO成功。」** 首日大幅上漲實際上意味著公司將資金「留在了桌上」。若股票開盤比IPO價格高出50%，公司本可以募集更多資金。「首日漲幅」的受益者是IPO配售者（主要是機構投資人），而非發行公司。
 
-**Q: How do I evaluate whether a SPAC merger target is fairly valued?**
-A: Start with the investor presentation that accompanies the merger announcement. Compare the target's revenue multiples to publicly traded peers. Pay close attention to forward projections -- SPAC targets are notorious for presenting overly optimistic financial forecasts because, unlike traditional IPOs, there are fewer legal constraints on forward-looking statements. Calculate the effective dilution from the sponsor promote and warrants. If the post-dilution valuation looks expensive relative to peers, that is a warning sign.
+**「SPAC就像IPO。」** 由於發起人酬勞股、認股權證稀釋，以及目標公司是直接與SPAC發起人談判估值而非由市場定價，SPAC涉及根本不同的經濟結構。這種激勵結構對發起人比對普通股東更有利。
 
-**Q: Should I sell a spin-off immediately or hold it?**
-A: This depends on the specific situation. If you are an index fund investor, your fund will handle this automatically. If you hold individual shares, evaluate the spin-off as a standalone investment. Consider its business model, financial health, and valuation. The historical tendency for spin-offs to outperform suggests holding may be worthwhile, but this is an average -- not every spin-off is worth keeping.
+**「所有分拆都是好的投資。」** 雖然分拆公司歷史上平均表現優異，但個別結果差異懸殊。負債累累、承接母公司最差資產，或缺乏可行獨立商業模式的分拆公司可能是災難性的投資。
 
-**Q: What are the tax implications of spin-offs?**
-A: Tax-free spin-offs under IRC Section 355 do not create an immediate tax liability. Instead, your cost basis in the parent company is allocated between the parent and the spin-off based on their relative market values after the separation. You will owe taxes only when you eventually sell the shares. The parent company typically provides guidance on how to allocate your basis.
+**「鎖定期保護散戶投資人。」** 鎖定期暫時保護了股價，但製造了延遲的賣壓浪潮。部分投資人在不知道幾個月後將有數百萬額外股份可供出售的情況下買進了IPO後的股票。
 
-**Q: Why did SPACs become so popular in 2020-2021?**
-A: Several factors converged. Low interest rates made the opportunity cost of holding SPAC trust money minimal. The traditional IPO process was disrupted by COVID-19 restrictions on in-person roadshows. Celebrity sponsors and social media hype attracted retail investors. And regulatory arbitrage -- the ability to present optimistic financial projections that would not be allowed in a traditional IPO -- made SPACs attractive to high-growth but unprofitable companies.
+**「你應該總是投資你熟悉和使用的公司。」** 雖然熟悉度可以提供洞察，但許多知名消費品牌IPO後的投資表現卻非常糟糕。Blue Apron、Peloton（在其峰值估值時）和WeWork（透過SPAC）等廣為人知的品牌都毀損了股東價值。
+
+**「直接上市總是比IPO好，因為沒有承銷費。」** 直接上市省去了承銷費，但提供的價格發現較少，且首日交易無法保證流動性。若沒有承銷商建立訂單簿，開盤價可能波動更大。直接上市也不為公司籌集新資金（儘管這一點正在改變）。它最適合知名度高、投資人需求強勁的公司——對於規模較小、知名度較低的公司，傳統IPO巡迴說明會流程有助於建立直接上市所無法帶來的知名度和需求。
+
+**「SPAC投資人的資金在信託帳戶中是安全的。」** 雖然SPAC信託資金確實投資於短期公債，且可以約每股10美元的價格贖回，但這只保護主動行使贖回權的投資人。若你在合併前沒有贖回而繼續持股，你就承擔了合併後公司的風險。許多散戶投資人在沒有充分了解目標公司或發起人酬勞股稀釋效應的情況下持股至合併完成，遭受了重大損失。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：散戶投資人如何參與IPO？**
+答：部分券商現在提供IPO申購計劃。富達、嘉信等券商可能允許符合條件的客戶申購特定IPO。然而，配售額度通常很小，而需求最旺盛、最受歡迎的IPO反而最難申購到。另一種方式是等待最初的熱潮消退後再買進，通常在IPO後三至六個月，此時你有更多財務數據和分析師追蹤報告可供評估。
+
+**問：從IPO申報到交易開始的典型時間線是什麼？**
+答：從提交初始S-1申請書到首日交易通常需要三至六個月，但根據SEC審查時間和市場狀況可能更短或更長。若市場狀況惡化，公司有時會延遲或撤回IPO計劃。
+
+**問：如何評估SPAC合併目標的估值是否合理？**
+答：從合並公告附帶的投資人說明書開始。將目標公司的營收倍數與公開交易的同業進行比較。請特別注意前瞻性預測——SPAC目標以過度樂觀的財務預測聞名，因為與傳統IPO不同，前瞻性陳述受到的法律限制較少。計算發起人酬勞股和認股權證的實際稀釋效應。若稀釋後的估值相對於同業顯得昂貴，那就是警示訊號。
+
+**問：我應該立即賣出分拆股票還是繼續持有？**
+答：這取決於具體情況。若你是指數基金投資人，你的基金會自動處理。若你持有個股，請將分拆公司作為獨立投資評估。考慮其商業模式、財務健康狀況和估值。分拆公司歷史上表現優異的趨勢表明持有可能是值得的，但這只是平均值——並非每個分拆都值得保留。
+
+**問：分拆的稅務影響是什麼？**
+答：美國稅法第355條下的免稅分拆不會立即產生稅務負擔。相反地，你在母公司的成本基礎根據分離後兩者的相對市場價值分配給母公司和分拆公司。你只有在最終出售股份時才需要繳稅。母公司通常會提供如何分配成本基礎的指引。
+
+**問：SPAC為何在2020至2021年間如此風行？**
+答：幾個因素同時匯聚。低利率使持有SPAC信託資金的機會成本降至最低。新冠疫情的限制措施干擾了需要現場演示的傳統IPO巡迴說明會流程。名人發起人和社群媒體炒作吸引了散戶投資人。此外，監管套利——能夠提出在傳統IPO中不被允許的樂觀財務預測——使SPAC對高成長但尚未獲利的公司頗具吸引力。
+
+**問：如何追蹤即將到來的IPO？**
+答：多種資源可追蹤IPO行事曆。SEC的EDGAR資料庫包含所有S-1申報文件。IPOScoop.com和Renaissance Capital（renaissancecapital.com）提供IPO行事曆、定價資訊和績效追蹤。Renaissance IPO ETF（IPO）持有近期上市公司，為IPO市場表現提供了便利的基準。你的券商也可能提供顯示即將到來的發行資訊的IPO專區。
+
+**問：熱門IPO和冷門IPO有何區別？**
+答：熱門IPO的申購超額認購——投資人的需求超過可用股份數量。熱門IPO通常呈現首日大漲，也是財經媒體報導最多的。冷門IPO的需求較弱，可能在其區間下緣（或以下）定價，並可能破發——在首日即跌破發行價。冷門IPO較不令人興奮，但從統計上看，首日買進者往往能獲得更好的長期報酬，因為初始價格並未被炒作推高。
+
+**問：是否有專注於IPO或分拆的指數股票型基金？**
+答：有。Renaissance IPO ETF（IPO）持有IPO後兩年內的公司。第一信托美國股票機會指數股票型基金（FPX）也追蹤近期上市公司。針對分拆，景順標普分拆指數股票型基金（CSD）以分拆公司為目標。這些指數股票型基金提供對新上市公司的多元化曝險，而無需承擔押注個別IPO的集中風險。
+
+---
+
+## YouTube 腳本
 
 [INTRO - 0:00]
 
 [VISUAL: Stock exchange floor with IPO bell-ringing ceremony, confetti falling, executives clapping]
 
-**Alex:** You have probably seen those exciting clips -- a company rings the bell at the NYSE, confetti flies, and suddenly everyone is talking about getting in on the next big IPO. But what actually happens behind the scenes?
+**Horace（陳馬）：** 你一定看過那些令人興奮的畫面——一家公司在紐交所敲響開市鐘，彩帶飛舞，突然間所有人都在討論如何搶購下一個熱門IPO。但幕後究竟發生了什麼？
 
-**Sam:** And more importantly -- should you, as a regular investor, be rushing to buy on day one? Today we are pulling back the curtain on IPOs, SPACs, spin-offs, and everything that happens when a company goes from private to public.
+**Stella（小魚）：** 更重要的是——身為一般投資人，你應該在第一天就衝進去買嗎？今天我們要揭開IPO、SPAC、分拆，以及公司從私人走向公開的一切面紗。
 
 [VISUAL: Title card "IPOs, SPACs, and Spin-Offs: What Every Investor Needs to Know"]
 
@@ -190,19 +252,19 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [VISUAL: Timeline graphic showing the IPO process from filing to first trade]
 
-**Alex:** Let us start with the basics. An IPO -- Initial Public Offering -- is when a private company sells shares to the public for the first time. But it is not as simple as just putting shares up for sale.
+**Horace（陳馬）：** 讓我們從基本概念說起。IPO——首次公開募股——是私人公司首次向公眾出售股票的過程。但這並不像把股票上架賣那麼簡單。
 
-**Sam:** Right. The process usually takes six to twelve months. First, the company hires investment banks -- called underwriters -- to manage the whole thing. These are big names like Goldman Sachs or Morgan Stanley.
+**Stella（小魚）：** 對。整個過程通常需要六到十二個月。首先，公司聘請承銷商——也就是投資銀行——來管理整個流程。這些都是高盛、摩根士丹利之類的大名字。
 
 [ANIMATION: Flowchart showing: Company -> Selects Underwriter -> Files S-1 with SEC -> Roadshow -> Pricing -> Trading Begins]
 
-**Alex:** The company files a document called an S-1 with the SEC. This is basically their public financial autobiography -- everything investors need to know about the business, the risks, and how they plan to use the money they raise.
+**Horace（陳馬）：** 公司向美國證券交易委員會（SEC）提交一份稱為S-1的文件。這基本上就是他們的公開財務自傳——投資人需要了解的關於業務、風險和募集資金用途的一切。
 
-**Sam:** Then comes the roadshow. Executives travel to major cities, presenting to big institutional investors -- pension funds, mutual funds, hedge funds. The underwriters are gauging demand: How many shares do these institutions want to buy, and at what price?
+**Stella（小魚）：** 接著是巡迴說明會。高階主管前往各大城市，向大型機構投資人——退休基金、共同基金、避險基金——進行簡報。承銷商評估需求：這些機構想買多少股票，以什麼價格買？
 
 [VISUAL: Map showing roadshow cities: New York, Boston, San Francisco, London, Hong Kong]
 
-**Alex:** Based on that demand, the underwriters set the IPO price the night before trading starts. And here is the first thing most people do not realize -- the IPO price is not the price you pay as a retail investor. That price is reserved for the institutional investors who participated in the roadshow.
+**Horace（陳馬）：** 根據這些需求，承銷商在交易開始前一晚確定IPO價格。這是大多數人沒有意識到的第一件事——IPO價格並不是你身為散戶投資人所支付的價格。那個價格是留給參與巡迴說明會的機構投資人的。
 
 ---
 
@@ -210,17 +272,17 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [ANIMATION: Bar chart showing IPO price at $20, first-day close at $24, representing a 20% "pop"]
 
-**Sam:** This brings us to one of the most interesting phenomena in finance -- IPO underpricing. On average, IPOs close their first day about 15 to 20 percent above the offer price.
+**Stella（小魚）：** 這帶我們來到金融界最有趣的現象之一——IPO低估定價。平均而言，IPO股票首日收盤比發行價高出約15至20%。
 
-**Alex:** So if the IPO price is $20, the stock might close at $24 on day one. That sounds like free money, right?
+**Horace（陳馬）：** 所以如果IPO價格是20美元，股票可能在第一天就收在24美元。聽起來像是免費的錢，對吧？
 
-**Sam:** It does, but here is the catch. That $4 gain goes to the institutional investors who got the IPO allocation. By the time you and I can buy shares on the open market, we are paying $24, not $20.
+**Stella（小魚）：** 是的，但問題來了。那4美元的獲利歸獲得IPO配售的機構投資人。等到你和我能在公開市場買股票的時候，我們付的是24美元，不是20美元。
 
 [VISUAL: Two stick figures -- "Institutional Investor" buying at $20 with a green arrow, "Retail Investor" buying at $24 with a yellow caution sign]
 
-**Alex:** And it gets worse. Research shows that if you buy IPO stocks on the first day at market prices and hold them for three years, you actually tend to underperform the broader market. The excitement fades, reality sets in, and many of these companies struggle to meet the lofty expectations baked into their first-day prices.
+**Horace（陳馬）：** 情況還更糟。研究顯示，若你在首日以市場價格買進IPO股票並持有三年，你其實往往跑輸大盤。興奮情緒消退，現實降臨，這些公司中許多都難以達到首日股價所隱含的遠大預期。
 
-**Sam:** So the lesson here is simple. Do not chase IPOs on day one. If a company is truly great, it will still be a good investment six months or a year later, once you have more data to evaluate.
+**Stella（小魚）：** 所以這裡的教訓很簡單。不要追逐IPO首日漲幅。如果一家公司真的很優質，六個月或一年後你有更多數據可以評估時，它依然會是好的投資標的。
 
 ---
 
@@ -228,15 +290,15 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [ANIMATION: Calendar graphic with a lock icon showing 90-180 day lock-up period, then unlocking]
 
-**Alex:** Another critical concept for IPO investors is the lock-up period. When a company goes public, insiders -- founders, executives, early investors, employees with stock options -- are typically prohibited from selling their shares for 90 to 180 days.
+**Horace（陳馬）：** 另一個對IPO投資人至關重要的概念是鎖定期。當公司上市時，內部人士——創辦人、高階主管、早期投資人、持有股票選擇權的員工——通常被禁止在90至180天內出售股份。
 
-**Sam:** This is supposed to prevent a flood of insider selling right after the IPO. Imagine if the CEO and every early investor dumped their shares on day one -- it would crater the stock.
+**Stella（小魚）：** 這是為了防止IPO後立即出現內部人士大量拋售。想像一下，若執行長和所有早期投資人在第一天就拋售股票——這會讓股價崩盤。
 
-**Alex:** But what happens when that lock-up expires? Suddenly, millions of shares that were previously restricted become available for sale. And studies consistently show that stocks experience negative price pressure around lock-up expirations.
+**Horace（陳馬）：** 但鎖定期屆滿時會發生什麼？突然間，數以百萬計之前受限的股份可以自由出售了。研究一致顯示，股票在鎖定期屆滿前後承受負面價格壓力。
 
 [VISUAL: Stock chart showing price decline around lock-up expiration date, with volume spike]
 
-**Sam:** The impact is especially severe when venture capital firms or private equity investors hold large positions. They may need to sell to return capital to their own investors. So if you are thinking about buying a post-IPO stock, always check when the lock-up expires. It is publicly disclosed in the S-1 filing.
+**Stella（小魚）：** 當創業投資公司或私募股權投資人持有大量倉位時，衝擊尤為嚴重。他們可能需要出售以將資金返還給自己的投資人。所以若你在考慮買進IPO後的股票，一定要查看鎖定期何時屆滿。這在S-1申請書中有公開揭露。
 
 ---
 
@@ -244,21 +306,21 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [VISUAL: Diagram showing the SPAC lifecycle: IPO -> Trust -> Target Search -> Merger -> Public Company]
 
-**Alex:** Now let us talk about SPACs -- Special Purpose Acquisition Companies. These were the hottest thing on Wall Street in 2020 and 2021. Over 600 SPACs went public in 2021 alone.
+**Horace（陳馬）：** 現在讓我們談談SPAC——特殊目的收購公司。這在2020至2021年間是華爾街最熱門的東西。光是2021年就有超過600家SPAC上市。
 
-**Sam:** A SPAC is essentially a blank-check company. A sponsor creates a shell company, takes it public at $10 per share, and puts the money into a trust. Then they have about two years to find a private company to merge with.
+**Stella（小魚）：** SPAC本質上是一家空白支票公司。發起人創建一家空殼公司，以每股10美元的價格上市，將資金存入信託帳戶。然後他們有大約兩年的時間尋找私人公司進行合併。
 
 [ANIMATION: SPAC structure showing $10 per share flowing into trust, sponsor receiving 20% founder shares]
 
-**Alex:** Here is the part most investors missed during the SPAC craze. The sponsor -- the person running the SPAC -- typically gets 20 percent of the shares for almost nothing. This is called the "promote." So right from the start, regular shareholders are diluted by 20 percent.
+**Horace（陳馬）：** 這是大多數投資人在SPAC熱潮期間忽略的部分。發起人——也就是運作SPAC的人——通常幾乎無需投入就可以獲得20%的股份。這稱為「酬勞股」。所以從一開始，普通股東就被稀釋了20%。
 
-**Sam:** Plus, SPACs usually issue warrants alongside shares, creating even more dilution. When you add it all up, SPAC shareholders face significant headwinds before the merged company even starts operating.
+**Stella（小魚）：** 加上SPAC通常在發行股票的同時附帶認股權證，帶來更多稀釋。把這些加在一起，SPAC股東在合併後的公司甚至開始運營之前就面臨重大不利因素。
 
-**Alex:** The data bears this out. A Stanford study found that the median SPAC delivered negative 65 percent returns from merger close to one year later. Negative 65 percent.
+**Horace（陳馬）：** 數據證實了這一點。史丹佛的一項研究發現，SPAC合併完成至一年後的報酬率中位數為負65%。負65%。
 
 [VISUAL: Performance comparison chart: Average SPAC return vs S&P 500 return over one year post-merger]
 
-**Sam:** There is one silver lining though. SPAC shareholders have the right to redeem their shares for about $10 before the merger closes. So if you do not like the deal, you can get your money back. This makes pre-merger SPACs relatively low-risk -- the danger comes after you decide to stay in through the merger.
+**Stella（小魚）：** 不過有一線曙光。SPAC股東在合併完成前有權以約10美元的價格贖回股票。所以若你不喜歡這筆交易，可以拿回資金。這使得合併前的SPAC相對低風險——危險在於你決定堅持持股至合併完成之後。
 
 ---
 
@@ -266,23 +328,23 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [ANIMATION: Large circle labeled "Parent Company" splitting into two circles: "Parent" and "Spin-Off"]
 
-**Alex:** Finally, let us talk about spin-offs. This is where a large company takes one of its divisions and turns it into a separate, independent public company.
+**Horace（陳馬）：** 最後，讓我們談談分拆。這是大型公司將其某個部門分拆為獨立公開上市公司的過程。
 
-**Sam:** Shareholders of the parent automatically receive shares in the new company. For example, when eBay spun off PayPal in 2015, eBay shareholders received PayPal shares proportional to their holdings.
+**Stella（小魚）：** 母公司的股東自動收到新公司的股份。例如，當eBay在2015年將PayPal分拆時，eBay股東按比例收到了PayPal的股份。
 
-**Alex:** What makes spin-offs interesting from an investment perspective is that they have historically outperformed the market. Research shows spin-offs beating the S&P 500 by about 10 percentage points annually in the first three years.
+**Horace（陳馬）：** 從投資角度來看，分拆的有趣之處在於它們歷史上表現優於大盤。研究顯示，分拆公司在前三年每年的績效超越標普500指數約10個百分點。
 
 [VISUAL: Bar chart comparing spin-off performance vs S&P 500 over 1, 2, and 3 year periods]
 
-**Sam:** Why? A few reasons. First, when a division is spun off, index funds that held the parent might be forced to sell the spin-off because it does not fit their mandate or is too small. That creates artificial selling pressure and temporarily depressed prices.
+**Stella（小魚）：** 為什麼呢？幾個原因。首先，當一個部門被分拆時，持有母公司的指數基金可能因為被分拆公司不符合投資授權或規模太小，而被迫賣出。這製造了人為賣壓和暫時的價格低迷。
 
-**Alex:** Second, the spin-off often starts with little or no analyst coverage. Big institutional investors may not even notice it. This neglect can lead to mispricing that savvy individual investors can exploit.
+**Horace（陳馬）：** 其次，分拆公司往往一開始幾乎沒有分析師追蹤。大型機構投資人甚至可能根本沒有注意到它。這種被忽視可能導致定價失當，讓精明的個人投資人有機可乘。
 
-**Sam:** And third, the management team of the newly independent company is often more focused and motivated. Their compensation is tied directly to their own stock performance, not buried inside a giant conglomerate.
+**Stella（小魚）：** 第三，新成立獨立公司的管理團隊往往更加專注且幹勁十足。他們的薪酬與自身股票表現直接掛鉤，而不是埋沒在龐大企業集團的複雜體系中。
 
 [VISUAL: Checklist graphic - "Spin-Off Evaluation: Business Quality, Debt Levels, Management Incentives, Reason for Spin-Off"]
 
-**Alex:** But not all spin-offs are winners. If a parent company is spinning off a division to dump bad assets or excessive debt onto it, that is a red flag. Always look at why the spin-off is happening before getting excited about the opportunity.
+**Horace（陳馬）：** 但並非所有分拆都是贏家。若母公司分拆是為了將不良資產或過多債務甩鍋給新公司，那就是個警示訊號。在為機會感到興奮之前，永遠要先了解分拆發生的原因。
 
 ---
 
@@ -290,22 +352,22 @@ A: Several factors converged. Low interest rates made the opportunity cost of ho
 
 [VISUAL: "Your IPO and Spin-Off Playbook" with numbered list]
 
-**Sam:** So let us wrap this up with some practical takeaways. Number one -- do not chase IPO day-one pops. The odds are stacked against retail investors on IPO day.
+**Stella（小魚）：** 那我們用一些實用的結論來做個總結。第一點——不要追逐IPO首日漲幅。散戶投資人在IPO當天的勝算很低。
 
-**Alex:** Number two -- always check lock-up expiration dates before buying post-IPO stocks. That wave of insider selling can create significant downward pressure.
+**Horace（陳馬）：** 第二點——在買進IPO後的股票之前，一定要查看鎖定期屆滿日期。那波內部人士賣出的浪潮可能造成顯著的下行壓力。
 
-**Sam:** Number three -- be extremely cautious with SPACs. The sponsor incentives and dilution make the math unfavorable for regular shareholders. If you do invest in a SPAC, remember your redemption right and use it if the deal does not look good.
+**Stella（小魚）：** 第三點——對SPAC要極為謹慎。發起人激勵機制和稀釋效應使普通股東的算術並不划算。若你確實投資SPAC，記住你的贖回權，若交易看起來不妙就要用它。
 
-**Alex:** Number four -- pay attention to spin-offs. They are often overlooked and can offer genuine opportunities, especially in the months immediately after separation when forced selling and neglect create temporary mispricings.
+**Horace（陳馬）：** 第四點——多留意分拆公司。它們往往被忽視，在分拆後的幾個月尤其如此，因為被動賣出和市場忽視製造了暫時性的定價失當，可能蘊藏真正的機會。
 
 [VISUAL: Summary comparison table: IPO vs SPAC vs Spin-Off vs Direct Listing, showing key features]
 
-**Sam:** And number five -- for any newly public company, wait for more information before investing. Let the company report a few quarters of earnings as a public entity. Let analysts initiate coverage. The fear of missing out is your worst enemy with newly public stocks.
+**Stella（小魚）：** 第五點——對任何新上市公司，在投資前先等待更多資訊。讓公司作為公開公司公布幾個季度的財報。讓分析師開始追蹤。錯失恐懼是你面對新上市股票時最大的敵人。
 
-**Alex:** The bottom line is that going public is an exciting event, but excitement and good investing are often at odds with each other. Patience and discipline will serve you far better than chasing the latest headline.
+**Horace（陳馬）：** 歸根結底，上市是令人興奮的事件，但興奮和良好的投資往往是相悖的。耐心和紀律遠比追逐最新頭條新聞更能讓你受益。
 
 [VISUAL: End card with channel logo, subscribe button, and "Next: Private Markets and Alternative Investments"]
 
-**Sam:** Thanks for watching. If this was helpful, hit that subscribe button, and we will see you in the next one.
+**Stella（小魚）：** 感謝收看。如果這支影片對你有幫助，請點擊訂閱按鈕，我們下集見。
 
 [END - 15:00]

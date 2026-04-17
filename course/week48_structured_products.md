@@ -825,182 +825,182 @@ A: These serve different purposes. Buffered ETFs provide systematic, always-on d
 
 [VISUAL: Title card -- "The Buffer Zone: How Wall Street Packages Risk for Retail Investors"]
 
-**Alex**: Today we are examining one of the hottest product categories in the investment industry: buffered ETFs and structured products. These are products that promise to give you stock market upside while protecting you from some or all of the downside. They are being marketed aggressively, growing rapidly, and they deserve careful scrutiny.
+**Horace**: Today we are examining one of the hottest product categories in the investment industry: buffered ETFs and structured products. These are products that promise to give you stock market upside while protecting you from some or all of the downside. They are being marketed aggressively, growing rapidly, and they deserve careful scrutiny.
 
-**Sam**: I have seen ads for these. "Invest in the S&P 500 with a built-in buffer." It sounds like the best of both worlds.
+**Stella**: I have seen ads for these. "Invest in the S&P 500 with a built-in buffer." It sounds like the best of both worlds.
 
-**Alex**: And that is exactly how they are designed to sound. But in finance, there is no free lunch. Every benefit comes with a cost. And the costs of these products are real, significant, and often hidden. By the end of this lesson, you will understand exactly what you are buying, what you are giving up, and whether it makes sense for your situation.
+**Horace**: And that is exactly how they are designed to sound. But in finance, there is no free lunch. Every benefit comes with a cost. And the costs of these products are real, significant, and often hidden. By the end of this lesson, you will understand exactly what you are buying, what you are giving up, and whether it makes sense for your situation.
 
 [VISUAL: "How Buffered ETFs Work" section header]
 
-**Alex**: Let us start with how they work. A buffered ETF offers a defined range of outcomes over a specific period -- usually one year. For example: participate in S&P 500 upside up to a cap of 15%, with a 10% downside buffer.
+**Horace**: Let us start with how they work. A buffered ETF offers a defined range of outcomes over a specific period -- usually one year. For example: participate in S&P 500 upside up to a cap of 15%, with a 10% downside buffer.
 
-**Sam**: So if the market goes up 10%, I get 10%. If it goes up 20%, I get only 15% because of the cap. And if it goes down 8%, I lose nothing because of the buffer.
+**Stella**: So if the market goes up 10%, I get 10%. If it goes up 20%, I get only 15% because of the cap. And if it goes down 8%, I lose nothing because of the buffer.
 
-**Alex**: Exactly. And if the market falls 15%, you lose only 5% -- the buffer absorbs the first 10%, and you bear the remaining 5%.
+**Horace**: Exactly. And if the market falls 15%, you lose only 5% -- the buffer absorbs the first 10%, and you bear the remaining 5%.
 
 [ANIMATION: animation/week48_buffered_payoff.py -- Animated payoff diagram for a buffered ETF. The animation starts with a standard linear equity line (the unhedged S&P 500 return) drawn diagonally from bottom-left to top-right. Then, the buffer is "applied": the portion of the line between 0% and -10% market return flattens to show zero investor loss. The flat line is colored green and labeled "Buffer Zone -- Protected." Next, the cap is applied: the portion of the line above +15% market return flattens horizontally. The capped section is colored orange and labeled "Cap -- Upside Surrendered." The remaining middle section -- between 0% and +15% -- stays diagonal and is colored blue, labeled "Participation Zone." The animation then runs a simulation: a dot moves along the S&P 500 return axis through various scenarios -- up 5% (dot rises along the blue line), up 25% (dot hits the cap and stops at 15%), down 8% (dot stays at zero in the buffer zone), down 25% (dot passes through the buffer and shows a 15% loss). For each scenario, a side panel shows the dollar impact on a $100,000 investment. Finally, the animation overlays the payoff of a simple 70/30 stock/bond portfolio for comparison, showing how the linear, uncapped 70/30 line differs from the kinked buffered line.]
 
-**Sam**: That animation makes the tradeoff very clear. But how do they actually create this payoff profile? It seems like magic -- upside participation with downside protection.
+**Stella**: That animation makes the tradeoff very clear. But how do they actually create this payoff profile? It seems like magic -- upside participation with downside protection.
 
-**Alex**: No magic. Just options. Every buffered ETF is built from three option positions, and understanding these is the key to evaluating whether you are getting a fair deal.
+**Horace**: No magic. Just options. Every buffered ETF is built from three option positions, and understanding these is the key to evaluating whether you are getting a fair deal.
 
 [VISUAL: Option mechanics diagram]
 
-**Alex**: Position one: you own the S&P 500, either directly or through equivalent call options. This gives you basic market exposure. Position two: you buy a put spread -- buy a put at the current level and sell a put 10% below. This pays out as the market declines from 0% to -10%, offsetting your losses. That is the buffer. Position three: you sell a call at 15% above the current level. This caps your upside at 15%. The premium you receive from selling this call pays for the put spread.
+**Horace**: Position one: you own the S&P 500, either directly or through equivalent call options. This gives you basic market exposure. Position two: you buy a put spread -- buy a put at the current level and sell a put 10% below. This pays out as the market declines from 0% to -10%, offsetting your losses. That is the buffer. Position three: you sell a call at 15% above the current level. This caps your upside at 15%. The premium you receive from selling this call pays for the put spread.
 
-**Sam**: So it is self-financing? The cap pays for the buffer?
+**Stella**: So it is self-financing? The cap pays for the buffer?
 
-**Alex**: In theory, yes. The premium from selling the call covers the cost of the put spread. In practice, the ETF issuer takes a cut, which means the terms you receive are slightly worse than what the options market would offer directly. The cap you get is lower than the theoretical maximum, and the difference is the issuer's fee.
+**Horace**: In theory, yes. The premium from selling the call covers the cost of the put spread. In practice, the ETF issuer takes a cut, which means the terms you receive are slightly worse than what the options market would offer directly. The cap you get is lower than the theoretical maximum, and the difference is the issuer's fee.
 
-**Sam**: How much worse?
+**Stella**: How much worse?
 
-**Alex**: The explicit expense ratio is typically 0.75-0.85% per year. But the hidden cost -- the gap between the cap you receive and the theoretical cap -- adds another 0.50-1.50%. So the total all-in cost is roughly 1.5-2.5% per year.
+**Horace**: The explicit expense ratio is typically 0.75-0.85% per year. But the hidden cost -- the gap between the cap you receive and the theoretical cap -- adds another 0.50-1.50%. So the total all-in cost is roughly 1.5-2.5% per year.
 
 [VISUAL: Cost comparison -- buffered ETF vs. plain index fund vs. DIY options]
 
-**Sam**: That is a lot more than a 0.03% index fund.
+**Stella**: That is a lot more than a 0.03% index fund.
 
-**Alex**: It is. And it is important to understand what that cost buys you. Over a 10-year period, the difference between 0.03% and 1.5% in fees on a $500,000 portfolio is roughly $100,000. That is the price of the buffer and the convenience of the packaged product.
+**Horace**: It is. And it is important to understand what that cost buys you. Over a 10-year period, the difference between 0.03% and 1.5% in fees on a $500,000 portfolio is roughly $100,000. That is the price of the buffer and the convenience of the packaged product.
 
-**Sam**: Could I build the same thing with options myself?
+**Stella**: Could I build the same thing with options myself?
 
 [VISUAL: "DIY vs. Packaged Products" section header]
 
-**Alex**: Yes, and for significantly less cost. If you have a $100,000 portfolio and know how to trade options, you can buy SPY shares, purchase a put spread for the buffer, and sell a call for the cap. The total cost is roughly 0.1-0.5% per year instead of 1.5-2.5%.
+**Horace**: Yes, and for significantly less cost. If you have a $100,000 portfolio and know how to trade options, you can buy SPY shares, purchase a put spread for the buffer, and sell a call for the cap. The total cost is roughly 0.1-0.5% per year instead of 1.5-2.5%.
 
-**Sam**: And you would get a higher cap because you are not paying the ETF fee.
+**Stella**: And you would get a higher cap because you are not paying the ETF fee.
 
-**Alex**: Correct. If the ETF offers a 15% cap, the theoretical cap from the options market might be 17-18%. You keep the extra 2-3% that the ETF issuer would have taken.
+**Horace**: Correct. If the ETF offers a 15% cap, the theoretical cap from the options market might be 17-18%. You keep the extra 2-3% that the ETF issuer would have taken.
 
-**Sam**: So why would anyone buy the ETF?
+**Stella**: So why would anyone buy the ETF?
 
-**Alex**: Convenience, primarily. The DIY approach requires options knowledge, quarterly management (rolling the options), and a sufficiently large account (at least $50,000, preferably $100,000+). For investors who do not want to manage options themselves, the ETF does it automatically. For some, the 1-2% annual convenience fee is worth it. For others, especially those with options experience and larger portfolios, DIY is clearly better.
+**Horace**: Convenience, primarily. The DIY approach requires options knowledge, quarterly management (rolling the options), and a sufficiently large account (at least $50,000, preferably $100,000+). For investors who do not want to manage options themselves, the ETF does it automatically. For some, the 1-2% annual convenience fee is worth it. For others, especially those with options experience and larger portfolios, DIY is clearly better.
 
 [VISUAL: Decision tree -- "Should you use a buffered ETF or DIY?"]
 
-**Sam**: Let us talk about structured notes. How are they different?
+**Stella**: Let us talk about structured notes. How are they different?
 
 [VISUAL: "Structured Notes" section header]
 
-**Alex**: Structured notes are similar in concept -- they use options to create defined payoff profiles -- but they are fundamentally different in structure. A structured note is a DEBT OBLIGATION issued by a bank. When you buy a structured note, you are lending money to Goldman Sachs, or Morgan Stanley, or JPMorgan, and they promise to pay you according to a formula tied to market performance.
+**Horace**: Structured notes are similar in concept -- they use options to create defined payoff profiles -- but they are fundamentally different in structure. A structured note is a DEBT OBLIGATION issued by a bank. When you buy a structured note, you are lending money to Goldman Sachs, or Morgan Stanley, or JPMorgan, and they promise to pay you according to a formula tied to market performance.
 
-**Sam**: So it is like a bond with an embedded derivative?
+**Stella**: So it is like a bond with an embedded derivative?
 
-**Alex**: Exactly. And here is the critical difference from ETFs: your investment is NOT held in segregated assets. It sits on the bank's balance sheet. If the bank goes bankrupt, your "principal-protected" structured note is about as protected as a Lehman Brothers promise.
+**Horace**: Exactly. And here is the critical difference from ETFs: your investment is NOT held in segregated assets. It sits on the bank's balance sheet. If the bank goes bankrupt, your "principal-protected" structured note is about as protected as a Lehman Brothers promise.
 
-**Sam**: And we know how that ended.
+**Stella**: And we know how that ended.
 
-**Alex**: Lehman issued over $2 billion in structured notes, many of which were marketed as "principal protected." When Lehman failed in September 2008, note holders recovered roughly 10-25 cents on the dollar through bankruptcy proceedings. The "protection" was only as good as Lehman's ability to pay, and Lehman's ability to pay was zero.
+**Horace**: Lehman issued over $2 billion in structured notes, many of which were marketed as "principal protected." When Lehman failed in September 2008, note holders recovered roughly 10-25 cents on the dollar through bankruptcy proceedings. The "protection" was only as good as Lehman's ability to pay, and Lehman's ability to pay was zero.
 
 [VISUAL: Structured note credit risk diagram -- "Your Protection = Bank's Promise"]
 
-**Sam**: That is a deal-breaker for me.
+**Stella**: That is a deal-breaker for me.
 
-**Alex**: It should be a significant consideration. Structured notes typically offer slightly better terms than buffered ETFs (higher caps or wider buffers) because they carry this additional credit risk. The "better" terms are compensation for lending your money to the bank unsecured. Whether that tradeoff is worthwhile depends on your view of the bank's creditworthiness.
+**Horace**: It should be a significant consideration. Structured notes typically offer slightly better terms than buffered ETFs (higher caps or wider buffers) because they carry this additional credit risk. The "better" terms are compensation for lending your money to the bank unsecured. Whether that tradeoff is worthwhile depends on your view of the bank's creditworthiness.
 
-**Alex**: Structured notes also have much higher fees -- typically 2.5-8% in total hidden costs. And they are illiquid. If you want to sell before maturity, the bank offers you a buyback price that is usually below fair value. You are locked in.
+**Horace**: Structured notes also have much higher fees -- typically 2.5-8% in total hidden costs. And they are illiquid. If you want to sell before maturity, the bank offers you a buyback price that is usually below fair value. You are locked in.
 
-**Sam**: So buffered ETFs are clearly superior for retail investors?
+**Stella**: So buffered ETFs are clearly superior for retail investors?
 
-**Alex**: For most retail investors, yes. Buffered ETFs have no credit risk, daily liquidity, transparent pricing, and lower fees. Structured notes retain some advantages for institutional investors -- customizable terms, potentially higher caps, and tax treatment that can be favorable in some situations -- but for individual investors, the risks and costs of structured notes are rarely justified.
+**Horace**: For most retail investors, yes. Buffered ETFs have no credit risk, daily liquidity, transparent pricing, and lower fees. Structured notes retain some advantages for institutional investors -- customizable terms, potentially higher caps, and tax treatment that can be favorable in some situations -- but for individual investors, the risks and costs of structured notes are rarely justified.
 
 [VISUAL: "Pros and Cons" section header]
 
-**Sam**: Let me make sure I understand the full picture. What are the real advantages of buffered ETFs?
+**Stella**: Let me make sure I understand the full picture. What are the real advantages of buffered ETFs?
 
-**Alex**: The biggest advantage is behavioral. Research consistently shows that investors who experience large drawdowns are more likely to panic-sell at the bottom. A 10% buffer does not eliminate losses, but it reduces the psychological impact of a drawdown. An investor who sees their portfolio down 5% during a 15% market decline is much less likely to panic than one who sees the full 15% loss.
+**Horace**: The biggest advantage is behavioral. Research consistently shows that investors who experience large drawdowns are more likely to panic-sell at the bottom. A 10% buffer does not eliminate losses, but it reduces the psychological impact of a drawdown. An investor who sees their portfolio down 5% during a 15% market decline is much less likely to panic than one who sees the full 15% loss.
 
-**Sam**: So the buffer keeps you in the market.
+**Stella**: So the buffer keeps you in the market.
 
-**Alex**: And staying in the market is worth more than most people realize. If you panic-sell during a 30% crash and then wait for "things to calm down" before reinvesting, you typically miss the initial recovery, which is often 15-25% within the first few months. The cost of panic-selling -- historically about 2-4% per year for the average emotional investor -- often exceeds the cost of the buffer.
+**Horace**: And staying in the market is worth more than most people realize. If you panic-sell during a 30% crash and then wait for "things to calm down" before reinvesting, you typically miss the initial recovery, which is often 15-25% within the first few months. The cost of panic-selling -- historically about 2-4% per year for the average emotional investor -- often exceeds the cost of the buffer.
 
-**Sam**: So the buffer pays for itself if it prevents one panic-sell over a decade.
+**Stella**: So the buffer pays for itself if it prevents one panic-sell over a decade.
 
-**Alex**: That is the strongest argument for these products. The mathematical cost of the cap is real, but the behavioral benefit of the buffer may be even more real for certain investors.
+**Horace**: That is the strongest argument for these products. The mathematical cost of the cap is real, but the behavioral benefit of the buffer may be even more real for certain investors.
 
 [VISUAL: Cost of panic-selling vs. cost of buffer cap over 10 years]
 
-**Sam**: Now, the disadvantages.
+**Stella**: Now, the disadvantages.
 
-**Alex**: The cap is the big one. Markets go up more than they go down. Historically, the S&P 500 has positive annual returns about 73% of the time. In years when it is positive, the average return is about 20%. With a 15% cap, you sacrifice 5% in an average positive year -- and much more in strong years.
+**Horace**: The cap is the big one. Markets go up more than they go down. Historically, the S&P 500 has positive annual returns about 73% of the time. In years when it is positive, the average return is about 20%. With a 15% cap, you sacrifice 5% in an average positive year -- and much more in strong years.
 
-**Sam**: Over 30 years, that adds up.
+**Stella**: Over 30 years, that adds up.
 
-**Alex**: Dramatically. If you invest $100,000 and earn 10% per year for 30 years, you end up with $1.74 million. If you earn 8% per year (the approximate long-term return of a buffered strategy after the cap drag), you end up with $1.01 million. That is $740,000 less. For a young investor with decades ahead, the cap is an enormous cost.
+**Horace**: Dramatically. If you invest $100,000 and earn 10% per year for 30 years, you end up with $1.74 million. If you earn 8% per year (the approximate long-term return of a buffered strategy after the cap drag), you end up with $1.01 million. That is $740,000 less. For a young investor with decades ahead, the cap is an enormous cost.
 
-**Sam**: So young investors should avoid these?
+**Stella**: So young investors should avoid these?
 
-**Alex**: In general, yes. If you have 20+ years to invest, the ability to recover from temporary drawdowns, and the discipline not to panic-sell, a plain index fund will almost certainly outperform a buffered ETF over the full period. The buffer is paying insurance premiums against a risk -- permanent capital loss -- that you can survive through patience and time.
+**Horace**: In general, yes. If you have 20+ years to invest, the ability to recover from temporary drawdowns, and the discipline not to panic-sell, a plain index fund will almost certainly outperform a buffered ETF over the full period. The buffer is paying insurance premiums against a risk -- permanent capital loss -- that you can survive through patience and time.
 
 [VISUAL: Long-term equity curve -- index fund vs. buffered ETF over 30 years]
 
-**Sam**: Who SHOULD use these, then?
+**Stella**: Who SHOULD use these, then?
 
-**Alex**: Near-retirees who cannot afford a 40% drawdown. Conservative investors who would otherwise hold all bonds. Investors who KNOW they will panic-sell during crashes and want a product that prevents their worst instincts. And institutional investors with specific loss budgets -- pensions that cannot tolerate more than a 15% decline in any given year.
+**Horace**: Near-retirees who cannot afford a 40% drawdown. Conservative investors who would otherwise hold all bonds. Investors who KNOW they will panic-sell during crashes and want a product that prevents their worst instincts. And institutional investors with specific loss budgets -- pensions that cannot tolerate more than a 15% decline in any given year.
 
-**Alex**: I will also say that a PARTIAL allocation to buffered ETFs can make sense even for moderate investors. Putting 20-30% of your equity allocation in a buffered ETF and keeping the rest in a plain index fund gives you some buffer protection without fully capping your upside.
+**Horace**: I will also say that a PARTIAL allocation to buffered ETFs can make sense even for moderate investors. Putting 20-30% of your equity allocation in a buffered ETF and keeping the rest in a plain index fund gives you some buffer protection without fully capping your upside.
 
 [VISUAL: Blended portfolio -- 70% plain index + 30% buffered ETF]
 
-**Sam**: There is one thing I keep thinking about. Can you just compare this to a simpler approach -- what if you just held fewer stocks and more bonds?
+**Stella**: There is one thing I keep thinking about. Can you just compare this to a simpler approach -- what if you just held fewer stocks and more bonds?
 
 [VISUAL: "Buffered ETF vs. Simpler Alternatives" section header]
 
-**Alex**: This is the most underasked question, and it is the most important one. A 100% allocation to a buffered ETF with a 10% buffer and 15% cap has approximately the same risk level as a 70% stock / 30% bond portfolio. Both lose roughly the same amount in a typical correction.
+**Horace**: This is the most underasked question, and it is the most important one. A 100% allocation to a buffered ETF with a 10% buffer and 15% cap has approximately the same risk level as a 70% stock / 30% bond portfolio. Both lose roughly the same amount in a typical correction.
 
-**Sam**: But the 70/30 portfolio has no cap.
+**Stella**: But the 70/30 portfolio has no cap.
 
-**Alex**: Exactly. In a year where stocks return 25%, the 70/30 earns about 18.5%. The buffered ETF earns 15%. Over time, the uncapped upside of the 70/30 dominates, because there are more positive years than negative years, and positive years tend to be larger than the cap.
+**Horace**: Exactly. In a year where stocks return 25%, the 70/30 earns about 18.5%. The buffered ETF earns 15%. Over time, the uncapped upside of the 70/30 dominates, because there are more positive years than negative years, and positive years tend to be larger than the cap.
 
-**Sam**: So the simpler portfolio wins over the long run?
+**Stella**: So the simpler portfolio wins over the long run?
 
-**Alex**: On AVERAGE, yes. The buffered ETF wins in specific scenarios -- when the market declines between 1% and 10% (the buffer zone), the buffered ETF outperforms. But these scenarios are less common than the cap-binding scenarios (market rising above 15%), so the math favors the simpler approach on an expected-value basis.
+**Horace**: On AVERAGE, yes. The buffered ETF wins in specific scenarios -- when the market declines between 1% and 10% (the buffer zone), the buffered ETF outperforms. But these scenarios are less common than the cap-binding scenarios (market rising above 15%), so the math favors the simpler approach on an expected-value basis.
 
-**Sam**: Then the only reason to choose the buffer is behavioral.
+**Stella**: Then the only reason to choose the buffer is behavioral.
 
-**Alex**: For most investors, yes. The explicit guarantee of "I cannot lose more than X% in the next year" provides psychological comfort that "I own 70% stocks and 30% bonds" does not, even though the risk levels are comparable. If that psychological comfort prevents panic-selling, it is genuinely valuable.
+**Horace**: For most investors, yes. The explicit guarantee of "I cannot lose more than X% in the next year" provides psychological comfort that "I own 70% stocks and 30% bonds" does not, even though the risk levels are comparable. If that psychological comfort prevents panic-selling, it is genuinely valuable.
 
 [VISUAL: Side-by-side risk/return profile -- buffered ETF vs. 70/30 portfolio]
 
-**Sam**: What about the timing aspect? You mentioned outcome periods.
+**Stella**: What about the timing aspect? You mentioned outcome periods.
 
-**Alex**: This is an underappreciated complexity. Buffered ETFs reset on specific dates -- the first of each month for monthly series. If you buy a January series buffered ETF on January 2, you get the full 10% buffer and 15% cap for the 12-month period.
+**Horace**: This is an underappreciated complexity. Buffered ETFs reset on specific dates -- the first of each month for monthly series. If you buy a January series buffered ETF on January 2, you get the full 10% buffer and 15% cap for the 12-month period.
 
-**Sam**: But if I buy it in June?
+**Stella**: But if I buy it in June?
 
-**Alex**: Then you are six months into the outcome period. If the market has already risen 8% since January, your remaining cap is only 7% (15% minus 8%). If the market has fallen 7%, your remaining buffer is only 3% (10% minus 7%). The terms you get mid-period are NOT the terms originally set.
+**Horace**: Then you are six months into the outcome period. If the market has already risen 8% since January, your remaining cap is only 7% (15% minus 8%). If the market has fallen 7%, your remaining buffer is only 3% (10% minus 7%). The terms you get mid-period are NOT the terms originally set.
 
-**Sam**: So I could buy a "10% buffer" product and actually have only 2% of protection left.
+**Stella**: So I could buy a "10% buffer" product and actually have only 2% of protection left.
 
-**Alex**: Exactly. Always check the remaining buffer and remaining cap before buying. Most buffered ETF providers publish this information on their websites. If the remaining buffer is too small to be meaningful, wait for the next reset date.
+**Horace**: Exactly. Always check the remaining buffer and remaining cap before buying. Most buffered ETF providers publish this information on their websites. If the remaining buffer is too small to be meaningful, wait for the next reset date.
 
 [VISUAL: Outcome period timeline showing how buffer and cap change mid-period]
 
-**Sam**: Let me ask a final big-picture question. Are these products good for the industry or bad for investors?
+**Stella**: Let me ask a final big-picture question. Are these products good for the industry or bad for investors?
 
-**Alex**: Both, in different ways. They are good because they give investors a way to stay in the market during volatile times, which prevents the costly behavioral mistake of panic-selling. They are also good because they force transparency about tradeoffs -- you can see exactly what you are giving up (the cap) in exchange for what you are getting (the buffer).
+**Horace**: Both, in different ways. They are good because they give investors a way to stay in the market during volatile times, which prevents the costly behavioral mistake of panic-selling. They are also good because they force transparency about tradeoffs -- you can see exactly what you are giving up (the cap) in exchange for what you are getting (the buffer).
 
-**Alex**: They are concerning because the fees are high, the mechanics are opaque to most investors, and they are being sold aggressively by advisors who earn commissions on them. The risk is that investors buy these products without understanding the tradeoffs -- particularly the cost of the cap over long periods -- and end up significantly worse off than if they had held a simple index fund.
+**Horace**: They are concerning because the fees are high, the mechanics are opaque to most investors, and they are being sold aggressively by advisors who earn commissions on them. The risk is that investors buy these products without understanding the tradeoffs -- particularly the cost of the cap over long periods -- and end up significantly worse off than if they had held a simple index fund.
 
-**Sam**: So the informed use of these products is very different from the typical use.
+**Stella**: So the informed use of these products is very different from the typical use.
 
-**Alex**: Exactly. The informed investor uses a buffered ETF as a specific tool for a specific purpose -- reducing drawdown risk in a portion of their portfolio, during a specific life stage, for a limited time period. The typical investor uses it because their advisor recommended it and the marketing sounded good, without understanding the 1.5-2.5% annual cost or the decades of capped returns. The difference in outcome over 20-30 years is hundreds of thousands of dollars.
+**Horace**: Exactly. The informed investor uses a buffered ETF as a specific tool for a specific purpose -- reducing drawdown risk in a portion of their portfolio, during a specific life stage, for a limited time period. The typical investor uses it because their advisor recommended it and the marketing sounded good, without understanding the 1.5-2.5% annual cost or the decades of capped returns. The difference in outcome over 20-30 years is hundreds of thousands of dollars.
 
 [VISUAL: Flowchart -- decision framework for structured products]
 
-**Sam**: Any final advice?
+**Stella**: Any final advice?
 
-**Alex**: Three things. First, understand the options mechanics. If you cannot explain how a put spread and a sold call create a buffer and cap, you do not understand what you are buying. Go back to our options lessons and build the knowledge.
+**Horace**: Three things. First, understand the options mechanics. If you cannot explain how a put spread and a sold call create a buffer and cap, you do not understand what you are buying. Go back to our options lessons and build the knowledge.
 
-**Alex**: Second, always compare to the simplest alternative. Before buying a buffered ETF, ask: "Would I be better off with a 70/30 stock/bond portfolio?" If the answer is not clearly no, the simpler approach is probably better.
+**Horace**: Second, always compare to the simplest alternative. Before buying a buffered ETF, ask: "Would I be better off with a 70/30 stock/bond portfolio?" If the answer is not clearly no, the simpler approach is probably better.
 
-**Alex**: Third, if you decide to use these products, keep the allocation modest -- 20-40% of your equity allocation, not 100%. This gives you buffer protection on part of your portfolio while keeping the rest uncapped for full market participation.
+**Horace**: Third, if you decide to use these products, keep the allocation modest -- 20-40% of your equity allocation, not 100%. This gives you buffer protection on part of your portfolio while keeping the rest uncapped for full market participation.
 
 [VISUAL: Summary card -- "Buffered ETFs: Know the Tradeoff, Size it Right, Compare to Alternatives"]
 
-**Sam**: This has been incredibly useful. We now have the tools to evaluate these products intelligently instead of just trusting the marketing.
+**Stella**: This has been incredibly useful. We now have the tools to evaluate these products intelligently instead of just trusting the marketing.
 
-**Alex**: And that is the theme of this entire course. Every financial product, every strategy, every claim needs to be evaluated critically. The tools we have built over these 48 weeks -- understanding options, statistics, backtesting, tail risk, and now structured products -- give you the ability to look under the hood and make informed decisions. That is the most valuable edge any investor can have.
+**Horace**: And that is the theme of this entire course. Every financial product, every strategy, every claim needs to be evaluated critically. The tools we have built over these 48 weeks -- understanding options, statistics, backtesting, tail risk, and now structured products -- give you the ability to look under the hood and make informed decisions. That is the most valuable edge any investor can have.
 
 [VISUAL: End card -- "Next Week: Volatility Arbitrage"]

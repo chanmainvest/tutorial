@@ -1,313 +1,263 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第二周：指数基金与交易所交易基金
 
-# Week 2: Index Funds and ETFs
-
-Animation reference: `animation/week02_active_vs_passive.py`
+动画参考文件：`animation/week02_active_vs_passive.py`
 
 ---
 
-## Part 1: Reading Section
+## 第一部分：阅读材料
 
 ---
 
-### a) Why This Is Important
+### a) 为什么这很重要
 
-Last week, we established that investing is essential to beat inflation and grow
-real wealth. But knowing you *should* invest and knowing *how* to invest are two
-very different things. This week answers the "how" with what many experts consider
-the single best investment vehicle for most people: index funds and ETFs.
+上周，我们确立了投资对于跑赢通胀、积累真实财富的必要性。但"应该投资"和"如何投资"是两件截然不同的事情。本周将用许多专家认为最适合大多数人的单一投资工具来回答"如何投资"这个问题：指数基金与交易所交易基金。
 
-Here is a statement that surprises most beginners: Over a 20-year period,
-approximately 90% of actively managed funds underperform their benchmark index.
-This is not speculation -- it is documented annually by the SPIVA (S&P Indices
-Versus Active) scorecard, one of the most comprehensive studies of active versus
-passive fund performance.
+有一个事实令大多数初学者感到惊讶：在20年的周期内，约90%的主动管理型基金跑输其基准指数。这并非猜测——这是由SPIVA（标普指数与主动管理对比）记分卡逐年记录在案的，该研究是主动与被动基金业绩表现最全面的追踪研究之一。
 
-What does this mean for you? It means that instead of paying a professional fund
-manager high fees to pick stocks, you can buy a simple, low-cost index fund that
-tracks the entire market and almost certainly do better over the long run.
+这对你意味着什么？这意味着，与其向专业基金经理支付高额费用来帮你选股，不如买入一只追踪整个市场的简单低成本指数基金——从长远来看，这几乎必然会带来更好的结果。
 
 ```
-  The Core Argument for Index Funds:
+  指数基金的核心论据：
 
   +----------------------------------------------+
   |                                              |
-  |  $10,000 invested for 30 years               |
+  |  10,000美元投资30年                           |
   |                                              |
-  |  Active Fund (avg after fees):   ~$76,123    |
-  |    - Gross return: 9.5%                      |
-  |    - Expense ratio: 1.0%                     |
-  |    - Net return: 8.5%                        |
+  |  主动型基金（均值，扣费后）：  ~76,123美元    |
+  |    - 毛收益率：9.5%                          |
+  |    - 费率：1.0%                              |
+  |    - 净收益率：8.5%                          |
   |                                              |
-  |  Index Fund (after fees):       ~$132,677    |
-  |    - Gross return: 10.0%                     |
-  |    - Expense ratio: 0.03%                    |
-  |    - Net return: 9.97%                       |
+  |  指数基金（扣费后）：        ~132,677美元     |
+  |    - 毛收益率：10.0%                         |
+  |    - 费率：0.03%                             |
+  |    - 净收益率：9.97%                         |
   |                                              |
-  |  Difference: $56,554 MORE with index fund    |
-  |  That is 74% more wealth.                    |
+  |  差距：指数基金多赚56,554美元                 |
+  |  相当于多积累74%的财富。                      |
   |                                              |
   +----------------------------------------------+
 ```
 
-The seemingly small difference in fees (1.0% vs 0.03%) compounds into an enormous
-wealth gap over decades. This is why Warren Buffett, the most famous active investor
-in history, has repeatedly advised ordinary investors to buy low-cost index funds.
+费率上看似微小的差距（1.0% 对比 0.03%），经过数十年的复利效应，会演变为巨大的财富鸿沟。这正是历史上最著名的主动投资者沃伦·巴菲特多次建议普通投资者购买低成本指数基金的原因。
 
-In his 2013 letter to Berkshire Hathaway shareholders, Buffett wrote that the
-instructions in his will direct that his wife's inheritance be invested in "a very
-low-cost S&P 500 index fund." If the greatest stock picker in history tells his
-own family to buy index funds, it is worth understanding why.
+在2013年致伯克希尔·哈撒韦股东的信中，巴菲特写道，他的遗嘱指示将妻子所继承的遗产投入"一只非常低成本的标普500指数基金"。如果史上最伟大的选股人告诉自己家人去买指数基金，那就值得我们深入理解其中的原因。
 
-This lesson will teach you exactly what index funds and ETFs are, how they work,
-why they outperform most professionals, and which specific funds to consider.
+本课将准确告诉你指数基金和交易所交易基金是什么、如何运作、为何能跑赢大多数专业人士，以及应考虑哪些具体基金。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知识
 
-#### 1. What Is an Index?
+#### 1. 什么是指数？
 
-An index is a list of stocks (or other assets) that represents a particular market
-or market segment. Nobody "manages" the index -- it follows a set of rules.
-
-```
-  Major Stock Market Indices:
-
-  +------------------+----------------------------------------+------------+
-  | Index            | What It Tracks                         | # Holdings |
-  +------------------+----------------------------------------+------------+
-  | S&P 500          | 500 largest US companies               |     ~500   |
-  | Total Stock Mkt  | Entire US stock market                 |   ~4,000   |
-  | Dow Jones (DJIA) | 30 large US companies                  |       30   |
-  | NASDAQ Composite | All stocks on NASDAQ exchange           |   ~3,000   |
-  | Russell 2000     | 2,000 small US companies               |   ~2,000   |
-  | MSCI EAFE        | Developed markets outside US/Canada    |     ~800   |
-  | MSCI Emerging    | Emerging market countries               |   ~1,400   |
-  | FTSE 100         | 100 largest UK companies               |      100   |
-  +------------------+----------------------------------------+------------+
-```
-
-When people say "the market was up 2% today," they usually mean the S&P 500 or the
-Dow Jones Industrial Average went up 2%. These indices serve as benchmarks -- they
-represent the overall performance of the market.
-
-**How indices are weighted:**
-
-Most major indices are "market-cap weighted," meaning larger companies have a bigger
-impact on the index's performance.
+指数是一份代表特定市场或市场细分领域的股票（或其他资产）清单。没有人"管理"指数——它遵循一套既定规则运行。
 
 ```
-  S&P 500 Market-Cap Weighting (simplified example):
+  主要股票市场指数：
 
-  Company       | Market Cap    | Weight in Index
+  +------------------+----------------------------------------+------------+
+  | 指数              | 追踪内容                                | 持仓数量   |
+  +------------------+----------------------------------------+------------+
+  | 标普500           | 美国500家最大公司                       |   约500    |
+  | 全股市指数        | 美国整体股票市场                         |  约4,000   |
+  | 道琼斯（DJIA）    | 30家美国大型公司                         |      30    |
+  | 纳斯达克综合指数  | 纳斯达克交易所全部股票                    |  约3,000   |
+  | 罗素2000          | 2,000家美国小型公司                      |  约2,000   |
+  | 明晟欧澳远东指数  | 美国/加拿大以外的发达市场                 |   约800    |
+  | 明晟新兴市场指数  | 新兴市场国家                             |  约1,400   |
+  | 富时100           | 英国100家最大公司                        |     100    |
+  +------------------+----------------------------------------+------------+
+```
+
+当人们说"今天市场涨了2%"，通常是指标普500或道琼斯工业平均指数上涨了2%。这些指数是基准——代表着市场整体的表现。
+
+**指数如何加权：**
+
+大多数主要指数采用"按市值加权"的方式，即市值较大的公司对指数表现的影响更大。
+
+```
+  标普500市值加权（简化示例）：
+
+  公司          | 市值          | 在指数中的权重
   --------------+---------------+----------------
-  Apple         | $3.0 trillion |     ~7.0%
-  Microsoft     | $2.8 trillion |     ~6.5%
-  Amazon        | $1.8 trillion |     ~4.0%
-  NVIDIA        | $1.5 trillion |     ~3.5%
-  Alphabet      | $1.7 trillion |     ~4.0%
-  ...           |               |
-  Smallest Co.  | $10 billion   |     ~0.02%
+  苹果          | 3.0万亿美元   |     约7.0%
+  微软          | 2.8万亿美元   |     约6.5%
+  亚马逊        | 1.8万亿美元   |     约4.0%
+  英伟达        | 1.5万亿美元   |     约3.5%
+  字母表（谷歌）| 1.7万亿美元   |     约4.0%
+  ……            |               |
+  最小的公司    | 100亿美元     |    约0.02%
   --------------+---------------+----------------
-  Total         |               |    100.0%
+  合计          |               |    100.0%
 
-  Note: The top 10 companies often represent 30-35% of
-  the entire index. The bottom 250 might represent only 10%.
+  注：前10大公司通常占整个指数的30%-35%。
+  后250家公司合计可能仅占约10%。
 ```
 
-This means when Apple's stock moves 1%, it affects the S&P 500 about 350 times more
-than the smallest company in the index moving 1%.
+这意味着，当苹果股票波动1%时，其对标普500的影响约是指数中最小公司波动1%的350倍。
 
-#### 2. What Is an Index Fund?
+#### 2. 什么是指数基金？
 
-An index fund is a mutual fund or ETF designed to replicate the performance of a
-specific index. Instead of hiring analysts to pick which stocks to buy and sell,
-an index fund simply buys all (or a representative sample of) the stocks in the
-index, in the same proportions.
+指数基金是一种旨在复制特定指数表现的共同基金或交易所交易基金。指数基金不雇用分析师来决定买卖哪些股票，而是简单地按相同比例买入指数中所有（或具有代表性的样本）股票。
 
 ```
-  How an Index Fund Works:
+  指数基金如何运作：
 
-  Step 1: Index defines the rules
+  第一步：指数确定规则
   +----------------------------------+
-  | S&P 500 Index Rules:             |
-  | - US companies                   |
-  | - Market cap > ~$14 billion      |
-  | - Profitable (GAAP earnings)     |
-  | - Adequate liquidity             |
-  | - Weighted by market cap         |
+  | 标普500指数规则：                 |
+  | - 美国公司                       |
+  | - 市值 > 约140亿美元             |
+  | - 盈利（符合GAAP会计准则）        |
+  | - 流动性充足                     |
+  | - 按市值加权                     |
   +----------------------------------+
             |
             v
-  Step 2: Fund buys the stocks in proportion
+  第二步：基金按比例买入股票
   +----------------------------------+
-  | Vanguard S&P 500 Fund (VOO):     |
-  | - Buys all 500 stocks            |
-  | - In same proportions as index   |
-  | - Rebalances when index changes  |
-  | - Charges 0.03% annual fee       |
+  | 先锋标普500基金（VOO）：          |
+  | - 买入全部500只股票              |
+  | - 与指数保持相同比例             |
+  | - 指数变动时进行再平衡           |
+  | - 年费0.03%                      |
   +----------------------------------+
             |
             v
-  Step 3: You buy shares of the fund
+  第三步：你购买基金份额
   +----------------------------------+
-  | Your $10,000 investment:         |
-  | - Owns a tiny slice of all 500   |
-  | - Apple: ~$700 worth             |
-  | - Microsoft: ~$650 worth         |
-  | - ... and 498 other companies    |
-  | - Cost: $3 per year in fees      |
+  | 你的10,000美元投资：             |
+  | - 持有所有500家公司的微小份额    |
+  | - 苹果：约700美元                |
+  | - 微软：约650美元                |
+  | - ……以及其他498家公司            |
+  | - 年费成本：3美元                |
   +----------------------------------+
 ```
 
-**The beauty of this approach:** With a single purchase, you own a slice of 500
-of the largest companies in America. Instant diversification. No research required.
-No stock-picking needed.
+**这种方式的魅力所在：** 只需一笔购买，你便拥有美国500家最大公司的一小部分。瞬间实现分散投资，无需研究，无需选股。
 
-#### 3. Mutual Funds vs. ETFs
+#### 3. 共同基金与交易所交易基金
 
-Both mutual funds and ETFs can be index funds. The difference is in how they trade
-and some structural details.
+共同基金和交易所交易基金都可以是指数基金，区别在于交易方式和一些结构性细节。
 
 ```
   +------------------+---------------------------+---------------------------+
-  | Feature          | Mutual Fund               | ETF                       |
+  | 特征             | 共同基金                   | 交易所交易基金             |
   +------------------+---------------------------+---------------------------+
-  | Trading          | Once per day (end of day)  | Throughout the day        |
-  | Pricing          | NAV calculated at close    | Real-time market price    |
-  | Minimum invest.  | Often $1,000-$3,000       | Price of 1 share (or      |
-  |                  |                           | fractional at some        |
-  |                  |                           | brokerages)               |
-  | Tax efficiency   | Less efficient (capital   | More efficient (in-kind   |
-  |                  | gains distributions)      | redemption process)       |
-  | Auto-invest      | Easy to set up            | Harder (need whole shares |
-  |                  |                           | unless fractional avail.) |
-  | Commission       | Often $0 at fund company  | $0 at most brokerages     |
+  | 交易方式         | 每日一次（收盘时）         | 全天实时交易               |
+  | 定价             | 收盘时计算净资产值         | 实时市场价格               |
+  | 最低投资额       | 通常1,000-3,000美元       | 1股的价格（部分券商         |
+  |                  |                           | 支持碎股）                 |
+  | 税务效率         | 效率较低（资本利得分配）  | 效率较高（实物赎回机制）    |
+  | 自动投资         | 设置方便                  | 较难（需整股，除非有        |
+  |                  |                           | 碎股功能）                 |
+  | 手续费           | 在基金公司通常免费        | 大多数券商免费             |
   +------------------+---------------------------+---------------------------+
 ```
 
-**For most beginners, the differences are minor.** ETFs have become more popular
-due to tax efficiency and intraday trading flexibility, but mutual fund versions of
-the same index often perform identically. Choose whichever is easier at your
-brokerage.
+**对大多数初学者而言，两者的差异微乎其微。** 由于税务效率和盘中交易灵活性，交易所交易基金越来越受欢迎，但追踪同一指数的共同基金版本往往表现一致。选择在你的券商处操作更方便的那种即可。
 
-#### 4. Active vs. Passive Investing
+#### 4. 主动投资与被动投资
 
-**Active investing** means a fund manager (or you) tries to pick which stocks will
-outperform and avoid those that will underperform. This requires research, analysis,
-and frequent trading.
+**主动投资**是指基金经理（或你本人）试图筛选出将跑赢市场的股票，并规避将跑输市场的股票。这需要研究、分析和频繁交易。
 
-**Passive investing** means buying an index fund that tracks the entire market (or a
-segment of it) without trying to beat it. You accept the market's average return.
+**被动投资**是指买入追踪整个市场（或某一细分领域）的指数基金，不尝试跑赢市场，接受市场的平均收益。
 
 ```
-  Active vs. Passive Management:
+  主动管理与被动管理对比：
 
-  ACTIVE FUND                          PASSIVE INDEX FUND
+  主动型基金                           被动型指数基金
   +----------------------------+       +----------------------------+
-  | - Team of analysts         |       | - Algorithm follows rules  |
-  | - Research companies       |       | - Buys all stocks in index |
-  | - Make buy/sell decisions  |       | - Rarely trades            |
-  | - Try to beat the market   |       | - Matches the market       |
-  | - Expense ratio: 0.5-1.5% |       | - Expense ratio: 0.03-0.2%|
-  | - Higher turnover/taxes    |       | - Lower turnover/taxes     |
-  | - ~10% beat index over    |       | - Guaranteed to match      |
-  |   20 years                 |       |   index (minus tiny fee)   |
+  | - 分析师团队               |       | - 算法遵循规则             |
+  | - 研究公司基本面           |       | - 买入指数中所有股票        |
+  | - 做出买卖决策             |       | - 极少交易                 |
+  | - 试图跑赢市场             |       | - 与市场同步               |
+  | - 费率：0.5%-1.5%         |       | - 费率：0.03%-0.2%        |
+  | - 换手率及税负较高         |       | - 换手率及税负较低         |
+  | - 约10%能在20年内         |       | - 保证与指数匹配            |
+  |   跑赢指数                 |       |   （扣除微小费用）          |
   +----------------------------+       +----------------------------+
               |                                    |
               v                                    v
-     Usually loses to the              Beats ~90% of active funds
-     index after fees                  over 20 years
+     扣费后通常跑输指数               跑赢约90%的主动型基金
+                                       （20年维度）
 ```
 
-**Why do most active managers underperform?**
+**为何大多数主动型基金经理跑输市场？**
 
-1. **Fees:** Active funds charge 0.5-1.5% annually. This comes directly out of
-   returns. Even if a manager is skilled enough to match the index gross, the fees
-   put them behind.
+1. **费用：** 主动型基金每年收取0.5%-1.5%的费率，直接从收益中扣除。即使一位基金经理足够优秀，能在税前匹配指数表现，费率也会让他落后于低成本指数基金。
 
-2. **Trading costs:** Frequent buying and selling incurs transaction costs and
-   market impact, further reducing returns.
+2. **交易成本：** 频繁买卖会产生交易成本和市场冲击，进一步压低收益。
 
-3. **Taxes:** Higher turnover generates more capital gains distributions, which are
-   taxable events for investors in taxable accounts.
+3. **税负：** 较高的换手率会产生更多资本利得分配，这对持有应税账户的投资者而言是应税事件。
 
-4. **The market is efficient (mostly):** Thousands of brilliant analysts are
-   constantly analyzing every public company. It is very hard to consistently find
-   information that the market has not already priced in.
+4. **市场效率（大体上）：** 数以千计的优秀分析师持续分析每一家上市公司。持续找到市场尚未反映的信息极为困难。
 
-5. **Reversion to the mean:** A manager who outperforms for a few years tends to
-   underperform later. Past performance does not predict future results.
+5. **均值回归：** 近几年表现出色的基金经理，此后往往表现不佳。历史业绩不能预测未来结果。
 
-6. **Survivorship bias:** Funds that perform poorly are often closed or merged into
-   other funds, making the remaining funds look better than the full population.
+6. **幸存者偏差：** 表现不佳的基金往往被关闭或并入其他基金，使得现存基金看起来比整体情况更好。
 
-#### 5. The SPIVA Scorecard: The Evidence
+#### 5. SPIVA记分卡：有据可查的证据
 
-The SPIVA (S&P Indices Versus Active) scorecard is published by S&P Dow Jones
-Indices and is the most widely cited source on active vs. passive performance.
+SPIVA（标普指数与主动管理对比）记分卡由标普道琼斯指数公司发布，是主动与被动基金业绩表现方面被引用最广泛的数据来源。
 
 ```
-  SPIVA US Scorecard: % of Active Funds That UNDERPERFORMED
-  Their Benchmark Index (as of recent data):
+  SPIVA美国记分卡：主动型基金跑输基准指数的比例
+  （基于近期数据）：
 
   +----------------------+---------+---------+----------+
-  | Fund Category        | 5-Year  | 10-Year | 20-Year  |
+  | 基金类别             | 5年     | 10年    | 20年     |
   +----------------------+---------+---------+----------+
-  | US Large-Cap         |   78%   |   85%   |   90%    |
-  | US Mid-Cap           |   74%   |   83%   |   89%    |
-  | US Small-Cap         |   68%   |   79%   |   88%    |
-  | International        |   71%   |   82%   |   87%    |
-  | Emerging Markets     |   69%   |   80%   |   85%    |
-  | US Bond (Invest Grd) |   72%   |   81%   |   86%    |
+  | 美国大盘股           |   78%   |   85%   |   90%    |
+  | 美国中盘股           |   74%   |   83%   |   89%    |
+  | 美国小盘股           |   68%   |   79%   |   88%    |
+  | 国际股票             |   71%   |   82%   |   87%    |
+  | 新兴市场             |   69%   |   80%   |   85%    |
+  | 美国债券（投资级）   |   72%   |   81%   |   86%    |
   +----------------------+---------+---------+----------+
 
-  Source: S&P Dow Jones Indices SPIVA Scorecard
-  Note: Figures are approximate and vary by reporting period.
+  来源：标普道琼斯指数SPIVA记分卡
+  注：数字为近似值，因报告期不同而有所差异。
 ```
 
-The longer the time period, the worse active managers look. Over 20 years, roughly
-9 out of 10 actively managed US large-cap funds failed to beat the S&P 500.
+时间跨度越长，主动型基金经理的表现越差。在20年维度上，约十分之九的主动管理美国大盘股基金未能跑赢标普500。
 
 ```
-  Visualization: 100 Active Fund Managers Over 20 Years
+  可视化：100位主动型基金经理的20年表现
 
-  Beat the index (10):  XXXXXXXXXX
-  Lost to index  (90):  XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
-                        XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
-                        XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+  跑赢指数（10位）：  XXXXXXXXXX
+  跑输指数（90位）：  XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+                      XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+                      XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
 
-  And here is the problem: You cannot reliably identify the 10
-  winners in advance. Past outperformance does NOT predict future
-  outperformance.
+  问题在于：你无法事先可靠地识别出那10位赢家。
+  过去的出色表现无法预测未来的出色表现。
 ```
 
-**The key insight:** It is not that active managers are stupid. Many are brilliant.
-The problem is that after fees, trading costs, and taxes, the math makes it nearly
-impossible for most to overcome the cost drag consistently.
+**核心洞见：** 并非主动型基金经理不够聪明，很多人才华横溢。问题在于，扣除费用、交易成本和税负后，数学逻辑使大多数人几乎不可能持续克服成本拖累。
 
-#### 6. Expense Ratios: The Hidden Tax on Your Wealth
+#### 6. 费率：侵蚀财富的隐性成本
 
-The expense ratio is the annual fee a fund charges, expressed as a percentage of
-your investment. It is deducted automatically from the fund's returns.
+费率是基金按投资金额的一定百分比收取的年费，从基金收益中自动扣除。
 
 ```
-  How Expense Ratios Eat Your Returns:
+  费率如何侵蚀你的收益：
 
-  $100,000 invested for 30 years at 10% gross return:
+  100,000美元投资30年，毛收益率10%：
 
   +------------------+-----------+------------------+-----------------+
-  | Fund Type        | Exp Ratio | Net Annual Return| Value at Year 30|
+  | 基金类型          | 费率      | 年化净收益率      | 第30年价值      |
   +------------------+-----------+------------------+-----------------+
-  | Index Fund (VOO) |   0.03%   |      9.97%       |   $1,721,686    |
-  | Cheap Active     |   0.50%   |      9.50%       |   $1,526,688    |
-  | Average Active   |   1.00%   |      9.00%       |   $1,326,768    |
-  | Expensive Active |   1.50%   |      8.50%       |   $1,152,309    |
-  | Very Expensive   |   2.00%   |      8.00%       |   $1,006,266    |
+  | 指数基金（VOO）  |   0.03%   |      9.97%       |   $1,721,686    |
+  | 低费主动型       |   0.50%   |      9.50%       |   $1,526,688    |
+  | 均值主动型       |   1.00%   |      9.00%       |   $1,326,768    |
+  | 高费主动型       |   1.50%   |      8.50%       |   $1,152,309    |
+  | 极高费主动型     |   2.00%   |      8.00%       |   $1,006,266    |
   +------------------+-----------+------------------+-----------------+
-  | Fee drag vs index|           |                  |                 |
+  | 相比指数基金的   |           |                  |                 |
+  | 费率损耗：        |           |                  |                 |
   |   0.50%          |           |                  |    -$194,998    |
   |   1.00%          |           |                  |    -$394,918    |
   |   1.50%          |           |                  |    -$569,377    |
@@ -315,1081 +265,776 @@ your investment. It is deducted automatically from the fund's returns.
   +------------------+-----------+------------------+-----------------+
 ```
 
-A 2% expense ratio costs you over $715,000 on a $100,000 investment over 30 years.
-That is not a fee -- that is a fortune. And it is money that goes to the fund company,
-not to you.
+2%的费率在30年内会让100,000美元的投资损失超过715,000美元。这不是一笔小费——这是一笔巨额财富。而且这笔钱流入了基金公司，而不是你的口袋。
 
 ```
-  Where Your Fee Dollars Go:
+  你的费用流向何处：
 
-                    $100,000 invested for 30 years
+                    100,000美元投资30年
                               |
                    +----------+----------+
                    |                     |
-            Index Fund (0.03%)    Active Fund (1.00%)
+            指数基金（0.03%）      主动型基金（1.00%）
                    |                     |
-            Total fees paid:       Total fees paid:
-              ~$15,000              ~$395,000
+            支付总费用：           支付总费用：
+              约15,000美元           约395,000美元
                    |                     |
-            Goes to: Vanguard      Goes to: Fund manager
-            (covers operating      salaries, research,
-             costs)                offices, marketing,
-                                   trading desks
+            流向：先锋集团          流向：基金经理薪酬、
+            （覆盖运营成本）        研究团队、办公场所、
+                                    市场推广、交易团队
 ```
 
-**Important:** The expense ratio is charged whether the fund makes money or not. In
-a year when the market drops 20%, you still pay the fee. The fund manager gets paid
-regardless of performance.
+**重要提示：** 无论基金是否盈利，费率照收不误。在市场下跌20%的年份，你仍需支付费用。无论业绩好坏，基金经理都能领到报酬。
 
-#### 7. Major Index Funds and ETFs
+#### 7. 主要指数基金与交易所交易基金
 
-Here are the most popular index funds available to individual investors:
+以下是面向个人投资者最受欢迎的指数基金：
 
 ```
-  Top Index Funds/ETFs for Beginners:
+  初学者必知的顶级指数基金/交易所交易基金：
 
   +--------+-------------------+----------+-----------+------------------+
-  | Ticker | Fund Name         | Exp Ratio| Index     | What It Tracks   |
+  | 代码   | 基金名称           | 费率      | 追踪指数  | 追踪内容         |
   +--------+-------------------+----------+-----------+------------------+
-  | VOO    | Vanguard S&P 500  |  0.03%   | S&P 500   | 500 largest US   |
-  |        | ETF               |          |           | companies        |
+  | VOO    | 先锋标普500        |  0.03%   | 标普500   | 美国500家最大    |
+  |        | 交易所交易基金     |          |           | 公司             |
   +--------+-------------------+----------+-----------+------------------+
-  | VTI    | Vanguard Total    |  0.03%   | CRSP US   | Entire US stock  |
-  |        | Stock Market ETF  |          | Total Mkt | market (~4,000)  |
+  | VTI    | 先锋全股市         |  0.03%   | CRSP美国  | 美国整体股票市场 |
+  |        | 交易所交易基金     |          | 全市场    | （约4,000只）    |
   +--------+-------------------+----------+-----------+------------------+
-  | SPY    | SPDR S&P 500 ETF  |  0.09%   | S&P 500   | 500 largest US   |
-  |        |                   |          |           | companies        |
+  | SPY    | SPDR标普500        |  0.09%   | 标普500   | 美国500家最大    |
+  |        | 交易所交易基金     |          |           | 公司             |
   +--------+-------------------+----------+-----------+------------------+
-  | IVV    | iShares Core      |  0.03%   | S&P 500   | 500 largest US   |
-  |        | S&P 500 ETF       |          |           | companies        |
+  | IVV    | iShares核心        |  0.03%   | 标普500   | 美国500家最大    |
+  |        | 标普500交易所      |          |           | 公司             |
+  |        | 交易基金           |          |           |                  |
   +--------+-------------------+----------+-----------+------------------+
-  | VXUS   | Vanguard Total    |  0.07%   | FTSE Glbl | International    |
-  |        | International     |          | All Cap   | stocks (ex-US)   |
+  | VXUS   | 先锋全球国际股票   |  0.07%   | 富时全球  | 美国以外的国际   |
+  |        | 交易所交易基金     |          | 全市值    | 股票             |
   +--------+-------------------+----------+-----------+------------------+
-  | BND    | Vanguard Total    |  0.03%   | Blmbg US  | US investment-   |
-  |        | Bond Market ETF   |          | Agg Float | grade bonds      |
+  | BND    | 先锋全债市         |  0.03%   | 彭博美国  | 美国投资级       |
+  |        | 交易所交易基金     |          | 综合浮动  | 债券             |
   +--------+-------------------+----------+-----------+------------------+
-  | VT     | Vanguard Total    |  0.07%   | FTSE Glbl | Entire world     |
-  |        | World Stock ETF   |          | All Cap   | stock market     |
+  | VT     | 先锋全球股票       |  0.07%   | 富时全球  | 全球整体股票     |
+  |        | 交易所交易基金     |          | 全市值    | 市场             |
   +--------+-------------------+----------+-----------+------------------+
-  | QQQ    | Invesco NASDAQ    |  0.20%   | NASDAQ    | 100 largest      |
-  |        | 100 ETF           |          | 100       | NASDAQ stocks    |
+  | QQQ    | Invesco纳斯达克    |  0.20%   | 纳斯达克  | 纳斯达克市场     |
+  |        | 100交易所交易基金  |          | 100       | 100只最大股票    |
   +--------+-------------------+----------+-----------+------------------+
 ```
 
-**VOO vs. VTI vs. SPY -- what is the difference?**
+**VOO、VTI与SPY——有何区别？**
 
 ```
-  Venn Diagram (approximate):
+  韦恩图（近似）：
 
   +---------------------------------------------------+
   |                                                   |
-  |   VTI (Total US Market: ~4,000 stocks)            |
+  |   VTI（美国全市场：约4,000只股票）                |
   |                                                   |
   |   +-------------------------------------------+   |
   |   |                                           |   |
-  |   |   VOO / SPY / IVV (S&P 500: ~500 stocks) |   |
+  |   |   VOO / SPY / IVV（标普500：约500只股票） |   |
   |   |                                           |   |
   |   +-------------------------------------------+   |
   |                                                   |
-  |   + ~3,500 mid-cap and small-cap stocks           |
+  |   + 约3,500只中盘股和小盘股                       |
   |                                                   |
   +---------------------------------------------------+
 
-  In practice, VOO and VTI perform very similarly because
-  the S&P 500 represents ~80% of total US market cap.
-  The additional 3,500 small/mid-cap stocks in VTI add
-  diversification but have historically had minimal impact
-  on returns compared to VOO.
+  实际上，由于标普500占美国股市总市值约80%，
+  VOO与VTI的表现极为相近。VTI中另外3,500只
+  中小盘股提供了更多分散化，但与VOO相比，
+  历史上对收益的影响甚微。
 ```
 
-**SPY vs. VOO:** Both track the S&P 500. SPY was the first ETF (launched 1993) and
-has the highest trading volume, making it popular with institutional traders. VOO
-has a lower expense ratio (0.03% vs 0.09%). For long-term buy-and-hold investors,
-VOO is usually the better choice due to lower fees. The performance difference is
-small but compounds over time.
+**SPY与VOO：** 两者均追踪标普500，表现几乎一致。SPY是首只上市的交易所交易基金（1993年成立），交易量最高，深受机构交易者青睐。VOO费率更低（0.03%对比0.09%）。对于长期持有的投资者而言，VOO通常是更好的选择。费率差距虽小，但随时间推移会不断累积。
 
-#### 8. How to Actually Buy an Index Fund
+#### 8. 如何实际购买指数基金
 
 ```
-  Step-by-Step: Buying Your First Index Fund
+  逐步指南：购买你的第一只指数基金
 
-  Step 1: Open a brokerage account
+  第一步：开设券商账户
   +-----------------------------------------+
-  | Popular options (all offer $0 trades):   |
-  | - Fidelity                              |
-  | - Charles Schwab                        |
-  | - Vanguard                              |
-  | - Robinhood (simpler, fewer features)   |
+  | 常用选择（均提供零手续费交易）：         |
+  | - Fidelity（富达）                      |
+  | - Charles Schwab（嘉信理财）            |
+  | - Vanguard（先锋）                      |
+  | - Robinhood（更简洁，功能较少）         |
   +-----------------------------------------+
             |
             v
-  Step 2: Deposit money
+  第二步：存入资金
   +-----------------------------------------+
-  | - Link your bank account                |
-  | - Transfer funds (takes 1-3 business    |
-  |   days for ACH transfer)                |
-  +-----------------------------------------+
-            |
-            v
-  Step 3: Search for the fund
-  +-----------------------------------------+
-  | - Type the ticker symbol (e.g., "VOO")  |
-  | - Review the fund details               |
+  | - 绑定银行账户                          |
+  | - 转入资金（ACH转账通常需1-3个工作日）   |
   +-----------------------------------------+
             |
             v
-  Step 4: Place a buy order
+  第三步：搜索基金
   +-----------------------------------------+
-  | - Choose number of shares or dollar     |
-  |   amount (if fractional shares avail.)  |
-  | - Select "Market order" for immediate   |
-  |   execution at current price            |
-  | - Click "Buy"                           |
+  | - 输入基金代码（如"VOO"）               |
+  | - 查看基金详情                          |
   +-----------------------------------------+
             |
             v
-  Step 5: Set up automatic investing (optional but recommended)
+  第四步：下达买入指令
   +-----------------------------------------+
-  | - Schedule recurring purchases          |
-  | - Example: $500 on the 1st of each      |
-  |   month into VOO                        |
-  | - This automates dollar-cost averaging  |
+  | - 选择股数或投资金额                    |
+  |   （如支持碎股功能）                    |
+  | - 选择"市价单"以按当前价格即时成交      |
+  | - 点击"买入"                            |
+  +-----------------------------------------+
+            |
+            v
+  第五步：设置自动定投（可选，但强烈推荐）
+  +-----------------------------------------+
+  | - 设置定期定额买入计划                  |
+  | - 例如：每月1日向VOO投入500美元         |
+  | - 这将自动实现定投                      |
   +-----------------------------------------+
 ```
 
-**That is it.** Five steps, and you are invested in the 500 largest companies in
-America. No stock analysis needed. No watching CNBC. No stress about picking winners.
+**就是这样。** 五个步骤，你便投资于美国500家最大公司。无需分析股票，无需收看财经节目，无需为挑选赢家而焦虑。
 
-#### 9. The Power of Simplicity
+#### 9. 简单的力量
 
-Many of the world's most respected investors advocate for simple index fund
-portfolios.
+许多世界上最受尊重的投资者都倡导简单的指数基金投资组合。
 
 ```
-  Famous Index Fund Advocates:
+  著名指数基金倡导者：
 
-  Warren Buffett (Berkshire Hathaway):
-  "A low-cost index fund is the most sensible equity investment
-   for the great majority of investors."
+  沃伦·巴菲特（伯克希尔·哈撒韦）：
+  "对绝大多数投资者而言，低成本指数基金是最明智的
+   股票类投资选择。"
 
-  John Bogle (Founder of Vanguard):
-  "Don't look for the needle in the haystack. Just buy the
-   haystack."
+  约翰·博格（先锋集团创始人）：
+  "不要在草垛里找针，直接买下整个草垛。"
 
-  Charlie Munger (Berkshire Hathaway):
-  "The big money is not in the buying and selling, but in
-   the waiting."
+  查理·芒格（伯克希尔·哈撒韦）：
+  "真正的大钱不在于买进卖出，而在于等待。"
 
-  William Sharpe (Nobel Prize in Economics):
-  "After costs, the return on the average actively managed
-   dollar will be less than the return on the average passively
-   managed dollar."
+  威廉·夏普（诺贝尔经济学奖得主）：
+  "扣除成本后，主动管理型资产的平均收益将低于
+   被动管理型资产的平均收益。"
 ```
 
-**The Bogle Three-Fund Portfolio** is one of the most popular simple portfolios:
+**博格三基金投资组合**是最受欢迎的简单投资组合之一：
 
 ```
-  The Three-Fund Portfolio:
+  三基金投资组合：
 
   +-------------------+--------+-------------------+
-  | Fund              | Ticker | Suggested %       |
+  | 基金              | 代码   | 建议配置比例       |
   +-------------------+--------+-------------------+
-  | US Total Stock    | VTI    | 50-70%            |
-  | International     | VXUS   | 20-30%            |
-  | US Total Bond     | BND    | 10-20%            |
+  | 美国全股市        | VTI    | 50%-70%           |
+  | 国际股票          | VXUS   | 20%-30%           |
+  | 美国全债市        | BND    | 10%-20%           |
   +-------------------+--------+-------------------+
-  | Total             |        | 100%              |
+  | 合计              |        | 100%              |
   +-------------------+--------+-------------------+
 
-  Adjust bond % higher as you approach retirement.
-  A common rule of thumb: Bond % = Your Age
-  (e.g., age 30 -> 30% bonds, 70% stocks)
-  Though many modern advisors suggest age minus 10 or 20
-  for the bond allocation.
+  临近退休时，适当提高债券配置比例。
+  一个常见的经验法则：债券比例 = 你的年龄
+  （例如，30岁 -> 30%债券，70%股票）
+  不过，许多现代顾问建议债券配置为年龄减去10或20。
 ```
 
-This three-fund portfolio gives you exposure to:
-- Every publicly traded company in the United States
-- Thousands of companies in developed and emerging markets worldwide
-- The US government and corporate bond market
+这个三基金投资组合涵盖：
+- 美国每一家上市公司
+- 全球发达市场与新兴市场的数千家公司
+- 美国政府债券与企业债券市场
 
-All for a blended expense ratio of about 0.05%. That is $5 per year for every
-$10,000 invested.
+综合费率约为0.05%——每投资10,000美元，每年只需5美元。
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "Index funds are just for beginners."**
+**误区一："指数基金只适合初学者。"**
 
-Index funds are used by sophisticated institutional investors, university
-endowments, and billionaires. The California Public Employees' Retirement System
-(CalPERS), one of the largest pension funds in the world, uses index funds
-extensively. Warren Buffett won a famous million-dollar bet that an S&P 500 index
-fund would outperform a collection of hedge funds over 10 years. He won decisively.
-Index funds are not "beginner" tools -- they are the optimal choice for most
-investors at any level.
+指数基金被成熟的机构投资者、大学捐赠基金和亿万富翁广泛使用。全球最大养老基金之一——加州公务员退休系统（CalPERS）就大量使用指数基金。巴菲特曾赢得一场著名的百万美元赌局：一只标普500指数基金在10年内跑赢一组对冲基金的组合。他赢得干净利落。指数基金并非"初学者"工具——对于任何层次的投资者而言，它们都是最优选择。
 
-**Misconception 2: "You get what you pay for -- higher fees mean better management."**
+**误区二："一分钱一分货——费率越高，管理越好。"**
 
-In almost every consumer product, higher prices correlate with higher quality. In
-investing, the opposite is true. The SPIVA data shows that higher-fee funds
-generally perform *worse* than lower-fee funds, not better. Fees are the most
-reliable predictor of future underperformance. A Morningstar study found that
-expense ratio was the best single predictor of future fund returns -- better than
-past returns, star ratings, or manager tenure.
+在几乎所有消费品领域，价格与质量正相关。但在投资领域，恰恰相反。SPIVA数据显示，费率越高的基金，表现往往*越差*，而非更好。费率是预测未来跑输市场最可靠的指标。晨星的研究发现，费率是预测未来基金收益最有效的单一指标——甚至优于历史业绩、星级评定或基金经理任期。
 
-**Misconception 3: "But my financial advisor recommended an active fund."**
+**误区三："但我的理财顾问推荐了主动型基金。"**
 
-Many financial advisors receive commissions for selling actively managed funds.
-This creates a conflict of interest. A fund with a 1% expense ratio and a 5%
-front-end sales load generates far more revenue for the advisor and fund company
-than a 0.03% index fund. Always ask your advisor: "Are you a fiduciary?" and
-"How are you compensated?" A fee-only fiduciary advisor is legally required to
-act in your best interest.
+许多理财顾问出售主动管理型基金可获得佣金，这会产生利益冲突。一只费率1%、前端申购费5%的基金，为顾问和基金公司带来的收入，远高于一只费率0.03%的指数基金。务必问清楚你的顾问："您是受信托责任约束的顾问吗？"以及"您的收入来源是什么？"受信托责任约束的收费制顾问，在法律上必须以你的最大利益为行事准则。
 
 ```
-  Advisor Compensation Models:
+  顾问收费模式对比：
 
   +-------------------+-------------------------+--------------------+
-  | Model             | How They Get Paid       | Conflict?          |
+  | 模式              | 收入来源                 | 利益冲突风险        |
   +-------------------+-------------------------+--------------------+
-  | Commission-based  | % of products sold      | HIGH - incentive   |
-  |                   | (loads, 12b-1 fees)     | to sell expensive  |
-  |                   |                         | products           |
+  | 佣金制            | 销售产品的佣金比例       | 高——有推销贵        |
+  |                   | （申购费、12b-1费用）    | 产品的动机          |
   +-------------------+-------------------------+--------------------+
-  | Fee-based         | Mix of fees + commission| MODERATE - some    |
-  |                   |                         | conflicts remain   |
+  | 混合收费制        | 服务费与佣金混合         | 中——仍存在部分      |
+  |                   |                         | 利益冲突            |
   +-------------------+-------------------------+--------------------+
-  | Fee-only          | Flat fee or % of AUM    | LOW - paid same    |
-  |                   | (typically 0.25-1%)     | regardless of      |
-  |                   |                         | products chosen    |
+  | 纯服务费制        | 固定收费或按管理资产     | 低——无论选择何种    |
+  |                   | 的比例收费（通常        | 产品，收入相同       |
+  |                   | 0.25%-1%）              |                    |
   +-------------------+-------------------------+--------------------+
 ```
 
-**Misconception 4: "Index funds can not protect you in a downturn."**
+**误区四："指数基金无法在市场下跌时保护你。"**
 
-This is true -- index funds go down when the market goes down. But so do most active
-funds. In the 2008 financial crisis, the S&P 500 dropped about 37%. The average
-actively managed US stock fund dropped about 39%. Active managers did not protect
-investors; they made things slightly worse on average, because fees and bad timing
-compounded the losses. The key to surviving downturns is not fund selection -- it is
-having the right asset allocation (mix of stocks and bonds) and not panic-selling.
+确实——市场下跌时，指数基金也会跌。但大多数主动型基金同样如此。2008年金融危机期间，标普500约下跌37%，而美国主动管理股票基金的平均跌幅约为39%。主动型基金经理并未保护投资者，平均而言反而让损失略有加剧，因为费用和错误的择时决策放大了亏损。应对市场下跌的关键不在于基金选择，而在于拥有合理的资产配置（股票与债券的组合）以及不在恐慌中抛售。
 
-**Misconception 5: "I should pick the fund with the best recent performance."**
+**误区五："我应该挑选近期业绩最好的基金。"**
 
-Chasing past performance is one of the most common and costly investor mistakes.
-Studies consistently show that funds that performed well in the past 3-5 years are
-no more likely to outperform in the next 3-5 years. In fact, top-performing funds
-often revert to the mean. Morningstar data shows that funds receiving 5-star ratings
-(based on past performance) frequently end up with 3 or fewer stars within a few
-years.
+追逐历史业绩是最常见、代价最高的投资错误之一。研究持续表明，过去3-5年表现优异的基金，未来3-5年跑赢市场的可能性并不更高。事实上，过去业绩顶尖的基金往往会回归均值。晨星的数据显示，根据历史业绩获得五星评级的基金，往往在数年内评级降至三星及以下。
 
-**Misconception 6: "SPY and VOO are basically the same, so it does not matter."**
+**误区六："SPY和VOO差不多，所以无所谓。"**
 
-They track the same index and perform almost identically, but the 0.06% fee
-difference (0.09% vs. 0.03%) adds up. On a $500,000 portfolio over 30 years, the
-fee difference costs approximately $25,000. For long-term investors, VOO or IVV
-is preferable. SPY's advantage is higher liquidity, which matters for day traders
-but not for buy-and-hold investors.
+两者追踪同一指数，表现几乎一致，但0.06%的费率差异（0.09% 对比 0.03%）日积月累不容忽视。对于50万美元的投资组合，30年的费率差异约为25,000美元。对于长期持有的投资者，VOO或IVV是更优选择。SPY的优势在于更高的流动性，这对日内交易者有价值，但对长期持有者而言意义不大。
 
-**Misconception 7: "I need to diversify across many different index funds."**
+**误区七："我需要买很多不同的指数基金来分散风险。"**
 
-A single total market index fund (like VTI) already holds about 4,000 stocks. You
-are already diversified within US equities. Adding a total international fund (VXUS)
-gives you global diversification. Two or three index funds is sufficient for most
-investors. Owning 10+ funds often creates overlap and unnecessary complexity without
-meaningfully improving diversification.
+单只全市场指数基金（如VTI）已持有约4,000只股票，你在美国股票领域已实现分散投资。再加入一只全球国际基金（VXUS），便实现了全球分散配置。两到三只指数基金对大多数投资者而言已经足够。持有十只以上的基金往往造成重叠，在不显著改善分散效果的同时，徒增复杂性。
 
 ```
-  Overlap Example: Owning Both VOO and VTI
+  重叠示例：同时持有VOO和VTI
 
-  VTI contains:
-  [====== S&P 500 stocks (80% of VTI) ======][== Small/Mid ==]
+  VTI包含：
+  [====== 标普500股票（占VTI的80%）======][== 中小盘股 ==]
   
-  VOO contains:
-  [====== S&P 500 stocks (100% of VOO) ======]
+  VOO包含：
+  [====== 标普500股票（占VOO的100%）======]
 
-  If you own both, you are doubling up on the S&P 500 stocks.
-  Solution: Own either VOO OR VTI, not both.
+  若同时持有两者，标普500的股票实际上被重复配置。
+  解决方案：选择VOO或VTI其中之一，不要同时持有。
 ```
 
-**Misconception 8: "Index funds are risky because you can not avoid bad companies."**
+**误区八："指数基金有风险，因为你无法回避差劲的公司。"**
 
-An index fund might hold a company that goes bankrupt. But that single company
-is one of 500 (or 4,000). Its weight in the index is tiny. When Enron collapsed
-in 2001, it was about 0.7% of the S&P 500 -- painful but not devastating for
-index fund holders. Meanwhile, the other 499 companies continued generating returns.
-Diversification within the index is the protection.
+指数基金可能持有破产的公司，但那只是500只（或4,000只）股票中的一只，其在指数中的权重极小。2001年安然破产时，其在标普500中的权重约为0.7%——对指数基金持有人来说令人痛心，但不至于是毁灭性打击。与此同时，其余499家公司持续创造收益。指数内部的分散化本身就是保护。
 
 ---
 
-### d) Q&A
+### d) 问答环节
 
-**Q1: What exactly is an ETF, and how is it different from a stock?**
+**问题一：交易所交易基金究竟是什么，它与股票有何不同？**
 
-A: An ETF (Exchange-Traded Fund) is a basket of investments (stocks, bonds, etc.)
-packaged into a single security that trades on a stock exchange, just like a
-regular stock. When you buy one share of VOO, you are effectively buying a tiny
-piece of all 500 companies in the S&P 500. The key difference from a stock: a stock
-represents one company; an ETF represents many. ETFs trade throughout the day with
-real-time prices, you can buy or sell them through any brokerage, and they have
-ticker symbols just like stocks.
+答：交易所交易基金是将一篮子投资品（股票、债券等）打包成单一证券，在证券交易所上市交易的产品，与普通股票的交易方式相同。当你买入一份VOO，实际上是买入了标普500所有500家公司的微小份额。与股票的核心区别在于：股票代表单一公司，而交易所交易基金代表多家公司。交易所交易基金在全天实时交易，可通过任何券商买卖，并与股票一样拥有代码。
 
-**Q2: Should I buy VOO, VTI, or SPY?**
+**问题二：我应该买VOO、VTI还是SPY？**
 
-A: For a long-term buy-and-hold investor, VOO or VTI are typically the best choices
-due to their ultra-low 0.03% expense ratios. VTI is slightly more diversified
-(~4,000 stocks vs. ~500), but in practice, the performance is very similar because
-the S&P 500 represents about 80% of the total US market cap. SPY has a higher
-expense ratio (0.09%) and is better suited for active traders who value its high
-liquidity. If you can only pick one US equity fund, VTI gives you the broadest
-exposure at the lowest cost.
+答：对长期持有的投资者而言，VOO或VTI通常是最佳选择，因为两者的费率均低至0.03%。VTI的分散化程度略高（约4,000只股票 对比 约500只），但实际表现极为相近，因为标普500约占美国股市总市值的80%。SPY费率较高（0.09%），更适合重视高流动性的主动交易者。如果只能选择一只美国股票基金，VTI以最低成本提供最广泛的市场覆盖。
 
-**Q3: How much of my portfolio should be in index funds?**
+**问题三：我的投资组合中应有多少比例配置指数基金？**
 
-A: Many financial experts recommend that 80-100% of most people's equity allocation
-be in index funds. The exact percentage depends on your age, risk tolerance, and
-financial goals. A common approach:
-- Ages 20-35: 80-90% stocks (mostly index funds), 10-20% bonds (index bond fund)
-- Ages 35-50: 70-80% stocks, 20-30% bonds
-- Ages 50-65: 50-70% stocks, 30-50% bonds
-- Retirement: 30-50% stocks, 50-70% bonds
+答：许多财务专家建议，大多数人的股票配置中应有80%-100%投入指数基金。具体比例取决于你的年龄、风险承受能力和财务目标。常见方案如下：
+- 20-35岁：股票80%-90%（主要为指数基金），债券10%-20%（指数债券基金）
+- 35-50岁：股票70%-80%，债券20%-30%
+- 50-65岁：股票50%-70%，债券30%-50%
+- 退休后：股票30%-50%，债券50%-70%
 
-Within the stock allocation, a split like 70% US (VTI) and 30% international (VXUS)
-provides global diversification.
+在股票配置中，美国70%（VTI）与国际30%（VXUS）的组合可实现全球分散配置。
 
-**Q4: What is the difference between an expense ratio and a sales load?**
+**问题四：费率与申购费有什么区别？**
 
-A: An expense ratio is the annual fee deducted from the fund's assets, expressed as
-a percentage. A 0.03% expense ratio on a $10,000 investment means you pay $3 per
-year. A sales load is a one-time commission charged when you buy (front-end load)
-or sell (back-end load) the fund. A 5% front-end load on a $10,000 investment means
-$500 goes to the broker immediately, and only $9,500 is actually invested. Most
-index funds have zero sales loads. If a fund has a load, it is almost certainly not
-worth buying.
+答：费率是从基金资产中按年度扣除的费用，以百分比表示。对10,000美元投资收取0.03%的费率，意味着每年支付3美元。申购费是在你买入（前端申购费）或卖出（后端赎回费）基金时一次性收取的佣金。对10,000美元投资收取5%的前端申购费，意味着500美元立即流向券商，实际投入的只有9,500美元。大多数指数基金没有申购费，凡是有申购费的基金，几乎可以肯定不值得购买。
 
-**Q5: If 90% of active managers lose to the index, why do active funds still exist?**
+**问题五：如果90%的主动型基金经理跑输指数，主动型基金为何依然存在？**
 
-A: Because they are enormously profitable -- for the fund companies, not the investors.
-A fund company managing $10 billion at a 1% expense ratio earns $100 million per
-year in fees. Marketing, brand recognition, and investor psychology keep people
-buying active funds. Many investors believe they can pick the winning 10% of
-managers (they usually cannot). Some investors also value the "hand-holding" and
-personal service that comes with actively managed funds and financial advisors.
+答：因为它们利润丰厚——对基金公司而言，而非对投资者。一家管理100亿美元资产、收取1%费率的基金公司，每年可获得1亿美元的费收入。市场营销、品牌认知度和投资者心理维系着主动型基金的购买需求。许多投资者相信自己能挑出那10%的优胜者（但通常做不到）。部分投资者也看重主动管理型基金和理财顾问提供的"贴身服务"。
 
-**Q6: Can an index fund go to zero?**
+**问题六：指数基金会跌至零吗？**
 
-A: Theoretically, yes -- if every company in the index went bankrupt simultaneously.
-Practically, this is impossible for a broad index like the S&P 500 or total stock
-market. It would mean the entire US economy has collapsed. In the worst crashes in
-history (Great Depression, 2008 Financial Crisis), the S&P 500 fell 50-80% but
-recovered and reached new highs. An individual stock can go to zero (and many have),
-which is exactly why index fund diversification is so valuable.
+答：理论上可以——如果指数中的每家公司同时破产。但对标普500或全股市这类宽基指数而言，这在实践中是不可能的，因为那意味着整个美国经济的全面崩溃。历史上最惨烈的市场崩盘（大萧条、2008年金融危机），标普500曾下跌50%-80%，但均已完全恢复并创下历史新高。单只股票可以跌至零（也确实有很多），这正是指数基金分散化如此宝贵的原因。
 
-**Q7: What about international index funds? Should I own those too?**
+**问题七：国际指数基金怎么样？我也应该持有吗？**
 
-A: Most financial advisors recommend some international exposure. The US represents
-about 60% of the global stock market by capitalization, meaning 40% of the
-world's investment opportunities are outside the US. International diversification
-can reduce portfolio risk because different markets do not always move together.
-A fund like VXUS (Vanguard Total International Stock ETF) provides broad
-international exposure at a low cost (0.07% expense ratio).
+答：大多数理财顾问建议配置一定比例的国际资产。按市值计算，美国约占全球股票市场的60%，意味着全球40%的投资机会在美国之外。不同市场并非总是同步波动，国际分散化有助于降低投资组合的整体风险。VXUS（先锋全球国际股票交易所交易基金）以低廉的费率（0.07%）提供广泛的国际市场敞口。
 
-**Q8: What is dollar-cost averaging, and should I do it with index funds?**
+**问题八：什么是定投，我应该用它来投资指数基金吗？**
 
-A: Dollar-cost averaging (DCA) means investing a fixed dollar amount at regular
-intervals (e.g., $500 every month) regardless of the market price. When prices
-are low, your $500 buys more shares. When prices are high, it buys fewer. This
-smooths out the impact of market volatility. For most people investing from their
-paycheck, DCA happens naturally. It is a perfectly sound strategy for building
-wealth steadily with index funds.
+答：定投是指以固定金额按固定频率（如每月500美元）进行投资，无论市场价格如何。当价格低时，500美元可以买入更多份额；当价格高时，则买入较少。这有助于平滑市场波动的影响。对大多数从薪资中拨出资金投资的人而言，定投自然而然地发生着。这是一种稳步积累财富的可靠策略，与指数基金配合使用效果尤佳。
 
 ```
-  Dollar-Cost Averaging Example: $500/month into VOO
+  定投示例：每月500美元买入VOO
 
-  Month  | VOO Price | Shares Bought | Total Shares | Total Invested
-  -------+-----------+---------------+--------------+---------------
-  Jan    |   $400    |     1.250     |    1.250     |     $500
-  Feb    |   $380    |     1.316     |    2.566     |   $1,000
-  Mar    |   $420    |     1.190     |    3.756     |   $1,500
-  Apr    |   $350    |     1.429     |    5.185     |   $2,000
-  May    |   $390    |     1.282     |    6.467     |   $2,500
-  Jun    |   $410    |     1.220     |    7.687     |   $3,000
+  月份   | VOO价格    | 买入份额   | 累计份额   | 累计投入金额
+  -------+-----------+------------+------------+---------------
+  1月    |   400美元  |   1.250    |   1.250    |   500美元
+  2月    |   380美元  |   1.316    |   2.566    | 1,000美元
+  3月    |   420美元  |   1.190    |   3.756    | 1,500美元
+  4月    |   350美元  |   1.429    |   5.185    | 2,000美元
+  5月    |   390美元  |   1.282    |   6.467    | 2,500美元
+  6月    |   410美元  |   1.220    |   7.687    | 3,000美元
 
-  Average price paid: $391.29/share ($3,000 / 7.687 shares)
-  vs. average market price: $391.67
+  平均持仓成本：391.29美元/份（3,000美元 / 7.687份）
+  市场平均价格：391.67美元
 
-  DCA gives you a slightly lower average cost because you
-  automatically buy more shares when prices are lower.
+  定投使平均持仓成本略低，因为价格低时
+  你会自动买入更多份额。
 ```
 
-**Q9: What are dividends, and do index funds pay them?**
+**问题九：什么是股息？指数基金会发放股息吗？**
 
-A: Dividends are cash payments companies make to shareholders from their profits.
-Many companies in the S&P 500 pay dividends. When you own an S&P 500 index fund,
-you receive those dividends. VOO currently has a dividend yield of about 1.3-1.5%
-annually. In most brokerage accounts, you can choose to reinvest dividends
-automatically (DRIP -- Dividend Reinvestment Plan), which buys more shares of the
-fund. Over long periods, reinvested dividends significantly boost total returns.
+答：股息是公司从盈利中向股东支付的现金分红。标普500中的许多公司会发放股息。当你持有标普500指数基金时，便可获得这些股息。VOO目前的股息收益率约为每年1.3%-1.5%。在大多数券商账户中，你可以选择自动将股息再投入（即股息再投资计划），用于购买更多基金份额。长期来看，股息的再投入会显著提升总收益。
 
-**Q10: I have heard of "smart beta" and "factor" ETFs. Are those the same as index funds?**
+**问题十：我听说过"聪明贝塔"和因子投资类交易所交易基金，它们和指数基金一样吗？**
 
-A: Not exactly. Traditional index funds track market-cap-weighted indices (like the
-S&P 500). Smart beta or factor ETFs use alternative weighting schemes based on
-factors like value, momentum, size, or quality. They are rules-based (like index
-funds) but deviate from simple market-cap weighting. They typically have higher
-expense ratios (0.10-0.30%) than plain index funds. They can be useful for
-sophisticated investors, but for beginners, a simple total market index fund is
-usually the best starting point. We will cover factor investing later in the course.
+答：不完全一样。传统指数基金追踪按市值加权的指数（如标普500）。聪明贝塔或因子投资类交易所交易基金采用基于价值、动量、规模或质量等因子的另类加权方案，同样以规则为基础（类似指数基金），但偏离了简单的市值加权。此类基金的费率通常高于普通指数基金（0.10%-0.30%）。对于成熟投资者而言具有一定价值，但对初学者来说，简单的全市场指数基金通常是最好的起点。我们将在课程后续章节中深入探讨因子投资。
 
 ---
 
-## Part 2: YouTube Script
+## 第二部分：YouTube视频脚本
 
 ---
 
-**VIDEO TITLE:** Index Funds & ETFs Explained | Investment Course Week 2
+**视频标题：** 指数基金与交易所交易基金详解 | 投资课程第二周
 
-**RUNTIME TARGET:** ~28 minutes
+**目标时长：** 约28分钟
 
-**HOSTS:**
-- **Alex** (teacher): Experienced investor, explains concepts clearly
-- **Sam** (student): Curious beginner, asks questions the audience is thinking
-
----
-
-**[INTRO SEQUENCE]**
-
-[VISUAL: Animated logo with text "Investment Fundamentals - Week 2"]
-
-[ANIMATION: Hundreds of tiny stock ticker symbols swirling around, then being
-swept into a single basket labeled "INDEX FUND"]
-
-**Alex:** Welcome back to Week 2 of our investment fundamentals course. Last week
-we covered why you need to invest. Today we are going to cover the single easiest
-and most effective way to do it.
-
-**Sam:** Index funds and ETFs. I have been hearing these terms everywhere, but I
-still do not fully understand what they are.
-
-**Alex:** By the end of this video, you will understand them better than most people
-who have been investing for years. And you will know exactly which ones to buy.
-
-**Sam:** Let us get into it.
-
-[VISUAL: Title card -- "Part 1: What Is an Index?"]
+**主持人：**
+- **Horace**（陈马，讲师）：资深散户交易者，结合多年市场经验讲解投资概念
+- **Stella**（小鱼，学员）：刚毕业的大学生，正在学习如何投资她的积蓄，代表观众提问
 
 ---
 
-**[SEGMENT 1: WHAT IS AN INDEX?]**
+**[片头序列]**
 
-**Alex:** Before we talk about index funds, we need to understand what an index is.
-An index is simply a list of stocks that follows a set of rules.
+[VISUAL: 动画Logo，显示文字"投资基础课——第二周"]
 
-**Sam:** A list? That is it?
+[ANIMATION: 大量股票行情代码在屏幕上飞舞旋转，随后被汇聚进一个标有"指数基金"的篮子中]
 
-**Alex:** That is it. The most famous index is the S&P 500. It is a list of roughly
-five hundred of the largest companies in the United States.
+**Horace：** 欢迎回到投资基础课第二周。上周我们讲了为什么需要投资，今天我们来讲最简单、最有效的投资方式。
 
-[VISUAL: Scrolling list of S&P 500 companies with logos: Apple, Microsoft,
-Amazon, Google, Johnson & Johnson, JPMorgan, Procter & Gamble, etc.]
+**Stella：** 指数基金和交易所交易基金。这些词我到处都能听到，但我还是没完全搞懂它们是什么。
 
-**Alex:** When you hear on the news that "the market was up two percent today," they
-usually mean the S&P 500 index went up two percent.
+**Horace：** 这期视频看完之后，你对它们的理解会超过大多数投资了好几年的人。而且你会知道具体应该买哪些。
 
-**Sam:** So the S&P 500 is like a report card for the entire stock market?
+**Stella：** 那我们赶紧开始吧。
 
-**Alex:** Great analogy. It represents about eighty percent of the total US stock
-market by value. So if the S&P 500 is up, the overall market is almost certainly
-up too.
-
-[ANIMATION: A pie chart showing "S&P 500 = 80% of US market" with the remaining
-20% labeled "mid-cap and small-cap stocks"]
-
-**Sam:** But how does it work? Does every company count equally?
-
-**Alex:** No, and this is important. The S&P 500 is weighted by market
-capitalization. That means bigger companies have a bigger influence on the index.
-
-[ANIMATION: Reference animation/week02_active_vs_passive.py -- index_weights().
-Bar chart showing Apple at 7%, Microsoft at 6.5%, then gradually smaller bars
-down to the smallest company at 0.02%.]
-
-**Alex:** Apple, which has a market cap of around three trillion dollars, makes up
-about seven percent of the index. The smallest company in the S&P 500, with a
-market cap of maybe ten billion dollars, makes up about two hundredths of a percent.
-
-**Sam:** So when Apple has a big day, the whole index moves?
-
-**Alex:** Exactly. The top ten companies represent about thirty to thirty-five
-percent of the entire index. This is important to understand -- you are not
-equally exposed to all five hundred companies.
-
-[VISUAL: Title card -- "Part 2: What Is an Index Fund?"]
+[VISUAL: 标题卡——"第一部分：什么是指数？"]
 
 ---
 
-**[SEGMENT 2: WHAT IS AN INDEX FUND?]**
+**[第一段：什么是指数？]**
 
-**Alex:** Now here is the magic. An index fund is an investment that simply buys
-every stock in the index, in the same proportions.
+**Horace：** 在讲指数基金之前，我们先得搞清楚什么是指数。简单来说，指数就是一份遵循一套规则的股票清单。
 
-**Sam:** So instead of picking which stocks to buy, it just buys... all of them?
+**Stella：** 一份清单？就这么简单？
 
-**Alex:** All of them. If Apple is seven percent of the S&P 500 index, the fund
-puts seven percent of its money in Apple. If the smallest company is two hundredths
-of a percent, the fund puts two hundredths of a percent there.
+**Horace：** 就这样。最有名的指数是标普500，它是一份包含美国约五百家最大公司的清单。
 
-[ANIMATION: Money flowing from an investor into a fund, which distributes it
-into 500 different company buckets, each sized proportionally]
+[VISUAL: 标普500成分股滚动列表，附带公司Logo：苹果、微软、亚马逊、谷歌、强生、摩根大通、宝洁等]
 
-**Sam:** And then my returns match the index?
+**Horace：** 当你在新闻里听到"今天市场涨了百分之二"，通常意味着标普500指数上涨了百分之二。
 
-**Alex:** Almost exactly. The fund charges a tiny fee -- called the expense ratio --
-so your returns are the index return minus that fee. For Vanguard's S&P 500 fund,
-the fee is three hundredths of a percent per year.
+**Stella：** 所以标普500就像整个股票市场的成绩单？
 
-**Sam:** Three hundredths of a percent? That is three dollars per year on a ten
-thousand dollar investment.
+**Horace：** 这个比喻很贴切。它约占美国股票市场总市值的80%。所以标普500涨了，整体市场基本上也是涨的。
 
-**Alex:** Exactly. Practically free.
+[ANIMATION: 饼图显示"标普500 = 美国市场的80%"，剩余20%标注为"中盘股和小盘股"]
 
-**Sam:** Why is it so cheap?
+**Stella：** 但它具体怎么运作的呢？每家公司的权重一样吗？
 
-**Alex:** Because there is almost no work involved. No analysts. No research teams.
-No stock-picking. A computer just buys the stocks in the index according to the
-rules. The fund basically runs itself.
+**Horace：** 不一样，这一点很重要。标普500是按市值加权的，市值越大的公司，对指数的影响就越大。
 
-[VISUAL: Cost comparison graphic:
-Active Fund Team: 50 analysts, 10 traders, CIO, marketing dept = $$$
-Index Fund: 1 algorithm + small operations team = $]
+[ANIMATION: 参考动画文件 animation/week02_active_vs_passive.py — index_weights()。柱状图显示苹果占7%，微软占6.5%，依次递减至最小公司的0.02%。]
 
-**Sam:** But wait, if nobody is picking stocks, how do you avoid the bad ones?
+**Horace：** 苹果的市值约三万亿美元，在指数中占比约7%。标普500中市值最小的公司，可能也就100亿美元左右，占比约0.02%。
 
-**Alex:** You do not avoid them. And that is actually the point. Let me explain why
-that works.
+**Stella：** 所以苹果涨得好，整个指数都会动？
 
-[VISUAL: Title card -- "Part 3: Why Simple Beats Smart"]
+**Horace：** 没错。前十大公司合计占整个指数的30%-35%左右。这一点很值得了解——你并非均等地持有全部五百家公司。
+
+[VISUAL: 标题卡——"第二部分：什么是指数基金？"]
 
 ---
 
-**[SEGMENT 3: ACTIVE VS. PASSIVE]**
+**[第二段：什么是指数基金？]**
 
-**Alex:** This is where it gets really interesting. For decades, the investment
-industry has sold the idea that you need a smart professional picking stocks for
-you. They charge high fees for this service. And the data shows that it does not
-work.
+**Horace：** 神奇之处来了。指数基金就是一种按照相同比例，直接买入指数中所有股票的投资品。
 
-**Sam:** What do you mean it does not work?
+**Stella：** 所以它不去挑选哪些股票值得买，而是……全部都买？
 
-**Alex:** Over any twenty-year period, about ninety percent of professional fund
-managers fail to beat the S&P 500 index after fees.
+**Horace：** 全部都买。如果苹果在标普500中占7%，基金就把7%的资金买苹果。最小的公司占0.02%，就买0.02%。
 
-**Sam:** Ninety percent? That is... almost all of them.
+[ANIMATION: 资金从投资者流入基金，再按比例分配到500个不同大小的公司"桶"中]
 
-[ANIMATION: Reference animation/week02_active_vs_passive.py -- spiva_visual().
-100 figures representing fund managers. 90 slowly turn red (underperformers).
-10 remain green (outperformers).]
+**Stella：** 那我的收益就和指数一样了？
 
-**Alex:** Ninety out of a hundred professional stock pickers, with teams of analysts,
-massive research budgets, PhDs in finance -- they cannot consistently beat a simple
-index that a computer can track for three dollars per year.
+**Horace：** 几乎完全一样。基金会收取一笔称为费率的小额费用，所以你的收益等于指数收益减去这笔费用。先锋标普500基金的年费率是0.03%。
 
-**Sam:** But why? These are smart people, right?
+**Stella：** 0.03%？对10,000美元的投资来说，也就是每年3美元。
 
-**Alex:** Very smart. But they face three problems that are almost impossible to
-overcome.
+**Horace：** 没错，基本上等于免费。
 
-[VISUAL: Three cards appearing sequentially]
+**Stella：** 为什么能这么便宜？
 
-**Alex:** Problem one: Fees. The average actively managed fund charges about one
-percent per year. That does not sound like much, but remember our compound interest
-lesson from last week?
+**Horace：** 因为几乎不需要什么人工。没有分析师，没有研究团队，不用选股。电脑只是按照规则买入指数中的股票，基金基本上是自动运行的。
 
-**Sam:** One percent compounds into a lot over time.
+[VISUAL: 成本对比图示：
+主动型基金团队：50名分析师、10名交易员、投资总监、市场部门 = 高成本
+指数基金：1套算法 + 小型运营团队 = 低成本]
 
-**Alex:** Over thirty years, a one percent fee can cost you twenty-five to thirty
-percent of your total wealth. So the fund manager needs to beat the index by more
-than one percent per year just to break even with a cheap index fund. Every year.
-For thirty years straight.
+**Stella：** 但如果没人在挑股票，怎么避开那些差劲的公司呢？
 
-[ANIMATION: Two growing bars side by side. "Index Fund (0.03% fee)" grows
-steadily. "Active Fund (1.00% fee)" grows too, but a small slice is removed
-from the top each year. After 30 years, the gap is enormous.]
+**Horace：** 你避不开它们，而这恰恰是关键所在。让我来解释为什么这样反而是对的。
 
-**Alex:** Problem two: The market is really, really efficient. There are thousands
-of brilliant analysts all studying the same companies. When new information comes
-out about Apple, it is reflected in the stock price within seconds. There is very
-little information that one manager knows that others do not.
-
-**Sam:** So it is hard to find an edge.
-
-**Alex:** Extremely hard. And problem three: Trading costs and taxes. Active managers
-buy and sell frequently. Each trade has a cost, and each profitable trade may
-trigger taxes. An index fund rarely trades, so it incurs minimal costs and is much
-more tax-efficient.
-
-**Sam:** So even if a manager is skilled enough to find slightly better stocks, the
-fees, trading costs, and taxes eat up any advantage?
-
-**Alex:** Exactly. The math works against them. And this is not just theory.
-
-[VISUAL: Title card -- "Part 4: The Evidence -- SPIVA"]
+[VISUAL: 标题卡——"第三部分：为什么简单能胜过精明？"]
 
 ---
 
-**[SEGMENT 4: THE SPIVA SCORECARD]**
+**[第三段：主动投资与被动投资]**
 
-**Alex:** Every year, S&P Dow Jones Indices publishes something called the SPIVA
-scorecard. SPIVA stands for S&P Indices Versus Active. It is the most comprehensive
-study of active fund performance, and the results are devastating for the active
-management industry.
+**Horace：** 这里有一个很有意思的地方。几十年来，投资行业一直在兜售这样一个概念：你需要一位聪明的专业人士帮你选股，并为此收取高额费用。但数据表明，这根本行不通。
 
-[VISUAL: SPIVA logo and title card]
+**Stella：** 什么叫行不通？
 
-**Alex:** Let me show you the numbers.
+**Horace：** 在任意20年的周期内，约90%的专业基金经理在扣除费用后跑输标普500指数。
 
-[ANIMATION: Reference animation/week02_active_vs_passive.py -- spiva_bars().
-Animated bar chart building up:
-5-year: 78% of US large-cap funds underperform
-10-year: 85% underperform
-20-year: 90% underperform]
+**Stella：** 90%？那几乎是所有人了。
 
-**Alex:** Over five years, seventy-eight percent of US large-cap fund managers
-underperformed the S&P 500. Over ten years, eighty-five percent. Over twenty years,
-ninety percent.
+[ANIMATION: 参考动画文件 animation/week02_active_vs_passive.py — spiva_visual()。100个人物图标代表基金经理，90个缓缓变红（跑输者），10个保持绿色（跑赢者）。]
 
-**Sam:** And those numbers include the good managers too?
+**Horace：** 100位职业选股人，拥有分析师团队、庞大的研究预算、金融学博士学位——却敌不过一台成本每年只需3美元的电脑追踪的简单指数。
 
-**Alex:** Yes. And here is the kicker. The managers who outperformed over the past
-five years are no more likely to outperform over the next five years.
+**Stella：** 但为什么呢？这些人都很厉害吧？
 
-**Sam:** So you can not just pick the ones with the best track record?
+**Horace：** 确实很厉害。但他们面临三个几乎无法克服的障碍。
 
-**Alex:** Right. A study by S&P Dow Jones looked at managers who ranked in the top
-twenty-five percent over a five-year period. Five years later, fewer than ten
-percent of them were still in the top twenty-five percent. Most had dropped to
-average or below average.
+[VISUAL: 三张卡片依次出现]
 
-[ANIMATION: Dot chart showing top-quartile managers over 5 years. Lines connect
-to where they rank in the next 5 years -- most lines drop to bottom quartiles.]
+**Horace：** 第一个障碍：费用。主动管理型基金平均每年收取约1%的费率。这听起来不多，但还记得我们上周讲的复利吗？
 
-**Sam:** That is really eye-opening. So past performance genuinely does not predict
-future results?
+**Stella：** 1%随着时间的推移，会复利成一大笔钱。
 
-**Alex:** That warning they put on every fund advertisement? It is actually true.
-It is one of the most important facts in all of investing, and most people ignore
-it.
+**Horace：** 30年下来，1%的费率可能让你损失总财富的25%-30%。所以基金经理每年不仅要跑赢指数，还要跑赢超过1个百分点，才能与低成本指数基金打平。而且要年复一年、持续30年。
 
-[VISUAL: Title card -- "Part 5: The Fee Trap"]
+[ANIMATION: 两条并排增长的柱状图。"指数基金（费率0.03%）"稳步上涨，"主动型基金（费率1.00%）"也在上涨，但每年都有一小部分从顶部被切走。30年后，差距极为显著。]
+
+**Horace：** 第二个障碍：市场效率极高。数以千计的优秀分析师在研究同一批公司。一旦苹果有新消息，几秒钟内就会反映到股价上。任何一位基金经理掌握的独家信息，少之又少。
+
+**Stella：** 所以很难找到优势所在。
+
+**Horace：** 难上加难。第三个障碍：交易成本和税负。主动型基金经理频繁买卖，每笔交易都有成本，每笔盈利交易还可能触发纳税义务。指数基金几乎不交易，因此成本极低，税务效率也高得多。
+
+**Stella：** 所以即使经理有能力找到更好的股票，费用、交易成本和税负也会把这点优势吃掉？
+
+**Horace：** 正是如此。数学逻辑就是对他们不利。而这不只是理论。
+
+[VISUAL: 标题卡——"第四部分：有据可查的证明——SPIVA"]
 
 ---
 
-**[SEGMENT 5: EXPENSE RATIOS IN DEPTH]**
+**[第四段：SPIVA记分卡]**
 
-**Alex:** Let me make the fee impact really concrete, because I think this is
-where the lightbulb goes on for most people.
+**Horace：** 标普道琼斯指数每年都会发布一份叫做SPIVA记分卡的报告。SPIVA代表"标普指数与主动管理对比"。这是对主动型基金业绩最全面的追踪研究，结果对主动管理行业而言是毁灭性的。
 
-**Sam:** How much of a difference can fees really make?
+[VISUAL: SPIVA Logo和标题卡]
 
-**Alex:** Let us compare two investors. Both invest one hundred thousand dollars at
-age thirty. Both earn the same gross return of ten percent per year. The only
-difference is fees.
+**Horace：** 我来给你看看具体数据。
 
-[ANIMATION: Two parallel wealth trajectories building over time.
-Investor A: Index fund at 0.03% expense ratio
-Investor B: Active fund at 1.00% expense ratio
-Both start at $100,000. The gap widens every year.]
+[ANIMATION: 参考动画文件 animation/week02_active_vs_passive.py — spiva_bars()。动态柱状图逐步呈现：5年：78%的美国大盘股基金跑输市场；10年：85%跑输；20年：90%跑输。]
 
-**Alex:** Investor A uses an index fund with a three hundredths of a percent expense
-ratio. Investor B uses an active fund with a one percent expense ratio. Both get
-the same gross returns. At age sixty-five, thirty-five years later...
+**Horace：** 5年维度，78%的美国大盘股基金经理跑输标普500；10年维度，85%跑输；20年维度，90%跑输。
 
-[VISUAL: Final comparison:
-Investor A (0.03% fee): $1,989,789
-Investor B (1.00% fee): $1,478,534
-Difference: $511,255]
+**Stella：** 这里面也包含了那些优秀的基金经理？
 
-**Sam:** Half a million dollars? From less than one percent difference in fees?
+**Horace：** 包含在内。而且还有一点更让人震惊：过去5年表现出色的基金经理，未来5年跑赢市场的概率并不因此更高。
 
-**Alex:** Five hundred eleven thousand dollars. And remember, the active fund
-manager did not even earn better gross returns in this example. If we use the
-SPIVA data showing most active managers actually get lower gross returns too, the
-gap is even larger.
+**Stella：** 所以我也没法靠挑选历史业绩最好的基金经理来找到那些赢家？
 
-**Sam:** That is money that goes to the fund company instead of to me.
+**Horace：** 没错。标普道琼斯的一项研究追踪了5年内排名前四分之一的基金经理，5年后，其中不足10%依然保持在前四分之一。大多数人跌落至中等甚至末尾水平。
 
-**Alex:** Exactly. And the fund manager gets paid whether the fund goes up or down.
-In a year when the market drops twenty percent, you still pay the one percent fee.
+[ANIMATION: 散点图显示5年内排名前四分之一的基金经理。连线展示他们下一个5年的排名——大多数线条跌入末尾分位。]
 
-[VISUAL: Pie chart showing "Where Your Fees Go":
-Analyst salaries, Fund manager compensation, Trading desk operations,
-Marketing and distribution, Compliance and legal, Office space]
+**Stella：** 这真的很触动人。过去的业绩真的不能预测未来的结果？
 
-**Sam:** So I am paying for their office space and marketing?
+**Horace：** 每只基金广告上都会打出的那句警告语？它是真的。这是整个投资领域最重要的事实之一，但大多数人都视而不见。
 
-**Alex:** Among other things. Meanwhile, an index fund has a skeleton crew and a
-computer doing the work.
-
-**Sam:** Okay, I am convinced on fees. But which index fund should I actually buy?
-
-[VISUAL: Title card -- "Part 6: The Funds You Need to Know"]
+[VISUAL: 标题卡——"第五部分：费率陷阱"]
 
 ---
 
-**[SEGMENT 6: MAJOR INDEX FUNDS]**
+**[第五段：费率深度解析]**
 
-**Alex:** There are thousands of index funds and ETFs out there, but you really only
-need to know about a handful.
+**Horace：** 让我把费率的影响说得再具体一些，因为我觉得很多人就是在这里豁然开朗的。
 
-[VISUAL: Clean table appearing on screen showing the major funds]
+**Stella：** 费率的差距到底能有多大？
 
-**Alex:** For US stocks, the big three are VOO, VTI, and SPY. Let me break these
-down.
+**Horace：** 我们来比较两位投资者。两人都在30岁时投入10万美元，毛收益率同为10%，唯一的区别是费率不同。
 
-[ANIMATION: Three fund cards sliding onto screen:
-Card 1: VOO -- Vanguard S&P 500 ETF, 0.03%, 500 stocks
-Card 2: VTI -- Vanguard Total Stock Market, 0.03%, 4,000 stocks
-Card 3: SPY -- SPDR S&P 500, 0.09%, 500 stocks]
+[ANIMATION: 两条并行的财富增长轨迹随时间延伸。
+投资者甲：费率0.03%的指数基金
+投资者乙：费率1.00%的主动型基金
+两人都从10万美元起步，差距逐年扩大。]
 
-**Alex:** VOO and SPY both track the S&P 500. The difference? VOO charges three
-hundredths of a percent. SPY charges nine hundredths of a percent. Triple the fee
-for the exact same thing.
+**Horace：** 投资者甲使用费率0.03%的指数基金，投资者乙使用费率1%的主动型基金。两人的毛收益率完全相同。65岁时，也就是35年后……
 
-**Sam:** Why would anyone buy SPY then?
+[VISUAL: 最终对比数据：
+投资者甲（费率0.03%）：1,989,789美元
+投资者乙（费率1.00%）：1,478,534美元
+差距：511,255美元]
 
-**Alex:** SPY was the first ETF ever created, back in 1993. It has the highest
-trading volume, which makes it popular with professional traders who need to buy
-and sell large quantities quickly. For a regular person buying and holding, VOO
-is the better choice.
+**Stella：** 差了50万美元？就因为不到1个百分点的费率差异？
 
-**Sam:** What about VTI?
+**Horace：** 整整511,255美元。而且请记住，在这个例子中，主动型基金经理的毛收益率和指数基金一模一样。如果再考虑SPIVA数据——大多数主动型基金经理的实际毛收益率更低——差距会更悬殊。
 
-**Alex:** VTI goes beyond the S&P 500. Instead of the five hundred largest companies,
-it holds about four thousand stocks -- basically every publicly traded company in
-America, including mid-sized and small companies.
+**Stella：** 那笔钱流进了基金公司，而不是我的口袋。
 
-[ANIMATION: Nested circles visualization:
-Outer circle: "VTI: ~4,000 stocks (entire US market)"
-Inner circle: "VOO: ~500 stocks (S&P 500)"
-Gap between circles: "~3,500 mid-cap and small-cap stocks"]
+**Horace：** 没错。而且无论基金涨跌，经理照收费用。市场跌20%的年份，你照样要交那1%的费率。
 
-**Sam:** So VTI is more diversified. Is it better?
+[VISUAL: 饼图显示"你的费用流向何处"：分析师薪酬、基金经理薪酬、交易团队运营、市场推广与销售、合规与法律、办公场地]
 
-**Alex:** In practice, they perform almost identically. The S&P 500 represents about
-eighty percent of the total US market value, so VOO and VTI move very similarly.
-VTI gives you a bit more exposure to smaller companies, which can provide slightly
-different return characteristics over very long periods. But honestly, you cannot
-go wrong with either one.
+**Stella：** 所以我还在给他们的办公室和广告买单？
 
-**Sam:** So if I could only buy one fund, which would it be?
+**Horace：** 其中包括这些，没错。而与此同时，指数基金只需寥寥几人和一台电脑就能运转。
 
-**Alex:** VTI, because you get the broadest exposure at the lowest cost. But VOO is
-an equally valid choice. The important thing is that you pick one and start investing.
-Do not overthink it.
+**Stella：** 好，费用这个问题我已经彻底信服了。但我究竟应该买哪只指数基金？
 
-**Sam:** What about international stocks?
-
-**Alex:** Great question. VXUS, Vanguard's Total International Stock ETF, covers
-developed and emerging markets outside the US. About seven thousand stocks in over
-forty countries, for just seven hundredths of a percent per year.
-
-[VISUAL: World map with the US highlighted for VTI and the rest of the world
-highlighted for VXUS]
-
-**Sam:** Should I own both?
-
-**Alex:** Most financial experts recommend some international exposure. The US is
-about sixty percent of the global stock market. Owning only US stocks means you
-are ignoring forty percent of the world's opportunities. A common split is seventy
-percent US, thirty percent international.
-
-[VISUAL: Title card -- "Part 7: The Warren Buffett Bet"]
+[VISUAL: 标题卡——"第六部分：你需要了解的那些基金"]
 
 ---
 
-**[SEGMENT 7: THE BUFFETT BET]**
+**[第六段：主要指数基金介绍]**
 
-**Alex:** I want to tell you a story that perfectly illustrates everything we have
-discussed today. In 2007, Warren Buffett made a one-million-dollar bet.
+**Horace：** 市场上有几千只指数基金和交易所交易基金，但你真正需要了解的只有那么几只。
 
-**Sam:** What was the bet?
+[VISUAL: 清晰的表格呈现主要基金信息]
 
-**Alex:** He bet that a simple S&P 500 index fund would outperform a carefully
-selected portfolio of hedge funds over a ten-year period. Hedge funds, by the way,
-are the most expensive, most exclusive actively managed funds on the planet. They
-charge a "two and twenty" fee structure -- two percent annual management fee plus
-twenty percent of any profits.
+**Horace：** 美国股票方面，主要有VOO、VTI和SPY三只。让我来逐一分析。
 
-**Sam:** Those fees are insane. But hedge funds are supposed to be the best of the
-best, right?
+[ANIMATION: 三张基金卡片滑入屏幕：
+卡片1：VOO — 先锋标普500交易所交易基金，0.03%，500只股票
+卡片2：VTI — 先锋全股市交易所交易基金，0.03%，4,000只股票
+卡片3：SPY — SPDR标普500交易所交易基金，0.09%，500只股票]
 
-**Alex:** That is what they sell. A hedge fund manager named Ted Seides accepted the
-bet and picked five "fund of funds" -- meaning he diversified across multiple
-hedge funds to give himself the best chance.
+**Horace：** VOO和SPY都追踪标普500，区别在哪里？VOO收0.03%，SPY收0.09%——费率是VOO的三倍，追踪的却是完全相同的东西。
 
-[ANIMATION: Left side: "Warren Buffett's Pick" -- a single S&P 500 index fund.
-Right side: "Ted Seides' Pick" -- five fund-of-fund boxes, each containing
-multiple hedge fund names.]
+**Stella：** 那为什么还有人买SPY？
 
-**Alex:** The bet ran from January 2008 to December 2017. And remember, this period
-included the 2008 financial crisis, one of the worst market crashes in history. You
-might think active managers would shine during a crisis.
+**Horace：** SPY是有史以来第一只交易所交易基金，1993年成立，交易量最高，深受需要快速大量买卖的机构交易者青睐。对于普通的长期持有投资者来说，VOO是更好的选择。
 
-**Sam:** What happened?
+**Stella：** VTI呢？
 
-**Alex:** Buffett won. Decisively.
+**Horace：** VTI的覆盖范围超出标普500。它持有约4,000只股票，基本上涵盖了美国所有上市公司，包括中型和小型公司。
 
-[ANIMATION: Reference animation/week02_active_vs_passive.py -- buffett_bet().
-Two performance lines from 2008 to 2017.
-S&P 500 index fund: 125.8% total return
-Hedge fund portfolio: 36.0% total return]
+[ANIMATION: 嵌套圆形可视化示意图：
+外圆："VTI：约4,000只股票（美国全市场）"
+内圆："VOO：约500只股票（标普500）"
+两圆之间的间隙："约3,500只中盘股和小盘股"]
 
-**Alex:** The S&P 500 index fund returned one hundred twenty-five point eight percent
-over the ten years. The hedge fund portfolio returned thirty-six percent. The index
-fund didn't just win -- it returned more than three times as much.
+**Stella：** 所以VTI更分散，它更好吗？
 
-**Sam:** Three and a half times better. And the index fund cost almost nothing in
-fees while the hedge funds charged two and twenty?
+**Horace：** 实际上两者的表现几乎一样。标普500约占美国股市总市值的80%，所以VOO和VTI的走势非常接近。VTI持有更多小市值公司，在很长的时间跨度内可能带来略微不同的收益特征。但说实话，选哪个都没错。
 
-**Alex:** Exactly. The hedge fund investors paid enormous fees and got terrible
-results compared to the simplest possible investment strategy.
+**Stella：** 如果只能选一只基金，你会选哪个？
 
-**Sam:** Did Buffett rub it in?
+**Horace：** VTI，因为它以最低的成本提供最广泛的覆盖。但VOO同样是非常合理的选择。重要的是选定一只，开始投资，不要过度纠结。
 
-**Alex:** In his typically understated way, yes. He wrote in his annual letter:
-"The bet illuminated another important investment lesson: though markets are
-generally rational, they occasionally do crazy things. Seizing the opportunities
-then offered does not require great intelligence, a degree in economics, or a
-familiarity with Wall Street jargon. What investors then need instead is an
-ability to both disregard mob fears or enthusiasms and to focus on a few simple
-fundamentals."
+**Stella：** 国际股票呢？
 
-**Sam:** And the simplest fundamental of all is: buy a cheap index fund and hold it.
+**Horace：** 问得好。VXUS，先锋全球国际股票交易所交易基金，涵盖美国以外的发达市场和新兴市场，持有逾40个国家的约七千只股票，年费率仅0.07%。
 
-**Alex:** You are getting it.
+[VISUAL: 世界地图，美国区域高亮显示代表VTI，其余地区高亮显示代表VXUS]
 
-[VISUAL: Title card -- "Part 8: How to Get Started"]
+**Stella：** 我应该两只都买吗？
+
+**Horace：** 大多数财务专家建议配置一定比例的国际资产。美国约占全球股市总市值的60%，只持有美国股票意味着放弃了全球40%的投资机会。一个常见的配比是70%美国、30%国际。
+
+[VISUAL: 标题卡——"第七部分：巴菲特的赌局"]
 
 ---
 
-**[SEGMENT 8: PRACTICAL STEPS]**
+**[第七段：巴菲特的赌局]**
 
-**Alex:** Let me walk you through exactly how to get started with index fund
-investing. This is the practical, step-by-step part.
+**Horace：** 我来讲一个完美诠释今天所有内容的故事。2007年，沃伦·巴菲特打了一个价值百万美元的赌。
 
-**Sam:** Finally, the "what do I actually do" part.
+**Stella：** 赌什么？
 
-**Alex:** Step one: Open a brokerage account. The big names are Fidelity, Schwab,
-and Vanguard. All three offer zero-commission trading and excellent index funds.
-If you want something more app-friendly, Robinhood works too, though it has fewer
-features.
+**Horace：** 他赌一只简单的标普500指数基金，在10年内会跑赢一组精心挑选的对冲基金组合。顺带说一句，对冲基金是市场上最贵、门槛最高的主动管理型基金，收费模式是"2-20"——每年收2%的管理费，外加盈利的20%作为绩效提成。
 
-[VISUAL: Logos of Fidelity, Schwab, Vanguard, Robinhood with brief pros/cons
-for each]
+**Stella：** 这费率也太夸张了。但对冲基金不是应该集结了最顶尖的人才吗？
 
-**Alex:** Step two: Link your bank account and transfer money. This usually takes
-one to three business days.
+**Horace：** 他们就是这么宣传自己的。一位名叫特德·塞德斯的对冲基金经理接受了这个赌局，他挑选了五只"基金的基金"——意思是他分散投资于多只对冲基金，以获得最大的胜算。
 
-**Sam:** How much do I need to start?
+[ANIMATION: 左边："巴菲特的选择"——一只标普500指数基金。右边："特德·塞德斯的选择"——五个基金组合的方框，每个方框内包含多只对冲基金的名字。]
 
-**Alex:** With fractional shares, you can start with as little as one dollar at
-most brokerages. But a reasonable starting point might be whatever you can
-comfortably invest this month without touching your emergency fund.
+**Horace：** 赌局从2008年1月持续到2017年12月。请记住，这段时间包括了2008年金融危机，那是历史上最惨烈的市场崩盘之一。你可能会以为，危机时刻正是主动型基金经理大显身手的机会。
 
-**Alex:** Step three: Search for your fund. Type in the ticker symbol. For the
-Vanguard S&P 500 ETF, that is V-O-O.
+**Stella：** 结果怎么样？
 
-[VISUAL: Screenshot-style graphic of a brokerage search bar with "VOO" typed in,
-showing the fund details below: name, price, expense ratio, holdings]
+**Horace：** 巴菲特赢了，而且赢得干净利落。
 
-**Alex:** Step four: Place a buy order. Choose a market order for simplicity -- this
-buys at the current price. Enter either the number of shares or the dollar amount
-you want to invest.
+[ANIMATION: 参考动画文件 animation/week02_active_vs_passive.py — buffett_bet()。两条2008年至2017年的业绩走势线。
+标普500指数基金：总收益125.8%
+对冲基金组合：总收益36.0%]
 
-**Sam:** That is it? No special analysis? No reading through financial reports?
+**Horace：** 那10年间，标普500指数基金的总收益是125.8%，对冲基金组合的总收益是36%。指数基金不仅赢了，而且收益超过对冲基金的三倍还多。
 
-**Alex:** That is it. You click buy, and you instantly own a piece of five hundred
-of the largest companies in America.
+**Stella：** 三倍多。而且指数基金的费用几乎为零，对冲基金却在收2-20？
 
-**Sam:** What about after I buy? Do I need to check it every day?
+**Horace：** 正是。对冲基金的投资者支付了高昂的费用，换来的回报却远不及最简单的投资策略。
 
-**Alex:** No, and this is crucial. Set it and forget it. Do not check your portfolio
-daily. The market goes up and down constantly, and watching it causes anxiety that
-leads to bad decisions. Set up automatic monthly investments and let compound
-interest do the work.
+**Stella：** 巴菲特有没有趾高气扬地炫耀一番？
 
-[ANIMATION: Calendar showing monthly $500 deposits flowing into a VOO position.
-A "DO NOT DISTURB" sign appears over the portfolio. The balance grows steadily
-with occasional dips that always recover.]
+**Horace：** 以他一贯的低调风格，算是有吧。他在年度致股东信中写道："这场赌局揭示了另一条重要的投资规律：市场整体理性，但偶尔也会做出疯狂的事情。把握这些机会不需要超凡的智慧、经济学学位，或者对华尔街行话的熟稔。投资者真正需要的是无视市场情绪的恐慌与狂热，并专注于几条简单的基本原则。"
 
-**Alex:** Step five, and this is optional but highly recommended: Set up automatic
-investing. Most brokerages let you schedule recurring purchases. For example, five
-hundred dollars on the first of every month into VOO.
+**Stella：** 而最简单的基本原则就是：买入低成本指数基金，然后持有。
 
-**Sam:** Automatic investing means I do not even have to remember to do it.
+**Horace：** 你已经领悟了。
 
-**Alex:** Right. It takes discipline out of the equation. You invest consistently
-whether the market is up, down, or sideways. This is called dollar-cost averaging,
-and it is a perfectly effective strategy.
-
-[VISUAL: Title card -- "Part 9: The Simple Portfolio"]
+[VISUAL: 标题卡——"第八部分：如何开始"]
 
 ---
 
-**[SEGMENT 9: BUILDING A PORTFOLIO]**
+**[第八段：实操步骤]**
 
-**Alex:** Before we wrap up, let me give you a concrete portfolio recommendation
-for beginners. This is based on what is sometimes called the Bogle Three-Fund
-Portfolio, named after John Bogle, the founder of Vanguard and the inventor of
-the index fund.
+**Horace：** 让我来一步一步教你如何开始指数基金投资，这是真正落地实操的部分。
 
-**Sam:** The inventor of the index fund? He must have been popular on Wall Street.
+**Stella：** 终于到了"我到底该怎么做"的环节了。
 
-**Alex:** He was hated by much of the industry. They called his idea "un-American"
-and "a recipe for mediocrity." But he ignored them and kept lowering fees. Today,
-Vanguard manages over eight trillion dollars. Turns out mediocrity is pretty
-popular when it beats ninety percent of the professionals.
+**Horace：** 第一步：开设券商账户。几个主流平台是富达、嘉信理财和先锋，三家都提供零手续费交易和优质指数基金。如果你喜欢更简洁的App界面，Robinhood也可以，只是功能相对少一些。
 
-[VISUAL: Photo or illustration of John Bogle with quote: "Don't look for the
-needle in the haystack. Just buy the haystack."]
+[VISUAL: 富达、嘉信理财、先锋、Robinhood各自的Logo，附带简要的优缺点对比]
 
-**Sam:** I love that quote. So what is the three-fund portfolio?
+**Horace：** 第二步：绑定银行账户并转入资金，ACH转账通常需要一到三个工作日。
 
-[ANIMATION: Three fund cards building into a pie chart:
-VTI (US Stocks): 60% -- blue
-VXUS (International Stocks): 25% -- green
-BND (US Bonds): 15% -- gold]
+**Stella：** 最低需要多少钱才能开始？
 
-**Alex:** Fund one: VTI, Vanguard Total Stock Market ETF. This is your US stock
-exposure. About sixty percent of the portfolio for someone in their twenties or
-thirties.
+**Horace：** 支持碎股买入的话，大多数券商最低1美元就能入场。但一个比较合理的起点，可以是你这个月在不动用应急资金的前提下，能够舒适投入的金额。
 
-**Alex:** Fund two: VXUS, Vanguard Total International Stock ETF. This gives you
-exposure to thousands of companies outside the US. About twenty-five percent of
-the portfolio.
+**Horace：** 第三步：搜索你要买的基金，输入基金代码。比如先锋标普500交易所交易基金，代码是V-O-O。
 
-**Alex:** Fund three: BND, Vanguard Total Bond Market ETF. This provides stability
-and income. About fifteen percent for a young investor. Increase this percentage
-as you get older.
+[VISUAL: 仿截图风格的券商搜索框图示，输入"VOO"后显示基金详情：名称、价格、费率、持仓情况]
 
-**Sam:** Three funds? That is the whole portfolio?
+**Horace：** 第四步：下达买入指令。选择市价单最为简便，以当前市价即时成交。输入你想买入的股数或金额，然后点击买入。
 
-**Alex:** That is the whole portfolio. With these three funds, you own a piece of
-virtually every publicly traded company on the planet plus a broad slice of the
-US bond market. Total cost: about five hundredths of a percent per year. That is
-five dollars per year on a ten thousand dollar portfolio.
+**Stella：** 就这些？不需要做任何分析？不用翻阅财务报表？
 
-**Sam:** Five dollars a year for a globally diversified portfolio. That is less than
-a cup of coffee.
+**Horace：** 就这些。点击买入，你瞬间就成了美国500家最大公司的股东。
 
-**Alex:** And the beautiful part is, you do not need to change it. Just keep adding
-money and rebalance once or twice a year to maintain your target percentages.
+**Stella：** 买完之后需要每天盯着看吗？
 
-**Sam:** What does rebalancing mean?
+**Horace：** 不需要，这一点至关重要。买完就放下，别总去看。市场每天都在起伏，频繁盯盘会让你焦虑，进而做出糟糕的决策。设置好每月自动定投，让复利替你工作。
 
-**Alex:** If stocks have a great year and your US stock allocation grows from sixty
-percent to sixty-eight percent, you would direct new contributions more toward
-bonds and international stocks to bring it back to your target. Or sell some US
-stocks and buy more of the others. It takes about fifteen minutes twice a year.
+[ANIMATION: 日历显示每月向VOO自动划转500美元。投资组合上出现"请勿打扰"的牌子。账户余额稳步增长，偶有回落，但总能恢复。]
 
-[ANIMATION: Pie chart getting "out of balance" as one slice grows larger, then
-arrows showing money moving to restore the target percentages]
+**Horace：** 第五步，可选但强烈推荐：设置自动定投。大多数券商支持定期定额买入计划，比如每月一号向VOO自动投入500美元。
 
-**Sam:** Fifteen minutes, twice a year, to manage my entire investment portfolio.
-That is it?
+**Stella：** 自动定投意味着我连记住这件事都不用了。
 
-**Alex:** That is it. And over twenty, thirty, forty years, this simple strategy
-will outperform the vast majority of professional money managers.
+**Horace：** 对，它把自律的要求降到零。不管市场涨跌，你都持续投入。这就叫定投，是一种非常有效的策略。
 
-[VISUAL: Title card -- "Key Takeaways"]
+[VISUAL: 标题卡——"第九部分：构建投资组合"]
 
 ---
 
-**[SEGMENT 10: RECAP AND TAKEAWAYS]**
+**[第九段：搭建投资组合]**
 
-[ANIMATION: Summary slide building point by point]
+**Horace：** 在收尾之前，让我给初学者推荐一个具体的投资组合方案。这套方案通常被称为博格三基金投资组合，以约翰·博格命名，他是先锋集团的创始人，也是指数基金的发明者。
 
-**Alex:** Let me recap what we covered today.
+**Stella：** 指数基金的发明者？他在华尔街一定很受欢迎。
 
-[VISUAL: Bullet points appearing one by one]
+**Horace：** 恰恰相反，他被业界很多人痛恨。他们叫他的想法"不爱国"，说这是"甘于平庸的方案"。但他不为所动，持续压低费率。如今，先锋集团管理着超过8万亿美元的资产。事实证明，当这种"平庸"能跑赢90%的专业人士时，人们自然趋之若鹜。
 
-**Alex:** Number one: An index is a list of stocks that follows a set of rules. An
-index fund simply buys all the stocks in the index. No stock picking, no analysts,
-no guessing.
+[VISUAL: 约翰·博格的照片或插图，配上名言："不要在草垛里找针，直接买下整个草垛。"]
 
-**Sam:** Buy the haystack, not the needle.
+**Stella：** 我特别喜欢这句话。那三基金投资组合具体是什么？
 
-**Alex:** Number two: Ninety percent of professional fund managers fail to beat the
-index over twenty years. This is documented by the SPIVA scorecard and is one of
-the most well-established facts in finance.
+[ANIMATION: 三张基金卡片拼合成饼图：
+VTI（美国股票）：60% — 蓝色
+VXUS（国际股票）：25% — 绿色
+BND（美国债券）：15% — 金色]
 
-**Sam:** The experts usually lose to the computer.
+**Horace：** 第一只基金：VTI，先锋全股市交易所交易基金，提供美国股票敞口。对20多岁或30多岁的人来说，约占投资组合的60%。
 
-**Alex:** Number three: Fees matter enormously. A one percent expense ratio can cost
-you hundreds of thousands of dollars over your investing lifetime. Index funds
-charge as little as three hundredths of a percent.
+**Horace：** 第二只基金：VXUS，先锋全球国际股票交易所交易基金，覆盖美国以外数千家公司，约占投资组合的25%。
 
-**Sam:** Tiny fee, massive difference over time.
+**Horace：** 第三只基金：BND，先锋全债市交易所交易基金，提供稳定性和收益来源。对年轻投资者而言约占15%，随着年龄增长，这个比例应逐步提高。
 
-**Alex:** Number four: The major funds you need to know are VOO and VTI for US
-stocks, VXUS for international stocks, and BND for bonds. These are the building
-blocks of a solid portfolio.
+**Stella：** 就三只基金？整个投资组合就这样？
 
-**Sam:** Four ticker symbols. I can remember that.
+**Horace：** 就是这样。有了这三只基金，你实际上持有了全球几乎所有上市公司的股份，以及美国债券市场的广泛覆盖。综合费率约为0.05%，也就是10,000美元每年只需5美元。
 
-**Alex:** Number five: The Bogle Three-Fund Portfolio -- VTI, VXUS, and BND -- gives
-you global diversification at rock-bottom cost. It is simple, effective, and
-endorsed by some of the greatest investors in history.
+**Stella：** 每年5美元换来一个全球分散配置的投资组合，比一杯咖啡还便宜。
 
-**Sam:** Simple beats complicated.
+**Horace：** 而且这套组合最美妙的地方在于，你不需要去改变它。只要持续投入资金，每年做一两次再平衡，维持目标比例就够了。
 
-**Alex:** And number six: Getting started is as easy as opening a brokerage account,
-searching for a fund ticker, and clicking buy. Set up automatic monthly investments
-and you are done.
+**Stella：** 再平衡是什么意思？
 
-[VISUAL: Animated graphic showing a phone screen with a "Buy VOO" button being
-tapped, followed by a growth chart curving upward]
+**Horace：** 如果股票大涨，美国股票的配置从60%涨到了68%，你就把新增的资金更多地投向债券和国际股票，把它拉回目标比例。或者卖出部分美国股票，买入其他两类资产。每年花大约15分钟操作两次。
 
-**Sam:** So what should someone do right now, today?
+[ANIMATION: 饼图因某一部分快速增大而"失衡"，随后箭头显示资金流动方向，将各部分恢复至目标比例]
 
-**Alex:** Open a brokerage account if you do not have one. It takes about fifteen
-minutes. Fund it with whatever you can comfortably invest. Buy VTI or VOO. Set up
-automatic monthly contributions. Then close the app and go live your life.
+**Stella：** 每年15分钟，两次，就能管理好整个投资组合，就这样？
 
-**Sam:** And do not check it every day.
+**Horace：** 就这样。而20年、30年、40年之后，这套简单的策略，会跑赢绝大多数职业基金经理。
 
-**Alex:** Do not check it every day. The market will fluctuate. There will be
-scary headlines. There will be corrections and crashes. Do not sell. Keep investing.
-Time and compound interest will do the heavy lifting.
-
-[VISUAL: Calendar pages flipping forward showing years passing, with a wealth
-meter slowly but steadily climbing, occasionally dipping but always recovering
-and reaching new highs]
-
-**Sam:** What are we covering next week?
-
-**Alex:** Next week we are going to talk about risk and diversification. We will
-explore how to think about risk, why diversification is your best protection, and
-how to build a portfolio that matches your personal risk tolerance.
-
-**Sam:** That sounds great. Thanks everyone for watching.
-
-**Alex:** If this video helped you, subscribe and hit the notification bell so you
-do not miss Week 3. And if you have questions, drop them in the comments. We read
-every single one.
-
-**Sam:** See you next week.
-
-[ANIMATION: Outro animation with subscribe button graphic and "Next Week:
-Risk and Diversification" preview card]
-
-**[END]**
+[VISUAL: 标题卡——"核心要点回顾"]
 
 ---
 
-*Animation reference for this episode: `animation/week02_active_vs_passive.py`*
-*Previous lesson: `course/week01_why_invest.md`*
-*Next lesson: `course/week03_risk_diversification.md`*
+**[第十段：总结与要点回顾]**
+
+[ANIMATION: 总结幻灯片，要点逐条呈现]
+
+**Horace：** 来回顾一下今天讲到的内容。
+
+[VISUAL: 要点逐条出现]
+
+**Horace：** 第一点：指数是一份遵循固定规则的股票清单，指数基金只是简单地买入清单中的所有股票，不做主观选股，不依赖分析师，不用猜测。
+
+**Stella：** 买下整个草垛，而不是找里面的针。
+
+**Horace：** 第二点：20年维度上，约90%的专业基金经理跑输指数。这有SPIVA记分卡的数据记录，是金融界最有据可查的事实之一。
+
+**Stella：** 专家通常输给电脑。
+
+**Horace：** 第三点：费率至关重要。1%的费率，在投资生涯中可能让你少赚数十万美元，而指数基金的费率低至0.03%。
+
+**Stella：** 微小的费率差，长期下来产生巨大的财富差距。
+
+**Horace：** 第四点：你需要了解的主要基金是VOO和VTI（美国股票）、VXUS（国际股票）和BND（债券），这些是构建稳健投资组合的基础模块。
+
+**Stella：** 四个基金代码，我记住了。
+
+**Horace：** 第五点：博格三基金投资组合——VTI、VXUS和BND——以极低的成本实现全球分散配置，简单、有效，并获得史上最伟大投资者们的背书。
+
+**Stella：** 简单胜过复杂。
+
+**Horace：** 第六点：入门就是开一个券商账户、搜索基金代码、点击买入，就这么简单。设置好每月自动定投，一切就搞定了。
+
+[VISUAL: 动态图示，手机屏幕显示"买入VOO"按钮被点击，随即出现一条向上弯曲的财富增长曲线]
+
+**Stella：** 那现在，今天，大家应该做什么呢？
+
+**Horace：** 还没有券商账户的话，现在就去开一个，大概15分钟就能搞定。存入你能舒适投入的金额，买入VTI或VOO，设置每月自动定投，然后关掉App，去过你自己的生活。
+
+**Stella：** 然后不要每天都去看它。
+
+**Horace：** 对，不要每天盯着。市场会波动，会出现各种吓人的新闻，会有调整，会有下跌。不要卖，继续投。时间和复利会帮你做最重要的那部分工作。
+
+[VISUAL: 日历页快速翻过，显示岁月流逝，财富计量表缓慢但稳定地攀升，偶有回落，但总会收复失地并创下新高]
+
+**Stella：** 下周我们讲什么？
+
+**Horace：** 下周我们讲风险与分散化。我们会探讨如何理解风险、为什么分散化是最好的保护，以及如何建立一个匹配你个人风险承受能力的投资组合。
+
+**Stella：** 听起来很期待。感谢大家的收看。
+
+**Horace：** 如果这期视频对你有帮助，记得订阅并点击小铃铛，这样第三周上线时你就不会错过了。有任何问题，欢迎在评论区留言，我们每一条都会看。
+
+**Stella：** 下周见！
+
+[ANIMATION: 片尾动画，附订阅按钮图示和"下期预告：风险与分散化"预览卡片]
+
+**[片尾]**
+
+---
+
+*本期动画参考文件：`animation/week02_active_vs_passive.py`*
+*上一课：`course/week01_why_invest.md`*
+*下一课：`course/week03_risk_diversification.md`*

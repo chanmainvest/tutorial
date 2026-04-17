@@ -1,75 +1,72 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 3: Understanding Risk and Return
+# 第三週：理解風險與回報
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Risk and return are the two fundamental forces that govern every investment decision you will ever make. They are inseparable -- like gravity and motion in physics. You cannot understand one without understanding the other, and ignoring either one will cost you money.
+風險與回報是支配你每一個投資決策的兩種基本力量。它們密不可分——就像物理學中的重力與運動。你無法在不理解其中一個的情況下理解另一個，忽視任何一個都會讓你損失金錢。
 
-Most beginners focus entirely on return. They ask, "How much can I make?" This is the wrong first question. The right first question is, "How much can I lose, and am I comfortable with that?" Every asset that offers the possibility of high returns also carries the possibility of significant loss. Understanding this tradeoff is the single most important concept in finance.
+大多數初學者完全專注於回報。他們問：「我能賺多少？」這是錯誤的第一個問題。正確的第一個問題是：「我最多可以虧多少，我能接受嗎？」每一種提供高回報可能性的資產，同樣也承載著重大虧損的可能性。理解這種取捨是金融學中最重要的概念。
 
-Here is why mastering risk and return matters:
+以下是掌握風險與回報的重要原因：
 
-1. **It determines your portfolio's destiny.** The mix of risk and return you choose today will shape your wealth trajectory for decades. An investor who takes too little risk will not accumulate enough to retire. An investor who takes too much risk may panic during a downturn and sell at the worst possible moment, locking in devastating losses.
+1. **它決定你投資組合的命運。** 你今天所選擇的風險與回報組合，將塑造你未來幾十年的財富軌跡。承擔風險過少的投資者將無法積累足夠的財富退休。承擔風險過多的投資者可能在市場下跌期間恐慌性拋售，在最糟糕的時機出場，鎖定災難性的損失。
 
-2. **It protects you from emotional decisions.** When the stock market drops 30%, uninformed investors panic. Investors who understand risk recognize that such drops are a normal, expected feature of equity markets -- they happen roughly once per decade. This knowledge transforms panic into opportunity.
+2. **它保護你免於情緒化決策。** 當股票市場下跌30%時，不了解情況的投資者會恐慌。理解風險的投資者明白，這樣的跌幅是股票市場正常且預期的特徵——大約每十年發生一次。這種認知將恐慌轉化為機遇。
 
-3. **It helps you evaluate any investment.** Whether someone is pitching you a stock, a real estate deal, a cryptocurrency, or a structured product, you can cut through the noise by asking two questions: What is the expected return? What are the risks? If the answers are vague or one-sided, walk away.
+3. **它幫助你評估任何投資。** 無論有人向你推銷股票、房地產項目、加密貨幣還是結構性產品，你都可以通過兩個問題看穿雜音：預期回報是多少？風險是什麼？如果答案含糊或片面，就請直接走開。
 
-4. **It is the foundation of portfolio construction.** Every lesson from here forward -- diversification, asset allocation, rebalancing -- builds on the principles of risk and return. Without this foundation, everything else is just decoration.
+4. **它是投資組合構建的基礎。** 此後每一堂課——分散投資、資產配置、再平衡——都建立在風險與回報的原則之上。沒有這個基礎，其他一切都只是裝飾。
 
-5. **It is what separates investing from gambling.** A gambler chases returns without understanding probabilities. An investor takes calculated risks where the expected payoff justifies the downside exposure. The difference is entirely in how you think about risk.
+5. **它是投資與賭博的分野。** 賭徒在不理解概率的情況下追逐回報。投資者承擔經過計算的風險，在預期收益足以合理補償下行風險的情況下進行投資。兩者的差異完全在於你如何看待風險。
 
-This lesson covers how risk is measured, what historical data tells us about the returns of different asset classes, the concept of the risk premium, the critical distinction between systematic and unsystematic risk, and the risk-return tradeoff that governs all of modern finance.
+本課涵蓋風險的衡量方式、歷史數據對不同資產類別回報的啟示、風險溢價的概念、系統性風險與非系統性風險之間的關鍵區別，以及支配現代金融學的風險回報取捨。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的知識
 
-#### 1. What Is Risk? Defining It Precisely
+#### 1. 什麼是風險？精確定義
 
-In everyday language, risk means "the chance something bad happens." In finance, risk has a more precise and somewhat different meaning: risk is the uncertainty of outcomes. A risky asset is not necessarily one that will lose money -- it is one whose future return is unpredictable.
+在日常語言中，風險意味著「某些不好的事情可能發生」。在金融學中，風險有更精確且略有不同的含義：風險是結果的不確定性。風險資產不一定是會虧損的資產——而是其未來回報難以預測的資產。
 
-A U.S. Treasury bill is considered nearly risk-free not because its return is high (it is low), but because you know almost exactly what you will get. A stock is risky not because it will definitely lose value, but because its return next year could be +40% or -30% -- you simply do not know.
+美國國庫券被認為幾乎沒有風險，不是因為其回報高（它很低），而是因為你幾乎確切地知道你將獲得什麼。股票是有風險的，不是因為它一定會貶值，而是因為它明年的回報可能是+40%或-30%——你根本不知道。
 
 ```
-RISK = UNCERTAINTY OF OUTCOMES
+風險 = 結果的不確定性
 ===================================
 
-         T-Bill             Stock
+         國庫券             股票
          ------             -----
-Return   +4.5%              ???
-Range    [+4.4% to +4.6%]   [-35% to +55%]
+回報      +4.5%              ???
+範圍      [+4.4% 至 +4.6%]   [-35% 至 +55%]
                                   
-         LOW RISK            HIGH RISK
-         (Outcome is         (Outcome is
-          nearly certain)     highly uncertain)
+         低風險              高風險
+         （結果幾乎確定）    （結果高度不確定）
 ```
 
 ---
 
-#### 2. Measuring Risk: Volatility and Standard Deviation
+#### 2. 衡量風險：波動性與標準差
 
-The most common measure of investment risk is **volatility**, expressed as the **standard deviation** of returns. Standard deviation tells you how widely an asset's returns are spread around its average.
+最常見的投資風險衡量指標是**波動性**，以回報的**標準差**表示。標準差告訴你一項資產的回報圍繞其平均值分散的程度。
 
-**How standard deviation works:**
+**標準差的工作原理：**
 
-If an asset has an average annual return of 10% and a standard deviation of 15%, this means:
-- About 68% of the time (1 standard deviation), returns fall between -5% and +25%
-- About 95% of the time (2 standard deviations), returns fall between -20% and +40%
-- About 99.7% of the time (3 standard deviations), returns fall between -35% and +55%
+如果一項資產的年均回報為10%，標準差為15%，這意味著：
+- 約68%的時間（1個標準差），回報介於-5%至+25%之間
+- 約95%的時間（2個標準差），回報介於-20%至+40%之間
+- 約99.7%的時間（3個標準差），回報介於-35%至+55%之間
 
 ```
-STANDARD DEVIATION AND THE BELL CURVE
+標準差與鐘形曲線
 =======================================
 
-    Probability
-    of Outcome
+    出現某
+    結果的
+    概率
         |
         |              *****
         |           ***     ***
@@ -80,182 +77,182 @@ STANDARD DEVIATION AND THE BELL CURVE
         |  *                           *
         | *                             *
         |*                               *
-        +-----|-------|-------|-------|------> Return
-            -2sd    -1sd    Mean    +1sd   +2sd
+        +-----|-------|-------|-------|------> 回報
+            -2個     -1個    平均值   +1個   +2個
+            標準差   標準差          標準差  標準差
             -20%    -5%     10%     25%    40%
 
         |<------------- 68% ------------>|
-             (within 1 standard deviation)
+             （在1個標準差範圍內）
 
    |<------------------ 95% ------------------->|
-        (within 2 standard deviations)
+        （在2個標準差範圍內）
 ```
 
-**Interpreting standard deviation in practice:**
+**實際應用中標準差的解讀：**
 
 ```
-ASSET CLASS VOLATILITY COMPARISON (APPROXIMATE)
+各資產類別波動性比較（約略數字）
 =================================================
 
-Asset Class                  Avg Return   Std Dev   Range (68%)
--------------------          ----------   -------   -----------
-Treasury Bills                   3%          1%      2% to 4%
-Investment-Grade Bonds           5%          6%     -1% to 11%
-Balanced Fund (60/40)            8%         10%     -2% to 18%
-U.S. Large Cap Stocks           10%         16%     -6% to 26%
-U.S. Small Cap Stocks           12%         20%     -8% to 32%
-International Developed          9%         17%     -8% to 26%
-Emerging Market Stocks          11%         24%    -13% to 35%
-Individual Stock (typical)      ??%         30%+   Very wide
+資產類別                     平均回報  標準差    範圍（68%）
+-------------------          --------  ------    -----------
+國庫券                           3%      1%       2% 至 4%
+投資級債券                       5%      6%      -1% 至 11%
+均衡基金（六四分）                8%     10%      -2% 至 18%
+美國大型股票                    10%     16%      -6% 至 26%
+美國小型股票                    12%     20%      -8% 至 32%
+國際已發展市場                   9%     17%      -8% 至 26%
+新興市場股票                    11%     24%     -13% 至 35%
+個別股票（典型）                  ??%    30%+    範圍極廣
 
-Note: These are long-run historical approximations.
-Actual figures vary by time period measured.
+注：以上為長期歷史約略數字。
+實際數字因計算時期而異。
 ```
 
-**Key insight:** Notice that as expected returns increase, standard deviation increases too. This pattern is not a coincidence -- it is the fundamental law of investing.
+**關鍵洞察：** 請注意，隨著預期回報增加，標準差也隨之增加。這種規律並非巧合——這是投資的基本定律。
 
 ---
 
-#### 3. Historical Returns of Major Asset Classes
+#### 3. 主要資產類別的歷史回報
 
-Understanding what different asset classes have returned historically gives you a baseline for setting expectations. The data below is drawn primarily from U.S. markets going back to 1926 (the Ibbotson dataset) and from global data where available.
+了解不同資產類別的歷史回報，為你設定預期提供了基準。以下數據主要來自可追溯至1926年的美國市場（Ibbotson數據集）及全球可用數據。
 
 ```
-HISTORICAL ASSET CLASS RETURNS (1926-2024, APPROXIMATE)
+各資產類別歷史回報（1926-2024年，約略數字）
 ========================================================
 
-Asset Class              Nominal     Real       Worst       Best
-                         Return    (after       Single      Single
-                         (Ann.)    inflation)   Year        Year
---------------------     ------    ----------   ------      ------
-Treasury Bills            3.3%       0.3%       -0.0%       14.7%
-Long-Term Gov Bonds       5.5%       2.5%      -14.9%       40.4%
-Corporate Bonds           5.9%       2.9%       -8.1%       42.6%
-U.S. Large Cap Stocks    10.3%       7.1%      -43.3%       54.0%
-U.S. Small Cap Stocks    11.8%       8.6%      -58.0%      142.9%
-International Stocks      8.5%       5.3%      -43.4%       69.0%
+資產類別            名義       實際       最差       最佳
+                   回報      （通脹後）   單年       單年
+                  （年化）              回報       回報
+--------------------  ------  ----------  ------     ------
+國庫券               3.3%      0.3%      -0.0%      14.7%
+長期政府債券          5.5%      2.5%     -14.9%      40.4%
+企業債券             5.9%      2.9%      -8.1%      42.6%
+美國大型股票         10.3%      7.1%     -43.3%      54.0%
+美國小型股票         11.8%      8.6%     -58.0%     142.9%
+國際股票             8.5%      5.3%     -43.4%      69.0%
 
-Inflation (CPI)           2.9%        --         -10%        18%
+通脹（消費物價指數）  2.9%       --       -10%        18%
 ```
 
 ```
-GROWTH OF $1 INVESTED IN 1926 (NOMINAL, LOG SCALE)
+1926年投入$1的增長（名義值，對數刻度）
 ====================================================
 
-Value
-(Log)
+價值
+（對數）
   |
-$50K+                                              * Small Stocks
-  |                                             *
-  |                                          *
-$10K+                                     *
-  |                                   *     * Large Stocks
+$50,000+                                          * 小型股票
+  |                                            *
+  |                                         *
+$10,000+                                  *
+  |                                   *    * 大型股票
   |                               *      *
-$1K +                         *       *
+$1,000 +                      *       *
   |                       *        *
   |                   *         *
 $100 +             *         *
   |            *          *
-  |        *           *         * Bonds
+  |        *           *       * 債券
 $10 +   *           *        *
-  |  *           *        *        * T-Bills
-  | *         *       *         *
-$1 +------*-------*------*-----------*---------->
+  |  *           *        *       * 國庫券
+  | *         *       *        *
+$1 +------*-------*------*----------*---------->
    1926    1950    1975    2000    2024
 
-   Small Stocks: ~$50,000+
-   Large Stocks: ~$12,000+
-   Government Bonds: ~$100
-   Treasury Bills: ~$22
-   Inflation: ~$17
+   小型股票: ~$50,000+
+   大型股票: ~$12,000+
+   政府債券: ~$100
+   國庫券: ~$22
+   通脹: ~$17
 ```
 
-**The power of compounding:** The difference between 10% and 12% seems small, but over 98 years, $1 growing at 10% becomes about $12,000, while $1 growing at 12% becomes about $50,000. Small differences in return compound into enormous differences in wealth over long periods.
+**複利的力量：** 10%與12%之間的差異看似微小，但經過98年，$1以10%增長變為約$12,000，而以12%增長則變為約$50,000。回報的微小差異經過長時間複利，會演變成財富的巨大差距。
 
 ---
 
-#### 4. The Risk Premium: Your Compensation for Bearing Risk
+#### 4. 風險溢價：承擔風險的補償
 
-The **risk premium** is the extra return you earn above the risk-free rate for taking on additional risk. It is your compensation for accepting uncertainty.
+**風險溢價**是你在無風險利率之上所賺取的額外回報，以補償你承擔的額外風險。這是你接受不確定性的報酬。
 
 ```
-RISK PREMIUM BREAKDOWN
+風險溢價分析
 ========================
 
-                            Historical
-Asset Class                 Risk Premium     Calculation
------------                 ------------     -----------
-Risk-Free Rate (T-Bills)        0.0%         Baseline
-Long-Term Gov Bonds            ~2.2%         5.5% - 3.3%
-Corporate Bonds                ~2.6%         5.9% - 3.3%
-U.S. Large Cap Stocks          ~7.0%         10.3% - 3.3%
-U.S. Small Cap Stocks          ~8.5%         11.8% - 3.3%
+                            歷史
+資產類別                    風險溢價         計算方式
+-----------                 --------        -----------
+無風險利率（國庫券）          0.0%           基準
+長期政府債券                 ~2.2%          5.5% - 3.3%
+企業債券                    ~2.6%          5.9% - 3.3%
+美國大型股票                 ~7.0%         10.3% - 3.3%
+美國小型股票                 ~8.5%         11.8% - 3.3%
 ```
 
-**The Equity Risk Premium (ERP)** is the most important number in all of finance. It tells you how much extra return stocks deliver over risk-free bonds. Historically, this has been about 5-7% per year in the U.S.
+**股票風險溢價（ERP）**是金融學中最重要的數字。它告訴你股票相對於無風險債券能多提供多少回報。歷史上，美國的股票風險溢價約為每年5-7%。
 
-Why does the risk premium exist? Because investors are risk-averse. Given two investments with the same expected return, investors prefer the less risky one. To entice investors into risky assets, those assets must offer higher expected returns. If stocks returned the same as Treasury bills, nobody would bear the volatility.
+為什麼風險溢價會存在？因為投資者天生厭惡風險。在預期回報相同的兩項投資之間，投資者傾向於選擇風險較低的一項。為了吸引投資者持有風險資產，這些資產必須提供更高的預期回報。如果股票的回報與國庫券相同，就不會有人願意承受那種波動性。
 
 ```
-WHY THE RISK PREMIUM MUST EXIST
+為什麼風險溢價必須存在
 ==================================
 
-Scenario A: Stocks and bonds offer the same 5% return
+情景A：股票與債券提供相同的5%回報
 
-  Rational investor thinks:
-  "Why would I accept -30% possibility from stocks
-   when bonds give me the same 5% with almost no risk?"
-  => Everyone sells stocks, buys bonds
-  => Stock prices drop, bond prices rise
-  => Stock future returns increase, bond future returns decrease
-  => A gap (risk premium) naturally emerges
+  理性投資者會想：
+  「既然債券以近乎零風險給我5%，
+   我為何要接受股票-30%的可能性？」
+  => 所有人賣出股票，買入債券
+  => 股票價格下跌，債券價格上升
+  => 股票未來回報提高，債券未來回報降低
+  => 自然形成差距（風險溢價）
 
-Scenario B: Equilibrium
+情景B：均衡狀態
 
-  Stocks: ~10% expected return  (risk premium = ~5-7%)
-  Bonds:  ~4-5% expected return
-  T-Bills: ~3% expected return  (risk-free baseline)
+  股票: ~10% 預期回報  （風險溢價 = ~5-7%）
+  債券: ~4-5% 預期回報
+  國庫券: ~3% 預期回報  （無風險基準）
 
-  The risk premium is the market's price for bearing uncertainty.
+  風險溢價是市場為承擔不確定性所支付的代價。
 ```
 
-**Critical nuance:** The risk premium is an average over long periods. In any given year, stocks can and do underperform bonds. The risk premium is compensation for sticking with stocks through the bad years.
+**重要細節：** 風險溢價是長時期的平均值。在任何特定年份，股票都可能跑輸債券。風險溢價是對你在艱難時期堅持持有股票的補償。
 
 ---
 
-#### 5. Systematic vs. Unsystematic Risk
+#### 5. 系統性風險與非系統性風險
 
-This distinction is one of the most important in all of finance. It determines which risks are rewarded with higher returns and which risks are pointless to take.
+這一區別是整個金融學中最重要的概念之一。它決定了哪些風險能換來更高的回報，哪些風險是毫無意義的。
 
-**Unsystematic Risk (Diversifiable Risk)**
-- Risk specific to a single company or industry
-- Examples: CEO scandal, product recall, factory fire, regulatory action against one firm
-- Can be eliminated through diversification
-- The market does NOT compensate you for bearing this risk
+**非系統性風險（可分散風險）**
+- 針對單一公司或行業的特定風險
+- 例子：行政總裁醜聞、產品召回、工廠火災、針對單一公司的監管行動
+- 可通過分散投資消除
+- 市場**不會**補償你承擔此類風險
 
-**Systematic Risk (Market Risk, Non-Diversifiable Risk)**
-- Risk that affects the entire market or economy
-- Examples: recession, interest rate changes, inflation, pandemic, geopolitical crisis
-- Cannot be eliminated through diversification
-- The market DOES compensate you for bearing this risk
+**系統性風險（市場風險、不可分散風險）**
+- 影響整個市場或經濟的風險
+- 例子：衰退、利率變化、通脹、疫情、地緣政治危機
+- 無法通過分散投資消除
+- 市場**會**補償你承擔此類風險
 
 ```
-DIVERSIFICATION AND RISK REDUCTION
+分散投資與風險降低
 ======================================
 
-Portfolio     Number of         Unsystematic     Systematic     Total
-              Stocks            Risk             Risk           Risk
------------   ---------         ------------     ----------     -----
-              1 stock           VERY HIGH        Normal         ~40%+
-              5 stocks          HIGH             Normal         ~30%
-              10 stocks         MODERATE         Normal         ~23%
-              20 stocks         LOW              Normal         ~20%
-              30 stocks         VERY LOW         Normal         ~19%
-              50 stocks         MINIMAL          Normal         ~18%
-              500+ (index)      ~ZERO            Normal         ~16%
+投資組合    股票數目      非系統性風險     系統性風險     總風險
+---------   --------      -----------      ----------     -----
+            1隻股票        極高             正常          ~40%+
+            5隻股票        高               正常          ~30%
+            10隻股票       中等             正常          ~23%
+            20隻股票       低               正常          ~20%
+            30隻股票       極低             正常          ~19%
+            50隻股票       極微             正常          ~18%
+            500+（指數）   ~零              正常          ~16%
 
 
-Total Risk (Std Dev)
+總風險（標準差）
         |
    40%  |*
         | *
@@ -263,243 +260,241 @@ Total Risk (Std Dev)
         |   *
    25%  |    **
         |      **
-   20%  |        ****                         Unsystematic
-        |            ********                 Risk (goes
-   16%  |--------------------*****--------    toward zero)
+   20%  |        ****                         非系統性
+        |            ********                 風險（趨近
+   16%  |--------------------*****--------    於零）
         |                                     
-        |    Systematic Risk (cannot be       
-        |    eliminated by diversification)   
+        |    系統性風險（無法通過               
+        |    分散投資消除）                    
         +------|------|------|------|-------> 
               5     10     20     30    50+
-                  Number of Stocks
+                    股票數目
 ```
 
-**The powerful implication:** Since unsystematic risk can be diversified away for free, the market does not pay you for bearing it. Holding a concentrated portfolio of 3-5 stocks gives you much more risk than holding an index fund, but no additional expected return. You are taking risk for nothing.
+**強大的含義：** 由於非系統性風險可以免費通過分散投資消除，市場不會因你承擔這種風險而給予補償。持有3至5隻股票的集中投資組合給你帶來的風險遠高於指數基金，但沒有額外的預期回報。你是在無謂地承擔風險。
 
-This is why index funds are so popular: they eliminate unsystematic risk entirely, leaving you with only the systematic risk that the market actually compensates you for.
+這就是指數基金如此受歡迎的原因：它們完全消除非系統性風險，只保留市場實際補償你的系統性風險。
 
 ---
 
-#### 6. Beta: Measuring Systematic Risk
+#### 6. 貝塔：衡量系統性風險
 
-While standard deviation measures total risk (systematic plus unsystematic), **beta** measures only systematic risk -- the portion of risk that the market rewards.
+標準差衡量總風險（系統性加非系統性），而**貝塔**只衡量系統性風險——市場實際給予回報的那部分風險。
 
-**Beta tells you how sensitive a stock is to overall market movements:**
+**貝塔告訴你一隻股票對整體市場走勢的敏感程度：**
 
 ```
-UNDERSTANDING BETA
+理解貝塔
 =====================
 
-Beta = 1.0   Stock moves exactly with the market
-              Market up 10% => Stock up ~10%
-              Market down 10% => Stock down ~10%
+貝塔 = 1.0   股票與市場完全同步
+              市場升10% => 股票約升10%
+              市場跌10% => 股票約跌10%
 
-Beta = 1.5   Stock is 50% MORE volatile than market
-              Market up 10% => Stock up ~15%
-              Market down 10% => Stock down ~15%
+貝塔 = 1.5   股票波動性比市場高50%
+              市場升10% => 股票約升15%
+              市場跌10% => 股票約跌15%
 
-Beta = 0.5   Stock is 50% LESS volatile than market
-              Market up 10% => Stock up ~5%
-              Market down 10% => Stock down ~5%
+貝塔 = 0.5   股票波動性比市場低50%
+              市場升10% => 股票約升5%
+              市場跌10% => 股票約跌5%
 
-Beta = 0.0   Stock is unrelated to market movements
-              (Very rare for stocks)
+貝塔 = 0.0   股票與市場走勢無關
+              （股票中極為罕見）
 
-Beta < 0     Stock moves OPPOSITE to the market
-              (Extremely rare, gold sometimes)
+貝塔 < 0     股票走勢與市場相反
+              （極為罕見，黃金有時如此）
 
 
-TYPICAL BETAS BY SECTOR
+各板塊典型貝塔值
 ========================
 
-Sector                 Typical Beta
-------                 ------------
-Utilities                  0.4
-Consumer Staples           0.7
-Healthcare                 0.8
-S&P 500 Index              1.0
-Financials                 1.1
-Technology                 1.2
-Consumer Discretionary     1.3
-Energy                     1.4
-Biotech / Startups         1.5+
+板塊                    典型貝塔
+------                  --------
+公用事業                   0.4
+必需消費品                  0.7
+醫療保健                   0.8
+標普500指數                1.0
+金融                      1.1
+科技                      1.2
+非必需消費品                1.3
+能源                      1.4
+生物科技／初創企業           1.5+
 ```
 
-**The Capital Asset Pricing Model (CAPM):**
+**資本資產定價模型（CAPM）：**
 
-Beta is the key input to the CAPM, which calculates the expected return of any asset:
+貝塔是CAPM的關鍵輸入值，CAPM計算任何資產的預期回報：
 
 ```
-CAPM FORMULA
+CAPM公式
 ==============
 
-Expected Return = Risk-Free Rate + Beta x (Market Return - Risk-Free Rate)
+預期回報 = 無風險利率 + 貝塔 × （市場回報 - 無風險利率）
 
-Example:
-Risk-Free Rate = 4%
-Market Return = 10%
-Stock Beta = 1.3
+例子：
+無風險利率 = 4%
+市場回報 = 10%
+股票貝塔 = 1.3
 
-Expected Return = 4% + 1.3 x (10% - 4%)
-               = 4% + 1.3 x 6%
-               = 4% + 7.8%
-               = 11.8%
+預期回報 = 4% + 1.3 × （10% - 4%）
+         = 4% + 1.3 × 6%
+         = 4% + 7.8%
+         = 11.8%
 
-Interpretation: This stock has more systematic risk than the
-market (beta > 1), so it should deliver a higher return as
-compensation.
+解讀：這隻股票的系統性風險高於市場（貝塔 > 1），
+因此應提供更高的回報作為補償。
 ```
 
 ---
 
-#### 7. The Risk-Return Tradeoff: The Efficient Frontier
+#### 7. 風險回報取捨：有效前沿
 
-The risk-return tradeoff is the central organizing principle of modern portfolio theory. It says that to get higher expected returns, you must accept higher risk. But the relationship is not linear -- through diversification, you can build portfolios that offer the best possible return for each level of risk.
+風險回報取捨是現代投資組合理論的核心組織原則。它指出，要獲得更高的預期回報，你必須接受更高的風險。但這種關係並非線性——通過分散投資，你可以構建在每個風險水平上提供最佳可能回報的投資組合。
 
-**The Efficient Frontier** is the set of portfolios that offer the highest expected return for each level of risk. Any portfolio below the frontier is suboptimal -- you could get more return for the same risk, or the same return with less risk.
+**有效前沿**是在每個風險水平上提供最高預期回報的投資組合集合。任何處於前沿以下的投資組合都是次優的——你可以在相同風險下獲得更多回報，或在相同回報下承擔更少風險。
 
 ```
-THE EFFICIENT FRONTIER
+有效前沿
 =========================
 
-Expected
-Return
-   |                                           * 100% Small Cap
+預期
+回報
+   |                                           * 100% 小型股票
    |                                        *
 12%|                                     *    
-   |                                  *   <- Efficient Frontier
-11%|                               *         (optimal portfolios)
+   |                                  *   <- 有效前沿
+11%|                               *         （最優投資組合）
    |                            *
-10%|                         * 100% Large Cap
+10%|                         * 100% 大型股票
    |                      *
  9%|                   *
    |                *
- 8%|             *    <- 60/40 Portfolio
+ 8%|             *    <- 六四投資組合
    |          *
  7%|       *
    |     *
  6%|   *
-   |  * 100% Bonds                 x  Concentrated stock
- 5%| *                                (below frontier =
-   |*                                  inefficient)
- 4%+* T-Bills
+   |  * 100% 債券                 x  集中持股
+ 5%| *                                （低於前沿 =
+   |*                                  效率低下）
+ 4%+* 國庫券
    |
-   +---|---|---|---|---|---|---|---|---> Risk (Std Dev)
+   +---|---|---|---|---|---|---|---|---> 風險（標準差）
        0   5  10  15  20  25  30  35
 
-Points BELOW the frontier are inefficient:
-- You could get more return for the same risk, OR
-- The same return with less risk
+處於前沿以下的投資組合是低效的：
+- 你可以在相同風險下獲得更多回報，或
+- 在相同回報下承擔更少風險
 
-The frontier itself represents the BEST possible
-combinations of risk and return through diversification.
+前沿本身代表通過分散投資
+可實現的最佳風險回報組合。
 ```
 
-**Key observations about the frontier:**
+**關於前沿的關鍵觀察：**
 
-1. It curves upward and to the right -- higher return requires higher risk
-2. The curve is concave -- each additional unit of risk buys less additional return
-3. Diversification is what creates the curve (without diversification, it would be a straight line)
-4. Every rational investor should be on the frontier, not below it
-5. Where you sit on the frontier depends on your risk tolerance
+1. 曲線向右上方彎曲——更高的回報需要更高的風險
+2. 曲線是凹形的——每增加一個單位的風險，能買到的額外回報越來越少
+3. 分散投資造就了這條曲線（沒有分散投資，它將是一條直線）
+4. 每個理性投資者都應該處於前沿上，而不是以下
+5. 你在前沿上的位置取決於你的風險承受能力
 
 ---
 
-#### 8. Drawdowns: The Risk That Matters Most Psychologically
+#### 8. 回撤：心理上最重要的風險
 
-While standard deviation is the textbook measure of risk, many investors find **maximum drawdown** more intuitive and more frightening. A drawdown is the peak-to-trough decline in an investment's value.
+雖然標準差是教科書中的風險衡量標準，但許多投資者發現**最大回撤**更直觀也更令人恐懼。回撤是投資價值從高峰到低谷的跌幅。
 
 ```
-MAXIMUM DRAWDOWNS BY ASSET CLASS
+各資產類別最大回撤
 ====================================
 
-Asset Class                  Worst Drawdown      Period
------------                  --------------      ------
-U.S. Treasury Bills               ~0%            N/A
-Intermediate Bonds               -11%            2022
-Long-Term Bonds                  -33%            2020-2023
-Balanced 60/40                   -33%            2008-2009
-U.S. Large Cap Stocks            -51%            2007-2009
-U.S. Small Cap Stocks            -54%            2007-2009
-Emerging Markets                 -61%            2007-2009
-Nasdaq Composite                 -78%            2000-2002
+資產類別                    最大回撤         時期
+-----------                  --------       ------
+美國國庫券                      ~0%          不適用
+中期債券                       -11%          2022年
+長期債券                       -33%         2020-2023年
+均衡六四投資組合               -33%         2008-2009年
+美國大型股票                   -51%         2007-2009年
+美國小型股票                   -54%         2007-2009年
+新興市場                       -61%         2007-2009年
+納斯達克綜合指數               -78%         2000-2002年
 
 
-ANATOMY OF A DRAWDOWN
+回撤的結構
 ========================
 
-Portfolio
-Value
+投資組合
+價值
   |
-  |           Peak
-$100K |-------*
-  |          / \
-  |         /   \
-  |        /     \       <- Drawdown
-$80K |               \         (20% decline)
-  |                 \
-  |                  \
-$70K |                   *  Trough
-  |                    \
-  |                     \
-  |                      \--------*  Recovery
+  |           高峰
+$100,000 |-------*
+  |             / \
+  |            /   \
+  |           /     \       <- 回撤
+$80,000  |               \        （20%跌幅）
+  |                      \
+  |                       \
+$70,000  |                  *  低谷
+  |                         \
+  |                          \
+  |                           \--------*  復甦
   |                                  
-  +---|---|---|---|---|---|---|---|---> Time
+  +---|---|---|---|---|---|---|---|---> 時間
       t0  t1  t2  t3  t4  t5  t6  t7
 
-  Drawdown duration = Peak to Trough (t0 to t3)
-  Recovery time = Trough to new high (t3 to t7)
+  回撤持續時間 = 高峰至低谷（t0 至 t3）
+  復甦時間 = 低谷至新高（t3 至 t7）
 ```
 
 ```
-RECOVERY TIMES FROM MAJOR MARKET DECLINES
+主要市場下跌的復甦時間
 ============================================
 
-Event                    Decline    Time to    Total Round
-                                   Bottom     Trip Recovery
------------              -------   --------   ------------
-Black Monday 1987         -34%     2 months    2 years
-Asian Crisis 1997         -19%     2 months    4 months
-Dot-Com Crash 2000-02     -49%     30 months   7 years
-Financial Crisis 2007-09  -57%     17 months   5.5 years
-COVID Crash 2020          -34%     1 month     5 months
-2022 Bear Market          -25%     10 months   2 years
+事件                         跌幅      觸底時間    全程復甦時間
+-----------                  -----     --------    -----------
+1987年黑色星期一              -34%      2個月        2年
+1997年亞洲金融風暴            -19%      2個月        4個月
+2000-02年科網股泡沫爆破       -49%      30個月       7年
+2007-09年金融海嘯            -57%      17個月       5.5年
+2020年新冠疫情股災            -34%      1個月        5個月
+2022年熊市                   -25%      10個月       2年
 ```
 
-**The behavioral lesson:** The biggest risk is not volatility itself -- it is your reaction to volatility. An investor who stayed fully invested through the 2008-2009 crisis recovered within six years and went on to massive gains. An investor who panicked and sold near the bottom may have permanently impaired their wealth.
+**行為層面的啟示：** 最大的風險並非波動性本身——而是你對波動性的反應。在2008-2009年危機期間保持全額投資的投資者在六年內復甦，並繼續獲得巨額收益。在接近底部時恐慌性拋售的投資者可能永久地損害了自己的財富。
 
 ---
 
-#### 9. Time Horizon and Risk
+#### 9. 投資期限與風險
 
-One of the most debated topics in finance is whether stocks become less risky over longer holding periods. The data suggests a nuanced answer.
+金融學中最具爭議的話題之一，是股票在更長持有期內是否會變得風險更低。數據顯示答案是細緻入微的。
 
 ```
-RANGE OF ANNUALIZED RETURNS (U.S. STOCKS, 1926-2024)
+年化回報範圍（美國股票，1926-2024年）
 ======================================================
 
-Holding       Worst        Best         Range      Probability
-Period        Annualized   Annualized               of Loss
----------     ----------   ----------   -----      -----------
-1 year         -43.3%       +54.0%      97.3%         ~30%
-5 years        -12.5%       +28.6%      41.1%         ~15%
-10 years        -1.4%       +20.1%      21.5%          ~5%
-15 years        +0.6%       +18.9%      18.3%          ~0%
-20 years        +1.9%       +17.9%      16.0%          ~0%
-30 years        +7.8%       +14.8%       7.0%           0%
+持有         最差         最佳         範圍       虧損
+期限         年化         年化                    概率
+---------    ----------   ----------   -----      -----
+1年          -43.3%       +54.0%       97.3%       ~30%
+5年          -12.5%       +28.6%       41.1%       ~15%
+10年          -1.4%       +20.1%       21.5%        ~5%
+15年          +0.6%       +18.9%       18.3%        ~0%
+20年          +1.9%       +17.9%       16.0%        ~0%
+30年          +7.8%       +14.8%        7.0%         0%
 
-Key insight: The range of outcomes NARROWS with time.
-Over 20+ years, stocks have NEVER produced a negative
-real return in U.S. history. But "never" in the past
-does not guarantee "never" in the future.
+關鍵洞察：結果範圍隨時間縮窄。
+超過20年，美國歷史上股票從未
+產生負實際回報。但過去的「從未」
+並不保證未來的「從未」。
 ```
 
 ```
-VISUALIZING TIME DIVERSIFICATION
+時間分散化的視覺化
 ===================================
 
-Annualized
-Return
+年化
+回報
   |
 +54%  *
   |    
@@ -507,8 +502,8 @@ Return
   |   |   *
 +30%  |    | *
   |   |    |  *
-+20%  |    |   * *  *  *  *  <- Best outcomes
-  |   |    |              *      converge over time
++20%  |    |   * *  *  *  *  <- 最佳結果
+  |   |    |              *      隨時間收斂
 +10%  |----|---|--*--*--*--*--*--*
   |   |    |           *  *  *
   0%  |----|---|--*--*
@@ -518,356 +513,356 @@ Return
 -20%  |  *
   |    
 -43%  *
-  +---|---|---|---|---|---|---|---> Holding Period
-     1yr 3yr 5yr 10yr 15yr 20yr 30yr
+  +---|---|---|---|---|---|---|---> 持有期限
+     1年  3年  5年 10年 15年 20年 30年
 ```
 
-**The practical takeaway:** If you have a long time horizon (20+ years), you can afford to take more risk because the probability of a negative outcome shrinks dramatically. If you need the money in 1-2 years, stocks are genuinely dangerous.
+**實際要點：** 如果你的投資期限較長（20年以上），你可以承擔更多風險，因為負面結果的概率大幅收縮。如果你需要在1-2年內用錢，股票確實存在相當大的風險。
 
 ---
 
-#### 10. Risk Capacity vs. Risk Tolerance
+#### 10. 風險承受能力與風險容忍度
 
-Understanding risk requires separating two distinct concepts:
+理解風險需要區分兩個截然不同的概念：
 
-**Risk Capacity** -- How much risk you can afford to take, based on objective factors:
-- Time horizon
-- Income stability
-- Net worth relative to goals
-- Insurance coverage
-- Dependency on the portfolio for living expenses
+**風險承受能力**——根據客觀因素，你能夠承擔多少風險：
+- 投資期限
+- 收入穩定性
+- 相對於目標的淨資產
+- 保險覆蓋情況
+- 生活費用對投資組合的依賴程度
 
-**Risk Tolerance** -- How much risk you are psychologically comfortable with:
-- How you react to seeing losses
-- Whether you can sleep at night during market drops
-- Your emotional relationship with money
+**風險容忍度**——你在心理上對風險的接受程度：
+- 你面對虧損時的反應
+- 市場下跌期間你是否能安然入睡
+- 你與金錢之間的情感關係
 
 ```
-RISK CAPACITY vs. RISK TOLERANCE
+風險承受能力 vs. 風險容忍度
 ===================================
 
-                      HIGH Risk Tolerance    LOW Risk Tolerance
-                      ------------------     ------------------
-HIGH Risk          |  IDEAL MATCH           EDUCATION NEEDED
-Capacity           |  Take appropriate      Capacity allows risk
-                   |  risk, sleep well      but emotions resist.
-                   |                        May need gradual
-                   |                        exposure to volatility.
-                   |
--------------------+--------------------------------------------------
-                   |
-LOW Risk           |  DANGER ZONE           IDEAL MATCH
-Capacity           |  Wants to take risk    Take conservative
-                   |  but cannot afford     approach, comfortable
-                   |  to lose. May need     with lower returns.
-                   |  reality check.        Appropriate positioning.
+                      高風險容忍度           低風險容忍度
+                      -----------           -----------
+高風險              |  理想匹配              需要教育
+承受能力            |  承擔適當風險，安然入睡  能力允許承擔風險
+                    |                        但情緒抗拒。
+                    |                        可能需要逐步
+                    |                        接觸波動性。
+                    |
+--------------------+--------------------------------------------------
+                    |
+低風險              |  危險地帶              理想匹配
+承受能力            |  想承擔風險            採取保守策略，
+                    |  但承受不起虧損。      對較低回報感到
+                    |  可能需要              舒適。
+                    |  現實審視。            定位合適。
 ```
 
-**The mismatch problem:** The most dangerous situation is high risk tolerance with low risk capacity. This is the retiree who lives on their portfolio but wants to be 100% in stocks because they "believe in the market." A single bad year can be catastrophic. Conversely, a 25-year-old with a stable job and a 40-year horizon who is afraid of any stock market exposure has the capacity for risk but not the tolerance -- they need education and gradual exposure.
+**錯配問題：** 最危險的情況是高風險容忍度配低風險承受能力。這是那些靠投資組合生活卻希望100%投資於股票的退休人士，因為他們「相信市場」。一個糟糕的年份可能是災難性的。相反，一個工作穩定、有40年投資期限的25歲年輕人，如果害怕任何股市風險，則擁有承擔風險的能力，卻沒有容忍度——他們需要教育和循序漸進的接觸。
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Higher risk always means higher returns."**
+**誤解一：「更高的風險總是意味著更高的回報。」**
 
-Reality: Higher risk means higher EXPECTED returns over long periods, but risk can also mean permanent loss of capital. A single biotech stock might be extremely risky but return nothing if its drug trial fails. The risk premium only applies to well-diversified portfolios bearing systematic risk. Concentrated bets in individual stocks or speculative assets carry enormous risk with no guarantee of commensurate return.
+現實：更高的風險意味著長期內更高的**預期**回報，但風險也可能意味著永久性的資本損失。一隻生物科技股票可能風險極高，但如果其藥物試驗失敗，回報可能為零。風險溢價只適用於承擔系統性風險的充分分散投資組合。在個別股票或投機性資產上集中押注，承擔的風險巨大，卻不保證有相應的回報。
 
-**Misconception 2: "If I just hold long enough, stocks always go up."**
+**誤解二：「只要持有足夠長時間，股票總是會上漲。」**
 
-Reality: U.S. stocks have always recovered eventually, but "eventually" can mean 7-15 years. Japanese stocks peaked in 1989 and did not surpass that level until 2024 -- a 35-year wait. Survivors bias also plays a role: we study the U.S. because it was the most successful stock market of the 20th century. Not every country's market has delivered the same results. Past performance, even over very long periods, does not guarantee future results.
+現實：美國股票最終總是復甦，但「最終」可能意味著7至15年。日本股票於1989年見頂，直到2024年才超越那個水平——等待了35年。倖存者偏差也起了作用：我們研究美國，是因為它是20世紀最成功的股市。並非每個國家的市場都取得了相同的成果。過去的表現，即使跨越很長時期，也不保證未來的結果。
 
-**Misconception 3: "Standard deviation captures all risk."**
+**誤解三：「標準差涵蓋所有風險。」**
 
-Reality: Standard deviation assumes returns follow a normal (bell curve) distribution. In reality, extreme events -- crashes, panics -- happen far more often than a normal distribution predicts. The 2008 crash was a roughly 5-standard-deviation event, which should happen once every 14,000 years according to the bell curve. Markets have "fat tails," meaning extreme outcomes are more likely than standard models suggest.
+現實：標準差假設回報遵循正態（鐘形曲線）分佈。現實中，極端事件——崩盤、恐慌——發生的頻率遠高於正態分佈所預測的。2008年的崩盤大約是一個5個標準差的事件，根據鐘形曲線，這種情況每14,000年才應發生一次。市場具有「肥尾」，意味著極端結果比標準模型所示更有可能發生。
 
-**Misconception 4: "Bonds are safe."**
+**誤解四：「債券是安全的。」**
 
-Reality: Bonds are less volatile than stocks, but they are not risk-free. Long-term bonds can lose 20-30% of their value when interest rates rise sharply (as they did in 2022). Bond investors also face inflation risk -- if inflation exceeds the bond yield, you lose purchasing power even while receiving positive nominal returns. And corporate bonds carry credit risk -- the issuer can default.
+現實：債券的波動性低於股票，但並非沒有風險。當利率急劇上升時（如2022年），長期債券可能損失20-30%的價值。債券投資者也面臨通脹風險——如果通脹超過債券收益率，即使獲得正名義回報，你也在損失購買力。企業債券還承擔信用風險——發行人可能違約。
 
-**Misconception 5: "Low volatility means low risk."**
+**誤解五：「低波動性意味著低風險。」**
 
-Reality: Some investments appear to have low volatility because they are not priced frequently (real estate, private equity) or because their risks are hidden. Bernie Madoff's fund showed incredibly low volatility and steady returns -- because it was a fraud. Some strategies show low volatility until they blow up spectacularly (see: Long-Term Capital Management, 1998). Volatility is one measure of risk, not the only one.
+現實：某些投資看起來波動性低，是因為它們不經常定價（房地產、私募股權），或者其風險被隱藏了。Bernie Madoff的基金顯示出令人難以置信的低波動性和穩定回報——因為那是一場欺詐。某些策略在徹底崩潰之前波動性很低（見：長期資本管理公司，1998年）。波動性是風險的一種衡量指標，而非唯一指標。
 
-**Misconception 6: "Risk tolerance is a fixed personality trait."**
+**誤解六：「風險容忍度是固定的性格特徵。」**
 
-Reality: Risk tolerance is highly situational and changes over time. After a bull market, everyone feels risk-tolerant. After a crash, everyone feels risk-averse. Your true risk tolerance is revealed during periods of stress, not calm. The questionnaire you fill out at your brokerage when markets are hitting all-time highs bears little resemblance to how you actually feel when your portfolio drops 30%.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What is the single best measure of risk?**
-
-A: There is no single best measure. Standard deviation captures the range of typical outcomes. Maximum drawdown captures the worst-case scenario. Beta captures sensitivity to market movements. Shortfall probability captures the odds of losing money over a given time frame. Use all of them. Each tells you something different. If forced to choose just one for a long-term investor, maximum drawdown is arguably the most practically relevant because it determines whether you will stay the course or bail out.
-
-**Q2: Is a standard deviation of 15% high or low?**
-
-A: It depends on context. For a stock index fund, 15% is about average. For a bond fund, 15% would be extremely high. For a single stock, 15% would be unusually low. Always compare standard deviation within the same asset class or investment category. Also consider what you are getting for that volatility -- a fund with 15% standard deviation and 12% expected return is a much better deal than one with 15% standard deviation and 6% expected return.
-
-**Q3: If stocks outperform bonds over long periods, why would anyone hold bonds?**
-
-A: Several reasons. First, not everyone has a long time horizon -- if you need money in 2-5 years, stocks are too risky. Second, bonds provide stability and income, which helps you stay invested during stock market panics. Third, bonds historically have been negatively correlated with stocks during crises, meaning they rise when stocks fall, providing a hedge. Fourth, for retirees drawing down their portfolio, the sequence of returns matters -- a 30% drop early in retirement can be devastating even if markets eventually recover.
-
-**Q4: What is the difference between volatility and risk?**
-
-A: Volatility is one type of risk -- the risk of price fluctuation. But there are other risks that volatility does not capture: inflation risk (purchasing power erosion), liquidity risk (inability to sell when you need to), credit risk (default by a borrower), concentration risk (too much in one position), longevity risk (outliving your money), and behavioral risk (your own emotional reactions undermining your strategy). A truly comprehensive risk assessment considers all of these, not just volatility.
-
-**Q5: How much risk should I take?**
-
-A: This depends on your risk capacity (objective ability to bear losses) and risk tolerance (subjective comfort with uncertainty). A common rule of thumb is that you should be able to tolerate a 50% drawdown in the equity portion of your portfolio without panicking. If your portfolio is 60% stocks, that means a 30% total portfolio decline. If that thought makes you physically uncomfortable, you probably need less stock exposure. Time horizon is also critical -- the longer your horizon, the more risk you can afford because you have more time to recover from downturns.
-
-**Q6: Does diversification eliminate risk?**
-
-A: Diversification eliminates unsystematic (company-specific) risk but not systematic (market-wide) risk. A portfolio of 500 stocks still dropped 50% in 2008 because the entire market fell. Diversification across asset classes (stocks, bonds, real estate, commodities) can reduce overall portfolio volatility, but it cannot eliminate it entirely. During severe crises, correlations between asset classes tend to increase -- everything falls together -- which is precisely when you most want diversification to work.
-
-**Q7: Is volatility always bad?**
-
-A: No. Volatility creates opportunity. If stock prices never fluctuated, there would be no possibility of buying undervalued companies or earning risk premiums. Volatility is the price you pay for the opportunity to earn returns above the risk-free rate. For long-term investors who are net buyers of stocks (accumulating for retirement), volatility is actually beneficial because it allows you to buy more shares during dips through dollar-cost averaging.
-
-**Q8: What is the Sharpe Ratio?**
-
-A: The Sharpe Ratio measures risk-adjusted return -- how much excess return you earn per unit of risk. It is calculated as (Portfolio Return - Risk-Free Rate) / Standard Deviation. A Sharpe Ratio above 0.5 is decent, above 1.0 is very good, and above 1.5 is exceptional. It allows you to compare investments on an apples-to-apples basis: a fund returning 15% with 20% volatility (Sharpe 0.55) is less efficient than a fund returning 10% with 8% volatility (Sharpe 0.75), assuming a 4% risk-free rate.
-
-**Q9: Can I get high returns with low risk?**
-
-A: Generally, no -- that is the fundamental tradeoff. Any investment claiming high returns with low risk should be viewed with extreme skepticism. Such claims are usually associated with fraud (Ponzi schemes), hidden risks (strategies that work until they catastrophically fail), or illiquid investments whose risk is masked by infrequent pricing. There are ways to improve your risk-return efficiency through diversification and factor investing, but you cannot fundamentally escape the tradeoff.
-
-**Q10: How should I think about risk at different life stages?**
-
-A: Generally, younger investors with stable income and long horizons can afford to take more risk (higher stock allocation) because they have decades to recover from downturns and benefit from the equity risk premium. As you approach retirement, you should gradually reduce risk because you have less time to recover and you begin drawing on the portfolio. In retirement, the primary risk shifts from market volatility to inflation and longevity -- outliving your money. The appropriate risk level is always a function of your specific circumstances, not a generic rule.
+現實：風險容忍度高度受情境影響，且會隨時間變化。牛市過後，所有人都感到風險容忍度很高。崩盤過後，所有人都感到厭惡風險。你真正的風險容忍度在壓力時期而非平靜時期才會顯露出來。當市場創歷史新高時，你在券商填寫的問卷調查，與當你的投資組合下跌30%時你的真實感受相去甚遠。
 
 ---
 
-## YouTube Script
+### d) 常見問答
+
+**問題一：衡量風險最好的單一指標是什麼？**
+
+答：沒有最好的單一指標。標準差捕捉典型結果的範圍。最大回撤捕捉最壞的情況。貝塔捕捉對市場走勢的敏感程度。缺口概率捕捉在特定時間框架內虧損的可能性。請全部使用。每個指標都告訴你不同的事情。如果被迫只選一個用於長期投資者，最大回撤可以說是最實際相關的，因為它決定了你是否會堅持到底，還是半途而廢。
+
+**問題二：15%的標準差是高還是低？**
+
+答：取決於背景。對於股票指數基金，15%大約是平均水平。對於債券基金，15%將是極高的。對於單一股票，15%將是異常低的。請務必在同一資產類別或投資類別內比較標準差。同時考慮你為那種波動性所獲得的回報——一個標準差為15%、預期回報為12%的基金，遠優於標準差為15%但預期回報只有6%的基金。
+
+**問題三：如果股票長期跑贏債券，為什麼有人會持有債券？**
+
+答：原因有幾個。首先，並非所有人的投資期限都很長——如果你需要在2-5年內用錢，股票風險太高。其次，債券提供穩定性和收入，幫助你在股市恐慌期間保持投資。第三，歷史上債券與股票在危機期間呈負相關，即股票下跌時債券上升，提供對沖。第四，對於從投資組合提款的退休人士，回報的順序至關重要——退休初期跌30%可能是災難性的，即使市場最終復甦。
+
+**問題四：波動性與風險有什麼區別？**
+
+答：波動性是一種風險——價格波動的風險。但還有其他波動性無法捕捉的風險：通脹風險（購買力侵蝕）、流動性風險（需要時無法出售）、信用風險（借款人違約）、集中風險（在一個倉位持有過多）、長壽風險（比你的錢活得更長），以及行為風險（你自身的情緒反應破壞你的策略）。真正全面的風險評估需要考慮所有這些，而不僅僅是波動性。
+
+**問題五：我應該承擔多少風險？**
+
+答：這取決於你的風險承受能力（客觀承受損失的能力）和風險容忍度（對不確定性的主觀接受程度）。一個常用的經驗法則是，你應該能夠承受投資組合中股票部分50%的回撤而不恐慌。如果你的投資組合有60%是股票，那就意味著投資組合整體下跌30%。如果這個想法讓你感到身體不適，你可能需要降低股票比重。投資期限也至關重要——期限越長，你能承擔的風險越多，因為你有更多時間從下跌中復甦。
+
+**問題六：分散投資能消除風險嗎？**
+
+答：分散投資可以消除非系統性（特定公司）風險，但無法消除系統性（市場整體）風險。一個500隻股票的投資組合在2008年仍然下跌了50%，因為整個市場都跌了。跨資產類別的分散投資（股票、債券、房地產、商品）可以降低整體投資組合波動性，但無法完全消除它。在嚴重危機期間，資產類別之間的相關性往往增加——所有資產一起下跌——而這恰恰是你最希望分散投資發揮作用的時候。
+
+**問題七：波動性總是壞事嗎？**
+
+答：不。波動性創造機會。如果股票價格從不波動，就不可能買到被低估的公司或賺取風險溢價。波動性是你為獲得高於無風險利率回報機會所支付的代價。對於股票的長期淨買家（為退休積累資金的投資者），波動性實際上是有益的，因為它讓你能夠通過平均成本法在下跌期間以更低的價格買入更多股票。
+
+**問題八：什麼是夏普比率？**
+
+答：夏普比率衡量風險調整後的回報——你每承擔一個單位風險所賺取的超額回報。計算方式為（投資組合回報 - 無風險利率）÷ 標準差。夏普比率超過0.5算不錯，超過1.0非常好，超過1.5則屬例外。它讓你能夠在蘋果對蘋果的基礎上比較投資：一個回報15%、波動性20%的基金（夏普比率0.55），比一個回報10%、波動性8%的基金（夏普比率0.75）效率更低，假設無風險利率為4%。
+
+**問題九：我能否在低風險的情況下獲得高回報？**
+
+答：一般而言，不能——這是基本取捨。任何聲稱高回報低風險的投資都應受到極度懷疑。這類說法通常與欺詐（龐氏騙局）、隱藏風險（某些策略在災難性失敗之前確實有效），或是流動性不足的投資（因不經常定價而掩蓋風險）有關。通過分散投資和因子投資可以提高你的風險回報效率，但你無法從根本上逃脫這種取捨。
+
+**問題十：在人生不同階段，我應該如何看待風險？**
+
+答：一般而言，擁有穩定收入和長投資期限的年輕投資者可以承擔更多風險（更高的股票配置），因為他們有幾十年的時間從下跌中復甦，並受益於股票風險溢價。隨著你臨近退休，應逐步降低風險，因為你的復甦時間減少，並開始從投資組合提款。退休期間，主要風險從市場波動轉變為通脹和長壽——比你的錢活得更長。適當的風險水平始終是你個人情況的函數，而非一個通用規則。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with title "Week 3: Understanding Risk and Return"]
 
-**Alex:** Welcome back to the course. Today's topic is the one I think is more important than any other single lesson we will cover -- risk and return. This is the foundation of everything in investing. If you do not understand risk, nothing else we teach you will make sense.
+**Horace（陳馬）：** 歡迎回到本課程。今天的主題，我認為比我們將涵蓋的任何其他課都重要——風險與回報。這是投資中一切的基礎。如果你不理解風險，我們教你的任何其他東西都不會有意義。
 
-**Sam:** That is a bold statement, Alex. Why is risk and return more important than, say, knowing how to pick stocks or build a portfolio?
+**Stella（小魚）：** 這話說得很重，陳馬。為什麼風險與回報比選股或構建投資組合更重要？
 
-**Alex:** Because every decision you make as an investor is ultimately a risk-return decision. Every stock you buy, every fund you choose, every allocation you set -- you are making a bet about how much risk you are willing to take for a certain expected reward. If you do not understand that tradeoff, you are driving blind.
+**Horace（陳馬）：** 因為你作為投資者所做的每一個決策，歸根結底都是一個風險回報決策。你買的每一隻股票、選擇的每一個基金、設定的每一個配置——你都在押注你願意為某個預期回報承擔多少風險。如果你不理解這種取捨，你就是在盲目駕駛。
 
-[VISUAL: Split screen showing two paths diverging -- one labeled "Understands Risk" leading to a structured portfolio journey, the other labeled "Ignores Risk" leading to a roller coaster of emotional decisions]
+[VISUAL: Split screen showing two paths diverging -- one labeled "理解風險" leading to a structured portfolio journey, the other labeled "忽視風險" leading to a roller coaster of emotional decisions]
 
-**Sam:** Okay, let us start at the beginning then. What exactly is risk in investing?
+**Stella（小魚）：** 好，那我們從頭說起。投資中的風險究竟是什麼？
 
-**Alex:** Great starting point. In everyday life, risk means "something bad might happen." But in finance, risk has a very specific meaning. Risk is the uncertainty of outcomes. It is not about losing money -- it is about not knowing what will happen.
+**Horace（陳馬）：** 很好的起點。在日常生活中，風險意味著「某些不好的事情可能發生」。但在金融學中，風險有非常具體的含義。風險是結果的不確定性。它不是關於虧損——而是關於不知道會發生什麼。
 
-**Sam:** Can you give me an example?
+**Stella（小魚）：** 能給我一個例子嗎？
 
-**Alex:** Sure. Imagine two investments. Investment A guarantees you 4% per year. Investment B might return 30% or might lose 20% -- you do not know. Investment A is low risk because you know the outcome. Investment B is high risk because the outcome is uncertain. Note that Investment B is not guaranteed to lose money -- it might make you a lot more than Investment A. The risk is in the uncertainty, not in the outcome itself.
+**Horace（陳馬）：** 當然。設想兩項投資。投資A保證每年給你4%。投資B可能回報30%，也可能虧損20%——你不知道。投資A風險低，因為你知道結果。投資B風險高，因為結果不確定。請注意，投資B並不保證虧損——它可能讓你賺到比投資A多得多。風險在於不確定性，而非結果本身。
 
 [VISUAL: Two jars labeled "A" and "B". Jar A has a single ball labeled "4%". Jar B has many balls ranging from "-20%" to "+30%", being shaken up]
 
-**Sam:** So risk is not necessarily bad?
+**Stella（小魚）：** 所以風險不一定是壞事？
 
-**Alex:** Exactly right. Risk is the source of all returns above the risk-free rate. Without risk, there is no reward. The question is not "how do I avoid risk?" but "how do I take the right amount of risk for my situation and get properly compensated for it?"
+**Horace（陳馬）：** 完全正確。風險是所有高於無風險利率的回報的來源。沒有風險，就沒有回報。問題不是「我如何避免風險？」而是「我如何在適合自身情況的前提下承擔正確的風險，並獲得適當的補償？」
 
-**Sam:** How do we actually measure risk? People throw around the word "volatility" a lot.
+**Stella（小魚）：** 我們實際上如何衡量風險？人們經常提到「波動性」這個詞。
 
-**Alex:** Volatility is the most common measure, and it is quantified using something called standard deviation. I know that sounds like a statistics term, and it is, but the concept is actually intuitive.
+**Horace（陳馬）：** 波動性是最常見的衡量指標，用標準差來量化。我知道這聽起來像一個統計學術語，但概念其實很直觀。
 
-[VISUAL: Text appears: "Standard Deviation = How widely returns are spread around the average"]
+[VISUAL: Text appears: "標準差 = 回報圍繞平均值分散的程度"]
 
-**Alex:** Let us say U.S. stocks have averaged about 10% per year with a standard deviation of 16%. That means in a typical year, your return will be somewhere between negative 6% and positive 26%. That is 10% plus or minus 16%. About two-thirds of the time, you will land in that range.
+**Horace（陳馬）：** 假設美國股票的年均回報約為10%，標準差為16%。這意味著在典型的一年裡，你的回報將在負6%至正26%之間。也就是10%加減16%。大約三分之二的時間，你會落在這個範圍內。
 
-**Sam:** And the other third of the time?
+**Stella（小魚）：** 那另外三分之一的時間呢？
 
-**Alex:** You will be outside that range -- either better than plus 26% or worse than negative 6%. And in really extreme years -- about once every 20 years -- you could be more than two standard deviations away, meaning returns below negative 22% or above 42%.
+**Horace（陳馬）：** 你將超出這個範圍——要麼好於正26%，要麼差於負6%。而在真正極端的年份——大約每20年一次——你可能超出兩個標準差，意味著回報低於負22%或高於42%。
 
 [ANIMATION: animation/week03_risk_return_frontier.py - Animated bell curve showing the distribution of annual stock market returns. The curve starts as a flat line, then gradually takes shape as historical return data points drop in from above, each landing at its position on the x-axis. The 1-standard-deviation range highlights in blue (68%), the 2-standard-deviation range highlights in lighter blue (95%). Notable years appear as labeled dots: 2008 (-37%), 2020 (-34% then recovery), 2013 (+32%), 1995 (+37%).]
 
-**Sam:** So the 2008 financial crisis, when the market dropped about 37%, that was about a two-standard-deviation event?
+**Stella（小魚）：** 所以2008年金融海嘯，市場約跌37%，大約是一個兩標準差的事件？
 
-**Alex:** Roughly, yes. It was a severe but not unprecedented event within the statistical framework. And this brings up an important caveat about standard deviation -- it assumes returns follow a nice, smooth bell curve. In reality, extreme events happen more often than the bell curve predicts. Finance people call these "fat tails."
+**Horace（陳馬）：** 大致如此。在統計框架內，這是一個嚴峻但並非史無前例的事件。而這引出了標準差的一個重要注意事項——它假設回報遵循漂亮、平滑的鐘形曲線。現實中，極端事件發生的頻率遠高於鐘形曲線所預測的。金融學界稱之為「肥尾」。
 
-**Sam:** What does that mean practically?
+**Stella（小魚）：** 實際上這意味著什麼？
 
-**Alex:** It means that a 40% market crash is more likely than the math says it should be. The 1987 crash, for example, was a one-day drop of over 20% -- that should essentially never happen according to a normal distribution. But it did. So standard deviation is a useful measure of everyday risk, but it underestimates the risk of extreme events.
+**Horace（陳馬）：** 這意味著40%的市場崩盤比數學說應該發生的更有可能。1987年的崩盤，例如，是單日超過20%的跌幅——根據正態分佈，這基本上不應該發生。但它確實發生了。所以標準差是衡量日常風險的有用指標，但它低估了極端事件的風險。
 
 [VISUAL: Two bell curves overlaid -- a normal distribution in blue and the actual distribution of market returns in red, showing the "fat tails" extending further than the normal curve]
 
-**Sam:** Got it. So what have different types of investments actually returned historically?
+**Stella（小魚）：** 明白了。那不同類型的投資歷史上實際回報如何？
 
-**Alex:** This is where it gets really interesting, and I think a chart will help.
+**Horace（陳馬）：** 這裡就變得非常有趣了，我想一個圖表會有幫助。
 
 [VISUAL: Animated bar chart building up showing historical returns by asset class: T-Bills ~3.3%, Government Bonds ~5.5%, Corporate Bonds ~5.9%, Large Cap Stocks ~10.3%, Small Cap Stocks ~11.8%]
 
-**Alex:** Treasury bills, which are basically cash, have returned about 3.3% per year since 1926. Government bonds, about 5.5%. Corporate bonds, about 5.9%. Large company stocks, about 10.3%. And small company stocks, about 11.8%.
+**Horace（陳馬）：** 國庫券，基本上相當於現金，自1926年以來的年均回報約為3.3%。政府債券，約5.5%。企業債券，約5.9%。大型公司股票，約10.3%。小型公司股票，約11.8%。
 
-**Sam:** So stocks crush everything else over the long run.
+**Stella（小魚）：** 所以股票長期遠勝其他一切。
 
-**Alex:** They do in terms of raw return, yes. But look at the price you pay for those returns.
+**Horace（陳馬）：** 就原始回報而言，是的。但看看你為那些回報所付出的代價。
 
 [VISUAL: The same bar chart now adds error bars showing standard deviation: T-Bills ~1%, Bonds ~6%, Large Stocks ~16%, Small Stocks ~20%]
 
-**Alex:** Treasury bills barely fluctuate -- standard deviation of about 1%. Bonds fluctuate moderately -- about 6%. But large cap stocks swing 16%, and small caps swing 20%. And the worst single-year returns tell the story even more clearly. T-bills have never really lost money. Stocks have dropped over 40% in a single year.
+**Horace（陳馬）：** 國庫券幾乎不波動——標準差約為1%。債券適度波動——約6%。但大型股票波動16%，小型股票波動20%。而最差的單年回報說明得更清楚。國庫券從未真正虧損過。股票在單一年份曾下跌逾40%。
 
-**Sam:** So there really is a pattern here -- more return, more risk.
+**Stella（小魚）：** 所以這裡確實有一個規律——回報更高，風險更高。
 
-**Alex:** Always. And the extra return you get for taking extra risk has a name -- the risk premium.
+**Horace（陳馬）：** 永遠如此。你為承擔額外風險所獲得的額外回報有一個名字——風險溢價。
 
-[VISUAL: Staircase diagram showing risk premiums stacking up: T-Bills (base) + 2.2% = Bonds + 4.4% = Large Stocks + 1.5% = Small Stocks]
+[VISUAL: Staircase diagram showing risk premiums stacking up: 國庫券（基準）+ 2.2% = 債券 + 4.4% = 大型股票 + 1.5% = 小型股票]
 
-**Alex:** The risk premium is the extra return above the risk-free rate that compensates you for bearing uncertainty. The equity risk premium -- the extra return stocks provide over bonds -- has historically been about 5 to 7 percent per year. That is the price the market pays you for accepting the possibility that your portfolio could drop 30 to 50 percent.
+**Horace（陳馬）：** 風險溢價是你在無風險利率之上獲得的額外回報，補償你承擔的不確定性。股票風險溢價——股票相對債券提供的額外回報——歷史上約為每年5至7個百分點。這是市場為你接受投資組合可能下跌30至50%的可能性所支付給你的代價。
 
-**Sam:** Why does the market pay that premium? Why can it not just go away?
+**Stella（小魚）：** 為什麼市場會支付這種溢價？為什麼它不會消失？
 
-**Alex:** Because humans are naturally risk-averse. Most people experience the pain of a loss about twice as intensely as the pleasure of an equivalent gain. So to get people to hold risky stocks instead of safe bonds, stocks need to offer meaningfully higher returns. If stocks and bonds offered the same return, everyone would choose bonds, stock prices would drop, and the premium would reappear.
+**Horace（陳馬）：** 因為人類天生厭惡風險。大多數人感受到損失的痛苦，大約是感受到等值收益的喜悅的兩倍。所以要讓人們持有有風險的股票而非安全的債券，股票必須提供明顯更高的回報。如果股票和債券的回報相同，所有人都會選擇債券，股票價格就會下跌，溢價就會重新出現。
 
-[VISUAL: Balance scale showing "Loss of $100" weighing more heavily than "Gain of $100", with text "Loss Aversion: Losses feel ~2x as painful as equivalent gains"]
+[VISUAL: Balance scale showing "損失$100" weighing more heavily than "收益$100", with text "損失厭惡：損失帶來的痛苦約是等值收益帶來的喜悅的兩倍"]
 
-**Sam:** That is a psychological explanation for a financial phenomenon. I like that. Now, I have heard people talk about different kinds of risk -- systematic and unsystematic. What is the difference?
+**Stella（小魚）：** 這是對一個金融現象的心理學解釋。我喜歡這個。現在，我聽說過不同種類的風險——系統性和非系統性。兩者有什麼區別？
 
-**Alex:** This is one of the most important concepts in all of investing, and it changed how professionals think about portfolios.
+**Horace（陳馬）：** 這是整個投資學中最重要的概念之一，它改變了專業人士思考投資組合的方式。
 
-[VISUAL: Screen splits into two columns: "Systematic Risk" and "Unsystematic Risk"]
+[VISUAL: Screen splits into two columns: "系統性風險" and "非系統性風險"]
 
-**Alex:** Unsystematic risk is risk specific to one company or industry. A CEO gets caught in a scandal. A product gets recalled. A factory burns down. A competitor launches a better product. These events hurt one company but do not affect the whole market.
+**Horace（陳馬）：** 非系統性風險是針對一家公司或一個行業的特定風險。行政總裁捲入醜聞。產品被召回。工廠燒毀。競爭對手推出了更好的產品。這些事件傷害一家公司，但不影響整個市場。
 
-**Sam:** And systematic risk?
+**Stella（小魚）：** 那系統性風險呢？
 
-**Alex:** Systematic risk affects everyone. A recession hits. Interest rates spike. A pandemic shuts down the global economy. Inflation surges. These events hit virtually all stocks simultaneously.
+**Horace（陳馬）：** 系統性風險影響所有人。經濟衰退來臨。利率急升。疫情令全球經濟停擺。通脹飆升。這些事件幾乎同時衝擊所有股票。
 
-**Sam:** Okay, so what? Both kinds are bad, right?
+**Stella（小魚）：** 好，那又怎樣？兩種風險不都是壞事嗎？
 
-**Alex:** Here is the critical insight. You can eliminate unsystematic risk by diversifying -- by owning many stocks instead of just one or two. If one company has a scandal, the other 499 in your index fund are fine. The overall impact is tiny.
+**Horace（陳馬）：** 關鍵的洞察在這裡。你可以通過分散投資消除非系統性風險——持有許多股票而不是只有一兩隻。如果一家公司出現醜聞，你指數基金裡的其他499隻股票都沒事。整體影響微乎其微。
 
-[ANIMATION: animation/week03_risk_return_frontier.py - Animated chart showing total portfolio risk (y-axis) versus number of stocks held (x-axis). Starting with one stock at ~40% volatility, each additional stock added causes the line to drop. The decline is steep at first (going from 1 to 10 stocks dramatically reduces risk) but flattens out around 25-30 stocks. A horizontal line at ~16% is labeled "Systematic Risk -- Cannot Be Diversified Away." The area between the curve and the line is shaded and labeled "Unsystematic Risk -- Free to Eliminate." As stocks are added, the unsystematic area shrinks to near zero.]
+[ANIMATION: animation/week03_risk_return_frontier.py - Animated chart showing total portfolio risk (y-axis) versus number of stocks held (x-axis). Starting with one stock at ~40% volatility, each additional stock added causes the line to drop. The decline is steep at first (going from 1 to 10 stocks dramatically reduces risk) but flattens out around 25-30 stocks. A horizontal line at ~16% is labeled "系統性風險——無法通過分散投資消除。" The area between the curve and the line is shaded and labeled "非系統性風險——可免費消除。" As stocks are added, the unsystematic area shrinks to near zero.]
 
-**Alex:** But systematic risk cannot be diversified away. Even if you own every stock in the market, you still face recession risk, interest rate risk, and all the other economy-wide forces.
+**Horace（陳馬）：** 但系統性風險無法通過分散投資消除。即使你持有市場上所有的股票，你仍然面臨衰退風險、利率風險，以及所有其他影響整體經濟的力量。
 
-**Sam:** So why does this matter for my portfolio?
+**Stella（小魚）：** 那這對我的投資組合有什麼影響？
 
-**Alex:** Because the market only pays you for systematic risk. Think about it. Unsystematic risk is risk you can eliminate for free by diversifying. If you choose not to diversify -- if you put all your money in one stock -- you are taking risk that you are not getting paid for. The market does not give you extra return for taking a risk you could have avoided.
+**Horace（陳馬）：** 因為市場只會補償你承擔系統性風險。想一想。非系統性風險是你可以通過分散投資免費消除的風險。如果你選擇不分散投資——把所有錢放在一隻股票裡——你正在承擔得不到補償的風險。市場不會因為你承擔本可避免的風險而給你額外回報。
 
-**Sam:** So holding a concentrated portfolio of three or four stocks is essentially taking risk for free?
+**Stella（小魚）：** 所以持有三四隻股票的集中投資組合，基本上是在白白承擔風險？
 
-**Alex:** Exactly. You have all the downside of company-specific disasters with no additional expected return. This is the strongest argument for index funds and broad diversification -- you eliminate the risk you do not get paid for and keep the risk that comes with a paycheck.
+**Horace（陳馬）：** 正是。你承受著公司特定災難的所有下行風險，卻沒有任何額外的預期回報。這是指數基金和廣泛分散投資最有力的論據——你消除了得不到補償的風險，保留了有收入的風險。
 
-[VISUAL: Two portfolio pies: one with 3 stocks showing high total risk, one with 500 stocks (index fund) showing lower total risk. Both have the same "Expected Return" label, but the 3-stock portfolio has much more "Uncompensated Risk"]
+[VISUAL: Two portfolio pies: one with 3 stocks showing high total risk, one with 500 stocks (index fund) showing lower total risk. Both have the same "預期回報" label, but the 3-stock portfolio has much more "未獲補償風險"]
 
-**Sam:** That is really eye-opening. You mentioned beta earlier. How does that fit in?
+**Stella（小魚）：** 這真的很啟發性。你之前提到了貝塔。它如何融入其中？
 
-**Alex:** Beta is the measure of systematic risk for an individual stock. It tells you how sensitive a stock is to overall market movements. A beta of 1.0 means the stock moves in lockstep with the market. A beta of 1.5 means the stock is 50% more volatile than the market. A beta of 0.5 means it is half as volatile.
+**Horace（陳馬）：** 貝塔是個別股票系統性風險的衡量指標。它告訴你一隻股票對整體市場走勢的敏感程度。貝塔值為1.0意味著股票與市場同步。貝塔值為1.5意味著股票的波動性比市場高50%。貝塔值為0.5意味著波動性是市場的一半。
 
-**Sam:** Can you give real-world examples?
+**Stella（小魚）：** 你能給我一些現實世界的例子嗎？
 
-**Alex:** Sure. Utility companies tend to have betas around 0.4 to 0.6. People always need electricity, so these stocks do not move much with the economy. Technology stocks tend to have betas around 1.2 to 1.5 -- they are more sensitive to economic cycles because businesses cut tech spending during recessions. Biotech stocks can have betas above 1.5 because they are highly speculative.
+**Horace（陳馬）：** 當然。公用事業公司的貝塔值通常在0.4至0.6左右。人們始終需要電力，所以這些股票隨經濟周期的波動不大。科技股的貝塔值通常在1.2至1.5左右——它們對經濟周期更敏感，因為企業在衰退期間會削減科技開支。生物科技股的貝塔值可以超過1.5，因為它們具有高度投機性。
 
-[VISUAL: Spectrum chart showing different sectors arranged by beta from left (low beta: Utilities 0.4) to right (high beta: Biotech 1.6), with the S&P 500 marked at 1.0 in the center]
+[VISUAL: Spectrum chart showing different sectors arranged by beta from left (low beta: 公用事業 0.4) to right (high beta: 生物科技 1.6), with the 標普500 marked at 1.0 in the center]
 
-**Sam:** And according to the CAPM model, higher beta stocks should give higher returns?
+**Stella（小魚）：** 根據資本資產定價模型，貝塔值更高的股票應該提供更高的回報？
 
-**Alex:** In theory, yes. The Capital Asset Pricing Model says expected return equals the risk-free rate plus beta times the market risk premium. So a stock with a beta of 1.5 should earn about 50% more than the market risk premium. In practice, this relationship is messier than the theory suggests, but the basic principle holds -- bearing more systematic risk should be compensated with higher expected returns over time.
+**Horace（陳馬）：** 理論上是的。資本資產定價模型指出，預期回報等於無風險利率加上貝塔值乘以市場風險溢價。所以貝塔值為1.5的股票，應該賺取約比市場風險溢價高50%的回報。實際上，這種關係比理論所示更為複雜，但基本原則成立——長期而言，承擔更多系統性風險應以更高的預期回報作為補償。
 
-**Sam:** Okay, let us talk about the big picture. How does all of this come together in the risk-return tradeoff?
+**Stella（小魚）：** 好，讓我們談談大局。這一切如何在風險回報取捨中匯聚？
 
-**Alex:** This is where we get to one of the most beautiful ideas in finance -- the efficient frontier.
+**Horace（陳馬）：** 這就是我們接觸金融學中最美妙的想法之一的地方——有效前沿。
 
-[VISUAL: Title card "The Efficient Frontier"]
+[VISUAL: Title card "有效前沿"]
 
-**Alex:** Imagine plotting every possible portfolio combination on a chart. The x-axis is risk, measured by standard deviation. The y-axis is expected return. Each dot represents a different portfolio -- different mixes of stocks, bonds, and other assets.
+**Horace（陳馬）：** 想像把每一個可能的投資組合組合繪製在圖表上。X軸是風險，以標準差衡量。Y軸是預期回報。每個點代表一個不同的投資組合——不同比例的股票、債券和其他資產的組合。
 
-**Sam:** That would be a lot of dots.
+**Stella（小魚）：** 那會有很多點。
 
-**Alex:** Thousands. But here is the magic -- they form a shape. The upper-left boundary of all those dots forms a curve called the efficient frontier. Every portfolio on this curve is optimal in the sense that no other portfolio offers higher return for the same risk, or lower risk for the same return.
+**Horace（陳馬）：** 成千上萬個。但魔力在這裡——它們形成一個形狀。所有那些點的左上方邊界形成一條曲線，稱為有效前沿。這條曲線上的每個投資組合都是最優的，意味著沒有其他投資組合在相同風險下提供更高的回報，或在相同回報下承擔更低的風險。
 
-[ANIMATION: animation/week03_risk_return_frontier.py - Start with an empty risk-return chart. Randomly scatter thousands of small dots representing random portfolio combinations. Then highlight the upper-left boundary curve in gold -- the efficient frontier. Show arrows from dots below the frontier pointing up to the frontier, labeled "Could do better." Animate key points on the frontier: 100% bonds (left), 60/40 portfolio (middle), 100% stocks (right), with their risk-return coordinates displayed.]
+[ANIMATION: animation/week03_risk_return_frontier.py - Start with an empty risk-return chart. Randomly scatter thousands of small dots representing random portfolio combinations. Then highlight the upper-left boundary curve in gold -- the efficient frontier. Show arrows from dots below the frontier pointing up to the frontier, labeled "可以做得更好。" Animate key points on the frontier: 100%債券（left）, 六四投資組合（middle）, 100%股票（right）, with their risk-return coordinates displayed.]
 
-**Sam:** So if I am below the frontier, I am doing something wrong?
+**Stella（小魚）：** 所以如果我處於前沿以下，我就是做錯了什麼？
 
-**Alex:** Yes. If you are below the frontier, you could get more return for the same risk, or reduce risk without sacrificing return. For example, a portfolio of just five random stocks might fall below the frontier because of high unsystematic risk. An index fund of 500 stocks would plot much closer to the frontier.
+**Horace（陳馬）：** 是的。如果你處於前沿以下，你可以在相同風險下獲得更多回報，或在不犧牲回報的情況下降低風險。例如，只有五隻隨機股票的投資組合可能因非系統性風險過高而落在前沿以下。一個500隻股票的指數基金則會更接近前沿。
 
-**Sam:** Where on the frontier should I be?
+**Stella（小魚）：** 我應該處於前沿上的哪個位置？
 
-**Alex:** That depends entirely on your personal risk tolerance and capacity. A conservative investor -- maybe a retiree living off their portfolio -- wants to be on the left side: lower risk, lower but more stable returns. An aggressive investor with a 30-year horizon can afford to be on the right side: higher risk, higher expected returns.
+**Horace（陳馬）：** 這完全取決於你個人的風險承受能力和風險容忍度。保守型投資者——也許是靠投資組合生活的退休人士——希望處於左側：風險較低，回報較低但更穩定。擁有30年投資期限的進取型投資者可以處於右側：風險較高，預期回報也更高。
 
-[VISUAL: The efficient frontier with three investor profiles marked: "Conservative" on the left (70% bonds), "Moderate" in the middle (60/40), and "Aggressive" on the right (90% stocks)]
+[VISUAL: The efficient frontier with three investor profiles marked: "保守型" on the left (70%債券), "穩健型" in the middle (六四分), and "進取型" on the right (90%股票)]
 
-**Sam:** This really ties everything together. But I want to talk about something more practical -- drawdowns. When the market drops 30 or 40 percent, the math of standard deviation is cold comfort.
+**Stella（小魚）：** 這真的把一切都串聯起來了。但我想談談更實際的東西——回撤。當市場下跌30或40%時，標準差的數學是冷冰冰的。
 
-**Alex:** You are absolutely right. Standard deviation is an abstract statistical concept. Maximum drawdown is the gut-punch reality of risk. A drawdown is the peak-to-trough decline in your portfolio value. In 2008-2009, the S&P 500 experienced a drawdown of about 57%. If you had a million dollars in stocks, it dropped to $430,000.
+**Horace（陳馬）：** 你說得完全正確。標準差是一個抽象的統計概念。最大回撤是風險的切身現實。回撤是你的投資組合價值從高峰到低谷的跌幅。2008至2009年，標普500的回撤約為57%。如果你有一百萬元的股票，它下跌到43萬元。
 
-**Sam:** That is terrifying.
+**Stella（小魚）：** 這太可怕了。
 
-**Alex:** It is. And the recovery took about five and a half years. That is five and a half years of watching your portfolio climb back to where it started. For a 60-year-old planning to retire at 62, that is devastating. For a 30-year-old with decades ahead, it is a speed bump.
+**Horace（陳馬）：** 確實如此。而復甦花了約五年半的時間。那是五年半的時間，看著你的投資組合爬回到起點。對於計劃在62歲退休的60歲人士來說，這是災難性的。對於前面還有幾十年的30歲人士來說，這只是一個小波折。
 
-[VISUAL: Chart showing S&P 500 from 2007 to 2013, with the drawdown highlighted in red and the recovery path in green. Annotations showing portfolio values: $1M at peak, $430K at trough, $1M again at recovery]
+[VISUAL: Chart showing S&P 500 from 2007 to 2013, with the drawdown highlighted in red and the recovery path in green. Annotations showing portfolio values: 高峰$1,000,000, 低谷$430,000, 復甦後$1,000,000]
 
-**Sam:** So time horizon is a huge factor in how much risk you can take?
+**Stella（小魚）：** 所以投資期限是決定你能承擔多少風險的一個巨大因素？
 
-**Alex:** It is the single most important factor. Let me show you why.
+**Horace（陳馬）：** 這是最重要的單一因素。讓我來告訴你為什麼。
 
-[VISUAL: Chart showing the range of annualized stock market returns for different holding periods: 1 year (-43% to +54%), 5 years (-12% to +29%), 10 years (-1% to +20%), 20 years (+2% to +18%)]
+[VISUAL: Chart showing the range of annualized stock market returns for different holding periods: 1年 (-43% 至 +54%), 5年 (-12% 至 +29%), 10年 (-1% 至 +20%), 20年 (+2% 至 +18%)]
 
-**Alex:** Over one year, stocks have returned anywhere from negative 43% to positive 54%. That is a massive range. But over 10-year periods, the worst annualized return was only about negative 1%. And over 20-year periods, stocks have never produced a negative annualized return in U.S. history.
+**Horace（陳馬）：** 在一年的時間裡，股票的回報範圍從負43%到正54%，跨度極大。但在10年的持有期內，最差的年化回報只有約負1%。而在20年的持有期內，美國歷史上股票從未出現過負的年化回報。
 
-**Sam:** So time really does reduce risk?
+**Stella（小魚）：** 所以時間真的能降低風險？
 
-**Alex:** It reduces the risk of a negative outcome, yes. But there is an important caveat. Even over 20 years, the difference between earning 2% per year and 18% per year is enormous. Time reduces the probability of loss, but it does not eliminate the uncertainty of how much you will make. And we should note that the U.S. stock market has been unusually successful. Japanese stocks peaked in 1989 and investors waited 35 years to break even.
+**Horace（陳馬）：** 它確實降低了負面結果的風險，是的。但有一個重要的注意事項。即使是在20年的期限內，每年賺2%與賺18%之間的差異也是巨大的。時間降低虧損的概率，但並不消除你能賺多少的不確定性。而且我們應該注意，美國股市表現異常出色。日本股票於1989年見頂，投資者等待了35年才回本。
 
 [VISUAL: Comparison chart showing U.S. stocks from 1989-2024 (strong upward trend) versus Japanese stocks (flat and declining for decades)]
 
-**Sam:** That is a sobering example. Let me ask about something practical -- how do I figure out how much risk I should take?
+**Stella（小魚）：** 這是一個令人警醒的例子。讓我問一個更實際的問題——我如何判斷自己應該承擔多少風險？
 
-**Alex:** You need to think about two things: risk capacity and risk tolerance. Risk capacity is objective -- it depends on your time horizon, income stability, savings rate, and how much you depend on the portfolio. A 25-year-old with a great job, low expenses, and 40 years until retirement has high risk capacity. A 65-year-old retiree living off the portfolio has low risk capacity.
+**Horace（陳馬）：** 你需要思考兩件事：風險承受能力和風險容忍度。風險承受能力是客觀的——它取決於你的投資期限、收入穩定性、儲蓄率，以及你對投資組合的依賴程度。一個25歲、有份好工作、開支低、距退休還有40年的人，風險承受能力很高。一個靠投資組合生活的65歲退休人士，風險承受能力很低。
 
-**Sam:** And risk tolerance is the emotional side?
+**Stella（小魚）：** 那風險容忍度是情感的那一面？
 
-**Alex:** Exactly. Risk tolerance is how you feel about market drops. Here is my favorite test: imagine your portfolio drops 30% in one month. Not a hypothetical -- actually try to feel it. If you have $100,000, that is $70,000 on screen. If you have $500,000, that is $350,000. Can you go to sleep that night without logging in at 2 AM to sell?
+**Horace（陳馬）：** 正是。風險容忍度是你對市場下跌的感受。這是我最喜歡的測試：想象你的投資組合在一個月內下跌30%。不是假設——實際嘗試感受它。如果你有10萬元，那就是屏幕上的7萬元。如果你有50萬元，那就是35萬元。你能不能在那晚上床睡覺，而不是在凌晨2點登入帳戶去拋售？
 
-**Sam:** When you put it that way, I am not sure.
+**Stella（小魚）：** 你這樣說，我不確定我能做到。
 
-**Alex:** And that is the point. Everyone thinks they have high risk tolerance when markets are going up. Your true risk tolerance is revealed when markets crash. Here is the golden rule: do not take more risk than you can maintain during the worst moments. If a 30% drop would make you sell, you need a portfolio that is unlikely to drop 30%.
+**Horace（陳馬）：** 這正是重點所在。在市場上漲時，所有人都以為自己有很高的風險容忍度。你真正的風險容忍度在市場崩盤時才會顯露。這是黃金法則：不要承擔在最糟糕的時刻你無法維持的風險。如果30%的跌幅會讓你拋售，你需要一個不太可能跌30%的投資組合。
 
-[VISUAL: Two-by-two matrix showing Risk Capacity (High/Low) vs. Risk Tolerance (High/Low), with recommended approaches in each quadrant]
+[VISUAL: Two-by-two matrix showing 風險承受能力（高/低）vs. 風險容忍度（高/低）, with recommended approaches in each quadrant]
 
-**Sam:** What about the Sharpe Ratio? I hear people mention it as a measure of how efficiently you are taking risk.
+**Stella（小魚）：** 那夏普比率呢？我聽到人們提到它，作為衡量你承擔風險效率的指標。
 
-**Alex:** The Sharpe Ratio is elegant. It measures how much excess return you get per unit of risk. The formula is: portfolio return minus the risk-free rate, divided by the portfolio's standard deviation. A Sharpe Ratio of 0.5 is decent, 1.0 is very good, and anything above 1.5 is exceptional.
+**Horace（陳馬）：** 夏普比率很優雅。它衡量你每承擔一個單位風險所獲得的超額回報。公式是：投資組合回報減去無風險利率，再除以投資組合的標準差。夏普比率超過0.5算不錯，1.0非常好，超過1.5則屬例外。
 
-**Sam:** So it is like miles per gallon for investments -- how much performance you get for each unit of risk you burn?
+**Stella（小魚）：** 所以它就像投資的燃油效率——你每消耗一個單位的風險能獲得多少表現？
 
-**Alex:** That is a perfect analogy. And it lets you compare investments that look very different. A bond fund returning 6% with 4% standard deviation has a Sharpe Ratio of about 0.5, assuming a 4% risk-free rate. A stock fund returning 11% with 16% standard deviation also has a Sharpe Ratio of about 0.44. The bond fund is actually more risk-efficient despite having a lower raw return.
+**Horace（陳馬）：** 這個比喻太貼切了。它讓你能夠比較外表截然不同的投資。一個回報6%、標準差4%的債券基金，夏普比率約為0.5，假設無風險利率為4%。一個回報11%、標準差16%的股票基金，夏普比率約為0.44。儘管債券基金的原始回報更低，它其實更具風險效率。
 
 [VISUAL: Side-by-side comparison of two investments showing raw return versus Sharpe Ratio, demonstrating that higher return does not always mean better risk-adjusted performance]
 
-**Sam:** Can we talk about one more thing? I keep seeing claims online about investments that offer high returns with low risk. Is that possible?
+**Stella（小魚）：** 我們能再談一件事嗎？我在網上不斷看到關於提供高回報低風險投資的聲索。這可能嗎？
 
-**Alex:** It is one of the most important rules in investing: there is no free lunch. If someone offers you high returns with low risk, one of three things is happening. First, they might be hiding the risk. Some strategies show smooth, low-volatility returns until they blow up catastrophically. Second, they might be committing fraud. Bernie Madoff offered steady 10-12% returns with almost no volatility for decades. It was the largest Ponzi scheme in history. Third, they might be confusing illiquidity with low risk. Private real estate or private equity investments show low measured volatility because they are not priced daily, but the underlying risk is still there.
+**Horace（陳馬）：** 這是投資中最重要的規則之一：沒有免費午餐。如果有人給你提供高回報低風險的投資，以下三種情況之一正在發生。第一，他們可能在隱藏風險。某些策略顯示出平滑的低波動性回報，直到它們災難性地崩潰。第二，他們可能在進行欺詐。Bernie Madoff幾十年來提供穩定的10-12%回報，波動性幾乎為零。那是歷史上最大的龐氏騙局。第三，他們可能把流動性不足混淆為低風險。私人房地產或私募股權投資，因為不按日定價，顯示出低的衡量波動性，但潛在風險仍然存在。
 
-[VISUAL: Three warning signs: Hidden Risk (iceberg with small portion visible), Fraud (smooth return line that suddenly drops to zero), Illiquidity Premium (asset priced quarterly vs. daily showing artificially smooth returns)]
+[VISUAL: Three warning signs: 隱藏風險（iceberg with small portion visible）, 欺詐（smooth return line that suddenly drops to zero）, 流動性溢價（asset priced quarterly vs. daily showing artificially smooth returns）]
 
-**Sam:** So if it sounds too good to be true...
+**Stella（小魚）：** 所以如果聽起來好得令人難以置信……
 
-**Alex:** It is. Always. The risk-return tradeoff is a law of finance as fundamental as gravity is a law of physics. You can be more efficient -- getting on the efficient frontier instead of below it -- but you cannot beat the fundamental relationship.
+**Horace（陳馬）：** 就是真的難以置信。永遠如此。風險回報取捨是金融學的定律，就如重力是物理學的定律一樣根本。你可以更有效率——進入有效前沿而不是在其以下——但你無法打破這種基本關係。
 
-**Sam:** Okay, let me try to summarize what I have learned today. Risk is the uncertainty of outcomes, not just the chance of loss. It is measured by standard deviation, which tells you how widely returns can vary. Different asset classes offer different risk-return profiles, with stocks offering the highest returns but also the highest volatility.
+**Stella（小魚）：** 好，讓我嘗試總結一下今天所學到的。風險是結果的不確定性，而不僅僅是虧損的機會。它用標準差來衡量，告訴你回報可以如何大幅波動。不同的資產類別提供不同的風險回報特徵，股票提供最高的回報，但波動性也最高。
 
-**Alex:** Keep going.
+**Horace（陳馬）：** 繼續說。
 
-**Sam:** The risk premium is the extra return you earn for bearing risk, and it exists because humans are naturally risk-averse. There are two types of risk: systematic risk, which affects the whole market and cannot be diversified away, and unsystematic risk, which is company-specific and can be eliminated through diversification. The market only pays you for systematic risk.
+**Stella（小魚）：** 風險溢價是你為承擔風險所賺取的額外回報，它的存在是因為人類天生厭惡風險。風險有兩種類型：系統性風險影響整個市場，無法通過分散投資消除；非系統性風險是特定公司的風險，可以通過分散投資消除。市場只補償你承擔系統性風險。
 
-**Alex:** Excellent.
+**Horace（陳馬）：** 非常好。
 
-**Sam:** The efficient frontier shows the best possible combinations of risk and return. Your position on it should depend on your risk capacity and risk tolerance. And finally, time horizon matters enormously -- over longer periods, the probability of loss decreases, which is why younger investors can afford to take more risk.
+**Stella（小魚）：** 有效前沿展示了風險與回報的最佳可能組合。你在其上的位置應取決於你的風險承受能力和風險容忍度。最後，投資期限至關重要——在較長期限內，虧損的概率降低，這就是為什麼年輕投資者能夠承擔更多風險。
 
-**Alex:** That is a perfect summary. I would add one more thing: the biggest risk is not market volatility. The biggest risk is your own behavior. Panicking and selling during a downturn is the single most destructive thing an investor can do. Understanding risk intellectually helps you manage it emotionally.
+**Horace（陳馬）：** 這是完美的總結。我還想補充最後一點：最大的風險不是市場波動。最大的風險是你自己的行為。在市場下跌期間恐慌性拋售，是投資者所能做的最具破壞性的事情。從智識上理解風險，有助於你在情感上管理它。
 
-[VISUAL: Key takeaway card listing five bullet points: 1) Risk = Uncertainty, 2) Higher risk = Higher expected return, 3) Diversify away unsystematic risk, 4) Time horizon determines risk capacity, 5) Your behavior is your biggest risk factor]
+[VISUAL: Key takeaway card listing five bullet points: 1) 風險 = 不確定性, 2) 更高風險 = 更高預期回報, 3) 分散投資消除非系統性風險, 4) 投資期限決定風險承受能力, 5) 你的行為是你最大的風險因素]
 
-**Sam:** That is so true. I already feel more prepared to handle the next market downturn, whenever it comes.
+**Stella（小魚）：** 這話說得太對了。我已經感到更有準備去應對下一次市場下跌，無論它何時到來。
 
-**Alex:** And it will come. Markets drop 10% about once a year on average, 20% every few years, and 30% or more once or twice per decade. That is not a prediction of doom -- it is the normal cost of earning equity returns. Expecting it and planning for it is what separates investors from gamblers.
+**Horace（陳馬）：** 而且它一定會來。市場平均每年約跌10%一次，每隔幾年跌20%，每十年左右跌30%或以上一兩次。這不是末日預言——這是賺取股票回報的正常代價。預期它並為之規劃，正是將投資者與賭徒區分開來的東西。
 
-**Sam:** What is coming up next week?
+**Stella（小魚）：** 下週我們會講什麼？
 
-**Alex:** Next week we are going to take these concepts and apply them directly. We are going to talk about the 60/40 portfolio -- 60% stocks, 40% bonds. It is the most famous asset allocation in investing, and understanding why it works -- and when it does not -- will bring everything from today's lesson to life.
+**Horace（陳馬）：** 下週我們將把這些概念直接應用起來。我們將談論六四投資組合——60%股票，40%債券。這是投資界最著名的資產配置，理解它為何有效——以及何時無效——將讓今天課程中的所有內容栩栩如生。
 
-**Sam:** I cannot wait. Thanks for watching, everyone, and we will see you next week.
+**Stella（小魚）：** 我等不及了。感謝大家收看，我們下週見。
 
 [VISUAL: End screen with subscribe button and links to previous lessons. Preview card for Week 4: The 60/40 Portfolio]
 

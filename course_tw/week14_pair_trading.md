@@ -1,322 +1,309 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第14週：配對交易基礎
 
-# Week 14: Pair Trading Fundamentals
+## 閱讀章節
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+在第13週，我們學習了做多與做空交易，了解避險基金如何結合多空部位來降低市場風險，同時從選股中獲利。配對交易將這個概念進一步精煉，成為量化金融中最優雅、最系統化的策略之一。
 
-In Week 13, we learned about long and short trading. We saw how hedge funds combine long and short positions to reduce market risk while profiting from stock selection. Pair trading takes this concept and refines it into one of the most elegant, systematic strategies in quantitative finance.
+配對交易之所以重要，有幾個關鍵原因：
 
-Pair trading matters for several important reasons:
+**不依賴市場方向：** 對任何投資人而言，最大的單一風險是市場全面崩盤。若你持有一個股票投資組合，而標普500指數下跌30%，幾乎所有股票都會下跌，無論品質好壞。配對交易能大幅消除這種風險。由於你同時做多一檔股票並放空另一檔相關股票，市場整體的漲跌會互相抵銷。市場崩盤時，你配對中的兩檔股票都會下跌，但你的淨部位基本不受影響。你的獲利或虧損來自兩檔股票之間的相對表現，而非市場的方向。
 
-**Market Direction Independence:** The single biggest risk for any investor is a broad market crash. If you hold a portfolio of stocks and the S&P 500 drops 30%, almost everything goes down regardless of quality. Pair trading largely eliminates this risk. Because you are simultaneously long one stock and short a related stock, market-wide movements wash out. When the market crashes, both stocks in your pair drop, and your net position is largely unaffected. Your profit or loss comes from the relative movement between the two stocks, not from the market's direction.
+**量化基礎：** 配對交易是最早且記錄最完整的量化策略之一。它由努齊奧·塔爾塔利亞（Nunzio Tartaglia）領導的量化研究小組於1980年代中期在摩根士丹利率先開創。此後，學術界對此策略進行了廣泛研究。配對交易所使用的統計工具，包括相關性、共整合、均值回歸和Z分數，構成了許多更進階量化策略的基礎。學習配對交易能讓你以實際操作切入系統化投資的世界。
 
-**Quantitative Foundation:** Pair trading is one of the earliest and most well-documented quantitative strategies. It was pioneered at Morgan Stanley in the mid-1980s by Nunzio Tartaglia's quantitative research group. Since then, it has been studied extensively in academic finance. The statistical tools used in pair trading, including correlation, cointegration, mean reversion, and z-scores, form the foundation of many more advanced quantitative strategies. Learning pair trading gives you a practical entry point into the world of systematic investing.
+**風險調整後報酬：** 由於配對交易能對沖市場風險，其報酬往往比方向性策略更穩定、波動性更低。雖然你可能無法在多頭市場中獲得巨額收益，但也能避免空頭市場中的重大回撤。對於重視風險調整後報酬的投資人（每位認真的投資人都應如此），配對交易提供了一個極具吸引力的收益特徵。
 
-**Risk-Adjusted Returns:** Because pair trading hedges away market risk, the returns tend to be more consistent and less volatile than directional strategies. While you may not capture the huge gains of a bull market, you also avoid the devastating drawdowns of a bear market. For investors who care about risk-adjusted returns (and every serious investor should), pair trading offers an attractive profile.
+**可轉移的技能：** 配對交易所學到的分析技術可以應用於金融的許多其他領域。相關性分析幫助你理解投資組合的分散化。共整合被應用於固定收益相對價值交易、貨幣配對交易和商品價差交易。均值回歸的概念廣泛出現於量化金融中，從統計套利到選擇權定價均有其蹤影。掌握配對交易能為你提供一套遠超這單一策略的工具箱。
 
-**Transferable Skills:** The analytical techniques you learn in pair trading transfer to many other areas of finance. Correlation analysis helps you understand portfolio diversification. Cointegration is used in fixed income relative value trading, currency pair trading, and commodity spread trading. Mean reversion concepts appear throughout quantitative finance, from statistical arbitrage to options pricing. Mastering pair trading gives you a toolkit that extends far beyond this single strategy.
+**專業相關性：** 配對交易及其更精密的表親——統計套利，是量化避險基金和自營交易公司最常用的策略之一。若你考慮在量化金融領域發展，理解配對交易是基礎功課。即便在基本面投資中，相對價值的概念——問的是「股票A相對於股票B是否便宜」，而非「股票A是否絕對便宜」——也是核心分析技能。
 
-**Professional Relevance:** Pair trading and its more sophisticated cousin, statistical arbitrage, are among the most common strategies used by quantitative hedge funds and proprietary trading firms. If you are considering a career in quantitative finance, understanding pair trading is foundational. Even in fundamental investing, the concept of relative value, asking whether Stock A is cheap relative to Stock B rather than cheap in absolute terms, is a core analytical skill.
-
-In this lesson, we will cover the conceptual framework of relative value, how to identify suitable pairs, the statistical tools used to evaluate pairs, the mechanics of executing pair trades, and the risks and limitations of the strategy.
+在本課中，我們將涵蓋相對價值的概念框架、如何找出合適的配對、評估配對所使用的統計工具、執行配對交易的操作機制，以及這項策略的風險與侷限。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的事
 
-#### The Concept of Relative Value
+#### 相對價值的概念
 
-Most investors think in absolute terms. "Is Apple cheap?" "Is the market overvalued?" These are absolute value questions. Pair trading is built on relative value thinking: "Is Apple cheap RELATIVE TO Microsoft?"
-
-```
-ABSOLUTE vs. RELATIVE VALUE:
-
-  ABSOLUTE VALUE (traditional investing):
-  +----------------------------------------------------------+
-  | Question: "Is AAPL undervalued?"                          |
-  | Method:   Analyze AAPL's fundamentals, DCF, comps        |
-  | Risk:     Market crash drags AAPL down regardless         |
-  | Result:   You can be RIGHT about AAPL but still LOSE     |
-  |           money if the whole market falls                  |
-  +----------------------------------------------------------+
-
-  RELATIVE VALUE (pair trading):
-  +----------------------------------------------------------+
-  | Question: "Is AAPL cheap relative to MSFT?"               |
-  | Method:   Compare their price ratio or spread over time   |
-  | Risk:     Relationship between the two stocks breaks down |
-  | Result:   Market crash affects BOTH stocks, so the        |
-  |           relative position is largely unaffected          |
-  +----------------------------------------------------------+
-
-  VISUAL EXAMPLE:
-
-  Market crashes 20%:
-  
-  Absolute Value Investor:
-  Long AAPL only:  AAPL drops 18%  ->  Loss: -18%
-  
-  Pair Trader:
-  Long AAPL:       AAPL drops 18%  ->  Loss: -18%
-  Short MSFT:      MSFT drops 22%  ->  Gain: +22%
-                                       Net:  + 4%
-  
-  The pair trader PROFITED in a crash because AAPL
-  fell less than MSFT, confirming the relative value thesis.
-```
-
-#### What Makes a Good Pair?
-
-Not every two stocks make a good pair. The ideal pair has specific characteristics that make the strategy reliable:
+大多數投資人以絕對方式思考。「蘋果公司便宜嗎？」「市場被高估了嗎？」這些都是絕對價值問題。配對交易建立在相對價值思維上：「蘋果公司相對於微軟便宜嗎？」
 
 ```
-CRITERIA FOR A GOOD PAIR:
+絕對價值 vs. 相對價值：
 
-  1. SAME SECTOR / INDUSTRY
+  絕對價值（傳統投資）：
   +----------------------------------------------------------+
-  | Stocks in the same industry are affected by the same      |
-  | forces: regulations, commodity prices, consumer trends.   |
-  | This ensures they move together in general, making the    |
-  | strategy sector-neutral.                                  |
+  | 問題：「AAPL是否被低估？」                                |
+  | 方法：分析AAPL基本面、DCF、可比公司分析                   |
+  | 風險：市場崩盤無論如何都會拖累AAPL                        |
+  | 結果：你對AAPL的判斷可能是對的，但若整體市場下跌，         |
+  |       你仍然會虧損                                        |
+  +----------------------------------------------------------+
+
+  相對價值（配對交易）：
+  +----------------------------------------------------------+
+  | 問題：「AAPL相對於MSFT是否便宜？」                        |
+  | 方法：比較兩者的價格比率或價差隨時間的變化               |
+  | 風險：兩檔股票之間的關係瓦解                              |
+  | 結果：市場崩盤對兩檔股票都有影響，因此相對部位            |
+  |       基本不受影響                                        |
+  +----------------------------------------------------------+
+
+  具體範例：
+
+  市場崩跌20%：
+  
+  絕對價值投資人：
+  只做多AAPL：  AAPL下跌18%  ->  損失：-18%
+  
+  配對交易者：
+  做多AAPL：    AAPL下跌18%  ->  損失：-18%
+  放空MSFT：    MSFT下跌22%  ->  獲利：+22%
+                                   淨損益：+4%
+  
+  配對交易者在崩盤中獲利，因為AAPL跌幅小於MSFT，
+  印證了相對價值的論點。
+```
+
+#### 什麼是好的配對？
+
+並非任意兩檔股票都能組成好的配對。理想的配對具備特定特徵，讓策略更為可靠：
+
+```
+好配對的篩選條件：
+
+  1. 同類股／同產業
+  +----------------------------------------------------------+
+  | 同產業的股票受相同力量影響：法規、原物料價格、           |
+  | 消費趨勢。這確保它們在整體上同向波動，讓策略             |
+  | 達到類股中性。                                           |
   |                                                           |
-  | Good:  Coca-Cola (KO) and PepsiCo (PEP)                 |
-  | Good:  Exxon (XOM) and Chevron (CVX)                     |
-  | Bad:   Apple (AAPL) and ExxonMobil (XOM)                 |
+  | 好的配對：可口可樂（KO）與百事可樂（PEP）               |
+  | 好的配對：埃克森美孚（XOM）與雪佛龍（CVX）              |
+  | 不好的配對：蘋果（AAPL）與埃克森美孚（XOM）             |
   +----------------------------------------------------------+
 
-  2. HIGH HISTORICAL CORRELATION
+  2. 高歷史相關性
   +----------------------------------------------------------+
-  | The two stocks should have moved together historically.   |
-  | Correlation measures the degree to which two stocks       |
-  | move in the same direction.                               |
+  | 兩檔股票在歷史上應該同向波動。相關性衡量兩檔股票         |
+  | 朝同方向移動的程度。                                     |
   |                                                           |
-  | Correlation ranges from -1.0 to +1.0:                    |
-  |   +1.0 = perfect positive (move in lockstep)             |
-  |   +0.0 = no relationship                                 |
-  |   -1.0 = perfect negative (move opposite)                |
+  | 相關性範圍從-1.0到+1.0：                                 |
+  |   +1.0 = 完全正相關（同步移動）                         |
+  |   +0.0 = 無關係                                          |
+  |   -1.0 = 完全負相關（反向移動）                         |
   |                                                           |
-  | For pair trading, look for correlation > 0.80             |
+  | 配對交易建議尋找相關性 > 0.80 的組合                     |
   +----------------------------------------------------------+
 
-  3. SIMILAR BUSINESS MODEL AND SIZE
+  3. 類似的商業模式與規模
   +----------------------------------------------------------+
-  | Companies should be comparable in terms of:               |
-  | - Market capitalization (both large-cap, or both mid-cap) |
-  | - Revenue model (both subscription, both advertising)     |
-  | - Geographic exposure (both domestic, both global)        |
-  | - Growth profile (both mature, or both high-growth)       |
-  +----------------------------------------------------------+
-
-  4. MEAN-REVERTING SPREAD
-  +----------------------------------------------------------+
-  | The price ratio or spread between the two stocks should   |
-  | tend to revert to a historical average. When it deviates, |
-  | it should come back. This is testable statistically.      |
+  | 公司在以下方面應具可比性：                               |
+  | - 市值（同為大型股，或同為中型股）                       |
+  | - 營收模式（同為訂閱制，或同為廣告模式）                 |
+  | - 地理曝險（同為國內，或同為全球）                       |
+  | - 成長特徵（同為成熟型，或同為高成長型）                 |
   +----------------------------------------------------------+
 
-  5. COINTEGRATION (the gold standard)
+  4. 均值回歸的價差
   +----------------------------------------------------------+
-  | Cointegration is a statistical property that means two    |
-  | series share a long-run equilibrium relationship.         |
-  | Even if each stock wanders randomly on its own, the       |
-  | DIFFERENCE between them is stationary (mean-reverting).   |
-  | This is stronger than correlation and more reliable.      |
+  | 兩檔股票的價格比率或價差應傾向回歸歷史平均值。           |
+  | 當它偏離時，應會回來。這可以用統計方法驗證。             |
+  +----------------------------------------------------------+
+
+  5. 共整合（黃金標準）
+  +----------------------------------------------------------+
+  | 共整合是一種統計特性，意指兩個時間序列共享長期           |
+  | 均衡關係。即使每檔股票單獨來看都是隨機漫步，             |
+  | 它們之間的差值卻是平穩的（均值回歸）。                   |
+  | 這比相關性更強，也更可靠。                               |
   +----------------------------------------------------------+
 ```
 
-#### Classic Pair Examples
+#### 經典配對範例
 
 ```
-WELL-KNOWN TRADING PAIRS:
+廣為人知的交易配對：
 
-  BEVERAGES:
+  飲料類：
   +-------------------+-------------------+
-  | Coca-Cola (KO)    | PepsiCo (PEP)     |
-  | Both global       | Both global        |
-  | beverage leaders   | beverage leaders  |
-  | Similar margins   | Similar margins    |
-  | Correlation: ~0.85| over 20+ years    |
-  +-------------------+-------------------+
-
-  ENERGY:
-  +-------------------+-------------------+
-  | ExxonMobil (XOM)  | Chevron (CVX)     |
-  | #1 US oil major   | #2 US oil major   |
-  | Similar exposure   | Similar exposure  |
-  | to oil prices     | to oil prices      |
-  | Correlation: ~0.90|                    |
+  | 可口可樂（KO）    | 百事可樂（PEP）   |
+  | 全球飲料龍頭       | 全球飲料龍頭      |
+  | 相似毛利率         | 相似毛利率        |
+  | 相關性：約0.85    | 持續20年以上      |
   +-------------------+-------------------+
 
-  TECHNOLOGY:
+  能源類：
   +-------------------+-------------------+
-  | Visa (V)          | Mastercard (MA)   |
-  | Payment network   | Payment network    |
-  | Duopoly           | Duopoly            |
-  | Similar growth    | Similar growth     |
-  | Correlation: ~0.92|                    |
-  +-------------------+-------------------+
-
-  FINANCIALS:
-  +-------------------+-------------------+
-  | Goldman Sachs (GS)| Morgan Stanley(MS)|
-  | Investment bank   | Investment bank    |
-  | Similar business  | Similar business   |
-  | mix               | mix                |
-  | Correlation: ~0.88|                    |
+  | 埃克森美孚（XOM） | 雪佛龍（CVX）    |
+  | 美國第一石油巨頭   | 美國第二石油巨頭  |
+  | 相似的油價曝險     | 相似的油價曝險    |
+  | 相關性：約0.90    |                   |
   +-------------------+-------------------+
 
-  HOME IMPROVEMENT:
+  科技類：
   +-------------------+-------------------+
-  | Home Depot (HD)   | Lowe's (LOW)      |
-  | #1 home improve.  | #2 home improve.  |
-  | Same customers    | Same customers     |
-  | Same drivers      | Same drivers       |
-  | Correlation: ~0.87|                    |
+  | Visa（V）         | 萬事達卡（MA）   |
+  | 支付網路           | 支付網路          |
+  | 雙頭壟斷           | 雙頭壟斷          |
+  | 相似成長率         | 相似成長率        |
+  | 相關性：約0.92    |                   |
+  +-------------------+-------------------+
+
+  金融類：
+  +-------------------+-------------------+
+  | 高盛（GS）        | 摩根士丹利（MS） |
+  | 投資銀行           | 投資銀行          |
+  | 相似業務組合       | 相似業務組合      |
+  | 相關性：約0.88    |                   |
+  +-------------------+-------------------+
+
+  家居改善類：
+  +-------------------+-------------------+
+  | 家得寶（HD）      | 勞氏（LOW）      |
+  | 第一大家居改善商   | 第二大家居改善商  |
+  | 相同客群           | 相同客群          |
+  | 相同驅動因素       | 相同驅動因素      |
+  | 相關性：約0.87    |                   |
   +-------------------+-------------------+
 ```
 
-#### Correlation vs. Cointegration
+#### 相關性 vs. 共整合
 
-This distinction is crucial and often misunderstood. Many beginners equate correlation with suitability for pair trading. This is a mistake.
+這個區別至關重要，卻常被誤解。許多初學者把相關性等同於配對交易的適用性，這是個錯誤。
 
 ```
-CORRELATION vs. COINTEGRATION:
+相關性 vs. 共整合：
 
-  CORRELATION:
-  Measures whether two stocks move in the SAME DIRECTION.
-  Two stocks can be highly correlated but NOT mean-reverting.
+  相關性：
+  衡量兩檔股票是否朝同一方向移動。
+  兩檔股票可以高度相關，但並不具備均值回歸特性。
   
-  Example of HIGH CORRELATION but NO COINTEGRATION:
+  高相關性但無共整合的範例：
   
-  Price
-  $200 |          Stock A  /
-       |                 /  /  Stock B
+  股價
+  $200 |          股票A  /
+       |                 /  /  股票B
   $150 |              /  /
        |           /  /
   $100 |        /  /
        |     /  /
   $ 50 |  /  /
        |/  /
-       +--|------|------|------|----->  Time
-       Year 1   Year 2  Year 3  Year 4
+       +--|------|------|------|----->  時間
+       第1年   第2年   第3年   第4年
   
-  Both go up together (correlated = 0.95).
-  But the GAP between them keeps GROWING.
-  The spread does NOT revert to a mean.
-  BAD for pair trading.
+  兩者同步上漲（相關性 = 0.95）。
+  但兩者之間的差距持續擴大。
+  價差並未回歸均值。
+  不適合配對交易。
 
 
-  COINTEGRATION:
-  Measures whether the SPREAD between two stocks is stable.
-  The spread may deviate temporarily, but it always comes back.
+  共整合：
+  衡量兩檔股票之間的價差是否穩定。
+  價差可能暫時偏離，但總會回歸。
   
-  Example of COINTEGRATED pair:
+  共整合配對的範例：
   
-  Price
+  股價
   $160 |    A         A    A          A
        |   / \  B    / \  / \   B    / \
   $140 |  /   \/\  /    \/   \ / \  /   \
        | / B    \/B         B\/   \/     B
   $120 |/                                 \
-       +--|------|------|------|------|----->  Time
-       Year 1   Year 2  Year 3  Year 4 Year 5
+       +--|------|------|------|------|----->  時間
+       第1年   第2年   第3年   第4年   第5年
   
-  Stocks A and B weave around each other.
-  Sometimes A is ahead, sometimes B is ahead.
-  But the spread between them is STABLE.
-  When they diverge, they converge back.
-  GOOD for pair trading.
+  股票A與B相互交織。
+  有時A領先，有時B領先。
+  但兩者之間的價差保持穩定。
+  每次偏離，都會再度收斂。
+  適合配對交易。
 
 
-  KEY INSIGHT:
+  核心洞察：
   +----------------------------------------------------------+
-  | Correlation tells you if two stocks move in the same      |
-  | direction. Cointegration tells you if the DISTANCE        |
-  | between them is stable. For pair trading, cointegration   |
-  | is what matters.                                          |
+  | 相關性告訴你兩檔股票是否朝同方向移動。共整合告訴你     |
+  | 兩者之間的距離是否穩定。對配對交易而言，重要的是        |
+  | 共整合。                                                  |
   |                                                           |
-  | Analogy: Two dogs on leashes held by one owner.           |
-  | The dogs may wander left and right (not perfectly         |
-  | correlated in their moment-to-moment steps), but the      |
-  | leash keeps them from getting too far apart. The leash    |
-  | is cointegration.                                         |
+  | 比喻：兩隻由同一主人牽著的狗。狗可能左右亂跑            |
+  | （在瞬間的每一步上不完全相關），但繩子讓它們            |
+  | 不會離太遠。繩子就是共整合。                             |
   +----------------------------------------------------------+
 ```
 
-#### Testing for Cointegration
+#### 共整合檢定
 
-The standard test for cointegration in pair trading is the Augmented Dickey-Fuller (ADF) test, also known as the Engle-Granger two-step method:
-
-```
-TESTING FOR COINTEGRATION - Two-Step Process:
-
-  STEP 1: Calculate the spread (or ratio)
-  +----------------------------------------------------------+
-  | Spread = Price_A - (beta x Price_B) - alpha               |
-  |                                                           |
-  | Where beta is the hedge ratio from linear regression:     |
-  | Price_A = alpha + beta x Price_B + residuals              |
-  |                                                           |
-  | The residuals ARE the spread.                             |
-  +----------------------------------------------------------+
-
-  STEP 2: Test if the spread is stationary (ADF test)
-  +----------------------------------------------------------+
-  | Apply the Augmented Dickey-Fuller test to the residuals.  |
-  | If p-value < 0.05, the spread is stationary              |
-  | (mean-reverting), and the pair is cointegrated.           |
-  |                                                           |
-  | H0 (null): Spread has a unit root (not stationary)        |
-  | H1 (alternative): Spread is stationary (mean-reverting)   |
-  |                                                           |
-  | If we reject H0 (p < 0.05), the pair is cointegrated.    |
-  +----------------------------------------------------------+
-
-  PRACTICAL INTERPRETATION:
-
-  ADF Test Result          Pair Trading Suitability
-  ==================       ========================
-  p-value < 0.01           Strong cointegration. Excellent pair.
-  p-value 0.01 - 0.05      Moderate cointegration. Good pair.
-  p-value 0.05 - 0.10      Weak cointegration. Use with caution.
-  p-value > 0.10           Not cointegrated. Avoid this pair.
-
-  EXAMPLE:
-  
-  Run regression:  KO_price = 0.52 + 1.12 x PEP_price + residuals
-  
-  ADF test on residuals:
-  Test statistic: -3.42
-  p-value: 0.009
-  
-  Conclusion: p-value < 0.01, so KO and PEP are cointegrated.
-  The spread between them is mean-reverting.
-  This is a valid pair for trading.
-```
-
-#### The Price Ratio and Spread
-
-There are two main ways to measure the relationship between a pair of stocks:
+配對交易中最標準的共整合檢定是擴增迪基-富勒（ADF）檢定，也稱為恩格-格蘭傑兩步驟法：
 
 ```
-TWO APPROACHES TO PAIR MEASUREMENT:
+共整合檢定——兩步驟流程：
 
-  1. PRICE RATIO METHOD
+  步驟一：計算價差（或比率）
   +----------------------------------------------------------+
-  | Ratio = Price_A / Price_B                                 |
+  | 價差 = 股價_A - (貝塔 × 股價_B) - 截距                  |
   |                                                           |
-  | Example: KO at $60, PEP at $170                          |
-  | Ratio = 60 / 170 = 0.353                                 |
+  | 其中貝塔是線性迴歸得出的避險比率：                       |
+  | 股價_A = 截距 + 貝塔 × 股價_B + 殘差                    |
   |                                                           |
-  | If historical average ratio is 0.370, KO is relatively   |
-  | cheap vs. PEP (ratio below average).                     |
-  | Trade: Buy KO, Short PEP.                                |
+  | 殘差即為價差。                                           |
   +----------------------------------------------------------+
 
-  Price Ratio Chart (KO/PEP):
+  步驟二：檢定價差是否平穩（ADF檢定）
+  +----------------------------------------------------------+
+  | 對殘差進行擴增迪基-富勒檢定。                           |
+  | 若p值 < 0.05，則價差是平穩的（均值回歸），               |
+  | 代表這對配對具有共整合關係。                             |
+  |                                                           |
+  | H0（虛無假設）：價差有單位根（非平穩）                  |
+  | H1（對立假設）：價差平穩（均值回歸）                    |
+  |                                                           |
+  | 若我們拒絕H0（p < 0.05），則該配對具有共整合關係。       |
+  +----------------------------------------------------------+
+
+  實務解讀：
+
+  ADF檢定結果              配對交易適用性
+  ==================        ========================
+  p值 < 0.01               共整合強。優秀配對。
+  p值 0.01 - 0.05          共整合中等。良好配對。
+  p值 0.05 - 0.10          共整合偏弱。謹慎使用。
+  p值 > 0.10               無共整合。避免此配對。
+
+  範例：
+  
+  執行迴歸：  KO股價 = 0.52 + 1.12 × PEP股價 + 殘差
+  
+  對殘差進行ADF檢定：
+  檢定統計量：-3.42
+  p值：0.009
+  
+  結論：p值 < 0.01，KO與PEP具有共整合關係。
+  兩者之間的價差具備均值回歸特性。
+  這是有效的交易配對。
+```
+
+#### 價格比率與價差
+
+衡量一對股票關係有兩種主要方式：
+
+```
+配對衡量的兩種方法：
+
+  1. 價格比率法
+  +----------------------------------------------------------+
+  | 比率 = 股價_A / 股價_B                                   |
+  |                                                           |
+  | 範例：KO為$60，PEP為$170                                 |
+  | 比率 = 60 / 170 = 0.353                                  |
+  |                                                           |
+  | 若歷史平均比率為0.370，KO相對於PEP較便宜                 |
+  | （比率低於平均值）。                                      |
+  | 交易：買進KO，放空PEP。                                  |
+  +----------------------------------------------------------+
+
+  價格比率圖（KO/PEP）：
   
   0.42 |
        |      *
@@ -324,941 +311,925 @@ TWO APPROACHES TO PAIR MEASUREMENT:
        |    *   *
   0.38 |   *     *            *
        |  *       *          * *
-  0.36 |--*--------*--mean--*---*----------  <- Historical Mean
+  0.36 |--*--------*--均值--*---*----------  <- 歷史均值
        |            *      *     *
   0.34 |             *    *       *    *
        |              *  *         *  * *
-  0.32 |               **          **   *  <- Current (below mean)
+  0.32 |               **          **   *  <- 目前值（低於均值）
        |                                    
   0.30 +--|----|----|----|----|----|----|-->
-          J    F    M    A    M    J    J
+          一月  二月  三月  四月  五月  六月  七月
   
-  Signal: Ratio below mean -> Buy KO, Short PEP
+  訊號：比率低於均值 -> 買進KO，放空PEP
 
 
-  2. SPREAD METHOD (using hedge ratio)
+  2. 價差法（使用避險比率）
   +----------------------------------------------------------+
-  | Spread = Price_A - (hedge_ratio x Price_B)                |
+  | 價差 = 股價_A - (避險比率 × 股價_B)                      |
   |                                                           |
-  | Hedge ratio from regression: beta = 0.35                  |
-  | Spread = KO - (0.35 x PEP) = 60 - (0.35 x 170) = 0.50  |
+  | 迴歸求得的避險比率：貝塔 = 0.35                          |
+  | 價差 = KO - (0.35 × PEP) = 60 - (0.35 × 170) = 0.50   |
   |                                                           |
-  | If mean spread is 2.00, current spread of 0.50 is below  |
-  | average. KO is cheap relative to PEP.                     |
-  | Trade: Buy KO, Short PEP.                                |
+  | 若平均價差為2.00，目前價差0.50低於平均值。               |
+  | KO相對於PEP偏便宜。                                      |
+  | 交易：買進KO，放空PEP。                                  |
   +----------------------------------------------------------+
 
-  WHICH METHOD TO USE?
+  選用哪種方法？
   +----------------------------------------------------------+
-  | Ratio method: Simpler, intuitive, works for stable pairs. |
-  | Spread method: More rigorous, accounts for the hedge      |
-  |   ratio, better for pairs with different volatilities.    |
-  | Most quantitative traders use the spread method.          |
+  | 比率法：簡單直觀，適用於穩定配對。                       |
+  | 價差法：更嚴謹，考量避險比率，更適合波動性不同的配對。  |
+  | 大多數量化交易者使用價差法。                             |
   +----------------------------------------------------------+
 ```
 
-#### Z-Score: The Trading Signal
+#### Z分數：交易訊號
 
-The z-score standardizes the spread so you can compare deviations across different pairs and time periods:
+Z分數將價差標準化，讓你能跨不同配對和時間段比較偏離程度：
 
 ```
-Z-SCORE CALCULATION:
+Z分數計算：
 
-  Z-score = (Current Spread - Mean Spread) / Std Dev of Spread
+  Z分數 = （目前價差 - 平均價差）/ 價差標準差
 
-  Example:
-  Current spread:     0.50
-  Historical mean:    2.00
-  Standard deviation: 0.80
+  範例：
+  目前價差：     0.50
+  歷史均值：     2.00
+  標準差：       0.80
   
-  Z-score = (0.50 - 2.00) / 0.80 = -1.875
+  Z分數 = (0.50 - 2.00) / 0.80 = -1.875
 
-  INTERPRETATION:
-  The spread is 1.875 standard deviations BELOW its mean.
-  This means KO is unusually cheap relative to PEP.
+  解讀：
+  價差低於均值1.875個標準差。
+  這意味著KO相對於PEP異常便宜。
 
 
-  Z-SCORE TRADING SIGNALS:
+  Z分數交易訊號：
 
-  Z-score
-  +3.0 |                                    <- Extreme (short A, long B)
+  Z分數
+  +3.0 |                                    <- 極端（放空A，做多B）
        |
-  +2.0 |-------- SELL SIGNAL --------        <- Enter short A, long B
+  +2.0 |-------- 賣出訊號 --------           <- 進場：放空A，做多B
        |
   +1.0 |
        |
-   0.0 |=============== MEAN ===============  <- Fair value
+   0.0 |=============== 均值 ===============  <- 合理價值
        |
   -1.0 |
        |
-  -2.0 |-------- BUY SIGNAL ---------        <- Enter long A, short B
+  -2.0 |-------- 買進訊號 ---------          <- 進場：做多A，放空B
        |
-  -3.0 |                                    <- Extreme (long A, short B)
+  -3.0 |                                    <- 極端（做多A，放空B）
 
 
-  STANDARD TRADING RULES:
+  標準交易規則：
 
   +----------------------------------------------------------+
-  | ENTRY SIGNALS:                                            |
+  | 進場訊號：                                               |
   |                                                           |
-  | Z-score < -2.0:  Buy Stock A, Short Stock B              |
-  |   (A is cheap relative to B)                             |
+  | Z分數 < -2.0：買進股票A，放空股票B                      |
+  |   （A相對於B偏便宜）                                    |
   |                                                           |
-  | Z-score > +2.0:  Short Stock A, Buy Stock B              |
-  |   (A is expensive relative to B)                         |
+  | Z分數 > +2.0：放空股票A，買進股票B                      |
+  |   （A相對於B偏貴）                                      |
   |                                                           |
-  | EXIT SIGNALS:                                             |
+  | 出場訊號：                                               |
   |                                                           |
-  | Z-score returns to 0:  Close both positions              |
-  |   (Spread has reverted to the mean)                      |
+  | Z分數回歸0：平倉兩個部位                                |
+  |   （價差已回歸均值）                                    |
   |                                                           |
-  | STOP-LOSS:                                                |
+  | 停損：                                                   |
   |                                                           |
-  | Z-score exceeds +/- 4.0:  Close positions, take loss     |
-  |   (Relationship may have broken down)                     |
+  | Z分數超過 +/- 4.0：平倉，承擔損失                       |
+  |   （兩者關係可能已瓦解）                                |
   +----------------------------------------------------------+
 ```
 
-#### How a Pair Trade Works: Complete Example
+#### 配對交易操作完整範例
 
 ```
-PAIR TRADE WALKTHROUGH: Coca-Cola (KO) vs. PepsiCo (PEP)
+配對交易完整示範：可口可樂（KO）vs. 百事可樂（PEP）
 
-  SETUP (based on historical analysis):
+  設定（基於歷史分析）：
   +----------------------------------------------------------+
-  | Pair: KO / PEP                                           |
-  | Correlation: 0.87                                         |
-  | Cointegration p-value: 0.008 (strongly cointegrated)      |
-  | Hedge ratio (beta): 0.35                                  |
-  | Mean spread: 2.00                                         |
-  | Spread std dev: 0.80                                      |
-  | Lookback period: 252 trading days (1 year)                |
+  | 配對：KO / PEP                                           |
+  | 相關性：0.87                                             |
+  | 共整合p值：0.008（強共整合）                             |
+  | 避險比率（貝塔）：0.35                                   |
+  | 平均價差：2.00                                           |
+  | 價差標準差：0.80                                         |
+  | 回顧期間：252個交易日（1年）                             |
   +----------------------------------------------------------+
 
-  DAY 1: SIGNAL DETECTED
+  第1天：偵測到訊號
   +----------------------------------------------------------+
-  | KO price: $58.00                                          |
-  | PEP price: $172.00                                        |
-  | Spread = 58 - (0.35 x 172) = 58 - 60.20 = -2.20         |
-  | Z-score = (-2.20 - 2.00) / 0.80 = -5.25                 |
+  | KO股價：$58.00                                           |
+  | PEP股價：$172.00                                         |
+  | 價差 = 58 - (0.35 × 172) = 58 - 60.20 = -2.20          |
+  | Z分數 = (-2.20 - 2.00) / 0.80 = -5.25                  |
   |                                                           |
-  | Wait - that seems extreme. Let us use a more realistic   |
-  | example with actual reasonable numbers.                    |
+  | 等等——這個數字似乎有點極端。讓我們用                    |
+  | 更合理的數字重新示範。                                   |
   +----------------------------------------------------------+
 
-  Let us recalibrate with cleaner numbers:
+  以更清晰的數字重新校準：
 
-  HISTORICAL ANALYSIS:
+  歷史分析：
   +----------------------------------------------------------+
-  | Price ratio (KO/PEP) over last year:                     |
-  | Mean ratio: 0.370                                         |
-  | Std deviation: 0.015                                      |
+  | 過去一年的價格比率（KO/PEP）：                          |
+  | 均值比率：0.370                                          |
+  | 標準差：0.015                                            |
   +----------------------------------------------------------+
 
-  DAY 1: ENTRY SIGNAL
+  第1天：進場訊號
   +----------------------------------------------------------+
-  | KO price: $57.00                                          |
-  | PEP price: $172.00                                        |
-  | Current ratio: 57 / 172 = 0.3314                         |
-  | Z-score = (0.3314 - 0.370) / 0.015 = -2.57              |
+  | KO股價：$57.00                                           |
+  | PEP股價：$172.00                                         |
+  | 目前比率：57 / 172 = 0.3314                              |
+  | Z分數 = (0.3314 - 0.370) / 0.015 = -2.57               |
   |                                                           |
-  | Signal: Z-score < -2.0                                   |
-  | KO is cheap relative to PEP.                             |
-  | Action: BUY KO, SHORT PEP                                |
+  | 訊號：Z分數 < -2.0                                      |
+  | KO相對於PEP偏便宜。                                     |
+  | 操作：買進KO，放空PEP                                   |
   +----------------------------------------------------------+
   
-  POSITION SIZING (dollar-neutral):
+  部位規模（美元中性）：
   +----------------------------------------------------------+
-  | Total capital allocated: $50,000                          |
+  | 配置總資本：$50,000                                      |
   |                                                           |
-  | Long leg:  Buy 439 shares of KO at $57.00 = $25,023     |
-  | Short leg: Short 145 shares of PEP at $172 = $24,940    |
+  | 多頭部位：以$57.00買進439股KO = $25,023                 |
+  | 空頭部位：以$172放空145股PEP = $24,940                  |
   |                                                           |
-  | Approximately equal dollar amounts on each side.          |
-  | Net market exposure: ~$83 (essentially zero).             |
+  | 兩端美元金額約略相等。                                   |
+  | 淨市場曝險：約$83（基本等於零）。                       |
   +----------------------------------------------------------+
 
-  DAY 15: CONVERGENCE BEGINS
+  第15天：開始收斂
   +----------------------------------------------------------+
-  | KO rises to $59.50  (+4.4%)                              |
-  | PEP drops to $169.00 (-1.7%)                             |
-  | Current ratio: 59.50 / 169.00 = 0.3521                  |
-  | Z-score = (0.3521 - 0.370) / 0.015 = -1.19              |
+  | KO上漲至$59.50  (+4.4%)                                 |
+  | PEP下跌至$169.00 (-1.7%)                                |
+  | 目前比率：59.50 / 169.00 = 0.3521                       |
+  | Z分數 = (0.3521 - 0.370) / 0.015 = -1.19               |
   |                                                           |
-  | The spread is converging toward the mean.                 |
-  | Hold the position.                                        |
+  | 價差正在向均值收斂。                                     |
+  | 繼續持有部位。                                           |
   +----------------------------------------------------------+
   
-  P&L so far:
+  目前損益：
   +----------------------------------------------------------+
-  | KO long:  439 x ($59.50 - $57.00) = +$1,097.50          |
-  | PEP short: 145 x ($172.00 - $169.00) = +$435.00         |
-  | Total P&L: +$1,532.50 (+3.07% on $50,000)               |
-  | Both sides are profitable!                                |
+  | KO做多：439 × ($59.50 - $57.00) = +$1,097.50           |
+  | PEP放空：145 × ($172.00 - $169.00) = +$435.00          |
+  | 總損益：+$1,532.50（占$50,000的+3.07%）                 |
+  | 兩端部位皆獲利！                                         |
   +----------------------------------------------------------+
 
-  DAY 28: EXIT SIGNAL
+  第28天：出場訊號
   +----------------------------------------------------------+
-  | KO at $61.00  (+7.0% from entry)                         |
-  | PEP at $166.00 (-3.5% from entry)                        |
-  | Current ratio: 61.00 / 166.00 = 0.3675                  |
-  | Z-score = (0.3675 - 0.370) / 0.015 = -0.17              |
+  | KO為$61.00  （自進場上漲+7.0%）                         |
+  | PEP為$166.00 （自進場下跌-3.5%）                        |
+  | 目前比率：61.00 / 166.00 = 0.3675                       |
+  | Z分數 = (0.3675 - 0.370) / 0.015 = -0.17               |
   |                                                           |
-  | Z-score near zero = spread has reverted to mean.          |
-  | Action: CLOSE BOTH POSITIONS                             |
+  | Z分數接近零 = 價差已回歸均值。                           |
+  | 操作：平倉兩個部位                                       |
   +----------------------------------------------------------+
   
-  FINAL P&L:
+  最終損益：
   +----------------------------------------------------------+
-  | KO long:  439 x ($61.00 - $57.00) = +$1,756.00          |
-  | PEP short: 145 x ($172.00 - $166.00) = +$870.00         |
-  | Total P&L: +$2,626.00                                    |
-  | Return: +$2,626 / $50,000 = +5.25% in 28 days           |
-  | Annualized: ~68% (though not every trade works this well)|
+  | KO做多：439 × ($61.00 - $57.00) = +$1,756.00           |
+  | PEP放空：145 × ($172.00 - $166.00) = +$870.00          |
+  | 總損益：+$2,626.00                                       |
+  | 報酬：+$2,626 / $50,000 = +5.25%，歷時28天              |
+  | 年化報酬：約68%（但並非每筆交易都能如此順利）            |
   +----------------------------------------------------------+
 ```
 
-#### Dollar-Neutral vs. Beta-Neutral
+#### 美元中性 vs. 貝塔中性
 
-When sizing a pair trade, there are two main approaches:
+在配對交易的部位規模上，有兩種主要方法：
 
 ```
-POSITION SIZING APPROACHES:
+部位規模方法：
 
-  1. DOLLAR-NEUTRAL
+  1. 美元中性
   +----------------------------------------------------------+
-  | Equal dollar amounts on each side.                        |
-  | Long $25,000 of Stock A, Short $25,000 of Stock B.       |
+  | 兩端投入相等的美元金額。                                 |
+  | 做多股票A $25,000，放空股票B $25,000。                   |
   |                                                           |
-  | Simple to implement, but not perfect if the two stocks    |
-  | have different betas (market sensitivities).              |
+  | 執行簡單，但若兩檔股票的貝塔（市場敏感度）不同，         |
+  | 則不夠完美。                                             |
   |                                                           |
-  | Example: If Stock A has beta 1.2 and Stock B has beta 0.8|
-  | Your $25K long has effective market exposure of $30K      |
-  | Your $25K short has effective market exposure of -$20K    |
-  | Net market exposure: $10K (not truly neutral)             |
-  +----------------------------------------------------------+
-
-  2. BETA-NEUTRAL
-  +----------------------------------------------------------+
-  | Adjust position sizes so that market exposure cancels.    |
-  |                                                           |
-  | Formula:                                                  |
-  | Short $ = Long $ x (Beta_Long / Beta_Short)              |
-  |                                                           |
-  | Example: Stock A beta = 1.2, Stock B beta = 0.8          |
-  | If long $25,000 of A:                                    |
-  | Short $ = $25,000 x (1.2 / 0.8) = $37,500 of B         |
-  |                                                           |
-  | Market exposure check:                                    |
-  | Long: $25,000 x 1.2 = $30,000 effective                 |
-  | Short: -$37,500 x 0.8 = -$30,000 effective              |
-  | Net: $0 (truly market neutral)                           |
+  | 範例：若股票A貝塔為1.2，股票B貝塔為0.8                  |
+  | 你的$25K多頭實際市場曝險為$30K                           |
+  | 你的$25K空頭實際市場曝險為-$20K                          |
+  | 淨市場曝險：$10K（並非真正中性）                        |
   +----------------------------------------------------------+
 
-  COMPARISON:
+  2. 貝塔中性
+  +----------------------------------------------------------+
+  | 調整部位規模，使市場曝險相互抵銷。                       |
+  |                                                           |
+  | 公式：                                                   |
+  | 空頭金額 = 多頭金額 × (多頭貝塔 / 空頭貝塔)             |
+  |                                                           |
+  | 範例：股票A貝塔 = 1.2，股票B貝塔 = 0.8                  |
+  | 若做多股票A $25,000：                                    |
+  | 空頭金額 = $25,000 × (1.2 / 0.8) = $37,500股票B        |
+  |                                                           |
+  | 市場曝險驗算：                                           |
+  | 多頭：$25,000 × 1.2 = $30,000有效曝險                   |
+  | 空頭：-$37,500 × 0.8 = -$30,000有效曝險                 |
+  | 淨值：$0（真正的市場中性）                               |
+  +----------------------------------------------------------+
+
+  比較：
   
-  Method           Simplicity    Market Neutrality    Best For
-  ==============   ==========    =================    =========
-  Dollar-neutral   High          Approximate          Same-sector
-                                                      similar-beta
-                                                      pairs
-  Beta-neutral     Medium        Precise              Cross-sector
-                                                      or different-
-                                                      beta pairs
+  方法             簡易程度    市場中性程度    最適用情境
+  ==============   ========    ============    ============
+  美元中性         高          近似            同類股、
+                                               相似貝塔
+                                               的配對
+  貝塔中性         中          精確            跨類股或
+                                               貝塔差異
+                                               較大的配對
 ```
 
-#### The Sector-Neutral Approach
+#### 類股中性方法
 
-Pair trading is most reliable when both stocks are in the same sector. Here is why:
+在同一類股內進行配對交易最為可靠。原因如下：
 
 ```
-WHY SECTOR NEUTRALITY MATTERS:
+類股中性的重要性：
 
-  SAME-SECTOR PAIR (KO vs PEP):
+  同類股配對（KO vs PEP）：
   +----------------------------------------------------------+
-  | Shared risk factors:                                      |
-  | - Consumer spending trends              HEDGED            |
-  | - Sugar / commodity prices              HEDGED            |
-  | - FDA regulations on beverages          HEDGED            |
-  | - Retail distribution changes           HEDGED            |
-  | - Weather affecting sales               HEDGED            |
+  | 共同風險因子：                                           |
+  | - 消費者支出趨勢                        已對沖           |
+  | - 糖/原物料價格                         已對沖           |
+  | - FDA對飲料的法規                       已對沖           |
+  | - 零售通路變化                          已對沖           |
+  | - 影響銷售的天氣因素                    已對沖           |
   |                                                           |
-  | Company-specific factors:                                 |
-  | - KO launches successful new product    CAPTURED          |
-  | - PEP has management misstep            CAPTURED          |
+  | 公司特定因子：                                           |
+  | - KO成功推出新產品                      可捕捉           |
+  | - PEP管理層失誤                         可捕捉           |
   |                                                           |
-  | Result: You profit from company-specific differences      |
-  | while sector-wide risks cancel out.                       |
-  +----------------------------------------------------------+
-
-  CROSS-SECTOR PAIR (AAPL vs XOM):
-  +----------------------------------------------------------+
-  | Different risk factors:                                   |
-  | - Tech sector: AI hype, regulation      NOT HEDGED        |
-  | - Energy sector: Oil prices, OPEC       NOT HEDGED        |
-  | - Consumer electronics demand           NOT HEDGED        |
-  | - Drilling permits, ESG pressure        NOT HEDGED        |
-  |                                                           |
-  | Result: You are exposed to sector rotation risk.          |
-  | If tech rallies and energy drops, both sides of           |
-  | your trade move against you simultaneously.               |
+  | 結果：你從公司特定差異中獲利，          |
+  | 同時類股整體風險相互抵銷。              |
   +----------------------------------------------------------+
 
-  SECTOR-NEUTRAL PAIR CATEGORIES:
+  跨類股配對（AAPL vs XOM）：
+  +----------------------------------------------------------+
+  | 不同的風險因子：                                         |
+  | - 科技類股：AI熱潮、法規                未對沖           |
+  | - 能源類股：油價、石油輸出國組織        未對沖           |
+  | - 消費性電子需求                        未對沖           |
+  | - 鑽探許可、ESG壓力                    未對沖           |
+  |                                                           |
+  | 結果：你面臨類股輪動風險。若科技上漲而能源下跌，        |
+  | 你的交易兩端同時逆勢，損失將同時發生。                  |
+  +----------------------------------------------------------+
+
+  類股中性配對分類：
 
   +-------------------+----------------------------------------+
-  | Sector            | Example Pairs                          |
+  | 類股              | 配對範例                               |
   +-------------------+----------------------------------------+
-  | Beverages         | KO/PEP                                |
-  | Oil Majors        | XOM/CVX                               |
-  | Banks             | JPM/BAC, GS/MS                        |
-  | Payment Networks  | V/MA                                  |
-  | Home Improvement  | HD/LOW                                |
-  | Semiconductors    | AMD/INTC, AVGO/TXN                    |
-  | Airlines          | DAL/UAL                               |
-  | Telecom           | VZ/T                                  |
-  | Pharma            | JNJ/PFE, MRK/ABBV                     |
-  | E-commerce        | AMZN/SHOP (different sizes, careful)   |
-  | Autos             | GM/F                                  |
-  | Fast Food         | MCD/YUM                               |
+  | 飲料              | KO/PEP                                |
+  | 石油巨頭          | XOM/CVX                               |
+  | 銀行              | JPM/BAC、GS/MS                        |
+  | 支付網路          | V/MA                                  |
+  | 家居改善          | HD/LOW                                |
+  | 半導體            | AMD/INTC、AVGO/TXN                    |
+  | 航空              | DAL/UAL                               |
+  | 電信              | VZ/T                                  |
+  | 製藥              | JNJ/PFE、MRK/ABBV                     |
+  | 電商              | AMZN/SHOP（規模差異較大，需謹慎）     |
+  | 汽車              | GM/F                                  |
+  | 速食              | MCD/YUM                               |
   +-------------------+----------------------------------------+
 ```
 
-#### Mean Reversion and Half-Life
+#### 均值回歸與半衰期
 
-The half-life of a spread tells you how long it typically takes for the spread to revert halfway to its mean. This is crucial for determining your trading horizon:
+價差的半衰期告訴你價差回歸到均值一半所需的典型時間，對於確定交易持有期至關重要：
 
 ```
-HALF-LIFE OF MEAN REVERSION:
+均值回歸的半衰期：
 
-  CONCEPT:
-  If the spread is currently 2 standard deviations from the mean,
-  the half-life tells you how many days (on average) it takes
-  for the spread to move back to 1 standard deviation from the mean.
+  概念：
+  若價差目前偏離均值2個標準差，半衰期告訴你平均需要
+  多少天，價差才能回到偏離均值1個標準差的位置。
 
-  CALCULATION:
-  From the Ornstein-Uhlenbeck process:
+  計算方式：
+  來自奧恩斯坦-烏倫貝克過程：
   
-  Spread_t = Spread_{t-1} x theta + noise
+  價差_t = 價差_{t-1} × theta + 雜訊
   
-  Where theta is the mean reversion speed.
-  Half-life = -ln(2) / ln(theta)
+  其中theta是均值回歸速度。
+  半衰期 = -ln(2) / ln(theta)
 
-  INTERPRETATION:
+  解讀：
   +-------------------+------------------------------------------+
-  | Half-life         | Trading Implication                      |
+  | 半衰期            | 交易含義                                 |
   +-------------------+------------------------------------------+
-  | < 5 days          | Very fast reversion. Day-trading pairs.  |
-  |                   | May be too fast for retail traders.       |
+  | < 5天            | 回歸速度極快。日内交易配對。              |
+  |                   | 對散戶可能太快。                         |
   +-------------------+------------------------------------------+
-  | 5 - 15 days       | Fast reversion. Swing trading pairs.     |
-  |                   | Good for active retail traders.           |
+  | 5 - 15天          | 回歸速度快。波段交易配對。               |
+  |                   | 適合積極型散戶。                         |
   +-------------------+------------------------------------------+
-  | 15 - 30 days      | Moderate reversion. Position trading.    |
-  |                   | Ideal for most pair traders.              |
+  | 15 - 30天         | 回歸速度中等。部位交易。                 |
+  |                   | 多數配對交易者的理想選擇。               |
   +-------------------+------------------------------------------+
-  | 30 - 60 days      | Slow reversion. Longer-term pairs.       |
-  |                   | Requires patience and capital.            |
+  | 30 - 60天         | 回歸速度慢。較長期的配對。               |
+  |                   | 需要耐心和資本。                         |
   +-------------------+------------------------------------------+
-  | > 60 days         | Very slow. May not be reliably           |
-  |                   | mean-reverting. Avoid for pair trading.   |
+  | > 60天            | 速度極慢。可能不是可靠的均值回歸配對。   |
+  |                   | 避免用於配對交易。                       |
   +-------------------+------------------------------------------+
 
-  VISUAL:
+  示意圖：
 
-  Spread
-  Deviation
+  價差
+  偏離程度
        |
   +2 SD|     *
        |    * *
   +1 SD|   *   *
-       |  *     *         <- Half-life: time to go from +2 SD to +1 SD
-   Mean|--*------*--------*---*---*---*-----
+       |  *     *         <- 半衰期：從+2 SD回到+1 SD所需時間
+   均值|--*------*--------*---*---*---*-----
        |          *      *
   -1 SD|           *    *
        |            *  *
   -2 SD|             **
        +--|----|----|----|----|----|----|-->
-          0    5   10   15   20   25   30  Days
+          0    5   10   15   20   25   30  天
           
-          |<-Half-life->|
-          (example: ~8 days)
+          |<--半衰期-->|
+          （範例：約8天）
 ```
 
-#### Practical Implementation Steps
+#### 實務操作步驟
 
 ```
-PAIR TRADING IMPLEMENTATION CHECKLIST:
+配對交易實施清單：
 
-  STEP 1: UNIVERSE SELECTION
+  步驟一：篩選股票池
   +----------------------------------------------------------+
-  | - Start with stocks in the same sector/industry           |
-  | - Filter for sufficient liquidity (avg volume > 1M)       |
-  | - Filter for sufficient market cap (> $5B)                |
-  | - Remove stocks with pending mergers or special events    |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 2: CORRELATION SCREENING
-  +----------------------------------------------------------+
-  | - Calculate pairwise correlations for all pairs           |
-  | - Filter for correlation > 0.80 over trailing 252 days   |
-  | - This reduces the universe dramatically                  |
+  | - 從同一類股/產業的股票開始                              |
+  | - 篩選足夠流動性（日均成交量 > 100萬股）                 |
+  | - 篩選足夠市值（ > 50億美元）                            |
+  | - 排除有待定併購案或特殊事件的股票                       |
   +----------------------------------------------------------+
        |
        v
-  STEP 3: COINTEGRATION TESTING
+  步驟二：相關性篩選
   +----------------------------------------------------------+
-  | - Run Engle-Granger test on remaining pairs               |
-  | - Keep only pairs with p-value < 0.05                     |
-  | - Calculate hedge ratios from the regression              |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 4: HALF-LIFE CALCULATION
-  +----------------------------------------------------------+
-  | - Estimate mean reversion speed for each pair             |
-  | - Filter for half-life between 5 and 60 days              |
-  | - Shorter = faster trades; longer = more patience needed  |
+  | - 計算所有配對的兩兩相關性                               |
+  | - 篩選過去252個交易日相關性 > 0.80 的配對                |
+  | - 這將大幅縮小股票池                                     |
   +----------------------------------------------------------+
        |
        v
-  STEP 5: Z-SCORE MONITORING
+  步驟三：共整合檢定
   +----------------------------------------------------------+
-  | - Calculate rolling z-score for each validated pair       |
-  | - Set entry threshold (typically z = +/- 2.0)            |
-  | - Set exit threshold (typically z = 0)                    |
-  | - Set stop-loss threshold (typically z = +/- 4.0)        |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 6: TRADE EXECUTION
-  +----------------------------------------------------------+
-  | - When z-score triggers entry, execute both legs          |
-  |   simultaneously                                          |
-  | - Use dollar-neutral or beta-neutral sizing               |
-  | - Monitor daily for exit or stop-loss signals             |
+  | - 對剩餘配對進行恩格-格蘭傑檢定                         |
+  | - 只保留p值 < 0.05 的配對                               |
+  | - 從迴歸中計算避險比率                                   |
   +----------------------------------------------------------+
        |
        v
-  STEP 7: PERFORMANCE TRACKING
+  步驟四：計算半衰期
   +----------------------------------------------------------+
-  | - Track P&L for each pair separately                      |
-  | - Monitor correlation and cointegration stability         |
-  | - Re-run statistical tests monthly                        |
-  | - Replace pairs that lose cointegration                   |
+  | - 估算每個配對的均值回歸速度                             |
+  | - 篩選半衰期在5至60天之間的配對                         |
+  | - 較短 = 交易更快；較長 = 需要更多耐心                   |
+  +----------------------------------------------------------+
+       |
+       v
+  步驟五：監控Z分數
+  +----------------------------------------------------------+
+  | - 計算每個有效配對的滾動Z分數                           |
+  | - 設定進場門檻（通常Z = +/- 2.0）                       |
+  | - 設定出場門檻（通常Z = 0）                              |
+  | - 設定停損門檻（通常Z = +/- 4.0）                       |
+  +----------------------------------------------------------+
+       |
+       v
+  步驟六：執行交易
+  +----------------------------------------------------------+
+  | - 當Z分數觸發進場，同步執行兩端部位                     |
+  | - 使用美元中性或貝塔中性規模                             |
+  | - 每日監控出場或停損訊號                                 |
+  +----------------------------------------------------------+
+       |
+       v
+  步驟七：追蹤績效
+  +----------------------------------------------------------+
+  | - 分別追蹤每個配對的損益                                 |
+  | - 監控相關性和共整合的穩定性                             |
+  | - 每月重新執行統計檢定                                   |
+  | - 替換失去共整合關係的配對                               |
   +----------------------------------------------------------+
 ```
 
-#### Risks of Pair Trading
+#### 配對交易的風險
 
 ```
-PAIR TRADING RISKS:
+配對交易的風險：
 
-  1. DIVERGENCE RISK (Relationship Breakdown)
+  1. 發散風險（關係瓦解）
   +----------------------------------------------------------+
-  | The historical relationship between two stocks can break. |
+  | 兩檔股票之間的歷史關係可能永久改變。                     |
   |                                                           |
-  | Causes:                                                   |
-  | - One company gets acquired                               |
-  | - Regulatory change affects one but not the other         |
-  | - Major product failure or breakthrough at one company    |
-  | - Accounting fraud at one company                         |
+  | 可能原因：                                               |
+  | - 其中一家公司被收購                                     |
+  | - 法規變化只影響其中一方                                 |
+  | - 其中一家公司產品重大失敗或突破                         |
+  | - 其中一家公司的會計舞弊                                 |
   |                                                           |
-  | Example: Pair trading Lehman Brothers vs Goldman Sachs    |
-  | would have been catastrophic in 2008 when Lehman went     |
-  | bankrupt while Goldman survived.                          |
+  | 範例：配對交易雷曼兄弟與高盛，在2008年雷曼破產            |
+  | 而高盛存活時將造成災難性損失。                           |
   |                                                           |
-  | Mitigation: Use stop-losses (exit if z-score > 4),       |
-  | diversify across multiple pairs, re-test cointegration    |
-  | regularly.                                                |
+  | 因應之道：使用停損（Z分數超過4時出場），                 |
+  | 分散於多個配對，定期重新檢驗共整合關係。                 |
   +----------------------------------------------------------+
 
-  2. EXECUTION RISK (Leg Risk)
+  2. 執行風險（單腿風險）
   +----------------------------------------------------------+
-  | A pair trade requires executing two trades simultaneously.|
-  | If one leg fills and the other does not (or fills at a    |
-  | different price), you have unintended directional         |
-  | exposure.                                                 |
+  | 配對交易需要同時執行兩筆交易。若一端成交而另一端         |
+  | 未成交（或以不同價格成交），你將面臨意外的方向性曝險。  |
   |                                                           |
-  | Example: You enter a buy order for KO and a short order  |
-  | for PEP. KO fills instantly but PEP has a short-sale     |
-  | restriction and your short does not execute. Now you are  |
-  | just long KO with no hedge.                              |
+  | 範例：你下單買進KO並放空PEP。KO立即成交，但PEP           |
+  | 面臨放空限制，你的空頭單未能執行。此時你只是做多KO，     |
+  | 沒有任何避險。                                           |
   |                                                           |
-  | Mitigation: Use liquid stocks, trade during high-volume   |
-  | periods, consider using limit orders with contingencies.  |
+  | 因應之道：只對流動性高的股票進行配對交易，在成交量       |
+  | 大的時段交易，考慮使用帶有條件的限價單。                 |
   +----------------------------------------------------------+
 
-  3. MODEL RISK (Statistical False Positives)
+  3. 模型風險（統計假陽性）
   +----------------------------------------------------------+
-  | Past cointegration does not guarantee future              |
-  | cointegration. Statistical tests can produce false        |
-  | positives, especially when testing many pairs.            |
+  | 過去的共整合關係不保證未來的共整合。統計檢定可能         |
+  | 產生假陽性，在同時檢定多個配對時尤其如此。              |
   |                                                           |
-  | If you test 1,000 pairs, ~50 will appear cointegrated    |
-  | at the 5% significance level purely by chance.            |
+  | 若你檢定1,000個配對，純粹偶然地，約有50個會在          |
+  | 5%顯著水準下呈現共整合。                                 |
   |                                                           |
-  | Mitigation: Require economic rationale (same sector),     |
-  | use out-of-sample testing, apply multiple testing         |
-  | corrections (Bonferroni, Holm).                           |
+  | 因應之道：要求有經濟合理性（同類股），使用樣本外         |
+  | 測試，應用多重檢定校正（邦費羅尼法、霍姆法）。          |
   +----------------------------------------------------------+
 
-  4. REGIME CHANGE RISK
+  4. 制度轉換風險
   +----------------------------------------------------------+
-  | Market regimes shift. A pair that was stable for years    |
-  | may break during a crisis or structural change.           |
+  | 市場制度會改變。穩定多年的配對可能在危機或結構性         |
+  | 變化中瓦解。                                             |
   |                                                           |
-  | Example: Before 2020, airlines traded in relatively      |
-  | tight pairs. COVID-19 caused divergences that no          |
-  | historical model anticipated.                             |
+  | 範例：2020年以前，航空公司在相對穩定的配對中交易。       |
+  | 新冠疫情造成的發散是任何歷史模型都無法預期的。           |
   |                                                           |
-  | Mitigation: Use adaptive lookback windows, monitor        |
-  | macro conditions, reduce position sizes during            |
-  | uncertainty.                                              |
+  | 因應之道：使用自適應回顧視窗，監控總體環境，             |
+  | 在不確定性高的時期縮小部位規模。                         |
   +----------------------------------------------------------+
 
-  5. CROWDING RISK
+  5. 過度擁擠風險
   +----------------------------------------------------------+
-  | Popular pairs attract many traders. When everyone trades  |
-  | the same pair, the edge diminishes. Worse, if many        |
-  | traders exit simultaneously, the convergence trade can    |
-  | reverse violently.                                        |
+  | 熱門配對會吸引大量交易者。當所有人都交易同一個配對，     |
+  | 優勢就會縮小。更糟的是，若大量交易者同時退出，           |
+  | 收斂交易可能劇烈反轉。                                   |
   |                                                           |
-  | The "quant meltdown" of August 2007 saw many quant        |
-  | funds using similar pair trading strategies suffer         |
-  | simultaneous losses as they all tried to exit at once.    |
+  | 2007年8月的「量化崩潰」見證了許多使用類似配對交易策略   |
+  | 的量化基金在大家試圖同時退出時，遭受同步大幅損失。       |
   |                                                           |
-  | Mitigation: Trade less obvious pairs, diversify across    |
-  | many pairs, avoid the most popular pair trades.           |
+  | 因應之道：交易較不顯眼的配對，分散於多個配對，           |
+  | 避免最熱門的配對交易。                                   |
   +----------------------------------------------------------+
 
-  6. SHORT SELLING CONSTRAINTS
+  6. 放空限制
   +----------------------------------------------------------+
-  | The short leg of a pair trade faces all the risks we      |
-  | discussed in Week 13: borrow costs, share recall,         |
-  | short-sale restrictions, and dividend payments.           |
+  | 配對交易的空頭部位面臨我們在第13週討論的所有風險：       |
+  | 融券成本、股份被召回、放空限制和股利給付。               |
   |                                                           |
-  | Mitigation: Only pair trade liquid, easy-to-borrow        |
-  | stocks. Factor borrow costs into expected returns.        |
+  | 因應之道：只對流動性高、易於借券的股票進行配對交易。     |
+  | 在預期報酬中計入融券成本。                               |
   +----------------------------------------------------------+
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "If two stocks are highly correlated, they make a good pair."**
+**迷思一：「若兩檔股票高度相關，它們就是好的配對。」**
 
-This is the most common and most dangerous misconception in pair trading. Correlation measures whether two stocks move in the same direction. Cointegration measures whether the spread between them is stable and mean-reverting. Two stocks can have a correlation of 0.95 and still be terrible for pair trading if their spread drifts over time. Amazon and Google were highly correlated for years, but they are not cointegrated because their growth rates and valuations diverge persistently. Always test for cointegration, not just correlation.
+這是配對交易中最常見且最危險的迷思。相關性衡量兩檔股票是否朝同方向移動；共整合衡量它們之間的價差是否穩定且具均值回歸特性。兩檔股票的相關性可達0.95，但若它們的價差隨時間漂移，依然是糟糕的配對選擇。亞馬遜和谷歌多年來高度相關，但它們並不具共整合關係，因為它們的成長速度和估值持續出現差異。務必檢驗共整合，而非僅看相關性。
 
-**Misconception 2: "Pair trading is risk-free because you are long and short at the same time."**
+**迷思二：「配對交易因為同時做多做空，所以沒有風險。」**
 
-Pair trading eliminates broad market risk (beta), but it does not eliminate stock-specific risk. If the company you are long announces terrible earnings and the company you are short announces great earnings, you lose on both sides of the trade. The relationship between the two stocks can break down permanently due to acquisitions, regulatory changes, or fundamental shifts. Pair trading reduces risk; it does not eliminate it.
+配對交易能消除市場整體風險（貝塔），但並不能消除個股特定風險。若你做多的公司宣布糟糕的盈餘，而你放空的公司宣布亮眼的盈餘，你兩端都會虧損。兩檔股票之間的關係可能因收購、法規變化或基本面轉變而永久瓦解。配對交易降低風險，但並不能消除風險。
 
-**Misconception 3: "The wider the spread divergence, the better the opportunity."**
+**迷思三：「價差偏離越大，機會越好。」**
 
-While a larger divergence (higher z-score) might suggest a bigger profit potential, extreme divergences often signal that the relationship is breaking down rather than presenting an opportunity. A z-score of 5 might mean "incredible bargain" or it might mean "something fundamental has changed and the spread will never revert." This is why stop-losses are essential. Professional pair traders are wary of extreme divergences and investigate the cause before trading.
+雖然更大的偏離（更高的Z分數）可能暗示更大的獲利潛力，但極端偏離往往是關係瓦解的訊號，而非機會。Z分數5可能意味著「難得的超值機會」，也可能意味著「某些基本面已改變，價差將永遠不會回歸」。這就是停損不可或缺的原因。專業的配對交易者對極端偏離保持警覺，會在進場前先調查原因。
 
-**Misconception 4: "You can pair trade any two stocks in the same sector."**
+**迷思四：「你可以對任意兩檔同類股股票進行配對交易。」**
 
-Same-sector membership is necessary but not sufficient. Ford and Tesla are both in the automotive sector, but they have very different business models, growth profiles, investor bases, and volatility characteristics. A pair trade between them would be unreliable because the factors driving their stock prices are quite different despite sharing a sector classification. The best pairs are companies with truly similar business models, customer bases, and competitive positions.
+同類股是必要條件，但不是充分條件。福特和特斯拉都屬於汽車類股，但它們的商業模式、成長特徵、投資人基礎和波動性特徵截然不同。儘管同屬一個類股分類，驅動其股價的因素差異甚大，兩者間的配對交易並不可靠。最好的配對是商業模式、客戶群和競爭地位真正相似的公司。
 
-**Misconception 5: "Pair trading always profits from mean reversion."**
+**迷思五：「配對交易總能從均值回歸中獲利。」**
 
-Pair trading profits from mean reversion of the spread, but mean reversion is a statistical tendency, not a guarantee. Some trades will hit stop-losses as the spread continues to diverge. Some pairs will lose their cointegration relationship. The edge in pair trading comes from the fact that, over many trades, the spread reverts to the mean more often than it does not. Individual trades can and will lose money.
+配對交易從價差的均值回歸中獲利，但均值回歸是一種統計傾向，而非保證。有些交易會觸及停損，因為價差持續發散；有些配對會失去共整合關係。配對交易的優勢在於，經過多筆交易，價差回歸均值的頻率高於不回歸的頻率。但個別交易確實會、也必然會虧損。
 
-**Misconception 6: "Pair trading was killed by quant funds and algorithms."**
+**迷思六：「配對交易已被量化基金和演算法所消滅。」**
 
-It is true that the proliferation of quantitative trading has made simple pair trading less profitable than it was in the 1990s. The obvious pairs and simple z-score signals have been arbitraged by faster, more sophisticated players. However, pair trading remains viable for several reasons: new pairs form as industries evolve, the strategy works across asset classes beyond equities, and fundamental-driven pair trading (combining statistical signals with fundamental analysis) still offers an edge that pure statistical approaches miss. The strategy has evolved, not died.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much capital do I need to start pair trading?**
-
-A: Because you need to hold both a long and a short position simultaneously, pair trading requires more capital than simple stock buying. A single pair trade with roughly $12,500 on each side requires about $25,000 total. However, because the short side uses margin, you typically need an approved margin account with at least $25,000 (the Pattern Day Trader minimum in the US, if you plan to trade frequently). For diversification across multiple pairs, $50,000-$100,000 is more realistic. Some brokers allow smaller pair trades, but tight position sizing becomes difficult below $25,000.
-
-**Q2: How many pairs should I trade simultaneously?**
-
-A: Diversification across pairs is important because individual pairs can break down. Professional pair traders typically hold 10-30 pairs simultaneously, which provides sufficient diversification. For individual investors, 5-10 pairs is more manageable and still provides reasonable diversification. The key is that each pair should be somewhat independent, trading KO/PEP and MCD/YUM is fine because they are in different sub-industries (beverages vs restaurants), but trading XOM/CVX and XOM/COP is less diversified because XOM appears in both pairs.
-
-**Q3: How often do I need to rebalance or adjust pair trade positions?**
-
-A: There are three triggers for adjusting positions. First, when the z-score reaches your exit threshold (typically 0), you close the trade. Second, when the z-score reaches your stop-loss threshold (typically plus or minus 4), you close the trade to limit losses. Third, if the dollar amounts of the two legs have drifted significantly (say, more than 10% apart), you should rebalance to maintain approximately equal dollar exposure. Most pair traders check their positions daily and rebalance weekly if needed.
-
-**Q4: Can I pair trade ETFs instead of individual stocks?**
-
-A: Yes, and this is often easier for beginners. ETF pairs like XLF/XLK (Financials vs Technology), GLD/SLV (Gold vs Silver), or EEM/EFA (Emerging Markets vs Developed International) can be used for pair trading. ETFs offer higher liquidity, lower single-stock risk, and easy borrowing for short selling. The tradeoff is that ETF pairs tend to revert more slowly because sector-level divergences are smoother than individual stock divergences.
-
-**Q5: What lookback period should I use for calculating the spread mean and standard deviation?**
-
-A: There is no universally correct answer, but 60 to 252 trading days (roughly 3 months to 1 year) is the most common range. Shorter lookback periods are more responsive to recent changes but more susceptible to noise. Longer lookback periods are more stable but may include outdated data. A common approach is to use a 126-day (6-month) rolling window for z-score calculation and test cointegration on 1-2 years of data. Some traders use an exponentially weighted moving average to give more weight to recent observations.
-
-**Q6: What happens if one stock in my pair gets acquired?**
-
-A: This is one of the biggest risks in pair trading. If you are long Stock A and short Stock B, and Stock B receives a takeover bid at a 30% premium, Stock B jumps 30% overnight and you lose 30% on your short leg while Stock A may barely move. This scenario can result in a large loss on what appeared to be a hedged position. Mitigation strategies include: avoiding stocks with active takeover rumors, keeping individual pair sizes small (2-5% of capital), and monitoring M&A activity in the sectors you trade.
-
-**Q7: Is pair trading the same as statistical arbitrage?**
-
-A: Pair trading is the simplest form of statistical arbitrage (stat arb). Traditional pair trading involves a single pair of stocks. Statistical arbitrage extends this to trading many pairs simultaneously, using more sophisticated models, incorporating multiple factors beyond just price relationships, and often trading hundreds or thousands of pairs with automated execution. Think of pair trading as one-dimensional stat arb. Professional stat arb funds use the same core concepts (cointegration, mean reversion, z-scores) but apply them at much larger scale with more complexity.
-
-**Q8: Can pair trading work in a trending market?**
-
-A: Yes, and this is one of its advantages. Because pair trading is market-neutral (or approximately so), the strategy is largely indifferent to whether the market is trending up, down, or sideways. In a bull market, both stocks tend to rise, and you profit if your long rises more than your short. In a bear market, both stocks tend to fall, and you profit if your short falls more than your long. The strategy struggles when sector-specific factors cause one stock to decouple from its pair, regardless of overall market direction.
-
-**Q9: How do taxes work for pair trading?**
-
-A: Pair trading creates both capital gains and losses within the same trade. The long leg generates a capital gain or loss when closed, and the short leg generates a short-term capital gain or loss (short positions are always taxed as short-term, regardless of holding period). Because you frequently open and close positions, most pair trading profits are taxed at short-term capital gains rates. The wash sale rule can also be a factor if you re-enter a pair within 30 days of closing it at a loss. Consult a tax professional familiar with active trading strategies.
-
-**Q10: What software or tools do I need for pair trading?**
-
-A: At minimum, you need: (1) a brokerage account with margin and short-selling capabilities, (2) historical price data for your target stocks (freely available from Yahoo Finance or your broker), and (3) a spreadsheet or programming environment to calculate correlations, run cointegration tests, and compute z-scores. Python with libraries like pandas, statsmodels, and numpy is the most popular choice. R is also widely used. Some brokers offer built-in pair trading analytics. For beginners, a spreadsheet with basic formulas is sufficient to get started, though you will eventually want to automate the analysis.
+量化交易的普及確實使簡單的配對交易比1990年代獲利更少。最顯而易見的配對和簡單的Z分數訊號已被更快速、更精密的玩家套利殆盡。然而，配對交易仍有其可行性，原因如下：隨著產業演化，新的配對不斷形成；該策略可應用於股票以外的資產類別；結合基本面分析的配對交易（將統計訊號與基本面分析結合）仍提供純統計方法所欠缺的優勢。這個策略是在進化，而非消亡。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Animated intro with show logo. Text: "Week 14: Pair Trading Fundamentals - Level 2: Intermediate"]
+**Q1：我需要多少資本才能開始配對交易？**
 
-**Alex:** Welcome back. Last week we covered long and short trading, and I mentioned that this week we would explore one of the most elegant strategies in quantitative finance. Today we are talking about pair trading.
+A：由於你需要同時持有做多和放空部位，配對交易所需資本多於單純買股。一筆兩端各約$12,500的配對交易，需要約$25,000的總資本。然而，由於空頭部位使用保證金，你通常需要一個批准的保證金帳戶，且至少有$25,000（如果你打算頻繁交易，這是美國「模式當日沖銷交易者」的最低要求）。若要分散於多個配對，$50,000至$100,000較為實際。部分券商允許較小的配對交易，但在$25,000以下，嚴謹的部位規模控制會變得困難。
 
-**Sam:** Pair trading. I have heard hedge fund managers talk about this, but it always seemed like something only quants with PhD degrees could do.
+**Q2：我應該同時交易多少個配對？**
 
-**Alex:** That is a common perception, but the core concept is actually very intuitive. Let me start with an analogy. Imagine you are at a racetrack and you have two horses from the same stable. Horse A and Horse B. They have similar training, similar records, and they usually finish close together.
+A：跨配對的分散化很重要，因為個別配對可能瓦解。專業的配對交易者通常同時持有10至30個配對，提供足夠的分散化。對個人投資者而言，5至10個配對更易管理，仍能提供合理的分散效果。關鍵是每個配對應具備一定的獨立性——同時交易KO/PEP和MCD/YUM是可以的，因為它們屬於不同的子產業（飲料vs.餐飲），但同時交易XOM/CVX和XOM/COP分散效果較差，因為XOM出現在兩個配對中。
 
-**Sam:** OK, I am following.
+**Q3：我需要多頻繁地再平衡或調整配對交易部位？**
 
-**Alex:** Now, today the odds on Horse A are unusually high, meaning the market thinks Horse A will do poorly. But you know these two horses always finish close together. So instead of betting on which horse will win the race, you bet that the GAP between them will be small. You bet on Horse A to outperform relative to Horse B.
+A：調整部位有三種觸發情境。第一，當Z分數達到你的出場門檻（通常為0）時，平倉交易。第二，當Z分數達到停損門檻（通常為正負4）時，平倉以限制損失。第三，若兩端部位的美元金額出現明顯漂移（例如相差超過10%），你應進行再平衡以維持大致相等的美元曝險。大多數配對交易者每日檢查部位，並視需要每週進行再平衡。
 
-**Sam:** So you are not predicting who wins the race. You are predicting that the gap between them will close.
+**Q4：我可以用指數股票型基金代替個股進行配對交易嗎？**
 
-**Alex:** Exactly. And here is the beautiful part. It does not matter if both horses run fast or both horses run slow. You do not care about the absolute performance. You only care about the relative performance. That is pair trading.
+A：可以，這對初學者來說通常更容易。XLF/XLK（金融vs.科技）、GLD/SLV（黃金vs.白銀）或EEM/EFA（新興市場vs.已開發國際市場）等指數股票型基金配對都可用於配對交易。指數股票型基金流動性更高、個股風險較低，且放空借券更容易。取捨在於，指數股票型基金配對的回歸速度往往較慢，因為類股層面的偏離比個股偏離更為平滑。
 
-[VISUAL: Racetrack animation showing two horses running. Both could be fast or slow, but the bettor only cares about the gap between them. Arrow points to the gap labeled "This is what you trade."]
+**Q5：計算價差均值和標準差應使用什麼回顧期間？**
 
-**Sam:** OK translate that into stocks for me.
+A：沒有放諸四海皆準的答案，但60至252個交易日（約3個月至1年）是最常見的範圍。較短的回顧期間對近期變化較敏感，但更容易受到雜訊干擾。較長的回顧期間較為穩定，但可能包含過時的數據。常見的做法是使用126天（6個月）的滾動窗口計算Z分數，並用1至2年的數據進行共整合檢定。部分交易者使用指數加權移動平均，給予近期觀測值更高的權重。
 
-**Alex:** Let us use a classic example: Coca-Cola and PepsiCo. These two companies are in the same industry, sell similar products, face similar competitive pressures, and their stock prices tend to move together over time. Historically, the ratio of their prices stays within a fairly narrow band.
+**Q6：若我配對中的某檔股票被收購，會發生什麼事？**
 
-[VISUAL: Side-by-side comparison of KO and PEP showing logos, key metrics (similar revenue, similar margins, similar market cap), and a chart of their prices moving roughly together over 5 years]
+A：這是配對交易最大的風險之一。若你做多股票A並放空股票B，而股票B收到溢價30%的收購要約，股票B一夜之間跳漲30%，你的空頭部位損失30%，而股票A可能幾乎沒有動靜。這個情境可能導致看似已對沖的部位遭受重大損失。因應策略包括：避開有積極收購傳言的股票、將個別配對規模控制在資本的2至5%以內，並監控你所交易類股的併購活動。
 
-**Alex:** Now occasionally, something happens that causes one stock to temporarily outperform or underperform the other. Maybe Coca-Cola misses earnings expectations by a penny and the stock drops 3%, while Pepsi is flat. Or maybe Pepsi gets a negative analyst report and drops while Coke holds steady.
+**Q7：配對交易和統計套利是同一件事嗎？**
 
-**Sam:** And a pair trader would see that as an opportunity?
+A：配對交易是統計套利（統計套利）最簡單的形式。傳統配對交易涉及單一的兩股配對。統計套利將其延伸到同時交易多個配對，使用更精密的模型，納入價格關係以外的多個因子，通常以自動化執行的方式交易數百甚至數千個配對。可以把配對交易視為一維的統計套利。專業的統計套利基金使用相同的核心概念（共整合、均值回歸、Z分數），但以更大的規模和更複雜的方式應用。
 
-**Alex:** Exactly. If the ratio between their prices has deviated from its historical average, a pair trader bets that it will revert back to normal. If Coke is temporarily cheap relative to Pepsi, you buy Coke and short Pepsi. If Coke is temporarily expensive relative to Pepsi, you short Coke and buy Pepsi.
+**Q8：配對交易在趨勢行情中能奏效嗎？**
 
-[ANIMATION: Reference animation/week14_pair_trade.py - Animation showing the price ratio of KO/PEP over time as a line chart. The mean ratio is shown as a horizontal dashed line. As the ratio dips below the mean (KO relatively cheap), a "BUY KO / SHORT PEP" signal appears in green. As it rises above the mean, a "SHORT KO / BUY PEP" signal appears in red. The animation then zooms into one trade cycle, showing: entry when the ratio is 2 standard deviations below the mean, the spread gradually converging back to the mean, and exit when the ratio returns to normal. P&L counters update in real-time for both legs of the trade.]
+A：可以，這是它的優勢之一。由於配對交易是市場中性（或近似如此）的策略，它在市場上漲、下跌或橫盤時都基本不受影響。在多頭市場中，兩檔股票都傾向上漲，若你的做多股漲幅大於放空股，你就能獲利。在空頭市場中，兩檔股票都傾向下跌，若你的放空股跌幅大於做多股，你就能獲利。當類股特定因素導致其中一檔股票脫離其配對時，無論整體市場方向如何，這個策略都會面臨挑戰。
 
-**Sam:** And when the ratio comes back to normal, you close both positions and pocket the profit.
+**Q9：配對交易的稅務如何計算？**
 
-**Alex:** Right. And here is why this is so powerful. Notice that you are simultaneously long one stock and short the other. What happens if the entire stock market crashes 20%?
+A：配對交易在同一筆交易中同時產生資本利得和損失。做多部位在平倉時產生資本利得或損失；放空部位則產生短期資本利得或損失（放空部位無論持有多久，一律按短期稅率課稅）。由於你頻繁開倉和平倉，大多數配對交易的獲利以短期資本利得稅率課稅。若你在止損平倉後30天內重新進入相同配對，也可能觸及沖洗交易規則。請諮詢熟悉積極交易策略的稅務專業人士。
 
-**Sam:** Both Coke and Pepsi would drop.
+**Q10：配對交易需要什麼軟體或工具？**
 
-**Alex:** But they would drop by roughly similar amounts because they are in the same industry and affected by the same factors. Your long position loses money, but your short position makes money. They roughly cancel out. Your pair trade is insulated from the market crash.
-
-[VISUAL: Three-panel scenario showing: (1) Market crashes 20%, KO drops 18%, PEP drops 22%. Long KO: -18%, Short PEP: +22%, Net: +4%. (2) Market rallies 15%, KO rises 18%, PEP rises 12%. Long KO: +18%, Short PEP: -12%, Net: +6%. (3) Market flat, KO rises 3%, PEP falls 2%. Long KO: +3%, Short PEP: +2%, Net: +5%.]
-
-**Sam:** So you make money in all three scenarios? That seems too good to be true.
-
-**Alex:** It is not too good to be true, but there are important caveats we will get to. First, let me be clear about what makes a good pair, because not any two stocks will work.
-
-**Sam:** What criteria do you look for?
-
-**Alex:** Four main things. First, same sector or industry. Coca-Cola and Pepsi work because they face the same competitive forces. Apple and ExxonMobil would be a terrible pair because completely different factors drive their prices.
-
-**Sam:** Makes sense. What else?
-
-**Alex:** Second, similar business models and size. You want companies that are genuine competitors. Visa and Mastercard are a great pair because they run nearly identical payment networks. Goldman Sachs and Morgan Stanley work because they are both investment banks of similar scale.
-
-[VISUAL: Grid showing "Good Pairs" with checkmarks (KO/PEP, XOM/CVX, V/MA, HD/LOW, GS/MS) and "Bad Pairs" with X marks (AAPL/XOM, GOOGL/JNJ, TSLA/F)]
-
-**Sam:** What about the third criterion?
-
-**Alex:** Third, high historical correlation. You want stocks that have moved together in the past. A correlation above 0.80 is a good starting point. But here is where I need to introduce a crucial distinction that trips up a lot of people.
-
-**Sam:** What is that?
-
-**Alex:** The difference between correlation and cointegration. This is probably the single most important concept in pair trading, and getting it wrong is the most common reason pair trades fail.
-
-**Sam:** OK. Explain the difference.
-
-**Alex:** Correlation tells you whether two stocks move in the same direction. When one goes up, the other tends to go up. When one goes down, the other tends to go down. High correlation means they move in sync.
-
-**Sam:** That sounds like what you want for pair trading.
-
-**Alex:** It is necessary, but it is not sufficient. Here is why. Imagine two stocks that both go up over time, Stock A going from $50 to $200 and Stock B going from $50 to $100. Their correlation might be 0.95 because they both trend upward together. But the gap between them keeps growing. Stock A outperforms Stock B consistently.
-
-[VISUAL: Chart showing two lines both trending up, but diverging. Line A rises faster than Line B. Correlation shown as 0.95. But the spread between them keeps widening. Label: "High Correlation, NOT Cointegrated"]
-
-**Sam:** So the spread is not stable. It keeps getting bigger.
-
-**Alex:** Exactly. If you had bet on the spread converging, you would have lost money continuously. This is why correlation alone is not enough.
-
-**Alex:** Cointegration is different. It measures whether the spread between two stocks is stable and tends to return to a mean. Two cointegrated stocks might wander apart temporarily, but they always come back together. Like two dogs on leashes held by one person. Each dog might dart left or right, but the leash keeps them from getting too far apart.
-
-**Sam:** That is a great analogy. The leash is the cointegration.
-
-**Alex:** Exactly. When you find a pair of stocks that is cointegrated, you have statistical evidence that their spread is mean-reverting. When it diverges, it tends to come back. That is the foundation of a profitable pair trade.
-
-[VISUAL: Chart showing two lines weaving around each other. Sometimes A is higher, sometimes B is higher, but they keep converging back. The spread oscillates around zero. Label: "Cointegrated: Spread is Mean-Reverting"]
-
-**Sam:** How do you test for cointegration? Do you need a PhD in statistics?
-
-**Alex:** You need a basic understanding of statistics and a tool that can run the test. The most common method is the Augmented Dickey-Fuller test, also called the ADF test. Here is how it works in plain English.
-
-**Alex:** Step one. You calculate the spread between the two stocks using a regression. You run a regression of Stock A's price on Stock B's price, and the residuals from that regression are your spread.
-
-**Sam:** The residuals. So the part of Stock A's price that cannot be explained by Stock B's price.
-
-**Alex:** Exactly. Step two. You run the ADF test on those residuals. The test asks a simple question: does this spread tend to revert to a mean, or does it wander randomly? If the p-value from the test is less than 0.05, you have evidence that the spread is mean-reverting, which means the pair is cointegrated.
-
-[VISUAL: Simple flowchart: "Step 1: Regress Price A on Price B" -> "Get Residuals (Spread)" -> "Step 2: ADF Test on Residuals" -> Decision diamond: "p-value < 0.05?" -> Yes: "Cointegrated - Good Pair" / No: "Not Cointegrated - Avoid"]
-
-**Sam:** That seems manageable. What tools can you use?
-
-**Alex:** Python is the most popular. With the statsmodels library, the cointegration test is literally one line of code. But you can also use R, Excel with add-ins, or even some brokerage platforms that have pair trading analytics built in.
-
-**Sam:** OK so let us say I have found a good pair. The stocks are in the same sector, they are correlated, they are cointegrated. How do I actually trade it?
-
-**Alex:** This is where the z-score comes in. The z-score standardizes the spread so you know exactly how far it has deviated from normal. The formula is: z-score equals the current spread minus the mean spread, divided by the standard deviation of the spread.
-
-**Sam:** So it tells you how many standard deviations the spread is from its average.
-
-**Alex:** Right. And here are the standard trading rules. When the z-score drops below minus 2, it means Stock A is unusually cheap relative to Stock B. You buy A and short B. When the z-score rises above plus 2, Stock A is unusually expensive relative to Stock B. You short A and buy B. When the z-score returns to zero, the spread has reverted to the mean and you close both positions.
-
-[ANIMATION: Reference animation/week14_pair_trade.py - A second animation showing a z-score chart over time. The z-score oscillates between approximately -3 and +3. Horizontal lines mark the entry thresholds at +2 and -2, and the exit level at 0. When the z-score crosses -2 going down, a green "ENTER: Buy A, Short B" flag appears. When it returns to 0, a white "EXIT: Close Both" flag appears. When it crosses +2 going up, a red "ENTER: Short A, Buy B" flag appears. A running P&L tracker shows cumulative profit from completed trades. The animation plays through 4-5 complete trade cycles.]
-
-**Sam:** And if the z-score keeps going further away from zero instead of reverting?
-
-**Alex:** That is your stop-loss scenario. If the z-score exceeds plus or minus 4, it suggests that the historical relationship may be breaking down. Something fundamental has changed. You close the position and take the loss rather than hoping for a reversion that may never come.
-
-**Sam:** Let us walk through a complete trade example.
-
-**Alex:** Let us do it. We will use Visa and Mastercard, one of the best-known pairs on Wall Street.
-
-[VISUAL: Visa and Mastercard logos side by side, with key stats: Both payment network duopolists, Correlation: 0.92, Cointegration p-value: 0.003]
-
-**Alex:** Imagine the historical price ratio of Visa to Mastercard has averaged 0.55 over the past year, with a standard deviation of 0.02. Today, Visa is at $250 and Mastercard is at $490. The current ratio is 250 divided by 490, which equals 0.510.
-
-**Sam:** The ratio is below the average. Visa is cheap relative to Mastercard?
-
-**Alex:** Let us check the z-score. Current ratio 0.510, minus the mean of 0.550, divided by the standard deviation of 0.020. That gives us negative 2.0. We are right at our entry threshold.
-
-**Sam:** So the signal says buy Visa, short Mastercard.
-
-**Alex:** Exactly. Now we need to size the position. We will use dollar-neutral sizing, meaning equal dollar amounts on each side. Let us say we allocate $50,000 total. We put $25,000 into long Visa at $250, buying 100 shares. And we put $25,000 into short Mastercard at $490, shorting 51 shares, which is about $24,990.
-
-[VISUAL: Trade ticket showing: "LONG 100 V @ $250 = $25,000" and "SHORT 51 MA @ $490 = $24,990" with "Net Market Exposure: ~$10 (essentially zero)"]
-
-**Sam:** So we have almost exactly equal dollar amounts on each side. What happens next?
-
-**Alex:** We wait. Over the next few weeks, let us say Visa reports strong results and rises to $262. Mastercard has a mixed quarter and drops to $478. The ratio is now 262 divided by 478, which equals 0.548. The z-score is 0.548 minus 0.550 divided by 0.020, which equals negative 0.1. Essentially zero.
-
-**Sam:** The spread has reverted to the mean. Time to close?
-
-**Alex:** Yes. We sell our 100 shares of Visa at $262, making $12 per share, for a profit of $1,200. We cover our 51 shares of Mastercard at $478, making $12 per share, for a profit of $612. Total profit: $1,812 on a $50,000 position, or 3.6% in a few weeks.
-
-**Sam:** And both sides of the trade were profitable?
-
-**Alex:** In this case, yes. The long went up and the short went down, which is the ideal scenario. But it does not always work that way. Sometimes you make money on one side and lose on the other, but the winning side earns more than the losing side. The key is that the spread converges, not that both legs individually profit.
-
-[VISUAL: P&L breakdown showing: "Long V: +$1,200" (green bar), "Short MA: +$612" (green bar), "Total: +$1,812 (3.6%)" with a note: "Both legs profitable in this case, but only the SPREAD convergence matters"]
-
-**Sam:** What would a losing trade look like?
-
-**Alex:** Great question. Imagine we enter the same trade but instead of converging, the spread diverges further. Maybe Mastercard gets a major partnership announcement that Visa does not get. Mastercard jumps to $520 while Visa barely moves to $252.
-
-**Sam:** So the ratio goes from 0.510 to 252 divided by 520, which is about 0.485. Even further below the mean.
-
-**Alex:** The z-score goes from negative 2.0 to 0.485 minus 0.550 divided by 0.020, which equals negative 3.25. It is moving in the wrong direction. Our long is barely profitable at $200, but our short has lost us: 51 shares times ($520 minus $490) equals $1,530 loss.
-
-**Sam:** Net, we are losing $1,330.
-
-**Alex:** Right. If the z-score hits negative 4.0, we cut the trade. This is where discipline matters. You cannot let a pair trade turn into a thesis trade where you convince yourself it HAS to come back. Sometimes relationships break down.
-
-[VISUAL: Warning graphic showing "Pair Trade Loss Scenario" with a z-score chart diving past -3 toward -4, with a stop-loss line at -4 and text: "When the spread diverges instead of converging, CUT THE TRADE"]
-
-**Sam:** That brings up the question of risk. What are the biggest risks in pair trading?
-
-**Alex:** The number one risk is relationship breakdown, also called divergence risk. The historical relationship between two stocks can change permanently. This is not just theoretical.
-
-**Sam:** Can you give me a real example?
-
-**Alex:** Sure. Imagine you were pair trading two airline stocks in early 2020. Delta and United, for example. They had a strong historical relationship. Then COVID hit. Both stocks crashed, but they did not crash equally. Delta, with its stronger balance sheet, dropped less and recovered faster. United, with more debt and exposure to international travel, dropped more and recovered more slowly. The spread blew out and never fully reverted.
-
-[VISUAL: Chart showing DAL and UAL from 2019-2021. Pre-COVID the ratio is stable. Post-COVID the ratio shifts to a new level and stays there. Label: "Structural break - relationship changed permanently"]
-
-**Sam:** So the cointegration broke down because the underlying business reality changed.
-
-**Alex:** Exactly. COVID was an extreme example, but smaller structural breaks happen regularly. One company gains a new competitive advantage, or loses a major customer, or makes a transformative acquisition. Any of these can break a pair relationship.
-
-**Sam:** How do you protect against that?
-
-**Alex:** Three ways. First, stop-losses. Never let a losing pair trade run indefinitely. If the z-score reaches 4.0, exit. Second, diversification. Trade multiple pairs so that one breakdown does not destroy your portfolio. Third, regular monitoring. Re-run your cointegration tests monthly. If a pair loses its cointegration, stop trading it.
-
-**Sam:** What about the risk of not being able to execute both legs at the same time?
-
-**Alex:** That is called leg risk or execution risk. A pair trade requires two simultaneous trades. If you buy Visa but your short order for Mastercard does not fill, maybe because of a short-sale restriction or a sudden halt in trading, you are left with just a long Visa position with no hedge. That is directional risk, which is exactly what you were trying to avoid.
-
-**Sam:** How do you manage that?
-
-**Alex:** Trade liquid stocks. Large-cap, high-volume stocks like the ones we have been discussing rarely have execution problems. Avoid small or illiquid stocks for pair trading. Also, some brokers offer pair trading order types that execute both legs simultaneously.
-
-**Sam:** Let us talk about how you find pairs in the first place. Do you just look at companies in the same industry and eyeball their charts?
-
-**Alex:** That is how it started. Early pair traders literally looked at charts and said, "These two seem to move together." But today the process is much more systematic.
-
-**Alex:** Step one, define your universe. Maybe it is the S&P 500, or maybe it is all stocks in the Technology sector. Step two, screen for correlation. Calculate pairwise correlations and keep only pairs above 0.80. Step three, test for cointegration. Run the ADF test on the remaining pairs. Step four, calculate the half-life.
-
-**Sam:** Half-life? Like radioactive decay?
-
-**Alex:** Same concept, different application. The half-life tells you how long it takes, on average, for the spread to revert halfway back to the mean. If the spread is 2 standard deviations away, the half-life tells you how many days until it is about 1 standard deviation away.
-
-[VISUAL: Decay curve showing spread deviation over time. Starting at 2 SD, dropping to 1 SD at the "half-life" mark (e.g., 12 days), then continuing to approach 0. Label: "Half-life = ~12 days in this example"]
-
-**Sam:** Why does that matter?
-
-**Alex:** Because it tells you your expected holding period. If the half-life is 5 days, you are looking at a short-term trade. If it is 60 days, you need the patience to hold for two months. Most pair traders prefer half-lives between 10 and 30 days because that balances responsiveness with reliability.
-
-**Sam:** What if the half-life is too long?
-
-**Alex:** Then the spread reverts so slowly that transaction costs, borrow fees, and opportunity cost eat into your profit. A pair with a 200-day half-life might be cointegrated in the statistical sense, but it is not practical for trading.
-
-**Sam:** Makes sense. Now, I have a practical question. How do you size the two legs of a pair trade? You mentioned dollar-neutral earlier.
-
-**Alex:** There are two main approaches. Dollar-neutral means equal dollar amounts on each side. If you put $25,000 long, you put $25,000 short. This is simple and works well when the two stocks have similar volatility and similar beta.
-
-**Sam:** And when they do not?
-
-**Alex:** Then you use beta-neutral sizing. Beta measures how sensitive a stock is to overall market movements. If Stock A has a beta of 1.2 (more volatile than the market) and Stock B has a beta of 0.8 (less volatile than the market), dollar-neutral is not truly market neutral because your long side moves more with the market than your short side.
-
-**Sam:** So you adjust the sizes?
-
-**Alex:** Right. You would short more of Stock B to compensate for the higher beta on your long side. The formula is: short dollars equals long dollars times the long beta divided by the short beta. So if you are long $25,000 with beta 1.2, your short should be $25,000 times 1.2 divided by 0.8, which equals $37,500.
-
-[VISUAL: Scale/balance diagram showing dollar-neutral (unbalanced, tilting toward long side because higher beta) vs beta-neutral (perfectly balanced). Label: "Beta-neutral provides true market neutrality"]
-
-**Sam:** That is more complex but more accurate.
-
-**Alex:** For pairs in the same sector with similar betas, dollar-neutral is usually fine. For pairs with meaningfully different betas, beta-neutral is better.
-
-**Sam:** Let me ask about the quant meltdown you mentioned earlier. What happened in 2007?
-
-**Alex:** This is one of the most important lessons in pair trading history. In August 2007, many quantitative hedge funds, including some of the most sophisticated in the world, suffered enormous losses in a matter of days. The problem was crowding.
-
-**Sam:** Crowding meaning too many funds were trading the same pairs?
-
-**Alex:** Exactly. Many quant funds had discovered the same statistical relationships and were trading the same pairs using the same signals. When one large fund needed to liquidate, it started selling its long positions and covering its shorts. This pushed the spreads in the wrong direction for every other fund holding the same trades.
-
-[VISUAL: Domino effect animation showing Fund A selling, causing spreads to widen, triggering Fund B to sell, causing further widening, triggering Fund C, and so on. Each domino represents a quant fund falling.]
-
-**Alex:** Those other funds then faced margin calls and had to liquidate too, which pushed spreads even wider, triggering more liquidations. It was a cascade. Some quant funds lost 30% or more in a single week.
-
-**Sam:** So the strategy itself was sound, but too many people doing it at once created a fragility?
-
-**Alex:** Precisely. This is one of the fundamental paradoxes of quantitative finance. The more people discover a profitable strategy, the less profitable it becomes, and the more dangerous it becomes in a crisis because everyone exits at the same time.
-
-**Sam:** How do you avoid crowding?
-
-**Alex:** Look for less obvious pairs. Everyone knows about KO/PEP and XOM/CVX. Those are crowded. Look for pairs in less followed sectors or less common combinations that still have economic rationale. Combine statistical signals with fundamental analysis to find pairs that pure quant models might miss.
-
-**Sam:** Can you walk us through what the pair trading research process actually looks like in practice?
-
-**Alex:** Sure. Let us say you want to explore pair trading opportunities in the semiconductor sector. Step one, you list all major semiconductor companies: INTC, AMD, AVGO, TXN, QCOM, NVDA, MRVL, and so on.
-
-**Sam:** That gives you a lot of possible pairs.
-
-**Alex:** Right. With 8 stocks, you have 28 possible pairs. Step two, you pull a year of daily price data for all of them and calculate pairwise correlations. Maybe you find that TXN and AVGO have a correlation of 0.89, while NVDA and INTC have a correlation of only 0.45.
-
-[VISUAL: Correlation matrix heat map for semiconductor stocks, with hot colors (red/orange) for high correlations and cool colors (blue) for low correlations. TXN/AVGO cell highlighted.]
-
-**Sam:** So you filter out the low-correlation pairs?
-
-**Alex:** Yes. You keep only pairs with correlation above 0.80. Maybe that leaves you with 8 pairs out of 28. Step three, you run the cointegration test on each of those 8 pairs. Maybe 3 pass the test with p-values below 0.05.
-
-**Sam:** Now you have 3 potential pairs.
-
-**Alex:** Step four, you calculate the half-life for each. One has a half-life of 8 days, which is nice and fast. Another has a half-life of 22 days, which is moderate. The third has a half-life of 90 days, which is too slow for practical trading. So you drop the third one.
-
-**Sam:** Two pairs remain. And then you start monitoring the z-scores.
-
-**Alex:** Exactly. You calculate rolling z-scores for both pairs and wait for an entry signal. When one pair's z-score crosses plus or minus 2, you enter the trade. You hold until the z-score returns to zero, or you exit at the stop-loss if it crosses plus or minus 4.
-
-**Sam:** This all sounds very systematic. Can it be automated?
-
-**Alex:** Absolutely, and most professional pair traders do automate it. Python is the tool of choice for most people. You can write scripts that download price data, calculate correlations and cointegration, compute z-scores, generate signals, and even execute trades through broker APIs.
-
-**Sam:** Is there an edge left for individual investors, given that hedge funds and algorithms are doing this at massive scale?
-
-**Alex:** That is the right question. The simple, naive version of pair trading, using basic z-scores on the most obvious pairs, has been largely arbitraged away by professionals. But there are still edges available.
-
-**Sam:** Where?
-
-**Alex:** First, fundamental-driven pair trading. Instead of relying solely on statistical signals, combine them with fundamental analysis. If you have deep knowledge of the semiconductor industry and understand why TXN is better positioned than INTC, you can overlay that on the statistical framework and make better pair selections.
-
-**Alex:** Second, event-driven pair trading. Around earnings announcements, one stock in a pair might overreact while the other does not. This creates temporary dislocations that are too brief for large hedge funds to capture but perfect for individual traders.
-
-**Sam:** Because the big funds are too slow?
-
-**Alex:** Not exactly too slow, but trading at their scale, they cannot enter and exit positions in small, illiquid situations quickly enough. An individual trader with a $50,000 position has much more flexibility than a fund trying to deploy $50 million.
-
-**Alex:** Third, less common pairs. Everyone trades KO/PEP. But what about lesser-known pairs in the utility sector, or the REIT sector, or even international pairs? Less attention means more potential opportunity.
-
-[VISUAL: Three boxes showing "Edges for Individual Pair Traders": "1. Fundamental Insight" (brain icon), "2. Event-Driven Timing" (calendar with lightning bolt), "3. Less Crowded Pairs" (magnifying glass on less-known sector)]
-
-**Sam:** This is really fascinating. Before we wrap up, can you give us a quick summary of the key rules for pair trading?
-
-**Alex:** Sure. Rule one: always test for cointegration, not just correlation. Rule two: trade within the same sector to maintain sector neutrality. Rule three: use z-scores for systematic entry and exit signals. Rule four: always use stop-losses. A z-score of 4 is the standard stop. Rule five: diversify across multiple pairs. Rule six: re-test your pairs regularly because relationships change over time. Rule seven: position size conservatively, no more than 5% of capital per pair. And rule eight: factor in all costs, including borrow fees, dividends, and commissions.
-
-**Sam:** Eight rules. I can work with that.
-
-**Alex:** And one bonus rule: start with paper trading. Pair trading is one of those strategies where the concept seems simple but the execution has a lot of nuance. Practice with simulated trades for at least a few months before risking real money.
-
-**Sam:** That is great advice. Let me try to summarize the whole lesson. Pair trading is a market-neutral strategy where you go long one stock and short a related stock, profiting from the convergence of their price ratio. The key statistical concept is cointegration, not just correlation. You use z-scores to identify entry and exit points. The strategy hedges away market risk so you can profit regardless of market direction. The biggest risks are relationship breakdown, execution risk, and crowding. And it requires discipline, stop-losses, and diversification.
-
-**Alex:** Excellent summary. I would add that pair trading is a gateway strategy. The concepts you learn here, correlation, cointegration, mean reversion, z-scores, relative value, all of these are building blocks for more advanced quantitative strategies that you might explore later.
-
-**Sam:** This has been one of my favorite lessons so far. It feels like a different way of thinking about the market.
-
-**Alex:** That is exactly right. Most investors think about absolute value: is this stock cheap or expensive? Pair trading teaches you to think about relative value: is this stock cheap or expensive COMPARED TO something else? That shift in perspective is valuable no matter what kind of investing you do.
-
-[VISUAL: Preview slide: "Coming Up: More Advanced Strategies - Building on the Long/Short Foundation"]
-
-**Sam:** Lightning round before we go?
-
-**Alex:** Let us do it.
-
-**Sam:** Can you pair trade options instead of stocks?
-
-**Alex:** Yes, and some pair traders use options to express their views with defined risk. For example, instead of shorting a stock, you could buy puts. This eliminates the risk of a short squeeze or share recall. More advanced pair traders use options spreads to fine-tune their risk profiles.
-
-**Sam:** How often do pair trades typically last?
-
-**Alex:** It varies with the half-life of the pair, but most pair trades last between one week and two months. Very few extend beyond three months. If the spread has not reverted in that time, something may have structurally changed.
-
-**Sam:** What is the typical win rate for pair trading?
-
-**Alex:** Well-constructed pair trades based on cointegrated pairs typically win 55-65% of the time. The edge comes not from a high win rate but from the combination of a moderate win rate and a favorable reward-to-risk ratio. Your average win should be larger than your average loss because you let winners ride to the mean but cut losers at the stop-loss.
-
-**Sam:** Can you pair trade crypto?
-
-**Alex:** The concepts apply, but crypto pairs tend to be less stable than equity pairs because the crypto market is younger, less liquid, and more prone to structural changes. Some traders pair Bitcoin with Ethereum, but the cointegration relationship is not as robust as established equity pairs. Proceed with extreme caution if you try this.
-
-**Sam:** Final question: what is the one book or resource you would recommend for someone who wants to learn more about pair trading?
-
-**Alex:** "Algorithmic Trading" by Ernest Chan has an excellent chapter on pair trading with practical Python code. For a more academic treatment, "Pairs Trading" by Ganapathy Vidyamurthy is the gold standard. And for a hands-on approach, I would recommend working through Python tutorials on pair trading using free data from Yahoo Finance. Nothing teaches you like building it yourself.
-
-**Sam:** Great recommendations. Thanks, everyone. See you next time.
-
-**Alex:** Thanks for watching. Like and subscribe, and we will see you soon for more intermediate strategies.
-
-[VISUAL: End screen with subscribe button, playlist link to Level 2: Intermediate Strategies series, and social media handles]
+A：最低限度，你需要：(1) 一個具備保證金和放空功能的券商帳戶；(2) 目標股票的歷史價格數據（可從Yahoo財經或你的券商免費取得）；(3) 一個試算表或程式環境，用於計算相關性、執行共整合檢定和計算Z分數。Python搭配pandas、statsmodels和numpy等套件是最流行的選擇，R語言也被廣泛使用。部分券商提供內建的配對交易分析功能。對初學者而言，使用基本公式的試算表已足夠入門，但你最終會想要自動化分析流程。
 
 ---
 
-*Animation Reference: animation/week14_pair_trade.py - This animation illustrates pair trading in two main sequences. The first sequence shows the price ratio of a pair (e.g., KO/PEP) oscillating around its mean over time, with buy and sell signals triggered when the ratio deviates by 2 standard deviations. A complete trade cycle is shown with real-time P&L tracking for both legs. The second sequence displays a z-score chart with clearly marked entry thresholds at plus and minus 2, exit level at zero, and stop-loss levels at plus and minus 4. Multiple trade cycles play through, demonstrating winning trades (spread reverts) and losing trades (spread diverges to stop-loss), with a cumulative P&L counter tracking overall strategy performance.*
+## YouTube 腳本
+
+[VISUAL: 動畫片頭搭配節目標誌。文字：「第14週：配對交易基礎——第2級：中階」]
+
+**Horace：** 歡迎回來。上週我們介紹了做多與做空交易，我也提到這週要探索量化金融中最優雅的策略之一。今天我們要講的是配對交易。
+
+**Stella：** 配對交易。我聽過避險基金經理談論這個，但感覺像是只有擁有博士學位的量化分析師才能做的事。
+
+**Horace：** 這是常見的印象，但核心概念其實非常直觀。讓我從一個比喻開始。想像你在賽馬場，有兩匹來自同一個馬廄的馬——馬A和馬B。它們的訓練相似、歷史成績相似，通常跑到最後的名次也很接近。
+
+**Stella：** 好，我在聽。
+
+**Horace：** 現在，今天馬A的賠率異常高，意味著市場認為馬A表現會不好。但你知道這兩匹馬的完賽成績向來很接近。所以你不是去猜哪匹馬會贏，而是押注兩匹馬之間的差距會縮小。你押的是馬A的表現會優於馬B。
+
+**Stella：** 所以你不是在預測誰贏得比賽，而是在預測兩者之間的差距會收斂。
+
+**Horace：** 完全正確。而且有一個很漂亮的地方——不管兩匹馬跑得快還是慢，你都不在乎。你不在意絕對表現，只在意相對表現。這就是配對交易。
+
+[VISUAL: 賽馬場動畫，顯示兩匹馬奔跑。兩匹都可能快也可能慢，但投注者只在意它們之間的差距。箭頭指向差距，標示「這才是你交易的標的。」]
+
+**Stella：** 好，把它翻譯成股票的語言給我聽。
+
+**Horace：** 我們來用一個經典範例：可口可樂和百事可樂。這兩家公司在同一個產業，銷售類似的產品，面對相似的競爭壓力，它們的股價長期以來傾向同步波動。歷史上，它們的價格比率保持在相當窄的區間內。
+
+[VISUAL: KO和PEP的並排比較，顯示標誌、關鍵指標（相似營收、相似毛利、相似市值），以及兩者股價在5年間大致同步波動的圖表]
+
+**Horace：** 偶爾，某些事件會導致其中一檔股票暫時優於或劣於另一檔。也許可口可樂盈餘少了一分錢而股價下跌3%，而百事可樂沒有動靜。或者百事可樂收到負面分析師報告而下跌，可口可樂卻屹立不搖。
+
+**Stella：** 配對交易者會把這視為機會？
+
+**Horace：** 完全正確。如果兩者的價格比率偏離了歷史均值，配對交易者就押注它會回到正常水準。若可口可樂暫時相對百事可樂偏便宜，你買可口可樂並放空百事可樂。若可口可樂暫時相對百事可樂偏貴，你放空可口可樂並買進百事可樂。
+
+[ANIMATION: Reference animation/week14_pair_trade.py - 動畫顯示KO/PEP的價格比率隨時間變化的折線圖。歷史均值以水平虛線表示。當比率跌破均值（KO相對便宜），出現綠色「買進KO / 放空PEP」訊號。當比率超過均值，出現紅色「放空KO / 買進PEP」訊號。動畫接著放大一個完整的交易週期，顯示：比率低於均值2個標準差時進場，價差逐漸向均值收斂，比率回到正常水準時出場。兩端部位的損益計數器即時更新。]
+
+**Stella：** 當比率回到正常水準，你平倉兩個部位並落袋獲利。
+
+**Horace：** 對。這個策略之所以強大，請注意你同時持有一檔股票的多頭部位和另一檔的空頭部位。若整個股市崩跌20%會發生什麼事？
+
+**Stella：** 可口可樂和百事可樂都會下跌。
+
+**Horace：** 但它們下跌的幅度大致相似，因為它們同屬一個產業，受到相同因素的影響。你的做多部位虧損，但你的放空部位獲利。它們大致互相抵銷。你的配對交易不受市場崩盤影響。
+
+[VISUAL: 三種情境的三欄圖表，顯示：(1) 市場崩跌20%，KO跌18%，PEP跌22%。做多KO：-18%，放空PEP：+22%，淨損益：+4%。(2) 市場上漲15%，KO漲18%，PEP漲12%。做多KO：+18%，放空PEP：-12%，淨損益：+6%。(3) 市場持平，KO漲3%，PEP跌2%。做多KO：+3%，放空PEP：+2%，淨損益：+5%。]
+
+**Stella：** 所以三種情境你都能獲利？這聽起來好得令人難以置信。
+
+**Horace：** 這不是好得不真實，但有重要的注意事項，我們稍後會提到。首先，讓我說清楚什麼是好的配對，因為不是任意兩檔股票都能搭配。
+
+**Stella：** 你看哪些條件？
+
+**Horace：** 四個主要條件。第一，同一類股或產業。可口可樂和百事可樂之所以有效，是因為它們面對相同的競爭力量。蘋果和埃克森美孚會是糟糕的配對，因為完全不同的因素驅動著各自的股價。
+
+**Stella：** 說得通。還有什麼？
+
+**Horace：** 第二，類似的商業模式和規模。你想要真正的競爭對手公司。Visa和萬事達卡是很好的配對，因為它們運營著幾乎相同的支付網路。高盛和摩根士丹利也可行，因為它們都是規模相當的投資銀行。
+
+[VISUAL: 網格圖顯示「好配對」帶有打勾符號（KO/PEP、XOM/CVX、V/MA、HD/LOW、GS/MS）和「不好的配對」帶有叉號（AAPL/XOM、GOOGL/JNJ、TSLA/F）]
+
+**Stella：** 第三個條件呢？
+
+**Horace：** 第三，高歷史相關性。你希望過去有同步移動的股票。相關性超過0.80是個不錯的起點。但我需要在這裡介紹一個關鍵區別，這是很多人踩坑的地方。
+
+**Stella：** 是什麼？
+
+**Horace：** 相關性和共整合之間的差異。這可能是配對交易中最重要的單一概念，搞錯了是配對交易失敗最常見的原因。
+
+**Stella：** 好，解釋這個差異。
+
+**Horace：** 相關性告訴你兩檔股票是否朝同方向移動。一個上漲時，另一個也傾向上漲；一個下跌時，另一個也傾向下跌。高相關性意味著它們同步移動。
+
+**Stella：** 那聽起來正是配對交易所需的。
+
+**Horace：** 這是必要條件，但不是充分條件。原因如下。想像兩檔股票都隨時間上漲——股票A從$50漲到$200，股票B從$50漲到$100。它們的相關性可能是0.95，因為兩者都呈上升趨勢。但它們之間的差距不斷擴大。股票A持續優於股票B。
+
+[VISUAL: 圖表顯示兩條線都呈上升趨勢，但不斷分離。線A上升速度快於線B。相關性顯示為0.95。但兩者之間的價差不斷擴大。標示：「高相關性，但無共整合」]
+
+**Stella：** 所以價差不穩定，持續擴大。
+
+**Horace：** 完全正確。如果你押注價差會收斂，你的損失會是持續不斷的。這就是為什麼相關性本身還不夠。
+
+**Horace：** 共整合不同。它衡量的是兩檔股票之間的價差是否穩定且傾向回歸均值。兩檔具有共整合關係的股票可能暫時分離，但它們總會回到彼此身邊。就像兩隻被同一個人牽著繩子的狗。每隻狗可能左右亂跑，但繩子讓它們無法離太遠。
+
+**Stella：** 這個比喻太棒了。繩子就是共整合。
+
+**Horace：** 完全正確。當你找到具有共整合關係的兩檔股票，你就有了統計證據，證明它們的價差是均值回歸的。當它偏離，就傾向回歸。這是有利可圖的配對交易的基礎。
+
+[VISUAL: 圖表顯示兩條線相互交織。有時A較高，有時B較高，但它們持續收斂。價差在零附近震盪。標示：「共整合：價差具均值回歸特性」]
+
+**Stella：** 你怎麼檢驗共整合？需要統計學博士學位嗎？
+
+**Horace：** 你需要基本的統計知識，以及能執行檢定的工具。最常用的方法是擴增迪基-富勒檢定，也叫做ADF檢定。以下是它的平白解釋。
+
+**Horace：** 步驟一，用迴歸計算兩檔股票之間的價差。你對股票A的股價對股票B的股價做迴歸，迴歸的殘差就是你的價差。
+
+**Stella：** 殘差，也就是股票A的股價中無法被股票B的股價解釋的部分。
+
+**Horace：** 正是。步驟二，對那些殘差執行ADF檢定。這個檢定問的是一個簡單問題：這個價差傾向回歸均值，還是隨機漫步？若檢定的p值小於0.05，你就有證據說明價差是均值回歸的，意味著這個配對具有共整合關係。
+
+[VISUAL: 簡單流程圖：「步驟一：對股票B的股價做股票A股價的迴歸」→「取得殘差（價差）」→「步驟二：對殘差執行ADF檢定」→決策菱形：「p值 < 0.05？」→是：「具共整合——好配對」/ 否：「無共整合——避免」]
+
+**Stella：** 這感覺還可以操作。可以用哪些工具？
+
+**Horace：** Python是最流行的。使用statsmodels套件，共整合檢定字面上只要一行程式碼。你也可以用R、帶有增益集的Excel，甚至一些有內建配對交易分析功能的券商平台。
+
+**Stella：** 好，假設我找到了一個好配對。股票在同一類股，有相關性，有共整合關係。我要如何實際交易？
+
+**Horace：** 這就是Z分數登場的地方。Z分數將價差標準化，讓你清楚知道它偏離正常水準多少。公式是：Z分數等於目前價差減去平均價差，再除以價差的標準差。
+
+**Stella：** 所以它告訴你價差比平均值高出或低了幾個標準差。
+
+**Horace：** 對。標準交易規則是這樣的——當Z分數跌破負2，意味著股票A相對於股票B異常便宜。買進A，放空B。當Z分數升破正2，股票A相對於股票B異常昂貴。放空A，買進B。當Z分數回到零，價差已回歸均值，兩個部位同時平倉。
+
+[ANIMATION: Reference animation/week14_pair_trade.py - 第二段動畫顯示Z分數隨時間變化的圖表。Z分數在大約-3到+3之間震盪。水平線標示進場門檻在+2和-2，以及出場水準在0。當Z分數向下穿越-2時，出現綠色「進場：買進A，放空B」旗幟。當它回到0時，出現白色「出場：平倉兩端」旗幟。當Z分數向上穿越+2時，出現紅色「進場：放空A，買進B」旗幟。滾動損益追蹤器顯示已完成交易的累計獲利。動畫播放4至5個完整交易週期。]
+
+**Stella：** 如果Z分數持續偏離零而不回歸呢？
+
+**Horace：** 那是你的停損情境。若Z分數超過正負4，代表歷史關係可能正在瓦解，有什麼根本性的變化發生了。你平倉並承受損失，而不是希望一個可能永遠不會到來的回歸。
+
+**Stella：** 讓我們走過一個完整的交易範例。
+
+**Horace：** 來吧。我們用Visa和萬事達卡，這是華爾街最廣為人知的配對之一。
+
+[VISUAL: Visa和萬事達卡標誌並排，搭配關鍵數據：兩者皆為支付網路雙頭壟斷業者，相關性：0.92，共整合p值：0.003]
+
+**Horace：** 假設過去一年Visa相對萬事達卡的歷史價格比率平均為0.55，標準差為0.02。今天，Visa在$250，萬事達卡在$490。目前的比率是250除以490，等於0.510。
+
+**Stella：** 比率低於平均值，Visa相對萬事達卡偏便宜？
+
+**Horace：** 我們來驗算Z分數。目前比率0.510，減去均值0.550，再除以標準差0.020，得到負2.0。我們剛好在進場門檻上。
+
+**Stella：** 所以訊號告訴我們買進Visa，放空萬事達卡。
+
+**Horace：** 完全正確。現在我們需要設定部位規模。我們使用美元中性規模，也就是兩端投入相等的美元金額。假設我們配置$50,000的總資本。我們以$250買進100股Visa，投入$25,000；以$490放空51股萬事達卡，投入約$24,990。
+
+[VISUAL: 交易單顯示：「做多 100股 V @ $250 = $25,000」和「放空 51股 MA @ $490 = $24,990」，搭配「淨市場曝險：約$10（基本等於零）」]
+
+**Stella：** 所以我們兩端的美元金額幾乎相等。接下來呢？
+
+**Horace：** 我們等待。在接下來幾週，假設Visa公布強勁成果，股價漲到$262。萬事達卡的季報表現參差不齊，股價跌至$478。比率現在是262除以478，等於0.548。Z分數是0.548減去0.550再除以0.020，等於負0.1——基本上是零。
+
+**Stella：** 價差已回歸均值。是時候出場了嗎？
+
+**Horace：** 是的。我們以$262賣出100股Visa，每股獲利$12，獲利$1,200。我們以$478回補51股萬事達卡，每股獲利$12，獲利$612。總獲利：$1,812，占$50,000部位的3.6%，僅僅幾週時間。
+
+**Stella：** 而且兩端部位都獲利了？
+
+**Horace：** 在這個例子中是的。做多端上漲，放空端下跌——這是理想情境。但並非總是如此。有時你在一端獲利，在另一端虧損，但獲利端賺的多於虧損端虧的。關鍵是價差收斂，而非兩端部位各自都獲利。
+
+[VISUAL: 損益分析圖顯示：「做多V：+$1,200」（綠色柱），「放空MA：+$612」（綠色柱），「總計：+$1,812（3.6%）」，附注：「此案例兩端皆獲利，但重要的只有價差的收斂」]
+
+**Stella：** 虧損的交易會是什麼樣子？
+
+**Horace：** 好問題。想像我們進入同一筆交易，但價差不是收斂，而是進一步擴大。也許萬事達卡宣布一個Visa沒有的重大合作，萬事達卡跳漲到$520，而Visa幾乎沒動，只漲到$252。
+
+**Stella：** 所以比率從0.510變成252除以520，大約是0.485。偏離均值更遠了。
+
+**Horace：** Z分數從負2.0變成0.485減去0.550再除以0.020，等於負3.25。它朝錯誤的方向移動。我們的做多部位幾乎沒有獲利，只有$200，但我們的放空部位已虧損：51股乘以（$520減$490），等於$1,530的損失。
+
+**Stella：** 加總起來，我們淨損失$1,330。
+
+**Horace：** 對。若Z分數達到負4.0，我們就砍倉。這是紀律所在。你不能讓配對交易變成信念交易，說服自己它一定會回歸。有時關係就是瓦解了。
+
+[VISUAL: 警告圖形顯示「配對交易虧損情境」，Z分數圖表急跌過-3向-4，停損線標在-4，文字：「當價差發散而非收斂時，砍倉！」]
+
+**Stella：** 這帶出了風險的問題。配對交易最大的風險是什麼？
+
+**Horace：** 第一大風險是關係瓦解，也叫做發散風險。兩檔股票之間的歷史關係可能永久改變。這不只是理論上的問題。
+
+**Stella：** 你能給我一個真實例子嗎？
+
+**Horace：** 當然。想像你在2020年初配對交易兩家航空公司——達美和聯合。它們有很強的歷史關係。然後新冠疫情來了。兩檔股票都崩盤，但跌幅並不相等。達美由於資產負債表更強健，跌幅較小且回復較快。聯合由於債務較多且國際旅遊曝險較高，跌幅更大且回復較慢。價差暴增，再也沒有完全回歸。
+
+[VISUAL: 圖表顯示DAL和UAL從2019年到2021年的走勢。疫情前比率穩定；疫情後比率移到新水平並停留在那裡。標示：「結構性斷裂——關係永久改變」]
+
+**Stella：** 所以共整合關係瓦解是因為底層的商業現實改變了。
+
+**Horace：** 正是。新冠疫情是極端例子，但較小規模的結構性斷裂時常發生。一家公司獲得新的競爭優勢，或失去主要客戶，或進行重大收購。任何這些事件都可能打斷配對關係。
+
+**Stella：** 如何防範？
+
+**Horace：** 三個方法。第一，停損——永遠不要讓虧損的配對交易無限延伸下去。若Z分數達到4.0，出場。第二，分散化——交易多個配對，這樣一個關係瓦解就不會毀掉你的投資組合。第三，定期監控——每月重新執行共整合檢定。若配對失去共整合關係，停止交易它。
+
+**Stella：** 兩端無法同時執行的風險呢？
+
+**Horace：** 那叫做單腿風險或執行風險。配對交易需要同步進行兩筆交易。若你買進Visa，但你的萬事達卡放空單未能成交——也許因為放空限制或交易突然暫停——你只剩下做多Visa的部位，沒有任何避險。那是方向性風險，正是你試圖避免的。
+
+**Stella：** 如何處理？
+
+**Horace：** 交易流動性高的股票。像我們討論的這些大型股、高成交量的股票，鮮少有執行問題。配對交易時請避免規模小或流動性差的股票。此外，部分券商提供能同步執行兩端的配對交易委託類型。
+
+**Stella：** 讓我們聊聊如何在第一時間找到配對。你只是看同產業的公司，然後憑感覺看圖嗎？
+
+**Horace：** 最初確實如此。早期的配對交易者字面上就是看圖說：「這兩個看起來同步波動。」但如今這個過程已經系統化許多。
+
+**Horace：** 步驟一，定義你的股票池。也許是標普500，或者是科技類股的所有股票。步驟二，篩選相關性。計算所有配對的兩兩相關性，只保留超過0.80的配對。步驟三，共整合檢定。對剩餘配對執行ADF檢定。步驟四，計算半衰期。
+
+**Stella：** 半衰期？像是放射性衰變？
+
+**Horace：** 相同概念，不同應用。半衰期告訴你價差平均需要多長時間，才能回歸到均值一半的距離。若價差偏離了2個標準差，半衰期告訴你平均幾天後會回到偏離1個標準差的位置。
+
+[VISUAL: 衰減曲線顯示價差偏離隨時間減少。從2個標準差開始，在「半衰期」標記處（例如12天）降到1個標準差，然後繼續趨近0。標示：「半衰期 = 約12天（此範例）」]
+
+**Stella：** 這為什麼重要？
+
+**Horace：** 因為它告訴你預期的持有期間。若半衰期是5天，你面對的是短期交易。若是60天，你需要耐心持有兩個月。大多數配對交易者偏好10至30天的半衰期，因為這在反應速度和可靠性之間取得平衡。
+
+**Stella：** 如果半衰期太長呢？
+
+**Horace：** 那價差回歸的速度慢到，交易成本、融券費用和機會成本會吃掉你的獲利。半衰期200天的配對在統計意義上可能具有共整合關係，但從實際交易的角度來看並不可行。
+
+**Stella：** 說得通。現在，我有個實際問題。你如何調整配對交易兩端的規模？你之前提到美元中性。
+
+**Horace：** 有兩種主要方法。美元中性是兩端投入相等的美元金額——做多$25,000，放空$25,000。這很簡單，當兩檔股票具有相似的波動性和相似的貝塔時效果很好。
+
+**Stella：** 若它們不相似呢？
+
+**Horace：** 那就使用貝塔中性規模。貝塔衡量股票對整體市場走勢的敏感程度。若股票A的貝塔是1.2（波動性高於市場），股票B的貝塔是0.8（波動性低於市場），美元中性並非真正的市場中性，因為你的做多端對市場的反應比放空端更大。
+
+**Stella：** 所以你調整規模？
+
+**Horace：** 對。你放空更多股票B，以補償做多端較高的貝塔。公式是：空頭金額等於多頭金額乘以多頭貝塔除以空頭貝塔。所以若你以貝塔1.2做多$25,000，你的放空部位應為$25,000乘以1.2除以0.8，等於$37,500。
+
+[VISUAL: 天平圖顯示美元中性（失衡，因多頭端貝塔較高而向多頭傾斜）vs. 貝塔中性（完全平衡）。標示：「貝塔中性提供真正的市場中性」]
+
+**Stella：** 更複雜，但更精確。
+
+**Horace：** 對於同一類股、貝塔相近的配對，美元中性通常就夠了。對於貝塔有顯著差異的配對，貝塔中性更好。
+
+**Stella：** 讓我問問你之前提到的量化崩潰。2007年發生了什麼事？
+
+**Horace：** 這是配對交易歷史上最重要的教訓之一。2007年8月，許多量化避險基金——包括一些全球最精密的基金——在短短幾天內遭受巨額損失。問題在於過度擁擠。
+
+**Stella：** 過度擁擠，意思是太多基金在交易相同的配對？
+
+**Horace：** 完全正確。許多量化基金發現了相同的統計關係，並使用相同的訊號交易相同的配對。當其中一家大型基金需要清算時，它開始賣出做多部位並回補放空部位。這對持有相同交易的所有其他基金造成了不利的價差移動。
+
+[VISUAL: 骨牌效應動畫，顯示基金A賣出，導致價差擴大，觸發基金B賣出，導致進一步擴大，觸發基金C，以此類推。每個骨牌代表一家倒下的量化基金。]
+
+**Horace：** 其他基金隨後面臨追繳保證金的壓力，不得不跟著清算，進一步擴大價差，觸發更多清算。這是一場連鎖反應。部分量化基金在一週內損失了30%以上。
+
+**Stella：** 所以策略本身是穩健的，但太多人同時使用它，在危機中創造了脆弱性？
+
+**Horace：** 正是。這是量化金融的一個根本矛盾。越多人發現有利可圖的策略，它就越不賺錢，而且在危機中也越危險，因為所有人試圖同時退出。
+
+**Stella：** 如何避免過度擁擠？
+
+**Horace：** 尋找較不顯眼的配對。KO/PEP和XOM/CVX人人皆知，已過度擁擠。在較少人關注的類股或較不常見但仍有經濟合理性的組合中尋找機會。將統計訊號與基本面分析結合，找出純量化模型可能錯過的配對。
+
+**Stella：** 你能帶我們走過實際的配對交易研究流程嗎？
+
+**Horace：** 當然。假設你想探索半導體類股的配對交易機會。步驟一，列出所有主要半導體公司：INTC、AMD、AVGO、TXN、QCOM、NVDA、MRVL等等。
+
+**Stella：** 這樣就有很多可能的配對了。
+
+**Horace：** 對。有8檔股票，就有28個可能的配對。步驟二，提取所有股票一年的每日股價數據，計算兩兩相關性。也許你發現TXN和AVGO的相關性是0.89，而NVDA和INTC的相關性只有0.45。
+
+[VISUAL: 半導體股票的相關性矩陣熱力圖，高相關性用暖色（紅/橙），低相關性用冷色（藍）。TXN/AVGO的格子被高亮。]
+
+**Stella：** 所以你篩選掉低相關性的配對？
+
+**Horace：** 是的。只保留相關性超過0.80的配對。也許28個中剩下8個。步驟三，對這8個配對各自執行共整合檢定。也許3個通過檢定，p值低於0.05。
+
+**Stella：** 現在你有3個潛在配對了。
+
+**Horace：** 步驟四，計算每個配對的半衰期。一個的半衰期是8天，又快又好。另一個是22天，屬於中等。第三個是90天，對實際交易太慢了。所以你捨棄第三個。
+
+**Stella：** 剩下兩個配對。然後你開始監控Z分數。
+
+**Horace：** 正是。你計算兩個配對的滾動Z分數，等待進場訊號。當某個配對的Z分數穿越正負2，你進場。你持有到Z分數回歸零，或若Z分數穿越正負4，你在停損位出場。
+
+**Stella：** 這一切聽起來非常系統化。可以自動化嗎？
+
+**Horace：** 絕對可以，大多數專業配對交易者也確實自動化了。Python是大多數人的首選工具。你可以寫腳本來下載股價數據、計算相關性和共整合、計算Z分數、產生訊號，甚至透過券商API執行交易。
+
+**Stella：** 考慮到避險基金和演算法正在大規模這樣做，個人投資者還有優勢嗎？
+
+**Horace：** 這是個好問題。簡單、樸素的配對交易——在最顯眼的配對上使用基本的Z分數訊號——已被專業人士大幅套利磨損。但仍有可用的優勢。
+
+**Stella：** 在哪裡？
+
+**Horace：** 第一，基本面驅動的配對交易。不要只依賴統計訊號，將其與基本面分析結合。若你對半導體產業有深入了解，明白為何TXN的定位優於INTC，你可以將其疊加在統計框架上，做出更好的配對選擇。
+
+**Horace：** 第二，事件驅動的配對交易。在盈餘公告前後，配對中的某一股可能反應過度，而另一股沒有。這造成的暫時性錯位對大型避險基金來說太短暫而難以捕捉，但對個人交易者來說卻是完美的機會。
+
+**Stella：** 因為大型基金動作太慢？
+
+**Horace：** 不完全是太慢，而是以他們的規模操作時，在小型、流動性差的情境中無法足夠快速地進出部位。持有$50,000部位的個人交易者，靈活性遠超過試圖動用$5,000萬的基金。
+
+**Horace：** 第三，較不常見的配對。所有人都交易KO/PEP，但公用事業類股、不動產投資信託類股，甚至國際配對呢？較少關注意味著更多潛在機會。
+
+[VISUAL: 三個方格顯示「個人配對交易者的優勢」：「1. 基本面洞察力」（大腦圖示）、「2. 事件驅動時機」（閃電日曆圖示）、「3. 較不擁擠的配對」（放大鏡對準較少人知曉的類股）]
+
+**Stella：** 這真的很迷人。在結束之前，你能給我們一個配對交易關鍵規則的快速總結嗎？
+
+**Horace：** 當然。規則一：永遠檢驗共整合，而非只看相關性。規則二：在同一類股內交易，以維持類股中性。規則三：使用Z分數作為系統化的進出場訊號。規則四：永遠使用停損——Z分數4是標準停損點。規則五：分散於多個配對。規則六：定期重新檢驗你的配對，因為關係會隨時間改變。規則七：保守控管部位規模——每個配對不超過資本的5%。規則八：計入所有成本，包括融券費、股利和手續費。
+
+**Stella：** 八條規則。我能接受。
+
+**Horace：** 還有一條附加規則：從模擬交易開始。配對交易是那種概念看起來簡單，但執行上有很多細節要注意的策略。在投入真實資金之前，用模擬交易練習至少幾個月。
+
+**Stella：** 這是很好的建議。讓我來總結整堂課的內容。配對交易是一種市場中性策略，你做多一檔股票並放空一檔相關股票，從價格比率的收斂中獲利。關鍵的統計概念是共整合，而非僅僅是相關性。你使用Z分數來判斷進出場時機。這個策略對沖了市場風險，讓你無論市場方向如何都能獲利。最大的風險是關係瓦解、執行風險和過度擁擠。它需要紀律、停損和分散化。
+
+**Horace：** 很棒的總結。我想補充一點：配對交易是一個入門策略。你在這裡學到的概念——相關性、共整合、均值回歸、Z分數、相對價值——都是更進階量化策略的基礎，是你日後可能探索的方向。
+
+**Stella：** 這是我目前為止最喜歡的課之一。它感覺像是一種看待市場的不同思維方式。
+
+**Horace：** 正是如此。大多數投資人思考絕對價值：這檔股票是便宜還是昂貴？配對交易教你思考相對價值：這檔股票相對於其他股票是便宜還是昂貴？這種思維方式的轉變，無論你做哪種類型的投資，都是寶貴的資產。
+
+[VISUAL: 預告投影片：「即將推出：更進階的策略——在多空基礎上更進一步」]
+
+**Stella：** 結束前的閃電問答？
+
+**Horace：** 來吧。
+
+**Stella：** 你可以用選擇權而不是股票進行配對交易嗎？
+
+**Horace：** 可以，而且有些配對交易者確實用選擇權來表達他們的觀點，同時限制風險。例如，與其放空股票，你可以買入賣權。這消除了遭遇軋空或股份被召回的風險。更進階的配對交易者使用選擇權價差來精細調整他們的風險特徵。
+
+**Stella：** 配對交易通常持續多長時間？
+
+**Horace：** 這取決於配對的半衰期，但大多數配對交易持續一週到兩個月之間。很少延伸超過三個月。若在這段時間內價差仍未回歸，可能有什麼結構性變化發生了。
+
+**Stella：** 配對交易的典型勝率是多少？
+
+**Horace：** 基於共整合配對的、建構良好的配對交易，勝率通常在55%至65%之間。優勢不來自高勝率，而來自中等勝率與有利的獲利風險比的結合。你的平均獲利應大於平均損失，因為你讓獲利部位一路持有至均值，但在停損點砍掉虧損部位。
+
+**Stella：** 可以配對交易加密貨幣嗎？
+
+**Horace：** 概念是適用的，但加密貨幣配對往往比股票配對更不穩定，因為加密貨幣市場更年輕、流動性較差，且更容易出現結構性變化。有些交易者配對比特幣和以太幣，但共整合關係不如成熟的股票配對那般穩健。若你想嘗試，請格外謹慎。
+
+**Stella：** 最後一個問題：若有人想深入學習配對交易，你會推薦什麼書或資源？
+
+**Horace：** 歐內斯特·陳（Ernest Chan）的《演算法交易》（Algorithmic Trading）有一章關於配對交易，附有實用的Python程式碼，非常出色。若想要更學術的探討，加納帕蒂·維德亞穆爾蒂（Ganapathy Vidyamurthy）的《配對交易》（Pairs Trading）是黃金標準。若想動手實作，我建議用Yahoo財經的免費數據走過Python的配對交易教學。沒有什麼比親自建構更能讓你學到東西。
+
+**Stella：** 很棒的推薦。謝謝大家。下次見。
+
+**Horace：** 感謝收看。記得按讚訂閱，我們很快會帶著更多中階策略再見面。
+
+[VISUAL: 結尾畫面，附訂閱按鈕、第2級：中階策略系列播放清單連結，以及社群媒體帳號]
+
+---
+
+*動畫參考：animation/week14_pair_trade.py——本動畫以兩段主要序列呈現配對交易。第一段序列顯示一對配對（如KO/PEP）的價格比率隨時間在均值附近震盪，當比率偏離2個標準差時觸發買進和賣出訊號。完整的交易週期以兩端部位的即時損益追蹤呈現。第二段序列顯示Z分數圖表，清楚標示進場門檻在正負2、出場水準在零，以及停損水準在正負4。多個交易週期依次播放，示範獲利交易（價差回歸）和虧損交易（價差發散至停損），並以累計損益計數器追蹤整體策略績效。*

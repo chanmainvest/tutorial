@@ -1,86 +1,83 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
+# 第29周：期权希腊字母——风险的衡量与管理
 
-# Week 29: The Option Greeks - Measuring and Managing Risk
+## 阅读部分
 
-## Reading Section
+### a）为何重要
 
-### a) Why This Is Important
+在第25至28周，你学习了如何将期权作为工具加以运用：买入看涨期权与看跌期权、卖出备兑看涨期权，以及卖出现金担保看跌期权。你已经理解了期权运作的基本机制。但会开车和看懂仪表盘是两回事。希腊字母就是你的仪表盘。它们精确地告诉你，当市场条件发生变化时，你的期权头寸将如何表现。
 
-In Weeks 25 through 28, you learned how to use options as tools: buying calls and puts, selling covered calls, and selling cash-secured puts. You understood the basic mechanics of how options work. But knowing how to drive a car is different from understanding the dashboard. The Greeks are your dashboard. They tell you exactly how your options position will behave when market conditions change.
+**每位期权交易者都需要理解希腊字母的原因：**
 
-**Why every options trader needs to understand the Greeks:**
+**1. 没有希腊字母，你就是在盲目飞行。** 假设你卖出一份备兑看涨期权，而股票上涨了3美元。你的看涨期权亏损了多少？隔夜时间流逝让它获得了多少收益？如果隐含波动率下降2%，它又会变化多少？没有希腊字母，你只是在猜测。有了希腊字母，你可以精确地回答每一个问题。专业期权交易者在建立任何头寸之前，都必然了解自己的希腊字母敞口。你也应该如此。
 
-**1. Without the Greeks, you are flying blind.** Suppose you sell a covered call and the stock moves up $3. How much did your call option lose? How much did it gain from time passing overnight? How much will it change if implied volatility drops by 2%? Without the Greeks, you are guessing. With the Greeks, you can answer each of these questions with precision. Professional options traders never enter a position without knowing their Greek exposures. Neither should you.
+**2. 希腊字母解释了你的头寸盈亏的原因。** 许多初学者感到困惑，明明股票上涨了，他们的看涨期权价格却没有跟涨；或者股票下跌了，看跌期权价值反而缩水了。希腊字母可以解释这些看似矛盾的现象。也许是波动率崩塌抵消了方向性收益，也许是时间价值侵蚀了期权费。理解希腊字母，能让困惑变为清晰。
 
-**2. The Greeks explain why your position made or lost money.** Many beginning options traders are confused when their call option does not go up even though the stock went up. Or they are puzzled when their put option lost value despite the stock dropping. The Greeks explain these apparent paradoxes. Perhaps volatility crushed offset the directional gain. Perhaps time decay ate through the premium. Understanding the Greeks turns confusion into clarity.
+**3. 希腊字母让你在风险成为问题之前就能加以管理。** 如果你知道自己的投资组合德尔塔值为+500，就意味着市场上涨1美元时你大约获利500美元，市场下跌1美元时你大约亏损500美元。如果这一敞口过大，你可以在市场移动之前进行调整，而不是事后补救。风险管理是专业交易与赌博之间的本质区别。
 
-**3. The Greeks allow you to manage risk before it becomes a problem.** If you know your portfolio has a delta of +500, you know you will gain approximately $500 if the market goes up $1 and lose approximately $500 if the market drops $1. If that exposure is too large, you can adjust before the market moves, not after. Risk management is the difference between professional trading and gambling.
+**4. 希腊字母与后续所有内容密切相关。** 第30周（价差策略与铁鹰策略）、第37周（期权杠杆）、第38周（长期期权）以及第40周（波动率指数与波动性）的内容，都以你能用希腊字母进行思考为前提。价差策略从根本上说是关于合并希腊字母敞口的操作。没有理解维加，波动率交易便无从谈起。长期期权分析依赖于理解德尔塔和西塔在长久期下的表现。本周是所有高级期权内容的基础。
 
-**4. The Greeks connect to everything that follows.** Weeks 30 (spreads and condors), 37 (options leverage), 38 (LEAPS), and 40 (VIX and volatility) all assume you can think in terms of Greeks. Spreads are fundamentally about combining Greek exposures. Volatility trading is impossible without understanding vega. LEAPS analysis relies on understanding how delta and theta behave at long durations. This week is the foundation for all advanced options material.
+**5. 希腊字母给了你与市场共通的语言。** 当财经媒体谈及"伽马挤压"或"维加风险"时，你将准确理解其含义。当券商平台显示希腊字母数值时，你将知道如何解读。你由此掌握了期权领域的专业语言。
 
-**5. The Greeks give you a common language with the market.** When financial media says "gamma squeeze" or "vega risk," you will know exactly what they mean. When your brokerage platform displays Greek values, you will know how to interpret them. You become conversant in the professional language of options.
-
-We will cover all five major Greeks: delta, gamma, theta, vega, and rho. We will also explore how they interact with each other and how to use them for practical position management. By the end of this lesson, you will be able to look at any options position and understand exactly what risks you are taking and how the position will behave as markets move.
+我们将涵盖五大主要希腊字母：德尔塔、伽马、西塔、维加和罗。我们还将探讨它们之间如何相互作用，以及如何将它们用于实际的头寸管理。本课结束时，你将能够审视任何期权头寸，清晰了解自己承担的风险，以及随着市场波动头寸将如何表现。
 
 ---
 
-### b) What You Need to Know
+### b）你需要掌握的内容
 
-#### Overview of the Greeks
+#### 希腊字母概览
 
-The Greeks are sensitivity measures. Each Greek tells you how much an option's price will change when one specific input changes, holding everything else constant. They are partial derivatives for those who remember calculus, but you do not need calculus to use them effectively.
-
-```
-THE FIVE MAJOR GREEKS:
-
-  Greek    Measures Sensitivity To     Range (Long Call)    Analogy
-  =====    =========================  ==================   ==============
-  Delta    Stock price movement        0 to +1.0           Speedometer
-  Gamma    Change in delta             Always positive      Acceleration
-  Theta    Time passing                Always negative      Melting ice
-  Vega     Implied volatility change   Always positive      Weather vane
-  Rho      Interest rate change        Small positive       Thermostat
-
-  NOTE: These are for LONG calls. Signs flip for short positions
-  and some flip for puts vs. calls (see detailed sections below).
-```
-
-Think of it this way. If an option is a car, delta tells you how fast you are going (speed), gamma tells you how quickly your speed is changing (acceleration), theta tells you how much fuel you burn per hour (cost of time), vega tells you how sensitive you are to road conditions (volatility), and rho tells you how much the air temperature matters (interest rates, usually minor).
-
-#### Delta: Directional Exposure
-
-Delta is the most important Greek for most investors. It measures how much an option's price changes when the underlying stock moves by $1.
+希腊字母是敏感性度量指标。每个希腊字母告诉你，当某一特定输入变量发生变化、其他条件保持不变时，期权价格将变化多少。对于学过微积分的人而言，它们是偏导数，但你无需懂微积分也能有效运用它们。
 
 ```
-DELTA VALUES:
+五大主要希腊字母：
 
-  Long Call:  Delta ranges from 0 to +1.0
-  Long Put:   Delta ranges from -1.0 to 0
-  Short Call: Delta ranges from -1.0 to 0
-  Short Put:  Delta ranges from 0 to +1.0
+  希腊字母   衡量的敏感性           范围（买入看涨期权）    类比
+  =======   ===================   =================   ===========
+  德尔塔     股票价格波动            0 至 +1.0           速度表
+  伽马       德尔塔的变化量          始终为正            加速度
+  西塔       时间流逝               始终为负            融化的冰块
+  维加       隐含波动率变化          始终为正            风向标
+  罗         利率变化               略微为正            温控器
 
-  STOCK (for reference):
-  Long 100 shares  = Delta of +100 (or +1.0 per share)
-  Short 100 shares = Delta of -100 (or -1.0 per share)
+  注意：以上适用于买入看涨期权的情况。做空头寸符号相反，
+  看跌期权与看涨期权之间某些希腊字母符号也会翻转（详见下文）。
 ```
 
-**Example:** If a call option has a delta of 0.60, it will gain approximately $0.60 when the stock goes up $1, and lose approximately $0.60 when the stock drops $1. Since one contract controls 100 shares, the contract gains or loses about $60 per $1 stock move.
+这样理解：如果期权是一辆汽车，德尔塔告诉你行驶速度，伽马告诉你速度变化的快慢（加速度），西塔告诉你每小时消耗多少燃油（时间成本），维加告诉你对路况的敏感程度（波动性），罗告诉你气温影响有多大（利率，通常影响较小）。
+
+#### 德尔塔：方向性敞口
+
+德尔塔是大多数投资者最重要的希腊字母。它衡量当标的股票移动1美元时，期权价格变化多少。
 
 ```
-DELTA AND MONEYNESS:
+德尔塔数值：
 
-  Stock Price = $150
+  买入看涨期权：德尔塔范围从 0 至 +1.0
+  买入看跌期权：德尔塔范围从 -1.0 至 0
+  卖出看涨期权：德尔塔范围从 -1.0 至 0
+  卖出看跌期权：德尔塔范围从 0 至 +1.0
 
-  Deep ITM Call ($120 strike):   Delta ~ 0.95
-  ITM Call ($140 strike):        Delta ~ 0.75
-  ATM Call ($150 strike):        Delta ~ 0.50
-  OTM Call ($160 strike):        Delta ~ 0.30
-  Deep OTM Call ($180 strike):   Delta ~ 0.05
+  股票（参考）：
+  持有100股多仓  = 德尔塔 +100（或每股 +1.0）
+  持有100股空仓  = 德尔塔 -100（或每股 -1.0）
+```
 
-  Delta Curve for a Call Option:
+**示例：** 若一份看涨期权德尔塔为0.60，当股票上涨1美元时，期权大约获益0.60美元；股票下跌1美元时，期权大约亏损0.60美元。由于一份合约控制100股，每当股票移动1美元，该合约约盈亏60美元。
 
-  Delta
+```
+德尔塔与实虚值关系：
+
+  股票价格 = $150
+
+  深度实值看涨期权（行权价$120）：德尔塔 ≈ 0.95
+  实值看涨期权（行权价$140）：    德尔塔 ≈ 0.75
+  平值看涨期权（行权价$150）：    德尔塔 ≈ 0.50
+  虚值看涨期权（行权价$160）：    德尔塔 ≈ 0.30
+  深度虚值看涨期权（行权价$180）：德尔塔 ≈ 0.05
+
+  看涨期权德尔塔曲线：
+
+  德尔塔
   1.0 |                                      ___________
       |                                  ___/
   0.8 |                              ___/
@@ -94,47 +91,47 @@ DELTA AND MONEYNESS:
   0.0 |_/
       +----+----+----+----+----+----+----+----+----+----
        80   90  100  110  120  130  140  150  160  170
-                         Stock Price
-                    (Strike = $130)
+                         股票价格
+                    （行权价 = $130）
 ```
 
-**Delta as Probability Approximation:** Delta roughly approximates the probability that the option will expire in the money. A delta of 0.30 suggests roughly a 30% chance of expiring ITM. This is not mathematically precise (delta and probability of ITM are calculated differently), but it is a useful mental shortcut.
+**德尔塔作为概率近似值：** 德尔塔大致近似于期权到期时处于实值状态的概率。德尔塔0.30表明到期时处于实值的概率约为30%。这在数学上并不精确（德尔塔与实值到期概率的计算方式不同），但作为心理速记法十分实用。
 
-**Delta as Share Equivalence:** Delta tells you how many shares your option behaves like. Owning one call with a delta of 0.50 is roughly equivalent to owning 50 shares. This concept is called the "delta-equivalent position."
-
-```
-DELTA-EQUIVALENT POSITIONS:
-
-  Position                         Delta    Equivalent To
-  ==============================   =====    ======================
-  Long 1 ATM Call (delta 0.50)     +50      Long 50 shares
-  Long 2 ATM Calls (delta 0.50)   +100     Long 100 shares
-  Long 1 ITM Call (delta 0.80)     +80      Long 80 shares
-  Short 1 ATM Put (delta -0.50)    +50      Long 50 shares
-  Covered Call (stock + short       +30      Long 30 shares
-    ATM call: +100 + (-70))
-```
-
-#### Gamma: The Rate of Change of Delta
-
-Gamma measures how much delta changes when the stock price moves by $1. If delta is speed, gamma is acceleration. Gamma tells you how quickly your directional exposure is shifting.
+**德尔塔作为股票等值敞口：** 德尔塔告诉你期权的表现相当于持有多少股股票。持有一份德尔塔为0.50的看涨期权，大致等同于持有50股股票。这一概念被称为"德尔塔等值头寸"。
 
 ```
-GAMMA BEHAVIOR:
+德尔塔等值头寸：
 
-  Gamma is HIGHEST for:
-    - At-the-money options (delta ~ 0.50)
-    - Options near expiration (< 7 days)
-    - Lower volatility environments
+  头寸                               德尔塔   等值于
+  ================================   =====   =====================
+  买入1份平值看涨期权（德尔塔0.50）    +50     持有50股多仓
+  买入2份平值看涨期权（德尔塔0.50）   +100    持有100股多仓
+  买入1份实值看涨期权（德尔塔0.80）    +80     持有80股多仓
+  卖出1份平值看跌期权（德尔塔-0.50）   +50     持有50股多仓
+  备兑看涨期权（股票+卖出平值看涨：    +30     持有30股多仓
+    +100 + (-70)）
+```
 
-  Gamma is LOWEST for:
-    - Deep ITM or deep OTM options
-    - Options far from expiration (> 90 days)
-    - Higher volatility environments
+#### 伽马：德尔塔的变化率
 
-  Gamma Profile by Moneyness (30 days to expiration):
+伽马衡量当股票价格移动1美元时德尔塔变化多少。如果德尔塔是速度，伽马就是加速度。伽马告诉你方向性敞口变化的快慢。
 
-  Gamma
+```
+伽马的特性：
+
+  伽马最高的情形：
+    - 平值期权（德尔塔 ≈ 0.50）
+    - 临近到期日的期权（< 7天）
+    - 低波动率环境
+
+  伽马最低的情形：
+    - 深度实值或深度虚值期权
+    - 距到期日较远的期权（> 90天）
+    - 高波动率环境
+
+  按实虚值关系划分的伽马分布（距到期日30天）：
+
+  伽马
   0.05 |
        |           *****
   0.04 |        ***     ***
@@ -147,78 +144,77 @@ GAMMA BEHAVIOR:
        |                           *
   0.00 +----+----+----+----+----+----
        80   90  100  110  120  130  140
-                 Stock Price
-              (Strike = $110)
+                 股票价格
+              （行权价 = $110）
 ```
 
-**Why Gamma Matters:**
+**伽马为何重要：**
 
-When you are long gamma (bought options), delta moves in your favor. If the stock goes up, your delta increases and you make more on further upside. If the stock goes down, your delta decreases and you lose less on further downside. Long gamma is like having a built-in adjustment mechanism.
+当你持有多头伽马（买入期权）时，德尔塔的变动对你有利。若股票上涨，你的德尔塔增加，进一步上涨时你的收益更多；若股票下跌，你的德尔塔减少，进一步下跌时你的损失更少。做多伽马就像拥有一个内置的自动调节机制。
 
-When you are short gamma (sold options), delta moves against you. If the stock goes up, your short call becomes more negative delta (you are increasingly short). If the stock drops, your short put becomes more positive delta (you are increasingly long a falling stock). Short gamma is the risk sellers take in exchange for collecting premium.
-
-```
-GAMMA EFFECT ON DELTA:
-
-  Example: AAPL ATM Call, Strike $150, Delta = 0.50, Gamma = 0.03
-
-  Stock moves UP $1 to $151:
-    New Delta = 0.50 + 0.03 = 0.53
-    The option now moves $0.53 for each additional $1 up
-
-  Stock moves DOWN $1 to $149:
-    New Delta = 0.50 - 0.03 = 0.47
-    The option now moves $0.47 for each additional $1 down
-
-  Stock moves UP $5 to $155:
-    Delta shifts from 0.50 toward ~0.65 (gamma adds ~0.03 per $1)
-    The option acts increasingly like stock on the way up
-
-  Stock moves DOWN $5 to $145:
-    Delta shifts from 0.50 toward ~0.35
-    The option becomes less sensitive on the way down
-
-  This is the beauty of long gamma: you accelerate into winners
-  and decelerate into losers.
-```
-
-**Gamma Risk Near Expiration:**
-
-Gamma explodes near expiration for at-the-money options. This is why expiration week is dangerous for option sellers. An ATM option with one day to expiration might have a gamma of 0.15 or higher, meaning delta swings wildly with small stock moves.
+当你持有空头伽马（卖出期权）时，德尔塔的变动对你不利。若股票上涨，你的空头看涨期权德尔塔愈发偏负（你越来越处于做空状态）；若股票下跌，你的空头看跌期权德尔塔愈发偏正（你越来越在持有下跌的股票多仓）。空头伽马是期权卖方为换取期权费收入所承担的风险。
 
 ```
-GAMMA BY TIME TO EXPIRATION (ATM Option):
+伽马对德尔塔的影响：
 
-  Days to Exp    Gamma      Interpretation
-  ===========    =====      ====================================
-  90 days        0.012      Delta changes slowly, stable position
-  60 days        0.015      Moderate delta sensitivity
-  30 days        0.022      Delta becoming more reactive
-  14 days        0.035      Noticeable delta swings on moves
-  7 days         0.055      Delta is quite jumpy
-  3 days         0.090      Delta swings significantly
-  1 day          0.180      Delta is extremely unstable
-  Expiration     HUGE       ATM option flips between 0 and 1.0
+  示例：苹果公司平值看涨期权，行权价$150，德尔塔 = 0.50，伽马 = 0.03
+
+  股票上涨$1至$151：
+    新德尔塔 = 0.50 + 0.03 = 0.53
+    期权此后每上涨$1，收益$0.53
+
+  股票下跌$1至$149：
+    新德尔塔 = 0.50 - 0.03 = 0.47
+    期权此后每上涨$1，收益$0.47
+
+  股票上涨$5至$155：
+    德尔塔从0.50向 ≈ 0.65 移动（每$1约加0.03）
+    期权在上涨途中越来越像股票本身
+
+  股票下跌$5至$145：
+    德尔塔从0.50向 ≈ 0.35 移动
+    期权在下跌途中越来越不敏感
+
+  这就是做多伽马的美妙之处：盈利时加速，亏损时减速。
 ```
 
-#### Theta: Time Decay
+**临近到期日的伽马风险：**
 
-Theta measures how much an option's price decreases as one day passes, all else being equal. We introduced this concept in Week 25, but now we quantify it precisely.
+平值期权在临近到期日时，伽马会急剧放大。这正是到期周对期权卖方而言危机四伏的原因。距到期日仅一天的平值期权，其伽马可能高达0.15甚至更高，意味着即便股票仅有微小波动，德尔塔也会剧烈摆动。
 
 ```
-THETA CHARACTERISTICS:
+平值期权按距到期日天数划分的伽马：
 
-  Long options:  Theta is NEGATIVE (you lose money each day)
-  Short options: Theta is POSITIVE (you earn money each day)
+  距到期日天数   伽马      含义
+  =========    =====     ======================================
+  90天          0.012     德尔塔变化缓慢，头寸稳定
+  60天          0.015     德尔塔敏感度适中
+  30天          0.022     德尔塔反应趋于活跃
+  14天          0.035     价格移动时德尔塔波动明显
+  7天           0.055     德尔塔相当不稳定
+  3天           0.090     德尔塔波动显著
+  1天           0.180     德尔塔极度不稳定
+  到期日         极大      平值期权在0和1.0之间急剧跳变
+```
 
-  Theta is LARGEST (most negative) for:
-    - At-the-money options
-    - Options near expiration
-    - High implied volatility options
+#### 西塔：时间价值衰减
 
-  Theta Decay Curve (ATM Option, $5.00 initial premium):
+西塔衡量在其他条件不变的情况下，随着一天时间流逝，期权价格减少多少。我们在第25周已经介绍过这一概念，现在我们来精确量化它。
 
-  Value
+```
+西塔的特性：
+
+  买入期权：西塔为负（每天都在亏损时间价值）
+  卖出期权：西塔为正（每天都在赚取时间价值）
+
+  西塔绝对值最大（最负）的情形：
+    - 平值期权
+    - 临近到期日的期权
+    - 高隐含波动率期权
+
+  西塔衰减曲线（平值期权，初始期权费$5.00）：
+
+  价值
   $5 |*
      | *
   $4 |  *
@@ -231,671 +227,661 @@ THETA CHARACTERISTICS:
      |                   *********
   $0 +----+----+----+----+----+----
      90   75   60   45   30   15   0
-              Days to Expiration
+              距到期日天数
 ```
 
-**Theta as Daily Cost:**
+**西塔作为每日成本：**
 
-If theta is -$0.05, the option loses $0.05 per share per day, or $5.00 per contract per day. Over a weekend (two non-trading days), the option loses approximately $10.00.
-
-```
-THETA BY STRIKE AND EXPIRATION (Stock at $150):
-
-  30 Days to Expiration:
-  Strike    Type    Premium    Theta/Day    Days to Lose 50%
-  ======    ====    =======    =========    ================
-  $140      Call    $12.50     -$0.03       ~208 days (deep ITM)
-  $145      Call    $8.20      -$0.05       ~82 days
-  $150      Call    $5.00      -$0.08       ~31 days
-  $155      Call    $2.80      -$0.07       ~20 days
-  $160      Call    $1.20      -$0.04       ~15 days
-
-  NOTE: ATM options have highest absolute theta, but OTM options
-  lose a higher PERCENTAGE of their value per day.
-
-  7 Days to Expiration:
-  Strike    Type    Premium    Theta/Day    % Lost/Day
-  ======    ====    =======    =========    ==========
-  $145      Call    $5.80      -$0.04       0.7%
-  $150      Call    $1.80      -$0.18       10.0%
-  $155      Call    $0.40      -$0.10       25.0%
-
-  ATM theta TRIPLES in the last week compared to 30 days out.
-```
-
-**Why Theta Matters for Strategy Selection:**
-
-When you sell options (covered calls, cash-secured puts), theta is your profit engine. You want maximum theta, which means selling ATM or slightly OTM options with 30-45 days to expiration. When you buy options, theta is your cost of doing business. You want to minimize it by buying longer-dated options or ITM options (higher percentage of intrinsic value, less extrinsic to decay).
-
-#### Vega: Volatility Sensitivity
-
-Vega measures how much an option's price changes when implied volatility changes by one percentage point. Unlike delta and theta, vega is the same sign for both calls and puts.
+若西塔为-$0.05，期权每股每天损失$0.05，即每份合约每天损失$5.00。一个周末（两个非交易日）内，期权大约损失$10.00。
 
 ```
-VEGA CHARACTERISTICS:
+按行权价和到期日划分的西塔（股票价格$150）：
 
-  Long options (calls or puts):  Vega is POSITIVE
-    -> You benefit when IV rises, you lose when IV falls
+  距到期日30天：
+  行权价   类型    期权费    每日西塔    损失50%所需天数
+  ======   ====   =======   ========   ==============
+  $140     看涨   $12.50    -$0.03     ≈208天（深度实值）
+  $145     看涨   $8.20     -$0.05     ≈82天
+  $150     看涨   $5.00     -$0.08     ≈31天
+  $155     看涨   $2.80     -$0.07     ≈20天
+  $160     看涨   $1.20     -$0.04     ≈15天
 
-  Short options (calls or puts): Vega is NEGATIVE
-    -> You benefit when IV falls, you lose when IV rises
+  注意：平值期权绝对西塔最高，但虚值期权每天损失的价值比例更高。
 
-  Vega is LARGEST for:
-    - At-the-money options
-    - Options with MORE time to expiration (opposite of theta!)
-    - Higher-priced stocks (in absolute terms)
+  距到期日7天：
+  行权价   类型    期权费    每日西塔    每日损失比例
+  ======   ====   =======   ========   =========
+  $145     看涨   $5.80     -$0.04     0.7%
+  $150     看涨   $1.80     -$0.18     10.0%
+  $155     看涨   $0.40     -$0.10     25.0%
+
+  最后一周平值期权西塔是距到期30天时的约三倍。
 ```
 
-```
-VEGA EXAMPLE:
+**西塔为何影响策略选择：**
 
-  AAPL $150 Call, 30 days to expiration
-  Current IV = 25%, Premium = $4.00, Vega = $0.10
+当你卖出期权（备兑看涨期权、现金担保看跌期权）时，西塔是你的利润引擎。你希望最大化西塔，这意味着卖出距到期日30至45天的平值或略虚值期权。当你买入期权时，西塔是你的持仓成本。你应买入到期日更远或实值程度更深的期权（内在价值比例更高，外在价值衰减更少），以尽量降低西塔成本。
 
-  If IV rises from 25% to 27% (+2 points):
-    Premium change = +2 x $0.10 = +$0.20
-    New premium = $4.20
+#### 维加：波动率敏感性
 
-  If IV drops from 25% to 22% (-3 points):
-    Premium change = -3 x $0.10 = -$0.30
-    New premium = $3.70
-
-  Per contract (100 shares):
-    IV up 2 points: gain $20
-    IV down 3 points: lose $30
-```
-
-**Volatility Crush:** This is why vega matters enormously. Before earnings announcements, implied volatility spikes as the market anticipates a big move. After the announcement, IV collapses back to normal levels. This is called "volatility crush" or "IV crush."
+维加衡量当隐含波动率变化一个百分点时，期权价格变化多少。与德尔塔和西塔不同，维加对看涨期权和看跌期权的符号相同。
 
 ```
-VOLATILITY CRUSH EXAMPLE:
+维加的特性：
 
-  AAPL $150 Call, 7 days before earnings:
-    IV = 45%, Premium = $6.00, Vega = $0.08
+  买入期权（看涨或看跌）：维加为正
+    -> 隐含波动率上升时获益，隐含波动率下降时亏损
 
-  AAPL reports earnings. Stock moves from $150 to $153 (+$3).
-  But IV drops from 45% to 28% (-17 points).
+  卖出期权（看涨或看跌）：维加为负
+    -> 隐含波动率下降时获益，隐含波动率上升时亏损
 
-  Delta gain:  +$3 x 0.50 delta = +$1.50
-  Vega loss:   -17 x $0.08 vega  = -$1.36
-  Theta loss:  -1 day x $0.15    = -$0.15
-
-  Net change: +$1.50 - $1.36 - $0.15 = -$0.01
-
-  THE STOCK WENT UP $3 AND THE CALL OPTION BROKE EVEN.
-
-  This is vega at work. Many beginners buy calls before earnings,
-  correctly predict the direction, and STILL lose money because
-  they did not account for volatility crush.
+  维加最大的情形：
+    - 平值期权
+    - 距到期日更长的期权（与西塔相反！）
+    - 绝对价格更高的股票（就绝对数值而言）
 ```
 
 ```
-VEGA BY TIME TO EXPIRATION (ATM Option, Stock at $150):
+维加示例：
 
-  Days to Exp    Vega/1% IV    Premium at 25% IV
-  ===========    ==========    ==================
-  7 days         $0.04         $2.10
-  14 days        $0.06         $3.00
-  30 days        $0.10         $4.30
-  60 days        $0.14         $6.10
-  90 days        $0.17         $7.50
-  180 days       $0.24         $10.60
-  365 days       $0.34         $15.00
+  苹果公司$150看涨期权，距到期日30天
+  当前隐含波动率 = 25%，期权费 = $4.00，维加 = $0.10
 
-  KEY INSIGHT: Longer-dated options have MORE vega.
-  LEAPS are very sensitive to IV changes.
-  Short-dated options have LESS vega but MORE gamma.
+  若隐含波动率从25%升至27%（+2个百分点）：
+    期权费变动 = +2 x $0.10 = +$0.20
+    新期权费 = $4.20
+
+  若隐含波动率从25%降至22%（-3个百分点）：
+    期权费变动 = -3 x $0.10 = -$0.30
+    新期权费 = $3.70
+
+  每份合约（100股）：
+    隐含波动率上升2个百分点：盈利$20
+    隐含波动率下降3个百分点：亏损$30
 ```
 
-#### Rho: Interest Rate Sensitivity
-
-Rho measures how much an option's price changes when interest rates change by one percentage point. Rho is the least important Greek for most retail traders because interest rates change slowly and the effect is small for short-dated options.
+**波动率崩塌：** 这正是维加极为重要的原因。在财报公告前，隐含波动率因市场预期大幅波动而飙升。公告发布后，隐含波动率回落至正常水平。这被称为"波动率崩塌"或"隐含波动率崩塌"。
 
 ```
-RHO CHARACTERISTICS:
+波动率崩塌示例：
 
-  Long Calls:  Rho is POSITIVE (higher rates -> higher call prices)
-  Long Puts:   Rho is NEGATIVE (higher rates -> lower put prices)
+  苹果公司$150看涨期权，财报前7天：
+    隐含波动率 = 45%，期权费 = $6.00，维加 = $0.08
 
-  Why? Higher rates increase the cost of carrying stock.
-  A call is a substitute for buying stock, so it becomes
-  more valuable when the alternative (buying stock) is more
-  expensive to finance.
+  苹果公司发布财报。股票从$150涨至$153（+$3）。
+  但隐含波动率从45%跌至28%（-17个百分点）。
 
-  RHO EXAMPLE:
+  德尔塔盈利：  +$3 x 0.50德尔塔 = +$1.50
+  维加亏损：   -17 x $0.08维加   = -$1.36
+  西塔亏损：   -1天 x $0.15      = -$0.15
 
-  AAPL $150 Call, 90 days to expiration, Rho = $0.08
+  净变动：+$1.50 - $1.36 - $0.15 = -$0.01
 
-  If rates rise 1% (e.g., from 4.5% to 5.5%):
-    Premium change = +$0.08 per share (+$8 per contract)
+  股票上涨了$3，看涨期权却基本持平。
 
-  For LEAPS (365+ days), Rho can be $0.30-$0.50
-  For weekly options, Rho is near zero.
-
-  WHEN RHO MATTERS:
-  - LEAPS positions held during rate-changing cycles
-  - Large portfolios with significant options exposure
-  - Periods of rapid Fed rate changes (like 2022-2023)
+  这就是维加的作用。许多初学者在财报前买入看涨期权，
+  方向判断正确，却仍然亏损，原因就在于没有考虑波动率崩塌。
 ```
 
-#### How the Greeks Interact
+```
+按距到期日划分的维加（平值期权，股票价格$150）：
 
-The Greeks do not operate in isolation. Real market moves change multiple factors simultaneously, and the Greeks interact with each other in important ways.
+  距到期日天数   每1%隐含波动率的维加   25%隐含波动率下的期权费
+  ===========   =================     ====================
+  7天            $0.04                 $2.10
+  14天           $0.06                 $3.00
+  30天           $0.10                 $4.30
+  60天           $0.14                 $6.10
+  90天           $0.17                 $7.50
+  180天          $0.24                 $10.60
+  365天          $0.34                 $15.00
+
+  关键启示：到期日越长的期权，维加越大。
+  长期期权对隐含波动率变化极为敏感。
+  短期期权维加较低，但伽马较高。
+```
+
+#### 罗：利率敏感性
+
+罗衡量当利率变化一个百分点时，期权价格变化多少。对于大多数散户交易者而言，罗是最不重要的希腊字母，因为利率变化缓慢，且对短期期权的影响很小。
 
 ```
-INTERACTION MAP:
+罗的特性：
+
+  买入看涨期权：罗为正（利率上升 -> 看涨期权价格上升）
+  买入看跌期权：罗为负（利率上升 -> 看跌期权价格下降）
+
+  原因：更高的利率增加了持有股票的融资成本。
+  看涨期权是买入股票的替代方式，因此当持有股票的
+  替代成本（融资买股）上升时，看涨期权变得更有价值。
+
+  罗的示例：
+
+  苹果公司$150看涨期权，距到期日90天，罗 = $0.08
+
+  若利率上升1%（例如从4.5%升至5.5%）：
+    期权费变动 = 每股+$0.08（每份合约+$8）
+
+  对于长期期权（365天以上），罗可达$0.30至$0.50。
+  对于周期权，罗接近于零。
+
+  罗何时重要：
+  - 在利率变化周期中持有的长期期权头寸
+  - 拥有大量期权敞口的大型投资组合
+  - 美联储快速加息期间（如2022至2023年）
+```
+
+#### 希腊字母如何相互作用
+
+希腊字母并非孤立运作。现实中的市场变动会同时改变多个因素，希腊字母之间也以重要的方式相互影响。
+
+```
+相互作用图：
 
   +------------------+
-  |   STOCK PRICE    |-----> Delta (primary)
-  |    changes       |-----> Gamma (adjusts delta)
-  +------------------+       Theta (affected by moneyness)
-                             Vega (affected by moneyness)
+  |   股票价格       |-----> 德尔塔（主要）
+  |    变化          |-----> 伽马（调整德尔塔）
+  +------------------+       西塔（受实虚值关系影响）
+                             维加（受实虚值关系影响）
 
   +------------------+
-  |  TIME PASSING    |-----> Theta (primary)
-  |                  |-----> Gamma (increases near exp)
-  +------------------+       Vega (decreases near exp)
-                             Delta (ATM stays ~0.50)
+  |  时间流逝        |-----> 西塔（主要）
+  |                  |-----> 伽马（临近到期时增大）
+  +------------------+       维加（临近到期时减小）
+                             德尔塔（平值期权维持约0.50）
 
   +------------------+
-  |  VOLATILITY      |-----> Vega (primary)
-  |   changes        |-----> Delta (shifts toward 0.50)
-  +------------------+       Gamma (decreases with high IV)
-                             Theta (increases with high IV)
+  |  波动率          |-----> 维加（主要）
+  |   变化           |-----> 德尔塔（向0.50方向移动）
+  +------------------+       伽马（高隐含波动率时减小）
+                             西塔（高隐含波动率时增大）
 
   +------------------+
-  |  INTEREST RATE   |-----> Rho (primary)
-  |   changes        |       (minor interactions with others)
+  |  利率            |-----> 罗（主要）
+  |   变化           |       （与其他希腊字母的相互作用较小）
   +------------------+
 ```
 
-**Key Interaction 1: Gamma and Theta are Opposites**
+**关键相互作用一：伽马与西塔互为对立面**
 
-This is the most important interaction. Options that have high gamma also have high theta. You cannot get one without the other. This creates a fundamental tradeoff:
-
-```
-THE GAMMA-THETA TRADEOFF:
-
-  Long Options (bought):
-    + Positive Gamma (delta moves in your favor)
-    - Negative Theta (you pay for this benefit daily)
-
-  Short Options (sold):
-    + Positive Theta (you earn money daily)
-    - Negative Gamma (delta moves against you)
-
-  You CANNOT have positive gamma and positive theta.
-  This is the iron law of options.
-
-  Example: Long ATM Call
-    Delta = +0.50, Gamma = +0.03, Theta = -0.08, Vega = +0.10
-
-  Example: Short ATM Call
-    Delta = -0.50, Gamma = -0.03, Theta = +0.08, Vega = -0.10
-
-  The question every options trader faces:
-  "Do I want to pay theta to own gamma, or collect theta
-   and accept gamma risk?"
-```
-
-**Key Interaction 2: Vega and Time**
-
-Options with more time have more vega but less gamma. Options with less time have more gamma but less vega. This means the dominant risk factor shifts as expiration approaches.
+这是最重要的相互作用。具有高伽马的期权同时具有高西塔。两者不可分割。这造成了一个根本性的权衡取舍：
 
 ```
-DOMINANT RISK BY TIME HORIZON:
+伽马与西塔的权衡：
 
-  Time to Exp     Dominant Greek    Key Risk
-  ===========     ==============    =========================
-  > 60 days       Vega              IV changes drive P&L
-  30-60 days      Vega/Theta        Both matter significantly
-  14-30 days      Theta/Gamma       Decay accelerates, gamma grows
-  < 14 days       Gamma/Theta       Gamma risk dominates
-  < 3 days        Gamma             Pure gamma risk for ATM
+  多头期权（买入）：
+    + 正伽马（德尔塔向有利方向移动）
+    - 负西塔（每天为此优势付出代价）
+
+  空头期权（卖出）：
+    + 正西塔（每天赚取时间价值）
+    - 负伽马（德尔塔向不利方向移动）
+
+  你永远无法同时拥有正伽马和正西塔。
+  这是期权的铁律。
+
+  示例：买入平值看涨期权
+    德尔塔 = +0.50，伽马 = +0.03，西塔 = -0.08，维加 = +0.10
+
+  示例：卖出平值看涨期权
+    德尔塔 = -0.50，伽马 = -0.03，西塔 = +0.08，维加 = -0.10
+
+  每位期权交易者面临的核心问题：
+  "我愿意支付西塔来持有伽马，
+   还是收取西塔并承担伽马风险？"
 ```
 
-**Key Interaction 3: All Greeks in a Real Scenario**
+**关键相互作用二：维加与时间**
+
+到期日越长的期权，维加越大，伽马越小；到期日越短的期权，伽马越大，维加越小。这意味着随着到期日临近，主导风险因素会发生转移。
 
 ```
-COMPLETE GREEK ANALYSIS:
+按时间跨度划分的主导希腊字母：
 
-  Position: Long 5 AAPL $150 Calls, 30 days to expiration
-  Stock at $148, IV = 28%
-
-  Per Contract    x5 Contracts    Meaning
-  ============    ============    ================================
-  Delta: +0.45    +225            ~Equivalent to long 225 shares
-  Gamma: +0.025   +12.5           Delta increases 12.5 per $1 up
-  Theta: -$0.07   -$35/day        Position costs $35/day to hold
-  Vega:  +$0.10   +$50/1% IV      Each 1% IV rise adds $50
-  Rho:   +$0.06   +$30/1% rate    Minimal concern
-
-  SCENARIO A: Stock goes to $153 (+$5), IV stays, 5 days pass
-    Delta P&L:  +$5 x 225 = +$1,125 (approximate, delta changes)
-    Theta P&L:  -$35 x 5 = -$175
-    Gamma adj:  Delta rose from 225 to ~288, accelerating gains
-    NET: approximately +$1,050
-
-  SCENARIO B: Stock stays at $148, IV drops 3%, 5 days pass
-    Delta P&L:  $0
-    Vega P&L:   -3 x $50 = -$150
-    Theta P&L:  -$35 x 5 = -$175
-    NET: approximately -$325
-
-  SCENARIO C: Stock drops to $143 (-$5), IV spikes +5%, 5 days pass
-    Delta P&L:  -$5 x 225 = -$1,125 (approximate)
-    Vega P&L:   +5 x $50 = +$250
-    Theta P&L:  -$35 x 5 = -$175
-    Gamma adj:  Delta fell from 225 to ~163, decelerating losses
-    NET: approximately -$900 (vega partially offset delta loss)
+  距到期日     主导希腊字母   关键风险
+  =========   ===========   ========================
+  > 60天       维加           隐含波动率变化驱动盈亏
+  30至60天     维加/西塔      两者均显著影响
+  14至30天     西塔/伽马      衰减加速，伽马增大
+  < 14天       伽马/西塔      伽马风险占主导
+  < 3天        伽马           平值期权为纯伽马风险
 ```
 
-#### Practical Position Management Using the Greeks
-
-Now let us apply the Greeks to the strategies you already know.
-
-**Covered Call Greek Profile:**
+**关键相互作用三：真实场景中的全部希腊字母**
 
 ```
-COVERED CALL: Long 100 shares + Short 1 ATM Call
+完整希腊字母分析：
 
-  Component             Delta    Gamma    Theta    Vega
-  ====================  ======   ======   ======   ======
-  Long 100 shares       +100     0        0        0
-  Short 1 ATM Call      -50      -0.025   +0.08    -0.10
+  头寸：买入5份苹果公司$150看涨期权，距到期日30天
+  股票价格$148，隐含波动率 = 28%
+
+  每份合约        x5份合约        含义
+  ===========     ===========    ================================
+  德尔塔: +0.45   +225           ≈等值于持有225股多仓
+  伽马: +0.025    +12.5          每上涨$1，德尔塔增加12.5
+  西塔: -$0.07    -$35/天        持仓每天成本$35
+  维加: +$0.10    +$50/1%隐波    隐含波动率每升1%增加$50
+  罗: +$0.06      +$30/1%利率    影响微乎其微
+
+  情景A：股票涨至$153（+$5），隐含波动率不变，5天过去
+    德尔塔盈亏：  +$5 x 225 = +$1,125（近似值，德尔塔会变化）
+    西塔盈亏：   -$35 x 5 = -$175
+    伽马调整：   德尔塔从225升至约288，加速了盈利
+    净计：约 +$1,050
+
+  情景B：股票维持$148，隐含波动率下跌3%，5天过去
+    德尔塔盈亏：  $0
+    维加盈亏：   -3 x $50 = -$150
+    西塔盈亏：   -$35 x 5 = -$175
+    净计：约 -$325
+
+  情景C：股票跌至$143（-$5），隐含波动率上涨+5%，5天过去
+    德尔塔盈亏：  -$5 x 225 = -$1,125（近似值）
+    维加盈亏：   +5 x $50 = +$250
+    西塔盈亏：   -$35 x 5 = -$175
+    伽马调整：   德尔塔从225降至约163，减缓了亏损
+    净计：约 -$900（维加部分抵消了德尔塔亏损）
+```
+
+#### 运用希腊字母进行实际头寸管理
+
+现在让我们将希腊字母应用于你已熟悉的策略。
+
+**备兑看涨期权的希腊字母概况：**
+
+```
+备兑看涨期权：持有100股多仓 + 卖出1份平值看涨期权
+
+  组成部分              德尔塔    伽马     西塔     维加
+  ==================    ======   ======   ======   ======
+  持有100股多仓          +100     0        0        0
+  卖出1份平值看涨期权     -50      -0.025   +0.08    -0.10
   ---------------------------------------------------------
-  NET POSITION          +50      -0.025   +0.08    -0.10
+  净头寸               +50      -0.025   +0.08    -0.10
 
-  Interpretation:
-  - Delta +50: You are still bullish, but only half as much as
-    owning stock outright. You profit from moderate upside.
-  - Gamma -0.025: Delta moves against you on big moves. If stock
-    surges, your net delta SHRINKS (capped upside). If stock
-    drops, your net delta GROWS (increasing loss exposure).
-  - Theta +0.08: You earn ~$8/day from time decay. This is your
-    income stream.
-  - Vega -0.10: You benefit from falling IV. If IV drops, your
-    short call loses value (good for you since you sold it).
+  解读：
+  - 德尔塔 +50：你仍持看涨观点，但敞口仅为持有股票的一半。
+    你从温和上涨中获益。
+  - 伽马 -0.025：大幅波动时德尔塔对你不利。若股票大涨，
+    净德尔塔收窄（上行空间受限）；若股票下跌，净德尔塔
+    扩大（亏损敞口增加）。
+  - 西塔 +0.08：每天从时间衰减中赚取约$8。这是你的收入来源。
+  - 维加 -0.10：隐含波动率下降时获益。若隐含波动率下跌，
+    你的空头看涨期权价值下降（对你有利，因为你是卖方）。
 ```
 
-**Cash-Secured Put Greek Profile:**
+**现金担保看跌期权的希腊字母概况：**
 
 ```
-CASH-SECURED PUT: Cash + Short 1 ATM Put
+现金担保看跌期权：现金 + 卖出1份平值看跌期权
 
-  Component             Delta    Gamma    Theta    Vega
-  ====================  ======   ======   ======   ======
-  Cash                  0        0        0        0
-  Short 1 ATM Put       +50      -0.025   +0.08    -0.10
+  组成部分              德尔塔    伽马     西塔     维加
+  ==================    ======   ======   ======   ======
+  现金                   0        0        0        0
+  卖出1份平值看跌期权     +50      -0.025   +0.08    -0.10
   ---------------------------------------------------------
-  NET POSITION          +50      -0.025   +0.08    -0.10
+  净头寸               +50      -0.025   +0.08    -0.10
 
-  Notice: The Greek profile is nearly IDENTICAL to the covered call.
-  This is not a coincidence. Put-call parity tells us that a
-  covered call and a cash-secured put at the same strike have
-  equivalent risk/reward profiles.
+  注意：该希腊字母概况与备兑看涨期权几乎完全相同。
+  这并非巧合。看跌看涨平价关系告诉我们，相同行权价下，
+  备兑看涨期权与现金担保看跌期权具有等价的风险收益结构。
 ```
 
-**Portfolio-Level Greek Management:**
+**投资组合层面的希腊字母管理：**
 
 ```
-SAMPLE OPTIONS PORTFOLIO:
+期权投资组合示例：
 
-  Position                          Delta  Gamma  Theta  Vega
-  ================================  =====  =====  =====  =====
-  Long 200 sh AAPL                  +200   0      0      0
-  Short 2 AAPL $155 Calls (30d)    -110   -0.06  +0.18  -0.22
-  Short 1 MSFT $400 Put (45d)       +40   -0.02  +0.06  -0.12
-  Long 3 SPY $520 Puts (60d)       -120   +0.05  -0.15  +0.36
+  头寸                              德尔塔   伽马    西塔    维加
+  ===============================   =====   =====   =====   =====
+  持有苹果公司200股多仓              +200    0       0       0
+  卖出2份苹果公司$155看涨期权（30天） -110    -0.06   +0.18   -0.22
+  卖出1份微软$400看跌期权（45天）      +40    -0.02   +0.06   -0.12
+  买入3份标普500ETF $520看跌期权（60天）-120   +0.05  -0.15   +0.36
   ================================================================
-  PORTFOLIO TOTALS                  +10    -0.03  +0.09  +0.02
+  投资组合合计                       +10    -0.03   +0.09   +0.02
 
-  ANALYSIS:
-  - Delta +10:  Nearly neutral. $1 market move = ~$10 P&L.
-                This is a well-hedged portfolio.
-  - Gamma -0.03: Slightly short gamma. Big moves hurt slightly.
-  - Theta +0.09: Earning ~$9/day net. Positive carry.
-  - Vega +0.02: Near neutral on IV. Slight benefit if IV rises.
+  分析：
+  - 德尔塔 +10：接近中性。市场移动$1 ≈ 约$10的盈亏。
+                这是对冲较好的投资组合。
+  - 伽马 -0.03：略微空头伽马。大幅波动时略有不利。
+  - 西塔 +0.09：净赚约$9/天。正向持仓成本。
+  - 维加 +0.02：隐含波动率基本中性。隐含波动率上升略有获益。
 
-  This portfolio earns income from theta while being
-  approximately market-neutral. The protective puts offset
-  the directional risk of the stock position and short calls.
+  该投资组合通过西塔赚取收入，同时基本保持市场中性。
+  保护性看跌期权抵消了股票头寸和空头看涨期权的方向性风险。
 ```
 
 ```
-WHEN TO ADJUST (RULES OF THUMB):
+何时调整（经验法则）：
 
-  Greek      Warning Level            Adjustment Options
-  =====      ====================     ==============================
-  Delta      > 70% of portfolio       Sell calls, buy puts, reduce
-             value in one direction   stock, add hedges
+  希腊字母   预警水平                    调整方案
+  =====     ====================       ==============================
+  德尔塔     > 投资组合价值的70%         卖出看涨期权、买入看跌期权、
+             偏向某一方向               减少股票、增加对冲
 
-  Gamma      High short gamma near    Close or roll positions away
-             expiration               from expiration week
+  伽马       临近到期日时空头伽马较高     关闭或移仓，避开到期周
 
-  Theta      Negative theta on a      Switch from buying to selling
-             position held for        strategies, or add income
-             income generation        overlay
+  西塔       以收入为目的的头寸出现       从买入策略转向卖出策略，
+             负西塔                     或叠加收益来源
 
-  Vega       Large vega before        Reduce vega before known
-             earnings/events          events, or accept the risk
+  维加       财报/重大事件前维加敞口大    提前降低维加敞口，或接受风险
 
-  Rho        Only for LEAPS           Factor rate expectations
-             portfolios               into LEAPS timing
+  罗         仅适用于长期期权投资组合     将利率预期纳入长期期权时机判断
 ```
 
-#### The Greeks Over the Life of an Option
+#### 期权生命周期中的希腊字母演变
 
-Understanding how Greeks evolve is essential for timing entries and exits.
+理解希腊字母如何随时间演变，对于把握建仓和平仓时机至关重要。
 
 ```
-LIFECYCLE OF AN ATM CALL OPTION:
+平值看涨期权的生命周期：
 
-  Day    Delta   Gamma   Theta    Vega     Phase
-  ====   =====   =====   ======   =====    ================
-  90     0.52    0.012   -$0.04   $0.17    Vega-dominant
-  75     0.51    0.013   -$0.04   $0.15    Vega still primary
-  60     0.51    0.015   -$0.05   $0.14    Transition begins
-  45     0.51    0.018   -$0.06   $0.12    Theta growing
-  30     0.50    0.022   -$0.08   $0.10    Theta and gamma rise
-  21     0.50    0.028   -$0.09   $0.08    Gamma accelerating
-  14     0.50    0.035   -$0.11   $0.06    Gamma dominates vega
-  7      0.50    0.055   -$0.15   $0.04    High gamma, high theta
-  3      0.50    0.090   -$0.22   $0.02    Extreme gamma/theta
-  1      0.50    0.180   -$0.40   $0.01    Explosive gamma risk
-  0      0/1.0   Inf     N/A      0        Binary outcome
+  天数   德尔塔   伽马    西塔      维加     阶段
+  ====   =====   =====   ======    =====    ================
+  90     0.52    0.012   -$0.04    $0.17    维加主导
+  75     0.51    0.013   -$0.04    $0.15    维加仍为主要因素
+  60     0.51    0.015   -$0.05    $0.14    过渡开始
+  45     0.51    0.018   -$0.06    $0.12    西塔增大
+  30     0.50    0.022   -$0.08    $0.10    西塔和伽马同步上升
+  21     0.50    0.028   -$0.09    $0.08    伽马加速增大
+  14     0.50    0.035   -$0.11    $0.06    伽马超越维加
+  7      0.50    0.055   -$0.15    $0.04    伽马高，西塔高
+  3      0.50    0.090   -$0.22    $0.02    伽马/西塔极端水平
+  1      0.50    0.180   -$0.40    $0.01    伽马风险爆炸性增大
+  0      0/1.0   无穷大   不适用    0        二元结果
 
-  MANAGEMENT IMPLICATION:
-  - Sell options 30-45 days out to capture theta efficiently
-  - Close short options at 50-75% profit or roll before < 14 days
-  - Avoid holding short ATM options into expiration week
-  - Buy options farther out (60-90 days) to minimize theta cost
+  管理启示：
+  - 在距到期30至45天时卖出期权，以高效捕获西塔
+  - 空头期权在盈利达50至75%时平仓或移仓，或在距到期<14天前处理
+  - 避免将空头平值期权持有至到期周
+  - 买入期权选择更远到期日（60至90天）以降低西塔成本
 ```
 
 ---
 
-### c) Common Misconceptions
+### c）常见误区
 
-**Misconception 1: "Delta is the probability that the option will expire in the money."**
+**误区一："德尔塔就是期权到期时处于实值状态的概率。"**
 
-Delta approximates this probability but is not equal to it. The mathematical probability of expiring ITM (from the options pricing model) is given by N(d2) in the Black-Scholes formula, while delta is N(d1). For practical purposes, delta is close enough to serve as a quick estimate, but if you need precise probabilities, use your brokerage platform's probability calculator. The difference is largest for high-volatility, long-dated options.
+德尔塔近似于这一概率，但并不等同。期权定价模型给出的实值到期数学概率，在布莱克-斯科尔斯公式中由N(d2)表示，而德尔塔则是N(d1)。在实际操作中，德尔塔已足够接近，可用作快速估算，但若需要精确概率，请使用券商平台的概率计算工具。两者差异在高波动率、长期期权中最为显著。
 
-**Misconception 2: "Theta is constant and predictable."**
+**误区二："西塔是固定且可预测的。"**
 
-Theta is neither constant nor perfectly predictable. It changes every day based on moneyness, time to expiration, and implied volatility. An option's theta today might be -$0.05 and next week -$0.08. Do not project current theta forward linearly. Also, theta decay does not happen uniformly throughout the trading day. Academic models assume continuous decay, but in practice, much of the daily theta loss is priced in at the overnight close.
+西塔既不固定，也非完全可预测。它每天都会根据实虚值关系、距到期日时间以及隐含波动率而变化。某期权今日西塔可能为-$0.05，下周可能变为-$0.08。不要将当前西塔线性外推。此外，西塔衰减在交易日内并非均匀分布。学术模型假设连续衰减，但实际上，许多每日西塔损耗是在隔夜收盘时定价计入的。
 
-**Misconception 3: "I should only care about delta because it is the biggest Greek."**
+**误区三："我只需关注德尔塔，因为它是最重要的希腊字母。"**
 
-For short-term, directional trades, delta is indeed dominant. But for income strategies like covered calls and cash-secured puts, theta is your primary profit driver. For earnings plays, vega may be more important than delta. The "most important" Greek depends entirely on your strategy and time horizon. Professional traders manage all five Greeks simultaneously.
+对于短期方向性交易，德尔塔确实占主导。但对于备兑看涨期权和现金担保看跌期权等收益策略，西塔才是你的主要盈利驱动力。对于财报行情交易，维加的重要性可能超过德尔塔。"最重要的"希腊字母完全取决于你的策略和时间维度。专业交易者会同时管理全部五个希腊字母。
 
-**Misconception 4: "The Greeks are exact predictions."**
+**误区四："希腊字母是精确的预测。"**
 
-The Greeks are instantaneous measures based on current conditions and a mathematical model. They change constantly. An option with delta 0.50 now might have delta 0.55 after a $2 stock move, even though the original delta predicted a $1.00 gain on a $2 move ($0.50 x 2). That is gamma at work. The Greeks are first-order approximations, and they work best for small changes over short time periods.
+希腊字母是基于当前条件和数学模型得出的瞬时度量指标，它们时刻在变化。一份当前德尔塔为0.50的期权，在股票移动2美元后，德尔塔可能已升至0.55，尽管原始德尔塔预测2美元股价移动应带来1.00美元的期权收益（$0.50 x 2）。这就是伽马的作用。希腊字母是一阶近似值，在较短时间内的小幅变化中效果最佳。
 
-**Misconception 5: "Selling options is free money because of positive theta."**
+**误区五："卖出期权是免费的钱，因为西塔为正。"**
 
-Positive theta is earned in exchange for negative gamma. You collect small daily income but accept the risk of large losses during big moves. The income is not free; it is compensation for bearing risk. An option seller who only thinks about theta and ignores gamma is like an insurance company that only counts premiums and ignores claims. Eventually, a catastrophic event arrives.
+正西塔是以负伽马为代价换取的。你收取微小的每日收入，但承担了大幅波动时发生重大亏损的风险。这份收入并非免费，它是承担风险的补偿。只看西塔而忽视伽马的期权卖方，就像只统计保费收入而不考虑理赔的保险公司。终有一天，灾难性事件会到来。
 
-**Misconception 6: "Vega does not matter for covered calls and cash-secured puts."**
+**误区六："维加对备兑看涨期权和现金担保看跌期权无关紧要。"**
 
-It absolutely does. If you sell a covered call when IV is low and then IV spikes, your short call increases in value, creating an unrealized loss. You want to sell options when IV is high (you collect more premium and benefit when IV drops) and buy options when IV is low. Ignoring vega means you may consistently sell cheap options and buy expensive ones.
+维加绝对重要。如果你在隐含波动率较低时卖出备兑看涨期权，此后隐含波动率急剧上升，你的空头看涨期权价值随之增加，造成未实现亏损。你应该在隐含波动率高时卖出期权（收取更多期权费，并在隐含波动率下降时获益），在隐含波动率低时买入期权。忽视维加意味着你可能持续卖出廉价期权、买入昂贵期权。
 
-**Misconception 7: "Rho is irrelevant and can be completely ignored."**
+**误区七："罗无关紧要，可以完全忽略。"**
 
-For short-dated options, rho is indeed negligible. But for LEAPS (options with a year or more to expiration), rho can have a meaningful impact. During the 2022-2023 rate hiking cycle, rho effects moved LEAPS prices noticeably. If you trade LEAPS (which we cover in Week 38), you need to factor in rho.
-
----
-
-### d) Q&A
-
-**Q: How do I find the Greeks for my options positions?**
-
-A: Every major brokerage platform displays the Greeks. In most platforms, you can add columns for delta, gamma, theta, vega, and rho to your options chain display. When you have an open position, the portfolio view typically shows the position-level Greeks (per-contract values multiplied by the number of contracts). If your platform does not display Greeks prominently, look for an "options analytics" or "risk profile" section.
-
-**Q: Do the Greeks change over the weekend?**
-
-A: The Greeks themselves (the sensitivity measures) are recalculated when the market opens on Monday. However, theta decay does occur over the weekend. Most options pricing models assume 365-day decay, meaning the option loses about 2/365 of its time value over a two-day weekend. Some traders debate exactly how weekends are priced, but empirically, selling options on Friday and buying them back on Monday often captures weekend theta. This is a minor point for long-term strategy but relevant for short-term traders.
-
-**Q: How do I calculate the Greeks for an entire portfolio?**
-
-A: Portfolio Greeks are additive. Simply sum the delta, gamma, theta, and vega of each individual position. Long positions contribute their natural sign, and short positions contribute the opposite sign. Most brokerage platforms calculate portfolio Greeks automatically. This is how professional traders manage risk: they monitor portfolio-level Greeks and adjust when any Greek gets too large in one direction.
-
-**Q: What is "delta-neutral" and should I try to be delta-neutral?**
-
-A: A delta-neutral position has a net delta near zero, meaning it does not benefit or suffer from small stock price movements. Market makers maintain delta-neutral books constantly. For a retail investor running income strategies, perfect delta neutrality is not necessary. However, understanding how close to neutral you are helps you manage risk. If your portfolio delta is +800, you are essentially long 800 shares worth of exposure. That might be appropriate or it might be too aggressive, depending on your risk tolerance and portfolio size.
-
-**Q: What is the "gamma squeeze" that I hear about in the news?**
-
-A: A gamma squeeze occurs when market makers who sold call options need to buy stock to hedge their positions as the stock rises. Here is the chain reaction: retail traders buy calls, market makers sell those calls and are now short gamma and short delta. To hedge, market makers buy shares proportional to their delta exposure. As the stock rises, the calls' delta increases (gamma), so market makers must buy even more shares. This additional buying pushes the stock higher, which increases delta further, creating a feedback loop. The GameStop (GME) event in January 2021 was partly driven by a gamma squeeze.
-
-**Q: How much does it cost me per day to hold a long options position?**
-
-A: Check the theta value. If theta is -$0.05 per share, it costs you $5 per contract per day. Over 30 days, that is $150 per contract. Compare this cost to the potential gain you expect from delta (directional move) and any vega benefit. If your expected gain from a stock move does not comfortably exceed the theta cost over your expected holding period, the trade has poor risk-reward from a Greek perspective.
-
-**Q: Should I adjust my position when one Greek gets extreme?**
-
-A: Yes, but do not over-adjust. The most common adjustment triggers are: (1) Delta gets too large relative to your risk tolerance, suggesting you should hedge or reduce the position. (2) Gamma becomes very high near expiration on short positions, suggesting you should close or roll. (3) Vega exposure is large going into a known volatility event like earnings. For income strategies (covered calls, cash-secured puts), the most practical adjustment is rolling: closing the current position and opening a new one at a different strike or expiration. We discussed rolling mechanics in Weeks 27 and 28.
-
-**Q: Are the Greeks the same in the Black-Scholes model and in real markets?**
-
-A: The conceptual meanings are the same, but the actual values differ depending on the model used. Black-Scholes assumes constant volatility and log-normal price distribution. In reality, volatility varies, prices have fat tails, and the volatility smile (different IVs for different strikes) affects the Greeks. Market-made Greeks use more sophisticated models that account for these factors. For a retail investor using Greek values from a brokerage platform, the values are accurate enough for position management. You do not need to worry about the mathematical model differences.
+对于短期期权，罗确实可以忽略不计。但对于长期期权（到期日一年以上），罗可以产生显著影响。在2022至2023年加息周期中，罗效应对长期期权价格产生了明显影响。如果你交易长期期权（我们将在第38周介绍），需要将罗纳入考量。
 
 ---
 
-## YouTube Script
+### d）问答
+
+**问：如何查找我期权头寸的希腊字母？**
+
+答：所有主流券商平台均显示希腊字母。在大多数平台中，你可以在期权链展示中添加德尔塔、伽马、西塔、维加和罗的列。当你持有未平仓头寸时，投资组合视图通常会显示头寸层面的希腊字母（每份合约数值乘以合约数量）。如果你的平台没有突出显示希腊字母，请查找"期权分析"或"风险概况"部分。
+
+**问：周末期间希腊字母会变化吗？**
+
+答：希腊字母本身（敏感性度量指标）将在周一开市时重新计算。但是，西塔衰减确实发生在周末。大多数期权定价模型假设365天衰减，意味着期权在两天周末内损失约2/365的时间价值。关于周末如何被定价，一些交易者存在争议，但从经验来看，周五卖出期权并在周一买回通常能捕获周末西塔。这对长期策略来说是细节问题，但与短期交易者密切相关。
+
+**问：如何计算整个投资组合的希腊字母？**
+
+答：投资组合希腊字母可以直接相加。只需将每个单独头寸的德尔塔、伽马、西塔和维加求和即可。多头头寸保留其自然符号，空头头寸符号取反。大多数券商平台会自动计算投资组合层面的希腊字母。这正是专业交易者管理风险的方式：他们监控投资组合层面的希腊字母，并在某个希腊字母过度偏向某一方向时进行调整。
+
+**问：什么是"德尔塔中性"？我是否应该尝试保持德尔塔中性？**
+
+答：德尔塔中性头寸的净德尔塔接近零，意味着它不会从小幅股价波动中获益或受损。做市商会持续维持德尔塔中性账户。对于运行收益策略的散户投资者而言，完美的德尔塔中性并非必要。但了解自己距中性有多近，有助于管理风险。如果你的投资组合德尔塔为+800，你实际上承担了相当于持有800股的敞口。这是否合适，取决于你的风险承受能力和投资组合规模。
+
+**问：我经常听到新闻中提到"伽马挤压"，那是什么？**
+
+答：伽马挤压发生在做市商卖出看涨期权后，需要通过买入股票来对冲头寸的情形，随着股价上涨，买入需求呈螺旋式放大。其连锁反应如下：散户买入看涨期权，做市商卖出这些期权，此时做市商处于空头伽马和空头德尔塔状态。为对冲，做市商按德尔塔敞口比例买入股票。随着股票上涨，看涨期权德尔塔增大（伽马效应），做市商必须买入更多股票。这额外的买盘推动股价进一步上涨，德尔塔随之进一步增大，形成正反馈循环。2021年1月的游戏驿站（GME）事件，部分原因正是由伽马挤压驱动的。
+
+**问：持有多头期权头寸每天需要付出多少成本？**
+
+答：查看西塔数值。若西塔为每股-$0.05，则每份合约每天成本为$5。30天累计成本为每份合约$150。将此成本与预期从德尔塔（方向性波动）和任何维加收益中获得的潜在盈利进行比较。如果你在预计持仓期间从股票移动中获得的预期盈利无法轻松超过西塔成本，那么从希腊字母角度看，这笔交易的风险收益比较差。
+
+**问：当某个希腊字母变得极端时，我是否应该调整头寸？**
+
+答：应该调整，但不要过度调整。最常见的调整触发条件是：（1）德尔塔相对于你的风险承受能力过大，提示你应该对冲或缩减头寸；（2）空头头寸在临近到期日时伽马变得很高，提示你应该平仓或移仓；（3）在财报等已知波动性事件前夕，维加敞口过大。对于收益策略（备兑看涨期权、现金担保看跌期权），最实用的调整方式是移仓：平仓当前头寸，在不同行权价或到期日建立新头寸。我们在第27和第28周讨论了移仓的操作机制。
+
+**问：布莱克-斯科尔斯模型与真实市场中的希腊字母是否相同？**
+
+答：概念含义相同，但实际数值因所用模型而异。布莱克-斯科尔斯模型假设波动率恒定且价格呈对数正态分布。而现实中，波动率是变化的，价格具有厚尾特征，且不同行权价的波动率微笑（波动率偏斜）也会影响希腊字母值。做市商采用更复杂的模型来计算希腊字母，以便考虑这些因素。对于使用券商平台显示的希腊字母数值的散户投资者而言，这些数值已足够准确，可用于头寸管理。你无需深究数学模型之间的差异。
+
+---
+
+## YouTube脚本
 
 [VISUAL: Animated intro with show logo. Text: "Week 29: The Option Greeks - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are tackling what I consider the most important week in our entire options education series. We are going to learn the option Greeks.
+**陳馬：** 欢迎回来，各位。今天我们要攻克的，是我认为整个期权教育系列中最重要的一周。我们来学习期权的希腊字母。
 
-**Sam:** The Greeks. Delta, theta, gamma, vega. I have seen these terms on my brokerage platform but I have to admit, I usually just ignore them. Are they really that important?
+**小魚：** 希腊字母。德尔塔、西塔、伽马、维加。我在券商平台上见过这些词，但老实说，我通常直接跳过。它们真的有那么重要吗？
 
-**Alex:** They are absolutely essential. Let me put it this way. In Weeks 25 through 28, we taught you how to drive the car. Today we are going to teach you how to read the dashboard. Without the dashboard, you do not know how fast you are going, how much fuel you have, or whether the engine is overheating.
+**陳馬：** 绝对不可或缺。我这样来描述吧——在第25到28周，我们教你怎么开车。今天，我们要教你怎么看仪表盘。没有仪表盘，你不知道自己在跑多快，油还剩多少，发动机会不会过热。
 
-[VISUAL: Car dashboard analogy. A car dashboard appears with five gauges labeled: Delta (Speedometer), Gamma (Acceleration), Theta (Fuel Gauge), Vega (Weather), Rho (Temperature)]
+[VISUAL: Car dashboard analogy. A car dashboard appears with five gauges labeled: 德尔塔（速度表）, 伽马（加速度）, 西塔（油量表）, 维加（天气）, 罗（温度）]
 
-**Sam:** OK that is a great analogy. So there are five major Greeks?
+**小魚：** 好，这个类比很形象。所以一共有五个主要的希腊字母？
 
-**Alex:** Five. Delta, gamma, theta, vega, and rho. Each one measures how sensitive your option's price is to a specific factor. Delta measures sensitivity to stock price, gamma measures how delta itself changes, theta measures the effect of time passing, vega measures sensitivity to implied volatility, and rho measures sensitivity to interest rates.
+**陳馬：** 五个。德尔塔、伽马、西塔、维加和罗。每个都衡量你的期权价格对某一特定因素的敏感程度。德尔塔衡量对股价的敏感性，伽马衡量德尔塔本身的变化幅度，西塔衡量时间流逝的影响，维加衡量对隐含波动率的敏感性，罗衡量对利率的敏感性。
 
-**Sam:** Let us start with the big one. Delta.
+**小魚：** 我们先从最重要的说起。德尔塔。
 
-**Alex:** Delta is the king of the Greeks. It tells you how much your option's price will change when the stock moves by one dollar. A call option with a delta of 0.60 will gain approximately 60 cents when the stock goes up one dollar, and lose approximately 60 cents when the stock goes down one dollar.
+**陳馬：** 德尔塔是希腊字母之王。它告诉你，当股票移动1美元时，你的期权价格会变动多少。一份德尔塔为0.60的看涨期权，在股票上涨1美元时大约赚60美分，股票下跌1美元时大约亏60美分。
 
 [VISUAL: Number line showing stock price moving from $149 to $150 to $151. An option price bar moves from $4.40 to $5.00 to $5.60 with delta = 0.60 labeled]
 
-**Sam:** So delta basically tells me how much of the stock's movement I capture?
+**小魚：** 所以德尔塔基本上告诉我，我能捕获股票多少涨幅？
 
-**Alex:** Exactly. And here is something really important. Delta changes depending on where the stock price is relative to the strike price. An at-the-money option has a delta around 0.50. A deep in-the-money option has a delta approaching 1.0. And a far out-of-the-money option has a delta approaching zero.
+**陳馬：** 完全正确。还有一点非常关键：德尔塔会根据股票价格与行权价的关系而变化。平值期权的德尔塔约为0.50，深度实值期权的德尔塔趋近1.0，而深度虚值期权的德尔塔则趋近于零。
 
-**Sam:** So an at-the-money call captures about half the stock's movement?
+**小魚：** 所以平值看涨期权大约捕获股票一半的涨幅？
 
-**Alex:** Right. And this connects to another useful interpretation of delta. It roughly approximates the probability that the option will expire in the money. An ATM option with a delta of 0.50 has roughly a 50% chance of expiring in the money. An OTM option with a delta of 0.20 has roughly a 20% chance.
+**陳馬：** 对。这还引申出德尔塔的另一个实用解读：它大致近似于期权到期时处于实值状态的概率。德尔塔为0.50的平值期权，到期时处于实值的概率约为50%；德尔塔为0.20的虚值期权，概率约为20%。
 
-[ANIMATION: Reference animation/week29_delta_curve.py - A smooth S-curve showing delta values (y-axis, 0 to 1.0) plotted against stock price (x-axis). As the stock price slides along the x-axis, a dot traces the curve and a delta readout updates in real time. Annotations appear at key points: "Deep OTM: delta near 0", "ATM: delta = 0.50", "Deep ITM: delta near 1.0".]
+[ANIMATION: Reference animation/week29_delta_curve.py - A smooth S-curve showing delta values (y-axis, 0 to 1.0) plotted against stock price (x-axis). As the stock price slides along the x-axis, a dot traces the curve and a delta readout updates in real time. Annotations appear at key points: "深度虚值：德尔塔接近0", "平值：德尔塔 = 0.50", "深度实值：德尔塔接近1.0".]
 
-**Sam:** Wait, I just realized something. If I own one call with a delta of 0.50, that is like owning 50 shares of stock?
+**小魚：** 等等，我刚想到一件事。如果我持有一份德尔塔为0.50的看涨期权，那不就相当于持有50股股票吗？
 
-**Alex:** You just discovered what professionals call the "delta-equivalent position." One call with delta 0.50 controls 100 shares, but it moves like 50 shares. Two of those calls would give you delta of 100, equivalent to owning 100 shares. This is incredibly useful for understanding how much market exposure you actually have.
+**陳馬：** 你刚刚发现了专业人士所说的"德尔塔等值头寸"。一份德尔塔为0.50的看涨期权控制着100股，但它的走势只像50股。买两份这样的期权，德尔塔就是100，相当于持有100股。这对于理解你实际承担的市场敞口大小非常有帮助。
 
-**Sam:** So if I have a covered call, which is long 100 shares and short one call, I can add up the deltas?
+**小魚：** 所以如果我做备兑看涨期权——也就是持有100股多仓加卖出一份看涨期权——我可以把德尔塔加起来？
 
-**Alex:** Exactly. If you own 100 shares, your delta is plus 100. You sell an at-the-money call with a delta of 0.50. That short call has a delta of minus 50, because you sold it. Net delta: plus 50. Your covered call position acts like owning 50 shares instead of 100.
+**陳馬：** 完全正确。持有100股，德尔塔就是+100。你卖出一份德尔塔为0.50的平值看涨期权。这份空头期权的德尔塔是-50，因为你是卖方。净德尔塔：+50。你的备兑看涨期权头寸表现得就像持有50股，而不是100股。
 
-[VISUAL: Building blocks showing: "Long 100 shares: Delta = +100" plus "Short 1 ATM Call: Delta = -50" equals "Net: Delta = +50"]
+[VISUAL: Building blocks showing: "持有100股多仓：德尔塔 = +100" plus "卖出1份平值看涨期权：德尔塔 = -50" equals "净头寸：德尔塔 = +50"]
 
-**Sam:** That makes a lot of sense. It explains why covered calls reduce your upside but also reduce your risk.
+**小魚：** 说得很通。这也解释了为什么备兑看涨期权会降低上行空间，但同时也降低了风险。
 
-**Alex:** Precisely. Now let us talk about the Greek that modifies delta. Gamma.
+**陳馬：** 正是如此。现在来说修正德尔塔的那个希腊字母——伽马。
 
-**Sam:** Gamma. I have heard this one come up a lot, especially during the GameStop saga.
+**小魚：** 伽马。这个词在游戏驿站事件期间经常被提到。
 
-**Alex:** Gamma is the rate of change of delta. If delta is your speed, gamma is your acceleration. When a stock moves one dollar, gamma tells you how much delta will change.
+**陳馬：** 伽马是德尔塔的变化率。如果德尔塔是速度，伽马就是加速度。当股票移动1美元时，伽马告诉你德尔塔会变化多少。
 
-**Sam:** Can you give me a concrete example?
+**小魚：** 能举个具体的例子吗？
 
-**Alex:** Sure. Say you have an at-the-money call with delta 0.50 and gamma 0.03. The stock goes up one dollar. Your new delta is 0.50 plus 0.03, which equals 0.53. Now for the next dollar up, your option gains 53 cents instead of 50 cents. The stock goes up another dollar, delta becomes 0.56. Your option is accelerating. It is capturing more and more of the stock's upside.
+**陳馬：** 当然。假设你有一份平值看涨期权，德尔塔为0.50，伽马为0.03。股票上涨1美元，新德尔塔变为0.50加0.03，等于0.53。此后再涨1美元，期权赚53美分，而不是50美分。再涨1美元，德尔塔变成0.56。期权在加速——它越来越多地跟上股票的上涨。
 
 [ANIMATION: Reference animation/week29_gamma_acceleration.py - A ball rolling along a curved surface. As the ball rolls "uphill" (stock going up), it speeds up, showing acceleration. Delta readout increases from 0.50 to 0.53 to 0.56 to 0.59. A parallel animation shows the option price curve becoming steeper. When the ball rolls "downhill" (stock going down), it slows down, showing deceleration. Delta decreases from 0.50 to 0.47 to 0.44.]
 
-**Sam:** So if I own the option, gamma is my friend? I accelerate into winners and decelerate into losers?
+**小魚：** 所以如果我持有期权多仓，伽马是我的朋友？盈利时加速，亏损时减速？
 
-**Alex:** Exactly right. When you are long an option, you are long gamma. Delta moves in your favor. But here is the catch. If you are short an option, you are short gamma. And then delta moves against you. If you sold a call and the stock surges up, your short delta gets bigger and bigger. You are increasingly short a rising stock.
+**陳馬：** 说得一点没错。持有多头期权，你就是多头伽马，德尔塔朝有利方向移动。但关键在于：如果你是期权空头，你就是空头伽马，德尔塔朝不利方向移动。你卖出了看涨期权，股票大涨，你的空头德尔塔越来越大——你越来越像在做空一只上涨的股票。
 
-**Sam:** That sounds dangerous.
+**小魚：** 听起来很危险。
 
-**Alex:** It can be, especially near expiration. And this brings up the critical concept of gamma risk near expiration. Gamma is highest for at-the-money options with very little time left. An ATM option with one day to expiration might have gamma of 0.15 or higher, compared to gamma of 0.02 for a 60-day option. That means delta is swinging wildly.
+**陳馬：** 确实如此，尤其是临近到期日时。这就引出了临近到期时伽马风险的关键概念。对于距到期日很短的平值期权，伽马最高。距到期日仅一天的平值期权，伽马可能高达0.15甚至更高，相比之下，距到期日60天的期权伽马只有约0.02。这意味着德尔塔会随小幅股价波动而剧烈摆动。
 
-[VISUAL: Two gamma curves side by side. Left: "60 days to expiration" showing a gentle, wide bell curve centered at ATM. Right: "1 day to expiration" showing a sharp, tall spike at ATM. Labels: "Low gamma, stable delta" vs. "High gamma, unstable delta"]
+[VISUAL: Two gamma curves side by side. Left: "距到期日60天" showing a gentle, wide bell curve centered at ATM. Right: "距到期日1天" showing a sharp, tall spike at ATM. Labels: "低伽马，德尔塔稳定" vs. "高伽马，德尔塔不稳定"]
 
-**Sam:** Is that why you always recommend closing short options before expiration week?
+**小魚：** 这就是你一直建议在到期周之前平仓或移仓空头期权的原因？
 
-**Alex:** That is exactly why. In Weeks 27 and 28, we said to close or roll positions when they reach 50 to 75 percent of maximum profit, and never let them go to expiration. Now you understand the mathematical reason. Gamma risk becomes extreme in the last few days.
+**陳馬：** 正是这个原因。在第27和第28周，我们说过在盈利达到最大利润的50%至75%时平仓或移仓，永远不要让期权撑到到期日。现在你理解了背后的数学原理——最后几天的伽马风险会变得极端。
 
-**Sam:** OK, moving on to the Greek I probably understand best from our earlier lessons. Theta.
+**小魚：** 好，接下来聊我在前几课中理解最透彻的那个希腊字母——西塔。
 
-**Alex:** Theta is time decay. It measures how much an option's price decreases as one day passes, assuming nothing else changes. If theta is minus 0.05, the option loses 5 cents per share per day, or $5 per contract per day.
+**陳馬：** 西塔就是时间价值衰减。它衡量在其他条件不变的情况下，随着一天时间流逝，期权价格减少多少。若西塔为-0.05，期权每股每天损失5美分，即每份合约每天损失5美元。
 
-**Sam:** And we talked about how theta accelerates near expiration, right?
+**小魚：** 我们之前也聊过西塔衰减会在临近到期日时加速，对吧？
 
-**Alex:** Right. Theta is not constant. An ATM option with 90 days left might lose $4 a day in time value. That same option with 7 days left might lose $15 a day. And with 1 day left, it might lose $40 a day. The decay is slow at first and then accelerates dramatically.
+**陳馬：** 对。西塔并非恒定不变。一份还有90天到期的平值期权，每天可能损失4美元时间价值；而同一期权还有7天到期时，每天可能损失15美元；到只剩1天时，每天可能损失40美元。衰减最初缓慢，之后急剧加速。
 
-[VISUAL: The classic theta decay curve. A horizontal line representing option premium starts at the left at $5.00 and curves downward, slowly at first, then steeply in the last third, reaching $0 at expiration. Calendar days tick by at the bottom. Annotations show: "First 30 days: lose $1", "Next 30 days: lose $1.50", "Last 30 days: lose $2.50"]
+[VISUAL: The classic theta decay curve. A horizontal line representing option premium starts at the left at $5.00 and curves downward, slowly at first, then steeply in the last third, reaching $0 at expiration. Calendar days tick by at the bottom. Annotations show: "前30天：损失$1", "中间30天：损失$1.50", "最后30天：损失$2.50"]
 
-**Sam:** And this is why covered calls and cash-secured puts are sold 30 to 45 days out? To capture the acceleration?
+**小魚：** 这也是我们在距到期30至45天时卖出备兑看涨期权和现金担保看跌期权的原因？为了捕获衰减加速的阶段？
 
-**Alex:** Exactly. The sweet spot is selling options when they are entering the steep part of the decay curve, around 30 to 45 days to expiration. You get meaningful premium but you are positioned to benefit from the fastest decay.
+**陳馬：** 完全正确。最佳时机是在期权进入衰减曲线陡峭段时卖出，大约是距到期日30至45天。你能收取可观的期权费，同时受益于最快速的时间价值衰减。
 
-**Sam:** Now here is something I have been confused about. Theta is your enemy if you buy options and your friend if you sell them. But you said gamma is good for buyers and bad for sellers. So they are connected?
+**小魚：** 有一件事我一直有点困惑。西塔对买入期权不利，对卖出期权有利。但你说伽马对买入者有利，对卖出者有害。所以它们是相互关联的？
 
-**Alex:** You just identified the most important relationship in all of options theory. The gamma-theta tradeoff. You cannot have positive gamma without negative theta, and you cannot have positive theta without negative gamma. They are two sides of the same coin.
+**陳馬：** 你刚刚发现了整个期权理论中最重要的关系——伽马与西塔的权衡。正伽马和负西塔不可分割，正西塔和负伽马也不可分割。它们是同一枚硬币的两面。
 
-[VISUAL: A see-saw/balance beam. On one side "Gamma" with a plus sign, on the other side "Theta" with a plus sign. They cannot both be up at the same time. When you are long options: gamma up, theta down. When you are short options: theta up, gamma down.]
+[VISUAL: A see-saw/balance beam. On one side "伽马" with a plus sign, on the other side "西塔" with a plus sign. They cannot both be up at the same time. When you are long options: 伽马 up, 西塔 down. When you are short options: 西塔 up, 伽马 down.]
 
-**Alex:** If you buy an option, you pay theta every single day for the privilege of owning gamma. If you sell an option, you earn theta every day but you take on gamma risk. This is the fundamental tradeoff that drives all options strategies.
+**陳馬：** 买入期权，你每天都在为持有伽马这项特权支付西塔费用。卖出期权，你每天收取西塔，但承担伽马风险。这是驱动所有期权策略的根本权衡。
 
-**Sam:** So every options trade is essentially a choice: do I want to pay for gamma or collect theta?
+**小魚：** 所以每一笔期权交易，本质上都是在做一个选择：我是要为伽马付费，还是收取西塔？
 
-**Alex:** That is a beautifully simple way to put it, and yes. In our strategies, covered calls and cash-secured puts, we are choosing to collect theta and accept gamma risk. That is appropriate for income-focused investors. But buying protective puts, for example, is choosing to pay theta for the gamma protection.
+**陳馬：** 这个概括简洁精辟，而且完全正确。在我们的策略中，备兑看涨期权和现金担保看跌期权，我们选择收取西塔并承担伽马风险。这对以收益为导向的投资者是合适的。而买入保护性看跌期权，就是选择支付西塔来换取伽马保护。
 
-**Sam:** OK, now let us talk about vega. This one seems mysterious to a lot of people.
+**小魚：** 好，现在聊维加。这个对很多人来说似乎最神秘。
 
-**Alex:** Vega measures how much an option's price changes when implied volatility changes by one percentage point. If your option has a vega of 0.10, and implied volatility goes up by 2 percentage points, your option gains 20 cents per share, or $20 per contract.
+**陳馬：** 维加衡量当隐含波动率变化一个百分点时，期权价格变化多少。如果你的期权维加为0.10，而隐含波动率上升了2个百分点，你的期权每股增值20美分，即每份合约增值20美元。
 
-**Sam:** And vega is the same sign for calls and puts, right? Both benefit from rising volatility?
+**小魚：** 而且维加对看涨期权和看跌期权的符号相同，对吧？两者都受益于波动率上升？
 
-**Alex:** Correct. When you buy any option, call or put, you are long vega. You benefit when volatility rises and you lose when volatility falls. When you sell any option, you are short vega. You benefit from falling volatility.
+**陳馬：** 正确。买入任何期权——无论是看涨还是看跌——你都是多头维加。波动率上升你获益，波动率下降你受损。卖出任何期权，你就是空头维加，受益于波动率下降。
 
-[VISUAL: Two bars. "Long Options" with arrows showing "IV Up = You Win, IV Down = You Lose". "Short Options" with arrows showing "IV Up = You Lose, IV Down = You Win"]
+[VISUAL: Two bars. "期权多头" with arrows showing "隐含波动率上升 = 获益，隐含波动率下降 = 亏损". "期权空头" with arrows showing "隐含波动率上升 = 亏损，隐含波动率下降 = 获益"]
 
-**Sam:** I want to talk about something that I think confuses a lot of beginners. Volatility crush around earnings.
+**小魚：** 我想聊一个我觉得很多初学者都困惑的话题——财报前后的波动率崩塌。
 
-**Alex:** This is perhaps the most expensive lesson beginners learn. Before earnings, implied volatility spikes because the market is uncertain about the result. After earnings, the uncertainty is resolved and IV collapses. We call this IV crush or volatility crush.
+**陳馬：** 这可能是初学者最昂贵的一课。财报发布前，因为市场对结果充满不确定性，隐含波动率会飙升。财报发布后，不确定性消除，隐含波动率随即崩塌。我们称之为"波动率崩塌"或"隐含波动率崩塌"。
 
-**Sam:** And this can cause a situation where you correctly predict the direction but still lose money?
+**小魚：** 而这可能导致一种情况：你方向判断对了，却仍然亏钱？
 
-**Alex:** Exactly. Let me walk through a real example. Say Apple is at $150. You buy the $150 call for $6 with 7 days to expiration. Implied volatility is at 45% because earnings are tomorrow. Apple reports good earnings and the stock goes up $3 to $153.
+**陳馬：** 正是。让我带你走一遍真实案例。假设苹果公司股价150美元，你花6美元买了一份距到期7天的150美元看涨期权。隐含波动率因为明天要发布财报而高达45%。苹果公司发布了亮眼的财报，股价涨了3美元至153美元。
 
-[ANIMATION: Reference animation/week29_iv_crush.py - Two-part animation. Part 1: Before earnings, a bar shows option premium at $6.00 broken into intrinsic ($0) and extrinsic ($6.00). IV gauge reads 45%. Part 2: After earnings, stock jumps from $150 to $153. Delta should have added $1.50. But IV gauge drops from 45% to 28%. Vega loss of $1.36 appears. Theta loss of $0.15 appears. The option premium bar shows final value of $5.99, barely changed. Text flashes: "The stock went up $3 and you made $0!"]
+[ANIMATION: Reference animation/week29_iv_crush.py - Two-part animation. Part 1: Before earnings, a bar shows option premium at $6.00 broken into 内在价值（$0）and 外在价值（$6.00）. IV gauge reads 45%. Part 2: After earnings, stock jumps from $150 to $153. Delta should have added $1.50. But IV gauge drops from 45% to 28%. 维加亏损 of $1.36 appears. 西塔亏损 of $0.15 appears. The option premium bar shows final value of $5.99, barely changed. Text flashes: "股票涨了$3，你却几乎没赚到钱！"]
 
-**Alex:** Your delta gain is about $1.50, which is $3 times a delta of 0.50. But your vega loss is $1.36, which is 17 percentage points of IV crush times a vega of $0.08. And you lost another $0.15 to theta. Net gain: essentially zero. The stock went up $3 and your call option went nowhere.
+**陳馬：** 你的德尔塔收益约为1.50美元，也就是3美元乘以0.50的德尔塔。但你的维加亏损为1.36美元，即17个百分点的隐含波动率崩塌乘以0.08的维加。再加上0.15美元的西塔损耗。净收益：基本为零。股票涨了3美元，你的看涨期权纹丝不动。
 
-**Sam:** That is incredible. And incredibly frustrating if you do not understand why.
+**小魚：** 太惊人了。如果不理解背后的原因，一定会相当沮丧。
 
-**Alex:** Which is exactly why vega matters. If you buy options before earnings, you are buying expensive volatility. Even if you are right on direction, you need the stock to move A LOT to overcome the IV crush. Many professional traders actually sell options before earnings specifically to profit from the crush.
+**陳馬：** 这正是维加如此重要的原因。在财报前买入期权，你买的是昂贵的波动率。即便方向判断正确，股票也需要涨得足够多，才能弥补隐含波动率崩塌的损失。许多专业交易者恰恰选择在财报前卖出期权，专门从崩塌中获利。
 
-**Sam:** So as a covered call seller, vega actually works in my favor after earnings?
+**小魚：** 所以作为备兑看涨期权的卖方，财报后维加其实对我有利？
 
-**Alex:** Yes. If you sold a covered call and IV was high, after earnings when IV drops, your short call loses value, which benefits you. You could buy it back cheaply. This is one reason some traders like to sell covered calls right before earnings, though the gamma risk of a large stock move is the other side of that coin.
+**陳馬：** 是的。如果你在隐含波动率较高时卖出了备兑看涨期权，财报发布后隐含波动率下跌，你的空头看涨期权价值随之下降，这对你有利。你可以以更低的价格将其买回平仓。这也是一些交易者喜欢在财报前卖出备兑看涨期权的原因之一，当然，股价大幅波动带来的伽马风险则是另一面。
 
-**Sam:** Let us briefly cover rho since you mentioned it is the least important Greek.
+**小魚：** 我们简单说说罗，因为你提到它是最不重要的希腊字母。
 
-**Alex:** Rho measures sensitivity to interest rate changes. For a 30-day option, rho is typically very small, maybe $0.02. Meaning a full 1% change in interest rates would only move the option by 2 cents. But for LEAPS with a year or more to expiration, rho can be $0.30 to $0.50. During the Fed's rapid rate hiking cycle in 2022 and 2023, rho effects were noticeable on LEAPS positions.
+**陳馬：** 罗衡量对利率变化的敏感性。对于一份30天的期权，罗通常很小，可能只有0.02左右，意味着利率整整变化1%，期权价格也只移动2美分。但对于期限一年以上的长期期权，罗可以达到0.30至0.50。在美联储2022至2023年快速加息周期中，罗效应在长期期权头寸上产生了明显影响。
 
-[VISUAL: Simple chart. "Rho Impact by Expiration". Weekly option: "$0.005 per 1% rate change - Ignore it". Monthly option: "$0.02 - Mostly ignore". 6-month: "$0.12 - Be aware". LEAPS: "$0.35 - Factor it in".]
+[VISUAL: Simple chart. "按到期日划分的罗效应". 周期权：每1%利率变化$0.005 - 可以忽略. 月期权：$0.02 - 基本忽略. 6个月：$0.12 - 需有所了解. 长期期权：$0.35 - 需纳入考量.]
 
-**Sam:** So for our covered calls and cash-secured puts on monthly options, we can basically ignore rho?
+**小魚：** 所以对于我们做的月度备兑看涨期权和现金担保看跌期权，罗基本可以忽略不计？
 
-**Alex:** Correct. Rho becomes important only for LEAPS, which we will cover in Week 38.
+**陳馬：** 正确。罗只在长期期权中变得重要，我们将在第38周详细讨论。
 
-**Sam:** OK, so we have covered all five Greeks individually. How do they all work together?
+**小魚：** 好，我们已经分别介绍了五个希腊字母。它们合在一起是如何运作的？
 
-**Alex:** This is where it gets really powerful. Let me show you how to analyze an actual position using all the Greeks at once.
+**陳馬：** 这正是它真正强大的地方。让我向你展示如何用全部希腊字母来分析一个实际头寸。
 
-[VISUAL: A portfolio dashboard showing a covered call position. AAPL long 100 shares at $155. Short 1 AAPL $155 Call, 30 days out. The Greeks are displayed in a panel: Net Delta: +50, Gamma: -0.025, Theta: +$8/day, Vega: -$10 per 1% IV]
+[VISUAL: A portfolio dashboard showing a covered call position. 苹果公司多仓100股，成本$155. 卖出1份苹果公司$155看涨期权，距到期30天. The Greeks are displayed in a panel: 净德尔塔: +50, 伽马: -0.025, 西塔: +$8/天, 维加: 隐含波动率每变化1%，盈亏$10]
 
-**Alex:** This is our covered call. Net delta of plus 50 tells us we are moderately bullish. Gamma of minus 0.025 tells us delta will move against us on big moves. Theta of plus 8 dollars a day means we earn about $8 per day from time decay. And vega of minus 10 means each 1% drop in IV earns us about $10.
+**陳馬：** 这就是我们的备兑看涨期权。净德尔塔+50告诉我们，我们持温和看多观点。伽马-0.025告诉我们，大幅波动时德尔塔对我们不利。西塔+8美元每天，意味着我们每天从时间衰减中赚取约8美元。维加-10意味着隐含波动率每下降1%，我们大约赚10美元。
 
-**Sam:** So on a boring day where the stock does not move and IV does not change, we make $8 from theta?
+**小魚：** 所以在一个平淡无奇的日子里，股票没有波动，隐含波动率也没有变化，我们就靠西塔赚了8美元？
 
-**Alex:** Exactly. And on a day where the stock does not move but IV drops by 1%, we make $8 from theta plus $10 from vega, for $18 total. This is why covered calls perform beautifully in flat, calm markets.
+**陳馬：** 正是。而如果某天股票没有波动，但隐含波动率下降了1%，我们从西塔赚8美元，再从维加赚10美元，合计18美元。这正是备兑看涨期权在平淡、平静的市场中表现出色的原因。
 
-**Sam:** And what about a day where the stock moves big?
+**小魚：** 那如果股票出现大幅波动呢？
 
-**Alex:** If the stock drops $3, we lose about $150 from delta ($3 times 50) minus $8 from theta. And because of negative gamma, our delta got bigger on the way down, so the actual loss might be closer to $165. But if the stock drops, IV usually rises, which partially offsets through vega. This interplay is what makes options analysis rich and nuanced.
+**陳馬：** 如果股票下跌3美元，我们从德尔塔大约亏损150美元（3美元乘以50），减去8美元西塔收益。由于负伽马的作用，德尔塔在下跌途中持续扩大，实际亏损可能更接近165美元。但股票下跌时，隐含波动率通常上升，维加效应会部分抵消亏损。这种相互交织的影响，使期权分析既丰富又细腻。
 
-**Sam:** What about the connection between time to expiration and which Greek matters most?
+**小魚：** 距到期日的时间长短与哪个希腊字母占主导地位之间的关系是什么？
 
-**Alex:** This is an excellent point. The dominant Greek shifts over the life of an option. For a 90-day option, vega is dominant. A 2% change in IV moves the option more than a typical day's stock movement. For a 30-day option, theta and delta are co-dominant. And for an option in the last week, gamma overwhelms everything.
+**陳馬：** 这是个极好的问题。主导希腊字母会随期权生命周期的推移而转变。对于90天期权，维加占主导——隐含波动率变化2%，对期权价格的影响超过普通的日内股票波动。对于30天期权，西塔和德尔塔共同主导。而对于最后一周的期权，伽马会压倒一切。
 
-[VISUAL: A timeline bar from 90 days to 0 days. Different colored zones show which Greek is dominant: Green "Vega Zone" from 90 to 60 days. Yellow "Theta/Delta Zone" from 60 to 14 days. Red "Gamma Zone" from 14 to 0 days. Below: "This is why we sell 30-45 day options: we are in the Theta Zone, not the Gamma Zone."]
+[VISUAL: A timeline bar from 90 days to 0 days. Different colored zones show which Greek is dominant: Green "维加主导区" from 90 to 60 days. Yellow "西塔/德尔塔主导区" from 60 to 14 days. Red "伽马主导区" from 14 to 0 days. Below: "这就是我们在距到期30至45天时卖出期权的原因：我们处于西塔主导区，而非伽马主导区。"]
 
-**Sam:** That visualization really clicks. We want to be in the theta zone, collecting income, and we want to get out before we enter the gamma zone.
+**小魚：** 这张图太直观了。我们希望处于西塔主导区，赚取收益，同时在进入伽马主导区之前离场。
 
-**Alex:** Precisely. And this is what we mean by managing positions using the Greeks. It is not about calculating exact numbers to the third decimal place. It is about understanding the regime you are in and positioning accordingly.
+**陳馬：** 正是。这就是用希腊字母管理头寸的含义。它不是要你精确计算到小数点后三位，而是理解你所处的"区间"，并据此布局。
 
-**Sam:** Can you talk about portfolio-level Greeks? Because in the reading, you showed how to add up Greeks across positions.
+**小魚：** 能谈谈投资组合层面的希腊字母吗？因为在阅读材料中，你展示了如何跨头寸汇总希腊字母。
 
-**Alex:** Portfolio Greeks are simply the sum of all your individual position Greeks. And this is how professional traders think. They do not look at each trade in isolation. They look at their total portfolio delta, gamma, theta, and vega.
+**陳馬：** 投资组合希腊字母就是所有单个头寸希腊字母的简单加总。这正是专业交易者的思维方式。他们不是孤立地看待每笔交易，而是盯住整体投资组合的德尔塔、伽马、西塔和维加。
 
-[VISUAL: A table showing a multi-position portfolio. Row 1: Long 200 shares AAPL, delta +200. Row 2: Short 2 AAPL calls, delta -110. Row 3: Short 1 MSFT put, delta +40. Row 4: Long 3 SPY puts, delta -120. Total row highlighted: Delta +10, Gamma -0.03, Theta +$9/day, Vega +$2/1%IV. Annotation: "Nearly delta-neutral, positive theta, slight long vega."]
+[VISUAL: A table showing a multi-position portfolio. Row 1: 持有苹果公司200股多仓, 德尔塔 +200. Row 2: 卖出2份苹果公司看涨期权, 德尔塔 -110. Row 3: 卖出1份微软看跌期权, 德尔塔 +40. Row 4: 买入3份标普500ETF看跌期权, 德尔塔 -120. Total row highlighted: 德尔塔 +10, 伽马 -0.03, 西塔 +$9/天, 维加 隐含波动率每变化1%盈亏$2. Annotation: "德尔塔接近中性，西塔为正，维加略微偏多。"]
 
-**Alex:** This portfolio has a net delta of plus 10. That means a $1 move in the market affects the portfolio by only about $10. It is nearly neutral. But it earns $9 per day from theta. And it has protective puts that give a small positive vega exposure.
+**陳馬：** 这个投资组合净德尔塔为+10。这意味着市场波动1美元，对投资组合的影响只有约10美元，基本处于中性。但每天赚取9美元的西塔收益。保护性看跌期权还带来小幅正维加敞口。
 
-**Sam:** That is elegant. You are earning income while being almost indifferent to market direction.
+**小魚：** 很精妙。你在赚取收益的同时，对市场方向几乎不偏不倚。
 
-**Alex:** And the protective puts ensure that if the market crashes and volatility spikes, the vega benefit from those puts helps offset some of the losses. The Greeks all balance each other.
+**陳馬：** 而且保护性看跌期权确保了在市场崩盘、波动率飙升时，这些期权的维加收益能部分抵消亏损。各个希腊字母相互制衡。
 
-**Sam:** Let me ask a practical question. How should someone at home actually use the Greeks?
+**小魚：** 让我问一个实操层面的问题。在家操作的人，应该如何实际运用希腊字母？
 
-**Alex:** For someone running covered calls and cash-secured puts, here is what I recommend. First, always check delta before entering a trade. Know how much directional exposure you are taking. Second, check theta relative to your premium. If theta is $8 per day and you collected $250 in premium, you know the option will decay that premium in about 31 days. Third, glance at vega and think about whether IV is high or low. If IV is in the top 20% of its historical range, it is a good time to sell options. If IV is in the bottom 20%, be cautious about selling because there is less premium and vega risk is skewed against you. Fourth, respect gamma by not holding positions into expiration week.
+**陳馬：** 对于运行备兑看涨期权和现金担保看跌期权的人，我的建议是：第一，建仓前务必确认德尔塔，了解自己承担了多少方向性敞口。第二，将西塔与期权费收入进行比照——若西塔为每天8美元，收取了250美元期权费，那么大约31天后这笔期权费会被全部侵蚀。第三，瞥一眼维加，思考隐含波动率当前处于高位还是低位。若隐含波动率处于历史区间的前20%，是卖出期权的好时机；若处于后20%，则要谨慎，因为期权费较少，维加风险对你不利。第四，尊重伽马，不要将头寸持有至到期周。
 
-[VISUAL: Checklist on screen. "Before Every Options Trade, Check:" followed by checkmarks: "1. Delta - How much directional exposure?", "2. Theta - How much do I earn per day?", "3. Vega - Is IV high or low?", "4. Gamma - Am I too close to expiration?"]
+[VISUAL: Checklist on screen. "每次期权交易前，确认以下事项：" followed by checkmarks: "1. 德尔塔——我承担了多少方向性敞口？", "2. 西塔——我每天赚取多少？", "3. 维加——隐含波动率是高还是低？", "4. 伽马——我离到期日太近了吗？"]
 
-**Sam:** That is a manageable checklist. You do not have to be a math genius.
+**小魚：** 这张清单完全可以执行。不需要成为数学天才。
 
-**Alex:** You really do not. The Greeks are about intuition, not calculation. Your brokerage platform calculates them. You just need to understand what they mean and how they work together.
+**陳馬：** 真的不需要。希腊字母考验的是直觉，而非计算能力。数字由券商平台来算，你只需理解它们的含义和相互关系。
 
-**Sam:** So let me try to summarize the five Greeks in one sentence each.
+**小魚：** 让我试着用一句话概括五个希腊字母。
 
-**Alex:** Go for it.
+**陳馬：** 来吧。
 
-**Sam:** Delta tells me how much I make or lose per dollar of stock movement. Gamma tells me how fast my delta is changing, which is why big moves are risky for sellers. Theta tells me how much money I earn or spend per day just from time passing. Vega tells me how much volatility changes will affect my position, which is why earnings are tricky. And rho tells me about interest rate sensitivity, which mostly matters for LEAPS.
+**小魚：** 德尔塔告诉我，股票每移动一美元，我赚多少或亏多少。伽马告诉我，德尔塔变化有多快——这正是大幅波动对卖方危险的原因。西塔告诉我，单纯因为时间流逝，我每天赚取或损耗多少。维加告诉我，波动率变化会如何影响我的头寸——这也是财报交易棘手的原因。罗告诉我利率敏感性，主要在长期期权中才需要关注。
 
-**Alex:** That is an excellent summary. I would not change a word.
+**陳馬：** 这个总结堪称完美。我一个字都不会改。
 
-[VISUAL: Five Greek letters displayed large on screen: Delta, Gamma, Theta, Vega, Rho. Each with a one-line summary below matching Sam's recap]
+[VISUAL: 五个希腊字母大字显示于屏幕：德尔塔、伽马、西塔、维加、罗。每个字母下方配以一行简要说明，与小魚的概括对应。]
 
-**Sam:** One more thing. The gamma-theta tradeoff. Can you restate that clearly?
+**小魚：** 最后再讲一遍伽马与西塔的权衡吧。
 
-**Alex:** The gamma-theta tradeoff is the iron law of options. If you buy options, you own gamma, meaning delta moves in your favor. But you pay for it through theta, losing money every day. If you sell options, you earn theta every day. But you are short gamma, meaning delta moves against you on big moves. You can never have both positive gamma and positive theta. Every options strategy is a choice about which side of this tradeoff you want to be on.
+**陳馬：** 伽马与西塔的权衡是期权的铁律。买入期权，你持有伽马——德尔塔朝有利方向移动。但你为此每天支付西塔费用。卖出期权，你每天收取西塔。但你是空头伽马——大幅波动时德尔塔朝不利方向移动。你永远无法同时拥有正伽马和正西塔。每一种期权策略，都是在这个权衡的某一侧做出的选择。
 
-**Sam:** And in our strategies, covered calls and cash-secured puts, we chose the theta side.
+**小魚：** 在我们的策略里，备兑看涨期权和现金担保看跌期权，我们选择了西塔那一侧。
 
-**Alex:** Correct. We are willing to accept gamma risk, the risk of large moves, in exchange for steady daily income from theta. And we manage the gamma risk by not holding positions into expiration week and by rolling or closing positions at the right time.
+**陳馬：** 正确。我们愿意承担伽马风险——也就是大幅波动的风险——来换取稳定的每日西塔收入。而我们通过不将头寸持有至到期周、在适当时机移仓或平仓，来管理伽马风险。
 
-**Sam:** This has been incredibly illuminating. I feel like I actually understand what is happening under the hood now.
+**小魚：** 这堂课收获满满。我感觉终于真正理解了引擎盖下发生的事情。
 
-**Alex:** And that is exactly the goal. Next week, we are going to use these Greeks to analyze more complex structures: spreads and condors. You will see how combining options in specific ways lets you create positions with precisely tailored Greek exposures. The Greeks are the language of that discussion.
+**陳馬：** 这正是我们的目标所在。下周，我们将用这些希腊字母来分析更复杂的结构：价差策略和铁鹰策略。你会看到，如何通过特定方式组合期权，创造出拥有精确希腊字母敞口设计的头寸。希腊字母就是那场讨论的语言。
 
-[VISUAL: Preview card showing "Next Week: Spreads and Condors - Combining Options for Tailored Risk/Reward"]
+[VISUAL: Preview card showing "下周：价差策略与铁鹰策略——组合期权，打造定制化风险收益结构"]
 
-**Sam:** Looking forward to it. Before we wrap up, any final piece of advice on the Greeks?
+**小魚：** 很期待。在结束之前，关于希腊字母，有什么最后的建议？
 
-**Alex:** Yes. Do not obsess over the exact numbers. Focus on the signs and the relative magnitudes. Positive or negative delta tells you your directional bias. The magnitude tells you how much. Positive theta means you earn income, negative means you spend it. Positive vega means you benefit from volatility, negative means calm markets help you. Think in these terms and the Greeks become intuitive, not mathematical.
+**陳馬：** 有。不要纠结于精确数字。关注符号和相对大小。德尔塔正负告诉你方向性偏好，数值大小告诉你敞口多少。西塔为正代表赚取收入，为负代表支付成本。维加为正意味着你受益于波动率上升，为负意味着平静的市场对你有利。用这种方式来思考，希腊字母就会变成直觉，而不是数学。
 
-**Sam:** Excellent. Thanks, everyone, for watching. We will see you next week for spreads and condors.
+**小魚：** 说得好。感谢大家的收看。我们下周在价差策略和铁鹰策略中再见。
 
-[VISUAL: End screen with show logo, "Week 29: The Option Greeks" summary, and preview of Week 30]
+[VISUAL: End screen with show logo, "第29周：期权希腊字母" summary, and preview of Week 30]
 
-**Alex:** See you then.
+**陳馬：** 下周见。

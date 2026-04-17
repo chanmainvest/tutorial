@@ -1,165 +1,230 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+Now I have all the terminology I need. Here is the full Hong Kong Traditional Chinese translation:
 
-# Side Lesson 15: Trading Psychology and Emotional Discipline
-
----
-
-## Reading Section
-
-Markets are driven by two forces: fundamentals and emotions. You can master every financial ratio, memorize every economic indicator, and build the most sophisticated portfolio models -- but if you cannot manage your own emotions, none of it matters. Trading psychology is the study of how cognitive biases, emotional reactions, and behavioral patterns affect investment decisions. The evidence is overwhelming: the average investor significantly underperforms the investments they hold, primarily because of poorly timed buy and sell decisions driven by fear and greed. This lesson explores the emotional cycle of investing, common psychological traps, and practical strategies for building the discipline needed to succeed.
+# 補充課程第15課：交易心理與情緒紀律
 
 ---
 
-### a) Why This Is Important
+## 閱讀部分
 
-**The Behavior Gap.** Research by Dalbar Associates consistently shows that the average equity fund investor earns 3-4 percentage points less per year than the funds they invest in. Over 20 years, this gap can mean the difference between a comfortable retirement and falling short. The cause is not bad fund selection -- it is bad timing. Investors pile into funds after strong performance and flee after losses, systematically buying high and selling low.
-
-**Emotional Decisions Are Expensive.** A study by Barber and Odean found that the most active individual traders underperformed passive investors by 6-7 percentage points annually. The more frequently investors traded, the worse their returns. Overconfidence, the fear of missing out, and the inability to accept losses drive excessive trading that destroys wealth.
-
-**Self-Awareness Is a Competitive Advantage.** In a market where algorithmic traders process information in microseconds and institutional analysts have resources individual investors cannot match, your greatest edge may be behavioral. Institutions face their own behavioral challenges -- career risk, committee decision-making, benchmark tracking -- that create opportunities for disciplined individual investors who can act independently and patiently.
-
-**Compounding Requires Consistency.** The magic of compound interest works only if you stay invested through the inevitable downturns. An investor who panics and sells during a crash locks in losses and misses the recovery. History shows that some of the market's best days occur shortly after its worst days. Missing just the ten best days in a 20-year period can cut your total return in half.
-
-**Mental Health Matters.** Investing anxiety is real and can affect your overall well-being. Constantly checking your portfolio, losing sleep over market moves, and making fear-driven decisions take a toll beyond just financial performance. Learning to manage investment emotions is also an investment in your mental health.
+市場由兩種力量驅動：基本面與情緒。你可以掌握每一個財務比率、熟記每一個經濟指標，並建立最精密的投資組合模型——但如果你無法管理自己的情緒，這一切都毫無意義。交易心理學是研究認知偏見、情緒反應和行為模式如何影響投資決策的學問。證據壓倒性地顯示：普通投資者的表現，遠遠低於其所持有投資本身的表現，主要原因在於恐懼與貪婪所驅動的買賣時機錯誤。本課探討投資的情緒週期、常見的心理陷阱，以及建立成功所需紀律的實用策略。
 
 ---
 
-### b) What You Need to Know
+### a) 為何重要
 
-#### The Emotional Cycle of Investing
+**行為差距。** Dalbar Associates 的研究持續顯示，普通股票基金投資者每年所獲得的回報，比其所投資的基金低3至4個百分點。二十年下來，這個差距可能決定一個舒適的退休與差強人意的晚年。問題的根源不在於選錯基金，而在於時機錯誤。投資者在強勁表現後湧入基金，在虧損後急於撤走，系統性地高買低賣。
 
-Markets move in cycles, and investor emotions follow a remarkably predictable pattern. Understanding this cycle can help you recognize where you are and avoid making decisions at the worst possible moments.
+**情緒決策代價高昂。** Barber 與 Odean 的研究發現，最活躍的個人交易者每年的表現，比被動投資者落後6至7個百分點。投資者交易越頻繁，回報越差。過度自信、錯失恐懼症（FOMO）以及無法接受虧損，驅使過度交易，摧毀財富。
 
-**Optimism.** The cycle begins with cautious optimism. Markets have been rising, economic data looks positive, and media coverage is upbeat. Investors feel good about their holdings and consider adding more.
+**自我認知是競爭優勢。** 在一個算法交易者以微秒處理資訊、機構分析師擁有個人投資者無法匹敵資源的市場中，你最大的優勢可能在於行為層面。機構自身也面臨行為挑戰——職業風險、委員會決策、基準追蹤——這些都為有紀律、能獨立且耐心行事的個人投資者創造了機遇。
 
-**Excitement.** As prices continue to rise, optimism turns to excitement. Investors see their account values growing and start to feel smart. They may increase their risk exposure, add leverage, or concentrate positions in recent winners.
+**複息增長需要持續性。** 複利的魔力只有在你能夠熬過不可避免的低潮時才能發揮作用。在市場崩跌時恐慌出售的投資者，鎖定了虧損，並錯過了復甦。歷史顯示，市場最好的一些交易日，往往緊接在最壞的日子之後出現。在20年的時間段內，僅僅錯過表現最好的10個交易日，就可能令你的總回報腰斬。
 
-**Thrill.** Near market peaks, excitement becomes thrill. Investors feel euphoric. Everyone seems to be making money. People who never invested before start buying stocks, crypto, or whatever the hot asset is. The phrase "this time is different" enters the conversation.
-
-**Euphoria.** This is the point of maximum financial risk. Valuations are stretched, speculation is rampant, and caution has been completely abandoned. Investors believe prices will continue rising indefinitely. This is precisely when the smart money begins selling.
-
-**Anxiety.** The first signs of trouble appear. Markets decline, but investors rationalize: "It is just a pullback." They hold their positions, expecting a quick recovery.
-
-**Denial.** The decline continues. Investors refuse to accept that they may have been wrong. They add to losing positions, convinced they are buying at a bargain. "It will come back," they tell themselves.
-
-**Fear.** As losses mount, fear takes hold. Investors stop checking their portfolios. They lose sleep. They begin to question their strategy but feel paralyzed -- selling means accepting the loss, and holding means watching it grow.
-
-**Desperation.** Severe losses trigger desperation. Investors start looking for any information that confirms their holdings will recover. They ignore negative data and cling to optimistic predictions.
-
-**Panic.** This is when capitulation occurs. Investors cannot take the pain any longer and sell at or near the bottom. Volume spikes, media coverage is apocalyptic, and the prevailing sentiment is that things will only get worse.
-
-**Depression.** After selling at the bottom, investors feel defeated. They swear off investing entirely, missing the eventual recovery. This is the point of maximum financial opportunity -- but the emotional damage makes it nearly impossible to act.
-
-**Hope.** Markets begin to recover, and investors cautiously watch from the sidelines. They do not trust the rally and wait for confirmation before re-entering.
-
-**Relief.** As recovery continues, relief replaces despair. Investors begin buying again, and the cycle restarts.
-
-The critical insight is that the points of maximum risk (euphoria) and maximum opportunity (depression/panic) correspond to the emotions that make the worst decisions feel right. When you feel most confident about the market, you should be most cautious. When you feel most terrified, the best opportunities may be right in front of you.
-
-#### Key Cognitive Biases
-
-Behavioral finance has identified dozens of cognitive biases that affect investment decisions. Here are the most impactful ones.
-
-**Loss Aversion.** Daniel Kahneman and Amos Tversky demonstrated that people feel the pain of losses approximately twice as intensely as the pleasure of equivalent gains. A $10,000 loss hurts about twice as much as a $10,000 gain feels good. This asymmetry causes investors to hold losing positions too long (hoping to avoid realizing the loss) and sell winners too quickly (to lock in the gain). This is the "disposition effect" -- the tendency to sell what is working and hold what is not.
-
-**Confirmation Bias.** Once investors form an opinion about a stock or the market, they tend to seek out information that confirms their view and discount information that contradicts it. If you believe a stock is a great buy, you will unconsciously focus on bullish articles and dismiss bearish analyses. This creates a distorted view of reality and can lead to overconcentration in positions that feel safe but are actually risky.
-
-**Anchoring.** Investors frequently anchor to irrelevant reference points. The price you paid for a stock has no bearing on its future prospects, but it dominates your thinking. If you bought a stock at $50 and it falls to $30, you may hold it until it "gets back to even" -- even if the fundamentals have deteriorated and the stock is likely to fall further. The market does not care what you paid.
-
-**Recency Bias.** People overweight recent events when making predictions. After a strong bull market, investors expect continued gains. After a crash, they expect continued losses. Both predictions are often wrong. Mean reversion is a powerful force in markets, but recency bias makes us extrapolate recent trends indefinitely.
-
-**Herd Behavior.** Humans are social creatures, and investing is no exception. We feel safer doing what everyone else is doing. When markets are rising and everyone is buying, it feels foolish to sit on cash. When markets are crashing and everyone is selling, it feels dangerous to buy. But Warren Buffett's famous advice -- "Be fearful when others are greedy, and greedy when others are fearful" -- captures the fact that the crowd is often wrong at extremes.
-
-**Overconfidence.** Most investors believe they are above average, which is statistically impossible for the majority. Overconfidence leads to excessive trading, insufficient diversification, and inadequate risk management. Male investors tend to display more overconfidence than female investors, which partly explains why studies show women tend to achieve better investment returns on average.
-
-**Sunk Cost Fallacy.** Investors continue holding (or adding to) losing positions because they have already invested so much time, money, or emotional energy. The logic is: "I have already lost $20,000 -- I cannot sell now." But the money already lost is gone regardless of what you do next. Every holding decision should be based on forward-looking prospects, not past costs.
-
-#### Fear and Greed in Practice
-
-Fear and greed are the two most powerful emotions in investing, and they operate on different timescales.
-
-**Greed** builds slowly. It accumulates during bull markets as investors see others making money, read about overnight fortunes, and feel the growing temptation to take more risk. Greed manifests as FOMO (fear of missing out), leverage, concentration in speculative assets, and the abandonment of investment plans.
-
-**Fear** strikes suddenly. A market crash, a bankruptcy, or an unexpected economic shock can trigger fear almost instantly. Fear manifests as panic selling, flight to safety, inability to think clearly, and a total loss of perspective on long-term goals.
-
-The CNN Fear and Greed Index attempts to quantify these emotions using seven market indicators: stock price momentum, stock price strength, stock price breadth, put/call ratios, junk bond demand, market volatility (VIX), and safe haven demand. When the index shows extreme greed, it historically correlates with market peaks. When it shows extreme fear, it correlates with market bottoms.
-
-#### Building Discipline: Practical Strategies
-
-**Write an Investment Policy Statement (IPS).** Before making any investment, write down your goals, time horizon, risk tolerance, asset allocation, rebalancing rules, and criteria for buying and selling. When emotions run high, your IPS serves as a stable reference point. "What does my plan say I should do?" is a far better question than "What do I feel like doing?"
-
-**Automate What You Can.** Dollar-cost averaging -- investing a fixed amount on a regular schedule regardless of market conditions -- removes the timing decision entirely. Automatic rebalancing ensures your portfolio stays aligned with your targets. The less you have to actively decide during emotional periods, the better your outcomes.
-
-**Implement a Cooling-Off Period.** Before making any trade driven by emotion, wait 24-48 hours. If the urge to buy or sell is purely emotional, it will often fade with time. If the rationale is sound, it will still be sound tomorrow. This simple delay can prevent countless costly mistakes.
-
-**Limit Portfolio Checking.** Research shows that investors who check their portfolios less frequently earn higher returns. Frequent checking triggers loss aversion -- you see small daily losses that are meaningless over a 20-year time horizon but feel painful in the moment. Check your portfolio monthly or quarterly, not daily.
-
-**Keep an Investment Journal.** Record every trade you make, including the date, the reasoning, and your emotional state at the time. Review the journal quarterly. Over time, you will see patterns in your behavior -- perhaps you always buy at the worst moments, or you consistently sell too early. Self-awareness is the first step toward improvement.
-
-**Pre-Commit to Rebalancing.** Decide in advance what you will do when your portfolio drifts. If your target allocation is 70% stocks and 30% bonds, and stocks fall to 60%, your plan says to buy more stocks. This is systematically buying low and selling high -- exactly the opposite of what emotions dictate.
-
-#### Handling Losses
-
-Every investor experiences losses. How you handle them separates successful long-term investors from those who give up.
-
-**Normalize Losses.** The S&P 500 has experienced intra-year declines averaging 14% over the past 40 years, yet it has delivered positive annual returns in roughly 75% of those years. Temporary losses are normal, expected, and not a sign that anything is wrong with your strategy.
-
-**Distinguish Between Paper Losses and Realized Losses.** A decline in your portfolio value is a paper loss -- it becomes a real loss only when you sell. If your investment thesis is intact and your time horizon has not changed, a paper loss may simply be a buying opportunity.
-
-**Ask the Right Question.** When sitting on a loss, the relevant question is not "How do I get back to even?" It is "If I had this money in cash right now, would I buy this investment at its current price?" If the answer is no, sell -- regardless of your purchase price. If the answer is yes, hold or add to the position.
-
-**Accept Small Losses to Prevent Large Ones.** Having predetermined stop-loss levels or rebalancing triggers helps you cut losses before they become catastrophic. A 50% loss requires a 100% gain just to break even. Protecting against large drawdowns is more important than maximizing upside.
-
-**Learn From Every Loss.** After closing a losing position, review what happened. Was the thesis wrong from the beginning? Did circumstances change? Did you ignore warning signs? Did you size the position too large? Each loss contains a lesson that can improve your future decisions.
+**心理健康同樣重要。** 投資焦慮是真實存在的，並可能影響你的整體健康。不停查看投資組合、因市場波動而失眠、作出恐懼驅動的決策，其代價遠不止財務表現的損失。學會管理投資情緒，也是對心理健康的投資。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要了解的知識
 
-**"I am a rational investor -- biases do not affect me."** Research shows that awareness of biases does not eliminate them. Even professional fund managers exhibit loss aversion, overconfidence, and herding behavior. The goal is not to eliminate biases (impossible) but to build systems and habits that mitigate their impact.
+#### 投資的情緒週期
 
-**"Great investors have no emotions."** Every investor experiences fear and greed. The difference is that great investors have learned to recognize these emotions and act despite them, not in the absence of them. Warren Buffett has openly discussed feeling fearful during market crashes -- the key is that he buys anyway because his process tells him to.
+市場按週期運動，投資者的情緒也遵循一個出奇地可預測的模式。了解這個週期，有助你認清自己所在的位置，避免在最糟糕的時刻作出決策。
 
-**"If I just study harder, I will make better decisions."** More information does not necessarily lead to better decisions. In fact, information overload can increase overconfidence and analysis paralysis. What matters is having a clear decision-making framework and the discipline to follow it consistently.
+**樂觀。** 週期始於謹慎的樂觀。市場持續上漲，經濟數據正面，媒體報道積極。投資者對持倉感覺良好，考慮增持。
 
-**"Checking my portfolio frequently helps me stay informed."** Frequent checking increases emotional reactivity and leads to more impulsive trading. Studies show investors who check less often achieve better returns. Set a schedule for portfolio review and stick to it.
+**興奮。** 隨著股價繼續攀升，樂觀轉為興奮。投資者看到賬戶價值增長，開始感到自己很聰明。他們可能增加風險敞口、加槓桿，或集中持倉在近期的贏家。
 
-**"I should always trust my gut."** Intuition can be valuable in domains where you have deep expertise and rapid feedback (like driving or sports). Investing provides slow, noisy feedback over long time horizons, making it one of the worst domains for gut-based decisions. Trust your process, not your feelings.
+**亢奮。** 在市場高峰附近，興奮變成亢奮。投資者感到欣喜若狂。似乎每個人都在賺錢。從未投資過的人開始買入股票、加密貨幣，或任何當下熱門的資產。「這次不同了」這句話開始流傳。
+
+**狂喜。** 這是財務風險最大的時刻。估值被拉伸，投機活動猖獗，謹慎已被完全拋棄。投資者相信價格將無限上漲。正是在這個時候，聰明錢開始沽出。
+
+**焦慮。** 麻煩的第一個跡象出現。市場下跌，但投資者自我安慰：「這只是一次回調。」他們繼續持倉，期望快速復甦。
+
+**否認。** 跌勢持續。投資者拒絕承認自己可能判斷錯誤。他們向虧損部位加倉，深信自己正在撿便宜。「終究會回來的」，他們如此告訴自己。
+
+**恐懼。** 隨著虧損加劇，恐懼佔據上風。投資者開始迴避查看投資組合，夜不能寐，開始質疑自己的策略，但感到進退兩難——沽出意味著確認虧損，持有則要眼睜睜地看著虧損擴大。
+
+**絕望。** 嚴重虧損引發絕望。投資者開始四處尋找能夠確認持倉將會復甦的任何資訊，對負面數據視而不見，死抓樂觀的預測。
+
+**恐慌。** 這是恐慌性拋售發生的時刻。投資者再也無法承受痛苦，在底部或附近全盤沽出。成交量急升，媒體報道如世界末日，普遍情緒是事情只會越來越糟。
+
+**沮喪。** 在底部沽出後，投資者感到一敗塗地。他們發誓再也不投資，錯過了最終的復甦。這是財務機遇最大的時刻——但情緒上的創傷令人幾乎無法採取行動。
+
+**希望。** 市場開始復甦，投資者謹慎地在場邊觀望。他們不信任這次反彈，等待確認訊號再重新入市。
+
+**解脫。** 隨著復甦持續，解脫取代了沮喪。投資者再次開始買入，週期重啟。
+
+關鍵洞察在於：風險最大的時刻（狂喜）和機遇最大的時刻（沮喪/恐慌），正好對應那些令最壞決策感覺正確的情緒。當你對市場最有把握時，你應該最謹慎。當你最恐懼時，最好的機遇可能就在眼前。
+
+#### 主要認知偏見
+
+行為財務學已識別出數十種影響投資決策的認知偏見。以下是影響最深遠的幾種。
+
+**損失厭惡。** Daniel Kahneman 和 Amos Tversky 證明，人們感受虧損的痛苦，大約是感受同等收益喜悅的兩倍。損失$10,000的痛苦，大約是賺得$10,000喜悅的兩倍。這種不對稱性導致投資者對虧損部位持倉過久（希望避免確認虧損），卻過早沽出贏家（急於鎖定收益）。這就是「處置效應」——賣出有效的部位，持有無效的部位。
+
+**確認偏見。** 一旦投資者對某只股票或市場形成看法，就傾向於尋找支持其觀點的信息，並忽略與之矛盾的信息。如果你認為某只股票是絕佳買點，你會不自覺地關注看好的文章，而忽略看空的分析。這造成對現實的扭曲認知，並可能導致過度集中於感覺安全但實際上存在風險的倉位。
+
+**錨定效應。** 投資者經常錨定在無關的參考點上。你買入某股票的價格，對其未來前景毫無影響，但它主導著你的思考。如果你以$50買入一只股票，它跌至$30，你可能會持倉直到它「回到本錢」——即使基本面已經惡化，股價很可能繼續下跌。市場不在乎你付了多少錢。
+
+**近因偏見。** 人們在作出預測時，過度重視近期事件。在強勁的牛市之後，投資者預期持續上漲；在崩跌之後，他們預期持續下跌。這兩種預測往往都是錯的。均值回歸是市場中的強大力量，但近因偏見令我們將近期趨勢無限延伸。
+
+**羊群效應。** 人類是社會動物，投資也不例外。我們在做大家都在做的事時感到更安全。當市場上漲、人人都在買入時，持有現金感覺很愚蠢；當市場崩跌、人人都在賣出時，買入感覺很危險。但 Warren Buffett 的名言——「在別人貪婪時恐懼，在別人恐懼時貪婪」——正是點出了群眾在極端時刻往往是錯的。
+
+**過度自信。** 大多數投資者認為自己高於平均水平，這在統計學上對大多數人而言是不可能的。過度自信導致過度交易、分散不足和風險管理欠佳。男性投資者往往比女性投資者表現出更多的過度自信，這在一定程度上解釋了研究顯示女性投資者平均而言往往能取得更好投資回報的原因。
+
+**沉沒成本謬誤。** 投資者繼續持有（或加倉）虧損部位，因為他們已經投入了太多時間、金錢或情感能量。邏輯是：「我已經虧了$20,000——我現在不能賣。」但已經虧損的錢，無論你下一步怎麼做，都已經不復存在。每一個持倉決策，都應該基於前瞻性的前景，而非過去的成本。
+
+#### 實際中的恐懼與貪婪
+
+恐懼和貪婪是投資中最強大的兩種情緒，它們在不同的時間尺度上運作。
+
+**貪婪**是緩慢積累的。在牛市期間，當投資者看到別人賺錢、讀到一夜致富的故事，並感受到承擔更多風險的誘惑不斷增長時，貪婪就在積累。貪婪的表現形式是錯失恐懼症（FOMO）、槓桿、在投機性資產上集中持倉，以及放棄投資計劃。
+
+**恐懼**則是突然爆發的。市場崩跌、企業破產或意外的經濟衝擊，幾乎可以即時引發恐懼。恐懼的表現形式是恐慌性拋售、飛奔至安全資產、無法清晰思考，以及對長遠目標完全失去視野。
+
+CNN恐懼與貪婪指數嘗試利用七個市場指標量化這些情緒：股票價格動量、股票價格強度、股票價格廣度、認沽/認購比率、垃圾債券需求、市場波動性（波動率指數），以及避險需求。當指數顯示極度貪婪時，歷史上往往對應市場高峰；當顯示極度恐懼時，往往對應市場底部。
+
+#### 建立紀律：實用策略
+
+**撰寫投資政策聲明（IPS）。** 在作任何投資之前，寫下你的目標、時間跨度、風險承受能力、資產配置、再平衡規則，以及買賣標準。在情緒高漲時，你的IPS就是一個穩定的參考點。「我的計劃說我應該怎麼做？」遠比「我現在想怎麼做？」是一個更好的問題。
+
+**盡可能將操作自動化。** 平均成本法——無論市場狀況如何，定期投入固定金額——完全消除了時機選擇的決策。自動再平衡確保你的投資組合與目標保持一致。在情緒波動的時期，你需要主動決定的事越少，結果越好。
+
+**設立冷靜期。** 在作出任何由情緒驅動的交易之前，等待24至48小時。如果買入或賣出的衝動純粹出於情緒，往往會隨時間消退。如果理由合理，明天同樣成立。這個簡單的延遲，可以防止無數代價高昂的錯誤。
+
+**減少查看投資組合的頻率。** 研究顯示，查看投資組合次數較少的投資者，所獲得的回報更高。頻繁查看會觸發損失厭惡——你看到每天細微的跌幅，這在20年的時間跨度內毫無意義，但在當下感覺痛苦。每月或每季查看一次投資組合，而非每天。
+
+**建立投資日誌。** 記錄每一筆交易，包括日期、交易原因和當時的情緒狀態。每季回顧日誌。隨著時間推移，你會發現自己行為中從未注意過的規律——也許你總是在最糟糕的時刻買入，或者你總是過早賣出。自我認知是改進的第一步。
+
+**預先承諾再平衡。** 預先決定當投資組合偏離時你會怎麼做。如果你的目標配置是70%股票和30%債券，而股票跌至60%，你的計劃說要買入更多股票。這就是系統性地低買高賣——與情緒指使你做的事完全相反。
+
+#### 處理虧損
+
+每位投資者都會經歷虧損。你如何應對虧損，決定了你是否能成為成功的長期投資者，還是半途而廢。
+
+**將虧損正常化。** 過去40年，標準普爾500指數平均每年的年內跌幅達14%，但大約75%的年份都錄得正回報。暫時性虧損是正常的、可預期的，並不表示你的策略出現了任何問題。
+
+**區分賬面虧損與已實現虧損。** 投資組合價值下跌是賬面虧損——只有在你沽出時，才變成真實虧損。如果你的投資邏輯依然完好，時間跨度並沒有改變，賬面虧損可能只是一個買入機會。
+
+**問正確的問題。** 當你坐擁虧損時，相關問題不是「我怎麼回到本錢？」而是「如果我現在持有的是現金，我會以現價買入這項投資嗎？」如果答案是否定的，就賣出——無論你的買入價是多少。如果答案是肯定的，就繼續持有或加倉。
+
+**接受小虧損以防止大虧損。** 預設止蝕位或再平衡觸發點，有助你在虧損演變成災難性損失之前及時止血。虧損50%需要100%的回報才能回到本錢。防止大幅回撤，比最大化上行空間更為重要。
+
+**從每次虧損中學習。** 平倉虧損部位後，回顧發生了什麼。投資邏輯從一開始就有問題嗎？情況改變了嗎？你忽視了警告訊號嗎？你的持倉規模過大嗎？每次虧損都包含一個可以改善未來決策的教訓。
+
+#### 贏錢時的心理
+
+行為財務學的大部分焦點集中在虧損時的心理，但贏錢時的心理同樣具有破壞力。
+
+**連勝後的過度自信。** 一連串成功的投資，可能製造危險的過度自信。你開始相信自己的成功源於技能，而非運氣或有利的市場環境。這導致倉位規模擴大、下注更集中、風險管理鬆懈——恰恰是為災難性虧損埋下伏筆的行為。
+
+**「白賺」效應。** 在大幅獲利後，投資者傾向於將利潤視為「白賺的錢」——他們認為輸掉也無所謂，因為那「不算是自己的」。這導致以過度冒險的方式對待利潤，而非加以保護。你賬戶裡的每一分錢都是你的，無論它來自最初的存入，還是投資利潤。
+
+**生活水平通脹。** 成功的投資可能引發膨脹的生活開銷預期。如果你的投資組合大幅增長，你可能開始增加消費，指望投資繼續成功。當不可避免的回撤來臨時，縮水的投資組合加上升高的消費，形成財務困局。
+
+**贏家謬誤。** 在牛市中，人人都是天才。把整個市場的水漲船高誤認為個人投資技能，是很容易的事。你投資過程的真正考驗，在於困難的市場，而非輕鬆的市場。在牛市中保持謙遜，並無論近期表現如何，都堅守你的紀律。
+
+#### 建立投資組合時的行為偏見
+
+除了交易決策之外，心理偏見還影響投資者如何構建投資組合。
+
+**熟悉偏見。** 投資者過度配置在自己熟悉的投資上——僱主的股票、總部設在附近的公司，或日常使用的品牌。這造成了無意中的集中風險。大量持有僱主股票的員工面臨雙重風險：如果公司陷入困境，他們同時喪失薪資收入和投資價值（就如2001年安然公司的員工所親身體驗的那樣）。
+
+**心理賬戶。** 投資者往往為不同目標（退休、假期、緊急備用金）建立心理賬戶，並各自獨立管理，而非從整體上審視投資組合。這可能導致次優的資產配置，因為決策是在各自的筒倉內作出的，而非為整個投資組合著想。
+
+**現狀偏見。** 一旦作出投資決策，投資者往往會無視新信息，繼續保持原狀。什麼都不做的慣性感覺比作出改變更安全，即使原來的投資邏輯已被推翻。這與有紀律的買入並持有不同——這是偽裝成耐心的被動疏忽。
+
+#### 社交媒體與財經媒體的角色
+
+現代投資者面臨著前幾代人所沒有的心理挑戰：透過社交媒體、財經新聞頻道和投資論壇，持續受到財務信息和意見的轟炸。
+
+**社交媒體的放大效應。** Reddit（r/wallstreetbets）、Twitter/X（FinTwit）和TikTok（FinTok）等平台，同時放大了恐懼和貪婪。在2021年迷因股熱潮中，社交媒體驅動的羊群行為，將GameStop和AMC等股票推至天文數字的高位。不斷湧現的盈利截圖製造了FOMO，而下跌期間的虧損故事則放大了恐慌。
+
+**財經媒體的利益驅動。** 財經新聞頻道需要收視率。恐懼和興奮能帶來收視。這創造了一種激勵機制，使媒體報道過度集中於極端事件、戲劇性的市場波動和聳人聽聞的預測。平靜、乏味的真相——長期分散投資有效，需要耐心——不會帶來點擊量或收視率。
+
+**信息過載。** 現代投資者所能獲得的信息，比任何前代都要多。矛盾的是，更多信息可能導致更差的決策。當你每天接觸到數十種相互矛盾的意見時，就幾乎不可能對你的策略保持信心。解決方案是對信息來源高度挑剔，並按計劃而非按需求消費財經媒體。
+
+**實用建議：** 將消費財經媒體的時間限制在固定時段（例如早上15分鐘）。取消關注那些觸發情緒反應的帳號。專注於教育性內容，而非預測性內容。並記住，社交媒體上沒有任何人擁有可靠的市場預測記錄——如果有的話，他們就不需要粉絲了。
+
+#### 建立支援系統
+
+投資不必是孤單的事。建立支援系統可以強化良好習慣並提供問責機制。
+
+**投資夥伴。** 擁有一位同樣投資的值得信賴的朋友、家人或同事，可以提供寶貴的意見交流。當你有衝動作出情緒性交易時，打電話給你的投資夥伴並解釋你的理由，往往能揭示決策背後的情緒基礎。
+
+**財務顧問。** 對於儘管有自我認知但仍在行為問題上掙扎的投資者，財務顧問可以充當行為教練。Vanguard 的研究（其「顧問阿爾法」框架）估計，一位優秀顧問的行為輔導價值，每年約達1.5%——超過顧問所提供的任何其他服務。一位能阻止你在市場底部賣出或在熱門板塊過度集中的顧問，其收費可能物超所值。
+
+**投資俱樂部與社群。** Bogleheads.org、Rational Reminder 社群及其他以實證為基礎的投資社群，提供建立在健全投資原則之上的教育資源和同儕支持。這與那些放大FOMO和鼓勵過度冒險的投機交易社群，形成鮮明對比。
+
+**日誌社群。** 部分投資者將（匿名的）日誌條目和決策回顧，分享給問責小組，類似於運動員回顧比賽錄像的方式。這種外部問責機制可以加速學習過程，並有助識別盲點。
+
+任何支援系統的關鍵標準，是對有紀律、以實證為基礎的投資所共同持有的價值觀。避免那些頌揚投機、槓桿和市場擇時的社群——它們會強化你正試圖克服的那些行為。
+
+#### 衡量你的行為進步
+
+你怎麼知道自己是否正在進步？除了深受市場條件影響的原始回報之外，還要追蹤以下行為指標：
+
+**交易頻率。** 你的交易是否隨時間減少？對大多數投資者而言，交易越少，回報越好。追蹤你每季的交易次數，以下降趨勢為目標。
+
+**遵守計劃。** 你的交易中，有多大比例是預先計劃好的（作為IPS或再平衡策略的一部分），而非被動反應（由新聞事件或情緒衝動觸發）的？計劃性交易比例上升，表示紀律在改善。
+
+**虧損後的恢復時間。** 在經歷重大虧損後，你需要多長時間才能回到理性決策的狀態？如果你的情緒恢復時間在縮短——從數週到數天再到數小時——你正在建立韌性。
+
+**日誌準確性。** 在回顧你的投資日誌時，你陳述的投資邏輯有多少次被證明正確？你有多少次遵守了你的退出標準？準確性和一致性的提升，是成長的標誌。
+
+**睡眠質量。** 如果你因為投資而失眠，說明你的倉位規模過大，或者你的策略與你真實的風險承受能力不相符。睡得安穩，是投資組合風險適當的一個被低估的指標。
 
 ---
 
-### d) Q&A
+### c) 常見誤解
 
-**Q: How do I know if I am making an emotional decision?**
-A: Warning signs include urgency (feeling like you must act right now), physical symptoms (racing heart, anxiety, excitement), deviation from your plan, and outsized position sizing. If you find yourself thinking "this is a once-in-a-lifetime opportunity" or "I need to sell everything before it is too late," you are almost certainly making an emotional decision. Apply the 24-48 hour cooling-off rule.
+**「我是一個理性的投資者——偏見對我沒有影響。」** 研究顯示，了解偏見並不能消除它們。即使是專業基金經理，也表現出損失厭惡、過度自信和羊群行為。目標不是消除偏見（這是不可能的），而是建立能夠減輕其影響的系統和習慣。
 
-**Q: What is the best way to start an investment journal?**
-A: Keep it simple. For each trade, record: (1) date, (2) what you bought or sold, (3) price, (4) why you made the trade (your thesis), (5) what would change your mind (exit criteria), and (6) your emotional state (calm, excited, anxious, fearful). Review quarterly and look for patterns. A spreadsheet or simple notebook works fine -- the format matters less than the habit.
+**「偉大的投資者沒有情緒。」** 每位投資者都會感受到恐懼和貪婪。區別在於，偉大的投資者學會了識別這些情緒，並在承受這些情緒的同時採取行動，而不是在沒有情緒的情況下行動。Warren Buffett 公開討論過在市場崩跌期間感到恐懼——關鍵是他仍然買入，因為他的策略告訴他應該這樣做。
 
-**Q: How do I handle a large drawdown without panicking?**
-A: First, zoom out. Look at long-term charts showing previous drawdowns and recoveries. Second, review your IPS and time horizon -- if nothing has changed about your goals, the drawdown is noise. Third, limit media consumption -- crisis coverage is designed to generate fear, not inform. Fourth, talk to a trusted friend, advisor, or mentor. Finally, consider whether rebalancing is appropriate -- buying into the decline is usually the right move if your plan supports it.
+**「如果我學習更多，我會作出更好的決策。」** 更多信息不一定帶來更好的決策。事實上，信息過載可能增加過度自信和分析癱瘓。重要的是擁有清晰的決策框架，並有紀律地持續遵守。
 
-**Q: Is there a role for stop-loss orders in managing emotions?**
-A: Stop-loss orders can serve as pre-committed exits that remove emotion from the sell decision. However, they have drawbacks. Tight stop-losses can trigger on normal volatility, turning temporary dips into permanent losses. Markets can gap through your stop-loss price, executing at worse levels than intended. For long-term investors, position sizing and diversification are generally better risk management tools than stop-losses.
+**「頻繁查看投資組合有助我保持了解。」** 頻繁查看增加情緒反應，並導致更多衝動交易。研究顯示，查看次數越少的投資者，回報越好。為投資組合回顧設定時間表並嚴格遵守。
 
-**Q: Does dollar-cost averaging really work, or is it just a psychological crutch?**
-A: Mathematically, lump-sum investing beats dollar-cost averaging about two-thirds of the time because markets trend upward and earlier investment means more time in the market. However, dollar-cost averaging is psychologically much easier. If the alternative to DCA is sitting in cash because you are afraid to invest a lump sum, then DCA is absolutely the better choice. The best strategy is the one you can actually stick with.
+**「我應該始終相信直覺。」** 在你擁有深厚專業知識和即時反饋的領域（如駕駛或體育），直覺可以是有價值的。投資在漫長的時間跨度內提供緩慢、嘈雜的反饋，使其成為最不適合憑直覺作決策的領域之一。相信你的策略，而非你的感覺。
 
-**Q: How do professional traders manage their psychology?**
-A: Professional traders use several techniques. They define risk before entering trades (knowing exactly how much they can lose). They size positions so that no single loss is catastrophic. They follow strict rules-based systems that minimize discretionary decisions. They take breaks after large wins or losses. And many work with performance coaches -- similar to how athletes use sports psychologists.
+**「有經驗的投資者不會作出情緒化的決策。」** 經驗有所幫助，但並不能消除行為偏見。對專業基金經理的研究表明，他們與散戶投資者表現出同樣的偏見，包括損失厭惡、過度自信和羊群行為——只是以更複雜的方式呈現。有經驗的投資者可能較少作出衝動交易，但他們並非對錨定效應、確認偏見或沉沒成本謬誤免疫。區別在於，最優秀的有經驗投資者，已建立起能在情緒衝動演變成代價高昂的行動之前，加以捕捉和糾正的系統和習慣。
+
+**「如果一只股票在下跌，它一定是一項糟糕的投資。」** 股價下跌不一定是基本面惡化的指標。股票因多種原因下跌：板塊輪動、更廣泛的市場拋售、短暫的盈利未達預期、稅務目的沽售，或指數再平衡。在廣泛市場拋售中，一只跌幅20%但基本面依然完好的股票，可能代表比下跌前更好的買入機會。關鍵是區分由基本面惡化驅動的股價下跌（進一步下跌的可能性較高），與由情緒或技術因素驅動的股價下跌（復甦的可能性較高）。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：我怎樣知道自己是否正在作出情緒化的決策？**
+答：警告訊號包括：緊迫感（感覺必須立即行動）、身體症狀（心跳加速、焦慮、興奮）、偏離計劃，以及倉位規模異常。如果你發現自己在想「這是千載難逢的機會」或「我需要在太晚之前賣掉一切」，你幾乎可以肯定是在作出情緒化的決策。套用24至48小時的冷靜期規則。
+
+**問：開始投資日誌的最佳方式是什麼？**
+答：保持簡單。每筆交易記錄：（1）日期；（2）買入或賣出的是什麼；（3）價格；（4）交易原因（你的投資邏輯）；（5）什麼情況會改變你的想法（退出標準）；（6）你的情緒狀態（平靜、興奮、焦慮、恐懼）。每季回顧並尋找規律。使用試算表或簡單的記事本均可——形式不如習慣重要。
+
+**問：如何在不恐慌的情況下應對大幅回撤？**
+答：首先，放寬視野。查看長期圖表，了解過去的回撤和復甦情況。其次，回顧你的IPS和時間跨度——如果你的目標沒有任何改變，這次回撤只是雜音。第三，限制媒體消費——危機報道是為了製造恐懼，而不是為了提供信息。第四，與值得信賴的朋友、顧問或導師交流。最後，考慮是否適合進行再平衡——如果你的計劃支持，在下跌期間買入通常是正確的做法。
+
+**問：止蝕盤在管理情緒方面是否有用？**
+答：止蝕盤可以作為預先承諾的退出機制，消除賣出決策中的情緒因素。然而，它們有其缺點。設定過緊的止蝕盤，可能在正常的波動中觸發，將暫時性的下跌變成永久性的損失。市場可能跳過你的止蝕價，以比預期更差的水平執行。對於長期投資者而言，倉位規模和分散投資通常是比止蝕盤更好的風險管理工具。
+
+**問：平均成本法真的有效，還是只是一種心理安慰？**
+答：從數學上看，一次性投入在大約三分之二的時間裡勝過平均成本法，因為市場呈上升趨勢，越早入市就意味著在市場中的時間越長。然而，平均成本法在心理上要容易得多。如果替代方案是因為害怕一次性投入而持有現金，那麼平均成本法絕對是更好的選擇。最好的策略是你實際上能夠堅持的那一種。
+
+**問：專業交易者如何管理自己的心理？**
+答：專業交易者使用幾種技術。他們在入市前定義風險（明確知道自己最多能虧損多少）。他們的倉位規模確保任何單一損失都不是災難性的。他們遵循嚴格的規則驅動系統，將主觀決策降至最低。他們在大幅盈利或虧損後休息。許多人還與表現教練合作——類似於運動員使用運動心理學家的方式。
+
+---
+
+## YouTube 影片劇本
 
 [INTRO - 0:00]
 
 [VISUAL: Heart rate monitor graphic overlaid on a volatile stock chart, both spiking and crashing together]
 
-**Alex:** There is a saying in investing: "The market is a device for transferring money from the impatient to the patient." And after everything we have covered about valuation, diversification, and asset allocation, you might think the hard part is the math.
+**Horace（陳馬）：** 投資界有一句話：「市場是將金錢從不耐心者轉移到有耐心者的機器。」在我們學過了估值、分散投資和資產配置的一切之後，你可能以為最難的部分是數學。
 
-**Sam:** It is not. The hardest part of investing is managing what is between your ears. Your brain -- brilliant as it is -- comes equipped with millions of years of survival instincts that are absolutely terrible for investing.
+**Stella（小魚）：** 其實不是。投資最難的部分，是管理你的思維。你的大腦——無論多麼聰明——都帶著數百萬年演化出來的求生本能，而這些本能對投資來說是災難性的。
 
 [VISUAL: Title card "Trading Psychology: Mastering Your Emotions in the Market"]
 
@@ -169,17 +234,17 @@ A: Professional traders use several techniques. They define risk before entering
 
 [ANIMATION: Roller coaster graphic that follows a stock chart from bull market to bear market and back, with emotion labels at each stage]
 
-**Alex:** Let me walk you through something called the emotional cycle of investing. It is eerily predictable, and once you see it, you cannot unsee it.
+**Horace（陳馬）：** 讓我帶你了解一個叫做投資情緒週期的東西。它出奇地可預測，一旦你看穿了它，你就無法不看到它。
 
-**Sam:** It starts with optimism. Markets are going up, your portfolio is growing, and you are feeling good. Then optimism turns to excitement, excitement turns to thrill, and at the very peak -- euphoria.
+**Stella（小魚）：** 它始於樂觀。市場在上漲，你的投資組合在增長，你感覺良好。然後樂觀變成興奮，興奮變成亢奮，到達最高點——狂喜。
 
 [VISUAL: Chart with markers at each emotional stage: Optimism -> Excitement -> Thrill -> Euphoria (peak) -> Anxiety -> Denial -> Fear -> Desperation -> Panic (bottom) -> Depression -> Hope -> Relief]
 
-**Alex:** Euphoria is the point of maximum financial risk. It is when people say things like "stocks only go up" or "this time is different." It is when your barber is giving you stock tips and your neighbor just quit her job to day trade.
+**Horace（陳馬）：** 狂喜是財務風險最大的時刻。就是在這時候，人們說出「股票只升不跌」或「這次不同了」之類的話。你的理髮師在給你推薦股票，你的鄰居剛剛辭職全職炒股。
 
-**Sam:** And then the cycle reverses. Anxiety, denial, fear, desperation, and finally -- panic. Panic is when people sell at the absolute bottom. They cannot take the pain anymore, and they dump everything.
+**Stella（小魚）：** 然後週期逆轉。焦慮、否認、恐懼、絕望，最後——恐慌。恐慌就是人們在絕對底部賣出的時刻。他們再也無法承受痛苦，把一切都拋售了。
 
-**Alex:** Here is the cruel irony. The moment of maximum risk -- euphoria -- feels amazing. And the moment of maximum opportunity -- panic -- feels absolutely terrible. Your emotions are literally guiding you to do the exact wrong thing at the exact wrong time.
+**Horace（陳馬）：** 殘酷的諷刺在於，風險最大的時刻——狂喜——感覺美妙。而機遇最大的時刻——恐慌——感覺極其可怕。你的情緒，正在字面意義上引導你在最錯誤的時刻做最錯誤的事。
 
 [VISUAL: Two contrasting images side by side: happy investor at market peak captioned "Maximum Risk," distressed investor at market bottom captioned "Maximum Opportunity"]
 
@@ -189,21 +254,21 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Brain graphic with labeled regions for different biases]
 
-**Sam:** So why do we keep falling into these traps? Because our brains are wired with cognitive biases that made perfect sense for survival on the savanna but are disastrous for investing.
+**Stella（小魚）：** 那麼，為什麼我們一再落入這些陷阱？因為我們的大腦內置了一些認知偏見，這些偏見對在草原上生存來說很有道理，但對投資來說卻是災難性的。
 
-**Alex:** Let us talk about the big ones. First: loss aversion. Psychologists Kahneman and Tversky showed that losing $1,000 hurts about twice as much as gaining $1,000 feels good.
+**Horace（陳馬）：** 讓我們談談幾個最主要的。首先：損失厭惡。心理學家 Kahneman 和 Tversky 的研究表明，損失$1,000的痛苦，大約是賺得$1,000喜悅的兩倍。
 
 [ANIMATION: Scale showing $1,000 loss on one side weighing twice as much as $1,000 gain]
 
-**Sam:** This means investors hold onto losing stocks way too long, hoping to avoid the pain of realizing the loss. And they sell winning stocks too early, rushing to lock in the pleasure of a gain. It is called the disposition effect, and it is one of the most consistent findings in behavioral finance.
+**Stella（小魚）：** 這意味著投資者持有虧損股票的時間過長，希望避免確認虧損的痛苦。而他們又過早沽出贏家，急於鎖定收益的喜悅。這被稱為處置效應，是行為財務學中最具一致性的發現之一。
 
-**Alex:** Next: confirmation bias. Once you decide a stock is great, your brain starts filtering information. You notice every positive article and dismiss every negative one. You are literally building a case for what you already believe instead of objectively evaluating the evidence.
+**Horace（陳馬）：** 接下來是確認偏見。一旦你決定某只股票很棒，你的大腦就開始過濾信息。你注意到每一篇正面文章，卻忽略每一篇負面文章。你實際上是在為你已經相信的事情建立論據，而不是在客觀評估證據。
 
 [VISUAL: Funnel graphic showing information flowing in, with "Confirms my view" going through and "Contradicts my view" being filtered out]
 
-**Sam:** Then there is anchoring. You bought a stock at $50, it drops to $30, and you refuse to sell because $50 is your anchor. "I will sell when it gets back to $50." But the stock does not know or care what you paid. The market does not owe you a return to your break-even price.
+**Stella（小魚）：** 然後是錨定效應。你以$50買入一只股票，它跌至$30，你拒絕賣出，因為$50是你的錨定點。「等它回到$50我再賣。」但股票不知道也不在乎你付了多少錢。市場不欠你一個回到本錢價的機會。
 
-**Alex:** And finally, herd behavior. When everyone around you is buying, it feels safe to buy. When everyone is panicking, it feels dangerous to hold. But the crowd is reliably wrong at extremes. That is literally what creates the extremes.
+**Horace（陳馬）：** 最後是羊群效應。當你周圍所有人都在買入時，買入感覺很安全；當所有人都在恐慌時，持有感覺很危險。但群眾在極端時刻是可靠地錯的。這正是極端時刻得以形成的原因。
 
 ---
 
@@ -211,19 +276,19 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: CNN Fear and Greed Index gauge graphic]
 
-**Sam:** If we simplify all these biases down, they really boil down to two primal emotions: fear and greed.
+**Stella（小魚）：** 如果我們將所有這些偏見簡化，它們其實都歸結為兩種原始情緒：恐懼與貪婪。
 
-**Alex:** And here is what is interesting -- they operate on completely different timescales. Greed builds slowly. It is the gradual accumulation of confidence during a bull market. You see your portfolio going up month after month, your friends are making money, social media is full of gain screenshots, and you start thinking, "Maybe I should take more risk."
+**Horace（陳馬）：** 有趣的是，它們在完全不同的時間尺度上運作。貪婪是緩慢積累的。它是在牛市期間逐漸積聚的信心。你看到投資組合月復一月地增長，你的朋友在賺錢，社交媒體充斥著盈利截圖，你開始想：「也許我應該承擔更多風險。」
 
 [ANIMATION: Pot of water slowly coming to a boil, labeled "Greed"]
 
-**Sam:** Fear hits like a lightning bolt. One bad day, one scary headline, and suddenly your stomach is in knots. Fear triggers our fight-or-flight response. Your body literally pumps adrenaline and cortisol, narrowing your focus and pushing you toward immediate action. In the wild, that saves your life. In the market, it destroys your portfolio.
+**Stella（小魚）：** 恐懼則像閃電一樣突然爆發。一個糟糕的交易日，一個可怕的頭條，你的胃就立刻揪緊了。恐懼觸發我們的戰鬥或逃跑反應。你的身體字面意義上分泌腎上腺素和皮質醇，收窄你的注意力，並推動你立即採取行動。在野外，這能救你的命。在市場上，它摧毀你的投資組合。
 
 [ANIMATION: Lightning bolt striking, labeled "Fear"]
 
-**Alex:** The CNN Fear and Greed Index tracks seven market indicators to measure overall sentiment. And here is the key finding: periods of extreme greed have historically corresponded to market peaks, and periods of extreme fear have corresponded to market bottoms.
+**Horace（陳馬）：** CNN恐懼與貪婪指數追蹤七個市場指標來衡量整體情緒。關鍵發現是：極度貪婪的時期，歷史上往往對應市場高峰；極度恐懼的時期，往往對應市場底部。
 
-**Sam:** So if you can learn to do the opposite of what your emotions are screaming at you to do -- be cautious when you feel greedy and buy when you feel fearful -- you have an enormous edge over the average investor.
+**Stella（小魚）：** 所以，如果你能學會做與你的情緒所呼喊的事完全相反的事——在感到貪婪時謹慎，在感到恐懼時買入——你就比普通投資者擁有巨大的優勢。
 
 ---
 
@@ -231,19 +296,19 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Toolkit graphic showing "Your Emotional Defense Kit"]
 
-**Alex:** Okay, so knowing about these biases is important, but knowing is not enough. You need actual systems and habits to protect yourself from yourself.
+**Horace（陳馬）：** 好，所以了解這些偏見很重要，但光知道是不夠的。你需要真實的系統和習慣來保護自己不受自己的傷害。
 
-**Sam:** Strategy number one: Write an Investment Policy Statement. This is your personal investing constitution. It defines your goals, your time horizon, your asset allocation, and your rules for buying and selling. When emotions run high, you do not ask "What should I do?" You ask "What does my plan say I should do?"
+**Stella（小魚）：** 策略一：撰寫投資政策聲明。這是你個人的投資憲法。它定義了你的目標、時間跨度、資產配置，以及買賣規則。當情緒高漲時，你不問「我應該怎麼做？」你問「我的計劃說我應該怎麼做？」
 
 [VISUAL: Document template showing IPS sections: Goals, Time Horizon, Asset Allocation, Rebalancing Rules, Buy/Sell Criteria]
 
-**Alex:** Strategy number two: Automate everything you can. Dollar-cost averaging -- investing a fixed amount on a set schedule -- removes the timing decision entirely. You buy when prices are high, you buy when prices are low, and over time, it averages out. The key is that you do not have to make a decision during scary moments.
+**Horace（陳馬）：** 策略二：盡可能將一切自動化。平均成本法——按固定時間表投入固定金額——完全消除了時機選擇的決策。你在價格高時買入，在價格低時買入，長期下來平均成本。關鍵是在可怕的時刻你無需作出決定。
 
-**Sam:** Strategy number three: The 24-hour rule. Before making any trade driven by emotion, sleep on it. If the idea still makes sense tomorrow with a clear head, go ahead. If it was driven by fear or excitement, the urge will usually fade.
+**Stella（小魚）：** 策略三：24小時規則。在作出任何情緒驅動的交易之前，睡一覺再說。如果這個想法在明天清醒的頭腦下仍然合理，那就行動。如果是由恐懼或興奮驅動的，這種衝動通常會消退。
 
 [VISUAL: Clock graphic with "24 HOURS" and "Before any emotional trade" caption]
 
-**Alex:** Strategy number four: Check your portfolio less often. This one sounds counterintuitive, but research is clear. Investors who check daily earn worse returns than those who check monthly or quarterly. Every time you look at your portfolio on a red day, loss aversion kicks in and whispers "sell." If you check less often, you expose yourself to fewer of those harmful impulses.
+**Horace（陳馬）：** 策略四：少查看你的投資組合。這聽起來有違直覺，但研究是清楚的。每天查看的投資者，回報比每月或每季查看的人更差。每次你在紅盤日查看投資組合，損失厭惡就會低語「賣出」。你查看的次數越少，你受到這些有害衝動的影響就越少。
 
 ---
 
@@ -251,21 +316,21 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Open journal/notebook with handwritten trade entries]
 
-**Sam:** Let us talk about the hardest part -- dealing with losses. Because losses are inevitable. The S&P 500 drops an average of 14 percent from its high at some point during every single year. That is normal.
+**Stella（小魚）：** 我們來談談最難的部分——如何應對虧損。因為虧損是不可避免的。標準普爾500指數每一年，某一時刻的年內跌幅平均都達到14%。這是正常的。
 
-**Alex:** The key is to normalize losses in your mind before they happen. If you invest in stocks, you will see your portfolio drop 10 percent regularly, 20 percent occasionally, and 30 to 50 percent rarely but inevitably. This is the price of admission for long-term returns.
+**Horace（陳馬）：** 關鍵是在虧損發生之前，就在心理上將其正常化。如果你投資股票，你會定期看到投資組合跌去10%，偶爾跌20%，罕見但不可避免地跌30至50%。這是長期回報的入場費。
 
 [VISUAL: Table showing S&P 500 intra-year declines alongside full-year returns for the past 20 years]
 
-**Sam:** One of the most powerful tools for managing losses -- and improving your overall decision-making -- is keeping an investment journal.
+**Stella（小魚）：** 管理虧損——以及提升整體決策質素——最有力的工具之一，是保持投資日誌。
 
-**Alex:** Here is what you write for every trade. The date. What you bought or sold. The price. Your reasoning. What would change your mind. And critically -- your emotional state at the time. Were you calm, excited, anxious, fearful?
+**Horace（陳馬）：** 每筆交易你要寫下：日期、買入或賣出的是什麼、價格、你的理由、什麼情況會改變你的想法，以及最關鍵的——當時的情緒狀態。你是平靜、興奮、焦慮，還是恐懼？
 
 [VISUAL: Journal entry template with fields for Date, Ticker, Action, Price, Thesis, Exit Criteria, Emotional State]
 
-**Sam:** Then every quarter, review your journal. You will start seeing patterns you never noticed. Maybe you always buy after a big up day, chasing momentum. Maybe you always sell on the third consecutive red day, just when things are about to turn around.
+**Stella（小魚）：** 然後每季回顧你的日誌。你會開始看到你從未注意過的規律。也許你總是在大漲的日子之後買入，追逐動量。也許你總是在連續第三個跌日賣出，恰恰在即將反轉的時刻。
 
-**Alex:** That self-awareness is worth more than any stock tip or technical indicator. Because once you see the pattern, you can break it.
+**Horace（陳馬）：** 那種自我認知，比任何股票貼士或技術指標都更有價值。因為一旦你看到這個規律，你就能打破它。
 
 ---
 
@@ -273,20 +338,42 @@ A: Professional traders use several techniques. They define risk before entering
 
 [VISUAL: Summary graphic with key takeaways]
 
-**Sam:** Let us bring it all together with the most important principle of trading psychology. Ready?
+**Stella（小魚）：** 讓我們用交易心理學最重要的原則來總結。準備好了嗎？
 
-**Alex:** The goal is not to have no emotions. That is impossible and not even desirable. Emotions are information. The goal is to have a process that is stronger than your emotions.
+**Horace（陳馬）：** 目標不是沒有情緒。那是不可能的，甚至也不是我們想要的。情緒是信息。目標是擁有一個比你的情緒更強大的策略。
 
 [VISUAL: Text on screen: "Build a process stronger than your emotions"]
 
-**Sam:** When you feel euphoric and want to go all-in, your process says "my allocation is already at target, stay the course." When you feel terrified and want to sell everything, your process says "rebalance by buying more of what has fallen."
+**Stella（小魚）：** 當你感到狂喜、想要全倉入市時，你的策略說：「我的配置已經在目標水平，按計劃行事。」當你感到恐懼、想要全盤拋售時，你的策略說：「通過買入更多跌幅較大的資產來再平衡。」
 
-**Alex:** The best investors are not the smartest or the most informed. They are the most disciplined. They have a plan, they follow it, and they have built habits and systems that protect them from their own worst impulses.
+**Horace（陳馬）：** 最優秀的投資者不是最聰明或信息最豐富的人。他們是最有紀律的人。他們有一個計劃，他們遵守它，他們建立了保護自己免受自身最壞衝動傷害的習慣和系統。
 
-**Sam:** Invest with a plan. Automate what you can. Write things down. Check your portfolio less. And remember -- the emotional cycle is always running. Your job is not to escape it, but to recognize where you are in it and act accordingly.
+**Stella（小魚）：** 帶著計劃投資。盡可能自動化。把事情寫下來。減少查看投資組合的頻率。記住——情緒週期始終在運轉。你的工作不是逃脫它，而是認清你在其中所處的位置，並相應地採取行動。
 
 [VISUAL: End card with channel logo and "Next: Market History and Crashes"]
 
-**Alex:** Next time, we are looking at the great market crashes of history -- what caused them, how long recovery took, and what lessons they teach us. See you there.
+---
 
-[END - 15:00]
+[SECTION 7 - THE COMMITMENT CONTRACT - 13:30]
+
+[VISUAL: Document being signed labeled "My Investment Commitment"]
+
+**Stella（小魚）：** 這裡有一個最後的、強而有力的技巧，能將一切串聯在一起。一份承諾契約。
+
+**Horace（陳馬）：** 在下一次市場調整發生之前——因為它一定會發生——寫下當你的投資組合跌去10%、20%或30%時，你會具體怎麼做。
+
+**Stella（小魚）：** 例如：「如果我的投資組合跌去10%，我會回顧我的資產配置，但除非它偏離目標超過5個百分點，否則不採取行動。如果跌去20%，我會通過買入更多跌幅較大的資產來再平衡。如果跌去30%，我會按照預定計劃，將現金儲備投入股票。」
+
+[VISUAL: Template showing three tiers of response: 10%, 20%, 30% decline with specific actions for each]
+
+**Horace（陳馬）：** 現在就把它寫下來，趁你還平靜理性的時候。簽上名字。放在你能找到的地方。當恐慌來臨——心跳加速、頭條新聞大聲喧嚷——你不需要思考。你只需遵照計劃行事。
+
+**Stella（小魚）：** 這就是能建立財富的投資者，與摧毀財富的投資者之間的分野。不是智力，不是信息，不是時機。而是擁有一個比你的情緒更強大的策略，以及在每一種本能都告訴你做相反事情的時候，仍然有紀律地遵守它。
+
+**Horace（陳馬）：** 投資簡單，但並不容易。數學是直截了當的。心理是殘酷的。但憑著正確的習慣、正確的工具和正確的自我認知，你可以同時駕馭兩者。
+
+[VISUAL: End card with channel logo and "Next: Market History and Crashes"]
+
+**Stella（小魚）：** 下一次，我們將回顧歷史上那些偉大的市場崩盤——是什麼導致了它們，復甦花了多長時間，以及它們教給我們的教訓。到時見。
+
+[END - 16:00]

@@ -1,123 +1,117 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 7: Portfolio Rebalancing
+# 第七週：投資組合再平衡
 
 ---
 
-## Reading Section
+## 閱讀單元
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Rebalancing is one of the few investment strategies that is both simple to understand and genuinely effective, yet most individual investors either ignore it entirely or do it wrong. It is the discipline of periodically adjusting your portfolio back to your target asset allocation, and it matters far more than most people realize.
+再平衡是少數幾種既簡單易懂、又真正有效的投資策略之一，然而大多數個人投資人不是完全忽視它，就是做法錯誤。再平衡是一種紀律——定期將你的投資組合調整回目標資產配置——其重要性遠超過大多數人的想像。
 
-Here is the core problem rebalancing solves. Suppose you decide on a 60/40 stock/bond portfolio. After a strong year for stocks, your portfolio drifts to 75/25. You now have significantly more risk than you intended. If the market drops 30%, your 75% stock allocation means a 22.5% portfolio loss instead of the 18% loss you would have experienced at 60/40. That 4.5 percentage point difference on a $500,000 portfolio is $22,500 of additional loss you never signed up for.
+以下是再平衡所要解決的核心問題。假設你決定建立一個六十/四十的股票/債券投資組合。在股票強勢表現一年後，你的投資組合漂移至七十五/二十五。你現在承擔的風險遠超過原本的預期。如果市場下跌三十%，你的七十五%股票配置意味著投資組合損失二十二點五%，而非在六十/四十配置下所承受的十八%虧損。在五十萬美元的投資組合中，這四點五個百分點的差距，就是額外的二萬二千五百美元損失——一個你從未同意承擔的風險。
 
-But rebalancing is not just about controlling risk. It is a systematic way to buy low and sell high -- the holy grail of investing that most people fail to do because emotions get in the way.
+但再平衡不只是為了控制風險。它是一種系統性的低買高賣方法——這是大多數人因情緒作祟而無法做到的投資聖杯。
 
-Consider what happens when you rebalance:
+來看看你再平衡時實際發生了什麼事：
 
-1. **You sell winners and buy losers.** After stocks have risen, rebalancing forces you to sell some stocks (which have become relatively expensive) and buy bonds (which have become relatively cheap). After stocks have fallen, rebalancing forces you to buy stocks (now cheaper) and sell bonds (now relatively expensive). This is the opposite of what your emotions tell you to do, and that is precisely why it works.
+1. **你賣掉贏家，買進輸家。** 在股票上漲後，再平衡迫使你賣出部分股票（已相對昂貴），並買進債券（已相對便宜）。在股票下跌後，再平衡迫使你買進股票（現在更便宜），並賣出債券（現在相對昂貴）。這與你的情緒告訴你的方向完全相反，而這正是它有效的原因。
 
-2. **You maintain your intended risk level.** Without rebalancing, your portfolio's risk profile changes over time as different assets grow at different rates. A portfolio that starts at 60/40 can easily drift to 80/20 during a bull market, exposing you to far more risk than your financial plan assumed.
+2. **你維持了原本設定的風險水準。** 若不進行再平衡，隨著不同資產以不同速度成長，投資組合的風險狀況會隨時間改變。一個以六十/四十起步的投資組合，在多頭市場中可能輕易漂移至八十/二十，使你承受的風險遠超過財務計畫所預設的水準。
 
-3. **You impose discipline on an emotional process.** Investing is psychologically brutal. Rebalancing gives you a rules-based framework that removes emotion from the equation. When everyone is panicking and selling stocks, your rebalancing rule says "buy more stocks." When everyone is euphoric and piling into stocks, your rebalancing rule says "take some profits."
+3. **你為情緒化的過程建立了紀律。** 投資在心理上是極度煎熬的。再平衡提供了一套基於規則的框架，將情緒從方程式中排除。當所有人都在恐慌拋售股票時，你的再平衡規則告訴你「買進更多股票」。當所有人都興高采烈地追捧股票時，你的再平衡規則告訴你「獲利了結部分部位」。
 
-4. **You can capture a "rebalancing bonus."** Academic research has demonstrated that in certain market conditions, a rebalanced portfolio can actually outperform its individual components. This rebalancing bonus arises from the mathematical properties of volatile, mean-reverting assets -- and we will explore it in detail in this lesson.
+4. **你可以獲取「再平衡紅利」。** 學術研究已證明，在特定市場條件下，再平衡後的投資組合實際上可以超越其個別組成資產的表現。這種再平衡紅利源自波動性強、具均值回歸特性之資產的數學特性——我們將在本課詳細探討。
 
-5. **It is one of the few free lunches in investing.** Rebalancing does not require stock-picking skill, market timing ability, or access to special information. It is purely mechanical, yet it improves both risk-adjusted and, in many environments, absolute returns.
+5. **這是投資中少數的免費午餐之一。** 再平衡不需要選股技巧、擇時能力，或取得特殊資訊。它純粹是機械化操作，卻能同時改善風險調整後報酬，在許多市場環境下甚至能提升絕對報酬。
 
-The CFA Institute considers portfolio rebalancing a fundamental component of the Investment Policy Statement (IPS) and portfolio management process. At every level of the CFA curriculum, candidates are expected to understand when and how to rebalance, the tradeoffs between different rebalancing strategies, and the tax and transaction cost implications. This is not optional knowledge -- it is foundational.
+CFA協會將投資組合再平衡視為投資政策聲明（IPS）與投資組合管理流程的基本要素。在CFA課程的每個級別，考生都必須了解再平衡的時機與方法、不同再平衡策略之間的取捨，以及稅務和交易成本的影響。這不是選修知識——而是基礎核心。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. What Rebalancing Actually Is
+#### 1. 再平衡究竟是什麼
 
-Rebalancing is the process of realigning the weights of assets in your portfolio to match your target allocation. When market movements cause your actual allocation to drift from your target, you sell overweight assets and buy underweight ones to restore balance.
+再平衡是將投資組合中各資產的權重重新調整，使其符合目標配置的過程。當市場波動導致實際配置偏離目標時，你賣出超配的資產，買進低配的資產，以恢復平衡。
 
 ```
-PORTFOLIO DRIFT AND REBALANCING
+投資組合漂移與再平衡
 ================================
 
-Starting Target: 60% Stocks / 40% Bonds
+起始目標：60% 股票 / 40% 債券
 
-         START            AFTER BULL        AFTER
-        (Jan 1)          MARKET            REBALANCING
-                         (Dec 31)          (Dec 31)
+         起始              多頭市場後         再平衡後
+        (1月1日)          (12月31日)         (12月31日)
 
   100% |                 |                 |
        |                 |########         |
-   80% |                 |# Stocks#        |
+   80% |                 |# 股票  #        |
        |                 |# 75%   #        |
    60% |########         |########         |########
-       |# Stocks#        |                 |# Stocks#
+       |# 股票  #        |                 |# 股票  #
    40% |# 60%  #|--------|                 |# 60%  #|--------
        |########|////////|########         |########|////////
-   20% |        |/ Bonds/|/ Bonds/         |        |/ Bonds/
+   20% |        |/ 債券 /|/ 債券 /         |        |/ 債券 /
        |        |/ 40%  /|/ 25%  /         |        |/ 40%  /
     0% |--------|--------|--------         |--------|--------
 
-       DRIFT happens          REBALANCE restores
-       automatically          target allocation
-       as markets move        by selling stocks,
-                              buying bonds
+       漂移隨市場            再平衡透過賣出股票、
+       波動自然發生          買進債券，恢復目標配置
 ```
 
-The concept is straightforward, but the execution involves several important decisions: how often to rebalance, what triggers a rebalance, how to handle taxes, and which specific trades to make.
+概念很直觀，但執行時涉及幾項重要決策：多久再平衡一次、什麼觸發再平衡、如何處理稅務，以及實際要執行哪些交易。
 
 ---
 
-#### 2. Why Portfolios Drift
+#### 2. 為什麼投資組合會漂移
 
-Asset classes have different expected returns and different volatilities. Over time, higher-returning assets grow to dominate the portfolio while lower-returning assets shrink in proportion.
+各資產類別有不同的預期報酬與不同的波動性。隨著時間推移，報酬較高的資產在投資組合中的比重逐漸擴大，報酬較低的資產則相對縮減。
 
 ```
-DRIFT MECHANICS -- A NUMERICAL EXAMPLE
+漂移機制——數字範例
 =========================================
 
-Starting Portfolio: $100,000
-Target: 60% Stocks ($60,000) / 40% Bonds ($40,000)
+起始投資組合：$100,000
+目標：60% 股票（$60,000）/ 40% 債券（$40,000）
 
-Scenario: Stocks return +25%, Bonds return +3%
+情境：股票報酬 +25%，債券報酬 +3%
 
-Asset       Start       Return      End Value     New Weight
+資產        起始        報酬        期末價值      新權重
 ------      -----       ------      ---------     ----------
-Stocks      $60,000     +25%        $75,000       64.7%
-Bonds       $40,000     +3%         $41,200       35.3%
+股票        $60,000     +25%        $75,000       64.7%
+債券        $40,000     +3%         $41,200       35.3%
             --------                --------      ------
-Total       $100,000                $116,200      100.0%
+合計        $100,000                $116,200      100.0%
 
-Drift from target:
-  Stocks:  64.7% vs 60.0% = +4.7% overweight
-  Bonds:   35.3% vs 40.0% = -4.7% underweight
+偏離目標：
+  股票：64.7% vs 60.0% = 超配 +4.7%
+  債券：35.3% vs 40.0% = 低配 -4.7%
 
-To rebalance:
-  Target stock value = 60% x $116,200 = $69,720
-  Sell $75,000 - $69,720 = $5,280 of stocks
-  Buy $5,280 of bonds
+執行再平衡：
+  股票目標金額 = 60% x $116,200 = $69,720
+  賣出 $75,000 - $69,720 = $5,280 的股票
+  買進 $5,280 的債券
 
-After rebalancing:
-  Stocks:  $69,720  (60.0%)
-  Bonds:   $46,480  (40.0%)
-  Total:   $116,200 (100.0%)
+再平衡後：
+  股票：$69,720  (60.0%)
+  債券：$46,480  (40.0%)
+  合計：$116,200 (100.0%)
 ```
 
-Notice something important: rebalancing forced you to sell $5,280 of stocks after they rose 25%. You are taking profits systematically. If stocks subsequently decline, you protected some gains. If stocks continue rising, you gave up some upside -- but you maintained your risk target.
+請注意一件重要的事：再平衡迫使你在股票上漲二十五%後賣出五千二百八十美元的股票。你在系統性地獲利了結。若股票隨後下跌，你已保住部分獲利；若股票繼續上漲，你放棄了部分漲幅——但你維持了風險目標。
 
 ---
 
-#### 3. The Buy-Low, Sell-High Mechanism
+#### 3. 低買高賣的機制
 
-This is the most powerful and underappreciated aspect of rebalancing. It systematically enforces contrarian behavior.
+這是再平衡最強大、卻最被低估的面向。它系統性地強制執行逆向操作行為。
 
 ```
-THE REBALANCING CYCLE -- BUY LOW, SELL HIGH
+再平衡循環——低買高賣
 =============================================
 
-              Stock Price Movement Over Time
-     Price
+              股價隨時間的走勢
+     價格
        ^
   $150 |              *
        |            *   *
@@ -129,759 +123,758 @@ THE REBALANCING CYCLE -- BUY LOW, SELL HIGH
        |*                           *  *
    $70 |                              *
        +-----|-----|-----|-----|-----|-----|---->
-        Jan   Jun   Dec   Jun   Dec   Jun  Time
-        Yr1   Yr1   Yr1   Yr2   Yr2   Yr3
+        第1年 第1年 第1年 第2年 第2年 第3年  時間
+        1月   6月   12月  6月   12月  6月
 
-  Rebalancing Actions:
-  Dec Yr1:  Stock rose   --> SELL stocks, BUY bonds
-  Dec Yr2:  Stock fell   --> BUY stocks, SELL bonds
-  Jun Yr3:  Stock rose   --> SELL stocks, BUY bonds
+  再平衡操作：
+  第1年12月：股票上漲 --> 賣出股票，買進債券
+  第2年12月：股票下跌 --> 買進股票，賣出債券
+  第3年6月：股票上漲  --> 賣出股票，買進債券
 
-  Each time: selling what went UP, buying what went DOWN
-  This IS the buy-low, sell-high discipline!
+  每一次：賣出漲上去的，買進跌下來的
+  這正是低買高賣的紀律！
 ```
 
-Most investors do the opposite. When stocks are soaring, greed kicks in and they want to buy more. When stocks are crashing, fear kicks in and they want to sell. Rebalancing mechanically prevents this emotional trap.
+大多數投資人的做法恰恰相反。股票飆漲時，貪婪驅使他們想買更多；股票崩跌時，恐懼驅使他們想賣出。再平衡從機制上防止了這個情緒陷阱。
 
 ---
 
-#### 4. Calendar Rebalancing vs. Threshold Rebalancing
+#### 4. 定期再平衡 vs. 閾值再平衡
 
-There are two main approaches to deciding when to rebalance, each with distinct advantages and disadvantages.
+決定何時再平衡有兩種主要方法，各有其明顯的優缺點。
 
-**Calendar Rebalancing**
+**定期再平衡**
 
-You rebalance on a fixed schedule -- monthly, quarterly, semi-annually, or annually. Regardless of how much or how little the portfolio has drifted, you bring it back to target on the scheduled date.
+按固定時間表再平衡——每月、每季、每半年或每年。無論投資組合漂移多少或多少，都在預定日期將其調回目標。
 
-**Threshold (Percentage-of-Portfolio) Rebalancing**
+**閾值（投資組合比例）再平衡**
 
-You rebalance whenever any asset class drifts beyond a predetermined band around its target. For example, if your stock target is 60%, you might set bands of plus or minus 5 percentage points. You only rebalance when stocks exceed 65% or fall below 55%.
+只要任何資產類別偏離目標超過預設區間，便進行再平衡。例如，若你的股票目標是六十%，你可以設定正負五個百分點的區間。只有當股票超過六十五%或低於五十五%時才再平衡。
 
 ```
-CALENDAR vs. THRESHOLD REBALANCING
+定期再平衡 vs. 閾值再平衡
 ====================================
 
-CALENDAR REBALANCING
+定期再平衡
 --------------------
-  Jan 1    Apr 1    Jul 1    Oct 1    Jan 1
+  1月1日   4月1日   7月1日  10月1日   1月1日
     |        |        |        |        |
-    R        R        R        R        R
+    再       再       再       再       再
     |        |        |        |        |
-    (Quarterly example -- rebalance every 3 months)
+    （每季範例——每三個月再平衡一次）
 
-  Pros: Simple, predictable, easy to automate
-  Cons: May rebalance unnecessarily (small drift)
-        May miss needed rebalance (big drift between dates)
+  優點：簡單、可預測、易於自動化
+  缺點：可能在漂移不顯著時不必要地再平衡
+        可能在兩次日期之間錯過重大漂移
 
-THRESHOLD REBALANCING
+閾值再平衡
 ---------------------
-  Target: 60% stocks, Band: +/- 5%
+  目標：60% 股票，區間：+/- 5%
 
-       65% .............. UPPER BAND (trigger: sell stocks)
+       65% .............. 上限區間（觸發：賣出股票）
             \
-             \    Actual
-              \  Allocation   * <-- Trigger! Rebalance.
-       60% ---\-----------/------  TARGET
+             \    實際
+              \  配置比例   * <-- 觸發！執行再平衡。
+       60% ---\-----------/------  目標
                 \       /
                  \   /
-       55% ........*......... LOWER BAND (trigger: buy stocks)
+       55% ........*......... 下限區間（觸發：買進股票）
                    ^
-                   Trigger! Rebalance.
+                   觸發！執行再平衡。
 
-  Pros: Only rebalances when meaningful drift occurs
-        Responds to large market moves immediately
-  Cons: More complex to monitor
-        May generate more trades in volatile markets
+  優點：僅在漂移達顯著程度時再平衡
+        能即時回應大幅市場波動
+  缺點：監控較為複雜
+        在波動劇烈的市場中可能產生更多交易
 
-HYBRID APPROACH (MOST RECOMMENDED)
+混合方法（最為推薦）
 -----------------------------------
-  Check allocation on a fixed schedule (e.g., quarterly)
-  Only rebalance if drift exceeds threshold (e.g., 5%)
+  按固定時間表檢視配置（例如每季）
+  僅在漂移超過閾值時才再平衡（例如 5%）
 
-  This combines the simplicity of calendar with the
-  efficiency of threshold rebalancing.
+  結合了定期法的簡單性與閾值法的效率性。
 ```
 
-**What does the research say?**
+**研究怎麼說？**
 
-Academic studies including those by Vanguard and various CFA research papers have found that the specific frequency of rebalancing matters less than the fact that you rebalance at all. Annual rebalancing, semi-annual rebalancing, and threshold-based rebalancing all produce broadly similar long-term results. The biggest difference is between rebalancing and not rebalancing.
+包括先鋒集團（Vanguard）及多篇CFA研究論文在內的學術研究發現，再平衡的具體頻率遠不如是否有在再平衡重要。每年再平衡、每半年再平衡、以及閾值型再平衡，長期下來的結果大致相似。最大的差異在於有再平衡與完全不再平衡之間。
 
-That said, a hybrid approach -- checking quarterly but only rebalancing when drift exceeds 5 percentage points -- tends to minimize transaction costs while capturing most of the benefit.
+話雖如此，混合方法——每季檢視但僅在漂移超過五個百分點時才再平衡——往往能在最小化交易成本的同時，獲取大部分的再平衡效益。
 
 ---
 
-#### 5. The Rebalancing Bonus
+#### 5. 再平衡紅利
 
-One of the most fascinating findings in portfolio theory is that a rebalanced portfolio of volatile, negatively correlated (or uncorrelated) assets can outperform each individual asset over time. This phenomenon is called the rebalancing bonus (sometimes called the diversification return or volatility harvesting).
+投資組合理論中最引人入勝的發現之一，是由波動性強且呈負相關（或不相關）資產所組成的再平衡投資組合，長期下來可能超越各個別資產的表現。這種現象稱為再平衡紅利（有時稱為分散化報酬或波動性收割）。
 
 ```
-THE REBALANCING BONUS -- A SIMPLIFIED EXAMPLE
+再平衡紅利——簡化範例
 ================================================
 
-Consider two assets that alternate between +30% and -10%,
-but in opposite years:
+假設兩種資產交替呈現 +30% 和 -10%，
+但在相反的年度：
 
-Year    Asset A     Asset B     50/50 Portfolio
-                                (Rebalanced Annually)
-----    -------     -------     ----------------
-  1      +30%        -10%
-  2      -10%        +30%
-  3      +30%        -10%
-  4      -10%        +30%
+年度    資產A     資產B     50/50 投資組合
+                            （每年再平衡）
+----    -------   -------   ----------------
+  1      +30%      -10%
+  2      -10%      +30%
+  3      +30%      -10%
+  4      -10%      +30%
 
-After 4 years:
-  Asset A alone:  $100 x 1.30 x 0.90 x 1.30 x 0.90 = $136.89
-  Asset B alone:  $100 x 0.90 x 1.30 x 0.90 x 1.30 = $136.89
+四年後：
+  僅持有資產A：$100 x 1.30 x 0.90 x 1.30 x 0.90 = $136.89
+  僅持有資產B：$100 x 0.90 x 1.30 x 0.90 x 1.30 = $136.89
 
-  Annualized return each: ~8.17%
+  各自年化報酬：約 8.17%
 
-  50/50 Rebalanced Portfolio:
-  Year 1: A=$65 x 1.30=$84.50, B=$50 x 0.90=$45.00
-           Total=$129.50, Rebalance to $64.75 each
-  Year 2: A=$64.75 x 0.90=$58.28, B=$64.75 x 1.30=$84.18
-           Total=$142.45, Rebalance to $71.23 each
-  Year 3: A=$71.23 x 1.30=$92.59, B=$71.23 x 0.90=$64.10
-           Total=$156.69, Rebalance to $78.35 each
-  Year 4: A=$78.35 x 0.90=$70.51, B=$78.35 x 1.30=$101.85
-           Total=$172.36
+  50/50 再平衡投資組合：
+  第1年：A=$65 x 1.30=$84.50，B=$50 x 0.90=$45.00
+          合計=$129.50，再平衡至各 $64.75
+  第2年：A=$64.75 x 0.90=$58.28，B=$64.75 x 1.30=$84.18
+          合計=$142.45，再平衡至各 $71.23
+  第3年：A=$71.23 x 1.30=$92.59，B=$71.23 x 0.90=$64.10
+          合計=$156.69，再平衡至各 $78.35
+  第4年：A=$78.35 x 0.90=$70.51，B=$78.35 x 1.30=$101.85
+          合計=$172.36
 
-  Annualized return of rebalanced portfolio: ~14.6%
+  再平衡投資組合年化報酬：約 14.6%
 
-  REBALANCING BONUS: 14.6% - 8.17% = +6.4% per year!
+  再平衡紅利：14.6% - 8.17% = 每年 +6.4%！
 ```
 
-This is a stylized example, but the principle holds in real markets: when assets are volatile and do not move in lockstep, rebalancing systematically harvests the difference. The bonus is largest when:
+這是一個風格化的範例，但其原理在真實市場中同樣成立：當資產具有波動性且不同步移動時，再平衡能系統性地收割其中的差異。在以下條件下，紅利最為顯著：
 
-- Asset volatility is high
-- Correlation between assets is low or negative
-- Assets tend to mean-revert (what goes down comes back)
+- 資產波動性高
+- 資產間的相關性低或為負相關
+- 資產傾向均值回歸（下跌後能回升）
 
-In real-world portfolios, the rebalancing bonus is typically 0.5% to 1.5% per year -- modest but meaningful over decades of compounding.
+在真實世界的投資組合中，再平衡紅利通常為每年零點五%至一點五%——雖然不大，但經過數十年複利累積後意義重大。
 
 ```
-WHEN THE REBALANCING BONUS IS LARGEST vs. SMALLEST
+再平衡紅利最大 vs. 最小的條件
 =====================================================
 
-  LARGEST BONUS                    SMALLEST BONUS
+  最大紅利                          最小紅利
   +--------------------------+    +--------------------------+
-  | High volatility          |    | Low volatility           |
-  | Low/negative correlation |    | High positive correlation|
-  | Mean-reverting markets   |    | Trending markets         |
-  | Multiple asset classes   |    | Few, similar assets      |
+  | 高波動性                  |    | 低波動性                  |
+  | 低/負相關性               |    | 高正相關性                |
+  | 均值回歸市場              |    | 趨勢市場                  |
+  | 多種資產類別              |    | 少量、類似資產            |
   +--------------------------+    +--------------------------+
 
-  Real-world estimates:
-  US Stocks + US Bonds:            ~0.2-0.5% per year
-  US Stocks + Int'l Stocks:        ~0.3-0.7% per year
-  Multi-asset (stocks, bonds,      ~0.5-1.5% per year
-    REITs, commodities):
+  真實世界估計值：
+  美股 + 美債：                    約每年 0.2-0.5%
+  美股 + 國際股票：                約每年 0.3-0.7%
+  多資產（股票、債券、            約每年 0.5-1.5%
+    不動產投資信託、商品）：
 ```
 
-**Important caveat:** In strongly trending markets (where one asset consistently outperforms), rebalancing will reduce returns because you keep selling the winner. The rebalancing bonus is most evident in range-bound or mean-reverting markets. This does not mean you should stop rebalancing in trending markets -- risk control remains the primary purpose.
+**重要提醒：** 在強勁的趨勢市場中（某一資產持續跑贏），再平衡會降低報酬，因為你不斷賣掉贏家。再平衡紅利最常見於區間震盪或均值回歸的市場。但這並不代表你在趨勢市場中應停止再平衡——風險控管始終是首要目的。
 
 ---
 
-#### 6. Tax Considerations in Rebalancing
+#### 6. 再平衡的稅務考量
 
-In taxable accounts, every rebalancing trade is a potential tax event. Selling appreciated assets generates capital gains taxes, which can significantly erode the benefit of rebalancing if not managed carefully.
+在應稅帳戶中，每一筆再平衡交易都可能產生稅務事件。出售增值資產將產生資本利得稅，若處理不當，可能大幅侵蝕再平衡的效益。
 
 ```
-TAX IMPACT OF REBALANCING
+再平衡的稅務影響
 ===========================
 
-Scenario: Sell $10,000 of stocks that have $4,000 of gains
+情境：賣出 $10,000 的股票，其中有 $4,000 的獲利
 
-  If Short-Term Gains (held < 1 year):
-    Tax rate: up to 37% (ordinary income)
-    Tax bill: $4,000 x 0.37 = $1,480
-    Net proceeds: $10,000 - $1,480 = $8,520
+  若為短期利得（持有不滿 1 年）：
+    稅率：最高 37%（一般所得稅率）
+    應繳稅額：$4,000 x 0.37 = $1,480
+    實得金額：$10,000 - $1,480 = $8,520
 
-  If Long-Term Gains (held > 1 year):
-    Tax rate: 15% or 20% for most investors
-    Tax bill: $4,000 x 0.15 = $600
-    Net proceeds: $10,000 - $600 = $9,400
+  若為長期利得（持有超過 1 年）：
+    稅率：多數投資人適用 15% 或 20%
+    應繳稅額：$4,000 x 0.15 = $600
+    實得金額：$10,000 - $600 = $9,400
 
-  Difference: $880 -- just from holding period!
+  差異：$880——僅因持有期間不同！
 ```
 
-**Tax-efficient rebalancing strategies:**
+**節稅的再平衡策略：**
 
 ```
-TAX-EFFICIENT REBALANCING METHODS
+節稅型再平衡方法
 ===================================
 
-METHOD 1: USE NEW CONTRIBUTIONS
+方法一：利用新資金投入
 --------------------------------
-Instead of selling overweight assets, direct new
-contributions to underweight asset classes.
+不賣出超配資產，而是將新投入的
+資金全部用於購買低配的資產類別。
 
-  Portfolio: 65% stocks / 35% bonds (target: 60/40)
-  Monthly contribution: $2,000
+  投資組合：65% 股票 / 35% 債券（目標：60/40）
+  每月投入：$2,000
 
-  --> Put entire $2,000 into bonds until balance restores
-  --> No selling = no taxes!
+  --> 將全部 $2,000 投入債券，直到恢復平衡
+  --> 無需賣出 = 無稅務事件！
 
-  Best for: Accumulation phase, regular contributors
+  最適合：累積期、定期投入的投資人
 
-METHOD 2: USE WITHDRAWALS STRATEGICALLY
+方法二：善用提款操作
 -----------------------------------------
-In retirement, withdraw from overweight asset classes.
+退休後，從超配的資產類別中提款。
 
-  Portfolio: 65% stocks / 35% bonds (target: 60/40)
-  Monthly withdrawal: $3,000
+  投資組合：65% 股票 / 35% 債券（目標：60/40）
+  每月提款：$3,000
 
-  --> Withdraw from stocks until balance restores
-  --> You were going to sell anyway!
+  --> 從股票中提款，直到恢復平衡
+  --> 反正都要賣，不如用來再平衡！
 
-  Best for: Distribution phase, retirees
+  最適合：提款期、退休人士
 
-METHOD 3: REBALANCE IN TAX-ADVANTAGED ACCOUNTS
+方法三：在稅賦優惠帳戶內再平衡
 ------------------------------------------------
-Keep the most tax-inefficient rebalancing in IRAs and 401(k)s,
-where there are no capital gains taxes.
+將最需要頻繁再平衡的操作集中在
+個人退休帳戶（IRA）或401(k)內，
+這些帳戶無需繳納資本利得稅。
 
-  Taxable Account: Hold and rarely sell
-  IRA / 401(k):    Rebalance freely
+  應稅帳戶：持有並盡量少賣
+  IRA / 401(k)：自由再平衡
 
-  Best for: Investors with assets in both account types
+  最適合：同時持有兩種帳戶類型的投資人
 
-METHOD 4: TAX-LOSS HARVESTING DURING REBALANCING
+方法四：於再平衡時進行稅損收割
 --------------------------------------------------
-When selling, prioritize lots with losses to offset gains.
+出售資產時，優先出售帳面虧損的部位以抵銷獲利。
 
-  Lot 1: 100 shares bought at $50, now $60 (gain $1,000)
-  Lot 2: 100 shares bought at $70, now $60 (loss $1,000)
+  部位1：以 $50 買入 100 股，現值 $60（獲利 $1,000）
+  部位2：以 $70 買入 100 股，現值 $60（虧損 $1,000）
 
-  --> Sell Lot 2 first to realize loss
-  --> Loss offsets gains from other rebalancing trades
+  --> 優先賣出部位2以實現虧損
+  --> 虧損可抵銷其他再平衡交易的獲利
 
-  Best for: Volatile markets with mixed gains/losses
+  最適合：波動市場中有混合損益的投資人
 
-METHOD 5: USE DIVIDENDS AND INTEREST
+方法五：利用股利與利息
 --------------------------------------
-Direct dividends and interest payments to underweight
-asset classes instead of reinvesting in the same fund.
+不要將股利和利息再投入原本的基金，
+而是將其導向低配的資產類別。
 
-  Stock dividends --> Purchase bonds
-  Bond interest   --> Purchase stocks (if stocks underweight)
+  股票股利 --> 購買債券
+  債券利息 --> 購買股票（若股票比重偏低）
 
-  Best for: Income-generating portfolios
+  最適合：持有收益型資產的投資組合
 ```
 
-**The tax-efficiency hierarchy for rebalancing:**
+**再平衡的節稅優先順序：**
 
 ```
-MOST TAX-EFFICIENT (try these first)
+最節稅（優先嘗試這些方法）
   |
-  |  1. Direct new contributions to underweight assets
-  |  2. Reinvest dividends/interest into underweight assets
-  |  3. Rebalance within tax-advantaged accounts (IRA, 401k)
-  |  4. Sell assets with losses (tax-loss harvesting)
-  |  5. Sell assets with long-term gains (lower tax rate)
-  |  6. Sell assets with short-term gains (highest tax rate)
+  |  1. 將新投入資金導向低配資產
+  |  2. 將股利/利息再投入低配資產
+  |  3. 在稅賦優惠帳戶內再平衡（IRA、401k）
+  |  4. 出售虧損資產（稅損收割）
+  |  5. 出售長期利得資產（較低稅率）
+  |  6. 出售短期利得資產（最高稅率）
   |
-LEAST TAX-EFFICIENT (avoid if possible)
+最不節稅（盡量避免）
 ```
 
 ---
 
-#### 7. Rebalancing Across Multiple Asset Classes
+#### 7. 多資產類別的再平衡
 
-Real portfolios often have more than two asset classes. Rebalancing becomes more nuanced but follows the same principles.
+真實的投資組合通常包含兩種以上的資產類別。再平衡變得更為細緻，但原則相同。
 
 ```
-MULTI-ASSET PORTFOLIO REBALANCING
+多資產投資組合再平衡
 ===================================
 
-Target Allocation:
-  US Stocks:        35%    |============================|
-  Int'l Stocks:     20%    |================|
-  Bonds:            25%    |====================|
-  REITs:            10%    |========|
-  Commodities:       5%    |====|
-  Cash:              5%    |====|
+目標配置：
+  美國股票：       35%    |============================|
+  國際股票：       20%    |================|
+  債券：           25%    |====================|
+  不動產投資信託：  10%    |========|
+  商品：            5%    |====|
+  現金：            5%    |====|
                    -----
                    100%
 
-After One Year of Drift:
-  US Stocks:        42%    |=================================|  +7%
-  Int'l Stocks:     18%    |==============|                     -2%
-  Bonds:            22%    |=================|                  -3%
-  REITs:            11%    |=========|                          +1%
-  Commodities:       3%    |==|                                 -2%
-  Cash:              4%    |===|                                -1%
+一年漂移後：
+  美國股票：       42%    |=================================|  +7%
+  國際股票：       18%    |==============|                     -2%
+  債券：           22%    |=================|                  -3%
+  不動產投資信託：  11%    |=========|                          +1%
+  商品：            3%    |==|                                 -2%
+  現金：            4%    |===|                                -1%
                    -----
                    100%
 
-Rebalancing Trades (on $200,000 portfolio):
-  SELL US Stocks:         -$14,000  (42% --> 35%)
-  BUY Int'l Stocks:       +$4,000  (18% --> 20%)
-  BUY Bonds:              +$6,000  (22% --> 25%)
-  SELL REITs:             -$2,000   (11% --> 10%)
-  BUY Commodities:        +$4,000  (3%  --> 5%)
-  BUY Cash:               +$2,000  (4%  --> 5%)
+再平衡交易（以 $200,000 投資組合為例）：
+  賣出美國股票：        -$14,000  （42% --> 35%）
+  買進國際股票：        +$4,000   （18% --> 20%）
+  買進債券：            +$6,000   （22% --> 25%）
+  賣出不動產投資信託：  -$2,000   （11% --> 10%）
+  買進商品：            +$4,000   （3%  --> 5%）
+  買進現金：            +$2,000   （4%  --> 5%）
 ```
 
-With multiple asset classes, you can often net trades against each other: sell the overweight assets and use the proceeds to buy the underweight ones. This minimizes the total number and size of transactions.
+在多資產類別的情況下，你通常可以將交易相互抵銷：賣出超配資產，並將所得資金用於買進低配資產。這能將交易的總次數和總金額降至最低。
 
 ---
 
-#### 8. Implementation: A Step-by-Step Rebalancing Process
+#### 8. 實作：逐步再平衡流程
 
 ```
-REBALANCING WORKFLOW
+再平衡操作流程
 =====================
 
   +-------------------+
-  | 1. SET TARGET     |    Define your target allocation
-  |    ALLOCATION     |    based on goals, risk tolerance,
-  +--------+----------+    and time horizon
-           |
-           v
-  +-------------------+
-  | 2. SET BANDS      |    Determine rebalancing thresholds
-  |    (e.g., +/-5%)  |    (e.g., rebalance if any asset
-  +--------+----------+    drifts more than 5% from target)
-           |
-           v
-  +-------------------+
-  | 3. SET SCHEDULE   |    Choose review frequency
-  |    (e.g., Qtrly)  |    (monthly, quarterly, annually)
+  | 1. 設定目標       |    根據目標、風險承受能力
+  |    配置           |    與投資期間，定義目標配置
   +--------+----------+
            |
            v
   +-------------------+
-  | 4. REVIEW         |    On schedule date, compare
-  |    CURRENT vs.    |    actual vs. target allocation
-  |    TARGET         |
-  +--------+----------+
+  | 2. 設定區間       |    確定再平衡閾值
+  |    （例如±5%）    |    （例如：任何資產漂移超過
+  +--------+----------+    5% 即觸發再平衡）
            |
            v
-  +-------------------+     NO
-  | 5. DRIFT EXCEEDS  |---------> Do nothing.
-  |    THRESHOLD?     |           Wait for next review.
-  +--------+----------+
-           | YES
-           v
   +-------------------+
-  | 6. CALCULATE      |    Determine exact dollar amounts
-  |    TRADES         |    to sell/buy for each asset
+  | 3. 設定時間表     |    選擇檢視頻率
+  |    （例如每季）   |    （每月、每季、每年）
   +--------+----------+
            |
            v
   +-------------------+
-  | 7. CONSIDER       |    Can you use contributions,
-  |    TAX IMPACT     |    dividends, or tax-advantaged
-  +--------+----------+    accounts instead of selling?
+  | 4. 檢視當前       |    在預定日期，比較
+  |    vs. 目標       |    實際與目標配置
+  |    配置           |
+  +--------+----------+
+           |
+           v
+  +-------------------+     否
+  | 5. 漂移是否超過   |---------> 不採取行動。
+  |    閾值？         |           等候下次檢視。
+  +--------+----------+
+           | 是
+           v
+  +-------------------+
+  | 6. 計算           |    確定每種資產需要
+  |    交易金額       |    買賣的精確金額
+  +--------+----------+
            |
            v
   +-------------------+
-  | 8. EXECUTE        |    Place trades, preferably all
-  |    TRADES         |    on the same day to avoid
-  +--------+----------+    interim drift
+  | 7. 評估稅務       |    能否利用新投入資金、
+  |    影響           |    股利，或稅賦優惠帳戶
+  +--------+----------+    代替賣出操作？
            |
            v
   +-------------------+
-  | 9. DOCUMENT       |    Log what you did and why
-  |    AND RECORD     |    (for tax records and review)
+  | 8. 執行           |    下單交易，最好在同一天
+  |    交易           |    完成，以避免期間再次漂移
+  +--------+----------+
+           |
+           v
+  +-------------------+
+  | 9. 記錄           |    紀錄你做了什麼以及原因
+  |    與存檔         |    （用於稅務申報與後續檢視）
   +-------------------+
 ```
 
-**Practical tips:**
+**實務建議：**
 
-- **Batch your trades.** Execute all rebalancing trades on the same day to avoid interim drift between selling one asset and buying another.
-- **Use limit orders for individual stocks.** For ETFs and mutual funds in broad markets, market orders are generally fine.
-- **Mind the settlement dates.** Stock and ETF trades settle in T+1 (one business day). Ensure you have settled cash before buying.
-- **Automate if possible.** Many 401(k) plans and robo-advisors offer automatic rebalancing. Use it.
-- **Keep records.** Track every rebalancing trade for tax purposes, including the date, amount, cost basis, and whether the gain or loss was short-term or long-term.
+- **集中執行所有交易。** 在同一天完成所有再平衡交易，避免賣出一項資產與買進另一項之間的期間再次漂移。
+- **個股使用限價單。** 對於廣市場指數股票型基金與共同基金，市價單通常即可。
+- **留意交割日。** 股票與指數股票型基金交易以T+1（一個交易日）交割。確保在買進前有已交割的現金。
+- **盡可能自動化。** 許多401(k)計畫與機器人理財服務提供自動再平衡功能，請善加利用。
+- **保留記錄。** 追蹤每一筆再平衡交易以備稅務申報，包括日期、金額、成本基礎，以及損益屬於短期或長期。
 
 ---
 
-#### 9. How Often Should You Rebalance? The Research
+#### 9. 應該多久再平衡一次？研究怎麼說
 
 ```
-REBALANCING FREQUENCY COMPARISON (Historical Backtests)
+再平衡頻率比較（歷史回測）
 =========================================================
 
-Frequency      Avg Annual    Volatility   Turnover   Tax
-               Return                     (Annual)   Efficiency
-----------     ----------    ----------   --------   ----------
-Never          9.2%          14.8%        0%         Highest
-(drift to 90/10)
+頻率          平均年化      波動性      年換手率   稅務
+              報酬                                 效率
+----------    ----------    ----------  --------   ----------
+從不再平衡    9.2%          14.8%       0%         最高
+（漂移至90/10）
 
-Annually       9.1%          11.2%        8%         Good
+每年          9.1%          11.2%       8%         佳
 
-Semi-Annual    9.1%          11.1%        12%        Moderate
+每半年        9.1%          11.1%       12%        中等
 
-Quarterly      9.0%          11.0%        18%        Lower
+每季          9.0%          11.0%       18%        較低
 
-Monthly        9.0%          10.9%        25%        Lowest
+每月          9.0%          10.9%       25%        低
 
-Daily          8.9%          10.9%        High       Very Low
+每日          8.9%          10.9%       高         極低
 
-Note: Based on 60/40 US stock/bond portfolio, 1926-2023.
-Actual results vary by period. Returns before taxes and
-transaction costs.
+備註：基於60/40美國股票/債券投資組合，1926-2023年。
+實際結果因時期而異。報酬為稅前及交易成本前數值。
 
-KEY FINDINGS:
-  - Annual or semi-annual is the sweet spot for most investors
-  - More frequent rebalancing reduces volatility slightly
-    but increases costs
-  - Never rebalancing maximizes raw return but dramatically
-    increases risk
-  - The benefit of rebalancing is primarily risk reduction,
-    not return enhancement
+主要發現：
+  - 每年或每半年再平衡是多數投資人的最佳頻率
+  - 更頻繁的再平衡略為降低波動性，
+    但會增加成本
+  - 從不再平衡雖能最大化原始報酬，
+    但會大幅提升風險
+  - 再平衡的效益主要在於降低風險，
+    而非提升報酬
 ```
 
-For most individual investors, **annual or semi-annual rebalancing with a 5% threshold** is the recommended approach. It captures the vast majority of the risk-reduction benefit while minimizing transaction costs and tax drag.
+對於大多數個人投資人而言，**每年或每半年配合五%閾值的再平衡**是推薦的做法。它能獲取絕大部分的降風險效益，同時將交易成本與稅務拖累降至最低。
 
 ---
 
-#### 10. Rebalancing in Different Market Environments
+#### 10. 再平衡在不同市場環境中的表現
 
 ```
-HOW REBALANCING BEHAVES IN DIFFERENT MARKETS
+再平衡在不同市場環境中的行為
 ===============================================
 
-BULL MARKET (stocks steadily rising)
+多頭市場（股票持續上漲）
 -------------------------------------
-  Rebalancing REDUCES returns vs. buy-and-hold
-  Because: you keep trimming the winning asset
-  But: you maintain risk discipline for when the
-       bull market inevitably ends
+  再平衡相較於持有不動，會「降低」報酬
+  原因：你不斷削減表現最好的資產
+  但：一旦多頭市場終結，你的風險紀律
+       便能發揮保護作用
 
-BEAR MARKET (stocks falling sharply)
+空頭市場（股票急劇下跌）
 --------------------------------------
-  Rebalancing FORCES you to buy stocks at lower prices
-  This is psychologically the hardest time to rebalance
-  But: it is historically the MOST valuable time
-  Example: Investors who rebalanced in March 2009
-  bought stocks near the bottom
+  再平衡迫使你在較低價格買進股票
+  這是心理上最難執行再平衡的時刻
+  但：這也是歷史上「最有價值」的時刻
+  例：在2009年3月執行再平衡的投資人
+  在股市接近低點時買進了股票
 
-SIDEWAYS/VOLATILE MARKET (choppy, no trend)
+橫盤震盪市場（波動劇烈、無明確趨勢）
 ---------------------------------------------
-  Rebalancing captures the HIGHEST bonus here
-  Because: you are systematically buying dips and
-  selling rallies within the range
-  This is where rebalancing truly shines
+  再平衡在此獲取最高的紅利
+  原因：你在區間內系統性地逢低買進、
+  逢高賣出
+  這才是再平衡真正大放異彩的環境
 
-CRASH AND RECOVERY (V-shaped market)
+崩盤後V型反彈市場
 ---------------------------------------
-  Rebalancing during the crash (buying stocks)
-  followed by recovery produces the best outcomes
-  The deeper the crash, the more you buy
-  The stronger the recovery, the more you benefit
+  在崩盤期間再平衡（買進股票），
+  並在後續反彈中受益，能帶來最佳結果
+  崩盤越深，買進越多
+  反彈越強，獲益越大
 
-  2008-2009 Example:
-  Investor who rebalanced quarterly through the
-  crisis recovered to breakeven ~1 year faster
-  than the investor who froze and did nothing
+  2008-2009年範例：
+  在危機期間每季再平衡的投資人，
+  比起毫無作為、在原地僵住的投資人，
+  大約提早一年恢復至損益平衡
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Rebalancing is just about maximizing returns."**
+**迷思一：「再平衡的目的是最大化報酬。」**
 
-Reality: The primary purpose of rebalancing is risk management, not return maximization. In strongly trending markets, rebalancing will actually reduce returns because you sell the winning asset. The value of rebalancing is that it keeps your portfolio's risk level consistent with your financial plan. Over a complete market cycle (including both bull and bear phases), rebalancing tends to improve risk-adjusted returns, but raw returns depend heavily on the specific time period.
+現實：再平衡的首要目的是風險管理，而非最大化報酬。在強勁的趨勢市場中，再平衡實際上會降低報酬，因為你不斷賣掉表現最好的資產。再平衡的價值在於使投資組合的風險水準與你的財務計畫保持一致。在完整的市場周期（包含多頭與空頭階段）中，再平衡傾向改善風險調整後報酬，但原始報酬則高度取決於特定時間段。
 
-**Misconception 2: "I should rebalance as frequently as possible."**
+**迷思二：「我應該盡可能頻繁地再平衡。」**
 
-Reality: More frequent rebalancing does not necessarily produce better results. Research consistently shows that annual rebalancing captures most of the benefit. Excessive rebalancing increases transaction costs, generates more taxable events, and rarely improves returns or risk reduction by a meaningful amount. The diminishing returns set in quickly after quarterly frequency.
+現實：更頻繁的再平衡不一定能帶來更好的結果。研究一再顯示，每年再平衡就能獲取大部分效益。過度再平衡會增加交易成本、產生更多稅務事件，而且很少能有意義地提升報酬或降低風險。報酬遞減在超過每季頻率後便迅速出現。
 
-**Misconception 3: "Rebalancing means selling all my winners."**
+**迷思三：「再平衡意味著賣掉所有贏家。」**
 
-Reality: Rebalancing means trimming overweight positions, not eliminating them. If your stock target is 60% and stocks have drifted to 65%, you sell 5 percentage points worth -- not all your stocks. You are still heavily invested in the winning asset class; you are just maintaining your intended exposure level.
+現實：再平衡是削減超配部位，而非完全清倉。如果你的股票目標是六十%，股票漂移至六十五%，你賣掉的是五個百分點的部位——而非全部股票。你仍然重度投資於這個表現良好的資產類別，只是維持了你原本設定的曝險程度。
 
-**Misconception 4: "I do not need to rebalance because I am in index funds."**
+**迷思四：「持有指數基金就不需要再平衡了。」**
 
-Reality: Index funds are internally rebalanced (stocks entering or leaving the index are automatically adjusted), but your allocation across different index funds still drifts. If you own a US stock index fund and a bond index fund, the relative balance between them changes as markets move. That inter-fund drift is what you need to rebalance.
+現實：指數基金確實會進行內部再平衡（指數成分股的新增或刪除會自動調整），但你持有的不同指數基金之間的配置仍然會漂移。如果你同時持有美股指數基金和債券指數基金，兩者之間的相對比例會隨市場波動而改變。你需要再平衡的，正是這種基金之間的漂移。
 
-**Misconception 5: "Rebalancing does not matter if I am decades from retirement."**
+**迷思五：「距離退休還有幾十年，再平衡不重要。」**
 
-Reality: Rebalancing matters at every investment horizon. Young investors with aggressive allocations still benefit from rebalancing between, say, US stocks, international stocks, and small-cap stocks. The rebalancing bonus from uncorrelated volatile assets can add meaningful returns over decades. Additionally, the discipline of rebalancing during your accumulation years builds the habits you will need when the stakes are higher closer to retirement.
+現實：再平衡在任何投資期間都很重要。持有積極配置的年輕投資人，仍能從美股、國際股票和小型股之間的再平衡中受益。長期持有不相關且高波動性資產的再平衡紅利，可以在數十年間積累可觀的額外財富。此外，在累積期培養再平衡的習慣，也能為你接近退休、籌碼更高之際打下所需的基礎。
 
-**Misconception 6: "I should rebalance during a crash by selling stocks to buy bonds."**
+**迷思六：「崩盤期間應該賣股買債來再平衡。」**
 
-Reality: This is the opposite of what rebalancing requires. During a crash, stocks have fallen and are now underweight relative to your target. Rebalancing means buying more stocks and selling bonds. If your emotional instinct is to sell stocks during a crash, you are not rebalancing -- you are panic-selling. True rebalancing is counter-emotional by design.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What is the difference between rebalancing and reallocating?**
-
-A: Rebalancing means restoring your existing target allocation after market drift -- for example, bringing a drifted 65/35 portfolio back to 60/40. Reallocating means changing the target itself -- for example, shifting from 60/40 to 50/50 because you are closer to retirement or your risk tolerance has changed. Rebalancing is tactical maintenance; reallocation is a strategic decision. Both are important, but they serve different purposes.
-
-**Q2: Should I rebalance my 401(k) and IRA separately, or look at my total portfolio?**
-
-A: Ideally, you should view all your accounts as one combined portfolio and rebalance holistically. You might hold all your bonds in your IRA (for tax efficiency) and all your stocks in your taxable account. The individual accounts would look unbalanced, but the total portfolio would be on target. This approach, called asset location, optimizes for tax efficiency. However, if managing multiple accounts feels overwhelming, rebalancing each account individually to its own target is a reasonable simplification.
-
-**Q3: What should my rebalancing bands be?**
-
-A: The most common recommendation is 5 percentage points absolute (e.g., rebalance when stocks hit 65% or 55% against a 60% target) or 25% relative (e.g., rebalance when stocks exceed 75% of their target weight or fall below 45%). For smaller asset class allocations (like a 5% commodities position), tighter bands such as plus or minus 2 percentage points are appropriate because even small absolute changes represent large relative swings.
-
-**Q4: Does rebalancing work with individual stocks, or only with asset classes?**
-
-A: Rebalancing is primarily an asset class concept. You rebalance between stocks and bonds, between US and international, between large-cap and small-cap. While you can rebalance among individual stocks, this is more akin to portfolio management and requires fundamental analysis of each position. Selling a stock that has risen does not make sense if the company's value has genuinely increased -- unlike asset classes, individual stocks do not necessarily mean-revert. Stick to rebalancing at the asset class level.
-
-**Q5: What about rebalancing costs eating into the benefit?**
-
-A: With modern commission-free brokerages and low-cost ETFs, direct transaction costs for rebalancing are minimal. The more significant cost is taxes in taxable accounts. Use tax-efficient rebalancing strategies (new contributions, tax-advantaged accounts, tax-loss harvesting) to minimize this drag. In tax-advantaged accounts like IRAs and 401(k)s, the cost of rebalancing is essentially zero.
-
-**Q6: Should I rebalance after a major market event, even if it is not my scheduled date?**
-
-A: If you use threshold-based rebalancing, yes -- that is exactly what the threshold is for. A major market crash that pushes stocks well below your target should trigger a rebalance. However, resist the urge to rebalance in the middle of a fast-moving event. Wait for markets to stabilize somewhat (a few days to a week) so your trades execute at reasonable prices and you are not whipsawed by intraday volatility.
-
-**Q7: Is there a difference between rebalancing a taxable account versus a retirement account?**
-
-A: The mechanics are the same, but the tax implications are completely different. In a retirement account (IRA, 401(k), Roth IRA), you can rebalance freely without tax consequences -- there are no capital gains taxes on trades within these accounts. In a taxable account, every sale is a potential tax event, so you need to be more deliberate and use the tax-efficient strategies described above.
-
-**Q8: What does the CFA curriculum say about rebalancing?**
-
-A: The CFA curriculum covers rebalancing extensively in the Portfolio Management and Wealth Planning section. Key topics include calendar rebalancing versus percentage-of-portfolio (threshold) rebalancing, the costs and benefits of different rebalancing strategies, the tradeoff between transaction costs and tracking error, and optimal corridor width. The curriculum emphasizes that the appropriate rebalancing strategy depends on risk tolerance, transaction costs, asset class correlations, and tax considerations. Level III in particular expects candidates to recommend and justify specific rebalancing approaches within an Investment Policy Statement.
-
-**Q9: Can rebalancing ever hurt my portfolio?**
-
-A: Yes, in specific circumstances. In a strong, sustained bull market for one asset class, rebalancing will reduce total returns because you keep trimming the winner. If an asset class is in structural decline (not just cyclical), rebalancing into it destroys value. And if rebalancing generates large tax bills in a taxable account, the tax drag can exceed the benefit. These are reasons to be thoughtful about rebalancing, not reasons to avoid it entirely. Over complete market cycles, the risk-management benefits generally outweigh these costs.
-
-**Q10: What tools or platforms can help automate rebalancing?**
-
-A: Many options exist. Robo-advisors like Betterment and Wealthfront automatically rebalance portfolios and handle tax-loss harvesting. Target-date funds automatically rebalance and gradually shift allocation over time. Most 401(k) plans offer an automatic rebalancing feature. For self-directed investors, tools like Personal Capital, Morningstar Portfolio X-Ray, or a simple spreadsheet can track drift and signal when rebalancing is needed.
+現實：這恰恰與再平衡的要求相反。崩盤期間，股票下跌，相對於目標已處於低配狀態。再平衡意味著買進更多股票並賣出債券。如果你在崩盤期間的直覺是賣股票，那你不是在再平衡——而是在恐慌性拋售。真正的再平衡在設計上本就是反情緒的。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**Q1：再平衡與重新配置有何不同？**
+
+A：再平衡是在市場漂移後，將投資組合恢復至現有目標配置——例如將漂移至六十五/三十五的投資組合調回六十/四十。重新配置則是改變目標本身——例如因更接近退休或風險承受能力改變，而從六十/四十調整為五十/五十。再平衡是戰術性的日常維護；重新配置是戰略性決策。兩者都重要，但目的不同。
+
+**Q2：我應該分別對401(k)和IRA進行再平衡，還是整體看我的總投資組合？**
+
+A：理想上，你應該將所有帳戶視為一個合併的投資組合，進行整體再平衡。你可以將所有債券配置在IRA（基於稅務效率考量），所有股票配置在應稅帳戶。個別帳戶看起來可能失衡，但總投資組合卻符合目標。這種方法稱為資產位置配置，能優化稅務效率。不過，若管理多個帳戶讓你感到吃力，將每個帳戶個別調整至各自目標也是合理的簡化方式。
+
+**Q3：再平衡區間應該設多大？**
+
+A：最常見的建議是絕對值五個百分點（例如股票達六十五%或五十五%時再平衡，目標為六十%）或相對值二十五%（例如股票超過目標權重的七十五%或低於四十五%時再平衡）。對於配置比例較小的資產類別（如五%的商品部位），較緊的區間——例如正負二個百分點——較為適合，因為即使絕對值變動不大，也代表相對比例的大幅波動。
+
+**Q4：再平衡適用於個股，還是只適用於資產類別？**
+
+A：再平衡主要是資產類別的概念。你在股票與債券之間、美股與國際股票之間、大型股與小型股之間進行再平衡。雖然你也可以對個股進行再平衡，但這更接近投資組合管理的範疇，需要對每個部位進行基本面分析。如果一家公司的價值確實增長了，賣掉上漲的股票未必合理——與資產類別不同，個股不一定具有均值回歸的特性。請堅持在資產類別層級進行再平衡。
+
+**Q5：再平衡成本是否會侵蝕效益？**
+
+A：在現代免佣金券商和低成本指數股票型基金的環境下，再平衡的直接交易成本微乎其微。更重要的成本是應稅帳戶中的稅務拖累。請使用節稅型再平衡策略（新資金投入、稅賦優惠帳戶、稅損收割）來降低這項負擔。在IRA和401(k)等稅賦優惠帳戶中，再平衡的成本基本上為零。
+
+**Q6：發生重大市場事件時，即使不在預定日期，我也應該再平衡嗎？**
+
+A：如果你使用閾值型再平衡，是的——這正是設定閾值的目的。一場讓股票大幅低於目標的重大市場崩盤，應該觸發再平衡。但請抵制在快速變動的事件中途再平衡的衝動。等市場稍微穩定後（數天至一週），再執行交易，確保成交價格合理，避免被日內波動折騰。
+
+**Q7：應稅帳戶與退休帳戶的再平衡有何不同？**
+
+A：操作機制相同，但稅務影響截然不同。在退休帳戶（IRA、401(k)、Roth IRA）中，你可以自由再平衡而不產生稅務後果——這些帳戶內的交易無需繳納資本利得稅。在應稅帳戶中，每筆賣出都可能產生稅務事件，因此你需要更謹慎，並運用上述的節稅策略。
+
+**Q8：CFA課程對再平衡的看法是什麼？**
+
+A：CFA課程在投資組合管理與財富規劃部分詳細涵蓋再平衡。核心主題包括：定期再平衡與比例型（閾值型）再平衡的比較、不同再平衡策略的成本與效益、交易成本與追蹤誤差之間的取捨，以及最適區間寬度。課程強調，適合的再平衡策略取決於風險承受能力、交易成本、資產類別相關性與稅務考量。Level III尤其要求考生能在投資政策聲明的框架內，提出並說明特定再平衡策略的建議理由。
+
+**Q9：再平衡有時會損害我的投資組合嗎？**
+
+A：是的，在特定情況下會。在某一資產類別強勁且持續的多頭市場中，再平衡會降低總報酬，因為你不斷削減贏家。如果一個資產類別處於結構性衰退（而非周期性），持續再平衡進去會損害資產。而且如果再平衡在應稅帳戶中產生大額稅單，稅務拖累可能超過其效益。這些都是謹慎對待再平衡的理由，而非完全迴避的理由。在完整的市場周期中，風險管理效益通常超過這些成本。
+
+**Q10：哪些工具或平台能幫助自動化再平衡？**
+
+A：選擇很多。Betterment和Wealthfront等機器人理財服務能自動再平衡投資組合並處理稅損收割。目標日期基金能自動再平衡，並隨時間逐步調整配置。大多數401(k)計畫也提供自動再平衡功能。對於自主操作的投資人，Personal Capital、Morningstar Portfolio X-Ray或一張簡單的試算表，都能追蹤漂移並在需要再平衡時發出提示。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with title "Week 7: Portfolio Rebalancing -- The Discipline That Pays"]
 
-**Alex:** Welcome back everyone. Today we are covering a topic that might sound boring but is genuinely one of the most important things you can do as an investor. We are talking about portfolio rebalancing. And by the end of this video, you will understand why it is a systematic way to buy low and sell high without needing any market-timing skill.
+**Horace（陳馬）：** 歡迎大家回來。今天我們要聊一個聽起來可能有點無聊，但對投資人來說卻是最重要事情之一的主題——投資組合再平衡。看完這支影片，你就會明白，為什麼它是一種不需要任何擇時技巧，就能系統性低買高賣的方法。
 
-**Sam:** Okay, I will be honest, Alex. When I hear "rebalancing," I think of someone checking a spreadsheet and moving tiny amounts of money around. How much difference can it really make?
+**Stella（小魚）：** 好，我老實說，陳馬。每次聽到「再平衡」，我腦海中浮現的都是有人對著試算表，把小額資金挪來挪去的畫面。這真的能帶來多大的差異嗎？
 
-**Alex:** Let me give you a real example that will change how you think about this. Imagine it is January 2008. You have a $500,000 portfolio, split 60/40 between stocks and bonds. By September 2008, the financial crisis has hammered stocks. Your portfolio has drifted to something like 45% stocks and 55% bonds because stocks have fallen so much.
+**Horace（陳馬）：** 讓我舉個真實例子，你的想法保證會改變。想像一下，現在是2008年一月。你有五十萬美元的投資組合，按六十/四十的比例配置股票和債券。到了2008年九月，金融危機重創股市，你的投資組合因為股票大幅下跌，漂移到大約四十五%股票、五十五%債券。
 
-**Sam:** That sounds terrifying. I think most people would want to sell their remaining stocks at that point.
+**Stella（小魚）：** 光想就覺得很可怕。我想大多數人在那個時候都想把剩下的股票賣掉吧。
 
-**Alex:** Exactly -- and that is what millions of investors did. They panicked and sold. But what does the rebalancing rule tell you to do?
+**Horace（陳馬）：** 沒錯——而且幾百萬投資人確實這麼做了。他們恐慌拋售。但再平衡規則告訴你要怎麼做呢？
 
 [VISUAL: Split screen showing a panicking investor on one side and a calm investor checking their allocation spreadsheet on the other]
 
-**Sam:** If your target is 60/40 and you have drifted to 45/55... your rebalancing rule says to sell bonds and buy more stocks.
+**Stella（小魚）：** 如果目標是六十/四十，卻漂移到四十五/五十五……再平衡規則告訴你要賣債券、買更多股票。
 
-**Alex:** Right. Buy stocks in the middle of a financial crisis. Sell bonds when they feel like the only safe place. That is absolutely gut-wrenching. But here is what happened to the investor who followed the rebalancing discipline: they bought stocks near the bottom. When the market recovered, those cheap shares produced enormous gains. The rebalancing investor recovered to their pre-crisis portfolio value roughly a year faster than the investor who froze.
+**Horace（陳馬）：** 沒錯。在金融危機的正中央買進股票。在債券感覺像是唯一避風港的時候賣出債券。這在心理上是極度痛苦的。但是，遵循再平衡紀律的投資人，後來怎樣了呢？他們在股市接近低點的時候買進了股票。當市場復甦時，那些便宜買到的股份帶來了巨大的收益。這位再平衡的投資人，比起那個呆若木雞、什麼也沒做的人，大約提早整整一年回到了危機前的投資組合價值。
 
-**Sam:** A full year faster? Just from following a mechanical rule?
+**Stella（小魚）：** 只因為遵循一條機械式的規則，就快了整整一年？
 
-**Alex:** Just from following a mechanical rule. No genius required. No market-timing required. Just the discipline to do what your rebalancing policy tells you, especially when it feels wrong.
+**Horace（陳馬）：** 就因為遵循一條機械式的規則。不需要天才，不需要擇時，只需要在感覺完全不對勁的時候，執行再平衡政策告訴你的事。
 
 [ANIMATION: animation/week07_rebalancing_demo.py - Animated visualization showing two portfolio bars side by side over time. The "rebalanced" portfolio periodically adjusts back to 60/40, while the "drifted" portfolio gradually becomes dominated by whatever asset class performed best. The animation runs through a simulated market cycle showing how the rebalanced portfolio recovers faster after a crash because it bought stocks at lower prices.]
 
-**Sam:** Okay, you have my attention. Let us start from the basics. What exactly is rebalancing?
+**Stella（小魚）：** 好，你引起我的注意了。從最基礎開始講——再平衡到底是什麼？
 
-**Alex:** At its simplest, rebalancing is bringing your portfolio back to its target allocation. You start with a plan -- say 60% stocks, 40% bonds. Over time, as stocks and bonds earn different returns, the actual percentages drift. Rebalancing means selling some of what went up and buying some of what went down to restore your original targets.
+**Horace（陳馬）：** 最簡單來說，再平衡就是讓你的投資組合回歸目標配置。你一開始有個計畫——比如六十%股票、四十%債券。隨著時間推移，股票和債券的報酬不同，實際比例會漂移。再平衡就是賣掉漲多的、買進漲少的，來恢復你的原始目標。
 
-**Sam:** So if stocks have a great year and I drift to 70% stocks, I sell stocks and buy bonds to get back to 60/40?
+**Stella（小魚）：** 所以如果股票大漲，我漂移到七十%股票，我就賣股票、買債券，回到六十/四十？
 
-**Alex:** Exactly.
+**Horace（陳馬）：** 正是。
 
 [VISUAL: Animated pie chart morphing from 60/40 to 70/30 as stocks rise, then snapping back to 60/40 when "rebalance" button is pressed]
 
-**Sam:** But am I not selling my winners? That seems counterintuitive.
+**Stella（小魚）：** 但這樣不就是在賣掉我的贏家嗎？感覺有點違反直覺。
 
-**Alex:** It does, and that is precisely why it works. Think about what you are doing mechanically. After stocks have risen a lot, they are relatively expensive. After bonds have lagged, they are relatively cheap. By selling stocks and buying bonds, you are selling high and buying low. You are taking profits on the expensive asset and deploying them into the cheap one.
+**Horace（陳馬）：** 確實如此，而這正是它有效的原因。想想你機械性地在做什麼。在股票大幅上漲後，它們相對昂貴；債券落後之後，它們相對便宜。賣股票、買債券，就是高賣低買——把昂貴資產的獲利，轉投到便宜的資產上。
 
-**Sam:** That is the holy grail of investing -- buy low, sell high. And you are telling me there is a mechanical rule that does it automatically?
+**Stella（小魚）：** 這就是投資的聖杯——低買高賣。你告訴我，有一條機械式規則能自動做到這件事？
 
-**Alex:** That is exactly what I am telling you. And it works in reverse too. When stocks crash, they become cheap. Bonds, which usually hold up during crashes, become the expensive asset. Rebalancing forces you to sell the expensive bonds and buy the cheap stocks. Again -- buy low, sell high.
+**Horace（陳馬）：** 我就是這樣告訴你的。而且反過來也成立。當股票崩盤，它們變便宜；通常在崩盤期間撐住的債券，變成相對昂貴的資產。再平衡迫使你賣出昂貴的債券，買進便宜的股票。同樣的道理——低買高賣。
 
-**Sam:** But that sounds psychologically really hard. Buying stocks when they are crashing?
+**Stella（小魚）：** 但這聽起來心理上真的很難做到。在股市崩盤的時候買股票？
 
-**Alex:** It is extremely hard. And that is why having a written rebalancing policy is so important. You make the rule when you are calm and rational. Then when markets are in chaos, you follow the rule instead of your emotions. The rule does not have emotions. The rule does not watch CNBC. The rule just does math.
+**Horace（陳馬）：** 極度困難。這就是為什麼要有一份書面的再平衡政策如此重要。你在冷靜理性的時候制訂規則，然後在市場大亂的時候，遵循規則而非跟著情緒走。規則沒有情緒，規則不看財經新聞，規則只做數學運算。
 
 [VISUAL: A "rebalancing policy" document with key terms highlighted: target allocation, rebalancing bands, review frequency]
 
-**Sam:** Makes sense. So how often should I actually rebalance?
+**Stella（小魚）：** 很有道理。那我實際上應該多久再平衡一次？
 
-**Alex:** This is one of the most commonly asked questions, and the good news is that the research shows it does not matter that much. What matters far more is that you rebalance at all. But let me walk you through the main approaches.
+**Horace（陳馬）：** 這是最常被問到的問題之一，好消息是研究顯示頻率差異並不大。最重要的是你有沒有在做再平衡。不過讓我帶你看看主要的方法。
 
-[VISUAL: Three columns labeled "Calendar," "Threshold," and "Hybrid," each with bullet points appearing as Alex describes them]
+[VISUAL: Three columns labeled "定期", "閾值", and "混合", each with bullet points appearing as Horace describes them]
 
-**Alex:** The first approach is calendar rebalancing. You pick a schedule -- monthly, quarterly, annually -- and on that date, you check your allocation and rebalance if needed. Annual rebalancing is the simplest and works surprisingly well.
+**Horace（陳馬）：** 第一種是定期再平衡。你選定一個時間表——每月、每季、每年——在那個日期檢視你的配置，若有需要就再平衡。每年再平衡是最簡單的，而且效果出乎意料地好。
 
-**Sam:** Why not monthly? Would not more frequent be better?
+**Stella（小魚）：** 為什麼不每個月做？頻率越高不是越好嗎？
 
-**Alex:** Intuitively you would think so, but no. Vanguard did a comprehensive study and found that the difference between monthly, quarterly, and annual rebalancing is tiny -- maybe a few hundredths of a percent in return, and slightly lower volatility. But monthly rebalancing generates far more transactions and tax events, especially in taxable accounts. You are paying a real cost for an almost invisible benefit.
+**Horace（陳馬）：** 直覺上你會這麼想，但實際上不是。先鋒集團（Vanguard）做了一項全面研究，發現每月、每季和每年再平衡之間的差異微乎其微——報酬大概差個幾百分之一個百分點，波動性也略低。但每月再平衡在應稅帳戶中會產生更多交易和稅務事件，你為了幾乎看不見的效益，付出了真實的成本。
 
-**Sam:** So annual is the sweet spot?
+**Stella（小魚）：** 所以每年是最佳頻率？
 
-**Alex:** Annual is great for simplicity. But the second approach is threshold rebalancing, which many professionals prefer. Instead of rebalancing on a fixed date, you rebalance whenever any asset class drifts beyond a set band -- typically 5 percentage points from target.
+**Horace（陳馬）：** 每年在簡單性上非常好。但第二種方法——閾值型再平衡——是許多專業人士偏好的方式。不是按固定日期再平衡，而是當任何資產類別偏離目標超過設定的區間時才行動——通常是五個百分點。
 
-**Sam:** So if my stock target is 60%, I would rebalance whenever stocks hit 65% or drop to 55%?
+**Stella（小魚）：** 所以如果我的股票目標是六十%，只要股票達到六十五%或跌至五十五%，我就再平衡？
 
-**Alex:** Exactly. The advantage is that you only rebalance when it actually matters. If the market barely moves for six months, you do not bother. But if there is a sudden crash or a big rally, the threshold catches it right away.
+**Horace（陳馬）：** 正是。它的優點是只有在真正重要的時候才觸發再平衡。如果市場在六個月內幾乎沒有波動，你就不用動。但若發生突然崩盤或大幅上漲，閾值會立即捕捉到。
 
-**Sam:** What about doing both?
+**Stella（小魚）：** 兩者結合起來呢？
 
-**Alex:** Now you are thinking like a portfolio manager. The hybrid approach -- and this is what I recommend for most people -- is to check your allocation on a fixed schedule, say quarterly, but only rebalance if the drift exceeds your threshold. You get the efficiency of threshold rebalancing with the simplicity of a regular calendar reminder.
+**Horace（陳馬）：** 你現在的思維很像投資組合經理了。混合方法——也是我推薦給大多數人的做法——是按固定時間表檢視配置（例如每季），但只有在漂移超過閾值時才再平衡（例如五%）。你同時兼顧了定期法的簡單性與閾值法的效率性。
 
 [VISUAL: Calendar showing quarterly check dates, with only two of four dates triggering a rebalance because the other two had drift below threshold]
 
-**Sam:** That makes a lot of sense. Can you walk me through the actual math of a rebalancing trade?
+**Stella（小魚）：** 很有道理。你能帶我實際走過一筆再平衡交易的數學計算嗎？
 
-**Alex:** Sure. Let us say you have $200,000 and your target is 60% stocks, 40% bonds. That means $120,000 in stocks and $80,000 in bonds. After a good year for stocks, your portfolio is worth $220,000, but now it is 68% stocks and 32% bonds -- meaning $149,600 in stocks and $70,400 in bonds.
+**Horace（陳馬）：** 當然。假設你有二十萬美元，目標是六十%股票、四十%債券，也就是股票十二萬、債券八萬。股票大漲一年後，投資組合總值二十二萬，但現在是六十八%股票、三十二%債券——也就是股票十四萬九千六百、債券七萬零四百。
 
-[VISUAL: Two-column layout showing "Current" versus "Target" allocation with exact dollar amounts]
+[VISUAL: Two-column layout showing "當前配置" versus "目標配置" with exact dollar amounts]
 
-**Sam:** How do I calculate the trades?
+**Stella（小魚）：** 怎麼計算要執行的交易？
 
-**Alex:** Take the new total -- $220,000 -- and apply your target percentages. 60% of $220,000 is $132,000 for stocks. 40% of $220,000 is $88,000 for bonds. So you sell $149,600 minus $132,000 equals $17,600 of stocks, and buy $17,600 of bonds.
+**Horace（陳馬）：** 用新的總值二十二萬美元套用目標比例。六十%的二十二萬是十三萬二千，用於股票；四十%的二十二萬是八萬八千，用於債券。所以你賣出十四萬九千六百減十三萬二千，等於一萬七千六百的股票，再買入一萬七千六百的債券。
 
-**Sam:** That is more than I expected. Almost $18,000 in trades.
+**Stella（小魚）：** 比我想像的多。快要一萬八千美元的交易。
 
-**Alex:** Because the drift was significant -- 8 percentage points. That is why a 5% threshold is reasonable. If you had rebalanced when stocks first hit 65%, the trade would have been much smaller.
+**Horace（陳馬）：** 因為漂移很顯著——達到八個百分點。這就是為什麼五%的閾值是合理的。如果你在股票剛達到六十五%時就再平衡，交易規模會小得多。
 
-**Sam:** Got it. Now let me ask about something that was really fascinating in the reading -- the rebalancing bonus. Can a rebalanced portfolio actually outperform both of its components?
+**Stella（小魚）：** 明白了。現在讓我問一個閱讀材料中真的很讓我著迷的東西——再平衡紅利。一個再平衡的投資組合真的能超越它的所有組成資產嗎？
 
-**Alex:** This is one of the most counterintuitive results in portfolio theory, and it is real. Let me walk you through the math.
+**Horace（陳馬）：** 這是投資組合理論中最反直覺的結論之一，而且它是真實存在的。讓我帶你看看這個數學。
 
 [ANIMATION: animation/week07_rebalancing_demo.py - Animated simulation showing two assets that alternate between good and bad years (Asset A: +30%, -10%, +30%, -10% vs. Asset B: -10%, +30%, -10%, +30%). Three lines plotted simultaneously: Asset A alone, Asset B alone, and a 50/50 rebalanced portfolio. The rebalanced portfolio line steadily outperforms both individual assets, with annotations showing the rebalancing trades at each period.]
 
-**Alex:** Imagine two assets. Asset A goes up 30% one year and down 10% the next. Asset B does the opposite -- down 10% then up 30%. Over four years, each asset individually turns $100 into about $137. That is about 8.2% annualized.
+**Horace（陳馬）：** 想像兩種資產。資產A某年上漲三十%，次年下跌十%。資產B則相反——先跌十%再漲三十%。四年後，每種資產單獨持有，一百美元大約變成一百三十七美元，年化報酬約為八點二%。
 
-**Sam:** Okay, same return for both assets individually.
+**Stella（小魚）：** 好，兩種資產單獨持有的報酬相同。
 
-**Alex:** Now watch what happens with a 50/50 portfolio that rebalances annually. After year one, Asset A is up 30% and Asset B is down 10%. You rebalance -- selling some of the winner and buying some of the loser. Next year, the assets flip. The one you just bought more of goes up 30%, and the one you trimmed goes down 10%. You rebalance again.
+**Horace（陳馬）：** 現在看看每年再平衡的五十/五十投資組合會發生什麼事。第一年結束後，資產A上漲了三十%，資產B下跌了十%。你再平衡——賣掉部分贏家，買進部分輸家。次年，兩種資產表現互換。你剛買進更多的那一種上漲三十%，你剛削減的那一種下跌十%。你再次再平衡。
 
-**Sam:** You keep buying the one that is about to go up and selling the one that is about to go down!
+**Stella（小魚）：** 你不斷買進即將上漲的那一種，賣出即將下跌的那一種！
 
-**Alex:** Exactly. And after four years, the rebalanced portfolio turns $100 into about $172. That is over 14% annualized -- almost double the return of either asset individually!
+**Horace（陳馬）：** 正是。四年後，再平衡投資組合將一百美元變成約一百七十二美元，年化報酬超過十四%——幾乎是個別資產報酬的兩倍！
 
-**Sam:** That is incredible. Is this too good to be true?
+**Stella（小魚）：** 這太驚人了。這是不是好得令人難以置信？
 
-**Alex:** In this stylized example, the bonus is exaggerated because the assets perfectly alternate. In real markets, the bonus is smaller -- typically half a percent to one and a half percent per year. But over twenty or thirty years of compounding, even half a percent per year adds up to a significant amount of additional wealth.
+**Horace（陳馬）：** 在這個風格化範例中，因為兩種資產完全交替，紅利被放大了。在真實市場中，紅利較小——通常每年零點五%到一點五%。但在二十年或三十年的複利效應下，即使每年只有零點五%，也能累積成相當可觀的額外財富。
 
-**Sam:** When is the bonus biggest?
+**Stella（小魚）：** 什麼時候紅利最大？
 
-**Alex:** Three conditions. First, the assets need to be volatile -- calm, steady assets do not produce much of a bonus. Second, the correlation between them should be low or negative -- they should not move in lockstep. Third, the assets should tend to mean-revert -- what goes down should eventually come back up.
+**Horace（陳馬）：** 三個條件。第一，資產需要有波動性——平穩的資產產生不了多少紅利。第二，資產之間的相關性要低或為負相關——它們不應該同步移動。第三，資產要傾向均值回歸——跌下去的最終要漲回來。
 
-**Sam:** Stocks and bonds fit that pretty well, right?
+**Stella（小魚）：** 股票和債券蠻符合這些條件的，對吧？
 
-**Alex:** They fit reasonably well, especially during stress periods when bonds usually go up while stocks fall. The bonus is even larger for more diverse portfolios that include REITs, international stocks, and commodities, because you have more uncorrelated volatile asset pairs.
+**Horace（陳馬）：** 尤其在壓力時期，債券通常在股票下跌時上漲，這點特別符合。對於更多元的投資組合——包含不動產投資信託、國際股票和商品——紅利甚至更大，因為有更多不相關的高波動性資產配對。
 
-[VISUAL: Grid showing correlation matrix between major asset classes, with color coding from dark green (low/negative correlation = high rebalancing bonus) to red (high positive correlation = low rebalancing bonus)]
+[VISUAL: Grid showing correlation matrix between major asset classes, with color coding from dark green (低/負相關性 = 高再平衡紅利) to red (高正相關性 = 低再平衡紅利)]
 
-**Sam:** There has to be a catch though.
+**Stella（小魚）：** 但一定有個前提吧。
 
-**Alex:** Good instinct. The rebalancing bonus disappears -- and rebalancing actually hurts you -- in strongly trending markets. If stocks go up every year for ten years straight, rebalancing means you keep selling stocks and buying bonds, giving up returns the whole way. You still maintained your risk level, which was the right thing to do from a risk management perspective, but the raw return was lower than if you had simply let stocks run.
+**Horace（陳馬）：** 好直覺。在強勁的趨勢市場中，再平衡紅利會消失——而且再平衡反而會傷害你。如果股票連漲十年，再平衡意味著你一直在賣股票、買債券，一路放棄報酬。從風險管理角度來看，你維持了風險水準，這是正確的做法，但原始報酬低於持有不動的策略。
 
-**Sam:** So it is a tradeoff -- better risk management in exchange for potentially lower returns in one-directional markets.
+**Stella（小魚）：** 所以這是個取捨——為了可能在單方向市場中損失部分報酬，換取更好的風險管理。
 
-**Alex:** Exactly. And since nobody knows in advance whether the next decade will be trending or choppy, maintaining the discipline is the right approach. You are optimizing for the full range of possible market environments, not just one scenario.
+**Horace（陳馬）：** 正是。而且因為沒有人能事先知道未來十年市場是趨勢型還是震盪型，堅持紀律才是正確的做法。你是在針對所有可能的市場環境進行優化，而非只押注於一種情境。
 
-**Sam:** Let us talk about taxes. I have heard that rebalancing can create big tax bills. How do you handle that?
+**Stella（小魚）：** 來談談稅務。我聽說再平衡可能產生巨大的稅單，要怎麼應對？
 
 [VISUAL: Tax form with capital gains highlighted, transitioning to a list of tax-efficient strategies]
 
-**Alex:** This is critical, especially for taxable accounts. Every time you sell an asset that has gained value, you owe capital gains tax. If you held it less than a year, the gains are taxed at your ordinary income rate -- up to 37%. If you held it more than a year, you get the lower long-term capital gains rate of 15% or 20%.
+**Horace（陳馬）：** 這點至關重要，尤其是在應稅帳戶中。每次你賣出已增值的資產，就需要繳納資本利得稅。如果持有不滿一年，利得按一般所得稅率課稅——最高三十七%。持有超過一年，則適用較低的長期資本利得稅率——一般為十五%或二十%。
 
-**Sam:** So rebalancing can mean paying taxes every year on my gains?
+**Stella（小魚）：** 所以再平衡可能意味著每年都要為我的獲利繳稅？
 
-**Alex:** In a taxable account, yes. But there are several strategies to minimize this. Strategy number one, and the best option: use new contributions. Instead of selling stocks to buy bonds, just direct your new money entirely into the underweight asset class. No selling means no taxes.
+**Horace（陳馬）：** 在應稅帳戶中，是的。但有幾種策略可以將這個負擔降到最低。第一種策略，也是最好的選擇：利用新投入的資金。不要賣出股票去買債券，而是把新資金全部投入低配的資產類別。不賣出就沒有稅！
 
-**Sam:** That is brilliant. What if my contributions are not enough to close the gap?
+**Stella（小魚）：** 這招太聰明了。如果新資金不夠補足缺口呢？
 
-**Alex:** Strategy two: rebalance inside your tax-advantaged accounts. If you have an IRA or 401(k), trades inside those accounts are tax-free. Do your aggressive rebalancing there and leave your taxable account alone as much as possible.
+**Horace（陳馬）：** 第二種策略：在稅賦優惠帳戶內再平衡。如果你有IRA或401(k)，這些帳戶內的交易免稅。把積極的再平衡操作放在那裡，盡量讓你的應稅帳戶保持不動。
 
-**Sam:** What if I do not have enough in retirement accounts to rebalance?
+**Stella（小魚）：** 如果退休帳戶的資金不夠用來再平衡呢？
 
-**Alex:** Strategy three: tax-loss harvesting. When you sell assets at a loss, those losses offset your gains. So if you are selling some winning stocks and some losing stocks as part of rebalancing, the losses cancel out the gains and you may owe little or no tax.
+**Horace（陳馬）：** 第三種策略：稅損收割。當你在虧損時賣出資產，這些損失可以抵銷你的獲利。所以如果你在再平衡過程中，同時賣出獲利的股票和虧損的股票，損失可以抵銷獲利，你可能幾乎不需要繳稅。
 
-**Sam:** And strategy four?
+**Stella（小魚）：** 第四種策略呢？
 
-**Alex:** Use dividends and interest. Instead of automatically reinvesting stock dividends back into stocks, direct them to your underweight asset class. If bonds are underweight, let your stock dividends flow into bonds. It is a slow form of rebalancing, but it is tax-efficient because you are redirecting income, not selling positions.
+**Horace（陳馬）：** 善用股利和利息。不要讓股票的股利自動再投入股票，而是將它們導向低配的資產類別。如果債券比重偏低，就讓股利流入債券。這是一種緩慢的再平衡方式，但節稅效果好，因為你是在重新分配收益，而非賣出部位。
 
 [VISUAL: Flowchart showing the tax-efficiency hierarchy -- try contributions first, then retirement accounts, then tax-loss harvesting, then dividends, and only as a last resort sell assets with gains]
 
-**Sam:** What about this idea of holding the whole bond allocation in your IRA and the whole stock allocation in your taxable account?
+**Stella（小魚）：** 關於把全部債券配置放在IRA、把全部股票放在應稅帳戶的做法呢？
 
-**Alex:** That is asset location, and it is a separate but related topic. The idea is to hold the most tax-inefficient assets -- like bonds, which generate ordinary income from interest -- in tax-sheltered accounts. And hold the most tax-efficient assets -- like stock index funds, which generate mostly long-term capital gains -- in taxable accounts. When you combine smart asset location with smart rebalancing, you can significantly reduce your lifetime tax bill.
+**Horace（陳馬）：** 那是資產位置配置，是另一個相關但獨立的主題。核心概念是，把最不節稅的資產——如債券，其利息以一般所得稅率課稅——放在稅賦遮蔽帳戶內；把最節稅的資產——如股票指數基金，主要產生長期資本利得——放在應稅帳戶。當你把聰明的資產位置配置與聰明的再平衡結合起來，可以顯著降低一生的稅務負擔。
 
-**Sam:** This is getting sophisticated. Let me ask a practical question: what about a more complex portfolio? I do not just hold stocks and bonds. I have US stocks, international stocks, bonds, and a small REIT position.
+**Stella（小魚）：** 越來越複雜了。讓我問個實際的問題：如果投資組合不只有股票和債券呢？我同時持有美股、國際股票、債券，還有一部分的不動產投資信託。
 
-**Alex:** Great. The process is exactly the same, just with more line items. You compare each asset class's actual weight to its target weight, identify which are overweight and which are underweight, and then calculate trades. The nice thing about multi-asset rebalancing is that the sells fund the buys -- it is a closed system.
+**Horace（陳馬）：** 很好。操作流程完全相同，只是有更多行項目。你比較每個資產類別的實際比重與目標比重，找出哪些超配、哪些低配，然後計算交易金額。多資產再平衡的好處是，賣出所得的資金直接用於買入——這是一個封閉的系統。
 
 [VISUAL: Multi-asset portfolio dashboard showing target weights, actual weights, drift amounts, and required trades for each of six asset classes]
 
-**Sam:** Do I need to get each asset class exactly to its target?
+**Stella（小魚）：** 每個資產類別都需要精確回到目標嗎？
 
-**Alex:** No, and this is an important practical point. Getting within a percentage point or two of target is good enough. Do not agonize over getting 60.00% versus 59.73%. The trading costs and effort of perfect precision are not worth the negligible difference in outcomes.
+**Horace（陳馬）：** 不需要，這是一個重要的實務觀念。能達到目標的正負一到兩個百分點以內就很好了。不用為了六十%對六十點七三%而煩惱。追求完美精度的交易成本和心力，遠超過微不足道的結果差異。
 
-**Sam:** That is reassuring. What about people who say they do not need to rebalance because they have a target-date fund?
+**Stella（小魚）：** 這讓我安心多了。那些說「因為持有目標日期基金，所以不需要再平衡」的人呢？
 
-**Alex:** Target-date funds do rebalance internally -- that is one of their key features. If all your money is in a single target-date fund, you do not need to do anything. The fund company handles it. But if you have a target-date fund in your 401(k) plus individual accounts elsewhere, you need to think about rebalancing across all your accounts as a whole portfolio.
+**Horace（陳馬）：** 目標日期基金確實會在內部再平衡——這是它們的核心功能之一。如果你所有資金都放在單一目標日期基金裡，你不需要做任何事，基金公司會處理。但如果你在401(k)裡有目標日期基金，在其他地方又有獨立帳戶，你就需要把所有帳戶視為一個整體的投資組合來思考再平衡。
 
-**Sam:** Makes sense. Can we talk about the psychological side? You mentioned that rebalancing after a crash is the hardest thing to do.
+**Stella（小魚）：** 有道理。我們能聊聊心理層面嗎？你說崩盤後再平衡是最難做到的事。
 
-**Alex:** It is, and I want to be honest about how hard it is. In March 2020, when COVID crashed the market 34% in about a month, rebalancing meant buying stocks when it felt like the world was ending. Nobody knew if it was going to get worse. The news was terrifying. And yet, investors who mechanically rebalanced -- buying stocks with the proceeds from selling bonds that had risen in value -- made an enormous amount of money over the next twelve months.
+**Horace（陳馬）：** 確實，我想對這有多難坦誠以告。2020年三月，COVID讓市場在大約一個月內崩跌了三十四%，在那種感覺像世界末日的時候再平衡，意味著買進股票。沒有人知道情況是否還會繼續惡化，新聞令人毛骨悚然。然而，機械性地執行再平衡的投資人——用上漲的債券所得買進股票——在接下來的十二個月裡賺了一大筆錢。
 
 [VISUAL: Timeline of March 2020 crash showing S&P 500 levels, with rebalancing trade points marked and subsequent recovery highlighted]
 
-**Sam:** And people who panicked and sold?
+**Stella（小魚）：** 那些恐慌拋售的人呢？
 
-**Alex:** Many of them locked in their losses. They sold stocks at the bottom, waited for things to "calm down," and by the time they felt comfortable buying again, the market had already recovered most of the loss. They sold low and bought high -- the exact opposite of what rebalancing does.
+**Horace（陳馬）：** 許多人將損失鎖定了。他們在低點賣出股票，等待情況「穩定下來」，但等到他們覺得可以放心買回的時候，市場已經收復了大部分的跌幅。他們低賣高買——恰好和再平衡的效果相反。
 
-**Sam:** So the rebalancing rule protects you from yourself.
+**Stella（小魚）：** 所以再平衡規則保護你不受自己傷害。
 
-**Alex:** That might be its single most valuable property. The math is nice, the rebalancing bonus is real, but the behavioral protection -- preventing emotional decisions at the worst possible time -- that is worth its weight in gold.
+**Horace（陳馬）：** 這可能是它最寶貴的單一特性。數學很美，再平衡紅利是真實的，但那個行為保護——在最糟糕的時刻防止情緒化決策——這才是無價之寶。
 
 [VISUAL: Two investor journeys plotted on the same chart -- the rebalancer who follows the rules through the crash and recovery, versus the emotional investor who sells at the bottom and buys back higher]
 
-**Sam:** Let me ask about a scenario that I think would trip people up. What if one asset class keeps going up year after year? Like the 2010s when US stocks dominated. Are you just constantly selling your best performer?
+**Stella（小魚）：** 讓我問一個我覺得很多人會踢到鐵板的情境。如果某個資產類別年復一年持續上漲呢？就像二○一○年代美股稱霸的那段時期。你豈不是一直在賣掉你最好的資產？
 
-**Alex:** Yes, and this is the one situation where rebalancing demonstrably costs you return. From 2010 to 2020, US stocks massively outperformed international stocks and bonds. An investor who rebalanced out of US stocks into international stocks and bonds every year earned less than an investor who simply held 100% US stocks.
+**Horace（陳馬）：** 是的，而這正是再平衡明確會讓你的報酬縮水的情境。從二○一○年到二○二○年，美股的表現大幅超越國際股票和債券。每年都把美股再平衡到國際股票和債券的投資人，報酬低於那個單純持有一百%美股的投資人。
 
-**Sam:** So rebalancing hurt them?
+**Stella（小魚）：** 所以再平衡傷害了他們？
 
-**Alex:** It reduced their return compared to a concentrated stock portfolio, yes. But here is what you have to remember: nobody knew in advance that US stocks would dominate for a decade. And the investor who held 100% US stocks took on enormous risk. In 2018, the S&P 500 dropped almost 20%. In 2020, it dropped 34%. If that investor was 100% in stocks and panicked during one of those drops, they would have been far worse off than the rebalanced investor who had bonds cushioning the fall.
+**Horace（陳馬）：** 相較於集中持股的投資組合，確實降低了報酬。但你要記住的是：沒有人事先知道美股會稱霸長達十年。而那個持有一百%美股的投資人，承擔了巨大的風險。二○一八年，標普五百下跌了近二十%；二○二○年，下跌了三十四%。如果這位投資人是百分之百持股，在其中一次下跌時恐慌拋售，結果會比持有再平衡投資組合的人差得多——後者有債券緩衝了衝擊。
 
-**Sam:** So it is an insurance cost.
+**Stella（小魚）：** 所以這是一種保險成本。
 
-**Alex:** Exactly. You might "overpay" for that insurance in hindsight during a strong bull market. But when the bear market hits -- and it always eventually does -- you are incredibly glad you paid the premium.
+**Horace（陳馬）：** 正是。在強勁的多頭市場中，你可能在事後看來為這個保險「付出了太多」。但當空頭市場來臨——而它總是終究會來——你會非常慶幸自己付了這個保費。
 
-**Sam:** Let me try to summarize the practical steps someone should take.
+**Stella（小魚）：** 讓我試著總結一下實際操作步驟。
 
-**Alex:** Go for it.
+**Horace（陳馬）：** 說吧。
 
-**Sam:** First, define your target allocation based on your goals and risk tolerance. Second, set a rebalancing threshold -- something like 5 percentage points. Third, put a quarterly reminder in your calendar to check your allocation. Fourth, when you check, if anything is more than 5 points off target, calculate the trades needed. Fifth, try to do it tax-efficiently -- use contributions, tax-advantaged accounts, or tax-loss harvesting first. Sixth, execute the trades. Seventh, log what you did.
+**Stella（小魚）：** 第一，根據目標和風險承受能力定義目標配置。第二，設定再平衡閾值——例如五個百分點。第三，在行事曆上設定每季提醒，定期檢視配置。第四，檢視時，若任何資產類別偏離目標超過五個百分點，計算所需的交易金額。第五，試著用節稅方式操作——優先使用新投入資金、稅賦優惠帳戶或稅損收割。第六，執行交易。第七，記錄你做了什麼。
 
-**Alex:** That is a perfect summary. I would add one thing: write this down as a formal policy before you need it. The Investor Policy Statement should include your target allocation, your rebalancing bands, your review frequency, and the priority order of tax-efficient methods. That way, when markets are panicking and you are tempted to deviate, you can pull out the document and follow the plan.
+**Horace（陳馬）：** 總結得完美。我想再補充一點：在你需要它之前，就把這些寫成正式的政策文件。投資政策聲明應該包含你的目標配置、再平衡區間、檢視頻率，以及節稅方法的優先順序。這樣當市場陷入恐慌、你忍不住想偏離計畫時，你可以拿出文件、照表操課。
 
 [VISUAL: Template of a simple Investment Policy Statement with the rebalancing section highlighted, showing sample text for target allocation, bands, and review frequency]
 
-**Sam:** One more question. Is there a level of drift that should be an automatic emergency rebalance? Like if we have a 2008-style crash?
+**Stella（小魚）：** 最後一個問題。有沒有一種程度的漂移，應該立即觸發緊急再平衡？比如像2008年那種等級的崩盤？
 
-**Alex:** Some investors use a two-tier system. Normal bands at plus or minus 5 percentage points, reviewed quarterly. But if any asset class drifts by more than 10 percentage points in either direction -- whether due to a crash or a massive rally -- they rebalance immediately regardless of the calendar. That 10-point trigger catches rare but extreme events and ensures you are buying into crashes and selling into euphoria at exactly the moments when it matters most.
+**Horace（陳馬）：** 有些投資人採用兩層機制。正常區間是正負五個百分點，每季檢視一次。但如果任何資產類別朝任一方向漂移超過十個百分點——無論是因為崩盤還是大幅上漲——他們會立即再平衡，不管日曆上寫的是什麼。這個十個百分點的觸發點能捕捉罕見但極端的事件，確保你在真正關鍵的時刻，恰好在低點買進、在高點賣出。
 
-**Sam:** I love that. A normal rule and an emergency rule.
+**Stella（小魚）：** 我喜歡這個設計。一條正常規則，加上一條緊急規則。
 
-**Alex:** Exactly. And the beauty is, once you have these rules in place, investing becomes a lot less stressful. You do not have to agonize over "should I buy or sell right now?" The rules tell you. You just follow them.
+**Horace（陳馬）：** 正是。而且一旦建立了這些規則，投資就變得輕鬆許多。你不需要再苦苦思考「我現在應該買還是賣？」規則告訴你。你只需要遵循它。
 
 [VISUAL: Summary card with five key takeaways:
-1. Rebalancing is a systematic way to buy low and sell high
-2. Annual or quarterly with a 5% threshold works for most investors
-3. The rebalancing bonus adds 0.5-1.5% per year in volatile markets
-4. Use tax-efficient methods: contributions first, tax-advantaged accounts second
-5. Write down your rebalancing policy before you need it]
+1. 再平衡是系統性低買高賣的方法
+2. 每年或每季配合5%閾值，適合大多數投資人
+3. 在波動市場中，再平衡紅利每年可增加0.5-1.5%的報酬
+4. 使用節稅方法：優先新投入資金，其次稅賦優惠帳戶
+5. 在需要之前就寫下你的再平衡政策]
 
-**Sam:** To summarize today's lesson. Rebalancing is not optional, it is fundamental. It keeps your risk on target, forces you to buy low and sell high, and protects you from your own emotions. The specific frequency matters less than the commitment to doing it at all.
+**Stella（小魚）：** 總結今天的課程。再平衡不是可選項，而是基本要素。它讓你的風險維持在目標水準、強制你低買高賣，也保護你不受自身情緒的傷害。具體頻率沒有堅持去做來得重要。
 
-**Alex:** Perfectly said. And if you only remember one thing from today: your rebalancing rule is most valuable at exactly the moments when it is hardest to follow. That is not a bug -- that is the feature.
+**Horace（陳馬）：** 說得太好了。如果今天只記得一件事，那就是：你的再平衡規則，在最難遵循的時刻，恰恰是最有價值的時刻。這不是缺陷——這正是它的設計精髓。
 
-**Sam:** Next week, we are going to learn how to read financial statements -- the building blocks of understanding any company. If you want to know whether a business is actually making money or just pretending to, you will not want to miss it.
+**Stella（小魚）：** 下週，我們將學習如何閱讀財務報表——理解任何一家公司的基礎構建模塊。如果你想知道一家企業究竟是真的在賺錢，還是只是表面上光鮮亮麗，下週的內容你絕對不能錯過。
 
-**Alex:** See you then.
+**Horace（陳馬）：** 到時候見。
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

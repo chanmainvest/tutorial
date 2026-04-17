@@ -1,799 +1,793 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第五週：債券——你投資組合的緩衝器
 
-# Week 5: Bonds - Your Portfolio's Shock Absorber
+## 閱讀部分
 
-## Reading Section
+### a) 為何這一課至關重要
 
-### a) Why This Is Important
+債券是初入投資市場的人最容易忽略的資產類別，卻恰恰是最重要的一種。當股票佔據頭條新聞和飯局話題之際，債券正默默地做著吃力不討好的工作——在市場崩潰時撐住整個投資組合。若你想成為認真的投資者，了解債券並非可選項，而是必修課。
 
-Bonds are the single most important asset class that beginning investors tend to overlook. While stocks dominate headlines and cocktail-party conversations, bonds quietly do the unglamorous work of holding portfolios together when markets fall apart. Understanding bonds is not optional if you want to be a serious investor. It is essential.
+以下是債券對你投資之路的重要意義：
 
-Here is why bonds matter for your investment journey:
+**投資組合穩定性（緩衝器作用）：** 在2008年金融危機期間，標普500指數下跌約37%。同一時期，美國國庫債券卻上漲了大約20%。持有100%股票的投資者眼睜睜看著50萬美元的投資組合跌至31.5萬美元；而持有60%股票及40%債券的投資者，投資組合僅跌至約39.5萬美元，痛苦程度大為減輕。兩個投資組合之間8萬美元的差距，正是債券的緩衝器效應。當你目睹全球市場陷入恐慌時，投資組合中的債券部分讓你得以安枕無憂。
 
-**Portfolio Stability (The Shock Absorber):** In the 2008 financial crisis, the S&P 500 fell approximately 37%. During that same period, U.S. Treasury bonds gained roughly 20%. An investor holding 100% stocks saw their $500,000 portfolio drop to $315,000. An investor holding 60% stocks and 40% bonds saw their portfolio decline to roughly $395,000, a dramatically less painful experience. That $80,000 difference between the two portfolios is the shock absorber effect of bonds. When you are watching the world panic, bonds are the part of your portfolio that lets you sleep at night.
+**可預測的收入：** 與隨時可被削減甚至取消的股息不同，債券的票息支付是合約義務。購買債券時，發行人依法承諾按固定時間表向你支付固定金額的利息。這種可預測性對需要支付日常生活開支的退休人士來說極具價值，對希望在投資組合中獲得穩定收入來源的年輕投資者同樣有用。
 
-**Predictable Income:** Unlike stock dividends, which can be cut or eliminated at any time, bond coupon payments are contractual obligations. When you buy a bond, the issuer legally promises to pay you a fixed amount of interest on a fixed schedule. This predictability is invaluable for retirees who need to fund living expenses, and it is useful for younger investors who want a reliable income component in their portfolio.
+**資本保值：** 若你持有債券至到期日，且發行人沒有違約，你將全數取回本金。這與股票有根本性的分別——股票不保證你能收回最初的投資。對於不能承受虧損的資金，或有特定時間期限的目標（例如五年後買房、十年後籌備子女教育費），債券能提供股票根本無法匹敵的確定性。
 
-**Capital Preservation:** If you hold a bond to maturity and the issuer does not default, you get your principal back in full. This is fundamentally different from stocks, where there is no guarantee you will ever recover your initial investment. For money you cannot afford to lose, or for goals with specific time horizons (buying a house in five years, funding college in ten years), bonds provide a level of certainty that stocks simply cannot match.
+**了解經濟運作：** 債券市場的規模在全球超過股票市場。債券市場往往比股票市場更早發出經濟變化的訊號。收益率曲線、信用利差，以及利率與資產價格之間的關係，均植根於債券市場。不了解債券，你就錯失了市場提供的關鍵信息。
 
-**Understanding the Economy:** Bond markets are larger than stock markets globally. The bond market often signals economic changes before the stock market does. Concepts like the yield curve, credit spreads, and the relationship between interest rates and asset prices are all rooted in the bond market. If you do not understand bonds, you are missing critical information about where the economy and markets are heading.
+**真正有效的分散投資：** 真正的分散投資意味著持有行為模式各異的資產。債券，尤其是政府債券，在歷史上與股票呈現低度甚至負相關，在市場承壓時更是如此。許多其他所謂的分散投資工具並不具備這一特質。當股票暴跌時，優質債券往往因投資者湧入避險而上漲。正是這種在危機中的負相關性，令債券在投資組合中不可替代。
 
-**Diversification That Actually Works:** True diversification means owning assets that behave differently from each other. Bonds, particularly government bonds, have historically shown low or negative correlation with stocks during market stress. This is not true of many other so-called diversifiers. When stocks crash, high-quality bonds tend to rally as investors flee to safety. This negative correlation during crises is what makes bonds irreplaceable in a portfolio.
+本課將帶你由淺入深地建立對債券的認識。學完本課，你將了解債券的運作原理、其行為背後的邏輯，以及如何將其作為投資組合的穩定基石。無論你25歲還是65歲，無論你擁有5,000美元還是50萬美元，債券在你的財務計劃中都有其一席之地。
 
-In this lesson, we will build your understanding of bonds from the ground up. By the end, you will understand how bonds work, why they behave the way they do, and how to use them as the stabilizing foundation of your investment portfolio. Whether you are 25 or 65, whether you have $5,000 or $500,000, bonds have a role to play in your financial plan.
-
-The global bond market is approximately $130 trillion in size, larger than the global stock market. Every day, bond prices are sending signals about inflation expectations, economic growth, and the creditworthiness of governments and corporations. Investors who ignore bonds are flying blind to half the information the market is providing. After this lesson, you will no longer be one of them.
+全球債券市場規模約達130萬億美元，規模超過全球股票市場。每一天，債券價格都在傳遞有關通脹預期、經濟增長以及政府與企業信用狀況的訊號。忽視債券的投資者，等於對市場提供的一半信息視而不見。學完本課，你將不再是其中一員。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### What Is a Bond?
+#### 什麼是債券？
 
-A bond is essentially a loan. When you buy a bond, you are lending money to the issuer (a government, corporation, or municipality) in exchange for two promises: regular interest payments (called coupons) and the return of your principal (called par value or face value) at a specified future date (called the maturity date).
+債券本質上是一筆借款。購買債券時，你是在向發行人（政府、企業或市政機構）貸出資金，換取兩項承諾：定期支付利息（稱為票息），以及在指定的未來日期（稱為到期日）歸還你的本金（稱為票面值或面值）。
 
-This is the fundamental difference between stocks and bonds. When you buy stock, you become a part-owner of the company. When you buy a bond, you become a lender to the company. Owners have upside potential but no guarantees. Lenders get contractual guarantees but limited upside.
+這就是股票與債券的根本差別。買股票，你成為公司的部分擁有者；買債券，你只是公司的債主。擁有者有上升潛力，但沒有任何保證；借出人擁有合約保障，但回報空間有限。
 
 ```
 +------------------------------------------------------------------+
-|                     THE BOND CONTRACT                            |
+|                     債券合約                                      |
 |                                                                  |
-|  YOU (the investor / lender)                                     |
+|  你（投資者／借出人）                                              |
 |    |                                                             |
-|    |--- Lend $1,000 (Face Value / Par Value) ------>  ISSUER     |
-|    |                                                  (borrower) |
-|    |<-- Receive coupon payments every 6 months -----  |          |
-|    |<-- Receive $1,000 back at maturity ------------  |          |
+|    |--- 借出 $1,000（票面值／面值）------------------>  發行人     |
+|    |                                                  （借入人）  |
+|    |<-- 每 6 個月收取票息支付 ----------------------  |          |
+|    |<-- 到期時收回 $1,000 --------------------------  |          |
 |                                                                  |
-|  Example: 10-Year U.S. Treasury Bond, 4% Coupon                 |
+|  例子：10 年期美國國庫債券，票息率 4%                              |
 |                                                                  |
-|  Face Value:     $1,000                                          |
-|  Coupon Rate:    4% annually (paid semi-annually)                |
-|  Payment:        $20 every 6 months ($40/year)                   |
-|  Maturity:       10 years from issue date                        |
-|  At Maturity:    You get your $1,000 back                        |
+|  票面值：       $1,000                                            |
+|  票息率：       每年 4%（半年支付一次）                            |
+|  支付金額：     每 6 個月 $20（每年 $40）                         |
+|  到期日：       自發行日起 10 年                                   |
+|  到期時：       你取回 $1,000                                     |
 +------------------------------------------------------------------+
 ```
 
-#### The Key Components of a Bond
+#### 債券的主要組成部分
 
-Every bond has these essential features:
+每隻債券都具備以下基本特徵：
 
-**Face Value (Par Value):** The amount the issuer promises to repay at maturity. Most bonds have a face value of $1,000. When people say a bond is trading "at par," they mean it is trading at $1,000 (or 100% of face value).
+**票面值（面值）：** 發行人承諾到期時歸還的金額。大多數債券票面值為 $1,000。當人們說債券「以票面值交易」，即指債券以 $1,000（即票面值的 100%）成交。
 
-**Coupon Rate:** The annual interest rate the issuer pays, expressed as a percentage of face value. A 5% coupon on a $1,000 bond means $50 per year. Most bonds pay coupons semi-annually, so you would receive $25 every six months.
+**票息率：** 發行人按票面值的百分比支付的年利率。$1,000 債券的 5% 票息意味著每年 $50。大多數債券按半年支付票息，即每六個月收到 $25。
 
-**Maturity Date:** The date when the issuer must repay the face value. Bonds are classified by maturity:
+**到期日：** 發行人須歸還票面值的日期。債券按到期期限分類如下：
 
 ```
 +-------------------------------------------------------------------+
-|  MATURITY CLASSIFICATION                                          |
+|  到期期限分類                                                      |
 +-------------------------------------------------------------------+
-|  Short-Term:    1-3 years    (Treasury Bills, Notes)              |
-|  Intermediate:  3-10 years   (Treasury Notes, Corporate Bonds)    |
-|  Long-Term:     10-30 years  (Treasury Bonds, Long Corporate)     |
+|  短期：    1-3 年    （國庫票據、短期票據）                         |
+|  中期：    3-10 年   （國庫票據、企業債券）                         |
+|  長期：    10-30 年  （國庫債券、長期企業債券）                     |
 +-------------------------------------------------------------------+
 |                                                                   |
-|  Timeline:                                                        |
+|  時間線：                                                          |
 |                                                                   |
-|  Today         3yr          10yr              30yr                |
+|  今天         3年          10年              30年                  |
 |    |------------|-------------|-----------------|                 |
-|    [Short-Term] [Intermediate]  [  Long-Term   ]                 |
+|    [短  期]    [中  期]        [    長  期    ]                    |
 |                                                                   |
-|  Lower risk <---------------------------------> Higher risk       |
-|  Lower yield <--------------------------------> Higher yield      |
-|  Less price sensitivity <--------------------> More sensitivity   |
+|  風險較低 <----------------------------------> 風險較高             |
+|  收益率較低 <--------------------------------> 收益率較高           |
+|  對利率敏感度較低 <-------------------------> 對利率敏感度較高      |
 +-------------------------------------------------------------------+
 ```
 
-**Yield:** This is where things get interesting. The yield is the actual return you earn on the bond, and it is not necessarily the same as the coupon rate. Understanding the difference between coupon rate and yield is one of the most important concepts in bond investing.
+**收益率：** 這才是關鍵所在。收益率是你從債券上實際獲得的回報，不一定與票息率相同。了解票息率與收益率的差異，是債券投資中最重要的概念之一。
 
-#### Coupon Rate vs. Yield: Understanding the Difference
+#### 票息率與收益率：了解兩者的差異
 
-The coupon rate is fixed when the bond is issued. It never changes. But after the bond is issued, its price can change in the secondary market. When the price changes, the effective return (yield) changes too.
+票息率在債券發行時固定，永遠不會改變。但債券發行後，其在二級市場的價格可以波動。當價格改變，實際回報（收益率）也隨之改變。
 
 ```
 +-------------------------------------------------------------------+
-|              COUPON RATE vs. CURRENT YIELD                        |
+|              票息率 vs. 當前收益率                                  |
 +-------------------------------------------------------------------+
 |                                                                   |
-|  Bond: $1,000 face value, 5% coupon = $50/year in payments       |
+|  債券：票面值 $1,000，票息率 5% = 每年支付 $50                     |
 |                                                                   |
-|  SCENARIO 1: Bond trades AT PAR ($1,000)                         |
-|    Current Yield = $50 / $1,000 = 5.0%                           |
-|    Yield equals the coupon rate                                   |
+|  情景一：債券以票面值交易（$1,000）                                 |
+|    當前收益率 = $50 / $1,000 = 5.0%                               |
+|    收益率等於票息率                                                 |
 |                                                                   |
-|  SCENARIO 2: Bond trades at DISCOUNT ($900)                      |
-|    Current Yield = $50 / $900 = 5.56%                            |
-|    Yield is HIGHER than coupon rate                               |
-|    (You pay less but get the same $50)                            |
+|  情景二：債券以折讓價交易（$900）                                   |
+|    當前收益率 = $50 / $900 = 5.56%                                |
+|    收益率高於票息率                                                 |
+|    （你付出較少，卻獲得同樣的 $50）                                 |
 |                                                                   |
-|  SCENARIO 3: Bond trades at PREMIUM ($1,100)                     |
-|    Current Yield = $50 / $1,100 = 4.55%                          |
-|    Yield is LOWER than coupon rate                                |
-|    (You pay more but still get only $50)                          |
+|  情景三：債券以溢價交易（$1,100）                                   |
+|    當前收益率 = $50 / $1,100 = 4.55%                              |
+|    收益率低於票息率                                                 |
+|    （你付出較多，仍然只獲得 $50）                                   |
 |                                                                   |
 +-------------------------------------------------------------------+
 |                                                                   |
-|  Key Insight: Price and yield move in OPPOSITE directions         |
+|  關鍵啟示：價格與收益率朝相反方向移動                               |
 |                                                                   |
-|  Price goes UP   ------>  Yield goes DOWN                        |
-|  Price goes DOWN ------>  Yield goes UP                          |
+|  價格上升   ------>  收益率下降                                    |
+|  價格下跌   ------>  收益率上升                                    |
 +-------------------------------------------------------------------+
 ```
 
-**Yield to Maturity (YTM):** The current yield only considers coupon payments relative to price. Yield to Maturity is more complete because it also accounts for the gain or loss you will experience when the bond matures at par value.
+**到期收益率（YTM）：** 當前收益率只考慮票息支付相對於價格的關係。到期收益率更為全面，因為它還計入了債券到期時按票面值結算所帶來的資本收益或虧損。
 
 ```
-Yield to Maturity Considers:
-  1. Annual coupon payments
-  2. The difference between purchase price and face value
-  3. The time remaining until maturity
-  4. Compounding of reinvested coupons
+到期收益率考量因素：
+  1. 每年票息支付
+  2. 購入價格與票面值之間的差額
+  3. 至到期日的剩餘時間
+  4. 再投資票息的複利效應
 
-Example:
-  Bond purchased at $950, 5% coupon, 5 years to maturity
+例子：
+  以 $950 購入債券，票息率 5%，距到期日 5 年
 
-  Current Yield:  $50 / $950 = 5.26%
+  當前收益率：  $50 / $950 = 5.26%
 
-  YTM calculation also includes:
-    Capital gain at maturity: $1,000 - $950 = $50
-    Spread over 5 years: $10/year additional return
-    YTM = approximately 5.8%
+  到期收益率計算還包括：
+    到期時資本收益：$1,000 - $950 = $50
+    分攤於 5 年：每年額外回報 $10
+    到期收益率 ≈ 5.8%
 
-  YTM > Current Yield (because you also profit from the discount)
+  到期收益率 > 當前收益率（因為你還能從折讓中獲利）
 ```
 
-YTM is the single best measure for comparing bonds because it captures the total expected return from coupon payments, price appreciation (or depreciation), and the time value of money.
+到期收益率是比較債券的最佳單一指標，因為它涵蓋了票息支付、價格升跌及貨幣時間價值所帶來的預期總回報。
 
-#### The Inverse Relationship: Price and Yield
+#### 反向關係：價格與收益率
 
-This is arguably the most important concept in all of bond investing. Bond prices and yields move in opposite directions. Always. Without exception. Understanding why this happens is critical.
+這可以說是整個債券投資領域最重要的概念。債券價格與收益率永遠朝相反方向移動。沒有例外，毫無例外。理解其中原因至關重要。
 
-Imagine you own a bond that pays a 3% coupon. Now interest rates rise and new bonds are issued paying 5%. Who would buy your old 3% bond at full price when they can get a brand new 5% bond? Nobody. So your bond's price must fall until its yield is competitive with the new 5% bonds. Conversely, if rates fall to 2%, your 3% bond becomes very attractive, and buyers will bid up its price.
+想象你持有一隻票息率為 3% 的債券。此時利率上升，新發行的債券票息率為 5%。有誰會以全價購買你那隻 3% 的舊債券，而非以相同價格購買全新的 5% 債券？沒有人。所以你的債券價格必須下跌，直到其收益率能與新的 5% 債券競爭為止。反之，若利率跌至 2%，你的 3% 債券便會變得極具吸引力，買家將爭相競價，推高其價格。
 
 ```
-THE INVERSE RELATIONSHIP: BOND PRICE vs. YIELD
+反向關係：債券價格 vs. 收益率
 
-  Bond                                         Bond
-  Price                                        Yield
-  ($)                                          (%)
+  債券                                         債券
+  價格                                         收益率
+  （$）                                         （%）
     |                                            |
 1200|*                                           |            *  7%
     |  *                                         |          *
 1100|    *                                       |        *    6%
     |      *                                     |      *
-1000|--------*--- Par Value ------           5% -|----*--------
+1000|--------*--- 票面值 --------           5% --|----*--------
     |          *                                 |  *
  900|            *                            4%-|*
     |              *                             |
  800|                *                        3%-|
     |                  *                         |
     +---|---|---|---|---|---                      +---|---|---|---
-        3%  4%  5%  6%  7%                       800  900  1000  1100
-          Market Yield                                Bond Price
+        3%  4%  5%  6%  7%                       800  900 1000  1100
+          市場收益率                                  債券價格
 
-  As yield goes UP, price goes DOWN          Mirror image:
-  As yield goes DOWN, price goes UP          same relationship
+  收益率上升 ------> 價格下跌               鏡像關係：
+  收益率下跌 ------> 價格上升               相同的關係
 ```
 
-This inverse relationship exists because of competition. A bond is simply a stream of future cash flows. When market interest rates change, the present value of those future cash flows changes. Higher rates mean future cash flows are worth less today (lower price). Lower rates mean future cash flows are worth more today (higher price).
+這種反向關係源於市場競爭。債券本質上是一連串未來現金流。當市場利率改變，那些未來現金流的現值也隨之改變。利率較高意味著未來現金流的今日價值較低（價格較低）；利率較低意味著未來現金流的今日價值較高（價格較高）。
 
-#### Duration: How Sensitive Is Your Bond?
+#### 存續期：你的債券有多敏感？
 
-Not all bonds react equally to interest rate changes. A 30-year bond will experience much larger price swings than a 2-year bond for the same change in rates. This sensitivity is measured by a concept called **duration**.
+並非所有債券對利率變動的反應都相同。對於相同幅度的利率變動，30年期債券的價格波動遠大於2年期債券。這種敏感程度以**存續期**這一概念衡量。
 
-Duration tells you approximately how much a bond's price will change for a 1% change in interest rates.
+存續期告訴你，利率每變動1%，債券價格大約會變動多少。
 
 ```
-DURATION AND INTEREST RATE SENSITIVITY
+存續期與利率敏感度
 
-  Bond A: 2-year Treasury, Duration = 1.9 years
-  Bond B: 10-year Treasury, Duration = 8.5 years
-  Bond C: 30-year Treasury, Duration = 20.2 years
+  債券甲：2 年期國庫債券，存續期 = 1.9 年
+  債券乙：10 年期國庫債券，存續期 = 8.5 年
+  債券丙：30 年期國庫債券，存續期 = 20.2 年
 
-  If interest rates rise by 1%:
-  +-------------------------------------------------------------+
-  |  Bond    | Duration | Price Change | On $10,000 Investment   |
-  +-------------------------------------------------------------+
-  |  2-Year  |   1.9    |   -1.9%      |   -$190                |
-  |  10-Year |   8.5    |   -8.5%      |   -$850                |
-  |  30-Year |  20.2    |  -20.2%      |  -$2,020               |
-  +-------------------------------------------------------------+
+  若利率上升 1%：
+  +--------------------------------------------------------------+
+  |  債券    | 存續期 | 價格變動  | 以 $10,000 投資計            |
+  +--------------------------------------------------------------+
+  |  2 年期  |   1.9  |   -1.9%   |   -$190                     |
+  |  10 年期 |   8.5  |   -8.5%   |   -$850                     |
+  |  30 年期 |  20.2  |  -20.2%   |  -$2,020                    |
+  +--------------------------------------------------------------+
 
-  Visual representation (1% rate increase):
+  視覺示意（利率上升 1%）：
 
-  2-Year:   [=========-]     Small price drop
-  10-Year:  [====------]     Moderate price drop
-  30-Year:  [--________]     Large price drop
+  2 年期：  [=========-]     價格跌幅小
+  10 年期： [====------]     價格跌幅中等
+  30 年期： [--________]     價格跌幅大
 
-  Rule of thumb: Duration ~ approximate % price change
-  for each 1% change in interest rates.
+  經驗法則：存續期 ≈ 利率每變動 1% 時的近似價格變動百分比。
 ```
 
-This is why short-term bonds are considered safer than long-term bonds. They are less sensitive to interest rate changes. If you are worried about rising rates, shorten your duration. If you think rates will fall, longer duration bonds will give you bigger price gains.
+這正是為何短期債券被視為比長期債券更安全——它們對利率變動的敏感度較低。若你擔心利率上升，縮短存續期是正確做法；若你預期利率下跌，較長存續期的債券將帶來更大的價格升幅。
 
-#### Types of Bonds
+#### 債券的類型
 
-Bonds come in many varieties. Understanding the major categories helps you choose the right ones for your portfolio.
+債券有多種形式。了解主要類別有助於你為投資組合挑選合適的品種。
 
-**Government Bonds (Sovereign Debt):**
+**政府債券（主權債務）：**
 
 ```
 +-------------------------------------------------------------------+
-|                    U.S. GOVERNMENT BONDS                          |
+|                    美國政府債券                                    |
 +-------------------------------------------------------------------+
-|  Treasury Bills (T-Bills):                                       |
-|    Maturity: 4 weeks to 1 year                                   |
-|    Coupon: None (sold at discount, mature at par)                |
-|    Risk: Essentially zero (backed by U.S. government)            |
-|    Example: Buy at $980, receive $1,000 at maturity              |
+|  國庫票據（T-Bills）：                                             |
+|    期限：4 週至 1 年                                               |
+|    票息：無（以折讓價發行，到期時按票面值兌付）                     |
+|    風險：幾近於零（由美國政府背書）                                 |
+|    例子：以 $980 購入，到期時收取 $1,000                           |
 |                                                                   |
-|  Treasury Notes (T-Notes):                                       |
-|    Maturity: 2 to 10 years                                       |
-|    Coupon: Semi-annual fixed payments                            |
-|    Risk: Very low, but some price risk from rate changes         |
-|    Most widely watched: 10-Year Treasury Note                    |
+|  國庫票據（T-Notes）：                                             |
+|    期限：2 至 10 年                                               |
+|    票息：半年定期支付                                              |
+|    風險：極低，但存在利率變動帶來的價格風險                         |
+|    最受關注：10 年期國庫票據                                       |
 |                                                                   |
-|  Treasury Bonds (T-Bonds):                                       |
-|    Maturity: 20 to 30 years                                      |
-|    Coupon: Semi-annual fixed payments                            |
-|    Risk: Low credit risk, but significant interest rate risk     |
+|  國庫債券（T-Bonds）：                                             |
+|    期限：20 至 30 年                                              |
+|    票息：半年定期支付                                              |
+|    風險：信用風險低，但存在顯著的利率風險                           |
 |                                                                   |
-|  TIPS (Treasury Inflation-Protected Securities):                 |
-|    Maturity: 5, 10, or 30 years                                 |
-|    Special: Principal adjusts with inflation (CPI)               |
-|    Risk: Protects against inflation, still has rate risk         |
+|  通脹保值債券（TIPS）：                                            |
+|    期限：5 年、10 年或 30 年                                      |
+|    特點：本金隨通脹（消費物價指數）調整                             |
+|    風險：抵禦通脹，但仍存在利率風險                                 |
 |                                                                   |
-|  I-Bonds (Series I Savings Bonds):                               |
-|    Maturity: Must hold at least 1 year, penalty if < 5 years    |
-|    Rate: Fixed rate + inflation adjustment                       |
-|    Limit: $10,000 per person per year                            |
+|  I 系列儲蓄債券（I-Bonds）：                                       |
+|    期限：最少持有 1 年，持有期不足 5 年有罰息                      |
+|    利率：固定利率 + 通脹調整                                       |
+|    限額：每人每年 $10,000                                         |
 +-------------------------------------------------------------------+
 ```
 
-U.S. Treasury securities are considered the safest investments in the world because they are backed by the full faith and credit of the U.S. government. The 10-Year Treasury yield is the single most important number in global finance. It serves as the benchmark for mortgage rates, corporate borrowing costs, and the discount rate used to value virtually every asset.
+美國國庫債券被視為全球最安全的投資，因為它們以美國政府的完整信用背書。10年期國庫債券收益率是全球金融體系中最重要的單一數字，是按揭利率、企業借貸成本，以及幾乎所有資產估值所用折現率的基準。
 
-**Corporate Bonds:**
+**企業債券：**
 
-Corporations issue bonds to raise capital. Corporate bonds pay higher yields than government bonds because they carry credit risk, the possibility that the company might default on its obligations.
+企業發行債券以籌集資金。企業債券的收益率高於政府債券，因為它們承載信用風險——即企業可能違約的可能性。
 
 ```
-CORPORATE BOND RISK SPECTRUM
+企業債券風險譜系
 
-  Lower Risk / Lower Yield -----------------> Higher Risk / Higher Yield
+  風險較低／收益率較低 -----------------> 風險較高／收益率較高
 
-  [Investment Grade]                           [High Yield / "Junk"]
-  AAA  AA  A  BBB                              BB  B  CCC  CC  C  D
-  |    |   |   |                                |   |   |    |   |  |
-  v    v   v   v                                v   v   v    v   v  v
-  MSFT GE  T  Ford                             AMC  ?   ?    ?   ?  Default
+  [投資級別]                               [高收益／「垃圾」級別]
+  AAA  AA  A  BBB                          BB  B  CCC  CC  C  D
+  |    |   |   |                            |   |   |    |   |  |
+  v    v   v   v                            v   v   v    v   v  v
+  微軟  奇異 電話 福特                      AMC  ?   ?    ?   ?  違約
 
-  Yield spread over Treasuries (approximate):
-  AAA: +0.5%    Investment Grade: Companies with
-  AA:  +0.7%    strong balance sheets and reliable
-  A:   +1.0%    cash flows. Lower risk of default.
-  BBB: +1.5%    BBB is the lowest investment grade.
+  高於國庫債券的收益率利差（約略）：
+  AAA：+0.5%    投資級別：擁有穩健資產負債表
+  AA： +0.7%    及可靠現金流的企業。違約風險
+  A：  +1.0%    較低。BBB 是最低的投資級別。
+  BBB：+1.5%
   -------       ----------------------------------------
-  BB:  +2.5%    High Yield (Junk): Companies with
-  B:   +4.0%    weaker finances or higher leverage.
-  CCC: +7.0%    Higher default risk compensated by
-  CC:  +10.0%   higher yields. Not suitable as core
-  C/D: Default  portfolio holdings for most investors.
+  BB： +2.5%    高收益（垃圾）級別：財務狀況較弱
+  B：  +4.0%    或槓桿較高的企業。較高的違約風
+  CCC：+7.0%    險以較高收益率補償。不適合大多
+  CC： +10.0%   數投資者作為核心投資組合持倉。
+  C/D：違約
 ```
 
-#### Credit Ratings: The Bond Report Card
+#### 信用評級：債券的成績單
 
-Credit rating agencies (Moody's, S&P, Fitch) evaluate the creditworthiness of bond issuers and assign ratings. These ratings directly affect the interest rate the issuer must pay.
+信用評級機構（穆迪、標普、惠譽）評估債券發行人的信用狀況並給予評級，這些評級直接影響發行人所需支付的利率。
 
 ```
 +-------------------------------------------------------------------+
-|                    CREDIT RATING SCALES                           |
+|                    信用評級量表                                    |
 +-------------------------------------------------------------------+
-|  S&P/Fitch  |  Moody's  |  Grade            |  Meaning           |
+|  標普／惠譽     |  穆迪       |  評級類別      |  含義            |
 +-------------------------------------------------------------------+
-|  AAA        |  Aaa      |  Investment Grade  |  Highest quality   |
-|  AA+/AA/AA- |  Aa1-Aa3  |  Investment Grade  |  High quality      |
-|  A+/A/A-    |  A1-A3    |  Investment Grade  |  Upper medium      |
-|  BBB+/BBB/- |  Baa1-Baa3|  Investment Grade  |  Medium (lowest IG)|
-|-------------|-----------|-------------------|--------------------|
-|  BB+/BB/BB- |  Ba1-Ba3  |  High Yield       |  Speculative       |
-|  B+/B/B-    |  B1-B3    |  High Yield       |  Highly speculative|
-|  CCC        |  Caa      |  High Yield       |  Substantial risk  |
-|  CC         |  Ca       |  High Yield       |  Extremely risky   |
-|  C          |  C        |  High Yield       |  Near default      |
-|  D          |  ---      |  Default          |  In default        |
+|  AAA           |  Aaa       |  投資級別      |  最高品質          |
+|  AA+/AA/AA-    |  Aa1-Aa3   |  投資級別      |  優質              |
+|  A+/A/A-       |  A1-A3     |  投資級別      |  中上品質          |
+|  BBB+/BBB/BBB- |  Baa1-Baa3 |  投資級別      |  中等（最低投資級）|
+|----------------|------------|---------------|------------------- |
+|  BB+/BB/BB-    |  Ba1-Ba3   |  高收益級別    |  投機性            |
+|  B+/B/B-       |  B1-B3     |  高收益級別    |  高度投機性        |
+|  CCC           |  Caa       |  高收益級別    |  重大風險          |
+|  CC            |  Ca        |  高收益級別    |  極高風險          |
+|  C             |  C         |  高收益級別    |  瀕臨違約          |
+|  D             |  ---       |  違約          |  已違約            |
 +-------------------------------------------------------------------+
 
-Key threshold: BBB- / Baa3 is the line between investment grade and junk.
-Many institutional investors are REQUIRED to hold only investment grade bonds.
-When a bond is downgraded from BBB- to BB+, it becomes a "fallen angel"
-and forced selling by institutions can cause a sharp price decline.
+關鍵分界線：BBB-／Baa3 是投資級別與垃圾級別之間的分水嶺。
+許多機構投資者依規定只能持有投資級別債券。
+當一隻債券從 BBB- 被降至 BB+，便成為「墮落天使」，
+機構投資者的強制沽貨往往導致價格急劇下滑。
 ```
 
-#### How Bond Prices Move in Practice
+#### 債券價格在實際中如何波動
 
-Understanding the forces that drive bond prices helps you make better investment decisions.
+了解推動債券價格的力量，有助於你作出更明智的投資決策。
 
 ```
-FACTORS THAT MOVE BOND PRICES
+影響債券價格的因素
 
 +-------------------------------+------------------+------------------+
-| FACTOR                        | PRICE EFFECT     | YIELD EFFECT     |
+| 因素                          | 價格影響          | 收益率影響        |
 +-------------------------------+------------------+------------------+
-| Interest rates RISE           | Price FALLS      | Yield RISES      |
-| Interest rates FALL           | Price RISES      | Yield FALLS      |
-| Credit rating UPGRADE         | Price RISES      | Yield FALLS      |
-| Credit rating DOWNGRADE       | Price FALLS      | Yield RISES      |
-| Inflation expectations RISE   | Price FALLS      | Yield RISES      |
-| Economic recession fears      | Govt bonds RISE  | Govt yield FALLS |
-|                               | Corp bonds FALL  | Corp yield RISES |
-| Flight to safety              | Treasuries RISE  | Treasury yld FALL|
+| 利率上升                      | 價格下跌          | 收益率上升        |
+| 利率下跌                      | 價格上升          | 收益率下跌        |
+| 信用評級上調                  | 價格上升          | 收益率下跌        |
+| 信用評級下調                  | 價格下跌          | 收益率上升        |
+| 通脹預期上升                  | 價格下跌          | 收益率上升        |
+| 經濟衰退憂慮                  | 政府債券上升      | 政府債券收益率下跌 |
+|                               | 企業債券下跌      | 企業債券收益率上升 |
+| 避險情緒                      | 國庫債券上升      | 國庫債券收益率下跌 |
 +-------------------------------+------------------+------------------+
 ```
 
-Notice the last two rows. During economic stress, government bonds and corporate bonds move in different directions. Investors sell corporate bonds (worried about defaults) and buy government bonds (seeking safety). This is called a "flight to quality," and it is one of the key reasons government bonds act as portfolio shock absorbers.
+注意最後兩行。在經濟承壓期間，政府債券與企業債券走向相反。投資者沽出企業債券（擔憂違約），買入政府債券（尋求安全）。這被稱為「避險」，正是政府債券成為投資組合緩衝器的關鍵原因之一。
 
-#### The Yield Curve: What It Tells You
+#### 收益率曲線：它告訴你什麼？
 
-The yield curve is a graph showing the yields on government bonds of different maturities at a single point in time. Its shape tells you a great deal about market expectations for the economy and interest rates.
+收益率曲線是一張圖表，顯示某一時點上不同到期期限政府債券的收益率。其形狀能揭示市場對經濟及利率走向的大量預期信息。
 
 ```
-YIELD CURVE SHAPES
+收益率曲線形狀
 
-Normal (Upward Sloping):           Inverted:
-Economy is healthy                 Recession warning signal
+正常形態（向上傾斜）：           倒掛形態：
+經濟健康                         衰退預警訊號
 
-Yield                              Yield
+收益率                           收益率
   |              ****              |  ****
   |          ****                  |      ****
   |      ****                     |          ****
   |  ****                         |              ****
   |**                             |                  ****
   +---|---|---|---|---             +---|---|---|---|---
-     1Y  2Y  5Y 10Y 30Y             1Y  2Y  5Y 10Y 30Y
+     1年  2年  5年 10年 30年         1年  2年  5年 10年 30年
 
-Flat:                              Steep:
-Transition period                  Recovery / easy monetary policy
+平坦形態：                       陡峭形態：
+過渡時期                         復甦期／寬鬆貨幣政策
 
-Yield                              Yield
+收益率                           收益率
   |                                |                    ****
   |**********************         |               ****
   |                                |          ****
   |                                |     ****
   |                                |****
   +---|---|---|---|---             +---|---|---|---|---
-     1Y  2Y  5Y 10Y 30Y             1Y  2Y  5Y 10Y 30Y
+     1年  2年  5年 10年 30年         1年  2年  5年 10年 30年
 ```
 
-**Normal Yield Curve:** Longer maturities pay higher yields. This makes intuitive sense: you should be compensated more for locking your money up for 30 years than for 1 year. This is the most common shape and reflects expectations for continued economic growth.
+**正常收益率曲線：** 較長到期期限的債券支付較高收益率。這符合直覺：將資金鎖定30年應比鎖定1年獲得更多補償。這是最常見的形態，反映市場對經濟持續增長的預期。
 
-**Inverted Yield Curve:** Short-term yields are higher than long-term yields. This is unusual and historically has been one of the most reliable recession predictors. An inverted yield curve means the market expects the Federal Reserve will need to cut short-term rates in the future due to economic weakness.
+**倒掛收益率曲線：** 短期收益率高於長期收益率。這種情況罕見，但在歷史上一直是最可靠的衰退預測指標之一。收益率曲線倒掛意味著市場預期聯邦儲備局將因經濟疲弱而在未來下調短期利率。
 
-**Flat Yield Curve:** All maturities pay roughly the same yield. This typically occurs during transitions between normal and inverted curves. A flat curve often signals uncertainty about the economic outlook, where the market cannot decide whether growth or recession lies ahead.
+**平坦收益率曲線：** 所有到期期限的債券收益率大致相同。這通常出現在正常形態與倒掛形態之間的過渡期。平坦的曲線往往反映市場對經濟前景的不確定性——市場無法判斷前方等待的是增長還是衰退。
 
-**Steep Yield Curve:** A large difference between short and long-term yields. This often occurs during economic recoveries when the Fed holds short-term rates low but long-term expectations for growth and inflation push long yields higher. A steep curve is generally positive for banks (which borrow short and lend long) and for risk assets more broadly.
+**陡峭收益率曲線：** 短期與長期收益率之間差距顯著。這通常出現在經濟復甦初期，當時聯儲局將短期利率維持在低位，而市場對增長及通脹的長期預期則推高了長端收益率。陡峭的曲線通常對銀行（短借長貸）及風險資產較為有利。
 
-It is worth noting that yield curve analysis is not a precise timing tool. The curve can stay inverted for months before a recession begins, and the lag between inversion and recession has historically ranged from 6 to 24 months. But as a directional indicator, it has one of the best track records in all of economics.
+值得注意的是，收益率曲線分析並非精確的擇時工具。曲線倒掛至衰退來臨之間可能相隔數月，歷史上兩者之間的滯後期從6個月至24個月不等。但作為方向性指標，其預測紀錄在整個經濟學領域中名列前茅。
 
-#### Bonds in Your Portfolio: The Role of the Shock Absorber
+#### 投資組合中的債券：緩衝器的角色
 
-Bonds serve several critical functions in a diversified portfolio:
-
-```
-STOCK-BOND CORRELATION DURING MARKET STRESS
-
-              Normal Times              Crisis Times
-            (low correlation)       (negative correlation)
-
-  Stocks:   +-+-+-+-+-+             +-+-+-----__________
-  Bonds:    +-+-+-+-+-+             +-+-+-----//////////
-
-                                    When stocks crash,
-                                    bonds often rally
-                                    (flight to safety)
-
-PORTFOLIO IMPACT OF DIFFERENT STOCK/BOND ALLOCATIONS (Historical)
-
-+-------------------------------------------------------------------+
-| Allocation     | Avg Annual | Worst Year | Best Year | Volatility |
-| (Stock/Bond)   | Return     | Return     | Return    | (Std Dev)  |
-+-------------------------------------------------------------------+
-| 100/0          |  10.2%     |  -37.0%    |  +37.6%   |   15.2%    |
-| 80/20          |   9.4%     |  -28.5%    |  +32.2%   |   12.2%    |
-| 60/40          |   8.5%     |  -20.1%    |  +27.9%   |    9.6%    |
-| 40/60          |   7.5%     |  -11.8%    |  +24.7%   |    7.4%    |
-| 20/80          |   6.4%     |   -4.2%    |  +22.5%   |    5.7%    |
-| 0/100          |   5.2%     |   -2.9%    |  +20.1%   |    4.5%    |
-+-------------------------------------------------------------------+
-| Note: Based on historical U.S. data. Past performance does not    |
-| guarantee future results. Bond returns use aggregate bond index.  |
-+-------------------------------------------------------------------+
-
-Key Insight: The 60/40 portfolio gives up only ~1.7% annual return
-compared to 100% stocks, but reduces worst-year loss by nearly half
-and volatility by more than one-third.
-```
-
-The classic 60/40 portfolio (60% stocks, 40% bonds) has been a cornerstone of investment management for decades. While its exact proportions may not be right for everyone, the principle behind it is sound: blending assets with different return drivers and risk characteristics produces a smoother ride without sacrificing too much return.
-
-#### How to Invest in Bonds
-
-Individual investors have several ways to access bonds:
+債券在分散投資的投資組合中發揮多項關鍵功能：
 
 ```
-WAYS TO INVEST IN BONDS
+市場承壓期間的股票－債券相關性
+
+              平時                        危機時
+            （低相關性）               （負相關性）
+
+  股票：   +-+-+-+-+-+             +-+-+-----__________
+  債券：   +-+-+-+-+-+             +-+-+-----//////////
+
+                                    股票崩跌時，
+                                    債券往往上漲
+                                    （避險情緒）
+
+不同股票／債券配置的歷史投資組合表現
 
 +-------------------------------------------------------------------+
-|  METHOD              | PROS                 | CONS                 |
+| 配置             | 年均     | 最差年份  | 最佳年份  | 波動性      |
+| （股票／債券）    | 回報     | 回報      | 回報      | （標準差）  |
 +-------------------------------------------------------------------+
-|  Individual Bonds    | Hold to maturity,    | High minimums        |
-|  (from brokerage)    | known cash flows,    | ($1,000-$10,000+),   |
-|                      | no ongoing fees      | less diversification |
+| 100/0            |  10.2%   |  -37.0%   |  +37.6%   |   15.2%    |
+| 80/20            |   9.4%   |  -28.5%   |  +32.2%   |   12.2%    |
+| 60/40            |   8.5%   |  -20.1%   |  +27.9%   |    9.6%    |
+| 40/60            |   7.5%   |  -11.8%   |  +24.7%   |    7.4%    |
+| 20/80            |   6.4%   |   -4.2%   |  +22.5%   |    5.7%    |
+| 0/100            |   5.2%   |   -2.9%   |  +20.1%   |    4.5%    |
 +-------------------------------------------------------------------+
-|  Bond Mutual Funds   | Professional mgmt,   | Ongoing fees,        |
-|                      | diversification,     | no maturity date,    |
-|                      | low minimums         | NAV fluctuates       |
-+-------------------------------------------------------------------+
-|  Bond ETFs           | Trade like stocks,   | Ongoing fees,        |
-|  (e.g., BND, AGG,   | low cost, very       | no maturity date,    |
-|   TLT, SHY, LQD)    | liquid, diversified  | price fluctuates     |
-+-------------------------------------------------------------------+
-|  Treasury Direct     | Buy directly from    | Less liquid,         |
-|  (treasurydirect.gov)| U.S. government,     | limited to           |
-|                      | no fees, I-Bonds     | government bonds     |
+| 注意：基於美國歷史數據。過去表現不代表將來業績。債券回報採用       |
+| 綜合債券指數。                                                     |
 +-------------------------------------------------------------------+
 
-Common Bond ETFs:
-  BND  - Total U.S. Bond Market (broad exposure)
-  AGG  - U.S. Aggregate Bond Index (similar to BND)
-  TLT  - 20+ Year Treasury Bonds (long duration, volatile)
-  SHY  - 1-3 Year Treasury Bonds (short duration, stable)
-  IEF  - 7-10 Year Treasury Bonds (intermediate duration)
-  LQD  - Investment Grade Corporate Bonds
-  HYG  - High Yield Corporate Bonds ("junk bonds")
-  TIPS - Treasury Inflation-Protected Securities
+關鍵啟示：60/40 投資組合相比 100% 股票，年均回報只少約 1.7%，
+但最差年份的虧損幾乎減少一半，波動性亦降低逾三分之一。
 ```
 
-For most beginning investors, a broad bond ETF like BND or AGG is the simplest way to get diversified bond exposure at a low cost. As your portfolio grows and you develop more specific needs, you can add targeted bond ETFs or individual bonds.
+經典的60/40投資組合（60%股票、40%債券）數十年來一直是投資管理的基石。雖然其確切比例未必適合每個人，但背後的原則是紮實的：將具備不同回報驅動因素和風險特性的資產結合起來，在不過多犧牲回報的情況下，帶來更平穩的投資旅程。
 
-A practical starting approach for a $50,000 portfolio might be to put 40% ($20,000) in BND for broad, diversified bond exposure. As you learn more and develop preferences, you can gradually shift to more targeted bond holdings: perhaps splitting between SHY for stability, IEF for income, and LQD for corporate bond exposure. But there is no rush. BND is an excellent one-stop solution that serves investors well at any portfolio size.
+#### 如何投資債券
+
+個人投資者有多種途徑接觸債券：
+
+```
+投資債券的方式
+
++-------------------------------------------------------------------+
+|  方式                 | 優點                  | 缺點               |
++-------------------------------------------------------------------+
+|  個別債券             | 可持有至到期日，       | 最低投資額較高      |
+|  （通過券商）         | 現金流確定，           | （$1,000-$10,000+），|
+|                       | 無持續費用            | 分散程度較低        |
++-------------------------------------------------------------------+
+|  債券互惠基金         | 專業管理，            | 持續費用，          |
+|                       | 分散投資，            | 無到期日，          |
+|                       | 最低金額低            | 資產淨值波動        |
++-------------------------------------------------------------------+
+|  債券交易所買賣基金   | 像股票般買賣，        | 持續費用，          |
+|  （如BND、AGG、       | 低成本，流動性        | 無到期日，          |
+|   TLT、SHY、LQD）    | 極高，分散投資        | 價格波動            |
++-------------------------------------------------------------------+
+|  財政部直接購買平台   | 直接向美國政府購買，  | 流動性較低，        |
+|  （treasurydirect.gov）| 無費用，可買I-Bonds  | 僅限政府債券        |
++-------------------------------------------------------------------+
+
+常見債券交易所買賣基金：
+  BND  - 美國整體債券市場（廣泛覆蓋）
+  AGG  - 美國綜合債券指數（與BND相似）
+  TLT  - 20年以上期國庫債券（長存續期，波動較大）
+  SHY  - 1-3年期國庫債券（短存續期，價格穩定）
+  IEF  - 7-10年期國庫債券（中等存續期）
+  LQD  - 投資級別企業債券
+  HYG  - 高收益企業債券（「垃圾債券」）
+  TIPS - 通脹保值債券
+```
+
+對大多數初入市場的投資者而言，像BND或AGG這類廣泛債券交易所買賣基金，是以低成本獲得分散債券敞口的最簡便途徑。隨著你的投資組合增長、需求更趨明確，可逐步加入更具針對性的債券交易所買賣基金或個別債券。
+
+對於50,000美元的投資組合，一個實際的入門方案是將40%（$20,000）投入BND，獲得廣泛分散的債券敞口。待你積累更多知識並形成偏好後，可逐漸轉向更具針對性的持倉：或許將資金分散於SHY（求穩定）、IEF（求收入）及LQD（企業債券敞口）之間。但無需操之過急——BND是一個出色的一站式方案，適合任何規模的投資者。
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Bonds are completely safe."**
+**誤解一：「債券完全安全。」**
 
-Bonds are generally safer than stocks, but they are not risk-free. They carry interest rate risk (prices fall when rates rise), credit risk (the issuer might default), inflation risk (fixed payments lose purchasing power over time), and liquidity risk (some bonds are hard to sell quickly). In 2022, the U.S. bond market experienced one of its worst years in history, with the aggregate bond index falling over 13% as the Federal Reserve aggressively raised interest rates. "Safer than stocks" does not mean "safe."
+債券通常比股票安全，但並非毫無風險。債券面臨利率風險（利率上升時價格下跌）、信用風險（發行人可能違約）、通脹風險（固定支付的實際購買力隨時間下降）及流動性風險（部分債券難以快速變現）。2022年，美國債券市場經歷了歷史上最慘烈的年份之一，隨著聯邦儲備局大幅加息，綜合債券指數下跌逾13%。「比股票安全」並不等同於「安全無虞」。
 
-**Misconception 2: "If interest rates go up, I should sell my bonds."**
+**誤解二：「利率上升時，我應該沽出債券。」**
 
-Not necessarily. If you hold individual bonds to maturity, interest rate changes do not affect the cash you receive. You still get your coupons and your principal back at par. Bond price changes from rising rates only matter if you need to sell before maturity or if you hold bond funds (which do not have a maturity date). Additionally, rising rates mean new bonds pay higher yields, which benefits you when you reinvest coupons or add new bonds to your portfolio.
+未必如此。若你持有個別債券至到期日，利率變動並不影響你實際收到的現金——你仍然會收到票息及到期時的票面值。債券價格因利率上升而出現的帳面虧損，只有在你需要到期前變現，或持有債券基金（沒有到期日）時才真正影響你。此外，利率上升意味著新發行的債券收益率更高，當你再投資票息或為投資組合添置新債券時，你反而受惠。
 
-**Misconception 3: "High-yield bonds are a great way to boost income."**
+**誤解三：「高收益債券是提升收入的好方法。」**
 
-High-yield (junk) bonds offer higher coupons, but they also carry significantly higher default risk. During recessions, junk bond default rates can spike to 10% or more. Worse, high-yield bonds tend to be positively correlated with stocks during market stress, which means they fail precisely when you need diversification most. They do not provide the same shock-absorber effect as investment-grade government bonds. Think of high-yield bonds as more like stocks than bonds in terms of their risk behavior.
+高收益（垃圾）債券提供較高票息，但同時承載顯著較高的違約風險。在經濟衰退期間，垃圾債券的違約率可飆升至10%或以上。更糟糕的是，高收益債券在市場承壓時往往與股票正相關，即在你最需要分散投資效果的時候，它們偏偏失效。它們無法提供與投資級別政府債券相同的緩衝器效果。從風險行為的角度來看，不妨將高收益債券視為更接近股票而非債券的資產。
 
-**Misconception 4: "Bond funds and individual bonds are the same thing."**
+**誤解四：「債券基金與個別債券是一回事。」**
 
-They are fundamentally different. An individual bond has a specific maturity date, and if you hold it until that date, you know exactly what you will receive. A bond fund never matures. The fund manager constantly buys and sells bonds, and the fund's value (NAV) fluctuates daily. In a rising rate environment, a bond fund can lose money year after year because the portfolio is continuously marked to market. Neither is inherently better; they serve different purposes.
+兩者有根本性的差別。個別債券有明確的到期日，若你持有至到期，你清楚知道自己將收到什麼。債券基金則永遠不會到期。基金經理持續買賣債券，基金的資產淨值每日波動。在利率上升的環境下，債券基金可以年復一年錄得虧損，因為投資組合持續以市值計價。兩者並無優劣之分，只是服務於不同目的。
 
-**Misconception 5: "The coupon rate tells you what you will earn."**
+**誤解五：「票息率告訴你實際可獲得的回報。」**
 
-The coupon rate only tells you the annual interest payment relative to face value. If you buy the bond at a premium (above par), your actual return (yield) will be lower than the coupon rate. If you buy at a discount, your yield will be higher. Always look at yield to maturity, not coupon rate, when evaluating bond returns.
+票息率只告訴你相對於票面值的年利息支付金額。若你以溢價（高於票面值）購入債券，你的實際回報（收益率）將低於票息率；若以折讓價購入，收益率將高於票息率。評估債券回報時，請務必查看到期收益率，而非票息率。
 
-**Misconception 6: "With stocks returning more over time, bonds are a waste of money."**
+**誤解六：「股票長期回報更高，投資債券是浪費。」**
 
-This ignores the crucial role of volatility in real-world investing. A 100% stock portfolio has higher expected returns on paper, but the gut-wrenching drawdowns can cause investors to panic-sell at the worst possible time. Studies consistently show that investor behavior (selling in panic, buying in euphoria) destroys far more wealth than suboptimal asset allocation. The bonds in your portfolio are there not just for returns, but to prevent you from making catastrophic emotional decisions about the rest of your portfolio.
+這種說法忽略了波動性在現實投資中的關鍵作用。100%股票的投資組合在理論上預期回報更高，但令人心寒的大幅回撤往往導致投資者在最糟糕的時機恐慌性出貨。研究一再顯示，投資者的行為（在恐慌中沽出、在狂熱中買入）所造成的財富損毀，遠超資產配置欠佳帶來的影響。投資組合中的債券不僅為回報而存在，更重要的是防止你在股票部分作出災難性的情緒化決定。
 
-**Misconception 7: "All government bonds are equally safe."**
+**誤解七：「所有政府債券的安全程度相同。」**
 
-U.S. Treasury bonds are extremely safe, but government bonds from other countries carry varying degrees of risk. Greece's government bonds lost approximately 75% of their value during the European debt crisis of 2010-2012. Argentina has defaulted on its government bonds multiple times. Even within the "safe" category, longer-maturity Treasuries carry significant interest rate risk, as we saw in 2022. When people say "government bonds are safe," they usually mean short-to-intermediate-term U.S. Treasury bonds specifically.
+美國國庫債券的安全程度極高，但其他國家的政府債券則風險各異。希臘政府債券在2010至2012年歐債危機期間損失了約75%的價值。阿根廷更曾多次對政府債券違約。即便在「安全」的類別之內，長期國庫債券仍承載顯著的利率風險，2022年的市況正是明證。當人們說「政府債券安全」，通常具體指的是短期至中期的美國國庫債券。
 
 ---
 
-### d) Common Questions and Answers
+### d) 常見問題與解答
 
-**Q1: How much of my portfolio should be in bonds?**
+**問題一：投資組合中應有多少比例配置債券？**
 
-A: A common rule of thumb is to hold your age in bonds (30 years old = 30% bonds), though many advisors now suggest a more aggressive "age minus 20" for younger investors (30 years old = 10% bonds). The right percentage depends on your risk tolerance, time horizon, income needs, and other sources of financial stability. At minimum, if you have any money you cannot afford to lose within the next 5 years, that money belongs in bonds or cash, not stocks.
+答：一個常見的經驗法則是以年齡作為債券配置比例（30歲 = 30%債券），不過許多財務顧問現建議年輕投資者採用更進取的「年齡減20」法則（30歲 = 10%債券）。合適的比例取決於你的風險承受能力、投資期限、收入需求及其他財務穩定來源。最低限度而言，若你有任何資金是在未來5年內不能承受虧損的，那筆錢應放在債券或現金，而非股票。
 
-**Q2: Why did bonds lose so much money in 2022?**
+**問題二：為何債券在2022年虧損如此嚴重？**
 
-A: The Federal Reserve raised interest rates at the fastest pace in 40 years, from near 0% to over 4% in a single year. Because bond prices move inversely to yields, this rapid rate increase caused historic bond price declines. Long-duration bonds were hit hardest; the TLT ETF (20+ year Treasuries) fell about 31%. This was an exceptional year driven by the unusual starting point of near-zero interest rates combined with the fastest tightening cycle in modern history.
+答：聯邦儲備局以40年來最快的速度加息，在短短一年內將利率從接近0%提升至逾4%。由於債券價格與收益率反向移動，這次急劇的加息引發了歷史性的債券價格跌幅。長存續期債券受創最深——TLT交易所買賣基金（20年以上國庫債券）下跌約31%。這是一個特殊年份，由近乎零利率的異常起點，加上現代史上最快的緊縮周期共同造就。
 
-**Q3: What is the difference between Treasury bonds and municipal bonds?**
+**問題三：國庫債券與市政債券有何分別？**
 
-A: Treasury bonds are issued by the federal government and their interest is exempt from state and local taxes but subject to federal tax. Municipal bonds (munis) are issued by state and local governments, and their interest is generally exempt from federal taxes and often exempt from state taxes if you live in the issuing state. For investors in high tax brackets, the tax advantage of munis can make their after-tax return competitive with or better than Treasuries, even though their pre-tax yields are lower.
+答：國庫債券由聯邦政府發行，其利息免繳州稅及地方稅，但須繳納聯邦稅。市政債券（簡稱市政債）由州及地方政府發行，其利息通常免繳聯邦稅，若你居於發行州份亦通常免繳州稅。對於高稅率級別的投資者而言，市政債的稅務優惠可令其稅後回報與國庫債券相當甚至更優，即使其稅前收益率較低。
 
-**Q4: Can I lose money on a government bond?**
+**問題四：持有政府債券會虧損嗎？**
 
-A: You will not lose money due to default on a U.S. Treasury bond (the government can print money to repay). However, you can lose money if you sell before maturity when yields have risen (price will be below what you paid). You can also lose purchasing power if inflation exceeds your bond's yield. In real (inflation-adjusted) terms, government bonds can and do produce negative returns.
+答：持有美國國庫債券不會因違約而虧損（政府可以印鈔償債）。然而，若在收益率上升後、到期日前沽出，你可能虧損（價格將低於購入價）。若通脹超過債券收益率，你的購買力也會下降。以實際（通脹調整後）回報計算，政府債券確實可以出現負回報。
 
-**Q5: What happens to bonds during a recession?**
+**問題五：衰退期間債券表現如何？**
 
-A: Government bonds typically perform very well during recessions because the Federal Reserve cuts interest rates (pushing bond prices up) and investors flee to the safety of government debt. Corporate bonds, especially high-yield, can perform poorly during recessions because default fears widen credit spreads. This divergence is why government bonds are the preferred portfolio shock absorber.
+答：衰退期間，政府債券通常表現亮眼，因為聯邦儲備局會下調利率（推高債券價格），加上投資者湧入政府債券避險。企業債券，尤其是高收益債券，在衰退期間往往表現欠佳，因為對違約的憂慮擴大了信用利差。這種分化正是政府債券成為首選投資組合緩衝器的原因。
 
-**Q6: Should I buy individual bonds or bond funds?**
+**問題六：應買個別債券還是債券基金？**
 
-A: For most investors with portfolios under $500,000, bond ETFs offer the best combination of diversification, low cost, and liquidity. If you have a specific liability to match (like funding a known expense in 5 years), individual bonds or a bond ladder might be more appropriate because you can hold to maturity and eliminate interest rate risk. Bond ladders involve buying bonds maturing in consecutive years (1-year, 2-year, 3-year, etc.) so you always have bonds maturing to provide liquidity.
+答：對於投資組合規模低於50萬美元的大多數投資者而言，債券交易所買賣基金提供了分散投資、低成本與流動性的最佳組合。若你有特定的負債需要匹配（例如5年後支付某項已知開支），個別債券或債券梯或許更為合適，因為你可以持有至到期，從而消除利率風險。債券梯是指購買在連續年份到期的債券（1年、2年、3年等），以確保持續有債券到期提供流動性。
 
-**Q7: What is a bond ladder?**
+**問題七：什麼是債券梯？**
 
-A: A bond ladder is a strategy where you buy bonds with staggered maturity dates. For example, you might buy bonds maturing in 1, 2, 3, 4, and 5 years. When the 1-year bond matures, you reinvest the proceeds in a new 5-year bond, maintaining the ladder structure. This provides regular liquidity, reduces interest rate risk (you are never locked into one rate for a long period), and takes advantage of typically higher yields on longer maturities.
+答：債券梯是一種購買不同到期日債券的策略。例如，你可能購買1年、2年、3年、4年及5年到期的債券。當1年期債券到期，你將所得重新投資於新的5年期債券，維持梯狀結構。這樣既提供定期流動性，又降低利率風險（你從不將資金全部鎖定於同一利率水平），同時善用較長到期期限通常較高的收益率。
 
 ```
-BOND LADDER EXAMPLE ($50,000 investment)
+債券梯例子（$50,000 投資）
 
-Year 1:  $10,000 in 1-year bond  ---> matures, reinvest in 5-year
-Year 2:  $10,000 in 2-year bond  ---> matures, reinvest in 5-year
-Year 3:  $10,000 in 3-year bond  ---> matures, reinvest in 5-year
-Year 4:  $10,000 in 4-year bond  ---> matures, reinvest in 5-year
-Year 5:  $10,000 in 5-year bond  ---> matures, reinvest in 5-year
+1 年期：$10,000 投資 1 年期債券 ---> 到期，再投資 5 年期
+2 年期：$10,000 投資 2 年期債券 ---> 到期，再投資 5 年期
+3 年期：$10,000 投資 3 年期債券 ---> 到期，再投資 5 年期
+4 年期：$10,000 投資 4 年期債券 ---> 到期，再投資 5 年期
+5 年期：$10,000 投資 5 年期債券 ---> 到期，再投資 5 年期
 
-     Year 1    Year 2    Year 3    Year 4    Year 5
-     [Bond A]  [Bond B]  [Bond C]  [Bond D]  [Bond E]
-              [New E1]  [Bond C]  [Bond D]  [Bond E]
-                        [New E2]  [Bond D]  [Bond E]
+       第 1 年  第 2 年  第 3 年  第 4 年  第 5 年
+       [債券甲] [債券乙] [債券丙] [債券丁] [債券戊]
+               [新戊 1]  [債券丙] [債券丁] [債券戊]
+                         [新戊 2]  [債券丁] [債券戊]
 
-Each year: one bond matures, providing liquidity
-Each reinvestment: captures current market rates
+每年：一隻債券到期，提供流動性
+每次再投資：捕捉當時市場利率
 ```
 
-**Q8: What is the "risk-free rate" and why is it based on bonds?**
+**問題八：什麼是「無風險利率」，為何以債券為基礎？**
 
-A: The risk-free rate is the theoretical return you can earn with zero risk of default. In practice, the yield on short-term U.S. Treasury bills is used as the risk-free rate because the U.S. government has never defaulted on its debt. This rate is foundational to all of finance because every investment's expected return is defined as the risk-free rate plus a risk premium. When the risk-free rate changes, it reprices everything from stocks to real estate to corporate bonds.
+答：無風險利率是理論上可以在零違約風險下獲得的回報。實際上，美國短期國庫票據的收益率被用作無風險利率，因為美國政府從未對其債務違約。這一利率是整個金融體系的基石，因為每項投資的預期回報均定義為無風險利率加上風險溢價。當無風險利率改變，從股票到房地產再到企業債券的所有資產估值均會隨之重新定價。
 
-**Q9: What are TIPS, and should I own them?**
+**問題九：什麼是通脹保值債券？我是否應該持有？**
 
-A: Treasury Inflation-Protected Securities (TIPS) are government bonds whose principal adjusts with inflation (as measured by CPI). If inflation is 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon payment is calculated on the new, higher principal. TIPS protect against inflation but can perform poorly when real interest rates rise. They are a useful component for investors particularly concerned about inflation eroding their purchasing power, but they are not a replacement for nominal Treasuries in a diversified portfolio.
+答：通脹保值債券（TIPS）是本金隨通脹（以消費物價指數衡量）調整的政府債券。若通脹率為3%，面值 $1,000 的通脹保值債券本金調整為 $1,030，票息支付則按新的較高本金計算。通脹保值債券可抵禦通脹，但當實際利率上升時表現可能欠佳。對於特別擔憂通脹侵蝕購買力的投資者而言，它是有用的配置選項，但不能取代分散投資組合中的普通國庫債券。
 
-**Q10: How do rising interest rates affect my stock portfolio?**
+**問題十：利率上升如何影響我的股票投資組合？**
 
-A: Rising bond yields increase the discount rate used to value future cash flows, which tends to push stock prices lower, particularly for growth stocks whose value depends heavily on distant future earnings. Rising rates also make bonds more attractive relative to stocks, drawing some capital away from equities. However, if rates are rising because the economy is strong, corporate earnings growth can offset the negative discount rate effect. The speed and magnitude of rate increases matters more than the absolute level.
+答：債券收益率上升會提高用以折現未來現金流的折現率，這往往壓低股票價格，尤其是估值高度依賴遙遠未來盈利的增長型股票。利率上升亦令債券相對股票更具吸引力，部分資金因此從股市流出。然而，若利率上升的背景是強勁的經濟增長，企業盈利增長可能抵消折現率上升的負面影響。加息的速度和幅度，往往比利率的絕對水平更為關鍵。
 
 ---
 
-## YouTube Script
+## YouTube 腳本
 
-[VISUAL: Animated intro with show logo. Text: "Week 5: Bonds - Your Portfolio's Shock Absorber - Level 1: Foundations"]
+[VISUAL: 動畫片頭，配節目標誌。文字：「第五週：債券——你投資組合的緩衝器——第一級：基礎篇」]
 
-**Alex:** Welcome back, everyone. Today we are tackling what I think might be the most underappreciated topic in all of investing. We are going to talk about bonds.
+**Horace：** 歡迎回來，各位。今天我們要深入探討一個我認為在整個投資領域中最被低估的話題，那就是債券。
 
-**Sam:** Bonds. Honestly, Alex, every time someone mentions bonds, my eyes kind of glaze over. Stocks are exciting. Crypto is exciting. Bonds just sound... boring.
+**Stella：** 債券。老實說，陳馬，每次有人提到債券，我的眼神都不自覺地渙散了。股票令人興奮，加密貨幣令人興奮，債券聽起來就是……悶啊。
 
-**Alex:** And that reaction is exactly why we need this lesson. Bonds are supposed to be boring. Boring is their job. When your stock portfolio is crashing 30% and you cannot sleep at night, the boring part of your portfolio that is holding steady or going up is what keeps you from panic-selling everything. Bonds are the seatbelt in your investment car. You do not notice them until you crash, and then you are very glad they were there.
+**Horace：** 你這個反應，正正是我們今天必須上這一課的原因。債券本來就應該是悶的，這是它的工作。當你的股票投資組合暴跌三成、你夜不能寐的時候，投資組合中那個保持穩定甚至逆勢上漲的部分，正是讓你不會恐慌性沽貨的關鍵所在。債券是你投資這輛車上的安全帶——平時你根本不會注意到它，但一旦遇上碰撞，你會慶幸自己繫上了它。
 
-[VISUAL: Animation of a car driving smoothly, then hitting a pothole. The driver with a seatbelt (labeled "Bonds") stays in place. The driver without a seatbelt (labeled "100% Stocks") goes through the windshield. Text: "Boring = Feature, Not a Bug"]
+[VISUAL: 一輛汽車平穩行駛的動畫，然後撞上坑洞。繫上安全帶（標示「債券」）的司機紋絲不動；沒有繫安全帶（標示「100%股票」）的司機穿出擋風玻璃。文字：「悶＝優點，而非缺點」]
 
-**Sam:** OK, that is a good way to put it. So let us start from scratch. What IS a bond?
+**Stella：** 好，這個比喻確實貼切。那我們就從最基本的說起——債券到底是什麼？
 
-**Alex:** A bond is a loan. That is it. When you buy a bond, you are lending money to someone. It could be the U.S. government, a corporation like Apple, or a city government. In return for lending them money, they promise to pay you interest on a regular schedule and give your money back at a specific date in the future.
+**Horace：** 債券就是一筆借款，就這麼簡單。當你買入一隻債券，你就是在向某人借出資金。借款方可以是美國政府、蘋果這樣的企業，或者某個市政機構。他們借了你的錢，承諾按固定時間表向你支付利息，並在未來某個特定日期歸還你的本金。
 
-**Sam:** So it is the opposite of a stock? With a stock, I own a piece of the company. With a bond, I am just lending money to the company.
+**Stella：** 所以它跟股票是相反的？買股票，我擁有公司的一部分；買債券，我只是借錢給公司？
 
-**Alex:** Exactly right. And that distinction matters enormously. As a stock owner, you are last in line. If the company goes bankrupt, everyone else gets paid before you. As a bondholder, you are near the front of the line. The company is legally obligated to pay you before they pay any dividends to stockholders. That priority in the capital structure is a fundamental protection.
+**Horace：** 說得非常準確。而且這個分別至關重要。作為股票持有人，你是排在最後的。公司若破產，其他人都先於你獲得清償。作為債券持有人，你接近隊頭。公司在法律上必須先向你還款，才能向股東派發股息。這種在資本結構中的優先地位，是一種根本性的保護。
 
-**Sam:** Is that why bonds are considered safer than stocks?
+**Stella：** 這就是為什麼債券被認為比股票安全的原因？
 
-**Alex:** It is one of the key reasons. The other reason is the contractual nature of bond payments. When you buy a stock, the company might pay dividends, might not, might cut them at any time. Nobody guarantees your return. A bond is a legal contract. The issuer is legally obligated to make every single coupon payment and return your principal at maturity. If they miss a payment, they are in technical default, and bondholders can take legal action. That contractual certainty is something stocks simply cannot offer.
+**Horace：** 這是關鍵原因之一。另一個原因是債券支付的合約性質。買股票，公司或許會派息，或許不會，隨時可以削減股息，沒有人保證你的回報。債券是一份法律合約，發行人有法律義務履行每一次票息支付，並在到期時歸還你的本金。若他們錯過任何一次支付，即屬技術性違約，債券持有人可採取法律行動。這種合約確定性是股票根本無法提供的。
 
-[VISUAL: A line of people at a window labeled "Company Goes Bankrupt - Who Gets Paid?" The order from front to back: "Secured Bondholders", "Unsecured Bondholders", "Preferred Stockholders", "Common Stockholders" (with a sad face). Text: "Bonds = Lender Priority"]
+[VISUAL: 一排人在「公司破產——誰先獲得清償？」的窗口前排隊。順序由前至後：「有抵押債券持有人」、「無抵押債券持有人」、「優先股股東」、「普通股股東」（配悲傷表情）。文字：「債券＝借款人優先權」]
 
-**Sam:** So bonds are safer because you get paid first?
+**Stella：** 所以債券更安全，是因為你先獲得清償？
 
-**Alex:** Generally, yes. And there is another layer of safety. Bond payments are contractual obligations. When Apple says they will pay 3% interest on their bond, that is a legal promise. If they miss that payment, they are in default, and bondholders can force the company into bankruptcy. Stock dividends, on the other hand, can be cut or eliminated any time the board of directors decides. No one is obligated to pay them.
+**Horace：** 一般而言是的。還有另一層保障。債券支付是合約義務。蘋果說要支付3%利息，這是法律承諾。若他們未能履約，即屬違約，債券持有人可以強制公司申請破產。股息則截然不同，董事會隨時可以決定削減或取消，沒有任何義務。
 
-**Sam:** Got it. So walk me through the basic structure. What are the components of a bond?
+**Stella：** 明白了。那請你說說基本結構——一隻債券有哪些組成部分？
 
-**Alex:** Every bond has three key pieces. First, the face value, also called par value. This is the amount you are lending, usually $1,000. Second, the coupon rate, which is the annual interest rate. A 4% coupon on a $1,000 bond means you get $40 per year. And third, the maturity date, which is when the issuer gives you your $1,000 back.
+**Horace：** 每隻債券都有三個核心部分。第一是票面值，又稱面值，即你借出的金額，通常是1,000美元。第二是票息率，即年利率。$1,000 債券的4%票息，意味著每年獲得 $40。第三是到期日，即發行人歸還你 $1,000 的日期。
 
-[ANIMATION: Reference animation/week05_bond_pricing.py - An animation showing a bond being constructed piece by piece. A $1,000 bill appears (face value), then a percentage sign drops in (coupon rate = 4%), then a calendar flips to show a date 10 years out (maturity). Cash flow arrows then animate: small $20 arrows flowing from the bond to the investor every 6 months, and a large $1,000 arrow flowing back at the end.]
+[ANIMATION: Reference animation/week05_bond_pricing.py - 動畫逐步構建一隻債券。出現一張 $1,000 鈔票（票面值），然後落下一個百分號（票息率 = 4%），再翻動日曆顯示10年後的日期（到期日）。之後動畫展示現金流箭頭：每6個月一條小小的 $20 箭頭從債券流向投資者，最後一條大的 $1,000 箭頭在到期時反向流回。]
 
-**Sam:** Wait, you said $40 per year, but the payments are every six months?
+**Stella：** 等等，你說每年 $40，但支付是每六個月一次？
 
-**Alex:** Good catch. Most bonds pay semi-annually. So a 4% coupon means two payments of $20 each, six months apart. At the end, when the bond matures, you get your final coupon payment plus your $1,000 face value back.
+**Horace：** 觀察得仔細。大多數債券按半年支付。所以4%票息意味著兩筆各 $20 的支付，相隔六個月。債券到期時，你會收到最後一次票息支付，加上 $1,000 的票面值。
 
-**Sam:** So if I buy a 10-year bond with a 4% coupon, I know exactly what I am getting: $20 every six months for 10 years, and then $1,000 at the end?
+**Stella：** 所以如果我買了一隻10年期、4%票息的債券，我清楚知道自己會得到什麼：十年來每六個月 $20，最後再加 $1,000？
 
-**Alex:** If you hold it to maturity and the issuer does not default, yes. That predictability is one of the main attractions of bonds. With stocks, you never know what your returns will be. With bonds, you can calculate your exact cash flows from day one.
+**Horace：** 若你持有至到期日且發行人沒有違約，是的。這種可預測性是債券的主要吸引力之一。股票的回報永遠是未知數，但債券從第一天起就讓你計算出確切的現金流。
 
-[VISUAL: Side-by-side comparison. Left: "Stock Returns" showing a jagged, unpredictable line with question marks. Right: "Bond Cash Flows" showing a clean, predictable staircase of coupon payments with a final step up for the principal return. Text: "Bonds = Predictable Cash Flows"]
+[VISUAL: 左右並排對比。左方：「股票回報」顯示一條帶問號的鋸齒形、難以預測的曲線。右方：「債券現金流」顯示整齊、可預測的票息支付階梯，最後一階向上跳升代表本金返還。文字：「債券＝可預測的現金流」]
 
-**Sam:** OK, this is where I always get confused. You mentioned the coupon rate is 4%. But I also hear people talking about "yield." Are those different things?
+**Stella：** 好，這裡有個地方我一直搞不清楚。你提到票息率是4%，但我也聽到人們談論「收益率」。這兩者是不同的東西嗎？
 
-**Alex:** This is one of the most important distinctions in bond investing, and it confuses almost everyone at first. The coupon rate is fixed. It never changes. It is printed on the bond, so to speak. But after a bond is issued, it can trade in the secondary market, and its price can go above or below $1,000.
+**Horace：** 這是債券投資中最重要的區分之一，幾乎所有初學者起初都會混淆。票息率是固定的，永遠不會改變，可以說是印在債券上的數字。但債券發行後可以在二級市場交易，其價格可以高於或低於 $1,000。
 
-**Sam:** Why would the price change?
+**Stella：** 為什麼價格會改變？
 
-**Alex:** Because of interest rates. Let us say you bought a bond paying a 3% coupon. A year later, new bonds are being issued with 5% coupons. Now your bond looks less attractive by comparison. If you try to sell it, nobody will pay full price for a 3% bond when they can buy a brand new 5% bond. So your bond's price drops.
+**Horace：** 因為利率的緣故。假設你買了一隻票息率為3%的債券。一年後，新發行的債券票息率為5%。現在，相比之下你的債券吸引力下降了。若你嘗試出售，沒有人會為一隻3%的債券付全價，因為他們可以用同樣的價錢買到全新的5%債券。所以你的債券價格必須下跌。
 
-**Sam:** That makes sense. If there is something better available, the old one has to get cheaper.
+**Stella：** 這說得通。有更好的選擇時，舊的自然要便宜一點。
 
-**Alex:** Right. And when the price drops, the yield goes up. Here is the key formula. Current yield equals the annual coupon payment divided by the current price. So your 3% coupon bond pays $30 per year. If it drops in price to $900, the yield is $30 divided by $900, which is 3.33%. The bond's yield has risen to become more competitive with new bonds.
+**Horace：** 正是。而當價格下跌，收益率就會上升。關鍵的計算公式是：當前收益率等於年票息支付除以當前價格。你那隻3%票息債券每年支付 $30。若價格跌至 $900，收益率就是 $30 除以 $900，等於3.33%。債券的收益率已上升至足以與新債券競爭的水平。
 
-[VISUAL: An animated scale/balance. On one side: "Bond Price" with a weight. On the other side: "Bond Yield" with a weight. As Bond Price goes down, Bond Yield goes up, and vice versa. Text in center: "ALWAYS Opposite. ALWAYS."]
+[VISUAL: 一個動畫天秤。左邊：「債券價格」（有砝碼）；右邊：「債券收益率」（有砝碼）。債券價格下跌，債券收益率上升，反之亦然。中間文字：「永遠相反。永遠如此。」]
 
-**Sam:** So price and yield move in opposite directions?
+**Stella：** 所以價格和收益率永遠朝相反方向移動？
 
-**Alex:** Always. This is the iron law of bonds. It is not a tendency or a correlation. It is a mathematical certainty. Price up, yield down. Price down, yield up. If you remember nothing else from today's lesson, remember this.
+**Horace：** 永遠如此。這是債券的鐵律，不是傾向或相關性，而是數學上的必然。價格漲，收益率跌；價格跌，收益率漲。今天這一課如果你只記得一件事，就記住這個。
 
-**Sam:** Why does this matter so much?
+**Stella：** 這為何如此重要？
 
-**Alex:** Because it directly affects your portfolio. When the Federal Reserve raises interest rates, bond prices fall. When they cut rates, bond prices rise. In 2022, the Fed raised rates at the fastest pace in four decades, and the bond market had one of its worst years in history. The broad bond market index fell over 13%. Long-term Treasury bonds fell about 31%.
+**Horace：** 因為它直接影響你的投資組合。當聯邦儲備局加息，債券價格下跌；當減息，債券價格上升。2022年，聯儲局以四十年來最快的速度加息，債券市場經歷了歷史上最慘烈的年份之一。廣泛債券市場指數下跌逾13%，長期國庫債券更下跌約31%。
 
-**Sam:** Wait, I thought bonds were supposed to be safe!
+**Stella：** 等等，我以為債券是安全的！
 
-**Alex:** And there is the nuance. Bonds are safe in terms of getting your money back at maturity. But their prices can fluctuate significantly along the way, especially for long-term bonds. A 30-year Treasury bond can easily lose 20% of its value in a single year if rates rise sharply. Short-term bonds, like 1-2 year Treasuries, are much more stable because their prices barely move.
+**Horace：** 這就是箇中微妙之處。債券在持有至到期日取回資金方面是安全的。但在持有期間，其價格可以大幅波動，尤其是長期債券。一隻30年期國庫債券在利率急劇上升的一年裡，價格可以輕易下跌20%。短期債券，例如1至2年期國庫債券，就穩定得多，因為其價格變動幅度極小。
 
-[VISUAL: Three horizontal bars showing price sensitivity. "2-Year Bond: Small price swing" (thin bar, small left-right movement). "10-Year Bond: Moderate price swing" (medium bar, larger movement). "30-Year Bond: Large price swing" (long bar, dramatic movement). Text: "Duration = Sensitivity to Rate Changes"]
+[VISUAL: 三條水平條顯示價格敏感度。「2年期債券：小幅價格波動」（細條，左右微動）；「10年期債券：中等幅度價格波動」（中條，較大幅度移動）；「30年期債券：大幅價格波動」（長條，劇烈移動）。文字：「存續期＝對利率變動的敏感度」]
 
-**Sam:** You just said something important. Longer bonds are more sensitive. Is there a measure for that?
+**Stella：** 你剛才說了一個重要的詞——較長期的債券更敏感。這有量化指標嗎？
 
-**Alex:** Yes, it is called duration. Duration tells you approximately how much a bond's price will change for every 1% change in interest rates. A bond with a duration of 5 years will lose about 5% if rates rise by 1%. A bond with a duration of 20 will lose about 20%.
+**Horace：** 有，叫做存續期。存續期告訴你，利率每變動1%，債券價格大約會變動多少百分比。存續期為5年的債券，若利率上升1%，價格大約下跌5%；存續期為20的債券，則大約下跌20%。
 
-**Sam:** So if I am worried about rising rates, I want short duration?
+**Stella：** 所以若我擔心利率上升，我就想要短存續期？
 
-**Alex:** Exactly. Short-duration bonds are your defensive choice. And if you think rates are going to fall, longer-duration bonds will give you bigger gains. This is a key strategic decision in bond investing.
+**Horace：** 完全正確。短存續期債券是你的防禦性選擇。若你認為利率將要下跌，較長存續期的債券則會帶來更大的價格升幅。這是債券投資中一個重要的策略性決定。
 
-**Sam:** Let us talk about the different types of bonds. I know there are government bonds and corporate bonds, but what are the real differences?
+**Stella：** 讓我們談談不同類型的債券。我知道有政府債券和企業債券，但實質的分別是什麼？
 
-**Alex:** The biggest difference is credit risk. U.S. Treasury bonds are backed by the full faith and credit of the U.S. government. They are considered the safest investments in the world because the government can tax and even print money to pay its debts. The chance of the U.S. defaulting on Treasury bonds is essentially zero.
+**Horace：** 最大的分別是信用風險。美國國庫債券由美國聯邦政府以完整信用背書，被視為全球最安全的投資，因為政府可以徵稅甚至印鈔來償還債務。美國政府對國庫債券違約的可能性幾乎為零。
 
-**Sam:** And corporate bonds?
+**Stella：** 那企業債券呢？
 
-**Alex:** Corporate bonds are issued by companies, and companies can and do go bankrupt. So corporate bonds carry credit risk, the risk that the issuer will not be able to pay you back. To compensate you for taking that risk, corporate bonds pay a higher yield than Treasuries. The extra yield over Treasuries is called the credit spread.
+**Horace：** 企業債券由企業發行，而企業確實會破產。所以企業債券承載信用風險——即發行人無力還款的風險。為了補償你承擔這個風險，企業債券的收益率高於國庫債券。高於國庫債券的額外收益率稱為信用利差。
 
-[VISUAL: A staircase/layer diagram. Bottom step: "U.S. Treasuries: 4.0% yield, Essentially Zero Default Risk". Second step: "Investment-Grade Corporate (AAA-BBB): 5.0-5.5% yield, Low Default Risk". Top step: "High-Yield/Junk (BB and below): 7.0-9.0%+ yield, Higher Default Risk". Arrows showing the spread between each level.]
+[VISUAL: 一個階梯式層次圖。底層：「美國國庫債券：收益率4.0%，違約風險幾近於零」。第二層：「投資級別企業債（AAA-BBB）：收益率5.0-5.5%，違約風險低」。頂層：「高收益／垃圾級別（BB及以下）：收益率7.0-9.0%以上，違約風險較高」。箭頭顯示各層次之間的利差。]
 
-**Sam:** How do I know which companies are risky and which are safe?
+**Stella：** 我怎麼知道哪些企業有風險，哪些安全？
 
-**Alex:** That is where credit ratings come in. Three major agencies, S&P, Moody's, and Fitch, evaluate every bond issuer and assign a letter grade. Triple-A is the highest, meaning extremely safe. Then you go down through double-A, single-A, triple-B. Triple-B minus is the lowest rung of what is called investment grade.
+**Horace：** 這就是信用評級的用途。標普、穆迪及惠譽三家主要機構評估每個債券發行人並給予字母評級。AAA是最高級別，代表極為安全。然後依次往下：AA、A、BBB。BBB-是被稱為投資級別的最低一級。
 
-**Sam:** And below that?
+**Stella：** 再往下呢？
 
-**Alex:** Below investment grade is high yield, also colorfully known as junk bonds. These are rated BB and below. They pay much higher yields because there is a real chance the company might default. During normal times, junk bond default rates are around 2-3%. During recessions, they can spike to 10% or higher.
+**Horace：** 投資級別以下就是高收益，也形象地稱為垃圾債券，評級為BB及以下。它們的收益率高得多，因為企業確實有可能違約。正常時期，垃圾債券的違約率約為2至3%；衰退期間，可飆升至10%或以上。
 
-**Sam:** So junk bonds are not really shock absorbers.
+**Stella：** 所以垃圾債券根本起不到緩衝器的作用。
 
-**Alex:** Not at all. In fact, junk bonds tend to behave more like stocks during a crisis. When the economy weakens, investors worry about defaults and sell junk bonds. Their prices crash at the same time stocks are crashing. That is the exact opposite of what you want from the bond portion of your portfolio.
+**Horace：** 完全不能。事實上，危機期間垃圾債券的行為更像股票。當經濟轉弱，投資者對違約的憂慮上升，紛紛沽出垃圾債券，其價格在股票崩跌的同時一起下挫。這與你希望投資組合債券部分發揮的作用恰恰相反。
 
-[VISUAL: Two-panel comparison during "2008 Crisis." Left panel: "Treasury Bonds" showing a green upward arrow (+20%). Right panel: "Junk Bonds" showing a red downward arrow (-26%). Text: "Not All Bonds Are Created Equal"]
+[VISUAL: 「2008年金融危機」期間的雙面板對比。左面板：「國庫債券」顯示綠色向上箭頭（+20%）。右面板：「垃圾債券」顯示紅色向下箭頭（-26%）。文字：「並非所有債券生而平等」]
 
-**Sam:** That is a really important distinction. So for the shock-absorber role, I want government bonds, not junk bonds.
+**Stella：** 這個分別真的很重要。所以要發揮緩衝器作用，我需要的是政府債券，而非垃圾債券。
 
-**Alex:** Exactly. Government bonds and investment-grade bonds are your shock absorbers. Junk bonds are a different tool for a different purpose. They are more of a return-enhancement play, but they will not protect you in a downturn.
+**Horace：** 正是。政府債券和投資級別債券是你的緩衝器；垃圾債券是另一種工具，服務於另一種目的——它們更像是增強回報的選項，但在市場下行時不會保護你。
 
-**Sam:** Let us talk about the yield curve. I hear people on the news talking about it, especially when it inverts. What is it?
+**Stella：** 說說收益率曲線吧。新聞裡常常提到，尤其是倒掛的時候。它究竟是什麼？
 
-**Alex:** The yield curve is simply a graph that plots the yields of government bonds of different maturities at a single point in time. On the left, you have short-term bonds like 3-month and 2-year Treasuries. On the right, you have long-term bonds like 10-year and 30-year Treasuries. Normally, the curve slopes upward because longer-term bonds pay higher yields to compensate for the additional time and uncertainty.
+**Horace：** 收益率曲線簡單來說就是一張圖表，在同一時點上描繪不同到期期限政府債券的收益率。左方是短期債券，如3個月及2年期國庫債券；右方是長期債券，如10年及30年期國庫債券。正常情況下，曲線向上傾斜，因為較長期限的債券收益率較高，以補償額外的時間和不確定性。
 
-**Sam:** Makes sense. Why would I accept the same yield for locking my money up for 30 years versus 1 year?
+**Stella：** 合情合理。把資金鎖定30年與1年，為何要接受同樣的收益率呢？
 
-**Alex:** You would not. And that is why a normal, upward-sloping yield curve is the typical state of affairs. But sometimes the curve inverts, meaning short-term yields are higher than long-term yields. And that is a big deal.
+**Horace：** 確實不應該。所以向上傾斜的正常收益率曲線是常態。但有時曲線會倒掛，即短期收益率高於長期收益率，這就是一個大事件了。
 
-[ANIMATION: Reference animation/week05_bond_pricing.py - An animated yield curve that morphs between shapes. Starts with a normal upward slope, then gradually flattens, then inverts. Labels appear at each stage: "Normal: Economy Healthy", "Flat: Transition Period", "Inverted: Recession Warning". A historical timeline below shows previous inversions followed by recessions, with dates.]
+[ANIMATION: Reference animation/week05_bond_pricing.py - 一條動畫收益率曲線在不同形態之間變形：從正常的向上傾斜，逐漸趨平，然後倒掛。每個階段出現對應標籤：「正常形態：經濟健康」、「平坦形態：過渡時期」、「倒掛形態：衰退預警」。下方歷史時間線顯示過往倒掛事件及隨後發生的衰退，附帶日期。]
 
-**Sam:** Why does an inverted yield curve predict recessions?
+**Stella：** 為什麼倒掛的收益率曲線能預測衰退？
 
-**Alex:** Think about what the yield curve represents. Long-term yields reflect the market's expectations for future short-term rates. If the market expects the economy to slow down, it expects the Fed will have to cut rates in the future. So long-term yields fall below current short-term yields. Historically, every U.S. recession in the past 50 years has been preceded by a yield curve inversion. It is not a perfect timing tool, but it is one of the most reliable warning signals we have.
+**Horace：** 想想收益率曲線所代表的意義。長期收益率反映市場對未來短期利率的預期。若市場預期經濟將放緩，就預期聯儲局日後將被迫減息，從而令長期收益率跌破當前短期收益率。在過去50年，美國每一次衰退都由收益率曲線倒掛預先警示。它並非精確的擇時工具，但在所有預警訊號中，其預測記錄名列前茅。
 
-**Sam:** Fascinating. So how should I actually use bonds in my portfolio?
+**Stella：** 真的很有意思。那我實際上應該怎樣在投資組合中運用債券？
 
-**Alex:** The classic approach is the 60/40 portfolio: 60% stocks, 40% bonds. Let me show you why this works. Going back to historical data, a 100% stock portfolio has returned about 10% annually, but with gut-wrenching drawdowns. The worst year was negative 37%. A 60/40 portfolio returned about 8.5% annually, giving up only about 1.5% per year, but the worst year was only negative 20%. And the volatility dropped from about 15% to under 10%.
+**Horace：** 經典做法是60/40投資組合：60%股票、40%債券。讓我告訴你為何這樣有效。回看歷史數據，100%股票的投資組合年均回報約為10%，但伴隨令人難受的大幅回撤，最差的一年是負37%。60/40投資組合年均回報約為8.5%，每年只犧牲約1.5%，但最差的一年僅為負20%，波動性也從約15%降至10%以下。
 
-**Sam:** So you give up a little bit of return but get a lot more stability.
+**Stella：** 所以你犧牲少許回報，換來大得多的穩定性。
 
-**Alex:** That is the trade-off. And here is the thing that most people miss: the stability is not just about comfort. It is about behavior. When your portfolio drops 37%, the temptation to sell everything and go to cash is overwhelming. Millions of people did exactly that in 2008 and 2009. They locked in their losses and missed the recovery. But when your portfolio only drops 20%, while still painful, most people can hold on. The bonds in your portfolio protect you not just from financial loss, but from your own worst instincts.
+**Horace：** 這就是取捨。而大多數人忽略的一點是：穩定性不只關乎心理舒適，更關乎投資行為。當投資組合下跌37%，那種把一切沽清、持現金觀望的衝動幾乎難以抵擋。2008至2009年，確實有數以百萬計的人這樣做——他們鎖定了虧損，然後錯過了反彈。但若投資組合只下跌20%，雖然仍然痛苦，大多數人還是能夠撐下去。你投資組合中的債券，不只保護你免受財務損失，更保護你免受自己最糟糕的本能衝動所傷。
 
-[VISUAL: Two investor reactions side by side. Left: "100% Stock Investor in 2008" showing a panicking figure selling at the bottom (-37%), then the recovery happens without them. Right: "60/40 Investor in 2008" showing a concerned but calm figure holding through -20%, then participating in the recovery. Final wealth comparison shown below.]
+[VISUAL: 兩位投資者反應並排對比。左方：「2008年100%股票投資者」——一個恐慌性在低位沽出（-37%）的人物形象，然後復甦在其不在場的情況下發生。右方：「60/40投資者2008年」——一個憂慮但平靜地撐過-20%的人物形象，然後參與了市場復甦。下方顯示最終財富對比。]
 
-**Sam:** That is such an important point. The best portfolio is the one you can actually stick with.
+**Stella：** 這一點太重要了。最好的投資組合，是你真正能夠堅持持有的那一個。
 
-**Alex:** Exactly. A theoretically optimal portfolio that you abandon in a panic is far worse than a slightly less optimal portfolio that you hold through thick and thin.
+**Horace：** 完全正確。一個理論上最優但你在恐慌中放棄的投資組合，遠比一個略遜一籌但能讓你風雨同舟的投資組合糟糕得多。
 
-**Sam:** How should I actually invest in bonds? Buy individual bonds, or use funds?
+**Stella：** 我實際上應該怎樣投資債券？買個別債券，還是用基金？
 
-**Alex:** For most people, bond ETFs are the way to go. An ETF like BND or AGG gives you exposure to thousands of bonds, government and corporate, across all maturities, for a fee of about 0.03% per year. That is three cents per hundred dollars invested. It is broadly diversified, incredibly low cost, and you can buy and sell it like any stock.
+**Horace：** 對大多數人而言，債券交易所買賣基金是最佳選擇。像BND或AGG這樣的交易所買賣基金，涵蓋數以千計的債券——政府的、企業的，跨越所有到期期限，年費約0.03%，即每投資100元只收三分錢。高度分散、成本極低，且可以像股票一樣買賣。
 
-**Sam:** What about buying Treasuries directly?
+**Stella：** 那直接買國庫債券呢？
 
-**Alex:** You can buy Treasury bonds directly from the U.S. government through their website, TreasuryDirect.gov. This is a good option for I-Bonds, which are inflation-protected savings bonds limited to $10,000 per person per year. For other Treasuries, buying through your brokerage is usually more convenient.
+**Horace：** 你可以通過美國政府的網站TreasuryDirect.gov直接購買國庫債券。對於I-Bonds（通脹保值儲蓄債券，每人每年限額10,000美元），這是個不錯的途徑。對於其他國庫債券，通過券商購買通常更為方便。
 
-[VISUAL: A comparison table showing four ways to buy bonds: "Bond ETFs" (BND, AGG, TLT), "Individual Bonds" (through brokerage), "TreasuryDirect" (I-Bonds, T-Bills), and "Bond Mutual Funds" (Vanguard, Fidelity). Each with a brief pro and con listed.]
+[VISUAL: 一張比較表格，顯示四種投資債券的方式：「債券交易所買賣基金」（BND、AGG、TLT），「個別債券」（通過券商），「財政部直接購買平台」（I-Bonds、國庫票據），以及「債券互惠基金」（先鋒、富達）。每種方式附上簡要優缺點。]
 
-**Sam:** What about a bond ladder? I have heard that term.
+**Stella：** 那債券梯呢？我聽說過這個詞。
 
-**Alex:** A bond ladder is a strategy where you buy bonds maturing in consecutive years. For example, you buy bonds maturing in 1, 2, 3, 4, and 5 years. Each year, the shortest bond matures, you get your money back, and you can reinvest it in a new 5-year bond. This gives you regular liquidity, reduces interest rate risk, and over time, you end up capturing the average of rates across all those years.
+**Horace：** 債券梯是一種購買在連續年份到期的債券的策略。例如，你購買1年、2年、3年、4年及5年到期的債券。每年最短的債券到期，你取回資金，然後再投資於新的5年期債券。這樣既提供定期流動性，又降低利率風險，隨時間推移，你相當於獲得了所有那些年份利率的平均值。
 
-**Sam:** That sounds really practical.
+**Stella：** 聽起來非常實用。
 
-**Alex:** It is. And it is especially useful for retirees who need regular income. Each year, a bond matures and provides cash for living expenses, while the rest of the ladder continues earning interest.
+**Horace：** 確實如此。對需要定期收入的退休人士尤為適合。每年有一隻債券到期，提供日常生活開支所需的現金，其餘債券繼續賺取利息。
 
-**Sam:** Speaking of practical, let me ask about municipal bonds. I hear they have tax advantages?
+**Stella：** 說到實用，請問市政債券呢？我聽說它們有稅務優惠？
 
-**Alex:** Municipal bonds, or munis, are issued by state and local governments. The big advantage is that their interest is generally exempt from federal income tax, and often from state tax too if you live in the issuing state. For someone in a high tax bracket, say 35% federal, a muni bond yielding 3.5% is equivalent to a taxable bond yielding about 5.4%. That tax advantage can be very significant.
+**Horace：** 市政債券由州及地方政府發行，最大的優勢是其利息通常免繳聯邦所得稅，若你居住在發行州份，往往也免繳州稅。對於稅率級別較高的人，例如聯邦稅率35%，一隻收益率3.5%的市政債券，等同於一隻收益率約5.4%的應稅債券。這個稅務優惠可以非常顯著。
 
-**Sam:** So munis are better for people in high tax brackets?
+**Stella：** 所以市政債券對高稅率人士更有利？
 
-**Alex:** Generally, yes. If you are in the 10% or 12% tax bracket, the tax benefit is small and you are usually better off with Treasuries or corporate bonds that pay higher pre-tax yields. But if you are in the 32% bracket or higher, munis deserve serious consideration, especially for taxable accounts. In tax-advantaged accounts like IRAs, the tax benefit does not apply, so munis are less attractive there.
+**Horace：** 一般而言是的。若你屬於10%或12%的稅率級別，稅務利益有限，通常選擇稅前收益率較高的國庫債券或企業債券更為划算。但若你屬於32%或以上的稅率級別，市政債券就值得認真考慮，尤其在應稅帳戶中。在IRA等稅務優惠帳戶裡，稅務利益無從體現，市政債券在這類帳戶中吸引力相對較低。
 
-[VISUAL: A side-by-side tax comparison. "Taxable Bond: 5% yield, 35% tax bracket, After-tax: 3.25%". "Municipal Bond: 3.5% yield, Tax-exempt, After-tax: 3.5%". The muni wins despite the lower headline yield. Text: "Always Compare After-Tax Yields"]
+[VISUAL: 一個稅務對比的並排圖示。「應稅債券：收益率5%，稅率35%，稅後：3.25%」。「市政債券：收益率3.5%，免稅，稅後：3.5%」。市政債券勝出，儘管票面收益率較低。文字：「永遠比較稅後收益率」]
 
-**Sam:** That is a great point about the difference between taxable and tax-advantaged accounts. OK, let me ask about something that happened recently. In 2022, both stocks and bonds fell at the same time. That is not supposed to happen, right?
+**Stella：** 這個應稅帳戶與稅務優惠帳戶的分別很重要。好，讓我問一個近年的問題。2022年股票和債券同時下跌，這不應該發生的，對吧？
 
-**Alex:** Great question. Historically, stocks and bonds have tended to move in opposite directions during crises. Stocks fall, bonds rally, the portfolio stays relatively stable. But 2022 was unusual because the primary driver was inflation and the Fed's aggressive rate hikes. Inflation hurts both stocks (through higher costs and discount rates) and bonds (through rising yields). When inflation is the main risk, the normal stock-bond diversification benefit can break down.
+**Horace：** 問得好。歷史上，股票與債券在危機中往往朝相反方向移動——股票跌，債券漲，整體投資組合維持相對穩定。但2022年很特殊，主要驅動因素是通脹及聯儲局的激進加息。通脹同時損害股票（通過成本上升和折現率提高）和債券（通過收益率上升）。當通脹是主要風險時，股債分散投資的正常效益就可能失效。
 
-**Sam:** So does that mean 60/40 is dead?
+**Stella：** 所以這是否意味著60/40已經過時了？
 
-**Alex:** No. 2022 was the exception, not the rule. The stock-bond diversification benefit has worked for most of the past century. One bad year does not invalidate decades of evidence. And importantly, the conditions that caused 2022, near-zero interest rates combined with a sudden inflation spike, were historically unusual. With bond yields now at more normal levels, the diversification benefit should function as expected during future crises driven by economic weakness rather than inflation.
+**Horace：** 不。2022年是例外，而非常態。過去一個世紀的大部分時間，股債分散投資的效益都運作良好。一個壞年份不能推翻幾十年的實證。重要的是，造成2022年局面的條件——近乎零利率加上通脹的突然飆升——在歷史上極為罕見。現在債券收益率已回歸較正常的水平，未來若危機的根源是經濟疲弱而非通脹，分散投資的效益應能如預期般發揮作用。
 
-[VISUAL: Timeline showing stock-bond correlation. Most periods show negative correlation (bonds rally when stocks fall), with 2022 highlighted as an exception. Text: "2022 Was the Exception, Not the New Rule"]
+[VISUAL: 顯示股債相關性的時間線。大部分時期顯示負相關（股跌債漲），2022年以高亮顯示為例外。文字：「2022年是例外，而非新常態」]
 
-**Sam:** What about Treasury Inflation-Protected Securities? TIPS?
+**Stella：** 那通脹保值債券呢？
 
-**Alex:** TIPS are a special type of Treasury bond where the principal adjusts with inflation. If inflation runs at 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon is paid on the higher amount. They are useful for investors worried about inflation eating into their purchasing power. But they still have interest rate risk, so they can lose value if real interest rates rise.
+**Horace：** 通脹保值債券是一種特殊的國庫債券，其本金隨通脹調整。若通脹率為3%，面值 $1,000 的通脹保值債券本金調整至 $1,030，票息按較高的本金計算。對特別擔心通脹侵蝕購買力的投資者而言，它們是有用的工具。但它們仍然有利率風險，實際利率上升時也會下跌。
 
-**Sam:** One last question. When people talk about the "10-year yield," why is that number so important?
+**Stella：** 最後一個問題。人們說到「10年期收益率」時，為何這個數字如此舉足輕重？
 
-**Alex:** The 10-year Treasury yield is the most watched number in all of finance. It serves as the benchmark for mortgage rates, car loans, corporate borrowing costs, and the discount rate used to value virtually every asset on the planet. When the 10-year yield rises, borrowing gets more expensive across the entire economy. Mortgage rates go up, corporate expansion slows, and stock valuations come under pressure. When it falls, the opposite happens. If you want to understand where the economy is heading, watch the 10-year yield.
+**Horace：** 10年期國庫債券收益率是整個金融界最受關注的數字。它是按揭利率、汽車貸款、企業借貸成本的基準，也是地球上幾乎所有資產估值所用折現率的基礎。當10年期收益率上升，整個經濟的借貸成本都上升：按揭利率上漲、企業擴張放緩、股票估值承壓。當它下跌，情況則相反。若想了解經濟走向，就盯著10年期收益率看。
 
-**Sam:** That is really helpful context. So to summarize: bonds are loans where you get predictable interest payments. Price and yield always move in opposite directions. Government bonds are the safest and provide the best crash protection. Duration measures how sensitive a bond is to rate changes. Credit ratings tell you how risky a corporate bond is. And bonds play a crucial role as the shock absorber in your portfolio, protecting you not just financially, but from your own emotional mistakes.
+**Stella：** 這個背景脈絡真的很有幫助。讓我總結一下：債券是一種借款形式，你可以獲得可預測的利息支付；價格與收益率永遠朝相反方向移動；政府債券最為安全，提供最佳的市場崩潰保護；存續期衡量債券對利率變動的敏感程度；信用評級告訴你企業債券的風險高低；而債券在投資組合中扮演著緩衝器的關鍵角色，不只保護你的財務，更保護你免於情緒化的錯誤決定。
 
-**Alex:** That is an excellent summary. And the key takeaway is this: bonds may be boring, but boring is a feature, not a bug. Your portfolio needs an anchor, and bonds are that anchor.
+**Horace：** 總結得非常精彩。最重要的啟示是：債券或許悶，但悶是它的優點，而非缺點。你的投資組合需要一個錨，債券就是那個錨。
 
-**Sam:** I actually find this more interesting than I expected. The inverse price-yield relationship and the yield curve stuff is fascinating.
+**Stella：** 其實我覺得比我預期的有趣得多。價格與收益率的反向關係，還有收益率曲線，都很令人著迷。
 
-**Alex:** Once you start watching bond markets, you will see how they connect to everything else in the economy. It is like learning to read a new language.
+**Horace：** 一旦你開始關注債券市場，你就會發現它與其他所有事物的連繫。就像學習一門新語言。
 
-**Sam:** What is coming up next week?
+**Stella：** 下週我們講什麼？
 
-**Alex:** Next week we are going to talk about gold and commodities. Another asset class that plays a specific diversification role in your portfolio, but for very different reasons than bonds.
+**Horace：** 下週我們會討論黃金和商品。同樣是在你的投資組合中扮演特定分散投資角色的資產類別，但原因與債券截然不同。
 
-[VISUAL: Preview slide for Week 6 with text: "Next Week: Gold and Commodities as Diversifiers - Understanding Alternative Asset Classes"]
+[VISUAL: 第六週預告幻燈片，文字：「下週：黃金與商品的分散投資作用——認識另類資產類別」]
 
-**Sam:** Before we go, rapid-fire round?
+**Stella：** 走之前，閃電問答？
 
-**Alex:** Let us do it.
+**Horace：** 來吧。
 
-**Sam:** Is it possible to lose money on a government bond?
+**Stella：** 政府債券有可能虧損嗎？
 
-**Alex:** Yes, if you sell before maturity when rates have risen. Also, if inflation exceeds your yield, you lose purchasing power. But you will not lose money from default on a U.S. Treasury.
+**Horace：** 可以，若你在利率上升後、到期前沽出，帳面價格會低於購入價。另外，若通脹超過你的債券收益率，購買力就會下降。但美國國庫債券不會因為違約而蒙受損失。
 
-**Sam:** What is the minimum to invest in bonds?
+**Stella：** 投資債券的最低金額是多少？
 
-**Alex:** Individual bonds typically have $1,000 minimums. Bond ETFs like BND can be bought for the price of one share, often around $70-80. Some brokers allow fractional shares, so you could start with as little as $1.
+**Horace：** 個別債券通常最低 $1,000。像BND這樣的債券交易所買賣基金，買一股約70至80美元就能入場。部分券商支持碎股交易，最低可以只需 $1。
 
-**Sam:** Best bond for a beginner?
+**Stella：** 初學者最適合的債券？
 
-**Alex:** A total bond market ETF like BND or AGG. Instant diversification, ultra-low cost, and you can buy it in any brokerage account.
+**Horace：** 整體債券市場交易所買賣基金，如BND或AGG。即時分散投資，成本超低，任何券商帳戶都可以買入。
 
-**Sam:** Should I buy bonds when interest rates are high or low?
+**Stella：** 應該在利率高還是低的時候買債券？
 
-**Alex:** High rates are actually a great time to buy bonds because you lock in higher yields. When rates are low, bond yields are unattractive and there is more room for prices to fall if rates rise. The worst time to load up on bonds was 2020-2021 when rates were near zero.
+**Horace：** 利率高的時候其實是買債券的好時機，因為你鎖定了較高的收益率。利率低的時候，債券收益率吸引力低，而且若利率上升，價格下跌的空間也更大。最不宜大量買入債券的時機，正是2020至2021年利率接近零的時候。
 
-**Sam:** What is the biggest mistake bond investors make?
+**Stella：** 債券投資者最常見的錯誤是什麼？
 
-**Alex:** Reaching for yield. Buying risky, high-yield bonds just because they pay more, without understanding the credit risk. The purpose of bonds in your portfolio is stability, not maximizing income. If you want higher returns, increase your stock allocation instead of buying junk bonds.
+**Horace：** 盲目追逐收益率——只因為收益率較高，就買入有風險的高收益債券，而不了解當中的信用風險。債券在你投資組合中的作用是穩定性，而非最大化收入。若你想要更高回報，應提高股票配置比例，而不是去買垃圾債券。
 
-**Sam:** What about I-Bonds? I heard they were really popular a couple years ago.
+**Stella：** I-Bonds呢？聽說幾年前很流行。
 
-**Alex:** I-Bonds are savings bonds you buy directly from the U.S. government at TreasuryDirect.gov. Their rate is a combination of a fixed rate plus an inflation adjustment that resets every six months. When inflation was running at 9% in 2022, I-Bonds were paying over 9%. That attracted a huge wave of interest. The limit is $10,000 per person per year, and you have to hold them at least one year. There is a penalty of three months' interest if you sell within five years. For the money they accept, they are a great low-risk, inflation-protected savings vehicle.
+**Horace：** I-Bonds是你可以直接從美國政府的TreasuryDirect.gov網站購買的儲蓄債券，其利率由固定利率加上每六個月重設一次的通脹調整部分組成。2022年通脹率達9%時，I-Bonds的利率也超過9%，吸引了大批投資者湧入。每人每年限額 $10,000，最少持有一年，若五年內贖回則有三個月利息的罰款。對於它所接受的資金而言，是一種出色的低風險、通脹保護型儲蓄工具。
 
-**Sam:** And one more: how do I know when to use short-term versus long-term bonds?
+**Stella：** 最後一個：我怎麼知道應該選短期還是長期債券？
 
-**Alex:** Match your bond duration to your time horizon and outlook. If you need the money in 2-3 years, use short-term bonds or a short-term bond ETF like SHY. They are very stable. If you have a longer horizon and believe rates will fall, long-term bonds like TLT can provide both income and capital gains. For a general portfolio allocation with no specific view on rates, an intermediate bond fund like BND or AGG gives you a balanced middle ground.
+**Horace：** 讓你的債券存續期與你的投資期限和市場展望相匹配。若你三年內需要用到這筆錢，就選短期債券或短期債券交易所買賣基金，如SHY，非常穩定。若你的投資期限較長，且認為利率將會下跌，長期債券如TLT可以同時帶來收入和資本升值。若你對利率走向沒有特定判斷，只是作一般性的投資組合配置，中期債券基金如BND或AGG能提供平衡適中的選擇。
 
-[VISUAL: A decision tree. "When do you need the money?" Arrow to "1-3 years: SHY (short-term)". Arrow to "3-10 years: IEF (intermediate)". Arrow to "10+ years: TLT (long-term)". Arrow to "Not sure: BND/AGG (total market)". Text: "Match Duration to Your Time Horizon"]
+[VISUAL: 一個決策樹。「你什麼時候需要用這筆錢？」箭頭指向「1-3年：SHY（短期）」；箭頭指向「3-10年：IEF（中期）」；箭頭指向「10年以上：TLT（長期）」；箭頭指向「不確定：BND/AGG（整體市場）」。文字：「讓存續期與你的投資期限相匹配」]
 
-**Sam:** Great advice. Thanks, everyone. See you next week.
+**Stella：** 好建議。謝謝大家。下週見。
 
-**Alex:** Thanks for watching. If this helped demystify bonds for you, please like and subscribe. We will see you in Week 6.
+**Horace：** 感謝收看。若本集令你對債券有了新的認識，請點讚並訂閱。我們第六週見。
 
-[VISUAL: End screen with subscribe button, playlist link to Level 1: Foundations series, and social media handles]
+[VISUAL: 結束畫面，附訂閱按鈕、第一級基礎篇系列播放清單連結及社交媒體帳號]
 
 ---
 
-*Animation Reference: animation/week05_bond_pricing.py - This animation demonstrates the inverse relationship between bond prices and yields. It shows a bond with adjustable coupon rate and maturity, then simulates interest rate changes to show how the bond's price responds. Includes a yield curve visualization that morphs between normal, flat, and inverted shapes with historical context. A secondary animation shows duration by comparing price sensitivity of bonds with different maturities side by side as rates change by the same amount.*
+*動畫參考：animation/week05_bond_pricing.py — 本動畫示範債券價格與收益率之間的反向關係。展示一隻可調整票息率及到期期限的債券，模擬利率變動以顯示債券價格的反應。包含一條在正常、平坦及倒掛形態之間變形的收益率曲線視覺化，並附歷史背景。第二個動畫通過並排比較不同到期期限債券在相同幅度利率變動下的價格敏感度，示範存續期的概念。*

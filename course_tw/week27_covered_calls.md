@@ -1,82 +1,77 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第27週：掩護性買權創造收益
 
-# Week 27: Covered Calls for Income
+## 閱讀單元
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+掩護性買權是全球最廣泛使用的選擇權策略之一，而且有充分的理由。它讓你從已持有的股票中創造收益，有效形成一種「合成股利」，其殖利率遠超單純股利所能提供的水準。大型退休基金、捐贈基金和機構投資人都將掩護性買權作為收益策略的核心組成部分。這並非奇異的策略，也非投機行為，而是一種紀律嚴謹、廣為人知的投資組合報酬強化方式。
 
-A covered call is one of the most widely used options strategies in the world, and for good reason. It allows you to generate income from stocks you already own, effectively creating a "synthetic dividend" that can produce yields far exceeding what dividends alone provide. Major pension funds, endowments, and institutional investors use covered calls as a core part of their income strategies. It is not exotic. It is not speculative. It is a disciplined, well-understood approach to enhancing portfolio returns.
+**現代投資中的收益困境：** 標普500指數的平均股利殖利率已從1980年代的逾4%，下滑至今日的約1.3%。對於持有50萬美元投資組合的投資人而言，每年股利收益僅有6,500美元。許多退休人士和以收益為導向的投資人認為這遠遠不足。掩護性買權每年可額外創造6至12%的報酬，有望在不改變底層投資組合的情況下，將6,500美元提升至36,500至66,500美元。
 
-**The income problem in modern investing:** The average dividend yield of the S&P 500 has fallen from over 4% in the 1980s to approximately 1.3% today. For an investor with a $500,000 portfolio, that is only $6,500 per year in dividend income. Many retirees and income-focused investors find this insufficient. Covered calls can generate an additional 6-12% annually, potentially turning that $6,500 into $36,500-$66,500 per year without changing the underlying portfolio.
+**掩護性買權對每位股票投資人的重要性：**
 
-**Why covered calls are important for every stock investor:**
+1. **收益強化：** 對於股利殖利率1.5%的股票，加入掩護性買權後總殖利率可達8至15%，對收益型投資人而言影響深遠。
 
-1. **Income Enhancement:** On a stock yielding 1.5% in dividends, adding covered calls can bring total yield to 8-15%. This is transformative for income investors.
+2. **下檔緩衝：** 所收取的權利金可對股價下跌提供些許保護。若你收取2美元權利金而股票下跌1美元，結果仍優於未出售買權時的持有狀況。
 
-2. **Downside Cushion:** The premium received acts as a small buffer against price declines. If you collect $2 in premium and the stock drops $1, you still come out ahead versus holding without the call.
+3. **紀律性出場：** 掩護性買權迫使你事先規劃出場價格，避免無限期持有股票而毫無賣出計畫的常見錯誤。
 
-3. **Disciplined Selling:** Covered calls force you to think about your exit price in advance. This prevents the common mistake of holding a stock indefinitely without any sell plan.
+4. **降低投資組合波動性：** 研究顯示，掩護性買權策略的投資組合波動性低於純多頭股票投資組合。芝加哥選擇權交易所買入持有指數（BXM）歷史上的報酬與標普500指數相近，但波動性約低30%。
 
-4. **Portfolio Volatility Reduction:** Studies show that covered call strategies have lower portfolio volatility than long-only stock portfolios. The CBOE BuyWrite Index (BXM) has historically delivered similar returns to the S&P 500 with about 30% less volatility.
+5. **適用於多數市場環境，強勁多頭除外：** 掩護性買權在盤整市場、輕微下跌市場及溫和多頭市場中均優於買進持有策略，唯一落後的情境是強勁且持續的多頭行情，因上檔受限將成為明顯代價。
 
-5. **Works in All Markets Except Strong Rallies:** Covered calls outperform buy-and-hold in flat markets, slightly down markets, and mildly bullish markets. The only scenario where they lag is in a strong, sustained rally where the cap on upside becomes a significant cost.
-
-This lesson will teach you the complete mechanics of covered calls: how they work, how to select strike prices and expirations, how to calculate your yield, when to use them, and how to manage the strategy over time.
+本課將完整教授掩護性買權的操作細節：運作原理、履約價與到期日的選擇方式、殖利率計算、適用時機，以及長期策略管理。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的事項
 
-#### What Is a Covered Call?
+#### 什麼是掩護性買權？
 
-A **covered call** is a two-part position:
+**掩護性買權**是由兩個部分組成的部位：
 
-1. **Own 100 shares** of a stock (the "covered" part)
-2. **Sell 1 call option** on that stock (the "call" part)
+1. **持有100股**標的股票（「掩護」的部分）
+2. **賣出1口**該股票的買權（「買權」的部分）
 
-The call is "covered" because you own the shares needed to fulfill your obligation if the buyer exercises. This is what makes it a conservative strategy. You are not making a naked promise; you already have the goods to deliver.
+買權之所以「被掩護」，是因為你已持有在買方行使時所需交付的股份，這也是此策略保守性的所在。你並非裸賣承諾；你已備有可供交割的股票。
 
 ```
-COVERED CALL STRUCTURE:
+掩護性買權結構：
 
   +------------------------------------------+
-  |  POSITION:                               |
+  |  部位組成：                               |
   |                                          |
-  |  LONG:   100 shares of AAPL at $155      |
-  |  SHORT:  1 AAPL $170 Call, 30 days out   |
-  |          Premium received: $2.50/share   |
+  |  多頭：  100股蘋果股票，成本$155           |
+  |  空頭：  1口蘋果$170買權，到期日30天後      |
+  |          收取權利金：$2.50/股              |
   |                                          |
-  |  NET EFFECT:                             |
-  |  - You own the stock (benefit from       |
-  |    appreciation up to $170)              |
-  |  - You collected $250 in premium         |
-  |  - If AAPL goes above $170, your shares  |
-  |    are "called away" (sold at $170)      |
-  |  - If AAPL stays below $170, you keep    |
-  |    shares and premium                    |
+  |  實際效果：                               |
+  |  - 你持有股票（可享受至$170的漲幅）         |
+  |  - 你收取了$250的權利金                   |
+  |  - 若蘋果漲破$170，你的股票遭「買走」       |
+  |    （以$170賣出）                          |
+  |  - 若蘋果維持在$170以下，你保留股票         |
+  |    和權利金                               |
   +------------------------------------------+
 ```
 
-#### The Payoff Diagram
+#### 損益圖
 
-The payoff diagram for a covered call shows a unique shape that is capped on the upside but cushioned on the downside:
+掩護性買權的損益圖呈現獨特形態，上檔受限但下檔有所緩衝：
 
 ```
-  Profit/Loss
-  Per Share ($)
+  每股損益（美元）
     |
     |
- +17.50|. . . . . . . . . . . . . . . . . .************  Max profit
-    |                                   ****              ($170-$155+$2.50)
+ +17.50|. . . . . . . . . . . . . . . . . .************  最大利潤
+    |                                   ****              （$170-$155+$2.50）
  +10.00|                              ***
     |                            ***
   +5.00|                        ***
     |                      ***
-  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  Premium cushion
+  +2.50|. . . . . . . .***. . . . . . . . . . . . . . .  權利金緩衝
     |              ***
-   0.00|----------**---------- Stock Price at Expiration -->
+   0.00|----------**---------- 到期時股價 -->
     |        ***
   -5.00|     ***
     |    **
@@ -87,855 +82,850 @@ The payoff diagram for a covered call shows a unique shape that is capped on the
     +---|---|---|---|---|---|---|---|---|---
        135  140  145  150  155  160  165  170  175  180
 
-  Key Points:
-  - Max profit = $17.50/share (at $170 or above)
-    ($170 strike - $155 cost + $2.50 premium)
-  - Breakeven = $152.50 ($155 cost - $2.50 premium)
-  - The premium shifts the breakeven DOWN by $2.50
-  - Above $170: Profit is CAPPED (shares called away)
-  - Below $152.50: Net loss (but $2.50 better than stock alone)
+  關鍵點：
+  - 最大利潤 = $17.50/股（$170或以上時）
+    （$170履約價 - $155成本 + $2.50權利金）
+  - 損益平衡點 = $152.50（$155成本 - $2.50權利金）
+  - 權利金使損益平衡點下移$2.50
+  - $170以上：利潤受到限制（股票遭買走）
+  - $152.50以下：出現淨虧損（但仍比單純持股少虧$2.50）
 
-  Comparison to holding stock without covered call:
-  - Below $155: Covered call loses LESS (premium cushion)
-  - $155 to $170: Covered call earns MORE (premium added)
-  - Above $172.50: Stock alone earns MORE (no cap)
+  與未出售掩護性買權的持股相比：
+  - $155以下：掩護性買權虧損較少（權利金緩衝）
+  - $155至$170之間：掩護性買權獲利較多（加上權利金）
+  - $172.50以上：單純持股獲利較多（無上限）
 ```
 
-The covered call outperforms the stock in two out of three scenarios. It underperforms only when the stock makes a large upward move. This is the core tradeoff: you sacrifice unlimited upside for steady income and downside protection.
+在三種情境中，掩護性買權有兩種優於單純持股。僅在股票出現大幅上漲時落後。這就是核心取捨：你以穩定收益和下檔保護，換取無限上檔空間。
 
-#### Mechanics: Step by Step
+#### 操作步驟詳解
 
-**Step 1: Own 100 shares (or multiples of 100)**
+**第一步：持有100股（或其整數倍）**
 
-You must own at least 100 shares of the stock to sell 1 covered call. For 2 contracts, you need 200 shares, and so on. You cannot sell fractional contracts.
+你必須至少持有100股標的股票才能賣出1口掩護性買權。賣出2口合約需持有200股，依此類推。你無法賣出零散合約。
 
 ```
-Shares Owned    Calls You Can Sell
+持股數量        可賣出合約數
 ============    ==================
-100             1 contract
-200             2 contracts
-300             3 contracts
-500             5 contracts
-1,000           10 contracts
+100             1口合約
+200             2口合約
+300             3口合約
+500             5口合約
+1,000           10口合約
 ```
 
-**Step 2: Select the strike price**
+**第二步：選擇履約價**
 
-The strike price is your "conditional sell price." If the stock reaches this price, your shares will be called away.
-
-```
-STRIKE PRICE SELECTION GUIDE:
-
-Stock Price: $155
-
-  Conservative (far OTM):     $175-$180 strike (13-16% above)
-    - Lower premium ($0.50-$1.00)
-    - Very unlikely to be called away (<5%)
-    - Lower annualized yield (3-6%)
-    - Best when: You are very bullish and want to keep shares
-
-  Moderate (moderately OTM):  $165-$170 strike (6-10% above)
-    - Moderate premium ($1.50-$3.00)
-    - Moderate chance of assignment (10-20%)
-    - Good annualized yield (8-15%)
-    - Best when: Mildly bullish, want balance of income and upside
-
-  Aggressive (near ATM):      $155-$160 strike (0-3% above)
-    - Higher premium ($3.50-$5.50)
-    - High chance of assignment (30-50%)
-    - Highest annualized yield (15-30%)
-    - Best when: Neutral outlook, prioritize income over appreciation
-```
-
-**Step 3: Select the expiration date**
+履約價是你的「條件式賣出價格」。若股票達到此價格，你的持股將被買走。
 
 ```
-EXPIRATION SELECTION:
+履約價選擇指南：
 
-  Weekly (5-7 days):
-    Pros: Fast turnover, high annualized yield if repeated
-    Cons: Very small premium per trade, high management effort
-    Yield per trade: 0.3-0.5%
-    Management: Weekly attention required
+股票現價：$155
 
-  Monthly (25-35 days):    <--- RECOMMENDED
-    Pros: Good premium, reasonable management schedule
-    Cons: Moderate time commitment
-    Yield per trade: 1.0-2.5%
-    Management: Monthly check-ins
+  保守型（深度價外）：     $175-$180履約價（高於現價13-16%）
+    - 較低權利金（$0.50-$1.00）
+    - 遭履約可能性極低（<5%）
+    - 年化殖利率較低（3-6%）
+    - 最適時機：你非常看多且希望保留股票
 
-  45 Days:                 <--- ALSO EXCELLENT
-    Pros: Optimal theta decay zone, good premium
-    Cons: Slightly longer capital commitment
-    Yield per trade: 1.5-3.5%
-    Management: Close at 50% profit, typically around day 21
+  穩健型（中度價外）：     $165-$170履約價（高於現價6-10%）
+    - 中等權利金（$1.50-$3.00）
+    - 遭履約可能性中等（10-20%）
+    - 良好年化殖利率（8-15%）
+    - 最適時機：溫和看多，希望兼顧收益與上檔空間
 
-  60-90 Days:
-    Pros: Higher total premium, less frequent management
-    Cons: Slower theta decay, more exposure to earnings events
-    Yield per trade: 2.5-5.0%
-    Management: Biweekly check-ins
+  積極型（近價平）：       $155-$160履約價（高於現價0-3%）
+    - 較高權利金（$3.50-$5.50）
+    - 遭履約可能性高（30-50%）
+    - 最高年化殖利率（15-30%）
+    - 最適時機：中性展望，以收益優先於資本增值
 ```
 
-**Step 4: Sell the call**
-
-On your brokerage platform, you will see options listed under "Sell to Open." You select the expiration date and strike price, choose "Sell" (not "Buy"), and submit the order. The premium is credited to your account immediately.
-
-**Step 5: Wait and manage**
-
-After selling the call, you have three possible management actions:
+**第三步：選擇到期日**
 
 ```
-MANAGEMENT DECISION TREE:
+到期日選擇：
 
-  Option is losing value (stock flat or declining):
-    -> GOOD: Time decay is working in your favor
-    -> Action: Wait, or buy back at 50-75% profit and sell a new one
+  週選擇權（5-7天）：
+    優點：週轉快速，反覆操作可獲高年化殖利率
+    缺點：每次權利金極小，管理工作繁重
+    每次殖利率：0.3-0.5%
+    管理頻率：每週需關注
+
+  月選擇權（25-35天）：   <--- 建議首選
+    優點：權利金合理，管理頻率適中
+    缺點：需投入中等時間
+    每次殖利率：1.0-2.5%
+    管理頻率：每月檢視
+
+  45天：                  <--- 同樣優選
+    優點：處於最佳時間耗損區間，權利金良好
+    缺點：資金鎖定時間略長
+    每次殖利率：1.5-3.5%
+    管理頻率：獲利50%時平倉，通常約第21天
+
+  60-90天：
+    優點：總權利金較高，管理頻率較低
+    缺點：時間耗損較慢，更易受財報事件影響
+    每次殖利率：2.5-5.0%
+    管理頻率：每兩週檢視
+```
+
+**第四步：賣出買權**
+
+在你的券商平台上，選擇權清單中會列示「賣出建倉」選項。你選擇到期日和履約價，點選「賣出」（而非「買入」），提交訂單後，權利金即時入帳。
+
+**第五步：等待與管理**
+
+賣出買權後，你有三種可能的管理動作：
+
+```
+管理決策樹：
+
+  選擇權在貶值中（股票盤整或下跌）：
+    -> 良好：時間耗損正在為你工作
+    -> 行動：等待，或在50-75%獲利時買回並賣出新的買權
   
-  Option is gaining value (stock rising toward strike):
-    -> Monitor: Is stock likely to exceed strike by expiration?
-    -> If YES and you are OK selling: Let it ride, accept assignment
-    -> If YES and you want to keep shares: Roll the position (see below)
-    -> If NO: Wait for expiration
+  選擇權在升值中（股票向履約價靠近）：
+    -> 觀察：股票是否可能在到期前超過履約價？
+    -> 若是，且你接受賣出：繼續持有，接受履約
+    -> 若是，但你想保留股票：展期部位（見下文）
+    -> 若否：等待到期
   
-  Expiration is approaching:
-    -> If stock is below strike: Let option expire worthless, sell new one
-    -> If stock is near strike: Decide whether to accept assignment or roll
-    -> If stock is above strike: Accept assignment or roll up and out
+  到期日臨近：
+    -> 若股價低於履約價：讓選擇權到期失效，賣出新合約
+    -> 若股價接近履約價：決定是否接受履約或展期
+    -> 若股價高於履約價：接受履約或向上展期並延長到期日
 ```
 
-#### Calculating Your Yield
+#### 計算你的殖利率
 
-Understanding your potential return is essential for comparing covered calls to other income strategies.
+了解潛在報酬對於將掩護性買權與其他收益策略進行比較至關重要。
 
-**Per-Trade Yield:**
-
-```
-Premium Yield = (Premium Received / Stock Price) x 100
-
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Yield: $2.50 / $155 = 1.61%
-```
-
-**Annualized Yield:**
+**單次殖利率：**
 
 ```
-Annualized Yield = (Premium / Stock Price) x (365 / Days to Expiration) x 100
+權利金殖利率 = （收取的權利金 ÷ 股票現價）× 100
 
-Example:
-  Stock price: $155
-  Call premium: $2.50
-  Days to expiration: 30
-  Annualized: ($2.50 / $155) x (365 / 30) x 100 = 19.6%
+範例：
+  股票現價：$155
+  買權權利金：$2.50
+  殖利率：$2.50 ÷ $155 = 1.61%
 ```
 
-**If-Called Return (total return if shares are called away):**
+**年化殖利率：**
 
 ```
-If-Called Return = [(Strike - Cost Basis + Premium) / Cost Basis] x 100
+年化殖利率 = （權利金 ÷ 股票現價）×（365 ÷ 到期天數）× 100
 
-Example:
-  Cost basis: $145 (bought shares at $145)
-  Current stock: $155
-  Strike: $170
-  Premium: $2.50
-  Days: 30
-
-  If-Called Return = [($170 - $145 + $2.50) / $145] x 100 = 18.97%
-  Annualized If-Called = 18.97% x (365/30) = 230.7% (annualized)
-
-  Note: The annualized if-called number can look unrealistically large
-  for short timeframes. It is most useful for comparing relative
-  attractiveness of different strikes and expirations.
+範例：
+  股票現價：$155
+  買權權利金：$2.50
+  到期天數：30天
+  年化：（$2.50 ÷ $155）×（365 ÷ 30）× 100 = 19.6%
 ```
 
-**Return Comparison Table:**
+**若遭履約報酬（股票被買走時的總報酬）：**
 
 ```
-COVERED CALL INCOME vs. DIVIDENDS
-(on a $100,000 stock portfolio)
+若遭履約報酬 = [（履約價 - 成本基礎 + 權利金）÷ 成本基礎] × 100
+
+範例：
+  成本基礎：$145（以$145買入股票）
+  股票現價：$155
+  履約價：$170
+  權利金：$2.50
+  天數：30天
+
+  若遭履約報酬 = [（$170 - $145 + $2.50）÷ $145] × 100 = 18.97%
+  年化若遭履約報酬 = 18.97% × (365/30) = 230.7%（年化）
+
+  注意：短期合約的年化若遭履約數字看起來可能不切實際地高。
+  其最大用途在於比較不同履約價和到期日的相對吸引力。
+```
+
+**報酬比較表：**
+
+```
+掩護性買權收益 vs. 股利
+（$100,000股票投資組合）
 
 +-------------------------------------------------------------+
-| SOURCE              | ANNUAL YIELD | ANNUAL INCOME           |
+| 來源               | 年化殖利率 | 年度收益                     |
 +-------------------------------------------------------------+
-| Dividends only      | 1.5%         | $1,500                  |
-| Covered calls only  | 8-12%        | $8,000 - $12,000        |
-| Combined            | 9.5-13.5%    | $9,500 - $13,500        |
+| 僅靠股利           | 1.5%      | $1,500                       |
+| 僅靠掩護性買權      | 8-12%     | $8,000 - $12,000             |
+| 合計               | 9.5-13.5% | $9,500 - $13,500             |
 +-------------------------------------------------------------+
 
-Covered calls can produce 5-8x the income of dividends alone.
+掩護性買權可產生單純股利5至8倍的收益。
 
-Monthly Income Comparison:
-  Dividends: $1,500/12 = $125/month
-  With Covered Calls: $9,500/12 = $792/month  (or higher)
+月收益比較：
+  股利：$1,500 ÷ 12 = $125/月
+  加入掩護性買權後：$9,500 ÷ 12 = $792/月（或更高）
 ```
 
-#### When Covered Calls Work Best
+#### 掩護性買權最適合的時機
 
-The covered call strategy is not a one-size-fits-all solution. It excels in specific market conditions:
-
-```
-MARKET CONDITION        | COVERED CALL    | STOCK ALONE
-                        | PERFORMANCE     | PERFORMANCE
-========================|=================|================
-Flat/Sideways Market    | EXCELLENT       | Poor (no gains)
-                        | Premium = income| Just dividends
-                        |                 |
-Mildly Bullish (+5%)   | VERY GOOD       | Good
-                        | Gains + premium | Just gains
-                        |                 |
-Mildly Bearish (-5%)   | GOOD            | Poor
-                        | Premium cushion | Loss
-                        |                 |
-Strongly Bullish (+20%)| FAIR            | EXCELLENT
-                        | Capped at strike| Full upside
-                        |                 |
-Strongly Bearish (-20%)| POOR (but       | VERY POOR
-                        | better than     | Full loss
-                        | stock alone)    |
-
-Summary: Covered calls outperform in 3 out of 5 market scenarios.
-They underperform only in strong rallies.
-```
-
-The ideal environment for covered calls is a stock that is moving sideways or grinding slowly higher. In these conditions, the premium income is "free money" because the stock rarely reaches the strike price. This is also why covered calls are popular during periods of high implied volatility but low actual movement (high IV, low realized volatility).
-
-#### The Risk of Assignment
-
-Assignment occurs when the call buyer exercises their right, requiring you to sell your shares at the strike price. Let us demystify this:
+掩護性買權並非一體適用的解決方案，它在特定市場環境下表現最佳：
 
 ```
-ASSIGNMENT: WHAT ACTUALLY HAPPENS
+市場狀況              | 掩護性買權      | 單純持股
+                      | 表現            | 表現
+======================|=================|================
+盤整/橫盤市場         | 極佳            | 差（無資本增值）
+                      | 權利金=收益     | 僅靠股利
+                      |                 |
+溫和多頭（+5%）       | 非常好          | 好
+                      | 增值+權利金     | 僅靠增值
+                      |                 |
+溫和空頭（-5%）       | 好              | 差
+                      | 權利金緩衝      | 虧損
+                      |                 |
+強勁多頭（+20%）      | 普通            | 極佳
+                      | 受限於履約價    | 完整上檔
+                      |                 |
+強勁空頭（-20%）      | 差（但仍       | 非常差
+                      | 優於單純持股）  | 完整虧損
 
-Before Assignment:
-  Account: 100 shares AAPL ($15,500 value)
-           Short 1 AAPL $170 Call
-           Cash: $250 (premium received)
-
-After Assignment:
-  Account: 0 shares AAPL
-           No option position
-           Cash: $17,250 ($17,000 from sale + $250 premium)
-
-Net Result:
-  Sold 100 shares at $170 = $17,000
-  Plus premium received = $250
-  Total proceeds = $17,250
-  Original cost (at $155) = $15,500
-  Total profit = $1,750 (11.3%)
-
-This is a GOOD OUTCOME. You sold at your target price.
+總結：掩護性買權在五種市場情境中有三種優於單純持股。
+僅在強勁多頭行情中落後。
 ```
 
-**When does assignment happen?**
+掩護性買權的理想環境是股票盤整或緩步上漲。在這些條件下，由於股票幾乎不會觸及履約價，權利金收益猶如「免費的錢」。這也是為何當隱含波動率高但實際波動率低時（高隱含波動率、低實現波動率），掩護性買權特別受歡迎。
 
-- Most commonly at expiration if the option is in the money.
-- Occasionally before expiration ("early assignment"), usually just before an ex-dividend date.
-- Almost never happens when the option is out of the money.
+#### 遭履約的風險
 
-**Early Assignment:**
-
-Early assignment is rare but can happen. The most common trigger is an upcoming dividend. If the call is deep in the money and the dividend is larger than the remaining extrinsic value, the call buyer may exercise early to capture the dividend. You can largely avoid early assignment by:
-
-1. Not selling calls that are deep in the money.
-2. Being aware of ex-dividend dates.
-3. If you are concerned, buying back the call before the ex-dividend date.
+當買方行使其權利，要求你以履約價賣出股票時，即發生履約。讓我們來破除對此的迷思：
 
 ```
-EARLY ASSIGNMENT RISK ASSESSMENT:
+履約：實際發生的情況
 
-  Extrinsic value remaining in the call: $0.80
-  Upcoming dividend: $0.65
+履約前：
+  帳戶：100股蘋果股票（市值$15,500）
+         空頭1口蘋果$170買權
+         現金：$250（已收取的權利金）
 
-  Extrinsic > Dividend ($0.80 > $0.65):
-    -> Early assignment UNLIKELY (buyer would lose $0.15 by exercising)
+履約後：
+  帳戶：0股蘋果股票
+         無選擇權部位
+         現金：$17,250（$17,000賣股所得 + $250權利金）
 
-  Extrinsic < Dividend ($0.30 < $0.65):
-    -> Early assignment POSSIBLE (buyer gains $0.35 by exercising)
+淨結果：
+  以$170賣出100股 = $17,000
+  加上收取的權利金 = $250
+  總所得 = $17,250
+  原始成本（$155時買入）= $15,500
+  總利潤 = $1,750（11.3%）
+
+這是一個良好結果。你以目標價格賣出了股票。
 ```
 
-#### Rolling Covered Calls
+**什麼時候會發生履約？**
 
-**Rolling** means closing your current call position and opening a new one. This is how you manage covered calls that are challenged (stock approaching or exceeding the strike price).
+- 最常見於到期時選擇權為價內狀態。
+- 偶爾在到期前提早履約，通常發生在除息日前後。
+- 選擇權為價外時幾乎不會發生履約。
 
-There are three types of rolls:
+**提前履約：**
+
+提前履約罕見但確實會發生。最常見的觸發因素是即將到來的股利發放。若買權深度價內且股利金額大於剩餘的外在價值，買方可能提前行使以獲取股利。你可透過以下方式在很大程度上避免提前履約：
+
+1. 不賣出深度價內的買權。
+2. 留意除息日。
+3. 若有疑慮，在除息日前買回買權。
 
 ```
-ROLLING STRATEGIES:
+提前履約風險評估：
 
-1. ROLL OUT (Same Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $170 Call, April expiry (sell)
+  買權剩餘外在價值：$0.80
+  即將到來的股利：$0.65
+
+  外在價值 > 股利（$0.80 > $0.65）：
+    -> 提前履約可能性低（買方行使將損失$0.15）
+
+  外在價值 < 股利（$0.30 < $0.65）：
+    -> 提前履約有可能（買方行使可獲得$0.35）
+```
+
+#### 掩護性買權的展期
+
+**展期**意指平倉現有買權部位並開設新部位。當掩護性買權面臨挑戰時（股票接近或超過履約價），這是你的管理方式。
+
+展期有三種類型：
+
+```
+展期策略：
+
+1. 向後展期（相同履約價，更晚到期日）
+   平倉：蘋果$170買權，3月到期（買回）
+   建倉：蘋果$170買權，4月到期（賣出）
    
-   Purpose: Extend time, collect additional premium
-   When: Stock is near strike, you want to keep shares a bit longer
-   Net credit: Usually $0.50-$2.00 per share
+   目的：延長時間，收取額外權利金
+   時機：股票接近履約價，希望多保留股票一段時間
+   淨收入：通常每股$0.50-$2.00
 
-2. ROLL UP AND OUT (Higher Strike, Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back)
-   Open:  AAPL $180 Call, April expiry (sell)
+2. 向上並向後展期（較高履約價，更晚到期日）
+   平倉：蘋果$170買權，3月到期（買回）
+   建倉：蘋果$180買權，4月到期（賣出）
    
-   Purpose: Raise the selling price, extend time
-   When: Stock has rallied, you want more upside room
-   Net credit: May be a small credit or even a debit
+   目的：提高賣出價格，延長時間
+   時機：股票已上漲，希望擴大上檔空間
+   淨收入：可能為小額收入甚至小幅支出
    
-3. ROLL DOWN (Lower Strike, Same or Later Expiration)
-   Close: AAPL $170 Call, March expiry (buy back for cheap)
-   Open:  AAPL $160 Call, March or April expiry (sell for more)
+3. 向下展期（較低履約價，相同或更晚到期日）
+   平倉：蘋果$170買權，3月到期（以低價買回）
+   建倉：蘋果$160買權，3月或4月到期（以較高價賣出）
    
-   Purpose: Collect more premium after stock declined
-   When: Stock has dropped, $170 call is nearly worthless
-   Net credit: Usually $1.00-$4.00 per share
+   目的：在股票下跌後收取更多權利金
+   時機：股票已下跌，$170買權幾乎一文不值
+   淨收入：通常每股$1.00-$4.00
 ```
 
-**Rolling Example:**
+**展期範例：**
 
 ```
-ROLL UP AND OUT EXAMPLE:
+向上並向後展期範例：
 
-Original position:
-  Own 100 AAPL at $155
-  Sold $170 Call, March expiry, for $2.50 (received $250)
+原始部位：
+  持有100股蘋果，成本$155
+  以$2.50賣出$170買權，3月到期（收入$250）
   
-Stock rallies to $172. The $170 call is now worth $5.00.
+股票上漲至$172。$170買權現值$5.00。
 
-Without rolling: Shares called away at $170.
-  Profit: $170 - $155 + $2.50 = $17.50/share ($1,750)
+不展期：股票以$170被買走。
+  利潤：$170 - $155 + $2.50 = $17.50/股（$1,750）
 
-With rolling:
-  Buy back $170 March Call at $5.00 (pay $500)
-  Sell $180 April Call at $3.50 (receive $350)
-  Net cost of roll: $500 - $350 = $150 debit
+展期操作：
+  以$5.00買回$170三月買權（支出$500）
+  以$3.50賣出$180四月買權（收入$350）
+  展期淨成本：$500 - $350 = $150淨支出
 
-  If stock stays below $180 by April:
-    Keep shares, net premium = $250 (original) - $150 (roll cost) = $100
-    Stock appreciation: still holding at (let us say) $175 = $2,000 gain
-    Total: $2,100
+  若股票在四月前維持在$180以下：
+    保留股票，淨權利金 = $250（原始）- $150（展期成本）= $100
+    股票增值：仍持有（假設股價$175）= $2,000獲利
+    合計：$2,100
 
-  If stock rises above $180 by April:
-    Shares called away at $180
-    Profit: $180 - $155 + $2.50 (orig) - $1.50 (roll cost) = $26.00/share
-    Total: $2,600
+  若股票在四月前漲過$180：
+    股票以$180被買走
+    利潤：$180 - $155 + $2.50（原始）- $1.50（展期成本）= $26.00/股
+    合計：$2,600
 
-  Rolling raised your potential sale price from $170 to $180
-  at a cost of $1.50 per share in net premium.
+  展期將潛在賣出價格從$170提高至$180，
+  淨成本為每股$1.50的權利金。
 ```
 
-#### Premium as Enhanced Yield: The 2-3x Dividend Comparison
+#### 以權利金強化殖利率：股利的2至3倍比較
 
-One of the most compelling aspects of covered calls is how they compare to dividends as an income source.
-
-```
-INCOME COMPARISON: DIVIDENDS vs. COVERED CALLS
-
-Stock: Johnson & Johnson (JNJ)
-Price: $160
-Annual Dividend: $4.76 per share (2.98% yield)
-
-Covered Call Strategy (monthly, moderate strike):
-  Average monthly premium: $2.00 per share
-  Annual premium income: $2.00 x 12 = $24.00 per share
-  Premium yield: $24.00 / $160 = 15.0%
-
-  Total yield with covered calls:
-    Dividend: 2.98%
-    Premium:  15.0%
-    Total:    17.98%
-
-  Multiplier: 17.98% / 2.98% = 6.0x dividend yield alone
-
-  Even with conservative strike selection:
-    Average monthly premium: $1.00 per share
-    Annual premium income: $12.00 per share
-    Premium yield: 7.5%
-    Total yield: 10.48%
-    Multiplier: 3.5x dividend yield alone
-```
+掩護性買權最引人注目的特點之一，是它與股利作為收益來源的比較。
 
 ```
-MORE EXAMPLES ACROSS DIFFERENT STOCKS:
+收益比較：股利 vs. 掩護性買權
+
+股票：嬌生公司（JNJ）
+現價：$160
+年度股利：每股$4.76（殖利率2.98%）
+
+掩護性買權策略（每月，穩健履約價）：
+  平均每月權利金：每股$2.00
+  年度權利金收益：$2.00 × 12 = $24.00/股
+  權利金殖利率：$24.00 ÷ $160 = 15.0%
+
+  加入掩護性買權後的總殖利率：
+    股利：2.98%
+    權利金：15.0%
+    合計：17.98%
+
+  倍數：17.98% ÷ 2.98% = 單純股利的6.0倍
+
+  即使採用保守履約價選擇：
+    平均每月權利金：每股$1.00
+    年度權利金收益：每股$12.00
+    權利金殖利率：7.5%
+    總殖利率：10.48%
+    倍數：單純股利的3.5倍
+```
+
+```
+各股票更多範例：
 
 +-----------------------------------------------------------------+
-| STOCK  | PRICE | DIV YIELD | CC YIELD* | TOTAL  | MULTIPLIER    |
+| 股票  | 股價  | 股利殖利率 | 買權殖利率* | 合計       | 倍數       |
 +-----------------------------------------------------------------+
-| AAPL   | $155  | 0.65%     | 10-14%    | 10.7-14.7% | 16-22x   |
-| MSFT   | $420  | 0.72%     | 8-12%     | 8.7-12.7%  | 12-18x   |
-| JNJ    | $160  | 2.98%     | 8-12%     | 11.0-15.0% | 3.7-5.0x |
-| JPM    | $200  | 2.20%     | 10-15%    | 12.2-17.2% | 5.5-7.8x |
-| KO     | $62   | 3.10%     | 6-10%     | 9.1-13.1%  | 2.9-4.2x |
+| AAPL  | $155  | 0.65%     | 10-14%     | 10.7-14.7% | 16-22倍   |
+| MSFT  | $420  | 0.72%     | 8-12%      | 8.7-12.7%  | 12-18倍   |
+| JNJ   | $160  | 2.98%     | 8-12%      | 11.0-15.0% | 3.7-5.0倍 |
+| JPM   | $200  | 2.20%     | 10-15%     | 12.2-17.2% | 5.5-7.8倍 |
+| KO    | $62   | 3.10%     | 6-10%      | 9.1-13.1%  | 2.9-4.2倍 |
 +-----------------------------------------------------------------+
-* CC Yield = Covered Call annualized yield, varies with IV and strike
+* 買權殖利率 = 掩護性買權年化殖利率，依隱含波動率和履約價而異
 
-Average multiplier across these stocks: 2-3x (conservative) to 5-8x
+各股票平均倍數：保守操作2-3倍；積極操作5-8倍
 ```
 
-The "2-3x dividend yield" comparison is conservative and achievable for most investors using moderate covered call strategies. More aggressive strike selection can produce even higher multiples, but at the cost of more frequent assignment.
+「2至3倍股利殖利率」的比較是保守估計，大多數投資人採用穩健的掩護性買權策略均可實現。更積極的履約價選擇可產生更高倍數，但代價是更頻繁遭履約。
 
-#### Managing Your Covered Call Portfolio
+#### 管理你的掩護性買權投資組合
 
-A systematic approach to covered calls involves establishing clear rules:
-
-```
-COVERED CALL MANAGEMENT RULES:
-
-  ENTRY RULES:
-  1. Sell calls on stocks you are willing to part with at the strike
-  2. Select strikes 5-10% above current price (moderate approach)
-  3. Use 30-45 day expirations
-  4. Sell on days with higher implied volatility if possible
-  5. Avoid selling calls right before earnings (unless you want out)
-
-  PROFIT-TAKING RULES:
-  1. If the call loses 50-75% of its value quickly, buy it back
-     and sell a new call (captures most of the profit, resets time)
-  2. Example: Sold for $2.50, now worth $0.75 -> Buy back ($0.75)
-     Profit captured: $1.75 (70%). Sell new call for fresh premium.
-
-  LOSS MANAGEMENT RULES:
-  1. If stock drops significantly, let the call expire worthless
-  2. Then reassess: Do you still want to own the stock?
-     - If YES: Sell a new call (possibly at a lower strike)
-     - If NO: Sell the stock (the call has already expired)
-  3. Never sell calls below your cost basis unless you are prepared
-     to sell at a loss
-
-  ASSIGNMENT RULES:
-  1. If stock exceeds strike near expiration: Let it be assigned
-     (you sold at your target price - this is success!)
-  2. If you want to keep shares: Roll up and out for a credit
-  3. After assignment: Consider selling puts to re-enter
-     (this starts the "wheel" strategy cycle)
-
-  EARNINGS RULES:
-  1. Do not sell calls expiring during earnings week
-     (IV crush + potential gap = unpredictable outcomes)
-  2. Sell calls AFTER earnings when IV has settled
-  3. Exception: Sell calls THROUGH earnings if you want to
-     exit the position anyway
-```
-
-#### Complete Portfolio Example
+系統化的掩護性買權操作需要制定清晰的規則：
 
 ```
-COVERED CALL PORTFOLIO: $200,000 invested in 5 stocks
+掩護性買權管理規則：
+
+  進場規則：
+  1. 僅對你願意以履約價賣出的股票賣出買權
+  2. 選擇高於現價5-10%的履約價（穩健方式）
+  3. 使用30-45天到期日
+  4. 盡量在隱含波動率較高的日子賣出
+  5. 財報公布前避免賣出買權（除非你確實想出場）
+
+  獲利了結規則：
+  1. 若買權迅速虧損50-75%的價值，買回並賣出新買權
+     （鎖定大部分利潤，重置時間價值）
+  2. 範例：以$2.50賣出，現值$0.75 -> 買回（$0.75）
+     已鎖定利潤：$1.75（70%）。賣出新買權收取新的權利金。
+
+  損失管理規則：
+  1. 若股票大幅下跌，讓買權到期失效
+  2. 重新評估：你是否仍想持有該股票？
+     - 若是：賣出新買權（可能選擇較低履約價）
+     - 若否：賣出股票（買權已到期）
+  3. 除非你準備好承受虧損出場，否則不要在成本基礎以下賣出買權
+
+  履約規則：
+  1. 若股票在到期前超過履約價：讓股票被買走
+     （你以目標價賣出——這是策略成功！）
+  2. 若你想保留股票：向上並向後展期以獲取權利金收入
+  3. 遭履約後：考慮賣出賣權重新進場
+     （這開啟了「輪轉策略」的循環）
+
+  財報規則：
+  1. 不要賣出到期日在財報週內的買權
+     （隱含波動率崩解 + 潛在跳空 = 難以預測的結果）
+  2. 財報公布後、隱含波動率平穩後再賣出買權
+  3. 例外：若你本來就打算出場，可賣出跨越財報期間的買權
+```
+
+#### 完整投資組合範例
+
+```
+掩護性買權投資組合：$200,000分散投資於5支股票
 
 +---------------------------------------------------------------------+
-| STOCK | SHARES | COST   | CURRENT| CALLS SOLD       | PREMIUM/MO   |
+| 股票 | 持股數 | 成本   | 現價   | 已賣出買權         | 每月權利金   |
 +---------------------------------------------------------------------+
-| AAPL  | 200    | $145   | $155   | 2x $170 Call     | $500          |
-| MSFT  | 100    | $380   | $420   | 1x $450 Call     | $300          |
-| JPM   | 200    | $175   | $200   | 2x $220 Call     | $400          |
-| JNJ   | 200    | $150   | $160   | 2x $175 Call     | $360          |
-| KO    | 300    | $55    | $62    | 3x $67 Call      | $270          |
+| AAPL | 200   | $145   | $155   | 2口$170買權        | $500         |
+| MSFT | 100   | $380   | $420   | 1口$450買權        | $300         |
+| JPM  | 200   | $175   | $200   | 2口$220買權        | $400         |
+| JNJ  | 200   | $150   | $160   | 2口$175買權        | $360         |
+| KO   | 300   | $55    | $62    | 3口$67買權         | $270         |
 +---------------------------------------------------------------------+
-| TOTAL                                               | $1,830/month  |
+| 合計                                                | $1,830/月     |
 +---------------------------------------------------------------------+
 
-Annual Summary:
-  Covered call income: $1,830 x 12 = $21,960 (11.0% yield)
-  Dividend income: ~$3,800 (1.9% yield)
-  Total income: $25,760 (12.9% yield)
+年度摘要：
+  掩護性買權收益：$1,830 × 12 = $21,960（年化殖利率11.0%）
+  股利收益：約$3,800（年化殖利率1.9%）
+  總收益：$25,760（年化殖利率12.9%）
 
-  Monthly income: $2,147 (calls + dividends)
+  月收益：$2,147（買權收益 + 股利）
 ```
 
-This is the power of covered calls at scale. A $200,000 portfolio generating over $25,000 per year in income, without selling a single share (assuming no assignments). In a flat market, this income alone provides a double-digit return.
+這就是掩護性買權規模化操作的威力。一個20萬美元的投資組合每年產生逾25,000美元的收益，而無需賣出任何股票（假設未遭履約）。在盤整市場中，這些收益本身即可帶來兩位數的報酬。
 
-#### Common Covered Call Scenarios: Month-by-Month Walkthrough
+#### 掩護性買權常見情境：逐月實戰紀錄
 
-To make this concrete, let us trace a single covered call position through an entire year:
-
-```
-12-MONTH COVERED CALL DIARY: AAPL
-
-Starting: Own 100 shares at $155 cost basis
-
-JANUARY (Stock at $155):
-  Sell $170 Call, Feb expiry, for $2.50
-  AAPL ends Jan at $158 -> Call expires Feb at $157
-  Result: Call expires worthless. Keep $250. Sell new call.
-
-FEBRUARY (Stock at $157):
-  Sell $172 Call, Mar expiry, for $2.30
-  AAPL ends Feb at $162
-  Result: Call expires worthless. Keep $230. Sell new call.
-
-MARCH (Stock at $162):
-  Sell $175 Call, Apr expiry, for $2.80
-  AAPL approaches $174 at expiration
-  Result: Call expires worthless (barely). Keep $280. Close call.
-
-APRIL (Stock at $173, earnings upcoming):
-  SKIP covered call (earnings in late April)
-  Hold shares through earnings.
-  AAPL reports good earnings, stock jumps to $182.
-
-MAY (Stock at $182):
-  Sell $195 Call, Jun expiry, for $2.60
-  AAPL ends May at $179
-  Result: Call expires worthless. Keep $260. Sell new call.
-
-JUNE (Stock at $179):
-  Sell $192 Call, Jul expiry, for $2.40
-  AAPL ends Jun at $176
-  Result: Call expires worthless. Keep $240. Sell new call.
-
-JULY (Stock at $176, earnings upcoming):
-  Sell short-term $185 Call, 2-week expiry, for $1.20
-  Expires before earnings.
-  Result: Call expires worthless. Keep $120.
-  Hold through July earnings. AAPL dips to $168.
-
-AUGUST (Stock at $168):
-  Sell $180 Call, Sep expiry, for $2.00
-  AAPL recovers to $172
-  Result: Call expires worthless. Keep $200. Sell new call.
-
-SEPTEMBER (Stock at $172):
-  Sell $185 Call, Oct expiry, for $2.20
-  AAPL ends Sep at $175
-  Result: Call expires worthless. Keep $220. Sell new call.
-
-OCTOBER (Stock at $175, earnings upcoming):
-  SKIP covered call (October earnings).
-  AAPL reports mixed results, stock drops to $165.
-
-NOVEMBER (Stock at $165):
-  Sell $178 Call, Dec expiry, for $1.90
-  AAPL year-end rally to $171
-  Result: Call expires worthless. Keep $190. Sell new call.
-
-DECEMBER (Stock at $171):
-  Sell $185 Call, Jan expiry, for $2.10
-  AAPL finishes year at $174.
-  Result: Call expires worthless in January. Keep $210.
-
-ANNUAL SUMMARY:
-  Total premiums collected: $250+$230+$280+$260+$240+$120+$200+$220+$190+$210
-  = $2,200 (10 cycles, 2 skipped for earnings)
-
-  Premium yield: $2,200 / $15,500 = 14.2%
-  Dividends received: ~$100 (4 quarterly dividends)
-  Capital appreciation: $174 - $155 = $19/share = $1,900 (12.3%)
-  TOTAL RETURN: $2,200 + $100 + $1,900 = $4,200 (27.1%)
-
-  Without covered calls:
-  Capital appreciation + dividends only = $2,000 (12.9%)
-
-  Covered calls added $2,200 (14.2%) to total return.
-```
-
-This example illustrates several important practical points: you skip cycles around earnings, premium amounts vary with market conditions, and the cumulative effect over a year is significant.
-
-#### The Psychology of Covered Calls
-
-Success with covered calls requires the right mental framework:
+為使概念具體化，讓我們追蹤一個掩護性買權部位整整一年的操作過程：
 
 ```
-PSYCHOLOGICAL CHALLENGES AND SOLUTIONS:
+掩護性買權12個月操作日誌：蘋果股票
 
-  CHALLENGE: "I hate seeing the stock go above my strike."
-  SOLUTION: Reframe assignment as success. You set a target price
-  and the stock reached it. That is your plan working, not failing.
-  Pre-commit to being satisfied with your strike price BEFORE selling.
+起始：持有100股，成本基礎$155
 
-  CHALLENGE: "The premium seems too small to bother."
-  SOLUTION: Think annually, not monthly. A $200 premium seems small.
-  $2,400 per year on one position is meaningful. On 5 positions,
-  that is $12,000. Over 10 years, reinvested, that is $200,000+.
+一月（股價$155）：
+  賣出$170買權，2月到期，收取$2.50
+  蘋果一月底收在$158 -> 2月到期時股價$157
+  結果：買權到期失效。保留$250。賣出新買權。
 
-  CHALLENGE: "I keep getting called away and missing rallies."
-  SOLUTION: Sell further OTM calls (lower delta). If you are getting
-  called away more than 20% of the time, your strikes are too close
-  to the current price.
+二月（股價$157）：
+  賣出$172買權，3月到期，收取$2.30
+  蘋果二月底收在$162
+  結果：買權到期失效。保留$230。賣出新買權。
 
-  CHALLENGE: "I do not want to sell my shares at any price."
-  SOLUTION: Maybe covered calls are not right for this stock.
-  It is OK to have some stocks that you never sell calls on.
-  Only use covered calls on positions where you have a sell target.
+三月（股價$162）：
+  賣出$175買權，4月到期，收取$2.80
+  蘋果股價在到期時接近$174
+  結果：買權到期失效（僅差一點點）。保留$280。平倉。
+
+四月（股價$173，財報即將公布）：
+  跳過本輪掩護性買權（四月下旬有財報）
+  繼續持股等待財報。
+  蘋果公布亮眼財報，股價跳升至$182。
+
+五月（股價$182）：
+  賣出$195買權，6月到期，收取$2.60
+  蘋果五月底收在$179
+  結果：買權到期失效。保留$260。賣出新買權。
+
+六月（股價$179）：
+  賣出$192買權，7月到期，收取$2.40
+  蘋果六月底收在$176
+  結果：買權到期失效。保留$240。賣出新買權。
+
+七月（股價$176，財報即將公布）：
+  賣出短期$185買權，2週到期，收取$1.20
+  財報前到期。
+  結果：買權到期失效。保留$120。
+  持股等待七月財報。蘋果下跌至$168。
+
+八月（股價$168）：
+  賣出$180買權，9月到期，收取$2.00
+  蘋果回升至$172
+  結果：買權到期失效。保留$200。賣出新買權。
+
+九月（股價$172）：
+  賣出$185買權，10月到期，收取$2.20
+  蘋果九月底收在$175
+  結果：買權到期失效。保留$220。賣出新買權。
+
+十月（股價$175，財報即將公布）：
+  跳過本輪掩護性買權（十月財報）。
+  蘋果公布財報結果喜憂參半，股價下跌至$165。
+
+十一月（股價$165）：
+  賣出$178買權，12月到期，收取$1.90
+  蘋果年末行情拉升至$171
+  結果：買權到期失效。保留$190。賣出新買權。
+
+十二月（股價$171）：
+  賣出$185買權，1月到期，收取$2.10
+  蘋果年底收在$174。
+  結果：買權於一月到期失效。保留$210。
+
+年度摘要：
+  收取的總權利金：$250+$230+$280+$260+$240+$120+$200+$220+$190+$210
+  = $2,200（操作10輪，跳過2輪財報）
+
+  權利金殖利率：$2,200 ÷ $15,500 = 14.2%
+  收到的股利：約$100（4次季度股利）
+  資本增值：$174 - $155 = $19/股 = $1,900（12.3%）
+  總報酬：$2,200 + $100 + $1,900 = $4,200（27.1%）
+
+  若未出售掩護性買權：
+  資本增值 + 股利 = $2,000（12.9%）
+
+  掩護性買權額外貢獻了$2,200（14.2%）的總報酬。
+```
+
+這個範例說明了幾個重要的實務要點：在財報週附近跳過操作、權利金金額因市場狀況而異，以及一年累積效果相當可觀。
+
+#### 掩護性買權的心理建設
+
+掌握掩護性買權需要正確的心理框架：
+
+```
+心理挑戰與解決方案：
+
+  挑戰：「我很討厭看到股票漲過我的履約價。」
+  解決方案：重新定義遭履約為成功。你設定了目標價格，
+  股票也達到了。這是計畫發揮作用，而非失敗。
+  在賣出買權之前，就預先接受對履約價感到滿意的心態。
+
+  挑戰：「權利金看起來太小，不值得費心。」
+  解決方案：以年度而非月度的視角思考。$200的權利金看起來很小。
+  每年$2,400在一個部位上意義重大。若有5個部位，
+  就是$12,000。複利累計10年，超過$200,000。
+
+  挑戰：「我持續遭履約，錯過了漲勢。」
+  解決方案：選擇更深度價外的買權（較低的貝塔）。若遭履約
+  的頻率超過20%，你的履約價離現價太近了。
+
+  挑戰：「我不想以任何價格賣出我的股票。」
+  解決方案：或許掩護性買權並不適合這支股票。
+  對某些股票永遠不賣出買權也完全沒問題。
+  僅對你有賣出目標的部位使用掩護性買權。
   
-  CHALLENGE: "What if I sell a call and bad news comes out?"
-  SOLUTION: If the stock drops, the call expires worthless and you
-  keep the premium. Bad news actually helps the covered call writer
-  (though it hurts the stock position). The premium is a cushion.
+  挑戰：「若我賣出買權後有壞消息怎麼辦？」
+  解決方案：若股票下跌，買權到期失效，你保留權利金。
+  壞消息實際上對掩護性買權的賣方有利
+  （雖然對股票部位不利）。權利金是一個緩衝。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Covered calls are risk-free income."**
+**迷思1：「掩護性買權是無風險的收益。」**
 
-No investment strategy is risk-free. While covered calls reduce risk compared to holding stock alone (because the premium provides a downside cushion), you still bear the full downside risk of stock ownership minus the premium. If the stock drops 30%, you lose 30% minus the 1-2% premium cushion. The call premium is income, not insurance. Do not confuse the two.
+沒有任何投資策略是零風險的。雖然掩護性買權相較於單純持股確實降低了風險（因為權利金提供了下檔緩衝），但你仍承擔股票持有的完整下檔風險，扣除權利金後方為實際損失。若股票下跌30%，你將虧損30%減去1至2%的權利金緩衝。權利金是收益，而非保險。切勿混淆兩者。
 
-**Misconception 2: "I should sell covered calls on all my stocks."**
+**迷思2：「我應該對所有持股都賣出掩護性買權。」**
 
-Not necessarily. If you own a stock with enormous growth potential and you are in it for the long-term appreciation, capping your upside with covered calls may cost you far more than the premium income provides. For example, selling covered calls on a stock that subsequently doubles would mean you sold at a fraction of its potential. Covered calls work best on mature, stable companies where you do not expect explosive growth.
+不一定。若你持有某支具有巨大成長潛力的股票，且著眼於長期資本增值，用掩護性買權封頂上檔所付出的代價，可能遠超過權利金收益所帶來的好處。舉例來說，若你對一支隨後翻倍的股票賣出掩護性買權，代表你以遠低於潛在漲幅的價格賣出。掩護性買權最適合成熟、穩定、不預期出現爆炸性成長的公司。
 
-**Misconception 3: "If the stock goes above my strike, I made a mistake."**
+**迷思3：「若股票漲過我的履約價，代表我犯了錯誤。」**
 
-This is the most psychologically challenging misconception. If you sold a $170 call and the stock goes to $190, you "missed out" on $20 of gains. But you still made money. You sold at $170 plus the premium. That was your target. A covered call that results in assignment is a **successful trade**, not a failed one. The mistake is not in selling the call; it would be in choosing a strike price that does not represent a genuine target.
+這是最具心理挑戰性的迷思。若你賣出$170買權而股票漲至$190，你「錯過」了$20的漲幅。但你仍然獲利。你以$170加上權利金出售。那是你的目標。遭履約的掩護性買權是一筆**成功的交易**，而非失敗。錯誤不在於賣出買權；而在於選擇一個並不代表真實目標的履約價。
 
-**Misconception 4: "Covered calls are not worth it because premiums are too small."**
+**迷思4：「掩護性買權不值得費心，因為權利金太小了。」**
 
-A $2 premium on a $155 stock is 1.3% in one month. That is 15.6% annualized. Where else can you earn 15.6% with moderate risk? If you think 1.3% per month is small, calculate what it amounts to over 10 years of compounding. At 12% annual yield (conservative for covered calls), $200,000 grows to approximately $621,000 from income alone, assuming reinvestment.
+$155股票的$2權利金是一個月1.3%的報酬。年化為15.6%。你在哪裡還能以中等風險賺取15.6%？若你認為每月1.3%太少，請計算10年複利後的金額。以12%年化殖利率（掩護性買權的保守估計），$200,000在假設再投入的情況下，僅靠收益即可成長至約$621,000。
 
-**Misconception 5: "I should never sell calls below my cost basis."**
+**迷思5：「我永遠不應該在成本基礎以下賣出買權。」**
 
-This is generally good advice, but it is a guideline, not an absolute rule. If you bought a stock at $180 and it has fallen to $140, selling a $170 call would lock in a loss if assigned. However, if the stock is unlikely to recover to $180, selling the $170 call and collecting premium while waiting may be a rational choice. The premium collected reduces your breakeven point. Each situation requires judgment.
+這通常是好建議，但這是原則，不是絕對規則。若你以$180買入某股票，股價已跌至$140，賣出$170買權若遭履約將確認虧損。然而，若股票不太可能回升至$180，一邊等待股價回升一邊收取$170買權的權利金，可能是理性的選擇。收取的權利金降低了你的損益平衡點。每種情況都需要判斷。
 
-**Misconception 6: "Rolling is always better than accepting assignment."**
+**迷思6：「展期總是優於接受履約。」**
 
-Sometimes the best action is to let the shares be called away. If the stock has reached your fair value estimate, if the fundamentals have changed, or if better opportunities exist elsewhere, accepting assignment and moving on is the right choice. Rolling should be used when you still want to hold the stock and believe it has more upside, not as a reflexive response to avoid assignment.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens to my dividend if I sell a covered call?**
-
-A: You continue to receive dividends as long as you own the shares. The covered call does not affect your dividend rights unless you are assigned before the ex-dividend date. If you are assigned early (which happens occasionally to capture the dividend), you sell the shares and no longer receive the dividend, but you keep the call premium and the proceeds from the sale.
-
-**Q2: Can I sell covered calls on ETFs like SPY or QQQ?**
-
-A: Absolutely. ETFs are excellent for covered calls because they have high liquidity, tight bid-ask spreads, no single-stock risk, and no earnings surprises. SPY, QQQ, IWM, and sector ETFs like XLF (financials) and XLE (energy) all have active options markets. The premiums may be slightly lower per dollar of stock price (because ETFs are less volatile than individual stocks), but the consistency and reduced risk make them attractive.
-
-**Q3: How do I handle covered calls during earnings season?**
-
-A: There are two approaches. The conservative approach is to avoid having calls expire during earnings week. Sell calls that expire before or after earnings. The aggressive approach is to sell calls through earnings, which provides higher premium (due to elevated IV) but risks a gap move that causes assignment or an unwanted stock position after a large drop. For most investors in this course, the conservative approach is recommended: let the call expire before earnings, skip one cycle, then resume after earnings are announced.
-
-**Q4: Should I sell calls on my entire position or just part of it?**
-
-A: Selling calls on your entire position maximizes income but caps all upside. Selling calls on a portion (e.g., 50-75%) provides income while leaving some shares uncovered for potential upside. A common approach is to sell calls on 50% of your shares, giving you income while maintaining some growth exposure. This is a personal choice based on your outlook and income needs.
-
-**Q5: What if the stock drops after I sell a covered call?**
-
-A: The call will lose value (good for you as the seller) and likely expire worthless. You keep the premium. However, you still hold the stock at a lower price, so you have an unrealized loss on the stock position. The premium partially offsets this loss. After the call expires, you can sell a new call at a lower strike or wait for the stock to recover. The key question is always: do you still want to own the stock?
-
-**Q6: How do commissions affect covered call profitability?**
-
-A: Most major brokers now offer commission-free options trading (Schwab, Fidelity, Interactive Brokers Lite). Even at brokers that charge, the typical cost is $0.50-$0.65 per contract. On a $250 premium, that is about 0.2-0.3% of the premium. Commissions are no longer a meaningful impediment to covered call strategies unless you are trading very small premiums on weekly options.
-
-**Q7: What is the "Buy-Write" strategy?**
-
-A: A buy-write is when you simultaneously buy 100 shares and sell a call in a single trade. Many brokers allow you to enter this as a combined order. The advantage is that you get a single fill price for the combined position. For example, instead of buying AAPL at $155 and separately selling the $170 call for $2.50, you enter a buy-write order for a net cost of $152.50 ($155 - $2.50). This guarantees you get both legs filled at your target net price.
-
-**Q8: How far out of the money should I sell my calls?**
-
-A: This depends on your goals. As a general guideline:
-- Income focus: 3-5% OTM (higher premium, more assignment risk)
-- Balanced approach: 5-10% OTM (moderate premium, moderate risk)
-- Growth focus: 10-15% OTM (lower premium, rare assignment)
-- Use delta as a guide: a 0.20-0.30 delta call is 5-10% OTM and has roughly a 20-30% chance of being in the money at expiration.
-
-**Q9: Can I sell covered calls in an IRA?**
-
-A: Yes. Covered calls are approved for virtually all IRA accounts (traditional, Roth, rollover). They are classified as Level 1 options, the most basic and conservative level. You do not need margin to sell covered calls because you already own the shares. The tax advantage of an IRA makes covered calls even more attractive because the premium income is not taxed until withdrawal (traditional) or not taxed at all (Roth).
-
-**Q10: What is the "collar" strategy, and how does it relate to covered calls?**
-
-A: A collar combines a covered call with a protective put. You own the stock, sell a call (collecting premium), and use some or all of that premium to buy a put (protection). For example: own AAPL at $155, sell the $170 call for $2.50, buy the $140 put for $2.00. Net premium: $0.50. You have capped your upside at $170 but protected your downside below $140. Your stock can only move between $140 and $170, and you collected $0.50 for accepting this range. Collars are excellent for protecting large positions with minimal cost.
+有時候讓股票被買走才是最佳行動。若股票已達到你的合理估值，基本面已改變，或其他地方存在更好的機會，接受履約繼續前行才是正確選擇。展期應在你仍想持有股票且相信其有更多上漲空間時使用，而非作為迴避履約的反射性應對。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**Q1：若我賣出掩護性買權，我的股利會怎樣？**
+
+A：只要你持有股票，你就繼續收取股利。除非你在除息日前遭到履約，否則掩護性買權不影響你的股利權益。若你提前遭履約（偶爾發生，通常是為了取得股利），你賣出股票後將不再收取股利，但你保留了權利金收入和賣股所得。
+
+**Q2：我可以對SPY或QQQ等指數股票型基金賣出掩護性買權嗎？**
+
+A：當然可以。指數股票型基金非常適合掩護性買權，因為它們流動性高、買賣價差窄、無個股風險、也不會有財報意外。SPY、QQQ、IWM以及XLF（金融）和XLE（能源）等產業型指數股票型基金都有活躍的選擇權市場。相較於個股，指數股票型基金每單位股價的權利金可能稍低（因波動性較小），但其穩定性和較低風險使之具有吸引力。
+
+**Q3：財報季期間，我該如何處理掩護性買權？**
+
+A：有兩種方式。保守方式是避免在財報週到期的買權。賣出在財報前或財報後到期的買權。積極方式是賣出跨越財報期間的買權，可獲得較高權利金（因隱含波動率偏高），但有可能因股價跳空而遭履約，或財報後大跌導致不理想的持股狀況。對於本課程的大多數投資人，建議採用保守方式：讓買權在財報前到期，跳過一輪，待財報公布後恢復操作。
+
+**Q4：我應該對全部持股還是部分持股賣出買權？**
+
+A：對全部持股賣出買權可最大化收益，但完全封頂上檔。對部分持股賣出買權（例如50至75%）可在提供收益的同時，讓部分股票保有上漲空間。常見做法是對50%的持股賣出買權，在獲取收益的同時維持一定的成長敞口。這是根據你的市場展望和收益需求做出的個人選擇。
+
+**Q5：若在賣出掩護性買權後股票下跌，我該怎麼辦？**
+
+A：買權將貶值（對你身為賣方有利），並可能到期失效。你保留權利金。但你仍以較低價格持有股票，因此持股有未實現虧損。權利金部分抵消了這筆損失。買權到期後，你可以以較低的履約價賣出新買權，或等待股票回升。核心問題始終是：你是否仍想持有這支股票？
+
+**Q6：手續費如何影響掩護性買權的獲利性？**
+
+A：目前大多數主要券商均提供免手續費的選擇權交易（Schwab、Fidelity、Interactive Brokers Lite）。即便有收費的券商，典型費用約為每口合約0.50至0.65美元。以$250的權利金計算，這大約是權利金的0.2至0.3%。除非你在週選擇權中交易極小額的權利金，否則手續費已不再是掩護性買權策略的實質障礙。
+
+**Q7：什麼是「買入持有策略（Buy-Write）」？**
+
+A：買入持有策略是指同時買入100股股票並賣出買權的單一組合交易。許多券商允許你以合併訂單的方式進行。優點是你可以針對組合部位取得單一成交價格。例如，取代分別以$155買入蘋果股票並另外以$2.50賣出$170買權，你輸入一筆買入持有訂單，淨成本為$152.50（$155 - $2.50）。這確保你以目標淨價格取得兩腿的成交。
+
+**Q8：買權應賣出多深的價外？**
+
+A：這取決於你的目標。一般準則如下：
+- 收益導向：價外3至5%（較高權利金，遭履約風險較高）
+- 均衡方式：價外5至10%（中等權利金，中等風險）
+- 成長導向：價外10至15%（較低權利金，極少遭履約）
+- 以貝塔作為參考：貝塔值0.20至0.30的買權約為價外5至10%，到期時成為價內的機率約20至30%。
+
+**Q9：我可以在個人退休帳戶（IRA）中賣出掩護性買權嗎？**
+
+A：可以。掩護性買權適用於幾乎所有個人退休帳戶（傳統型、Roth型、轉存型）。它們被歸類為Level 1選擇權，即最基本且最保守的等級。你不需要保證金即可賣出掩護性買權，因為你已持有相應的股票。個人退休帳戶的稅務優勢使掩護性買權更具吸引力，因為權利金收益在提領前無需繳稅（傳統型）或完全免稅（Roth型）。
+
+**Q10：什麼是「保護性衣領策略（Collar）」，它與掩護性買權有何關聯？**
+
+A：衣領策略將掩護性買權與保護性賣權結合。你持有股票，賣出買權（收取權利金），並以部分或全部權利金購買賣權（保護）。例如：持有蘋果股票$155，賣出$170買權收取$2.50，以$2.00買入$140賣權。淨權利金：$0.50。你的上檔封頂於$170，但$140以下的下檔受到保護。你的股票只能在$140至$170之間波動，而你收取了$0.50的淨權利金。衣領策略極適合以最低成本保護大型持股部位。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 27: Covered Calls for Income - Level 3: Advanced"]
 
-**Alex:** Welcome back. Today we are diving into one of my absolute favorite strategies for long-term investors: the covered call. If you own stocks and you are not at least considering covered calls, you are leaving money on the table.
+**Horace（陳馬）：** 歡迎回來。今天我們要深入探討我最喜愛的長期投資策略之一：掩護性買權。如果你已經持有股票，卻完全沒有考慮過掩護性買權，那你正在把錢拱手相讓。
 
-**Sam:** That is a bold statement. Tell me why.
+**Stella（小魚）：** 這句話說得很大膽。告訴我為什麼。
 
-**Alex:** I will prove it to you with numbers. If you own a typical $200,000 stock portfolio, you are probably earning about $3,000-$4,000 per year in dividends. With covered calls, you could add another $16,000 to $24,000 per year in income. That is 5 to 8 times what dividends provide.
+**Horace（陳馬）：** 我用數字來證明給你看。如果你持有一個典型的20萬美元股票投資組合，你每年大概只能賺到3,000至4,000美元的股利。但透過掩護性買權，你可以額外再增加16,000至24,000美元的年度收益，相當於股利的5至8倍。
 
-**Sam:** $20,000 in additional income without selling my stocks? Walk me through this.
+**Stella（小魚）：** 不賣股票就能多賺2萬美元？帶我深入了解一下。
 
-[VISUAL: Bar chart comparison: "Dividends Only: ~$3,500/year" vs "Dividends + Covered Calls: ~$22,000/year" on a $200,000 portfolio]
+[VISUAL: Bar chart comparison: "僅靠股利：約$3,500/年" vs "股利＋掩護性買權：約$22,000/年"，以$200,000投資組合為基準]
 
-**Alex:** Let us start with exactly what a covered call is. It is a two-part position. Part one: you own at least 100 shares of a stock. Part two: you sell one call option against those shares. The call is "covered" because your shares are the collateral. If the buyer exercises, you simply deliver your existing shares.
+**Horace（陳馬）：** 先從掩護性買權的定義說起。它是由兩個部分組成的部位。第一部分：你持有至少100股的股票。第二部分：你針對這些股票賣出一口買權。買權之所以「被掩護」，是因為你的股票就是擔保品。若買方行使權利，你只需交付現有持股即可。
 
-**Sam:** So I am selling someone the right to buy my shares at a specific price?
+**Stella（小魚）：** 所以我是在賣給別人以特定價格買走我股票的權利？
 
-**Alex:** Exactly. Think of it as placing a limit sell order on your stock and getting paid for it. We covered this concept last week. Today we are going deep into the mechanics.
+**Horace（陳馬）：** 正是。想像一下，這就像是針對你的股票設定一個限價賣單，而且還能從中獲得報酬。我們上週討論過這個概念，今天我們要深入拆解它的操作細節。
 
-[VISUAL: Diagram showing the covered call structure - "Long 100 shares" connected to "Short 1 Call" with an equals sign leading to "Covered Call Position"]
+[VISUAL: Diagram showing the covered call structure - "多頭100股" connected to "空頭1口買權" with an equals sign leading to "掩護性買權部位"]
 
-**Sam:** Let us use a real example.
+**Stella（小魚）：** 我們來用一個實際的例子說明。
 
-**Alex:** Perfect. Let us say you own 100 shares of Apple at $155. You sell one Apple $170 call option, expiring in 30 days, for $2.50 per share. That is $250 in your account immediately.
+**Horace（陳馬）：** 完美。假設你持有100股蘋果股票，成本是$155。你賣出一口蘋果$170買權，30天後到期，每股收取$2.50的權利金，也就是立即入帳$250。
 
-**Sam:** And what happens from there?
+**Stella（小魚）：** 接下來會發生什麼？
 
-**Alex:** Three possible scenarios. Let me walk through each one.
+**Horace（陳馬）：** 有三種可能的情境。讓我逐一說明。
 
 [ANIMATION: Reference animation/week27_covered_call.py - Animation showing a stock price chart with the current price at $155 and a horizontal dashed line at $170 (strike price). Three animated paths branch out: Path 1 shows the stock staying flat around $155, Path 2 shows the stock rising to $165, and Path 3 shows the stock rising above $170. For each path, a calculator shows the profit/loss calculation including the premium. The animation highlights the "cap" at $170 and shows how the premium cushions the position on the downside.]
 
-**Alex:** Scenario one: Apple stays below $170 at expiration. The call expires worthless. You keep your 100 shares, and you keep the $250 premium. You can sell another call next month. Repeat forever.
+**Horace（陳馬）：** 情境一：蘋果在到期時維持在$170以下。買權到期失效，你保留100股股票，同時保留$250的權利金。下個月可以再賣一次。如此循環，永無止境。
 
-**Sam:** That is the best-case scenario for the strategy.
+**Stella（小魚）：** 這是策略最理想的情況。
 
-**Alex:** It is the most common scenario. With a strike 10% above the current price, this happens about 80-85% of the time for monthly options.
+**Horace（陳馬）：** 這也是最常見的情況。當履約價高於現價10%時，這種結果在月選擇權中大約有80至85%的機率發生。
 
-**Sam:** Scenario two?
+**Stella（小魚）：** 那情境二呢？
 
-**Alex:** Apple rises above $170. Your shares are called away. You sell 100 shares at $170 and keep the $250 premium. Total proceeds: $172.50 per share. On your $155 cost basis, that is a profit of $17.50 per share, or $1,750 total. An 11.3% return in 30 days.
+**Horace（陳馬）：** 蘋果漲過$170。你的股票遭到履約，你以$170賣出100股，並保留$250的權利金。總所得：每股$172.50。以你$155的成本基礎計算，每股利潤為$17.50，合計$1,750，也就是30天內11.3%的報酬。
 
-**Sam:** But I missed out on anything above $170.
+**Stella（小魚）：** 但我錯過了$170以上的漲幅。
 
-**Alex:** True. If Apple went to $200, you "only" made $17.50 per share instead of $45 per share. But here is my question: is making $1,750 in 30 days a bad outcome?
+**Horace（陳馬）：** 沒錯。若蘋果漲到$200，你「只賺到」每股$17.50，而不是$45。但我想問的是：在30天內賺到$1,750，算是不好的結果嗎？
 
-[VISUAL: Two investors. "Investor A" sold covered call, made $1,750 in 30 days, looks satisfied. "Investor B" held without call, made $4,500, looks slightly happier but also stressed. Text: "Both made money. The covered call writer had a PLAN."]
+[VISUAL: Two investors. "投資人A" sold covered call, made $1,750 in 30 days, looks satisfied. "投資人B" held without call, made $4,500, looks slightly happier but also stressed. Text: "兩者都獲利了。掩護性買權的賣方事先有計劃。"]
 
-**Sam:** When you put it that way, no. It is still a great return.
+**Stella（小魚）：** 這樣說來，不算。這仍是相當不錯的報酬。
 
-**Alex:** And remember, you chose $170 as your target sell price. Assignment means your plan worked.
+**Horace（陳馬）：** 而且記住，你當初選擇$170正是你的目標賣出價。遭履約代表你的計畫成功了，而不是失敗了。
 
-**Sam:** What about scenario three? What if Apple drops?
+**Stella（小魚）：** 那情境三呢？如果蘋果下跌怎麼辦？
 
-**Alex:** If Apple drops to, say, $148, the call expires worthless and you keep the $250 premium. You still hold your shares at a loss, but your effective cost basis is now $152.50 instead of $155 because the premium reduces your cost. You are $2.50 per share better off than if you had not sold the call.
+**Horace（陳馬）：** 若蘋果跌到$148，買權到期失效，你保留$250的權利金。你仍持有股票，但處於虧損狀態。然而，由於權利金降低了你的持股成本，你的實際成本基礎現在是$152.50，而不是$155。你比沒有賣出買權時每股多了$2.50的優勢。
 
-**Sam:** So the premium is like a small cushion.
+**Stella（小魚）：** 所以權利金就像一個小緩衝墊。
 
-**Alex:** Exactly. It does not eliminate downside risk, but it reduces it. Over time, these premiums accumulate and significantly lower your average cost basis.
+**Horace（陳馬）：** 正是。它不能消除下檔風險，但確實降低了風險。隨著時間累積，這些權利金逐漸積累，大幅降低你的平均成本基礎。
 
 [VISUAL: Waterfall chart showing cost basis reduction over 12 months of covered call selling. Starting at $155, each month the cost basis drops by $1.50-$2.50 as premiums are collected, ending around $130 after 12 months]
 
-**Sam:** Let us talk about how to choose the right strike price. That seems like a critical decision.
+**Stella（小魚）：** 我們來談談如何選擇正確的履約價，這看起來是一個關鍵決策。
 
-**Alex:** It is the most important decision in the strategy. There are three approaches. Conservative: sell calls 10-15% out of the money. You get smaller premiums but rarely lose your shares. Moderate: 5-10% out of the money. Good balance of income and retention. Aggressive: at the money or just above. Maximum income but high assignment probability.
+**Horace（陳馬）：** 這是整個策略中最重要的決策。有三種方式。保守型：賣出價外10至15%的買權，獲得較少的權利金，但很少失去股票。穩健型：價外5至10%，在收益與股票保留之間取得良好平衡。積極型：在價平或略高於現價，最大化收益但遭履約機率高。
 
-**Sam:** Which do you recommend for someone starting out?
+**Stella（小魚）：** 你推薦剛入門的人選哪一種？
 
-**Alex:** The moderate approach. For a stock at $155, that means the $165 to $175 range. Specifically, I like the delta 0.20 to 0.30 range, which roughly corresponds to a 20-30% chance the stock reaches the strike.
+**Horace（陳馬）：** 穩健型。對於現價$155的股票，這意味著選擇$165至$175的範圍。具體而言，我喜歡貝塔值0.20至0.30的區間，這大致對應著股票觸及履約價的機率約為20至30%。
 
-[VISUAL: Number line showing strike prices. $155 current price in the center. Ranges marked: "$155-$160 Aggressive (high income, high assignment)", "$165-$170 Moderate (balanced)", "$175-$180 Conservative (low income, low assignment)"]
+[VISUAL: Number line showing strike prices. $155 current price in the center. Ranges marked: "$155-$160 積極型（高收益，高履約機率）", "$165-$170 穩健型（均衡）", "$175-$180 保守型（低收益，低履約機率）"]
 
-**Sam:** What about expiration? How far out should the option expire?
+**Stella（小魚）：** 那到期日呢？應該選多遠的到期日？
 
-**Alex:** 30 to 45 days is the sweet spot. Here is why. Remember the time decay curve from last week? Theta, the daily rate of decay, accelerates in the last 45 days. By selling in this window, you get the best ratio of premium to time. Selling a 30-day call gives you roughly 60-70% of the premium of a 60-day call but in half the time.
+**Horace（陳馬）：** 30至45天是最佳區間。原因如下。還記得上週提到的時間耗損曲線嗎？Theta——也就是每日耗損速度——在最後45天會加速。在這個時間窗口內賣出，你能獲得最佳的權利金對時間比率。賣出30天買權，所得到的權利金大約是60天買權的60至70%，但只需一半的時間。
 
-**Sam:** So I get nearly the same premium but I can do it twice in the same timeframe?
+**Stella（小魚）：** 所以我幾乎能得到相同的權利金，但在同樣的時間框架內可以操作兩次？
 
-**Alex:** Exactly. Two 30-day cycles at $2.00 each = $4.00 total. One 60-day cycle at $3.00 total. Two cycles wins. Plus, shorter duration means less exposure to unexpected events.
+**Horace（陳馬）：** 正是。兩輪30天合約，每次$2.00，合計$4.00。一輪60天合約，合計$3.00。兩輪操作明顯勝出。而且，較短的到期日也意味著對意外事件的曝險時間較少。
 
-[VISUAL: Comparison: "Two 30-day cycles: $2.00 + $2.00 = $4.00" vs "One 60-day cycle: $3.00". The two-cycle approach clearly generates more income.]
+[VISUAL: Comparison: "兩輪30天合約：$2.00 + $2.00 = $4.00" vs "一輪60天合約：$3.00". The two-cycle approach clearly generates more income.]
 
-**Sam:** Now I want to know about the yield math. How do I calculate my return?
+**Stella（小魚）：** 現在我想了解殖利率的計算方式。我如何計算自己的報酬？
 
-**Alex:** Simple formula. Take the premium, divide by the stock price, and annualize it. If you receive $2.50 on a $155 stock for a 30-day option, that is $2.50 divided by $155, which is 1.6%. Annualized: 1.6% times 365 divided by 30 equals 19.6%.
+**Horace（陳馬）：** 公式很簡單。將權利金除以股票現價，再進行年化。若你在30天合約的$155股票上收取$2.50的權利金，那就是$2.50除以$155，等於1.6%。年化後：1.6%乘以365再除以30，等於19.6%。
 
-**Sam:** 19.6% annualized? That seems high.
+**Stella（小魚）：** 年化19.6%？這看起來很高。
 
-**Alex:** It is high when conditions are favorable. In practice, you will not achieve that every month. Some months the premium will be lower. Some months you might skip a cycle around earnings. A realistic annual covered call yield is 8-15% for a moderate approach on high-quality stocks.
+**Horace（陳馬）：** 在條件有利時確實如此。實際上，你不可能每個月都達到這個數字。有些月份的權利金較低，有些月份你可能因財報而跳過一輪。穩健方式操作高品質股票，現實的年度掩護性買權殖利率約為8至15%。
 
-[VISUAL: Calculator showing the yield formula with an example. Then a "Reality Check" adjustment showing: Theoretical max ~20%, Practical annual yield ~8-15%, with adjustments for "Months skipped for earnings", "Varying IV levels", "Cycles when assigned"]
+[VISUAL: Calculator showing the yield formula with an example. Then a "實際調整" adjustment showing: Theoretical max ~20%, Practical annual yield ~8-15%, with adjustments for "因財報跳過的月份", "隱含波動率水準的變化", "遭履約的輪次"]
 
-**Sam:** Let us talk about what to do when things do not go as planned. What if the stock is approaching my strike price with a week to go?
+**Stella（小魚）：** 我們來談談事情不如預期時該怎麼辦。若股票在距到期日還有一週時接近我的履約價，我該怎麼做？
 
-**Alex:** You have two choices. First, let it happen. If you are happy selling at the strike price, just let the shares be called away. Remember, assignment is success, not failure. Second, roll the position.
+**Horace（陳馬）：** 你有兩個選擇。第一，順其自然。若你樂於以履約價賣出，就讓股票被買走。記住，遭履約是成功，而非失敗。第二，展期部位。
 
-**Sam:** What does rolling mean?
+**Stella（小魚）：** 展期是什麼意思？
 
-**Alex:** Rolling means closing your current call by buying it back, and simultaneously selling a new call with a later expiration and usually a higher strike. This extends your time in the position and often generates a net credit.
+**Horace（陳馬）：** 展期意指透過買回現有買權來平倉，同時賣出到期日更晚、通常履約價更高的新買權。這延長了你持有部位的時間，並且通常能產生淨權利金收入。
 
-[VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "Buy Back" the current call, then "Sell New" call with later expiry and higher strike. Net credit amount is displayed.]
+[VISUAL: Rolling animation. Timeline shows original call position. An arrow shows "買回"現有買權, then "賣出新"到期日更晚、履約價更高的買權. Net credit amount is displayed.]
 
-**Alex:** Here is an example. You sold the AAPL $170 call for $2.50 and the stock is now at $172 with a week to go. The call is worth about $4.00. You buy it back for $4.00, then sell the AAPL $180 call expiring next month for $3.00. Your net cost on the roll is $1.00. But you have raised your selling price from $170 to $180 and given yourself another month.
+**Horace（陳馬）：** 舉個例子。你以$2.50賣出蘋果$170買權，股票現在漲到$172，距到期還有一週。買權現值約$4.00。你以$4.00買回，然後賣出下個月到期的蘋果$180買權，獲得$3.00。此次展期的淨成本為$1.00。但你已將賣出價格從$170提高至$180，並再給了自己一個月的時間。
 
-**Sam:** So rolling is a way to "push back" the selling point?
+**Stella（小魚）：** 所以展期是一種「推遲」賣出時機的方式？
 
-**Alex:** Exactly. You are saying, I do not want to sell at $170 anymore, I want to sell at $180, and I am willing to give up $1.00 per share in net premium to get that $10 higher selling price. If Apple stays below $180, you still keep the new premium minus the roll cost.
+**Horace（陳馬）：** 正是。你在說，我不想再以$170賣出了，我想以$180賣出，而且我願意為了這$10更高的賣出價，付出每股$1.00的淨權利金成本。若蘋果在四月前維持在$180以下，你仍能保留扣除展期成本後的新權利金。
 
-**Sam:** When should you roll versus just accepting assignment?
+**Stella（小魚）：** 什麼時候應該展期，什麼時候應該接受履約？
 
-**Alex:** Roll when: you still want to own the stock, you believe it has more upside, and you can roll for a credit or a small debit. Accept assignment when: the stock has reached your fair value, the fundamentals have changed, or better opportunities exist elsewhere.
+**Horace（陳馬）：** 以下情況選擇展期：你仍想持有該股票、你認為股票還有上漲空間，以及你能以獲取權利金或小額支出的方式展期。以下情況則接受履約：股票已達到你的合理估值、基本面已改變，或其他地方存在更好的機會。
 
-[VISUAL: Decision flowchart. "Stock approaching strike price?" -> "Do you still want to own it?" If YES -> "Can you roll for a credit?" If YES -> "ROLL". If NO to either -> "LET IT BE ASSIGNED"]
+[VISUAL: Decision flowchart. "股票接近履約價？" -> "你是否仍想持有它？" If YES -> "你能否以獲取淨權利金的方式展期？" If YES -> "展期". If NO to either -> "接受履約"]
 
-**Sam:** Now I want to address the elephant in the room. What about that scenario where the stock absolutely rockets higher and you miss out on a huge gain?
+**Stella（小魚）：** 現在我想正面回應那個關鍵問題。若股票大幅飆升而你錯過了巨大漲幅，怎麼辦？
 
-**Alex:** Let me give you two perspectives. Mathematically, the covered call underperforms when stocks rally more than 10-15% in a single month. This happens maybe 10-15% of the time for a typical large-cap stock. The other 85-90% of the time, the covered call earns the same capital gain plus the premium.
+**Horace（陳馬）：** 讓我從兩個角度來說明。從數學角度，當股票在單一個月內上漲超過10至15%時，掩護性買權會落後。對於一般大型股而言，這種情況大約有10至15%的機率發生。其餘85至90%的時間，掩護性買權都能獲得相同的資本增值，再加上權利金。
 
-**Sam:** So 85% of the time you win, and 15% of the time you "win less."
+**Stella（小魚）：** 所以85%的時間你贏，15%的時間你「贏得比較少」。
 
-**Alex:** Exactly. And notice I said "win less," not "lose." Even when the stock blasts through your strike, you still make a profit. You made the strike price minus your cost, plus the premium. You just did not make the maximum possible profit.
+**Horace（陳馬）：** 正是。而且注意我說的是「贏得比較少」，而不是「虧損」。即使股票強勁突破你的履約價，你仍然獲利。你賺到了履約價減去成本加上權利金。你只是沒有賺到最大可能的利潤。
 
-**Sam:** That is an important distinction.
+**Stella（小魚）：** 這是很重要的區別。
 
-**Alex:** And here is the psychological perspective. Professional investors know that missing a moonshot is the cost of consistent income. A bird in the hand versus two in the bush. The premiums you collect month after month are certain. The possibility that the stock will rocket 25% in any given month is uncertain.
+**Horace（陳馬）：** 從心理角度而言，專業投資人知道錯過爆發性漲幅是穩定收益的代價。一鳥在手，勝於二鳥在林。你每月收取的權利金是確定的。股票在任何特定月份飆漲25%的可能性則是不確定的。
 
-[VISUAL: Two columns: "CERTAIN: Monthly premium income of $250" vs "UNCERTAIN: Possibility of catching a 25% monthly rally". Text below: "Covered calls trade uncertain upside for certain income."]
+[VISUAL: Two columns: "確定的：每月$250的權利金收益" vs "不確定的：某個月捕捉到25%漲幅的可能性". Text below: "掩護性買權以不確定的上檔換取確定的收益。"]
 
-**Sam:** Let us talk about the overall income comparison. You said covered calls can produce 2-3 times what dividends provide?
+**Stella（小魚）：** 我們來談談整體收益的比較。你說掩護性買權可以產生股利的2至3倍收益？
 
-**Alex:** Actually, for many stocks, it is far more than that. Let me show you.
+**Horace（陳馬）：** 實際上，對許多股票而言，倍數遠不止於此。讓我來展示給你看。
 
 [VISUAL: Table on screen comparing 5 stocks with their dividend yield vs covered call yield vs combined yield]
 
-**Alex:** Take Apple. Dividend yield is about 0.65%. With monthly covered calls, you can add 10-14% in premium income. Your total yield goes from 0.65% to roughly 11-15%. That is not 2-3 times the dividend. That is more like 17 to 23 times.
+**Horace（陳馬）：** 以蘋果為例，股利殖利率約為0.65%。透過每月賣出掩護性買權，你可以額外增加10至14%的權利金收益。你的總殖利率從0.65%提升至大約11至15%。這不是2至3倍的股利，而是17至23倍。
 
-**Sam:** That is staggering.
+**Stella（小魚）：** 這太驚人了。
 
-**Alex:** For a higher-dividend stock like Johnson and Johnson at about 3% dividend yield, covered calls add 8-12%, bringing total yield to 11-15%, which is about 4-5 times the dividend alone. The "2-3 times" guideline is actually conservative. The real multiplier depends on the stock's volatility and the aggressiveness of your strike selection.
+**Horace（陳馬）：** 以嬌生這種股利殖利率約3%的高股息股票為例，掩護性買權可增加8至12%，使總殖利率達到11至15%，大約是單純股利的4至5倍。「2至3倍」的說法其實相當保守，實際倍數取決於股票的波動性和你所選擇履約價的積極程度。
 
-**Sam:** Can you walk through what a complete covered call portfolio looks like? For someone with, say, $200,000?
+**Stella（小魚）：** 你能帶我看看一個完整的掩護性買權投資組合嗎？假設是一個$200,000的投資組合？
 
-**Alex:** Sure. Picture five stocks, each a blue-chip name in a different sector. Apple for tech, JPMorgan for finance, Johnson and Johnson for healthcare, Coca-Cola for consumer staples, and Microsoft for more tech. You own 100-300 shares of each, and you sell covered calls monthly.
+**Horace（陳馬）：** 當然。想像五支股票，每支都是不同產業的藍籌股。科技股選蘋果，金融股選摩根大通，醫療保健股選嬌生，民生消費品股選可口可樂，以及再選微軟增加科技比重。每支股票持有100至300股，每月賣出掩護性買權。
 
 [VISUAL: Portfolio dashboard showing 5 stocks with shares owned, cost basis, current price, call sold, premium collected, and annualized yield for each. Bottom shows total monthly income and annual projected income.]
 
-**Alex:** Your total monthly premium might be around $1,800. Add dividends of about $300 per month, and you are generating $2,100 per month in income from a $200,000 portfolio. That is $25,200 per year, or a 12.6% annual income yield.
+**Horace（陳馬）：** 你每月的總權利金收入可能約為$1,800。加上每月約$300的股利，你從$200,000的投資組合中每月產生$2,100的收益。換算成全年就是$25,200，年化收益殖利率為12.6%。
 
-**Sam:** That is incredible. Most people would be thrilled with that kind of income.
+**Stella（小魚）：** 這真的很厲害。大多數人能有這樣的收益都會非常開心。
 
-**Alex:** And the beauty is, you still own all the stocks. They can still appreciate. You can still receive dividends. The covered calls just add a third stream of income on top.
+**Horace（陳馬）：** 而且這個策略的美妙之處在於，你仍持有所有股票。它們仍然可以增值，你仍然可以收取股利。掩護性買權只是在這兩項之外，再額外增加了第三條收益流。
 
-**Sam:** Let me ask about the management side. How much time does this take?
+**Stella（小魚）：** 讓我來問問管理面的問題。這需要花費多少時間？
 
-**Alex:** Here is my monthly routine. On expiration week, I spend about 30 minutes reviewing my positions. For any calls that expired worthless, I sell new calls for the next month, takes maybe 10 minutes per stock. For any that are being challenged, I decide whether to roll or accept assignment, another 10 minutes. Total time per month: about 45-60 minutes.
+**Horace（陳馬）：** 這是我每月的例行作業。在到期週，我花大約30分鐘檢視我的部位。對於到期失效的買權，我賣出下個月的新買權，每支股票大概10分鐘。對於受到挑戰的部位，我決定是否展期或接受履約，再花10分鐘。每月總時間：大約45至60分鐘。
 
-**Sam:** Under an hour a month for $25,000 per year in extra income.
+**Stella（小魚）：** 每年不到一小時，換來每年$25,000的額外收益。
 
-**Alex:** When you think about it in terms of hourly rate, you are earning over $2,000 per hour for the time spent managing covered calls.
+**Horace（陳馬）：** 若以時薪來計算，你管理掩護性買權的時薪超過$2,000美元。
 
-[VISUAL: Calculator: "45 minutes/month x 12 months = 9 hours/year. $25,200 / 9 hours = $2,800/hour"]
+[VISUAL: Calculator: "45分鐘/月 × 12個月 = 9小時/年。$25,200 ÷ 9小時 = 每小時$2,800"]
 
-**Sam:** OK, I have to ask about the tricky situations. What do I do around earnings?
+**Stella（小魚）：** 好，我必須問問棘手的情況。財報季期間我該怎麼辦？
 
-**Alex:** My rule is simple: do not have calls expiring during earnings week. Earnings can cause the stock to gap up or down significantly. If it gaps up, you might be assigned at a bad price. If it gaps down, the call premium you collected is tiny compared to the stock loss. Either way, earnings week adds unpredictable risk. Sell calls that expire before earnings or after earnings, but not during.
+**Horace（陳馬）：** 我的規則很簡單：不要讓買權在財報週到期。財報可能導致股票大幅跳空上漲或下跌。若跳空上漲，你可能在不理想的時機遭履約。若跳空下跌，你收取的權利金與股票損失相比微乎其微。無論哪種情況，財報週都增加了難以預測的風險。應賣出在財報前或財報後到期的買權，而非在財報期間到期。
 
-**Sam:** So you skip a cycle?
+**Stella（小魚）：** 所以你會跳過某一輪？
 
-**Alex:** Sometimes. Or you sell a shorter-term call that expires before earnings, then sell a new call after the announcement. The key is not to be short a call when a binary event is about to happen unless you are specifically trying to exit the position.
+**Horace（陳馬）：** 有時候會。或者你賣出在財報前到期的短期買權，等財報公布後再賣出新買權。關鍵是不要在重大二元事件即將發生時持有空頭買權部位，除非你本來就打算出場。
 
-[VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "No Calls" in red]
+[VISUAL: Calendar showing earnings date highlighted. Call expiration dates shown before and after earnings, with the earnings week marked "不賣買權" in red]
 
-**Sam:** What about tax considerations?
+**Stella（小魚）：** 那稅務方面的考量呢？
 
-**Alex:** In a taxable account, covered call premiums are generally short-term capital gains, taxed at your ordinary income rate. If your shares are called away, the premium is added to the sale proceeds for capital gains calculation. If the call expires worthless, the premium is a standalone short-term gain. In an IRA or Roth IRA, none of this matters because the income grows tax-deferred or tax-free. This is why I especially like covered calls in Roth IRAs; the premium income is never taxed.
+**Horace（陳馬）：** 在應稅帳戶中，掩護性買權的權利金通常被視為短期資本利得，依你的一般所得稅率課稅。若股票遭到履約，權利金會加計至賣股所得中計算資本利得。若買權到期失效，則單獨計為短期資本利得。在個人退休帳戶或Roth IRA中，這些都無關緊要，因為收益可延稅增長或完全免稅。這也是為什麼我特別喜歡在Roth IRA中操作掩護性買權；權利金收益永遠不需繳稅。
 
-**Sam:** So Roth IRA is the ideal account for this strategy.
+**Stella（小魚）：** 所以Roth IRA是這個策略的理想帳戶。
 
-**Alex:** If you have one with sufficient funds to own 100-share lots, absolutely. The premiums grow tax-free and can be reinvested to compound over decades.
+**Horace（陳馬）：** 若你的Roth IRA中有足夠資金購買100股的整數倍，那絕對是的。權利金免稅增長，並可再投入，複利累計數十年。
 
-[VISUAL: Two columns showing "Taxable Account: Premium taxed at ordinary income rate (22-37%)" vs "Roth IRA: Premium grows tax-FREE"]
+[VISUAL: Two columns showing "應稅帳戶：權利金依一般所得稅率課稅（22-37%）" vs "Roth IRA：權利金完全免稅增長"]
 
-**Sam:** Let me summarize what we learned today. A covered call is owning 100 shares and selling a call against them. It caps your upside at the strike price but generates premium income. The ideal market is flat to mildly bullish. Premium income can be 2-3 times dividends or more. The sweet spot is 30-45 day expiration at 5-10% out of the money. And if your stock hits the strike, it is not a failure, it is a successful exit at your target price.
+**Stella（小魚）：** 讓我來總結今天學到的重點。掩護性買權是指持有100股並賣出對應的買權。它封頂了你的上檔空間，但能產生權利金收益。最理想的市場環境是盤整至溫和多頭。權利金收益可達股利的2至3倍甚至更多。最佳到期日為30至45天，履約價選在價外5至10%。若股票觸及履約價，這並非失敗，而是以目標價成功出場。
 
-**Alex:** Perfect summary. And one thing I want to emphasize: this is not a one-time strategy. The power comes from doing it month after month, year after year. The premiums compound. Your cost basis drops. And your total return significantly outpaces a passive buy-and-hold approach in most market conditions.
+**Horace（陳馬）：** 總結得很完美。有一件事我想特別強調：這不是只做一次的策略。它的威力來自月復一月、年復一年地持續執行。權利金產生複利效果，你的成本基礎持續降低，而你的總報酬在大多數市場環境下都顯著超越被動買進持有的策略。
 
-**Sam:** Next week we are covering cash-secured puts, which is the other side of this coin.
+**Stella（小魚）：** 下週我們將介紹現金擔保賣權，也就是這枚硬幣的另一面。
 
-**Alex:** Right. Covered calls are about getting paid to sell at your target. Cash-secured puts are about getting paid to buy at your target. Together, they form the wheel strategy, which is one of the most elegant income strategies in investing.
+**Horace（陳馬）：** 正是。掩護性買權是獲得報酬以等待在目標價賣出。現金擔保賣權則是獲得報酬以等待在目標價買入。兩者結合起來就構成輪轉策略，這是投資領域中最精妙的收益策略之一。
 
-**Sam:** Looking forward to it. Thanks for watching, everyone.
+**Stella（小魚）：** 期待下一集。謝謝大家收看！
 
-**Alex:** Like, subscribe, and we will see you in Week 28.
+**Horace（陳馬）：** 別忘了按讚訂閱，第28週見。
 
 [VISUAL: End screen with subscribe button, playlist link, and preview of Week 28: Cash-Secured Puts for Entry]
 
 ---
 
-*Animation Reference: animation/week27_covered_call.py - This animation displays a stock price chart with the covered call position overlaid. It shows the current stock price, the strike price as a horizontal ceiling line, and three animated price paths (flat, moderate rise, strong rise). For each path, a profit calculator updates in real-time, showing the combined profit from stock appreciation plus premium income, with the cap at the strike price clearly illustrated. When the stock crosses the strike, the animation shows the shares being "called away" with a visual handoff. The payoff diagram is also animated, showing how the premium shifts the breakeven point lower and how the profit caps at the strike.*
+*動畫參考：animation/week27_covered_call.py - 此動畫展示一個覆蓋了掩護性買權部位的股價走勢圖。圖中顯示股票現價、作為上限的水平虛線履約價，以及三條動態股價路徑（盤整、溫和上漲、強勁上漲）。針對每條路徑，損益計算機即時更新，顯示股票增值加上權利金收益的合計報酬，並清楚標示履約價的封頂效果。當股價超越履約價時，動畫以視覺化方式呈現股票「被買走」的轉手過程。損益圖也以動態方式呈現，展示權利金如何降低損益平衡點，以及利潤如何在履約價處形成封頂。*

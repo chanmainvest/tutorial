@@ -1,963 +1,960 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Week 20: Earnings and Cash Flow - Quality, Manipulation, and Free Cash Flow
+# 第20週：盈利與現金流——質量、操縱及自由現金流
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-### a) Why This Is Important
+### a) 為何此課題至關重要
 
-Earnings are the single most important number in investing. Stock prices ultimately follow earnings over time. But here is the uncomfortable truth that every investor must confront: earnings are an opinion, while cash flow is a fact.
+盈利是投資中最重要的單一數字。從長遠來看，股票價格最終跟隨盈利走勢。但每位投資者都必須正視一個令人不安的事實：盈利是一種判斷，而現金流是事實。
 
-When a company reports "earnings per share of $3.50," that number is the product of dozens of accounting judgments, estimates, and choices. How fast to depreciate assets, when to recognize revenue, how much to reserve for bad debts, whether to capitalize or expense a cost -- every one of these decisions affects reported earnings. Some of these choices are legitimate reflections of economic reality. Others are deliberate manipulation designed to make the company look more profitable than it is.
+當一家公司公布「每股盈利3.50美元」時，這個數字是數十個會計判斷、估算和選擇的結果。資產折舊速度、收入確認時機、壞帳撥備金額，以及某項成本應予資本化還是費用化——每一個決定都會影響所公布的盈利。其中一些選擇是對經濟現實的合理反映，另一些則是蓄意操縱，目的是讓公司看起來比實際上更有盈利能力。
 
-The difference between a good investor and a great investor often comes down to this skill: the ability to look beyond reported earnings and assess their quality. Is the company truly generating the profits it claims? Are those profits backed by actual cash flowing into the business? Or is the company using accounting tricks to inflate a number that will eventually be revealed as a mirage?
+優秀投資者與卓越投資者之間的差距，往往在於這種能力：能夠看穿所公布的盈利並評估其質量。公司是否真正在創造它所聲稱的利潤？這些利潤是否有實際流入業務的現金支撐？還是公司正在運用會計技巧來誇大一個終將被揭穿為海市蜃樓的數字？
 
-This matters for critical reasons:
+這之所以至關重要，原因如下：
 
-1. **Earnings manipulation precedes most spectacular corporate failures.** Enron, WorldCom, Luckin Coffee, Wirecard -- every major corporate fraud involved earnings manipulation that, in hindsight, was detectable from publicly available financial statements. Investors who understood earnings quality avoided these disasters.
+1. **盈利操縱往往先於重大企業倒閉事件。** 安然、世界通訊、瑞幸咖啡、Wirecard——每一宗重大企業詐騙都涉及盈利操縱，而事後回顧，這些操縱皆可從公開財務報表中發現端倪。懂得評估盈利質量的投資者得以倖免於難。
 
-2. **The gap between earnings and cash flow reveals management quality.** Companies whose cash flow consistently exceeds reported earnings tend to have conservative, trustworthy management. Companies whose earnings consistently outpace cash flow are either genuinely investing heavily for growth or are playing accounting games. Distinguishing between these two scenarios is essential.
+2. **盈利與現金流之間的差距揭示管理層質素。** 現金流持續超過所公布盈利的公司，往往擁有保守而可信賴的管理層。盈利持續超過現金流的公司，要麼是真正在大力投入增長，要麼是在玩弄會計把戲。區分這兩種情況至關重要。
 
-3. **Free cash flow, not earnings, determines intrinsic value.** The DCF model we learned in Week 21 discounts free cash flow, not accounting earnings. A company can report growing earnings while free cash flow deteriorates -- that company is becoming less valuable, not more, regardless of what the income statement says.
+3. **決定內在價值的是自由現金流，而非盈利。** 我們在第21週所學習的現金流折現模型折現的是自由現金流，而非會計盈利。一家公司可以在公布盈利持續增長的同時，自由現金流卻在惡化——無論損益表如何呈現，這家公司的價值實際上是在下降，而非上升。
 
-4. **Earnings quality predicts future stock returns.** Academic research by Sloan (1996) and others has consistently shown that companies with high-quality earnings (backed by cash flow) outperform those with low-quality earnings (driven by accruals) by several percentage points per year. This is one of the most robust anomalies in finance.
+4. **盈利質量可預測未來股票回報。** Sloan（1996年）等人的學術研究一再表明，盈利質量高的公司（以現金流支撐）每年的表現比盈利質量低的公司（由應計項目驅動）高出數個百分點。這是金融領域中最為穩健的異常現象之一。
 
-This lesson gives you the complete toolkit to evaluate earnings quality, understand the difference between accrual and cash-based accounting, calculate and interpret free cash flow, identify manipulation red flags, and use FCF yield as a valuation metric.
+本課將為您提供完整的工具套件，助您評估盈利質量、理解應計制與現金制會計的差異、計算及解讀自由現金流、識別操縱的警示信號，並將自由現金流收益率用作估值指標。
 
 ---
 
-### b) What You Need to Know
+### b) 必須掌握的知識
 
-#### 1. Earnings Per Share (EPS) -- The Basics
+#### 1. 每股盈利（EPS）——基礎知識
 
-EPS is the most widely cited earnings metric. It represents the profit attributable to each share of common stock.
+每股盈利是引用最廣泛的盈利指標，代表歸屬於每股普通股的利潤。
 
 ```
-EPS FUNDAMENTALS
+每股盈利基礎知識
 ==================
 
-Basic EPS = Net Income / Weighted Average Shares Outstanding
+基本每股盈利 = 淨利潤 / 加權平均流通股數
 
-Diluted EPS = Net Income / (Shares + Options + Convertibles)
+攤薄每股盈利 = 淨利潤 / （股份 + 期權 + 可轉換債券）
 
-Example:
-  Net Income:           $500 million
-  Shares Outstanding:   200 million
-  Stock Options:         20 million (in the money)
-  Convertible Bonds:     5 million equivalent shares
+例子：
+  淨利潤：          5億美元
+  流通股數：        2億股
+  股票期權：        2,000萬股（在價內）
+  可轉換債券：      500萬股當量
 
-  Basic EPS  = $500M / 200M = $2.50
-  Diluted EPS = $500M / 225M = $2.22
+  基本每股盈利  = 5億 / 2億 = 2.50美元
+  攤薄每股盈利 = 5億 / 2.25億 = 2.22美元
 
-ALWAYS use diluted EPS for valuation. Basic EPS
-overstates per-share earnings by ignoring future dilution.
+估值時務必使用攤薄每股盈利。基本每股盈利
+因忽略未來攤薄效應而高估每股盈利。
 
-EPS COMPONENTS -- THE INCOME STATEMENT PATH
+每股盈利的組成部分——損益表路徑
 =============================================
 
-Revenue                             $1,000M
- - Cost of Goods Sold                ($600M)
-= Gross Profit                        $400M  <-- Gross Margin: 40%
- - Operating Expenses                ($200M)
-= Operating Income (EBIT)             $200M  <-- Operating Margin: 20%
- - Interest Expense                   ($30M)
-= Pre-Tax Income                      $170M
- - Taxes (25%)                        ($42.5M)
-= Net Income                          $127.5M  <-- Net Margin: 12.75%
+收入                               10億美元
+ - 銷售成本                        （6億美元）
+= 毛利潤                           4億美元  <-- 毛利率：40%
+ - 營運開支                        （2億美元）
+= 營運利潤（息稅前盈利）           2億美元  <-- 營運利潤率：20%
+ - 利息開支                        （3,000萬美元）
+= 稅前利潤                         1.7億美元
+ - 稅款（25%）                     （4,250萬美元）
+= 淨利潤                           1.275億美元  <-- 淨利潤率：12.75%
 
-EPS = $127.5M / 200M shares = $0.6375
+每股盈利 = 1.275億美元 / 2億股 = 0.6375美元
 
-EACH LINE INVOLVES ACCOUNTING JUDGMENTS
-that can increase or decrease reported earnings.
+每一行均涉及會計判斷
+這些判斷可增加或減少所公布的盈利。
 ```
 
-**Earnings "Beats" and "Misses":**
+**盈利「超預期」與「遜預期」：**
 
 ```
-THE EARNINGS EXPECTATIONS GAME
+盈利預期博弈
 =================================
 
-Wall Street analysts publish EPS estimates before
-each quarterly report. The stock price reaction
-depends on the result versus expectations:
+華爾街分析師在每個季度業績公布前
+發布每股盈利估計。股價反應
+取決於實際結果與預期的對比：
 
-  Result vs. Estimate       Typical Stock Reaction
+  實際結果對比估計          典型股價反應
   --------------------       ----------------------
-  Beat by 10%+ ("blowout")  +5% to +15% (often gaps up)
-  Beat by 1-5%              +1% to +5%
-  In-line (meet)            -1% to +1% (sometimes sells off)
-  Miss by 1-5%              -3% to -8%
-  Miss by 10%+ ("disaster") -10% to -30%
+  超出10%以上（「爆燈」）   上升5%至15%（常見跳空高開）
+  超出1%至5%                 上升1%至5%
+  持平（達標）               下跌1%至上升1%（有時反而下跌）
+  遜色1%至5%                 下跌3%至8%
+  遜色10%以上（「災難」）   下跌10%至30%
 
-IMPORTANT: Management teams actively manage
-expectations. They "guide" analysts to set
-estimates the company can beat. This is called
-"managing the whisper number." An earnings
-"beat" might simply mean management sandbagged
-the guidance, not that business is booming.
+重要：管理層會積極管理
+預期。他們透過「指引」讓分析師設定
+公司能夠超越的估計。這被稱為
+「管理預期數字」。盈利「超預期」
+可能只是管理層刻意壓低指引，
+而非業務真正蓬勃發展。
 
-THE MANIPULATION OF "BEATS"
+「超預期」的操縱
 =============================
 
-Real-World Example:
-  True earnings power:     $1.00/share
-  Management guides:       $0.85 (conservatively)
-  Analysts estimate:       $0.90
-  Company reports:         $0.92
+現實例子：
+  真實盈利潛力：     1.00美元/股
+  管理層指引：       0.85美元（保守）
+  分析師估計：       0.90美元
+  公司公布：         0.92美元
   
-  Headlines: "Company BEATS estimates!"
-  Reality: Company missed its actual potential
-  by pulling forward expenses / deferring revenue
-  to "save" earnings for future quarters.
+  頭條新聞：「公司盈利『超預期』！」
+  現實：公司透過提前確認開支或
+  遞延收入來「儲備」盈利留待未來季度，
+  實際未達真正潛力。
 ```
 
 ---
 
-#### 2. Accrual Accounting vs. Cash Accounting -- The Critical Difference
+#### 2. 應計制會計對比現金制會計——關鍵分別
 
-This is perhaps the most important concept in this entire lesson. The financial statements you read are based on accrual accounting, which recognizes revenues when earned and expenses when incurred, regardless of when cash changes hands. This creates a gap between reported earnings and actual cash flow.
+這可能是整堂課最重要的概念。您所閱讀的財務報表均基於應計制會計，即在收益賺取時確認收入、在費用產生時確認支出，而不考慮現金何時易手。這造成了所公布盈利與實際現金流之間的差距。
 
 ```
-ACCRUAL vs. CASH ACCOUNTING
+應計制對比現金制會計
 ==============================
 
-ACCRUAL (what the income statement shows):
-  Record revenue when EARNED (goods delivered, services rendered)
-  Record expenses when INCURRED (obligation created)
-  Timing of cash flow is IGNORED
+應計制（損益表所呈現的）：
+  在賺取時確認收入（貨物交付、服務提供）
+  在產生時確認費用（義務形成）
+  現金流的時間安排被忽略
 
-CASH (what the cash flow statement shows):
-  Record revenue when CASH IS RECEIVED
-  Record expenses when CASH IS PAID
-  Timing of economic activity is IGNORED
+現金制（現金流量表所呈現的）：
+  在收到現金時確認收入
+  在付出現金時確認費用
+  經濟活動的時間安排被忽略
 
-EXAMPLE: SOFTWARE COMPANY
+例子：軟件公司
 ============================
 
-January: Signs 3-year, $3 million contract.
-         Customer pays nothing upfront.
+一月：簽訂為期3年、價值300萬美元的合約。
+      客戶前期不付款。
 
-ACCRUAL ACCOUNTING (Income Statement):
-  January revenue: $83,333 (1 month of 36-month contract)
-  Q1 revenue: $250,000
-  Year 1 revenue: $1,000,000
+應計制會計（損益表）：
+  一月收入：83,333美元（36個月合約的1個月）
+  第一季度收入：25萬美元
+  第一年收入：100萬美元
 
-CASH ACCOUNTING (Cash Flow):
-  January cash received: $0
-  Q1 cash received: $0 (customer has not paid yet)
-  Year 1 cash received: $1,000,000 (annual payment)
+現金制會計（現金流）：
+  一月收到現金：0美元
+  第一季度收到現金：0美元（客戶尚未付款）
+  第一年收到現金：100萬美元（年付）
 
-The income statement shows smooth, predictable revenue.
-The cash flow statement shows lumpy, real money.
+損益表呈現平穩可預期的收入。
+現金流量表呈現參差不齊的真實資金。
 
-NEITHER IS "WRONG" -- they measure different things.
-But cash is harder to fake.
+兩者並無「對錯」之分——它們衡量的是不同事物。
+但現金更難以造假。
 ```
 
-**Why This Matters for Investors:**
+**這對投資者的意義：**
 
 ```
-THE ACCRUAL QUALITY SPECTRUM
+應計項目質量譜系
 ==============================
 
-HIGH QUALITY                                LOW QUALITY
-(Cash > Earnings)                           (Earnings > Cash)
+高質量                                  低質量
+（現金流 > 盈利）                      （盈利 > 現金流）
      |                                           |
      v                                           v
-Revenue is received           Revenue is "earned" but cash
-in cash before or             is not collected for months
-at time of sale               or years (or ever)
+收入在銷售前或              收入被「確認」但現金數月
+銷售時以現金收取            甚至數年後才收回（或從未收回）
 
-Expenses are paid             Expenses are capitalized
-when incurred                 (spread over future periods)
-                              to boost current earnings
+費用在產生時支付            費用被資本化
+                            （分攤至未來期間）
+                            以提振當期盈利
 
-Depreciation reflects         Depreciation understated
-real asset wear               to inflate earnings
+折舊反映                    折舊被低估
+真實資產損耗                以誇大盈利
 
-Reserves are adequate         Reserves inadequate to
-                              flatter current results
+撥備充足                    撥備不足
+                            以美化當期業績
 
-QUALITY INDICATOR:
-                Net Income
-Accrual Ratio = ─────────── - 1
-                Operating CF
+質量指標：
+                淨利潤
+應計比率 = ─────────── - 1
+              經營現金流
 
-If ratio > 0: Earnings exceed cash flow (CAUTION)
-If ratio < 0: Cash flow exceeds earnings (GOOD)
-If ratio >> 0: Earnings far exceed cash flow (RED FLAG)
+若比率 > 0：盈利超過現金流（謹慎）
+若比率 < 0：現金流超過盈利（良好）
+若比率 >> 0：盈利遠超現金流（警示信號）
 ```
 
 ---
 
-#### 3. Free Cash Flow -- The Most Important Number
+#### 3. 自由現金流——最重要的數字
 
-Free cash flow (FCF) is the cash a company generates after accounting for capital expenditures needed to maintain and grow its asset base. It represents the cash truly available to shareholders -- for dividends, buybacks, debt reduction, or investment.
+自由現金流（FCF）是公司在扣除維持及擴展資產基礎所需的資本開支後所產生的現金。它代表真正可供股東使用的現金——用於派發股息、回購股份、償還債務或進行投資。
 
 ```
-FREE CASH FLOW CALCULATION
+自由現金流計算
 =============================
 
-Method 1 (from Cash Flow Statement):
-  Operating Cash Flow
-  - Capital Expenditures (Capex)
-  = Free Cash Flow
+方法一（從現金流量表）：
+  經營現金流
+  - 資本開支
+  = 自由現金流
 
-Method 2 (from Income Statement):
-  Net Income
-  + Depreciation & Amortization
-  + Other Non-Cash Charges
-  - Changes in Working Capital
-  - Capital Expenditures
-  = Free Cash Flow
+方法二（從損益表）：
+  淨利潤
+  + 折舊及攤銷
+  + 其他非現金費用
+  - 營運資金變動
+  - 資本開支
+  = 自由現金流
 
-WORKED EXAMPLE
+計算示例
 ================
 
-Company ABC -- Annual Financial Data:
+ABC公司——年度財務數據：
 
-Operating Cash Flow:         $350 million
-Capital Expenditures:       ($120 million)
-                            ─────────────
-Free Cash Flow:              $230 million
+經營現金流：            3.5億美元
+資本開支：             （1.2億美元）
+                       ─────────────
+自由現金流：            2.3億美元
 
-Cross-Check from Income Statement:
-Net Income:                  $200 million
-+ Depreciation:              $100 million
-+ Stock-Based Compensation:   $50 million
-- Working Capital Increase:  ($80 million)
-                              = Operating CF: $270 million
-  Wait -- why does this not match?
+從損益表交叉驗證：
+淨利潤：                2億美元
++ 折舊：                1億美元
++ 以股代薪：            5,000萬美元
+- 營運資金增加：       （8,000萬美元）
+                        = 經營現金流：2.7億美元
+  等等——為何數字不符？
 
-Adjustments explanation:
-  Operating CF per statement includes other items
-  (deferred taxes, etc.) that bring it to $350M
+調整說明：
+  現金流量表所列經營現金流包含其他項目
+  （遞延稅項等），使其達到3.5億美元
 
-INTERPRETATION
+解讀
 ================
 
-Net Income:     $200M
-Operating CF:   $350M  <-- Cash generation EXCEEDS earnings (GOOD)
-Free Cash Flow: $230M  <-- After maintaining assets, $230M is
-                           truly "free" for shareholders
+淨利潤：      2億美元
+經營現金流：  3.5億美元  <-- 現金產生超過盈利（良好）
+自由現金流：  2.3億美元  <-- 維持資產後，2.3億美元
+                             真正「自由」可供股東使用
 
-FCF > Net Income suggests HIGH QUALITY earnings.
-Net Income > FCF suggests potential QUALITY CONCERNS.
+自由現金流 > 淨利潤 表示盈利質量高。
+淨利潤 > 自由現金流 表示可能存在質量隱憂。
 ```
 
-**Maintenance Capex vs. Growth Capex:**
+**維護性資本開支對比增長性資本開支：**
 
 ```
-TYPES OF CAPITAL EXPENDITURE
+資本開支的類型
 ===============================
 
-MAINTENANCE CAPEX (Required)                GROWTH CAPEX (Optional)
----------------------------                 -----------------------
-Replacing worn equipment                    Building new factories
-Repairing facilities                        Entering new markets
-Mandatory regulatory upgrades               R&D for new products
-Keeping existing operations                 Capacity expansion
-running at current capacity
+維護性資本開支（必需）                  增長性資本開支（可選）
+---------------------------             -----------------------
+更換損耗設備                            興建新廠房
+修繕設施                                進入新市場
+強制性合規升級                          研發新產品
+維持現有業務                            擴大產能
+以現有產能正常運作
 
-If you only subtract maintenance capex,     Growth capex is an
-you get "owner earnings" -- what             investment, not a
-Buffett calls the true earning power         cost of doing business.
-of the business.
+若僅扣除維護性資本開支，               增長性資本開支是
+您將得到「業主盈利」——巴菲特             一項投資，而非
+所稱的業務真正盈利潛力。               日常運營成本。
 
-PROBLEM: Companies do NOT separately report
-maintenance vs. growth capex. You must estimate.
+問題：公司並不分開披露
+維護性與增長性資本開支。您必須自行估算。
 
-RULE OF THUMB:
-  If capex roughly equals depreciation --> mostly maintenance
-  If capex far exceeds depreciation --> significant growth investing
-  If capex is below depreciation --> company may be underinvesting
-                                     (consuming its asset base)
+經驗法則：
+  若資本開支大致等於折舊 --> 主要為維護性
+  若資本開支遠超折舊     --> 正進行重大增長投資
+  若資本開支低於折舊     --> 公司可能在削減投資
+                             （正在消耗其資產基礎）
 
-CAPEX ANALYSIS
+資本開支分析
 ================
 
-                     Company X    Company Y
-                     ---------    ---------
-Depreciation:        $80M         $80M
-Total Capex:         $85M         $200M
-Capex/Depreciation:  1.06x        2.50x
-Interpretation:      Maintenance  Heavy growth
-                     mode         investment
+                     X公司       Y公司
+                     ---------   ---------
+折舊：               8,000萬美元  8,000萬美元
+總資本開支：         8,500萬美元  2億美元
+資本開支/折舊比率：  1.06倍       2.50倍
+解讀：               維護性       大力進行
+                     模式         增長投資
 ```
 
 ---
 
-#### 4. Quality of Earnings -- How to Spot the Real Thing
+#### 4. 盈利質量——如何辨別真偽
 
-High-quality earnings are sustainable, repeatable, and backed by cash flow. Low-quality earnings are inflated by one-time items, aggressive accounting, or financial engineering.
+高質量盈利具備可持續性、可重複性，並有現金流支撐。低質量盈利則因一次性項目、激進會計處理或財務工程而被虛增。
 
 ```
-EARNINGS QUALITY CHECKLIST
+盈利質量核查清單
 =============================
 
-CHECK 1: Cash Flow Confirmation
-  Operating Cash Flow / Net Income > 1.0?
-  If consistently YES --> High quality
-  If consistently NO  --> Investigate
+核查1：現金流確認
+  經營現金流 / 淨利潤 > 1.0？
+  若持續是 --> 高質量
+  若持續否 --> 深入調查
 
-CHECK 2: Accrual Level
-  Large increase in accruals (receivables, inventory,
-  deferred revenue changes) without corresponding
-  revenue growth? --> WARNING
+核查2：應計水平
+  應計項目大幅增加（應收帳款、存貨、
+  遞延收入變動）而收入增長未能對應？
+  --> 警告
 
-CHECK 3: Revenue Quality
-  Is revenue growing from:
-  [GOOD] More customers, higher prices, new products
-  [BAD]  Channel stuffing, bill-and-hold, reclassifications
+核查3：收入質量
+  收入增長來源於：
+  【良好】更多客戶、更高定價、新產品
+  【不良】渠道填塞、開票待運、重新分類
 
-CHECK 4: Recurring vs. Non-Recurring
-  What % of earnings comes from:
-  [GOOD] Core operations, recurring sources
-  [BAD]  Asset sales, lawsuit settlements, tax benefits,
-         pension income, gain on investments
+核查4：經常性對比非經常性
+  盈利中有多少比例來自：
+  【良好】核心業務、經常性來源
+  【不良】資產出售、訴訟和解、稅項優惠、
+         養老金收入、投資收益
 
-CHECK 5: Consistency
-  Do earnings grow smoothly while the business is cyclical?
-  Suspiciously smooth earnings often indicate manipulation.
-  Real businesses have ups and downs.
+核查5：一致性
+  在業務具周期性的情況下盈利卻增長平穩？
+  異常平滑的盈利往往表示存在操縱。
+  真實業務自有起伏。
 
-CHECK 6: Margin Trajectory
-  Are margins expanding due to:
-  [GOOD] Scale, efficiency, pricing power
-  [BAD]  Cutting R&D, reducing maintenance, one-time savings
+核查6：利潤率走勢
+  利潤率擴張是否源於：
+  【良好】規模效應、效率提升、定價能力
+  【不良】削減研發、減少維護、一次性節省
 
-QUALITY SCORECARD
+質量評分表
 ===================
 
-  High Quality                  Low Quality
+  高質量                        低質量
   ============                  ===========
-  OCF/NI > 1.0                 OCF/NI < 0.8
-  Low accruals                  High accruals
-  Recurring revenue             One-time gains
-  Consistent with peers         Outlier margins
-  Conservative estimates        Aggressive assumptions
-  Clean audit opinion           Qualified audit opinion
-  Management owns stock         Management sells stock
-  Earnings match guidance       Frequent "beats" by $0.01
+  經營現金流/淨利潤 > 1.0       經營現金流/淨利潤 < 0.8
+  低應計項目                    高應計項目
+  經常性收入                    一次性收益
+  與同業一致                    利潤率偏離同業
+  保守估算                      激進假設
+  乾淨審計意見                  保留審計意見
+  管理層持有股票                管理層出售股票
+  盈利符合指引                  頻繁以0.01美元超預期
 ```
 
 ---
 
-#### 5. Earnings Manipulation Red Flags
+#### 5. 盈利操縱警示信號
 
-Companies manipulate earnings for many reasons: to meet analyst expectations, trigger management bonuses, maintain the stock price, or hide deteriorating fundamentals. Here are the techniques to watch for and how to detect them.
+公司操縱盈利的原因不一：達到分析師預期、觸發管理層花紅、維持股價，或掩蓋基本面惡化。以下是需要警惕的手法及其偵測方式。
 
 ```
-MANIPULATION TECHNIQUE 1: REVENUE MANIPULATION
+操縱手法一：收入操縱
 =================================================
 
-Technique               How It Works              Detection
----------               ------------              ---------
-Channel Stuffing        Ship excess product to     Check: Receivables
-                        distributors at quarter    growing faster than
-                        end; they return it next   revenue? Returns
-                        quarter                    increasing?
+手法               運作方式              偵測方法
+---------          ------------          ---------
+渠道填塞           在季度末向            核查：應收帳款
+                   分銷商大量            增速是否快於
+                   發貨；下季度          收入？退貨是否
+                   再退回               增加？
 
-Bill-and-Hold           Record revenue for goods   Check: Inventory
-                        that customer has not      remaining at company
-                        actually taken delivery    facilities? Unusual
-                        of yet                     revenue spikes at
-                                                   quarter end?
+開票待運           為客戶尚未            核查：存貨是否
+                   實際提貨的貨物        仍留在公司
+                   確認收入             設施？季度末
+                                        是否出現異常
+                                        收入激增？
 
-Round-Tripping          Company A sells to         Check: Related party
-                        Company B, Company B       transactions? Revenue
-                        sells back to Company A    without economic
-                                                   substance?
+循環交易           A公司向B公司          核查：關聯方
+                   出售，B公司再         交易？沒有
+                   向A公司出售          經濟實質的
+                                        收入？
 
-Early Recognition       Record multi-year          Check: Deferred
-                        contract revenue upfront   revenue declining?
-                        instead of over time       Revenue recognition
-                                                   policy changes?
+提前確認           提前一次性確認        核查：遞延
+                   多年合約收入          收入是否下降？
+                   而非分期攤列          收入確認
+                                        政策是否改變？
 
-MANIPULATION TECHNIQUE 2: EXPENSE MANIPULATION
+操縱手法二：費用操縱
 =================================================
 
-Technique               How It Works              Detection
----------               ------------              ---------
-Capitalizing            Record an operating        Check: Capitalized
-Expenses                expense as an asset        costs growing?
-                        (e.g., put marketing       Cash flow from
-                        costs on balance sheet)    operations diverging
-                                                   from earnings?
+手法               運作方式              偵測方法
+---------          ------------          ---------
+費用資本化         將營運費用記          核查：資本化
+                   為資產（例如          成本是否增長？
+                   將市場推廣費          經營現金流是否
+                   列入資產負債表）      與盈利背離？
 
-Under-Depreciating      Use unrealistically long   Check: Asset useful
-                        useful life assumptions    lives longer than
-                        for assets                 industry norms?
-                                                   Compare depreciation
-                                                   rates to peers
+低估折舊           對資產採用            核查：資產使用
+                   不切實際的            年限是否長於
+                   較長使用年限          行業標準？
+                   假設                  與同業折舊
+                                        率比較
 
-Cookie Jar              Take large reserves in     Check: Unusual
-Reserves                good years, release them   reserve releases in
-                        in bad years to smooth     weak quarters?
-                        earnings                   Reserves declining
-                                                   without explanation?
+「餅乾罐」         在業績好的年份        核查：在業績
+撥備               計提大量撥備，        疲弱的季度是
+                   在業績差的年份        否出現異常的
+                   釋放以平滑盈利        撥備釋放？
+                                        撥備是否無故
+                                        下降？
 
-Pension                 Use aggressive return       Check: Pension
-Assumptions             assumptions to reduce       return assumptions
-                        pension expense            vs. actual returns?
-                                                   Higher than peers?
+養老金             採用激進的            核查：養老金
+假設               回報率假設            回報假設是否
+                   以減少養老金          與實際回報
+                   費用                  相符？是否
+                                        高於同業？
 
-MANIPULATION TECHNIQUE 3: BALANCE SHEET MANIPULATION
+操縱手法三：資產負債表操縱
 =====================================================
 
-Technique               How It Works              Detection
----------               ------------              ---------
-Off-Balance-Sheet       Move liabilities to        Check: Footnotes
-Entities                special purpose entities   about unconsolidated
-                        to hide debt               entities, guarantees,
-                        (Enron's playbook)         or commitments
+手法               運作方式              偵測方法
+---------          ------------          ---------
+表外實體           將負債轉移至          核查：腳注中
+                   特殊目的實體          關於未合併實體、
+                   以隱藏債務            擔保或承諾的
+                   （安然的慣用          披露
+                   手法）
 
-Goodwill                Avoid writing down          Check: Goodwill
-Overstatement           impaired acquisition       as % of total
-                        goodwill to prevent a      assets? Acquisitions
-                        large earnings charge      underperforming?
+商譽               避免對已減值          核查：商譽
+高估               的收購商譽            佔總資產的
+                   進行減值，            比例？收購
+                   以防計入大額          是否表現欠佳？
+                   盈利費用
 
-Inventory               Understate obsolete        Check: Inventory
-Manipulation            inventory to avoid         turnover declining?
-                        write-downs                Days inventory
-                                                   increasing?
+存貨               低估已過時            核查：存貨
+操縱               存貨以避免            週轉率是否
+                   減值虧損              下降？存貨天數
+                                        是否增加？
 ```
 
 ```
-THE MANIPULATION DETECTION FRAMEWORK
+操縱偵測框架
 =======================================
 
-Step 1: Compare Net Income to Operating Cash Flow
+步驟1：比較淨利潤與經營現金流
   +--------+--------+---------+--------+--------+
-  | Year   |  Net   | Oper.   | FCF    | OCF/NI |
-  |        | Income | Cash Fl.|        | Ratio  |
+  | 年度   |  淨    | 經營    | 自由   | 經營現金|
+  |        | 利潤   | 現金流  | 現金流 | 流/淨利 |
+  |        |        |         |        | 潤比率  |
   +--------+--------+---------+--------+--------+
-  | Year 1 | $100M  |  $130M  | $80M   | 1.30   | GOOD
-  | Year 2 | $120M  |  $140M  | $90M   | 1.17   | GOOD
-  | Year 3 | $150M  |  $125M  | $70M   | 0.83   | CONCERN
-  | Year 4 | $180M  |  $100M  | $30M   | 0.56   | RED FLAG
-  | Year 5 | $200M  |   $60M  |($20M)  | 0.30   | DANGER
+  | 第1年  | 1億美元| 1.3億   | 8,000萬| 1.30   | 良好
+  | 第2年  | 1.2億  | 1.4億   | 9,000萬| 1.17   | 良好
+  | 第3年  | 1.5億  | 1.25億  | 7,000萬| 0.83   | 關注
+  | 第4年  | 1.8億  | 1億     | 3,000萬| 0.56   | 警示
+  | 第5年  | 2億    | 6,000萬 |（2,000萬）| 0.30 | 危險
   +--------+--------+---------+--------+--------+
 
-  Earnings are growing 19%/year. Looks great!
-  Cash flow is DECLINING. The earnings are a mirage.
+  盈利每年增長19%，看似亮麗！
+  現金流卻在下滑。這些盈利只是海市蜃樓。
 
-Step 2: Check Balance Sheet Build-Up
-  - Are receivables growing faster than revenue?
-  - Is inventory growing faster than cost of goods sold?
-  - Are accrued liabilities (reserves) being released?
-  - Is capex being capitalized aggressively?
+步驟2：核查資產負債表累積狀況
+  - 應收帳款增速是否快於收入？
+  - 存貨增速是否快於銷售成本？
+  - 應計負債（撥備）是否正在被釋放？
+  - 資本開支是否被積極資本化？
 
-Step 3: Read the Footnotes
-  - Revenue recognition policy changes?
-  - Accounting estimate changes?
-  - Related party transactions?
-  - Off-balance-sheet commitments?
+步驟3：閱讀附注
+  - 收入確認政策是否有所改變？
+  - 會計估算是否有所改變？
+  - 是否存在關聯方交易？
+  - 是否存在表外承諾？
 
-Step 4: Compare to Peers
-  - Are margins out of line with peers?
-  - Is the company an outlier on OCF/NI ratio?
-  - Are accounting policies more aggressive?
+步驟4：與同業比較
+  - 利潤率是否偏離同業？
+  - 公司的經營現金流/淨利潤比率是否異常？
+  - 會計政策是否更為激進？
 ```
 
 ---
 
-#### 6. Free Cash Flow Yield -- A Powerful Valuation Metric
+#### 6. 自由現金流收益率——強而有力的估值指標
 
-FCF yield is one of the most useful valuation metrics because it is based on cash (harder to manipulate) rather than earnings (easy to manipulate). It tells you what cash return you are getting for the price you pay.
+自由現金流收益率是最有用的估值指標之一，因為它基於現金（難以操縱）而非盈利（容易操縱）。它告訴您，以您所支付的價格，能獲得怎樣的現金回報。
 
 ```
-FCF YIELD CALCULATION
+自由現金流收益率計算
 =======================
 
-                Free Cash Flow
-FCF Yield = ─────────────────────
-              Market Capitalization
+                    自由現金流
+自由現金流收益率 = ─────────────────────
+                      市值
 
-Or equivalently:
+或等同於：
 
-                FCF Per Share
-FCF Yield = ─────────────────────
-              Stock Price
+                   每股自由現金流
+自由現金流收益率 = ─────────────────────
+                      股票價格
 
-EXAMPLE:
-  Free Cash Flow:     $500 million
-  Market Cap:         $10 billion
-  FCF Yield:          $500M / $10B = 5.0%
+示例：
+  自由現金流：        5億美元
+  市值：              100億美元
+  自由現金流收益率：  5億 / 100億 = 5.0%
 
-Interpretation: For every $100 invested, the company
-generates $5 in free cash flow annually.
+解讀：每投資100美元，公司每年產生5美元自由現金流。
 
-FCF YIELD BENCHMARKS
+自由現金流收益率基準
 ======================
 
-FCF Yield     Interpretation          Notes
----------     ---------------         -----
-< 0%          Negative FCF            Company is consuming
-                                      cash (may be investing
-                                      for growth or in trouble)
+自由現金流收益率  解讀                  備注
+---------         ---------------       -----
+< 0%              負自由現金流          公司正在消耗
+                                        現金（可能正
+                                        在投資增長或
+                                        陷入困境）
 
-0 - 2%        Very low yield          Typical for high-growth
-                                      companies reinvesting
-                                      everything
+0% - 2%           收益率極低            典型高增長公司
+                                        將一切再投入
 
-2 - 4%        Below average           Growth company with
-                                      some cash generation
+2% - 4%           低於平均              具一定現金產生
+                                        能力的增長公司
 
-4 - 6%        Average / Fair          Typical mature company;
-                                      roughly in line with
-                                      market average
+4% - 6%           平均／合理            典型成熟公司；
+                                        大致與市場
+                                        平均水平持平
 
-6 - 8%        Above average           Potentially undervalued
-                                      or slow-growth
+6% - 8%           高於平均              可能被低估
+                                        或增長緩慢
 
-8 - 12%       High yield              Either very undervalued
-                                      or market sees risk
+8% - 12%          高收益率              要麼嚴重低估，
+                                        要麼市場看到風險
 
-> 12%         Very high yield         Likely a value trap OR
-                                      extraordinary opportunity;
-                                      investigate deeply
+> 12%             收益率極高            可能是價值陷阱，
+                                        或非凡機遇；
+                                        需深入調查
 
-COMPARISON: FCF YIELD vs. EARNINGS YIELD vs. DIVIDEND YIELD
+比較：自由現金流收益率 對比 盈利收益率 對比 股息收益率
 ==============================================================
 
-                    FCF Yield    Earnings     Dividend
-                                 Yield (1/PE) Yield
-                    ---------    ----------   --------
-Based on:           Cash flow    Accounting   Cash paid
-                    (hard to     earnings     to share-
-                    fake)        (can be      holders
-                                 managed)
+                    自由現金  盈利收益率      股息
+                    流收益率  （1/市盈率）    收益率
+                    --------- ----------      --------
+基於：              現金流    會計盈利        派付給
+                    （難以    （可被管理）    股東的
+                    造假）                    現金
 
-Captures:           All free     All net      Only the
-                    cash for     income       portion
-                    shareholders              paid out
+涵蓋：              股東的    所有淨利潤      僅派付
+                    所有自由                  部分
+                    現金
 
-Includes capex:     Yes          Partially    No
-                                 (via deprec.)
+是否包含資本開支：  是        部分            否
+                              （透過折舊）
 
-Best for:           Absolute     Quick P/E    Income
-                    valuation    comparison   investors
+最適合：            絕對      快速市盈率      收息
+                    估值      比較            投資者
 
-Manipulation        Low          Moderate     Very low
-risk:                            to high
+操縱風險：          低        中至高          極低
 ```
 
 ---
 
-#### 7. Cash Flow Statement Analysis -- The Investor's X-Ray Machine
+#### 7. 現金流量表分析——投資者的透視機
 
-The cash flow statement is divided into three sections. Each tells a different story.
+現金流量表分為三個部分，每個部分講述不同的故事。
 
 ```
-THE THREE SECTIONS OF THE CASH FLOW STATEMENT
+現金流量表的三個部分
 ================================================
 
 +--------------------------------------------------+
-|  OPERATING CASH FLOW (OCF)                       |
-|  Cash generated from core business operations     |
+|  經營現金流（OCF）                               |
+|  從核心業務運營產生的現金                        |
 |                                                   |
-|  Healthy company: POSITIVE and growing            |
-|  Starts with Net Income, adjusts for non-cash     |
-|  items and working capital changes                |
+|  健康公司：為正數且持續增長                      |
+|  從淨利潤出發，調整非現金項目                    |
+|  及營運資金變動                                   |
 +--------------------------------------------------+
               |
-              | This is the "engine"
+              | 這是「引擎」
               v
 +--------------------------------------------------+
-|  INVESTING CASH FLOW (ICF)                       |
-|  Cash spent on / received from investments        |
+|  投資現金流（ICF）                               |
+|  投資活動花費或收取的現金                        |
 |                                                   |
-|  Growing company: NEGATIVE (spending on growth)   |
-|  Includes: capex, acquisitions, asset sales       |
+|  增長型公司：為負數（投入增長）                  |
+|  包含：資本開支、收購、資產出售                  |
 +--------------------------------------------------+
               |
-              | This is "reinvestment"
+              | 這是「再投入」
               v
 +--------------------------------------------------+
-|  FINANCING CASH FLOW (FCF_fin)                   |
-|  Cash from / to capital providers                 |
+|  融資現金流（FCF_fin）                           |
+|  從資本提供者獲得或支付給資本提供者的現金        |
 |                                                   |
-|  Mature company: NEGATIVE (returning cash)        |
-|  Includes: debt issuance/repayment, dividends,    |
-|  buybacks, equity issuance                        |
+|  成熟公司：為負數（回饋資本）                    |
+|  包含：債務發行/償還、股息、                      |
+|  回購、股票發行                                   |
 +--------------------------------------------------+
 
-CASH FLOW PATTERN ANALYSIS
+現金流模式分析
 =============================
 
-Pattern           Operating  Investing  Financing   Diagnosis
--------           ---------  ---------  ---------   ---------
-Healthy mature      (+)        (-)        (-)       Using cash from
-company                                             operations to invest
-                                                    and return to holders
+模式              經營      投資      融資        診斷
+-------           ---------  ---------  ---------  ---------
+健康成熟公司       （+）      （-）     （-）      利用業務現金
+                                                    進行投資並
+                                                    回饋持有人
 
-Growth company      (+)        (--)       (+)       Operations + new
-                                                    capital fund heavy
-                                                    investment
+增長型公司         （+）      （--）    （+）      業務現金及
+                                                    新資本支撐
+                                                    大量投資
 
-Startup / turnaround (-)       (-)        (+)       Burning cash; relying
-                                                    on external funding
+初創／轉型公司     （-）      （-）     （+）      消耗現金；
+                                                    依賴外部融資
 
-Cash cow            (+)        (small)    (--)      Returning most cash;
-                                                    little reinvestment
+現金奶牛           （+）    （少量）    （--）     回饋大部分現金；
+                                                    再投入少量
 
-Restructuring       (+)        (+)        (-)       Selling assets, paying
-                                                    down debt
+重組公司           （+）      （+）     （-）      出售資產，
+                                                    償還債務
 
-Distressed          (-)        (+)        (-)       Selling assets to pay
-                                                    obligations; death spiral
+困境公司           （-）      （+）     （-）      出售資產以
+                                                    履行義務；
+                                                    走向末路
 
-IMPORTANT: Read the cash flow statement EVERY QUARTER.
-It is the single most reliable financial statement.
-Income statements involve judgment. Balance sheets
-involve estimates. Cash flow statements count money.
+重要：每個季度都要閱讀現金流量表。
+它是最可靠的單一財務報表。
+損益表涉及判斷，資產負債表
+涉及估算，現金流量表在計算真金白銀。
 ```
 
 ---
 
-#### 8. Putting It All Together -- The Earnings Quality Diagnostic
+#### 8. 融會貫通——盈利質量診斷
 
 ```
-COMPLETE EARNINGS QUALITY DIAGNOSTIC
+完整盈利質量診斷
 =======================================
 
-STEP 1: THE 5-YEAR TREND TEST
+步驟1：五年走勢測試
 ---------------------------------
 
-Plot these metrics over 5 years:
+繪製以下指標過去5年的走勢：
 
-Revenue          Net Income       Operating CF       FCF
---------         ----------       ------------       ---
-$500M            $50M             $70M               $40M
-$550M            $60M             $80M               $50M
-$600M            $75M             $95M               $60M
-$650M            $85M             $105M              $65M
-$700M            $100M            $120M              $75M
+收入            淨利潤         經營現金流         自由現金流
+--------        ----------     ------------       ---
+5億美元         5,000萬        7,000萬             4,000萬
+5.5億          6,000萬        8,000萬             5,000萬
+6億            7,500萬        9,500萬             6,000萬
+6.5億          8,500萬        1.05億              6,500萬
+7億            1億            1.2億               7,500萬
 
-ALL growing together? GOOD QUALITY.
+全部同步增長？盈利質量良好。
 
-Now a problematic company:
+現在看一家有問題的公司：
 
-Revenue          Net Income       Operating CF       FCF
---------         ----------       ------------       ---
-$500M            $50M             $70M               $40M
-$580M            $70M             $65M               $30M
-$650M            $95M             $55M               $10M
-$720M            $115M            $40M              ($15M)
-$800M            $140M            $20M              ($50M)
+收入            淨利潤         經營現金流         自由現金流
+--------        ----------     ------------       ---
+5億美元         5,000萬        7,000萬             4,000萬
+5.8億          7,000萬        6,500萬             3,000萬
+6.5億          9,500萬        5,500萬             1,000萬
+7.2億          1.15億         4,000萬            （1,500萬）
+8億            1.4億          2,000萬            （5,000萬）
 
-Earnings growing but cash flow DECLINING = RED FLAG.
-The earnings growth is an accounting illusion.
+盈利增長但現金流下滑 = 警示信號。
+盈利增長不過是會計幻覺。
 
-STEP 2: THE ACCRUAL RATIO
+步驟2：應計比率
 ---------------------------------
 
-                  (Net Income - Operating CF)
-Accrual Ratio = ─────────────────────────────
-                      Total Assets
+                  （淨利潤 - 經營現金流）
+應計比率 = ─────────────────────────────
+                        總資產
 
-Interpretation:
-  < -10%:  Extremely high quality (rare, maybe one-time)
-  -10% to -5%: Very high quality
-  -5% to 0%:   Good quality
-  0% to 5%:    Average quality
-  5% to 10%:   Below average quality
-  > 10%:       Poor quality / potential manipulation
+解讀：
+  < -10%：  質量極高（罕見，可能是一次性）
+  -10% 至 -5%：質量很高
+  -5% 至 0%：  質量良好
+  0% 至 5%：   質量一般
+  5% 至 10%：  質量低於平均
+  > 10%：      質量低劣 / 可能存在操縱
 
-STEP 3: THE BENEISH M-SCORE
+步驟3：貝尼什M分數
 ---------------------------------
 
-The M-Score is a mathematical model that uses 8
-financial ratios to detect earnings manipulation.
+M分數是一個數學模型，使用8個
+財務比率偵測盈利操縱。
 
-M-Score > -1.78: HIGH probability of manipulation
-M-Score < -1.78: LOW probability of manipulation
+M分數 > -1.78：操縱概率高
+M分數 < -1.78：操縱概率低
 
-Key inputs include:
-  - Days Sales in Receivables Index (DSRI)
-  - Gross Margin Index (GMI)
-  - Asset Quality Index (AQI)
-  - Sales Growth Index (SGI)
-  - Total Accruals to Total Assets (TATA)
+主要輸入指標包括：
+  - 應收帳款天數指數（DSRI）
+  - 毛利率指數（GMI）
+  - 資產質量指數（AQI）
+  - 銷售增長指數（SGI）
+  - 總應計項目佔總資產比率（TATA）
 
-Studies show the M-Score correctly identified
-Enron's manipulation years before the collapse.
+研究表明，M分數在安然倒閉數年前
+已正確識別其盈利操縱行為。
 
-STEP 4: PEER COMPARISON
+步驟4：同業比較
 ---------------------------------
 
-Compare your company's ratios to industry peers:
+將公司各比率與行業同業比較：
 
-                    Company    Industry    Verdict
-                    -------    --------    -------
-OCF/Net Income      0.7x       1.1x       POOR
-Receivables Days    85         60          CONCERN
-Inventory Days      120        90          CONCERN
-Accrual Ratio       8%         -3%         RED FLAG
-FCF Margin          2%         8%          POOR
-Capex/Depreciation  0.8x       1.2x       Underinvesting
+                    公司        行業        評估
+                    -------     --------    -------
+經營現金流/淨利潤   0.7倍       1.1倍      差
+應收帳款天數        85天        60天        關注
+存貨天數            120天       90天        關注
+應計比率            8%          -3%         警示信號
+自由現金流利潤率    2%          8%          差
+資本開支/折舊       0.8倍       1.2倍      投資不足
 
-If the company is an outlier on multiple metrics,
-investigate further before investing.
+若公司在多個指標上均為離群值，
+在投資前應進一步調查。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "EPS growth always means the business is growing."**
+**誤解一：「每股盈利增長必然意味著業務在增長。」**
 
-Reality: EPS can grow even when the underlying business is stagnant or declining. Share buybacks reduce the denominator (shares outstanding), mechanically increasing EPS without any improvement in net income. A company that earns the same $100 million year after year but buys back 5% of its shares annually will show 5% EPS growth. Check total net income and free cash flow growth, not just EPS.
+現實：即使基礎業務停滯不前甚至在衰退，每股盈利也可能增長。回購股份會減少分母（流通股數），從而機械式地提高每股盈利，而無需淨利潤有任何改善。一家每年賺取同樣1億美元但每年回購5%股份的公司，將呈現5%的每股盈利增長。應核查的是總淨利潤和自由現金流的增長，而非單看每股盈利。
 
-**Misconception 2: "A company that beats earnings estimates is doing well."**
+**誤解二：「盈利超預期的公司表現良好。」**
 
-Reality: The earnings expectations game is heavily managed. Companies deliberately guide analysts to set beatable estimates. A company that "beats by a penny" every single quarter is almost certainly managing expectations, not outperforming. Look at the actual year-over-year earnings growth and cash flow trends, not the beat/miss versus artificially managed estimates.
+現實：盈利預期博弈受到嚴格管理。公司會刻意引導分析師設定可超越的估計。每個季度都「以一分錢超預期」的公司，幾乎可以肯定是在管理預期，而非真正超越表現。應關注實際的同比盈利增長和現金流走勢，而非對比人為管理後的估計數字。
 
-**Misconception 3: "Revenue growth is always good."**
+**誤解三：「收入增長永遠是好事。」**
 
-Reality: Revenue growth that comes with declining margins, increasing receivables, or negative free cash flow can actually destroy value. A company that grows revenue by 20% but offers increasingly generous credit terms (extending payments to customers who may not pay) is booking illusory revenue. Revenue quality matters as much as revenue quantity.
+現實：伴隨利潤率下滑、應收帳款增加或自由現金流為負的收入增長，實際上可能在摧毀價值。若一家公司收入增長20%，但提供了越來越慷慨的信貸條款（向可能不還款的客戶延長付款期），所入帳的收入實屬虛幻。收入的質量與收入的數量同樣重要。
 
-**Misconception 4: "Depreciation is just an accounting entry and can be ignored."**
+**誤解四：「折舊只是一項會計分錄，可以忽略不計。」**
 
-Reality: Depreciation represents the consumption of real assets. A factory that depreciates $10 million per year will eventually need to be replaced or refurbished at a real cash cost. Ignoring depreciation overstates the cash available to shareholders. This is why free cash flow (which subtracts capex) is more reliable than EBITDA (which adds back depreciation) as a measure of true profitability.
+現實：折舊代表真實資產的消耗。每年折舊1,000萬美元的廠房，終究需要以實際現金成本進行更換或翻新。忽略折舊會高估可供股東使用的現金。這正是為何自由現金流（扣除資本開支）比息稅折舊攤銷前盈利（加回折舊）更能可靠地衡量真實盈利能力。
 
-**Misconception 5: "Negative free cash flow always means the company is in trouble."**
+**誤解五：「負自由現金流必然意味著公司陷入困境。」**
 
-Reality: High-growth companies often have negative free cash flow because they are investing heavily in future growth -- building warehouses, developing software, expanding into new markets. Amazon had negative or minimal free cash flow for years while building its logistics empire. The key question is whether the investments will eventually generate returns above the cost of capital. Negative FCF from growth investment is very different from negative FCF due to a broken business model.
+現實：高增長公司的自由現金流往往為負，因為它們正大力投資未來增長——興建倉庫、開發軟件、擴展至新市場。亞馬遜在構建其物流帝國的多年間，自由現金流甚微甚至為負。關鍵問題是，這些投資最終能否帶來高於資本成本的回報。源於增長投資的負自由現金流，與源於商業模式失效的負自由現金流截然不同。
 
-**Misconception 6: "The income statement is the most important financial statement."**
+**誤解六：「損益表是最重要的財務報表。」**
 
-Reality: For investors, the cash flow statement is arguably more important because it is harder to manipulate and shows actual cash generation. Profitable companies can run out of cash and go bankrupt (if all their "profit" is locked in receivables or inventory). Unprofitable companies can thrive for years if they generate positive cash flow (through collecting cash before delivering services). Always cross-reference income statement claims with the cash flow statement.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: Where do I find free cash flow? Is it on the financial statements?**
-
-A: Free cash flow is not directly reported on any standard financial statement. You calculate it by taking Operating Cash Flow (from the cash flow statement) and subtracting Capital Expenditures (also on the cash flow statement, under "Investing Activities"). Many financial data providers like Yahoo Finance, Morningstar, and company investor relations pages calculate and display FCF, but always verify by doing the calculation yourself. Some providers include or exclude different items, so the numbers may not match exactly.
-
-**Q2: How do I distinguish between legitimate growth investment and earnings manipulation?**
-
-A: Ask three questions. First, is the company transparent about its investments? Legitimate growth investing comes with clear explanations of what is being built and expected returns. Second, are peers making similar investments? If the entire industry is expanding capacity, heavy capex is expected. Third, does management have a track record of generating returns on past investments? Check ROIC trends. Companies with a history of high ROIC are more likely to be genuinely investing for growth. Companies with low ROIC that keep spending heavily may be empire building.
-
-**Q3: What is stock-based compensation and should I add it back to free cash flow?**
-
-A: Stock-based compensation (SBC) is when companies pay employees with stock options or restricted stock units instead of cash. It appears as a non-cash expense on the income statement and is added back in the operating cash flow calculation. Some investors argue SBC should be added back to FCF because it is non-cash. Others (including Warren Buffett) argue it should be subtracted because it is a real cost that dilutes shareholders. The second view is correct. SBC is a real expense -- it transfers value from shareholders to employees. Always subtract SBC from FCF if the cash flow statement has added it back.
-
-**Q4: What is the difference between EBITDA and free cash flow?**
-
-A: EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a measure of operating profit before non-cash charges. Free cash flow is the actual cash available after all operating expenses AND capital expenditures. The main differences: (1) EBITDA ignores capex -- it assumes the business requires no reinvestment, which is rarely true. (2) EBITDA ignores working capital changes -- a company may report high EBITDA but consume cash through growing receivables and inventory. (3) EBITDA ignores taxes -- real businesses pay taxes in cash. FCF is a more complete and honest metric.
-
-**Q5: How do I use the Beneish M-Score?**
-
-A: The Beneish M-Score uses eight financial ratios to generate a score that indicates the likelihood of earnings manipulation. An M-Score greater than -1.78 suggests a high probability of manipulation. You can calculate it manually using data from the financial statements, but many financial analysis platforms and screening tools now include it. The key inputs include changes in receivables relative to sales, gross margin trends, asset quality, and the ratio of total accruals to total assets. While not perfect, studies show it would have flagged companies like Enron and WorldCom before their collapses.
-
-**Q6: What is "channel stuffing" and how do I detect it?**
-
-A: Channel stuffing occurs when a company ships excess product to distributors or retailers at the end of a quarter to inflate reported revenue. The distributors have not actually sold the product and will likely return it next quarter. Detection clues: (1) Revenue spikes at quarter-end with no corresponding demand increase. (2) Accounts receivable growing significantly faster than revenue (product shipped but not paid for). (3) Increases in sales returns and allowances in subsequent quarters. (4) Inventory at distributors (if disclosed) growing faster than end-customer demand. Companies in consumer products, technology hardware, and pharmaceuticals are most susceptible.
-
-**Q7: What is the relationship between earnings quality and stock returns?**
-
-A: The Sloan Accrual Anomaly (1996) is one of the best-documented findings in financial research. Stocks with high accruals (earnings far exceeding cash flow) consistently underperform stocks with low accruals (cash flow exceeding earnings) by 5-10% annually over subsequent years. The market appears to naively extrapolate headline earnings without examining whether those earnings are backed by cash. Value investors can exploit this by screening for companies with high cash flow relative to earnings and avoiding those where the reverse is true.
-
-**Q8: Can a company have positive earnings but negative free cash flow indefinitely?**
-
-A: Not indefinitely, but it can persist for many years, particularly for companies in heavy growth phases. Amazon reported positive net income as early as 2003 but had negative or minimal free cash flow for many years afterward because of massive capital expenditures on warehouses, data centers, and logistics. Eventually, the gap must close -- either the investments start generating enough cash to turn FCF positive, or the earnings were an illusion. If a mature, non-growing company consistently has earnings above FCF, that is a serious red flag.
-
-**Q9: How should I handle companies that report "adjusted EPS" instead of GAAP EPS?**
-
-A: Be very cautious with adjusted (non-GAAP) EPS. Companies exclude "one-time" charges like restructuring costs, acquisition expenses, and stock-based compensation to present a rosier picture. Some adjustments are legitimate -- truly one-time events that distort the ongoing picture. But many companies have "one-time" charges every single quarter, which means they are not one-time at all. Always compare adjusted EPS to GAAP EPS and to free cash flow. If adjusted EPS is consistently 30-50% higher than GAAP EPS, the company is likely overstating its profitability. If adjusted EPS is close to GAAP EPS, the adjustments are probably reasonable.
-
-**Q10: How do I build a simple earnings quality screen?**
-
-A: Start with these four filters: (1) Operating Cash Flow / Net Income greater than 1.0 for at least 3 of the last 5 years. (2) Free Cash Flow positive for at least 4 of the last 5 years. (3) Accrual ratio below 5% (total accruals as a percentage of total assets). (4) Receivables growing no faster than revenue over the past 3 years. This simple screen will eliminate most earnings manipulation and low-quality earnings situations. Layer in valuation metrics like FCF yield to find stocks that are both high quality and reasonably priced.
+現實：對投資者而言，現金流量表可以說更為重要，因為它更難以操縱，並呈現實際的現金產生情況。盈利豐厚的公司可能耗盡現金並破產（若所有「利潤」都鎖定在應收帳款或存貨中）。不盈利的公司若能產生正現金流，可以存活多年（透過在交付服務前收取現金）。務必將損益表的聲明與現金流量表相互印證。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問題1：我在哪裡可以找到自由現金流？它是否列於財務報表中？**
+
+解答：自由現金流並未直接列於任何標準財務報表中，需要自行計算：從現金流量表中取得經營現金流，再扣除資本開支（同樣列於現金流量表的「投資活動」部分）。雅虎財經、晨星等許多財務數據供應商，以及公司的投資者關係頁面，都會計算並顯示自由現金流，但務必自行驗算。由於不同供應商可能包含或排除不同項目，數字未必完全吻合。
+
+**問題2：我如何區分合理的增長投資與盈利操縱？**
+
+解答：需問三個問題。首先，公司是否對其投資保持透明？合理的增長投資應伴隨清晰解釋所建設的內容及預期回報。其次，同業是否進行類似投資？若整個行業都在擴大產能，大額資本開支是預期之中的。第三，管理層在過往投資中是否有產生回報的記錄？核查投入資本回報率的走勢。具高投入資本回報率歷史的公司，更有可能是真正在投資增長。投入資本回報率偏低卻持續大手筆投入的公司，或許只是在建立商業帝國。
+
+**問題3：以股代薪是什麼？我是否應將其加回自由現金流？**
+
+解答：以股代薪是指公司以股票期權或限制性股票單位而非現金支付員工薪酬。它在損益表中作為非現金費用出現，並在計算經營現金流時被加回。部分投資者認為應將以股代薪加回自由現金流，因為它不涉及現金。另一些人（包括沃倫·巴菲特）認為應予扣除，因為它是稀釋股東權益的真實成本，後一種觀點是正確的。以股代薪是真實的費用——它將價值從股東轉移至員工。若現金流量表已加回以股代薪，在計算自由現金流時務必予以扣除。
+
+**問題4：息稅折舊攤銷前盈利與自由現金流有何差異？**
+
+解答：息稅折舊攤銷前盈利（EBITDA）是扣除非現金費用前的營運利潤衡量指標。自由現金流是扣除所有營運費用及資本開支後真正可用的現金。主要差異：（1）息稅折舊攤銷前盈利忽略資本開支——它假設業務無需再投入，而這在現實中極為罕見。（2）息稅折舊攤銷前盈利忽略營運資金變動——公司可能公布高息稅折舊攤銷前盈利，但卻因應收帳款和存貨增長而消耗現金。（3）息稅折舊攤銷前盈利忽略稅項——真實業務需以現金繳稅。自由現金流是更全面、更誠實的指標。
+
+**問題5：如何使用貝尼什M分數？**
+
+解答：貝尼什M分數利用八個財務比率生成一個分數，反映盈利操縱的可能性。M分數高於-1.78表示操縱概率高。您可以使用財務報表數據手動計算，但現在許多財務分析平台和篩選工具已將其納入。主要輸入指標包括應收帳款相對銷售額的變動、毛利率走勢、資產質量，以及總應計項目佔總資產的比率。研究表明，該模型本可在安然和世界通訊倒閉前提出警示。
+
+**問題6：什麼是「渠道填塞」？我如何偵測？**
+
+解答：渠道填塞是指公司在季度末向分銷商或零售商大量出貨以誇大所公布收入的行為。分銷商實際上並未售出產品，很可能在下個季度退回。偵測線索：（1）在沒有對應需求增長的情況下，季度末出現收入激增。（2）應收帳款增速顯著快於收入（產品已發貨但尚未收款）。（3）後續季度銷售退回及折讓增加。（4）若有披露，分銷商的存貨增速快於終端客戶需求。消費品、科技硬件和醫藥行業的公司最易出現此問題。
+
+**問題7：盈利質量與股票回報有何關係？**
+
+解答：Sloan應計項目異常（1996年）是金融研究中記錄最為詳盡的發現之一。高應計項目（盈利遠超現金流）的股票，在隨後數年間的表現持續落後於低應計項目（現金流超過盈利）的股票，差距每年達5至10個百分點。市場似乎天真地外推表面盈利，而未審視這些盈利是否有現金支撐。價值投資者可藉此獲利，方法是篩選現金流相對盈利較高的公司，並迴避情況相反的公司。
+
+**問題8：一家公司能否無限期維持正盈利但負自由現金流？**
+
+解答：無法無限期維持，但對於處於大力增長階段的公司，這種情況可持續多年。亞馬遜早在2003年便公布正淨利潤，但此後多年因大量投入倉庫、數據中心和物流的資本開支，自由現金流甚微甚至為負。最終，這一差距必須收窄——要麼投資開始產生足夠現金使自由現金流轉正，要麼盈利本身只是幻覺。若一家成熟、非增長型公司持續出現盈利高於自由現金流的情況，這是嚴重警示信號。
+
+**問題9：對於公布「調整後每股盈利」而非公認會計準則每股盈利的公司，我應如何處理？**
+
+解答：對調整後（非公認會計準則）每股盈利需保持高度警惕。公司排除重組費用、收購開支和以股代薪等「一次性」費用，以呈現更亮麗的圖像。部分調整是合理的——真正的一次性事件確實會扭曲持續業務的圖像。但許多公司每個季度都有「一次性」費用，這意味著它們根本不是一次性的。務必將調整後每股盈利與公認會計準則每股盈利及自由現金流進行比較。若調整後每股盈利持續比公認會計準則每股盈利高出30至50%，公司很可能在高估其盈利能力。若調整後每股盈利與公認會計準則每股盈利相近，調整或許是合理的。
+
+**問題10：如何建立簡單的盈利質量篩選標準？**
+
+解答：從以下四個篩選條件入手：（1）過去5年中至少3年，經營現金流/淨利潤大於1.0。（2）過去5年中至少4年，自由現金流為正數。（3）應計比率低於5%（總應計項目佔總資產的百分比）。（4）過去3年應收帳款增速不快於收入增速。這個簡單篩選可排除大多數盈利操縱和低質量盈利的情況。再疊加自由現金流收益率等估值指標，便能找到質量高且價格合理的股票。
+
+---
+
+## YouTube 劇本
 
 [VISUAL: Animated intro with title "Week 20: Earnings and Cash Flow - Quality, Manipulation, and Free Cash Flow"]
 
-**Alex:** Welcome back everyone. Today we are going to learn a skill that separates truly sophisticated investors from everyone else -- the ability to tell whether a company's reported profits are real or a mirage. We are talking about earnings quality, cash flow analysis, and how to spot manipulation.
+**Horace：** 大家好，歡迎回來。今天我們將學習一種讓真正老練的投資者與普通投資者拉開差距的技能——判斷一家公司所公布的利潤是真實的，還是一場幻覺。我們要講的是盈利質量、現金流分析，以及如何識別操縱手法。
 
-**Sam:** This sounds almost forensic. Like we are going to become financial detectives.
+**Stella：** 聽起來幾乎像是在做財務偵探的工作。
 
-**Alex:** That is exactly what we are going to become. And here is why this matters so much. Every major corporate collapse in the last 25 years -- Enron, WorldCom, Luckin Coffee, Wirecard -- involved earnings manipulation that was actually detectable from publicly available financial statements. Investors who knew how to read the cash flow statement and compare it to earnings were not surprised. They had already moved on.
+**Horace：** 正是如此。為什麼這麼重要呢？過去25年所有重大企業倒閉事件——安然、世界通訊、瑞幸咖啡、Wirecard——都涉及盈利操縱，而這些操縱其實可以從公開財務報表中發現端倪。懂得閱讀現金流量表並與盈利進行比對的投資者，根本不會感到意外，因為他們早已離場。
 
-**Sam:** Okay, I am hooked. Where do we start?
+**Stella：** 好，我被吸引了。從哪裡開始？
 
-**Alex:** Let us start with the most basic metric every investor sees -- earnings per share, or EPS. When a company reports quarterly results, the headline number is almost always EPS. "Company X reports EPS of $2.15, beating estimates of $2.08." That is the format you see everywhere.
+**Horace：** 先從每位投資者都看得到的最基本指標說起——每股盈利，即EPS。當公司公布季度業績時，頭條數字幾乎總是每股盈利。「X公司公布每股盈利2.15美元，超過預期的2.08美元。」這是隨處可見的格式。
 
 [VISUAL: Mock-up of a financial news headline showing "TechCorp Reports Q3 EPS of $2.15 vs. $2.08 Expected -- Stock Jumps 5%"]
 
-**Sam:** Right, I see those headlines all the time. And the stock usually goes up if they beat and down if they miss.
+**Stella：** 對，我經常看到這些頭條。超預期股價通常會升，遜預期就跌。
 
-**Alex:** Correct. But here is what most people do not understand. That $2.15 is not a fact like the temperature outside. It is the output of dozens of accounting judgments, estimates, and management choices. How quickly are they depreciating their equipment? When are they recognizing revenue? How much are they reserving for customer returns? Each of these decisions affects the final EPS number.
+**Horace：** 沒錯。但大多數人不明白的是，那個2.15美元並不像室外溫度那樣是個客觀事實，它是數十個會計判斷、估算和管理層選擇的結果。設備折舊速度、收入確認時機、客戶退款撥備金額——每一個決定都會影響最終的每股盈利數字。
 
-**Sam:** So earnings are not just "how much money the company made?"
+**Stella：** 所以盈利並不只是「公司賺了多少錢」？
 
-**Alex:** Not exactly. This brings us to one of the most important concepts in all of finance -- the difference between accrual accounting and cash accounting.
+**Horace：** 不完全是。這就帶出了整個金融領域最重要的概念之一——應計制會計與現金制會計的分別。
 
-[VISUAL: Title card "Accrual vs. Cash Accounting -- The Most Important Distinction in Financial Analysis"]
+[VISUAL: Title card "應計制對比現金制會計——財務分析中最重要的區分"]
 
-**Alex:** The income statement -- where EPS comes from -- is based on accrual accounting. This means revenue is recorded when it is earned, not when cash is received. And expenses are recorded when they are incurred, not when they are paid.
+**Horace：** 損益表——每股盈利所來自的地方——是基於應計制會計的。這意味著收入在賺取時確認，而非在收到現金時確認；費用在產生時確認，而非在支付時確認。
 
-**Sam:** Can you give me a concrete example?
+**Stella：** 可以給我一個具體例子嗎？
 
-**Alex:** Sure. Imagine a software company signs a three-year, $3 million contract on January 1st. Under accrual accounting, the company recognizes $83,000 in revenue each month -- one thirty-sixth of the contract value. But the customer might not actually pay anything until six months in. The income statement shows revenue. The bank account shows no money.
+**Horace：** 當然。想象一家軟件公司在1月1日簽訂了一份為期三年、價值300萬美元的合約。在應計制會計下，公司每個月確認約83,000美元收入——即合約總值的三十六分之一。但客戶可能六個月後才付款。損益表顯示有收入，銀行帳戶卻分文未收。
 
-**Sam:** So the company looks profitable on the income statement but might not have any cash?
+**Stella：** 所以公司在損益表上看起來盈利豐厚，但實際上可能一分錢現金都沒有？
 
-**Alex:** Exactly. And this is why the cash flow statement is arguably more important than the income statement for investors. Cash flow tells you what actually went into and out of the bank account. It is much harder to manipulate because you either have the cash or you do not.
+**Horace：** 正是。這就是為何現金流量表對投資者來說可以說比損益表更重要。現金流量表告訴你銀行帳戶裡實際的資金進出情況，更難以造假，因為你要麼有現金，要麼沒有。
 
-[ANIMATION: animation/week20_accrual_vs_cash.py - Two parallel timelines showing the same company's year. The top timeline (Income Statement) shows smooth, growing revenue bars each quarter. The bottom timeline (Cash Flow) shows lumpy, irregular cash receipts and payments. The revenue line looks beautiful and consistent. The cash flow line looks messy but real. Annotations highlight the gap: "The income statement tells a story. The cash flow statement tells the truth."]
+[ANIMATION: animation/week20_accrual_vs_cash.py - Two parallel timelines showing the same company's year. The top timeline (Income Statement) shows smooth, growing revenue bars each quarter. The bottom timeline (Cash Flow) shows lumpy, irregular cash receipts and payments. The revenue line looks beautiful and consistent. The cash flow line looks messy but real. Annotations highlight the gap: "損益表在講一個故事。現金流量表在說出真相。"]
 
-**Sam:** If cash flow is harder to fake, why do companies use accrual accounting at all?
+**Stella：** 若現金流更難造假，公司為何仍要使用應計制會計？
 
-**Alex:** Because accrual accounting actually gives a better picture of economic performance in most cases. If a company delivers $100 million in products this quarter but has not collected payment yet, the accrual approach correctly shows $100 million in economic activity. Cash accounting would show zero until the money arrives, which could be misleading. Accrual accounting is not bad -- it is when companies abuse the judgment calls within accrual accounting that problems arise.
+**Horace：** 因為應計制會計在大多數情況下實際上能更好地反映經濟表現。若一家公司本季度交付了1億美元的產品，但尚未收款，應計制方法能正確反映1億美元的經濟活動。若客戶要到很久之後才付款，現金制會計在此之前都會顯示零，這同樣會造成誤導。應計制會計本身沒有問題——問題在於公司濫用其中的判斷空間。
 
-**Sam:** So the key is comparing the two -- what the income statement says versus what the cash flow statement says?
+**Stella：** 所以關鍵是比較兩者——損益表的呈現與現金流量表的呈現？
 
-**Alex:** Precisely. And this brings us to one of the most powerful tools in an investor's arsenal: the operating cash flow to net income ratio.
+**Horace：** 正是。這就帶出了投資者最強大的工具之一：經營現金流與淨利潤比率。
 
-[VISUAL: Large formula display: "OCF / Net Income Ratio -- Compare every quarter"]
+[VISUAL: Large formula display: "經營現金流 / 淨利潤比率——每個季度都要比對"]
 
-**Alex:** You simply divide operating cash flow by net income. If the ratio is above 1.0, cash flow exceeds reported earnings, which is a positive quality signal. If it is below 1.0, earnings exceed cash flow, and you need to investigate why.
+**Horace：** 簡單地將經營現金流除以淨利潤。若比率高於1.0，現金流超過所公布的盈利，是正面的質量信號。若低於1.0，盈利超過現金流，則需要調查原因。
 
-**Sam:** What would a good company look like versus a suspicious one?
+**Stella：** 高質量公司與有問題的公司分別是怎樣的？
 
-**Alex:** Let me show you a five-year comparison. A high-quality company might look like this. Year one, net income is $100 million and operating cash flow is $130 million. Year two, $120 million and $140 million. Year three, $150 million and $170 million. Both are growing, and cash flow consistently exceeds earnings.
+**Horace：** 讓我給你看一個五年對比。高質量公司可能是這樣的：第一年，淨利潤1億美元，經營現金流1.3億美元；第二年，1.2億對1.4億；第三年，1.5億對1.7億。兩者均在增長，現金流持續超過盈利。
 
-**Sam:** And the suspicious company?
+**Stella：** 有問題的公司呢？
 
-**Alex:** The suspicious company shows net income growing from $100 million to $200 million over five years -- impressive headline growth. But operating cash flow goes from $130 million down to $60 million. Earnings are going up and cash flow is going down. That divergence is one of the most reliable red flags in all of financial analysis.
+**Horace：** 有問題的公司五年間淨利潤從1億增長至2億——頭條增長相當亮麗。但經營現金流卻從1.3億降至6,000萬。盈利上升，現金流下滑。這種背離是整個財務分析中最可靠的警示信號之一。
 
-[ANIMATION: animation/week20_divergence.py - Two line charts animating over 5 years. Chart A ("High Quality Company") shows net income and operating cash flow lines both rising, with OCF consistently above net income. Chart B ("Red Flag Company") shows net income rising while operating cash flow declines, with the lines crossing and then diverging dramatically. At the crossover point, a warning icon flashes. The final frame highlights: "When earnings go up but cash flow goes down, the earnings are likely not real."]
+[ANIMATION: animation/week20_divergence.py - Two line charts animating over 5 years. Chart A ("高質量公司") shows net income and operating cash flow lines both rising, with OCF consistently above net income. Chart B ("警示信號公司") shows net income rising while operating cash flow declines, with the lines crossing and then diverging dramatically. At the crossover point, a warning icon flashes. The final frame highlights: "當盈利上升但現金流下滑，這些盈利很可能並不真實。"]
 
-**Sam:** That is powerful. But how does a company manage to report growing earnings while cash flow declines?
+**Stella：** 很有力量。但公司如何做到在現金流下滑的同時公布盈利增長？
 
-**Alex:** Several ways, and this is where it gets really interesting. Let me walk you through the most common manipulation techniques.
+**Horace：** 方法有幾種，這部分相當有趣。讓我帶你了解最常見的操縱手法。
 
-**Alex:** First, there is revenue manipulation. The most famous technique is called channel stuffing. A company ships excess product to its distributors right before the quarter ends. On the income statement, that counts as revenue because the product has been "sold." But the distributors did not actually need the product, and they will return it next quarter.
+**Horace：** 首先是收入操縱。最臭名昭著的手法叫做「渠道填塞」。公司在季度末前夕向分銷商大量發貨，在損益表上，這被計為收入，因為產品已經「售出」。但分銷商其實不需要這批貨，下個季度會退回來。
 
-**Sam:** So the company is just borrowing revenue from the future?
+**Stella：** 所以公司只是在向未來借取收入？
 
-**Alex:** Exactly. And it shows up in the financials if you know where to look. Accounts receivable -- the money customers owe the company -- will grow much faster than revenue. Why? Because the company is shipping product to distributors who have not paid for it and probably will not.
+**Horace：** 正是。而且只要你知道看哪裡，財務報表上就會有所呈現。應收帳款——即客戶欠公司的款項——的增速將遠超收入增速。原因是公司正在向尚未付款、且可能根本不會付款的分銷商發貨。
 
-[VISUAL: A chart showing Revenue growing at 10% per year side by side with Accounts Receivable growing at 30% per year. An alarm bell icon appears with the caption: "When receivables grow faster than revenue, someone is not paying -- or the revenue is not real."]
+[VISUAL: A chart showing Revenue growing at 10% per year side by side with Accounts Receivable growing at 30% per year. An alarm bell icon appears with the caption: "當應收帳款增速快於收入，有人在拖欠款項——或者這些收入根本不是真實的。"]
 
-**Sam:** What about expense manipulation?
+**Stella：** 費用操縱呢？
 
-**Alex:** One of the most common techniques is capitalizing expenses. Normally, when you spend money on something that gets consumed quickly -- like marketing or maintenance -- it flows through the income statement as an expense, reducing earnings. But if you capitalize it -- put it on the balance sheet as an asset -- it does not hit earnings this year. Instead, you depreciate it slowly over many years.
+**Horace：** 最常見的手法之一是將費用資本化。通常，若你花費金錢在短期內消耗的東西上——例如市場推廣或維護——它會作為費用流過損益表，減少盈利。但若你將其資本化——列入資產負債表作為資產——它本年度就不會影響盈利，而是以折舊的形式在多年間慢慢攤銷。
 
-**Sam:** So the company is hiding current expenses by pretending they are long-term investments?
+**Stella：** 所以公司是透過假裝當期費用是長期投資來隱藏它？
 
-**Alex:** Exactly. WorldCom did this with billions of dollars of ordinary operating costs. They classified regular maintenance expenses as capital investments, which inflated their earnings by billions. On the income statement, everything looked fine. But on the cash flow statement, the cash was obviously going out the door. The cash flow statement does not care whether you call something capex or an expense -- cash spent is cash spent.
+**Horace：** 正是。世界通訊就是這樣處理數十億美元的普通營運成本的，他們將日常維護費用列為資本投資，使盈利虛增數十億美元。損益表上一切看似正常，但現金流量表清楚地顯示現金正在流出。現金流量表不在乎你把某項支出稱為資本開支還是費用——花出去的現金就是花出去了。
 
-**Sam:** This is really making me appreciate the cash flow statement.
+**Stella：** 這真的讓我對現金流量表刮目相看。
 
-**Alex:** It should. Which brings us to free cash flow -- the single most important number for long-term investors.
+**Horace：** 應該如此。這就帶出了自由現金流——對長線投資者而言最重要的單一數字。
 
-[VISUAL: Title card "Free Cash Flow: The Most Important Number in Investing"]
+[VISUAL: Title card "自由現金流：投資中最重要的數字"]
 
-**Alex:** Free cash flow is operating cash flow minus capital expenditures. It represents the cash a company generates after spending what it needs to maintain and grow its operations. It is the cash truly available to shareholders -- for dividends, buybacks, debt payoff, or further investment.
+**Horace：** 自由現金流是經營現金流扣除資本開支。它代表公司在為維持和增長業務所需的支出後所產生的現金。這是真正可供股東使用的現金——用於派息、回購股份、還債或進一步投資。
 
-**Sam:** Why is FCF more important than net income for investors?
+**Stella：** 為何自由現金流對投資者比淨利潤更重要？
 
-**Alex:** Because net income includes non-cash items and accounting estimates that can distort reality. Free cash flow strips all of that away and tells you: how much cash did the business actually produce that could be handed to me, the owner?
+**Horace：** 因為淨利潤包含非現金項目和可扭曲現實的會計估算。自由現金流將這一切剝離，告訴你：這家業務實際上產生了多少現金，可以作為業主的我拿走的？
 
-**Alex:** Let me use a concrete example. Suppose Company ABC reports $200 million in net income. Sounds great. But when you calculate free cash flow, you discover it is only $50 million. Where did the other $150 million go? Maybe $100 million went to depreciation adjustments that artificially inflated net income. Maybe $50 million went to a build-up in accounts receivable -- revenue was booked but cash was never collected.
+**Horace：** 舉個具體例子。假設ABC公司公布淨利潤2億美元，聽起來不錯。但當你計算自由現金流，發現只有5,000萬美元。另外的1.5億去了哪裡？可能有1億是虛增淨利潤的折舊調整，可能有5,000萬是應收帳款增加——收入已入帳但現金從未收到。
 
-[VISUAL: Waterfall chart starting with Net Income of $200M, then showing adjustments: +$100M depreciation, +$50M stock-based compensation, -$80M working capital build-up, = $270M Operating Cash Flow, -$220M Capital Expenditures, = $50M Free Cash Flow. The contrast between $200M in net income and $50M in FCF is stark and visually dramatic.]
+[VISUAL: Waterfall chart starting with Net Income of $200M, then showing adjustments: +$100M折舊, +$50M以股代薪, -$80M營運資金增加, = $270M經營現金流, -$220M資本開支, = $50M自由現金流. The contrast between $200M in net income and $50M in FCF is stark and visually dramatic.]
 
-**Sam:** $200 million in earnings but only $50 million in free cash flow. That is a huge gap.
+**Stella：** 盈利2億美元，但自由現金流只有5,000萬美元，差距如此之大。
 
-**Alex:** And it tells you the reported earnings are overstating the company's actual cash-generating ability. Now, there are legitimate reasons for a gap. A company investing heavily in growth -- building new factories, developing new technology -- will have high capex that reduces FCF below net income. Amazon was in this situation for years. The question is whether those investments will generate future returns above the cost of capital.
+**Horace：** 這告訴你，所公布的盈利高估了公司真實的現金產生能力。當然，差距也有合理原因。大力投資增長的公司——興建新廠房、開發新技術——資本開支高，會壓低自由現金流至低於淨利潤的水平。亞馬遜曾長年處於這種情況，關鍵問題是這些投資最終能否帶來高於資本成本的回報。
 
-**Sam:** How do I tell the difference between good investment and waste?
+**Stella：** 如何分辨良性投資與浪費？
 
-**Alex:** Three things to check. One, look at the company's return on invested capital, or ROIC. If past investments have consistently generated returns above the WACC we learned about last week, management has earned the benefit of the doubt. Two, look at what peers are spending. If the entire industry is investing heavily, the capex is likely necessary. Three, listen to what management says and whether their past promises about investment returns actually materialized. Some CEOs repeatedly promise returns from new investments that never pan out -- that is a pattern of capital destruction.
+**Horace：** 有三件事可以核查。第一，看公司的投入資本回報率（ROIC）。若過往投資持續帶來高於加權平均資本成本的回報，管理層值得信任。第二，看同業的資本開支水平。若整個行業都在大力投資，高額資本開支是預期中的事。第三，聆聽管理層的說法，並驗證他們過去關於投資回報的承諾是否兌現。部分行政總裁反覆承諾新投資的回報，但最終從未實現——這是資本毀滅的模式。
 
-**Sam:** Now, you mentioned FCF yield as a valuation metric. How does that work?
+**Stella：** 你提到自由現金流收益率是一個估值指標，這是如何運作的？
 
-**Alex:** FCF yield is free cash flow divided by market cap. It tells you the cash return you are getting for the price you pay. Think of it like the yield on a bond, but for a stock.
+**Horace：** 自由現金流收益率是自由現金流除以市值，告訴你以所付的價格能獲得怎樣的現金回報。可以把它想成債券的收益率，只是用於股票。
 
-[VISUAL: Simple calculation showing: "FCF: $500M, Market Cap: $10B, FCF Yield: 5.0%". Below it, a comparison bar chart showing FCF yields for the S&P 500 (3-4%), a value stock (7%), a growth stock (1%), and the 10-year Treasury yield (4.5%), providing context for what constitutes a high or low FCF yield.]
+[VISUAL: Simple calculation showing: "自由現金流：5億美元，市值：100億美元，自由現金流收益率：5.0%"。Below it, a comparison bar chart showing FCF yields for the S&P 500 (3-4%)、價值股 (7%)、增長股 (1%) and the 10年期美國國債收益率 (4.5%), providing context for what constitutes a high or low FCF yield.]
 
-**Alex:** If a company has an FCF yield of 5%, it generates $5 in cash for every $100 of market value. You can compare this directly to bond yields. If the 10-year Treasury yields 4.5% and a stock has an FCF yield of 7%, the stock is generating more cash than the bond -- and that cash can grow, unlike bond coupons.
+**Horace：** 若一家公司的自由現金流收益率為5%，代表每投資100美元的市值，公司每年產生5美元現金。你可以直接與債券收益率比較。若10年期美國國債收益率為4.5%，而某股票的自由現金流收益率為7%，該股票產生的現金比債券更多——而且這些現金還可以增長，不像債券票息那樣固定。
 
-**Sam:** What is a good FCF yield?
+**Stella：** 多少算是好的自由現金流收益率？
 
-**Alex:** The average for the S&P 500 is roughly 3 to 5%. Below 2% is typical for high-growth companies that reinvest everything. Above 6% is above average and potentially attractive. Above 10% is either a deep value opportunity or a value trap -- you need to figure out which.
+**Horace：** 標普500的平均水平大約是3至5%。低於2%是高增長公司的典型情況，因為它們將一切再投入。高於6%屬於高於平均水平，有潛在吸引力。高於10%要麼是深度價值機遇，要麼是價值陷阱——需要搞清楚是哪種情況。
 
-**Sam:** How do you tell the difference?
+**Stella：** 如何分辨？
 
-**Alex:** A high FCF yield is a genuine opportunity if the company's cash flows are sustainable, the business is stable, and the market is just being pessimistic. It is a value trap if cash flows are about to decline due to competitive threats, expiring contracts, or secular headwinds. This is where the qualitative analysis -- understanding the business -- meets the quantitative analysis.
+**Horace：** 若公司現金流可持續、業務穩定、市場只是過於悲觀，高自由現金流收益率是真正的機遇。若現金流即將因競爭威脅、合約到期或結構性逆風而下滑，則屬於價值陷阱。這正是定性分析——理解業務——與定量分析交匯的地方。
 
-**Sam:** Let me ask about something practical. When I am looking at a company's financial statements, how should I actually read the cash flow statement?
+**Stella：** 讓我問一個實際操作的問題。當我查看一家公司的財務報表時，應如何實際閱讀現金流量表？
 
-**Alex:** The cash flow statement has three sections, and each tells a different story. The first section is operating cash flow -- cash generated from the core business. This should be positive and growing for any mature company. If it is negative, the company is not self-sustaining.
+**Horace：** 現金流量表分三個部分，每部分講述不同的故事。第一部分是經營現金流——核心業務產生的現金。對任何成熟公司而言，這應為正數且持續增長。若為負數，公司的業務無法自給自足。
 
-**Alex:** The second section is investing cash flow -- cash spent on investments like equipment, acquisitions, or financial assets. For a growing company, this is usually negative, which is fine. For a declining company selling assets to stay alive, it might be positive -- and that is a warning sign.
+**Horace：** 第二部分是投資現金流——用於設備、收購或金融資產等投資的現金。對增長型公司而言，這通常為負數，屬正常情況。對依靠出售資產維持運作的衰退公司，這可能為正數——那才是警告信號。
 
-**Alex:** The third section is financing cash flow -- cash from or to capital providers. This includes issuing or repaying debt, issuing or buying back stock, and paying dividends. For mature companies returning capital, this is typically negative.
+**Horace：** 第三部分是融資現金流——與資本提供者之間的現金往來，包括發行或償還債務、發行或回購股份，以及派息。對回饋資本的成熟公司而言，這通常為負數。
 
-[ANIMATION: animation/week20_cash_flow_sections.py - Three animated funnels representing the three sections of the cash flow statement. Green dollars flow through the Operating funnel (largest, flowing in). Red dollars flow through the Investing funnel (flowing out for capex). Blue dollars flow through the Financing funnel (flowing out for dividends and buybacks). The net of all three flows into a "Cash Balance" bucket at the bottom, which fills or drains based on the totals. Different company profiles are shown -- healthy mature company, high-growth company, and distressed company -- each with dramatically different flow patterns.]
+[ANIMATION: animation/week20_cash_flow_sections.py - Three animated funnels representing the three sections of the cash flow statement. Green dollars flow through the 經營 funnel (largest, flowing in). Red dollars flow through the 投資 funnel (flowing out for capex). Blue dollars flow through the 融資 funnel (flowing out for dividends and buybacks). The net of all three flows into a "現金餘額" bucket at the bottom, which fills or drains based on the totals. Different company profiles are shown -- 健康成熟公司, 高增長公司, and 困境公司 -- each with dramatically different flow patterns.]
 
-**Sam:** This is really clicking. Let me try to put it all together. When I analyze a company, I should look at EPS for the headline, but then immediately check operating cash flow to see if the earnings are backed by real cash. I should calculate free cash flow to see what is actually available to me as a shareholder. And I should compare FCF yield to other investments to see if the valuation makes sense.
+**Stella：** 這真的讓我豁然開朗。讓我嘗試整合一下。分析一家公司時，我應先看每股盈利了解頭條數字，然後立即核查經營現金流，看盈利是否有真實現金支撐；計算自由現金流，了解真正可供我作為股東使用的資金；再比較自由現金流收益率與其他投資，判斷估值是否合理。
 
-**Alex:** That is an excellent framework. And I want to add one more layer. Always look at trends over time, not just a single year. One year of low cash flow relative to earnings might be a timing issue. Three or four consecutive years of deteriorating cash flow quality is a serious red flag that the reported earnings may not be sustainable.
+**Horace：** 這是一個非常出色的框架。我還想加多一個層次：務必觀察走勢，而非只看單一年份。某一年的現金流相對盈利偏低，可能只是時間差問題；但連續三四年現金流質量持續惡化，則是嚴重警示信號，表明所公布的盈利可能不具可持續性。
 
-**Sam:** Are there any tools or quick metrics I can use to screen for earnings quality?
+**Stella：** 有沒有工具或快速指標可用於篩選盈利質量？
 
-**Alex:** Yes. There is a model called the Beneish M-Score that uses eight financial ratios to estimate the probability that a company is manipulating its earnings. An M-Score above negative 1.78 suggests a high probability of manipulation. It is not perfect, but studies show it would have flagged companies like Enron before they collapsed. Many financial analysis platforms now include it.
+**Horace：** 有的。有一個叫做貝尼什M分數的模型，使用八個財務比率估算公司操縱盈利的概率。M分數高於-1.78表示操縱概率高。它並非完美，但研究表明，它本可在安然倒閉前提出警示。現在許多財務分析平台都已納入這個指標。
 
-**Sam:** For the average investor who does not want to run complex models, what are the top three things to check?
+**Stella：** 對於不想運行複雜模型的普通投資者，有哪三件最重要的事可以核查？
 
-**Alex:** Number one, check the OCF to net income ratio. It should be above 1.0 most years. Number two, check whether receivables are growing faster than revenue. That is the simplest and most reliable manipulation flag. Number three, read the auditor's opinion in the annual report. If it is anything other than a clean, unqualified opinion -- or if the auditor recently changed -- investigate further.
+**Horace：** 第一，核查經營現金流與淨利潤比率，大多數年份應高於1.0。第二，核查應收帳款的增速是否快於收入，這是最簡單也最可靠的操縱警示指標。第三，閱讀年度報告中的核數師意見，若不是乾淨的無保留意見——或者核數師近期有所更換——就需要深入調查。
 
-[VISUAL: A "Quick Earnings Quality Check" card with three items:
-1. OCF / Net Income > 1.0? (check mark or X)
-2. Receivables growing slower than revenue? (check mark or X)
-3. Clean audit opinion? (check mark or X)
-"If all three check marks: proceed with confidence. If any X: investigate before investing."]
+[VISUAL: A "盈利質量快速核查" card with three items:
+1. 經營現金流 / 淨利潤 > 1.0？（✓ 或 ✗）
+2. 應收帳款增速低於收入增速？（✓ 或 ✗）
+3. 乾淨審計意見？（✓ 或 ✗）
+"三項皆打勾：放心繼續。任何一項打叉：調查後才投資。"]
 
-**Sam:** What about adjusted earnings? I see a lot of companies reporting "adjusted EPS" that is higher than the regular number.
+**Stella：** 調整後盈利怎麼說？我看到很多公司公布的「調整後每股盈利」比常規數字更高。
 
-**Alex:** This is one of my pet peeves. Many companies report "non-GAAP" or "adjusted" earnings that exclude things like stock-based compensation, restructuring charges, and acquisition costs. The problem is that some of these "one-time" charges happen every single quarter. Stock-based compensation is a real cost -- it dilutes shareholders. Restructuring charges year after year suggest the business is perpetually struggling.
+**Horace：** 這是我的一大痛點。很多公司公布「非公認會計準則」或「調整後」盈利，排除以股代薪、重組費用和收購成本等項目。問題在於，部分「一次性」費用每個季度都會出現。以股代薪是真實的成本——它稀釋股東權益。年復一年的重組費用表明業務持續在掙扎。
 
-**Sam:** So I should ignore adjusted earnings?
+**Stella：** 所以我應該忽略調整後盈利嗎？
 
-**Alex:** Not ignore, but be deeply skeptical. Always compare adjusted EPS to GAAP EPS. If the gap is small -- say 5 to 10% -- the adjustments are probably reasonable. If the gap is 30, 40, 50% -- the company is painting a dramatically different picture than reality, and you should rely on the GAAP number and free cash flow instead.
+**Horace：** 不是忽略，而是要保持高度警惕。務必將調整後每股盈利與公認會計準則每股盈利進行比較。若差距不大——例如5至10%——調整或許是合理的。若差距達30%、40%、50%——公司描繪的圖像與現實截然不同，你應依賴公認會計準則數字和自由現金流。
 
-**Sam:** This episode has fundamentally changed how I will look at financial statements. I feel like I had been reading only the income statement and completely ignoring the cash flow statement.
+**Stella：** 這集從根本上改變了我看財務報表的方式。我感覺自己一直以來只看損益表，完全忽略了現金流量表。
 
-**Alex:** You are not alone. Most retail investors focus almost exclusively on earnings and revenue because that is what the financial media emphasizes. But the smart money -- professional value investors, short sellers, forensic accountants -- they start with the cash flow statement and work backward. If the cash flow supports the earnings, great. If it does not, there is a problem, regardless of how good the headline EPS looks.
+**Horace：** 你並不孤單。大多數散戶投資者幾乎只關注盈利和收入，因為這就是財經媒體所強調的。但精明的資金——專業價值投資者、沽空者、法證會計師——他們從現金流量表開始，再逆向分析。若現金流支撐盈利，那很好；若不支撐，就有問題，無論頭條每股盈利多麼亮麗。
 
-**Sam:** One final question. Where should someone start if they want to practice this analysis?
+**Stella：** 最後一個問題。想要練習這種分析，應從哪裡開始？
 
-**Alex:** Pick five companies you own or are interested in. Pull up their cash flow statements on the SEC's EDGAR website or any financial data provider. For each company, calculate the OCF to net income ratio for the last five years. Calculate free cash flow and FCF yield. Check if receivables are growing faster than revenue. You will be amazed at what you find. Some companies you thought were great will have concerning quality signals, and some you overlooked will turn out to be cash flow machines.
+**Horace：** 挑選五家你持有或感興趣的公司，在美國證監會的EDGAR網站或任何財務數據供應商上調出它們的現金流量表。對每家公司，計算過去五年的經營現金流與淨利潤比率，計算自由現金流和自由現金流收益率，核查應收帳款增速是否快於收入。你會對發現的結果大感驚訝——一些你以為很優秀的公司，其質量信號令人憂慮；而一些你忽略的公司，原來是名副其實的現金流製造機。
 
 [VISUAL: End screen with key takeaways:
-- Earnings are an opinion; cash flow is a fact
-- OCF/Net Income > 1.0 signals high quality
-- Free Cash Flow = Operating Cash Flow minus Capex
-- FCF Yield is a valuation metric based on real cash
-- Receivables growing faster than revenue is a red flag
-- Always compare GAAP EPS to adjusted EPS
-- The cash flow statement is the investor's X-ray machine]
+- 盈利是判斷；現金流是事實
+- 經營現金流/淨利潤 > 1.0 表示高質量
+- 自由現金流 = 經營現金流減資本開支
+- 自由現金流收益率是基於真實現金的估值指標
+- 應收帳款增速快於收入是警示信號
+- 務必比較公認會計準則每股盈利與調整後每股盈利
+- 現金流量表是投資者的透視機]
 
-**Sam:** What is next week?
+**Stella：** 下週講什麼？
 
-**Alex:** Next week is equity valuation -- we are going to bring everything together and learn how to actually determine what a stock is worth using P/E ratios, EV/EBITDA, and discounted cash flow analysis. All the earnings and cash flow analysis we learned today feeds directly into valuation.
+**Horace：** 下週是股票估值——我們將融會貫通，學習如何利用市盈率、企業價值/息稅折舊攤銷前盈利和現金流折現分析，真正判斷一隻股票的價值。我們今天所學的所有盈利和現金流分析，都直接為估值提供基礎。
 
-[VISUAL: Preview card for Week 21 with "Equity Valuation: P/E, P/B, and DCF"]
+[VISUAL: Preview card for Week 21 with "股票估值：市盈率、市帳率及現金流折現"]
 
-**Alex:** Thanks for watching everyone. If you have ever bought a stock based purely on EPS growth without checking the cash flow statement, today's lesson just saved you from potentially costly mistakes in the future. Share it with anyone who invests based on headlines without reading the financials. See you next week.
+**Horace：** 感謝大家收看。若你曾經只看每股盈利增長就買入股票，卻從未核查現金流量表，今天這堂課剛剛讓你避免了未來可能造成的代價高昂的錯誤。把它分享給任何只看頭條卻不讀財務報表就投資的人吧。下週見。
 
 [VISUAL: Outro animation with subscribe button and links to previous episodes]

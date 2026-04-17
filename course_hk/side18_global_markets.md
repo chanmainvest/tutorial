@@ -1,178 +1,247 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 18: Global Markets and International Investing
+# 附加課堂18：全球市場與國際投資
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-The United States accounts for roughly 60% of global stock market capitalization, but that means 40% of the world's investable equity market lies outside U.S. borders. International investing offers diversification benefits, access to different economic growth stories, and exposure to thousands of companies unavailable on U.S. exchanges. But it also introduces risks that domestic investors rarely encounter: currency fluctuations, political instability, different accounting standards, and varying levels of market development. This lesson explores the landscape of global markets, the distinction between developed and emerging markets, how index providers classify countries, the risks unique to international investing, and the practical tools -- primarily ETFs -- that make global diversification accessible to any investor.
-
----
-
-### a) Why This Is Important
-
-**Diversification Beyond Borders.** U.S. stocks and international stocks do not move in perfect lockstep. While correlations have increased over time due to globalization, meaningful diversification benefits still exist, particularly between developed and emerging markets. During the 2000-2009 "lost decade" for U.S. stocks, international developed markets and emerging markets significantly outperformed. Conversely, U.S. stocks dominated from 2010 to 2024. Leadership rotates, and geographic diversification helps ensure you participate in wherever growth occurs.
-
-**Accessing Growth Economies.** Many of the world's fastest-growing economies are in emerging and frontier markets. Countries like India, Vietnam, Indonesia, and parts of Africa have young, growing populations and rapidly expanding middle classes. These demographic tailwinds can drive economic growth that translates into stock market returns over decades.
-
-**Reducing Home Country Bias.** Most investors dramatically overweight their home country. American investors typically hold 70-80% of their equity allocation in U.S. stocks, even though the U.S. represents about 60% of global market cap. This home bias exposes investors to concentration risk. If U.S. markets underperform for an extended period, as they did from 2000 to 2009, a globally diversified investor is better protected.
-
-**Currency Diversification.** International investments provide implicit exposure to foreign currencies. While currency movements add volatility in the short term, they can provide a hedge against a weakening dollar over the long term. If the U.S. dollar depreciates, the value of foreign investments denominated in other currencies rises when converted back to dollars.
-
-**Valuation Opportunities.** International stocks, particularly in emerging markets, often trade at lower valuations than U.S. stocks. Lower price-to-earnings ratios, higher dividend yields, and lower price-to-book ratios can offer better prospective returns, though lower valuations sometimes reflect genuine risks.
+美國佔全球股票市場總市值約60%，但這意味著全球可投資股票市場的40%位於美國境外。國際投資提供分散風險的好處、接觸不同經濟增長故事的機會，以及接觸數以千計在美國交易所無法購買的公司。但它也帶來國內投資者鮮少遇到的風險：匯率波動、政治不穩定、不同的會計準則，以及不同程度的市場發展。本課程探討全球市場的格局、已發展市場與新興市場的區別、指數提供商如何對國家進行分類、國際投資特有的風險，以及讓任何投資者都能輕鬆實現全球分散投資的實用工具——主要是交易所買賣基金（ETF）。
 
 ---
 
-### b) What You Need to Know
+### a) 為什麼這很重要
 
-#### Developed vs. Emerging vs. Frontier Markets
+**超越國界的分散投資。** 美國股票與國際股票的走勢並不完全一致。雖然全球化使相關性有所上升，但有意義的分散投資優勢仍然存在，尤其是已發展市場與新興市場之間。在2000至2009年美國股票的「失落十年」期間，國際已發展市場和新興市場的表現明顯優於美國。相反地，美國股票在2010至2024年間主導市場。領導權輪流交替，地理分散投資有助確保你能參與任何地方的增長機遇。
 
-The global equity market is divided into three tiers based on economic development, market infrastructure, and accessibility to foreign investors.
+**進入高增長經濟體。** 全球許多增長最快的經濟體位於新興市場和前沿市場。印度、越南、印尼及非洲部分地區等國家擁有年輕且不斷增長的人口，以及迅速擴大的中產階級。這些人口結構的順風效應可以推動經濟增長，並在數十年內轉化為股票市場回報。
 
-**Developed Markets (DM).** These are countries with mature, well-regulated financial markets, stable political systems, and high per-capita income. Developed markets have deep liquidity, strong investor protections, reliable accounting standards, and free capital flows. The major developed markets include the United States, Canada, the United Kingdom, Germany, France, Japan, Australia, Switzerland, and the Nordic countries.
+**減少本國偏差。** 大多數投資者大幅高估其本國市場的比重。美國投資者通常將其70至80%的股票配置投入美國股票，儘管美國約佔全球市值的60%。這種本國偏差令投資者面臨集中風險。如果美國市場在較長時期內表現欠佳，例如2000至2009年期間，全球分散投資的投資者將獲得更好的保護。
 
-Key characteristics of developed markets:
-- High regulatory standards and corporate governance.
-- Deep, liquid markets that can absorb large trades without significant price impact.
-- Transparent financial reporting under frameworks like IFRS or U.S. GAAP.
-- Stable currencies and open capital accounts.
-- Lower expected growth rates but lower risk.
+**貨幣分散投資。** 國際投資隱性地提供對外幣的敞口。雖然匯率變動短期內會增加波動性，但從長遠來看，它可以對抗美元貶值提供對沖。如果美元貶值，以其他貨幣計價的外國投資在折算回美元後，其價值將會上升。
 
-**Emerging Markets (EM).** These are countries with developing financial markets that are becoming more integrated into the global economy. Emerging markets offer higher growth potential but come with greater risks, including political instability, less transparent governance, capital controls, and currency volatility. Major emerging markets include China, India, Brazil, South Korea (classified as EM by MSCI despite its economic development), Taiwan, South Africa, Mexico, and Indonesia.
-
-Key characteristics of emerging markets:
-- Higher economic growth rates driven by industrialization, urbanization, and demographic trends.
-- Greater volatility in both equity prices and currencies.
-- Varying levels of corporate governance and investor protection.
-- Potential capital controls that limit foreign investors' ability to move money freely.
-- Higher dividend yields and lower valuation multiples on average.
-
-**Frontier Markets (FM).** The least developed tier, frontier markets are smaller, less liquid, and less accessible than emerging markets. Countries include Vietnam, Nigeria, Kenya, Bangladesh, and Sri Lanka. Frontier markets offer the highest growth potential but also the highest risk, including political instability, illiquidity, and limited market infrastructure. Most individual investors access frontier markets only through specialized ETFs or funds.
-
-#### MSCI Classification System
-
-Morgan Stanley Capital International (MSCI) is the dominant provider of international equity indices, and its classification system determines which countries are included in the benchmarks that trillions of dollars track.
-
-**MSCI Developed Markets Index (MSCI World):** 23 countries. This is the benchmark for developed market equity investing. Major constituents by weight: United States (~70%), Japan (~6%), United Kingdom (~4%), France (~3%), Canada (~3%).
-
-**MSCI Emerging Markets Index:** 24 countries. Major constituents by weight: China (~25-30%, though this fluctuates), India (~15-18%), Taiwan (~15-17%), South Korea (~12-14%), Brazil (~5%).
-
-**MSCI Frontier Markets Index:** Approximately 25 countries with small, early-stage markets.
-
-**MSCI All Country World Index (ACWI):** Combines developed and emerging markets into a single global benchmark covering approximately 85% of the global investable equity opportunity set.
-
-MSCI reclassification decisions have enormous market impact. When MSCI announced the partial inclusion of China A-shares (domestic Chinese stocks) in the Emerging Markets Index in 2017, it triggered billions of dollars in passive fund flows into Chinese markets. Conversely, when countries are downgraded (as Argentina was from EM to FM in 2009), capital outflows can be significant.
-
-**Reclassification criteria** include:
-- Economic development (GNI per capita).
-- Market size and liquidity requirements.
-- Market accessibility (openness to foreign investors, ease of capital flows, efficiency of operational framework).
-
-South Korea is a notable anomaly -- it has a GDP per capita and economy comparable to many developed markets, but MSCI classifies it as an emerging market due to restrictions on currency trading and short selling. FTSE Russell, another major index provider, classifies South Korea as a developed market, highlighting the subjectivity in these classifications.
-
-#### Risks Unique to International Investing
-
-**Currency Risk.** When you invest in foreign stocks, your returns are affected by both the stock's performance in its local currency and the change in the exchange rate. A Japanese stock that rises 10% in yen but is paired with a 5% decline in the yen versus the dollar would yield only about a 5% return in dollar terms. Currency movements can enhance or erode returns and are a significant source of volatility for international investments.
-
-Currency hedging -- using derivatives to neutralize exchange rate movements -- is available through hedged ETFs and funds. However, hedging has costs and eliminates the diversification benefit of currency exposure. For long-term investors, most experts recommend leaving international equity exposure unhedged, as currency effects tend to average out over long periods.
-
-**Political and Regulatory Risk.** International investments are subject to the laws and policies of foreign governments, which can change unpredictably. Examples include:
-- China's regulatory crackdown on technology companies in 2021, which wiped out hundreds of billions in market value.
-- Russia's invasion of Ukraine in 2022, which effectively rendered Russian stocks worthless for foreign investors as the market was closed and sanctions imposed.
-- Turkey's unconventional monetary policy under President Erdogan, which caused the lira to lose over 80% of its value against the dollar between 2018 and 2023.
-
-**Accounting and Transparency Risk.** Not all countries have the same financial reporting standards. While most developed markets use IFRS (International Financial Reporting Standards), the quality and reliability of financial statements varies. Emerging market companies may have less rigorous auditing, related-party transactions, and opaque corporate structures. The Luckin Coffee fraud in 2020 -- a Chinese company listed in the U.S. that fabricated hundreds of millions in revenue -- highlighted these risks.
-
-**Liquidity Risk.** Many international stocks, particularly in emerging and frontier markets, trade with low volume. This can result in wide bid-ask spreads, difficulty executing large orders, and greater price volatility. ETFs help mitigate this by providing daily liquidity even when underlying holdings are less liquid, though this creates its own risks during market stress.
-
-**Withholding Tax.** Many countries impose taxes on dividends paid to foreign investors. Withholding tax rates range from 0% (Singapore, Hong Kong) to 30% or more (some European countries). Tax treaties between countries often reduce these rates. In a taxable account, U.S. investors can claim a foreign tax credit or deduction for taxes withheld. In tax-advantaged accounts like IRAs, these taxes are generally not recoverable, which can reduce effective returns.
-
-**Geopolitical Risk.** Global investing exposes you to geopolitical events that can have sudden, dramatic impacts. Wars, trade disputes, sanctions, and diplomatic crises can affect markets overnight. The concentration of Taiwan Semiconductor Manufacturing Company (TSMC) in Taiwan, for instance, represents a geopolitical risk for global technology supply chains given cross-strait tensions with China.
-
-#### Accessing International Markets via ETFs
-
-For most individual investors, ETFs are the most practical and cost-effective way to access international markets.
-
-**Broad International ETFs:**
-- **Vanguard FTSE All-World ex-US ETF (VEU):** Covers developed and emerging markets excluding the U.S. Low cost (0.07% expense ratio).
-- **iShares Core MSCI Total International Stock ETF (IXUS):** Similar broad international coverage tracking the MSCI ACWI ex-USA index.
-- **Vanguard Total International Stock Index Fund (VXUS):** The most popular international equity fund, covering developed and emerging markets.
-
-**Developed Markets ETFs:**
-- **Vanguard FTSE Developed Markets ETF (VEA):** Developed markets excluding the U.S. Expense ratio of 0.05%.
-- **iShares Core MSCI EAFE ETF (IEFA):** Tracks the MSCI EAFE index (Europe, Australasia, Far East).
-
-**Emerging Markets ETFs:**
-- **Vanguard FTSE Emerging Markets ETF (VWO):** Broad EM exposure. Expense ratio of 0.08%.
-- **iShares Core MSCI Emerging Markets ETF (IEMG):** Tracks the MSCI EM Investable Market Index.
-- **iShares MSCI Emerging Markets ex China ETF (EMXC):** EM exposure excluding China, popular with investors concerned about China-specific risks.
-
-**Single-Country and Regional ETFs:**
-- **iShares MSCI India ETF (INDA):** India-specific exposure.
-- **iShares MSCI China ETF (MCHI):** China-specific exposure.
-- **WisdomTree Japan Hedged Equity ETF (DXJ):** Japan exposure with yen hedging.
-
-**Frontier Markets ETFs:**
-- **iShares MSCI Frontier and Select EM ETF (FM):** Broad frontier markets exposure.
-
-#### How Much International Exposure Do You Need?
-
-There is no universal answer, but academic research and professional guidance suggest the following:
-
-- **Vanguard** recommends allocating roughly 40% of equity to international stocks, reflecting the approximate share of global market cap outside the U.S.
-- **Most financial advisors** recommend 20-40% international allocation.
-- **Jack Bogle**, Vanguard's founder, famously advocated zero international allocation, arguing that large U.S. multinationals already provide global revenue exposure. This view has fallen out of mainstream favor but illustrates the range of opinions.
-
-The strongest case for international diversification is that leadership between U.S. and international stocks rotates in long cycles. U.S. outperformance from 2010 to 2024 followed a decade of international outperformance from 2000 to 2009. Investors who abandon international stocks after a period of U.S. dominance may be selling at exactly the wrong time.
+**估值機遇。** 國際股票，尤其是新興市場股票，往往以低於美國股票的估值交易。較低的市盈率、較高的股息率和較低的市帳率，可以提供更好的預期回報，儘管較低的估值有時反映了真實的風險。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要知道的知識
 
-**"U.S. stocks provide enough global diversification because U.S. companies earn revenue worldwide."** While about 40% of S&P 500 revenue comes from abroad, this is not the same as owning foreign stocks. U.S. multinationals still trade as U.S. stocks, are priced in dollars, are subject to U.S. regulations, and correlate highly with the U.S. market. True diversification requires owning companies domiciled in other countries with different economic drivers.
+#### 已發展市場、新興市場與前沿市場
 
-**"Emerging markets are too risky for regular investors."** Through broad, diversified ETFs, emerging market risk is manageable. A 10-20% allocation to EM within a diversified portfolio adds growth potential and diversification without taking on excessive country-specific risk. The key is diversification -- do not put all your EM allocation into a single country.
+全球股票市場根據經濟發展程度、市場基礎設施及外國投資者的可及性，分為三個層次。
 
-**"International stocks have underperformed U.S. stocks, so why bother?"** This is recency bias. From 2000 to 2009, the MSCI EAFE index returned about 1% per year while the S&P 500 returned negative 1% per year. Leadership rotates, and chasing recent winners is a classic investing mistake. No one knows which region will lead over the next decade.
+**已發展市場（DM）。** 這些是擁有成熟、監管完善的金融市場、穩定政治體系及高人均收入的國家。已發展市場具備深度流動性、強大的投資者保護、可靠的會計準則和自由的資金流動。主要已發展市場包括美國、加拿大、英國、德國、法國、日本、澳大利亞、瑞士和北歐國家。
 
-**"You should currency-hedge all international investments."** For short-term investors or those with near-term spending needs in their home currency, hedging makes sense. For long-term investors, currency movements tend to wash out over time, and the cost of continuous hedging (typically 0.2-0.5% per year) creates a persistent drag on returns.
+已發展市場的主要特點：
+- 高監管標準和企業管治。
+- 深度、流動的市場，能夠在不對價格造成重大衝擊的情況下吸收大額交易。
+- 在IFRS或美國GAAP等框架下的透明財務報告。
+- 穩定的貨幣和開放的資本帳戶。
+- 預期增長率較低但風險較低。
 
-**"Frontier markets are the next emerging markets."** While some frontier markets will eventually graduate to EM status, many will not. Frontier markets have unique challenges -- political instability, small market size, limited liquidity -- that make them fundamentally different from today's large emerging markets. Frontier investing requires specialized knowledge and a very long time horizon.
+**新興市場（EM）。** 這些是金融市場正在發展、與全球經濟日益融合的國家。新興市場提供更高的增長潛力，但伴隨著更大的風險，包括政治不穩定、治理透明度不足、資本管制和匯率波動。主要新興市場包括中國、印度、巴西、南韓（儘管其經濟發展水平被MSCI歸類為新興市場）、台灣、南非、墨西哥和印尼。
+
+新興市場的主要特點：
+- 受工業化、城市化和人口結構趨勢驅動，經濟增長率較高。
+- 股票價格和貨幣的波動性較大。
+- 企業管治和投資者保護水平參差不齊。
+- 可能存在資本管制，限制外國投資者自由移動資金的能力。
+- 平均而言，股息收益率較高，估值倍數較低。
+
+**前沿市場（FM）。** 是發展程度最低的一層，前沿市場比新興市場規模更小、流動性更低、可及性更差。相關國家包括越南、尼日利亞、肯亞、孟加拉和斯里蘭卡。前沿市場提供最高的增長潛力，但同時伴隨最高的風險，包括政治不穩定、流動性不足以及有限的市場基礎設施。大多數個人投資者只能透過專門的交易所買賣基金或基金進入前沿市場。
+
+#### MSCI分類系統
+
+摩根士丹利資本國際（MSCI）是國際股票指數的主要提供商，其分類系統決定了哪些國家被納入追蹤數兆美元資金的基準指數。
+
+**MSCI已發展市場指數（MSCI世界指數）：** 23個國家。這是已發展市場股票投資的基準。按比重計算的主要成分：美國（約70%）、日本（約6%）、英國（約4%）、法國（約3%）、加拿大（約3%）。
+
+**MSCI新興市場指數：** 24個國家。按比重計算的主要成分：中國（約25-30%，但此數字有所波動）、印度（約15-18%）、台灣（約15-17%）、南韓（約12-14%）、巴西（約5%）。
+
+**MSCI前沿市場指數：** 約25個擁有小型早期市場的國家。
+
+**MSCI全球所有國家指數（ACWI）：** 將已發展市場和新興市場合併為單一全球基準，涵蓋全球可投資股票市場機會集的約85%。
+
+MSCI的重新分類決定對市場影響巨大。當MSCI於2017年宣佈將中國A股（國內中國股票）部分納入新興市場指數時，這觸發了數十億美元的被動基金流入中國市場。相反，當國家被降級時（如阿根廷於2009年從新興市場降至前沿市場），資本外流可能相當顯著。
+
+**重新分類標準**包括：
+- 經濟發展水平（人均國民總收入）。
+- 市場規模和流動性要求。
+- 市場可及性（對外國投資者的開放程度、資金流動的便利性、運營框架的效率）。
+
+南韓是一個值得注意的例外——其人均GDP和經濟規模可與許多已發展市場相媲美，但由於對貨幣交易和沽空的限制，MSCI將其歸類為新興市場。另一主要指數提供商富時羅素（FTSE Russell）則將南韓歸類為已發展市場，這突顯了這些分類的主觀性。
+
+#### 國際投資特有的風險
+
+**匯率風險。** 當你投資外國股票時，你的回報既受股票在當地貨幣中表現的影響，也受匯率變動的影響。一隻以日元計算上漲10%的日本股票，如果日元兌美元貶值5%，以美元計算的回報率只有約5%。匯率變動可以增加或侵蝕回報，是國際投資中重要的波動性來源。
+
+貨幣對沖——使用衍生工具來消除匯率變動影響——可透過有對沖的交易所買賣基金和基金實現。然而，對沖需要成本，並消除了貨幣敞口帶來的分散投資效益。對於長線投資者而言，大多數專家建議保持國際股票敞口不進行對沖，因為長期來看貨幣效應往往相互抵消。
+
+**政治和監管風險。** 國際投資受外國政府法律和政策的約束，而這些法律和政策可能出現難以預測的變化。例子包括：
+- 中國於2021年對科技公司的監管整頓，抹去了數千億美元的市值。
+- 俄羅斯於2022年入侵烏克蘭，導致外國投資者實際上無法持有俄羅斯股票，因為市場被關閉並實施制裁。
+- 土耳其在總統埃爾多安的非常規貨幣政策下，里拉在2018年至2023年間兌美元貶值超過80%。
+
+**會計和透明度風險。** 並非所有國家都有相同的財務報告標準。雖然大多數已發展市場使用國際財務報告準則（IFRS），但財務報表的質量和可靠性因地而異。新興市場公司可能存在較不嚴格的審計、關聯方交易和不透明的企業結構。2020年瑞幸咖啡的詐騙案——這家在美上市的中國公司虛構了數億美元的收入——突顯了這些風險。
+
+**流動性風險。** 許多國際股票，尤其是新興市場和前沿市場的股票，交投量較低。這可能導致買賣差價較大、難以執行大額訂單以及更大的價格波動性。交易所買賣基金透過提供每日流動性，即使在底層持倉流動性較低的情況下，有助緩解這一問題，但在市場壓力期間也會產生其自身的風險。
+
+**預扣稅。** 許多國家對支付給外國投資者的股息徵收稅款。預扣稅率從0%（新加坡、香港）到30%或以上（部分歐洲國家）不等。國家之間的稅務協定往往會降低這些稅率。在應稅帳戶中，美國投資者可以申請外國稅務抵免或扣除被預扣的稅款。在個人退休帳戶等稅務優惠帳戶中，這些稅款通常無法追回，這可能會降低實際回報。
+
+**地緣政治風險。** 全球投資使你面臨可能在一夜之間產生突然、巨大影響的地緣政治事件。戰爭、貿易糾紛、制裁和外交危機都可能在隔夜影響市場。例如，台積電（TSMC）在台灣高度集中，加上兩岸緊張局勢，對全球科技供應鏈構成地緣政治風險。
+
+**治理風險。** 企業管治標準因國而異。在一些新興市場，少數股東的權利保護不足。控股股東（通常是創始家族或政府實體）可能做出有利於自身而損害少數股東利益的決策。關聯方交易、攤薄性股份發行和不透明的決策在治理框架較弱的市場更為普遍。透過分散投資的交易所買賣基金進行投資可緩解個別公司的治理風險，但在某些市場中，這仍然是一個系統性問題。
+
+**市場交易時間和結算。** 國際股票在其本地市場交易時間內進行交易，這可能與美國的交易時間不重疊。這可能造成差距——在美國市場交易時間內，國際交易所買賣基金的交易價格可能無法完全反映底層持倉的價值，尤其是在底層市場收市後出現重大消息時。結算做法也因國而異，一些市場需要更長的結算期或不同的貨幣結算程序。
+
+**指數集中度風險。** 一些國際指數高度集中於少數幾家大公司或板塊。瑞士市場由三家公司（雀巢、諾華、羅氏）主導。南韓指數嚴重偏重三星。澳大利亞市場則由金融和礦業公司主導。這種集中度意味著購買單一國家的交易所買賣基金可能無法提供你預期的分散投資效果。廣泛的多國交易所買賣基金透過在多個市場和板塊之間分散敞口來解決這一問題。
+
+#### 透過交易所買賣基金進入國際市場
+
+對於大多數個人投資者而言，交易所買賣基金是進入國際市場最實際、最具成本效益的方式。
+
+**廣泛國際交易所買賣基金：**
+- **Vanguard FTSE All-World ex-US ETF（VEU）：** 涵蓋不包括美國的已發展市場和新興市場。低成本（費用比率0.07%）。
+- **iShares Core MSCI Total International Stock ETF（IXUS）：** 追蹤MSCI ACWI ex-USA指數，提供類似的廣泛國際覆蓋範圍。
+- **Vanguard Total International Stock Index Fund（VXUS）：** 最受歡迎的國際股票基金，涵蓋已發展市場和新興市場。
+
+**已發展市場交易所買賣基金：**
+- **Vanguard FTSE Developed Markets ETF（VEA）：** 不包括美國的已發展市場。費用比率為0.05%。
+- **iShares Core MSCI EAFE ETF（IEFA）：** 追蹤MSCI EAFE指數（歐洲、澳大拉西亞、遠東）。
+
+**新興市場交易所買賣基金：**
+- **Vanguard FTSE Emerging Markets ETF（VWO）：** 廣泛新興市場敞口。費用比率為0.08%。
+- **iShares Core MSCI Emerging Markets ETF（IEMG）：** 追蹤MSCI新興市場可投資市場指數。
+- **iShares MSCI Emerging Markets ex China ETF（EMXC）：** 不包括中國的新興市場敞口，對擔憂中國特定風險的投資者頗受歡迎。
+
+**單一國家及地區交易所買賣基金：**
+- **iShares MSCI India ETF（INDA）：** 印度特定敞口。
+- **iShares MSCI China ETF（MCHI）：** 中國特定敞口。
+- **WisdomTree Japan Hedged Equity ETF（DXJ）：** 帶有日元對沖的日本敞口。
+
+**前沿市場交易所買賣基金：**
+- **iShares MSCI Frontier and Select EM ETF（FM）：** 廣泛前沿市場敞口。
+
+**貨幣對沖交易所買賣基金：**
+- **WisdomTree International Hedged Quality Dividend Growth Fund（IHDG）：** 帶有貨幣對沖的國際已發展市場。
+- **WisdomTree Japan Hedged Equity Fund（DXJ）：** 帶有日元對沖的日本。
+- **Xtrackers MSCI EAFE Hedged Equity ETF（DBEF）：** 廣泛已發展市場對沖敞口。
+
+貨幣對沖交易所買賣基金使用遠期合約來消除匯率變動對回報的影響。這消除了一層不確定性，但同時也消除了美元走弱帶來的潛在好處。由於對沖成本，對沖交易所買賣基金的費用比率通常高於非對沖同類基金（0.35-0.50%）。
+
+#### 國際投資的稅務考慮
+
+**外國稅務抵免。** 許多國家對支付給外國投資者的股息徵收預扣稅。對於在應稅帳戶持有國際股票或交易所買賣基金的美國投資者，這些預扣稅款可以在美國稅務申報中作為稅務抵免追回（使用IRS表格1116）。這一抵免可按美元對美元的方式抵消你的美國稅務負債，但有一定限制。
+
+**在個人退休帳戶中的稅務處理。** 在個人退休帳戶中持有國際資產所獲得的股息，須繳納無法追回的外國預扣稅。美國與外國之間的稅務協定網絡降低了許多國家的預扣稅率，但仍有部分稅款無法避免。這使國際持倉在退休帳戶中的稅務效益略低於應稅帳戶，因為應稅帳戶可以使用外國稅務抵免。
+
+**協定稅率。** 美國與外國之間的稅務協定往往將預扣稅率從標準稅率（可能高達25-30%）降至協定稅率（通常為15%）。大多數國際交易所買賣基金受益於協定稅率，但有效預扣稅率因基金的國家構成而異。
+
+#### 你需要多少國際敞口？
+
+沒有放之四海而皆準的答案，但學術研究和專業指導建議如下：
+
+- **Vanguard** 建議將股票配置的約40%投入國際股票，反映美國以外全球市值的大致佔比。
+- **大多數財務顧問** 建議國際配置比例為20-40%。
+- **Jack Bogle**，Vanguard的創辦人，曾著名地主張零國際配置，認為大型美國跨國公司已提供了足夠的全球收入敞口。這一觀點已不再是主流，但說明了意見的分歧範圍。
+
+支持國際分散投資的最有力論據是，美國股票與國際股票之間的領導權在長週期中輪替。2010至2024年的美國優異表現，是繼2000至2009年國際股票優異表現之後出現的。在美國主導時期後放棄國際股票的投資者，可能恰好在最不合適的時機賣出。
+
+#### 新興市場各地區的機遇與挑戰
+
+了解主要新興市場地區的具體機遇和挑戰，有助於做出配置決策。
+
+**亞洲（不包括日本）：** 擁有最大且增長最快的新興市場。中國在新興市場指數中佔主導地位，但面臨包括房地產行業下行、人口結構下滑和與西方地緣政治緊張等挑戰。印度越來越被視為下一個主要增長故事，擁有有利的人口結構、不斷增長的科技行業和不斷改善的基礎設施。東南亞市場（越南、印尼、泰國）提供早期增長機遇，但流動性較低。
+
+**拉丁美洲：** 巴西主導地區指數，提供對大宗商品、農業和大型國內經濟的敞口。墨西哥受益於近岸外包趨勢，因為企業將供應鏈多元化，以減少對中國的依賴。然而，政治不穩定、匯率波動和對大宗商品的依賴在整個地區持續構成挑戰。
+
+**東歐和中東：** 俄羅斯入侵烏克蘭，使俄羅斯從新興市場指數中被移除，並突顯了投資威權政府國家的風險。波蘭、匈牙利和捷克共和國提供較小但相對穩定的新興市場機遇。沙特阿拉伯和阿聯酋隨著其股票市場的發展，在指數中的存在感不斷增加。
+
+**非洲：** 最小且流動性最低的新興市場地區，但由於年輕且不斷增長的人口和豐富的自然資源，擁有巨大的長期潛力。南非主導非洲新興市場指數。尼日利亞、肯亞和埃及是較大的前沿市場。透過專門的前沿市場基金進行投資是最實際的方式。
+
+#### 中國問題
+
+任何關於國際投資的討論都無法回避投資中國的具體挑戰和機遇，中國約佔MSCI新興市場指數的25-30%。
+
+**看好中國的論據：**
+- 世界第二大經濟體，擁有龐大的消費市場。
+- 世界一流的科技公司（騰訊、阿里巴巴、比亞迪、寧德時代），在全球具有競爭優勢。
+- 與美國和已發展市場同類股票相比，估值相對較低。
+- 不斷壯大的中產階級創造持續的國內需求。
+
+**看淡中國的論據：**
+- 政府監管的不可預測性，正如2021年的科技整頓所示，這場整頓摧毀了數千億美元的股東價值。
+- 與美國及其盟友之間的地緣政治緊張關係，構成制裁、退市或投資限制的風險。
+- 由人口結構（人口老齡化）、房地產行業去槓桿和高債務水平驅動的結構性放緩。
+- VIE（可變利益實體）結構意味著外國投資者在海外上市中國公司時，實際上並不擁有運營業務的股權——他們擁有的是一種合同索償權，而中國政府可以選擇不予執行。
+
+**實際操作方法：**
+- 接受基準比重，透過包含中國的廣泛新興市場交易所買賣基金進行投資。
+- 使用不包含中國的新興市場交易所買賣基金（如EMXC），結合可以獨立調整的較小規模中國配置。
+- 完全迴避中國，並接受與新興市場基準的追蹤誤差。
+
+對於正確的方法，目前沒有共識。關鍵是做出深思熟慮的決定，而不是默認接受你的新興市場交易所買賣基金碰巧持有的內容。
 
 ---
 
-### d) Q&A
+### c) 常見誤解
 
-**Q: Should I invest in China given the regulatory and geopolitical risks?**
-A: This is one of the most debated questions in international investing. China represents approximately 25-30% of the MSCI Emerging Markets Index, so avoiding it entirely means significant divergence from the benchmark. Some investors address China-specific risks by using ex-China EM ETFs (like EMXC) combined with a smaller, deliberate China allocation. Others accept the benchmark weight and view the risks as already reflected in lower valuations. There is no right answer -- it depends on your risk tolerance and convictions.
+**「美國股票已提供足夠的全球分散投資，因為美國公司在全球各地賺取收入。」** 雖然標普500指數約40%的收入來自海外，但這與擁有外國股票不同。美國跨國公司仍然作為美國股票交易，以美元計價，受美國法規約束，並與美國市場高度相關。真正的分散投資需要擁有在其他國家註冊、具有不同經濟驅動因素的公司。
 
-**Q: How do currency movements affect my international ETF returns?**
-A: If you own a European ETF and the euro strengthens 5% against the dollar, your return in dollar terms is approximately the local return plus 5%. If the euro weakens 5%, your return is reduced by approximately 5%. Over short periods, currency can dominate returns. Over decades, the impact tends to diminish. Vanguard research found that currency movements added volatility but had minimal impact on international equity returns over 30+ year periods.
+**「新興市場對普通投資者風險太高。」** 透過廣泛分散投資的交易所買賣基金，新興市場的風險是可以管理的。在分散投資的投資組合中，10-20%的新興市場配置在增加增長潛力和分散投資的同時，不會承擔過度的國家特定風險。關鍵在於分散投資——不要將所有新興市場配置集中在單一國家。
 
-**Q: What is the best allocation between developed and emerging markets?**
-A: Market-cap weighting -- which currently puts roughly 75-80% in developed markets and 20-25% in emerging markets within the international allocation -- is a reasonable starting point. Some investors overweight EM for higher growth potential, while others underweight it for lower volatility. A common practical allocation is 70% developed / 30% emerging within the international portion.
+**「國際股票的表現不如美國股票，何必費心？」** 這是近期偏差在作怪。從2000年到2009年，MSCI EAFE指數每年回報約1%，而標普500指數每年回報為負1%。領導權輪替，追逐近期贏家是投資中的典型錯誤。沒有人知道哪個地區將在未來十年領跑。
 
-**Q: Are ADRs (American Depositary Receipts) a good way to invest internationally?**
-A: ADRs allow U.S. investors to buy foreign stocks on U.S. exchanges in U.S. dollars. They are convenient for buying individual foreign companies, but they do not eliminate currency or political risk. The underlying shares are still foreign stocks. ADRs are fine for targeted individual stock exposure, but for broad international diversification, ETFs are more efficient and diversified.
+**「你應該對所有國際投資進行貨幣對沖。」** 對於短線投資者或有近期以本國貨幣支出需求的投資者，對沖是合理的。對於長線投資者，匯率變動往往會隨時間相互抵消，而持續對沖的成本（通常每年0.2-0.5%）會對回報造成持續拖累。
 
-**Q: How do emerging market bonds compare to emerging market stocks?**
-A: EM bonds offer higher yields than developed market bonds but with greater risk. They come in two varieties: hard currency (denominated in USD or EUR, reducing currency risk) and local currency (higher yields but currency exposure). EM bonds have lower correlation with U.S. equities than EM stocks do, making them a useful diversifier. However, they can suffer during global risk-off events. Popular ETFs include Vanguard Emerging Markets Government Bond ETF (VWOB) and iShares J.P. Morgan USD Emerging Markets Bond ETF (EMB).
+**「前沿市場是未來的新興市場。」** 雖然一些前沿市場最終會晉升至新興市場地位，但許多不會。前沿市場有其獨特的挑戰——政治不穩定、市場規模小、流動性有限——這使它們與當今大型新興市場存在根本性差異。前沿市場投資需要專業知識和非常長的投資時間跨度。
+
+**「國際股票的風險總是高於美國股票。」** 從單一國家的角度來看，許多國際市場確實比美國風險更高。然而，分散投資的國際投資組合實際上通過分散投資效益降低了整體投資組合風險。廣泛國際指數（如MSCI EAFE）的波動性與標普500相當，而兩者之間的相關性遠低於1.0，這意味著將它們組合在一起所產生的投資組合，其波動性低於單獨持有任何一個。
+
+**「你可以根據美元週期來把握國際投資的時機。」** 雖然美元週期會影響美國投資者的國際回報，但預測匯率走勢極為困難——甚至比預測股票市場走勢更難。貨幣市場是全球規模最大、流動性最強的市場，能夠有效地將大多數可用信息計入價格。嘗試根據美元預測來把握國際配置的時機，不太可能持續地增加價值。定期再平衡的穩定配置是更可靠的方法。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：鑑於監管和地緣政治風險，我是否應該投資中國？**
+答：這是國際投資中爭議最大的問題之一。中國約佔MSCI新興市場指數的25-30%，因此完全迴避意味著與基準存在顯著偏差。一些投資者使用不包含中國的新興市場交易所買賣基金（如EMXC），結合較小規模、深思熟慮的中國配置，以應對中國特定風險。其他人則接受基準比重，認為風險已反映在較低的估值中。沒有正確答案——這取決於你的風險承受能力和個人判斷。
+
+**問：匯率變動如何影響我的國際交易所買賣基金回報？**
+答：如果你持有一隻歐洲交易所買賣基金，而歐元兌美元升值5%，你以美元計算的回報約為當地回報加上5%。如果歐元貶值5%，你的回報將減少約5%。在短期內，匯率可能主導回報。在數十年的時間跨度內，其影響往往會縮小。Vanguard的研究發現，匯率變動增加了波動性，但在30年以上的時期內對國際股票回報的影響微乎其微。
+
+**問：已發展市場與新興市場之間的最佳資產配置比例是什麼？**
+答：按市值加權——目前在國際配置中，已發展市場約佔75-80%，新興市場約佔20-25%——是一個合理的起點。一些投資者為了更高的增長潛力而增加新興市場的比重，而另一些人為了降低波動性而減少比重。在國際部分中，常見的實際配置為70%已發展市場/30%新興市場。
+
+**問：美國存託憑證（ADR）是好的國際投資方式嗎？**
+答：美國存託憑證允許美國投資者在美國交易所以美元購買外國股票。它們對於購買個別外國公司股票很方便，但並不能消除匯率或政治風險。底層股份仍然是外國股票。美國存託憑證適合有針對性的個別股票敞口，但對於廣泛的國際分散投資，交易所買賣基金更有效率且更多元化。
+
+**問：新興市場債券與新興市場股票相比如何？**
+答：新興市場債券提供比已發展市場債券更高的收益率，但風險更大。它們分為兩類：硬通貨（以美元或歐元計價，降低匯率風險）和本幣（收益率更高但有匯率敞口）。新興市場債券與美國股票的相關性低於新興市場股票，使其成為有用的分散投資工具。然而，在全球避險情緒上升時，它們可能遭受打擊。熱門的交易所買賣基金包括Vanguard新興市場政府債券交易所買賣基金（VWOB）和iShares摩根大通美元新興市場債券交易所買賣基金（EMB）。
+
+**問：美元強勢對國際投資有何影響？**
+答：美元升值會損害美國投資者在國際資產上的表現（外幣回報被換算成更有價值的美元，產生較低的美元回報）。美元貶值則有利（外幣回報以有利的匯率換算）。從2011年到2022年，強勢美元是美國投資者國際回報的重大拖累。如果美元最終走弱，這一阻力將轉變為推動力，可能使國際回報相對於國內投資有所提升。
+
+**問：我如何應對投資組合中多個國際交易所買賣基金的複雜性？**
+答：保持簡單。對於大多數投資者來說，單一的全球國際交易所買賣基金（如VXUS或IXUS）在一隻持倉中提供對已發展市場和新興市場的分散敞口。如果你想要更多控制，使用兩隻交易所買賣基金：一隻用於已發展市場（VEA或IEFA），一隻用於新興市場（VWO或IEMG）。只有當你對特定國家有投資觀點或想要應對特定風險時，才添加單一國家或地區的交易所買賣基金。對於大多數個人投資者而言，持有10隻國際交易所買賣基金與持有兩到三隻之間的邊際效益微乎其微。
+
+**問：日本怎麼樣——在34年的復甦後，它還值得投資嗎？**
+答：日本日經225指數終於在2024年2月收復了1989年的高位，但這個故事比標題更為複雜。日本公司一直在改善企業管治、增加股票回購並解除交叉持股。巴菲特在2020年對日本綜合商社的高調投資，彰顯了他對日本復甦的信心。日本也提供了已發展市場中最低的股票估值之一。對於願意超越「失落十年」這一敘事的投資者，日本可能提供價值。然而，人口結構不利因素（人口老齡化和萎縮）以及龐大的政府債務負擔，仍然是長期隱憂。
+
+**問：在美國經濟衰退期間，國際投資的表現如何？**
+答：這取決於衰退是美國特有的還是全球性的。在2001年衰退期間（主要是美國科技泡沫破裂），國際市場的表現略好於以納斯達克為主的美國市場。在2008年全球金融危機期間，由於危機確實是全球性的，國際市場下跌幅度與美國相當甚至更大。在2020年疫情衰退期間，各地區的復甦模式差異顯著。一般而言，國際分散投資能夠更好地抵禦美國特有的經濟挑戰，但對全球性衰退的保護有限。
+
+---
+
+## YouTube腳本
 
 [INTRO - 0:00]
 
 [VISUAL: Globe spinning with stock exchange names lighting up across different time zones -- Tokyo, London, New York, Hong Kong, Mumbai, Sao Paulo]
 
-**Alex:** When you go to sleep at night, markets on the other side of the world are opening. When you wake up, you can check how stocks performed in Tokyo, London, and Mumbai before your own market even opens.
+**Horace（陳馬）：** 當你晚上入睡時，地球另一端的市場正在開盤。當你醒來時，你可以在自己的市場開市前，查看東京、倫敦和孟買的股票表現。
 
-**Sam:** Investing is a global activity. But most American investors keep the vast majority of their money right here at home. Today, we are asking: Is that a mistake? And if so, how do you actually invest around the world?
+**Stella（小魚）：** 投資是一項全球性活動。但大多數美國投資者將絕大部分資金留在國內。今天，我們要問的是：這是一個錯誤嗎？如果是，你究竟如何環球投資？
 
-[VISUAL: Title card "Global Markets: Investing Beyond Your Home Country"]
+[VISUAL: Title card "全球市場：超越本國的投資"]
 
 ---
 
@@ -180,19 +249,19 @@ A: EM bonds offer higher yields than developed market bonds but with greater ris
 
 [ANIMATION: Pie chart of global stock market capitalization showing US at ~60%, rest of world at ~40%]
 
-**Alex:** Here is the starting point. The U.S. stock market is about 60 percent of total global stock market capitalization. That is dominant, but it also means 40 percent of the world's investable stocks are outside the United States.
+**Horace（陳馬）：** 我們先從這個出發點說起。美國股票市場約佔全球股票市場總市值的60%。這個比例很高，但同時也意味著全球40%的可投資股票位於美國以外。
 
-**Sam:** And the number of publicly listed companies tells an even bigger story. There are roughly 4,000 public companies in the U.S., but tens of thousands more listed on exchanges around the world. By limiting yourself to U.S. stocks, you are ignoring the majority of the world's public companies.
+**Stella（小魚）：** 而上市公司數量更能說明問題。美國約有4,000家上市公司，但全球各地交易所還有數以萬計的公司。把自己限制在美國股票上，你便忽略了全球大多數的上市公司。
 
 [VISUAL: Bar chart comparing number of listed companies: US ~4,000, Japan ~3,800, China ~5,000, India ~5,000+, UK ~2,000]
 
-**Alex:** But the most compelling argument for international diversification is this: leadership rotates. From 2000 to 2009, U.S. stocks returned basically nothing. The S&P 500 was flat for a decade. Meanwhile, international developed markets and emerging markets delivered solid positive returns.
+**Horace（陳馬）：** 但支持國際分散投資最有說服力的論據是：領導權輪替。從2000年到2009年，美國股票基本上毫無建樹。標普500指數在十年間原地踏步。與此同時，國際已發展市場和新興市場錄得可觀的正回報。
 
-**Sam:** Then from 2010 to 2024, the script flipped completely. U.S. stocks crushed international stocks by a wide margin. If you look at just the last 15 years, you would think international investing was pointless.
+**Stella（小魚）：** 然後從2010年到2024年，情況完全逆轉。美國股票以大幅領先優勢跑贏國際股票。如果你只看過去15年，你會覺得國際投資毫無意義。
 
 [VISUAL: Rolling 10-year performance chart alternating between US outperformance and international outperformance over 50 years]
 
-**Alex:** But that is recency bias talking. No one knows which region will lead over the next decade. Diversifying globally is an admission of uncertainty -- and that is actually a smart investment strategy.
+**Horace（陳馬）：** 但那是近期偏差在作怪。沒有人知道哪個地區將在未來十年領跑。進行全球分散投資，是承認不確定性的表現——而這實際上是一個聰明的投資策略。
 
 ---
 
@@ -200,17 +269,17 @@ A: EM bonds offer higher yields than developed market bonds but with greater ris
 
 [VISUAL: Three-tier pyramid labeled "Developed Markets," "Emerging Markets," "Frontier Markets"]
 
-**Sam:** The global market is divided into three categories. At the top, you have developed markets -- countries like Japan, the UK, Germany, Australia, and Canada. These have mature economies, well-regulated markets, and strong investor protections.
+**Stella（小魚）：** 全球市場分為三個類別。在頂層，你有已發展市場——如日本、英國、德國、澳大利亞和加拿大等國家。這些國家擁有成熟的經濟體、監管完善的市場和強大的投資者保護。
 
-**Alex:** Below that are emerging markets -- countries like China, India, Brazil, Taiwan, and South Korea. These economies are growing faster, but they come with more risk. Political uncertainty, weaker corporate governance, and currency volatility are all part of the package.
+**Horace（陳馬）：** 下一層是新興市場——如中國、印度、巴西、台灣和南韓等國家。這些經濟體增長更快，但伴隨著更大的風險。政治不確定性、較弱的企業管治和匯率波動都是其特點。
 
-**Sam:** And at the base are frontier markets -- places like Vietnam, Nigeria, and Bangladesh. These are the least developed, least liquid, and highest-risk markets. Most investors access these only through specialized funds.
+**Stella（小魚）：** 而在底層是前沿市場——如越南、尼日利亞和孟加拉等地。這些是發展程度最低、流動性最差、風險最高的市場。大多數投資者只能透過專門基金進入這些市場。
 
 [VISUAL: Examples of countries in each tier with key economic stats -- GDP growth, market cap, per capita income]
 
-**Alex:** The classification system most investors follow comes from MSCI -- Morgan Stanley Capital International. When MSCI decides to add or remove a country from an index, it triggers billions in capital flows, because trillions of dollars in passive funds track these indices.
+**Horace（陳馬）：** 大多數投資者遵循的分類系統來自MSCI——摩根士丹利資本國際。當MSCI決定將一個國家加入或移出指數時，就會觸發數十億美元的資金流動，因為有數兆美元的被動基金追蹤這些指數。
 
-**Sam:** One interesting case is South Korea. It has a GDP per capita comparable to many European countries and is home to Samsung and Hyundai. But MSCI still classifies it as an emerging market due to restrictions on currency trading. Another index provider, FTSE Russell, classifies it as developed. So the line between developed and emerging is not always clear-cut.
+**Stella（小魚）：** 一個有趣的例子是南韓。其人均GDP可與許多歐洲國家媲美，並且是三星和現代的發源地。但由於對貨幣交易的限制，MSCI仍將其歸類為新興市場。另一指數提供商富時羅素則將南韓歸類為已發展市場。因此，已發展市場和新興市場之間的界限並不總是那麼清晰。
 
 ---
 
@@ -218,21 +287,21 @@ A: EM bonds offer higher yields than developed market bonds but with greater ris
 
 [VISUAL: Warning sign graphic with icons for Currency, Political, Liquidity, and Accounting risks]
 
-**Alex:** International investing comes with risks that domestic investors do not face. The biggest one is currency risk.
+**Horace（陳馬）：** 國際投資面臨國內投資者通常不需要面對的風險。最大的風險是匯率風險。
 
-**Sam:** When you buy a Japanese stock, your return depends on two things: how the stock performs in yen, and how the yen moves against the dollar. If the stock goes up 10 percent in yen but the yen falls 8 percent against the dollar, your actual return in dollars is only about 2 percent.
+**Stella（小魚）：** 當你購買日本股票時，你的回報取決於兩件事：股票以日元計算的表現，以及日元兌美元的匯率變動。如果股票以日元計算上漲10%，但日元兌美元貶值8%，你以美元計算的實際回報只有約2%。
 
 [ANIMATION: Math example showing Local Return (10%) + Currency Effect (-8%) = Dollar Return (~2%)]
 
-**Alex:** Over short periods, currency swings can dominate your returns. Over decades, they tend to wash out. But if you have a shorter time horizon, you might want to consider currency-hedged funds.
+**Horace（陳馬）：** 在短期內，匯率波動可能主導你的回報。在數十年的時間跨度內，它們往往相互抵消。但如果你的投資時間跨度較短，你可能需要考慮貨幣對沖基金。
 
-**Sam:** Then there is political and regulatory risk. In 2021, China's government launched a crackdown on its own tech companies. Alibaba, Tencent, and Didi saw hundreds of billions in value evaporate overnight based on regulatory actions that were almost impossible to predict.
+**Stella（小魚）：** 然後是政治和監管風險。2021年，中國政府對本國科技公司發起整頓行動。阿里巴巴、騰訊和滴滴看到數千億美元的市值在監管行動下一夜蒸發，而這些行動幾乎是無法預料的。
 
 [VISUAL: Chart showing Chinese tech stock declines during 2021 regulatory crackdown]
 
-**Alex:** And in 2022, Russia's invasion of Ukraine essentially made Russian stocks worthless for foreign investors. The Moscow stock exchange was shut down, sanctions froze assets, and investors were left with positions they could neither sell nor value.
+**Horace（陳馬）：** 而在2022年，俄羅斯入侵烏克蘭，實際上使外國投資者持有的俄羅斯股票變得一文不值。莫斯科證券交易所被關閉，制裁凍結了資產，投資者持有既無法出售也無法估值的持倉。
 
-**Sam:** The lesson is not to avoid international investing altogether. It is to diversify broadly and avoid excessive concentration in any single country. A broad emerging markets ETF spreads your risk across 24 countries, so no single government's actions can devastate your portfolio.
+**Stella（小魚）：** 這一教訓不是要完全迴避國際投資。而是要廣泛分散投資，避免過度集中在任何單一國家。廣泛的新興市場交易所買賣基金將風險分散在24個國家，因此沒有任何一個政府的行動能夠重創你的投資組合。
 
 ---
 
@@ -240,21 +309,21 @@ A: EM bonds offer higher yields than developed market bonds but with greater ris
 
 [VISUAL: ETF logos and tickers arranged by category]
 
-**Alex:** The good news is that going global has never been easier or cheaper. ETFs give you access to virtually every market in the world at rock-bottom costs.
+**Horace（陳馬）：** 好消息是，環球投資從未如此容易或低成本。交易所買賣基金讓你以極低的費用進入全球幾乎任何市場。
 
-**Sam:** Let us break it down. For broad international exposure, you have funds like Vanguard's VXUS -- the Vanguard Total International Stock ETF. It covers developed and emerging markets outside the U.S., holds over 8,000 stocks, and charges just 0.07 percent per year.
+**Stella（小魚）：** 我們來逐一說明。對於廣泛的國際敞口，你可以選擇Vanguard的VXUS——Vanguard全球國際股票交易所買賣基金。它涵蓋美國以外的已發展市場和新興市場，持有逾8,000隻股票，每年僅收取0.07%的費用。
 
 [VISUAL: Comparison table of major international ETFs: VXUS, VEA, VWO, IEFA, IEMG with expense ratios, number of holdings, and geographic breakdown]
 
-**Alex:** If you want to be more targeted, you can separate developed markets -- VEA from Vanguard or IEFA from iShares -- from emerging markets -- VWO from Vanguard or IEMG from iShares. This lets you control how much EM exposure you take.
+**Horace（陳馬）：** 如果你想要更有針對性，你可以將已發展市場——Vanguard的VEA或iShares的IEFA——和新興市場——Vanguard的VWO或iShares的IEMG——分開配置。這讓你可以控制你所承擔的新興市場敞口程度。
 
-**Sam:** And if you have views on specific countries or want to address specific risks, there are single-country ETFs for almost every market. INDA for India, EWJ for Japan, FXI for China, EWZ for Brazil.
+**Stella（小魚）：** 如果你對特定國家有看法，或想要應對特定風險，幾乎每個市場都有單一國家的交易所買賣基金。印度有INDA，日本有EWJ，中國有FXI，巴西有EWZ。
 
-**Alex:** There is even an emerging markets ex-China ETF -- EMXC from iShares -- for investors who want EM exposure without the concentration risk and geopolitical concerns associated with China.
+**Horace（陳馬）：** 甚至有一個不含中國的新興市場交易所買賣基金——iShares的EMXC——適合想要新興市場敞口但不想承擔與中國相關的集中風險和地緣政治擔憂的投資者。
 
 [VISUAL: Portfolio building example: 60% US (VTI) + 25% Developed Intl (VEA) + 15% Emerging (VWO) = Global Portfolio]
 
-**Sam:** A simple, globally diversified equity portfolio might look like this: 60 percent U.S. stocks through VTI, 25 percent developed international through VEA, and 15 percent emerging markets through VWO. Three funds, global coverage, total cost under 0.06 percent.
+**Stella（小魚）：** 一個簡單的全球分散投資股票投資組合可能看起來是這樣的：60%透過VTI持有美國股票，25%透過VEA持有已發展國際股票，15%透過VWO持有新興市場股票。三隻基金，覆蓋全球，總費用低於0.06%。
 
 ---
 
@@ -262,22 +331,50 @@ A: EM bonds offer higher yields than developed market bonds but with greater ris
 
 [VISUAL: Spectrum showing different allocation approaches]
 
-**Alex:** The big question everyone asks is: How much of my portfolio should be international?
+**Horace（陳馬）：** 每個人都會問的大問題是：我的投資組合應該有多少比例是國際股票？
 
-**Sam:** There is a wide range of opinions. Vanguard recommends about 40 percent of your equity allocation in international stocks. Many advisors land between 20 and 40 percent. Jack Bogle, Vanguard's founder, actually recommended zero percent -- he believed U.S. multinationals provided enough global exposure.
+**Stella（小魚）：** 意見相當分歧。Vanguard建議將股票配置的約40%投入國際股票。許多顧問的建議落在20%至40%之間。Vanguard的創辦人Jack Bogle實際上建議零百分比——他認為美國跨國公司已提供足夠的全球敞口。
 
-**Alex:** The truth is, there is no single right answer. What we know is this: the more concentrated you are in any one country, the more dependent you are on that country's economy, policies, and market. Diversifying internationally reduces that dependence.
+**Horace（陳馬）：** 事實是，沒有單一的正確答案。我們所知道的是：你在任何一個國家的資產配置越集中，你就越依賴於該國的經濟、政策和市場。國際分散投資降低了這種依賴性。
 
 [VISUAL: Risk vs. concentration chart showing how portfolio risk decreases as international allocation increases from 0% to ~40%, then levels off]
 
-**Sam:** And here is a practical way to think about it. If you are 100 percent in U.S. stocks and the next decade looks like 2000 to 2009 -- where U.S. stocks went nowhere -- you will be very unhappy. Having 30 to 40 percent internationally would have significantly improved your returns during that period.
+**Stella（小魚）：** 這裡有一個實際思考的方式。如果你100%投入美國股票，而未來十年看起來像2000至2009年——美國股票原地踏步——你將會非常懊悔。在那段時期，30%至40%的國際配置將大幅改善你的回報。
 
-**Alex:** Conversely, if the next decade looks like 2010 to 2020, you would have been better off all-U.S. But since you do not know which scenario will play out, diversification is the prudent choice.
+**Horace（陳馬）：** 反之，如果未來十年看起來像2010至2020年，你將最好是全部投入美國股票。但由於你不知道哪種情況會出現，分散投資是明智的選擇。
 
-**Sam:** Start with something -- even 20 percent international is far better than zero. As you get more comfortable, you can adjust based on your views, risk tolerance, and time horizon.
+**Stella（小魚）：** 從某處開始——即使只有20%的國際配置也遠比零百分比好。隨著你對此越來越熟悉，你可以根據自己的觀點、風險承受能力和投資時間跨度進行調整。
 
 [VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
 
-**Alex:** In our next lesson, we are diving into the math behind diversification -- correlation, covariance, and why portfolio risk is not just the sum of individual risks. See you there.
+---
 
-[END - 13:30]
+[SECTION 6 - PRACTICAL PORTFOLIO CONSTRUCTION - 12:00]
+
+[VISUAL: Three example international portfolio allocations: Conservative, Moderate, and Aggressive]
+
+**Horace（陳馬）：** 我們最後以三個實際投資組合例子來收尾，展示如何在不同舒適程度下實施國際分散投資。
+
+**Stella（小魚）：** 保守方法：只需使用單一全球國際交易所買賣基金（如VXUS），分配20%到國際市場。簡單、低成本，提供有意義的分散投資效果，同時不增加複雜性。如果你是國際投資的新手，這是開始的起點。
+
+[VISUAL: Portfolio 1: 80% VTI + 20% VXUS]
+
+**Horace（陳馬）：** 中等方法：分配30-35%到國際市場，在已發展市場和新興市場之間進行分拆。例如20%投入VEA用於已發展市場，10-15%投入VWO用於新興市場。這讓你對新興市場敞口有更多的控制。
+
+[VISUAL: Portfolio 2: 65% VTI + 20% VEA + 15% VWO]
+
+**Stella（小魚）：** 進取方法：以約40%的國際配置匹配全球市值比重。如果你想單獨管理中國風險，可加入不含中國的新興市場部分。也許22%投入VEA，10%投入VWO，8%投入INDA或其他有針對性的國家交易所買賣基金。
+
+[VISUAL: Portfolio 3: 60% VTI + 22% VEA + 10% VWO + 8% Targeted Country ETFs]
+
+**Horace（陳馬）：** 無論你選擇哪種方法，關鍵原則都是一樣的：你在承認自己不知道世界哪個地區將在未來十年提供最佳回報。透過按地理位置分散你的投注，你確保無論增長在哪裡發生，你都能參與其中。
+
+**Stella（小魚）：** 記住——國際配置有時會感覺是錯的。在美國主導時期，你會希望持有更多國內敞口。在國際市場跑贏時期，你又會希望持有更多國際敞口。這是正常的。這種不適感正是真正分散投資的代價。
+
+**Horace（陳馬）：** 相信這個過程，堅守你的配置，定期進行再平衡。縱觀整個投資生涯，地理分散投資在歷史上改善了風險調整後的回報。這是證據所在，也是我們所押注的方向。
+
+[VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
+
+**Stella（小魚）：** 在我們的下一堂課，我們將深入探討分散投資背後的數學——相關性、協方差，以及為什麼投資組合的風險不只是個別風險的總和。我們到時見。
+
+[END - 14:30]

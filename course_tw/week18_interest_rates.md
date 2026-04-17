@@ -1,387 +1,380 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 18: Interest Rates and Central Bank Policy
+# 第18週：利率與央行政策
 
 ---
 
-## Reading Section
+## 閱讀單元
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Interest rates are the most powerful force in all of finance. They affect every single asset class, every business decision, every mortgage payment, and every government budget on the planet. When the Federal Reserve changes interest rates by a quarter of a percentage point, trillions of dollars in asset values shift. Understanding interest rates is not optional for investors -- it is foundational.
+利率是整個金融世界中最強大的力量。它影響每一種資產類別、每一項商業決策、每一筆房貸還款，以及全球每一個政府的預算。當聯邦準備理事會（Fed）將利率調整四分之一個百分點，全球資產價值就會發生數兆美元的移動。對投資人來說，理解利率不是可選項，而是根本基礎。
 
-Consider this chain of consequences from a single rate decision. In March 2022, the Federal Reserve began raising rates from near zero. Within 18 months, the 30-year mortgage rate doubled from 3% to over 7%. Home affordability plummeted. Housing stocks fell. Banks that had loaded up on long-duration bonds at low rates saw massive unrealized losses -- three of them collapsed (Silicon Valley Bank, Signature Bank, First Republic). Meanwhile, savers who had earned nothing on cash for a decade suddenly received 5% in money market funds. Growth stocks, which had soared when rates were zero, plunged as investors demanded higher returns. All of this from rate changes.
+想想看，單一利率決策所引發的連鎖效應。2022年3月，Fed開始從接近零的水準升息。在短短18個月內，30年期房貸利率從3%翻倍至逾7%。購屋負擔能力急劇下降，房屋類股下跌。那些在低利率時期大量購入長存續期間債券的銀行，帳面出現巨額未實現損失——其中三家因此倒閉（矽谷銀行、Signature銀行、第一共和銀行）。與此同時，在現金帳戶上長達十年幾乎零報酬的儲蓄者，突然在貨幣市場基金中獲得5%的收益。當利率為零時曾大幅飆升的成長型股票，隨著投資人要求更高報酬而暴跌。這一切，都源自利率的變化。
 
-Here is why every investor must understand interest rates:
+以下是每位投資人都必須理解利率的原因：
 
-1. **Rates are the gravitational force of finance.** Warren Buffett has said that interest rates act on financial valuations the way gravity acts on matter. When rates are low, asset prices float higher. When rates rise, everything gets pulled down. You cannot understand stock valuations, bond prices, or real estate values without understanding rates.
+1. **利率是金融的引力。** 華倫・巴菲特曾說，利率對金融估值的作用，就如同引力對物質的作用。利率低時，資產價格向上浮升；利率升高時，一切都被往下拉。不理解利率，就無法理解股票估值、債券價格或不動產價值。
 
-2. **Central bank policy drives market cycles.** The Federal Reserve's decisions about interest rates are the single biggest driver of bull and bear markets. Virtually every recession in the past 50 years was preceded by the Fed raising rates aggressively. Virtually every recovery was fueled by the Fed cutting rates.
+2. **央行政策驅動市場循環。** Fed對利率的決策，是多頭市場與空頭市場最重要的單一驅動因素。過去50年來，幾乎每一次景氣衰退之前，都曾出現Fed積極升息的情況；幾乎每一次復甦，都是由Fed降息所推動的。
 
-3. **Your personal financial decisions depend on rates.** Whether to get a fixed or adjustable mortgage, whether to pay down debt or invest, whether to hold bonds or cash, whether growth or value stocks are more attractive -- all of these decisions hinge on the interest rate environment.
+3. **你的個人財務決策取決於利率環境。** 該選固定利率還是浮動利率房貸、該還債還是投資、該持有債券還是現金、成長型還是價值型股票更具吸引力——所有這些決策，都取決於當前的利率環境。
 
-4. **Rate expectations move markets more than rate changes.** Markets are forward-looking. By the time the Fed actually raises or cuts rates, much of the market impact has already occurred based on expectations. Understanding how to read Fed signals gives you an edge over investors who only react to announcements.
+4. **市場對利率的預期比利率本身的變化影響更大。** 市場具有前瞻性。當Fed真正升息或降息時，基於預期所產生的市場衝擊往往已經大部分發生了。學會解讀Fed的訊號，能讓你在只會被動等待公告的投資人面前占得先機。
 
-This lesson covers the complete framework: what rates are, how the Fed sets them, how they transmit through the economy, how they affect asset valuations, and what the major historical rate regimes tell us about what to expect in different environments.
+本課程涵蓋完整的分析框架：利率是什麼、Fed如何設定利率、利率如何傳導至經濟體、如何影響資產估值，以及主要的歷史利率環境告訴我們在不同情境下可以預期什麼。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的事
 
-#### 1. What Is an Interest Rate?
+#### 1. 什麼是利率？
 
-At its most fundamental level, an interest rate is the price of borrowing money. It is what a lender charges a borrower for the use of capital over time. But interest rates are not just one number -- they are a complex ecosystem of interconnected rates.
+從最根本的層面來看，利率是借貸資金的價格。它是貸款方向借款方收取的費用，作為在一段時間內使用資本的代價。但利率並非單一數字——它是一個由相互關聯的利率所構成的複雜生態系統。
 
 ```
-THE INTEREST RATE ECOSYSTEM
+利率生態系統
 ==============================
 
-                       FEDERAL RESERVE
-                      (Sets overnight rate)
+                       聯邦準備理事會
+                      （設定隔夜利率）
                             |
-                       Fed Funds Rate
-                       (Currently ~5.25%)
+                       聯邦資金利率
+                       （目前約5.25%）
                             |
             +---------------+---------------+
             |               |               |
-       Treasury        Interbank          Discount
-        Yields         Lending            Window
-        (2yr,10yr,     (Banks to          (Fed to
-         30yr)          banks)             banks)
+         公債              銀行間          貼現
+         殖利率            拆借            窗口
+       （2年、10年、      （銀行對         （Fed對
+         30年）            銀行）           銀行）
             |               |               |
     +-------+-------+   LIBOR/SOFR          |
     |               |       |               |
-  Mortgage      Corporate   |               |
-   Rates        Bond Yields |               |
+  房貸利率        公司債     |               |
+                殖利率      |               |
     |               |       |               |
-  Housing       Business  Consumer       Bank
-  Market        Investment  Loans        Reserves
+  房市          企業投資   消費者          銀行
+                          貸款            準備金
     |               |       |               |
     +-------+-------+-------+---------------+
             |
-      REAL ECONOMY
-   (GDP, Jobs, Inflation)
+         實體經濟
+   （GDP、就業、通膨）
 ```
 
-**The Key Rates You Need to Know:**
+**你需要了解的關鍵利率：**
 
 ```
-CRITICAL INTEREST RATES
+重要利率一覽
 =========================
 
-Rate                What It Is                           Who Sets It
+利率                定義                                 制定者
 ----                ----------                           -----------
-Fed Funds Rate      Rate banks charge each other          Federal Reserve
-                    for overnight loans                   (FOMC)
+聯邦資金利率        銀行間隔夜貸款利率                    聯邦準備理事會
+                                                         （FOMC）
 
-Discount Rate       Rate the Fed charges banks            Federal Reserve
-                    for emergency borrowing               Board
+貼現率             Fed向銀行收取的                        聯邦準備理事會
+                   緊急借款利率                           理事會
 
-Prime Rate          Base rate banks charge their          Banks (typically
-                    best customers                        Fed Funds + 3%)
+基準利率           銀行向最優質客戶                       銀行（通常為
+                   收取的基礎利率                         聯邦資金利率+3%）
 
-10-Year Treasury    Yield on 10-year US govt bonds        Market-determined
-                    (benchmark for mortgages,             (supply/demand)
-                    corporate bonds)
+10年期公債         10年期美國公債殖利率                   市場決定
+殖利率             （房貸與公司債的基準）                  （供需決定）
 
-30-Year Mortgage    Rate on standard home loans           Banks/market
-                    (loosely tied to 10-year              (10yr Treasury
-                    Treasury)                             + spread)
+30年期房貸利率     標準住宅貸款利率                       銀行/市場
+                   （與10年期公債鬆散連動）                （10年公債
+                                                          +利差）
 
-SOFR                Secured Overnight Financing           Market-determined
-                    Rate (replaced LIBOR)                 (repo market)
+擔保隔夜融資利率   取代LIBOR的指標利率                    市場決定
+（SOFR）           （附買回市場）                          （附買回市場）
 
-Real Rate           Nominal rate minus inflation          Derived
-                    (the TRUE cost of borrowing)
+實質利率           名目利率扣除通膨後的                   衍生指標
+                   真實借貸成本
 ```
 
 ---
 
-#### 2. The Federal Reserve and Monetary Policy
+#### 2. 聯邦準備理事會與貨幣政策
 
-The Federal Reserve is the central bank of the United States. Its primary tool for managing the economy is the federal funds rate -- the interest rate at which banks lend to each other overnight. While this may sound arcane, this single rate cascades through the entire financial system.
+聯邦準備理事會（Fed）是美國的中央銀行。其管理經濟的主要工具是聯邦資金利率——即銀行間隔夜拆借的利率。這看似晦澀難懂，但這單一利率的影響卻會波及整個金融體系。
 
-**How the Fed Sets Rates**
+**Fed如何設定利率**
 
 ```
-THE FOMC DECISION PROCESS
+FOMC決策流程
 ============================
 
-FOMC = Federal Open Market Committee
-  - 12 voting members (7 Board Governors + 5 Reserve Bank Presidents)
-  - Meets 8 times per year (roughly every 6 weeks)
-  - Reviews economic data (jobs, inflation, GDP, financial conditions)
-  - Issues a statement + "dot plot" of rate projections
+FOMC = 聯邦公開市場委員會
+  - 12名投票委員（7名理事會委員 + 5名聯邦準備銀行總裁）
+  - 每年召開8次會議（約每6週一次）
+  - 審查經濟數據（就業、通膨、GDP、金融環境）
+  - 發布聲明及利率預測「點狀圖」
 
-The Fed's Dual Mandate:
+Fed的雙重使命：
 +---------------------------+---------------------------+
-|   MAXIMUM EMPLOYMENT      |    STABLE PRICES          |
+|       充分就業            |       物價穩定            |
 |                           |                           |
-|   Target: ~4% unemploy-   |   Target: 2% inflation   |
-|   ment rate (varies)      |   (measured by PCE)       |
+|   目標：失業率約4%        |   目標：通膨2%            |
+|   （視情況而異）          |   （以PCE衡量）           |
 |                           |                           |
-|   If unemployment is      |   If inflation is         |
-|   too HIGH --> cut rates   |   too HIGH --> raise rates|
+|   若失業率過高            |   若通膨過高              |
+|   --> 降息                |   --> 升息                |
 |                           |                           |
-|   If unemployment is      |   If inflation is         |
-|   too LOW --> raise rates  |   too LOW --> cut rates   |
+|   若失業率過低            |   若通膨過低              |
+|   --> 升息                |   --> 降息                |
 +---------------------------+---------------------------+
 
-When mandates CONFLICT (high inflation + high unemployment):
-This is called "stagflation" and is the Fed's nightmare scenario.
-The Fed must choose which mandate to prioritize.
+當雙重使命相互衝突（高通膨 + 高失業）：
+稱為「停滯性通膨」，是Fed最難以應對的情境。
+Fed必須選擇優先實現哪個使命。
 ```
 
-**The Fed's Toolkit:**
+**Fed的政策工具箱：**
 
 ```
-FEDERAL RESERVE POLICY TOOLS
+聯邦準備理事會政策工具
 ===============================
 
-Tool              How It Works                    When Used
-----              ------------                    ---------
-Fed Funds Rate    Raises/lowers the target        Primary tool;
-                  overnight lending rate           every meeting
+工具              運作方式                          使用時機
+----              ------------                      ---------
+聯邦資金利率      調整隔夜拆借利率目標               主要工具；
+                                                    每次會議皆可使用
 
-Open Market       Buys/sells Treasury bonds       Day-to-day rate
-Operations        to add/remove bank reserves      management
+公開市場操作      買賣公債以增減                     日常利率
+                  銀行準備金                         管理
 
-Quantitative      Massive bond purchases          When rates are
-Easing (QE)       to push down long-term rates     already at zero
-                  and inject liquidity
+量化寬鬆          大規模購債以壓低                   當利率已至
+（QE）            長期利率並注入流動性               零下限時使用
 
-Quantitative      Letting bonds mature without     When unwinding
-Tightening (QT)   reinvestment to shrink the       QE stimulus
-                  balance sheet
+量化緊縮          讓到期債券自然到期                 收回QE
+（QT）            不再滾動投資，縮減資產負債表        刺激效果時
 
-Reserve           Changing reserves banks          Rarely used
-Requirements      must hold (currently 0%)         (effectively
-                                                   eliminated)
+準備金率          調整銀行須保留的準備金比率          極少使用
+                  （目前為0%）                       （實質上已
+                                                    廢除）
 
-Forward           Communicating future rate        To shape market
-Guidance          intentions to shape expectations  expectations
+前瞻指引          溝通未來利率走向預期               引導市場
+                  以影響市場預期                     預期
 
-Discount          Changing the rate for            Emergency
-Window            emergency bank borrowing          lending
+貼現窗口          調整銀行緊急借款利率               緊急
+                                                    借貸
 ```
 
 ---
 
-#### 3. Transmission Channels -- How Rate Changes Affect the Economy
+#### 3. 傳導渠道——利率變化如何影響經濟
 
-When the Fed changes rates, the effect ripples through the economy via multiple channels. Understanding these channels explains why rate changes take 12-18 months to have full effect.
+當Fed改變利率時，效應會透過多個渠道向整個經濟體擴散。理解這些渠道，能解釋為何利率變化需要12至18個月才能完全發揮效果。
 
 ```
-RATE TRANSMISSION CHANNELS
+利率傳導渠道
 =============================
 
-Fed Raises Rates
+Fed升息
        |
-       +---> CHANNEL 1: BORROWING COSTS
-       |     Mortgages, auto loans, credit cards, business
-       |     loans all become more expensive.
-       |     --> Less borrowing --> less spending --> slower growth
+       +---> 渠道一：借貸成本
+       |     房貸、汽車貸款、信用卡、企業
+       |     貸款的成本全面上升。
+       |     --> 借貸減少 --> 支出減少 --> 成長放緩
        |
-       +---> CHANNEL 2: ASSET PRICES
-       |     Higher rates make future cash flows worth less today
-       |     (higher discount rate in DCF).
-       |     --> Stock prices fall, bond prices fall, real estate cools
-       |     --> "Wealth effect" reduces consumer confidence/spending
+       +---> 渠道二：資產價格
+       |     較高的利率使未來現金流今日的折現值降低
+       |     （DCF中折現率提高）。
+       |     --> 股價下跌、債券價格下跌、房市降溫
+       |     --> 「財富效果」削弱消費者信心與支出
        |
-       +---> CHANNEL 3: EXCHANGE RATES
-       |     Higher US rates attract foreign capital seeking yield.
-       |     --> Dollar strengthens
-       |     --> US exports become more expensive (hurts exporters)
-       |     --> Imports become cheaper (reduces inflation)
+       +---> 渠道三：匯率
+       |     較高的美國利率吸引追求殖利率的外國資本流入。
+       |     --> 美元升值
+       |     --> 美國出口品價格提高（不利出口商）
+       |     --> 進口品變便宜（有助抑制通膨）
        |
-       +---> CHANNEL 4: BANK LENDING
-       |     Higher rates widen bank net interest margins initially,
-       |     but tighter credit standards reduce loan volume.
-       |     --> Less credit creation --> slower money supply growth
+       +---> 渠道四：銀行放貸
+       |     升息初期可擴大銀行的淨利差，
+       |     但更嚴格的信貸標準會降低貸款量。
+       |     --> 信用創造減少 --> 貨幣供給成長放緩
        |
-       +---> CHANNEL 5: EXPECTATIONS
-             When the Fed signals it is serious about fighting
-             inflation, businesses moderate price increases and
-             workers moderate wage demands.
-             --> Inflation expectations decline --> actual inflation falls
+       +---> 渠道五：預期
+             當Fed明確表態決心對抗通膨，
+             企業會收斂漲價行為，
+             勞工也會放緩加薪訴求。
+             --> 通膨預期下降 --> 實際通膨降溫
 
-TIME LAG OF MONETARY POLICY
+貨幣政策的時間落後
 ==============================
 
-Fed Action                          Typical Lag to Effect
+Fed行動                             對實體經濟的典型影響時間
 ----------                          --------------------
-Short-term rates move               Immediate
-Bond market reacts                  Days to weeks
-Mortgage/loan rates adjust          Weeks to months
-Borrowing behavior changes          3 - 6 months
-Spending/investment changes         6 - 12 months
-Employment effects                  12 - 18 months
-Full inflation impact               18 - 24 months
+短期利率移動                        即時
+債券市場反應                        數天至數週
+房貸/貸款利率調整                   數週至數月
+借貸行為改變                        3至6個月
+支出/投資變化                       6至12個月
+就業影響                            12至18個月
+通膨完整影響                        18至24個月
 
-|--Fed acts--|---Markets react---|---Economy adjusts---|
-0            1 month             6 months              18 months
+|--Fed行動--|---市場反應---|---實體經濟調整---|
+0           1個月          6個月             18個月
 ```
 
 ---
 
-#### 4. The Discount Rate Effect on Valuations
+#### 4. 折現率效應對估值的影響
 
-This is where interest rates directly affect stock prices. Every valuation model, from simple P/E ratios to complex DCF analyses, is influenced by the level of interest rates.
+這正是利率直接影響股價的所在。每一種估值模型，從簡單的本益比到複雜的現金流折現（DCF）分析，都受到利率水準的影響。
 
-**The Core Mechanism:**
+**核心機制：**
 
-The value of any financial asset is the present value of its future cash flows. The discount rate used to calculate present value is directly tied to interest rates. When rates rise, the discount rate rises, and present values fall.
+任何金融資產的價值，都是其未來現金流的現值。計算現值所使用的折現率，與利率直接掛鉤。當利率升高，折現率隨之升高，現值便會下降。
 
 ```
-INTEREST RATES AND STOCK VALUATION
+利率與股票估值
 =====================================
 
-         Simplified Stock Valuation:
+         簡化股票估值公式：
 
                    E
          P = ─────────────
               r - g
 
-         Where:
-           P = Stock Price
-           E = Earnings (or cash flow)
-           r = Required return (tied to interest rates)
-           g = Growth rate
+         其中：
+           P = 股票價格
+           E = 盈餘（或現金流）
+           r = 必要報酬率（與利率連動）
+           g = 成長率
 
-         When rates rise, r rises, and P falls.
+         當利率升高，r升高，P便會下降。
 
-EXAMPLE: IMPACT OF RATE CHANGES ON STOCK PRICE
+範例：利率變化對股票價格的影響
 =================================================
 
-Assume: Earnings = $10, Growth = 5%
+假設：盈餘 = $10，成長率 = 5%
 
-If required return = 8%:
+若必要報酬率 = 8%：
   P = $10 / (0.08 - 0.05) = $10 / 0.03 = $333
 
-If required return = 10% (rates rise 2%):
+若必要報酬率 = 10%（利率上升2%）：
   P = $10 / (0.10 - 0.05) = $10 / 0.05 = $200
 
-If required return = 6% (rates fall 2%):
+若必要報酬率 = 6%（利率下降2%）：
   P = $10 / (0.06 - 0.05) = $10 / 0.01 = $1,000
 
-PRICE CHANGE FROM A 2% RATE SHIFT
+利率移動2%對股價的影響幅度
 ====================================
 
-    $1,000  |  *  <-- Rates fall 2%
-            |
-            |
-            |
-            |
-     $333   |        *  <-- Base case
-            |
-     $200   |              *  <-- Rates rise 2%
-            |
-            +--------|--------|------> Required Return
-                     6%      8%      10%
+  $1,000  |  *  <-- 利率下降2%
+          |
+          |
+          |
+          |
+   $333   |        *  <-- 基準情境
+          |
+   $200   |              *  <-- 利率上升2%
+          |
+          +--------|--------|------> 必要報酬率
+                   6%      8%      10%
 
-CRITICAL INSIGHT: A 2% rate change caused the stock
-price to swing from $200 to $1,000 -- a 5x range!
-Lower rates amplify valuations dramatically.
+關鍵洞察：2%的利率變化導致股價在$200至$1,000之間
+大幅波動——足足5倍的差距！低利率會顯著放大估值。
 ```
 
-**Why Growth Stocks Are More Rate-Sensitive:**
+**為何成長型股票對利率更為敏感：**
 
 ```
-RATE SENSITIVITY BY STOCK TYPE
+不同類型股票的利率敏感性
 ================================
 
-High-Growth Stock (most cash flows are far in the future):
+高成長型股票（大部分現金流在遙遠的未來）：
 
-Year:        1     2     3     5     10    20    30
-Cash Flow:  $1    $2    $3    $8   $30   $300  $3,000
+年份：        1     2     3     5     10    20    30
+現金流：     $1    $2    $3    $8   $30   $300  $3,000
 
-Most of the value comes from cash flows 10-30 years out.
-These distant cash flows are heavily discounted when rates rise.
-Rate sensitivity: VERY HIGH
+大部分價值來自10至30年後的現金流。
+利率升高時，這些遙遠的現金流折現後大幅縮水。
+利率敏感性：非常高
 
-Value/Dividend Stock (most cash flows are near-term):
+價值/股利型股票（大部分現金流在近期）：
 
-Year:        1     2     3     5     10    20    30
-Cash Flow:  $10   $10   $11   $11   $12   $13   $14
+年份：        1     2     3     5     10    20    30
+現金流：    $10   $10   $11   $11   $12   $13   $14
 
-Most of the value comes from near-term dividends.
-These are barely affected by discount rate changes.
-Rate sensitivity: LOW
+大部分價值來自近期股利。
+幾乎不受折現率變化影響。
+利率敏感性：低
 
-SECTOR SENSITIVITY TO RATES
+各類股對利率的敏感程度
 ==============================
 
-Most Sensitive (hurt by rising rates):
-  - Technology growth stocks
-  - Real estate / REITs
-  - Utilities
-  - Long-duration bonds
-  - Unprofitable / speculative companies
+最敏感（升息時受衝擊）：
+  - 科技成長型股票
+  - 不動產 / 不動產投資信託（REIT）
+  - 公用事業類股
+  - 長存續期間債券
+  - 尚未獲利 / 投機性公司
 
-Least Sensitive (may benefit from rising rates):
-  - Banks (wider net interest margins)
-  - Insurance companies (higher investment income)
-  - Energy (rates often rise with inflation)
-  - Short-duration / floating-rate bonds
-  - Cash and money markets
+最不敏感（可能受益於升息）：
+  - 銀行（淨利差擴大）
+  - 保險公司（投資收益提升）
+  - 能源類股（利率常隨通膨上升）
+  - 短存續期間 / 浮動利率債券
+  - 現金與貨幣市場
 ```
 
 ---
 
-#### 5. The Yield Curve -- What It Tells You
+#### 5. 殖利率曲線——它告訴你什麼
 
-The yield curve plots interest rates for bonds of different maturities. Its shape conveys powerful information about economic expectations.
+殖利率曲線將不同到期日的債券利率繪製於同一張圖上。其形狀傳達了關於經濟預期的重要訊息。
 
 ```
-YIELD CURVE SHAPES AND WHAT THEY MEAN
+殖利率曲線形態及其含義
 ========================================
 
-1. NORMAL (Upward Sloping) -- Economy is healthy
-   Yield
+1. 正常型（向上傾斜）——經濟健康
+   殖利率
    5% |                              *----*
    4% |                    *----*
    3% |          *----*
    2% |  *----*
    1% |
-      +--|-----|-----|-----|-----|---> Maturity
-        3mo   1yr   5yr   10yr  30yr
+      +--|-----|-----|-----|-----|---> 到期日
+       3個月  1年   5年   10年  30年
 
-   Short rates < Long rates
-   "I need more compensation for locking up money longer"
-   Signal: Economy expected to grow normally
+   短期利率 < 長期利率
+   「鎖定資金越久，我需要越多補償」
+   訊號：預期經濟正常成長
 
-2. FLAT -- Transition / Uncertainty
-   Yield
+2. 平坦型——過渡 / 不確定
+   殖利率
    5% |
    4% |  *----*----*----*----*----*
    3% |
    2% |
    1% |
-      +--|-----|-----|-----|-----|---> Maturity
-        3mo   1yr   5yr   10yr  30yr
+      +--|-----|-----|-----|-----|---> 到期日
+       3個月  1年   5年   10年  30年
 
-   Short rates = Long rates
-   Signal: Market uncertain about future direction
+   短期利率 = 長期利率
+   訊號：市場對未來方向感到不確定
 
-3. INVERTED -- Recession warning
-   Yield
+3. 倒掛型——景氣衰退警示
+   殖利率
    5% |  *----*
    4% |          *----*
    3% |                    *----*
    2% |                              *----*
    1% |
-      +--|-----|-----|-----|-----|---> Maturity
-        3mo   1yr   5yr   10yr  30yr
+      +--|-----|-----|-----|-----|---> 到期日
+       3個月  1年   5年   10年  30年
 
-   Short rates > Long rates
-   "I expect rates to fall because the economy will weaken"
-   Signal: Recession likely within 6-18 months
-   Track record: Inverted curve preceded EVERY US recession
-   since 1960 (though with variable lead times)
+   短期利率 > 長期利率
+   「我預期利率會下降，因為經濟將走弱」
+   訊號：未來6至18個月內可能發生景氣衰退
+   紀錄：倒掛殖利率曲線領先預示了1960年以來
+   每一次美國景氣衰退（儘管領先時間長短不一）
 
-4. STEEP -- Recovery / Stimulus
-   Yield
+4. 陡峭型——復甦 / 寬鬆刺激
+   殖利率
    6% |                              *----*
    5% |                    *
    4% |
@@ -389,21 +382,21 @@ YIELD CURVE SHAPES AND WHAT THEY MEAN
    2% |
    1% |          *
    0% |  *
-      +--|-----|-----|-----|-----|---> Maturity
-        3mo   1yr   5yr   10yr  30yr
+      +--|-----|-----|-----|-----|---> 到期日
+       3個月  1年   5年   10年  30年
 
-   Short rates much lower than long rates
-   Signal: Fed is stimulating; growth expected to recover
+   短期利率遠低於長期利率
+   訊號：Fed正在刺激經濟；預期成長將回升
 ```
 
-**The 2s10s Spread -- The Most Watched Indicator:**
+**2年期對10年期公債利差——最受關注的指標：**
 
 ```
-2-YEAR vs. 10-YEAR TREASURY SPREAD HISTORY
+2年期對10年期公債利差歷史走勢
 =============================================
 
-Spread
-(10yr - 2yr)
+利差
+（10年 - 2年）
    +3% |        *                           *
    +2% |  *    * *        *    *           * *      *
    +1% |   *  *   *      * *  * *        *     *   * *
@@ -413,58 +406,55 @@ Spread
        +--|-----|-----|-----|-----|-----|-----|-----|------>
        1980   1985   1990   1995   2000   2005   2010   2020
 
-       Shaded areas = recessions
-       Notice: inversions (below 0%) precede every recession
-       
-KEY RULE: When the 2s10s spread inverts (goes negative),
-start preparing for a potential recession within 6-18 months.
-But do NOT panic-sell -- inversions can persist for months
-and the stock market often rallies AFTER inversion before
-eventually declining.
+       陰影區域 = 景氣衰退期
+       注意：每次衰退前皆出現倒掛（低於0%）
+
+關鍵法則：當2年期對10年期利差倒掛（轉為負值），
+請開始為可能在6至18個月內到來的衰退做好準備。
+但切勿恐慌性賣出——倒掛可能持續數月，
+且股市往往在倒掛後繼續上漲，之後才開始下跌。
 ```
 
 ---
 
-#### 6. Historical Rate Regimes
+#### 6. 歷史利率環境
 
-Understanding past rate environments helps you recognize patterns and position your portfolio appropriately.
+了解過去的利率環境，有助於辨識規律，並為你的投資組合做出適當配置。
 
 ```
-MAJOR US INTEREST RATE ERAS
+美國主要利率時代
 ==============================
 
-Era 1: Post-War Stability (1945-1965)
-  Fed Funds: 1-4%    Inflation: 1-3%    Real Rate: ~1-2%
-  Characteristics: Steady growth, stable prices, rising prosperity
-  Best assets: Stocks, real estate
+時代一：二戰後的穩定期（1945-1965）
+  聯邦資金利率：1-4%   通膨：1-3%   實質利率：約1-2%
+  特徵：穩定成長、物價平穩、繁榮提升
+  最佳資產：股票、不動產
 
-Era 2: The Great Inflation (1965-1982)
-  Fed Funds: 4-20%   Inflation: 4-14%   Real Rate: Variable
-  Characteristics: Oil shocks, wage-price spiral, Volcker's war
-  Best assets: Commodities, gold, hard assets, T-bills
+時代二：大通膨時代（1965-1982）
+  聯邦資金利率：4-20%  通膨：4-14%  實質利率：波動
+  特徵：石油危機、工資物價螺旋上升、伏克爾的抗通膨之戰
+  最佳資產：大宗商品、黃金、實物資產、國庫券
 
-Era 3: The Great Disinflation (1982-2000)
-  Fed Funds: 20->5%  Inflation: 14->2%  Real Rate: ~3-5%
-  Characteristics: Falling rates = massive bull market in
-    stocks AND bonds simultaneously
-  Best assets: Long-duration bonds, growth stocks
+時代三：大通膨緩解期（1982-2000）
+  聯邦資金利率：20%→5%  通膨：14%→2%  實質利率：約3-5%
+  特徵：利率持續下降 = 股票與債券同步創造巨大多頭市場
+  最佳資產：長存續期間債券、成長型股票
 
-Era 4: Low Rate Era (2000-2020)
-  Fed Funds: 0-5%    Inflation: 1-3%    Real Rate: ~0-2%
-  Characteristics: Two crises (dot-com, GFC), QE era,
-    near-zero rates for extended periods
-  Best assets: Growth stocks, real estate, long-duration bonds
+時代四：低利率時代（2000-2020）
+  聯邦資金利率：0-5%   通膨：1-3%   實質利率：約0-2%
+  特徵：兩次危機（網路泡沫、全球金融危機）、QE時代、
+        長期接近零利率
+  最佳資產：成長型股票、不動產、長存續期間債券
 
-Era 5: Post-COVID Normalization (2020-Present)
-  Fed Funds: 0->5%   Inflation: 2->9->3%  Real Rate: ~1-3%
-  Characteristics: Massive stimulus, inflation spike,
-    aggressive tightening cycle
-  Best assets: Short-duration bonds, value stocks, cash
+時代五：新冠後的正常化（2020至今）
+  聯邦資金利率：0%→5%  通膨：2%→9%→3%  實質利率：約1-3%
+  特徵：大規模刺激、通膨飆升、積極升息循環
+  最佳資產：短存續期間債券、價值型股票、現金
 
-FED FUNDS RATE TIMELINE
+聯邦資金利率歷史走勢
 =========================
 
-Rate
+利率
  20%|                 *
     |                * *
  15%|               *   *
@@ -477,371 +467,366 @@ Rate
     +--|--|--|--|--|--|--|--|--|--|--|--|--|--|-->
    1955 60 65 70 75 80 85 90 95 00 05 10 15 20 25
 
-    Key events labeled:
-    * 1980: Volcker raises to 20% to kill inflation
-    * 2001: Rate cuts after dot-com crash
-    * 2008: Rates to zero during financial crisis
-    * 2022: Fastest hiking cycle in 40 years
+    關鍵事件：
+    * 1980年：伏克爾將利率升至20%以消滅通膨
+    * 2001年：網路泡沫崩潰後降息
+    * 2008年：金融危機期間利率降至零
+    * 2022年：40年來最快速的升息循環
 ```
 
 ---
 
-#### 7. Real vs. Nominal Rates
+#### 7. 實質利率與名目利率
 
-The distinction between nominal rates (what you see quoted) and real rates (adjusted for inflation) is crucial for investment decisions.
+名目利率（你所見到的公告利率）與實質利率（經通膨調整後）之間的區別，對投資決策至關重要。
 
 ```
-REAL vs. NOMINAL RATES
+實質利率與名目利率
 ========================
 
-Real Rate = Nominal Rate - Inflation Rate
+實質利率 = 名目利率 - 通膨率
 
-Example:
-  Nominal savings rate:    5.0%
-  Inflation:               3.5%
-  Real rate:               1.5%
+範例：
+  名目存款利率：     5.0%
+  通膨：             3.5%
+  實質利率：         1.5%
 
-  You EARN 5% on your savings,
-  but prices rise 3.5%, so your
-  PURCHASING POWER only grows 1.5%.
+  你的存款「賺取」5%，
+  但物價上漲3.5%，因此你的
+  購買力實際上只成長1.5%。
 
-WHEN REAL RATES ARE NEGATIVE
+當實質利率為負
 ==============================
 
-  Nominal savings rate:    2.0%
-  Inflation:               4.0%
-  Real rate:              -2.0%
+  名目存款利率：     2.0%
+  通膨：             4.0%
+  實質利率：        -2.0%
 
-  You are LOSING purchasing power
-  despite earning interest. Your
-  money buys LESS each year even
-  though the number in your account
-  is growing. This is "financial
-  repression" -- governments use
-  negative real rates to erode
-  the real value of their debt.
+  你的購買力正在流失，
+  儘管帳戶中的數字還在增加。
+  你的錢每年能買到的東西越來越少。
+  這就是「金融抑制」——政府利用
+  負實質利率來侵蝕政府債務的
+  實質價值。
 
-REAL RATES AND INVESTMENT IMPLICATIONS
+實質利率與投資意涵
 ========================================
 
-Real Rate         What It Means              Strategy Implications
+實質利率         含義                       策略意涵
 ---------         -------------              ---------------------
-Deeply            Savers are punished;        Favor real assets
-negative          borrowers are subsidized    (stocks, real estate,
-(-2% or           --> Inflationary            commodities, TIPS)
- below)            environment
+深度負值          儲蓄者受懲罰；             偏好實物資產
+（-2%以下）        借款者受補貼              （股票、不動產、
+                  --> 通膨環境               大宗商品、抗通膨公債）
 
-Mildly            Moderate stimulus;          Balanced approach;
-negative          modest inflation            mild growth tilt
-(-1% to 0%)        erosion
+輕度負值          溫和刺激；                 均衡配置；
+（-1%至0%）        小幅通膨侵蝕             略偏成長
 
-Mildly            Normal / neutral            Standard portfolio
-positive           policy                     allocation works
-(0% to 2%)
+輕度正值          正常/中性政策              標準投資組合
+（0%至2%）                                   配置即可
 
-Highly            Tight policy;               Favor cash, short-
-positive           restrictive                duration bonds;
-(2%+)              conditions                 be cautious on stocks
-                                              and real estate
+高度正值          緊縮政策；                 偏好現金、短存續
+（2%以上）         限制性環境               期間債券；
+                                            對股票與不動產
+                                            保持謹慎
 ```
 
 ---
 
-#### 8. Practical Investment Implications
+#### 8. 實用投資策略
 
 ```
-RATE ENVIRONMENT INVESTMENT PLAYBOOK
+不同利率環境的投資操作手冊
 =======================================
 
-Scenario: RATES FALLING (Easing cycle)
+情境：利率下降（寬鬆循環）
 -----------------------------------------
-What happens:
-  - Bond prices RISE (yields fall)
-  - Stock valuations EXPAND
-  - Dollar weakens
-  - Real estate becomes more affordable
-  - Credit conditions loosen
+市場動態：
+  - 債券價格上漲（殖利率下降）
+  - 股票估值擴張
+  - 美元走弱
+  - 不動產負擔能力改善
+  - 信貸環境放鬆
 
-What to consider:
-  + Extend bond duration (lock in higher yields)
-  + Growth stocks tend to outperform value
-  + Interest-rate-sensitive sectors benefit (REITs, utilities)
-  + Emerging markets benefit from weaker dollar
-  - Cash becomes less attractive
-  - Bank margins may compress
+可考慮的策略：
+  + 延長債券存續期間（鎖定較高殖利率）
+  + 成長型股票往往優於價值型股票
+  + 對利率敏感的類股受益（REIT、公用事業）
+  + 美元走弱有利新興市場
+  - 現金吸引力降低
+  - 銀行利差可能收窄
 
-Scenario: RATES RISING (Tightening cycle)
+情境：利率上升（緊縮循環）
 -----------------------------------------
-What happens:
-  - Bond prices FALL (yields rise)
-  - Stock valuations COMPRESS
-  - Dollar strengthens
-  - Real estate becomes less affordable
-  - Credit conditions tighten
+市場動態：
+  - 債券價格下跌（殖利率上升）
+  - 股票估值收縮
+  - 美元走強
+  - 不動產負擔能力下降
+  - 信貸環境收緊
 
-What to consider:
-  + Shorten bond duration (protect from price declines)
-  + Value stocks tend to outperform growth
-  + Financial sector may benefit (wider bank margins)
-  + Cash/money markets become attractive again
-  - Long-duration assets suffer
-  - Highly leveraged companies face higher costs
+可考慮的策略：
+  + 縮短債券存續期間（防範價格下跌）
+  + 價值型股票往往優於成長型股票
+  + 金融類股可能受益（銀行利差擴大）
+  + 現金/貨幣市場再度具有吸引力
+  - 長存續期間資產受衝擊
+  - 高槓桿企業面臨更高融資成本
 
-Scenario: RATES STABLE (Neutral / On hold)
+情境：利率不變（中性/暫停）
 -----------------------------------------
-What happens:
-  - Markets price in current conditions
-  - Carry trades become attractive
-  - Volatility often declines
+市場動態：
+  - 市場已反映當前環境
+  - 套利交易更具吸引力
+  - 波動性往往下降
 
-What to consider:
-  + Focus on asset selection over macro positioning
-  + Collect yield (bonds, dividends)
-  + Quality companies with pricing power
-  + Moderate, diversified positioning
+可考慮的策略：
+  + 聚焦個別資產選擇，而非總體位置調整
+  + 收取殖利率（債券、股利）
+  + 具定價能力的優質企業
+  + 溫和、多元分散配置
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "The Fed controls all interest rates."**
+**誤解一：「Fed控制所有利率。」**
 
-Reality: The Fed directly controls only the overnight federal funds rate. Longer-term rates like the 10-year Treasury yield are determined by market forces -- the collective buying and selling decisions of millions of investors worldwide. The Fed influences long-term rates through expectations and QE/QT, but it does not set them. In some periods, long-term rates have moved in the opposite direction from the Fed's short-term rate changes, a phenomenon called the "Greenspan conundrum."
+事實：Fed只直接控制隔夜聯邦資金利率。較長期利率（如10年期公債殖利率）由市場力量決定——即全球數百萬投資人集體買賣的結果。Fed透過預期引導以及量化寬鬆/量化緊縮間接影響長期利率，但並非直接設定。在某些時期，長期利率甚至朝Fed短期利率調整的反方向移動，這種現象被稱為「葛林斯潘謎題」。
 
-**Misconception 2: "Rising rates are always bad for stocks."**
+**誤解二：「升息對股票一定不利。」**
 
-Reality: The impact depends on why rates are rising. If rates rise because the economy is strong and growing (good inflation from demand), stocks often do well because earnings growth outpaces the valuation compression from higher rates. If rates rise because the Fed is fighting runaway inflation (cost-push inflation), stocks tend to suffer because the economic slowdown the Fed is engineering hurts earnings. Context matters enormously.
+事實：影響取決於升息的原因。若利率因為經濟強勁成長而上升（需求拉動的良性通膨），股票往往表現良好，因為盈餘成長足以抵消較高利率帶來的估值壓縮。若利率因為Fed對抗失控通膨（成本推動型通膨）而上升，股票往往受損，因為Fed刻意製造的經濟放緩會打壓盈餘。背景脈絡至關重要。
 
-**Misconception 3: "An inverted yield curve means a recession is imminent."**
+**誤解三：「殖利率曲線倒掛意味著景氣衰退迫在眉睫。」**
 
-Reality: While the inverted yield curve has preceded every US recession since 1960, the lead time is highly variable -- ranging from 6 months to over 2 years. Furthermore, stock markets often rally significantly after the initial inversion before eventually declining. Selling stocks the moment the curve inverts has historically been a poor strategy. The inversion is a warning to prepare, not a signal to panic.
+事實：雖然殖利率曲線倒掛確實領先預示了1960年以來每一次美國景氣衰退，但領先時間高度不確定——從6個月到逾2年不等。此外，股市在初次倒掛後往往還會顯著上漲，之後才開始下跌。在曲線一發生倒掛就賣出股票，歷史上是個糟糕的策略。倒掛是一個「應做好準備」的警示，而非「立刻恐慌」的信號。
 
-**Misconception 4: "Low interest rates mean money is cheap."**
+**誤解四：「低利率代表資金便宜。」**
 
-Reality: Low interest rates mean the nominal cost of borrowing is low, but the real cost depends on inflation. If rates are 2% and inflation is 4%, borrowing is effectively free -- someone is paying you to borrow in real terms. If rates are 5% and inflation is 1%, the real cost of borrowing is 4%, which is actually quite expensive. Always think in real (inflation-adjusted) terms.
+事實：低利率代表名目借貸成本較低，但實際成本取決於通膨。若利率為2%、通膨為4%，借貸實質上近乎免費——以實質計算，等於有人在付錢讓你借款。若利率為5%、通膨為1%，實質借貸成本為4%，其實相當昂貴。永遠要用實質（經通膨調整後）的角度來思考。
 
-**Misconception 5: "The Fed raises rates to hurt the stock market."**
+**誤解五：「Fed升息是為了傷害股市。」**
 
-Reality: The Fed's mandate is maximum employment and stable prices, not stock market performance. When the Fed raises rates, it is trying to slow an overheating economy and bring inflation under control. Lower stock prices are a side effect of tighter financial conditions, not the goal. In fact, the Fed would prefer that stock prices decline gradually rather than crash, because sharp market declines can destabilize the financial system, creating the opposite of what the Fed wants.
+事實：Fed的使命是充分就業與物價穩定，而非股市表現。Fed升息的目的是讓過熱的經濟降溫、將通膨帶回正軌。股價下跌是金融環境收緊的副作用，而非目標。事實上，Fed寧願股價緩步下跌，也不希望市場崩盤，因為市場的劇烈下跌可能動搖金融體系穩定，產生與Fed目標完全相反的結果。
 
-**Misconception 6: "You can predict when the Fed will raise or cut rates."**
+**誤解六：「你可以預測Fed何時升息或降息。」**
 
-Reality: While the Fed provides "forward guidance" about its intentions, it makes decisions based on incoming data, which is inherently uncertain. The Fed has frequently surprised markets by acting sooner, later, more aggressively, or less aggressively than expected. Fed funds futures markets provide probability-weighted expectations, but they have a mediocre track record of predicting actual rate paths more than a few months out.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I track what the Fed is expected to do?**
-
-A: The best tool is the CME FedWatch Tool, which shows the probability the market assigns to each possible rate outcome at upcoming FOMC meetings. These probabilities are derived from fed funds futures contracts. Also watch the Fed's "dot plot," published quarterly, which shows each FOMC member's projection for the future path of rates. Compare market expectations (FedWatch) with the Fed's own projections (dot plot) -- when they diverge, interesting trading opportunities can arise.
-
-**Q2: What should I do with my portfolio when the Fed starts raising rates?**
-
-A: Consider these steps: (1) Shorten the duration of your bond holdings -- move from long-term bonds to short-term bonds or bond ladders. (2) Ensure your stock holdings lean toward quality companies with strong balance sheets that can handle higher borrowing costs. (3) Reduce exposure to the most rate-sensitive sectors (utilities, REITs, speculative growth) if they are heavily represented. (4) Increase your cash allocation modestly -- higher rates mean cash actually pays something. (5) Do not try to time the exact top or bottom of the rate cycle; make gradual adjustments.
-
-**Q3: Why do bond prices fall when interest rates rise?**
-
-A: Because existing bonds with lower coupon rates become less attractive compared to newly issued bonds with higher coupons. If you hold a bond paying 3% and new bonds pay 5%, nobody will pay full price for your 3% bond. Its price drops until its effective yield matches the market rate. The longer the maturity, the greater the price drop because the bondholder is stuck with the below-market rate for longer. A useful rule of thumb: a bond's price changes by approximately its duration multiplied by the rate change. A bond with a duration of 7 years will lose roughly 7% of its value for each 1% increase in rates.
-
-**Q4: What is the "neutral rate" and why does it matter?**
-
-A: The neutral rate (also called r-star or r*) is the theoretical interest rate that neither stimulates nor restricts the economy. If the Fed sets rates below the neutral rate, monetary policy is stimulative. Above it, policy is restrictive. The problem is that nobody knows exactly what the neutral rate is -- it is estimated, not observed. Most economists believe it is somewhere around 2.5-3.5% in nominal terms, but this is a contentious debate. The neutral rate matters because it tells you whether current policy is easy, tight, or neutral.
-
-**Q5: How do negative interest rates work?**
-
-A: In some countries (Japan, parts of Europe), central banks have set negative policy rates, meaning banks are charged for depositing money at the central bank. The idea is to penalize banks for hoarding cash and incentivize them to lend. For investors, negative rates mean some government bonds have negative yields -- you are guaranteed to get back less than you invested if held to maturity. Investors still buy these bonds because they expect rates to go even more negative (price gains) or because they need safe assets regardless of return. The US has not implemented negative rates, but they were discussed during the pandemic.
-
-**Q6: How long does it take for rate changes to affect the economy?**
-
-A: Monetary policy operates with "long and variable lags," as Milton Friedman famously said. Short-term rates and financial markets react almost immediately. Mortgage and loan rates adjust within weeks. But the real economy -- hiring, spending, investment, and inflation -- takes 12-24 months to fully respond. This means the Fed is always making decisions based on where the economy will be in a year, not where it is today. It also means the Fed can overshoot -- raising rates too much because the lagged effects of previous hikes have not yet materialized.
-
-**Q7: Should I pay off my mortgage when rates are high?**
-
-A: It depends on the rate on your specific mortgage versus available investment returns. If you have a fixed-rate mortgage at 3% (locked in when rates were low), it makes little sense to pay it off early when you can earn 5% in a money market fund risk-free. But if your mortgage is at 7%, paying it off provides a guaranteed 7% return, which is hard to beat consistently in the market. Also consider the tax deduction for mortgage interest, which effectively lowers the rate for some borrowers.
-
-**Q8: What is quantitative easing and how does it differ from cutting rates?**
-
-A: When the Fed has already cut rates to near zero and the economy still needs stimulus, it turns to quantitative easing (QE). The Fed creates new money electronically and uses it to buy long-term Treasury bonds and mortgage-backed securities. This pushes down long-term rates (rates the Fed does not directly control), forces investors into riskier assets (since bonds pay less), and increases bank reserves. QE is essentially rate cuts for the long end of the yield curve. Quantitative tightening (QT) is the reverse -- the Fed lets bonds mature without reinvesting, shrinking its balance sheet and tightening financial conditions.
-
-**Q9: How do interest rates affect international investing?**
-
-A: When US rates rise relative to other countries, the US dollar typically strengthens because foreign investors move capital to the US seeking higher yields. A stronger dollar reduces returns on foreign investments when converted back to dollars. Conversely, when US rates fall relative to other countries, the dollar weakens, boosting foreign investment returns. Emerging markets are particularly affected because many have dollar-denominated debt -- a stronger dollar makes their debt burden heavier, sometimes triggering financial crises.
-
-**Q10: What happens to my bond portfolio in a rising rate environment?**
-
-A: Your existing bonds lose market value (prices fall), but the income they generate stays the same (coupons are fixed). If you hold to maturity, you get your principal back regardless of interim price changes. The pain comes from opportunity cost -- you are stuck earning a below-market rate until the bond matures. To mitigate this, consider a bond ladder (bonds maturing at regular intervals so you can reinvest at higher rates) or use shorter-duration bonds that are less price-sensitive to rate changes.
+事實：雖然Fed會提供關於其意圖的「前瞻指引」，但決策依據是持續進入的經濟數據，而這本質上就帶有不確定性。Fed過去經常出乎市場預料——行動時間更早或更晚，力道更猛或更溫和，皆有案可循。聯邦資金期貨市場提供了帶有機率加權的預期，但對於超過幾個月的實際利率路徑，其預測紀錄並不理想。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Animated intro with title "Week 18: Interest Rates and Central Bank Policy"]
+**Q1：我如何追蹤Fed預期的動向？**
 
-**Alex:** Welcome back everyone. Today we are going to talk about the single most important force in all of financial markets. Not earnings, not GDP, not even inflation directly. We are talking about interest rates and central bank policy.
+A：最好的工具是CME FedWatch工具，它免費提供市場對各次FOMC會議可能利率決策的機率分佈，這些機率來自聯邦資金期貨合約。此外，也請關注Fed每季發布的「點狀圖」，顯示每位FOMC委員對未來利率路徑的預測。比較市場預期（FedWatch）與Fed自身的預測（點狀圖）——當兩者出現分歧時，往往會產生值得關注的交易機會。
 
-**Sam:** Alex, I will be honest. Whenever I hear about the Fed or interest rate decisions on the news, my eyes glaze over. It sounds like something only economists care about.
+**Q2：Fed開始升息時，我的投資組合應如何調整？**
 
-**Alex:** And that reaction is exactly why so many investors get blindsided by rate changes. Let me put it in perspective. In 2022 and 2023, the Federal Reserve raised interest rates from essentially zero to over 5%. That single policy shift caused the worst bond market performance in modern history, triggered the collapse of three major banks, and knocked trillions of dollars off stock market values. Meanwhile, savers went from earning nothing on their cash to earning 5%. Every single investor was affected by those rate changes.
+A：可考慮以下步驟：（1）縮短債券持倉的存續期間——從長期債券轉向短期債券或債券梯形配置。（2）確保股票持倉偏向資產負債表健全、能夠承受較高借貸成本的優質企業。（3）若對利率最敏感的類股（公用事業、REIT、投機性成長股）占比過重，適度降低持倉。（4）小幅提高現金配置——較高利率意味著現金確實能產生報酬。（5）不要嘗試精準掌握利率循環的頂部或底部；採取漸進式調整。
 
-**Sam:** Okay, you have my attention. Start from the beginning -- what exactly is an interest rate?
+**Q3：為什麼利率上升時債券價格會下跌？**
 
-**Alex:** At its simplest, an interest rate is the price of borrowing money. If you borrow $1,000 at 5% interest, you pay $50 per year for the privilege of using someone else's money. If you deposit $1,000 in a savings account at 5%, the bank pays you $50 per year for the privilege of using your money. The rate is the price that equilibrates borrowers and lenders.
+A：因為持有較低票面利率的現有債券，相較於新發行的較高票面利率債券，吸引力下降。若你持有一張3%票面利率的債券，而新發行債券已有5%的票面利率，沒有人願意以票面價值購買你的3%債券。它的價格必須下跌，直到其有效殖利率與市場利率相符。到期日越長，價格跌幅越大，因為持有人將長期被迫承受低於市場的報酬率。一個實用的經驗法則：債券價格的變化幅度約等於其存續期間乘以利率變動幅度。一張存續期間為7年的債券，每當利率上升1%，將損失約7%的市值。
+
+**Q4：什麼是「中性利率」，為何重要？**
+
+A：中性利率（也稱r星或r*）是理論上既不刺激也不限制經濟的利率水準。若Fed將利率設定在低於中性利率的水準，貨幣政策具有刺激效果；高於中性利率則具有限制效果。問題在於，沒有人確切知道中性利率是多少——它是估算出來的，無法直接觀察。大多數經濟學家認為名目中性利率約在2.5%至3.5%之間，但這仍是一個有爭議的議題。中性利率之所以重要，是因為它能告訴你當前政策是寬鬆、緊縮還是中性。
+
+**Q5：負利率是如何運作的？**
+
+A：在某些國家（日本、部分歐洲國家），央行曾設定負政策利率，意即銀行需為在央行存放的資金支付費用。這樣做的目的是懲罰囤積現金的銀行，迫使它們轉而放貸。對投資人而言，負利率意味著部分政府債券的殖利率為負——若持有至到期日，你保證拿回的金額少於投入金額。儘管如此，投資人仍會購買這些債券，因為他們預期利率將進一步走低（帶來資本利得），或因為他們無論如何都需要持有安全資產。美國尚未實施負利率，但在新冠疫情期間曾被討論過。
+
+**Q6：利率變化需要多長時間才能影響到實體經濟？**
+
+A：貨幣政策的效果存在「漫長且不確定的落後時間」，正如米爾頓・傅利曼的名言所述。短期利率與金融市場幾乎即時反應。房貸和貸款利率在數週內調整。但實體經濟——招募員工、消費支出、企業投資和通膨——需要12至24個月才能完全響應。這意味著Fed的決策必須立足於一年後的經濟狀況，而非當下。這也意味著Fed可能過度反應——因為先前升息的滯後效果尚未完全顯現，便持續升息，最終升息過度。
+
+**Q7：利率高時，我該還清房貸嗎？**
+
+A：這取決於你特定房貸的利率，對比可獲得的投資報酬。若你有一筆在低利率時期鎖定的3%固定利率房貸，在貨幣市場基金可獲得5%的無風險報酬之際，提前還清房貸意義不大。但若你的房貸利率為7%，提前還清則等同於獲得7%的保證報酬，這在市場上是難以持續超越的水準。此外，還需考慮房貸利息稅務扣除的因素，這對部分借款人而言，實際上能有效降低利率。
+
+**Q8：量化寬鬆是什麼？與降息有何不同？**
+
+A：當Fed已將利率降至接近零、但經濟仍需刺激時，便會採用量化寬鬆（QE）。Fed以電子方式創造新貨幣，用以購買長期公債和不動產抵押貸款證券。這會壓低長期利率（Fed無法直接控制的利率區間），迫使投資人轉向風險資產（因為債券報酬降低），同時增加銀行準備金。QE本質上是對殖利率曲線長端的降息操作。量化緊縮（QT）則是反向操作——Fed讓到期債券自然到期，不再滾動投資，縮減資產負債表規模，以收緊金融環境。
+
+**Q9：利率如何影響國際投資？**
+
+A：當美國利率相對其他國家上升，美元通常走強，因為外國投資人將資金移往美國以追求較高殖利率。美元走強會侵蝕外國投資折換回美元時的報酬。反之，當美國利率相對其他國家下降，美元走弱，提升了外國投資的報酬。新興市場受此影響尤深，因為許多國家有大量美元計價的債務——美元走強使其債務負擔加重，有時甚至引發金融危機。
+
+**Q10：利率上升環境中，我的債券投資組合會怎樣？**
+
+A：你現有的債券市值將下跌（價格下跌），但它們產生的收益維持不變（票面利率是固定的）。若你持有至到期日，無論期間價格如何波動，你都能拿回本金。痛苦在於機會成本——在債券到期前，你被迫承受低於市場的報酬率。為降低這種影響，可考慮採用債券梯形配置（讓債券在不同時點定期到期，以便在較高利率下滾動再投資），或持有存續期間較短、對利率變化價格敏感度較低的債券。
+
+---
+
+## YouTube腳本
+
+[VISUAL: Animated intro with title "第18週：利率與央行政策"]
+
+**Horace（陳馬）：** 大家好，歡迎回來。今天我們要聊的，是整個金融市場中最重要的單一力量。不是盈餘，不是GDP，甚至不是通膨本身。我們要談的是利率與央行政策。
+
+**Stella（小魚）：** 陳馬，說實話，每次新聞上談到Fed或利率決策，我都會自動跳過。感覺那是只有經濟學家才需要關心的事。
+
+**Horace（陳馬）：** 而這個反應，正是為什麼那麼多投資人會被利率變化打個措手不及。讓我給你一個具體的情境。2022年到2023年間，美聯準會將利率從接近零升至逾5%。就這單一政策轉變，造成現代史上最慘烈的債券市場表現、引發三家大型銀行倒閉，並讓股市蒸發數兆美元的市值。與此同時，儲蓄者從現金帳戶幾乎零報酬，一下子在貨幣市場基金獲得5%收益。每一位投資人，都被那次利率變化所影響。
+
+**Stella（小魚）：** 好，你成功引起我的注意了。從頭說起吧——利率到底是什麼？
+
+**Horace（陳馬）：** 最簡單的說法，利率是借貸資金的價格。你借了一萬元，年利率5%，你每年就需要支付五百元，作為使用別人資金的代價。你在銀行存了一萬元，利率5%，銀行每年支付你五百元，作為使用你資金的代價。利率就是讓借款方與貸款方達到平衡的那個價格。
 
 [VISUAL: Simple animated diagram showing money flowing from a lender to a borrower, with interest payments flowing back. The interest rate is displayed as a dial that can be turned up or down, with arrows showing how the flow of borrowing changes as the rate changes.]
 
-**Sam:** That makes sense. So who decides what the interest rate is?
+**Stella（小魚）：** 這樣理解很直觀。那是誰在決定利率呢？
 
-**Alex:** Great question, and the answer is more complex than most people realize. There is not one single interest rate -- there is an entire ecosystem of rates. But the anchor for the whole system is the federal funds rate, which is set by the Federal Reserve. Specifically, by the Federal Open Market Committee, or FOMC.
+**Horace（陳馬）：** 很好的問題，而且答案比大多數人想像的還要複雜。利率並非只有單一一個數字——它是由許多相互連動的利率所構成的完整生態系統。但整個系統的錨點，是由聯邦準備理事會（Fed）設定的聯邦資金利率，具體來說，是由聯邦公開市場委員會（FOMC）來設定。
 
-**Sam:** What is the federal funds rate?
+**Stella（小魚）：** 聯邦資金利率是什麼？
 
-**Alex:** It is the rate that banks charge each other for overnight loans. Banks need to meet certain reserve requirements, and at the end of each day, banks with excess reserves lend to banks with deficits. The interest rate on these overnight loans is the fed funds rate. It might sound like a trivial, obscure banking detail, but it is the foundation of the entire interest rate structure.
+**Horace（陳馬）：** 它是銀行之間隔夜拆借的利率。銀行需要維持一定水準的準備金，每天結束時，準備金有餘的銀行會將資金借給準備金不足的銀行。這些隔夜貸款的利率，就是聯邦資金利率。這聽起來或許是個細枝末節的銀行業小事，但它卻是整個利率結構的基石。
 
-[VISUAL: Animated flow diagram showing Bank A with excess reserves lending to Bank B with insufficient reserves overnight. An arrow shows the interest payment flowing back. The fed funds rate is displayed prominently above, with text showing "The Fed sets a TARGET for this rate"]
+[VISUAL: Animated flow diagram showing Bank A with excess reserves lending to Bank B with insufficient reserves overnight. An arrow shows the interest payment flowing back. The fed funds rate is displayed prominently above, with text showing "Fed設定此利率的目標值"]
 
-**Alex:** Every other important rate in the economy is connected to the fed funds rate. The prime rate -- what banks charge their best customers -- is typically fed funds plus 3 percentage points. Mortgage rates, auto loan rates, credit card rates, corporate bond yields -- they all trace back to this one rate.
+**Horace（陳馬）：** 整個經濟體中其他所有重要利率，都與聯邦資金利率相連。基準利率——銀行向最優質客戶收取的利率——通常是聯邦資金利率加3個百分點。房貸利率、汽車貸款利率、信用卡利率、公司債殖利率——全部都可以追溯到這一個利率。
 
-**Sam:** Why does the Fed change this rate? What are they trying to accomplish?
+**Stella（小魚）：** 那Fed為什麼要改變這個利率？它想達到什麼目的？
 
-**Alex:** The Federal Reserve has what is called a dual mandate from Congress. Two jobs. One, maximum employment -- keep as many people working as possible. Two, stable prices -- keep inflation at around 2% per year. When the economy is weak and unemployment is high, the Fed lowers rates to make borrowing cheaper, which stimulates spending and hiring. When the economy is overheating and inflation is rising, the Fed raises rates to make borrowing more expensive, which cools spending and brings prices under control.
+**Horace（陳馬）：** 聯邦準備理事會受國會授權，肩負所謂的「雙重使命」。兩項任務。其一，充分就業——讓盡可能多的人有工作。其二，物價穩定——讓通膨維持在每年約2%的水準。當經濟走弱、失業率偏高，Fed就降息，讓借貸更便宜，刺激支出與就業。當經濟過熱、通膨上升，Fed就升息，讓借貸更昂貴，為支出降溫，抑制物價上漲。
 
-[ANIMATION: animation/week18_dual_mandate.py - An animated balance scale. On one side is "Employment" with a jobs meter, on the other is "Prices" with an inflation gauge. The Fed Funds Rate is shown as a lever in the middle. When the lever is pushed down (rate cut), employment rises but inflation also increases. When pulled up (rate hike), inflation cools but employment weakens. The animation shows the Fed trying to find the balance point where both are at healthy levels.]
+[ANIMATION: animation/week18_dual_mandate.py - An animated balance scale. On one side is "就業" with a jobs meter, on the other is "物價" with an inflation gauge. The Fed Funds Rate is shown as a lever in the middle. When the lever is pushed down (rate cut), employment rises but inflation also increases. When pulled up (rate hike), inflation cools but employment weakens. The animation shows the Fed trying to find the balance point where both are at healthy levels.]
 
-**Sam:** That sounds straightforward. Why does it ever go wrong?
+**Stella（小魚）：** 聽起來方向很清楚。那為什麼還是常常出問題？
 
-**Alex:** Because there are long and variable time lags. When the Fed changes rates today, the full effect does not hit the economy for 12 to 24 months. So the Fed is always flying blind to some degree -- they are making decisions based on where they think the economy will be a year from now, not where it is today. This means they can easily overshoot. They might raise rates too much and cause a recession, or keep them too low for too long and let inflation get out of control.
+**Horace（陳馬）：** 因為存在漫長且不確定的時間落差。Fed今天改變利率，完整效果要12至24個月後才會衝擊到實體經濟。所以Fed在某種程度上永遠是在盲目飛行——他們的決策是基於他們認為一年後的經濟狀況，而非當下的現實。這就很容易矯枉過正。可能升息太多導致景氣衰退，也可能在通膨明顯升溫後還繼續維持低利率。
 
-**Sam:** Has that happened in real life?
+**Stella（小魚）：** 這些情況在現實中發生過嗎？
 
-**Alex:** Many times. In the early 1980s, Fed Chairman Paul Volcker raised the fed funds rate to an astonishing 20% to kill double-digit inflation. It worked, but it caused two severe recessions and the unemployment rate hit 10.8%. In 2020 and 2021, the Fed kept rates at zero and pumped trillions into the economy even as inflation began rising, and they kept calling it "transitory." By the time they started raising rates in 2022, inflation had hit 9.1%, and they had to hike at the fastest pace in 40 years.
+**Horace（陳馬）：** 許多次。1980年代初期，Fed主席保羅・伏克爾將聯邦資金利率升至令人咋舌的20%，以消滅兩位數通膨。這招成功了，但也造成兩次嚴重景氣衰退，失業率飆升至10.8%。2020年和2021年，Fed在通膨開始升溫之際仍維持零利率、大規模注入流動性，持續將通膨定性為「暫時性的」。等到2022年開始升息時，通膨已達9.1%，不得不以40年來最快的速度連續升息。
 
-[VISUAL: Historical chart of the Fed Funds Rate from 1960 to present, with key events labeled: "Volcker's War on Inflation (20%)", "Dot-com bust (rate cuts)", "Financial Crisis (zero bound)", "COVID (back to zero)", "2022 hiking cycle". Recession bars are shaded in gray behind the rate line.]
+[VISUAL: Historical chart of the Fed Funds Rate from 1960 to present, with key events labeled: "伏克爾的抗通膨之戰（20%）", "網路泡沫破滅（降息）", "金融危機（利率觸及零下限）", "新冠（再度降至零）", "2022年升息循環". Recession bars are shaded in gray behind the rate line.]
 
-**Sam:** How do rate changes actually flow through to the real economy and to my investments?
+**Stella（小魚）：** 利率變化又是如何傳導到實體經濟和我的投資的呢？
 
-**Alex:** There are several channels, and they work at different speeds. Let me walk through them. The first and most direct is the borrowing cost channel. When the Fed raises rates, every form of borrowing becomes more expensive. Mortgages, auto loans, credit cards, business loans -- all of them adjust upward. This means consumers borrow less and spend less, and businesses invest less.
+**Horace（陳馬）：** 有幾個渠道，而且它們發揮效果的速度不同。讓我一一說明。第一個也是最直接的，是借貸成本渠道。Fed升息後，所有形式的借貸都變得更昂貴。房貸、汽車貸款、信用卡、企業貸款——全部上調。這意味著消費者借貸減少、支出減少，企業投資減少。
 
-**Sam:** I saw this myself. When mortgage rates went from 3% to 7%, it felt like the housing market froze.
+**Stella（小魚）：** 我自己就有這種感受。當房貸利率從3%升至7%，感覺整個房市就凍住了。
 
-**Alex:** And for good reason. On a $400,000 mortgage, the monthly payment at 3% is about $1,686. At 7%, it is $2,661. That is almost $1,000 more per month for the same house. Many would-be buyers were simply priced out of the market.
+**Horace（陳馬）：** 原因顯而易見。以一筆400萬元的房貸為例，3%利率下，每月還款約一萬四千元；7%利率下，每月還款約兩萬二千元。同一棟房子，每個月多出近八千元。許多潛在買家，就這樣被直接擋在購屋門檻之外了。
 
 [VISUAL: Side-by-side mortgage calculator showing a $400,000 house at 3% vs 7%. Monthly payment, total interest paid over 30 years, and the monthly income required to qualify are compared. The difference is stark and highlighted.]
 
-**Alex:** The second channel is asset prices. This one is critical for investors to understand. Every stock valuation model involves discounting future cash flows back to the present. When interest rates rise, that discount rate rises, and the present value of future cash flows falls. This mechanically pushes stock prices down.
+**Horace（陳馬）：** 第二個渠道是資產價格。這對投資人來說至關重要。每一種股票估值模型，都涉及將未來現金流折現回現在。當利率上升，折現率隨之上升，未來現金流的現值就會下降。這在機制上就會直接推低股票價格。
 
-**Sam:** Is that why growth stocks got hammered so badly in 2022?
+**Stella（小魚）：** 這就是為什麼成長型股票在2022年跌得那麼慘？
 
-**Alex:** Exactly. And here is why growth stocks are more affected than value stocks. A growth stock's value comes mostly from cash flows way out in the future -- years 10, 15, 20 from now. Those distant cash flows are the most sensitive to discount rate changes. A value stock or a dividend-paying stock generates most of its cash flows in the near term, so it is less affected.
+**Horace（陳馬）：** 正是。而且這裡有個關鍵點可以解釋為什麼成長型股票比價值型股票更受衝擊。成長型股票的價值，大部分來自非常遙遠的未來現金流——距今10年、15年、20年後的盈餘。這些遙遠的現金流，對折現率的變化最為敏感。而價值型股票或高股利股票的大部分現金流來自近期，受到的影響就小得多。
 
-[ANIMATION: animation/week18_dcf_rates.py - Two animated DCF models side by side. Growth company has small bars in early years growing to large bars in later years. Value company has consistent, moderate bars throughout. A "discount rate" slider moves from 3% to 7%, and viewers can see how the present value bars shrink -- the growth company's distant bars shrink dramatically while the value company's near-term bars barely change. Total present values are summed, showing growth company losing 40% of value while value company loses only 15%.]
+[ANIMATION: animation/week18_dcf_rates.py - Two animated DCF models side by side. Growth company has small bars in early years growing to large bars in later years. Value company has consistent, moderate bars throughout. A "折現率" slider moves from 3% to 7%, and viewers can see how the present value bars shrink -- the growth company's distant bars shrink dramatically while the value company's near-term bars barely change. Total present values are summed, showing growth company losing 40% of value while value company loses only 15%.]
 
-**Sam:** That is such a clear illustration. What about the other channels?
+**Stella（小魚）：** 這張圖解釋得非常清楚。那其他的傳導渠道呢？
 
-**Alex:** The third is the exchange rate channel. When US rates rise relative to other countries, foreign investors move money to the US to earn higher yields. This increases demand for dollars, which strengthens the dollar. A stronger dollar hurts US exporters because their products become more expensive for foreign buyers, but it helps consumers because imports become cheaper -- which actually helps reduce inflation.
+**Horace（陳馬）：** 第三個是匯率渠道。當美國利率相對其他國家上升，外國投資人會將資金移往美國以追求較高殖利率。這增加了對美元的需求，推動美元升值。美元走強不利美國出口商，因為他們的產品對外國買家而言變得更貴；但有利消費者，因為進口品變便宜了——這實際上也有助於壓低通膨。
 
-**Alex:** The fourth channel is bank lending. Higher rates actually help bank profits initially because the spread between what they pay depositors and charge borrowers widens. But as rates stay high, loan demand drops, defaults increase, and banks tighten lending standards. Less lending means less economic activity.
+**Horace（陳馬）：** 第四個渠道是銀行放貸。升息初期其實有助於提升銀行獲利，因為存款利率與放貸利率之間的利差擴大了。但隨著利率維持高位，貸款需求下滑，違約增加，銀行收緊放貸標準。放貸減少，代表經濟活動跟著萎縮。
 
-**Sam:** And the fifth?
+**Stella（小魚）：** 第五個呢？
 
-**Alex:** Expectations. This might be the most important channel and the least understood. When the Fed convincingly signals that it will do whatever it takes to bring inflation down, businesses start moderating their price increases and workers moderate their wage demands -- even before the actual rate hikes fully bite. Credibility matters enormously.
+**Horace（陳馬）：** 預期。這可能是最重要、也最容易被忽視的渠道。當Fed明確表態將不計代價將通膨壓下來，企業就會開始收斂漲價行為，勞工也會調低加薪要求——甚至在實際升息的全面衝擊到來之前，效果就已顯現。公信力在這裡極為關鍵。
 
-[VISUAL: Diagram showing the five channels flowing from "Fed Raises Rates" at the top down to "Economy Slows / Inflation Falls" at the bottom, with timing estimates next to each channel: "Immediate" for financial markets, "Weeks" for mortgage rates, "Months" for borrowing behavior, "6-18 months" for real economy, "12-24 months" for inflation]
+[VISUAL: Diagram showing the five channels flowing from "Fed升息" at the top down to "經濟放緩 / 通膨降溫" at the bottom, with timing estimates next to each channel: "即時" for financial markets, "數週" for mortgage rates, "數月" for borrowing behavior, "6至18個月" for real economy, "12至24個月" for inflation]
 
-**Sam:** You mentioned the yield curve earlier. Can you explain what that is?
+**Stella（小魚）：** 你之前提到了殖利率曲線。你可以解釋一下這是什麼嗎？
 
-**Alex:** The yield curve is one of the most important charts in all of finance. It plots the interest rate for government bonds of different maturities on the same graph -- from 3-month T-bills all the way to 30-year bonds.
+**Horace（陳馬）：** 殖利率曲線是整個金融界最重要的圖表之一。它將政府債券從3個月期國庫券到30年期公債的各種到期日的利率，繪製在同一張圖上。
 
-**Sam:** And what does its shape tell you?
+**Stella（小魚）：** 它的形狀能告訴我們什麼？
 
-**Alex:** Everything. Normally, the yield curve slopes upward -- longer-term bonds have higher yields because investors demand more compensation for locking up their money for longer periods. This is a healthy signal indicating the economy is expected to grow normally.
+**Horace（陳馬）：** 一切。正常情況下，殖利率曲線向上傾斜——期限越長的債券殖利率越高，因為投資人要求對更長期鎖定資金得到更多補償。這是一個健康的訊號，顯示市場預期經濟將正常成長。
 
-**Alex:** But when the yield curve inverts -- when short-term rates are HIGHER than long-term rates -- that is the market saying "I expect the economy to weaken and rates to fall in the future." An inverted yield curve has preceded every single US recession since 1960.
+**Horace（陳馬）：** 但當殖利率曲線倒掛——短期利率高於長期利率——那代表市場在說：「我預期未來經濟將走弱，利率將會下降。」殖利率曲線倒掛已領先預示了1960年以來每一次美國景氣衰退。
 
-[VISUAL: Three animated yield curves. First, a normal upward-sloping curve labeled "Healthy Economy." Second, a flat curve labeled "Transition / Uncertainty." Third, an inverted curve labeled "Recession Warning." Each curve morphs into the next to show how the transition typically happens during a tightening cycle.]
+[VISUAL: Three animated yield curves. First, a normal upward-sloping curve labeled "經濟健康". Second, a flat curve labeled "過渡 / 不確定". Third, an inverted curve labeled "景氣衰退警示". Each curve morphs into the next to show how the transition typically happens during a tightening cycle.]
 
-**Sam:** Every single one? That is a pretty strong track record.
+**Stella（小魚）：** 每一次都有？這個紀錄真的很驚人。
 
-**Alex:** It is. But there is a very important caveat. The lead time is variable. Sometimes the recession comes 6 months after the inversion, sometimes 2 years later. And the stock market often continues to rally after the initial inversion before eventually declining. So the yield curve inversion is a warning to prepare, not a signal to sell everything immediately.
+**Horace（陳馬）：** 確實。但有一個非常重要的附帶說明：領先時間是不確定的。有時候曲線倒掛後6個月就發生衰退，有時候要等2年。而且股市往往在初次倒掛後還會繼續大幅上漲，之後才開始下跌。因此，殖利率曲線倒掛是一個提醒你做好準備的警示，而不是立刻賣出所有資產的信號。
 
-**Sam:** How should I position my portfolio in different rate environments?
+**Stella（小魚）：** 在不同的利率環境下，我的投資組合應該如何配置？
 
-**Alex:** Let me give you the simplified playbook. When rates are falling -- the Fed is cutting -- you generally want to extend the duration of your bond holdings to lock in higher yields before they disappear. Growth stocks tend to outperform because lower discount rates boost their valuations. Interest-rate-sensitive sectors like REITs and utilities benefit.
+**Horace（陳馬）：** 讓我給你一個簡化的操作手冊。當利率下降——也就是Fed降息——你通常會想要延長債券持倉的存續期間，在殖利率消失前先鎖定較高的報酬。成長型股票往往優於其他類型，因為較低的折現率推升了它們的估值。對利率敏感的類股，如REIT和公用事業，也從中受益。
 
-**Alex:** When rates are rising, you want shorter-duration bonds to minimize price losses. Value stocks and financials tend to do better. Cash actually becomes attractive again because money market funds pay meaningful yields.
+**Horace（陳馬）：** 當利率上升，你要縮短債券存續期間，以降低價格損失。價值型股票和金融類股往往表現較好。現金再度變得有吸引力，因為貨幣市場基金開始提供實質報酬。
 
-[VISUAL: Two-column comparison chart. Left column: "Falling Rates Playbook" with icons for longer bonds, growth stocks, REITs, and a thumbs-down on cash. Right column: "Rising Rates Playbook" with icons for shorter bonds, value stocks, financials, and a thumbs-up on cash.]
+[VISUAL: Two-column comparison chart. Left column: "利率下降操作手冊" with icons for longer bonds, growth stocks, REITs, and a thumbs-down on cash. Right column: "利率上升操作手冊" with icons for shorter bonds, value stocks, financials, and a thumbs-up on cash.]
 
-**Sam:** This is really practical. One thing I have heard about is real versus nominal interest rates. What is the difference and why should I care?
+**Stella（小魚）：** 這真的很實用。我也聽過實質利率和名目利率的說法。這兩者有什麼差異，為什麼我應該在意？
 
-**Alex:** This is absolutely critical. The nominal interest rate is the number you see quoted -- say, 5%. The real interest rate is the nominal rate minus inflation. If you earn 5% on your savings but inflation is 3.5%, your real return is only 1.5%. Your purchasing power -- what your money can actually buy -- is growing at 1.5%, not 5%.
+**Horace（陳馬）：** 這非常關鍵。名目利率是你看到的公告數字，比如5%。實質利率是名目利率減去通膨率。如果你的存款賺到5%，但通膨是3.5%，你的實質報酬只有1.5%。你的購買力——你的錢實際上能買到什麼——只成長了1.5%，不是5%。
 
-**Sam:** So if inflation is higher than the interest rate, I am actually losing money?
+**Stella（小魚）：** 所以如果通膨高於利率，我的錢實際上在縮水？
 
-**Alex:** In real terms, yes. And this happened for most of the 2010s and into 2021. Interest rates were near zero while inflation, even though it was low, was still 1 to 2%. Savers were slowly losing purchasing power every single year. This is sometimes called "financial repression" -- governments benefit from negative real rates because it erodes the real value of government debt over time.
+**Horace（陳馬）：** 以實質計算，是的。而這種情況在2010年代大部分時間以及2021年前後都發生過。當時利率接近零，即使通膨相對溫和，每年也有1%至2%的侵蝕。儲蓄者的購買力年復一年慢慢流失。這有時被稱為「金融抑制」——政府從負實質利率中獲益，因為這會隨著時間侵蝕政府債務的實質價值。
 
-[ANIMATION: animation/week18_real_rates.py - Animated visualization showing a $100 bill. At a 5% nominal rate, the bill grows to $105. But then an "inflation eraser" (at 3.5%) comes and rubs away part of the gain, leaving only $101.50 of real purchasing power. Then a scenario where inflation is 6% and the nominal rate is 4% -- the eraser removes MORE than what was added, leaving the bill visibly smaller in real terms.]
+[ANIMATION: animation/week18_real_rates.py - Animated visualization showing a $100 bill. At a 5% nominal rate, the bill grows to $105. But then an "通膨侵蝕" (at 3.5%) comes and rubs away part of the gain, leaving only $101.50 of real purchasing power. Then a scenario where inflation is 6% and the nominal rate is 4% -- the eraser removes MORE than what was added, leaving the bill visibly smaller in real terms.]
 
-**Sam:** That really drives the point home. So when people say "rates are high" or "rates are low," they should really be specifying whether they mean nominal or real?
+**Stella（小魚）：** 這真的讓人一看就懂。所以當有人說利率「高」或「低」，他們應該要說清楚是指名目利率還是實質利率？
 
-**Alex:** Exactly. A 15% nominal rate sounds impossibly high, but if inflation is 12%, the real rate is only 3%. That is roughly what the early 1980s looked like. A 5% nominal rate with 2% inflation gives a real rate of 3%, which is quite restrictive historically. Always think in real terms when making investment decisions.
+**Horace（陳馬）：** 正是如此。15%的名目利率聽起來高得離譜，但若通膨是12%，實質利率只有3%。這大約就是1980年代初期的情況。5%的名目利率搭配2%的通膨，實質利率是3%，這在歷史上其實屬於相當緊縮的水準。做投資決策時，永遠要用實質的角度思考。
 
-**Sam:** Let me ask a big-picture question. Can you walk me through how the last few major rate cycles affected investors?
+**Stella（小魚）：** 我想問一個大方向的問題。能不能帶我們回顧幾個重要的利率循環，看看它們如何影響投資人？
 
-**Alex:** Great question. Let us look at the last three major cycles. After the 2008 financial crisis, the Fed cut rates to zero and kept them there for seven years, from 2008 to 2015. This was combined with three rounds of quantitative easing, where the Fed bought trillions of dollars of bonds. This pushed investors out of safe assets and into stocks, real estate, and riskier bonds. Anyone who bought stocks in 2009 earned extraordinary returns.
+**Horace（陳馬）：** 好問題。我們來看最近三個主要循環。2008年金融危機後，Fed將利率降至零，並維持了整整七年，從2008年到2015年。這期間配合三輪量化寬鬆，Fed購入數兆美元的債券。這迫使投資人離開安全資產，轉向股票、不動產和風險較高的債券。2009年買進股票的人，獲得了驚人的報酬。
 
-**Sam:** Because low rates made everything more valuable?
+**Stella（小魚）：** 因為低利率讓所有東西都更值錢了？
 
-**Alex:** Precisely. Low discount rates inflated all asset prices. The S&P 500 went from about 700 in March 2009 to over 3,300 by the end of 2019. But it also created distortions. Companies borrowed cheaply to buy back stock rather than invest in their businesses. Speculative investments in unprofitable companies were rewarded because the cost of waiting for future profits was low.
+**Horace（陳馬）：** 完全正確。低折現率使所有資產的估值膨脹。標普500從2009年3月的約700點，漲至2019年底的逾3,300點。但這也帶來扭曲。企業以超低成本借款來回購股票，而不是投資在本業上。對尚未獲利企業的投機性投資被大力追捧，因為等待未來盈利的成本極低。
 
-**Alex:** Then COVID hit in March 2020. The Fed cut rates back to zero and launched massive QE again. Combined with trillions in fiscal stimulus, this created an enormous boom in asset prices -- stocks, crypto, meme stocks, housing -- everything soared. But it also planted the seeds of the worst inflation in 40 years.
+**Horace（陳馬）：** 然後2020年3月新冠疫情爆發。Fed再度將利率降至零，並大規模啟動量化寬鬆。加上數兆美元的財政刺激，催生了資產價格的巨大泡沫——股票、加密貨幣、迷因股、房市——所有東西都飆漲。但這同時也埋下了40年來最嚴重通膨的種子。
 
-**Sam:** And then the Fed had to hike aggressively.
+**Stella（小魚）：** 然後Fed不得不積極升息。
 
-**Alex:** Right. Starting in March 2022, the Fed raised rates from zero to over 5% in about 18 months -- the fastest hiking cycle since the early 1980s. The results were brutal for investors who were positioned for the low-rate world. Long-term Treasury bonds lost over 30% of their value. The Nasdaq dropped about 33%. Speculative assets like crypto and unprofitable tech stocks dropped 70, 80, even 90%.
+**Horace（陳馬）：** 對。從2022年3月開始，Fed在約18個月內將利率從零升至逾5%——這是1980年代初以來最快速的升息循環。對那些仍以低利率思維布局投資組合的投資人來說，後果是慘烈的。長期美國公債跌去超過30%的市值。那斯達克下跌約33%。加密貨幣和尚未獲利的科技股，則跌了70%、80%甚至90%。
 
 [VISUAL: Timeline from 2008 to present showing three major rate cycles with the Fed Funds Rate line, annotated with key market events. Below the rate line, three asset class panels show the performance of stocks, bonds, and real estate in each regime, illustrating how different environments rewarded different strategies.]
 
-**Sam:** So investors who did not understand rates got crushed.
+**Stella（小魚）：** 所以不懂利率的投資人，就這樣被殺慘了。
 
-**Alex:** Many did. Banks like Silicon Valley Bank had loaded up on long-duration bonds when rates were near zero. When rates spiked, those bonds lost massive amounts of value, the bank became insolvent, and depositors fled. This was a textbook rate risk disaster.
+**Horace（陳馬）：** 很多人確實如此。像矽谷銀行這樣的金融機構，在利率接近零時大量配置了長存續期間債券。利率驟升後，這些債券市值大幅縮水，銀行因此陷入資不抵債，存款人紛紛擠兌。這是利率風險管理失敗的教科書級案例。
 
-**Sam:** What should someone do right now? How do they figure out the current rate environment?
+**Stella（小魚）：** 那現在呢？投資人應該如何判斷當前的利率環境？
 
-**Alex:** Here is what I would recommend for any investor. First, know the current fed funds rate and where the market expects it to go. Check the CME FedWatch Tool -- it is free and shows the probability of rate changes at each upcoming Fed meeting. Second, look at the yield curve. Is it normal, flat, or inverted? That tells you what the bond market expects for the economy. Third, calculate the real interest rate by subtracting current inflation from the nominal rate. That tells you whether policy is truly restrictive or still accommodative.
+**Horace（陳馬）：** 我會建議每位投資人做三件事。第一，了解當前的聯邦資金利率，以及市場預期的走向。查看CME FedWatch工具——完全免費，顯示市場對各次FOMC會議每種可能結果的機率分佈。第二，觀察殖利率曲線。它是正常、平坦還是倒掛？這告訴你債券市場對經濟前景的預期。第三，用名目利率減去當前通膨，算出實質利率。這告訴你目前的政策究竟是真正緊縮的，還是仍具寬鬆效果。
 
-[VISUAL: Screenshot-style mock-up of the CME FedWatch Tool showing current rate probabilities, alongside a current yield curve chart and a real rate calculation, all labeled as "Your Three Rate-Watching Tools"]
+[VISUAL: Screenshot-style mock-up of the CME FedWatch Tool showing current rate probabilities, alongside a current yield curve chart and a real rate calculation, all labeled as "你的三大利率追蹤工具"]
 
-**Sam:** And how should I position my portfolio based on that analysis?
+**Stella（小魚）：** 那根據這些分析，我應該如何調整我的投資組合？
 
-**Alex:** In a rising rate environment, keep bond duration short, favor quality and value in stocks, and appreciate that cash is a real asset earning real yield. In a falling rate environment, extend duration, tilt toward growth, and consider real estate. In a stable rate environment, focus less on macro positioning and more on individual asset selection.
+**Horace（陳馬）：** 在升息環境中，縮短債券存續期間，股票偏向具優質基本面和價值屬性的標的，並認識到現金現在是真正能產生實質殖利率的資產。在降息環境中，延長存續期間，往成長股傾斜，同時考慮不動產。在利率不變的環境中，把重心從總體配置轉向個別資產的選擇。
 
-**Alex:** But here is the most important advice. Do not try to predict the exact path of rates. Even the Fed gets it wrong regularly. Instead, understand how your current portfolio will behave if rates rise, fall, or stay flat. Make sure you can survive any of those scenarios without being forced to sell at the worst time.
+**Horace（陳馬）：** 但最重要的建議是：不要試圖精確預測利率走勢。就連Fed自己都經常判斷錯誤。應該做的，是了解你目前的投資組合在利率上升、下降或不變的三種情境下各自會有什麼表現，並確保在任何一種情境下，你都不會被迫在最糟糕的時機賣出。
 
-**Sam:** Do not predict, prepare.
+**Stella（小魚）：** 不要預測，要準備。
 
-**Alex:** That should be every investor's motto when it comes to interest rates.
+**Horace（陳馬）：** 這應該成為每位投資人面對利率時的核心座右銘。
 
-**Sam:** This has been incredibly valuable. I feel like I understand the financial news so much better now. When I hear "the Fed raised rates by 25 basis points," I actually know what that means and why it matters.
+**Stella（小魚）：** 這次真的非常有收穫。我覺得現在對財經新聞的理解完全不同了。當我聽到「Fed升息一碼」，我終於真的知道這代表什麼，以及為什麼重要。
 
-**Alex:** And that is the goal. Interest rates touch every corner of your financial life. Understanding them is not just about investing -- it helps you make better decisions about mortgages, savings, career choices, even when to start a business. It is truly foundational knowledge.
+**Horace（陳馬）：** 這正是我們的目標。利率觸及你財務生活的每個角落。理解利率不只是投資的事——它能幫助你做出更好的房貸決策、儲蓄決策、職涯選擇，甚至判斷什麼時候適合創業。它是真正的根本知識。
 
 [VISUAL: End screen with key takeaways:
-- Interest rates are the gravitational force of finance
-- The Fed balances employment vs. inflation via rate changes
-- Rate changes transmit through 5 channels with 12-24 month lags
-- Growth stocks are more rate-sensitive than value stocks
-- The yield curve's shape predicts economic conditions
-- Always think in REAL (inflation-adjusted) terms
-- Do not predict rates; prepare for multiple scenarios]
+- 利率是金融的引力
+- Fed透過調整利率，在充分就業與物價穩定之間取得平衡
+- 利率變化透過5個渠道傳導，落差時間長達12至24個月
+- 成長型股票對利率比價值型股票更為敏感
+- 殖利率曲線的形狀能預測經濟環境
+- 永遠以實質（經通膨調整後）的角度思考
+- 不要預測利率；為多種情境做好準備]
 
-**Sam:** What is next week?
+**Stella（小魚）：** 下週的主題是什麼？
 
-**Alex:** Next week we dive into corporate finance -- how companies decide between debt and equity, what WACC means, and how dividends and buybacks affect you as a shareholder. It is the foundation for understanding why companies do what they do with their money.
+**Horace（陳馬）：** 下週我們深入探討企業財務——公司如何在債務與股權之間做選擇、加權平均資金成本（WACC）是什麼，以及股利和股票回購如何影響你這個股東。這是理解公司為何如此運用資金的基礎框架。
 
-[VISUAL: Preview card for Week 19 with "Corporate Finance: Capital Structure, WACC, and Shareholder Returns"]
+[VISUAL: Preview card for Week 19 with "第19週：企業財務——資本結構、WACC與股東報酬"]
 
-**Alex:** Thanks for watching everyone. If interest rates have ever confused you, share this episode with a friend. And if you are new here, we have been building an investment education series from the ground up. Start from Week 1 and you will have a complete foundation. See you next week.
+**Horace（陳馬）：** 感謝大家收看。如果利率曾經讓你一頭霧水，把這集分享給有需要的朋友吧。如果你是第一次來，我們從第一週開始建立了一套完整的投資教育系列。從頭看起，你將擁有完整的投資基礎。我們下週見。
 
 [VISUAL: Outro animation with subscribe button and episode playlist]

@@ -1,842 +1,825 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第51週：管理期貨與趨勢跟蹤
 
-# Week 51: Managed Futures and Trend Following
+## 閱讀部分
 
-## Reading Section
+### a) 為何此課題至關重要
 
-### a) Why This Is Important
+若要說有哪一種策略值得每位認真投資者認真考慮，那便是管理期貨——尤其是趨勢跟蹤。原因既簡單又深刻：趨勢跟蹤是極少數能在主要股票熊市期間持續錄得正回報、同時在一般市況下平均亦能產生正回報的策略之一。這種組合——「危機阿爾法」加上長期正預期回報——使其成為投資者可獲取的最強大分散工具，可謂無出其右。
 
-If there is one strategy that every serious portfolio should consider, it is managed futures -- specifically, trend following. The reason is simple and profound: trend following is one of the very few strategies that has demonstrated consistent positive returns during major equity bear markets, while also generating positive returns on average during normal markets. This combination -- "crisis alpha" plus a positive long-run expected return -- makes it arguably the most powerful diversifier available to investors.
+大多數投資組合的建構著眼於資產類別之間的相關性：股票與債券、本地與海外、股票與商品。然而在重大危機中，傳統資產類別之間的相關性往往急升至1.0——正當你最需要分散效果之際，它卻失靈了。趨勢跟蹤打破了這一規律。在2008年全球金融危機期間，管理期貨基金的平均回報約為正18%，而標普500指數同期卻下跌了37%。無論是科網泡沫爆破（2000至2002年）、歐洲債務危機，還是新冠疫情期間，趨勢跟蹤策略在每一次危機中都錄得正回報，或至少起到保護作用。
 
-Most portfolio construction focuses on the correlation between asset classes: stocks and bonds, domestic and international, equities and commodities. But in major crises, correlations between traditional asset classes tend to spike toward 1.0 -- the very moment you need diversification the most, it fails. Trend following breaks this pattern. During the 2008 Global Financial Crisis, the average managed futures fund returned approximately +18% while the S&P 500 lost -37%. During the dot-com crash (2000-2002), during the European debt crisis, during COVID -- trend following strategies delivered positive or at least protective returns in each case.
+了解趨勢跟蹤的運作原理、執行方式，以及如何以合理成本取得這種策略，已成為任何Level 5投資者的必備知識。這一策略已從機構投資者和高淨值人士的專屬領域，演變為可透過低門檻交易所買賣基金取得。
 
-Understanding why trend following works, how it is implemented, and how to access it at reasonable cost has become essential knowledge for any Level 5 investor. The strategy has moved from the exclusive domain of institutional investors and high-net-worth individuals to become accessible through low-minimum ETFs.
-
-This lesson will explain the mechanics of trend following, the academic evidence behind time series momentum, the concept of crisis alpha, practical implementation options, and how to integrate managed futures into a multi-asset portfolio. By the end, you will understand why the largest and most sophisticated institutional investors in the world -- sovereign wealth funds, pension systems, and endowments -- allocate 10 to 20 percent of their portfolios to this strategy.
+本課將講解趨勢跟蹤的運作機制、時間序列動量背後的學術依據、危機阿爾法的概念、實際操作選項，以及如何將管理期貨融入多元資產投資組合。課程結束後，你將明白為何全球規模最大、最精明的機構投資者——主權財富基金、退休金計劃及捐贈基金——會將10至20%的投資組合配置於這一策略。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### What Are Managed Futures?
+#### 什麼是管理期貨？
 
-Managed futures is a broad category that encompasses any professionally managed investment strategy that trades futures contracts. Within this category, Commodity Trading Advisors (CTAs) are the most common structure. While "managed futures" technically includes many approaches (fundamental, quantitative, discretionary), the dominant strategy by far is systematic trend following.
+管理期貨是一個廣泛類別，涵蓋所有以交易期貨合約為主的專業管理投資策略。在這個類別中，商品交易顧問（CTA）是最常見的結構。儘管「管理期貨」在技術層面包含多種方法（基本面、量化、主觀判斷），但主流策略仍以系統化趨勢跟蹤為主。
 
 ```
-Managed Futures Universe:
+管理期貨的範疇：
 
-Managed Futures (CTA Industry)
+管理期貨（CTA行業）
   |
-  +-- Systematic Strategies (~85% of industry AUM)
+  +-- 系統化策略（約佔行業管理資產規模85%）
   |     |
-  |     +-- Trend Following (~70% of systematic)
-  |     |     Long-term trend (6-12 month lookback)
-  |     |     Medium-term trend (1-6 month lookback)
-  |     |     Short-term trend (days to weeks lookback)
+  |     +-- 趨勢跟蹤（約佔系統化策略70%）
+  |     |     長期趨勢（6至12個月回望期）
+  |     |     中期趨勢（1至6個月回望期）
+  |     |     短期趨勢（數日至數週回望期）
   |     |
-  |     +-- Counter-Trend / Mean Reversion (~10%)
-  |     +-- Carry (~10%)
-  |     +-- Pattern Recognition (~5%)
-  |     +-- Machine Learning / Statistical (~5%)
+  |     +-- 反趨勢 / 均值回歸（約10%）
+  |     +-- 套息策略（約10%）
+  |     +-- 形態識別（約5%）
+  |     +-- 機器學習 / 統計模型（約5%）
   |
-  +-- Discretionary Strategies (~15% of industry AUM)
+  +-- 主觀判斷策略（約佔行業管理資產規模15%）
         |
-        +-- Global Macro (discretionary futures trading)
-        +-- Fundamental (commodity specialists)
+        +-- 全球宏觀（主觀期貨交易）
+        +-- 基本面分析（商品專家）
 
-Industry AUM: ~$400 billion (as of 2024)
-Number of CTAs: ~1,500 registered
-Top 20 firms control ~60% of AUM
+行業管理資產規模：約4,000億美元（截至2024年）
+已登記CTA數目：約1,500家
+前20大公司控制約60%管理資產規模
 ```
 
-#### The Trend Following Concept
+#### 趨勢跟蹤的概念
 
-Trend following is based on a remarkably simple premise: assets that have been going up tend to continue going up, and assets that have been going down tend to continue going down. The strategy buys assets in uptrends and sells (shorts) assets in downtrends, holding positions until the trend reverses.
-
-```
-Core Trend Following Rules (Simplified):
-
-1. TREND IDENTIFICATION
-   Compute a moving average (e.g., 200-day) for each asset
-   If price > moving average: UPTREND (go long)
-   If price < moving average: DOWNTREND (go short)
-
-2. POSITION SIZING
-   Allocate risk equally across all markets
-   Size each position inversely proportional to its volatility
-   Target a specific portfolio-level volatility (e.g., 10-15%)
-
-3. REBALANCING
-   Update signals daily or weekly
-   Adjust position sizes when volatility changes
-   Exit positions when trend reverses
-
-That is it. The elegance is in the simplicity.
-The difficulty is in the discipline and execution.
-```
+趨勢跟蹤建基於一個出奇簡單的前提：持續上升的資產傾向繼續上升，而持續下跌的資產傾向繼續下跌。該策略買入處於上升趨勢的資產，並沽空處於下降趨勢的資產，持有倉位直至趨勢逆轉。
 
 ```
-Trend Following Signal: Moving Average Crossover
+趨勢跟蹤核心規則（簡化版）：
 
-Price
+1. 趨勢識別
+   計算每項資產的移動平均線（如200日均線）
+   若價格 > 移動平均線：上升趨勢（做好倉）
+   若價格 < 移動平均線：下降趨勢（做淡倉）
+
+2. 倉位規模
+   在所有市場之間平均分配風險
+   每個倉位大小與其波動性成反比
+   鎖定特定的投資組合整體波動性目標（如10至15%）
+
+3. 再平衡
+   每日或每週更新訊號
+   當波動性改變時調整倉位大小
+   當趨勢逆轉時平倉
+
+就是這樣。精妙之處在於其簡單。
+難點在於執行紀律。
+```
+
+```
+趨勢跟蹤訊號：移動平均線交叉
+
+價格
   |
   |              **                     ***
   |            **  **                 **   **
   |          **      **             **       **
-  |        **    B    ****     ****           **
+  |        **    買    ****     ****           **
   |      **           ----****----             **
   |    **         ----               ----        **
   |  **      ----                         ----    **
-  | *   ----      S                            ----*  S
+  | *   ----      賣                            ----*  賣
   |----                                             ----
   |___________________________________________________
-                      Time
+                      時間
 
-  * = Price
-  ---- = 200-day Moving Average
-  B = BUY signal (price crosses above MA)
-  S = SELL/SHORT signal (price crosses below MA)
+  * = 價格
+  ---- = 200日移動平均線
+  買 = 買入訊號（價格向上突破均線）
+  賣 = 賣出/沽空訊號（價格向下跌穿均線）
 
-  In uptrends: LONG position, profits as price rises
-  In downtrends: SHORT position, profits as price falls
-  During whipsaws: Losses from false signals (the cost of the strategy)
+  上升趨勢時：持好倉，隨價格上升而獲利
+  下降趨勢時：持淡倉，隨價格下跌而獲利
+  震盪市時：因假訊號而虧損（此為策略的成本）
 ```
 
-More sophisticated trend following systems use multiple lookback periods and combine different signal types:
+更複雜的趨勢跟蹤系統會使用多個回望期，並結合不同類型的訊號：
 
 ```
-Multi-Signal Trend Following:
+多訊號趨勢跟蹤：
 
-Signal Type         Lookback     Sensitivity   Whipsaw Risk
+訊號類型           回望期          敏感度      震盪風險
 ---------------------------------------------------------------
-Short-term MA       10-50 days   High          High
-Medium-term MA      50-100 days  Medium        Medium
-Long-term MA        100-250 days Low           Low
-Breakout (Donchian) 20-200 days  Varies        Medium
-Exponential MA      Various      Adjustable    Medium
-Time Series Mom     1-12 months  Low-Medium    Low
+短期均線           10至50日         高          高
+中期均線           50至100日        中          中
+長期均線           100至250日       低          低
+突破（唐奇安通道） 20至200日        不定        中
+指數移動平均線     不同             可調節       中
+時間序列動量       1至12個月        低至中       低
 
-Most professional CTAs combine 3-5 signal types across
-multiple lookback periods to smooth out signals and reduce
-whipsaw costs. Signals are often weighted and averaged.
+大多數專業CTA會結合3至5種訊號類型，跨越多個回望期，
+以平滑訊號並減少震盪成本。訊號通常會加權平均。
 
-Example Composite Signal:
-  Signal = 0.20 * Short_MA + 0.30 * Medium_MA
-         + 0.30 * Long_MA  + 0.20 * Breakout
+複合訊號示例：
+  訊號 = 0.20 × 短期均線 + 0.30 × 中期均線
+       + 0.30 × 長期均線 + 0.20 × 突破訊號
 
-  If Signal > 0: Go LONG (proportional to signal strength)
-  If Signal < 0: Go SHORT (proportional to signal strength)
-  If Signal near 0: FLAT or reduced position
+  若訊號 > 0：做好倉（倉位大小與訊號強度成正比）
+  若訊號 < 0：做淡倉（倉位大小與訊號強度成正比）
+  若訊號接近0：空倉或縮減倉位
 ```
 
-#### Time Series Momentum: The Academic Foundation
+#### 時間序列動量：學術基礎
 
-The academic foundation for trend following was formally established by Moskowitz, Ooi, and Pedersen in their landmark 2012 paper "Time Series Momentum." They documented that looking at an asset's own past returns (time series momentum) predicts future returns across virtually every asset class.
+趨勢跟蹤的學術基礎由Moskowitz、Ooi及Pedersen於其2012年的里程碑論文《時間序列動量》（Time Series Momentum）正式確立。他們記錄了資產自身的過去回報（時間序列動量）能預測幾乎所有資產類別的未來回報。
 
 ```
-Time Series Momentum (TSMOM) Evidence:
+時間序列動量（TSMOM）證據：
 
-Asset Class         Markets Tested   Premium   Sharpe Ratio
+資產類別          測試市場數量     溢價     夏普比率
 ---------------------------------------------------------------
-Equity Indices      12 markets       7.3%      0.52
-Bond Futures        10 markets       3.8%      0.41
-Currency Forwards   9 markets        4.2%      0.45
-Commodity Futures   27 markets       5.1%      0.47
-ALL COMBINED        58 markets       5.1%      0.76*
+股票指數          12個市場         7.3%     0.52
+債券期貨          10個市場         3.8%     0.41
+外匯遠期          9個市場          4.2%     0.45
+商品期貨          27個市場         5.1%     0.47
+全部合計          58個市場         5.1%     0.76*
 
-*Diversified portfolio Sharpe ratio is HIGHER than any single
- asset class because trends are relatively uncorrelated across markets.
+*分散化投資組合的夏普比率高於任何單一資產類別，
+ 因為各市場的趨勢相關性相對較低。
 
-Key Findings:
-  1. TSMOM is positive and significant in EVERY asset class
-  2. Works across multiple lookback periods (1, 3, 6, 12 months)
-  3. Persists after transaction costs
-  4. NOT explained by traditional risk factors
-  5. Has existed for over 100 years (out-of-sample confirmation)
+主要發現：
+  1. TSMOM在每個資產類別中均正面且顯著
+  2. 在多個回望期（1、3、6、12個月）均有效
+  3. 扣除交易成本後依然存在
+  4. 無法以傳統風險因子解釋
+  5. 已存在逾100年（樣本外確認）
 ```
 
-Why does time series momentum work? Several explanations have been proposed:
+為何時間序列動量有效？學界提出了多種解釋：
 
 ```
-Why Trends Exist in Financial Markets:
+金融市場中趨勢存在的原因：
 
-1. BEHAVIORAL EXPLANATIONS
-   a) Anchoring: Investors anchor to old prices and underreact
-      to new information. Prices adjust slowly to fundamentals.
-   b) Herding: Investors follow each other, creating momentum
-   c) Disposition Effect: Investors sell winners too early
-      and hold losers too long, slowing trend development
-   d) Confirmation Bias: Once a trend forms, investors seek
-      information confirming the trend and ignore contradictions
+1. 行為學解釋
+   a) 錨定效應：投資者錨定舊價格，對新資訊反應不足，
+      價格緩慢調整至基本面水平。
+   b) 羊群效應：投資者互相跟隨，形成動量
+   c) 處置效應：投資者過早賣出盈利倉位，
+      並長期持有虧損倉位，延緩趨勢形成
+   d) 確認偏誤：趨勢一旦形成，投資者尋找確認趨勢的
+      資訊，忽視相反訊號
 
-2. INSTITUTIONAL EXPLANATIONS
-   a) Central Bank Policy: Interest rate cycles create
-      multi-year trends in bonds and currencies
-   b) Risk Management: Stop-losses force selling into declines,
-      exacerbating trends
-   c) Index Rebalancing: Mechanical buying/selling by passive
-      funds creates trend persistence
-   d) Margin Calls: Forced liquidation during stress extends
-      downward trends
+2. 機構因素解釋
+   a) 央行政策：利率周期在債券及外匯市場創造多年趨勢
+   b) 風險管理：止損盤在下跌時強迫拋售，加劇趨勢
+   c) 指數再平衡：被動基金的機械性買賣造成趨勢持續
+   d) 保證金追繳：壓力時期的強制平倉延伸下行趨勢
 
-3. FUNDAMENTAL EXPLANATIONS
-   a) Business Cycles: Economic expansions and contractions
-      create multi-quarter trends in corporate earnings
-   b) Commodity Super Cycles: Supply/demand imbalances take
-      years to resolve, creating extended trends
-   c) Regime Changes: Shifts in monetary policy, regulation,
-      or geopolitics create structural breaks that
-      manifest as trends
+3. 基本面解釋
+   a) 商業周期：經濟擴張及收縮為企業盈利
+      創造跨季度趨勢
+   b) 商品超級周期：供需失衡需要數年時間解決，
+      形成持續趨勢
+   c) 政策轉變：貨幣政策、監管或地緣政治的轉變
+      造成結構性突破，並以趨勢形式呈現
 
-KEY INSIGHT: Trends are not random or irrational.
-They reflect the slow, uneven process by which markets
-incorporate information and adjust to new realities.
+核心洞見：趨勢並非隨機或非理性，
+而是反映了市場消化資訊及適應新現實的緩慢而不均衡的過程。
 ```
 
-#### Crisis Alpha: Why Trend Following Profits in Crashes
+#### 危機阿爾法：趨勢跟蹤為何在崩市中獲利
 
-The most valuable property of trend following is its behavior during major crises. This property, dubbed "crisis alpha" by Kathryn Kaminski in her influential research, arises mechanically from how trend following works.
+趨勢跟蹤最寶貴的特性在於其在重大危機期間的表現。Kathryn Kaminski在其極具影響力的研究中將這一特性稱為「危機阿爾法」，其產生機制源自趨勢跟蹤的運作方式。
 
 ```
-Crisis Alpha Mechanism:
+危機阿爾法機制：
 
-Phase 1: THE BUILD-UP (Months Before Crisis)
-  Markets are calm or rising
-  Trend following is modestly profitable (long equities)
-  No crisis protection visible
+第一階段：積聚期（危機前數月）
+  市場平靜或上升
+  趨勢跟蹤小幅獲利（持股票好倉）
+  尚未顯現危機保護作用
 
-Phase 2: THE INITIAL SHOCK (First Days/Weeks)
-  Markets drop sharply
-  Trend following systems LOSE money initially
-  Long equity positions face losses
-  This is the "whipsaw cost" of trend following
+第二階段：初始衝擊（首數日/數週）
+  市場急劇下跌
+  趨勢跟蹤系統初期虧損
+  股票好倉面臨損失
+  此為趨勢跟蹤的「震盪成本」
 
-Phase 3: THE TREND DEVELOPS (Weeks to Months)
-  Decline continues and accelerates
-  Trend signals flip from LONG to SHORT
-  Trend following systems now SHORT equities
-  Simultaneously: LONG bonds (flight to safety trend)
-  Simultaneously: SHORT commodities (demand destruction)
+第三階段：趨勢形成（數週至數月）
+  跌勢持續並加速
+  趨勢訊號由好倉轉為淡倉
+  趨勢跟蹤系統現持股票淡倉
+  同時：持債券好倉（避險趨勢）
+  同時：持商品淡倉（需求萎縮）
 
-Phase 4: THE CRISIS DEEPENS (Months)
-  Multiple sustained trends across asset classes
-  Trend following is HIGHLY profitable
-  Short equities + Long bonds + Short commodities + Long USD
-  All trends reinforcing each other
+第四階段：危機深化（數月）
+  多個資產類別出現持續趨勢
+  趨勢跟蹤高度獲利
+  股票淡倉 + 債券好倉 + 商品淡倉 + 美元好倉
+  各趨勢相互強化
 
-Phase 5: THE RECOVERY (Bottom and Reversal)
-  Markets bottom and reverse
-  Trend following LOSES some profits on reversal
-  Systems slowly flip from SHORT back to LONG
-  Net result: Large positive return over the full crisis cycle
+第五階段：復甦（觸底及反彈）
+  市場觸底反彈
+  趨勢跟蹤在反彈中損失部分利潤
+  系統緩慢由淡倉轉回好倉
+  淨結果：整個危機周期錄得大幅正回報
 
-KEY INSIGHT: Trend following LOSES during sudden, short shocks
-but PROFITS during extended, sustained crises.
-The net effect over a full crisis is almost always positive.
+核心洞見：趨勢跟蹤在突如其來的短暫衝擊中虧損，
+但在持續時間較長的危機中獲利。
+完整危機周期的淨效果幾乎總是正面的。
 ```
 
 ```
-Trend Following Performance During Major Crises:
+趨勢跟蹤在重大危機中的表現：
 
-Event                       S&P 500    Trend Following*   Bonds
-                            Return     Return (est.)      Return
+事件                         標普500    趨勢跟蹤*      債券
+                             回報       回報（估計）   回報
 ----------------------------------------------------------------------
-Black Monday (Oct 1987)     -20.5%     +11.2%             +4.5%
-Asian Crisis (1997-98)       -6.2%     +12.4%             +8.2%
-LTCM / Russia (1998)        -19.3%     +18.1%             +5.7%
-Dot-com Crash (2000-02)     -47.4%     +28.4%             +22.3%
-GFC (2007-09)               -56.8%     +18.3%             +14.0%
-European Debt (2011)        -19.4%     +5.1%              +7.8%
-COVID Crash (Feb-Mar 2020)  -33.9%     -3.2%              +3.2%
-2022 Bear Market            -25.4%     +23.7%             -13.0%
+黑色星期一（1987年10月）     -20.5%     +11.2%         +4.5%
+亞洲金融危機（1997至98年）   -6.2%      +12.4%         +8.2%
+長期資本管理/俄羅斯（1998年）-19.3%     +18.1%         +5.7%
+科網股崩盤（2000至02年）     -47.4%     +28.4%         +22.3%
+全球金融危機（2007至09年）   -56.8%     +18.3%         +14.0%
+歐洲債務危機（2011年）       -19.4%     +5.1%          +7.8%
+新冠疫情崩市（2020年2至3月） -33.9%     -3.2%          +3.2%
+2022年熊市                   -25.4%     +23.7%         -13.0%
 
-*Approximate, based on SG Trend Index or similar benchmarks
+*為估計數字，參考法國興業銀行趨勢指數或類似基準
 
-Key observations:
-  1. Trend following was POSITIVE in 6 out of 8 major crises
-  2. The two "failures" (COVID, Eurozone) were SMALL losses
-  3. The 2022 result is remarkable: trend following profited
-     while BOTH stocks AND bonds lost money
-  4. Long-duration crises (dot-com, GFC) produce the best results
-  5. Short, sharp shocks (COVID) produce the worst results
+主要觀察：
+  1. 趨勢跟蹤在8次重大危機中有6次錄得正回報
+  2. 兩次「失效」（新冠疫情、歐元區危機）的損失幅度細微
+  3. 2022年的結果尤為突出：在股票及債券同時虧損時，
+     趨勢跟蹤仍錄得盈利
+  4. 持續時間較長的危機（科網股崩盤、全球金融危機）
+     帶來最佳回報
+  5. 短暫急速的衝擊（新冠疫情）帶來最差結果
 ```
 
-Why does trend following perform differently in 2022 vs. COVID?
+為何趨勢跟蹤在2022年與新冠疫情期間表現截然不同？
 
 ```
-COVID (Feb-Mar 2020) vs. 2022 Bear Market: A Study in Contrast
+新冠疫情（2020年2至3月）與2022年熊市的對比研究
 
-COVID:
-  - Duration: ~5 weeks of decline
-  - Speed: Fastest 30% decline in history
-  - Reversal: Sharp V-shaped recovery
-  - Trend following had NO TIME to flip short
-  - Result: Small loss (-3.2%)
+新冠疫情：
+  - 持續時間：約5週跌勢
+  - 速度：史上最快的30%跌幅
+  - 反彈形態：急速V形復甦
+  - 趨勢跟蹤無充裕時間轉換為淡倉
+  - 結果：小幅虧損（-3.2%）
 
-2022:
-  - Duration: ~10 months of decline
-  - Speed: Gradual, grinding decline
-  - Bond market also trended down (rising rates)
-  - Commodities trended UP (energy crisis)
-  - Trend following had PLENTY OF TIME to establish shorts
-  - Result: Large profit (+23.7%)
+2022年：
+  - 持續時間：約10個月跌勢
+  - 速度：緩慢、磨人的下跌
+  - 債券市場亦隨加息而下行
+  - 商品隨能源危機向上趨勢
+  - 趨勢跟蹤有充裕時間建立淡倉
+  - 結果：大幅獲利（+23.7%）
 
-  Lesson: Trend following needs TIME for trends to develop.
-  Short, sharp shocks are the enemy. Extended moves are the friend.
-  This is why trend following provides the BEST crisis protection
-  during the WORST crises (which tend to be extended).
+  啟示：趨勢跟蹤需要時間讓趨勢發展。
+  短暫急速的衝擊是最大敵人；持續的走勢則是最好的朋友。
+  這正是趨勢跟蹤在最嚴峻的危機（往往是持續性的）中
+  提供最佳保護的原因。
 ```
 
-#### Diversification Benefits
+#### 分散化效益
 
-The correlation structure of managed futures relative to traditional assets is the primary reason for including them in a portfolio.
+管理期貨相對於傳統資產的相關性結構，是將其納入投資組合的主要理由。
 
 ```
-Correlation of Managed Futures to Traditional Assets:
+管理期貨與傳統資產的相關性：
 
-                        All Periods    Bull Markets   Bear Markets
-                        (Full Sample)  (Stocks Up)    (Stocks Down)
+                        全部時段       牛市           熊市
+                        （完整樣本）   （股票上升時）  （股票下跌時）
 ---------------------------------------------------------------------
-S&P 500                  -0.05          +0.10          -0.35
-US Aggregate Bonds       +0.15          +0.10          +0.25
-60/40 Portfolio           0.00          +0.10          -0.20
-Commodities              +0.10          +0.10          +0.05
-Real Estate (REITs)       0.00          +0.05          -0.15
-Hedge Funds (HFRI)       +0.20          +0.25          +0.10
+標普500                  -0.05          +0.10          -0.35
+美國綜合債券指數         +0.15          +0.10          +0.25
+六四投資組合              0.00          +0.10          -0.20
+商品                     +0.10          +0.10          +0.05
+房地產（房地產信託基金）  0.00          +0.05          -0.15
+對沖基金（HFRI指數）     +0.20          +0.25          +0.10
 
-KEY INSIGHT: Managed futures have NEAR-ZERO average correlation
-to stocks and bonds. But the correlation is NEGATIVE during
-bear markets -- exactly when you need diversification most.
+核心洞見：管理期貨與股票及債券的平均相關性接近零，
+但在熊市期間的相關性為負——正是你最需要分散效果之時。
 
-This "conditional correlation" property is extremely rare.
-Bonds provided it historically but FAILED in 2022 (positive
-correlation during a bear market). Managed futures did NOT fail.
+這種「條件相關性」特性極為罕見。
+債券歷來提供此特性，但在2022年失效（在熊市中呈正相關）。
+管理期貨則沒有失效。
 ```
 
 ```
-Portfolio Impact of Adding Managed Futures:
+加入管理期貨對投資組合的影響：
 
-                     60/40        60/40 + 15%     Improvement
-                     Portfolio    Managed Futures
+                     六四             六四 + 15%      改善幅度
+                     投資組合         管理期貨
 -------------------------------------------------------------
-Annual Return        8.5%         8.8%            +0.3%
-Volatility           9.8%         8.2%            -1.6%
-Sharpe Ratio         0.55         0.71            +0.16
-Max Drawdown        -32.5%       -23.4%           +9.1%
-Worst Year          -22.1%       -15.8%           +6.3%
+年度回報             8.5%             8.8%            +0.3%
+波動性               9.8%             8.2%            -1.6%
+夏普比率             0.55             0.71            +0.16
+最大回撤            -32.5%           -23.4%           +9.1%
+最差年度            -22.1%           -15.8%           +6.3%
 
-  The improvement in risk-adjusted returns comes primarily from
-  REDUCED DRAWDOWNS rather than increased returns.
+  風險調整後回報的改善主要來自回撤的降低，
+  而非回報的增加。
 
-  A 15% allocation to managed futures reduced the worst drawdown
-  by nearly 10 percentage points while maintaining similar returns.
+  配置15%至管理期貨，將最大回撤減少近10個百分點，
+  同時維持相近的回報水平。
 
-  This is the "free lunch" of diversification in action --
-  adding an asset with near-zero or negative correlation
-  improves the portfolio without proportionately reducing returns.
+  這正是分散化「免費午餐」的體現——
+  加入一項相關性接近零或負相關的資產，
+  可在不成比例地降低回報的情況下改善投資組合。
 ```
 
-#### How Professional CTAs Construct Portfolios
+#### 專業CTA如何建構投資組合
 
-Professional trend following CTAs typically trade 50 to 200 different futures markets across four major sectors: equities, bonds, currencies, and commodities.
-
-```
-Typical CTA Market Universe:
-
-EQUITY INDICES (10-15 markets):
-  S&P 500, Nasdaq 100, Russell 2000 (US)
-  Euro Stoxx 50, DAX, FTSE 100 (Europe)
-  Nikkei 225, Hang Seng, ASX 200 (Asia-Pacific)
-  MSCI Emerging Markets, KOSPI (Korea)
-
-BOND FUTURES (10-15 markets):
-  US Treasuries: 2Y, 5Y, 10Y, 30Y
-  German Bunds, UK Gilts, Japanese JGBs
-  Australian, Canadian, Italian government bonds
-  Eurodollar, Fed Funds, SOFR
-
-CURRENCY FORWARDS (8-12 markets):
-  EUR/USD, GBP/USD, JPY/USD, AUD/USD
-  CAD/USD, CHF/USD, NZD/USD
-  Emerging: BRL, MXN, ZAR, KRW
-
-COMMODITIES (20-30 markets):
-  Energy: Crude Oil (WTI, Brent), Natural Gas, Heating Oil, Gasoline
-  Metals: Gold, Silver, Copper, Platinum, Palladium
-  Grains: Corn, Wheat, Soybeans, Soybean Oil, Soybean Meal
-  Softs: Sugar, Coffee, Cocoa, Cotton
-  Livestock: Live Cattle, Lean Hogs
-
-TOTAL: 50-80 markets for a diversified CTA
-       Some trade 150+ markets
-
-Sector Allocation (Risk-Weighted):
-  Equities:     20-30%
-  Bonds:        20-30%
-  Currencies:   15-25%
-  Commodities:  20-30%
-
-  Typically equal-risk-weighted across sectors
-  to avoid any single sector dominating the portfolio
-```
+專業趨勢跟蹤CTA通常在四大主要板塊交易50至200個不同的期貨市場：股票、債券、外匯及商品。
 
 ```
-CTA Risk Management Framework:
+典型CTA的市場覆蓋範圍：
 
-1. POSITION SIZING (Volatility Targeting)
-   Each market position sized to contribute equal risk
+股票指數（10至15個市場）：
+  標普500、納斯達克100、羅素2000（美國）
+  歐洲斯托克50、德國DAX、英國富時100（歐洲）
+  日經225、恒生指數、澳大利亞ASX 200（亞太區）
+  MSCI新興市場、韓國綜合指數（KOSPI）
+
+債券期貨（10至15個市場）：
+  美國國債：2年期、5年期、10年期、30年期
+  德國國債、英國金邊債券、日本政府債券
+  澳大利亞、加拿大、意大利政府債券
+  歐元美元、聯邦基金、SOFR
+
+外匯遠期（8至12個市場）：
+  歐元/美元、英鎊/美元、日圓/美元、澳元/美元
+  加元/美元、瑞郎/美元、紐元/美元
+  新興市場：巴西雷亞爾、墨西哥比索、南非蘭特、韓元
+
+商品（20至30個市場）：
+  能源：原油（WTI、布蘭特）、天然氣、取暖油、汽油
+  金屬：黃金、白銀、銅、鉑金、鈀金
+  穀物：粟米、小麥、大豆、豆油、豆粕
+  軟商品：糖、咖啡、可可、棉花
+  畜牧：活牛、瘦豬
+
+合計：分散化CTA覆蓋50至80個市場
+     部分CTA交易逾150個市場
+
+板塊配置（風險加權）：
+  股票：    20至30%
+  債券：    20至30%
+  外匯：    15至25%
+  商品：    20至30%
+
+  通常以等風險加權方式配置各板塊，
+  避免任何單一板塊主導整體投資組合
+```
+
+```
+CTA風險管理框架：
+
+1. 倉位規模（波動性目標）
+   每個市場倉位大小設定為貢獻相等風險
    
-   Position Size = (Target Risk per Market) / (Market Volatility)
+   倉位大小 = （每市場目標風險）/ （市場波動性）
    
-   Example:
-     Portfolio: $10 million
-     Target vol: 12% annualized
-     Number of markets: 60
-     Risk per market: 12% / sqrt(60) = 1.55%
+   示例：
+     投資組合規模：1,000萬美元
+     目標波動性：12%年化
+     市場數目：60個
+     每市場風險：12% ÷ √60 = 1.55%
      
-     If Crude Oil volatility = 30% annualized:
-       Crude position = (1.55% * $10M) / (30% * Contract Value)
+     若原油年化波動性 = 30%：
+       原油倉位 = （1.55% × 1,000萬美元）/（30% × 合約價值）
      
-     If Gold volatility = 15% annualized:
-       Gold position = (1.55% * $10M) / (15% * Contract Value)
+     若黃金年化波動性 = 15%：
+       黃金倉位 = （1.55% × 1,000萬美元）/（15% × 合約價值）
      
-     Result: Gold position is LARGER in notional terms because
-     Gold is less volatile. Both contribute equal risk.
+     結果：黃金的名義倉位較大，因黃金波動性較低。
+     兩者貢獻相等風險。
 
-2. PORTFOLIO-LEVEL RISK CONTROLS
-   Maximum portfolio leverage: typically 5-10x notional
-   Maximum sector concentration: 30-40% of risk budget
-   Maximum single market: 5-10% of risk budget
-   Dynamic volatility scaling: reduce positions when
-   portfolio vol exceeds target
+2. 投資組合整體風險控制
+   最大投資組合槓桿：通常為名義值的5至10倍
+   最大板塊集中度：風險預算的30至40%
+   單一市場上限：風險預算的5至10%
+   動態波動性調整：當投資組合波動性超過目標時，縮減倉位
 
-3. STOP LOSSES
-   Individual market stops: Typically 2-3x average true range
-   Portfolio drawdown stops: Reduce risk at -10% to -15% drawdown
-   Correlation-adjusted stops: Tighten stops when correlations rise
+3. 止損
+   個別市場止損：通常為平均真實波動幅度的2至3倍
+   投資組合回撤止損：在回撤達-10%至-15%時降低風險
+   相關性調整止損：當相關性上升時收緊止損
 
-4. TAIL RISK MANAGEMENT
-   Stress test against historical crises
-   Monitor portfolio "long gamma" vs "short gamma" exposure
-   Ensure the portfolio benefits from large, sustained moves
+4. 尾部風險管理
+   對歷史危機進行壓力測試
+   監測投資組合的「好倉伽馬」與「淡倉伽馬」敞口
+   確保投資組合能從大幅持續走勢中獲益
 ```
 
-#### ETF Access to Managed Futures
+#### 透過交易所買賣基金取得管理期貨
 
-Retail investors now have access to managed futures strategies through ETFs. The two most prominent are DBMF and KMLM.
+散戶投資者現可透過交易所買賣基金取得管理期貨策略。最具代表性的兩隻為DBMF及KMLM。
 
 ```
-Managed Futures ETF Comparison:
+管理期貨交易所買賣基金比較：
 
-DBMF (iMGP DBi Managed Futures Strategy ETF)
-  Expense Ratio:   0.85%
-  AUM:             ~$3 billion
-  Inception:       May 2019
-  Strategy:        Replicates the returns of the top 20 CTAs
-                   using a factor-based approach
-  Methodology:     Uses regression analysis to decompose CTA returns
-                   into underlying risk factor exposures, then
-                   replicates those exposures using liquid futures
-  Markets Traded:  ~10-15 core futures contracts
-  Leverage:        Typically 2-5x notional
-  Key Feature:     Tracks CTA performance without CTA fees (2/20)
-  Limitations:     Replication is imperfect; may lag during
-                   rapid regime changes; limited market breadth
+DBMF（iMGP DBi管理期貨策略交易所買賣基金）
+  費用比率：   0.85%
+  管理資產規模：約30億美元
+  成立日期：   2019年5月
+  策略：       採用因子法複製前20大CTA的回報
+  方法論：     透過回歸分析將CTA回報分解為
+               底層風險因子敞口，再以流動性期貨複製
+  交易市場：   約10至15個核心期貨合約
+  槓桿：       通常為名義值的2至5倍
+  主要特點：   毋需支付CTA費用（2/20）即可追蹤CTA表現
+  局限性：     複製存在誤差；在急速政策轉變期間可能滯後；
+               市場覆蓋廣度有限
 
-KMLM (KFA Mount Lucas Managed Futures Index Strategy ETF)
-  Expense Ratio:   0.92%
-  AUM:             ~$500 million
-  Inception:       December 2020
-  Strategy:        Tracks the KFA MLM Index, a rules-based
-                   trend following strategy
-  Methodology:     Equal-risk-weighted trend signals across
-                   commodities, currencies, and bonds
-  Markets Traded:  ~24 futures contracts
-  Leverage:        Typically 3-6x notional
-  Key Feature:     Pure, transparent trend following
-  Limitations:     No equity index futures; higher expense ratio;
-                   less diversified than multi-strategy CTAs
+KMLM（KFA Mount Lucas管理期貨指數策略交易所買賣基金）
+  費用比率：   0.92%
+  管理資產規模：約5億美元
+  成立日期：   2020年12月
+  策略：       追蹤KFA MLM指數，一種規則化趨勢跟蹤策略
+  方法論：     在商品、外匯及債券間以等風險加權趨勢訊號操作
+  交易市場：   約24個期貨合約
+  槓桿：       通常為名義值的3至6倍
+  主要特點：   純粹、透明的趨勢跟蹤
+  局限性：     不包括股票指數期貨；費用比率較高；
+               相對多策略CTA分散程度較低
 
-Other Options:
-  WTMF (WisdomTree Managed Futures Strategy Fund)
-    Expense: 0.65%, AUM: ~$300M, Inception: 2011
-    Approach: Quantitative trend and carry
-    Note: Longest track record among managed futures ETFs
+其他選擇：
+  WTMF（WisdomTree管理期貨策略基金）
+    費用：0.65%，管理資產規模：約3億美元，成立日期：2011年
+    方法：量化趨勢及套息
+    備注：管理期貨交易所買賣基金中歷史紀錄最長
 
-  CTA (Simplify Managed Futures Strategy ETF)
-    Expense: 0.75%, AUM: ~$200M, Inception: 2022
-    Approach: Trend following with tail risk overlay
+  CTA（Simplify管理期貨策略交易所買賣基金）
+    費用：0.75%，管理資產規模：約2億美元，成立日期：2022年
+    方法：趨勢跟蹤配合尾部風險覆蓋
 ```
 
 ```
-Performance Comparison (Annualized, 2022-2024):
+表現比較（年化，2022至2024年）：
 
-                Return    Volatility   Sharpe    Max DD
+                回報      波動性     夏普比率    最大回撤
 ------------------------------------------------------
 DBMF             8.2%      12.5%       0.46     -12.3%
 KMLM             6.5%      10.8%       0.37     -14.1%
 WTMF             3.8%       7.2%       0.25      -8.5%
-SG Trend Index   9.5%      13.2%       0.52     -10.8%
-S&P 500          9.8%      17.5%       0.42     -25.4%
-US Agg Bonds    -1.2%       7.8%      -0.41     -17.8%
+法興趨勢指數     9.5%      13.2%       0.52     -10.8%
+標普500          9.8%      17.5%       0.42     -25.4%
+美國綜合債券    -1.2%       7.8%      -0.41     -17.8%
 
-Notes:
-  - ETFs trail the SG Trend Index (institutional CTA benchmark)
-    by 1-3% annually due to replication error and higher costs
-  - Even so, managed futures ETFs provided UNCORRELATED positive
-    returns during a period when bonds lost money
-  - The 2022 result was transformative: managed futures ETFs
-    were one of the only asset classes that made money
+備注：
+  - 交易所買賣基金的回報落後法興趨勢指數（機構CTA基準）
+    每年約1至3%，原因為複製誤差及較高成本
+  - 即便如此，管理期貨交易所買賣基金在債券虧損的時期
+    仍提供了不相關的正回報
+  - 2022年的結果具有重大意義：管理期貨交易所買賣基金
+    是為數不多錄得盈利的資產類別之一
 ```
 
-#### Implementation Considerations
+#### 實施注意事項
 
 ```
-Practical Considerations for Adding Managed Futures:
+加入管理期貨的實際考量：
 
-1. ALLOCATION SIZE
-   Minimum meaningful: 5% of total portfolio
-   Recommended range: 10-20% for serious diversification
-   Maximum suggested: 25% (beyond this, vol drag becomes significant)
+1. 配置比例
+   最低有效比例：投資組合總額的5%
+   建議範圍：10至20%，以達到有效分散
+   建議上限：25%（超過此水平，波動性拖累將變得顯著）
 
-   Research (AQR, Man Group): 10-15% allocation provides
-   the best risk-adjusted portfolio improvement
+   研究（AQR、Man Group）：10至15%的配置
+   能帶來最佳的風險調整後投資組合改善
 
-2. WHICH PRODUCT TO USE
-   If choosing one: DBMF (broadest replication, largest AUM)
-   If choosing two: DBMF + KMLM (complementary approaches)
-   Advanced: Combine ETF with direct futures trading if
-   account size permits ($500K+ recommended for direct futures)
+2. 選擇哪種產品
+   若只選一種：DBMF（覆蓋最廣、管理資產規模最大）
+   若選兩種：DBMF + KMLM（互補方法）
+   進階選項：若賬戶規模允許，結合交易所買賣基金
+   與直接期貨交易（建議最低50萬美元用於直接期貨）
 
-3. TAX CONSIDERATIONS
-   Managed futures ETFs use futures contracts, which receive
-   favorable tax treatment under Section 1256:
-     60% long-term capital gains
-     40% short-term capital gains
-   Regardless of holding period (the "60/40 rule")
-   This makes managed futures ETFs MORE tax-efficient than
-   equity factor ETFs with high turnover
+3. 稅務考量
+   管理期貨交易所買賣基金使用期貨合約，
+   在《美國稅法》第1256條下享有優惠稅務待遇：
+     60%按長期資本增益徵稅
+     40%按短期資本增益徵稅
+   不論持有期限（「60/40規則」）
+   使得管理期貨交易所買賣基金的稅務效益高於
+   高換手率的股票因子交易所買賣基金
 
-4. REBALANCING
-   Managed futures returns are UNCORRELATED to stocks/bonds
-   This means the allocation will naturally drift
-   After a stock crash: managed futures will be overweight (sell some)
-   After a stock boom: managed futures will be underweight (buy more)
-   Rebalancing INTO managed futures after a strong stock run
-   is effectively buying crash insurance at a discount
+4. 再平衡
+   管理期貨回報與股票/債券不相關，
+   這意味著配置比例自然會出現偏移。
+   股災後：管理期貨比重超配（賣出部分）
+   股市強勁後：管理期貨比重低配（買入更多）
+   在股市強勁上升後重新加入管理期貨，
+   實際上是以折讓價買入崩市保障。
 
-5. BEHAVIORAL CHALLENGES
-   Managed futures can underperform stocks for 2-3 years straight
-   During bull markets, the allocation feels like dead weight
-   Investors must understand they are paying for INSURANCE
-   The "premium" is the opportunity cost during bull markets
-   The "payout" comes during crises
+5. 行為挑戰
+   在牛市期間，管理期貨可能連續2至3年跑輸股票。
+   在牛市環境下，此配置感覺像是無謂的負擔。
+   投資者必須明白，他們是在為保障支付成本。
+   「保費」是在牛市中的機會成本，
+   「賠付」則在危機期間到來。
 
-6. COMBINATION WITH OTHER ALTERNATIVES
-   Managed futures + volatility selling = complementary
-   (Vol selling loses during crises when managed futures gain)
-   Managed futures + factor tilts = low correlation
-   Managed futures + real assets = diversified alternatives sleeve
+6. 與其他另類投資的配合
+   管理期貨 + 波動性沽出 = 互補
+   （波動性沽出在危機時虧損，管理期貨則獲利）
+   管理期貨 + 因子傾斜 = 低相關性
+   管理期貨 + 實物資產 = 多元化另類投資組合
 ```
 
-#### Historical Context: Trend Following Across Centuries
+#### 歷史脈絡：趨勢跟蹤跨越數百年
 
-One of the most compelling arguments for trend following is its longevity. Research by Lemperi`ere et al. (2014) and Hurst, Ooi, and Pedersen (2017) documented positive trend following returns going back to the 1800s.
+支持趨勢跟蹤的其中一個最具說服力的論據，是其長達數百年的歷史。Lemperière等人（2014年）以及Hurst、Ooi及Pedersen（2017年）的研究，記錄了可追溯至19世紀的正趨勢跟蹤回報。
 
 ```
-Trend Following Across History:
+趨勢跟蹤的歷史紀錄：
 
-Period              Markets Available    Trend Return   Notes
+時期              可用市場             趨勢回報    備注
 ----------------------------------------------------------------------
-1880-1920           Commodities, bonds   +5.2%         Pre-modern era
-1920-1950           Stocks, commodities  +6.8%         Depression, WWII
-1950-1970           Broad futures        +4.5%         Post-war calm
-1970-2000           Global futures       +8.3%         High vol era
-2000-2010           Global futures       +7.1%         Crisis-rich decade
-2010-2020           Global futures       +2.8%         Low vol era
-2020-2024           Global futures       +8.5%         Return to vol
+1880至1920年      商品、債券           +5.2%       前現代時期
+1920至1950年      股票、商品           +6.8%       大蕭條、二次大戰
+1950至1970年      廣泛期貨             +4.5%       戰後平靜期
+1970至2000年      全球期貨             +8.3%       高波動性時代
+2000至2010年      全球期貨             +7.1%       危機頻繁的十年
+2010至2020年      全球期貨             +2.8%       低波動性時代
+2020至2024年      全球期貨             +8.5%       波動性重臨
 
-Key Observations:
-  1. Trend following has been profitable in EVERY multi-decade period
-  2. Returns are HIGHER during volatile periods (1970s, 2000s, 2020s)
-  3. Returns are LOWER during calm, low-volatility periods (2010s)
-  4. The strategy has survived world wars, depressions, and
-     fundamental changes in market structure
-  5. The long history makes it one of the most robust strategies known
+主要觀察：
+  1. 趨勢跟蹤在每個多十年期間均錄得盈利
+  2. 在波動性高的時期（1970年代、2000年代、2020年代），
+     回報較高
+  3. 在平靜的低波動性時期（2010年代），回報較低
+  4. 該策略歷經世界大戰、大蕭條及市場結構的根本性轉變
+  5. 漫長的歷史使其成為已知最具穩健性的策略之一
 ```
 
 ```
-Why Trend Following Persists Over Centuries:
+趨勢跟蹤為何歷經數百年仍持續有效：
 
-Unlike many anomalies that disappear after discovery,
-trend following has persisted because:
+與許多在被發現後便消失的異常現象不同，
+趨勢跟蹤能夠延續，原因在於：
 
-1. It is HARD to execute psychologically
-   Buying breakouts feels like chasing
-   Holding through drawdowns requires iron discipline
-   Shorting feels unnatural to most investors
-   The strategy "feels wrong" most of the time
+1. 在心理上難以執行
+   在突破時買入，感覺像是追高
+   在回撤中堅持，需要鋼鐵般的紀律
+   沽空感覺違反大多數投資者的本能
+   這種策略大部分時候都讓人感覺「不對勁」
 
-2. It REQUIRES institutional infrastructure
-   Trading 50-100 futures markets simultaneously
-   Managing margin and leverage across asset classes
-   Operating 24/7 across global time zones
-   Few individuals can replicate this
+2. 需要機構級別的基礎設施
+   同時交易50至100個期貨市場
+   跨資產類別管理保證金及槓桿
+   跨越全球時區全天候運作
+   鮮有個人能夠複製
 
-3. It PROFITS from others' behavioral mistakes
-   As long as humans anchor, herd, and panic,
-   trends will exist in financial markets
-   AI and algorithmic trading may reduce this over time
-   But so far, the evidence does not support significant decay
+3. 從他人的行為失誤中獲利
+   只要人類繼續存在錨定效應、羊群效應及恐慌，
+   金融市場中的趨勢便會持續存在。
+   人工智能及算法交易或在未來減弱此效應，
+   但迄今為止，證據並不支持其顯著消退。
 
-4. It SERVES a structural economic function
-   Trend followers provide liquidity during crises
-   They SHORT stocks when everyone else is selling
-   This sounds paradoxical but trend followers' shorts
-   ABSORB selling pressure, providing liquidity to forced sellers
-   The premium is compensation for this service
+4. 發揮重要的結構性經濟功能
+   趨勢跟蹤者在危機時提供流動性
+   他們在所有人都在賣出時沽空股票
+   這看似矛盾，但趨勢跟蹤者的淡倉
+   實際上吸收了被迫賣家的拋售壓力，為其提供流動性。
+   溢價是對這項服務的補償。
 ```
 
-#### Common Trend Following Challenges
+#### 趨勢跟蹤的常見挑戰
 
 ```
-When Trend Following Struggles:
+趨勢跟蹤何時表現欠佳：
 
-1. WHIPSAW / CHOPPY MARKETS
-   Trendless, range-bound markets generate false signals
-   Each false signal costs money (buy high, sell low)
-   Extended sideways periods can produce 15-25% drawdowns
-   Example: 2011-2013 was difficult for most CTAs
+1. 震盪 / 橫行市場
+   無趨勢、橫行市場產生假訊號
+   每個假訊號都會損失金錢（高買低賣）
+   長期橫行可導致15至25%的回撤
+   例子：2011至2013年對大多數CTA而言十分艱難
 
-2. SHARP V-SHAPED REVERSALS
-   Trend following needs TIME to establish positions
-   Quick crashes followed by quick recoveries = losses
-   Example: COVID crash (Feb-Mar 2020) was too fast
-   to flip from long to short to long again
+2. 急速V形反彈
+   趨勢跟蹤需要時間建立倉位
+   急速崩盤後緊接急速反彈 = 虧損
+   例子：新冠疫情崩市（2020年2至3月）速度太快，
+   無法由好倉轉換為淡倉再轉回好倉
 
-3. CROWDED POSITIONS
-   When too many trend followers are in the same trades,
-   reversals become amplified
-   Example: If everyone is long crude oil on trend,
-   a reversal triggers mass selling, overshooting
+3. 倉位擁擠
+   當過多趨勢跟蹤者持有相同倉位時，
+   逆轉便會被放大
+   例子：若所有人都因趨勢做好原油，
+   逆轉引發大規模拋售，超調嚴重
 
-4. LOW VOLATILITY ENVIRONMENTS
-   Trend signals are weaker when volatility is low
-   Position sizes are LARGER (inverse vol sizing)
-   but trends are SMALLER and less reliable
-   The 2010s "low vol" era was the worst decade for CTAs
+4. 低波動性環境
+   波動性低時趨勢訊號較弱
+   倉位規模較大（反波動性調整），
+   但趨勢較小且不可靠
+   2010年代的「低波動性」時代是CTA最艱難的十年
 
-5. INTEREST RATE REVERSALS
-   Bond trends can reverse quickly when central banks pivot
-   The 2013 "Taper Tantrum" hurt many CTAs
-   Bonds are typically a large allocation in CTA portfolios
+5. 利率逆轉
+   央行政策轉向時，債券趨勢可迅速逆轉
+   2013年「縮減恐慌」令許多CTA受損
+   債券通常是CTA投資組合中的較大配置
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Trend following is just momentum investing."**
+**誤解一：「趨勢跟蹤不過是動量投資。」**
 
-While trend following uses momentum signals, it differs from the equity momentum factor in several important ways. First, trend following uses *time series* momentum (an asset's own past returns) while the equity momentum factor uses *cross-sectional* momentum (ranking stocks relative to each other). Second, trend following applies across all asset classes -- bonds, currencies, commodities, and equities -- not just stocks. Third, trend following takes both long AND short positions, while most equity momentum strategies are long-only. These differences give trend following its unique crisis alpha property, which equity momentum does not share (momentum crashes during equity market reversals).
+趨勢跟蹤雖使用動量訊號，但與股票動量因子有幾項重要區別。首先，趨勢跟蹤使用的是*時間序列*動量（資產自身的過去回報），而股票動量因子使用的是*橫截面*動量（相對其他股票的排名）。其次，趨勢跟蹤跨越所有資產類別——債券、外匯、商品及股票——而非只限股票。第三，趨勢跟蹤同時持有好倉及淡倉，而大多數股票動量策略只做好倉。這些差異賦予趨勢跟蹤獨特的危機阿爾法特性，這是股票動量所不具備的（在股票市場逆轉期間，動量策略會遭受重挫）。
 
-**Misconception 2: "Managed futures are too risky because they use leverage."**
+**誤解二：「管理期貨使用槓桿，風險太高。」**
 
-While CTAs use notional leverage of 5-10x, this is misleading. Leverage in futures is fundamentally different from leverage in stocks. A CTA positions each market to contribute a small amount of risk, and the total portfolio volatility is typically targeted at 10-15% -- similar to or less than equity market volatility. The high notional leverage exists because futures require only small margin deposits. A trend following strategy with 10% target volatility is actually LESS risky than a 100% stock portfolio (which has 15-20% volatility) despite using 5x notional leverage.
+儘管CTA使用5至10倍名義槓桿，但這種說法具有誤導性。期貨中的槓桿從根本上不同於股票槓桿。CTA對每個市場的倉位設定以貢獻少量風險，投資組合整體波動性通常以10至15%為目標——與股票市場波動性相近，甚至更低。高名義槓桿的存在，是因為期貨只需繳付少量保證金。一個以10%波動性為目標的趨勢跟蹤策略，儘管使用了5倍名義槓桿，實際上比100%股票投資組合（15至20%波動性）更低風險。
 
-**Misconception 3: "Trend following is a market timing strategy."**
+**誤解三：「趨勢跟蹤是一種擇時策略。」**
 
-Trend following does not attempt to predict market tops or bottoms. It does not try to "time" the market in the conventional sense. Instead, it reacts to price trends after they have already begun. A trend follower will always miss the top and the bottom. The profit comes from capturing the middle portion of sustained trends. This reactive, rather than predictive, approach is what gives the strategy its robustness -- it does not need to be right about the future, only patient enough to ride existing trends.
+趨勢跟蹤並不試圖預測市場頂部或底部，亦不嘗試以傳統方式「把握市場時機」。它對已形成的價格趨勢作出反應。趨勢跟蹤者永遠會錯過頂部和底部，利潤來自捕捉持續趨勢的中間部分。這種反應式而非預測式的方法，賦予該策略其穩健性——它不需要對未來做出正確判斷，只需要有足夠的耐心去順應現有趨勢。
 
-**Misconception 4: "Managed futures ETFs provide the same returns as institutional CTAs."**
+**誤解四：「管理期貨交易所買賣基金與機構CTA的回報相同。」**
 
-Managed futures ETFs trail institutional CTAs by approximately 1 to 3 percent annually. The replication approach used by products like DBMF introduces tracking error. The limited number of markets traded by ETFs (10 to 25) versus institutional CTAs (50 to 200) reduces diversification. And the ETF expense ratio (0.85 to 0.95%) adds cost. However, institutional CTAs charge 2% management fee plus 20% performance fee, so the net-of-fee difference is much smaller. For most retail investors, ETFs are the more cost-effective access point.
+管理期貨交易所買賣基金每年落後機構CTA約1至3個百分點。DBMF等產品所採用的複製方法存在追蹤誤差。交易所買賣基金所涉及的市場數量（10至25個）相較機構CTA（50至200個）較少，降低了分散效果。加上交易所買賣基金的費用比率（0.85至0.95%）帶來額外成本。然而，機構CTA收取2%管理費加20%表現費，因此淨費用後的差距其實小得多。對大多數散戶投資者而言，交易所買賣基金是更具成本效益的取得管道。
 
-**Misconception 5: "If trend following works, why is not everyone doing it?"**
+**誤解五：「若趨勢跟蹤真的有效，為何不是所有人都在採用？」**
 
-Several reasons prevent universal adoption. First, trend following has extended periods of underperformance that most investors cannot tolerate -- the 2010s saw many institutional investors reduce or eliminate their managed futures allocation, right before the strategy delivered stellar 2022 returns. Second, the strategy feels psychologically uncomfortable: buying after prices have already risen and selling after prices have already fallen violates most people's instinct to buy low and sell high. Third, the strategy requires genuine diversification across many markets, which is operationally complex. And fourth, many investors evaluate strategies based on calendar-year returns rather than crisis-period returns, which makes trend following look mediocre during long bull markets.
+原因有幾方面。第一，趨勢跟蹤有較長的跑輸時期，大多數投資者難以忍受——2010年代曾有許多機構投資者削減或取消管理期貨配置，但就在不久後，該策略在2022年錄得亮麗回報。第二，這種策略在心理上感覺不舒服：在價格已上升後才買入、在價格已下跌後才賣出，違背了大多數人「低買高賣」的本能。第三，該策略需要在眾多市場真正實現分散，在操作上相當複雜。第四，許多投資者按日曆年度回報評估策略，而非按危機時期的表現評估，這使趨勢跟蹤在長期牛市中顯得平庸。
 
-**Misconception 6: "Trend following cannot work in efficient markets."**
+**誤解六：「趨勢跟蹤在有效市場中無法奏效。」**
 
-The Efficient Market Hypothesis in its strong form implies that trends should not exist. But decades of evidence show they do. Markets are not perfectly efficient -- they are *adaptively* efficient. Information is incorporated slowly and unevenly due to behavioral biases, institutional constraints, and the complexity of the real economy. Central bank policy creates multi-year interest rate trends. Commodity supply-demand imbalances take years to resolve. Geopolitical shifts create currency trends. These are not market inefficiencies to be arbitraged away -- they are fundamental economic processes that manifest as price trends.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much should I allocate to managed futures in my portfolio?**
-
-A1: Academic research and industry practice suggest 10 to 20 percent for meaningful diversification benefit. The exact amount depends on your risk tolerance and investment horizon. At 5 percent, the impact on portfolio risk is noticeable but modest. At 10 percent, you get substantial drawdown reduction. At 15 to 20 percent, the impact is significant -- potentially reducing maximum drawdown by 25 to 35 percent relative to a traditional 60/40 portfolio. I would not recommend going above 25 percent unless you have deep experience with the strategy and can tolerate extended periods of underperformance during equity bull markets.
-
-**Q2: Should I use DBMF or KMLM, or both?**
-
-A2: If you are allocating to only one product, DBMF is the better choice due to its larger AUM, broader market coverage (including equity index futures, which KMLM excludes), and longer live track record. If you are allocating enough to split between two products, using both DBMF and KMLM provides strategy diversification -- DBMF uses CTA replication while KMLM uses direct trend following, and they will differ in their exposures at any given time. For a 10 percent managed futures allocation, I would suggest 7 percent DBMF and 3 percent KMLM.
-
-**Q3: What should I expect from managed futures during a bull market?**
-
-A3: During sustained equity bull markets, managed futures will typically generate modest positive returns (3 to 6 percent annually) from trends in bonds, currencies, and commodities, combined with long equity positions. However, this will significantly lag the equity market during strong up years. In a year when the S&P 500 returns 25 percent, managed futures might return 5 to 8 percent. This underperformance is the "insurance premium" you pay. The "payout" comes during bear markets, when managed futures can generate 10 to 25 percent while equities lose 20 to 50 percent. You must evaluate the strategy over a full market cycle, not individual calendar years.
-
-**Q4: Can I replicate a trend following strategy on my own?**
-
-A4: In principle, yes. The core strategy -- moving average crossover signals with inverse volatility position sizing -- is not complex. However, practical implementation requires trading futures across many markets, managing margin, monitoring positions across global time zones, and maintaining iron discipline to execute signals without second-guessing. You need a minimum account size of roughly $200,000 to $500,000 to diversify across enough markets. For most individual investors, managed futures ETFs are more practical, even with their imperfect replication and fees.
-
-**Q5: Why did managed futures do so well in 2022?**
-
-A5: 2022 was nearly ideal for trend following. Interest rates rose steadily throughout the year, creating strong short-bond positions. Commodities -- especially energy -- trended sharply higher due to the Russia-Ukraine conflict. The US dollar strengthened consistently. And equities declined gradually over months, giving trend following systems time to establish short positions. Critically, both stocks AND bonds trended downward simultaneously, which normally devastates a 60/40 portfolio but creates opportunities for a strategy that can go short both. Managed futures were one of the only strategies that made money in 2022 precisely because they can profit from downtrends.
-
-**Q6: What is the worst-case scenario for managed futures?**
-
-A6: The worst-case scenario is an extended period of low volatility and trendless markets across all asset classes simultaneously. The 2014-2017 period was close to this: major central banks coordinated to suppress volatility, bond yields were stable, currencies were range-bound, and commodities meandered. Trend following strategies generated near-zero or slightly negative returns for several years. While not catastrophic, the opportunity cost versus equities (which were rallying strongly) was substantial and caused many investors to abandon the strategy. The maximum drawdown for professional CTA indices has been approximately 15 to 20 percent, which is significant but far less than equity drawdowns.
-
-**Q7: How does trend following interact with other portfolio strategies like factor investing or options income?**
-
-A7: Trend following is highly complementary to both. Factor investing tends to have modest positive correlation to the equity market (long-only factor ETFs go down when stocks go down, though possibly less). Options income strategies (selling puts, covered calls) are exposed to equity downside risk. Trend following provides a natural hedge against exactly these scenarios because it flips short during extended equity declines. The combination of factor tilts (long-term equity premium capture), options income (short-term premium harvesting), and trend following (crisis protection) creates a portfolio with multiple return drivers and built-in hedging.
-
-**Q8: Is trend following capacity-constrained? Will it stop working if too much money flows in?**
-
-A8: This is a legitimate concern but less pressing than it appears. The global futures market is enormous -- daily turnover in major futures contracts exceeds hundreds of billions of dollars. The entire CTA industry manages approximately $400 billion, which is small relative to the markets it trades. However, crowding in specific markets or specific trend signals can cause problems. If every CTA uses the same 200-day moving average on crude oil, their simultaneous entry and exit creates self-fulfilling and then self-defeating dynamics. Professional CTAs mitigate this by using diverse signal sets, staggering entry/exit points, and trading less liquid markets that smaller competitors cannot access.
+效率市場假說的強式版本意味著趨勢不應存在。但數十年的證據表明它們確實存在。市場並非完全有效——而是*適應性*有效。由於行為偏誤、機構限制及實體經濟的複雜性，資訊被緩慢而不均衡地消化。央行政策創造多年利率趨勢，商品供需失衡需要數年解決，地緣政治轉變帶來外匯趨勢。這些並非可被套利消除的市場低效——而是以價格趨勢形式呈現的基本經濟過程。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-[VISUAL: Channel intro animation with trend charts across multiple markets -- stocks, bonds, commodities, currencies]
+**問題一：我應將多少資金配置至投資組合中的管理期貨？**
 
-**Alex:** Welcome to Week 51. Today we are covering one of the most important topics in the entire course: managed futures and trend following. This strategy has been responsible for some of the most consistent portfolio protection during market crises, and it is now accessible to retail investors through ETFs.
+解答一：學術研究及業界實踐建議配置10至20%，以取得有意義的分散效益。確切比例取決於你的風險承受能力及投資期限。在5%水平，對投資組合風險的影響明顯但有限。在10%水平，可大幅降低回撤。在15至20%，影響顯著——相較傳統六四投資組合，最大回撤有機會減少25至35個百分點。我不建議超過25%，除非你對這一策略有深入了解，並能忍受在股票牛市期間較長時間的表現落後。
 
-**Sam:** I have been looking forward to this one. Managed futures always seemed mysterious to me -- like a black box that hedge funds use. Can we demystify it?
+**問題二：我應選擇DBMF還是KMLM，還是兩者都持有？**
 
-[VISUAL: Title card "Managed Futures: Demystified"]
+解答二：若只配置一種產品，DBMF是較佳選擇，原因在於其管理資產規模較大、市場覆蓋更廣（包括KMLM不包括的股票指數期貨），以及較長的實盤歷史紀錄。若配置規模足以分拆為兩種產品，同時持有DBMF及KMLM可提供策略分散效果——DBMF採用CTA複製法，KMLM採用直接趨勢跟蹤，兩者在任何特定時間的敞口均有所不同。若管理期貨配置比例為10%，我建議7%配置DBMF，3%配置KMLM。
 
-**Alex:** Absolutely. And the surprise is how simple the core concept is. At its heart, trend following -- which accounts for about 70 percent of the managed futures industry -- does one thing: it buys assets that are going up and sells assets that are going down.
+**問題三：在牛市期間，我應對管理期貨有何預期？**
 
-**Sam:** That is it? That sounds almost too simple.
+解答三：在持續的股票牛市期間，管理期貨通常會透過債券、外匯及商品趨勢，加上股票好倉，帶來適中的正回報（每年約3至6%）。然而，在強勁上升年份，這將大幅落後於股票市場。若某年標普500回報為25%，管理期貨可能只回報5至8%。這種跑輸是你所支付的「保費」，而「賠付」則在熊市中到來——屆時管理期貨可能在股票虧損20至50%的同時錄得10至25%的回報。你必須以完整市場周期而非單一日曆年度來評估這一策略。
 
-**Alex:** The elegance IS the simplicity. A basic trend following system might use a 200-day moving average. When the price is above the 200-day average, you go long. When it is below, you go short. Apply this across 50 to 100 different futures markets -- stocks, bonds, commodities, currencies -- size each position by inverse volatility so that each market contributes equal risk, and you have a professional-grade trend following strategy.
+**問題四：我能自行複製趨勢跟蹤策略嗎？**
 
-[ANIMATION: animation/week51_trend_following.py -- Animated price chart showing a trend developing over time. A moving average line follows the price. Green arrows appear when buy signals trigger (price crosses above MA), red arrows when sell/short signals trigger (price crosses below MA). Profit and loss accumulates on a running total below the chart.]
+解答四：理論上可以。核心策略——帶反波動性倉位調整的移動平均線交叉訊號——並不複雜。然而，實際操作需要在眾多市場交易期貨、管理保證金、全天候監控全球各地的倉位，以及保持執行訊號而不事後質疑的鋼鐵紀律。你需要大約20萬至50萬美元的最低賬戶規模，才能在足夠多的市場中實現分散。對大多數個人投資者而言，管理期貨交易所買賣基金更為實際，儘管其複製不完整且需支付費用。
 
-**Sam:** If it is that simple, why does not everyone do it?
+**問題五：趨勢跟蹤在2022年為何表現如此出色？**
 
-**Alex:** Two reasons. First, it is operationally complex even though the concept is simple. You need to trade futures across dozens of markets, manage leverage and margin, and operate around the clock across global time zones. Second -- and this is the bigger barrier -- it is psychologically brutal. Buying something that has already gone up feels like chasing. Holding through a 15 percent drawdown while the S&P is ripping higher requires iron discipline. Most people cannot do it.
+解答五：2022年對趨勢跟蹤而言幾乎是完美的環境。隨著聯儲局積極加息，全年利率穩步上升，形成強勁持續的債券淡倉趨勢。受俄烏衝突影響，商品——尤其是能源——急劇上升並形成趨勢。美元對幾乎所有貨幣持續升值。股票在數月間緩慢下跌，給予趨勢跟蹤系統充裕時間建立淡倉。關鍵詞是「緩慢」——這些並非突如其來的衝擊，而是持續數月的趨勢。管理期貨是2022年少數錄得盈利的策略之一，正是因為它能在下行趨勢中同時沽空股票和債券。
 
-[VISUAL: Title card "Time Series Momentum: The Academic Evidence"]
+**問題六：管理期貨最差的情況是什麼？**
 
-**Sam:** Let us talk about the academic foundation. Is there serious research behind this?
+解答六：最差的情況是所有資產類別同時出現長期低波動性及無趨勢市況。2014至2017年間接近這一情況：主要央行協調壓低波動性，債券收益率穩定，外匯在區間內波動，商品漫無方向。趨勢跟蹤策略在數年間錄得接近零或略微負面的回報。雖然並非災難性的，但與股票（當時強勁上升）相比的機會成本相當顯著，並導致許多投資者放棄了這一策略。專業CTA指數的最大回撤約為15至20%，這雖然相當可觀，但遠低於股票的回撤幅度。
 
-**Alex:** Extensive research. The landmark paper was by Moskowitz, Ooi, and Pedersen at AQR Capital Management in 2012. They studied 58 different futures markets across equities, bonds, currencies, and commodities, going back decades. They found that time series momentum -- an asset's own past returns predicting its future returns -- was positive and statistically significant in every single asset class.
+**問題七：趨勢跟蹤如何與其他投資組合策略（如因子投資或期權收益）相互配合？**
 
-**Sam:** Every asset class?
+解答七：趨勢跟蹤與兩者都高度互補。因子投資傾向於對股票市場有適度的正相關（只做好倉的因子交易所買賣基金在股票下跌時也會下跌，雖然跌幅可能較小）。期權收益策略（沽認沽期權、備兌認購期權）面臨股票下行風險。趨勢跟蹤在持續股票下跌期間翻轉為淡倉，為上述情況提供天然對沖。因子傾斜（長期股票溢價捕捉）、期權收益（短期期權金收取）及趨勢跟蹤（危機保護）的結合，打造了一個具備多個回報驅動力及內置對沖的投資組合。
 
-**Alex:** Every one. Equities, bonds, currencies, commodities. The effect was robust across multiple lookback periods from one month to twelve months. It persisted after transaction costs. And it was NOT explained by traditional risk factors. This is not some fragile anomaly -- it is one of the most robust patterns in financial markets.
+**問題八：趨勢跟蹤是否受容量限制？若大量資金湧入，它是否會失效？**
 
-[VISUAL: Table showing TSMOM returns across asset classes with Sharpe ratios]
-
-**Sam:** Why do trends exist? It seems like markets should be efficient enough to eliminate predictable patterns.
-
-**Alex:** Markets are adaptively efficient, not perfectly efficient. Several forces create trends. First, behavioral biases: investors anchor to old prices and underreact to new information, so prices adjust to new realities slowly rather than instantly. Second, institutional factors: central bank interest rate cycles create multi-year trends in bonds and currencies. Stop-losses and margin calls force selling during declines, extending downward trends. Third, real economic forces: commodity supply-demand imbalances take years to resolve, business cycles create multi-quarter earnings trends, and geopolitical shifts create currency movements that play out over months or years.
-
-[ANIMATION: animation/week51_trend_following.py -- Animated diagram showing the behavioral cycle: new information arrives -> slow initial reaction (anchoring) -> gradual price adjustment -> herding amplifies the move -> overshoot -> eventual mean reversion. The animation highlights how trend following captures the middle portion of this cycle.]
-
-**Sam:** Now let us talk about what I think is the most compelling feature: crisis alpha. What happens to trend following during market crashes?
-
-[VISUAL: Title card "Crisis Alpha: The Ultimate Portfolio Insurance"]
-
-**Alex:** Crisis alpha is the term coined by Kathryn Kaminski to describe trend following's remarkable property of generating positive returns during major market dislocations. Let me walk you through the mechanism.
-
-**Sam:** Please.
-
-**Alex:** When a crisis begins, there is typically a sudden initial shock -- think of the market dropping 5 percent in a few days. At this point, trend following systems are usually still long equities, so they LOSE money. This is the cost phase.
-
-**Sam:** That does not sound like crisis protection.
-
-**Alex:** Patience. As the decline continues -- say over several weeks -- the trend signals start to flip. Moving averages cross, breakout signals trigger. The systems move from long to flat to short. Simultaneously, other trends emerge: bonds rally as investors flee to safety, certain commodities sell off, the dollar may strengthen. The trend following system goes long bonds, short equities, short certain commodities.
-
-[VISUAL: Timeline showing the five phases of crisis alpha: initial shock, signal flip, trend development, crisis deepening, recovery]
-
-**Sam:** So the system needs time to adapt.
-
-**Alex:** Exactly. And this is the key insight. The longer and more sustained the crisis, the more profitable trend following becomes. During the 2008 financial crisis, which played out over 18 months, trend following strategies returned approximately 18 percent while the S&P 500 lost 57 percent. During the dot-com crash, which lasted nearly three years, trend following returned about 28 percent cumulatively.
-
-**Sam:** What about COVID? That was a crash but also a very quick recovery.
-
-**Alex:** COVID is the perfect counter-example. The crash from peak to trough happened in just five weeks -- the fastest 30 percent decline in stock market history. Trend following systems barely had time to flip from long to short before the market reversed sharply upward. The result: managed futures lost about 3 percent during COVID, which is essentially flat. Not a disaster, but not the crisis alpha we saw in 2008.
-
-[VISUAL: Side-by-side comparison charts of trend following vs S&P 500 during GFC 2008 and COVID 2020]
-
-**Sam:** So trend following protects against long, grinding bear markets but not flash crashes.
-
-**Alex:** That is the right way to think about it. And here is the important corollary: the truly dangerous bear markets -- the ones that destroy retirement portfolios and force people to sell at the bottom -- are almost always the extended ones. The GFC. The dot-com crash. These lasted months to years and caused 40 to 60 percent losses. Quick crashes with quick recoveries, like COVID, are traumatic but not financially devastating if you stay invested. Trend following provides the most protection precisely when you need it most.
-
-**Sam:** What about 2022? I heard that was a standout year for managed futures.
-
-[VISUAL: Title card "2022: Trend Following's Finest Hour"]
-
-**Alex:** 2022 may have been the most important year in the history of trend following, in terms of proving its value to the investing world. Here is why: in 2022, stocks fell 25 percent, and bonds -- which are supposed to protect you during stock declines -- also fell, losing about 13 percent. The traditional 60/40 portfolio had its worst year in decades. Meanwhile, trend following strategies returned approximately 24 percent.
-
-**Sam:** Positive 24 percent while both stocks and bonds lost money? How?
-
-**Alex:** Multiple sustained trends across asset classes, all in the same direction. Interest rates rose steadily throughout the year as the Federal Reserve hiked aggressively. This created a strong, persistent short-bond trend. Energy commodities spiked due to the Russia-Ukraine conflict. The US dollar strengthened against nearly every other currency. And equities declined gradually over many months, giving trend following systems plenty of time to establish short positions. The key word is "gradually" -- these were not sudden shocks but sustained, multi-month trends.
-
-[ANIMATION: animation/week51_trend_following.py -- Animated portfolio simulation showing positions across asset classes during 2022: short bonds building over time, long energy commodities, long USD, short equities. Each position's contribution to the overall return is shown as a stacking bar chart that grows throughout the year.]
-
-**Sam:** So 2022 was the year that proved trend following works when nothing else does.
-
-**Alex:** Precisely. And it vindicated the investors who maintained their managed futures allocation through the difficult 2010s, when trend following underperformed and many institutions abandoned it. The lesson is clear: crisis protection strategies only work if you hold them through the calm periods too. You cannot time when the crisis will come.
-
-**Sam:** Let us talk about practical implementation. How can a regular investor access this?
-
-[VISUAL: Title card "Implementation: ETFs and Beyond"]
-
-**Alex:** The two most prominent options are DBMF and KMLM. DBMF, from iMGP, uses a factor-based approach to replicate the returns of the top 20 CTAs. It has the largest AUM at about 3 billion dollars and the broadest market coverage. KMLM, from KFA Mount Lucas, tracks a rules-based trend following index across commodities, currencies, and bonds. Both charge around 85 to 95 basis points, which sounds expensive but is far cheaper than the traditional CTA fee structure of 2 percent management fee plus 20 percent performance fee.
-
-**Sam:** Which one should someone choose?
-
-**Alex:** If picking one, I would lean toward DBMF because it includes equity index futures in its replication, while KMLM does not. This means DBMF can go short equity indexes during a bear market, which is a significant component of crisis alpha. If you have enough allocation to split between two products -- say, a 10 percent allocation to managed futures -- I would do 7 percent in DBMF and 3 percent in KMLM to get strategy diversification.
-
-**Sam:** What is a reasonable allocation?
-
-**Alex:** Research from AQR, Man Group, and other leading quant firms consistently points to 10 to 15 percent as the sweet spot. At this level, you get meaningful drawdown reduction -- potentially shaving 8 to 10 percentage points off the worst drawdown -- while maintaining strong portfolio returns. Below 5 percent, the impact is too small to matter. Above 20 percent, you start to feel significant drag during bull markets.
-
-[VISUAL: Chart showing the efficient frontier with and without managed futures, demonstrating the improvement in risk-return trade-off]
-
-**Sam:** What about behavioral challenges? You mentioned that trend following feels uncomfortable.
-
-**Alex:** This might be the most important practical consideration. During a strong equity bull market -- like 2013 or 2019, when the S&P 500 returned 30-plus percent -- your managed futures allocation might return 3 to 5 percent. Every quarterly statement, you will see this allocation dragging on your total portfolio return. The temptation to eliminate it and go all-in on equities is enormous.
-
-**Sam:** How do you stay disciplined?
-
-**Alex:** Three things. First, mentally reframe the allocation as insurance. You do not cancel your homeowner's insurance because your house did not burn down last year. Second, look at your portfolio's risk metrics, not just returns. The Sharpe ratio, maximum drawdown, and volatility of the portfolio WITH managed futures is better than without, even if the raw return is slightly lower in bull markets. Third, remember 2008 and 2022. Those are the years that define long-term wealth. If managed futures reduce your drawdown from 50 percent to 30 percent in the next crisis, you need a 43 percent gain to recover from 30 percent versus a 100 percent gain from 50 percent. That difference compounds over a lifetime.
-
-[VISUAL: Recovery math comparison: 30% drawdown needs 43% to recover vs 50% drawdown needs 100% to recover]
-
-**Sam:** Let us talk about the long-term picture. Has trend following always worked?
-
-**Alex:** Remarkably, yes. Research going back to the 1800s shows positive trend following returns across every multi-decade period. The strategy has survived world wars, the Great Depression, multiple financial crises, the transition from floor trading to electronic markets, and the rise of algorithmic trading. It has been profitable for over 100 years.
-
-**Sam:** Why has it not been arbitraged away in all that time?
-
-**Alex:** Because the barriers to implementation are structural and psychological, not informational. Everyone *knows* that trends exist. But executing a trend following strategy requires trading dozens of markets simultaneously, managing leverage, operating globally, and maintaining discipline through inevitable drawdowns. Most investors -- including most professionals -- cannot do this consistently. Additionally, trend following profits from behavioral biases that are deeply wired into human psychology: anchoring, herding, loss aversion. As long as humans are involved in markets, trends will exist.
-
-[ANIMATION: animation/week51_trend_following.py -- Historical timeline animation showing trend following returns by decade from the 1880s to 2020s, with major historical events marked. The visual shows that the strategy has been consistently profitable across radically different market regimes and eras.]
-
-**Sam:** How does managed futures fit with everything else we have learned in this course?
-
-**Alex:** That is the perfect segue to next week's integration lesson, but I will preview it. Think of your portfolio as having multiple layers. The core is your market exposure -- stocks and bonds. Factor tilts add a modest return premium with controlled tracking error. Options strategies provide income and tail hedging. And managed futures provide the ultimate diversifier -- a strategy that is genuinely uncorrelated to everything else and provides positive returns during the crises that threaten the rest of your portfolio.
-
-**Sam:** So managed futures is the portfolio's insurance policy?
-
-**Alex:** Insurance policy with a positive expected return. Most insurance costs money -- you pay premiums and hope to never collect. Managed futures, historically, have generated positive returns on average while ALSO providing crisis protection. It is not a free lunch -- you endure periods of underperformance as the cost -- but over a full market cycle, it adds value on both the return and risk dimensions.
-
-**Sam:** This has been incredibly insightful. I feel like managed futures is the missing piece that most portfolios lack.
-
-**Alex:** It absolutely is. The largest, most sophisticated institutional investors -- Norwegian Government Pension Fund, Yale Endowment, Australian super funds -- have been allocating to managed futures for decades. It is only recently that retail investors have gained access through ETFs. Take advantage of it.
-
-**Sam:** Next week is the grand finale. We bring everything together.
-
-**Alex:** Week 52: Portfolio Integration -- putting all 52 weeks of learning into a single, coherent investment framework. See you then.
-
-[VISUAL: End card with lesson summary, ETF comparison table, and recommended readings]
+解答八：這是一個合理的關注點，但實際問題比表面上看起來要小。全球期貨市場規模龐大——主要期貨合約的每日交易量超過數千億美元。整個CTA行業管理約4,000億美元，相對其所交易的市場而言規模甚小。然而，特定市場或特定趨勢訊號的倉位擁擠可能造成問題。若所有CTA都對原油使用相同的200日移動平均線，其同步進出場會造成自我實現繼而自我失效的動態。專業CTA透過使用多元化訊號組合、錯開進出場時間點，以及交易規模較小的競爭對手難以涉足的較低流動性市場，來緩解這一問題。
 
 ---
+
+## YouTube腳本
+
+[VISUAL: 頻道開場動畫，展示多個市場的趨勢圖表——股票、債券、商品、外匯]
+
+**Horace（陳馬）：** 歡迎來到第51週。今天我們討論整個課程中最重要的課題之一：管理期貨與趨勢跟蹤。這一策略在市場危機期間提供了最持續的投資組合保護，而且現在散戶投資者已可透過交易所買賣基金取得這種策略。
+
+**Stella（小魚）：** 我一直很期待這一課。管理期貨對我來說一向神秘，感覺像是對沖基金專用的黑箱。我們可以揭開它的神秘面紗嗎？
+
+[VISUAL: 標題卡「管理期貨：揭開神秘面紗」]
+
+**Horace（陳馬）：** 當然可以。令人意想不到的是，核心概念其實非常簡單。趨勢跟蹤——約佔管理期貨行業七成——只做一件事：買入上升的資產，沽空下跌的資產。
+
+**Stella（小魚）：** 就這樣？聽起來幾乎太簡單了。
+
+**Horace（陳馬）：** 簡單本身就是精妙所在。一個基本的趨勢跟蹤系統可能使用200日移動平均線。當價格高於200日均線，你做好倉；當價格低於均線，你做淡倉。將這個方法應用於50至100個不同的期貨市場——股票、債券、商品、外匯——以反波動性方式設定每個倉位的大小，令每個市場貢獻相等風險，這就是一個專業級別的趨勢跟蹤策略。
+
+[ANIMATION: animation/week51_trend_following.py——動畫價格圖，展示趨勢隨時間形成。移動平均線跟隨價格走動。買入訊號觸發時出現綠色箭頭（價格突破均線上方），賣出/沽空訊號觸發時出現紅色箭頭（價格跌穿均線下方）。圖表下方顯示滾動盈虧累計。]
+
+**Stella（小魚）：** 若真的這麼簡單，為何不是所有人都這樣做？
+
+**Horace（陳馬）：** 兩個原因。第一，概念雖簡單，但操作上相當複雜。你需要在數十個市場交易期貨、管理槓桿和保證金，並全天候在全球各時區運作。第二——而且這是更大的障礙——在心理上極為折磨。在已上升的東西上繼續買入，感覺像是追高。在標普500狂飆之際還要忍受15%的回撤，需要鋼鐵般的意志。大多數人做不到。
+
+[VISUAL: 標題卡「時間序列動量：學術依據」]
+
+**Stella（小魚）：** 我們來談談學術基礎。背後有嚴肅的研究支持嗎？
+
+**Horace（陳馬）：** 有大量研究。里程碑論文是AQR資本管理公司的Moskowitz、Ooi及Pedersen於2012年發表的。他們研究了跨越股票、債券、外匯和商品的58個不同期貨市場，追溯了數十年的數據。他們發現，時間序列動量——資產自身的過去回報預測未來回報——在每一個資產類別中均顯著為正。
+
+**Stella（小魚）：** 每一個資產類別？
+
+**Horace（陳馬）：** 每一個。股票、債券、外匯、商品，全部都是。這種效應在1至12個月的多個回望期均穩健存在，扣除交易成本後仍然持續，且無法以傳統風險因子解釋。這不是什麼脆弱的異常現象——而是金融市場中最穩健的規律之一。
+
+[VISUAL: 顯示各資產類別TSMOM回報及夏普比率的表格]
+
+**Stella（小魚）：** 為何趨勢會存在？感覺市場應該有足夠的效率消除可預測的規律。
+
+**Horace（陳馬）：** 市場是適應性有效，而非完全有效。多種力量製造趨勢。首先是行為偏誤：投資者錨定舊價格，對新資訊反應不足，導致價格緩慢而非即時調整至新現實。其次是機構因素：央行利率周期在債券和外匯市場創造多年趨勢；止損盤和保證金追繳在下跌期間迫使拋售，延長下行趨勢。第三是真實的經濟力量：商品供需失衡需要數年解決，商業周期在數個季度內形成盈利趨勢，地緣政治轉變帶來的外匯走勢在數月或數年間逐步呈現。
+
+[ANIMATION: animation/week51_trend_following.py——動畫圖展示行為周期：新資訊出現 → 初始反應緩慢（錨定效應）→ 價格逐漸調整 → 羊群效應放大走勢 → 超調 → 最終均值回歸。動畫突出顯示趨勢跟蹤如何捕捉此周期的中間部分。]
+
+**Stella（小魚）：** 現在我們來談談我認為最吸引人的特性：危機阿爾法。趨勢跟蹤在市場崩盤期間會發生什麼？
+
+[VISUAL: 標題卡「危機阿爾法：終極投資組合保障」]
+
+**Horace（陳馬）：** 危機阿爾法是Kathryn Kaminski創造的術語，用來描述趨勢跟蹤在重大市場動盪期間產生正回報的非凡特性。讓我帶你了解其背後的機制。
+
+**Stella（小魚）：** 請說。
+
+**Horace（陳馬）：** 危機發生時，通常先有一個突如其來的初始衝擊——想像市場在數天內下跌5%。此時，趨勢跟蹤系統通常仍持有股票好倉，因此會出現虧損。這是成本階段。
+
+**Stella（小魚）：** 這聽起來不像是危機保護。
+
+**Horace（陳馬）：** 請耐心聽下去。隨著跌勢持續——例如延續數週——趨勢訊號開始轉換。移動平均線交叉，突破訊號觸發，系統由好倉轉為平倉再到淡倉。與此同時，其他趨勢亦隨之出現：投資者逃往避險資產，債券上升；某些商品下跌；美元可能走強。趨勢跟蹤系統轉為做好債券、沽空股票、沽空部分商品。
+
+[VISUAL: 時間軸展示危機阿爾法的五個階段：初始衝擊、訊號轉換、趨勢形成、危機深化、復甦]
+
+**Stella（小魚）：** 所以系統需要時間來適應。
+
+**Horace（陳馬）：** 正是如此。這是核心洞見。危機持續時間越長，趨勢跟蹤的獲利越豐厚。2008年金融危機歷時約18個月，趨勢跟蹤策略回報約為18%，而標普500同期則下跌了57%。科網股崩盤歷時近三年，趨勢跟蹤累計回報約為28%。
+
+**Stella（小魚）：** 新冠疫情呢？那也是一次崩市，但復甦也非常迅速。
+
+**Horace（陳馬）：** 新冠疫情是最佳的反面例子。從高位到低位的跌勢僅歷時約五週——是史上最快的30%跌幅。趨勢跟蹤系統幾乎沒有時間由好倉轉換為淡倉，市場便急劇反彈。結果：管理期貨虧損約3%，基本上持平。不是災難，但也沒有我們在2008年見到的危機阿爾法。
+
+[VISUAL: 2008年全球金融危機及2020年新冠疫情期間，趨勢跟蹤與標普500的並排對比圖表]
+
+**Stella（小魚）：** 所以趨勢跟蹤能保護投資者免受漫長、磨人的熊市影響，但無法抵擋閃崩。
+
+**Horace（陳馬）：** 這是正確的理解方式。而且有一個重要的推論：真正危險的熊市——那些毀掉退休投資組合、逼使人們在低位沽貨的熊市——幾乎都是持續性的。全球金融危機、科網股崩盤，都持續了數月至數年，造成40至60%的損失。像新冠疫情那樣的快速崩盤後迅速復甦，固然令人驚恐，但若你能堅持持倉，在財務上並不致命。趨勢跟蹤正是在你最需要保護之時提供最佳的保護。
+
+**Stella（小魚）：** 2022年呢？我聽說那是管理期貨的出色之年。
+
+[VISUAL: 標題卡「2022年：趨勢跟蹤的高光時刻」]
+
+**Horace（陳馬）：** 2022年就趨勢跟蹤向投資界證明其價值而言，或許是其歷史上最重要的一年。原因如下：2022年，股票下跌25%，而本應在股票下跌時保護你的債券，也同樣虧損，跌幅約13%。傳統的六四投資組合錄得了數十年來最差的年度表現。與此同時，趨勢跟蹤策略錄得約24%的回報。
+
+**Stella（小魚）：** 在股票和債券同時虧損的情況下，正回報24%？這是怎麼做到的？
+
+**Horace（陳馬）：** 多個資產類別同時出現持續趨勢，且方向一致。隨著聯儲局積極加息，全年利率穩步上升，形成強勁持續的債券淡倉趨勢。受俄烏衝突影響，能源商品急升。美元對幾乎所有貨幣持續升值。股票在數月間緩慢下跌，給予趨勢跟蹤系統充裕時間建立淡倉。關鍵詞是「緩慢」——這些不是突發衝擊，而是持續數月的趨勢。
+
+[ANIMATION: animation/week51_trend_following.py——動畫投資組合模擬，展示2022年各資產類別的倉位演變：債券淡倉隨時間建立、能源商品好倉、美元好倉、股票淡倉。每個倉位對整體回報的貢獻以疊加柱狀圖形式全年累積呈現。]
+
+**Stella（小魚）：** 所以2022年正是證明了趨勢跟蹤能在其他一切都失效時依然奏效的一年。
+
+**Horace（陳馬）：** 正是如此。這也為那些在艱難的2010年代堅持持有管理期貨配置的投資者平反——當時趨勢跟蹤表現遜色，許多機構紛紛放棄了這一策略。教訓非常清晰：危機保護策略只有在你同時持有平靜時期的倉位才能發揮作用。你無法預測危機何時到來。
+
+**Stella（小魚）：** 我們來談談實際操作。普通投資者如何取得這種策略？
+
+[VISUAL: 標題卡「實施方式：交易所買賣基金及其他選擇」]
+
+**Horace（陳馬）：** 兩個最突出的選擇是DBMF和KMLM。DBMF由iMGP發行，採用因子法複製前20大CTA的回報。其管理資產規模最大，約30億美元，市場覆蓋最廣。KMLM由KFA Mount Lucas發行，追蹤涵蓋商品、外匯及債券的規則化趨勢跟蹤指數。兩者均收取約85至95個基點的費用，聽起來貴，但遠比傳統CTA的費用結構便宜——後者收取2%管理費加20%表現費。
+
+**Stella（小魚）：** 應該選擇哪一個？
+
+**Horace（陳馬）：** 若只選一種，我傾向DBMF，因為它的複製策略包含股票指數期貨，而KMLM則不包括。這意味著DBMF在熊市期間可以沽空股票指數，而這是危機阿爾法的重要組成部分。若你的配置規模足以分拆為兩種產品——例如將10%的管理期貨配置分拆——我會選擇7%配置DBMF，3%配置KMLM，以取得策略分散效果。
+
+**Stella（小魚）：** 合理的配置比例是多少？
+
+**Horace（陳馬）：** AQR、Man Group及其他主要量化研究機構的研究一致指向10至15%為最優區間。在此水平，你能取得有意義的回撤降低——有機會將最大回撤減少8至10個百分點——同時維持強勁的投資組合回報。低於5%，影響太微小。高於20%，你在牛市期間會感受到顯著的拖累。
+
+[VISUAL: 顯示加入及不加入管理期貨的效率前緣圖，展示風險回報比的改善]
+
+**Stella（小魚）：** 行為挑戰呢？你提到趨勢跟蹤在心理上讓人感覺不舒服。
+
+**Horace（陳馬）：** 這或許是最重要的實際考量。在強勁股票牛市期間——如2013年或2019年，標普500回報超過30%——你的管理期貨配置可能只錄得3至5%的回報。每個季度報表，你都會看到這部分配置拖累整體投資組合回報。想要將其清掉、全力押注股票的誘惑極大。
+
+**Stella（小魚）：** 如何保持紀律？
+
+**Horace（陳馬）：** 三件事。第一，在心理上將此配置重新定性為保險。你不會因為去年屋子沒有失火便取消火災保險。第二，關注投資組合的風險指標，而非單純的回報。持有管理期貨的投資組合在夏普比率、最大回撤及波動性方面均優於不持有的組合，即使在牛市中的純回報可能略低。第三，記住2008年和2022年。那才是決定長期財富的關鍵年份。若管理期貨將你下次危機的回撤從50%降至30%，你只需回升43%便能復元，而非從50%回撤需要的100%回升。這個差距在一生中複利累計，意義深遠。
+
+[VISUAL: 復元數學對比：30%回撤需要43%才能復元，對比50%回撤需要100%才能復元]
+
+**Stella（小魚）：** 我們來談談長遠的大格局。趨勢跟蹤是否一直有效？
+
+**Horace（陳馬）：** 令人驚嘆地，是的。追溯至19世紀的研究顯示，趨勢跟蹤在每個多十年期間均錄得正回報。這一策略歷經了世界大戰、大蕭條、多次金融危機、由場內交易到電子化市場的轉型，以及算法交易的崛起，依然屹立不倒。在超過100年的歲月中持續盈利。
+
+**Stella（小魚）：** 為何它在這段時間內沒有被套利消除？
+
+**Horace（陳馬）：** 因為實施障礙來自結構和心理層面，而非資訊層面。人人都*知道*趨勢存在，但執行趨勢跟蹤策略需要同時交易數十個市場、管理槓桿、全球化運作，以及在不可避免的回撤中堅持紀律。大多數投資者——包括大多數專業人士——無法持之以恆地做到這一點。此外，趨勢跟蹤從人類心理中根深蒂固的行為偏誤中獲利：錨定效應、羊群效應、損失厭惡。只要人類仍參與市場，趨勢便會持續存在。
+
+[ANIMATION: animation/week51_trend_following.py——歷史時間軸動畫，展示由1880年代至2020年代的趨勢跟蹤分十年回報，標注重大歷史事件。視覺呈現表明，該策略在截然不同的市場環境和時代中均保持持續盈利。]
+
+**Stella（小魚）：** 管理期貨如何與我們在課程中學到的其他內容相配合？
+
+**Horace（陳馬）：** 這正好引出下一週整合課的鋪墊，但我先預告一下。把你的投資組合想像成具有多個層次。核心是你的市場敞口——股票和債券。因子傾斜以可控的追蹤誤差增添適度的回報溢價。期權策略提供收益及尾部對沖。而管理期貨則提供終極分散工具——一種與其他所有策略真正不相關，並在威脅投資組合其他部分的危機中提供正回報的策略。
+
+**Stella（小魚）：** 所以管理期貨是投資組合的保障政策？
+
+**Horace（陳馬）：** 一份有正預期回報的保障政策。大多數保障都需要付出代價——你支付保費，希望永遠不需要索賠。管理期貨在歷史上平均錄得正回報，同時亦提供危機保護。這並非免費的午餐——你要忍受跑輸時期作為代價——但在完整的市場周期中，它在回報和風險兩個維度上均增加價值。
+
+**Stella（小魚）：** 這次討論極具啟發性。我感覺管理期貨正是大多數投資組合所缺少的那一塊拼圖。
+
+**Horace（陳馬）：** 確實如此。規模最大、最精明的機構投資者——挪威政府養老基金、耶魯捐贈基金、澳大利亞超級年金——已配置管理期貨數十年。直至近年，散戶投資者才透過交易所買賣基金獲得渠道。請善加利用。
+
+**Stella（小魚）：** 下週是大結局，我們將把一切融匯貫通。
+
+**Horace（陳馬）：** 第52週：投資組合整合——將整整52週的學習濃縮成一套完整一貫的投資框架。下週見。
+
+[VISUAL: 結尾卡，附課程重點摘要、交易所買賣基金比較表及推薦閱讀]

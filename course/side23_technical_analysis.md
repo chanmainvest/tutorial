@@ -247,9 +247,9 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Computer screen showing a stock chart with multiple indicators -- moving averages, RSI, MACD, volume bars -- all updating in real time]
 
-**Alex:** Technical analysis. Two words that split the investing world in half. Some people swear by it -- they will not make a trade without checking the charts. Others think it is essentially reading tea leaves.
+**Horace:** Technical analysis. Two words that split the investing world in half. Some people swear by it -- they will not make a trade without checking the charts. Others think it is essentially reading tea leaves.
 
-**Sam:** Today, we are not here to pick sides in that debate. We are here to give you a practical understanding of the most important technical analysis tools, show you what the evidence says about when they work, and help you decide how to incorporate them into your own investing process.
+**Stella:** Today, we are not here to pick sides in that debate. We are here to give you a practical understanding of the most important technical analysis tools, show you what the evidence says about when they work, and help you decide how to incorporate them into your own investing process.
 
 [VISUAL: Title card "Technical Analysis: Charts, Indicators, and What the Evidence Says"]
 
@@ -259,17 +259,17 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Side-by-side comparison of line chart, bar chart, and candlestick chart for the same stock over the same time period]
 
-**Alex:** Let us start with the basics -- how to read a chart. The three main chart types are line charts, bar charts, and candlestick charts.
+**Horace:** Let us start with the basics -- how to read a chart. The three main chart types are line charts, bar charts, and candlestick charts.
 
-**Sam:** Line charts are the simplest -- just the closing price plotted over time, connected by a line. Clean and easy to read, but you lose information about what happened during each trading day.
+**Stella:** Line charts are the simplest -- just the closing price plotted over time, connected by a line. Clean and easy to read, but you lose information about what happened during each trading day.
 
-**Alex:** Candlestick charts are the most popular among technical analysts. Each candle shows four pieces of information: the open, high, low, and close. The body of the candle is green if the stock closed higher than it opened, and red if it closed lower.
+**Horace:** Candlestick charts are the most popular among technical analysts. Each candle shows four pieces of information: the open, high, low, and close. The body of the candle is green if the stock closed higher than it opened, and red if it closed lower.
 
 [ANIMATION: Building a single candlestick from its components: showing the open, then the high, low, and close forming the body and wicks]
 
-**Sam:** The beauty of candlesticks is that you can see at a glance not just where the stock ended, but how it got there. A candle with a long lower wick shows that the stock dropped significantly during the day but buyers pushed it back up. That is a sign of demand.
+**Stella:** The beauty of candlesticks is that you can see at a glance not just where the stock ended, but how it got there. A candle with a long lower wick shows that the stock dropped significantly during the day but buyers pushed it back up. That is a sign of demand.
 
-**Alex:** Specific candlestick patterns -- like the hammer, the doji, and the engulfing pattern -- have been cataloged and studied for centuries, going back to 18th-century Japanese rice trading. Whether they have real predictive power is debated, but they are widely watched, which gives them some influence.
+**Horace:** Specific candlestick patterns -- like the hammer, the doji, and the engulfing pattern -- have been cataloged and studied for centuries, going back to 18th-century Japanese rice trading. Whether they have real predictive power is debated, but they are widely watched, which gives them some influence.
 
 ---
 
@@ -277,15 +277,15 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [ANIMATION: Stock chart with horizontal support and resistance levels drawn, showing price bouncing between them]
 
-**Sam:** The two most fundamental concepts in technical analysis are support and resistance. Support is a price level where buying interest is strong enough to stop a decline. Resistance is where selling pressure stops a rally.
+**Stella:** The two most fundamental concepts in technical analysis are support and resistance. Support is a price level where buying interest is strong enough to stop a decline. Resistance is where selling pressure stops a rally.
 
-**Alex:** Think of it like a ball bouncing on a floor. The floor is support -- every time the ball hits it, it bounces back up. If the ball breaks through the floor, it falls to the next level below. That broken floor now becomes the ceiling -- it becomes resistance.
+**Horace:** Think of it like a ball bouncing on a floor. The floor is support -- every time the ball hits it, it bounces back up. If the ball breaks through the floor, it falls to the next level below. That broken floor now becomes the ceiling -- it becomes resistance.
 
 [VISUAL: Ball bouncing animation transitioning to stock chart, with support levels as floors and resistance levels as ceilings]
 
-**Sam:** Why do support and resistance work? Because they reflect real decisions by real people. If a stock bounced from $50 three times, investors remember that. The next time it approaches $50, some will place buy orders there, expecting another bounce. Enough buying at $50 creates the support.
+**Stella:** Why do support and resistance work? Because they reflect real decisions by real people. If a stock bounced from $50 three times, investors remember that. The next time it approaches $50, some will place buy orders there, expecting another bounce. Enough buying at $50 creates the support.
 
-**Alex:** And here is the key principle: when support breaks, it often becomes resistance, and vice versa. If the stock finally breaks below $50, the people who bought at $50 are now sitting on losses. Many of them will sell if the stock rallies back to $50 to "get back to even." That selling at $50 turns the former support into resistance.
+**Horace:** And here is the key principle: when support breaks, it often becomes resistance, and vice versa. If the stock finally breaks below $50, the people who bought at $50 are now sitting on losses. Many of them will sell if the stock rallies back to $50 to "get back to even." That selling at $50 turns the former support into resistance.
 
 [ANIMATION: Arrow showing the polarity switch -- support level breaking and then acting as resistance on the next rally attempt]
 
@@ -295,17 +295,17 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Stock chart with 50-day and 200-day moving averages overlaid]
 
-**Sam:** Moving averages are probably the most widely used technical indicator. They smooth out price noise to show you the underlying trend.
+**Stella:** Moving averages are probably the most widely used technical indicator. They smooth out price noise to show you the underlying trend.
 
-**Alex:** The two most important ones are the 50-day and 200-day simple moving averages. If a stock is trading above its 200-day moving average, it is generally considered to be in a long-term uptrend. Below it, a downtrend.
+**Horace:** The two most important ones are the 50-day and 200-day simple moving averages. If a stock is trading above its 200-day moving average, it is generally considered to be in a long-term uptrend. Below it, a downtrend.
 
-**Sam:** And two of the most watched signals in technical analysis come from the interaction between these two moving averages. A golden cross -- when the 50-day crosses above the 200-day -- is considered bullish. A death cross -- when the 50-day crosses below the 200-day -- is considered bearish.
+**Stella:** And two of the most watched signals in technical analysis come from the interaction between these two moving averages. A golden cross -- when the 50-day crosses above the 200-day -- is considered bullish. A death cross -- when the 50-day crosses below the 200-day -- is considered bearish.
 
 [ANIMATION: Golden cross and death cross on a chart, with labels and arrows showing the crossover points]
 
-**Alex:** Now, do these signals actually work? Historical research shows that the golden cross and death cross tend to confirm trend changes, but with a significant lag. By the time the crossover happens, a substantial portion of the move has already occurred. They are better at keeping you on the right side of major trends than at catching precise turning points.
+**Horace:** Now, do these signals actually work? Historical research shows that the golden cross and death cross tend to confirm trend changes, but with a significant lag. By the time the crossover happens, a substantial portion of the move has already occurred. They are better at keeping you on the right side of major trends than at catching precise turning points.
 
-**Sam:** In practical terms, the 200-day moving average is most useful as a risk management tool. Research by Meb Faber and others has shown that investing only when the S&P 500 is above its 200-day average and going to cash when below has historically captured most of the upside while avoiding the worst bear markets.
+**Stella:** In practical terms, the 200-day moving average is most useful as a risk management tool. Research by Meb Faber and others has shown that investing only when the S&P 500 is above its 200-day average and going to cash when below has historically captured most of the upside while avoiding the worst bear markets.
 
 [VISUAL: Performance comparison: S&P 500 buy-and-hold vs 200-day SMA timing strategy over 30 years]
 
@@ -315,23 +315,23 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: RSI indicator displayed below a stock chart, with overbought (70) and oversold (30) zones highlighted]
 
-**Alex:** Moving beyond trend, let us look at momentum indicators. The Relative Strength Index -- RSI -- measures whether a stock has moved too far, too fast.
+**Horace:** Moving beyond trend, let us look at momentum indicators. The Relative Strength Index -- RSI -- measures whether a stock has moved too far, too fast.
 
-**Sam:** RSI ranges from 0 to 100. Above 70 is considered overbought -- the stock may have risen too quickly and could pull back. Below 30 is considered oversold -- the stock may have fallen too quickly and could bounce.
+**Stella:** RSI ranges from 0 to 100. Above 70 is considered overbought -- the stock may have risen too quickly and could pull back. Below 30 is considered oversold -- the stock may have fallen too quickly and could bounce.
 
-**Alex:** But here is an important nuance. In a strong uptrend, a stock can stay overbought -- RSI above 70 -- for weeks or even months. Selling just because the RSI hit 70 in a bull market will take you out of strong trends far too early.
+**Horace:** But here is an important nuance. In a strong uptrend, a stock can stay overbought -- RSI above 70 -- for weeks or even months. Selling just because the RSI hit 70 in a bull market will take you out of strong trends far too early.
 
 [VISUAL: Example of a stock in a strong uptrend with RSI persistently above 70 for an extended period]
 
-**Sam:** The most powerful RSI signal is divergence. If a stock makes a new high but the RSI makes a lower high, it means the momentum behind the rally is weakening. The price is going up, but it is taking less and less energy to do so. That is a warning sign.
+**Stella:** The most powerful RSI signal is divergence. If a stock makes a new high but the RSI makes a lower high, it means the momentum behind the rally is weakening. The price is going up, but it is taking less and less energy to do so. That is a warning sign.
 
 [ANIMATION: Stock chart making higher highs while RSI makes lower highs, with divergence lines drawn]
 
-**Alex:** The MACD -- Moving Average Convergence Divergence -- is another popular momentum indicator. It tracks the difference between two moving averages and generates signals when they cross.
+**Horace:** The MACD -- Moving Average Convergence Divergence -- is another popular momentum indicator. It tracks the difference between two moving averages and generates signals when they cross.
 
 [VISUAL: MACD indicator showing the MACD line, signal line, and histogram below a stock chart]
 
-**Sam:** When the MACD line crosses above the signal line, it is a buy signal. When it crosses below, a sell signal. Like moving average crossovers, these tend to confirm trends rather than predict them.
+**Stella:** When the MACD line crosses above the signal line, it is a buy signal. When it crosses below, a sell signal. Like moving average crossovers, these tend to confirm trends rather than predict them.
 
 ---
 
@@ -339,19 +339,19 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: "The Evidence" header with thumbs up and thumbs down on either side]
 
-**Alex:** Here is the honest assessment. Does technical analysis work?
+**Horace:** Here is the honest assessment. Does technical analysis work?
 
-**Sam:** The academic evidence is mixed. On one hand, momentum is one of the most robust and well-documented anomalies in finance. Stocks that have been going up tend to keep going up, and stocks that have been going down tend to keep going down -- at least over periods of 3 to 12 months. That is a form of technical analysis vindication.
+**Stella:** The academic evidence is mixed. On one hand, momentum is one of the most robust and well-documented anomalies in finance. Stocks that have been going up tend to keep going up, and stocks that have been going down tend to keep going down -- at least over periods of 3 to 12 months. That is a form of technical analysis vindication.
 
-**Alex:** Moving average strategies have also shown some merit as risk management tools. Avoiding the market when it is below the 200-day average has historically reduced drawdowns, though often at the cost of some upside and with transaction costs eating into returns.
+**Horace:** Moving average strategies have also shown some merit as risk management tools. Avoiding the market when it is below the 200-day average has historically reduced drawdowns, though often at the cost of some upside and with transaction costs eating into returns.
 
 [VISUAL: Scorecard showing which technical concepts have academic support and which do not]
 
-**Sam:** On the other hand, most complex chart pattern strategies -- head and shoulders, double tops, cup and handle -- have not been convincingly shown to outperform buy-and-hold after accounting for transaction costs and data mining bias.
+**Stella:** On the other hand, most complex chart pattern strategies -- head and shoulders, double tops, cup and handle -- have not been convincingly shown to outperform buy-and-hold after accounting for transaction costs and data mining bias.
 
-**Alex:** Our recommendation: Use technical analysis as a complement to fundamental analysis, not a replacement. Use it for timing your entries and exits, setting stop-losses, and understanding market sentiment. But base your investment decisions -- what to own and how much -- on fundamentals.
+**Horace:** Our recommendation: Use technical analysis as a complement to fundamental analysis, not a replacement. Use it for timing your entries and exits, setting stop-losses, and understanding market sentiment. But base your investment decisions -- what to own and how much -- on fundamentals.
 
-**Sam:** Keep it simple. The 200-day moving average, RSI, and volume analysis are the three most useful tools for most investors. Master those before exploring anything more complex.
+**Stella:** Keep it simple. The 200-day moving average, RSI, and volume analysis are the three most useful tools for most investors. Master those before exploring anything more complex.
 
 [VISUAL: End card with channel logo and "Next: Portfolio Monitoring Tools"]
 
@@ -361,22 +361,22 @@ A: Technical analysis can be applied to any traded security, including ETFs and 
 
 [VISUAL: Venn diagram showing Fundamental Analysis overlapping with Technical Analysis, with "Best Approach" in the overlap]
 
-**Sam:** So where does all of this leave us? Here is our honest recommendation for most investors.
+**Stella:** So where does all of this leave us? Here is our honest recommendation for most investors.
 
-**Alex:** Use fundamental analysis to decide WHAT to buy. Is this a quality company? Is the valuation reasonable? Are the financials healthy? These are fundamental questions that no chart pattern can answer.
+**Horace:** Use fundamental analysis to decide WHAT to buy. Is this a quality company? Is the valuation reasonable? Are the financials healthy? These are fundamental questions that no chart pattern can answer.
 
-**Sam:** Then use technical analysis to decide WHEN to buy. If the fundamentals look great but the stock is in a steep downtrend, maybe wait for signs of stabilization before committing capital. If the stock is sitting on a major support level, that might be a better entry point than buying after a 20 percent rally.
+**Stella:** Then use technical analysis to decide WHEN to buy. If the fundamentals look great but the stock is in a steep downtrend, maybe wait for signs of stabilization before committing capital. If the stock is sitting on a major support level, that might be a better entry point than buying after a 20 percent rally.
 
 [VISUAL: Example trade: Fundamental screen identifies quality company -> Technical analysis identifies support level near $95 -> Entry at $96 with stop-loss at $92]
 
-**Alex:** The two approaches are complementary, not competing. Fundamental analysis without technical awareness means you might buy a great company at a terrible time. Technical analysis without fundamental backing means you are trading patterns in a vacuum with no understanding of what drives the business.
+**Horace:** The two approaches are complementary, not competing. Fundamental analysis without technical awareness means you might buy a great company at a terrible time. Technical analysis without fundamental backing means you are trading patterns in a vacuum with no understanding of what drives the business.
 
-**Sam:** Keep your technical toolkit simple. The 200-day moving average, RSI, and basic volume analysis cover 80 percent of what you need. Master these before adding complexity. And always remember -- technical analysis provides probabilities, not certainties. No indicator works every time, and risk management is what saves you when the signals are wrong.
+**Stella:** Keep your technical toolkit simple. The 200-day moving average, RSI, and basic volume analysis cover 80 percent of what you need. Master these before adding complexity. And always remember -- technical analysis provides probabilities, not certainties. No indicator works every time, and risk management is what saves you when the signals are wrong.
 
-**Alex:** The best investors we have studied use simple technical tools to time entries, fundamental analysis to select holdings, and disciplined risk management to protect against being wrong. That combination -- not any single approach -- is the edge.
+**Horace:** The best investors we have studied use simple technical tools to time entries, fundamental analysis to select holdings, and disciplined risk management to protect against being wrong. That combination -- not any single approach -- is the edge.
 
 [VISUAL: End card with channel logo and "Next: Portfolio Monitoring Tools"]
 
-**Sam:** In our final side lesson, we are covering the practical tools for monitoring your portfolio -- from free spreadsheets to professional platforms. See you there.
+**Stella:** In our final side lesson, we are covering the practical tools for monitoring your portfolio -- from free spreadsheets to professional platforms. See you there.
 
 [END - 14:30]

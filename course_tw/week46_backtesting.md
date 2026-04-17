@@ -1,359 +1,339 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 46: Backtesting and Strategy Validation
+# 第46週：回測與策略驗證
 
 ---
 
-## Reading Section
+## 閱讀區塊
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Backtesting -- the process of testing an investment strategy on historical data to see how it would have performed -- is perhaps the most dangerous tool in the investor's toolkit. It is dangerous not because it is useless, but because it is seductive. A well-constructed backtest can make you rich. A poorly constructed one will make you confident while losing money, which is worse than losing money while knowing you are gambling.
+回測——將投資策略套用於歷史數據、檢視其過去表現的過程——或許是投資人工具箱中最危險的工具。它之所以危險，並非因為它沒有用，而是因為它極具誘惑力。一個建構嚴謹的回測能讓你致富；一個建構粗糙的回測則會讓你充滿信心地虧損，這比明知自己在賭博卻虧損還要糟糕。
 
-The financial industry runs on backtests. Every new ETF, every factor strategy, every quantitative hedge fund, every robo-advisor algorithm was backtested before launch. The problem is that backtests are subject to a devastating array of biases, each of which makes historical performance look better than reality. Understanding these biases is essential because:
+金融業靠回測運作。每一檔新的指數股票型基金、每一種因子策略、每一家量化避險基金、每一套機器人理財顧問演算法，在上線前都經過回測。問題在於，回測容易受到一系列嚴重偏差的影響，而這些偏差無一例外地都會讓歷史績效看起來比實際更亮眼。理解這些偏差至關重要，原因如下：
 
-- **Backtests almost always overstate future performance**: Empirical research consistently finds that strategies perform 30-70% worse in live trading than in backtests. This is not a small discrepancy -- it is the difference between a strategy that "generates 15% returns" and one that actually generates 5-8%. The gap comes from biases that are easy to overlook and hard to correct.
+- **回測幾乎總是高估未來績效**：實證研究一致發現，策略在實盤交易中的表現比回測差30%至70%。這絕非微小的差距——這是一個「創造15%報酬」的策略與一個實際只創造5%至8%報酬的策略之間的差別。這個落差來自容易被忽略、卻又難以修正的各種偏差。
 
-- **Lookahead bias can make any strategy look brilliant**: If your backtest accidentally uses information that was not available at the time of the trade -- future earnings, data revisions, index membership changes -- it will show artificially superior returns. Lookahead bias is insidious because it often hides in data sources you trust. Companies report financial data with delays, databases get corrected retroactively, and index compositions change. Any of these can contaminate a backtest.
+- **前視偏差能讓任何策略看起來天才十足**：如果你的回測不小心使用了在交易當時尚未存在的資訊——未來盈餘、數據修訂、指數成分股變更——就會呈現出人為拉高的報酬。前視偏差之所以棘手，在於它往往藏匿於你所信賴的資料來源之中。企業財務數據的申報存在延遲，資料庫會進行追溯性修正，指數成分也會改變。以上任何一點都可能污染回測結果。
 
-- **Survivorship bias inflates returns by excluding failures**: If your universe of securities includes only companies that survived to the present, you are excluding the bankruptcies, delistings, and mergers that a real investor would have experienced. This bias can add 1-3% per year to backtested returns. A strategy that appears to return 12% annually may truly return 9-10%.
+- **存活者偏差透過排除失敗案例來虛增報酬**：如果你的證券池只包含存活至今的公司，你便排除了真實投資人會經歷的破產、下市與合併案例。這種偏差每年可為回測報酬加計1%至3%。一個表面上年報酬12%的策略，實際報酬可能只有9%至10%。
 
-- **Overfitting is the single most common cause of backtest failure**: Adding parameters, optimizing cutoff points, and fine-tuning entry/exit rules to maximize historical performance creates a model that is perfectly adapted to the past and useless for the future. A strategy with 20 optimized parameters fitted to 15 years of data has memorized historical noise, not discovered a persistent edge.
+- **過度擬合是回測失敗最常見的單一原因**：不斷增加參數、最佳化切割點、精調進出場規則以極大化歷史績效，會創造出一個完美適應過去、卻對未來毫無用處的模型。一個以20個最佳化參數、套用15年歷史數據進行擬合的策略，記住的是歷史雜訊，而非發掘了持久的優勢。
 
-- **Transaction costs can eliminate an entire edge**: Many backtested strategies show attractive returns before costs but generate returns below a simple index fund after accounting for spreads, slippage, market impact, and commissions. Transaction cost modeling is the single most important -- and most frequently botched -- component of backtesting.
+- **交易成本可能抹殺所有優勢**：許多回測策略在成本前呈現亮眼報酬，但在計入價差、滑價、市場衝擊與手續費後，報酬反而低於簡單的指數基金。交易成本建模是回測中最重要、卻也最常被搞砸的環節。
 
-- **Walk-forward analysis is the gold standard for validation**: Simply splitting data into "training" and "testing" sets helps but is insufficient. Walk-forward analysis -- where you repeatedly train on a rolling window and test on the subsequent period -- mimics the experience of a live trader who must make decisions with only past data available. It is the closest a backtest can come to simulating reality.
+- **滾動向前分析是驗證的黃金標準**：單純將數據切分為「訓練」與「測試」集雖有幫助，但仍不夠充分。滾動向前分析——在滾動時間窗口上反覆訓練，並在後續期間進行測試——模擬了實盤交易人只能使用過去數據做決策的真實情境。這是回測最接近模擬現實的方式。
 
-This lesson will teach you how to build, evaluate, and criticize backtests so you can distinguish genuine edges from statistical mirages.
+本課將教你如何建構、評估與批判回測，讓你能夠區分真正的優勢與統計上的幻象。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的事
 
-#### 1. The Backtesting Framework
+#### 1. 回測框架
 
-A backtest simulates what would have happened if you had followed a specific strategy in the past. The framework has several essential components.
+回測模擬的是，如果你在過去遵循某個特定策略，會發生什麼事。這個框架有幾個核心組成要素。
 
 ```
-BACKTESTING FRAMEWORK: CORE COMPONENTS
+回測框架：核心組成要素
 
 ┌────────────────────────────────────────────────┐
 │                                                │
-│  1. STRATEGY DEFINITION                        │
-│     - Entry rules (when to buy)                │
-│     - Exit rules (when to sell)                │
-│     - Position sizing (how much)               │
-│     - Universe selection (which securities)     │
-│     - Rebalancing frequency (how often)        │
+│  1. 策略定義                                   │
+│     - 進場規則（何時買入）                     │
+│     - 出場規則（何時賣出）                     │
+│     - 部位規模（買多少）                       │
+│     - 標的池選擇（哪些證券）                   │
+│     - 再平衡頻率（多久一次）                   │
 │                                                │
-│  2. DATA                                       │
-│     - Price data (adjusted for splits/divs)    │
-│     - Fundamental data (point-in-time)         │
-│     - Universe data (index membership history) │
-│     - Transaction cost estimates               │
+│  2. 數據                                       │
+│     - 價格數據（調整除權除息）                 │
+│     - 基本面數據（歷史時點）                   │
+│     - 標的池數據（指數成分股歷史紀錄）         │
+│     - 交易成本估算                             │
 │                                                │
-│  3. EXECUTION SIMULATION                       │
-│     - Order placement timing                   │
-│     - Fill assumptions (what price?)           │
-│     - Slippage model                           │
-│     - Capacity constraints                     │
+│  3. 執行模擬                                   │
+│     - 委託下單時機                             │
+│     - 成交假設（以何種價格成交？）             │
+│     - 滑價模型                                 │
+│     - 容量限制                                 │
 │                                                │
-│  4. PERFORMANCE MEASUREMENT                    │
-│     - Returns (total, excess, risk-adjusted)   │
-│     - Drawdowns (max, duration, recovery)      │
-│     - Turnover (trading frequency)             │
-│     - Net-of-cost returns                      │
+│  4. 績效衡量                                   │
+│     - 報酬（總報酬、超額報酬、風險調整後報酬） │
+│     - 回撤（最大值、持續時間、恢復時間）       │
+│     - 週轉率（交易頻率）                       │
+│     - 扣除成本後報酬                           │
 │                                                │
-│  5. VALIDATION                                 │
-│     - In-sample vs. out-of-sample              │
-│     - Walk-forward analysis                    │
-│     - Monte Carlo simulation                   │
-│     - Sensitivity analysis                     │
+│  5. 驗證                                       │
+│     - 樣本內與樣本外                           │
+│     - 滾動向前分析                             │
+│     - 蒙地卡羅模擬                             │
+│     - 敏感度分析                               │
 │                                                │
 └────────────────────────────────────────────────┘
 
-TIMELINE OF A BACKTEST:
+回測時間軸：
 
-  Data Available
+  可用數據
   ├──────────────────────────────────────────┤
-  │  In-Sample (Training)  │  Out-of-Sample │
-  │  2000 ──────── 2015    │  2015 ── 2025  │
-  │                        │                │
-  │  Develop and optimize  │  Test ONCE.    │
-  │  strategy here.        │  No peeking.   │
-  │  Iterate as needed.    │  No re-doing.  │
-  └────────────────────────┴────────────────┘
+  │  樣本內（訓練）        │  樣本外          │
+  │  2000 ──────── 2015   │  2015 ── 2025   │
+  │                       │                 │
+  │  在此開發並最佳化      │  僅測試一次。   │
+  │  策略。               │  不得偷看。     │
+  │  可視需要反覆調整。    │  不得重做。     │
+  └───────────────────────┴─────────────────┘
 
-  CRITICAL RULE: Once you look at out-of-sample
-  results, that data is "used." You cannot go
-  back, adjust your strategy, and re-test on
-  the same out-of-sample period. That turns it
-  into in-sample data.
+  關鍵原則：一旦查看樣本外結果，該數據即
+  視為「已使用」。你不能再回頭調整策略、
+  在同一段樣本外期間重新測試。那樣做
+  等同於將其變成樣本內數據。
 ```
 
 ```
-BACKTESTING EXAMPLE: SIMPLE MOMENTUM STRATEGY
+回測範例：簡單動能策略
 
-STRATEGY DEFINITION:
-  Universe: S&P 500 stocks
-  Signal: 12-month total return (momentum)
-  Rule: Each month, buy the top 50 stocks by
-        12-month return. Equal weight.
-        Sell any holding that drops out of top 50.
+策略定義：
+  標的池：S&P 500 成分股
+  訊號：12個月總報酬（動能）
+  規則：每月買入12個月報酬排名前50的股票。
+        等權重配置。
+        賣出跌出前50名的任何持倉。
   
-STEP-BY-STEP BACKTEST (ONE MONTH):
+逐步回測（單月）：
 
-  Date: January 31, 2015
+  日期：2015年1月31日
   
-  Step 1: Look up S&P 500 members AS OF Jan 2015
-          (NOT current members -- this prevents
-          survivorship bias)
+  步驟1：查詢2015年1月當時的S&P 500成分股
+          （非現行成分股——以防止存活者偏差）
   
-  Step 2: For each member, calculate 12-month
-          total return (Feb 2014 - Jan 2015)
-          Using data available ON Jan 31, 2015
-          (no future data)
+  步驟2：計算每檔成分股的12個月總報酬
+          （2014年2月至2015年1月）
+          使用2015年1月31日當時可取得的數據
+          （不得使用未來數據）
   
-  Step 3: Rank all stocks by 12-month return
+  步驟3：依12個月報酬對所有股票進行排名
   
-  Step 4: Select top 50
+  步驟4：選出前50名
   
-  Step 5: Compare to current holdings from
-          December 2014
+  步驟5：與2014年12月的現有持倉進行比對
   
-  Step 6: Calculate trades needed:
-          - Sell stocks that dropped out of top 50
-          - Buy stocks that entered top 50
-          - Rebalance to equal weight
+  步驟6：計算所需交易：
+          - 賣出跌出前50名的股票
+          - 買入進入前50名的股票
+          - 再平衡至等權重
   
-  Step 7: Apply transaction costs:
-          - Spread cost: 0.05% per trade
-          - Market impact: 0.10% per trade
-          - Total: 0.15% per trade
+  步驟7：計入交易成本：
+          - 價差成本：每筆交易0.05%
+          - 市場衝擊：每筆交易0.10%
+          - 合計：每筆交易0.15%
   
-  Step 8: Calculate portfolio return for Feb 2015:
-          Sum of (weight * return) for all 50 stocks
-          Minus transaction costs on trades executed
+  步驟8：計算投資組合2015年2月的報酬：
+          所有50檔股票的（權重 × 報酬）加總
+          減去已執行交易的交易成本
   
-  Step 9: Record portfolio value, return, turnover
+  步驟9：記錄投資組合價值、報酬、週轉率
   
-  Step 10: Repeat for next month (Feb 28, 2015)
+  步驟10：對下個月（2015年2月28日）重複以上步驟
 
-  Repeat Step 1-10 for every month in the
-  backtest period. Aggregate into performance
-  statistics.
+  對回測期間每個月重複步驟1至10。
+  彙整為績效統計數據。
 
-MONTHLY TURNOVER CALCULATION:
-  If 8 stocks dropped out and 8 new stocks entered:
-  Turnover = 8/50 = 16% monthly
-  Annual turnover = 16% * 12 = 192%
+月週轉率計算：
+  若8檔股票跌出前50名、8檔新股票進入：
+  週轉率 = 8/50 = 16%（月）
+  年週轉率 = 16% × 12 = 192%
   
-  With 0.15% cost per trade (buy + sell = 2 trades):
-  Annual cost = 192% * 2 * 0.15% = 0.576%
+  每筆交易（買入 + 賣出 = 2筆交易）成本0.15%：
+  年度成本 = 192% × 2 × 0.15% = 0.576%
   
-  This is SIGNIFICANT. A strategy returning 12%
-  gross returns only 11.4% net. If the benchmark
-  returns 10%, the net alpha is only 1.4%, and
-  much of that may be noise.
+  這相當顯著。毛報酬12%的策略，
+  淨報酬僅11.4%。若基準報酬10%，
+  淨超額報酬只有1.4%，而其中
+  大部分可能只是雜訊。
 ```
 
-#### 2. Lookahead Bias
+#### 2. 前視偏差
 
-Lookahead bias occurs when a backtest uses information that was not available at the time of the simulated trade. It is the most insidious bias because it can hide in perfectly reasonable-looking data.
+前視偏差發生在回測使用了模擬交易當時尚未存在的資訊時。它是最棘手的偏差，因為它可能藏匿在看起來完全合理的數據之中。
 
 ```
-LOOKAHEAD BIAS: SOURCES AND EXAMPLES
+前視偏差：來源與範例
 
-SOURCE 1: FINANCIAL DATA REVISIONS
+來源1：財務數據修訂
 
-  GDP is initially reported as "advance estimate,"
-  then revised in "second estimate" and "third estimate."
+  GDP首先以「初值」發布，
+  隨後在「二次修訂值」與「三次修訂值」中修正。
 
-  Advance GDP (reported Jan 30): +2.5%
-  Second estimate (Feb 28):      +2.8%
-  Third estimate (Mar 30):       +2.2%
+  初值GDP（1月30日發布）：+2.5%
+  二次修訂值（2月28日）：  +2.8%
+  三次修訂值（3月30日）：  +2.2%
 
-  If your backtest uses the FINAL GDP figure on
-  Jan 30 (the date of the advance release), you
-  are using data that was not available until
-  March 30. This is lookahead bias.
+  若你的回測在1月30日（初值發布日）
+  使用最終GDP數字，你使用的是
+  直至3月30日才存在的數據。這就是前視偏差。
 
-  CORRECT: Use real-time (vintage) data -- the
-  number that was actually available on each date.
+  正確做法：使用即時（當期）數據——
+  即每個日期實際可取得的數字。
 
-SOURCE 2: EARNINGS REPORTING DELAYS
+來源2：盈餘申報延遲
 
-  Company reports Q4 earnings on February 15.
-  Many databases assign Q4 data to December 31.
+  公司於2月15日公布第四季盈餘。
+  許多資料庫將第四季數據標記於12月31日。
   
-  If your backtest uses Q4 earnings to make a
-  trade on January 2, you are trading on data
-  that will not exist for 6 weeks.
+  若你的回測使用第四季盈餘於1月2日進行交易，
+  你實際上是在用6週後才存在的數據進行交易。
 
   ┌──────────────────────────────────────────────┐
-  │  TIMELINE:                                   │
+  │  時間軸：                                    │
   │                                              │
-  │  Dec 31          Jan 2           Feb 15      │
-  │  (fiscal Q4      (your trade)   (earnings    │
-  │   end date)                      reported)   │
+  │  12月31日          1月2日          2月15日   │
+  │  （會計第四季      （你的交易）    （盈餘     │
+  │   截止日期）                        公布）   │
   │                                              │
-  │  Database says: Q4 EPS = $2.50 on Dec 31    │
-  │  Reality: $2.50 was NOT known until Feb 15  │
+  │  資料庫顯示：第四季每股盈餘 = $2.50（12月31日）│
+  │  實際情況：$2.50要到2月15日才會公布         │
   │                                              │
-  │  Your backtest bought on Jan 2 using         │
-  │  earnings that would not be reported for     │
-  │  6 more weeks. LOOKAHEAD BIAS.               │
+  │  你的回測於1月2日買入，使用的是             │
+  │  再過6週才會申報的盈餘數據。前視偏差。      │
   └──────────────────────────────────────────────┘
 
-  CORRECT: Use a lag of 60-90 days after fiscal
-  quarter end before using fundamental data.
-  Or use a point-in-time database that records
-  exactly when each data point became available.
+  正確做法：在會計季度結束後60至90天，
+  再使用基本面數據。或使用歷史時點資料庫，
+  精確記錄每個數據點何時可供取得。
 
-SOURCE 3: INDEX MEMBERSHIP CHANGES
+來源3：指數成分股變更
 
-  Tesla was added to the S&P 500 on Dec 21, 2020.
-  If your backtest of "S&P 500 stocks" in 2019
-  includes Tesla, you have lookahead bias.
-  Tesla was NOT in the S&P 500 in 2019.
+  特斯拉於2020年12月21日加入S&P 500。
+  若你的「S&P 500成分股」回測涵蓋2019年
+  並納入特斯拉，你即存在前視偏差。
+  特斯拉在2019年並不屬於S&P 500。
 
-  CORRECT: Use historical index constituent
-  lists. The S&P 500 of 2019 included different
-  companies than the S&P 500 of 2024.
+  正確做法：使用歷史指數成分股名單。
+  2019年的S&P 500所涵蓋的公司，
+  與2024年的S&P 500截然不同。
 
-SOURCE 4: PRICE ADJUSTMENTS
+來源4：價格調整
 
-  Stock split 4:1 on August 1, 2020.
-  Pre-split price: $400. Post-split: $100.
-  Databases retroactively adjust all pre-split
-  prices by dividing by 4.
+  股票於2020年8月1日進行4比1分割。
+  分割前股價：$400。分割後：$100。
+  資料庫將所有分割前價格回溯除以4。
 
-  If your backtest uses a $50 stop-loss on a
-  pre-split price of $100 (adjusted), the ACTUAL
-  price the investor saw was $400. A $50 stop
-  would not have been triggered on the real $400.
+  若你的回測對調整後的前股價$100設定$50停損，
+  實際上投資人當時看到的是$400。
+  $50的停損根本不會在真實的$400股價觸發。
 
-  CORRECT: Be aware of split-adjusted vs. actual
-  prices. Use split-adjusted for return calculations,
-  actual prices for order-level simulation.
+  正確做法：了解除權調整價格與實際價格的差異。
+  計算報酬時使用除權調整價格，
+  模擬委託層級時使用實際價格。
 
-SOURCE 5: DIVIDEND ADJUSTMENTS
+來源5：股利調整
 
-  Total return data includes dividends reinvested.
-  But dividends are not known in advance.
-  Special dividends, dividend cuts, and ex-dates
-  are forward-looking information.
+  總報酬數據包含再投資股利。
+  但股利並非事先可知。
+  特別股利、股利削減與除息日
+  均屬前瞻性資訊。
 
-  CORRECT: Use dividend data only AFTER the
-  ex-dividend date, which is when the market
-  price adjusts.
+  正確做法：僅在除息日之後使用股利數據，
+  因為那是市場價格實際進行調整的時點。
 ```
 
-#### 3. Survivorship Bias in Backtesting
+#### 3. 回測中的存活者偏差
 
 ```
-SURVIVORSHIP BIAS: THE SILENT RETURN INFLATOR
+存活者偏差：默默虛增報酬的幕後推手
 
-WHAT IT IS:
-  Your backtest universe includes only securities
-  that survived to the present. Dead companies --
-  bankruptcies, delistings, acquisitions at low
-  prices -- are excluded.
+定義：
+  你的回測標的池只涵蓋存活至今的證券。
+  已消亡的公司——破產、下市、低價被收購——
+  均被排除在外。
 
-MAGNITUDE OF THE BIAS:
+偏差幅度：
 
-  Asset Class       Estimated Annual Bias
+  資產類別            估計年度偏差
   ──────────────────────────────────────────
-  US large-cap stocks     0.5 - 1.0%
-  US small-cap stocks     1.0 - 3.0%
-  International stocks    1.0 - 2.0%
-  Mutual funds            1.0 - 2.0%
-  Hedge funds             3.0 - 5.0%
-  Venture capital         5.0 - 10.0%
+  美國大型股            0.5 - 1.0%
+  美國小型股            1.0 - 3.0%
+  國際股票              1.0 - 2.0%
+  共同基金              1.0 - 2.0%
+  避險基金              3.0 - 5.0%
+  創業投資              5.0 - 10.0%
 
-EXAMPLE: SMALL-CAP VALUE STRATEGY
+範例：小型股價值策略
 
-  You backtest a small-cap value strategy from
-  2000 to 2020 using a CURRENT database of stocks.
+  你用「現有」資料庫回測2000年至2020年
+  的小型股價值策略。
 
-  What you INCLUDE:
-  - All companies that exist today and were
-    small and cheap at some point during 2000-2020
-  - Companies that survived and thrived
+  你「納入」的：
+  - 目前仍存在、且在2000至2020年某時點
+    屬於小型且低估的公司
+  - 存活下來並蓬勃發展的公司
 
-  What you EXCLUDE:
-  - Companies that went bankrupt (return = -100%)
-  - Companies that were delisted for fraud
-  - Companies acquired at distressed prices
-  - Companies that merged and ceased to exist
+  你「排除」的：
+  - 宣告破產的公司（報酬 = -100%）
+  - 因詐欺而下市的公司
+  - 以困境價格被收購的公司
+  - 合併後不再獨立存在的公司
 
-  THE SURVIVORS were small and cheap AND recovered.
-  THE FAILURES were small and cheap AND died.
+  「存活者」是既小且便宜、且後來復甦的公司。
+  「失敗者」是既小且便宜、最終走向滅亡的公司。
 
-  Your backtest only sees the recoveries, not
-  the deaths. Result: backtested return is
-  artificially high.
+  你的回測只看到復甦，看不到死亡。
+  結果：回測報酬被人為拉高。
 
   ┌──────────────────────────────────────────────┐
-  │  BACKTEST WITH SURVIVORSHIP BIAS:            │
+  │  含存活者偏差的回測：                        │
   │                                              │
-  │  Small-cap value return: 14.2% per year      │
-  │  Looks great! Beats the market by 4%.        │
+  │  小型股價值報酬：年化14.2%                   │
+  │  看起來很棒！打敗大盤4個百分點。             │
   │                                              │
-  │  BACKTEST WITHOUT SURVIVORSHIP BIAS:         │
+  │  不含存活者偏差的回測：                      │
   │                                              │
-  │  Small-cap value return: 11.8% per year      │
-  │  Still good, but 2.4% less impressive.       │
-  │  The excess return is 1.6%, not 4%.          │
-  │  After transaction costs: maybe 0.5%.        │
-  │  Barely worth the effort.                    │
+  │  小型股價值報酬：年化11.8%                   │
+  │  依然不錯，但少了2.4個百分點。               │
+  │  超額報酬是1.6%，不是4%。                    │
+  │  扣除交易成本後：可能只剩0.5%。              │
+  │  幾乎不值得付出的努力。                      │
   └──────────────────────────────────────────────┘
 
-HOW TO FIX SURVIVORSHIP BIAS:
-  1. Use a survivorship-bias-free database
-     (CRSP, Compustat with delisting returns)
-  2. Include delisting returns (what happened
-     when the stock was removed)
-  3. Use historical index constituents, not
-     current constituents
-  4. Track what happened to stocks that left
-     the universe
+如何修正存活者偏差：
+  1. 使用無存活者偏差的資料庫
+     （含下市報酬的CRSP、Compustat）
+  2. 納入下市報酬（股票被移除時發生了什麼）
+  3. 使用歷史指數成分股，而非現行成分股
+  4. 追蹤離開標的池的股票後來的發展
 ```
 
-#### 4. Overfitting
+#### 4. 過度擬合
 
-Overfitting is the process of creating a model so tightly fitted to historical data that it captures noise rather than signal. It is the most common cause of backtest failure.
+過度擬合是指建立一個與歷史數據過度吻合的模型，以至於它捕捉的是雜訊而非訊號。這是回測失敗最常見的原因。
 
 ```
-OVERFITTING: HOW TO RECOGNIZE AND AVOID IT
+過度擬合：如何識別與避免
 
-THE FUNDAMENTAL PROBLEM:
+根本問題：
 
-  Historical data = Signal + Noise
+  歷史數據 = 訊號 + 雜訊
 
-  Signal: Persistent, exploitable patterns
-  Noise: Random fluctuations specific to that period
+  訊號：持續存在、可被利用的規律
+  雜訊：特定時期的隨機波動
 
-  A simple model captures mostly signal.
-  A complex model captures signal AND noise.
+  簡單的模型主要捕捉訊號。
+  複雜的模型既捕捉訊號，也捕捉雜訊。
 
   ┌──────────────────────────────────────────────┐
-  │  NUMBER OF PARAMETERS vs. PERFORMANCE        │
+  │  參數數量與績效關係                          │
   │                                              │
-  │  In-Sample                                   │
-  │  Performance    *                             │
-  │      |       *  *  *  *  *  *  *  *          │
-  │      |     *                                  │
+  │  樣本內                                      │
+  │  績效         *                               │
+  │      |     *  *  *  *  *  *  *  *            │
   │      |   *                                    │
   │      | *                                      │
   │      |*                                       │
   │      └────────────────────────────────────    │
   │      1   3   5   7   9  11  13  15  17       │
-  │              Number of Parameters             │
+  │               參數數量                        │
   │                                              │
-  │  Out-of-Sample                               │
-  │  Performance                                  │
+  │  樣本外                                      │
+  │  績效                                         │
   │      |   *  *                                 │
   │      | *      *  *                            │
   │      |*          *                            │
@@ -362,706 +342,627 @@ THE FUNDAMENTAL PROBLEM:
   │      |                  *  *  *  *  *         │
   │      └────────────────────────────────────    │
   │      1   3   5   7   9  11  13  15  17       │
-  │              Number of Parameters             │
+  │               參數數量                        │
   │                                              │
-  │  SWEET SPOT: 3-5 parameters for most         │
-  │  financial models. Beyond that, you are       │
-  │  fitting noise.                               │
+  │  最佳區間：大多數金融模型3至5個參數。        │
+  │  超過此範圍，你就是在擬合雜訊。              │
   └──────────────────────────────────────────────┘
 
-SIGNS OF OVERFITTING:
+過度擬合的跡象：
 
-  1. Strategy has many rules and parameters
-     "Buy when RSI < 30 AND MACD crosses above
-     signal AND volume is 1.5x average AND
-     it is a Tuesday AND price is above 200-day
-     MA but below 50-day MA AND..."
+  1. 策略規則與參數繁多
+     「當RSI < 30 且 MACD向上穿越訊號線
+     且成交量達均量1.5倍 且當天為星期二
+     且股價在200日均線之上但在50日均線之下
+     且……」
      
-     Every additional condition was likely added
-     to improve historical performance. Each one
-     reduces future reliability.
+     每增加一個條件，很可能都是為了
+     改善歷史績效而加入的。每個條件
+     都在降低未來的可靠性。
 
-  2. Performance is dramatically better in-sample
-     than out-of-sample.
+  2. 樣本內績效遠優於樣本外績效。
      
-     In-sample Sharpe: 2.5
-     Out-of-sample Sharpe: 0.3
+     樣本內夏普比率：2.5
+     樣本外夏普比率：0.3
      
-     This is textbook overfitting.
+     這是教科書級別的過度擬合。
 
-  3. Strategy works only in a specific time period
-     or market regime.
+  3. 策略僅在特定時期或市場環境下有效。
      
-     "Works great 2010-2020 but not 2000-2010."
-     The model fit the regime-specific features
-     of 2010-2020, not universal market dynamics.
+     「2010至2020年表現優異，2000至2010年則不然。」
+     模型擬合的是2010至2020年特定市場環境的特徵，
+     而非普遍的市場動態。
 
-  4. Small changes in parameters cause large
-     changes in results.
+  4. 參數的微小變動造成結果的巨大差異。
      
-     Lookback of 11 months: Sharpe 1.8
-     Lookback of 12 months: Sharpe 0.4
-     Lookback of 13 months: Sharpe 1.5
+     回顧期11個月：夏普比率1.8
+     回顧期12個月：夏普比率0.4
+     回顧期13個月：夏普比率1.5
      
-     A genuine effect should be robust to small
-     parameter changes. Sharp sensitivity to
-     parameters indicates overfitting.
+     真正的效應對參數的微小變動應具有穩健性。
+     對參數高度敏感表明存在過度擬合。
 
-  5. Strategy requires precise timing.
+  5. 策略需要精確的交易時機。
      
-     "Rebalance on the 3rd Wednesday of each
-     month at 2:47 PM for best results."
+     「每月第三個星期三下午2點47分
+     再平衡以獲得最佳結果。」
      
-     A genuine edge should not depend on the
-     specific minute you trade.
+     真正的優勢不應取決於你交易的
+     具體分鐘時間點。
 
-HOW TO PREVENT OVERFITTING:
+如何防止過度擬合：
 
-  RULE 1: Fewer parameters is better.
-    Minimum observations per parameter: 50:1
-    60 months of data -> max 1 parameter
-    300 months of data -> max 6 parameters
+  原則1：參數越少越好。
+    每個參數所需的最少觀測值：50比1
+    60個月數據 → 最多1個參數
+    300個月數據 → 最多6個參數
 
-  RULE 2: Every parameter needs economic justification.
-    WHY is a 12-month lookback better than 6 or 18?
-    If you cannot explain it, you found noise.
+  原則2：每個參數都需要有經濟學依據。
+    為何12個月的回顧期優於6個月或18個月？
+    若無法解釋，你找到的只是雜訊。
 
-  RULE 3: Test parameter stability.
-    If the optimal parameter is 12, the strategy
-    should also work well with 10 or 14.
-    Plot performance vs. parameter value.
-    It should be a smooth curve, not spiky.
+  原則3：測試參數穩健性。
+    若最佳參數為12，則策略在
+    10或14時也應有良好表現。
+    繪製績效對參數值的圖形，
+    應呈現平滑曲線，而非鋸齒狀。
 
-  RULE 4: Use regularization.
-    Penalize model complexity mathematically.
-    AIC, BIC, LASSO, Ridge regression.
-    These techniques automatically balance fit
-    against complexity.
+  原則4：使用正則化。
+    以數學方式懲罰模型複雜度。
+    AIC、BIC、LASSO、嶺迴歸。
+    這些技術能自動在擬合度與
+    複雜度之間取得平衡。
 
-  RULE 5: Cross-validate.
-    Do not rely on a single train/test split.
-    Use k-fold cross-validation or walk-forward
-    analysis (see below).
+  原則5：交叉驗證。
+    不要只依賴單一訓練/測試切分。
+    使用k折交叉驗證或滾動向前分析
+    （詳見下方）。
 ```
 
-#### 5. In-Sample vs. Out-of-Sample Testing
+#### 5. 樣本內與樣本外測試
 
 ```
-IN-SAMPLE vs. OUT-OF-SAMPLE
+樣本內與樣本外
 
-IN-SAMPLE (training):
-  The data used to develop and optimize the strategy.
-  Performance on this data is UNRELIABLE because
-  the strategy was designed to fit it.
+樣本內（訓練）：
+  用於開發和最佳化策略的數據。
+  此數據的績效「不可靠」，因為
+  策略本身就是為了擬合它而設計的。
 
-OUT-OF-SAMPLE (testing):
-  Data the strategy has NEVER seen.
-  Performance on this data is the best estimate
-  of future performance.
+樣本外（測試）：
+  策略從未「見過」的數據。
+  此數據的績效是對未來績效最佳的估計。
 
-THE SIMPLE SPLIT:
+簡單切分法：
 
   ┌───────────────────────────┬────────────────┐
-  │   IN-SAMPLE (70%)        │   OOS (30%)    │
-  │   2000 ──────── 2017     │  2017 ── 2025  │
-  │                          │                │
-  │   Develop strategy.      │  Test once.    │
-  │   Optimize parameters.   │  Report this.  │
-  └──────────────────────────┴────────────────┘
+  │   樣本內（70%）           │   樣本外（30%）│
+  │   2000 ──────── 2017      │  2017 ── 2025  │
+  │                           │                │
+  │   開發策略。              │  測試一次。    │
+  │   最佳化參數。            │  呈報此結果。  │
+  └───────────────────────────┴────────────────┘
 
-PROBLEMS WITH A SIMPLE SPLIT:
+簡單切分法的問題：
 
-  1. One test is not enough. Your out-of-sample
-     period could be unusual (e.g., all bull market
-     or dominated by COVID crash).
+  1. 一次測試不夠。你的樣本外期間
+     可能並不具代表性（例如全為多頭市場，
+     或受新冠疫情崩盤主導）。
 
-  2. You might unconsciously peek. If you look at
-     out-of-sample results, go back and "improve"
-     the strategy, then re-test, you have turned
-     out-of-sample into in-sample.
+  2. 你可能在無意識間偷看。若你查看
+     了樣本外結果、回頭「改進」策略，
+     再重新測試，你已將樣本外變成了樣本內。
 
-  3. Sample period selection can be gamed. Choosing
-     where to split can itself introduce bias.
+  3. 樣本期間的選取可能被操控。選擇
+     在哪裡切分本身就可能引入偏差——
+     你可能選擇了能帶來最佳測試結果的切分點。
 
-EXPECTED PERFORMANCE DECAY:
+預期績效衰減：
 
   ┌──────────────────────────────────────────────┐
-  │  TYPICAL PERFORMANCE DEGRADATION             │
+  │  典型績效衰減                                │
   │                                              │
-  │  In-sample Sharpe ratio:        2.0          │
-  │  Out-of-sample Sharpe ratio:    1.0 - 1.3   │
-  │  Live trading Sharpe ratio:     0.5 - 0.8   │
+  │  樣本內夏普比率：          2.0               │
+  │  樣本外夏普比率：      1.0 - 1.3             │
+  │  實盤交易夏普比率：    0.5 - 0.8             │
   │                                              │
-  │  RULE OF THUMB:                              │
-  │  Expect live performance to be 30-60% worse  │
-  │  than in-sample performance.                 │
+  │  經驗法則：                                  │
+  │  預期實盤績效比樣本內績效差30%至60%。        │
   │                                              │
-  │  If in-sample Sharpe < 1.5, the strategy     │
-  │  is unlikely to survive live trading.        │
+  │  若樣本內夏普比率 < 1.5，策略               │
+  │  在實盤交易中存活的可能性很低。              │
   └──────────────────────────────────────────────┘
 ```
 
-#### 6. Walk-Forward Analysis
+#### 6. 滾動向前分析
 
-Walk-forward analysis is the gold standard for backtesting validation. It simulates how a strategy would be managed in real time.
+滾動向前分析是回測驗證的黃金標準，它模擬策略在即時市場中的實際管理方式。
 
 ```
-WALK-FORWARD ANALYSIS
+滾動向前分析
 
-CONCEPT:
-  Instead of one train/test split, perform MANY
-  splits that roll forward through time.
+概念：
+  與其只做一次訓練/測試切分，
+  不如進行多次滾動推進的切分。
 
   ┌──────────────────────────────────────────────┐
   │                                              │
-  │  Period 1:                                   │
-  │  Train: 2000-2004 | Test: 2005              │
-  │  ████████████████ | ████                     │
+  │  第1期：                                     │
+  │  訓練：2000-2004 │ 測試：2005               │
+  │  ████████████████ │ ████                     │
   │                                              │
-  │  Period 2:                                   │
-  │  Train: 2001-2005 | Test: 2006              │
-  │    ████████████████ | ████                   │
+  │  第2期：                                     │
+  │  訓練：2001-2005 │ 測試：2006               │
+  │    ████████████████ │ ████                   │
   │                                              │
-  │  Period 3:                                   │
-  │  Train: 2002-2006 | Test: 2007              │
-  │      ████████████████ | ████                 │
+  │  第3期：                                     │
+  │  訓練：2002-2006 │ 測試：2007               │
+  │      ████████████████ │ ████                 │
   │                                              │
-  │  Period 4:                                   │
-  │  Train: 2003-2007 | Test: 2008              │
-  │        ████████████████ | ████               │
+  │  第4期：                                     │
+  │  訓練：2003-2007 │ 測試：2008               │
+  │        ████████████████ │ ████               │
   │                                              │
-  │  ...continue through all available data...   │
+  │  ……持續推進至所有可用數據……                  │
   │                                              │
-  │  Period 16:                                  │
-  │  Train: 2015-2019 | Test: 2020              │
-  │                      ████████████████ | ████ │
+  │  第16期：                                    │
+  │  訓練：2015-2019 │ 測試：2020               │
+  │                      ████████████████ │ ████ │
   │                                              │
   └──────────────────────────────────────────────┘
 
-  At each period:
-  1. Optimize strategy on training window
-  2. Apply (without changes) to test window
-  3. Record test window performance
+  每個期間：
+  1. 在訓練窗口上最佳化策略
+  2. （不做任何修改地）套用於測試窗口
+  3. 記錄測試窗口的績效
 
-  The AGGREGATE performance across all test
-  windows is the walk-forward estimate of
-  strategy quality.
+  所有測試窗口的「綜合績效」，
+  即為評估策略品質的滾動向前估計值。
 
-ADVANTAGES:
-  + Simulates live trading experience
-  + Multiple out-of-sample tests, not just one
-  + Strategy adapts to changing markets
-  + Exposes regime-dependent strategies
-  + Most realistic estimate of future performance
+優點：
+  + 模擬實盤交易體驗
+  + 多次樣本外測試，而非僅一次
+  + 策略能因應市場變化進行調整
+  + 揭露依賴特定市場環境的策略
+  + 對未來績效最為真實的估計
 
-DISADVANTAGES:
-  - Requires more data (need enough for many periods)
-  - Computationally intensive (many optimizations)
-  - Results depend on window length choices
-  - Cannot fully prevent overfitting if you iterate
-    on the walk-forward results themselves
+缺點：
+  - 需要更多數據（需足夠進行多個時間期間）
+  - 計算密集（需要多次最佳化）
+  - 結果取決於時間窗口長度的選擇
+  - 若對滾動向前結果本身進行迭代，
+    仍無法完全防止過度擬合
 
-WALK-FORWARD RESULTS INTERPRETATION:
+滾動向前結果解讀：
 
-  If walk-forward Sharpe > 0.5 consistently
-  across all test periods: Potentially viable.
+  若所有測試期間的滾動向前夏普比率
+  一致高於0.5：具有潛在可行性。
 
-  If walk-forward Sharpe varies wildly between
-  test periods: Strategy is regime-dependent.
-  Proceed with extreme caution.
+  若滾動向前夏普比率在各測試期間
+  劇烈波動：策略依賴特定市場環境。
+  需格外謹慎。
 
-  If walk-forward Sharpe is negative in several
-  periods: Strategy does not generalize. Reject.
+  若多個期間的滾動向前夏普比率為負：
+  策略無法泛化。應予以否決。
 
-  Walk-Forward          In-Sample     Assessment
-  Sharpe                Sharpe
+  滾動向前            樣本內        評估
+  夏普比率            夏普比率
   ──────────────────────────────────────────────
-  > 0.8                 > 1.5         Strong
-  0.5 - 0.8             > 1.5         Moderate
-  0.3 - 0.5             > 1.5         Weak
-  < 0.3                 > 1.5         Overfit
-  ~0 or negative        > 1.5         Pure noise
+  > 0.8               > 1.5         強
+  0.5 - 0.8           > 1.5         中等
+  0.3 - 0.5           > 1.5         弱
+  < 0.3               > 1.5         過度擬合
+  ~0或為負            > 1.5         純雜訊
 ```
 
-#### 7. Transaction Costs in Backtests
+#### 7. 回測中的交易成本
 
-Transaction costs are frequently underestimated or omitted in backtests. Realistic cost modeling is the difference between a strategy that works on paper and one that works with real money.
+交易成本在回測中經常被低估或省略。真實的成本建模，是策略在理論上可行與在實際資金中可行之間的分水嶺。
 
 ```
-TRANSACTION COSTS: THE STRATEGY KILLER
+交易成本：策略殺手
 
-COMPONENTS OF TRANSACTION COST:
+交易成本的組成：
 
-  1. SPREAD COST
-     You buy at the ask, sell at the bid.
-     Cost = half-spread per trade.
+  1. 價差成本
+     你以賣價買入，以買價賣出。
+     成本 = 每筆交易的半價差。
      
-     Liquid large-cap: 0.01-0.03%
-     Mid-cap: 0.05-0.15%
-     Small-cap: 0.15-0.50%
-     Micro-cap: 0.50-2.00%
+     流動性高的大型股：0.01%至0.03%
+     中型股：0.05%至0.15%
+     小型股：0.15%至0.50%
+     微型股：0.50%至2.00%
 
-  2. MARKET IMPACT
-     Your trade moves the price against you.
-     Depends on order size relative to volume.
+  2. 市場衝擊
+     你的交易使價格對你不利地移動。
+     取決於委託規模相對於成交量的比例。
      
-     Small order (< 1% of daily volume): 0.05%
-     Medium order (1-5% of volume): 0.10-0.30%
-     Large order (> 5% of volume): 0.30-1.00%+
+     小額委託（< 每日成交量1%）：0.05%
+     中額委託（每日成交量1%至5%）：0.10%至0.30%
+     大額委託（> 每日成交量5%）：0.30%至1.00%以上
 
-  3. SLIPPAGE
-     Difference between intended price and actual fill.
-     Caused by price movement during execution.
+  3. 滑價
+     預期價格與實際成交價格之間的差異。
+     由執行期間的價格移動所導致。
      
-     Typical: 0.02-0.10%
+     典型值：0.02%至0.10%
 
-  4. OPPORTUNITY COST
-     Unfilled orders. Your limit order did not execute,
-     and the stock moved away from you.
-     Hard to model but real.
+  4. 機會成本
+     未成交的委託。你的限價單未能成交，
+     而股價已偏離你的目標。
+     難以建模但確實存在。
 
-IMPACT ON DIFFERENT STRATEGIES:
+對不同策略的影響：
 
-  Strategy          Annual     Cost per   Net     Is It
-                    Turnover   Trade      Annual  Worth
-                    (%)        (%)        Cost    It?
+  策略            年度       每筆交易    年度         值得
+                  週轉率     成本        淨成本       嗎？
+                  (%)        (%)         (%)
   ──────────────────────────────────────────────────────
-  Buy-and-hold      5%         0.10%      0.01%  Yes
-  Annual rebalance  25%        0.10%      0.05%  Yes
-  Quarterly factor  100%       0.15%      0.30%  Maybe
-  Monthly momentum  200%       0.15%      0.60%  Risky
-  Weekly mean rev.  500%       0.20%      2.00%  Unlikely
-  Daily trading     2000%      0.10%      4.00%  HFT only
-  Intraday scalp    5000%+     0.05%      5.00%+ No
+  買入持有        5%         0.10%       0.01%       值得
+  年度再平衡      25%        0.10%       0.05%       值得
+  季度因子        100%       0.15%       0.30%       也許
+  月度動能        200%       0.15%       0.60%       有風險
+  週度均值回歸    500%       0.20%       2.00%       不太可能
+  日內交易        2000%      0.10%       4.00%       僅限高頻交易
+  盤中剝頭皮      5000%以上  0.05%       5.00%以上   否
 
-EXAMPLE: TRANSACTION COSTS DESTROY ALPHA
+範例：交易成本摧毀超額報酬
 
-  Strategy: Monthly momentum (top decile stocks)
+  策略：月度動能（前十分位股票）
   
-  Gross return:  15.0% per year
-  Benchmark:     10.0% per year
-  Gross alpha:   5.0% per year
+  毛報酬：15.0%（年）
+  基準報酬：10.0%（年）
+  毛超額報酬：5.0%（年）
   
-  Transaction costs:
-  - Annual turnover: 200%
-  - Cost per trade: 0.15% (spread + impact)
-  - One-way trades: 200% * 2 = 400% of portfolio
-  - Total cost: 400% * 0.15% = 0.60%
+  交易成本：
+  - 年度週轉率：200%
+  - 每筆交易成本：0.15%（價差＋市場衝擊）
+  - 單向交易：200% × 2 = 400%的投資組合
+  - 總成本：400% × 0.15% = 0.60%
   
-  Wait, that does not seem too bad. But let us
-  use more realistic costs for the smaller stocks
-  that momentum strategies tend to buy:
+  等等，這看起來還不算太差。但讓我們
+  對動能策略傾向買入的中小型股
+  使用更真實的成本：
   
-  - Cost per trade: 0.30% (small/mid-cap impact)
-  - Total cost: 400% * 0.30% = 1.20%
+  - 每筆交易成本：0.30%（中小型股衝擊）
+  - 總成本：400% × 0.30% = 1.20%
   
-  Hmm. Now add slippage:
-  - Slippage: 0.10% per trade
-  - Total: 400% * (0.30% + 0.10%) = 1.60%
+  嗯。再加上滑價：
+  - 滑價：每筆交易0.10%
+  - 合計：400% × (0.30% + 0.10%) = 1.60%
   
-  Net alpha: 5.0% - 1.60% = 3.40%
+  淨超額報酬：5.0% - 1.60% = 3.40%
   
-  But wait -- this assumes no capacity constraints.
-  With $100M in the strategy, market impact doubles:
-  - Total cost: 400% * 0.50% = 2.00%
+  但等等——這假設沒有容量限制。
+  若策略規模達到1億美元，市場衝擊加倍：
+  - 總成本：400% × 0.50% = 2.00%
   
-  Net alpha: 5.0% - 2.00% = 3.00%
+  淨超額報酬：5.0% - 2.00% = 3.00%
   
-  And after management fees (1%) and performance
-  fees (20% of alpha):
-  - Fees: 1% + 20% * 3% = 1.60%
-  - Investor net alpha: 3.00% - 1.60% = 1.40%
+  再扣除管理費（1%）與績效費
+  （超額報酬的20%）：
+  - 費用：1% + 20% × 3% = 1.60%
+  - 投資人淨超額報酬：3.00% - 1.60% = 1.40%
   
-  From 5% gross alpha to 1.4% investor alpha.
-  And we have not even discussed the risk that
-  the gross alpha is overestimated due to other
-  biases.
+  從5%的毛超額報酬降至1.4%的投資人淨超額報酬。
+  而我們甚至還沒討論毛超額報酬本身
+  因其他偏差而被高估的風險。
 
   ┌──────────────────────────────────────────────┐
-  │  THE WATERFALL OF ALPHA DECAY:               │
+  │  超額報酬衰減瀑布：                          │
   │                                              │
-  │  Backtested alpha:         5.0%              │
-  │  After survivorship bias:  4.2%              │
-  │  After lookahead bias:     3.8%              │
-  │  After transaction costs:  2.2%              │
-  │  After slippage:           1.8%              │
-  │  After management fees:    0.8%              │
-  │  After performance fees:   0.5%              │
-  │  After implementation:     0.2%              │
+  │  回測超額報酬：         5.0%                 │
+  │  修正存活者偏差後：     4.2%                 │
+  │  修正前視偏差後：       3.8%                 │
+  │  扣除交易成本後：       2.2%                 │
+  │  扣除滑價後：           1.8%                 │
+  │  扣除管理費後：         0.8%                 │
+  │  扣除績效費後：         0.5%                 │
+  │  實際執行後：           0.2%                 │
   │                                              │
-  │  5% became 0.2%. And 0.2% is within the     │
-  │  noise of random chance.                     │
+  │  5%變成了0.2%。而0.2%已在           │
+  │  隨機機率的雜訊範圍之內。                    │
   └──────────────────────────────────────────────┘
 ```
 
-#### 8. When to Trust a Backtest
+#### 8. 何時應相信回測
 
 ```
-WHEN TO TRUST (AND DISTRUST) A BACKTEST
+何時應相信（以及不信）回測
 
-TRUST A BACKTEST WHEN:
+應相信回測的情況：
 
-  ✓ It has an economic rationale
-    WHY does this edge exist? WHO loses?
-    "Value works because investors overpay for
-    growth" -- clear rationale, identifiable
-    behavioral bias.
+  ✓ 具有經濟學依據
+    這個優勢為何存在？誰是對手方的輸家？
+    「價值投資有效，因為投資人對成長股出價過高」
+    ——依據清晰，可識別的行為偏誤。
 
-  ✓ It uses few parameters
-    A strategy with 1-3 parameters fitted on
-    20+ years of data is less likely overfit.
+  ✓ 使用少量參數
+    在20年以上數據上以1至3個參數擬合的策略，
+    過度擬合的可能性較低。
 
-  ✓ It survives walk-forward analysis
-    Consistent performance across many test
-    periods, not just one favorable window.
+  ✓ 通過滾動向前分析
+    在多個測試期間具有一致性的正績效，
+    而非僅在一個有利的時間窗口。
 
-  ✓ It survives realistic transaction costs
-    Returns are still attractive after spreads,
-    impact, slippage, and fees.
+  ✓ 在真實交易成本後仍能存活
+    扣除價差、市場衝擊、滑價與手續費後，
+    報酬仍具吸引力。
 
-  ✓ It works in multiple markets and time periods
-    US and international. Pre-2000 and post-2000.
-    Emerging and developed markets.
+  ✓ 在多個市場與時間段均有效
+    美國與國際市場。2000年前與2000年後。
+    新興市場與已開發市場。
 
-  ✓ It has been documented by independent researchers
-    Academic papers, replicated by others.
-    Not just the fund manager's internal research.
+  ✓ 已獲獨立研究人員記錄
+    學術論文，經他人複製驗證。
+    不僅是基金經理人的內部研究。
 
-  ✓ The in-sample to out-of-sample decay is modest
-    In-sample Sharpe 1.5, out-of-sample Sharpe 1.0
-    is encouraging. In-sample 3.0, OOS 0.5 is not.
+  ✓ 樣本內至樣本外的衰減幅度有限
+    樣本內夏普1.5、樣本外夏普1.0令人鼓舞。
+    樣本內夏普3.0、樣本外夏普0.5則不然。
 
-DISTRUST A BACKTEST WHEN:
+不應相信回測的情況：
 
-  ✗ No economic rationale
-    "We found that this works" without explaining
-    WHY it should work or persist.
+  ✗ 沒有經濟學依據
+    「我們發現這個方法有效」，
+    但無法解釋為何有效或為何能持續。
 
-  ✗ Many parameters and rules
-    "Buy when A AND B AND NOT C AND D > 2.5 AND..."
-    More rules = more overfitting risk.
+  ✗ 參數與規則繁多
+    「當A且B且非C且D > 2.5且……」
+    規則越多，過度擬合風險越高。
 
-  ✗ Only tested on one period in one market
-    US stocks 2010-2020. A ten-year bull market.
-    How did it do in 2000-2002 or 2008?
+  ✗ 只在一個市場的一個時期測試
+    美國股票2010至2020年。十年多頭市場。
+    在2000至2002年或2008年表現如何？
 
-  ✗ Transaction costs are ignored or unrealistic
-    "Assuming zero transaction costs" or
-    "0.01% per trade" for a small-cap strategy.
+  ✗ 交易成本被忽略或不切實際
+    「假設零交易成本」或對小型股策略
+    採用「每筆交易0.01%」。
 
-  ✗ Returns are too good
-    Any strategy showing > 25% annual returns
-    with low volatility should be presumed overfit
-    until proven otherwise. The world's best
-    investors earn 15-20%.
+  ✗ 報酬好得令人難以置信
+    任何在低波動性下呈現年報酬超過25%的策略，
+    在未獲證明之前，應推定為過度擬合。
+    全球最優秀的投資人年報酬率在15%至20%之間。
 
-  ✗ Excessive curve-fitting of parameters
-    "The optimal lookback is exactly 11.5 months."
-    Real effects are robust to parameter choice.
+  ✗ 參數過度曲線擬合
+    「最佳回顧期恰好為11.5個月。」
+    真正的效應對參數選擇應具有穩健性。
 
-  ✗ Data starts from an arbitrary, convenient date
-    "Starting from March 2009..." (the market
-    bottom). Convenient start dates inflate returns.
+  ✗ 數據從某個任意的、方便的日期開始
+    「從2009年3月開始……」（市場底部）。
+    方便的起始日期會虛增報酬。
 
-BACKTEST EVALUATION SCORECARD:
+回測評估評分卡：
 
-  Criterion                    Points (0-2)
+  評估標準                   分數（0至2）
   ──────────────────────────────────────────
-  Economic rationale             /2
-  Simplicity (< 5 params)       /2
-  Walk-forward positive          /2
-  Realistic costs deducted       /2
-  Multiple markets tested        /2
-  Independent replication        /2
-  Modest in-to-OOS decay         /2
-  20+ year sample period         /2
-  Survivorship bias free         /2
-  No lookahead bias              /2
+  經濟學依據                  /2
+  簡潔性（少於5個參數）       /2
+  滾動向前結果為正            /2
+  扣除真實成本                /2
+  多個市場測試                /2
+  獨立研究複製驗證            /2
+  樣本內至樣本外衰減幅度有限  /2
+  樣本期間20年以上            /2
+  無存活者偏差                /2
+  無前視偏差                  /2
   ──────────────────────────────────────────
-  Total                          /20
+  總分                        /20
 
-  16-20: High confidence
-  12-15: Moderate confidence, proceed with caution
-  8-11:  Low confidence, probably overfit
-  0-7:   Reject -- likely noise
+  16至20：高度信心
+  12至15：中度信心，需謹慎推進
+  8至11：低度信心，可能過度擬合
+  0至7：否決——很可能只是雜訊
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "If a backtest shows good returns, the strategy works."**
+**誤解1：「如果回測顯示良好的報酬，策略就有效。」**
 
-Backtested returns are the UPPER BOUND of what a strategy can deliver. Every bias -- survivorship, lookahead, overfitting, understated costs -- works in the direction of inflating backtested performance. A strategy that shows 12% backtested returns may deliver 6-8% in live trading. A strategy that shows 6-8% backtested returns may deliver less than a passive index fund after all biases and costs are properly accounted for. The default assumption should be that a backtest is overstated until proven otherwise.
+回測報酬是策略所能帶來的績效「上限」。每一種偏差——存活者偏差、前視偏差、過度擬合、低估的成本——都朝著虛增回測績效的方向作用。一個回測顯示12%報酬的策略，在實盤可能只帶來6%至8%的報酬。一個回測顯示6%至8%報酬的策略，在所有偏差和成本得到適當修正後，實際報酬可能低於被動指數基金。預設立場應是：在獲得反證之前，回測結果均屬高估。
 
-**Misconception 2: "I split my data into training and testing, so I am protected from overfitting."**
+**誤解2：「我已將數據切分為訓練集和測試集，所以我已防範過度擬合。」**
 
-A single train-test split is better than nothing but far from sufficient. The test period may be unrepresentative (e.g., entirely within a bull market). You may unconsciously peek at the test results and adjust your strategy. And the specific split point can itself be optimized -- you may choose the split that gives the best test results. Walk-forward analysis with many rolling windows is a much stronger test. Even so, if you iterate on the walk-forward results themselves, you are overfitting to the walk-forward process.
+單次訓練-測試切分比完全不切分要好，但遠遠不夠充分。測試期間可能缺乏代表性（例如完全處於多頭市場之中）。你可能在無意間偷看了測試結果並調整了策略。而具體的切分點本身也可能被最佳化——你可能選擇了帶來最佳測試結果的切分點。以多個滾動窗口進行的滾動向前分析是一個更為嚴格的測試。即便如此，若你對滾動向前的結果本身進行迭代，你仍在對滾動向前過程進行過度擬合。
 
-**Misconception 3: "Zero-commission brokers mean transaction costs are negligible."**
+**誤解3：「零手續費代表交易成本可忽略不計。」**
 
-Commission is a small fraction of total transaction cost. The spread, market impact, slippage, and opportunity cost of unfilled orders typically dwarf commissions. A strategy with 200% annual turnover trading mid-cap stocks faces 1-2% annual transaction costs even with zero commissions. For small-cap and micro-cap stocks, costs can be 3-5% or more. The shift to zero commissions has made it cheaper to execute individual trades but has NOT eliminated the core costs that destroy high-turnover strategies.
+手續費只是總交易成本的一小部分。價差、市場衝擊、滑價以及未成交委託的機會成本，通常遠遠超過手續費。一個年度週轉率200%、交易中型股的策略，即使手續費為零，也面臨1%至2%的年度交易成本。對於小型股和微型股，成本可高達3%至5%以上。零手續費的趨勢雖降低了個別交易的執行成本，但並未消除摧毀高週轉率策略的核心成本。
 
-**Misconception 4: "More data always makes a backtest more reliable."**
+**誤解4：「數據越多，回測越可靠。」**
 
-Using 50 years of data sounds rigorous, but market structure has changed dramatically over that period. Decimalization (2001), the rise of electronic trading, the growth of passive investing, and changes in regulation have fundamentally altered market behavior. A strategy that worked from 1970-2000 may not work in the post-2000 electronic market. The right amount of data balances statistical power against regime relevance. For most strategies, 15-25 years of data -- covering multiple market cycles in a relatively consistent structural regime -- is the sweet spot.
+使用50年的數據聽起來很嚴謹，但這段時間內市場結構已發生了根本性的變化。十進位制報價（2001年）、電子交易的興起、被動投資的成長，以及法規的變化，都從根本上改變了市場行為。一個在1970至2000年間有效的策略，在2000年後的電子化市場中未必仍然有效。數據量的選擇應在統計效力與市場環境相關性之間取得平衡。對大多數策略而言，15至25年的數據——涵蓋多個市場周期、且處於相對一致的結構性環境中——是最佳範圍。
 
-**Misconception 5: "If a strategy has a high Sharpe ratio in the backtest, it will have a high Sharpe ratio live."**
+**誤解5：「如果策略在回測中具有高夏普比率，實盤也會有高夏普比率。」**
 
-Backtested Sharpe ratios almost always overstate live performance. The typical decay is 40-60%. A backtested Sharpe of 2.0 typically delivers a live Sharpe of 0.8-1.2. This means a backtested Sharpe below 1.5 is unlikely to deliver a live Sharpe above 0.5, which is borderline for practical use. Any backtested Sharpe above 3.0 should be viewed with extreme suspicion -- it almost certainly reflects overfitting, data errors, or unrealistic assumptions.
+回測的夏普比率幾乎總是高估實盤績效。典型的衰減幅度為40%至60%。回測夏普比率2.0，通常帶來實盤夏普比率0.8至1.2。這意味著回測夏普比率低於1.5的策略，不太可能在實盤帶來高於0.5的夏普比率，而0.5已是實用性的邊界值。任何回測夏普比率超過3.0的策略，都應被視為極度可疑——幾乎可以確定這反映了過度擬合、數據錯誤或不切實際的假設。
 
-**Misconception 6: "Walk-forward analysis proves a strategy works."**
+**誤解6：「滾動向前分析證明策略有效。」**
 
-Walk-forward analysis is the best validation tool available, but it is not proof. A strategy can pass walk-forward analysis and still fail in live trading if market conditions change, if the strategy's edge gets arbitraged away by other participants who discover the same signal, or if the walk-forward process itself was iterated upon (making the walk-forward results effectively in-sample). Walk-forward analysis reduces confidence in bad strategies but does not guarantee confidence in strategies that pass.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What is the minimum amount of data I need for a reliable backtest?**
-
-A: The absolute minimum is enough data to cover at least two full market cycles, including both bull and bear markets. For US equities, this typically means at least 15 years (e.g., 2007-2022 captures the financial crisis, recovery, COVID crash, and the 2022 drawdown). For monthly strategies, 15 years gives you 180 observations. For daily strategies, it gives you roughly 3,750 trading days. If your strategy depends on rare events (recessions, crises), you need more data to capture enough events -- ideally 25-30 years or more. For walk-forward analysis, you need even more data because each training window consumes 3-5 years.
-
-**Q2: How should I model transaction costs in a backtest?**
-
-A: At minimum, include the half-spread cost for each trade. For large-cap US stocks, use 0.03-0.05% per trade. For mid-cap, use 0.10-0.20%. For small-cap, use 0.25-0.50%. Add a market impact component that scales with order size relative to average daily volume: 0.05% for small orders, 0.10-0.20% for medium, and 0.30%+ for large. Add slippage of 0.02-0.05%. As a rough total, use 0.10% per trade for liquid large-caps and 0.50% for less liquid small-caps. These are conservatively estimated -- many real-world traders experience higher costs. It is always better to overestimate transaction costs than underestimate them.
-
-**Q3: How do I avoid survivorship bias in a stock backtest?**
-
-A: Use a database that includes delisted securities and their delisting returns. The CRSP database from the University of Chicago is the gold standard for US stocks and includes all delistings with their final returns. Compustat's Point-in-Time database provides fundamental data free of lookahead bias. If you cannot access these (they are expensive), at minimum ensure your data source includes delisted stocks. Many free data sources (Yahoo Finance, Google Finance) only include currently active securities. When you notice your universe has no bankrupt companies, you have survivorship bias.
-
-**Q4: What is a realistic expectation for how much a strategy degrades from backtest to live trading?**
-
-A: Expect a 30-60% decline in risk-adjusted returns. If your backtest shows a Sharpe ratio of 2.0, plan for a live Sharpe of 0.8-1.4. If it shows annual alpha of 5%, plan for 2-3% live alpha. If it shows 12% annual returns, plan for 8-9% live returns. These degradation rates are averages; some strategies degrade more, some less. Strategies with fewer parameters, longer holding periods, and trading liquid securities tend to degrade less. Strategies with many parameters, high turnover, and illiquid securities tend to degrade more.
-
-**Q5: Should I ever use a backtest to make investment decisions?**
-
-A: Yes, but with appropriate skepticism. A well-constructed backtest -- one that uses survivorship-free data, avoids lookahead bias, includes realistic transaction costs, uses few parameters, and passes walk-forward analysis -- provides genuinely useful information about a strategy's characteristics. The key is to use the backtest to understand the strategy's behavior (when it works, when it fails, how much it drawdown) rather than to predict its exact future returns. Think of a backtest as a stress test, not a forecast. A strategy that fails a proper backtest is almost certainly bad. A strategy that passes is possibly good but needs live verification with small capital before scaling up.
-
-**Q6: How can I tell if a fund manager's backtest is trustworthy?**
-
-A: Ask pointed questions. What database did they use? Does it include delisted securities? Did they use point-in-time data or retroactively available data? How many parameters does the strategy have? What are the total transaction cost assumptions? Did they perform walk-forward analysis? What is the in-sample versus out-of-sample performance? How does the strategy perform in different market regimes (bull, bear, high volatility, low volatility)? A trustworthy manager will have clear, detailed answers. A manager who cannot answer these questions -- or who dismisses them as "technical details" -- is either careless or deliberately obscuring the weaknesses of their approach.
-
-**Q7: What are the best free tools for backtesting?**
-
-A: For Python users, `backtrader` and `zipline` are popular open-source backtesting frameworks. `QuantConnect` offers a cloud-based platform with free data for limited use. `Portfolio Visualizer` (portfoliovisualizer.com) provides simple backtesting of asset allocation strategies without coding. For options backtesting, `OptionStack` offers limited free access. The biggest challenge is data quality: free price data (Yahoo Finance) lacks delisting returns and has survivorship bias. Serious backtesting requires paid data (CRSP, Bloomberg, or similar), which costs hundreds to thousands of dollars per year. The gap between free and paid data quality is large, and using free data introduces biases that can invalidate your results.
+滾動向前分析是現有最佳的驗證工具，但它並非證明。策略可能通過滾動向前分析，卻仍在實盤失敗——原因可能是市場環境改變、策略的優勢被發現相同訊號的其他參與者套利消除，或者滾動向前過程本身已被反覆迭代（使滾動向前結果事實上成為樣本內數據）。滾動向前分析能降低對不良策略的信心，但無法保證通過分析的策略就是可信的。
 
 ---
 
+### d) 常見問答
+
+**Q1：進行可靠的回測，我需要多少數據？**
+
+A：絕對的最低要求是，數據必須足以涵蓋至少兩個完整的市場周期，包含多頭市場和空頭市場。對於美國股票，這通常意味著至少15年（例如2007至2022年涵蓋金融危機、復甦、新冠疫情崩盤以及2022年的回撤）。對於月度策略，15年提供180個觀測值。對於日度策略，大約提供3,750個交易日。若你的策略依賴罕見事件（衰退、危機），你需要更多數據以捕捉足夠的事件——最好是25至30年以上。對於滾動向前分析，你需要更多數據，因為每個訓練窗口就消耗3至5年的數據。
+
+**Q2：如何在回測中建模交易成本？**
+
+A：至少應納入每筆交易的半價差成本。美國大型股使用每筆交易0.03%至0.05%。中型股使用0.10%至0.20%。小型股使用0.25%至0.50%。再加上隨委託規模相對於每日平均成交量而縮放的市場衝擊：小額委託0.05%，中額0.10%至0.20%，大額0.30%以上。再加上0.02%至0.05%的滑價。粗略而言，對流動性高的大型股每筆交易使用0.10%，對流動性較低的小型股使用0.50%。這些是保守的估計值——許多真實交易者面對更高的成本。高估交易成本永遠優於低估。
+
+**Q3：如何在股票回測中避免存活者偏差？**
+
+A：使用包含已下市證券及其下市報酬的資料庫。芝加哥大學的CRSP資料庫是美國股票的黃金標準，涵蓋所有下市記錄及其最終報酬。Compustat的歷史時點資料庫提供無前視偏差的基本面數據。若你無法取得這些資料庫（它們價格昂貴），至少確認你的數據來源包含已下市的股票。許多免費數據來源（Yahoo Finance、Google Finance）僅包含目前仍在交易的證券。當你發現自己的標的池中沒有任何破產公司時，你就已存在存活者偏差。
+
+**Q4：對於策略從回測到實盤的衰減，有什麼切實際的預期？**
+
+A：預期風險調整後報酬下降30%至60%。若你的回測夏普比率為2.0，計劃實盤夏普比率在0.8至1.4之間。若它顯示年化超額報酬5%，計劃實盤超額報酬在2%至3%之間。若它顯示年報酬12%，計劃實盤報酬在8%至9%之間。這些衰減比率是平均值；某些策略衰減更多，某些則較少。參數少、持有期長、交易流動性高的證券的策略，衰減往往較小。參數多、週轉率高、交易流動性低的證券的策略，衰減往往較大。
+
+**Q5：我應該使用回測來做投資決策嗎？**
+
+A：應該，但需保持適度的懷疑。一個建構嚴謹的回測——使用無存活者偏差的數據、避免前視偏差、納入真實交易成本、使用少量參數、通過滾動向前分析——能提供關於策略特性的真正有用資訊。關鍵在於使用回測來理解策略的行為（它在什麼時候有效、什麼時候失敗、回撤幅度），而非預測其精確的未來報酬。把回測視為壓力測試，而非預測工具。一個無法通過嚴謹回測的策略，幾乎可以肯定是糟糕的。一個通過測試的策略，可能是好的，但在擴大規模之前，仍需以少量資金進行實盤驗證。
+
+**Q6：如何判斷基金經理人的回測是否可信？**
+
+A：直接詢問關鍵問題。他們使用了哪個資料庫？它是否包含已下市的證券？他們使用的是歷史時點數據，還是事後可取得的數據？策略有多少個參數？總交易成本的假設是什麼？他們有做滾動向前分析嗎？樣本內與樣本外的績效分別是多少？策略在不同市場環境（多頭、空頭、高波動性、低波動性）下的表現如何？值得信賴的基金經理人會有清晰、詳細的答案。一個無法回答這些問題——或將其斥為「技術細節」——的基金經理人，不是粗心大意，就是刻意掩蓋其方法的弱點。
+
+**Q7：回測最好的免費工具有哪些？**
+
+A：對於Python使用者，`backtrader`和`zipline`是受歡迎的開源回測框架。`QuantConnect`提供雲端平台，有限度免費使用並附帶數據。`Portfolio Visualizer`（portfoliovisualizer.com）無需寫程式即可對資產配置策略進行簡單回測。選擇權回測方面，`OptionStack`提供有限的免費使用。最大的挑戰在於數據品質：免費的價格數據（Yahoo Finance）缺乏下市報酬且存在存活者偏差。嚴謹的回測需要付費數據（CRSP、Bloomberg或類似服務），每年費用從數百美元到數千美元不等。免費與付費數據品質之間的差距很大，使用免費數據會引入可能使你的結果失效的偏差。
+
 ---
 
-## YouTube Script
+---
 
-**Week 46: Backtesting and Strategy Validation**
+## YouTube 腳本
 
-[VISUAL: Title card -- "The Backtest Trap: Why Most Strategies Fail in Real Life"]
+**第46週：回測與策略驗證**
 
-**Alex**: Today we are going to talk about one of the most important -- and most treacherous -- tools in investing: backtesting. The practice of testing your strategy on historical data to see how it would have performed. And I need to warn you upfront: backtesting is incredibly seductive and incredibly dangerous.
+[VISUAL: 標題卡——「回測陷阱：為何大多數策略在現實中失敗」]
 
-**Sam**: Dangerous? I thought backtesting was just responsible due diligence. You want to see if a strategy worked before putting real money on it.
+**Horace**（陳馬）：今天我們要來談談投資中最重要——也最危險——的工具之一：回測。也就是把你的策略套用在歷史數據上，看看它過去表現如何的做法。我必須先提醒大家：回測這個東西，極具誘惑力，也極其危險。
 
-**Alex**: That is exactly why it is dangerous. The idea is completely sound. The execution is where investors lose fortunes. Here is the core problem: a backtest is a retrospective analysis of data you already have. It is like reading a mystery novel after someone told you who the murderer is. Everything looks obvious in hindsight.
+**Stella**（小魚）：危險？我以為回測就是負責任的盡職調查。在投入真實資金之前，你想確認一個策略是否奏效，不是嗎？
 
-**Sam**: So backtests are biased toward looking good?
+**Horace**（陳馬）：這就是它危險的原因。這個想法完全合理，問題出在執行層面。投資人因此損失了大量財富。回測的核心問題在於：它是對你已有數據的回顧性分析。就像在有人告訴你兇手是誰之後，才去讀一本推理小說。事後諸葛，什麼都看起來理所當然。
 
-**Alex**: Always. And not by a small amount. Research consistently shows that strategies perform 30-70% worse in live trading than in backtests. A strategy that shows a Sharpe ratio of 2.0 in the backtest typically delivers 0.8 to 1.2 live. A strategy showing 5% annual alpha often delivers 1-2%.
+**Stella**（小魚）：所以回測天生就偏向看起來很好看？
 
-[VISUAL: Chart showing the "Alpha Waterfall" -- how backtested returns erode step by step]
+**Horace**（陳馬）：永遠如此。而且偏差幅度相當可觀。研究一再顯示，策略在實盤交易中的表現比回測差30%至70%。一個回測夏普比率2.0的策略，實盤通常只有0.8到1.2。一個顯示年化超額報酬5%的策略，實際往往只有1%至2%。
 
-[ANIMATION: animation/week46_backtest_pitfalls.py -- Animated demonstration of backtesting biases. The animation starts with a "clean" backtest showing an equity curve rising smoothly from $100,000 to $500,000 over 20 years. A counter in the corner shows the annualized return and Sharpe ratio. Then, one by one, biases are "turned on" and the equity curve adjusts in real time. First, survivorship bias is corrected: several stocks in the portfolio go bankrupt, and the equity curve drops. The annualized return decreases visibly. Second, lookahead bias is corrected: trades that used future information are removed, causing the curve to dip further. Third, transaction costs are added: each trade incurs a visible cost deduction, and the equity curve flattens. Fourth, slippage is added: fills worsen, and the curve drops further. Finally, the overfit parameters are replaced with simpler rules, and the curve drops to nearly match the benchmark. The final frame shows side-by-side: the "as presented" backtest versus the "corrected" backtest, with the gap between them highlighted and labeled "The Backtest Illusion."]
+[VISUAL: 圖表顯示「超額報酬瀑布」——回測報酬如何逐步侵蝕]
 
-**Sam**: That animation is sobering. The strategy went from looking amazing to barely beating the index.
+[ANIMATION: animation/week46_backtest_pitfalls.py——回測偏差的動態示範。動畫從一個「乾淨」的回測開始，顯示一條在20年間從10萬美元平穩上漲至50萬美元的資產曲線。角落的計數器顯示年化報酬與夏普比率。接著，各種偏差被逐一「開啟」，資產曲線即時調整。首先，存活者偏差被修正：投資組合中的數檔股票宣告破產，資產曲線下滑，年化報酬明顯降低。其次，前視偏差被修正：使用了未來資訊的交易被移除，曲線進一步下沉。第三，交易成本被加入：每筆交易可見地扣除成本，資產曲線趨於平緩。第四，滑價被加入：成交價惡化，曲線繼續下滑。最後，過度擬合的參數被更簡單的規則取代，曲線下跌至幾乎與基準重合。最後一幀並排顯示「原始呈現」的回測與「修正後」的回測，兩者之間的差距被突出標示並標記為「回測幻象」。]
 
-**Alex**: And that is a GOOD outcome. Many strategies go from "beating the index by 5%" to "underperforming the index by 2%" after corrections. Let me walk you through each bias so you can spot them.
+**Stella**（小魚）：這個動畫真的很發人深省。策略從看起來超棒，變成了勉強打平大盤。
 
-[VISUAL: "Lookahead Bias" section header]
+**Horace**（陳馬）：而且這還算是「好的」結果。許多策略在修正後，從「打敗大盤5%」變成「跑輸大盤2%」。讓我逐一帶你認識每一種偏差，讓你以後能一眼識破。
 
-**Alex**: Lookahead bias is the most insidious. It occurs when your backtest uses information that was not available at the time of the trade. It sounds like an obvious mistake, but it hides in places you would never expect.
+[VISUAL: 「前視偏差」區塊標題]
 
-**Sam**: Like what?
+**Horace**（陳馬）：前視偏差是最棘手的。它發生在你的回測使用了交易當時尚未存在的資訊時。聽起來像是個顯而易見的錯誤，但它藏匿在你意想不到的地方。
 
-**Alex**: Financial data revisions. GDP numbers are revised multiple times after the initial release. The "final" GDP figure for Q3 might not be available until three months after the quarter ends. If your backtest uses the final figure on the date of the initial release, you are using data from the future.
+**Stella**（小魚）：比如說呢？
 
-**Sam**: But databases just show the final number, right?
+**Horace**（陳馬）：財務數據的修訂。GDP數字在初值發布後會被多次修訂。第三季的「最終」GDP數字可能要在季度結束後三個月才能取得。如果你的回測在初值發布當天就使用最終數字，你用的是來自未來的數據。
 
-**Alex**: Exactly. Most databases show the revised, corrected, final figure with a timestamp of the original reporting date. Your backtest treats it as if the revised number was known on day one. This is a subtle but real form of lookahead bias.
+**Stella**（小魚）：但資料庫只顯示最終數字，對嗎？
 
-**Alex**: Earnings data is even worse. A company's fiscal Q4 might end December 31, but they do not report earnings until February. Most databases assign Q4 data to December 31. If your backtest uses Q4 earnings data on January 2 to buy a stock, you are trading on information that would not exist for another 6 weeks.
+**Horace**（陳馬）：正是如此。大多數資料庫顯示的是修訂過的、修正後的最終數字，並附上原始申報日期的時間戳記。你的回測就把修訂後的數字當作在第一天就已知曉。這是一種微妙卻真實存在的前視偏差。
 
-[VISUAL: Timeline showing the gap between fiscal quarter end and earnings report date]
+**Horace**（陳馬）：盈餘數據更嚴重。一家公司的會計第四季可能在12月31日結束，但他們直到2月才公布盈餘。大多數資料庫將第四季數據標記在12月31日。如果你的回測在1月2日使用第四季盈餘數據買入股票，你實際上是在使用6週後才會存在的資訊進行交易。
 
-**Sam**: So how do you fix this?
+[VISUAL: 時間軸顯示會計季度截止日期與盈餘公布日期之間的落差]
 
-**Alex**: Use point-in-time databases -- databases that record when each piece of information became available. Or impose a conservative lag: do not use quarterly data until 90 days after the fiscal quarter end. This ensures the data was definitely public before you trade on it.
+**Stella**（小魚）：那要怎麼修正？
 
-**Alex**: Another sneaky source of lookahead bias is index membership. If you backtest a strategy on "S&P 500 stocks" using the CURRENT S&P 500 members, you are including Tesla in 2019, even though Tesla was not added until December 2020.
+**Horace**（陳馬）：使用歷史時點資料庫——記錄每一筆資訊何時可供取得的資料庫。或者設定保守的延遲期：在會計季度結束後90天才使用季度數據。這樣才能確保數據在你交易前確實已公開。
 
-**Sam**: And Tesla's stock tripled in 2020. So including it retroactively would inflate returns.
+**Horace**（陳馬）：另一個藏得很深的前視偏差來源是指數成分股。如果你用「現行」的S&P 500成分股來回測一個「S&P 500股票」策略，你就把特斯拉納入了2019年的投資組合，儘管特斯拉直到2020年12月才被納入。
 
-**Alex**: Exactly. You need the HISTORICAL constituent list -- which companies were actually in the S&P 500 on each date. This is harder to obtain than you might think, which is why many amateur backtests get it wrong.
+**Stella**（小魚）：而特斯拉在2020年股價翻了好幾倍。把它回溯性地納入，就會虛增報酬。
 
-[VISUAL: "Survivorship Bias" section header]
+**Horace**（陳馬）：完全正確。你需要的是「歷史」成分股名單——每個日期實際上有哪些公司在S&P 500裡面。這比你想像的更難取得，這也是為什麼許多業餘回測都在這裡犯錯。
 
-**Alex**: Survivorship bias is conceptually simple: your data includes only the winners because the losers have disappeared. But the magnitude of the problem is larger than most people realize.
+[VISUAL: 「存活者偏差」區塊標題]
 
-**Sam**: Give me a concrete example.
+**Horace**（陳馬）：存活者偏差在概念上很簡單：你的數據只包含贏家，因為輸家早已消失。但這個問題的規模比大多數人意識到的要大得多。
 
-**Alex**: You want to backtest a small-cap value strategy. You pull a list of all US stocks from your database and filter for small, cheap ones. But your database only includes companies that CURRENTLY exist. Companies that went bankrupt in 2008, 2015, or 2020 are not in the database. They are gone.
+**Stella**（小魚）：給我一個具體的例子。
 
-**Sam**: And those bankrupt companies were probably small and cheap right before they died.
+**Horace**（陳馬）：你想回測一個小型股價值策略。你從資料庫中拉出一份美國所有股票的清單，篩選出規模小且估值低的股票。但你的資料庫只包含目前仍存在的公司。在2008年、2015年或2020年破產的公司不在資料庫裡，它們已經消失了。
 
-**Alex**: Right. Your strategy would have bought many of those companies. Some of the "small and cheap" stocks in your backtest recovered and tripled. In reality, some of them went to zero. You see only the ones that survived. The estimated magnitude of survivorship bias in small-cap value backtests is 1.5-3% per year.
+**Stella**（小魚）：而那些破產的公司，在倒閉之前可能就又小又便宜。
 
-**Sam**: So a strategy showing 14% returns might really deliver 11% after correcting for this bias.
+**Horace**（陳馬）：沒錯。你的策略原本會買入許多那些公司。你回測中那些「又小又便宜」的股票，有些復甦並漲了三倍。現實中，有些卻歸零了。你只看到存活的那些，看不到滅亡的那些。小型股價值回測中存活者偏差的估計幅度，是每年1.5%至3%。
 
-**Alex**: And that 11% -- before transaction costs, before taxes, before fees -- is suddenly much less impressive than the 14% in the marketing materials.
+**Stella**（小魚）：所以一個顯示14%報酬的策略，修正這個偏差後，可能實際只有11%。
 
-[VISUAL: Side-by-side equity curves -- with survivorship bias (smooth, upward) and without (rougher, lower)]
+**Horace**（陳馬）：而那個11%——在交易成本、稅費和管理費之前——突然就比行銷資料上的14%遜色得多了。
 
-**Alex**: Survivorship bias affects mutual fund analysis even more. When you look at "10-year mutual fund performance," you are seeing only the funds that survived 10 years. Funds that performed so badly they were closed or merged are excluded. This inflates the apparent average return by 1-2% per year and makes active management look more competitive with passive indexing than it actually is.
+[VISUAL: 並排的資產曲線——含存活者偏差（平滑、上升）與不含存活者偏差（較崎嶇、偏低）]
 
-**Sam**: So the statistic that "40% of active funds beat their benchmark" might be even worse than it sounds.
+**Horace**（陳馬）：存活者偏差對共同基金分析的影響更大。當你查看「10年共同基金績效」時，你看到的只是存活了10年的基金。績效差到被清算或合併的基金被排除在外。這讓表面上的平均報酬每年虛增1%至2%，使主動管理看起來比被動指數投資更具競爭力，而實際情況並非如此。
 
-**Alex**: Correct. When you include dead funds, the percentage that beat their benchmark drops further. The true long-run success rate of active management, after survivorship bias correction, is closer to 10-15% over 15-year periods.
+**Stella**（小魚）：所以「40%的主動基金打敗基準」這個統計數字，實際上可能比看起來還要糟糕。
 
-[VISUAL: "Overfitting" section header]
+**Horace**（陳馬）：正確。當你納入已消亡的基金，打敗基準的比例會進一步降低。修正存活者偏差後，主動管理在15年期間的真實長期成功率，更接近10%至15%。
 
-**Sam**: Let us talk about overfitting. This comes up a lot in machine learning discussions, but how does it apply to investment strategies?
+[VISUAL: 「過度擬合」區塊標題]
 
-**Alex**: Imagine you are designing a momentum strategy. You need to choose a lookback period -- how many months of past returns do you look at? You test 1 month, 2 months, 3 months, all the way to 24 months. You find that 11 months gives the highest return.
+**Stella**（小魚）：來聊聊過度擬合。在機器學習的討論中這個詞很常見，但它如何應用在投資策略上？
 
-**Sam**: Great, use 11 months.
+**Horace**（陳馬）：想像你在設計一個動能策略。你需要選擇一個回顧期——你觀察過去幾個月的歷史報酬？你測試了1個月、2個月、3個月，一路到24個月。你發現11個月的報酬最高。
 
-**Alex**: But WHY 11 months? Is there an economic reason why 11 is better than 10 or 12? Almost certainly not. The reason 11 months looks best is random -- it happens to align with the specific fluctuations in your historical data. If you run the same test on a different time period, the "optimal" lookback might be 7 months, or 14 months, or something completely different.
+**Stella**（小魚）：很好，就用11個月。
 
-**Sam**: So choosing 11 months is overfitting to the specific historical data.
+**Horace**（陳馬）：但為什麼是11個月？有沒有什麼經濟學理由說明為什麼11個月優於10個月或12個月？幾乎可以確定沒有。11個月看起來最好的原因是隨機的——它恰好與你歷史數據中的特定波動相吻合。如果你在不同的時間段做同樣的測試，「最佳」回顧期可能是7個月、14個月或完全不同的數字。
 
-**Alex**: Exactly. And it gets worse the more parameters you optimize. If you also optimize the number of stocks to hold, the rebalancing frequency, the sector constraints, and the volatility filter, you have five parameters, each tested over multiple values. The total number of combinations is enormous, and the chance that the "best" combination is genuinely the best -- rather than randomly the best in this specific data -- is very small.
+**Stella**（小魚）：所以選擇11個月，就是對特定歷史數據的過度擬合。
 
-**Sam**: How many parameters is too many?
+**Horace**（陳馬）：正是。而且你最佳化的參數越多，情況越糟。如果你同時最佳化持倉股票數量、再平衡頻率、類股限制和波動性篩選器，你就有了五個參數，每個都在多個數值中測試。組合的總數非常龐大，而「最佳」組合真的是最好的——而非在這段特定數據中隨機表現最好——的機率極低。
 
-**Alex**: A useful rule: you need at least 50 independent observations per parameter. With 15 years of monthly data (180 observations), you can responsibly optimize at most 3 parameters. With 5 years (60 observations), you can optimize maybe 1 parameter. A strategy with 10 optimized parameters on 5 years of data is guaranteed to be overfit.
+**Stella**（小魚）：參數多少才算太多？
 
-[VISUAL: Table showing data length vs. maximum parameters with 50:1 rule]
+**Horace**（陳馬）：有個實用的規則：每個參數至少需要50個獨立觀測值。有15年月度數據（180個觀測值），你最多只能合理地最佳化3個參數。有5年（60個觀測值），你最多只能最佳化1個參數。一個在5年數據上最佳化了10個參數的策略，必然是過度擬合的。
 
-**Alex**: Here is a simple diagnostic. If changing a parameter slightly causes a dramatic change in performance, the strategy is overfit. A genuine effect should be robust -- if 11 months works, then 10 and 12 months should also work reasonably well. If 11 months shows a Sharpe of 2.0 but 10 months shows 0.5 and 12 months shows 0.3, that 11-month result is noise.
+[VISUAL: 表格顯示數據長度與最大參數數量（50比1規則）]
 
-**Sam**: That makes intuitive sense. A real pattern would not depend on such precise calibration.
+**Horace**（陳馬）：這裡有個簡單的診斷方法。如果稍微改變一個參數就導致績效劇烈變化，策略就是過度擬合。真正的效應應該是穩健的——如果11個月有效，那10個月和12個月也應該表現得不錯。如果11個月的夏普比率是2.0，但10個月是0.5、12個月是0.3，那個11個月的結果就是雜訊。
 
-**Alex**: Right. Think of it this way: the real world is messy. Any genuine edge in financial markets must be robust to imprecise implementation. If your strategy requires perfectly calibrated parameters to work, it will not survive the imprecision of real-world trading.
+**Stella**（小魚）：這在直覺上很有道理。真正的規律不會依賴如此精確的校準。
 
-[VISUAL: "Walk-Forward Analysis" section header]
+**Horace**（陳馬）：對。換個角度想：現實世界是混亂的。金融市場中任何真正的優勢，都必須能承受不精確執行的考驗。如果你的策略需要完美校準的參數才能奏效，它就無法在實盤交易的不精確環境中存活。
 
-**Sam**: So how do we properly validate a strategy?
+[VISUAL: 「滾動向前分析」區塊標題]
 
-**Alex**: Walk-forward analysis. Instead of one split into training and testing, you do many. You take a 5-year training window, optimize your strategy, then test it on the next year. Then you roll the window forward by one year and repeat. Over a 20-year period, you get 15 separate out-of-sample tests.
+**Stella**（小魚）：那我們應該如何正確地驗證一個策略？
 
-**Sam**: So it is like simulating what a real trader would do -- only looking at past data to make future decisions.
+**Horace**（陳馬）：滾動向前分析。不是只做一次訓練和測試的切分，而是做很多次。你取一個5年的訓練窗口，最佳化你的策略，然後在接下來的一年測試。接著把窗口向前滾動一年，重複這個過程。在20年的數據上，你可以得到15個獨立的樣本外測試。
 
-**Alex**: Exactly. And the key feature is that you get MULTIPLE out-of-sample tests, not just one. If the strategy works in 12 out of 15 test periods, that is much more convincing than one test period that happened to be favorable.
+**Stella**（小魚）：所以這就像模擬真實交易人會做的事——只用過去的數據來做未來的決策。
 
-**Sam**: What if it works in 8 out of 15?
+**Horace**（陳馬）：正是。而且關鍵特點是你得到了「多個」樣本外測試，而非只有一個。如果策略在15個測試期間中的12個有效，那比只有一個恰好有利的測試期間要有說服力得多。
 
-**Alex**: Then the strategy is regime-dependent -- it works in some market conditions and fails in others. That is useful information, but it means you need to identify which regime favors the strategy and whether you can identify regime changes in real time. If you cannot, the strategy is impractical.
+**Stella**（小魚）：如果15個中只有8個有效呢？
 
-[VISUAL: Walk-forward timeline showing rolling training and test windows]
+**Horace**（陳馬）：那麼策略就是依賴特定市場環境的——它在某些市場條件下有效，在另一些條件下失敗。這是有用的資訊，但這意味著你需要識別哪種市場環境有利於該策略，以及你是否能即時辨別市場環境的切換。若你做不到，這個策略就缺乏實用性。
 
-**Alex**: Walk-forward analysis also reveals the realistic Sharpe ratio you should expect. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 1.0, you know the strategy has genuine alpha but the backtest overstates it by 2x. If the in-sample Sharpe is 2.0 and the walk-forward Sharpe is 0.2, the strategy is overfit and the "alpha" is an illusion.
+[VISUAL: 滾動向前時間軸顯示滾動的訓練與測試窗口]
 
-**Sam**: Now let us talk about transaction costs. You mentioned they can destroy a strategy.
+**Horace**（陳馬）：滾動向前分析也能揭示你應該預期的真實夏普比率。如果樣本內夏普比率是2.0，而滾動向前夏普比率是1.0，你就知道策略確實有超額報酬，但回測高估了兩倍。如果樣本內夏普比率是2.0，而滾動向前夏普比率是0.2，那策略就是過度擬合，「超額報酬」只是幻象。
 
-[VISUAL: "Transaction Costs" section header]
+**Stella**（小魚）：現在來談交易成本。你提到它們可以摧毀一個策略。
 
-**Alex**: Transaction costs are the reality check that separates paper profits from real profits. Many beautiful strategies exist only in a world of zero transaction costs.
+[VISUAL: 「交易成本」區塊標題]
 
-**Sam**: But we have zero commissions now. Are costs not negligible?
+**Horace**（陳馬）：交易成本是將帳面獲利與真實獲利區分開來的現實檢驗。許多美麗的策略，只存在於零交易成本的世界裡。
 
-**Alex**: Commissions were never the main cost. The spread, market impact, and slippage are the big ones. When you buy a stock, you pay the ask price, which is above the midpoint. When you sell, you get the bid price, which is below the midpoint. That is the spread cost, and it happens on EVERY trade.
+**Stella**（小魚）：但我們現在已經有零手續費了。成本難道不是可以忽略不計的嗎？
 
-**Alex**: Then there is market impact. If you are buying 10,000 shares and the daily volume is 50,000, your buying pushes the price up against you. The bigger your order relative to volume, the more you move the price. This can easily cost 0.10-0.30% per trade for medium-sized orders.
+**Horace**（陳馬）：手續費從來就不是主要成本。價差、市場衝擊和滑價才是大頭。當你買入一檔股票，你支付的是賣價，高於中間價。當你賣出，你得到的是買價，低於中間價。這就是每一筆交易都會發生的價差成本。
 
-**Sam**: And this gets worse for small-cap stocks with lower volume.
+**Horace**（陳馬）：接著是市場衝擊。如果你要買1萬股，而每日成交量是5萬股，你的買盤會把價格推高，對你不利。你的委託規模相對於成交量越大，你對價格的影響就越大。對中等規模的委託而言，這很容易就造成每筆交易0.10%至0.30%的成本。
 
-**Alex**: Much worse. A small-cap stock trading 20,000 shares per day with a spread of 0.50% and high impact costs can cost 0.50-1.00% per trade. If your strategy trades this stock 4 times per year, that is 2-4% in annual costs just from this one holding.
+**Stella**（小魚）：而且對成交量較低的小型股來說，情況更糟。
 
-[VISUAL: Cost breakdown for a hypothetical trade in a large-cap vs. small-cap stock]
+**Horace**（陳馬）：更糟得多。一檔每日成交量只有2萬股、價差0.50%、市場衝擊成本高的小型股，每筆交易成本可能高達0.50%至1.00%。如果你的策略每年交易這檔股票4次，光是這一個持倉每年的成本就是2%至4%。
 
-**Alex**: Let me show you the full impact with a real example. Take a monthly momentum strategy. It turns over 200% of the portfolio per year. That means the equivalent of the entire portfolio is bought and sold twice.
+[VISUAL: 大型股與小型股假設交易的成本明細]
 
-**Sam**: So every dollar in the portfolio is traded about 4 times per year -- 2 buys and 2 sells.
+**Horace**（陳馬）：讓我用一個真實的例子來呈現全面的影響。以月度動能策略為例。它的年度週轉率為200%，也就是說相當於整個投資組合被買進賣出兩次。
 
-**Alex**: Right. At 0.15% per trade for large-caps, that is 4 times 0.15% equals 0.60% annual cost. Seems manageable. But the stocks momentum strategies buy tend to be mid- and small-caps with higher costs. At 0.30% per trade, costs become 1.20% per year. Add slippage and opportunity cost, and you are at 1.50-2.00%.
+**Stella**（小魚）：所以投資組合中的每一塊錢，每年大約被交易4次——買入2次、賣出2次。
 
-**Sam**: And if the strategy's gross alpha is 3%, half to two-thirds of it is eaten by costs.
+**Horace**（陳馬）：對。以大型股每筆交易0.15%計算，4次乘以0.15%等於每年0.60%的成本。看起來還在可接受範圍。但動能策略傾向買入的股票往往是中小型股，成本更高。以每筆0.30%計算，成本就變成每年1.20%。再加上滑價和機會成本，你面對的是每年1.50%至2.00%。
 
-**Alex**: And that is the good scenario. Many strategies have gross alpha of 1-2%, which is entirely consumed by transaction costs. The strategy looks great on paper and loses money in practice.
+**Stella**（小魚）：如果策略的毛超額報酬是3%，有一半到三分之二被成本吃掉了。
 
-[VISUAL: "Alpha Waterfall" showing how gross alpha erodes through each cost layer]
+**Horace**（陳馬）：而這還是比較好的情況。許多策略的毛超額報酬只有1%至2%，完全被交易成本消耗殆盡。策略在帳面上看起來很漂亮，實際上卻在虧損。
 
-**Sam**: So how do I know when to trust a backtest?
-
-[VISUAL: "When to Trust a Backtest" section header]
-
-**Alex**: I use a scorecard approach. There are about ten criteria that a good backtest should meet. I grade each one on a 0-2 scale.
-
-**Sam**: Give me the top five.
-
-**Alex**: First: does the strategy have an economic rationale? Not just "it works" but WHY does it work? Who is on the losing side of this trade? If you cannot identify the loser, you might BE the loser.
-
-**Alex**: Second: simplicity. Strategies with 1-3 parameters are more likely genuine than strategies with 10-20 parameters. Every extra parameter is an opportunity for overfitting.
-
-**Alex**: Third: walk-forward performance. Does it deliver positive, consistent returns across multiple out-of-sample test periods? If it only works in certain periods, it is regime-dependent at best.
-
-**Alex**: Fourth: transaction costs. Does the strategy survive after realistic costs? If costs consume more than 50% of gross alpha, the strategy is fragile -- small changes in market conditions could push it underwater.
-
-**Alex**: Fifth: multiple markets. Does it work in the US AND Europe AND Japan? A pattern that appears only in one country during one time period is probably data-mined. A pattern that appears across multiple countries and time periods is more likely genuine.
-
-**Sam**: What is the strongest sign that a backtest is overfit?
-
-**Alex**: Performance that is too good. If someone shows you a backtest with a Sharpe ratio above 3.0, assume overfitting until proven otherwise. The best investors in the world -- Warren Buffett, Jim Simons, Ray Dalio -- have live Sharpe ratios of 0.7 to 2.5. A backtest showing Sharpe 4.0 is claiming to be better than the best investors who ever lived. Possible but extremely unlikely.
-
-[VISUAL: Spectrum of Sharpe ratios -- market average (0.4), good active manager (0.7), great hedge fund (1.5), suspicious backtest (3.0+)]
-
-**Sam**: What about new retail investors who want to test a simple idea? Like "buy stocks after they drop 20%."
-
-**Alex**: Great example. Let us walk through how you would test that responsibly. First, define the strategy precisely. "Buy stocks in the S&P 500 after a 20% decline from their 52-week high. Hold for 6 months. Equal weight."
-
-**Sam**: Simple. Two parameters: the drawdown threshold and the holding period.
-
-**Alex**: Good. Now, get survivorship-free data. Make sure you include stocks that were in the S&P 500 at each point in time, not just current members. Include companies that were later removed due to bankruptcy or merger.
-
-**Sam**: What about transaction costs?
-
-**Alex**: Use 0.10% per trade as a baseline. That covers spread and small impact for large-cap stocks. Your turnover depends on how many stocks trigger the 20% decline rule, but it is probably moderate.
-
-**Alex**: Split the data. Use 2000-2015 to develop and confirm the strategy, then test on 2015-2025. Better yet, run walk-forward analysis with 5-year training windows.
-
-**Sam**: And what would I probably find?
-
-**Alex**: You would probably find that buying large dips works on average -- stocks that decline 20% tend to recover more often than not -- but with enormous variance. Some 20% declines become 50% declines. The strategy underperforms dramatically during bear markets (2008, 2020 briefly, 2022) because EVERYTHING is declining 20%, and you are buying everything, and much of it keeps falling.
-
-**Sam**: So the average looks okay but the distribution of outcomes is wide.
-
-**Alex**: And that is the key insight. Backtests show you the average outcome, but you live through a single path. The average may be positive while many individual paths are painful. Understanding the DISTRIBUTION of outcomes -- not just the average -- is essential for deciding whether you can actually follow a strategy through its worst periods.
-
-[VISUAL: Distribution of outcomes for the "buy the dip" strategy, showing the fat tail of losses]
-
-**Sam**: One more question. If backtests are so unreliable, how do professional quants use them?
-
-**Alex**: Professionals treat backtests as the BEGINNING of research, not the end. A backtest is a hypothesis test: "Is this pattern real enough to investigate further?" If it passes the backtest with all biases corrected, they move to paper trading -- running the strategy in real time with no money. If it works in paper trading for 6-12 months, they allocate a small amount of capital. If it works with real money for another 6-12 months, they gradually increase the allocation. At every stage, they compare live performance to backtested expectations.
-
-**Sam**: So the backtest is just step one of a multi-step validation process.
-
-**Alex**: Exactly. And most strategies fail at each successive stage. Out of 100 backtested ideas, maybe 20 survive bias correction. Of those 20, maybe 5 work in paper trading. Of those 5, maybe 2 work with real money. And of those 2, maybe 1 continues to work after 3 years. The attrition rate is enormous, which is why genuine alpha is so rare and so valuable.
-
-**Sam**: That is a sobering conversion rate. One percent.
-
-**Alex**: And that is at professional firms with teams of PhDs, institutional data, and decades of experience. For individual investors running backtests on free data with retail tools, the success rate is even lower. Which is why, for most investors, the best use of backtesting knowledge is EVALUATING other people's claims rather than building your own strategies. When your financial advisor shows you a beautifully smooth equity curve, you now know to ask: "Is this survivorship-free? Point-in-time data? How many parameters? Walk-forward tested? After realistic costs?"
-
-[VISUAL: "The Backtest Validation Checklist" -- 10 questions to ask about any backtest]
-
-**Sam**: Thanks, Alex. Next week, we move to a very different topic -- tail risk hedging. How do you protect your portfolio against rare but catastrophic events?
-
-**Alex**: Right. Tail risk is where everything we have learned about statistics, correlations, and strategy testing meets the real world of market crashes. It is a lesson that every investor needs but hopes they never have to use.
-
-[VISUAL: End card -- "Next Week: Tail Risk Hedging"]
+[VISUAL: 「超額報酬瀑布」顯示毛超額報酬如何在每一個成本層被

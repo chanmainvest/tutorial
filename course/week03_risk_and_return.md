@@ -640,231 +640,231 @@ A: Generally, younger investors with stable income and long horizons can afford 
 
 [VISUAL: Animated intro with title "Week 3: Understanding Risk and Return"]
 
-**Alex:** Welcome back to the course. Today's topic is the one I think is more important than any other single lesson we will cover -- risk and return. This is the foundation of everything in investing. If you do not understand risk, nothing else we teach you will make sense.
+**Horace:** Welcome back to the course. Today's topic is the one I think is more important than any other single lesson we will cover -- risk and return. This is the foundation of everything in investing. If you do not understand risk, nothing else we teach you will make sense.
 
-**Sam:** That is a bold statement, Alex. Why is risk and return more important than, say, knowing how to pick stocks or build a portfolio?
+**Stella:** That is a bold statement, Horace. Why is risk and return more important than, say, knowing how to pick stocks or build a portfolio?
 
-**Alex:** Because every decision you make as an investor is ultimately a risk-return decision. Every stock you buy, every fund you choose, every allocation you set -- you are making a bet about how much risk you are willing to take for a certain expected reward. If you do not understand that tradeoff, you are driving blind.
+**Horace:** Because every decision you make as an investor is ultimately a risk-return decision. Every stock you buy, every fund you choose, every allocation you set -- you are making a bet about how much risk you are willing to take for a certain expected reward. If you do not understand that tradeoff, you are driving blind.
 
 [VISUAL: Split screen showing two paths diverging -- one labeled "Understands Risk" leading to a structured portfolio journey, the other labeled "Ignores Risk" leading to a roller coaster of emotional decisions]
 
-**Sam:** Okay, let us start at the beginning then. What exactly is risk in investing?
+**Stella:** Okay, let us start at the beginning then. What exactly is risk in investing?
 
-**Alex:** Great starting point. In everyday life, risk means "something bad might happen." But in finance, risk has a very specific meaning. Risk is the uncertainty of outcomes. It is not about losing money -- it is about not knowing what will happen.
+**Horace:** Great starting point. In everyday life, risk means "something bad might happen." But in finance, risk has a very specific meaning. Risk is the uncertainty of outcomes. It is not about losing money -- it is about not knowing what will happen.
 
-**Sam:** Can you give me an example?
+**Stella:** Can you give me an example?
 
-**Alex:** Sure. Imagine two investments. Investment A guarantees you 4% per year. Investment B might return 30% or might lose 20% -- you do not know. Investment A is low risk because you know the outcome. Investment B is high risk because the outcome is uncertain. Note that Investment B is not guaranteed to lose money -- it might make you a lot more than Investment A. The risk is in the uncertainty, not in the outcome itself.
+**Horace:** Sure. Imagine two investments. Investment A guarantees you 4% per year. Investment B might return 30% or might lose 20% -- you do not know. Investment A is low risk because you know the outcome. Investment B is high risk because the outcome is uncertain. Note that Investment B is not guaranteed to lose money -- it might make you a lot more than Investment A. The risk is in the uncertainty, not in the outcome itself.
 
 [VISUAL: Two jars labeled "A" and "B". Jar A has a single ball labeled "4%". Jar B has many balls ranging from "-20%" to "+30%", being shaken up]
 
-**Sam:** So risk is not necessarily bad?
+**Stella:** So risk is not necessarily bad?
 
-**Alex:** Exactly right. Risk is the source of all returns above the risk-free rate. Without risk, there is no reward. The question is not "how do I avoid risk?" but "how do I take the right amount of risk for my situation and get properly compensated for it?"
+**Horace:** Exactly right. Risk is the source of all returns above the risk-free rate. Without risk, there is no reward. The question is not "how do I avoid risk?" but "how do I take the right amount of risk for my situation and get properly compensated for it?"
 
-**Sam:** How do we actually measure risk? People throw around the word "volatility" a lot.
+**Stella:** How do we actually measure risk? People throw around the word "volatility" a lot.
 
-**Alex:** Volatility is the most common measure, and it is quantified using something called standard deviation. I know that sounds like a statistics term, and it is, but the concept is actually intuitive.
+**Horace:** Volatility is the most common measure, and it is quantified using something called standard deviation. I know that sounds like a statistics term, and it is, but the concept is actually intuitive.
 
 [VISUAL: Text appears: "Standard Deviation = How widely returns are spread around the average"]
 
-**Alex:** Let us say U.S. stocks have averaged about 10% per year with a standard deviation of 16%. That means in a typical year, your return will be somewhere between negative 6% and positive 26%. That is 10% plus or minus 16%. About two-thirds of the time, you will land in that range.
+**Horace:** Let us say U.S. stocks have averaged about 10% per year with a standard deviation of 16%. That means in a typical year, your return will be somewhere between negative 6% and positive 26%. That is 10% plus or minus 16%. About two-thirds of the time, you will land in that range.
 
-**Sam:** And the other third of the time?
+**Stella:** And the other third of the time?
 
-**Alex:** You will be outside that range -- either better than plus 26% or worse than negative 6%. And in really extreme years -- about once every 20 years -- you could be more than two standard deviations away, meaning returns below negative 22% or above 42%.
+**Horace:** You will be outside that range -- either better than plus 26% or worse than negative 6%. And in really extreme years -- about once every 20 years -- you could be more than two standard deviations away, meaning returns below negative 22% or above 42%.
 
 [ANIMATION: animation/week03_risk_return_frontier.py - Animated bell curve showing the distribution of annual stock market returns. The curve starts as a flat line, then gradually takes shape as historical return data points drop in from above, each landing at its position on the x-axis. The 1-standard-deviation range highlights in blue (68%), the 2-standard-deviation range highlights in lighter blue (95%). Notable years appear as labeled dots: 2008 (-37%), 2020 (-34% then recovery), 2013 (+32%), 1995 (+37%).]
 
-**Sam:** So the 2008 financial crisis, when the market dropped about 37%, that was about a two-standard-deviation event?
+**Stella:** So the 2008 financial crisis, when the market dropped about 37%, that was about a two-standard-deviation event?
 
-**Alex:** Roughly, yes. It was a severe but not unprecedented event within the statistical framework. And this brings up an important caveat about standard deviation -- it assumes returns follow a nice, smooth bell curve. In reality, extreme events happen more often than the bell curve predicts. Finance people call these "fat tails."
+**Horace:** Roughly, yes. It was a severe but not unprecedented event within the statistical framework. And this brings up an important caveat about standard deviation -- it assumes returns follow a nice, smooth bell curve. In reality, extreme events happen more often than the bell curve predicts. Finance people call these "fat tails."
 
-**Sam:** What does that mean practically?
+**Stella:** What does that mean practically?
 
-**Alex:** It means that a 40% market crash is more likely than the math says it should be. The 1987 crash, for example, was a one-day drop of over 20% -- that should essentially never happen according to a normal distribution. But it did. So standard deviation is a useful measure of everyday risk, but it underestimates the risk of extreme events.
+**Horace:** It means that a 40% market crash is more likely than the math says it should be. The 1987 crash, for example, was a one-day drop of over 20% -- that should essentially never happen according to a normal distribution. But it did. So standard deviation is a useful measure of everyday risk, but it underestimates the risk of extreme events.
 
 [VISUAL: Two bell curves overlaid -- a normal distribution in blue and the actual distribution of market returns in red, showing the "fat tails" extending further than the normal curve]
 
-**Sam:** Got it. So what have different types of investments actually returned historically?
+**Stella:** Got it. So what have different types of investments actually returned historically?
 
-**Alex:** This is where it gets really interesting, and I think a chart will help.
+**Horace:** This is where it gets really interesting, and I think a chart will help.
 
 [VISUAL: Animated bar chart building up showing historical returns by asset class: T-Bills ~3.3%, Government Bonds ~5.5%, Corporate Bonds ~5.9%, Large Cap Stocks ~10.3%, Small Cap Stocks ~11.8%]
 
-**Alex:** Treasury bills, which are basically cash, have returned about 3.3% per year since 1926. Government bonds, about 5.5%. Corporate bonds, about 5.9%. Large company stocks, about 10.3%. And small company stocks, about 11.8%.
+**Horace:** Treasury bills, which are basically cash, have returned about 3.3% per year since 1926. Government bonds, about 5.5%. Corporate bonds, about 5.9%. Large company stocks, about 10.3%. And small company stocks, about 11.8%.
 
-**Sam:** So stocks crush everything else over the long run.
+**Stella:** So stocks crush everything else over the long run.
 
-**Alex:** They do in terms of raw return, yes. But look at the price you pay for those returns.
+**Horace:** They do in terms of raw return, yes. But look at the price you pay for those returns.
 
 [VISUAL: The same bar chart now adds error bars showing standard deviation: T-Bills ~1%, Bonds ~6%, Large Stocks ~16%, Small Stocks ~20%]
 
-**Alex:** Treasury bills barely fluctuate -- standard deviation of about 1%. Bonds fluctuate moderately -- about 6%. But large cap stocks swing 16%, and small caps swing 20%. And the worst single-year returns tell the story even more clearly. T-bills have never really lost money. Stocks have dropped over 40% in a single year.
+**Horace:** Treasury bills barely fluctuate -- standard deviation of about 1%. Bonds fluctuate moderately -- about 6%. But large cap stocks swing 16%, and small caps swing 20%. And the worst single-year returns tell the story even more clearly. T-bills have never really lost money. Stocks have dropped over 40% in a single year.
 
-**Sam:** So there really is a pattern here -- more return, more risk.
+**Stella:** So there really is a pattern here -- more return, more risk.
 
-**Alex:** Always. And the extra return you get for taking extra risk has a name -- the risk premium.
+**Horace:** Always. And the extra return you get for taking extra risk has a name -- the risk premium.
 
 [VISUAL: Staircase diagram showing risk premiums stacking up: T-Bills (base) + 2.2% = Bonds + 4.4% = Large Stocks + 1.5% = Small Stocks]
 
-**Alex:** The risk premium is the extra return above the risk-free rate that compensates you for bearing uncertainty. The equity risk premium -- the extra return stocks provide over bonds -- has historically been about 5 to 7 percent per year. That is the price the market pays you for accepting the possibility that your portfolio could drop 30 to 50 percent.
+**Horace:** The risk premium is the extra return above the risk-free rate that compensates you for bearing uncertainty. The equity risk premium -- the extra return stocks provide over bonds -- has historically been about 5 to 7 percent per year. That is the price the market pays you for accepting the possibility that your portfolio could drop 30 to 50 percent.
 
-**Sam:** Why does the market pay that premium? Why can it not just go away?
+**Stella:** Why does the market pay that premium? Why can it not just go away?
 
-**Alex:** Because humans are naturally risk-averse. Most people experience the pain of a loss about twice as intensely as the pleasure of an equivalent gain. So to get people to hold risky stocks instead of safe bonds, stocks need to offer meaningfully higher returns. If stocks and bonds offered the same return, everyone would choose bonds, stock prices would drop, and the premium would reappear.
+**Horace:** Because humans are naturally risk-averse. Most people experience the pain of a loss about twice as intensely as the pleasure of an equivalent gain. So to get people to hold risky stocks instead of safe bonds, stocks need to offer meaningfully higher returns. If stocks and bonds offered the same return, everyone would choose bonds, stock prices would drop, and the premium would reappear.
 
 [VISUAL: Balance scale showing "Loss of $100" weighing more heavily than "Gain of $100", with text "Loss Aversion: Losses feel ~2x as painful as equivalent gains"]
 
-**Sam:** That is a psychological explanation for a financial phenomenon. I like that. Now, I have heard people talk about different kinds of risk -- systematic and unsystematic. What is the difference?
+**Stella:** That is a psychological explanation for a financial phenomenon. I like that. Now, I have heard people talk about different kinds of risk -- systematic and unsystematic. What is the difference?
 
-**Alex:** This is one of the most important concepts in all of investing, and it changed how professionals think about portfolios.
+**Horace:** This is one of the most important concepts in all of investing, and it changed how professionals think about portfolios.
 
 [VISUAL: Screen splits into two columns: "Systematic Risk" and "Unsystematic Risk"]
 
-**Alex:** Unsystematic risk is risk specific to one company or industry. A CEO gets caught in a scandal. A product gets recalled. A factory burns down. A competitor launches a better product. These events hurt one company but do not affect the whole market.
+**Horace:** Unsystematic risk is risk specific to one company or industry. A CEO gets caught in a scandal. A product gets recalled. A factory burns down. A competitor launches a better product. These events hurt one company but do not affect the whole market.
 
-**Sam:** And systematic risk?
+**Stella:** And systematic risk?
 
-**Alex:** Systematic risk affects everyone. A recession hits. Interest rates spike. A pandemic shuts down the global economy. Inflation surges. These events hit virtually all stocks simultaneously.
+**Horace:** Systematic risk affects everyone. A recession hits. Interest rates spike. A pandemic shuts down the global economy. Inflation surges. These events hit virtually all stocks simultaneously.
 
-**Sam:** Okay, so what? Both kinds are bad, right?
+**Stella:** Okay, so what? Both kinds are bad, right?
 
-**Alex:** Here is the critical insight. You can eliminate unsystematic risk by diversifying -- by owning many stocks instead of just one or two. If one company has a scandal, the other 499 in your index fund are fine. The overall impact is tiny.
+**Horace:** Here is the critical insight. You can eliminate unsystematic risk by diversifying -- by owning many stocks instead of just one or two. If one company has a scandal, the other 499 in your index fund are fine. The overall impact is tiny.
 
 [ANIMATION: animation/week03_risk_return_frontier.py - Animated chart showing total portfolio risk (y-axis) versus number of stocks held (x-axis). Starting with one stock at ~40% volatility, each additional stock added causes the line to drop. The decline is steep at first (going from 1 to 10 stocks dramatically reduces risk) but flattens out around 25-30 stocks. A horizontal line at ~16% is labeled "Systematic Risk -- Cannot Be Diversified Away." The area between the curve and the line is shaded and labeled "Unsystematic Risk -- Free to Eliminate." As stocks are added, the unsystematic area shrinks to near zero.]
 
-**Alex:** But systematic risk cannot be diversified away. Even if you own every stock in the market, you still face recession risk, interest rate risk, and all the other economy-wide forces.
+**Horace:** But systematic risk cannot be diversified away. Even if you own every stock in the market, you still face recession risk, interest rate risk, and all the other economy-wide forces.
 
-**Sam:** So why does this matter for my portfolio?
+**Stella:** So why does this matter for my portfolio?
 
-**Alex:** Because the market only pays you for systematic risk. Think about it. Unsystematic risk is risk you can eliminate for free by diversifying. If you choose not to diversify -- if you put all your money in one stock -- you are taking risk that you are not getting paid for. The market does not give you extra return for taking a risk you could have avoided.
+**Horace:** Because the market only pays you for systematic risk. Think about it. Unsystematic risk is risk you can eliminate for free by diversifying. If you choose not to diversify -- if you put all your money in one stock -- you are taking risk that you are not getting paid for. The market does not give you extra return for taking a risk you could have avoided.
 
-**Sam:** So holding a concentrated portfolio of three or four stocks is essentially taking risk for free?
+**Stella:** So holding a concentrated portfolio of three or four stocks is essentially taking risk for free?
 
-**Alex:** Exactly. You have all the downside of company-specific disasters with no additional expected return. This is the strongest argument for index funds and broad diversification -- you eliminate the risk you do not get paid for and keep the risk that comes with a paycheck.
+**Horace:** Exactly. You have all the downside of company-specific disasters with no additional expected return. This is the strongest argument for index funds and broad diversification -- you eliminate the risk you do not get paid for and keep the risk that comes with a paycheck.
 
 [VISUAL: Two portfolio pies: one with 3 stocks showing high total risk, one with 500 stocks (index fund) showing lower total risk. Both have the same "Expected Return" label, but the 3-stock portfolio has much more "Uncompensated Risk"]
 
-**Sam:** That is really eye-opening. You mentioned beta earlier. How does that fit in?
+**Stella:** That is really eye-opening. You mentioned beta earlier. How does that fit in?
 
-**Alex:** Beta is the measure of systematic risk for an individual stock. It tells you how sensitive a stock is to overall market movements. A beta of 1.0 means the stock moves in lockstep with the market. A beta of 1.5 means the stock is 50% more volatile than the market. A beta of 0.5 means it is half as volatile.
+**Horace:** Beta is the measure of systematic risk for an individual stock. It tells you how sensitive a stock is to overall market movements. A beta of 1.0 means the stock moves in lockstep with the market. A beta of 1.5 means the stock is 50% more volatile than the market. A beta of 0.5 means it is half as volatile.
 
-**Sam:** Can you give real-world examples?
+**Stella:** Can you give real-world examples?
 
-**Alex:** Sure. Utility companies tend to have betas around 0.4 to 0.6. People always need electricity, so these stocks do not move much with the economy. Technology stocks tend to have betas around 1.2 to 1.5 -- they are more sensitive to economic cycles because businesses cut tech spending during recessions. Biotech stocks can have betas above 1.5 because they are highly speculative.
+**Horace:** Sure. Utility companies tend to have betas around 0.4 to 0.6. People always need electricity, so these stocks do not move much with the economy. Technology stocks tend to have betas around 1.2 to 1.5 -- they are more sensitive to economic cycles because businesses cut tech spending during recessions. Biotech stocks can have betas above 1.5 because they are highly speculative.
 
 [VISUAL: Spectrum chart showing different sectors arranged by beta from left (low beta: Utilities 0.4) to right (high beta: Biotech 1.6), with the S&P 500 marked at 1.0 in the center]
 
-**Sam:** And according to the CAPM model, higher beta stocks should give higher returns?
+**Stella:** And according to the CAPM model, higher beta stocks should give higher returns?
 
-**Alex:** In theory, yes. The Capital Asset Pricing Model says expected return equals the risk-free rate plus beta times the market risk premium. So a stock with a beta of 1.5 should earn about 50% more than the market risk premium. In practice, this relationship is messier than the theory suggests, but the basic principle holds -- bearing more systematic risk should be compensated with higher expected returns over time.
+**Horace:** In theory, yes. The Capital Asset Pricing Model says expected return equals the risk-free rate plus beta times the market risk premium. So a stock with a beta of 1.5 should earn about 50% more than the market risk premium. In practice, this relationship is messier than the theory suggests, but the basic principle holds -- bearing more systematic risk should be compensated with higher expected returns over time.
 
-**Sam:** Okay, let us talk about the big picture. How does all of this come together in the risk-return tradeoff?
+**Stella:** Okay, let us talk about the big picture. How does all of this come together in the risk-return tradeoff?
 
-**Alex:** This is where we get to one of the most beautiful ideas in finance -- the efficient frontier.
+**Horace:** This is where we get to one of the most beautiful ideas in finance -- the efficient frontier.
 
 [VISUAL: Title card "The Efficient Frontier"]
 
-**Alex:** Imagine plotting every possible portfolio combination on a chart. The x-axis is risk, measured by standard deviation. The y-axis is expected return. Each dot represents a different portfolio -- different mixes of stocks, bonds, and other assets.
+**Horace:** Imagine plotting every possible portfolio combination on a chart. The x-axis is risk, measured by standard deviation. The y-axis is expected return. Each dot represents a different portfolio -- different mixes of stocks, bonds, and other assets.
 
-**Sam:** That would be a lot of dots.
+**Stella:** That would be a lot of dots.
 
-**Alex:** Thousands. But here is the magic -- they form a shape. The upper-left boundary of all those dots forms a curve called the efficient frontier. Every portfolio on this curve is optimal in the sense that no other portfolio offers higher return for the same risk, or lower risk for the same return.
+**Horace:** Thousands. But here is the magic -- they form a shape. The upper-left boundary of all those dots forms a curve called the efficient frontier. Every portfolio on this curve is optimal in the sense that no other portfolio offers higher return for the same risk, or lower risk for the same return.
 
 [ANIMATION: animation/week03_risk_return_frontier.py - Start with an empty risk-return chart. Randomly scatter thousands of small dots representing random portfolio combinations. Then highlight the upper-left boundary curve in gold -- the efficient frontier. Show arrows from dots below the frontier pointing up to the frontier, labeled "Could do better." Animate key points on the frontier: 100% bonds (left), 60/40 portfolio (middle), 100% stocks (right), with their risk-return coordinates displayed.]
 
-**Sam:** So if I am below the frontier, I am doing something wrong?
+**Stella:** So if I am below the frontier, I am doing something wrong?
 
-**Alex:** Yes. If you are below the frontier, you could get more return for the same risk, or reduce risk without sacrificing return. For example, a portfolio of just five random stocks might fall below the frontier because of high unsystematic risk. An index fund of 500 stocks would plot much closer to the frontier.
+**Horace:** Yes. If you are below the frontier, you could get more return for the same risk, or reduce risk without sacrificing return. For example, a portfolio of just five random stocks might fall below the frontier because of high unsystematic risk. An index fund of 500 stocks would plot much closer to the frontier.
 
-**Sam:** Where on the frontier should I be?
+**Stella:** Where on the frontier should I be?
 
-**Alex:** That depends entirely on your personal risk tolerance and capacity. A conservative investor -- maybe a retiree living off their portfolio -- wants to be on the left side: lower risk, lower but more stable returns. An aggressive investor with a 30-year horizon can afford to be on the right side: higher risk, higher expected returns.
+**Horace:** That depends entirely on your personal risk tolerance and capacity. A conservative investor -- maybe a retiree living off their portfolio -- wants to be on the left side: lower risk, lower but more stable returns. An aggressive investor with a 30-year horizon can afford to be on the right side: higher risk, higher expected returns.
 
 [VISUAL: The efficient frontier with three investor profiles marked: "Conservative" on the left (70% bonds), "Moderate" in the middle (60/40), and "Aggressive" on the right (90% stocks)]
 
-**Sam:** This really ties everything together. But I want to talk about something more practical -- drawdowns. When the market drops 30 or 40 percent, the math of standard deviation is cold comfort.
+**Stella:** This really ties everything together. But I want to talk about something more practical -- drawdowns. When the market drops 30 or 40 percent, the math of standard deviation is cold comfort.
 
-**Alex:** You are absolutely right. Standard deviation is an abstract statistical concept. Maximum drawdown is the gut-punch reality of risk. A drawdown is the peak-to-trough decline in your portfolio value. In 2008-2009, the S&P 500 experienced a drawdown of about 57%. If you had a million dollars in stocks, it dropped to $430,000.
+**Horace:** You are absolutely right. Standard deviation is an abstract statistical concept. Maximum drawdown is the gut-punch reality of risk. A drawdown is the peak-to-trough decline in your portfolio value. In 2008-2009, the S&P 500 experienced a drawdown of about 57%. If you had a million dollars in stocks, it dropped to $430,000.
 
-**Sam:** That is terrifying.
+**Stella:** That is terrifying.
 
-**Alex:** It is. And the recovery took about five and a half years. That is five and a half years of watching your portfolio climb back to where it started. For a 60-year-old planning to retire at 62, that is devastating. For a 30-year-old with decades ahead, it is a speed bump.
+**Horace:** It is. And the recovery took about five and a half years. That is five and a half years of watching your portfolio climb back to where it started. For a 60-year-old planning to retire at 62, that is devastating. For a 30-year-old with decades ahead, it is a speed bump.
 
 [VISUAL: Chart showing S&P 500 from 2007 to 2013, with the drawdown highlighted in red and the recovery path in green. Annotations showing portfolio values: $1M at peak, $430K at trough, $1M again at recovery]
 
-**Sam:** So time horizon is a huge factor in how much risk you can take?
+**Stella:** So time horizon is a huge factor in how much risk you can take?
 
-**Alex:** It is the single most important factor. Let me show you why.
+**Horace:** It is the single most important factor. Let me show you why.
 
 [VISUAL: Chart showing the range of annualized stock market returns for different holding periods: 1 year (-43% to +54%), 5 years (-12% to +29%), 10 years (-1% to +20%), 20 years (+2% to +18%)]
 
-**Alex:** Over one year, stocks have returned anywhere from negative 43% to positive 54%. That is a massive range. But over 10-year periods, the worst annualized return was only about negative 1%. And over 20-year periods, stocks have never produced a negative annualized return in U.S. history.
+**Horace:** Over one year, stocks have returned anywhere from negative 43% to positive 54%. That is a massive range. But over 10-year periods, the worst annualized return was only about negative 1%. And over 20-year periods, stocks have never produced a negative annualized return in U.S. history.
 
-**Sam:** So time really does reduce risk?
+**Stella:** So time really does reduce risk?
 
-**Alex:** It reduces the risk of a negative outcome, yes. But there is an important caveat. Even over 20 years, the difference between earning 2% per year and 18% per year is enormous. Time reduces the probability of loss, but it does not eliminate the uncertainty of how much you will make. And we should note that the U.S. stock market has been unusually successful. Japanese stocks peaked in 1989 and investors waited 35 years to break even.
+**Horace:** It reduces the risk of a negative outcome, yes. But there is an important caveat. Even over 20 years, the difference between earning 2% per year and 18% per year is enormous. Time reduces the probability of loss, but it does not eliminate the uncertainty of how much you will make. And we should note that the U.S. stock market has been unusually successful. Japanese stocks peaked in 1989 and investors waited 35 years to break even.
 
 [VISUAL: Comparison chart showing U.S. stocks from 1989-2024 (strong upward trend) versus Japanese stocks (flat and declining for decades)]
 
-**Sam:** That is a sobering example. Let me ask about something practical -- how do I figure out how much risk I should take?
+**Stella:** That is a sobering example. Let me ask about something practical -- how do I figure out how much risk I should take?
 
-**Alex:** You need to think about two things: risk capacity and risk tolerance. Risk capacity is objective -- it depends on your time horizon, income stability, savings rate, and how much you depend on the portfolio. A 25-year-old with a great job, low expenses, and 40 years until retirement has high risk capacity. A 65-year-old retiree living off the portfolio has low risk capacity.
+**Horace:** You need to think about two things: risk capacity and risk tolerance. Risk capacity is objective -- it depends on your time horizon, income stability, savings rate, and how much you depend on the portfolio. A 25-year-old with a great job, low expenses, and 40 years until retirement has high risk capacity. A 65-year-old retiree living off the portfolio has low risk capacity.
 
-**Sam:** And risk tolerance is the emotional side?
+**Stella:** And risk tolerance is the emotional side?
 
-**Alex:** Exactly. Risk tolerance is how you feel about market drops. Here is my favorite test: imagine your portfolio drops 30% in one month. Not a hypothetical -- actually try to feel it. If you have $100,000, that is $70,000 on screen. If you have $500,000, that is $350,000. Can you go to sleep that night without logging in at 2 AM to sell?
+**Horace:** Exactly. Risk tolerance is how you feel about market drops. Here is my favorite test: imagine your portfolio drops 30% in one month. Not a hypothetical -- actually try to feel it. If you have $100,000, that is $70,000 on screen. If you have $500,000, that is $350,000. Can you go to sleep that night without logging in at 2 AM to sell?
 
-**Sam:** When you put it that way, I am not sure.
+**Stella:** When you put it that way, I am not sure.
 
-**Alex:** And that is the point. Everyone thinks they have high risk tolerance when markets are going up. Your true risk tolerance is revealed when markets crash. Here is the golden rule: do not take more risk than you can maintain during the worst moments. If a 30% drop would make you sell, you need a portfolio that is unlikely to drop 30%.
+**Horace:** And that is the point. Everyone thinks they have high risk tolerance when markets are going up. Your true risk tolerance is revealed when markets crash. Here is the golden rule: do not take more risk than you can maintain during the worst moments. If a 30% drop would make you sell, you need a portfolio that is unlikely to drop 30%.
 
 [VISUAL: Two-by-two matrix showing Risk Capacity (High/Low) vs. Risk Tolerance (High/Low), with recommended approaches in each quadrant]
 
-**Sam:** What about the Sharpe Ratio? I hear people mention it as a measure of how efficiently you are taking risk.
+**Stella:** What about the Sharpe Ratio? I hear people mention it as a measure of how efficiently you are taking risk.
 
-**Alex:** The Sharpe Ratio is elegant. It measures how much excess return you get per unit of risk. The formula is: portfolio return minus the risk-free rate, divided by the portfolio's standard deviation. A Sharpe Ratio of 0.5 is decent, 1.0 is very good, and anything above 1.5 is exceptional.
+**Horace:** The Sharpe Ratio is elegant. It measures how much excess return you get per unit of risk. The formula is: portfolio return minus the risk-free rate, divided by the portfolio's standard deviation. A Sharpe Ratio of 0.5 is decent, 1.0 is very good, and anything above 1.5 is exceptional.
 
-**Sam:** So it is like miles per gallon for investments -- how much performance you get for each unit of risk you burn?
+**Stella:** So it is like miles per gallon for investments -- how much performance you get for each unit of risk you burn?
 
-**Alex:** That is a perfect analogy. And it lets you compare investments that look very different. A bond fund returning 6% with 4% standard deviation has a Sharpe Ratio of about 0.5, assuming a 4% risk-free rate. A stock fund returning 11% with 16% standard deviation also has a Sharpe Ratio of about 0.44. The bond fund is actually more risk-efficient despite having a lower raw return.
+**Horace:** That is a perfect analogy. And it lets you compare investments that look very different. A bond fund returning 6% with 4% standard deviation has a Sharpe Ratio of about 0.5, assuming a 4% risk-free rate. A stock fund returning 11% with 16% standard deviation also has a Sharpe Ratio of about 0.44. The bond fund is actually more risk-efficient despite having a lower raw return.
 
 [VISUAL: Side-by-side comparison of two investments showing raw return versus Sharpe Ratio, demonstrating that higher return does not always mean better risk-adjusted performance]
 
-**Sam:** Can we talk about one more thing? I keep seeing claims online about investments that offer high returns with low risk. Is that possible?
+**Stella:** Can we talk about one more thing? I keep seeing claims online about investments that offer high returns with low risk. Is that possible?
 
-**Alex:** It is one of the most important rules in investing: there is no free lunch. If someone offers you high returns with low risk, one of three things is happening. First, they might be hiding the risk. Some strategies show smooth, low-volatility returns until they blow up catastrophically. Second, they might be committing fraud. Bernie Madoff offered steady 10-12% returns with almost no volatility for decades. It was the largest Ponzi scheme in history. Third, they might be confusing illiquidity with low risk. Private real estate or private equity investments show low measured volatility because they are not priced daily, but the underlying risk is still there.
+**Horace:** It is one of the most important rules in investing: there is no free lunch. If someone offers you high returns with low risk, one of three things is happening. First, they might be hiding the risk. Some strategies show smooth, low-volatility returns until they blow up catastrophically. Second, they might be committing fraud. Bernie Madoff offered steady 10-12% returns with almost no volatility for decades. It was the largest Ponzi scheme in history. Third, they might be confusing illiquidity with low risk. Private real estate or private equity investments show low measured volatility because they are not priced daily, but the underlying risk is still there.
 
 [VISUAL: Three warning signs: Hidden Risk (iceberg with small portion visible), Fraud (smooth return line that suddenly drops to zero), Illiquidity Premium (asset priced quarterly vs. daily showing artificially smooth returns)]
 
-**Sam:** So if it sounds too good to be true...
+**Stella:** So if it sounds too good to be true...
 
-**Alex:** It is. Always. The risk-return tradeoff is a law of finance as fundamental as gravity is a law of physics. You can be more efficient -- getting on the efficient frontier instead of below it -- but you cannot beat the fundamental relationship.
+**Horace:** It is. Always. The risk-return tradeoff is a law of finance as fundamental as gravity is a law of physics. You can be more efficient -- getting on the efficient frontier instead of below it -- but you cannot beat the fundamental relationship.
 
-**Sam:** Okay, let me try to summarize what I have learned today. Risk is the uncertainty of outcomes, not just the chance of loss. It is measured by standard deviation, which tells you how widely returns can vary. Different asset classes offer different risk-return profiles, with stocks offering the highest returns but also the highest volatility.
+**Stella:** Okay, let me try to summarize what I have learned today. Risk is the uncertainty of outcomes, not just the chance of loss. It is measured by standard deviation, which tells you how widely returns can vary. Different asset classes offer different risk-return profiles, with stocks offering the highest returns but also the highest volatility.
 
-**Alex:** Keep going.
+**Horace:** Keep going.
 
-**Sam:** The risk premium is the extra return you earn for bearing risk, and it exists because humans are naturally risk-averse. There are two types of risk: systematic risk, which affects the whole market and cannot be diversified away, and unsystematic risk, which is company-specific and can be eliminated through diversification. The market only pays you for systematic risk.
+**Stella:** The risk premium is the extra return you earn for bearing risk, and it exists because humans are naturally risk-averse. There are two types of risk: systematic risk, which affects the whole market and cannot be diversified away, and unsystematic risk, which is company-specific and can be eliminated through diversification. The market only pays you for systematic risk.
 
-**Alex:** Excellent.
+**Horace:** Excellent.
 
-**Sam:** The efficient frontier shows the best possible combinations of risk and return. Your position on it should depend on your risk capacity and risk tolerance. And finally, time horizon matters enormously -- over longer periods, the probability of loss decreases, which is why younger investors can afford to take more risk.
+**Stella:** The efficient frontier shows the best possible combinations of risk and return. Your position on it should depend on your risk capacity and risk tolerance. And finally, time horizon matters enormously -- over longer periods, the probability of loss decreases, which is why younger investors can afford to take more risk.
 
-**Alex:** That is a perfect summary. I would add one more thing: the biggest risk is not market volatility. The biggest risk is your own behavior. Panicking and selling during a downturn is the single most destructive thing an investor can do. Understanding risk intellectually helps you manage it emotionally.
+**Horace:** That is a perfect summary. I would add one more thing: the biggest risk is not market volatility. The biggest risk is your own behavior. Panicking and selling during a downturn is the single most destructive thing an investor can do. Understanding risk intellectually helps you manage it emotionally.
 
 [VISUAL: Key takeaway card listing five bullet points: 1) Risk = Uncertainty, 2) Higher risk = Higher expected return, 3) Diversify away unsystematic risk, 4) Time horizon determines risk capacity, 5) Your behavior is your biggest risk factor]
 
-**Sam:** That is so true. I already feel more prepared to handle the next market downturn, whenever it comes.
+**Stella:** That is so true. I already feel more prepared to handle the next market downturn, whenever it comes.
 
-**Alex:** And it will come. Markets drop 10% about once a year on average, 20% every few years, and 30% or more once or twice per decade. That is not a prediction of doom -- it is the normal cost of earning equity returns. Expecting it and planning for it is what separates investors from gamblers.
+**Horace:** And it will come. Markets drop 10% about once a year on average, 20% every few years, and 30% or more once or twice per decade. That is not a prediction of doom -- it is the normal cost of earning equity returns. Expecting it and planning for it is what separates investors from gamblers.
 
-**Sam:** What is coming up next week?
+**Stella:** What is coming up next week?
 
-**Alex:** Next week we are going to take these concepts and apply them directly. We are going to talk about the 60/40 portfolio -- 60% stocks, 40% bonds. It is the most famous asset allocation in investing, and understanding why it works -- and when it does not -- will bring everything from today's lesson to life.
+**Horace:** Next week we are going to take these concepts and apply them directly. We are going to talk about the 60/40 portfolio -- 60% stocks, 40% bonds. It is the most famous asset allocation in investing, and understanding why it works -- and when it does not -- will bring everything from today's lesson to life.
 
-**Sam:** I cannot wait. Thanks for watching, everyone, and we will see you next week.
+**Stella:** I cannot wait. Thanks for watching, everyone, and we will see you next week.
 
 [VISUAL: End screen with subscribe button and links to previous lessons. Preview card for Week 4: The 60/40 Portfolio]
 

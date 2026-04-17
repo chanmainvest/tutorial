@@ -752,8 +752,8 @@ usually the best starting point. We will cover factor investing later in the cou
 **RUNTIME TARGET:** ~28 minutes
 
 **HOSTS:**
-- **Alex** (teacher): Experienced investor, explains concepts clearly
-- **Sam** (student): Curious beginner, asks questions the audience is thinking
+- **Horace** (teacher): Experienced retail trader, explains concepts from years of market experience
+- **Stella** (student): Recent college graduate learning to invest her savings, asks the questions viewers are thinking
 
 ---
 
@@ -764,17 +764,17 @@ usually the best starting point. We will cover factor investing later in the cou
 [ANIMATION: Hundreds of tiny stock ticker symbols swirling around, then being
 swept into a single basket labeled "INDEX FUND"]
 
-**Alex:** Welcome back to Week 2 of our investment fundamentals course. Last week
+**Horace:** Welcome back to Week 2 of our investment fundamentals course. Last week
 we covered why you need to invest. Today we are going to cover the single easiest
 and most effective way to do it.
 
-**Sam:** Index funds and ETFs. I have been hearing these terms everywhere, but I
+**Stella:** Index funds and ETFs. I have been hearing these terms everywhere, but I
 still do not fully understand what they are.
 
-**Alex:** By the end of this video, you will understand them better than most people
+**Horace:** By the end of this video, you will understand them better than most people
 who have been investing for years. And you will know exactly which ones to buy.
 
-**Sam:** Let us get into it.
+**Stella:** Let us get into it.
 
 [VISUAL: Title card -- "Part 1: What Is an Index?"]
 
@@ -782,45 +782,45 @@ who have been investing for years. And you will know exactly which ones to buy.
 
 **[SEGMENT 1: WHAT IS AN INDEX?]**
 
-**Alex:** Before we talk about index funds, we need to understand what an index is.
+**Horace:** Before we talk about index funds, we need to understand what an index is.
 An index is simply a list of stocks that follows a set of rules.
 
-**Sam:** A list? That is it?
+**Stella:** A list? That is it?
 
-**Alex:** That is it. The most famous index is the S&P 500. It is a list of roughly
+**Horace:** That is it. The most famous index is the S&P 500. It is a list of roughly
 five hundred of the largest companies in the United States.
 
 [VISUAL: Scrolling list of S&P 500 companies with logos: Apple, Microsoft,
 Amazon, Google, Johnson & Johnson, JPMorgan, Procter & Gamble, etc.]
 
-**Alex:** When you hear on the news that "the market was up two percent today," they
+**Horace:** When you hear on the news that "the market was up two percent today," they
 usually mean the S&P 500 index went up two percent.
 
-**Sam:** So the S&P 500 is like a report card for the entire stock market?
+**Stella:** So the S&P 500 is like a report card for the entire stock market?
 
-**Alex:** Great analogy. It represents about eighty percent of the total US stock
+**Horace:** Great analogy. It represents about eighty percent of the total US stock
 market by value. So if the S&P 500 is up, the overall market is almost certainly
 up too.
 
 [ANIMATION: A pie chart showing "S&P 500 = 80% of US market" with the remaining
 20% labeled "mid-cap and small-cap stocks"]
 
-**Sam:** But how does it work? Does every company count equally?
+**Stella:** But how does it work? Does every company count equally?
 
-**Alex:** No, and this is important. The S&P 500 is weighted by market
+**Horace:** No, and this is important. The S&P 500 is weighted by market
 capitalization. That means bigger companies have a bigger influence on the index.
 
 [ANIMATION: Reference animation/week02_active_vs_passive.py -- index_weights().
 Bar chart showing Apple at 7%, Microsoft at 6.5%, then gradually smaller bars
 down to the smallest company at 0.02%.]
 
-**Alex:** Apple, which has a market cap of around three trillion dollars, makes up
+**Horace:** Apple, which has a market cap of around three trillion dollars, makes up
 about seven percent of the index. The smallest company in the S&P 500, with a
 market cap of maybe ten billion dollars, makes up about two hundredths of a percent.
 
-**Sam:** So when Apple has a big day, the whole index moves?
+**Stella:** So when Apple has a big day, the whole index moves?
 
-**Alex:** Exactly. The top ten companies represent about thirty to thirty-five
+**Horace:** Exactly. The top ten companies represent about thirty to thirty-five
 percent of the entire index. This is important to understand -- you are not
 equally exposed to all five hundred companies.
 
@@ -830,32 +830,32 @@ equally exposed to all five hundred companies.
 
 **[SEGMENT 2: WHAT IS AN INDEX FUND?]**
 
-**Alex:** Now here is the magic. An index fund is an investment that simply buys
+**Horace:** Now here is the magic. An index fund is an investment that simply buys
 every stock in the index, in the same proportions.
 
-**Sam:** So instead of picking which stocks to buy, it just buys... all of them?
+**Stella:** So instead of picking which stocks to buy, it just buys... all of them?
 
-**Alex:** All of them. If Apple is seven percent of the S&P 500 index, the fund
+**Horace:** All of them. If Apple is seven percent of the S&P 500 index, the fund
 puts seven percent of its money in Apple. If the smallest company is two hundredths
 of a percent, the fund puts two hundredths of a percent there.
 
 [ANIMATION: Money flowing from an investor into a fund, which distributes it
 into 500 different company buckets, each sized proportionally]
 
-**Sam:** And then my returns match the index?
+**Stella:** And then my returns match the index?
 
-**Alex:** Almost exactly. The fund charges a tiny fee -- called the expense ratio --
+**Horace:** Almost exactly. The fund charges a tiny fee -- called the expense ratio --
 so your returns are the index return minus that fee. For Vanguard's S&P 500 fund,
 the fee is three hundredths of a percent per year.
 
-**Sam:** Three hundredths of a percent? That is three dollars per year on a ten
+**Stella:** Three hundredths of a percent? That is three dollars per year on a ten
 thousand dollar investment.
 
-**Alex:** Exactly. Practically free.
+**Horace:** Exactly. Practically free.
 
-**Sam:** Why is it so cheap?
+**Stella:** Why is it so cheap?
 
-**Alex:** Because there is almost no work involved. No analysts. No research teams.
+**Horace:** Because there is almost no work involved. No analysts. No research teams.
 No stock-picking. A computer just buys the stocks in the index according to the
 rules. The fund basically runs itself.
 
@@ -863,9 +863,9 @@ rules. The fund basically runs itself.
 Active Fund Team: 50 analysts, 10 traders, CIO, marketing dept = $$$
 Index Fund: 1 algorithm + small operations team = $]
 
-**Sam:** But wait, if nobody is picking stocks, how do you avoid the bad ones?
+**Stella:** But wait, if nobody is picking stocks, how do you avoid the bad ones?
 
-**Alex:** You do not avoid them. And that is actually the point. Let me explain why
+**Horace:** You do not avoid them. And that is actually the point. Let me explain why
 that works.
 
 [VISUAL: Title card -- "Part 3: Why Simple Beats Smart"]
@@ -874,40 +874,40 @@ that works.
 
 **[SEGMENT 3: ACTIVE VS. PASSIVE]**
 
-**Alex:** This is where it gets really interesting. For decades, the investment
+**Horace:** This is where it gets really interesting. For decades, the investment
 industry has sold the idea that you need a smart professional picking stocks for
 you. They charge high fees for this service. And the data shows that it does not
 work.
 
-**Sam:** What do you mean it does not work?
+**Stella:** What do you mean it does not work?
 
-**Alex:** Over any twenty-year period, about ninety percent of professional fund
+**Horace:** Over any twenty-year period, about ninety percent of professional fund
 managers fail to beat the S&P 500 index after fees.
 
-**Sam:** Ninety percent? That is... almost all of them.
+**Stella:** Ninety percent? That is... almost all of them.
 
 [ANIMATION: Reference animation/week02_active_vs_passive.py -- spiva_visual().
 100 figures representing fund managers. 90 slowly turn red (underperformers).
 10 remain green (outperformers).]
 
-**Alex:** Ninety out of a hundred professional stock pickers, with teams of analysts,
+**Horace:** Ninety out of a hundred professional stock pickers, with teams of analysts,
 massive research budgets, PhDs in finance -- they cannot consistently beat a simple
 index that a computer can track for three dollars per year.
 
-**Sam:** But why? These are smart people, right?
+**Stella:** But why? These are smart people, right?
 
-**Alex:** Very smart. But they face three problems that are almost impossible to
+**Horace:** Very smart. But they face three problems that are almost impossible to
 overcome.
 
 [VISUAL: Three cards appearing sequentially]
 
-**Alex:** Problem one: Fees. The average actively managed fund charges about one
+**Horace:** Problem one: Fees. The average actively managed fund charges about one
 percent per year. That does not sound like much, but remember our compound interest
 lesson from last week?
 
-**Sam:** One percent compounds into a lot over time.
+**Stella:** One percent compounds into a lot over time.
 
-**Alex:** Over thirty years, a one percent fee can cost you twenty-five to thirty
+**Horace:** Over thirty years, a one percent fee can cost you twenty-five to thirty
 percent of your total wealth. So the fund manager needs to beat the index by more
 than one percent per year just to break even with a cheap index fund. Every year.
 For thirty years straight.
@@ -916,22 +916,22 @@ For thirty years straight.
 steadily. "Active Fund (1.00% fee)" grows too, but a small slice is removed
 from the top each year. After 30 years, the gap is enormous.]
 
-**Alex:** Problem two: The market is really, really efficient. There are thousands
+**Horace:** Problem two: The market is really, really efficient. There are thousands
 of brilliant analysts all studying the same companies. When new information comes
 out about Apple, it is reflected in the stock price within seconds. There is very
 little information that one manager knows that others do not.
 
-**Sam:** So it is hard to find an edge.
+**Stella:** So it is hard to find an edge.
 
-**Alex:** Extremely hard. And problem three: Trading costs and taxes. Active managers
+**Horace:** Extremely hard. And problem three: Trading costs and taxes. Active managers
 buy and sell frequently. Each trade has a cost, and each profitable trade may
 trigger taxes. An index fund rarely trades, so it incurs minimal costs and is much
 more tax-efficient.
 
-**Sam:** So even if a manager is skilled enough to find slightly better stocks, the
+**Stella:** So even if a manager is skilled enough to find slightly better stocks, the
 fees, trading costs, and taxes eat up any advantage?
 
-**Alex:** Exactly. The math works against them. And this is not just theory.
+**Horace:** Exactly. The math works against them. And this is not just theory.
 
 [VISUAL: Title card -- "Part 4: The Evidence -- SPIVA"]
 
@@ -939,14 +939,14 @@ fees, trading costs, and taxes eat up any advantage?
 
 **[SEGMENT 4: THE SPIVA SCORECARD]**
 
-**Alex:** Every year, S&P Dow Jones Indices publishes something called the SPIVA
+**Horace:** Every year, S&P Dow Jones Indices publishes something called the SPIVA
 scorecard. SPIVA stands for S&P Indices Versus Active. It is the most comprehensive
 study of active fund performance, and the results are devastating for the active
 management industry.
 
 [VISUAL: SPIVA logo and title card]
 
-**Alex:** Let me show you the numbers.
+**Horace:** Let me show you the numbers.
 
 [ANIMATION: Reference animation/week02_active_vs_passive.py -- spiva_bars().
 Animated bar chart building up:
@@ -954,18 +954,18 @@ Animated bar chart building up:
 10-year: 85% underperform
 20-year: 90% underperform]
 
-**Alex:** Over five years, seventy-eight percent of US large-cap fund managers
+**Horace:** Over five years, seventy-eight percent of US large-cap fund managers
 underperformed the S&P 500. Over ten years, eighty-five percent. Over twenty years,
 ninety percent.
 
-**Sam:** And those numbers include the good managers too?
+**Stella:** And those numbers include the good managers too?
 
-**Alex:** Yes. And here is the kicker. The managers who outperformed over the past
+**Horace:** Yes. And here is the kicker. The managers who outperformed over the past
 five years are no more likely to outperform over the next five years.
 
-**Sam:** So you can not just pick the ones with the best track record?
+**Stella:** So you can not just pick the ones with the best track record?
 
-**Alex:** Right. A study by S&P Dow Jones looked at managers who ranked in the top
+**Horace:** Right. A study by S&P Dow Jones looked at managers who ranked in the top
 twenty-five percent over a five-year period. Five years later, fewer than ten
 percent of them were still in the top twenty-five percent. Most had dropped to
 average or below average.
@@ -973,10 +973,10 @@ average or below average.
 [ANIMATION: Dot chart showing top-quartile managers over 5 years. Lines connect
 to where they rank in the next 5 years -- most lines drop to bottom quartiles.]
 
-**Sam:** That is really eye-opening. So past performance genuinely does not predict
+**Stella:** That is really eye-opening. So past performance genuinely does not predict
 future results?
 
-**Alex:** That warning they put on every fund advertisement? It is actually true.
+**Horace:** That warning they put on every fund advertisement? It is actually true.
 It is one of the most important facts in all of investing, and most people ignore
 it.
 
@@ -986,12 +986,12 @@ it.
 
 **[SEGMENT 5: EXPENSE RATIOS IN DEPTH]**
 
-**Alex:** Let me make the fee impact really concrete, because I think this is
+**Horace:** Let me make the fee impact really concrete, because I think this is
 where the lightbulb goes on for most people.
 
-**Sam:** How much of a difference can fees really make?
+**Stella:** How much of a difference can fees really make?
 
-**Alex:** Let us compare two investors. Both invest one hundred thousand dollars at
+**Horace:** Let us compare two investors. Both invest one hundred thousand dollars at
 age thirty. Both earn the same gross return of ten percent per year. The only
 difference is fees.
 
@@ -1000,7 +1000,7 @@ Investor A: Index fund at 0.03% expense ratio
 Investor B: Active fund at 1.00% expense ratio
 Both start at $100,000. The gap widens every year.]
 
-**Alex:** Investor A uses an index fund with a three hundredths of a percent expense
+**Horace:** Investor A uses an index fund with a three hundredths of a percent expense
 ratio. Investor B uses an active fund with a one percent expense ratio. Both get
 the same gross returns. At age sixty-five, thirty-five years later...
 
@@ -1009,28 +1009,28 @@ Investor A (0.03% fee): $1,989,789
 Investor B (1.00% fee): $1,478,534
 Difference: $511,255]
 
-**Sam:** Half a million dollars? From less than one percent difference in fees?
+**Stella:** Half a million dollars? From less than one percent difference in fees?
 
-**Alex:** Five hundred eleven thousand dollars. And remember, the active fund
+**Horace:** Five hundred eleven thousand dollars. And remember, the active fund
 manager did not even earn better gross returns in this example. If we use the
 SPIVA data showing most active managers actually get lower gross returns too, the
 gap is even larger.
 
-**Sam:** That is money that goes to the fund company instead of to me.
+**Stella:** That is money that goes to the fund company instead of to me.
 
-**Alex:** Exactly. And the fund manager gets paid whether the fund goes up or down.
+**Horace:** Exactly. And the fund manager gets paid whether the fund goes up or down.
 In a year when the market drops twenty percent, you still pay the one percent fee.
 
 [VISUAL: Pie chart showing "Where Your Fees Go":
 Analyst salaries, Fund manager compensation, Trading desk operations,
 Marketing and distribution, Compliance and legal, Office space]
 
-**Sam:** So I am paying for their office space and marketing?
+**Stella:** So I am paying for their office space and marketing?
 
-**Alex:** Among other things. Meanwhile, an index fund has a skeleton crew and a
+**Horace:** Among other things. Meanwhile, an index fund has a skeleton crew and a
 computer doing the work.
 
-**Sam:** Okay, I am convinced on fees. But which index fund should I actually buy?
+**Stella:** Okay, I am convinced on fees. But which index fund should I actually buy?
 
 [VISUAL: Title card -- "Part 6: The Funds You Need to Know"]
 
@@ -1038,12 +1038,12 @@ computer doing the work.
 
 **[SEGMENT 6: MAJOR INDEX FUNDS]**
 
-**Alex:** There are thousands of index funds and ETFs out there, but you really only
+**Horace:** There are thousands of index funds and ETFs out there, but you really only
 need to know about a handful.
 
 [VISUAL: Clean table appearing on screen showing the major funds]
 
-**Alex:** For US stocks, the big three are VOO, VTI, and SPY. Let me break these
+**Horace:** For US stocks, the big three are VOO, VTI, and SPY. Let me break these
 down.
 
 [ANIMATION: Three fund cards sliding onto screen:
@@ -1051,20 +1051,20 @@ Card 1: VOO -- Vanguard S&P 500 ETF, 0.03%, 500 stocks
 Card 2: VTI -- Vanguard Total Stock Market, 0.03%, 4,000 stocks
 Card 3: SPY -- SPDR S&P 500, 0.09%, 500 stocks]
 
-**Alex:** VOO and SPY both track the S&P 500. The difference? VOO charges three
+**Horace:** VOO and SPY both track the S&P 500. The difference? VOO charges three
 hundredths of a percent. SPY charges nine hundredths of a percent. Triple the fee
 for the exact same thing.
 
-**Sam:** Why would anyone buy SPY then?
+**Stella:** Why would anyone buy SPY then?
 
-**Alex:** SPY was the first ETF ever created, back in 1993. It has the highest
+**Horace:** SPY was the first ETF ever created, back in 1993. It has the highest
 trading volume, which makes it popular with professional traders who need to buy
 and sell large quantities quickly. For a regular person buying and holding, VOO
 is the better choice.
 
-**Sam:** What about VTI?
+**Stella:** What about VTI?
 
-**Alex:** VTI goes beyond the S&P 500. Instead of the five hundred largest companies,
+**Horace:** VTI goes beyond the S&P 500. Instead of the five hundred largest companies,
 it holds about four thousand stocks -- basically every publicly traded company in
 America, including mid-sized and small companies.
 
@@ -1073,32 +1073,32 @@ Outer circle: "VTI: ~4,000 stocks (entire US market)"
 Inner circle: "VOO: ~500 stocks (S&P 500)"
 Gap between circles: "~3,500 mid-cap and small-cap stocks"]
 
-**Sam:** So VTI is more diversified. Is it better?
+**Stella:** So VTI is more diversified. Is it better?
 
-**Alex:** In practice, they perform almost identically. The S&P 500 represents about
+**Horace:** In practice, they perform almost identically. The S&P 500 represents about
 eighty percent of the total US market value, so VOO and VTI move very similarly.
 VTI gives you a bit more exposure to smaller companies, which can provide slightly
 different return characteristics over very long periods. But honestly, you cannot
 go wrong with either one.
 
-**Sam:** So if I could only buy one fund, which would it be?
+**Stella:** So if I could only buy one fund, which would it be?
 
-**Alex:** VTI, because you get the broadest exposure at the lowest cost. But VOO is
+**Horace:** VTI, because you get the broadest exposure at the lowest cost. But VOO is
 an equally valid choice. The important thing is that you pick one and start investing.
 Do not overthink it.
 
-**Sam:** What about international stocks?
+**Stella:** What about international stocks?
 
-**Alex:** Great question. VXUS, Vanguard's Total International Stock ETF, covers
+**Horace:** Great question. VXUS, Vanguard's Total International Stock ETF, covers
 developed and emerging markets outside the US. About seven thousand stocks in over
 forty countries, for just seven hundredths of a percent per year.
 
 [VISUAL: World map with the US highlighted for VTI and the rest of the world
 highlighted for VXUS]
 
-**Sam:** Should I own both?
+**Stella:** Should I own both?
 
-**Alex:** Most financial experts recommend some international exposure. The US is
+**Horace:** Most financial experts recommend some international exposure. The US is
 about sixty percent of the global stock market. Owning only US stocks means you
 are ignoring forty percent of the world's opportunities. A common split is seventy
 percent US, thirty percent international.
@@ -1109,21 +1109,21 @@ percent US, thirty percent international.
 
 **[SEGMENT 7: THE BUFFETT BET]**
 
-**Alex:** I want to tell you a story that perfectly illustrates everything we have
+**Horace:** I want to tell you a story that perfectly illustrates everything we have
 discussed today. In 2007, Warren Buffett made a one-million-dollar bet.
 
-**Sam:** What was the bet?
+**Stella:** What was the bet?
 
-**Alex:** He bet that a simple S&P 500 index fund would outperform a carefully
+**Horace:** He bet that a simple S&P 500 index fund would outperform a carefully
 selected portfolio of hedge funds over a ten-year period. Hedge funds, by the way,
 are the most expensive, most exclusive actively managed funds on the planet. They
 charge a "two and twenty" fee structure -- two percent annual management fee plus
 twenty percent of any profits.
 
-**Sam:** Those fees are insane. But hedge funds are supposed to be the best of the
+**Stella:** Those fees are insane. But hedge funds are supposed to be the best of the
 best, right?
 
-**Alex:** That is what they sell. A hedge fund manager named Ted Seides accepted the
+**Horace:** That is what they sell. A hedge fund manager named Ted Seides accepted the
 bet and picked five "fund of funds" -- meaning he diversified across multiple
 hedge funds to give himself the best chance.
 
@@ -1131,32 +1131,32 @@ hedge funds to give himself the best chance.
 Right side: "Ted Seides' Pick" -- five fund-of-fund boxes, each containing
 multiple hedge fund names.]
 
-**Alex:** The bet ran from January 2008 to December 2017. And remember, this period
+**Horace:** The bet ran from January 2008 to December 2017. And remember, this period
 included the 2008 financial crisis, one of the worst market crashes in history. You
 might think active managers would shine during a crisis.
 
-**Sam:** What happened?
+**Stella:** What happened?
 
-**Alex:** Buffett won. Decisively.
+**Horace:** Buffett won. Decisively.
 
 [ANIMATION: Reference animation/week02_active_vs_passive.py -- buffett_bet().
 Two performance lines from 2008 to 2017.
 S&P 500 index fund: 125.8% total return
 Hedge fund portfolio: 36.0% total return]
 
-**Alex:** The S&P 500 index fund returned one hundred twenty-five point eight percent
+**Horace:** The S&P 500 index fund returned one hundred twenty-five point eight percent
 over the ten years. The hedge fund portfolio returned thirty-six percent. The index
 fund didn't just win -- it returned more than three times as much.
 
-**Sam:** Three and a half times better. And the index fund cost almost nothing in
+**Stella:** Three and a half times better. And the index fund cost almost nothing in
 fees while the hedge funds charged two and twenty?
 
-**Alex:** Exactly. The hedge fund investors paid enormous fees and got terrible
+**Horace:** Exactly. The hedge fund investors paid enormous fees and got terrible
 results compared to the simplest possible investment strategy.
 
-**Sam:** Did Buffett rub it in?
+**Stella:** Did Buffett rub it in?
 
-**Alex:** In his typically understated way, yes. He wrote in his annual letter:
+**Horace:** In his typically understated way, yes. He wrote in his annual letter:
 "The bet illuminated another important investment lesson: though markets are
 generally rational, they occasionally do crazy things. Seizing the opportunities
 then offered does not require great intelligence, a degree in economics, or a
@@ -1164,9 +1164,9 @@ familiarity with Wall Street jargon. What investors then need instead is an
 ability to both disregard mob fears or enthusiasms and to focus on a few simple
 fundamentals."
 
-**Sam:** And the simplest fundamental of all is: buy a cheap index fund and hold it.
+**Stella:** And the simplest fundamental of all is: buy a cheap index fund and hold it.
 
-**Alex:** You are getting it.
+**Horace:** You are getting it.
 
 [VISUAL: Title card -- "Part 8: How to Get Started"]
 
@@ -1174,12 +1174,12 @@ fundamentals."
 
 **[SEGMENT 8: PRACTICAL STEPS]**
 
-**Alex:** Let me walk you through exactly how to get started with index fund
+**Horace:** Let me walk you through exactly how to get started with index fund
 investing. This is the practical, step-by-step part.
 
-**Sam:** Finally, the "what do I actually do" part.
+**Stella:** Finally, the "what do I actually do" part.
 
-**Alex:** Step one: Open a brokerage account. The big names are Fidelity, Schwab,
+**Horace:** Step one: Open a brokerage account. The big names are Fidelity, Schwab,
 and Vanguard. All three offer zero-commission trading and excellent index funds.
 If you want something more app-friendly, Robinhood works too, though it has fewer
 features.
@@ -1187,33 +1187,33 @@ features.
 [VISUAL: Logos of Fidelity, Schwab, Vanguard, Robinhood with brief pros/cons
 for each]
 
-**Alex:** Step two: Link your bank account and transfer money. This usually takes
+**Horace:** Step two: Link your bank account and transfer money. This usually takes
 one to three business days.
 
-**Sam:** How much do I need to start?
+**Stella:** How much do I need to start?
 
-**Alex:** With fractional shares, you can start with as little as one dollar at
+**Horace:** With fractional shares, you can start with as little as one dollar at
 most brokerages. But a reasonable starting point might be whatever you can
 comfortably invest this month without touching your emergency fund.
 
-**Alex:** Step three: Search for your fund. Type in the ticker symbol. For the
+**Horace:** Step three: Search for your fund. Type in the ticker symbol. For the
 Vanguard S&P 500 ETF, that is V-O-O.
 
 [VISUAL: Screenshot-style graphic of a brokerage search bar with "VOO" typed in,
 showing the fund details below: name, price, expense ratio, holdings]
 
-**Alex:** Step four: Place a buy order. Choose a market order for simplicity -- this
+**Horace:** Step four: Place a buy order. Choose a market order for simplicity -- this
 buys at the current price. Enter either the number of shares or the dollar amount
 you want to invest.
 
-**Sam:** That is it? No special analysis? No reading through financial reports?
+**Stella:** That is it? No special analysis? No reading through financial reports?
 
-**Alex:** That is it. You click buy, and you instantly own a piece of five hundred
+**Horace:** That is it. You click buy, and you instantly own a piece of five hundred
 of the largest companies in America.
 
-**Sam:** What about after I buy? Do I need to check it every day?
+**Stella:** What about after I buy? Do I need to check it every day?
 
-**Alex:** No, and this is crucial. Set it and forget it. Do not check your portfolio
+**Horace:** No, and this is crucial. Set it and forget it. Do not check your portfolio
 daily. The market goes up and down constantly, and watching it causes anxiety that
 leads to bad decisions. Set up automatic monthly investments and let compound
 interest do the work.
@@ -1222,13 +1222,13 @@ interest do the work.
 A "DO NOT DISTURB" sign appears over the portfolio. The balance grows steadily
 with occasional dips that always recover.]
 
-**Alex:** Step five, and this is optional but highly recommended: Set up automatic
+**Horace:** Step five, and this is optional but highly recommended: Set up automatic
 investing. Most brokerages let you schedule recurring purchases. For example, five
 hundred dollars on the first of every month into VOO.
 
-**Sam:** Automatic investing means I do not even have to remember to do it.
+**Stella:** Automatic investing means I do not even have to remember to do it.
 
-**Alex:** Right. It takes discipline out of the equation. You invest consistently
+**Horace:** Right. It takes discipline out of the equation. You invest consistently
 whether the market is up, down, or sideways. This is called dollar-cost averaging,
 and it is a perfectly effective strategy.
 
@@ -1238,14 +1238,14 @@ and it is a perfectly effective strategy.
 
 **[SEGMENT 9: BUILDING A PORTFOLIO]**
 
-**Alex:** Before we wrap up, let me give you a concrete portfolio recommendation
+**Horace:** Before we wrap up, let me give you a concrete portfolio recommendation
 for beginners. This is based on what is sometimes called the Bogle Three-Fund
 Portfolio, named after John Bogle, the founder of Vanguard and the inventor of
 the index fund.
 
-**Sam:** The inventor of the index fund? He must have been popular on Wall Street.
+**Stella:** The inventor of the index fund? He must have been popular on Wall Street.
 
-**Alex:** He was hated by much of the industry. They called his idea "un-American"
+**Horace:** He was hated by much of the industry. They called his idea "un-American"
 and "a recipe for mediocrity." But he ignored them and kept lowering fees. Today,
 Vanguard manages over eight trillion dollars. Turns out mediocrity is pretty
 popular when it beats ninety percent of the professionals.
@@ -1253,41 +1253,41 @@ popular when it beats ninety percent of the professionals.
 [VISUAL: Photo or illustration of John Bogle with quote: "Don't look for the
 needle in the haystack. Just buy the haystack."]
 
-**Sam:** I love that quote. So what is the three-fund portfolio?
+**Stella:** I love that quote. So what is the three-fund portfolio?
 
 [ANIMATION: Three fund cards building into a pie chart:
 VTI (US Stocks): 60% -- blue
 VXUS (International Stocks): 25% -- green
 BND (US Bonds): 15% -- gold]
 
-**Alex:** Fund one: VTI, Vanguard Total Stock Market ETF. This is your US stock
+**Horace:** Fund one: VTI, Vanguard Total Stock Market ETF. This is your US stock
 exposure. About sixty percent of the portfolio for someone in their twenties or
 thirties.
 
-**Alex:** Fund two: VXUS, Vanguard Total International Stock ETF. This gives you
+**Horace:** Fund two: VXUS, Vanguard Total International Stock ETF. This gives you
 exposure to thousands of companies outside the US. About twenty-five percent of
 the portfolio.
 
-**Alex:** Fund three: BND, Vanguard Total Bond Market ETF. This provides stability
+**Horace:** Fund three: BND, Vanguard Total Bond Market ETF. This provides stability
 and income. About fifteen percent for a young investor. Increase this percentage
 as you get older.
 
-**Sam:** Three funds? That is the whole portfolio?
+**Stella:** Three funds? That is the whole portfolio?
 
-**Alex:** That is the whole portfolio. With these three funds, you own a piece of
+**Horace:** That is the whole portfolio. With these three funds, you own a piece of
 virtually every publicly traded company on the planet plus a broad slice of the
 US bond market. Total cost: about five hundredths of a percent per year. That is
 five dollars per year on a ten thousand dollar portfolio.
 
-**Sam:** Five dollars a year for a globally diversified portfolio. That is less than
+**Stella:** Five dollars a year for a globally diversified portfolio. That is less than
 a cup of coffee.
 
-**Alex:** And the beautiful part is, you do not need to change it. Just keep adding
+**Horace:** And the beautiful part is, you do not need to change it. Just keep adding
 money and rebalance once or twice a year to maintain your target percentages.
 
-**Sam:** What does rebalancing mean?
+**Stella:** What does rebalancing mean?
 
-**Alex:** If stocks have a great year and your US stock allocation grows from sixty
+**Horace:** If stocks have a great year and your US stock allocation grows from sixty
 percent to sixty-eight percent, you would direct new contributions more toward
 bonds and international stocks to bring it back to your target. Or sell some US
 stocks and buy more of the others. It takes about fifteen minutes twice a year.
@@ -1295,10 +1295,10 @@ stocks and buy more of the others. It takes about fifteen minutes twice a year.
 [ANIMATION: Pie chart getting "out of balance" as one slice grows larger, then
 arrows showing money moving to restore the target percentages]
 
-**Sam:** Fifteen minutes, twice a year, to manage my entire investment portfolio.
+**Stella:** Fifteen minutes, twice a year, to manage my entire investment portfolio.
 That is it?
 
-**Alex:** That is it. And over twenty, thirty, forty years, this simple strategy
+**Horace:** That is it. And over twenty, thirty, forty years, this simple strategy
 will outperform the vast majority of professional money managers.
 
 [VISUAL: Title card -- "Key Takeaways"]
@@ -1309,56 +1309,56 @@ will outperform the vast majority of professional money managers.
 
 [ANIMATION: Summary slide building point by point]
 
-**Alex:** Let me recap what we covered today.
+**Horace:** Let me recap what we covered today.
 
 [VISUAL: Bullet points appearing one by one]
 
-**Alex:** Number one: An index is a list of stocks that follows a set of rules. An
+**Horace:** Number one: An index is a list of stocks that follows a set of rules. An
 index fund simply buys all the stocks in the index. No stock picking, no analysts,
 no guessing.
 
-**Sam:** Buy the haystack, not the needle.
+**Stella:** Buy the haystack, not the needle.
 
-**Alex:** Number two: Ninety percent of professional fund managers fail to beat the
+**Horace:** Number two: Ninety percent of professional fund managers fail to beat the
 index over twenty years. This is documented by the SPIVA scorecard and is one of
 the most well-established facts in finance.
 
-**Sam:** The experts usually lose to the computer.
+**Stella:** The experts usually lose to the computer.
 
-**Alex:** Number three: Fees matter enormously. A one percent expense ratio can cost
+**Horace:** Number three: Fees matter enormously. A one percent expense ratio can cost
 you hundreds of thousands of dollars over your investing lifetime. Index funds
 charge as little as three hundredths of a percent.
 
-**Sam:** Tiny fee, massive difference over time.
+**Stella:** Tiny fee, massive difference over time.
 
-**Alex:** Number four: The major funds you need to know are VOO and VTI for US
+**Horace:** Number four: The major funds you need to know are VOO and VTI for US
 stocks, VXUS for international stocks, and BND for bonds. These are the building
 blocks of a solid portfolio.
 
-**Sam:** Four ticker symbols. I can remember that.
+**Stella:** Four ticker symbols. I can remember that.
 
-**Alex:** Number five: The Bogle Three-Fund Portfolio -- VTI, VXUS, and BND -- gives
+**Horace:** Number five: The Bogle Three-Fund Portfolio -- VTI, VXUS, and BND -- gives
 you global diversification at rock-bottom cost. It is simple, effective, and
 endorsed by some of the greatest investors in history.
 
-**Sam:** Simple beats complicated.
+**Stella:** Simple beats complicated.
 
-**Alex:** And number six: Getting started is as easy as opening a brokerage account,
+**Horace:** And number six: Getting started is as easy as opening a brokerage account,
 searching for a fund ticker, and clicking buy. Set up automatic monthly investments
 and you are done.
 
 [VISUAL: Animated graphic showing a phone screen with a "Buy VOO" button being
 tapped, followed by a growth chart curving upward]
 
-**Sam:** So what should someone do right now, today?
+**Stella:** So what should someone do right now, today?
 
-**Alex:** Open a brokerage account if you do not have one. It takes about fifteen
+**Horace:** Open a brokerage account if you do not have one. It takes about fifteen
 minutes. Fund it with whatever you can comfortably invest. Buy VTI or VOO. Set up
 automatic monthly contributions. Then close the app and go live your life.
 
-**Sam:** And do not check it every day.
+**Stella:** And do not check it every day.
 
-**Alex:** Do not check it every day. The market will fluctuate. There will be
+**Horace:** Do not check it every day. The market will fluctuate. There will be
 scary headlines. There will be corrections and crashes. Do not sell. Keep investing.
 Time and compound interest will do the heavy lifting.
 
@@ -1366,19 +1366,19 @@ Time and compound interest will do the heavy lifting.
 meter slowly but steadily climbing, occasionally dipping but always recovering
 and reaching new highs]
 
-**Sam:** What are we covering next week?
+**Stella:** What are we covering next week?
 
-**Alex:** Next week we are going to talk about risk and diversification. We will
+**Horace:** Next week we are going to talk about risk and diversification. We will
 explore how to think about risk, why diversification is your best protection, and
 how to build a portfolio that matches your personal risk tolerance.
 
-**Sam:** That sounds great. Thanks everyone for watching.
+**Stella:** That sounds great. Thanks everyone for watching.
 
-**Alex:** If this video helped you, subscribe and hit the notification bell so you
+**Horace:** If this video helped you, subscribe and hit the notification bell so you
 do not miss Week 3. And if you have questions, drop them in the comments. We read
 every single one.
 
-**Sam:** See you next week.
+**Stella:** See you next week.
 
 [ANIMATION: Outro animation with subscribe button graphic and "Next Week:
 Risk and Diversification" preview card]

@@ -653,217 +653,217 @@ A: Many options exist. Robo-advisors like Betterment and Wealthfront automatical
 
 [VISUAL: Animated intro with title "Week 7: Portfolio Rebalancing -- The Discipline That Pays"]
 
-**Alex:** Welcome back everyone. Today we are covering a topic that might sound boring but is genuinely one of the most important things you can do as an investor. We are talking about portfolio rebalancing. And by the end of this video, you will understand why it is a systematic way to buy low and sell high without needing any market-timing skill.
+**Horace:** Welcome back everyone. Today we are covering a topic that might sound boring but is genuinely one of the most important things you can do as an investor. We are talking about portfolio rebalancing. And by the end of this video, you will understand why it is a systematic way to buy low and sell high without needing any market-timing skill.
 
-**Sam:** Okay, I will be honest, Alex. When I hear "rebalancing," I think of someone checking a spreadsheet and moving tiny amounts of money around. How much difference can it really make?
+**Stella:** Okay, I will be honest, Horace. When I hear "rebalancing," I think of someone checking a spreadsheet and moving tiny amounts of money around. How much difference can it really make?
 
-**Alex:** Let me give you a real example that will change how you think about this. Imagine it is January 2008. You have a $500,000 portfolio, split 60/40 between stocks and bonds. By September 2008, the financial crisis has hammered stocks. Your portfolio has drifted to something like 45% stocks and 55% bonds because stocks have fallen so much.
+**Horace:** Let me give you a real example that will change how you think about this. Imagine it is January 2008. You have a $500,000 portfolio, split 60/40 between stocks and bonds. By September 2008, the financial crisis has hammered stocks. Your portfolio has drifted to something like 45% stocks and 55% bonds because stocks have fallen so much.
 
-**Sam:** That sounds terrifying. I think most people would want to sell their remaining stocks at that point.
+**Stella:** That sounds terrifying. I think most people would want to sell their remaining stocks at that point.
 
-**Alex:** Exactly -- and that is what millions of investors did. They panicked and sold. But what does the rebalancing rule tell you to do?
+**Horace:** Exactly -- and that is what millions of investors did. They panicked and sold. But what does the rebalancing rule tell you to do?
 
 [VISUAL: Split screen showing a panicking investor on one side and a calm investor checking their allocation spreadsheet on the other]
 
-**Sam:** If your target is 60/40 and you have drifted to 45/55... your rebalancing rule says to sell bonds and buy more stocks.
+**Stella:** If your target is 60/40 and you have drifted to 45/55... your rebalancing rule says to sell bonds and buy more stocks.
 
-**Alex:** Right. Buy stocks in the middle of a financial crisis. Sell bonds when they feel like the only safe place. That is absolutely gut-wrenching. But here is what happened to the investor who followed the rebalancing discipline: they bought stocks near the bottom. When the market recovered, those cheap shares produced enormous gains. The rebalancing investor recovered to their pre-crisis portfolio value roughly a year faster than the investor who froze.
+**Horace:** Right. Buy stocks in the middle of a financial crisis. Sell bonds when they feel like the only safe place. That is absolutely gut-wrenching. But here is what happened to the investor who followed the rebalancing discipline: they bought stocks near the bottom. When the market recovered, those cheap shares produced enormous gains. The rebalancing investor recovered to their pre-crisis portfolio value roughly a year faster than the investor who froze.
 
-**Sam:** A full year faster? Just from following a mechanical rule?
+**Stella:** A full year faster? Just from following a mechanical rule?
 
-**Alex:** Just from following a mechanical rule. No genius required. No market-timing required. Just the discipline to do what your rebalancing policy tells you, especially when it feels wrong.
+**Horace:** Just from following a mechanical rule. No genius required. No market-timing required. Just the discipline to do what your rebalancing policy tells you, especially when it feels wrong.
 
 [ANIMATION: animation/week07_rebalancing_demo.py - Animated visualization showing two portfolio bars side by side over time. The "rebalanced" portfolio periodically adjusts back to 60/40, while the "drifted" portfolio gradually becomes dominated by whatever asset class performed best. The animation runs through a simulated market cycle showing how the rebalanced portfolio recovers faster after a crash because it bought stocks at lower prices.]
 
-**Sam:** Okay, you have my attention. Let us start from the basics. What exactly is rebalancing?
+**Stella:** Okay, you have my attention. Let us start from the basics. What exactly is rebalancing?
 
-**Alex:** At its simplest, rebalancing is bringing your portfolio back to its target allocation. You start with a plan -- say 60% stocks, 40% bonds. Over time, as stocks and bonds earn different returns, the actual percentages drift. Rebalancing means selling some of what went up and buying some of what went down to restore your original targets.
+**Horace:** At its simplest, rebalancing is bringing your portfolio back to its target allocation. You start with a plan -- say 60% stocks, 40% bonds. Over time, as stocks and bonds earn different returns, the actual percentages drift. Rebalancing means selling some of what went up and buying some of what went down to restore your original targets.
 
-**Sam:** So if stocks have a great year and I drift to 70% stocks, I sell stocks and buy bonds to get back to 60/40?
+**Stella:** So if stocks have a great year and I drift to 70% stocks, I sell stocks and buy bonds to get back to 60/40?
 
-**Alex:** Exactly.
+**Horace:** Exactly.
 
 [VISUAL: Animated pie chart morphing from 60/40 to 70/30 as stocks rise, then snapping back to 60/40 when "rebalance" button is pressed]
 
-**Sam:** But am I not selling my winners? That seems counterintuitive.
+**Stella:** But am I not selling my winners? That seems counterintuitive.
 
-**Alex:** It does, and that is precisely why it works. Think about what you are doing mechanically. After stocks have risen a lot, they are relatively expensive. After bonds have lagged, they are relatively cheap. By selling stocks and buying bonds, you are selling high and buying low. You are taking profits on the expensive asset and deploying them into the cheap one.
+**Horace:** It does, and that is precisely why it works. Think about what you are doing mechanically. After stocks have risen a lot, they are relatively expensive. After bonds have lagged, they are relatively cheap. By selling stocks and buying bonds, you are selling high and buying low. You are taking profits on the expensive asset and deploying them into the cheap one.
 
-**Sam:** That is the holy grail of investing -- buy low, sell high. And you are telling me there is a mechanical rule that does it automatically?
+**Stella:** That is the holy grail of investing -- buy low, sell high. And you are telling me there is a mechanical rule that does it automatically?
 
-**Alex:** That is exactly what I am telling you. And it works in reverse too. When stocks crash, they become cheap. Bonds, which usually hold up during crashes, become the expensive asset. Rebalancing forces you to sell the expensive bonds and buy the cheap stocks. Again -- buy low, sell high.
+**Horace:** That is exactly what I am telling you. And it works in reverse too. When stocks crash, they become cheap. Bonds, which usually hold up during crashes, become the expensive asset. Rebalancing forces you to sell the expensive bonds and buy the cheap stocks. Again -- buy low, sell high.
 
-**Sam:** But that sounds psychologically really hard. Buying stocks when they are crashing?
+**Stella:** But that sounds psychologically really hard. Buying stocks when they are crashing?
 
-**Alex:** It is extremely hard. And that is why having a written rebalancing policy is so important. You make the rule when you are calm and rational. Then when markets are in chaos, you follow the rule instead of your emotions. The rule does not have emotions. The rule does not watch CNBC. The rule just does math.
+**Horace:** It is extremely hard. And that is why having a written rebalancing policy is so important. You make the rule when you are calm and rational. Then when markets are in chaos, you follow the rule instead of your emotions. The rule does not have emotions. The rule does not watch CNBC. The rule just does math.
 
 [VISUAL: A "rebalancing policy" document with key terms highlighted: target allocation, rebalancing bands, review frequency]
 
-**Sam:** Makes sense. So how often should I actually rebalance?
+**Stella:** Makes sense. So how often should I actually rebalance?
 
-**Alex:** This is one of the most commonly asked questions, and the good news is that the research shows it does not matter that much. What matters far more is that you rebalance at all. But let me walk you through the main approaches.
+**Horace:** This is one of the most commonly asked questions, and the good news is that the research shows it does not matter that much. What matters far more is that you rebalance at all. But let me walk you through the main approaches.
 
-[VISUAL: Three columns labeled "Calendar," "Threshold," and "Hybrid," each with bullet points appearing as Alex describes them]
+[VISUAL: Three columns labeled "Calendar," "Threshold," and "Hybrid," each with bullet points appearing as Horace describes them]
 
-**Alex:** The first approach is calendar rebalancing. You pick a schedule -- monthly, quarterly, annually -- and on that date, you check your allocation and rebalance if needed. Annual rebalancing is the simplest and works surprisingly well.
+**Horace:** The first approach is calendar rebalancing. You pick a schedule -- monthly, quarterly, annually -- and on that date, you check your allocation and rebalance if needed. Annual rebalancing is the simplest and works surprisingly well.
 
-**Sam:** Why not monthly? Would not more frequent be better?
+**Stella:** Why not monthly? Would not more frequent be better?
 
-**Alex:** Intuitively you would think so, but no. Vanguard did a comprehensive study and found that the difference between monthly, quarterly, and annual rebalancing is tiny -- maybe a few hundredths of a percent in return, and slightly lower volatility. But monthly rebalancing generates far more transactions and tax events, especially in taxable accounts. You are paying a real cost for an almost invisible benefit.
+**Horace:** Intuitively you would think so, but no. Vanguard did a comprehensive study and found that the difference between monthly, quarterly, and annual rebalancing is tiny -- maybe a few hundredths of a percent in return, and slightly lower volatility. But monthly rebalancing generates far more transactions and tax events, especially in taxable accounts. You are paying a real cost for an almost invisible benefit.
 
-**Sam:** So annual is the sweet spot?
+**Stella:** So annual is the sweet spot?
 
-**Alex:** Annual is great for simplicity. But the second approach is threshold rebalancing, which many professionals prefer. Instead of rebalancing on a fixed date, you rebalance whenever any asset class drifts beyond a set band -- typically 5 percentage points from target.
+**Horace:** Annual is great for simplicity. But the second approach is threshold rebalancing, which many professionals prefer. Instead of rebalancing on a fixed date, you rebalance whenever any asset class drifts beyond a set band -- typically 5 percentage points from target.
 
-**Sam:** So if my stock target is 60%, I would rebalance whenever stocks hit 65% or drop to 55%?
+**Stella:** So if my stock target is 60%, I would rebalance whenever stocks hit 65% or drop to 55%?
 
-**Alex:** Exactly. The advantage is that you only rebalance when it actually matters. If the market barely moves for six months, you do not bother. But if there is a sudden crash or a big rally, the threshold catches it right away.
+**Horace:** Exactly. The advantage is that you only rebalance when it actually matters. If the market barely moves for six months, you do not bother. But if there is a sudden crash or a big rally, the threshold catches it right away.
 
-**Sam:** What about doing both?
+**Stella:** What about doing both?
 
-**Alex:** Now you are thinking like a portfolio manager. The hybrid approach -- and this is what I recommend for most people -- is to check your allocation on a fixed schedule, say quarterly, but only rebalance if the drift exceeds your threshold. You get the efficiency of threshold rebalancing with the simplicity of a regular calendar reminder.
+**Horace:** Now you are thinking like a portfolio manager. The hybrid approach -- and this is what I recommend for most people -- is to check your allocation on a fixed schedule, say quarterly, but only rebalance if the drift exceeds your threshold. You get the efficiency of threshold rebalancing with the simplicity of a regular calendar reminder.
 
 [VISUAL: Calendar showing quarterly check dates, with only two of four dates triggering a rebalance because the other two had drift below threshold]
 
-**Sam:** That makes a lot of sense. Can you walk me through the actual math of a rebalancing trade?
+**Stella:** That makes a lot of sense. Can you walk me through the actual math of a rebalancing trade?
 
-**Alex:** Sure. Let us say you have $200,000 and your target is 60% stocks, 40% bonds. That means $120,000 in stocks and $80,000 in bonds. After a good year for stocks, your portfolio is worth $220,000, but now it is 68% stocks and 32% bonds -- meaning $149,600 in stocks and $70,400 in bonds.
+**Horace:** Sure. Let us say you have $200,000 and your target is 60% stocks, 40% bonds. That means $120,000 in stocks and $80,000 in bonds. After a good year for stocks, your portfolio is worth $220,000, but now it is 68% stocks and 32% bonds -- meaning $149,600 in stocks and $70,400 in bonds.
 
 [VISUAL: Two-column layout showing "Current" versus "Target" allocation with exact dollar amounts]
 
-**Sam:** How do I calculate the trades?
+**Stella:** How do I calculate the trades?
 
-**Alex:** Take the new total -- $220,000 -- and apply your target percentages. 60% of $220,000 is $132,000 for stocks. 40% of $220,000 is $88,000 for bonds. So you sell $149,600 minus $132,000 equals $17,600 of stocks, and buy $17,600 of bonds.
+**Horace:** Take the new total -- $220,000 -- and apply your target percentages. 60% of $220,000 is $132,000 for stocks. 40% of $220,000 is $88,000 for bonds. So you sell $149,600 minus $132,000 equals $17,600 of stocks, and buy $17,600 of bonds.
 
-**Sam:** That is more than I expected. Almost $18,000 in trades.
+**Stella:** That is more than I expected. Almost $18,000 in trades.
 
-**Alex:** Because the drift was significant -- 8 percentage points. That is why a 5% threshold is reasonable. If you had rebalanced when stocks first hit 65%, the trade would have been much smaller.
+**Horace:** Because the drift was significant -- 8 percentage points. That is why a 5% threshold is reasonable. If you had rebalanced when stocks first hit 65%, the trade would have been much smaller.
 
-**Sam:** Got it. Now let me ask about something that was really fascinating in the reading -- the rebalancing bonus. Can a rebalanced portfolio actually outperform both of its components?
+**Stella:** Got it. Now let me ask about something that was really fascinating in the reading -- the rebalancing bonus. Can a rebalanced portfolio actually outperform both of its components?
 
-**Alex:** This is one of the most counterintuitive results in portfolio theory, and it is real. Let me walk you through the math.
+**Horace:** This is one of the most counterintuitive results in portfolio theory, and it is real. Let me walk you through the math.
 
 [ANIMATION: animation/week07_rebalancing_demo.py - Animated simulation showing two assets that alternate between good and bad years (Asset A: +30%, -10%, +30%, -10% vs. Asset B: -10%, +30%, -10%, +30%). Three lines plotted simultaneously: Asset A alone, Asset B alone, and a 50/50 rebalanced portfolio. The rebalanced portfolio line steadily outperforms both individual assets, with annotations showing the rebalancing trades at each period.]
 
-**Alex:** Imagine two assets. Asset A goes up 30% one year and down 10% the next. Asset B does the opposite -- down 10% then up 30%. Over four years, each asset individually turns $100 into about $137. That is about 8.2% annualized.
+**Horace:** Imagine two assets. Asset A goes up 30% one year and down 10% the next. Asset B does the opposite -- down 10% then up 30%. Over four years, each asset individually turns $100 into about $137. That is about 8.2% annualized.
 
-**Sam:** Okay, same return for both assets individually.
+**Stella:** Okay, same return for both assets individually.
 
-**Alex:** Now watch what happens with a 50/50 portfolio that rebalances annually. After year one, Asset A is up 30% and Asset B is down 10%. You rebalance -- selling some of the winner and buying some of the loser. Next year, the assets flip. The one you just bought more of goes up 30%, and the one you trimmed goes down 10%. You rebalance again.
+**Horace:** Now watch what happens with a 50/50 portfolio that rebalances annually. After year one, Asset A is up 30% and Asset B is down 10%. You rebalance -- selling some of the winner and buying some of the loser. Next year, the assets flip. The one you just bought more of goes up 30%, and the one you trimmed goes down 10%. You rebalance again.
 
-**Sam:** You keep buying the one that is about to go up and selling the one that is about to go down!
+**Stella:** You keep buying the one that is about to go up and selling the one that is about to go down!
 
-**Alex:** Exactly. And after four years, the rebalanced portfolio turns $100 into about $172. That is over 14% annualized -- almost double the return of either asset individually!
+**Horace:** Exactly. And after four years, the rebalanced portfolio turns $100 into about $172. That is over 14% annualized -- almost double the return of either asset individually!
 
-**Sam:** That is incredible. Is this too good to be true?
+**Stella:** That is incredible. Is this too good to be true?
 
-**Alex:** In this stylized example, the bonus is exaggerated because the assets perfectly alternate. In real markets, the bonus is smaller -- typically half a percent to one and a half percent per year. But over twenty or thirty years of compounding, even half a percent per year adds up to a significant amount of additional wealth.
+**Horace:** In this stylized example, the bonus is exaggerated because the assets perfectly alternate. In real markets, the bonus is smaller -- typically half a percent to one and a half percent per year. But over twenty or thirty years of compounding, even half a percent per year adds up to a significant amount of additional wealth.
 
-**Sam:** When is the bonus biggest?
+**Stella:** When is the bonus biggest?
 
-**Alex:** Three conditions. First, the assets need to be volatile -- calm, steady assets do not produce much of a bonus. Second, the correlation between them should be low or negative -- they should not move in lockstep. Third, the assets should tend to mean-revert -- what goes down should eventually come back up.
+**Horace:** Three conditions. First, the assets need to be volatile -- calm, steady assets do not produce much of a bonus. Second, the correlation between them should be low or negative -- they should not move in lockstep. Third, the assets should tend to mean-revert -- what goes down should eventually come back up.
 
-**Sam:** Stocks and bonds fit that pretty well, right?
+**Stella:** Stocks and bonds fit that pretty well, right?
 
-**Alex:** They fit reasonably well, especially during stress periods when bonds usually go up while stocks fall. The bonus is even larger for more diverse portfolios that include REITs, international stocks, and commodities, because you have more uncorrelated volatile asset pairs.
+**Horace:** They fit reasonably well, especially during stress periods when bonds usually go up while stocks fall. The bonus is even larger for more diverse portfolios that include REITs, international stocks, and commodities, because you have more uncorrelated volatile asset pairs.
 
 [VISUAL: Grid showing correlation matrix between major asset classes, with color coding from dark green (low/negative correlation = high rebalancing bonus) to red (high positive correlation = low rebalancing bonus)]
 
-**Sam:** There has to be a catch though.
+**Stella:** There has to be a catch though.
 
-**Alex:** Good instinct. The rebalancing bonus disappears -- and rebalancing actually hurts you -- in strongly trending markets. If stocks go up every year for ten years straight, rebalancing means you keep selling stocks and buying bonds, giving up returns the whole way. You still maintained your risk level, which was the right thing to do from a risk management perspective, but the raw return was lower than if you had simply let stocks run.
+**Horace:** Good instinct. The rebalancing bonus disappears -- and rebalancing actually hurts you -- in strongly trending markets. If stocks go up every year for ten years straight, rebalancing means you keep selling stocks and buying bonds, giving up returns the whole way. You still maintained your risk level, which was the right thing to do from a risk management perspective, but the raw return was lower than if you had simply let stocks run.
 
-**Sam:** So it is a tradeoff -- better risk management in exchange for potentially lower returns in one-directional markets.
+**Stella:** So it is a tradeoff -- better risk management in exchange for potentially lower returns in one-directional markets.
 
-**Alex:** Exactly. And since nobody knows in advance whether the next decade will be trending or choppy, maintaining the discipline is the right approach. You are optimizing for the full range of possible market environments, not just one scenario.
+**Horace:** Exactly. And since nobody knows in advance whether the next decade will be trending or choppy, maintaining the discipline is the right approach. You are optimizing for the full range of possible market environments, not just one scenario.
 
-**Sam:** Let us talk about taxes. I have heard that rebalancing can create big tax bills. How do you handle that?
+**Stella:** Let us talk about taxes. I have heard that rebalancing can create big tax bills. How do you handle that?
 
 [VISUAL: Tax form with capital gains highlighted, transitioning to a list of tax-efficient strategies]
 
-**Alex:** This is critical, especially for taxable accounts. Every time you sell an asset that has gained value, you owe capital gains tax. If you held it less than a year, the gains are taxed at your ordinary income rate -- up to 37%. If you held it more than a year, you get the lower long-term capital gains rate of 15% or 20%.
+**Horace:** This is critical, especially for taxable accounts. Every time you sell an asset that has gained value, you owe capital gains tax. If you held it less than a year, the gains are taxed at your ordinary income rate -- up to 37%. If you held it more than a year, you get the lower long-term capital gains rate of 15% or 20%.
 
-**Sam:** So rebalancing can mean paying taxes every year on my gains?
+**Stella:** So rebalancing can mean paying taxes every year on my gains?
 
-**Alex:** In a taxable account, yes. But there are several strategies to minimize this. Strategy number one, and the best option: use new contributions. Instead of selling stocks to buy bonds, just direct your new money entirely into the underweight asset class. No selling means no taxes.
+**Horace:** In a taxable account, yes. But there are several strategies to minimize this. Strategy number one, and the best option: use new contributions. Instead of selling stocks to buy bonds, just direct your new money entirely into the underweight asset class. No selling means no taxes.
 
-**Sam:** That is brilliant. What if my contributions are not enough to close the gap?
+**Stella:** That is brilliant. What if my contributions are not enough to close the gap?
 
-**Alex:** Strategy two: rebalance inside your tax-advantaged accounts. If you have an IRA or 401(k), trades inside those accounts are tax-free. Do your aggressive rebalancing there and leave your taxable account alone as much as possible.
+**Horace:** Strategy two: rebalance inside your tax-advantaged accounts. If you have an IRA or 401(k), trades inside those accounts are tax-free. Do your aggressive rebalancing there and leave your taxable account alone as much as possible.
 
-**Sam:** What if I do not have enough in retirement accounts to rebalance?
+**Stella:** What if I do not have enough in retirement accounts to rebalance?
 
-**Alex:** Strategy three: tax-loss harvesting. When you sell assets at a loss, those losses offset your gains. So if you are selling some winning stocks and some losing stocks as part of rebalancing, the losses cancel out the gains and you may owe little or no tax.
+**Horace:** Strategy three: tax-loss harvesting. When you sell assets at a loss, those losses offset your gains. So if you are selling some winning stocks and some losing stocks as part of rebalancing, the losses cancel out the gains and you may owe little or no tax.
 
-**Sam:** And strategy four?
+**Stella:** And strategy four?
 
-**Alex:** Use dividends and interest. Instead of automatically reinvesting stock dividends back into stocks, direct them to your underweight asset class. If bonds are underweight, let your stock dividends flow into bonds. It is a slow form of rebalancing, but it is tax-efficient because you are redirecting income, not selling positions.
+**Horace:** Use dividends and interest. Instead of automatically reinvesting stock dividends back into stocks, direct them to your underweight asset class. If bonds are underweight, let your stock dividends flow into bonds. It is a slow form of rebalancing, but it is tax-efficient because you are redirecting income, not selling positions.
 
 [VISUAL: Flowchart showing the tax-efficiency hierarchy -- try contributions first, then retirement accounts, then tax-loss harvesting, then dividends, and only as a last resort sell assets with gains]
 
-**Sam:** What about this idea of holding the whole bond allocation in your IRA and the whole stock allocation in your taxable account?
+**Stella:** What about this idea of holding the whole bond allocation in your IRA and the whole stock allocation in your taxable account?
 
-**Alex:** That is asset location, and it is a separate but related topic. The idea is to hold the most tax-inefficient assets -- like bonds, which generate ordinary income from interest -- in tax-sheltered accounts. And hold the most tax-efficient assets -- like stock index funds, which generate mostly long-term capital gains -- in taxable accounts. When you combine smart asset location with smart rebalancing, you can significantly reduce your lifetime tax bill.
+**Horace:** That is asset location, and it is a separate but related topic. The idea is to hold the most tax-inefficient assets -- like bonds, which generate ordinary income from interest -- in tax-sheltered accounts. And hold the most tax-efficient assets -- like stock index funds, which generate mostly long-term capital gains -- in taxable accounts. When you combine smart asset location with smart rebalancing, you can significantly reduce your lifetime tax bill.
 
-**Sam:** This is getting sophisticated. Let me ask a practical question: what about a more complex portfolio? I do not just hold stocks and bonds. I have US stocks, international stocks, bonds, and a small REIT position.
+**Stella:** This is getting sophisticated. Let me ask a practical question: what about a more complex portfolio? I do not just hold stocks and bonds. I have US stocks, international stocks, bonds, and a small REIT position.
 
-**Alex:** Great. The process is exactly the same, just with more line items. You compare each asset class's actual weight to its target weight, identify which are overweight and which are underweight, and then calculate trades. The nice thing about multi-asset rebalancing is that the sells fund the buys -- it is a closed system.
+**Horace:** Great. The process is exactly the same, just with more line items. You compare each asset class's actual weight to its target weight, identify which are overweight and which are underweight, and then calculate trades. The nice thing about multi-asset rebalancing is that the sells fund the buys -- it is a closed system.
 
 [VISUAL: Multi-asset portfolio dashboard showing target weights, actual weights, drift amounts, and required trades for each of six asset classes]
 
-**Sam:** Do I need to get each asset class exactly to its target?
+**Stella:** Do I need to get each asset class exactly to its target?
 
-**Alex:** No, and this is an important practical point. Getting within a percentage point or two of target is good enough. Do not agonize over getting 60.00% versus 59.73%. The trading costs and effort of perfect precision are not worth the negligible difference in outcomes.
+**Horace:** No, and this is an important practical point. Getting within a percentage point or two of target is good enough. Do not agonize over getting 60.00% versus 59.73%. The trading costs and effort of perfect precision are not worth the negligible difference in outcomes.
 
-**Sam:** That is reassuring. What about people who say they do not need to rebalance because they have a target-date fund?
+**Stella:** That is reassuring. What about people who say they do not need to rebalance because they have a target-date fund?
 
-**Alex:** Target-date funds do rebalance internally -- that is one of their key features. If all your money is in a single target-date fund, you do not need to do anything. The fund company handles it. But if you have a target-date fund in your 401(k) plus individual accounts elsewhere, you need to think about rebalancing across all your accounts as a whole portfolio.
+**Horace:** Target-date funds do rebalance internally -- that is one of their key features. If all your money is in a single target-date fund, you do not need to do anything. The fund company handles it. But if you have a target-date fund in your 401(k) plus individual accounts elsewhere, you need to think about rebalancing across all your accounts as a whole portfolio.
 
-**Sam:** Makes sense. Can we talk about the psychological side? You mentioned that rebalancing after a crash is the hardest thing to do.
+**Stella:** Makes sense. Can we talk about the psychological side? You mentioned that rebalancing after a crash is the hardest thing to do.
 
-**Alex:** It is, and I want to be honest about how hard it is. In March 2020, when COVID crashed the market 34% in about a month, rebalancing meant buying stocks when it felt like the world was ending. Nobody knew if it was going to get worse. The news was terrifying. And yet, investors who mechanically rebalanced -- buying stocks with the proceeds from selling bonds that had risen in value -- made an enormous amount of money over the next twelve months.
+**Horace:** It is, and I want to be honest about how hard it is. In March 2020, when COVID crashed the market 34% in about a month, rebalancing meant buying stocks when it felt like the world was ending. Nobody knew if it was going to get worse. The news was terrifying. And yet, investors who mechanically rebalanced -- buying stocks with the proceeds from selling bonds that had risen in value -- made an enormous amount of money over the next twelve months.
 
 [VISUAL: Timeline of March 2020 crash showing S&P 500 levels, with rebalancing trade points marked and subsequent recovery highlighted]
 
-**Sam:** And people who panicked and sold?
+**Stella:** And people who panicked and sold?
 
-**Alex:** Many of them locked in their losses. They sold stocks at the bottom, waited for things to "calm down," and by the time they felt comfortable buying again, the market had already recovered most of the loss. They sold low and bought high -- the exact opposite of what rebalancing does.
+**Horace:** Many of them locked in their losses. They sold stocks at the bottom, waited for things to "calm down," and by the time they felt comfortable buying again, the market had already recovered most of the loss. They sold low and bought high -- the exact opposite of what rebalancing does.
 
-**Sam:** So the rebalancing rule protects you from yourself.
+**Stella:** So the rebalancing rule protects you from yourself.
 
-**Alex:** That might be its single most valuable property. The math is nice, the rebalancing bonus is real, but the behavioral protection -- preventing emotional decisions at the worst possible time -- that is worth its weight in gold.
+**Horace:** That might be its single most valuable property. The math is nice, the rebalancing bonus is real, but the behavioral protection -- preventing emotional decisions at the worst possible time -- that is worth its weight in gold.
 
 [VISUAL: Two investor journeys plotted on the same chart -- the rebalancer who follows the rules through the crash and recovery, versus the emotional investor who sells at the bottom and buys back higher]
 
-**Sam:** Let me ask about a scenario that I think would trip people up. What if one asset class keeps going up year after year? Like the 2010s when US stocks dominated. Are you just constantly selling your best performer?
+**Stella:** Let me ask about a scenario that I think would trip people up. What if one asset class keeps going up year after year? Like the 2010s when US stocks dominated. Are you just constantly selling your best performer?
 
-**Alex:** Yes, and this is the one situation where rebalancing demonstrably costs you return. From 2010 to 2020, US stocks massively outperformed international stocks and bonds. An investor who rebalanced out of US stocks into international stocks and bonds every year earned less than an investor who simply held 100% US stocks.
+**Horace:** Yes, and this is the one situation where rebalancing demonstrably costs you return. From 2010 to 2020, US stocks massively outperformed international stocks and bonds. An investor who rebalanced out of US stocks into international stocks and bonds every year earned less than an investor who simply held 100% US stocks.
 
-**Sam:** So rebalancing hurt them?
+**Stella:** So rebalancing hurt them?
 
-**Alex:** It reduced their return compared to a concentrated stock portfolio, yes. But here is what you have to remember: nobody knew in advance that US stocks would dominate for a decade. And the investor who held 100% US stocks took on enormous risk. In 2018, the S&P 500 dropped almost 20%. In 2020, it dropped 34%. If that investor was 100% in stocks and panicked during one of those drops, they would have been far worse off than the rebalanced investor who had bonds cushioning the fall.
+**Horace:** It reduced their return compared to a concentrated stock portfolio, yes. But here is what you have to remember: nobody knew in advance that US stocks would dominate for a decade. And the investor who held 100% US stocks took on enormous risk. In 2018, the S&P 500 dropped almost 20%. In 2020, it dropped 34%. If that investor was 100% in stocks and panicked during one of those drops, they would have been far worse off than the rebalanced investor who had bonds cushioning the fall.
 
-**Sam:** So it is an insurance cost.
+**Stella:** So it is an insurance cost.
 
-**Alex:** Exactly. You might "overpay" for that insurance in hindsight during a strong bull market. But when the bear market hits -- and it always eventually does -- you are incredibly glad you paid the premium.
+**Horace:** Exactly. You might "overpay" for that insurance in hindsight during a strong bull market. But when the bear market hits -- and it always eventually does -- you are incredibly glad you paid the premium.
 
-**Sam:** Let me try to summarize the practical steps someone should take.
+**Stella:** Let me try to summarize the practical steps someone should take.
 
-**Alex:** Go for it.
+**Horace:** Go for it.
 
-**Sam:** First, define your target allocation based on your goals and risk tolerance. Second, set a rebalancing threshold -- something like 5 percentage points. Third, put a quarterly reminder in your calendar to check your allocation. Fourth, when you check, if anything is more than 5 points off target, calculate the trades needed. Fifth, try to do it tax-efficiently -- use contributions, tax-advantaged accounts, or tax-loss harvesting first. Sixth, execute the trades. Seventh, log what you did.
+**Stella:** First, define your target allocation based on your goals and risk tolerance. Second, set a rebalancing threshold -- something like 5 percentage points. Third, put a quarterly reminder in your calendar to check your allocation. Fourth, when you check, if anything is more than 5 points off target, calculate the trades needed. Fifth, try to do it tax-efficiently -- use contributions, tax-advantaged accounts, or tax-loss harvesting first. Sixth, execute the trades. Seventh, log what you did.
 
-**Alex:** That is a perfect summary. I would add one thing: write this down as a formal policy before you need it. The Investor Policy Statement should include your target allocation, your rebalancing bands, your review frequency, and the priority order of tax-efficient methods. That way, when markets are panicking and you are tempted to deviate, you can pull out the document and follow the plan.
+**Horace:** That is a perfect summary. I would add one thing: write this down as a formal policy before you need it. The Investor Policy Statement should include your target allocation, your rebalancing bands, your review frequency, and the priority order of tax-efficient methods. That way, when markets are panicking and you are tempted to deviate, you can pull out the document and follow the plan.
 
 [VISUAL: Template of a simple Investment Policy Statement with the rebalancing section highlighted, showing sample text for target allocation, bands, and review frequency]
 
-**Sam:** One more question. Is there a level of drift that should be an automatic emergency rebalance? Like if we have a 2008-style crash?
+**Stella:** One more question. Is there a level of drift that should be an automatic emergency rebalance? Like if we have a 2008-style crash?
 
-**Alex:** Some investors use a two-tier system. Normal bands at plus or minus 5 percentage points, reviewed quarterly. But if any asset class drifts by more than 10 percentage points in either direction -- whether due to a crash or a massive rally -- they rebalance immediately regardless of the calendar. That 10-point trigger catches rare but extreme events and ensures you are buying into crashes and selling into euphoria at exactly the moments when it matters most.
+**Horace:** Some investors use a two-tier system. Normal bands at plus or minus 5 percentage points, reviewed quarterly. But if any asset class drifts by more than 10 percentage points in either direction -- whether due to a crash or a massive rally -- they rebalance immediately regardless of the calendar. That 10-point trigger catches rare but extreme events and ensures you are buying into crashes and selling into euphoria at exactly the moments when it matters most.
 
-**Sam:** I love that. A normal rule and an emergency rule.
+**Stella:** I love that. A normal rule and an emergency rule.
 
-**Alex:** Exactly. And the beauty is, once you have these rules in place, investing becomes a lot less stressful. You do not have to agonize over "should I buy or sell right now?" The rules tell you. You just follow them.
+**Horace:** Exactly. And the beauty is, once you have these rules in place, investing becomes a lot less stressful. You do not have to agonize over "should I buy or sell right now?" The rules tell you. You just follow them.
 
 [VISUAL: Summary card with five key takeaways:
 1. Rebalancing is a systematic way to buy low and sell high
@@ -872,13 +872,13 @@ A: Many options exist. Robo-advisors like Betterment and Wealthfront automatical
 4. Use tax-efficient methods: contributions first, tax-advantaged accounts second
 5. Write down your rebalancing policy before you need it]
 
-**Sam:** To summarize today's lesson. Rebalancing is not optional, it is fundamental. It keeps your risk on target, forces you to buy low and sell high, and protects you from your own emotions. The specific frequency matters less than the commitment to doing it at all.
+**Stella:** To summarize today's lesson. Rebalancing is not optional, it is fundamental. It keeps your risk on target, forces you to buy low and sell high, and protects you from your own emotions. The specific frequency matters less than the commitment to doing it at all.
 
-**Alex:** Perfectly said. And if you only remember one thing from today: your rebalancing rule is most valuable at exactly the moments when it is hardest to follow. That is not a bug -- that is the feature.
+**Horace:** Perfectly said. And if you only remember one thing from today: your rebalancing rule is most valuable at exactly the moments when it is hardest to follow. That is not a bug -- that is the feature.
 
-**Sam:** Next week, we are going to learn how to read financial statements -- the building blocks of understanding any company. If you want to know whether a business is actually making money or just pretending to, you will not want to miss it.
+**Stella:** Next week, we are going to learn how to read financial statements -- the building blocks of understanding any company. If you want to know whether a business is actually making money or just pretending to, you will not want to miss it.
 
-**Alex:** See you then.
+**Horace:** See you then.
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

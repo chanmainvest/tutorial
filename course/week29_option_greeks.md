@@ -683,216 +683,216 @@ A: The conceptual meanings are the same, but the actual values differ depending 
 
 [VISUAL: Animated intro with show logo. Text: "Week 29: The Option Greeks - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are tackling what I consider the most important week in our entire options education series. We are going to learn the option Greeks.
+**Horace:** Welcome back, everyone. Today we are tackling what I consider the most important week in our entire options education series. We are going to learn the option Greeks.
 
-**Sam:** The Greeks. Delta, theta, gamma, vega. I have seen these terms on my brokerage platform but I have to admit, I usually just ignore them. Are they really that important?
+**Stella:** The Greeks. Delta, theta, gamma, vega. I have seen these terms on my brokerage platform but I have to admit, I usually just ignore them. Are they really that important?
 
-**Alex:** They are absolutely essential. Let me put it this way. In Weeks 25 through 28, we taught you how to drive the car. Today we are going to teach you how to read the dashboard. Without the dashboard, you do not know how fast you are going, how much fuel you have, or whether the engine is overheating.
+**Horace:** They are absolutely essential. Let me put it this way. In Weeks 25 through 28, we taught you how to drive the car. Today we are going to teach you how to read the dashboard. Without the dashboard, you do not know how fast you are going, how much fuel you have, or whether the engine is overheating.
 
 [VISUAL: Car dashboard analogy. A car dashboard appears with five gauges labeled: Delta (Speedometer), Gamma (Acceleration), Theta (Fuel Gauge), Vega (Weather), Rho (Temperature)]
 
-**Sam:** OK that is a great analogy. So there are five major Greeks?
+**Stella:** OK that is a great analogy. So there are five major Greeks?
 
-**Alex:** Five. Delta, gamma, theta, vega, and rho. Each one measures how sensitive your option's price is to a specific factor. Delta measures sensitivity to stock price, gamma measures how delta itself changes, theta measures the effect of time passing, vega measures sensitivity to implied volatility, and rho measures sensitivity to interest rates.
+**Horace:** Five. Delta, gamma, theta, vega, and rho. Each one measures how sensitive your option's price is to a specific factor. Delta measures sensitivity to stock price, gamma measures how delta itself changes, theta measures the effect of time passing, vega measures sensitivity to implied volatility, and rho measures sensitivity to interest rates.
 
-**Sam:** Let us start with the big one. Delta.
+**Stella:** Let us start with the big one. Delta.
 
-**Alex:** Delta is the king of the Greeks. It tells you how much your option's price will change when the stock moves by one dollar. A call option with a delta of 0.60 will gain approximately 60 cents when the stock goes up one dollar, and lose approximately 60 cents when the stock goes down one dollar.
+**Horace:** Delta is the king of the Greeks. It tells you how much your option's price will change when the stock moves by one dollar. A call option with a delta of 0.60 will gain approximately 60 cents when the stock goes up one dollar, and lose approximately 60 cents when the stock goes down one dollar.
 
 [VISUAL: Number line showing stock price moving from $149 to $150 to $151. An option price bar moves from $4.40 to $5.00 to $5.60 with delta = 0.60 labeled]
 
-**Sam:** So delta basically tells me how much of the stock's movement I capture?
+**Stella:** So delta basically tells me how much of the stock's movement I capture?
 
-**Alex:** Exactly. And here is something really important. Delta changes depending on where the stock price is relative to the strike price. An at-the-money option has a delta around 0.50. A deep in-the-money option has a delta approaching 1.0. And a far out-of-the-money option has a delta approaching zero.
+**Horace:** Exactly. And here is something really important. Delta changes depending on where the stock price is relative to the strike price. An at-the-money option has a delta around 0.50. A deep in-the-money option has a delta approaching 1.0. And a far out-of-the-money option has a delta approaching zero.
 
-**Sam:** So an at-the-money call captures about half the stock's movement?
+**Stella:** So an at-the-money call captures about half the stock's movement?
 
-**Alex:** Right. And this connects to another useful interpretation of delta. It roughly approximates the probability that the option will expire in the money. An ATM option with a delta of 0.50 has roughly a 50% chance of expiring in the money. An OTM option with a delta of 0.20 has roughly a 20% chance.
+**Horace:** Right. And this connects to another useful interpretation of delta. It roughly approximates the probability that the option will expire in the money. An ATM option with a delta of 0.50 has roughly a 50% chance of expiring in the money. An OTM option with a delta of 0.20 has roughly a 20% chance.
 
 [ANIMATION: Reference animation/week29_delta_curve.py - A smooth S-curve showing delta values (y-axis, 0 to 1.0) plotted against stock price (x-axis). As the stock price slides along the x-axis, a dot traces the curve and a delta readout updates in real time. Annotations appear at key points: "Deep OTM: delta near 0", "ATM: delta = 0.50", "Deep ITM: delta near 1.0".]
 
-**Sam:** Wait, I just realized something. If I own one call with a delta of 0.50, that is like owning 50 shares of stock?
+**Stella:** Wait, I just realized something. If I own one call with a delta of 0.50, that is like owning 50 shares of stock?
 
-**Alex:** You just discovered what professionals call the "delta-equivalent position." One call with delta 0.50 controls 100 shares, but it moves like 50 shares. Two of those calls would give you delta of 100, equivalent to owning 100 shares. This is incredibly useful for understanding how much market exposure you actually have.
+**Horace:** You just discovered what professionals call the "delta-equivalent position." One call with delta 0.50 controls 100 shares, but it moves like 50 shares. Two of those calls would give you delta of 100, equivalent to owning 100 shares. This is incredibly useful for understanding how much market exposure you actually have.
 
-**Sam:** So if I have a covered call, which is long 100 shares and short one call, I can add up the deltas?
+**Stella:** So if I have a covered call, which is long 100 shares and short one call, I can add up the deltas?
 
-**Alex:** Exactly. If you own 100 shares, your delta is plus 100. You sell an at-the-money call with a delta of 0.50. That short call has a delta of minus 50, because you sold it. Net delta: plus 50. Your covered call position acts like owning 50 shares instead of 100.
+**Horace:** Exactly. If you own 100 shares, your delta is plus 100. You sell an at-the-money call with a delta of 0.50. That short call has a delta of minus 50, because you sold it. Net delta: plus 50. Your covered call position acts like owning 50 shares instead of 100.
 
 [VISUAL: Building blocks showing: "Long 100 shares: Delta = +100" plus "Short 1 ATM Call: Delta = -50" equals "Net: Delta = +50"]
 
-**Sam:** That makes a lot of sense. It explains why covered calls reduce your upside but also reduce your risk.
+**Stella:** That makes a lot of sense. It explains why covered calls reduce your upside but also reduce your risk.
 
-**Alex:** Precisely. Now let us talk about the Greek that modifies delta. Gamma.
+**Horace:** Precisely. Now let us talk about the Greek that modifies delta. Gamma.
 
-**Sam:** Gamma. I have heard this one come up a lot, especially during the GameStop saga.
+**Stella:** Gamma. I have heard this one come up a lot, especially during the GameStop saga.
 
-**Alex:** Gamma is the rate of change of delta. If delta is your speed, gamma is your acceleration. When a stock moves one dollar, gamma tells you how much delta will change.
+**Horace:** Gamma is the rate of change of delta. If delta is your speed, gamma is your acceleration. When a stock moves one dollar, gamma tells you how much delta will change.
 
-**Sam:** Can you give me a concrete example?
+**Stella:** Can you give me a concrete example?
 
-**Alex:** Sure. Say you have an at-the-money call with delta 0.50 and gamma 0.03. The stock goes up one dollar. Your new delta is 0.50 plus 0.03, which equals 0.53. Now for the next dollar up, your option gains 53 cents instead of 50 cents. The stock goes up another dollar, delta becomes 0.56. Your option is accelerating. It is capturing more and more of the stock's upside.
+**Horace:** Sure. Say you have an at-the-money call with delta 0.50 and gamma 0.03. The stock goes up one dollar. Your new delta is 0.50 plus 0.03, which equals 0.53. Now for the next dollar up, your option gains 53 cents instead of 50 cents. The stock goes up another dollar, delta becomes 0.56. Your option is accelerating. It is capturing more and more of the stock's upside.
 
 [ANIMATION: Reference animation/week29_gamma_acceleration.py - A ball rolling along a curved surface. As the ball rolls "uphill" (stock going up), it speeds up, showing acceleration. Delta readout increases from 0.50 to 0.53 to 0.56 to 0.59. A parallel animation shows the option price curve becoming steeper. When the ball rolls "downhill" (stock going down), it slows down, showing deceleration. Delta decreases from 0.50 to 0.47 to 0.44.]
 
-**Sam:** So if I own the option, gamma is my friend? I accelerate into winners and decelerate into losers?
+**Stella:** So if I own the option, gamma is my friend? I accelerate into winners and decelerate into losers?
 
-**Alex:** Exactly right. When you are long an option, you are long gamma. Delta moves in your favor. But here is the catch. If you are short an option, you are short gamma. And then delta moves against you. If you sold a call and the stock surges up, your short delta gets bigger and bigger. You are increasingly short a rising stock.
+**Horace:** Exactly right. When you are long an option, you are long gamma. Delta moves in your favor. But here is the catch. If you are short an option, you are short gamma. And then delta moves against you. If you sold a call and the stock surges up, your short delta gets bigger and bigger. You are increasingly short a rising stock.
 
-**Sam:** That sounds dangerous.
+**Stella:** That sounds dangerous.
 
-**Alex:** It can be, especially near expiration. And this brings up the critical concept of gamma risk near expiration. Gamma is highest for at-the-money options with very little time left. An ATM option with one day to expiration might have gamma of 0.15 or higher, compared to gamma of 0.02 for a 60-day option. That means delta is swinging wildly.
+**Horace:** It can be, especially near expiration. And this brings up the critical concept of gamma risk near expiration. Gamma is highest for at-the-money options with very little time left. An ATM option with one day to expiration might have gamma of 0.15 or higher, compared to gamma of 0.02 for a 60-day option. That means delta is swinging wildly.
 
 [VISUAL: Two gamma curves side by side. Left: "60 days to expiration" showing a gentle, wide bell curve centered at ATM. Right: "1 day to expiration" showing a sharp, tall spike at ATM. Labels: "Low gamma, stable delta" vs. "High gamma, unstable delta"]
 
-**Sam:** Is that why you always recommend closing short options before expiration week?
+**Stella:** Is that why you always recommend closing short options before expiration week?
 
-**Alex:** That is exactly why. In Weeks 27 and 28, we said to close or roll positions when they reach 50 to 75 percent of maximum profit, and never let them go to expiration. Now you understand the mathematical reason. Gamma risk becomes extreme in the last few days.
+**Horace:** That is exactly why. In Weeks 27 and 28, we said to close or roll positions when they reach 50 to 75 percent of maximum profit, and never let them go to expiration. Now you understand the mathematical reason. Gamma risk becomes extreme in the last few days.
 
-**Sam:** OK, moving on to the Greek I probably understand best from our earlier lessons. Theta.
+**Stella:** OK, moving on to the Greek I probably understand best from our earlier lessons. Theta.
 
-**Alex:** Theta is time decay. It measures how much an option's price decreases as one day passes, assuming nothing else changes. If theta is minus 0.05, the option loses 5 cents per share per day, or $5 per contract per day.
+**Horace:** Theta is time decay. It measures how much an option's price decreases as one day passes, assuming nothing else changes. If theta is minus 0.05, the option loses 5 cents per share per day, or $5 per contract per day.
 
-**Sam:** And we talked about how theta accelerates near expiration, right?
+**Stella:** And we talked about how theta accelerates near expiration, right?
 
-**Alex:** Right. Theta is not constant. An ATM option with 90 days left might lose $4 a day in time value. That same option with 7 days left might lose $15 a day. And with 1 day left, it might lose $40 a day. The decay is slow at first and then accelerates dramatically.
+**Horace:** Right. Theta is not constant. An ATM option with 90 days left might lose $4 a day in time value. That same option with 7 days left might lose $15 a day. And with 1 day left, it might lose $40 a day. The decay is slow at first and then accelerates dramatically.
 
 [VISUAL: The classic theta decay curve. A horizontal line representing option premium starts at the left at $5.00 and curves downward, slowly at first, then steeply in the last third, reaching $0 at expiration. Calendar days tick by at the bottom. Annotations show: "First 30 days: lose $1", "Next 30 days: lose $1.50", "Last 30 days: lose $2.50"]
 
-**Sam:** And this is why covered calls and cash-secured puts are sold 30 to 45 days out? To capture the acceleration?
+**Stella:** And this is why covered calls and cash-secured puts are sold 30 to 45 days out? To capture the acceleration?
 
-**Alex:** Exactly. The sweet spot is selling options when they are entering the steep part of the decay curve, around 30 to 45 days to expiration. You get meaningful premium but you are positioned to benefit from the fastest decay.
+**Horace:** Exactly. The sweet spot is selling options when they are entering the steep part of the decay curve, around 30 to 45 days to expiration. You get meaningful premium but you are positioned to benefit from the fastest decay.
 
-**Sam:** Now here is something I have been confused about. Theta is your enemy if you buy options and your friend if you sell them. But you said gamma is good for buyers and bad for sellers. So they are connected?
+**Stella:** Now here is something I have been confused about. Theta is your enemy if you buy options and your friend if you sell them. But you said gamma is good for buyers and bad for sellers. So they are connected?
 
-**Alex:** You just identified the most important relationship in all of options theory. The gamma-theta tradeoff. You cannot have positive gamma without negative theta, and you cannot have positive theta without negative gamma. They are two sides of the same coin.
+**Horace:** You just identified the most important relationship in all of options theory. The gamma-theta tradeoff. You cannot have positive gamma without negative theta, and you cannot have positive theta without negative gamma. They are two sides of the same coin.
 
 [VISUAL: A see-saw/balance beam. On one side "Gamma" with a plus sign, on the other side "Theta" with a plus sign. They cannot both be up at the same time. When you are long options: gamma up, theta down. When you are short options: theta up, gamma down.]
 
-**Alex:** If you buy an option, you pay theta every single day for the privilege of owning gamma. If you sell an option, you earn theta every day but you take on gamma risk. This is the fundamental tradeoff that drives all options strategies.
+**Horace:** If you buy an option, you pay theta every single day for the privilege of owning gamma. If you sell an option, you earn theta every day but you take on gamma risk. This is the fundamental tradeoff that drives all options strategies.
 
-**Sam:** So every options trade is essentially a choice: do I want to pay for gamma or collect theta?
+**Stella:** So every options trade is essentially a choice: do I want to pay for gamma or collect theta?
 
-**Alex:** That is a beautifully simple way to put it, and yes. In our strategies, covered calls and cash-secured puts, we are choosing to collect theta and accept gamma risk. That is appropriate for income-focused investors. But buying protective puts, for example, is choosing to pay theta for the gamma protection.
+**Horace:** That is a beautifully simple way to put it, and yes. In our strategies, covered calls and cash-secured puts, we are choosing to collect theta and accept gamma risk. That is appropriate for income-focused investors. But buying protective puts, for example, is choosing to pay theta for the gamma protection.
 
-**Sam:** OK, now let us talk about vega. This one seems mysterious to a lot of people.
+**Stella:** OK, now let us talk about vega. This one seems mysterious to a lot of people.
 
-**Alex:** Vega measures how much an option's price changes when implied volatility changes by one percentage point. If your option has a vega of 0.10, and implied volatility goes up by 2 percentage points, your option gains 20 cents per share, or $20 per contract.
+**Horace:** Vega measures how much an option's price changes when implied volatility changes by one percentage point. If your option has a vega of 0.10, and implied volatility goes up by 2 percentage points, your option gains 20 cents per share, or $20 per contract.
 
-**Sam:** And vega is the same sign for calls and puts, right? Both benefit from rising volatility?
+**Stella:** And vega is the same sign for calls and puts, right? Both benefit from rising volatility?
 
-**Alex:** Correct. When you buy any option, call or put, you are long vega. You benefit when volatility rises and you lose when volatility falls. When you sell any option, you are short vega. You benefit from falling volatility.
+**Horace:** Correct. When you buy any option, call or put, you are long vega. You benefit when volatility rises and you lose when volatility falls. When you sell any option, you are short vega. You benefit from falling volatility.
 
 [VISUAL: Two bars. "Long Options" with arrows showing "IV Up = You Win, IV Down = You Lose". "Short Options" with arrows showing "IV Up = You Lose, IV Down = You Win"]
 
-**Sam:** I want to talk about something that I think confuses a lot of beginners. Volatility crush around earnings.
+**Stella:** I want to talk about something that I think confuses a lot of beginners. Volatility crush around earnings.
 
-**Alex:** This is perhaps the most expensive lesson beginners learn. Before earnings, implied volatility spikes because the market is uncertain about the result. After earnings, the uncertainty is resolved and IV collapses. We call this IV crush or volatility crush.
+**Horace:** This is perhaps the most expensive lesson beginners learn. Before earnings, implied volatility spikes because the market is uncertain about the result. After earnings, the uncertainty is resolved and IV collapses. We call this IV crush or volatility crush.
 
-**Sam:** And this can cause a situation where you correctly predict the direction but still lose money?
+**Stella:** And this can cause a situation where you correctly predict the direction but still lose money?
 
-**Alex:** Exactly. Let me walk through a real example. Say Apple is at $150. You buy the $150 call for $6 with 7 days to expiration. Implied volatility is at 45% because earnings are tomorrow. Apple reports good earnings and the stock goes up $3 to $153.
+**Horace:** Exactly. Let me walk through a real example. Say Apple is at $150. You buy the $150 call for $6 with 7 days to expiration. Implied volatility is at 45% because earnings are tomorrow. Apple reports good earnings and the stock goes up $3 to $153.
 
 [ANIMATION: Reference animation/week29_iv_crush.py - Two-part animation. Part 1: Before earnings, a bar shows option premium at $6.00 broken into intrinsic ($0) and extrinsic ($6.00). IV gauge reads 45%. Part 2: After earnings, stock jumps from $150 to $153. Delta should have added $1.50. But IV gauge drops from 45% to 28%. Vega loss of $1.36 appears. Theta loss of $0.15 appears. The option premium bar shows final value of $5.99, barely changed. Text flashes: "The stock went up $3 and you made $0!"]
 
-**Alex:** Your delta gain is about $1.50, which is $3 times a delta of 0.50. But your vega loss is $1.36, which is 17 percentage points of IV crush times a vega of $0.08. And you lost another $0.15 to theta. Net gain: essentially zero. The stock went up $3 and your call option went nowhere.
+**Horace:** Your delta gain is about $1.50, which is $3 times a delta of 0.50. But your vega loss is $1.36, which is 17 percentage points of IV crush times a vega of $0.08. And you lost another $0.15 to theta. Net gain: essentially zero. The stock went up $3 and your call option went nowhere.
 
-**Sam:** That is incredible. And incredibly frustrating if you do not understand why.
+**Stella:** That is incredible. And incredibly frustrating if you do not understand why.
 
-**Alex:** Which is exactly why vega matters. If you buy options before earnings, you are buying expensive volatility. Even if you are right on direction, you need the stock to move A LOT to overcome the IV crush. Many professional traders actually sell options before earnings specifically to profit from the crush.
+**Horace:** Which is exactly why vega matters. If you buy options before earnings, you are buying expensive volatility. Even if you are right on direction, you need the stock to move A LOT to overcome the IV crush. Many professional traders actually sell options before earnings specifically to profit from the crush.
 
-**Sam:** So as a covered call seller, vega actually works in my favor after earnings?
+**Stella:** So as a covered call seller, vega actually works in my favor after earnings?
 
-**Alex:** Yes. If you sold a covered call and IV was high, after earnings when IV drops, your short call loses value, which benefits you. You could buy it back cheaply. This is one reason some traders like to sell covered calls right before earnings, though the gamma risk of a large stock move is the other side of that coin.
+**Horace:** Yes. If you sold a covered call and IV was high, after earnings when IV drops, your short call loses value, which benefits you. You could buy it back cheaply. This is one reason some traders like to sell covered calls right before earnings, though the gamma risk of a large stock move is the other side of that coin.
 
-**Sam:** Let us briefly cover rho since you mentioned it is the least important Greek.
+**Stella:** Let us briefly cover rho since you mentioned it is the least important Greek.
 
-**Alex:** Rho measures sensitivity to interest rate changes. For a 30-day option, rho is typically very small, maybe $0.02. Meaning a full 1% change in interest rates would only move the option by 2 cents. But for LEAPS with a year or more to expiration, rho can be $0.30 to $0.50. During the Fed's rapid rate hiking cycle in 2022 and 2023, rho effects were noticeable on LEAPS positions.
+**Horace:** Rho measures sensitivity to interest rate changes. For a 30-day option, rho is typically very small, maybe $0.02. Meaning a full 1% change in interest rates would only move the option by 2 cents. But for LEAPS with a year or more to expiration, rho can be $0.30 to $0.50. During the Fed's rapid rate hiking cycle in 2022 and 2023, rho effects were noticeable on LEAPS positions.
 
 [VISUAL: Simple chart. "Rho Impact by Expiration". Weekly option: "$0.005 per 1% rate change - Ignore it". Monthly option: "$0.02 - Mostly ignore". 6-month: "$0.12 - Be aware". LEAPS: "$0.35 - Factor it in".]
 
-**Sam:** So for our covered calls and cash-secured puts on monthly options, we can basically ignore rho?
+**Stella:** So for our covered calls and cash-secured puts on monthly options, we can basically ignore rho?
 
-**Alex:** Correct. Rho becomes important only for LEAPS, which we will cover in Week 38.
+**Horace:** Correct. Rho becomes important only for LEAPS, which we will cover in Week 38.
 
-**Sam:** OK, so we have covered all five Greeks individually. How do they all work together?
+**Stella:** OK, so we have covered all five Greeks individually. How do they all work together?
 
-**Alex:** This is where it gets really powerful. Let me show you how to analyze an actual position using all the Greeks at once.
+**Horace:** This is where it gets really powerful. Let me show you how to analyze an actual position using all the Greeks at once.
 
 [VISUAL: A portfolio dashboard showing a covered call position. AAPL long 100 shares at $155. Short 1 AAPL $155 Call, 30 days out. The Greeks are displayed in a panel: Net Delta: +50, Gamma: -0.025, Theta: +$8/day, Vega: -$10 per 1% IV]
 
-**Alex:** This is our covered call. Net delta of plus 50 tells us we are moderately bullish. Gamma of minus 0.025 tells us delta will move against us on big moves. Theta of plus 8 dollars a day means we earn about $8 per day from time decay. And vega of minus 10 means each 1% drop in IV earns us about $10.
+**Horace:** This is our covered call. Net delta of plus 50 tells us we are moderately bullish. Gamma of minus 0.025 tells us delta will move against us on big moves. Theta of plus 8 dollars a day means we earn about $8 per day from time decay. And vega of minus 10 means each 1% drop in IV earns us about $10.
 
-**Sam:** So on a boring day where the stock does not move and IV does not change, we make $8 from theta?
+**Stella:** So on a boring day where the stock does not move and IV does not change, we make $8 from theta?
 
-**Alex:** Exactly. And on a day where the stock does not move but IV drops by 1%, we make $8 from theta plus $10 from vega, for $18 total. This is why covered calls perform beautifully in flat, calm markets.
+**Horace:** Exactly. And on a day where the stock does not move but IV drops by 1%, we make $8 from theta plus $10 from vega, for $18 total. This is why covered calls perform beautifully in flat, calm markets.
 
-**Sam:** And what about a day where the stock moves big?
+**Stella:** And what about a day where the stock moves big?
 
-**Alex:** If the stock drops $3, we lose about $150 from delta ($3 times 50) minus $8 from theta. And because of negative gamma, our delta got bigger on the way down, so the actual loss might be closer to $165. But if the stock drops, IV usually rises, which partially offsets through vega. This interplay is what makes options analysis rich and nuanced.
+**Horace:** If the stock drops $3, we lose about $150 from delta ($3 times 50) minus $8 from theta. And because of negative gamma, our delta got bigger on the way down, so the actual loss might be closer to $165. But if the stock drops, IV usually rises, which partially offsets through vega. This interplay is what makes options analysis rich and nuanced.
 
-**Sam:** What about the connection between time to expiration and which Greek matters most?
+**Stella:** What about the connection between time to expiration and which Greek matters most?
 
-**Alex:** This is an excellent point. The dominant Greek shifts over the life of an option. For a 90-day option, vega is dominant. A 2% change in IV moves the option more than a typical day's stock movement. For a 30-day option, theta and delta are co-dominant. And for an option in the last week, gamma overwhelms everything.
+**Horace:** This is an excellent point. The dominant Greek shifts over the life of an option. For a 90-day option, vega is dominant. A 2% change in IV moves the option more than a typical day's stock movement. For a 30-day option, theta and delta are co-dominant. And for an option in the last week, gamma overwhelms everything.
 
 [VISUAL: A timeline bar from 90 days to 0 days. Different colored zones show which Greek is dominant: Green "Vega Zone" from 90 to 60 days. Yellow "Theta/Delta Zone" from 60 to 14 days. Red "Gamma Zone" from 14 to 0 days. Below: "This is why we sell 30-45 day options: we are in the Theta Zone, not the Gamma Zone."]
 
-**Sam:** That visualization really clicks. We want to be in the theta zone, collecting income, and we want to get out before we enter the gamma zone.
+**Stella:** That visualization really clicks. We want to be in the theta zone, collecting income, and we want to get out before we enter the gamma zone.
 
-**Alex:** Precisely. And this is what we mean by managing positions using the Greeks. It is not about calculating exact numbers to the third decimal place. It is about understanding the regime you are in and positioning accordingly.
+**Horace:** Precisely. And this is what we mean by managing positions using the Greeks. It is not about calculating exact numbers to the third decimal place. It is about understanding the regime you are in and positioning accordingly.
 
-**Sam:** Can you talk about portfolio-level Greeks? Because in the reading, you showed how to add up Greeks across positions.
+**Stella:** Can you talk about portfolio-level Greeks? Because in the reading, you showed how to add up Greeks across positions.
 
-**Alex:** Portfolio Greeks are simply the sum of all your individual position Greeks. And this is how professional traders think. They do not look at each trade in isolation. They look at their total portfolio delta, gamma, theta, and vega.
+**Horace:** Portfolio Greeks are simply the sum of all your individual position Greeks. And this is how professional traders think. They do not look at each trade in isolation. They look at their total portfolio delta, gamma, theta, and vega.
 
 [VISUAL: A table showing a multi-position portfolio. Row 1: Long 200 shares AAPL, delta +200. Row 2: Short 2 AAPL calls, delta -110. Row 3: Short 1 MSFT put, delta +40. Row 4: Long 3 SPY puts, delta -120. Total row highlighted: Delta +10, Gamma -0.03, Theta +$9/day, Vega +$2/1%IV. Annotation: "Nearly delta-neutral, positive theta, slight long vega."]
 
-**Alex:** This portfolio has a net delta of plus 10. That means a $1 move in the market affects the portfolio by only about $10. It is nearly neutral. But it earns $9 per day from theta. And it has protective puts that give a small positive vega exposure.
+**Horace:** This portfolio has a net delta of plus 10. That means a $1 move in the market affects the portfolio by only about $10. It is nearly neutral. But it earns $9 per day from theta. And it has protective puts that give a small positive vega exposure.
 
-**Sam:** That is elegant. You are earning income while being almost indifferent to market direction.
+**Stella:** That is elegant. You are earning income while being almost indifferent to market direction.
 
-**Alex:** And the protective puts ensure that if the market crashes and volatility spikes, the vega benefit from those puts helps offset some of the losses. The Greeks all balance each other.
+**Horace:** And the protective puts ensure that if the market crashes and volatility spikes, the vega benefit from those puts helps offset some of the losses. The Greeks all balance each other.
 
-**Sam:** Let me ask a practical question. How should someone at home actually use the Greeks?
+**Stella:** Let me ask a practical question. How should someone at home actually use the Greeks?
 
-**Alex:** For someone running covered calls and cash-secured puts, here is what I recommend. First, always check delta before entering a trade. Know how much directional exposure you are taking. Second, check theta relative to your premium. If theta is $8 per day and you collected $250 in premium, you know the option will decay that premium in about 31 days. Third, glance at vega and think about whether IV is high or low. If IV is in the top 20% of its historical range, it is a good time to sell options. If IV is in the bottom 20%, be cautious about selling because there is less premium and vega risk is skewed against you. Fourth, respect gamma by not holding positions into expiration week.
+**Horace:** For someone running covered calls and cash-secured puts, here is what I recommend. First, always check delta before entering a trade. Know how much directional exposure you are taking. Second, check theta relative to your premium. If theta is $8 per day and you collected $250 in premium, you know the option will decay that premium in about 31 days. Third, glance at vega and think about whether IV is high or low. If IV is in the top 20% of its historical range, it is a good time to sell options. If IV is in the bottom 20%, be cautious about selling because there is less premium and vega risk is skewed against you. Fourth, respect gamma by not holding positions into expiration week.
 
 [VISUAL: Checklist on screen. "Before Every Options Trade, Check:" followed by checkmarks: "1. Delta - How much directional exposure?", "2. Theta - How much do I earn per day?", "3. Vega - Is IV high or low?", "4. Gamma - Am I too close to expiration?"]
 
-**Sam:** That is a manageable checklist. You do not have to be a math genius.
+**Stella:** That is a manageable checklist. You do not have to be a math genius.
 
-**Alex:** You really do not. The Greeks are about intuition, not calculation. Your brokerage platform calculates them. You just need to understand what they mean and how they work together.
+**Horace:** You really do not. The Greeks are about intuition, not calculation. Your brokerage platform calculates them. You just need to understand what they mean and how they work together.
 
-**Sam:** So let me try to summarize the five Greeks in one sentence each.
+**Stella:** So let me try to summarize the five Greeks in one sentence each.
 
-**Alex:** Go for it.
+**Horace:** Go for it.
 
-**Sam:** Delta tells me how much I make or lose per dollar of stock movement. Gamma tells me how fast my delta is changing, which is why big moves are risky for sellers. Theta tells me how much money I earn or spend per day just from time passing. Vega tells me how much volatility changes will affect my position, which is why earnings are tricky. And rho tells me about interest rate sensitivity, which mostly matters for LEAPS.
+**Stella:** Delta tells me how much I make or lose per dollar of stock movement. Gamma tells me how fast my delta is changing, which is why big moves are risky for sellers. Theta tells me how much money I earn or spend per day just from time passing. Vega tells me how much volatility changes will affect my position, which is why earnings are tricky. And rho tells me about interest rate sensitivity, which mostly matters for LEAPS.
 
-**Alex:** That is an excellent summary. I would not change a word.
+**Horace:** That is an excellent summary. I would not change a word.
 
-[VISUAL: Five Greek letters displayed large on screen: Delta, Gamma, Theta, Vega, Rho. Each with a one-line summary below matching Sam's recap]
+[VISUAL: Five Greek letters displayed large on screen: Delta, Gamma, Theta, Vega, Rho. Each with a one-line summary below matching Stella's recap]
 
-**Sam:** One more thing. The gamma-theta tradeoff. Can you restate that clearly?
+**Stella:** One more thing. The gamma-theta tradeoff. Can you restate that clearly?
 
-**Alex:** The gamma-theta tradeoff is the iron law of options. If you buy options, you own gamma, meaning delta moves in your favor. But you pay for it through theta, losing money every day. If you sell options, you earn theta every day. But you are short gamma, meaning delta moves against you on big moves. You can never have both positive gamma and positive theta. Every options strategy is a choice about which side of this tradeoff you want to be on.
+**Horace:** The gamma-theta tradeoff is the iron law of options. If you buy options, you own gamma, meaning delta moves in your favor. But you pay for it through theta, losing money every day. If you sell options, you earn theta every day. But you are short gamma, meaning delta moves against you on big moves. You can never have both positive gamma and positive theta. Every options strategy is a choice about which side of this tradeoff you want to be on.
 
-**Sam:** And in our strategies, covered calls and cash-secured puts, we chose the theta side.
+**Stella:** And in our strategies, covered calls and cash-secured puts, we chose the theta side.
 
-**Alex:** Correct. We are willing to accept gamma risk, the risk of large moves, in exchange for steady daily income from theta. And we manage the gamma risk by not holding positions into expiration week and by rolling or closing positions at the right time.
+**Horace:** Correct. We are willing to accept gamma risk, the risk of large moves, in exchange for steady daily income from theta. And we manage the gamma risk by not holding positions into expiration week and by rolling or closing positions at the right time.
 
-**Sam:** This has been incredibly illuminating. I feel like I actually understand what is happening under the hood now.
+**Stella:** This has been incredibly illuminating. I feel like I actually understand what is happening under the hood now.
 
-**Alex:** And that is exactly the goal. Next week, we are going to use these Greeks to analyze more complex structures: spreads and condors. You will see how combining options in specific ways lets you create positions with precisely tailored Greek exposures. The Greeks are the language of that discussion.
+**Horace:** And that is exactly the goal. Next week, we are going to use these Greeks to analyze more complex structures: spreads and condors. You will see how combining options in specific ways lets you create positions with precisely tailored Greek exposures. The Greeks are the language of that discussion.
 
 [VISUAL: Preview card showing "Next Week: Spreads and Condors - Combining Options for Tailored Risk/Reward"]
 
-**Sam:** Looking forward to it. Before we wrap up, any final piece of advice on the Greeks?
+**Stella:** Looking forward to it. Before we wrap up, any final piece of advice on the Greeks?
 
-**Alex:** Yes. Do not obsess over the exact numbers. Focus on the signs and the relative magnitudes. Positive or negative delta tells you your directional bias. The magnitude tells you how much. Positive theta means you earn income, negative means you spend it. Positive vega means you benefit from volatility, negative means calm markets help you. Think in these terms and the Greeks become intuitive, not mathematical.
+**Horace:** Yes. Do not obsess over the exact numbers. Focus on the signs and the relative magnitudes. Positive or negative delta tells you your directional bias. The magnitude tells you how much. Positive theta means you earn income, negative means you spend it. Positive vega means you benefit from volatility, negative means calm markets help you. Think in these terms and the Greeks become intuitive, not mathematical.
 
-**Sam:** Excellent. Thanks, everyone, for watching. We will see you next week for spreads and condors.
+**Stella:** Excellent. Thanks, everyone, for watching. We will see you next week for spreads and condors.
 
 [VISUAL: End screen with show logo, "Week 29: The Option Greeks" summary, and preview of Week 30]
 
-**Alex:** See you then.
+**Horace:** See you then.

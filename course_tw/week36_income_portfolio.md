@@ -1,960 +1,952 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 36: Building an Income-Generating Portfolio
+# 第36週：建構收益型投資組合
 
 ---
 
-## Reading Section
+## 閱讀單元
 
 ---
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-At some point, every investor transitions from accumulating wealth to drawing income from it. Whether you are a retiree living off your portfolio, an institution funding ongoing operations, or simply someone who wants passive income to supplement their salary, the ability to build a sustainable income-generating portfolio is a critical skill.
+每位投資人終究都會從累積財富，轉型為從投資組合中提取收益。無論你是靠投資組合生活的退休人士、需要持續營運資金的機構，還是希望用被動收入補貼薪資的一般人，建構永續收益型投資組合的能力，都是至關重要的核心技能。
 
-Here is why this matters:
+以下是這件事為何如此重要的原因：
 
-1. **The retirement challenge is enormous.** A retiree with a $1 million portfolio who needs $50,000 per year in income faces a 5% withdrawal rate. At today's interest rates, this cannot be achieved safely with government bonds alone. Building a diversified income portfolio that generates sufficient yield without taking excessive risk is one of the most important problems in personal finance.
+1. **退休挑戰極為艱鉅。** 一位擁有100萬美元投資組合、每年需要5萬美元收益的退休人士，面臨的是5%的提領率。以現今的利率水準，光靠政府公債根本無法安全達成這個目標。建構一個能產生足夠殖利率、同時不承擔過高風險的分散式收益投資組合，是個人理財中最重要的課題之一。
 
-2. **Yield traps are everywhere.** The most dangerous mistake income investors make is chasing the highest yield without understanding the risks. A stock yielding 10% might look attractive until you realize the dividend is about to be cut or the stock price is declining to reflect deteriorating fundamentals. Understanding sustainable yield is the difference between reliable income and painful losses.
+2. **殖利率陷阱無所不在。** 收益型投資人最危險的錯誤，就是在不了解風險的情況下一味追逐最高殖利率。殖利率10%的股票看起來或許很吸引人，但若你發現股利即將遭到削減，或股價正因基本面惡化而持續下跌，吸引力就蕩然無存了。能夠判斷殖利率是否可持續，是穩定收益與慘痛虧損之間的關鍵差異。
 
-3. **Tax efficiency matters enormously for income.** Different types of income are taxed differently. Qualified dividends are taxed at preferential rates. Bond interest is taxed as ordinary income. Municipal bond interest is often tax-free. Option premiums have complex tax treatment. Constructing an income portfolio without considering taxes can cost you 30-40% of your income.
+3. **稅務效率對收益而言極為重要。** 不同類型的收益，適用的稅率也大相逕庭。合格股利享有優惠稅率；債券利息按一般所得課稅；市政公債利息通常免稅；選擇權權利金的稅務處理則相當複雜。若不考量稅務因素就建構收益投資組合，可能會損失30%至40%的收益。
 
-4. **Income needs change over time.** A 60-year-old retiree has different income needs than an 80-year-old. A 40-year-old seeking supplemental income has different requirements than a pension fund. Understanding how to balance current income with long-term growth ensures your portfolio serves you throughout your life.
+4. **收益需求會隨時間改變。** 60歲的退休人士與80歲的退休人士，對收益的需求截然不同；40歲尋求補充收入者的需求，也有別於退休基金。了解如何在當期收益與長期成長之間取得平衡，才能讓投資組合在你生命的各個階段持續發揮作用。
 
-5. **Multiple income sources provide resilience.** Relying on a single source of income -- all dividends, all bonds, or all rental income -- creates concentration risk. If dividend stocks cut their payments or bond issuers default, your income disappears. Diversifying across income sources creates a more resilient income stream.
+5. **多元收益來源提供韌性。** 僅仰賴單一收益來源——全部是股利、全部是債券，或全部是租金——會產生集中風險。一旦配息股削減配息或債券發行人違約，你的收益就會消失。分散不同收益來源，能打造出更具韌性的收益流。
 
-The framework we present here draws on decades of research on sustainable withdrawal rates, portfolio construction, and income optimization. By the end of this lesson, you will understand how to build an income portfolio tailored to your specific needs.
+我們在此提出的框架，融合了數十年來在永續提領率、投資組合建構與收益優化方面的研究成果。學完本課之後，你將了解如何根據自身需求量身打造一份收益型投資組合。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. Income Sources: A Comprehensive Overview
+#### 1. 收益來源：全面概覽
 
-There are many ways a portfolio can generate income. Each has different characteristics:
+投資組合產生收益的方式有很多種，每種方式各有不同特性：
 
-**Dividends:**
-
-```
-What:     Cash payments from companies to shareholders, typically
-          paid quarterly (US) or semi-annually (international).
-
-Types:
-  Regular dividends:    Routine quarterly payments
-  Special dividends:    One-time extraordinary payments
-  Qualified dividends:  Taxed at capital gains rates (15-20%)
-  Non-qualified:        Taxed as ordinary income (up to 37%)
-
-Typical Yields:
-  S&P 500 average:          ~1.3-1.7%
-  Dividend-focused stocks:  2.5-4.5%
-  High-dividend stocks:     4.0-7.0%
-  Utility stocks:           3.0-5.0%
-  REITs:                    3.0-8.0%
-
-Advantages:
-  + Potential for dividend growth over time
-  + Qualified dividends have favorable tax treatment
-  + Companies with long dividend histories tend to be stable
-  + Inflation protection through dividend growth
-
-Disadvantages:
-  - Dividends can be cut or eliminated
-  - High-dividend stocks may have limited growth potential
-  - Not guaranteed (unlike bond coupons)
-  - Subject to corporate earnings volatility
-```
-
-**Bond Coupons:**
+**股利：**
 
 ```
-What:     Regular interest payments from bond issuers to bondholders,
-          typically paid semi-annually.
+定義：     公司定期向股東支付的現金，美國通常為每季一次，
+           國際市場通常為每半年一次。
 
-Types:
-  Treasury bonds:       Backed by US government
-  Municipal bonds:      Issued by state/local governments
-  Corporate bonds (IG): Investment-grade companies
-  Corporate bonds (HY): High-yield (junk) bonds
-  TIPS:                 Inflation-adjusted Treasury bonds
+類型：
+  一般股利：   例行的每季配息
+  特別股利：   一次性的特殊配息
+  合格股利：   適用資本利得稅率（15-20%）
+  非合格股利： 按一般所得課稅（最高37%）
 
-Typical Yields (current approximate ranges):
-  Treasury bonds:       3.5-5.0%
-  Municipal bonds:      2.5-4.0% (tax-equivalent: 3.5-6.5%)
-  IG corporate bonds:   4.5-6.0%
-  HY corporate bonds:   6.0-9.0%
-  TIPS:                 1.5-2.5% (plus inflation adjustment)
+典型殖利率：
+  S&P 500平均：         約1.3-1.7%
+  配息導向股票：         2.5-4.5%
+  高股利股票：           4.0-7.0%
+  公用事業股票：         3.0-5.0%
+  不動產投資信託：       3.0-8.0%
 
-Advantages:
-  + Predictable income stream
-  + Legal obligation to pay (unlike dividends)
-  + Range of credit qualities available
-  + Municipal bond income often tax-free
+優點：
+  + 股利有潛力隨時間成長
+  + 合格股利享有優惠稅務待遇
+  + 擁有長期配息歷史的公司通常較為穩定
+  + 透過股利成長提供抗通膨保護
 
-Disadvantages:
-  - Fixed coupon does not grow with inflation (except TIPS)
-  - Interest rate risk (bond prices fall when rates rise)
-  - Credit risk (issuer may default)
-  - Taxed as ordinary income (except munis)
+缺點：
+  - 股利可能遭到削減或停止發放
+  - 高股利股票的成長潛力可能有限
+  - 非保證項目（不同於債券票面利率）
+  - 受企業盈餘波動性影響
 ```
 
-**Option Premiums:**
+**債券票面利率：**
 
 ```
-What:     Income earned by selling (writing) options contracts.
+定義：     債券發行人定期向持有人支付的利息，
+           通常為每半年一次。
 
-Common Strategies:
-  Covered calls:
-    - Own stock, sell call options against it
-    - Collect premium, give up upside beyond strike price
-    - Typical yield enhancement: 2-5% annually
+類型：
+  公債：          由美國政府擔保
+  市政公債：      由州或地方政府發行
+  投資等級公司債： 投資等級企業發行
+  高收益公司債：  高收益（垃圾）債券
+  通膨保值債券：  與通膨連動的公債
 
-  Cash-secured puts:
-    - Hold cash, sell put options
-    - Collect premium, agree to buy stock if it falls below strike
-    - Typical yield: 3-8% annually (depends on volatility)
+典型殖利率（目前概略區間）：
+  公債：            3.5-5.0%
+  市政公債：        2.5-4.0%（稅務等效：3.5-6.5%）
+  投資等級公司債：  4.5-6.0%
+  高收益公司債：    6.0-9.0%
+  通膨保值債券：    1.5-2.5%（加計通膨調整）
 
-  Put spreads:
-    - Sell put, buy lower-strike put for protection
-    - Limited risk, limited premium
-    - Typical yield: 2-4% annually
+優點：
+  + 收益流可預期
+  + 具法律強制性（不同於股利）
+  + 可選擇不同信用品質
+  + 市政公債收益通常免稅
 
-Typical Yields:
-  Conservative covered call strategies: 2-4% annually
-  Moderate strategies:                  4-8% annually
-  Aggressive strategies:                8-15% annually (higher risk)
-
-Advantages:
-  + Additional income on existing holdings
-  + Works in flat or mildly bullish markets
-  + Premium received is immediate cash
-  + Can enhance total return
-
-Disadvantages:
-  - Caps upside potential (covered calls)
-  - Obligation to buy if stock drops (puts)
-  - Complex tax treatment (short-term capital gains)
-  - Requires active management
-  - Not suitable for all investors
+缺點：
+  - 固定票面利率不隨通膨成長（通膨保值債券除外）
+  - 利率風險（利率上升時，債券價格下跌）
+  - 信用風險（發行人可能違約）
+  - 按一般所得課稅（市政公債除外）
 ```
 
-**REIT Distributions:**
+**選擇權權利金：**
 
 ```
-What:     REITs must distribute at least 90% of taxable income to
-          shareholders, resulting in higher yields than typical stocks.
+定義：     透過賣出（撰寫）選擇權合約所獲得的收益。
 
-Types:
-  Equity REITs:     Own and operate income-producing real estate
-  Mortgage REITs:   Invest in mortgages and mortgage-backed securities
-  Hybrid REITs:     Combination of equity and mortgage REIT activities
+常見策略：
+  掩護性買權：
+    - 持有股票，對其賣出買權
+    - 收取權利金，但放棄履約價以上的漲幅
+    - 典型年化增益收益：2-5%
 
-Typical Yields:
-  Equity REITs:     3.0-5.0%
-  Mortgage REITs:   8.0-14.0% (higher risk)
-  Specialty REITs:  3.0-6.0%
+  現金擔保賣權：
+    - 持有現金，賣出賣權
+    - 收取權利金，同意若股價跌破履約價時買入股票
+    - 典型殖利率：3-8%（視波動性而定）
 
-Advantages:
-  + High current yield (legally required distributions)
-  + Real estate exposure without direct ownership
-  + Professional management
-  + Liquidity (traded on exchanges)
-  + Inflation protection through rent increases
+  賣權價差：
+    - 賣出賣權，同時買入較低履約價賣權以提供保護
+    - 有限風險，有限權利金
+    - 典型殖利率：2-4%
 
-Disadvantages:
-  - Distributions mostly taxed as ordinary income
-  - Sensitive to interest rates
-  - Sector concentration risk
-  - Mortgage REITs can be very volatile
-  - REIT distributions may include return of capital (complex tax)
+典型殖利率：
+  保守型掩護性買權策略：  2-4%
+  中度策略：              4-8%
+  積極策略：              8-15%（風險較高）
+
+優點：
+  + 在現有持股基礎上增加收益
+  + 適用於盤整或溫和偏多的市場
+  + 收取的權利金為即時現金
+  + 可提升整體報酬
+
+缺點：
+  - 限制上漲潛力（掩護性買權）
+  - 股價下跌時有買入義務（賣權）
+  - 複雜的稅務處理（短期資本利得）
+  - 需要主動管理
+  - 並非適合所有投資人
 ```
 
-**Other Income Sources:**
+**不動產投資信託配息：**
 
 ```
-  MLPs (Master Limited Partnerships):
-    Yield: 5-10%, primarily from energy infrastructure
-    Tax: Complex (K-1 forms, return of capital, UBTI issues)
+定義：     不動產投資信託須將至少90%的應稅所得
+           分配給股東，因此殖利率通常高於一般股票。
 
-  Preferred Stock:
-    Yield: 4-7%, fixed dividend with priority over common stock
-    Tax: Often qualified dividends
+類型：
+  權益型不動產投資信託：  持有並經營可產生收益的不動產
+  抵押型不動產投資信託：  投資房貸及房貸抵押證券
+  複合型不動產投資信託：  兼具上述兩種活動
 
-  Closed-End Funds (CEFs):
-    Yield: 5-12%, may use leverage and return of capital
-    Tax: Varies by distribution type
+典型殖利率：
+  權益型不動產投資信託：  3.0-5.0%
+  抵押型不動產投資信託：  8.0-14.0%（風險較高）
+  特殊型不動產投資信託：  3.0-6.0%
 
-  Annuities:
-    Yield: Varies, guaranteed income for life (insurance product)
-    Tax: Gains taxed as ordinary income
+優點：
+  + 高當期殖利率（法律要求分配）
+  + 無需直接持有即可投資不動產
+  + 專業管理
+  + 流動性高（於交易所掛牌）
+  + 透過租金上漲提供抗通膨保護
 
-  Peer-to-Peer Lending:
-    Yield: 5-10%, direct lending to individuals/businesses
-    Tax: Ordinary income, high default risk
-
-  Dividend ETFs and Mutual Funds:
-    Yield: 2-5%, diversified dividend exposure
-    Tax: Pass-through of qualified and non-qualified dividends
+缺點：
+  - 配息大多按一般所得課稅
+  - 對利率敏感
+  - 類股集中風險
+  - 抵押型不動產投資信託波動性可能極大
+  - 配息可能包含資本返還（稅務處理複雜）
 ```
 
-#### 2. Yield vs. Total Return
-
-One of the most important concepts in income investing is the distinction between yield and total return. Many investors focus exclusively on yield and miss the bigger picture.
-
-**Defining the Terms:**
+**其他收益來源：**
 
 ```
-Yield = Annual Income / Current Price
-  Examples:
-    4% dividend yield = $4 per year on a $100 stock
-    5% bond yield = $50 per year on a $1,000 bond
+  有限合夥事業：
+    殖利率：5-10%，主要來自能源基礎設施
+    稅務：複雜（K-1表格、資本返還、無關業務應稅所得問題）
 
-Total Return = Income + Price Change
-  Examples:
-    Stock: 3% dividend yield + 7% price appreciation = 10% total return
-    Bond: 5% coupon yield - 2% price decline = 3% total return
+  特別股：
+    殖利率：4-7%，固定股利且優先於普通股
+    稅務：通常為合格股利
 
-Key Insight:
-  A 2% yield with 8% growth = 10% total return
-  A 6% yield with 0% growth = 6% total return
+  封閉型基金：
+    殖利率：5-12%，可能使用槓桿並包含資本返還
+    稅務：依配息類型而異
 
-  The lower-yielding portfolio actually generates more
-  wealth over time if total return is higher.
+  年金：
+    殖利率：不一，終身保證收益（保險商品）
+    稅務：利得按一般所得課稅
+
+  點對點借貸：
+    殖利率：5-10%，直接借貸給個人或企業
+    稅務：一般所得，違約風險高
+
+  股利型指數股票型基金及共同基金：
+    殖利率：2-5%，分散的股利曝險
+    稅務：合格與非合格股利的穿透課稅
 ```
 
-**The "Yield Trap":**
+#### 2. 殖利率與總報酬
+
+收益型投資中最重要的概念之一，是殖利率與總報酬的區別。許多投資人只專注於殖利率，卻忽略了更大的格局。
+
+**名詞定義：**
 
 ```
-Warning Signs of a Yield Trap:
+殖利率 = 年度收益 / 當前價格
+  範例：
+    4%股利殖利率 = 100美元股票每年配息4美元
+    5%債券殖利率 = 1,000美元債券每年配息50美元
 
-  [!] Yield significantly above sector average
-      (If utilities average 3.5% and one yields 8%, ask why)
+總報酬 = 收益 + 價格變動
+  範例：
+    股票：3%股利殖利率 + 7%價格漲幅 = 10%總報酬
+    債券：5%票面殖利率 - 2%價格跌幅 = 3%總報酬
 
-  [!] Payout ratio > 80% for stocks (or > 90% for REITs)
-      (Company may not be earning enough to sustain dividend)
+關鍵洞察：
+  殖利率2%加成長8% = 總報酬10%
+  殖利率6%加成長0% = 總報酬6%
 
-  [!] Declining stock price offsetting dividend income
-      (High yield is a symptom of price decline, not a feature)
-
-  [!] Declining earnings or cash flow
-      (The dividend is eating into the company's financial resources)
-
-  [!] Debt increasing to fund dividend payments
-      (Borrowing to pay dividends is unsustainable)
-
-  [!] Dividend history shows cuts or freezes
-      (Past behavior predicts future behavior)
-
-Example of a Yield Trap:
-  Stock price: $50 --> $25 (50% decline)
-  Annual dividend: $3/share
-  Original yield: 6% ($3/$50)
-  Current yield: 12% ($3/$25) -- looks "amazing"!
-
-  But the yield is high because the price crashed.
-  If the dividend gets cut to $1.50 (likely if business is deteriorating):
-    New yield: 6% ($1.50/$25)
-    Total loss: -47% price decline + meager income
+  若總報酬較高，殖利率較低的投資組合
+  實際上隨時間創造更多財富。
 ```
 
-**The Total Return Approach:**
+**「殖利率陷阱」：**
 
 ```
-Instead of maximizing yield, maximize total return and then
-"create" income as needed through systematic withdrawals.
+殖利率陷阱的警訊：
 
-Portfolio A (Yield-focused):
-  100% high-dividend stocks
-  Yield: 5%
-  Growth: 2%
-  Total return: 7%
-  Income from $1M: $50,000/year
-  After 10 years: portfolio grows to ~$1.19M (with 2% growth)
+  [!] 殖利率顯著高於類股平均
+      （若公用事業平均殖利率3.5%，某檔卻達8%，務必追問原因）
 
-Portfolio B (Total return):
-  60% growth stocks, 40% bonds
-  Yield: 2%
-  Growth: 6%
-  Total return: 8%
-  Income from $1M: $20,000 + $30,000 systematic withdrawal = $50,000
-  After 10 years: portfolio grows to ~$1.34M (with 6% growth,
-                  minus withdrawals, roughly estimated)
+  [!] 股票的配息率超過80%（或不動產投資信託超過90%）
+      （公司獲利可能不足以維持股利）
 
-Portfolio B generates the same income but preserves more capital.
-The total return approach is often superior, especially after taxes.
+  [!] 股價持續下跌，抵消股利收益
+      （高殖利率是股價下跌的結果，而非優勢）
+
+  [!] 盈餘或現金流持續下滑
+      （股利正在侵蝕公司財務資源）
+
+  [!] 舉債支付股利
+      （借錢發放股利，長期難以為繼）
+
+  [!] 股利歷史顯示曾遭削減或凍結
+      （過去的行為預示未來的行為）
+
+殖利率陷阱範例：
+  股價：50美元 --> 25美元（跌幅50%）
+  年度股利：每股3美元
+  原始殖利率：6%（3/50）
+  當前殖利率：12%（3/25）——看似「驚人」！
+
+  但殖利率高，是因為股價崩跌。
+  若股利被削減至1.5美元（業務惡化時極可能發生）：
+    新殖利率：6%（1.50/25）
+    總損失：-47%資本損失 + 微薄收益
 ```
 
-#### 3. Sustainable Withdrawal Rates
-
-The concept of sustainable withdrawal rates answers the fundamental question: "How much can I take from my portfolio each year without running out of money?"
-
-**The 4% Rule (William Bengen, 1994):**
+**總報酬方法：**
 
 ```
-The Original Research:
-  - Studied US market data from 1926-1992
-  - Found that a 4% initial withdrawal rate, adjusted for inflation
-    each year, survived at least 30 years in every historical period
-  - Assumed a 50/50 stock/bond portfolio
+與其最大化殖利率，不如最大化總報酬，
+再透過有計畫的定期提領「自創」收益。
 
-How It Works:
-  Year 1: Withdraw 4% of initial portfolio value
-    Portfolio: $1,000,000
-    Withdrawal: $40,000
+投資組合A（殖利率導向）：
+  100%高股利股票
+  殖利率：5%
+  成長率：2%
+  總報酬：7%
+  100萬美元年度收益：50,000美元
+  10年後：組合成長至約119萬美元（以2%成長計）
 
-  Year 2: Adjust year 1 withdrawal for inflation
-    If inflation = 3%: $40,000 x 1.03 = $41,200
-    (Note: this is 4% of the ORIGINAL value, adjusted for inflation,
-     NOT 4% of the current portfolio value)
+投資組合B（總報酬導向）：
+  60%成長股，40%債券
+  殖利率：2%
+  成長率：6%
+  總報酬：8%
+  100萬美元年度收益：20,000元自然收益 + 30,000元定期提領 = 50,000美元
+  10年後：組合成長至約134萬美元（以6%成長計，
+          扣除提領後粗略估算）
 
-  Year 3: Adjust again
-    $41,200 x 1.03 = $42,436
-
-  Continue for 30 years.
+投資組合B產生相同收益，但保留更多資本。
+總報酬方法往往更為優越，尤其在考量稅務之後。
 ```
 
-**Updated Research and Alternative Withdrawal Rates:**
+#### 3. 永續提領率
+
+永續提領率的概念回答了一個根本問題：「我每年可以從投資組合中提取多少，才不至於花光所有資產？」
+
+**4%法則（William Bengen，1994年）：**
 
 ```
-Scenario              | Suggested Rate | Notes
-----------------------|---------------|---------------------------
-Very conservative     | 3.0 - 3.3%   | 40+ year horizon, global stocks
-Conservative          | 3.5%          | 35-year horizon, diversified
-Moderate (classic)    | 4.0%          | 30-year horizon, 50/50 portfolio
-Moderate-aggressive   | 4.5%          | 25-year horizon, strong markets
-Aggressive            | 5.0%+         | 20-year horizon, higher risk
+原始研究：
+  - 研究1926至1992年美國市場數據
+  - 發現以4%為初始提領率，每年依通膨調整，
+    在所有歷史情境下至少可維持30年
+  - 假設50/50的股票/債券投資組合
 
-Factors That Affect Safe Withdrawal Rate:
+運作方式：
+  第1年：提領初始投資組合價值的4%
+    投資組合：1,000,000美元
+    提領金額：40,000美元
 
-  Higher safe rate:               Lower safe rate:
-  + Shorter time horizon          - Longer time horizon
-  + Flexible spending             - Fixed spending needs
-  + Social Security/pension       - No other income sources
-  + Willingness to work part-time - Complete retirement
-  + Lower portfolio fees          - Higher portfolio fees
-  + Tax-efficient structure       - Tax-inefficient structure
-  + Moderate inflation            - High or volatile inflation
+  第2年：依通膨調整第1年的提領金額
+    若通膨率 = 3%：40,000 x 1.03 = 41,200美元
+    （注意：這是原始金額依通膨調整，
+     並非當前投資組合價值的4%）
+
+  第3年：再次調整
+    41,200 x 1.03 = 42,436美元
+
+  持續進行30年。
 ```
 
-**Dynamic Withdrawal Strategies:**
+**最新研究與替代提領率：**
 
 ```
-Strategy 1: Guardrails (Guyton-Klinger)
-  Start at 5% withdrawal rate
-  If portfolio grows >20% above starting value:
-    Increase withdrawal by 10%
-  If portfolio drops >20% below starting value:
-    Decrease withdrawal by 10%
-  Result: Higher initial income, but varies with markets
+情境          | 建議提領率    | 備註
+-------------|-------------|---------------------------
+極度保守      | 3.0 - 3.3%  | 40年以上時間軸，全球股票
+保守          | 3.5%        | 35年時間軸，分散配置
+中度（傳統）  | 4.0%        | 30年時間軸，50/50投資組合
+中度積極      | 4.5%        | 25年時間軸，強勁市場
+積極          | 5.0%以上    | 20年時間軸，較高風險
 
-Strategy 2: Percentage of Portfolio
-  Withdraw a fixed percentage (e.g., 4%) of current portfolio
-  value each year
-  Pro: Can never run out of money
-  Con: Income fluctuates with market
+影響安全提領率的因素：
 
-Strategy 3: Bucket Strategy
-  Bucket 1 (Years 1-3): Cash and short-term bonds
-    Purpose: Immediate income, protected from market volatility
-  Bucket 2 (Years 4-10): Intermediate bonds, dividend stocks
-    Purpose: Moderate growth and income
-  Bucket 3 (Years 11+): Growth stocks, equity funds
-    Purpose: Long-term growth to refill buckets 1 and 2
-
-  Psychologically appealing because near-term spending
-  is protected from market downturns.
-
-Strategy 4: Income Floor + Upside
-  Build a "floor" of guaranteed income:
-    Social Security + pension + TIPS ladder + annuity
-  Invest remaining assets for growth:
-    Diversified equity portfolio
-  Draw from growth portfolio only when markets are favorable
+  提高安全提領率：              降低安全提領率：
+  + 較短的時間軸               - 較長的時間軸
+  + 支出具彈性                 - 支出固定
+  + 勞保/退休金等其他收益來源  - 無其他收益來源
+  + 願意兼職工作               - 完全退休
+  + 投資組合費用較低           - 投資組合費用較高
+  + 稅務效率較高的結構         - 稅務效率較低的結構
+  + 通膨溫和                   - 通膨高漲或波動劇烈
 ```
 
-#### 4. Income Portfolio Construction
-
-Building an income portfolio requires balancing several competing objectives:
+**動態提領策略：**
 
 ```
-Objectives:
-  1. Sufficient current income
-  2. Income growth (to keep up with inflation)
-  3. Capital preservation
-  4. Diversification across income sources
-  5. Tax efficiency
-  6. Liquidity for unexpected needs
-  7. Simplicity (manageable number of holdings)
+策略一：護欄法（Guyton-Klinger）
+  以5%的提領率為起點
+  若投資組合成長超過初始價值20%以上：
+    增加10%的提領金額
+  若投資組合跌破初始價值20%以上：
+    減少10%的提領金額
+  結果：初始收益較高，但隨市場波動
+
+策略二：固定比率提領法
+  每年提領當前投資組合價值的固定比率（例如4%）
+  優點：資產永不歸零
+  缺點：收益隨市場波動
+
+策略三：分桶策略
+  第一桶（第1-3年）：現金與短期債券
+    目的：即時收益，不受市場波動影響
+  第二桶（第4-10年）：中期債券、配息股票
+    目的：中度成長與收益
+  第三桶（第11年以後）：成長股、股票型基金
+    目的：長期成長，用以補充第一桶與第二桶
+
+  心理上特別吸引人，因為近期支出
+  不受市場下跌的影響。
+
+策略四：收益基底 + 上漲潛力
+  建立保證收益的「基底」：
+    社會安全福利 + 退休金 + 通膨保值債券梯型組合 + 年金
+  將剩餘資產投入成長：
+    分散式股票投資組合
+  僅在市場條件有利時，才從成長型投資組合提領
 ```
 
-**Core Principles:**
+#### 4. 收益型投資組合的建構
+
+建構收益型投資組合，需要在幾個相互競爭的目標之間取得平衡：
 
 ```
-Principle 1: Diversify income sources
-  Do not rely on a single type of income.
-  Mix dividends, bond coupons, REIT distributions, and
-  possibly option premiums.
-
-Principle 2: Match duration to time horizon
-  Near-term income needs (1-5 years): short-term bonds, cash
-  Medium-term (5-15 years): intermediate bonds, dividend stocks
-  Long-term (15+ years): growth stocks, equity funds
-
-Principle 3: Do not sacrifice total return for yield
-  A 3% yield with 5% growth beats a 6% yield with 0% growth
-  over any time horizon longer than about 7 years.
-
-Principle 4: Build in growth
-  Even in retirement, you need some growth to offset inflation.
-  A 100% bond portfolio is not "safe" if inflation erodes
-  your purchasing power.
-
-Principle 5: Maintain a cash buffer
-  Keep 6-12 months of expenses in cash or very short-term bonds.
-  This prevents you from selling investments at distressed prices
-  during market downturns.
-
-Principle 6: Rebalance systematically
-  Rebalance by spending from overweight asset classes.
-  This naturally maintains your target allocation.
+目標：
+  1. 足夠的當期收益
+  2. 收益成長（以跟上通膨）
+  3. 資本保全
+  4. 分散不同收益來源
+  5. 稅務效率
+  6. 應對突發需求的流動性
+  7. 簡潔性（可管理的持倉數量）
 ```
 
-**Asset Allocation for Income by Age/Stage:**
+**核心原則：**
 
 ```
-Early Accumulation (25-45):
-  Focus: Total return, not income
-  Stocks: 80-90%
-  Bonds: 10-20%
-  Cash: minimal
-  Income yield: 1-2% (incidental, not targeted)
+原則一：分散收益來源
+  不要仰賴單一類型的收益。
+  混搭股利、債券票面利率、不動產投資信託配息，
+  以及可能的選擇權權利金。
 
-Late Accumulation (45-60):
-  Focus: Transitioning toward income
-  Stocks: 60-70% (shifting toward dividend payers)
-  Bonds: 25-35%
-  Cash: 5%
-  Income yield: 2-3%
+原則二：讓存續期間與時間軸相符
+  近期收益需求（1-5年）：短期債券、現金
+  中期（5-15年）：中期債券、配息股票
+  長期（15年以上）：成長股、股票型基金
 
-Early Retirement (60-75):
-  Focus: Sustainable income + moderate growth
-  Dividend stocks: 25-35%
-  Bonds (mixed): 30-40%
-  REITs: 5-10%
-  Growth stocks: 10-20%
-  Cash: 5-10%
-  Income yield: 3-4%
+原則三：不為追求殖利率而犧牲總報酬
+  殖利率3%加成長5%，在任何超過約7年的時間軸上，
+  都優於殖利率6%加成長0%。
 
-Late Retirement (75+):
-  Focus: Reliable income + capital preservation
-  Dividend stocks: 15-25%
-  Bonds (shorter duration): 40-50%
-  REITs: 5-10%
-  Cash: 10-15%
-  Growth stocks: 5-10%
-  Income yield: 3.5-5%
+原則四：納入成長要素
+  即使在退休期間，你也需要一定的成長來抵禦通膨。
+  100%債券投資組合若通膨侵蝕購買力，並不代表「安全」。
+
+原則五：維持現金緩衝
+  以現金或極短期債券保留6至12個月的生活費用。
+  這能防止你在市場下跌時，被迫以低廉的價格賣出投資。
+
+原則六：有系統地進行再平衡
+  透過從比重過高的資產類別中提取收益，實現再平衡。
+  這自然地維持你的目標配置。
 ```
 
-#### 5. Balancing Yield with Growth
-
-The tension between yield and growth is central to income portfolio management.
-
-**The Dividend Growth Framework:**
+**依年齡/階段劃分的收益型資產配置：**
 
 ```
-Strategy: Buy companies with moderate yields but strong
-          dividend growth rates.
+累積初期（25-45歲）：
+  重點：總報酬，而非收益
+  股票：80-90%
+  債券：10-20%
+  現金：極少
+  收益殖利率：1-2%（附帶而非刻意追求）
 
-Example Comparison Over 20 Years:
+累積後期（45-60歲）：
+  重點：逐步轉向收益導向
+  股票：60-70%（逐漸轉向配息股）
+  債券：25-35%
+  現金：5%
+  收益殖利率：2-3%
 
-  Stock A: "High Yield, Low Growth"
-    Current yield: 5%
-    Dividend growth: 2%/year
-    Starting dividend: $50/share ($1,000 investment)
+退休初期（60-75歲）：
+  重點：永續收益 + 中度成長
+  配息股票：25-35%
+  債券（多元組合）：30-40%
+  不動產投資信託：5-10%
+  成長股：10-20%
+  現金：5-10%
+  收益殖利率：3-4%
 
-    Year 1: $50.00    Year 10: $60.95    Year 20: $74.30
-    Yield on original cost at Year 20: 7.4%
-    Cumulative dividends received: $1,215
+退休後期（75歲以上）：
+  重點：可靠收益 + 資本保全
+  配息股票：15-25%
+  債券（較短存續期間）：40-50%
+  不動產投資信託：5-10%
+  現金：10-15%
+  成長股：5-10%
+  收益殖利率：3.5-5%
+```
 
-  Stock B: "Moderate Yield, High Growth"
-    Current yield: 2%
-    Dividend growth: 10%/year
-    Starting dividend: $20/share ($1,000 investment)
+#### 5. 平衡殖利率與成長
 
-    Year 1: $20.00    Year 10: $51.87    Year 20: $134.55
-    Yield on original cost at Year 20: 13.5%
-    Cumulative dividends received: $1,146
+殖利率與成長之間的張力，是收益型投資組合管理的核心議題。
 
-  After Year 13, Stock B's annual dividend exceeds Stock A's.
-  By Year 20, Stock B pays nearly double.
-  And Stock B's share price likely appreciated far more as well.
+**股利成長框架：**
+
+```
+策略：買入殖利率適中但股利成長率強勁的公司。
+
+20年比較範例：
+
+  股票A：「高殖利率，低成長」
+    當前殖利率：5%
+    股利成長率：每年2%
+    起始股利：每股50美元（投資1,000美元）
+
+    第1年：$50.00   第10年：$60.95   第20年：$74.30
+    第20年的原始投資成本殖利率：7.4%
+    累計已收股利：$1,215美元
+
+  股票B：「中等殖利率，高成長」
+    當前殖利率：2%
+    股利成長率：每年10%
+    起始股利：每股20美元（投資1,000美元）
+
+    第1年：$20.00   第10年：$51.87   第20年：$134.55
+    第20年的原始投資成本殖利率：13.5%
+    累計已收股利：$1,146美元
+
+  第13年之後，股票B的年度股利超越股票A。
+  到第20年，股票B的配息幾乎是股票A的兩倍。
+  而且股票B的股價漲幅可能也遠遠超過股票A。
 ```
 
 ```
-The Dividend Growth Sweet Spot:
+股利成長的最佳甜蜜點：
 
-  Yield   | Growth | Characteristic           | Example Sectors
-  --------|--------|--------------------------|------------------
-  1-2%    | 12-20% | High growth, low income  | Tech, Healthcare
-  2-3%    | 8-12%  | SWEET SPOT               | Industrials, Financials
-  3-4%    | 4-8%   | Balanced                 | Consumer Staples
-  4-6%    | 0-4%   | High income, low growth  | Utilities, Telecoms
-  6%+     | 0% or  | Yield trap territory     | Distressed companies
-          | negative|                          |
+  殖利率  | 成長率  | 特性              | 範例類股
+  --------|--------|-------------------|------------------
+  1-2%    | 12-20% | 高成長，低收益     | 科技、醫療保健
+  2-3%    | 8-12%  | 甜蜜點             | 工業、金融
+  3-4%    | 4-8%   | 平衡型             | 民生消費
+  4-6%    | 0-4%   | 高收益，低成長     | 公用事業、電信
+  6%以上  | 0%或   | 殖利率陷阱領域     | 基本面惡化的公司
+          | 負成長 |                   |
 ```
 
-**The Dividend Aristocrats:**
+**股利貴族：**
 
 ```
-What: S&P 500 companies that have increased dividends for
-      25+ consecutive years.
+定義：S&P 500中連續25年以上提高股利的公司。
 
-Why They Matter:
-  - Track record demonstrates commitment and ability to pay
-  - Average yield: ~2.5% (moderate)
-  - Average dividend growth: ~7% per year
-  - Historically lower volatility than S&P 500
-  - Strong balance sheets (necessary to maintain streak)
+重要性：
+  - 歷史紀錄證明其配息的意願與能力
+  - 平均殖利率：約2.5%（中等）
+  - 平均股利成長率：每年約7%
+  - 歷史波動性低於S&P 500
+  - 強健的資產負債表（維持紀錄的必要條件）
 
-Notable Dividend Aristocrats (as of recent data):
-  Company          | Consecutive Years | Yield  | Sector
-  -----------------|-------------------|--------|------------------
-  Procter & Gamble | 68+               | ~2.5%  | Consumer Staples
-  Coca-Cola        | 62+               | ~3.0%  | Consumer Staples
-  Johnson & Johnson| 62+               | ~2.8%  | Healthcare
-  3M               | 65+               | ~5.5%  | Industrial
-  Walmart          | 50+               | ~1.4%  | Consumer Staples
-  Target           | 56+               | ~2.8%  | Consumer Discret.
-  Exxon Mobil      | 41+               | ~3.3%  | Energy
+近期知名股利貴族（資料截至近期）：
+  公司             | 連續年數 | 殖利率  | 類股
+  -----------------|---------|--------|------------------
+  寶僑             | 68年以上 | 約2.5% | 民生消費
+  可口可樂         | 62年以上 | 約3.0% | 民生消費
+  嬌生             | 62年以上 | 約2.8% | 醫療保健
+  3M               | 65年以上 | 約5.5% | 工業
+  沃爾瑪           | 50年以上 | 約1.4% | 民生消費
+  塔吉特           | 56年以上 | 約2.8% | 非必需消費
+  艾克森美孚       | 41年以上 | 約3.3% | 能源
 ```
 
-#### 6. Tax Implications of Income
+#### 6. 收益的稅務影響
 
-Tax treatment varies dramatically across income types. Proper tax planning can add 1-2% to your effective after-tax income.
+不同收益類型的稅務處理差異懸殊。適當的稅務規劃，可以為你的實際稅後收益增加1至2個百分點。
 
-**Tax Treatment by Income Type:**
+**依收益類型劃分的稅務處理：**
 
 ```
-Income Type          | Tax Treatment               | Rate (2024)
+收益類型              | 稅務處理                    | 稅率（2024年）
 ---------------------|-----------------------------|--------------
-Qualified Dividends  | Preferential capital gains  | 0/15/20%
-Non-Qualified Divs   | Ordinary income             | 10-37%
-Bond Interest        | Ordinary income             | 10-37%
-Municipal Bond Int.  | Federal tax-free            | 0% (usually)
-Treasury Bond Int.   | State/local tax-free        | Federal only
-REIT Distributions   | Mostly ordinary income      | 10-37%
-                     | (20% QBI deduction may apply)|
-Option Premiums      | Short-term capital gains    | 10-37%
-MLP Distributions    | Return of capital (deferred)| Complex
-Capital Gains (LT)   | Preferential rate           | 0/15/20%
-Social Security      | Up to 85% taxable           | Varies
-Annuity Income       | Ordinary income (gains)     | 10-37%
+合格股利              | 優惠資本利得稅率             | 0/15/20%
+非合格股利            | 一般所得稅率                 | 10-37%
+債券利息              | 一般所得稅率                 | 10-37%
+市政公債利息          | 聯邦免稅                     | 0%（通常）
+公債利息              | 州/地方免稅                  | 僅課聯邦稅
+不動產投資信託配息    | 大多按一般所得課稅           | 10-37%
+                      | （可能適用20%合格商業所得扣除）|
+選擇權權利金          | 短期資本利得                 | 10-37%
+有限合夥事業配息      | 資本返還（遞延課稅）         | 複雜
+長期資本利得          | 優惠稅率                     | 0/15/20%
+社會安全福利          | 最高85%須課稅                | 視情況而定
+年金收益              | 一般所得（利得部分）         | 10-37%
 ```
 
-**Tax-Efficient Account Placement:**
+**稅務效率帳戶配置：**
 
 ```
-Tax-Advantaged Accounts (IRA, 401k, Roth):
-  Best for: High-tax income
-  Put here:
-    - Taxable bonds (interest taxed as ordinary income)
-    - REITs (distributions taxed as ordinary income)
-    - High-turnover strategies (frequent trading)
-    - Non-qualified dividends
+稅務優惠帳戶（個人退休帳戶、401k、羅斯帳戶）：
+  最適合：高稅率收益
+  放入此處：
+    - 應稅債券（利息按一般所得課稅）
+    - 不動產投資信託（配息按一般所得課稅）
+    - 高周轉率策略（頻繁交易）
+    - 非合格股利
 
-Taxable Brokerage Accounts:
-  Best for: Tax-efficient income
-  Put here:
-    - Qualified dividend stocks (lower tax rate)
-    - Municipal bonds (tax-free income)
-    - Long-term growth stocks (defer capital gains)
-    - Tax-managed funds
+應稅券商帳戶：
+  最適合：稅務效率較高的收益
+  放入此處：
+    - 合格股利股票（較低稅率）
+    - 市政公債（稅務免稅收益）
+    - 長期成長股（遞延資本利得）
+    - 稅務管理型基金
 
-Roth IRA/Roth 401k (if available):
-  Best for: Highest growth potential
-  Put here:
-    - Growth stocks (all gains tax-free at withdrawal)
-    - High-yield bonds (interest tax-free at withdrawal)
-    - REITs (distributions tax-free at withdrawal)
+羅斯個人退休帳戶/羅斯401k（如可使用）：
+  最適合：最高成長潛力
+  放入此處：
+    - 成長股（提領時所有利得完全免稅）
+    - 高收益債券（提領時利息完全免稅）
+    - 不動產投資信託（提領時配息完全免稅）
 ```
 
-**Tax-Equivalent Yield Calculation:**
+**稅務等效殖利率計算：**
 
 ```
-When comparing municipal bonds to taxable bonds:
+比較市政公債與應稅債券時：
 
-  Tax-Equivalent Yield = Municipal Yield / (1 - Tax Rate)
+  稅務等效殖利率 = 市政公債殖利率 / (1 - 稅率)
 
-  Example at 37% federal tax bracket:
-    Municipal bond yield: 3.5%
-    Tax-equivalent yield: 3.5% / (1 - 0.37) = 5.56%
+  以37%聯邦稅率為例：
+    市政公債殖利率：3.5%
+    稅務等效殖利率：3.5% / (1 - 0.37) = 5.56%
 
-    You would need a taxable bond yielding 5.56% to match
-    the after-tax income from a 3.5% municipal bond.
+    你需要應稅債券殖利率超過5.56%，
+    才能在稅後與3.5%的市政公債相媲美。
 
-  For investors in high-tax states (CA, NY, NJ):
-    Combined federal + state rate may exceed 50%
-    Tax-equivalent yield: 3.5% / (1 - 0.50) = 7.0%
+  對高稅率州（如加州、紐約、紐澤西州）的投資人而言：
+    聯邦加州稅率合計可能超過50%
+    稅務等效殖利率：3.5% / (1 - 0.50) = 7.0%
 
-    State-specific municipal bonds provide both federal AND
-    state tax exemption, further increasing the tax advantage.
+    特定州的市政公債同時提供聯邦與州稅豁免，
+    進一步擴大稅務優勢。
 ```
 
-#### 7. Sample Income Portfolios
+#### 7. 收益型投資組合範例
 
-Here are sample portfolios for different income needs and risk profiles:
+以下是針對不同收益需求與風險偏好的投資組合範例：
 
-**Portfolio 1: Conservative Income (Low Risk)**
-
-```
-Target: 3.5-4.0% yield, minimal volatility
-Suitable for: Late retirees, very risk-averse investors
-
-Allocation:
-  35% - Short/Intermediate Treasury Bonds    | Yield: ~4.0%
-  20% - Investment-Grade Corporate Bonds     | Yield: ~5.0%
-  15% - Municipal Bonds (if taxable account) | Yield: ~3.5% (tax-free)
-  15% - Dividend Aristocrat Stocks           | Yield: ~2.5%
-  10% - TIPS (Inflation Protected)           | Yield: ~2.0% + inflation
-   5% - Cash/Money Market                    | Yield: ~4.5%
-
-Weighted Portfolio Yield: ~3.7%
-Income from $1M: ~$37,000/year
-Growth Potential: Low (1-3% per year)
-Risk Level: Low
-Inflation Protection: Moderate (TIPS + dividend growth)
-```
-
-**Portfolio 2: Balanced Income (Moderate Risk)**
+**投資組合一：保守型收益（低風險）**
 
 ```
-Target: 3.5-4.5% yield, moderate growth
-Suitable for: Early retirees, moderate risk tolerance
+目標：殖利率3.5-4.0%，波動性極小
+適合：退休後期、極度厭惡風險的投資人
 
-Allocation:
-  25% - Dividend Growth Stocks (Aristocrats) | Yield: ~2.5%
-  20% - Investment-Grade Corporate Bonds     | Yield: ~5.0%
-  15% - High-Yield Corporate Bonds           | Yield: ~7.0%
-  10% - Equity REITs                         | Yield: ~4.0%
-  10% - International Dividend Stocks        | Yield: ~3.5%
-  10% - Treasury/TIPS Bonds                  | Yield: ~3.5%
-   5% - Preferred Stock                      | Yield: ~5.5%
-   5% - Cash/Money Market                    | Yield: ~4.5%
+配置：
+  35% - 短/中期公債              | 殖利率：約4.0%
+  20% - 投資等級公司債           | 殖利率：約5.0%
+  15% - 市政公債（如使用應稅帳戶）| 殖利率：約3.5%（免稅）
+  15% - 股利貴族股票             | 殖利率：約2.5%
+  10% - 通膨保值債券             | 殖利率：約2.0% + 通膨調整
+   5% - 現金/貨幣市場            | 殖利率：約4.5%
 
-Weighted Portfolio Yield: ~4.1%
-Income from $1M: ~$41,000/year
-Growth Potential: Moderate (3-5% per year)
-Risk Level: Moderate
-Inflation Protection: Good (dividend growth + TIPS + REIT rent growth)
+加權投資組合殖利率：約3.7%
+100萬美元年度收益：約37,000美元
+成長潛力：低（每年1-3%）
+風險等級：低
+抗通膨保護：中等（通膨保值債券 + 股利成長）
 ```
 
-**Portfolio 3: Growth + Income (Moderate-High Risk)**
+**投資組合二：平衡型收益（中度風險）**
 
 ```
-Target: 2.5-3.5% yield + capital appreciation
-Suitable for: Late accumulators, early retirees with pension
+目標：殖利率3.5-4.5%，中度成長
+適合：退休初期、中等風險承受度的投資人
 
-Allocation:
-  30% - Dividend Growth Stocks               | Yield: ~2.0%
-  15% - Growth Stocks (lower/no dividend)     | Yield: ~0.5%
-  15% - Investment-Grade Corporate Bonds      | Yield: ~5.0%
-  10% - International Equity (mixed)          | Yield: ~2.5%
-  10% - Equity REITs                          | Yield: ~4.0%
-  10% - High-Yield Bonds                      | Yield: ~7.0%
-   5% - Covered Call ETF                      | Yield: ~8.0%
-   5% - Cash/Money Market                     | Yield: ~4.5%
+配置：
+  25% - 股利成長股（貴族）       | 殖利率：約2.5%
+  20% - 投資等級公司債           | 殖利率：約5.0%
+  15% - 高收益公司債             | 殖利率：約7.0%
+  10% - 權益型不動產投資信託     | 殖利率：約4.0%
+  10% - 國際配息股票             | 殖利率：約3.5%
+  10% - 公債/通膨保值債券        | 殖利率：約3.5%
+   5% - 特別股                   | 殖利率：約5.5%
+   5% - 現金/貨幣市場            | 殖利率：約4.5%
 
-Weighted Portfolio Yield: ~3.2%
-Income from $1M: ~$32,000/year
-Growth Potential: Moderate-High (4-6% per year)
-Risk Level: Moderate-High
-Inflation Protection: Strong (equity exposure + REIT growth)
+加權投資組合殖利率：約4.1%
+100萬美元年度收益：約41,000美元
+成長潛力：中等（每年3-5%）
+風險等級：中等
+抗通膨保護：良好（股利成長 + 通膨保值債券 + 不動產投資信託租金成長）
 ```
 
-**Portfolio 4: Maximum Income (Higher Risk)**
+**投資組合三：成長兼收益（中高風險）**
 
 ```
-Target: 5.0-7.0% yield
-Suitable for: Investors prioritizing current income, shorter horizons
+目標：殖利率2.5-3.5% + 資本增值
+適合：累積後期、有退休金的退休初期投資人
 
-Allocation:
-  20% - High-Yield Corporate Bonds           | Yield: ~7.0%
-  20% - High-Dividend Stocks                 | Yield: ~5.0%
-  15% - Equity REITs                         | Yield: ~4.5%
-  10% - Preferred Stock                      | Yield: ~5.5%
-  10% - Mortgage REITs                       | Yield: ~10.0%
-  10% - Covered Call / Option Income ETFs    | Yield: ~8.0%
-   5% - MLPs / Energy Infrastructure         | Yield: ~7.0%
-   5% - Emerging Market Bonds                | Yield: ~6.5%
-   5% - Cash/Money Market                    | Yield: ~4.5%
+配置：
+  30% - 股利成長股              | 殖利率：約2.0%
+  15% - 成長股（低股利或無股利） | 殖利率：約0.5%
+  15% - 投資等級公司債           | 殖利率：約5.0%
+  10% - 國際股票（混合）         | 殖利率：約2.5%
+  10% - 權益型不動產投資信託     | 殖利率：約4.0%
+  10% - 高收益債券               | 殖利率：約7.0%
+   5% - 掩護性買權指數股票型基金 | 殖利率：約8.0%
+   5% - 現金/貨幣市場            | 殖利率：約4.5%
 
-Weighted Portfolio Yield: ~6.2%
-Income from $1M: ~$62,000/year
-Growth Potential: Low (0-2% per year)
-Risk Level: Higher (income may not be sustainable in stress)
-Inflation Protection: Weak (limited growth to offset inflation)
-
-WARNING: Higher-yield portfolios face significant risks:
-  - Dividend/coupon cuts during recessions
-  - Credit defaults in HY and EM bonds
-  - mREIT dividend cuts in rate-volatile environments
-  - Limited growth to offset purchasing power erosion
+加權投資組合殖利率：約3.2%
+100萬美元年度收益：約32,000美元
+成長潛力：中高（每年4-6%）
+風險等級：中高
+抗通膨保護：強（股票曝險 + 不動產投資信託成長）
 ```
 
-**Portfolio Construction Checklist:**
+**投資組合四：最大化收益（較高風險）**
 
 ```
-Before finalizing your income portfolio:
+目標：殖利率5.0-7.0%
+適合：優先考量當期收益、時間軸較短的投資人
 
-  [ ] Income meets your spending needs (with margin of safety)
-  [ ] Diversified across at least 3-4 income sources
-  [ ] No single position > 5% of portfolio
-  [ ] No single sector > 25% of portfolio
-  [ ] Cash buffer of 6-12 months of expenses
-  [ ] Tax-efficient placement (right assets in right accounts)
-  [ ] Growth component to offset inflation (at least 20% in equities)
-  [ ] Stress-tested: what happens if yields drop 20%?
-  [ ] Withdrawal rate is sustainable (below 4-5%)
-  [ ] Reviewed and rebalanced at least annually
+配置：
+  20% - 高收益公司債              | 殖利率：約7.0%
+  20% - 高股利股票                | 殖利率：約5.0%
+  15% - 權益型不動產投資信託      | 殖利率：約4.5%
+  10% - 特別股                    | 殖利率：約5.5%
+  10% - 抵押型不動產投資信託      | 殖利率：約10.0%
+  10% - 掩護性買權/選擇權收益型指數股票型基金 | 殖利率：約8.0%
+   5% - 有限合夥事業/能源基礎設施  | 殖利率：約7.0%
+   5% - 新興市場債券              | 殖利率：約6.5%
+   5% - 現金/貨幣市場             | 殖利率：約4.5%
+
+加權投資組合殖利率：約6.2%
+100萬美元年度收益：約62,000美元
+成長潛力：低（每年0-2%）
+風險等級：較高（在壓力情境下，收益可能難以為繼）
+抗通膨保護：弱（成長有限，難以抵消通膨）
+
+警告：高殖利率投資組合面臨重大風險：
+  - 經濟衰退時股利/票息遭到削減
+  - 高收益及新興市場債券信用違約
+  - 利率劇烈波動時抵押型不動產投資信託大幅削減股利
+  - 成長有限，購買力隨時間侵蝕
+```
+
+**投資組合建構確認清單：**
+
+```
+在完成你的收益型投資組合之前，請確認：
+
+  [ ] 收益足以涵蓋你的支出需求（含安全邊際）
+  [ ] 至少分散至3-4種收益來源
+  [ ] 單一持倉不超過投資組合的5%
+  [ ] 單一類股不超過投資組合的25%
+  [ ] 現金緩衝相當於6至12個月的生活費用
+  [ ] 稅務有效配置（正確的資產放在正確的帳戶）
+  [ ] 納入成長要素以抵禦通膨（至少20%配置於股票）
+  [ ] 壓力測試：若殖利率下降20%，結果如何？
+  [ ] 提領率可持續（低於4-5%）
+  [ ] 至少每年審查並進行再平衡
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "A high yield means a good income investment."**
+**迷思一：「高殖利率代表好的收益型投資。」**
 
-High yield is often a warning sign, not an advantage. When a stock's yield is significantly above its sector average, it usually means the stock price has fallen (pushing the yield up mathematically) because the market expects a dividend cut. Similarly, very high-yielding bonds reflect elevated credit risk. The best income investments often have moderate yields (2-4%) combined with reliable dividend growth. A stock yielding 2.5% that grows its dividend 8% per year will produce more income than a 6% yielder with no growth within about 8 years.
+高殖利率通常是警訊，而非優勢。當一檔股票的殖利率顯著高於類股平均時，通常意味著股價已經下跌（從數學上推高殖利率），因為市場預期股利將遭削減。同樣地，極高殖利率的債券反映的是較高的信用風險。最佳的收益型投資，往往具備適中的殖利率（2至4%）並伴隨可靠的股利成長。一檔殖利率2.5%、每年股利成長8%的股票，在大約8年後將產生比殖利率6%、零成長的股票更多的收益。
 
-**Misconception 2: "Bonds are safe."**
+**迷思二：「債券很安全。」**
 
-Bonds are safer than stocks in terms of credit priority (bondholders get paid before stockholders in bankruptcy), but they are not risk-free. Long-term bonds can lose 20-30% of their value in a rising rate environment, as 2022 demonstrated. High-yield bonds can default. Even Treasury bonds carry inflation risk -- if inflation exceeds the coupon, you are losing purchasing power. Bond "safety" depends on the type, duration, and credit quality of the specific bonds.
+就信用優先順序而言，債券確實比股票更安全（破產時，債券持有人比股東優先受償），但債券並非毫無風險。長期債券在利率上升的環境中可能損失20至30%的價值，2022年已充分印證了這一點。高收益債券可能發生違約。即使是公債也承擔通膨風險——若通膨超過票面利率，你的購買力實際上是在縮水。債券的「安全性」取決於特定債券的類型、存續期間和信用品質。
 
-**Misconception 3: "I should only invest for income when I am close to retirement."**
+**迷思三：「只有在接近退休時，才應該投資收益型工具。」**
 
-Building an income-generating portfolio is a skill that takes time to develop. Starting to incorporate dividend-growth stocks and bonds in your 40s or 50s gives you time to build positions, learn from experience, and benefit from compounding dividend growth. A stock you buy at a 2% yield in your 40s might yield 5-6% on your original cost by the time you retire, thanks to dividend growth.
+建構收益型投資組合是一門需要時間培養的技能。從40至50多歲就開始納入股利成長股和債券，讓你有時間建立部位、從經驗中學習，並受益於股利成長的複利效應。你在40多歲以2%殖利率買入的股票，到退休時可能因股利成長而以原始成本計算達到5至6%的殖利率。
 
-**Misconception 4: "The 4% rule guarantees I will not run out of money."**
+**迷思四：「4%法則保證我不會花光錢。」**
 
-The 4% rule was based on historical US market data during one of the best periods for financial markets in human history. It does not account for high fees, poor diversification, behavioral mistakes (panic selling), or the possibility that future returns may be lower than historical averages. It is a useful guideline, not a guarantee. Many financial planners now recommend 3-3.5% as a safer starting point, especially for early retirees with 40+ year horizons.
+4%法則的研究基礎，是人類金融史上最輝煌時期之一的美國市場歷史數據。它沒有考量高費用、分散不足、行為失誤（恐慌性賣出），或未來報酬可能低於歷史平均值的可能性。它是一個有用的參考準則，而非保證。許多財務規劃師現在建議以3至3.5%作為更安全的起點，尤其是對時間軸長達40年以上的提早退休者而言。
 
-**Misconception 5: "Covered call writing is free money."**
+**迷思五：「撰寫掩護性買權等於免費的錢。」**
 
-Covered calls generate income, but they cap your upside. If the stock rises sharply above your strike price, you miss out on significant gains. Over time, the premium income you collect may not fully compensate for the upside you sacrifice, especially in strong bull markets. Covered calls work best in flat to mildly bullish markets. In strong bull markets, they underperform. In bear markets, the premium provides limited downside protection. They are a tool, not a magic income generator.
+掩護性買權能產生收益，但同時限制了你的上漲空間。若股價大幅超過履約價，你將錯失可觀的利得。長期下來，你收取的權利金收益，未必能完全補償你放棄的上漲空間，在強勁多頭市場中尤其如此。掩護性買權在盤整至溫和偏多的市場中效果最佳；在強勁多頭市場中表現落後；在空頭市場中，權利金提供的下檔保護也相當有限。它是一種工具，而非魔法收益產生器。
 
-**Misconception 6: "Municipal bonds are only for wealthy investors."**
+**迷思六：「市政公債只適合富裕投資人。」**
 
-While municipal bonds offer the most tax benefit to high-income investors (who pay the highest marginal tax rates), they can make sense for anyone in the 22%+ federal tax bracket, especially in high-tax states. The key is the tax-equivalent yield calculation. If a muni bond yielding 3.5% has a tax-equivalent yield of 5%+ in your tax bracket, and comparable taxable bonds yield less than 5%, the muni is the better deal regardless of your net worth.
+雖然市政公債對高收入投資人（支付最高邊際稅率者）的稅務優惠最大，但只要你的聯邦稅率達22%以上，尤其在高稅率州，市政公債都可能是合理的選擇。關鍵在於稅務等效殖利率的計算。若殖利率3.5%的市政公債，在你的稅率級距下有超過5%的稅務等效殖利率，而同等級的應稅債券殖利率不足5%，那無論你的資產規模大小，市政公債都是更划算的選擇。
 
-**Misconception 7: "I need a huge portfolio to generate meaningful income."**
+**迷思七：「我需要龐大的投資組合，才能產生有意義的收益。」**
 
-While a larger portfolio obviously generates more income, even modest portfolios can produce meaningful supplemental income. A $200,000 portfolio yielding 4% generates $8,000 per year -- enough to cover several months of essential expenses. Combined with Social Security, a pension, or part-time work, a smaller income portfolio can make a significant difference. The principles of diversification and sustainability apply regardless of portfolio size.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I decide between individual bonds and bond funds?**
-
-A: Individual bonds offer certainty -- if you hold to maturity and the issuer does not default, you get your principal back plus all coupon payments. This "maturity guarantee" does not exist with bond funds, which have no maturity date and fluctuate in value. However, bond funds offer diversification, professional management, liquidity, and accessibility (you can invest small amounts). For most investors with less than $500,000 allocated to bonds, funds or ETFs make more sense. For larger allocations, a ladder of individual bonds can provide the certainty of maturity while maintaining diversification.
-
-**Q2: How do I build a bond ladder?**
-
-A: A bond ladder involves buying bonds with staggered maturities. For example, buy bonds maturing in 1, 2, 3, 4, and 5 years. When the 1-year bond matures, reinvest the proceeds in a new 5-year bond. This creates a rolling portfolio with predictable income and regular reinvestment opportunities. If rates rise, you reinvest maturing bonds at higher rates. If rates fall, you still benefit from the higher rates locked in on longer-dated bonds. Ladders work well with Treasury bonds, CDs, or investment-grade corporate bonds.
-
-**Q3: What is the ideal number of dividend stocks for an income portfolio?**
-
-A: For adequate diversification, aim for 20-40 individual stocks across at least 8-10 sectors. With fewer than 15 stocks, a single dividend cut can significantly impact your income. With more than 50, you are essentially creating your own index fund and might be better served by an ETF. Many income investors hold a core position in dividend ETFs (for broad diversification) supplemented by 10-15 individual stocks they know well.
-
-**Q4: How do I evaluate whether a dividend is sustainable?**
-
-A: Check these metrics: (1) Payout ratio -- dividends divided by earnings should ideally be below 60% for most companies (below 80% for utilities and REITs). (2) Free cash flow coverage -- dividends divided by free cash flow should be below 70%. (3) Dividend growth history -- companies that have grown dividends consistently for 10+ years are less likely to cut. (4) Debt levels -- highly leveraged companies may cut dividends to service debt. (5) Industry stability -- cyclical industries (energy, materials) have less reliable dividends than defensive ones (staples, healthcare).
-
-**Q5: Should I reinvest dividends during retirement?**
-
-A: It depends on your income needs. If your dividends and other income exceed your spending needs, reinvesting the excess allows your portfolio to continue growing. If you need all the income for spending, take the cash. A middle-ground approach: reinvest dividends in your tax-advantaged accounts (where they grow tax-free) and take dividends as cash in your taxable accounts (where you would owe tax on reinvested dividends anyway).
-
-**Q6: How do covered call ETFs work?**
-
-A: Covered call ETFs (like QYLD, XYLD, or JEPI) hold a portfolio of stocks and systematically sell call options against them. The option premiums generate income, which is distributed to shareholders. The trade-off is reduced upside potential. These ETFs typically yield 7-12% but may lag in bull markets because the options cap gains. They perform best in flat or mildly rising markets. Be aware that much of the income may be classified as return of capital or short-term capital gains, which are tax-inefficient.
-
-**Q7: What happens to my income portfolio during a recession?**
-
-A: Expect some disruption. During a typical recession: 5-10% of high-yield bonds may default, some companies cut dividends, REIT distributions may decline, and option premiums increase (higher volatility). However, a well-diversified income portfolio should weather a recession with modest income reduction (10-20%), not catastrophic failure. The key is having a cash buffer (6-12 months of expenses) so you do not have to sell investments at depressed prices to fund spending.
-
-**Q8: Are annuities a good income tool?**
-
-A: Annuities can be appropriate for some investors but come with significant trade-offs. Fixed annuities provide guaranteed income for life, eliminating longevity risk (the risk of outliving your money). However, they typically offer lower returns than self-managed portfolios, lock up your capital (reducing flexibility), and the income usually does not grow with inflation. Consider an annuity for a portion of your income "floor" -- covering essential expenses -- while investing the remainder for growth. Never put your entire portfolio into an annuity.
-
-**Q9: How does Social Security factor into income portfolio planning?**
-
-A: Social Security is like a high-quality inflation-indexed bond. It provides guaranteed, inflation-adjusted income for life. When planning your income portfolio, first calculate your expected Social Security benefit (available at ssa.gov). Then determine the gap between your Social Security income and your total spending needs. Your investment portfolio only needs to cover this gap. This means you can potentially take less risk in your portfolio, or afford a lower portfolio yield, than you might think. Delaying Social Security to age 70 (which increases the benefit by about 8% per year from age 62) is often one of the best "investments" a retiree can make.
-
-**Q10: How often should I review and rebalance my income portfolio?**
-
-A: Review at least annually, with a more thorough review when personal circumstances change (retirement, health events, large expenses). Rebalance when allocations drift more than 5 percentage points from targets. However, for income portfolios, "rebalance by spending" -- take income from the most overweight asset class. This naturally brings the portfolio back toward target allocations without triggering unnecessary transactions or taxes. Also review individual holdings if a company cuts its dividend, downgrades its credit, or shows fundamental deterioration.
+投資組合規模越大，當然能產生越多收益，但即使是規模適中的投資組合，也能產生相當可觀的補充收益。殖利率4%的20萬美元投資組合，每年可產生8,000美元——足以涵蓋幾個月的基本生活費用。加上勞保年金、退休金或兼職工作，規模較小的收益型投資組合也能帶來顯著的差異。分散投資與永續性的原則，無論投資組合規模大小，都同樣適用。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問題一：我該如何在個別債券和債券型基金之間做選擇？**
+
+答：個別債券提供確定性——若持有至到期日且發行人未違約，你將收回本金及所有票息。這種「到期保障」在債券型基金中並不存在，因為基金沒有到期日，價值也會隨時波動。然而，債券型基金提供分散投資、專業管理、流動性，以及可及性（可以較小金額投入）。對大多數將50萬美元以下資金配置於債券的投資人而言，基金或指數股票型基金是更合理的選擇。對於較大規模的配置，梯形個別債券組合能在維持分散投資的同時，提供到期確定性。
+
+**問題二：我該如何建立債券梯型組合？**
+
+答：債券梯型組合是指買入到期日錯開的債券。例如，分別買入1年、2年、3年、4年和5年到期的債券。當1年期債券到期時，將所得再投入新的5年期債券。如此形成一個滾動式投資組合，提供可預期的收益和定期再投入的機會。若利率上升，你可以在較高利率下再投入到期資金；若利率下降，你仍可受惠於長期債券鎖定的較高利率。梯形組合特別適合搭配公債、定存單或投資等級公司債使用。
+
+**問題三：收益型投資組合中，持有個別配息股票的理想數量是多少？**
+
+答：為了充分分散投資，目標是持有跨至少8至10個類股的20至40檔個別股票。若持股少於15檔，單一股票削減股利就可能顯著影響你的收益。若持股超過50檔，你基本上是在自行建立指數基金，或許改用指數股票型基金更為妥當。許多收益型投資人以股利型指數股票型基金為核心持倉（提供廣泛分散），輔以10至15檔自己熟悉的個別股票。
+
+**問題四：我該如何評估股利是否可持續？**
+
+答：請確認以下幾項指標：（1）配息率——股利除以盈餘，大多數公司理想上應低於60%（公用事業和不動產投資信託低於80%）。（2）自由現金流覆蓋率——股利除以自由現金流應低於70%。（3）股利成長歷史——連續10年以上持續成長股利的公司，較不可能削減配息。（4）負債水準——高度財務槓桿的公司可能削減股利以償還債務。（5）產業穩定性——週期性產業（能源、原材料）的股利可靠性不如防禦性產業（民生消費、醫療保健）。
+
+**問題五：退休後應該將股利再投入嗎？**
+
+答：這取決於你的收益需求。若股利及其他收益超過你的支出需求，將多餘部分再投入可讓投資組合持續成長。若你需要全部收益用於日常開支，則以現金收取。折中方案：在稅務優惠帳戶中再投入股利（收益在其中免稅增長），在應稅帳戶中以現金收取（再投入的股利同樣須繳稅，以現金收取更為直接）。
+
+**問題六：掩護性買權型指數股票型基金是如何運作的？**
+
+答：掩護性買權型指數股票型基金（如QYLD、XYLD或JEPI）持有股票投資組合，並系統性地對其賣出買權。選擇權的權利金產生收益，並分配給股東。代價是上漲潛力受到限制。這類指數股票型基金通常殖利率達7至12%，但在多頭市場中可能落後，因為選擇權限制了利得。它們在盤整或溫和上漲的市場中表現最佳。請注意，其中許多收益可能被歸類為資本返還或短期資本利得，稅務效率較低。
+
+**問題七：我的收益型投資組合在經濟衰退期間會怎樣？**
+
+答：預期會出現一些波動。典型的經濟衰退期間：5至10%的高收益債券可能違約，部分公司削減股利，不動產投資信託配息可能減少，選擇權權利金則因波動性上升而增加。然而，一個充分分散的收益型投資組合，應能度過衰退並僅出現適度的收益下滑（10至20%），而非災難性的崩潰。關鍵在於備有現金緩衝（6至12個月的生活費用），這樣你就不必以低廉的價格賣出投資來支應日常開支。
+
+**問題八：年金是好的收益工具嗎？**
+
+答：年金對某些投資人而言可能是合適的選擇，但伴隨著重大取捨。固定年金提供終身保證收益，消除長壽風險（活得比錢長的風險）。然而，它們通常提供的報酬低於自行管理的投資組合，鎖定你的資本（降低彈性），而且收益通常不隨通膨成長。考慮將年金用於覆蓋「基本收益底線」的一部分——用於支付必要生活費用——其餘資產則繼續投資成長。切勿將整個投資組合全部投入年金。
+
+**問題九：社會安全福利在收益型投資組合規劃中扮演什麼角色？**
+
+答：社會安全福利就像是一種高品質的通膨連動債券。它提供終身保證、依通膨調整的收益。在規劃收益型投資組合時，首先計算你預期的社會安全福利金額（可在ssa.gov查詢），再確認社會安全福利與總支出需求之間的缺口，你的投資組合只需填補這個缺口即可。這意味著，你可能可以在投資組合中承擔比你預想的更低的風險，或是接受更低的投資組合殖利率。將社會安全福利延遲至70歲領取（從62歲起每延後一年，給付金額約增加8%），往往是退休人士能做出的最佳「投資」之一。
+
+**問題十：我應該多久審查並再平衡一次收益型投資組合？**
+
+答：至少每年審查一次，當個人狀況出現重大變化時（退休、健康事件、大額支出），進行更為全面的審查。當各類資產配置偏離目標超過5個百分點時，進行再平衡。然而，對於收益型投資組合，「透過提領進行再平衡」是更好的方法——從比重過高的資產類別中提取收益，這自然地讓投資組合回歸目標配置，無需觸發不必要的交易或稅務負擔。若有公司削減股利、信用評級被調降，或基本面出現惡化跡象，也應及時審查相關個別持倉。
+
+---
+
+## YouTube腳本
 
 ---
 
 **[VISUAL: Title card -- "Week 36: Building an Income-Generating Portfolio" with income streams flowing from different asset class icons into a central portfolio]**
 
-**Alex:** Welcome back. Over the past few weeks, we have covered credit analysis, interest rate sensitivity, and financial statement analysis. Today, we are getting very practical. We are building an income-generating portfolio from scratch.
+**Horace：** 歡迎回來。過去幾週，我們已經涵蓋了信用分析、利率敏感性，以及財務報表分析。今天，我們要非常實際地來操作——從零開始建構一個收益型投資組合。
 
-**Sam:** This is probably the most requested topic from our audience. Everyone wants to know how to generate income from their investments.
+**Stella：** 這應該是我們節目中最多觀眾詢問的主題。大家都想知道如何從投資中產生收益。
 
-**Alex:** And for good reason. Whether you are retired and living off your portfolio, or working and looking for passive income, the ability to build a sustainable income portfolio is one of the most valuable skills in investing.
+**Horace：** 這是有原因的。無論你是靠投資組合生活的退休人士，還是在職並尋求被動收入的上班族，建構永續收益型投資組合的能力，是投資中最有價值的技能之一。
 
-**Sam:** So where do we start?
+**Stella：** 那我們從哪裡開始？
 
-**Alex:** Let us start by mapping out all the ways a portfolio can generate income. Most people only think of dividends and bond interest, but there are actually quite a few sources.
+**Horace：** 讓我們先來梳理投資組合產生收益的所有方式。大多數人只想到股利和債券利息，但其實收益來源相當多元。
 
 **[VISUAL: Mind map showing income sources: Dividends, Bond Coupons, REIT Distributions, Option Premiums, MLP Distributions, Preferred Stock Dividends, with yield ranges for each]**
 
-**Alex:** Dividends from stocks, typically yielding 1.5 to 5 percent. Bond coupons, yielding 3.5 to 9 percent depending on credit quality. REIT distributions, yielding 3 to 8 percent for equity REITs, up to 14 percent for mortgage REITs. Option premiums from covered call strategies, adding 2 to 5 percent. Preferred stock, yielding 4 to 7 percent. And MLPs from energy infrastructure, yielding 5 to 10 percent.
+**Horace：** 股票股利，殖利率通常在1.5%至5%之間。債券票息，依信用品質不同，殖利率介於3.5%至9%。不動產投資信託配息，權益型不動產投資信託殖利率3%至8%，抵押型不動產投資信託最高可達14%。掩護性買權策略的選擇權權利金，可增加2%至5%的報酬。特別股殖利率4%至7%。能源基礎設施有限合夥事業，殖利率5%至10%。
 
-**Sam:** Wow, that is a lot of options. I imagine they are not all created equal?
+**Stella：** 哇，選擇還真不少。我猜這些收益來源的品質並不完全相同吧？
 
-**Alex:** Not at all. And this brings us to the single most important concept in income investing -- the distinction between yield and total return.
+**Horace：** 當然不同。這就帶我們來到收益型投資中最重要的概念——殖利率與總報酬的區別。
 
-**Sam:** What is the difference?
+**Stella：** 兩者有什麼差異？
 
-**Alex:** Yield is just the income divided by the price. Total return is income plus price change. Here is why this matters.
+**Horace：** 殖利率只是收益除以價格；總報酬是收益加上價格變動。讓我說明這為什麼很重要。
 
 **[ANIMATION: Reference animation/week36_income_sources.py -- Animated comparison of two portfolio paths over 20 years. Portfolio A starts with a 5% yield and 2% growth (total return 7%). Portfolio B starts with a 2% yield and 6% growth (total return 8%). The animation shows year-by-year income and portfolio value. By year 13, Portfolio B's annual income exceeds Portfolio A's. By year 20, Portfolio B generates nearly double the income and the portfolio value is significantly larger.]**
 
-**Alex:** Imagine two portfolios. Portfolio A yields 5% with 2% growth -- a total return of 7%. Portfolio B yields 2% with 6% growth -- a total return of 8%. In year one, Portfolio A generates more income. But by around year 13, Portfolio B's income catches up and surpasses it. By year 20, Portfolio B is generating nearly double the income, and the portfolio itself is worth far more.
+**Horace：** 想像兩個投資組合。投資組合A殖利率5%、成長率2%——總報酬7%。投資組合B殖利率2%、成長率6%——總報酬8%。第一年，投資組合A產生的收益較多。但到了第13年左右，投資組合B的收益就迎頭趕上並超越前者。到第20年，投資組合B產生的收益幾乎是投資組合A的兩倍，而且投資組合本身的價值也遠遠高得多。
 
-**Sam:** So chasing the highest yield can actually leave you with less income over time?
+**Stella：** 所以說，追逐最高殖利率，反而可能讓你長期收益更少？
 
-**Alex:** Exactly. This is the power of dividend growth investing. A company with a moderate yield but strong and growing dividends will produce more income over time than a high-yielding company with no growth.
+**Horace：** 正是。這就是股利成長投資的力量所在。一家股利適中但持續穩定成長的公司，長期下來產生的收益，將會超越高殖利率卻停滯不前的公司。
 
-**Sam:** But what if I need the income right now? I cannot wait 13 years.
+**Stella：** 但如果我現在就需要收益呢？我沒辦法等13年。
 
-**Alex:** Good point. That is where the total return approach comes in. You can build a portfolio optimized for total return and then create your own income through systematic withdrawals -- selling small amounts periodically. As long as your withdrawal rate is sustainable, you get the income you need while preserving more capital for the future.
+**Horace：** 這是個好問題。這就是總報酬方法的用武之地。你可以建構一個以總報酬為優化目標的投資組合，再透過定期有計畫的部分提領，為自己創造收益。只要提領率可持續，你就能獲得所需的收益，同時保留更多的資本供未來使用。
 
 **[VISUAL: Side-by-side comparison -- "Yield-focused" portfolio ($50K income, $1.19M after 10 years) vs. "Total return" portfolio ($50K income through partial withdrawals, $1.34M after 10 years)]**
 
-**Sam:** That makes sense. But it leads to the big question -- how much can you withdraw sustainably?
+**Stella：** 這很有道理。但這就引出了一個大哉問——你能永續地提領多少？
 
-**Alex:** This is one of the most studied questions in personal finance. The famous "4% rule" comes from research by William Bengen in 1994.
+**Horace：** 這是個人理財中研究最深入的問題之一。著名的「4%法則」來自William Bengen於1994年發表的研究。
 
-**Sam:** The 4% rule -- I have heard of this but never fully understood it.
+**Stella：** 4%法則——我聽說過，但從來沒有完全搞懂它。
 
-**Alex:** It says that if you withdraw 4% of your portfolio in year one, then adjust that dollar amount for inflation each year, your portfolio should survive at least 30 years based on historical US market returns with a 50-50 stock-bond mix.
+**Horace：** 它的意思是：若你在第一年提領投資組合的4%，之後每年依通膨調整該金額，根據歷史上美國市場50/50股債組合的數據，你的投資組合至少可以維持30年。
 
 **[VISUAL: Visual timeline showing how the 4% rule works -- $1M portfolio, year 1 withdrawal of $40K, year 2 adjusted for 3% inflation to $41.2K, continuing for 30 years]**
 
-**Alex:** But here is the important caveat -- this was based on the best-performing stock market in human history: the US from 1926 to 1992. It also does not account for high fees, taxes, or behavioral mistakes like panic selling.
+**Horace：** 但有一個重要的注意事項——這是基於人類歷史上表現最優異的股市：1926至1992年的美國市場。它也沒有考量高費用、稅務，或恐慌性賣出等行為失誤。
 
-**Sam:** So should I use 4% or something different?
+**Stella：** 那我應該用4%，還是其他數字？
 
-**Alex:** Many planners now recommend 3 to 3.5% for early retirees with 40-plus year horizons. For shorter horizons, 4 to 4.5% may be fine. The right number depends on your time horizon, flexibility, other income sources, and risk tolerance.
+**Horace：** 許多規劃師現在建議，時間軸達40年以上的提早退休者，應採用3%至3.5%的提領率。對於較短的時間軸，4%至4.5%可能就足夠了。正確的數字取決於你的時間軸、支出彈性、其他收益來源，以及風險承受度。
 
-**Sam:** What about more dynamic approaches?
+**Stella：** 有沒有更動態靈活的方法？
 
-**Alex:** There are several. The guardrails approach starts at a higher withdrawal rate, maybe 5%, but requires you to cut spending if the portfolio drops significantly and allows you to increase spending if it rises significantly. The bucket strategy divides your portfolio into three buckets.
+**Horace：** 有幾種。護欄法以較高的提領率起步，或許是5%，但要求你在投資組合大幅下跌時削減支出，並允許在投資組合大幅成長時增加支出。分桶策略則是將投資組合分成三個桶子。
 
 **[VISUAL: Three-bucket diagram -- Bucket 1 (Years 1-3): Cash and short-term bonds for immediate income. Bucket 2 (Years 4-10): Intermediate bonds and dividend stocks. Bucket 3 (Years 11+): Growth stocks for long-term refilling.]**
 
-**Alex:** Bucket 1 holds 2 to 3 years of expenses in cash and short-term bonds. This is your immediate spending money, protected from market volatility. Bucket 2 holds intermediate-term investments that will refill Bucket 1 in a few years. Bucket 3 holds growth investments that refill Bucket 2 over the longer term.
+**Horace：** 第一桶以現金和短期債券存放2至3年的生活費用，作為你的即時支出來源，不受市場波動影響。第二桶持有中期投資，幾年後用來補充第一桶。第三桶持有成長型投資，長期用來補充第二桶。
 
-**Sam:** I like that psychologically. Even if the stock market crashes, I know my next three years of spending are safe in cash.
+**Stella：** 這個方法在心理上很有吸引力。即使股市崩跌，我知道未來三年的支出已經安全地放在現金裡了。
 
-**Alex:** Exactly. It prevents the panic selling that destroys so many retirement portfolios.
+**Horace：** 正是。這能避免那種在大跌時恐慌賣出、摧毀無數退休投資組合的行為。
 
-**Sam:** OK, let us talk about the actual yield trap. How do I avoid it?
+**Stella：** 好，讓我們來聊聊殖利率陷阱。我該如何避免它？
 
-**Alex:** The yield trap is one of the most dangerous pitfalls in income investing. It works like this: a company's business deteriorates, the stock price falls, and the mathematical yield goes up because you are dividing the same dividend by a lower price. Investors see the high yield and buy, thinking they are getting a great deal. Then the dividend gets cut, the stock falls further, and they are left with both lower income and a capital loss.
+**Horace：** 殖利率陷阱是收益型投資最危險的陷阱之一。它的運作方式是這樣的：一家公司的業務惡化，股價下跌，而因為你用同樣的股利除以更低的股價，殖利率從數學上升高了。投資人看到高殖利率，以為撿到便宜，買了進去。結果股利遭削減，股價進一步下跌，他們不但收益銳減，還落得資本損失。
 
 **[VISUAL: Yield trap example -- Stock drops from $50 to $25, yield "doubles" from 6% to 12%, then dividend is cut 50%, actual yield returns to 6% but investor has lost 50% of capital]**
 
-**Sam:** How do I tell the difference between a genuinely high-yielding stock and a yield trap?
+**Stella：** 那我如何分辨一檔股票究竟是真正的高殖利率，還是殖利率陷阱？
 
-**Alex:** Several warning signs. The payout ratio -- dividends divided by earnings -- should be below 60% for most companies. If it is above 80%, the company is paying out almost everything it earns, leaving no margin for error. Check if earnings and cash flow are growing or declining. Look at the debt level -- if the company is borrowing to fund its dividend, that is a red flag. And compare the yield to sector peers. If one utility yields 3.5% and another yields 8%, there is a reason the market is pricing that higher risk into the second one.
+**Horace：** 有幾個警訊。配息率——股利除以盈餘——對大多數公司而言，最好低於60%（公用事業和不動產投資信託低於80%）。若超過80%，代表公司幾乎把所有盈餘都拿去配息，毫無餘裕。檢視盈餘和現金流是成長還是衰退。關注負債水準——若公司在舉債維持股利，那是紅旗。將殖利率與類股同業比較。若某家公用事業殖利率3.5%，另一家卻達8%，市場之所以給出這麼高的殖利率，一定有其風險理由。
 
-**Sam:** What about dividends versus bond interest from a tax perspective?
+**Stella：** 那從稅務角度來看，股利和債券利息有什麼不同？
 
-**Alex:** This is huge and often overlooked. Qualified dividends from US stocks are taxed at 0, 15, or 20 percent depending on your income bracket. Bond interest is taxed as ordinary income at your marginal tax rate, which could be as high as 37%. Municipal bond interest is usually completely tax-free at the federal level and often at the state level too.
+**Horace：** 這是重大差異，卻常常被忽視。美國股票的合格股利，依你的所得級距課徵0%、15%或20%的稅。債券利息按一般所得稅率課稅，最高可達37%。市政公債利息通常在聯邦層面完全免稅，在州稅層面也常常如此。
 
 **[VISUAL: Tax comparison chart showing after-tax income on $10,000 of each type: qualified dividends, bond interest, muni bond interest, and REIT distributions, for an investor in the 32% tax bracket]**
 
-**Alex:** This means a 3.5% municipal bond might actually deliver more after-tax income than a 5.5% corporate bond for someone in a high tax bracket. The tax-equivalent yield formula makes this comparison precise.
+**Horace：** 這意味著，對高稅率級距的投資人而言，殖利率3.5%的市政公債，稅後收益實際上可能超過殖利率5.5%的公司債。稅務等效殖利率公式讓這個比較更加精確。
 
-**Sam:** How does it work?
+**Stella：** 公式怎麼算？
 
-**Alex:** Tax-equivalent yield equals the muni yield divided by one minus your tax rate. So if you are in the 37% bracket, a 3.5% muni has a tax-equivalent yield of 3.5 divided by 0.63, which is 5.56%. You would need a taxable bond yielding more than 5.56% to beat that muni after taxes.
+**Horace：** 稅務等效殖利率等於市政公債殖利率除以（1減去稅率）。以37%稅率為例，3.5%的市政公債，稅務等效殖利率為3.5除以0.63，等於5.56%。你需要應稅債券殖利率超過5.56%，稅後收益才能與這檔市政公債相媲美。
 
-**Sam:** That is a big difference. What about account placement -- which assets go in which account?
+**Stella：** 差別真的很大。那帳戶配置呢——哪些資產應該放在哪個帳戶？
 
-**Alex:** Great question. Put tax-inefficient income -- bond interest, REIT distributions, and non-qualified dividends -- inside tax-advantaged accounts like IRAs and 401ks, where the tax is deferred or eliminated. Put tax-efficient income -- qualified dividends and municipal bonds -- in your taxable brokerage account. And put your highest-growth assets in Roth accounts, where all gains and income are tax-free.
+**Horace：** 好問題。稅務效率低的收益——債券利息、不動產投資信託配息、非合格股利——放入稅務優惠帳戶，如個人退休帳戶和401k，稅款在其中得以遞延或消除。稅務效率高的收益——合格股利和市政公債——放入應稅券商帳戶。成長潛力最高的資產放入羅斯帳戶，所有利得和收益提領時均完全免稅。
 
 **[VISUAL: Three-column layout showing Taxable Account, Traditional IRA/401k, and Roth IRA, with optimal asset types listed under each]**
 
-**Sam:** That is smart. You are essentially placing each asset where it receives the most favorable tax treatment.
+**Stella：** 這很聰明。你是在讓每種資產都放到稅務處理最有利的地方。
 
-**Alex:** Exactly. This asset location strategy can add 0.5 to 1.0 percent to your after-tax returns annually. Over a 30-year retirement, that adds up to hundreds of thousands of dollars.
+**Horace：** 正是。這種資產地點策略，每年可以為你的稅後報酬增加0.5至1個百分點。30年的退休期間下來，積累的差異可能高達數十萬美元。
 
-**Sam:** Let us look at some concrete portfolio examples. What does a conservative income portfolio look like?
+**Stella：** 我們來看一些具體的投資組合範例吧。一個保守型的收益型投資組合長什麼樣子？
 
-**Alex:** For a conservative investor -- someone prioritizing stability and reliable income above all else -- I would suggest something like this.
+**Horace：** 對於保守型投資人——將穩定性和可靠收益置於首位的人——我會建議類似這樣的配置。
 
 **[ANIMATION: Reference animation/week36_income_sources.py -- Animated pie chart assembling a conservative income portfolio piece by piece: 35% short/intermediate Treasuries, 20% IG corporate bonds, 15% municipal bonds, 15% Dividend Aristocrat stocks, 10% TIPS, 5% cash. As each slice appears, its yield and characteristics are displayed. The total weighted yield calculates to approximately 3.7%.]**
 
-**Alex:** Thirty-five percent in Treasury bonds for safety. Twenty percent in investment-grade corporate bonds for a yield pickup. Fifteen percent in municipal bonds for tax-free income. Fifteen percent in Dividend Aristocrat stocks for income growth. Ten percent in TIPS for inflation protection. And 5% in cash as a buffer.
+**Horace：** 35%的公債，提供安全保障。20%的投資等級公司債，追求更高的殖利率。15%的市政公債，享有免稅收益。15%的股利貴族股票，提供收益成長。10%的通膨保值債券，對抗通膨。5%的現金作為緩衝。
 
-**Sam:** What is the total yield?
+**Stella：** 總殖利率是多少？
 
-**Alex:** About 3.7%, or $37,000 per year on a million-dollar portfolio. The growth potential is modest -- maybe 1 to 3 percent per year -- but the income is reliable and the portfolio should hold up well in recessions.
+**Horace：** 大約3.7%，也就是100萬美元的投資組合每年產生約3.7萬美元。成長潛力較為有限，每年大約1至3%，但收益可靠，投資組合在經濟衰退中應有相當的抗壓性。
 
-**Sam:** And for someone willing to take more risk for more income?
+**Stella：** 那如果有人願意承擔更多風險，以換取更高收益呢？
 
-**Alex:** A balanced income portfolio might look like this: 25% Dividend Aristocrats, 20% investment-grade bonds, 15% high-yield bonds, 10% REITs, 10% international dividend stocks, 10% Treasuries and TIPS, 5% preferred stock, 5% cash. That gets you to about a 4.1% yield with better growth potential.
+**Horace：** 平衡型收益投資組合可能看起來像這樣：25%股利貴族股，20%投資等級債券，15%高收益債券，10%不動產投資信託，10%國際配息股，10%公債和通膨保值債券，5%特別股，5%現金。這樣可以達到約4.1%的殖利率，並擁有更好的成長潛力。
 
 **[VISUAL: Pie chart of balanced income portfolio with yield and growth characteristics]**
 
-**Alex:** For maximum income seekers, you can push yields to 6% or higher by adding mortgage REITs, covered call ETFs, MLPs, and more high-yield bonds. But I want to be very clear about the risks.
+**Horace：** 對於追求最大化收益的投資人，可以透過增加抵押型不動產投資信託、掩護性買權型指數股票型基金、有限合夥事業和更多高收益債券，將殖利率推升至6%或更高。但我必須非常清楚地說明其中的風險。
 
-**Sam:** What are the risks?
+**Stella：** 有哪些風險？
 
-**Alex:** Higher-yield portfolios are much more vulnerable to economic downturns. Mortgage REITs can cut dividends 30 to 50 percent in volatile rate environments. High-yield bonds can default. Covered call strategies underperform in strong bull markets. And most importantly, very little growth means inflation eats your purchasing power over time. A portfolio yielding 6% today might still yield 6% in twenty years, but that 6% buys a lot less after two decades of inflation.
+**Horace：** 高殖利率投資組合在經濟下行時更容易受創。抵押型不動產投資信託在利率劇烈波動時，可能削減30至50%的股利。高收益債券可能違約。掩護性買權策略在強勁多頭市場中表現落後。最重要的是，幾乎沒有成長，代表通膨會逐漸侵蝕你的購買力。一個今天殖利率6%的投資組合，20年後可能殖利率依舊是6%，但那個6%所能購買的東西，在經歷二十年通膨後已大打折扣。
 
-**Sam:** So the sweet spot is probably in the middle?
+**Stella：** 所以最佳點大概是中間？
 
-**Alex:** For most investors, yes. A balanced approach with moderate yield, some growth, and good diversification across income sources is the most sustainable path. The exact mix depends on your specific circumstances -- age, other income sources, risk tolerance, tax situation, and spending needs.
+**Horace：** 對大多數投資人而言，是的。中等殖利率、一定的成長潛力，以及跨不同收益來源的良好分散，是最永續的路徑。確切的配置比例，取決於你的具體情況——年齡、其他收益來源、風險承受度、稅務狀況，以及支出需求。
 
-**Sam:** What happens during a recession? How resilient are these income streams?
+**Stella：** 經濟衰退期間會發生什麼？這些收益流的抗壓性如何？
 
-**Alex:** Let me walk through each source during a typical recession. Dividends: some companies cut, but Dividend Aristocrats rarely do. Historically, about 5 to 10% of S&P 500 companies cut dividends during a recession. Bond coupons: investment-grade bonds continue paying; high-yield defaults spike to 5 to 8%. REIT distributions: some reduce distributions, especially office and retail. Option premiums: actually increase during recessions because volatility rises.
+**Horace：** 讓我逐一說明每種來源在典型衰退期間的表現。股利：部分公司削減，但股利貴族幾乎不會如此。歷史上，S&P 500中約5至10%的公司在衰退期間削減股利。債券票息：投資等級債券持續支付；高收益違約率飆升至5至8%。不動產投資信託配息：部分減少，尤其是辦公室和零售型不動產投資信託。選擇權權利金：由於波動性上升，衰退期間反而增加。
 
 **[VISUAL: Stress test results showing a balanced income portfolio's income during a typical recession -- income drops approximately 10-15% but remains substantial]**
 
-**Alex:** A well-diversified income portfolio might see its income drop 10 to 15 percent during a recession. That is manageable if you have a cash buffer covering 6 to 12 months of expenses. The worst outcome is being forced to sell investments at depressed prices to cover spending -- the cash buffer prevents that.
+**Horace：** 一個充分分散的收益型投資組合，在衰退期間的收益可能下降10至15%。如果你備有涵蓋6至12個月生活費的現金緩衝，這是可以應對的。最糟糕的結果是被迫在資產價格低迷時賣出投資以支應支出——現金緩衝正是防止這種情況的護盾。
 
-**Sam:** Should I factor in Social Security?
+**Stella：** 應該把社會安全福利納入考量嗎？
 
-**Alex:** Absolutely. Social Security is essentially a high-quality, inflation-indexed bond that pays for life. For many retirees, it covers 30 to 50% of expenses. Your investment portfolio only needs to fill the gap. This means you may be able to take less risk than you think or target a lower portfolio yield.
+**Horace：** 絕對應該。社會安全福利本質上就是一種高品質、通膨連動、終身支付的債券。對許多退休人士而言，它涵蓋了30至50%的支出。你的投資組合只需填補剩下的缺口，這意味著你或許可以承擔比你預想的更低的風險，或是以更低的投資組合殖利率目標來達成收益需求。
 
 **[VISUAL: Income waterfall chart -- Social Security covers the base, pension (if any) covers more, and the investment portfolio covers the remainder. The "gap" the portfolio must fill is highlighted.]**
 
-**Alex:** One more thing: delaying Social Security from 62 to 70 increases your annual benefit by roughly 77 percent. That is an 8% per year guaranteed, inflation-adjusted return. For most people in good health, delaying is one of the single best financial decisions you can make. Draw from your portfolio to bridge the gap, and let Social Security grow.
+**Horace：** 再補充一點：將社會安全福利從62歲延後至70歲領取，年度給付金額約增加77%。這相當於每年8%的保證、通膨調整報酬。對大多數身體健康的人而言，延後領取是你能做出的最佳財務決策之一。在此期間從投資組合提領以支應生活，讓社會安全福利持續增值。
 
-**Sam:** That is a great point. So to summarize today's lesson: income can come from dividends, bonds, REITs, options, and other sources. Total return often matters more than yield. The 4% rule is a guideline, not a guarantee. Tax efficiency is huge -- put the right assets in the right accounts. Diversify across income sources. And keep a cash buffer to avoid forced selling during downturns.
+**Stella：** 這個觀點很重要。那來做個今天的重點總結：收益可以來自股利、債券、不動產投資信託、選擇權和其他來源。總報酬往往比殖利率更重要。4%法則是參考準則，不是保證。稅務效率至關重要——將正確的資產放在正確的帳戶。分散不同收益來源。保留現金緩衝以避免在市場下跌時被迫賣出。
 
-**Alex:** Perfect summary. And I would add: start building your income skills before you need the income. Buy dividend growth stocks in your 40s and 50s so they are generating meaningful income by the time you retire. The compounding of dividend growth is a powerful force that rewards patience.
+**Horace：** 總結得很完整。我還想補充：在你真正需要收益之前，就開始培養收益型投資的技能。在40至50多歲時買入股利成長股，讓它們在你退休時就能產生有意義的收益。股利成長的複利效應是一股強大的力量，厚待有耐心的投資人。
 
-**Sam:** Thank you, Alex. This four-week block -- credit analysis, rate sensitivity, financial statement analysis, and income portfolio construction -- really ties together beautifully. Each lesson builds on the others.
+**Stella：** 謝謝你，陳馬。這四週的單元——信用分析、利率敏感性、財務報表分析，以及收益型投資組合建構——串聯起來真的非常完整，每一課都在前一課的基礎上深化。
 
-**Alex:** That was intentional. You cannot build a good income portfolio without understanding credit quality, interest rate sensitivity, and earnings quality. These are all connected. Investing is not about isolated skills -- it is about integrating knowledge across disciplines.
+**Horace：** 這是刻意設計的。沒有對信用品質、利率敏感性和盈餘品質的理解，就無法建構出好的收益型投資組合。這些知識都是相互關聯的。投資不是孤立的技能——而是跨領域知識的整合。
 
-**Sam:** Absolutely. Thanks everyone for watching. We will be back next week with more investment education.
+**Stella：** 說得太好了。感謝大家收看。我們下週回來，繼續帶來更多投資教育內容。
 
-**Alex:** See you then.
+**Horace：** 到時見。
 
 **[VISUAL: End card with key takeaways:
 1. Diversify income sources: dividends, bonds, REITs, options, preferred stock
@@ -967,4 +959,4 @@ A: Review at least annually, with a more thorough review when personal circumsta
 
 ---
 
-*End of Week 36*
+*第36週結束*

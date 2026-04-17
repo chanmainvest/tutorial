@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2: Intermediate (Weeks 13-24) - Chanma Investment Tutorial</title>
+    <style>
+:root {
+    --bg: #fafbfc;
+    --text: #2d3748;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f7fafc;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1f5f9;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --gold: #c5a44e;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 0;
+}
+
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-brand .brand-icon {
+    font-size: 1.4rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-link, .dropdown-trigger {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s;
+}
+
+.nav-link:hover, .dropdown-trigger:hover {
+    background: var(--nav-hover);
+}
+
+.arrow { font-size: 0.7rem; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 320px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    z-index: 200;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
+
+.dropdown-content a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+/* Language selector in nav */
+.lang-selector {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+}
+
+.lang-btn:hover { opacity: 1; }
+
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
+
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.breadcrumb-inner a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb-inner a:hover { text-decoration: underline; }
+
+.bc-sep { color: #a0aec0; margin: 0 4px; }
+
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+.content-area { }
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) { background: #f8fafc; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+p code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+
+.nav-btn-text { display: flex; flex-direction: column; }
+
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: 8px;
+    }
+    .nav-menu.open .nav-dropdown { width: 100%; }
+    .nav-menu.open .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.1);
+        border-radius: 0;
+        max-height: 300px;
+    }
+    .nav-menu.open .dropdown-content a {
+        color: var(--nav-text);
+        border-bottom-color: rgba(255,255,255,0.1);
+        padding-left: 32px;
+    }
+    .hamburger { display: block; }
+    .lang-selector { margin-left: 0; padding: 8px 14px; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                Chanma Investment
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="nav-menu">
+                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <span>Level 2: Intermediate</span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Level 2: Intermediate (Weeks 13-24)</h1>
+<hr>
+<h2>Part 1: Reading Section</h2>
+<hr>
+<h3>Level Overview</h3>
+<p>
+Level 2 takes the foundation you built and expands it significantly. You will move beyond basic buy-and-hold investing into active strategies, deeper analysis, and multi-asset portfolio construction. This is where you start thinking like a serious investor.
+</p>
+<h3>What You Will Learn</h3>
+<p>
+<strong>Weeks 13-16: Active Strategies</strong>
+</p>
+<ul><li>Long and short trading -- making money when prices fall</li>
+<li>Pair trading -- exploiting relative value between correlated stocks</li>
+<li>Multi-asset allocation beyond stocks and bonds</li>
+<li>Sector rotation based on economic cycles</li>
+<p>
+</ul>
+<strong>Weeks 17-20: Analysis and Metrics</strong>
+</p>
+<ul><li>Performance metrics -- measuring portfolio quality beyond raw returns</li>
+<li>How interest rates affect every asset class</li>
+<li>Corporate finance -- what makes companies tick</li>
+<li>Earnings analysis and separating real profitability from accounting tricks</li>
+<p>
+</ul>
+<strong>Weeks 21-24: Valuation and Strategy</strong>
+</p>
+<ul><li>Equity valuation -- P/E, P/B, DCF, and deciding if a stock is cheap or expensive</li>
+<li>Currency risk and international diversification</li>
+<li>Factor investing -- value, momentum, quality, and size</li>
+<li>Building a multi-strategy portfolio that works across environments</li>
+<p>
+</ul>
+</p>
+<h3>What You Will Be Able to Do After Level 2</h3>
+<ul><li>Evaluate whether a stock is overvalued or undervalued using multiple methods</li>
+<li>Construct a portfolio that spans multiple asset classes and geographies</li>
+<li>Measure your portfolio performance using professional metrics like Sharpe ratio</li>
+<li>Understand how interest rate changes affect your holdings</li>
+<li>Combine multiple investment strategies for diversification of approach</li>
+<p>
+</ul>
+</p>
+<h3>Weekly Lessons</h3>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>13</td><td>Long and Short Trading</td></tr><tr><td>14</td><td>Pair Trading Fundamentals</td></tr><tr><td>15</td><td>Multi-Asset Allocation</td></tr><tr><td>16</td><td>Business Cycles and Sector Rotation</td></tr><tr><td>17</td><td>Performance Metrics - Volatility, Drawdowns, Sharpe</td></tr><tr><td>18</td><td>Interest Rates and Market Returns</td></tr><tr><td>19</td><td>Corporate Finance - What Makes Companies Tick</td></tr><tr><td>20</td><td>Earnings Analysis and Cash Flow</td></tr><tr><td>21</td><td>Equity Valuation - P/E, P/B, and DCF</td></tr><tr><td>22</td><td>Currency and International Diversification</td></tr><tr><td>23</td><td>Factor Investing Introduction</td></tr><tr><td>24</td><td>Building a Multi-Strategy Portfolio</td></tr></tbody></table>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>第二級：中級（第13至24週）</h1>
+<hr>
+<h2>第一部分：閱讀章節</h2>
+<hr>
+<h3>級別概覽</h3>
+<p>
+第二級將在你已建立的基礎上大幅擴展。你將從基本的買入持有投資策略，進階到主動策略、更深入的分析，以及多資產投資組合的構建。這是你開始以認真投資者角度思考的階段。
+</p>
+<h3>學習內容</h3>
+<p>
+<strong>第13至16週：主動策略</strong>
+</p>
+<ul><li>做多與沽空——在價格下跌時獲利</li>
+<li>配對交易——利用相關股票之間的相對價值</li>
+<li>超越股票與債券的多資產配置</li>
+<li>基於經濟週期的板塊輪動</li>
+<p>
+</ul>
+<strong>第17至20週：分析與指標</strong>
+</p>
+<ul><li>績效指標——超越單純回報衡量投資組合質量</li>
+<li>利率如何影響每一類資產</li>
+<li>企業財務——驅動公司運作的核心因素</li>
+<li>盈利分析，以及如何區分真實盈利能力與會計手法</li>
+<p>
+</ul>
+<strong>第21至24週：估值與策略</strong>
+</p>
+<ul><li>股票估值——市盈率、市淨率、現金流折現，以及判斷股票是否便宜或昂貴</li>
+<li>貨幣風險與國際分散投資</li>
+<li>因子投資——價值、動量、質量與規模</li>
+<li>構建能在不同市場環境下運作的多策略投資組合</li>
+<p>
+</ul>
+</p>
+<h3>完成第二級後，你將能夠</h3>
+<ul><li>運用多種方法評估股票是否被高估或低估</li>
+<li>構建橫跨多個資產類別與地域的投資組合</li>
+<li>使用夏普比率等專業指標衡量投資組合績效</li>
+<li>理解利率變動如何影響你的持倉</li>
+<li>結合多種投資策略，實現方法上的分散</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>13</td><td>做多與沽空交易</td></tr><tr><td>14</td><td>配對交易基礎</td></tr><tr><td>15</td><td>多資產配置</td></tr><tr><td>16</td><td>商業週期與板塊輪動</td></tr><tr><td>17</td><td>績效指標——波動性、回撤、夏普比率</td></tr><tr><td>18</td><td>利率與市場回報</td></tr><tr><td>19</td><td>企業財務——驅動公司運作的核心因素</td></tr><tr><td>20</td><td>盈利分析與現金流</td></tr><tr><td>21</td><td>股票估值——市盈率、市淨率與現金流折現</td></tr><tr><td>22</td><td>貨幣與國際分散投資</td></tr><tr><td>23</td><td>因子投資入門</td></tr><tr><td>24</td><td>構建多策略投資組合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第二級概覽：成為認真的投資者 | 陳馬投資教學
+</p>
+<p>
+<strong>目標時長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老師）：經驗豐富的散戶交易者，憑藉多年市場經驗講解概念</li>
+<li><strong>Stella</strong>（學生）：剛大學畢業、正在學習投資儲蓄的年輕人，代觀眾提問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[開場]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 2: Intermediate - Weeks 13-24"]
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 歡迎來到第二級。如果你已完成第一級，你現在已有一個穩固的投資組合，並掌握了基本知識。現在，我們要更上一層樓。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 我的六四比投資組合已經在運行，感覺不錯，但我不斷聽到各種其他策略。我是否錯過了什麼？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 這正是第二級要解答的問題。我們從一些開拓新可能性的概念出發——例如沽空。在第13週，你將了解到，你不僅可以在價格上升時獲利，同樣可以在價格下跌時獲利。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 沽空聽起來一直都很有風險，又很複雜。
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 確實可以，但即使你從不親身操作，理解它也至關重要。這正是對沖的運作原理，也是配對交易的基礎，我們會在第14週涵蓋這部分。然後第15和16週會透過多資產配置和板塊輪動，將你的投資組合帶向全球視野。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 那分析方面呢？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 第17至20週，你將學會深入剖析背後的細節。我們會講解績效指標——因為單純的回報率並不能說明全部。同樣是15%的回報，劇烈波動的投資組合與穩定增長的投資組合截然不同。之後我們還會深入探討利率、企業財務和盈利分析。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 最後四週呢？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 那正是一切融會貫通的時候。你將學習三種不同的股票估值方法，了解貨幣如何影響你的國際投資，發掘因子投資的魅力，最後構建一個集所有策略於一身的多策略投資組合。
+</p>
+<p>
+<strong>Stella（小魚）：</strong> 所以到第24週，我將擁有一個更成熟完善的投資架構？
+</p>
+<p>
+<strong>Horace（陳馬）：</strong> 你將具備構建一個讓專業人士也刮目相看的投資組合的工具和知識。讓我們開始吧。
+</p>
+<p>
+<strong>[結尾]</strong>
+</p>
+            </div>
+            <div id="content-tw" class="lang-content">
+                <h1>第二級：中級（第13-24週）</h1>
+<hr>
+<h2>第一部分：閱讀內容</h2>
+<hr>
+<h3>級別概覽</h3>
+<p>
+第二級將在您已建立的基礎上大幅擴展。您將從基本的買進持有投資策略，進階到主動策略、深度分析和多資產投資組合建構。這是您開始像一位認真投資者思考的地方。
+</p>
+<h3>您將學到什麼</h3>
+<p>
+<strong>第13-16週：主動策略</strong>
+</p>
+<ul><li>多空交易——在價格下跌時獲利</li>
+<li>配對交易——利用相關股票之間的相對價值</li>
+<li>超越股票和債券的多資產配置</li>
+<li>基於景氣循環的類股輪動</li>
+<p>
+</ul>
+<strong>第17-20週：分析與指標</strong>
+</p>
+<ul><li>績效指標——衡量投資組合品質，超越單純報酬</li>
+<li>利率如何影響每個資產類別</li>
+<li>公司財務——是什麼驅動企業運作</li>
+<li>盈餘分析及區分真實獲利能力與會計技巧</li>
+<p>
+</ul>
+<strong>第21-24週：估值與策略</strong>
+</p>
+<ul><li>股票估值——本益比、淨值比、現金流折現，判斷股票是否便宜或昂貴</li>
+<li>匯率風險與國際分散投資</li>
+<li>因子投資——價值、動能、品質與規模</li>
+<li>建立在各種環境下均能運作的多策略投資組合</li>
+<p>
+</ul>
+</p>
+<h3>完成第二級後您將能夠做到</h3>
+<ul><li>使用多種方法評估股票是否被高估或低估</li>
+<li>建構跨越多個資產類別和地區的投資組合</li>
+<li>使用夏普比率等專業指標衡量您的投資組合績效</li>
+<li>了解利率變化如何影響您的持股</li>
+<li>結合多種投資策略以實現方法多元化</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>13</td><td>多空交易</td></tr><tr><td>14</td><td>配對交易基礎</td></tr><tr><td>15</td><td>多資產配置</td></tr><tr><td>16</td><td>景氣循環與類股輪動</td></tr><tr><td>17</td><td>績效指標——波動性、回撤、夏普比率</td></tr><tr><td>18</td><td>利率與市場報酬</td></tr><tr><td>19</td><td>公司財務——是什麼驅動企業運作</td></tr><tr><td>20</td><td>盈餘分析與現金流</td></tr><tr><td>21</td><td>股票估值——本益比、淨值比與現金流折現</td></tr><tr><td>22</td><td>匯率與國際分散投資</td></tr><tr><td>23</td><td>因子投資簡介</td></tr><tr><td>24</td><td>建立多策略投資組合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第二級概覽：成為一位認真的投資者｜陳馬投資教學
+</p>
+<p>
+<strong>目標時長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老師）：資深散戶投資者，從多年市場經驗中講解概念</li>
+<li><strong>Stella</strong>（學生）：剛畢業的大學生，正在學習如何投資積蓄，提出觀眾心中想問的問題</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[INTRO]</strong>
+</p>
+<p>
+[VISUAL: 標題卡「第二級：中級——第13-24週」]
+</p>
+<p>
+<strong>Horace：</strong> 歡迎來到第二級。如果您完成了第一級，您已經建立了穩固的投資組合，也掌握了基礎知識。現在我們要更上一層樓。
+</p>
+<p>
+<strong>Stella：</strong> 我的60/40投資組合已經在運行了，感覺挺好的，但我一直聽說有很多其他策略。我是否錯過了什麼？
+</p>
+<p>
+<strong>Horace：</strong> 這正是第二級要解答的問題。我們從一些能開啟新可能性的概念開始——比如放空。在第13週，您將學到不只是在價格上漲時能獲利，價格下跌時同樣可以。
+</p>
+<p>
+<strong>Stella：</strong> 放空聽起來總是既有風險又複雜。
+</p>
+<p>
+<strong>Horace：</strong> 確實可以，但即使您從未親自操作，了解它也是不可或缺的。這就是避險的運作原理，也是配對交易的基礎——我們在第14週會介紹。然後第15和16週將帶您的投資組合走向全球，涵蓋多資產配置和類股輪動。
+</p>
+<p>
+<strong>Stella：</strong> 那分析方面呢？
+</p>
+<p>
+<strong>Horace：</strong> 第17到20週是您學習深入剖析的地方。我們會介紹績效指標——因為單純的報酬無法說明全貌。帶著劇烈波動的15%報酬，與穩定成長的15%報酬，是截然不同的兩回事。接著我們會探討利率、公司財務和盈餘分析。
+</p>
+<p>
+<strong>Stella：</strong> 那最後四週呢？
+</p>
+<p>
+<strong>Horace：</strong> 那是一切融合的地方。您將學習三種不同的股票估值方法，了解匯率如何影響您的國際投資，探索因子投資，然後建立一個融合一切的多策略投資組合。
+</p>
+<p>
+<strong>Stella：</strong> 所以到第24週，我將擁有一個更加完善精緻的架構？
+</p>
+<p>
+<strong>Horace：</strong> 您將擁有建構一個讓專業人士也會讚賞的投資組合所需的工具和知識。讓我們開始吧。
+</p>
+<p>
+<strong>[END]</strong>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>第二级：中级（第13-24周）</h1>
+<hr>
+<h2>第一部分：阅读材料</h2>
+<hr>
+<h3>级别概述</h3>
+<p>
+第二级在您已建立的基础上大幅扩展。您将从基本的买入持有投资策略延伸至主动策略、深度分析，以及多资产投资组合构建。这是您开始像一位认真投资者那样思考的阶段。
+</p>
+<h3>您将学到的内容</h3>
+<p>
+<strong>第13-16周：主动策略</strong>
+</p>
+<ul><li>多空交易——在价格下跌时获利</li>
+<li>配对交易——利用相关股票之间的相对价值</li>
+<li>超越股票与债券的多资产配置</li>
+<li>基于经济周期的板块轮动</li>
+<p>
+</ul>
+<strong>第17-20周：分析与指标</strong>
+</p>
+<ul><li>绩效指标——超越单纯收益来衡量投资组合质量</li>
+<li>利率如何影响每一类资产</li>
+<li>公司金融——是什么让企业运转</li>
+<li>盈利分析，以及如何区分真实盈利能力与会计手段</li>
+<p>
+</ul>
+<strong>第21-24周：估值与策略</strong>
+</p>
+<ul><li>股票估值——市盈率、市净率、DCF，判断股票是否便宜或昂贵</li>
+<li>货币风险与国际多元化</li>
+<li>因子投资——价值、动量、质量与规模</li>
+<li>构建在各种市场环境下均有效的多策略投资组合</li>
+<p>
+</ul>
+</p>
+<h3>完成第二级后您能做什么</h3>
+<ul><li>使用多种方法评估股票是否高估或低估</li>
+<li>构建跨越多个资产类别和地区的投资组合</li>
+<li>使用夏普比率等专业指标衡量您的投资组合表现</li>
+<li>理解利率变动如何影响您的持仓</li>
+<li>结合多种投资策略以实现方法上的多元化</li>
+<p>
+</ul>
+</p>
+<h3>每周课程</h3>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>13</td><td>多空交易</td></tr><tr><td>14</td><td>配对交易基础</td></tr><tr><td>15</td><td>多资产配置</td></tr><tr><td>16</td><td>商业周期与板块轮动</td></tr><tr><td>17</td><td>绩效指标——波动性、最大回撤、夏普比率</td></tr><tr><td>18</td><td>利率与市场收益</td></tr><tr><td>19</td><td>公司金融——是什么让企业运转</td></tr><tr><td>20</td><td>盈利分析与现金流</td></tr><tr><td>21</td><td>股票估值——市盈率、市净率与DCF</td></tr><tr><td>22</td><td>货币与国际多元化</td></tr><tr><td>23</td><td>因子投资入门</td></tr><tr><td>24</td><td>构建多策略投资组合</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 脚本</h2>
+<hr>
+<p>
+<strong>视频标题：</strong> 第二级概述：成为一名认真的投资者 | 陈马投资教程
+</p>
+<p>
+<strong>目标时长：</strong> 约5分钟
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（陈马，老师）：经验丰富的散户交易者，从多年市场经验出发讲解概念</li>
+<li><strong>Stella</strong>（小鱼，学生）：刚毕业的大学生，正在学习投资自己的积蓄，提出观众心中的问题</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[INTRO]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 2: Intermediate - Weeks 13-24"]
+</p>
+<p>
+<strong>Horace：</strong> 欢迎来到第二级。如果您已经完成了第一级，您应该拥有了扎实的投资组合基础，也理解了基本概念。现在，我们要更上一层楼了。
+</p>
+<p>
+<strong>Stella：</strong> 我的60/40投资组合已经在运行，感觉挺好的。但我一直听说有很多其他策略，我是不是错过了什么？
+</p>
+<p>
+<strong>Horace：</strong> 这正是第二级要解决的问题。我们从一些能开启新可能性的概念开始讲——比如做空。第13周您会学到，不只是价格上涨时能赚钱，价格下跌时同样可以获利。
+</p>
+<p>
+<strong>Stella：</strong> 做空听起来总是风险很大，而且很复杂。
+</p>
+<p>
+<strong>Horace：</strong> 确实可能如此，但即使您自己从不做空，理解它也至关重要。这是对冲的运作方式，也是第14周配对交易的基础。接着第15、16周会通过多资产配置和板块轮动，带您的投资组合走向全球视野。
+</p>
+<p>
+<strong>Stella：</strong> 那分析这块呢？
+</p>
+<p>
+<strong>Horace：</strong> 第17到20周，是您深入了解内部运作的阶段。我们会介绍绩效指标——因为单纯看收益是不够的。同样是15%的收益，伴随剧烈波动和伴随稳定增长，意义完全不同。之后我们还会深入探讨利率、公司金融和盈利分析。
+</p>
+<p>
+<strong>Stella：</strong> 那最后四周呢？
+</p>
+<p>
+<strong>Horace：</strong> 那是所有内容汇聚的地方。您将学习三种不同的股票估值方法，了解货币如何影响国际投资，发现因子投资的奥秘，最后把所有这些融合在一起，构建一个多策略投资组合。
+</p>
+<p>
+<strong>Stella：</strong> 这么说，到第24周结束时，我会拥有一套更加完善的投资体系？
+</p>
+<p>
+<strong>Horace：</strong> 您将掌握构建一个连专业人士都会认可的投资组合所需的工具和知识。我们开始吧。
+</p>
+<p>
+<strong>[END]</strong>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="nav-buttons">
+            <a href="week12.html" class="nav-btn prev">
+            <span style="font-size:1.2rem">&#8592;</span>
+            <span class="nav-btn-text">
+                <span class="btn-label">Previous</span>
+                <span>Week 12: First portfolio</span>
+            </span>
+        </a>
+            <a href="week13.html" class="nav-btn next">
+            <span class="nav-btn-text">
+                <span class="btn-label">Next</span>
+                <span>Week 13: Long short</span>
+            </span>
+            <span style="font-size:1.2rem">&#8594;</span>
+        </a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+    </footer>
+
+    <script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    localStorage.setItem('preferred-lang', lang);
+}
+
+// Restore language preference
+(function() {
+    var saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') switchLang(saved);
+})();
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
+</body>
+</html>

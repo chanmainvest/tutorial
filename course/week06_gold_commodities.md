@@ -652,237 +652,237 @@ A: Farmland and timberland are excellent real asset investments, but they are di
 
 [VISUAL: Animated intro with show logo. Text: "Week 6: Gold and Commodities as Diversifiers - Level 1: Foundations"]
 
-**Alex:** Welcome back, everyone. Last week we talked about bonds as the shock absorber in your portfolio. Today we are going to talk about another category of investments that most beginners completely overlook: gold and commodities.
+**Horace:** Welcome back, everyone. Last week we talked about bonds as the shock absorber in your portfolio. Today we are going to talk about another category of investments that most beginners completely overlook: gold and commodities.
 
-**Sam:** Gold and commodities. I will be honest, Alex. When I think of gold investors, I picture someone in a bunker with canned food and conspiracy theories. And commodities? That is just oil barrels and wheat fields, right? I do not see how that fits into my investment portfolio.
+**Stella:** Gold and commodities. I will be honest, Horace. When I think of gold investors, I picture someone in a bunker with canned food and conspiracy theories. And commodities? That is just oil barrels and wheat fields, right? I do not see how that fits into my investment portfolio.
 
-**Alex:** And you are not alone in that reaction. But here is the thing. Some of the most sophisticated investors in the world, the Harvard endowment, the Yale endowment, Ray Dalio's Bridgewater, they all hold gold and commodities. Not because they are preparing for doomsday, but because these assets do something that stocks and bonds cannot do: they protect your portfolio during the one scenario where everything else falls apart.
+**Horace:** And you are not alone in that reaction. But here is the thing. Some of the most sophisticated investors in the world, the Harvard endowment, the Yale endowment, Ray Dalio's Bridgewater, they all hold gold and commodities. Not because they are preparing for doomsday, but because these assets do something that stocks and bonds cannot do: they protect your portfolio during the one scenario where everything else falls apart.
 
-**Sam:** And what scenario is that?
+**Stella:** And what scenario is that?
 
-**Alex:** Inflation. Specifically, high and unexpected inflation. Remember what we learned about bonds? Bonds suffer when inflation rises because their fixed payments lose purchasing power. Stocks can also suffer because inflation raises costs, squeezes margins, and causes central banks to raise interest rates. In the 1970s, the U.S. had a decade of high inflation. Stocks barely kept pace with inflation, and bonds lost purchasing power. But gold? Gold went from $35 an ounce to over $800. That is a gain of more than 2,000%.
+**Horace:** Inflation. Specifically, high and unexpected inflation. Remember what we learned about bonds? Bonds suffer when inflation rises because their fixed payments lose purchasing power. Stocks can also suffer because inflation raises costs, squeezes margins, and causes central banks to raise interest rates. In the 1970s, the U.S. had a decade of high inflation. Stocks barely kept pace with inflation, and bonds lost purchasing power. But gold? Gold went from $35 an ounce to over $800. That is a gain of more than 2,000%.
 
 [VISUAL: Three performance bars for the 1970s. "Stocks: ~5.9%/year (below inflation)". "Bonds: ~6.5%/year (about even with inflation)". "Gold: +31.6%/year (massively beat inflation)". Inflation bar at 8.9%/year for reference. Text: "When Inflation Strikes, Gold Shines"]
 
-**Sam:** That is staggering. But can we start with the basics? What actually IS gold as an investment?
+**Stella:** That is staggering. But can we start with the basics? What actually IS gold as an investment?
 
-**Alex:** Gold is the oldest store of value in human history. It has been valued by every civilization for over 5,000 years. And there are real reasons for that. Gold does not rust, corrode, or decay. It is extremely rare. All the gold ever mined in human history would fit in about three and a half Olympic swimming pools. It is easily recognizable, easily divisible, and has a high value-to-weight ratio, meaning it is easy to transport and store.
+**Horace:** Gold is the oldest store of value in human history. It has been valued by every civilization for over 5,000 years. And there are real reasons for that. Gold does not rust, corrode, or decay. It is extremely rare. All the gold ever mined in human history would fit in about three and a half Olympic swimming pools. It is easily recognizable, easily divisible, and has a high value-to-weight ratio, meaning it is easy to transport and store.
 
-**Sam:** OK, but why does any of that matter for my investment portfolio in 2026?
+**Stella:** OK, but why does any of that matter for my investment portfolio in 2026?
 
-**Alex:** Because gold has one characteristic that almost no other asset shares: it has no counterparty risk. When you own a stock, its value depends on a company performing well. When you own a bond, its value depends on the issuer paying you back. When you hold cash in a bank, its value depends on the bank being solvent and the currency maintaining its purchasing power. Gold depends on none of those things. Its value comes from its physical scarcity and 5,000 years of collective human agreement that it is valuable.
+**Horace:** Because gold has one characteristic that almost no other asset shares: it has no counterparty risk. When you own a stock, its value depends on a company performing well. When you own a bond, its value depends on the issuer paying you back. When you hold cash in a bank, its value depends on the bank being solvent and the currency maintaining its purchasing power. Gold depends on none of those things. Its value comes from its physical scarcity and 5,000 years of collective human agreement that it is valuable.
 
 [VISUAL: A diagram showing different assets and their counterparty dependencies. "Stock" with an arrow to "Company". "Bond" with an arrow to "Issuer". "Cash" with an arrow to "Bank + Government". "Gold" stands alone with a checkmark: "No counterparty". Text: "Gold = Nobody Else's Liability"]
 
-**Sam:** So gold is like the ultimate insurance policy.
+**Stella:** So gold is like the ultimate insurance policy.
 
-**Alex:** That is exactly the right way to think about it. You do not buy homeowner's insurance because you expect your house to burn down. You buy it because if it does, you are protected. Gold serves the same function in a portfolio. You do not expect currency collapse or financial system failure, but if it happens, gold protects you.
+**Horace:** That is exactly the right way to think about it. You do not buy homeowner's insurance because you expect your house to burn down. You buy it because if it does, you are protected. Gold serves the same function in a portfolio. You do not expect currency collapse or financial system failure, but if it happens, gold protects you.
 
-**Sam:** Now I know people say gold is an inflation hedge. But does it actually work?
+**Stella:** Now I know people say gold is an inflation hedge. But does it actually work?
 
-**Alex:** The short answer is yes, but with nuances. Gold is an excellent long-term inflation hedge but a poor short-term one. Over centuries, gold has roughly maintained its purchasing power. An ounce of gold in ancient Rome could buy a fine toga. An ounce of gold today buys a fine suit. Meanwhile, every fiat currency ever created has eventually lost most or all of its value.
+**Horace:** The short answer is yes, but with nuances. Gold is an excellent long-term inflation hedge but a poor short-term one. Over centuries, gold has roughly maintained its purchasing power. An ounce of gold in ancient Rome could buy a fine toga. An ounce of gold today buys a fine suit. Meanwhile, every fiat currency ever created has eventually lost most or all of its value.
 
-**Sam:** Wait, really? Every single one?
+**Stella:** Wait, really? Every single one?
 
-**Alex:** Every single one. The U.S. dollar has lost about 97% of its purchasing power since 1900. A dollar from 1900 buys about 3 cents worth of goods today. Gold, on the other hand, has gone from about $21 per ounce to over $2,300. It has roughly kept pace with the loss of the dollar's purchasing power.
+**Horace:** Every single one. The U.S. dollar has lost about 97% of its purchasing power since 1900. A dollar from 1900 buys about 3 cents worth of goods today. Gold, on the other hand, has gone from about $21 per ounce to over $2,300. It has roughly kept pace with the loss of the dollar's purchasing power.
 
 [ANIMATION: Reference animation/week06_gold_correlation.py - An animated split-screen graph. On the left, the purchasing power of $1 declines from 100% in 1900 to about 3% in 2024, shown as a steadily falling curve. On the right, gold's price rises from $21 to $2,300+. Both curves are mirror images of each other, demonstrating that gold has preserved purchasing power as the dollar has lost it. A "What 1 oz. of gold buys" ticker shows consistent purchasing power at different dates.]
 
-**Sam:** That is a really powerful visual. But you said the short-term picture is different?
+**Stella:** That is a really powerful visual. But you said the short-term picture is different?
 
-**Alex:** Yes. In any given year, gold can move up 30% or down 30% regardless of what inflation is doing. Gold dropped from $850 in 1980 to $250 in 2001. That is a 70% decline over 20 years while inflation was still positive. If you bought gold at the 1980 peak, you waited 28 years just to break even. So gold is not a "buy it and forget it" inflation hedge for any specific time period. It is a long-term purchasing power preserver and a portfolio diversifier.
+**Horace:** Yes. In any given year, gold can move up 30% or down 30% regardless of what inflation is doing. Gold dropped from $850 in 1980 to $250 in 2001. That is a 70% decline over 20 years while inflation was still positive. If you bought gold at the 1980 peak, you waited 28 years just to break even. So gold is not a "buy it and forget it" inflation hedge for any specific time period. It is a long-term purchasing power preserver and a portfolio diversifier.
 
-**Sam:** That is an important distinction. So what actually drives gold prices day to day?
+**Stella:** That is an important distinction. So what actually drives gold prices day to day?
 
-**Alex:** The single most important driver is real interest rates. Real interest rates are nominal rates minus inflation. When real rates are negative, meaning inflation is higher than interest rates, gold does very well. When real rates are high and positive, gold struggles.
+**Horace:** The single most important driver is real interest rates. Real interest rates are nominal rates minus inflation. When real rates are negative, meaning inflation is higher than interest rates, gold does very well. When real rates are high and positive, gold struggles.
 
-**Sam:** Why?
+**Stella:** Why?
 
-**Alex:** Because gold has zero yield. It does not pay dividends or interest. When you can earn 3% in a government bond after inflation, there is a real cost to holding gold instead. But when real rates are negative and your bonds are actually losing purchasing power, gold's zero yield looks pretty attractive by comparison. No yield is better than a negative yield.
+**Horace:** Because gold has zero yield. It does not pay dividends or interest. When you can earn 3% in a government bond after inflation, there is a real cost to holding gold instead. But when real rates are negative and your bonds are actually losing purchasing power, gold's zero yield looks pretty attractive by comparison. No yield is better than a negative yield.
 
 [VISUAL: A chart showing real interest rates on the x-axis and gold performance on the y-axis. Clear inverse relationship. When real rates are negative (left side), gold returns are strongly positive. When real rates are positive (right side), gold returns are weak. Text: "Real Rates = Gold's Kryptonite (when positive) and Gold's Rocket Fuel (when negative)"]
 
-**Sam:** That makes a lot of sense. OK, let us talk about commodities more broadly. What do we mean by commodities?
+**Stella:** That makes a lot of sense. OK, let us talk about commodities more broadly. What do we mean by commodities?
 
-**Alex:** Commodities are the raw materials that power the physical economy. They fall into a few major categories. Energy: oil, natural gas. Precious metals: gold, silver, platinum. Industrial metals: copper, aluminum, lithium, nickel. Agriculture: corn, wheat, soybeans, coffee. And livestock: cattle, hogs. Everything you touch, eat, drive, or use to power your home ultimately comes from commodities.
+**Horace:** Commodities are the raw materials that power the physical economy. They fall into a few major categories. Energy: oil, natural gas. Precious metals: gold, silver, platinum. Industrial metals: copper, aluminum, lithium, nickel. Agriculture: corn, wheat, soybeans, coffee. And livestock: cattle, hogs. Everything you touch, eat, drive, or use to power your home ultimately comes from commodities.
 
-**Sam:** Why should I care about these as investments?
+**Stella:** Why should I care about these as investments?
 
-**Alex:** Two reasons. First, commodities are driven by completely different forces than stocks and bonds. Stock prices depend on corporate earnings and investor sentiment. Bond prices depend on interest rates. Commodity prices depend on physical supply and demand. When a drought destroys a wheat crop, wheat prices rise regardless of what the stock market or the Fed is doing. This independence is what makes commodities valuable diversifiers.
+**Horace:** Two reasons. First, commodities are driven by completely different forces than stocks and bonds. Stock prices depend on corporate earnings and investor sentiment. Bond prices depend on interest rates. Commodity prices depend on physical supply and demand. When a drought destroys a wheat crop, wheat prices rise regardless of what the stock market or the Fed is doing. This independence is what makes commodities valuable diversifiers.
 
-**Sam:** And the second reason?
+**Stella:** And the second reason?
 
-**Alex:** Commodity supercycles. Commodity prices move in very long cycles, typically 15 to 25 years, driven by the fundamental mismatch between supply and demand.
+**Horace:** Commodity supercycles. Commodity prices move in very long cycles, typically 15 to 25 years, driven by the fundamental mismatch between supply and demand.
 
 [VISUAL: A long, sweeping wave diagram showing commodity supercycles. Labeled phases: "Phase 1: Underinvestment, Low Prices, Producers Exit" at the trough, "Phase 2: Demand Outstrips Supply, Prices Surge" on the upswing, "Phase 3: Overinvestment, New Supply, Prices Collapse" on the downswing. Historical dates marked: 1898-1921, 1933-1953, 1968-1982, 1999-2011, 2020-???]
 
-**Sam:** Can you explain why these cycles happen?
+**Stella:** Can you explain why these cycles happen?
 
-**Alex:** Sure. Imagine demand for copper suddenly increases because the world starts building millions of electric vehicles. Copper mines are already running at capacity. To build a new copper mine takes 7 to 10 years from discovery to production. During those 7 to 10 years, demand keeps growing but supply cannot respond. Prices rise. Eventually, all those new mines come online, supply floods the market, and prices collapse. Then low prices drive miners out of business, mines close, and the cycle starts again.
+**Horace:** Sure. Imagine demand for copper suddenly increases because the world starts building millions of electric vehicles. Copper mines are already running at capacity. To build a new copper mine takes 7 to 10 years from discovery to production. During those 7 to 10 years, demand keeps growing but supply cannot respond. Prices rise. Eventually, all those new mines come online, supply floods the market, and prices collapse. Then low prices drive miners out of business, mines close, and the cycle starts again.
 
-**Sam:** So the cycle exists because supply cannot respond quickly to demand changes?
+**Stella:** So the cycle exists because supply cannot respond quickly to demand changes?
 
-**Alex:** Exactly. You can print money in seconds. You can issue a new stock in weeks. But you cannot create a new copper mine or oil well in less than several years. This physical constraint is what creates the cycle.
+**Horace:** Exactly. You can print money in seconds. You can issue a new stock in weeks. But you cannot create a new copper mine or oil well in less than several years. This physical constraint is what creates the cycle.
 
-**Sam:** Are we in a new supercycle now?
+**Stella:** Are we in a new supercycle now?
 
-**Alex:** There is a strong argument that we are in the early stages of one. The green energy transition requires enormous quantities of copper, lithium, nickel, and cobalt for batteries, electric vehicles, and renewable energy infrastructure. At the same time, the traditional energy sector has underinvested in new production for years. And geopolitical tensions are reshaping global supply chains. These are the ingredients for a supercycle. Whether it is truly a supercycle or a shorter disruption, nobody knows for certain. But it supports maintaining a strategic commodity allocation.
+**Horace:** There is a strong argument that we are in the early stages of one. The green energy transition requires enormous quantities of copper, lithium, nickel, and cobalt for batteries, electric vehicles, and renewable energy infrastructure. At the same time, the traditional energy sector has underinvested in new production for years. And geopolitical tensions are reshaping global supply chains. These are the ingredients for a supercycle. Whether it is truly a supercycle or a shorter disruption, nobody knows for certain. But it supports maintaining a strategic commodity allocation.
 
 [VISUAL: A split screen. Left: "Demand Drivers" showing images of EVs, solar panels, wind turbines, and growing global population. Right: "Supply Constraints" showing aging mines, underinvestment charts, and a 7-10 year timeline to build a new mine. Text: "The Green Energy Transition Needs Massive Quantities of Raw Materials"]
 
-**Sam:** OK, so how do I actually invest in gold and commodities? I cannot exactly put a gold bar in my brokerage account.
+**Stella:** OK, so how do I actually invest in gold and commodities? I cannot exactly put a gold bar in my brokerage account.
 
-**Alex:** Well, technically you can buy physical gold, but for most investors, the easiest approach is gold ETFs. The three main ones are GLD, IAU, and GLDM. They all track the gold price and are backed by physical gold sitting in vaults. GLD is the largest and most liquid. IAU is cheaper. GLDM is the cheapest of all at only 0.10% per year.
+**Horace:** Well, technically you can buy physical gold, but for most investors, the easiest approach is gold ETFs. The three main ones are GLD, IAU, and GLDM. They all track the gold price and are backed by physical gold sitting in vaults. GLD is the largest and most liquid. IAU is cheaper. GLDM is the cheapest of all at only 0.10% per year.
 
-**Sam:** And for commodities?
+**Stella:** And for commodities?
 
-**Alex:** This is where it gets trickier. There are broad commodity ETFs like DJP and PDBC, but I need to warn you about something called contango.
+**Horace:** This is where it gets trickier. There are broad commodity ETFs like DJP and PDBC, but I need to warn you about something called contango.
 
-**Sam:** Contango? That sounds like a dance.
+**Stella:** Contango? That sounds like a dance.
 
-**Alex:** I wish it were that fun. Contango is a situation where futures prices are higher than the current spot price. Commodity ETFs hold futures contracts, not the physical commodities. Every month, they have to "roll" their expiring contracts into new ones. If the new contract is more expensive than the old one, you lose money on every roll.
+**Horace:** I wish it were that fun. Contango is a situation where futures prices are higher than the current spot price. Commodity ETFs hold futures contracts, not the physical commodities. Every month, they have to "roll" their expiring contracts into new ones. If the new contract is more expensive than the old one, you lose money on every roll.
 
 [ANIMATION: Reference animation/week06_gold_correlation.py - A secondary animation showing the contango roll process. A commodity ETF holds a futures contract. As expiration approaches, the contract converges to the spot price. The ETF must buy the next month's contract at a higher price. Animated cash flows show the "leak" from roll costs. Over 12 months of rolling, the ETF's return is visibly lower than the commodity's spot price return. Numbers update in real-time.]
 
-**Sam:** So the ETF can underperform the actual commodity?
+**Stella:** So the ETF can underperform the actual commodity?
 
-**Alex:** Significantly. The oil ETF, USO, is the most notorious example. Between 2006 and 2023, oil prices were roughly flat. But USO lost more than 90% of its value because of persistent contango drag. This is not a small issue. It can completely negate your commodity returns.
+**Horace:** Significantly. The oil ETF, USO, is the most notorious example. Between 2006 and 2023, oil prices were roughly flat. But USO lost more than 90% of its value because of persistent contango drag. This is not a small issue. It can completely negate your commodity returns.
 
-**Sam:** That is terrifying. So how do I get around this?
+**Stella:** That is terrifying. So how do I get around this?
 
-**Alex:** A few approaches. First, gold ETFs do not have this problem because they hold physical gold, not futures. Second, for broader commodity exposure, consider commodity producer stocks or ETFs instead of futures-based products. An ETF like XLE holds energy companies like ExxonMobil and Chevron. They benefit from rising oil prices without the contango problem. Similarly, XME holds mining companies that benefit from rising metal prices.
+**Horace:** A few approaches. First, gold ETFs do not have this problem because they hold physical gold, not futures. Second, for broader commodity exposure, consider commodity producer stocks or ETFs instead of futures-based products. An ETF like XLE holds energy companies like ExxonMobil and Chevron. They benefit from rising oil prices without the contango problem. Similarly, XME holds mining companies that benefit from rising metal prices.
 
-**Sam:** So I get commodity exposure through the companies that produce the commodities?
+**Stella:** So I get commodity exposure through the companies that produce the commodities?
 
-**Alex:** Exactly. The downside is that you also take on company-specific risk, management decisions, costs, labor issues, and so on. But for long-term investors, producer stocks tend to capture commodity price moves without the hidden drag of futures rolling.
+**Horace:** Exactly. The downside is that you also take on company-specific risk, management decisions, costs, labor issues, and so on. But for long-term investors, producer stocks tend to capture commodity price moves without the hidden drag of futures rolling.
 
 [VISUAL: Two pathways for commodity exposure. Left path: "Futures ETFs (USO, DJP)" with warning signs for contango drag. Right path: "Producer Stock ETFs (XLE, XME)" with note "No contango risk, but company-specific risk". Both arrows point to "Commodity Exposure" in the center.]
 
-**Sam:** Let us talk about the real reason we are discussing this. How do gold and commodities fit into a portfolio?
+**Stella:** Let us talk about the real reason we are discussing this. How do gold and commodities fit into a portfolio?
 
-**Alex:** This is where the magic happens. Let me introduce you to the concept of correlation. Correlation measures how much two assets move together. A correlation of 1.0 means they move in perfect lockstep. A correlation of 0 means they move independently. A correlation of negative 1 means they move in exact opposite directions.
+**Horace:** This is where the magic happens. Let me introduce you to the concept of correlation. Correlation measures how much two assets move together. A correlation of 1.0 means they move in perfect lockstep. A correlation of 0 means they move independently. A correlation of negative 1 means they move in exact opposite directions.
 
-**Sam:** And gold has a low correlation with stocks?
+**Stella:** And gold has a low correlation with stocks?
 
-**Alex:** Almost zero. Gold's long-term correlation with U.S. stocks is approximately 0.02. That is essentially no relationship at all. Compare that with international stocks, which have a correlation of about 0.75 with U.S. stocks. Most investors think they are diversified because they own international stocks, but in reality, those move largely in lockstep with U.S. stocks, especially during crises.
+**Horace:** Almost zero. Gold's long-term correlation with U.S. stocks is approximately 0.02. That is essentially no relationship at all. Compare that with international stocks, which have a correlation of about 0.75 with U.S. stocks. Most investors think they are diversified because they own international stocks, but in reality, those move largely in lockstep with U.S. stocks, especially during crises.
 
-**Sam:** So adding international stocks does not actually diversify much?
+**Stella:** So adding international stocks does not actually diversify much?
 
-**Alex:** Not as much as people think. Not during the times when diversification matters most, which is during crashes. In 2008, U.S. stocks fell 37%, and international stocks fell 43%. Some diversification. Gold, meanwhile, was up about 5%. That is real diversification.
+**Horace:** Not as much as people think. Not during the times when diversification matters most, which is during crashes. In 2008, U.S. stocks fell 37%, and international stocks fell 43%. Some diversification. Gold, meanwhile, was up about 5%. That is real diversification.
 
 [VISUAL: Three bars showing 2008 performance. "U.S. Stocks: -37%", "International Stocks: -43%", "Gold: +5%". A dotted line connects international and U.S. stocks with label "High Correlation = Not Real Diversification". Gold stands apart. Text: "True Diversification = Different Return Drivers"]
 
-**Sam:** That is a really eye-opening comparison. So what does a portfolio with gold and commodities actually look like?
+**Stella:** That is a really eye-opening comparison. So what does a portfolio with gold and commodities actually look like?
 
-**Alex:** Let me show you the 60/20/20 concept. Instead of the traditional 60% stocks, 40% bonds, you allocate 60% stocks, 20% bonds, 10% gold, and 10% commodities. You give up a tiny bit of expected return, about 0.3% per year, but you meaningfully reduce risk across every measure.
+**Horace:** Let me show you the 60/20/20 concept. Instead of the traditional 60% stocks, 40% bonds, you allocate 60% stocks, 20% bonds, 10% gold, and 10% commodities. You give up a tiny bit of expected return, about 0.3% per year, but you meaningfully reduce risk across every measure.
 
-**Sam:** How much risk reduction are we talking about?
+**Stella:** How much risk reduction are we talking about?
 
-**Alex:** In historical backtests, the 60/20/20 portfolio reduced the worst-year loss by about 3 percentage points compared to 60/40. The maximum drawdown improved by about 5 percentage points. And the Sharpe ratio, which measures return per unit of risk, was actually higher.
+**Horace:** In historical backtests, the 60/20/20 portfolio reduced the worst-year loss by about 3 percentage points compared to 60/40. The maximum drawdown improved by about 5 percentage points. And the Sharpe ratio, which measures return per unit of risk, was actually higher.
 
-**Sam:** So you give up almost nothing in return but get significantly less risk?
+**Stella:** So you give up almost nothing in return but get significantly less risk?
 
-**Alex:** Exactly. And here is the key insight: the 60/20/20 particularly shines during inflationary periods. The traditional 60/40 portfolio's Achilles' heel is high inflation, because both stocks and bonds suffer. But in the 60/20/20, when inflation strikes, gold and commodities step in to offset the damage. In the 1970s, a 60/40 portfolio lost purchasing power. A 60/20/20 portfolio roughly broke even.
+**Horace:** Exactly. And here is the key insight: the 60/20/20 particularly shines during inflationary periods. The traditional 60/40 portfolio's Achilles' heel is high inflation, because both stocks and bonds suffer. But in the 60/20/20, when inflation strikes, gold and commodities step in to offset the damage. In the 1970s, a 60/40 portfolio lost purchasing power. A 60/20/20 portfolio roughly broke even.
 
 [VISUAL: Two portfolios shown as pie charts. Left: "Traditional 60/40" with a crack labeled "Vulnerable to Inflation". Right: "60/20/20" with gold and commodity slices glowing, labeled "Inflation Protection Built In". Performance comparison table below for normal times vs. inflationary periods.]
 
-**Sam:** That is like having an umbrella specifically for the one type of rain your existing rain gear does not handle.
+**Stella:** That is like having an umbrella specifically for the one type of rain your existing rain gear does not handle.
 
-**Alex:** That is a great analogy. Bonds protect you from stock market crashes. Gold and commodities protect you from inflation. Together, they cover a much wider range of economic scenarios.
+**Horace:** That is a great analogy. Bonds protect you from stock market crashes. Gold and commodities protect you from inflation. Together, they cover a much wider range of economic scenarios.
 
-**Sam:** Let me ask about rebalancing. If I hold four different asset classes, how does that work?
+**Stella:** Let me ask about rebalancing. If I hold four different asset classes, how does that work?
 
-**Alex:** Rebalancing is where the real magic of diversification shows up. Here is what happens naturally. In a stock crash, stocks fall and gold often rallies. Your portfolio drifts from your target allocation. When you rebalance, you sell some gold that has gone up and buy more stocks that have gone down. You are systematically selling high and buying low.
+**Horace:** Rebalancing is where the real magic of diversification shows up. Here is what happens naturally. In a stock crash, stocks fall and gold often rallies. Your portfolio drifts from your target allocation. When you rebalance, you sell some gold that has gone up and buy more stocks that have gone down. You are systematically selling high and buying low.
 
-**Sam:** You are forcing yourself to do the opposite of what emotions would tell you to do.
+**Stella:** You are forcing yourself to do the opposite of what emotions would tell you to do.
 
-**Alex:** Precisely. Left to our own emotions, we sell stocks when they crash because we are scared, and we buy gold when it is soaring because it feels safe. That is the exact wrong behavior. Rebalancing forces the right behavior. And studies show that disciplined rebalancing adds roughly 0.5% to 1.0% per year to portfolio returns over time.
+**Horace:** Precisely. Left to our own emotions, we sell stocks when they crash because we are scared, and we buy gold when it is soaring because it feels safe. That is the exact wrong behavior. Rebalancing forces the right behavior. And studies show that disciplined rebalancing adds roughly 0.5% to 1.0% per year to portfolio returns over time.
 
 [VISUAL: A rebalancing cycle diagram. Step 1: "Stocks crash, Gold rallies, Portfolio drifts". Step 2: "Rebalance: Sell Gold (high), Buy Stocks (low)". Step 3: "Stocks recover, Gold cools". Step 4: "Rebalance: Sell Stocks (high), Buy Gold (low)". Circular arrows showing the repeating cycle. Text: "Rebalancing = Automated Buy Low, Sell High"]
 
-**Sam:** How often should I rebalance?
+**Stella:** How often should I rebalance?
 
-**Alex:** Once a year is sufficient for most investors. Some people use threshold-based rebalancing, where they rebalance whenever any asset drifts more than 5 percentage points from its target. Either approach works. The key is having a system and sticking to it. Do not rebalance based on feelings or market predictions.
+**Horace:** Once a year is sufficient for most investors. Some people use threshold-based rebalancing, where they rebalance whenever any asset drifts more than 5 percentage points from its target. Either approach works. The key is having a system and sticking to it. Do not rebalance based on feelings or market predictions.
 
-**Sam:** I have to ask about Bitcoin. A lot of people say Bitcoin is the new gold. Is it?
+**Stella:** I have to ask about Bitcoin. A lot of people say Bitcoin is the new gold. Is it?
 
-**Alex:** This is a great question, and the honest answer is: not yet. Bitcoin shares some characteristics with gold. It is scarce, with a hard cap at 21 million coins. It is not controlled by any government. It has attracted significant investor interest as an alternative asset. But there are crucial differences.
+**Horace:** This is a great question, and the honest answer is: not yet. Bitcoin shares some characteristics with gold. It is scarce, with a hard cap at 21 million coins. It is not controlled by any government. It has attracted significant investor interest as an alternative asset. But there are crucial differences.
 
-**Sam:** Like what?
+**Stella:** Like what?
 
-**Alex:** First, track record. Gold has 5,000 years. Bitcoin has about 15. Second, volatility. Gold moves about 15% per year. Bitcoin moves 60% to 80%. Third, crisis behavior. In the March 2020 COVID crash, gold dipped briefly but held up well. Bitcoin dropped over 50% in a single day. Fourth, correlation. Gold has near-zero correlation with stocks. Bitcoin's correlation with stocks is much higher, around 0.40, meaning it often falls when stocks fall.
+**Horace:** First, track record. Gold has 5,000 years. Bitcoin has about 15. Second, volatility. Gold moves about 15% per year. Bitcoin moves 60% to 80%. Third, crisis behavior. In the March 2020 COVID crash, gold dipped briefly but held up well. Bitcoin dropped over 50% in a single day. Fourth, correlation. Gold has near-zero correlation with stocks. Bitcoin's correlation with stocks is much higher, around 0.40, meaning it often falls when stocks fall.
 
-**Sam:** So Bitcoin does not actually work as a diversifier right now?
+**Stella:** So Bitcoin does not actually work as a diversifier right now?
 
-**Alex:** Not reliably. It may evolve into one over time as it matures and its correlation characteristics change. Some investors hold a small allocation to both gold and Bitcoin. But for the diversification role we are discussing today, gold is the proven, reliable choice. Bitcoin is more of a speculative, high-conviction bet on the future of digital assets.
+**Horace:** Not reliably. It may evolve into one over time as it matures and its correlation characteristics change. Some investors hold a small allocation to both gold and Bitcoin. But for the diversification role we are discussing today, gold is the proven, reliable choice. Bitcoin is more of a speculative, high-conviction bet on the future of digital assets.
 
 [VISUAL: A comparison scoreboard. "Gold vs. Bitcoin as Portfolio Diversifier". Categories scored: Track Record (Gold wins), Volatility (Gold wins), Crisis Behavior (Gold wins), Correlation Benefit (Gold wins), Supply Scarcity (Tie), Growth Potential (Bitcoin wins). Overall: "Gold = Proven Diversifier, Bitcoin = Speculative Bet"]
 
-**Sam:** Fair enough. Let me ask a really practical question. If I have a $50,000 portfolio, what does a reasonable gold and commodity allocation look like?
+**Stella:** Fair enough. Let me ask a really practical question. If I have a $50,000 portfolio, what does a reasonable gold and commodity allocation look like?
 
-**Alex:** Here is one approach. $30,000 in a total stock market ETF like VTI, that is 60%. $10,000 in a bond ETF like BND, that is 20%. $5,000 in a gold ETF like GLDM, that is 10%. And $5,000 in a commodity producer ETF like XLE or a broad commodity ETF, that is 10%. Simple, low cost, broadly diversified, and you get the full benefit of multi-asset diversification.
+**Horace:** Here is one approach. $30,000 in a total stock market ETF like VTI, that is 60%. $10,000 in a bond ETF like BND, that is 20%. $5,000 in a gold ETF like GLDM, that is 10%. And $5,000 in a commodity producer ETF like XLE or a broad commodity ETF, that is 10%. Simple, low cost, broadly diversified, and you get the full benefit of multi-asset diversification.
 
-**Sam:** That does not sound complicated at all.
+**Stella:** That does not sound complicated at all.
 
-**Alex:** It is not. Good investing should be simple. The 60/20/20 is four ETFs. You can set it up in 20 minutes and rebalance once a year. The discipline to stick with it through good times and bad is the hard part, not the implementation.
+**Horace:** It is not. Good investing should be simple. The 60/20/20 is four ETFs. You can set it up in 20 minutes and rebalance once a year. The discipline to stick with it through good times and bad is the hard part, not the implementation.
 
 [VISUAL: A simple portfolio graphic showing four colored blocks: "VTI (60%)" in blue, "BND (20%)" in green, "GLDM (10%)" in gold, "XLE/PDBC (10%)" in brown. Total: "$50,000". Text: "Your Entire Diversified Portfolio in 4 ETFs"]
 
-**Sam:** What about someone who says, "I do not need gold or commodities, I will just hold stocks for the long run"?
+**Stella:** What about someone who says, "I do not need gold or commodities, I will just hold stocks for the long run"?
 
-**Alex:** Over 40 years, a 100% stock portfolio will likely produce the highest absolute returns. But the question is not whether you can theoretically hold for 40 years. The question is whether you will actually hold through a 40% drawdown that lasts two years. Or through a decade where stocks return nothing, like the 2000s. History shows that the vast majority of investors who say they will hold through anything end up selling at the worst possible time.
+**Horace:** Over 40 years, a 100% stock portfolio will likely produce the highest absolute returns. But the question is not whether you can theoretically hold for 40 years. The question is whether you will actually hold through a 40% drawdown that lasts two years. Or through a decade where stocks return nothing, like the 2000s. History shows that the vast majority of investors who say they will hold through anything end up selling at the worst possible time.
 
-**Sam:** Because the pain of losses is more powerful than the logic of long-term returns.
+**Stella:** Because the pain of losses is more powerful than the logic of long-term returns.
 
-**Alex:** Exactly. The gold and commodities in your portfolio are not there to maximize returns. They are there to make the portfolio survivable. A portfolio you can stick with through any economic environment will outperform a theoretically optimal portfolio that you abandon in a panic. Every single time.
+**Horace:** Exactly. The gold and commodities in your portfolio are not there to maximize returns. They are there to make the portfolio survivable. A portfolio you can stick with through any economic environment will outperform a theoretically optimal portfolio that you abandon in a panic. Every single time.
 
-**Sam:** That really resonates with me. Let me ask one more question. People always bring up Warren Buffett and how he hates gold. He says it just sits there and does not produce anything.
+**Stella:** That really resonates with me. Let me ask one more question. People always bring up Warren Buffett and how he hates gold. He says it just sits there and does not produce anything.
 
-**Alex:** Buffett is correct that gold does not produce earnings. As a standalone investment held forever, productive businesses will outperform gold over the very long run. But Buffett is evaluating gold as a standalone investment, not as a portfolio component. The argument for gold is not that it will produce the highest returns. The argument is that adding 10% gold to a stock-and-bond portfolio reduces risk more than it reduces return. Buffett can afford to ignore that because he has an iron constitution and has never panic-sold in his life. Most of us are not Warren Buffett.
+**Horace:** Buffett is correct that gold does not produce earnings. As a standalone investment held forever, productive businesses will outperform gold over the very long run. But Buffett is evaluating gold as a standalone investment, not as a portfolio component. The argument for gold is not that it will produce the highest returns. The argument is that adding 10% gold to a stock-and-bond portfolio reduces risk more than it reduces return. Buffett can afford to ignore that because he has an iron constitution and has never panic-sold in his life. Most of us are not Warren Buffett.
 
 [VISUAL: A thought bubble above a cartoon Warren Buffett saying "Gold just sits there!" Next to it, a balanced portfolio chart showing how 10% gold reduces worst-year losses and improves the Sharpe ratio. Text: "Buffett is right about gold-as-investment, wrong about gold-as-diversifier"]
 
-**Sam:** Ha. That is a great way to frame it. We are not all Warren Buffett.
+**Stella:** Ha. That is a great way to frame it. We are not all Warren Buffett.
 
-**Alex:** And being honest about that is the first step toward being a good investor.
+**Horace:** And being honest about that is the first step toward being a good investor.
 
-**Sam:** OK, let us summarize. Gold is a 5,000-year store of value that protects against inflation and financial crises. Its main price driver is real interest rates. Commodities follow long supercycles driven by physical supply and demand. The main ways to invest are gold ETFs and commodity producer stocks, with a warning about contango in futures-based ETFs. And the big picture is that a 60/20/20 portfolio with stocks, bonds, gold, and commodities provides better risk-adjusted returns than the traditional 60/40 by adding protection against inflation.
+**Stella:** OK, let us summarize. Gold is a 5,000-year store of value that protects against inflation and financial crises. Its main price driver is real interest rates. Commodities follow long supercycles driven by physical supply and demand. The main ways to invest are gold ETFs and commodity producer stocks, with a warning about contango in futures-based ETFs. And the big picture is that a 60/20/20 portfolio with stocks, bonds, gold, and commodities provides better risk-adjusted returns than the traditional 60/40 by adding protection against inflation.
 
-**Alex:** Perfect summary. And remember, the goal is not to maximize returns in any single environment. The goal is to build a portfolio that survives and grows across all environments. Stocks for growth. Bonds for crash protection. Gold and commodities for inflation protection. That is a complete portfolio.
+**Horace:** Perfect summary. And remember, the goal is not to maximize returns in any single environment. The goal is to build a portfolio that survives and grows across all environments. Stocks for growth. Bonds for crash protection. Gold and commodities for inflation protection. That is a complete portfolio.
 
-**Sam:** What is coming up next week?
+**Stella:** What is coming up next week?
 
-**Alex:** We are going to start talking about how to actually build your portfolio from scratch. We will put together everything from Weeks 1 through 6 and walk through a practical, step-by-step portfolio construction process.
+**Horace:** We are going to start talking about how to actually build your portfolio from scratch. We will put together everything from Weeks 1 through 6 and walk through a practical, step-by-step portfolio construction process.
 
 [VISUAL: Preview slide for Week 7 with text: "Next Week: Building Your First Portfolio - Putting It All Together"]
 
-**Sam:** Before we wrap up, rapid-fire round?
+**Stella:** Before we wrap up, rapid-fire round?
 
-**Alex:** Let us do it.
+**Horace:** Let us do it.
 
-**Sam:** Can I buy gold through my retirement account?
+**Stella:** Can I buy gold through my retirement account?
 
-**Alex:** Yes. You can buy gold ETFs like GLD, IAU, or GLDM in any IRA or 401k that offers brokerage access. Some 401k plans have limited fund options, but most now offer broad ETF access.
+**Horace:** Yes. You can buy gold ETFs like GLD, IAU, or GLDM in any IRA or 401k that offers brokerage access. Some 401k plans have limited fund options, but most now offer broad ETF access.
 
-**Sam:** Is silver a good substitute for gold?
+**Stella:** Is silver a good substitute for gold?
 
-**Alex:** Silver is more volatile and more correlated with the business cycle because of its industrial uses. For the pure diversification role, gold is better. Silver can be a supplementary holding but should not replace gold.
+**Horace:** Silver is more volatile and more correlated with the business cycle because of its industrial uses. For the pure diversification role, gold is better. Silver can be a supplementary holding but should not replace gold.
 
-**Sam:** What about platinum?
+**Stella:** What about platinum?
 
-**Alex:** Platinum is primarily an industrial metal used in catalytic converters and other applications. It does not have the same safe-haven characteristics as gold. It is more of a commodity play than a diversification play.
+**Horace:** Platinum is primarily an industrial metal used in catalytic converters and other applications. It does not have the same safe-haven characteristics as gold. It is more of a commodity play than a diversification play.
 
-**Sam:** Best single ETF for gold exposure?
+**Stella:** Best single ETF for gold exposure?
 
-**Alex:** GLDM. Lowest cost at 0.10% per year, backed by physical gold, and the share price is accessible for smaller portfolios.
+**Horace:** GLDM. Lowest cost at 0.10% per year, backed by physical gold, and the share price is accessible for smaller portfolios.
 
-**Sam:** Biggest mistake investors make with gold?
+**Stella:** Biggest mistake investors make with gold?
 
-**Alex:** Buying too much after a big rally because it feels safe, or buying too little during calm times because it seems unnecessary. Gold should be a steady 5-15% allocation that you rebalance, not a tactical trade based on fear or greed.
+**Horace:** Buying too much after a big rally because it feels safe, or buying too little during calm times because it seems unnecessary. Gold should be a steady 5-15% allocation that you rebalance, not a tactical trade based on fear or greed.
 
-**Sam:** Great stuff. Thanks, everyone. See you next week.
+**Stella:** Great stuff. Thanks, everyone. See you next week.
 
-**Alex:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 7.
+**Horace:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 7.
 
 [VISUAL: End screen with subscribe button, playlist link to Level 1: Foundations series, and social media handles]
 

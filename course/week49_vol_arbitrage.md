@@ -624,197 +624,197 @@ A8: In calm markets, the vol surface has moderate skew and relatively flat term 
 
 [VISUAL: Channel intro animation with financial charts and volatility surface graphics]
 
-**Alex:** Welcome back to the Investment Masterclass. We are now at Week 49 -- deep into Level 5 expert territory. Today we are covering one of the most fascinating and dangerous corners of the market: volatility arbitrage and term structure trading.
+**Horace:** Welcome back to the Investment Masterclass. We are now at Week 49 -- deep into Level 5 expert territory. Today we are covering one of the most fascinating and dangerous corners of the market: volatility arbitrage and term structure trading.
 
-**Sam:** Dangerous? That is an interesting word to lead with for an investment lesson.
+**Stella:** Dangerous? That is an interesting word to lead with for an investment lesson.
 
-**Alex:** I chose it deliberately. Volatility trading has produced some of the most consistent returns in institutional finance, and also some of the most spectacular blowups. We need to respect both sides of that coin.
+**Horace:** I chose it deliberately. Volatility trading has produced some of the most consistent returns in institutional finance, and also some of the most spectacular blowups. We need to respect both sides of that coin.
 
-**Sam:** Fair enough. So let us start at the beginning. What exactly do we mean by "volatility arbitrage"?
+**Stella:** Fair enough. So let us start at the beginning. What exactly do we mean by "volatility arbitrage"?
 
 [VISUAL: Title card "Volatility Arbitrage: Trading What the Market Gets Wrong"]
 
-**Alex:** At its core, volatility arbitrage exploits the difference between what the market *thinks* volatility will be -- that is implied volatility, priced into options -- and what volatility actually *turns out* to be, which is realized volatility.
+**Horace:** At its core, volatility arbitrage exploits the difference between what the market *thinks* volatility will be -- that is implied volatility, priced into options -- and what volatility actually *turns out* to be, which is realized volatility.
 
-**Sam:** And there is a systematic difference between those two?
+**Stella:** And there is a systematic difference between those two?
 
-**Alex:** Yes. This is called the variance risk premium, or VRP. On average, implied volatility exceeds realized volatility about 85 to 90 percent of the time. The average gap is roughly 4 percentage points -- for example, VIX might average 19 while actual S&P 500 volatility averages 15.
+**Horace:** Yes. This is called the variance risk premium, or VRP. On average, implied volatility exceeds realized volatility about 85 to 90 percent of the time. The average gap is roughly 4 percentage points -- for example, VIX might average 19 while actual S&P 500 volatility averages 15.
 
 [VISUAL: Graph showing VIX vs 30-day realized volatility from 2000-2025, with the VRP shaded between them]
 
-**Sam:** So option sellers are consistently overcharging?
+**Stella:** So option sellers are consistently overcharging?
 
-**Alex:** That is one way to look at it, but it is more nuanced. Think of it like insurance. Your car insurance premium exceeds your expected accident cost. The insurance company is not "overcharging" -- they are being compensated for taking on the risk of a catastrophic claim. Options sellers are providing portfolio insurance to the market, and they get paid for that service.
+**Horace:** That is one way to look at it, but it is more nuanced. Think of it like insurance. Your car insurance premium exceeds your expected accident cost. The insurance company is not "overcharging" -- they are being compensated for taking on the risk of a catastrophic claim. Options sellers are providing portfolio insurance to the market, and they get paid for that service.
 
 [ANIMATION: animation/week49_vol_surface.py -- Animated 3D volatility surface showing implied vol across strikes and expirations, with the surface shifting in real-time to show how it changes during calm vs crisis markets]
 
-**Sam:** So why does this premium persist? If everyone knows about it, should it not get competed away?
+**Stella:** So why does this premium persist? If everyone knows about it, should it not get competed away?
 
-**Alex:** Great question. Several structural reasons keep it alive. First, pension funds and insurance companies are *required* by regulation to hedge their portfolios. They *must* buy puts, regardless of whether those puts are overpriced. Second, most investors are loss-averse -- they will overpay for downside protection. And third, the risk of selling volatility is genuinely terrifying. The VRP is compensation for bearing real risk.
+**Horace:** Great question. Several structural reasons keep it alive. First, pension funds and insurance companies are *required* by regulation to hedge their portfolios. They *must* buy puts, regardless of whether those puts are overpriced. Second, most investors are loss-averse -- they will overpay for downside protection. And third, the risk of selling volatility is genuinely terrifying. The VRP is compensation for bearing real risk.
 
-**Sam:** What kind of risk are we talking about?
+**Stella:** What kind of risk are we talking about?
 
 [VISUAL: Distribution chart showing monthly VRP outcomes -- positive most months, deeply negative in rare months]
 
-**Alex:** Picture this: you sell volatility for 10 months straight and make 2 percent each month. Life is wonderful. Then in month 11, VIX spikes, and you lose 25 percent. Net-net, you have lost money despite being right 10 out of 11 months. That is the distribution of returns for short vol strategies -- frequent small gains, rare catastrophic losses.
+**Horace:** Picture this: you sell volatility for 10 months straight and make 2 percent each month. Life is wonderful. Then in month 11, VIX spikes, and you lose 25 percent. Net-net, you have lost money despite being right 10 out of 11 months. That is the distribution of returns for short vol strategies -- frequent small gains, rare catastrophic losses.
 
-**Sam:** That sounds like picking up pennies in front of a steamroller.
+**Stella:** That sounds like picking up pennies in front of a steamroller.
 
-**Alex:** That cliche exists for a reason. But there is a more nuanced truth: if you size your positions appropriately and hedge your tails, short vol can be a legitimate strategy. The key word is *appropriately*.
+**Horace:** That cliche exists for a reason. But there is a more nuanced truth: if you size your positions appropriately and hedge your tails, short vol can be a legitimate strategy. The key word is *appropriately*.
 
 [VISUAL: Title card "VIX Term Structure: The Shape That Tells You Everything"]
 
-**Sam:** Let us talk about the VIX term structure. I have heard that term thrown around a lot.
+**Stella:** Let us talk about the VIX term structure. I have heard that term thrown around a lot.
 
-**Alex:** The VIX term structure is the curve formed by VIX futures prices across different expiration months. Normally, this curve slopes upward -- we call this contango. Front-month futures are cheaper than back-month futures.
+**Horace:** The VIX term structure is the curve formed by VIX futures prices across different expiration months. Normally, this curve slopes upward -- we call this contango. Front-month futures are cheaper than back-month futures.
 
-**Sam:** Why?
+**Stella:** Why?
 
-**Alex:** Because VIX tends to mean-revert. If VIX is at 14 today, the market knows it is below its long-term average of around 19-20. So futures expiring in six months are priced higher, reflecting the expectation that VIX will drift back up toward its average. The curve slopes upward because of this mean-reversion expectation, combined with the insurance premium embedded in longer-dated options.
+**Horace:** Because VIX tends to mean-revert. If VIX is at 14 today, the market knows it is below its long-term average of around 19-20. So futures expiring in six months are priced higher, reflecting the expectation that VIX will drift back up toward its average. The curve slopes upward because of this mean-reversion expectation, combined with the insurance premium embedded in longer-dated options.
 
 [VISUAL: Two side-by-side charts showing VIX term structure in contango (upward slope) and backwardation (downward slope)]
 
-**Sam:** And backwardation is the opposite?
+**Stella:** And backwardation is the opposite?
 
-**Alex:** Exactly. When VIX spikes during a crisis -- say it jumps to 40 -- the market expects it will come back down. So front-month futures are priced high, but back-month futures are lower, creating a downward-sloping curve. Backwardation signals that the market is panicking NOW but expects things to normalize.
+**Horace:** Exactly. When VIX spikes during a crisis -- say it jumps to 40 -- the market expects it will come back down. So front-month futures are priced high, but back-month futures are lower, creating a downward-sloping curve. Backwardation signals that the market is panicking NOW but expects things to normalize.
 
-**Sam:** How often does each state occur?
+**Stella:** How often does each state occur?
 
-**Alex:** Contango roughly 80 percent of the time, backwardation about 20 percent. And that asymmetry is what makes roll yield strategies work.
+**Horace:** Contango roughly 80 percent of the time, backwardation about 20 percent. And that asymmetry is what makes roll yield strategies work.
 
 [VISUAL: Title card "Roll Yield: The Hidden Engine"]
 
-**Sam:** Roll yield -- I have heard this is where the money is made. Can you explain it?
+**Stella:** Roll yield -- I have heard this is where the money is made. Can you explain it?
 
-**Alex:** Sure. Imagine you short a front-month VIX future at 16 while VIX spot is at 14. If nothing changes in the world and VIX spot stays at 14, as expiration approaches, that future you sold at 16 will converge down to 14. You pocket the 2-point difference. That convergence is roll yield.
+**Horace:** Sure. Imagine you short a front-month VIX future at 16 while VIX spot is at 14. If nothing changes in the world and VIX spot stays at 14, as expiration approaches, that future you sold at 16 will converge down to 14. You pocket the 2-point difference. That convergence is roll yield.
 
-**Sam:** That sounds great. What is the catch?
+**Stella:** That sounds great. What is the catch?
 
-**Alex:** The catch is what happens when VIX does not stay calm. If VIX spikes to 35, your short future moves against you massively. You sold at 16, and now it is at 35. That is a 19-point loss, wiping out nearly 10 months of 2-point gains in a single event.
+**Horace:** The catch is what happens when VIX does not stay calm. If VIX spikes to 35, your short future moves against you massively. You sold at 16, and now it is at 35. That is a 19-point loss, wiping out nearly 10 months of 2-point gains in a single event.
 
 [VISUAL: Table showing 12 months of hypothetical short VIX returns, with months 1-5 positive, month 6 showing a crisis loss, and months 7-12 recovering]
 
-**Sam:** This comes back to your point about sizing. How should someone think about position sizing for these strategies?
+**Stella:** This comes back to your point about sizing. How should someone think about position sizing for these strategies?
 
-**Alex:** My rule of thumb: never allocate more than 5 to 10 percent of your total portfolio to short vol strategies. Even within that allocation, diversify across implementation methods. Some allocation in calendar spreads, some in put credit spreads, and always -- always -- maintain a tail hedge.
+**Horace:** My rule of thumb: never allocate more than 5 to 10 percent of your total portfolio to short vol strategies. Even within that allocation, diversify across implementation methods. Some allocation in calendar spreads, some in put credit spreads, and always -- always -- maintain a tail hedge.
 
-**Sam:** What is a calendar spread in VIX?
+**Stella:** What is a calendar spread in VIX?
 
 [VISUAL: Diagram showing a VIX calendar spread: short front-month, long back-month, with profit/loss scenarios]
 
-**Alex:** A VIX calendar spread is when you sell the front-month VIX future and buy a back-month VIX future simultaneously. You are not betting on the *level* of VIX but on the *shape* of the term structure. In contango, the front month decays faster than the back month, so you profit from that differential roll.
+**Horace:** A VIX calendar spread is when you sell the front-month VIX future and buy a back-month VIX future simultaneously. You are not betting on the *level* of VIX but on the *shape* of the term structure. In contango, the front month decays faster than the back month, so you profit from that differential roll.
 
-**Sam:** And the advantage over a naked short?
+**Stella:** And the advantage over a naked short?
 
-**Alex:** Risk reduction. If VIX spikes, both legs move up, and the back-month long position partially offsets losses on the front-month short. You give up some return for a much better risk profile. In the February 2018 event, a calendar spread would have lost maybe 20 to 30 percent of the position, while a naked short would have been wiped out.
+**Horace:** Risk reduction. If VIX spikes, both legs move up, and the back-month long position partially offsets losses on the front-month short. You give up some return for a much better risk profile. In the February 2018 event, a calendar spread would have lost maybe 20 to 30 percent of the position, while a naked short would have been wiped out.
 
-**Sam:** Speaking of February 2018 -- the XIV collapse. Can we talk about that? It seems like the defining event for volatility trading.
+**Stella:** Speaking of February 2018 -- the XIV collapse. Can we talk about that? It seems like the defining event for volatility trading.
 
 [VISUAL: Title card "Volmageddon: The XIV Collapse" with date February 5, 2018]
 
-**Alex:** Absolutely. This is required study for anyone considering volatility strategies. XIV was a daily inverse VIX short-term ETN -- it gave you minus-one-times daily exposure to front-month VIX futures. In contango, it generated beautiful returns. From 2012 to early 2018, XIV went from about 7 dollars to nearly 150 dollars. People thought they had found an ATM machine.
+**Horace:** Absolutely. This is required study for anyone considering volatility strategies. XIV was a daily inverse VIX short-term ETN -- it gave you minus-one-times daily exposure to front-month VIX futures. In contango, it generated beautiful returns. From 2012 to early 2018, XIV went from about 7 dollars to nearly 150 dollars. People thought they had found an ATM machine.
 
-**Sam:** What went wrong?
+**Stella:** What went wrong?
 
-**Alex:** On February 5, 2018, the S&P 500 dropped about 4 percent -- a significant but not historically extreme move. However, VIX spiked from around 13 to 17 during the regular session, and then in the after-hours, VIX futures absolutely exploded.
+**Horace:** On February 5, 2018, the S&P 500 dropped about 4 percent -- a significant but not historically extreme move. However, VIX spiked from around 13 to 17 during the regular session, and then in the after-hours, VIX futures absolutely exploded.
 
 [VISUAL: Chart showing XIV price from 2012 to February 2018, with the final collapse highlighted]
 
-**Sam:** How bad was it?
+**Stella:** How bad was it?
 
-**Alex:** XIV went from 99 dollars at the close to about 5 dollars the next morning. A 96 percent loss overnight. Roughly 2 billion dollars of investor value evaporated in hours.
+**Horace:** XIV went from 99 dollars at the close to about 5 dollars the next morning. A 96 percent loss overnight. Roughly 2 billion dollars of investor value evaporated in hours.
 
-**Sam:** How is that even possible from a 4 percent stock market decline?
+**Stella:** How is that even possible from a 4 percent stock market decline?
 
-**Alex:** The answer lies in the rebalancing mechanics. XIV had to maintain minus-one-times daily exposure. As VIX futures rose during the day, XIV's short position was losing money, which meant its NAV was shrinking. But the product still needed to be at minus-one-times exposure relative to its new, smaller NAV. To do that, it had to BUY VIX futures -- cover some of its short.
+**Horace:** The answer lies in the rebalancing mechanics. XIV had to maintain minus-one-times daily exposure. As VIX futures rose during the day, XIV's short position was losing money, which meant its NAV was shrinking. But the product still needed to be at minus-one-times exposure relative to its new, smaller NAV. To do that, it had to BUY VIX futures -- cover some of its short.
 
-**Sam:** And that buying pushed VIX futures even higher.
+**Stella:** And that buying pushed VIX futures even higher.
 
-**Alex:** Exactly. It was a vicious feedback loop. XIV buys VIX futures to rebalance, that pushes VIX higher, which means XIV needs to buy even more, which pushes VIX even higher. The daily rebalancing requirement turned a moderate VIX spike into a catastrophic self-reinforcing spiral. All the inverse VIX products combined held massive positions relative to the VIX futures market. The tail wagged the dog.
+**Horace:** Exactly. It was a vicious feedback loop. XIV buys VIX futures to rebalance, that pushes VIX higher, which means XIV needs to buy even more, which pushes VIX even higher. The daily rebalancing requirement turned a moderate VIX spike into a catastrophic self-reinforcing spiral. All the inverse VIX products combined held massive positions relative to the VIX futures market. The tail wagged the dog.
 
 [ANIMATION: animation/week49_vol_surface.py -- Animated feedback loop diagram showing: VIX rises -> XIV buys futures -> VIX rises more -> XIV buys more -> accelerating spiral]
 
-**Sam:** What are the key takeaways from this event?
+**Stella:** What are the key takeaways from this event?
 
-**Alex:** Several critical lessons. First, understand the product you are trading. Many XIV holders did not understand daily rebalancing and treated it like a stock. Second, size appropriately -- even a 10 percent allocation to XIV would have meant "only" a 10 percent portfolio loss, which is painful but survivable. Third, beware of crowded trades. By early 2018, short vol was a massive, crowded trade, and when everyone tried to exit simultaneously, the door was not wide enough.
+**Horace:** Several critical lessons. First, understand the product you are trading. Many XIV holders did not understand daily rebalancing and treated it like a stock. Second, size appropriately -- even a 10 percent allocation to XIV would have meant "only" a 10 percent portfolio loss, which is painful but survivable. Third, beware of crowded trades. By early 2018, short vol was a massive, crowded trade, and when everyone tried to exit simultaneously, the door was not wide enough.
 
-**Sam:** Is SVXY still tradeable?
+**Stella:** Is SVXY still tradeable?
 
-**Alex:** Yes, but after the event, ProShares reduced its daily exposure from minus-one-times to minus-half-times. This means it captures roughly half the roll yield but also takes roughly half the loss in a spike. A VIX futures doubling, which destroyed XIV, would only cause about a 50 percent loss in the new SVXY. Still painful, but not a total wipeout.
+**Horace:** Yes, but after the event, ProShares reduced its daily exposure from minus-one-times to minus-half-times. This means it captures roughly half the roll yield but also takes roughly half the loss in a spike. A VIX futures doubling, which destroyed XIV, would only cause about a 50 percent loss in the new SVXY. Still painful, but not a total wipeout.
 
 [VISUAL: Title card "Variance Swaps: The Pure Play"]
 
-**Sam:** Let us move to something more theoretical. What is a variance swap?
+**Stella:** Let us move to something more theoretical. What is a variance swap?
 
-**Alex:** A variance swap is the cleanest way to trade the variance risk premium. It is an OTC contract where one party pays the fixed strike variance and receives the realized variance over the contract period. If realized variance comes in below the strike, the fixed payer -- the variance seller -- profits.
+**Horace:** A variance swap is the cleanest way to trade the variance risk premium. It is an OTC contract where one party pays the fixed strike variance and receives the realized variance over the contract period. If realized variance comes in below the strike, the fixed payer -- the variance seller -- profits.
 
-**Sam:** How is variance different from volatility?
+**Stella:** How is variance different from volatility?
 
-**Alex:** Variance is volatility squared. This distinction matters enormously because squaring amplifies large moves. If implied vol is 20 and realized vol is 15, a vol swap pays based on the 5-point difference. But a variance swap pays based on 400 minus 225, which is 175 variance points. Now imagine realized vol comes in at 30: the vol swap difference is 10 points against you, but the variance swap difference is 900 minus 400, which is 500 points against you. The convexity of variance makes variance swaps much more dangerous for sellers in tail events.
+**Horace:** Variance is volatility squared. This distinction matters enormously because squaring amplifies large moves. If implied vol is 20 and realized vol is 15, a vol swap pays based on the 5-point difference. But a variance swap pays based on 400 minus 225, which is 175 variance points. Now imagine realized vol comes in at 30: the vol swap difference is 10 points against you, but the variance swap difference is 900 minus 400, which is 500 points against you. The convexity of variance makes variance swaps much more dangerous for sellers in tail events.
 
 [VISUAL: Graph comparing variance swap vs volatility swap payoffs across different realized vol outcomes, showing the convex divergence]
 
-**Sam:** So variance buyers have a built-in edge in crashes?
+**Stella:** So variance buyers have a built-in edge in crashes?
 
-**Alex:** Yes, variance swaps provide natural convex protection. This is why many hedge funds use variance swaps as tail hedges -- the payoff accelerates precisely when you need it most. And it is why the VRP exists in variance space: sellers demand extra compensation for this convexity risk.
+**Horace:** Yes, variance swaps provide natural convex protection. This is why many hedge funds use variance swaps as tail hedges -- the payoff accelerates precisely when you need it most. And it is why the VRP exists in variance space: sellers demand extra compensation for this convexity risk.
 
-**Sam:** Can retail investors access variance swaps?
+**Stella:** Can retail investors access variance swaps?
 
-**Alex:** Not directly -- they are OTC institutional products. But understanding them is important because VIX is essentially the price of a 30-day variance swap on the S&P 500. The VIX formula uses option prices across all strikes to compute the expected variance, which is the same calculation that prices a variance swap.
+**Horace:** Not directly -- they are OTC institutional products. But understanding them is important because VIX is essentially the price of a 30-day variance swap on the S&P 500. The VIX formula uses option prices across all strikes to compute the expected variance, which is the same calculation that prices a variance swap.
 
 [VISUAL: Title card "The Volatility Surface: A 3D Map of Market Risk"]
 
-**Sam:** You mentioned the volatility surface earlier. Can we go deeper on that?
+**Stella:** You mentioned the volatility surface earlier. Can we go deeper on that?
 
-**Alex:** The volatility surface is one of the most information-rich objects in all of finance. It plots implied volatility across two dimensions: strike price and expiration date. Every point on the surface tells you what the market is willing to pay for an option at that specific strike and expiration.
+**Horace:** The volatility surface is one of the most information-rich objects in all of finance. It plots implied volatility across two dimensions: strike price and expiration date. Every point on the surface tells you what the market is willing to pay for an option at that specific strike and expiration.
 
 [ANIMATION: animation/week49_vol_surface.py -- Interactive 3D volatility surface rotating to show the skew across strikes and the term structure across expirations]
 
-**Sam:** What does the typical shape look like?
+**Stella:** What does the typical shape look like?
 
-**Alex:** If you take a cross-section at a single expiration -- say one month -- you see what is called the volatility skew. Out-of-the-money puts have higher implied vol than at-the-money options, and at-the-money options have higher implied vol than out-of-the-money calls. The curve looks like a slanted smile, steeper on the left side.
+**Horace:** If you take a cross-section at a single expiration -- say one month -- you see what is called the volatility skew. Out-of-the-money puts have higher implied vol than at-the-money options, and at-the-money options have higher implied vol than out-of-the-money calls. The curve looks like a slanted smile, steeper on the left side.
 
-**Sam:** Why are puts more expensive?
+**Stella:** Why are puts more expensive?
 
-**Alex:** Demand for crash protection. After the 1987 crash, the market permanently repriced downside risk. Before Black Monday, the skew was essentially flat -- options at all strikes traded at similar implied vol levels. After the crash, everyone realized that extreme downside moves were more likely than models predicted, and the skew has persisted ever since.
+**Horace:** Demand for crash protection. After the 1987 crash, the market permanently repriced downside risk. Before Black Monday, the skew was essentially flat -- options at all strikes traded at similar implied vol levels. After the crash, everyone realized that extreme downside moves were more likely than models predicted, and the skew has persisted ever since.
 
-**Sam:** And the term structure dimension?
+**Stella:** And the term structure dimension?
 
-**Alex:** Along the expiration axis, you see that short-dated options tend to have more pronounced skew than long-dated ones. Near-term options are more sensitive to current market conditions, while longer-term options reflect the expectation that things eventually normalize. In a panic, the front of the surface spikes much more than the back.
+**Horace:** Along the expiration axis, you see that short-dated options tend to have more pronounced skew than long-dated ones. Near-term options are more sensitive to current market conditions, while longer-term options reflect the expectation that things eventually normalize. In a panic, the front of the surface spikes much more than the back.
 
-**Sam:** How do traders exploit the vol surface?
+**Stella:** How do traders exploit the vol surface?
 
-**Alex:** Several ways. Skew trades involve selling expensive OTM puts and buying cheaper ATM options when the skew is steeper than historical norms. Term structure trades involve selling front-month options and buying back-month options when the front is too elevated. Dispersion trades exploit the difference between index implied vol and the combined implied vol of index components. Each of these relies on mean-reversion of the surface toward its typical shape.
+**Horace:** Several ways. Skew trades involve selling expensive OTM puts and buying cheaper ATM options when the skew is steeper than historical norms. Term structure trades involve selling front-month options and buying back-month options when the front is too elevated. Dispersion trades exploit the difference between index implied vol and the combined implied vol of index components. Each of these relies on mean-reversion of the surface toward its typical shape.
 
 [VISUAL: Examples of each vol surface trade type with entry/exit conditions]
 
-**Sam:** This is incredibly complex. How does someone actually get started with vol trading?
+**Stella:** This is incredibly complex. How does someone actually get started with vol trading?
 
-**Alex:** Start by watching, not trading. Monitor the VIX term structure daily. Track the VRP. Observe how the vol surface changes during different market conditions. Paper trade for at least six months. When you do start with real money, begin with the simplest strategies -- selling put credit spreads on the S&P 500 -- and only add complexity as you build experience and understanding.
+**Horace:** Start by watching, not trading. Monitor the VIX term structure daily. Track the VRP. Observe how the vol surface changes during different market conditions. Paper trade for at least six months. When you do start with real money, begin with the simplest strategies -- selling put credit spreads on the S&P 500 -- and only add complexity as you build experience and understanding.
 
-**Sam:** What about tools and data?
+**Stella:** What about tools and data?
 
-**Alex:** For free tools, the CBOE website publishes VIX term structure data. VIXCentral.com shows the term structure and contango roll yield in real time. For more sophisticated analysis, you will need an options data feed and software that can compute the vol surface. Interactive Brokers provides reasonable tools for this at a retail level.
+**Horace:** For free tools, the CBOE website publishes VIX term structure data. VIXCentral.com shows the term structure and contango roll yield in real time. For more sophisticated analysis, you will need an options data feed and software that can compute the vol surface. Interactive Brokers provides reasonable tools for this at a retail level.
 
 [VISUAL: Dashboard mockup showing key vol metrics: VIX spot, term structure, VRP, VVIX, put/call ratio]
 
-**Sam:** Let us talk about practical allocation. If someone has, say, a million-dollar portfolio and wants to add vol strategies, how should they think about it?
+**Stella:** Let us talk about practical allocation. If someone has, say, a million-dollar portfolio and wants to add vol strategies, how should they think about it?
 
-**Alex:** I would suggest allocating 5 to 15 percent to volatility strategies as a whole. Within that, roughly 40 percent to roll yield harvesting through VIX calendar spreads, 30 percent to selling put credit spreads for the VRP, 20 percent to tail hedges via OTM VIX calls or SPX puts, and 10 percent held in reserve for opportunistic trades when you see surface dislocations.
+**Horace:** I would suggest allocating 5 to 15 percent to volatility strategies as a whole. Within that, roughly 40 percent to roll yield harvesting through VIX calendar spreads, 30 percent to selling put credit spreads for the VRP, 20 percent to tail hedges via OTM VIX calls or SPX puts, and 10 percent held in reserve for opportunistic trades when you see surface dislocations.
 
-**Sam:** The tail hedge piece costs money rather than making money, right?
+**Stella:** The tail hedge piece costs money rather than making money, right?
 
-**Alex:** Correct. The tail hedge is a cost center. You expect to lose 3 to 5 percent per year on that allocation. But it exists to protect the rest of the vol portfolio -- and potentially the entire portfolio -- in a catastrophic event. Think of it as the cost of staying in business. Without it, a single Volmageddon-type event can permanently impair your capital.
+**Horace:** Correct. The tail hedge is a cost center. You expect to lose 3 to 5 percent per year on that allocation. But it exists to protect the rest of the vol portfolio -- and potentially the entire portfolio -- in a catastrophic event. Think of it as the cost of staying in business. Without it, a single Volmageddon-type event can permanently impair your capital.
 
-**Sam:** What would you say is the single most important lesson from this entire topic?
+**Stella:** What would you say is the single most important lesson from this entire topic?
 
 [VISUAL: Text on screen "The most important lesson in volatility trading"]
 
-**Alex:** Respect the tails. The variance risk premium exists because tail risk is real. The premium is your compensation for bearing that risk, not a free lunch. Size your positions so that you can survive the worst-case scenario. Have hedges in place before you need them. And never, ever convince yourself that "this time is different" or that volatility cannot spike to levels you have not seen before.
+**Horace:** Respect the tails. The variance risk premium exists because tail risk is real. The premium is your compensation for bearing that risk, not a free lunch. Size your positions so that you can survive the worst-case scenario. Have hedges in place before you need them. And never, ever convince yourself that "this time is different" or that volatility cannot spike to levels you have not seen before.
 
-**Sam:** Wise words. This was an incredibly deep lesson. For those of you watching, take the time to really understand these concepts before putting money to work. Volatility trading rewards the prepared and punishes the overconfident.
+**Stella:** Wise words. This was an incredibly deep lesson. For those of you watching, take the time to really understand these concepts before putting money to work. Volatility trading rewards the prepared and punishes the overconfident.
 
-**Alex:** Next week, we will shift gears to factor tilts and alternative risk premia -- another area where institutional investors have a significant edge over retail. See you then.
+**Horace:** Next week, we will shift gears to factor tilts and alternative risk premia -- another area where institutional investors have a significant edge over retail. See you then.
 
 [VISUAL: End card with lesson summary and reading list]
 

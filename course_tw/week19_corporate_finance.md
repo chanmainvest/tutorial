@@ -1,922 +1,914 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance
+# 第19週：企業財務——資本結構、加權平均資金成本、股利與公司治理
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-### a) Why This Is Important
+### a) 為什麼這很重要
 
-Every publicly traded company makes a continuous stream of financial decisions that directly affect the value of your investment. How much debt should the company take on? Should it pay a dividend or buy back shares? How should it allocate capital between growth investments, acquisitions, and returning cash to shareholders? These are corporate finance decisions, and understanding them transforms you from a passive stock price watcher into someone who can evaluate whether management is creating or destroying value.
+每一家上市公司都持續不斷地做出財務決策，這些決策直接影響你的投資價值。公司應該承擔多少債務？應該發放股利還是買回股票？應該如何在成長投資、併購與回饋股東之間分配資本？這些都是企業財務決策，理解它們能讓你從被動盯著股價的旁觀者，蛻變成能夠評估管理層是在創造還是摧毀價值的投資人。
 
-Consider this contrast. Company A earns $1 billion in profit. Its management uses $400 million to invest in a new product line with a 25% expected return, returns $400 million to shareholders through buybacks at a reasonable valuation, and holds $200 million in cash for flexibility. Company B also earns $1 billion. Its management acquires a competitor for $800 million at an inflated price (the CEO wanted a bigger empire), pays the board excessive compensation, and issues more shares to fund the acquisition, diluting existing shareholders. Both companies earned the same profit. But Company A is building long-term value while Company B is destroying it.
+請看以下對比。A公司賺了10億美元的淨利。管理層用4億美元投資一條預期報酬率25%的新產品線，以合理估值將4億美元用於股票買回回饋股東，並保留2億美元現金以維持財務彈性。B公司同樣賺了10億美元。管理層卻以溢價8億美元併購一家競爭對手（執行長想要更大的商業版圖），向董事會支付過高薪酬，並發行更多股票為併購融資，稀釋了現有股東的權益。兩家公司賺了同樣多的利潤，但A公司正在累積長期價值，B公司卻在摧毀它。
 
-Here is why corporate finance knowledge is essential for every investor:
+以下是每位投資人都需要具備企業財務知識的原因：
 
-1. **Capital allocation is the CEO's most important job.** Over a 10-year period, a company making $1 billion annually will deploy $10 billion in capital. How intelligently that money is deployed determines far more of your return than quarter-to-quarter earnings beats. Warren Buffett has said that after ten years in a job, a CEO whose company retains earnings of $10 per share should have created at least $10 of market value -- if not, the capital was misallocated.
+1. **資本配置是執行長最重要的職責。** 一家每年賺10億美元的公司，十年間將部署100億美元的資本。這筆錢被運用得多明智，對你的報酬影響遠超過逐季的盈餘表現。華倫·巴菲特曾說，一位在一份工作上任職十年、公司每股保留盈餘累計達10美元的執行長，至少應為每股創造10美元的市場價值——若未能做到，資本就遭到了錯誤配置。
 
-2. **Capital structure affects risk and return.** A company funded entirely by equity is safer but may be inefficient. A company loaded with debt is riskier but can magnify returns. Understanding this tradeoff helps you assess whether a company's financial structure is appropriate for its business model.
+2. **資本結構影響風險與報酬。** 完全以股東權益融資的公司較為穩健，但效率可能不足；負債累累的公司風險較高，但能放大報酬。理解這種取捨有助於你評估一家公司的財務結構是否符合其商業模式。
 
-3. **Dividends and buybacks are how companies return value to you.** But not all return policies are created equal. Some dividend programs are sustainable and signal confidence. Others are funded by debt and are on the verge of being cut. Some buyback programs create enormous value. Others are egregious wastes of shareholder money, executed at inflated prices to offset dilution from executive stock compensation.
+3. **股利與股票買回是公司回饋你價值的方式。** 但並非所有回饋政策都同樣優質。有些股利計畫可持續，且傳遞出管理層的信心；有些則靠舉債支撐，即將面臨削減。有些股票買回創造了巨大價值，有些則是對股東資金的嚴重浪費，在高估時買回，只是為了抵銷高階主管股票薪酬所帶來的稀釋效果。
 
-4. **Corporate governance protects you from management misbehavior.** The agency problem -- the conflict of interest between managers and shareholders -- is one of the most studied phenomena in finance. Understanding governance helps you identify companies where your interests as a shareholder are protected versus those where management is enriching itself at your expense.
+4. **公司治理保護你免受管理層不當行為的侵害。** 代理問題——管理層與股東之間的利益衝突——是財務學研究最深入的現象之一。理解公司治理有助於你辨別哪些公司切實保障了你的股東權益，以及哪些公司的管理層正在犧牲你的利益中飽私囊。
 
-This lesson covers the essential framework: how companies finance themselves, how to evaluate their capital allocation decisions, and how to identify the governance red flags that precede value destruction.
+本課程涵蓋了核心架構：公司如何為自身融資、如何評估其資本配置決策，以及如何識別那些預示價值毀滅的公司治理警訊。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的事
 
-#### 1. Capital Structure -- Debt vs. Equity
+#### 1. 資本結構——債務與股東權益
 
-Every company finances its operations with some combination of debt (borrowed money) and equity (shareholders' money). The mix is called the capital structure, and it has profound implications for risk, return, and valuation.
+每家公司都以債務（借來的錢）與股東權益（股東的錢）的某種組合來融資。這個比例組合稱為資本結構，對風險、報酬與估值都有深遠影響。
 
 ```
-CAPITAL STRUCTURE BASICS
+資本結構基礎
 ==========================
 
-                    TOTAL CAPITAL
+                      總資本
                    /              \
                   /                \
-            DEBT                  EQUITY
-         (Borrowed)             (Ownership)
+            債務                  股東權益
+         （借入）               （所有權）
          /        \             /         \
-     Bank       Bonds       Common      Retained
-     Loans                  Stock       Earnings
+     銀行       債券        普通          保留
+     貸款                   股票          盈餘
 
-DEBT vs. EQUITY COMPARISON
+債務與股東權益比較
 ==============================
 
-Feature          Debt              Equity
+特性             債務              股東權益
 -------          ----              ------
-Cost             Lower (tax        Higher (dividends
-                 deductible)       not deductible)
+成本             較低（利息可       較高（股利
+                 扣抵稅額）         不可扣抵稅額）
 
-Risk to firm     Higher (must      Lower (no mandatory
-                 pay or default)   payments)
+對公司的風險     較高（必須付息     較低（無強制
+                 否則違約）         付款義務）
 
-Investor claim   Senior (paid      Junior (paid last,
-                 first)            bears losses first)
+投資人求償順位   優先（先受償）     後順位（最後受償，
+                                   首先承擔損失）
 
-Tax treatment    Interest is        Dividends NOT
-                 tax-deductible     deductible
+稅務處理         利息可            股利不可
+                 扣抵稅額           扣抵稅額
 
-Control          No voting          Voting rights
-                 rights
+控制權           無表決            有表決
+                 權                 權
 
-Upside           Fixed return       Unlimited upside
-                 (capped)           potential
+上行空間         固定報酬           無限上行
+                 （有上限）         潛力
 
-EXAMPLE: TWO IDENTICAL BUSINESSES, DIFFERENT STRUCTURES
+範例：兩家相同的企業，不同的資本結構
 =========================================================
 
-                    All-Equity Co.     Leveraged Co.
+                    純股東權益公司     槓桿公司
                     --------------     -------------
-Total Assets:       $1,000,000         $1,000,000
-Debt:               $0                 $500,000 @ 6%
-Equity:             $1,000,000         $500,000
+總資產：            $1,000,000         $1,000,000
+債務：              $0                 $500,000 @ 6%
+股東權益：          $1,000,000         $500,000
 
-Operating Income:   $150,000           $150,000
-Interest Expense:   $0                 $30,000
-Pre-Tax Income:     $150,000           $120,000
-Tax (25%):          $37,500            $30,000
-Net Income:         $112,500           $90,000
+營業利益：          $150,000           $150,000
+利息費用：          $0                 $30,000
+稅前利益：          $150,000           $120,000
+稅（25%）：         $37,500            $30,000
+淨利：              $112,500           $90,000
 
-Return on Equity:   11.25%             18.0%
+股東權益報酬率：    11.25%             18.0%
 
-Leveraged Co. has HIGHER ROE despite LOWER net income
-because equity investors put up less capital.
+槓桿公司儘管淨利較低，股東權益報酬率卻較高，
+因為股東投入的資本較少。
 
-But if operating income drops to $20,000:
-                    All-Equity Co.     Leveraged Co.
+但若營業利益下降至 $20,000：
+                    純股東權益公司     槓桿公司
                     --------------     -------------
-Operating Income:   $20,000            $20,000
-Interest Expense:   $0                 $30,000
-Pre-Tax Income:     $20,000            -$10,000  LOSS!
-Net Income:         $15,000            -$10,000
+營業利益：          $20,000            $20,000
+利息費用：          $0                 $30,000
+稅前利益：          $20,000            -$10,000  虧損！
+淨利：              $15,000            -$10,000
 
-Return on Equity:   1.5%               -2.0%
+股東權益報酬率：    1.5%               -2.0%
 
-Leverage magnifies both gains AND losses.
+槓桿同時放大獲利與虧損。
 ```
 
 ---
 
-#### 2. The Modigliani-Miller Theorem -- The Starting Point
+#### 2. 莫迪利安尼-米勒定理——起點
 
-In 1958, Franco Modigliani and Merton Miller proved that in a perfect world (no taxes, no bankruptcy costs, no information asymmetry), capital structure does not matter -- the total value of a firm is the same regardless of how it is financed. This might seem useless, but it is actually brilliant because it tells us exactly which real-world frictions make capital structure matter.
+1958年，法蘭科·莫迪利安尼與墨頓·米勒證明了：在一個完美的世界裡（無稅、無破產成本、無資訊不對稱），資本結構無關緊要——無論如何融資，公司的總價值相同。這聽起來似乎毫無用處，但其實相當深刻，因為它精確告訴了我們，哪些現實世界的摩擦使資本結構變得重要。
 
 ```
-MODIGLIANI-MILLER AND THE REAL WORLD
+莫迪利安尼-米勒與現實世界
 =======================================
 
-Perfect World (M&M):   Capital structure does not matter.
-                        Total firm value is constant.
+完美世界（M&M）：   資本結構無關緊要。
+                    公司總價值為常數。
 
-Real World Additions:
+現實世界的補充：
 
-  + Tax Advantage of Debt
-    Interest is tax-deductible, so debt creates
-    a "tax shield" = Debt x Tax Rate
-    --> Pushes toward MORE debt
+  + 債務的稅務優勢
+    利息可扣抵稅額，因此債務創造
+    「稅盾」= 債務 x 稅率
+    --> 傾向借入更多債務
 
-  - Bankruptcy Costs
-    Too much debt increases probability of
-    financial distress (legal costs, lost
-    customers, fire-sale asset values)
-    --> Pushes toward LESS debt
+  - 破產成本
+    過多債務增加財務困境的機率
+    （法律成本、客戶流失、資產賤售）
+    --> 傾向減少債務
 
-  - Agency Costs
-    Managers may use free cash flow wastefully;
-    debt forces discipline (must make payments)
-    --> Pushes toward MORE debt (sometimes)
+  - 代理成本
+    管理層可能浪費自由現金流；
+    債務迫使紀律（必須還款）
+    --> 有時傾向增加債務
 
-  = OPTIMAL CAPITAL STRUCTURE
-    Balances tax benefits against distress costs
+  = 最適資本結構
+    在稅務利益與財務困境成本之間取得平衡
 
-OPTIMAL DEBT LEVEL (CONCEPTUAL)
+最適負債水準（概念圖）
 ==================================
 
-  Firm Value
+  公司價值
      ^
      |                     ****
      |                  ***    ****
      |               ***          ****
      |            ***                 ****
      |         ***                        ****
-     |      ***          Tax              Bankruptcy
-     |   ***          benefits            costs start
-     |  *             increasing          dominating
+     |      ***          稅務              破產
+     |   ***          利益增加            成本開始
+     |  *             主導               主導
      | *
-     +*-----|------------|------------|-------> Debt/Equity
-     0%    20%         50%          80%        Ratio
+     +*-----|------------|------------|-------> 負債/股東權益
+     0%    20%         50%          80%        比率
 
-     Sweet spot: where marginal tax benefit
-     = marginal increase in distress risk
-     (typically 30-50% for mature companies)
+     甜蜜點：邊際稅務利益
+     = 邊際財務困境風險增量
+     （成熟企業通常為30-50%）
 ```
 
 ---
 
-#### 3. Weighted Average Cost of Capital (WACC)
+#### 3. 加權平均資金成本（WACC）
 
-WACC is the blended cost of all the capital a company uses. It is critically important because it is the hurdle rate for new investments -- any project must earn at least the WACC to create value for shareholders.
+加權平均資金成本（WACC）是公司所使用的所有資本的混合成本。它至關重要，因為它是新投資的門檻報酬率——任何專案的報酬率都必須至少達到WACC，才能為股東創造價值。
 
 ```
-WACC FORMULA
+WACC公式
 ==============
 
                 E                D
-WACC = Re x --------- + Rd x --------- x (1 - Tax Rate)
+WACC = Re x --------- + Rd x --------- x (1 - 稅率)
               E + D            E + D
 
-Where:
-  Re = Cost of equity (what shareholders require)
-  Rd = Cost of debt (interest rate on borrowings)
-  E  = Market value of equity
-  D  = Market value of debt
-  Tax Rate = Corporate tax rate
+其中：
+  Re = 股東權益成本（股東要求的報酬率）
+  Rd = 債務成本（借款利率）
+  E  = 股東權益市值
+  D  = 債務市值
+  稅率 = 公司稅率
 
-WORKED EXAMPLE
+計算範例
 ================
 
-Company XYZ:
-  Market cap (E):      $800 million
-  Debt (D):            $200 million
-  Cost of equity (Re): 10%
-  Cost of debt (Rd):   5%
-  Tax rate:            25%
+XYZ公司：
+  市值（E）：          8億美元
+  債務（D）：          2億美元
+  股東權益成本（Re）： 10%
+  債務成本（Rd）：     5%
+  稅率：               25%
 
-  Equity weight: $800M / $1,000M = 80%
-  Debt weight:   $200M / $1,000M = 20%
+  股東權益權重：$800M / $1,000M = 80%
+  債務權重：    $200M / $1,000M = 20%
 
   WACC = (10% x 0.80) + (5% x 0.20 x 0.75)
        = 8.0% + 0.75%
        = 8.75%
 
-Interpretation: Every project or investment this company
-undertakes must earn AT LEAST 8.75% to create value.
+解讀：該公司所進行的每一項專案或投資
+必須至少賺取8.75%，才能創造價值。
 
-If a project earns 12% --> Creates value (12% > 8.75%)
-If a project earns 6%  --> Destroys value (6% < 8.75%)
+若專案報酬率為12% --> 創造價值（12% > 8.75%）
+若專案報酬率為6%  --> 摧毀價值（6% < 8.75%）
 ```
 
-**How Cost of Equity Is Estimated:**
+**股東權益成本的估算方式：**
 
 ```
-COST OF EQUITY ESTIMATION (CAPM)
+股東權益成本估算（資本資產定價模型）
 ===================================
 
-Re = Rf + Beta x (Rm - Rf)
+Re = Rf + 貝塔 x (Rm - Rf)
 
-Where:
-  Rf = Risk-free rate (10-year Treasury yield)
-  Beta = Stock's sensitivity to market movements
-  Rm - Rf = Equity risk premium (~5-6% historically)
+其中：
+  Rf = 無風險利率（10年期公債殖利率）
+  貝塔 = 股票對市場波動的敏感度
+  Rm - Rf = 股權風險溢酬（歷史上約5-6%）
 
-Example:
-  Risk-free rate:       4.5%
-  Beta:                 1.2
-  Equity risk premium:  5.5%
+範例：
+  無風險利率：         4.5%
+  貝塔：               1.2
+  股權風險溢酬：       5.5%
 
   Re = 4.5% + 1.2 x 5.5% = 4.5% + 6.6% = 11.1%
 
-WACC SENSITIVITY
+WACC敏感度分析
 ==================
 
-The WACC changes with capital structure:
+WACC隨資本結構而變動：
 
-Debt/Equity    Cost of     Cost of     WACC
-Ratio          Equity      Debt
-----------     --------    --------    ------
-0% debt        9.0%        N/A         9.0%
-20% debt       9.5%        4.0%        8.2%
-40% debt       10.5%       4.5%        7.5%
-60% debt       12.0%       5.5%        7.0%  <-- Minimum
-80% debt       16.0%       8.0%        8.0%  (risk premium
-                                              spikes)
+負債/股東權益  股東權益   債務       WACC
+比率           成本       成本
+----------     --------   --------   ------
+0%負債         9.0%       不適用     9.0%
+20%負債        9.5%       4.0%       8.2%
+40%負債        10.5%      4.5%       7.5%
+60%負債        12.0%      5.5%       7.0%  <-- 最低點
+80%負債        16.0%      8.0%       8.0%  （風險溢酬
+                                           急劇上升）
 
-Note: As debt increases, BOTH cost of equity AND cost of
-debt rise (higher risk), but the tax shield initially
-outweighs the higher costs. Past a point, distress risk
-overwhelms the tax benefit and WACC rises again.
+注意：隨著債務增加，股東權益成本與債務成本
+均上升（風險更高），但稅盾最初抵銷了較高的
+成本。超過某一臨界點後，財務困境風險壓過了
+稅務利益，WACC再度上升。
 ```
 
 ---
 
-#### 4. Dividends -- Returning Cash to Shareholders
+#### 4. 股利——回饋現金給股東
 
-A dividend is a direct cash payment from the company to its shareholders, typically paid quarterly. Dividend policy is one of the most visible and closely watched corporate finance decisions.
+股利是公司直接向股東支付的現金，通常按季發放。股利政策是企業財務中最受矚目、最廣泛關注的決策之一。
 
 ```
-DIVIDEND FUNDAMENTALS
+股利基礎
 =======================
 
-KEY DATES IN A DIVIDEND CYCLE
+股利週期的關鍵日期
 -------------------------------
 
-Declaration   Ex-Dividend   Record    Payment
-Date          Date          Date      Date
+宣告日        除息日        基準日    發放日
   |              |            |          |
-  |   Board      |  Must own  | Shares-  | Cash
-  |   announces  |  BEFORE    | holder   | arrives
-  |   dividend   |  this date | list     | in your
-  |              |  to get    | finalized| account
-  |              |  dividend  |          |
-  v              v            v          v
- Day 1         Day 15       Day 16     Day 45
+  |   董事會     |  必須在    | 股東      | 現金
+  |   宣告       |  此日期    | 名冊      | 到達
+  |   股利       |  前持有    | 確定      | 你的
+  |              |  才能      |           | 帳戶
+  |              |  領取股利  |           |
+  v              v            v           v
+ 第1天         第15天       第16天      第45天
 
-On the ex-dividend date, the stock price typically
-DROPS by approximately the dividend amount.
+在除息日，股價通常下跌
+約等於股利金額的幅度。
 
-DIVIDEND METRICS
+股利指標
 ==================
 
-Metric              Formula                     Meaning
-------              -------                     -------
-Dividend Yield      Annual Div / Stock Price    Income return
-Payout Ratio        Dividends / Net Income      % of earnings
-                                                paid out
-Retention Ratio     1 - Payout Ratio            % reinvested
-                                                in business
-Div. Growth Rate    Annual % increase in        Sustainability
-                    dividend per share           signal
-Div. Coverage       EPS / DPS                   Safety margin
-                                                (higher = safer)
+指標              公式                        意義
+------            -------                     -------
+股利殖利率        年股利 / 股價               收益報酬
+股利支付率        股利 / 淨利                 盈餘中
+                                              配發的比例
+保留比率          1 - 股利支付率              再投入
+                                              業務的比例
+股利成長率        每股股利的年增率            可持續性
+                                              訊號
+股利保障倍數      每股盈餘 / 每股股利         安全邊際
+                                              （越高越安全）
 ```
 
-**Dividend Sustainability Analysis:**
+**股利可持續性分析：**
 
 ```
-IS THE DIVIDEND SAFE?
+這筆股利安全嗎？
 =======================
 
-Healthy Dividend:
-  Earnings per share:    $5.00
-  Dividend per share:    $2.00
-  Payout ratio:          40%
-  Free cash flow/share:  $4.50
-  FCF payout ratio:      44%
-  Debt/EBITDA:           1.5x
-  Dividend growth:       7% annually for 10 years
-  Verdict:               SAFE -- well covered by earnings
-                         and cash flow, room to grow
+健全的股利：
+  每股盈餘：           $5.00
+  每股股利：           $2.00
+  股利支付率：         40%
+  每股自由現金流量：   $4.50
+  自由現金流量支付率： 44%
+  淨負債/EBITDA：      1.5倍
+  股利成長率：         連續10年每年7%
+  判斷：               安全——獲盈餘與現金流量充分支撐，
+                       且仍有成長空間
 
-WARNING SIGNS:
-  Payout ratio:          > 80%
-  Dividend growth:       Stalled or cut
-  FCF < Dividends:       Funding dividends with debt
-  Rising debt levels:    Borrowing to maintain payout
-  Cyclical business:     Earnings volatile but dividend fixed
-  One-time items:        Earnings inflated by non-recurring gains
+警示訊號：
+  股利支付率：         > 80%
+  股利成長：           停滯或遭削減
+  自由現金流量 < 股利：靠舉債支付股利
+  負債水準上升：       借款以維持配發
+  景氣循環型業務：     盈餘波動但股利固定
+  一次性項目：         盈餘受非經常性收益虛增
 
-DANGEROUS DIVIDEND:
-  Earnings per share:    $2.00
-  Dividend per share:    $2.50
-  Payout ratio:          125%  <-- Paying out more than earned!
-  Free cash flow/share:  $1.80
-  FCF payout ratio:      139%
-  Debt/EBITDA:           4.5x
-  Dividend growth:       0% for 3 years
-  Verdict:               DIVIDEND CUT LIKELY
+危險的股利：
+  每股盈餘：           $2.00
+  每股股利：           $2.50
+  股利支付率：         125%  <-- 配發超過所賺！
+  每股自由現金流量：   $1.80
+  自由現金流量支付率： 139%
+  淨負債/EBITDA：      4.5倍
+  股利成長率：         連續3年為0%
+  判斷：               極可能削減股利
 
-WHAT HAPPENS WHEN A DIVIDEND IS CUT
+股利被削減時會發生什麼事
 ======================================
 
-                    Stock Price
+                    股價
   $50 |  *****
       |       *
   $40 |        *
-      |         *    <-- Dividend cut announced
+      |         *    <-- 削減股利宣告
   $30 |          ****
       |              *****
-  $25 |                   *****   <-- New equilibrium
+  $25 |                   *****   <-- 新均衡
       |
       +--|--|--|--|--|--|--|--|--|-->
-         Weeks before and after cut
+         削減前後數週
 
-Dividend cuts typically cause 20-30% price declines
-because they signal management's lack of confidence
-AND force income-seeking investors to sell.
+股利削減通常導致股價下跌20-30%，
+因為這傳遞了管理層缺乏信心的訊號，
+且迫使以股利為目的的投資人出售持股。
 ```
 
 ---
 
-#### 5. Share Buybacks -- The Other Way to Return Cash
+#### 5. 股票買回——回饋現金的另一種方式
 
-A share buyback (or repurchase) is when a company buys its own shares on the open market or through a tender offer, reducing the number of shares outstanding. This increases each remaining shareholder's ownership percentage.
+股票買回（或庫藏股）是公司在公開市場或透過公開收購方式買回自家股票，減少流通在外股數。這使每位留存股東的持股比例提高。
 
 ```
-HOW BUYBACKS CREATE VALUE
+股票買回如何創造價值
 ============================
 
-Before Buyback:
-  Net Income:           $100 million
-  Shares Outstanding:   100 million
-  EPS:                  $1.00
-  Stock Price:          $15.00
-  P/E Ratio:            15x
+買回前：
+  淨利：               1億美元
+  流通在外股數：       1億股
+  每股盈餘：           $1.00
+  股價：               $15.00
+  本益比：             15倍
 
-Company uses $150 million to buy back 10 million shares:
+公司動用1.5億美元買回1,000萬股：
 
-After Buyback:
-  Net Income:           $100 million  (unchanged)
-  Shares Outstanding:   90 million    (reduced by 10%)
-  EPS:                  $1.11         (increased by 11.1%)
-  Stock Price:          $16.67        (at same 15x P/E)
-  Shareholder gain:     +11.1% per share
+買回後：
+  淨利：               1億美元  （不變）
+  流通在外股數：       9,000萬股（減少10%）
+  每股盈餘：           $1.11    （提升11.1%）
+  股價：               $16.67   （維持15倍本益比）
+  股東獲益：           每股 +11.1%
 
-BUYBACKS vs. DIVIDENDS COMPARISON
+股票買回與股利比較
 ====================================
 
-Feature              Buybacks              Dividends
+特性                 股票買回              股利
 -------              --------              ---------
-Tax efficiency       Better (gains         Worse (taxed as
-                     deferred, taxed       income in year
-                     at capital gains      received)
-                     rate when sold)
+稅務效率             較佳（資本利得        較差（收到當年
+                     遞延課稅，出售        即依所得稅率
+                     時依資本利得          課稅）
+                     稅率課稅）
 
-Flexibility          High (can stop        Low (cutting a
-                     anytime with no       dividend is seen
-                     stigma)               as a negative signal)
+彈性                 高（可隨時停止        低（削減股利
+                     且不帶來負面          被視為負面
+                     市場訊號）            訊號）
 
-Signal               Ambiguous (could      Clearer (management
-                     mean stock is cheap   commits to ongoing
-                     or management has     payments)
-                     no better ideas)
+傳遞的訊號           模糊（可能代表        較明確（管理層
+                     股價便宜，也          承諾持續
+                     可能代表管理層        支付）
+                     沒有更好的構想）
 
-Price sensitivity    Matters a LOT         Matters less
-                     (buying back at       (fixed per-share
-                     high prices wastes    amount regardless
-                     money)                of price)
+對股價的敏感度       影響極大              影響較小
+                     （高價買回是          （每股金額
+                     資金浪費）            固定，不受
+                                          股價影響）
 
-Who benefits         All shareholders      All shareholders
-                     (increased % owner-   (direct cash)
-                     ship of the company)
+誰受益               所有股東              所有股東
+                     （提升公司            （直接領取
+                     持股百分比）          現金）
 
-Regularity           Irregular             Regular (quarterly)
+規律性               不定期               定期（每季）
 ```
 
-**When Buybacks Destroy Value:**
+**股票買回何時摧毀價值：**
 
 ```
-GOOD BUYBACKS vs. BAD BUYBACKS
+好的股票買回 vs. 壞的股票買回
 ==================================
 
-GOOD: Company trades at $30, intrinsic value is $50.
-  Each buyback dollar buys $1.67 of value.
-  Remaining shareholders gain from the discount.
+好的情況：公司以$30交易，內在價值為$50。
+  每投入一美元可買回$1.67的價值。
+  留存股東從這個折價中獲益。
 
-BAD: Company trades at $50, intrinsic value is $30.
-  Each buyback dollar buys only $0.60 of value.
-  Remaining shareholders are harmed.
+壞的情況：公司以$50交易，內在價值為$30。
+  每投入一美元只能買回$0.60的價值。
+  留存股東因此受損。
 
-THE BUYBACK TRAP (Common Problem):
+買回陷阱（常見問題）：
 
-  Company generates $500M in free cash flow
-  Company issues $200M in stock options to executives
-  Company spends $300M on buybacks
-  Net shares barely decrease
+  公司產生5億美元自由現金流量
+  公司發行價值2億美元的股票選擇權給高階主管
+  公司花費3億美元買回股票
+  股份總數幾乎沒有減少
 
-  The buyback is NOT returning cash to shareholders --
-  it is merely offsetting the dilution from executive
-  compensation. The executives got $200M of value.
-  Shareholders got $100M less than they think.
+  這次買回並非在回饋現金給股東——
+  它只是在抵銷高階主管薪酬帶來的稀釋。
+  高階主管獲得了2億美元的價值，
+  股東實際收益遠少於他們以為的。
 
-CHECK: Is share count ACTUALLY declining?
-  Year 1:  1,000M shares
-  Year 2:    990M shares  ($500M buyback)
-  Year 3:    985M shares  ($500M buyback)
-  Year 4:    982M shares  ($500M buyback)
+檢查：流通在外股數是否真的在減少？
+  第1年：  10億股
+  第2年：  9.9億股  （5億美元買回）
+  第3年：  9.85億股 （5億美元買回）
+  第4年：  9.82億股 （5億美元買回）
 
-  $1.5 billion spent but only 1.8% share reduction!
-  Where did the money go? Stock-based compensation.
+  花費了150億美元，股數卻只減少1.8%！
+  這些錢去了哪裡？股權薪酬。
 ```
 
 ---
 
-#### 6. Capital Allocation Framework
+#### 6. 資本配置框架
 
-The best CEOs are master capital allocators. They consistently deploy capital into the highest-returning opportunities and return the rest to shareholders. Here is how to evaluate capital allocation quality.
+最優秀的執行長是卓越的資本配置者。他們持續將資本部署至報酬最高的機會，並將其餘資本回饋股東。以下是評估資本配置品質的方法。
 
 ```
-CAPITAL ALLOCATION DECISION TREE
+資本配置決策樹
 ===================================
 
-Company generates Free Cash Flow
+公司產生自由現金流量
               |
               v
     +--------------------+
-    | Can we invest in   |
-    | projects with      |  YES --> Invest (organic growth,
-    | returns > WACC?    |          R&D, capex)
+    | 我們能否投資       |
+    | 報酬率 > WACC      |  是 --> 投資（有機成長、
+    | 的專案？           |          研發、資本支出）
     +--------------------+
               |
-              NO
+              否
               v
     +--------------------+
-    | Can we acquire     |
-    | businesses at      |  YES --> Acquire (but be skeptical --
-    | attractive prices? |          most acquisitions destroy value)
+    | 我們能否以         |
+    | 合理價格           |  是 --> 收購（但要保持懷疑——
+    | 收購企業？         |          大多數併購摧毀價值）
     +--------------------+
               |
-              NO
+              否
               v
     +--------------------+
-    | Is our stock       |
-    | undervalued?       |  YES --> Buy back shares
+    | 我們的股票         |
+    | 是否被低估？       |  是 --> 買回股票
     +--------------------+
               |
-              NO
+              否
               v
     +--------------------+
-    | Pay a dividend or  |  YES --> Return cash to shareholders
-    | special dividend   |          (they can invest it better)
+    | 支付股利或         |  是 --> 將現金回饋股東
+    | 特別股利           |         （他們能做更好的投資）
     +--------------------+
 
-THE CAPITAL ALLOCATION SCORECARD
+資本配置計分卡
 ===================================
 
-Metric                            Good         Bad
-------                            ----         ---
-Return on Invested Capital        > WACC       < WACC
-  (ROIC)                          (creating    (destroying
-                                   value)       value)
+指標                              好的          差的
+------                            ----          ---
+投入資本報酬率                    > WACC        < WACC
+  （ROIC）                        （創造        （摧毀
+                                   價值）        價值）
 
-Acquisition track record          Disciplined, Overpaying,
-                                  accretive    dilutive
+併購紀錄                          謹慎，        溢價收購，
+                                  有增值效果    稀釋股東
 
-Buyback price discipline          Buys below   Buys at any
-                                  intrinsic    price to hit
-                                  value        EPS targets
+股票買回的股價紀律                低於內在      以任何股價
+                                  價值時買入    買入以
+                                               達成每股
+                                               盈餘目標
 
-Dividend sustainability           Growing,     Funded by
-                                  covered by   debt, payout
-                                  FCF          > 100%
+股利可持續性                      成長中，      靠負債支撐，
+                                  獲自由現金    支付率
+                                  流量覆蓋      > 100%
 
-Management ownership              Meaningful   Trivial
-                                  skin in the  (or selling
-                                  game         shares)
+管理層持股                        有實質        微不足道
+                                  自身利益      （或持續
+                                               出售持股）
 
-Capital expenditure returns       ROIC > WACC  Empire building
+資本支出報酬                      ROIC > WACC   帝國擴張式
+                                               投資
 ```
 
 ---
 
-#### 7. Corporate Governance and Agency Problems
+#### 7. 公司治理與代理問題
 
-Corporate governance is the system of rules, practices, and processes by which a company is directed and controlled. The central issue is the agency problem: managers (agents) may not always act in the best interest of shareholders (principals).
+公司治理是用以指導和控制公司的規則、實務與流程體系。核心議題是代理問題：管理層（代理人）未必總是以股東（委託人）的最大利益行事。
 
 ```
-THE AGENCY PROBLEM
+代理問題
 ====================
 
-Shareholders (Principals)     Managers (Agents)
--------------------------     -----------------
-Want: maximize share value    Want: maximize personal
-  and returns                   wealth, power, prestige
+股東（委託人）                管理層（代理人）
+-----------------------       -----------------
+希望：最大化股票價值          希望：最大化個人
+  與投資報酬                    財富、權力、聲望
 
-Want: disciplined capital     Want: empire building,
-  allocation                    higher compensation
+希望：紀律嚴明的              希望：帝國擴張、
+  資本配置                      更高薪酬
 
-Want: transparency and        Want: information
-  accountability                advantage, job security
+希望：透明                    希望：資訊優勢、
+  與問責                        工作保障
 
-Want: appropriate risk-       Want: either too little risk
-  taking for growth             (job safety) or too much
-                                (option-like compensation)
+希望：為成長承擔              希望：風險太少
+  適當風險                      （工作安全）
+                                或太多（選擇
+                                權式薪酬）
 
-THE MISALIGNMENT
+利益錯位
 ==================
 
-         Shareholder Interest
+         股東利益
               ^
-              |        * Ideal (aligned)
+              |        * 理想（利益一致）
               |       /
               |      /
               |     /
               |    /
-              |   / <-- Good governance keeps
-              |  /      interests aligned
+              |   / <-- 良好的公司治理
+              |  /      使利益保持一致
               | /
               |/
-              +------------------------------> Manager Interest
+              +------------------------------> 管理層利益
 
-Without governance:
+缺乏公司治理時：
               ^
               |
-              |                    * Manager
-              |                   /  enrichment
+              |                    * 管理層
+              |                   /  中飽私囊
               |                  /
               |                 /
               |                /
-              |  * Shareholders
-              |    get left
-              |    behind
-              +------------------------------> Manager Interest
+              |  * 股東
+              |    利益
+              |    受損
+              +------------------------------> 管理層利益
 ```
 
-**Key Governance Mechanisms:**
+**主要公司治理機制：**
 
 ```
-GOVERNANCE PROTECTION MECHANISMS
+公司治理保護機制
 ===================================
 
-Mechanism                   How It Protects Shareholders
+機制                        如何保護股東
 ---------                   ----------------------------
-Independent Board           Directors without management ties
-                            can objectively oversee executives
+獨立董事會                  與管理層無利益關係的董事
+                            能客觀監督高階主管
 
-Separation of               CEO should not also be Chairman
-CEO/Chairman Roles          (who oversees the CEO?)
+分設執行長                  執行長不應同時兼任董事長
+與董事長職務                （誰來監督執行長？）
 
-Executive Compensation      Pay should be tied to long-term
-Alignment                   value creation, not short-term
-                            stock price or earnings targets
+高階主管薪酬                薪酬應與長期價值創造掛鉤，
+的一致性                    而非短期股價或盈餘目標
 
-Shareholder Voting Rights   One share, one vote allows
-                            shareholders to influence decisions
+股東表決權                  一股一票讓股東能影響決策
 
-Proxy Access                Shareholders can nominate their
-                            own board candidates
+股東提名權                  股東可提名自己的董事候選人
 
-Clawback Provisions         Executives must return compensation
-                            if financial results are restated
+追回條款                    若財務業績遭到重編，
+                            高階主管必須退還薪酬
 
-Auditor Independence        External auditors free from
-                            management influence
+審計師獨立性                外部審計師不受管理層影響
 
-Whistleblower Protections   Employees can report misconduct
-                            without fear of retaliation
+吹哨者保護                  員工可無懼報復地舉報不當行為
 ```
 
-**Red Flags in Corporate Governance:**
+**公司治理警訊：**
 
 ```
-GOVERNANCE RED FLAGS
+公司治理警訊
 =====================
 
-RED FLAG                           WHY IT MATTERS
+警訊                               為何重要
 --------                           ---------------
-CEO is also Chairman               No one oversees the CEO
+執行長兼任董事長                   無人監督執行長
 
-Board members serve 15+ years      Captured by management;
-                                   not truly independent
+董事任期超過15年                   已被管理層收買；
+                                   並非真正獨立
 
-Excessive executive pay relative   Extracting value rather
-to performance                     than creating it
+高階主管薪酬相對業績               汲取價值而非
+過高                               創造價值
 
-Dual-class share structure         Founders/insiders control
-                                   votes with small economic
-                                   stake (e.g., 10% ownership
-                                   but 51% voting control)
+雙重股權結構                       創辦人/內部人以少數
+                                   經濟利益掌控多數表決權
+                                   （如持股10%卻擁有51%
+                                   表決控制權）
 
-Related-party transactions         Insider dealing; conflicts
-                                   of interest
+關係人交易                         內線交易；利益衝突
 
-Frequent accounting restatements   Financial reporting
-                                   unreliable
+頻繁的財務報表重編                 財務報告
+                                   不可靠
 
-Board lacks financial expertise    Cannot effectively oversee
-                                   complex financial decisions
+董事會缺乏財務專業                 無法有效監督
+                                   複雜的財務決策
 
-Anti-takeover provisions           Entrenches management;
-(poison pills, staggered boards)   blocks discipline of market
-                                   for corporate control
+反收購條款                         鞏固管理層地位；
+（毒藥丸條款、分期改選董事會）     阻礙公司控制市場的
+                                   紀律機能
 
-Management selling shares          Insiders know bad news
-aggressively                       is coming
+管理層積極出售持股                 內部人知道壞消息
+                                   即將到來
 
-Auditor changes                    Previous auditor may have
-                                   raised concerns
+更換審計師                         前任審計師可能
+                                   曾提出疑慮
 ```
 
 ---
 
-#### 8. Mergers and Acquisitions -- Buyer Beware
+#### 8. 併購——買方務必謹慎
 
-M&A is one of the most significant corporate finance events, and research consistently shows that most acquisitions destroy value for the acquiring company's shareholders. Understanding why helps you evaluate M&A announcements.
+併購是最重大的企業財務事件之一，研究一致顯示，大多數併購都會摧毀收購方股東的價值。理解原因有助於你評估併購公告。
 
 ```
-M&A VALUE CREATION/DESTRUCTION
+併購的價值創造與毀滅
 ================================
 
-Academic research on M&A outcomes:
+學術研究對併購結果的統計：
 
-  Target shareholders:    +15-30% premium on average
-  Acquirer shareholders:  -1% to -5% on average
-  Combined value:         Often NEGATIVE
+  目標公司股東：      平均獲得+15-30%溢價
+  收購方股東：        平均-1%至-5%
+  合計價值：          往往為負值
 
-WHY MOST ACQUISITIONS FAIL
+大多數併購失敗的原因
 =============================
 
-1. Winner's Curse
-   To win a bidding war, acquirer must pay MORE than
-   anyone else thinks the target is worth.
+1. 贏家詛咒
+   要在競標戰中勝出，收購方必須支付
+   超過其他任何人認為目標公司值得的價格。
 
-2. Integration Difficulties
-   Combining cultures, systems, and people is far
-   harder and more expensive than projected.
+2. 整合困難
+   整合文化、系統與人員遠比預期
+   更困難、更昂貴。
 
-3. Synergy Overestimation
-   "We will save $500M in synergies" often becomes
-   $200M after restructuring costs.
+3. 高估綜效
+   「我們將節省5億美元的綜效」往往在
+   重整成本後只剩下2億美元。
 
-4. Empire Building
-   CEOs want bigger companies (more prestige, higher
-   pay) even if the acquisition is value-destructive.
+4. 帝國擴張
+   執行長想要更大的公司（更高聲望、
+   更高薪酬），即使收購本身摧毀了價值。
 
-5. Overpaying at Cycle Peaks
-   Most M&A occurs late in economic expansions when
-   prices are highest and optimism is greatest.
+5. 在景氣高峰時溢價收購
+   大多數併購發生在經濟擴張晚期，
+   此時股價最高、樂觀情緒最濃厚。
 
-ACQUISITION WARNING SIGNS FOR INVESTORS
+投資人在面對收購時的警訊
 ==========================================
 
-   Concern                      What to Watch
-   -------                      -------------
-   Price paid                   > 15x EBITDA for mature business
-   Funding method               100% debt or heavy stock dilution
-   Strategic fit                Conglomerate diversification
-   Management history           Serial acquirer, poor track record
-   Timing                       Late in economic cycle
-   Synergy claims               > 50% of deal premium
-   "Transformational"           Management admits current
-                                business is failing
+   疑慮                      需觀察的事項
+   -------                   -------------
+   支付的價格                成熟企業 > 15倍EBITDA
+   融資方式                  100%舉債或大量稀釋股份
+   策略契合度                多角化集團式擴張
+   管理層歷史                連續收購者，過往紀錄不佳
+   時機                      景氣擴張晚期
+   綜效聲稱                  > 交易溢價的50%
+   「變革性的」收購          管理層承認現有
+                             業務正在走下坡
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見的迷思
 
-**Misconception 1: "More debt is always bad."**
+**迷思一：「負債越多越不好。」**
 
-Reality: Moderate debt is actually beneficial for shareholders because interest is tax-deductible, creating a tax shield that reduces the effective cost of capital. A company with zero debt may be leaving value on the table. The key is whether the company can comfortably service its debt through economic cycles. A stable utility can safely carry more debt than a cyclical semiconductor company.
+現實：適度的債務實際上對股東有利，因為利息可扣抵稅額，創造出稅盾，降低了資金的實際成本。負債為零的公司可能是在放棄潛在的價值。關鍵在於公司是否能在整個經濟週期中舒適地償債。穩定的公用事業公司可以安全地承擔比景氣循環型半導體公司更高的負債。
 
-**Misconception 2: "Dividends are free money."**
+**迷思二：「股利是白拿的錢。」**
 
-Reality: On the ex-dividend date, the stock price drops by approximately the dividend amount. You are not receiving something for nothing -- value is being transferred from the company to your pocket. The stock price adjusts downward because the company's cash balance decreases by the dividend amount. Dividends are a return of capital, not a creation of wealth. Their value lies in discipline, signaling, and tax-efficient income distribution.
+現實：在除息日，股價通常會下跌約等於股利金額的幅度。你並非無中生有地獲得了什麼——而是價值從公司轉移到了你的口袋。股價下調，是因為公司的現金餘額減少了股利金額。股利是資本的返還，而非財富的創造。它的價值在於紀律、訊號傳遞，以及稅務有效率的收入分配。
 
-**Misconception 3: "Share buybacks are always good for shareholders."**
+**迷思三：「股票買回對股東永遠有利。」**
 
-Reality: Buybacks are only good when conducted at prices below intrinsic value. When a company buys back shares at inflated prices, it is transferring wealth from remaining shareholders to departing shareholders. Furthermore, many buyback programs exist primarily to offset dilution from stock-based compensation, not to actually reduce share count. Always check whether the total share count is actually decreasing over time.
+現實：股票買回只有在股價低於內在價值時才是有益的。當公司以高估的股價買回股票，是在將財富從留存股東轉移給離場股東。此外，許多股票買回計畫的主要目的是抵銷股權薪酬帶來的稀釋效果，而非真正減少股份數量。請務必確認流通在外股數是否真的隨時間遞減。
 
-**Misconception 4: "A high dividend yield means a good investment."**
+**迷思四：「高股利殖利率代表好的投資。」**
 
-Reality: An unusually high dividend yield is often a warning sign, not a buying signal. The yield may be high because the stock price has fallen in anticipation of a dividend cut. This is called a "yield trap." A stock yielding 8% when its peers yield 3% often means the market expects the dividend to be slashed. Look at payout ratios, free cash flow coverage, and the trend in dividends before chasing yield.
+現實：異常高的股利殖利率往往是警訊，而非買進訊號。殖利率偏高可能是因為股價因預期股利被削減而下跌。這被稱為「殖利率陷阱」。當一檔股票的殖利率為8%，而同業普遍為3%時，這通常意味著市場預期股利即將大幅縮減。在追逐殖利率之前，請先檢視股利支付率、自由現金流量覆蓋率以及股利的趨勢。
 
-**Misconception 5: "Good managers do not need governance oversight."**
+**迷思五：「好的管理層不需要公司治理監督。」**
 
-Reality: Even well-intentioned managers face conflicts of interest and cognitive biases. Strong governance structures are not about distrust -- they are about creating systems that align incentives and provide checks and balances. The best companies have strong governance precisely because their leaders understand that structural alignment is more reliable than individual virtue.
+現實：即使是立意良善的管理層，也面臨利益衝突與認知偏誤。強健的公司治理結構並非源於不信任，而是用於建立使激勵機制保持一致並提供制衡的制度。最優秀的公司擁有強健的公司治理，正是因為其領導人深知，制度性的利益一致比個人美德更為可靠。
 
-**Misconception 6: "Companies should always reinvest profits rather than return them."**
+**迷思六：「公司應始終將利潤再投入，而非回饋股東。」**
 
-Reality: Reinvestment only creates value if the return on investment exceeds the cost of capital. Many mature companies cannot find enough high-return projects to absorb all their profits. In such cases, returning cash to shareholders (via dividends or buybacks) is the best use of capital -- shareholders can then invest in higher-growth opportunities elsewhere. Hoarding cash or investing in low-return projects destroys value.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I determine a company's optimal capital structure?**
-
-A: Look at comparable companies in the same industry, as capital structure norms vary significantly by sector. Utilities and REITs commonly carry 50-60% debt because their cash flows are stable and predictable. Technology companies often carry 0-20% debt because their cash flows are less predictable. Also examine the company's interest coverage ratio (EBIT / Interest Expense) -- a ratio below 3x suggests the company may be over-leveraged. Credit rating agencies like Moody's and S&P provide guidelines for what leverage ratios correspond to each credit rating.
-
-**Q2: Is WACC constant over time?**
-
-A: No. WACC changes whenever its inputs change. When interest rates rise, both the cost of debt and the cost of equity increase, raising WACC. When a company takes on more debt, the debt weight increases, initially lowering WACC (due to the tax shield) but eventually raising it (due to higher risk). When a stock's beta changes (perhaps because the business becomes more or less risky), the cost of equity changes. Analysts should use a current or forward-looking WACC, not a historical one.
-
-**Q3: Should I prefer companies that pay dividends or companies that buy back shares?**
-
-A: It depends on your situation. If you need regular income (retirees, for example), dividends provide predictable cash flow without selling shares. If you are in a high tax bracket and do not need income, buybacks are more tax-efficient because you control when (and if) you realize the gain. From a pure value creation perspective, the best companies combine moderate dividends with disciplined buybacks when shares are undervalued. The worst approach is a high payout ratio combined with buybacks at any price.
-
-**Q4: What is "shareholder yield" and why does it matter?**
-
-A: Shareholder yield combines dividends and net buybacks (buybacks minus stock issuance) into a single metric. A company yielding 2% in dividends plus 4% in net buybacks has a 6% shareholder yield. This gives a truer picture of total cash being returned to shareholders than dividend yield alone. Research by Mebane Faber and others has shown that portfolios sorted by shareholder yield have historically outperformed portfolios sorted by dividend yield alone, likely because it captures both forms of capital return and penalizes companies that dilute shareholders.
-
-**Q5: How can I tell if a CEO is a good capital allocator?**
-
-A: Track these metrics over 5-10 years: (1) Is return on invested capital (ROIC) consistently above WACC? If so, every dollar reinvested creates value. (2) Has the total share count decreased? If massive buybacks are announced but shares outstanding are flat, compensation dilution is eating the buybacks. (3) Have acquisitions been successful? Check post-acquisition ROIC versus pre-acquisition projections. (4) Has book value per share grown faster than peers? (5) Does the CEO have significant personal ownership? CEOs who own meaningful stock tend to make better decisions.
-
-**Q6: What is "agency cost" and how does it show up in practice?**
-
-A: Agency costs are the economic losses that result from the conflict between managers' interests and shareholders' interests. They show up in several ways: excessive executive compensation packages, empire-building acquisitions that destroy value, perquisites like corporate jets and lavish offices, reluctance to return excess cash to shareholders (managers prefer a bigger cash pile for security), and decisions that reduce short-term earnings volatility even when long-term value creation requires accepting more volatility.
-
-**Q7: Why do some companies maintain dual-class share structures?**
-
-A: Dual-class structures (where founders hold shares with 10x voting power) exist because founders want to maintain control while raising capital. The argument for them is that visionary founders can make long-term decisions without being pressured by short-term-oriented shareholders. Facebook, Google, and Berkshire Hathaway all have dual-class structures. The argument against is that they insulate management from accountability and allow poor decisions to persist unchecked. Academic evidence suggests dual-class companies trade at a valuation discount, reflecting the governance risk.
-
-**Q8: When should a company raise its dividend versus buy back shares?**
-
-A: A company should raise its dividend when it has durable, growing cash flows and wants to signal long-term confidence to shareholders. Once raised, dividends are very difficult to cut without damaging the stock price, so the increase must be sustainable. Buybacks are more appropriate when: the stock is trading below intrinsic value (returning capital at a discount), cash flows are lumpy or uncertain (buybacks can be paused without stigma), or the shareholder base prefers tax-efficient returns. In practice, many large companies do both simultaneously.
-
-**Q9: What role do activist investors play in corporate governance?**
-
-A: Activist investors buy significant stakes in companies they believe are poorly managed and then push for changes -- new board members, strategic shifts, spin-offs, management changes, or increased capital returns. They serve as an external governance mechanism, complementing the internal mechanisms of the board. Research shows that activist campaigns are associated with meaningful improvements in operating performance and stock returns on average. However, some activists pursue short-term financial engineering that may come at the expense of long-term investment.
-
-**Q10: How does WACC relate to the valuation lessons we covered in Week 21?**
-
-A: WACC is the discount rate used in DCF valuation. When you discount a company's future free cash flows back to the present, you use the WACC as the rate. A lower WACC means future cash flows are worth more today, resulting in a higher valuation. A higher WACC means future cash flows are worth less, resulting in a lower valuation. This is the direct link between corporate finance and valuation -- the company's capital structure decisions (which determine WACC) directly affect what the company is worth.
+現實：只有當投資報酬率超過資金成本時，再投入才能創造價值。許多成熟企業找不到足夠的高報酬專案來吸收全部利潤。在這種情況下，將現金回饋股東（透過股利或股票買回）才是資金的最佳用途——股東可以將這些資金投入其他成長性更高的機會。囤積現金或投資於低報酬專案，只會摧毀價值。
 
 ---
 
-## YouTube Script
+### d) 常見問答
+
+**問題一：如何判斷一家公司的最適資本結構？**
+
+答：參考同產業的可比較公司，因為資本結構的慣例因產業差異極大。公用事業和不動產投資信託通常承擔50-60%的負債，因為其現金流量穩定且可預期。科技公司通常承擔0-20%的負債，因為其現金流量可預期性較低。同時檢視利息保障倍數（息前稅前盈餘/利息費用）——低於3倍表明公司可能負債過高。穆迪（Moody's）和標準普爾（S&P）等信用評等機構對各信評等級所對應的槓桿比率提供了參考指引。
+
+**問題二：WACC會隨時間變動嗎？**
+
+答：是的，WACC會隨其輸入變數的改變而變動。當利率上升時，債務成本和股東權益成本均會提高，WACC因而上升。當公司借入更多債務時，債務權重增加，最初因稅盾效果使WACC下降，但最終因風險上升而使WACC提高。當股票的貝塔值發生變化時（可能是因為業務風險有所改變），股東權益成本也會隨之變動。分析師應使用當前或前瞻性的WACC，而非歷史數據。
+
+**問題三：我應該偏好有發放股利的公司，還是有買回股票的公司？**
+
+答：這取決於你的個人情況。若你需要定期收入（例如退休族），股利提供了可預期的現金流量，無需出售持股。若你處於高稅率級距且不需要收入，股票買回的稅務效率更高，因為你可以自行掌控何時（以及是否）實現資本利得。從純粹的價值創造角度來看，最優秀的公司會結合適度的股利與在股價被低估時紀律嚴明的股票買回。最糟糕的做法是高股利支付率加上不計股價的股票買回。
+
+**問題四：何謂「股東殖利率」，為何重要？**
+
+答：股東殖利率將股利與淨股票買回（買回金額減去股票發行金額）合併為單一指標。若一家公司股利殖利率為2%，加上淨股票買回殖利率為4%，其股東殖利率即為6%。這比單純的股利殖利率更真實地反映了回饋給股東的現金總量。梅班·法伯等人的研究顯示，以股東殖利率排序的投資組合，歷史上優於僅以股利殖利率排序的投資組合，這可能是因為它同時捕捉到了兩種資本回饋形式，且會對稀釋股東的公司做出懲罰。
+
+**問題五：如何判斷一位執行長是否擅長資本配置？**
+
+答：追蹤以下指標，觀察期間為5至10年：（1）投入資本報酬率是否持續高於加權平均資金成本？若是，每一美元的再投入都在創造價值。（2）流通在外股數是否下降？若大規模股票買回計畫已宣布，但股數幾乎持平，表示薪酬稀釋正在吃掉買回的成效。（3）過往的併購是否成功？對照併購後的投入資本報酬率與併購前的預測值。（4）每股帳面價值的成長速度是否快於同業？（5）執行長的個人持股是否顯著？有實質持股的執行長往往做出更好的決策。
+
+**問題六：何謂「代理成本」，它在實務上如何呈現？**
+
+答：代理成本是管理層利益與股東利益衝突所產生的經濟損失。它以多種方式呈現：過高的高階主管薪酬方案、摧毀價值的帝國擴張型併購、公務豪華用車和奢靡辦公室等特殊福利、不願意將多餘現金回饋給股東（管理層偏好保留較大的現金庫存以求安全），以及即使長期價值創造需要承受更大的波動性，也會選擇降低短期盈餘波動性的決策。
+
+**問題七：為什麼有些公司維持雙重股權結構？**
+
+答：雙重股權結構（創辦人持有具10倍表決權的股票）之所以存在，是因為創辦人希望在籌資的同時維持控制權。支持這種結構的論點是，有遠見的創辦人可以不受短視投資人的壓力，做出長遠決策。臉書（Meta）、谷歌和波克夏海瑟威都採用雙重股權結構。反對的論點則是，這種結構使管理層免於問責，讓錯誤決策得以持續無法糾正。學術研究顯示，雙重股權公司的估值往往享有折價，反映了公司治理風險。
+
+**問題八：公司何時應提高股利，何時應買回股票？**
+
+答：當公司擁有穩定成長的現金流量，且希望向股東傳遞長期信心時，應提高股利。股利一旦提高，便很難在不嚴重損害股價的情況下削減，因此調高幅度必須是可持續的。在以下情況下，股票買回較為適合：股票以低於內在價值的價格交易時（以折扣回饋資本）；現金流量不穩定或不確定時（買回計畫可以暫停而不帶來負面訊號）；或當股東群體偏好稅務有效率的回饋方式時。在實務上，許多大型公司會同時進行這兩種操作。
+
+**問題九：維權投資人在公司治理中扮演什麼角色？**
+
+答：維權投資人在他們認為管理不善的公司中買入顯著持股，然後推動改變——包括更換董事、策略調整、業務分拆、更換管理層或增加資本回饋。他們充當外部公司治理機制，補充董事會的內部機制。研究顯示，維權投資行動平均而言與運營績效的顯著改善和股價報酬相關。然而，部分維權投資人所追求的短期財務工程，可能以犧牲長期投資為代價。
+
+**問題十：WACC與我們在第21週學到的估值課程有何關聯？**
+
+答：WACC是現金流量折現法（DCF）估值中使用的折現率。當你將一家公司未來的自由現金流量折現至現值時，使用的就是WACC作為折現率。較低的WACC意味著未來現金流量在今天更具價值，因而得出較高的估值；較高的WACC意味著未來現金流量的現值較低，因而得出較低的估值。這是企業財務與估值之間的直接連結——公司的資本結構決策（決定WACC）直接影響公司的價值。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
 
-**Alex:** Welcome back everyone. Today we are going under the hood of how companies actually manage their money. This is corporate finance, and I promise you this will change how you look at every company you invest in.
+**Horace：** 歡迎回來，大家好。今天我們要深入研究企業如何實際管理自己的資金。這就是企業財務，我向你保證，學完今天這堂課，你看每一家投資標的的方式都會徹底改變。
 
-**Sam:** Why should I care about how a company structures its finances? I just want to know if the stock price is going up.
+**Stella：** 我為什麼要在意一家公司如何規劃它的財務結構？我只想知道股價會不會漲。
 
-**Alex:** And that is exactly why you need to understand this. Stock prices over the long term are driven by how effectively management allocates capital. Think of it this way -- when you buy a stock, you are essentially hiring the management team to invest your money for you. Would you hire someone without understanding how they plan to use your money?
+**Horace：** 這正是你需要理解這件事的原因。從長期來看，股價是由管理層配置資本的效率所驅動的。換個角度想——當你買進一檔股票，你等於是在聘用管理團隊替你投資。如果不了解他們打算如何運用你的資金，你會雇用這樣一個人嗎？
 
-**Sam:** When you put it that way, no.
+**Stella：** 這樣說的話，當然不會。
 
-**Alex:** Exactly. So let us start with the most fundamental decision in corporate finance: how should a company fund itself? Should it use debt, equity, or some combination?
+**Horace：** 正是。所以我們先從企業財務最根本的決策開始：公司應該如何融資？應該靠債務、股東權益，還是兩者的組合？
 
-[VISUAL: Title card "Capital Structure: Debt vs. Equity" with a building illustration. One side of the building is labeled "Debt" and is shaded blue, the other side "Equity" shaded green. The proportion changes dynamically.]
+[VISUAL: Title card "資本結構：債務與股東權益" with a building illustration. One side of the building is labeled "債務" and is shaded blue, the other side "股東權益" shaded green. The proportion changes dynamically.]
 
-**Sam:** I think I know this. Debt is borrowed money and equity is ownership money, right?
+**Stella：** 我想我知道這個。債務是借來的錢，股東權益是所有者的錢，對吧？
 
-**Alex:** Correct. But the choice between them has enormous consequences. Let me give you a concrete example. Imagine two identical pizza restaurant chains, each with $1 million in assets generating $150,000 in operating income. Chain A is financed entirely with equity -- the owners put up all the money. Chain B is financed with $500,000 in equity and $500,000 in debt at 6% interest.
+**Horace：** 正確。但選擇兩者之間有巨大的影響。讓我給你一個具體的例子。想像兩家完全相同的比薩連鎖店，每家都有100萬美元的資產，產生15萬美元的營業利益。A連鎖店完全以股東權益融資——老闆拿出全部的錢。B連鎖店則以50萬美元的股東權益和50萬美元、年利率6%的債務融資。
 
-**Sam:** So Chain B owes $30,000 a year in interest.
+**Stella：** 所以B連鎖店每年要付3萬美元的利息。
 
-**Alex:** Right. Chain A earns $150,000 before tax, pays $37,500 in tax at a 25% rate, and keeps $112,500. That is an 11.25% return on the owners' million-dollar investment. Chain B earns $150,000 but pays $30,000 in interest, leaving $120,000 before tax. After $30,000 in tax, they keep $90,000. But here is the key -- the owners only invested $500,000, so their return is 18%.
+**Horace：** 對。A連鎖店稅前賺了15萬美元，以25%稅率繳稅3.75萬美元，留下11.25萬美元。這對老闆百萬美元的投資來說，報酬率是11.25%。B連鎖店賺了15萬美元，但扣掉3萬美元利息，剩下12萬美元稅前利益。繳完3萬美元的稅，留下9萬美元。但關鍵在於——老闆只投入了50萬美元，所以他們的股東權益報酬率是18%。
 
 [ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
 
-**Sam:** Wait, Chain B's owners made a higher return even though the company had lower net income?
+**Stella：** 等一下，B連鎖店的老闆儘管公司淨利較低，股東權益報酬率卻更高？
 
-**Alex:** Exactly. This is the power of leverage. Because the owners put up less money but the business generated the same operating income, their return on equity is higher. But here is the catch. What happens if the business has a bad year and operating income drops to $20,000?
+**Horace：** 正是如此。這就是槓桿的力量。由於老闆投入的資本較少，但公司產生了相同的營業利益，他們的股東權益報酬率因此更高。但這裡有個陷阱。如果公司遇到景氣不好的一年，營業利益跌到2萬美元，會怎樣？
 
-**Sam:** Chain A would still make a small profit, but Chain B has to pay $30,000 in interest on only $20,000 of income -- they are in the red.
+**Stella：** A連鎖店還能賺取小額利潤，但B連鎖店必須在只有2萬美元收入的情況下支付3萬美元利息——他們虧損了。
 
-**Alex:** Precisely. Leverage magnifies returns in both directions. Good times become great, and bad times become terrible. This is the fundamental tradeoff of debt -- higher potential returns but also higher risk.
+**Horace：** 完全正確。槓桿在兩個方向上都會放大結果。好時機變得更好，壞時機變得更糟。這就是債務的根本取捨——更高的潛在報酬，但也伴隨更高的風險。
 
-**Sam:** So is there an optimal amount of debt?
+**Stella：** 那麼，是否有一個最適的負債量？
 
-**Alex:** There is, and finding it is one of the central problems in corporate finance. In 1958, two economists named Modigliani and Miller proved something remarkable. In a perfect world -- no taxes, no bankruptcy costs -- the mix of debt and equity would not matter at all. The total value of the firm would be the same regardless.
+**Horace：** 有的，找到最適點是企業財務的核心問題之一。1958年，兩位經濟學家莫迪利安尼和米勒證明了一件了不起的事。在一個完美的世界裡——沒有稅、沒有破產成本——債務與股東權益的組合根本無關緊要。無論如何融資，公司的總價值都相同。
 
-**Sam:** But we do not live in a perfect world.
+**Stella：** 但我們並不活在完美的世界裡。
 
-**Alex:** Right. In reality, there are two major frictions that make capital structure matter. First, interest on debt is tax-deductible, which gives debt a cost advantage. If a company borrows $1 million at 5%, the $50,000 in interest reduces taxable income, saving $12,500 in taxes at a 25% rate. That tax shield is worth real money. Second, too much debt creates the risk of financial distress -- if you cannot make your interest payments, you face bankruptcy, which is enormously costly.
+**Horace：** 對。在現實中，有兩大摩擦使資本結構變得重要。第一，債務利息可以扣抵稅額，使債務具有成本優勢。如果一家公司以5%的利率借入100萬美元，5萬美元的利息費用會減少應稅所得，以25%稅率計算可省下1.25萬美元的稅款。這個稅盾是真實存在的價值。第二，過多的債務會帶來財務困境的風險——若無法支付利息，你便面臨破產，其代價極為高昂。
 
-[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "Optimal Capital Structure" and is shown around 30-50% debt for a typical company. Annotations show "tax benefits dominating" on the left side and "distress costs dominating" on the right side.]
+[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "最適資本結構" and is shown around 30-50% debt for a typical company. Annotations show "稅務利益主導" on the left side and "財務困境成本主導" on the right side.]
 
-**Sam:** So the optimal capital structure balances the tax benefits of debt against the bankruptcy risks?
+**Stella：** 所以最適資本結構是在債務的稅務利益與破產風險之間取得平衡？
 
-**Alex:** Exactly. And this optimal point varies by industry. A utility company with stable, predictable cash flows can safely carry 50-60% debt. A technology startup with volatile and uncertain cash flows should carry very little. The general rule is: the more stable and predictable your cash flows, the more debt you can safely handle.
+**Horace：** 完全正確。而且這個最適點因產業而異。擁有穩定、可預期現金流量的公用事業公司可以安全地承擔50-60%的負債。現金流量波動且不確定的科技新創公司則應盡量少借。一般法則是：你的現金流量越穩定、越可預期，你就能安全地承擔越多債務。
 
-**Sam:** This makes sense. Now, you mentioned WACC earlier. What is that?
+**Stella：** 這很合理。現在，你之前提到了WACC。那是什麼？
 
-**Alex:** WACC stands for Weighted Average Cost of Capital. It is the blended cost of all the money a company uses. Think of it as the minimum return the company must earn on its investments to satisfy both its lenders and its shareholders.
+**Horace：** WACC代表加權平均資金成本，是公司所使用的所有資本的混合成本。把它想成公司在投資上必須賺取的最低報酬率，才能同時讓債權人和股東都滿意。
 
-**Sam:** How do you calculate it?
+**Stella：** 怎麼計算？
 
-**Alex:** You take the cost of equity multiplied by the equity weight, plus the cost of debt (after tax) multiplied by the debt weight. Let me use a real example. Say a company has a $800 million market cap and $200 million in debt. Shareholders require a 10% return and the company borrows at 5%. The tax rate is 25%.
+**Horace：** 用股東權益成本乘以股東權益權重，加上稅後債務成本乘以債務權重。讓我用一個實際的例子。假設一家公司市值8億美元，負債2億美元。股東要求10%的報酬率，公司的借款利率為5%，稅率為25%。
 
-**Alex:** Equity weight is 80%, debt weight is 20%. WACC equals 10% times 80% plus 5% times 20% times 75%, which is 8% plus 0.75%, equaling 8.75%.
+**Horace：** 股東權益權重為80%，債務權重為20%。加權平均資金成本等於10%乘以80%，加上5%乘以20%乘以75%，等於8%加上0.75%，合計8.75%。
 
-[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "Every project must clear this bar to create value."]
+[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "每個專案都必須跨越這條門檻才能創造價值。"]
 
-**Sam:** So if the company invests in a project that returns 7%, that is bad?
+**Stella：** 所以如果公司投資一個報酬率7%的專案，那就很糟？
 
-**Alex:** It is destroying value. The project earns 7% but the capital costs 8.75%. Shareholders would have been better off getting their money back. This is one of the most important concepts in all of corporate finance -- only invest in projects that earn above the cost of capital.
+**Horace：** 那正在摧毀價值。這個專案賺7%，但資本成本是8.75%。股東若能把錢拿回去，反而更划算。這是整個企業財務領域中最重要的概念之一——只投資報酬率超過資金成本的專案。
 
-**Sam:** Let us talk about what happens when the company has more cash than good projects. How does it return money to shareholders?
+**Stella：** 讓我們談談當公司擁有超過優質專案所需的現金時，它如何將資金回饋給股東。
 
-**Alex:** Two main ways: dividends and share buybacks. Let us start with dividends. A dividend is simply a cash payment from the company to its shareholders. If a company pays $1 per share per quarter and you own 1,000 shares, you receive $1,000 in cash every three months.
+**Horace：** 主要有兩種方式：股利和股票買回。先從股利說起。股利就是公司直接付現金給股東。如果一家公司每季每股配發1美元，而你持有1,000股，你每三個月就能收到1,000美元。
 
-**Sam:** That sounds great. Why does not every company pay dividends?
+**Stella：** 聽起來很棒。為什麼不是每家公司都發股利呢？
 
-**Alex:** Because some companies have better uses for their cash. If a company can reinvest profits at a 25% return, sending that money to shareholders who might only earn 8% in the market is a poor decision. Amazon famously paid no dividends for decades because Jeff Bezos could reinvest every dollar at extraordinary returns. But mature companies with limited growth opportunities should return excess cash rather than hoarding it or wasting it on low-return projects.
+**Horace：** 因為有些公司對現金有更好的用途。如果一家公司能以25%的報酬率將利潤再投入，那麼把那筆錢發給報酬率可能只有8%的股東，就是個糟糕的決策。亞馬遜著名地幾十年不發股利，因為傑夫·貝佐斯能以驚人的報酬率再投入每一美元。但對於成長機會有限的成熟企業來說，應該將多餘現金回饋給股東，而非囤積或浪費在低報酬的專案上。
 
-[VISUAL: Decision tree flowchart. Starting with "Company has $100M in free cash flow." First branch: "Can we invest at returns above WACC?" If yes, "Invest in growth." If no, "Return cash to shareholders" which branches into "Dividends" and "Buybacks" with pros and cons listed for each.]
+[VISUAL: Decision tree flowchart. Starting with "公司有1億美元自由現金流量。" First branch: "我們能否以高於WACC的報酬率投資？" If yes, "投資成長。" If no, "回饋現金給股東" which branches into "股利" and "股票買回" with pros and cons listed for each.]
 
-**Sam:** What makes a dividend safe or risky?
+**Stella：** 是什麼讓一筆股利安全或有風險？
 
-**Alex:** The key metric is the payout ratio -- what percentage of earnings is being paid out as dividends. A payout ratio of 40% is very comfortable. It means the company can absorb a significant earnings decline and still afford the dividend. A payout ratio of 90% is dangerous -- any earnings stumble could force a cut. Even more important, look at whether free cash flow covers the dividend. Some companies report good earnings but poor cash flow, and if the cash is not there, the dividend is not sustainable.
+**Horace：** 關鍵指標是股利支付率——盈餘中有多大比例以股利形式配發出去。支付率40%非常舒適，代表公司可以承受相當大的盈餘下滑，仍然有能力支付股利。支付率90%則相當危險——任何盈餘失誤都可能迫使公司削減股利。更重要的是，要看自由現金流量是否足以覆蓋股利。有些公司盈餘看起來不錯，但現金流量卻很差，若現金不在，股利就無法持久。
 
-**Sam:** What happens when a company cuts its dividend?
+**Stella：** 當公司削減股利時會發生什麼事？
 
-**Alex:** It is usually a bloodbath for the stock price. Dividend cuts are one of the strongest negative signals a company can send. They are saying "we can no longer afford to pay you." The stock typically drops 20-30% on a dividend cut announcement because it signals fundamental deterioration AND forces income-seeking investors -- who held the stock specifically for the dividend -- to sell.
+**Horace：** 對股價來說通常是一場浩劫。削減股利是公司能傳遞的最強烈的負面訊號之一。那等於在說「我們再也付不起了。」股價在削減股利宣告當天通常下跌20-30%，因為這同時傳遞了公司基本面惡化的訊號，且迫使那些持有該股票專門為了股利的收益型投資人出售持股。
 
-[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "Dividend cuts are among the most destructive single-day events for shareholders."]
+[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "削減股利是對股東最具殺傷力的單日事件之一。"]
 
-**Sam:** Okay, so what about buybacks? How do they work?
+**Stella：** 好，那股票買回呢？它是如何運作的？
 
-**Alex:** When a company buys back its own shares, it reduces the number of shares outstanding. If a company has 100 million shares and buys back 10 million, there are now only 90 million shares. Each remaining share represents a larger piece of the company. If earnings stay the same at $100 million, EPS goes from $1.00 to $1.11 -- an 11% increase without the company earning a single additional dollar of profit.
+**Horace：** 當公司買回自家股票，流通在外的股數就會減少。如果一家公司有1億股，買回1,000萬股，就只剩下9,000萬股。每股留存的股票代表更大比例的公司所有權。如果盈餘維持不變，仍為1億美元，每股盈餘就從1.00美元提升至1.11美元——在公司沒有多賺一分錢的情況下，增加了11%。
 
-**Sam:** That is clever. So buybacks increase your ownership percentage?
+**Stella：** 很聰明。所以股票買回提高了你的持股比例？
 
-**Alex:** Exactly. But here is where it gets controversial. Buybacks only create value if the company is buying at a reasonable price. If the stock is worth $50 and the company buys at $30, that is a fantastic deal -- they are buying dollars for 60 cents. But if the stock is worth $30 and they are buying at $50, they are paying $1.67 for every dollar of value. That destroys value for remaining shareholders.
+**Horace：** 完全正確。但這裡存在爭議。股票買回只有在公司以合理價格買入時才能創造價值。如果股票價值50美元，而公司以30美元買進，那是個絕佳的交易——他們用60分錢買到一美元的價值。但如果股票價值30美元，他們卻以50美元買進，那他們是在花1.67美元購買一美元的價值，這摧毀了留存股東的利益。
 
-**Sam:** How do I know if a buyback is being done at a good price?
+**Stella：** 我怎麼知道一項股票買回是在合理的價格下進行？
 
-**Alex:** Look at the valuation metrics we learned in Week 21. If the company is buying back stock when its P/E is below its historical average and below peers, that is likely a good buyback. If it is buying at all-time-high valuations, be skeptical. Also, and this is critical -- check whether the share count is actually declining. Many companies announce huge buyback programs but the share count barely moves because they are simultaneously issuing new shares as executive compensation.
+**Horace：** 參考我們在第21週學到的估值指標。如果公司在本益比低於歷史平均值及低於同業時買回股票，那很可能是好的買回。如果是在估值創歷史新高時買入，則要保持懷疑。而且——這一點至關重要——要檢查流通在外股數是否真的在減少。許多公司宣布大規模買回計畫，但股數幾乎紋絲不動，因為他們同時以高階主管薪酬的名義發行了新股。
 
-[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "Total Shares Outstanding." On one side, slices are being removed (buybacks). On the other side, new slices are being added (stock-based compensation). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "Announced buybacks: $5B. Actual share reduction: 2%. Executive compensation: the hidden cost."]
+[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "流通在外股數總計。" On one side, slices are being removed (股票買回). On the other side, new slices are being added (股權薪酬). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "宣告的股票買回：50億美元。實際股數減少：2%。高階主管薪酬：隱藏的代價。"]
 
-**Sam:** That feels like a scam.
+**Stella：** 那感覺像詐騙。
 
-**Alex:** It is one of the most common forms of shareholder wealth transfer, and most retail investors never notice it. Always check shares outstanding over time, not just buyback announcements.
+**Horace：** 這是最常見的股東財富轉移形式之一，而大多數散戶投資人從未察覺。永遠要檢查流通在外股數隨時間的變化，而不只是看買回公告。
 
-**Sam:** Let us talk about corporate governance. What is it and why should an investor care?
+**Stella：** 讓我們來談談公司治理。它是什麼，投資人為何需要關心？
 
-**Alex:** Corporate governance is the system that keeps management accountable to shareholders. Remember, when you own a stock, you are an owner of the company but you do not run it day to day. You delegate that to the CEO and management team. The governance system ensures they act in your interest, not just their own.
+**Horace：** 公司治理是讓管理層對股東負責的制度。記住，當你持有一檔股票，你是公司的所有者，但你不負責日常經營。你把這項工作委派給了執行長和管理團隊。公司治理制度確保他們以你的利益行事，而非只顧自己。
 
-**Sam:** What is the main risk if governance is weak?
+**Stella：** 公司治理薄弱的主要風險是什麼？
 
-**Alex:** The agency problem. Managers and shareholders have naturally different interests. Shareholders want to maximize the value of their investment. Managers want to maximize their compensation, job security, and prestige. These goals overlap sometimes, but not always. A CEO might pursue a massive acquisition not because it is the best use of shareholder capital, but because running a bigger company means higher pay and more power.
+**Horace：** 代理問題。管理層和股東的利益天生就不完全一致。股東希望最大化投資價值。管理層希望最大化自身的薪酬、工作保障和聲望。這些目標有時重疊，但並非始終如此。一位執行長可能推動大規模的併購，並非因為那是股東資金的最佳用途，而是因為管理一家更大的公司意味著更高的薪酬和更大的權力。
 
-[VISUAL: Two-column comparison showing "What shareholders want" vs. "What managers might want." Shareholders: maximize returns, efficient capital use, transparency, appropriate risk. Managers: higher pay, bigger empire, job security, personal perks. The overlap area is labeled "Good governance aligns these."]
+[VISUAL: Two-column comparison showing "股東希望什麼" vs. "管理層可能希望什麼。" Shareholders: 最大化報酬、高效資本配置、透明度、適當風險承擔. Managers: 更高薪酬、更大商業版圖、工作保障、個人特殊福利. The overlap area is labeled "良好的公司治理使這兩者保持一致。"]
 
-**Sam:** What are the warning signs of bad governance?
+**Stella：** 公司治理差的警訊有哪些？
 
-**Alex:** Several red flags. First, the CEO is also the chairman of the board -- the person being overseen is overseeing themselves. Second, board members have served for 15 or 20 years -- they are likely captured by management and not truly independent. Third, executive compensation is excessive relative to performance. If the stock drops 30% but the CEO still gets a $20 million bonus, the pay structure is broken. Fourth, dual-class share structures where insiders control voting with a small economic stake.
+**Horace：** 有幾個警訊。第一，執行長同時兼任董事長——被監督的人在監督自己。第二，董事任期超過15年或20年——他們很可能已被管理層收買，並非真正獨立。第三，高階主管薪酬相對於績效顯得過高。如果股價下跌30%，執行長卻仍獲得2,000萬美元的獎金，薪酬結構就已崩壞。第四，雙重股權結構使內部人以少數經濟利益掌控多數表決權。
 
-**Sam:** You mentioned dual-class shares. How does that work?
+**Stella：** 你提到了雙重股權結構，那是怎麼運作的？
 
-**Alex:** Some companies issue two classes of stock. Class A might have 1 vote per share and Class B has 10 votes per share. The founders hold the Class B shares. So a founder might own only 10% of the economic value of the company but control 51% of the votes. Google, Meta, and Snap all have structures like this.
+**Horace：** 有些公司發行兩種類別的股票。A類股可能每股有1票表決權，B類股則有10票。創辦人持有B類股。因此，一位創辦人可能只持有公司10%的經濟價值，卻掌控了51%的表決權。谷歌、Meta和Snap都有這樣的結構。
 
-**Sam:** Is that bad?
+**Stella：** 這不好嗎？
 
-**Alex:** It depends on who the founder is. If the founder is Mark Zuckerberg building Meta into one of the world's most valuable companies, the dual-class structure arguably protects the long-term vision from short-term pressure. If the founder is running the company into the ground, the dual-class structure prevents shareholders from holding them accountable. It is a bet on the judgment of one person.
+**Horace：** 這取決於創辦人是誰。如果創辦人是馬克·祖克柏，正在把Meta打造成全球最有價值的公司之一，雙重股權結構可以說是在保護長期願景免受短期壓力的侵擾。如果創辦人正在把公司帶向深淵，雙重股權結構就讓股東無法追究其責任。這是一場對單一個人判斷力的豪賭。
 
-**Sam:** One last topic. You mentioned that most acquisitions destroy value. Why do companies keep doing them?
+**Stella：** 最後一個話題。你提到大多數併購都會摧毀價值，為什麼公司還是一直在做？
 
-**Alex:** This is one of the great puzzles of corporate finance. Study after study shows that on average, the acquiring company's stock falls on announcement of a major acquisition. The target company's shareholders get a 20-30% premium, but the acquirer's shareholders lose value. Yet the M&A industry is enormous and CEOs keep doing deals.
+**Horace：** 這是企業財務中最大的謎題之一。一份又一份的研究顯示，在宣告重大併購時，收購方的股價平均會下跌。目標公司的股東獲得了20-30%的溢價，但收購方的股東卻損失了價值。但併購業規模龐大，執行長們依然持續進行。
 
-**Sam:** Why?
+**Stella：** 為什麼呢？
 
-**Alex:** Several reasons. One, CEO compensation is often tied to company size -- bigger company, bigger paycheck. Two, overconfidence -- every CEO thinks they will be the exception who makes the acquisition work. Three, investment bankers earn enormous fees from deals, so they are always pitching acquisition ideas. Four, sometimes acquisitions are genuinely the right move, and the statistical average includes both good and bad deals.
+**Horace：** 幾個原因。第一，執行長的薪酬往往與公司規模掛鉤——公司越大，薪水越高。第二，過度自信——每位執行長都認為自己會是那個讓併購成功的例外。第三，投資銀行從交易中賺取鉅額手續費，因此總在推銷併購構想。第四，有時候收購確實是正確的決策，而統計平均值包含了好與壞的併購案。
 
-[VISUAL: Bar chart showing "Average stock price reaction to M&A announcements." Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "On average, M&A transfers value from acquirer to target shareholders."]
+[VISUAL: Bar chart showing "M&A宣告後的平均股價反應。" Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "平均而言，併購將價值從收購方股東轉移至目標方股東。"]
 
-**Sam:** So how do I evaluate an acquisition as a shareholder?
+**Stella：** 那身為股東，我如何評估一樁收購案？
 
-**Alex:** Ask five questions. One, what price is being paid? Compare it to the target's valuation multiples and to comparable transactions. Two, how is it being funded? All-cash is usually better than stock (issuing stock dilutes existing shareholders). Three, what are the claimed synergies, and are they realistic? Cuts synergies (cost savings) are more reliable than growth synergies (revenue increases). Four, what is the acquirer's track record with previous deals? Some companies are serial acquirers with a history of value destruction. Five, does the deal make strategic sense, or is it empire building?
+**Horace：** 問自己五個問題。第一，支付的價格是多少？將其與目標公司的估值倍數和可比較交易進行比較。第二，如何融資？全現金通常優於換股（發行新股會稀釋現有股東）。第三，所聲稱的綜效是否合理？成本節省的綜效（削減開支）比營收增長的綜效（收入增加）更為可靠。第四，收購方過去的併購紀錄如何？有些公司是連續收購者，且有長期摧毀價值的紀錄。第五，這樁交易在策略上是否合理，還是只是帝國擴張？
 
-**Sam:** This has been incredibly dense but really valuable. Let me try to summarize. Capital structure is the mix of debt and equity -- debt amplifies returns but increases risk. WACC is the minimum return a company must earn. Dividends and buybacks are how companies return cash, but both can be done well or poorly. And governance is the system that keeps management honest.
+**Stella：** 今天的內容非常密集，但真的很有價值。讓我試著總結一下。資本結構是債務與股東權益的組合——債務放大報酬但增加風險。加權平均資金成本是公司必須賺取的最低報酬率。股利和股票買回是公司回饋現金的方式，但兩者都可以做得好或做得差。而公司治理是讓管理層保持誠信的制度。
 
-**Alex:** Perfect summary. And here is the one thing I want you to take away from today. When you evaluate any company as an investment, ask yourself: is management creating value with my money or extracting value from me? Capital allocation quality, shareholder returns policy, and governance structures will tell you the answer.
+**Horace：** 完美的總結。而這是我希望你從今天帶走的唯一一件事。當你評估任何一家公司作為投資標的時，問問自己：管理層正在用我的錢創造價值，還是在從我這裡汲取價值？資本配置的品質、股東回饋政策，以及公司治理結構，會告訴你答案。
 
-[VISUAL: A "Management Quality Checklist" with six items:
-1. ROIC consistently above WACC?
-2. Share count actually declining?
-3. Dividend well-covered by FCF?
-4. M&A track record positive?
-5. Board independent with aligned incentives?
-6. Management has meaningful stock ownership?]
+[VISUAL: A "管理層品質檢核清單" with six items:
+1. 投入資本報酬率持續高於加權平均資金成本？
+2. 流通在外股數真的在減少？
+3. 股利獲自由現金流量充分覆蓋？
+4. 併購的過往紀錄為正面？
+5. 董事會獨立且利益一致？
+6. 管理層有顯著的股票持有？]
 
-**Sam:** Next week?
+**Stella：** 下週呢？
 
-**Alex:** Next week we are going to look at earnings and cash flow quality -- how to tell whether a company's reported profits are real or an accounting mirage. It is one of the most practical skills you can develop as an investor, and it connects directly to what we learned today about capital allocation.
+**Horace：** 下週我們要來探討盈餘與現金流量品質——如何判斷一家公司所申報的利潤是真實的，還是會計上的幻象。這是你身為投資人能培養的最實用技能之一，而且它與我們今天所學的資本配置直接相連。
 
-[VISUAL: Preview card for Week 20 with "Earnings and Cash Flow: Quality, Manipulation, and Free Cash Flow"]
+[VISUAL: Preview card for Week 20 with "第20週：盈餘與現金流量——品質、操控手法與自由現金流量"]
 
-**Alex:** Thanks for watching everyone. Corporate finance might not sound glamorous, but I promise you -- the investors who understand how companies use their money consistently outperform those who just chase stock prices. Share this with anyone who is making investment decisions without looking under the hood. See you next week.
+**Horace：** 感謝大家今天的收看。企業財務聽起來可能不夠迷人，但我向你保證——真正理解企業如何運用資金的投資人，始終勝過那些只追逐股價的人。如果你身邊有任何在沒有深入了解管理層的情況下就做投資決策的人，把這部影片分享給他們。下週見。
 
 [VISUAL: Outro animation with subscribe button and links to previous episodes]

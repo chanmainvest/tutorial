@@ -596,221 +596,221 @@ A: Rising rates affect credit quality through several channels: (1) they increas
 
 **[VISUAL: Title card -- "Week 33: Credit Analysis and Bond Selection" with bond yield curves in the background]**
 
-**Alex:** Welcome back to our investment series. Today we are diving into something that many investors overlook entirely -- credit analysis. If you have ever bought a bond fund, a corporate bond, or even just heard the term "junk bond" on the news, this episode is for you.
+**Horace:** Welcome back to our investment series. Today we are diving into something that many investors overlook entirely -- credit analysis. If you have ever bought a bond fund, a corporate bond, or even just heard the term "junk bond" on the news, this episode is for you.
 
-**Sam:** Credit analysis -- so this is about figuring out whether a company can pay back its debt?
+**Stella:** Credit analysis -- so this is about figuring out whether a company can pay back its debt?
 
-**Alex:** Exactly right. And it is about figuring out whether you are being paid enough to take that risk. Think about it this way: if I asked you to lend money to your most reliable friend versus a stranger with a gambling habit, you would charge them very different interest rates, right?
+**Horace:** Exactly right. And it is about figuring out whether you are being paid enough to take that risk. Think about it this way: if I asked you to lend money to your most reliable friend versus a stranger with a gambling habit, you would charge them very different interest rates, right?
 
-**Sam:** Obviously. I might not lend to the gambler at all.
+**Stella:** Obviously. I might not lend to the gambler at all.
 
-**Alex:** But what if the gambler offered you 15% interest? Now it gets interesting. That is the essence of credit analysis -- evaluating the risk and comparing it to the compensation.
+**Horace:** But what if the gambler offered you 15% interest? Now it gets interesting. That is the essence of credit analysis -- evaluating the risk and comparing it to the compensation.
 
 **[VISUAL: Side-by-side comparison showing "Risk" on one side and "Compensation (Spread)" on the other, with a scale/balance image]**
 
-**Sam:** So how do professionals evaluate this risk?
+**Stella:** So how do professionals evaluate this risk?
 
-**Alex:** Let us start with the most visible piece: credit ratings. Three agencies dominate this space -- Moody's, S&P, and Fitch. They assign letter grades to borrowers, from the highest quality down to default.
+**Horace:** Let us start with the most visible piece: credit ratings. Three agencies dominate this space -- Moody's, S&P, and Fitch. They assign letter grades to borrowers, from the highest quality down to default.
 
 **[VISUAL: Rating scale chart showing Moody's, S&P, and Fitch side by side, with the investment grade / high yield line highlighted]**
 
-**Alex:** The most critical line on this chart is right here -- between BBB-minus and BB-plus. Everything above this line is "investment grade." Everything below is "high yield" -- sometimes called "junk bonds."
+**Horace:** The most critical line on this chart is right here -- between BBB-minus and BB-plus. Everything above this line is "investment grade." Everything below is "high yield" -- sometimes called "junk bonds."
 
-**Sam:** Why does that specific line matter so much?
+**Stella:** Why does that specific line matter so much?
 
-**Alex:** Because of rules. Pension funds, insurance companies, many mutual funds -- they have mandates that say they can only hold investment-grade bonds. So if a bond gets downgraded from BBB-minus to BB-plus -- just one notch -- these massive institutions are forced to sell it. Billions of dollars of selling pressure from a single-notch downgrade.
+**Horace:** Because of rules. Pension funds, insurance companies, many mutual funds -- they have mandates that say they can only hold investment-grade bonds. So if a bond gets downgraded from BBB-minus to BB-plus -- just one notch -- these massive institutions are forced to sell it. Billions of dollars of selling pressure from a single-notch downgrade.
 
 **[ANIMATION: Reference animation/week33_credit_spreads.py -- Animated visualization showing a bond crossing the IG/HY boundary, with sell arrows appearing from institutional investors and the bond price dropping, then high-yield buyers stepping in at lower prices]**
 
-**Sam:** That seems like it could create opportunities for other investors.
+**Stella:** That seems like it could create opportunities for other investors.
 
-**Alex:** Absolutely. These "fallen angels" -- bonds downgraded from investment grade to high yield -- are one of the most studied and exploited opportunities in fixed income. The forced selling often pushes prices below fair value. There are actually ETFs and strategies built entirely around buying fallen angels.
+**Horace:** Absolutely. These "fallen angels" -- bonds downgraded from investment grade to high yield -- are one of the most studied and exploited opportunities in fixed income. The forced selling often pushes prices below fair value. There are actually ETFs and strategies built entirely around buying fallen angels.
 
-**Sam:** What about the reverse? When a junk bond gets upgraded?
+**Stella:** What about the reverse? When a junk bond gets upgraded?
 
-**Alex:** That is called a "rising star." When a bond gets upgraded to investment grade, suddenly all those big institutional buyers can own it. New demand pushes the price up. Identifying future rising stars before the upgrade happens is one of the most profitable strategies in credit investing.
+**Horace:** That is called a "rising star." When a bond gets upgraded to investment grade, suddenly all those big institutional buyers can own it. New demand pushes the price up. Identifying future rising stars before the upgrade happens is one of the most profitable strategies in credit investing.
 
 **[VISUAL: Diagram showing fallen angels moving down and rising stars moving up across the IG/HY boundary, with price impact arrows]**
 
-**Sam:** OK, so ratings are the starting point. But you mentioned earlier that we should not rely solely on ratings. Why not?
+**Stella:** OK, so ratings are the starting point. But you mentioned earlier that we should not rely solely on ratings. Why not?
 
-**Alex:** Because ratings agencies have a terrible track record of anticipating crises. Let me give you a few examples.
+**Horace:** Because ratings agencies have a terrible track record of anticipating crises. Let me give you a few examples.
 
 **[VISUAL: Timeline showing famous rating failures -- Enron (IG rated 4 days before bankruptcy), Lehman Brothers (A-rated before collapse), Subprime MBS (AAA-rated, turned worthless)]**
 
-**Alex:** Enron was rated investment grade by all three agencies just four days before it filed for bankruptcy. Lehman Brothers had an A rating. And the subprime mortgage securities? Rated AAA -- the highest possible rating -- and they turned out to be worth pennies on the dollar.
+**Horace:** Enron was rated investment grade by all three agencies just four days before it filed for bankruptcy. Lehman Brothers had an A rating. And the subprime mortgage securities? Rated AAA -- the highest possible rating -- and they turned out to be worth pennies on the dollar.
 
-**Sam:** How is that even possible?
+**Stella:** How is that even possible?
 
-**Alex:** Several reasons. Rating agencies are paid by the issuers -- the companies they are rating. That creates a conflict of interest. They also tend to be slow-moving and backward-looking. By the time they downgrade, the market has usually already figured it out. And in the case of subprime, the models they used were simply wrong.
+**Horace:** Several reasons. Rating agencies are paid by the issuers -- the companies they are rating. That creates a conflict of interest. They also tend to be slow-moving and backward-looking. By the time they downgrade, the market has usually already figured it out. And in the case of subprime, the models they used were simply wrong.
 
-**Sam:** So if I cannot trust the ratings, what do I do?
+**Stella:** So if I cannot trust the ratings, what do I do?
 
-**Alex:** You use the ratings as a starting point and then do your own analysis. The professional framework is called the "4 Cs" of credit analysis. Let us walk through each one.
+**Horace:** You use the ratings as a starting point and then do your own analysis. The professional framework is called the "4 Cs" of credit analysis. Let us walk through each one.
 
 **[VISUAL: Four pillars graphic labeled Capacity, Collateral, Covenants, and Character]**
 
-**Alex:** The first and most important C is Capacity. This is the borrower's ability to generate enough cash flow to service its debt. You are looking at things like the interest coverage ratio -- how many times can the company's earnings cover its interest payments?
+**Horace:** The first and most important C is Capacity. This is the borrower's ability to generate enough cash flow to service its debt. You are looking at things like the interest coverage ratio -- how many times can the company's earnings cover its interest payments?
 
-**Sam:** What is a good number?
+**Stella:** What is a good number?
 
-**Alex:** For investment-grade companies, you generally want to see interest coverage above 4 times. That means for every dollar of interest they owe, they earn four dollars. For high-yield companies, the threshold is lower -- above 1.5 times is considered adequate, though obviously higher is better.
+**Horace:** For investment-grade companies, you generally want to see interest coverage above 4 times. That means for every dollar of interest they owe, they earn four dollars. For high-yield companies, the threshold is lower -- above 1.5 times is considered adequate, though obviously higher is better.
 
 **[VISUAL: Table showing key credit ratios with IG and HY thresholds -- Interest Coverage, Debt/EBITDA, FCF/Total Debt]**
 
-**Alex:** You also look at Debt-to-EBITDA -- how many years of earnings would it take to pay off all the debt? Under 3 times is comfortable for investment grade. Above 5 times gets risky.
+**Horace:** You also look at Debt-to-EBITDA -- how many years of earnings would it take to pay off all the debt? Under 3 times is comfortable for investment grade. Above 5 times gets risky.
 
-**Sam:** What about the second C -- Collateral?
+**Stella:** What about the second C -- Collateral?
 
-**Alex:** Collateral is about the assets backing the debt. If the company defaults, what can lenders seize and sell? A utility company with power plants and transmission lines has solid collateral. A software company whose main assets are code and employee brainpower? Much less tangible collateral.
+**Horace:** Collateral is about the assets backing the debt. If the company defaults, what can lenders seize and sell? A utility company with power plants and transmission lines has solid collateral. A software company whose main assets are code and employee brainpower? Much less tangible collateral.
 
 **[VISUAL: Asset liquidity spectrum from most liquid (cash) to least liquid (goodwill/IP)]**
 
-**Sam:** That makes sense. What is third?
+**Stella:** That makes sense. What is third?
 
-**Alex:** Covenants. These are the contractual rules built into the bond agreement that restrict what the borrower can do. Think of them as guardrails.
+**Horace:** Covenants. These are the contractual rules built into the bond agreement that restrict what the borrower can do. Think of them as guardrails.
 
-**Sam:** Like what?
+**Stella:** Like what?
 
-**Alex:** For example, a covenant might say "you cannot borrow more money above a certain leverage ratio" or "you cannot sell major assets without bondholder approval" or "you must maintain a minimum level of interest coverage." These protect bondholders from the company doing something stupid or reckless with their money.
+**Horace:** For example, a covenant might say "you cannot borrow more money above a certain leverage ratio" or "you cannot sell major assets without bondholder approval" or "you must maintain a minimum level of interest coverage." These protect bondholders from the company doing something stupid or reckless with their money.
 
 **[VISUAL: List of common covenant types with brief descriptions]**
 
-**Alex:** But here is the worrying trend -- covenant quality has deteriorated dramatically. In the leveraged loan market, over 80% of loans are now "covenant-lite," meaning they have very few protective restrictions. Back before 2008, that number was under 30%.
+**Horace:** But here is the worrying trend -- covenant quality has deteriorated dramatically. In the leveraged loan market, over 80% of loans are now "covenant-lite," meaning they have very few protective restrictions. Back before 2008, that number was under 30%.
 
-**Sam:** Why would investors accept fewer protections?
+**Stella:** Why would investors accept fewer protections?
 
-**Alex:** Because when markets are flush with cash and investors are hungry for yield, borrowers have the upper hand. They can say, "if you won't lend to me without covenants, someone else will." It is a classic late-cycle behavior -- standards erode when times are good, and investors pay the price when times turn bad.
+**Horace:** Because when markets are flush with cash and investors are hungry for yield, borrowers have the upper hand. They can say, "if you won't lend to me without covenants, someone else will." It is a classic late-cycle behavior -- standards erode when times are good, and investors pay the price when times turn bad.
 
-**Sam:** And the last C is Character?
+**Stella:** And the last C is Character?
 
-**Alex:** Character is about management integrity and governance. Has this management team honored its obligations to creditors before? Are there red flags like frequent auditor changes, aggressive accounting, or related-party transactions?
+**Horace:** Character is about management integrity and governance. Has this management team honored its obligations to creditors before? Are there red flags like frequent auditor changes, aggressive accounting, or related-party transactions?
 
 **[VISUAL: Character red flags checklist with warning icons]**
 
-**Alex:** I will tell you, this is the hardest C to assess because it is qualitative. But it matters enormously. A management team that views bondholders as an afterthought -- where all the focus is on boosting the stock price through debt-funded buybacks -- is a red flag for credit investors.
+**Horace:** I will tell you, this is the hardest C to assess because it is qualitative. But it matters enormously. A management team that views bondholders as an afterthought -- where all the focus is on boosting the stock price through debt-funded buybacks -- is a red flag for credit investors.
 
-**Sam:** OK, I understand the 4 Cs. But let us talk about credit spreads -- you mentioned this is the additional yield above Treasuries. How should I think about spreads?
+**Stella:** OK, I understand the 4 Cs. But let us talk about credit spreads -- you mentioned this is the additional yield above Treasuries. How should I think about spreads?
 
-**Alex:** Let me break it down. When you buy a corporate bond, your yield equals the Treasury yield plus a credit spread. That spread compensates you for several things.
+**Horace:** Let me break it down. When you buy a corporate bond, your yield equals the Treasury yield plus a credit spread. That spread compensates you for several things.
 
 **[ANIMATION: Reference animation/week33_credit_spreads.py -- Animated bar chart decomposing a credit spread into its components: expected default loss, credit risk premium, liquidity premium, and other factors. Each component builds up to form the total spread.]**
 
-**Alex:** The spread has several components. First, expected default loss -- this is the mathematical probability of default times the expected loss if default occurs. Second, a credit risk premium -- extra compensation for bearing the uncertainty around defaults. Third, a liquidity premium -- corporate bonds are harder to trade than Treasuries. And fourth, other factors like downgrade risk and event risk.
+**Horace:** The spread has several components. First, expected default loss -- this is the mathematical probability of default times the expected loss if default occurs. Second, a credit risk premium -- extra compensation for bearing the uncertainty around defaults. Third, a liquidity premium -- corporate bonds are harder to trade than Treasuries. And fourth, other factors like downgrade risk and event risk.
 
-**Sam:** So the spread is not just about defaults?
+**Stella:** So the spread is not just about defaults?
 
-**Alex:** Not even close. For investment-grade bonds, actual default losses historically account for only about 30 to 40 percent of the credit spread. The rest is compensation for other risks and a pure risk premium. This is actually great news for credit investors because it means you can earn excess returns even if defaults come in exactly as expected.
+**Horace:** Not even close. For investment-grade bonds, actual default losses historically account for only about 30 to 40 percent of the credit spread. The rest is compensation for other risks and a pure risk premium. This is actually great news for credit investors because it means you can earn excess returns even if defaults come in exactly as expected.
 
 **[VISUAL: Pie chart showing approximate spread decomposition for IG bonds]**
 
-**Sam:** What about high-yield bonds? Are they really as scary as the name "junk bonds" implies?
+**Stella:** What about high-yield bonds? Are they really as scary as the name "junk bonds" implies?
 
-**Alex:** Let us look at the numbers. The average annual default rate for high-yield bonds is about 3 to 5 percent. And recovery rates average about 35 to 40 percent. So the actual annual loss from defaults is roughly 2 to 3 percent.
+**Horace:** Let us look at the numbers. The average annual default rate for high-yield bonds is about 3 to 5 percent. And recovery rates average about 35 to 40 percent. So the actual annual loss from defaults is roughly 2 to 3 percent.
 
-**Sam:** And what is the typical spread on high-yield bonds?
+**Stella:** And what is the typical spread on high-yield bonds?
 
-**Alex:** Typically 300 to 800 basis points -- that is 3 to 8 percent above Treasuries. So you are earning 3 to 8 percent in extra yield and losing 2 to 3 percent to defaults. The math works in your favor, as long as you are diversified across many issuers.
+**Horace:** Typically 300 to 800 basis points -- that is 3 to 8 percent above Treasuries. So you are earning 3 to 8 percent in extra yield and losing 2 to 3 percent to defaults. The math works in your favor, as long as you are diversified across many issuers.
 
 **[VISUAL: Bar chart comparing typical HY spread (300-800 bps) vs. historical average default loss (~200-300 bps), showing the positive excess return]**
 
-**Sam:** How many bonds do I need for diversification?
+**Stella:** How many bonds do I need for diversification?
 
-**Alex:** Research suggests 40 to 60 bonds across different industries. With fewer than 20, a single default can really hurt. This is why most individual investors access high yield through funds or ETFs rather than buying individual bonds.
+**Horace:** Research suggests 40 to 60 bonds across different industries. With fewer than 20, a single default can really hurt. This is why most individual investors access high yield through funds or ETFs rather than buying individual bonds.
 
-**Sam:** Let us talk about sovereign bonds. How is analyzing a country different from a company?
+**Stella:** Let us talk about sovereign bonds. How is analyzing a country different from a company?
 
-**Alex:** Great question. Countries are fundamentally different because they have the power to tax and, if they borrow in their own currency, the power to print money. The framework focuses on economic strength, institutional quality, fiscal position, monetary flexibility, and political stability.
+**Horace:** Great question. Countries are fundamentally different because they have the power to tax and, if they borrow in their own currency, the power to print money. The framework focuses on economic strength, institutional quality, fiscal position, monetary flexibility, and political stability.
 
 **[VISUAL: Sovereign credit analysis framework with key factors listed]**
 
-**Alex:** But here is the key distinction: a country borrowing in its own currency, like the US borrowing in dollars or Japan borrowing in yen, can always print money to pay its debts. The risk is inflation, not outright default. A country borrowing in a foreign currency -- like Argentina borrowing in US dollars -- faces genuine default risk because it cannot print dollars.
+**Horace:** But here is the key distinction: a country borrowing in its own currency, like the US borrowing in dollars or Japan borrowing in yen, can always print money to pay its debts. The risk is inflation, not outright default. A country borrowing in a foreign currency -- like Argentina borrowing in US dollars -- faces genuine default risk because it cannot print dollars.
 
-**Sam:** Has Japan defaulted despite its enormous debt?
+**Stella:** Has Japan defaulted despite its enormous debt?
 
-**Alex:** No, and this surprises many people. Japan's debt-to-GDP ratio exceeds 250 percent, far higher than any other developed country. But almost all of it is denominated in yen, much of it is held domestically, and the Bank of Japan can buy unlimited amounts. The risk is not default -- it is that the yen loses value over time through inflation or depreciation.
+**Horace:** No, and this surprises many people. Japan's debt-to-GDP ratio exceeds 250 percent, far higher than any other developed country. But almost all of it is denominated in yen, much of it is held domestically, and the Bank of Japan can buy unlimited amounts. The risk is not default -- it is that the yen loses value over time through inflation or depreciation.
 
 **[VISUAL: Chart comparing Debt/GDP ratios of major countries with their credit ratings]**
 
-**Sam:** This is all really helpful. Can you walk me through how this works in practice? Like, if I am looking at a specific bond?
+**Stella:** This is all really helpful. Can you walk me through how this works in practice? Like, if I am looking at a specific bond?
 
-**Alex:** Sure. Let us walk through a simplified example. Imagine you are looking at a bond from a mid-sized industrial company. It is rated BBB by S&P, and it offers a spread of 200 basis points over Treasuries.
+**Horace:** Sure. Let us walk through a simplified example. Imagine you are looking at a bond from a mid-sized industrial company. It is rated BBB by S&P, and it offers a spread of 200 basis points over Treasuries.
 
 **[VISUAL: Step-by-step analysis framework appearing one step at a time]**
 
-**Alex:** Step one: industry analysis. Industrials are cyclical -- they do well in expansions, poorly in recessions. That is a risk factor.
+**Horace:** Step one: industry analysis. Industrials are cyclical -- they do well in expansions, poorly in recessions. That is a risk factor.
 
 Step two: the 4 Cs. You pull up the financials and find interest coverage of 3.5 times -- adequate but not great. Debt-to-EBITDA is 3.2 times -- moderate leverage. Free cash flow is positive but thin. Collateral is reasonable -- they own factories and equipment. Covenants are decent -- there is a leverage maintenance covenant. Management has a clean track record.
 
-**Sam:** So how do you decide if 200 basis points is enough?
+**Stella:** So how do you decide if 200 basis points is enough?
 
-**Alex:** Step three: relative value. You compare to peers. Similar BBB industrials are trading at 180 to 220 basis points. So this bond is in line with peers.
+**Horace:** Step three: relative value. You compare to peers. Similar BBB industrials are trading at 180 to 220 basis points. So this bond is in line with peers.
 
 Step four: scenario analysis. If revenue drops 20 percent in a recession, can they still cover interest? With 3.5 times coverage and a 20 percent revenue decline, coverage might drop to about 2.5 times. Tight, but survivable. In a severe recession with a 30 percent decline? Coverage drops to about 2 times. Getting uncomfortable.
 
-**Sam:** So what is the verdict?
+**Stella:** So what is the verdict?
 
-**Alex:** In a normal environment, this bond is a reasonable hold. The spread is fair relative to peers. But if you think a recession is coming, you might want something safer because the margin of safety is thin. And that is the essence of credit analysis -- it is not just "will they default or not?" It is "am I being paid enough for the risk, given my economic outlook?"
+**Horace:** In a normal environment, this bond is a reasonable hold. The spread is fair relative to peers. But if you think a recession is coming, you might want something safer because the margin of safety is thin. And that is the essence of credit analysis -- it is not just "will they default or not?" It is "am I being paid enough for the risk, given my economic outlook?"
 
 **[VISUAL: Decision matrix showing spread adequacy across different economic scenarios]**
 
-**Sam:** One last question. How do credit spreads relate to the broader market? Can I use them as a signal?
+**Stella:** One last question. How do credit spreads relate to the broader market? Can I use them as a signal?
 
-**Alex:** Absolutely. Credit spreads are one of the best real-time indicators of financial stress. When spreads are tight -- below 100 basis points for investment grade -- markets are complacent. When they blow out -- above 300 basis points for investment grade -- that is a warning sign not just for bonds but for stocks and the economy.
+**Horace:** Absolutely. Credit spreads are one of the best real-time indicators of financial stress. When spreads are tight -- below 100 basis points for investment grade -- markets are complacent. When they blow out -- above 300 basis points for investment grade -- that is a warning sign not just for bonds but for stocks and the economy.
 
 **[ANIMATION: Reference animation/week33_credit_spreads.py -- Time-series animation showing credit spreads over the past 20 years, with markers for recessions, crises, and market peaks. Spreads widen before and during recessions, then tighten during recoveries.]**
 
-**Alex:** In fact, some of the best equity buying opportunities in history have coincided with credit spread peaks. March 2009, March 2020 -- when spreads hit extreme levels, it often marks the point of maximum fear. If you have the courage and the capital, that is when the best risk-adjusted returns are available across all asset classes.
+**Horace:** In fact, some of the best equity buying opportunities in history have coincided with credit spread peaks. March 2009, March 2020 -- when spreads hit extreme levels, it often marks the point of maximum fear. If you have the courage and the capital, that is when the best risk-adjusted returns are available across all asset classes.
 
-**Sam:** So credit analysis is not just for bond investors?
+**Stella:** So credit analysis is not just for bond investors?
 
-**Alex:** Not at all. Understanding credit markets makes you a better equity investor, a better macro investor, and a better risk manager. The bond market is often called the "smart money" market because it tends to sniff out problems before the stock market does. If credit spreads are widening while stocks are rising, that divergence is a warning worth paying attention to.
+**Horace:** Not at all. Understanding credit markets makes you a better equity investor, a better macro investor, and a better risk manager. The bond market is often called the "smart money" market because it tends to sniff out problems before the stock market does. If credit spreads are widening while stocks are rising, that divergence is a warning worth paying attention to.
 
-**Sam:** Let me ask about something practical. If I am building a bond portfolio, how do I actually go about selecting bonds?
+**Stella:** Let me ask about something practical. If I am building a bond portfolio, how do I actually go about selecting bonds?
 
-**Alex:** Great question. Let me walk you through a practical bond selection process. Start with your objective: are you maximizing income, preserving capital, or balancing both?
+**Horace:** Great question. Let me walk you through a practical bond selection process. Start with your objective: are you maximizing income, preserving capital, or balancing both?
 
 **[VISUAL: Bond selection decision tree starting with "Investment Objective" branching into Income Maximization, Capital Preservation, and Balanced]**
 
-**Alex:** Once you know your objective, you filter the universe. For a balanced approach, I would start with investment-grade corporate bonds with maturities between 3 and 10 years. Then I would layer in some high-yield exposure -- maybe 10 to 20 percent of the bond allocation -- for yield enhancement.
+**Horace:** Once you know your objective, you filter the universe. For a balanced approach, I would start with investment-grade corporate bonds with maturities between 3 and 10 years. Then I would layer in some high-yield exposure -- maybe 10 to 20 percent of the bond allocation -- for yield enhancement.
 
-**Sam:** How do I compare two bonds from different issuers?
+**Stella:** How do I compare two bonds from different issuers?
 
-**Alex:** You compare on three dimensions. First, spread: which bond pays more above the risk-free rate? Second, credit quality: use the 4 Cs we discussed to determine which issuer is more creditworthy. Third, relative value: is the spread you are earning proportionate to the additional risk you are taking?
+**Horace:** You compare on three dimensions. First, spread: which bond pays more above the risk-free rate? Second, credit quality: use the 4 Cs we discussed to determine which issuer is more creditworthy. Third, relative value: is the spread you are earning proportionate to the additional risk you are taking?
 
 **[VISUAL: Three-column comparison of two hypothetical bonds showing Spread, Credit Quality metrics, and Relative Value assessment]**
 
-**Alex:** Let me give you a concrete example. Bond A is from a consumer staples company, rated BBB+, with a spread of 130 basis points. Bond B is from an industrial company, rated BBB-, with a spread of 200 basis points. Bond B pays 70 basis points more. Is that enough compensation for the lower rating and more cyclical industry?
+**Horace:** Let me give you a concrete example. Bond A is from a consumer staples company, rated BBB+, with a spread of 130 basis points. Bond B is from an industrial company, rated BBB-, with a spread of 200 basis points. Bond B pays 70 basis points more. Is that enough compensation for the lower rating and more cyclical industry?
 
-**Sam:** How do you figure that out?
+**Stella:** How do you figure that out?
 
-**Alex:** You look at the historical default rate difference between BBB+ and BBB- -- it is meaningful but not enormous. Then you assess the industry risk: industrials are more cyclical than consumer staples. You stress-test the industrial company's financials: can it maintain coverage ratios in a recession? If the answer is yes, that extra 70 basis points might be attractive. If the answer is marginal, you stick with Bond A.
+**Horace:** You look at the historical default rate difference between BBB+ and BBB- -- it is meaningful but not enormous. Then you assess the industry risk: industrials are more cyclical than consumer staples. You stress-test the industrial company's financials: can it maintain coverage ratios in a recession? If the answer is yes, that extra 70 basis points might be attractive. If the answer is marginal, you stick with Bond A.
 
-**Sam:** That makes sense. What about the mechanics -- where do individual investors actually buy bonds?
+**Stella:** That makes sense. What about the mechanics -- where do individual investors actually buy bonds?
 
-**Alex:** Most brokerage platforms now offer bond trading. For Treasuries, you can buy directly from TreasuryDirect.gov. For corporate and municipal bonds, your broker will show inventory -- these trade over-the-counter, not on an exchange. One important tip: pay attention to the bid-ask spread. New-issue bonds typically have tighter spreads. Older, smaller issues can have wide spreads, which eats into your return.
+**Horace:** Most brokerage platforms now offer bond trading. For Treasuries, you can buy directly from TreasuryDirect.gov. For corporate and municipal bonds, your broker will show inventory -- these trade over-the-counter, not on an exchange. One important tip: pay attention to the bid-ask spread. New-issue bonds typically have tighter spreads. Older, smaller issues can have wide spreads, which eats into your return.
 
 **[VISUAL: Comparison of typical bid-ask spreads -- Treasuries (1-2 bps), IG Corporates (5-15 bps), HY Corporates (25-75 bps), Municipal Bonds (10-50 bps)]**
 
-**Sam:** What about credit default swaps? You mentioned them earlier. Can individual investors use them?
+**Stella:** What about credit default swaps? You mentioned them earlier. Can individual investors use them?
 
-**Alex:** CDS is primarily an institutional market, but individual investors can get indirect exposure through CDS-based ETFs or by simply watching CDS spreads as a market signal. If the CDS spread on a company is widening rapidly while its bond spread is stable, the CDS market may be telling you something that the bond market has not yet priced in.
+**Horace:** CDS is primarily an institutional market, but individual investors can get indirect exposure through CDS-based ETFs or by simply watching CDS spreads as a market signal. If the CDS spread on a company is widening rapidly while its bond spread is stable, the CDS market may be telling you something that the bond market has not yet priced in.
 
-**Sam:** One more thing -- how do I think about the credit cycle when building a portfolio?
+**Stella:** One more thing -- how do I think about the credit cycle when building a portfolio?
 
-**Alex:** This is where everything comes together. In the early stages of an economic recovery, credit quality is improving, default rates are falling, and spreads are tightening. That is the best time to own lower-quality credit -- high-yield bonds, fallen angels, even distressed debt. As the cycle matures and lending standards loosen, you want to move up in quality, focusing on higher-rated bonds with stronger covenants. Late in the cycle, when leverage is high and covenants are weak, you want to be defensive -- high-quality bonds, short duration, and plenty of liquidity.
+**Horace:** This is where everything comes together. In the early stages of an economic recovery, credit quality is improving, default rates are falling, and spreads are tightening. That is the best time to own lower-quality credit -- high-yield bonds, fallen angels, even distressed debt. As the cycle matures and lending standards loosen, you want to move up in quality, focusing on higher-rated bonds with stronger covenants. Late in the cycle, when leverage is high and covenants are weak, you want to be defensive -- high-quality bonds, short duration, and plenty of liquidity.
 
 **[ANIMATION: Reference animation/week33_credit_spreads.py -- Circular animation showing the four phases of the credit cycle (Recovery, Expansion, Deterioration, Contraction) with recommended positioning in each phase. Arrows show the progression through the cycle, with spread levels and default rates updating for each phase.]**
 
-**Alex:** Think of it as a clock. At 6 o'clock, we are in the depths of a crisis -- maximum fear, widest spreads, best opportunities. At 12 o'clock, we are at the peak of confidence -- tightest spreads, loosest standards, greatest complacency. The most money is made by moving toward risk at 6 o'clock and moving toward safety as we approach 12 o'clock.
+**Horace:** Think of it as a clock. At 6 o'clock, we are in the depths of a crisis -- maximum fear, widest spreads, best opportunities. At 12 o'clock, we are at the peak of confidence -- tightest spreads, loosest standards, greatest complacency. The most money is made by moving toward risk at 6 o'clock and moving toward safety as we approach 12 o'clock.
 
-**Sam:** And most investors do the opposite -- they pile into risk when things feel comfortable and panic when things get scary.
+**Stella:** And most investors do the opposite -- they pile into risk when things feel comfortable and panic when things get scary.
 
-**Alex:** Exactly. That is why understanding credit analysis gives you such an edge. You can make informed, rational decisions when everyone else is driven by emotion.
+**Horace:** Exactly. That is why understanding credit analysis gives you such an edge. You can make informed, rational decisions when everyone else is driven by emotion.
 
-**Sam:** This has been incredibly useful. To summarize -- credit analysis uses the 4 Cs framework: Capacity, Collateral, Covenants, and Character. Ratings are a starting point but not the final word. Credit spreads compensate for more than just default risk. The credit cycle determines when to take more or less risk. And understanding credit markets makes you a better overall investor.
+**Stella:** This has been incredibly useful. To summarize -- credit analysis uses the 4 Cs framework: Capacity, Collateral, Covenants, and Character. Ratings are a starting point but not the final word. Credit spreads compensate for more than just default risk. The credit cycle determines when to take more or less risk. And understanding credit markets makes you a better overall investor.
 
-**Alex:** Perfect summary. Next week, we will look at how interest rates affect different asset classes -- not just bonds, but equities, real estate, and more. See you then.
+**Horace:** Perfect summary. Next week, we will look at how interest rates affect different asset classes -- not just bonds, but equities, real estate, and more. See you then.
 
 **[VISUAL: End card with key takeaways listed:
 1. Credit ratings are opinions, not guarantees -- do your own analysis

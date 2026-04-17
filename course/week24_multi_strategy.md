@@ -804,174 +804,174 @@ A: If you only remember one thing, let it be this: invest early, invest consiste
 
 [VISUAL: Animated intro with title "Week 24: Building a Multi-Strategy Portfolio" with puzzle pieces coming together to form a complete picture]
 
-**Alex:** Welcome to the final lesson of Level 2. We have covered an enormous amount of ground over these 24 weeks, from the basics of compound interest all the way to factor investing and international diversification. Now we are going to bring it all together into something practical: building a portfolio that actually works in the real world.
+**Horace:** Welcome to the final lesson of Level 2. We have covered an enormous amount of ground over these 24 weeks, from the basics of compound interest all the way to factor investing and international diversification. Now we are going to bring it all together into something practical: building a portfolio that actually works in the real world.
 
-**Sam:** I have to say, Alex, I feel like I have learned more about investing in these 24 weeks than in the previous several years of casual reading. But I am also a bit overwhelmed. There are so many strategies, so many asset classes, so many considerations. How do I actually put it all together?
+**Stella:** I have to say, Horace, I feel like I have learned more about investing in these 24 weeks than in the previous several years of casual reading. But I am also a bit overwhelmed. There are so many strategies, so many asset classes, so many considerations. How do I actually put it all together?
 
-**Alex:** That is exactly what today is about. And here is the liberating truth: you do not need to implement every concept we have discussed. A simple, well-designed portfolio using just three or four funds will serve most investors better than a complex portfolio they cannot maintain. The goal is not to build the most sophisticated portfolio -- it is to build one that you will actually stick with through thick and thin.
+**Horace:** That is exactly what today is about. And here is the liberating truth: you do not need to implement every concept we have discussed. A simple, well-designed portfolio using just three or four funds will serve most investors better than a complex portfolio they cannot maintain. The goal is not to build the most sophisticated portfolio -- it is to build one that you will actually stick with through thick and thin.
 
 [VISUAL: Complex chart with many overlapping lines and indicators, then transitioning to a simple, clean portfolio chart with just a few components -- visual metaphor for simplicity outperforming complexity]
 
-**Sam:** That is reassuring. So where do we start?
+**Stella:** That is reassuring. So where do we start?
 
-**Alex:** We start with the most powerful concept in portfolio construction: combining strategies that do not move in lockstep. This is the core principle behind everything we are going to discuss today.
+**Horace:** We start with the most powerful concept in portfolio construction: combining strategies that do not move in lockstep. This is the core principle behind everything we are going to discuss today.
 
-**Sam:** You mean diversification?
+**Stella:** You mean diversification?
 
-**Alex:** Diversification, yes, but at a higher level. We are not just talking about owning lots of stocks. We are talking about combining entire strategies -- stock investing, bond investing, international investing, factor investing -- that respond to different economic forces. When one strategy is struggling, another is likely performing well.
+**Horace:** Diversification, yes, but at a higher level. We are not just talking about owning lots of stocks. We are talking about combining entire strategies -- stock investing, bond investing, international investing, factor investing -- that respond to different economic forces. When one strategy is struggling, another is likely performing well.
 
 [ANIMATION: animation/week24_multi_strategy.py - Animated visualization showing four individual strategy lines (US stocks, international stocks, bonds, and factor tilts) each exhibiting their own ups and downs. Then the animation shows these combining into a single portfolio line that is smoother and more consistent than any individual component. The animation highlights specific periods where one strategy's loss was offset by another's gain.]
 
-**Sam:** So it is like having a team of players where each one excels in different conditions?
+**Stella:** So it is like having a team of players where each one excels in different conditions?
 
-**Alex:** Perfect analogy. You do not want five sprinters -- you want a sprinter, a distance runner, a swimmer, a cyclist, and a climber. Whatever the terrain, someone on your team can handle it.
+**Horace:** Perfect analogy. You do not want five sprinters -- you want a sprinter, a distance runner, a swimmer, a cyclist, and a climber. Whatever the terrain, someone on your team can handle it.
 
-**Sam:** Okay, so how do I structure this team?
+**Stella:** Okay, so how do I structure this team?
 
-**Alex:** The framework I recommend is called core-satellite. Your portfolio has a core -- the foundation -- and satellites -- the specialized positions that complement the core.
+**Horace:** The framework I recommend is called core-satellite. Your portfolio has a core -- the foundation -- and satellites -- the specialized positions that complement the core.
 
 [VISUAL: Solar system diagram with a large sun in the center labeled "CORE: Broad Market Index Funds (60-80%)" and smaller planets orbiting labeled as satellites: "Factor Tilts," "International Overweight," "Real Assets," "Income"]
 
-**Alex:** The core is simple: broad market index funds. US total stock market, international stock market, and a bond index. These three funds alone give you exposure to thousands of stocks and bonds around the world at a cost of about 0.04% per year. This core captures the single most reliable source of investment returns -- market beta.
+**Horace:** The core is simple: broad market index funds. US total stock market, international stock market, and a bond index. These three funds alone give you exposure to thousands of stocks and bonds around the world at a cost of about 0.04% per year. This core captures the single most reliable source of investment returns -- market beta.
 
-**Sam:** And the satellites?
+**Stella:** And the satellites?
 
-**Alex:** Satellites are where you add incremental strategies. Maybe a value factor tilt, an emerging markets overweight, a small-cap allocation, or a real estate position. Each satellite is typically 5 to 15 percent of the portfolio, small enough that a bad outcome does not derail you, but large enough to make a meaningful contribution.
+**Horace:** Satellites are where you add incremental strategies. Maybe a value factor tilt, an emerging markets overweight, a small-cap allocation, or a real estate position. Each satellite is typically 5 to 15 percent of the portfolio, small enough that a bad outcome does not derail you, but large enough to make a meaningful contribution.
 
-**Sam:** How many satellites should I have?
+**Stella:** How many satellites should I have?
 
-**Alex:** For most people, two to four satellites is plenty. Remember, each satellite adds a fund to manage, a rebalancing decision, and a potential behavioral temptation. More complexity means more opportunity for mistakes. I would rather see someone with three funds held with iron discipline than fifteen funds managed with anxiety.
+**Horace:** For most people, two to four satellites is plenty. Remember, each satellite adds a fund to manage, a rebalancing decision, and a potential behavioral temptation. More complexity means more opportunity for mistakes. I would rather see someone with three funds held with iron discipline than fifteen funds managed with anxiety.
 
 [VISUAL: Three model portfolio pie charts displayed side by side:
 Simple (3 funds): 50% US Stocks, 20% Int'l, 30% Bonds
 Moderate (6 funds): 35% US Stocks, 20% Int'l, 15% Bonds, 10% Small Value, 10% Int'l Value, 10% Quality/Momentum
 Advanced (10 funds): More granular breakdown with multiple satellites]
 
-**Sam:** Can you walk me through a specific example?
+**Stella:** Can you walk me through a specific example?
 
-**Alex:** Sure. Let us build a moderate multi-strategy portfolio step by step.
+**Horace:** Sure. Let us build a moderate multi-strategy portfolio step by step.
 
-**Alex:** Start with the core. I will use 35% US total stock market and 20% international developed stocks. That is 55% in equities, broadly diversified globally. For bonds, 15% in a US aggregate bond fund. That is my 70% core.
+**Horace:** Start with the core. I will use 35% US total stock market and 20% international developed stocks. That is 55% in equities, broadly diversified globally. For bonds, 15% in a US aggregate bond fund. That is my 70% core.
 
-**Sam:** And the 30% in satellites?
+**Stella:** And the 30% in satellites?
 
-**Alex:** I will add 10% in US small-value stocks -- this captures the size and value factor premiums, which have been the strongest combination historically. Another 10% in international value stocks -- factor premiums exist globally, and international value has been compelling. And 5% in momentum and 5% in quality -- together, these four factor satellites diversify across the major return drivers.
+**Horace:** I will add 10% in US small-value stocks -- this captures the size and value factor premiums, which have been the strongest combination historically. Another 10% in international value stocks -- factor premiums exist globally, and international value has been compelling. And 5% in momentum and 5% in quality -- together, these four factor satellites diversify across the major return drivers.
 
 [VISUAL: The portfolio being built piece by piece, with each allocation appearing as a block being stacked, showing the running total and what each piece contributes]
 
-**Sam:** How is that different from just owning the total stock market?
+**Stella:** How is that different from just owning the total stock market?
 
-**Alex:** In a broad market index, your returns come almost entirely from one factor: market beta. In this portfolio, you have market beta from the core, plus value, size, momentum, and quality exposure from the satellites. These additional factors have historically added 2 to 4 percent per year in aggregate, though not consistently. More importantly, because the factors respond to different conditions, the portfolio tends to be more resilient.
+**Horace:** In a broad market index, your returns come almost entirely from one factor: market beta. In this portfolio, you have market beta from the core, plus value, size, momentum, and quality exposure from the satellites. These additional factors have historically added 2 to 4 percent per year in aggregate, though not consistently. More importantly, because the factors respond to different conditions, the portfolio tends to be more resilient.
 
-**Sam:** What about bonds? We only have 15%. Is that enough?
+**Stella:** What about bonds? We only have 15%. Is that enough?
 
-**Alex:** For a long-term investor in the accumulation phase -- saving for retirement that is 20-plus years away -- 15% in bonds is reasonable. Bonds serve as ballast during stock market crashes. In 2008, stocks fell about 37%, but bonds rose about 5%. That bond allocation cushioned the blow and provided rebalancing fuel -- you could sell bonds at a gain and buy stocks at fire-sale prices.
+**Horace:** For a long-term investor in the accumulation phase -- saving for retirement that is 20-plus years away -- 15% in bonds is reasonable. Bonds serve as ballast during stock market crashes. In 2008, stocks fell about 37%, but bonds rose about 5%. That bond allocation cushioned the blow and provided rebalancing fuel -- you could sell bonds at a gain and buy stocks at fire-sale prices.
 
-**Sam:** Speaking of rebalancing, how does that work in practice?
+**Stella:** Speaking of rebalancing, how does that work in practice?
 
-**Alex:** Rebalancing is simply bringing your portfolio back to target weights. Markets will push your allocation off target. If stocks have a great year, your 55% equity allocation might drift to 63%. You would sell some stocks and buy some bonds to get back to 55/15.
+**Horace:** Rebalancing is simply bringing your portfolio back to target weights. Markets will push your allocation off target. If stocks have a great year, your 55% equity allocation might drift to 63%. You would sell some stocks and buy some bonds to get back to 55/15.
 
-**Sam:** That feels counterintuitive -- selling what is doing well and buying what is not.
+**Stella:** That feels counterintuitive -- selling what is doing well and buying what is not.
 
-**Alex:** It is counterintuitive, and that is exactly why it works. Rebalancing forces you to systematically sell high and buy low. It is a disciplined value strategy embedded in your portfolio maintenance. Studies show that rebalanced portfolios have similar returns to unrebalanced ones but significantly lower risk.
+**Horace:** It is counterintuitive, and that is exactly why it works. Rebalancing forces you to systematically sell high and buy low. It is a disciplined value strategy embedded in your portfolio maintenance. Studies show that rebalanced portfolios have similar returns to unrebalanced ones but significantly lower risk.
 
 [VISUAL: Two portfolio performance charts side by side -- one rebalanced annually, one never rebalanced. The rebalanced portfolio shows similar final value but a much smoother ride with smaller drawdowns]
 
-**Alex:** My recommendation is to rebalance annually. Pick a date -- your birthday, New Year's Day, whatever you will remember -- and review your allocation. If anything has drifted more than five percentage points from target, bring it back.
+**Horace:** My recommendation is to rebalance annually. Pick a date -- your birthday, New Year's Day, whatever you will remember -- and review your allocation. If anything has drifted more than five percentage points from target, bring it back.
 
-**Sam:** What about rebalancing with new money? I remember you mentioned that in the reading.
+**Stella:** What about rebalancing with new money? I remember you mentioned that in the reading.
 
-**Alex:** Yes, cash flow rebalancing is the most underrated technique. Instead of selling overweight positions to rebalance, simply direct your monthly savings to whatever is most underweight. If stocks have run up and your bond allocation is low, put your next few monthly contributions into bonds. No selling means no capital gains taxes and no transaction costs. It is the most elegant way to rebalance during the accumulation phase.
+**Horace:** Yes, cash flow rebalancing is the most underrated technique. Instead of selling overweight positions to rebalance, simply direct your monthly savings to whatever is most underweight. If stocks have run up and your bond allocation is low, put your next few monthly contributions into bonds. No selling means no capital gains taxes and no transaction costs. It is the most elegant way to rebalance during the accumulation phase.
 
 [VISUAL: Monthly cash flow arrows being directed to different portfolio components based on which is most underweight, shown as a bar chart where the shortest bars receive the new money]
 
-**Sam:** Brilliant. Now, let me ask about something you mentioned briefly -- risk budgeting. What is that?
+**Stella:** Brilliant. Now, let me ask about something you mentioned briefly -- risk budgeting. What is that?
 
-**Alex:** Risk budgeting is a way of thinking about your portfolio in terms of risk contributions rather than dollar allocations. Here is why it matters. In a traditional 60/40 portfolio, stocks are 60% of the dollars but about 90% of the risk. Bonds are 40% of the dollars but only about 10% of the risk.
+**Horace:** Risk budgeting is a way of thinking about your portfolio in terms of risk contributions rather than dollar allocations. Here is why it matters. In a traditional 60/40 portfolio, stocks are 60% of the dollars but about 90% of the risk. Bonds are 40% of the dollars but only about 10% of the risk.
 
-**Sam:** So the portfolio is really not as balanced as it looks.
+**Stella:** So the portfolio is really not as balanced as it looks.
 
-**Alex:** Exactly. In risk terms, it is more like 90/10. If you want genuine risk diversification, you need to think about how much risk each component contributes, not just how many dollars are in each bucket.
+**Horace:** Exactly. In risk terms, it is more like 90/10. If you want genuine risk diversification, you need to think about how much risk each component contributes, not just how many dollars are in each bucket.
 
 [VISUAL: Two versions of the same 60/40 portfolio -- one shown by dollar allocation (60/40 split), the other shown by risk contribution (roughly 90/10 split), demonstrating how misleading dollar allocations can be]
 
-**Alex:** You do not need to do complex math. Just be aware that stocks dominate the risk in most portfolios. If you want to meaningfully reduce risk, you need to either reduce stock allocation significantly or add strategies that genuinely diversify equity risk -- like trend following, managed futures, or gold, which have low or negative correlation with stocks.
+**Horace:** You do not need to do complex math. Just be aware that stocks dominate the risk in most portfolios. If you want to meaningfully reduce risk, you need to either reduce stock allocation significantly or add strategies that genuinely diversify equity risk -- like trend following, managed futures, or gold, which have low or negative correlation with stocks.
 
-**Sam:** Let us zoom out. What are the biggest mistakes people make when building a multi-strategy portfolio?
+**Stella:** Let us zoom out. What are the biggest mistakes people make when building a multi-strategy portfolio?
 
-**Alex:** Number one is over-tinkering. You build a beautiful portfolio, and then every week you read something that makes you want to adjust. Maybe emerging markets had a bad quarter, so you want to reduce that allocation. Maybe a new factor ETF launched, so you want to add it. Every change has a cost -- financial and psychological. Set your portfolio, write down your rules, and step away.
+**Horace:** Number one is over-tinkering. You build a beautiful portfolio, and then every week you read something that makes you want to adjust. Maybe emerging markets had a bad quarter, so you want to reduce that allocation. Maybe a new factor ETF launched, so you want to add it. Every change has a cost -- financial and psychological. Set your portfolio, write down your rules, and step away.
 
-**Sam:** How do you resist the urge to tinker?
+**Stella:** How do you resist the urge to tinker?
 
-**Alex:** Write an Investment Policy Statement. It is a short document -- one or two pages -- that spells out your investment goals, your target allocation, your rebalancing rules, and crucially, your reasons for each decision. When markets get volatile and you feel the urge to change something, read your IPS. Nine times out of ten, it will remind you that you already thought this through and the right action is to do nothing.
+**Horace:** Write an Investment Policy Statement. It is a short document -- one or two pages -- that spells out your investment goals, your target allocation, your rebalancing rules, and crucially, your reasons for each decision. When markets get volatile and you feel the urge to change something, read your IPS. Nine times out of ten, it will remind you that you already thought this through and the right action is to do nothing.
 
 [VISUAL: Sample one-page Investment Policy Statement template with sections for goals, allocation, rebalancing rules, and "What I will NOT do" commitments]
 
-**Sam:** What about the mistake of chasing last year's winner?
+**Stella:** What about the mistake of chasing last year's winner?
 
-**Alex:** This is the biggest behavioral trap in multi-strategy investing. You see that momentum outperformed last year, so you add a big momentum allocation. Then value outperforms the next year, and you switch. You are always buying after the best performance and selling after the worst. This is a recipe for chronic underperformance.
+**Horace:** This is the biggest behavioral trap in multi-strategy investing. You see that momentum outperformed last year, so you add a big momentum allocation. Then value outperforms the next year, and you switch. You are always buying after the best performance and selling after the worst. This is a recipe for chronic underperformance.
 
-**Sam:** It is performance chasing at the strategy level instead of the stock level.
+**Stella:** It is performance chasing at the strategy level instead of the stock level.
 
-**Alex:** Exactly. And it is just as destructive. The solution is the same: set your allocations based on long-term principles, not recent performance, and commit to maintaining them.
+**Horace:** Exactly. And it is just as destructive. The solution is the same: set your allocations based on long-term principles, not recent performance, and commit to maintaining them.
 
 [VISUAL: Cartoon showing an investor constantly switching strategies, always arriving just after the peak performance, with a running tally of returns showing worse and worse results]
 
-**Sam:** Okay, I want to make sure we cover the big-picture takeaways from the entire course. If someone has only been listening to this episode, what do they absolutely need to know?
+**Stella:** Okay, I want to make sure we cover the big-picture takeaways from the entire course. If someone has only been listening to this episode, what do they absolutely need to know?
 
-**Alex:** Let me give you the five principles that matter more than everything else combined.
+**Horace:** Let me give you the five principles that matter more than everything else combined.
 
-**Alex:** Principle one: Start early and invest consistently. Compound interest is the most powerful force in wealth building. A dollar invested at age 25 is worth roughly ten times more at retirement than a dollar invested at age 45. Do not wait for the perfect time or the perfect portfolio. Start now.
+**Horace:** Principle one: Start early and invest consistently. Compound interest is the most powerful force in wealth building. A dollar invested at age 25 is worth roughly ten times more at retirement than a dollar invested at age 45. Do not wait for the perfect time or the perfect portfolio. Start now.
 
 [VISUAL: Compound growth chart showing two investors -- one starting at 25, one at 35, both saving $500/month at 8% returns. The early starter has roughly twice as much at 65 despite only 10 more years of contributions.]
 
-**Sam:** The early start advantage is staggering.
+**Stella:** The early start advantage is staggering.
 
-**Alex:** Principle two: Keep costs low. Every dollar you pay in fees is a dollar that is not compounding for you. A 1% annual fee does not sound like much, but over 30 years, it can reduce your final wealth by 25-30%. Use low-cost index funds for your core, and only pay higher fees for satellite strategies where you have a clear reason.
+**Horace:** Principle two: Keep costs low. Every dollar you pay in fees is a dollar that is not compounding for you. A 1% annual fee does not sound like much, but over 30 years, it can reduce your final wealth by 25-30%. Use low-cost index funds for your core, and only pay higher fees for satellite strategies where you have a clear reason.
 
-**Sam:** Index funds for the win.
+**Stella:** Index funds for the win.
 
-**Alex:** Principle three: Diversify broadly. Across asset classes -- stocks and bonds. Across geographies -- domestic and international. Across factors -- value, momentum, quality. Across time -- dollar-cost averaging for regular investments. Diversification is the only true free lunch in investing. Take full advantage of it.
+**Horace:** Principle three: Diversify broadly. Across asset classes -- stocks and bonds. Across geographies -- domestic and international. Across factors -- value, momentum, quality. Across time -- dollar-cost averaging for regular investments. Diversification is the only true free lunch in investing. Take full advantage of it.
 
-**Sam:** And it protects you from the unknown.
+**Stella:** And it protects you from the unknown.
 
-**Alex:** Exactly. We do not know what the next crisis will look like. We do not know which country or factor will lead. Diversification is humility expressed as a portfolio.
+**Horace:** Exactly. We do not know what the next crisis will look like. We do not know which country or factor will lead. Diversification is humility expressed as a portfolio.
 
 [VISUAL: Shield graphic with "DIVERSIFICATION" written on it, deflecting various threats labeled: "recession," "currency crash," "factor drawdown," "regional crisis," "inflation spike"]
 
-**Alex:** Principle four: Control your behavior. The stock market's average return is around 10% per year, but the average investor earns far less -- studies suggest 4-6% -- because they buy high and sell low, chase performance, and react to headlines. Your investment plan is only as good as your ability to stick with it. Automate everything you can: contributions, rebalancing, reinvestment.
+**Horace:** Principle four: Control your behavior. The stock market's average return is around 10% per year, but the average investor earns far less -- studies suggest 4-6% -- because they buy high and sell low, chase performance, and react to headlines. Your investment plan is only as good as your ability to stick with it. Automate everything you can: contributions, rebalancing, reinvestment.
 
-**Sam:** The plan does not matter if you cannot follow it.
+**Stella:** The plan does not matter if you cannot follow it.
 
-**Alex:** Principle five: Keep it simple. Three to seven well-chosen funds in the right allocation, rebalanced once a year, with consistent contributions. That is genuinely all you need. Adding complexity beyond this requires expertise, discipline, and time that most people do not have. There is no shame in simplicity -- in fact, simplicity is the mark of investment wisdom.
+**Horace:** Principle five: Keep it simple. Three to seven well-chosen funds in the right allocation, rebalanced once a year, with consistent contributions. That is genuinely all you need. Adding complexity beyond this requires expertise, discipline, and time that most people do not have. There is no shame in simplicity -- in fact, simplicity is the mark of investment wisdom.
 
 [VISUAL: Five golden rules displayed as pillars holding up a roof labeled "Financial Security": Start Early, Low Costs, Diversify, Control Behavior, Keep It Simple]
 
-**Sam:** Those five principles seem like they would get you 90% of the way there.
+**Stella:** Those five principles seem like they would get you 90% of the way there.
 
-**Alex:** More like 95%. The other 5% -- the factor tilts, the tax optimization, the satellite strategies -- that is incremental improvement. Important for large portfolios and serious investors, but not essential for building wealth. If all you do is save 15-20% of your income, invest it in a three-fund portfolio of index funds, and rebalance once a year, you will be wealthier than the vast majority of people.
+**Horace:** More like 95%. The other 5% -- the factor tilts, the tax optimization, the satellite strategies -- that is incremental improvement. Important for large portfolios and serious investors, but not essential for building wealth. If all you do is save 15-20% of your income, invest it in a three-fund portfolio of index funds, and rebalance once a year, you will be wealthier than the vast majority of people.
 
-**Sam:** That is simultaneously simple and profound.
+**Stella:** That is simultaneously simple and profound.
 
-**Alex:** The best investment strategies always are. Complexity is often the enemy of returns, because it creates more opportunities for mistakes and higher costs.
+**Horace:** The best investment strategies always are. Complexity is often the enemy of returns, because it creates more opportunities for mistakes and higher costs.
 
 [VISUAL: Comparison table showing "Simple 3-Fund Portfolio" vs. "Complex 15-Fund Portfolio" over 30 years, with the simple portfolio winning due to lower costs and fewer behavioral mistakes]
 
-**Sam:** Before we end, can we talk about what comes next? This is the end of Level 2. What should I be working on?
+**Stella:** Before we end, can we talk about what comes next? This is the end of Level 2. What should I be working on?
 
-**Alex:** There are several paths forward. First, implement what you have learned. If you do not have a portfolio yet, build one this week. If you have a portfolio, review it against the principles we have discussed and make any needed adjustments. Second, continue learning. Topics like options, alternative investments, private markets, and advanced tax strategies await in Level 3. Third, and most importantly, be patient. Wealth building is a marathon, not a sprint. The first few years feel slow, but compound growth is exponential -- the last ten years of a thirty-year investment journey produce more wealth than the first twenty.
+**Horace:** There are several paths forward. First, implement what you have learned. If you do not have a portfolio yet, build one this week. If you have a portfolio, review it against the principles we have discussed and make any needed adjustments. Second, continue learning. Topics like options, alternative investments, private markets, and advanced tax strategies await in Level 3. Third, and most importantly, be patient. Wealth building is a marathon, not a sprint. The first few years feel slow, but compound growth is exponential -- the last ten years of a thirty-year investment journey produce more wealth than the first twenty.
 
-**Sam:** That compound growth curve is the ultimate motivator.
+**Stella:** That compound growth curve is the ultimate motivator.
 
-**Alex:** It really is. And here is one final thought. The biggest risk in investing is not market crashes, or picking the wrong stocks, or even high fees. The biggest risk is never starting. Every day you wait is a day of compound growth you will never get back. So take what you have learned, build a portfolio you can believe in, and trust the process.
+**Horace:** It really is. And here is one final thought. The biggest risk in investing is not market crashes, or picking the wrong stocks, or even high fees. The biggest risk is never starting. Every day you wait is a day of compound growth you will never get back. So take what you have learned, build a portfolio you can believe in, and trust the process.
 
 [ANIMATION: animation/week24_multi_strategy.py - Final animation showing a long-term wealth accumulation path. Starting with a small amount, the portfolio grows through consistent contributions and market returns. Various market events are labeled along the way (corrections, crashes, recoveries), but the upward trend is clear. The animation ends with a large final portfolio value and the text "The process works. Trust it."]
 
-**Sam:** Alex, thank you for this incredible journey. Twenty-four weeks of knowledge packed into one course.
+**Stella:** Horace, thank you for this incredible journey. Twenty-four weeks of knowledge packed into one course.
 
-**Alex:** Thank you, Sam, and thank you to everyone who has been following along. Remember: invest early, invest consistently, diversify broadly, keep costs low, and control your behavior. Those five principles will serve you for a lifetime. Until next time.
+**Horace:** Thank you, Stella, and thank you to everyone who has been following along. Remember: invest early, invest consistently, diversify broadly, keep costs low, and control your behavior. Those five principles will serve you for a lifetime. Until next time.
 
-**Sam:** See you all in Level 3! Thanks for watching!
+**Stella:** See you all in Level 3! Thanks for watching!
 
 [VISUAL: End screen with complete course summary, subscribe button, and congratulatory message for completing Levels 1 and 2. Links to all previous lessons displayed.]
 

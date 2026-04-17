@@ -1,742 +1,849 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第二十六週：選擇權作為條件式委託單
 
-# Week 26: Options as Conditional Orders
+## 閱讀章節
 
-## Reading Section
+### a）為什麼這很重要
 
-### a) Why This Is Important
+多數投資人認為選擇權是複雜、奇特的工具，只有專業人士和投機客才會使用。這種心理模型形成了一道障礙，讓他們無法善用那些其實能大幅改善投資成果的簡單選擇權策略。本課將介紹一個能改變一切的心理模型：**選擇權作為條件式委託單**。
 
-Most investors think of options as complex, exotic instruments used by professionals and speculators. This mental model creates a barrier that prevents them from using simple options strategies that could dramatically improve their investment outcomes. In this lesson, we introduce a mental model that changes everything: **options as conditional orders**.
+核心洞見如下：當你賣出一個賣權時，你基本上是在對一檔股票掛出限價買單，並在等待的過程中收取報酬。當你對自己持有的股票賣出一個買權時，你基本上是在掛出限價賣單，並在等待的過程中收取報酬。
 
-Here is the insight: when you sell a put option, you are essentially placing a limit buy order on a stock and getting paid while you wait. When you sell a call option on a stock you own, you are essentially placing a limit sell order and getting paid while you wait.
+這不只是一個方便的類比，其經濟結果幾乎完全相同。差別在於：使用選擇權時，你會因為同意以你選定的價格買入或賣出而收取權利金；而使用一般的限價委託單時，你只是靜靜等待，現金毫無收益。
 
-This is not just a convenient analogy. The economic outcome is nearly identical. The difference is that with options, you collect income (the premium) for agreeing to buy or sell at your chosen price. With a regular limit order, you sit and wait with your cash earning nothing.
+**這對你的投資有何意義？**
 
-**Why does this matter for your investing?**
+**閒置現金是一種浪費的資源。** 許多投資人將現金放在場外，等待合適的買點。也許他們在等Apple跌到140美元，或等市場回調10%。在此期間，那筆現金頂多賺個4-5%的活存利率。若改為在他們的目標買入價賣出現金擔保賣權，等待同樣進場點的同時，他們可以賺取年化8-20%的報酬。若股票跌到他們的目標價，他們照樣買進，就和限價單一樣。若股票沒有跌到，他們保留權利金，下個月再試。
 
-**Cash sitting idle is a wasted resource.** Many investors keep cash on the sidelines waiting for the right moment to buy. Maybe they are waiting for Apple to drop to $140, or for the market to pull back 10%. In the meantime, that cash earns a savings account rate of perhaps 4-5%. By selling cash-secured puts at their target buy price instead, they could earn 8-20% annualized while waiting for the same entry point. If the stock drops to their price, they buy it just as they would have with the limit order. If it does not drop, they keep the premium and try again.
+**賣出決策在情緒上很困難。** 許多投資人因為無法說服自己賣出，而持有獲利股票太久。透過在目標賣出價賣出掩護性買權，他們事先承諾遵守紀律的出場計畫，並因這份承諾而獲得報酬。權利金收入能緩解賣出獲利部位所帶來的情緒衝擊。
 
-**Selling decisions are emotionally difficult.** Many investors hold winning stocks too long because they cannot bring themselves to sell. By selling covered calls at their target sell price, they commit in advance to a disciplined exit, and they get paid for that commitment. The premium income softens the emotional blow of potentially selling a winning position.
+**這種方法與買進並持有的投資哲學相符。** 你不是在短期走勢上投機，而是在運用選擇權來執行每本投資教科書都推薦的低買高賣紀律，同時在過程中累積收益。這是將選擇權作為價值投資者的工具，而非日內交易者的賭博工具。
 
-**This approach aligns options with a buy-and-hold philosophy.** You are not speculating on short-term movement. You are using options to implement the same buy-low, sell-high discipline that every investment textbook recommends, while collecting income in the process. This is options used as tools for value investors, not as gambling instruments for day traders.
-
-Once you internalize this mental model, you will never look at cash-secured puts or covered calls the same way again. They become natural extensions of what you already do as a disciplined investor.
+一旦你將這個心理模型內化，你就再也不會以原本的方式看待現金擔保賣權或掩護性買權了。它們會成為你作為一名紀律投資者已然在做的事情的自然延伸。
 
 ---
 
-### b) What You Need to Know
+### b）你需要了解的內容
 
-#### The Limit Order Analogy
+#### 限價委託單的類比
 
-Before we discuss options, let us review how limit orders work.
+在討論選擇權之前，先來複習限價委託單的運作方式。
 
-A **limit buy order** tells your broker: "Buy this stock for me, but only at this price or lower." If the stock never reaches your limit price, the order is never filled, and your cash remains untouched.
+**限價買單**告訴你的券商：「幫我買這檔股票，但只能以這個價格或更低的價格買入。」如果股票從未到達你的限價，委託單永遠不會成交，你的現金原封不動。
 
-A **limit sell order** tells your broker: "Sell my stock, but only at this price or higher." If the stock never reaches your target, you keep holding the stock.
-
-```
-Traditional Limit Orders:
-
-LIMIT BUY ORDER:                      LIMIT SELL ORDER:
-"Buy AAPL at $140 or lower"          "Sell AAPL at $180 or higher"
-
-Stock at $155:  Order sits unfilled    Stock at $155:  Order sits unfilled
-Stock hits $140: Order fills           Stock hits $180: Order fills
-                  You buy at $140                       You sell at $180
-
-While waiting: Cash earns NOTHING     While waiting: No additional income
-               (or minimal interest)                  (just dividends)
-```
-
-Now let us see how selling options mirrors this exact behavior, but with the added benefit of income.
-
-#### Selling Puts as Limit Buy Orders
-
-When you sell (write) a put option, you are making a promise: "I agree to buy 100 shares of this stock at the strike price if the stock falls to or below that level before expiration. In exchange for this promise, I collect a premium upfront."
-
-This is economically equivalent to a limit buy order, with one major enhancement: **you get paid to wait**.
+**限價賣單**告訴你的券商：「賣掉我的股票，但只能以這個價格或更高的價格賣出。」如果股票從未到達你的目標價，你繼續持有股票。
 
 ```
-COMPARISON: Limit Buy Order vs. Short Put
+傳統限價委託單：
+
+限價買單：                              限價賣單：
+「以140美元或更低買入AAPL」            「以180美元或更高賣出AAPL」
+
+股票在155美元：委託單等待中未成交        股票在155美元：委託單等待中未成交
+股票跌至140美元：成交                   股票漲至180美元：成交
+               你以140美元買入                          你以180美元賣出
+
+等待期間：現金「零」收益                等待期間：無額外收益
+          （或極低利息）                              （僅有股利）
+```
+
+現在來看看賣出選擇權如何精確地複製這種行為，並額外帶來收入。
+
+#### 賣出賣權作為限價買單
+
+當你賣出（撰寫）一個賣權時，你是在做出一個承諾：「如果這檔股票在到期日前跌至或低於履約價，我同意以履約價買入100股。作為這個承諾的交換，我預先收取一筆權利金。」
+
+這在經濟上等同於一張限價買單，但多了一個重要的優勢：**你在等待的同時獲得報酬**。
+
+```
+比較：限價買單 vs. 賣出賣權
 
 +------------------------------------------------------------------+
-|                  LIMIT BUY ORDER    |    SHORT PUT                |
+|                  限價買單               |    賣出賣權              |
 +------------------------------------------------------------------+
-| Action:          "Buy at $140"      | "Sell $140 Put for $3.00"  |
-| Cash reserved:   $14,000            | $14,000 (cash-secured)     |
-| If stock drops                      |                            |
-|   to $140:       Buy at $140.00     | Buy at $140, keep premium  |
-|                  Cost: $140/share    | Eff. cost: $137/share      |
-| If stock stays                      |                            |
-|   above $140:    Nothing happens    | Keep $300 premium          |
-|                  Cash earns ~0      | Earned $300 (2.1% in ~30d) |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0                 | $300 per contract          |
+| 操作：          「以140美元買入」        | 「以3.00美元賣出140賣權」 |
+| 保留現金：      14,000美元              | 14,000美元（現金擔保）    |
+| 若股票跌至                              |                          |
+|   140美元：     以140.00美元買入        | 以140買入，保留權利金     |
+|                 成本：140美元/股        | 實際成本：137美元/股      |
+| 若股票維持                              |                          |
+|   在140美元以上：無事發生               | 保留300美元權利金         |
+|                  現金幾乎無收益         | 約30天內賺得300美元（2.1%）|
+| 時間限制：      掛單直到取消（GTC）     | 在特定日期到期            |
+| 等待期間                                |                          |
+|   的收益：      0美元                   | 每口合約300美元           |
 +------------------------------------------------------------------+
 ```
 
-Let us walk through this with a complete example.
+讓我們用一個完整的範例來說明。
 
-**Scenario:** You want to buy Apple (AAPL), currently trading at $155, but you think $140 is a fair price. You have $14,000 in cash.
+**情境：** 你想買入Apple（AAPL），目前股價155美元，但你認為140美元是合理的買入價格。你手上有14,000美元現金。
 
-**Traditional approach:** Place a limit buy order for 100 shares at $140. Wait. If Apple never drops to $140, your $14,000 sits idle earning nothing meaningful.
+**傳統做法：** 以140美元掛出100股的限價買單。等待。如果Apple從未跌到140美元，你的14,000美元就這樣閒置，幾乎沒有任何收益。
 
-**Options approach:** Sell 1 AAPL $140 Put, expiring in 30 days, for $1.85 per share ($185 per contract).
-
-```
-Outcome Analysis:
-
-Scenario 1: AAPL stays above $140 (most likely)
-  - Your put expires worthless
-  - You keep the $185 premium
-  - Return: $185 / $14,000 = 1.32% in 30 days = ~16.1% annualized
-  - You still have your $14,000 and can sell another put next month
-
-Scenario 2: AAPL drops to $140 (your target price)
-  - You are assigned: buy 100 shares at $140
-  - Effective purchase price: $140 - $1.85 = $138.15 per share
-  - This is BETTER than your limit order would have been
-  - You bought the stock you wanted at a DISCOUNT
-
-Scenario 3: AAPL drops to $130 (below your strike)
-  - You are assigned: buy 100 shares at $140
-  - Stock is now worth $130, so you have an unrealized loss of $10/share
-  - But your effective cost is $138.15, and you wanted the stock anyway
-  - Same outcome as if your limit order filled at $140 and stock kept falling
-  - Actually BETTER because your cost basis is $138.15, not $140
-
-Scenario 4: AAPL drops briefly to $140 then recovers to $160
-  - You may or may not be assigned (depends on timing)
-  - If assigned: you bought at effective $138.15, stock now at $160 = profit
-  - If not assigned: keep premium, sell another put
-```
-
-Notice something important: **there is no scenario where the put seller does worse than the limit order buyer.** In every case, the put seller either gets the same outcome plus premium income, or gets a better entry price. The only tradeoff is the time limit (the option has an expiration date, while a limit order can stay open indefinitely).
-
-#### The Premium: Getting Paid to Wait
-
-The premium you collect when selling a put is not just a nice bonus. It is compensation for three things:
-
-1. **Time commitment:** You are locking up your capital for a specific period.
-2. **Risk acceptance:** You are accepting the obligation to buy, even if the stock drops significantly.
-3. **Opportunity cost:** While your cash is reserved for this potential purchase, you cannot use it for something else.
+**選擇權做法：** 賣出1口AAPL 140美元賣權，30天後到期，每股收取1.85美元（每口合約185美元）。
 
 ```
-What Determines the Premium Size?
+結果分析：
+
+情境一：AAPL維持在140美元以上（最常見情況）
+  - 你的賣權到期失效
+  - 你保留185美元的權利金
+  - 報酬：185美元 / 14,000美元 = 30天內1.32% = 年化約16.1%
+  - 你仍有14,000美元，下個月可以再賣一口賣權
+
+情境二：AAPL跌至140美元（你的目標價）
+  - 你被指派履約：以140美元買入100股
+  - 實際買入價格：140 - 1.85 = 138.15美元/股
+  - 這比你的限價買單結果還要好
+  - 你以更優惠的折扣買到你想要的股票
+
+情境三：AAPL跌至130美元（低於你的履約價）
+  - 你被指派履約：以140美元買入100股
+  - 股票目前價值130美元，帳面虧損10美元/股
+  - 但你的實際成本是138.15美元，而且你本來就想買這檔股票
+  - 結果與限價買單在140美元成交、股票繼續下跌的情況相同
+  - 實際上更好，因為你的成本基礎是138.15美元，而非140美元
+
+情境四：AAPL短暫跌至140美元後回升至160美元
+  - 你可能被指派也可能沒被指派（取決於時間點）
+  - 若被指派：以138.15美元實際成本買入，股票現在在160美元 = 獲利
+  - 若未被指派：保留權利金，再賣一口賣權
+```
+
+注意一件重要的事：**沒有任何情境下賣權賣方的結果比限價買單買方更差。** 在每種情況下，賣權賣方不是獲得相同結果加上權利金收入，就是獲得更好的進場價格。唯一的取捨在於時間限制（選擇權有到期日，而限價委託單可以無限期有效）。
+
+#### 權利金：在等待中獲得報酬
+
+賣出賣權時收取的權利金不只是一個額外紅利，它是對三件事的補償：
+
+1. **時間承諾：** 你在特定期間內鎖定資金。
+2. **風險承受：** 你承擔了即使股票大幅下跌也必須買入的義務。
+3. **機會成本：** 你的現金為這次潛在購買保留期間，無法用於其他投資。
+
+```
+決定權利金大小的因素有哪些？
 
 +---------------------------------------------------------------+
-| FACTOR                     | EFFECT ON PREMIUM               |
+| 因素                       | 對權利金的影響                  |
 +---------------------------------------------------------------+
-| Higher implied volatility  | LARGER premium (more risk)      |
-| More time to expiration    | LARGER premium (more time)      |
-| Strike closer to stock     | LARGER premium (more likely)    |
-| Strike further from stock  | SMALLER premium (less likely)   |
-| Earnings before expiry     | LARGER premium (event risk)     |
+| 隱含波動率較高               | 權利金較大（風險較高）           |
+| 距到期日時間較長              | 權利金較大（時間較長）           |
+| 履約價接近股票現價            | 權利金較大（被指派機率較高）     |
+| 履約價遠離股票現價            | 權利金較小（被指派機率較低）     |
+| 到期前有財報發佈              | 權利金較大（事件風險）          |
 +---------------------------------------------------------------+
 
-Premium Size Examples (AAPL at $155, 30 days to expiration):
+權利金大小範例（AAPL在155美元，距到期30天）：
 
-  Strike $155 (ATM): Premium ~$4.20  (2.7% in 30 days)
-  Strike $150 (3% OTM): Premium ~$2.50  (1.7% in 30 days)
-  Strike $145 (6% OTM): Premium ~$1.40  (1.0% in 30 days)
-  Strike $140 (10% OTM): Premium ~$0.70  (0.5% in 30 days)
-  Strike $135 (13% OTM): Premium ~$0.30  (0.2% in 30 days)
+  履約價155美元（平值ATM）：    權利金約4.20美元  （30天內2.7%）
+  履約價150美元（價外3%）：     權利金約2.50美元  （30天內1.7%）
+  履約價145美元（價外6%）：     權利金約1.40美元  （30天內1.0%）
+  履約價140美元（價外10%）：    權利金約0.70美元  （30天內0.5%）
+  履約價135美元（價外13%）：    權利金約0.30美元  （30天內0.2%）
 
-The tradeoff:
-  Closer to ATM = More premium, but higher chance of assignment
-  Further OTM = Less premium, but lower chance of assignment
+取捨關係：
+  越接近平值 = 權利金越高，但被指派的機率也越高
+  距平值越遠 = 權利金越低，但被指派的機率也越低
 ```
 
-For most conservative investors using this as a "paid limit order" strategy, strikes that are 5-10% out of the money offer a good balance: reasonable premium, low probability of assignment, and a purchase price you would genuinely be happy with.
+對於大多數將此策略用作「付費限價買單」的保守投資人而言，價外5-10%的履約價提供了良好的平衡：合理的權利金、較低的被指派機率，以及你真正樂意接受的買入價格。
 
-#### Selling Calls as Limit Sell Orders
+#### 賣出買權作為限價賣單
 
-The same mental model works in reverse for covered calls. When you sell a call against stock you own, you are saying: "I agree to sell my 100 shares at the strike price if the stock rises above that level before expiration. In exchange, I collect a premium upfront."
+同樣的心理模型在掩護性買權上反向運作。當你對自己持有的股票賣出一個買權時，你是在說：「如果股票在到期日前漲超過履約價，我同意以履約價賣出我的100股。作為交換，我預先收取一筆權利金。」
 
-This is economically equivalent to a limit sell order, with income while you wait.
+這在經濟上等同於一張限價賣單，並在等待期間有收益。
 
 ```
-COMPARISON: Limit Sell Order vs. Short Call (Covered)
+比較：限價賣單 vs. 賣出買權（掩護性）
 
 +------------------------------------------------------------------+
-|                  LIMIT SELL ORDER   |    COVERED CALL             |
+|                  限價賣單               |    掩護性買權             |
 +------------------------------------------------------------------+
-| Action:          "Sell at $180"     | "Sell $180 Call for $2.00"  |
-| Shares held:     100 shares         | 100 shares                  |
-| If stock rises                      |                            |
-|   to $180:       Sell at $180.00    | Sell at $180, keep premium |
-|                  Proceeds: $180/sh  | Eff. price: $182/share     |
-| If stock stays                      |                            |
-|   below $180:    Nothing happens    | Keep $200 premium          |
-|                  No extra income    | Earned $200 (income)       |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0 (just divs)    | $200 + dividends           |
+| 操作：          「以180美元賣出」        | 「以2.00美元賣出180買權」  |
+| 持有股票：      100股                   | 100股                     |
+| 若股票漲至                              |                           |
+|   180美元：     以180.00美元賣出        | 以180賣出，保留權利金      |
+|                 收益：180美元/股        | 實際價格：182美元/股       |
+| 若股票維持                              |                           |
+|   在180美元以下：無事發生              | 保留200美元權利金           |
+|                  無額外收益            | 賺得200美元（收益）         |
+| 時間限制：      掛單直到取消（GTC）    | 在特定日期到期              |
+| 等待期間                                |                           |
+|   的收益：      0美元（僅股利）        | 200美元 + 股利              |
 +------------------------------------------------------------------+
 ```
 
-**Complete Example:**
+**完整範例：**
 
-You bought 100 shares of Apple at $155 and would be happy to sell at $180 (a 16% gain). Instead of placing a limit sell order, you sell a covered call.
-
-```
-Setup:
-  Own: 100 shares AAPL at $155 (cost basis)
-  Sell: 1 AAPL $180 Call, 45 days out, for $1.50 ($150 per contract)
-
-Scenario 1: AAPL stays below $180 (most likely)
-  - Call expires worthless
-  - You keep 100 shares AND the $150 premium
-  - Premium yield: $150 / $15,500 = 0.97% in 45 days = ~7.9% annualized
-  - You can sell another call next month
-  - Total annual income potential: dividends + options = ~8-10%
-
-Scenario 2: AAPL rises above $180
-  - Shares are called away (sold) at $180
-  - Total proceeds: $180 + $1.50 premium = $181.50 per share
-  - Profit: $181.50 - $155 = $26.50 per share = 17.1% return
-  - This is BETTER than your limit sell order at $180
-  - Yes, you miss gains above $181.50, but you sold at your target
-
-Scenario 3: AAPL drops to $140
-  - Call expires worthless, you keep $150 premium
-  - You still hold shares (now at a loss on the stock position)
-  - The $150 premium cushions the loss slightly
-  - Effective cost basis reduced: $155 - $1.50 = $153.50
-```
-
-#### The Power of Repetition
-
-The true power of this approach comes from doing it repeatedly. Each month you do not get assigned, you collect premium and try again. Over time, these premiums accumulate into significant income.
+你以155美元買入100股Apple，願意在180美元賣出（16%的獲利）。你不掛限價賣單，而是賣出一口掩護性買權。
 
 ```
-REPEATED PUT SELLING EXAMPLE:
-Target: Buy AAPL at $140. Stock starts at $155.
+設定：
+  持有：100股AAPL，成本基礎155美元
+  賣出：1口AAPL 180美元買權，45天後到期，每股1.50美元（每口合約150美元）
 
-Month 1: Sell $140 Put for $1.85 -> AAPL stays at $153 -> Keep $185
-Month 2: Sell $140 Put for $1.60 -> AAPL stays at $158 -> Keep $160
-Month 3: Sell $140 Put for $2.10 -> AAPL stays at $151 -> Keep $210
-Month 4: Sell $140 Put for $1.75 -> AAPL stays at $157 -> Keep $175
-Month 5: Sell $140 Put for $2.30 -> AAPL stays at $149 -> Keep $230
-Month 6: Sell $140 Put for $3.50 -> AAPL drops to $138 -> ASSIGNED
+情境一：AAPL維持在180美元以下（最常見情況）
+  - 買權到期失效
+  - 你保留100股股票加上150美元權利金
+  - 權利金殖利率：150美元 / 15,500美元 = 45天內0.97% = 年化約7.9%
+  - 下個月可以再賣一口買權
+  - 年化收益潛力：股利 + 選擇權 = 約8-10%
 
-Total premiums collected: $185 + $160 + $210 + $175 + $230 + $350 = $1,310
-Assignment price: $140.00 per share
-Total premiums per share: $13.10
-Effective purchase price: $140.00 - $13.10 = $126.90 per share
+情境二：AAPL漲超180美元
+  - 股票被買走（賣出）於180美元
+  - 總收益：180 + 1.50美元權利金 = 181.50美元/股
+  - 獲利：181.50 - 155 = 26.50美元/股 = 17.1%報酬
+  - 這比你的180美元限價賣單結果更好
+  - 是的，你錯過了181.50美元以上的漲幅，但你在目標價賣出
 
-Compare: Limit order buyer waited 6 months, got filled at $140.00
-         Put seller waited 6 months, effectively bought at $126.90
-         Savings: $13.10 per share = 9.4% better entry price
+情境三：AAPL跌至140美元
+  - 買權到期失效，你保留150美元權利金
+  - 你仍持有股票（股票部位現在虧損）
+  - 150美元權利金稍微緩衝了虧損
+  - 實際成本基礎降低：155 - 1.50 = 153.50美元
 ```
 
-```
-REPEATED COVERED CALL EXAMPLE:
-Own 100 shares at $155. Target sell price: $180.
+#### 重複操作的力量
 
-Month 1: Sell $180 Call for $1.50 -> AAPL at $162 -> Keep $150
-Month 2: Sell $180 Call for $1.80 -> AAPL at $165 -> Keep $180
-Month 3: Sell $180 Call for $1.30 -> AAPL at $159 -> Keep $130
-Month 4: Sell $180 Call for $2.00 -> AAPL at $168 -> Keep $200
-Month 5: Sell $180 Call for $2.20 -> AAPL at $170 -> Keep $220
-Month 6: Sell $180 Call for $1.70 -> AAPL at $173 -> Keep $170
-Month 7: Sell $180 Call for $2.50 -> AAPL at $175 -> Keep $250
-Month 8: Sell $180 Call for $3.20 -> AAPL hits $183 -> ASSIGNED
-
-Total premiums collected: $150+$180+$130+$200+$220+$170+$250+$320 = $1,620
-Sale price: $180.00 per share
-Total premiums per share: $16.20
-Effective sale price: $180.00 + $16.20 = $196.20 per share
-Plus dividends received over 8 months
-
-Compare: Limit sell at $180 would have yielded $180.00 per share
-         Covered call seller effectively received $196.20 per share
-         Bonus: $16.20 per share = 9.0% additional return
-```
-
-#### Risk Profile Comparison: Limit Order vs. Short Put
-
-While the analogy is powerful, it is important to understand the differences in risk profile.
+這種方法的真正威力在於持續重複操作。每個月未被指派履約時，你收取權利金並再試一次。隨著時間累積，這些權利金將成為可觀的收益。
 
 ```
-RISK COMPARISON: Limit Buy at $140 vs. Short $140 Put
+重複賣出賣權範例：
+目標：以140美元買入AAPL。股票從155美元開始。
 
-                     Limit Buy Order         Short Put ($3 premium)
-                     ================        =====================
-Max Profit:          Unlimited (stock rises) $300 (premium only)
-                                             (if not assigned)
+第1月：賣出140賣權，收1.85美元 -> AAPL維持在153 -> 保留185美元
+第2月：賣出140賣權，收1.60美元 -> AAPL維持在158 -> 保留160美元
+第3月：賣出140賣權，收2.10美元 -> AAPL維持在151 -> 保留210美元
+第4月：賣出140賣權，收1.75美元 -> AAPL維持在157 -> 保留175美元
+第5月：賣出140賣權，收2.30美元 -> AAPL維持在149 -> 保留230美元
+第6月：賣出140賣權，收3.50美元 -> AAPL跌至138 -> 被指派履約
 
-Breakeven:           $140.00                 $137.00 ($140 - $3)
+累計收取的權利金：185+160+210+175+230+350 = 1,310美元
+被指派履約價格：每股140.00美元
+每股累計權利金：13.10美元
+實際買入價格：140.00 - 13.10 = 126.90美元/股
 
-Max Loss:            $14,000 (stock to $0)   $13,700 (stock to $0)
-
-Capital Required:    $14,000 (when filled)   $14,000 (reserved now)
-
-Income While         $0                      $300 per cycle
-Waiting:
-
-Assignment           Exact price             Approximate price
-Precision:           (fills at $140.00)      (assigned at $140.00)
-
-Partial Fills:       Can buy fewer shares    Must buy exactly 100
-                     (e.g., 37 shares)       shares per contract
-
-Duration:            Unlimited (GTC)         Fixed expiration date
-
-Cash Flexibility:    Freed if canceled       Locked until expiration
-                                             (or position is closed)
-```
-
-Key differences to note:
-
-1. **Precision vs. Income:** A limit order fills at exactly your price. A put gives you income but commits you to buying in 100-share increments at a fixed strike.
-
-2. **Partial fills:** Limit orders can be partially filled (buy 37 shares). Options only come in 100-share increments. If you want to buy 250 shares, you would sell 2 puts (for 200 shares) and might use a limit order for the remaining 50.
-
-3. **Time constraints:** Limit orders can stay open indefinitely (Good Til Canceled). Options expire. You need to actively manage the strategy by selling new puts after each expiration.
-
-4. **Gap risk:** If a stock gaps down significantly overnight (say from $155 to $120 on bad news), both the limit order and the put result in buying shares at a loss. However, the limit order buyer might only fill at $140 and watch the stock fall further. The put seller is assigned at $140 but has the premium cushion ($137 effective cost).
-
-#### When to Use This Approach
-
-This strategy works best in specific circumstances:
-
-```
-IDEAL CONDITIONS FOR SELLING PUTS (Paid Limit Buy):
-
-  [YES] You genuinely want to own the stock at the strike price
-  [YES] You have sufficient cash to buy 100 shares
-  [YES] You have a target entry price that is below current market
-  [YES] The stock has reasonable implied volatility (good premiums)
-  [YES] You are comfortable holding the stock long-term if assigned
-  [YES] The company has strong fundamentals
-
-  [NO]  You are trying to speculate on short-term movement
-  [NO]  You cannot afford to buy the shares if assigned
-  [NO]  You would not want to own the stock at any price
-  [NO]  The stock is extremely volatile or in financial distress
-  [NO]  Implied volatility is abnormally low (tiny premiums)
+相比：限價買單的投資人等了6個月，以140.00美元成交
+      賣出賣權的投資人等了6個月，實際買入價格為126.90美元
+      節省：每股13.10美元 = 進場價格優化9.4%
 ```
 
 ```
-IDEAL CONDITIONS FOR SELLING CALLS (Paid Limit Sell):
+重複賣出掩護性買權範例：
+持有100股，成本155美元。目標賣出價：180美元。
 
-  [YES] You own at least 100 shares of the stock
-  [YES] You have a target sell price above current market
-  [YES] You would be happy to sell at the strike price
-  [YES] The stock is in a flat or mildly bullish trend
-  [YES] You want additional income beyond dividends
+第1月：賣出180買權，收1.50美元 -> AAPL在162 -> 保留150美元
+第2月：賣出180買權，收1.80美元 -> AAPL在165 -> 保留180美元
+第3月：賣出180買權，收1.30美元 -> AAPL在159 -> 保留130美元
+第4月：賣出180買權，收2.00美元 -> AAPL在168 -> 保留200美元
+第5月：賣出180買權，收2.20美元 -> AAPL在170 -> 保留220美元
+第6月：賣出180買權，收1.70美元 -> AAPL在173 -> 保留170美元
+第7月：賣出180買權，收2.50美元 -> AAPL在175 -> 保留250美元
+第8月：賣出180買權，收3.20美元 -> AAPL漲至183 -> 被指派履約
 
-  [NO]  You are strongly bullish and expect a large rally
-  [NO]  You do not own the underlying shares (naked call)
-  [NO]  You would be devastated to sell the stock
-  [NO]  The stock is about to have a major catalyst (earnings, FDA)
+累計收取的權利金：150+180+130+200+220+170+250+320 = 1,620美元
+賣出價格：每股180.00美元
+每股累計權利金：16.20美元
+實際賣出價格：180.00 + 16.20 = 196.20美元/股
+另加上8個月持股期間收取的股利
+
+相比：180美元限價賣單的結果為每股180.00美元
+      掩護性買權賣方實際收到每股196.20美元
+      額外獲利：每股16.20美元 = 額外9.0%報酬
 ```
 
-#### Practical Considerations
+#### 風險特徵比較：限價委託單 vs. 賣出賣權
 
-**Choosing the Right Strike Price:**
-
-For puts (paid limit buy):
-- Choose a price you would genuinely be happy buying the stock at.
-- A good guideline is 5-10% below the current price for monthly options.
-- Consider the stock's support levels on a chart.
-- Think about fundamental value: what is the stock worth to you?
-
-For calls (paid limit sell):
-- Choose a price that represents a good profit target.
-- A good guideline is 5-10% above the current price for monthly options.
-- Consider the stock's resistance levels on a chart.
-- Think about your tax situation and holding period.
-
-**Choosing the Right Expiration:**
+雖然這個類比很有力，但了解兩者在風險特徵上的差異同樣重要。
 
 ```
-EXPIRATION SELECTION GUIDE:
+風險比較：以140美元限價買入 vs. 賣出140美元賣權
 
-  Timeframe     | Premium  | Theta Decay | Management | Best For
-  ==============|==========|=============|============|================
-  Weekly (5-7d) | Low      | Very fast   | Frequent   | Active traders
-  Monthly (30d) | Moderate | Moderate    | Monthly    | Most investors
-  45 Days       | Good     | Optimal     | Biweekly   | Sweet spot
-  60-90 Days    | Higher   | Slower      | Less often | Busy investors
-  LEAPS (1yr+)  | Highest  | Very slow   | Quarterly  | Set and forget
+                     限價買單              賣出賣權（3美元權利金）
+                     ================     =====================
+最大獲利：           無限（股票上漲）       300美元（僅權利金）
+                                           （未被指派時）
 
-  RECOMMENDED: 30-45 days to expiration offers the best balance of
-  premium income and time decay. Theta accelerates after 45 days,
-  meaning you get more daily decay in your favor.
+損益兩平點：         140.00美元            137.00美元（140-3）
+
+最大損失：           14,000美元（股票歸零） 13,700美元（股票歸零）
+
+所需資金：           14,000美元（成交時）   14,000美元（現在保留）
+
+等待期間收益：       0美元                  每週期300美元
+
+履約精確度：         精確價格               近似價格
+                     （精確成交於140.00）   （以140.00被指派）
+
+部分成交：           可以買入少於100股      必須精確買入100股
+                     （例如37股）           每口合約
+
+存續期間：           無限（掛單直到取消）   固定到期日
+
+現金彈性：           取消後釋放資金         鎖定至到期日
+                                           （或平倉）
 ```
 
-**Position Sizing:**
+需要注意的主要差異：
 
-Never over-allocate to a single put or covered call position. A general guideline:
+1. **精確度 vs. 收益：** 限價委託單以精確的目標價成交。賣出賣權為你帶來收益，但要求你以固定履約價購買整數100股。
+
+2. **部分成交：** 限價委託單可以部分成交（買入37股）。選擇權僅以100股為單位。如果你想買250股，你可以賣出2口賣權（涵蓋200股），並對剩餘50股使用限價委託單。
+
+3. **時間限制：** 限價委託單可以無限期有效（掛單直到取消）。選擇權會到期。你需要在每次到期後賣出新的賣權來主動管理這個策略。
+
+4. **跳空風險：** 如果股票因壞消息而隔夜大幅跳空（例如從155美元跳至120美元），限價委託單和賣權都會導致你以虧損買入股票。然而，限價買單的投資人可能在140美元成交，然後眼睜睜看著股票繼續下跌。賣出賣權的投資人以140美元被指派，但有權利金緩衝（137美元的實際成本）。
+
+#### 何時使用此方法
+
+這個策略在特定情況下效果最好：
 
 ```
-POSITION SIZING RULES:
+賣出賣權（付費限價買單）的理想條件：
 
-  Total Options-Eligible Capital: $100,000
+  [是]  你真心想以履約價持有這檔股票
+  [是]  你有足夠的現金買入100股
+  [是]  你有一個低於目前市價的目標進場價
+  [是]  這檔股票有合理的隱含波動率（有良好的權利金）
+  [是]  你若被指派履約，能安心長期持有這檔股票
+  [是]  公司基本面良好
 
-  Maximum per single stock:       $20,000 (20%)
-  Number of put contracts:        Based on strike x 100
+  [否]  你試圖在短期走勢上投機
+  [否]  若被指派，你負擔不起買入股票的費用
+  [否]  你在任何價格都不想持有這檔股票
+  [否]  股票波動極大或財務狀況岌岌可危
+  [否]  隱含波動率異常低（權利金微薄）
+```
+
+```
+賣出買權（掩護性）（付費限價賣單）的理想條件：
+
+  [是]  你持有至少100股該股票
+  [是]  你有一個高於目前市價的目標賣出價
+  [是]  你願意以履約價賣出
+  [是]  股票處於盤整或溫和多頭趨勢
+  [是]  你想要股利以外的額外收益
+
+  [否]  你非常看多，預期將有大幅上漲
+  [否]  你未持有標的股票（裸賣買權）
+  [否]  你難以接受賣出這檔股票
+  [否]  股票即將有重大催化劑（財報、FDA核准）
+```
+
+#### 實務考量
+
+**選擇正確的履約價：**
+
+對於賣出賣權（付費限價買單）：
+- 選擇你真正樂意以該價格買入股票的價格。
+- 月選的良好參考是低於目前股價5-10%。
+- 考慮圖表上的支撐位。
+- 思考基本面價值：這檔股票對你而言值多少？
+
+對於賣出買權（掩護性）（付費限價賣單）：
+- 選擇代表良好獲利目標的價格。
+- 月選的良好參考是高於目前股價5-10%。
+- 考慮圖表上的壓力位。
+- 考量你的稅務狀況和持股期間。
+
+**選擇正確的到期日：**
+
+```
+到期日選擇指南：
+
+  時間框架        | 權利金   | Theta耗損速度 | 管理頻率  | 最適合
+  ===============|=========|=============|=========|================
+  週選（5-7天）   | 低       | 非常快       | 頻繁     | 積極型交易者
+  月選（30天）    | 中       | 中等         | 每月     | 大多數投資人
+  45天           | 良好      | 最佳         | 每兩週   | 甜蜜點
+  60-90天        | 較高      | 較慢         | 較不頻繁  | 忙碌投資人
+  長期期權（1年+）| 最高      | 非常慢       | 每季     | 被動型
+
+  建議：距到期30-45天提供了最佳的權利金收益與時間耗損平衡。
+  Theta在45天後加速，代表你每日享有更多對你有利的時間耗損。
+```
+
+**部位規模：**
+
+永遠不要在單一賣權或掩護性買權部位上過度配置。一般原則如下：
+
+```
+部位規模原則：
+
+  可用於選擇權的總資金：100,000美元
+
+  單一股票最高配置：    20,000美元（20%）
+  賣權合約數量：        依據履約價 x 100計算
   
-  Example breakdown:
-    AAPL $140 Put: 1 contract = $14,000 reserved (14%)
-    MSFT $360 Put: 1 contract = $36,000 reserved (36%) <- TOO LARGE
-    MSFT $360 Put: Better to skip or use a lower strike
+  範例分配：
+    AAPL 140賣權：1口合約 = 保留14,000美元（14%）
+    MSFT 360賣權：1口合約 = 保留36,000美元（36%）<- 比例過大
+    MSFT 360賣權：建議跳過或使用更低的履約價
 
-  Diversification target: 4-6 different stocks across sectors
+  多元化目標：跨行業選擇4-6檔不同股票
 ```
 
-#### Real-World Example: Building a Position with Puts
+#### 實際案例：用賣權建立部位
 
-Let us walk through a complete real-world scenario of using puts to build a position in a stock you want to own.
+讓我們透過一個完整的實際情境，說明如何用賣權在你想要持有的股票上建立部位。
 
 ```
-CASE STUDY: Building a 300-share position in Microsoft (MSFT)
+案例研究：建立微軟（MSFT）300股部位
 
-Starting situation:
-  - MSFT trading at $420
-  - You want to own 300 shares
-  - Your fair value estimate: $380
-  - Available capital: $120,000
+初始情況：
+  - MSFT交易於420美元
+  - 你想持有300股
+  - 你的合理價值估計：380美元
+  - 可用資金：120,000美元
 
-Strategy: Sell puts at $380 strike, 30-45 days out, repeatedly
+策略：每30-45天賣出380美元履約價的賣權，持續重複操作
 
-Round 1 (January):
-  Sell 3 MSFT $380 Puts, Feb expiry, for $4.50 each
-  Premium collected: $4.50 x 100 x 3 = $1,350
-  Capital reserved: $380 x 100 x 3 = $114,000
-  MSFT ends February at $415 -> Puts expire worthless
-  Income: $1,350 (1.18% on reserved capital in ~30 days)
+第一輪（一月）：
+  賣出3口MSFT 380美元賣權，二月到期，每口收4.50美元
+  收取的權利金：4.50 x 100 x 3 = 1,350美元
+  保留資金：380 x 100 x 3 = 114,000美元
+  MSFT二月底收在415美元 -> 賣權到期失效
+  收益：1,350美元（保留資金約30天，收益率1.18%）
 
-Round 2 (February):
-  Sell 3 MSFT $380 Puts, Mar expiry, for $3.80 each
-  Premium collected: $3.80 x 100 x 3 = $1,140
-  MSFT ends March at $425 -> Puts expire worthless
-  Income: $1,140
+第二輪（二月）：
+  賣出3口MSFT 380美元賣權，三月到期，每口收3.80美元
+  收取的權利金：3.80 x 100 x 3 = 1,140美元
+  MSFT三月底收在425美元 -> 賣權到期失效
+  收益：1,140美元
 
-Round 3 (March):
-  Sell 3 MSFT $380 Puts, Apr expiry, for $5.20 each
-  Premium collected: $5.20 x 100 x 3 = $1,560
-  MSFT drops to $372 in April -> ASSIGNED on all 3 contracts
-  Buy 300 shares at $380
+第三輪（三月）：
+  賣出3口MSFT 380美元賣權，四月到期，每口收5.20美元
+  收取的權利金：5.20 x 100 x 3 = 1,560美元
+  MSFT四月跌至372美元 -> 3口合約全部被指派履約
+  以380美元買入300股
 
-Results:
-  Purchase price: $380 per share
-  Total premiums collected: $1,350 + $1,140 + $1,560 = $4,050
-  Premiums per share: $4,050 / 300 = $13.50
-  Effective cost basis: $380 - $13.50 = $366.50 per share
+結果：
+  買入價格：每股380美元
+  累計收取的權利金：1,350 + 1,140 + 1,560 = 4,050美元
+  每股權利金：4,050 / 300 = 13.50美元
+  實際成本基礎：380 - 13.50 = 366.50美元/股
 
-  Compare to buying at market ($420): Saved $53.50/share (12.7%)
-  Compare to limit order at $380: Saved $13.50/share (3.6%)
+  相比以市價買入（420美元）：每股節省53.50美元（12.7%）
+  相比以380美元限價買單：每股節省13.50美元（3.6%）
   
-  The put-selling approach resulted in a 3.6% better entry price
-  than a simple limit order, and earned $4,050 in income during
-  the 3-month waiting period.
+  賣出賣權的方法帶來比單純限價買單低3.6%的進場價格，
+  並在3個月等待期間賺取了4,050美元的收益。
 ```
 
-#### The Decision Framework
+#### 結合賣權與買權：收益工廠
 
-Here is a simple decision tree to help you decide between a limit order and an options approach:
+一旦你理解了賣權是付費限價買單、買權是付費限價賣單，一個強大的投資組合策略就浮現出來了。你可以同時在不同股票上執行兩種操作，打造一個多元化的收益工廠。
 
 ```
-                    Do you want to BUY a stock?
+收益工廠模型：
+
+  你想買入的股票：                   你已持有的股票：
+  （賣出現金擔保賣權）               （賣出掩護性買權）
+
+  AAPL：賣出140賣權 -> 每月185美元  MSFT：持有100股，賣出450買權 -> 每月300美元
+  AMZN：賣出175賣權 -> 每月320美元  JNJ： 持有200股，賣出175買權 -> 每月360美元
+  GOOGL：賣出155賣權 -> 每月240美元 KO：  持有300股，賣出67買權  -> 每月270美元
+
+  賣權收益：每月745美元              買權收益：每月930美元
+  
+  每月總收益：1,675美元
+  每年總收益：20,100美元
+
+  這從投資組合兩端創造收益：
+  - 等待部署的現金賺取賣權權利金
+  - 已持有的股票賺取買權權利金 + 股利
+  - 資金永不閒置
+```
+
+這就是選擇權收益投資組合的精髓。帳戶中的每一塊錢都在工作，無論它是投資在股票上（產生股利加上買權權利金），還是保留為現金（產生賣權權利金）。這種雙引擎方法可以讓整體投資組合年化殖利率達到12-20%。
+
+#### 選擇權作為委託單方法的稅務考量
+
+了解稅務處理方式有助於你有效規劃：
+
+```
+稅務處理摘要：
+
+  情境                              稅務處理
+  ========                          =============
+  賣權到期失效                       短期資本利得
+  （保留權利金）                     （按一般所得稅率課稅）
+  
+  賣權被指派履約（買入股票）          權利金降低所購股票的成本基礎
+                                    （影響未來的資本利得計算）
+  
+  買權到期失效                       短期資本利得
+  （保留權利金）                     
+  
+  買權被指派履約（賣出股票）          權利金加計於賣出收益
+                                    （影響資本利得計算）
+  
+  買回選擇權獲利                     短期資本利得
+  （提前平倉獲利）                   
+  
+  買回選擇權虧損                     短期資本損失
+  （提前平倉虧損）                   （可用於抵銷其他利得）
+
+  在羅斯個人退休帳戶（ROTH IRA）中：以上所有情況均免稅
+  在傳統個人退休帳戶中：以上所有情況均遞延課稅
+```
+
+這也是為什麼選擇權作為委託單的方法在稅務優惠帳戶中特別出色。頻繁的權利金收益在應稅帳戶中需按一般所得稅率課稅，但在羅斯個人退休帳戶中免稅增長，或在傳統個人退休帳戶中遞延課稅增長。
+
+#### 常見錯誤與避免方法
+
+```
+使用選擇權作為條件式委託單時的五大常見錯誤：
+
+  錯誤一：對你不想持有的股票賣出賣權
+    為何危險：你會在表現最差的股票上被指派履約
+    解決方式：只在你真心樂意以該履約價買入的股票上賣出賣權
+
+  錯誤二：對單一部位過度配置資金
+    為何危險：一檔股票出問題就能重創你的投資組合
+    解決方式：每個部位最高配置20%的資金，跨行業多元分散
+
+  錯誤三：忽視財報行事曆
+    為何危險：財報期間的跳空走勢可能在時機不佳時觸發履約指派
+    解決方式：賣出前檢查財報日期，避免在財報期間到期
+
+  錯誤四：追逐波動性大的股票的高額權利金
+    為何危險：高權利金 = 高風險 = 高機率在不好的時機被指派
+    解決方式：專注於中等波動性的優質公司
+
+  錯誤五：沒有管理計畫
+    為何危險：股票反向走勢時你不知所措
+    解決方式：事先決定：在什麼虧損水準下你會平倉？何時提前獲利了結？
+    在進場前寫下來。
+```
+
+#### 決策框架
+
+以下是一個簡單的決策樹，幫助你在限價委託單和選擇權方法之間做選擇：
+
+```
+                    你想「買入」一檔股票嗎？
                             |
                     +-------+-------+
                     |               |
-                   YES              NO -> Do you want to SELL? 
+                   是               否 -> 你想「賣出」嗎？
                     |                          |
-              Do you want to          +-------+-------+
-              buy at a LOWER          |               |
-              price than current?    YES              NO -> No action
+              你想以低於               +-------+-------+
+              目前市價的                |               |
+              價格買入嗎？             是               否 -> 無需操作
                     |                  |
-              +-----+-----+     Do you own
-              |           |     100+ shares?
-             YES          NO         |
+              +-----+-----+     你持有100股以上嗎？
+              |           |                |
+             是           否              |
               |           |    +-----+-----+
-              |     Buy at     |           |
-              |     market    YES          NO -> Limit sell
-              |                |            (fewer than 100 shares)
-        Do you have            |
-        $$ for 100 shares?   Sell COVERED CALL
-              |              (paid limit sell)
+              |     以市價買入 |           |
+              |               是           否 -> 使用限價賣單
+              |                |            （持股少於100股）
+        你有資金                |
+        買入100股嗎？     賣出「掩護性買權」
+              |          （付費限價賣單）
         +-----+-----+
         |           |
-       YES          NO -> Use limit order
-        |                 (can buy partial lots)
+       是           否 -> 使用限價買單
+        |                 （可買入非整數股）
         |
-   SELL CASH-SECURED PUT
-   (paid limit buy)
+   賣出「現金擔保賣權」
+   （付費限價買單）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c）常見迷思
 
-**Misconception 1: "Selling puts is the same as shorting a stock."**
+**迷思一：「賣出賣權和放空股票是一樣的。」**
 
-This is a dangerous confusion. Shorting a stock means borrowing shares and selling them, hoping to buy them back at a lower price. Your risk is theoretically unlimited because the stock can rise infinitely. Selling a put means agreeing to BUY shares at a specific price. Your risk is limited to the strike price minus the premium (if the stock goes to zero). These are completely different strategies with completely different risk profiles. One is bearish (short selling), the other is neutral to bullish (short put).
+這是一個危險的混淆。放空股票是指借入股票並賣出，希望以更低的價格買回。你的風險在理論上是無限的，因為股票可以無限上漲。賣出賣權是指同意以特定價格「買入」股票。你的最大損失僅限於履約價減去權利金（若股票跌至零）。這是兩種完全不同的策略，具有完全不同的風險特徵。一種是看空的（放空），另一種是中性偏多的（賣出賣權）。
 
-**Misconception 2: "You should sell puts on stocks you do not want to own because you will never get assigned."**
+**迷思二：「應該對你不想持有的股票賣出賣權，因為你永遠不會被指派履約。」**
 
-This is extremely dangerous thinking. While it is true that most OTM puts expire worthless, the ones that do not can cause enormous damage. If you sell puts on a stock you would not want to own and it drops 40%, you are forced to buy 100 shares of a company you do not believe in, at a price well above the current market. Only sell puts on stocks you genuinely want to own at the strike price.
+這種想法極其危險。雖然大多數價外賣權確實到期失效，但那些沒有到期的可能造成巨大損失。如果你對一檔你不想持有的股票賣出賣權，而它下跌40%，你就被迫以遠高於目前市價的價格買入100股一家你不認可的公司。只對你真正願意以履約價持有的股票賣出賣權。
 
-**Misconception 3: "Selling covered calls means you will miss the next big rally."**
+**迷思三：「賣出掩護性買權意味著你會錯過下一波大漲。」**
 
-While covered calls do cap your upside, the cap is at a level YOU chose as your target sell price. If AAPL is at $155 and you sell the $180 call, you are saying you would be happy to sell at $180 (a 16% gain). If AAPL rockets to $220, yes, you "missed" $40 of additional gains. But you still made a 16% profit plus the premium. Missing out on unexpected gains is not the same as losing money. And statistically, the vast majority of months, the stock stays below the strike and you simply keep the premium.
+雖然掩護性買權確實封頂你的上檔空間，但封頂的位置是你自己選定的目標賣出價。如果AAPL在155美元而你賣出180美元的買權，你是在說你願意以180美元賣出（16%的獲利）。如果AAPL飆漲至220美元，是的，你「錯過」了40美元的額外漲幅。但你仍然賺了16%的獲利加上權利金。錯過意料之外的漲幅與虧損是不同的兩件事。從統計上看，絕大多數月份股票都會維持在履約價以下，你只需保留權利金。
 
-**Misconception 4: "The premium is too small to be worth the risk."**
+**迷思四：「權利金太小，不值得承擔這個風險。」**
 
-Individual premiums may seem small, but they compound over time. A $200 premium per month on a $15,000 position is $2,400 per year, a 16% annual yield. Even a conservative $100 per month is $1,200, or 8% annually. This is on top of any dividends and capital appreciation. Over a 20-year investing career, this additional income, reinvested, can add hundreds of thousands of dollars to your portfolio.
+個別的權利金看似微小，但隨著時間複利增長相當可觀。一個15,000美元部位每月200美元的權利金就是每年2,400美元，相當於16%的年化殖利率。即使是保守的每月100美元，也是每年1,200美元，也就是8%的年化報酬。這還是在股利和資本利得之外的收益。在20年的投資生涯中，這些額外收益再投入後，可以為你的投資組合增加數十萬美元。
 
-**Misconception 5: "Selling puts is just as risky as buying stock."**
+**迷思五：「賣出賣權的風險和直接買入股票一樣高。」**
 
-While the maximum loss is similar (both approach zero if the company goes bankrupt), the put seller actually has a better entry. The premium received reduces the effective cost basis. If you sell a $140 put for $3 and get assigned, your cost is $137. A stock buyer at $140 has a $140 cost. In every scenario, the put seller is $3 per share better off. The risk profile is not identical; it is slightly better for the put seller.
+雖然最大損失相近（若公司破產，兩者都接近歸零），但賣出賣權的投資人實際上有更好的進場價格。你收取的權利金降低了有效成本基礎。如果你以3美元賣出140美元的賣權並被指派，你的成本是137美元。而以140美元直接買入股票的投資人，成本就是140美元。在每種情況下，賣出賣權的投資人都每股多出3美元的優勢。風險特徵並不相同，賣出賣權方略勝一籌。
 
-**Misconception 6: "You need to watch the market constantly when selling options."**
+**迷思六：「賣出選擇權時，你需要全天盯盤。」**
 
-For the strategies described in this lesson, you sell an option and then largely wait. You may check in once a week to see if any action is needed. Monthly options require attention only around expiration. This is not day trading. It is more like setting a trap and checking it periodically. Many investors manage their option positions in 15-30 minutes per week.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens if I sell a put and the stock gaps down 30% overnight?**
-
-A: You will be assigned at the strike price, and the stock will be worth significantly less than what you paid. This is the primary risk of selling puts. However, this is the same risk you take with a limit buy order or with buying the stock outright. If you sell an AAPL $140 put and AAPL drops to $100, you buy at $140 (effective $137 with premium), and you are immediately sitting on a $37/share loss. This is why you should only sell puts on stocks with strong fundamentals that you believe will recover. In this scenario, the $3 premium cushion, while small relative to the loss, is still better than having a limit order fill at $140 with no cushion at all.
-
-**Q2: Can I close my put position early if the stock starts dropping?**
-
-A: Yes. You can always buy back your short put before expiration. If the stock drops and the put increases in value, you will pay more than you received, resulting in a net loss. But this allows you to manage risk. For example, a common rule is to close the position if the loss exceeds 2x the premium received. If you sold a put for $3.00 and it is now trading at $9.00, you can buy it back for a $6.00 loss rather than risk assignment. Conversely, if the stock stays flat or rises and the put decays, you can close it early for a profit. A common rule is to buy back when you have captured 50-75% of the maximum premium.
-
-**Q3: Why not just use limit orders? Why complicate things with options?**
-
-A: For small positions (fewer than 100 shares) or when you need exact price fills, limit orders are perfectly fine. Options add value when: (1) you want income while waiting for your price, (2) you are buying in 100-share increments anyway, (3) you want to build positions systematically over time, and (4) you want your cash to work harder. The "complication" is minimal once you understand the mechanics. Selling a cash-secured put takes about 2 minutes on most brokerage platforms.
-
-**Q4: What if I change my mind about wanting to buy the stock after I sold the put?**
-
-A: Buy the put back to close the position. If time has passed and the stock has not dropped, the put will likely be cheaper than what you sold it for, and you will book a profit. If the stock has dropped and the put is more expensive, you will take a small loss. The ability to close positions at any time is one of the advantages of exchange-traded options. You are never truly locked in.
-
-**Q5: How do taxes work on option premiums?**
-
-A: If the put expires worthless, the premium is a short-term capital gain, taxed at your ordinary income rate. If you are assigned, the premium reduces your cost basis in the purchased stock, which affects your future capital gain calculation when you eventually sell the stock. For covered calls, if the call expires worthless, the premium is a short-term gain. If you are assigned and sell your shares, the premium is added to your sale proceeds. Consult a tax professional for your specific situation.
-
-**Q6: Can I sell puts in a retirement account (IRA)?**
-
-A: Yes, most brokers allow cash-secured puts in IRA accounts. You cannot use margin, so the full cash amount must be available (hence "cash-secured"). Covered calls are also allowed in IRAs. The tax advantage of an IRA means the premiums grow tax-deferred (traditional IRA) or tax-free (Roth IRA), making these strategies even more attractive in retirement accounts.
-
-**Q7: How do I choose between different expiration dates?**
-
-A: The sweet spot for most investors is 30-45 days to expiration. Shorter durations (weekly) give you less premium per trade and require more active management. Longer durations (60-90 days) give more premium but tie up your capital longer and have less favorable theta decay. The 30-45 day range offers the best ratio of premium received to management effort. If you prefer less frequent trading, 45-60 days works well. If you want maximum annualized yield, 21-30 days is optimal.
-
-**Q8: What if I want to buy 150 shares? Options only come in 100-share increments.**
-
-A: Use a combination approach. Sell 1 put contract (covering 100 shares) and place a limit order for the remaining 50 shares. Alternatively, if you are patient, sell 1 put contract, get assigned, then sell another put contract for the next 100 shares, and sell the extra 50 shares later. Options work best for round lots of 100 shares.
-
-**Q9: What happens to my put if the company announces a merger or acquisition?**
-
-A: If a company is acquired, options are adjusted based on the terms of the deal. If it is a cash acquisition, options may be settled in cash. If it is a stock-for-stock deal, the options contract is adjusted to deliver the new shares. The Options Clearing Corporation (OCC) handles these adjustments. While the mechanics can be complex, you will not lose your rights as an option holder or have unexpected obligations as a seller beyond what the original contract specified.
-
-**Q10: Is there an optimal order of operations? Do I sell puts first, then covered calls?**
-
-A: A natural progression is: (1) Identify stocks you want to own, (2) sell puts at your target entry price to build positions while earning income, (3) once you own the shares, sell covered calls at your target exit price to earn additional income. This cycle, known as the "wheel strategy," is a continuous loop of selling puts, getting assigned, selling calls, getting called away, and starting over. We will preview this concept in Week 28.
+對於本課描述的策略，你賣出選擇權之後基本上只需等待。你可能每週檢查一次，看看是否需要採取任何行動。月選只需要在到期週前後特別關注。這不是日內交易，更像是設好陷阱然後定期查看。許多投資人每週只花15-30分鐘管理他們的選擇權部位。
 
 ---
 
-## YouTube Script
+### d）常見問題與解答
+
+**Q1：如果我賣出賣權後，股票隔夜跳空下跌30%，會發生什麼事？**
+
+A：你將以履約價被指派履約，而股票的價值將遠低於你支付的金額。這是賣出賣權的主要風險。然而，這與使用限價買單或直接買入股票的風險相同。如果你賣出AAPL 140美元的賣權，而AAPL跌至100美元，你以140美元買入（加上權利金後實際成本137美元），而你的帳面損失立即達到37美元/股。這就是為什麼你應該只對基本面強健、你相信能夠回復的股票賣出賣權。在這種情況下，3美元的權利金緩衝雖然相對於虧損來說很小，但仍然比以140美元成交、毫無緩衝的限價買單來得好。
+
+**Q2：如果股票開始下跌，我能提前平倉我的賣權部位嗎？**
+
+A：可以。你隨時都可以在到期前買回你賣出的賣權。如果股票下跌而賣權價值上漲，你將支付比當初收取更多的錢，造成淨虧損。但這讓你可以管理風險。例如，一個常見的原則是：若損失超過收取的權利金的2倍，就平倉。如果你以3.00美元賣出一口賣權，現在它交易在9.00美元，你可以以6.00美元的損失買回，而不是冒著被指派履約的風險。反之，如果股票持平或上漲，賣權時間耗損，你可以提前平倉獲利了結。一個常見的原則是：當你已賺得最大權利金的50-75%時，就買回平倉。
+
+**Q3：為什麼不直接使用限價委託單？為什麼要讓選擇權把事情複雜化？**
+
+A：對於小額部位（少於100股）或需要精確價格成交時，限價委託單完全沒問題。選擇權在以下情況會帶來額外價值：（1）你想在等待目標價的同時賺取收益；（2）你本來就打算以100股為單位買入；（3）你想隨著時間系統性地建立部位；（4）你希望你的現金更努力地為你工作。一旦你了解了機制，這個「複雜性」就微不足道了。在大多數券商平台上，賣出一口現金擔保賣權只需約2分鐘。
+
+**Q4：如果賣出賣權後我改變主意，不想再買這檔股票了，怎麼辦？**
+
+A：買回賣權來平倉。如果時間已過且股票未下跌，賣權通常比你賣出時更便宜，你將獲利了結。如果股票下跌而賣權更貴，你將承受小額損失。隨時平倉的能力是交易所掛牌選擇權的優點之一。你從來不是真正被鎖死的。
+
+**Q5：選擇權權利金的稅務處理方式如何？**
+
+A：若賣權到期失效，權利金是短期資本利得，按你的一般所得稅率課稅。若你被指派履約，權利金會降低你購入股票的成本基礎，影響你未來賣出該股票時的資本利得計算。對於掩護性買權，若買權到期失效，權利金是短期利得；若被指派並賣出你的股票，權利金加計於你的賣出收益。請針對你的具體情況諮詢稅務專業人士。
+
+**Q6：我可以在退休帳戶（個人退休帳戶）中賣出賣權嗎？**
+
+A：可以，大多數券商允許在個人退休帳戶中操作現金擔保賣權。由於不能使用保證金，必須備有全額現金（因此稱為「現金擔保」）。掩護性買權在個人退休帳戶中也是被允許的。個人退休帳戶的稅務優惠意味著權利金在傳統個人退休帳戶中遞延課稅增長，在羅斯個人退休帳戶（Roth IRA）中免稅增長，使這些策略在退休帳戶中更具吸引力。
+
+**Q7：如何在不同的到期日之間做選擇？**
+
+A：對於大多數投資人而言，距到期30-45天是最佳範圍。原因如下：較短的期限（週選）每次操作的權利金較低，且需要更積極的管理。較長的期限（60-90天）帶來更高的權利金，但資金鎖定時間更長，Theta時間耗損的速度也較慢，對你的優勢較小。30-45天的範圍提供了最佳的權利金收益與管理精力比。如果你偏好減少操作頻率，45-60天效果也很好。如果你追求最大年化報酬，21-30天是最佳選擇。
+
+**Q8：如果我想買150股怎麼辦？選擇權只以100股為單位。**
+
+A：採用混合方式。賣出1口賣權合約（涵蓋100股），並對剩餘50股掛限價買單。或者，如果你不急，先賣出1口賣權合約，被指派後再對下一批100股賣出另一口賣權合約，之後再處理剩餘的50股。選擇權在100股的整數倍上效果最佳。
+
+**Q9：如果我持有的賣權部位的公司宣布合併或收購，會怎樣？**
+
+A：若公司被收購，選擇權將根據交易條款進行調整。若為現金收購，選擇權可能以現金結算。若為換股交易，選擇權合約將調整為交付新股。美國期權結算公司（OCC）處理這些調整事宜。雖然細節可能複雜，但作為選擇權買方，你不會失去你的權利；作為賣方，你的義務也不會超出原始合約所規定的範圍。
+
+**Q10：有沒有最佳的操作順序？是先賣出賣權，再賣出掩護性買權嗎？**
+
+A：自然的操作流程如下：（1）找出你想持有的股票；（2）在目標進場價賣出賣權，一邊建立部位一邊賺取收益；（3）一旦持有股票，在目標出場價賣出掩護性買權賺取額外收益。這個循環——賣出賣權、被指派、賣出買權、被指派出場、重新開始——被稱為「滾輪策略」，我們將在第二十八週詳細介紹。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 26: Options as Conditional Orders - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we covered the fundamentals of options: calls, puts, strike prices, expiration, time decay. Today we are going to take all of that knowledge and apply it through a mental model that I think is going to change how you think about options forever.
+**Horace：** 歡迎回來。上週我們介紹了選擇權的基礎知識：買權、賣權、履約價、到期日、時間耗損。今天，我們要把所有這些知識，透過一個心理模型來實際應用——我相信這個模型會永遠改變你看待選擇權的方式。
 
-**Sam:** A mental model? What do you mean?
+**Stella：** 心理模型？你指的是什麼？
 
-**Alex:** I mean a way of thinking about options that makes them feel intuitive rather than complex. Here it is: selling a put is like placing a limit buy order and getting paid while you wait. Selling a covered call is like placing a limit sell order and getting paid while you wait.
+**Horace：** 我是說一種讓選擇權感覺直觀而非複雜的思考方式。它是這樣的：賣出賣權就像掛出一張限價買單，同時在等待期間收取報酬。賣出掩護性買權就像掛出一張限價賣單，同時在等待期間收取報酬。
 
-**Sam:** Wait, that is it? That seems... almost too simple.
+**Stella：** 等等，就這樣？聽起來……幾乎太簡單了。
 
-**Alex:** The best mental models are simple. And this one is powerful because it is nearly perfectly accurate. Let me walk you through exactly what I mean.
+**Horace：** 最好的心理模型就是簡單的。而這個模型之所以強大，在於它幾乎完全準確。讓我帶你詳細說明我的意思。
 
-[VISUAL: Title card: "Options as Conditional Orders: A New Way to Think About Buying and Selling Stocks"]
+[VISUAL: Title card: "選擇權作為條件式委託單：重新思考股票買賣的新方式"]
 
-**Alex:** Let us start with something every investor is familiar with: a limit buy order. Sam, explain what a limit buy order is.
+**Horace：** 先從每位投資人都熟悉的東西開始：限價買單。小魚，解釋一下什麼是限價買單。
 
-**Sam:** Sure. It is when you tell your broker, buy this stock for me, but only if the price drops to a certain level. Like, buy Apple at $140 even though it is currently at $155.
+**Stella：** 好的。就是當你告訴你的券商，幫我買這檔股票，但只能在價格跌到某個水準時才買。比如，現在Apple在155美元，但你設定以140美元買進。
 
-**Alex:** Perfect. And what happens while you wait for that price?
+**Horace：** 完美。那在你等待那個價格的期間，會發生什麼事？
 
-**Sam:** Nothing. Your cash just sits there.
+**Stella：** 什麼都不會發生。你的現金就這樣閒置著。
 
-**Alex:** Exactly. Your cash sits there earning almost nothing. Maybe 4-5% in a savings rate if you are lucky. Now here is the options alternative. Instead of placing a limit buy order at $140, you sell a cash-secured put at the $140 strike.
+**Horace：** 沒錯。你的現金閒置在那裡，幾乎賺不到任何收益。如果夠幸運的話，活存利率可能有4-5%。現在來看選擇權的替代方案。你不掛140美元的限價買單，而是賣出一口140美元履約價的現金擔保賣權。
 
-[VISUAL: Side-by-side comparison appearing on screen. Left: "Limit Buy Order at $140 - Cash earns: ~0%". Right: "Sell $140 Put for $1.85 - Cash earns: ~16% annualized"]
+[VISUAL: Side-by-side comparison appearing on screen. Left: "140美元限價買單 - 現金報酬：約0%". Right: "賣出140美元賣權，收取1.85美元 - 現金報酬：年化約16%"]
 
-**Sam:** So what exactly does selling a put at $140 mean?
+**Stella：** 那麼，賣出140美元的賣權，到底代表什麼意思？
 
-**Alex:** It means you are making a promise. You are saying: I agree to buy 100 shares of Apple at $140 per share if the stock drops to that level before the option expires. And in exchange for making that promise, someone pays you a premium. Let us say $1.85 per share, or $185 per contract.
+**Horace：** 意思是你在做出一個承諾。你說：如果Apple股票在到期日前跌至140美元，我同意以每股140美元買入100股。作為這個承諾的回報，有人付給你一筆權利金。假設是每股1.85美元，也就是每口合約185美元。
 
-**Sam:** So I am getting paid $185 to promise to do something I was already willing to do?
+**Stella：** 所以我收到185美元，是為了承諾去做一件我原本就願意做的事？
 
-**Alex:** Yes. That is the beauty of it. You already wanted to buy Apple at $140. The limit order does the same thing for free. The put option does the same thing and pays you for it.
+**Horace：** 是的。這就是它的魅力所在。你原本就想以140美元買Apple。限價委託單做的是同樣的事，但是免費的。而賣出賣權做的也是同樣的事，還付你報酬。
 
-[ANIMATION: Reference animation/week26_put_as_limit.py - Animation showing two parallel timelines. Top timeline: "Limit Order" shows cash sitting idle, then stock dropping to $140 and order filling. Bottom timeline: "Short Put" shows cash with premium coins being added each month, then stock dropping to $140 and assignment occurring, with the effective purchase price shown as lower than $140 due to accumulated premiums. A counter shows the total premium collected over time.]
+[ANIMATION: Reference animation/week26_put_as_limit.py - 動畫呈現兩條平行的時間軸。上方時間軸「限價委託單」顯示現金閒置，然後股票跌至140美元後成交。下方時間軸「賣出賣權」顯示每個月有權利金硬幣持續加入，然後股票跌至140美元後被指派履約，並以較低於140美元的實際買入價格呈現，反映了累積的權利金。計數器顯示隨時間累積的總權利金。]
 
-**Sam:** OK, let us walk through the possible outcomes. What happens if Apple stays above $140?
+**Stella：** 好，讓我們逐一看看可能的結果。如果Apple一直維持在140美元以上，會怎樣？
 
-**Alex:** Your put expires worthless. The word "worthless" sounds bad, but for the seller, it is great. It means your obligation disappears and you keep the $185 premium. Your $14,000 in cash is freed up, and you can sell another put next month.
+**Horace：** 你的賣權到期失效。「失效」這個詞聽起來很糟，但對於賣方來說是好事。它代表你的義務消失了，你保留185美元的權利金。你的14,000美元現金被釋放出來，下個月你可以再賣一口賣權。
 
-**Sam:** And if Apple drops to $140?
+**Stella：** 如果Apple跌至140美元呢？
 
-**Alex:** You get assigned. You buy 100 shares at $140, which is exactly what you wanted. But here is the key: your effective purchase price is not $140. It is $140 minus the $1.85 premium, which is $138.15. You got a better deal than the limit order would have given you.
+**Horace：** 你被指派履約，以140美元買入100股——這正是你一直想要做的事。但關鍵在這裡：你的實際買入價格不是140美元，而是140美元減去1.85美元的權利金，也就是138.15美元。你比使用限價買單的結果還要好。
 
-[VISUAL: Calculator showing: "$140.00 strike - $1.85 premium = $138.15 effective cost"]
+[VISUAL: Calculator showing: "140.00美元 履約價 - 1.85美元 權利金 = 138.15美元 實際成本"]
 
-**Sam:** What if Apple drops even further, like to $120?
+**Stella：** 如果Apple跌得更深，比如說跌到120美元呢？
 
-**Alex:** You still buy at $140. Your effective cost is still $138.15. And yes, you are sitting on an unrealized loss because the stock is at $120. But think about it: the limit order buyer is in the exact same situation, except their cost basis is $140, not $138.15. You are $1.85 per share better off.
+**Horace：** 你仍然以140美元買入，實際成本仍然是138.15美元。是的，由於股票在120美元，你帳面上有未實現虧損。但想想看：限價買單的投資人面對的是完全相同的狀況，差別只是他們的成本基礎是140美元，而不是138.15美元。你每股多出1.85美元的優勢。
 
-**Sam:** So in every scenario, the put seller does at least as well as the limit order buyer, and usually better?
+**Stella：** 所以在任何情境下，賣出賣權的投資人的結果都至少和限價買單的投資人一樣好，通常還更好？
 
-**Alex:** In terms of economic outcome, yes. The tradeoff is that the put has an expiration date. A limit order can sit there indefinitely. With puts, you need to actively sell a new contract each month.
+**Horace：** 就經濟結果而言，是的。取捨在於賣權有到期日。限價委託單可以無限期有效。使用賣權，你需要每個月主動賣出新的合約。
 
-**Sam:** But that is also when you collect more premium, right?
+**Stella：** 但那也是你繼續收取更多權利金的時候，對吧？
 
-**Alex:** Exactly. And that is where the real power shows up. Let me show you what happens when you do this repeatedly.
+**Horace：** 沒錯。而這就是真正的威力所在。讓我展示重複操作時會發生什麼事。
 
-[VISUAL: Month-by-month table showing repeated put selling. Each month shows: premium collected, stock price, outcome (expired or assigned), cumulative premium. Final row shows effective purchase price after 6 months of collecting premiums before eventual assignment]
+[VISUAL: 逐月表格顯示重複賣出賣權的結果。每個月顯示：收取的權利金、股票價格、結果（到期失效或被指派履約）、累計權利金。最後一行顯示最終被指派後、扣除所有月份累積權利金後的實際買入價格]
 
-**Alex:** Let us say you sell puts on Apple at $140 every month. Month after month, Apple stays above $140. Each month you collect $150-$250 in premium. After six months, you have collected $1,310 in total premiums. Then in month six, Apple finally drops and you get assigned.
+**Horace：** 假設你每個月都在140美元賣出Apple的賣權。月復一月，Apple都維持在140美元以上。每個月你收取150到250美元的權利金。六個月後，你已經累計收取了1,310美元的總權利金。然後在第六個月，Apple終於下跌，你被指派履約。
 
-**Sam:** So you waited six months, just like the limit order person would have.
+**Stella：** 所以你等了六個月，就和使用限價委託單的人一樣。
 
-**Alex:** Right. But the limit order person's cost is $140 per share. Your effective cost, after accounting for all the premiums collected, is $126.90 per share. That is a 9.4% better entry price. And this is not some exotic strategy. It is simple, straightforward, and mechanical.
+**Horace：** 對。但使用限價買單的人，每股成本是140美元。而你扣除所有收取的權利金後，實際每股成本是126.90美元。這是9.4%的更佳進場價格。而且這並不是什麼奇異的策略，它簡單、直接、有規律可循。
 
-**Sam:** That is a massive difference. $13.10 per share on 100 shares is $1,310 in your pocket.
+**Stella：** 這差距相當大。100股的每股13.10美元，就是1,310美元放進你的口袋。
 
-**Alex:** Exactly. And that is just from being willing to do what you were already planning to do, but using the right tool.
+**Horace：** 正是。而這一切只是因為你願意做你本來就打算做的事，但使用了正確的工具。
 
-[VISUAL: Two investors side by side. Left: "Limit Order Larry" standing with empty pockets, price tag showing $140/share. Right: "Put Selling Patty" standing with pockets full of cash, price tag showing $126.90/share. Both own the same 100 shares of AAPL.]
+[VISUAL: 兩位投資人並排站立。左方：「使用限價買單的Larry」，口袋空空，價格標籤顯示每股140美元。右方：「賣出賣權的Patty」，口袋裝滿現金，價格標籤顯示每股126.90美元。兩人都持有相同的100股AAPL。]
 
-**Sam:** OK, now let us talk about the other side. You mentioned covered calls are like limit sell orders with income.
+**Stella：** 好，現在來談談另一面。你提到掩護性買權就像附有收益的限價賣單。
 
-**Alex:** Same concept, reversed. Let us say you own 100 shares of Apple at $155 and you would be happy to sell at $180. Instead of placing a limit sell order, you sell a covered call at the $180 strike.
+**Horace：** 同樣的概念，方向相反。假設你以155美元持有100股Apple，願意以180美元賣出。你不掛限價賣單，而是賣出一口180美元履約價的掩護性買權。
 
-**Sam:** And you collect a premium for agreeing to sell at $180?
+**Stella：** 你收取一筆權利金，作為同意以180美元賣出的回報？
 
-**Alex:** Right. Let us say $1.50 per share, or $150 per contract. Now, if Apple stays below $180 by expiration, the call expires worthless. You keep your shares and the $150. If Apple rises above $180, your shares are called away and you sell at $180 plus you keep the $1.50 premium. Your effective sale price is $181.50.
+**Horace：** 對。假設是每股1.50美元，也就是每口合約150美元。現在，如果Apple到期日前維持在180美元以下，買權到期失效，你保留股票和150美元的權利金。如果Apple漲超過180美元，你的股票被以180美元買走，加上你保留1.50美元的權利金，實際賣出價格是181.50美元。
 
-[VISUAL: Two scenarios branching from "Sell $180 Call for $1.50". Branch 1: "Stock stays below $180" -> "Keep shares + $150 premium, sell another call". Branch 2: "Stock rises above $180" -> "Sell shares at $180, keep $150, effective price $181.50"]
+[VISUAL: 從「賣出180美元買權，收取1.50美元」出發的兩個情境分支。分支一：「股票維持在180美元以下」->「保留股票 + 150美元權利金，再賣一口買權」。分支二：「股票漲超過180美元」->「以180美元賣出股票，保留150美元，實際價格181.50美元」]
 
-**Sam:** So the covered call seller gets a better exit price than the limit seller, just like the put seller gets a better entry price?
+**Stella：** 所以掩護性買權賣方的實際出場價格比限價賣單更好，就像賣出賣權的投資人有更好的進場價格一樣？
 
-**Alex:** Yes. And the same compounding effect applies. If you sell covered calls month after month and Apple slowly grinds higher, you collect $150-$250 in premium each month. After eight months, when Apple finally crosses $180 and your shares are called away, you have collected over $1,600 in premiums on top of your $180 sale price.
+**Horace：** 是的。而且同樣的複利效果也適用。如果你月復一月賣出掩護性買權，而Apple緩慢上漲，你每個月收取150到250美元的權利金。八個月後，當Apple終於突破180美元、你的股票被買走時，你已經在賣出股票的基礎上，額外收取了超過1,600美元的權利金。
 
-**Sam:** Your effective sale price is $196.20. That is remarkable.
+**Stella：** 你的實際賣出價格是196.20美元，真令人驚嘆。
 
-**Alex:** And that is on top of any dividends you received during those eight months of holding. You were getting paid from three sources: the stock's capital appreciation from $155 to $180, the dividends, and the options premiums.
+**Horace：** 而這還是在你持股八個月期間收取的任何股利之外的收益。你從三個來源獲得報酬：股票從155美元到180美元的資本利得、股利，以及選擇權權利金。
 
-[VISUAL: Three-layer income stack visualization. Bottom: "Capital Gains: $25/share", Middle: "Dividends: ~$3.80/share", Top: "Options Premium: $16.20/share", Total: "$45.00/share = 29% total return"]
+[VISUAL: 三層收益堆疊視覺化。底層：「資本利得：25美元/股」，中層：「股利：約3.80美元/股」，頂層：「選擇權權利金：16.20美元/股」，合計：「45.00美元/股 = 29%總報酬」]
 
-**Sam:** Let me make sure I understand the risks though. What are the downsides?
+**Stella：** 讓我確認我了解了風險面。有哪些缺點？
 
-**Alex:** Great question. Let us address that head on. For selling puts, the main risk is that the stock drops significantly and you are forced to buy at the strike price. If Apple drops from $155 to $100 and you sold the $140 put, you buy at $140 and immediately have a $40 per share unrealized loss.
+**Horace：** 很好的問題，讓我們正面面對它。賣出賣權的主要風險是股票大幅下跌，而你被迫以履約價買入。如果Apple從155美元跌至100美元，而你賣了140美元的賣權，你以140美元買入，帳面上立即虧損40美元/股。
 
-**Sam:** But you would have had the same loss with a limit order.
+**Stella：** 但使用限價買單的人也會面對同樣的虧損。
 
-**Alex:** True, except you are $1.85 better off. The real question is: would you still want to own Apple at $140 if it dropped to $100? If Apple is a strong company and you believe it will recover, then you just got a great long-term entry. If Apple is falling because of fundamental problems, you might regret it. That is why rule number one is: only sell puts on stocks you genuinely want to own.
+**Horace：** 沒錯，只是你每股多出1.85美元的優勢。真正的問題是：如果Apple跌到100美元，你還願意以140美元持有它嗎？如果Apple是一家強健的公司，你相信它會回復，那麼你只是獲得了一個很好的長期進場點。如果Apple下跌是因為基本面出了問題，你可能會後悔。這就是為什麼第一條原則是：只對你真心想持有的股票賣出賣權。
 
-[VISUAL: Bold text on screen: "RULE #1: Only sell puts on stocks you GENUINELY want to own at the strike price."]
+[VISUAL: 粗體文字顯示於螢幕：「第一原則：只對你真正想以履約價持有的股票賣出賣權。」]
 
-**Sam:** And the risk for covered calls?
+**Stella：** 那掩護性買權的風險呢？
 
-**Alex:** The risk is opportunity cost. If you sell the $180 call and Apple rockets to $250, you sold at $181.50 and missed out on $68.50 per share of additional gains. You made money, but you left a lot on the table. This is the tradeoff for the income you collected. You are trading unlimited upside for steady income.
+**Horace：** 風險在於機會成本。如果你賣出180美元的買權，而Apple飆漲至250美元，你以181.50美元賣出，錯過了每股額外68.50美元的漲幅。你確實賺了錢，但留了很多在桌上。這是你為收取的收益所付出的代價。你用無限的上漲空間換取了穩定的收益。
 
-**Sam:** Is there a way to mitigate that?
+**Stella：** 有沒有辦法降低這種情況的影響？
 
-**Alex:** Yes. Choose strike prices that are far enough above the current price that the probability of being called away is low. If Apple is at $155, a $180 call is about 16% above the current price. Most months, Apple will not move up 16% in 30-45 days. Statistically, an OTM covered call at that distance might only be exercised 10-15% of the time.
+**Horace：** 有。選擇足夠高於目前股價的履約價，使被買走的機率較低。如果Apple在155美元，180美元的買權大約比目前高出16%。在30-45天內，大多數月份Apple不會上漲16%。從統計上看，在那個距離設定的價外掩護性買權，大約只有10-15%的機率會被履約執行。
 
-**Sam:** So you win the premium 85-90% of the time?
+**Stella：** 所以85-90%的時間你贏得那筆權利金？
 
-**Alex:** Roughly. And when you do get called away, you are selling at a price you chose as your target. It is not a loss. It is a successful exit at your planned price, plus the bonus of all the premiums you collected along the way.
+**Horace：** 大致上是這樣。而當你確實被指派履約時，你是以你選定的目標價賣出。這不是虧損，而是在你計畫的價格成功出場，加上你一路收取的所有權利金作為獎勵。
 
-[VISUAL: Probability meter showing "85-90% chance: Keep shares + premium" vs "10-15% chance: Sell shares at target + premium"]
+[VISUAL: 機率計量表，顯示「85-90%機率：保留股票 + 權利金」vs「10-15%機率：以目標價賣出股票 + 權利金」]
 
-**Sam:** Let us talk about the practical side. How do I actually choose the right strike price and expiration?
+**Stella：** 來談談實務面。我如何實際選擇正確的履約價和到期日？
 
-**Alex:** For puts, start with the question: at what price would I be genuinely excited to buy this stock? Not just willing, but excited. That is your strike. For Apple at $155, maybe $140 feels like a great deal. Maybe $130 is your bargain price. The further below the current price, the less premium you will receive, but the less likely you are to be assigned and the happier you will be if you are.
+**Horace：** 對於賣出賣權，先問自己這個問題：在什麼價格我會真正很開心地買入這檔股票？不只是勉強接受，而是真心感到興奮。那就是你的履約價。對於155美元的Apple，也許140美元感覺是個好價格，也許130美元是你心目中的超值買點。距離目前股價越遠，你收取的權利金越少，但被指派的可能性也越低，如果真的被指派，你也會更開心。
 
-**Sam:** And for expiration?
+**Stella：** 那到期日呢？
 
-**Alex:** The sweet spot is 30 to 45 days. Here is why. Option time decay accelerates after 45 days. By selling 30-45 day options, you are capturing the period of fastest decay. This gives you the best ratio of premium collected relative to time capital is reserved.
+**Horace：** 甜蜜點是30到45天。原因如下：選擇權的時間耗損在45天後加速。藉由賣出30-45天的選擇權，你在捕捉時間耗損最快的那段期間。這為你提供了最佳的權利金收益與資金鎖定時間的比率。
 
-[VISUAL: Time decay curve with the 30-45 day zone highlighted and labeled "Sweet Spot: Maximum daily theta decay relative to total premium collected"]
+[VISUAL: 時間耗損曲線，30-45天區域被高亮顯示，標注為「甜蜜點：相對於收取的總權利金，每日Theta時間耗損最大」]
 
-**Sam:** Makes sense. What about position sizing? How much of my portfolio should be in these strategies?
+**Stella：** 有道理。部位規模呢？我的投資組合有多少比例應該用於這些策略？
 
-**Alex:** Great question. Never allocate more than 20% of your options-eligible capital to a single stock. If you have $100,000, that means no more than $20,000 committed to any single put position. For a $140 AAPL put, that is just 1 contract at $14,000. Diversify across 4-6 stocks in different sectors.
+**Horace：** 很好的問題。永遠不要在單一股票上配置超過20%的可用選擇權資金。如果你有100,000美元，這意味著任何單一賣權部位最多配置20,000美元。對於140美元的AAPL賣權，就是1口合約，保留14,000美元。跨4-6檔不同行業的股票進行多元配置。
 
-**Sam:** So if I have $100,000, I might have put positions on Apple, Microsoft, JPMorgan, Johnson and Johnson, and an ETF like SPY?
+**Stella：** 所以如果我有100,000美元，我可能在Apple、微軟、摩根大通、嬌生，以及像SPY這樣的指數股票型基金上各有一個賣權部位？
 
-**Alex:** Exactly. Five positions, each using $14,000-$20,000 in capital. You are diversified across technology, financials, healthcare, and the broad market. If one stock drops and you get assigned, it does not dominate your portfolio.
+**Horace：** 完全正確。五個部位，每個使用14,000到20,000美元的資金。你跨科技、金融、醫療保健和大盤進行了多元分散。如果某一檔股票下跌並被指派履約，它不會主導你的整個投資組合。
 
-[VISUAL: Portfolio pie chart showing 5 segments for different put positions, each roughly 15-20% of the total, with 20-25% kept as cash reserve]
+[VISUAL: 投資組合圓餅圖，顯示五個不同賣權部位的區塊，各占總資金約15-20%，另有20-25%保留為現金準備]
 
-**Sam:** I want to come back to something you said. You called this approach a "conditional order." Can you explain that term?
+**Stella：** 我想回到你說的一件事。你把這種方法稱為「條件式委託單」。能解釋一下這個術語嗎？
 
-**Alex:** A conditional order is an order that only executes if certain conditions are met. A limit order is conditional: it only executes if the stock reaches your limit price. A put option is also conditional: you only buy the stock if it drops to the strike price. The option adds a condition that the limit order does not have: a time limit and a premium. But the core concept is the same. You are placing a conditional order with income.
+**Horace：** 條件式委託單是指只有在特定條件被滿足時才會執行的委託單。限價委託單是有條件的：只有在股票達到你的限價時才會執行。賣權選擇權也是有條件的：只有在股票跌至履約價時你才買入股票。選擇權多了兩個限價委託單沒有的條件：時間限制和權利金。但核心概念是相同的——你在設定一個附有條件的委託單，同時獲得收益。
 
-**Sam:** I like that framing. It makes options feel much less exotic. They are just orders with extra features.
+**Stella：** 我喜歡這種框架。它讓選擇權感覺不再那麼陌生。它們只是有額外功能的委託單。
 
-**Alex:** Exactly. And that is why I love this mental model. It takes something that feels complex and foreign, an options contract, and translates it into something every investor already understands, a limit order. The only difference is you are getting paid to use the option version.
+**Horace：** 正是。這也是我喜愛這個心理模型的原因。它將一個感覺複雜而陌生的東西——選擇權合約，翻譯成每位投資人已然熟悉的東西——限價委託單。唯一的差別是你使用選擇權版本時還會獲得報酬。
 
-[VISUAL: Equation on screen: "Options = Limit Orders + Premium Income + Time Limit"]
+[VISUAL: 螢幕上的等式：「選擇權 = 限價委託單 + 權利金收益 + 時間限制」]
 
-**Sam:** Now, is there a scenario where the regular limit order is actually better?
+**Stella：** 那麼，有沒有限價委託單反而更好的情境？
 
-**Alex:** Yes, a few. First, if you want to buy fewer than 100 shares. Options only come in 100-share increments. If you want 50 shares of a $300 stock, a limit order is your only choice. Second, if you need the order to stay open indefinitely. Options expire, so you need to actively manage the strategy. Third, if the stock has very low options volume and wide bid-ask spreads. In that case, the transaction costs of the option might eat up the premium benefit.
+**Horace：** 有，幾種情況下確實如此。第一，如果你想買入少於100股。選擇權只以100股為單位。如果你想買一檔300美元股票的50股，限價委託單是你唯一的選擇。第二，如果你需要委託單無限期有效。選擇權會到期，所以你需要主動管理這個策略。第三，如果某檔股票的選擇權成交量很低、買賣價差很寬。在那種情況下，選擇權的交易成本可能會吃掉權利金的優勢。
 
-**Sam:** That makes sense. So it is not always options over limit orders. It depends on the situation.
+**Stella：** 有道理。所以不是在任何情況下選擇權都比限價委託單好。這取決於具體情況。
 
-**Alex:** Right. Options are a better tool for certain jobs, and limit orders are a better tool for others. The key is knowing which tool fits the situation.
+**Horace：** 對。選擇權是解決某些問題的更好工具，限價委託單對其他問題則更合適。關鍵是知道哪種工具適合哪種情況。
 
-**Sam:** Let me ask about retirement accounts. Can I do this in my IRA?
+**Stella：** 讓我問問關於退休帳戶的問題。我能在個人退休帳戶裡做這個嗎？
 
-**Alex:** Absolutely. Cash-secured puts and covered calls are both allowed in most IRAs. And they are actually even more powerful in a Roth IRA because the premium income grows tax-free. You do not need margin for these strategies because they are fully cash-secured or covered by shares you already own.
+**Horace：** 當然可以。現金擔保賣權和掩護性買權在大多數個人退休帳戶中都是被允許的。而且它們在羅斯個人退休帳戶（Roth IRA）中甚至更有威力，因為權利金收益可以免稅增長。這些策略不需要保證金，因為它們完全由現金擔保或你已持有的股票覆蓋。
 
-[VISUAL: "Options in Retirement Accounts" - Checkmarks next to: Cash-Secured Puts in IRA, Covered Calls in IRA, Cash-Secured Puts in Roth IRA, Covered Calls in Roth IRA. X marks next to: Naked Calls, Spreads (varies by broker), Margin-based strategies]
+[VISUAL: 「退休帳戶中的選擇權」——勾選標記旁標注：個人退休帳戶中的現金擔保賣權、個人退休帳戶中的掩護性買權、羅斯個人退休帳戶中的現金擔保賣權、羅斯個人退休帳戶中的掩護性買權。X標記旁標注：裸賣買權、價差策略（依券商而異）、需要保證金的策略]
 
-**Sam:** One more question that I think a lot of viewers are wondering. How much time does this take? Do I need to watch the market all day?
+**Stella：** 最後一個我相信很多觀眾都想知道的問題。這需要花多少時間？我需要整天盯盤嗎？
 
-**Alex:** Not at all. Here is what a typical month looks like. On day one, you spend 15-30 minutes selecting your puts or calls and placing the orders. Then you largely forget about it. Maybe you check in once a week for 5 minutes to see where the stock is relative to your strike. On expiration week, you spend another 15 minutes deciding whether to let the option expire or close it early. Total time per month: about one hour.
+**Horace：** 完全不需要。以下是典型的一個月操作流程。第一天，你花15-30分鐘選擇你的賣權或買權並下單。之後基本上就不用管它了。也許你每週花5分鐘查看一下股票相對於你的履約價在哪裡。到期週，你再花15分鐘決定是讓選擇權到期失效，還是提前平倉。每月總計時間：大約一個小時。
 
-**Sam:** One hour per month for potentially 10-15% additional annual income. That seems like a great return on time invested.
+**Stella：** 每月一個小時，換取年化可能10-15%的額外報酬。以時間投資的角度來看，這個回報相當可觀。
 
-**Alex:** It is. And this is why I call it the most efficient strategy in investing. The premium per hour of work is extraordinary compared to almost any other investment activity.
+**Horace：** 確實是這樣。這就是為什麼我稱它為投資中效率最高的策略。每小時工作所帶來的權利金收益，遠超過幾乎任何其他投資活動。
 
-[VISUAL: Calculator: "1 hour/month x 12 months = 12 hours/year. $2,400 annual premium / 12 hours = $200/hour effective rate"]
+[VISUAL: 計算機：「每月1小時 x 12個月 = 每年12小時。年收權利金2,400美元 / 12小時 = 時薪等效200美元」]
 
-**Alex:** Let me give you a complete example to tie everything together. Imagine you have $50,000 to invest. You have identified five stocks you want to own. Here is your monthly process.
+**Horace：** 讓我給你一個完整的範例，把所有內容串聯起來。想像你有50,000美元要投資，你找到了五檔你想持有的股票。以下是你的每月流程。
 
-[VISUAL: Spreadsheet showing 5 stocks with columns: Stock, Current Price, Target Buy Price (Strike), Put Premium, Monthly Income, Annualized Yield. Shows a total monthly income and annualized return.]
+[VISUAL: 試算表顯示5檔股票，欄位包含：股票、目前股價、目標買入價（履約價）、賣權權利金、每月收益、年化殖利率。顯示每月總收益和年化報酬。]
 
-**Alex:** You sell one put on each stock at your target buy prices. Total monthly premium might be $600-$800. Annualized, that is $7,200-$9,600, or 14-19% on your $50,000 capital. Each month, you either keep the premium and sell again, or you get assigned and start selling covered calls on your new shares.
+**Horace：** 你在每一檔股票的目標買入價賣出一口賣權。每月總計可能收取600到800美元的權利金。年化計算，那是7,200到9,600美元，也就是你50,000美元資金的14到19%報酬。每個月，你要麼保留權利金再賣一次，要麼被指派履約並開始對你的新股票賣出掩護性買權。
 
-**Sam:** And then the cycle continues. Put selling to buy, then covered call selling while you hold. Then if you are called away, you start selling puts again.
+**Stella：** 然後這個循環繼續。賣出賣權來買入，然後持有期間賣出掩護性買權。如果被指派出場，就再開始賣出賣權。
 
-**Alex:** You just described the wheel strategy, which we will formalize in Week 28. But yes, that is the continuous income-generating cycle.
+**Horace：** 你剛剛描述的就是滾輪策略，我們將在第二十八週正式介紹。但是對，這就是持續產生收益的循環。
 
-**Sam:** Alex, I have to say, this mental model has completely changed how I think about options. They are not some exotic gambling tool. They are enhanced versions of orders I already use.
+**Stella：** 陳馬，我必須說，這個心理模型徹底改變了我看待選擇權的方式。它們不是什麼奇異的賭博工具，而是我原本就在使用的委託單的進階版本。
 
-**Alex:** That is exactly the mindset shift I was hoping for. Options are tools. Used wisely, they make your investing more efficient, more profitable, and more systematic. In the next two weeks, we will dive deep into each strategy: covered calls in Week 27 and cash-secured puts in Week 28.
+**Horace：** 這正是我希望你產生的思維轉變。選擇權是工具。明智地使用，它們讓你的投資更有效率、更有獲利能力、更有系統性。接下來的兩週，我們將深入研究每個策略：第二十七週的掩護性買權，以及第二十八週的現金擔保賣權。
 
-**Sam:** Looking forward to it. Thanks, everyone, for watching.
+**Stella：** 在我們結束之前，讓我問問人們在這種方法中常犯的錯誤。
 
-**Alex:** If this video helped you understand options differently, please like, subscribe, and share it with a friend who is intimidated by options. See you next week.
+**Horace：** 好問題。第一大錯誤是對你不想持有的股票賣出賣權。人們看到一檔波動性大的股票有高額的權利金，就覺得這是輕鬆的錢。然後股票下跌30%，他們被迫買入100股他們毫無信心的東西。
+
+**Stella：** 所以第一原則：只對你真心樂意以履約價買入的股票賣出賣權。
+
+**Horace：** 如果你不願意用普通的委託單以那個履約價買入100股，就不要對那個履約價賣出賣權。就這麼簡單。
+
+**Stella：** 第二個錯誤呢？
+
+**Horace：** 將太多資金集中在單一部位。如果你有100,000美元，卻對同一檔股票賣出5口賣權，綁住70,000美元，一次大跌就讓你陷入嚴重麻煩。要跨4-6檔股票分散，任何單一標的不超過20%。
+
+[VISUAL: 兩個投資組合圓圈。左方：「錯誤——70%集中在單一股票」，有一個過大的紅色區塊。右方：「正確——多元分散」，有五個大小相近、顏色各異的區塊]
+
+**Stella：** 第三個錯誤呢？
+
+**Horace：** 忽視財報行事曆。財報可能引發10-20%的隔夜跳空走勢。如果你的賣權恰好在財報週到期，你就面臨那種跳空風險。賣出賣權前，一定要確認財報日期。
+
+**Stella：** 這些都是非常實用的警告。有沒有最後的叮嚀？
+
+**Horace：** 從小做起。賣出一口賣權，對應一檔股票。觀察整個過程，感受選擇權時間耗損時的感覺。看看到期時會發生什麼事。在擴大規模之前，先熟悉這個機制。完全不必急。
+
+**Stella：** 耐心和紀律。這整個課程的核心主題。
+
+**Horace：** 正是。這兩種特質比任何策略都更有價值。
+
+**Stella：** 期待下週深入探討掩護性買權。謝謝大家的收看。
+
+**Horace：** 如果這支影片幫助你以全新的方式理解了選擇權，請按讚、訂閱，並分享給那些被選擇權嚇到的朋友。下週見。
 
 [VISUAL: End screen with subscribe button, playlist link, and preview thumbnails for Week 27 and Week 28]
 
 ---
 
-*Animation Reference: animation/week26_put_as_limit.py - This animation shows a split-screen comparison between a traditional limit buy order and a short put strategy over a 6-month period. The top panel shows a limit order with idle cash. The bottom panel shows the short put approach with premium coins accumulating each month. Both panels share a common stock price chart that moves over time. When the stock finally drops to the target price, both approaches result in buying, but the put seller's effective cost is visibly lower due to accumulated premiums. A running tally shows total premiums collected and the effective purchase price advantage.*
+*動畫參考：animation/week26_put_as_limit.py — 這個動畫呈現傳統限價買單與賣出賣權策略在6個月期間的分割畫面比較。上方面板展示附有閒置現金的限價委託單。下方面板展示賣出賣權的方式，每個月累積的權利金硬幣不斷增加。兩個面板共享一張隨時間移動的股票價格走勢圖。當股票最終跌至目標價時，兩種方式都導致買入，但由於累積的權利金，賣出賣權投資人的實際成本顯然更低。一個持續計數的顯示板呈現累計收取的權利金總額，以及相應的進場價格優勢。*

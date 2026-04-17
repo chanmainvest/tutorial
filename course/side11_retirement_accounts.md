@@ -230,60 +230,60 @@ A: Self-employed individuals have access to several powerful options. The Solo 4
 
 ---
 
-**Alex:** Sam, today we are covering what might be the most financially impactful topic in our entire series -- retirement accounts. This is where the tax code actually works in your favor.
+**Horace:** Stella, today we are covering what might be the most financially impactful topic in our entire series -- retirement accounts. This is where the tax code actually works in your favor.
 
-**Sam:** I have to be honest, Alex. The alphabet soup of 401(k), IRA, Roth, HSA -- it makes my head spin. I have a 401(k) at work, but I am not even sure I understand how it works.
+**Stella:** I have to be honest, Horace. The alphabet soup of 401(k), IRA, Roth, HSA -- it makes my head spin. I have a 401(k) at work, but I am not even sure I understand how it works.
 
-**Alex:** You are not alone. Most people set up their 401(k) on their first day of work, pick some funds at random, and never think about it again. But understanding these accounts can easily be worth hundreds of thousands of dollars over your career. Let us break it down.
+**Horace:** You are not alone. Most people set up their 401(k) on their first day of work, pick some funds at random, and never think about it again. But understanding these accounts can easily be worth hundreds of thousands of dollars over your career. Let us break it down.
 
 [VISUAL: The three main retirement account types displayed as three doors. Door 1: 401(k) -- "Your employer's plan." Door 2: Traditional IRA -- "Your own pre-tax account." Door 3: Roth IRA -- "Your own after-tax account."]
 
-**Sam:** Let us start with the most basic question. Why do retirement accounts exist?
+**Stella:** Let us start with the most basic question. Why do retirement accounts exist?
 
-**Alex:** The government wants people to save for retirement so they do not become dependent on Social Security or welfare programs. To encourage saving, they offer tax incentives. These incentives come in two flavors -- and understanding them is the foundation of everything else.
+**Horace:** The government wants people to save for retirement so they do not become dependent on Social Security or welfare programs. To encourage saving, they offer tax incentives. These incentives come in two flavors -- and understanding them is the foundation of everything else.
 
 [ANIMATION: Two paths diverging from a single contribution.
 Path 1 -- Traditional: Money goes in pre-tax. Grows without taxes. Gets taxed when you take it out in retirement.
 Path 2 -- Roth: Money goes in after-tax. Grows without taxes. Comes out completely tax-free in retirement.]
 
-**Sam:** So Traditional means I get a tax break now and pay later. Roth means I pay taxes now and never pay again.
+**Stella:** So Traditional means I get a tax break now and pay later. Roth means I pay taxes now and never pay again.
 
-**Alex:** Exactly. That is the single most important concept. Everything else is details and strategy built on top of that foundation.
+**Horace:** Exactly. That is the single most important concept. Everything else is details and strategy built on top of that foundation.
 
-**Sam:** Which one is better?
+**Stella:** Which one is better?
 
-**Alex:** That is the million-dollar question, and the answer is -- it depends. If your tax rate is higher now than it will be in retirement, Traditional saves you more because you are avoiding high taxes today and paying low taxes later. If your tax rate is lower now than it will be in retirement, Roth saves you more because you are paying low taxes today and avoiding high taxes later.
+**Horace:** That is the million-dollar question, and the answer is -- it depends. If your tax rate is higher now than it will be in retirement, Traditional saves you more because you are avoiding high taxes today and paying low taxes later. If your tax rate is lower now than it will be in retirement, Roth saves you more because you are paying low taxes today and avoiding high taxes later.
 
 [VISUAL: Tax bracket comparison.
 Scenario A: Person in 24% bracket now, expects 22% in retirement. Arrow points to Traditional -- "Save at 24%, pay at 22% = net savings."
 Scenario B: Person in 12% bracket now, expects 22% in retirement. Arrow points to Roth -- "Pay at 12%, save at 22% = net savings."
 Scenario C: Person in 24% bracket now, unsure about retirement rates. Arrow points to Both -- "Split contributions for tax diversification."]
 
-**Sam:** What if I have no idea what my tax rate will be in 30 years?
+**Stella:** What if I have no idea what my tax rate will be in 30 years?
 
-**Alex:** Great question, and honestly, nobody knows for sure. Tax rates could change, your income could change, your filing status could change. That is why many financial planners recommend having money in both Traditional and Roth accounts. This is called tax diversification. In retirement, you can pull from whichever bucket minimizes your tax bill each year.
+**Horace:** Great question, and honestly, nobody knows for sure. Tax rates could change, your income could change, your filing status could change. That is why many financial planners recommend having money in both Traditional and Roth accounts. This is called tax diversification. In retirement, you can pull from whichever bucket minimizes your tax bill each year.
 
-**Sam:** That makes sense. Okay, let us talk about the 401(k). That is the one most people encounter first.
+**Stella:** That makes sense. Okay, let us talk about the 401(k). That is the one most people encounter first.
 
-**Alex:** Right. A 401(k) is an employer-sponsored plan. Your employer sets it up, chooses the investment options, and -- critically -- may match some of your contributions.
+**Horace:** Right. A 401(k) is an employer-sponsored plan. Your employer sets it up, chooses the investment options, and -- critically -- may match some of your contributions.
 
-**Sam:** Tell me about the match. That is the free money part, right?
+**Stella:** Tell me about the match. That is the free money part, right?
 
-**Alex:** This is the most important part of any 401(k) discussion. A common match formula is: the employer matches 50% of your contributions up to 6% of your salary. Let us say you make $80,000 per year.
+**Horace:** This is the most important part of any 401(k) discussion. A common match formula is: the employer matches 50% of your contributions up to 6% of your salary. Let us say you make $80,000 per year.
 
 [ANIMATION: Salary: $80,000. You contribute 6% = $4,800. Employer matches 50% of that = $2,400. Total going into your account: $7,200. That $2,400 match is a 50% instant return on your $4,800 contribution. No investment in the world guarantees a 50% return.]
 
-**Sam:** So if I do not contribute at least 6%, I am literally leaving free money on the table?
+**Stella:** So if I do not contribute at least 6%, I am literally leaving free money on the table?
 
-**Alex:** Exactly. If your employer offers a match, contributing enough to get the full match should be your absolute number one financial priority. Before paying off low-interest debt, before investing in a taxable account, before anything else. There is no investment that can match a guaranteed 50% or 100% return.
+**Horace:** Exactly. If your employer offers a match, contributing enough to get the full match should be your absolute number one financial priority. Before paying off low-interest debt, before investing in a taxable account, before anything else. There is no investment that can match a guaranteed 50% or 100% return.
 
-**Sam:** How much can I put into a 401(k)?
+**Stella:** How much can I put into a 401(k)?
 
-**Alex:** For 2024-2025, the employee contribution limit is $23,000. If you are 50 or older, you can add a $7,500 catch-up contribution, bringing the total to $30,500. The employer match is on top of these limits.
+**Horace:** For 2024-2025, the employee contribution limit is $23,000. If you are 50 or older, you can add a $7,500 catch-up contribution, bringing the total to $30,500. The employer match is on top of these limits.
 
-**Sam:** $23,000 is a lot of money. What if I cannot afford to max it out?
+**Stella:** $23,000 is a lot of money. What if I cannot afford to max it out?
 
-**Alex:** Then contribute what you can, but always at least enough to get the full employer match. And remember, if you choose Traditional (pre-tax) contributions, the impact on your paycheck is less than the contribution amount because of the tax savings.
+**Horace:** Then contribute what you can, but always at least enough to get the full employer match. And remember, if you choose Traditional (pre-tax) contributions, the impact on your paycheck is less than the contribution amount because of the tax savings.
 
 [ANIMATION: Paycheck impact calculation.
 Contributing $500/month to Traditional 401(k).
@@ -292,26 +292,26 @@ Tax savings: $500 x 24% = $120.
 Actual paycheck reduction: $500 - $120 = $380.
 "You save $500, but your paycheck only drops by $380. The other $120 comes from tax savings."]
 
-**Sam:** So it costs me $380 to save $500? That is actually quite affordable.
+**Stella:** So it costs me $380 to save $500? That is actually quite affordable.
 
-**Alex:** Right. Many people overestimate the cost of 401(k) contributions because they forget the tax benefit. Now, many employers also offer a Roth 401(k) option. Same contribution limits, but no tax deduction. You pay taxes on the full $500, but it grows and comes out tax-free.
+**Horace:** Right. Many people overestimate the cost of 401(k) contributions because they forget the tax benefit. Now, many employers also offer a Roth 401(k) option. Same contribution limits, but no tax deduction. You pay taxes on the full $500, but it grows and comes out tax-free.
 
-**Sam:** Let us move to IRAs. How are they different from 401(k)s?
+**Stella:** Let us move to IRAs. How are they different from 401(k)s?
 
-**Alex:** IRAs are individual accounts you open yourself at any brokerage. They are independent of your employer. The main advantages of IRAs over 401(k)s are more investment choices and typically lower fees.
+**Horace:** IRAs are individual accounts you open yourself at any brokerage. They are independent of your employer. The main advantages of IRAs over 401(k)s are more investment choices and typically lower fees.
 
 [VISUAL: Comparison table.
 401(k): Employer-sponsored. Limited investment menu. $23,000 limit. May have employer match.
 IRA: You open it yourself. Unlimited investment choices. $7,000 limit. No employer match.
 Both available as Traditional or Roth.]
 
-**Sam:** The contribution limit is much lower -- only $7,000.
+**Stella:** The contribution limit is much lower -- only $7,000.
 
-**Alex:** Yes, and there is another catch with IRAs. Income limits affect whether you can contribute and whether contributions are deductible. For Roth IRAs, if your income exceeds roughly $146,000 as a single filer or $230,000 as a married couple, you cannot contribute directly.
+**Horace:** Yes, and there is another catch with IRAs. Income limits affect whether you can contribute and whether contributions are deductible. For Roth IRAs, if your income exceeds roughly $146,000 as a single filer or $230,000 as a married couple, you cannot contribute directly.
 
-**Sam:** So high earners are locked out of Roth IRAs?
+**Stella:** So high earners are locked out of Roth IRAs?
 
-**Alex:** Not entirely. There is a legal workaround called the backdoor Roth IRA.
+**Horace:** Not entirely. There is a legal workaround called the backdoor Roth IRA.
 
 [ANIMATION: Three-step process illustrated as a pipeline.
 Step 1: Contribute $7,000 to a non-deductible Traditional IRA.
@@ -319,17 +319,17 @@ Step 2: Convert the Traditional IRA to a Roth IRA.
 Step 3: Pay taxes on any gains (minimal if done quickly).
 Result: $7,000 in your Roth IRA, regardless of income.]
 
-**Sam:** Is that really legal?
+**Stella:** Is that really legal?
 
-**Alex:** Completely legal and widely used. The IRS has never challenged it. However, there is a complication called the pro-rata rule. If you have existing Traditional IRA balances, the conversion is partially taxable based on the ratio of pre-tax money in all your IRAs. The cleanest way to do a backdoor Roth is to have zero balance in Traditional IRAs -- which might mean rolling them into your 401(k) first.
+**Horace:** Completely legal and widely used. The IRS has never challenged it. However, there is a complication called the pro-rata rule. If you have existing Traditional IRA balances, the conversion is partially taxable based on the ratio of pre-tax money in all your IRAs. The cleanest way to do a backdoor Roth is to have zero balance in Traditional IRAs -- which might mean rolling them into your 401(k) first.
 
-**Sam:** This is getting strategic. Let us talk about Roth conversions more broadly.
+**Stella:** This is getting strategic. Let us talk about Roth conversions more broadly.
 
-**Alex:** Roth conversions are one of the most powerful tax planning tools available. The idea is simple: move money from a Traditional account to a Roth account, pay taxes on the conversion, and enjoy tax-free growth and withdrawals going forward.
+**Horace:** Roth conversions are one of the most powerful tax planning tools available. The idea is simple: move money from a Traditional account to a Roth account, pay taxes on the conversion, and enjoy tax-free growth and withdrawals going forward.
 
-**Sam:** But why would I voluntarily pay taxes?
+**Stella:** But why would I voluntarily pay taxes?
 
-**Alex:** Because you might pay less now than later. The golden window for Roth conversions is often early retirement. Let me illustrate.
+**Horace:** Because you might pay less now than later. The golden window for Roth conversions is often early retirement. Let me illustrate.
 
 [ANIMATION: Timeline of a person's financial life.
 Age 55-65: Early retirement. No salary. Low income. Low tax bracket.
@@ -337,11 +337,11 @@ Age 65-70: Social Security begins. Income increases.
 Age 73+: RMDs from Traditional accounts begin. Income increases more.
 The "conversion window" between 55-65 is highlighted -- this is when tax rates are lowest and conversions are cheapest.]
 
-**Alex:** Between retirement and when Social Security and RMDs start, you might be in the 10% or 12% tax bracket. If you convert Traditional IRA money to Roth during this window, you pay a low rate now and avoid paying a potentially much higher rate later when RMDs pile on top of Social Security income.
+**Horace:** Between retirement and when Social Security and RMDs start, you might be in the 10% or 12% tax bracket. If you convert Traditional IRA money to Roth during this window, you pay a low rate now and avoid paying a potentially much higher rate later when RMDs pile on top of Social Security income.
 
-**Sam:** What are RMDs exactly?
+**Stella:** What are RMDs exactly?
 
-**Alex:** Required Minimum Distributions. Starting at age 73, the government forces you to withdraw a minimum amount from your Traditional IRA and 401(k) each year. They let you defer taxes for decades, but they want their money eventually.
+**Horace:** Required Minimum Distributions. Starting at age 73, the government forces you to withdraw a minimum amount from your Traditional IRA and 401(k) each year. They let you defer taxes for decades, but they want their money eventually.
 
 [VISUAL: RMD table showing approximate percentages:
 Age 73: ~3.8% of balance
@@ -351,21 +351,21 @@ Age 85: ~6.3%
 Age 90: ~8.2%
 Text: "The percentage increases each year, forcing out more money and more taxes."]
 
-**Sam:** And if I do not take my RMD?
+**Stella:** And if I do not take my RMD?
 
-**Alex:** There is a 25% penalty on the amount you should have taken but did not. That is on top of the ordinary income tax you still owe.
+**Horace:** There is a 25% penalty on the amount you should have taken but did not. That is on top of the ordinary income tax you still owe.
 
-**Sam:** Ouch. What about Roth IRAs? Do they have RMDs?
+**Stella:** Ouch. What about Roth IRAs? Do they have RMDs?
 
-**Alex:** No, and this is a huge advantage of Roth accounts. Roth IRAs have no RMDs during the owner's lifetime. Your money can grow tax-free for as long as you live. If you do not need the money, you can leave it growing for your heirs.
+**Horace:** No, and this is a huge advantage of Roth accounts. Roth IRAs have no RMDs during the owner's lifetime. Your money can grow tax-free for as long as you live. If you do not need the money, you can leave it growing for your heirs.
 
-**Sam:** So there is a planning advantage to getting money into Roth accounts before RMDs start.
+**Stella:** So there is a planning advantage to getting money into Roth accounts before RMDs start.
 
-**Alex:** Absolutely. Every dollar you convert to Roth before age 73 is a dollar that does not contribute to your RMD calculation. This can keep your future income lower, potentially reducing taxes on Social Security benefits and Medicare premiums.
+**Horace:** Absolutely. Every dollar you convert to Roth before age 73 is a dollar that does not contribute to your RMD calculation. This can keep your future income lower, potentially reducing taxes on Social Security benefits and Medicare premiums.
 
-**Sam:** I have also heard about something called a Roth conversion ladder for early retirees.
+**Stella:** I have also heard about something called a Roth conversion ladder for early retirees.
 
-**Alex:** This is a strategy for people who retire before age 59 1/2. Normally, you cannot access retirement funds without a 10% penalty. But with a Roth conversion ladder, you convert a portion of your Traditional IRA to Roth each year. After a 5-year waiting period, the converted principal can be withdrawn penalty-free.
+**Horace:** This is a strategy for people who retire before age 59 1/2. Normally, you cannot access retirement funds without a 10% penalty. But with a Roth conversion ladder, you convert a portion of your Traditional IRA to Roth each year. After a 5-year waiting period, the converted principal can be withdrawn penalty-free.
 
 [ANIMATION: Ladder diagram.
 Year 1 (age 45): Convert $40,000. Must wait 5 years.
@@ -375,13 +375,13 @@ Year 6 (age 50): Year 1's conversion is now accessible penalty-free.
 Year 7 (age 51): Year 2's conversion is accessible.
 "By year 6, you have a continuous ladder of accessible funds."]
 
-**Sam:** That is clever. But you need 5 years of living expenses from other sources to bridge the gap.
+**Stella:** That is clever. But you need 5 years of living expenses from other sources to bridge the gap.
 
-**Alex:** Correct. Taxable accounts, Roth contributions (which can always be withdrawn penalty-free), or other savings can cover the gap. This strategy requires planning but can be extremely effective.
+**Horace:** Correct. Taxable accounts, Roth contributions (which can always be withdrawn penalty-free), or other savings can cover the gap. This strategy requires planning but can be extremely effective.
 
-**Sam:** Let us talk about priority. If I have limited dollars, where should they go first?
+**Stella:** Let us talk about priority. If I have limited dollars, where should they go first?
 
-**Alex:** Here is the generally recommended priority.
+**Horace:** Here is the generally recommended priority.
 
 [VISUAL: A numbered pyramid/staircase.
 Step 1: 401(k) up to employer match (free money -- always first)
@@ -392,21 +392,21 @@ Step 5: HSA if eligible (triple tax advantage)
 Step 6: Mega Backdoor Roth if available
 Step 7: Taxable brokerage account]
 
-**Sam:** Why does the IRA come before maxing out the 401(k)?
+**Stella:** Why does the IRA come before maxing out the 401(k)?
 
-**Alex:** Because IRAs give you complete control over investment choices and fees. Many 401(k) plans have limited menus and higher-cost funds. Your IRA can hold any index fund or ETF at rock-bottom costs. However, if your 401(k) plan has excellent low-cost options -- like many large employer plans do -- this ordering becomes less important.
+**Horace:** Because IRAs give you complete control over investment choices and fees. Many 401(k) plans have limited menus and higher-cost funds. Your IRA can hold any index fund or ETF at rock-bottom costs. However, if your 401(k) plan has excellent low-cost options -- like many large employer plans do -- this ordering becomes less important.
 
-**Sam:** Where does the HSA fit in? I have heard it called the best retirement account.
+**Stella:** Where does the HSA fit in? I have heard it called the best retirement account.
 
-**Alex:** The HSA is uniquely powerful because it offers triple tax benefits. Contributions are tax-deductible, growth is tax-free, and withdrawals for medical expenses are tax-free. No other account offers all three. And after age 65, you can withdraw HSA funds for any purpose -- non-medical withdrawals are simply taxed as ordinary income, like a Traditional IRA.
+**Horace:** The HSA is uniquely powerful because it offers triple tax benefits. Contributions are tax-deductible, growth is tax-free, and withdrawals for medical expenses are tax-free. No other account offers all three. And after age 65, you can withdraw HSA funds for any purpose -- non-medical withdrawals are simply taxed as ordinary income, like a Traditional IRA.
 
-**Sam:** So it is basically a super-IRA for healthcare.
+**Stella:** So it is basically a super-IRA for healthcare.
 
-**Alex:** Exactly. The optimal strategy, if you can afford it, is to contribute the maximum, invest the funds for long-term growth, and pay current medical expenses out of pocket. This lets the HSA compound for decades.
+**Horace:** Exactly. The optimal strategy, if you can afford it, is to contribute the maximum, invest the funds for long-term growth, and pay current medical expenses out of pocket. This lets the HSA compound for decades.
 
-**Sam:** Now, at different life stages, the strategy changes, right?
+**Stella:** Now, at different life stages, the strategy changes, right?
 
-**Alex:** Absolutely. Let me walk through the general framework.
+**Horace:** Absolutely. Let me walk through the general framework.
 
 [ANIMATION: Four life stage panels, each showing recommended account strategy:
 Panel 1 -- Early Career (20s, lower income): "Roth is king. Tax rates are low now. Capture the employer match. Start small but start NOW."
@@ -414,13 +414,13 @@ Panel 2 -- Mid-Career (30s-40s, rising income): "Mix of Traditional and Roth. Ma
 Panel 3 -- Peak Earnings (40s-50s): "Traditional 401(k) for maximum tax deduction. Backdoor Roth IRA. Catch-up contributions after 50."
 Panel 4 -- Retirement: "Strategic Roth conversions during low-income years. Careful withdrawal sequencing. RMD planning."]
 
-**Sam:** So the strategy evolves as your income and tax situation change over your career.
+**Stella:** So the strategy evolves as your income and tax situation change over your career.
 
-**Alex:** Exactly. There is no single right answer for everyone at every stage. The key principles are: always capture the match, maximize tax-advantaged space when possible, choose Traditional vs. Roth based on your current tax bracket, and plan ahead for the conversion and withdrawal strategies that minimize lifetime taxes.
+**Horace:** Exactly. There is no single right answer for everyone at every stage. The key principles are: always capture the match, maximize tax-advantaged space when possible, choose Traditional vs. Roth based on your current tax bracket, and plan ahead for the conversion and withdrawal strategies that minimize lifetime taxes.
 
-**Sam:** Let me summarize. Traditional accounts give you a tax break now and you pay taxes later. Roth accounts take no break now but are tax-free forever. The 401(k) is employer-sponsored with higher contribution limits and potential matching. The IRA is individual with more investment freedom. The backdoor Roth lets high earners get into Roth IRAs. Roth conversions during low-income years can save enormous amounts in taxes. And RMDs force you to take money from Traditional accounts starting at 73 -- another reason to convert to Roth earlier.
+**Stella:** Let me summarize. Traditional accounts give you a tax break now and you pay taxes later. Roth accounts take no break now but are tax-free forever. The 401(k) is employer-sponsored with higher contribution limits and potential matching. The IRA is individual with more investment freedom. The backdoor Roth lets high earners get into Roth IRAs. Roth conversions during low-income years can save enormous amounts in taxes. And RMDs force you to take money from Traditional accounts starting at 73 -- another reason to convert to Roth earlier.
 
-**Alex:** That is an excellent summary. The single biggest mistake people make is not understanding these tools and leaving tax savings on the table. The second biggest mistake is not starting early enough. Even small contributions at age 25 dramatically outgrow larger contributions starting at age 35.
+**Horace:** That is an excellent summary. The single biggest mistake people make is not understanding these tools and leaving tax savings on the table. The second biggest mistake is not starting early enough. Even small contributions at age 25 dramatically outgrow larger contributions starting at age 35.
 
 [ANIMATION: Final comparison.
 Person A: Contributes $300/month starting at age 25. Stops at age 35 (10 years, $36,000 total contributed).
@@ -430,13 +430,13 @@ Person A: ~$490,000.
 Person B: ~$440,000.
 Person A contributed THREE TIMES LESS but ended up with MORE money because of the 10-year head start.]
 
-**Sam:** That is the power of compounding right there. Starting early really does matter.
+**Stella:** That is the power of compounding right there. Starting early really does matter.
 
-**Alex:** It is the single most important decision you can make for your financial future. The best time to start was 10 years ago. The second best time is today.
+**Horace:** It is the single most important decision you can make for your financial future. The best time to start was 10 years ago. The second best time is today.
 
-**Sam:** Next lesson, we are looking at something that has been growing fast in the investment world -- ESG and sustainable investing.
+**Stella:** Next lesson, we are looking at something that has been growing fast in the investment world -- ESG and sustainable investing.
 
-**Alex:** Right. We will cover whether investing with environmental and social principles in mind helps or hurts your returns, and how to navigate the growing world of ESG funds.
+**Horace:** Right. We will cover whether investing with environmental and social principles in mind helps or hurts your returns, and how to navigate the growing world of ESG funds.
 
 ---
 

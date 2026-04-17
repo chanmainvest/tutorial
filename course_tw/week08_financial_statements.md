@@ -1,1072 +1,1066 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Week 8: Reading Financial Statements - Basics
+# 第八週：閱讀財務報表－基礎篇
 
 ---
 
-## Reading Section
+## 閱讀區塊
 
-### a) Why This Is Important
+### a) 為何這項技能不可或缺
 
-Financial statements are the language of business. If you want to invest in individual stocks, evaluate a company inside an ETF, or simply understand the economic news, you must be able to read financial statements. They are to an investor what X-rays and blood tests are to a doctor -- they reveal what is happening beneath the surface, exposing strengths and weaknesses that stock prices and headlines often obscure.
+財務報表是商業世界的共同語言。無論你想投資個股、評估指數股票型基金中的成分股，或只是看懂財經新聞，都必須學會閱讀財務報表。財務報表之於投資人，猶如X光片與血液檢查之於醫師——它們揭露表象之下真實發生的事，將股價與新聞標題時常遮掩的優勢與弱點一一呈現。
 
-Here is why this skill is non-negotiable for serious investors:
+以下是這項技能對認真投資人而言不可或缺的原因：
 
-1. **Financial statements are the only objective source of truth about a company.** Management can say anything in a press release. Analysts can have biases. Stock prices reflect sentiment and speculation. But the financial statements -- audited by independent accountants and filed with regulators -- contain verifiable, standardized data. They are the foundation of every credible investment analysis.
+1. **財務報表是了解一家公司唯一客觀的事實依據。** 管理層可以在新聞稿中說任何話。分析師可能帶有偏見。股價反映的是市場情緒與投機預期。但財務報表——經由獨立會計師審計並申報監管機構——包含可查核、標準化的資料，是所有可信賴投資分析的根基。
 
-2. **Without financial literacy, you are investing blind.** Imagine buying a house without inspecting it, or hiring an employee without checking their references. When you buy a stock without reading the financial statements, you are trusting the crowd's assessment of a business you have not personally evaluated. Sometimes the crowd is right. But when it is wrong, the consequences can be devastating.
+2. **缺乏財務素養，你的投資形同瞎子摸象。** 試想，買房子不做房屋檢查，或雇用員工不查核推薦人，結果會如何？在沒有閱讀財務報表的情況下買進股票，你不過是在信任市場群眾對一家你根本未親自評估之企業的判斷。群眾有時是對的，但一旦群眾判斷錯誤，後果可能慘不忍睹。
 
-3. **Financial statements expose fraud and manipulation early.** Enron, WorldCom, Wirecard -- every major corporate fraud was hiding in plain sight in the financial statements for those who knew where to look. Revenue growing faster than cash flow. Debt hidden in off-balance-sheet entities. Receivables ballooning relative to sales. These warning signs are visible in the statements long before the stock price collapses.
+3. **財務報表能及早揭露詐欺與操縱行為。** 安隆（Enron）、世界通訊（WorldCom）、Wirecard——每一起重大企業舞弊案，對那些知道往哪裡看的人而言，早已明目張膽地藏在財務報表裡。營收成長速度遠超現金流量。負債藏匿於表外實體。應收帳款相對銷售額大幅膨脹。這些警訊在股價崩跌前許久，就已出現在財務報表中。
 
-4. **The three financial statements tell three different stories that must be consistent.** The income statement tells you whether the company is profitable. The balance sheet tells you whether the company is financially healthy. The cash flow statement tells you whether the company is actually generating cash. When these three stories align, you have confidence. When they diverge, something may be wrong.
+4. **三張財務報表各自訴說不同的故事，且必須前後一致。** 損益表告訴你公司是否獲利；資產負債表告訴你公司財務狀況是否健全；現金流量表告訴你公司是否真正在產生現金。當三張報表的故事相互吻合，你可以放心；當它們出現分歧，就可能有問題。
 
-5. **This is the foundation for everything that follows.** Valuation ratios like P/E, P/B, and EV/EBITDA (Week 21) are meaningless if you do not understand the numbers they are based on. Equity analysis, credit analysis, and advanced financial statement analysis all build on the basics covered in this lesson.
+5. **這是後續所有學習的基礎。** 本益比、股價淨值比、企業價值倍數（EV/EBITDA，第21週）等評價比率，若不理解其背後的數字，毫無意義可言。股票分析、信用分析與進階財務報表分析，全都建立在本課所涵蓋的基礎之上。
 
-The CFA curriculum devotes an enormous portion of its study material to Financial Statement Analysis (FSA). At Level I alone, FSA accounts for roughly 13-15% of the exam. The CFA Institute considers it one of the core competencies of any investment professional, and for good reason: you cannot value what you cannot measure, and financial statements are how we measure businesses.
+特許金融分析師（CFA）課程將大量篇幅投入財務報表分析（FSA）。光是Level I，FSA就占考試約13%至15%的比重。CFA協會認為財務報表分析是每位投資專業人士的核心能力之一，原因充分：無法衡量，便無從估值；而衡量企業的工具，正是財務報表。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### 1. The Three Financial Statements -- An Overview
+#### 1. 三大財務報表概覽
 
-Every publicly traded company publishes three core financial statements, typically on a quarterly and annual basis:
+每家上市公司通常每季及每年公布三份核心財務報表：
 
 ```
-THE THREE FINANCIAL STATEMENTS
+三大財務報表
 =================================
 
 +------------------------+     +------------------------+     +------------------------+
-|   INCOME STATEMENT     |     |    BALANCE SHEET       |     |  CASH FLOW STATEMENT   |
-|   (Profit & Loss)      |     |    (Financial Position)|     |  (Cash Movements)      |
+|       損益表           |     |      資產負債表         |     |     現金流量表          |
+|  （獲利與虧損）         |     |  （財務狀況）           |     |  （現金流動情形）        |
 +------------------------+     +------------------------+     +------------------------+
 |                        |     |                        |     |                        |
-| Revenue                |     | ASSETS                 |     | Operating Activities   |
-| - Cost of Goods Sold   |     |   Current Assets       |     |   (Cash from business  |
-| = Gross Profit         |     |   Non-Current Assets   |     |    operations)         |
-| - Operating Expenses   |     |                        |     |                        |
-| = Operating Income     |     | LIABILITIES            |     | Investing Activities   |
-| - Interest Expense     |     |   Current Liabilities  |     |   (Cash for buying/    |
-| - Taxes                |     |   Non-Current Liab.    |     |    selling assets)      |
-| = Net Income           |     |                        |     |                        |
-|                        |     | EQUITY                 |     | Financing Activities   |
-| Covers: A PERIOD       |     |   Stockholders' Equity |     |   (Cash from/to        |
-| (e.g., Jan-Dec 2025)   |     |                        |     |    investors/lenders)   |
-|                        |     | Covers: A POINT IN     |     |                        |
-| Answers: "Did the      |     | TIME (e.g., Dec 31)    |     | Covers: A PERIOD       |
-|  company make money?"  |     |                        |     | (e.g., Jan-Dec 2025)   |
-|                        |     | Answers: "What does    |     |                        |
-|                        |     |  the company own and   |     | Answers: "Where did    |
-|                        |     |  owe right now?"       |     |  the cash come from    |
-|                        |     |                        |     |  and where did it go?" |
+| 營收                   |     | 資產                   |     | 營業活動               |
+| - 銷貨成本             |     |   流動資產              |     |   （來自業務營運        |
+| = 毛利                 |     |   非流動資產            |     |    的現金）             |
+| - 營業費用             |     |                        |     |                        |
+| = 營業利益             |     | 負債                   |     | 投資活動               |
+| - 利息費用             |     |   流動負債              |     |   （買賣資產            |
+| - 稅款                 |     |   非流動負債            |     |    的現金）             |
+| = 淨利                 |     |                        |     |                        |
+|                        |     | 權益                   |     | 融資活動               |
+| 涵蓋：一段期間          |     |   股東權益              |     |   （來自／流向          |
+| （例如2025年1月至12月） |     |                        |     |    投資人/貸款人        |
+|                        |     | 涵蓋：某一時間點        |     |    的現金）             |
+| 回答：「公司是否        |     | （例如12月31日）        |     |                        |
+|  賺到錢？」             |     |                        |     | 涵蓋：一段期間          |
+|                        |     | 回答：「公司目前        |     | （例如2025年1月至12月） |
+|                        |     |  擁有什麼、欠了         |     |                        |
+|                        |     |  什麼？」               |     | 回答：「現金從何        |
+|                        |     |                        |     |  而來、流向何處？」      |
 +------------------------+     +------------------------+     +------------------------+
 ```
 
-A crucial distinction: the income statement and cash flow statement cover a **period of time** (like a movie), while the balance sheet captures a **point in time** (like a photograph). This matters because you can compare periods (Q1 this year vs. Q1 last year) or snapshots (balance sheet at year-end vs. the prior year-end).
+一個關鍵區別：損益表與現金流量表涵蓋的是**一段期間**（如同一部電影），而資產負債表則捕捉**某一時間點**的狀態（如同一張照片）。這項區別很重要，因為你可以比較不同期間（今年第一季 vs. 去年第一季），或比較不同時間點的快照（本年底 vs. 前一年底的資產負債表）。
 
 ---
 
-#### 2. The Income Statement (Profit and Loss Statement)
+#### 2. 損益表（獲利與虧損表）
 
-The income statement shows whether a company made or lost money over a specific period. It starts with revenue at the top and works its way down through various expenses to arrive at net income (or net loss) at the bottom. This is why net income is often called the "bottom line."
+損益表顯示公司在特定期間內是否賺錢。它從最頂端的營收開始，逐層扣除各項費用，最終得出最底部的淨利（或淨損）。這就是為什麼淨利常被稱為「底線」。
 
 ```
-INCOME STATEMENT STRUCTURE
+損益表結構
 ============================
 
-  Revenue (Sales)                              $1,000,000
-  - Cost of Goods Sold (COGS)                   (600,000)
+  營收（銷售額）                               $1,000,000
+  - 銷貨成本（COGS）                            (600,000)
   ------------------------------------------------
-  = GROSS PROFIT                                 $400,000    Gross Margin = 40%
+  = 毛利                                         $400,000    毛利率 = 40%
   
-  - Selling, General & Administrative (SG&A)     (150,000)
-  - Research & Development (R&D)                  (80,000)
-  - Depreciation & Amortization (D&A)             (30,000)
+  - 銷售及管理費用（SG&A）                       (150,000)
+  - 研究與開發費用（R&D）                         (80,000)
+  - 折舊與攤銷（D&A）                             (30,000)
   ------------------------------------------------
-  = OPERATING INCOME (EBIT)                      $140,000    Operating Margin = 14%
+  = 營業利益（EBIT）                             $140,000    營業利益率 = 14%
   
-  - Interest Expense                              (20,000)
-  + Interest Income                                 5,000
+  - 利息費用                                      (20,000)
+  + 利息收入                                        5,000
   ------------------------------------------------
-  = EARNINGS BEFORE TAX (EBT)                    $125,000
+  = 稅前盈餘（EBT）                              $125,000
   
-  - Income Tax Expense (25%)                      (31,250)
+  - 所得稅費用（25%）                             (31,250)
   ------------------------------------------------
-  = NET INCOME                                    $93,750    Net Margin = 9.4%
+  = 淨利                                          $93,750    淨利率 = 9.4%
   
-  Earnings Per Share (EPS) = Net Income / Shares
-  If 10,000 shares outstanding: EPS = $9.38
+  每股盈餘（EPS）= 淨利 / 流通在外股數
+  若流通在外股數為10,000股：EPS = $9.38
 ```
 
-**Key metrics from the income statement:**
+**損益表的關鍵指標：**
 
 ```
-MARGIN ANALYSIS
+利潤率分析
 ================
 
-                          Healthy        Warning Sign
+                          健康標準        警戒訊號
                           -------        ------------
-  Gross Margin            >40%           <20% (unless retailer)
-  (Revenue - COGS)        Industry-      Declining over time
-  / Revenue               dependent      means pricing pressure
+  毛利率                  >40%           <20%（零售業除外）
+  （營收 - 銷貨成本）     視產業而定      長期下滑代表
+  / 營收                               定價或成本壓力
 
-  Operating Margin        >15%           <5%
-  (EBIT / Revenue)        Shows          Declining suggests
-                          efficiency     cost problems
+  營業利益率              >15%           <5%
+  （EBIT / 營收）         反映           下滑暗示
+                          營運效率        成本管控問題
 
-  Net Margin              >10%           <3%
-  (Net Income /           After all      Thin margins mean
-   Revenue)               costs          little room for error
+  淨利率                  >10%           <3%
+  （淨利 /               扣除所有        獲利空間薄，
+   營收）                成本後          幾乎沒有緩衝
 
-  IMPORTANT: Margins vary enormously by industry!
+  重要提示：不同產業的利潤率差異極大！
   
-  Typical ranges:
-  Software/SaaS:    70-85% gross,  20-40% operating
-  Consumer Staples: 30-50% gross,  15-25% operating
-  Retail/Grocery:   25-35% gross,   3-8%  operating
-  Airlines:         40-60% gross,   5-15% operating
-  Banks:            N/A (use Net Interest Margin instead)
+  典型範圍：
+  軟體/SaaS：       毛利率70-85%，  營業利益率20-40%
+  民生消費品：       毛利率30-50%，  營業利益率15-25%
+  零售/雜貨：       毛利率25-35%，  營業利益率3-8%
+  航空業：          毛利率40-60%，  營業利益率5-15%
+  銀行業：          不適用（改用淨利差指標）
 ```
 
-**What to look for on the income statement:**
+**損益表的重點觀察事項：**
 
-- **Revenue growth.** Is the top line growing? Revenue is the hardest number to fake over long periods and is the ultimate driver of long-term value.
-- **Margin trends.** Are margins expanding (good -- pricing power, cost efficiency) or contracting (bad -- competition, rising costs)?
-- **One-time items.** Watch for "restructuring charges," "asset impairments," or "gains on sale" that distort the true operating picture. Normalize earnings by excluding non-recurring items.
-- **Revenue quality.** Is revenue from recurring sources (subscriptions, contracts) or one-time sales? Recurring revenue is far more valuable.
+- **營收成長。** 頂線是否持續成長？成長速度如何？長期而言，營收是最難在長期造假的數字，也是長期價值的最終驅動力。
+- **利潤率趨勢。** 利潤率是在擴張（有利——代表定價能力與成本效益）還是在收縮（不利——代表競爭加劇或成本上升）？
+- **一次性項目。** 留意「重組費用」、「資產減損」或「出售利益」等項目，它們可能扭曲真實的營運狀況。透過排除非經常性項目來還原正常化盈餘。
+- **營收品質。** 營收來自經常性來源（訂閱制、長期合約）還是一次性銷售？經常性營收的價值遠高於一次性銷售。
 
 ---
 
-#### 3. The Balance Sheet (Statement of Financial Position)
+#### 3. 資產負債表（財務狀況表）
 
-The balance sheet shows what a company owns (assets), what it owes (liabilities), and the residual value belonging to shareholders (equity) at a specific point in time. The fundamental equation is:
+資產負債表顯示公司在某一特定時間點擁有什麼（資產）、積欠什麼（負債），以及屬於股東的剩餘價值（權益）。其基本等式為：
 
 ```
-THE ACCOUNTING EQUATION
+會計恆等式
 ========================
 
-  ASSETS = LIABILITIES + SHAREHOLDERS' EQUITY
+  資產 = 負債 + 股東權益
 
-  What the         What the company     What belongs
-  company OWNS     OWES to others       to shareholders
+  公司所擁有的     公司積欠他人的     屬於股東的部分
 
-  Think of it as a personal analogy:
+  以個人財務做比喻：
   
-  Your house value     =   Your mortgage   +   Your home equity
-  ($500,000)               ($300,000)           ($200,000)
+  你的房屋市值     =   你的房貸   +   你在房屋中的自有權益
+  （$500,000）         （$300,000）       （$200,000）
 
-  This equation ALWAYS balances. That is why it is
-  called a "balance" sheet.
+  這個等式永遠成立。這就是為什麼它
+  被稱為「資產負債」表。
 ```
 
-**Balance sheet structure:**
+**資產負債表結構：**
 
 ```
-BALANCE SHEET LAYOUT
+資產負債表配置
 ======================
 
-ASSETS (What the company owns)         LIABILITIES (What the company owes)
-================================       ==================================
+資產（公司所擁有的）                 負債（公司所積欠的）
+================================     ==================================
 
-CURRENT ASSETS (< 1 year)             CURRENT LIABILITIES (< 1 year)
-  Cash & Equivalents       $50,000       Accounts Payable        $40,000
-  Short-Term Investments    20,000       Short-Term Debt          25,000
-  Accounts Receivable       80,000       Accrued Expenses         15,000
-  Inventory                 60,000       Current Portion of        
-  Prepaid Expenses          10,000         Long-Term Debt         10,000
-                          --------                               --------
-  Total Current Assets    $220,000       Total Current Liab.     $90,000
+流動資產（1年內）                    流動負債（1年內）
+  現金及約當現金          $50,000      應付帳款              $40,000
+  短期投資                 20,000      短期借款               25,000
+  應收帳款                 80,000      應計費用               15,000
+  存貨                     60,000      長期借款－一年內        
+  預付費用                 10,000        到期部分             10,000
+                          --------                           --------
+  流動資產合計           $220,000      流動負債合計           $90,000
 
-NON-CURRENT ASSETS (> 1 year)         NON-CURRENT LIABILITIES (> 1 year)
-  Property, Plant &                      Long-Term Debt         $150,000
-    Equipment (PP&E)      $300,000       Deferred Tax Liab.      20,000
-  Goodwill                 100,000       Pension Obligations      30,000
-  Intangible Assets         50,000                              --------
-  Long-Term Investments     30,000       Total Non-Current      $200,000
+非流動資產（1年以上）                非流動負債（1年以上）
+  不動產、廠房                          長期借款             $150,000
+    及設備（PP&E）        $300,000      遞延所得稅負債         20,000
+  商譽                    100,000      退休金義務             30,000
+  無形資產                 50,000                            --------
+  長期投資                 30,000      非流動負債合計        $200,000
                           --------
-  Total Non-Current       $480,000     TOTAL LIABILITIES        $290,000
+  非流動資產合計          $480,000   負債合計               $290,000
 
-                                       SHAREHOLDERS' EQUITY
-                                         Common Stock           $100,000
-                                         Retained Earnings      $280,000
-                                         Treasury Stock          (50,000)
-TOTAL ASSETS              $700,000       Other                    80,000
-                                                                --------
-                                       TOTAL EQUITY             $410,000
+                                     股東權益
+                                       普通股               $100,000
+                                       保留盈餘             $280,000
+                                       庫藏股               (50,000)
+資產合計                $700,000      其他                   80,000
+                                                            --------
+                                     股東權益合計           $410,000
 
-                                       TOTAL LIAB. + EQUITY    $700,000
-                                                                ========
-                          $700,000  =  $290,000  +  $410,000    BALANCES!
+                                     負債及權益合計         $700,000
+
+                        $700,000  =  $290,000  +  $410,000    平衡！
 ```
 
-**Key balance sheet concepts:**
+**資產負債表關鍵概念：**
 
-**Current vs. Non-Current.** Current assets are expected to be converted to cash within one year (accounts receivable, inventory). Current liabilities are due within one year (accounts payable, short-term debt). The relationship between them is crucial for assessing short-term financial health.
+**流動與非流動。** 流動資產預計在一年內轉換為現金（應收帳款、存貨）；流動負債在一年內到期（應付帳款、短期借款）。兩者之間的關係對評估短期財務健全度至關重要。
 
-**Working Capital.** Current Assets minus Current Liabilities. Positive working capital means the company can pay its short-term obligations. Negative working capital can signal financial distress (but some businesses like Amazon operate with negative working capital by design, collecting from customers before paying suppliers).
+**營運資金。** 流動資產減去流動負債。正的營運資金代表公司可以支付短期義務；負的營運資金可能發出財務困難的訊號（但某些企業如亞馬遜刻意以負營運資金運作，先向顧客收款、後付貨款給供應商）。
 
 ```
-WORKING CAPITAL AND LIQUIDITY
+營運資金與流動性
 ===============================
 
-  Working Capital = Current Assets - Current Liabilities
-                  = $220,000 - $90,000
-                  = $130,000  (positive = healthy)
+  營運資金   = 流動資產 - 流動負債
+             = $220,000 - $90,000
+             = $130,000  （正值 = 健康）
 
-  Current Ratio   = Current Assets / Current Liabilities
-                  = $220,000 / $90,000
-                  = 2.44x     (>1.5 generally healthy)
+  流動比率   = 流動資產 / 流動負債
+             = $220,000 / $90,000
+             = 2.44倍   （>1.5倍通常屬健康）
 
-  Quick Ratio     = (Current Assets - Inventory) / Current Liabilities
-                  = ($220,000 - $60,000) / $90,000
-                  = 1.78x     (>1.0 generally healthy)
-                  (Excludes inventory because it may not
-                   be quickly convertible to cash)
+  速動比率   = （流動資產 - 存貨）/ 流動負債
+             = （$220,000 - $60,000）/ $90,000
+             = 1.78倍   （>1.0倍通常屬健康）
+             （排除存貨，因存貨未必能
+              迅速變現）
 ```
 
-**Goodwill and Intangible Assets.** Goodwill appears when a company acquires another company for more than the value of its tangible assets. It represents the premium paid for brand, customer relationships, synergies, and other intangibles. A large goodwill balance means the company has been an active acquirer. Goodwill impairments (writedowns) can signal that past acquisitions overpaid, which is a red flag for management's capital allocation skills.
+**商譽與無形資產。** 商譽在公司以高於被收購方有形資產帳面價值的價格完成收購時產生，代表為品牌、客戶關係、綜效及其他無形因素所支付的溢價。商譽餘額龐大，意味該公司積極從事併購活動。商譽減損（帳面價值減記）可能暗示過去的收購溢價過高，這是管理層資本配置能力不佳的警訊。
 
-**What to look for on the balance sheet:**
+**資產負債表的重點觀察事項：**
 
-- **Debt levels.** Debt-to-Equity ratio above 2.0 warrants scrutiny. Excessive debt increases bankruptcy risk and limits financial flexibility.
-- **Cash position.** Is there enough cash to cover short-term obligations? Cash-rich companies have a strategic advantage in downturns.
-- **Receivables relative to revenue.** If receivables are growing much faster than revenue, the company may be booking revenue aggressively or having trouble collecting payments.
-- **Inventory trends.** Rising inventory relative to sales can signal weakening demand or production problems.
+- **負債水準。** 負債對權益比率超過2.0倍時應深入審查。過度負債會增加破產風險並削弱財務彈性。
+- **現金部位。** 是否有足夠現金支應短期義務？現金充裕的公司在景氣低迷時具有策略優勢。
+- **應收帳款相對營收的比例。** 若應收帳款成長速度遠快於營收，公司可能積極認列營收，或面臨收款困難。
+- **存貨趨勢。** 存貨相對銷售額上升，可能暗示需求走弱或生產問題。
 
 ---
 
-#### 4. The Cash Flow Statement
+#### 4. 現金流量表
 
-The cash flow statement is arguably the most important financial statement for investors, yet it is the one that gets the least attention from beginners. It shows where cash actually came from and where it went, stripping away the accounting assumptions that can make the income statement misleading.
+現金流量表可說是對投資人最重要的財務報表，卻也是初學者最容易忽略的一張。它揭示現金從何而來、流向何處，剝去可能使損益表產生誤導的會計假設。
 
-Why is cash flow so important? Because you cannot pay employees, suppliers, or dividends with accounting profits. You pay them with cash. A company can report positive net income for years while actually burning cash -- and eventually run out of money. The cash flow statement reveals this.
+為何現金流量如此重要？因為你無法用會計帳上的利潤支付員工薪資、供應商貨款或股利——你需要的是現金。一家公司可以連年報告正的淨利，同時實際上燒著現金，最終耗盡資金。現金流量表正是揭露這一切的工具。
 
 ```
-CASH FLOW STATEMENT STRUCTURE
+現金流量表結構
 ================================
 
-OPERATING ACTIVITIES (Cash from running the business)
+營業活動（來自業務經營的現金）
 ------------------------------------------------------
-  Net Income                                    $93,750
-  + Depreciation & Amortization                  30,000
-    (non-cash expense added back)
-  - Increase in Accounts Receivable             (15,000)
-    (sold goods but haven't collected cash yet)
-  - Increase in Inventory                       (10,000)
-    (bought inventory, cash went out)
-  + Increase in Accounts Payable                 12,000
-    (owe suppliers but haven't paid cash yet)
-  + Other Adjustments                             5,000
+  淨利                                          $93,750
+  + 折舊與攤銷                                    30,000
+    （非現金費用，加回）
+  - 應收帳款增加                                 (15,000)
+    （已售出商品但尚未收回現金）
+  - 存貨增加                                     (10,000)
+    （購入存貨，現金流出）
+  + 應付帳款增加                                  12,000
+    （積欠供應商但尚未付款）
+  + 其他調整                                       5,000
                                                --------
-  NET CASH FROM OPERATIONS                     $115,750
+  營業活動淨現金                                $115,750
 
-INVESTING ACTIVITIES (Cash for long-term assets)
+投資活動（長期資產的現金）
 ------------------------------------------------------
-  - Purchase of PP&E (Capital Expenditure)      (50,000)
-  - Acquisition of Subsidiary                   (30,000)
-  + Sale of Equipment                            10,000
+  - 購置不動產、廠房及設備（資本支出）            (50,000)
+  - 收購子公司                                   (30,000)
+  + 出售設備                                      10,000
                                                --------
-  NET CASH FROM INVESTING                      ($70,000)
+  投資活動淨現金                               ($70,000)
 
-FINANCING ACTIVITIES (Cash from/to investors & lenders)
+融資活動（來自/流向投資人及貸款人的現金）
 ------------------------------------------------------
-  + Proceeds from Long-Term Debt                 40,000
-  - Repayment of Debt                           (20,000)
-  - Dividends Paid                              (25,000)
-  - Share Buybacks                              (15,000)
+  + 長期借款收入                                  40,000
+  - 償還借款                                     (20,000)
+  - 支付股利                                     (25,000)
+  - 買回庫藏股                                   (15,000)
                                                --------
-  NET CASH FROM FINANCING                      ($20,000)
+  融資活動淨現金                               ($20,000)
 
                                                --------
-  NET CHANGE IN CASH                            $25,750
-  + Beginning Cash Balance                       24,250
+  現金淨變動                                    $25,750
+  + 期初現金餘額                                  24,250
                                                --------
-  ENDING CASH BALANCE                           $50,000
+  期末現金餘額                                   $50,000
 ```
 
-**The three sections explained:**
+**三個區段說明：**
 
 ```
-OPERATING      "How much cash does the core business generate?"
-               This is the most important section.
-               Positive = business is self-sustaining
-               Negative = business is burning cash (warning!)
+營業活動    「核心業務產生了多少現金？」
+            這是最重要的區段。
+            正值 = 業務可自給自足
+            負值 = 業務在燒現金（警訊！）
 
-INVESTING      "Is the company investing for future growth?"
-               Usually negative (spending on PP&E, acquisitions)
-               Positive can mean selling assets (may be good
-               or bad depending on context)
+投資活動    「公司是否在為未來成長投資？」
+            通常為負（支出用於資本支出與收購）
+            正值可能代表出售資產（視情況
+            可能是好事或壞事）
 
-FINANCING      "How is the company funded?"
-               Positive = raising money (issuing debt or stock)
-               Negative = returning money (paying debt,
-               dividends, or buying back shares)
+融資活動    「公司的資金從何而來？」
+            正值 = 募集資金（發行債券或股票）
+            負值 = 返還資金（償債、
+            發放股利或買回庫藏股）
 ```
 
-**Free Cash Flow -- The Number Investors Care About Most:**
+**自由現金流——投資人最在意的數字：**
 
 ```
-FREE CASH FLOW (FCF)
+自由現金流（FCF）
 =====================
 
-  FCF = Cash from Operations - Capital Expenditures
+  FCF = 營業活動現金流 - 資本支出
 
-  From our example:
+  以上述範例為例：
   FCF = $115,750 - $50,000 = $65,750
 
-  Why FCF matters:
-  - It is the cash available AFTER maintaining/growing the business
-  - It can be used for: dividends, buybacks, debt repayment,
-    acquisitions, or building cash reserves
-  - FCF is much harder to manipulate than net income
-  - It is the basis of DCF valuation (Week 21)
+  為何FCF重要：
+  - 這是維持/擴展業務後「真正可動用」的現金
+  - 可用於：股利、買回庫藏股、償債、
+    收購，或累積現金儲備
+  - FCF遠比淨利難以操縱
+  - 是折現現金流（DCF）估值的基礎（第21週）
 
-  FCF YIELD = FCF / Market Capitalization
+  FCF殖利率 = FCF / 市值
   
-  If market cap = $800,000:
-  FCF Yield = $65,750 / $800,000 = 8.2%
+  若市值 = $800,000：
+  FCF殖利率 = $65,750 / $800,000 = 8.2%
   
-  Compare to:
-  - Bond yields (~4-5%): FCF yield higher = stocks may be cheap
-  - Stock market average FCF yield (~3-4%): This company looks
-    attractive on a cash flow basis
+  對比：
+  - 債券殖利率（約4-5%）：FCF殖利率更高 = 股票可能偏便宜
+  - 股市平均FCF殖利率（約3-4%）：此公司在
+    現金流指標上看來具吸引力
 ```
 
 ---
 
-#### 5. How the Three Statements Connect
+#### 5. 三張報表如何相互連結
 
-This is one of the most important concepts in accounting and financial analysis. The three statements are not independent -- they are deeply interconnected. Understanding these connections is what separates a competent analyst from a beginner.
+這是會計與財務分析中最重要的概念之一。三張報表並非相互獨立——它們彼此深度交織。理解這些連結，是區分稱職分析師與初學者的關鍵。
 
 ```
-HOW THE THREE STATEMENTS ARE LINKED
+三張報表如何相互連結
 ======================================
 
-                    INCOME STATEMENT
+                    損益表
                     ================
-                    Revenue
-                    - Expenses
-                    = Net Income ---+
-                                    |
-                    +---------------+---------------+
-                    |                               |
-                    v                               v
-            BALANCE SHEET                  CASH FLOW STATEMENT
-            =============                 ====================
-            Assets | Liabilities           STARTS with
-                   | + Equity              Net Income
-                   |                       (from Income Stmt)
-     Net Income -->| Retained              
-     flows into    | Earnings              Adjusts for non-cash
-     Retained      | increases             items and working
-     Earnings      |                       capital changes
-                   |                       
-     Cash from  -->| Cash (asset)          ENDS with
-     Cash Flow     | changes               change in Cash
-     Stmt updates  |                       (which updates the
-     Cash on       |                       Balance Sheet)
-     Balance Sheet |
+                    營收
+                    - 費用
+                    = 淨利 ---+
+                               |
+                    +----------+----------+
+                    |                     |
+                    v                     v
+            資產負債表                現金流量表
+            =============             ====================
+            資產 | 負債                以
+                 | + 權益              淨利為起點
+                 |                    （來自損益表）
+     淨利 ------>| 保留盈餘            
+     流入保留     | 增加               調整非現金項目
+     盈餘         |                    及營運資金變動
+                 |                   
+     現金流量  -->| 現金（資產）        最終金額為
+     表更新資     | 變動               現金淨變動
+     產負債表     |                   （更新資產負債表
+     上的現金     |                    上的現金）
+     餘額         |
 
-CIRCULAR CONNECTIONS:
-  1. Net Income from Income Statement feeds into
-     Retained Earnings on Balance Sheet
+循環連結：
+  1. 損益表的淨利流入
+     資產負債表的保留盈餘
 
-  2. Net Income is the starting point of the
-     Cash Flow Statement (indirect method)
+  2. 淨利是現金流量表
+     的起點（間接法）
 
-  3. Ending Cash from Cash Flow Statement updates
-     Cash on the Balance Sheet
+  3. 現金流量表的期末現金餘額
+     更新資產負債表上的
+     現金項目
 
-  4. Depreciation on Income Statement reduces PP&E
-     on Balance Sheet and is added back on
-     Cash Flow Statement
+  4. 損益表的折舊減少資產負債表
+     的不動產廠房及設備，並在
+     現金流量表中加回
 
-  5. New debt on Cash Flow Statement (financing)
-     increases Liabilities on Balance Sheet and
-     creates Interest Expense on Income Statement
+  5. 現金流量表中的新增借款（融資）
+     增加資產負債表的負債，並
+     在損益表中產生利息費用
 ```
 
-**A practical example of the interconnection:**
+**一筆銷售交易貫穿三張報表的實例：**
 
 ```
-TRACING A SALE THROUGH ALL THREE STATEMENTS
+追蹤一筆賒銷交易通過三張報表
 =============================================
 
-Event: Company sells $10,000 of product on credit
-       (cost of goods was $6,000)
+事件：公司賒銷商品$10,000
+     （商品成本為$6,000）
 
-INCOME STATEMENT IMPACT:
-  Revenue:          +$10,000
-  COGS:             -$6,000
-  Gross Profit:     +$4,000
-  (Net income increases)
+損益表影響：
+  營收：          +$10,000
+  銷貨成本：       -$6,000
+  毛利：           +$4,000
+  （淨利增加）
 
-BALANCE SHEET IMPACT:
-  Accounts Receivable:  +$10,000  (asset increases)
-  Inventory:            -$6,000   (asset decreases)
-  Retained Earnings:    +$4,000   (equity increases, via net income)
-  (Assets = Liabilities + Equity still balances!)
+資產負債表影響：
+  應收帳款：  +$10,000  （資產增加）
+  存貨：      -$6,000   （資產減少）
+  保留盈餘：  +$4,000   （透過淨利增加權益）
+  （資產 = 負債 + 權益，仍然平衡！）
 
-CASH FLOW STATEMENT IMPACT:
-  Net Income:               +$4,000
-  Increase in Receivables:  -$10,000  (cash not yet collected)
-  Decrease in Inventory:    +$6,000   (cash was spent earlier)
-  Net Cash Impact:          $0        (no cash moved yet!)
+現金流量表影響：
+  淨利：               +$4,000
+  應收帳款增加：        -$10,000  （尚未收到現金）
+  存貨減少：            +$6,000   （現金先前已支出）
+  現金淨影響：          $0        （目前沒有現金移動！）
 
-KEY INSIGHT: The company booked $4,000 in profit,
-but received ZERO cash! The cash arrives only when
-the customer pays. This is why the cash flow
-statement exists -- to show the truth about cash.
+關鍵洞見：公司帳上認列了$4,000的獲利，
+但實際收到的現金為零！只有等到客戶
+付款，現金才會入帳。這正是現金流量表
+存在的意義——揭露現金的真相。
 ```
 
 ---
 
-#### 6. Key Financial Ratios
+#### 6. 關鍵財務比率
 
-Financial ratios translate raw statement numbers into comparable, meaningful metrics. They fall into four broad categories:
+財務比率將報表中的原始數字轉化為可比較、有意義的指標。它們可分為四大類：
 
 ```
-FINANCIAL RATIO CATEGORIES
+財務比率類別
 ============================
 
-1. PROFITABILITY RATIOS
-   "Is the company making money efficiently?"
+1. 獲利能力比率
+   「公司是否有效率地賺錢？」
    +------------------------------------------+
-   | Gross Margin    = Gross Profit / Revenue  |
-   | Operating Margin= EBIT / Revenue          |
-   | Net Margin      = Net Income / Revenue    |
-   | ROE             = Net Income / Equity     |
-   | ROA             = Net Income / Total Assets|
-   +------------------------------------------+
-
-2. LIQUIDITY RATIOS
-   "Can the company pay its short-term bills?"
-   +------------------------------------------+
-   | Current Ratio   = Current Assets /        |
-   |                   Current Liabilities      |
-   | Quick Ratio     = (Cash + Receivables) /  |
-   |                   Current Liabilities      |
-   | Cash Ratio      = Cash / Current Liab.    |
+   | 毛利率        = 毛利 / 營收              |
+   | 營業利益率    = EBIT / 營收              |
+   | 淨利率        = 淨利 / 營收              |
+   | 股東權益報酬率= 淨利 / 股東權益           |
+   | 資產報酬率    = 淨利 / 總資產            |
    +------------------------------------------+
 
-3. LEVERAGE (SOLVENCY) RATIOS
-   "How much debt is the company carrying?"
+2. 流動性比率
+   「公司是否能支付短期帳款？」
    +------------------------------------------+
-   | Debt-to-Equity  = Total Debt / Equity     |
-   | Debt-to-Assets  = Total Debt / Total Assets|
-   | Interest Cover. = EBIT / Interest Expense |
-   | (Times Interest Earned)                   |
+   | 流動比率      = 流動資產 /               |
+   |                 流動負債                  |
+   | 速動比率      = （現金 + 應收帳款）/      |
+   |                 流動負債                  |
+   | 現金比率      = 現金 / 流動負債           |
    +------------------------------------------+
 
-4. EFFICIENCY RATIOS
-   "How well does the company use its resources?"
+3. 槓桿（償債能力）比率
+   「公司承擔了多少負債？」
    +------------------------------------------+
-   | Inventory Turn. = COGS / Avg Inventory    |
-   | Receivable Turn.= Revenue / Avg Receivables|
-   | Asset Turnover  = Revenue / Total Assets  |
-   | Days Sales Out. = 365 / Receivable Turnover|
-   | (DSO)                                     |
+   | 負債權益比    = 總負債 / 股東權益         |
+   | 負債資產比    = 總負債 / 總資產           |
+   | 利息保障倍數  = EBIT / 利息費用           |
+   |（Times Interest Earned）                 |
+   +------------------------------------------+
+
+4. 效率比率
+   「公司如何運用其資源？」
+   +------------------------------------------+
+   | 存貨週轉率    = 銷貨成本 / 平均存貨       |
+   | 應收帳款週轉率= 營收 / 平均應收帳款        |
+   | 資產週轉率    = 營收 / 總資產             |
+   | 應收帳款收現天數 = 365 / 應收帳款週轉率   |
+   |（DSO）                                    |
    +------------------------------------------+
 ```
 
-**Return on Equity (ROE) and the DuPont Decomposition:**
+**股東權益報酬率（ROE）與杜邦分解：**
 
-ROE is arguably the single most important ratio for equity investors. It measures how much profit a company generates with shareholders' money. The DuPont framework breaks ROE into three components to reveal what is driving it:
+ROE可說是股票投資人最重要的單一比率，衡量公司以股東資金創造了多少獲利。杜邦分析框架將ROE拆解為三個組成要素，揭示其背後驅動力：
 
 ```
-DUPONT DECOMPOSITION OF ROE
+杜邦分解ROE
 =============================
 
-  ROE = Net Income / Shareholders' Equity
+  ROE = 淨利 / 股東權益
 
-  Can be decomposed as:
+  可分解為：
 
-  ROE = (Net Income/Revenue) x (Revenue/Assets) x (Assets/Equity)
-        ^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^
-         Profit Margin          Asset Turnover      Financial
-         (Profitability)        (Efficiency)        Leverage
+  ROE = （淨利/營收）× （營收/資產）× （資產/權益）
+        ^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^
+         淨利率          資產週轉率           財務
+         （獲利能力）    （效率）              槓桿
 
-  Example Company A:  ROE = 20%
-    Profit Margin:     10%  x
-    Asset Turnover:    1.0  x
-    Leverage:          2.0  = 20%
-    (Moderate margins, moderate efficiency, some leverage)
+  範例公司A：  ROE = 20%
+    淨利率：    10%  ×
+    資產週轉率：1.0  ×
+    槓桿：      2.0  = 20%
+    （中等利潤率，中等效率，適度槓桿）
 
-  Example Company B:  ROE = 20%
-    Profit Margin:     5%   x
-    Asset Turnover:    2.0  x
-    Leverage:          2.0  = 20%
-    (Low margins but high efficiency, same leverage)
+  範例公司B：  ROE = 20%
+    淨利率：    5%   ×
+    資產週轉率：2.0  ×
+    槓桿：      2.0  = 20%
+    （低利潤率但高效率，相同槓桿）
 
-  Example Company C:  ROE = 20%
-    Profit Margin:     20%  x
-    Asset Turnover:    0.5  x
-    Leverage:          2.0  = 20%
-    (High margins but low efficiency, same leverage)
+  範例公司C：  ROE = 20%
+    淨利率：    20%  ×
+    資產週轉率：0.5  ×
+    槓桿：      2.0  = 20%
+    （高利潤率但低效率，相同槓桿）
 
-  SAME ROE, but VERY different business models!
-  DuPont reveals WHY a company earns what it earns.
+  ROE相同，但商業模式截然不同！
+  杜邦分解揭示公司「為何」賺得這樣的報酬。
 
-  WATCH OUT: High ROE driven primarily by leverage
-  (high Assets/Equity) is RISKY. The company is
-  borrowing heavily to boost returns.
+  注意：若ROE主要由槓桿（高資產/權益比）
+  驅動，則風險極高。公司是在大量
+  舉債以提升報酬。
 ```
 
 ---
 
-#### 7. Red Flags in Financial Statements
+#### 7. 財務報表的警訊
 
-Knowing what to look for can protect you from disasters:
+知道該注意哪些跡象，可以讓你免於災難：
 
 ```
-FINANCIAL STATEMENT RED FLAGS
+財務報表警訊
 ================================
 
-RED FLAG                              WHY IT MATTERS
+警訊                                  為何重要
 --------                              ---------------
 
-Revenue growing but cash flow         May be booking revenue
-from operations declining             aggressively or having
-                                      collection problems
+營收成長但來自營業活動的              可能積極認列營收
+現金流量下滑                          或面臨收款困難
 
-Receivables growing faster            Customers not paying,
-than revenue                          or stuffing the channel
+應收帳款成長速度快於營收              客戶未付款，
+                                      或「塞貨」充業績
 
-Inventory growing faster              Products not selling,
-than revenue                          potential writedowns ahead
+存貨成長速度快於營收                  商品滯銷，
+                                      潛在減值風險
 
-Frequent "one-time" charges           They are not one-time
-that appear year after year           if they keep happening
+「一次性」費用一再出現，              若持續出現就不是
+年年如此                              一次性的了
 
-Cash from operations                  The company is borrowing
-consistently below net income         or using accounting tricks
-                                      to report profits
+來自營業活動的現金持續               公司靠舉借
+低於淨利                              或利用會計手法
+                                      帳面獲利
 
-Growing gap between operating         Acquisitions destroying
-income and free cash flow             value, or heavy capex
-                                      with poor returns
+營業利益與自由現金流之間              收購在摧毀價值，
+的差距不斷擴大                        或高資本支出
+                                      報酬不彰
 
-Frequent changes in accounting        Possible manipulation,
-policies or auditor changes           loss of credibility
+頻繁更改會計政策或                    可能存在操縱，
+更換審計師                            失去公信力
 
-Goodwill that is very large           Past acquisitions may have
-relative to total assets              overpaid; impairment risk
+商譽相對總資產                        過去收購溢價過高；
+的比重過大                            減損風險
 
-Related-party transactions            Potential conflicts of
-that are large or unusual             interest, self-dealing
+涉及關聯方且金額                      潛在利益衝突，
+龐大或異常的交易                      自肥問題
 
-Declining interest coverage           May be heading toward
-ratio (EBIT / Interest)              difficulty paying debt
+利息保障倍數                          可能朝無力
+（EBIT / 利息費用）持續下滑          償債的方向發展
 ```
 
 ---
 
-#### 8. Reading Financial Statements -- The CFA Perspective
+#### 8. 閱讀財務報表——CFA觀點
 
-The CFA curriculum approaches Financial Statement Analysis (FSA) with particular rigor. Several concepts from the CFA framework are worth understanding even for non-candidates:
+CFA課程以特別嚴謹的方式處理財務報表分析（FSA）。即使你不打算參加CFA考試，以下幾個CFA框架中的概念也值得深入了解：
 
-**Accrual Accounting vs. Cash Accounting:**
-The income statement uses accrual accounting -- revenue is recognized when earned and expenses when incurred, regardless of when cash changes hands. This is why a company can be profitable on paper but cash-poor in reality. The CFA curriculum emphasizes understanding the difference between accrual earnings and cash earnings, and treating the cash flow statement as the more reliable indicator of financial health.
+**應計基礎會計 vs. 現金基礎會計：**
+損益表採用應計基礎會計——收入於賺取時認列，費用於發生時認列，無論現金何時移轉。這就是為什麼一家公司在紙上可以獲利豐厚，但實際上現金匱乏。CFA課程強調理解應計盈餘與現金盈餘之間的差異，並將現金流量表視為更可靠的財務健全度指標。
 
-**Quality of Earnings:**
-The CFA curriculum devotes significant attention to assessing whether reported earnings are sustainable and reliable. High-quality earnings are characterized by:
+**盈餘品質：**
+CFA課程投入大量篇幅評估報告盈餘是否具有持續性與可靠性。高品質盈餘的特徵如下：
 
 ```
-EARNINGS QUALITY SPECTRUM
+盈餘品質光譜
 ===========================
 
-  HIGH QUALITY                         LOW QUALITY
+  高品質                               低品質
   +--------------------------------+  +--------------------------------+
-  | Cash-backed (operating cash    |  | Non-cash (large accruals,      |
-  |   flow close to net income)    |  |   growing receivables)         |
-  | Recurring (from core business) |  | One-time (asset sales, gains)  |
-  | Conservative accounting       |  | Aggressive accounting          |
-  | Transparent disclosures       |  | Complex, opaque reporting      |
-  | Stable or rising margins      |  | Volatile, erratic margins      |
+  | 以現金為後盾（營業活動現金流    |  | 非現金（大量應計項目，          |
+  |   接近淨利）                    |  |   應收帳款持續增加）             |
+  | 具經常性（來自核心業務）         |  | 一次性（資產出售、非常利益）     |
+  | 保守的會計處理                  |  | 積極的會計處理                  |
+  | 透明的資訊揭露                  |  | 複雜、不透明的財報               |
+  | 利潤率穩定或提升                |  | 利潤率波動、難以預測             |
   +--------------------------------+  +--------------------------------+
 
-  KEY METRIC: Accruals Ratio
-  = (Net Income - Cash from Operations) / Average Total Assets
+  關鍵指標：應計比率
+  = （淨利 - 營業活動現金流）/ 平均總資產
   
-  Lower accruals ratio = higher quality earnings
-  Higher accruals ratio = more of earnings are "on paper"
+  應計比率越低 = 盈餘品質越高
+  應計比率越高 = 盈餘愈多屬於「帳面上的」
 ```
 
-**IFRS vs. US GAAP:**
-The CFA curriculum covers both International Financial Reporting Standards (IFRS) and US Generally Accepted Accounting Principles (US GAAP). While broadly similar, they differ in important areas including inventory accounting (LIFO is allowed under GAAP but not IFRS), development costs (can be capitalized under IFRS but typically expensed under GAAP), and how certain financial instruments are classified. For global investors, understanding these differences is essential.
+**國際財務報導準則（IFRS）vs. 美國通用會計準則（US GAAP）：**
+CFA課程同時涵蓋國際財務報導準則（IFRS）與美國通用會計準則（US GAAP）。兩套準則大體相似，但在若干重要細節上存在差異，包括存貨計價方式（後進先出法在GAAP下允許，但IFRS不允許）、開發成本處理（IFRS下可資本化，GAAP下通常費用化），以及若干金融工具的分類方式。對全球投資人而言，了解這些差異至關重要。
 
 ---
 
-#### 9. A Complete Example: Analyzing a Company
+#### 9. 完整範例：分析一家公司
 
 ```
-MINI CASE STUDY: ANALYZING "WIDGET CORP"
+迷你個案研究：分析「Widget Corp」
 ==========================================
 
-INCOME STATEMENT (Year Ended Dec 31)
-                              2025         2024        Change
+損益表（截至12月31日止年度）
+                              2025         2024        變動
                               ----         ----        ------
-Revenue                    $500,000     $450,000       +11.1%
-COGS                       (275,000)    (240,000)      +14.6%
-Gross Profit               $225,000     $210,000       +7.1%
-  Gross Margin:             45.0%        46.7%         -1.7pp
+營收                       $500,000     $450,000       +11.1%
+銷貨成本                   (275,000)    (240,000)      +14.6%
+毛利                       $225,000     $210,000       +7.1%
+  毛利率：                  45.0%        46.7%         -1.7個百分點
 
-SG&A                       (100,000)     (90,000)      +11.1%
-R&D                         (40,000)     (35,000)      +14.3%
-D&A                         (20,000)     (18,000)      +11.1%
-Operating Income            $65,000      $67,000       -3.0%
-  Operating Margin:          13.0%        14.9%        -1.9pp
+銷售及管理費用             (100,000)     (90,000)      +11.1%
+研究與開發費用              (40,000)     (35,000)      +14.3%
+折舊與攤銷                  (20,000)     (18,000)      +11.1%
+營業利益                    $65,000      $67,000       -3.0%
+  營業利益率：               13.0%        14.9%        -1.9個百分點
 
-Interest Expense            (10,000)      (8,000)      +25.0%
-EBT                         $55,000      $59,000       -6.8%
-Taxes (25%)                 (13,750)     (14,750)
-Net Income                  $41,250      $44,250       -6.8%
-  Net Margin:                 8.3%         9.8%        -1.5pp
+利息費用                    (10,000)      (8,000)      +25.0%
+稅前盈餘                    $55,000      $59,000       -6.8%
+稅款（25%）                 (13,750)     (14,750)
+淨利                        $41,250      $44,250       -6.8%
+  淨利率：                    8.3%         9.8%        -1.5個百分點
 
-EPS (10,000 shares):         $4.13        $4.43        -6.8%
+每股盈餘（流通股數10,000）：  $4.13        $4.43        -6.8%
 
-ANALYSIS:
-- Revenue growing 11%, good top-line growth
-- But COGS growing 14.6%, FASTER than revenue --> margins compressing
-- Gross margin declined from 46.7% to 45.0% --> cost or pricing pressure
-- Operating income actually DECLINED despite revenue growth
-- Interest expense up 25% --> company took on more debt
-- Net income declined 6.8% despite 11.1% revenue growth
-- CONCLUSION: Revenue growth is masking deteriorating profitability
+分析：
+- 營收成長11%，頂線成長亮眼
+- 但銷貨成本成長14.6%，快於營收 --> 利潤率遭到壓縮
+- 毛利率從46.7%下滑至45.0% --> 成本或定價壓力
+- 儘管營收成長，營業利益實際上「下滑」
+- 利息費用上升25% --> 公司增加了借款
+- 淨利下滑6.8%，儘管營收成長11.1%
+- 結論：營收成長掩蓋了獲利能力的惡化
 ```
 
 ```
-BALANCE SHEET SNAPSHOT
-                              2025         2024        Change
+資產負債表快照
+                              2025         2024        變動
                               ----         ----        ------
-Cash                        $30,000      $45,000       -33.3%
-Receivables                  90,000       65,000       +38.5%
-Inventory                    75,000       55,000       +36.4%
-Total Current Assets       $195,000     $165,000       +18.2%
+現金                        $30,000      $45,000       -33.3%
+應收帳款                     90,000       65,000       +38.5%
+存貨                         75,000       55,000       +36.4%
+流動資產合計               $195,000     $165,000       +18.2%
 
-PP&E                       $250,000     $220,000       +13.6%
-Goodwill                    100,000       50,000      +100.0%
-Total Assets               $545,000     $435,000       +25.3%
+不動產、廠房及設備          $250,000     $220,000       +13.6%
+商譽                        100,000       50,000      +100.0%
+總資產                     $545,000     $435,000       +25.3%
 
-Current Liabilities         $85,000      $70,000       +21.4%
-Long-Term Debt             $130,000      $90,000       +44.4%
-Total Liabilities          $215,000     $160,000       +34.4%
+流動負債                     $85,000      $70,000       +21.4%
+長期借款                    $130,000      $90,000       +44.4%
+總負債                      $215,000     $160,000       +34.4%
 
-Shareholders' Equity       $330,000     $275,000       +20.0%
+股東權益                    $330,000     $275,000       +20.0%
 
-KEY RATIOS:
-  Current Ratio: 195/85 = 2.3x (healthy)
-  D/E Ratio: 130/330 = 0.39x (moderate)
-  Interest Coverage: 65/10 = 6.5x (adequate but declining)
+關鍵比率：
+  流動比率：195/85 = 2.3倍（健康）
+  負債權益比：130/330 = 0.39倍（適中）
+  利息保障倍數：65/10 = 6.5倍（尚可，但持續下滑）
 
-RED FLAGS:
-- Cash declined 33% while revenue grew 11% -- where is the cash going?
-- Receivables up 38.5% vs revenue up 11.1% -- collection problems?
-- Inventory up 36.4% vs revenue up 11.1% -- demand slowing?
-- Goodwill doubled -- made a $50,000 acquisition (was it wise?)
-- Long-term debt up 44.4% -- borrowed to fund the acquisition?
+警訊：
+- 現金減少33%，但營收成長11%——現金流向何處？
+- 應收帳款成長38.5%，但營收僅成長11.1%——收款問題？
+- 存貨成長36.4%，但營收僅成長11.1%——需求趨緩？
+- 商譽翻倍——進行了$50,000的收購（是否明智？）
+- 長期借款上升44.4%——舉債支應收購？
 ```
 
 ```
-CASH FLOW STATEMENT
+現金流量表
                               2025         2024
                               ----         ----
-Net Income                  $41,250      $44,250
+淨利                        $41,250      $44,250
 
-Operating Adjustments:
-  D&A                        20,000       18,000
-  Increase in Receivables   (25,000)     (10,000)
-  Increase in Inventory     (20,000)      (8,000)
-  Increase in Payables        8,000        5,000
-Cash from Operations        $24,250      $49,250    <-- DOWN 51%!
+營業活動調整：
+  折舊與攤銷                  20,000       18,000
+  應收帳款增加               (25,000)     (10,000)
+  存貨增加                   (20,000)      (8,000)
+  應付帳款增加                 8,000        5,000
+營業活動現金流              $24,250      $49,250    <-- 下滑51%！
 
-Investing:
-  Capital Expenditures      (50,000)     (35,000)
-  Acquisition               (50,000)          --
-Cash from Investing       ($100,000)    ($35,000)
+投資活動：
+  資本支出                   (50,000)     (35,000)
+  收購支出                   (50,000)          --
+投資活動現金流            ($100,000)    ($35,000)
 
-Financing:
-  New Long-Term Debt         60,000       10,000
-  Dividends Paid            (15,000)     (15,000)
-  Share Buybacks            (10,000)          --
-Cash from Financing         $35,000      ($5,000)
+融資活動：
+  新增長期借款                60,000       10,000
+  支付股利                   (15,000)     (15,000)
+  買回庫藏股                 (10,000)          --
+融資活動現金流              $35,000      ($5,000)
 
-Net Change in Cash         ($40,750)      $9,250
-+ Beginning Cash             45,000       35,750
+現金淨變動                 ($40,750)      $9,250
++ 期初現金餘額               45,000       35,750
                            --------     --------
-  ENDING CASH SHOULD BE:    $4,250       $45,000
+  期末現金（應為）：           $4,250       $45,000
 
-Wait -- the Balance Sheet shows $30,000 in Cash, not $4,250!
-(In a real analysis, other adjustments would reconcile this.
- For our teaching example, note the directional concern:
- cash is declining sharply.)
+等等——資產負債表顯示現金為$30,000，而非$4,250！
+（實際分析中，其他調整項目會調節此差異。
+ 就本教學範例而言，請注意方向性的隱憂：
+ 現金正在急速減少。）
 
-CRITICAL FINDING:
-  Net Income:           $41,250  (looks okay)
-  Cash from Operations: $24,250  (much lower -- quality concern!)
-  Free Cash Flow:       $24,250 - $50,000 = ($25,750) NEGATIVE!
+關鍵發現：
+  淨利：               $41,250  （表面上看起來尚可）
+  營業活動現金流：      $24,250  （遠低於淨利——品質堪慮！）
+  自由現金流：         $24,250 - $50,000 = ($25,750) 為負！
 
-  The company is reporting profit but BURNING CASH.
-  Receivables and inventory are soaking up cash.
-  The acquisition consumed $50,000.
-  They had to borrow $60,000 to fund it all.
+  公司在報告獲利，同時卻在「燒現金」。
+  應收帳款與存貨正在吸走現金。
+  收購耗用了$50,000。
+  他們不得不借入$60,000來支應一切。
 
-VERDICT: Widget Corp has growing revenue but deteriorating
-fundamentals. Margins are compressing, working capital is
-ballooning, and the company is borrowing to fund an
-acquisition while free cash flow has turned negative.
-This stock needs further investigation before buying.
+綜合判斷：Widget Corp營收雖成長，但基本面持續
+惡化。利潤率收縮，營運資金膨脹，公司在自由
+現金流轉為負值之際舉借資金支應收購。
+在買進此股票之前，需要進一步深入調查。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "If a company has positive net income, it is doing well."**
+**迷思一：「只要公司淨利為正，代表公司表現良好。」**
 
-Reality: Net income is an accounting concept, not a cash concept. A company can report profits while actually burning cash. Enron reported billions in profits while its cash flows were deeply negative. Always cross-reference net income with cash from operations. If cash from operations is consistently and significantly below net income, the quality of those earnings is questionable.
+現實：淨利是會計概念，而非現金概念。一家公司可以在報告獲利的同時，實際上正在燒現金。安隆（Enron）連年報告鉅額獲利，但其現金流量卻深陷負值。請務必交叉比對淨利與營業活動現金流。若營業活動現金流持續且顯著低於淨利，這些盈餘的品質便值得質疑。
 
-**Misconception 2: "Revenue growth is always good."**
+**迷思二：「營收成長永遠是好事。」**
 
-Reality: Revenue growth is only good if it comes with acceptable margins and is ultimately converted to cash. A company that grows revenue 20% but sees margins decline from 15% to 5% is actually destroying value as it grows. Similarly, a company that grows revenue by extending increasingly generous credit terms (sell now, collect maybe later) is booking revenue that may never convert to cash.
+現實：營收成長唯有在伴隨可接受的利潤率，且最終能轉換為現金的前提下，才是好事。一家營收成長20%、但利潤率從15%跌至5%的公司，實際上是在越長越虧。同樣地，一家透過提供愈來愈寬鬆的信用條件來衝高營收的公司（先賣出，能不能收到錢再說），其帳上認列的營收或許永遠無法轉換為現金。
 
-**Misconception 3: "A strong balance sheet means lots of assets."**
+**迷思三：「資產負債表強健代表擁有大量資產。」**
 
-Reality: A strong balance sheet means the right composition of assets, manageable liabilities, and adequate equity. A company with $10 billion in assets but $9.5 billion in liabilities has a weak balance sheet despite having enormous assets. Asset quality matters too -- $100 million in cash is very different from $100 million in goodwill. Cash is guaranteed to be worth $100 million; goodwill might need to be written down to zero.
+現實：強健的資產負債表代表資產組成合理、負債可控，且股東權益充足。一家擁有100億資產但負債95億的公司，儘管資產龐大，資產負債表依然脆弱。資產品質同樣重要——1億元的現金與1億元的商譽，是截然不同的兩件事。現金的價值有保障；商譽隨時可能減損為零。
 
-**Misconception 4: "Depreciation is just an accounting fiction -- ignore it."**
+**迷思四：「折舊不過是會計上的虛構數字，可以忽略。」**
 
-Reality: While depreciation is a non-cash charge (which is why we add it back on the cash flow statement), it represents real economic cost. Equipment wears out. Factories age. Technology becomes obsolete. A company must eventually spend real cash to replace depreciated assets. Ignoring depreciation means ignoring the ongoing capital needs of the business. This is exactly why free cash flow (which subtracts capital expenditures) is a better measure than EBITDA for assessing a company's true cash generation.
+現實：儘管折舊是非現金費用（這也是為什麼我們在現金流量表中將其加回），它代表真實的經濟成本。設備會耗損，廠房會老化，科技會過時。公司終究必須花費真實現金來汰換折舊的資產。忽略折舊，就是忽略業務持續運作所需的資本需求。這正是自由現金流（扣除資本支出）比EBITDA更能衡量公司真實現金產出能力的原因所在。
 
-**Misconception 5: "The balance sheet shows what a company is truly worth."**
+**迷思五：「資產負債表顯示公司的真實價值。」**
 
-Reality: The balance sheet shows historical cost (adjusted for depreciation), not current market value. A piece of land bought for $1 million in 1980 might be worth $50 million today, but the balance sheet still shows it near its historical cost. Conversely, a patent valued at $10 million on the balance sheet might be worthless if the technology has been superseded. Book value is a starting point for analysis, not the answer.
+現實：資產負債表呈現的是歷史成本（經折舊調整），而非當前市場價值。一塊1980年以100萬元買入的土地，今天可能價值5,000萬元，但資產負債表仍近乎以歷史成本記載。相反地，一項帳列1,000萬元的專利，若技術已被超越，可能分文不值。帳面價值是分析的起點，而非答案。
 
-**Misconception 6: "Financial statements tell you everything about a company."**
+**迷思六：「財務報表告訴你關於公司的一切。」**
 
-Reality: Financial statements are backward-looking and limited to what accounting standards require. They do not capture many of the most important aspects of a business: the quality of management, employee morale, competitive positioning, brand strength, customer loyalty, or industry trends. They are necessary but not sufficient for investment analysis. This is why reading the Management Discussion and Analysis (MD&A) section and understanding the business qualitatively is just as important as the numbers.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: Where do I find a company's financial statements?**
-
-A: For US-listed companies, all financial statements are filed with the Securities and Exchange Commission (SEC) and are freely available at sec.gov through the EDGAR system. Look for the 10-K (annual report) and 10-Q (quarterly report). Most companies also publish financial statements on their investor relations webpage. Financial data aggregators like Yahoo Finance, Google Finance, and Morningstar provide summarized versions, but for serious analysis, read the actual filings.
-
-**Q2: What is the difference between the 10-K and the annual report?**
-
-A: The 10-K is the official filing with the SEC and is comprehensive but plain -- all substance, no style. The annual report (often called the glossy annual report) is a separate publication aimed at shareholders that typically includes a letter from the CEO, photos, and marketing-style presentation alongside the financial statements. The 10-K is what analysts rely on. It contains the financial statements plus detailed footnotes, risk factors, management discussion and analysis (MD&A), and other required disclosures.
-
-**Q3: How do I know if a company's accounting is aggressive or conservative?**
-
-A: Several indicators help. Compare cash from operations to net income -- if net income consistently exceeds cash from operations, the company may be using aggressive accruals. Check the footnotes for revenue recognition policies -- does the company recognize revenue up front or over time? Look at how it handles capitalization versus expensing -- capitalizing costs (putting them on the balance sheet) inflates short-term profits, while expensing them (putting them on the income statement) is more conservative. Look for frequent changes in accounting estimates or policies. And compare the company's margins and ratios to its closest peers -- if one company's margins are significantly higher than every competitor, ask why.
-
-**Q4: What is EBITDA and why do people use it?**
-
-A: EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. It is a rough proxy for operating cash flow that strips out financing decisions (interest), jurisdictional differences (taxes), and non-cash charges (depreciation and amortization). Analysts use it because it allows apples-to-apples comparison between companies with different capital structures, tax situations, and depreciation methods. However, EBITDA has serious limitations -- it ignores the real cost of replacing depreciated assets and the real obligation to pay interest and taxes. Warren Buffett has famously criticized EBITDA, asking "Does management think the tooth fairy pays for capital expenditures?"
-
-**Q5: What does "goodwill impairment" mean and why should I care?**
-
-A: Goodwill impairment is a writedown of previously recorded goodwill, typically triggered when the acquired business is worth less than what was paid for it. It means the company's past acquisition overpaid. While the impairment charge itself is non-cash (it does not affect current cash flow), it is a powerful signal about management quality. A company that repeatedly writes down goodwill is telling you that management destroys value through acquisitions -- they pay too much and cannot integrate effectively. This should make you skeptical of future acquisitions.
-
-**Q6: How is Financial Statement Analysis tested on the CFA exam?**
-
-A: At CFA Level I, FSA covers the mechanics of all three statements, key ratios, revenue recognition, inventory accounting, long-lived assets, income taxes, and financial reporting quality. At Level II, it goes deeper into advanced topics like intercorporate investments, employee compensation, multinational operations, and evaluating financial reporting quality (detecting manipulation). At Level III, FSA is integrated into portfolio management and security analysis rather than tested as a standalone topic. Overall, FSA typically represents 13-15% of the Level I exam and a significant portion of Level II.
-
-**Q7: Should I focus on quarterly or annual financial statements?**
-
-A: Both have value. Annual statements (10-K) provide the most comprehensive data and are audited, making them more reliable. Quarterly statements (10-Q) are more timely and let you track trends during the year, but they are only reviewed (not audited) and may contain seasonal distortions. For most long-term investors, annual statements are the primary focus, with quarterly statements used to monitor for significant changes or emerging trends between annual reports.
-
-**Q8: What is the most common way companies manipulate earnings?**
-
-A: The most common methods include: aggressive revenue recognition (booking revenue before it is truly earned), capitalizing expenses that should be expensed (inflating reported profits), managing reserves and provisions (creating "cookie jar" reserves in good years and releasing them in bad years to smooth earnings), and channel stuffing (shipping excess product to distributors at period end to boost reported revenue). The antidote is always the same: compare reported earnings to cash from operations. Cash is much harder to fake than accounting earnings.
-
-**Q9: What does negative shareholders' equity mean?**
-
-A: Negative equity means the company's liabilities exceed its assets (on the balance sheet). This can signal severe financial distress, or it can reflect aggressive financial engineering. Some highly profitable companies like McDonald's and Starbucks have negative book equity because they have used so much debt to buy back shares that accumulated buybacks exceed retained earnings. In these cases, negative equity is not a sign of distress but of confidence in future cash flows. Context matters: a consistently profitable company with negative equity from buybacks is very different from an unprofitable company with negative equity from accumulated losses.
-
-**Q10: How do I learn to read financial statements better?**
-
-A: Practice is the only answer. Pick a company you know well -- perhaps one whose products you use daily -- and read its latest 10-K filing from start to finish. Calculate the key ratios yourself. Then pick a competitor and compare. Repeat this process with companies in different industries (a bank, a retailer, a software company, a manufacturer). Each industry has its own financial statement quirks, and exposure to diverse companies is the fastest way to build fluency. The CFA Level I curriculum is also an excellent structured learning resource even if you do not plan to take the exam.
+現實：財務報表是向後看的，且僅限於會計準則要求揭露的資訊。它們無法捕捉許多最重要的企業面向：管理層素質、員工士氣、競爭定位、品牌強度、客戶忠誠度或產業趨勢。財務報表是必要條件，但不是充分條件。這就是為什麼閱讀管理層討論與分析（MD&A）章節，並從質化角度理解業務本身，與數字同等重要。
 
 ---
 
-## YouTube Script
+### d) 常見問答
+
+**Q1：哪裡可以找到公司的財務報表？**
+
+A：對於在美國上市的公司，所有財務報表均向美國證券交易委員會（SEC）申報，並可在 sec.gov 的 EDGAR 系統免費取得。請尋找10-K（年度報告）和10-Q（季度報告）。大多數公司也會在其投資人關係網頁上公布財務報表。Yahoo Finance、Google Finance 和 Morningstar 等財務資料彙整平台提供摘要版本，但若要進行嚴謹分析，應直接閱讀原始申報文件。
+
+**Q2：10-K 與年報有何不同？**
+
+A：10-K 是向 SEC 正式申報的文件，內容完整但格式樸實——重點全在實質內容，沒有包裝。年報（通常稱為「光面年報」）是另一份獨立出版品，以股東為主要讀者，通常包含執行長致股東信、照片及行銷風格的呈現，同時附上財務報表。分析師仰賴的是 10-K，其中包含財務報表及詳細附註、風險因素、管理層討論與分析（MD&A）以及其他法定揭露事項。
+
+**Q3：如何判斷公司的會計處理是積極還是保守？**
+
+A：有幾個指標可供參考。比較營業活動現金流與淨利——若淨利持續超過營業活動現金流，公司可能採用積極的應計處理。查閱附註中的收入認列政策——公司是提前認列營收，還是逐期攤認？觀察費用化與資本化的處理方式——將成本資本化（列示於資產負債表）會短期膨脹報告獲利，而費用化（列示於損益表）則較為保守。留意會計估計或政策的頻繁變更。並將公司的利潤率與比率和最接近的同業對比——若一家公司的利潤率顯著高於所有競爭對手，請追問原因。
+
+**Q4：什麼是 EBITDA？為什麼人們要使用它？**
+
+A：EBITDA 是「扣除利息、稅款、折舊與攤銷前盈餘」的英文縮寫，是營業現金流的粗略代理指標，排除了融資決策（利息）、稅務差異（稅款）及非現金費用（折舊與攤銷）。分析師使用它，是因為它能跨越資本結構、稅務情況及折舊方式不同的公司，進行同等基礎的比較。然而，EBITDA 有嚴重的侷限——它忽略了汰換折舊資產的真實成本，以及償還利息與稅款的真實義務。股神巴菲特（Warren Buffett）曾對 EBITDA 提出著名批評，質問：「管理層以為資本支出是牙仙出的錢嗎？」
+
+**Q5：「商譽減損」是什麼意思？為什麼我應該在意？**
+
+A：商譽減損是先前已認列商譽的帳面減記，通常發生在被收購企業的價值低於當初收購金額時。這意味著公司過去的收購溢價過高。雖然減損費用本身不涉及現金（不影響當期現金流），但它是評斷管理層素質的有力訊號。一家屢次認列商譽減損的公司，等同於在告訴你：管理層透過收購持續摧毀價值——他們付太多錢，且無力有效整合。這應令你對未來的收購案抱持高度懷疑。
+
+**Q6：財務報表分析在 CFA 考試中如何考核？**
+
+A：在 CFA Level I，FSA 涵蓋三張報表的運作機制、關鍵比率、收入認列、存貨會計、長期資產、所得稅及財務報告品質。Level II 則深入探討進階主題，包括企業間投資、員工福利、跨國營運，以及評估財務報告品質（辨識操縱手法）。Level III 的 FSA 則整合至投資組合管理與證券分析中，不再獨立考核。整體而言，FSA 在 Level I 考試中通常占13%至15%的比重，在 Level II 中亦占相當大的篇幅。
+
+**Q7：我應該聚焦於季度還是年度財務報表？**
+
+A：兩者各有價值。年度報表（10-K）提供最完整的資料，且經過審計，可靠性更高。季度報表（10-Q）時效性較強，讓你在年報之間追蹤趨勢，但僅經審閱（非審計），且可能包含季節性失真。對大多數長期投資人而言，年度報表是主要依據，季度報表則用於監測年報之間是否出現重大變化或新興趨勢。
+
+**Q8：公司操縱盈餘最常見的手法是什麼？**
+
+A：最常見的手法包括：積極認列收入（在收入真正賺得之前就入帳）、將應費用化的支出予以資本化（虛增短期報告獲利）、操控準備金與撥備（景氣好時建立「餅乾罐」準備金，景氣差時釋出以平滑盈餘），以及「塞貨」（在期末將超額商品出貨給經銷商，衝高報告營收）。解藥始終如一：將報告盈餘與營業活動現金流進行比較。現金遠比會計帳上的盈餘難以造假。
+
+**Q9：負的股東權益代表什麼？**
+
+A：負的股東權益代表公司的負債超過資產（帳面上）。這可能是嚴峻財務困境的訊號，也可能反映積極的財務工程操作。麥當勞（McDonald's）和星巴克（Starbucks）等高獲利企業的帳面股東權益為負，是因為它們大量舉債買回庫藏股，累計買回金額超過了保留盈餘。在這種情況下，負的股東權益並非困境的象徵，而是對未來現金流的高度自信。情境至關重要：一家持續獲利、因買回庫藏股而形成負股東權益的公司，與一家因累計虧損而形成負股東權益的虧損企業，是截然不同的兩回事。
+
+**Q10：如何提升閱讀財務報表的能力？**
+
+A：唯一的答案是練習。選一家你熟悉的公司——也許是你日常使用其產品的品牌——完整閱讀其最新的10-K申報文件。自己動手計算關鍵比率，再選一家競爭對手加以比較。在不同產業的公司（銀行、零售商、軟體公司、製造商）之間重複這個流程。每個產業都有其財務報表的獨特之處，接觸多元的公司是建立閱讀能力最快的途徑。即使你不打算參加考試，CFA Level I 課程也是優秀的結構化學習資源。
+
+---
+
+## YouTube 腳本
 
 [VISUAL: Animated intro with title "Week 8: Reading Financial Statements - Basics"]
 
-**Alex:** Welcome back everyone. Today we are learning one of the most fundamental skills in all of investing -- how to read financial statements. If last week was about the discipline of rebalancing, this week is about developing the ability to actually understand what a company is doing with its money. And I promise you, once you learn this, you will never look at a stock the same way again.
+**Horace（陳馬）：** 歡迎大家回來。今天我們要學習投資領域最基本的技能之一——如何閱讀財務報表。如果說上週談的是再平衡的紀律，那這週的重點就是培養真正理解一家公司如何運用資金的能力。我向你們保證，一旦學會這項技能，你看待股票的眼光將會從此不同。
 
-**Sam:** I will be honest, Alex. Financial statements sound intimidating. When I see those huge tables of numbers in an annual report, my eyes glaze over. Where do I even start?
+**Stella（小魚）：** 我坦白說，陳馬，財務報表聽起來很嚇人。每次我在年報裡看到那些密密麻麻的數字表格，眼睛就開始打結。從哪裡下手啊？
 
-**Alex:** Here is the good news. There are only three financial statements you need to understand, and each one answers a simple question. The income statement answers: "Did the company make money?" The balance sheet answers: "What does the company own and owe right now?" And the cash flow statement answers: "Where did the cash actually come from, and where did it go?"
+**Horace（陳馬）：** 好消息來了。你只需要理解三張財務報表，而每一張都在回答一個簡單的問題。損益表回答：「公司有沒有賺錢？」資產負債表回答：「公司現在擁有什麼、欠了什麼？」現金流量表回答：「現金實際上從哪裡來，又流向哪裡？」
 
-**Sam:** Three statements, three questions. I can handle that.
+**Stella（小魚）：** 三張報表，三個問題。這個我可以接受。
 
-**Alex:** Good. And here is the even better news -- you do not need to understand every line item on day one. You need to understand the structure, know where to look for the important numbers, and most importantly, understand how the three statements connect to each other. That is what we are going to do today.
+**Horace（陳馬）：** 太好了。還有一個更棒的消息——你不需要從第一天就看懂每一個科目。你需要理解的是報表的結構、知道去哪裡找重要的數字，最重要的是，理解這三張報表如何彼此連結。這就是我們今天要做的事。
 
-[VISUAL: Three side-by-side document icons labeled "Income Statement," "Balance Sheet," and "Cash Flow Statement," with their key questions displayed beneath each one]
+[VISUAL: Three side-by-side document icons labeled "損益表," "資產負債表," and "現金流量表," with their key questions displayed beneath each one]
 
-**Sam:** Let us start at the beginning. The income statement.
+**Stella（小魚）：** 那我們從頭開始。損益表。
 
-**Alex:** The income statement -- also called the profit and loss statement, or P&L -- shows the company's financial performance over a period of time. Usually a quarter or a year. Think of it as a movie, not a photograph. It captures everything that happened between two dates.
+**Horace（陳馬）：** 損益表——也稱為獲利與虧損表，簡稱P&L——顯示公司在特定期間內的財務績效，通常是一季或一年。把它想成一部電影，而不是一張照片，它記錄的是兩個時間點之間發生的一切。
 
-**Sam:** And it starts with revenue at the top?
+**Stella（小魚）：** 而且它從頂端的營收開始？
 
-**Alex:** Exactly. Revenue, also called sales or the "top line," is the total amount the company earned from selling its products or services. Then you subtract costs, layer by layer, until you get to net income at the bottom -- which is why net income is called the "bottom line."
+**Horace（陳馬）：** 正是。營收，又稱銷售額或「頂線」，是公司透過銷售產品或服務所賺取的總金額。然後一層一層扣除成本，最終到達最底部的淨利——這也是為什麼淨利被稱為「底線」。
 
 [ANIMATION: animation/week08_three_statements.py - Animated waterfall chart building the income statement from top to bottom. Starting with a tall Revenue bar, then sequentially subtracting COGS (the bar shrinks), operating expenses (shrinks more), interest (shrinks slightly), and taxes (shrinks again) to arrive at the final Net Income bar. Each subtraction is animated with the expense amount visually "cutting" from the revenue bar, and margin percentages appear alongside each level.]
 
-**Sam:** What are the layers of costs?
+**Stella（小魚）：** 成本有哪幾層？
 
-**Alex:** The first and usually largest is Cost of Goods Sold, or COGS. This is the direct cost of producing whatever the company sells -- raw materials, factory labor, shipping. Revenue minus COGS gives you gross profit.
+**Horace（陳馬）：** 第一層通常也是最大的一層，叫做銷貨成本（COGS），也就是生產公司所銷售商品的直接成本——原材料、工廠人工、運輸費用。營收減去銷貨成本，得到毛利。
 
-**Sam:** And gross margin is gross profit divided by revenue?
+**Stella（小魚）：** 毛利率就是毛利除以營收？
 
-**Alex:** Right. A company with $1 million in revenue and $600,000 in COGS has a gross profit of $400,000 and a gross margin of 40%. That 40% tells you that for every dollar of revenue, 40 cents is left after covering the direct costs of production.
+**Horace（陳馬）：** 對。一家營收100萬元、銷貨成本60萬元的公司，毛利為40萬元，毛利率為40%。這個40%告訴你，每賺進一塊錢的營收，在扣除直接生產成本之後，還留有四毛錢。
 
-**Sam:** What is a good gross margin?
+**Stella（小魚）：** 多少算是好的毛利率？
 
-**Alex:** It depends entirely on the industry. Software companies often have gross margins of 70-85% because the cost of producing one more copy of software is nearly zero. Grocery retailers might have gross margins of 25-30% because they are selling physical goods with thin markups. The key is to compare within the same industry and to watch the trend over time. If gross margin is declining, it usually means either input costs are rising or the company is being forced to cut prices due to competition.
+**Horace（陳馬）：** 這完全取決於產業。軟體公司的毛利率通常高達70%至85%，因為多生產一份軟體的成本幾乎為零。超市雜貨零售商的毛利率可能只有25%至30%，因為他們是在賣實體商品，加價空間有限。關鍵在於要跟同產業的公司相互比較，並觀察長期趨勢。如果毛利率持續下滑，通常意味著原料成本上升，或公司因競爭激烈被迫降價。
 
-[VISUAL: Bar chart showing typical gross margins by industry -- Software 75%, Pharmaceuticals 65%, Consumer Staples 40%, Retail 30%, Grocery 25%]
+[VISUAL: Bar chart showing typical gross margins by industry -- 軟體 75%, 製藥 65%, 民生消費品 40%, 零售 30%, 超市雜貨 25%]
 
-**Sam:** After gross profit, what comes next?
+**Stella（小魚）：** 毛利之後是什麼？
 
-**Alex:** Operating expenses -- the costs of running the business beyond producing the product. This includes Selling, General and Administrative expenses (SG&A), Research and Development (R&D), and Depreciation and Amortization (D&A). Subtract these from gross profit and you get operating income, also called EBIT -- Earnings Before Interest and Taxes.
+**Horace（陳馬）：** 營業費用——也就是超出生產產品之外，經營業務所需的成本，包括銷售及管理費用（SG&A）、研究與開發費用（R&D），以及折舊與攤銷（D&A）。將這些費用從毛利中扣除，就得到營業利益，也叫做EBIT——「息稅前盈餘」。
 
-**Sam:** Why is operating income important?
+**Stella（小魚）：** 為什麼營業利益很重要？
 
-**Alex:** Because it shows how profitable the core business operations are, before considering how the company is financed (interest) or where it is located (taxes). Two identical businesses with different amounts of debt will have different net incomes but similar operating incomes. Operating margin -- EBIT divided by revenue -- is one of the most useful metrics for comparing companies.
+**Horace（陳馬）：** 因為它顯示的是核心業務營運的獲利能力，在考慮公司如何融資（利息）或身處何地（稅務）之前。兩家業務完全相同的公司，若借款金額不同，淨利會有差異，但營業利益則相近。營業利益率——EBIT除以營收——是比較不同公司時最實用的指標之一。
 
-**Sam:** Then below operating income?
+**Stella（小魚）：** 那營業利益以下呢？
 
-**Alex:** You subtract interest expense -- the cost of borrowed money -- and then taxes. What is left is net income, the famous bottom line. This is what is available for shareholders, either to be paid as dividends or reinvested in the business.
+**Horace（陳馬）：** 再扣除利息費用——借款的成本——以及稅款，剩下的就是淨利，也就是大家熟知的「底線」。這是屬於股東的金額，可以作為股利發放，或再投入業務。
 
-**Sam:** And Earnings Per Share is just net income divided by the number of shares outstanding?
+**Stella（小魚）：** 每股盈餘就是淨利除以流通在外股數？
 
-**Alex:** Exactly. If a company earns $100 million in net income and has 50 million shares outstanding, EPS is $2.00. That is the number you see in earnings reports and the denominator in the P/E ratio.
+**Horace（陳馬）：** 正是。如果一家公司淨利為1億元，流通在外股數為5,000萬股，每股盈餘就是2元。這個數字會出現在財報公告中，也是本益比的分母。
 
 [VISUAL: Complete income statement example with all major line items, margins calculated and displayed on the right side, with arrows pointing from key items to their corresponding margin calculations]
 
-**Sam:** Got it. Now the balance sheet. This one always confuses me.
+**Stella（小魚）：** 清楚了。現在是資產負債表。這張一直讓我搞不清楚。
 
-**Alex:** The balance sheet is actually elegant once you understand the fundamental equation. Assets equals Liabilities plus Shareholders' Equity. Everything the company owns, everything it owes, and the difference belongs to shareholders. This equation always balances -- that is literally why it is called a balance sheet.
+**Horace（陳馬）：** 一旦理解了基本等式，資產負債表其實非常優雅。資產等於負債加上股東權益。公司擁有的一切，積欠的一切，兩者之間的差額歸屬於股東。這個等式永遠成立——這正是它被稱為「資產負債」表的原因。
 
-**Sam:** Can you give me a real-world analogy?
+**Stella（小魚）：** 可以給我一個生活中的比喻嗎？
 
-**Alex:** Sure. Think about your personal finances. Your assets are your house, your car, your savings account. Your liabilities are your mortgage, your car loan, your credit card balance. Your equity -- your net worth -- is the difference. If you own a $500,000 house with a $300,000 mortgage, your equity in the house is $200,000.
+**Horace（陳馬）：** 當然。想想你的個人財務。你的資產是你的房子、車子、存款。你的負債是房貸、車貸、信用卡餘額。你的權益——也就是你的淨資產——是兩者之差。如果你有一棟市值50萬元的房子，房貸30萬元，你在房子裡的自有權益就是20萬元。
 
-[VISUAL: Split screen showing a personal balance sheet (house, car, bank account on left; mortgage, car loan on right; net worth at bottom) transitioning to a corporate balance sheet with the same structure]
+[VISUAL: Split screen showing a personal balance sheet (房子、車子、銀行存款 on left; 房貸、車貸 on right; 淨資產 at bottom) transitioning to a corporate balance sheet with the same structure]
 
-**Sam:** That makes sense. So a company with $1 billion in assets and $600 million in liabilities has $400 million in equity.
+**Stella（小魚）：** 說得通。所以資產10億元、負債6億元的公司，股東權益為4億元。
 
-**Alex:** Exactly. And that $400 million in equity is the book value of the company -- what accountants say it is worth. The stock market might value it at more or less than book value, which is why the Price-to-Book ratio exists. But that is a Week 21 topic.
+**Horace（陳馬）：** 正是。而那4億元的股東權益就是公司的帳面價值——會計師眼中公司的價值。股票市場可能將其估得更高或更低，這就是股價淨值比存在的原因。不過那是第21週的主題了。
 
-**Sam:** What is the difference between current and non-current on the balance sheet?
+**Stella（小魚）：** 資產負債表上的流動與非流動有什麼差別？
 
-**Alex:** Great question. Current means within one year. Current assets are things that will be converted to cash within a year -- like accounts receivable (money customers owe you), inventory (products waiting to be sold), and of course cash itself. Current liabilities are obligations due within a year -- like accounts payable (money you owe suppliers) and short-term debt.
+**Horace（陳馬）：** 好問題。流動代表一年以內。流動資產是預計在一年內轉換為現金的東西——例如應收帳款（客戶欠你的錢）、存貨（等待銷售的商品），當然還有現金本身。流動負債是一年內到期的義務——例如應付帳款（你欠供應商的錢）和短期借款。
 
-**Sam:** And non-current is everything longer term?
+**Stella（小魚）：** 非流動就是所有期限更長的項目？
 
-**Alex:** Right. Non-current assets include things like property, factories, equipment -- the long-lived assets that support the business for years. Non-current liabilities are mainly long-term debt -- bonds and loans that mature more than a year out.
+**Horace（陳馬）：** 對。非流動資產包括不動產、廠房、設備等長期支撐業務的資產。非流動負債主要是長期借款——到期日超過一年的債券和貸款。
 
-[VISUAL: Balance sheet diagram with current assets and liabilities highlighted at the top, non-current items below, with a timeline showing "within 1 year" versus "beyond 1 year" to illustrate the distinction]
+[VISUAL: Balance sheet diagram with current assets and liabilities highlighted at the top, non-current items below, with a timeline showing "1年以內" versus "1年以後" to illustrate the distinction]
 
-**Sam:** Why does the current versus non-current distinction matter?
+**Stella（小魚）：** 流動與非流動的區分為何重要？
 
-**Alex:** Because it tells you about the company's short-term financial health. If current liabilities exceed current assets, the company might struggle to pay its bills. The current ratio -- current assets divided by current liabilities -- is a quick health check. Above 1.5 is generally comfortable. Below 1.0 means the company may not be able to cover its short-term obligations without additional financing.
+**Horace（陳馬）：** 因為它告訴你公司的短期財務健全度。如果流動負債超過流動資產，公司可能難以支付帳單。流動比率——流動資產除以流動負債——是快速的健康檢查工具。高於1.5倍通常代表游刃有餘；低於1.0倍意味著公司可能無法在不尋求額外融資的情況下履行短期義務。
 
-**Sam:** That sounds like a critical thing to check.
+**Stella（小魚）：** 聽起來這是非常關鍵的檢查項目。
 
-**Alex:** It is. Plenty of companies have gone bankrupt not because they were unprofitable, but because they ran out of cash to pay bills that came due. Profitable companies can die of illiquidity. This is why the balance sheet matters even for companies with strong income statements.
+**Horace（陳馬）：** 的確是。許多公司走向破產，並非因為虧損，而是因為現金耗盡，無法支付到期帳款。獲利的公司可能死於流動性不足。這正是為什麼即使損益表表現亮眼，資產負債表仍不可忽視。
 
-**Sam:** Okay, now the third statement -- cash flow. You mentioned this is the most important one?
+**Stella（小魚）：** 好，現在是第三張報表——現金流量表。你說這是最重要的一張？
 
-**Alex:** Many experienced investors consider it the most important, and I agree. Here is why. The income statement uses something called accrual accounting. That means revenue is recorded when it is earned, not when cash is received. Expenses are recorded when incurred, not when cash is paid. This creates a gap between accounting profits and actual cash.
+**Horace（陳馬）：** 許多資深投資人認為它是最重要的，我也這麼看。原因如下：損益表採用應計基礎會計，代表營收在賺取時認列，費用在發生時認列，無論現金何時移轉。這就造成了會計獲利與實際現金之間的落差。
 
 [VISUAL: Two timelines showing the same transaction -- the income statement records the sale when goods are delivered, but the cash flow statement records it when payment is received weeks later]
 
-**Sam:** Can you give me an example of why that matters?
+**Stella（小魚）：** 可以給我一個說明為什麼這很重要的例子嗎？
 
-**Alex:** Sure. Imagine a company sells $10 million worth of products in December but gives customers 90 days to pay. On the December income statement, it books $10 million in revenue and reports a nice profit. But the cash? The cash does not arrive until March. On December 31st, the company has a healthy income statement but might not have enough cash to pay its January bills.
+**Horace（陳馬）：** 當然。假設一家公司在十二月賣出了價值1,000萬元的商品，但給客戶90天的付款期限。十二月的損益表上，它認列了1,000萬元的營收，並報告了不錯的獲利。但現金呢？現金要到三月才會入帳。在十二月三十一日，這家公司有漂亮的損益表，卻可能沒有足夠的現金支付一月的帳單。
 
-**Sam:** So a company can be profitable on paper but broke in reality?
+**Stella（小魚）：** 所以公司在帳面上可以獲利豐厚，但實際上卻囊空如洗？
 
-**Alex:** Exactly. And this is not hypothetical. Many fast-growing companies have gone bankrupt precisely because of this dynamic. They grew so fast that their cash was tied up in receivables and inventory, and they could not pay their obligations even though the income statement showed profits.
+**Horace（陳馬）：** 正是。而且這不是假設情境。許多快速成長的公司正是因為這樣的動態而破產——他們成長得太快，現金全被應收帳款和存貨套牢，儘管損益表顯示獲利，卻無力履行義務。
 
-**Sam:** That is scary. So the cash flow statement shows what is really happening with the cash?
+**Stella（小魚）：** 這太可怕了。所以現金流量表才能真實呈現現金的去向？
 
-**Alex:** It does. And it has three sections. Operating activities, investing activities, and financing activities.
+**Horace（陳馬）：** 對。它分為三個區段：營業活動、投資活動、融資活動。
 
 [ANIMATION: animation/week08_three_statements.py - Animated funnel diagram showing cash flowing through the three sections. Cash from operations flows in at the top (green), then investing activities show cash flowing out for equipment and acquisitions (red arrows going down), then financing activities show debt and equity flows (blue arrows both directions). The remaining cash at the bottom updates a running cash balance counter that matches the balance sheet.]
 
-**Alex:** Operating activities start with net income from the income statement and then adjust for all the non-cash items and working capital changes. You add back depreciation because it is a non-cash charge -- the company did not actually write a check for depreciation. You subtract increases in receivables because that revenue has not been collected as cash yet. You subtract increases in inventory because the company spent cash buying inventory.
+**Horace（陳馬）：** 營業活動從損益表的淨利出發，再調整所有非現金項目和營運資金變動。折舊要加回，因為它是非現金費用——公司並沒有真正為折舊開出一張支票。應收帳款增加要減去，因為那筆營收尚未以現金形式收回。存貨增加也要減去，因為公司為了購入存貨而支出了現金。
 
-**Sam:** So operating cash flow is the real cash the business generated from its operations?
+**Stella（小魚）：** 所以營業活動現金流就是業務運作真正產生的現金？
 
-**Alex:** Exactly. And here is the key test: if operating cash flow is consistently well above net income, that is a sign of high-quality earnings. The company is generating real cash, not just accounting profits. If operating cash flow is consistently below net income, red flag. Something in the accounting is creating profits that do not translate to cash.
+**Horace（陳馬）：** 正是。而且有一個關鍵測試：如果營業活動現金流持續遠高於淨利，這是高品質盈餘的訊號——公司在創造真實現金，而不只是會計帳上的獲利。如果營業活動現金流持續低於淨利，就是紅旗警示。會計處理正在製造無法轉換為現金的獲利。
 
-**Sam:** What about the investing section?
+**Stella（小魚）：** 投資活動那個區段呢？
 
-**Alex:** Investing activities show cash spent on or received from long-term assets. The biggest item is usually capital expenditures -- buying property, equipment, or technology. This section is usually negative, which is fine -- it means the company is investing in its future. If it is positive, it often means the company is selling assets, which could be strategic or could be a sign of distress.
+**Horace（陳馬）：** 投資活動呈現公司在長期資產上花費或收回的現金。最大的項目通常是資本支出——購買不動產、廠房、設備或科技資產。這個區段通常為負值，這沒問題——代表公司在投資未來。如果為正值，通常意味著公司在出售資產，這可能是策略考量，也可能是困境的訊號。
 
-**Sam:** And financing activities?
+**Stella（小魚）：** 融資活動呢？
 
-**Alex:** Financing shows cash flows between the company and its investors and lenders. Taking on new debt or issuing new stock brings cash in. Paying off debt, paying dividends, or buying back shares sends cash out.
+**Horace（陳馬）：** 融資活動顯示公司與投資人及貸款人之間的現金流動。新增借款或發行新股，讓現金流入。還債、發放股利或買回庫藏股，則讓現金流出。
 
-[VISUAL: Three-column summary with icons: Operating (factory/gear icon) = "Cash from running the business," Investing (building/plant icon) = "Cash for building the future," Financing (handshake icon) = "Cash between company and capital providers"]
+[VISUAL: Three-column summary with icons: 營業活動（工廠/齒輪圖示）= "來自業務經營的現金，" 投資活動（廠房/建築圖示）= "為建構未來而支出的現金，" 融資活動（握手圖示）= "公司與資金提供者之間的現金"]
 
-**Sam:** Now here is something I have been reading about -- free cash flow. How does that fit in?
+**Stella（小魚）：** 說到自由現金流，我之前有讀到這個概念。它怎麼跟現金流量表扣在一起？
 
-**Alex:** Free cash flow is the single most important number for investors. It is cash from operations minus capital expenditures. Think of it as the cash left over after the company has paid all its operating expenses and invested in maintaining and growing its assets.
+**Horace（陳馬）：** 自由現金流是對投資人最重要的單一數字。它等於營業活動現金流減去資本支出。把它想成公司在支付所有營業費用、並投資於維持和擴展資產之後，所剩餘的現金。
 
-**Sam:** Why is it so important?
+**Stella（小魚）：** 為什麼它這麼重要？
 
-**Alex:** Because free cash flow is the money that is truly available for shareholders. It can be used to pay dividends, buy back shares, pay down debt, make acquisitions, or simply build a cash reserve. Companies with strong, growing free cash flow are the ones that can reward shareholders over the long term. Companies with weak or negative free cash flow are either in growth mode (spending heavily to build the business) or in trouble.
+**Horace（陳馬）：** 因為自由現金流才是真正屬於股東可動用的現金。它可以用來發放股利、買回庫藏股、償還借款、進行收購，或單純累積現金儲備。自由現金流強勁且持續成長的公司，才是長期能夠回饋股東的公司。自由現金流疲弱或為負的公司，要嘛正處於高成長投資階段（大量支出以建立業務），要嘛就是出了問題。
 
-**Sam:** How can I tell the difference between "good negative FCF" from growth spending and "bad negative FCF" from problems?
+**Stella（小魚）：** 我要怎麼分辨「因成長支出而造成的良性負FCF」和「因業務出問題而造成的惡性負FCF」？
 
-**Alex:** Great question. Look at what is driving the negative FCF. If it is heavy capital expenditure or R&D investment in a company with strong revenue growth and expanding addressable market, that can be good -- they are investing in future cash flows. Amazon had negative free cash flow for years while building its logistics network and AWS infrastructure, and that turned out to be brilliantly invested money. But if FCF is negative because operating cash flow itself is weak -- meaning the existing business is not generating cash -- that is a serious concern regardless of how much they are spending on growth.
+**Horace（陳馬）：** 好問題。要看是什麼在驅動負的FCF。如果是一家營收強勁成長、市場空間廣闊的公司，因為大量資本支出或研發投入而造成FCF為負，那可能是好事——他們在為未來的現金流而投資。亞馬遜在建設物流網絡和AWS雲端基礎設施期間，連年自由現金流為負，事後證明那是無比明智的資本投入。但如果FCF為負，是因為營業活動現金流本身就很弱——也就是說，現有業務無法自行產生現金——那無論他們砸了多少錢在成長上，都是嚴重的警訊。
 
-[VISUAL: Side-by-side comparison: "Good Negative FCF" (strong operating cash flow minus large capex for growth) versus "Bad Negative FCF" (weak operating cash flow, business itself is burning cash)]
+[VISUAL: Side-by-side comparison: "良性負FCF"（強勁的營業活動現金流，減去為成長而支出的龐大資本支出）versus "惡性負FCF"（疲弱的營業活動現金流，業務本身在燒現金）]
 
-**Sam:** Can you show me how the three statements connect to each other? That is the part I find most confusing.
+**Stella（小魚）：** 你能不能解釋三張報表之間如何相互連結？這是讓我最困惑的部分。
 
-**Alex:** This is the most important concept in all of financial statement analysis. Let me walk you through it.
+**Horace（陳馬）：** 這是財務報表分析中最重要的概念。讓我帶你們一步步走過。
 
 [ANIMATION: animation/week08_three_statements.py - Animated diagram showing all three statements side by side with animated arrows showing the connections between them. Net Income flows from the Income Statement to both the Balance Sheet (Retained Earnings) and the Cash Flow Statement (starting point). The Cash Flow Statement's ending cash balance updates the Cash line on the Balance Sheet. Depreciation reduces PP&E on the Balance Sheet while being added back on the Cash Flow Statement. New debt appears in Financing Activities and increases Liabilities on the Balance Sheet.]
 
-**Alex:** Start with the income statement. Net income -- the bottom line -- flows to two places. First, it flows to the balance sheet. Specifically, it increases Retained Earnings, which is part of shareholders' equity. This makes sense -- if the company earned money, the shareholders' claim on the business grew.
+**Horace（陳馬）：** 從損益表開始。淨利——底線——流向兩個地方。第一個是資產負債表，具體而言，它會增加保留盈餘，也就是股東權益的一部分。這很合理——如果公司賺到了錢，股東對這家企業的所有權請求權就增加了。
 
-**Sam:** And the second place?
+**Stella（小魚）：** 那第二個地方呢？
 
-**Alex:** Net income is also the starting point of the cash flow statement, under the indirect method, which is what most companies use. From there, you make adjustments to reconcile accounting profit with actual cash flow. And the ending cash balance from the cash flow statement becomes the cash line item on the balance sheet.
+**Horace（陳馬）：** 淨利同時也是現金流量表的起點，在大多數公司採用的間接法下都是如此。從這裡出發，再進行各項調整，以將會計獲利與實際現金流量調節一致。而現金流量表的期末現金餘額，則成為資產負債表上的現金科目。
 
-**Sam:** So the cash flow statement is the bridge between the income statement and the balance sheet?
+**Stella（小魚）：** 所以現金流量表是損益表與資產負債表之間的橋樑？
 
-**Alex:** That is a brilliant way to think about it. The income statement tells a story in accrual accounting terms. The cash flow statement translates that story into cash terms. And the balance sheet is the cumulative snapshot that reflects everything that has happened.
+**Horace（陳馬）：** 這個說法太精闢了。損益表用應計基礎的會計語言訴說一個故事；現金流量表將那個故事翻譯成現金語言；而資產負債表則是累積的快照，反映迄今為止發生的一切。
 
-**Sam:** Can you walk me through a specific example?
+**Stella（小魚）：** 可以用一個具體的例子說明嗎？
 
-**Alex:** Let us say a company makes a sale on credit for $10,000. The product cost $6,000. On the income statement: revenue goes up $10,000, COGS goes up $6,000, and profit increases by $4,000. On the balance sheet: accounts receivable goes up $10,000 (the customer owes us), inventory goes down $6,000 (we shipped the product), and retained earnings goes up $4,000 (the profit). On the cash flow statement: net income shows the $4,000 profit, but then we subtract $10,000 for the increase in receivables and add back $6,000 for the decrease in inventory. Net cash impact: zero.
+**Horace（陳馬）：** 假設一家公司做了一筆1萬元的賒銷交易，商品成本為6,000元。在損益表上：營收增加1萬元，銷貨成本增加6,000元，獲利增加4,000元。在資產負債表上：應收帳款增加1萬元（客戶欠我們的錢），存貨減少6,000元（我們出貨了），保留盈餘增加4,000元（即獲利）。在現金流量表上：淨利顯示4,000元的獲利，但我們因應收帳款增加而減去1萬元，再因存貨減少而加回6,000元。現金淨影響：零。
 
-**Sam:** Zero? The company made a $4,000 profit but got zero cash?
+**Stella（小魚）：** 零？公司賺了4,000元的獲利，卻收到了零現金？
 
-**Alex:** Exactly. No cash changes hands until the customer actually pays. The income statement says "we made money." The cash flow statement says "but we have not collected it yet." This is why you need both statements. One without the other gives you an incomplete and potentially misleading picture.
+**Horace（陳馬）：** 正是。等到客戶真正付款，才會有現金入帳。損益表說「我們賺到錢了」，現金流量表說「但我們還沒收到」。這就是為什麼你需要同時看兩張報表。缺少其中任何一張，你看到的圖像都是不完整的，甚至可能誤導你的判斷。
 
-[VISUAL: The $10,000 credit sale traced through all three statements simultaneously, with the key insight "Profit does not equal cash!" highlighted]
+[VISUAL: The $10,000 credit sale traced through all three statements simultaneously, with the key insight "獲利不等於現金！" highlighted]
 
-**Sam:** That is an incredible example. Now I understand why people say the cash flow statement is the truth detector.
+**Stella（小魚）：** 這個例子太棒了。現在我明白為什麼大家說現金流量表是「測謊機」了。
 
-**Alex:** It is. And here is a rule of thumb that will serve you well for your entire investing career: when the income statement and the cash flow statement tell different stories, trust the cash flow statement. Cash does not lie.
+**Horace（陳馬）：** 它確實如此。這裡有一條法則，將會讓你整個投資生涯受益：當損益表和現金流量表訴說不同的故事時，相信現金流量表。現金不說謊。
 
-**Sam:** Let us talk about ratios. I see these mentioned all the time -- current ratio, ROE, debt-to-equity. What are the essential ones?
+**Stella（小魚）：** 來聊聊比率。我到處都看到這些——流動比率、股東權益報酬率、負債權益比。哪些是最關鍵的？
 
-**Alex:** There are four categories of ratios you should know. Profitability ratios tell you how effectively the company converts revenue into profit. Liquidity ratios tell you whether the company can pay its short-term bills. Leverage ratios tell you how much debt the company is carrying. And efficiency ratios tell you how well the company manages its assets.
+**Horace（陳馬）：** 你應該掌握四類比率。獲利能力比率告訴你公司將營收轉化為利潤的效率；流動性比率告訴你公司是否能支付短期帳款；槓桿比率告訴你公司承擔了多少負債；效率比率告訴你公司管理資產的能力。
 
-[VISUAL: Four quadrants labeled Profitability, Liquidity, Leverage, and Efficiency, each with their key ratios listed]
+[VISUAL: Four quadrants labeled 獲利能力, 流動性, 槓桿, and 效率, each with their key ratios listed]
 
-**Alex:** For profitability, the most important is Return on Equity -- ROE. It measures how much profit the company generates for each dollar of shareholder equity. An ROE of 15% means the company generates $15 of profit for every $100 of shareholder investment. Above 15% is generally good. Above 20% is excellent. Below 10% may suggest the company is not using shareholders' capital efficiently.
+**Horace（陳馬）：** 在獲利能力方面，最重要的是股東權益報酬率——ROE。它衡量公司每一塊錢股東權益創造了多少獲利。ROE為15%意味著公司每100元的股東投資能產生15元的利潤。高於15%通常不錯，高於20%算是優秀，低於10%可能代表公司未能有效運用股東資本。
 
-**Sam:** But I have heard ROE can be misleading?
+**Stella（小魚）：** 但我聽說ROE可能具有誤導性？
 
-**Alex:** Very perceptive. This is where the DuPont decomposition comes in. ROE equals profit margin times asset turnover times financial leverage. A company can have a high ROE for three very different reasons: it has great margins, it uses assets efficiently, or it has a lot of debt. The first two are healthy. The third is risky.
+**Horace（陳馬）：** 觀察敏銳。這就是杜邦分解派上用場的地方。ROE等於淨利率乘以資產週轉率乘以財務槓桿。一家公司可能因三種截然不同的原因而擁有高ROE：利潤率出色、資產使用效率高，或負債比例高。前兩者是健康的，第三個則具有風險。
 
-**Sam:** So two companies with the same 20% ROE might be very different?
+**Stella（小魚）：** 所以兩家都有20% ROE的公司，可能是非常不同的企業？
 
-**Alex:** Exactly. Company A might have 20% ROE because it has a 10% profit margin and turns over its assets efficiently. Company B might have 20% ROE because it is leveraged to the hilt with debt. If a recession hits, Company A is fine. Company B might face a debt crisis. The DuPont decomposition reveals which type of ROE you are dealing with.
+**Horace（陳馬）：** 正是。公司A的20% ROE可能來自10%的淨利率加上有效率的資產週轉。公司B的20% ROE可能是因為舉了大量的債。一旦景氣衰退，公司A安然無事，公司B可能面臨債務危機。杜邦分解讓你看清自己面對的是哪一種ROE。
 
 [VISUAL: DuPont framework showing ROE broken into three components, with two different companies achieving the same ROE through different combinations]
 
-**Sam:** What about those red flags you mentioned in the reading? What should scare me when I look at financial statements?
+**Stella（小魚）：** 你在閱讀部分提到的那些警訊呢？看財務報表時，什麼事情應該嚇到我？
 
-**Alex:** The number one red flag is a persistent divergence between net income and cash from operations. If the company keeps reporting profits but cash flow keeps declining or is negative, something is not right. The profits may be accounting-driven rather than real.
+**Horace（陳馬）：** 最大的警訊，是淨利與營業活動現金流之間長期出現落差。如果公司持續報告獲利，但現金流量卻持續下滑或為負值，那就不對勁了。這些獲利可能只是會計上的數字，而非真實的。
 
-**Sam:** What causes that divergence?
+**Stella（小魚）：** 是什麼造成這種落差？
 
-**Alex:** Several things. Accounts receivable growing faster than revenue -- the company is booking sales but not collecting cash. Inventory building up faster than revenue -- the company is producing products it cannot sell. Capitalizing expenses -- putting costs on the balance sheet as "assets" instead of running them through the income statement as expenses. All of these inflate reported profit while draining cash.
+**Horace（陳馬）：** 幾個原因。應收帳款成長速度遠快於營收——公司在帳上認列了銷售，但尚未收到現金。存貨累積速度遠快於營收——公司生產的產品賣不出去。費用資本化——將應在損益表認列的費用，移到資產負債表列為「資產」。所有這些都會在耗盡現金的同時，虛增報告的獲利。
 
-**Sam:** Can you give me a real-world example?
+**Stella（小魚）：** 可以給我一個真實世界的例子嗎？
 
-**Alex:** Think about a company that is "stuffing the channel" -- shipping huge quantities of product to distributors at the end of every quarter to hit revenue targets. The distributors have not sold the product to actual customers, but the company books it as revenue. Receivables balloon. Inventory at the distributors piles up. Eventually, the distributors stop ordering, the music stops, and revenue collapses. This exact pattern has been seen in companies from pharmaceutical firms to tech hardware companies.
+**Horace（陳馬）：** 想想一家在每季末「塞貨」的公司——它為了衝刺業績目標，在季末大量把商品塞給經銷商。這些經銷商還沒有將商品賣給終端消費者，但公司已經將其認列為營收。應收帳款大幅膨脹，庫存在經銷商端堆積如山。最終，經銷商停止下訂單，音樂停了，營收崩跌。這個模式在製藥公司到科技硬體公司都曾一再重演。
 
 [VISUAL: Chart showing revenue line steadily climbing while accounts receivable line climbs even faster, with the gap highlighted as a warning sign]
 
-**Sam:** Another red flag you mentioned was frequent "one-time" charges. What is that about?
+**Stella（小魚）：** 你提到的另一個警訊是頻繁出現的「一次性」費用，那是怎麼回事？
 
-**Alex:** This is one of my favorites. Some companies report "one-time" restructuring charges almost every single year. They present adjusted earnings that exclude these charges, making profitability look much better than the GAAP earnings. But if a company has a "one-time" charge every year for ten years, it is not one-time -- it is a recurring cost of doing business that management is trying to sweep under the rug.
+**Horace（陳馬）：** 這是我最喜歡的例子之一。有些公司幾乎每一年都在報告「一次性」的重組費用。他們呈現排除這些費用的調整後盈餘，讓獲利看起來遠比GAAP盈餘亮眼。但如果一家公司連續十年都有「一次性」費用，那就不是一次性的——而是管理層試圖掩蓋的一項經常性業務成本。
 
-**Sam:** So I should be skeptical of adjusted earnings?
+**Stella（小魚）：** 所以我應該對調整後盈餘保持懷疑？
 
-**Alex:** Always compare adjusted earnings to GAAP earnings and to cash from operations. If adjusted earnings are significantly higher than both GAAP earnings and operating cash flow, management may be painting too rosy a picture.
+**Horace（陳馬）：** 務必要將調整後盈餘與GAAP盈餘及營業活動現金流相互比較。如果調整後盈餘顯著高於兩者，管理層可能正在描繪一幅過於樂觀的圖像。
 
-**Sam:** Let me try to put this all together with a practical exercise. If I am looking at a stock for the first time, what is my checklist?
+**Stella（小魚）：** 讓我試著把這一切整合起來做成一份實用的操作清單。如果我第一次看一支股票，我的檢查清單是什麼？
 
-**Alex:** Great idea. Here is my framework.
+**Horace（陳馬）：** 好主意。以下是我的框架。
 
-[VISUAL: Numbered checklist appearing one item at a time as Alex describes each step]
+[VISUAL: Numbered checklist appearing one item at a time as Horace describes each step]
 
-**Alex:** Step one: check revenue trends. Is revenue growing? How fast? Is growth accelerating or decelerating? Step two: check margin trends. Are gross, operating, and net margins stable, expanding, or contracting? Step three: look at the balance sheet. Is debt reasonable relative to equity? Is the current ratio above 1.5? How much cash is on hand? Step four: check cash from operations versus net income. Are they in the same ballpark, or is there a big gap? Step five: calculate free cash flow and the FCF yield. Is the company generating real cash after capital expenditures? Step six: look for red flags -- rapidly growing receivables or inventory, frequent one-time charges, declining cash despite reported profits.
+**Horace（陳馬）：** 第一步：檢查營收趨勢。營收是否在成長？成長速度如何？成長在加速還是減速？第二步：檢查利潤率趨勢。毛利率、營業利益率和淨利率是穩定、擴張，還是在收縮？第三步：審視資產負債表。負債相對股東權益是否合理？流動比率是否高於1.5倍？手頭有多少現金？第四步：比較營業活動現金流與淨利。兩者在同一個數量級嗎？還是存在顯著落差？第五步：計算自由現金流和FCF殖利率。扣除資本支出後，公司是否在創造真實現金？第六步：尋找警訊——應收帳款或存貨快速增加、頻繁出現一次性費用、儘管報告獲利但現金持續減少。
 
-**Sam:** That is a solid framework. How long does it take to do this analysis?
+**Stella（小魚）：** 這是個紮實的框架。做完這套分析需要多少時間？
 
-**Alex:** Once you have practice, you can do a preliminary screen in about 15-20 minutes per company. The deep dive -- reading the full 10-K, understanding the footnotes, comparing to peers -- might take several hours. But even the quick screen will catch the most obvious problems and opportunities.
+**Horace（陳馬）：** 一旦你熟練了，初步的篩選大約可以在每家公司15到20分鐘內完成。深入分析——完整閱讀10-K申報文件、理解附註、與同業對比——可能需要好幾個小時。但即使只是快速篩選，也能抓出最明顯的問題和機會。
 
-**Sam:** Let us talk about something from the CFA perspective. What is this "quality of earnings" concept?
+**Stella（小魚）：** 我們來聊聊從CFA的角度看。「盈餘品質」這個概念是什麼？
 
-**Alex:** Quality of earnings is one of the most important concepts in the CFA curriculum and in professional investing. It asks: how reliable and sustainable are the reported profits? High-quality earnings are backed by cash, come from the company's core business, and are likely to continue in the future. Low-quality earnings are driven by accounting choices, one-time events, or aggressive assumptions.
+**Horace（陳馬）：** 盈餘品質是CFA課程和專業投資中最重要的概念之一。它問的是：報告的獲利有多可靠、有多持續？高品質盈餘以現金為後盾，來自公司的核心業務，且可能延續至未來。低品質盈餘由會計選擇、一次性事件或積極假設所驅動。
 
-**Sam:** How do I assess quality?
+**Stella（小魚）：** 我怎麼評估品質？
 
-**Alex:** The simplest test is the accruals ratio. Take net income, subtract cash from operations, and divide by average total assets. A low or negative accruals ratio means earnings are mostly cash-backed -- high quality. A high accruals ratio means earnings are driven by non-cash accounting items -- lower quality. Academic research has shown that companies with high accruals ratios tend to underperform in subsequent years.
+**Horace（陳馬）：** 最簡單的測試是應計比率。取淨利，減去營業活動現金流，除以平均總資產。應計比率低或為負，意味著盈餘大多有現金支撐——品質高。應計比率高，意味著盈餘大多由非現金的會計項目所驅動——品質偏低。學術研究顯示，應計比率高的公司在後續幾年往往表現欠佳。
 
 [VISUAL: Formula for accruals ratio with examples of high-quality (low ratio) and low-quality (high ratio) companies, with subsequent stock performance shown]
 
-**Sam:** That is a powerful tool. One more question -- you mentioned IFRS versus GAAP. Does it matter for regular investors?
+**Stella（小魚）：** 這是很有力的工具。最後一個問題——你提到了IFRS和GAAP。對一般投資人來說，這重要嗎？
 
-**Alex:** It matters if you invest internationally. US companies report under US GAAP. Most of the rest of the world uses International Financial Reporting Standards, or IFRS. The two systems are broadly similar but differ in important details. For example, under US GAAP, a company can use LIFO (Last In, First Out) for inventory, which can significantly affect reported profits during inflationary periods. IFRS does not allow LIFO. When comparing a US company to a European competitor, you need to be aware of these differences.
+**Horace（陳馬）：** 如果你投資海外市場，就很重要。美國公司依照US GAAP申報；世界大多數其他地區採用國際財務報導準則（IFRS）。兩套準則大體相似，但在若干重要細節上有所差異。例如，在US GAAP下，公司可以採用後進先出法（LIFO）計算存貨，在通膨期間這會顯著影響報告獲利；IFRS則不允許LIFO。當你比較一家美國公司與一家歐洲競爭對手時，必須意識到這些差異的存在。
 
-**Sam:** Do I need to memorize all the differences?
+**Stella（小魚）：** 我需要把所有差異背起來嗎？
 
-**Alex:** No. Just be aware that they exist and be cautious when comparing companies that report under different standards. When in doubt, focus on cash-flow-based metrics, which are less affected by accounting standard differences.
+**Horace（陳馬）：** 不需要。只要知道它們的存在，並在比較採用不同準則申報的公司時保持謹慎即可。如有疑問，聚焦於以現金流量為基礎的指標，這些指標受會計準則差異的影響較小。
 
-[VISUAL: Simple comparison table showing the three most important GAAP vs. IFRS differences: inventory methods, development cost treatment, and lease accounting]
+[VISUAL: Simple comparison table showing the three most important GAAP vs. IFRS differences: 存貨計價方式, 開發成本處理, and 租賃會計]
 
-**Sam:** Before we wrap up, can you walk me through what a quick analysis looks like in practice? Maybe give me a company scenario?
+**Stella（小魚）：** 在結束前，你能帶我們實際走一遍分析流程嗎？給我一個公司情境？
 
-**Alex:** Absolutely. Let me give you Widget Corp from the reading. Revenue grew 11% -- looks good on the surface. But gross margin declined from 46.7% to 45% -- costs are rising faster than revenue. Operating income actually fell 3% despite 11% revenue growth. And the cash flow statement is the real eye-opener: cash from operations dropped 51%, from $49,000 to $24,000. Receivables and inventory are both growing at more than three times the rate of revenue.
+**Horace（陳馬）：** 當然。讓我用閱讀部分的Widget Corp來說明。營收成長11%——表面上看起來不錯。但毛利率從46.7%下滑至45%——成本上升速度超過了營收。儘管營收成長11%，營業利益實際上下滑了3%。而現金流量表才是真正令人大開眼界的地方：營業活動現金流從$49,000腰斬至$24,000，下跌了51%。應收帳款和存貨的成長速度，都是營收成長速度的三倍以上。
 
-**Sam:** That sounds bad despite the revenue growth.
+**Stella（小魚）：** 儘管有營收成長，聽起來很糟糕。
 
-**Alex:** Exactly. And when you calculate free cash flow -- cash from operations of $24,000 minus capital expenditures of $50,000 -- it is negative $26,000. The company is burning cash. They covered the shortfall by borrowing $60,000 in new long-term debt. Revenue growth is masking fundamental deterioration in the business.
+**Horace（陳馬）：** 正是。而當你計算自由現金流——營業活動現金流$24,000減去資本支出$50,000——得到的是負$26,000。公司在燒現金。他們透過新增$60,000的長期借款來彌補缺口。營收成長正在掩蓋業務基本面的全面惡化。
 
-**Sam:** So on the surface it looks like a growing company, but underneath it is a company borrowing money to paper over declining profitability and cash flow problems.
+**Stella（小魚）：** 所以表面上看是一家成長中的公司，骨子裡卻是一家靠舉債來遮掩獲利能力下滑和現金流問題的企業。
 
-**Alex:** That is exactly right. And this is why you need all three statements. The income statement alone says "growing company." The balance sheet raises questions about rising debt, receivables, and inventory. The cash flow statement reveals the truth: this business is not generating cash from its operations.
+**Horace（陳馬）：** 完全正確。而這就是為什麼你需要同時看三張報表。光看損益表，你得到的訊息是「成長中的公司」。資產負債表對不斷上升的負債、應收帳款和存貨發出質疑。現金流量表揭露真相：這家企業無法從自身業務中產生現金。
 
-[VISUAL: Three-panel dashboard showing Widget Corp's income statement (green arrow for revenue growth), balance sheet (yellow warning for rising debt and receivables), and cash flow statement (red alert for negative FCF), with an overall verdict: "Proceed with extreme caution"]
+[VISUAL: Three-panel dashboard showing Widget Corp's income statement (green arrow for revenue growth), balance sheet (yellow warning for rising debt and receivables), and cash flow statement (red alert for negative FCF), with an overall verdict: "請以極度謹慎的態度繼續研究"]
 
-**Sam:** This whole lesson has been an eye-opener. If I had to remember three things from today, what would they be?
+**Stella（小魚）：** 這整堂課讓我大開眼界。如果我只能記住今天的三件事，會是哪三件？
 
-**Alex:** First, always look at all three financial statements together. The income statement, balance sheet, and cash flow statement each tell part of the story, and the connections between them reveal the full picture. Second, when in doubt, follow the cash. Cash from operations is the most reliable indicator of a company's financial health because it is the hardest number to manipulate. Third, watch the trends, not just the absolute numbers. A single year's financial statements tell you where the company is; multiple years of statements tell you where it is going.
+**Horace（陳馬）：** 第一，永遠要同時看三張財務報表。損益表、資產負債表和現金流量表各自訴說故事的一部分，而它們之間的連結才能呈現完整圖像。第二，有疑問時，追著現金走。營業活動現金流是衡量公司財務健全度最可靠的指標，因為它是最難操縱的數字。第三，觀察趨勢，不要只看絕對數字。單一年度的財務報表告訴你公司現在在哪裡；多年的財務報表才能告訴你它正往哪裡去。
 
-**Sam:** Perfect. So to summarize: the income statement tells me if the company made money, the balance sheet tells me what it owns and owes, and the cash flow statement tells me whether the profits are real by showing where the cash actually went. And I should never look at any one of them without the other two.
+**Stella（小魚）：** 完美。所以總結一下：損益表告訴我公司是否賺錢，資產負債表告訴我它擁有什麼、欠了什麼，現金流量表告訴我那些獲利是否真實，方法是追蹤現金實際流向何處。而且我永遠不該只看其中一張，而不看另外兩張。
 
-**Alex:** That is an excellent summary. You are now equipped to do something most investors never bother to do -- actually read the financial statements before buying a stock. It is like reading the inspection report before buying a house. It will not guarantee a good outcome, but it will help you avoid the worst disasters.
+**Horace（陳馬）：** 這個總結太棒了。你現在具備了一項大多數投資人從未費心去做的能力——在買進股票之前，真正去閱讀財務報表。這就像在買房子之前先看房屋檢查報告一樣。它不能保證結果一定好，但能幫你避開最嚴重的災難。
 
 [VISUAL: Summary card with three key takeaways:
-1. All three financial statements tell one interconnected story -- read them together
-2. When earnings and cash flow diverge, trust the cash flow
-3. Watch trends over multiple years, not just single snapshots]
+1. 三張財務報表共同訴說一個相互連結的故事——要同時閱讀
+2. 當盈餘與現金流出現分歧，相信現金流
+3. 觀察多年的趨勢，而非單一時間點的快照]
 
-**Sam:** Next week, we are going to dive into the world of investing psychology and behavioral finance. Why do smart people make dumb investment decisions? And how can we protect ourselves from our own worst instincts?
+**Stella（小魚）：** 下週我們要深入探討投資心理學與行為財務學的世界。為什麼聰明的人會做出愚蠢的投資決策？我們又如何保護自己不被自己最壞的本能所傷害？
 
-**Alex:** It is going to be fascinating. See you then.
+**Horace（陳馬）：** 這會非常精彩。到時見。
 
-**Sam:** Thanks everyone for watching!
+**Stella（小魚）：** 謝謝大家收看！
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

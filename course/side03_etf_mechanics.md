@@ -251,149 +251,149 @@ A: ETFs tracking similar themes or sectors can have very different underlying in
 
 **[VISUAL: Factory assembly line animation. Raw materials (stocks/bonds) going in one end, ETF shares coming out the other. Title card: "How ETFs Actually Work"]**
 
-**Alex:** You probably own an ETF. Maybe an S&P 500 fund, maybe a total market fund. But do you know what actually happens when you click "buy"?
+**Horace:** You probably own an ETF. Maybe an S&P 500 fund, maybe a total market fund. But do you know what actually happens when you click "buy"?
 
-**Sam:** I mean, I buy shares and the fund holds stocks. Right?
+**Stella:** I mean, I buy shares and the fund holds stocks. Right?
 
-**Alex:** That is the surface level. But underneath, there is an entire invisible system of creation, redemption, and arbitrage that keeps the whole thing working. And understanding it makes you a better investor.
+**Horace:** That is the surface level. But underneath, there is an entire invisible system of creation, redemption, and arbitrage that keeps the whole thing working. And understanding it makes you a better investor.
 
 **[VISUAL: Iceberg graphic. Above water: "You buy ETF shares on exchange." Below water: "Authorized Participants, Creation Baskets, In-Kind Transfers, Arbitrage Mechanism, Tax Optimization"]**
 
-**Sam:** Okay, start from the beginning. I go on my brokerage app and buy a hundred shares of VTI. What actually happens?
+**Stella:** Okay, start from the beginning. I go on my brokerage app and buy a hundred shares of VTI. What actually happens?
 
-**Alex:** You are buying those shares from another investor on the exchange, just like buying shares of Apple or Google. The ETF itself -- Vanguard Total Stock Market ETF -- is not involved in that transaction at all. It is a secondary market trade. Your brokerage matches you with a seller, and you exchange money for shares.
+**Horace:** You are buying those shares from another investor on the exchange, just like buying shares of Apple or Google. The ETF itself -- Vanguard Total Stock Market ETF -- is not involved in that transaction at all. It is a secondary market trade. Your brokerage matches you with a seller, and you exchange money for shares.
 
-**Sam:** So who created those shares in the first place?
+**Stella:** So who created those shares in the first place?
 
-**Alex:** This is where it gets interesting. New ETF shares are only created by special entities called Authorized Participants, or APs. These are big financial institutions -- think Goldman Sachs, JPMorgan, Bank of America. They have a formal agreement with Vanguard to create and redeem ETF shares.
+**Horace:** This is where it gets interesting. New ETF shares are only created by special entities called Authorized Participants, or APs. These are big financial institutions -- think Goldman Sachs, JPMorgan, Bank of America. They have a formal agreement with Vanguard to create and redeem ETF shares.
 
 **[ANIMATION: Diagram showing "You" on the left side of a dividing line labeled "Secondary Market (Exchange)" buying from "Other Investors." On the right side of a second dividing line labeled "Primary Market" are APs interacting directly with the ETF.]**
 
-**Sam:** How does an AP create new shares?
+**Stella:** How does an AP create new shares?
 
-**Alex:** Let me walk you through it step by step. Every day, the ETF publishes a list called the creation basket -- the exact securities and quantities needed to create a block of new ETF shares. This block is called a creation unit, usually twenty-five thousand to a hundred thousand shares.
+**Horace:** Let me walk you through it step by step. Every day, the ETF publishes a list called the creation basket -- the exact securities and quantities needed to create a block of new ETF shares. This block is called a creation unit, usually twenty-five thousand to a hundred thousand shares.
 
 **[VISUAL: A document labeled "Creation Basket" with a list of stock tickers and share quantities]**
 
-**Alex:** The AP goes into the market, buys all those underlying securities -- all the stocks in the exact proportions -- bundles them together, and delivers them to the ETF. In exchange, the ETF issues the AP a creation unit of brand-new ETF shares.
+**Horace:** The AP goes into the market, buys all those underlying securities -- all the stocks in the exact proportions -- bundles them together, and delivers them to the ETF. In exchange, the ETF issues the AP a creation unit of brand-new ETF shares.
 
 **[ANIMATION: AP collecting individual stocks (small icons of AAPL, MSFT, GOOGL, AMZN, etc.) into a basket. Basket slides into the ETF. New ETF shares slide out the other side.]**
 
-**Sam:** And then the AP sells those new ETF shares on the exchange?
+**Stella:** And then the AP sells those new ETF shares on the exchange?
 
-**Alex:** Exactly. The AP sells them to investors like you and me. And here is the critical part -- the AP does this to make a profit. If the ETF is trading at a premium, meaning the market price is above the value of the underlying stocks, the AP can buy the cheaper underlying stocks, deliver them to the ETF, receive ETF shares, and sell those shares at the higher market price. Pocket the difference.
+**Horace:** Exactly. The AP sells them to investors like you and me. And here is the critical part -- the AP does this to make a profit. If the ETF is trading at a premium, meaning the market price is above the value of the underlying stocks, the AP can buy the cheaper underlying stocks, deliver them to the ETF, receive ETF shares, and sell those shares at the higher market price. Pocket the difference.
 
 **[ANIMATION: Price scale showing "Underlying Stocks: $100" on one side and "ETF Market Price: $100.05" on the other. AP buys low side, delivers to ETF, sells high side. Profit: $0.05 per share.]**
 
-**Sam:** And that very act of selling those new shares pushes the ETF price back down toward the value of the underlying holdings.
+**Stella:** And that very act of selling those new shares pushes the ETF price back down toward the value of the underlying holdings.
 
-**Alex:** Exactly. The creation process adds supply, which brings the price down. The arbitrage is self-correcting.
+**Horace:** Exactly. The creation process adds supply, which brings the price down. The arbitrage is self-correcting.
 
-**Sam:** What about the reverse? What if the ETF is trading below the value of its holdings?
+**Stella:** What about the reverse? What if the ETF is trading below the value of its holdings?
 
-**Alex:** Then the AP does the opposite. It buys the cheap ETF shares on the exchange, delivers them back to the ETF, and receives the underlying basket of securities in return. Then it sells those securities on the market at their higher prices.
+**Horace:** Then the AP does the opposite. It buys the cheap ETF shares on the exchange, delivers them back to the ETF, and receives the underlying basket of securities in return. Then it sells those securities on the market at their higher prices.
 
 **[ANIMATION: Reverse of the previous animation. AP buys ETF shares, delivers to fund, receives underlying stocks, sells stocks at higher price.]**
 
-**Alex:** This is the redemption process. It removes ETF shares from the market, reducing supply, which pushes the ETF price back up toward NAV. The beauty of this system is that it is entirely market-driven. No one is commanding anyone to do this. APs do it because they can make money. The profit motive keeps ETF prices aligned with NAV.
+**Horace:** This is the redemption process. It removes ETF shares from the market, reducing supply, which pushes the ETF price back up toward NAV. The beauty of this system is that it is entirely market-driven. No one is commanding anyone to do this. APs do it because they can make money. The profit motive keeps ETF prices aligned with NAV.
 
 **[VISUAL: Rubber band metaphor. NAV in the center. ETF price is attached by a rubber band. When price drifts above, the band pulls it back down. When price drifts below, the band pulls it back up. Label: "Arbitrage Mechanism"]**
 
-**Sam:** When does this mechanism not work?
+**Stella:** When does this mechanism not work?
 
-**Alex:** Great question. The biggest stress test in recent memory was March 2020. Bond ETFs in particular were trading at significant discounts to their stated NAV -- in some cases three to five percent below.
+**Horace:** Great question. The biggest stress test in recent memory was March 2020. Bond ETFs in particular were trading at significant discounts to their stated NAV -- in some cases three to five percent below.
 
 **[VISUAL: Chart showing LQD (investment-grade bond ETF) market price vs. NAV during March 2020, with the discount clearly visible]**
 
-**Sam:** Why did the mechanism break down?
+**Stella:** Why did the mechanism break down?
 
-**Alex:** Because the underlying bond market essentially froze. Bonds were not trading, which meant APs could not efficiently buy the underlying bonds to create new ETF shares. And the NAV itself was questionable because it was based on stale bond prices that did not reflect current market conditions. Some argued the ETF price was actually more accurate than the NAV because the ETF was actively trading while many of the underlying bonds were not.
+**Horace:** Because the underlying bond market essentially froze. Bonds were not trading, which meant APs could not efficiently buy the underlying bonds to create new ETF shares. And the NAV itself was questionable because it was based on stale bond prices that did not reflect current market conditions. Some argued the ETF price was actually more accurate than the NAV because the ETF was actively trading while many of the underlying bonds were not.
 
 **[ANIMATION: Bond market with "CLOSED" or "LIMITED TRADING" signs. Arrows between AP and bond market blocked. ETF continues trading on exchange but disconnected from NAV.]**
 
-**Sam:** That is fascinating. So the ETF became the price discovery mechanism.
+**Stella:** That is fascinating. So the ETF became the price discovery mechanism.
 
-**Alex:** In that moment, yes. The ETF was telling you what the bonds were actually worth in real-time, even though the official NAV said otherwise. This has led to some interesting debates about what "fair value" really means.
+**Horace:** In that moment, yes. The ETF was telling you what the bonds were actually worth in real-time, even though the official NAV said otherwise. This has led to some interesting debates about what "fair value" really means.
 
-**Alex:** Now let me tell you about the single most important advantage ETFs have over mutual funds: tax efficiency.
+**Horace:** Now let me tell you about the single most important advantage ETFs have over mutual funds: tax efficiency.
 
-**Sam:** So during March 2020, should investors have been worried about their ETFs?
+**Stella:** So during March 2020, should investors have been worried about their ETFs?
 
-**Alex:** Not about the structure itself. Their money was safe. But they should have been aware that the market price they saw on their screen might not have matched the stated NAV. If you were selling an ETF at a steep discount to NAV, you were essentially selling at a below-fair-value price because the arbitrage mechanism was temporarily impaired.
+**Horace:** Not about the structure itself. Their money was safe. But they should have been aware that the market price they saw on their screen might not have matched the stated NAV. If you were selling an ETF at a steep discount to NAV, you were essentially selling at a below-fair-value price because the arbitrage mechanism was temporarily impaired.
 
-**Sam:** So the lesson is -- in a crisis, do not panic sell ETFs that are at unusual discounts.
+**Stella:** So the lesson is -- in a crisis, do not panic sell ETFs that are at unusual discounts.
 
-**Alex:** Exactly. Those discounts tend to close quickly once markets normalize. Investors who held through March 2020 saw those discounts disappear within weeks.
+**Horace:** Exactly. Those discounts tend to close quickly once markets normalize. Investors who held through March 2020 saw those discounts disappear within weeks.
 
-**Alex:** Now let me tell you about something that could save you serious money over a lifetime. The tax advantage of ETFs.
+**Horace:** Now let me tell you about something that could save you serious money over a lifetime. The tax advantage of ETFs.
 
-**Sam:** This is the one that most people do not understand, right?
+**Stella:** This is the one that most people do not understand, right?
 
-**Alex:** Right, and it can save you a lot of money over time. Here is the problem with mutual funds. When a mutual fund investor redeems, the fund has to sell securities to raise cash. If those securities have gone up in value, the sale triggers a capital gain. That capital gain gets distributed to every remaining shareholder in the fund, and they all have to pay taxes on it -- even if they did not sell anything themselves.
+**Horace:** Right, and it can save you a lot of money over time. Here is the problem with mutual funds. When a mutual fund investor redeems, the fund has to sell securities to raise cash. If those securities have gone up in value, the sale triggers a capital gain. That capital gain gets distributed to every remaining shareholder in the fund, and they all have to pay taxes on it -- even if they did not sell anything themselves.
 
 **[ANIMATION: Mutual fund circle. One investor leaves (arrow out). Fund sells stocks (red flash = capital gain). Tax bill distributed to all remaining investors (small tax documents flying to each remaining investor). Sad faces appear.]**
 
-**Sam:** So you can get a tax bill for gains you never personally realized?
+**Stella:** So you can get a tax bill for gains you never personally realized?
 
-**Alex:** Yes. It happens every year, especially in actively managed mutual funds. And it is even more painful when the fund loses money for the year but still distributes gains from selling positions. You lose money and get a tax bill.
+**Horace:** Yes. It happens every year, especially in actively managed mutual funds. And it is even more painful when the fund loses money for the year but still distributes gains from selling positions. You lose money and get a tax bill.
 
-**Sam:** How do ETFs avoid this?
+**Stella:** How do ETFs avoid this?
 
-**Alex:** Two ways. First, when you sell your ETF shares, you sell on the exchange to another investor. The ETF does not need to sell anything. No capital gains triggered. Second, when redemptions do happen at the fund level through APs, they happen in-kind. The ETF delivers securities to the AP rather than selling them for cash. No sale, no capital gain.
+**Horace:** Two ways. First, when you sell your ETF shares, you sell on the exchange to another investor. The ETF does not need to sell anything. No capital gains triggered. Second, when redemptions do happen at the fund level through APs, they happen in-kind. The ETF delivers securities to the AP rather than selling them for cash. No sale, no capital gain.
 
 **[ANIMATION: ETF circle. One investor leaves (arrow out, but goes to another investor on the exchange). ETF sits peacefully in the middle, no selling required. Happy faces. Then: AP redemption shown -- ETF delivers actual stocks to AP, no cash sale, no capital gain triggered.]**
 
-**Alex:** But here is the really clever part. When the ETF delivers securities in-kind to the AP, it can choose which specific lots to deliver. It chooses the shares with the lowest cost basis -- meaning the ones that have appreciated the most. By flushing out these high-gain lots, the ETF reduces its embedded unrealized capital gains over time.
+**Horace:** But here is the really clever part. When the ETF delivers securities in-kind to the AP, it can choose which specific lots to deliver. It chooses the shares with the lowest cost basis -- meaning the ones that have appreciated the most. By flushing out these high-gain lots, the ETF reduces its embedded unrealized capital gains over time.
 
 **[VISUAL: Portfolio of stocks with different cost bases highlighted in green (low gain) and red (high gain). The high-gain lots are selected and delivered to the AP. Remaining portfolio shows lower embedded gains.]**
 
-**Sam:** That is like a built-in tax management system.
+**Stella:** That is like a built-in tax management system.
 
-**Alex:** It is. And this is why many large equity ETFs -- including some that have been around for over twenty years -- have never distributed a single capital gain. Not once.
+**Horace:** It is. And this is why many large equity ETFs -- including some that have been around for over twenty years -- have never distributed a single capital gain. Not once.
 
-**Sam:** Okay, so tracking error. When people compare ETFs, they often look at this. What is it exactly?
+**Stella:** Okay, so tracking error. When people compare ETFs, they often look at this. What is it exactly?
 
-**Alex:** There are really two concepts. Tracking difference is the gap between your ETF's return and the benchmark's return over a period. If the S&P 500 returns ten percent and your ETF returns nine point nine three percent, the tracking difference is negative zero point zero seven percent. Tracking error is the variability of that difference over time -- how consistent is the tracking.
+**Horace:** There are really two concepts. Tracking difference is the gap between your ETF's return and the benchmark's return over a period. If the S&P 500 returns ten percent and your ETF returns nine point nine three percent, the tracking difference is negative zero point zero seven percent. Tracking error is the variability of that difference over time -- how consistent is the tracking.
 
 **[VISUAL: Two line charts running closely together. Top one labeled "Index Return," bottom one labeled "ETF Return." The small gap between them is labeled "Tracking Difference." Annotations show the gap varying slightly from period to period = "Tracking Error"]**
 
-**Sam:** What causes tracking difference?
+**Stella:** What causes tracking difference?
 
-**Alex:** The biggest factor is the expense ratio -- that is a guaranteed drag. But there are others: cash drag from dividends received but not yet reinvested, transaction costs from rebalancing, sampling if the ETF does not hold every security in the index, and securities lending income, which actually helps offset costs.
+**Horace:** The biggest factor is the expense ratio -- that is a guaranteed drag. But there are others: cash drag from dividends received but not yet reinvested, transaction costs from rebalancing, sampling if the ETF does not hold every security in the index, and securities lending income, which actually helps offset costs.
 
-**Sam:** Wait, what is securities lending?
+**Stella:** Wait, what is securities lending?
 
-**Alex:** When short sellers want to short a stock, they need to borrow shares from someone. ETFs can lend out their holdings and earn fees. That income goes back to the fund and partially offsets the expense ratio. Some ETFs actually have negative tracking difference -- they beat the index -- because their securities lending revenue exceeds their expenses.
+**Horace:** When short sellers want to short a stock, they need to borrow shares from someone. ETFs can lend out their holdings and earn fees. That income goes back to the fund and partially offsets the expense ratio. Some ETFs actually have negative tracking difference -- they beat the index -- because their securities lending revenue exceeds their expenses.
 
 **[VISUAL: Diagram showing ETF lending shares to short seller. Short seller pays a fee. Fee flows back to the ETF. Label: "Securities Lending Income: 0.01-0.10% per year for large equity ETFs"]**
 
-**Sam:** So the ETF is making money on the side.
+**Stella:** So the ETF is making money on the side.
 
-**Alex:** Exactly. The best index ETFs squeeze every basis point. Low expenses, efficient rebalancing, and securities lending income combine to minimize tracking difference.
+**Horace:** Exactly. The best index ETFs squeeze every basis point. Low expenses, efficient rebalancing, and securities lending income combine to minimize tracking difference.
 
-**Sam:** One more thing I have always wondered. If I own an ETF that holds international stocks, what happens when those foreign markets are closed but the US market is open?
+**Stella:** One more thing I have always wondered. If I own an ETF that holds international stocks, what happens when those foreign markets are closed but the US market is open?
 
-**Alex:** Great question. This is the "stale NAV" problem. The NAV is calculated using the last closing prices of the underlying securities. But if those securities trade in Tokyo or London, the prices are hours old. The ETF, meanwhile, is trading in real time on the US exchange, reflecting new information -- currency moves, geopolitical events, US economic data.
+**Horace:** Great question. This is the "stale NAV" problem. The NAV is calculated using the last closing prices of the underlying securities. But if those securities trade in Tokyo or London, the prices are hours old. The ETF, meanwhile, is trading in real time on the US exchange, reflecting new information -- currency moves, geopolitical events, US economic data.
 
 **[ANIMATION: Clock showing Tokyo market closed at 2:00 AM Eastern, London market closed at 11:30 AM Eastern. US market open 9:30 AM - 4:00 PM Eastern. ETF trading the whole US session using stale foreign prices.]**
 
-**Alex:** This means international ETFs can trade at premiums or discounts to their stated NAV simply because the NAV is outdated. The ETF price may actually be more accurate than the NAV.
+**Horace:** This means international ETFs can trade at premiums or discounts to their stated NAV simply because the NAV is outdated. The ETF price may actually be more accurate than the NAV.
 
-**Sam:** So a "discount" to NAV is not necessarily a bargain.
+**Stella:** So a "discount" to NAV is not necessarily a bargain.
 
-**Alex:** Right. For international ETFs, always check whether the premium or discount is driven by stale pricing or by actual supply-demand imbalances.
+**Horace:** Right. For international ETFs, always check whether the premium or discount is driven by stale pricing or by actual supply-demand imbalances.
 
-**Alex:** Let me leave you with some practical tips. When choosing an ETF, look at the expense ratio first, then tracking difference, then bid-ask spread. For core holdings, go with the most liquid, lowest-cost option. Use limit orders, not market orders. Avoid trading in the first and last fifteen minutes of the day. And for international ETFs, be aware that premiums and discounts can be wider because the underlying markets may be closed when US markets are open.
+**Horace:** Let me leave you with some practical tips. When choosing an ETF, look at the expense ratio first, then tracking difference, then bid-ask spread. For core holdings, go with the most liquid, lowest-cost option. Use limit orders, not market orders. Avoid trading in the first and last fifteen minutes of the day. And for international ETFs, be aware that premiums and discounts can be wider because the underlying markets may be closed when US markets are open.
 
 **[VISUAL: Checklist graphic: "ETF Selection Checklist: 1. Expense Ratio 2. Tracking Difference 3. AUM (size) 4. Bid-Ask Spread 5. Trading Volume 6. Tax Efficiency"]**
 
-**Sam:** This is the stuff nobody explains when they say "just buy an index fund."
+**Stella:** This is the stuff nobody explains when they say "just buy an index fund."
 
-**Alex:** Understanding the machinery does not change the conclusion -- index ETFs are still great for most investors. But it helps you choose better, trade smarter, and stay calm when markets get volatile and you see your ETF trading at a discount.
+**Horace:** Understanding the machinery does not change the conclusion -- index ETFs are still great for most investors. But it helps you choose better, trade smarter, and stay calm when markets get volatile and you see your ETF trading at a discount.
 
 **[VISUAL: End card with "Next: Side Lesson 04 -- Tax-Efficient Investing"]**
 
-**Sam:** See you in the next one.
+**Stella:** See you in the next one.
 
 ---
 

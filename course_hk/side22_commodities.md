@@ -1,268 +1,265 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 22: Commodities -- Energy, Metals, Agriculture, and How to Invest
+# 補充課第22課：商品 — 能源、金屬、農業及投資方法
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Commodities are the raw materials that power the global economy -- the oil that fuels transportation, the copper that wires buildings, the wheat that feeds populations, and the gold that has served as a store of value for millennia. As an asset class, commodities offer unique characteristics that differ fundamentally from stocks and bonds. They tend to perform well during inflationary periods, they have historically low correlation with financial assets, and they represent direct exposure to supply-and-demand dynamics in the physical world. But commodities also come with challenges that catch many investors off guard: contango and roll yield in futures markets, the absence of income (no dividends or interest), and the difficulty of storing physical goods. This lesson covers the major commodity sectors, the mechanics of spot versus futures markets, the pitfalls of commodity ETFs, and practical approaches to gaining commodity exposure.
-
----
-
-### a) Why This Is Important
-
-**Inflation Hedge.** Commodities are one of the few asset classes that tend to rise during inflationary periods, because they are often the source of inflation itself. When oil, food, and metals prices rise, they drive the Consumer Price Index higher. Owning commodities during these periods provides a natural hedge against purchasing power erosion -- something stocks and bonds may not reliably do.
-
-**Diversification.** Commodities have historically exhibited low correlation with stocks and bonds. Adding commodity exposure to a traditional stock-bond portfolio can improve risk-adjusted returns by reducing overall portfolio volatility. During the 2000-2009 "lost decade" for U.S. stocks, commodities delivered strong positive returns, providing valuable diversification.
-
-**Understanding the Real Economy.** Commodity prices reflect the physical realities of supply and demand. Oil prices respond to OPEC production decisions, geopolitical tensions, and transportation demand. Agricultural prices respond to weather patterns, crop yields, and population growth. Understanding commodity markets gives you insight into the real economy that financial asset prices sometimes obscure.
-
-**Avoiding Costly Mistakes.** Many investors have entered commodity markets without understanding the mechanics of futures-based investing, only to discover that their investment lost money even though the commodity's spot price rose. Understanding contango, backwardation, and roll yield is essential before investing a single dollar in commodity ETFs or futures.
+商品是推動全球經濟運作的原材料 — 為交通運輸提供動力的石油、為建築物架設電線的銅、養活人口的小麥，以及千年來作為價值儲存工具的黃金。作為一種資產類別，商品具有與股票和債券根本不同的獨特特性。它們在通脹時期往往表現良好，與金融資產的相關性歷來偏低，並且能直接反映現實世界中的供求動態。然而，商品也有不少令投資者措手不及的挑戰：期貨市場中的期貨升水與滾倉收益、沒有收入（無股息或利息），以及實物商品的儲存困難。本課涵蓋主要商品板塊、現貨與期貨市場的運作機制、商品交易所買賣基金的陷阱，以及獲取商品敞口的實際方法。
 
 ---
 
-### b) What You Need to Know
+### a) 為何此議題重要
 
-#### Major Commodity Sectors
+**通脹對沖。** 商品是少數在通脹時期往往上漲的資產類別之一，因為它們本身往往就是通脹的根源。當石油、食品和金屬價格上漲時，它們會推高消費物價指數。在這些時期持有商品，可以為購買力侵蝕提供天然對沖 — 而股票和債券未必能可靠地做到這一點。
 
-Commodities are generally divided into four major sectors, each with distinct supply-demand dynamics.
+**分散投資。** 商品與股票和債券的相關性歷來偏低。在傳統股債投資組合中加入商品敞口，可通過降低整體投資組合波動性來改善風險調整後回報。在美國股票的2000至2009年「失落的十年」期間，商品錄得強勁正回報，提供了寶貴的分散效果。
 
-**Energy.** The largest commodity sector by trading volume and economic significance. Includes crude oil (West Texas Intermediate and Brent), natural gas, heating oil, gasoline, and increasingly, electricity futures.
+**了解實體經濟。** 商品價格反映供求的實物現實。油價回應石油輸出國組織的生產決定、地緣政治緊張局勢和運輸需求。農產品價格回應天氣模式、農作物收成和人口增長。了解商品市場，能讓您洞察到金融資產價格有時會遮蔽的實體經濟狀況。
 
-Crude oil is the world's most actively traded commodity. Its price is influenced by:
-- OPEC+ production decisions (the cartel controls roughly 40% of global oil production).
-- Global economic growth (which drives transportation and industrial demand).
-- Geopolitical events (wars, sanctions, pipeline disruptions).
-- U.S. shale production levels and rig counts.
-- Strategic petroleum reserve releases.
-- The energy transition and electric vehicle adoption.
-
-Natural gas prices are driven by weather (heating and cooling demand), storage levels, LNG export capacity, and increasingly, its role as a transition fuel from coal to renewables.
-
-**Metals.** Divided into precious metals and industrial metals.
-
-Precious metals include:
-- **Gold:** Historically used as a store of value and inflation hedge. Gold prices respond to real interest rates (nominal rates minus inflation), dollar strength, central bank buying, and geopolitical uncertainty. Gold has no yield -- its return comes entirely from price appreciation.
-- **Silver:** Used in both jewelry/investment and industrial applications (electronics, solar panels). More volatile than gold, with a higher industrial demand component.
-- **Platinum and Palladium:** Primarily industrial metals used in catalytic converters, with some investment demand.
-
-Industrial metals include:
-- **Copper:** Often called "Dr. Copper" because its price is considered a barometer of global economic health. Used extensively in construction, electronics, and increasingly in electric vehicles and renewable energy infrastructure.
-- **Aluminum:** The most widely used non-ferrous metal. Used in transportation, construction, and packaging.
-- **Lithium, Cobalt, Nickel:** Critical battery metals for electric vehicles and energy storage.
-
-**Agriculture.** The oldest commodity markets, originating with grain trading centuries ago. Major agricultural commodities include:
-- **Grains:** Corn, wheat, soybeans, rice. Prices driven by weather, planting decisions, government subsidies, and demand from food production and ethanol.
-- **Soft commodities:** Coffee, cocoa, sugar, cotton. Prices highly sensitive to weather patterns in specific growing regions.
-- **Livestock:** Live cattle, lean hogs, feeder cattle. Prices influenced by feed costs, disease outbreaks, and consumer demand.
-
-Agricultural commodities are uniquely seasonal. Prices follow planting, growing, and harvest cycles. Weather events like droughts, floods, and frost can cause dramatic price spikes.
-
-**Other Commodities.** Timber, rubber, rare earth elements, and water rights are also traded as commodities in various markets, though they are less accessible to retail investors.
-
-#### Spot Prices vs. Futures Prices
-
-Understanding the difference between spot and futures prices is essential for commodity investing.
-
-**Spot Price.** The current market price for immediate delivery of a commodity. If crude oil's spot price is $75 per barrel, that is what you would pay to take delivery of a barrel of oil today.
-
-**Futures Price.** The price agreed upon today for delivery of a commodity at a specific future date. A crude oil futures contract for delivery in six months might trade at $77 per barrel -- different from today's spot price.
-
-**The Futures Curve.** The relationship between futures prices at different delivery dates creates the "futures curve" (or "term structure"). This curve can take two shapes:
-
-**Contango.** When futures prices are higher than the spot price (the futures curve slopes upward). This is the more common condition for most commodities. Contango exists because of the "cost of carry" -- storing a physical commodity incurs costs (storage fees, insurance, financing), and the futures price must compensate for these costs. In strong contango, far-dated futures may be significantly more expensive than the spot price.
-
-**Backwardation.** When futures prices are lower than the spot price (the futures curve slopes downward). Backwardation typically occurs when there is strong near-term demand or supply disruption. Buyers are willing to pay a premium for immediate delivery because they need the commodity now.
-
-#### Roll Yield: The Hidden Cost (or Benefit)
-
-This is the most important concept for commodity investors using futures-based products, and it is the concept most commonly misunderstood.
-
-**The Problem.** Futures contracts expire. When you invest in a commodity futures ETF, the fund buys futures contracts, and as those contracts approach expiration, the fund must "roll" them -- sell the expiring contracts and buy the next month's contracts.
-
-**Roll Yield in Contango.** In a contango market, the next month's contract is more expensive than the expiring contract. The fund sells low (the expiring, cheaper contract) and buys high (the next month's, more expensive contract). This creates a negative roll yield -- a drag on returns that erodes performance over time.
-
-**Example:** Spot oil is $75. The current month's futures (expiring soon) are at $75.50. Next month's futures are at $77. When the fund rolls, it sells at $75.50 and buys at $77 -- a $1.50 loss on each barrel equivalent. This happens every month, creating a persistent headwind.
-
-**Roll Yield in Backwardation.** In a backwardation market, the opposite occurs. The fund sells the more expensive expiring contract and buys the cheaper next-month contract, generating a positive roll yield -- a tailwind for returns.
-
-**Real-World Impact.** The United States Oil Fund (USO) is a cautionary tale. From its inception in 2006 through 2020, crude oil spot prices were volatile but ultimately moved in a wide range. Yet USO's price declined dramatically over the same period, losing roughly 90% of its value. The primary culprit was persistent contango and negative roll yield -- the fund was losing money every month on the roll, regardless of oil's spot price direction.
-
-This is why many commodity investors prefer strategies that minimize roll cost, such as:
-- Broad commodity ETFs that spread rolls across many commodities and use optimization strategies.
-- Commodity producer stocks (energy companies, mining companies) instead of commodity futures.
-- Physical commodity exposure (gold bullion or coins).
-
-#### Commodity ETFs and How to Invest
-
-**Physically Backed ETFs.** Some commodity ETFs hold the actual physical commodity. This eliminates roll yield issues entirely.
-- **SPDR Gold Shares (GLD):** Holds physical gold bullion in vaults. The gold price moves closely tracks the spot gold price. Expense ratio of 0.40%.
-- **iShares Gold Trust (IAU):** Similar to GLD but with a lower expense ratio of 0.25%.
-- **iShares Silver Trust (SLV):** Holds physical silver.
-- **Aberdeen Physical Platinum ETF (PPLT):** Holds physical platinum.
-
-Physical backing is feasible for precious metals (dense, durable, high value per weight) but impractical for most other commodities. You cannot efficiently store thousands of barrels of oil or tons of corn in an ETF vault.
-
-**Futures-Based ETFs.** Most commodity ETFs hold futures contracts rather than physical commodities.
-- **Invesco Optimum Yield Diversified Commodity Strategy ETF (PDBC):** A broad commodity ETF that uses optimization strategies to minimize negative roll yield. Covers energy, metals, and agriculture.
-- **iShares GSCI Commodity Dynamic Roll Strategy ETF (COMT):** Another broad commodity fund with roll optimization.
-- **United States Oil Fund (USO):** Single-commodity (crude oil) futures fund. Subject to significant roll yield drag in contango markets.
-- **United States Natural Gas Fund (UNG):** Natural gas futures. Historically one of the worst-performing commodity ETFs due to persistent severe contango in natural gas.
-
-**Commodity Producer Stocks and ETFs.** An alternative to direct commodity exposure is owning the companies that produce commodities.
-- **Energy Select Sector SPDR (XLE):** U.S. energy companies including ExxonMobil, Chevron, and ConocoPhillips.
-- **VanEck Gold Miners ETF (GDX):** Gold mining companies.
-- **Invesco DB Agriculture Fund (DBA):** Agricultural commodity futures.
-- **SPDR S&P Metals and Mining ETF (XME):** Metals and mining companies.
-
-Producer stocks offer dividends (which commodities themselves do not), avoid roll yield issues, and provide exposure to commodity prices. However, they also carry company-specific risks, equity market correlation, and operational leverage that amplifies both gains and losses relative to commodity prices.
-
-#### Understanding Commodity Seasonality
-
-Many commodities exhibit predictable seasonal price patterns driven by production cycles, weather, and consumption patterns.
-
-**Natural Gas.** Prices tend to rise in late fall and early winter as heating demand increases, and decline in spring as demand wanes. Inventory build and draw cycles create tradeable patterns.
-
-**Agricultural Commodities.** Grain prices often follow planting and harvest cycles. Corn and soybean prices may rise during the spring planting season (when uncertainty about acreage and weather is highest) and decline during harvest season as new supply enters the market.
-
-**Gasoline.** Prices typically rise in spring as refineries switch to summer-blend gasoline and decline after Labor Day as driving season ends.
-
-**Precious Metals.** Gold often sees increased demand during Indian wedding season (October-December) and Chinese New Year, though these patterns have diminished as financial trading has come to dominate physical demand.
-
-While seasonal patterns can inform timing, they are tendencies, not guarantees. Unexpected supply disruptions, geopolitical events, or demand shifts can overwhelm seasonal patterns in any given year.
-
-#### Commodity Indices and Benchmarks
-
-Several indices track commodity performance, and their construction affects returns:
-
-**Bloomberg Commodity Index (BCOM).** A broadly diversified index covering energy, metals, and agriculture with production-weighted and liquidity-weighted allocations. No single commodity can exceed 15% of the index, ensuring diversification. This is the benchmark tracked by many commodity ETFs.
-
-**S&P GSCI.** More heavily weighted toward energy (especially crude oil), reflecting the economic significance of energy commodities. This energy tilt makes the GSCI more volatile and more correlated with oil price movements than the Bloomberg index.
-
-**DBIQ Optimum Yield Diversified Commodity Index.** Uses an optimization strategy that selects futures contracts along the curve to minimize negative roll yield. This approach has historically outperformed traditional rolling strategies.
-
-Understanding which index your commodity ETF tracks is important because energy-heavy indices behave very differently from diversified ones.
-
-#### Commodities in a Portfolio
-
-Academic research by Gorton and Rouwenhorst (2006) found that a diversified commodity futures portfolio delivered equity-like returns with lower correlation to stocks and bonds, and with particularly strong performance during inflationary periods.
-
-**Typical Portfolio Allocation.** Most advisors who include commodities recommend a 5-15% allocation as part of a diversified portfolio. This provides meaningful diversification benefit without excessive concentration in a volatile, non-income-producing asset class.
-
-**When Commodities Tend to Perform Well:**
-- During inflationary periods (commodities are the source of inflation).
-- During periods of strong global economic growth (increased demand for raw materials).
-- During supply disruptions (geopolitical events, natural disasters).
-- During periods of dollar weakness (commodities are priced in dollars, so a weaker dollar means higher commodity prices in dollar terms).
-
-**When Commodities Tend to Perform Poorly:**
-- During deflationary periods or recessions (reduced demand for raw materials).
-- During periods of dollar strength.
-- During periods of technological disruption that reduces demand (for example, the shift from coal to natural gas, or from internal combustion to electric vehicles).
-- During periods of oversupply driven by new production capacity coming online.
-
-**Commodity Allocation Approaches:**
-
-Several approaches to commodity allocation exist, each with merits:
-
-- **Strategic Allocation (5-10%).** Maintain a fixed allocation to a broad commodity index, rebalanced periodically. This provides consistent exposure and diversification without requiring market timing.
-- **Tactical Allocation.** Adjust commodity exposure based on inflation expectations, economic cycle positioning, and relative valuation. Increase exposure when inflation is rising and reduce it when inflation is falling. This requires active management and market judgment.
-- **Indirect Exposure via Producer Stocks.** Skip direct commodity investing entirely and gain exposure through energy, mining, and agricultural company stocks. This approach provides dividends, avoids futures mechanics, and is simpler to implement in a standard brokerage account.
-- **Inflation-Responsive Allocation.** Use commodities as part of a broader inflation-hedging strategy that also includes TIPS, floating-rate bonds, and REITs. Allocate to commodities specifically during periods of rising inflation expectations and reduce during low-inflation environments.
-
-The right approach depends on your goals, sophistication, and willingness to understand futures market mechanics. For most individual investors, a simple strategic allocation through a broad, roll-optimized commodity ETF provides the best balance of diversification benefit and simplicity.
-
-#### Geopolitical Factors in Commodity Markets
-
-Commodities are uniquely sensitive to geopolitical events because physical supply chains cross national borders and pass through strategic chokepoints.
-
-**Key Energy Chokepoints:**
-- **Strait of Hormuz:** Approximately 20% of global oil supply passes through this narrow waterway between Iran and Oman. Any disruption threatens global energy markets.
-- **Strait of Malacca:** Critical for Asian oil and LNG imports. A blockage would disrupt supply chains for the world's fastest-growing energy markets.
-- **Suez Canal:** A major trade route for oil and LNG moving between the Middle East and Europe. The 2021 Ever Given blockage demonstrated the fragility of this chokepoint.
-
-**Food Security and Agricultural Commodities:**
-- **Black Sea Ports:** Critical for Ukrainian and Russian grain exports. Russia's invasion of Ukraine in 2022 disrupted global wheat and corn markets, sending food prices soaring worldwide.
-- **Brazil's Cerrado Region:** One of the world's most important agricultural regions for soybeans and cattle. Drought, deforestation policy, and trade disputes can affect global food supply.
-- **The Nile Basin:** Water disputes among East African nations could affect agricultural output in a region already facing food security challenges.
-
-**Resource Nationalism.** Governments in resource-rich countries periodically change tax regimes, royalty structures, or ownership rules for natural resources. Indonesia's nickel export ban, Chile's proposed lithium nationalization, and Mexico's energy sector reforms are examples of how political decisions can dramatically affect commodity supply and prices.
-
-Understanding these geopolitical dynamics helps explain why commodity prices can spike suddenly and unpredictably, and why a small allocation to commodities can provide crisis diversification for a portfolio.
-
-#### Physical Commodity Ownership
-
-For investors interested in physical precious metals ownership:
-
-**Gold and Silver Coins.** American Eagles, Canadian Maple Leafs, and other sovereign coins are the most widely recognized and easily liquidated forms of physical gold and silver. Dealer premiums range from 3-8% above spot price for gold coins and higher for silver.
-
-**Gold and Silver Bars.** Available from refiners like PAMP Suisse, Valcambi, and the Royal Canadian Mint. Larger bars have smaller premiums per ounce but can be harder to sell in partial amounts.
-
-**Storage Considerations.** Home storage requires a quality safe, insurance (homeowner's policies typically cover only limited amounts), and discretion. Professional vault storage through companies like Brinks or custodial services costs 0.5-1% of the metal's value annually but provides institutional-grade security.
-
-For most investors, physically backed ETFs (GLD, IAU) provide the convenience of exchange-traded liquidity while maintaining physical backing. The ETF shares represent ownership of metal held in secure vaults with regular audits.
+**避免代價高昂的錯誤。** 許多投資者在不了解期貨投資機制的情況下進入商品市場，結果發現儘管商品現貨價格上漲，其投資卻虧損。在投入哪怕一分錢於商品交易所買賣基金或期貨之前，了解期貨升水、期貨貼水和滾倉收益至關重要。
 
 ---
 
-### c) Common Misconceptions
+### b) 您需要了解的知識
 
-**"Buying an oil ETF is the same as investing in oil."** Most oil ETFs hold futures contracts, not physical oil. Due to contango and roll yield, these ETFs can lose money even when oil prices rise. The tracking error between a futures-based oil ETF and the spot price of oil can be enormous over time.
+#### 主要商品板塊
 
-**"Gold is always a good inflation hedge."** Gold has been an effective hedge during some inflationary periods (1970s, 2020-2023) but not others. From 1980 to 2000, gold lost roughly 70% of its real (inflation-adjusted) value despite moderate inflation. Gold's relationship with inflation is real but inconsistent, and it depends heavily on starting valuations, real interest rates, and market sentiment.
+商品一般分為四大板塊，各具截然不同的供求動態。
 
-**"Commodities are too volatile for regular investors."** A small allocation (5-10%) of broad, diversified commodity exposure adds less volatility to a portfolio than you might expect, because commodities' low correlation with stocks and bonds partially offsets their individual volatility. The portfolio's total risk can actually decrease.
+**能源。** 按交易量和經濟重要性而言，規模最大的商品板塊。包括原油（西德州中質油和布倫特原油）、天然氣、取暖油、汽油，以及日益增多的電力期貨。
 
-**"Agricultural commodities are a bet against humanity."** Some investors feel uncomfortable profiting from rising food prices. However, commodity futures markets serve an essential economic function -- they allow farmers, food producers, and other participants to hedge their price risk. Investors provide liquidity that makes these markets function, ultimately supporting more stable food production and pricing.
+原油是全球交易最活躍的商品。其價格受以下因素影響：
+- 石油輸出國組織+的生產決定（該卡特爾控制全球原油產量約40%）。
+- 全球經濟增長（推動運輸和工業需求）。
+- 地緣政治事件（戰爭、制裁、管道中斷）。
+- 美國頁岩油產量水平和鑽機數量。
+- 戰略石油儲備的釋放。
+- 能源轉型和電動車普及。
 
-**"You should invest in commodities when prices are low."** Commodities do not have the same mean-reverting properties as stocks. A commodity's price can stay low for decades if structural demand shifts occur (like coal's decline). Buying low only works if the demand fundamentals support an eventual recovery.
+天然氣價格受天氣（供暖和冷卻需求）、庫存水平、液化天然氣出口能力影響，以及其作為從煤炭過渡到可再生能源的橋接燃料的角色日益重要。
 
-**"Commodity ETFs closely track commodity spot prices."** Due to roll yield, futures-based commodity ETFs can deviate dramatically from spot price movements over time. Natural gas ETFs have been among the worst performers in the ETF universe, declining 90%+ over multi-year periods even when natural gas spot prices were range-bound. Always check whether a commodity ETF is physically backed or futures-based before investing, and understand the implications.
+**金屬。** 分為貴金屬和工業金屬。
 
-**"Gold is a hedge against everything."** Gold is primarily a hedge against negative real interest rates, currency debasement, and extreme geopolitical uncertainty. It is not reliably a hedge against all types of risk. During deflationary periods, rising real interest rate environments, or periods of dollar strength, gold can underperform significantly. Gold performed poorly from 1980 to 2000 -- two decades of weakness -- despite multiple recessions during that period.
+貴金屬包括：
+- **黃金：** 歷來用作價值儲存和通脹對沖工具。黃金價格回應實際利率（名義利率減通脹）、美元強弱、央行購買和地緣政治不確定性。黃金沒有收益率 — 其回報完全來自價格升值。
+- **白銀：** 用於珠寶/投資和工業應用（電子產品、太陽能板）。比黃金波動性更大，工業需求比重更高。
+- **鉑金和鈀金：** 主要用於汽車催化轉換器的工業金屬，有一定投資需求。
+
+工業金屬包括：
+- **銅：** 通常被稱為「銅博士」，因為其價格被視為全球經濟健康狀況的晴雨表。廣泛用於建築、電子產品，以及日益增多地用於電動車和可再生能源基礎設施。
+- **鋁：** 使用最廣泛的有色金屬。用於交通運輸、建築和包裝。
+- **鋰、鈷、鎳：** 電動車和儲能的關鍵電池金屬。
+
+**農業。** 最古老的商品市場，源於數百年前的糧食貿易。主要農業商品包括：
+- **穀物：** 玉米、小麥、大豆、稻米。價格受天氣、種植決策、政府補貼以及食品生產和乙醇需求驅動。
+- **軟商品：** 咖啡、可可、糖、棉花。價格對特定種植地區的天氣模式高度敏感。
+- **牲畜：** 活牛、瘦豬肉、飼養牛。價格受飼料成本、疫病暴發和消費需求影響。
+
+農業商品具有獨特的季節性。價格跟隨播種、生長和收穫周期波動。乾旱、洪水和霜凍等天氣事件可導致價格急劇上漲。
+
+**其他商品。** 木材、橡膠、稀土元素和水權也在各種市場作為商品交易，但零售投資者的可及性較低。
+
+#### 現貨價格與期貨價格
+
+了解現貨價格和期貨價格之間的差異，對商品投資至關重要。
+
+**現貨價格。** 商品即時交付的當前市場價格。若原油現貨價格為每桶75美元，這就是您今天提取一桶石油所需支付的價格。
+
+**期貨價格。** 就在未來特定日期交付商品而今天達成的協議價格。六個月後交付的原油期貨合約可能以每桶77美元交易 — 與今日現貨價格不同。
+
+**期貨曲線。** 不同交付日期期貨價格之間的關係形成「期貨曲線」（或「期限結構」）。此曲線可呈兩種形態：
+
+**期貨升水。** 當期貨價格高於現貨價格時（期貨曲線向上傾斜）。這是大多數商品較常見的情況。期貨升水存在是因為「持倉成本」— 儲存實物商品會產生成本（倉儲費、保險費、融資費），期貨價格必須補償這些成本。在強烈期貨升水情況下，遠期期貨可能比現貨價格貴得多。
+
+**期貨貼水。** 當期貨價格低於現貨價格時（期貨曲線向下傾斜）。期貨貼水通常在近期需求強勁或供應中斷時出現。買家願意為即時交付支付溢價，因為他們現在就需要該商品。
+
+#### 滾倉收益：隱藏的成本（或收益）
+
+這是使用期貨產品的商品投資者最重要的概念，也是最常被誤解的概念。
+
+**問題所在。** 期貨合約到期。當您投資商品期貨交易所買賣基金時，基金購買期貨合約，當這些合約臨近到期時，基金必須「滾倉」— 賣出即將到期的合約並買入下個月的合約。
+
+**期貨升水中的滾倉收益。** 在期貨升水市場中，下個月的合約比即將到期的合約更貴。基金以低價賣出（即將到期的較便宜合約）並以高價買入（下個月較昂貴的合約）。這產生負滾倉收益 — 隨時間推移侵蝕表現的拖累。
+
+**例子：** 石油現貨價格為75美元。當前月份期貨（即將到期）為75.50美元。下個月期貨為77美元。當基金滾倉時，以75.50美元賣出，以77美元買入 — 每桶當量虧損1.50美元。這每個月都會發生，形成持續性的阻力。
+
+**期貨貼水中的滾倉收益。** 在期貨貼水市場中，情況相反。基金賣出較貴的即將到期合約，買入較便宜的下個月合約，產生正滾倉收益 — 回報的順風車。
+
+**現實世界的影響。** 美國石油基金（USO）是一個警示案例。從2006年成立到2020年，原油現貨價格波動但在寬幅區間內波動。然而，USO的價格在同期大幅下跌，損失了約90%的價值。主要罪魁禍首是持續的期貨升水和負滾倉收益 — 無論石油現貨價格走向如何，基金每個月在滾倉上都在虧損。
+
+這就是為什麼許多商品投資者偏好能最小化滾倉成本的策略，例如：
+- 廣泛的商品交易所買賣基金，分散多種商品的滾倉並使用優化策略。
+- 商品生產商股票（能源公司、礦業公司）而非商品期貨。
+- 實物商品敞口（金條或金幣）。
+
+#### 商品交易所買賣基金及投資方法
+
+**實物支持交易所買賣基金。** 部分商品交易所買賣基金持有實際實物商品。這完全消除了滾倉收益問題。
+- **SPDR黃金股份（GLD）：** 在金庫中持有實物金條。黃金價格緊密追蹤現貨黃金價格。管理費率為0.40%。
+- **iShares黃金信託（IAU）：** 與GLD類似，但管理費率較低，為0.25%。
+- **iShares白銀信託（SLV）：** 持有實物白銀。
+- **Aberdeen實物鉑金交易所買賣基金（PPLT）：** 持有實物鉑金。
+
+實物支持對貴金屬可行（密度高、耐用、單位重量價值高），但對大多數其他商品並不實際。您無法在交易所買賣基金的金庫中有效儲存數千桶石油或數噸玉米。
+
+**期貨型交易所買賣基金。** 大多數商品交易所買賣基金持有期貨合約而非實物商品。
+- **景順最優收益多元化商品策略交易所買賣基金（PDBC）：** 廣泛的商品交易所買賣基金，使用優化策略最小化負滾倉收益。涵蓋能源、金屬和農業。
+- **iShares高盛商品動態滾動策略交易所買賣基金（COMT）：** 另一個採用滾倉優化的廣泛商品基金。
+- **美國石油基金（USO）：** 單一商品（原油）期貨基金。在期貨升水市場中面臨顯著的滾倉收益拖累。
+- **美國天然氣基金（UNG）：** 天然氣期貨。由於天然氣持續嚴重的期貨升水，歷來是表現最差的商品交易所買賣基金之一。
+
+**商品生產商股票及交易所買賣基金。** 直接商品敞口的替代方案是持有生產商品的公司。
+- **能源精選板塊SPDR（XLE）：** 美國能源公司，包括埃克森美孚、雪佛龍和康菲石油。
+- **VanEck黃金礦業交易所買賣基金（GDX）：** 黃金礦業公司。
+- **景順DB農業基金（DBA）：** 農業商品期貨。
+- **SPDR標普金屬與礦業交易所買賣基金（XME）：** 金屬和礦業公司。
+
+生產商股票提供股息（商品本身不提供）、避免滾倉收益問題，並提供商品價格敞口。然而，它們也承擔公司特定風險、股票市場相關性，以及相對於商品價格放大收益和損失的經營槓桿。
+
+#### 了解商品季節性
+
+許多商品呈現可預測的季節性價格模式，受生產周期、天氣和消費模式驅動。
+
+**天然氣。** 價格往往在深秋和初冬隨供暖需求增加而上漲，並在春季需求減退時下跌。庫存建立和消耗周期形成可交易的規律。
+
+**農業商品。** 穀物價格通常跟隨播種和收穫周期。玉米和大豆價格可能在春季播種季節（種植面積和天氣不確定性最高時）上漲，並在新供應進入市場的收穫季節下跌。
+
+**汽油。** 價格通常在春季隨煉油廠轉換夏季調配汽油而上漲，並在勞動節後隨駕車旺季結束而下跌。
+
+**貴金屬。** 黃金在印度婚禮季（10月至12月）和中國農曆新年期間通常需求增加，但隨著金融交易主導實物需求，這些規律已有所減弱。
+
+雖然季節性規律可為時機選擇提供參考，但它們是傾向，並非保證。任何特定年份，意外的供應中斷、地緣政治事件或需求變化都可能壓倒季節性規律。
+
+#### 商品指數及基準
+
+幾個指數追蹤商品表現，其構成方式影響回報：
+
+**彭博商品指數（BCOM）。** 廣泛多元化的指數，涵蓋能源、金屬和農業，按生產加權和流動性加權分配。任何單一商品不得超過指數的15%，確保分散投資。這是許多商品交易所買賣基金追蹤的基準。
+
+**標普高盛商品指數（GSCI）。** 對能源（尤其是原油）的權重更高，反映能源商品的經濟重要性。這種能源傾斜使高盛商品指數比彭博指數波動性更大，與油價走勢的相關性更高。
+
+**DBIQ最優收益多元化商品指數。** 使用優化策略沿期貨曲線選擇期貨合約以最小化負滾倉收益。這種方法歷來優於傳統滾倉策略。
+
+了解您的商品交易所買賣基金追蹤哪個指數非常重要，因為能源偏重指數的表現與多元化指數大相逕庭。
+
+#### 投資組合中的商品
+
+Gorton和Rouwenhorst（2006年）的學術研究發現，多元化的商品期貨投資組合提供與股票相當的回報，與股票和債券的相關性更低，並在通脹時期表現特別強勁。
+
+**典型的投資組合配置。** 大多數建議納入商品的顧問推薦在多元化投資組合中配置5至15%作為商品。這在不過度集中於波動性高、不產生收入的資產類別的前提下，提供有意義的分散效果。
+
+**商品往往表現良好的時期：**
+- 通脹時期（商品是通脹的根源）。
+- 全球經濟強勁增長時期（原材料需求增加）。
+- 供應中斷時期（地緣政治事件、自然災害）。
+- 美元疲軟時期（商品以美元計價，因此美元走弱意味著以美元計算的商品價格更高）。
+
+**商品往往表現不佳的時期：**
+- 通縮時期或衰退期（原材料需求減少）。
+- 美元強勢時期。
+- 技術顛覆減少需求的時期（例如從煤炭轉向天然氣，或從內燃機轉向電動車）。
+- 新生產能力投產導致供應過剩的時期。
+
+**商品配置方法：**
+
+存在幾種商品配置方法，各有優點：
+
+- **戰略性配置（5至10%）。** 維持對廣泛商品指數的固定配置，定期再平衡。提供一致的敞口和分散投資，無需擇時。
+- **戰術性配置。** 根據通脹預期、經濟周期定位和相對估值調整商品敞口。通脹上升時增加敞口，通脹下降時減少敞口。這需要主動管理和市場判斷。
+- **通過生產商股票間接獲取敞口。** 完全跳過直接商品投資，通過能源、礦業和農業公司股票獲取敞口。這種方法提供股息，避免期貨機制，在標準證券賬戶中更易實施。
+- **通脹響應性配置。** 將商品作為更廣泛通脹對沖策略的一部分，還包括通脹掛鉤債券、浮動利率債券和房地產信託基金。在通脹預期上升期間增加商品配置，在低通脹環境下減少。
+
+正確的方法取決於您的目標、專業知識和了解期貨市場機制的意願。對於大多數個人投資者，通過廣泛、滾倉優化的商品交易所買賣基金進行簡單的戰略性配置，能在分散效果和簡便性之間取得最佳平衡。
+
+#### 商品市場中的地緣政治因素
+
+商品對地緣政治事件特別敏感，因為實物供應鏈跨越國界並穿過戰略咽喉要道。
+
+**關鍵能源咽喉要道：**
+- **霍爾木茲海峽：** 約20%的全球石油供應穿過這條連接伊朗和阿曼的狹窄水道。任何中斷都會威脅全球能源市場。
+- **馬六甲海峽：** 對亞洲石油和液化天然氣進口至關重要。封鎖將擾亂全球增長最快能源市場的供應鏈。
+- **蘇伊士運河：** 在中東和歐洲之間輸送石油和液化天然氣的主要貿易路線。2021年「長賜號」擱淺事件展示了這一咽喉要道的脆弱性。
+
+**糧食安全與農業商品：**
+- **黑海港口：** 對烏克蘭和俄羅斯糧食出口至關重要。2022年俄羅斯入侵烏克蘭擾亂了全球小麥和玉米市場，導致全球食品價格飆升。
+- **巴西塞拉多地區：** 全球最重要的大豆和牛肉農業地區之一。乾旱、森林砍伐政策和貿易爭端可能影響全球糧食供應。
+- **尼羅河流域：** 東非國家之間的水資源爭端可能影響一個已面臨糧食安全挑戰地區的農業產出。
+
+**資源民族主義。** 資源豐富國家的政府會定期改變自然資源的稅收制度、版稅結構或所有權規則。印尼的鎳出口禁令、智利擬議的鋰國有化，以及墨西哥的能源板塊改革，都是政治決定如何大幅影響商品供應和價格的例子。
+
+了解這些地緣政治動態，有助於解釋為何商品價格可能突然且不可預測地飆升，以及為何小比例的商品配置能為投資組合提供危機分散功能。
+
+#### 實物商品持有
+
+對於有興趣持有實物貴金屬的投資者：
+
+**黃金和白銀硬幣。** 美國鷹揚金幣、加拿大楓葉金幣等主權硬幣是最廣為認可、最易變現的黃金和白銀實物形式。金幣的經銷商溢價比現貨價格高出3至8%，白銀溢價更高。
+
+**黃金和白銀條。** 可從PAMP Suisse、Valcambi和加拿大皇家造幣廠等精煉廠購得。較大的金條每盎司溢價較低，但難以部分出售。
+
+**儲存注意事項。** 家庭儲存需要優質保險箱、保險（房主保單通常只涵蓋有限金額），以及謹慎處理。通過Brinks等公司或託管服務進行專業金庫儲存，每年費用約為金屬價值的0.5至1%，但提供機構級安全保障。
+
+對於大多數投資者，實物支持的交易所買賣基金（GLD、IAU）既提供交易所掛牌流動性的便利，又保持實物支持。交易所買賣基金份額代表在定期接受審計的安全金庫中儲存的金屬所有權。
 
 ---
 
-### d) Q&A
+### c) 常見誤解
 
-**Q: What is the best way to invest in gold?**
-A: For most investors, a physically backed gold ETF like GLD or IAU is the simplest and most cost-effective option. You get direct exposure to the gold price without storage hassles or futures roll costs. Physical gold (coins or bars) is an alternative but requires secure storage and insurance, and carries wider bid-ask spreads. Gold mining stocks (GDX) provide leveraged exposure to gold prices (miners' profits are highly sensitive to the gold price) but add company-specific risks.
+**「購買石油交易所買賣基金等同於投資石油。」** 大多數石油交易所買賣基金持有期貨合約，而非實物石油。由於期貨升水和滾倉收益，即使石油價格上漲，這些交易所買賣基金也可能虧損。期貨型石油交易所買賣基金與石油現貨價格之間的追蹤誤差，長期下來可能相當巨大。
 
-**Q: Why do commodity prices often spike suddenly?**
-A: Commodity markets are characterized by inelastic supply and demand in the short term. It takes years to bring new oil production or mining capacity online, and demand for essentials like food and energy cannot be quickly reduced. When supply disruptions occur (war, weather, pandemic), the mismatch between rigid supply and rigid demand creates sharp price spikes. This inelasticity also works in reverse -- oversupply can cause dramatic price collapses, as seen in the 2020 oil price collapse.
+**「黃金始終是良好的通脹對沖工具。」** 黃金在某些通脹時期（1970年代、2020至2023年）是有效的對沖工具，但在其他時期則不然。從1980年到2000年，儘管溫和通脹，黃金損失了約70%的實際（通脹調整後）價值。黃金與通脹的關係是真實的，但不一致，在很大程度上取決於起始估值、實際利率和市場情緒。
 
-**Q: Should I invest in individual commodity futures?**
-A: Individual commodity futures require specialized knowledge, a futures brokerage account, significant capital (margin requirements for futures are substantial), and active management (rolling contracts, monitoring margin). For most individual investors, commodity ETFs provide more convenient, diversified exposure. If you do trade futures, broad commodity indices are preferable to single-commodity positions due to diversification.
+**「商品對普通投資者而言波動性太大。」** 廣泛多元化商品敞口的小比例配置（5至10%）對投資組合的波動性影響比您預期的要小，因為商品與股票和債券的低相關性部分抵消了其個別波動性。投資組合的總體風險實際上可能下降。
 
-**Q: How do commodity supercycles work?**
-A: Commodity supercycles are long-term (10-25 year) periods of sustained above-trend commodity prices, typically driven by structural demand shifts. The most recent supercycle (roughly 2000-2011) was driven by China's rapid industrialization and urbanization, which created enormous demand for energy, metals, and agricultural products. Some analysts argue a new supercycle may be emerging driven by the energy transition (demand for copper, lithium, nickel for electrification). However, supercycles are identified more clearly in hindsight than in real time.
+**「農業商品是在賭人類的不幸。」** 部分投資者對從食品價格上漲中獲利感到不安。然而，商品期貨市場服務於重要的經濟功能 — 它們允許農民、食品生產商和其他參與者對沖其價格風險。投資者提供的流動性使這些市場得以運作，最終支持更穩定的食品生產和定價。
 
-**Q: How does the energy transition affect commodity investing?**
-A: The shift from fossil fuels to renewable energy creates both winners and losers in commodity markets. Traditional energy commodities (oil, coal) face long-term demand decline, while "green metals" (copper, lithium, cobalt, nickel, rare earths) face surging demand. Natural gas occupies a middle ground as a transition fuel. Investors positioning for the energy transition should consider overweighting electrification metals and underweighting or maintaining neutral exposure to traditional hydrocarbons.
+**「您應該在商品價格低廉時投資。」** 商品不具有與股票相同的均值回歸特性。若結構性需求轉移發生（如煤炭的衰落），商品價格可能在數十年內保持低位。低買策略只有在需求基本面支持最終復甦的情況下才有效。
 
-**Q: What are the tax implications of commodity investing?**
-A: Commodity tax treatment varies by vehicle. Physically backed gold ETFs like GLD are taxed as collectibles -- gains held over one year are taxed at a maximum federal rate of 28%, higher than the standard long-term capital gains rate of 15-20%. Futures-based commodity ETFs that are structured as limited partnerships (like DBC) issue K-1 tax forms, which can complicate tax filing. Commodity ETFs structured as 1940 Act funds (like PDBC) issue standard 1099 forms. In tax-advantaged accounts (IRAs, 401ks), these distinctions do not matter, making retirement accounts a natural home for commodity exposure.
+**「商品交易所買賣基金緊密追蹤商品現貨價格。」** 由於滾倉收益，期貨型商品交易所買賣基金的長期表現可能與現貨價格走勢大相逕庭。天然氣交易所買賣基金是交易所買賣基金領域表現最差的之一，即使天然氣現貨價格在區間內波動，也在多年期間下跌超過90%。在投資前，務必查清商品交易所買賣基金是實物支持還是期貨型，並了解其影響。
 
-**Q: Can I invest in water as a commodity?**
-A: Water futures began trading on the CME in 2020, based on the Nasdaq Veles California Water Index. However, direct water futures investing is impractical for most retail investors. Water-related ETFs like First Trust Water ETF (FIW) or Invesco Water Resources ETF (PHO) invest in companies involved in water treatment, infrastructure, and utilities rather than water itself. These are effectively equity investments with water thematic exposure, not direct commodity positions.
-
-**Q: How do commodity prices affect inflation-linked bonds (TIPS)?**
-A: Commodity price increases flow through to the Consumer Price Index (CPI), which drives the inflation adjustments on TIPS. When commodity prices surge, CPI rises, and TIPS principal and interest payments increase accordingly. This makes TIPS an indirect way to benefit from commodity price inflation without the complexities of futures investing. However, TIPS respond to overall inflation, not just commodity-driven inflation, so the relationship is imperfect.
+**「黃金是對抗一切的對沖工具。」** 黃金主要是對抗負實際利率、貨幣貶值和極端地緣政治不確定性的對沖工具。它並非所有類型風險的可靠對沖。在通縮時期、實際利率上升環境或美元強勢時期，黃金可能表現顯著落後。黃金從1980年到2000年表現不佳 — 二十年的疲軟 — 儘管那段時期有多次衰退。
 
 ---
 
-## YouTube Script
+### d) 問答
+
+**問：投資黃金的最佳方式是什麼？**
+答：對於大多數投資者，GLD或IAU等實物支持的黃金交易所買賣基金是最簡單、最具成本效益的選擇。您可直接獲取黃金價格敞口，無需儲存煩惱或期貨滾倉成本。實物黃金（金幣或金條）是替代方案，但需要安全儲存和保險，且買賣差價更寬。黃金礦業股票（GDX）提供對黃金價格的槓桿敞口（礦商利潤對黃金價格高度敏感），但增加了公司特定風險。
+
+**問：為何商品價格常常突然飆升？**
+答：商品市場的供求在短期內具有缺乏彈性的特點。新增石油產能或礦業產能需要數年時間，而對食品和能源等必需品的需求也無法迅速減少。當供應中斷發生時（戰爭、天氣、疫情），僵性供應與僵性需求之間的失衡會造成急劇的價格飆升。這種缺乏彈性也反向作用 — 供應過剩可導致價格大幅崩潰，正如2020年油價崩潰所見。
+
+**問：我應該投資個別商品期貨嗎？**
+答：個別商品期貨需要專業知識、期貨經紀賬戶、大量資本（期貨的保證金要求相當高）和主動管理（滾倉合約、監控保證金）。對於大多數個人投資者，商品交易所買賣基金提供更便捷、多元化的敞口。如果您確實交易期貨，由於分散效果，廣泛的商品指數優於單一商品頭寸。
+
+**問：商品超級周期是如何運作的？**
+答：商品超級周期是長期（10至25年）持續高於趨勢水平的商品價格時期，通常由結構性需求轉移驅動。最近的超級周期（約2000至2011年）由中國的快速工業化和城鎮化驅動，創造了對能源、金屬和農產品的巨大需求。一些分析師認為，由能源轉型（電氣化對銅、鋰、鎳的需求）驅動的新超級周期可能正在浮現。然而，超級周期事後比實時更容易識別。
+
+**問：能源轉型如何影響商品投資？**
+答：從化石燃料轉向可再生能源，在商品市場中既創造了贏家，也產生了輸家。傳統能源商品（石油、煤炭）面臨長期需求下降，而「綠色金屬」（銅、鋰、鈷、鎳、稀土）則面臨需求激增。天然氣作為過渡燃料佔據中間地帶，但其長期前景也不確定。為能源轉型佈局的投資者應考慮增持電氣化金屬，並減持或對傳統碳氫化合物保持中性敞口。
+
+**問：商品投資的稅務影響如何？**
+答：商品稅務處理因投資工具而異。GLD等實物支持的黃金交易所買賣基金被視為收藏品課稅 — 持有超過一年的收益的最高聯邦稅率為28%，高於標準的長期資本利得稅率15至20%。結構為有限合夥的期貨型商品交易所買賣基金（如DBC）發出K-1稅務表格，可能使報稅複雜化。結構為1940年法案基金的商品交易所買賣基金（如PDBC）發出標準的1099表格。在稅務優惠賬戶（個人退休賬戶、401k）中，這些區別並不重要，使退休賬戶成為商品敞口的自然歸宿。
+
+**問：我可以投資水作為商品嗎？**
+答：水期貨於2020年開始在芝加哥商品交易所交易，基於納斯達克Veles加州水資源指數。然而，對於大多數零售投資者，直接的水期貨投資並不實際。First Trust水資源交易所買賣基金（FIW）或景順水資源交易所買賣基金（PHO）等水相關交易所買賣基金，投資於從事水處理、基礎設施和公用事業的公司，而非水本身。這些實際上是具有水主題敞口的股權投資，而非直接商品頭寸。
+
+**問：商品價格如何影響通脹掛鉤債券（美國通脹保值債券）？**
+答：商品價格上漲會傳導至消費物價指數，從而推動美國通脹保值債券的通脹調整。當商品價格激增時，消費物價指數上升，美國通脹保值債券的本金和利息支付相應增加。這使美國通脹保值債券成為間接受益於商品價格通脹的方式，而無需涉及期貨投資的複雜性。然而，美國通脹保值債券對整體通脹有所回應，而非僅對商品驅動的通脹，因此關係並不完美。
+
+---
+
+## YouTube 腳本
 
 [INTRO - 0:00]
 
 [VISUAL: Rapid montage -- oil rig pumping, gold bars stacking, wheat field blowing in wind, copper wire being manufactured, coffee beans being roasted]
 
-**Alex:** Everything you see around you started as a raw material. The gas in your car, the metal in your phone, the food on your plate -- all of it is a commodity that is bought and sold in global markets every single day.
+**Horace（陳馬）：** 您身邊所見的一切，最初都是原材料。您汽車裡的汽油、手機裡的金屬、餐桌上的食物 — 這一切都是商品，每天在全球市場上買賣。
 
-**Sam:** But investing in commodities is very different from investing in stocks. There are no earnings reports, no dividends, and a hidden cost that has destroyed billions in investor capital. Today, we are covering how commodity markets actually work and how to navigate them.
+**Stella（小魚）：** 但投資商品與投資股票非常不同。沒有盈利報告，沒有股息，而且有一種隱藏成本，已吞噬了投資者數以十億計的資金。今天，我們將介紹商品市場實際上是如何運作的，以及如何在其中找到方向。
 
-[VISUAL: Title card "Commodities: Energy, Metals, Agriculture, and How to Invest"]
+[VISUAL: Title card "商品：能源、金屬、農業及投資方法"]
 
 ---
 
@@ -270,13 +267,13 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [ANIMATION: Four sectors displayed as pillars with icons: Energy (oil drop), Metals (gold bar), Agriculture (wheat stalk), Other (timber, water)]
 
-**Alex:** Commodities fall into four main categories. Energy is the biggest -- crude oil, natural gas, gasoline. Metals include precious metals like gold and silver, and industrial metals like copper and aluminum. Agriculture covers everything from corn and wheat to coffee and livestock. And then there are niche commodities like timber and rare earth elements.
+**Horace（陳馬）：** 商品分為四大類別。能源是最大的一類 — 原油、天然氣、汽油。金屬包括黃金和白銀等貴金屬，以及銅和鋁等工業金屬。農業涵蓋從玉米、小麥到咖啡和牲畜的一切。此外還有木材和稀土元素等利基商品。
 
-**Sam:** Each sector has its own supply-and-demand dynamics. Oil prices depend on OPEC decisions and geopolitics. Agricultural prices depend on weather and growing seasons. Copper prices are so closely tied to economic growth that traders call it "Dr. Copper" because it diagnoses the health of the global economy.
+**Stella（小魚）：** 每個板塊都有其自身的供求動態。油價取決於石油輸出國組織的決定和地緣政治。農產品價格取決於天氣和生長季節。銅價與經濟增長的關聯如此緊密，以至於交易員稱之為「銅博士」，因為它能診斷全球經濟的健康狀況。
 
 [VISUAL: "Dr. Copper" graphic showing copper price overlaid with global GDP growth, demonstrating correlation]
 
-**Alex:** And here is what makes commodities interesting as an investment: they tend to perform well exactly when stocks and bonds do not -- during inflationary periods. When oil and food prices are rising, they are driving inflation higher, which hurts stock and bond prices. But if you own the commodities themselves, you are on the right side of that trade.
+**Horace（陳馬）：** 商品作為投資的有趣之處在於：它們往往在股票和債券表現不佳時表現良好 — 即通脹時期。當石油和食品價格上漲時，它們正在推高通脹，這會損害股票和債券價格。但如果您持有商品本身，您就站在那筆交易的正確一邊。
 
 ---
 
@@ -284,19 +281,19 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [ANIMATION: Futures curve graphic showing contango (upward sloping) and backwardation (downward sloping)]
 
-**Sam:** Now, here is where most investors get tripped up. You cannot buy a barrel of oil and store it in your garage. So most commodity investments use futures contracts -- agreements to buy or sell a commodity at a specific price on a future date.
+**Stella（小魚）：** 現在，這裡是大多數投資者絆倒的地方。您無法買一桶石油存放在自家車庫。因此大多數商品投資使用期貨合約 — 在未來特定日期以特定價格買賣商品的協議。
 
-**Alex:** The problem is something called contango. In many commodity markets, the futures price for next month is higher than today's price. And the price for two months out is even higher. The futures curve slopes upward.
+**Horace（陳馬）：** 問題在於一種叫做期貨升水的東西。在許多商品市場中，下個月的期貨價格高於今天的價格。而兩個月後的價格更高。期貨曲線向上傾斜。
 
 [VISUAL: Futures curve for crude oil showing spot at $75, one month at $76, three months at $78, six months at $81]
 
-**Sam:** Why? Because storing a physical commodity costs money -- storage fees, insurance, financing. The futures price includes these costs. So next month's oil is more expensive than today's oil, not because anyone expects oil to go up, but because of storage costs built into the price.
+**Stella（小魚）：** 為什麼？因為儲存實物商品需要費用 — 倉儲費、保險費、融資費。期貨價格包含這些費用。所以下個月的石油比今天的石油更貴，不是因為有人預期石油會上漲，而是因為價格中已包含儲存成本。
 
-**Alex:** This creates a devastating problem for commodity ETFs. These funds hold futures contracts. When those contracts expire, the fund has to sell the cheap expiring contract and buy the more expensive next-month contract. This is called "rolling," and in contango, every roll loses money.
+**Horace（陳馬）：** 這對商品交易所買賣基金造成了毀滅性的問題。這些基金持有期貨合約。當這些合約到期時，基金必須賣出即將到期的便宜合約，買入更貴的下個月合約。這稱為「滾倉」，而在期貨升水情況下，每次滾倉都會虧損。
 
 [ANIMATION: Rolling process shown as a repeating cycle: Buy at $77 -> Hold -> Sell at $76 (as it approaches spot) -> Buy next month at $78 -> Hold -> Sell at $77 -> Buy at $79... Each roll loses approximately $1]
 
-**Sam:** The poster child for this problem is the United States Oil Fund -- ticker USO. Oil prices have been volatile but roughly rangebound over long periods. Yet USO lost approximately 90 percent of its value from inception, primarily because of negative roll yield from persistent contango.
+**Stella（小魚）：** 這個問題最典型的例子是美國石油基金 — 代碼USO。石油價格雖然波動，但長期大致在區間內徘徊。然而，USO自成立以來損失了約90%的價值，主要原因是持續期貨升水帶來的負滾倉收益。
 
 [VISUAL: Two charts side by side: Oil spot price (volatile but flat trend) vs USO price (steady decline). Title: "The Roll Yield Graveyard"]
 
@@ -306,19 +303,19 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Four investment approaches displayed as cards: Physical ETFs, Broad Commodity ETFs, Producer Stocks, Direct Futures]
 
-**Alex:** So if futures-based ETFs have this problem, how should you actually invest in commodities? There are a few approaches that work better.
+**Horace（陳馬）：** 那麼，如果期貨型交易所買賣基金有這個問題，您實際上應該如何投資商品？有幾種效果更好的方法。
 
-**Sam:** For precious metals, you can buy physically backed ETFs. GLD and IAU hold actual gold bars in vaults. SLV holds physical silver. The price tracks the spot price closely, and there is no roll yield issue because there are no futures involved.
+**Stella（小魚）：** 對於貴金屬，您可以購買實物支持的交易所買賣基金。GLD和IAU在金庫中持有實物金條。SLV持有實物白銀。價格緊密追蹤現貨價格，而且由於不涉及期貨，所以沒有滾倉收益問題。
 
 [VISUAL: Gold vault photograph with GLD performance chart showing close tracking of gold spot price]
 
-**Alex:** For broader commodity exposure, look for funds that use optimization strategies to minimize roll costs. The Invesco Optimum Yield Diversified Commodity ETF -- ticker PDBC -- spreads across energy, metals, and agriculture, and uses strategies to roll into contracts that minimize the contango drag.
+**Horace（陳馬）：** 對於更廣泛的商品敞口，尋找使用優化策略以最小化滾倉成本的基金。景順最優收益多元化商品交易所買賣基金 — 代碼PDBC — 分散至能源、金屬和農業，並使用策略滾動至最小化期貨升水拖累的合約。
 
-**Sam:** Another approach is buying the stocks of companies that produce commodities. Energy stocks like ExxonMobil, mining companies, and agricultural firms give you exposure to commodity prices plus dividends and earnings growth. The XLE ETF for energy, GDX for gold miners, and XME for metals and mining.
+**Stella（小魚）：** 另一種方法是購買生產商品的公司股票。埃克森美孚等能源股、礦業公司和農業企業，讓您獲得商品價格敞口，同時享有股息和盈利增長。能源板塊的XLE、黃金礦業的GDX，以及金屬和礦業的XME。
 
 [VISUAL: Comparison table: Physical ETFs vs Futures ETFs vs Producer Stocks -- showing Roll Yield, Dividends, Correlation to Spot Price, and Additional Risks for each]
 
-**Alex:** Producer stocks are not a perfect substitute though. They carry equity market risk, company-specific risk, and are more correlated with the stock market than physical commodities. But they do avoid the roll yield problem, and they pay dividends, which commodities themselves never do.
+**Horace（陳馬）：** 不過，生產商股票並非完美替代品。它們承擔股票市場風險、公司特定風險，並且與股票市場的相關性高於實物商品。但它們確實避免了滾倉收益問題，且派發股息 — 而商品本身從不派息。
 
 ---
 
@@ -326,21 +323,21 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Portfolio pie chart showing traditional 60/40, then modified to include 5-10% commodity allocation]
 
-**Sam:** So what role should commodities play in your portfolio? Most experts who recommend commodity exposure suggest 5 to 15 percent of total assets.
+**Stella（小魚）：** 那麼，商品在您的投資組合中應扮演什麼角色？大多數建議納入商品敞口的專家建議佔總資產的5至15%。
 
-**Alex:** The case for including commodities is primarily diversification and inflation protection. Commodities have low correlation with stocks and bonds, so adding them can actually reduce your portfolio's overall volatility even though commodities themselves are volatile.
+**Horace（陳馬）：** 納入商品的理由主要是分散投資和通脹保護。商品與股票和債券的相關性低，因此即使商品本身波動性大，加入它們實際上可以降低您投資組合的整體波動性。
 
 [ANIMATION: Portfolio risk graph showing total portfolio volatility decreasing as commodity allocation increases from 0% to ~10%, then leveling off]
 
-**Sam:** During the 2000 to 2009 period -- the so-called lost decade for stocks -- a diversified commodity allocation would have added meaningful positive returns to a portfolio that otherwise went nowhere.
+**Stella（小魚）：** 在2000至2009年期間 — 即所謂的股票「失落的十年」— 多元化的商品配置本可為一個停滯不前的投資組合帶來有意義的正回報。
 
-**Alex:** And during the 2021 to 2022 inflation spike, commodities were the best-performing major asset class. Energy prices soared, agricultural prices jumped, and metals rallied. Investors with commodity exposure had a natural hedge against the inflation that was crushing their stock and bond holdings.
+**Horace（陳馬）：** 而在2021至2022年的通脹飆升期間，商品是表現最佳的主要資產類別。能源價格飆升，農產品價格上漲，金屬上漲。持有商品敞口的投資者，對正在打擊其股票和債券持倉的通脹有了天然對沖。
 
 [VISUAL: 2022 asset class returns bar chart: Commodities (+20%), Cash (+1%), Stocks (-18%), Bonds (-13%)]
 
-**Sam:** But commodities are not a magic bullet. They do not produce income. They can have extended periods of poor performance. And the mechanics of futures investing can create unexpected drags on returns.
+**Stella（小魚）：** 但商品並非萬靈丹。它們不產生收入。它們可能有較長的表現不佳時期。而且期貨投資的機制可能對回報造成意外的拖累。
 
-**Alex:** The practical recommendation is this: Use a broad, diversified commodity fund with roll optimization for your core commodity allocation. Supplement with physically backed gold if you want dedicated precious metals exposure. Consider energy and mining stocks as an additional layer. And keep the total allocation modest -- 5 to 10 percent is plenty for most portfolios.
+**Horace（陳馬）：** 實用建議如下：將廣泛、多元化、滾倉優化的商品基金用於您的核心商品配置。若您希望專門獲取貴金屬敞口，以實物支持的黃金作為補充。將能源和礦業股票視為額外層次。並保持總配置適度 — 對大多數投資組合來說，5至10%已經足夠。
 
 [VISUAL: End card with channel logo and "Next: Technical Analysis"]
 
@@ -350,26 +347,26 @@ A: Commodity price increases flow through to the Consumer Price Index (CPI), whi
 
 [VISUAL: Long-term commodity price chart from 1900 to present showing multiple supercycle peaks and troughs]
 
-**Sam:** Let us talk about something that is on a lot of investors' minds -- commodity supercycles and the energy transition.
+**Stella（小魚）：** 讓我們談談許多投資者心中所想的議題 — 商品超級周期和能源轉型。
 
-**Alex:** A commodity supercycle is a long-term period -- 10 to 25 years -- of sustained above-trend commodity prices. The most recent one was driven by China's incredible industrialization from roughly 2000 to 2011. China was building cities, factories, and infrastructure at an unprecedented pace, consuming enormous quantities of steel, copper, oil, and every other commodity imaginable.
+**Horace（陳馬）：** 商品超級周期是長期 — 10至25年 — 持續高於趨勢水平的商品價格時期。最近一次超級周期由中國從約2000年至2011年的驚人工業化驅動。中國正以前所未有的速度建設城市、工廠和基礎設施，消耗了大量的鋼鐵、銅、石油以及各種其他可以想到的商品。
 
 [ANIMATION: China GDP growth overlaid with commodity index performance from 2000-2011]
 
-**Sam:** Some analysts believe we may be entering a new supercycle driven by the energy transition. Think about it -- to electrify transportation, you need copper for wiring, lithium and cobalt for batteries, nickel for battery cathodes, and rare earth elements for electric motors and wind turbines.
+**Stella（小魚）：** 部分分析師認為，我們可能正在進入一個由能源轉型驅動的新超級周期。試想 — 要實現交通電氣化，您需要用於線路的銅、用於電池的鋰和鈷、用於電池正極的鎳，以及用於電動機和風力渦輪機的稀土元素。
 
-**Alex:** The International Energy Agency estimates that achieving net-zero emissions by 2050 would require a six-fold increase in mineral inputs to the energy sector. That is an enormous demand surge for specific commodities, and supply cannot scale up overnight -- new mines take 10 to 15 years to develop.
+**Horace（陳馬）：** 國際能源署估計，到2050年實現淨零排放，需要能源板塊礦產投入增加六倍。這對特定商品而言是巨大的需求激增，而供應無法在一夜之間擴大 — 新礦山的開發需要10至15年。
 
 [VISUAL: Chart showing projected demand growth for key energy transition minerals: copper, lithium, nickel, cobalt]
 
-**Sam:** At the same time, traditional energy commodities face a more uncertain future. Oil demand is projected to peak within the next decade as electric vehicle adoption accelerates. Coal demand is already declining in many countries. Natural gas may see sustained demand as a transition fuel, but its long-term future is also uncertain.
+**Stella（小魚）：** 與此同時，傳統能源商品面臨著更不確定的未來。隨著電動車普及加速，石油需求預計在未來十年內觸頂。煤炭需求在許多國家已經在下降。天然氣作為過渡燃料可能保持持續需求，但其長期前景也不確定。
 
-**Alex:** For commodity investors, this creates a strategic question. Do you want exposure to the commodities of the past -- oil and coal -- or the commodities of the future -- copper, lithium, and nickel? Or a blend of both? There is no single right answer, but understanding the structural trends helps you make a more informed choice.
+**Horace（陳馬）：** 對商品投資者而言，這引出了一個戰略問題。您是否想要接觸過去的商品 — 石油和煤炭 — 還是未來的商品 — 銅、鋰和鎳？或者兩者兼而有之？沒有單一正確答案，但了解結構性趨勢有助於您做出更明智的選擇。
 
-**Sam:** The practical takeaway: a broad, diversified commodity allocation captures both traditional and transition-related commodities. If you have a strong view on the energy transition timeline, you can tilt toward electrification metals using targeted ETFs or mining company stocks.
+**Stella（小魚）：** 實用的結論是：廣泛、多元化的商品配置同時涵蓋傳統商品和轉型相關商品。如果您對能源轉型時間表有強烈看法，可以通過特定主題的交易所買賣基金或礦業公司股票，傾向於電氣化金屬。
 
 [VISUAL: End card with channel logo and "Next: Technical Analysis"]
 
-**Alex:** Next time, we are exploring a topic that divides investors like few others -- technical analysis. Charts, patterns, moving averages -- do they actually work? See you there.
+**Horace（陳馬）：** 下一次，我們將探討一個像很少有議題那樣分裂投資者的話題 — 技術分析。圖表、形態、移動平均線 — 它們真的有效嗎？到時見。
 
 [END - 13:30]

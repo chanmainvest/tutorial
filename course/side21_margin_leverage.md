@@ -246,9 +246,9 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: Split screen -- left side shows gains accelerating upward with leverage, right side shows losses accelerating downward]
 
-**Alex:** Imagine you have $50,000 to invest. But what if you could invest $100,000? Or $150,000? Margin accounts make this possible -- by letting you borrow money from your broker to buy more securities.
+**Horace:** Imagine you have $50,000 to invest. But what if you could invest $100,000? Or $150,000? Margin accounts make this possible -- by letting you borrow money from your broker to buy more securities.
 
-**Sam:** It sounds great in theory. But leverage is the single most dangerous tool available to individual investors. It has created more financial devastation than any other mechanism. Today, we are covering exactly how margin works, the regulations that govern it, and the very real dangers you need to understand.
+**Stella:** It sounds great in theory. But leverage is the single most dangerous tool available to individual investors. It has created more financial devastation than any other mechanism. Today, we are covering exactly how margin works, the regulations that govern it, and the very real dangers you need to understand.
 
 [VISUAL: Title card "Margin and Leverage: Power, Risk, and the Rules"]
 
@@ -258,19 +258,19 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [ANIMATION: Diagram showing a cash account ($50K buying $50K in stock) vs a margin account ($50K buying $100K in stock, with $50K borrowed from broker)]
 
-**Alex:** In a regular cash account, you can only invest the money you have. Simple. In a margin account, you can borrow money from your broker, using your existing securities as collateral.
+**Horace:** In a regular cash account, you can only invest the money you have. Simple. In a margin account, you can borrow money from your broker, using your existing securities as collateral.
 
-**Sam:** The Federal Reserve's Regulation T says you can borrow up to 50 percent of a stock's purchase price. So with $50,000 of your own money, you can buy up to $100,000 worth of stock. Your leverage is 2 to 1.
+**Stella:** The Federal Reserve's Regulation T says you can borrow up to 50 percent of a stock's purchase price. So with $50,000 of your own money, you can buy up to $100,000 worth of stock. Your leverage is 2 to 1.
 
 [VISUAL: Simple math: $50K equity + $50K borrowed = $100K position. Leverage ratio: 2:1]
 
-**Alex:** Now here is what that means for your returns. If the stock goes up 10 percent, your $100,000 position is worth $110,000. Subtract the $50,000 loan, and your equity is $60,000. That is a 20 percent return on your $50,000 -- double the stock's return.
+**Horace:** Now here is what that means for your returns. If the stock goes up 10 percent, your $100,000 position is worth $110,000. Subtract the $50,000 loan, and your equity is $60,000. That is a 20 percent return on your $50,000 -- double the stock's return.
 
-**Sam:** But the reverse is equally true. If the stock falls 10 percent, your position drops to $90,000. Equity becomes $40,000. You have lost 20 percent of your money on a 10 percent stock decline.
+**Stella:** But the reverse is equally true. If the stock falls 10 percent, your position drops to $90,000. Equity becomes $40,000. You have lost 20 percent of your money on a 10 percent stock decline.
 
 [ANIMATION: Two scenarios branching from initial position -- green branch showing amplified gain, red branch showing amplified loss]
 
-**Alex:** And if the stock falls 50 percent? Your $100,000 position is worth $50,000. You still owe $50,000 to the broker. Your equity is zero. You have lost everything. And if it falls further, you actually owe money.
+**Horace:** And if the stock falls 50 percent? Your $100,000 position is worth $50,000. You still owe $50,000 to the broker. Your equity is zero. You have lost everything. And if it falls further, you actually owe money.
 
 ---
 
@@ -278,17 +278,17 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: Phone screen showing a "MARGIN CALL" notification with a declining stock chart in the background]
 
-**Sam:** The most terrifying two words in investing: margin call. When your equity falls below the maintenance margin requirement -- typically 25 to 35 percent of your position -- your broker demands that you deposit more money or securities immediately.
+**Stella:** The most terrifying two words in investing: margin call. When your equity falls below the maintenance margin requirement -- typically 25 to 35 percent of your position -- your broker demands that you deposit more money or securities immediately.
 
-**Alex:** Let us use real numbers. You have $50,000 in equity and $50,000 borrowed, so a $100,000 position. Your broker's maintenance requirement is 35 percent.
+**Horace:** Let us use real numbers. You have $50,000 in equity and $50,000 borrowed, so a $100,000 position. Your broker's maintenance requirement is 35 percent.
 
 [ANIMATION: Declining bar chart showing position value falling, equity shrinking, with a red line at 35% maintenance level]
 
-**Sam:** If the stock falls 23 percent, your position is worth $76,920. Your equity is $26,920. That is 35 percent of the position value -- right at the maintenance line. Any further decline triggers a margin call.
+**Stella:** If the stock falls 23 percent, your position is worth $76,920. Your equity is $26,920. That is 35 percent of the position value -- right at the maintenance line. Any further decline triggers a margin call.
 
-**Alex:** And here is what most people do not realize. Your broker does not have to call you. They do not have to give you time. They can sell your positions -- whichever ones they choose -- immediately, at whatever price the market offers. That is in the margin agreement you signed.
+**Horace:** And here is what most people do not realize. Your broker does not have to call you. They do not have to give you time. They can sell your positions -- whichever ones they choose -- immediately, at whatever price the market offers. That is in the margin agreement you signed.
 
-**Sam:** During the March 2020 crash, some investors received margin calls and had positions liquidated within hours. In 2008, it was even worse. The combination of rapid declines and frozen credit markets meant margin calls cascaded through the system, forcing selling that pushed prices even lower.
+**Stella:** During the March 2020 crash, some investors received margin calls and had positions liquidated within hours. In 2008, it was even worse. The combination of rapid declines and frozen credit markets meant margin calls cascaded through the system, forcing selling that pushed prices even lower.
 
 [VISUAL: 2008 cascading margin call diagram: Prices Fall -> Margin Calls -> Forced Selling -> Prices Fall Further -> More Margin Calls]
 
@@ -298,17 +298,17 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: Two-tier regulatory structure showing Reg T for standard margin accounts and Portfolio Margin for advanced accounts]
 
-**Alex:** If you use margin for frequent trading, there is another regulation to know: the Pattern Day Trader rule. If you make four or more day trades in a five-day period, you are classified as a pattern day trader and must maintain at least $25,000 in your account.
+**Horace:** If you use margin for frequent trading, there is another regulation to know: the Pattern Day Trader rule. If you make four or more day trades in a five-day period, you are classified as a pattern day trader and must maintain at least $25,000 in your account.
 
-**Sam:** Now, for more sophisticated investors, there is portfolio margin. This is a fundamentally different system. Instead of applying a flat 50 percent initial margin and 25 to 35 percent maintenance to every position, portfolio margin calculates your requirement based on the actual risk of your entire portfolio.
+**Stella:** Now, for more sophisticated investors, there is portfolio margin. This is a fundamentally different system. Instead of applying a flat 50 percent initial margin and 25 to 35 percent maintenance to every position, portfolio margin calculates your requirement based on the actual risk of your entire portfolio.
 
 [ANIMATION: Comparison showing Reg T treating each position independently vs Portfolio Margin evaluating portfolio-level risk with correlations and hedges]
 
-**Alex:** If you own a stock and a protective put on that stock, Reg T margins both positions separately -- as if the put does not exist for margin purposes. Portfolio margin recognizes that the put limits your downside, so it requires less margin.
+**Horace:** If you own a stock and a protective put on that stock, Reg T margins both positions separately -- as if the put does not exist for margin purposes. Portfolio margin recognizes that the put limits your downside, so it requires less margin.
 
-**Sam:** This means portfolio margin can offer significantly more leverage for hedged portfolios -- sometimes 5 to 1 or even 6 to 1, compared to 2 to 1 under Reg T. But that extra leverage is a double-edged sword.
+**Stella:** This means portfolio margin can offer significantly more leverage for hedged portfolios -- sometimes 5 to 1 or even 6 to 1, compared to 2 to 1 under Reg T. But that extra leverage is a double-edged sword.
 
-**Alex:** Portfolio margin requirements are recalculated dynamically. A spike in market volatility can dramatically increase your requirements overnight, even if your positions have not changed. Investors who were comfortable at 4 to 1 leverage on a quiet Tuesday might face a margin call on a volatile Wednesday morning.
+**Horace:** Portfolio margin requirements are recalculated dynamically. A spike in market volatility can dramatically increase your requirements overnight, even if your positions have not changed. Investors who were comfortable at 4 to 1 leverage on a quiet Tuesday might face a margin call on a volatile Wednesday morning.
 
 ---
 
@@ -316,15 +316,15 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: Comparison chart showing actual 2x ETF performance vs theoretical 2x returns over a year]
 
-**Sam:** There is another way to get leverage without a margin account: leveraged ETFs. These funds use derivatives to deliver a multiple of an index's daily return. A 2x S&P 500 ETF aims to go up 2 percent when the S&P goes up 1 percent, and down 2 percent when it falls 1 percent.
+**Stella:** There is another way to get leverage without a margin account: leveraged ETFs. These funds use derivatives to deliver a multiple of an index's daily return. A 2x S&P 500 ETF aims to go up 2 percent when the S&P goes up 1 percent, and down 2 percent when it falls 1 percent.
 
-**Alex:** Sounds straightforward, right? But there is a hidden problem called volatility decay. Because leveraged ETFs reset daily, the compounding math works against you in choppy markets.
+**Horace:** Sounds straightforward, right? But there is a hidden problem called volatility decay. Because leveraged ETFs reset daily, the compounding math works against you in choppy markets.
 
 [ANIMATION: Simple example -- Index goes up 10%, then down 10%. Starting at $100: After up 10%, index is at $110. After down 10%, index is at $99. 2x ETF: After up 20%, at $120. After down 20%, at $96. The index lost $1, but the 2x ETF lost $4.]
 
-**Sam:** Over a short period, this effect is small. Over months or years, it can be devastating. A 2x leveraged S&P 500 ETF held for a full year might return significantly less than twice the S&P 500's return -- or even lose money when the index is positive -- if the market was volatile.
+**Stella:** Over a short period, this effect is small. Over months or years, it can be devastating. A 2x leveraged S&P 500 ETF held for a full year might return significantly less than twice the S&P 500's return -- or even lose money when the index is positive -- if the market was volatile.
 
-**Alex:** This is why leveraged ETFs come with warnings that they are designed for short-term trading, not long-term investing. If you want long-term leveraged exposure, a margin account (with careful risk management) is actually more predictable than a leveraged ETF.
+**Horace:** This is why leveraged ETFs come with warnings that they are designed for short-term trading, not long-term investing. If you want long-term leveraged exposure, a margin account (with careful risk management) is actually more predictable than a leveraged ETF.
 
 ---
 
@@ -332,19 +332,19 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: "The Responsible Leverage Framework" with bullet points]
 
-**Sam:** After all these warnings, is there ever a good reason to use margin? Yes, but the situations are limited.
+**Stella:** After all these warnings, is there ever a good reason to use margin? Yes, but the situations are limited.
 
-**Alex:** First, temporary bridge financing. Using margin for a few days while waiting for cash to settle or a transfer to arrive is low-risk and often sensible. You are not speculating -- you are managing cash flow.
+**Horace:** First, temporary bridge financing. Using margin for a few days while waiting for cash to settle or a transfer to arrive is low-risk and often sensible. You are not speculating -- you are managing cash flow.
 
-**Sam:** Second, tax-efficient borrowing. If you have large unrealized gains, borrowing on margin instead of selling appreciated stock can defer capital gains taxes. The margin interest (which is tax-deductible) may cost less than the tax bill from selling.
+**Stella:** Second, tax-efficient borrowing. If you have large unrealized gains, borrowing on margin instead of selling appreciated stock can defer capital gains taxes. The margin interest (which is tax-deductible) may cost less than the tax bill from selling.
 
-**Alex:** Third, as part of a hedged options strategy under portfolio margin. If you are running a market-neutral, hedged portfolio, portfolio margin recognizes your hedges and provides appropriate leverage.
+**Horace:** Third, as part of a hedged options strategy under portfolio margin. If you are running a market-neutral, hedged portfolio, portfolio margin recognizes your hedges and provides appropriate leverage.
 
 [VISUAL: Leverage risk spectrum: Safe (no leverage) -> Moderate (1.1-1.3x for specific purposes) -> Risky (1.5-2x speculative) -> Dangerous (2x+ concentrated bets)]
 
-**Sam:** But here are the rules if you use margin. Never use more than 1.3 to 1 leverage for long-term positions. Always know your margin call trigger price. Keep a cash reserve outside your brokerage account that you can deposit quickly if needed. And never use margin for speculative, concentrated bets.
+**Stella:** But here are the rules if you use margin. Never use more than 1.3 to 1 leverage for long-term positions. Always know your margin call trigger price. Keep a cash reserve outside your brokerage account that you can deposit quickly if needed. And never use margin for speculative, concentrated bets.
 
-**Alex:** The graveyard of investing is full of people who were right about the direction but wrong about the timing, and margin did not give them enough room to survive the gap between. Do not be one of them.
+**Horace:** The graveyard of investing is full of people who were right about the direction but wrong about the timing, and margin did not give them enough room to survive the gap between. Do not be one of them.
 
 ---
 
@@ -352,22 +352,22 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 
 [VISUAL: Timeline showing major leverage-driven disasters: LTCM 1998, Lehman 2008, Archegos 2021]
 
-**Sam:** Let us close with a few cautionary tales that illustrate why leverage demands respect.
+**Stella:** Let us close with a few cautionary tales that illustrate why leverage demands respect.
 
-**Alex:** In 1998, Long-Term Capital Management -- a hedge fund run by Nobel Prize winners -- used leverage ratios exceeding 25 to 1. When their trades went wrong during the Russian debt crisis, the fund nearly collapsed the global financial system and required a $3.6 billion rescue organized by the Federal Reserve.
+**Horace:** In 1998, Long-Term Capital Management -- a hedge fund run by Nobel Prize winners -- used leverage ratios exceeding 25 to 1. When their trades went wrong during the Russian debt crisis, the fund nearly collapsed the global financial system and required a $3.6 billion rescue organized by the Federal Reserve.
 
-**Sam:** In 2008, investment banks operated at 30 to 1 leverage. When housing-related assets declined, their thin equity cushion evaporated. Bear Stearns and Lehman Brothers collapsed. The entire banking system nearly followed.
+**Stella:** In 2008, investment banks operated at 30 to 1 leverage. When housing-related assets declined, their thin equity cushion evaporated. Bear Stearns and Lehman Brothers collapsed. The entire banking system nearly followed.
 
 [VISUAL: Leverage ratios of major institutions before their failures: LTCM 25:1, Bear Stearns 33:1, Lehman Brothers 30:1]
 
-**Alex:** And in 2021, Archegos Capital -- a family office -- used hidden leverage through total return swaps to build enormous concentrated positions. When the positions declined, the forced liquidation caused over $10 billion in losses at major banks.
+**Horace:** And in 2021, Archegos Capital -- a family office -- used hidden leverage through total return swaps to build enormous concentrated positions. When the positions declined, the forced liquidation caused over $10 billion in losses at major banks.
 
-**Sam:** The common thread across all of these stories, from 1929 to 2021, from individual retail traders to the most sophisticated institutions on Wall Street, is the same: leverage works brilliantly until it does not. And when it fails, the destruction is disproportionate to the initial risk that seemed so manageable.
+**Stella:** The common thread across all of these stories, from 1929 to 2021, from individual retail traders to the most sophisticated institutions on Wall Street, is the same: leverage works brilliantly until it does not. And when it fails, the destruction is disproportionate to the initial risk that seemed so manageable.
 
-**Alex:** You can build tremendous wealth without ever using a dollar of margin. Some of the greatest investors in history -- Warren Buffett through Berkshire Hathaway's insurance float, not margin -- achieved extraordinary returns without the kind of leverage that blows up accounts. Patience and time are the safest form of leverage available to you.
+**Horace:** You can build tremendous wealth without ever using a dollar of margin. Some of the greatest investors in history -- Warren Buffett through Berkshire Hathaway's insurance float, not margin -- achieved extraordinary returns without the kind of leverage that blows up accounts. Patience and time are the safest form of leverage available to you.
 
 [VISUAL: End card with channel logo and "Next: Commodities Investing"]
 
-**Sam:** Next time, we are exploring the world of commodities -- energy, metals, agriculture, and how to access these markets. See you there.
+**Stella:** Next time, we are exploring the world of commodities -- energy, metals, agriculture, and how to access these markets. See you there.
 
 [END - 14:30]

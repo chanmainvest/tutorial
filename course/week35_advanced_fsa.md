@@ -763,151 +763,151 @@ A: The biggest red flag is when multiple indicators point in the same direction 
 
 **[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]**
 
-**Alex:** Welcome back. Today we are going beyond basic financial statements into the advanced territory -- the tricks, traps, and tools that separate amateur investors from professionals. If you have ever wondered how investors like Warren Buffett or Michael Burry spot problems that everyone else misses, this is how.
+**Horace:** Welcome back. Today we are going beyond basic financial statements into the advanced territory -- the tricks, traps, and tools that separate amateur investors from professionals. If you have ever wondered how investors like Warren Buffett or Michael Burry spot problems that everyone else misses, this is how.
 
-**Sam:** I feel like I have a decent grasp of income statements and balance sheets from earlier lessons. What am I missing?
+**Stella:** I feel like I have a decent grasp of income statements and balance sheets from earlier lessons. What am I missing?
 
-**Alex:** You are missing the layer beneath the surface. Let me give you a provocative question: If a company reports $500 million in net income, is that good?
+**Horace:** You are missing the layer beneath the surface. Let me give you a provocative question: If a company reports $500 million in net income, is that good?
 
-**Sam:** Well, it depends on the context, but $500 million in profit sounds pretty good.
+**Stella:** Well, it depends on the context, but $500 million in profit sounds pretty good.
 
-**Alex:** What if I told you that same company's operating cash flow was only $100 million?
+**Horace:** What if I told you that same company's operating cash flow was only $100 million?
 
-**Sam:** That is a huge gap. Where did the other $400 million go?
+**Stella:** That is a huge gap. Where did the other $400 million go?
 
-**Alex:** That is exactly the right question. The gap between reported earnings and cash flow is called "accruals," and it is one of the most powerful signals in financial analysis. High accruals often mean the company is recognizing revenue or deferring expenses in ways that do not reflect real cash generation. And research shows that companies with high accruals significantly underperform the market.
+**Horace:** That is exactly the right question. The gap between reported earnings and cash flow is called "accruals," and it is one of the most powerful signals in financial analysis. High accruals often mean the company is recognizing revenue or deferring expenses in ways that do not reflect real cash generation. And research shows that companies with high accruals significantly underperform the market.
 
 **[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "Accruals: $400M"]**
 
-**Sam:** So I should always compare net income to cash flow?
+**Stella:** So I should always compare net income to cash flow?
 
-**Alex:** Always. The ratio of operating cash flow to net income is the simplest earnings quality test. If it is above 1.0 -- meaning cash flow exceeds reported earnings -- that is high quality. If it is below 0.5, investigate immediately. If it is negative -- the company reports profits but actually burns cash -- that is a screaming red flag.
+**Horace:** Always. The ratio of operating cash flow to net income is the simplest earnings quality test. If it is above 1.0 -- meaning cash flow exceeds reported earnings -- that is high quality. If it is below 0.5, investigate immediately. If it is negative -- the company reports profits but actually burns cash -- that is a screaming red flag.
 
 **[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 (High Quality), 0.8-1.0 (Good), 0.5-0.8 (Investigate), <0.5 (Red Flag)]**
 
-**Sam:** Let us talk about one of the most controversial topics in tech investing -- stock-based compensation. I see companies exclude it from their "adjusted" earnings all the time.
+**Stella:** Let us talk about one of the most controversial topics in tech investing -- stock-based compensation. I see companies exclude it from their "adjusted" earnings all the time.
 
-**Alex:** This is one of my pet peeves. Stock-based compensation, or SBC, is a real cost. When a company pays employees with stock options or restricted stock units, it is transferring value from existing shareholders to employees. If the company did not use SBC, it would need to pay higher cash salaries.
+**Horace:** This is one of my pet peeves. Stock-based compensation, or SBC, is a real cost. When a company pays employees with stock options or restricted stock units, it is transferring value from existing shareholders to employees. If the company did not use SBC, it would need to pay higher cash salaries.
 
-**Sam:** But management says it is a "non-cash" expense.
+**Stella:** But management says it is a "non-cash" expense.
 
-**Alex:** Sure, there is no cash leaving the bank account. But your ownership stake is being diluted. Let me show you how big the impact can be.
+**Horace:** Sure, there is no cash leaving the bank account. But your ownership stake is being diluted. Let me show you how big the impact can be.
 
 **[VISUAL: Example showing Tech Company XYZ -- GAAP EPS of $0.50 vs. "Adjusted" EPS of $0.70, a 40% difference entirely due to excluding SBC]**
 
-**Alex:** For some large tech companies, SBC exceeds 20% of revenue. If you value the stock using adjusted earnings that exclude SBC, you could overpay by 30 to 40 percent. Always start with GAAP earnings.
+**Horace:** For some large tech companies, SBC exceeds 20% of revenue. If you value the stock using adjusted earnings that exclude SBC, you could overpay by 30 to 40 percent. Always start with GAAP earnings.
 
-**Sam:** Are there red flags I should watch for with SBC?
+**Stella:** Are there red flags I should watch for with SBC?
 
-**Alex:** Yes. SBC exceeding 15% of revenue is aggressive. Diluted share count increasing more than 3% per year means shareholders are being diluted significantly. And watch for companies where SBC as a percentage of revenue is growing over time -- it suggests the company is funding its operations partly by printing stock.
+**Horace:** Yes. SBC exceeding 15% of revenue is aggressive. Diluted share count increasing more than 3% per year means shareholders are being diluted significantly. And watch for companies where SBC as a percentage of revenue is growing over time -- it suggests the company is funding its operations partly by printing stock.
 
 **[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: cost of goods sold, operating expenses, cash compensation, SBC expense, and profit. The SBC slice grows larger over successive years while the profit slice remains stable, illustrating how SBC consumes an increasing share of revenue.]**
 
-**Sam:** What about off-balance-sheet items? I thought those were fixed after the 2008 financial crisis.
+**Stella:** What about off-balance-sheet items? I thought those were fixed after the 2008 financial crisis.
 
-**Alex:** Partially fixed. Operating leases are now on the balance sheet, which was a huge improvement. But several important items still lurk off-balance-sheet or in the footnotes.
+**Horace:** Partially fixed. Operating leases are now on the balance sheet, which was a huge improvement. But several important items still lurk off-balance-sheet or in the footnotes.
 
-**Sam:** Like what?
+**Stella:** Like what?
 
-**Alex:** Unconsolidated joint ventures, where a company owns 20 to 49 percent of another business. The joint venture's debt does not appear on the parent company's balance sheet. Variable interest entities -- special purpose entities that may not be consolidated. Purchase commitments. Guarantee obligations. These can represent billions of dollars in hidden exposure.
+**Horace:** Unconsolidated joint ventures, where a company owns 20 to 49 percent of another business. The joint venture's debt does not appear on the parent company's balance sheet. Variable interest entities -- special purpose entities that may not be consolidated. Purchase commitments. Guarantee obligations. These can represent billions of dollars in hidden exposure.
 
 **[VISUAL: Iceberg diagram -- visible portion above water shows "On-Balance-Sheet Items" (debt, leases, etc.), below water shows "Off-Balance-Sheet Items" (JV debt, purchase commitments, guarantees, pension deficits, contingent liabilities)]**
 
-**Sam:** Where do I find this information?
+**Stella:** Where do I find this information?
 
-**Alex:** Footnotes. The 10-K annual filing has footnotes on "Commitments and Contingencies," "Variable Interest Entities," and "Investments in Affiliates." The SEC also requires a specific section in the MD&A called "Off-Balance-Sheet Arrangements." You have to actually read these sections -- most investors skip them, which is exactly why the information stays hidden.
+**Horace:** Footnotes. The 10-K annual filing has footnotes on "Commitments and Contingencies," "Variable Interest Entities," and "Investments in Affiliates." The SEC also requires a specific section in the MD&A called "Off-Balance-Sheet Arrangements." You have to actually read these sections -- most investors skip them, which is exactly why the information stays hidden.
 
-**Sam:** OK, let us talk about goodwill. I see it on balance sheets all the time and I honestly do not understand it.
+**Stella:** OK, let us talk about goodwill. I see it on balance sheets all the time and I honestly do not understand it.
 
-**Alex:** Goodwill is the premium a company pays when it acquires another company above the fair value of the identifiable assets. If Company A buys Company B for $5 billion, and Company B's identifiable assets minus liabilities are worth $2 billion, the remaining $3 billion goes on the balance sheet as "goodwill."
+**Horace:** Goodwill is the premium a company pays when it acquires another company above the fair value of the identifiable assets. If Company A buys Company B for $5 billion, and Company B's identifiable assets minus liabilities are worth $2 billion, the remaining $3 billion goes on the balance sheet as "goodwill."
 
-**Sam:** And that $3 billion just sits there?
+**Stella:** And that $3 billion just sits there?
 
-**Alex:** Indefinitely. Under current rules, goodwill is not amortized -- it just sits on the balance sheet until management determines it is "impaired," meaning the acquired business is no longer worth what they paid for it. Then they take a write-down.
+**Horace:** Indefinitely. Under current rules, goodwill is not amortized -- it just sits on the balance sheet until management determines it is "impaired," meaning the acquired business is no longer worth what they paid for it. Then they take a write-down.
 
 **[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label "Premium paid for acquisitions -- may or may not be worth what's on the books"]**
 
-**Alex:** Here is the problem. For serial acquirers -- companies that grow primarily through acquisition -- goodwill can become 30 to 60 percent of total assets. That means a huge portion of the company's balance sheet is based on the assumption that past acquisitions were worth what was paid. If that assumption is wrong, the balance sheet is overstated.
+**Horace:** Here is the problem. For serial acquirers -- companies that grow primarily through acquisition -- goodwill can become 30 to 60 percent of total assets. That means a huge portion of the company's balance sheet is based on the assumption that past acquisitions were worth what was paid. If that assumption is wrong, the balance sheet is overstated.
 
-**Sam:** How do I know if goodwill is too high?
+**Stella:** How do I know if goodwill is too high?
 
-**Alex:** Compare goodwill to total assets and to shareholders' equity. If goodwill exceeds 50% of total assets or exceeds total equity, dig deeper. Look at whether acquired businesses are meeting their original performance projections. Check if the company has a history of goodwill impairments. And be especially skeptical of companies that make frequent acquisitions at high premiums but show limited organic growth.
+**Horace:** Compare goodwill to total assets and to shareholders' equity. If goodwill exceeds 50% of total assets or exceeds total equity, dig deeper. Look at whether acquired businesses are meeting their original performance projections. Check if the company has a history of goodwill impairments. And be especially skeptical of companies that make frequent acquisitions at high premiums but show limited organic growth.
 
-**Sam:** Let us talk about pension obligations. I hear they can be massive.
+**Stella:** Let us talk about pension obligations. I hear they can be massive.
 
-**Alex:** They can be. A defined benefit pension creates a legal obligation to pay retirees fixed amounts for the rest of their lives. The present value of those payments can be enormous -- tens of billions of dollars for large companies. And here is the tricky part: the size of this obligation depends heavily on assumptions that management chooses.
+**Horace:** They can be. A defined benefit pension creates a legal obligation to pay retirees fixed amounts for the rest of their lives. The present value of those payments can be enormous -- tens of billions of dollars for large companies. And here is the tricky part: the size of this obligation depends heavily on assumptions that management chooses.
 
 **[VISUAL: Pension accounting diagram showing Plan Assets on one side, Projected Benefit Obligation on the other, with the gap labeled "Funded Status"]**
 
-**Alex:** The discount rate is the most impactful assumption. A 0.5% change in the discount rate can swing the pension obligation by 7 to 8 percent. For a company with a $10 billion pension obligation, that is $700 to $800 million from a single assumption change. Management sets this assumption, creating room for manipulation.
+**Horace:** The discount rate is the most impactful assumption. A 0.5% change in the discount rate can swing the pension obligation by 7 to 8 percent. For a company with a $10 billion pension obligation, that is $700 to $800 million from a single assumption change. Management sets this assumption, creating room for manipulation.
 
-**Sam:** What should I look for?
+**Stella:** What should I look for?
 
-**Alex:** Compare the company's discount rate to peers. If it is significantly higher, they may be understating their obligation. Also compare expected return on plan assets to actual historical returns. If the expected return is unrealistically high, pension expense is understated. And track the funded status over time -- a growing pension deficit is a liability that will eventually demand cash contributions.
+**Horace:** Compare the company's discount rate to peers. If it is significantly higher, they may be understating their obligation. Also compare expected return on plan assets to actual historical returns. If the expected return is unrealistically high, pension expense is understated. And track the funded status over time -- a growing pension deficit is a liability that will eventually demand cash contributions.
 
-**Sam:** This is great. Now, you mentioned two scoring models -- the Beneish M-Score and the Altman Z-Score. Let us walk through those.
+**Stella:** This is great. Now, you mentioned two scoring models -- the Beneish M-Score and the Altman Z-Score. Let us walk through those.
 
-**Alex:** These are two of the most powerful quantitative tools in financial analysis. Let us start with the Beneish M-Score, which detects earnings manipulation.
+**Horace:** These are two of the most powerful quantitative tools in financial analysis. Let us start with the Beneish M-Score, which detects earnings manipulation.
 
 **[VISUAL: Formula display showing the M-Score equation with all 8 variables]**
 
-**Alex:** The M-Score combines eight financial ratios into a single number. The threshold is negative 1.78. If the M-Score is above that threshold, the company has a statistically elevated probability of manipulating its earnings.
+**Horace:** The M-Score combines eight financial ratios into a single number. The threshold is negative 1.78. If the M-Score is above that threshold, the company has a statistically elevated probability of manipulating its earnings.
 
-**Sam:** What kinds of things does it look for?
+**Stella:** What kinds of things does it look for?
 
-**Alex:** Each variable captures a different type of manipulation signal. The Days Sales in Receivables Index checks if receivables are growing faster than sales -- a classic revenue recognition red flag. The Asset Quality Index checks if the company is capitalizing more expenses as assets. Total Accruals to Total Assets measures the overall level of accrual accounting.
+**Horace:** Each variable captures a different type of manipulation signal. The Days Sales in Receivables Index checks if receivables are growing faster than sales -- a classic revenue recognition red flag. The Asset Quality Index checks if the company is capitalizing more expenses as assets. Total Accruals to Total Assets measures the overall level of accrual accounting.
 
 **[VISUAL: Each of the 8 M-Score variables listed with a one-line plain-English description of what it detects]**
 
-**Sam:** Has this actually caught real frauds?
+**Stella:** Has this actually caught real frauds?
 
-**Alex:** Yes. Enron's M-Score exceeded the manipulation threshold years before the fraud was publicly exposed. WorldCom showed elevated scores. Many pre-crisis financial companies showed high M-Scores. It is not perfect -- it catches about 76% of manipulators with a 17% false positive rate -- but it is a remarkably effective screening tool.
+**Horace:** Yes. Enron's M-Score exceeded the manipulation threshold years before the fraud was publicly exposed. WorldCom showed elevated scores. Many pre-crisis financial companies showed high M-Scores. It is not perfect -- it catches about 76% of manipulators with a 17% false positive rate -- but it is a remarkably effective screening tool.
 
 **[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M-Score over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]**
 
-**Sam:** And the Altman Z-Score?
+**Stella:** And the Altman Z-Score?
 
-**Alex:** The Z-Score predicts bankruptcy. It combines five financial ratios -- working capital, retained earnings, operating earnings, market capitalization, and sales -- all scaled by total assets.
+**Horace:** The Z-Score predicts bankruptcy. It combines five financial ratios -- working capital, retained earnings, operating earnings, market capitalization, and sales -- all scaled by total assets.
 
 **[VISUAL: Z-Score formula with the three zones marked: Safe Zone (>2.99), Grey Zone (1.81-2.99), Distress Zone (<1.81)]**
 
-**Alex:** If the Z-Score is above 2.99, the company is in the safe zone. Between 1.81 and 2.99 is the grey zone -- monitor closely. Below 1.81 is the distress zone -- the company has a high probability of bankruptcy within two years.
+**Horace:** If the Z-Score is above 2.99, the company is in the safe zone. Between 1.81 and 2.99 is the grey zone -- monitor closely. Below 1.81 is the distress zone -- the company has a high probability of bankruptcy within two years.
 
-**Sam:** Can I use these two scores together?
+**Stella:** Can I use these two scores together?
 
-**Alex:** Absolutely, and I would recommend it. The M-Score tells you if the company might be manipulating its earnings. The Z-Score tells you if the company might be heading for bankruptcy. A company with both a high M-Score (potential manipulation) and a low Z-Score (financial distress) is a company you should probably avoid entirely.
+**Horace:** Absolutely, and I would recommend it. The M-Score tells you if the company might be manipulating its earnings. The Z-Score tells you if the company might be heading for bankruptcy. A company with both a high M-Score (potential manipulation) and a low Z-Score (financial distress) is a company you should probably avoid entirely.
 
-**Sam:** Let us briefly cover GAAP versus IFRS differences. Why does this matter?
+**Stella:** Let us briefly cover GAAP versus IFRS differences. Why does this matter?
 
-**Alex:** If you invest internationally -- and most diversified investors should -- you will encounter companies using IFRS instead of US GAAP. The differences can make the same underlying business look meaningfully different on paper.
+**Horace:** If you invest internationally -- and most diversified investors should -- you will encounter companies using IFRS instead of US GAAP. The differences can make the same underlying business look meaningfully different on paper.
 
 **[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]**
 
-**Alex:** Here are the biggest ones. First, inventory: US GAAP allows LIFO, which during inflation produces higher cost of goods sold and lower taxes. IFRS prohibits LIFO. So a US company using LIFO will report lower earnings and lower inventory values than an identical IFRS company.
+**Horace:** Here are the biggest ones. First, inventory: US GAAP allows LIFO, which during inflation produces higher cost of goods sold and lower taxes. IFRS prohibits LIFO. So a US company using LIFO will report lower earnings and lower inventory values than an identical IFRS company.
 
-**Sam:** How do I adjust for that?
+**Stella:** How do I adjust for that?
 
-**Alex:** US companies disclose a "LIFO reserve" in their footnotes. Add that to inventory and equity to get a FIFO-equivalent balance sheet.
+**Horace:** US companies disclose a "LIFO reserve" in their footnotes. Add that to inventory and equity to get a FIFO-equivalent balance sheet.
 
-**Alex:** Second, R&D: IFRS allows capitalizing development costs if certain criteria are met. US GAAP requires expensing all R&D immediately. So an IFRS tech company might have higher reported assets and higher earnings than an identical US GAAP company.
+**Horace:** Second, R&D: IFRS allows capitalizing development costs if certain criteria are met. US GAAP requires expensing all R&D immediately. So an IFRS tech company might have higher reported assets and higher earnings than an identical US GAAP company.
 
-**Sam:** What about asset impairments?
+**Stella:** What about asset impairments?
 
-**Alex:** Good one. Under IFRS, impairments on assets other than goodwill can be reversed if the value recovers. Under US GAAP, once you write down an asset, it stays written down. This means IFRS companies can report gains from impairment reversals that would never appear under US GAAP.
+**Horace:** Good one. Under IFRS, impairments on assets other than goodwill can be reversed if the value recovers. Under US GAAP, once you write down an asset, it stays written down. This means IFRS companies can report gains from impairment reversals that would never appear under US GAAP.
 
 **[VISUAL: Summary checklist -- "Before Comparing GAAP and IFRS Companies" with adjustment steps listed]**
 
-**Sam:** This has been incredibly dense but valuable. Let me try to summarize the key takeaways.
+**Stella:** This has been incredibly dense but valuable. Let me try to summarize the key takeaways.
 
-**Alex:** Go for it.
+**Horace:** Go for it.
 
-**Sam:** First, always compare earnings to cash flow -- the accrual gap is the simplest earnings quality test. Second, stock-based compensation is a real cost; do not accept adjusted earnings that exclude it. Third, off-balance-sheet items still exist and can be enormous -- read the footnotes. Fourth, goodwill can overstate a balance sheet -- be skeptical of serial acquirers. Fifth, use the Beneish M-Score and Altman Z-Score as quantitative screening tools. And sixth, adjust for GAAP-versus-IFRS differences when comparing international companies.
+**Stella:** First, always compare earnings to cash flow -- the accrual gap is the simplest earnings quality test. Second, stock-based compensation is a real cost; do not accept adjusted earnings that exclude it. Third, off-balance-sheet items still exist and can be enormous -- read the footnotes. Fourth, goodwill can overstate a balance sheet -- be skeptical of serial acquirers. Fifth, use the Beneish M-Score and Altman Z-Score as quantitative screening tools. And sixth, adjust for GAAP-versus-IFRS differences when comparing international companies.
 
-**Alex:** Excellent. And I would add one overarching principle: the single biggest red flag is when multiple warning signs appear simultaneously. Any one of these factors might have an innocent explanation. But when you see high accruals, a deteriorating M-Score, growing goodwill, aggressive non-GAAP adjustments, and off-balance-sheet items all at the same company -- run.
+**Horace:** Excellent. And I would add one overarching principle: the single biggest red flag is when multiple warning signs appear simultaneously. Any one of these factors might have an innocent explanation. But when you see high accruals, a deteriorating M-Score, growing goodwill, aggressive non-GAAP adjustments, and off-balance-sheet items all at the same company -- run.
 
-**Sam:** Great advice. Next week we are building income-generating portfolios. I am looking forward to something more actionable after this analytical deep dive.
+**Stella:** Great advice. Next week we are building income-generating portfolios. I am looking forward to something more actionable after this analytical deep dive.
 
-**Alex:** It will be a practical session. We will cover dividends, bond coupons, option premiums, and how to build a portfolio that generates sustainable income. See you then.
+**Horace:** It will be a practical session. We will cover dividends, bond coupons, option premiums, and how to build a portfolio that generates sustainable income. See you then.
 
 **[VISUAL: End card with key takeaways:
 1. Cash flow quality trumps reported earnings -- always compare OCF to net income

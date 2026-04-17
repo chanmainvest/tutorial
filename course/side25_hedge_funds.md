@@ -250,147 +250,147 @@ A10: Several major shifts have occurred. Fee compression has reduced average fee
 
 **[VISUAL: Animated skyline with hedge fund offices in glass towers, zooming into a trading floor]**
 
-**Alex:** Sam, hedge funds always sound so mysterious. Billion-dollar bets, secretive managers, two-and-twenty fees. What actually goes on inside these things? I feel like every time I read about finance, hedge funds come up, but I still do not really understand what they do.
+**Horace:** Stella, hedge funds always sound so mysterious. Billion-dollar bets, secretive managers, two-and-twenty fees. What actually goes on inside these things? I feel like every time I read about finance, hedge funds come up, but I still do not really understand what they do.
 
-**Sam:** You are not alone. Most people find hedge funds confusing because the term covers an incredibly wide range of strategies. But once you break it down, the core concepts are straightforward.
+**Stella:** You are not alone. Most people find hedge funds confusing because the term covers an incredibly wide range of strategies. But once you break it down, the core concepts are straightforward.
 
 Let me pull back the curtain. A hedge fund is really just a private investment pool that can use strategies most regular funds cannot, like short selling, leverage, and derivatives. Think of it as an investment fund with maximum flexibility and minimum regulation, at least compared to mutual funds.
 
 **[ANIMATION: Pool of money graphic showing arrows going both up (long) and down (short), with leverage multiplier appearing]**
 
-**Alex:** So the "hedge" part means they hedge their bets?
+**Horace:** So the "hedge" part means they hedge their bets?
 
-**Sam:** Originally, yes. The first hedge fund, created by Alfred Winslow Jones in 1949, combined buying stocks with short selling to reduce market risk. But today, "hedge fund" describes a fee structure and legal format more than a specific approach. Some hedge funds are more aggressive than a regular stock fund.
+**Stella:** Originally, yes. The first hedge fund, created by Alfred Winslow Jones in 1949, combined buying stocks with short selling to reduce market risk. But today, "hedge fund" describes a fee structure and legal format more than a specific approach. Some hedge funds are more aggressive than a regular stock fund.
 
 **[VISUAL: Timeline from 1949 to present showing growth of hedge fund industry from $1 million to $4+ trillion]**
 
-**Alex:** Four trillion dollars. That is a lot of money. What strategies do they actually use?
+**Horace:** Four trillion dollars. That is a lot of money. What strategies do they actually use?
 
-**Sam:** There are four major categories. Let us start with the most common: long/short equity.
+**Stella:** There are four major categories. Let us start with the most common: long/short equity.
 
 **[ANIMATION: Split screen showing "LONG" column with stocks going up and "SHORT" column with stocks going down, with net exposure meter in the middle]**
 
-**Sam:** The fund buys stocks they expect to rise and short sells stocks they expect to fall. A typical fund might be 130 percent long and 30 percent short, giving them 100 percent net exposure to the market but with more total positions working.
+**Stella:** The fund buys stocks they expect to rise and short sells stocks they expect to fall. A typical fund might be 130 percent long and 30 percent short, giving them 100 percent net exposure to the market but with more total positions working.
 
-**Alex:** So they make money from picking winners AND losers?
+**Horace:** So they make money from picking winners AND losers?
 
-**Sam:** Exactly. The skill is generating a positive spread between their longs and shorts. If their longs return 15 percent and their shorts lose 5 percent, that is a 20 percent gross spread before fees.
+**Stella:** Exactly. The skill is generating a positive spread between their longs and shorts. If their longs return 15 percent and their shorts lose 5 percent, that is a 20 percent gross spread before fees.
 
 **[VISUAL: Bar chart comparing long portfolio returns vs short portfolio returns, with spread highlighted]**
 
-**Alex:** What is the second strategy category?
+**Horace:** What is the second strategy category?
 
-**Sam:** Global macro. These funds bet on big-picture economic trends. Think currencies, interest rates, commodities, equity indices. George Soros famously made over a billion dollars in a single day by shorting the British pound in 1992.
+**Stella:** Global macro. These funds bet on big-picture economic trends. Think currencies, interest rates, commodities, equity indices. George Soros famously made over a billion dollars in a single day by shorting the British pound in 1992.
 
 **[ANIMATION: World map with arrows showing capital flows, currency pairs fluctuating, central bank icons adjusting rates]**
 
-**Alex:** That sounds incredibly risky.
+**Horace:** That sounds incredibly risky.
 
-**Sam:** It can be. Global macro funds have the widest mandate, they can go long or short in any market anywhere in the world. The advantage is flexibility. The disadvantage is that macroeconomic forecasting is really hard.
+**Stella:** It can be. Global macro funds have the widest mandate, they can go long or short in any market anywhere in the world. The advantage is flexibility. The disadvantage is that macroeconomic forecasting is really hard.
 
-**Alex:** What is number three?
+**Horace:** What is number three?
 
-**Sam:** Event-driven strategies. These funds profit from corporate events.
+**Stella:** Event-driven strategies. These funds profit from corporate events.
 
 **[ANIMATION: Company A reaching toward Company B with a merger arrow, showing target stock price at $48 with announced price of $50, and the $2 spread highlighted]**
 
-**Sam:** The most common is merger arbitrage. When Company A announces it is buying Company B at fifty dollars per share, Company B stock might trade at forty-eight. You buy at forty-eight, and if the deal closes, you collect fifty. That two-dollar spread is your profit.
+**Stella:** The most common is merger arbitrage. When Company A announces it is buying Company B at fifty dollars per share, Company B stock might trade at forty-eight. You buy at forty-eight, and if the deal closes, you collect fifty. That two-dollar spread is your profit.
 
-**Alex:** Only two dollars? That seems tiny.
+**Horace:** Only two dollars? That seems tiny.
 
-**Sam:** It is, but these deals typically close in three to six months. Annualized, a two-dollar spread on a forty-eight dollar stock over four months is roughly twelve to fifteen percent annualized. And you diversify across twenty or thirty deals at once.
+**Stella:** It is, but these deals typically close in three to six months. Annualized, a two-dollar spread on a forty-eight dollar stock over four months is roughly twelve to fifteen percent annualized. And you diversify across twenty or thirty deals at once.
 
 **[VISUAL: Table showing multiple merger deals with spreads, days to close, and annualized returns]**
 
-**Alex:** And the fourth category?
+**Horace:** And the fourth category?
 
-**Sam:** Relative value. These funds exploit pricing discrepancies between related securities. For example, if two similar bonds are priced differently, you buy the cheap one and short the expensive one, profiting when prices converge.
+**Stella:** Relative value. These funds exploit pricing discrepancies between related securities. For example, if two similar bonds are priced differently, you buy the cheap one and short the expensive one, profiting when prices converge.
 
 **[ANIMATION: Two securities plotted on a graph showing historical price relationship, diverging and then converging, with buy/sell signals marked]**
 
-**Alex:** Now let us talk about the elephant in the room: fees. Two and twenty. What does that actually mean for my returns?
+**Horace:** Now let us talk about the elephant in the room: fees. Two and twenty. What does that actually mean for my returns?
 
-**Sam:** Let me show you the math.
+**Stella:** Let me show you the math.
 
 **[ANIMATION: Calculator showing: $100,000 invested, 10% gross return = $10,000. Management fee 2% = $2,000. Remaining profit: $8,000. Performance fee 20% of $8,000 = $1,600. Net to investor: $6,400 or 6.4%]**
 
-**Sam:** On a ten percent gross return, you keep six point four percent after fees. The fund takes three point six percent. That means the manager captures thirty-six percent of total profits.
+**Stella:** On a ten percent gross return, you keep six point four percent after fees. The fund takes three point six percent. That means the manager captures thirty-six percent of total profits.
 
-**Alex:** Thirty-six percent?! That is more than a third of my gains!
+**Horace:** Thirty-six percent?! That is more than a third of my gains!
 
-**Sam:** Right. And in a year where the fund only returns five percent gross, it is even worse proportionally. The management fee alone takes two percent, leaving only three percent. Then twenty percent of that three goes to performance fees, leaving you with two-point-four percent. On a five percent return, you keep less than half.
+**Stella:** Right. And in a year where the fund only returns five percent gross, it is even worse proportionally. The management fee alone takes two percent, leaving only three percent. Then twenty percent of that three goes to performance fees, leaving you with two-point-four percent. On a five percent return, you keep less than half.
 
-**Alex:** And the fund manager still makes money from the management fee even if the fund loses money?
+**Horace:** And the fund manager still makes money from the management fee even if the fund loses money?
 
-**Sam:** Exactly. The two percent management fee is charged regardless of performance. A billion-dollar fund generates twenty million in management fee revenue even if it loses ten percent. This is why many people criticize the structure: the manager profits even when investors lose.
+**Stella:** Exactly. The two percent management fee is charged regardless of performance. A billion-dollar fund generates twenty million in management fee revenue even if it loses ten percent. This is why many people criticize the structure: the manager profits even when investors lose.
 
 **[VISUAL: Side-by-side comparison showing fee drag at different return levels: 5%, 10%, 15%, 20% gross returns with net returns after 2-and-20]**
 
-**Alex:** So has this fee structure actually been worth it?
+**Horace:** So has this fee structure actually been worth it?
 
-**Sam:** On average, no. Over the past fifteen years, the average hedge fund has underperformed a simple sixty-forty stock and bond portfolio after fees. The HFRI index has significantly trailed the S&P 500.
+**Stella:** On average, no. Over the past fifteen years, the average hedge fund has underperformed a simple sixty-forty stock and bond portfolio after fees. The HFRI index has significantly trailed the S&P 500.
 
 **[ANIMATION: Line chart showing S&P 500 total return vs HFRI Fund Weighted Composite vs 60/40 portfolio from 2010 to present]**
 
-**Alex:** Then why do pension funds and endowments keep investing?
+**Horace:** Then why do pension funds and endowments keep investing?
 
-**Sam:** Because averages hide the extremes. Top-quartile hedge funds have dramatically outperformed. And institutions care about more than just returns. They need consistent income, limited drawdowns, and low correlation to public markets.
+**Stella:** Because averages hide the extremes. Top-quartile hedge funds have dramatically outperformed. And institutions care about more than just returns. They need consistent income, limited drawdowns, and low correlation to public markets.
 
 **[VISUAL: Distribution bell curve showing hedge fund returns with top quartile and bottom quartile highlighted]**
 
-**Alex:** This is where it gets interesting for regular investors like us. Can we access these strategies without the hedge fund price tag?
+**Horace:** This is where it gets interesting for regular investors like us. Can we access these strategies without the hedge fund price tag?
 
-**Sam:** Absolutely. This has been one of the biggest shifts in investing over the past decade. Many hedge fund strategies are now available through ETFs at a fraction of the cost.
+**Stella:** Absolutely. This has been one of the biggest shifts in investing over the past decade. Many hedge fund strategies are now available through ETFs at a fraction of the cost.
 
 **[ANIMATION: Side-by-side comparison table showing Hedge Fund vs ETF Alternative with rows for fees, minimums, liquidity, transparency]**
 
-**Sam:** Long/short equity ETFs charge around 0.75 percent instead of two-and-twenty. Merger arbitrage ETFs charge around 0.50 percent. Managed futures ETFs charge around 0.60 percent. All with daily liquidity and full transparency.
+**Stella:** Long/short equity ETFs charge around 0.75 percent instead of two-and-twenty. Merger arbitrage ETFs charge around 0.50 percent. Managed futures ETFs charge around 0.60 percent. All with daily liquidity and full transparency.
 
-**Alex:** So what is the catch? Why would not everyone just use the ETFs?
+**Horace:** So what is the catch? Why would not everyone just use the ETFs?
 
-**Sam:** A few reasons. First, ETF versions typically use systematic quantitative approaches. They cannot replicate the judgment calls of a skilled discretionary manager. Second, some strategies like distressed debt or activist investing are very hard to package in an ETF. Third, the very best hedge fund managers would never open their strategy to a low-cost ETF. You are getting the strategy, not the best practitioner.
+**Stella:** A few reasons. First, ETF versions typically use systematic quantitative approaches. They cannot replicate the judgment calls of a skilled discretionary manager. Second, some strategies like distressed debt or activist investing are very hard to package in an ETF. Third, the very best hedge fund managers would never open their strategy to a low-cost ETF. You are getting the strategy, not the best practitioner.
 
 **[VISUAL: Venn diagram showing "Hedge Fund Advantages" (manager skill, illiquid opportunities, concentrated bets) vs "ETF Advantages" (low fees, liquidity, transparency, no minimums) with overlap area (strategy exposure, diversification)]**
 
-**Alex:** How would you suggest someone build a DIY hedge fund alternative portfolio?
+**Horace:** How would you suggest someone build a DIY hedge fund alternative portfolio?
 
-**Sam:** Here is a simple three-fund approach.
+**Stella:** Here is a simple three-fund approach.
 
 **[ANIMATION: Pie chart building piece by piece: 60% core equity index, 20% long/short equity ETF, 10% managed futures ETF, 10% merger arbitrage ETF]**
 
-**Sam:** Take your total portfolio and allocate ten to twenty percent to liquid alternatives. You might split that between a long/short equity ETF and a managed futures ETF. The managed futures component is especially valuable because it tends to perform well during equity bear markets, providing genuine crisis protection.
+**Stella:** Take your total portfolio and allocate ten to twenty percent to liquid alternatives. You might split that between a long/short equity ETF and a managed futures ETF. The managed futures component is especially valuable because it tends to perform well during equity bear markets, providing genuine crisis protection.
 
-**Alex:** What about the risk of these ETF alternatives? Are they safer than actual hedge funds?
+**Horace:** What about the risk of these ETF alternatives? Are they safer than actual hedge funds?
 
-**Sam:** In some ways, yes. You have daily liquidity, so you are never locked in. You have full transparency, so you know what you own. And you have lower fees, so you keep more of your returns. But the underlying strategies still carry risk. Long/short funds can lose money on both sides if stock picks are wrong. Managed futures can whipsaw in choppy, trendless markets.
+**Stella:** In some ways, yes. You have daily liquidity, so you are never locked in. You have full transparency, so you know what you own. And you have lower fees, so you keep more of your returns. But the underlying strategies still carry risk. Long/short funds can lose money on both sides if stock picks are wrong. Managed futures can whipsaw in choppy, trendless markets.
 
 **[VISUAL: Risk comparison chart showing various strategies with volatility, max drawdown, and correlation to S&P 500]**
 
-**Alex:** Any final advice for someone trying to decide between a hedge fund and ETF alternatives?
+**Horace:** Any final advice for someone trying to decide between a hedge fund and ETF alternatives?
 
-**Sam:** Unless you are investing more than five million dollars and have access to top-tier managers, ETF alternatives are the way to go. The fee savings alone are enormous over time. A one and a half percent fee difference compounded over twenty years on a million-dollar portfolio is hundreds of thousands of dollars.
+**Stella:** Unless you are investing more than five million dollars and have access to top-tier managers, ETF alternatives are the way to go. The fee savings alone are enormous over time. A one and a half percent fee difference compounded over twenty years on a million-dollar portfolio is hundreds of thousands of dollars.
 
 **[ANIMATION: Two growth charts diverging over 20 years, one with 2-and-20 fees and one with 0.75% ETF fees, showing the growing dollar gap]**
 
-**Alex:** Hundreds of thousands just in fees. That really drives the point home.
+**Horace:** Hundreds of thousands just in fees. That really drives the point home.
 
-**Sam:** The hedge fund industry sells exclusivity and mystique. But for most investors, the democratized versions deliver the strategy exposure you actually want at a price that makes sense. Focus on understanding the strategies, pick low-cost implementations, and keep your fee budget tight.
+**Stella:** The hedge fund industry sells exclusivity and mystique. But for most investors, the democratized versions deliver the strategy exposure you actually want at a price that makes sense. Focus on understanding the strategies, pick low-cost implementations, and keep your fee budget tight.
 
 **[VISUAL: Summary card showing "Key Takeaways" with bullet points: 4 strategy categories, 2-and-20 fee impact, ETF alternatives exist, 10-20% portfolio allocation, fees matter enormously]**
 
-**Alex:** Thanks Sam. Hedge funds finally make sense to me. And I like that I do not need a million dollars to get started.
+**Horace:** Thanks Stella. Hedge funds finally make sense to me. And I like that I do not need a million dollars to get started.
 
-**Sam:** That is the beauty of modern markets. The strategies are accessible to everyone now. You just need to know what you are buying and why.
+**Stella:** That is the beauty of modern markets. The strategies are accessible to everyone now. You just need to know what you are buying and why.
 
-**Alex:** Before we go, can you quickly explain how someone should evaluate a liquid alternative ETF?
+**Horace:** Before we go, can you quickly explain how someone should evaluate a liquid alternative ETF?
 
-**Sam:** Three things to check. First, understand the strategy. Read the prospectus and make sure you know what the fund actually does. Is it long/short equity? Managed futures? Multi-strategy? Second, check the fees. Anything above one percent should raise a question. Third, look at crisis performance. The real value of alternatives shows up during bear markets. If the fund dropped as much as the S&P 500 during the 2020 crash, it is not providing the diversification you are paying for.
+**Stella:** Three things to check. First, understand the strategy. Read the prospectus and make sure you know what the fund actually does. Is it long/short equity? Managed futures? Multi-strategy? Second, check the fees. Anything above one percent should raise a question. Third, look at crisis performance. The real value of alternatives shows up during bear markets. If the fund dropped as much as the S&P 500 during the 2020 crash, it is not providing the diversification you are paying for.
 
 **[VISUAL: Three-step evaluation checklist: 1) Understand the strategy, 2) Check fees (<1% preferred), 3) Review crisis performance (should hold up better than stocks)]**
 
-**Alex:** That is a really clean framework. I think I am going to start with a managed futures ETF for some crisis protection.
+**Horace:** That is a really clean framework. I think I am going to start with a managed futures ETF for some crisis protection.
 
-**Sam:** Smart choice. That is one of the most proven diversifiers among all alternative strategies. Just remember, it will underperform stocks during strong bull markets. That is the price of insurance.
+**Stella:** Smart choice. That is one of the most proven diversifiers among all alternative strategies. Just remember, it will underperform stocks during strong bull markets. That is the price of insurance.
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on options strategies and portfolio construction]**
 

@@ -1,894 +1,882 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第六週：黃金與商品作為分散投資工具
 
-# Week 6: Gold and Commodities as Diversifiers
+## 閱讀部分
 
-## Reading Section
+### a) 為何此課題至關重要
 
-### a) Why This Is Important
+黃金與商品在投資領域佔據獨特的位置。它們不是股票，不是債券，也不像企業或貸款那樣產生現金流。然而，數十年來它們在投資組合中扮演著關鍵角色，要理解個中原因，需要審視大多數投資者所忽略的概念：真正在最需要時發揮效用的分散投資。
 
-Gold and commodities occupy a unique space in the investment universe. They are not stocks, they are not bonds, and they do not generate cash flows the way businesses or loans do. Yet they have played a critical role in investment portfolios for decades, and understanding why requires looking at something most investors miss: the concept of diversification that actually works when you need it most.
+以下是黃金與商品對您投資之路的重要性：
 
-Here is why gold and commodities matter for your investment journey:
+**對抗通脹：** 通脹意外急升時，股票與債券均會受損。1970年代，美國經歷了長達十年的高通脹煎熬。標準普爾500指數年回報約5.9%，而通脹率平均達7.4%，即股票投資者實際購買力下降。同期，黃金價格從每盎司35美元飆升至800美元以上，升幅逾2,000%。商品整體亦大幅上漲。若您的投資組合只持有股票和債券，1970年代便是失落的十年；若持有部分黃金和商品，您不僅得以安然渡過，更能從中獲利。
 
-**Inflation Protection:** Stocks and bonds both suffer when inflation spikes unexpectedly. In the 1970s, the U.S. experienced a brutal decade of high inflation. The S&P 500 returned roughly 5.9% annually while inflation averaged 7.4%, meaning stock investors lost purchasing power. During that same period, gold rose from $35 per ounce to over $800, a gain of more than 2,000%. Commodities as a group also surged. If your portfolio contained only stocks and bonds, the 1970s were a lost decade. If you held some gold and commodities, you survived and even prospered.
+**真正的分散投資：** 大多數投資者認為持有多隻股票或混合美國與國際股票便算分散投資。但這些資產受同一根本力量驅動：企業盈利。一旦全球衰退來臨，幾乎所有股票同步下跌。債券有一定幫助，正如我們在第五週所學，但它與股票存在共同弱點：兩者均以貨幣計價的金融資產。黃金和商品則是真實的實物資產，其價值源自有形性與稀缺性，而非政府或企業的承諾，這令它們具備增持更多股票所無法企及的本質差異。
 
-**True Diversification:** Most investors think they are diversified because they own several different stocks or a mix of U.S. and international stocks. But these assets are all driven by the same fundamental force: corporate earnings. When a global recession hits, virtually all stocks fall together. Bonds help, as we learned in Week 5, but they share one vulnerability with stocks: they are both financial assets denominated in currency. Gold and commodities are real, physical assets. Their value comes from their tangibility and scarcity, not from the promise of a government or corporation. This makes them genuinely different in a way that adding more stocks never can be.
+**危機保險：** 尤其是黃金，數千年來一直充當危機資產。它沒有對手方風險，即其價值不依賴任何人履行承諾。它無法憑空印製或製造，且跨越所有文化與國界，被公認為價值儲存手段。地緣政治緊張、貨幣喪失公信力或金融體系動盪時，黃金往往表現出色。它是投資組合中唯一能在亂世中蓬勃生長的資產。
 
-**Crisis Insurance:** Gold, in particular, has served as a crisis asset for thousands of years. It has no counterparty risk, meaning its value does not depend on anyone else fulfilling a promise. It cannot be printed or created out of thin air. It is recognized as a store of value across every culture and every border. When geopolitical tensions rise, when currencies lose credibility, or when the financial system wobbles, gold tends to perform well. It is the only asset in a portfolio that thrives on chaos.
+**理解宏觀周期：** 商品遵循長期價格周期，通常稱為超級周期，由原材料的實物供求驅動。這些周期影響從您的食品雜貨價格到整個國家的盈利能力。理解商品超級周期，讓您洞悉大多數散戶投資者完全忽視的全球經濟力量。它同樣有助理解您的汽油價格形成原因、食品價格在特定時期急升的緣由，以及某些國家興盛而另一些苦苦掙扎的背後邏輯。
 
-**Understanding Macro Cycles:** Commodities follow long-term price cycles, often called supercycles, that are driven by the physical supply and demand of raw materials. These cycles affect everything from the price of your groceries to the profitability of entire nations. Understanding commodity supercycles gives you insight into global economic forces that most retail investors completely ignore. It also helps you understand why your gasoline costs what it does, why food prices spike during certain periods, and why some countries boom while others struggle.
+**投資組合構建：** 持有60%股票、20%債券及20%另類資產（包括黃金和商品）的理念，在機構投資者和捐贈基金中已廣受認可。即使只是適度配置黃金和商品，歷史上也能提升傳統股債投資組合的風險調整後回報。背後的數學邏輯簡單明瞭：在現有持倉中加入相關性低或負相關的資產，可降低整體投資組合的波動性，而回報並不會等比例減少。
 
-**Portfolio Construction:** The idea of holding 60% stocks, 20% bonds, and 20% alternatives (including gold and commodities) has gained significant traction among institutional investors and endowments. Adding even a modest allocation to gold and commodities has historically improved the risk-adjusted return of a traditional stock-and-bond portfolio. The math behind this is simple: adding an asset with low or negative correlation to your existing holdings reduces overall portfolio volatility without proportionally reducing returns.
-
-In this lesson, we will explore gold, commodities, and their role as portfolio diversifiers. You will learn what drives their prices, how to access them as an individual investor, and how to think about sizing their allocation in your portfolio.
+本課我們將探討黃金、商品及其作為投資組合分散工具的角色。您將了解驅動其價格的因素、散戶投資者如何獲得相關敞口，以及如何思考在投資組合中的配置比重。
 
 ---
 
-### b) What You Need to Know
+### b) 您需要掌握的知識
 
-#### Gold: The Eternal Store of Value
+#### 黃金：永恆的價值儲存手段
 
-Gold has been valued by humans for at least 5,000 years. It has been used as money, jewelry, and a store of value across virtually every civilization in recorded history. This is not an accident. Gold possesses several unique properties that make it ideal for storing wealth:
+黃金被人類珍視至少已有5,000年歷史，幾乎在有記錄的每一個文明中均被用作貨幣、珠寶及價值儲存手段。這絕非偶然。黃金擁有數項獨特特性，使其成為財富儲存的理想工具：
 
 ```
 +-------------------------------------------------------------------+
-|                WHY GOLD HAS ENDURING VALUE                       |
+|                黃金擁有持久價值的原因                              |
 +-------------------------------------------------------------------+
 |                                                                   |
-|  PHYSICAL PROPERTIES:                                            |
-|  - Does not corrode, rust, or degrade over time                  |
-|  - Extremely rare (all gold ever mined fits in ~3.5 Olympic     |
-|    swimming pools)                                                |
-|  - Easily divisible (can be melted and split)                    |
-|  - Universally recognizable                                      |
-|  - High value-to-weight ratio (easy to transport)                |
+|  實物特性：                                                       |
+|  - 不腐蝕、不生鏽、不隨時間降解                                  |
+|  - 極為稀有（人類有史以來開採的黃金                              |
+|    總量僅能裝滿約3.5個奧運游泳池）                               |
+|  - 易於分割（可熔化和分割）                                      |
+|  - 全球普遍認可                                                  |
+|  - 價值重量比高（便於運輸）                                      |
 |                                                                   |
-|  FINANCIAL PROPERTIES:                                           |
-|  - No counterparty risk (not someone else's liability)           |
-|  - Cannot be printed or manufactured easily                      |
-|  - Limited annual supply growth (~1.5% per year from mining)     |
-|  - Central banks hold it as reserve asset                        |
-|  - Universal acceptance across cultures and borders              |
+|  金融特性：                                                      |
+|  - 無對手方風險（並非他人的負債）                                |
+|  - 無法輕易印製或製造                                            |
+|  - 每年新增供應有限（開採每年約+1.5%）                          |
+|  - 各國央行持有作儲備資產                                        |
+|  - 跨文化跨國界廣泛認可                                          |
 |                                                                   |
-|  BEHAVIORAL PROPERTIES:                                          |
-|  - "Fear trade" - demand increases during uncertainty            |
-|  - Seen as alternative to fiat currency                          |
-|  - 5,000+ year track record as store of value                   |
+|  行為特性：                                                      |
+|  - 「避險交易」—不確定性期間需求上升                            |
+|  - 被視為法幣的替代品                                            |
+|  - 作為價值儲存手段逾5,000年的歷史記錄                         |
 +-------------------------------------------------------------------+
 ```
 
-Gold is often described as a "barbarous relic" by its critics, who argue that it produces no income, pays no dividends, and has no earnings. This criticism is technically correct but misses the point. Gold is not supposed to be a growth investment. It is insurance. You do not buy homeowner's insurance because you expect your house to burn down. You buy it to protect against the possibility. Gold serves a similar function in a portfolio.
+黃金的批評者常稱其為「野蠻的遺跡」，認為它不產生收入、不派發股息、也沒有盈利。這一批評在技術上是正確的，但卻抓錯了重點。黃金並不應該是增長型投資，它是保險。您購買家居保險，並非因為預期房子會著火，而是為防萬一。黃金在投資組合中發揮類似功能。
 
-#### Gold vs. Inflation: The Historical Record
+#### 黃金與通脹：歷史紀錄
 
-One of the most common claims about gold is that it protects against inflation. The historical evidence supports this claim, but with important nuances.
-
-```
-GOLD VS. INFLATION: KEY PERIODS
-
-+-------------------------------------------------------------------+
-| PERIOD        | INFLATION  | GOLD RETURN | S&P 500    | VERDICT   |
-+-------------------------------------------------------------------+
-| 1971-1980     | +8.9%/yr   | +31.6%/yr   | +5.9%/yr   | Gold wins |
-| (High infl.)  |            |             |            |           |
-+-------------------------------------------------------------------+
-| 1980-2000     | +3.5%/yr   | -3.7%/yr    | +17.5%/yr  | Stocks win|
-| (Falling infl)|            |             |            |           |
-+-------------------------------------------------------------------+
-| 2000-2011     | +2.5%/yr   | +17.5%/yr   | +0.6%/yr   | Gold wins |
-| (Post-bubble) |            |             |            |           |
-+-------------------------------------------------------------------+
-| 2011-2020     | +1.8%/yr   | +2.5%/yr    | +13.6%/yr  | Stocks win|
-| (Low infl.)   |            |             |            |           |
-+-------------------------------------------------------------------+
-| 2020-2023     | +5.3%/yr   | +8.2%/yr    | +7.2%/yr   | Mixed     |
-| (COVID infl.) |            |             |            |           |
-+-------------------------------------------------------------------+
-
-Key Insight: Gold excels during periods of HIGH and RISING inflation,
-but underperforms during periods of LOW and STABLE inflation. It is
-a conditional hedge, not an all-weather performer.
-```
-
-The nuance is this: gold is not a short-term inflation hedge. In any given year, gold's price can move independently of inflation. But over long periods, gold has roughly maintained its purchasing power. An ounce of gold in ancient Rome could buy a fine toga. Today, an ounce of gold can buy a fine suit. Over millennia, gold has preserved its value remarkably well, even as every fiat currency ever created has eventually lost most or all of its value.
+關於黃金最常見的說法之一，是它能抵禦通脹。歷史證據支持這一說法，但需要重要的細節補充。
 
 ```
-GOLD'S PURCHASING POWER OVER TIME
+黃金與通脹：關鍵時期
 
-  Year      Gold Price     What 1 oz. Buys          USD Value of
-            (USD/oz)                                 $1 from 1900
++-------------------------------------------------------------------+
+| 時期          | 通脹率     | 黃金回報    | 標普500    | 勝負       |
++-------------------------------------------------------------------+
+| 1971-1980     | +8.9%/年   | +31.6%/年   | +5.9%/年   | 黃金勝    |
+| （高通脹）    |            |             |            |           |
++-------------------------------------------------------------------+
+| 1980-2000     | +3.5%/年   | -3.7%/年    | +17.5%/年  | 股票勝    |
+| （通脹下行）  |            |             |            |           |
++-------------------------------------------------------------------+
+| 2000-2011     | +2.5%/年   | +17.5%/年   | +0.6%/年   | 黃金勝    |
+| （泡沫後）    |            |             |            |           |
++-------------------------------------------------------------------+
+| 2011-2020     | +1.8%/年   | +2.5%/年    | +13.6%/年  | 股票勝    |
+| （低通脹）    |            |             |            |           |
++-------------------------------------------------------------------+
+| 2020-2023     | +5.3%/年   | +8.2%/年    | +7.2%/年   | 互有勝負  |
+| （新冠通脹）  |            |             |            |           |
++-------------------------------------------------------------------+
+
+關鍵啟示：黃金在通脹高企且持續上升時表現卓越，
+但在通脹低企且穩定時則跑輸大市。它是有條件的對沖
+工具，而非全天候的表現者。
+```
+
+細節在於：黃金並非短期通脹對沖工具。在任何給定年份，黃金價格的走勢可能與通脹無關。但從長遠看，黃金大致維持了其購買力。古羅馬時代，一盎司黃金可購買一件精美托袈。今天，一盎司黃金可以購買一套精緻西裝。數千年來，黃金的價值保存能力令人印象深刻，即使每一種曾存在的法定貨幣最終都失去了大部分甚至全部價值。
+
+```
+黃金的購買力隨時間的演變
+
+  年份      黃金價格（美元/盎司）  1盎司可購買           1900年起
+                                                          1美元的現值
   ------------------------------------------------------------------
-  1900      $20.67         A fine suit               $1.00
-  1950      $34.72         A fine suit               $0.33
-  1971      $35.00         A fine suit               $0.17
-  1980      $615.00        Much more than a suit     $0.13
-  2000      $279.11        A decent suit             $0.05
-  2011      $1,571.52      A very fine suit          $0.03
-  2020      $1,769.64      A fine suit               $0.03
-  2024      $2,300+        A fine suit               $0.03
+  1900      $20.67              精美西裝               $1.00
+  1950      $34.72              精美西裝               $0.33
+  1971      $35.00              精美西裝               $0.17
+  1980      $615.00             遠不止一套西裝          $0.13
+  2000      $279.11             一套像樣的西裝          $0.05
+  2011      $1,571.52           非常精緻的西裝          $0.03
+  2020      $1,769.64           精美西裝               $0.03
+  2024      $2,300+             精美西裝               $0.03
 
-  Gold: Roughly maintained purchasing power over 124 years
-  Dollar: Lost approximately 97% of its purchasing power
+  黃金：124年來大致維持購買力
+  美元：購買力損失約97%
 ```
 
-#### What Drives Gold Prices?
+#### 驅動黃金價格的因素
 
-Gold does not have earnings or cash flows, so traditional valuation models do not apply. Instead, gold prices are driven by a unique set of factors:
+黃金沒有盈利或現金流，因此傳統估值模型並不適用。黃金價格受一套獨特因素驅動：
 
 ```
-FACTORS DRIVING GOLD PRICES
+驅動黃金價格的因素
 
 +-------------------------------+------------------+-----------------+
-| FACTOR                        | DIRECTION        | GOLD PRICE      |
+| 因素                          | 方向             | 黃金價格        |
 +-------------------------------+------------------+-----------------+
-| Real interest rates FALL      | Less attractive  | RISES           |
-|                               | to hold bonds    |                 |
-| Real interest rates RISE      | More attractive  | FALLS           |
-|                               | to hold bonds    |                 |
-| U.S. dollar WEAKENS           | Gold cheaper in  | RISES           |
-|                               | other currencies |                 |
-| U.S. dollar STRENGTHENS       | Gold more costly | FALLS           |
-|                               | in other curr.   |                 |
-| Inflation expectations RISE   | Hedge demand     | RISES           |
-| Geopolitical uncertainty      | Safe haven       | RISES           |
-| Central bank buying           | Physical demand  | RISES           |
-| Central bank selling          | Supply increase  | FALLS           |
-| Stock market CRASH            | Flight to safety | RISES           |
-| Economic confidence HIGH      | Less need for    | FALLS           |
-|                               | safety assets    |                 |
+| 實際利率下跌                  | 持有債券吸引力   | 上漲            |
+|                               | 下降             |                 |
+| 實際利率上升                  | 持有債券吸引力   | 下跌            |
+|                               | 上升             |                 |
+| 美元走弱                      | 以其他貨幣計價   | 上漲            |
+|                               | 黃金變便宜       |                 |
+| 美元走強                      | 以其他貨幣計價   | 下跌            |
+|                               | 黃金更昂貴       |                 |
+| 通脹預期上升                  | 對沖需求增加     | 上漲            |
+| 地緣政治不確定性              | 避險資產需求     | 上漲            |
+| 央行買入                      | 實物需求增加     | 上漲            |
+| 央行賣出                      | 供應增加         | 下跌            |
+| 股市崩盤                      | 資金避險         | 上漲            |
+| 市場信心高漲                  | 對安全資產需求   | 下跌            |
+|                               | 減少             |                 |
 +-------------------------------+------------------+-----------------+
 
-Most Important Driver: REAL interest rates (nominal rate minus inflation)
-  - When real rates are negative (rate < inflation), gold thrives
-  - When real rates are high and positive, gold struggles
-  - Gold has zero yield, so high real rates make bonds more attractive
+最重要驅動因素：實際利率（名義利率減通脹率）
+  - 實際利率為負時（利率 < 通脹），黃金表現強勁
+  - 實際利率高且為正時，黃金表現疲軟
+  - 黃金零收益率，因此高實際利率令債券更具吸引力
 
-  Real Rate:  -2%  -1%   0%  +1%  +2%  +3%
-  Gold:       ****  ***   **   *    .    .
-              Very       Neutral      Bad for
-              good for                gold
-              gold
+  實際利率：  -2%  -1%   0%  +1%  +2%  +3%
+  黃金：      ****  ***   **   *    .    .
+              非常        中性         對黃金
+              有利                     不利
+              黃金
 ```
 
-The single most important driver of gold prices is real interest rates (the nominal interest rate minus inflation). When real rates are negative, meaning inflation is higher than interest rates, holding gold costs you nothing in terms of opportunity cost because bonds are losing purchasing power too. When real rates are high and positive, bonds offer a meaningful real return, making gold's zero yield less attractive.
+驅動黃金價格最重要的單一因素是實際利率（名義利率減通脹率）。當實際利率為負，即通脹高於利率時，持有黃金的機會成本幾乎為零，因為債券同樣在損失購買力。當實際利率高且為正時，債券提供有意義的實際回報，令黃金的零收益率相形失色。
 
-#### Commodities: The Physical Economy
+#### 商品：實體經濟的原材料
 
-While gold is a monetary metal, the broader commodity universe represents the raw materials of the physical economy. Commodities fall into several major categories:
+黃金是貨幣金屬，而更廣泛的商品領域則代表實體經濟的原材料。商品分為幾大類別：
 
 ```
 +-------------------------------------------------------------------+
-|                    COMMODITY CATEGORIES                           |
+|                    商品類別                                        |
 +-------------------------------------------------------------------+
 |                                                                   |
-|  ENERGY:                                                         |
-|  - Crude oil (WTI, Brent)     Most impactful on daily life      |
-|  - Natural gas                 Heating and electricity           |
-|  - Gasoline, heating oil       Refined products                  |
+|  能源：                                                          |
+|  - 原油（WTI、布倫特）      對日常生活影響最大                  |
+|  - 天然氣                    暖氣與電力                          |
+|  - 汽油、取暖油              精煉產品                            |
 |                                                                   |
-|  PRECIOUS METALS:                                                |
-|  - Gold                        Store of value, jewelry           |
-|  - Silver                      Industrial + monetary metal       |
-|  - Platinum, Palladium         Industrial applications           |
+|  貴金屬：                                                        |
+|  - 黃金                      價值儲存、珠寶                      |
+|  - 白銀                      工業+貨幣金屬                       |
+|  - 鉑金、鈀金                工業應用                            |
 |                                                                   |
-|  INDUSTRIAL METALS:                                              |
-|  - Copper                      "Dr. Copper" - economic indicator |
-|  - Aluminum                    Construction, packaging           |
-|  - Iron ore, Steel             Infrastructure, manufacturing     |
-|  - Lithium, Nickel, Cobalt     EV batteries (growing demand)     |
+|  工業金屬：                                                      |
+|  - 銅                        「銅博士」—經濟指標               |
+|  - 鋁                        建築、包裝                          |
+|  - 鐵礦石、鋼鐵              基礎設施、製造業                    |
+|  - 鋰、鎳、鈷                電動車電池（需求增長中）            |
 |                                                                   |
-|  AGRICULTURE:                                                    |
-|  - Corn, Wheat, Soybeans       Food staples                      |
-|  - Coffee, Cocoa, Sugar        Soft commodities                  |
-|  - Cotton, Lumber              Materials                         |
+|  農業：                                                          |
+|  - 玉米、小麥、大豆          主要糧食                            |
+|  - 咖啡、可可、糖            軟性商品                            |
+|  - 棉花、木材                原材料                              |
 |                                                                   |
-|  LIVESTOCK:                                                      |
-|  - Cattle                      Meat production                   |
-|  - Hogs                        Pork production                   |
+|  畜牧：                                                          |
+|  - 活牛                      肉類生產                            |
+|  - 豬                        豬肉生產                            |
 +-------------------------------------------------------------------+
 ```
 
-Commodities are fundamentally different from stocks and bonds. Their value comes from physical scarcity and real-world demand. When a drought destroys a wheat crop, wheat prices rise regardless of what the Federal Reserve does. When rapid industrialization in China demands enormous quantities of copper and iron ore, those prices surge. These drivers are independent of the financial forces that move stocks and bonds, which is exactly what makes commodities valuable diversifiers.
+商品與股票和債券有根本差異。其價值來自實物稀缺性和現實需求。當旱災摧毀小麥收成，小麥價格便會上漲，無論聯儲局如何行動。當中國快速工業化對銅和鐵礦石需求巨大，這些商品的價格便會飆升。這些驅動因素獨立於推動股票和債券的金融力量，正是這一點令商品成為極具價值的分散投資工具。
 
-#### Commodity Supercycles
+#### 商品超級周期
 
-Commodity prices tend to move in long, multi-year cycles called supercycles. These cycles typically last 15-25 years from trough to trough and are driven by the fundamental lag between supply and demand.
+商品價格往往在長期多年的周期中運動，稱為超級周期。這些周期通常從谷底到谷底歷時15至25年，由供求之間的根本性滯後所驅動。
 
 ```
-ANATOMY OF A COMMODITY SUPERCYCLE
+商品超級周期的解構
 
-  Commodity
-  Price
+  商品
+  價格
     |
     |                    * * *
     |                 *         *
-    |              *     PEAK      *
+    |              *     高峰      *
     |           *                     *
-    |        *    PHASE 2:               *
-    |     *       Rising prices,            *
-    |  *          Supply can't keep up         *
+    |        *    第二階段：               *
+    |     *       價格上漲，                  *
+    |  *          供應追不上需求                 *
     |*                                            *
-    |  PHASE 1:                  PHASE 3:            *
-    |  Underinvestment,          Overinvestment,        *
-    |  Low prices,               New supply floods       *
-    |  Producers exit            market, prices fall        *
+    |  第一階段：                  第三階段：           *
+    |  投資不足，                  過度投資，              *
+    |  價格低迷，                  新供應湧入市場，          *
+    |  生產商退出                  價格下跌                    *
     |                                                         *
     +--|---------|---------|---------|---------|---------|--------
-       Yr 0     Yr 5     Yr 10    Yr 15    Yr 20    Yr 25
+       第0年    第5年    第10年   第15年   第20年   第25年
 
-  PHASE 1 (Trough): Prices are low. Mining companies and farmers
-  reduce production. Old mines close. Investment dries up.
+  第一階段（谷底）：價格低迷。礦業公司和農民削減產量，
+  舊礦場關閉，投資枯竭。
 
-  PHASE 2 (Boom): Demand outpaces supply. Prices rise. New projects
-  start, but it takes 5-10 YEARS to build a new mine or oilfield.
-  Prices overshoot because supply cannot respond quickly.
+  第二階段（繁榮）：需求超越供應，價格上漲。新項目啟動，
+  但建設一個新礦場或油田需要5至10年。
+  因供應無法迅速響應，價格超調。
 
-  PHASE 3 (Bust): New capacity finally comes online. Supply exceeds
-  demand. Prices collapse. Cycle begins again.
+  第三階段（衰退）：新產能終於投產，供應超越需求，
+  價格崩潰，周期重新開始。
 ```
 
-Historical supercycles include:
+歷史上的超級周期包括：
 
 ```
-MAJOR COMMODITY SUPERCYCLES
+主要商品超級周期
 
 +-------------------------------------------------------------------+
-| PERIOD       | DRIVER                      | KEY COMMODITIES       |
+| 時期         | 驅動因素                      | 主要商品             |
 +-------------------------------------------------------------------+
-| 1898-1921    | Industrialization of US     | Steel, oil, copper    |
-| 1933-1953    | WWII, post-war rebuilding   | All commodities       |
-| 1968-1982    | Vietnam War, oil embargo,   | Oil, gold, grains     |
-|              | high inflation              |                       |
-| 1999-2011    | China industrialization,    | Oil, copper, iron     |
-|              | emerging market growth      | ore, gold, coal       |
-| 2020-???     | Green energy transition,    | Lithium, copper,      |
-|              | supply underinvestment,     | nickel, uranium,      |
-|              | geopolitical shifts         | oil, gold             |
+| 1898-1921    | 美國工業化                    | 鋼鐵、石油、銅       |
+| 1933-1953    | 二戰及戰後重建                | 所有商品             |
+| 1968-1982    | 越戰、石油禁運、高通脹        | 石油、黃金、穀物     |
+| 1999-2011    | 中國工業化、新興市場增長      | 石油、銅、鐵礦石、   |
+|              |                               | 黃金、煤炭           |
+| 2020-???     | 綠色能源轉型、供應投資不足、  | 鋰、銅、鎳、鈾、     |
+|              | 地緣政治格局轉變              | 石油、黃金           |
 +-------------------------------------------------------------------+
 
-Key Insight: Each supercycle was driven by a structural shift in
-demand that existing supply could not meet. It takes years to build
-new mines, drill new wells, or plant new crops. This lag between
-demand and supply creates the cycle.
+關鍵啟示：每個超級周期均由需求結構性轉變所驅動，
+而現有供應無法滿足。建設新礦場、鑽新油井或種植新
+農作物需要多年時間，這一供需滯後創造了周期。
 ```
 
-Understanding where we are in the commodity supercycle helps investors make better tactical decisions. If we are in the early-to-mid phase of a new supercycle, commodity exposure becomes more attractive. If we are in the late phase, caution is warranted.
+了解我們在商品超級周期中所處的位置，有助投資者做出更好的戰術決策。若處於新超級周期的初期至中期，商品敞口便更具吸引力；若處於後期，則需要謹慎。
 
-#### How to Access Gold and Commodities
+#### 如何投資黃金和商品
 
-Individual investors have several options for gaining exposure to gold and commodities, each with distinct advantages and disadvantages:
+散戶投資者有多種選擇獲得黃金和商品敞口，各有不同的優缺點：
 
 ```
 +-------------------------------------------------------------------+
-|              HOW TO INVEST IN GOLD                                |
+|              如何投資黃金                                          |
 +-------------------------------------------------------------------+
-|  METHOD              | PROS                 | CONS                |
+|  方式                | 優點                 | 缺點                |
 +-------------------------------------------------------------------+
-|  Physical Gold       | Tangible, no counter | Storage costs,      |
-|  (coins, bars)       | party risk, privacy  | insurance, illiquid,|
-|                      |                      | large buy/sell spread|
+|  實物黃金            | 有形、無對手方風險、 | 儲存成本、保險、    |
+|  （金幣、金條）      | 保私隱               | 流動性低、買賣差    |
+|                      |                      | 價大                |
 +-------------------------------------------------------------------+
-|  Gold ETFs           | Liquid, low cost,    | Counterparty risk   |
-|  (GLD, IAU, GLDM)   | tracks gold price,   | (trust structure),  |
-|                      | easy to trade        | no physical delivery|
+|  黃金交易所買賣基金  | 流動性高、成本低、   | 對手方風險          |
+|  (GLD, IAU, GLDM)   | 追蹤黃金價格、易於  | （信託架構）、      |
+|                      | 交易                 | 不可實物交收        |
 +-------------------------------------------------------------------+
-|  Gold Mining Stocks  | Dividends, leverage  | Company-specific    |
-|  (NEM, GOLD, GDX)   | to gold price,       | risk, management    |
-|                      | can outperform gold  | risk, not pure gold |
+|  黃金礦業股票        | 派息、對黃金價格有  | 個股風險、管理層    |
+|  (NEM, GOLD, GDX)   | 槓桿效應、可跑贏    | 風險、非純黃金      |
+|                      | 黃金                 | 敞口               |
 +-------------------------------------------------------------------+
-|  Gold Futures        | Maximum leverage,    | Complex, risky,     |
-|                      | precise pricing      | rolling costs,      |
-|                      |                      | not for beginners   |
+|  黃金期貨            | 最大槓桿、精確定價  | 複雜、風險高、      |
+|                      |                      | 轉倉成本、不適合    |
+|                      |                      | 初學者              |
 +-------------------------------------------------------------------+
-|  Digital Gold        | Easy purchase,       | Newer, less proven, |
-|  (various platforms) | fractional amounts,  | platform risk       |
-|                      | some backed physical |                     |
+|  數字黃金            | 購買方便、可購買     | 較新、未經考驗、    |
+|  （各平台）          | 零碎份額、部分有    | 平台風險            |
+|                      | 實物支撐             |                     |
 +-------------------------------------------------------------------+
 
-Recommended for most investors: GLD or IAU (gold ETFs)
-  GLD:  Largest gold ETF, expense ratio 0.40%
-  IAU:  Lower-cost alternative, expense ratio 0.25%
-  GLDM: Even lower cost, expense ratio 0.10%, smaller share price
+大多數投資者推薦：GLD 或 IAU（黃金交易所買賣基金）
+  GLD：最大黃金交易所買賣基金，管理費0.40%
+  IAU：低成本替代品，管理費0.25%
+  GLDM：費用更低，管理費0.10%，股份面值更低
 ```
 
 ```
 +-------------------------------------------------------------------+
-|          HOW TO INVEST IN COMMODITIES                            |
+|          如何投資商品                                              |
 +-------------------------------------------------------------------+
-|  METHOD              | PROS                 | CONS                |
+|  方式                | 優點                 | 缺點                |
 +-------------------------------------------------------------------+
-|  Broad Commodity ETFs| Diversified exposure,| Roll yield drag,    |
-|  (DJP, GSG, PDBC)   | easy to trade        | futures-based,      |
-|                      |                      | tracking error      |
+|  廣泛商品            | 分散投資敞口、       | 轉倉收益率拖累、    |
+|  交易所買賣基金      | 易於交易             | 以期貨為基礎、      |
+|  (DJP, GSG, PDBC)   |                      | 追蹤誤差            |
 +-------------------------------------------------------------------+
-|  Sector ETFs         | Targeted exposure    | Concentrated risk,  |
-|  (USO for oil,       | to specific          | futures-based,      |
-|   WEAT for wheat)    | commodities          | contango issues     |
+|  板塊交易所買賣基金  | 針對特定商品的       | 集中風險、          |
+|  （USO用於石油、     | 精準敞口             | 以期貨為基礎、      |
+|   WEAT用於小麥）     |                      | 期貨溢價問題        |
 +-------------------------------------------------------------------+
-|  Commodity Producer  | Dividends, earnings  | Company risk, not   |
-|  Stocks / ETFs       | growth, familiar     | pure commodity      |
-|  (XLE, XME, MOO)    | stock structure      | exposure            |
+|  商品生產商股票/     | 派息、盈利增長、     | 公司風險、非純      |
+|  交易所買賣基金      | 熟悉的股票架構       | 商品敞口            |
+|  (XLE, XME, MOO)    |                      |                     |
 +-------------------------------------------------------------------+
-|  Commodity Futures   | Direct exposure,     | Complex, rolling,   |
-|                      | leverage available   | margin requirements |
+|  商品期貨            | 直接敞口、可使用�槓桿| 複雜、需要轉倉、    |
+|                      |                      | 保證金要求          |
 +-------------------------------------------------------------------+
-|  Managed Futures     | Professional mgmt,   | Higher fees, less   |
-|  Funds               | can go long and      | transparent,        |
-|                      | short, trend-follow  | complex strategies  |
+|  管理期貨基金        | 專業管理、可做多     | 費用較高、透明度    |
+|                      | 做空、趨勢跟蹤策略   | 較低、策略複雜      |
 +-------------------------------------------------------------------+
 
-Important Warning about Commodity ETFs:
-  Many commodity ETFs use futures contracts that must be "rolled"
-  (replaced with new contracts) regularly. This rolling process
-  can create a hidden cost called "negative roll yield" or
-  "contango drag" that causes the ETF to underperform the actual
-  commodity price over time.
+關於商品交易所買賣基金的重要警告：
+  許多商品交易所買賣基金使用期貨合約，並需要定期
+  「轉倉」（以新合約替換）。這一轉倉過程可產生稱
+  為「負轉倉收益率」或「期貨溢價拖累」的隱性成本，
+  導致交易所買賣基金長期表現遜於實際商品價格。
 
-  Example: Oil price rises 10% over a year
-  USO (oil ETF) might only rise 3-5% due to roll costs
+  例：石油價格在一年內上漲10%
+  USO（石油交易所買賣基金）可能因轉倉成本僅上漲3-5%
 
-  This is why many advisors prefer commodity PRODUCER stocks/ETFs
-  over futures-based commodity ETFs for long-term holdings.
+  這正是許多顧問偏好商品生產商股票/交易所買賣基金
+  而非以期貨為基礎的商品交易所買賣基金作長期持倉
+  的原因。
 ```
 
-#### The Contango Problem
+#### 期貨溢價問題
 
-Understanding contango is essential before investing in commodity ETFs. When a commodity's futures price is higher than its spot (current) price, the market is in contango. This creates a drag on returns for ETFs that hold futures.
+在投資商品交易所買賣基金前，必須理解期貨溢價。當商品的期貨價格高於現貨（即時）價格時，市場便處於期貨溢價狀態。這會為持有期貨的交易所買賣基金帶來回報拖累。
 
 ```
-CONTANGO: THE HIDDEN COST OF COMMODITY ETFS
+期貨溢價：商品交易所買賣基金的隱性成本
 
-  Spot Price:       $80/barrel (today's price for oil)
-  1-Month Future:   $81/barrel
-  2-Month Future:   $82/barrel
-  3-Month Future:   $83/barrel
+  現貨價格：       $80/桶（今日石油價格）
+  一個月期貨：     $81/桶
+  兩個月期貨：     $82/桶
+  三個月期貨：     $83/桶
 
-  The ETF holds the 1-month future at $81.
-  As expiration approaches, it must "roll" to the 2-month future.
+  交易所買賣基金持有一個月期貨，合約價$81。
+  臨近到期日，必須「轉倉」至兩個月期貨。
 
-  ROLL PROCESS:
-  1. Sell expiring contract at ~$80 (converged to spot)
-  2. Buy next month's contract at ~$82
+  轉倉過程：
+  1. 以約$80賣出到期合約（收斂至現貨價）
+  2. 以約$82買入下月合約
 
-  Loss per roll: ~$2 per barrel (~2.5%)
-  This happens every month, creating a persistent drag.
+  每次轉倉損失：約每桶$2（約2.5%）
+  每月如此，持續產生拖累。
 
-  Commodity Spot Price Over 1 Year:
+  一年內商品現貨價格：
 
-  Price
+  價格
     |
-  85|                              ** spot price **
+  85|                              ** 現貨價格 **
     |                        *****
   80|             **********
     |       *****
   75|  *****
     +--|------|------|------|------|--
-      Jan   Mar    Jun    Sep    Dec
+      1月    3月    6月    9月   12月
 
-  ETF Return vs. Spot Return Over Same Year:
+  同期交易所買賣基金回報 vs. 現貨回報：
 
-  Return
+  回報
     |
-  +12%|                              * Spot price: +12%
+  +12%|                              * 現貨價格：+12%
      |                         *
    +8%|                    *
-     |               *          * ETF: +5% (contango drag)
+     |               *          * 交易所買賣基金：+5%（期貨溢價拖累）
    +4%|          *          *
      |     *           *
     0%|*          *
      +--|------|------|------|------|--
-       Jan   Mar    Jun    Sep    Dec
+       1月    3月    6月    9月   12月
 
-  The gap between spot and ETF widens over time due to rolling costs.
+  由於轉倉成本，現貨與交易所買賣基金之間的差距
+  隨時間持續擴大。
 ```
 
-Backwardation is the opposite of contango, where futures prices are below the spot price. In backwardation, rolling actually adds to returns. However, most commodities spend more time in contango than backwardation, which is why long-term commodity ETF returns often disappoint relative to the underlying commodity prices.
+期貨折價與期貨溢價相反，即期貨價格低於現貨價格。在期貨折價狀態下，轉倉實際上可增加回報。然而，大多數商品處於期貨溢價狀態的時間多於期貨折價，這正是長期商品交易所買賣基金回報往往令人失望的原因。
 
-#### Correlation Benefits: Why a Little Gold Goes a Long Way
+#### 相關性優勢：少量黃金何以大有裨益
 
-The primary reason to hold gold and commodities is not their standalone returns. It is their correlation characteristics. Adding assets with low or negative correlation to your portfolio can improve risk-adjusted returns even if the added asset has lower expected returns on its own.
-
-```
-CORRELATION MATRIX (Historical Approximate Values)
-
-                    U.S.    U.S.    Intl    Gold    Broad
-                    Stocks  Bonds   Stocks          Commodities
-  U.S. Stocks      1.00
-  U.S. Bonds       0.05    1.00
-  Intl Stocks      0.75    0.05    1.00
-  Gold             0.02   0.30     0.10    1.00
-  Commodities      0.30   -0.10    0.35    0.35    1.00
-
-  Correlation Key:
-  +1.00 = Perfect positive (move together perfectly)
-   0.00 = No correlation (independent movements)
-  -1.00 = Perfect negative (move in exact opposite)
-
-  Ideal diversifiers have correlation near 0 or negative.
-
-  Notice:
-  - Gold has near-zero correlation with stocks (0.02)
-  - Gold has moderate positive correlation with bonds (0.30)
-    during normal times, but goes NEGATIVE during crises
-  - Commodities have low correlation with both stocks and bonds
-  - International stocks have HIGH correlation with U.S. stocks
-    (0.75), providing much less diversification than people think
-```
-
-This correlation data reveals a critical insight: international stocks provide far less diversification than most investors believe. They move largely in lockstep with U.S. stocks, especially during crises. Gold and commodities provide genuine diversification because their return drivers are fundamentally different.
-
-#### The 60/20/20 Portfolio Concept
-
-Adding gold and commodities to the traditional stock-bond portfolio has been popularized by institutional investors, endowments, and advisors who study long-term asset allocation. One common framework is the 60/20/20 allocation.
+持有黃金和商品的主要理由，並非其獨立回報，而是其相關性特徵。在投資組合中加入低相關或負相關資產，即使新增資產的預期回報較低，也能提升風險調整後回報。
 
 ```
-PORTFOLIO ALLOCATION COMPARISON (Historical Backtest)
+相關性矩陣（歷史近似值）
 
-  Traditional 60/40:                60/20/20:
-  60% U.S. Stocks                   60% U.S. Stocks
-  40% U.S. Bonds                    20% U.S. Bonds
-                                    10% Gold
-                                    10% Broad Commodities
+                    美國    美國    國際    黃金    廣泛
+                    股票    債券    股票            商品
+  美國股票          1.00
+  美國債券          0.05    1.00
+  國際股票          0.75    0.05    1.00
+  黃金              0.02    0.30    0.10    1.00
+  商品              0.30   -0.10    0.35    0.35    1.00
+
+  相關性說明：
+  +1.00 = 完全正相關（完全同向波動）
+   0.00 = 無相關（獨立波動）
+  -1.00 = 完全負相關（完全反向波動）
+
+  理想的分散投資工具相關性接近0或為負值。
+
+  請注意：
+  - 黃金與股票的相關性接近零（0.02）
+  - 正常情況下黃金與債券有適度正相關（0.30），
+    但危機期間相關性轉為負值
+  - 商品與股票和債券的相關性均低
+  - 國際股票與美國股票高度相關（0.75），
+    分散投資效果遠低於人們的預期
+```
+
+此相關性數據揭示了一個關鍵洞見：國際股票提供的分散投資效果遠低於大多數投資者所認為的。尤其在危機期間，它們與美國股票幾乎同步波動。黃金和商品提供真正的分散投資，因為其回報驅動因素在本質上有所不同。
+
+#### 六四二二投資組合概念
+
+在傳統股債投資組合中加入黃金和商品，已被機構投資者、捐贈基金和研究長期資產配置的顧問所推廣。一個常見框架是60/20/20配置。
+
+```
+投資組合配置比較（歷史回測）
+
+  傳統60/40：                        60/20/20：
+  60% 美國股票                       60% 美國股票
+  40% 美國債券                       20% 美國債券
+                                     10% 黃金
+                                     10% 廣泛商品
 
 +-------------------------------------------------------------------+
-| METRIC              | 60/40      | 60/20/20   | DIFFERENCE        |
+| 指標                | 60/40      | 60/20/20   | 差異              |
 +-------------------------------------------------------------------+
-| Annual Return       |  8.5%      |  8.2%      | -0.3%             |
-| Volatility          |  9.6%      |  9.1%      | -0.5% (better)    |
-| Worst Year          | -20.1%     | -16.8%     | +3.3% (better)    |
-| Sharpe Ratio        |  0.60      |  0.63      | +0.03 (better)    |
-| Max Drawdown        | -32.5%     | -27.2%     | +5.3% (better)    |
+| 年化回報            |  8.5%      |  8.2%      | -0.3%             |
+| 波動性              |  9.6%      |  9.1%      | -0.5%（較好）     |
+| 最差年份            | -20.1%     | -16.8%     | +3.3%（較好）     |
+| 夏普比率            |  0.60      |  0.63      | +0.03（較好）     |
+| 最大回撤            | -32.5%     | -27.2%     | +5.3%（較好）     |
 +-------------------------------------------------------------------+
 
-Key Insight: The 60/20/20 portfolio gives up a tiny amount of
-return (-0.3%/yr) but meaningfully reduces risk across every
-measure. Worst year improves by over 3%, max drawdown by over
-5%, and risk-adjusted return (Sharpe Ratio) is higher.
+關鍵啟示：60/20/20投資組合僅犧牲少量回報（每年-0.3%），
+但在各項指標上均有效降低風險。最差年份改善逾3%，
+最大回撤改善逾5%，風險調整後回報（夏普比率）更高。
 
-Visual comparison during 2008 crisis:
+2008年危機期間的對比：
 
-  60/40:                 60/20/20:
-  Stocks:  -37% x 0.60  Stocks:  -37% x 0.60  = -22.2%
-  Bonds:   +5%  x 0.40  Bonds:   +5%  x 0.20  = +1.0%
-                         Gold:    +5%  x 0.10   = +0.5%
-                         Cmdty:   -35% x 0.10   = -3.5%
+  60/40：                    60/20/20：
+  股票：  -37% x 0.60       股票：  -37% x 0.60  = -22.2%
+  債券：  +5%  x 0.40       債券：  +5%  x 0.20  = +1.0%
+                             黃金：  +5%  x 0.10   = +0.5%
+                             商品：  -35% x 0.10   = -3.5%
   --------------------------     --------------------------
-  Portfolio: ~-20.1%             Portfolio: ~-24.2%
+  組合：約 -20.1%                組合：約 -24.2%
 
-  But in 1970s inflation:
-  60/40:                 60/20/20:
-  Stocks:  -7%  x 0.60  Stocks:  -7%  x 0.60  = -4.2%
-  Bonds:   -5%  x 0.40  Bonds:   -5%  x 0.20  = -1.0%
-                         Gold:    +32% x 0.10   = +3.2%
-                         Cmdty:   +25% x 0.10   = +2.5%
+  但在1970年代通脹期間：
+  60/40：                    60/20/20：
+  股票：  -7%  x 0.60       股票：  -7%  x 0.60  = -4.2%
+  債券：  -5%  x 0.40       債券：  -5%  x 0.20  = -1.0%
+                             黃金：  +32% x 0.10   = +3.2%
+                             商品：  +25% x 0.10   = +2.5%
   --------------------------     --------------------------
-  Portfolio: ~-6.2%              Portfolio: ~+0.5%
+  組合：約 -6.2%                 組合：約 +0.5%
 
-  The 60/20/20 provides superior protection during inflationary
-  periods, which is precisely when the traditional 60/40 fails.
+  60/20/20在通脹期間提供卓越保護，而這正是傳統60/40
+  最脆弱的時刻。
 ```
 
-The beauty of the 60/20/20 concept is that it hedges against the one scenario where a traditional 60/40 portfolio breaks down: high inflation. During deflationary crises, bonds protect you. During inflationary periods, gold and commodities step in. The result is a portfolio that is more resilient across a wider range of economic environments.
+60/20/20概念的美妙之處在於，它對沖了傳統60/40投資組合唯一失效的情境：高通脹。通縮危機時，債券保護您；通脹時期，黃金和商品挺身而出。最終形成一個能在更廣泛經濟環境中保持韌性的投資組合。
 
-#### Gold vs. Bitcoin: The New Debate
+#### 黃金 vs. 比特幣：新世代之爭
 
-A common question among modern investors is whether Bitcoin has replaced or will replace gold. While a detailed comparison belongs in a separate lesson, a brief framework is useful:
-
-```
-GOLD VS. BITCOIN AS PORTFOLIO DIVERSIFIERS
-
-+-------------------------------------------------------------------+
-| CHARACTERISTIC     | GOLD              | BITCOIN               |
-+-------------------------------------------------------------------+
-| Track record       | 5,000+ years       | ~15 years              |
-| Volatility         | ~15% annually      | ~60-80% annually       |
-| Correlation w/     | ~0.02 (very low)   | ~0.40 (moderate)       |
-| stocks             |                    |                        |
-| Crisis behavior    | Consistent safe    | Mixed (fell 50%+ in   |
-|                    | haven              | March 2020 crash)      |
-| Central bank       | Yes (held by most  | No (not held by        |
-| adoption           | central banks)     | central banks)         |
-| Inflation hedge    | Proven over        | Too short a history    |
-|                    | centuries          | to confirm             |
-| Supply growth      | ~1.5%/year         | Decreasing, caps at    |
-|                    | (from mining)      | 21 million coins       |
-| Income             | None               | None (unless staked)   |
-| Regulatory risk    | Low                | Higher (evolving)      |
-+-------------------------------------------------------------------+
-
-Current consensus: Gold is the proven, conservative choice for
-portfolio diversification. Bitcoin may evolve into a complementary
-asset, but its short track record, extreme volatility, and higher
-stock-market correlation currently make it less suitable as a
-core diversifier. Some investors hold both.
-```
-
-#### Sizing Your Gold and Commodity Allocation
-
-How much gold and commodities should you hold? Research and practitioner experience suggest the following framework:
+現代投資者的常見問題是，比特幣是否已取代或將取代黃金。詳細比較留待另一課，但以下框架頗有參考價值：
 
 ```
-ALLOCATION GUIDELINES BY INVESTOR PROFILE
+黃金 vs. 比特幣作為投資組合分散工具
 
 +-------------------------------------------------------------------+
-| INVESTOR PROFILE       | GOLD     | COMMODITIES | TOTAL ALT       |
+| 特徵               | 黃金               | 比特幣                 |
 +-------------------------------------------------------------------+
-| Conservative / Near    | 5-10%    | 0-5%        | 5-10%           |
-| Retirement             |          |             |                 |
-+-------------------------------------------------------------------+
-| Moderate / Mid-Career  | 5-10%    | 5-10%       | 10-15%          |
-+-------------------------------------------------------------------+
-| Aggressive / Young     | 3-5%     | 5-10%       | 5-15%           |
-+-------------------------------------------------------------------+
-| Inflation-Concerned    | 10-15%   | 5-10%       | 15-20%          |
-+-------------------------------------------------------------------+
-| Endowment-Style        | 5-10%    | 5-10%       | 10-20%          |
-| (Harvard/Yale model)   |          |             | (+ other alts)  |
+| 歷史記錄           | 逾5,000年           | 約15年                 |
+| 波動性             | 每年約15%           | 每年約60-80%           |
+| 與股票的相關性     | 約0.02（非常低）    | 約0.40（中度）         |
+| 危機表現           | 穩定的避險資產      | 參差不齊（2020年3月    |
+|                    |                    | 崩盤時跌逾50%）        |
+| 央行採納           | 是（大多數央行      | 否（央行不持有）       |
+|                    | 均持有）           |                        |
+| 通脹對沖           | 數百年來已被驗證    | 歷史太短，無法確認     |
+| 供應增長           | 每年約1.5%         | 遞減，上限為2,100萬    |
+|                    | （來自開採）       | 枚                     |
+| 收入               | 無                 | 無（除非質押）         |
+| 監管風險           | 低                 | 較高（持續演變中）     |
 +-------------------------------------------------------------------+
 
-Rule of Thumb: 5-15% of your portfolio in gold and commodities
-combined. More than 20% is generally excessive and sacrifices too
-much expected return. Less than 5% has minimal diversification
-impact.
+目前共識：黃金是經過驗證的保守型投資組合分散工具。
+比特幣或能演化成互補資產，但其短暫的歷史記錄、
+極端波動性及與股市的較高相關性，目前使其尚不適合
+作為核心分散工具。部分投資者同時持有兩者。
+```
 
-Implementation for a $100,000 portfolio (Moderate profile):
+#### 確定黃金和商品的配置比例
 
-  $60,000  |  U.S. Stock Index ETF (VTI or SPY)
-  $20,000  |  Bond Index ETF (BND or AGG)
-  $10,000  |  Gold ETF (GLD, IAU, or GLDM)
-  $5,000   |  Broad Commodity ETF (DJP, PDBC) or
-           |  Commodity Producer ETF (XLE, XME)
-  $5,000   |  International Stock ETF (VXUS)
+應持有多少黃金和商品？研究與實踐經驗提供了以下框架：
+
+```
+不同投資者類型的配置指引
+
++-------------------------------------------------------------------+
+| 投資者類型             | 黃金     | 商品        | 另類資產合計    |
++-------------------------------------------------------------------+
+| 保守型 / 臨近退休      | 5-10%    | 0-5%        | 5-10%           |
++-------------------------------------------------------------------+
+| 穩健型 / 事業中期      | 5-10%    | 5-10%       | 10-15%          |
++-------------------------------------------------------------------+
+| 進取型 / 年輕投資者    | 3-5%     | 5-10%       | 5-15%           |
++-------------------------------------------------------------------+
+| 通脹憂慮型             | 10-15%   | 5-10%       | 15-20%          |
++-------------------------------------------------------------------+
+| 捐贈基金風格           | 5-10%    | 5-10%       | 10-20%          |
+| （哈佛/耶魯模式）      |          |             | （+其他另類資產）|
++-------------------------------------------------------------------+
+
+經驗法則：黃金和商品合計佔投資組合的5-15%。
+超過20%通常過多，犧牲太多預期回報；低於5%，
+分散投資效果微乎其微。
+
+100,000美元投資組合的實施方案（穩健型）：
+
+  $60,000  |  美國股票指數交易所買賣基金（VTI 或 SPY）
+  $20,000  |  債券指數交易所買賣基金（BND 或 AGG）
+  $10,000  |  黃金交易所買賣基金（GLD、IAU 或 GLDM）
+  $5,000   |  廣泛商品交易所買賣基金（DJP、PDBC）或
+           |  商品生產商交易所買賣基金（XLE、XME）
+  $5,000   |  國際股票交易所買賣基金（VXUS）
   -------------------------------------------
-  $100,000    Total
+  $100,000    合計
 
-  Rebalance annually or when any allocation drifts more than
-  5 percentage points from target.
+  每年再平衡一次，或當任何配置偏離目標超過
+  5個百分點時進行再平衡。
 ```
 
-#### Rebalancing: Selling High and Buying Low Automatically
+#### 再平衡：自動化的高賣低買
 
-Holding gold and commodities alongside stocks and bonds creates natural rebalancing opportunities. When stocks crash and gold rallies, you sell some gold (high) and buy more stocks (low). When stocks soar and gold languishes, you sell some stocks (high) and buy more gold (low). This disciplined rebalancing forces you to systematically sell high and buy low, the opposite of what most investors do emotionally.
+同時持有黃金、商品、股票和債券，可創造自然的再平衡機會。股市崩盤、黃金上漲時，賣出部分黃金（高位）並買入更多股票（低位）。股市飆升、黃金沉寂時，賣出部分股票（高位）並買入更多黃金（低位）。這種有紀律的再平衡，迫使您系統性地高賣低買，與大多數投資者的情緒化行為恰恰相反。
 
 ```
-REBALANCING IN ACTION
+再平衡的實際操作
 
-  Starting portfolio (60/20/10/10):
-  Stocks: $60,000  |  Bonds: $20,000  |  Gold: $10,000  |  Cmdty: $10,000
+  初始投資組合（60/20/10/10）：
+  股票：$60,000  |  債券：$20,000  |  黃金：$10,000  |  商品：$10,000
 
-  After a stock crash / gold rally:
-  Stocks: $42,000 (-30%)  |  Bonds: $22,000 (+10%)
-  Gold:   $14,000 (+40%)  |  Cmdty: $8,000 (-20%)
-  Total:  $86,000
+  股市崩盤、黃金上漲後：
+  股票：$42,000（-30%）  |  債券：$22,000（+10%）
+  黃金：$14,000（+40%）  |  商品：$8,000（-20%）
+  合計：$86,000
 
-  Target allocation on $86,000:
-  Stocks: $51,600 (60%)  |  Bonds: $17,200 (20%)
-  Gold:    $8,600 (10%)  |  Cmdty:  $8,600 (10%)
+  按$86,000計算目標配置：
+  股票：$51,600（60%）  |  債券：$17,200（20%）
+  黃金：$8,600（10%）   |  商品：$8,600（10%）
 
-  Rebalancing trades:
-  BUY  $9,600 more stocks   (buying low!)
-  SELL $4,800 bonds          (trimming winners)
-  SELL $5,400 gold           (selling high!)
-  BUY  $600 commodities      (adding slightly)
+  再平衡操作：
+  買入  $9,600 更多股票   （低位買入！）
+  賣出  $4,800 債券        （減持贏家）
+  賣出  $5,400 黃金        （高位賣出！）
+  買入  $600 商品          （小幅加倉）
 
-  This forces you to buy stocks at depressed prices, funded by
-  selling gold that has rallied. Over time, this systematic
-  contrarian behavior adds 0.5-1.0% per year to portfolio returns.
+  這迫使您以低價購入股票，資金來源是已上漲的黃金。
+  長期而言，這種系統性的逆向操作每年可為投資組合
+  回報增加0.5-1.0%。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Gold is always a good investment."**
+**誤解一：「黃金永遠是好投資。」**
 
-Gold has experienced extended periods of poor performance. From 1980 to 2000, gold fell from $850 to $250 per ounce, a decline of over 70% in nominal terms and even worse in real (inflation-adjusted) terms. An investor who went all-in on gold in 1980 waited 28 years just to break even. Gold is a portfolio diversifier and an insurance policy, not a core growth holding. It works best as a 5-15% allocation, not as a primary investment.
+黃金曾經歷持續表現不佳的時期。1980年至2000年，黃金從每盎司850美元跌至250美元，名義跌幅逾70%，以實際（通脹調整後）計算跌幅更甚。1980年重倉黃金的投資者，等了28年才剛好回本。黃金是投資組合分散工具和保險，並非核心增長持倉。它最適合作為5-15%的配置，而非主要投資。
 
-**Misconception 2: "Commodities are too volatile for a portfolio."**
+**誤解二：「商品波動性太高，不適合投資組合。」**
 
-Individual commodities can be very volatile, but a diversified basket of commodities has volatility comparable to stocks. More importantly, that volatility occurs at different times than stock volatility. When the portfolio benefit of low correlation is factored in, adding commodities actually reduces total portfolio volatility even though the commodities themselves are volatile. It is the timing of the volatility, not the magnitude, that matters for diversification.
+個別商品確實可以非常波動，但多元化的商品籃子波動性與股票相當。更重要的是，這種波動性發生在與股票波動性不同的時間。當低相關性的投資組合效益被納入考量後，加入商品實際上降低了投資組合的整體波動性，即使商品本身波動性較高。對於分散投資而言，重要的是波動性發生的時間，而非波動的幅度。
 
-**Misconception 3: "Gold goes up when the stock market goes down."**
+**誤解三：「股市下跌時黃金必然上漲。」**
 
-This is an oversimplification. Gold and stocks have a near-zero long-term correlation, meaning they move independently most of the time. During major financial crises (2008, 2020), gold did tend to rally, but this is not guaranteed. In the initial COVID crash of March 2020, gold actually fell briefly alongside stocks before recovering. Gold works as a diversifier because of its low correlation, not because it reliably moves in the opposite direction.
+這是一種過度簡化。黃金與股票的長期相關性接近零，即大多數時候它們各自獨立波動。在重大金融危機期間（2008年、2020年），黃金確實傾向上漲，但這並非必然。2020年3月新冠病毒初期股市崩潰時，黃金曾短暫隨股票同步下跌，其後才恢復。黃金發揮分散投資作用，是因為其低相關性，而非必然反向波動。
 
-**Misconception 4: "You should own physical gold, not paper gold."**
+**誤解四：「應購買實物黃金，而非紙面黃金。」**
 
-For most investors, gold ETFs (GLD, IAU, GLDM) are far more practical than physical gold. They are liquid, have low costs, and track the gold price accurately. Physical gold requires secure storage, insurance, and often carries significant buy-sell spreads (the difference between what you pay and what you can sell for). Physical gold makes sense for a small emergency stash, but for the investment portion of your portfolio, ETFs are superior for most people.
+對大多數投資者而言，黃金交易所買賣基金（GLD、IAU、GLDM）遠比實物黃金實際。它們流動性高、費用低，且能精確追蹤黃金價格。實物黃金需要安全儲存、保險，且往往有較大的買賣差價（買入價與賣出價之差）。實物黃金適合小額應急儲備，但對於投資部分，大多數人選擇交易所買賣基金更為明智。
 
-**Misconception 5: "Commodity ETFs directly track commodity prices."**
+**誤解五：「商品交易所買賣基金直接追蹤商品價格。」**
 
-As discussed in the contango section, futures-based commodity ETFs can significantly underperform the underlying commodity prices over time due to roll costs. The oil ETF USO is the most notorious example. Between 2006 and 2023, oil prices were roughly flat, but USO lost more than 90% of its value due to persistent contango drag. If you want commodity exposure, consider producer stocks or ETFs (like XLE for energy) instead of, or in addition to, futures-based ETFs.
+如期貨溢價部分所述，以期貨為基礎的商品交易所買賣基金，長期回報可能顯著低於相關商品價格，原因是轉倉成本。石油交易所買賣基金USO是最惡名昭彰的例子。2006年至2023年間，油價大致持平，但USO因持續期貨溢價拖累損失了逾90%的價值。若需要商品敞口，可考慮生產商股票或交易所買賣基金（如XLE涵蓋能源）代替或配合以期貨為基礎的交易所買賣基金。
 
-**Misconception 6: "With inflation coming down, there is no need for gold anymore."**
+**誤解六：「通脹回落了，就不再需要黃金。」**
 
-Gold's value proposition extends well beyond inflation hedging. It also protects against currency debasement (long-term money printing), geopolitical risk, financial system stress, and serves as a true portfolio diversifier. Central banks around the world continue to accumulate gold reserves. Even in low-inflation environments, a modest gold allocation improves portfolio risk-adjusted returns through its correlation benefits alone.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much gold should I own?**
-
-A: Most financial advisors and portfolio researchers suggest 5-15% of your total portfolio. Below 5%, the diversification impact is too small to matter. Above 15%, you are sacrificing too much expected return from stocks and bonds. A 10% allocation is a good starting point for most investors. The exact percentage should depend on your views on inflation, your risk tolerance, and your overall portfolio construction.
-
-**Q2: Should I buy gold coins or gold ETFs?**
-
-A: For investment purposes, gold ETFs (GLD, IAU, or the lower-cost GLDM) are generally superior. They are more liquid, have lower transaction costs, and are easier to rebalance. Physical gold coins and bars are useful as an extreme emergency holding (natural disaster, financial system collapse scenarios) but are impractical for the investment portion of your portfolio due to storage costs, insurance, and wide buy-sell spreads.
-
-**Q3: What is the best way to get commodity exposure?**
-
-A: For most individual investors, the cleanest approach is a combination of (1) a gold ETF for precious metals exposure (GLD, IAU, or GLDM), (2) commodity producer stock ETFs for energy (XLE) and materials (XME), and (3) optionally, a broad commodity ETF like PDBC or DJP for diversified exposure. Avoid single-commodity futures ETFs like USO for long-term holdings due to contango drag.
-
-**Q4: What is the difference between GLD, IAU, and GLDM?**
-
-A: All three are gold ETFs backed by physical gold held in vaults. GLD is the largest and most liquid with a 0.40% expense ratio. IAU offers a lower 0.25% expense ratio and a lower share price (roughly one-tenth of GLD). GLDM is the cheapest at 0.10% expense ratio with an even lower share price. For buy-and-hold investors, GLDM offers the best value. For active traders who need maximum liquidity, GLD is preferable.
-
-**Q5: Do gold mining stocks replace the need for gold itself?**
-
-A: No. Gold mining stocks (individual miners or the GDX ETF) have exposure to gold prices but also carry company-specific risks: management quality, production costs, reserve quality, labor issues, geopolitical risk in mining jurisdictions, and general stock market risk. Mining stocks tend to amplify gold's movements (rising more when gold rises, falling more when gold falls) and have a higher correlation with the broad stock market than gold itself. They can complement a gold allocation but do not replace it for diversification purposes.
-
-**Q6: Why do some famous investors hate gold?**
-
-A: Warren Buffett has famously criticized gold, saying it "just sits there" and produces nothing. His argument is that over long periods, productive businesses (stocks) will always outperform a non-productive asset like gold, and he is correct when comparing absolute long-term returns. However, Buffett's criticism addresses gold as a standalone investment, not as a portfolio component. The case for gold is not about maximizing returns; it is about reducing portfolio risk and hedging against scenarios where stocks and bonds fail simultaneously (high inflation, currency crises). Even Buffett would acknowledge that risk management matters.
-
-**Q7: What is a commodity supercycle, and are we in one now?**
-
-A: A commodity supercycle is a multi-decade period of above-trend commodity prices driven by a structural shift in demand. The last supercycle (1999-2011) was driven by China's industrialization. Some analysts argue a new supercycle began around 2020, driven by the green energy transition (massive demand for copper, lithium, nickel for EVs and renewables), years of underinvestment in traditional energy infrastructure, and post-COVID supply chain restructuring. Whether this is a true supercycle or a shorter-term supply disruption is debated. The prudent approach is to maintain a strategic commodity allocation regardless, rather than trying to time supercycles.
-
-**Q8: Is silver a good investment alongside gold?**
-
-A: Silver is often called "poor man's gold," but it behaves quite differently. Silver has significant industrial demand (electronics, solar panels) in addition to its monetary/store-of-value function. This means silver is more correlated with the business cycle than gold. Silver is also more volatile. For pure portfolio diversification purposes, gold is generally preferred. Silver can be added as a supplementary holding by investors who want additional commodity exposure, but it should not replace gold in the diversifier role.
-
-**Q9: How often should I rebalance my gold and commodity allocation?**
-
-A: Annual rebalancing is sufficient for most investors. Some advisors recommend threshold-based rebalancing, where you rebalance whenever any asset class drifts more than 5 percentage points from its target. More frequent rebalancing incurs higher transaction costs and tax consequences without significantly improving results. The most important thing is to have a plan and stick to it, rather than making emotional allocation changes based on market sentiment.
-
-**Q10: What about investing in farmland or timberland as commodity alternatives?**
-
-A: Farmland and timberland are excellent real asset investments, but they are difficult for individual investors to access. They are typically available through private funds with high minimums ($100,000+), long lock-up periods, and limited liquidity. REITs that hold farmland (like FPI) or timberland (like RYN, WY) provide some exposure in a liquid, exchange-traded format. For most individual investors, commodity ETFs and gold provide more practical access to real asset diversification. As your portfolio grows above $1 million, private real asset allocations may become worth exploring.
+黃金的價值主張遠不止於對沖通脹。它同時對沖貨幣貶值（長期貨幣寬鬆）、地緣政治風險、金融體系壓力，並充當真正的投資組合分散工具。全球各央行持續積累黃金儲備。即使在低通脹環境中，適度的黃金配置也能透過相關性效益單獨提升投資組合的風險調整後回報。
 
 ---
 
-## YouTube Script
+### d) 常見問題解答
+
+**問1：我應該持有多少黃金？**
+
+答：大多數財務顧問和投資組合研究者建議佔總投資組合的5-15%。低於5%，分散投資效果太小，不足以起作用。高於15%，則犧牲了太多來自股票和債券的預期回報。對大多數投資者而言，10%配置是不錯的起點。確切比例應取決於您對通脹的看法、您的風險承受能力及整體投資組合構建。
+
+**問2：我應該購買金幣還是黃金交易所買賣基金？**
+
+答：就投資目的而言，黃金交易所買賣基金（GLD、IAU或成本更低的GLDM）通常更優。它們流動性更高、交易成本更低，且更易於再平衡。實物金幣和金條適合作為極端緊急持倉（天災、金融體系崩潰場景），但由於儲存成本、保險費及買賣差價偏大，對於投資組合的投資部分並不實際。
+
+**問3：獲取商品敞口最好的方式是什麼？**
+
+答：對大多數散戶投資者而言，最清晰的方案是：（1）以黃金交易所買賣基金（GLD、IAU或GLDM）作為貴金屬敞口；（2）以商品生產商股票交易所買賣基金獲取能源（XLE）和原材料（XME）敞口；（3）可選擇PDBC或DJP等廣泛商品交易所買賣基金獲取多元化敞口。由於期貨溢價拖累，長期持倉應避免USO等單一商品期貨交易所買賣基金。
+
+**問4：GLD、IAU和GLDM有什麼區別？**
+
+答：三者均為由存放於金庫的實物黃金支撐的黃金交易所買賣基金。GLD規模最大、流動性最高，管理費0.40%。IAU管理費較低，僅0.25%，股份面值約為GLD的十分之一。GLDM費用最低，僅0.10%，股份面值更低。對長線投資者而言，GLDM提供最佳性價比。對需要最大流動性的活躍交易者而言，GLD更合適。
+
+**問5：黃金礦業股是否可以取代黃金本身？**
+
+答：不能。黃金礦業股（個別礦商或GDX交易所買賣基金）雖然對黃金價格有敞口，但也承擔公司特定風險：管理質素、生產成本、儲量質量、勞資問題、礦區所在地的地緣政治風險等。礦業股傾向放大黃金的波動（黃金上漲時漲得更多，下跌時跌得更多），且與大盤股票的相關性高於黃金本身。它們可以補充黃金配置，但不能取代黃金在分散投資中的角色。
+
+**問6：為什麼一些著名投資者討厭黃金？**
+
+答：巴菲特對黃金的批評廣為人知，他說黃金「只是靜靜地待在那裡」，什麼都不生產。他的論點是，從長遠看，有生產力的企業（股票）必然跑贏黃金這類非生產性資產，這在比較絕對長期回報時確實如此。然而，巴菲特的批評針對的是黃金作為獨立投資，而非作為投資組合組成部分。持有黃金的理由並非最大化回報，而是降低投資組合風險，對沖股票和債券同時失靈的情境（高通脹、貨幣危機）。即使是巴菲特也會承認，風險管理至關重要。
+
+**問7：什麼是商品超級周期？我們現在身處其中嗎？**
+
+答：商品超級周期是數十年的商品價格高於趨勢水平的時期，由需求的結構性轉變所驅動。上一個超級周期（1999-2011年）由中國工業化所驅動。部分分析師認為新一個超級周期約於2020年開始，由綠色能源轉型（電動車和可再生能源對銅、鋰、鎳的巨大需求）、傳統能源基礎設施多年投資不足及新冠疫情後供應鏈重組所驅動。這究竟是真正的超級周期還是短期供應中斷，各方仍有爭議。審慎的做法是無論如何保持戰略性商品配置，而非嘗試把握超級周期的時機。
+
+**問8：白銀是否適合與黃金一同投資？**
+
+答：白銀常被稱為「窮人的黃金」，但其行為方式截然不同。除貨幣/儲值功能外，白銀有大量工業需求（電子、太陽能板），這意味白銀與商業周期的相關性高於黃金。白銀也更為波動。就純粹的投資組合分散目的而言，黃金通常更為合適。想獲得額外商品敞口的投資者可將白銀作為補充持倉，但不應以其取代黃金的分散投資角色。
+
+**問9：我應該多頻繁地對黃金和商品配置進行再平衡？**
+
+答：對大多數投資者而言，每年再平衡一次已足夠。部分顧問建議以閾值為基礎的再平衡方式，即當任何資產類別偏離目標超過5個百分點時再平衡。更頻繁的再平衡會增加交易成本和稅務影響，而對結果的改善卻並不顯著。最重要的是制定計劃並嚴格執行，而非根據市場情緒做出情緒化的配置調整。
+
+**問10：農地或林地是否可作為商品的替代投資？**
+
+答：農地和林地是優秀的實物資產投資，但散戶投資者難以獲取。它們通常透過門檻高（10萬美元以上）、封閉期長且流動性有限的私人基金提供。持有農地（如FPI）或林地（如RYN、WY）的房地產信託基金，以流動性強、可上市交易的形式提供部分敞口。對大多數散戶投資者而言，商品交易所買賣基金和黃金提供更實際的實物資產分散投資渠道。當您的投資組合增長至100萬美元以上時，私人實物資產配置或許值得探索。
+
+---
+
+## YouTube 影片劇本
 
 [VISUAL: Animated intro with show logo. Text: "Week 6: Gold and Commodities as Diversifiers - Level 1: Foundations"]
 
-**Alex:** Welcome back, everyone. Last week we talked about bonds as the shock absorber in your portfolio. Today we are going to talk about another category of investments that most beginners completely overlook: gold and commodities.
+**Horace（陳馬）：** 歡迎回來！上週我們討論了債券作為投資組合的避震器。今天我們要聊另一類大多數初學者完全忽略的投資：黃金和商品。
 
-**Sam:** Gold and commodities. I will be honest, Alex. When I think of gold investors, I picture someone in a bunker with canned food and conspiracy theories. And commodities? That is just oil barrels and wheat fields, right? I do not see how that fits into my investment portfolio.
+**Stella（小魚）：** 黃金和商品……老實說，陳馬，每次我想到黃金投資者，腦海中就浮現出那種躲在地下室、囤積罐頭食品的陰謀論者形象。至於商品嘛，不就是石油桶和麥田？我真想不通這些和我的投資組合有什麼關係。
 
-**Alex:** And you are not alone in that reaction. But here is the thing. Some of the most sophisticated investors in the world, the Harvard endowment, the Yale endowment, Ray Dalio's Bridgewater, they all hold gold and commodities. Not because they are preparing for doomsday, but because these assets do something that stocks and bonds cannot do: they protect your portfolio during the one scenario where everything else falls apart.
+**Horace（陳馬）：** 你有這種反應一點都不奇怪。但問題是，全球最頂尖的投資者——哈佛捐贈基金、耶魯捐贈基金、Ray Dalio的橋水基金——他們全都持有黃金和商品。不是因為他們在準備末日，而是因為這些資產能做到股票和債券做不到的事：在一切都崩潰的那個情境中保護您的投資組合。
 
-**Sam:** And what scenario is that?
+**Stella（小魚）：** 什麼情境？
 
-**Alex:** Inflation. Specifically, high and unexpected inflation. Remember what we learned about bonds? Bonds suffer when inflation rises because their fixed payments lose purchasing power. Stocks can also suffer because inflation raises costs, squeezes margins, and causes central banks to raise interest rates. In the 1970s, the U.S. had a decade of high inflation. Stocks barely kept pace with inflation, and bonds lost purchasing power. But gold? Gold went from $35 an ounce to over $800. That is a gain of more than 2,000%.
+**Horace（陳馬）：** 通脹。尤其是高企且意料之外的通脹。還記得我們學過的債券嗎？通脹上升時債券受損，因為固定派息的實際購買力下降。股票也可能受衝擊，因為通脹推高成本、壓縮利潤，還迫使央行加息。1970年代美國經歷了十年高通脹。股票回報勉強追上通脹，債券的購買力實際縮水。但黃金呢？黃金從每盎司35美元飆升至800美元以上，漲幅超過2,000%。
 
-[VISUAL: Three performance bars for the 1970s. "Stocks: ~5.9%/year (below inflation)". "Bonds: ~6.5%/year (about even with inflation)". "Gold: +31.6%/year (massively beat inflation)". Inflation bar at 8.9%/year for reference. Text: "When Inflation Strikes, Gold Shines"]
+[VISUAL: Three performance bars for the 1970s. "股票：約5.9%/年（跑輸通脹）". "債券：約6.5%/年（約與通脹持平）". "黃金：+31.6%/年（大幅跑贏通脹）". Inflation bar at 8.9%/year for reference. Text: "通脹來臨時，黃金大放異彩"]
 
-**Sam:** That is staggering. But can we start with the basics? What actually IS gold as an investment?
+**Stella（小魚）：** 太驚人了。但我們能從最基本說起嗎？黃金作為投資究竟是什麼？
 
-**Alex:** Gold is the oldest store of value in human history. It has been valued by every civilization for over 5,000 years. And there are real reasons for that. Gold does not rust, corrode, or decay. It is extremely rare. All the gold ever mined in human history would fit in about three and a half Olympic swimming pools. It is easily recognizable, easily divisible, and has a high value-to-weight ratio, meaning it is easy to transport and store.
+**Horace（陳馬）：** 黃金是人類歷史上最古老的價值儲存手段，超過5,000年來被每一個文明所珍視，這背後有真實的原因。黃金不腐蝕、不生鏽、不降解。它極為稀有——人類有史以來開採的全部黃金，只能裝滿大約三個半奧運標準泳池。它易於辨認、易於分割，且價值重量比高，方便攜帶和存放。
 
-**Sam:** OK, but why does any of that matter for my investment portfolio in 2026?
+**Stella（小魚）：** 好，但這些特性對我2026年的投資組合有什麼實際意義？
 
-**Alex:** Because gold has one characteristic that almost no other asset shares: it has no counterparty risk. When you own a stock, its value depends on a company performing well. When you own a bond, its value depends on the issuer paying you back. When you hold cash in a bank, its value depends on the bank being solvent and the currency maintaining its purchasing power. Gold depends on none of those things. Its value comes from its physical scarcity and 5,000 years of collective human agreement that it is valuable.
+**Horace（陳馬）：** 因為黃金有一個幾乎沒有其他資產具備的特性：它沒有對手方風險。持有股票，其價值取決於公司的表現；持有債券，其價值取決於發行人是否還款；持有銀行存款，其價值取決於銀行的償付能力和貨幣的購買力。黃金不依賴以上任何一個條件。它的價值來自其實物稀缺性，以及5,000年來人類對其珍貴性的集體共識。
 
-[VISUAL: A diagram showing different assets and their counterparty dependencies. "Stock" with an arrow to "Company". "Bond" with an arrow to "Issuer". "Cash" with an arrow to "Bank + Government". "Gold" stands alone with a checkmark: "No counterparty". Text: "Gold = Nobody Else's Liability"]
+[VISUAL: A diagram showing different assets and their counterparty dependencies. "股票" with an arrow to "公司". "債券" with an arrow to "發行人". "現金" with an arrow to "銀行 + 政府". "黃金" stands alone with a checkmark: "無對手方". Text: "黃金 = 不是任何人的負債"]
 
-**Sam:** So gold is like the ultimate insurance policy.
+**Stella（小魚）：** 所以黃金就像終極的保險。
 
-**Alex:** That is exactly the right way to think about it. You do not buy homeowner's insurance because you expect your house to burn down. You buy it because if it does, you are protected. Gold serves the same function in a portfolio. You do not expect currency collapse or financial system failure, but if it happens, gold protects you.
+**Horace（陳馬）：** 說得非常對。您購買家居保險，並不是因為預期房子會著火，而是萬一真的發生，您有保障。黃金在投資組合中的功能完全相同。您不需要預期貨幣崩潰或金融體系瓦解，但萬一發生，黃金保護您。
 
-**Sam:** Now I know people say gold is an inflation hedge. But does it actually work?
+**Stella（小魚）：** 我知道大家說黃金是對沖通脹的工具，但它真的有效嗎？
 
-**Alex:** The short answer is yes, but with nuances. Gold is an excellent long-term inflation hedge but a poor short-term one. Over centuries, gold has roughly maintained its purchasing power. An ounce of gold in ancient Rome could buy a fine toga. An ounce of gold today buys a fine suit. Meanwhile, every fiat currency ever created has eventually lost most or all of its value.
+**Horace（陳馬）：** 簡短的答案是：有效，但有細節要注意。黃金是出色的長期通脹對沖工具，但短期效果較差。幾個世紀以來，黃金大致維持了其購買力。古羅馬時代一盎司黃金可以買一件精美托袈，今天一盎司黃金可以買一套精緻西裝。與此同時，每一種曾存在過的法定貨幣，最終都失去了大部分甚至全部價值。
 
-**Sam:** Wait, really? Every single one?
+**Stella（小魚）：** 等等，真的嗎？每一種都這樣？
 
-**Alex:** Every single one. The U.S. dollar has lost about 97% of its purchasing power since 1900. A dollar from 1900 buys about 3 cents worth of goods today. Gold, on the other hand, has gone from about $21 per ounce to over $2,300. It has roughly kept pace with the loss of the dollar's purchasing power.
+**Horace（陳馬）：** 每一種。美元自1900年以來已損失約97%的購買力。1900年的一美元，今天只能買價值約3仙的東西。但黃金的價格，卻從每盎司約21美元升至超過2,300美元，大致與美元購買力的損失同步。
 
-[ANIMATION: Reference animation/week06_gold_correlation.py - An animated split-screen graph. On the left, the purchasing power of $1 declines from 100% in 1900 to about 3% in 2024, shown as a steadily falling curve. On the right, gold's price rises from $21 to $2,300+. Both curves are mirror images of each other, demonstrating that gold has preserved purchasing power as the dollar has lost it. A "What 1 oz. of gold buys" ticker shows consistent purchasing power at different dates.]
+[ANIMATION: Reference animation/week06_gold_correlation.py - An animated split-screen graph. On the left, the purchasing power of $1 declines from 100% in 1900 to about 3% in 2024, shown as a steadily falling curve. On the right, gold's price rises from $21 to $2,300+. Both curves are mirror images of each other, demonstrating that gold has preserved purchasing power as the dollar has lost it. A "1盎司黃金的購買力" ticker shows consistent purchasing power at different dates.]
 
-**Sam:** That is a really powerful visual. But you said the short-term picture is different?
+**Stella（小魚）：** 這個圖示真的很有力。但您說短期情況不一樣？
 
-**Alex:** Yes. In any given year, gold can move up 30% or down 30% regardless of what inflation is doing. Gold dropped from $850 in 1980 to $250 in 2001. That is a 70% decline over 20 years while inflation was still positive. If you bought gold at the 1980 peak, you waited 28 years just to break even. So gold is not a "buy it and forget it" inflation hedge for any specific time period. It is a long-term purchasing power preserver and a portfolio diversifier.
+**Horace（陳馬）：** 對。任何給定年份，黃金的漲跌幅度都可能達到30%，與通脹走勢無關。黃金從1980年每盎司850美元跌至2001年的250美元，20年間名義跌幅超過70%。如果您在1980年高點重倉黃金，要等28年才能回本。所以黃金不是任何特定時期都能「買入不管」的通脹對沖工具，而是長期購買力保存者和投資組合分散工具。
 
-**Sam:** That is an important distinction. So what actually drives gold prices day to day?
+**Stella（小魚）：** 這個區別非常重要。那什麼因素在日常驅動黃金價格？
 
-**Alex:** The single most important driver is real interest rates. Real interest rates are nominal rates minus inflation. When real rates are negative, meaning inflation is higher than interest rates, gold does very well. When real rates are high and positive, gold struggles.
+**Horace（陳馬）：** 最重要的單一驅動因素是實際利率，即名義利率減去通脹率。當實際利率為負，意味著通脹高於利率，黃金通常表現強勁。當實際利率高且為正，黃金則表現疲軟。
 
-**Sam:** Why?
+**Stella（小魚）：** 為什麼呢？
 
-**Alex:** Because gold has zero yield. It does not pay dividends or interest. When you can earn 3% in a government bond after inflation, there is a real cost to holding gold instead. But when real rates are negative and your bonds are actually losing purchasing power, gold's zero yield looks pretty attractive by comparison. No yield is better than a negative yield.
+**Horace（陳馬）：** 因為黃金的收益率為零，它不派息也不生利息。當您的政府債券在通脹後仍有3%實際回報，持有黃金而非債券的機會成本就很高。但當實際利率為負，債券實際上在損失購買力時，黃金零收益率反而相當吸引。因為沒有收益率，也比負收益率好得多。
 
-[VISUAL: A chart showing real interest rates on the x-axis and gold performance on the y-axis. Clear inverse relationship. When real rates are negative (left side), gold returns are strongly positive. When real rates are positive (right side), gold returns are weak. Text: "Real Rates = Gold's Kryptonite (when positive) and Gold's Rocket Fuel (when negative)"]
+[VISUAL: A chart showing real interest rates on the x-axis and gold performance on the y-axis. Clear inverse relationship. When real rates are negative (left side), gold returns are strongly positive. When real rates are positive (right side), gold returns are weak. Text: "實際利率 = 黃金的剋星（正值時）和黃金的火箭燃料（負值時）"]
 
-**Sam:** That makes a lot of sense. OK, let us talk about commodities more broadly. What do we mean by commodities?
+**Stella（小魚）：** 這個解釋非常清晰易懂。好，我們說說更廣泛的商品。商品究竟是什麼？
 
-**Alex:** Commodities are the raw materials that power the physical economy. They fall into a few major categories. Energy: oil, natural gas. Precious metals: gold, silver, platinum. Industrial metals: copper, aluminum, lithium, nickel. Agriculture: corn, wheat, soybeans, coffee. And livestock: cattle, hogs. Everything you touch, eat, drive, or use to power your home ultimately comes from commodities.
+**Horace（陳馬）：** 商品是驅動實體經濟的原材料，分為幾大類別。能源：石油、天然氣。貴金屬：黃金、白銀、鉑金。工業金屬：銅、鋁、鋰、鎳。農業：玉米、小麥、大豆、咖啡。以及畜牧：肉牛、豬。您觸碰的、吃的、駕駛的或用來為家居供電的每樣東西，歸根到底都來自商品。
 
-**Sam:** Why should I care about these as investments?
+**Stella（小魚）：** 為什麼我要把它們當作投資？
 
-**Alex:** Two reasons. First, commodities are driven by completely different forces than stocks and bonds. Stock prices depend on corporate earnings and investor sentiment. Bond prices depend on interest rates. Commodity prices depend on physical supply and demand. When a drought destroys a wheat crop, wheat prices rise regardless of what the stock market or the Fed is doing. This independence is what makes commodities valuable diversifiers.
+**Horace（陳馬）：** 兩個原因。第一，商品受完全不同的力量驅動，有別於股票和債券。股票價格取決於企業盈利和投資者情緒；債券價格取決於利率；商品價格取決於實物供求。當旱災摧毀小麥收成，小麥價格就會上漲，不管股市還是聯儲局的動作。這種獨立性正是商品成為珍貴分散工具的原因。
 
-**Sam:** And the second reason?
+**Stella（小魚）：** 第二個原因呢？
 
-**Alex:** Commodity supercycles. Commodity prices move in very long cycles, typically 15 to 25 years, driven by the fundamental mismatch between supply and demand.
+**Horace（陳馬）：** 商品超級周期。商品價格以極長的周期運動，通常為15至25年，由供求之間的根本性錯配所驅動。
 
-[VISUAL: A long, sweeping wave diagram showing commodity supercycles. Labeled phases: "Phase 1: Underinvestment, Low Prices, Producers Exit" at the trough, "Phase 2: Demand Outstrips Supply, Prices Surge" on the upswing, "Phase 3: Overinvestment, New Supply, Prices Collapse" on the downswing. Historical dates marked: 1898-1921, 1933-1953, 1968-1982, 1999-2011, 2020-???]
+[VISUAL: A long, sweeping wave diagram showing commodity supercycles. Labeled phases: "第一階段：投資不足、價格低迷、生產商退出" at the trough, "第二階段：需求超越供應、價格飆升" on the upswing, "第三階段：過度投資、新供應湧入、價格崩潰" on the downswing. Historical dates marked: 1898-1921, 1933-1953, 1968-1982, 1999-2011, 2020-???]
 
-**Sam:** Can you explain why these cycles happen?
+**Stella（小魚）：** 可以解釋一下為什麼會出現這些周期嗎？
 
-**Alex:** Sure. Imagine demand for copper suddenly increases because the world starts building millions of electric vehicles. Copper mines are already running at capacity. To build a new copper mine takes 7 to 10 years from discovery to production. During those 7 to 10 years, demand keeps growing but supply cannot respond. Prices rise. Eventually, all those new mines come online, supply floods the market, and prices collapse. Then low prices drive miners out of business, mines close, and the cycle starts again.
+**Horace（陳馬）：** 好的。想像一下，因為全球開始大規模生產電動車，對銅的需求突然大增。現有銅礦已滿負荷運轉，而從發現礦床到投入生產，建設一個新銅礦需要7至10年。在這7至10年間，需求持續增長但供應無法跟上，價格上漲。最終那些新礦場陸續投產，供應湧入市場，價格崩潰。低價格迫使礦商退出市場，礦場關閉，周期重新開始。
 
-**Sam:** So the cycle exists because supply cannot respond quickly to demand changes?
+**Stella（小魚）：** 所以周期的存在，是因為供應無法快速響應需求變化？
 
-**Alex:** Exactly. You can print money in seconds. You can issue a new stock in weeks. But you cannot create a new copper mine or oil well in less than several years. This physical constraint is what creates the cycle.
+**Horace（陳馬）：** 正是。您可以在幾秒內印鈔，幾週內發行新股票，但建一個銅礦或油井卻需要好幾年。這種實物限制創造了周期。
 
-**Sam:** Are we in a new supercycle now?
+**Stella（小魚）：** 我們現在處於新的超級周期中嗎？
 
-**Alex:** There is a strong argument that we are in the early stages of one. The green energy transition requires enormous quantities of copper, lithium, nickel, and cobalt for batteries, electric vehicles, and renewable energy infrastructure. At the same time, the traditional energy sector has underinvested in new production for years. And geopolitical tensions are reshaping global supply chains. These are the ingredients for a supercycle. Whether it is truly a supercycle or a shorter disruption, nobody knows for certain. But it supports maintaining a strategic commodity allocation.
+**Horace（陳馬）：** 有充分論據支持我們正處於新超級周期的初期。綠色能源轉型需要大量的銅、鋰、鎳和鈷，用於電池、電動車和可再生能源基礎設施。同時，傳統能源行業多年來投資嚴重不足。加上地緣政治緊張正在重塑全球供應鏈，這些都是超級周期的成因。這究竟是真正的超級周期還是短期干擾，目前尚無定論。但無論如何，保持戰略性商品配置是審慎之舉。
 
-[VISUAL: A split screen. Left: "Demand Drivers" showing images of EVs, solar panels, wind turbines, and growing global population. Right: "Supply Constraints" showing aging mines, underinvestment charts, and a 7-10 year timeline to build a new mine. Text: "The Green Energy Transition Needs Massive Quantities of Raw Materials"]
+[VISUAL: A split screen. Left: "需求驅動因素" showing images of EVs, solar panels, wind turbines, and growing global population. Right: "供應制約" showing aging mines, underinvestment charts, and a 7-10 year timeline to build a new mine. Text: "綠色能源轉型需要大量原材料"]
 
-**Sam:** OK, so how do I actually invest in gold and commodities? I cannot exactly put a gold bar in my brokerage account.
+**Stella（小魚）：** 好，那我實際上如何投資黃金和商品呢？我不可能把一根金條放進我的券商賬戶吧。
 
-**Alex:** Well, technically you can buy physical gold, but for most investors, the easiest approach is gold ETFs. The three main ones are GLD, IAU, and GLDM. They all track the gold price and are backed by physical gold sitting in vaults. GLD is the largest and most liquid. IAU is cheaper. GLDM is the cheapest of all at only 0.10% per year.
+**Horace（陳馬）：** 技術上您確實可以購買實物黃金，但對大多數投資者而言，最方便的方式是黃金交易所買賣基金。主要有三隻：GLD、IAU和GLDM。三者均追蹤黃金價格，且均由存放於金庫的實物黃金支撐。GLD規模最大、流動性最高；IAU費用較低；GLDM費用最低，每年僅0.10%。
 
-**Sam:** And for commodities?
+**Stella（小魚）：** 那商品呢？
 
-**Alex:** This is where it gets trickier. There are broad commodity ETFs like DJP and PDBC, but I need to warn you about something called contango.
+**Horace（陳馬）：** 這就比較複雜了。有DJP和PDBC等廣泛商品交易所買賣基金，但我必須提醒您注意一個叫做期貨溢價的東西。
 
-**Sam:** Contango? That sounds like a dance.
+**Stella（小魚）：** 期貨溢價？聽起來像一種舞蹈。
 
-**Alex:** I wish it were that fun. Contango is a situation where futures prices are higher than the current spot price. Commodity ETFs hold futures contracts, not the physical commodities. Every month, they have to "roll" their expiring contracts into new ones. If the new contract is more expensive than the old one, you lose money on every roll.
+**Horace（陳馬）：** 要是那麼有趣就好了！期貨溢價是指期貨價格高於當前現貨價格的情況。商品交易所買賣基金持有的是期貨合約，而非實物商品。每個月它們必須將即將到期的合約「轉倉」換成新合約。如果新合約比舊合約更貴，每次轉倉都會損失金錢。
 
 [ANIMATION: Reference animation/week06_gold_correlation.py - A secondary animation showing the contango roll process. A commodity ETF holds a futures contract. As expiration approaches, the contract converges to the spot price. The ETF must buy the next month's contract at a higher price. Animated cash flows show the "leak" from roll costs. Over 12 months of rolling, the ETF's return is visibly lower than the commodity's spot price return. Numbers update in real-time.]
 
-**Sam:** So the ETF can underperform the actual commodity?
+**Stella（小魚）：** 所以交易所買賣基金的表現可能遠遜於實際商品？
 
-**Alex:** Significantly. The oil ETF, USO, is the most notorious example. Between 2006 and 2023, oil prices were roughly flat. But USO lost more than 90% of its value because of persistent contango drag. This is not a small issue. It can completely negate your commodity returns.
+**Horace（陳馬）：** 差距可以相當顯著。石油交易所買賣基金USO是最惡名昭彰的例子。2006年至2023年間，油價大致持平，但USO因持續的期貨溢價拖累，損失了逾90%的價值。這絕非小問題，它可以完全抵銷您的商品回報。
 
-**Sam:** That is terrifying. So how do I get around this?
+**Stella（小魚）：** 這太可怕了。那要怎樣繞過這個問題？
 
-**Alex:** A few approaches. First, gold ETFs do not have this problem because they hold physical gold, not futures. Second, for broader commodity exposure, consider commodity producer stocks or ETFs instead of futures-based products. An ETF like XLE holds energy companies like ExxonMobil and Chevron. They benefit from rising oil prices without the contango problem. Similarly, XME holds mining companies that benefit from rising metal prices.
+**Horace（陳馬）：** 幾個方法。首先，黃金交易所買賣基金不存在這個問題，因為它們持有的是實物黃金，而非期貨。其次，若要獲取更廣泛的商品敞口，可考慮商品生產商股票或交易所買賣基金，而非以期貨為基礎的產品。例如，XLE持有埃克森美孚和雪佛龍等能源公司，它們受益於油價上漲，卻沒有期貨溢價的問題。同樣，XME持有受益於金屬價格上漲的礦業公司。
 
-**Sam:** So I get commodity exposure through the companies that produce the commodities?
+**Stella（小魚）：** 所以我通過生產商品的公司來獲取商品敞口？
 
-**Alex:** Exactly. The downside is that you also take on company-specific risk, management decisions, costs, labor issues, and so on. But for long-term investors, producer stocks tend to capture commodity price moves without the hidden drag of futures rolling.
+**Horace（陳馬）：** 沒錯。缺點是您也承擔了公司特定風險：管理決策、成本、勞資問題等等。但對長線投資者而言，生產商股票傾向於捕捉商品價格波動，同時避免期貨轉倉的隱性拖累。
 
-[VISUAL: Two pathways for commodity exposure. Left path: "Futures ETFs (USO, DJP)" with warning signs for contango drag. Right path: "Producer Stock ETFs (XLE, XME)" with note "No contango risk, but company-specific risk". Both arrows point to "Commodity Exposure" in the center.]
+[VISUAL: Two pathways for commodity exposure. Left path: "期貨交易所買賣基金（USO、DJP）" with warning signs for contango drag. Right path: "生產商股票交易所買賣基金（XLE、XME）" with note "無期貨溢價風險，但有公司特定風險". Both arrows point to "商品敞口" in the center.]
 
-**Sam:** Let us talk about the real reason we are discussing this. How do gold and commodities fit into a portfolio?
+**Stella（小魚）：** 讓我們說說我們討論這個話題的真正原因——黃金和商品如何融入投資組合？
 
-**Alex:** This is where the magic happens. Let me introduce you to the concept of correlation. Correlation measures how much two assets move together. A correlation of 1.0 means they move in perfect lockstep. A correlation of 0 means they move independently. A correlation of negative 1 means they move in exact opposite directions.
+**Horace（陳馬）：** 這才是真正的精髓所在。讓我介紹相關性這個概念。相關性衡量兩種資產同向波動的程度。相關性1.0意味著完全同步波動；0意味著各自獨立波動；負1意味著完全反向波動。
 
-**Sam:** And gold has a low correlation with stocks?
+**Stella（小魚）：** 黃金與股票的相關性很低？
 
-**Alex:** Almost zero. Gold's long-term correlation with U.S. stocks is approximately 0.02. That is essentially no relationship at all. Compare that with international stocks, which have a correlation of about 0.75 with U.S. stocks. Most investors think they are diversified because they own international stocks, but in reality, those move largely in lockstep with U.S. stocks, especially during crises.
+**Horace（陳馬）：** 幾乎為零。黃金與美國股票的長期相關性約為0.02，基本上毫無關係可言。相比之下，國際股票與美國股票的相關性約為0.75。大多數人以為持有國際股票就是分散投資，但現實是，尤其在危機時，它們與美國股票幾乎同步下跌。
 
-**Sam:** So adding international stocks does not actually diversify much?
+**Stella（小魚）：** 所以持有國際股票其實並沒有很大的分散效果？
 
-**Alex:** Not as much as people think. Not during the times when diversification matters most, which is during crashes. In 2008, U.S. stocks fell 37%, and international stocks fell 43%. Some diversification. Gold, meanwhile, was up about 5%. That is real diversification.
+**Horace（陳馬）：** 遠不如人們所想，尤其是在最需要分散投資的時刻，也就是市場崩潰之際。2008年美國股票跌了37%，國際股票跌了43%，這叫什麼分散投資？黃金同期則大約升了5%，這才是真正的分散投資。
 
-[VISUAL: Three bars showing 2008 performance. "U.S. Stocks: -37%", "International Stocks: -43%", "Gold: +5%". A dotted line connects international and U.S. stocks with label "High Correlation = Not Real Diversification". Gold stands apart. Text: "True Diversification = Different Return Drivers"]
+[VISUAL: Three bars showing 2008 performance. "美國股票：-37%", "國際股票：-43%", "黃金：+5%". A dotted line connects international and U.S. stocks with label "高相關性 = 並非真正分散投資". Gold stands apart. Text: "真正的分散投資 = 不同的回報驅動因素"]
 
-**Sam:** That is a really eye-opening comparison. So what does a portfolio with gold and commodities actually look like?
+**Stella（小魚）：** 這個對比真的讓我大開眼界。那加入黃金和商品的投資組合具體是什麼樣的？
 
-**Alex:** Let me show you the 60/20/20 concept. Instead of the traditional 60% stocks, 40% bonds, you allocate 60% stocks, 20% bonds, 10% gold, and 10% commodities. You give up a tiny bit of expected return, about 0.3% per year, but you meaningfully reduce risk across every measure.
+**Horace（陳馬）：** 讓我介紹60/20/20的概念。不是傳統的60%股票、40%債券，而是60%股票、20%債券、10%黃金和10%商品。您只犧牲了微量的預期回報，約每年0.3%，但在各項風險指標上都有顯著改善。
 
-**Sam:** How much risk reduction are we talking about?
+**Stella（小魚）：** 風險能降低多少？
 
-**Alex:** In historical backtests, the 60/20/20 portfolio reduced the worst-year loss by about 3 percentage points compared to 60/40. The maximum drawdown improved by about 5 percentage points. And the Sharpe ratio, which measures return per unit of risk, was actually higher.
+**Horace（陳馬）：** 根據歷史回測，與60/40相比，60/20/20投資組合在最差年份的損失少了約3個百分點，最大回撤少了約5個百分點，而衡量每單位風險所獲回報的夏普比率實際上更高。
 
-**Sam:** So you give up almost nothing in return but get significantly less risk?
+**Stella（小魚）：** 所以幾乎不犧牲回報，卻能顯著降低風險？
 
-**Alex:** Exactly. And here is the key insight: the 60/20/20 particularly shines during inflationary periods. The traditional 60/40 portfolio's Achilles' heel is high inflation, because both stocks and bonds suffer. But in the 60/20/20, when inflation strikes, gold and commodities step in to offset the damage. In the 1970s, a 60/40 portfolio lost purchasing power. A 60/20/20 portfolio roughly broke even.
+**Horace（陳馬）：** 就是這樣。而關鍵洞見在於：60/20/20在通脹時期尤為突出。傳統60/40投資組合的致命弱點正是高通脹，因為股票和債券同時受損。但在60/20/20組合中，通脹來臨時，黃金和商品挺身補位，抵銷損失。1970年代，60/40組合的購買力實際縮水，而60/20/20組合大致收支平衡。
 
-[VISUAL: Two portfolios shown as pie charts. Left: "Traditional 60/40" with a crack labeled "Vulnerable to Inflation". Right: "60/20/20" with gold and commodity slices glowing, labeled "Inflation Protection Built In". Performance comparison table below for normal times vs. inflationary periods.]
+[VISUAL: Two portfolios shown as pie charts. Left: "傳統60/40" with a crack labeled "易受通脹衝擊". Right: "60/20/20" with gold and commodity slices glowing, labeled "內置通脹保護". Performance comparison table below for normal times vs. inflationary periods.]
 
-**Sam:** That is like having an umbrella specifically for the one type of rain your existing rain gear does not handle.
+**Stella（小魚）：** 就像有一把專門應對現有雨具無法抵擋的那種雨的傘。
 
-**Alex:** That is a great analogy. Bonds protect you from stock market crashes. Gold and commodities protect you from inflation. Together, they cover a much wider range of economic scenarios.
+**Horace（陳馬）：** 這個比喻太貼切了。債券保護您免受股市崩盤衝擊，黃金和商品保護您免受通脹侵蝕。兩者結合，就覆蓋了更廣泛的經濟情境。
 
-**Sam:** Let me ask about rebalancing. If I hold four different asset classes, how does that work?
+**Stella（小魚）：** 讓我問問再平衡的問題。如果我持有四個不同資產類別，怎麼操作？
 
-**Alex:** Rebalancing is where the real magic of diversification shows up. Here is what happens naturally. In a stock crash, stocks fall and gold often rallies. Your portfolio drifts from your target allocation. When you rebalance, you sell some gold that has gone up and buy more stocks that have gone down. You are systematically selling high and buying low.
+**Horace（陳馬）：** 再平衡正是分散投資真正魔力展現的地方。這是自然而然發生的事：股市崩盤時，股票下跌，黃金往往上漲，您的投資組合偏離了目標配置。再平衡時，您賣出上漲的黃金，買入下跌的股票，系統性地高賣低買。
 
-**Sam:** You are forcing yourself to do the opposite of what emotions would tell you to do.
+**Stella（小魚）：** 就是強迫自己做與情緒相反的事。
 
-**Alex:** Precisely. Left to our own emotions, we sell stocks when they crash because we are scared, and we buy gold when it is soaring because it feels safe. That is the exact wrong behavior. Rebalancing forces the right behavior. And studies show that disciplined rebalancing adds roughly 0.5% to 1.0% per year to portfolio returns over time.
+**Horace（陳馬）：** 正是。靠情緒行事的投資者，在股市崩盤時因恐懼賣出股票，在黃金飆升時因感覺安全而買入，這恰恰是最錯誤的行為。再平衡強制執行正確的行為。研究顯示，有紀律的再平衡，長期每年可為投資組合回報增加約0.5%至1.0%。
 
-[VISUAL: A rebalancing cycle diagram. Step 1: "Stocks crash, Gold rallies, Portfolio drifts". Step 2: "Rebalance: Sell Gold (high), Buy Stocks (low)". Step 3: "Stocks recover, Gold cools". Step 4: "Rebalance: Sell Stocks (high), Buy Gold (low)". Circular arrows showing the repeating cycle. Text: "Rebalancing = Automated Buy Low, Sell High"]
+[VISUAL: A rebalancing cycle diagram. Step 1: "股市崩盤，黃金上漲，投資組合偏離目標". Step 2: "再平衡：賣出黃金（高位），買入股票（低位）". Step 3: "股市復甦，黃金回落". Step 4: "再平衡：賣出股票（高位），買入黃金（低位）". Circular arrows showing the repeating cycle. Text: "再平衡 = 自動化的低買高賣"]
 
-**Sam:** How often should I rebalance?
+**Stella（小魚）：** 應該多頻繁地再平衡？
 
-**Alex:** Once a year is sufficient for most investors. Some people use threshold-based rebalancing, where they rebalance whenever any asset drifts more than 5 percentage points from its target. Either approach works. The key is having a system and sticking to it. Do not rebalance based on feelings or market predictions.
+**Horace（陳馬）：** 對大多數投資者而言，每年一次已足夠。部分人採用以閾值為基礎的方式，當任何資產偏離目標超過5個百分點就再平衡。兩種方式都可以。最重要的是有計劃並堅持執行，而非根據感覺或市場預測做出改變。
 
-**Sam:** I have to ask about Bitcoin. A lot of people say Bitcoin is the new gold. Is it?
+**Stella（小魚）：** 我必須問問比特幣。很多人說比特幣是新黃金，您怎麼看？
 
-**Alex:** This is a great question, and the honest answer is: not yet. Bitcoin shares some characteristics with gold. It is scarce, with a hard cap at 21 million coins. It is not controlled by any government. It has attracted significant investor interest as an alternative asset. But there are crucial differences.
+**Horace（陳馬）：** 這個問題很好，坦誠的答案是：現階段還不是。比特幣與黃金確實有些相似之處，它是稀缺的，上限為2,100萬枚；它不受任何政府控制；它吸引了大量投資者視之為另類資產。但兩者之間存在關鍵差異。
 
-**Sam:** Like what?
+**Stella（小魚）：** 具體是哪些差異？
 
-**Alex:** First, track record. Gold has 5,000 years. Bitcoin has about 15. Second, volatility. Gold moves about 15% per year. Bitcoin moves 60% to 80%. Third, crisis behavior. In the March 2020 COVID crash, gold dipped briefly but held up well. Bitcoin dropped over 50% in a single day. Fourth, correlation. Gold has near-zero correlation with stocks. Bitcoin's correlation with stocks is much higher, around 0.40, meaning it often falls when stocks fall.
+**Horace（陳馬）：** 第一，歷史記錄。黃金有5,000年，比特幣只有約15年。第二，波動性。黃金每年波動約15%，比特幣每年60%至80%。第三，危機表現。2020年3月新冠疫情股市崩盤時，黃金僅短暫下跌並維持穩定；比特幣單日暴跌逾50%。第四，相關性。黃金與股票的相關性接近零，比特幣與股票的相關性卻高得多，約0.40，意味著它往往隨股票同步下跌。
 
-**Sam:** So Bitcoin does not actually work as a diversifier right now?
+**Stella（小魚）：** 所以比特幣目前並不能可靠地發揮分散投資作用？
 
-**Alex:** Not reliably. It may evolve into one over time as it matures and its correlation characteristics change. Some investors hold a small allocation to both gold and Bitcoin. But for the diversification role we are discussing today, gold is the proven, reliable choice. Bitcoin is more of a speculative, high-conviction bet on the future of digital assets.
+**Horace（陳馬）：** 暫時不能。隨著比特幣逐漸成熟、相關性特徵轉變，它或許最終能發展成分散工具。部分投資者同時持有少量黃金和比特幣。但對於我們今天討論的分散投資角色，黃金是已被驗證的可靠選擇。比特幣更像是對數字資產未來的投機性押注。
 
-[VISUAL: A comparison scoreboard. "Gold vs. Bitcoin as Portfolio Diversifier". Categories scored: Track Record (Gold wins), Volatility (Gold wins), Crisis Behavior (Gold wins), Correlation Benefit (Gold wins), Supply Scarcity (Tie), Growth Potential (Bitcoin wins). Overall: "Gold = Proven Diversifier, Bitcoin = Speculative Bet"]
+[VISUAL: A comparison scoreboard. "黃金 vs. 比特幣作為投資組合分散工具". Categories scored: 歷史記錄（黃金勝）, 波動性（黃金勝）, 危機表現（黃金勝）, 相關性效益（黃金勝）, 供應稀缺性（平局）, 增長潛力（比特幣勝）. Overall: "黃金 = 已被驗證的分散工具，比特幣 = 投機性押注"]
 
-**Sam:** Fair enough. Let me ask a really practical question. If I have a $50,000 portfolio, what does a reasonable gold and commodity allocation look like?
+**Stella（小魚）：** 說得有道理。讓我問個非常實際的問題。如果我有50,000美元的投資組合，合理的黃金和商品配置是什麼樣的？
 
-**Alex:** Here is one approach. $30,000 in a total stock market ETF like VTI, that is 60%. $10,000 in a bond ETF like BND, that is 20%. $5,000 in a gold ETF like GLDM, that is 10%. And $5,000 in a commodity producer ETF like XLE or a broad commodity ETF, that is 10%. Simple, low cost, broadly diversified, and you get the full benefit of multi-asset diversification.
+**Horace（陳馬）：** 這是一個方案：30,000美元投入全市場股票交易所買賣基金如VTI，佔60%；10,000美元投入債券交易所買賣基金如BND，佔20%；5,000美元投入黃金交易所買賣基金如GLDM，佔10%；5,000美元投入商品生產商交易所買賣基金如XLE，或廣泛商品交易所買賣基金，佔10%。簡單、低成本、廣泛分散，完整享有多資產分散投資的效益。
 
-**Sam:** That does not sound complicated at all.
+**Stella（小魚）：** 這聽起來一點都不複雜。
 
-**Alex:** It is not. Good investing should be simple. The 60/20/20 is four ETFs. You can set it up in 20 minutes and rebalance once a year. The discipline to stick with it through good times and bad is the hard part, not the implementation.
+**Horace（陳馬）：** 確實不複雜。好的投資應該簡單。60/20/20只需要四隻交易所買賣基金，20分鐘就能設定好，每年再平衡一次。困難的部分是在順境和逆境中都堅守紀律，而不是實際操作。
 
-[VISUAL: A simple portfolio graphic showing four colored blocks: "VTI (60%)" in blue, "BND (20%)" in green, "GLDM (10%)" in gold, "XLE/PDBC (10%)" in brown. Total: "$50,000". Text: "Your Entire Diversified Portfolio in 4 ETFs"]
+[VISUAL: A simple portfolio graphic showing four colored blocks: "VTI（60%）" in blue, "BND（20%）" in green, "GLDM（10%）" in gold, "XLE/PDBC（10%）" in brown. Total: "$50,000". Text: "您的整個分散投資組合，只需4隻交易所買賣基金"]
 
-**Sam:** What about someone who says, "I do not need gold or commodities, I will just hold stocks for the long run"?
+**Stella（小魚）：** 那如果有人說「我不需要黃金或商品，長期持有股票就夠了」，您怎麼回應？
 
-**Alex:** Over 40 years, a 100% stock portfolio will likely produce the highest absolute returns. But the question is not whether you can theoretically hold for 40 years. The question is whether you will actually hold through a 40% drawdown that lasts two years. Or through a decade where stocks return nothing, like the 2000s. History shows that the vast majority of investors who say they will hold through anything end up selling at the worst possible time.
+**Horace（陳馬）：** 40年下來，100%股票投資組合很可能產生最高的絕對回報。但問題不在於您是否理論上能持有40年，而在於您是否真的能在跌幅40%、持續兩年的熊市中守得住。或者在股票十年零回報時，如2000年代那樣。歷史表明，絕大多數聲稱「什麼都扛得住」的投資者，最終還是在最壞的時機賣出。
 
-**Sam:** Because the pain of losses is more powerful than the logic of long-term returns.
+**Stella（小魚）：** 因為損失帶來的痛苦，遠比長期回報的邏輯更有力量。
 
-**Alex:** Exactly. The gold and commodities in your portfolio are not there to maximize returns. They are there to make the portfolio survivable. A portfolio you can stick with through any economic environment will outperform a theoretically optimal portfolio that you abandon in a panic. Every single time.
+**Horace（陳馬）：** 完全正確。投資組合中的黃金和商品，不是為了最大化回報，而是讓投資組合在任何經濟環境下都能撐得住。一個您能夠在各種情境下堅守的投資組合，必然跑贏一個理論上最優卻在恐慌中被拋棄的組合，每次都是如此。
 
-**Sam:** That really resonates with me. Let me ask one more question. People always bring up Warren Buffett and how he hates gold. He says it just sits there and does not produce anything.
+**Stella（小魚）：** 這真的很有共鳴。最後一個問題，大家總是提到巴菲特，他非常反對黃金。他說黃金只是「靜靜地待在那裡」，什麼都不生產。
 
-**Alex:** Buffett is correct that gold does not produce earnings. As a standalone investment held forever, productive businesses will outperform gold over the very long run. But Buffett is evaluating gold as a standalone investment, not as a portfolio component. The argument for gold is not that it will produce the highest returns. The argument is that adding 10% gold to a stock-and-bond portfolio reduces risk more than it reduces return. Buffett can afford to ignore that because he has an iron constitution and has never panic-sold in his life. Most of us are not Warren Buffett.
+**Horace（陳馬）：** 巴菲特說得沒錯，黃金確實不產生盈利。作為長期獨立持有的資產，有生產力的企業在非常長的時間跨度內必然跑贏黃金，這是事實。但巴菲特評估的是黃金作為獨立投資，而非投資組合組成部分。持有黃金的論據不是它會帶來最高回報，而是在股債投資組合中加入10%黃金，降低風險的幅度遠超降低回報的幅度。巴菲特可以忽略這一點，因為他有鋼鐵般的意志，從未在恐慌中拋售過。但我們大多數人都不是巴菲特。
 
-[VISUAL: A thought bubble above a cartoon Warren Buffett saying "Gold just sits there!" Next to it, a balanced portfolio chart showing how 10% gold reduces worst-year losses and improves the Sharpe ratio. Text: "Buffett is right about gold-as-investment, wrong about gold-as-diversifier"]
+[VISUAL: A thought bubble above a cartoon Warren Buffett saying "黃金只是靜靜地待在那裡！" Next to it, a balanced portfolio chart showing how 10% gold reduces worst-year losses and improves the Sharpe ratio. Text: "巴菲特對黃金作為獨立投資的看法是對的，但對黃金作為分散工具的看法是錯的"]
 
-**Sam:** Ha. That is a great way to frame it. We are not all Warren Buffett.
+**Stella（小魚）：** 哈，這個角度真的很有意思。我們都不是巴菲特。
 
-**Alex:** And being honest about that is the first step toward being a good investor.
+**Horace（陳馬）：** 坦誠地承認這一點，正是成為優秀投資者的第一步。
 
-**Sam:** OK, let us summarize. Gold is a 5,000-year store of value that protects against inflation and financial crises. Its main price driver is real interest rates. Commodities follow long supercycles driven by physical supply and demand. The main ways to invest are gold ETFs and commodity producer stocks, with a warning about contango in futures-based ETFs. And the big picture is that a 60/20/20 portfolio with stocks, bonds, gold, and commodities provides better risk-adjusted returns than the traditional 60/40 by adding protection against inflation.
+**Stella（小魚）：** 好，讓我總結一下。黃金是有5,000年歷史的價值儲存手段，能抵禦通脹和金融危機。其主要價格驅動因素是實際利率。商品遵循由實物供求驅動的長期超級周期。投資的主要方式是黃金交易所買賣基金和商品生產商股票，同時要警惕以期貨為基礎的交易所買賣基金的期貨溢價問題。大局觀是：持有股票、債券、黃金和商品的60/20/20投資組合，透過加入通脹保護，提供比傳統60/40更優的風險調整後回報。
 
-**Alex:** Perfect summary. And remember, the goal is not to maximize returns in any single environment. The goal is to build a portfolio that survives and grows across all environments. Stocks for growth. Bonds for crash protection. Gold and commodities for inflation protection. That is a complete portfolio.
+**Horace（陳馬）：** 總結完美。記住，目標不是在任何單一環境中最大化回報，而是建立一個能在所有環境中生存和成長的投資組合。股票為了增長，債券為了崩盤保護，黃金和商品為了通脹保護。這才是完整的投資組合。
 
-**Sam:** What is coming up next week?
+**Stella（小魚）：** 下週我們講什麼？
 
-**Alex:** We are going to start talking about how to actually build your portfolio from scratch. We will put together everything from Weeks 1 through 6 and walk through a practical, step-by-step portfolio construction process.
+**Horace（陳馬）：** 我們將開始講如何從零開始構建投資組合，把第一週到第六週的所有內容整合起來，逐步示範一個實用的投資組合構建過程。
 
-[VISUAL: Preview slide for Week 7 with text: "Next Week: Building Your First Portfolio - Putting It All Together"]
+[VISUAL: Preview slide for Week 7 with text: "下週：建立您的第一個投資組合——融匯貫通"]
 
-**Sam:** Before we wrap up, rapid-fire round?
+**Stella（小魚）：** 在結束前，快問快答環節？
 
-**Alex:** Let us do it.
+**Horace（陳馬）：** 來吧。
 
-**Sam:** Can I buy gold through my retirement account?
+**Stella（小魚）：** 我可以在退休賬戶裡買黃金嗎？
 
-**Alex:** Yes. You can buy gold ETFs like GLD, IAU, or GLDM in any IRA or 401k that offers brokerage access. Some 401k plans have limited fund options, but most now offer broad ETF access.
+**Horace（陳馬）：** 可以。只要您的IRA或401k提供券商交易功能，便可購買GLD、IAU或GLDM等黃金交易所買賣基金。部分401k計劃基金選擇有限，但大多數現在都提供廣泛的交易所買賣基金選擇。
 
-**Sam:** Is silver a good substitute for gold?
+**Stella（小魚）：** 白銀可以取代黃金嗎？
 
-**Alex:** Silver is more volatile and more correlated with the business cycle because of its industrial uses. For the pure diversification role, gold is better. Silver can be a supplementary holding but should not replace gold.
+**Horace（陳馬）：** 白銀波動性更大，且因工業用途而與商業周期更緊密相關。就純粹的分散投資角色而言，黃金更優。白銀可作為補充持倉，但不應取代黃金。
 
-**Sam:** What about platinum?
+**Stella（小魚）：** 鉑金呢？
 
-**Alex:** Platinum is primarily an industrial metal used in catalytic converters and other applications. It does not have the same safe-haven characteristics as gold. It is more of a commodity play than a diversification play.
+**Horace（陳馬）：** 鉑金主要是工業金屬，用於催化轉換器等工業應用，並不具備黃金那樣的避險特性。它更像是商品投資而非分散投資工具。
 
-**Sam:** Best single ETF for gold exposure?
+**Stella（小魚）：** 獲取黃金敞口最佳的單一交易所買賣基金？
 
-**Alex:** GLDM. Lowest cost at 0.10% per year, backed by physical gold, and the share price is accessible for smaller portfolios.
+**Horace（陳馬）：** GLDM。費用最低，每年僅0.10%，由實物黃金支撐，且股份面值對小型投資組合也非常友好。
 
-**Sam:** Biggest mistake investors make with gold?
+**Stella（小魚）：** 投資者在黃金上最常犯的錯誤？
 
-**Alex:** Buying too much after a big rally because it feels safe, or buying too little during calm times because it seems unnecessary. Gold should be a steady 5-15% allocation that you rebalance, not a tactical trade based on fear or greed.
+**Horace（陳馬）：** 大漲後因感覺安全而大量買入，或平靜時期因覺得不需要而配置太少。黃金應是穩定的5-15%配置並定期再平衡，而非根據恐懼或貪婪做出的戰術操作。
 
-**Sam:** Great stuff. Thanks, everyone. See you next week.
+**Stella（小魚）：** 非常精彩。感謝各位觀看，下週見！
 
-**Alex:** Thanks for watching. If you found this helpful, please like and subscribe. We will see you in Week 7.
+**Horace（陳馬）：** 感謝收看。如果您覺得有幫助，請點讚並訂閱。第七週見！
 
 [VISUAL: End screen with subscribe button, playlist link to Level 1: Foundations series, and social media handles]
 
 ---
 
-*Animation Reference: animation/week06_gold_correlation.py - This animation demonstrates the correlation benefits of adding gold and commodities to a stock-and-bond portfolio. It shows two portfolios side by side (60/40 and 60/20/20) through various historical periods, highlighting how their values diverge during inflationary episodes and converge during normal times. A secondary animation shows the contango roll process for commodity futures ETFs, illustrating how rolling costs create a drag between the ETF return and the underlying commodity spot price. The correlation matrix is displayed as an interactive heat map where users can see how adding assets with low correlation reduces total portfolio volatility.*
+*動畫參考：animation/week06_gold_correlation.py - 此動畫展示在股債投資組合中加入黃金和商品的相關性效益。它並排展示兩個投資組合（60/40和60/20/20）在不同歷史時期的表現，突出兩者在通脹時期的差異及正常時期的收斂。次要動畫展示商品期貨交易所買賣基金的期貨溢價轉倉過程，說明轉倉成本如何造成交易所買賣基金回報與相關商品現貨價格之間的拖累。相關性矩陣以互動式熱力圖呈現，用戶可直觀看到加入低相關性資產如何降低投資組合整體波動性。*

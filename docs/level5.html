@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 5: Expert (Weeks 47-52) - Chanma Investment Tutorial</title>
+    <style>
+:root {
+    --bg: #fafbfc;
+    --text: #2d3748;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f7fafc;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1f5f9;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --gold: #c5a44e;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 0;
+}
+
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-brand .brand-icon {
+    font-size: 1.4rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-link, .dropdown-trigger {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s;
+}
+
+.nav-link:hover, .dropdown-trigger:hover {
+    background: var(--nav-hover);
+}
+
+.arrow { font-size: 0.7rem; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 320px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    z-index: 200;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
+
+.dropdown-content a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+/* Language selector in nav */
+.lang-selector {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+}
+
+.lang-btn:hover { opacity: 1; }
+
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
+
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.breadcrumb-inner a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb-inner a:hover { text-decoration: underline; }
+
+.bc-sep { color: #a0aec0; margin: 0 4px; }
+
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+.content-area { }
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) { background: #f8fafc; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+p code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+
+.nav-btn-text { display: flex; flex-direction: column; }
+
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: 8px;
+    }
+    .nav-menu.open .nav-dropdown { width: 100%; }
+    .nav-menu.open .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.1);
+        border-radius: 0;
+        max-height: 300px;
+    }
+    .nav-menu.open .dropdown-content a {
+        color: var(--nav-text);
+        border-bottom-color: rgba(255,255,255,0.1);
+        padding-left: 32px;
+    }
+    .hamburger { display: block; }
+    .lang-selector { margin-left: 0; padding: 8px 14px; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                Chanma Investment
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="nav-menu">
+                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <span>Level 5: Expert</span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Level 5: Expert (Weeks 47-52)</h1>
+<hr>
+<h2>Part 1: Reading Section</h2>
+<hr>
+<h3>Level Overview</h3>
+<p>
+Level 5 is the capstone. Over six weeks, you will master the most advanced portfolio strategies and bring everything together into a complete, professional-grade investment framework. These are the techniques used by endowment funds, family offices, and top-tier portfolio managers.
+</p>
+<h3>What You Will Learn</h3>
+<p>
+<strong>Weeks 47-49: Advanced Strategies</strong>
+</p>
+<ul><li>Tail risk hedging -- protecting against black swan events</li>
+<li>Structured products and defined-outcome investments</li>
+<li>Volatility arbitrage and exploiting the variance risk premium</li>
+<p>
+</ul>
+<strong>Weeks 50-52: Portfolio Integration</strong>
+</p>
+<ul><li>Factor tilts and alternative risk premia -- harvesting multiple systematic return sources</li>
+<li>Managed futures and trend following -- crisis alpha that profits when everything else crashes</li>
+<li>Complete portfolio integration -- assembling an all-weather portfolio</li>
+<p>
+</ul>
+</p>
+<h3>What You Will Be Able to Do After Level 5</h3>
+<ul><li>Hedge your portfolio against extreme market events without excessive cost</li>
+<li>Evaluate structured products and understand their embedded options</li>
+<li>Exploit volatility term structure for additional returns</li>
+<li>Construct a factor-tilted portfolio that targets specific risk premia</li>
+<li>Understand trend-following strategies and their role as crisis alpha</li>
+<li>Build a complete all-weather portfolio that performs across different market regimes</li>
+<p>
+</ul>
+</p>
+<h3>Weekly Lessons</h3>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>47</td><td>Tail Risk Hedging</td></tr><tr><td>48</td><td>Structured Products and Defined Outcomes</td></tr><tr><td>49</td><td>Volatility Arbitrage and Term Structure</td></tr><tr><td>50</td><td>Factor Tilts and Alternative Risk Premia</td></tr><tr><td>51</td><td>Managed Futures and Trend Following</td></tr><tr><td>52</td><td>Portfolio Integration - Putting It All Together</td></tr></tbody></table>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>第5級：專家（第47-52週）</h1>
+<hr>
+<h2>第一部分：閱讀章節</h2>
+<hr>
+<h3>級別概覽</h3>
+<p>
+第5級是整個課程的壓軸。在六週內，你將掌握最進階的投資組合策略，並將所有知識融會貫通，建立一套完整的專業級投資框架。這些正是捐贈基金、家族辦公室及頂尖投資組合經理所採用的技術。
+</p>
+<h3>學習內容</h3>
+<p>
+<strong>第47-49週：進階策略</strong>
+</p>
+<ul><li>尾部風險對沖——防範黑天鵝事件</li>
+<li>結構性產品與定義回報投資</li>
+<li>波動率套利及利用方差風險溢價</li>
+<p>
+</ul>
+<strong>第50-52週：投資組合整合</strong>
+</p>
+<ul><li>因子傾斜與另類風險溢價——收割多種系統性回報來源</li>
+<li>管理期貨與趨勢跟蹤——在市場全線崩潰時仍能獲利的危機阿爾法</li>
+<li>完整投資組合整合——構建全天候投資組合</li>
+<p>
+</ul>
+</p>
+<h3>完成第5級後，你將能夠</h3>
+<ul><li>以合理成本對沖投資組合，抵禦極端市場事件</li>
+<li>評估結構性產品，並理解其內嵌期權</li>
+<li>利用波動率期限結構獲取額外回報</li>
+<li>構建具備因子傾斜的投資組合，針對特定風險溢價</li>
+<li>理解趨勢跟蹤策略及其作為危機阿爾法的角色</li>
+<li>建立一個能夠在不同市場週期下穩健運作的全天候投資組合</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>47</td><td>尾部風險對沖</td></tr><tr><td>48</td><td>結構性產品與定義回報</td></tr><tr><td>49</td><td>波動率套利與期限結構</td></tr><tr><td>50</td><td>因子傾斜與另類風險溢價</td></tr><tr><td>51</td><td>管理期貨與趨勢跟蹤</td></tr><tr><td>52</td><td>投資組合整合——融會貫通</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第5級概覽：成為完整的投資者 | 陳馬投資教學
+</p>
+<p>
+<strong>目標片長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（陳馬，老師）：經驗豐富的散戶交易員，以多年市場實戰經驗深入淺出地講解概念</li>
+<li><strong>Stella</strong>（小魚，學生）：剛大學畢業、正在學習如何投資積蓄的新手，代觀眾提問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[開場]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
+</p>
+<p>
+<strong>Horace：</strong> 歡迎來到第5級——最後一關。你已經走了很遠的路。五十一週前，我們從「為什麼要投資？」開始，而現在，我們將以專業級的投資組合構建作為終點。
+</p>
+<p>
+<strong>Stella：</strong> 我自己都難以置信學了這麼多。回頭望望第1級，那些概念現在感覺完全是本能反應了。
+</p>
+<p>
+<strong>Horace：</strong> 這正是應有的感覺。第5級涵蓋六個主題，將所有知識串連起來。我們從第47週的尾部風險對沖開始——如何保護你的投資組合，免受令毫無準備的投資者損失慘重的市場崩潰所傷害。
+</p>
+<p>
+<strong>Stella：</strong> 就像2008年金融海嘯或新冠疫情時的急跌那種？
+</p>
+<p>
+<strong>Horace：</strong> 完全正確。我們會研究在最需要的時候恰好能發揮作用的投資組合保險策略。第48週則講結構性產品——緩衝型交易所買賣基金、結構性票據，以及愈來愈受散戶歡迎的定義回報投資。
+</p>
+<p>
+<strong>Stella：</strong> 然後是波動率套利？
+</p>
+<p>
+<strong>Horace：</strong> 第49週是整個課程中最令人着迷的主題之一。波動率風險溢價是金融市場上最穩定的回報來源之一。我們將向你展示如何利用隱含波動率與已實現波動率之間的差距來獲利。
+</p>
+<p>
+<strong>Stella：</strong> 那後三週呢？
+</p>
+<p>
+<strong>Horace：</strong> 第50週講因子傾斜與另類風險溢價——構建一個能系統性收割多種回報來源的投資組合。第51週介紹管理期貨與趨勢跟蹤，這類策略能提供危機阿爾法——在市場環境最惡劣的時候，往往反而能取得正回報。
+</p>
+<p>
+<strong>Stella：</strong> 那第52週就是大結局？
+</p>
+<p>
+<strong>Horace：</strong> 第52週，我們將課程中的每一個概念，整合成一個完整的全天候投資組合。完成後，你將擁有一套專業水平的資金管理框架。
+</p>
+<p>
+<strong>Stella：</strong> 從零到專業，只需52週。讓我們好好衝刺到最後。
+</p>
+<p>
+<strong>Horace：</strong> 就是這樣。
+</p>
+<p>
+<strong>[完結]</strong>
+</p>
+            </div>
+            <div id="content-tw" class="lang-content">
+                <h1>第五級：專家（第47-52週）</h1>
+<hr>
+<h2>第一部分：閱讀章節</h2>
+<hr>
+<h3>級別概覽</h3>
+<p>
+第五級是課程的總結。在六週內，您將掌握最進階的投資組合策略，並將所有知識整合成一套完整的專業級投資框架。這些是捐贈基金、家族辦公室和頂尖投資組合管理人所使用的技術。
+</p>
+<h3>您將學到什麼</h3>
+<p>
+<strong>第47-49週：進階策略</strong>
+</p>
+<ul><li>尾部風險避險——保護投資組合免受黑天鵝事件衝擊</li>
+<li>結構型商品與明確結果型投資</li>
+<li>波動率套利與利用變異數風險溢酬</li>
+<p>
+</ul>
+<strong>第50-52週：投資組合整合</strong>
+</p>
+<ul><li>因子傾斜與另類風險溢酬——收割多種系統性報酬來源</li>
+<li>管理期貨與趨勢追蹤——在其他資產全面崩跌時仍能獲利的危機阿爾法</li>
+<li>完整投資組合整合——建構全天候投資組合</li>
+<p>
+</ul>
+</p>
+<h3>完成第五級後您將能夠做到</h3>
+<ul><li>以合理成本為投資組合對沖極端市場事件</li>
+<li>評估結構型商品並理解其內嵌選擇權</li>
+<li>利用波動率期間結構獲取額外報酬</li>
+<li>建構針對特定風險溢酬的因子傾斜投資組合</li>
+<li>了解趨勢追蹤策略及其作為危機阿爾法的角色</li>
+<li>建立一個能在不同市場環境下表現穩健的全天候投資組合</li>
+<p>
+</ul>
+</p>
+<h3>每週課程</h3>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>47</td><td>尾部風險避險</td></tr><tr><td>48</td><td>結構型商品與明確結果型投資</td></tr><tr><td>49</td><td>波動率套利與期間結構</td></tr><tr><td>50</td><td>因子傾斜與另類風險溢酬</td></tr><tr><td>51</td><td>管理期貨與趨勢追蹤</td></tr><tr><td>52</td><td>投資組合整合——全面匯總</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube 腳本</h2>
+<hr>
+<p>
+<strong>影片標題：</strong> 第五級概覽：完整的投資人 | 展馬投資教學
+</p>
+<p>
+<strong>目標時長：</strong> 約5分鐘
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老師）：資深散戶交易人，從多年市場經驗出發講解概念</li>
+<li><strong>Stella</strong>（學生）：甫畢業的大學生，正在學習如何投資積蓄，提出觀眾心中的疑問</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[開場]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
+</p>
+<p>
+<strong>Horace：</strong> 歡迎來到第五級——最後一個級別。你們走了一段非常漫長的路。五十一週前，我們從「為什麼要投資？」開始，現在我們即將以專業級的投資組合建構作為終點。
+</p>
+<p>
+<strong>Stella：</strong> 我幾乎無法相信自己學到了這麼多。回頭看第一級的內容，那些概念現在感覺就像是本能一樣自然。
+</p>
+<p>
+<strong>Horace：</strong> 這正是應該有的感覺。第五級涵蓋六個主題，將所有知識融會貫通。我們從第47週的尾部風險避險開始——學習如何保護你的投資組合，抵禦那種會摧毀毫無準備的投資人的市場崩盤。
+</p>
+<p>
+<strong>Stella：</strong> 像2008年或新冠疫情造成的崩盤那樣？
+</p>
+<p>
+<strong>Horace：</strong> 正是。我們將研究那些在你最需要的時候恰好發揮作用的投資組合保險策略。第48週介紹結構型商品——緩衝型指數股票型基金、結構型票據，以及在散戶投資人之間日益普及的明確結果型投資。
+</p>
+<p>
+<strong>Stella：</strong> 然後是波動率套利？
+</p>
+<p>
+<strong>Horace：</strong> 第49週是課程中最引人入勝的主題之一。波動率風險溢酬是金融領域中最可靠的報酬來源之一。我們將示範如何利用隱含波動率與實現波動率之間的落差。
+</p>
+<p>
+<strong>Stella：</strong> 那後三週呢？
+</p>
+<p>
+<strong>Horace：</strong> 第50週涵蓋因子傾斜與另類風險溢酬——建構一個系統性收割多種報酬來源的投資組合。第51週介紹管理期貨與趨勢追蹤，這些策略提供危機阿爾法——在最惡劣的市場環境中往往能帶來正報酬。
+</p>
+<p>
+<strong>Stella：</strong> 第52週是最後的壓軸好戲？
+</p>
+<p>
+<strong>Horace：</strong> 第52週是我們將課程中每一個概念整合成一個完整的全天候投資組合的時刻。你將帶著一套能以專業水準管理資金的完整框架離開。
+</p>
+<p>
+<strong>Stella：</strong> 從零基礎到專業水準，只需52週。讓我們全力衝刺到最後。
+</p>
+<p>
+<strong>Horace：</strong> 我們一起做到。
+</p>
+<p>
+<strong>[結束]</strong>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>第5级：专家级（第47-52周）</h1>
+<hr>
+<h2>第一部分：阅读材料</h2>
+<hr>
+<h3>课程概述</h3>
+<p>
+第5级是课程的顶点。在六周时间里，你将掌握最高级的投资组合策略，并将所有知识整合为一个完整的专业级投资框架。这些是捐赠基金、家族办公室和顶级投资组合经理所使用的技术。
+</p>
+<h3>你将学到什么</h3>
+<p>
+<strong>第47-49周：高级策略</strong>
+</p>
+<ul><li>尾部风险对冲——抵御黑天鹅事件</li>
+<li>结构化产品与确定收益投资</li>
+<li>波动率套利与利用方差风险溢价</li>
+<p>
+</ul>
+<strong>第50-52周：投资组合整合</strong>
+</p>
+<ul><li>因子倾斜与另类风险溢价——收获多种系统性收益来源</li>
+<li>管理期货与趋势跟踪——在其他资产全面崩溃时获利的危机阿尔法</li>
+<li>完整投资组合整合——构建全天候投资组合</li>
+<p>
+</ul>
+</p>
+<h3>完成第5级后你将能够做到</h3>
+<ul><li>以合理成本对冲投资组合以抵御极端市场事件</li>
+<li>评估结构化产品并理解其内嵌期权</li>
+<li>利用波动率期限结构获取额外收益</li>
+<li>构建针对特定风险溢价的因子倾斜投资组合</li>
+<li>理解趋势跟踪策略及其作为危机阿尔法的作用</li>
+<li>构建能够在不同市场环境下均有良好表现的全天候投资组合</li>
+<p>
+</ul>
+</p>
+<h3>每周课程</h3>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>47</td><td>尾部风险对冲</td></tr><tr><td>48</td><td>结构化产品与确定收益</td></tr><tr><td>49</td><td>波动率套利与期限结构</td></tr><tr><td>50</td><td>因子倾斜与另类风险溢价</td></tr><tr><td>51</td><td>管理期货与趋势跟踪</td></tr><tr><td>52</td><td>投资组合整合——将所有内容融汇贯通</td></tr></tbody></table>
+<hr>
+<h2>第二部分：YouTube脚本</h2>
+<hr>
+<p>
+<strong>视频标题：</strong> 第5级概述：完整的投资者 | Chanma Investment Tutorial
+</p>
+<p>
+<strong>时长目标：</strong> 约5分钟
+</p>
+<p>
+<strong>主持人：</strong>
+</p>
+<ul><li><strong>Horace</strong>（老师）：经验丰富的散户交易员，从多年市场经验中讲解概念</li>
+<li><strong>Stella</strong>（学生）：刚从大学毕业，学习如何投资自己的积蓄，提出观众心中的疑问</li>
+<p>
+</ul>
+</p>
+<hr>
+<p>
+<strong>[开场白]</strong>
+</p>
+<p>
+[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
+</p>
+<p>
+<strong>Horace：</strong> 欢迎来到第5级——最终关卡。你已经走过了漫长的道路。五十一周前，我们从"为什么要投资？"开始，现在我们将以专业级投资组合构建作为终点。
+</p>
+<p>
+<strong>Stella：</strong> 我几乎无法相信自己学了这么多。当我回顾第1级的内容时，那些概念现在已经变得得心应手了。
+</p>
+<p>
+<strong>Horace：</strong> 这正是应该有的感觉。第5级涵盖六个主题，将所有内容融汇贯通。我们从第47周的尾部风险对冲开始——如何保护你的投资组合免受那种会摧毁毫无准备的投资者的市场崩溃。
+</p>
+<p>
+<strong>Stella：</strong> 比如2008年或新冠暴跌？
+</p>
+<p>
+<strong>Horace：</strong> 正是。我们将研究在你最需要的时候恰好发挥作用的投资组合保险策略。第48周涵盖结构化产品——缓冲型交易所交易基金、结构性票据和确定收益投资，这些产品在散户投资者中越来越受欢迎。
+</p>
+<p>
+<strong>Stella：</strong> 然后是波动率套利？
+</p>
+<p>
+<strong>Horace：</strong> 第49周是课程中最引人入胜的主题之一。波动率风险溢价是金融领域最可靠的收益来源之一。我们将向你展示如何利用隐含波动率与已实现波动率之间的差距。
+</p>
+<p>
+<strong>Stella：</strong> 最后三周呢？
+</p>
+<p>
+<strong>Horace：</strong> 第50周涵盖因子倾斜与另类风险溢价——构建一个系统性收获多种收益来源的投资组合。第51周介绍管理期货和趋势跟踪，它们提供危机阿尔法——在最恶劣的市场环境中往往能带来正收益。
+</p>
+<p>
+<strong>Stella：</strong> 第52周就是终极压轴了？
+</p>
+<p>
+<strong>Horace：</strong> 第52周是我们将课程中每一个概念整合进一个完整全天候投资组合的时刻。你将带着一套专业水准的资金管理完整框架离开。
+</p>
+<p>
+<strong>Stella：</strong> 从零到专业，52周完成。让我们强势收官。
+</p>
+<p>
+<strong>Horace：</strong> 我们一起来完成它。
+</p>
+<p>
+<strong>[结束]</strong>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="nav-buttons">
+            <a href="week46.html" class="nav-btn prev">
+            <span style="font-size:1.2rem">&#8592;</span>
+            <span class="nav-btn-text">
+                <span class="btn-label">Previous</span>
+                <span>Week 46: Backtesting</span>
+            </span>
+        </a>
+            <a href="week47.html" class="nav-btn next">
+            <span class="nav-btn-text">
+                <span class="btn-label">Next</span>
+                <span>Week 47: Tail risk</span>
+            </span>
+            <span style="font-size:1.2rem">&#8594;</span>
+        </a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+    </footer>
+
+    <script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    localStorage.setItem('preferred-lang', lang);
+}
+
+// Restore language preference
+(function() {
+    var saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') switchLang(saved);
+})();
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
+</body>
+</html>

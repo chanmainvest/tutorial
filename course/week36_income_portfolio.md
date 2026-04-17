@@ -801,157 +801,157 @@ A: Review at least annually, with a more thorough review when personal circumsta
 
 **[VISUAL: Title card -- "Week 36: Building an Income-Generating Portfolio" with income streams flowing from different asset class icons into a central portfolio]**
 
-**Alex:** Welcome back. Over the past few weeks, we have covered credit analysis, interest rate sensitivity, and financial statement analysis. Today, we are getting very practical. We are building an income-generating portfolio from scratch.
+**Horace:** Welcome back. Over the past few weeks, we have covered credit analysis, interest rate sensitivity, and financial statement analysis. Today, we are getting very practical. We are building an income-generating portfolio from scratch.
 
-**Sam:** This is probably the most requested topic from our audience. Everyone wants to know how to generate income from their investments.
+**Stella:** This is probably the most requested topic from our audience. Everyone wants to know how to generate income from their investments.
 
-**Alex:** And for good reason. Whether you are retired and living off your portfolio, or working and looking for passive income, the ability to build a sustainable income portfolio is one of the most valuable skills in investing.
+**Horace:** And for good reason. Whether you are retired and living off your portfolio, or working and looking for passive income, the ability to build a sustainable income portfolio is one of the most valuable skills in investing.
 
-**Sam:** So where do we start?
+**Stella:** So where do we start?
 
-**Alex:** Let us start by mapping out all the ways a portfolio can generate income. Most people only think of dividends and bond interest, but there are actually quite a few sources.
+**Horace:** Let us start by mapping out all the ways a portfolio can generate income. Most people only think of dividends and bond interest, but there are actually quite a few sources.
 
 **[VISUAL: Mind map showing income sources: Dividends, Bond Coupons, REIT Distributions, Option Premiums, MLP Distributions, Preferred Stock Dividends, with yield ranges for each]**
 
-**Alex:** Dividends from stocks, typically yielding 1.5 to 5 percent. Bond coupons, yielding 3.5 to 9 percent depending on credit quality. REIT distributions, yielding 3 to 8 percent for equity REITs, up to 14 percent for mortgage REITs. Option premiums from covered call strategies, adding 2 to 5 percent. Preferred stock, yielding 4 to 7 percent. And MLPs from energy infrastructure, yielding 5 to 10 percent.
+**Horace:** Dividends from stocks, typically yielding 1.5 to 5 percent. Bond coupons, yielding 3.5 to 9 percent depending on credit quality. REIT distributions, yielding 3 to 8 percent for equity REITs, up to 14 percent for mortgage REITs. Option premiums from covered call strategies, adding 2 to 5 percent. Preferred stock, yielding 4 to 7 percent. And MLPs from energy infrastructure, yielding 5 to 10 percent.
 
-**Sam:** Wow, that is a lot of options. I imagine they are not all created equal?
+**Stella:** Wow, that is a lot of options. I imagine they are not all created equal?
 
-**Alex:** Not at all. And this brings us to the single most important concept in income investing -- the distinction between yield and total return.
+**Horace:** Not at all. And this brings us to the single most important concept in income investing -- the distinction between yield and total return.
 
-**Sam:** What is the difference?
+**Stella:** What is the difference?
 
-**Alex:** Yield is just the income divided by the price. Total return is income plus price change. Here is why this matters.
+**Horace:** Yield is just the income divided by the price. Total return is income plus price change. Here is why this matters.
 
 **[ANIMATION: Reference animation/week36_income_sources.py -- Animated comparison of two portfolio paths over 20 years. Portfolio A starts with a 5% yield and 2% growth (total return 7%). Portfolio B starts with a 2% yield and 6% growth (total return 8%). The animation shows year-by-year income and portfolio value. By year 13, Portfolio B's annual income exceeds Portfolio A's. By year 20, Portfolio B generates nearly double the income and the portfolio value is significantly larger.]**
 
-**Alex:** Imagine two portfolios. Portfolio A yields 5% with 2% growth -- a total return of 7%. Portfolio B yields 2% with 6% growth -- a total return of 8%. In year one, Portfolio A generates more income. But by around year 13, Portfolio B's income catches up and surpasses it. By year 20, Portfolio B is generating nearly double the income, and the portfolio itself is worth far more.
+**Horace:** Imagine two portfolios. Portfolio A yields 5% with 2% growth -- a total return of 7%. Portfolio B yields 2% with 6% growth -- a total return of 8%. In year one, Portfolio A generates more income. But by around year 13, Portfolio B's income catches up and surpasses it. By year 20, Portfolio B is generating nearly double the income, and the portfolio itself is worth far more.
 
-**Sam:** So chasing the highest yield can actually leave you with less income over time?
+**Stella:** So chasing the highest yield can actually leave you with less income over time?
 
-**Alex:** Exactly. This is the power of dividend growth investing. A company with a moderate yield but strong and growing dividends will produce more income over time than a high-yielding company with no growth.
+**Horace:** Exactly. This is the power of dividend growth investing. A company with a moderate yield but strong and growing dividends will produce more income over time than a high-yielding company with no growth.
 
-**Sam:** But what if I need the income right now? I cannot wait 13 years.
+**Stella:** But what if I need the income right now? I cannot wait 13 years.
 
-**Alex:** Good point. That is where the total return approach comes in. You can build a portfolio optimized for total return and then create your own income through systematic withdrawals -- selling small amounts periodically. As long as your withdrawal rate is sustainable, you get the income you need while preserving more capital for the future.
+**Horace:** Good point. That is where the total return approach comes in. You can build a portfolio optimized for total return and then create your own income through systematic withdrawals -- selling small amounts periodically. As long as your withdrawal rate is sustainable, you get the income you need while preserving more capital for the future.
 
 **[VISUAL: Side-by-side comparison -- "Yield-focused" portfolio ($50K income, $1.19M after 10 years) vs. "Total return" portfolio ($50K income through partial withdrawals, $1.34M after 10 years)]**
 
-**Sam:** That makes sense. But it leads to the big question -- how much can you withdraw sustainably?
+**Stella:** That makes sense. But it leads to the big question -- how much can you withdraw sustainably?
 
-**Alex:** This is one of the most studied questions in personal finance. The famous "4% rule" comes from research by William Bengen in 1994.
+**Horace:** This is one of the most studied questions in personal finance. The famous "4% rule" comes from research by William Bengen in 1994.
 
-**Sam:** The 4% rule -- I have heard of this but never fully understood it.
+**Stella:** The 4% rule -- I have heard of this but never fully understood it.
 
-**Alex:** It says that if you withdraw 4% of your portfolio in year one, then adjust that dollar amount for inflation each year, your portfolio should survive at least 30 years based on historical US market returns with a 50-50 stock-bond mix.
+**Horace:** It says that if you withdraw 4% of your portfolio in year one, then adjust that dollar amount for inflation each year, your portfolio should survive at least 30 years based on historical US market returns with a 50-50 stock-bond mix.
 
 **[VISUAL: Visual timeline showing how the 4% rule works -- $1M portfolio, year 1 withdrawal of $40K, year 2 adjusted for 3% inflation to $41.2K, continuing for 30 years]**
 
-**Alex:** But here is the important caveat -- this was based on the best-performing stock market in human history: the US from 1926 to 1992. It also does not account for high fees, taxes, or behavioral mistakes like panic selling.
+**Horace:** But here is the important caveat -- this was based on the best-performing stock market in human history: the US from 1926 to 1992. It also does not account for high fees, taxes, or behavioral mistakes like panic selling.
 
-**Sam:** So should I use 4% or something different?
+**Stella:** So should I use 4% or something different?
 
-**Alex:** Many planners now recommend 3 to 3.5% for early retirees with 40-plus year horizons. For shorter horizons, 4 to 4.5% may be fine. The right number depends on your time horizon, flexibility, other income sources, and risk tolerance.
+**Horace:** Many planners now recommend 3 to 3.5% for early retirees with 40-plus year horizons. For shorter horizons, 4 to 4.5% may be fine. The right number depends on your time horizon, flexibility, other income sources, and risk tolerance.
 
-**Sam:** What about more dynamic approaches?
+**Stella:** What about more dynamic approaches?
 
-**Alex:** There are several. The guardrails approach starts at a higher withdrawal rate, maybe 5%, but requires you to cut spending if the portfolio drops significantly and allows you to increase spending if it rises significantly. The bucket strategy divides your portfolio into three buckets.
+**Horace:** There are several. The guardrails approach starts at a higher withdrawal rate, maybe 5%, but requires you to cut spending if the portfolio drops significantly and allows you to increase spending if it rises significantly. The bucket strategy divides your portfolio into three buckets.
 
 **[VISUAL: Three-bucket diagram -- Bucket 1 (Years 1-3): Cash and short-term bonds for immediate income. Bucket 2 (Years 4-10): Intermediate bonds and dividend stocks. Bucket 3 (Years 11+): Growth stocks for long-term refilling.]**
 
-**Alex:** Bucket 1 holds 2 to 3 years of expenses in cash and short-term bonds. This is your immediate spending money, protected from market volatility. Bucket 2 holds intermediate-term investments that will refill Bucket 1 in a few years. Bucket 3 holds growth investments that refill Bucket 2 over the longer term.
+**Horace:** Bucket 1 holds 2 to 3 years of expenses in cash and short-term bonds. This is your immediate spending money, protected from market volatility. Bucket 2 holds intermediate-term investments that will refill Bucket 1 in a few years. Bucket 3 holds growth investments that refill Bucket 2 over the longer term.
 
-**Sam:** I like that psychologically. Even if the stock market crashes, I know my next three years of spending are safe in cash.
+**Stella:** I like that psychologically. Even if the stock market crashes, I know my next three years of spending are safe in cash.
 
-**Alex:** Exactly. It prevents the panic selling that destroys so many retirement portfolios.
+**Horace:** Exactly. It prevents the panic selling that destroys so many retirement portfolios.
 
-**Sam:** OK, let us talk about the actual yield trap. How do I avoid it?
+**Stella:** OK, let us talk about the actual yield trap. How do I avoid it?
 
-**Alex:** The yield trap is one of the most dangerous pitfalls in income investing. It works like this: a company's business deteriorates, the stock price falls, and the mathematical yield goes up because you are dividing the same dividend by a lower price. Investors see the high yield and buy, thinking they are getting a great deal. Then the dividend gets cut, the stock falls further, and they are left with both lower income and a capital loss.
+**Horace:** The yield trap is one of the most dangerous pitfalls in income investing. It works like this: a company's business deteriorates, the stock price falls, and the mathematical yield goes up because you are dividing the same dividend by a lower price. Investors see the high yield and buy, thinking they are getting a great deal. Then the dividend gets cut, the stock falls further, and they are left with both lower income and a capital loss.
 
 **[VISUAL: Yield trap example -- Stock drops from $50 to $25, yield "doubles" from 6% to 12%, then dividend is cut 50%, actual yield returns to 6% but investor has lost 50% of capital]**
 
-**Sam:** How do I tell the difference between a genuinely high-yielding stock and a yield trap?
+**Stella:** How do I tell the difference between a genuinely high-yielding stock and a yield trap?
 
-**Alex:** Several warning signs. The payout ratio -- dividends divided by earnings -- should be below 60% for most companies. If it is above 80%, the company is paying out almost everything it earns, leaving no margin for error. Check if earnings and cash flow are growing or declining. Look at the debt level -- if the company is borrowing to fund its dividend, that is a red flag. And compare the yield to sector peers. If one utility yields 3.5% and another yields 8%, there is a reason the market is pricing that higher risk into the second one.
+**Horace:** Several warning signs. The payout ratio -- dividends divided by earnings -- should be below 60% for most companies. If it is above 80%, the company is paying out almost everything it earns, leaving no margin for error. Check if earnings and cash flow are growing or declining. Look at the debt level -- if the company is borrowing to fund its dividend, that is a red flag. And compare the yield to sector peers. If one utility yields 3.5% and another yields 8%, there is a reason the market is pricing that higher risk into the second one.
 
-**Sam:** What about dividends versus bond interest from a tax perspective?
+**Stella:** What about dividends versus bond interest from a tax perspective?
 
-**Alex:** This is huge and often overlooked. Qualified dividends from US stocks are taxed at 0, 15, or 20 percent depending on your income bracket. Bond interest is taxed as ordinary income at your marginal tax rate, which could be as high as 37%. Municipal bond interest is usually completely tax-free at the federal level and often at the state level too.
+**Horace:** This is huge and often overlooked. Qualified dividends from US stocks are taxed at 0, 15, or 20 percent depending on your income bracket. Bond interest is taxed as ordinary income at your marginal tax rate, which could be as high as 37%. Municipal bond interest is usually completely tax-free at the federal level and often at the state level too.
 
 **[VISUAL: Tax comparison chart showing after-tax income on $10,000 of each type: qualified dividends, bond interest, muni bond interest, and REIT distributions, for an investor in the 32% tax bracket]**
 
-**Alex:** This means a 3.5% municipal bond might actually deliver more after-tax income than a 5.5% corporate bond for someone in a high tax bracket. The tax-equivalent yield formula makes this comparison precise.
+**Horace:** This means a 3.5% municipal bond might actually deliver more after-tax income than a 5.5% corporate bond for someone in a high tax bracket. The tax-equivalent yield formula makes this comparison precise.
 
-**Sam:** How does it work?
+**Stella:** How does it work?
 
-**Alex:** Tax-equivalent yield equals the muni yield divided by one minus your tax rate. So if you are in the 37% bracket, a 3.5% muni has a tax-equivalent yield of 3.5 divided by 0.63, which is 5.56%. You would need a taxable bond yielding more than 5.56% to beat that muni after taxes.
+**Horace:** Tax-equivalent yield equals the muni yield divided by one minus your tax rate. So if you are in the 37% bracket, a 3.5% muni has a tax-equivalent yield of 3.5 divided by 0.63, which is 5.56%. You would need a taxable bond yielding more than 5.56% to beat that muni after taxes.
 
-**Sam:** That is a big difference. What about account placement -- which assets go in which account?
+**Stella:** That is a big difference. What about account placement -- which assets go in which account?
 
-**Alex:** Great question. Put tax-inefficient income -- bond interest, REIT distributions, and non-qualified dividends -- inside tax-advantaged accounts like IRAs and 401ks, where the tax is deferred or eliminated. Put tax-efficient income -- qualified dividends and municipal bonds -- in your taxable brokerage account. And put your highest-growth assets in Roth accounts, where all gains and income are tax-free.
+**Horace:** Great question. Put tax-inefficient income -- bond interest, REIT distributions, and non-qualified dividends -- inside tax-advantaged accounts like IRAs and 401ks, where the tax is deferred or eliminated. Put tax-efficient income -- qualified dividends and municipal bonds -- in your taxable brokerage account. And put your highest-growth assets in Roth accounts, where all gains and income are tax-free.
 
 **[VISUAL: Three-column layout showing Taxable Account, Traditional IRA/401k, and Roth IRA, with optimal asset types listed under each]**
 
-**Sam:** That is smart. You are essentially placing each asset where it receives the most favorable tax treatment.
+**Stella:** That is smart. You are essentially placing each asset where it receives the most favorable tax treatment.
 
-**Alex:** Exactly. This asset location strategy can add 0.5 to 1.0 percent to your after-tax returns annually. Over a 30-year retirement, that adds up to hundreds of thousands of dollars.
+**Horace:** Exactly. This asset location strategy can add 0.5 to 1.0 percent to your after-tax returns annually. Over a 30-year retirement, that adds up to hundreds of thousands of dollars.
 
-**Sam:** Let us look at some concrete portfolio examples. What does a conservative income portfolio look like?
+**Stella:** Let us look at some concrete portfolio examples. What does a conservative income portfolio look like?
 
-**Alex:** For a conservative investor -- someone prioritizing stability and reliable income above all else -- I would suggest something like this.
+**Horace:** For a conservative investor -- someone prioritizing stability and reliable income above all else -- I would suggest something like this.
 
 **[ANIMATION: Reference animation/week36_income_sources.py -- Animated pie chart assembling a conservative income portfolio piece by piece: 35% short/intermediate Treasuries, 20% IG corporate bonds, 15% municipal bonds, 15% Dividend Aristocrat stocks, 10% TIPS, 5% cash. As each slice appears, its yield and characteristics are displayed. The total weighted yield calculates to approximately 3.7%.]**
 
-**Alex:** Thirty-five percent in Treasury bonds for safety. Twenty percent in investment-grade corporate bonds for a yield pickup. Fifteen percent in municipal bonds for tax-free income. Fifteen percent in Dividend Aristocrat stocks for income growth. Ten percent in TIPS for inflation protection. And 5% in cash as a buffer.
+**Horace:** Thirty-five percent in Treasury bonds for safety. Twenty percent in investment-grade corporate bonds for a yield pickup. Fifteen percent in municipal bonds for tax-free income. Fifteen percent in Dividend Aristocrat stocks for income growth. Ten percent in TIPS for inflation protection. And 5% in cash as a buffer.
 
-**Sam:** What is the total yield?
+**Stella:** What is the total yield?
 
-**Alex:** About 3.7%, or $37,000 per year on a million-dollar portfolio. The growth potential is modest -- maybe 1 to 3 percent per year -- but the income is reliable and the portfolio should hold up well in recessions.
+**Horace:** About 3.7%, or $37,000 per year on a million-dollar portfolio. The growth potential is modest -- maybe 1 to 3 percent per year -- but the income is reliable and the portfolio should hold up well in recessions.
 
-**Sam:** And for someone willing to take more risk for more income?
+**Stella:** And for someone willing to take more risk for more income?
 
-**Alex:** A balanced income portfolio might look like this: 25% Dividend Aristocrats, 20% investment-grade bonds, 15% high-yield bonds, 10% REITs, 10% international dividend stocks, 10% Treasuries and TIPS, 5% preferred stock, 5% cash. That gets you to about a 4.1% yield with better growth potential.
+**Horace:** A balanced income portfolio might look like this: 25% Dividend Aristocrats, 20% investment-grade bonds, 15% high-yield bonds, 10% REITs, 10% international dividend stocks, 10% Treasuries and TIPS, 5% preferred stock, 5% cash. That gets you to about a 4.1% yield with better growth potential.
 
 **[VISUAL: Pie chart of balanced income portfolio with yield and growth characteristics]**
 
-**Alex:** For maximum income seekers, you can push yields to 6% or higher by adding mortgage REITs, covered call ETFs, MLPs, and more high-yield bonds. But I want to be very clear about the risks.
+**Horace:** For maximum income seekers, you can push yields to 6% or higher by adding mortgage REITs, covered call ETFs, MLPs, and more high-yield bonds. But I want to be very clear about the risks.
 
-**Sam:** What are the risks?
+**Stella:** What are the risks?
 
-**Alex:** Higher-yield portfolios are much more vulnerable to economic downturns. Mortgage REITs can cut dividends 30 to 50 percent in volatile rate environments. High-yield bonds can default. Covered call strategies underperform in strong bull markets. And most importantly, very little growth means inflation eats your purchasing power over time. A portfolio yielding 6% today might still yield 6% in twenty years, but that 6% buys a lot less after two decades of inflation.
+**Horace:** Higher-yield portfolios are much more vulnerable to economic downturns. Mortgage REITs can cut dividends 30 to 50 percent in volatile rate environments. High-yield bonds can default. Covered call strategies underperform in strong bull markets. And most importantly, very little growth means inflation eats your purchasing power over time. A portfolio yielding 6% today might still yield 6% in twenty years, but that 6% buys a lot less after two decades of inflation.
 
-**Sam:** So the sweet spot is probably in the middle?
+**Stella:** So the sweet spot is probably in the middle?
 
-**Alex:** For most investors, yes. A balanced approach with moderate yield, some growth, and good diversification across income sources is the most sustainable path. The exact mix depends on your specific circumstances -- age, other income sources, risk tolerance, tax situation, and spending needs.
+**Horace:** For most investors, yes. A balanced approach with moderate yield, some growth, and good diversification across income sources is the most sustainable path. The exact mix depends on your specific circumstances -- age, other income sources, risk tolerance, tax situation, and spending needs.
 
-**Sam:** What happens during a recession? How resilient are these income streams?
+**Stella:** What happens during a recession? How resilient are these income streams?
 
-**Alex:** Let me walk through each source during a typical recession. Dividends: some companies cut, but Dividend Aristocrats rarely do. Historically, about 5 to 10% of S&P 500 companies cut dividends during a recession. Bond coupons: investment-grade bonds continue paying; high-yield defaults spike to 5 to 8%. REIT distributions: some reduce distributions, especially office and retail. Option premiums: actually increase during recessions because volatility rises.
+**Horace:** Let me walk through each source during a typical recession. Dividends: some companies cut, but Dividend Aristocrats rarely do. Historically, about 5 to 10% of S&P 500 companies cut dividends during a recession. Bond coupons: investment-grade bonds continue paying; high-yield defaults spike to 5 to 8%. REIT distributions: some reduce distributions, especially office and retail. Option premiums: actually increase during recessions because volatility rises.
 
 **[VISUAL: Stress test results showing a balanced income portfolio's income during a typical recession -- income drops approximately 10-15% but remains substantial]**
 
-**Alex:** A well-diversified income portfolio might see its income drop 10 to 15 percent during a recession. That is manageable if you have a cash buffer covering 6 to 12 months of expenses. The worst outcome is being forced to sell investments at depressed prices to cover spending -- the cash buffer prevents that.
+**Horace:** A well-diversified income portfolio might see its income drop 10 to 15 percent during a recession. That is manageable if you have a cash buffer covering 6 to 12 months of expenses. The worst outcome is being forced to sell investments at depressed prices to cover spending -- the cash buffer prevents that.
 
-**Sam:** Should I factor in Social Security?
+**Stella:** Should I factor in Social Security?
 
-**Alex:** Absolutely. Social Security is essentially a high-quality, inflation-indexed bond that pays for life. For many retirees, it covers 30 to 50% of expenses. Your investment portfolio only needs to fill the gap. This means you may be able to take less risk than you think or target a lower portfolio yield.
+**Horace:** Absolutely. Social Security is essentially a high-quality, inflation-indexed bond that pays for life. For many retirees, it covers 30 to 50% of expenses. Your investment portfolio only needs to fill the gap. This means you may be able to take less risk than you think or target a lower portfolio yield.
 
 **[VISUAL: Income waterfall chart -- Social Security covers the base, pension (if any) covers more, and the investment portfolio covers the remainder. The "gap" the portfolio must fill is highlighted.]**
 
-**Alex:** One more thing: delaying Social Security from 62 to 70 increases your annual benefit by roughly 77 percent. That is an 8% per year guaranteed, inflation-adjusted return. For most people in good health, delaying is one of the single best financial decisions you can make. Draw from your portfolio to bridge the gap, and let Social Security grow.
+**Horace:** One more thing: delaying Social Security from 62 to 70 increases your annual benefit by roughly 77 percent. That is an 8% per year guaranteed, inflation-adjusted return. For most people in good health, delaying is one of the single best financial decisions you can make. Draw from your portfolio to bridge the gap, and let Social Security grow.
 
-**Sam:** That is a great point. So to summarize today's lesson: income can come from dividends, bonds, REITs, options, and other sources. Total return often matters more than yield. The 4% rule is a guideline, not a guarantee. Tax efficiency is huge -- put the right assets in the right accounts. Diversify across income sources. And keep a cash buffer to avoid forced selling during downturns.
+**Stella:** That is a great point. So to summarize today's lesson: income can come from dividends, bonds, REITs, options, and other sources. Total return often matters more than yield. The 4% rule is a guideline, not a guarantee. Tax efficiency is huge -- put the right assets in the right accounts. Diversify across income sources. And keep a cash buffer to avoid forced selling during downturns.
 
-**Alex:** Perfect summary. And I would add: start building your income skills before you need the income. Buy dividend growth stocks in your 40s and 50s so they are generating meaningful income by the time you retire. The compounding of dividend growth is a powerful force that rewards patience.
+**Horace:** Perfect summary. And I would add: start building your income skills before you need the income. Buy dividend growth stocks in your 40s and 50s so they are generating meaningful income by the time you retire. The compounding of dividend growth is a powerful force that rewards patience.
 
-**Sam:** Thank you, Alex. This four-week block -- credit analysis, rate sensitivity, financial statement analysis, and income portfolio construction -- really ties together beautifully. Each lesson builds on the others.
+**Stella:** Thank you, Horace. This four-week block -- credit analysis, rate sensitivity, financial statement analysis, and income portfolio construction -- really ties together beautifully. Each lesson builds on the others.
 
-**Alex:** That was intentional. You cannot build a good income portfolio without understanding credit quality, interest rate sensitivity, and earnings quality. These are all connected. Investing is not about isolated skills -- it is about integrating knowledge across disciplines.
+**Horace:** That was intentional. You cannot build a good income portfolio without understanding credit quality, interest rate sensitivity, and earnings quality. These are all connected. Investing is not about isolated skills -- it is about integrating knowledge across disciplines.
 
-**Sam:** Absolutely. Thanks everyone for watching. We will be back next week with more investment education.
+**Stella:** Absolutely. Thanks everyone for watching. We will be back next week with more investment education.
 
-**Alex:** See you then.
+**Horace:** See you then.
 
 **[VISUAL: End card with key takeaways:
 1. Diversify income sources: dividends, bonds, REITs, options, preferred stock

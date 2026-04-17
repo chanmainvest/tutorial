@@ -634,170 +634,170 @@ A: International REITs add another dimension of diversification -- exposure to f
 
 [VISUAL: Animated intro with title "Week 22: Currency and International Diversification" with a spinning globe graphic]
 
-**Alex:** Welcome back. Today we are talking about a mistake that almost every investor makes, and most do not even realize it. It is called home bias, and it could be costing you significant returns and exposing you to unnecessary risk.
+**Horace:** Welcome back. Today we are talking about a mistake that almost every investor makes, and most do not even realize it. It is called home bias, and it could be costing you significant returns and exposing you to unnecessary risk.
 
-**Sam:** Home bias? Does that mean investing too much in your own country?
+**Stella:** Home bias? Does that mean investing too much in your own country?
 
-**Alex:** Exactly. The average American investor puts about 78% of their stock allocation into US stocks. But the US is only about 60% of the global stock market. That means American investors are significantly overweight their home market.
+**Horace:** Exactly. The average American investor puts about 78% of their stock allocation into US stocks. But the US is only about 60% of the global stock market. That means American investors are significantly overweight their home market.
 
-**Sam:** But the US market has been crushing it for the last decade-plus. Why would I want to invest anywhere else?
+**Stella:** But the US market has been crushing it for the last decade-plus. Why would I want to invest anywhere else?
 
-**Alex:** And there it is -- that is exactly the thinking that creates the bias. Let me show you something that might change your perspective.
+**Horace:** And there it is -- that is exactly the thinking that creates the bias. Let me show you something that might change your perspective.
 
 [VISUAL: Chart showing rolling 10-year returns of US vs. international stocks from 1970 to present. Bars alternate showing which region won each decade, demonstrating that leadership rotates.]
 
-**Alex:** From 2010 to 2020, yes, the US dramatically outperformed international stocks. But from 2000 to 2009 -- the so-called "lost decade" -- the S&P 500 returned essentially zero. International stocks delivered positive returns over the same period. Go back further to the 1970s and 1980s, and international stocks, especially Japan, massively outperformed the US.
+**Horace:** From 2010 to 2020, yes, the US dramatically outperformed international stocks. But from 2000 to 2009 -- the so-called "lost decade" -- the S&P 500 returned essentially zero. International stocks delivered positive returns over the same period. Go back further to the 1970s and 1980s, and international stocks, especially Japan, massively outperformed the US.
 
-**Sam:** So performance leadership rotates between regions?
+**Stella:** So performance leadership rotates between regions?
 
-**Alex:** It does, and the tricky part is that you cannot predict when the rotation will happen. The time to diversify internationally is before the US starts underperforming, not after. By then, international stocks have already rallied and the opportunity has shrunk.
+**Horace:** It does, and the tricky part is that you cannot predict when the rotation will happen. The time to diversify internationally is before the US starts underperforming, not after. By then, international stocks have already rallied and the opportunity has shrunk.
 
 [VISUAL: Timeline showing dominant market regions by decade, with question marks for the current decade]
 
-**Sam:** That makes sense. But I hear people say "US companies like Apple and Google already sell globally, so I already have international exposure."
+**Stella:** That makes sense. But I hear people say "US companies like Apple and Google already sell globally, so I already have international exposure."
 
-**Alex:** That is one of the most common misconceptions, and it sounds logical but does not hold up. Yes, Apple sells iPhones in Tokyo and Munich. But Apple's stock price is driven by the US market, US interest rates, US investor sentiment, and the US dollar. If you compare the price behavior of Apple to that of, say, a European luxury goods company like LVMH, they move very differently despite both being global businesses.
+**Horace:** That is one of the most common misconceptions, and it sounds logical but does not hold up. Yes, Apple sells iPhones in Tokyo and Munich. But Apple's stock price is driven by the US market, US interest rates, US investor sentiment, and the US dollar. If you compare the price behavior of Apple to that of, say, a European luxury goods company like LVMH, they move very differently despite both being global businesses.
 
 [ANIMATION: animation/week22_currency_impact.py - Two animated line charts side by side. One shows a US multinational and one shows a European multinational. Both sell globally, but their stock prices behave differently, with correlation highlighted. The animation then shows the portfolio volatility of holding both versus just one, demonstrating the diversification benefit.]
 
-**Sam:** Okay, I am starting to see why diversification matters. But what about the currency issue? That seems complicated.
+**Stella:** Okay, I am starting to see why diversification matters. But what about the currency issue? That seems complicated.
 
-**Alex:** Currency is actually simpler than people think. When you buy a foreign stock, you are making two bets at once. Let me break it down with an example.
+**Horace:** Currency is actually simpler than people think. When you buy a foreign stock, you are making two bets at once. Let me break it down with an example.
 
-**Sam:** Go for it.
+**Stella:** Go for it.
 
-**Alex:** Say you buy a European stock ETF. European stocks go up 8% in euro terms. Great. But you are a US investor, so you need to convert back to dollars. If the euro also strengthened 5% against the dollar during that time, your total return is approximately 13%. The stock return plus the currency return.
+**Horace:** Say you buy a European stock ETF. European stocks go up 8% in euro terms. Great. But you are a US investor, so you need to convert back to dollars. If the euro also strengthened 5% against the dollar during that time, your total return is approximately 13%. The stock return plus the currency return.
 
-**Sam:** Oh, so the currency helped me!
+**Stella:** Oh, so the currency helped me!
 
-**Alex:** In this case, yes. But it works the other way too. Let us say Japanese stocks go up 10% in yen terms, but the yen weakened 7% against the dollar. Your return in dollars is only about 3%. You made money on the stocks but lost some of it on the currency.
+**Horace:** In this case, yes. But it works the other way too. Let us say Japanese stocks go up 10% in yen terms, but the yen weakened 7% against the dollar. Your return in dollars is only about 3%. You made money on the stocks but lost some of it on the currency.
 
 [VISUAL: Animated equation showing: Local Return + Currency Return = Total Return, with three examples using different currencies showing positive, negative, and neutral currency effects]
 
-**Sam:** So currency can really make or break your international returns.
+**Stella:** So currency can really make or break your international returns.
 
-**Alex:** In the short run, absolutely. Currency movements can add or subtract 5% to 15% in a given year. But here is the important thing -- over very long periods, like 15 to 20 years, currency effects tend to wash out. Currencies mean-revert over time. So for a long-term investor, currency risk is less of a concern than it feels.
+**Horace:** In the short run, absolutely. Currency movements can add or subtract 5% to 15% in a given year. But here is the important thing -- over very long periods, like 15 to 20 years, currency effects tend to wash out. Currencies mean-revert over time. So for a long-term investor, currency risk is less of a concern than it feels.
 
-**Sam:** That is reassuring. But what about emerging market currencies? I have heard those can be really volatile.
+**Stella:** That is reassuring. But what about emerging market currencies? I have heard those can be really volatile.
 
-**Alex:** They can. The Turkish lira lost over 80% of its value from 2018 to 2023. The Argentine peso has been in constant decline for years. These are extreme cases, but emerging market currencies are genuinely riskier than developed market currencies. This is one reason emerging market investments are more volatile overall.
+**Horace:** They can. The Turkish lira lost over 80% of its value from 2018 to 2023. The Argentine peso has been in constant decline for years. These are extreme cases, but emerging market currencies are genuinely riskier than developed market currencies. This is one reason emerging market investments are more volatile overall.
 
 [VISUAL: Chart showing the performance of several emerging market currencies vs. the US dollar over 10 years, highlighting extreme moves in Turkish lira, Argentine peso, and Brazilian real]
 
-**Sam:** Okay, let us talk about how to actually invest internationally. What are my options?
+**Stella:** Okay, let us talk about how to actually invest internationally. What are my options?
 
-**Alex:** You have three main vehicles. First, ADRs -- American Depositary Receipts. These are foreign shares that have been repackaged to trade on US exchanges in US dollars. Toyota, Nestle, TSMC, Alibaba -- they all have ADRs. You buy and sell them just like any US stock.
+**Horace:** You have three main vehicles. First, ADRs -- American Depositary Receipts. These are foreign shares that have been repackaged to trade on US exchanges in US dollars. Toyota, Nestle, TSMC, Alibaba -- they all have ADRs. You buy and sell them just like any US stock.
 
-**Sam:** That sounds easy. Is there a catch?
+**Stella:** That sounds easy. Is there a catch?
 
-**Alex:** A few small ones. First, the selection is limited -- only large, well-known foreign companies have ADRs. Second, you still have currency risk -- the ADR price tracks the foreign share price and the exchange rate. Third, there is a small ADR fee charged against your dividends.
+**Horace:** A few small ones. First, the selection is limited -- only large, well-known foreign companies have ADRs. Second, you still have currency risk -- the ADR price tracks the foreign share price and the exchange rate. Third, there is a small ADR fee charged against your dividends.
 
-**Sam:** And the second option?
+**Stella:** And the second option?
 
-**Alex:** International ETFs. This is how most investors get their international exposure, and it is the approach I recommend. You can buy broad international ETFs that cover all developed markets outside the US, or all emerging markets, or even specific countries. The costs are very low -- 0.05% to 0.25% per year depending on the fund.
+**Horace:** International ETFs. This is how most investors get their international exposure, and it is the approach I recommend. You can buy broad international ETFs that cover all developed markets outside the US, or all emerging markets, or even specific countries. The costs are very low -- 0.05% to 0.25% per year depending on the fund.
 
 [VISUAL: Tree diagram showing international ETF categories: Total International at the top, branching into Developed and Emerging, with Developed further branching into specific countries/regions]
 
-**Sam:** What are the big ones to know about?
+**Stella:** What are the big ones to know about?
 
-**Alex:** For developed international, the most popular are VEA and IEFA. For emerging markets, VWO and IEMG. For a single fund covering everything non-US, VXUS is excellent -- it holds both developed and emerging markets in market-cap proportions.
+**Horace:** For developed international, the most popular are VEA and IEFA. For emerging markets, VWO and IEMG. For a single fund covering everything non-US, VXUS is excellent -- it holds both developed and emerging markets in market-cap proportions.
 
-**Sam:** And the third option?
+**Stella:** And the third option?
 
-**Alex:** Buying directly on foreign stock exchanges. This is for advanced investors who have brokerage accounts with international access. You would be buying stocks in euros, yen, or pounds, dealing with different trading hours, and navigating foreign tax rules. For most people, ETFs are the superior choice.
+**Horace:** Buying directly on foreign stock exchanges. This is for advanced investors who have brokerage accounts with international access. You would be buying stocks in euros, yen, or pounds, dealing with different trading hours, and navigating foreign tax rules. For most people, ETFs are the superior choice.
 
-**Sam:** Let us talk about this hedging thing. I have seen ETFs that say "currency hedged" in the name. What does that mean?
+**Stella:** Let us talk about this hedging thing. I have seen ETFs that say "currency hedged" in the name. What does that mean?
 
-**Alex:** Great question. A currency-hedged ETF uses financial contracts called forwards to neutralize the currency effect. So if you own a hedged European stock ETF, you get the local stock market return without the euro-dollar exchange rate affecting your result.
+**Horace:** Great question. A currency-hedged ETF uses financial contracts called forwards to neutralize the currency effect. So if you own a hedged European stock ETF, you get the local stock market return without the euro-dollar exchange rate affecting your result.
 
-**Sam:** That sounds like it removes risk. Why would anyone not hedge?
+**Stella:** That sounds like it removes risk. Why would anyone not hedge?
 
-**Alex:** Two reasons. First, hedging costs money. The cost is approximately equal to the interest rate differential between the two countries. Right now, if US interest rates are higher than European rates by 2%, hedging a European ETF costs you about 2% per year in reduced returns. That is a big drag.
+**Horace:** Two reasons. First, hedging costs money. The cost is approximately equal to the interest rate differential between the two countries. Right now, if US interest rates are higher than European rates by 2%, hedging a European ETF costs you about 2% per year in reduced returns. That is a big drag.
 
 [VISUAL: Side-by-side comparison showing returns of a hedged vs unhedged European ETF over time, with the hedging cost visible as a gap between them during periods of stable exchange rates]
 
-**Alex:** Second, currency exposure provides its own diversification. The US dollar does not always go up. During periods of dollar weakness -- which happen regularly -- your unhedged international investments get a nice boost. By hedging, you eliminate that potential benefit along with the risk.
+**Horace:** Second, currency exposure provides its own diversification. The US dollar does not always go up. During periods of dollar weakness -- which happen regularly -- your unhedged international investments get a nice boost. By hedging, you eliminate that potential benefit along with the risk.
 
-**Sam:** So what is the recommendation?
+**Stella:** So what is the recommendation?
 
-**Alex:** For long-term equity investors, most academic research and most practitioners recommend leaving your international stock exposure unhedged. The costs of hedging and the loss of currency diversification outweigh the volatility reduction over long horizons. For bonds, the recommendation flips -- hedge your international bonds, because bond returns are small and currency volatility can easily overwhelm them.
+**Horace:** For long-term equity investors, most academic research and most practitioners recommend leaving your international stock exposure unhedged. The costs of hedging and the loss of currency diversification outweigh the volatility reduction over long horizons. For bonds, the recommendation flips -- hedge your international bonds, because bond returns are small and currency volatility can easily overwhelm them.
 
-**Sam:** That is a clean rule of thumb. Unhedged for stocks, hedged for bonds.
+**Stella:** That is a clean rule of thumb. Unhedged for stocks, hedged for bonds.
 
-**Alex:** Exactly. Now, there is one more concept I want to cover -- purchasing power parity, or PPP.
+**Horace:** Exactly. Now, there is one more concept I want to cover -- purchasing power parity, or PPP.
 
-**Sam:** What is that?
+**Stella:** What is that?
 
-**Alex:** PPP is the idea that exchange rates should eventually adjust so that the same goods cost the same in different countries. The most famous version is The Economist's Big Mac Index. If a Big Mac costs $5.50 in the US and the equivalent of $3.50 in Japan after converting at current exchange rates, PPP theory says the yen is undervalued -- it should strengthen until Big Macs cost the same everywhere.
+**Horace:** PPP is the idea that exchange rates should eventually adjust so that the same goods cost the same in different countries. The most famous version is The Economist's Big Mac Index. If a Big Mac costs $5.50 in the US and the equivalent of $3.50 in Japan after converting at current exchange rates, PPP theory says the yen is undervalued -- it should strengthen until Big Macs cost the same everywhere.
 
 [VISUAL: World map showing Big Mac prices in different countries, color-coded by whether the local currency is overvalued or undervalued relative to the US dollar]
 
-**Sam:** Does it actually work?
+**Stella:** Does it actually work?
 
-**Alex:** As a short-term trading signal, no. Currencies can stay far from PPP for years. But as a long-term anchor, yes. Currencies that are significantly undervalued relative to PPP tend to strengthen over periods of 5 to 15 years, and vice versa. So if you are making a long-term international investment, PPP can help you identify currencies that might provide a tailwind.
+**Horace:** As a short-term trading signal, no. Currencies can stay far from PPP for years. But as a long-term anchor, yes. Currencies that are significantly undervalued relative to PPP tend to strengthen over periods of 5 to 15 years, and vice versa. So if you are making a long-term international investment, PPP can help you identify currencies that might provide a tailwind.
 
-**Sam:** Let us bring it all together. How much of my portfolio should be international?
+**Stella:** Let us bring it all together. How much of my portfolio should be international?
 
-**Alex:** There are different schools of thought. A strict market-cap approach would say about 40% international -- because the US is about 60% of the global market. A more conservative approach, which is what most financial advisors recommend, is 20% to 40% international.
+**Horace:** There are different schools of thought. A strict market-cap approach would say about 40% international -- because the US is about 60% of the global market. A more conservative approach, which is what most financial advisors recommend, is 20% to 40% international.
 
 [VISUAL: Three portfolio pie charts showing different international allocations:
 1. Conservative: 70% US, 20% Developed Int'l, 10% Emerging
 2. Moderate: 60% US, 25% Developed Int'l, 15% Emerging
 3. Aggressive: 50% US, 30% Developed Int'l, 20% Emerging]
 
-**Alex:** My suggestion for a starting point is 60% US, 25% developed international, and 15% emerging markets. Then adjust based on your views and comfort level. The most important thing is having some meaningful international exposure -- not the exact percentage.
+**Horace:** My suggestion for a starting point is 60% US, 25% developed international, and 15% emerging markets. Then adjust based on your views and comfort level. The most important thing is having some meaningful international exposure -- not the exact percentage.
 
-**Sam:** What about the split between developed and emerging?
+**Stella:** What about the split between developed and emerging?
 
-**Alex:** Developed international markets -- Europe, Japan, Australia, Canada -- are your core international holding. They are stable, well-regulated, and provide solid diversification. Emerging markets are your growth engine and correlation diversifier, but they come with higher volatility and additional risks like political instability and weaker governance. A ratio of roughly 2:1 developed to emerging is a reasonable starting point.
+**Horace:** Developed international markets -- Europe, Japan, Australia, Canada -- are your core international holding. They are stable, well-regulated, and provide solid diversification. Emerging markets are your growth engine and correlation diversifier, but they come with higher volatility and additional risks like political instability and weaker governance. A ratio of roughly 2:1 developed to emerging is a reasonable starting point.
 
-**Sam:** Can we talk about some practical considerations? Like, what about withholding taxes on international dividends?
+**Stella:** Can we talk about some practical considerations? Like, what about withholding taxes on international dividends?
 
-**Alex:** Important topic. Most countries withhold tax on dividends paid to foreign investors. For example, if you own a German stock ETF, Germany withholds about 26% of your dividends before you receive them. The US has tax treaties with many countries that reduce this rate, and you can claim a Foreign Tax Credit on your US tax return to avoid double taxation.
+**Horace:** Important topic. Most countries withhold tax on dividends paid to foreign investors. For example, if you own a German stock ETF, Germany withholds about 26% of your dividends before you receive them. The US has tax treaties with many countries that reduce this rate, and you can claim a Foreign Tax Credit on your US tax return to avoid double taxation.
 
-**Sam:** So I get the money back?
+**Stella:** So I get the money back?
 
-**Alex:** In a taxable brokerage account, yes -- you claim the credit and it reduces your US tax bill dollar-for-dollar. But in a tax-advantaged account like an IRA or 401k, you cannot claim the credit. The withholding is just lost. This is why many advisors suggest holding international funds in taxable accounts and domestic funds in tax-advantaged accounts, all else equal.
+**Horace:** In a taxable brokerage account, yes -- you claim the credit and it reduces your US tax bill dollar-for-dollar. But in a tax-advantaged account like an IRA or 401k, you cannot claim the credit. The withholding is just lost. This is why many advisors suggest holding international funds in taxable accounts and domestic funds in tax-advantaged accounts, all else equal.
 
 [VISUAL: Flow chart showing foreign dividend tax treatment in taxable vs. tax-advantaged accounts, with the "lost" withholding highlighted for IRA/401k]
 
-**Sam:** That is a really practical tip. What about the actual process of buying international stocks -- do I need to worry about time zones and currency conversion?
+**Stella:** That is a really practical tip. What about the actual process of buying international stocks -- do I need to worry about time zones and currency conversion?
 
-**Alex:** If you are using ETFs -- which I recommend for most investors -- you do not need to worry about any of that. International ETFs trade on US exchanges during US market hours in US dollars. The ETF provider handles all the currency conversion, custodial arrangements, and foreign market access internally. It is completely seamless from your perspective.
+**Horace:** If you are using ETFs -- which I recommend for most investors -- you do not need to worry about any of that. International ETFs trade on US exchanges during US market hours in US dollars. The ETF provider handles all the currency conversion, custodial arrangements, and foreign market access internally. It is completely seamless from your perspective.
 
-**Sam:** And if I wanted to buy individual foreign stocks?
+**Stella:** And if I wanted to buy individual foreign stocks?
 
-**Alex:** Then you have three options. First, buy ADRs on US exchanges -- same convenience as US stocks. Second, use a brokerage that offers international market access -- firms like Interactive Brokers let you trade directly on foreign exchanges in foreign currencies. You will deal with different trading hours, currency conversion fees, and foreign settlement procedures. Third, some brokerages offer fractional international shares. For most individual investors, ADRs or international ETFs are the path of least resistance.
+**Horace:** Then you have three options. First, buy ADRs on US exchanges -- same convenience as US stocks. Second, use a brokerage that offers international market access -- firms like Interactive Brokers let you trade directly on foreign exchanges in foreign currencies. You will deal with different trading hours, currency conversion fees, and foreign settlement procedures. Third, some brokerages offer fractional international shares. For most individual investors, ADRs or international ETFs are the path of least resistance.
 
 [VISUAL: Comparison table showing three methods of accessing foreign stocks: ETFs (easiest, cheapest), ADRs (easy, limited selection), Direct Foreign Trading (most control, most complex)]
 
-**Sam:** Let me ask about something I have seen in the news -- the carry trade. How does that relate to currency investing?
+**Stella:** Let me ask about something I have seen in the news -- the carry trade. How does that relate to currency investing?
 
-**Alex:** The carry trade is when investors borrow in a low-interest-rate currency and invest in a high-interest-rate currency to capture the rate differential. For years, hedge funds borrowed in Japanese yen (near-zero interest rates) and invested in Australian dollars or emerging market currencies (higher rates). It works beautifully until the low-rate currency suddenly strengthens, wiping out months or years of carry in days.
+**Horace:** The carry trade is when investors borrow in a low-interest-rate currency and invest in a high-interest-rate currency to capture the rate differential. For years, hedge funds borrowed in Japanese yen (near-zero interest rates) and invested in Australian dollars or emerging market currencies (higher rates). It works beautifully until the low-rate currency suddenly strengthens, wiping out months or years of carry in days.
 
-**Sam:** And this affects regular investors how?
+**Stella:** And this affects regular investors how?
 
-**Alex:** When carry trades unwind -- usually during market stress -- it can cause sudden, violent currency movements that affect your international investments. The yen can surge 10% in a week as carry trades are reversed, boosting your Japanese stock returns if you are unhedged. Understanding carry trades helps you interpret sudden currency moves that might otherwise seem random.
+**Horace:** When carry trades unwind -- usually during market stress -- it can cause sudden, violent currency movements that affect your international investments. The yen can surge 10% in a week as carry trades are reversed, boosting your Japanese stock returns if you are unhedged. Understanding carry trades helps you interpret sudden currency moves that might otherwise seem random.
 
 [VISUAL: Diagram showing carry trade mechanics: borrow yen at 0.5%, invest in Australian dollars at 4.5%, earn 4% spread -- then showing the "unwind" when yen surges and losses wipe out carry profits]
 
-**Sam:** One last question. I know you said performance leadership rotates. Right now, lots of people are bullish on India and skeptical of China. Should I tilt my emerging markets allocation?
+**Stella:** One last question. I know you said performance leadership rotates. Right now, lots of people are bullish on India and skeptical of China. Should I tilt my emerging markets allocation?
 
-**Alex:** You can, but be careful. Country-specific bets in emerging markets are inherently risky. India has great demographics and growth potential, but Indian stocks are also expensive on a valuation basis. China has governance and geopolitical risks, but Chinese stocks are very cheap. The consensus is already priced in. When everyone agrees that a particular country is the obvious winner, the easy money has often already been made.
+**Horace:** You can, but be careful. Country-specific bets in emerging markets are inherently risky. India has great demographics and growth potential, but Indian stocks are also expensive on a valuation basis. China has governance and geopolitical risks, but Chinese stocks are very cheap. The consensus is already priced in. When everyone agrees that a particular country is the obvious winner, the easy money has often already been made.
 
 [VISUAL: Valuation comparison chart showing P/E ratios of major emerging markets, highlighting the gap between "popular" (expensive) and "unpopular" (cheap) countries]
 
-**Alex:** My advice is to start with a broad emerging markets ETF that diversifies across many countries, and only add country-specific tilts if you have done deep research and have strong conviction.
+**Horace:** My advice is to start with a broad emerging markets ETF that diversifies across many countries, and only add country-specific tilts if you have done deep research and have strong conviction.
 
-**Sam:** This has been really eye-opening, Alex. I have been way too US-focused.
+**Stella:** This has been really eye-opening, Horace. I have been way too US-focused.
 
-**Alex:** You are not alone. Most investors are. The good news is that fixing it is easy -- one or two international ETFs and you have dramatically improved your diversification. The key insight is this: diversification is the only free lunch in investing. International stocks give you access to that free lunch.
+**Horace:** You are not alone. Most investors are. The good news is that fixing it is easy -- one or two international ETFs and you have dramatically improved your diversification. The key insight is this: diversification is the only free lunch in investing. International stocks give you access to that free lunch.
 
-**Sam:** No one should leave free lunch on the table.
+**Stella:** No one should leave free lunch on the table.
 
-**Alex:** Exactly. Next week, we are diving into factor investing -- what drives stock returns beyond just the market going up. Value, momentum, quality, size -- these are the building blocks of sophisticated portfolio construction.
+**Horace:** Exactly. Next week, we are diving into factor investing -- what drives stock returns beyond just the market going up. Value, momentum, quality, size -- these are the building blocks of sophisticated portfolio construction.
 
-**Sam:** That sounds fascinating. Thanks everyone for watching, and we will see you next week!
+**Stella:** That sounds fascinating. Thanks everyone for watching, and we will see you next week!
 
 [VISUAL: End screen with subscribe button, key takeaway bullet points, and preview of Week 23 Factor Investing]
 

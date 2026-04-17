@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Chanma Investment Tutorial</title>
+    <style>
+:root {
+    --bg: #fafbfc;
+    --text: #2d3748;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f7fafc;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1f5f9;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --success: #38a169;
+    --warning: #d69e2e;
+    --gold: #c5a44e;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 0;
+}
+
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-brand .brand-icon {
+    font-size: 1.4rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-link, .dropdown-trigger {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s;
+}
+
+.nav-link:hover, .dropdown-trigger:hover {
+    background: var(--nav-hover);
+}
+
+.arrow { font-size: 0.7rem; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    min-width: 320px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    z-index: 200;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
+
+.dropdown-content a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+/* Language selector in nav */
+.lang-selector {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+}
+
+.lang-btn:hover { opacity: 1; }
+
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Mobile hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
+
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.breadcrumb-inner a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb-inner a:hover { text-decoration: underline; }
+
+.bc-sep { color: #a0aec0; margin: 0 4px; }
+
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+.content-area { }
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) { background: #f8fafc; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+p code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+
+.nav-btn-text { display: flex; flex-direction: column; }
+
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: 8px;
+    }
+    .nav-menu.open .nav-dropdown { width: 100%; }
+    .nav-menu.open .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0,0,0,0.1);
+        border-radius: 0;
+        max-height: 300px;
+    }
+    .nav-menu.open .dropdown-content a {
+        color: var(--nav-text);
+        border-bottom-color: rgba(255,255,255,0.1);
+        padding-left: 32px;
+    }
+    .hamburger { display: block; }
+    .lang-selector { margin-left: 0; padding: 8px 14px; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                Chanma Investment
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <div class="nav-menu">
+                <div class="nav-dropdown"><a href="index.html" class="nav-link">Home</a></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 1 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level1.html">Level 1: Foundation Overview</a><a href="week01.html">Week 1: Why invest</a><a href="week02.html">Week 2: Index funds etfs</a><a href="week03.html">Week 3: Risk and return</a><a href="week04.html">Week 4: Sixty forty</a><a href="week05.html">Week 5: Bonds</a><a href="week06.html">Week 6: Gold commodities</a><a href="week07.html">Week 7: Rebalancing</a><a href="week08.html">Week 8: Financial statements</a><a href="week09.html">Week 9: Market indexes</a><a href="week10.html">Week 10: Economic cycles</a><a href="week11.html">Week 11: Behavioral biases</a><a href="week12.html">Week 12: First portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 2 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level2.html">Level 2: Intermediate Overview</a><a href="week13.html">Week 13: Long short</a><a href="week14.html">Week 14: Pair trading</a><a href="week15.html">Week 15: Multi asset</a><a href="week16.html">Week 16: Sector rotation</a><a href="week17.html">Week 17: Performance metrics</a><a href="week18.html">Week 18: Interest rates</a><a href="week19.html">Week 19: Corporate finance</a><a href="week20.html">Week 20: Earnings cashflow</a><a href="week21.html">Week 21: Equity valuation</a><a href="week22.html">Week 22: Currency international</a><a href="week23.html">Week 23: Factor investing</a><a href="week24.html">Week 24: Multi strategy</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 3 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level3.html">Level 3: Advanced Overview</a><a href="week25.html">Week 25: Intro options</a><a href="week26.html">Week 26: Options as orders</a><a href="week27.html">Week 27: Covered calls</a><a href="week28.html">Week 28: Cash secured puts</a><a href="week29.html">Week 29: Option greeks</a><a href="week30.html">Week 30: Spreads condors</a><a href="week31.html">Week 31: Yield curves</a><a href="week32.html">Week 32: Duration convexity</a><a href="week33.html">Week 33: Credit analysis</a><a href="week34.html">Week 34: Rate sensitivity</a><a href="week35.html">Week 35: Advanced fsa</a><a href="week36.html">Week 36: Income portfolio</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 4 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level4.html">Level 4: Sophisticated Overview</a><a href="week37.html">Week 37: Options leverage</a><a href="week38.html">Week 38: Leaps</a><a href="week39.html">Week 39: Futures</a><a href="week40.html">Week 40: Vix volatility</a><a href="week41.html">Week 41: Risk management</a><a href="week42.html">Week 42: Var risk models</a><a href="week43.html">Week 43: Active management</a><a href="week44.html">Week 44: Microstructure</a><a href="week45.html">Week 45: Quant methods</a><a href="week46.html">Week 46: Backtesting</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Level 5 <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="level5.html">Level 5: Expert Overview</a><a href="week47.html">Week 47: Tail risk</a><a href="week48.html">Week 48: Structured products</a><a href="week49.html">Week 49: Vol arbitrage</a><a href="week50.html">Week 50: Factor tilts</a><a href="week51.html">Week 51: Managed futures</a><a href="week52.html">Week 52: Integration</a></div></div><div class="nav-dropdown"><button class="nav-link dropdown-trigger">Side Lessons <span class="arrow">&#9662;</span></button><div class="dropdown-content"><a href="side01.html">Side 1: Calculator</a><a href="side02.html">Side 2: 10k filing</a><a href="side03.html">Side 3: Etf mechanics</a><a href="side04.html">Side 4: Tax efficiency</a><a href="side05.html">Side 5: Dca vs lump</a><a href="side06.html">Side 6: Inflation</a><a href="side07.html">Side 7: Reits</a><a href="side08.html">Side 8: Fund fees</a><a href="side09.html">Side 9: Crypto</a><a href="side10.html">Side 10: Dividends</a><a href="side11.html">Side 11: Retirement accounts</a><a href="side12.html">Side 12: Esg</a><a href="side13.html">Side 13: Ipos</a><a href="side14.html">Side 14: Private markets</a><a href="side15.html">Side 15: Trading psychology</a><a href="side16.html">Side 16: Market history</a><a href="side17.html">Side 17: Fed policy</a><a href="side18.html">Side 18: Global markets</a><a href="side19.html">Side 19: Correlation math</a><a href="side20.html">Side 20: Greeks deep dive</a><a href="side21.html">Side 21: Margin leverage</a><a href="side22.html">Side 22: Commodities</a><a href="side23.html">Side 23: Technical analysis</a><a href="side24.html">Side 24: Monitoring tools</a><a href="side25.html">Side 25: Hedge funds</a><a href="side26.html">Side 26: Market liquidity</a><a href="side27.html">Side 27: Watchlist screening</a><a href="side28.html">Side 28: Monte carlo</a><a href="side29.html">Side 29: Currency hedging</a><a href="side30.html">Side 30: Wheel strategy</a></div></div><div class="nav-dropdown"><a href="disclaimer.html" class="nav-link">Disclaimer</a></div><div class="nav-dropdown"><a href="faq.html" class="nav-link">FAQ</a></div>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="EN">🇬🇧</button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="HK">🇭🇰</button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="TW">🇹🇼</button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="CN">🇨🇳</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <span>Disclaimer</span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Disclaimer</h1>
+<hr>
+<h2>Important Legal Notice</h2>
+<p>
+The information provided in this course, including all written materials, YouTube videos, animations, and supplementary content, is for <strong>educational and informational purposes only</strong>. Nothing in this course constitutes financial advice, investment advice, tax advice, or legal advice.
+</p>
+<hr>
+<h2>No Professional Advice</h2>
+<p>
+The course creator, Horace (陳馬), is a retail investor sharing personal knowledge and experience. He is <strong>not</strong> a registered financial advisor, licensed broker-dealer, certified financial planner, or investment professional. The content presented reflects personal opinions and educational interpretations of publicly available financial concepts.
+</p>
+<p>
+You should always consult with a qualified financial advisor, tax professional, or legal counsel before making any investment decisions. Your personal financial situation is unique, and generic educational content cannot substitute for personalized professional advice.
+</p>
+<hr>
+<h2>No Guarantees of Returns</h2>
+<p>
+Past performance of any investment, strategy, or asset class discussed in this course does <strong>not</strong> guarantee future results. All investing involves risk, including the potential loss of principal. Historical returns, backtesting results, and hypothetical examples are presented for educational purposes and should not be interpreted as predictions or promises of future performance.
+</p>
+<p>
+The financial markets are inherently unpredictable. Any strategy, no matter how well-researched, can result in losses.
+</p>
+<hr>
+<h2>Risk Disclosure</h2>
+<ul><li><strong>Stock market investments</strong> can lose value, including the entire amount invested.</li>
+<li><strong>Options trading</strong> involves significant risk and is not suitable for all investors. Options can expire worthless, resulting in a total loss of the premium paid.</li>
+<li><strong>Futures trading</strong> involves substantial risk of loss and is not appropriate for all investors. Leverage in futures can magnify both gains and losses.</li>
+<li><strong>International investments</strong> carry additional risks including currency fluctuation, political instability, and differing accounting standards.</li>
+<li><strong>Alternative investments</strong> (commodities, REITs, crypto) may be illiquid, volatile, and subject to unique risks not covered in traditional analysis.</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>No Liability</h2>
+<p>
+The course creator and all associated parties shall <strong>not</strong> be held liable for any losses, damages, or costs arising from:
+</p>
+<ul><li>Any investment decisions made based on information in this course</li>
+<li>Errors or omissions in the course materials</li>
+<li>Changes in market conditions, regulations, or tax laws</li>
+<li>Technical issues with any tools, calculators, or platforms mentioned</li>
+<p>
+</ul>
+You are solely responsible for your own investment decisions and their outcomes.
+</p>
+<hr>
+<h2>Third-Party References</h2>
+<p>
+This course may reference specific companies, products, brokerages, ETFs, or financial instruments. These references are for educational illustration only and do <strong>not</strong> constitute endorsements or recommendations. The course creator does not receive compensation from any mentioned company or product unless explicitly disclosed.
+</p>
+<hr>
+<h2>Accuracy and Currency</h2>
+<p>
+While every effort has been made to ensure the accuracy of the information presented, financial markets, regulations, and tax laws change frequently. The course content reflects information available at the time of creation and may not reflect the most current developments. Always verify critical information with current, authoritative sources before acting on it.
+</p>
+<hr>
+<h2>Your Responsibility</h2>
+<p>
+By using this course, you acknowledge and agree that:
+</p>
+<li>You understand that this is educational content, not financial advice.</li>
+<li>You will conduct your own research before making any investment decisions.</li>
+<li>You accept full responsibility for your investment decisions and outcomes.</li>
+<li>You will consult qualified professionals for advice specific to your situation.</li>
+<li>You understand the risks involved in investing, including the possibility of losing your entire investment.</li>
+<hr>
+<p>
+<em>This course is provided under the MIT License. The educational content is shared freely for learning purposes. Use it wisely, invest responsibly, and never risk money you cannot afford to lose.</em>
+</p>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>免責聲明</h1>
+<hr>
+<h2>重要法律聲明</h2>
+<p>
+本課程提供的所有資訊，包括所有書面材料、YouTube 影片、動畫及補充內容，僅供<strong>教育及參考用途</strong>。本課程的任何內容均不構成財務建議、投資建議、稅務建議或法律建議。
+</p>
+<hr>
+<h2>不構成專業建議</h2>
+<p>
+本課程創作者 Horace（陳馬）是一位以個人身份分享知識與經驗的散戶投資者。他<strong>並非</strong>註冊財務顧問、持牌證券交易商、認可財務策劃師或投資專業人士。所呈現的內容反映個人觀點，以及對公開財務概念的教育性詮釋。
+</p>
+<p>
+在作出任何投資決定之前，您應諮詢合資格的財務顧問、稅務專業人士或法律顧問。您的個人財務狀況具有獨特性，一般教育內容無法取代針對個人情況的專業建議。
+</p>
+<hr>
+<h2>不保證回報</h2>
+<p>
+本課程所討論的任何投資、策略或資產類別的過往表現，<strong>不</strong>保證未來業績。所有投資均涉及風險，包括損失本金的可能性。歷史回報、回測結果及假設性示例僅供教育用途，不應被詮釋為對未來表現的預測或承諾。
+</p>
+<p>
+金融市場本質上難以預測。任何策略，無論研究多麼充分，均可能導致虧損。
+</p>
+<hr>
+<h2>風險披露</h2>
+<ul><li><strong>股票市場投資</strong>可能貶值，包括損失全部投資金額。</li>
+<li><strong>期權交易</strong>涉及重大風險，並不適合所有投資者。期權可能到期變得毫無價值，導致所支付的期權金全部損失。</li>
+<li><strong>期貨交易</strong>涉及重大虧損風險，並不適合所有投資者。期貨的槓桿可同時放大盈利及虧損。</li>
+<li><strong>海外投資</strong>帶有額外風險，包括匯率波動、政治不穩定及不同的會計準則。</li>
+<li><strong>另類投資</strong>（商品、房地產信託基金、加密貨幣）可能流動性較低、波動性較高，並涉及傳統分析未涵蓋的獨特風險。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>免除責任</h2>
+<p>
+本課程創作者及所有相關方，對於因下列情況所引致的任何虧損、損害或費用，<strong>概不</strong>承擔任何責任：
+</p>
+<ul><li>根據本課程資訊所作出的任何投資決定</li>
+<li>課程材料中的錯誤或遺漏</li>
+<li>市場狀況、法規或稅法的變化</li>
+<li>所提及的任何工具、計算器或平台出現技術問題</li>
+<p>
+</ul>
+您須對自己的投資決定及其結果負上全部責任。
+</p>
+<hr>
+<h2>第三方參考資料</h2>
+<p>
+本課程可能提及特定公司、產品、證券行、交易所買賣基金或金融工具。這些參考資料僅供教育說明之用，<strong>不</strong>構成對其的背書或推薦。除非明確披露，否則課程創作者不會就任何所提及的公司或產品收取任何報酬。
+</p>
+<hr>
+<h2>準確性及時效性</h2>
+<p>
+雖然我們已盡力確保所呈現資訊的準確性，但金融市場、法規及稅法時常變化。課程內容反映創作時的可用資訊，未必反映最新發展。在採取任何行動之前，請務必向最新的權威來源核實關鍵資訊。
+</p>
+<hr>
+<h2>您的責任</h2>
+<p>
+使用本課程即代表您確認並同意：
+</p>
+<li>您明白本課程為教育內容，而非財務建議。</li>
+<li>您在作出任何投資決定前，將進行自己的研究。</li>
+<li>您對自己的投資決定及其結果承擔全部責任。</li>
+<li>您將就針對個人情況的建議諮詢合資格的專業人士。</li>
+<li>您了解投資所涉及的風險，包括損失全部投資的可能性。</li>
+<hr>
+<p>
+<em>本課程依據 MIT 授權條款提供。教育內容免費共享，供學習之用。請善用此課程，謹慎投資，切勿以您負擔不起損失的資金進行投資。</em>
+</p>
+            </div>
+            <div id="content-tw" class="lang-content">
+                <h1>免責聲明</h1>
+<hr>
+<h2>重要法律聲明</h2>
+<p>
+本課程提供的所有資訊，包括所有書面教材、YouTube 影片、動畫及補充內容，僅供<strong>教育與資訊參考之用</strong>。本課程內容不構成任何財務建議、投資建議、稅務建議或法律建議。
+</p>
+<hr>
+<h2>非專業建議</h2>
+<p>
+本課程創作者 Horace（陳馬）是一位零售投資者，分享個人知識與經驗。他<strong>並非</strong>已登記的財務顧問、持牌券商、認證財務規劃師或投資專業人士。所呈現的內容反映個人觀點，以及對公開財務概念的教育性詮釋。
+</p>
+<p>
+在做出任何投資決策之前，您應務必諮詢合格的財務顧問、稅務專業人士或法律顧問。每個人的財務狀況各有不同，通用的教育內容無法取代個人化的專業建議。
+</p>
+<hr>
+<h2>不保證報酬</h2>
+<p>
+本課程中討論的任何投資、策略或資產類別的過去表現，<strong>不</strong>保證未來結果。所有投資均涉及風險，包括本金可能全數損失。歷史報酬、回測結果及假設性範例僅供教育目的呈現，不應被解讀為對未來表現的預測或承諾。
+</p>
+<p>
+金融市場本質上難以預測。任何策略，無論研究多麼充分，都可能導致虧損。
+</p>
+<hr>
+<h2>風險揭露</h2>
+<ul><li><strong>股票市場投資</strong>可能貶值，包括全數損失所投入的資金。</li>
+<li><strong>選擇權交易</strong>涉及重大風險，並不適合所有投資人。選擇權可能到期歸零，導致所支付的權利金全數損失。</li>
+<li><strong>期貨交易</strong>涉及重大損失風險，並不適合所有投資人。期貨的槓桿可同時放大獲利與損失。</li>
+<li><strong>國際投資</strong>帶有額外風險，包括匯率波動、政治不穩定，以及不同的會計準則。</li>
+<li><strong>另類投資</strong>（商品、不動產投資信託、加密貨幣）可能流動性不足、波動性高，並受傳統分析未涵蓋的特殊風險影響。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>免除責任</h2>
+<p>
+本課程創作者及所有相關方<strong>不</strong>對因以下原因造成的任何損失、損害或費用承擔責任：
+</p>
+<ul><li>任何基於本課程資訊所做的投資決策</li>
+<li>課程教材中的錯誤或遺漏</li>
+<li>市場狀況、法規或稅法的變化</li>
+<li>所提及的任何工具、計算器或平台的技術問題</li>
+<p>
+</ul>
+您對自己的投資決策及其結果負全部責任。
+</p>
+<hr>
+<h2>第三方參考資料</h2>
+<p>
+本課程可能參考特定公司、產品、券商、指數股票型基金或金融工具。這些參考資料僅供教育說明之用，<strong>不</strong>構成背書或推薦。除非明確揭露，本課程創作者不從任何所提及的公司或產品獲得報酬。
+</p>
+<hr>
+<h2>準確性與時效性</h2>
+<p>
+儘管已盡一切努力確保所呈現資訊的準確性，但金融市場、法規及稅法時常變動。課程內容反映創作當時的可用資訊，可能未能反映最新發展。在據以行動之前，請務必向當前權威來源核實重要資訊。
+</p>
+<hr>
+<h2>您的責任</h2>
+<p>
+使用本課程即表示您確認並同意：
+</p>
+<li>您了解本課程為教育內容，而非財務建議。</li>
+<li>您將在做出任何投資決策前進行自身研究。</li>
+<li>您對自己的投資決策及結果承擔全部責任。</li>
+<li>您將就特定個人情況諮詢合格專業人士。</li>
+<li>您了解投資所涉及的風險，包括可能損失全部投資的可能性。</li>
+<hr>
+<p>
+<em>本課程依 MIT 授權條款提供。教育內容免費共享，供學習使用。善用知識，負責任地投資，切勿以無法承受損失的資金進行投資。</em>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>免责声明</h1>
+<hr>
+<h2>重要法律声明</h2>
+<p>
+本课程提供的信息，包括所有书面材料、YouTube 视频、动画及补充内容，仅供<strong>教育和信息参考之用</strong>。本课程中的任何内容均不构成财务建议、投资建议、税务建议或法律建议。
+</p>
+<hr>
+<h2>非专业建议</h2>
+<p>
+课程创作者 Horace（陳馬）是一位分享个人知识与经验的散户投资者。他<strong>并非</strong>注册理财顾问、持牌经纪交易商、认证理财规划师或投资专业人士。所呈现的内容反映个人观点及对公开金融概念的教育性诠释。
+</p>
+<p>
+在做出任何投资决策之前，您应始终咨询合格的财务顾问、税务专业人士或法律顾问。您的个人财务状况是独特的，通用的教育内容无法替代个性化的专业建议。
+</p>
+<hr>
+<h2>不保证收益</h2>
+<p>
+本课程中讨论的任何投资、策略或资产类别的过往表现，<strong>不</strong>保证未来结果。所有投资均涉及风险，包括本金可能损失的风险。历史收益、回测结果及假设性示例仅供教育目的呈现，不应被解读为对未来表现的预测或承诺。
+</p>
+<p>
+金融市场具有内在的不可预测性。任何策略，无论研究多么充分，都可能导致亏损。
+</p>
+<hr>
+<h2>风险披露</h2>
+<ul><li><strong>股票市场投资</strong>可能贬值，包括损失全部投入金额。</li>
+<li><strong>期权交易</strong>涉及重大风险，并非适合所有投资者。期权可能到期作废，导致所支付期权费的全部损失。</li>
+<li><strong>期货交易</strong>涉及重大亏损风险，并非适合所有投资者。期货中的杠杆可以同时放大收益和损失。</li>
+<li><strong>国际投资</strong>带有额外风险，包括汇率波动、政治不稳定以及不同的会计准则。</li>
+<li><strong>另类投资</strong>（大宗商品、房地产投资信托、加密货币）可能流动性不足、波动性高，并面临传统分析未涵盖的独特风险。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>责任限制</h2>
+<p>
+课程创作者及所有相关方<strong>不</strong>对因以下原因产生的任何损失、损害或费用承担责任：
+</p>
+<ul><li>根据本课程信息作出的任何投资决策</li>
+<li>课程材料中的错误或遗漏</li>
+<li>市场状况、法规或税法的变化</li>
+<li>所提及的任何工具、计算器或平台的技术问题</li>
+<p>
+</ul>
+您对自己的投资决策及其结果负全部责任。
+</p>
+<hr>
+<h2>第三方参考</h2>
+<p>
+本课程可能会提及特定公司、产品、券商、ETF 或金融工具。这些引用仅供教育说明之用，<strong>不</strong>构成背书或推荐。除非明确披露，课程创作者不从任何所提及的公司或产品处获得报酬。
+</p>
+<hr>
+<h2>准确性与时效性</h2>
+<p>
+尽管已尽一切努力确保所呈现信息的准确性，但金融市场、法规和税法频繁变化。课程内容反映创作时可用的信息，可能未能反映最新进展。在据此采取行动之前，请务必通过当前权威来源核实关键信息。
+</p>
+<hr>
+<h2>您的责任</h2>
+<p>
+使用本课程即表示您确认并同意：
+</p>
+<li>您了解这是教育内容，而非财务建议。</li>
+<li>在做出任何投资决策之前，您将进行独立研究。</li>
+<li>您对自己的投资决策及其结果承担全部责任。</li>
+<li>您将咨询合格的专业人士，以获取针对您具体情况的建议。</li>
+<li>您了解投资所涉及的风险，包括损失全部投资的可能性。</li>
+<hr>
+<p>
+<em>本课程依据 MIT 许可证提供。教育内容免费共享，供学习之用。请明智使用，负责任地投资，切勿以您无法承担损失的资金进行投机。</em>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="nav-buttons">
+            <a href="side30.html" class="nav-btn prev">
+            <span style="font-size:1.2rem">&#8592;</span>
+            <span class="nav-btn-text">
+                <span class="btn-label">Previous</span>
+                <span>Side 30: Wheel strategy</span>
+            </span>
+        </a>
+            <a href="faq.html" class="nav-btn next">
+            <span class="nav-btn-text">
+                <span class="btn-label">Next</span>
+                <span>FAQ</span>
+            </span>
+            <span style="font-size:1.2rem">&#8594;</span>
+        </a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
+        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+    </footer>
+
+    <script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    localStorage.setItem('preferred-lang', lang);
+}
+
+// Restore language preference
+(function() {
+    var saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') switchLang(saved);
+})();
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && hamburger && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
+</script>
+</body>
+</html>

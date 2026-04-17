@@ -1,336 +1,401 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 29: Currency Hedging for International Investors
+# 補充課程 29：國際投資者的貨幣避險
 
 ---
 
-## Part 1: Reading Section
+## 第一部分：閱讀章節
 
 ---
 
-### Introduction
+### 簡介
 
-When you invest in international stocks or bonds, you are making two bets simultaneously: one on the foreign asset and one on the foreign currency. A Japanese stock might gain 15% in yen terms, but if the yen falls 10% against the US dollar during that period, your dollar-denominated return is only about 5%. Currency movements can amplify or erase the returns of your underlying investments. Understanding foreign exchange exposure, how hedging works, the tools available to manage it, and when hedging makes sense versus when it does not is essential for any investor with international holdings. This is not an exotic topic reserved for institutional investors; anyone who owns an international ETF is exposed to currency risk.
-
----
-
-### A) Why Important
-
-**Return impact.** Currency fluctuations can account for a significant portion of international investment returns. In some years, currency movements add 10% or more to returns; in others, they subtract 10% or more. Over the past decade, the strengthening US dollar reduced returns for American investors in foreign assets by several percentage points annually in many markets. Ignoring currency risk means ignoring a major driver of your returns.
-
-**Volatility impact.** Adding unhedged currency exposure to a portfolio increases volatility. For international bond investments, currency risk can actually exceed the bond's own price risk. A stable European government bond becomes a volatile investment when you layer on euro/dollar exchange rate fluctuations. For equities, currency adds a secondary source of volatility on top of already-volatile stock prices.
-
-**Portfolio construction.** The decision to hedge or not to hedge foreign currency exposure is one of the most important portfolio construction choices for international investors. It affects expected returns, portfolio volatility, correlation with other assets, and drawdown characteristics. Making this decision deliberately rather than by default improves your portfolio.
-
-**Cost awareness.** Hedging is not free. The cost of hedging depends on interest rate differentials between countries. When US interest rates are higher than foreign rates, hedging foreign currencies into dollars generates a positive carry, effectively earning you extra return. When US rates are lower, hedging costs money. Understanding these costs helps you decide when hedging is economically attractive.
-
-**Product selection.** Many international ETFs are available in both hedged and unhedged versions. Choosing between them requires understanding currency dynamics, hedging mechanics, and your own investment horizon. This knowledge directly influences which specific products you buy.
-
-**Economic literacy.** Currency markets are the largest financial markets in the world, with daily turnover exceeding $7 trillion. Understanding exchange rate dynamics improves your comprehension of global economics, trade, monetary policy, and geopolitical events, all of which affect your broader portfolio.
+當你投資國際股票或債券時，你同時在下兩個賭注：一個是押注外國資產本身，另一個是押注外幣匯率。某檔日本股票以日圓計算可能上漲了 15%，但若在此期間日圓兌美元下跌了 10%，你以美元計算的報酬就只有約 5%。匯率波動可以放大或抹去你底層投資的報酬。對任何持有國際投資部位的投資者而言，了解外匯曝險、避險的運作方式、可用的管理工具，以及何時進行避險有意義、何時不適合，都是至關重要的。這並非是機構投資者才需要涉足的深奧領域；任何持有國際指數股票型基金的人都面臨貨幣風險。好消息是，拜已針對所有複雜操作代勞的避險型指數股票型基金所賜，管理這類風險從未如此容易。
 
 ---
 
-### B) What You Need to Know
+### A) 為何重要
 
-#### Understanding Foreign Exchange Exposure
+**對報酬的影響。** 匯率波動可能佔國際投資報酬的一大部分。某些年份，貨幣走勢可為報酬增添 10% 以上；另一些年份，則可能使報酬縮水 10% 以上。過去十年間，美元走強使美國投資者在許多市場的外國資產報酬，每年平均減損了數個百分點。忽視貨幣風險，就等於忽視一個對報酬具有重大影響的驅動因素。
 
-Every international investment creates currency exposure. If you, as a US-based investor, buy shares of a European company listed on a European exchange, you must first convert US dollars to euros. When you sell, you convert euros back to dollars. The exchange rate at the time of sale may differ from the rate at the time of purchase, creating a currency gain or loss independent of the stock's performance.
+**對波動性的影響。** 在投資組合中加入未避險的貨幣曝險，會提高整體波動性。對於國際債券投資而言，貨幣風險實際上可能超過債券本身的價格風險。一檔穩定的歐洲政府債券，一旦疊加了歐元兌美元的匯率波動，就成了一項波動性十足的投資。對股票而言，貨幣在已然波動的股價之上，再添加了第二個波動來源。
 
-The math works as follows. Suppose you invest $10,000 in a European stock when the exchange rate is 1.10 dollars per euro (you get approximately 9,091 euros). The stock rises 10% in euro terms to 10,000 euros. If the exchange rate has changed to 1.00 dollars per euro, your 10,000 euros converts back to only $10,000. Despite the stock gaining 10%, your dollar return is zero because the euro weakened by approximately 9%.
+**投資組合建構。** 是否對外幣曝險進行避險，是國際投資者在建構投資組合時最重要的決策之一。它會影響預期報酬、投資組合波動性、與其他資產的相關性，以及回撤特性。主動做出這個決定，而非消極地接受預設狀態，能改善你的投資組合。
 
-The formula for the dollar return on a foreign investment is approximately: Dollar Return = Local Currency Return + Currency Return + (Local Return x Currency Return). The cross-product term is small and often ignored, but the key insight is that dollar returns equal local returns plus currency returns.
+**成本認知。** 避險並非免費。避險成本取決於各國之間的利率差異。當美國利率高於外國利率時，將外幣避險換回美元可產生正向的利差收益，有效為你帶來額外報酬。當美國利率較低時，避險則需要付出代價。了解這些成本，有助於你判斷何時進行避險在經濟上具有吸引力。目前美國利率大幅高於歐洲和日本的利率環境，使得避險對美國投資者而言具有異常高的吸引力。
 
-For US investors, the US dollar's behavior relative to a basket of foreign currencies is a systematic risk factor. When the dollar strengthens, it acts as a headwind for all unhedged international investments. When it weakens, it provides a tailwind.
+**產品選擇。** 許多國際指數股票型基金同時提供避險版和未避險版。在兩者之間做選擇，需要了解貨幣動態、避險機制，以及你自身的投資時間軸。這方面的知識直接影響你購買哪些具體產品。做出明智的選擇——例如在 EFA 和 HEFA 之間選擇——在任何特定年份可能產生 5 到 10 個百分點的報酬差距，這比大多數其他投資組合決策的影響都要大得多。
 
-**Translation exposure** arises from converting financial statements of foreign subsidiaries into the parent company's reporting currency. This affects multinational corporations and their reported earnings.
+**退休收入的穩定性。** 對於從國際投資中提取收入的退休者而言，匯率波動可能使其收入流產生令人不安的不穩定性。經過避險的國際投資組合，可提供更可預測的美元計價現金流，這在這些現金流用於支付日常生活開銷時尤為重要。
 
-**Transaction exposure** arises from outstanding obligations denominated in foreign currency, such as accounts receivable or payable. This affects companies engaged in international trade.
-
-**Economic exposure** is the broadest concept, encompassing the impact of exchange rate changes on a firm's future cash flows and competitive position. A US exporter becomes less competitive when the dollar strengthens because its products become more expensive for foreign buyers.
-
-#### How Forward Contracts Work
-
-A forward contract is the primary tool for hedging currency risk. It is an agreement to exchange a specified amount of one currency for another at a predetermined rate on a future date.
-
-For example, if you own 100,000 euros worth of European stocks and want to hedge the currency risk for three months, you enter a forward contract to sell 100,000 euros and buy dollars at today's three-month forward rate. At the end of three months, regardless of what happens to the spot exchange rate, you exchange your euros at the pre-agreed forward rate.
-
-The forward rate is not a prediction of the future spot rate. Instead, it is determined by the interest rate differential between the two countries. This relationship is called covered interest rate parity.
-
-If US interest rates are 5% and European rates are 3%, the dollar forward rate will be at a discount to the spot rate (the dollar is worth slightly less in the forward market). This means a US investor selling euros forward receives slightly more dollars than the current spot rate would suggest. The extra return, approximately 2% annualized in this example, is called the "forward premium" or "carry."
-
-Conversely, if US rates are lower than foreign rates, the US investor pays a premium to hedge, reducing returns.
-
-The formula for the annualized hedging cost or benefit is approximately: US interest rate minus Foreign interest rate. When this number is positive, hedging pays you. When negative, hedging costs you.
-
-#### Hedged vs. Unhedged ETFs
-
-The ETF industry offers investors a clear choice between hedged and unhedged international exposure.
-
-**Unhedged ETFs** are the default. Major international equity ETFs like VXUS (Vanguard Total International Stock), EFA (iShares MSCI EAFE), and VWO (Vanguard Emerging Markets) are all unhedged. Your returns include both the local market return and the currency return. These ETFs are simpler, cheaper (lower expense ratios), and more common.
-
-**Hedged ETFs** use forward contracts (typically one-month forwards, rolled monthly) to neutralize currency exposure. Examples include HEFA (iShares Currency Hedged MSCI EAFE), HEZU (iShares Currency Hedged MSCI Eurozone), and HEWJ (iShares Currency Hedged MSCI Japan). Your returns approximate the local market return only, with currency effects removed. These ETFs have slightly higher expense ratios (typically 0.05-0.15% more) due to the cost of managing the hedge.
-
-**Performance comparison depends on the period.** During periods of dollar strength (like 2014-2016 and 2021-2022), hedged international ETFs significantly outperformed their unhedged counterparts because they avoided the drag of a rising dollar. During periods of dollar weakness (like 2017 and 2020), unhedged ETFs outperformed because they benefited from currency tailwinds.
-
-Over very long periods (20+ years), hedging tends to wash out for equities because currency movements are roughly mean-reverting. The dollar does not strengthen indefinitely. However, over shorter periods (1-5 years), the choice between hedged and unhedged can make a difference of 5-10% or more.
-
-**For international bonds, hedging is almost always recommended.** Bond returns are much smaller than equity returns, so currency volatility can easily overwhelm the bond return. A hedged international bond fund behaves like a stable fixed income investment. An unhedged international bond fund behaves more like a currency speculation with some bond characteristics.
-
-#### The Cost of Hedging
-
-Hedging costs deserve careful analysis because they directly affect the relative attractiveness of hedged versus unhedged investments.
-
-**Interest rate differential.** As discussed, the primary cost or benefit of hedging is determined by the difference in short-term interest rates. When US rates are higher, hedging foreign currencies into dollars generates positive carry. When US rates are lower, hedging costs money.
-
-In recent years, with US rates higher than rates in Europe and Japan, hedging the euro and yen into dollars has actually generated positive carry of 2-4% annualized. This made hedged international investments particularly attractive.
-
-**Transaction costs.** Rolling forward contracts monthly creates transaction costs. These are small for major currencies (basis points) but can be significant for emerging market currencies (sometimes 1-2% annually). This is why hedging emerging market currency exposure is less common and more expensive.
-
-**Tracking error.** Hedged ETFs do not perfectly eliminate currency risk. Because the hedge is set at the beginning of each month based on the portfolio value at that time, changes in the portfolio value during the month create a gap between the hedge amount and the actual exposure. This "over-hedge" or "under-hedge" creates tracking error relative to a perfectly hedged portfolio.
-
-**Opportunity cost.** By hedging, you give up the potential benefit of favorable currency movements. If you hedge your yen exposure and the yen subsequently strengthens 15%, you miss out on that tailwind. The cost is not monetary but is the foregone upside.
-
-**Fund expense ratio differential.** Hedged ETFs typically charge 0.05-0.15% more in annual expense ratio than their unhedged counterparts. Over long periods, this fee difference compounds.
-
-#### When to Hedge and When Not To
-
-The academic and practitioner literature offers several guidelines for when hedging makes sense.
-
-**Hedge international bonds.** This is the most clear-cut recommendation. Currency risk dominates bond returns and adds unrewarded volatility. Most institutional investors hedge 100% of their international bond currency exposure.
-
-**Consider hedging international equities partially.** A 50% hedge is a common compromise that reduces currency volatility while preserving some diversification benefit. Full hedging is reasonable during periods of expected dollar strength; no hedging is reasonable during periods of expected dollar weakness.
-
-**Time horizon matters.** Short-term investors should hedge more aggressively because currency movements can be large relative to expected returns over months or quarters. Long-term investors (10+ years) can tolerate more currency risk because currencies tend to mean-revert over long periods.
-
-**The dollar as a safe haven.** The US dollar tends to strengthen during global crises (flight to safety). This means unhedged international investments suffer a double blow during crises: foreign assets fall AND the currency weakens. Hedging removes this pro-cyclical currency drag, providing better crisis protection.
-
-**Portfolio share matters.** If international investments represent 5% of your portfolio, currency risk is a minor concern. If they represent 40%, currency movements can significantly affect total portfolio returns, making hedging more important.
-
-**Valuation signals.** Currencies that are significantly undervalued based on purchasing power parity or other valuation measures may have higher expected appreciation, making hedging less attractive. Overvalued currencies have higher expected depreciation, making hedging more attractive.
-
-**Natural hedging.** Many international companies earn substantial revenue in dollars. A European pharmaceutical company that earns 40% of revenue in the US has natural dollar exposure. Hedging the euro exposure of this company may over-hedge because the company's earnings are already partially dollar-denominated. Index-level hedging does not account for this.
-
-#### Practical Implementation
-
-**For most individual investors,** the simplest approach is to choose between hedged and unhedged ETFs based on the guidelines above. No forward contracts, options, or currency accounts are needed.
-
-**A simple framework:**
-- International bonds: use hedged ETFs (e.g., BNDX, which is hedged by default)
-- International developed market equities: use a combination of hedged and unhedged, or choose based on your view of the dollar (if unsure, 50/50 is a reasonable default)
-- Emerging market equities: use unhedged (hedging costs are too high and EM currencies provide diversification)
-
-**Rebalancing considerations.** If you hold both hedged and unhedged versions of international equity ETFs, rebalancing between them based on currency valuations or interest rate differentials can add value. This is a more active approach that requires monitoring exchange rates and rate differentials.
-
-**Tax implications.** In taxable accounts, switching between hedged and unhedged ETFs triggers capital gains taxes. Consider the tax cost before making changes. In tax-advantaged accounts (IRA, 401k), switching is tax-free and can be done more freely.
+**經濟素養。** 貨幣市場是全球規模最大的金融市場，每日交易量超過 7 兆美元。了解匯率動態，可提升你對全球經濟、貿易、貨幣政策和地緣政治事件的理解，而這一切都會影響你的整體投資組合。
 
 ---
 
-### C) Common Misconceptions
+### B) 必備知識
 
-**Misconception 1: "International diversification automatically means currency diversification."**
-While it is true that owning foreign assets exposes you to foreign currencies, this "diversification" can increase rather than decrease portfolio risk. Currency movements add volatility, and during crises, the dollar tends to strengthen while foreign assets fall, creating a double negative for unhedged international investors. Currency exposure is a separate risk factor that should be managed deliberately, not assumed to be beneficial.
+#### 了解外匯曝險
 
-**Misconception 2: "Hedging always costs money."**
-When US interest rates exceed foreign rates, hedging actually generates positive carry. A US investor hedging yen exposure when US rates are 5% and Japanese rates are 0% earns approximately 5% annualized from the hedge itself, on top of the Japanese equity return. The "cost" of hedging can be a benefit depending on the interest rate environment.
+每一項國際投資都會產生貨幣曝險。若你身為美國投資者，購買了在歐洲交易所掛牌的歐洲公司股票，你必須先將美元兌換成歐元。賣出時，再將歐元換回美元。賣出時的匯率可能與買入時不同，從而產生與股票表現無關的匯兌損益。
 
-**Misconception 3: "Currency movements are random and unpredictable, so hedging is pointless."**
-While short-term currency movements are difficult to predict, long-term trends driven by interest rate differentials, inflation differentials, and current account balances are more predictable. Moreover, hedging is not about prediction. It is about risk management. You do not need to predict currency movements to benefit from reducing currency volatility in your portfolio.
+數學計算如下：假設你以 1 美元兌 1.10 歐元的匯率，投入 10,000 美元買入歐洲股票（可換得約 9,091 歐元）。該股票以歐元計算上漲了 10%，達到 10,000 歐元。若此時匯率已變為 1 美元兌 1.00 歐元，你的 10,000 歐元換回後僅有 10,000 美元。儘管股票上漲了 10%，你的美元報酬卻是零，因為歐元貶值了約 9%。
 
-**Misconception 4: "I do not need to worry about currency risk because I invest in US-listed international ETFs."**
-The listing currency of the ETF does not matter. A US-listed ETF that holds Japanese stocks has full yen exposure regardless of being listed in dollars. The ETF simply converts yen-denominated holdings to dollars at the current exchange rate for pricing purposes. You bear the same currency risk as if you bought Japanese stocks directly on the Tokyo Stock Exchange.
+外國投資的美元報酬公式大致為：美元報酬 = 當地貨幣報酬 + 貨幣報酬 + （當地報酬 × 貨幣報酬）。交叉乘積項很小，通常可忽略不計，但核心洞見是：美元報酬等於當地報酬加上貨幣報酬。
 
-**Misconception 5: "Hedging eliminates all currency risk."**
-Practical hedging using monthly-rolled forward contracts leaves residual currency exposure. The hedge amount is set at the beginning of each month based on portfolio value, but the portfolio value changes during the month. This creates slight over-hedges or under-hedges. Additionally, some hedged ETFs only hedge the major currencies in their benchmark, leaving exposure to minor currencies unhedged.
+貨幣風險存在一種微妙的不對稱性。由於貨幣波動是乘數效應而非加法效應，20% 的貨幣跌幅需要 25% 的貨幣升幅才能損益平衡。這種數學上的不對稱性意味著，即便預期貨幣走勢為零，長期下來貨幣波動仍可能對報酬造成拖累，這與投資組合波動性拖累複利報酬的道理相似。
 
-**Misconception 6: "A strong dollar is always bad for international investments."**
-A strong dollar hurts unhedged returns but does not affect hedged returns. Moreover, a strong dollar can benefit foreign exporters whose products become cheaper in dollar terms, potentially boosting their earnings and stock prices. The relationship between exchange rates and foreign stock returns is more nuanced than a simple negative correlation.
+對美國投資者而言，美元相對於一籃子外幣的表現，是一個系統性的風險因子。美元走強時，會對所有未避險的國際投資形成逆風。美元走弱時，則提供順風。
+
+**換算曝險**（Translation exposure）源自於將外國子公司的財務報表換算為母公司報告貨幣的過程，影響跨國企業及其報告盈餘。
+
+**交易曝險**（Transaction exposure）源自於以外幣計價的未了結債務，例如應收帳款或應付帳款，影響從事國際貿易的企業。
+
+**經濟曝險**（Economic exposure）是最廣泛的概念，涵蓋匯率變動對企業未來現金流和競爭地位的影響。當美元走強時，美國出口商因產品對外國買家而言變得更加昂貴，競爭力下降。
+
+了解這些不同類型的曝險，有助於解釋為何匯率與股價之間的關係如此複雜。即便在同一個股票市場內，有些公司受益於本幣走強（進口商、擁有外幣債務的公司），另一些則受損（出口商、擁有外幣收入的公司）。這種異質性意味著，在指數層面進行貨幣避險是一種粗糙的工具，無法完全匹配底層公司的真實經濟曝險。
+
+#### 遠期合約的運作方式
+
+遠期合約是進行貨幣避險的主要工具。它是一項協議，約定在未來某個特定日期，以預定的匯率交換特定數量的兩種貨幣。
+
+舉例而言，若你持有價值 10 萬歐元的歐洲股票，並希望在未來三個月內避免貨幣風險，你可以簽訂一份遠期合約，以今日的三個月遠期匯率賣出 10 萬歐元並買入美元。三個月後，無論即期匯率發生什麼變化，你都以預先約定的遠期匯率進行兌換。
+
+遠期匯率並非對未來即期匯率的預測，而是由兩國之間的利率差異決定的。這種關係稱為「利率平價」（covered interest rate parity），是金融領域最穩健的關係之一，因為任何偏差都將創造出市場參與者會立即利用的無風險套利機會。
+
+若美國利率為 5%，歐洲利率為 3%，則美元遠期匯率將低於即期匯率（美元在遠期市場上的價值略低）。這意味著，賣出歐元遠期的美國投資者，將收到略多於當前即期匯率所暗示的美元。這筆額外收益——本例中每年約 2%——稱為「遠期溢價」或「利差收益」（carry）。
+
+反之，若美國利率低於外國利率，美國投資者需支付溢價來進行避險，從而降低報酬。
+
+年化避險成本或收益的公式大致為：美國利率減去外國利率。當此數值為正時，避險為你帶來收益；為負時，避險需要付出代價。
+
+具體而言：若美國短期利率為 5%，歐元區利率為 3%，則對歐元曝險進行避險的美國投資者，每年可從避險本身獲得約 2% 的額外報酬。對 10 萬美元的歐洲股票部位而言，這筆遠期溢價每年可額外帶來約 2,000 美元的報酬，這還不包括歐洲股票本身的報酬。這並非一個小數目——它與許多股票投資組合的股利殖利率相當。然而，這項收益並非永久性的，它只在當前利率差異存在的情況下才成立，並將隨著兩國利率的演變而改變。
+
+#### 避險型指數股票型基金 vs. 未避險型指數股票型基金
+
+指數股票型基金業為投資者提供了在避險與未避險國際曝險之間的明確選擇。
+
+**未避險型指數股票型基金**是預設選項。主要的國際股票指數股票型基金，如 VXUS（Vanguard 全球國際股票）、EFA（iShares MSCI 歐澳遠東指數）和 VWO（Vanguard 新興市場），均為未避險型。你的報酬同時包含當地市場報酬和貨幣報酬。這類指數股票型基金較為簡單、費用較低（管理費率較低），且較為普遍。
+
+**避險型指數股票型基金**利用遠期合約（通常為一個月期遠期合約，每月滾動）來消除貨幣曝險。例如 HEFA（iShares 貨幣避險 MSCI 歐澳遠東指數）、HEZU（iShares 貨幣避險 MSCI 歐元區）和 HEWJ（iShares 貨幣避險 MSCI 日本）。你的報酬近似於當地市場報酬，貨幣效應已被消除。由於需要管理避險操作，這類指數股票型基金的管理費率略高（通常高出 0.05 至 0.15%）。
+
+**績效比較取決於所觀察的時期。** 在美元走強期間（如 2014 至 2016 年及 2021 至 2022 年），避險型國際指數股票型基金的表現大幅優於未避險型，因為它們規避了強勢美元帶來的拖累。在美元走弱期間（如 2017 年和 2020 年），未避險型指數股票型基金則因受益於貨幣順風而表現更佳。差距的幅度可能相當顯著：2022 年，HEFA 的表現優於 EFA 超過 6 個百分點，幾乎完全由強勢美元所驅動。2017 年，情況則相反，EFA 以相近幅度領先，肇因於美元走弱。
+
+**管理費率比較。** 相同指數的避險版與未避險版之間的費用差異通常微乎其微。例如，EFA 收取 0.32%，而 HEFA 收取 0.35%，差距僅 3 個基點。考量到貨幣對報酬的重大影響，為避險多付的這一點點費用，相較於潛在的降風險效益而言，幾乎可以忽略不計。
+
+從非常長期的角度來看（20 年以上），避險對股票的影響往往會相互抵消，因為貨幣走勢大致呈現均值回歸。美元不會無止盡地走強。然而，在較短的時期（1 至 5 年），避險與否的選擇可能造成 5 到 10% 甚至更大的差距。
+
+**對於國際債券，幾乎一律建議進行避險。** 債券報酬遠小於股票報酬，因此貨幣波動極易蓋過債券報酬本身。避險型國際債券基金表現得像穩定的固定收益投資；未避險型國際債券基金則更像是帶有一些債券特性的貨幣投機。
+
+#### 避險成本
+
+避險成本值得仔細分析，因為它直接影響避險型與未避險型投資的相對吸引力。
+
+**利率差異。** 如前所述，避險的主要成本或收益，由各國短期利率之間的差距決定。當美國利率較高時，將外幣避險換回美元可產生正向利差收益。當美國利率較低時，避險則需付出代價。
+
+近年來，由於美國利率高於歐洲和日本，將歐元和日圓換回美元的避險操作，實際上每年可產生 2 至 4% 的正向利差收益，使避險型國際投資格外具有吸引力。
+
+**交易成本。** 每月滾動遠期合約會產生交易成本。主要貨幣的交易成本很小（以基點計），但新興市場貨幣的成本可能相當可觀（有時每年高達 1 至 2%）。這也是為何對新興市場貨幣曝險進行避險較不常見且成本較高的原因。
+
+**追蹤誤差。** 避險型指數股票型基金無法完全消除貨幣風險。由於避險金額是在每月初根據當時的投資組合價值設定的，月內投資組合價值的變化會造成避險金額與實際曝險之間的差距，形成「過度避險」或「避險不足」，進而相較於完美避險組合產生追蹤誤差。在市場大幅波動的月份，這種追蹤誤差可能相當顯著。例如，若當月國際股票大漲 8%，避險僅覆蓋原始投資組合價值，這 8% 的漲幅便處於未避險狀態。
+
+**交易對手風險。** 遠期合約是指數股票型基金與銀行交易對手之間的場外協議。若交易對手違約，避險可能因此失效。指數股票型基金管理人透過使用多個交易對手並要求提交擔保品來降低此風險。這種風險雖小，但並非為零，2008 年金融危機期間，交易對手疑慮曾廣泛影響衍生性商品合約，即為明證。
+
+**機會成本。** 進行避險意味著你放棄了有利貨幣走勢可能帶來的潛在收益。若你對日圓曝險進行避險，而日圓隨後升值了 15%，你便錯過了這段順風。這種代價不是貨幣損失，而是放棄的潛在上漲空間。這種機會成本事先難以量化，因為它取決於本質上不確定的未來貨幣走勢。然而，對於風險趨避的投資者而言，以放棄不可預測的上漲潛力來換取消除不可預測的下跌風險，是一筆值得的交易。
+
+**基差風險。** 實際上，避險並不完美。避險覆蓋的是基準貨幣曝險，但月內個別股票的走勢會在避險金額與實際曝險之間造成差距。此外，若你的指數股票型基金持有來自多個國家的股票，避險可能按基準貨幣的權重設定，這與任何特定時點的實際投資組合權重略有不同。這些基差風險雖小，但也會造成追蹤誤差。
+
+**基金管理費率差異。** 避險型指數股票型基金的年管理費率，通常比未避險型高出 0.05 至 0.15%。長期下來，這筆費用差距會複利累積。
+
+#### 何時應進行避險，何時不應進行
+
+學術界和實務界的文獻提供了幾項關於何時適合避險的指導原則。
+
+**對國際債券進行避險。** 這是最明確的建議。貨幣風險主宰了債券報酬，並增加了不必要的波動性。大多數機構投資者對其國際債券的貨幣曝險進行 100% 的避險。
+
+**考慮對國際股票進行部分避險。** 50% 避險是一種常見的折衷方案，既能降低貨幣波動性，又能保留一些多元化效益。在預期美元走強期間，完全避險是合理的；在預期美元走弱期間，不避險也是合理的。
+
+**時間軸至關重要。** 短期投資者應更積極地進行避險，因為相對於數月或數季的預期報酬而言，貨幣走勢可能相當巨大。長期投資者（10 年以上）可以承受更多貨幣風險，因為貨幣長期上傾向於均值回歸。
+
+**美元作為避風港資產。** 美元在全球危機期間往往走強（資金尋求安全）。這意味著，未避險的國際投資在危機期間會遭受雙重打擊：外國資產下跌，同時貨幣也走弱。避險消除了這種順週期的貨幣拖累，提供了更好的危機保護。
+
+**持倉比例很重要。** 若國際投資佔你投資組合的 5%，貨幣風險是次要考量。若佔 40%，貨幣走勢就可能顯著影響整體投資組合報酬，使避險變得更加重要。
+
+**估值訊號。** 基於購買力平價或其他估值指標，若某貨幣明顯被低估，其未來升值的預期報酬可能較高，使避險的吸引力降低。被高估的貨幣預期貶值幅度較大，使避險更具吸引力。
+
+**自然避險。** 許多國際公司從美元中獲取大量收入。一家在美國取得 40% 收入的歐洲製藥公司，本身就有天然的美元曝險。對這家公司的歐元曝險進行避險，可能造成過度避險，因為該公司的盈餘本已部分以美元計價。指數層面的避險未能考量到這一點。
+
+**趨勢分析。** 主要貨幣趨勢往往持續數年。美元從 2011 年到 2022 年持續走強，使這段期間的避險部位全程受益。在此之前，美元從 2002 年到 2011 年走弱，使未避險部位受益。雖然準確預測轉折點是不可能的，但認識到極端估值和利率週期的轉變，有助於你隨時間逐步調整避險比例。
+
+**相關性考量。** 在某些時期，外幣曝險實際上可降低整體投資組合波動性，因為貨幣走勢可部分抵銷股票走勢。這種「自然避險」效應意味著，未避險的國際股票曝險，有時比避險型曝險提供更好的多元化效果。這種效應的強弱隨時間而異，這也是為何以 50/50 比例配置避險與未避險股票，對股票而言是合理預設選擇的另一個原因。
+
+#### 實務操作
+
+**對大多數個人投資者而言**，最簡單的方式就是根據上述指引，在避險型和未避險型指數股票型基金之間做出選擇。不需要任何遠期合約、選擇權或外幣帳戶。
+
+**簡單框架：**
+- 國際債券：使用避險型指數股票型基金（例如 BNDX，預設已進行避險）
+- 國際已開發市場股票：搭配使用避險型和未避險型，或根據你對美元的判斷做選擇（若不確定，50/50 是合理的預設配置）
+- 新興市場股票：使用未避險型（避險成本過高，且新興市場貨幣提供多元化效益）
+
+**再平衡考量。** 若你同時持有避險型和未避險型的國際股票指數股票型基金，可以根據貨幣估值或利率差異在兩者之間進行再平衡，以增加價值。這是一種更主動的方式，需要持續追蹤匯率和利率差異。
+
+**多幣種分散化。** 即使沒有明確的避險操作，持有多個國家的國際投資，也能自然提供貨幣分散化效果。當歐元走弱時，日圓可能走強。當新興市場貨幣下跌時，瑞士法郎可能升值。這種跨多種貨幣的分散化，降低了任何單一貨幣走勢對投資組合的影響。廣泛的國際指數基金同時讓你曝險於 20 種以上的貨幣，這本身就比集中曝險於單一外幣的風險低得多。
+
+**定期定額投資效應。** 若你定期投資國際基金（例如透過每月自動扣款），你自然而然地以不同的匯率進行定期定額投資，從而平滑匯率波動的影響，就像定期投資平滑股價波動的影響一樣。這種貨幣曝險的時間分散化，對長期定期投資者而言，降低了避險決策的重要性。
+
+**稅務影響。** 在應稅帳戶中，在避險型和未避險型指數股票型基金之間轉換，會觸發資本利得稅。在做出任何改變之前，請考量稅務成本。在稅收優惠帳戶（如個人退休帳戶或 401k）中，轉換無需繳稅，可以更自由地操作。
+
+#### 貨幣走勢對不同資產類別的影響
+
+貨幣走勢對不同資產類別的影響有顯著差異，這應成為你制定避險決策的依據。
+
+**國際股票。** 貨幣影響雖有意義，但仍次於股票報酬本身。一年內，貨幣走勢可輕易使報酬增加或減少 10 至 15%。20 年後，因貨幣傾向均值回歸，累積影響較小。大型跨國公司的天然收入多元化也提供了部分抵銷：一家在美國賺取 40% 收入的歐洲公司，即便歐元走弱，也能受益於美元走強。
+
+**國際債券。** 貨幣影響往往超過債券報酬本身。德國政府債券的殖利率為 2%，而匯率波動輕易可達 10%，這使得債券報酬在貨幣走勢面前幾乎可以忽略不計。這就是為何國際固定收益投資必須進行避險的原因。
+
+**國際不動產（不動產投資信託）。** 不動產同時具有當地及貨幣曝險。房產價值和租金以當地貨幣計價，形成完整的貨幣曝險。換回美元的不動產投資信託股利，會隨匯率波動。避險對不動產投資信託配置很有價值，不過可供選擇的避險型國際不動產投資信託指數股票型基金較少。
+
+**大宗商品。** 大多數全球交易的大宗商品以美元計價，形成美元與大宗商品價格之間天然的反向關係。美元走強，大宗商品價格往往下跌，反之亦然。這意味著未避險的大宗商品投資本身已內含美元曝險，避險對大宗商品部位的相關性較低。
+
+#### 主要貨幣走勢的歷史回顧
+
+了解過去的貨幣趨勢，有助於校準對未來的預期。
+
+自 1971 年布列頓森林體系結束以來，美元指數（DXY）已歷經數個重大循環。在聯準會主席伏克爾（Volcker）的高利率政策帶動下，美元從 1980 年到 1985 年上漲了約 50%，隨後在 1985 年《廣場協議》後，從 1985 年到 1992 年下跌了約 40%。美國經濟的出色表現及較高利率吸引全球資本流入，又促成了 2011 年到 2022 年的另一個強勢時期。
+
+日圓從 1971 年的每美元 360 日圓，升至 2011 年的最高點每美元 75 日圓，隨後因日本銀行維持超低利率，到 2023 年又貶回每美元 150 日圓以上。這個龐大的波動區間說明了日圓曝險對日本投資可能造成的潛在衝擊。
+
+歐元自 1999 年誕生以來，交易區間約在 0.82 美元至 1.60 美元之間，波幅接近 100%。持有未避險歐洲投資的美國投資者，因貨幣趨勢的不同而會有截然不同的報酬體驗。
 
 ---
 
-### D) Q&A Section
+### C) 常見迷思
 
-**Q1: Should I hedge my entire international allocation?**
-A1: It depends on the asset class and your time horizon. For international bonds, yes, hedge fully. Bond returns are small relative to currency volatility, so unhedged international bonds behave more like a currency bet than a bond investment. For international equities, partial hedging (50%) is a reasonable default if you are unsure. Fully hedge if you expect significant dollar strengthening, or leave unhedged if you expect dollar weakening. For very long holding periods (15+ years), hedging matters less because currencies tend to mean-revert.
+**迷思一：「投資國際資產自然等於貨幣分散化。」**
+雖然持有外國資產確實讓你曝險於外幣，但這種「分散化」可能增加而非降低投資組合風險。貨幣走勢會增加波動性，而在危機期間，美元往往走強，外國資產則下跌，對未避險的國際投資者造成雙重負面衝擊。貨幣曝險是一個獨立的風險因子，應主動管理，而非假定其具有正面效益。
 
-**Q2: How do I know if the dollar is likely to strengthen or weaken?**
-A2: No one can predict currencies reliably in the short term. However, some indicators provide long-term guidance. Purchasing power parity (PPP) suggests where currencies should trade based on relative price levels. The dollar has frequently been overvalued relative to PPP, suggesting long-term depreciation potential. Interest rate differentials drive medium-term trends. Current account balances indicate structural pressures. Rather than making binary predictions, consider these factors when deciding how much to hedge.
+**迷思二：「避險一定需要花錢。」**
+當美國利率超過外國利率時，避險實際上可帶來正向的利差收益。當美國利率為 5%、日本利率為 0% 時，對日圓曝險進行避險的美國投資者，每年可從避險本身獲得約 5% 的年化收益，這還不包括日本股票的報酬。避險的「成本」可能是一種收益，具體取決於利率環境。
 
-**Q3: Is BNDX (Vanguard Total International Bond) already hedged?**
-A3: Yes. BNDX hedges its currency exposure back to the US dollar using forward contracts. This is one of the reasons it is the most popular international bond ETF. The hedging makes it behave like a stable bond fund rather than a volatile currency play. If you want unhedged international bond exposure (which few investors should), you would need a different fund.
+**迷思三：「貨幣走勢是隨機且不可預測的，所以避險毫無意義。」**
+雖然短期貨幣走勢難以預測，但由利率差異、通膨差異和經常帳餘額所驅動的長期趨勢則更具可預測性。此外，避險並非關於預測。它關乎風險管理。你不需要預測貨幣走勢，也能從降低投資組合中的貨幣波動性中受益。
 
-**Q4: What is the carry trade and how does it relate to currency hedging?**
-A4: The carry trade involves borrowing in a low-interest-rate currency and investing in a high-interest-rate currency, profiting from the interest rate differential. Currency hedging is essentially the opposite: you are paying or receiving the interest rate differential to eliminate exchange rate risk. When US rates exceed foreign rates, a US investor who hedges foreign currency exposure effectively earns the carry. The carry trade is profitable on average but can suffer sudden losses when carry trade currencies crash during risk-off events.
+**迷思四：「因為我投資的是在美國掛牌的國際指數股票型基金，所以我不需要擔心貨幣風險。」**
+指數股票型基金的掛牌貨幣無關緊要。一檔持有日本股票的美國掛牌指數股票型基金，無論以美元掛牌，仍完全暴露於日圓匯率風險之下。指數股票型基金只是在定價時，以當前匯率將日圓計價的持倉換算為美元。你所承受的貨幣風險，與直接在東京證券交易所購買日本股票完全相同。
 
-**Q5: Do emerging market ETFs offer hedged versions?**
-A5: Hedged emerging market ETFs exist but are less common and less popular for several reasons. Hedging costs for EM currencies are much higher due to wide interest rate differentials and less liquid forward markets. Transaction costs for rolling EM currency forwards are substantial. And EM currencies provide genuine diversification that investors often want to retain. Most investors and advisors recommend leaving EM equity exposure unhedged.
+**迷思五：「避險可消除所有貨幣風險。」**
+使用每月滾動遠期合約進行實際避險，仍會留下殘餘的貨幣曝險。避險金額是在每月初根據投資組合價值設定的，但投資組合價值在月內會發生變化，造成輕微的過度避險或避險不足。此外，部分避險型指數股票型基金僅對基準中的主要貨幣進行避險，次要貨幣的曝險仍處於未避險狀態。
 
-**Q6: How does currency hedging affect my tax situation?**
-A6: In taxable accounts, gains and losses from currency forward contracts within hedged ETFs are generally treated as ordinary income rather than capital gains. This can create a slightly less tax-efficient structure compared to unhedged ETFs. However, the difference is usually small. In tax-advantaged accounts, this distinction does not matter. If you are making large allocations in taxable accounts, consult a tax advisor about the specific implications.
+**迷思六：「美元走強對國際投資一定不利。」**
+美元走強確實會損害未避險的報酬，但不會影響已避險的報酬。此外，美元走強可能使以美元計算產品變得更便宜的外國出口商受益，進而提振其盈餘和股價。匯率與外國股票報酬之間的關係，比簡單的負相關更為複雜。
 
-**Q7: Can I hedge currency risk myself using forex accounts or options?**
-A7: Technically yes, but it is impractical for most individual investors. Managing currency forwards requires rolling contracts monthly, monitoring exposure amounts, and maintaining margin accounts. Currency options provide hedging but at a visible premium cost. For nearly all individual investors, simply choosing between hedged and unhedged ETFs is far simpler, cheaper, and more effective than attempting to hedge directly.
+**迷思七：「我應該等美元走弱後再投資國際市場。」**
+預測貨幣走勢極為困難，即便是專業的外匯交易員也不例外。美元可能在強勢或弱勢狀態維持數年，等待趨勢轉變意味著錯過股利、盈餘增長和外國股票的潛在資本利得。若你認為國際多元化有其價值，就應持續執行，而非嘗試把握貨幣時機。以避險來管理貨幣風險，而非試圖透過擇時來規避它。
 
-**Q8: If I hold a global stock ETF like VT, what is my currency exposure?**
-A8: VT (Vanguard Total World Stock) holds approximately 60% US stocks and 40% international stocks. The 60% in US stocks has no foreign currency exposure. The 40% in international stocks has full exposure to a basket of foreign currencies, primarily the euro, yen, British pound, and various emerging market currencies. Your net foreign currency exposure is approximately 40% of the portfolio. If this concerns you, you could replace the international portion with a hedged alternative or accept the currency risk as part of long-term global diversification.
-
----
-
-## Part 2: YouTube Script
+**迷思八：「貨幣避險對個人投資者而言太複雜了。」**
+雖然直接管理貨幣遠期合約確實複雜，但指數股票型基金業已使避險變得極為簡單。買入 HEFA 而非 EFA，或持有預設已進行避險的 BNDX，完全不需要了解遠期合約、利率平價或外匯市場。基金管理人在內部處理所有避險機制。你唯一需要做的決定，就是買避險版還是未避險版的基金。
 
 ---
 
-**TITLE: Currency Hedging Explained: Protect Your International Investments**
+### D) 問答章節
+
+**Q1：我是否應該對整個國際配置進行避險？**
+A1：這取決於資產類別和你的時間軸。對國際債券而言，是的，應完全避險。債券報酬相對於貨幣波動性而言太小，未避險的國際債券更像是貨幣投機而非債券投資。對國際股票而言，若不確定，50% 部分避險是合理的預設選擇。若預期美元大幅走強，可完全避險；若預期美元走弱，則保持未避險。若持有期間非常長（15 年以上），因貨幣傾向均值回歸，避險的重要性相對降低。
+
+**Q2：我如何判斷美元可能走強還是走弱？**
+A2：短期內沒有人能可靠地預測貨幣走勢。然而，有些指標能提供長期參考。購買力平價（PPP）暗示了貨幣應根據各國相對物價水準所在的位置進行交易。美元相對於購買力平價而言經常被高估，暗示長期有貶值潛力。利率差異驅動中期趨勢，經常帳餘額則顯示結構性壓力。與其做出非此即彼的預測，不如在決定避險比例時將這些因素納入考量。
+
+**Q3：BNDX（Vanguard 全球國際債券指數股票型基金）是否已進行避險？**
+A3：是的。BNDX 使用遠期合約將其貨幣曝險換回美元。這也是它成為最受歡迎的國際債券指數股票型基金的原因之一。避險使其表現得像穩定的債券基金，而非波動性十足的貨幣投機工具。若你想要未避險的國際債券曝險（大多數投資者不應如此），則需要選擇其他基金。
+
+**Q4：什麼是利差交易，它與貨幣避險有何關係？**
+A4：利差交易（carry trade）是指借入低利率貨幣，投資於高利率貨幣，從中賺取利率差異的策略。貨幣避險本質上是其反向操作：你支付或收取利率差異，以消除匯率風險。當美國利率超過外國利率時，對外幣曝險進行避險的美國投資者，實際上是在賺取利差收益。利差交易平均而言是有利可圖的，但在風險趨避情緒高漲、利差交易貨幣崩潰期間，可能遭受突然性的虧損。
+
+**Q5：新興市場指數股票型基金是否有避險版本？**
+A5：避險型新興市場指數股票型基金存在，但較不普遍，也較不受歡迎，原因有幾點：由於利率差異較大且遠期市場流動性較低，新興市場貨幣的避險成本高出許多；滾動新興市場貨幣遠期合約的交易成本相當可觀；而且新興市場貨幣提供了投資者往往希望保留的真實多元化效益。大多數投資者和顧問建議，保留新興市場股票的未避險曝險。
+
+**Q6：貨幣避險如何影響我的稅務狀況？**
+A6：在應稅帳戶中，避險型指數股票型基金內部的貨幣遠期合約損益，通常被視為一般所得而非資本利得。與未避險型指數股票型基金相比，這在稅務效率上略低。然而，差距通常很小。在稅收優惠帳戶中，這一區別並不重要。若你在應稅帳戶中進行大額配置，請就具體影響諮詢稅務顧問。
+
+**Q7：我能否自行使用外匯帳戶或選擇權來避險貨幣風險？**
+A7：技術上可行，但對大多數個人投資者而言不切實際。管理貨幣遠期合約需要每月滾動合約、監控曝險金額，並維持保證金帳戶。貨幣選擇權可提供避險功能，但需支付顯而易見的權利金。對幾乎所有個人投資者而言，在避險型和未避險型指數股票型基金之間做選擇，遠比嘗試直接避險更為簡單、便宜且有效。
+
+**Q8：若我持有像 VT 這樣的全球股票指數股票型基金，我的貨幣曝險是什麼？**
+A8：VT（Vanguard 全球股票指數股票型基金）持有約 60% 的美國股票和 40% 的國際股票。60% 的美國股票部分沒有外幣曝險，40% 的國際股票部分則完全曝險於一籃子外幣，主要包括歐元、日圓、英鎊及各種新興市場貨幣。你的淨外幣曝險約佔投資組合的 40%。若這讓你感到擔憂，可以考慮以避險型替代方案取代部分國際持倉，或接受貨幣風險作為長期全球多元化的一部分。
+
+**Q9：美元是否一定在危機期間走強？**
+A9：歷史上，在大多數全球危機期間，美元確實因投資者尋求安全而走強。2008 年、2011 年歐債危機、2015 至 2016 年中國經濟放緩，以及 2020 年新冠疫情崩盤期間均是如此。然而，這種規律並非鐵板釘釘。在由美國特定因素引發的危機中（財政危機、政治不穩定、儲備貨幣地位喪失），美元可能走弱。此外，隨著其他貨幣或資產逐漸取得重要地位，美元的避風港地位可能隨時間演變。目前，在危機期間假定美元走強仍是合理的，這為將國際持倉作為危機防護的避險策略提供了依據。
+
+**Q10：貨幣走勢如何影響國際股利殖利率？**
+A10：貨幣走勢直接影響外國股利的美元價值。若某歐洲股票支付 2 歐元股利，而歐元兌美元貶值了 10%，你的美元股利將減少 10%。這使得未避險的國際股利策略，在美元計價收入方面較不可預測。若你依賴國際股利作為生活收入，使用避險型指數股票型基金可提供更穩定的美元計價現金流。對再投資股利的長期投資者而言，股利支付中的貨幣波動較不需要擔憂，因為這些股利是以當時的匯率再投入的。
+
+---
+
+## 第二部分：YouTube 腳本
+
+---
+
+**標題：貨幣避險大解析：保護你的國際投資**
+
+**長度：約 17 分鐘**
 
 ---
 
 **[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]**
 
-**Alex:** Sam, I own an international stock ETF. My friend told me I am making a "currency bet" without realizing it. What does that mean?
+**Horace：** Stella，我有持有國際股票的指數股票型基金。我朋友說我在不知不覺中下了一個「貨幣賭注」。這是什麼意思？我應該擔心嗎？
 
-**Sam:** Your friend is right. When you buy international stocks, you are actually making two bets. One on the foreign stocks going up. And one on the foreign currency holding its value against the dollar.
+**Stella：** 你朋友提出了一個大多數投資者都忽略的好問題。
 
-**[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "Stock Return" pointing to a stock chart. Arrow 2 labeled "Currency Return" pointing to an exchange rate chart. Both arrows merge into "Your Total Return"]**
+**Stella：** 你朋友說得對。當你買國際股票時，你其實同時在下兩個賭注。一個是押注外國股票會上漲。另一個是押注外幣兌美元的匯率會維持住。
 
-**Alex:** Can you show me how this works in practice?
+**[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "股票報酬" pointing to a stock chart. Arrow 2 labeled "貨幣報酬" pointing to an exchange rate chart. Both arrows merge into "你的總報酬"]**
 
-**Sam:** Sure. Let us say you invest ten thousand dollars in a Japanese stock ETF. The exchange rate is one hundred ten yen per dollar.
+**Horace：** 可以給我舉個實際例子嗎？
+
+**Stella：** 當然。假設你用一萬美元投資一檔日本股票的指數股票型基金。當時的匯率是每美元兌一百一十日圓。
 
 **[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]**
 
-**Sam:** The Japanese stocks rise fifteen percent. Great news, right? Your investment is now worth one million two hundred sixty-five thousand yen.
+**Stella：** 日本股票上漲了百分之十五。聽起來很棒，對吧？你的投資現在價值一百二十六萬五千日圓。
 
-**Alex:** That sounds like a solid return.
+**Horace：** 那聽起來報酬很不錯啊。
 
-**Sam:** But wait. While you were invested, the yen weakened. The exchange rate moved from one hundred ten to one hundred thirty yen per dollar. Now let us convert back.
+**Stella：** 但等一下。就在你投資的這段期間，日圓貶值了。匯率從每美元兌一百一十日圓，跌到了一百三十日圓。現在我們來換算回美元。
 
-**[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "-2.7% dollar return" despite "+15% yen return"]**
+**[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "美元報酬 -2.7%" despite "日圓報酬 +15%"]**
 
-**Alex:** I lost money?! The stock went up fifteen percent and I LOST money?
+**Horace：** 我虧錢了？！股票漲了百分之十五，我竟然虧錢？
 
-**Sam:** In dollar terms, yes. The yen weakened by about fifteen percent, more than wiping out your stock gains. This is currency risk in action.
+**Stella：** 以美元計算，是的。日圓貶值了約百分之十五，完全抹去了你的股票漲幅，甚至還倒賠。這就是貨幣風險的真實面貌。
 
-**[VISUAL: Side-by-side bars showing: Local Return +15%, Currency Return -15.4%, Dollar Return -2.7%]**
+**[VISUAL: Side-by-side bars showing: 當地報酬 +15%、貨幣報酬 -15.4%、美元報酬 -2.7%]**
 
-**Alex:** That is painful. How do I protect myself?
+**Horace：** 太痛苦了。我該怎麼保護自己？
 
-**Sam:** That is where currency hedging comes in. You can neutralize the currency effect so your returns match the local stock market return.
+**Stella：** 這就是貨幣避險派上用場的地方。你可以中和貨幣效應，讓你的報酬貼近當地股市的報酬。
 
-**[ANIMATION: Same scenario replayed but with a "HEDGE" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]**
+**[ANIMATION: Same scenario replayed but with a "避險" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]**
 
-**Alex:** How does the hedge actually work?
+**Horace：** 避險實際上是怎麼運作的？
 
-**Sam:** The main tool is called a forward contract. It locks in an exchange rate for a future date. When you buy a hedged ETF, the fund manager enters forward contracts to sell foreign currency and buy dollars at a predetermined rate.
+**Stella：** 主要工具叫做遠期合約，它能鎖定未來特定日期的匯率。當你買避險型指數股票型基金時，基金經理人會簽訂遠期合約，以預定的匯率賣出外幣、買入美元。
 
-**[ANIMATION: Timeline showing: Today - enter forward contract to sell yen at rate 110. One month later - regardless of spot rate, exchange at 110. New forward contract entered. Process repeats monthly]**
+**[ANIMATION: Timeline showing: 今天 — 以匯率110簽訂遠期合約賣出日圓。一個月後 — 無論即期匯率如何，均以110進行兌換。簽訂新的遠期合約。每月重複執行]**
 
-**Sam:** Every month, the fund rolls the forward contract. This effectively removes currency fluctuations from your return. Whether the yen goes up or down, the hedge locks in approximately the same exchange rate.
+**Stella：** 每個月，基金會滾動遠期合約。這有效消除了貨幣波動對你報酬的影響。不管日圓漲跌，避險都能讓你以大致相同的匯率兌換。
 
-**Alex:** Does this cost anything?
+**Horace：** 這樣做需要成本嗎？
 
-**Sam:** This is where it gets interesting. The cost of hedging is determined by the interest rate difference between the two countries.
+**Stella：** 這就是有意思的地方了。避險成本是由兩國之間的利率差異決定的。
 
-**[VISUAL: Balance scale with "US Interest Rate 5%" on one side and "Japanese Interest Rate 0%" on the other. Arrow pointing down to "Hedging Benefit: ~5% per year"]**
+**[VISUAL: Balance scale with "美國利率 5%" on one side and "日本利率 0%" on the other. Arrow pointing down to "避險收益：每年約 5%"]**
 
-**Sam:** Right now, US rates are much higher than Japanese rates. When you hedge yen back to dollars, you actually EARN the interest rate difference. That is approximately five percent per year in extra return.
+**Stella：** 現在美國利率遠高於日本利率。當你把日圓避險換回美元時，你實際上是在「賺取」利率差異，每年大約額外多賺百分之五。
 
-**Alex:** Wait, hedging MAKES me money?
+**Horace：** 等等，避險還能讓我「賺錢」？
 
-**Sam:** In this interest rate environment, yes. This is called the "forward premium" or "carry." When US rates are higher than foreign rates, hedging generates positive carry. But it works both ways. If US rates drop below Japanese rates, hedging would cost you.
+**Stella：** 在這樣的利率環境下，確實如此。這叫做「遠期溢價」或「利差收益」。當美國利率高於外國利率時，避險可帶來正向收益。但這是雙向的——若美國利率跌破日本利率，避險就要花錢了。
 
-**[ANIMATION: See-saw showing US rates on one side and foreign rates on the other. When US side is higher, hedging pays. When foreign side is higher, hedging costs]**
+**[ANIMATION: See-saw showing 美國利率 on one side and 外國利率 on the other. When 美國 side is higher, 避險帶來收益. When 外國 side is higher, 避險需付出代價]**
 
-**Alex:** So the choice between hedged and unhedged is not straightforward.
+**Horace：** 所以選擇避險型還是未避險型，並不是非黑即白的。
 
-**Sam:** Not at all. Let me show you the practical difference using real ETFs.
+**Stella：** 完全不是。讓我用實際的指數股票型基金來說明兩者的差異。
 
-**[VISUAL: Performance comparison chart showing EFA (unhedged EAFE) vs HEFA (hedged EAFE) over 5 years, with periods of dollar strength and weakness marked]**
+**[VISUAL: Performance comparison chart showing EFA（未避險歐澳遠東指數）vs HEFA（避險歐澳遠東指數）over 5 years, with periods of 美元走強 and 美元走弱 marked]**
 
-**Sam:** During periods of dollar strength, like 2021 and 2022, the hedged version crushed the unhedged version. During dollar weakness, like 2017, the unhedged version won. Over very long periods, the difference tends to even out.
+**Stella：** 在美元走強期間，例如二○二一年和二○二二年，避險版大幅贏過未避險版。在美元走弱期間，例如二○一七年，未避險版則更勝一籌。從非常長期的角度來看，差距往往會趨於一致。
 
-**Alex:** So how do I decide?
+**Horace：** 那我要怎麼決定？
 
-**Sam:** Let me give you a simple framework.
+**Stella：** 讓我給你一個簡單的框架。
 
 **[ANIMATION: Decision tree appearing step by step]**
 
-**Sam:** First question: are you investing in international bonds or stocks?
+**Stella：** 第一個問題：你投資的是國際債券還是股票？
 
-**Alex:** Why does that matter?
+**Horace：** 這有什麼關係？
 
-**Sam:** For bonds, always hedge. Bond returns are small, maybe three to four percent. Currency volatility can be ten to fifteen percent. Unhedged international bonds are basically a currency bet with some bond income sprinkled on top.
+**Stella：** 對債券而言，一律進行避險。債券報酬很小，大概只有百分之三到四。貨幣波動性可能高達百分之十到十五。未避險的國際債券，基本上就是帶著一點債券利息的貨幣投機。
 
-**[VISUAL: Risk comparison showing International Bond Return (3-4%) vs Currency Volatility (10-15%), with the currency risk dwarfing the bond return]**
+**[VISUAL: Risk comparison showing 國際債券報酬（3-4%）vs 貨幣波動性（10-15%），with the currency risk dwarfing the bond return]**
 
-**Sam:** That is why Vanguard's international bond ETF, BNDX, is hedged by default. It just makes sense for bonds.
+**Stella：** 這也是 Vanguard 國際債券指數股票型基金 BNDX 預設已進行避險的原因。對債券而言，這樣做完全合理。
 
-**Alex:** And for stocks?
+**Horace：** 那股票呢？
 
-**Sam:** For equities, it is more nuanced because stock returns are larger, so currency is a smaller proportion of total risk. Here is my framework.
+**Stella：** 對股票而言，就更需要因時制宜了，因為股票報酬比較大，所以貨幣佔總風險的比例較小。以下是我的框架。
 
 **[ANIMATION: Framework card showing three scenarios:
-1. Short time horizon (1-3 years): Hedge more (75-100%)
-2. Medium time horizon (3-10 years): Partial hedge (50%)
-3. Long time horizon (10+ years): Less hedging needed (0-50%)]**
+1. 短期時間軸（1-3 年）：加強避險（75-100%）
+2. 中期時間軸（3-10 年）：部分避險（50%）
+3. 長期時間軸（10 年以上）：避險必要性降低（0-50%）]**
 
-**Sam:** If you need the money in one to three years, hedge aggressively. Currency can move ten to fifteen percent in a year. Over three to ten years, a fifty percent hedge is a reasonable compromise. Over ten-plus years, currencies tend to mean-revert, so hedging matters less.
+**Stella：** 若你一到三年內需要動用這筆錢，就要積極避險。貨幣一年之內可能輕易波動百分之十到十五。三到十年的中期，五成避險是合理的折衷。十年以上的長期，因貨幣傾向均值回歸，避險的重要性就相對降低了。
 
-**Alex:** What about emerging markets?
+**Horace：** 新興市場呢？
 
-**Sam:** Generally, leave them unhedged. Hedging emerging market currencies is expensive because the interest rate differentials are large and the forward markets are less liquid. Plus, EM currency exposure provides genuine diversification benefit.
+**Stella：** 一般來說，保持未避險。對新興市場貨幣進行避險成本很高，因為利率差異大，遠期市場的流動性也較低。加上新興市場貨幣曝險本身提供了真實的多元化效益。
 
-**[VISUAL: Cost comparison showing hedging costs: Euro (~2-3% benefit currently), Yen (~4-5% benefit currently), Brazilian Real (~8-10% cost), Indian Rupee (~5-7% cost)]**
+**[VISUAL: Cost comparison showing hedging costs: 歐元（目前約帶來 2-3% 收益）、日圓（目前約帶來 4-5% 收益）、巴西里拉（約需付出 8-10% 成本）、印度盧比（約需付出 5-7% 成本）]**
 
-**Alex:** That is a huge difference in cost.
+**Horace：** 成本差距真的很大。
 
-**Sam:** Exactly. Hedging the yen actually earns you money right now, but hedging the Brazilian real could cost you eight to ten percent annually. The economics are completely different.
+**Stella：** 正是。現在避險日圓實際上能讓你賺錢，但避險巴西里拉每年可能要花掉你百分之八到十。兩者的經濟邏輯完全不同。
 
-**Alex:** Let me make sure I understand the practical steps. If I want to hedge my international developed market stocks, what do I actually do?
+**Horace：** 讓我確認一下實際操作步驟。如果我想對持有的國際已開發市場股票進行避險，我實際上需要做什麼？
 
-**Sam:** Simply buy a hedged ETF instead of an unhedged one.
+**Stella：** 很簡單，就是買避險型指數股票型基金而不是未避險型。
 
 **[VISUAL: Table comparing popular ETFs:
-Unhedged: EFA, VEA, IEFA (EAFE equities)
-Hedged: HEFA, HEZU (Eurozone), HEWJ (Japan)
-Unhedged: BNDX? No - BNDX is already hedged!
-Unhedged International Bonds: Not recommended for most investors]**
+未避險型：EFA、VEA、IEFA（歐澳遠東股票）
+避險型：HEFA、HEZU（歐元區）、HEWJ（日本）
+BNDX 是未避險型嗎？不——BNDX 已預設進行避險！
+未避險型國際債券：大多數投資者不建議使用]**
 
-**Sam:** For EAFE equities, you can use HEFA instead of EFA. For Japan specifically, HEWJ instead of EWJ. For the Eurozone, HEZU instead of EZU. It is literally just buying a different ticker.
+**Stella：** 持有歐澳遠東股票，可以用 HEFA 取代 EFA。專門投資日本，就用 HEWJ 取代 EWJ。偏好歐元區，就用 HEZU 取代 EZU。字面上只是換一個代碼而已。
 
-**Alex:** That is surprisingly simple.
+**Horace：** 這意外地簡單。
 
-**Sam:** The ETF handles all the forward contract management internally. You do not need to open a forex account or manage any contracts yourself.
+**Stella：** 指數股票型基金在內部處理了所有遠期合約的管理工作。你不需要開外匯帳戶或自行管理任何合約。
 
-**Alex:** One thing I am confused about. If I own VT, the total world stock ETF, what is my currency exposure?
+**Horace：** 有一件事我還不太明白。如果我持有 VT 這檔全球股票指數股票型基金，我的貨幣曝險是什麼情況？
 
-**Sam:** VT is about sixty percent US stocks and forty percent international. The US portion has no foreign currency exposure. The international portion has full exposure. So roughly forty percent of your VT position is exposed to foreign currencies.
+**Stella：** VT 大約持有百分之六十的美國股票和百分之四十的國際股票。美國部分沒有外幣曝險，國際部分則完全曝險。所以你 VT 持倉中，大約百分之四十暴露在外幣匯率的風險之下。
 
-**[ANIMATION: Pie chart of VT showing 60% US (no FX risk) and 40% International (full FX risk), with the 40% section broken down by currency: Euro, Yen, Pound, Others]**
+**[ANIMATION: Pie chart of VT showing 60% 美國（無外匯風險）and 40% 國際（完整外匯風險），with the 40% section broken down by currency: 歐元、日圓、英鎊、其他]**
 
-**Alex:** Is that something I should worry about?
+**Horace：** 這是我需要擔心的事嗎？
 
-**Sam:** For a long-term investor, probably not too much. Over twenty-plus years, currency effects tend to be relatively small compared to equity returns. But if you want to reduce volatility or you have a shorter time horizon, consider replacing some of that forty percent with hedged international ETFs.
+**Stella：** 對長期投資者而言，可能不需要太擔心。二十年以上的長期來看，相較於股票報酬本身，貨幣效應通常相對較小。但如果你想降低波動性，或時間軸較短，可以考慮將那百分之四十的部分，替換成部分的避險型國際指數股票型基金。
 
-**Alex:** Any final advice?
+**Horace：** 最後有什麼建議嗎？
 
-**Sam:** Three things. First, always hedge international bonds. There is almost no argument against it.
+**Stella：** 三件事。第一，國際債券一律進行避險，這幾乎沒有反對的理由。
 
 **[ANIMATION: Three final takeaway cards appearing]**
 
-**Sam:** Second, for international stocks, make a conscious choice. Do not default to unhedged just because it is the most common. Look at the interest rate environment. If US rates are significantly higher, hedging not only reduces risk but earns you extra return.
+**Stella：** 第二，對國際股票要做出有意識的選擇，不要只因為未避險型比較常見就默認選它。要看利率環境。如果美國利率明顯高於外國，避險不只降低風險，還能帶給你額外報酬。
 
-**Alex:** And third?
+**Horace：** 第三呢？
 
-**Sam:** Do not over-complicate it. For most investors, a simple split between hedged and unhedged international equity ETFs, plus hedged international bonds, captures most of the benefit. You do not need to trade currencies or manage forward contracts yourself.
+**Stella：** 不要把事情搞得太複雜。對大多數投資者而言，簡單地在避險型和未避險型國際股票指數股票型基金之間做個分配，再搭配避險型國際債券，就能獲得大部分的效益。你不需要自己交易外幣或管理遠期合約。
 
-**[VISUAL: Summary card showing recommended approach: International Bonds = 100% Hedged, International Developed Stocks = 50% Hedged / 50% Unhedged, Emerging Market Stocks = 100% Unhedged]**
+**[VISUAL: Summary card showing recommended approach: 國際債券 = 100% 避險、國際已開發市場股票 = 50% 避險 / 50% 未避險、新興市場股票 = 100% 未避險]**
 
-**Alex:** Clean and simple. Thanks Sam.
+**Horace：** 清晰又簡單。謝謝你，Stella。
 
-**Sam:** Currency risk is one of those things that is invisible until it hits you. Now that you understand it, you can manage it instead of being surprised by it.
+**Stella：** 貨幣風險就是那種在打到你之前完全隱形的東西。現在你理解了，就能主動管理它，而不是被它打個措手不及。
+
+**Horace：** 而且好消息是，以目前的利率差異來看，對歐元和日圓進行避險，實際上還能替我們帶來額外報酬。
+
+**Stella：** 沒錯。這種狀況不會永遠持續，但現在的數字強烈支持對已開發市場貨幣進行避險。趁著有利可圖的時候好好把握，同時也要留意利率環境的變化。
+
+**Horace：** 我想我的行動方案很清楚了：對國際債券進行避險、考慮對一半的國際已開發市場股票進行避險，新興市場則保持未避險。
+
+**Stella：** 這是一個紮實、有邏輯依據的做法。簡單、站得住腳，而且適合大多數長期投資者。
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]**
 
 ---
 
-*End of Side Lesson 29*
+*補充課程 29 結束*

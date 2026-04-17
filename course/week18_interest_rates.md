@@ -676,153 +676,153 @@ A: Your existing bonds lose market value (prices fall), but the income they gene
 
 [VISUAL: Animated intro with title "Week 18: Interest Rates and Central Bank Policy"]
 
-**Alex:** Welcome back everyone. Today we are going to talk about the single most important force in all of financial markets. Not earnings, not GDP, not even inflation directly. We are talking about interest rates and central bank policy.
+**Horace:** Welcome back everyone. Today we are going to talk about the single most important force in all of financial markets. Not earnings, not GDP, not even inflation directly. We are talking about interest rates and central bank policy.
 
-**Sam:** Alex, I will be honest. Whenever I hear about the Fed or interest rate decisions on the news, my eyes glaze over. It sounds like something only economists care about.
+**Stella:** Horace, I will be honest. Whenever I hear about the Fed or interest rate decisions on the news, my eyes glaze over. It sounds like something only economists care about.
 
-**Alex:** And that reaction is exactly why so many investors get blindsided by rate changes. Let me put it in perspective. In 2022 and 2023, the Federal Reserve raised interest rates from essentially zero to over 5%. That single policy shift caused the worst bond market performance in modern history, triggered the collapse of three major banks, and knocked trillions of dollars off stock market values. Meanwhile, savers went from earning nothing on their cash to earning 5%. Every single investor was affected by those rate changes.
+**Horace:** And that reaction is exactly why so many investors get blindsided by rate changes. Let me put it in perspective. In 2022 and 2023, the Federal Reserve raised interest rates from essentially zero to over 5%. That single policy shift caused the worst bond market performance in modern history, triggered the collapse of three major banks, and knocked trillions of dollars off stock market values. Meanwhile, savers went from earning nothing on their cash to earning 5%. Every single investor was affected by those rate changes.
 
-**Sam:** Okay, you have my attention. Start from the beginning -- what exactly is an interest rate?
+**Stella:** Okay, you have my attention. Start from the beginning -- what exactly is an interest rate?
 
-**Alex:** At its simplest, an interest rate is the price of borrowing money. If you borrow $1,000 at 5% interest, you pay $50 per year for the privilege of using someone else's money. If you deposit $1,000 in a savings account at 5%, the bank pays you $50 per year for the privilege of using your money. The rate is the price that equilibrates borrowers and lenders.
+**Horace:** At its simplest, an interest rate is the price of borrowing money. If you borrow $1,000 at 5% interest, you pay $50 per year for the privilege of using someone else's money. If you deposit $1,000 in a savings account at 5%, the bank pays you $50 per year for the privilege of using your money. The rate is the price that equilibrates borrowers and lenders.
 
 [VISUAL: Simple animated diagram showing money flowing from a lender to a borrower, with interest payments flowing back. The interest rate is displayed as a dial that can be turned up or down, with arrows showing how the flow of borrowing changes as the rate changes.]
 
-**Sam:** That makes sense. So who decides what the interest rate is?
+**Stella:** That makes sense. So who decides what the interest rate is?
 
-**Alex:** Great question, and the answer is more complex than most people realize. There is not one single interest rate -- there is an entire ecosystem of rates. But the anchor for the whole system is the federal funds rate, which is set by the Federal Reserve. Specifically, by the Federal Open Market Committee, or FOMC.
+**Horace:** Great question, and the answer is more complex than most people realize. There is not one single interest rate -- there is an entire ecosystem of rates. But the anchor for the whole system is the federal funds rate, which is set by the Federal Reserve. Specifically, by the Federal Open Market Committee, or FOMC.
 
-**Sam:** What is the federal funds rate?
+**Stella:** What is the federal funds rate?
 
-**Alex:** It is the rate that banks charge each other for overnight loans. Banks need to meet certain reserve requirements, and at the end of each day, banks with excess reserves lend to banks with deficits. The interest rate on these overnight loans is the fed funds rate. It might sound like a trivial, obscure banking detail, but it is the foundation of the entire interest rate structure.
+**Horace:** It is the rate that banks charge each other for overnight loans. Banks need to meet certain reserve requirements, and at the end of each day, banks with excess reserves lend to banks with deficits. The interest rate on these overnight loans is the fed funds rate. It might sound like a trivial, obscure banking detail, but it is the foundation of the entire interest rate structure.
 
 [VISUAL: Animated flow diagram showing Bank A with excess reserves lending to Bank B with insufficient reserves overnight. An arrow shows the interest payment flowing back. The fed funds rate is displayed prominently above, with text showing "The Fed sets a TARGET for this rate"]
 
-**Alex:** Every other important rate in the economy is connected to the fed funds rate. The prime rate -- what banks charge their best customers -- is typically fed funds plus 3 percentage points. Mortgage rates, auto loan rates, credit card rates, corporate bond yields -- they all trace back to this one rate.
+**Horace:** Every other important rate in the economy is connected to the fed funds rate. The prime rate -- what banks charge their best customers -- is typically fed funds plus 3 percentage points. Mortgage rates, auto loan rates, credit card rates, corporate bond yields -- they all trace back to this one rate.
 
-**Sam:** Why does the Fed change this rate? What are they trying to accomplish?
+**Stella:** Why does the Fed change this rate? What are they trying to accomplish?
 
-**Alex:** The Federal Reserve has what is called a dual mandate from Congress. Two jobs. One, maximum employment -- keep as many people working as possible. Two, stable prices -- keep inflation at around 2% per year. When the economy is weak and unemployment is high, the Fed lowers rates to make borrowing cheaper, which stimulates spending and hiring. When the economy is overheating and inflation is rising, the Fed raises rates to make borrowing more expensive, which cools spending and brings prices under control.
+**Horace:** The Federal Reserve has what is called a dual mandate from Congress. Two jobs. One, maximum employment -- keep as many people working as possible. Two, stable prices -- keep inflation at around 2% per year. When the economy is weak and unemployment is high, the Fed lowers rates to make borrowing cheaper, which stimulates spending and hiring. When the economy is overheating and inflation is rising, the Fed raises rates to make borrowing more expensive, which cools spending and brings prices under control.
 
 [ANIMATION: animation/week18_dual_mandate.py - An animated balance scale. On one side is "Employment" with a jobs meter, on the other is "Prices" with an inflation gauge. The Fed Funds Rate is shown as a lever in the middle. When the lever is pushed down (rate cut), employment rises but inflation also increases. When pulled up (rate hike), inflation cools but employment weakens. The animation shows the Fed trying to find the balance point where both are at healthy levels.]
 
-**Sam:** That sounds straightforward. Why does it ever go wrong?
+**Stella:** That sounds straightforward. Why does it ever go wrong?
 
-**Alex:** Because there are long and variable time lags. When the Fed changes rates today, the full effect does not hit the economy for 12 to 24 months. So the Fed is always flying blind to some degree -- they are making decisions based on where they think the economy will be a year from now, not where it is today. This means they can easily overshoot. They might raise rates too much and cause a recession, or keep them too low for too long and let inflation get out of control.
+**Horace:** Because there are long and variable time lags. When the Fed changes rates today, the full effect does not hit the economy for 12 to 24 months. So the Fed is always flying blind to some degree -- they are making decisions based on where they think the economy will be a year from now, not where it is today. This means they can easily overshoot. They might raise rates too much and cause a recession, or keep them too low for too long and let inflation get out of control.
 
-**Sam:** Has that happened in real life?
+**Stella:** Has that happened in real life?
 
-**Alex:** Many times. In the early 1980s, Fed Chairman Paul Volcker raised the fed funds rate to an astonishing 20% to kill double-digit inflation. It worked, but it caused two severe recessions and the unemployment rate hit 10.8%. In 2020 and 2021, the Fed kept rates at zero and pumped trillions into the economy even as inflation began rising, and they kept calling it "transitory." By the time they started raising rates in 2022, inflation had hit 9.1%, and they had to hike at the fastest pace in 40 years.
+**Horace:** Many times. In the early 1980s, Fed Chairman Paul Volcker raised the fed funds rate to an astonishing 20% to kill double-digit inflation. It worked, but it caused two severe recessions and the unemployment rate hit 10.8%. In 2020 and 2021, the Fed kept rates at zero and pumped trillions into the economy even as inflation began rising, and they kept calling it "transitory." By the time they started raising rates in 2022, inflation had hit 9.1%, and they had to hike at the fastest pace in 40 years.
 
 [VISUAL: Historical chart of the Fed Funds Rate from 1960 to present, with key events labeled: "Volcker's War on Inflation (20%)", "Dot-com bust (rate cuts)", "Financial Crisis (zero bound)", "COVID (back to zero)", "2022 hiking cycle". Recession bars are shaded in gray behind the rate line.]
 
-**Sam:** How do rate changes actually flow through to the real economy and to my investments?
+**Stella:** How do rate changes actually flow through to the real economy and to my investments?
 
-**Alex:** There are several channels, and they work at different speeds. Let me walk through them. The first and most direct is the borrowing cost channel. When the Fed raises rates, every form of borrowing becomes more expensive. Mortgages, auto loans, credit cards, business loans -- all of them adjust upward. This means consumers borrow less and spend less, and businesses invest less.
+**Horace:** There are several channels, and they work at different speeds. Let me walk through them. The first and most direct is the borrowing cost channel. When the Fed raises rates, every form of borrowing becomes more expensive. Mortgages, auto loans, credit cards, business loans -- all of them adjust upward. This means consumers borrow less and spend less, and businesses invest less.
 
-**Sam:** I saw this myself. When mortgage rates went from 3% to 7%, it felt like the housing market froze.
+**Stella:** I saw this myself. When mortgage rates went from 3% to 7%, it felt like the housing market froze.
 
-**Alex:** And for good reason. On a $400,000 mortgage, the monthly payment at 3% is about $1,686. At 7%, it is $2,661. That is almost $1,000 more per month for the same house. Many would-be buyers were simply priced out of the market.
+**Horace:** And for good reason. On a $400,000 mortgage, the monthly payment at 3% is about $1,686. At 7%, it is $2,661. That is almost $1,000 more per month for the same house. Many would-be buyers were simply priced out of the market.
 
 [VISUAL: Side-by-side mortgage calculator showing a $400,000 house at 3% vs 7%. Monthly payment, total interest paid over 30 years, and the monthly income required to qualify are compared. The difference is stark and highlighted.]
 
-**Alex:** The second channel is asset prices. This one is critical for investors to understand. Every stock valuation model involves discounting future cash flows back to the present. When interest rates rise, that discount rate rises, and the present value of future cash flows falls. This mechanically pushes stock prices down.
+**Horace:** The second channel is asset prices. This one is critical for investors to understand. Every stock valuation model involves discounting future cash flows back to the present. When interest rates rise, that discount rate rises, and the present value of future cash flows falls. This mechanically pushes stock prices down.
 
-**Sam:** Is that why growth stocks got hammered so badly in 2022?
+**Stella:** Is that why growth stocks got hammered so badly in 2022?
 
-**Alex:** Exactly. And here is why growth stocks are more affected than value stocks. A growth stock's value comes mostly from cash flows way out in the future -- years 10, 15, 20 from now. Those distant cash flows are the most sensitive to discount rate changes. A value stock or a dividend-paying stock generates most of its cash flows in the near term, so it is less affected.
+**Horace:** Exactly. And here is why growth stocks are more affected than value stocks. A growth stock's value comes mostly from cash flows way out in the future -- years 10, 15, 20 from now. Those distant cash flows are the most sensitive to discount rate changes. A value stock or a dividend-paying stock generates most of its cash flows in the near term, so it is less affected.
 
 [ANIMATION: animation/week18_dcf_rates.py - Two animated DCF models side by side. Growth company has small bars in early years growing to large bars in later years. Value company has consistent, moderate bars throughout. A "discount rate" slider moves from 3% to 7%, and viewers can see how the present value bars shrink -- the growth company's distant bars shrink dramatically while the value company's near-term bars barely change. Total present values are summed, showing growth company losing 40% of value while value company loses only 15%.]
 
-**Sam:** That is such a clear illustration. What about the other channels?
+**Stella:** That is such a clear illustration. What about the other channels?
 
-**Alex:** The third is the exchange rate channel. When US rates rise relative to other countries, foreign investors move money to the US to earn higher yields. This increases demand for dollars, which strengthens the dollar. A stronger dollar hurts US exporters because their products become more expensive for foreign buyers, but it helps consumers because imports become cheaper -- which actually helps reduce inflation.
+**Horace:** The third is the exchange rate channel. When US rates rise relative to other countries, foreign investors move money to the US to earn higher yields. This increases demand for dollars, which strengthens the dollar. A stronger dollar hurts US exporters because their products become more expensive for foreign buyers, but it helps consumers because imports become cheaper -- which actually helps reduce inflation.
 
-**Alex:** The fourth channel is bank lending. Higher rates actually help bank profits initially because the spread between what they pay depositors and charge borrowers widens. But as rates stay high, loan demand drops, defaults increase, and banks tighten lending standards. Less lending means less economic activity.
+**Horace:** The fourth channel is bank lending. Higher rates actually help bank profits initially because the spread between what they pay depositors and charge borrowers widens. But as rates stay high, loan demand drops, defaults increase, and banks tighten lending standards. Less lending means less economic activity.
 
-**Sam:** And the fifth?
+**Stella:** And the fifth?
 
-**Alex:** Expectations. This might be the most important channel and the least understood. When the Fed convincingly signals that it will do whatever it takes to bring inflation down, businesses start moderating their price increases and workers moderate their wage demands -- even before the actual rate hikes fully bite. Credibility matters enormously.
+**Horace:** Expectations. This might be the most important channel and the least understood. When the Fed convincingly signals that it will do whatever it takes to bring inflation down, businesses start moderating their price increases and workers moderate their wage demands -- even before the actual rate hikes fully bite. Credibility matters enormously.
 
 [VISUAL: Diagram showing the five channels flowing from "Fed Raises Rates" at the top down to "Economy Slows / Inflation Falls" at the bottom, with timing estimates next to each channel: "Immediate" for financial markets, "Weeks" for mortgage rates, "Months" for borrowing behavior, "6-18 months" for real economy, "12-24 months" for inflation]
 
-**Sam:** You mentioned the yield curve earlier. Can you explain what that is?
+**Stella:** You mentioned the yield curve earlier. Can you explain what that is?
 
-**Alex:** The yield curve is one of the most important charts in all of finance. It plots the interest rate for government bonds of different maturities on the same graph -- from 3-month T-bills all the way to 30-year bonds.
+**Horace:** The yield curve is one of the most important charts in all of finance. It plots the interest rate for government bonds of different maturities on the same graph -- from 3-month T-bills all the way to 30-year bonds.
 
-**Sam:** And what does its shape tell you?
+**Stella:** And what does its shape tell you?
 
-**Alex:** Everything. Normally, the yield curve slopes upward -- longer-term bonds have higher yields because investors demand more compensation for locking up their money for longer periods. This is a healthy signal indicating the economy is expected to grow normally.
+**Horace:** Everything. Normally, the yield curve slopes upward -- longer-term bonds have higher yields because investors demand more compensation for locking up their money for longer periods. This is a healthy signal indicating the economy is expected to grow normally.
 
-**Alex:** But when the yield curve inverts -- when short-term rates are HIGHER than long-term rates -- that is the market saying "I expect the economy to weaken and rates to fall in the future." An inverted yield curve has preceded every single US recession since 1960.
+**Horace:** But when the yield curve inverts -- when short-term rates are HIGHER than long-term rates -- that is the market saying "I expect the economy to weaken and rates to fall in the future." An inverted yield curve has preceded every single US recession since 1960.
 
 [VISUAL: Three animated yield curves. First, a normal upward-sloping curve labeled "Healthy Economy." Second, a flat curve labeled "Transition / Uncertainty." Third, an inverted curve labeled "Recession Warning." Each curve morphs into the next to show how the transition typically happens during a tightening cycle.]
 
-**Sam:** Every single one? That is a pretty strong track record.
+**Stella:** Every single one? That is a pretty strong track record.
 
-**Alex:** It is. But there is a very important caveat. The lead time is variable. Sometimes the recession comes 6 months after the inversion, sometimes 2 years later. And the stock market often continues to rally after the initial inversion before eventually declining. So the yield curve inversion is a warning to prepare, not a signal to sell everything immediately.
+**Horace:** It is. But there is a very important caveat. The lead time is variable. Sometimes the recession comes 6 months after the inversion, sometimes 2 years later. And the stock market often continues to rally after the initial inversion before eventually declining. So the yield curve inversion is a warning to prepare, not a signal to sell everything immediately.
 
-**Sam:** How should I position my portfolio in different rate environments?
+**Stella:** How should I position my portfolio in different rate environments?
 
-**Alex:** Let me give you the simplified playbook. When rates are falling -- the Fed is cutting -- you generally want to extend the duration of your bond holdings to lock in higher yields before they disappear. Growth stocks tend to outperform because lower discount rates boost their valuations. Interest-rate-sensitive sectors like REITs and utilities benefit.
+**Horace:** Let me give you the simplified playbook. When rates are falling -- the Fed is cutting -- you generally want to extend the duration of your bond holdings to lock in higher yields before they disappear. Growth stocks tend to outperform because lower discount rates boost their valuations. Interest-rate-sensitive sectors like REITs and utilities benefit.
 
-**Alex:** When rates are rising, you want shorter-duration bonds to minimize price losses. Value stocks and financials tend to do better. Cash actually becomes attractive again because money market funds pay meaningful yields.
+**Horace:** When rates are rising, you want shorter-duration bonds to minimize price losses. Value stocks and financials tend to do better. Cash actually becomes attractive again because money market funds pay meaningful yields.
 
 [VISUAL: Two-column comparison chart. Left column: "Falling Rates Playbook" with icons for longer bonds, growth stocks, REITs, and a thumbs-down on cash. Right column: "Rising Rates Playbook" with icons for shorter bonds, value stocks, financials, and a thumbs-up on cash.]
 
-**Sam:** This is really practical. One thing I have heard about is real versus nominal interest rates. What is the difference and why should I care?
+**Stella:** This is really practical. One thing I have heard about is real versus nominal interest rates. What is the difference and why should I care?
 
-**Alex:** This is absolutely critical. The nominal interest rate is the number you see quoted -- say, 5%. The real interest rate is the nominal rate minus inflation. If you earn 5% on your savings but inflation is 3.5%, your real return is only 1.5%. Your purchasing power -- what your money can actually buy -- is growing at 1.5%, not 5%.
+**Horace:** This is absolutely critical. The nominal interest rate is the number you see quoted -- say, 5%. The real interest rate is the nominal rate minus inflation. If you earn 5% on your savings but inflation is 3.5%, your real return is only 1.5%. Your purchasing power -- what your money can actually buy -- is growing at 1.5%, not 5%.
 
-**Sam:** So if inflation is higher than the interest rate, I am actually losing money?
+**Stella:** So if inflation is higher than the interest rate, I am actually losing money?
 
-**Alex:** In real terms, yes. And this happened for most of the 2010s and into 2021. Interest rates were near zero while inflation, even though it was low, was still 1 to 2%. Savers were slowly losing purchasing power every single year. This is sometimes called "financial repression" -- governments benefit from negative real rates because it erodes the real value of government debt over time.
+**Horace:** In real terms, yes. And this happened for most of the 2010s and into 2021. Interest rates were near zero while inflation, even though it was low, was still 1 to 2%. Savers were slowly losing purchasing power every single year. This is sometimes called "financial repression" -- governments benefit from negative real rates because it erodes the real value of government debt over time.
 
 [ANIMATION: animation/week18_real_rates.py - Animated visualization showing a $100 bill. At a 5% nominal rate, the bill grows to $105. But then an "inflation eraser" (at 3.5%) comes and rubs away part of the gain, leaving only $101.50 of real purchasing power. Then a scenario where inflation is 6% and the nominal rate is 4% -- the eraser removes MORE than what was added, leaving the bill visibly smaller in real terms.]
 
-**Sam:** That really drives the point home. So when people say "rates are high" or "rates are low," they should really be specifying whether they mean nominal or real?
+**Stella:** That really drives the point home. So when people say "rates are high" or "rates are low," they should really be specifying whether they mean nominal or real?
 
-**Alex:** Exactly. A 15% nominal rate sounds impossibly high, but if inflation is 12%, the real rate is only 3%. That is roughly what the early 1980s looked like. A 5% nominal rate with 2% inflation gives a real rate of 3%, which is quite restrictive historically. Always think in real terms when making investment decisions.
+**Horace:** Exactly. A 15% nominal rate sounds impossibly high, but if inflation is 12%, the real rate is only 3%. That is roughly what the early 1980s looked like. A 5% nominal rate with 2% inflation gives a real rate of 3%, which is quite restrictive historically. Always think in real terms when making investment decisions.
 
-**Sam:** Let me ask a big-picture question. Can you walk me through how the last few major rate cycles affected investors?
+**Stella:** Let me ask a big-picture question. Can you walk me through how the last few major rate cycles affected investors?
 
-**Alex:** Great question. Let us look at the last three major cycles. After the 2008 financial crisis, the Fed cut rates to zero and kept them there for seven years, from 2008 to 2015. This was combined with three rounds of quantitative easing, where the Fed bought trillions of dollars of bonds. This pushed investors out of safe assets and into stocks, real estate, and riskier bonds. Anyone who bought stocks in 2009 earned extraordinary returns.
+**Horace:** Great question. Let us look at the last three major cycles. After the 2008 financial crisis, the Fed cut rates to zero and kept them there for seven years, from 2008 to 2015. This was combined with three rounds of quantitative easing, where the Fed bought trillions of dollars of bonds. This pushed investors out of safe assets and into stocks, real estate, and riskier bonds. Anyone who bought stocks in 2009 earned extraordinary returns.
 
-**Sam:** Because low rates made everything more valuable?
+**Stella:** Because low rates made everything more valuable?
 
-**Alex:** Precisely. Low discount rates inflated all asset prices. The S&P 500 went from about 700 in March 2009 to over 3,300 by the end of 2019. But it also created distortions. Companies borrowed cheaply to buy back stock rather than invest in their businesses. Speculative investments in unprofitable companies were rewarded because the cost of waiting for future profits was low.
+**Horace:** Precisely. Low discount rates inflated all asset prices. The S&P 500 went from about 700 in March 2009 to over 3,300 by the end of 2019. But it also created distortions. Companies borrowed cheaply to buy back stock rather than invest in their businesses. Speculative investments in unprofitable companies were rewarded because the cost of waiting for future profits was low.
 
-**Alex:** Then COVID hit in March 2020. The Fed cut rates back to zero and launched massive QE again. Combined with trillions in fiscal stimulus, this created an enormous boom in asset prices -- stocks, crypto, meme stocks, housing -- everything soared. But it also planted the seeds of the worst inflation in 40 years.
+**Horace:** Then COVID hit in March 2020. The Fed cut rates back to zero and launched massive QE again. Combined with trillions in fiscal stimulus, this created an enormous boom in asset prices -- stocks, crypto, meme stocks, housing -- everything soared. But it also planted the seeds of the worst inflation in 40 years.
 
-**Sam:** And then the Fed had to hike aggressively.
+**Stella:** And then the Fed had to hike aggressively.
 
-**Alex:** Right. Starting in March 2022, the Fed raised rates from zero to over 5% in about 18 months -- the fastest hiking cycle since the early 1980s. The results were brutal for investors who were positioned for the low-rate world. Long-term Treasury bonds lost over 30% of their value. The Nasdaq dropped about 33%. Speculative assets like crypto and unprofitable tech stocks dropped 70, 80, even 90%.
+**Horace:** Right. Starting in March 2022, the Fed raised rates from zero to over 5% in about 18 months -- the fastest hiking cycle since the early 1980s. The results were brutal for investors who were positioned for the low-rate world. Long-term Treasury bonds lost over 30% of their value. The Nasdaq dropped about 33%. Speculative assets like crypto and unprofitable tech stocks dropped 70, 80, even 90%.
 
 [VISUAL: Timeline from 2008 to present showing three major rate cycles with the Fed Funds Rate line, annotated with key market events. Below the rate line, three asset class panels show the performance of stocks, bonds, and real estate in each regime, illustrating how different environments rewarded different strategies.]
 
-**Sam:** So investors who did not understand rates got crushed.
+**Stella:** So investors who did not understand rates got crushed.
 
-**Alex:** Many did. Banks like Silicon Valley Bank had loaded up on long-duration bonds when rates were near zero. When rates spiked, those bonds lost massive amounts of value, the bank became insolvent, and depositors fled. This was a textbook rate risk disaster.
+**Horace:** Many did. Banks like Silicon Valley Bank had loaded up on long-duration bonds when rates were near zero. When rates spiked, those bonds lost massive amounts of value, the bank became insolvent, and depositors fled. This was a textbook rate risk disaster.
 
-**Sam:** What should someone do right now? How do they figure out the current rate environment?
+**Stella:** What should someone do right now? How do they figure out the current rate environment?
 
-**Alex:** Here is what I would recommend for any investor. First, know the current fed funds rate and where the market expects it to go. Check the CME FedWatch Tool -- it is free and shows the probability of rate changes at each upcoming Fed meeting. Second, look at the yield curve. Is it normal, flat, or inverted? That tells you what the bond market expects for the economy. Third, calculate the real interest rate by subtracting current inflation from the nominal rate. That tells you whether policy is truly restrictive or still accommodative.
+**Horace:** Here is what I would recommend for any investor. First, know the current fed funds rate and where the market expects it to go. Check the CME FedWatch Tool -- it is free and shows the probability of rate changes at each upcoming Fed meeting. Second, look at the yield curve. Is it normal, flat, or inverted? That tells you what the bond market expects for the economy. Third, calculate the real interest rate by subtracting current inflation from the nominal rate. That tells you whether policy is truly restrictive or still accommodative.
 
 [VISUAL: Screenshot-style mock-up of the CME FedWatch Tool showing current rate probabilities, alongside a current yield curve chart and a real rate calculation, all labeled as "Your Three Rate-Watching Tools"]
 
-**Sam:** And how should I position my portfolio based on that analysis?
+**Stella:** And how should I position my portfolio based on that analysis?
 
-**Alex:** In a rising rate environment, keep bond duration short, favor quality and value in stocks, and appreciate that cash is a real asset earning real yield. In a falling rate environment, extend duration, tilt toward growth, and consider real estate. In a stable rate environment, focus less on macro positioning and more on individual asset selection.
+**Horace:** In a rising rate environment, keep bond duration short, favor quality and value in stocks, and appreciate that cash is a real asset earning real yield. In a falling rate environment, extend duration, tilt toward growth, and consider real estate. In a stable rate environment, focus less on macro positioning and more on individual asset selection.
 
-**Alex:** But here is the most important advice. Do not try to predict the exact path of rates. Even the Fed gets it wrong regularly. Instead, understand how your current portfolio will behave if rates rise, fall, or stay flat. Make sure you can survive any of those scenarios without being forced to sell at the worst time.
+**Horace:** But here is the most important advice. Do not try to predict the exact path of rates. Even the Fed gets it wrong regularly. Instead, understand how your current portfolio will behave if rates rise, fall, or stay flat. Make sure you can survive any of those scenarios without being forced to sell at the worst time.
 
-**Sam:** Do not predict, prepare.
+**Stella:** Do not predict, prepare.
 
-**Alex:** That should be every investor's motto when it comes to interest rates.
+**Horace:** That should be every investor's motto when it comes to interest rates.
 
-**Sam:** This has been incredibly valuable. I feel like I understand the financial news so much better now. When I hear "the Fed raised rates by 25 basis points," I actually know what that means and why it matters.
+**Stella:** This has been incredibly valuable. I feel like I understand the financial news so much better now. When I hear "the Fed raised rates by 25 basis points," I actually know what that means and why it matters.
 
-**Alex:** And that is the goal. Interest rates touch every corner of your financial life. Understanding them is not just about investing -- it helps you make better decisions about mortgages, savings, career choices, even when to start a business. It is truly foundational knowledge.
+**Horace:** And that is the goal. Interest rates touch every corner of your financial life. Understanding them is not just about investing -- it helps you make better decisions about mortgages, savings, career choices, even when to start a business. It is truly foundational knowledge.
 
 [VISUAL: End screen with key takeaways:
 - Interest rates are the gravitational force of finance
@@ -833,12 +833,12 @@ A: Your existing bonds lose market value (prices fall), but the income they gene
 - Always think in REAL (inflation-adjusted) terms
 - Do not predict rates; prepare for multiple scenarios]
 
-**Sam:** What is next week?
+**Stella:** What is next week?
 
-**Alex:** Next week we dive into corporate finance -- how companies decide between debt and equity, what WACC means, and how dividends and buybacks affect you as a shareholder. It is the foundation for understanding why companies do what they do with their money.
+**Horace:** Next week we dive into corporate finance -- how companies decide between debt and equity, what WACC means, and how dividends and buybacks affect you as a shareholder. It is the foundation for understanding why companies do what they do with their money.
 
 [VISUAL: Preview card for Week 19 with "Corporate Finance: Capital Structure, WACC, and Shareholder Returns"]
 
-**Alex:** Thanks for watching everyone. If interest rates have ever confused you, share this episode with a friend. And if you are new here, we have been building an investment education series from the ground up. Start from Week 1 and you will have a complete foundation. See you next week.
+**Horace:** Thanks for watching everyone. If interest rates have ever confused you, share this episode with a friend. And if you are new here, we have been building an investment education series from the ground up. Start from Week 1 and you will have a complete foundation. See you next week.
 
 [VISUAL: Outro animation with subscribe button and episode playlist]

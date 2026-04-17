@@ -248,115 +248,115 @@ A: It is possible but requires a substantial portfolio. If your annual expenses 
 
 ---
 
-**Alex:** Alright Sam, today we are talking about one of the most popular investment strategies out there -- dividend investing. Do you like the idea of getting paid just for owning stocks?
+**Horace:** Alright Stella, today we are talking about one of the most popular investment strategies out there -- dividend investing. Do you like the idea of getting paid just for owning stocks?
 
-**Sam:** Who would not? Getting a check in the mail every quarter just for holding shares sounds amazing. It is like a paycheck from your portfolio.
+**Stella:** Who would not? Getting a check in the mail every quarter just for holding shares sounds amazing. It is like a paycheck from your portfolio.
 
-**Alex:** It is appealing. And dividend investing can be a powerful strategy. But it is also one of the most misunderstood areas of investing, and the mistakes people make can be costly. Let us start with the basics.
+**Horace:** It is appealing. And dividend investing can be a powerful strategy. But it is also one of the most misunderstood areas of investing, and the mistakes people make can be costly. Let us start with the basics.
 
 [VISUAL: A company's income statement. Revenue flows in at the top. After expenses, taxes, and reinvestment, a portion of profit flows out as dividends to shareholders.]
 
-**Sam:** So what exactly is a dividend?
+**Stella:** So what exactly is a dividend?
 
-**Alex:** A dividend is simply a payment a company makes to its shareholders from its profits. Think of it as the company saying, "We made money this quarter, and we are sharing some of it with our owners." Most U.S. companies that pay dividends do so quarterly.
+**Horace:** A dividend is simply a payment a company makes to its shareholders from its profits. Think of it as the company saying, "We made money this quarter, and we are sharing some of it with our owners." Most U.S. companies that pay dividends do so quarterly.
 
-**Sam:** Does every company pay dividends?
+**Stella:** Does every company pay dividends?
 
-**Alex:** No. Many companies -- especially younger, faster-growing ones like Amazon or Google -- pay no dividends at all. They reinvest all their profits back into the business. Other companies, particularly mature blue chips like Procter & Gamble or Coca-Cola, have paid dividends for decades.
+**Horace:** No. Many companies -- especially younger, faster-growing ones like Amazon or Google -- pay no dividends at all. They reinvest all their profits back into the business. Other companies, particularly mature blue chips like Procter & Gamble or Coca-Cola, have paid dividends for decades.
 
-**Sam:** How do I know how much a stock pays in dividends?
+**Stella:** How do I know how much a stock pays in dividends?
 
-**Alex:** The key metric is dividend yield. It is the annual dividend per share divided by the stock price. If a stock pays $3 per year and trades at $100, the yield is 3%.
+**Horace:** The key metric is dividend yield. It is the annual dividend per share divided by the stock price. If a stock pays $3 per year and trades at $100, the yield is 3%.
 
 [ANIMATION: Simple equation: Annual Dividend ($3) divided by Stock Price ($100) = Dividend Yield (3%). Then show how yield changes: if price drops to $75, same $3 dividend = 4% yield. If price rises to $150, same $3 dividend = 2% yield.]
 
-**Sam:** So yield changes as the stock price moves, even if the dividend stays the same?
+**Stella:** So yield changes as the stock price moves, even if the dividend stays the same?
 
-**Alex:** Exactly. And this is where the first trap lies. A rising yield is not always good news. If the yield is rising because the stock price is falling, that could mean the company is in trouble and the dividend might be at risk.
+**Horace:** Exactly. And this is where the first trap lies. A rising yield is not always good news. If the yield is rising because the stock price is falling, that could mean the company is in trouble and the dividend might be at risk.
 
-**Sam:** That makes sense. What yield should I look for?
+**Stella:** That makes sense. What yield should I look for?
 
-**Alex:** The S&P 500 as a whole yields roughly 1.5% these days. Quality individual dividend stocks typically yield 2-4%. If you see a stock yielding 7%, 8%, or higher, that should trigger caution, not excitement.
+**Horace:** The S&P 500 as a whole yields roughly 1.5% these days. Quality individual dividend stocks typically yield 2-4%. If you see a stock yielding 7%, 8%, or higher, that should trigger caution, not excitement.
 
-**Sam:** Why?
+**Stella:** Why?
 
-**Alex:** Because abnormally high yields usually mean one of two things. Either the company is in a naturally high-yielding industry like utilities or REITs, which is fine. Or the stock price has crashed because the business is deteriorating, and the market expects a dividend cut. This is called a dividend trap.
+**Horace:** Because abnormally high yields usually mean one of two things. Either the company is in a naturally high-yielding industry like utilities or REITs, which is fine. Or the stock price has crashed because the business is deteriorating, and the market expects a dividend cut. This is called a dividend trap.
 
 [VISUAL: Two scenarios labeled "Healthy 4% Yield" and "Dividend Trap 8% Yield." Healthy scenario shows stable earnings supporting the dividend. Trap scenario shows declining earnings, high payout ratio, and an impending dividend cut.]
 
-**Sam:** How do I tell the difference?
+**Stella:** How do I tell the difference?
 
-**Alex:** Check the payout ratio -- the percentage of earnings being paid out as dividends. If a company earns $5 per share and pays $2 in dividends, the payout ratio is 40%. That is healthy and sustainable.
+**Horace:** Check the payout ratio -- the percentage of earnings being paid out as dividends. If a company earns $5 per share and pays $2 in dividends, the payout ratio is 40%. That is healthy and sustainable.
 
-**Sam:** What if the payout ratio is really high?
+**Stella:** What if the payout ratio is really high?
 
-**Alex:** If it is above 80%, you should investigate why. If it is above 100% -- meaning the company is paying more in dividends than it earns -- that is a major red flag. That is unsustainable. The company is borrowing money or depleting reserves to maintain the dividend, and a cut is likely coming.
+**Horace:** If it is above 80%, you should investigate why. If it is above 100% -- meaning the company is paying more in dividends than it earns -- that is a major red flag. That is unsustainable. The company is borrowing money or depleting reserves to maintain the dividend, and a cut is likely coming.
 
 [ANIMATION: A gas tank metaphor. Conservative payout (40%): tank stays more than half full. High payout (80%): tank is getting low. Payout over 100%: tank is empty, car is running on fumes, engine sputtering.]
 
-**Sam:** Got it. What about companies that keep increasing their dividend year after year?
+**Stella:** Got it. What about companies that keep increasing their dividend year after year?
 
-**Alex:** You are talking about Dividend Aristocrats -- S&P 500 companies that have increased their dividend for at least 25 consecutive years. There are about 65 of them. And Dividend Kings have increased for 50 or more years.
+**Horace:** You are talking about Dividend Aristocrats -- S&P 500 companies that have increased their dividend for at least 25 consecutive years. There are about 65 of them. And Dividend Kings have increased for 50 or more years.
 
-**Sam:** Fifty years! That means they raised dividends through multiple recessions, the dot-com crash, 2008, COVID...
+**Stella:** Fifty years! That means they raised dividends through multiple recessions, the dot-com crash, 2008, COVID...
 
-**Alex:** Exactly. That track record demonstrates extraordinary financial resilience. Companies like Procter & Gamble, Coca-Cola, and Johnson & Johnson have been raising dividends for over 60 years. That kind of consistency speaks volumes about the underlying business quality.
+**Horace:** Exactly. That track record demonstrates extraordinary financial resilience. Companies like Procter & Gamble, Coca-Cola, and Johnson & Johnson have been raising dividends for over 60 years. That kind of consistency speaks volumes about the underlying business quality.
 
 [VISUAL: Timeline showing Procter & Gamble's dividend history -- consistent increases through recessions, market crashes, and economic turmoil spanning decades.]
 
-**Sam:** So should I just buy all the Dividend Aristocrats?
+**Stella:** So should I just buy all the Dividend Aristocrats?
 
-**Alex:** There is actually an ETF for that -- NOBL, the ProShares S&P 500 Dividend Aristocrats ETF. It is a reasonable approach, but remember that past performance does not guarantee future performance. Companies do fall off the Aristocrat list. General Electric and AT&T were once considered dividend royalty before they cut.
+**Horace:** There is actually an ETF for that -- NOBL, the ProShares S&P 500 Dividend Aristocrats ETF. It is a reasonable approach, but remember that past performance does not guarantee future performance. Companies do fall off the Aristocrat list. General Electric and AT&T were once considered dividend royalty before they cut.
 
-**Sam:** Now, here is something I find confusing -- the ex-dividend date. What is that about?
+**Stella:** Now, here is something I find confusing -- the ex-dividend date. What is that about?
 
-**Alex:** This is crucial. The ex-dividend date is the cutoff for receiving the next dividend. If you buy the stock before the ex-dividend date, you get the dividend. If you buy on or after the ex-dividend date, you do not.
+**Horace:** This is crucial. The ex-dividend date is the cutoff for receiving the next dividend. If you buy the stock before the ex-dividend date, you get the dividend. If you buy on or after the ex-dividend date, you do not.
 
 [ANIMATION: A timeline showing the four dividend dates: Declaration Date (company announces dividend), Ex-Dividend Date (must own stock BEFORE this date), Record Date (company checks records), Payment Date (dividend hits your account). An investor buying one day before ex-date gets the dividend; an investor buying on ex-date does not.]
 
-**Sam:** So I should buy right before the ex-dividend date to grab the dividend, right?
+**Stella:** So I should buy right before the ex-dividend date to grab the dividend, right?
 
-**Alex:** I knew you would say that. And this is one of the biggest misconceptions in dividend investing. On the ex-dividend date, the stock price drops by approximately the dividend amount. So if a $50 stock pays a $1 dividend, it opens at roughly $49 on the ex-date.
+**Horace:** I knew you would say that. And this is one of the biggest misconceptions in dividend investing. On the ex-dividend date, the stock price drops by approximately the dividend amount. So if a $50 stock pays a $1 dividend, it opens at roughly $49 on the ex-date.
 
-**Sam:** So I get $1 in cash but my stock is worth $1 less. It is a wash?
+**Stella:** So I get $1 in cash but my stock is worth $1 less. It is a wash?
 
-**Alex:** Exactly. The total value of your position does not change. But in a taxable account, it is actually worse than a wash -- because you now owe taxes on that $1 dividend. You got $1 in cash, your stock dropped $1, and you owe maybe $0.15 to $0.37 in taxes. You actually lost money.
+**Horace:** Exactly. The total value of your position does not change. But in a taxable account, it is actually worse than a wash -- because you now owe taxes on that $1 dividend. You got $1 in cash, your stock dropped $1, and you owe maybe $0.15 to $0.37 in taxes. You actually lost money.
 
-**Sam:** That is a huge misconception. I bet a lot of beginners make that mistake.
+**Stella:** That is a huge misconception. I bet a lot of beginners make that mistake.
 
-**Alex:** Many do. The dividend capture strategy sounds clever but it is a losing proposition after taxes and transaction costs.
+**Horace:** Many do. The dividend capture strategy sounds clever but it is a losing proposition after taxes and transaction costs.
 
-**Sam:** What about reinvesting dividends? I have heard of DRIPs.
+**Stella:** What about reinvesting dividends? I have heard of DRIPs.
 
-**Alex:** DRIP stands for Dividend Reinvestment Plan. Instead of receiving your dividends as cash, the money is automatically used to buy more shares of the same stock. Those new shares then generate their own dividends, which buy more shares, and so on.
+**Horace:** DRIP stands for Dividend Reinvestment Plan. Instead of receiving your dividends as cash, the money is automatically used to buy more shares of the same stock. Those new shares then generate their own dividends, which buy more shares, and so on.
 
 [ANIMATION: A snowball rolling downhill, getting larger. Each rotation represents a dividend payment being reinvested. After 30 years, the snowball is enormous. Labels show: Year 1: 100 shares generating $200 in dividends. Year 10: 130 shares generating $390. Year 20: 190 shares generating $760. Year 30: 310 shares generating $1,550.]
 
-**Sam:** So DRIP creates a compounding cycle.
+**Stella:** So DRIP creates a compounding cycle.
 
-**Alex:** Yes. And the results over long periods are remarkable. An investor who reinvested all S&P 500 dividends since 1930 would have roughly 84% of their wealth attributable to reinvested dividends. The other 16% comes from price appreciation alone.
+**Horace:** Yes. And the results over long periods are remarkable. An investor who reinvested all S&P 500 dividends since 1930 would have roughly 84% of their wealth attributable to reinvested dividends. The other 16% comes from price appreciation alone.
 
-**Sam:** Eighty-four percent! That is incredible.
+**Stella:** Eighty-four percent! That is incredible.
 
-**Alex:** It shows the enormous power of compounding reinvested income over very long periods. Of course, most of us do not have 90-year investment horizons, but even over 20-30 years, the effect is dramatic.
+**Horace:** It shows the enormous power of compounding reinvested income over very long periods. Of course, most of us do not have 90-year investment horizons, but even over 20-30 years, the effect is dramatic.
 
-**Sam:** How are dividends taxed?
+**Stella:** How are dividends taxed?
 
-**Alex:** There are two categories. Qualified dividends are taxed at the lower long-term capital gains rate -- 0%, 15%, or 20% depending on your income. Most dividends from U.S. stocks you have held for more than 60 days qualify.
+**Horace:** There are two categories. Qualified dividends are taxed at the lower long-term capital gains rate -- 0%, 15%, or 20% depending on your income. Most dividends from U.S. stocks you have held for more than 60 days qualify.
 
-**Sam:** And non-qualified dividends?
+**Stella:** And non-qualified dividends?
 
-**Alex:** Those are taxed at your ordinary income tax rate, which can be as high as 37%. REIT dividends, for example, are generally non-qualified. So are dividends from stocks you have held for a very short time.
+**Horace:** Those are taxed at your ordinary income tax rate, which can be as high as 37%. REIT dividends, for example, are generally non-qualified. So are dividends from stocks you have held for a very short time.
 
 [VISUAL: Tax rate comparison. Qualified dividends: 0% (low income), 15% (middle income), 20% (high income). Ordinary dividends: 10% to 37% depending on tax bracket. Annotation: "This is why REIT dividends are better held in tax-advantaged accounts."]
 
-**Sam:** That is a big difference. Makes me want to keep all my dividends in qualified territory.
+**Stella:** That is a big difference. Makes me want to keep all my dividends in qualified territory.
 
-**Alex:** Smart thinking. And for non-qualified dividend payers like REITs, consider holding them in IRAs or 401(k)s where the tax treatment does not matter.
+**Horace:** Smart thinking. And for non-qualified dividend payers like REITs, consider holding them in IRAs or 401(k)s where the tax treatment does not matter.
 
-**Sam:** Now let me ask the big philosophical question. Should I focus on dividends or total return?
+**Stella:** Now let me ask the big philosophical question. Should I focus on dividends or total return?
 
-**Alex:** This is the most important question in dividend investing, and many investors get it wrong. Let me illustrate.
+**Horace:** This is the most important question in dividend investing, and many investors get it wrong. Let me illustrate.
 
 [ANIMATION: Two stocks over 10 years.
 Stock A: 1.5% dividend yield, 11% price appreciation = 12.5% total return.
@@ -365,21 +365,21 @@ Both start at $100,000. After 10 years:
 Stock A: $327,000 total value (smaller income stream but much larger portfolio).
 Stock B: $216,000 total value (larger income stream but smaller portfolio).]
 
-**Sam:** So Stock A crushed Stock B in total return, even though Stock B had a much higher dividend.
+**Stella:** So Stock A crushed Stock B in total return, even though Stock B had a much higher dividend.
 
-**Alex:** Right. And if the Stock A investor needed income, they could simply sell a few shares. This is called the "total return approach" or "homemade dividend." You optimize for the highest total return and create your own income by selling shares as needed.
+**Horace:** Right. And if the Stock A investor needed income, they could simply sell a few shares. This is called the "total return approach" or "homemade dividend." You optimize for the highest total return and create your own income by selling shares as needed.
 
-**Sam:** Is there any reason to prefer dividends over selling shares?
+**Stella:** Is there any reason to prefer dividends over selling shares?
 
-**Alex:** The main argument is behavioral. Many people find it psychologically easier to spend dividends than to sell shares. Selling feels like you are eating your seed corn. Receiving a dividend feels like the tree is bearing fruit. If this psychological comfort keeps you invested and prevents panic selling, it has real value.
+**Horace:** The main argument is behavioral. Many people find it psychologically easier to spend dividends than to sell shares. Selling feels like you are eating your seed corn. Receiving a dividend feels like the tree is bearing fruit. If this psychological comfort keeps you invested and prevents panic selling, it has real value.
 
-**Sam:** So it is about knowing yourself.
+**Stella:** So it is about knowing yourself.
 
-**Alex:** Exactly. The financially optimal approach is total return. But the best approach is whichever one you will actually stick with through good times and bad.
+**Horace:** Exactly. The financially optimal approach is total return. But the best approach is whichever one you will actually stick with through good times and bad.
 
-**Sam:** What about building a dividend portfolio? Should I pick individual stocks or use ETFs?
+**Stella:** What about building a dividend portfolio? Should I pick individual stocks or use ETFs?
 
-**Alex:** For most people, dividend ETFs are the better choice. Let me highlight the big ones.
+**Horace:** For most people, dividend ETFs are the better choice. Let me highlight the big ones.
 
 [VISUAL: Table of major dividend ETFs:
 VIG -- Vanguard Dividend Appreciation ETF -- Focus: dividend growth -- Expense: 0.06%
@@ -387,31 +387,31 @@ SCHD -- Schwab U.S. Dividend Equity ETF -- Focus: quality + yield -- Expense: 0.
 VYM -- Vanguard High Dividend Yield ETF -- Focus: higher current yield -- Expense: 0.06%
 NOBL -- ProShares Dividend Aristocrats ETF -- Focus: 25+ year increasers -- Expense: 0.35%]
 
-**Alex:** VIG focuses on companies growing their dividends. SCHD blends quality metrics with yield. VYM aims for higher current income. And NOBL tracks the Dividend Aristocrats. Each has a slightly different approach, and all are available at very low cost.
+**Horace:** VIG focuses on companies growing their dividends. SCHD blends quality metrics with yield. VYM aims for higher current income. And NOBL tracks the Dividend Aristocrats. Each has a slightly different approach, and all are available at very low cost.
 
-**Sam:** If I had to pick one?
+**Stella:** If I had to pick one?
 
-**Alex:** SCHD has become enormously popular for good reason. It balances yield, quality, and growth well. But honestly, any of these would serve you well as a core dividend holding.
+**Horace:** SCHD has become enormously popular for good reason. It balances yield, quality, and growth well. But honestly, any of these would serve you well as a core dividend holding.
 
-**Sam:** Can I live off dividends in retirement?
+**Stella:** Can I live off dividends in retirement?
 
-**Alex:** You can, but the math requires a substantial portfolio. If you need $60,000 per year and your portfolio yields 3%, you need $2 million invested. At a 4% yield, you need $1.5 million. The risk is that you might over-concentrate in high-yield stocks to reach your income target, sacrificing diversification and growth.
+**Horace:** You can, but the math requires a substantial portfolio. If you need $60,000 per year and your portfolio yields 3%, you need $2 million invested. At a 4% yield, you need $1.5 million. The risk is that you might over-concentrate in high-yield stocks to reach your income target, sacrificing diversification and growth.
 
-**Sam:** What is the alternative?
+**Stella:** What is the alternative?
 
-**Alex:** The total return approach we discussed. Build a diversified portfolio optimized for total return, then withdraw 3.5-4% per year through a combination of dividends and share sales. This gives you more flexibility in asset allocation and often produces better long-term outcomes.
+**Horace:** The total return approach we discussed. Build a diversified portfolio optimized for total return, then withdraw 3.5-4% per year through a combination of dividends and share sales. This gives you more flexibility in asset allocation and often produces better long-term outcomes.
 
 [VISUAL: Two retirement portfolio strategies side by side. "Dividend Income Only" -- concentrated in high-yield sectors, limited growth, yield risk. "Total Return" -- diversified across all sectors, combines dividends with selective sales, more flexible.]
 
-**Sam:** Let me put my key takeaways together. Dividends are a powerful part of total return, especially when reinvested. Dividend yield can be misleading -- always check the payout ratio and business fundamentals. Dividend Aristocrats are companies with incredible track records of consecutive increases. The ex-dividend date trick does not work. Qualified dividends get favorable tax treatment. Total return matters more than yield alone. And for most people, dividend ETFs like SCHD or VIG are better than picking individual stocks.
+**Stella:** Let me put my key takeaways together. Dividends are a powerful part of total return, especially when reinvested. Dividend yield can be misleading -- always check the payout ratio and business fundamentals. Dividend Aristocrats are companies with incredible track records of consecutive increases. The ex-dividend date trick does not work. Qualified dividends get favorable tax treatment. Total return matters more than yield alone. And for most people, dividend ETFs like SCHD or VIG are better than picking individual stocks.
 
-**Alex:** Spot on. Dividend investing is a legitimate, time-tested strategy. Just make sure you are doing it with your eyes open, focusing on quality and sustainability rather than chasing the highest yield.
+**Horace:** Spot on. Dividend investing is a legitimate, time-tested strategy. Just make sure you are doing it with your eyes open, focusing on quality and sustainability rather than chasing the highest yield.
 
 [ANIMATION: Final graphic -- a tree growing over decades, producing fruit (dividends) that get replanted (reinvested). The tree grows larger each year, producing more fruit. Text overlay: "Plant quality. Reinvest patiently. Harvest in time."]
 
-**Sam:** Great lesson. Next up, we are diving into retirement accounts -- 401(k)s, IRAs, Roth accounts. The alphabet soup of tax-advantaged investing.
+**Stella:** Great lesson. Next up, we are diving into retirement accounts -- 401(k)s, IRAs, Roth accounts. The alphabet soup of tax-advantaged investing.
 
-**Alex:** An essential topic. The right retirement account strategy can save you tens of thousands in taxes. We will break it all down.
+**Horace:** An essential topic. The right retirement account strategy can save you tens of thousands in taxes. We will break it all down.
 
 ---
 

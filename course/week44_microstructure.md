@@ -924,238 +924,238 @@ A: A large institutional seller used an algorithm to sell $4.1 billion of S&P 50
 
 [VISUAL: Title card -- "Inside the Machine: How Your Trades Really Get Executed"]
 
-**Alex**: Today we are going inside the plumbing of financial markets. When you tap "buy" on your phone, what actually happens? Where does your order go? Who is on the other side? And how much does the process cost you -- far beyond the zero-dollar commission?
+**Horace**: Today we are going inside the plumbing of financial markets. When you tap "buy" on your phone, what actually happens? Where does your order go? Who is on the other side? And how much does the process cost you -- far beyond the zero-dollar commission?
 
-**Sam**: I have to admit, I have never really thought about what happens after I press the button. The stock just appears in my account.
+**Stella**: I have to admit, I have never really thought about what happens after I press the button. The stock just appears in my account.
 
-**Alex**: And that is exactly how the industry wants it. The less you think about execution, the less you question the costs. But those costs are real, and they add up to enormous sums over a lifetime of investing.
+**Horace**: And that is exactly how the industry wants it. The less you think about execution, the less you question the costs. But those costs are real, and they add up to enormous sums over a lifetime of investing.
 
-**Sam**: How much are we talking about?
+**Stella**: How much are we talking about?
 
-**Alex**: For an active investor making 100 trades per year, hidden transaction costs typically run 1-2% annually. On a $500,000 portfolio over 30 years, that is the difference between ending up with $8.7 million and ending up with $5.7 million. Three million dollars in invisible costs.
+**Horace**: For an active investor making 100 trades per year, hidden transaction costs typically run 1-2% annually. On a $500,000 portfolio over 30 years, that is the difference between ending up with $8.7 million and ending up with $5.7 million. Three million dollars in invisible costs.
 
 [VISUAL: Bar chart comparing terminal wealth with and without transaction costs]
 
-**Sam**: Three million dollars? Just from HOW my trades execute?
+**Stella**: Three million dollars? Just from HOW my trades execute?
 
-**Alex**: Trading costs, to be precise -- which includes the cost of trading too frequently. But yes, the mechanics of execution matter far more than most people realize. Let us start with the most fundamental concept: the bid-ask spread.
+**Horace**: Trading costs, to be precise -- which includes the cost of trading too frequently. But yes, the mechanics of execution matter far more than most people realize. Let us start with the most fundamental concept: the bid-ask spread.
 
 [VISUAL: "The Bid-Ask Spread" section header]
 
-**Alex**: At any moment, every tradable security has two prices. The bid -- the highest price someone is willing to pay -- and the ask, or offer -- the lowest price someone is willing to sell. The difference is the spread.
+**Horace**: At any moment, every tradable security has two prices. The bid -- the highest price someone is willing to pay -- and the ask, or offer -- the lowest price someone is willing to sell. The difference is the spread.
 
 [ANIMATION: animation/week44_order_book.py -- Animated order book visualization for a stock trading at approximately $50. The left side shows sell orders (asks) stacked from lowest to highest price, with bar widths proportional to share quantities. The right side shows buy orders (bids) stacked from highest to lowest. The animation begins with a static order book, then shows various scenarios in sequence. First, a small market buy order arrives and crosses the spread, filling against the best ask. The ask level depletes and the next ask becomes the new best offer. Second, a large market sell order arrives and walks down through multiple bid levels, showing how a large order moves the price. Third, a limit buy order arrives below the best bid and sits in the book waiting. Finally, the spread dynamically widens as a volatility event occurs, with bids and asks pulling away from each other, visually demonstrating how liquidity dries up during stress.]
 
-**Sam**: That is really helpful to see visually. So when I place a market buy order, I am buying at the ask price, which is higher than the midpoint. That is an immediate cost.
+**Stella**: That is really helpful to see visually. So when I place a market buy order, I am buying at the ask price, which is higher than the midpoint. That is an immediate cost.
 
-**Alex**: Right. If the bid is $50.00 and the ask is $50.10, the midpoint -- the "fair value" -- is $50.05. But you are buying at $50.10. That $0.05 difference -- half the spread -- is the cost of immediacy. You are paying $0.05 per share for the privilege of trading RIGHT NOW rather than waiting.
+**Horace**: Right. If the bid is $50.00 and the ask is $50.10, the midpoint -- the "fair value" -- is $50.05. But you are buying at $50.10. That $0.05 difference -- half the spread -- is the cost of immediacy. You are paying $0.05 per share for the privilege of trading RIGHT NOW rather than waiting.
 
-**Sam**: And when I sell, I am selling at the bid, which is below the midpoint.
+**Stella**: And when I sell, I am selling at the bid, which is below the midpoint.
 
-**Alex**: Exactly. So a round-trip -- buy and then sell -- costs you the full spread. Buy at $50.10, sell at $50.00, you have lost $0.10 per share, or 0.20%. That is before any price movement.
+**Horace**: Exactly. So a round-trip -- buy and then sell -- costs you the full spread. Buy at $50.10, sell at $50.00, you have lost $0.10 per share, or 0.20%. That is before any price movement.
 
-**Sam**: How big are typical spreads?
+**Stella**: How big are typical spreads?
 
-**Alex**: For Apple, Amazon, Microsoft -- the most liquid stocks -- spreads are typically one cent. That is about 0.005% to 0.01%. Negligible. For a mid-cap stock, maybe 5-20 cents, or 0.05-0.20%. For a small-cap stock, 20 cents to a dollar, or 0.5-2%. For options, spreads can be enormous -- 5-20% is common for illiquid options.
+**Horace**: For Apple, Amazon, Microsoft -- the most liquid stocks -- spreads are typically one cent. That is about 0.005% to 0.01%. Negligible. For a mid-cap stock, maybe 5-20 cents, or 0.05-0.20%. For a small-cap stock, 20 cents to a dollar, or 0.5-2%. For options, spreads can be enormous -- 5-20% is common for illiquid options.
 
 [VISUAL: Spread comparison across different security types]
 
-**Sam**: So illiquid securities cost dramatically more to trade.
+**Stella**: So illiquid securities cost dramatically more to trade.
 
-**Alex**: And this is where it gets interesting, because the spread exists for a specific reason. Market makers -- the firms that provide those bid and ask quotes -- face a problem. Some of the people trading with them know more than they do.
+**Horace**: And this is where it gets interesting, because the spread exists for a specific reason. Market makers -- the firms that provide those bid and ask quotes -- face a problem. Some of the people trading with them know more than they do.
 
 [VISUAL: "Market Makers and Adverse Selection" section header]
 
-**Alex**: Imagine you are a market maker quoting $50.00 bid, $50.10 ask. A retail investor buys 100 shares at $50.10. You have just sold 100 shares. But you do not know anything about the stock's future. The stock is equally likely to go up or down. On average, you will make money from the spread.
+**Horace**: Imagine you are a market maker quoting $50.00 bid, $50.10 ask. A retail investor buys 100 shares at $50.10. You have just sold 100 shares. But you do not know anything about the stock's future. The stock is equally likely to go up or down. On average, you will make money from the spread.
 
-**Sam**: Makes sense. You buy at $50.00, sell at $50.10, pocket the dime.
+**Stella**: Makes sense. You buy at $50.00, sell at $50.10, pocket the dime.
 
-**Alex**: But now imagine an insider -- someone who knows the company is about to announce terrible earnings -- sells 5,000 shares to you at $50.00. The stock drops to $45 the next day. You just bought 5,000 shares at $50.00 that are now worth $45.00. You have lost $25,000.
+**Horace**: But now imagine an insider -- someone who knows the company is about to announce terrible earnings -- sells 5,000 shares to you at $50.00. The stock drops to $45 the next day. You just bought 5,000 shares at $50.00 that are now worth $45.00. You have lost $25,000.
 
-**Sam**: Ouch. So market makers lose money to informed traders.
+**Stella**: Ouch. So market makers lose money to informed traders.
 
-**Alex**: Always. This is called adverse selection. The market maker's spread must be wide enough that profits from uninformed traders -- you and me -- cover losses from informed traders. In stocks where there is a lot of informed trading -- around earnings announcements, merger rumors, biotech catalysts -- spreads widen because the adverse selection risk is higher.
+**Horace**: Always. This is called adverse selection. The market maker's spread must be wide enough that profits from uninformed traders -- you and me -- cover losses from informed traders. In stocks where there is a lot of informed trading -- around earnings announcements, merger rumors, biotech catalysts -- spreads widen because the adverse selection risk is higher.
 
 [VISUAL: Adverse selection diagram showing market maker's perspective]
 
-**Alex**: Modern market makers are high-frequency trading firms -- Citadel Securities, Virtu Financial, Jane Street. They use algorithms to update their quotes thousands of times per second, adjusting to new information in microseconds. They have made markets enormously more efficient. The average spread on S&P 500 stocks is down from $0.25 in the 1990s to about $0.01 today.
+**Horace**: Modern market makers are high-frequency trading firms -- Citadel Securities, Virtu Financial, Jane Street. They use algorithms to update their quotes thousands of times per second, adjusting to new information in microseconds. They have made markets enormously more efficient. The average spread on S&P 500 stocks is down from $0.25 in the 1990s to about $0.01 today.
 
-**Sam**: But they can also withdraw, right? Like during the Flash Crash?
+**Stella**: But they can also withdraw, right? Like during the Flash Crash?
 
-**Alex**: This is the dark side. In May 2010, a large sell order triggered a chain reaction. As prices fell rapidly, market makers pulled their quotes -- they did not want to be on the wrong side of a crash. Liquidity evaporated. Accenture briefly traded at one penny. Apple briefly traded at $100,000.
+**Horace**: This is the dark side. In May 2010, a large sell order triggered a chain reaction. As prices fell rapidly, market makers pulled their quotes -- they did not want to be on the wrong side of a crash. Liquidity evaporated. Accenture briefly traded at one penny. Apple briefly traded at $100,000.
 
-**Sam**: Wait -- Apple at $100,000?
+**Stella**: Wait -- Apple at $100,000?
 
-**Alex**: A buy order was sitting at $100,000 as a placeholder, and with no other offers available, a trade executed at that absurd price. The crash lasted about 36 minutes, and most prices recovered. But it revealed a fundamental vulnerability: in modern markets, liquidity can disappear in milliseconds.
+**Horace**: A buy order was sitting at $100,000 as a placeholder, and with no other offers available, a trade executed at that absurd price. The crash lasted about 36 minutes, and most prices recovered. But it revealed a fundamental vulnerability: in modern markets, liquidity can disappear in milliseconds.
 
 [VISUAL: Flash Crash timeline showing price collapse and recovery]
 
-**Sam**: Let us talk about order types. You always tell me to use limit orders. Why?
+**Stella**: Let us talk about order types. You always tell me to use limit orders. Why?
 
 [VISUAL: "Order Types" section header]
 
-**Alex**: Because market orders guarantee execution but not price. Limit orders guarantee price but not execution. For most investors most of the time, controlling price is more important than guaranteeing execution.
+**Horace**: Because market orders guarantee execution but not price. Limit orders guarantee price but not execution. For most investors most of the time, controlling price is more important than guaranteeing execution.
 
-**Sam**: Walk me through the main types.
+**Stella**: Walk me through the main types.
 
-**Alex**: A market order says "buy or sell at whatever price is available right now." It is fast and guaranteed to fill (in normal markets). But in a volatile or illiquid stock, you might get a terrible price. I have seen market orders in illiquid options fill at prices 20% worse than expected.
+**Horace**: A market order says "buy or sell at whatever price is available right now." It is fast and guaranteed to fill (in normal markets). But in a volatile or illiquid stock, you might get a terrible price. I have seen market orders in illiquid options fill at prices 20% worse than expected.
 
-**Sam**: That is insane.
+**Stella**: That is insane.
 
-**Alex**: A limit order says "buy at this price or better" or "sell at this price or better." If the stock is not available at your price, the order waits. You control your cost, but you might not get filled.
+**Horace**: A limit order says "buy at this price or better" or "sell at this price or better." If the stock is not available at your price, the order waits. You control your cost, but you might not get filled.
 
-**Alex**: A stop order says "if the price reaches this level, trigger a market order." It is used for stop-losses. But because it becomes a market order when triggered, in a gap-down scenario -- the stock opens 15% lower overnight -- your stop triggers and you get filled at the gap price, not your stop price.
+**Horace**: A stop order says "if the price reaches this level, trigger a market order." It is used for stop-losses. But because it becomes a market order when triggered, in a gap-down scenario -- the stock opens 15% lower overnight -- your stop triggers and you get filled at the gap price, not your stop price.
 
 [VISUAL: Stop order vs. stop-limit order comparison in a gap-down]
 
-**Alex**: A stop-limit order adds protection: "if the price reaches this level, trigger a limit order." This prevents terrible fills in gap-downs, but the risk is that the order never fills if the price blows through both your stop and your limit.
+**Horace**: A stop-limit order adds protection: "if the price reaches this level, trigger a limit order." This prevents terrible fills in gap-downs, but the risk is that the order never fills if the price blows through both your stop and your limit.
 
-**Sam**: Which is better -- stop or stop-limit?
+**Stella**: Which is better -- stop or stop-limit?
 
-**Alex**: For liquid stocks with tight spreads, regular stop orders are fine -- they will fill close to the stop price. For illiquid stocks or stocks prone to gaps, stop-limit orders are safer, but you accept the risk of non-execution.
+**Horace**: For liquid stocks with tight spreads, regular stop orders are fine -- they will fill close to the stop price. For illiquid stocks or stocks prone to gaps, stop-limit orders are safer, but you accept the risk of non-execution.
 
 [ANIMATION: animation/week44_order_types.py -- Animated comparison of order types on the same stock chart. The stock starts at $50 and undergoes various price movements. Scenario 1: A gentle upward move to $55. A market buy order fills instantly at $50.02 (the ask). A limit buy at $50.00 does not fill because the price never comes back to $50.00 (opportunity cost). Scenario 2: The stock suddenly drops from $50 to $42 overnight (gap down). A stop order at $45 triggers and fills at the open at $42 (slippage). A stop-limit at $45 with a limit at $44 does not fill at all because $42 is below the $44 limit. The position is still held at $42. Each scenario shows the dollar impact clearly, comparing the different outcomes. A third scenario shows a trailing stop moving up from $45 to $47.50 as the stock rises from $50 to $56, then triggering at $47.50 when the stock pulls back.]
 
-**Sam**: That really shows the tradeoffs. There is no perfect order type.
+**Stella**: That really shows the tradeoffs. There is no perfect order type.
 
-**Alex**: Exactly. Every order type has a tradeoff between execution certainty and price certainty. My default recommendation: use limit orders for almost everything. Set the limit at or slightly worse than the current quote for near-instant execution with price protection.
+**Horace**: Exactly. Every order type has a tradeoff between execution certainty and price certainty. My default recommendation: use limit orders for almost everything. Set the limit at or slightly worse than the current quote for near-instant execution with price protection.
 
-**Sam**: Now explain price impact and slippage. You mentioned these are the biggest hidden costs.
+**Stella**: Now explain price impact and slippage. You mentioned these are the biggest hidden costs.
 
 [VISUAL: "Price Impact and Slippage" section header]
 
-**Alex**: Price impact is what happens when your order is large enough to move the price. When you buy, your demand pushes the price up. When you sell, your supply pushes the price down.
+**Horace**: Price impact is what happens when your order is large enough to move the price. When you buy, your demand pushes the price up. When you sell, your supply pushes the price down.
 
-**Sam**: Is this relevant for retail investors? My orders are small.
+**Stella**: Is this relevant for retail investors? My orders are small.
 
-**Alex**: For orders of 100-500 shares in liquid stocks, your personal impact is negligible -- maybe a fraction of a cent. But here is why it still matters to you: institutional investors trading large blocks create price impact that affects the prices you see. If a mutual fund is buying 500,000 shares of a stock throughout the day, their buying pushes the price up, and you end up buying at a higher price in the afternoon than you would have in the morning.
+**Horace**: For orders of 100-500 shares in liquid stocks, your personal impact is negligible -- maybe a fraction of a cent. But here is why it still matters to you: institutional investors trading large blocks create price impact that affects the prices you see. If a mutual fund is buying 500,000 shares of a stock throughout the day, their buying pushes the price up, and you end up buying at a higher price in the afternoon than you would have in the morning.
 
 [VISUAL: Price impact curve showing price rising during a large buy program]
 
-**Alex**: For less liquid stocks, even retail-size orders can have meaningful impact. If a micro-cap stock trades 20,000 shares per day and you want to buy 2,000 shares, you are 10% of daily volume. That will move the price noticeably.
+**Horace**: For less liquid stocks, even retail-size orders can have meaningful impact. If a micro-cap stock trades 20,000 shares per day and you want to buy 2,000 shares, you are 10% of daily volume. That will move the price noticeably.
 
-**Sam**: How much?
+**Stella**: How much?
 
-**Alex**: Roughly 0.5-1.5% for an order that is 10% of daily volume. On a $30 stock, that is $0.15-$0.45 per share. On 2,000 shares, $300-$900 in invisible costs.
+**Horace**: Roughly 0.5-1.5% for an order that is 10% of daily volume. On a $30 stock, that is $0.15-$0.45 per share. On 2,000 shares, $300-$900 in invisible costs.
 
-**Sam**: And slippage is the combination of all these effects?
+**Stella**: And slippage is the combination of all these effects?
 
-**Alex**: Slippage is the total difference between where you expected to execute and where you actually executed. It includes the spread, the market impact, and any price drift between when you decided to trade and when the order was actually filled. All of these costs are invisible -- they do not appear on any statement or confirmation.
+**Horace**: Slippage is the total difference between where you expected to execute and where you actually executed. It includes the spread, the market impact, and any price drift between when you decided to trade and when the order was actually filled. All of these costs are invisible -- they do not appear on any statement or confirmation.
 
-**Sam**: How do I measure them?
+**Stella**: How do I measure them?
 
-**Alex**: That is where implementation shortfall comes in. It is the gold standard for measuring total transaction costs.
+**Horace**: That is where implementation shortfall comes in. It is the gold standard for measuring total transaction costs.
 
 [VISUAL: "Implementation Shortfall" section header]
 
-**Alex**: Implementation shortfall compares your actual results to a hypothetical paper portfolio where all trades execute instantly at the decision price with zero cost. The difference is your total transaction cost -- every penny of it.
+**Horace**: Implementation shortfall compares your actual results to a hypothetical paper portfolio where all trades execute instantly at the decision price with zero cost. The difference is your total transaction cost -- every penny of it.
 
-**Sam**: Walk me through an example.
+**Stella**: Walk me through an example.
 
-**Alex**: Say you decide to buy 5,000 shares of XYZ at 9:30 AM when the price is $100. You place your order, but it takes time to fill. You get 2,000 shares at $100.10, then 2,000 more at $100.25, then 1,000 at $100.40. Your weighted average execution price is $100.21.
+**Horace**: Say you decide to buy 5,000 shares of XYZ at 9:30 AM when the price is $100. You place your order, but it takes time to fill. You get 2,000 shares at $100.10, then 2,000 more at $100.25, then 1,000 at $100.40. Your weighted average execution price is $100.21.
 
 [VISUAL: Implementation shortfall calculation step by step]
 
-**Alex**: Your paper portfolio would have bought 5,000 shares at $100.00 for $500,000. Your actual portfolio paid $501,050. The implementation shortfall is $1,050, or 0.21% of the trade value. That is your TRUE cost of executing this trade.
+**Horace**: Your paper portfolio would have bought 5,000 shares at $100.00 for $500,000. Your actual portfolio paid $501,050. The implementation shortfall is $1,050, or 0.21% of the trade value. That is your TRUE cost of executing this trade.
 
-**Sam**: And that 0.21% is invisible.
+**Stella**: And that 0.21% is invisible.
 
-**Alex**: Completely invisible. Your broker reports that you bought 5,000 shares at an average price of $100.21. They do not tell you that the "fair" price at the time of your decision was $100.00. The $1,050 is silently deducted from your returns.
+**Horace**: Completely invisible. Your broker reports that you bought 5,000 shares at an average price of $100.21. They do not tell you that the "fair" price at the time of your decision was $100.00. The $1,050 is silently deducted from your returns.
 
-**Sam**: Over many trades, that adds up.
+**Stella**: Over many trades, that adds up.
 
-**Alex**: Catastrophically. An active investor paying 0.30% implementation shortfall on 100 trades per year loses 1.5% annually. Over 30 years, on a $500,000 portfolio growing at 10%, that is over $2 million in cumulative costs.
+**Horace**: Catastrophically. An active investor paying 0.30% implementation shortfall on 100 trades per year loses 1.5% annually. Over 30 years, on a $500,000 portfolio growing at 10%, that is over $2 million in cumulative costs.
 
 [VISUAL: Cumulative cost chart over 30 years]
 
-**Sam**: I want to understand dark pools and payment for order flow. These are controversial topics.
+**Stella**: I want to understand dark pools and payment for order flow. These are controversial topics.
 
 [VISUAL: "Dark Pools and Payment for Order Flow" section header]
 
-**Alex**: About 42% of US equity trading now happens off-exchange. That means nearly half of all stock trades do not occur on the NYSE or NASDAQ. They happen in dark pools and at wholesalers.
+**Horace**: About 42% of US equity trading now happens off-exchange. That means nearly half of all stock trades do not occur on the NYSE or NASDAQ. They happen in dark pools and at wholesalers.
 
-**Sam**: What is a dark pool exactly?
+**Stella**: What is a dark pool exactly?
 
-**Alex**: A dark pool is a private trading venue where orders are not visible before execution. On the NYSE, everyone can see the order book -- they can see there are 500 shares bid at $50.00 and 800 shares offered at $50.02. In a dark pool, nobody can see the orders. You submit your buy order and hope there is a matching sell order.
+**Horace**: A dark pool is a private trading venue where orders are not visible before execution. On the NYSE, everyone can see the order book -- they can see there are 500 shares bid at $50.00 and 800 shares offered at $50.02. In a dark pool, nobody can see the orders. You submit your buy order and hope there is a matching sell order.
 
-**Sam**: Why would anyone want to trade in the dark?
+**Stella**: Why would anyone want to trade in the dark?
 
-**Alex**: Information leakage. If a pension fund wants to buy 200,000 shares of a stock, and they display that order on an exchange, everyone can see it. Other traders will buy ahead of them, pushing the price up before the pension fund finishes buying. In a dark pool, the order is invisible, so there is no front-running.
+**Horace**: Information leakage. If a pension fund wants to buy 200,000 shares of a stock, and they display that order on an exchange, everyone can see it. Other traders will buy ahead of them, pushing the price up before the pension fund finishes buying. In a dark pool, the order is invisible, so there is no front-running.
 
-**Sam**: But most retail investors do not use dark pools directly, right?
+**Stella**: But most retail investors do not use dark pools directly, right?
 
-**Alex**: Not directly. But your orders are often routed to wholesalers, which operate similarly. When you place an order on Robinhood, it does not go to the NYSE. It goes to a firm like Citadel Securities, which acts as a wholesaler. They fill your order internally -- off-exchange.
+**Horace**: Not directly. But your orders are often routed to wholesalers, which operate similarly. When you place an order on Robinhood, it does not go to the NYSE. It goes to a firm like Citadel Securities, which acts as a wholesaler. They fill your order internally -- off-exchange.
 
-**Sam**: And they pay Robinhood for the right to fill my orders.
+**Stella**: And they pay Robinhood for the right to fill my orders.
 
-**Alex**: That is payment for order flow, or PFOF. The wholesaler pays your broker a fraction of a cent per share. In return, they get to fill your order. They profit by executing your trade at a slight improvement over the exchange price and capturing the remaining spread for themselves.
+**Horace**: That is payment for order flow, or PFOF. The wholesaler pays your broker a fraction of a cent per share. In return, they get to fill your order. They profit by executing your trade at a slight improvement over the exchange price and capturing the remaining spread for themselves.
 
 [ANIMATION: animation/week44_pfof_flow.py -- Animated flowchart showing the journey of a retail order from phone tap to execution. The user taps "Buy 100 AAPL" on their phone. The order travels to the broker's servers (with a timer showing milliseconds). The broker routes it to a wholesaler (Citadel Securities), which pays the broker $0.20 in PFOF. The wholesaler checks the national best bid and offer (NBBO), which shows bid $175.00, ask $175.02. The wholesaler fills the order at $175.015 -- one-half cent better than the exchange ask of $175.02. A comparison box appears showing: exchange execution would have been $175.02, actual execution was $175.015, "price improvement" of $0.005 per share ($0.50 total). The broker earned $0.20 in PFOF. The wholesaler's profit margin is approximately $0.005 per share ($0.50). A final annotation asks the key question: "Is the $0.50 price improvement the best the investor could have received?"]
 
-**Sam**: So everyone makes money -- the investor gets price improvement, the broker gets PFOF, and the wholesaler gets a trading profit. What is the controversy?
+**Stella**: So everyone makes money -- the investor gets price improvement, the broker gets PFOF, and the wholesaler gets a trading profit. What is the controversy?
 
-**Alex**: The debate centers on whether this is truly the best execution for the investor, or whether the wholesaler is capturing value that could go to the investor in a more competitive market. Critics argue that wholesalers cherry-pick the easiest orders -- small, uninformed retail orders -- and route harder orders back to exchanges. They also argue that the "price improvement" is measured against the NBBO, which may not reflect the true best price available across all venues.
+**Horace**: The debate centers on whether this is truly the best execution for the investor, or whether the wholesaler is capturing value that could go to the investor in a more competitive market. Critics argue that wholesalers cherry-pick the easiest orders -- small, uninformed retail orders -- and route harder orders back to exchanges. They also argue that the "price improvement" is measured against the NBBO, which may not reflect the true best price available across all venues.
 
-**Sam**: Is there evidence either way?
+**Stella**: Is there evidence either way?
 
-**Alex**: Academic research is genuinely mixed. Some studies find that PFOF benefits retail investors through price improvement and zero commissions. Others find that execution quality at PFOF-receiving brokers is worse on more complex or larger orders. The SEC has proposed rules to increase transparency and competition in order routing, but the outcome is still evolving.
+**Horace**: Academic research is genuinely mixed. Some studies find that PFOF benefits retail investors through price improvement and zero commissions. Others find that execution quality at PFOF-receiving brokers is worse on more complex or larger orders. The SEC has proposed rules to increase transparency and competition in order routing, but the outcome is still evolving.
 
-**Sam**: OK, let us get practical. What can I actually DO to minimize my transaction costs?
+**Stella**: OK, let us get practical. What can I actually DO to minimize my transaction costs?
 
 [VISUAL: "Practical Tips for Better Execution" section header]
 
-**Alex**: Rule number one: use limit orders, almost always. A limit order protects you from adverse fills and wide spreads. Set your limit at or slightly worse than the current quote for near-instant execution.
+**Horace**: Rule number one: use limit orders, almost always. A limit order protects you from adverse fills and wide spreads. Set your limit at or slightly worse than the current quote for near-instant execution.
 
-**Sam**: Even for liquid stocks?
+**Stella**: Even for liquid stocks?
 
-**Alex**: Even for liquid stocks. The only exception is an emergency sell (stop-loss triggered) in a highly liquid stock during market hours. Even then, a marketable limit order -- a limit set a few cents above the ask for a buy, or a few cents below the bid for a sell -- gives you near-market-order speed with price protection.
+**Horace**: Even for liquid stocks. The only exception is an emergency sell (stop-loss triggered) in a highly liquid stock during market hours. Even then, a marketable limit order -- a limit set a few cents above the ask for a buy, or a few cents below the bid for a sell -- gives you near-market-order speed with price protection.
 
-**Alex**: Rule two: check the spread before trading. If the spread is more than 0.5% of the stock price, you need to be aware that you are paying a significant cost just to enter the position. This is common in small-caps, options, and bonds.
+**Horace**: Rule two: check the spread before trading. If the spread is more than 0.5% of the stock price, you need to be aware that you are paying a significant cost just to enter the position. This is common in small-caps, options, and bonds.
 
-**Sam**: What if I need to trade an illiquid stock?
+**Stella**: What if I need to trade an illiquid stock?
 
-**Alex**: Use patience. Place a limit order at or near the midpoint and wait. In illiquid markets, the natural flow of orders will often bring a counterparty to your price within hours. You save the full spread cost compared to hitting the ask immediately.
+**Horace**: Use patience. Place a limit order at or near the midpoint and wait. In illiquid markets, the natural flow of orders will often bring a counterparty to your price within hours. You save the full spread cost compared to hitting the ask immediately.
 
-**Alex**: Rule three: avoid trading at the market open. The first 15-30 minutes have the widest spreads, the most volatile prices, and the most erratic fills. The best time to trade is 10:00 AM to 3:30 PM Eastern.
+**Horace**: Rule three: avoid trading at the market open. The first 15-30 minutes have the widest spreads, the most volatile prices, and the most erratic fills. The best time to trade is 10:00 AM to 3:30 PM Eastern.
 
 [VISUAL: Intraday spread pattern showing wider spreads at open and close]
 
-**Alex**: Rule four: for larger orders, break them into smaller pieces. If you want to buy 5,000 shares, buy 1,000 at a time over several hours or even several days. This dramatically reduces market impact.
+**Horace**: Rule four: for larger orders, break them into smaller pieces. If you want to buy 5,000 shares, buy 1,000 at a time over several hours or even several days. This dramatically reduces market impact.
 
-**Sam**: What about options? You mentioned they have terrible spreads.
+**Stella**: What about options? You mentioned they have terrible spreads.
 
-**Alex**: Rule five: be extremely careful with options orders. Never, ever use a market order for options. Spreads can be 5-20% for illiquid options. Always use limit orders, and start your limit at the midpoint. Often, you will get filled at the midpoint or close to it, saving you half the spread compared to hitting the ask.
+**Horace**: Rule five: be extremely careful with options orders. Never, ever use a market order for options. Spreads can be 5-20% for illiquid options. Always use limit orders, and start your limit at the midpoint. Often, you will get filled at the midpoint or close to it, saving you half the spread compared to hitting the ask.
 
-**Alex**: Rule six: trade less. This is the most powerful cost-reduction strategy and the one nobody wants to hear. Every trade you do not make saves you the full round-trip cost of slippage, spread, and impact. A buy-and-hold investor paying 0.05% annually in transaction costs will massively outperform an active trader paying 1.5% annually, all else equal.
+**Horace**: Rule six: trade less. This is the most powerful cost-reduction strategy and the one nobody wants to hear. Every trade you do not make saves you the full round-trip cost of slippage, spread, and impact. A buy-and-hold investor paying 0.05% annually in transaction costs will massively outperform an active trader paying 1.5% annually, all else equal.
 
 [VISUAL: Terminal wealth comparison by trading frequency]
 
-**Sam**: Let me summarize everything we covered today.
+**Stella**: Let me summarize everything we covered today.
 
 [VISUAL: Summary slide]
 
-**Sam**: The bid-ask spread is the cost of immediacy -- the price you pay for trading right now. Market makers provide liquidity and profit from the spread, but they face adverse selection from informed traders. Order types involve tradeoffs between price certainty and execution certainty -- limit orders should be the default. Price impact is the cost of your trading moving the price against you. Slippage is the total gap between expected and actual execution. Implementation shortfall is the comprehensive measure of all transaction costs. And dark pools and payment for order flow affect where and how your orders execute.
+**Stella**: The bid-ask spread is the cost of immediacy -- the price you pay for trading right now. Market makers provide liquidity and profit from the spread, but they face adverse selection from informed traders. Order types involve tradeoffs between price certainty and execution certainty -- limit orders should be the default. Price impact is the cost of your trading moving the price against you. Slippage is the total gap between expected and actual execution. Implementation shortfall is the comprehensive measure of all transaction costs. And dark pools and payment for order flow affect where and how your orders execute.
 
-**Alex**: Excellent summary. And the overarching lesson?
+**Horace**: Excellent summary. And the overarching lesson?
 
-**Sam**: Trade less, use limit orders, and understand that the "free" trading your broker offers is not free at all.
+**Stella**: Trade less, use limit orders, and understand that the "free" trading your broker offers is not free at all.
 
-**Alex**: Perfect. Every time you trade, you pay invisible costs. The best way to minimize those costs is to trade less frequently, use the right order types, and be aware of how your broker routes your orders.
+**Horace**: Perfect. Every time you trade, you pay invisible costs. The best way to minimize those costs is to trade less frequently, use the right order types, and be aware of how your broker routes your orders.
 
-**Sam**: This changes how I think about trading. I used to think the only cost was the commission, which is now zero.
+**Stella**: This changes how I think about trading. I used to think the only cost was the commission, which is now zero.
 
-**Alex**: And that is exactly the illusion the industry has created. Zero commissions made people trade MORE, which increased the hidden costs (spread, impact, slippage) that are far larger than the old $5-10 commissions ever were. The most expensive trade is often the one that was easiest to make.
+**Horace**: And that is exactly the illusion the industry has created. Zero commissions made people trade MORE, which increased the hidden costs (spread, impact, slippage) that are far larger than the old $5-10 commissions ever were. The most expensive trade is often the one that was easiest to make.
 
 [VISUAL: "Coming up: Advanced volatility strategies"]
 
-**Alex**: In the coming weeks, we will continue building on these foundations. Understanding microstructure is essential because all the alpha in the world does not help if you give it back in execution costs.
+**Horace**: In the coming weeks, we will continue building on these foundations. Understanding microstructure is essential because all the alpha in the world does not help if you give it back in execution costs.
 
-**Sam**: From the invisible costs of trading to strategies for generating returns. The fundamentals are all connected.
+**Stella**: From the invisible costs of trading to strategies for generating returns. The fundamentals are all connected.
 
-**Alex**: Everything is connected. Risk management from week 41, risk models from week 42, performance measurement from week 43, and execution costs from today -- they form a complete framework for sophisticated investing. Know your risk, measure your performance honestly, and execute efficiently.
+**Horace**: Everything is connected. Risk management from week 41, risk models from week 42, performance measurement from week 43, and execution costs from today -- they form a complete framework for sophisticated investing. Know your risk, measure your performance honestly, and execute efficiently.
 
-**Sam**: Thanks, Alex. This was one of the most eye-opening lessons yet.
+**Stella**: Thanks, Horace. This was one of the most eye-opening lessons yet.
 
-**Alex**: Thank you, Sam. Remember -- the best execution is often the trade you do not make. See you next week.
+**Horace**: Thank you, Stella. Remember -- the best execution is often the trade you do not make. See you next week.
 
 [VISUAL: End card with channel subscribe prompt and links to previous videos]

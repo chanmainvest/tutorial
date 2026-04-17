@@ -557,237 +557,237 @@ A: Rising bond yields increase the discount rate used to value future cash flows
 
 [VISUAL: Animated intro with show logo. Text: "Week 5: Bonds - Your Portfolio's Shock Absorber - Level 1: Foundations"]
 
-**Alex:** Welcome back, everyone. Today we are tackling what I think might be the most underappreciated topic in all of investing. We are going to talk about bonds.
+**Horace:** Welcome back, everyone. Today we are tackling what I think might be the most underappreciated topic in all of investing. We are going to talk about bonds.
 
-**Sam:** Bonds. Honestly, Alex, every time someone mentions bonds, my eyes kind of glaze over. Stocks are exciting. Crypto is exciting. Bonds just sound... boring.
+**Stella:** Bonds. Honestly, Horace, every time someone mentions bonds, my eyes kind of glaze over. Stocks are exciting. Crypto is exciting. Bonds just sound... boring.
 
-**Alex:** And that reaction is exactly why we need this lesson. Bonds are supposed to be boring. Boring is their job. When your stock portfolio is crashing 30% and you cannot sleep at night, the boring part of your portfolio that is holding steady or going up is what keeps you from panic-selling everything. Bonds are the seatbelt in your investment car. You do not notice them until you crash, and then you are very glad they were there.
+**Horace:** And that reaction is exactly why we need this lesson. Bonds are supposed to be boring. Boring is their job. When your stock portfolio is crashing 30% and you cannot sleep at night, the boring part of your portfolio that is holding steady or going up is what keeps you from panic-selling everything. Bonds are the seatbelt in your investment car. You do not notice them until you crash, and then you are very glad they were there.
 
 [VISUAL: Animation of a car driving smoothly, then hitting a pothole. The driver with a seatbelt (labeled "Bonds") stays in place. The driver without a seatbelt (labeled "100% Stocks") goes through the windshield. Text: "Boring = Feature, Not a Bug"]
 
-**Sam:** OK, that is a good way to put it. So let us start from scratch. What IS a bond?
+**Stella:** OK, that is a good way to put it. So let us start from scratch. What IS a bond?
 
-**Alex:** A bond is a loan. That is it. When you buy a bond, you are lending money to someone. It could be the U.S. government, a corporation like Apple, or a city government. In return for lending them money, they promise to pay you interest on a regular schedule and give your money back at a specific date in the future.
+**Horace:** A bond is a loan. That is it. When you buy a bond, you are lending money to someone. It could be the U.S. government, a corporation like Apple, or a city government. In return for lending them money, they promise to pay you interest on a regular schedule and give your money back at a specific date in the future.
 
-**Sam:** So it is the opposite of a stock? With a stock, I own a piece of the company. With a bond, I am just lending money to the company.
+**Stella:** So it is the opposite of a stock? With a stock, I own a piece of the company. With a bond, I am just lending money to the company.
 
-**Alex:** Exactly right. And that distinction matters enormously. As a stock owner, you are last in line. If the company goes bankrupt, everyone else gets paid before you. As a bondholder, you are near the front of the line. The company is legally obligated to pay you before they pay any dividends to stockholders. That priority in the capital structure is a fundamental protection.
+**Horace:** Exactly right. And that distinction matters enormously. As a stock owner, you are last in line. If the company goes bankrupt, everyone else gets paid before you. As a bondholder, you are near the front of the line. The company is legally obligated to pay you before they pay any dividends to stockholders. That priority in the capital structure is a fundamental protection.
 
-**Sam:** Is that why bonds are considered safer than stocks?
+**Stella:** Is that why bonds are considered safer than stocks?
 
-**Alex:** It is one of the key reasons. The other reason is the contractual nature of bond payments. When you buy a stock, the company might pay dividends, might not, might cut them at any time. Nobody guarantees your return. A bond is a legal contract. The issuer is legally obligated to make every single coupon payment and return your principal at maturity. If they miss a payment, they are in technical default, and bondholders can take legal action. That contractual certainty is something stocks simply cannot offer.
+**Horace:** It is one of the key reasons. The other reason is the contractual nature of bond payments. When you buy a stock, the company might pay dividends, might not, might cut them at any time. Nobody guarantees your return. A bond is a legal contract. The issuer is legally obligated to make every single coupon payment and return your principal at maturity. If they miss a payment, they are in technical default, and bondholders can take legal action. That contractual certainty is something stocks simply cannot offer.
 
 [VISUAL: A line of people at a window labeled "Company Goes Bankrupt - Who Gets Paid?" The order from front to back: "Secured Bondholders", "Unsecured Bondholders", "Preferred Stockholders", "Common Stockholders" (with a sad face). Text: "Bonds = Lender Priority"]
 
-**Sam:** So bonds are safer because you get paid first?
+**Stella:** So bonds are safer because you get paid first?
 
-**Alex:** Generally, yes. And there is another layer of safety. Bond payments are contractual obligations. When Apple says they will pay 3% interest on their bond, that is a legal promise. If they miss that payment, they are in default, and bondholders can force the company into bankruptcy. Stock dividends, on the other hand, can be cut or eliminated any time the board of directors decides. No one is obligated to pay them.
+**Horace:** Generally, yes. And there is another layer of safety. Bond payments are contractual obligations. When Apple says they will pay 3% interest on their bond, that is a legal promise. If they miss that payment, they are in default, and bondholders can force the company into bankruptcy. Stock dividends, on the other hand, can be cut or eliminated any time the board of directors decides. No one is obligated to pay them.
 
-**Sam:** Got it. So walk me through the basic structure. What are the components of a bond?
+**Stella:** Got it. So walk me through the basic structure. What are the components of a bond?
 
-**Alex:** Every bond has three key pieces. First, the face value, also called par value. This is the amount you are lending, usually $1,000. Second, the coupon rate, which is the annual interest rate. A 4% coupon on a $1,000 bond means you get $40 per year. And third, the maturity date, which is when the issuer gives you your $1,000 back.
+**Horace:** Every bond has three key pieces. First, the face value, also called par value. This is the amount you are lending, usually $1,000. Second, the coupon rate, which is the annual interest rate. A 4% coupon on a $1,000 bond means you get $40 per year. And third, the maturity date, which is when the issuer gives you your $1,000 back.
 
 [ANIMATION: Reference animation/week05_bond_pricing.py - An animation showing a bond being constructed piece by piece. A $1,000 bill appears (face value), then a percentage sign drops in (coupon rate = 4%), then a calendar flips to show a date 10 years out (maturity). Cash flow arrows then animate: small $20 arrows flowing from the bond to the investor every 6 months, and a large $1,000 arrow flowing back at the end.]
 
-**Sam:** Wait, you said $40 per year, but the payments are every six months?
+**Stella:** Wait, you said $40 per year, but the payments are every six months?
 
-**Alex:** Good catch. Most bonds pay semi-annually. So a 4% coupon means two payments of $20 each, six months apart. At the end, when the bond matures, you get your final coupon payment plus your $1,000 face value back.
+**Horace:** Good catch. Most bonds pay semi-annually. So a 4% coupon means two payments of $20 each, six months apart. At the end, when the bond matures, you get your final coupon payment plus your $1,000 face value back.
 
-**Sam:** So if I buy a 10-year bond with a 4% coupon, I know exactly what I am getting: $20 every six months for 10 years, and then $1,000 at the end?
+**Stella:** So if I buy a 10-year bond with a 4% coupon, I know exactly what I am getting: $20 every six months for 10 years, and then $1,000 at the end?
 
-**Alex:** If you hold it to maturity and the issuer does not default, yes. That predictability is one of the main attractions of bonds. With stocks, you never know what your returns will be. With bonds, you can calculate your exact cash flows from day one.
+**Horace:** If you hold it to maturity and the issuer does not default, yes. That predictability is one of the main attractions of bonds. With stocks, you never know what your returns will be. With bonds, you can calculate your exact cash flows from day one.
 
 [VISUAL: Side-by-side comparison. Left: "Stock Returns" showing a jagged, unpredictable line with question marks. Right: "Bond Cash Flows" showing a clean, predictable staircase of coupon payments with a final step up for the principal return. Text: "Bonds = Predictable Cash Flows"]
 
-**Sam:** OK, this is where I always get confused. You mentioned the coupon rate is 4%. But I also hear people talking about "yield." Are those different things?
+**Stella:** OK, this is where I always get confused. You mentioned the coupon rate is 4%. But I also hear people talking about "yield." Are those different things?
 
-**Alex:** This is one of the most important distinctions in bond investing, and it confuses almost everyone at first. The coupon rate is fixed. It never changes. It is printed on the bond, so to speak. But after a bond is issued, it can trade in the secondary market, and its price can go above or below $1,000.
+**Horace:** This is one of the most important distinctions in bond investing, and it confuses almost everyone at first. The coupon rate is fixed. It never changes. It is printed on the bond, so to speak. But after a bond is issued, it can trade in the secondary market, and its price can go above or below $1,000.
 
-**Sam:** Why would the price change?
+**Stella:** Why would the price change?
 
-**Alex:** Because of interest rates. Let us say you bought a bond paying a 3% coupon. A year later, new bonds are being issued with 5% coupons. Now your bond looks less attractive by comparison. If you try to sell it, nobody will pay full price for a 3% bond when they can buy a brand new 5% bond. So your bond's price drops.
+**Horace:** Because of interest rates. Let us say you bought a bond paying a 3% coupon. A year later, new bonds are being issued with 5% coupons. Now your bond looks less attractive by comparison. If you try to sell it, nobody will pay full price for a 3% bond when they can buy a brand new 5% bond. So your bond's price drops.
 
-**Sam:** That makes sense. If there is something better available, the old one has to get cheaper.
+**Stella:** That makes sense. If there is something better available, the old one has to get cheaper.
 
-**Alex:** Right. And when the price drops, the yield goes up. Here is the key formula. Current yield equals the annual coupon payment divided by the current price. So your 3% coupon bond pays $30 per year. If it drops in price to $900, the yield is $30 divided by $900, which is 3.33%. The bond's yield has risen to become more competitive with new bonds.
+**Horace:** Right. And when the price drops, the yield goes up. Here is the key formula. Current yield equals the annual coupon payment divided by the current price. So your 3% coupon bond pays $30 per year. If it drops in price to $900, the yield is $30 divided by $900, which is 3.33%. The bond's yield has risen to become more competitive with new bonds.
 
 [VISUAL: An animated scale/balance. On one side: "Bond Price" with a weight. On the other side: "Bond Yield" with a weight. As Bond Price goes down, Bond Yield goes up, and vice versa. Text in center: "ALWAYS Opposite. ALWAYS."]
 
-**Sam:** So price and yield move in opposite directions?
+**Stella:** So price and yield move in opposite directions?
 
-**Alex:** Always. This is the iron law of bonds. It is not a tendency or a correlation. It is a mathematical certainty. Price up, yield down. Price down, yield up. If you remember nothing else from today's lesson, remember this.
+**Horace:** Always. This is the iron law of bonds. It is not a tendency or a correlation. It is a mathematical certainty. Price up, yield down. Price down, yield up. If you remember nothing else from today's lesson, remember this.
 
-**Sam:** Why does this matter so much?
+**Stella:** Why does this matter so much?
 
-**Alex:** Because it directly affects your portfolio. When the Federal Reserve raises interest rates, bond prices fall. When they cut rates, bond prices rise. In 2022, the Fed raised rates at the fastest pace in four decades, and the bond market had one of its worst years in history. The broad bond market index fell over 13%. Long-term Treasury bonds fell about 31%.
+**Horace:** Because it directly affects your portfolio. When the Federal Reserve raises interest rates, bond prices fall. When they cut rates, bond prices rise. In 2022, the Fed raised rates at the fastest pace in four decades, and the bond market had one of its worst years in history. The broad bond market index fell over 13%. Long-term Treasury bonds fell about 31%.
 
-**Sam:** Wait, I thought bonds were supposed to be safe!
+**Stella:** Wait, I thought bonds were supposed to be safe!
 
-**Alex:** And there is the nuance. Bonds are safe in terms of getting your money back at maturity. But their prices can fluctuate significantly along the way, especially for long-term bonds. A 30-year Treasury bond can easily lose 20% of its value in a single year if rates rise sharply. Short-term bonds, like 1-2 year Treasuries, are much more stable because their prices barely move.
+**Horace:** And there is the nuance. Bonds are safe in terms of getting your money back at maturity. But their prices can fluctuate significantly along the way, especially for long-term bonds. A 30-year Treasury bond can easily lose 20% of its value in a single year if rates rise sharply. Short-term bonds, like 1-2 year Treasuries, are much more stable because their prices barely move.
 
 [VISUAL: Three horizontal bars showing price sensitivity. "2-Year Bond: Small price swing" (thin bar, small left-right movement). "10-Year Bond: Moderate price swing" (medium bar, larger movement). "30-Year Bond: Large price swing" (long bar, dramatic movement). Text: "Duration = Sensitivity to Rate Changes"]
 
-**Sam:** You just said something important. Longer bonds are more sensitive. Is there a measure for that?
+**Stella:** You just said something important. Longer bonds are more sensitive. Is there a measure for that?
 
-**Alex:** Yes, it is called duration. Duration tells you approximately how much a bond's price will change for every 1% change in interest rates. A bond with a duration of 5 years will lose about 5% if rates rise by 1%. A bond with a duration of 20 will lose about 20%.
+**Horace:** Yes, it is called duration. Duration tells you approximately how much a bond's price will change for every 1% change in interest rates. A bond with a duration of 5 years will lose about 5% if rates rise by 1%. A bond with a duration of 20 will lose about 20%.
 
-**Sam:** So if I am worried about rising rates, I want short duration?
+**Stella:** So if I am worried about rising rates, I want short duration?
 
-**Alex:** Exactly. Short-duration bonds are your defensive choice. And if you think rates are going to fall, longer-duration bonds will give you bigger gains. This is a key strategic decision in bond investing.
+**Horace:** Exactly. Short-duration bonds are your defensive choice. And if you think rates are going to fall, longer-duration bonds will give you bigger gains. This is a key strategic decision in bond investing.
 
-**Sam:** Let us talk about the different types of bonds. I know there are government bonds and corporate bonds, but what are the real differences?
+**Stella:** Let us talk about the different types of bonds. I know there are government bonds and corporate bonds, but what are the real differences?
 
-**Alex:** The biggest difference is credit risk. U.S. Treasury bonds are backed by the full faith and credit of the U.S. government. They are considered the safest investments in the world because the government can tax and even print money to pay its debts. The chance of the U.S. defaulting on Treasury bonds is essentially zero.
+**Horace:** The biggest difference is credit risk. U.S. Treasury bonds are backed by the full faith and credit of the U.S. government. They are considered the safest investments in the world because the government can tax and even print money to pay its debts. The chance of the U.S. defaulting on Treasury bonds is essentially zero.
 
-**Sam:** And corporate bonds?
+**Stella:** And corporate bonds?
 
-**Alex:** Corporate bonds are issued by companies, and companies can and do go bankrupt. So corporate bonds carry credit risk, the risk that the issuer will not be able to pay you back. To compensate you for taking that risk, corporate bonds pay a higher yield than Treasuries. The extra yield over Treasuries is called the credit spread.
+**Horace:** Corporate bonds are issued by companies, and companies can and do go bankrupt. So corporate bonds carry credit risk, the risk that the issuer will not be able to pay you back. To compensate you for taking that risk, corporate bonds pay a higher yield than Treasuries. The extra yield over Treasuries is called the credit spread.
 
 [VISUAL: A staircase/layer diagram. Bottom step: "U.S. Treasuries: 4.0% yield, Essentially Zero Default Risk". Second step: "Investment-Grade Corporate (AAA-BBB): 5.0-5.5% yield, Low Default Risk". Top step: "High-Yield/Junk (BB and below): 7.0-9.0%+ yield, Higher Default Risk". Arrows showing the spread between each level.]
 
-**Sam:** How do I know which companies are risky and which are safe?
+**Stella:** How do I know which companies are risky and which are safe?
 
-**Alex:** That is where credit ratings come in. Three major agencies, S&P, Moody's, and Fitch, evaluate every bond issuer and assign a letter grade. Triple-A is the highest, meaning extremely safe. Then you go down through double-A, single-A, triple-B. Triple-B minus is the lowest rung of what is called investment grade.
+**Horace:** That is where credit ratings come in. Three major agencies, S&P, Moody's, and Fitch, evaluate every bond issuer and assign a letter grade. Triple-A is the highest, meaning extremely safe. Then you go down through double-A, single-A, triple-B. Triple-B minus is the lowest rung of what is called investment grade.
 
-**Sam:** And below that?
+**Stella:** And below that?
 
-**Alex:** Below investment grade is high yield, also colorfully known as junk bonds. These are rated BB and below. They pay much higher yields because there is a real chance the company might default. During normal times, junk bond default rates are around 2-3%. During recessions, they can spike to 10% or higher.
+**Horace:** Below investment grade is high yield, also colorfully known as junk bonds. These are rated BB and below. They pay much higher yields because there is a real chance the company might default. During normal times, junk bond default rates are around 2-3%. During recessions, they can spike to 10% or higher.
 
-**Sam:** So junk bonds are not really shock absorbers.
+**Stella:** So junk bonds are not really shock absorbers.
 
-**Alex:** Not at all. In fact, junk bonds tend to behave more like stocks during a crisis. When the economy weakens, investors worry about defaults and sell junk bonds. Their prices crash at the same time stocks are crashing. That is the exact opposite of what you want from the bond portion of your portfolio.
+**Horace:** Not at all. In fact, junk bonds tend to behave more like stocks during a crisis. When the economy weakens, investors worry about defaults and sell junk bonds. Their prices crash at the same time stocks are crashing. That is the exact opposite of what you want from the bond portion of your portfolio.
 
 [VISUAL: Two-panel comparison during "2008 Crisis." Left panel: "Treasury Bonds" showing a green upward arrow (+20%). Right panel: "Junk Bonds" showing a red downward arrow (-26%). Text: "Not All Bonds Are Created Equal"]
 
-**Sam:** That is a really important distinction. So for the shock-absorber role, I want government bonds, not junk bonds.
+**Stella:** That is a really important distinction. So for the shock-absorber role, I want government bonds, not junk bonds.
 
-**Alex:** Exactly. Government bonds and investment-grade bonds are your shock absorbers. Junk bonds are a different tool for a different purpose. They are more of a return-enhancement play, but they will not protect you in a downturn.
+**Horace:** Exactly. Government bonds and investment-grade bonds are your shock absorbers. Junk bonds are a different tool for a different purpose. They are more of a return-enhancement play, but they will not protect you in a downturn.
 
-**Sam:** Let us talk about the yield curve. I hear people on the news talking about it, especially when it inverts. What is it?
+**Stella:** Let us talk about the yield curve. I hear people on the news talking about it, especially when it inverts. What is it?
 
-**Alex:** The yield curve is simply a graph that plots the yields of government bonds of different maturities at a single point in time. On the left, you have short-term bonds like 3-month and 2-year Treasuries. On the right, you have long-term bonds like 10-year and 30-year Treasuries. Normally, the curve slopes upward because longer-term bonds pay higher yields to compensate for the additional time and uncertainty.
+**Horace:** The yield curve is simply a graph that plots the yields of government bonds of different maturities at a single point in time. On the left, you have short-term bonds like 3-month and 2-year Treasuries. On the right, you have long-term bonds like 10-year and 30-year Treasuries. Normally, the curve slopes upward because longer-term bonds pay higher yields to compensate for the additional time and uncertainty.
 
-**Sam:** Makes sense. Why would I accept the same yield for locking my money up for 30 years versus 1 year?
+**Stella:** Makes sense. Why would I accept the same yield for locking my money up for 30 years versus 1 year?
 
-**Alex:** You would not. And that is why a normal, upward-sloping yield curve is the typical state of affairs. But sometimes the curve inverts, meaning short-term yields are higher than long-term yields. And that is a big deal.
+**Horace:** You would not. And that is why a normal, upward-sloping yield curve is the typical state of affairs. But sometimes the curve inverts, meaning short-term yields are higher than long-term yields. And that is a big deal.
 
 [ANIMATION: Reference animation/week05_bond_pricing.py - An animated yield curve that morphs between shapes. Starts with a normal upward slope, then gradually flattens, then inverts. Labels appear at each stage: "Normal: Economy Healthy", "Flat: Transition Period", "Inverted: Recession Warning". A historical timeline below shows previous inversions followed by recessions, with dates.]
 
-**Sam:** Why does an inverted yield curve predict recessions?
+**Stella:** Why does an inverted yield curve predict recessions?
 
-**Alex:** Think about what the yield curve represents. Long-term yields reflect the market's expectations for future short-term rates. If the market expects the economy to slow down, it expects the Fed will have to cut rates in the future. So long-term yields fall below current short-term yields. Historically, every U.S. recession in the past 50 years has been preceded by a yield curve inversion. It is not a perfect timing tool, but it is one of the most reliable warning signals we have.
+**Horace:** Think about what the yield curve represents. Long-term yields reflect the market's expectations for future short-term rates. If the market expects the economy to slow down, it expects the Fed will have to cut rates in the future. So long-term yields fall below current short-term yields. Historically, every U.S. recession in the past 50 years has been preceded by a yield curve inversion. It is not a perfect timing tool, but it is one of the most reliable warning signals we have.
 
-**Sam:** Fascinating. So how should I actually use bonds in my portfolio?
+**Stella:** Fascinating. So how should I actually use bonds in my portfolio?
 
-**Alex:** The classic approach is the 60/40 portfolio: 60% stocks, 40% bonds. Let me show you why this works. Going back to historical data, a 100% stock portfolio has returned about 10% annually, but with gut-wrenching drawdowns. The worst year was negative 37%. A 60/40 portfolio returned about 8.5% annually, giving up only about 1.5% per year, but the worst year was only negative 20%. And the volatility dropped from about 15% to under 10%.
+**Horace:** The classic approach is the 60/40 portfolio: 60% stocks, 40% bonds. Let me show you why this works. Going back to historical data, a 100% stock portfolio has returned about 10% annually, but with gut-wrenching drawdowns. The worst year was negative 37%. A 60/40 portfolio returned about 8.5% annually, giving up only about 1.5% per year, but the worst year was only negative 20%. And the volatility dropped from about 15% to under 10%.
 
-**Sam:** So you give up a little bit of return but get a lot more stability.
+**Stella:** So you give up a little bit of return but get a lot more stability.
 
-**Alex:** That is the trade-off. And here is the thing that most people miss: the stability is not just about comfort. It is about behavior. When your portfolio drops 37%, the temptation to sell everything and go to cash is overwhelming. Millions of people did exactly that in 2008 and 2009. They locked in their losses and missed the recovery. But when your portfolio only drops 20%, while still painful, most people can hold on. The bonds in your portfolio protect you not just from financial loss, but from your own worst instincts.
+**Horace:** That is the trade-off. And here is the thing that most people miss: the stability is not just about comfort. It is about behavior. When your portfolio drops 37%, the temptation to sell everything and go to cash is overwhelming. Millions of people did exactly that in 2008 and 2009. They locked in their losses and missed the recovery. But when your portfolio only drops 20%, while still painful, most people can hold on. The bonds in your portfolio protect you not just from financial loss, but from your own worst instincts.
 
 [VISUAL: Two investor reactions side by side. Left: "100% Stock Investor in 2008" showing a panicking figure selling at the bottom (-37%), then the recovery happens without them. Right: "60/40 Investor in 2008" showing a concerned but calm figure holding through -20%, then participating in the recovery. Final wealth comparison shown below.]
 
-**Sam:** That is such an important point. The best portfolio is the one you can actually stick with.
+**Stella:** That is such an important point. The best portfolio is the one you can actually stick with.
 
-**Alex:** Exactly. A theoretically optimal portfolio that you abandon in a panic is far worse than a slightly less optimal portfolio that you hold through thick and thin.
+**Horace:** Exactly. A theoretically optimal portfolio that you abandon in a panic is far worse than a slightly less optimal portfolio that you hold through thick and thin.
 
-**Sam:** How should I actually invest in bonds? Buy individual bonds, or use funds?
+**Stella:** How should I actually invest in bonds? Buy individual bonds, or use funds?
 
-**Alex:** For most people, bond ETFs are the way to go. An ETF like BND or AGG gives you exposure to thousands of bonds, government and corporate, across all maturities, for a fee of about 0.03% per year. That is three cents per hundred dollars invested. It is broadly diversified, incredibly low cost, and you can buy and sell it like any stock.
+**Horace:** For most people, bond ETFs are the way to go. An ETF like BND or AGG gives you exposure to thousands of bonds, government and corporate, across all maturities, for a fee of about 0.03% per year. That is three cents per hundred dollars invested. It is broadly diversified, incredibly low cost, and you can buy and sell it like any stock.
 
-**Sam:** What about buying Treasuries directly?
+**Stella:** What about buying Treasuries directly?
 
-**Alex:** You can buy Treasury bonds directly from the U.S. government through their website, TreasuryDirect.gov. This is a good option for I-Bonds, which are inflation-protected savings bonds limited to $10,000 per person per year. For other Treasuries, buying through your brokerage is usually more convenient.
+**Horace:** You can buy Treasury bonds directly from the U.S. government through their website, TreasuryDirect.gov. This is a good option for I-Bonds, which are inflation-protected savings bonds limited to $10,000 per person per year. For other Treasuries, buying through your brokerage is usually more convenient.
 
 [VISUAL: A comparison table showing four ways to buy bonds: "Bond ETFs" (BND, AGG, TLT), "Individual Bonds" (through brokerage), "TreasuryDirect" (I-Bonds, T-Bills), and "Bond Mutual Funds" (Vanguard, Fidelity). Each with a brief pro and con listed.]
 
-**Sam:** What about a bond ladder? I have heard that term.
+**Stella:** What about a bond ladder? I have heard that term.
 
-**Alex:** A bond ladder is a strategy where you buy bonds maturing in consecutive years. For example, you buy bonds maturing in 1, 2, 3, 4, and 5 years. Each year, the shortest bond matures, you get your money back, and you can reinvest it in a new 5-year bond. This gives you regular liquidity, reduces interest rate risk, and over time, you end up capturing the average of rates across all those years.
+**Horace:** A bond ladder is a strategy where you buy bonds maturing in consecutive years. For example, you buy bonds maturing in 1, 2, 3, 4, and 5 years. Each year, the shortest bond matures, you get your money back, and you can reinvest it in a new 5-year bond. This gives you regular liquidity, reduces interest rate risk, and over time, you end up capturing the average of rates across all those years.
 
-**Sam:** That sounds really practical.
+**Stella:** That sounds really practical.
 
-**Alex:** It is. And it is especially useful for retirees who need regular income. Each year, a bond matures and provides cash for living expenses, while the rest of the ladder continues earning interest.
+**Horace:** It is. And it is especially useful for retirees who need regular income. Each year, a bond matures and provides cash for living expenses, while the rest of the ladder continues earning interest.
 
-**Sam:** Speaking of practical, let me ask about municipal bonds. I hear they have tax advantages?
+**Stella:** Speaking of practical, let me ask about municipal bonds. I hear they have tax advantages?
 
-**Alex:** Municipal bonds, or munis, are issued by state and local governments. The big advantage is that their interest is generally exempt from federal income tax, and often from state tax too if you live in the issuing state. For someone in a high tax bracket, say 35% federal, a muni bond yielding 3.5% is equivalent to a taxable bond yielding about 5.4%. That tax advantage can be very significant.
+**Horace:** Municipal bonds, or munis, are issued by state and local governments. The big advantage is that their interest is generally exempt from federal income tax, and often from state tax too if you live in the issuing state. For someone in a high tax bracket, say 35% federal, a muni bond yielding 3.5% is equivalent to a taxable bond yielding about 5.4%. That tax advantage can be very significant.
 
-**Sam:** So munis are better for people in high tax brackets?
+**Stella:** So munis are better for people in high tax brackets?
 
-**Alex:** Generally, yes. If you are in the 10% or 12% tax bracket, the tax benefit is small and you are usually better off with Treasuries or corporate bonds that pay higher pre-tax yields. But if you are in the 32% bracket or higher, munis deserve serious consideration, especially for taxable accounts. In tax-advantaged accounts like IRAs, the tax benefit does not apply, so munis are less attractive there.
+**Horace:** Generally, yes. If you are in the 10% or 12% tax bracket, the tax benefit is small and you are usually better off with Treasuries or corporate bonds that pay higher pre-tax yields. But if you are in the 32% bracket or higher, munis deserve serious consideration, especially for taxable accounts. In tax-advantaged accounts like IRAs, the tax benefit does not apply, so munis are less attractive there.
 
 [VISUAL: A side-by-side tax comparison. "Taxable Bond: 5% yield, 35% tax bracket, After-tax: 3.25%". "Municipal Bond: 3.5% yield, Tax-exempt, After-tax: 3.5%". The muni wins despite the lower headline yield. Text: "Always Compare After-Tax Yields"]
 
-**Sam:** That is a great point about the difference between taxable and tax-advantaged accounts. OK, let me ask about something that happened recently. In 2022, both stocks and bonds fell at the same time. That is not supposed to happen, right?
+**Stella:** That is a great point about the difference between taxable and tax-advantaged accounts. OK, let me ask about something that happened recently. In 2022, both stocks and bonds fell at the same time. That is not supposed to happen, right?
 
-**Alex:** Great question. Historically, stocks and bonds have tended to move in opposite directions during crises. Stocks fall, bonds rally, the portfolio stays relatively stable. But 2022 was unusual because the primary driver was inflation and the Fed's aggressive rate hikes. Inflation hurts both stocks (through higher costs and discount rates) and bonds (through rising yields). When inflation is the main risk, the normal stock-bond diversification benefit can break down.
+**Horace:** Great question. Historically, stocks and bonds have tended to move in opposite directions during crises. Stocks fall, bonds rally, the portfolio stays relatively stable. But 2022 was unusual because the primary driver was inflation and the Fed's aggressive rate hikes. Inflation hurts both stocks (through higher costs and discount rates) and bonds (through rising yields). When inflation is the main risk, the normal stock-bond diversification benefit can break down.
 
-**Sam:** So does that mean 60/40 is dead?
+**Stella:** So does that mean 60/40 is dead?
 
-**Alex:** No. 2022 was the exception, not the rule. The stock-bond diversification benefit has worked for most of the past century. One bad year does not invalidate decades of evidence. And importantly, the conditions that caused 2022, near-zero interest rates combined with a sudden inflation spike, were historically unusual. With bond yields now at more normal levels, the diversification benefit should function as expected during future crises driven by economic weakness rather than inflation.
+**Horace:** No. 2022 was the exception, not the rule. The stock-bond diversification benefit has worked for most of the past century. One bad year does not invalidate decades of evidence. And importantly, the conditions that caused 2022, near-zero interest rates combined with a sudden inflation spike, were historically unusual. With bond yields now at more normal levels, the diversification benefit should function as expected during future crises driven by economic weakness rather than inflation.
 
 [VISUAL: Timeline showing stock-bond correlation. Most periods show negative correlation (bonds rally when stocks fall), with 2022 highlighted as an exception. Text: "2022 Was the Exception, Not the New Rule"]
 
-**Sam:** What about Treasury Inflation-Protected Securities? TIPS?
+**Stella:** What about Treasury Inflation-Protected Securities? TIPS?
 
-**Alex:** TIPS are a special type of Treasury bond where the principal adjusts with inflation. If inflation runs at 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon is paid on the higher amount. They are useful for investors worried about inflation eating into their purchasing power. But they still have interest rate risk, so they can lose value if real interest rates rise.
+**Horace:** TIPS are a special type of Treasury bond where the principal adjusts with inflation. If inflation runs at 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon is paid on the higher amount. They are useful for investors worried about inflation eating into their purchasing power. But they still have interest rate risk, so they can lose value if real interest rates rise.
 
-**Sam:** One last question. When people talk about the "10-year yield," why is that number so important?
+**Stella:** One last question. When people talk about the "10-year yield," why is that number so important?
 
-**Alex:** The 10-year Treasury yield is the most watched number in all of finance. It serves as the benchmark for mortgage rates, car loans, corporate borrowing costs, and the discount rate used to value virtually every asset on the planet. When the 10-year yield rises, borrowing gets more expensive across the entire economy. Mortgage rates go up, corporate expansion slows, and stock valuations come under pressure. When it falls, the opposite happens. If you want to understand where the economy is heading, watch the 10-year yield.
+**Horace:** The 10-year Treasury yield is the most watched number in all of finance. It serves as the benchmark for mortgage rates, car loans, corporate borrowing costs, and the discount rate used to value virtually every asset on the planet. When the 10-year yield rises, borrowing gets more expensive across the entire economy. Mortgage rates go up, corporate expansion slows, and stock valuations come under pressure. When it falls, the opposite happens. If you want to understand where the economy is heading, watch the 10-year yield.
 
-**Sam:** That is really helpful context. So to summarize: bonds are loans where you get predictable interest payments. Price and yield always move in opposite directions. Government bonds are the safest and provide the best crash protection. Duration measures how sensitive a bond is to rate changes. Credit ratings tell you how risky a corporate bond is. And bonds play a crucial role as the shock absorber in your portfolio, protecting you not just financially, but from your own emotional mistakes.
+**Stella:** That is really helpful context. So to summarize: bonds are loans where you get predictable interest payments. Price and yield always move in opposite directions. Government bonds are the safest and provide the best crash protection. Duration measures how sensitive a bond is to rate changes. Credit ratings tell you how risky a corporate bond is. And bonds play a crucial role as the shock absorber in your portfolio, protecting you not just financially, but from your own emotional mistakes.
 
-**Alex:** That is an excellent summary. And the key takeaway is this: bonds may be boring, but boring is a feature, not a bug. Your portfolio needs an anchor, and bonds are that anchor.
+**Horace:** That is an excellent summary. And the key takeaway is this: bonds may be boring, but boring is a feature, not a bug. Your portfolio needs an anchor, and bonds are that anchor.
 
-**Sam:** I actually find this more interesting than I expected. The inverse price-yield relationship and the yield curve stuff is fascinating.
+**Stella:** I actually find this more interesting than I expected. The inverse price-yield relationship and the yield curve stuff is fascinating.
 
-**Alex:** Once you start watching bond markets, you will see how they connect to everything else in the economy. It is like learning to read a new language.
+**Horace:** Once you start watching bond markets, you will see how they connect to everything else in the economy. It is like learning to read a new language.
 
-**Sam:** What is coming up next week?
+**Stella:** What is coming up next week?
 
-**Alex:** Next week we are going to talk about gold and commodities. Another asset class that plays a specific diversification role in your portfolio, but for very different reasons than bonds.
+**Horace:** Next week we are going to talk about gold and commodities. Another asset class that plays a specific diversification role in your portfolio, but for very different reasons than bonds.
 
 [VISUAL: Preview slide for Week 6 with text: "Next Week: Gold and Commodities as Diversifiers - Understanding Alternative Asset Classes"]
 
-**Sam:** Before we go, rapid-fire round?
+**Stella:** Before we go, rapid-fire round?
 
-**Alex:** Let us do it.
+**Horace:** Let us do it.
 
-**Sam:** Is it possible to lose money on a government bond?
+**Stella:** Is it possible to lose money on a government bond?
 
-**Alex:** Yes, if you sell before maturity when rates have risen. Also, if inflation exceeds your yield, you lose purchasing power. But you will not lose money from default on a U.S. Treasury.
+**Horace:** Yes, if you sell before maturity when rates have risen. Also, if inflation exceeds your yield, you lose purchasing power. But you will not lose money from default on a U.S. Treasury.
 
-**Sam:** What is the minimum to invest in bonds?
+**Stella:** What is the minimum to invest in bonds?
 
-**Alex:** Individual bonds typically have $1,000 minimums. Bond ETFs like BND can be bought for the price of one share, often around $70-80. Some brokers allow fractional shares, so you could start with as little as $1.
+**Horace:** Individual bonds typically have $1,000 minimums. Bond ETFs like BND can be bought for the price of one share, often around $70-80. Some brokers allow fractional shares, so you could start with as little as $1.
 
-**Sam:** Best bond for a beginner?
+**Stella:** Best bond for a beginner?
 
-**Alex:** A total bond market ETF like BND or AGG. Instant diversification, ultra-low cost, and you can buy it in any brokerage account.
+**Horace:** A total bond market ETF like BND or AGG. Instant diversification, ultra-low cost, and you can buy it in any brokerage account.
 
-**Sam:** Should I buy bonds when interest rates are high or low?
+**Stella:** Should I buy bonds when interest rates are high or low?
 
-**Alex:** High rates are actually a great time to buy bonds because you lock in higher yields. When rates are low, bond yields are unattractive and there is more room for prices to fall if rates rise. The worst time to load up on bonds was 2020-2021 when rates were near zero.
+**Horace:** High rates are actually a great time to buy bonds because you lock in higher yields. When rates are low, bond yields are unattractive and there is more room for prices to fall if rates rise. The worst time to load up on bonds was 2020-2021 when rates were near zero.
 
-**Sam:** What is the biggest mistake bond investors make?
+**Stella:** What is the biggest mistake bond investors make?
 
-**Alex:** Reaching for yield. Buying risky, high-yield bonds just because they pay more, without understanding the credit risk. The purpose of bonds in your portfolio is stability, not maximizing income. If you want higher returns, increase your stock allocation instead of buying junk bonds.
+**Horace:** Reaching for yield. Buying risky, high-yield bonds just because they pay more, without understanding the credit risk. The purpose of bonds in your portfolio is stability, not maximizing income. If you want higher returns, increase your stock allocation instead of buying junk bonds.
 
-**Sam:** What about I-Bonds? I heard they were really popular a couple years ago.
+**Stella:** What about I-Bonds? I heard they were really popular a couple years ago.
 
-**Alex:** I-Bonds are savings bonds you buy directly from the U.S. government at TreasuryDirect.gov. Their rate is a combination of a fixed rate plus an inflation adjustment that resets every six months. When inflation was running at 9% in 2022, I-Bonds were paying over 9%. That attracted a huge wave of interest. The limit is $10,000 per person per year, and you have to hold them at least one year. There is a penalty of three months' interest if you sell within five years. For the money they accept, they are a great low-risk, inflation-protected savings vehicle.
+**Horace:** I-Bonds are savings bonds you buy directly from the U.S. government at TreasuryDirect.gov. Their rate is a combination of a fixed rate plus an inflation adjustment that resets every six months. When inflation was running at 9% in 2022, I-Bonds were paying over 9%. That attracted a huge wave of interest. The limit is $10,000 per person per year, and you have to hold them at least one year. There is a penalty of three months' interest if you sell within five years. For the money they accept, they are a great low-risk, inflation-protected savings vehicle.
 
-**Sam:** And one more: how do I know when to use short-term versus long-term bonds?
+**Stella:** And one more: how do I know when to use short-term versus long-term bonds?
 
-**Alex:** Match your bond duration to your time horizon and outlook. If you need the money in 2-3 years, use short-term bonds or a short-term bond ETF like SHY. They are very stable. If you have a longer horizon and believe rates will fall, long-term bonds like TLT can provide both income and capital gains. For a general portfolio allocation with no specific view on rates, an intermediate bond fund like BND or AGG gives you a balanced middle ground.
+**Horace:** Match your bond duration to your time horizon and outlook. If you need the money in 2-3 years, use short-term bonds or a short-term bond ETF like SHY. They are very stable. If you have a longer horizon and believe rates will fall, long-term bonds like TLT can provide both income and capital gains. For a general portfolio allocation with no specific view on rates, an intermediate bond fund like BND or AGG gives you a balanced middle ground.
 
 [VISUAL: A decision tree. "When do you need the money?" Arrow to "1-3 years: SHY (short-term)". Arrow to "3-10 years: IEF (intermediate)". Arrow to "10+ years: TLT (long-term)". Arrow to "Not sure: BND/AGG (total market)". Text: "Match Duration to Your Time Horizon"]
 
-**Sam:** Great advice. Thanks, everyone. See you next week.
+**Stella:** Great advice. Thanks, everyone. See you next week.
 
-**Alex:** Thanks for watching. If this helped demystify bonds for you, please like and subscribe. We will see you in Week 6.
+**Horace:** Thanks for watching. If this helped demystify bonds for you, please like and subscribe. We will see you in Week 6.
 
 [VISUAL: End screen with subscribe button, playlist link to Level 1: Foundations series, and social media handles]
 

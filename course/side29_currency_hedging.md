@@ -241,110 +241,110 @@ A10: Currency movements directly affect the dollar value of foreign dividends. I
 
 **[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]**
 
-**Alex:** Sam, I own an international stock ETF. My friend told me I am making a "currency bet" without realizing it. What does that mean? Should I be worried?
+**Horace:** Stella, I own an international stock ETF. My friend told me I am making a "currency bet" without realizing it. What does that mean? Should I be worried?
 
-**Sam:** Your friend raises a great point that most investors overlook.
+**Stella:** Your friend raises a great point that most investors overlook.
 
-**Sam:** Your friend is right. When you buy international stocks, you are actually making two bets. One on the foreign stocks going up. And one on the foreign currency holding its value against the dollar.
+**Stella:** Your friend is right. When you buy international stocks, you are actually making two bets. One on the foreign stocks going up. And one on the foreign currency holding its value against the dollar.
 
 **[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "Stock Return" pointing to a stock chart. Arrow 2 labeled "Currency Return" pointing to an exchange rate chart. Both arrows merge into "Your Total Return"]**
 
-**Alex:** Can you show me how this works in practice?
+**Horace:** Can you show me how this works in practice?
 
-**Sam:** Sure. Let us say you invest ten thousand dollars in a Japanese stock ETF. The exchange rate is one hundred ten yen per dollar.
+**Stella:** Sure. Let us say you invest ten thousand dollars in a Japanese stock ETF. The exchange rate is one hundred ten yen per dollar.
 
 **[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]**
 
-**Sam:** The Japanese stocks rise fifteen percent. Great news, right? Your investment is now worth one million two hundred sixty-five thousand yen.
+**Stella:** The Japanese stocks rise fifteen percent. Great news, right? Your investment is now worth one million two hundred sixty-five thousand yen.
 
-**Alex:** That sounds like a solid return.
+**Horace:** That sounds like a solid return.
 
-**Sam:** But wait. While you were invested, the yen weakened. The exchange rate moved from one hundred ten to one hundred thirty yen per dollar. Now let us convert back.
+**Stella:** But wait. While you were invested, the yen weakened. The exchange rate moved from one hundred ten to one hundred thirty yen per dollar. Now let us convert back.
 
 **[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "-2.7% dollar return" despite "+15% yen return"]**
 
-**Alex:** I lost money?! The stock went up fifteen percent and I LOST money?
+**Horace:** I lost money?! The stock went up fifteen percent and I LOST money?
 
-**Sam:** In dollar terms, yes. The yen weakened by about fifteen percent, more than wiping out your stock gains. This is currency risk in action.
+**Stella:** In dollar terms, yes. The yen weakened by about fifteen percent, more than wiping out your stock gains. This is currency risk in action.
 
 **[VISUAL: Side-by-side bars showing: Local Return +15%, Currency Return -15.4%, Dollar Return -2.7%]**
 
-**Alex:** That is painful. How do I protect myself?
+**Horace:** That is painful. How do I protect myself?
 
-**Sam:** That is where currency hedging comes in. You can neutralize the currency effect so your returns match the local stock market return.
+**Stella:** That is where currency hedging comes in. You can neutralize the currency effect so your returns match the local stock market return.
 
 **[ANIMATION: Same scenario replayed but with a "HEDGE" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]**
 
-**Alex:** How does the hedge actually work?
+**Horace:** How does the hedge actually work?
 
-**Sam:** The main tool is called a forward contract. It locks in an exchange rate for a future date. When you buy a hedged ETF, the fund manager enters forward contracts to sell foreign currency and buy dollars at a predetermined rate.
+**Stella:** The main tool is called a forward contract. It locks in an exchange rate for a future date. When you buy a hedged ETF, the fund manager enters forward contracts to sell foreign currency and buy dollars at a predetermined rate.
 
 **[ANIMATION: Timeline showing: Today - enter forward contract to sell yen at rate 110. One month later - regardless of spot rate, exchange at 110. New forward contract entered. Process repeats monthly]**
 
-**Sam:** Every month, the fund rolls the forward contract. This effectively removes currency fluctuations from your return. Whether the yen goes up or down, the hedge locks in approximately the same exchange rate.
+**Stella:** Every month, the fund rolls the forward contract. This effectively removes currency fluctuations from your return. Whether the yen goes up or down, the hedge locks in approximately the same exchange rate.
 
-**Alex:** Does this cost anything?
+**Horace:** Does this cost anything?
 
-**Sam:** This is where it gets interesting. The cost of hedging is determined by the interest rate difference between the two countries.
+**Stella:** This is where it gets interesting. The cost of hedging is determined by the interest rate difference between the two countries.
 
 **[VISUAL: Balance scale with "US Interest Rate 5%" on one side and "Japanese Interest Rate 0%" on the other. Arrow pointing down to "Hedging Benefit: ~5% per year"]**
 
-**Sam:** Right now, US rates are much higher than Japanese rates. When you hedge yen back to dollars, you actually EARN the interest rate difference. That is approximately five percent per year in extra return.
+**Stella:** Right now, US rates are much higher than Japanese rates. When you hedge yen back to dollars, you actually EARN the interest rate difference. That is approximately five percent per year in extra return.
 
-**Alex:** Wait, hedging MAKES me money?
+**Horace:** Wait, hedging MAKES me money?
 
-**Sam:** In this interest rate environment, yes. This is called the "forward premium" or "carry." When US rates are higher than foreign rates, hedging generates positive carry. But it works both ways. If US rates drop below Japanese rates, hedging would cost you.
+**Stella:** In this interest rate environment, yes. This is called the "forward premium" or "carry." When US rates are higher than foreign rates, hedging generates positive carry. But it works both ways. If US rates drop below Japanese rates, hedging would cost you.
 
 **[ANIMATION: See-saw showing US rates on one side and foreign rates on the other. When US side is higher, hedging pays. When foreign side is higher, hedging costs]**
 
-**Alex:** So the choice between hedged and unhedged is not straightforward.
+**Horace:** So the choice between hedged and unhedged is not straightforward.
 
-**Sam:** Not at all. Let me show you the practical difference using real ETFs.
+**Stella:** Not at all. Let me show you the practical difference using real ETFs.
 
 **[VISUAL: Performance comparison chart showing EFA (unhedged EAFE) vs HEFA (hedged EAFE) over 5 years, with periods of dollar strength and weakness marked]**
 
-**Sam:** During periods of dollar strength, like 2021 and 2022, the hedged version crushed the unhedged version. During dollar weakness, like 2017, the unhedged version won. Over very long periods, the difference tends to even out.
+**Stella:** During periods of dollar strength, like 2021 and 2022, the hedged version crushed the unhedged version. During dollar weakness, like 2017, the unhedged version won. Over very long periods, the difference tends to even out.
 
-**Alex:** So how do I decide?
+**Horace:** So how do I decide?
 
-**Sam:** Let me give you a simple framework.
+**Stella:** Let me give you a simple framework.
 
 **[ANIMATION: Decision tree appearing step by step]**
 
-**Sam:** First question: are you investing in international bonds or stocks?
+**Stella:** First question: are you investing in international bonds or stocks?
 
-**Alex:** Why does that matter?
+**Horace:** Why does that matter?
 
-**Sam:** For bonds, always hedge. Bond returns are small, maybe three to four percent. Currency volatility can be ten to fifteen percent. Unhedged international bonds are basically a currency bet with some bond income sprinkled on top.
+**Stella:** For bonds, always hedge. Bond returns are small, maybe three to four percent. Currency volatility can be ten to fifteen percent. Unhedged international bonds are basically a currency bet with some bond income sprinkled on top.
 
 **[VISUAL: Risk comparison showing International Bond Return (3-4%) vs Currency Volatility (10-15%), with the currency risk dwarfing the bond return]**
 
-**Sam:** That is why Vanguard's international bond ETF, BNDX, is hedged by default. It just makes sense for bonds.
+**Stella:** That is why Vanguard's international bond ETF, BNDX, is hedged by default. It just makes sense for bonds.
 
-**Alex:** And for stocks?
+**Horace:** And for stocks?
 
-**Sam:** For equities, it is more nuanced because stock returns are larger, so currency is a smaller proportion of total risk. Here is my framework.
+**Stella:** For equities, it is more nuanced because stock returns are larger, so currency is a smaller proportion of total risk. Here is my framework.
 
 **[ANIMATION: Framework card showing three scenarios:
 1. Short time horizon (1-3 years): Hedge more (75-100%)
 2. Medium time horizon (3-10 years): Partial hedge (50%)
 3. Long time horizon (10+ years): Less hedging needed (0-50%)]**
 
-**Sam:** If you need the money in one to three years, hedge aggressively. Currency can move ten to fifteen percent in a year. Over three to ten years, a fifty percent hedge is a reasonable compromise. Over ten-plus years, currencies tend to mean-revert, so hedging matters less.
+**Stella:** If you need the money in one to three years, hedge aggressively. Currency can move ten to fifteen percent in a year. Over three to ten years, a fifty percent hedge is a reasonable compromise. Over ten-plus years, currencies tend to mean-revert, so hedging matters less.
 
-**Alex:** What about emerging markets?
+**Horace:** What about emerging markets?
 
-**Sam:** Generally, leave them unhedged. Hedging emerging market currencies is expensive because the interest rate differentials are large and the forward markets are less liquid. Plus, EM currency exposure provides genuine diversification benefit.
+**Stella:** Generally, leave them unhedged. Hedging emerging market currencies is expensive because the interest rate differentials are large and the forward markets are less liquid. Plus, EM currency exposure provides genuine diversification benefit.
 
 **[VISUAL: Cost comparison showing hedging costs: Euro (~2-3% benefit currently), Yen (~4-5% benefit currently), Brazilian Real (~8-10% cost), Indian Rupee (~5-7% cost)]**
 
-**Alex:** That is a huge difference in cost.
+**Horace:** That is a huge difference in cost.
 
-**Sam:** Exactly. Hedging the yen actually earns you money right now, but hedging the Brazilian real could cost you eight to ten percent annually. The economics are completely different.
+**Stella:** Exactly. Hedging the yen actually earns you money right now, but hedging the Brazilian real could cost you eight to ten percent annually. The economics are completely different.
 
-**Alex:** Let me make sure I understand the practical steps. If I want to hedge my international developed market stocks, what do I actually do?
+**Horace:** Let me make sure I understand the practical steps. If I want to hedge my international developed market stocks, what do I actually do?
 
-**Sam:** Simply buy a hedged ETF instead of an unhedged one.
+**Stella:** Simply buy a hedged ETF instead of an unhedged one.
 
 **[VISUAL: Table comparing popular ETFs:
 Unhedged: EFA, VEA, IEFA (EAFE equities)
@@ -352,47 +352,47 @@ Hedged: HEFA, HEZU (Eurozone), HEWJ (Japan)
 Unhedged: BNDX? No - BNDX is already hedged!
 Unhedged International Bonds: Not recommended for most investors]**
 
-**Sam:** For EAFE equities, you can use HEFA instead of EFA. For Japan specifically, HEWJ instead of EWJ. For the Eurozone, HEZU instead of EZU. It is literally just buying a different ticker.
+**Stella:** For EAFE equities, you can use HEFA instead of EFA. For Japan specifically, HEWJ instead of EWJ. For the Eurozone, HEZU instead of EZU. It is literally just buying a different ticker.
 
-**Alex:** That is surprisingly simple.
+**Horace:** That is surprisingly simple.
 
-**Sam:** The ETF handles all the forward contract management internally. You do not need to open a forex account or manage any contracts yourself.
+**Stella:** The ETF handles all the forward contract management internally. You do not need to open a forex account or manage any contracts yourself.
 
-**Alex:** One thing I am confused about. If I own VT, the total world stock ETF, what is my currency exposure?
+**Horace:** One thing I am confused about. If I own VT, the total world stock ETF, what is my currency exposure?
 
-**Sam:** VT is about sixty percent US stocks and forty percent international. The US portion has no foreign currency exposure. The international portion has full exposure. So roughly forty percent of your VT position is exposed to foreign currencies.
+**Stella:** VT is about sixty percent US stocks and forty percent international. The US portion has no foreign currency exposure. The international portion has full exposure. So roughly forty percent of your VT position is exposed to foreign currencies.
 
 **[ANIMATION: Pie chart of VT showing 60% US (no FX risk) and 40% International (full FX risk), with the 40% section broken down by currency: Euro, Yen, Pound, Others]**
 
-**Alex:** Is that something I should worry about?
+**Horace:** Is that something I should worry about?
 
-**Sam:** For a long-term investor, probably not too much. Over twenty-plus years, currency effects tend to be relatively small compared to equity returns. But if you want to reduce volatility or you have a shorter time horizon, consider replacing some of that forty percent with hedged international ETFs.
+**Stella:** For a long-term investor, probably not too much. Over twenty-plus years, currency effects tend to be relatively small compared to equity returns. But if you want to reduce volatility or you have a shorter time horizon, consider replacing some of that forty percent with hedged international ETFs.
 
-**Alex:** Any final advice?
+**Horace:** Any final advice?
 
-**Sam:** Three things. First, always hedge international bonds. There is almost no argument against it.
+**Stella:** Three things. First, always hedge international bonds. There is almost no argument against it.
 
 **[ANIMATION: Three final takeaway cards appearing]**
 
-**Sam:** Second, for international stocks, make a conscious choice. Do not default to unhedged just because it is the most common. Look at the interest rate environment. If US rates are significantly higher, hedging not only reduces risk but earns you extra return.
+**Stella:** Second, for international stocks, make a conscious choice. Do not default to unhedged just because it is the most common. Look at the interest rate environment. If US rates are significantly higher, hedging not only reduces risk but earns you extra return.
 
-**Alex:** And third?
+**Horace:** And third?
 
-**Sam:** Do not over-complicate it. For most investors, a simple split between hedged and unhedged international equity ETFs, plus hedged international bonds, captures most of the benefit. You do not need to trade currencies or manage forward contracts yourself.
+**Stella:** Do not over-complicate it. For most investors, a simple split between hedged and unhedged international equity ETFs, plus hedged international bonds, captures most of the benefit. You do not need to trade currencies or manage forward contracts yourself.
 
 **[VISUAL: Summary card showing recommended approach: International Bonds = 100% Hedged, International Developed Stocks = 50% Hedged / 50% Unhedged, Emerging Market Stocks = 100% Unhedged]**
 
-**Alex:** Clean and simple. Thanks Sam.
+**Horace:** Clean and simple. Thanks Stella.
 
-**Sam:** Currency risk is one of those things that is invisible until it hits you. Now that you understand it, you can manage it instead of being surprised by it.
+**Stella:** Currency risk is one of those things that is invisible until it hits you. Now that you understand it, you can manage it instead of being surprised by it.
 
-**Alex:** And the good news is that with current interest rate differentials, hedging the euro and yen actually earns us extra return.
+**Horace:** And the good news is that with current interest rate differentials, hedging the euro and yen actually earns us extra return.
 
-**Sam:** Right. That will not always be the case, but right now the math strongly favors hedging developed market currencies. Take advantage of it while it lasts, and monitor the interest rate environment for changes.
+**Stella:** Right. That will not always be the case, but right now the math strongly favors hedging developed market currencies. Take advantage of it while it lasts, and monitor the interest rate environment for changes.
 
-**Alex:** I think my action item is clear: hedge my international bonds, consider hedging half my international developed market stocks, and leave emerging markets unhedged.
+**Horace:** I think my action item is clear: hedge my international bonds, consider hedging half my international developed market stocks, and leave emerging markets unhedged.
 
-**Sam:** That is a solid, well-reasoned approach. Simple, defensible, and appropriate for most long-term investors.
+**Stella:** That is a solid, well-reasoned approach. Simple, defensible, and appropriate for most long-term investors.
 
 **[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]**
 

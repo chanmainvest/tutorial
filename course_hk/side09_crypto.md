@@ -1,347 +1,344 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 9: Crypto and Digital Assets Overview
+# 附加課程第9課：加密貨幣與數碼資產概覽
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Cryptocurrency has gone from an obscure technological experiment to a trillion-dollar asset class in just over a decade. Whether you are a skeptic or a believer, understanding the basics of crypto and digital assets is now essential for any informed investor. This lesson covers the foundational technology, the major assets, how crypto fits (or does not fit) into a traditional portfolio, and the practical considerations of custody, security, and regulation.
-
----
-
-### a) Why This Is Important
-
-**Crypto is impossible to ignore.** As of the mid-2020s, the total cryptocurrency market capitalization has fluctuated between $1 trillion and $3 trillion. Bitcoin alone has a market cap rivaling some of the largest companies in the world. Whether you choose to invest in crypto or not, understanding it is no longer optional for a well-informed investor.
-
-**Institutional adoption has accelerated.** Major financial institutions -- including BlackRock, Fidelity, and JPMorgan -- now offer crypto-related products to their clients. The approval of spot Bitcoin ETFs in early 2024 marked a watershed moment, bringing crypto into mainstream brokerage accounts. When the largest asset managers in the world are offering crypto products, it demands attention.
-
-**Your portfolio allocation decisions require it.** Even if you decide to allocate 0% to crypto, that decision should be informed, not based on ignorance or gut feeling. Understanding crypto's risk/return profile, correlation characteristics, and role in a portfolio allows you to make a deliberate, rational allocation decision.
-
-**Blockchain technology has implications beyond currency.** The underlying blockchain technology powers smart contracts, decentralized finance (DeFi), non-fungible tokens (NFTs), and various enterprise applications. Understanding these innovations provides insight into potential disruptions across financial services, supply chain management, digital identity, and other industries.
-
-**Scams and misinformation are rampant.** The crypto space is rife with fraud, hype, and misleading claims. The only defense is education. An investor who understands the basics can distinguish between legitimate projects and schemes designed to separate you from your money.
+加密貨幣在短短十年間，從一個鮮為人知的技術實驗演變為市值以萬億美元計的資產類別。無論你是懷疑者還是信徒，了解加密貨幣和數碼資產的基礎知識，對於任何有見識的投資者而言，如今都是必不可少的。本課程涵蓋基礎技術、主要資產、加密貨幣如何融入（或不融入）傳統投資組合，以及託管、安全和監管等實務考量。
 
 ---
 
-### b) What You Need to Know
+### a) 為何這很重要
 
-#### What Is a Blockchain?
+**加密貨幣無法忽視。** 截至2020年代中期，加密貨幣市場總市值在1萬億至3萬億美元之間波動。僅比特幣一項，其市值就可媲美全球最大公司之一。無論你是否選擇投資加密貨幣，對於一個見識廣博的投資者而言，了解它已不再是可選項。
 
-At its core, a blockchain is a distributed, immutable ledger -- a record-keeping system that is shared across many computers (nodes) and cannot be altered once data is recorded.
+**機構採用已加速。** 主要金融機構——包括貝萊德（BlackRock）、富達（Fidelity）和摩根大通（JPMorgan）——現已向客戶提供加密貨幣相關產品。2024年初現貨比特幣交易所買賣基金的獲批，標誌著一個分水嶺時刻，將加密貨幣帶入主流券商戶口。當全球最大的資產管理公司都在提供加密貨幣產品時，這值得認真關注。
 
-Traditional financial systems rely on centralized intermediaries -- banks, clearinghouses, payment processors -- to maintain records and verify transactions. Blockchain replaces these intermediaries with a decentralized network where:
+**你的投資組合配置決策需要了解它。** 即使你決定將加密貨幣的配置定為零，這個決定也應基於充分了解，而非無知或直覺。了解加密貨幣的風險／回報特性、相關性特徵及其在投資組合中的角色，使你能夠做出審慎、理性的配置決策。
 
-- **Every participant has a copy** of the entire transaction history.
-- **New transactions are verified** by network participants (miners or validators) before being added.
-- **Once recorded, transactions cannot be changed** without redoing the work on all subsequent blocks -- making fraud extremely difficult.
-- **No single entity controls the network.** It operates through consensus among participants.
+**區塊鏈技術的影響超越貨幣本身。** 底層區塊鏈技術支撐著智能合約、去中心化金融（DeFi）、非同質化代幣（NFT）以及各種企業應用。了解這些創新，為洞察金融服務、供應鏈管理、數碼身份及其他行業的潛在顛覆提供了視角。
 
-Think of a blockchain like a public notebook that everyone in a room can see. When someone wants to write a new entry, the group verifies it is legitimate. Once written in ink, the entry cannot be erased. Everyone's copy updates simultaneously.
-
-#### Bitcoin: The Original Cryptocurrency
-
-Bitcoin was created in 2008 by the pseudonymous Satoshi Nakamoto and launched in January 2009. It was designed as a peer-to-peer electronic cash system that operates without a central authority.
-
-Key characteristics of Bitcoin:
-
-- **Fixed supply:** Only 21 million bitcoins will ever exist. This scarcity is hard-coded into the protocol and cannot be changed. As of the mid-2020s, approximately 19.5 million have been mined.
-- **Mining:** New bitcoins are created through a process called mining, where powerful computers solve complex mathematical puzzles to validate transactions and add new blocks to the chain. Miners are rewarded with newly created bitcoin.
-- **Halving:** Approximately every four years, the mining reward is cut in half. This gradually reduces the rate of new bitcoin creation, making it increasingly scarce over time.
-- **Decentralization:** No single person, company, or government controls Bitcoin. The network is maintained by thousands of nodes worldwide.
-- **Pseudonymity:** Transactions are recorded on a public ledger, but participants are identified by cryptographic addresses rather than real names. This provides some privacy but is not truly anonymous.
-- **Volatility:** Bitcoin's price has experienced drawdowns of 50-80% multiple times in its history. In the same periods, it has also delivered returns exceeding 100% in a single year. This extreme volatility is its defining characteristic as an investment.
-
-Bitcoin is often described as "digital gold" because of its fixed supply and its use as a store of value. However, unlike gold, Bitcoin has no physical presence, no industrial use, and only about 15 years of history. Whether it truly functions as a store of value over the long term remains an open question.
-
-#### Ethereum and Smart Contracts
-
-Ethereum, launched in 2015 by Vitalik Buterin and others, extended blockchain technology beyond simple value transfer. While Bitcoin is primarily a digital currency, Ethereum is a programmable platform that supports smart contracts.
-
-**Smart contracts** are self-executing programs that run on the blockchain. They automatically enforce the terms of an agreement without needing a middleman. For example, a smart contract could automatically release payment to a seller once a buyer confirms receipt of goods, with no bank or escrow service required.
-
-Ethereum introduced several important concepts:
-
-- **Ether (ETH):** The native cryptocurrency of the Ethereum network, used to pay for transactions and computational services on the platform.
-- **Gas fees:** Users pay "gas" (denominated in ETH) to execute transactions and smart contracts. Gas fees fluctuate based on network demand.
-- **Decentralized Applications (dApps):** Applications built on Ethereum that operate without centralized control. These span financial services, gaming, social media, and more.
-- **Proof of Stake:** In September 2022, Ethereum transitioned from energy-intensive Proof of Work mining (like Bitcoin) to Proof of Stake, where validators lock up ETH as collateral to verify transactions. This reduced Ethereum's energy consumption by approximately 99.95%.
-- **ERC-20 tokens:** A standard for creating new tokens on the Ethereum blockchain. Thousands of cryptocurrencies are actually ERC-20 tokens running on Ethereum's network.
-
-#### Other Major Cryptocurrencies
-
-Beyond Bitcoin and Ethereum, the crypto landscape includes thousands of other projects. A few notable categories:
-
-- **Layer 1 blockchains:** Competitors to Ethereum that offer faster or cheaper transactions. Examples include Solana, Cardano, Avalanche, and Polkadot.
-- **Stablecoins:** Cryptocurrencies designed to maintain a stable value, typically pegged to the U.S. dollar. Examples include USDC and Tether (USDT). Stablecoins are widely used for trading and as a bridge between crypto and traditional finance.
-- **DeFi tokens:** Tokens associated with decentralized finance protocols that offer lending, borrowing, trading, and yield farming without traditional intermediaries.
-- **Meme coins:** Cryptocurrencies that originated as jokes or internet culture references. Dogecoin and Shiba Inu are prominent examples. These are highly speculative and driven primarily by social media hype.
-
-The vast majority of the thousands of cryptocurrencies in existence will likely go to zero. Investing in small or obscure crypto projects is closer to venture capital speculation than to traditional investing.
-
-#### Crypto's Volatility Profile
-
-Cryptocurrency volatility dwarfs that of traditional asset classes:
-
-- Bitcoin's annualized volatility has historically been approximately 60-80%, compared to roughly 15-20% for stocks and 5-8% for bonds.
-- Drawdowns of 50% or more have occurred multiple times. The 2022 decline saw Bitcoin fall from roughly $69,000 to $16,000 -- a 77% crash.
-- Individual altcoins (cryptocurrencies other than Bitcoin) are even more volatile. Many have experienced 90%+ declines.
-
-This extreme volatility has important portfolio implications. Even a small crypto allocation can significantly impact total portfolio volatility. A 5% allocation to Bitcoin in a traditional portfolio has historically had a disproportionate effect on both upside and downside risk.
-
-#### Correlation to Traditional Assets
-
-One of the most debated topics in crypto investing is its correlation to traditional assets:
-
-- **Early history (2009-2019):** Bitcoin showed very low correlation to stocks, bonds, gold, and other traditional assets. This made it appear to be an excellent diversifier.
-- **2020 onward:** Correlation with risk assets, particularly tech stocks (the Nasdaq), increased significantly. During the COVID crash of March 2020 and the 2022 bear market, crypto sold off alongside stocks.
-- **Current state:** Bitcoin's correlation with the S&P 500 has fluctuated between 0.3 and 0.7 in recent years. It tends to spike during market stress, which is precisely when diversification benefits are most needed.
-
-The bottom line: crypto may provide some diversification benefits under normal market conditions, but it has not proven to be a reliable safe haven during crises. It behaves more like a high-beta risk asset than like gold or bonds.
-
-#### Custody and Security
-
-One of the most important -- and unique -- aspects of crypto investing is custody. Who holds your crypto, and how is it secured?
-
-**Self-custody (hardware wallets):**
-- You hold your own private keys (the cryptographic codes that control your crypto) on a physical device like a Ledger or Trezor.
-- Pros: No counterparty risk. No exchange can freeze your assets. True ownership.
-- Cons: If you lose your private keys or seed phrase, your crypto is gone forever. No customer service to call. You are solely responsible for security.
-
-**Exchange custody:**
-- You leave your crypto on an exchange like Coinbase, Kraken, or Gemini.
-- Pros: Convenient. The exchange handles security. Easy to trade.
-- Cons: Counterparty risk. If the exchange is hacked, goes bankrupt (as FTX did in 2022), or freezes withdrawals, you may lose your assets. "Not your keys, not your coins" is a popular saying in the crypto community.
-
-**ETF/Fund custody:**
-- Spot Bitcoin ETFs (like those from BlackRock, Fidelity, and others) hold bitcoin on behalf of investors, with institutional-grade custody solutions.
-- Pros: Regulated, familiar structure. Held in a normal brokerage account. SIPC protection on the brokerage account (though not on the underlying bitcoin value).
-- Cons: You do not actually own bitcoin -- you own shares in a trust. Annual expense ratios (typically 0.20-0.50%). Cannot use the bitcoin directly.
-
-For most mainstream investors, crypto ETFs offer the simplest and safest way to gain exposure. For those who want actual crypto ownership, a reputable exchange combined with a hardware wallet for long-term storage is the standard approach.
-
-#### Security Best Practices
-
-If you hold crypto directly, security is paramount:
-
-- **Use two-factor authentication (2FA)** on all exchange accounts. Hardware-based 2FA (like a YubiKey) is more secure than SMS-based 2FA.
-- **Never share your seed phrase** (the 12-24 word recovery phrase for your wallet). No legitimate service will ever ask for it.
-- **Store seed phrases offline** in a secure physical location. Consider using a metal seed phrase backup that is resistant to fire and water.
-- **Be skeptical of unsolicited messages.** Phishing attacks targeting crypto holders are extremely common.
-- **Use dedicated email addresses** for crypto exchange accounts.
-- **Start small.** When transferring crypto between wallets, always send a small test transaction first.
-
-#### Common Crypto Scams and How to Avoid Them
-
-The crypto space has been plagued by fraud. Knowing the common scams protects your assets:
-
-**Pump-and-dump schemes:** Promoters hype a small, illiquid token on social media, driving up its price. Once naive investors pile in, the promoters sell their holdings at the inflated price, and the token crashes. Red flag: any crypto being aggressively promoted on social media with claims of guaranteed returns.
-
-**Rug pulls:** Developers create a new token or DeFi project, attract investment, and then disappear with the funds. This is particularly common with new tokens launched on decentralized exchanges with no audited smart contracts. Red flag: anonymous development team, unaudited code, extremely high promised yields.
-
-**Phishing attacks:** Scammers create fake versions of exchange websites or wallet apps to steal login credentials and private keys. Red flag: unsolicited emails or messages asking you to "verify" your account or "update" your wallet.
-
-**Ponzi schemes:** Projects that pay "returns" to existing investors using funds from new investors, rather than from legitimate trading or investment profits. Eventually, new investment slows and the scheme collapses. Red flag: guaranteed returns, pressure to recruit new investors, vague explanations of how returns are generated.
-
-**Celebrity endorsement scams:** Fake endorsements from celebrities or public figures promoting a token or exchange. These are nearly always fraudulent. Red flag: if a celebrity is supposedly endorsing a crypto project, verify through their official channels before believing it.
-
-**Impersonation scams:** Scammers pose as customer support for exchanges or as well-known crypto figures, offering to "help" you with an issue. They ultimately request your private keys or seed phrase. Red flag: anyone asking for your private keys or seed phrase, ever, for any reason.
-
-The best defense is skepticism. If something in crypto sounds too good to be true, it almost certainly is. Stick to established assets (Bitcoin, Ethereum) on regulated exchanges, and never invest based on social media hype.
-
-#### Staking and Yield: Understanding the Risks
-
-Many crypto platforms offer "staking" or "yield" products that promise returns on your crypto holdings:
-
-**Proof of Stake staking:** On networks like Ethereum, you can lock up tokens to help validate transactions and earn rewards. This is a legitimate function of the network. Staking rewards typically range from 3-6% annually. Risks include slashing (losing a portion of staked tokens due to validator errors) and lockup periods during which you cannot access your funds.
-
-**Centralized lending platforms:** Platforms like the now-defunct Celsius, BlockFi, and Voyager offered high yields on crypto deposits. They lent your crypto to borrowers and paid you interest. Multiple platforms collapsed in 2022, losing billions in customer funds. The lesson: high yields come with high risk, and "deposits" on crypto platforms are not FDIC insured.
-
-**DeFi yield farming:** Users provide liquidity to decentralized protocols and earn token rewards. Yields can be extremely high (sometimes 50-100%+ APY) but carry substantial risks including smart contract bugs, impermanent loss, and token price collapse. This is an advanced, high-risk activity -- not appropriate for beginners.
-
-The common thread: in crypto, if someone is offering you yield, understand where that yield comes from. If the source is unclear, you are likely the source -- your principal is at risk.
-
-#### Regulatory Landscape
-
-Crypto regulation is evolving rapidly and varies significantly by country:
-
-- **United States:** The regulatory environment has been fragmented, with the SEC, CFTC, IRS, and FinCEN all claiming some jurisdiction. The SEC has classified many cryptocurrencies as securities. The IRS treats crypto as property for tax purposes -- every sale, trade, or spending of crypto is a taxable event.
-- **European Union:** The Markets in Crypto-Assets (MiCA) regulation provides a comprehensive framework for crypto regulation across EU member states.
-- **Asia:** Approaches range from outright bans (China) to welcoming frameworks (Singapore, Japan, Hong Kong).
-
-Key tax considerations for U.S. investors:
-
-- Selling crypto for USD or another crypto triggers capital gains or losses.
-- Holding periods determine whether gains are short-term (taxed as ordinary income) or long-term (taxed at lower capital gains rates).
-- Mining and staking rewards are taxed as ordinary income.
-- Accurate record-keeping is essential. Every transaction must be tracked for tax purposes.
-
-#### Sizing Crypto in a Portfolio
-
-If you decide to include crypto in your portfolio, sizing is crucial:
-
-- **Conservative approach (0-2%):** Provides minimal exposure with limited impact on overall portfolio risk. This is the approach many traditional financial advisors recommend.
-- **Moderate approach (2-5%):** Enough to meaningfully participate in crypto upside if it performs well, but small enough that a total loss would not be devastating. At 5%, even a 50% crypto decline reduces total portfolio value by only 2.5%.
-- **Aggressive approach (5-10%):** This allocation can significantly impact portfolio returns -- both positively and negatively. Only appropriate for investors with high risk tolerance, long time horizons, and the ability to stomach extreme volatility.
-- **Speculative (10%+):** At this level, crypto risk dominates portfolio behavior. This is not investing -- it is speculation. Most financial professionals would not recommend this for the average investor.
-
-A useful framework: never invest more in crypto than you could afford to lose entirely. The possibility of a total loss, while unlikely for Bitcoin, is not zero -- and is very real for smaller cryptocurrencies.
-
-#### Bitcoin ETFs
-
-The approval of spot Bitcoin ETFs in January 2024 was a landmark event:
-
-- **iShares Bitcoin Trust (IBIT):** Managed by BlackRock. Quickly became one of the most successful ETF launches in history.
-- **Fidelity Wise Origin Bitcoin Fund (FBTC):** Managed by Fidelity.
-- **Other providers:** Grayscale, ARK Invest/21Shares, Bitwise, VanEck, and others also offer spot Bitcoin ETFs.
-
-These ETFs charge expense ratios typically ranging from 0.20% to 0.50%. They provide a regulated, convenient way to gain bitcoin exposure without dealing with wallets, private keys, or crypto exchanges.
-
-For investors who want crypto exposure through their existing brokerage account and within traditional portfolio structures, Bitcoin ETFs are the most practical option.
+**騙局和虛假信息氾濫成災。** 加密貨幣領域充斥著欺詐、炒作和誤導性說法。唯一的防禦是教育。了解基礎知識的投資者能夠區分合法項目和旨在騙取你金錢的計謀。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要知道的事情
 
-**Misconception 1: "Bitcoin is anonymous."**
-Bitcoin is pseudonymous, not anonymous. All transactions are recorded on a public blockchain. While addresses are not directly tied to real-world identities, sophisticated analysis can often link addresses to individuals. Law enforcement agencies have successfully traced Bitcoin transactions in numerous criminal investigations. True privacy requires specialized cryptocurrencies like Monero or Zcash, which have their own limitations.
+#### 什麼是區塊鏈？
 
-**Misconception 2: "Blockchain technology means crypto must have value."**
-Blockchain is a technology. Cryptocurrency is one application of that technology. It is entirely possible for blockchain technology to be useful and widely adopted while many individual cryptocurrencies go to zero. Investing in crypto because "blockchain is the future" is like investing in any random website in 1999 because "the internet is the future." The technology survived; most individual bets did not.
+從本質上說，區塊鏈是一個分散式、不可篡改的賬本——一個跨多台電腦（節點）共享且一旦記錄數據便無法更改的記錄系統。
 
-**Misconception 3: "Bitcoin's fixed supply guarantees its price will rise."**
-While Bitcoin's 21 million supply cap creates scarcity, scarcity alone does not create value. Many things are scarce but not valuable. Bitcoin's value depends on sustained demand -- people wanting to buy and hold it as a store of value, medium of exchange, or speculative asset. If demand declines, the price falls regardless of supply constraints.
+傳統金融系統依賴中心化中介機構——銀行、清算所、支付處理商——來維護記錄並核實交易。區塊鏈以一個去中心化網絡取代這些中介機構，在這個網絡中：
 
-**Misconception 4: "Crypto is only for tech-savvy people."**
-With the advent of crypto ETFs, user-friendly exchanges, and mainstream brokerage integration, investing in crypto is now as simple as buying any other stock or ETF. You do not need to understand cryptographic hashing algorithms to buy shares of a Bitcoin ETF through your Schwab or Fidelity account.
+- **每位參與者都有一份副本**，記錄完整的交易歷史。
+- **新交易由網絡參與者（礦工或驗證者）驗證**，然後才被添加。
+- **一旦記錄，交易便無法更改**，除非對所有後續區塊重做工作——這使欺詐極為困難。
+- **沒有單一實體控制網絡。** 它通過參與者之間的共識運作。
 
-**Misconception 5: "Stablecoins are always stable."**
-While well-managed stablecoins like USDC maintain their dollar peg under normal conditions, they are not risk-free. TerraUSD (UST), an algorithmic stablecoin, collapsed spectacularly in May 2022, losing its peg and wiping out $40 billion in value. Even fiat-backed stablecoins carry counterparty risk -- the stability depends on the reserves actually existing and being properly managed.
+可以把區塊鏈想像成一個房間裡所有人都能看到的公共筆記本。當有人想寫新條目時，大家會驗證其合法性。一旦用墨水寫下，條目便無法抹去。每個人的副本同時更新。
 
-**Misconception 6: "Crypto is a proven inflation hedge."**
-During the high inflation period of 2021-2023, Bitcoin's price fell significantly while inflation was rising. While the long-term thesis that a fixed-supply asset should hold value against currency debasement has theoretical merit, the empirical evidence over crypto's short history does not reliably support this claim.
+#### 比特幣：最初的加密貨幣
 
-**Misconception 7: "If I missed Bitcoin, I should find the next Bitcoin."**
-The overwhelming majority of altcoins fail to deliver returns anywhere close to Bitcoin's historical performance. Searching for "the next Bitcoin" among thousands of speculative tokens is more like gambling than investing. If you want crypto exposure, the safest and simplest approach is to start with Bitcoin and possibly Ethereum, not obscure tokens promising 100x returns.
+比特幣由化名中本聰（Satoshi Nakamoto）的人於2008年創建，並於2009年1月啟動。它被設計為一個無需中央機構即可運作的點對點電子現金系統。
+
+比特幣的主要特徵：
+
+- **固定供應量：** 比特幣的總量永遠只有2,100萬枚。這種稀缺性已硬編碼到協議中，無法更改。截至2020年代中期，約有1,950萬枚已被挖出。
+- **挖礦：** 新比特幣通過稱為挖礦的過程創建，強大的電腦競相解決複雜的數學難題，以驗證交易並向鏈中添加新區塊。礦工獲得新創建的比特幣作為獎勵。
+- **減半：** 大約每四年，挖礦獎勵減半一次。這逐漸降低了新比特幣的創建速度，使其隨時間推移越來越稀缺。
+- **去中心化：** 沒有任何個人、公司或政府控制比特幣。該網絡由全球數千個節點維護。
+- **假名性：** 交易記錄在公共賬本上，但參與者通過加密地址而非真實姓名識別。這提供了一定程度的私隱，但並非真正匿名。
+- **波動性：** 比特幣的價格在其歷史上多次出現50-80%的回撤。在同一時期，它也曾在單年內帶來超過100%的回報。這種極端波動性是其作為投資品的定義性特徵。
+
+比特幣通常被描述為「數碼黃金」，因為其固定供應量及其作為價值儲存手段的用途。然而，與黃金不同，比特幣沒有實體存在，沒有工業用途，且只有約15年的歷史。它從長遠來看是否真正發揮價值儲存功能，仍是一個開放性問題。
+
+#### 以太坊與智能合約
+
+以太坊由Vitalik Buterin等人於2015年推出，將區塊鏈技術擴展到簡單的價值轉移之外。比特幣主要是數碼貨幣，而以太坊是一個支持智能合約的可編程平台。
+
+**智能合約**是在區塊鏈上運行的自執行程序。它們在無需中介的情況下自動執行協議條款。例如，智能合約可以在買方確認收到貨物後自動向賣方放款，無需銀行或託管服務。
+
+以太坊引入了幾個重要概念：
+
+- **以太幣（ETH）：** 以太坊網絡的原生加密貨幣，用於支付平台上的交易和計算服務費用。
+- **燃料費（Gas費）：** 用戶支付「燃料費」（以ETH計算）來執行交易和智能合約。燃料費根據網絡需求而波動。
+- **去中心化應用程式（dApps）：** 建立在以太坊上、無中心化控制運作的應用程式。涵蓋金融服務、遊戲、社交媒體等領域。
+- **權益證明：** 2022年9月，以太坊從能源密集型的工作量證明挖礦（如比特幣）過渡到權益證明，驗證者鎖定ETH作為抵押品以驗證交易。這將以太坊的能源消耗降低了約99.95%。
+- **ERC-20代幣：** 在以太坊區塊鏈上創建新代幣的標準。數千種加密貨幣實際上是在以太坊網絡上運行的ERC-20代幣。
+
+#### 其他主要加密貨幣
+
+除比特幣和以太坊外，加密貨幣領域還包括數千個其他項目。幾個值得注意的類別：
+
+- **第一層區塊鏈：** 以太坊的競爭對手，提供更快或更便宜的交易。例子包括Solana、Cardano、Avalanche和Polkadot。
+- **穩定幣：** 設計用於維持穩定價值的加密貨幣，通常與美元掛鉤。例子包括USDC和Tether（USDT）。穩定幣廣泛用於交易以及加密貨幣與傳統金融之間的橋樑。
+- **DeFi代幣：** 與去中心化金融協議相關的代幣，無需傳統中介即可提供借貸、交易和流動性挖礦。
+- **迷因幣：** 起源於玩笑或網絡文化的加密貨幣。狗狗幣（Dogecoin）和柴犬幣（Shiba Inu）是著名例子。這些是高度投機性的，主要由社交媒體炒作驅動。
+
+現存的數千種加密貨幣中，絕大多數可能最終歸零。投資小型或鮮為人知的加密貨幣項目，更接近於風險資本投機，而非傳統投資。
+
+#### 加密貨幣的波動性特性
+
+加密貨幣的波動性遠超傳統資產類別：
+
+- 比特幣的年化波動性歷史上約為60-80%，相比之下，股票約為15-20%，債券約為5-8%。
+- 50%或以上的回撤已多次發生。2022年的跌幅見比特幣從約69,000美元跌至16,000美元——下跌了77%。
+- 山寨幣（比特幣以外的加密貨幣）甚至更具波動性。許多曾經歷超過90%的跌幅。
+
+這種極端波動性對投資組合有重要影響。即使是小比例的加密貨幣配置，也可能顯著影響投資組合的整體波動性。在傳統投資組合中配置5%的比特幣，歷史上對上行和下行風險都產生了不成比例的影響。
+
+#### 與傳統資產的相關性
+
+加密貨幣投資中最受爭議的話題之一是其與傳統資產的相關性：
+
+- **早期歷史（2009-2019年）：** 比特幣與股票、債券、黃金和其他傳統資產的相關性非常低。這使其看起來是一個出色的分散投資工具。
+- **2020年後：** 與風險資產，尤其是科技股（納斯達克指數）的相關性顯著增加。在2020年3月的新冠疫情崩盤和2022年熊市期間，加密貨幣與股票同步下跌。
+- **當前狀態：** 近年來，比特幣與標普500指數的相關性在0.3至0.7之間波動。在市場壓力期間，相關性往往急劇上升，而這正是最需要分散投資效益的時候。
+
+結論：加密貨幣在正常市場條件下可能提供一定的分散投資效益，但在危機中並未被證明是可靠的避險資產。它的行為更像高貝塔風險資產，而非黃金或債券。
+
+#### 託管與安全
+
+加密貨幣投資中最重要且最獨特的方面之一是託管。誰持有你的加密貨幣，又如何保護它？
+
+**自我託管（硬件錢包）：**
+- 你在Ledger或Trezor等實體設備上保存自己的私鑰（控制你加密貨幣的加密代碼）。
+- 優點：無對手方風險。任何交易所都無法凍結你的資產。真正的所有權。
+- 缺點：如果你丟失私鑰或助記詞，你的加密貨幣將永久消失。沒有客戶服務可聯繫。你對安全完全負責。
+
+**交易所託管：**
+- 你將加密貨幣留在Coinbase、Kraken或Gemini等交易所。
+- 優點：方便。交易所處理安全問題。易於交易。
+- 缺點：對手方風險。如果交易所被黑客攻擊、破產（如FTX於2022年）或凍結提款，你可能失去資產。「不是你的私鑰，就不是你的幣」是加密貨幣社群中流行的說法。
+
+**交易所買賣基金／基金託管：**
+- 現貨比特幣交易所買賣基金（如貝萊德、富達等）代表投資者持有比特幣，採用機構級託管方案。
+- 優點：受監管、熟悉的架構。在普通券商戶口中持有。券商戶口受SIPC保護（但不保護基礎比特幣的價值）。
+- 缺點：你實際上並不擁有比特幣——你擁有的是信託份額。年度費用比率（通常為0.20-0.50%）。無法直接使用比特幣。
+
+對於大多數主流投資者而言，加密貨幣交易所買賣基金提供了獲取風險敞口最簡單、最安全的方式。對於想要真正擁有加密貨幣的人，在有信譽的交易所購買並結合硬件錢包用於長期儲存，是標準做法。
+
+#### 安全最佳實踐
+
+如果你直接持有加密貨幣，安全至關重要：
+
+- **在所有交易所戶口使用雙重認證（2FA）。** 基於硬件的2FA（如YubiKey）比基於短訊的2FA更安全。
+- **永遠不要分享你的助記詞**（錢包的12至24個恢復詞）。任何合法服務都不會要求提供。
+- **將助記詞離線存儲**在安全的實體位置。考慮使用防火防水的金屬助記詞備份。
+- **對主動聯繫的消息保持懷疑態度。** 針對加密貨幣持有者的網絡釣魚攻擊極為常見。
+- **為加密貨幣交易所戶口使用專用電郵地址。**
+- **從小額開始。** 在錢包之間轉移加密貨幣時，始終先發送小額測試交易。
+
+#### 常見加密貨幣騙局及如何避免
+
+加密貨幣空間飽受欺詐困擾。了解常見騙局可保護你的資產：
+
+**炒高出貨計謀：** 推廣者在社交媒體上炒作流動性低的小型代幣，拉高其價格。一旦天真的投資者蜂擁而至，推廣者就以高價拋售持倉，代幣隨即崩盤。警示信號：任何在社交媒體上被積極宣傳、聲稱保證回報的加密貨幣。
+
+**跑路騙局：** 開發者創建新代幣或DeFi項目，吸引投資後捲款潛逃。這在去中心化交易所上推出的未經審計智能合約新代幣中尤為常見。警示信號：匿名開發團隊、未審計代碼、極高的承諾收益率。
+
+**網絡釣魚攻擊：** 騙徒創建假冒交易所網站或錢包應用，竊取登錄憑據和私鑰。警示信號：要求你「驗證」戶口或「更新」錢包的主動電郵或消息。
+
+**龐氏騙局：** 用新投資者的資金向現有投資者支付「回報」的項目，而非來自合法的交易或投資利潤。最終，新投資放緩，計謀崩潰。警示信號：保證回報、招募新投資者的壓力、對回報如何產生的模糊解釋。
+
+**名人代言騙局：** 名人或公眾人物推廣代幣或交易所的假冒代言。這些幾乎總是欺詐性的。警示信號：如果名人據稱在代言加密貨幣項目，在相信之前通過其官方渠道核實。
+
+**冒充騙局：** 騙徒冒充交易所客服或知名加密貨幣人士，提供「幫助」你解決問題。他們最終要求你的私鑰或助記詞。警示信號：任何人以任何理由要求你的私鑰或助記詞。
+
+最好的防禦是懷疑態度。如果加密貨幣中有什麼聽起來好得令人難以置信，幾乎可以肯定確實如此。堅持使用在受監管交易所的成熟資產（比特幣、以太坊），永遠不要基於社交媒體炒作進行投資。
+
+#### 質押與收益率：了解風險
+
+許多加密貨幣平台提供承諾加密貨幣持倉回報的「質押」或「收益率」產品：
+
+**權益證明質押：** 在以太坊等網絡上，你可以鎖定代幣以幫助驗證交易並獲得獎勵。這是網絡的合法功能。質押獎勵通常每年在3-6%之間。風險包括罰沒（因驗證者錯誤損失部分質押代幣）和無法在此期間動用資金的鎖定期。
+
+**中心化借貸平台：** 現已倒閉的Celsius、BlockFi和Voyager等平台，對加密貨幣存款提供高收益率。它們將你的加密貨幣借給借款人並向你支付利息。2022年多個平台崩潰，損失了數十億美元的客戶資金。教訓是：高收益率伴隨高風險，加密貨幣平台上的「存款」並非受FDIC保障。
+
+**DeFi流動性挖礦：** 用戶向去中心化協議提供流動性並獲得代幣獎勵。收益率可能極高（有時超過50-100% APY），但存在相當大的風險，包括智能合約漏洞、無常損失和代幣價格崩潰。這是一項高級、高風險的活動——不適合初學者。
+
+共同線索：在加密貨幣中，如果有人向你提供收益率，要了解收益從何而來。如果來源不清晰，你很可能就是來源——你的本金處於風險之中。
+
+#### 監管環境
+
+加密貨幣監管正在迅速演變，各國差異顯著：
+
+- **美國：** 監管環境一直支離破碎，美國證交會（SEC）、商品期貨交易委員會（CFTC）、美國國稅局（IRS）和金融犯罪執法網絡（FinCEN）均聲稱擁有一定管轄權。美國證交會已將許多加密貨幣歸類為證券。美國國稅局出於稅務目的將加密貨幣視為財產——每次出售、交易或使用加密貨幣購買商品都是應稅事件。
+- **歐盟：** 加密資產市場（MiCA）法規為歐盟成員國的加密貨幣監管提供了全面框架。
+- **亞洲：** 方法從全面禁止（中國）到歡迎框架（新加坡、日本、香港）不等。
+
+美國投資者的主要稅務考量：
+
+- 以美元或另一種加密貨幣出售加密貨幣會觸發資本增值或虧損。
+- 持有期決定增值是短期（按普通收入稅率徵稅）還是長期（按較低的資本增值稅率徵稅）。
+- 挖礦和質押獎勵按普通收入徵稅。
+- 準確的記錄保存至關重要。每筆交易必須跟蹤以用於稅務目的。
+
+#### 在投資組合中確定加密貨幣的規模
+
+如果你決定將加密貨幣納入投資組合，規模至關重要：
+
+- **保守方式（0-2%）：** 提供最低限度的敞口，對整體投資組合風險影響有限。這是許多傳統財務顧問推薦的做法。
+- **適中方式（2-5%）：** 足以在加密貨幣表現良好時有意義地參與其上行，但足夠小，即使全部損失也不會造成毀滅性打擊。配置5%時，即使加密貨幣下跌50%，也只會使投資組合總價值降低2.5%。
+- **進取方式（5-10%）：** 這一配置可能顯著影響投資組合回報——正面和負面均有。僅適合風險承受能力高、投資期限長且能夠承受極端波動性的投資者。
+- **投機性（10%+）：** 在這一水平上，加密貨幣風險主導投資組合行為。這不是投資——而是投機。大多數金融專業人士不會向普通投資者推薦這種做法。
+
+一個有用的框架：永遠不要在加密貨幣上投資超過你可以承受完全損失的金額。雖然比特幣全部損失的可能性很小，但並非為零——對於較小的加密貨幣來說則是非常真實的可能。
+
+#### 比特幣交易所買賣基金
+
+2024年1月現貨比特幣交易所買賣基金的獲批是一個里程碑式事件：
+
+- **iShares比特幣信託（IBIT）：** 由貝萊德管理。迅速成為歷史上最成功的交易所買賣基金發行之一。
+- **富達智慧起源比特幣基金（FBTC）：** 由富達管理。
+- **其他提供商：** Grayscale、ARK Invest/21Shares、Bitwise、VanEck等也提供現貨比特幣交易所買賣基金。
+
+這些交易所買賣基金收取的費用比率通常在0.20%至0.50%之間。它們提供了一種受監管、便捷的方式來獲取比特幣敞口，無需處理錢包、私鑰或加密貨幣交易所。
+
+對於希望通過現有券商戶口並在傳統投資組合架構內獲取加密貨幣敞口的投資者，比特幣交易所買賣基金是最實用的選擇。
 
 ---
 
-### d) Common Questions and Answers
+### c) 常見誤解
 
-**Q: Should I invest in crypto?**
-A: That depends on your financial situation, risk tolerance, and investment horizon. If you have a fully funded emergency fund, no high-interest debt, and are already contributing to retirement accounts, a small allocation (1-5%) to crypto through a Bitcoin ETF or reputable exchange could be reasonable. If you are still building financial stability, crypto should not be a priority. Never invest money in crypto that you cannot afford to lose.
+**誤解1：「比特幣是匿名的。」**
+比特幣是假名的，而非匿名的。所有交易都記錄在公共區塊鏈上。雖然地址與現實世界身份沒有直接關聯，但複雜的分析通常可以將地址與個人關聯起來。執法機構已在眾多刑事調查中成功追蹤比特幣交易。真正的私隱需要Monero或Zcash等專門的加密貨幣，而這些也有其自身的局限性。
 
-**Q: Bitcoin or Ethereum -- which should I buy?**
-A: Bitcoin and Ethereum serve different purposes. Bitcoin is primarily a store of value -- digital gold. Ethereum is a programmable platform that powers a vast ecosystem of decentralized applications. Many crypto investors hold both. Bitcoin has a longer track record and is generally considered the less risky option (though still highly volatile). If you are starting with a small allocation, Bitcoin is the most straightforward choice.
+**誤解2：「區塊鏈技術意味著加密貨幣必然有價值。」**
+區塊鏈是一種技術。加密貨幣是該技術的一種應用。完全有可能區塊鏈技術有用且被廣泛採用，同時許多個別加密貨幣歸零。因為「區塊鏈是未來」而投資加密貨幣，就像1999年因為「互聯網是未來」而投資任意網站。技術存活下來了；大多數個別賭注卻沒有。
 
-**Q: What about other cryptocurrencies?**
-A: The further you move from Bitcoin and Ethereum, the higher the risk. Smaller cryptocurrencies have less liquidity, less security, less institutional support, and a higher probability of going to zero. If you do invest in altcoins, size those positions very small and treat them as speculative bets, not core investments.
+**誤解3：「比特幣的固定供應量保證其價格將上漲。」**
+雖然比特幣2,100萬枚的供應上限創造了稀缺性，但稀缺性本身並不創造價值。許多東西是稀缺的，但並不有價值。比特幣的價值取決於持續的需求——人們希望購買並持有它作為價值儲存手段、交換媒介或投機資產。如果需求下降，無論供應限制如何，價格都會下跌。
 
-**Q: How do I buy crypto?**
-A: The simplest methods are: (1) Buy a Bitcoin ETF through your existing brokerage account. (2) Open an account on a regulated exchange like Coinbase, Kraken, or Gemini. (3) Some traditional brokerages now offer direct crypto trading. For most investors, a Bitcoin ETF in a brokerage account is the easiest and most familiar approach.
+**誤解4：「加密貨幣只適合懂技術的人。」**
+隨著加密貨幣交易所買賣基金的出現、用戶友好型交易所以及主流券商整合，投資加密貨幣現在就像買任何其他股票或交易所買賣基金一樣簡單。你不需要了解加密哈希算法才能通過你的嘉信理財（Schwab）或富達戶口購買比特幣交易所買賣基金的份額。
 
-**Q: What about crypto in my retirement account?**
-A: Some self-directed IRAs now allow crypto investments, and Bitcoin ETFs can be held in any IRA or 401(k) that offers them. Holding crypto in a tax-advantaged account eliminates the tax headache of tracking every transaction. However, be mindful that crypto's extreme volatility can be particularly painful in a retirement account that you depend on for future income.
+**誤解5：「穩定幣總是穩定的。」**
+雖然USDC等管理良好的穩定幣在正常情況下維持其美元錨定，但它們並非沒有風險。TerraUSD（UST）是一種算法穩定幣，於2022年5月壯觀崩潰，失去錨定並消滅了400億美元的價值。即使是法幣支持的穩定幣也存在對手方風險——穩定性取決於儲備是否真實存在且被妥善管理。
 
-**Q: Is crypto legal?**
-A: In the United States, Canada, the European Union, Japan, Australia, and most developed countries, buying, selling, and holding cryptocurrency is legal. However, regulations regarding trading, taxation, and reporting vary. In some countries (notably China), crypto trading is banned or severely restricted. Always comply with local regulations and tax reporting requirements.
+**誤解6：「加密貨幣是已被證明的通脹對沖工具。」**
+在2021-2023年的高通脹時期，比特幣價格在通脹上升時顯著下跌。雖然固定供應資產應能對抗貨幣貶值的長期論題在理論上具有優點，但在加密貨幣短暫歷史中的實證證據並不可靠地支持這一說法。
 
-**Q: What happens if my crypto exchange goes bankrupt?**
-A: The collapse of FTX in November 2022 demonstrated that customer funds on exchanges are not always safe. Customers may become unsecured creditors in bankruptcy, potentially recovering only a fraction of their holdings. This risk can be mitigated by using regulated, reputable exchanges, moving holdings to self-custody, or using regulated ETFs that hold crypto with institutional custodians.
-
-**Q: How is crypto taxed?**
-A: In the U.S., the IRS treats cryptocurrency as property. Selling crypto, trading one crypto for another, using crypto to buy goods, and receiving crypto as payment are all taxable events. Gains held for less than one year are taxed at ordinary income rates. Gains held for more than one year are taxed at long-term capital gains rates. Mining and staking rewards are taxed as ordinary income. Accurate record-keeping is essential.
+**誤解7：「如果我錯過了比特幣，我應該找到下一個比特幣。」**
+絕大多數山寨幣未能帶來接近比特幣歷史表現的回報。在數千種投機代幣中尋找「下一個比特幣」，更像是賭博而非投資。如果你想要加密貨幣敞口，最安全、最簡單的做法是從比特幣開始，可能再加以太坊，而不是承諾100倍回報的鮮為人知代幣。
 
 ---
 
-## YouTube Script
+### d) 常見問題解答
 
-**Side Lesson 9: Crypto and Digital Assets Overview**
+**問：我應該投資加密貨幣嗎？**
+答：這取決於你的財務狀況、風險承受能力和投資期限。如果你有充足的緊急備用金、沒有高息債務，並且已在向退休賬戶供款，通過比特幣交易所買賣基金或信譽良好的交易所進行小比例配置（1-5%）可能是合理的。如果你仍在建立財務穩定性，加密貨幣不應是優先考慮。永遠不要在加密貨幣上投入超過你可以承受損失的金額。
+
+**問：比特幣還是以太坊——我應該買哪個？**
+答：比特幣和以太坊服務於不同目的。比特幣主要是價值儲存手段——數碼黃金。以太坊是一個為大量去中心化應用程式提供動力的可編程平台。許多加密貨幣投資者兩者都持有。比特幣擁有更長的記錄，通常被認為是風險較低的選擇（儘管仍然高度波動）。如果你以小比例配置開始，比特幣是最直接的選擇。
+
+**問：其他加密貨幣怎麼樣？**
+答：你離比特幣和以太坊越遠，風險越高。較小的加密貨幣流動性更低、安全性更差、機構支持更少，歸零的概率更高。如果你確實投資山寨幣，請將這些持倉規模做得非常小，並將其視為投機性賭注，而非核心投資。
+
+**問：如何購買加密貨幣？**
+答：最簡單的方法是：（1）通過現有券商戶口購買比特幣交易所買賣基金。（2）在Coinbase、Kraken或Gemini等受監管交易所開戶並直接購買加密貨幣。（3）一些傳統券商現在允許在戶口內直接交易加密貨幣。對於大多數投資者而言，在券商戶口中持有比特幣交易所買賣基金是最簡單、最熟悉的方式。
+
+**問：我的退休賬戶中可以有加密貨幣嗎？**
+答：一些自我指導的個人退休賬戶（IRA）現在允許加密貨幣投資，比特幣交易所買賣基金可以在任何提供它們的IRA或401(k)中持有。在稅務優惠賬戶中持有加密貨幣消除了跟蹤每筆交易的稅務麻煩。但請注意，加密貨幣的極端波動性在你依賴其提供未來收入的退休賬戶中可能特別令人痛苦。
+
+**問：加密貨幣合法嗎？**
+答：在美國、加拿大、歐盟、日本、澳洲和大多數發達國家，購買、出售和持有加密貨幣是合法的。然而，有關交易、稅務和申報的法規各不相同。在某些國家（尤其是中國），加密貨幣交易被禁止或受到嚴格限制。始終遵守當地法規和稅務申報要求。
+
+**問：如果我的加密貨幣交易所破產會怎樣？**
+答：FTX於2022年11月的崩潰表明，交易所上的客戶資金並非總是安全的。客戶可能成為破產程序中的無擔保債權人，可能只能追回其持倉的一小部分。可以通過使用受監管、信譽良好的交易所、將持倉轉移到自我託管，或使用由機構託管人持有加密貨幣的受監管交易所買賣基金來降低這一風險。
+
+**問：加密貨幣如何徵稅？**
+答：在美國，美國國稅局將加密貨幣視為財產。出售加密貨幣、將一種加密貨幣換成另一種、使用加密貨幣購買商品以及以加密貨幣形式收取付款，都是應稅事件。持有不足一年的增值按普通收入稅率徵稅。持有超過一年的增值按長期資本增值稅率徵稅。挖礦和質押獎勵按普通收入徵稅。準確的記錄保存至關重要。
 
 ---
 
-**Alex:** Alright, Sam. Today we tackle the most divisive topic in investing. Cryptocurrency.
+## YouTube劇本
 
-**Sam:** I have been both excited and nervous about this one. Crypto feels like something I need to understand, but there is so much noise around it. People either say it is the future of money or the biggest scam ever.
+**附加課程第9課：加密貨幣與數碼資產概覽**
 
-**Alex:** And that polarization is part of the problem. The truth is somewhere in the middle, and our job today is to cut through the hype and the fear to give you a factual, balanced understanding.
+---
+
+**Horace（陳馬）：** 好了，小魚。今天我們來討論投資界最具爭議的話題——加密貨幣。
+
+**Stella（小魚）：** 我對這個話題既興奮又緊張。加密貨幣感覺是我需要了解的東西，但周圍的雜音實在太多了。有人說這是貨幣的未來，也有人說這是史上最大的騙局。
+
+**Horace（陳馬）：** 這種兩極化本身就是問題所在。真相在中間某處，我們今天的任務就是撥開炒作和恐懼，給你一個客觀、平衡的認識。
 
 [VISUAL: A spectrum bar. Far left: "Crypto is a scam." Far right: "Crypto will replace all money." A marker sits in the middle: "The truth is here -- it is a new asset class with real innovation, real risks, and a lot of uncertainty."]
 
-**Sam:** Let us start at the very beginning. What is a blockchain?
+**Stella（小魚）：** 那我們從最基本的說起。什麼是區塊鏈？
 
-**Alex:** A blockchain is essentially a digital ledger -- a record of transactions -- that is shared across thousands of computers worldwide. Instead of one bank keeping the records, everyone in the network has a copy.
+**Horace（陳馬）：** 區塊鏈本質上是一個數碼賬本——一份交易記錄——分散存儲在全球數千台電腦上。不是由一間銀行保存記錄，而是網絡中的每個人都有一份副本。
 
 [ANIMATION: Traditional banking -- a single ledger in a bank vault. Then transition to blockchain -- the same ledger copied across thousands of computers around the globe. When a new transaction occurs, all copies update simultaneously.]
 
-**Sam:** What makes it special?
+**Stella（小魚）：** 那有什麼特別之處？
 
-**Alex:** Three things. First, it is decentralized -- no single entity controls it. Second, it is immutable -- once a transaction is recorded, it cannot be changed or deleted. Third, it is transparent -- anyone can verify the records. These properties allow people to transfer value without trusting a central authority.
+**Horace（陳馬）：** 三點。第一，去中心化——沒有單一實體控制它。第二，不可篡改——一旦交易被記錄，就無法更改或刪除。第三，透明——任何人都可以核實記錄。這些特性使人們能夠在無需信任中央機構的情況下轉移價值。
 
-**Sam:** And Bitcoin was the first application of this technology?
+**Stella（小魚）：** 比特幣是這項技術的第一個應用？
 
-**Alex:** Correct. Bitcoin was created in 2008 by someone using the name Satoshi Nakamoto -- we still do not know who they really are. It launched in January 2009 as a peer-to-peer electronic cash system. The idea was simple: what if you could send money directly to anyone in the world, without a bank, with no one able to stop or reverse the transaction?
+**Horace（陳馬）：** 正確。比特幣由一個使用中本聰（Satoshi Nakamoto）這個名字的人於2008年創建——我們至今仍不知道他們真實身份。它於2009年1月作為點對點電子現金系統推出。這個想法很簡單：如果你可以直接向世界上任何人匯款，無需銀行，沒有人能夠阻止或撤銷交易，那會怎樣？
 
-**Sam:** So how does Bitcoin actually work?
+**Stella（小魚）：** 那比特幣實際上是如何運作的？
 
-**Alex:** At its core, Bitcoin is a network of computers that maintain a shared ledger of all bitcoin transactions ever made. New transactions are grouped into blocks. Miners -- people running powerful computers -- compete to validate each block by solving a complex mathematical puzzle. The winner adds the block to the chain and receives newly created bitcoin as a reward.
+**Horace（陳馬）：** 比特幣的核心是一個電腦網絡，維護著一份記錄所有比特幣交易的共享賬本。新交易被分組成區塊。礦工——運行強大電腦的人——競相通過解決複雜的數學難題來驗證每個區塊。勝者將區塊添加到鏈中，並獲得新創建的比特幣作為獎勵。
 
 [ANIMATION: Transaction enters the network. Multiple miners race to solve the puzzle. Winner adds the block. Chain grows. Reward flows to the winning miner. All other nodes verify and update their copies.]
 
-**Sam:** How many bitcoins exist?
+**Stella（小魚）：** 現在有多少比特幣存在？
 
-**Alex:** There will only ever be 21 million. That is hard-coded into the protocol and cannot be changed. About 19.5 million have been mined so far. The mining reward gets cut in half roughly every four years -- this is called the "halving." It creates a predictable, diminishing supply schedule.
+**Horace（陳馬）：** 永遠只有2,100萬枚。這是硬編碼在協議中的，無法更改。目前已挖出約1,950萬枚。挖礦獎勵大約每四年減半一次——這稱為「減半」。它創造了一個可預測的、逐漸減少的供應時間表。
 
-**Sam:** So it is designed to be scarce, like gold?
+**Stella（小魚）：** 所以它被設計為稀缺，就像黃金一樣？
 
-**Alex:** That is the comparison many people make. Hence the nickname "digital gold." But there are important differences. Gold has been valued for thousands of years. Bitcoin has been around since 2009. Gold has physical properties and industrial uses. Bitcoin is purely digital. Whether Bitcoin truly functions as a store of value over the long term is still an open question.
+**Horace（陳馬）：** 很多人都這樣比較。因此才有「數碼黃金」這個綽號。但有重要的區別。黃金已被人類重視了數千年。比特幣自2009年才出現。黃金有實體特性和工業用途。比特幣是純數碼的。比特幣長遠是否真正發揮價值儲存功能，仍是一個開放性問題。
 
-**Sam:** What about Ethereum? How is it different?
+**Stella（小魚）：** 那以太坊呢？它有什麼不同？
 
-**Alex:** Ethereum, launched in 2015, took blockchain a step further. While Bitcoin is mainly about transferring value -- sending money from A to B -- Ethereum introduced smart contracts. These are programs that run on the blockchain and execute automatically when certain conditions are met.
+**Horace（陳馬）：** 以太坊於2015年推出，將區塊鏈推進了一大步。比特幣主要是關於轉移價值——從A向B匯款——而以太坊引入了智能合約。這些是在區塊鏈上運行、在特定條件滿足時自動執行的程序。
 
 [VISUAL: A simple smart contract illustration. "IF buyer sends $100 AND seller sends product confirmation, THEN release payment to seller." No bank, no escrow service, no middleman.]
 
-**Sam:** Give me a real-world example.
+**Stella（小魚）：** 給我舉個實際的例子。
 
-**Alex:** Sure. Imagine a freelancer and a client agreeing on a project. They could create a smart contract that holds the client's payment in escrow. When the freelancer submits the work and the client approves it, the payment is automatically released. If the client does not approve within 30 days, the contract refunds the money. All of this happens without a bank, lawyer, or escrow service.
+**Horace（陳馬）：** 好的。想像一個自由工作者和客戶就一個項目達成協議。他們可以創建一個智能合約，將客戶的付款放入託管。當自由工作者提交工作且客戶批准後，付款自動釋放。如果客戶在30天內沒有批准，合約退還款項。所有這些都無需銀行、律師或託管服務。
 
-**Sam:** That is actually pretty cool. So Ethereum is a platform for building these automated agreements?
+**Stella（小魚）：** 這其實很厲害。所以以太坊是一個構建這些自動化協議的平台？
 
-**Alex:** Exactly. Ethereum is like a programmable world computer. Thousands of applications have been built on it -- decentralized exchanges, lending platforms, digital art marketplaces, games, and more. The native currency, Ether or ETH, is used to pay for transactions on the network.
+**Horace（陳馬）：** 正是。以太坊就像一台可編程的世界電腦。數千個應用程式在其上構建——去中心化交易所、借貸平台、數碼藝術市集、遊戲等等。原生貨幣以太幣（ETH）用於支付網絡上的交易費用。
 
-**Sam:** Are there other cryptocurrencies I should know about?
+**Stella（小魚）：** 還有其他我應該了解的加密貨幣嗎？
 
-**Alex:** There are thousands, but most are not worth your attention. The important categories are stablecoins -- like USDC and Tether -- which are designed to maintain a $1 value and are used heavily in crypto trading. Then there are alternative Layer 1 blockchains like Solana, which compete with Ethereum on speed and cost. And then there are meme coins like Dogecoin, which are pure speculation.
+**Horace（陳馬）：** 有數千種，但大多數不值得你關注。重要的類別是穩定幣——如USDC和Tether——設計用於維持1美元的價值，在加密貨幣交易中被大量使用。然後是Solana等替代性第一層區塊鏈，在速度和成本上與以太坊競爭。再就是狗狗幣等迷因幣，純屬投機。
 
-**Sam:** Let me ask the big question. Is crypto a good investment?
+**Stella（小魚）：** 讓我問一個大問題。加密貨幣是好的投資嗎？
 
-**Alex:** That depends entirely on your perspective and time horizon. Let me show you the volatility profile.
+**Horace（陳馬）：** 這完全取決於你的角度和投資期限。讓我給你看看波動性特性。
 
 [ANIMATION: Three volatility charts side by side over 5 years. Bonds: gentle waves. Stocks: moderate waves. Bitcoin: massive spikes and crashes. Annotations show Bitcoin's 77% decline in 2022, followed by its recovery.]
 
-**Sam:** That Bitcoin chart looks like a heart monitor during a horror movie.
+**Stella（小魚）：** 那個比特幣圖表看起來像恐怖電影裡的心電圖。
 
-**Alex:** And that is actually the defining characteristic you need to understand. Bitcoin's annualized volatility runs around 60-80% -- roughly four times that of the stock market. In practical terms, 50% drawdowns are not unusual. They have happened multiple times.
+**Horace（陳馬）：** 而這實際上是你需要理解的定義性特徵。比特幣的年化波動性約為60-80%——大約是股市的四倍。在實際操作中，50%的回撤並不罕見。這已經發生了多次。
 
-**Sam:** So how can anyone call that an investment?
+**Stella（小魚）：** 那怎麼能有人把它稱為投資呢？
 
-**Alex:** Fair question. The counter-argument is that despite these brutal drawdowns, Bitcoin has delivered extraordinary long-term returns for those who held through the volatility. Someone who bought in 2015 and held through two 50%+ crashes would still have massive gains. But -- and this is critical -- past returns do not guarantee future returns. Bitcoin's early days involved going from near-zero to substantial value. That kind of percentage gain cannot repeat at current price levels.
+**Horace（陳馬）：** 這是個好問題。反駁論點是，儘管有這些慘烈的回撤，比特幣對那些熬過波動性的人帶來了非凡的長期回報。2015年買入並熬過兩次超過50%暴跌的人，仍然獲得了巨大收益。但——這一點至關重要——過去回報不保證未來回報。比特幣的早期是從接近零漲到相當高的價值。這種百分比漲幅在目前的價格水平上無法重演。
 
-**Sam:** What about correlation? I have heard crypto moves independently of stocks.
+**Stella（小魚）：** 那相關性呢？我聽說加密貨幣的走勢與股票無關。
 
-**Alex:** That was more true in crypto's early years. More recently, particularly since 2020, Bitcoin has shown increasing correlation with risk assets, especially tech stocks. During market sell-offs, crypto has tended to sell off even harder.
+**Horace（陳馬）：** 在加密貨幣早期確實更是如此。但近年來，特別是2020年後，比特幣與風險資產，尤其是科技股的相關性有所增加。在市場拋售期間，加密貨幣往往跌得更狠。
 
 [VISUAL: Correlation chart showing Bitcoin's rolling 1-year correlation with the S&P 500 from 2015 to present. Low correlation early on, rising to 0.5-0.7 in recent years.]
 
-**Sam:** So it is not really the uncorrelated diversifier some people claim?
+**Stella（小魚）：** 所以它並不是一些人聲稱的那種不相關的分散投資工具？
 
-**Alex:** Not reliably, no. During calm markets, it may show lower correlation. But during crises -- when diversification matters most -- crypto has tended to drop alongside stocks. It has behaved more like a high-risk, high-beta asset than like a safe haven.
+**Horace（陳馬）：** 不可靠，不。在平靜市場中，它可能顯示出較低的相關性。但在危機期間——當最需要分散投資時——加密貨幣往往與股票一同下跌。它的行為更像高風險高貝塔資產，而非避險資產。
 
-**Sam:** If I decide I want some crypto exposure, how much should I have?
+**Stella（小魚）：** 如果我決定要一些加密貨幣敞口，應該持有多少？
 
-**Alex:** Most financial professionals suggest somewhere between 0% and 5%, depending on your risk tolerance. Let me frame it this way.
+**Horace（陳馬）：** 大多數金融專業人士建議在0%至5%之間，視乎你的風險承受能力。讓我這樣框架一下。
 
 [VISUAL: Portfolio impact scenarios. Starting portfolio: $100,000.
 - 0% crypto: portfolio behavior driven entirely by stocks/bonds.
@@ -350,58 +347,58 @@ A: In the U.S., the IRS treats cryptocurrency as property. Selling crypto, tradi
 - 10% crypto ($10,000): if crypto drops 50%, total portfolio impact is -5%. Significant.
 - 20% crypto ($20,000): if crypto drops 50%, total portfolio impact is -10%. Painful.]
 
-**Sam:** That framing is really helpful. At 2-5%, even a catastrophic crypto crash barely dents the overall portfolio.
+**Stella（小魚）：** 這個框架真的很有幫助。在2-5%的情況下，即使加密貨幣災難性崩盤，對整體投資組合的影響也微乎其微。
 
-**Alex:** Exactly. That is the sweet spot for most people. Enough to participate in potential upside, small enough that you can sleep at night during a crash. The golden rule: never invest more in crypto than you could afford to lose entirely.
+**Horace（陳馬）：** 正是。這是大多數人的甜蜜點。足以參與潛在的上行，小到即使在崩盤期間也能安睡。黃金法則：永遠不要在加密貨幣上投資超過你可以承受完全損失的金額。
 
-**Sam:** How do I actually buy crypto?
+**Stella（小魚）：** 我實際上如何購買加密貨幣？
 
-**Alex:** You have three main options. First, and simplest for most people, buy a spot Bitcoin ETF through your existing brokerage account. Tickers like IBIT from BlackRock or FBTC from Fidelity. You buy and sell it just like any stock.
+**Horace（陳馬）：** 你有三個主要選擇。第一，也是最簡單的，通過現有券商戶口購買現貨比特幣交易所買賣基金。如貝萊德的IBIT或富達的FBTC。你像買任何股票一樣買賣它。
 
-**Sam:** That sounds easy.
+**Stella（小魚）：** 聽起來很簡單。
 
-**Alex:** It is. You pay an expense ratio of roughly 0.20-0.50%, but you avoid dealing with crypto wallets, private keys, and exchanges. Second option: open an account on a regulated crypto exchange like Coinbase and buy crypto directly. Third: some traditional brokerages now let you trade crypto directly within your account.
+**Horace（陳馬）：** 是的。你支付約0.20-0.50%的費用比率，但避免了處理加密貨幣錢包、私鑰和交易所的麻煩。第二個選擇：在Coinbase等受監管的加密貨幣交易所開戶並直接購買加密貨幣。第三：一些傳統券商現在讓你在戶口內直接交易加密貨幣。
 
-**Sam:** If I buy on an exchange, how do I keep my crypto safe?
+**Stella（小魚）：** 如果我在交易所購買，如何保管加密貨幣安全？
 
-**Alex:** This is incredibly important. The collapse of FTX in 2022 showed that customer funds on exchanges are not always safe. The exchange went bankrupt, and billions in customer assets were caught in the bankruptcy proceedings.
+**Horace（陳馬）：** 這極為重要。2022年FTX的崩潰表明，交易所上的客戶資金並非總是安全的。交易所破產，數十億美元的客戶資產陷入破產程序。
 
 [VISUAL: Newspaper headlines about FTX collapse. Then a graphic showing the custody spectrum: Exchange custody (convenient but risky) to Self-custody via hardware wallet (secure but you are responsible) to ETF custody (regulated and convenient).]
 
-**Alex:** If you hold significant amounts, consider moving your crypto to a hardware wallet -- a physical device like a Ledger that stores your private keys offline. The mantra in crypto is "not your keys, not your coins."
+**Horace（陳馬）：** 如果你持有大量加密貨幣，考慮將其轉移到硬件錢包——一個像Ledger這樣的實體設備，將你的私鑰離線存儲。加密貨幣界的口頭禪是「不是你的私鑰，就不是你的幣」。
 
-**Sam:** What about the seed phrase I keep hearing about?
+**Stella（小魚）：** 那我一直聽說的助記詞是什麼？
 
-**Alex:** Your seed phrase is a set of 12 to 24 words that can restore your entire crypto wallet. If you lose access to your wallet, the seed phrase is your recovery mechanism. But if someone else gets your seed phrase, they have full access to your crypto. Store it offline, in a secure location, and never share it with anyone. No legitimate company will ever ask for your seed phrase.
+**Horace（陳馬）：** 你的助記詞是一組12至24個詞，可以恢復你整個加密貨幣錢包。如果你失去對錢包的訪問，助記詞是你的恢復機制。但如果其他人得到你的助記詞，他們就完全掌控了你的加密貨幣。將其離線存儲在安全位置，永遠不要與任何人分享。任何合法公司都不會要求你的助記詞。
 
-**Sam:** How is crypto taxed?
+**Stella（小魚）：** 加密貨幣如何徵稅？
 
-**Alex:** In the U.S., the IRS treats crypto as property. Every time you sell crypto, trade one crypto for another, or use crypto to buy something, it is a taxable event. If you held the crypto for more than a year, gains are taxed at long-term capital gains rates. Less than a year, ordinary income rates.
+**Horace（陳馬）：** 在美國，美國國稅局將加密貨幣視為財產。每次你出售加密貨幣、將一種加密貨幣換成另一種，或用加密貨幣購買東西，都是應稅事件。如果你持有加密貨幣超過一年，增值按長期資本增值稅率徵稅。不足一年，則按普通收入稅率徵稅。
 
-**Sam:** So even swapping Bitcoin for Ethereum triggers a tax event?
+**Stella（小魚）：** 所以即使將比特幣換成以太坊也會觸發稅務事件？
 
-**Alex:** Yes. And this catches a lot of people off guard. You need to track every transaction -- purchase price, sale price, dates, fees. It can get complicated quickly if you are actively trading. This is another reason why a Bitcoin ETF is simpler -- your brokerage handles the tax reporting.
+**Horace（陳馬）：** 是的。這讓很多人措手不及。你需要跟蹤每筆交易——買入價、賣出價、日期、費用。如果你積極交易，可能很快變得複雜。這也是比特幣交易所買賣基金更簡單的另一個原因——你的券商處理稅務申報。
 
 [VISUAL: Two paths. "Direct crypto ownership: you track every transaction, report on Schedule D, potential nightmare with DeFi and swaps." "Crypto ETF: brokerage sends you a 1099, just like any other stock."]
 
-**Sam:** Where do things stand on regulation?
+**Stella（小魚）：** 目前監管情況如何？
 
-**Alex:** It is a moving target. In the U.S., there has been ongoing debate about whether various crypto tokens are securities (regulated by the SEC) or commodities (regulated by the CFTC). The approval of spot Bitcoin ETFs in 2024 was a significant step toward mainstream acceptance. Broader regulatory frameworks are still being developed.
+**Horace（陳馬）：** 這是個移動目標。在美國，關於各種加密代幣是否屬於證券（由SEC監管）還是商品（由CFTC監管）的爭論一直持續。2024年現貨比特幣交易所買賣基金的獲批是邁向主流接受的重要一步。更廣泛的監管框架仍在制定中。
 
-**Sam:** Is there a chance crypto could be banned?
+**Stella（小魚）：** 加密貨幣有可能被禁止嗎？
 
-**Alex:** In the U.S., an outright ban is highly unlikely at this point. The genie is out of the bottle -- too many institutional investors and mainstream financial products are involved. However, regulations could become more restrictive, particularly around privacy coins, DeFi platforms, and tax compliance. In some countries like China, crypto trading has already been banned.
+**Horace（陳馬）：** 在美國，全面禁止目前極不可能。這個事已經管不住了——太多的機構投資者和主流金融產品已介入。然而，法規可能變得更加嚴格，特別是關於私隱幣、DeFi平台和稅務合規方面。在中國等一些國家，加密貨幣交易已被禁止。
 
-**Sam:** Let me try to summarize. Blockchain is the underlying technology -- a shared, tamper-proof ledger. Bitcoin is the original cryptocurrency, designed as digital money with a fixed supply of 21 million. Ethereum expanded blockchain to support smart contracts and applications. Crypto is extremely volatile -- 4 times more than stocks. Its correlation to stocks has been increasing, so it is not a reliable diversifier during crises. For most investors, a 2-5% allocation through a Bitcoin ETF is the simplest approach. Security and custody matter enormously. And every crypto transaction is a taxable event.
+**Stella（小魚）：** 讓我嘗試總結一下。區塊鏈是底層技術——一個共享的、防篡改的賬本。比特幣是最初的加密貨幣，被設計為固定供應量2,100萬枚的數碼貨幣。以太坊將區塊鏈擴展到支持智能合約和應用程式。加密貨幣極度波動——是股票的4倍。它與股票的相關性一直在增加，因此在危機中並非可靠的分散投資工具。對於大多數投資者而言，通過比特幣交易所買賣基金進行2-5%的配置是最簡單的做法。安全和託管至關重要。每一筆加密貨幣交易都是應稅事件。
 
-**Alex:** Excellent summary. The most important thing is to approach crypto with open eyes. It is real technology with genuine innovation. But it is also young, volatile, and full of speculation. A small, informed allocation is reasonable. Betting your retirement on it is not.
+**Horace（陳馬）：** 總結得非常好。最重要的是以清醒的眼光看待加密貨幣。它是擁有真正創新的真實技術。但它也是年輕的、波動的，充滿投機。小比例、有見識的配置是合理的。把退休金押在上面則不然。
 
 [ANIMATION: Final graphic showing a balanced portfolio with a small crypto allocation highlighted. Text: "Crypto: Approach with curiosity and caution. Size for the risk you can actually bear."]
 
-**Sam:** Next lesson we are going to explore a classic investment strategy that has been popular for decades -- dividend investing.
+**Stella（小魚）：** 下一課我們將探討一個幾十年來一直廣受歡迎的經典投資策略——股息投資。
 
-**Alex:** One of my favorite topics. We will talk about why dividends matter, how to evaluate them, and the traps that catch unsuspecting income investors. See you then.
+**Horace（陳馬）：** 我最喜歡的話題之一。我們將討論為何股息重要、如何評估股息，以及那些讓毫無戒備的收入投資者中招的陷阱。到時見。
 
 ---
 
-*End of Side Lesson 9*
+*附加課程第9課完*

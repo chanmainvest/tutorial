@@ -1,315 +1,399 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 16: Market History -- Crashes, Recoveries, and Patterns
+# 補充課程第十六課：市場歷史──崩盤、復甦與規律
 
 ---
 
-## Reading Section
+## 閱讀章節
 
-Markets crash. It has happened before, it will happen again, and it will always feel like the end of the world when it does. But studying the great crashes of the past reveals patterns that can help you navigate future downturns with greater clarity and less panic. From the Great Crash of 1929 to the COVID-19 selloff of 2020, each crisis had unique causes but shared common features: excessive speculation, leverage, and the sudden evaporation of confidence. More importantly, every crash was followed by a recovery -- though the timelines varied dramatically. Understanding market history is not about predicting the next crash. It is about building the psychological resilience and strategic framework to survive one.
-
----
-
-### a) Why This Is Important
-
-**History Rhymes.** Mark Twain (or someone attributed to him) said that history does not repeat itself, but it rhymes. Market crashes share common patterns: asset bubbles inflated by easy credit and speculation, a triggering event that shakes confidence, a cascade of forced selling, and eventually a bottom followed by slow recovery. Recognizing these patterns in real time -- even imperfectly -- can help you avoid the worst behavioral mistakes.
-
-**Perspective on Drawdowns.** Without historical context, a 30% market decline feels unprecedented and terrifying. With context, you understand that the S&P 500 has experienced declines of 30% or more roughly once per decade, and it has recovered from every single one. This knowledge does not eliminate the pain, but it can prevent panic selling at the worst possible moment.
-
-**Recovery Timelines Shape Strategy.** Knowing that the market took 25 years to recover from the 1929 crash but only five months to recover from the 2020 crash helps inform how much risk you should take relative to your time horizon. If you are 30 years from retirement, even the worst crash in history would have been fully recovered. If you are two years from retirement, you need more protection.
-
-**Learning From Policy Responses.** Government and central bank responses to crises have evolved dramatically over the past century. Understanding how the Federal Reserve, Treasury, and Congress have responded to past crises -- and how those responses affected recovery -- provides context for evaluating policy actions during future downturns.
-
-**Avoiding the "This Time Is Different" Trap.** In the words of economists Carmen Reinhart and Kenneth Rogoff, the four most dangerous words in investing are "this time is different." Every bubble and every crash is accompanied by narratives explaining why traditional rules no longer apply. They always do.
+市場會崩盤。這在過去發生過，未來也將再次發生，而且每次發生時都會讓人感覺世界末日降臨。然而，研究過去的重大崩盤，可以發現有助於你在未來市場下跌時保持清醒、減少恐慌的規律。從1929年的大崩盤到2020年的COVID-19拋售，每一場危機都有其獨特的成因，卻共享相同的特徵：過度投機、槓桿過高，以及信心的驟然瓦解。更重要的是，每一次崩盤之後都伴隨著復甦──儘管時間長短差異極大。研究市場歷史並非為了預測下一次崩盤，而是為了建立在崩盤中生存所需的心理韌性與策略框架。
 
 ---
 
-### b) What You Need to Know
+### a) 為何這很重要
 
-#### The Great Crash of 1929 and the Great Depression
+**歷史會押韻。** 馬克·吐溫（或歸諸於他的某位作者）說過，歷史不會重複，但它會押韻。市場崩盤共享相似的規律：由寬鬆信貸與投機所吹大的資產泡沫、動搖信心的觸發事件、連鎖的強制拋售，以及最終的底部與緩慢復甦。就算不夠完美，能夠實時識別這些規律，也有助於你避免最糟糕的行為錯誤。
 
-**Background.** The 1920s were a period of extraordinary economic growth and speculation in the United States. New technologies -- radio, automobiles, electrification -- transformed the economy. Stock prices soared, and millions of Americans invested in the market for the first time, many using borrowed money (margin). By 1929, margin debt had reached dangerous levels, with some investors borrowing up to 90% of their stock purchases.
+**對回撤的認知。** 若缺乏歷史背景，30%的市場下跌會讓人感覺前所未有、令人恐懼。有了歷史背景，你便能理解：標普500指數大約每十年就會經歷一次30%或以上的跌幅，且每一次都完全復甦。這樣的認知無法消除痛苦，但能防止你在最糟糕的時機恐慌拋售。
 
-**The Crash.** The market peaked on September 3, 1929, with the Dow Jones Industrial Average at 381.17. A gradual decline in September and early October accelerated into a panic. On October 24 (Black Thursday), the market dropped sharply but partially recovered. On October 28 (Black Monday) and October 29 (Black Tuesday), the market collapsed, falling 13% and 12% respectively in just two days.
+**復甦時程影響策略。** 了解市場從1929年崩盤需要25年才能復甦，而從2020年崩盤只需五個月，有助於你根據自身的時間跨度決定應承擔多少風險。若你距離退休還有30年，即使歷史上最嚴重的崩盤也早已完全復甦。若你距離退休只有兩年，你需要更多的保護。
 
-**The Aftermath.** But the initial crash was just the beginning. The market continued to decline for nearly three years, reaching its nadir on July 8, 1932, when the Dow hit 41.22 -- a staggering 89% decline from its peak. The recovery was painfully slow. The Dow did not permanently regain its 1929 peak until November 1954 -- a quarter century later.
+**從政策回應中學習。** 政府與央行對危機的回應，在過去一個世紀中已大幅演進。了解聯準會、財政部和國會如何應對過去的危機，以及這些回應如何影響復甦，為評估未來市場下跌時的政策行動提供了重要背景。
 
-**Key Lessons:**
-- Excessive leverage amplified both the boom and the bust.
-- The Federal Reserve made critical errors, tightening monetary policy when it should have eased, and allowing thousands of banks to fail.
-- The Smoot-Hawley Tariff Act of 1930 worsened the depression by collapsing international trade.
-- The lack of deposit insurance (FDIC was not created until 1933) and securities regulation (SEC was not created until 1934) allowed fraud and bank runs to devastate the financial system.
-
-#### Black Monday: October 19, 1987
-
-**Background.** The market had risen roughly 44% in the first eight months of 1987, driven by a strong economy and corporate takeover activity. By October, valuations were stretched, interest rates were rising, and geopolitical tensions (U.S. tensions with Iran) created anxiety.
-
-**The Crash.** On October 19, 1987, the Dow Jones Industrial Average fell 22.6% in a single day -- the largest one-day percentage decline in history. The S&P 500 fell 20.5%. It happened with terrifying speed, and a new factor accelerated the decline: computerized portfolio insurance strategies that automatically sold stocks as prices fell, creating a self-reinforcing cascade.
-
-**The Recovery.** Unlike 1929, the 1987 crash was sharp but short. The Federal Reserve, under Chairman Alan Greenspan (who had taken office just two months earlier), immediately flooded the financial system with liquidity, signaling that the Fed would act as a backstop. The market bottomed within two months and fully recovered to its pre-crash peak by August 1989 -- less than two years later.
-
-**Key Lessons:**
-- Automated trading strategies can amplify market moves and create feedback loops. This led to the implementation of circuit breakers -- automatic trading halts triggered by large market declines.
-- The Federal Reserve's willingness to provide liquidity during a crisis can dramatically shorten recovery timelines.
-- A crash without an accompanying recession or systemic financial crisis tends to recover quickly.
-- Diversification across asset classes provided limited protection during the single-day crash, as correlations spiked to near 1.0.
-
-#### The Dot-Com Bubble: 2000-2002
-
-**Background.** The late 1990s saw extraordinary enthusiasm for internet and technology stocks. Companies with no revenue, no profits, and sometimes no viable business model achieved multi-billion-dollar valuations. The NASDAQ Composite rose from about 1,000 in 1995 to over 5,000 in March 2000 -- a 400% increase in five years. Pets.com, Webvan, and hundreds of other dot-com companies raised billions in IPOs despite having no path to profitability.
-
-**The Crash.** The NASDAQ peaked at 5,048.62 on March 10, 2000, and began a devastating decline that would last over two and a half years. By October 2002, the NASDAQ had fallen to 1,114 -- a 78% decline. The S&P 500 fell 49% from its March 2000 peak. The broader economy entered a mild recession in 2001, worsened by the September 11 terrorist attacks.
-
-**The Recovery.** The S&P 500 recovered to its 2000 peak by 2007, roughly seven years later. The NASDAQ did not recover to its 2000 peak until 2015 -- a 15-year recovery that tested the patience of even the most disciplined investors. However, investors who maintained diversified portfolios (including bonds and international stocks) had much shorter effective recovery times.
-
-**Key Lessons:**
-- Valuations matter enormously over long time horizons. Companies trading at 100x revenue eventually had to justify those prices with actual earnings -- and most could not.
-- Sector concentration is dangerous. Investors who were heavily weighted toward technology stocks suffered devastating losses.
-- The distinction between a transformative technology (the internet was genuinely revolutionary) and a sound investment is critical. The internet changed the world, but most internet stocks of 1999 went to zero.
-- Bond allocations provided crucial ballast during the equity decline.
-
-#### The Global Financial Crisis: 2007-2009
-
-**Background.** In the early 2000s, a combination of low interest rates, relaxed lending standards, financial innovation (mortgage-backed securities, collateralized debt obligations), and inadequate regulation created an enormous bubble in U.S. housing prices. Banks made loans to borrowers who could not afford them (subprime mortgages), packaged those loans into complex securities, and sold them to investors worldwide. Rating agencies assigned AAA ratings to securities that were, in reality, extremely risky.
-
-**The Crash.** Housing prices peaked in 2006 and began declining. As borrowers defaulted on their mortgages, the complex securities backed by those mortgages lost value rapidly. In September 2008, Lehman Brothers -- a 158-year-old investment bank -- filed for bankruptcy, triggering a global financial panic. The S&P 500 fell 57% from its October 2007 peak to its March 2009 trough. Global stock markets suffered similar or worse declines.
-
-**The Crisis Timeline:**
-- March 2008: Bear Stearns collapses, acquired by JPMorgan for $2 per share (later raised to $10).
-- September 7, 2008: Fannie Mae and Freddie Mac placed into government conservatorship.
-- September 15, 2008: Lehman Brothers files for bankruptcy.
-- September 16, 2008: AIG receives $85 billion government bailout.
-- October 3, 2008: Congress passes the $700 billion Troubled Asset Relief Program (TARP).
-- March 9, 2009: S&P 500 hits its low of 676.53.
-
-**The Recovery.** Aggressive monetary policy (the Fed cut rates to near zero and launched quantitative easing) and fiscal stimulus (TARP, the American Recovery and Reinvestment Act) supported the recovery. The S&P 500 returned to its pre-crisis peak by March 2013 -- about five and a half years after the peak, or four years from the bottom. Including dividends, the recovery was somewhat faster.
-
-**Key Lessons:**
-- Systemic risk -- the risk that the entire financial system fails -- is real and can emerge from seemingly safe assets (housing, AAA-rated bonds).
-- Leverage in the financial system (not just among individual investors) can amplify crises to catastrophic proportions.
-- Government intervention, while controversial, shortened the recovery dramatically compared to the laissez-faire response to the 1929 crash.
-- Diversification across asset classes partially failed as correlations increased during the crisis, but bonds still provided meaningful protection.
-- The importance of emergency funds and maintaining sufficient liquidity to avoid forced selling during a downturn.
-
-#### The COVID-19 Crash: February-March 2020
-
-**Background.** In January and February 2020, a novel coronavirus emerged from China and rapidly spread worldwide. By March, governments around the world were implementing lockdowns, shutting down businesses, and restricting travel. The economic impact was immediate and unprecedented -- GDP declined at an annualized rate of 31.4% in Q2 2020, the worst quarterly decline in U.S. history.
-
-**The Crash.** The S&P 500 peaked on February 19, 2020, and fell 34% in just 23 trading days -- the fastest decline of this magnitude in history. The speed was breathtaking: the market triggered circuit breakers (trading halts) on four separate days in March 2020. Oil prices briefly went negative for the first time in history.
-
-**The Recovery.** The recovery was equally unprecedented. Massive fiscal stimulus (the CARES Act provided $2.2 trillion in relief, including direct payments to citizens) and extraordinary monetary policy (the Fed cut rates to zero and launched unlimited QE) flooded the economy with liquidity. The S&P 500 fully recovered to its pre-crash peak by August 18, 2020 -- less than five months after the bottom.
-
-**Key Lessons:**
-- The speed of modern market crashes (and recoveries) has accelerated dramatically compared to historical episodes.
-- Unprecedented policy responses can compress recovery timelines but may create other consequences (inflation, asset bubbles, moral hazard).
-- Selling during the panic in March 2020 and missing the rapid recovery would have been devastating. Investors who stayed invested recovered quickly.
-- Sector divergence was extreme -- technology and healthcare stocks thrived while travel, hospitality, and energy stocks suffered for much longer.
-
-#### Common Patterns Across Crashes
-
-Despite their different causes, market crashes share several recurring patterns:
-
-1. **Pre-Crash Euphoria.** Every major crash was preceded by a period of excessive optimism, rising leverage, and widespread belief that traditional valuation metrics no longer applied.
-
-2. **A Trigger Event.** While the underlying vulnerabilities build over time, a specific event often triggers the cascade: margin calls in 1929, portfolio insurance selling in 1987, the Lehman bankruptcy in 2008, lockdown announcements in 2020.
-
-3. **Correlation Spike.** During crashes, correlations between asset classes increase sharply. Diversification benefits diminish precisely when they are needed most. Only truly uncorrelated assets (like Treasury bonds and cash) provide reliable protection.
-
-4. **Forced Selling.** Margin calls, fund redemptions, and institutional risk management rules force selling regardless of price, driving markets below fundamental value.
-
-5. **Overshoot.** Markets almost always fall further than fundamentals justify, just as they rise further than fundamentals justify during bubbles. This creates buying opportunities for those with capital and courage.
-
-6. **Recovery.** Every crash in U.S. market history has been followed by a full recovery. The timelines vary enormously (five months to 25 years), but the direction has always been upward over the long term.
+**避免「這次不一樣」的陷阱。** 借用經濟學家卡門·萊因哈特與肯尼斯·羅格夫的話，投資中最危險的四個字是「這次不一樣」。每一個泡沫與每一次崩盤，都伴隨著解釋傳統規則為何不再適用的各種敘事。但傳統規則始終奏效。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要了解的內容
 
-**"The 1929 crash caused the Great Depression."** The stock market crash was a symptom, not the primary cause, of the Depression. Terrible policy responses -- tight monetary policy, bank failures, protectionist tariffs -- turned a recession into a depression. The crash accelerated the economic decline, but the policy failures prolonged it.
+#### 1929年大崩盤與大蕭條
 
-**"Market crashes are unpredictable black swans."** While the exact timing is unpredictable, the conditions that precede crashes -- excessive leverage, extreme valuations, speculative mania -- are identifiable. Many observers warned about risks before each crash. The problem is not that crashes are unpredictable, but that warnings are consistently ignored during boom times.
+**背景。** 1920年代是美國經濟超速成長與投機的時代。廣播、汽車、電氣化等新技術徹底改變了經濟。股價急漲，數百萬美國人首次投入股市，許多人還使用借貸資金（保證金）。到1929年，保證金債務已達到危險水準，部分投資人借款高達股票購買價格的90%。
 
-**"Diversification failed in 2008."** Stock-bond diversification actually worked well in 2008. While the S&P 500 fell 37%, long-term Treasury bonds gained over 20%. A 60/40 portfolio fell only about 22% -- painful, but far less than a 100% stock portfolio. What failed was the assumption that mortgage-backed securities were uncorrelated with equities.
+**崩盤。** 市場於1929年9月3日觸頂，道瓊工業平均指數達381.17點。9月和10月初的緩慢下跌在恐慌中加速。10月24日（黑色星期四），市場急跌但部分回升。10月28日（黑色星期一）與10月29日（黑色星期二），市場崩潰，兩天內分別下跌13%與12%。
 
-**"The market always recovers quickly."** This is dangerously misleading. While the market always recovers eventually, "eventually" can mean five months (2020) or 25 years (1929). For retirees or investors near major financial milestones, a multi-year recovery can have life-changing consequences. Time horizon matters enormously.
+**後果。** 然而，最初的崩盤只是開始。市場持續下跌近三年，於1932年7月8日觸底，道瓊跌至41.22點──從高峰下滑了高達89%。復甦過程痛苦漫長。道瓊直到1954年11月才永久收復1929年的高點──整整過了四分之一個世紀。
 
-**"You should sell everything before a crash."** Market timing requires being right twice -- selling before the decline and buying back before the recovery. Getting either decision wrong is costly. Research consistently shows that time in the market beats timing the market for the vast majority of investors.
+**關鍵教訓：**
+- 過度槓桿放大了繁榮與蕭條的幅度。
+- 聯準會犯下關鍵錯誤，在應該寬鬆時緊縮貨幣政策，並放任數千家銀行倒閉。
+- 1930年《斯穆特-霍利關稅法》使國際貿易崩潰，加深了蕭條。
+- 缺乏存款保險（FDIC直到1933年才成立）和證券監管（SEC直到1934年才成立），導致詐欺與銀行擠兌重創金融體系。
+
+#### 黑色星期一：1987年10月19日
+
+**背景。** 1987年前八個月，市場上漲約44%，受強勁經濟與企業購併活動驅動。到10月時，估值已過度拉伸，利率上升，地緣政治緊張（美伊衝突）也引發焦慮。
+
+**崩盤。** 1987年10月19日，道瓊工業平均指數單日下跌22.6%──創下歷史單日最大跌幅紀錄。標普500單日下跌20.5%。崩盤速度令人震驚，一個新因素加速了跌勢：電腦化投資組合保險策略在股價下跌時自動拋售，形成自我強化的連鎖反應。
+
+**復甦。** 不同於1929年，1987年的崩盤雖然急劇，卻短暫。剛就任兩個月的聯準會主席艾倫·葛林斯潘立即向金融體系注入大量流動性，釋放出聯準會將充當防護網的訊號。市場在兩個月內觸底，並於1989年8月前完全收復崩盤前高點──不到兩年。
+
+**關鍵教訓：**
+- 自動化交易策略能放大市場波動並形成回饋迴圈。這促使當局引入熔斷機制──在市場大幅下跌時自動暫停交易。
+- 聯準會在危機中提供流動性的意願，能大幅縮短復甦時程。
+- 沒有伴隨衰退或系統性金融危機的崩盤，往往復甦迅速。
+- 崩盤當天，資產類別之間的相關性激增至接近1.0，跨資產類別的分散效果十分有限。
+
+#### 科技泡沫：2000至2002年
+
+**背景。** 1990年代末期，市場對網路與科技股的熱情極度高漲。許多公司毫無營收、毫無獲利，有時甚至沒有可行的商業模式，卻達到數十億美元的市值。那斯達克指數從1995年的約1,000點飆升至2000年3月的5,000點以上，五年間上漲400%。Pets.com、Webvan，以及數百家其他網路公司，儘管完全沒有獲利路徑，仍在IPO中募集了數十億美元。
+
+**崩盤。** 那斯達克於2000年3月10日觸頂5,048.62點，開始了長達兩年半的慘烈下跌。到2002年10月，那斯達克已跌至1,114點──下跌78%。標普500從2000年3月高峰跌去49%。廣義經濟在2001年陷入溫和衰退，911恐怖攻擊更使情況雪上加霜。
+
+**復甦。** 標普500約在七年後的2007年才收復2000年的高點。那斯達克直到2015年才回到2000年的峰值──長達15年的復甦，考驗了即使最有紀律的投資人的耐心。然而，持有分散化投資組合（包含債券與國際股票）的投資人，實際上的復甦時間要短得多。
+
+**關鍵教訓：**
+- 估值在長期時間跨度上至關重要。以100倍營收交易的公司，終究得用實際盈餘來支撐那個價格──而大多數公司都做不到。
+- 類股集中持有非常危險。重押科技股的投資人遭受了毀滅性損失。
+- 顛覆性技術（網路確實是革命性的）與健全的投資之間的差異至關重要。網路改變了世界，但1999年的大多數網路股最終歸零。
+- 債券配置在股市下跌期間提供了關鍵的穩定作用。
+
+#### 全球金融危機：2007至2009年
+
+**背景。** 2000年代初期，低利率、寬鬆放貸標準、金融創新（不動產抵押貸款證券、擔保債務憑證）與監管不足，共同在美國房地產市場吹起了巨大泡沫。銀行向無力負擔的借款人提供貸款（次級房貸），將這些貸款打包成複雜的證券，並出售給全球投資人。信評機構將實際上極度高風險的證券評為AAA。
+
+**崩盤。** 房價於2006年觸頂後開始下跌。隨著借款人相繼違約，由這些抵押貸款支撐的複雜證券迅速貶值。2008年9月，有158年歷史的投資銀行雷曼兄弟申請破產，引發全球金融恐慌。標普500從2007年10月高峰跌至2009年3月低谷，跌幅達57%。全球股市普遍遭受相似甚至更嚴重的跌幅。
+
+**危機時間軸：**
+- 2008年3月：貝爾斯登崩潰，以每股2美元被摩根大通收購（後來調高至10美元）。
+- 2008年9月7日：房利美與房地美被置於政府接管之下。
+- 2008年9月15日：雷曼兄弟申請破產。
+- 2008年9月16日：AIG獲得850億美元政府紓困。
+- 2008年10月3日：國會通過7,000億美元問題資產救助計畫（TARP）。
+- 2009年3月9日：標普500觸及低點676.53點。
+
+**復甦。** 積極的貨幣政策（聯準會將利率降至接近零並推出量化寬鬆）與財政刺激（TARP、《美國復甦與再投資法》）支撐了復甦。標普500於2013年3月回到危機前高點──約在高峰後五年半，或從底部起算四年。若計入股利，復甦速度略快。
+
+**關鍵教訓：**
+- 系統性風險──整個金融體系崩潰的風險──確實存在，且可能從表面上看似安全的資產（房地產、AAA評級債券）中浮現。
+- 金融體系（不僅是個人投資人）中的槓桿，能將危機放大至災難性程度。
+- 政府干預雖具爭議，但相較於1929年崩盤的放任回應，它大幅縮短了復甦時程。
+- 跨資產類別的分散投資在危機期間部分失效，因為相關性上升；但債券仍提供了相當程度的保護。
+- 緊急備用金的重要性，以及在市場下跌期間維持充足流動性以避免被迫拋售的必要性。
+
+#### COVID-19崩盤：2020年2月至3月
+
+**背景。** 2020年1月至2月，一種新型冠狀病毒從中國迅速蔓延至全球。到3月時，各國政府相繼實施封鎖、關閉企業、限制旅行。經濟衝擊即時且空前──2020年第二季美國GDP年率下滑31.4%，創下美國史上最嚴重的季度跌幅。
+
+**崩盤。** 標普500於2020年2月19日觸頂，隨後在僅僅23個交易日內下跌34%──創下這一跌幅量級的最快速下跌紀錄。跌速令人瞠目：2020年3月市場觸發熔斷機制（交易暫停）共四次。油價首次跌入負值。
+
+**復甦。** 復甦同樣前所未有。龐大的財政刺激（《CARES法》提供2.2兆美元紓困，包括直接發放現金給民眾）與非常規貨幣政策（聯準會將利率降至零並推出無限量QE）向經濟注入大量流動性。標普500於2020年8月18日完全收復崩盤前高點──距底部不到五個月。
+
+**關鍵教訓：**
+- 現代市場崩盤（與復甦）的速度，相較於歷史先例已大幅加快。
+- 空前的政策回應可以壓縮復甦時程，但也可能產生其他後果（通膨、資產泡沫、道德風險）。
+- 在2020年3月恐慌時拋售、錯過快速復甦的投資人，損失將極為慘重。堅守部位的投資人很快便完全復甦。
+- 類股分化極為顯著──科技與醫療保健股蓬勃發展，而旅遊、餐飲和能源股則長期持續低迷。
+
+#### 崩盤的共同規律
+
+儘管成因各異，市場崩盤共享幾個反覆出現的規律：
+
+1. **崩盤前的狂熱。** 每一次重大崩盤之前，都有一段過度樂觀、槓桿上升、以及廣泛相信傳統估值指標已不再適用的時期。
+
+2. **觸發事件。** 儘管潛在的脆弱性隨時間積累，特定事件往往觸發連鎖反應：1929年的保證金追繳、1987年的投資組合保險拋售、2008年的雷曼破產、2020年的封鎖宣布。
+
+3. **相關性激增。** 崩盤期間，資產類別之間的相關性急劇上升。分散效益在最需要之時恰恰最弱。只有真正不相關的資產（例如公債與現金）才能提供可靠保護。
+
+4. **強制拋售。** 保證金追繳、基金贖回，以及機構風險管理規則迫使投資人不計價格拋售，將市場推至基本面價值以下。
+
+5. **超跌。** 市場幾乎總是跌得超過基本面所能合理化的程度，就如同在泡沫期間漲得超過基本面所能合理化一樣。這為擁有資金與勇氣的人創造了買入機會。
+
+6. **復甦。** 美國市場歷史上的每一次崩盤，都迎來了完全復甦。時程差異極大（五個月至25年），但長期方向始終是向上的。
+
+#### 個人投資人的對與錯
+
+歷史也揭示了投資人在崩盤期間及之後的行為規律，值得借鑑。
+
+**投資人的錯誤：**
+
+- **在底部拋售。** 在每一次崩盤中，股票型共同基金的最大贖回潮，都發生在跌幅最深之後，而非之前。在2009年3月、2020年3月或2002年10月拋售的投資人，鎖定了最大損失，並錯過了隨後的復甦。
+
+- **重回市場時機過晚。** 即使意識到市場最終會復甦的投資人，也往往等待「確認」市場已經安全。到他們感到可以安心買進之時，市場早已從底部回升30至50%。
+
+- **放棄原有策略。** 許多原本持有分散化投資組合撐過崩盤的投資人，事後卻放棄了資產配置，轉向在復甦期間表現落後的保守型投資組合。
+
+**投資人的正確做法：**
+
+- **透過定期定額投資持續進場。** 在崩盤期間持續向401(k)等投資帳戶自動扣款的投資人，以大幅折扣的價格購入股份，顯著提升了長期報酬。
+
+- **在下跌中再平衡。** 機械式再平衡的投資人──賣出已升值的債券、買入已跌價的股票──實際上是逢低買入、逢高賣出，恰好與情緒性回應相反。
+
+- **維持緊急備用金。** 持有充足現金儲備的投資人，不必在衰退與失業期間被迫出售投資以支付生活開銷。
+
+#### 國際背景
+
+雖然本課主要聚焦於美國市場崩盤，但值得注意的是，並非所有市場都像美國市場那樣可靠地復甦。
+
+**日本。** 日經225指數於1989年12月觸頂38,957點，直到2024年2月才重返該水準──歷時34年。日本的經驗表明，即使是已開發國家，市場復甦也並非必然。
+
+**希臘。** 希臘股市在2007至2012年間失去逾90%的價值，至今仍遠低於危機前水準。
+
+**阿根廷。** 反覆的貨幣危機、債務違約與經濟不穩定，使阿根廷股市成為全球實質報酬最差的市場之一。
+
+這些國際案例強調了地域分散的重要性，也凸顯了一點：美國市場的歷史紀錄固然令人鼓舞，但不應假設它放諸四海皆準。
+
+#### 為下一次崩盤做好準備
+
+雖然無法預測下一次崩盤的時機，但為它做好準備完全在你的掌控之內。
+
+**財務準備：**
+- 以現金或短期債券持有6至12個月的生活費。這能防止你在市場下跌時被迫拋售。
+- 確保資產配置反映你的時間跨度與風險承受度。不要承擔超過你在市場下跌40至50%時情緒上所能承受的風險。
+- 償還高利率債務。衰退期間，收入可能變得不穩定，使債務還款更加沉重。
+- 檢視投資組合的集中風險。將50%的投資組合持有於單一股票或類股，會放大崩盤風險。
+
+**心理準備：**
+- 承認某個時間點一定會出現重大跌幅。這種心理準備能減少崩盤真正發生時的衝擊。
+- 在心情平靜時寫下你的崩盤應對計畫（如交易心理課程所討論的）。明確說明在每一個跌幅水準時你將採取什麼行動。
+- 回顧過去的崩盤與復甦，建立歷史視角。當下一次崩盤來臨時，提醒自己這個規律：恐慌、觸底、復甦。
+- 找出你最信任的冷靜理性投資指引來源──無論是顧問、書籍或特定作者──並計畫在危機中諮詢他們，而非沉溺於聳人聽聞的媒體。
+
+在崩盤中表現最好的投資人，是那些在崩盤開始之前就做好準備的人。一旦恐慌蔓延，建立所需紀律與體系的時機已然錯過。準備的時機就是現在。
+
+#### 各年代歷史報酬
+
+了解市場報酬在各年代之間的巨大差異，有助於設定合理的預期，並凸顯長期思維的重要性。
+
+**1930年代：** 1929年崩盤後，標普500本年代年化報酬約為-0.1%（計入股利再投資後約+0.3%）。這是20世紀股市表現最差的十年，被大蕭條所籠罩。
+
+**1940年代：** 儘管二戰及其後果帶來衝擊，標普500年化報酬約為9.2%。軍工生產終結了大蕭條，戰後經濟繁榮隨之展開。
+
+**1950年代：** 股市最佳年代之一。戰後繁榮、郊區擴張與嬰兒潮的驅動下，標普500年化報酬約為19.4%。
+
+**1960年代：** 越戰與通膨上升形成逆風，報酬降至約7.8%年化。
+
+**1970年代：** 停滯性通膨（高通膨加上低成長）使股市報酬僅約5.9%年化。扣除本年代的高通膨後，實質報酬為負。大宗商品與黃金表現異常出色。
+
+**1980年代：** 股市表現璀璨的十年。隨著通膨受控、利率從歷史高點下降以及科技革命啟動，標普500年化報酬約為17.6%。
+
+**1990年代：** 科技泡沫時代帶來約18.2%的年化報酬，科技股比重較高的那斯達克表現更為突出。
+
+**2000年代：** 「失落的十年」。兩次空頭市場（2000至2002年及2007至2009年）使標普500年化報酬約為-0.9%。國際股票與新興市場股票的表現顯著優於美股。
+
+**2010年代：** 史上最強年代之一。金融危機後的復甦、低利率與科技類股主導，推動標普500年化報酬約為13.6%。
+
+規律清晰可見：報酬在好的年代與壞的年代之間集中出現，而事先幾乎無法預測哪個年代屬於哪一類。在所有環境中維持一致的分散化策略，是長期累積財富最可靠的途徑。
 
 ---
 
-### d) Q&A
+### c) 常見迷思
 
-**Q: What is the average length of a bear market?**
-A: Since 1950, the average bear market (decline of 20% or more) has lasted about 13 months and produced an average decline of approximately 33%. However, averages mask enormous variation. The 2020 bear market lasted just over one month, while the 2007-2009 bear market lasted 17 months.
+**「1929年崩盤導致了大蕭條。」** 股市崩盤是症狀，不是蕭條的主要成因。糟糕的政策回應──緊縮貨幣政策、銀行倒閉、保護主義關稅──將衰退演變成蕭條。崩盤加速了經濟下滑，但政策失敗才是使其延長的根源。
 
-**Q: How long does recovery typically take?**
-A: For moderate bear markets (20-30% declines), recovery to the previous peak typically takes two to four years. For severe bear markets (40%+ declines), recovery can take five to ten years or longer. Including reinvested dividends shortens recovery timelines significantly. The fastest recovery in modern history was the 2020 COVID crash at roughly five months.
+**「市場崩盤是無法預測的黑天鵝事件。」** 雖然確切時機無法預測，但崩盤前的條件──過度槓桿、極端估值、投機狂熱──是可以識別的。在每次崩盤之前，許多觀察家已發出警告。問題不在於崩盤不可預測，而在於繁榮期間警告聲音始終被忽視。
 
-**Q: Should I move to cash when I think a crash is coming?**
-A: Almost certainly not. Market timing is extraordinarily difficult. Studies show that missing just the ten best trading days over a 20-year period can reduce your total return by more than 50%. Those best days tend to cluster near the worst days -- right in the middle of the chaos. Instead of trying to time the market, ensure your asset allocation matches your risk tolerance and time horizon at all times.
+**「2008年的分散投資失敗了。」** 股債分散實際上在2008年運作良好。標普500下跌37%，但長期公債上漲逾20%。一個60/40的投資組合只下跌了約22%──雖然痛苦，但遠少於100%持股的投資組合。失敗的假設是：不動產抵押貸款證券與股票不相關。
 
-**Q: What assets provide the best protection during crashes?**
-A: U.S. Treasury bonds (especially long-term) have been the most reliable crash hedge historically, rising in value as investors flee to safety. Cash provides protection by preserving capital but earns minimal returns. Gold has been inconsistent -- it performed well during the 2008 crisis and in 2020 but declined during the 1987 crash. No single asset provides perfect protection in all scenarios, which is why diversification across multiple uncorrelated assets is essential.
+**「市場總是快速復甦。」** 這種說法存在危險的誤導性。雖然市場終究都會復甦，但「終究」可能意味著五個月（2020年）或25年（1929年）。對退休人士或接近重大財務里程碑的投資人而言，長達數年的復甦可能帶來改變人生的後果。時間跨度至關重要。
 
-**Q: Are stock market crashes becoming more or less frequent?**
-A: The frequency of major crashes has been relatively stable over the long term -- roughly one bear market per decade. However, the speed of crashes has increased due to electronic trading, algorithmic strategies, and faster information flow. The 2020 crash reached bear market territory in record time. Conversely, policy responses have become faster and more aggressive, potentially compressing recovery timelines.
+**「崩盤前應該全部賣出。」** 擇時進出市場需要兩次判斷正確──在下跌前賣出，並在復甦前買回。任一決策出錯的代價都很高。研究一再顯示，對絕大多數投資人而言，留在市場的時間比擇時更重要。
 
-**Q: What is the best investment during a crash?**
-A: Historically, high-quality stocks purchased near market bottoms have delivered extraordinary long-term returns. During the March 2009 bottom, the S&P 500 returned over 400% in the following decade. The challenge, of course, is having the cash and the courage to buy when everything looks hopeless. This is why maintaining a cash reserve or rebalancing systematically is so important.
+**「每次崩盤都是獨特的，沒有共通教訓。」** 雖然具體成因各異，但驅動市場恐慌的人類心理卻驚人地一致。崩盤前的狂熱、初期下跌時的否認、底部的恐慌，以及早期復甦時的過度謹慎──這些情緒模式自1929年以來在每次崩盤中反覆出現。即使觸發因素是全新的，理解這些模式仍能給你優勢。
+
+**「我們已從過去的崩盤中吸取教訓，所以不會再發生了。」** 每次崩盤後，監管機構都會推出旨在防止重蹈覆轍的改革。1929年後，SEC和FDIC成立了；1987年後，熔斷機制引入了；2008年後，《陶德-法蘭克法》強化了銀行監管。然而崩盤仍持續發生，因為改革只解決了過去的脆弱性，而新的風險則不斷浮現。人性──貪婪、槓桿、自滿──確保了泡沫與崩盤將持續出現，即使其具體形式不斷變化。
 
 ---
 
-## YouTube Script
+### d) 問答
 
-[INTRO - 0:00]
+**問：空頭市場的平均持續時間是多長？**
+答：自1950年以來，空頭市場（跌幅達20%或以上）平均持續約13個月，平均跌幅約為33%。然而平均值掩蓋了巨大差異。2020年的空頭市場持續不到一個月，而2007至2009年的空頭市場則持續了17個月。
 
-[VISUAL: Dramatic montage of historical newspaper headlines: "WALL ST. LAYS AN EGG" (1929), "CRASH" (1987), "MARKETS IN TURMOIL" (2008), "DOW PLUNGES" (2020)]
+**問：復甦通常需要多長時間？**
+答：對於溫和的空頭市場（跌幅20至30%），回到前高峰通常需要二至四年。對於嚴重的空頭市場（跌幅40%以上），復甦可能需要五至十年甚至更長。計入再投資的股利能顯著縮短復甦時程。現代史上最快的復甦是2020年COVID崩盤，約五個月。
 
-**Alex:** 1929. 1987. 2000. 2008. 2020. Five moments when the financial world seemed to be ending. Five crashes that wiped out trillions of dollars. And five recoveries that rewarded the investors who kept their nerve.
+**問：當我認為崩盤即將來臨時，應該轉為現金嗎？**
+答：幾乎肯定不應如此。擇時進出市場極其困難。研究顯示，在20年期間僅錯過表現最佳的十個交易日，可能使你的總報酬減少逾50%。而這些最佳交易日往往緊鄰最糟糕的交易日──恰好在混亂最激烈時。與其嘗試擇時進出，不如確保你的資產配置在任何時候都符合你的風險承受度與時間跨度。
 
-**Sam:** Today we are doing something different. We are taking a walk through market history -- not just the scary parts, but the patterns, the lessons, and the recoveries that followed every single crash. Because if you want to survive the next crash -- and there will be a next crash -- you need to understand the ones that came before.
+**問：哪些資產在崩盤期間提供最佳保護？**
+答：歷史上，美國公債（尤其是長期公債）是最可靠的避險工具，在投資人尋求安全時升值。現金通過保全本金提供保護，但幾乎不產生報酬。黃金表現不一致──它在2008年危機與2020年表現良好，但在1987年崩盤期間下跌。沒有任何單一資產能在所有情境下提供完美保護，這就是為何跨多種不相關資產的分散投資至關重要。
 
-[VISUAL: Title card "Market History: Crashes, Patterns, and the Recovery Playbook"]
+**問：股市崩盤的頻率是增加還是減少？**
+答：從長期來看，重大崩盤的頻率相對穩定──大約每十年一次空頭市場。然而，由於電子交易、演算法策略與更快的資訊流通，崩盤的速度已加快。2020年崩盤以破紀錄的速度進入空頭市場領域。反過來，政策回應也變得更加迅速積極，有可能壓縮復甦時程。
 
----
+**問：崩盤期間最好的投資是什麼？**
+答：歷史上，在市場底部附近購入的優質股票，帶來了非凡的長期報酬。在2009年3月的底部，標普500在隨後十年間的報酬超過400%。當然，挑戰在於要在一切看似無望時持有現金且有勇氣買進。這就是為何維持現金儲備或系統性再平衡如此重要。
 
-[SECTION 1 - THE GREAT CRASH OF 1929 - 1:30]
+**問：空頭市場一定伴隨著衰退嗎？**
+答：不一定。有些空頭市場沒有伴隨衰退（1987年是沒有衰退的嚴重崩盤），而有些衰退伴隨的市場跌幅也相當溫和。然而，最深且最長的空頭市場通常與衰退或金融危機同步出現。經濟收縮加上市場下跌，比任何一者單獨出現都更為痛苦和漫長。
 
-[VISUAL: Black and white photos of 1920s Wall Street, ticker tape, long lines at banks]
+**問：2008年堅守部位的投資人長期表現如何？**
+答：表現出色。一位持有簡單標普500指數基金度過整個危機的投資人──在2007年10月高峰買入並持有至2009年3月低谷──到2013年3月已回到盈虧平衡，到2020年已將資金增加逾三倍。若他們在下跌期間持續透過定期定額投資進場，報酬將更加亮眼，因為他們以大幅折扣的價格購入了股份。
 
-**Alex:** Let us start with the granddaddy of all crashes -- 1929. The Roaring Twenties were a time of incredible optimism. New technologies like radio and automobiles were transforming the economy. The stock market was booming, and ordinary Americans were investing for the first time.
-
-**Sam:** But here is the dangerous part. Many of them were investing with borrowed money. Margin requirements were absurdly loose -- you could borrow up to 90 percent of a stock's purchase price. So a $1,000 investment might be backed by only $100 of your own money.
-
-[ANIMATION: Leverage diagram showing $100 invested controlling $1,000 in stock, then showing how a 10% decline wipes out the entire investment]
-
-**Alex:** The Dow peaked on September 3, 1929, at 381. Then came Black Thursday, Black Monday, and Black Tuesday -- three days that destroyed confidence in the market. But the real devastation happened over the next three years. The market kept falling and falling.
-
-**Sam:** By July 1932, the Dow had dropped to 41. That is an 89 percent decline from the peak. And the recovery? The Dow did not permanently regain its 1929 level until 1954. That is 25 years.
-
-[VISUAL: Long-term chart showing 1929 peak, 1932 bottom, and 1954 recovery, with the 25-year gap highlighted]
-
-**Alex:** Twenty-five years. If you invested at the peak in 1929, you would have had to wait a quarter century just to break even. That is why time horizon and valuation matter so much.
+**問：美國市場保證永遠會復甦嗎？**
+答：沒有任何投資結果是保證的。美國市場的復甦紀錄令人印象深刻，但這只代表單一國家的經驗。日本日經指數從1989年高峰起，花了34年才回到該水準。美國受益於有利的人口結構、創新能力、深厚的資本市場、美元的儲備貨幣地位以及政治穩定。若這些結構性優勢中的任何一項削弱，未來的復甦時程可能有別於歷史規律。這是支持全球分散投資的論點之一。
 
 ---
 
-[SECTION 2 - BLACK MONDAY 1987 - 4:00]
+## YouTube 腳本
 
-[VISUAL: Trading floor chaos, vintage 1980s footage of panicked traders]
+[開場白 - 0:00]
 
-**Sam:** Fast forward to October 19, 1987. On a single Monday, the Dow Jones fell 22.6 percent. In one day. That is still the largest single-day percentage decline in history.
+[VISUAL: 歷史報紙頭條戲劇性蒙太奇：「WALL ST. LAYS AN EGG」（1929年）、「CRASH」（1987年）、「MARKETS IN TURMOIL」（2008年）、「DOW PLUNGES」（2020年）]
 
-**Alex:** To put that in context, if the Dow is at 35,000, a 22.6 percent drop would be about an 8,000-point decline in a single session. Your retirement account loses more than a fifth of its value before dinner.
+**Horace：** 1929年。1987年。2000年。2008年。2020年。五個金融世界看似走向終結的時刻。五次崩盤，抹去了數兆美元的財富。還有五次復甦，獎勵了那些堅守立場的投資人。
 
-[ANIMATION: Single-day decline comparison: 1987 (-22.6%), 2020 worst day (-12.9%), 2008 worst day (-9.0%)]
+**Stella：** 今天我們要做一件不一樣的事。我們要走一趟市場歷史之旅──不只是那些令人恐懼的部分，還有規律、教訓，以及每一次崩盤之後的復甦。因為如果你想在下一次崩盤中生存下來──而下一次崩盤一定會來──你需要了解之前發生過的那些崩盤。
 
-**Sam:** What made 1987 unique was the role of computers. A strategy called portfolio insurance used automated trading to sell stocks as prices fell, theoretically protecting against losses. But when everyone's computers started selling at the same time, it created a cascade. Selling triggered more selling, which triggered more selling.
-
-**Alex:** But here is the remarkable part. The new Fed Chairman, Alan Greenspan, who had been on the job for just two months, immediately announced that the Fed would provide liquidity to the financial system. And the recovery was swift. The market bottomed within two months and was back to its pre-crash level within two years.
-
-[VISUAL: 1987 crash and recovery chart showing the sharp V-shaped recovery]
-
-**Sam:** The lesson? A crash without an underlying economic crisis -- no recession, no systemic banking failure -- tends to recover quickly, especially when the central bank responds decisively.
+[VISUAL: 標題卡「市場歷史：崩盤、規律與復甦攻略」]
 
 ---
 
-[SECTION 3 - THE DOT-COM BUBBLE - 6:00]
+[第一節 - 1929年大崩盤 - 1:30]
 
-[VISUAL: Late-1990s tech imagery -- early websites, dot-com company logos, sock puppet mascot]
+[VISUAL: 1920年代華爾街的黑白照片、股票報價紙帶、銀行前大排長龍]
 
-**Alex:** The late 1990s gave us one of the most spectacular bubbles in history. The internet was genuinely revolutionary -- it really was changing everything. But investors confused a transformative technology with a guaranteed investment.
+**Horace：** 讓我們從所有崩盤之祖開始──1929年。1920年代，美國充滿了令人難以置信的樂觀氛圍。廣播、汽車等新技術徹底改變了經濟。股市欣欣向榮，普通美國人首次投入股市。
 
-**Sam:** Companies with no revenue, no profits, and sometimes no actual product were reaching billion-dollar valuations. Pets.com, which sold pet food online, went public in February 2000 and was liquidated nine months later. They spent $11.8 million on advertising in 1999 and generated only $619,000 in revenue.
+**Stella：** 但危險之處就在這裡。他們之中許多人是用借來的錢在投資。保證金要求寬鬆得離譜──你可以借入股票購買價格的90%。所以1,000美元的投資，背後可能只有100美元是你自己的資金。
 
-[VISUAL: Pets.com stock chart from IPO to zero, with revenue vs advertising spending comparison]
+[ANIMATION: 槓桿示意圖，顯示100美元的投資控制著1,000美元的股票，再顯示10%的跌幅如何讓整筆投資化為烏有]
 
-**Alex:** The NASDAQ went from about 1,000 in 1995 to over 5,000 in March 2000 -- a five-fold increase in five years. And then it collapsed. By October 2002, the NASDAQ had fallen 78 percent. Seventy-eight percent.
+**Horace：** 道瓊指數於1929年9月3日觸頂381點。隨後到來的是黑色星期四、黑色星期一和黑色星期二──三天摧毀了市場信心。但真正的浩劫發生在接下來的三年。市場不斷下跌，一波接著一波。
 
-[ANIMATION: NASDAQ chart from 1995 to 2002 showing the dramatic rise and fall]
+**Stella：** 到1932年7月，道瓊跌至41點。這是從高峰跌去89%。而復甦呢？道瓊直到1954年才永久收復1929年的水準。那是25年。
 
-**Sam:** And unlike 1987, this was not a quick recovery. The S&P 500 did not get back to its 2000 peak until 2007. The NASDAQ did not recover until 2015 -- fifteen years later.
+[VISUAL: 長期走勢圖，顯示1929年高峰、1932年低谷與1954年復甦，並標示出25年的時間差距]
 
-**Alex:** The crucial lesson here is the difference between a great technology and a great investment. The internet was indeed transformative. But most of the companies riding the wave were terrible businesses. Amazon survived and thrived. For every Amazon, there were a hundred companies that went to zero.
-
-**Sam:** And investors who were concentrated in tech stocks suffered far more than those with diversified portfolios. Diversification is not sexy, but it is what keeps you in the game.
+**Horace：** 二十五年。如果你在1929年高峰買入，你必須等待整整四分之一個世紀才能回到平衡點。這就是為什麼時間跨度與估值如此重要。
 
 ---
 
-[SECTION 4 - THE 2008 FINANCIAL CRISIS - 8:30]
+[第二節 - 1987年黑色星期一 - 4:00]
 
-[VISUAL: Lehman Brothers building, "For Sale" signs on houses, long lines at banks]
+[VISUAL: 交易大廳的混亂場面、1980年代風格的恐慌交易員老舊影片]
 
-**Alex:** 2008 was different from any previous crash because it threatened the entire financial system. This was not just stocks going down -- this was banks failing, credit markets freezing, and serious people wondering if the ATMs would stop working.
+**Stella：** 快進到1987年10月19日。就在一個星期一，道瓊指數下跌了22.6%。單日之內。這仍然是歷史上最大的單日跌幅百分比紀錄。
 
-**Sam:** The roots were in the housing market. Banks had spent years making increasingly risky mortgage loans to people who could not afford them. These loans were packaged into complex securities and sold worldwide. Rating agencies slapped AAA ratings on them. And everyone assumed housing prices would never fall nationally.
+**Horace：** 以現在的角度想像：如果道瓊在35,000點，22.6%的跌幅意味著單一交易日下跌約8,000點。你的退休帳戶在晚餐前就蒸發了超過五分之一的價值。
 
-[ANIMATION: Simplified CDO structure showing risky mortgages being packaged, rated AAA, and sold to global investors]
+[ANIMATION: 單日跌幅比較：1987年（-22.6%）、2020年最差一天（-12.9%）、2008年最差一天（-9.0%）]
 
-**Alex:** When housing prices started falling in 2006, the dominoes began to topple. Bear Stearns collapsed in March 2008. Lehman Brothers went bankrupt in September 2008 -- a 158-year-old institution, gone overnight. That triggered a global panic.
+**Stella：** 1987年的獨特之處在於電腦的角色。一種稱為「投資組合保險」的策略，利用自動交易在股價下跌時拋售股票，理論上可以防範損失。但當所有人的電腦同時開始拋售時，就形成了連鎖反應。拋售觸發更多拋售，更多拋售又觸發更多拋售。
 
-**Sam:** The S&P 500 fell 57 percent from its October 2007 peak to its March 2009 bottom. Trillions of dollars in wealth evaporated. Unemployment reached 10 percent. It felt like the financial system itself might collapse.
+**Horace：** 但令人矚目的部分在這裡。新任聯準會主席艾倫·葛林斯潘，才上任兩個月，立即宣布聯準會將向金融體系提供流動性。復甦相當迅速。市場在兩個月內觸底，並在不到兩年內回到崩盤前的水準。
 
-[VISUAL: Timeline of 2008 crisis events with S&P 500 chart showing each event's impact]
+[VISUAL: 1987年崩盤與復甦走勢圖，顯示急劇的V形復甦]
 
-**Alex:** But the policy response was massive. The Fed cut rates to zero, launched quantitative easing, and provided emergency lending to banks. Congress passed TARP -- a $700 billion bank bailout. Controversial at the time, but effective.
-
-**Sam:** The market bottomed on March 9, 2009, and began one of the longest bull markets in history. The S&P 500 returned over 400 percent in the following decade. Investors who sold at the bottom missed one of the greatest wealth-building periods in market history.
+**Stella：** 教訓是什麼？一次沒有伴隨底層經濟危機的崩盤──沒有衰退、沒有系統性銀行危機──往往復甦迅速，尤其是在央行果斷回應的情況下。
 
 ---
 
-[SECTION 5 - THE COVID CRASH AND PATTERNS - 11:00]
+[第三節 - 科技泡沫 - 6:00]
 
-[VISUAL: Empty city streets, stock chart with steep decline, then Fed announcement headlines]
+[VISUAL: 1990年代末期的科技意象──早期網站、網路公司標誌、狗狗玩偶吉祥物]
 
-**Alex:** March 2020. A global pandemic shuts down the world economy in a matter of weeks. The S&P 500 falls 34 percent in just 23 trading days -- the fastest decline of that magnitude ever.
+**Horace：** 1990年代末期，為我們帶來了歷史上最壯觀的泡沫之一。網路確實具有革命性──它真的改變了一切。但投資人把一種顛覆性的技術，等同於一項有保證的投資。
 
-**Sam:** Circuit breakers -- those automatic trading halts created after 1987 -- were triggered four times in March 2020. Oil prices went negative for the first time in history. It felt apocalyptic.
+**Stella：** 沒有營收、沒有獲利，有時甚至沒有真實產品的公司，竟然達到了數十億美元的市值。Pets.com，線上銷售寵物飼料，在2000年2月公開上市，九個月後就清算了。他們在1999年花了1,180萬美元在廣告上，卻只創造了61.9萬美元的營收。
 
-[VISUAL: 2020 crash timeline showing the 23-day decline and the key policy responses]
+[VISUAL: Pets.com從IPO到歸零的股價走勢圖，以及營收與廣告支出的比較]
 
-**Alex:** But the recovery was just as unprecedented as the crash. The CARES Act pumped $2.2 trillion into the economy. The Fed went all-in with unlimited quantitative easing. And by August 2020 -- less than five months later -- the S&P 500 was back at its pre-crash high. That is the fastest recovery in history.
+**Horace：** 那斯達克從1995年的約1,000點飆升至2000年3月的5,000點以上──五年內成長五倍。然後崩潰了。到2002年10月，那斯達克已下跌78%。七十八個百分點。
 
-**Sam:** Now, here is what ties all of these crashes together. Let us look at the common patterns.
+[ANIMATION: 那斯達克從1995年至2002年的走勢圖，顯示戲劇性的漲跌]
 
-[ANIMATION: Five columns, one for each crash, with checkmarks showing shared characteristics]
+**Stella：** 而且與1987年不同，這次的復甦並不快速。標普500直到2007年才回到2000年的高點。那斯達克直到2015年才復甦──足足十五年後。
 
-**Alex:** Pattern one: Every crash was preceded by euphoria and excessive risk-taking. Margin speculation in 1929. Portfolio insurance in 1987. Dot-com mania in 2000. Housing and complex derivatives in 2008. And arguably, aggressive risk-taking fueled by a decade of low rates in 2020.
+**Horace：** 這裡最關鍵的教訓，是偉大的技術與偉大的投資之間的差異。網路確實具有革命性。但乘著這股浪潮的大多數公司都是糟糕的生意。亞馬遜存活下來並蓬勃發展。但每一個亞馬遜背後，都有一百家公司最終歸零。
 
-**Sam:** Pattern two: A trigger event. Not the cause, but the catalyst. Margin calls, computer-driven selling, Lehman's bankruptcy, pandemic lockdowns.
-
-**Alex:** Pattern three: Correlations spike. During each crash, assets that were supposed to be diversified all fell together. Diversification is weakest when you need it most -- though bonds have generally held up.
-
-**Sam:** Pattern four: Forced selling pushes prices below fundamental value. Margin calls, fund redemptions, and risk management rules force people to sell at the worst time, creating opportunities for patient investors.
-
-**Alex:** And pattern five: Every crash was followed by a full recovery. Every single one. The timelines ranged from five months to 25 years, but the direction was always eventually up.
+**Stella：** 而集中持有科技股的投資人，所承受的損失遠遠超過持有分散化投資組合的人。分散投資不夠性感，但它讓你能夠持續留在市場中。
 
 ---
 
-[SECTION 6 - WHAT THIS MEANS FOR YOU - 13:30]
+[第四節 - 2008年金融危機 - 8:30]
 
-[VISUAL: "Your Crash Survival Guide" checklist]
+[VISUAL: 雷曼兄弟大樓、房屋上的「出售」標牌、銀行前大排長龍]
 
-**Sam:** So what do we do with all of this? Here is the crash survival guide.
+**Horace：** 2008年與之前任何一次崩盤都不同，因為它威脅到了整個金融體系。這不只是股市下跌──這是銀行倒閉、信貸市場凍結，以及嚴肅的人們質疑提款機是否還能正常運作。
 
-**Alex:** First, accept that crashes will happen. If you invest in stocks, you will experience significant declines. Planning for this reality is far better than being surprised by it.
+**Stella：** 根源在房市。多年來，銀行不斷向無力承擔的借款人提供風險越來越高的房貸。這些貸款被打包成複雜的證券，向全球出售。信評機構在上面貼上AAA的標籤。而所有人都假設全國性的房價絕對不會下跌。
 
-**Sam:** Second, match your asset allocation to your time horizon. If you are 30 years from retirement, a crash is a buying opportunity. If you are two years from retirement, you need more bonds and cash to absorb the impact.
+[ANIMATION: 簡化的擔保債務憑證結構，顯示高風險房貸被打包、評為AAA並出售給全球投資人]
 
-[VISUAL: Risk spectrum showing time horizon vs appropriate stock allocation]
+**Horace：** 當房價在2006年開始下跌，骨牌開始倒塌。貝爾斯登在2008年3月崩潰。雷曼兄弟在2008年9月申請破產──一家有158年歷史的機構，一夜之間消失了。這觸發了全球恐慌。
 
-**Alex:** Third, maintain an emergency fund. Having six to twelve months of living expenses in cash means you will never be forced to sell investments at the worst time to cover bills.
+**Stella：** 標普500從2007年10月高峰跌至2009年3月低谷，跌幅達57%。數兆美元的財富蒸發。失業率達到10%。感覺金融體系本身可能崩潰。
 
-**Sam:** Fourth, do not try to time the market. Missing the best days is incredibly costly, and those best days almost always occur right next to the worst days. Stay invested.
+[VISUAL: 2008年危機事件時間軸，附上標普500走勢圖顯示每個事件的衝擊]
 
-**Alex:** And fifth, study history. Not to predict the future, but to build the emotional resilience to endure the next inevitable downturn. When the next crash comes -- and it will -- you want to be the person who stays calm and maybe even buys more, not the person who panics and sells everything.
+**Horace：** 但政策回應是龐大的。聯準會將利率降至零，推出量化寬鬆，並向銀行提供緊急貸款。國會通過了TARP──7,000億美元的銀行紓困計畫。當時具爭議性，但有效。
 
-[VISUAL: Long-term S&P 500 chart from 1929 to present, showing all crashes as small dips in an overall upward trajectory]
+**Stella：** 市場在2009年3月9日觸底，隨後展開了歷史上最長的多頭市場之一。標普500在隨後十年間的報酬超過400%。在底部拋售的投資人，錯過了市場歷史上最偉大的財富積累時期之一。
 
-**Sam:** Zoom out far enough, and every crash in history looks like a small dip on an upward trajectory. That is the big picture. And that is the perspective you need when the next one hits.
+---
 
-[VISUAL: End card with channel logo and "Next: Federal Reserve and Monetary Policy"]
+[第五節 - COVID崩盤與共同規律 - 11:00]
 
-**Alex:** Next time, we are diving into the institution that has been at the center of every recovery we just discussed -- the Federal Reserve. See you there.
+[VISUAL: 空曠的城市街道、急速下跌的股市走勢圖，以及聯準會宣布政策的新聞標題]
 
-[END - 15:30]
+**Horace：** 2020年3月。一場全球大流行病在幾週內關閉了世界經濟。標普500在僅僅23個交易日內下跌34%──創下這一跌幅量級的最快速下跌紀錄。
+
+**Stella：** 熔斷機制──那些在1987年之後創建的自動交易暫停措施──在2020年3月觸發了四次。油價首次跌入負值。感覺像是世界末日。
+
+[VISUAL: 2020年崩盤時間軸，顯示23天的跌幅及關鍵政策回應]
+
+**Horace：** 但復甦與崩盤一樣前所未有。《CARES法》向經濟注入了2.2兆美元。聯準會全力出擊，推出無限量量化寬鬆。到2020年8月──距底部不到五個月──標普500回到了崩盤前的高點。這是歷史上最快的復甦。
+
+**Stella：** 現在，讓我們看看這些崩盤共有的規律。
+
+[ANIMATION: 五欄，每次崩盤一欄，以勾選標記顯示共同特徵]
+
+**Horace：** 規律一：每次崩盤之前，都有過度樂觀與過度冒險的行為。1929年的保證金投機、1987年的投資組合保險、2000年的科技狂熱、2008年的房市與複雜衍生性金融商品、以及2020年受十年低利率刺激的積極冒險行為。
+
+**Stella：** 規律二：一個觸發事件。不是成因，而是催化劑。保證金追繳、電腦驅動的拋售、雷曼破產、大流行病封鎖。
+
+**Horace：** 規律三：相關性激增。在每次崩盤期間，原本應該分散的資產都同步下跌。分散效益在最需要時最弱──儘管債券通常仍能撐住。
+
+**Stella：** 規律四：強制拋售將價格推至基本面價值以下。保證金追繳、基金贖回與風險管理規則迫使人們在最壞的時機拋售，為有耐心的投資人創造了機會。
+
+**Horace：** 規律五：每次崩盤之後都迎來了完全復甦。每一次都是。時程從五個月到25年不等，但方向最終都是向上的。
+
+---
+
+[第六節 - 這對你意味著什麼 - 13:30]
+
+[VISUAL: 「你的崩盤生存指南」清單]
+
+**Stella：** 那麼我們要如何運用這一切知識？以下是崩盤生存指南。
+
+**Horace：** 首先，接受崩盤會發生的事實。如果你投資股票，你將會經歷重大跌幅。對這個現實做好規劃，遠比被它嚇到要好。
+
+**Stella：** 第二，讓資產配置符合你的時間跨度。如果你距離退休還有30年，崩盤是一個買入機會。如果你距離退休只有兩年，你需要更多債券和現金來吸收衝擊。
+
+[VISUAL: 風險光譜，顯示時間跨度與適當股票配置的關係]
+
+**Horace：** 第三，維持緊急備用金。持有六至十二個月的生活費現金，意味著你永遠不需要在最糟糕的時機出售投資來支付帳單。
+
+**Stella：** 第四，不要試圖擇時進出市場。錯過最好的交易日代價極高，而那些最好的交易日幾乎總是緊鄰最糟糕的交易日。持續投資在市場裡。
+
+**Horace：** 第五，研究歷史。不是為了預測未來，而是為了建立情緒韌性，以承受下一次不可避免的市場下跌。當下一次崩盤來臨──它一定會來──你希望自己是那個保持冷靜、甚至可能買入更多的人，而不是恐慌拋售一切的人。
+
+[VISUAL: 標普500從1929年至今的長期走勢圖，顯示所有崩盤在整體上升趨勢中只是小小的回撤]
+
+**Stella：** 把視角拉得夠遠，歷史上的每一次崩盤都看起來像是上升軌跡中的一個小跌幅。這就是大局觀。這也是當下一次崩盤來臨時，你需要保有的視角。
+
+[VISUAL: 結尾卡，附上頻道標誌和「下一集：聯準會與貨幣政策」]
+
+**Horace：** 下一次，我們要深入探討那個在我們剛才討論的每一次復甦中都扮演核心角色的機構──聯準會。下次見。
+
+[結束 - 15:30]

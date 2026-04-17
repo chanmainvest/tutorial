@@ -1,1311 +1,1290 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
-
-# Week 12: Building Your First Portfolio
+# 第12周：构建你的第一个投资组合
 
 ---
 
-## Reading Section
+## 阅读部分
 
-### a) Why This Is Important
+### a) 为什么这很重要
 
-This is the lesson where everything comes together. Over the past eleven weeks, you have learned about stocks, bonds, risk, diversification, valuation, fees, and behavioral biases. You now have the ingredients. This week, you build the meal.
+这一课将所有知识融会贯通。在过去十一周里，你学习了股票、债券、风险、分散投资、估值、费用以及行为偏误。现在，你已经备齐了所有食材。本周，我们来做这道大餐。
 
-Building a portfolio is the single most consequential financial decision most people will ever make, yet the majority of people either never do it (leaving money in a savings account earning near-zero interest) or do it haphazardly (buying whatever their coworker mentioned at lunch). Neither approach serves you well.
+构建投资组合是大多数人一生中最重要的财务决策，然而大多数人要么从不这样做（把钱留在几乎零利率的储蓄账户里），要么随随便便地做（买同事吃饭时随口提到的股票）。两种方式都于你无益。
 
-Here is why a deliberate, structured portfolio matters:
+以下是为什么一个经过深思熟虑、有条有理的投资组合至关重要：
 
-1. **Time is your greatest asset, and it is depleting.** Every year you delay building a proper portfolio, you lose the most powerful force in finance -- compound interest. A 25-year-old who invests $500 per month at a 9% average annual return will have approximately $2.3 million by age 65. A 35-year-old doing the exact same thing will have about $920,000. That ten-year head start is worth $1.4 million, and no amount of stock-picking genius can make up for it.
+1. **时间是你最宝贵的资产，而且它正在流逝。** 每推迟一年构建合适的投资组合，你就损失了金融领域最强大的力量——复利。一个25岁、每月投资500美元、平均年化收益率为9%的人，到65岁时将拥有约230万美元。一个35岁、做同样事情的人，只能拥有约92万美元。那十年的先发优势价值140万美元，任何炒股天才都无法弥补这一差距。
 
-2. **A portfolio is more than a collection of investments.** It is a system designed to achieve your specific financial goals while respecting your personal risk tolerance. A random assortment of stocks is not a portfolio any more than a pile of lumber is a house.
+2. **投资组合不仅仅是一堆投资的集合。** 它是一个专门为实现你具体财务目标、同时尊重你个人风险承受能力而设计的系统。一堆随机的股票不是投资组合，就像一堆木料不是房子一样。
 
-3. **You do not need to be an expert.** One of the most profound insights in modern finance is that a simple portfolio of three or four low-cost index funds, rebalanced annually, will outperform the vast majority of professional money managers over a 20-year period. You do not need to find the next Apple or time the market. You need a plan.
+3. **你不需要成为专家。** 现代金融最深刻的洞见之一是：一个由三四只低成本指数基金构成、每年进行再平衡的简单投资组合，在20年的时间维度上，将跑赢绝大多数专业基金经理。你不需要找到下一个苹果，也不需要择时入市。你需要的是一个计划。
 
-4. **Getting started matters more than getting it perfect.** Analysis paralysis is one of the biggest obstacles to building wealth. The difference between a good portfolio and a perfect portfolio is tiny compared to the difference between a good portfolio and no portfolio at all.
+4. **开始比完美更重要。** 分析瘫痪是积累财富的最大障碍之一。好投资组合和完美投资组合之间的差距，远小于好投资组合和没有投资组合之间的差距。
 
-This lesson walks you through every step: defining your goals, assessing your risk tolerance, choosing an asset allocation, selecting specific instruments, opening an account, and implementing your plan. By the end, you will have a concrete, actionable portfolio tailored to your situation.
+本课将带你走过每一个步骤：设定目标、评估风险承受能力、选择资产配置、挑选具体投资工具、开设账户以及执行计划。完成本课后，你将拥有一个针对自身情况量身定制、具体可操作的投资组合。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的内容
 
-#### 1. The Portfolio Construction Roadmap
+#### 1. 投资组合构建路线图
 
-Before selecting a single investment, you need to follow a structured process. Jumping straight to "what should I buy?" is the most common mistake beginners make.
+在选择任何一笔投资之前，你需要遵循一个结构化的流程。直接跳到"我应该买什么？"是初学者最常犯的错误。
 
 ```
-THE PORTFOLIO CONSTRUCTION ROADMAP
+投资组合构建路线图
 ====================================
 
-Step 1: DEFINE YOUR GOALS
+第一步：明确你的目标
    |
-   |   What are you investing for?
-   |   When do you need the money?
-   |   How much do you need?
-   |
-   v
-Step 2: ASSESS YOUR RISK TOLERANCE
-   |
-   |   How much can you afford to lose?
-   |   How much can you emotionally handle losing?
-   |   What is your investment time horizon?
+   |   你为什么投资？
+   |   你什么时候需要这笔钱？
+   |   你需要多少钱？
    |
    v
-Step 3: CHOOSE YOUR ASSET ALLOCATION
+第二步：评估你的风险承受能力
    |
-   |   What percentage in stocks vs. bonds vs. other?
-   |   Domestic vs. international split?
-   |   Large cap vs. small cap?
-   |
-   v
-Step 4: SELECT YOUR INSTRUMENTS
-   |
-   |   Index funds? ETFs? Mutual funds?
-   |   Which specific funds?
-   |   What are the costs?
+   |   你能承受多大的亏损？
+   |   你在情感上能承受多大的亏损？
+   |   你的投资期限是多久？
    |
    v
-Step 5: OPEN YOUR ACCOUNT
+第三步：选择你的资产配置
    |
-   |   Tax-advantaged (401k, IRA) or taxable?
-   |   Which brokerage?
-   |   What account type?
-   |
-   v
-Step 6: IMPLEMENT AND MAINTAIN
-   |
-   |   Make initial purchases
-   |   Set up automatic contributions
-   |   Schedule rebalancing
-   |   Review annually
+   |   股票与债券及其他资产的比例？
+   |   国内与国际的分配比例？
+   |   大盘股与小盘股？
    |
    v
-   [DONE -- Now protect it from your biases!]
+第四步：选择投资工具
+   |
+   |   指数基金？交易所交易基金？共同基金？
+   |   选择哪些具体基金？
+   |   成本是多少？
+   |
+   v
+第五步：开设账户
+   |
+   |   税收优惠账户（401k、IRA）还是应税账户？
+   |   选择哪家券商？
+   |   账户类型？
+   |
+   v
+第六步：执行与维护
+   |
+   |   完成初始买入
+   |   设置自动定投
+   |   安排再平衡计划
+   |   每年审视一次
+   |
+   v
+   [完成——现在保护它不被你的偏误所伤！]
 ```
 
 ---
 
-#### 2. Step 1: Define Your Goals
+#### 2. 第一步：明确你的目标
 
-Every portfolio begins with a question: What is this money for? Different goals require different portfolios.
+每个投资组合都始于一个问题：这笔钱是为了什么？不同的目标需要不同的投资组合。
 
 ```
-GOAL-BASED PORTFOLIO DESIGN
+基于目标的投资组合设计
 =============================
 
-Goal             Time Horizon    Risk Level    Primary Need
+目标             时间跨度        风险等级      首要需求
 ----             ------------    ----------    ------------
-Emergency fund   Immediate       Very Low      Liquidity
-House down       2-5 years       Low-Med       Preservation
-payment
-Children's       5-18 years      Medium        Growth with
-education                                      safety
-Early            10-20 years     Med-High      Growth
-retirement
-Traditional      20-40 years     High          Maximum
-retirement                                     growth
-Legacy /         30+ years       High          Long-term
-wealth                                         compounding
+应急资金         随时可用        极低          流动性
+房屋首付         2-5年           低至中        本金保全
+子女教育         5-18年          中            兼顾增长
+                                              与安全
+提前退休         10-20年         中至高        增长
+传统退休         20-40年         高            最大化增长
+财富传承         30年以上        高            长期复利
 
-KEY PRINCIPLES:
+核心原则：
 ===============
-Short horizon (< 3 years) --> Mostly bonds and cash
-Medium horizon (3-10 years) --> Balanced mix
-Long horizon (> 10 years) --> Mostly stocks
+短期（3年以内） --> 以债券和现金为主
+中期（3-10年）  --> 均衡配置
+长期（10年以上）--> 以股票为主
 
-The longer your time horizon, the more risk
-you can (and should) take, because you have
-time to recover from downturns.
+时间跨度越长，你能够（也应该）承担的风险
+越大，因为你有时间从下跌中恢复。
 ```
 
-**SMART Goal Framework for Investing:**
+**投资目标的SMART框架：**
 
 ```
-SMART INVESTMENT GOAL EXAMPLE
+SMART投资目标示例
 ===============================
 
-WRONG: "I want to save for retirement."
+错误写法："我想为退休储蓄。"
 
-RIGHT:
-  S - Specific:    "I want to retire at 60 with $2M"
-  M - Measurable:  "I will track progress quarterly"
-  A - Achievable:  "I need to save $1,200/month at 9%"
-  R - Relevant:    "This supports my life plan"
-  T - Time-bound:  "I have 30 years to reach this goal"
+正确写法：
+  S - 具体（Specific）：  "我想在60岁时退休，拥有200万美元"
+  M - 可量化（Measurable）："我将按季度追踪进度"
+  A - 可实现（Achievable）："按照9%的收益率，我每月需储蓄1,200美元"
+  R - 相关（Relevant）：  "这与我的人生规划相符"
+  T - 有时限（Time-bound）："我有30年时间来实现这一目标"
 
-CALCULATION CHECK:
-$1,200/month x 12 = $14,400/year
-At 9% average annual return over 30 years:
-FV = $14,400 x [(1.09^30 - 1) / 0.09]
-FV = $14,400 x 136.31
-FV = approximately $1,963,000
+计算验证：
+1,200美元/月 x 12 = 14,400美元/年
+以9%平均年化收益率复利增长30年：
+终值 = 14,400 x [(1.09^30 - 1) / 0.09]
+终值 = 14,400 x 136.31
+终值 ≈ 1,963,000美元
 
-Close to $2M target? Yes. Goal is achievable.
+接近200万美元的目标吗？是的。目标可实现。
 ```
 
 ---
 
-#### 3. Step 2: Assess Your Risk Tolerance
+#### 3. 第二步：评估你的风险承受能力
 
-Risk tolerance has two dimensions that are often confused:
+风险承受能力有两个维度，常常被人混淆：
 
 ```
-TWO DIMENSIONS OF RISK TOLERANCE
+风险承受能力的两个维度
 ==================================
 
-RISK CAPACITY (Objective)          RISK WILLINGNESS (Subjective)
+风险承担能力（客观）               风险承受意愿（主观）
 =========================          ============================
-What you CAN afford to risk        What you FEEL comfortable risking
+你客观上能够承受的风险              你在情感上愿意承受的风险
 
-Based on:                          Based on:
-- Time horizon                     - Personality
-- Income stability                 - Past experience with losses
-- Emergency fund size              - Sleep-at-night factor
-- Other financial resources        - Emotional reaction to
-- Life stage                         market drops
+取决于：                           取决于：
+- 时间跨度                         - 个人性格
+- 收入稳定性                       - 过去的亏损经历
+- 应急资金规模                     - 能否安然入睡
+- 其他财务资源                     - 面对市场下跌时的
+- 人生阶段                           情绪反应
 
-EXAMPLE MISMATCH:
+不匹配案例：
 +-----------------------------------------------+
-| Young professional, age 25                    |
-| High income, no dependents                    |
-| 40-year time horizon                          |
+| 年轻职场人，25岁                              |
+| 收入高，无家属                                |
+| 40年投资期限                                  |
 |                                               |
-| RISK CAPACITY: Very High                      |
-| (Can afford significant short-term losses)    |
+| 风险承担能力：极高                            |
+| （能够承受短期的重大亏损）                    |
 |                                               |
-| But experienced 2022 market drop, panicked,   |
-| sold everything at the bottom                 |
+| 但经历2022年市场下跌后，恐慌出逃，            |
+| 在底部清仓卖出                                |
 |                                               |
-| RISK WILLINGNESS: Low                         |
-| (Cannot emotionally handle losses)            |
+| 风险承受意愿：低                              |
+| （情感上无法承受亏损）                        |
 +-----------------------------------------------+
 
-RESOLUTION: Use the LOWER of the two.
-A portfolio you cannot stick with is worse
-than a "suboptimal" portfolio you hold forever.
+解决方案：取两者中较低的那个。
+一个你无法坚持的投资组合，比一个
+你能永远持有的"次优"投资组合更糟糕。
 ```
 
-**The Sleep Test:**
+**睡眠测试：**
 
 ```
-THE SLEEP TEST FOR RISK TOLERANCE
+风险承受能力的睡眠测试
 ===================================
 
-Imagine your portfolio drops by the following
-amounts in a single month. At what point do
-you lose sleep or feel compelled to sell?
+设想你的投资组合在单月内下跌以下幅度。
+到哪个程度你会失眠或产生卖出冲动？
 
-Portfolio     Your          Suggested Max
-Drop          Reaction      Stock Allocation
---------      --------      ----------------
-  -5%         "Normal"      You can handle 80-100% stocks
- -10%         "Concerned"   Consider 60-80% stocks
- -20%         "Anxious"     Consider 40-60% stocks
- -30%         "Panicking"   Consider 20-40% stocks
- -40%         "Selling"     Consider 0-20% stocks
+投资组合     你的            建议的最高
+跌幅         反应            股票配置比例
+--------      --------        ----------------
+  -5%         "正常"          你能承受80-100%的股票配置
+ -10%         "有些担心"      考虑60-80%的股票配置
+ -20%         "焦虑"          考虑40-60%的股票配置
+ -30%         "恐慌"          考虑20-40%的股票配置
+ -40%         "打算卖出"      考虑0-20%的股票配置
 
-CRITICAL INSIGHT:
-The S&P 500 has dropped:
-  -10% or more about once per year
-  -20% or more about once every 3-4 years
-  -30% or more about once every 8-10 years
-  -40% or more about 3 times in 100 years
+关键洞见：
+标普500指数历史上：
+  下跌10%或以上，大约每年发生一次
+  下跌20%或以上，大约每3-4年发生一次
+  下跌30%或以上，大约每8-10年发生一次
+  下跌40%或以上，百年来仅发生约3次
 
-These are NORMAL. If you cannot handle them,
-adjust your allocation accordingly.
+这些都是正常现象。如果你无法承受，
+请相应调整你的配置比例。
 ```
 
 ---
 
-#### 4. Step 3: Choose Your Asset Allocation
+#### 4. 第三步：选择你的资产配置
 
-Asset allocation -- the split between stocks, bonds, and other assets -- determines approximately 90% of your portfolio's long-term behavior. It is the most important decision you will make.
+资产配置——股票、债券及其他资产之间的比例分配——决定了你的投资组合约90%的长期表现。这是你将做出的最重要的决策。
 
 ```
-ASSET ALLOCATION: THE CORE DECISION
+资产配置：核心决策
 =====================================
 
-                    Conservative     Moderate       Aggressive
-                    (Low Risk)       (Balanced)     (High Risk)
+                    保守型           均衡型         进取型
+                    （低风险）        （均衡）        （高风险）
                     ============     ==========     ==========
-Stocks (Equity)       20-40%          50-70%         80-100%
-Bonds (Fixed Inc.)    50-70%          25-40%          0-15%
-Cash/Short-term        5-15%           5-10%          0-5%
+股票（权益类）        20-40%          50-70%         80-100%
+债券（固定收益）      50-70%          25-40%          0-15%
+现金/短期资产          5-15%           5-10%          0-5%
 
-Expected Return        4-6%            6-8%           8-10%
-(Long-term avg)
+预期收益              4-6%            6-8%           8-10%
+（长期平均）
 
-Worst Year            -10%            -25%           -40%
-(Approximate)
+最差年份              -10%            -25%           -40%
+（近似值）
 
-Best For:           Near-term goals  Mid-term goals  Long-term goals
-                    Risk-averse      Moderate risk    High risk
-                    Retirees         Pre-retirees     Young investors
+适合：              近期目标        中期目标        长期目标
+                    风险厌恶型      适度风险型      年轻投资者
+                    退休人员        准退休人员
 ```
 
-**The Classic Age-Based Rule:**
+**经典基于年龄的配置法则：**
 
 ```
-TRADITIONAL AGE-BASED ALLOCATION
+传统年龄型资产配置
 ===================================
 
-The old rule of thumb:
-  Stock % = 100 - Your Age
+老规则：
+  股票比例 = 100 - 你的年龄
 
-  Age 25: 75% stocks / 25% bonds
-  Age 40: 60% stocks / 40% bonds
-  Age 60: 40% stocks / 60% bonds
+  25岁：75%股票 / 25%债券
+  40岁：60%股票 / 40%债券
+  60岁：40%股票 / 60%债券
 
-The modern rule (people live longer):
-  Stock % = 110 - Your Age  (or even 120 - Your Age)
+新规则（人的寿命更长了）：
+  股票比例 = 110 - 你的年龄（甚至 120 - 你的年龄）
 
-  Age 25: 85-95% stocks / 5-15% bonds
-  Age 40: 70-80% stocks / 20-30% bonds
-  Age 60: 50-60% stocks / 40-50% bonds
+  25岁：85-95%股票 / 5-15%债券
+  40岁：70-80%股票 / 20-30%债券
+  60岁：50-60%股票 / 40-50%债券
 
 +----------------------------------------------+
-| IMPORTANT: These are starting points, not    |
-| commandments. Adjust based on your personal  |
-| risk tolerance, goals, and financial         |
-| situation. A 25-year-old with low risk       |
-| tolerance might be 60/40. A 60-year-old      |
-| with a pension and high risk tolerance       |
-| might be 70/30.                              |
+| 重要提示：这些只是起点，不是定律。           |
+| 请根据你个人的风险承受能力、目标和财务状况   |
+| 进行调整。风险承受意愿低的25岁人，           |
+| 可能适合60/40配置；有养老金且风险承受意愿高  |
+| 的60岁人，可能适合70/30配置。               |
 +----------------------------------------------+
 ```
 
-**Sub-Allocation Within Stocks:**
+**股票内部的子配置：**
 
 ```
-STOCK ALLOCATION BREAKDOWN
+股票配置细分
 ============================
 
-GEOGRAPHIC SPLIT:
-                Domestic        International
-                (US Stocks)     (Non-US Stocks)
-  Conservative:  70-80%          20-30%
-  Moderate:      60-70%          30-40%
-  Aggressive:    50-60%          40-50%
+地区分配：
+                国内股票        海外股票
+                （美国股票）    （非美国股票）
+  保守型：       70-80%          20-30%
+  均衡型：       60-70%          30-40%
+  进取型：       50-60%          40-50%
 
-  Why international? Diversification. The US has
-  not always been the top-performing market.
-  In the 2000s, international stocks outperformed
-  US stocks significantly.
+  为什么配置海外股票？分散化。美国并非
+  始终是表现最佳的市场。2000年代，
+  海外股票的表现显著优于美国股票。
 
-SIZE SPLIT (within domestic):
-  Large Cap:   60-70%  (stable, established companies)
-  Mid Cap:     15-20%  (growing companies)
-  Small Cap:   10-20%  (smaller, higher-growth potential)
+市值分类（国内股票内部）：
+  大盘股：   60-70%  （稳定的成熟公司）
+  中盘股：   15-20%  （成长中的公司）
+  小盘股：   10-20%  （规模较小，成长潜力更高）
 
-STYLE SPLIT:
-  Growth:  Companies growing revenue/earnings fast
-  Value:   Companies trading below intrinsic value
-  Blend:   A mix of both (total market index)
+风格分类：
+  成长型：  营收/盈利快速增长的公司
+  价值型：  股价低于内在价值的公司
+  混合型：  两者兼顾（全市场指数）
 
-  For beginners: Use a total market index fund
-  that covers all sizes and styles automatically.
+  对于初学者：使用覆盖所有市值和风格的
+  全市场指数基金即可。
 ```
 
-**Sub-Allocation Within Bonds:**
+**债券内部的子配置：**
 
 ```
-BOND ALLOCATION BREAKDOWN
+债券配置细分
 ===========================
 
-QUALITY:
-  Government (Treasury):   50-70%  (safest)
-  Investment-Grade Corp:   20-30%  (moderate risk)
-  High-Yield Corp:          0-10%  (higher risk, higher return)
-  International Bonds:      0-20%  (diversification)
+信用质量：
+  政府债券（国债）：   50-70%  （最安全）
+  投资级企业债：       20-30%  （中等风险）
+  高收益企业债：        0-10%  （风险较高，收益率较高）
+  海外债券：            0-20%  （分散化）
 
-DURATION:
-  Short-term (1-3 years):  Lower yield, lower rate risk
-  Intermediate (3-10 yrs): Moderate yield, moderate risk
-  Long-term (10+ years):   Higher yield, higher rate risk
+久期：
+  短期（1-3年）：  收益率较低，利率风险较低
+  中期（3-10年）： 收益率中等，风险中等
+  长期（10年以上）：收益率较高，利率风险较高
 
-  For beginners: A total bond market index fund
-  covers the full spectrum automatically.
+  对于初学者：全债券市场指数基金
+  自动覆盖完整的期限范围。
 
-TIPS (Inflation-Protected):
-  Consider allocating 10-20% of your bond
-  allocation to TIPS for inflation protection.
+通胀保值债券（TIPS）：
+  考虑将债券配置的10-20%分配给TIPS，
+  以对抗通胀。
 ```
 
 ---
 
-#### 5. Step 4: Select Your Instruments
+#### 5. 第四步：选择投资工具
 
-Now that you know your allocation, you need to select specific investments. For the vast majority of investors, low-cost index ETFs are the optimal choice.
+现在你已确定了资产配置，接下来需要选择具体的投资品种。对于绝大多数投资者来说，低成本的指数交易所交易基金是最优选择。
 
 ```
-WHY INDEX FUNDS / ETFs WIN
+为什么指数基金/交易所交易基金会胜出
 ============================
 
-EVIDENCE:
-Over 15-year periods, roughly 90% of actively
-managed funds UNDERPERFORM their benchmark index.
+依据：
+在15年的时间跨度内，约90%的主动管理型
+基金跑输基准指数。
 
 +------------------------------------------------+
-| % of Active Funds UNDERPERFORMING Their Index  |
-| (15-year period ending 2023)                   |
+| 主动管理型基金跑输其基准指数的比例             |
+| （截至2023年的15年周期）                       |
 |                                                |
-| US Large Cap:     92%                          |
-| US Mid Cap:       95%                          |
-| US Small Cap:     93%                          |
-| International:    88%                          |
-| US Bonds:         90%                          |
+| 美国大盘股：     92%                          |
+| 美国中盘股：     95%                          |
+| 美国小盘股：     93%                          |
+| 国际股票：       88%                          |
+| 美国债券：       90%                          |
 +------------------------------------------------+
 
-Source: S&P SPIVA Scorecard
+数据来源：标普SPIVA记分卡
 
-WHY?
-1. Fees drag returns (0.50-1.00% vs 0.03-0.10%)
-2. Trading costs compound
-3. Markets are efficient enough that consistent
-   outperformance is extremely rare
-4. Past performance does not predict future results
+原因何在？
+1. 费用拖累收益（0.50-1.00% vs 0.03-0.10%）
+2. 交易成本累积叠加
+3. 市场足够有效，持续超额收益极为罕见
+4. 历史表现无法预测未来结果
 
-CONCLUSION:
-Low-cost index funds are not "settling for average."
-They are choosing the strategy that beats 90% of
-professionals over the long term.
+结论：
+低成本指数基金并非"甘于平庸"。
+它们是一种能在长期跑赢90%专业人士的策略。
 ```
 
-**The Three-Fund Portfolio:**
+**三基金投资组合：**
 
-This is the simplest, most effective portfolio for most investors:
+这是适用于大多数投资者的最简单、最有效的投资组合：
 
 ```
-THE THREE-FUND PORTFOLIO
+三基金投资组合
 ==========================
 
-Fund 1: US Total Stock Market Index
-   - Covers ~4,000 US stocks (large, mid, small)
-   - One fund = entire US equity market
-   - Example: VTI (Vanguard) or ITOT (iShares)
-   - Expense ratio: ~0.03%
+基金一：美国全股票市场指数基金
+   - 覆盖约4,000只美国股票（大、中、小盘）
+   - 一只基金 = 整个美国股票市场
+   - 示例：VTI（先锋）或ITOT（贝莱德）
+   - 费率：约0.03%
 
-Fund 2: International Total Stock Market Index
-   - Covers ~8,000 non-US stocks (developed + emerging)
-   - One fund = entire world ex-US
-   - Example: VXUS (Vanguard) or IXUS (iShares)
-   - Expense ratio: ~0.07%
+基金二：国际全股票市场指数基金
+   - 覆盖约8,000只非美国股票（发达市场+新兴市场）
+   - 一只基金 = 美国以外的全球市场
+   - 示例：VXUS（先锋）或IXUS（贝莱德）
+   - 费率：约0.07%
 
-Fund 3: US Total Bond Market Index
-   - Covers the full US investment-grade bond market
-   - Government + corporate, all durations
-   - Example: BND (Vanguard) or AGG (iShares)
-   - Expense ratio: ~0.03%
+基金三：美国全债券市场指数基金
+   - 覆盖美国全部投资级债券市场
+   - 政府债券+企业债券，涵盖所有久期
+   - 示例：BND（先锋）或AGG（贝莱德）
+   - 费率：约0.03%
 
-THAT IS IT. Three funds. Total annual cost: ~$30-50
-per $100,000 invested. Exposure to over 12,000
-securities across the entire global market.
+就这些。三只基金。每投资10万美元，
+年费约30-50美元。覆盖全球市场的12,000多只证券。
 
-EXAMPLE ALLOCATIONS USING THREE FUNDS:
+使用三基金投资组合的配置示例：
 
-Age 25 (Aggressive):
+25岁（进取型）：
 +-----------------------------------+
-| VTI:  60%  (US stocks)            |
-| VXUS: 30%  (International stocks) |
-| BND:  10%  (US bonds)             |
-+-----------------------------------+
-
-Age 40 (Moderate):
-+-----------------------------------+
-| VTI:  45%  (US stocks)            |
-| VXUS: 25%  (International stocks) |
-| BND:  30%  (US bonds)             |
+| VTI：  60%  （美国股票）           |
+| VXUS： 30%  （国际股票）           |
+| BND：  10%  （美国债券）           |
 +-----------------------------------+
 
-Age 60 (Conservative):
+40岁（均衡型）：
 +-----------------------------------+
-| VTI:  30%  (US stocks)            |
-| VXUS: 15%  (International stocks) |
-| BND:  55%  (US bonds)             |
+| VTI：  45%  （美国股票）           |
+| VXUS： 25%  （国际股票）           |
+| BND：  30%  （美国债券）           |
++-----------------------------------+
+
+60岁（保守型）：
++-----------------------------------+
+| VTI：  30%  （美国股票）           |
+| VXUS： 15%  （国际股票）           |
+| BND：  55%  （美国债券）           |
 +-----------------------------------+
 ```
 
-**The Even Simpler Option -- Target-Date Funds:**
+**更简单的选择——目标日期基金：**
 
 ```
-TARGET-DATE FUNDS: SET IT AND FORGET IT
+目标日期基金：设置好就不用管了
 =========================================
 
-If even three funds feels like too many decisions,
-a single target-date fund does everything automatically.
+如果连三只基金都觉得决策太多，
+一只目标日期基金可以自动完成所有事情。
 
-HOW IT WORKS:
-- Pick the fund closest to your retirement year
-- It starts aggressive (mostly stocks)
-- It automatically becomes conservative over time
-- Rebalancing is handled for you
+运作方式：
+- 选择最接近你退休年份的基金
+- 一开始配置进取（以股票为主）
+- 随着时间推移自动转变为保守型
+- 再平衡由基金自动处理
 
-EXAMPLE: Vanguard Target Retirement 2060 Fund (VTTSX)
-  Current allocation (for someone ~30 years old):
-  - ~54% US stocks
-  - ~36% International stocks
-  - ~7% US bonds
-  - ~3% International bonds
+示例：先锋目标退休2060基金（VTTSX）
+  当前配置（适合约30岁的投资者）：
+  - 约54% 美国股票
+  - 约36% 国际股票
+  - 约7%  美国债券
+  - 约3%  国际债券
 
-  By 2055 (5 years before target):
-  - ~40% stocks
-  - ~60% bonds
+  到2055年（目标日期前5年）：
+  - 约40% 股票
+  - 约60% 债券
 
-  By 2067 (7 years after target):
-  - ~30% stocks
-  - ~70% bonds
+  到2067年（目标日期后7年）：
+  - 约30% 股票
+  - 约70% 债券
 
-COST: ~0.08% expense ratio for Vanguard
-(Some providers charge 0.50%+ -- avoid those)
+费率：先锋约0.08%
+（部分基金提供商收取0.50%以上——请避开）
 
 +------------------------------------------------+
-| TARGET-DATE FUND PROS AND CONS                 |
+| 目标日期基金的优缺点                           |
 |                                                |
-| PROS:                                          |
-| + Absolute simplicity (one fund)               |
-| + Automatic rebalancing                        |
-| + Automatic glide path (gets safer over time)  |
-| + Great for "set and forget" investors         |
+| 优点：                                         |
+| + 极度简单（一只基金搞定）                     |
+| + 自动再平衡                                   |
+| + 自动滑动路径（随时间变得更保守）             |
+| + 非常适合"设置好就不管"的投资者               |
 |                                                |
-| CONS:                                          |
-| - Slightly higher fees than DIY three-fund     |
-| - One-size-fits-all allocation                 |
-| - No customization                             |
-| - Tax-inefficient in taxable accounts          |
+| 缺点：                                         |
+| - 费率略高于自己构建的三基金组合               |
+| - 配置一刀切                                   |
+| - 无法个性化定制                               |
+| - 在应税账户中税务效率较低                     |
 +------------------------------------------------+
 ```
 
-**Key ETF Comparison Table:**
+**主要交易所交易基金对比表：**
 
 ```
-POPULAR INDEX ETFs COMPARISON
+热门指数交易所交易基金对比
 ===============================
 
-CATEGORY          TICKER  PROVIDER   EXPENSE  HOLDINGS
-                                     RATIO
+类别              代码    基金提供商  费率     持仓数量
 --------          ------  --------   -------  --------
-US Total Market   VTI     Vanguard   0.03%    ~4,000
-US Total Market   ITOT    iShares    0.03%    ~3,800
-S&P 500           VOO     Vanguard   0.03%    500
-S&P 500           SPY     SPDR       0.09%    500
-S&P 500           IVV     iShares    0.03%    500
-Intl Developed    VEA     Vanguard   0.05%    ~4,000
-Intl Total        VXUS    Vanguard   0.07%    ~8,000
-Intl Total        IXUS    iShares    0.07%    ~4,400
-Emerging Markets  VWO     Vanguard   0.08%    ~5,800
-US Total Bond     BND     Vanguard   0.03%    ~10,000
-US Total Bond     AGG     iShares    0.03%    ~12,000
-TIPS              VTIP    Vanguard   0.04%    ~50
-Short-Term Bond   BSV     Vanguard   0.04%    ~2,800
-Small Cap Value   VBR     Vanguard   0.07%    ~850
+美国全市场         VTI     先锋        0.03%    约4,000
+美国全市场         ITOT    贝莱德      0.03%    约3,800
+标普500            VOO     先锋        0.03%    500
+标普500            SPY     道富        0.09%    500
+标普500            IVV     贝莱德      0.03%    500
+国际发达市场       VEA     先锋        0.05%    约4,000
+国际全市场         VXUS    先锋        0.07%    约8,000
+国际全市场         IXUS    贝莱德      0.07%    约4,400
+新兴市场           VWO     先锋        0.08%    约5,800
+美国全债券市场     BND     先锋        0.03%    约10,000
+美国全债券市场     AGG     贝莱德      0.03%    约12,000
+通胀保值债券       VTIP    先锋        0.04%    约50
+短期债券           BSV     先锋        0.04%    约2,800
+小盘价值股         VBR     先锋        0.07%    约850
 
-RULE OF THUMB:
-If the expense ratio is above 0.20%, look for
-a cheaper alternative. You should never pay
-more than 0.10% for a basic index fund.
+经验法则：
+如果费率超过0.20%，请寻找更便宜的替代品。
+基本的指数基金，你不应该支付超过0.10%的费率。
 ```
 
 ---
 
-#### 6. Step 5: Choose and Open Your Account
+#### 6. 第五步：选择并开设账户
 
 ```
-ACCOUNT TYPE DECISION TREE
+账户类型决策树
 ============================
 
-Do you have access to an employer 401(k)?
+你的雇主是否提供401(k)计划？
   |
-  YES --> Does your employer offer a match?
+  是 --> 雇主是否提供配套缴费？
   |         |
-  |         YES --> Contribute at least enough
-  |         |       to get the FULL MATCH
-  |         |       (This is free money. Always.)
+  |         是 --> 至少缴纳足够获得
+  |         |      全额配套的金额
+  |         |      （这是白送的钱，一定要拿满。）
   |         |
-  |         Then: Have you maxed the match?
+  |         然后：你是否已拿满配套？
   |                |
-  |                YES --> Open a Roth IRA
-  |                |       (if income-eligible)
-  |                |       Max it: $7,000/year (2024)
+  |                是 --> 开设罗斯个人退休账户（Roth IRA）
+  |                |      （如符合收入条件）
+  |                |      每年最多缴纳7,000美元（2024年）
   |                |
-  |                Then: Have you maxed Roth IRA?
+  |                然后：你是否已将Roth IRA缴满？
   |                       |
-  |                       YES --> Go back to 401(k)
-  |                       |       and max it out
-  |                       |       $23,000/year (2024)
+  |                       是 --> 返回401(k)
+  |                       |      并将其缴满
+  |                       |      每年最多23,000美元（2024年）
   |                       |
-  |                       Then: Still have money?
+  |                       然后：还有多余的钱吗？
   |                              |
-  |                              YES --> Taxable
-  |                                      brokerage
-  |                                      account
+  |                              是 --> 开设应税
+  |                                      证券账户
   |
-  NO --> Open a Roth IRA first
-         Then a taxable brokerage account
+  否 --> 先开设Roth IRA
+         然后开设应税证券账户
 
-ORDER OF PRIORITY:
+优先顺序：
 ==================
-1. 401(k) up to employer match  (free money)
-2. Roth IRA to maximum          (tax-free growth)
-3. 401(k) to maximum            (tax-deferred)
-4. Taxable brokerage            (flexibility)
-5. HSA if eligible              (triple tax benefit)
+1. 401(k)缴满雇主配套  （白送的钱）
+2. Roth IRA缴满上限    （免税增长）
+3. 401(k)缴满上限      （递延纳税）
+4. 应税证券账户        （灵活性）
+5. 如符合条件，开设健康储蓄账户（HSA）（三重税收优惠）
 ```
 
-**Choosing a Brokerage:**
+**选择券商：**
 
 ```
-BROKERAGE COMPARISON (Major Discount Brokers)
+券商对比（主要折扣券商）
 ===============================================
 
-Feature          Fidelity    Schwab     Vanguard   E*Trade
+功能             富达         嘉信理财    先锋        亿创理财
 -------          --------    ------     --------   -------
-Commission       $0          $0         $0         $0
-(stocks/ETFs)
+佣金             $0          $0         $0         $0
+（股票/交易所
+交易基金）
 
-Account          $0          $0         $0         $0
-Minimums
+最低开户金额     $0          $0         $0         $0
 
-Mutual Fund      $0 for      $0 for     $0 for     $0 for
-Fees             Fidelity    Schwab     Vanguard   many
-                 funds       funds      funds
+共同基金费用     富达自有     嘉信自有    先锋自有    多数
+                基金$0       基金$0      基金$0      基金$0
 
-Fractional       Yes         Yes        No (ETFs)  Yes
-Shares                                  Yes(mutual)
+零股交易         支持         支持        否（交易所  支持
+                                         交易基金）
+                                        是（共同基金）
 
-Research/        Excellent   Excellent  Basic      Good
-Tools
+研究/分析工具    出色         出色        基础        良好
 
-Mobile App       Excellent   Good       Basic      Good
-Quality
+移动端APP        出色         良好        基础        良好
+质量
 
-Customer         Excellent   Excellent  Good       Good
-Service
+客户服务         出色         出色        良好        良好
 
-Best For:        All-around  All-around Long-term  Active
-                 choice      choice     buy-hold   traders
+最适合：         综合首选     综合首选    长期         活跃
+                                        买入持有     交易者
 
 +------------------------------------------------+
-| HONEST TRUTH: For a buy-and-hold index         |
-| investor, ANY of these brokerages will work    |
-| perfectly. Do not spend weeks comparing them.  |
-| Pick one and open an account TODAY.            |
+| 实话实说：对于买入持有型指数投资者，           |
+| 以上任何一家券商都完全能满足需求。             |
+| 不要花数周时间比较它们。                       |
+| 今天就选一家，立刻开户。                       |
 +------------------------------------------------+
 ```
 
 ---
 
-#### 7. Step 6: Implementation -- Making It Real
+#### 7. 第六步：执行——让计划落地
 
 ```
-IMPLEMENTATION CHECKLIST
+执行清单
 =========================
 
-Week 1: FOUNDATION
-[ ] Define your top 3 financial goals (with amounts and dates)
-[ ] Take the risk tolerance assessment (sleep test)
-[ ] Calculate how much you can invest monthly
-[ ] Determine your target asset allocation
+第1周：打好基础
+[ ] 确定你最重要的3个财务目标（含金额和日期）
+[ ] 进行风险承受能力评估（睡眠测试）
+[ ] 计算你每月可投资的金额
+[ ] 确定你的目标资产配置
 
-Week 2: ACCOUNT SETUP
-[ ] Choose a brokerage (just pick one -- do not overthink)
-[ ] Open the account (have SSN, bank info, ID ready)
-[ ] Link your bank account for transfers
-[ ] Set up direct deposit or automatic transfers
+第2周：开设账户
+[ ] 选择一家券商（选一个就行，别想太多）
+[ ] 开设账户（准备好社会保障号、银行信息、身份证件）
+[ ] 关联银行账户以便转账
+[ ] 设置工资直接存入或自动转账
 
-Week 3: FIRST PURCHASES
-[ ] Transfer your initial investment amount
-[ ] Buy your chosen funds according to your allocation
-[ ] Set up automatic monthly investments
-[ ] Enable dividend reinvestment (DRIP)
+第3周：首次买入
+[ ] 将初始投资金额转入账户
+[ ] 按照你的配置比例买入所选基金
+[ ] 设置每月自动定投
+[ ] 开启股息再投资（DRIP）
 
-Week 4: MAINTENANCE SETUP
-[ ] Calendar reminder: rebalance quarterly or annually
-[ ] Set a "portfolio check" day (monthly max)
-[ ] Write your Investment Policy Statement
-[ ] Start your investment journal
+第4周：建立维护机制
+[ ] 在日历上设置提醒：每季度或每年进行再平衡
+[ ] 确定"查看投资组合"的固定日期（每月最多一次）
+[ ] 撰写你的投资政策声明
+[ ] 开始写投资日记
 
-ONGOING (forever):
-[ ] Contribute automatically each month
-[ ] Rebalance when allocation drifts > 5% from target
-[ ] Increase contributions when income rises
-[ ] Review goals annually and adjust if needed
-[ ] DO NOT panic sell during market downturns
+持续（永久执行）：
+[ ] 每月自动定投
+[ ] 当任一资产类别偏离目标超过5%时进行再平衡
+[ ] 收入增加时提高定投金额
+[ ] 每年审视目标，必要时调整
+[ ] 市场下跌时切勿恐慌卖出
 ```
 
-**Dollar-Cost Averaging vs. Lump Sum:**
+**定投与一次性投入的比较：**
 
 ```
-DCA vs. LUMP SUM: WHEN TO USE EACH
+定投 vs. 一次性投入：何时选择哪种方式
 =====================================
 
-SCENARIO: You have $60,000 to invest.
+情景：你手头有60,000美元可以投资。
 
-OPTION A: LUMP SUM
-  Invest all $60,000 immediately.
+方案A：一次性投入
+  立即投入全部60,000美元。
 
-  Pros: Mathematically optimal ~67% of the time
-        (markets trend upward)
-  Cons: If the market drops immediately, you feel
-        terrible (loss aversion)
+  优点：从统计上看，约67%的情况下数学上最优
+        （市场长期趋于上涨）
+  缺点：如果市场随即下跌，你会感觉很糟糕
+        （损失厌恶效应）
 
-OPTION B: DOLLAR-COST AVERAGING
-  Invest $5,000 per month for 12 months.
+方案B：定投
+  每月投入5,000美元，持续12个月。
 
-  Pros: Reduces regret risk
-        Smoother entry point
-        Psychologically easier
-  Cons: Mathematically inferior ~67% of the time
-        You miss gains while waiting
+  优点：降低后悔的风险
+        入场价格更平滑
+        心理上更容易接受
+  缺点：从统计上看，约67%的情况下数学上次优
+        等待期间会错过涨幅
 
-DCA EXAMPLE:
-Month    Amount     Price    Shares
+定投示例：
+月份     金额       价格      份额
 -----    ------     -----    ------
-Jan      $5,000     $50      100
-Feb      $5,000     $45      111
-Mar      $5,000     $40      125
-Apr      $5,000     $42      119
-May      $5,000     $48      104
-Jun      $5,000     $52       96
-Jul      $5,000     $55       91
-Aug      $5,000     $53       94
-Sep      $5,000     $50      100
-Oct      $5,000     $47      106
-Nov      $5,000     $51       98
-Dec      $5,000     $55       91
+1月      $5,000     $50      100
+2月      $5,000     $45      111
+3月      $5,000     $40      125
+4月      $5,000     $42      119
+5月      $5,000     $48      104
+6月      $5,000     $52       96
+7月      $5,000     $55       91
+8月      $5,000     $53       94
+9月      $5,000     $50      100
+10月     $5,000     $47      106
+11月     $5,000     $51       98
+12月     $5,000     $55       91
 ------   -------              -----
-Total    $60,000              1,235 shares
-Avg cost per share: $48.58
+合计     $60,000              1,235份
+平均每份成本：$48.58
 
-VERDICT:
-If you have a lump sum and a long time horizon,
-invest it all now. Mathematically, waiting costs
-you money more often than it saves you.
+结论：
+如果你有一笔资金且持有期较长，
+现在就全部投入。从统计上看，等待
+更多时候会让你损失钱，而非省钱。
 
-But if DCA helps you actually invest instead of
-sitting on cash paralyzed by fear, DCA is better.
-The best strategy is the one you execute.
+但如果定投能让你真正行动起来，
+而不是让资金在恐惧中闲置，
+那么定投就是更好的选择。
+最好的策略，是你能坚持执行的那个。
 ```
 
 ---
 
-#### 8. Sample Portfolios by Life Stage
+#### 8. 按人生阶段划分的示例投资组合
 
 ```
-SAMPLE PORTFOLIO 1: THE COLLEGE STUDENT (Age 20)
+示例投资组合一：大学生（20岁）
 ==================================================
 
-Situation:
-- Part-time job, $200/month to invest
-- 40+ year time horizon
-- Can handle high volatility
-- Needs simplicity
+情况：
+- 兼职工作，每月可投资200美元
+- 40年以上投资期限
+- 能承受高波动性
+- 需要简单易行
 
-Allocation:
+配置：
 +--------------------------------------------+
-| 90% VTI (US Total Stock Market)     $180   |
-| 10% VXUS (International Stocks)     $20    |
+| 90% VTI（美国全股票市场）     $180          |
+| 10% VXUS（国际股票）          $20           |
 +--------------------------------------------+
-Total monthly: $200 | Annual cost: ~$0.36/yr per $1,000
+每月投入：$200 | 每1,000美元年费约：$0.36
 
-Notes: No bonds at this age and risk level.
-Maximum simplicity. Add bonds in your 30s.
-At 9% average return, $200/month for 45 years
-= approximately $1.9 million.
+说明：这个年龄和风险水平下无需配置债券。
+极度简洁。30多岁时再加入债券。
+以9%平均收益率，每月$200坚持45年
+≈ 约190万美元。
 
 
-SAMPLE PORTFOLIO 2: THE YOUNG PROFESSIONAL (Age 30)
+示例投资组合二：年轻职场人（30岁）
 =====================================================
 
-Situation:
-- Full-time job, $1,500/month to invest
-- 30-year time horizon
-- Moderate-high risk tolerance
-- 401(k) with employer match available
+情况：
+- 全职工作，每月可投资1,500美元
+- 30年投资期限
+- 中高风险承受能力
+- 有雇主配套的401(k)
 
-Allocation:
+配置：
 +--------------------------------------------+
-| 401(k) (to match): $500                    |
-|   100% S&P 500 Index (employer plan)       |
+| 401(k)（至配套上限）：$500                  |
+|   100% 标普500指数（雇主计划）              |
 |                                            |
-| Roth IRA: $583/month ($7,000/year)         |
+| Roth IRA：$583/月（$7,000/年）             |
 |   60% VTI                           $350   |
 |   30% VXUS                          $175   |
 |   10% BND                            $58   |
 |                                            |
-| Taxable Brokerage: $417/month              |
+| 应税证券账户：$417/月                      |
 |   60% VTI                           $250   |
 |   25% VXUS                          $104   |
 |   15% BND                            $63   |
 +--------------------------------------------+
-Total monthly: $1,500 | 90% stocks / 10% bonds
+每月总投入：$1,500 | 90%股票 / 10%债券
 
-At 8.5% average return, $1,500/month for 30 years
-= approximately $2.1 million.
+以8.5%平均收益率，每月$1,500坚持30年
+≈ 约210万美元。
 
 
-SAMPLE PORTFOLIO 3: THE MID-CAREER PROFESSIONAL (Age 45)
+示例投资组合三：职场中坚（45岁）
 ==========================================================
 
-Situation:
-- Peak earning years, $3,000/month to invest
-- 20-year time horizon until retirement
-- Moderate risk tolerance
-- Has 401(k), Roth IRA, and taxable accounts
+情况：
+- 收入高峰期，每月可投资3,000美元
+- 距退休20年
+- 适度风险承受能力
+- 已拥有401(k)、Roth IRA和应税账户
 
-Allocation:
+配置：
 +--------------------------------------------+
-| 401(k): $1,917/month ($23,000/year)        |
-|   50% US Stock Index                       |
-|   20% International Stock Index            |
-|   30% Bond Index                           |
+| 401(k)：$1,917/月（$23,000/年）            |
+|   50% 美国股票指数                         |
+|   20% 国际股票指数                         |
+|   30% 债券指数                             |
 |                                            |
-| Roth IRA: $583/month ($7,000/year)         |
+| Roth IRA：$583/月（$7,000/年）             |
 |   50% VTI                                  |
 |   25% VXUS                                 |
 |   25% BND                                  |
 |                                            |
-| Taxable: $500/month                        |
-|   60% VTI (tax-efficient)                  |
-|   40% VXUS (tax-efficient)                 |
-|   (Hold bonds in tax-advantaged accounts)  |
+| 应税账户：$500/月                          |
+|   60% VTI（税务效率高）                    |
+|   40% VXUS（税务效率高）                   |
+|   （债券持有于税收优惠账户中）              |
 +--------------------------------------------+
-Total monthly: $3,000 | 70% stocks / 30% bonds
+每月总投入：$3,000 | 70%股票 / 30%债券
 
-At 7.5% average return, $3,000/month for 20 years
-= approximately $1.6 million.
+以7.5%平均收益率，每月$3,000坚持20年
+≈ 约160万美元。
 
 
-SAMPLE PORTFOLIO 4: THE PRE-RETIREE (Age 55)
+示例投资组合四：准退休人员（55岁）
 ==============================================
 
-Situation:
-- 10 years to retirement
-- Has $800,000 accumulated, adding $2,000/month
-- Lower risk tolerance
-- Needs to protect accumulated wealth
+情况：
+- 距退休10年
+- 已积累80万美元，每月继续投入2,000美元
+- 风险承受能力较低
+- 需要保护已积累的财富
 
-Allocation:
+配置：
 +--------------------------------------------+
-| Overall target: 50% stocks / 50% bonds     |
+| 总体目标：50%股票 / 50%债券                |
 |                                            |
-| Stocks (50%):                              |
-|   30% VTI  (US stocks)                     |
-|   15% VXUS (International stocks)          |
-|    5% VBR  (Small cap value -- tilt)       |
+| 股票（50%）：                              |
+|   30% VTI  （美国股票）                    |
+|   15% VXUS （国际股票）                    |
+|    5% VBR  （小盘价值股——因子倾斜）        |
 |                                            |
-| Bonds (50%):                               |
-|   25% BND  (Total bond market)             |
-|   15% VTIP (Inflation-protected)           |
-|   10% BSV  (Short-term bonds)              |
+| 债券（50%）：                              |
+|   25% BND  （全债券市场）                  |
+|   15% VTIP （通胀保值债券）                |
+|   10% BSV  （短期债券）                    |
 +--------------------------------------------+
-Total: $800,000 + $2,000/month
+合计：$800,000 + 每月$2,000
 
-At 6.5% average return, existing $800K grows to
-~$1.5M, plus contributions add ~$340K
-= approximately $1.84 million at retirement.
+以6.5%平均收益率，现有80万美元将增长至
+约150万美元，加上后续定投贡献约34万美元
+≈ 退休时约184万美元。
 
 
-SAMPLE PORTFOLIO 5: THE RETIREE (Age 65)
+示例投资组合五：已退休人员（65岁）
 ==========================================
 
-Situation:
-- Drawing income from portfolio
-- Needs stability + inflation protection
-- 25+ year horizon (longevity risk)
-- Cannot afford large drawdowns early
+情况：
+- 从投资组合中提取收入
+- 需要稳定性+通胀保护
+- 25年以上的投资期限（长寿风险）
+- 不能承受早期的大幅回撤
 
-Allocation:
+配置：
 +--------------------------------------------+
-| Stocks (35%):                              |
-|   20% VTI  (US stocks)                     |
-|   10% VXUS (International stocks)          |
-|    5% VYM  (Dividend stocks for income)    |
+| 股票（35%）：                              |
+|   20% VTI  （美国股票）                    |
+|   10% VXUS （国际股票）                    |
+|    5% VYM  （股息股票，提供收益）          |
 |                                            |
-| Bonds (55%):                               |
-|   25% BND  (Total bond market)             |
-|   15% VTIP (Inflation protection)          |
-|   10% BSV  (Short-term -- near-term needs) |
-|    5% BNDX (International bonds)           |
+| 债券（55%）：                              |
+|   25% BND  （全债券市场）                  |
+|   15% VTIP （通胀保护）                    |
+|   10% BSV  （短期债券——满足近期需求）      |
+|    5% BNDX （国际债券）                    |
 |                                            |
-| Cash/Short-term (10%):                     |
-|   10% Money market / T-bills               |
-|   (Covers 2-3 years of withdrawals)        |
+| 现金/短期资产（10%）：                     |
+|   10% 货币市场基金/国债                    |
+|   （覆盖2-3年的提款需求）                  |
 +--------------------------------------------+
 
-WITHDRAWAL STRATEGY:
-- 4% rule: withdraw 4% of initial balance per year
-  (adjusted for inflation)
-- $1.5M portfolio x 4% = $60,000/year
-- Plus Social Security and any pensions
+提款策略：
+- 4%法则：每年提取初始余额的4%
+  （按通胀率调整）
+- $1,500,000 x 4% = $60,000/年
+- 加上社会保障金及任何养老金
 ```
 
 ---
 
-#### 9. Rebalancing -- Keeping Your Portfolio on Track
+#### 9. 再平衡——让你的投资组合保持正轨
 
 ```
-REBALANCING: WHY AND HOW
+再平衡：原因与方法
 ==========================
 
-WHAT IS REBALANCING?
-Your target allocation is 70% stocks / 30% bonds.
-After a stock market rally, it drifts to 80/20.
-Rebalancing = selling some stocks and buying bonds
-to return to 70/30.
+什么是再平衡？
+你的目标配置是70%股票 / 30%债券。
+经过一轮股市上涨，它漂移至80/20。
+再平衡 = 卖出部分股票，买入债券，
+使配置回归70/30。
 
-WHY REBALANCE?
-1. Controls risk (prevents portfolio from getting
-   too aggressive or too conservative)
-2. Enforces "buy low, sell high" automatically
-3. Maintains alignment with your goals
-4. Removes emotional decision-making
+为什么要再平衡？
+1. 控制风险（防止投资组合变得过于进取
+   或过于保守）
+2. 自动实现"低买高卖"
+3. 保持与目标的一致性
+4. 去除情绪化决策
 
-REBALANCING APPROACHES:
+再平衡方式：
 
-Calendar-based:
-  Rebalance every 6 or 12 months on a fixed date.
-  Pro: Simple, no monitoring required
-  Con: May rebalance when not needed
+基于日历的再平衡：
+  在固定日期，每6个月或12个月再平衡一次。
+  优点：简单，无需持续监控
+  缺点：可能在不必要时触发再平衡
 
-Threshold-based:
-  Rebalance whenever any asset class drifts
-  more than 5% from its target.
-  Pro: More responsive
-  Con: Requires monitoring
+基于阈值的再平衡：
+  当任一资产类别偏离目标超过5%时再平衡。
+  优点：响应更及时
+  缺点：需要定期监控
 
-REBALANCING EXAMPLE:
+再平衡示例：
 =====================
 
-Target: 60% US stocks / 25% Intl / 15% bonds
+目标：60%美国股票 / 25%国际股票 / 15%债券
 
-           Target    Actual    Drift   Action
+           目标      实际      偏差    操作
            ------    ------    -----   ------
-US Stocks   60%       68%      +8%    SELL 8%
-Intl        25%       22%      -3%    BUY 3%
-Bonds       15%       10%      -5%    BUY 5%
+美国股票    60%       68%      +8%    卖出8%
+国际股票    25%       22%      -3%    买入3%
+债券        15%       10%      -5%    买入5%
 
-On a $100,000 portfolio:
-  Sell $8,000 of US stocks
-  Buy $3,000 of International
-  Buy $5,000 of Bonds
+以$100,000的投资组合为例：
+  卖出$8,000的美国股票
+  买入$3,000的国际股票
+  买入$5,000的债券
 
-TAX TIP: In taxable accounts, rebalance using
-new contributions rather than selling (to avoid
-triggering capital gains taxes). Direct new money
-to the underweight asset class.
+税务提示：在应税账户中，尽量用新增资金
+进行再平衡，而非出售持仓（以避免触发
+资本利得税）。将新增资金定向买入
+比例偏低的资产类别。
 ```
 
 ---
 
-#### 10. The Investment Policy Statement
+#### 10. 投资政策声明
 
 ```
-INVESTMENT POLICY STATEMENT (IPS) TEMPLATE
+投资政策声明（IPS）模板
 =============================================
 
-Name: ___________________________
-Date: ___________________________
+姓名：___________________________
+日期：___________________________
 
-1. GOALS:
-   Primary goal: _________________________
-   Amount needed: $_______________________
-   Target date: __________________________
+一、目标：
+   主要目标：_________________________
+   所需金额：$_______________________
+   目标日期：__________________________
 
-   Secondary goal: _______________________
-   Amount needed: $_______________________
-   Target date: __________________________
+   次要目标：_______________________
+   所需金额：$_______________________
+   目标日期：__________________________
 
-2. RISK TOLERANCE:
-   Risk capacity:    [ ] Low  [ ] Med  [ ] High
-   Risk willingness: [ ] Low  [ ] Med  [ ] High
-   Maximum acceptable drawdown: ______%
+二、风险承受能力：
+   风险承担能力：  [ ] 低  [ ] 中  [ ] 高
+   风险承受意愿：  [ ] 低  [ ] 中  [ ] 高
+   最大可接受回撤：______%
 
-3. TARGET ALLOCATION:
-   US Stocks:           ______%
-   International Stocks: ______%
-   US Bonds:            ______%
-   International Bonds: ______%
-   Other:               ______%
+三、目标配置：
+   美国股票：           ______%
+   国际股票：           ______%
+   美国债券：           ______%
+   国际债券：           ______%
+   其他：               ______%
 
-4. INSTRUMENTS:
-   US Stocks:           ____________ (ticker)
-   Intl Stocks:         ____________ (ticker)
-   US Bonds:            ____________ (ticker)
-   Other:               ____________ (ticker)
+四、投资工具：
+   美国股票：           ____________（代码）
+   国际股票：           ____________（代码）
+   美国债券：           ____________（代码）
+   其他：               ____________（代码）
 
-5. ACCOUNTS:
-   401(k) at:           ____________
-   IRA at:              ____________
-   Taxable at:          ____________
+五、账户：
+   401(k)开户于：       ____________
+   IRA开户于：          ____________
+   应税账户开户于：     ____________
 
-6. CONTRIBUTION PLAN:
-   Monthly amount:      $____________
-   Contribution day:    ____________
-   Automatic?           [ ] Yes  [ ] No
+六、定投计划：
+   每月金额：           $____________
+   定投日期：           ____________
+   是否自动？           [ ] 是  [ ] 否
 
-7. REBALANCING RULES:
-   Method:    [ ] Calendar  [ ] Threshold
-   Frequency: ____________
-   Threshold: ______% drift from target
+七、再平衡规则：
+   方式：  [ ] 基于日历  [ ] 基于阈值
+   频率：  ____________
+   阈值：  ______%偏离目标时触发
 
-8. RULES I WILL FOLLOW:
-   [ ] I will not sell during a market crash
-   [ ] I will not chase hot stocks/sectors
-   [ ] I will review this IPS annually
-   [ ] I will wait 48 hours before any trade
-       not specified in this plan
-   [ ] I will increase contributions when my
-       income increases
+八、我将遵守的规则：
+   [ ] 市场崩盘时我不会卖出
+   [ ] 我不会追逐热门股票/板块
+   [ ] 我将每年审视本投资政策声明
+   [ ] 对于本计划未涵盖的任何交易，
+       我将等待48小时再执行
+   [ ] 收入增加时，我将提高定投金额
 
-9. WHEN I WILL REVISE THIS PLAN:
-   [ ] Major life event (marriage, child, job change)
-   [ ] Annually on ____________ (date)
-   [ ] When goals fundamentally change
+九、我何时修订本计划：
+   [ ] 重大人生事件（婚姻、生子、换工作）
+   [ ] 每年固定日期 ____________
+   [ ] 目标发生根本性变化时
 
-Signed: ___________________________
-Date:   ___________________________
+签名：___________________________
+日期：___________________________
 
-Keep this document and refer to it whenever
-you feel the urge to deviate from your plan.
+请保存此文件，每当你感到想要偏离
+计划的冲动时，请拿出来阅读。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "I need a lot of money to start investing."**
+**误区一："我需要很多钱才能开始投资。"**
 
-Reality: Most major brokerages have zero minimums. Many allow fractional share purchases, so you can invest as little as $1. Starting with $50 or $100 per month is perfectly fine. The amount matters less than the habit. An investor who contributes $100 per month for 40 years at 9% ends up with approximately $470,000. Starting small and starting now beats waiting until you have a "significant" amount.
+现实：大多数主要券商没有最低开户限制。许多平台支持零股交易，最低1美元即可投资。每月投入50或100美元完全没有问题。金额的多少不如养成定投习惯重要。每月坚持投入100美元，以9%的收益率持续40年，最终将积累约47万美元。这是很多人花在流媒体订阅和咖啡上的钱所能带来的改变人生的财富。不要让完美成为行动的敌人。
 
-**Misconception 2: "I need to find the perfect allocation before I start."**
+**误区二："我需要找到完美的配置才能开始投资。"**
 
-Reality: The difference between a 60/40 and a 70/30 portfolio over 30 years is far smaller than the difference between investing and not investing. Spending six months researching the "optimal" allocation while your money sits in a savings account is a net negative. Pick a reasonable allocation (there are no terrible choices among the sample portfolios above), start investing, and refine later.
+现实：60/40和70/30的投资组合在30年后的差距，远小于投资与不投资之间的差距。花六个月研究"最优配置"，同时让资金躺在储蓄账户里，是一种净亏损。选择一个合理的配置（上述示例投资组合中没有糟糕的选择），开始投资，之后再优化。
 
-**Misconception 3: "I should wait for the market to drop before investing."**
+**误区三："我应该等市场下跌之后再投资。"**
 
-Reality: Market timing is a losing strategy for nearly all investors. Studies show that even if you had perfect timing and invested only at market bottoms, your advantage over simply investing on the first of every month would be surprisingly small -- roughly 0.4% per year. Meanwhile, waiting for a crash that may not come for years means missing out on months or years of returns. Time in the market beats timing the market.
+现实：择时入市对几乎所有投资者来说都是失败的策略。研究表明，即使你能完美地择时，只在市场底部买入，相比每月固定日期投资，优势也出奇地小——大约每年只有0.4个百分点的差异。与此同时，等待一场可能数年内都不会来临的市场下跌，意味着错过数月乃至数年的收益。待在市场中的时间，比择时入市更重要。
 
-**Misconception 4: "A more complex portfolio is a better portfolio."**
+**误区四："更复杂的投资组合就是更好的投资组合。"**
 
-Reality: Complexity is not a sign of sophistication. Many of the world's most respected investors advocate simple portfolios. Jack Bogle, founder of Vanguard, used a two-fund portfolio his entire life. Warren Buffett's instructions for his wife's inheritance: 90% S&P 500 index fund, 10% short-term government bonds. Adding more funds often adds cost, complexity, and overlap without meaningfully improving diversification.
+现实：复杂性并不是专业的标志。许多世界上最受尊重的投资者都提倡简单的投资组合。先锋基金创始人约翰·博格一生只用两只基金。沃伦·巴菲特为妻子的遗产所立下的指示是：90%买入标普500指数基金，10%买入短期政府债券。增加更多基金往往只是增加了成本、复杂性和重叠持仓，并不能有效提升分散化程度。
 
-**Misconception 5: "I should keep my portfolio exactly at the target allocation at all times."**
+**误区五："我应该时刻将投资组合维持在精确的目标配置上。"**
 
-Reality: Rebalancing too frequently increases trading costs and taxes without adding much benefit. Research shows that rebalancing once or twice a year captures nearly all the benefits. Small drifts (under 5 percentage points) are perfectly fine. Obsessive rebalancing is itself a form of overtrading.
+现实：过于频繁的再平衡会增加交易成本和税负，却没有增加多少收益。研究表明，每年再平衡一到两次就能获得几乎全部的再平衡收益。小幅偏离（在5个百分点以内）完全可以接受。强迫症式的再平衡本身就是一种过度交易。
 
-**Misconception 6: "My portfolio should never lose money."**
+**误区六："我的投资组合绝不应该亏损。"**
 
-Reality: Short-term losses are the price of admission for long-term gains. A portfolio that never loses money is one invested entirely in cash or short-term government bonds, and its real return after inflation is close to zero. Stock market losses are temporary for patient investors; purchasing power erosion from inflation is permanent. Accept volatility as the cost of growth.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What if I cannot afford to invest $500 per month?**
-
-A: Start with whatever you can. Even $25 per month establishes the habit of investing, which is the hardest part. As your income grows, increase your contributions. The key principle is consistency, not amount. An investor who contributes $100 per month for 40 years at 9% accumulates approximately $470,000. That is life-changing money from what many people spend on streaming subscriptions and coffee. Do not let the perfect be the enemy of the good.
-
-**Q2: Should I pay off debt before investing?**
-
-A: It depends on the interest rate. High-interest debt (credit cards at 15-25%) should absolutely be paid off before investing -- no investment reliably returns more than 20% per year. But low-interest debt (mortgage at 4%, student loans at 5%) can coexist with investing because the expected market return exceeds the interest cost. A reasonable approach: pay off all debt above 7-8% interest first, then invest while making regular payments on lower-interest debt. Always contribute enough to capture any employer 401(k) match regardless of debt level -- that match is an immediate 50-100% return.
-
-**Q3: Should I use Roth or Traditional for my 401(k) and IRA?**
-
-A: The core question is whether your tax rate will be higher now or in retirement. If you expect a higher tax rate in retirement (which is common for young professionals early in their careers), Roth is better -- you pay taxes now at a lower rate and withdraw tax-free later. If your tax rate is high now and you expect it to be lower in retirement, Traditional is better -- you defer taxes now and pay later at a lower rate. When in doubt, split contributions 50/50 between Roth and Traditional for tax diversification. This gives you flexibility in retirement to manage your tax bracket.
-
-**Q4: How do I rebalance without triggering a big tax bill?**
-
-A: In tax-advantaged accounts (401k, IRA), rebalancing has no tax consequences -- sell and buy freely. In taxable accounts, use these strategies: first, direct new contributions to the underweight asset class rather than selling overweight ones. Second, use dividends and distributions to purchase underweight funds. Third, when you do need to sell, use tax-loss harvesting on losing positions to offset gains. Fourth, consider only rebalancing in your tax-advantaged accounts and using your taxable account as the overflow.
-
-**Q5: What about investing in individual stocks alongside my index fund portfolio?**
-
-A: The 90/10 rule works well here. Keep 90% of your portfolio in your core index fund strategy. Use the remaining 10% as a "satellite" portfolio for individual stocks if you enjoy picking them. This lets you scratch the itch of stock picking without putting your financial future at risk. If your individual picks outperform, great -- you boosted returns slightly. If they underperform, the damage is contained to 10%. Never let the speculative tail wag the diversified dog.
-
-**Q6: Should I invest internationally or just stick with US stocks?**
-
-A: Include international stocks. While the US has outperformed international markets over the past decade, that has not always been the case. In the 2000-2009 decade, the S&P 500 had negative returns while international stocks were positive. Future outperformance is unpredictable, and holding both ensures you participate in whichever market leads. A 60-70% US / 30-40% international split is a reasonable starting point. Total international funds (like VXUS) include both developed and emerging markets, providing broad exposure.
-
-**Q7: What is the 4% rule and can I rely on it?**
-
-A: The 4% rule says that if you withdraw 4% of your portfolio in the first year of retirement and increase that amount by inflation each year, your portfolio has historically lasted at least 30 years in every 30-year period since 1926 (the original Trinity Study). However, some financial planners now suggest 3.5% as a more conservative rate given current lower expected returns. The rule is a useful starting point, not a guarantee. Flexibility is key -- if the market drops significantly early in retirement, reduce withdrawals temporarily.
-
-**Q8: What about cryptocurrency, gold, or real estate in my portfolio?**
-
-A: These can have a place but should not be the foundation. A core portfolio of stocks and bonds covers most diversification needs. If you want to add alternatives, keep them modest: 5-10% of the total portfolio maximum. Gold can serve as an inflation hedge but produces no income. Real estate can be accessed through REITs (real estate investment trusts) within your stock allocation. Cryptocurrency is highly speculative -- if included at all, keep it in the "satellite" 10% and be prepared for extreme volatility. Build the core first, add satellites later.
-
-**Q9: How do I stay disciplined during a market crash?**
-
-A: This is where your Investment Policy Statement earns its keep. During a crash, read your IPS. It was written by a calm, rational version of you who planned for exactly this scenario. Other strategies: stop checking your portfolio daily, review historical crash recoveries (every major crash has been followed by new highs), remember that market drops are when dollar-cost averaging works best (you are buying cheap shares), and call your investing buddy for accountability. The lesson on behavioral biases (Week 11) is your best defense here.
-
-**Q10: When should I change my portfolio allocation?**
-
-A: Change your allocation when your life circumstances change, not when the market changes. Getting married, having children, approaching retirement, receiving an inheritance, or losing a job are valid reasons to revisit your allocation. A market rally or crash is not a valid reason -- your IPS already accounts for market volatility. As a rule of thumb, review your allocation once per year on a fixed date and make adjustments only if your goals, time horizon, or risk tolerance have genuinely changed.
+现实：短期亏损是获得长期收益的入场券。一个从不亏损的投资组合，意味着完全投资于现金或短期国债，而在扣除通胀后，其实际收益率接近于零。对于有耐心的投资者来说，股市亏损是暂时的；通胀对购买力的侵蚀则是永久的。接受波动性，把它看作增长的代价。
 
 ---
 
-## YouTube Script
+### d) 常见问题解答
 
-[VISUAL: Animated intro showing building blocks assembling into a house, symbolizing portfolio construction. Title card: "Week 12: Building Your First Portfolio"]
+**问题一：如果我每月无法投入500美元，怎么办？**
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Opening sequence with puzzle pieces representing different asset classes clicking together to form a complete portfolio]
+答：从你能拿出的金额开始。哪怕每月25美元，也能建立起定投的习惯，而这才是最难的部分。随着收入增长，逐步提高定投金额。关键在于坚持，而不是金额大小。每月投入100美元，以9%的收益率持续40年，将积累约47万美元。这是很多人花在流媒体订阅和咖啡上的钱所能创造的改变人生的财富。不要让完美成为行动的敌人。
 
-**Alex:** Welcome to what might be the most important episode in our entire series. For the past eleven weeks, we have been learning the building blocks -- stocks, bonds, risk, valuation, fees, behavioral biases. Today, we put it all together. Today, we build your first portfolio.
+**问题二：应该先还债再投资吗？**
 
-**Sam:** I have been looking forward to this one. But I have to be honest -- I am also a little nervous. There are so many choices. How do I know I am making the right ones?
+答：这取决于利率。高利率债务（信用卡15-25%）绝对应该在投资之前先还清——没有任何投资能稳定地每年带来超过20%的收益。但低利率债务（4%的房贷、5%的助学贷款）可以与投资并行，因为预期市场收益超过利息成本。一个合理的做法是：先还清所有利率超过7-8%的债务，然后在继续偿还低利率债务的同时开始投资。无论负债水平如何，都要确保缴纳足够的401(k)以获得雇主全额配套——配套资金相当于即时获得50-100%的回报。
 
-**Alex:** That anxiety is completely normal, and here is the first thing I want you to internalize: getting started matters infinitely more than getting it perfect. The difference between a good portfolio and a perfect portfolio is small. The difference between a good portfolio and no portfolio is enormous.
+**问题三：401(k)和IRA应该选罗斯（Roth）还是传统型？**
 
-[VISUAL: Bar chart showing three scenarios over 30 years -- "Perfect Portfolio" at $2.1M, "Good Portfolio" at $1.9M, and "No Portfolio (savings account)" at $180K]
+答：核心问题在于你现在的税率和退休时的税率哪个更高。如果你预期退休时税率更高（对于职业早期的年轻职场人来说很常见），罗斯更合适——现在以较低税率缴税，未来提款免税。如果你现在税率较高，预期退休时税率较低，传统型更合适——现在推迟纳税，将来以较低税率缴税。如果拿不定主意，可以将缴款各分一半到罗斯和传统型，实现税务多元化。这样在退休时能灵活管理税务档次。
 
-**Sam:** When you show it that way, the gap between good and perfect is tiny compared to investing versus not investing.
+**问题四：如何在不产生大额税单的情况下进行再平衡？**
 
-**Alex:** Exactly. So let us get you off the sidelines. We are going to follow a six-step process, and by the end of this episode, you will have a complete, actionable plan.
+答：在税收优惠账户（401k、IRA）中，再平衡没有税务影响——可以自由买卖。在应税账户中，可采用以下策略：首先，将新增资金定向买入比例偏低的资产类别，而非卖出比例偏高的资产类别；其次，用股息和分红购买比例不足的基金；第三，确实需要出售时，利用亏损持仓进行税损收割以抵消盈利；第四，考虑只在税收优惠账户中进行再平衡，将应税账户作为溢出资金的去处。
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Six-step roadmap appearing as a path with milestones: Goals, Risk, Allocation, Instruments, Account, Implementation]
+**问题五：除了指数基金投资组合，我还可以投资个股吗？**
 
-**Alex:** Step one: define your goals. And I do not mean vague goals like "I want to be rich." I mean specific, measurable goals. What are you investing for? When do you need the money? How much do you need?
+答：90/10法则在这里非常适用。将90%的投资组合按我们讨论的方式投入核心指数基金策略——简单、分散、自动化。用剩余的10%作为"卫星"投资组合，用于投资个股。如果你的选股眼光好，那很好——小幅提升了收益。如果表现不佳，损失也被控制在10%以内。不要让投机的尾巴摇摆分散化的大狗。
 
-**Sam:** Okay. My main goal is retirement. I am 28 years old, and I want to retire at 60. So that is 32 years. I think I need about $2 million.
+**问题六：是否应该配置国际股票，还是只投资美国股票？**
 
-**Alex:** Good. Now let us check if that is achievable. At a 9% average annual return, which is roughly what a stock-heavy portfolio has delivered historically, you would need to invest about $1,100 per month to reach $2 million in 32 years.
+答：应该配置国际股票。虽然美国在过去十年中跑赢了国际市场，但历史上并非总是如此。在2000-2009年间，标普500的总回报为负，而国际股票却实现了正回报。未来谁能领跑无法预测，同时持有两者确保你能参与任何一个市场的上涨。以60-70%美国股票、30-40%国际股票作为合理起点。全球股票基金（如VXUS）同时涵盖发达市场和新兴市场，提供广泛的敞口。
 
-[ANIMATION: animation/week12_portfolio_builder.py -- Compound interest calculator visualization showing $1,100/month growing to $2M over 32 years, with the final years showing explosive growth as compounding accelerates]
+**问题七：什么是4%法则？我能依赖它吗？**
 
-**Sam:** $1,100 a month is a stretch right now, but I think I can do $800 and increase it as my salary grows.
+答：4%法则是指，如果你在退休第一年提取投资组合的4%，之后每年按通胀率调整提款金额，那么根据历史数据，你的投资组合在自1926年以来的每个30年周期内都能维持至少30年（这是最初的"三一研究"结论）。然而，鉴于当前预期收益率较低，部分理财规划师现在建议采用更保守的3.5%比率。这一法则是一个有用的起点，不是保证。灵活性是关键——如果退休初期市场大幅下跌，可暂时减少提款金额。
 
-**Alex:** That is a perfectly reasonable plan. Start with $800, and commit to increasing it by $100 every time you get a raise. The goal does not have to be achievable from day one -- it has to be achievable over the full time horizon. And here is something that will motivate you: the first $100,000 is the hardest. It might take you seven or eight years to reach that. But the second $100,000 might take only three years, the third only two. Compound interest accelerates the longer you are in the game.
+**问题八：加密货币、黄金或房地产应该纳入我的投资组合吗？**
 
-[VISUAL: Timeline showing milestones -- $100K at year 8, $200K at year 11, $500K at year 17, $1M at year 23, $2M at year 32]
+答：这些资产可以有一席之地，但不应该成为核心。由股票和债券构成的核心投资组合已经满足了大部分分散化需求。如果你想加入另类资产，请保持适度：占总投资组合的5-10%为上限。黄金可以作为通胀对冲工具，但不产生任何收益。房地产可以通过股票配置中的房地产投资信托（REIT）来获取。加密货币高度投机——如果一定要配置，请将其纳入"卫星"的10%，并做好承受极端波动性的准备。先构建核心，再添加卫星配置。
 
-**Sam:** That acceleration is incredible. Okay, I have my goal. What is step two?
+**问题九：市场崩盘时我如何保持纪律？**
 
-**Alex:** Step two is assessing your risk tolerance. And this has two components that most people mix up. There is risk capacity -- what you can objectively afford to lose -- and risk willingness -- what you can emotionally handle losing. You need to respect both.
+答：这正是你的投资政策声明发挥作用的时候。崩盘来临时，翻出你的投资政策声明，读一读。它是由冷静、理性的你写下的，那个你早已为这种情景做好了规划。其他策略还包括：停止每天查看投资组合；回顾历史上的崩盘和随后的反弹（每次重大崩盘之后，市场都创下了新高）；记住市场下跌正是定投发挥最大作用的时候（你在低价买入份额）；联系你的投资伙伴寻求支持。行为偏误那一课（第11周）是你最好的防御武器。
 
-[VISUAL: Two meter gauges side by side -- "Risk Capacity" and "Risk Willingness" -- with needles at different positions]
+**问题十：我应该什么时候调整投资组合的配置？**
 
-**Sam:** How do I figure those out?
-
-**Alex:** For risk capacity, consider your time horizon, income stability, emergency fund, and dependents. You are 28, single, have a stable tech job, and a six-month emergency fund. Your risk capacity is high. For risk willingness, I use what I call the sleep test. Imagine your portfolio drops by various amounts in a single month. At what point do you start losing sleep?
-
-**Sam:** I think I would be okay with a 20% drop. I would be nervous at 30%. I would be panicking at 40%.
-
-**Alex:** So your sweet spot is probably somewhere in the range of 70 to 85% stocks. A portfolio of 80% stocks has historically had a worst-case single-year loss of about 35-40%. That is right at the edge of your comfort zone. If we back off to 75% stocks, the worst case drops to around 30%, which you said you could handle.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Risk-return spectrum visualization showing different stock/bond splits with their historical maximum drawdowns and average returns, with Sam's comfort zone highlighted]
-
-**Sam:** Let us go with 80% stocks and 20% bonds. I am young enough to handle the volatility, and I want the growth.
-
-**Alex:** Good choice. Now let us talk about the single most important decision in portfolio construction -- asset allocation. This is step three.
-
-[VISUAL: Pie chart showing 80% stocks / 20% bonds, then splitting the stock portion into sub-categories]
-
-**Alex:** Research shows that asset allocation determines roughly 90% of your portfolio's long-term behavior. Not stock picking. Not market timing. The split between stocks and bonds is the decision that matters most.
-
-**Sam:** Wait, 90%? So the specific stocks I pick barely matter?
-
-**Alex:** In the context of a diversified portfolio, correct. Whether you use the Vanguard S&P 500 fund or the iShares S&P 500 fund makes almost no difference. Whether you are 70/30 or 90/10 stocks-to-bonds makes a huge difference. Most people spend 90% of their time on the 10% that matters (picking stocks) and 10% of their time on the 90% that matters (setting allocation).
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Pie chart showing factors determining portfolio returns: 90% asset allocation, 5% security selection, 3% market timing, 2% other factors, based on the Brinson study]
-
-**Alex:** So let us break down your 80% stock allocation. I recommend splitting it between US and international stocks. Something like 55% US and 25% international.
-
-**Sam:** Why international? The US market has crushed international for the past decade.
-
-**Alex:** That is recency bias talking -- remember Week 11? In the 2000 to 2009 decade, the S&P 500 had negative total returns while international stocks posted positive returns. The decade before that, both did well. The decade after favored the US. No one knows which market will lead over the next 30 years. By owning both, you guarantee you own whichever one wins.
-
-[VISUAL: Decade-by-decade performance comparison chart showing US vs. International stocks, with leadership alternating]
-
-**Sam:** Fair point. So 55% US, 25% international, 20% bonds. What specific funds do I buy?
-
-**Alex:** This is step four, and it is where most people overcomplicate things. I am going to show you something that will change how you think about investing. It is called the three-fund portfolio.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Three fund boxes appearing one at a time with details: VTI (US stocks, 4,000 holdings, 0.03% fee), VXUS (International stocks, 8,000 holdings, 0.07% fee), BND (US bonds, 10,000 holdings, 0.03% fee)]
-
-**Alex:** Fund one: VTI, the Vanguard Total Stock Market ETF. This single fund gives you exposure to roughly 4,000 US stocks -- large, mid, and small cap. The expense ratio is 0.03%, which means you pay $3 per year for every $10,000 invested.
-
-**Sam:** Three dollars? That is nothing.
-
-**Alex:** Fund two: VXUS, the Vanguard Total International Stock Market ETF. This gives you about 8,000 non-US stocks from developed and emerging markets worldwide. Expense ratio: 0.07%. Fund three: BND, the Vanguard Total Bond Market ETF. This covers the entire US investment-grade bond market. Expense ratio: 0.03%.
-
-**Sam:** So three funds cover basically the entire world?
-
-**Alex:** Over 12,000 securities across every major market on Earth. Total annual cost: roughly $30 to $50 per $100,000 invested. That is less than a single lunch per year.
-
-[VISUAL: Globe visualization showing coverage of three funds, with pins lighting up across continents]
-
-**Sam:** And this simple approach actually works?
-
-**Alex:** It does not just work -- it beats the vast majority of professional money managers. The S&P SPIVA scorecard shows that over 15-year periods, roughly 90% of actively managed funds underperform their benchmark index. The three-fund portfolio essentially IS the benchmark. You are not settling for average -- you are choosing the strategy that beats 90% of the professionals.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Bar chart building showing "Percentage of active funds that FAILED to beat the index" across categories: US Large Cap 92%, US Mid Cap 95%, US Small Cap 93%, International 88%]
-
-**Sam:** Okay, I am sold on the approach. So for my specific allocation, I would put 55% in VTI, 25% in VXUS, and 20% in BND?
-
-**Alex:** Exactly. On your $800 per month, that is $440 to VTI, $200 to VXUS, and $160 to BND. Simple.
-
-[VISUAL: Monthly investment breakdown: $440 VTI, $200 VXUS, $160 BND, total $800]
-
-**Sam:** Now, I have also heard about target-date funds. What are those and should I use one instead?
-
-**Alex:** Target-date funds are the ultimate "set it and forget it" option. You pick the fund closest to your retirement year -- in your case, a 2058 target-date fund. It starts aggressive and automatically shifts to bonds over time. One fund, no rebalancing, no decisions.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Glide path animation showing target-date fund allocation shifting from 90/10 stocks/bonds at age 28 to 50/50 at age 60 to 30/70 at age 75, with the slider moving automatically]
-
-**Sam:** That sounds even easier. Why would I not just do that?
-
-**Alex:** It is a perfectly good option, and I would never discourage someone from using a target-date fund. The downsides are minor: slightly higher fees (0.08% versus 0.03-0.07% for individual funds), no customization, and less tax efficiency in taxable accounts. But if the simplicity means you actually invest instead of procrastinating, a target-date fund is far better than doing nothing.
-
-**Sam:** I think I prefer the three-fund approach because I want to understand what I own. Where should I open my account?
-
-**Alex:** Step five. Let us talk about account types first, because this is where people leave money on the table. You said you have a 401(k) through work with an employer match?
-
-**Sam:** Yes, they match 50% up to 6% of my salary.
-
-**Alex:** That match is the single best investment return you will ever get. If you put in 6% of your salary and they match half, you are getting an immediate 50% return on that money. There is nothing in the stock market that competes with a guaranteed 50% return. So rule number one: always contribute at least enough to get the full match.
-
-[VISUAL: Dollar bill animation -- employee puts in $1, employer adds $0.50, total $1.50 from day one]
-
-**Sam:** I am already doing that. My salary is $85,000, so I contribute $5,100 per year and they match $2,550.
-
-**Alex:** Perfect. Now here is the priority order for additional investing. After the 401(k) match, open a Roth IRA and max it out at $7,000 per year -- that is about $583 per month. In a Roth, your money grows completely tax-free and you withdraw it tax-free in retirement. At 28, you are probably in a lower tax bracket than you will be in retirement, so paying taxes now and never again is a great deal.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Account priority waterfall: 401(k) match first (highlighted as "FREE MONEY"), then Roth IRA (highlighted as "TAX-FREE GROWTH"), then back to 401(k), then taxable account]
-
-**Sam:** After the Roth IRA?
-
-**Alex:** Go back to the 401(k) and increase your contributions if you have money left. The 401(k) limit is $23,000 per year. After that, open a regular taxable brokerage account for anything beyond. But at $800 per month total, your money will be split between the 401(k) contributions you are already making and a Roth IRA.
-
-**Sam:** Which brokerage should I use for the Roth IRA?
-
-**Alex:** Fidelity, Schwab, or Vanguard. All three offer zero-commission trading on ETFs, excellent service, and low-cost index funds. Honestly, the differences between them are tiny. Pick whichever one you can open an account with in the next 15 minutes and move on.
-
-[VISUAL: Three brokerage logos side by side with "ALL GREAT CHOICES" banner]
-
-**Sam:** Should I not research them more carefully?
-
-**Alex:** You could spend two weeks comparing fractional share support, mobile app features, and research tools. Or you could open an account tonight and start investing tomorrow. Analysis paralysis is a real wealth destroyer. All three are regulated by SIPC, all three have zero fees on ETFs, all three are stable, well-capitalized companies. The decision does not matter nearly as much as making one.
-
-**Sam:** Okay, I will open a Fidelity account tonight. Now what -- step six?
-
-**Alex:** Step six is implementation, and I have a checklist for you.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Checklist items appearing one by one with check boxes, organized by Week 1 through Week 4]
-
-**Alex:** Week one: confirm your goals, risk tolerance, and allocation. You have already done this. Week two: open the account, link your bank, set up automatic transfers. Week three: make your first purchases and enable dividend reinvestment. Week four: set up your maintenance system -- a rebalancing schedule, a monthly portfolio check date, and write your Investment Policy Statement.
-
-**Sam:** Investment Policy Statement -- what is that?
-
-**Alex:** It is the most important document most investors never write. It is a one-page contract with yourself that states your goals, your allocation, your rules for buying and selling, and your commitment to stay the course during market turbulence. When the market crashes 30% and every fiber of your being wants to sell, you pull out your IPS and read it. It was written by a calm, rational version of you who planned for exactly this moment.
-
-[VISUAL: IPS template document appearing on screen with key sections highlighted]
-
-**Sam:** That is brilliant. It is like a letter from your past self to your panicking future self.
-
-**Alex:** Exactly. And write it by hand if you can. The physical act of writing increases commitment. Let me show you what a good IPS looks like.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Animated IPS being filled in with Sam's specific details: goals, 80/20 allocation, VTI/VXUS/BND, rebalancing rules, commitment to not panic sell]
-
-**Alex:** Now, one of the biggest questions beginners have: if you have a lump sum to invest, should you invest it all at once or spread it out over time?
-
-**Sam:** Yeah, I have actually been wondering about that. I have about $10,000 saved up. Should I invest it all now or dollar-cost average in?
-
-**Alex:** The math says invest it all now. Studies show lump sum investing beats dollar-cost averaging about two-thirds of the time because markets tend to go up. But here is the nuance: if investing $10,000 all at once would make you so anxious that you cannot sleep, or if it would cause you to panic sell during the first dip, then dollar-cost average over three to six months. The best investment strategy is the one you can actually stick with.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Split-screen simulation: lump sum investor on left, DCA investor on right, both investing $10,000 over various market scenarios. Final comparison showing lump sum wins more often but DCA provides smoother ride]
-
-**Sam:** I think I would feel better spreading it out. Maybe $2,500 per month for four months?
-
-**Alex:** That is a reasonable plan. Just set a schedule and follow it regardless of what the market does during those four months. Do not try to time it. Do not wait for a dip. On the first of each month, invest $2,500, period.
-
-**Sam:** Got it. Now, let us say I have been investing for a year and my allocation has drifted. How do I handle rebalancing?
-
-**Alex:** Rebalancing is how you maintain your target allocation over time. Say your target is 55% VTI, 25% VXUS, 20% BND. After a strong year for US stocks, your portfolio might drift to 62% VTI, 22% VXUS, 16% BND. You are now taking more risk than you planned.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Pie chart morphing from target allocation to drifted allocation, then snapping back to target after rebalancing]
-
-**Alex:** To rebalance, you sell some VTI and buy VXUS and BND to return to your targets. But here is a tax-efficient trick: instead of selling, use your new monthly contributions to buy only the underweight assets. Direct all your $800 toward VXUS and BND for a few months until the allocation gets back in line. No selling, no tax consequences.
-
-**Sam:** Smart. How often should I rebalance?
-
-**Alex:** Once or twice a year is plenty. I like the "birthday and half-birthday" approach -- check on your birthday and six months later. Or use a threshold: any time an asset class drifts more than five percentage points from its target, rebalance. Do not check more frequently than monthly, and definitely do not rebalance weekly. Remember the behavioral biases lesson -- the more you look, the more tempted you are to tinker, and tinkering usually hurts.
-
-[VISUAL: Calendar with two dates circled six months apart, labeled "Rebalance Check"]
-
-**Sam:** What about life changes? When should I change my actual allocation?
-
-**Alex:** Change your allocation when your life changes, not when the market changes. Getting married, having kids, buying a house, getting closer to retirement, losing a job -- these are valid reasons to revisit. A market crash is not a reason to change your allocation. Your IPS was written to withstand market crashes. Trust it.
-
-[VISUAL: Life events timeline showing points where allocation should be reviewed: marriage, first child, home purchase, career change, age milestones]
-
-**Sam:** Let me recap the whole process to make sure I have it. Step one: I defined my goal -- $2 million by age 60. Step two: I assessed my risk tolerance -- 80% stocks, 20% bonds. Step three: I chose my allocation -- 55% US stocks, 25% international, 20% bonds. Step four: I selected my instruments -- VTI, VXUS, and BND. Step five: I am opening a Fidelity Roth IRA tonight. Step six: I will invest $800 per month, rebalance twice a year, and follow my IPS.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Six steps appearing as completed milestones on a path, each lighting up as Sam names them, ending with a trophy at the finish]
-
-**Alex:** That is a perfect plan. And I want to point out something remarkable: you just built a portfolio that will, with high probability, outperform 90% of professional money managers over the next 30 years. Three funds. Zero commissions. About $30 per year in fees per $100,000 invested. And roughly 20 minutes of maintenance per year.
-
-**Sam:** It feels almost too simple.
-
-**Alex:** That is the paradox. Simplicity is counterintuitive because we associate complexity with sophistication. But in investing, complexity usually serves the financial industry, not the investor. Every additional layer of complexity is an additional fee, an additional decision point where bias can creep in, and an additional thing that can go wrong. The three-fund portfolio is simple not because it is unsophisticated -- it is simple because financial science has conclusively shown that it is the best approach for the vast majority of people.
-
-[VISUAL: Two portfolios side by side -- "Simple: 3 Funds" and "Complex: 27 Funds" -- with performance lines converging over 30 years but the complex one showing slightly lower returns due to fees]
-
-**Sam:** One more question. I have friends who are into individual stocks, crypto, and all kinds of speculative stuff. They make it sound exciting. Am I missing out?
-
-**Alex:** Remember the 90/10 rule. Take 90% of your portfolio and invest it exactly as we just discussed -- boring, diversified, automatic. Then take 10% -- and only 10% -- as "play money." Use that to buy individual stocks, dabble in crypto, or try sector bets. If you are right, great. If you are wrong, the damage is contained. This scratches the itch without jeopardizing your future.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Portfolio pie splitting into 90% "Core" (with a shield icon) and 10% "Satellite" (with a rocket icon), showing that even if the satellite goes to zero, the core protects the overall portfolio]
-
-**Sam:** I love that framework. It is like having a safety net so you can take some calculated risks.
-
-**Alex:** Exactly. And honestly, most people who try the satellite portion end up realizing the core performs better with less stress. But having the option keeps you engaged and reduces the temptation to blow up your main portfolio chasing the next hot thing.
-
-**Sam:** What about the people watching who are older? Is it too late for them to start?
-
-**Alex:** It is never too late. Let me show some numbers.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Side-by-side wealth accumulation charts for investors starting at age 25, 35, 45, and 55, each investing $1,000/month, showing that while earlier is better, every starting age still builds significant wealth]
-
-**Alex:** Starting at 35 with $1,000 per month at 8.5% gets you about $1.2 million by 65. Starting at 45 gets you about $480,000. Starting at 55 gets you about $170,000. Is earlier better? Obviously. But $170,000 or $480,000 is dramatically better than zero. And older investors often have higher incomes, so they can contribute more per month. A 50-year-old investing $3,000 per month can absolutely build a significant nest egg in 15 years.
-
-**Sam:** That is encouraging. What if someone is already retired?
-
-**Alex:** Retirees need a different approach -- less growth, more income and stability. A 35% stocks, 55% bonds, 10% cash allocation is a common starting point. The stocks provide long-term growth to fight inflation. The bonds provide stability and income. The cash covers two to three years of living expenses so you never have to sell stocks during a downturn.
-
-[VISUAL: Retiree portfolio allocation pie chart with withdrawal strategy overlay showing the "bucket" approach -- near-term expenses from cash, medium-term from bonds, long-term growth from stocks]
-
-**Alex:** The famous 4% rule says you can withdraw 4% of your portfolio in the first year of retirement, then adjust for inflation each year, and your money will likely last 30 years. On a $1.5 million portfolio, that is $60,000 per year, plus Social Security.
-
-**Sam:** This has been incredibly helpful. Let me distill the key takeaways for everyone watching.
-
-[VISUAL: Key takeaways appearing as a numbered list on screen]
-
-**Sam:** Number one: define specific goals with amounts and dates. Number two: assess your risk tolerance honestly -- use the sleep test. Number three: choose an asset allocation based on your time horizon and risk tolerance. Number four: use low-cost index funds -- the three-fund portfolio is hard to beat. Number five: open an account and start today -- do not wait for the "perfect" time. Number six: automate everything -- contributions, dividend reinvestment, and rebalancing. Number seven: write an Investment Policy Statement and follow it. Number eight: protect your portfolio from your own biases.
-
-**Alex:** Perfect summary. And I want to leave everyone with this thought. The financial industry wants you to believe that investing is complicated. That you need their expensive products, their sophisticated strategies, their proprietary research. The truth is that a 28-year-old with a Roth IRA, three index funds, and an $800 monthly automatic transfer is doing more right than most investors with millions of dollars and teams of advisors.
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Closing animation showing a simple seed being planted (first investment), growing into a small tree (year 5), then a large tree (year 20), then a towering forest (year 40), with dollar amounts growing at each stage]
-
-**Sam:** The hardest part is just starting, is it not?
-
-**Alex:** The hardest part is starting. The second hardest part is not stopping. If you do just those two things -- start and keep going -- you will build more wealth than the vast majority of people. Not because you are smarter. Not because you have some secret strategy. But because you showed up, stayed disciplined, and let compound interest do the heavy lifting.
-
-**Sam:** I am opening my account tonight.
-
-**Alex:** That is the best thing I have heard all season. And for everyone watching -- do not wait until next week. Do not wait until you feel ready. Open an account, set up a transfer, buy your first share of a total market index fund. You can refine the details later. The first step is the one that matters most.
-
-[VISUAL: End screen with action items:
-1. Open a brokerage account TODAY (Fidelity, Schwab, or Vanguard)
-2. Set up an automatic monthly transfer
-3. Buy your first index fund (VTI or a target-date fund)
-4. Write your Investment Policy Statement this weekend
-5. Share this video with someone who has not started investing yet]
-
-[ANIMATION: animation/week12_portfolio_builder.py -- Final animation: confetti and celebration as a "Portfolio Created" badge appears, transitioning to a long road ahead with milestones at $100K, $500K, $1M, $2M]
-
-**Alex:** Thank you for joining us for the entire first quarter of this course. You now have the knowledge to build a real portfolio and the behavioral tools to protect it. Like, subscribe, and share this with someone who is still on the sidelines. The best time to invest was yesterday. The second best time is today. See you next week.
-
-[VISUAL: End card with subscribe button, links to Weeks 1-11, and text: "Your journey starts now."]
+答：当你的人生状况发生变化时调整配置，而不是在市场变化时调整。结婚、生子、临近退休、获得遗产、失业——这些才是重新审视配置的合理理由。市场的涨跌不是调整配置的合理理由——你的投资政策声明已经将市场波动纳入了考量。作为经验法则，每年在固定日期审视一次配置，只有在目标、时间跨度或风险承受能力发生实质性变化时才做调整。
 
 ---
 
-*Animation reference: animation/week12_portfolio_builder.py*
+## YouTube脚本
+
+[VISUAL: 动画开场，积木拼装成一栋房子，象征构建投资组合。标题卡片："第12周：构建你的第一个投资组合"]
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 开场动画，代表不同资产类别的拼图碎片逐一咬合，拼成一个完整的投资组合]
+
+**Horace（陈马）：** 欢迎来到可能是我们整个系列中最重要的一期节目。过去十一周，我们学习了所有的基础知识——股票、债券、风险、估值、费用、行为偏误。今天，我们把它们全部融合在一起。今天，我们来构建你的第一个投资组合。
+
+**Stella（小鱼）：** 我一直很期待这一期。但说实话，我也有点紧张。选择太多了，我怎么知道自己做的是对的？
+
+**Horace（陈马）：** 这种焦虑完全正常。我首先想让你铭记一点：开始比完美更重要，而且重要得多。好的投资组合和完美的投资组合之间的差距很小。好的投资组合和没有投资组合之间的差距则是天壤之别。
+
+[VISUAL: 柱状图展示三种情景在30年后的结果——"完美投资组合"约210万美元，"好的投资组合"约190万美元，"无投资组合（储蓄账户）"约18万美元]
+
+**Stella（小鱼）：** 这样一对比，好的和完美的差距，跟投资和不投资的差距比起来，真的微乎其微。
+
+**Horace（陈马）：** 正是。所以，我们来帮你迈出第一步。我们将遵循一个六步流程，等这期节目结束，你将拥有一个完整的、可以立即执行的计划。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 六步路线图以里程碑形式逐一出现：目标、风险、配置、工具、账户、执行]
+
+**Horace（陈马）：** 第一步：明确你的目标。我说的不是"我想变得有钱"这样模糊的目标，而是具体可量化的目标。你为什么投资？什么时候需要这笔钱？需要多少钱？
+
+**Stella（小鱼）：** 好，我的主要目标是退休。我现在28岁，想在60岁退休。也就是说，还有32年。我大概需要200万美元。
+
+**Horace（陈马）：** 很好。现在我们来验证一下这个目标是否可实现。以9%的平均年化收益率计算——这大致是股票型投资组合的历史表现——你需要每月投资约1,100美元，才能在32年内积累到200万美元。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 复利计算器可视化，展示每月1,100美元在32年内增长至200万美元，最后几年随着复利加速呈现爆发式增长]
+
+**Stella（小鱼）：** 每月1,100美元对我现在来说有点吃力，但我觉得我能做到800美元，然后随着工资涨再逐步提高。
+
+**Horace（陈马）：** 这是一个完全合理的计划。从800美元开始，承诺每次涨薪就多投100美元。目标不必从第一天起就完全可实现——它只需要在整个时间跨度内可实现就够了。这里有一个能激励你的数据：第一个10万美元是最难的，可能需要七八年才能到达。但第二个10万美元可能只需三年，第三个可能只需两年。在市场中的时间越长，复利增速就越快。
+
+[VISUAL: 时间线展示里程碑——第8年时10万美元，第11年20万美元，第17年50万美元，第23年100万美元，第32年200万美元]
+
+**Stella（小鱼）：** 这种加速效应真的太惊人了。好，目标定好了。第二步是什么？
+
+**Horace（陈马）：** 第二步是评估你的风险承受能力。这包含两个维度，大多数人都会把它们混淆。一个是风险承担能力——你客观上能够承受多大的亏损；另一个是风险承受意愿——你在情感上能够承受多大的亏损。两者都需要尊重。
+
+[VISUAL: 两块仪表盘并排——"风险承担能力"和"风险承受意愿"，指针停在不同位置]
+
+**Stella（小鱼）：** 我怎么判断这两个维度？
+
+**Horace（陈马）：** 判断风险承担能力，要考虑你的时间跨度、收入稳定性、应急资金和家庭负担。你28岁，单身，有一份稳定的技术类工作，还有六个月的应急资金。你的风险承担能力很高。判断风险承受意愿，我用的是"睡眠测试"。设想你的投资组合在单月内出现不同程度的下跌，在哪个程度你会开始失眠？
+
+**Stella（小鱼）：** 我觉得我能接受20%的下跌。30%会让我紧张。40%我可能会恐慌。
+
+**Horace（陈马）：** 所以你的舒适区大概在70%到85%股票配置这个范围。80%股票的投资组合，历史上最惨的单年亏损大约是35-40%。这正好处于你舒适区的边缘。如果我们退一步，降到75%股票，最坏情况大约下跌30%，这是你说能够承受的。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 风险收益谱可视化，展示不同股债比例下历史最大回撤和平均收益，小鱼的舒适区被高亮标出]
+
+**Stella（小鱼）：** 那就80%股票、20%债券吧。我还年轻，能承受波动性，我需要成长空间。
+
+**Horace（陈马）：** 好的选择。现在我们来讨论投资组合构建中最重要的决策——资产配置，也就是第三步。
+
+[VISUAL: 饼图显示80%股票/20%债券，再将股票部分拆分为子类别]
+
+**Horace（陈马）：** 研究表明，资产配置决定了你投资组合约90%的长期表现。不是选股，不是择时，而是股票和债券之间的分配比例——这才是最关键的决策。
+
+**Stella（小鱼）：** 等等，90%？那我具体买哪只股票几乎不重要吗？
+
+**Horace（陈马）：** 在多元化投资组合的背景下，是的。你用先锋标普500基金还是贝莱德标普500基金，几乎没有区别。但你是70/30还是90/10的股债配置，差别就巨大了。大多数人把90%的精力花在那10%重要的事情上（选股），而只花10%的精力在那90%重要的事情上（设定配置）。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 饼图展示决定投资组合收益的各因素：90%资产配置，5%证券选择，3%择时，2%其他因素，基于布林森研究]
+
+**Horace（陈马）：** 所以我们来拆分你80%的股票配置。我建议在美国和国际股票之间做分配，大概55%美国股票、25%国际股票。
+
+**Stella（小鱼）：** 为什么要配置国际股票？过去十年美国市场碾压国际市场啊。
+
+**Horace（陈马）：** 那是近因偏误在作怪——还记得第11周吗？在2000年至2009年，标普500的总回报为负，而国际股票却实现了正回报。再往前一个十年，两者都表现不错。此后那个十年则是美国领跑。未来30年谁会领跑，没人知道。同时持有两者，就能保证你参与到任何一个赢家的上涨中去。
+
+[VISUAL: 逐十年表现对比图，显示美国股票与国际股票的领先地位交替变化]
+
+**Stella（小鱼）：** 说得有道理。那就55%美国股票、25%国际股票、20%债券。我具体买哪些基金呢？
+
+**Horace（陈马）：** 这是第四步，也是大多数人把事情复杂化的地方。我要向你展示一个将彻底改变你投资思维的东西，它叫做三基金投资组合。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 三个基金方框逐一出现，附上详情：VTI（美国股票，4,000只持仓，0.03%费率），VXUS（国际股票，8,000只持仓，0.07%费率），BND（美国债券，10,000只持仓，0.03%费率）]
+
+**Horace（陈马）：** 基金一：VTI，先锋全美股票市场交易所交易基金。这一只基金就能让你覆盖约4,000只美国股票——大、中、小盘一网打尽。费率0.03%，意味着每投资10,000美元，一年只需支付3美元。
+
+**Stella（小鱼）：** 三美元？那几乎什么都不是。
+
+**Horace（陈马）：** 基金二：VXUS，先锋全球国际股票市场交易所交易基金。覆盖来自发达市场和新兴市场的约8,000只非美国股票。费率0.07%。基金三：BND，先锋全美债券市场交易所交易基金。覆盖整个美国投资级债券市场。费率0.03%。
+
+**Stella（小鱼）：** 就这三只基金，就能覆盖整个世界？
+
+**Horace（陈马）：** 覆盖全球每个主要市场的12,000多只证券。每投资10万美元，年费约30至50美元。这比一顿午饭还便宜。
+
+[VISUAL: 地球仪可视化，展示三只基金的覆盖范围，各大洲的标记点依次亮起]
+
+**Stella（小鱼）：** 这个简单的策略真的有效吗？
+
+**Horace（陈马）：** 它不只是有效——它能跑赢绝大多数专业基金经理。标普SPIVA记分卡显示，在15年的时间跨度内，约90%的主动管理型基金跑输基准指数。三基金投资组合本质上就是那个基准。你不是在甘于平庸——你是在选择一个长期跑赢90%专业人士的策略。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 逐步建立的柱状图，显示"跑输指数的主动管理型基金比例"：美国大盘股92%、美国中盘股95%、美国小盘股93%、国际股票88%]
+
+**Stella（小鱼）：** 好，我被这个思路说服了。那对于我的具体配置，就是55%买VTI、25%买VXUS、20%买BND吗？
+
+**Horace（陈马）：** 完全正确。按你每月800美元来算，就是440美元买VTI、200美元买VXUS、160美元买BND。就这么简单。
+
+[VISUAL: 每月投资明细：VTI 440美元，VXUS 200美元，BND 160美元，合计800美元]
+
+**Stella（小鱼）：** 我还听说过目标日期基金，那是什么？我应该用它来代替三基金吗？
+
+**Horace（陈马）：** 目标日期基金是终极版的"设置好就不用管"选择。你选择最接近退休年份的基金——以你为例，就是2058年的目标日期基金。它一开始配置进取，随着时间推移自动转向债券。一只基金搞定，无需再平衡，无需做任何决定。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 滑动路径动画，显示目标日期基金配置从28岁时的90/10股债比逐渐变化至60岁时的50/50，再到75岁时的30/70，滑块自动移动]
+
+**Stella（小鱼）：** 听起来更简单了。我为什么不直接用这个呢？
+
+**Horace（陈马）：** 这是一个完全合理的选择，我绝不会阻止任何人使用目标日期基金。缺点是次要的：费率稍高（0.08%对比自建三基金的0.03-0.07%）、无法个性化定制、在应税账户中税务效率稍低。但如果这种简洁性能让你真正去投资而不是一直拖延，目标日期基金远胜于什么都不做。
+
+**Stella（小鱼）：** 我觉得我更倾向于三基金方案，因为我想搞清楚自己持有的是什么。账户应该在哪里开？
+
+**Horace（陈马）：** 第五步。我们先来谈谈账户类型，因为很多人在这里白白损失了不少钱。你说过工作单位有401(k)，而且有雇主配套？
+
+**Stella（小鱼）：** 是的，他们按我薪资6%的50%进行配套缴费。
+
+**Horace（陈马）：** 这个配套是你一生中能得到的最好的投资回报。你缴入薪资的6%，他们配套50%，这意味着你在这笔钱上获得了即时的50%回报。没有任何股票投资能稳定地与有保障的50%回报相比。所以第一条规则：永远要缴纳足够多以获得全额雇主配套。
+
+[VISUAL: 钞票动画——员工投入1美元，雇主加入0.5美元，第一天就变成1.5美元]
+
+**Stella（小鱼）：** 我已经在做了。我的薪资是85,000美元，所以我每年缴入5,100美元，他们配套2,550美元。
+
+**Horace（陈马）：** 完美。那么对于额外投资的优先顺序如下：在拿满401(k)配套之后，开设Roth IRA并将其缴满，每年上限7,000美元，大约每月583美元。在Roth IRA中，你的钱完全免税增长，退休时提款也免税。在28岁，你现在的税率很可能低于退休时的税率，所以现在缴税、此后永不再缴，是一笔很划算的买卖。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 账户优先级瀑布流：401(k)配套优先（标注"白送的钱"），然后是Roth IRA（标注"免税增长"），再是追加401(k)，最后是应税账户]
+
+**Stella（小鱼）：** Roth IRA缴满之后呢？
+
+**Horace（陈马）：** 如果还有余钱，就增加401(k)的缴款比例。401(k)的年度上限是23,000美元。超出这个限额的部分，就开设普通应税证券账户。但以你每月总投入800美元来说，资金将分配在你现有的401(k)缴款和一个Roth IRA之间。
+
+**Stella（小鱼）：** Roth IRA应该在哪家券商开？
+
+**Horace（陈马）：** 富达、嘉信理财或者先锋，三家都可以。它们都提供交易所交易基金的零佣金交易、出色的服务以及低成本指数基金。说实话，它们之间的差异微乎其微。随便挑一家你能在15分钟内开户的，然后开始投资。
+
+[VISUAL: 三家券商的标志并排，配上"都是不错的选择"横幅]
+
+**Stella（小鱼）：** 我不应该更仔细地研究一下吗？
+
+**Horace（陈马）：** 你可以花两周时间比较零股交易支持、移动APP功能和研究工具。或者你可以今晚就开户，明天开始投资。分析瘫痪是真实存在的财富杀手。这三家都受SIPC监管，都提供交易所交易基金零佣金，都是稳定、资本雄厚的公司。这个决定的重要性远不如"做出决定"本身。
+
+**Stella（小鱼）：** 好，我今晚就开富达账户。然后呢——第六步？
+
+**Horace（陈马）：** 第六步是执行，我为你准备了一份清单。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 清单条目逐一出现，附上复选框，按第1周至第4周分组]
+
+**Horace（陈马）：** 第一周：确认你的目标、风险承受能力和配置比例。这些你已经完成了。第二周：开设账户、关联银行账户、设置自动转账。第三周：完成首次买入，开启股息再投资。第四周：建立维护机制——制定再平衡计划、固定每月查看投资组合的日期，并撰写你的投资政策声明。
+
+**Stella（小鱼）：** 投资政策声明——那是什么？
+
+**Horace（陈马）：** 这是大多数投资者从未写过、却最重要的一份文件。它是你与自己签订的一份单页合同，写明你的目标、配置比例、买卖规则，以及在市场动荡中坚持到底的承诺。当市场崩跌30%、你全身每个细胞都想着抛售的时候，你拿出这份投资政策声明，把它读一遍。它是由冷静、理性的你写下的，那个你早已为这种时刻做好了规划。
+
+[VISUAL: 投资政策声明模板文件显示在屏幕上，关键章节被高亮标出]
+
+**Stella（小鱼）：** 这个思路太绝了。就像是你过去那个冷静的自己，给未来那个正在恐慌的自己写的一封信。
+
+**Horace（陈马）：** 正是。而且如果可以的话，用手写。书写这个动作本身能增强你的承诺感。我来展示一份优秀的投资政策声明是什么样的。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 动画展示小鱼的投资政策声明逐步填写完成：目标、80/20配置、VTI/VXUS/BND、再平衡规则、不恐慌卖出的承诺]
+
+**Horace（陈马）：** 现在来谈一个初学者最常问的问题：如果你手头有一笔资金，应该一次性全部投入，还是分批分期入场？
+
+**Stella（小鱼）：** 对，我一直在想这个问题。我有大约10,000美元的积蓄。是现在全部投入，还是分批定投进去？
+
+**Horace（陈马）：** 从数学上来说，应该现在全部投入。研究表明，因为市场长期趋于上涨，一次性投入约三分之二的情况下优于定投。但有一个微妙之处：如果一次性投入10,000美元会让你焦虑到睡不着觉，或者一旦市场第一次下跌就让你恐慌卖出，那就分三到六个月定投进去。最好的投资策略，是你能坚持执行的那个。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 分屏模拟：左边是一次性投入的投资者，右边是定投的投资者，两人都投入10,000美元，在不同市场情景下进行比较。最终对比显示一次性投入更多时候胜出，但定投能提供更平稳的体验]
+
+**Stella（小鱼）：** 我觉得分批投入会让我更安心。可能每个月2,500美元，分四个月？
+
+**Horace（陈马）：** 这是一个合理的计划。只需制定好时间表，然后不管市场在那四个月里怎么走，都严格执行。不要择时，不要等着看有没有低点可以抄底。每月一号，投入2,500美元，就这样。
+
+**Stella（小鱼）：** 明白了。那假设我投资了一年，配置已经偏移了。该怎么处理再平衡？
+
+**Horace（陈马）：** 再平衡是随时间维持目标配置的方式。假设你的目标是55%VTI、25%VXUS、20%BND。经过美国股市强劲上涨的一年，你的配置可能偏移到62%VTI、22%VXUS、16%BND。这意味着你承担的风险已经超出了你的计划。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 饼图从目标配置变形为偏移后的配置，然后在再平衡后弹回目标配置]
+
+**Horace（陈马）：** 再平衡时，你卖出一些VTI，买入VXUS和BND，让配置回到目标。但有一个税务效率更高的技巧：与其卖出，不如用你每月新增的定投资金，在接下来的几个月里只购买比例偏低的资产。把你全部的800美元定投都投向VXUS和BND，直到配置恢复正轨。不用卖出，不产生税务影响。
+
+**Stella（小鱼）：** 妙啊。我应该多久再平衡一次？
+
+**Horace（陈马）：** 每年一到两次就足够了。我喜欢"生日和半年后"的方法——在生日那天检查一次，六个月后再检查一次。或者设一个阈值：任何资产类别偏离目标超过五个百分点时就再平衡。查看频率不要超过每月一次，更不要每周再平衡。记住行为偏误那一课——你盯着看得越频繁，就越容易产生折腾的冲动，而折腾通常只会带来负面结果。
+
+[VISUAL: 日历上圈出两个相隔六个月的日期，标注"再平衡检查"]
+
+**Stella（小鱼）：** 那什么时候应该真正调整配置比例呢？
+
+**Horace（陈马）：** 当你的人生发生变化时调整，而不是当市场发生变化时调整。结婚、生孩子、买房、职业转变、临近退休、失业——这些才是重新审视配置的合理理由。市场崩盘不是调整配置的理由。你的投资政策声明已经为市场崩盘做好了规划，信任它就好。
+
+[VISUAL: 人生事件时间轴，标出应该审视配置的节点：婚姻、第一个孩子、购房、职业变动、年龄里程碑]
+
+**Stella（小鱼）：** 让我来总结一下整个流程，看看我理解得对不对。第一步：我确定了目标——60岁时积累200万美元。第二步：我评估了风险承受能力——80%股票、20%债券。第三步：我选择了配置——55%美国股票、25%国际股票、20%债券。第四步：我选择了投资工具——VTI、VXUS和BND。第五步：今晚去开富达的Roth IRA账户。第六步：每月定投800美元，每年再平衡两次，遵守我的投资政策声明。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 六个步骤作为已完成的里程碑逐一出现在路径上，小鱼说到每一步时对应的里程碑亮起，最终到达终点时出现奖杯]
+
+**Horace（陈马）：** 这是一个完美的计划。我想指出一件了不起的事：你刚刚构建了一个在未来30年内大概率跑赢90%专业基金经理的投资组合。三只基金，零佣金，每投资10万美元年费约30美元，每年大约花20分钟维护。
+
+**Stella（小鱼）：** 感觉太简单了，有点不真实。
+
+**Horace（陈马）：** 这正是悖论所在。简单看起来违背直觉，因为我们往往把复杂与专业画等号。但在投资领域，复杂性通常是服务于金融行业的，而不是服务于投资者的。每增加一层复杂性，就增加一项费用、一个偏误可能渗入的决策点，以及一个可能出问题的环节。三基金投资组合之所以简单，并非因为它不够专业——而是因为金融科学已经确凿地证明，对于绝大多数人来说，这就是最佳策略。
+
+[VISUAL: 两个投资组合并排——"简单型：3只基金"和"复杂型：27只基金"——30年的业绩走势线趋于一致，但复杂型由于费用拖累，收益略低]
+
+**Stella（小鱼）：** 还有最后一个问题。我有一些朋友热衷于个股、加密货币之类的投机品，说起来头头是道，很刺激的样子。我是不是错过了什么？
+
+**Horace（陈马）：** 记住90/10法则。把90%的投资组合按我们刚才讨论的方式投入——简单、分散、自动化。然后拿出剩余的10%作为"玩乐资金"。用它买个股、涉足加密货币，或者押注某个板块。如果你对了，很好。如果你错了，损失也被控制在10%以内。这样既能满足你对选股的热情，又不会让你的财务未来陷入风险。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 投资组合饼图分裂为90%"核心"（带盾牌图标）和10%"卫星"（带火箭图标），展示即使卫星部分归零，核心部分依然能保护整体投资组合]
+
+**Stella（小鱼）：** 这个框架太好了。就像有了安全网，你才能适当地去冒险。
+
+**Horace（陈马）：** 正是。说实话，大多数尝试过卫星策略的人，最终都会发现核心部分表现更好，而且压力更小。但有这个选择可以让你保持投资热情，同时也减少了用主体投资组合去追逐热门概念的冲动。
+
+**Stella（小鱼）：** 那对于年纪稍大一些的观众呢？他们现在开始还来得及吗？
+
+**Horace（陈马）：** 永远不算太晚。我来给你看几组数据。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 并排的财富积累图表，分别展示从25岁、35岁、45岁和55岁开始投资的情景，每人每月投入1,000美元，说明虽然越早越好，但任何起点都能积累出可观的财富]
+
+**Horace（陈马）：** 35岁开始，每月投入1,000美元，以8.5%的收益率计算，65岁时约有120万美元。45岁开始，约有48万美元。55岁开始，约有17万美元。越早开始当然越好，但17万或48万，远比什么都没有要强得多。而且年纪较大的投资者通常收入更高，每月可以投入更多。一个50岁、每月投入3,000美元的人，完全可以在15年内积累出一笔可观的养老金。
+
+**Stella（小鱼）：** 这很励志。那已经退休的人怎么办呢？
+
+**Horace（陈马）：** 退休人员需要不同的方式——少一些成长，多一些收益和稳定性。35%股票、55%债券、10%现金的配置是一个常见的起点。股票提供抵御通胀的长期成长；债券提供稳定性和收入；现金覆盖两到三年的生活支出，这样就不必在市场下跌时被迫卖出股票。
+
+[VISUAL: 退休人员投资组合配置饼图，叠加提款策略示意图，展示"桶策略"——近期支出来自现金桶，中期来自债券桶，长期成长来自股票桶]
+
+**Horace（陈马）：** 著名的4%法则是说，如果你在退休第一年提取投资组合的4%，然后每年按通胀率调整，根据历史数据，这笔钱很可能能撑过30年。对于150万美元的投资组合，这就是每年6万美元，再加上社会保障金。
+
+**Stella（小鱼）：** 这一期真的太有收获了。让我来为所有观众归纳一下核心要点。
+
+[VISUAL: 关键要点以编号列表形式出现在屏幕上]
+
+**Stella（小鱼）：** 第一：设定含有具体金额和日期的目标。第二：诚实地评估你的风险承受能力——用睡眠测试。第三：根据时间跨度和风险承受能力选择资产配置。第四：使用低成本指数基金——三基金投资组合很难被超越。第五：开设账户，今天就开始——不要等待"完美"的时机。第六：将一切自动化——定投、股息再投资和再平衡。第七：撰写投资政策声明并遵守它。第八：保护你的投资组合，让它不受自身偏误的伤害。
+
+**Horace（陈马）：** 完美总结。我想用这样一个想法来结束今天的节目。金融行业希望你相信投资是复杂的，需要他们昂贵的产品、复杂的策略和专有的研究成果。而真相是：一个28岁的年轻人，拥有一个Roth IRA账户、三只指数基金，每月自动定投800美元，他所做的一切，比绝大多数拥有数百万资产和专业顾问团队的投资者都要正确。
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 结尾动画：一粒小种子被种下（第一笔投资），长成一棵小树（第5年），再长成大树（第20年），最终成为一片参天森林（第40年），每个阶段都标注了对应的资产金额]
+
+**Stella（小鱼）：** 最难的部分就是迈出第一步，对吧？
+
+**Horace（陈马）：** 最难的是迈出第一步。第二难的是不要中途停下。如果你只做到这两件事——开始，然后坚持——你积累的财富将超过绝大多数人。不是因为你更聪明，也不是因为你掌握了什么秘诀，而是因为你出现了、你坚守了纪律，并且让复利替你做了所有重活。
+
+**Stella（小鱼）：** 我今晚就去开户。
+
+**Horace（陈马）：** 这是我整个系列里听到的最好的消息。对于所有正在收看的朋友——不要等到下周，不要等到你觉得准备好了。开一个账户，设置一笔转账，买下你的第一份全市场指数基金。细节以后可以慢慢完善。第一步，才是最重要的那一步。
+
+[VISUAL: 结尾画面，列出行动项：
+1. 今天就开设一个证券账户（富达、嘉信理财或先锋）
+2. 设置每月自动定投
+3. 买入你的第一只指数基金（VTI或目标日期基金）
+4. 本周末撰写你的投资政策声明
+5. 把这个视频分享给一个还没有开始投资的人]
+
+[ANIMATION: animation/week12_portfolio_builder.py -- 最终动画：彩带纷飞庆祝画面，"投资组合已创建"徽章出现，随后过渡到一条漫长的前路，路上标着10万、50万、100万、200万的里程碑]
+
+**Horace（陈马）：** 感谢你们和我们一起走完了这门课程的第一个阶段。你现在已经具备了构建真实投资组合的知识，以及保护它不受行为偏误侵蚀的工具。点赞、订阅，把这个视频分享给那些还站在场边观望的人。投资的最佳时机是昨天，第二好的时机是今天。我们下周见。
+
+[VISUAL: 结尾卡片，含订阅按钮、第1-11周链接，以及文字："你的旅程，从现在开始。"]
+
+---
+
+*动画参考文件：animation/week12_portfolio_builder.py*

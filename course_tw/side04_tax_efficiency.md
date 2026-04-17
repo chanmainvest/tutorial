@@ -1,415 +1,412 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 04: Tax-Efficient Investing -- Keeping More of What You Earn
+# 附加課程 04：節稅投資——保留更多您賺取的報酬
 
 ---
 
-## PART 1: READING SECTION
+## 第一部分：閱讀章節
 
 ---
 
-### Why This Is Important
+### 為什麼這很重要
 
-Taxes are the single largest expense most investors face over a lifetime -- larger than management fees, trading costs, and advisory fees combined. Studies consistently show that taxes reduce investment returns by 1% to 2% per year for taxable accounts. Over a 30-year investing career, that drag can reduce your ending wealth by 25% to 40%.
+稅務是大多數投資人一生中面臨的最大支出——比管理費、交易成本和顧問費的總和還要多。研究持續顯示，稅務使應稅帳戶的投資報酬每年降低1%至2%。在30年的投資生涯中，這種拖累可能使您的最終財富減少25%至40%。
 
-The difference between a tax-aware investor and a tax-oblivious one is not about finding better investments. It is about keeping more of the returns you already earn. Tax-efficient investing does not require exotic strategies or complex structures. It requires understanding a handful of rules and applying them consistently.
+節稅意識強的投資人與毫無節稅觀念的投資人之間的差異，並非在於找到更好的投資標的。而是在於保留更多您已經賺取的報酬。節稅投資不需要特殊策略或複雜架構。它需要了解幾項規則並持續應用。
 
-This lesson covers the core strategies: understanding the tax rates that apply to different types of investment income, placing the right assets in the right accounts, harvesting losses to offset gains, and avoiding the traps that catch uninformed investors.
+本課程涵蓋核心策略：了解適用於不同類型投資收入的稅率、將適當的資產放置於適當的帳戶、收割損失以抵消利得，以及避免讓不知情的投資人陷入陷阱。
 
 ---
 
-### What You Need to Know
+### 您需要了解的內容
 
-#### Capital Gains Tax: The Basics
+#### 資本利得稅：基礎知識
 
-When you sell an investment for more than you paid, the profit is a capital gain. The tax rate depends on how long you held the investment:
+當您以高於買入價格的價格出售投資時，利潤即為資本利得。稅率取決於您持有投資的時間長短：
 
-**Short-Term Capital Gains (STCG)** -- Investments held for one year or less. Taxed at your ordinary income tax rate, which can be as high as 37% for federal taxes (as of 2025 tax brackets), plus state taxes.
+**短期資本利得（STCG）**——持有一年或以下的投資。按您的一般所得稅率課稅，聯邦稅率最高可達37%（依2025年稅率級距），另加州稅。
 
-**Long-Term Capital Gains (LTCG)** -- Investments held for more than one year. Taxed at preferential rates: 0%, 15%, or 20%, depending on your taxable income. Most investors fall into the 15% bracket.
+**長期資本利得（LTCG）**——持有超過一年的投資。按優惠稅率課稅：0%、15%或20%，依您的應稅所得而定。大多數投資人適用15%的稅率級距。
 
-**Net Investment Income Tax (NIIT)** -- An additional 3.8% surtax on investment income for individuals with modified adjusted gross income above $200,000 ($250,000 for married couples filing jointly). This means the effective top long-term capital gains rate is 23.8%.
+**淨投資所得稅（NIIT）**——對修正後調整總所得超過200,000美元（已婚聯合申報為250,000美元）的個人，其投資收入額外徵收3.8%的附加稅。這意味著實際最高長期資本利得稅率為23.8%。
 
-The difference between STCG and LTCG rates is enormous. An investor in the 32% marginal income tax bracket who realizes a $10,000 short-term gain pays $3,200 in federal taxes. The same gain, if long-term, costs $1,500 (at 15%) -- a savings of $1,700. This difference alone should motivate you to hold investments for at least one year and one day before selling when possible.
+短期資本利得與長期資本利得稅率之間的差異是巨大的。適用32%邊際所得稅率的投資人，若實現10,000美元的短期利得，需繳納3,200美元的聯邦稅。同樣的利得，若為長期，則需繳納1,500美元（按15%計算）——節省1,700美元。光是這個差異就應該促使您在可能的情況下，持有投資至少一年又一天再出售。
 
-#### Qualified Dividends vs. Ordinary Dividends
+#### 合格股利與普通股利
 
-**Qualified dividends** receive the same favorable tax treatment as long-term capital gains (0%, 15%, or 20%). To qualify, the dividend must be paid by a US corporation or a qualified foreign corporation, and you must hold the stock for at least 60 days during the 121-day period surrounding the ex-dividend date.
+**合格股利**享有與長期資本利得相同的優惠稅收待遇（0%、15%或20%）。符合資格的條件是，股利必須由美國公司或合格外國公司支付，且您必須在除息日前後121天期間內，至少持有股票60天。
 
-**Ordinary (non-qualified) dividends** are taxed at your regular income tax rate. This includes dividends from REITs, money market funds, and most foreign stock dividends that do not meet qualification criteria.
+**普通（非合格）股利**按您的一般所得稅率課稅。這包括來自不動產投資信託（REIT）、貨幣市場基金和大多數不符合資格標準的外國股票股利。
 
-**Interest income** from bonds, CDs, savings accounts, and money market funds is always taxed at ordinary income rates. This is why bond funds are particularly tax-inefficient in taxable accounts.
+**利息收入**來自債券、定存單、儲蓄帳戶和貨幣市場基金，始終按一般所得稅率課稅。這就是為什麼債券基金在應稅帳戶中特別缺乏稅務效率的原因。
 
-**Municipal bond interest** is exempt from federal income tax and often exempt from state taxes if the bond is issued in your state of residence. This makes municipal bonds attractive for high-income investors in taxable accounts.
+**市政債券利息**免徵聯邦所得稅，如果債券由您居住州發行，通常也免徵州稅。這使市政債券對在應稅帳戶中投資的高收入投資人很有吸引力。
 
-#### The 0% Long-Term Capital Gains Bracket
+#### 0%長期資本利得稅率級距
 
-One of the most powerful and underutilized provisions in the tax code: investors with taxable income below certain thresholds pay zero percent tax on long-term capital gains and qualified dividends.
+稅法中最強大且未被充分利用的條款之一：應稅所得低於某些門檻的投資人，對長期資本利得和合格股利繳納零稅率。
 
-For 2025, the 0% LTCG bracket applies to single filers with taxable income up to approximately $48,350 and married couples filing jointly up to approximately $96,700. This creates opportunities:
+2025年，0%的長期資本利得稅率適用於應稅所得約不超過48,350美元的單一申報者，以及約不超過96,700美元的已婚聯合申報者。這創造了機會：
 
-- **Early retirees** living off savings before Social Security and pensions begin may have low enough income to harvest gains at 0%.
-- **Young investors** in entry-level careers can realize gains tax-free if their income is below the threshold.
-- **Strategic planning** -- If you know you will have a low-income year (sabbatical, job transition, starting a business), accelerate gain realization into that year.
+- **提前退休者**在社會安全金和退休金開始領取之前靠儲蓄生活，可能收入低到足以以0%的稅率收割利得。
+- **年輕投資人**在入門級職業生涯中，如果收入低於門檻，可以免稅實現利得。
+- **策略性規劃**——如果您知道自己將有低收入年份（休假、工作轉換、創業），可以加速在該年度實現利得。
 
-Selling appreciated investments, paying zero tax, and immediately repurchasing at the higher cost basis is sometimes called "tax-gain harvesting." It is the opposite of tax-loss harvesting and is equally valuable when available.
+出售增值投資、繳納零稅，並立即以更高的成本基礎重新買入，有時稱為「稅務利得收割」。這與稅損收割相反，在可行時同樣有價值。
 
-#### Tax-Loss Harvesting
+#### 稅損收割
 
-Tax-loss harvesting (TLH) is the strategy of selling investments that have declined in value to realize losses that offset gains. These losses can offset capital gains dollar-for-dollar and, if losses exceed gains, up to $3,000 per year of ordinary income. Unused losses carry forward indefinitely.
+稅損收割（TLH）是出售價值下跌的投資以實現損失的策略，這些損失可以抵消其他地方的利得。這些損失可以按美元對美元的方式抵消資本利得，如果損失超過利得，每年最多可從一般所得中扣除3,000美元。未使用的損失可無限期結轉。
 
-**How it works in practice:**
+**實際操作方式：**
 
-1. You own Fund A, purchased for $50,000, now worth $40,000 -- a $10,000 unrealized loss.
-2. You sell Fund A, realizing the $10,000 loss.
-3. You immediately purchase Fund B, a similar but not "substantially identical" fund, to maintain your market exposure.
-4. The $10,000 loss offsets $10,000 in capital gains elsewhere in your portfolio (or $3,000 in ordinary income if you have no gains).
+1. 您持有以50,000美元買入的基金A，現值40,000美元——未實現損失10,000美元。
+2. 您出售基金A，實現10,000美元的損失。
+3. 您立即購買基金B，一個類似但不「實質相同」的基金，以維持您的市場曝險。
+4. 10,000美元的損失抵消了投資組合其他地方的10,000美元資本利得（或在您沒有利得的情況下，從一般所得中扣除3,000美元）。
 
-**Tax savings:** If that $10,000 loss offsets long-term capital gains taxed at 15%, you save $1,500 in taxes. If it offsets short-term gains taxed at 32%, you save $3,200.
+**節稅效果：**如果10,000美元的損失抵消了按15%課稅的長期資本利得，您節省了1,500美元的稅款。如果它抵消了按32%課稅的短期利得，您節省了3,200美元。
 
-**Important nuance:** TLH does not eliminate taxes -- it defers them. When you eventually sell Fund B, your cost basis is lower ($40,000 instead of $50,000), so your future gain will be $10,000 larger. You are essentially getting an interest-free loan from the government. The value of this deferral depends on the time value of money and your future tax rate.
+**重要細節：**稅損收割並不能消除稅務——它推遲了稅務。當您最終出售基金B時，您的成本基礎較低（40,000美元而非50,000美元），所以您未來的利得將多出10,000美元。您實際上從政府那裡獲得了一筆免息貸款。這種遞延的價值取決於貨幣的時間價值和您未來的稅率。
 
-**When TLH creates permanent savings:**
-- If your tax rate drops in the future (retirement, for example)
-- If you hold until death, when the cost basis receives a step-up to market value
-- If you donate the appreciated shares to charity
-- If you harvest short-term losses to offset income taxed at ordinary rates but the eventual gain will be long-term
+**稅損收割何時產生永久節稅效果：**
+- 如果您未來的稅率降低（例如退休）
+- 如果您持有至死亡，成本基礎隨之重設至市場價值
+- 如果您將增值股票捐贈給慈善機構
+- 如果您收割按一般稅率課稅的短期損失，但最終利得將為長期
 
-#### The Wash Sale Rule
+#### 清洗銷售規則
 
-The IRS wash sale rule prevents you from selling a security at a loss and buying a "substantially identical" security within 30 days before or after the sale (a 61-day window total). If you violate this rule, the loss is disallowed -- you cannot use it to offset gains.
+美國國稅局的清洗銷售規則禁止您以虧損出售證券後，在出售日前後30天內（共61天的時間窗口）買入「實質相同」的證券。如果您違反此規則，損失將被取消——您無法用它來抵消利得。
 
-**What counts as "substantially identical":**
-- Buying the exact same security (same ticker, same CUSIP)
-- Buying a very similar security issued by the same company (different share class)
-- Options on the same security
+**什麼算作「實質相同」：**
+- 買入完全相同的證券（相同的股票代號、相同的CUSIP）
+- 買入同一公司發行的非常相似的證券（不同股份類別）
+- 同一證券的選擇權
 
-**What generally does not count as substantially identical:**
-- Buying an ETF tracking a different index (selling a Vanguard S&P 500 ETF and buying a Schwab Total Stock Market ETF)
-- Buying an ETF from a different provider tracking the same index (this is a gray area -- the IRS has not issued definitive guidance)
-- Buying individual stocks in the same sector
+**通常不算實質相同的情況：**
+- 買入追蹤不同指數的指數股票型基金（出售先鋒標普500指數股票型基金並購買嘉信全市場指數股票型基金）
+- 買入追蹤相同指數的不同供應商指數股票型基金（此為灰色地帶——國稅局尚未發布明確指導）
+- 買入同一產業的個股
 
-**Wash sale traps to avoid:**
-- **Automatic dividend reinvestment** -- If your DRIP buys shares within the 30-day window, it can trigger a wash sale.
-- **Cross-account transactions** -- The wash sale rule applies across all your accounts, including IRAs. If you sell a stock in your taxable account and your IRA buys the same stock within 30 days, the loss is disallowed -- and worse, you cannot add the disallowed loss to the IRA's cost basis.
-- **Spouse accounts** -- The IRS may apply wash sale rules to accounts held by spouses.
-- **401(k) contributions** -- If your 401(k) buys the same fund you just sold at a loss, it could trigger a wash sale.
+**應避免的清洗銷售陷阱：**
+- **自動股利再投資**——如果您的股利再投資計畫在30天時間窗口內購買股票，可能觸發清洗銷售。
+- **跨帳戶交易**——清洗銷售規則適用於您的所有帳戶，包括個人退休帳戶（IRA）。如果您在應稅帳戶中出售股票，而您的IRA在30天內買入相同股票，損失將被取消——更糟糕的是，您無法將被取消的損失加入IRA的成本基礎。
+- **配偶帳戶**——美國國稅局可能對配偶持有的帳戶適用清洗銷售規則。
+- **401(k)繳費**——如果您的401(k)買入您剛以虧損出售的相同基金，可能觸發清洗銷售。
 
-#### Asset Location: The Right Account for Each Investment
+#### 資產擺放位置：為每種投資選擇適當的帳戶
 
-Asset location is the strategy of placing investments in the type of account (taxable, tax-deferred, or tax-exempt) where they will be most tax-efficient.
+資產擺放位置是將投資放置在最有稅務效率的帳戶類型（應稅帳戶、遞延課稅帳戶或免稅帳戶）的策略。
 
-**Three account types:**
+**三種帳戶類型：**
 
-1. **Taxable accounts** (brokerage accounts) -- Contributions are made with after-tax dollars. You pay taxes annually on dividends, interest, and realized capital gains.
+1. **應稅帳戶**（券商帳戶）——使用稅後資金投入。您每年為股利、利息和已實現資本利得繳稅。
 
-2. **Tax-deferred accounts** (Traditional IRA, Traditional 401(k)) -- Contributions may be tax-deductible. Growth is tax-free. Withdrawals in retirement are taxed as ordinary income.
+2. **遞延課稅帳戶**（傳統IRA、傳統401(k)）——繳費可享稅務扣除。成長免稅。退休時提領按一般所得課稅。
 
-3. **Tax-exempt accounts** (Roth IRA, Roth 401(k)) -- Contributions are made with after-tax dollars. Growth is tax-free. Qualified withdrawals in retirement are tax-free.
+3. **免稅帳戶**（Roth IRA、Roth 401(k)）——使用稅後資金投入。成長免稅。退休時合格提領完全免稅。
 
-**General asset location principles:**
+**資產擺放位置一般原則：**
 
-**In taxable accounts, hold:**
-- Tax-efficient equity index funds and ETFs (low turnover, capital gains deferred)
-- Municipal bonds (federal tax-exempt interest)
-- Stocks you plan to hold long-term (preferential LTCG rates)
-- Investments that generate qualified dividends
+**在應稅帳戶中持有：**
+- 稅務效率高的股票指數基金和指數股票型基金（低週轉率，資本利得遞延）
+- 市政債券（聯邦免稅利息）
+- 您計劃長期持有的股票（優惠的長期資本利得稅率）
+- 產生合格股利的投資
 
-**In tax-deferred accounts (Traditional IRA/401k), hold:**
-- Taxable bonds and bond funds (interest taxed at ordinary rates anyway)
-- REITs (dividends taxed at ordinary rates)
-- High-turnover actively managed funds (frequent capital gains distributions)
-- Commodities funds with K-1 tax reporting
+**在遞延課稅帳戶（傳統IRA/401(k)）中持有：**
+- 應稅債券和債券基金（利息本來就按一般稅率課稅）
+- 不動產投資信託（股利按一般稅率課稅）
+- 高週轉率的主動式共同基金（頻繁的資本利得分配）
+- 有K-1稅務申報的商品基金
 
-**In tax-exempt accounts (Roth IRA/401k), hold:**
-- Assets with the highest expected growth (tax-free growth is most valuable on the highest returns)
-- Small-cap stocks, emerging markets, or other high-expected-return asset classes
-- Assets you expect to hold for the longest time
+**在免稅帳戶（Roth IRA/401(k)）中持有：**
+- 預期報酬最高的資產（免稅成長對最高報酬最為珍貴）
+- 小型股、新興市場或其他預期高報酬的資產類別
+- 您預期持有最長時間的資產
 
-**Why this matters:** Consider a $10,000 bond investment earning 5% annually over 20 years. In a taxable account at a 32% tax rate, the after-tax ending value is approximately $18,600. In a tax-deferred IRA, the pre-tax ending value is $26,500 (taxed on withdrawal). In a Roth IRA, the ending value is $26,500 -- entirely tax-free. Same investment, dramatically different outcomes depending on where it lives.
+**為什麼這很重要：**考慮一筆每年賺取5%的10,000美元債券投資，持續20年。在應稅帳戶中，按32%稅率計算，稅後最終價值約為18,600美元。在遞延課稅IRA中，提領前的價值為26,500美元（提領時課稅）。在Roth IRA中，最終價值為26,500美元——完全免稅。同樣的投資，根據其所在帳戶的不同，結果截然不同。
 
-#### Tax-Efficient Fund Selection
+#### 選擇稅務效率高的基金
 
-Not all funds are equally tax-efficient. Key factors:
+並非所有基金在稅務效率上都相同。關鍵因素：
 
-**Turnover ratio** -- Measures how frequently a fund buys and sells holdings. A fund with 100% turnover replaces its entire portfolio annually, triggering capital gains. Index funds typically have turnover below 5%. Some active funds exceed 100%.
+**週轉率**——衡量基金買賣持股的頻率。週轉率100%的基金每年更換整個投資組合，觸發資本利得。指數基金的週轉率通常低於5%。一些主動式基金超過100%。
 
-**Tax-cost ratio** -- Morningstar publishes this metric, which measures the percentage of return surrendered to taxes. A tax-cost ratio of 1.0 means taxes reduced your return by 1.0 percentage points.
+**稅後成本比率**——晨星公司公布此指標，衡量報酬中因稅務而損失的百分比。稅後成本比率1.0意味著稅務使您的報酬降低了1.0個百分點。
 
-**Capital gains distribution history** -- Check whether a fund has a history of large capital gains distributions. This is publicly available on fund websites.
+**資本利得分配歷史**——查看基金是否有大量資本利得分配的歷史。這在基金網站上公開可查。
 
-**Fund structure** -- ETFs are generally more tax-efficient than mutual funds due to the in-kind creation/redemption mechanism (covered in Side Lesson 03). Within mutual funds, index funds are more tax-efficient than actively managed funds due to lower turnover.
+**基金結構**——由於申購/贖回的實物交換機制（在附加課程03中涵蓋），指數股票型基金通常比共同基金更具稅務效率。在共同基金中，指數基金因較低的週轉率而比主動式管理基金更具稅務效率。
 
-#### Municipal Bonds in Practice
+#### 市政債券的實踐
 
-Municipal bonds deserve dedicated attention because they are one of the most powerful tax-efficiency tools for high-income investors:
+市政債券值得專門關注，因為它們是高收入投資人最強大的節稅工具之一：
 
-**The tax-equivalent yield formula:** Tax-Equivalent Yield = Municipal Bond Yield / (1 - Marginal Tax Rate)
+**稅後等值殖利率公式：**稅後等值殖利率 = 市政債券殖利率 / (1 - 邊際稅率)
 
-A municipal bond yielding 3.5% for an investor in the 35% combined federal and state bracket has a tax-equivalent yield of 3.5% / (1 - 0.35) = 5.38%. If comparable taxable bonds yield 5.0%, the muni wins. If taxable bonds yield 6.0%, they win after taxes.
+對於適用35%聯邦和州稅合計稅率的投資人，殖利率3.5%的市政債券的稅後等值殖利率為3.5% / (1 - 0.35) = 5.38%。如果同類應稅債券的殖利率為5.0%，市政債券勝出。如果應稅債券殖利率為6.0%，則稅後應稅債券勝出。
 
-**When munis shine:** Municipal bonds are most advantageous for investors in the 32%+ federal bracket who are investing in taxable accounts. For investors in lower brackets or for money held in tax-advantaged accounts, taxable bonds with higher nominal yields will produce better after-tax returns. Never hold municipal bonds in an IRA or 401(k) -- their tax exemption provides no benefit in accounts where withdrawals are already taxed as ordinary income.
+**市政債券發揮優勢的時機：**市政債券對在應稅帳戶中投資、適用32%以上聯邦稅率的投資人最為有利。對於處於較低稅率級距或將資金放在稅務優惠帳戶中的投資人，名義殖利率較高的應稅債券將產生更好的稅後報酬。切勿在IRA或401(k)中持有市政債券——其稅務豁免在提領時已按一般所得課稅的帳戶中毫無益處。
 
-**State-specific benefits:** If you buy bonds issued by your state of residence, the interest is typically exempt from state income tax as well. For a New York City investor paying federal, state, and city taxes at a combined marginal rate near 50%, a 3.5% muni yield is equivalent to a 7.0% taxable yield.
+**州稅特殊優惠：**如果您購買您居住州發行的債券，利息通常也免徵州所得稅。對於一個支付聯邦、州和市政稅，合計邊際稅率接近50%的紐約市投資人，3.5%的市政債券殖利率相當於7.0%的應稅殖利率。
 
-**AMT consideration:** Some municipal bond interest can trigger the Alternative Minimum Tax. Bonds issued for "private activity" purposes -- stadiums, airports, certain housing projects -- may be subject to AMT. If you are subject to AMT, look specifically for AMT-free municipal bond funds.
+**最低稅負制（AMT）考量：**某些市政債券利息可能觸發最低稅負制。為「私人活動」目的發行的債券——體育場、機場、某些住房計畫——可能受到最低稅負制的影響。如果您受到最低稅負制的影響，請特別尋找免最低稅負制的市政債券基金。
 
-**Credit quality matters:** Not all municipal bonds are created equal. General obligation bonds are backed by the taxing authority of the issuing municipality. Revenue bonds are backed only by the revenue of a specific project. Municipal defaults are rare but not impossible -- Detroit filed for bankruptcy in 2013, and Puerto Rico's debt crisis affected bondholders significantly. Diversification through a municipal bond fund is prudent for most investors.
+**信用品質很重要：**並非所有市政債券都是相同的。一般義務債券由發行市政府的課稅權力擔保。收益債券僅由特定計畫的收入擔保。市政債券違約雖罕見但並非不可能——底特律於2013年申請破產，波多黎各的債務危機對債券持有人影響重大。對大多數投資人而言，透過市政債券基金進行分散投資是謹慎的做法。
 
-#### Tax-Efficient Withdrawal Strategies
+#### 退休提領策略的稅務效率
 
-During retirement, the order in which you withdraw from different accounts matters:
+在退休期間，從不同帳戶提領的順序很重要：
 
-**Conventional wisdom** -- Withdraw from taxable accounts first (to allow tax-advantaged accounts to continue growing tax-free), then tax-deferred, then Roth.
+**傳統觀念**——先從應稅帳戶提領（讓稅務優惠帳戶繼續免稅增長），然後是遞延課稅帳戶，最後是Roth。
 
-**Better approach** -- Manage withdrawals to fill up lower tax brackets strategically. In years when your income is low, convert some Traditional IRA to Roth (paying taxes at a low rate). In years when your income is high, draw from Roth. This "bracket management" can save substantial taxes over a multi-decade retirement.
+**更好的方法**——策略性管理提領，填滿較低的稅率級距。在收入低的年份，將部分傳統IRA轉換為Roth（以較低稅率繳稅）。在收入高的年份，從Roth提領。這種「稅率級距管理」可以在數十年的退休生活中節省大量稅款。
 
-**Required Minimum Distributions (RMDs)** -- Traditional IRAs and 401(k)s require you to begin withdrawing at age 73 (as of 2023 SECURE Act 2.0, rising to 75 in 2033). Roth IRAs have no RMDs during the owner's lifetime. This makes Roth conversions before RMD age particularly valuable -- you shrink the account that will force taxable withdrawals.
+**最低提領規定（RMD）**——傳統IRA和401(k)要求您從73歲開始提領（依2023年SECURE法案2.0，2033年將提高至75歲）。Roth IRA在帳戶持有人在世期間沒有最低提領規定。這使得在最低提領規定年齡之前進行Roth轉換特別有價值——您縮小了將強制要求應稅提領的帳戶規模。
 
-**The Roth conversion ladder:** A sophisticated strategy involves systematically converting portions of a Traditional IRA to a Roth IRA during the years between retirement and the start of RMDs (or Social Security). Each year, you convert just enough to fill up a lower tax bracket. Over a decade, you can move hundreds of thousands of dollars from tax-deferred to tax-free status at rates well below your working-year marginal rate. This requires careful planning and modeling but can save six figures in lifetime taxes.
+**Roth轉換梯：**一種複雜的策略涉及在退休與開始最低提領規定（或社會安全金）之間的年份，系統性地將部分傳統IRA轉換為Roth IRA。每年，您只轉換足以填滿較低稅率級距的金額。在十年內，您可以以遠低於工作年份邊際稅率的稅率，將數十萬美元從遞延課稅狀態轉移到免稅狀態。這需要仔細的規劃和模擬計算，但可以節省六位數的終身稅款。
 
-#### Specific Lot Identification: A Powerful but Overlooked Tool
+#### 個別認定法：強大但被忽視的工具
 
-When you sell shares of a security, you can choose which specific tax lots to sell. This is called "specific identification" and most brokerages support it (the alternative is FIFO -- first in, first out -- which may not be optimal).
+當您出售某種證券的股票時，您可以選擇出售哪些特定的稅務批次。這稱為「個別認定」，大多數券商都支援此功能（另一個選擇是先進先出法——可能不是最佳選擇）。
 
-**How to use specific lot identification:**
+**如何使用個別認定法：**
 
-1. **Harvest losses strategically** -- Sell the lots with the highest cost basis (largest losses) while keeping lots with lower cost bases.
-2. **Manage gains between short-term and long-term** -- If you need to sell some shares, sell lots held for more than one year first to get long-term rates.
-3. **Minimize current taxes** -- Sell the highest-cost-basis lots first to minimize the reported gain.
-4. **Maximize charitable giving** -- Donate the lowest-cost-basis lots (largest gains) to charity, keeping the higher-cost-basis lots in your portfolio.
+1. **策略性收割損失**——出售成本基礎最高（損失最大）的批次，同時保留成本基礎較低的批次。
+2. **管理短期和長期利得之間的差異**——如果您需要出售一些股票，先出售持有超過一年的批次，以獲得長期稅率。
+3. **最小化當前稅務**——先出售成本基礎最高的批次，以最小化申報的利得。
+4. **最大化慈善捐贈**——將成本基礎最低（利得最大）的批次捐贈給慈善機構，在您的投資組合中保留成本基礎較高的批次。
 
-Contact your brokerage to ensure "specific identification" is set as your default tax lot selection method. This gives you maximum flexibility.
+請聯繫您的券商，確保「個別認定」被設置為您預設的稅務批次選擇方式。這為您提供最大的靈活性。
 
-#### The Annual Tax Planning Calendar
+#### 年度稅務規劃日曆
 
-Tax-efficient investing is not a one-time setup -- it requires periodic attention:
+節稅投資不是一次性設置——它需要定期關注：
 
-- **January-February:** Review prior year's tax situation. Identify large gains or losses realized.
-- **Throughout the year:** Monitor positions for tax-loss harvesting opportunities, especially during market pullbacks. Check for wash sale risks before trading.
-- **October-November:** Review fund capital gains distribution estimates (published by fund companies). Consider selling funds before they make large distributions.
-- **December:** Make final TLH trades, ensuring the 31-day wash sale window ends within the calendar year. Execute Roth conversions if appropriate. Make charitable contributions of appreciated securities. Ensure any year-end trades settle before December 31.
-- **Year-round:** Keep records of all lot purchases, sales, wash sales, and cost basis adjustments.
+- **一月至二月：**回顧上一年度的稅務狀況。識別已實現的大量利得或損失。
+- **全年：**監控持倉的稅損收割機會，尤其是在市場回調期間。交易前檢查清洗銷售風險。
+- **十月至十一月：**查看基金公司發布的基金資本利得分配估算。考慮在基金進行大額分配之前出售。
+- **十二月：**進行最後的稅損收割交易，確保31天的清洗銷售時間窗口在日曆年內結束。如適合，執行Roth轉換。進行增值證券的慈善捐贈。確保任何年末交易在12月31日之前結算。
+- **全年：**保存所有批次購買、出售、清洗銷售和成本基礎調整的記錄。
 
 ---
 
-### Common Misconceptions
+### 常見誤解
 
-**"Tax-loss harvesting is free money."**
-TLH is primarily a tax deferral strategy, not a tax elimination strategy. You defer taxes to the future by accepting a lower cost basis. The real value comes from three things: the time value of the deferral (using that tax savings to invest and compound), the possibility of paying a lower rate in the future, and the step-up in basis at death. It is absolutely worth doing, but it is not a magic trick that makes taxes disappear.
+**「稅損收割是免費的錢。」**
+稅損收割主要是一種稅務遞延策略，而非稅務消除策略。您通過接受較低的成本基礎將稅務推遲到未來。真正的價值來自三個方面：遞延的時間價值（使用那筆節稅資金投資並複利增長）、未來可能支付較低稅率的可能性，以及死亡時的成本基礎重設。這絕對值得做，但它不是讓稅款消失的魔術。
 
-**"I should never sell a winner because of taxes."**
-Taxes should not be the tail wagging the investment dog. If your investment thesis has changed, the position has become too large relative to your portfolio, or a better opportunity exists, selling and paying taxes is often the right decision. The math changes depending on your holding period and the magnitude of the gain, but "never sell" is not sound advice.
+**「我應該永遠不賣掉贏家，因為要繳稅。」**
+稅務不應成為左右投資決策的尾巴。如果您的投資論點已改變，持倉相對於您的投資組合已變得過大，或者存在更好的機會，出售並繳稅通常是正確的決定。計算方式根據您的持有期和利得規模而有所不同，但「永遠不賣」並不是明智的建議。
 
-**"Municipal bonds are always better than taxable bonds for high-income investors."**
-You need to compare the tax-equivalent yield. If a municipal bond yields 3.5% and you are in the 35% combined tax bracket, the tax-equivalent yield is 3.5% / (1 - 0.35) = 5.38%. If a comparable taxable bond yields only 5.0%, the municipal bond wins. But if the taxable bond yields 6.0%, it wins after taxes. Always do the math rather than assuming munis are automatically better.
+**「市政債券對高收入投資人總是優於應稅債券。」**
+您需要比較稅後等值殖利率。如果市政債券殖利率為3.5%，您的合計稅率為35%，稅後等值殖利率為3.5% / (1 - 0.35) = 5.38%。如果可比的應稅債券殖利率僅為5.0%，市政債券勝出。但如果應稅債券殖利率為6.0%，則稅後應稅債券勝出。始終做計算，而不是假設市政債券自動更好。
 
-**"All my accounts should hold the same investments."**
-This is the opposite of asset location. By differentiating what each account holds based on tax treatment, you can improve after-tax returns by 0.25% to 0.75% per year without taking any additional risk. This is one of the few genuine "free lunches" in investing.
+**「我所有帳戶都應該持有相同的投資。」**
+這與資產擺放位置正好相反。透過根據稅務處理方式區分每個帳戶持有的資產，您可以每年提升稅後報酬0.25%至0.75%，而無需承擔任何額外風險。這是投資中少有的真正「免費午餐」之一。
 
-**"I will be in a lower tax bracket in retirement, so tax-deferred accounts are always better."**
-This is not always true. If you are a good saver, your RMDs may push you into a high bracket in retirement. Social Security income, pension income, and RMDs all stack up. Many retirees are surprised to find themselves in the same or even a higher bracket than during their working years. Diversifying across account types (taxable, tax-deferred, tax-exempt) provides flexibility to manage your tax bracket in retirement.
+**「我退休後將處於較低的稅率級距，所以遞延課稅帳戶總是更好的。」**
+這並不總是正確的。如果您是個優秀的儲蓄者，最低提領規定可能使您退休時進入高稅率級距。社會安全金收入、退休金收入和最低提領規定都會疊加。許多退休者驚訝地發現，他們的稅率級距與工作年份相同甚至更高。跨帳戶類型多元化（應稅帳戶、遞延課稅帳戶、免稅帳戶）提供了在退休中管理稅率級距的靈活性。
 
-**"Wash sale violations are the end of the world."**
-If you trigger a wash sale, the disallowed loss is not gone forever. It gets added to the cost basis of the replacement purchase. You will eventually get the benefit when you sell the replacement -- just not now. The exception is wash sales involving IRAs, where the loss can be permanently disallowed.
+**「觸發清洗銷售規則是世界末日。」**
+如果您觸發了清洗銷售，被取消的損失並未永遠消失。它被加入替換購買的成本基礎中。當您出售替換品時，您最終會得到好處——只是不是現在。例外情況是涉及IRA的清洗銷售，損失可能被永久取消。
 
-**"Tax-loss harvesting only works when the market crashes."**
-Harvesting opportunities exist in all market environments. Even in a year when the broad market is up 20%, individual holdings, sectors, or international funds may be down. Bond funds frequently experience declines during rising rate environments. Automated tax-loss harvesting services scan daily for these opportunities and can find losses that a quarterly or annual review would miss. The cumulative value of small, frequent harvests can exceed the value of occasional large harvests.
+**「稅損收割只在市場崩盤時才有效。」**
+在所有市場環境中都存在收割機會。即使在大盤上漲20%的年份，個別持股、產業或國際基金也可能下跌。債券基金在利率上升環境中頻繁經歷下跌。自動稅損收割服務每天掃描這些機會，可以發現季度或年度審查可能錯過的損失。小額、頻繁收割的累積價值可能超過偶爾大額收割的價值。
 
-**"I do not earn enough for tax-efficient investing to matter."**
-Every investor in a taxable account benefits from tax efficiency. Even investors in the 12% bracket save real money by holding index funds instead of high-turnover active funds, by harvesting losses when they arise, and by placing bonds in tax-advantaged accounts. The absolute dollar amounts scale with income, but the percentage improvement in after-tax returns applies across income levels.
-
----
-
-### Q&A Section
-
-**Q: How often should I look for tax-loss harvesting opportunities?**
-A: At minimum, review at year-end. Many professionals check quarterly or even monthly. The best opportunities arise during market downturns -- January, after broad market pullbacks, and during sector-specific declines. Some robo-advisors (Wealthfront, Betterment) automate daily TLH scanning.
-
-**Q: Can I do tax-loss harvesting in my IRA or 401(k)?**
-A: No. Gains and losses inside tax-advantaged accounts have no current tax impact. TLH only works in taxable accounts. However, remember that transactions in your IRA can trigger wash sales on losses realized in your taxable account.
-
-**Q: What is the "step-up in basis at death" and why does it matter?**
-A: When you die, the cost basis of assets in your taxable accounts is reset ("stepped up") to the market value on the date of death. All unrealized capital gains are eliminated. If you bought a stock for $10,000 and it is worth $100,000 when you die, your heirs inherit it with a $100,000 basis. They can sell immediately and owe zero capital gains tax. This makes tax-loss harvesting even more valuable -- you get the benefit of the harvested loss now, and the lower cost basis is eventually erased by the step-up.
-
-**Q: Should I harvest losses even if I do not have capital gains to offset?**
-A: Yes. You can deduct up to $3,000 per year ($1,500 if married filing separately) in net capital losses against ordinary income. And unused losses carry forward indefinitely. Harvesting losses in years without gains creates a "loss bank" that you can use in future years when you do have gains.
-
-**Q: How does asset location work if most of my money is in my 401(k) and I cannot choose exactly what to hold?**
-A: Work within your 401(k) plan options. If your 401(k) offers a bond fund and a stock fund, consider holding the bond fund in the 401(k) and the stock fund in your taxable account. Use the plan's best options (often low-cost index funds) and offset with choices in your IRA and taxable accounts.
-
-**Q: What if I want to harvest a loss but there is no similar-enough replacement fund?**
-A: You can always sell and hold cash for 31 days to avoid the wash sale rule, then repurchase. The risk is missing market moves during those 31 days. Alternatively, buy a broadly similar fund -- for example, switching from a Russell 1000 index to an S&P 500 index. They are highly correlated but not "substantially identical."
-
-**Q: Do state taxes matter for asset location decisions?**
-A: Absolutely. Some states have no income tax (Texas, Florida, Nevada, etc.), which reduces the benefit of municipal bonds and changes the relative attractiveness of different account types. Other states have high income tax rates (California, New York, New Jersey) which amplifies the value of tax-efficient strategies. Always factor in your state tax situation.
-
-**Q: Is Roth conversion always a good idea?**
-A: Not always. Roth conversion makes sense when your current tax rate is lower than your expected future rate, when you have enough years for the tax-free growth to compensate for the conversion tax, and when you can pay the conversion tax from outside funds (not from the IRA itself). The math is complex and depends on many assumptions. For many investors in their peak earning years, traditional contributions are still better.
-
-**Q: What is the "step-up in basis" and how does it interact with tax-loss harvesting?**
-A: When you die, the cost basis of assets in your taxable accounts is reset to the fair market value at the date of death. All unrealized capital gains accumulated during your lifetime are permanently eliminated for income tax purposes. This makes tax-loss harvesting even more valuable during your lifetime: you harvest losses and use them to offset gains or income now, and the resulting lower cost basis in the replacement investment is eventually erased by the step-up at death. You get the tax benefit of the loss and never pay the deferred tax on the replacement.
-
-**Q: How do I handle tax-loss harvesting if I own target-date funds?**
-A: Target-date funds are difficult to harvest because there is usually no "substantially different" replacement for a specific target-date fund. You could sell the target-date fund and temporarily replace it with a combination of individual stock and bond index funds that approximate the same allocation. After 31 days, you could repurchase the original target-date fund. Alternatively, consider holding target-date funds only in tax-advantaged accounts where TLH is not applicable, and use individual index funds in your taxable account for greater harvesting flexibility.
-
-**Q: Are there special tax considerations for international funds?**
-A: Yes. Foreign taxes paid on dividends from international stock funds may be claimed as either a tax deduction or a foreign tax credit on your US return. The credit is usually more valuable. In taxable accounts, you can claim this credit. In tax-advantaged accounts, the foreign taxes are simply lost -- you get no credit or deduction. This creates an argument for holding international stock funds in taxable accounts, despite their slightly lower tax efficiency from non-qualified dividends, because the foreign tax credit partially compensates.
+**「我賺得不夠，節稅投資對我沒有意義。」**
+每個在應稅帳戶中投資的投資人都能受益於稅務效率。即使是適用12%稅率的投資人，也能透過持有指數基金而非高週轉率主動式基金、在損失出現時收割損失，以及將債券放置在稅務優惠帳戶中，而節省真實的資金。絕對金額隨收入而擴大，但稅後報酬的百分比改善適用於所有收入水平。
 
 ---
 
-## PART 2: YOUTUBE SCRIPT
+### 問答環節
+
+**問：我應該多久尋找一次稅損收割機會？**
+答：至少在年末審查一次。許多專業人士按季度甚至每月檢查。最佳機會出現在市場下跌期間——一月份、大盤回調後以及特定產業下跌期間。一些機器人理財顧問（Wealthfront、Betterment）自動進行每日稅損收割掃描。
+
+**問：我可以在IRA或401(k)中進行稅損收割嗎？**
+答：不可以。稅務優惠帳戶內的利得和損失沒有當前的稅務影響。稅損收割只適用於應稅帳戶。但請記住，您的IRA中的交易可能觸發您在應稅帳戶中實現的損失的清洗銷售。
+
+**問：什麼是「死亡時的成本基礎重設」，為什麼重要？**
+答：當您去世時，您應稅帳戶中資產的成本基礎重設（「重置」）為死亡日期的市場價值。所有未實現的資本利得都被消除。如果您以10,000美元購買了一隻股票，在您去世時價值為100,000美元，您的繼承人以100,000美元的成本基礎繼承它。他們可以立即出售，無需繳納任何資本利得稅。這使稅損收割更加有價值——您現在就獲得收割損失的好處，而較低的成本基礎最終會被成本基礎重設所抹去。
+
+**問：如果我沒有資本利得可以抵消，我應該收割損失嗎？**
+答：是的。您可以從一般所得中扣除每年最多3,000美元（已婚分開申報為1,500美元）的淨資本損失。未使用的損失可無限期結轉。在沒有利得的年份收割損失，創建了一個「損失儲備」，您可以在未來有利得時使用。
+
+**問：如果我的大部分資金都在401(k)中，而我無法精確選擇持有什麼，資產擺放位置如何運作？**
+答：在您的401(k)計畫選項範圍內工作。如果您的401(k)提供債券基金和股票基金，考慮在401(k)中持有債券基金，在應稅帳戶中持有股票基金。使用計畫的最佳選項（通常是低成本指數基金），並透過您的IRA和應稅帳戶中的選擇進行補充。
+
+**問：如果我想收割損失，但沒有足夠相似的替換基金怎麼辦？**
+答：您可以隨時出售並持有現金31天以避免清洗銷售規則，然後重新購買。風險是在那31天內錯過市場走勢。或者，購買一個大致相似的基金——例如，從羅素1000指數切換到標普500指數。它們高度相關，但不是「實質相同」的。
+
+**問：州稅對資產擺放位置決策有影響嗎？**
+答：絕對有。一些州沒有所得稅（德克薩斯州、佛羅里達州、內華達州等），這降低了市政債券的優勢，並改變了不同帳戶類型的相對吸引力。其他州有高所得稅率（加利福尼亞州、紐約州、新澤西州），這放大了節稅策略的價值。始終將您所在州的稅務狀況納入考量。
+
+**問：Roth轉換總是個好主意嗎？**
+答：並非總是如此。當您的當前稅率低於預期未來稅率時，Roth轉換才有意義；當您有足夠的年限讓免稅成長補償轉換稅時；以及當您可以從帳戶外的資金支付轉換稅時（而非從IRA本身）。計算很複雜，取決於許多假設。對於許多處於收入高峰年份的投資人，傳統繳費仍然更好。
+
+**問：什麼是「成本基礎重設」，它如何與稅損收割相互作用？**
+答：當您去世時，您應稅帳戶中資產的成本基礎重設為死亡日期的公平市場價值。您一生中累積的所有未實現資本利得，在所得稅方面被永久消除。這使稅損收割在您的一生中更加有價值：您收割損失並用它們來抵消現在的利得或收入，替換投資中產生的較低成本基礎最終在死亡時的成本基礎重設中被抹去。您獲得損失的稅務好處，並且永遠不需要為替換品上遞延的稅款付款。
+
+**問：如果我持有目標日期基金，如何處理稅損收割？**
+答：目標日期基金很難進行收割，因為通常沒有針對特定目標日期基金的「實質不同」替換品。您可以出售目標日期基金，暫時用大致相同配置的個別股票和債券指數基金組合替換它。31天後，您可以重新購買原始的目標日期基金。或者，考慮只在稅務優惠帳戶中持有目標日期基金（稅損收割在那裡不適用），並在您的應稅帳戶中使用個別指數基金，以獲得更大的收割靈活性。
+
+**問：國際基金有特殊的稅務考量嗎？**
+答：有。來自國際股票基金股利所繳的外國稅款，可以在您的美國申報表上作為稅務扣除或外國稅收抵免申請。稅收抵免通常更有價值。在應稅帳戶中，您可以申請此抵免。在稅務優惠帳戶中，外國稅款就此損失——您無法獲得抵免或扣除。這創造了在應稅帳戶中持有國際股票基金的理由，儘管其非合格股利使稅務效率略低，因為外國稅收抵免部分彌補了這一點。
 
 ---
 
-### "The Tax Playbook: How Smart Investors Keep More of Their Returns"
+## 第二部分：YouTube腳本
 
-**Target Length:** 18-22 minutes
-**Tone:** Practical, strategic, empowering
+---
+
+### 「稅務操作手冊：聰明投資人如何保留更多報酬」
+
+**目標長度：**18至22分鐘
+**基調：**實用、策略性、賦能
 
 ---
 
 **[VISUAL: Side-by-side comparison -- two identical portfolios both earning 8%. One labeled "Tax-Oblivious" shows ending value, the other "Tax-Efficient" shows a significantly larger ending value. Title card: "Tax-Efficient Investing"]**
 
-**Alex:** What if I told you that two investors with the exact same portfolio, the exact same returns, and the exact same savings rate could end up thirty to forty percent apart in total wealth over thirty years?
+**Horace（陳馬）：**如果我告訴您，兩個擁有完全相同投資組合、完全相同報酬和完全相同儲蓄率的投資人，在三十年後的總財富可能相差三十至四十個百分點？
 
-**Sam:** That is massive. What is the difference?
+**Stella（小魚）：**那差距巨大。差異在哪裡？
 
-**Alex:** Taxes. Nothing else. Just taxes.
+**Horace（陳馬）：**稅務。就只是稅務而已。
 
 **[ANIMATION: Dollar bill being cut into pieces. "Taxes" slice taking 1-2% per year. Compound effect shown over 30 years growing from a small annual drag to a huge cumulative impact.]**
 
-**Sam:** Most people think about finding better investments. You are saying the bigger lever is keeping more of what you already earn.
+**Stella（小魚）：**大多數人想著要找到更好的投資標的。您說的是更大的關鍵是保留您已經賺取的報酬。
 
-**Alex:** Exactly. You cannot control the market, but you can absolutely control your tax efficiency. And the strategies we are covering today are not complicated -- they are just not taught in most places.
+**Horace（陳馬）：**完全正確。您無法控制市場，但您絕對可以控制稅務效率。今天我們要介紹的策略並不複雜——只是大多數地方不會教授這些內容。
 
-**Alex:** Let us start with the absolute basics. When you sell an investment for a profit, you owe capital gains tax. But the rate depends entirely on how long you held it.
+**Horace（陳馬）：**讓我們從絕對的基礎開始。當您以利潤出售投資時，您需要繳納資本利得稅。但稅率完全取決於您持有它的時間長短。
 
 **[VISUAL: Two clocks. One showing less than 12 months labeled "Short-Term: Taxed as Ordinary Income (up to 37%)." The other showing more than 12 months labeled "Long-Term: Preferential Rate (0%, 15%, or 20%)"]**
 
-**Alex:** Hold for a year or less -- short-term capital gain, taxed at your ordinary income rate, which for many professionals is thirty-two to thirty-seven percent. Hold for more than one year -- long-term capital gain, taxed at zero, fifteen, or twenty percent depending on your income.
+**Horace（陳馬）：**持有一年或以下——短期資本利得，按您的一般所得稅率課稅，對於許多專業人士而言，這是百分之三十二至三十七。持有超過一年——長期資本利得，根據您的收入，按零、十五或二十個百分點課稅。
 
-**Sam:** So the difference between selling on day 364 and day 366 could be a fifteen-plus-percent difference in your tax rate?
+**Stella（小魚）：**所以在第364天和第366天之間賣出的差異，可能是稅率差異超過十五個百分點？
 
-**Alex:** Exactly. On a hundred-thousand-dollar gain, that is over fifteen thousand dollars saved just by waiting two more days. This is the simplest tax strategy in existence and yet people ignore it constantly.
+**Horace（陳馬）：**完全正確。在十萬美元的利得上，僅僅再等兩天就可以節省超過一萬五千美元。這是現存最簡單的稅務策略，但人們卻不斷忽視它。
 
 **[ANIMATION: Calendar showing 365 days. Day 364 highlighted in red: "$37,000 tax." Day 366 highlighted in green: "$15,000 tax." Arrow showing $22,000 savings.]**
 
-**Sam:** What about dividends?
+**Stella（小魚）：**股利呢？
 
-**Alex:** Not all dividends are taxed the same. Qualified dividends get the same favorable rate as long-term capital gains. Ordinary dividends, like those from REITs, get taxed at your full income rate. And bond interest is always ordinary income.
+**Horace（陳馬）：**並非所有股利的課稅方式都相同。合格股利享有與長期資本利得相同的優惠稅率。普通股利，如來自不動產投資信託的，按您的全部所得稅率課稅。而債券利息始終是一般所得。
 
 **[VISUAL: Tax rate comparison table. Qualified Dividends: 0-20%. Ordinary Dividends: 10-37%. Bond Interest: 10-37%. Municipal Bond Interest: 0%.]**
 
-**Alex:** This is why holding bonds in your taxable brokerage account is one of the least efficient things you can do. All that interest income is taxed at your highest rate every single year.
+**Horace（陳馬）：**這就是為什麼在您的應稅券商帳戶中持有債券是您可以做的最缺乏效率的事情之一。所有的利息收入每年都按您的最高稅率課稅。
 
-**Sam:** Which brings us to asset location.
+**Stella（小魚）：**這帶我們到了資產擺放位置。
 
-**Alex:** Right. Asset location is putting the right investments in the right type of account. You have three buckets.
+**Horace（陳馬）：**正確。資產擺放位置是將正確的投資放入正確類型帳戶中。您有三個桶。
 
 **[VISUAL: Three buckets labeled "Taxable Brokerage," "Traditional IRA/401(k)," and "Roth IRA/401(k)" with brief descriptions of tax treatment for each]**
 
-**Alex:** The general framework: in your taxable account, hold things that are already tax-efficient -- low-turnover index funds, ETFs, stocks you plan to hold forever, and municipal bonds. In your traditional IRA or 401(k), hold the tax-inefficient stuff -- bonds, REITs, high-turnover funds. In your Roth, hold whatever you expect to grow the most, because that growth will never be taxed.
+**Horace（陳馬）：**一般框架：在您的應稅帳戶中，持有本身已具稅務效率的東西——低週轉率指數基金、指數股票型基金、您計劃永遠持有的股票，以及市政債券。在您的傳統IRA或401(k)中，持有稅務效率低的東西——債券、不動產投資信託、高週轉率基金。在您的Roth中，持有您預期增長最多的資產，因為那些增長永遠不會被課稅。
 
-**Sam:** Why does it matter where things sit?
+**Stella（小魚）：**為什麼持有位置很重要？
 
-**Alex:** Let me show you with real numbers.
+**Horace（陳馬）：**讓我用真實數字給您看。
 
 **[ANIMATION: Two scenarios running side by side over 20 years. Scenario A: Bond fund in taxable, stock fund in IRA. Scenario B: Stock fund in taxable, bond fund in IRA. Both start with same total dollars. After 20 years, Scenario B shows approximately 10-15% more after-tax wealth.]**
 
-**Alex:** Same total portfolio, same total returns, same total contributions. But by putting the bond fund inside the IRA where its interest is not taxed annually, and the stock fund in the taxable account where it gets preferential capital gains rates, you end up with meaningfully more money.
+**Horace（陳馬）：**同樣的總投資組合，同樣的總報酬，同樣的總繳費。但透過將債券基金放在IRA內（其利息不用每年課稅），股票基金放在應稅帳戶中（享受優惠的資本利得稅率），您最終擁有明顯更多的資金。
 
-**Sam:** Okay, let us talk about tax-loss harvesting. This is the strategy I hear about most but understand least.
+**Stella（小魚）：**好的，讓我們談談稅損收割。這是我聽說最多但理解最少的策略。
 
-**Alex:** Tax-loss harvesting is selling an investment that has gone down in value to lock in the loss. You then use that loss to offset gains elsewhere, reducing your tax bill.
+**Horace（陳馬）：**稅損收割是出售已經下跌的投資以鎖定損失。然後您使用該損失來抵消其他地方的利得，從而減少您的稅單。
 
 **[VISUAL: Portfolio showing five positions. Three are up, two are down. Arrows showing the losing positions being sold. Loss amounts flowing to offset gain amounts.]**
 
-**Alex:** Here is a simple example. You bought a total international fund for fifty thousand dollars. It is now worth forty thousand. That is a ten-thousand-dollar unrealized loss. You sell it, realizing the loss. Immediately, you buy a different international fund -- similar exposure but not identical -- to stay invested.
+**Horace（陳馬）：**這裡有個簡單的例子。您以五萬美元購買了一隻全球國際基金。現在價值四萬美元。那是一萬美元的未實現損失。您出售它，實現損失。立即，您購買一隻不同的國際基金——類似的曝險但不完全相同——以保持市場投入。
 
-**Sam:** And that ten-thousand-dollar loss offsets gains elsewhere?
+**Stella（小魚）：**那一萬美元的損失抵消了其他地方的利得？
 
-**Alex:** Dollar for dollar against capital gains. If you have ten thousand in long-term gains in another part of your portfolio, your net gain becomes zero. At a fifteen-percent tax rate, you just saved fifteen hundred dollars. If it offsets short-term gains at thirty-two percent, you saved thirty-two hundred.
+**Horace（陳馬）：**按美元對美元抵消資本利得。如果您在投資組合的另一部分有一萬美元的長期利得，您的淨利得變為零。按百分之十五的稅率，您剛剛節省了一千五百美元。如果它抵消了按百分之三十二課稅的短期利得，您節省了三千二百美元。
 
 **[ANIMATION: Balance scale. Left side: $10,000 loss. Right side: $10,000 gain. They cancel out. Tax bill: $0 instead of $1,500-$3,200.]**
 
-**Sam:** But I have heard this is not really a free lunch -- it is more of a tax deferral.
+**Stella（小魚）：**但我聽說這並非真正的免費午餐——它更像是稅務遞延。
 
-**Alex:** Smart observation. When you buy the replacement fund at forty thousand dollars, your cost basis is lower. So when you eventually sell the replacement, your gain will be ten thousand dollars larger. You deferred the tax, you did not eliminate it.
+**Horace（陳馬）：**敏銳的觀察。當您以四萬美元購買替換基金時，您的成本基礎較低。所以當您最終出售替換品時，您的利得將多出一萬美元。您推遲了稅務，但並沒有消除它。
 
-**Sam:** So when is deferral valuable?
+**Stella（小魚）：**那麼什麼時候遞延是有價值的？
 
-**Alex:** Three situations where deferral becomes permanent savings. First, if your tax rate is lower in the future -- maybe you retire and move to a lower bracket. Second, if you hold until death and your heirs get the step-up in basis. Third, if you donate the appreciated shares to charity, bypassing capital gains entirely.
+**Horace（陳馬）：**遞延變成永久節稅的三種情況。第一，如果您未來的稅率較低——也許您退休後進入較低的稅率級距。第二，如果您持有至死亡，繼承人獲得成本基礎重設。第三，如果您將增值股票捐贈給慈善機構，完全繞過資本利得。
 
 **[VISUAL: Three scenarios listed with dollar amounts showing the savings: "Lower Future Rate: $800 saved," "Step-Up at Death: $1,500 saved," "Charitable Donation: $1,500 saved"]**
 
-**Alex:** And even pure deferral has value. Fifteen hundred dollars invested today at eight percent for twenty years grows to seven thousand dollars. That is real money just from the time value of deferring a tax payment.
+**Horace（陳馬）：**即使是純粹的遞延也有價值。今天投資的一千五百美元，以百分之八的報酬率投資二十年，成長為七千美元。僅僅從推遲納稅的時間價值，就是真實的錢。
 
-**Sam:** Now the trap. The wash sale rule.
+**Stella（小魚）：**現在是陷阱。清洗銷售規則。
 
-**Alex:** The IRS says you cannot sell at a loss and buy a "substantially identical" security within thirty days before or after the sale. If you do, the loss is disallowed.
+**Horace（陳馬）：**美國國稅局表示，您不能以虧損出售並在出售日前後三十天內買入「實質相同」的證券。如果您這樣做，損失將被取消。
 
 **[ANIMATION: Calendar with 61-day window highlighted. Day 31 = sale date. Days 1-30 = "No purchase of same security." Days 32-61 = "No purchase of same security." Violation shown with red X.]**
 
-**Sam:** What counts as substantially identical?
+**Stella（小魚）：**什麼算作實質相同？
 
-**Alex:** Same stock, same fund, same CUSIP number -- clearly yes. Buying a different ETF that tracks a different index -- clearly no. The gray area is buying a different ETF that tracks the same or a very similar index. The IRS has not given definitive guidance here, but most tax professionals consider a Vanguard S&P 500 ETF and a Schwab Total Market ETF to be sufficiently different.
+**Horace（陳馬）：**相同的股票、相同的基金、相同的CUSIP號碼——顯然是的。買入追蹤不同指數的不同指數股票型基金——顯然不是。灰色地帶是買入追蹤相同或非常相似指數的不同指數股票型基金。美國國稅局尚未給出明確指導，但大多數稅務專業人士認為先鋒標普500指數股票型基金和嘉信全市場指數股票型基金足夠不同。
 
 **[VISUAL: Traffic light system. Red: "Same security - Always a wash sale." Yellow: "Same index, different provider - Gray area." Green: "Different index, different provider - Generally safe."]**
 
-**Alex:** The biggest trap is not the obvious one. It is automatic dividend reinvestment. If you sell a fund at a loss and have DRIP turned on in another account that buys the same fund within thirty days, you have accidentally triggered a wash sale. Turn off DRIP for any security you are harvesting losses on.
+**Horace（陳馬）：**最大的陷阱不是顯而易見的那個。而是自動股利再投資。如果您以虧損出售基金，而您在另一個帳戶中開啟了股利再投資計畫，在三十天內購買了相同基金，您無意中觸發了清洗銷售。對任何您正在收割損失的證券關閉股利再投資計畫。
 
-**Sam:** What about the IRA trap?
+**Stella（小魚）：**IRA陷阱呢？
 
-**Alex:** This is the worst one. If you sell at a loss in your taxable account and your IRA buys the same security within thirty days, the loss is disallowed. And here is the nightmare -- you cannot add the disallowed loss to the IRA's cost basis. The loss is gone. Permanently. This is the one scenario where a wash sale violation can cost you money forever.
+**Horace（陳馬）：**這是最糟糕的一個。如果您在應稅帳戶中以虧損出售，而您的IRA在三十天內購買了相同的證券，損失將被取消。這裡有個噩夢——您無法將被取消的損失加入IRA的成本基礎。損失永遠消失了。這是清洗銷售違規可能永遠讓您損失金錢的唯一情況。
 
 **[VISUAL: Red warning banner: "Wash Sale + IRA = PERMANENT LOSS. The disallowed loss CANNOT be recovered."]**
 
-**Sam:** Let us zoom out. What does a comprehensive tax-efficient strategy look like for a typical investor?
+**Stella（小魚）：**讓我們退一步。對於典型的投資人，全面的節稅策略是什麼樣的？
 
-**Alex:** Five pillars.
+**Horace（陳馬）：**五大支柱。
 
 **[VISUAL: Five pillars graphic building up one by one]**
 
-**Alex:** Pillar one -- hold investments for more than a year to get long-term capital gains rates. Pillar two -- put the right assets in the right accounts through asset location. Pillar three -- use tax-efficient funds in taxable accounts -- index ETFs over actively managed mutual funds. Pillar four -- harvest losses during market downturns and use them to offset gains. Pillar five -- manage withdrawals in retirement to stay in the lowest possible tax bracket through strategic Roth conversions and bracket management.
+**Horace（陳馬）：**支柱一——持有投資超過一年，以獲得長期資本利得稅率。支柱二——透過資產擺放位置將正確的資產放入正確的帳戶中。支柱三——在應稅帳戶中使用稅務效率高的基金——指數股票型基金優於主動式共同基金。支柱四——在市場下跌期間收割損失，並用它們來抵消利得。支柱五——在退休中管理提領，透過策略性Roth轉換和稅率級距管理保持在最低可能的稅率級距。
 
-**Sam:** Each one of these individually saves a little bit. But combined over thirty years...
+**Stella（小魚）：**這些中的每一個單獨都節省了一點點。但在三十年中合在一起……
 
-**Alex:** Combined, you are talking about an extra five hundred thousand to a million dollars in after-tax wealth for a typical high-income professional over a career. Not from better stock picks. Not from market timing. Just from being tax-smart.
+**Horace（陳馬）：**合在一起，對於典型的高收入專業人士，我們談的是在職業生涯中額外多出五十萬至一百萬美元的稅後財富。不是來自更好的股票選擇。不是來自市場時機。只是來自稅務上的聰明。
 
 **[ANIMATION: Two wealth trajectories starting from the same point. One climbs normally, the other climbs higher and higher as each pillar is added. The gap at year 30 is substantial. Labels show: "Pillar 1: +$50K," "Pillar 2: +$120K," and so on, cumulating.]**
 
-**Sam:** That is the most compelling argument I have heard for something that is not particularly exciting.
+**Stella（小魚）：**這是我聽過對某件不特別令人興奮的事情最有說服力的論點。
 
-**Alex:** Tax efficiency is not exciting. It is just effective. And unlike finding the next hot stock, it is entirely within your control.
+**Horace（陳馬）：**稅務效率並不令人興奮。它只是有效。而且與找到下一個熱門股票不同，它完全在您的控制之內。
 
-**Sam:** What about municipal bonds? When do those make sense?
+**Stella（小魚）：**市政債券呢？什麼時候有意義？
 
-**Alex:** Municipal bonds are a powerful tool for high-income investors in taxable accounts. The interest is exempt from federal income tax, and if the bonds are from your state, often state tax too. The key is comparing the tax-equivalent yield. A muni yielding three and a half percent for someone in the thirty-five percent bracket is equivalent to a taxable bond yielding five point four percent. If you cannot find taxable bonds beating that number, munis win.
+**Horace（陳馬）：**市政債券對在應稅帳戶中投資的高收入投資人是一個強大的工具。利息免徵聯邦所得稅，如果債券來自您所在的州，通常也免徵州稅。關鍵是比較稅後等值殖利率。對於適用三十五%稅率的人，殖利率三點五%的市政債券等同於應稅債券的殖利率五點四%。如果您找不到殖利率超過這個數字的應稅債券，市政債券勝出。
 
 **[VISUAL: Side-by-side comparison. Taxable bond: 5.0% yield, after 35% tax = 3.25% kept. Municipal bond: 3.5% yield, after 0% tax = 3.5% kept. Muni wins. Formula shown: Tax-Equivalent Yield = Muni Yield / (1 - Tax Rate).]**
 
-**Sam:** But never in an IRA.
+**Stella（小魚）：**但不要放在IRA中。
 
-**Alex:** Never. In a tax-advantaged account, the tax exemption is wasted. You would earn a lower yield for no benefit. Munis belong exclusively in taxable accounts.
+**Horace（陳馬）：**絕對不要。在稅務優惠帳戶中，稅務豁免是浪費的。您將以較低的殖利率換取毫無益處的東西。市政債券只屬於應稅帳戶。
 
-**Alex:** Let me mention one more thing -- the step-up in basis at death. When you die, the cost basis of your taxable investments resets to market value. All those unrealized gains? Gone. Your heirs inherit at the current price and owe zero capital gains tax on the appreciation during your lifetime.
+**Horace（陳馬）：**讓我再提一件事——死亡時的成本基礎重設。當您去世時，您應稅投資的成本基礎重設為市場價值。那些未實現的利得？消失了。您的繼承人以現在的價格繼承，對您一生中的增值不欠任何資本利得稅。
 
 **[ANIMATION: Investor buys stock at $10,000. Over decades it grows to $200,000. Unrealized gain: $190,000. At death, basis steps up to $200,000. Heir sells at $200,000 and owes $0 in capital gains. The $190,000 gain is permanently erased.]**
 
-**Sam:** So tax-loss harvesting becomes even more valuable. You get the loss benefit now, and the lower cost basis is eventually wiped out by the step-up.
+**Stella（小魚）：**所以稅損收割變得更加有價值。您現在獲得損失好處，而替換投資中較低的成本基礎最終被成本基礎重設所消除。
 
-**Alex:** Exactly. Harvest losses during your lifetime, use them to offset gains and income, and the deferred tax on the replacement securities is eliminated at death. It is one of the most valuable features in the entire tax code for long-term investors.
+**Horace（陳馬）：**完全正確。在您的一生中收割損失，用它們來抵消利得和收入，而對替換證券遞延的稅款在死亡時被消除。您獲得損失的稅務好處，並且永遠不需要為遞延的稅款付款。
 
 **[VISUAL: Recap card: "Hold >1 Year | Asset Location | Tax-Efficient Funds | Tax-Loss Harvesting | Municipal Bonds | Strategic Withdrawals | Step-Up in Basis"]**
 
-**Sam:** Go look at your portfolio right now. Check what is in which account. See if you have any losses worth harvesting. Calculate your tax-equivalent yield on your bond holdings. Small changes today compound into big differences tomorrow.
+**Stella（小魚）：**現在就去看看您的投資組合。檢查哪些資產在哪個帳戶中。看看您是否有任何值得收割的損失。計算您的債券持倉的稅後等值殖利率。今天的小改變，明天會複利成巨大的差異。
 
-**Alex:** See you in the next one.
+**Horace（陳馬）：**下次見。
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 05 -- DCA vs. Lump Sum"]**
 
 ---
 
-**END OF SIDE LESSON 04**
+**附加課程04結束**

@@ -1,739 +1,843 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
+# 第26週：期權作為條件性委託單
 
-# Week 26: Options as Conditional Orders
+## 閱讀部分
 
-## Reading Section
+### a) 為何這至關重要
 
-### a) Why This Is Important
+大多數投資者認為期權是複雜、罕見的工具，專為專業人士和投機者而設。這種思維模式形成了一道障礙，令他們無法善用簡單的期權策略，白白錯失大幅改善投資成果的機會。本課將介紹一個顛覆一切的思維框架：**期權作為條件性委託單**。
 
-Most investors think of options as complex, exotic instruments used by professionals and speculators. This mental model creates a barrier that prevents them from using simple options strategies that could dramatically improve their investment outcomes. In this lesson, we introduce a mental model that changes everything: **options as conditional orders**.
+洞見所在：當你賣出認沽期權時，你實質上是為一隻股票掛出限價買入委託單，同時在等待期間收取報酬。當你針對持有的股票賣出認購期權時，你實質上是掛出限價賣出委託單，並在等待期間收取報酬。
 
-Here is the insight: when you sell a put option, you are essentially placing a limit buy order on a stock and getting paid while you wait. When you sell a call option on a stock you own, you are essentially placing a limit sell order and getting paid while you wait.
+這不僅僅是一個方便的類比，其經濟結果幾乎如出一轍。分別在於：使用期權時，你可收取入息（期權金），作為同意在指定價格買入或賣出的報酬；而普通限價委託單則讓你的現金白白等待，毫無收益。
 
-This is not just a convenient analogy. The economic outcome is nearly identical. The difference is that with options, you collect income (the premium) for agreeing to buy or sell at your chosen price. With a regular limit order, you sit and wait with your cash earning nothing.
+**這對你的投資有何意義？**
 
-**Why does this matter for your investing?**
+**閒置現金是浪費資源。** 許多投資者將現金放在場外，等待合適時機入市。也許他們在等待蘋果公司跌至140美元，或等待市場回調10%。與此同時，這些現金或許只能賺取約4至5%的儲蓄利率。若改為在目標買入價賣出現金擔保認沽期權，他們可在等待同一入市點的同時，賺取年化8至20%的回報。若股票跌至目標價，他們便如同使用限價委託單般買入。若股票未有下跌，他們可保留期權金，再試一次。
 
-**Cash sitting idle is a wasted resource.** Many investors keep cash on the sidelines waiting for the right moment to buy. Maybe they are waiting for Apple to drop to $140, or for the market to pull back 10%. In the meantime, that cash earns a savings account rate of perhaps 4-5%. By selling cash-secured puts at their target buy price instead, they could earn 8-20% annualized while waiting for the same entry point. If the stock drops to their price, they buy it just as they would have with the limit order. If it does not drop, they keep the premium and try again.
+**賣出決定在情緒上十分困難。** 許多投資者因無法下定決心賣出而持有贏利股票太久。透過在目標賣出價賣出備兌認購期權，他們得以提前承諾執行紀律性的離場策略，並因此收取報酬。期權金收入有助紓緩賣出贏利倉位時的情緒壓力。
 
-**Selling decisions are emotionally difficult.** Many investors hold winning stocks too long because they cannot bring themselves to sell. By selling covered calls at their target sell price, they commit in advance to a disciplined exit, and they get paid for that commitment. The premium income softens the emotional blow of potentially selling a winning position.
+**這種方法與買入持有的投資理念一脈相承。** 你並非在投機短期走勢，而是利用期權實踐每本投資教科書都推薦的低買高賣紀律，同時在過程中收取入息。這是價值投資者善用期權的方式，而非日間交易者的賭博工具。
 
-**This approach aligns options with a buy-and-hold philosophy.** You are not speculating on short-term movement. You are using options to implement the same buy-low, sell-high discipline that every investment textbook recommends, while collecting income in the process. This is options used as tools for value investors, not as gambling instruments for day traders.
-
-Once you internalize this mental model, you will never look at cash-secured puts or covered calls the same way again. They become natural extensions of what you already do as a disciplined investor.
+一旦你將這個思維框架內化，你對現金擔保認沽期權和備兌認購期權的看法將截然不同。它們成為你身為一名紀律型投資者所做事情的自然延伸。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的知識
 
-#### The Limit Order Analogy
+#### 限價委託單類比
 
-Before we discuss options, let us review how limit orders work.
+在討論期權之前，讓我們先溫習限價委託單的運作方式。
 
-A **limit buy order** tells your broker: "Buy this stock for me, but only at this price or lower." If the stock never reaches your limit price, the order is never filled, and your cash remains untouched.
+**限價買入委託單**告訴你的券商：「為我買入這隻股票，但只能以此價格或更低的價格成交。」若股票從未觸及你的限價，委託單永遠不會成交，你的現金保持不動。
 
-A **limit sell order** tells your broker: "Sell my stock, but only at this price or higher." If the stock never reaches your target, you keep holding the stock.
-
-```
-Traditional Limit Orders:
-
-LIMIT BUY ORDER:                      LIMIT SELL ORDER:
-"Buy AAPL at $140 or lower"          "Sell AAPL at $180 or higher"
-
-Stock at $155:  Order sits unfilled    Stock at $155:  Order sits unfilled
-Stock hits $140: Order fills           Stock hits $180: Order fills
-                  You buy at $140                       You sell at $180
-
-While waiting: Cash earns NOTHING     While waiting: No additional income
-               (or minimal interest)                  (just dividends)
-```
-
-Now let us see how selling options mirrors this exact behavior, but with the added benefit of income.
-
-#### Selling Puts as Limit Buy Orders
-
-When you sell (write) a put option, you are making a promise: "I agree to buy 100 shares of this stock at the strike price if the stock falls to or below that level before expiration. In exchange for this promise, I collect a premium upfront."
-
-This is economically equivalent to a limit buy order, with one major enhancement: **you get paid to wait**.
+**限價賣出委託單**告訴你的券商：「賣出我的股票，但只能以此價格或更高的價格成交。」若股票從未觸及你的目標價，你繼續持有股票。
 
 ```
-COMPARISON: Limit Buy Order vs. Short Put
+傳統限價委託單：
+
+限價買入委託單：                        限價賣出委託單：
+「以140美元或更低價格買入AAPL」         「以180美元或更高價格賣出AAPL」
+
+股票在155美元：委託單未成交              股票在155美元：委託單未成交
+股票跌至140美元：委託單成交              股票升至180美元：委託單成交
+               以140美元買入                               以180美元賣出
+
+等待期間：現金毫無收益                  等待期間：無額外入息
+          （或利息微乎其微）                              （僅有股息）
+```
+
+現在讓我們看看賣出期權如何完全映射這一行為，並額外帶來入息收益。
+
+#### 將賣出認沽期權視為限價買入委託單
+
+當你賣出（沽出）認沽期權時，你作出了一個承諾：「若這隻股票在到期日前跌至或低於行使價，我同意以行使價買入100股。作為這個承諾的回報，我預先收取期權金。」
+
+這在經濟上等同於限價買入委託單，並附有一項重要增值：**你在等待期間獲得報酬**。
+
+```
+比較：限價買入委託單 vs. 沽出認沽期權
 
 +------------------------------------------------------------------+
-|                  LIMIT BUY ORDER    |    SHORT PUT                |
+|                  限價買入委託單         |    沽出認沽期權              |
 +------------------------------------------------------------------+
-| Action:          "Buy at $140"      | "Sell $140 Put for $3.00"  |
-| Cash reserved:   $14,000            | $14,000 (cash-secured)     |
-| If stock drops                      |                            |
-|   to $140:       Buy at $140.00     | Buy at $140, keep premium  |
-|                  Cost: $140/share    | Eff. cost: $137/share      |
-| If stock stays                      |                            |
-|   above $140:    Nothing happens    | Keep $300 premium          |
-|                  Cash earns ~0      | Earned $300 (2.1% in ~30d) |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0                 | $300 per contract          |
+| 操作：           「以140美元買入」      | 「以3.00美元賣出140美元認沽」 |
+| 預留現金：       14,000美元             | 14,000美元（現金擔保）        |
+| 若股票跌至                              |                              |
+|   140美元：      以140.00美元買入       | 以140美元買入，保留期權金     |
+|                  成本：每股140美元       | 實際成本：每股137美元          |
+| 若股票維持                              |                              |
+|   140美元以上：  無事發生              | 保留300美元期權金             |
+|                  現金幾乎無收益         | 約30天賺取300美元（2.1%）    |
+| 時間限制：       有效至取消            | 於指定日期到期                |
+| 等待期間                                |                              |
+|   入息：         0美元                  | 每份合約300美元               |
 +------------------------------------------------------------------+
 ```
 
-Let us walk through this with a complete example.
+讓我們通過一個完整例子來詳細說明。
 
-**Scenario:** You want to buy Apple (AAPL), currently trading at $155, but you think $140 is a fair price. You have $14,000 in cash.
+**情景：** 你想買入蘋果公司（AAPL），目前交易價為155美元，但你認為140美元才是合理價格。你持有14,000美元現金。
 
-**Traditional approach:** Place a limit buy order for 100 shares at $140. Wait. If Apple never drops to $140, your $14,000 sits idle earning nothing meaningful.
+**傳統方式：** 以140美元掛出100股的限價買入委託單。等待。若蘋果公司從未跌至140美元，你的14,000美元閒置無收益。
 
-**Options approach:** Sell 1 AAPL $140 Put, expiring in 30 days, for $1.85 per share ($185 per contract).
-
-```
-Outcome Analysis:
-
-Scenario 1: AAPL stays above $140 (most likely)
-  - Your put expires worthless
-  - You keep the $185 premium
-  - Return: $185 / $14,000 = 1.32% in 30 days = ~16.1% annualized
-  - You still have your $14,000 and can sell another put next month
-
-Scenario 2: AAPL drops to $140 (your target price)
-  - You are assigned: buy 100 shares at $140
-  - Effective purchase price: $140 - $1.85 = $138.15 per share
-  - This is BETTER than your limit order would have been
-  - You bought the stock you wanted at a DISCOUNT
-
-Scenario 3: AAPL drops to $130 (below your strike)
-  - You are assigned: buy 100 shares at $140
-  - Stock is now worth $130, so you have an unrealized loss of $10/share
-  - But your effective cost is $138.15, and you wanted the stock anyway
-  - Same outcome as if your limit order filled at $140 and stock kept falling
-  - Actually BETTER because your cost basis is $138.15, not $140
-
-Scenario 4: AAPL drops briefly to $140 then recovers to $160
-  - You may or may not be assigned (depends on timing)
-  - If assigned: you bought at effective $138.15, stock now at $160 = profit
-  - If not assigned: keep premium, sell another put
-```
-
-Notice something important: **there is no scenario where the put seller does worse than the limit order buyer.** In every case, the put seller either gets the same outcome plus premium income, or gets a better entry price. The only tradeoff is the time limit (the option has an expiration date, while a limit order can stay open indefinitely).
-
-#### The Premium: Getting Paid to Wait
-
-The premium you collect when selling a put is not just a nice bonus. It is compensation for three things:
-
-1. **Time commitment:** You are locking up your capital for a specific period.
-2. **Risk acceptance:** You are accepting the obligation to buy, even if the stock drops significantly.
-3. **Opportunity cost:** While your cash is reserved for this potential purchase, you cannot use it for something else.
+**期權方式：** 賣出1份AAPL 140美元認沽期權，30天後到期，期權金為每股1.85美元（每份合約185美元）。
 
 ```
-What Determines the Premium Size?
+結果分析：
+
+情景1：AAPL維持在140美元以上（最可能）
+  - 你的認沽期權到期歸零
+  - 你保留185美元期權金
+  - 回報：185美元 / 14,000美元 = 30天內1.32% = 年化約16.1%
+  - 你仍持有14,000美元現金，下個月可再賣出認沽期權
+
+情景2：AAPL跌至140美元（你的目標價）
+  - 你被行使：以140美元買入100股
+  - 實際買入價：140美元 - 1.85美元 = 每股138.15美元
+  - 這比限價委託單的成交結果更佳
+  - 你以折扣價買入了你想要的股票
+
+情景3：AAPL跌至130美元（低於你的行使價）
+  - 你被行使：以140美元買入100股
+  - 股票現值130美元，你有每股10美元的未實現虧損
+  - 但你的實際成本為138.15美元，而你本就想要這隻股票
+  - 結果與限價委託單在140美元成交後股票繼續下跌相同
+  - 實際上更佳，因為你的成本基礎為138.15美元而非140美元
+
+情景4：AAPL短暫跌至140美元後回升至160美元
+  - 你可能被行使，也可能不被行使（視乎時機）
+  - 若被行使：以實際138.15美元買入，股票現在在160美元 = 盈利
+  - 若未被行使：保留期權金，再賣出認沽期權
+```
+
+注意一個重要點：**在任何情景下，認沽期權賣家的結果都不遜於限價委託單買家。** 每種情況下，認沽期權賣家要麼獲得相同結果加上期權金收入，要麼獲得更好的入市價。唯一的取捨是時間限制（期權有到期日，而限價委託單可無限期保持有效）。
+
+#### 期權金：收取等待報酬
+
+你賣出認沽期權時收取的期權金不僅僅是額外獎勵，它是對三件事的補償：
+
+1. **時間承諾：** 你在特定期間鎖定了自己的資金。
+2. **風險接受：** 你接受了買入的義務，即使股票大幅下跌。
+3. **機會成本：** 你的現金預留作此潛在購買用途，無法用於其他地方。
+
+```
+決定期權金大小的因素？
 
 +---------------------------------------------------------------+
-| FACTOR                     | EFFECT ON PREMIUM               |
+| 因素                          | 對期權金的影響               |
 +---------------------------------------------------------------+
-| Higher implied volatility  | LARGER premium (more risk)      |
-| More time to expiration    | LARGER premium (more time)      |
-| Strike closer to stock     | LARGER premium (more likely)    |
-| Strike further from stock  | SMALLER premium (less likely)   |
-| Earnings before expiry     | LARGER premium (event risk)     |
+| 隱含波動性較高                | 期權金較大（風險較高）       |
+| 距到期日時間較長              | 期權金較大（時間較多）       |
+| 行使價接近股價                | 期權金較大（機率較高）       |
+| 行使價遠離股價                | 期權金較小（機率較低）       |
+| 到期前有盈利公布              | 期權金較大（事件風險）       |
 +---------------------------------------------------------------+
 
-Premium Size Examples (AAPL at $155, 30 days to expiration):
+期權金大小示例（AAPL在155美元，距到期30天）：
 
-  Strike $155 (ATM): Premium ~$4.20  (2.7% in 30 days)
-  Strike $150 (3% OTM): Premium ~$2.50  (1.7% in 30 days)
-  Strike $145 (6% OTM): Premium ~$1.40  (1.0% in 30 days)
-  Strike $140 (10% OTM): Premium ~$0.70  (0.5% in 30 days)
-  Strike $135 (13% OTM): Premium ~$0.30  (0.2% in 30 days)
+  行使價155美元（平值）：期權金約4.20美元（30天內2.7%）
+  行使價150美元（價外3%）：期權金約2.50美元（30天內1.7%）
+  行使價145美元（價外6%）：期權金約1.40美元（30天內1.0%）
+  行使價140美元（價外10%）：期權金約0.70美元（30天內0.5%）
+  行使價135美元（價外13%）：期權金約0.30美元（30天內0.2%）
 
-The tradeoff:
-  Closer to ATM = More premium, but higher chance of assignment
-  Further OTM = Less premium, but lower chance of assignment
+取捨：
+  越接近平值 = 期權金越多，但被行使的機率越高
+  越價外 = 期權金越少，但被行使的機率越低
 ```
 
-For most conservative investors using this as a "paid limit order" strategy, strikes that are 5-10% out of the money offer a good balance: reasonable premium, low probability of assignment, and a purchase price you would genuinely be happy with.
+對於大多數將此作為「有薪限價委託單」策略的保守投資者而言，價外5至10%的行使價提供了良好的平衡：合理的期權金、低被行使機率，以及你真正樂於接受的買入價格。
 
-#### Selling Calls as Limit Sell Orders
+#### 將賣出認購期權視為限價賣出委託單
 
-The same mental model works in reverse for covered calls. When you sell a call against stock you own, you are saying: "I agree to sell my 100 shares at the strike price if the stock rises above that level before expiration. In exchange, I collect a premium upfront."
+相同的思維框架可反向應用於備兌認購期權。當你針對持有的股票賣出認購期權時，你是在說：「若股票在到期日前升至行使價以上，我同意以行使價賣出我的100股。作為回報，我預先收取期權金。」
 
-This is economically equivalent to a limit sell order, with income while you wait.
+這在經濟上等同於限價賣出委託單，並附有等待期間的入息收益。
 
 ```
-COMPARISON: Limit Sell Order vs. Short Call (Covered)
+比較：限價賣出委託單 vs. 沽出認購期權（備兌）
 
 +------------------------------------------------------------------+
-|                  LIMIT SELL ORDER   |    COVERED CALL             |
+|                  限價賣出委託單         |    備兌認購期權              |
 +------------------------------------------------------------------+
-| Action:          "Sell at $180"     | "Sell $180 Call for $2.00"  |
-| Shares held:     100 shares         | 100 shares                  |
-| If stock rises                      |                            |
-|   to $180:       Sell at $180.00    | Sell at $180, keep premium |
-|                  Proceeds: $180/sh  | Eff. price: $182/share     |
-| If stock stays                      |                            |
-|   below $180:    Nothing happens    | Keep $200 premium          |
-|                  No extra income    | Earned $200 (income)       |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0 (just divs)    | $200 + dividends           |
+| 操作：           「以180美元賣出」      | 「以2.00美元賣出180美元認購」 |
+| 持有股票：       100股                  | 100股                         |
+| 若股票升至                              |                              |
+|   180美元：      以180.00美元賣出       | 以180美元賣出，保留期權金     |
+|                  收益：每股180美元       | 實際價格：每股182美元          |
+| 若股票維持                              |                              |
+|   180美元以下：  無事發生              | 保留200美元期權金             |
+|                  無額外入息             | 賺取200美元（入息）           |
+| 時間限制：       有效至取消            | 於指定日期到期                |
+| 等待期間                                |                              |
+|   入息：         0美元（只有股息）      | 200美元 + 股息                |
 +------------------------------------------------------------------+
 ```
 
-**Complete Example:**
+**完整例子：**
 
-You bought 100 shares of Apple at $155 and would be happy to sell at $180 (a 16% gain). Instead of placing a limit sell order, you sell a covered call.
-
-```
-Setup:
-  Own: 100 shares AAPL at $155 (cost basis)
-  Sell: 1 AAPL $180 Call, 45 days out, for $1.50 ($150 per contract)
-
-Scenario 1: AAPL stays below $180 (most likely)
-  - Call expires worthless
-  - You keep 100 shares AND the $150 premium
-  - Premium yield: $150 / $15,500 = 0.97% in 45 days = ~7.9% annualized
-  - You can sell another call next month
-  - Total annual income potential: dividends + options = ~8-10%
-
-Scenario 2: AAPL rises above $180
-  - Shares are called away (sold) at $180
-  - Total proceeds: $180 + $1.50 premium = $181.50 per share
-  - Profit: $181.50 - $155 = $26.50 per share = 17.1% return
-  - This is BETTER than your limit sell order at $180
-  - Yes, you miss gains above $181.50, but you sold at your target
-
-Scenario 3: AAPL drops to $140
-  - Call expires worthless, you keep $150 premium
-  - You still hold shares (now at a loss on the stock position)
-  - The $150 premium cushions the loss slightly
-  - Effective cost basis reduced: $155 - $1.50 = $153.50
-```
-
-#### The Power of Repetition
-
-The true power of this approach comes from doing it repeatedly. Each month you do not get assigned, you collect premium and try again. Over time, these premiums accumulate into significant income.
+你以155美元買入100股蘋果公司，願意以180美元（16%升幅）賣出。你沒有掛出限價賣出委託單，而是賣出備兌認購期權。
 
 ```
-REPEATED PUT SELLING EXAMPLE:
-Target: Buy AAPL at $140. Stock starts at $155.
+設置：
+  持有：100股AAPL，成本基礎155美元
+  賣出：1份AAPL 180美元認購期權，45天後到期，期權金1.50美元（每份合約150美元）
 
-Month 1: Sell $140 Put for $1.85 -> AAPL stays at $153 -> Keep $185
-Month 2: Sell $140 Put for $1.60 -> AAPL stays at $158 -> Keep $160
-Month 3: Sell $140 Put for $2.10 -> AAPL stays at $151 -> Keep $210
-Month 4: Sell $140 Put for $1.75 -> AAPL stays at $157 -> Keep $175
-Month 5: Sell $140 Put for $2.30 -> AAPL stays at $149 -> Keep $230
-Month 6: Sell $140 Put for $3.50 -> AAPL drops to $138 -> ASSIGNED
+情景1：AAPL維持在180美元以下（最可能）
+  - 認購期權到期歸零
+  - 你保留100股及150美元期權金
+  - 期權金收益率：150美元 / 15,500美元 = 45天內0.97% = 年化約7.9%
+  - 你可於下月再賣出認購期權
+  - 年度入息潛力：股息 + 期權 = 約8至10%
 
-Total premiums collected: $185 + $160 + $210 + $175 + $230 + $350 = $1,310
-Assignment price: $140.00 per share
-Total premiums per share: $13.10
-Effective purchase price: $140.00 - $13.10 = $126.90 per share
+情景2：AAPL升至180美元以上
+  - 股票被「Call走」（以180美元賣出）
+  - 總收益：180美元 + 1.50美元期權金 = 每股181.50美元
+  - 盈利：181.50美元 - 155美元 = 每股26.50美元 = 17.1%回報
+  - 這比以180美元賣出的限價委託單結果更佳
+  - 是的，你錯過了181.50美元以上的升幅，但你在目標價賣出了
 
-Compare: Limit order buyer waited 6 months, got filled at $140.00
-         Put seller waited 6 months, effectively bought at $126.90
-         Savings: $13.10 per share = 9.4% better entry price
+情景3：AAPL跌至140美元
+  - 認購期權到期歸零，你保留150美元期權金
+  - 你仍持有股票（股票倉位現有虧損）
+  - 150美元期權金略為緩衝虧損
+  - 實際成本基礎降低：155美元 - 1.50美元 = 153.50美元
+```
+
+#### 重複操作的威力
+
+這種方法的真正威力來自於持續重複操作。每個月你未被行使，你便收取期權金再試一次。隨著時間推移，這些期權金累積成可觀的入息。
+
+```
+重複賣出認沽期權示例：
+目標：以140美元買入AAPL。股票起始價155美元。
+
+第1月：賣出140美元認沽，期權金1.85美元 -> AAPL維持在153美元 -> 保留185美元
+第2月：賣出140美元認沽，期權金1.60美元 -> AAPL維持在158美元 -> 保留160美元
+第3月：賣出140美元認沽，期權金2.10美元 -> AAPL維持在151美元 -> 保留210美元
+第4月：賣出140美元認沽，期權金1.75美元 -> AAPL維持在157美元 -> 保留175美元
+第5月：賣出140美元認沽，期權金2.30美元 -> AAPL維持在149美元 -> 保留230美元
+第6月：賣出140美元認沽，期權金3.50美元 -> AAPL跌至138美元 -> 被行使
+
+收取期權金總計：185 + 160 + 210 + 175 + 230 + 350 = 1,310美元
+行使價：每股140.00美元
+每股期權金總計：13.10美元
+實際買入價：140.00美元 - 13.10美元 = 每股126.90美元
+
+相比：限價委託單買家等待6個月，以140.00美元成交
+      認沽期權賣家等待6個月，實際以126.90美元買入
+      節省：每股13.10美元 = 入市價改善9.4%
 ```
 
 ```
-REPEATED COVERED CALL EXAMPLE:
-Own 100 shares at $155. Target sell price: $180.
+重複賣出備兌認購期權示例：
+以155美元持有100股。目標賣出價：180美元。
 
-Month 1: Sell $180 Call for $1.50 -> AAPL at $162 -> Keep $150
-Month 2: Sell $180 Call for $1.80 -> AAPL at $165 -> Keep $180
-Month 3: Sell $180 Call for $1.30 -> AAPL at $159 -> Keep $130
-Month 4: Sell $180 Call for $2.00 -> AAPL at $168 -> Keep $200
-Month 5: Sell $180 Call for $2.20 -> AAPL at $170 -> Keep $220
-Month 6: Sell $180 Call for $1.70 -> AAPL at $173 -> Keep $170
-Month 7: Sell $180 Call for $2.50 -> AAPL at $175 -> Keep $250
-Month 8: Sell $180 Call for $3.20 -> AAPL hits $183 -> ASSIGNED
+第1月：賣出180美元認購，期權金1.50美元 -> AAPL在162美元 -> 保留150美元
+第2月：賣出180美元認購，期權金1.80美元 -> AAPL在165美元 -> 保留180美元
+第3月：賣出180美元認購，期權金1.30美元 -> AAPL在159美元 -> 保留130美元
+第4月：賣出180美元認購，期權金2.00美元 -> AAPL在168美元 -> 保留200美元
+第5月：賣出180美元認購，期權金2.20美元 -> AAPL在170美元 -> 保留220美元
+第6月：賣出180美元認購，期權金1.70美元 -> AAPL在173美元 -> 保留170美元
+第7月：賣出180美元認購，期權金2.50美元 -> AAPL在175美元 -> 保留250美元
+第8月：賣出180美元認購，期權金3.20美元 -> AAPL升至183美元 -> 被行使
 
-Total premiums collected: $150+$180+$130+$200+$220+$170+$250+$320 = $1,620
-Sale price: $180.00 per share
-Total premiums per share: $16.20
-Effective sale price: $180.00 + $16.20 = $196.20 per share
-Plus dividends received over 8 months
+收取期權金總計：150+180+130+200+220+170+250+320 = 1,620美元
+賣出價格：每股180.00美元
+每股期權金總計：16.20美元
+實際賣出價格：180.00美元 + 16.20美元 = 每股196.20美元
+加上8個月持股期間收取的股息
 
-Compare: Limit sell at $180 would have yielded $180.00 per share
-         Covered call seller effectively received $196.20 per share
-         Bonus: $16.20 per share = 9.0% additional return
+相比：以180美元限價賣出可獲每股180.00美元
+      備兌認購期權賣家實際獲得每股196.20美元
+      額外收益：每股16.20美元 = 額外9.0%回報
 ```
 
-#### Risk Profile Comparison: Limit Order vs. Short Put
+#### 風險狀況比較：限價委託單 vs. 沽出認沽期權
 
-While the analogy is powerful, it is important to understand the differences in risk profile.
+雖然類比十分有力，但了解風險狀況的差異同樣重要。
 
 ```
-RISK COMPARISON: Limit Buy at $140 vs. Short $140 Put
+風險比較：以140美元限價買入 vs. 沽出140美元認沽期權（期權金3美元）
 
-                     Limit Buy Order         Short Put ($3 premium)
+                     限價買入委託單          沽出認沽期權（3美元期權金）
                      ================        =====================
-Max Profit:          Unlimited (stock rises) $300 (premium only)
-                                             (if not assigned)
+最大盈利：           無上限（股票上升）      300美元（僅限期權金）
+                                             （若未被行使）
 
-Breakeven:           $140.00                 $137.00 ($140 - $3)
+損益平衡點：         140.00美元              137.00美元（140美元 - 3美元）
 
-Max Loss:            $14,000 (stock to $0)   $13,700 (stock to $0)
+最大虧損：           14,000美元（股票跌至零）13,700美元（股票跌至零）
 
-Capital Required:    $14,000 (when filled)   $14,000 (reserved now)
+所需資金：           14,000美元（成交時）    14,000美元（現立即預留）
 
-Income While         $0                      $300 per cycle
-Waiting:
+等待期間入息：       0美元                   每個週期300美元
 
-Assignment           Exact price             Approximate price
-Precision:           (fills at $140.00)      (assigned at $140.00)
+行使                 精確價格               近似價格
+精準度：             （以140.00美元成交）    （以140.00美元被行使）
 
-Partial Fills:       Can buy fewer shares    Must buy exactly 100
-                     (e.g., 37 shares)       shares per contract
+部分成交：           可買入較少股票          必須精確買入100股
+                     （例如37股）             每份合約
 
-Duration:            Unlimited (GTC)         Fixed expiration date
+期限：               無限期（GTC）           固定到期日
 
-Cash Flexibility:    Freed if canceled       Locked until expiration
-                                             (or position is closed)
+現金靈活性：         取消後釋放              至到期（或平倉）前鎖定
 ```
 
-Key differences to note:
+需注意的主要差異：
 
-1. **Precision vs. Income:** A limit order fills at exactly your price. A put gives you income but commits you to buying in 100-share increments at a fixed strike.
+1. **精準度 vs. 入息：** 限價委託單以精確的目標價成交。認沽期權帶來入息，但要求你以100股為單位，在固定行使價買入。
 
-2. **Partial fills:** Limit orders can be partially filled (buy 37 shares). Options only come in 100-share increments. If you want to buy 250 shares, you would sell 2 puts (for 200 shares) and might use a limit order for the remaining 50.
+2. **部分成交：** 限價委託單可部分成交（買入37股）。期權只以100股為單位。若你想買入250股，可賣出2份認沽期權合約（涵蓋200股），並對餘下50股使用限價委託單。
 
-3. **Time constraints:** Limit orders can stay open indefinitely (Good Til Canceled). Options expire. You need to actively manage the strategy by selling new puts after each expiration.
+3. **時間限制：** 限價委託單可無限期保持有效（有效至取消）。期權會到期。你需要在每次到期後積極賣出新的認沽期權來管理策略。
 
-4. **Gap risk:** If a stock gaps down significantly overnight (say from $155 to $120 on bad news), both the limit order and the put result in buying shares at a loss. However, the limit order buyer might only fill at $140 and watch the stock fall further. The put seller is assigned at $140 but has the premium cushion ($137 effective cost).
+4. **裂口風險：** 若一隻股票因壞消息隔夜大幅跌穿（例如從155美元跌至120美元），限價委託單和認沽期權兩者均導致以虧損價買入股票。然而，限價委託單買家可能以140美元成交後繼續看著股票下跌。認沽期權賣家以140美元被行使，但有期權金緩衝（實際成本137美元）。
 
-#### When to Use This Approach
+#### 何時使用這種方法
 
-This strategy works best in specific circumstances:
+這種策略在特定情況下效果最佳：
 
 ```
-IDEAL CONDITIONS FOR SELLING PUTS (Paid Limit Buy):
+賣出認沽期權（有薪限價買入）的理想條件：
 
-  [YES] You genuinely want to own the stock at the strike price
-  [YES] You have sufficient cash to buy 100 shares
-  [YES] You have a target entry price that is below current market
-  [YES] The stock has reasonable implied volatility (good premiums)
-  [YES] You are comfortable holding the stock long-term if assigned
-  [YES] The company has strong fundamentals
+  [是] 你真心希望以行使價持有該股票
+  [是] 你有足夠現金買入100股
+  [是] 你的目標入市價低於當前市價
+  [是] 股票具有合理的隱含波動性（期權金吸引）
+  [是] 被行使後你樂意長期持有該股票
+  [是] 公司基本面強健
 
-  [NO]  You are trying to speculate on short-term movement
-  [NO]  You cannot afford to buy the shares if assigned
-  [NO]  You would not want to own the stock at any price
-  [NO]  The stock is extremely volatile or in financial distress
-  [NO]  Implied volatility is abnormally low (tiny premiums)
+  [否] 你試圖投機短期走勢
+  [否] 被行使後你負擔不起購買股票
+  [否] 你在任何價格都不想持有該股票
+  [否] 股票波動性極高或陷入財務困境
+  [否] 隱含波動性異常低（期權金微薄）
 ```
 
 ```
-IDEAL CONDITIONS FOR SELLING CALLS (Paid Limit Sell):
+賣出備兌認購期權（有薪限價賣出）的理想條件：
 
-  [YES] You own at least 100 shares of the stock
-  [YES] You have a target sell price above current market
-  [YES] You would be happy to sell at the strike price
-  [YES] The stock is in a flat or mildly bullish trend
-  [YES] You want additional income beyond dividends
+  [是] 你持有至少100股該股票
+  [是] 你的目標賣出價高於當前市價
+  [是] 你樂意以行使價賣出
+  [是] 股票處於橫行或溫和牛市趨勢
+  [是] 你希望在股息以外獲得額外入息
 
-  [NO]  You are strongly bullish and expect a large rally
-  [NO]  You do not own the underlying shares (naked call)
-  [NO]  You would be devastated to sell the stock
-  [NO]  The stock is about to have a major catalyst (earnings, FDA)
+  [否] 你強烈看好並預期大幅上升
+  [否] 你不持有正股（裸沽認購期權）
+  [否] 你不捨得賣出該股票
+  [否] 股票即將面臨重大催化劑（盈利公布、FDA審批）
 ```
 
-#### Practical Considerations
+#### 實際操作考量
 
-**Choosing the Right Strike Price:**
+**選擇合適的行使價：**
 
-For puts (paid limit buy):
-- Choose a price you would genuinely be happy buying the stock at.
-- A good guideline is 5-10% below the current price for monthly options.
-- Consider the stock's support levels on a chart.
-- Think about fundamental value: what is the stock worth to you?
+認沽期權（有薪限價買入）：
+- 選擇一個你真正樂意買入股票的價格。
+- 對於月度期權，一個好的參考是低於當前價格5至10%。
+- 考慮股票圖表上的支撐位。
+- 思考基本面價值：這隻股票對你而言值多少錢？
 
-For calls (paid limit sell):
-- Choose a price that represents a good profit target.
-- A good guideline is 5-10% above the current price for monthly options.
-- Consider the stock's resistance levels on a chart.
-- Think about your tax situation and holding period.
+認購期權（有薪限價賣出）：
+- 選擇一個代表良好盈利目標的價格。
+- 對於月度期權，一個好的參考是高於當前價格5至10%。
+- 考慮股票圖表上的阻力位。
+- 考慮你的稅務狀況和持倉期。
 
-**Choosing the Right Expiration:**
-
-```
-EXPIRATION SELECTION GUIDE:
-
-  Timeframe     | Premium  | Theta Decay | Management | Best For
-  ==============|==========|=============|============|================
-  Weekly (5-7d) | Low      | Very fast   | Frequent   | Active traders
-  Monthly (30d) | Moderate | Moderate    | Monthly    | Most investors
-  45 Days       | Good     | Optimal     | Biweekly   | Sweet spot
-  60-90 Days    | Higher   | Slower      | Less often | Busy investors
-  LEAPS (1yr+)  | Highest  | Very slow   | Quarterly  | Set and forget
-
-  RECOMMENDED: 30-45 days to expiration offers the best balance of
-  premium income and time decay. Theta accelerates after 45 days,
-  meaning you get more daily decay in your favor.
-```
-
-**Position Sizing:**
-
-Never over-allocate to a single put or covered call position. A general guideline:
+**選擇合適的到期日：**
 
 ```
-POSITION SIZING RULES:
+到期日選擇指引：
 
-  Total Options-Eligible Capital: $100,000
+  時間框架      | 期權金  | Theta衰減    | 管理頻率  | 最適合
+  ==============|=========|==============|===========|================
+  每週（5-7天） | 低      | 非常快       | 頻繁      | 活躍交易者
+  每月（30天）  | 適中    | 適中         | 每月      | 大多數投資者
+  45天          | 良好    | 最佳         | 每兩週    | 最佳平衡點
+  60-90天       | 較高    | 較慢         | 較少      | 忙碌的投資者
+  長期期權（1年+）| 最高  | 非常慢       | 每季      | 設定後忘卻
 
-  Maximum per single stock:       $20,000 (20%)
-  Number of put contracts:        Based on strike x 100
+  建議：距到期30至45天提供期權金收入與時間衰減之間的最佳平衡。
+  Theta在45天後加速，意味著時間衰減對你更為有利。
+```
+
+**倉位規模：**
+
+切勿將過多資金集中於單一認沽期權或備兌認購期權倉位。一般準則：
+
+```
+倉位規模規則：
+
+  期權適用資金總額：100,000美元
+
+  單一股票最大限額：20,000美元（20%）
+  認沽期權合約數量：基於行使價 x 100計算
   
-  Example breakdown:
-    AAPL $140 Put: 1 contract = $14,000 reserved (14%)
-    MSFT $360 Put: 1 contract = $36,000 reserved (36%) <- TOO LARGE
-    MSFT $360 Put: Better to skip or use a lower strike
+  示例分解：
+    AAPL 140美元認沽期權：1份合約 = 預留14,000美元（14%）
+    MSFT 360美元認沽期權：1份合約 = 預留36,000美元（36%）<- 過大
+    MSFT 360美元認沽期權：最好跳過或使用較低的行使價
 
-  Diversification target: 4-6 different stocks across sectors
+  分散化目標：跨行業的4至6隻不同股票
 ```
 
-#### Real-World Example: Building a Position with Puts
+#### 實際案例：利用認沽期權建立倉位
 
-Let us walk through a complete real-world scenario of using puts to build a position in a stock you want to own.
+讓我們通過一個完整的實際情景，了解如何使用認沽期權在你想持有的股票上建立倉位。
 
 ```
-CASE STUDY: Building a 300-share position in Microsoft (MSFT)
+案例研究：在微軟（MSFT）建立300股倉位
 
-Starting situation:
-  - MSFT trading at $420
-  - You want to own 300 shares
-  - Your fair value estimate: $380
-  - Available capital: $120,000
+起始狀況：
+  - MSFT交易價格420美元
+  - 你想持有300股
+  - 你的公平價值估計：380美元
+  - 可用資金：120,000美元
 
-Strategy: Sell puts at $380 strike, 30-45 days out, repeatedly
+策略：重複賣出行使價380美元、距到期30至45天的認沽期權
 
-Round 1 (January):
-  Sell 3 MSFT $380 Puts, Feb expiry, for $4.50 each
-  Premium collected: $4.50 x 100 x 3 = $1,350
-  Capital reserved: $380 x 100 x 3 = $114,000
-  MSFT ends February at $415 -> Puts expire worthless
-  Income: $1,350 (1.18% on reserved capital in ~30 days)
+第1輪（一月）：
+  賣出3份MSFT 380美元認沽期權，二月到期，每份4.50美元
+  收取期權金：4.50 x 100 x 3 = 1,350美元
+  預留資金：380 x 100 x 3 = 114,000美元
+  MSFT於二月底收於415美元 -> 認沽期權到期歸零
+  入息：1,350美元（約30天內預留資金的1.18%）
 
-Round 2 (February):
-  Sell 3 MSFT $380 Puts, Mar expiry, for $3.80 each
-  Premium collected: $3.80 x 100 x 3 = $1,140
-  MSFT ends March at $425 -> Puts expire worthless
-  Income: $1,140
+第2輪（二月）：
+  賣出3份MSFT 380美元認沽期權，三月到期，每份3.80美元
+  收取期權金：3.80 x 100 x 3 = 1,140美元
+  MSFT於三月底收於425美元 -> 認沽期權到期歸零
+  入息：1,140美元
 
-Round 3 (March):
-  Sell 3 MSFT $380 Puts, Apr expiry, for $5.20 each
-  Premium collected: $5.20 x 100 x 3 = $1,560
-  MSFT drops to $372 in April -> ASSIGNED on all 3 contracts
-  Buy 300 shares at $380
+第3輪（三月）：
+  賣出3份MSFT 380美元認沽期權，四月到期，每份5.20美元
+  收取期權金：5.20 x 100 x 3 = 1,560美元
+  MSFT於四月跌至372美元 -> 所有3份合約均被行使
+  以380美元買入300股
 
-Results:
-  Purchase price: $380 per share
-  Total premiums collected: $1,350 + $1,140 + $1,560 = $4,050
-  Premiums per share: $4,050 / 300 = $13.50
-  Effective cost basis: $380 - $13.50 = $366.50 per share
+結果：
+  買入價格：每股380美元
+  收取期權金總計：1,350 + 1,140 + 1,560 = 4,050美元
+  每股期權金：4,050美元 / 300 = 13.50美元
+  實際成本基礎：380美元 - 13.50美元 = 每股366.50美元
 
-  Compare to buying at market ($420): Saved $53.50/share (12.7%)
-  Compare to limit order at $380: Saved $13.50/share (3.6%)
+  相比以市價買入（420美元）：節省每股53.50美元（12.7%）
+  相比以380美元限價委託單：節省每股13.50美元（3.6%）
   
-  The put-selling approach resulted in a 3.6% better entry price
-  than a simple limit order, and earned $4,050 in income during
-  the 3-month waiting period.
+  賣出認沽期權的方法帶來比普通限價委託單低3.6%的入市價，
+  並在3個月等待期間賺取了4,050美元入息。
 ```
 
-#### The Decision Framework
+#### 結合認沽期權與認購期權：入息工廠
 
-Here is a simple decision tree to help you decide between a limit order and an options approach:
+一旦你明白認沽期權是有薪限價買入，認購期權是有薪限價賣出，一個強大的投資組合策略便浮現出來。你可以同時在不同股票上運行兩者，打造一個多元化的入息工廠。
 
 ```
-                    Do you want to BUY a stock?
+入息工廠模型：
+
+  你想買入的股票：                      你已持有的股票：
+  （賣出現金擔保認沽期權）               （賣出備兌認購期權）
+
+  AAPL：賣出140美元認沽 -> 每月185美元  MSFT：持有100股，賣出450美元認購 -> 每月300美元
+  AMZN：賣出175美元認沽 -> 每月320美元  JNJ：持有200股，賣出175美元認購 -> 每月360美元
+  GOOGL：賣出155美元認沽 -> 每月240美元 KO：持有300股，賣出67美元認購 -> 每月270美元
+
+  認沽期權入息：每月745美元              認購期權入息：每月930美元
+  
+  每月總入息：1,675美元
+  年度總入息：20,100美元
+
+  這從投資組合兩端創造入息：
+  - 等待部署的現金賺取認沽期權金
+  - 已持有的股票賺取認購期權金加股息
+  - 永遠沒有閒置資金
+```
+
+這是期權入息投資組合的精髓。你賬戶中的每一分錢都在發揮作用，無論是投資於股票（產生股息加認購期權金），還是作為現金預留（產生認沽期權金）。這種雙引擎方式可使投資組合總收益率年化達12至20%。
+
+#### 期權作為委託單方式的稅務考量
+
+了解稅務處理有助你有效規劃：
+
+```
+稅務處理摘要：
+
+  情景                              稅務處理
+  ========                          =============
+  認沽期權到期歸零                  短期資本增益
+  （保留期權金）                    （按一般入息稅率課稅）
+  
+  認沽期權被行使（買入股票）        期權金降低所購股票成本基礎
+                                    （影響日後資本增益計算）
+  
+  認購期權到期歸零                  短期資本增益
+  （保留期權金）                    
+  
+  認購期權被行使（賣出股票）        期權金加入賣出收益
+                                    （影響資本增益計算）
+  
+  以盈利買回期權                    短期資本增益
+  （提早平倉獲利）                  
+  
+  以虧損買回期權                    短期資本虧損
+  （提早平倉止損）                  （可抵銷其他增益）
+
+  在羅斯IRA（Roth IRA）中：以上所有均免稅
+  在傳統IRA中：以上所有均遞延稅項
+```
+
+這也是期權作為委託單方式在稅務優惠賬戶中大放異彩的另一原因。頻繁的期權金收入在應稅賬戶中須按一般入息稅率課稅，但在羅斯IRA中免稅增長，在傳統IRA中遞延稅項增長。
+
+#### 常見錯誤
+
+```
+使用期權作為條件性委託單的五大錯誤：
+
+  錯誤1：在你不想持有的股票上賣出認沽期權
+    為何有害：你將在表現最差的股票上被行使
+    解決方案：只在你樂意買入的價格上賣出認沽期權
+
+  錯誤2：將過多資金集中於單一倉位
+    為何有害：一隻表現差的股票可能重創你的投資組合
+    解決方案：每個倉位最多佔資金20%，跨行業分散
+
+  錯誤3：忽視盈利公布日曆
+    為何有害：盈利公布可能造成裂口，導致在不良時機被行使
+    解決方案：賣出前查看盈利公布日期，避免在盈利期間到期
+
+  錯誤4：追逐波動性股票的高期權金
+    為何有害：期權金高 = 風險高 = 被行使於糟糕位置的機率高
+    解決方案：專注於波動性適中的優質公司
+
+  錯誤5：沒有管理計劃
+    為何有害：股票逆向走動時你會手足無措
+    解決方案：提前決定：在何種虧損水平平倉？何時提早獲利了結？
+    入倉前寫下來。
+```
+
+#### 決策框架
+
+以下是幫助你在限價委託單與期權方式之間作出選擇的簡單決策樹：
+
+```
+                    你想買入一隻股票嗎？
                             |
                     +-------+-------+
                     |               |
-                   YES              NO -> Do you want to SELL? 
+                   是               否 -> 你想賣出嗎？
                     |                          |
-              Do you want to          +-------+-------+
-              buy at a LOWER          |               |
-              price than current?    YES              NO -> No action
-                    |                  |
-              +-----+-----+     Do you own
-              |           |     100+ shares?
-             YES          NO         |
-              |           |    +-----+-----+
-              |     Buy at     |           |
-              |     market    YES          NO -> Limit sell
-              |                |            (fewer than 100 shares)
-        Do you have            |
-        $$ for 100 shares?   Sell COVERED CALL
-              |              (paid limit sell)
-        +-----+-----+
+              你想以低於當前            +-------+-------+
+              市價的價格買入嗎？        |               |
+                    |                 是               否 -> 無需行動
+              +-----+-----+             |
+              |           |       你持有100股以上嗎？
+             是           否              |
+              |           |         +-----+-----+
+              |     以市價買入       |           |
+              |                    是           否 -> 限價賣出委託單
+        你有足夠資金                |                 （少於100股）
+        購買100股嗎？              |
+              |               賣出備兌認購期權
+        +-----+-----+        （有薪限價賣出）
         |           |
-       YES          NO -> Use limit order
-        |                 (can buy partial lots)
+       是           否 -> 使用限價委託單
+        |                 （可購買零散股票）
         |
-   SELL CASH-SECURED PUT
-   (paid limit buy)
+   賣出現金擔保認沽期權
+   （有薪限價買入）
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Selling puts is the same as shorting a stock."**
+**誤解1：「賣出認沽期權等同於沽空股票。」**
 
-This is a dangerous confusion. Shorting a stock means borrowing shares and selling them, hoping to buy them back at a lower price. Your risk is theoretically unlimited because the stock can rise infinitely. Selling a put means agreeing to BUY shares at a specific price. Your risk is limited to the strike price minus the premium (if the stock goes to zero). These are completely different strategies with completely different risk profiles. One is bearish (short selling), the other is neutral to bullish (short put).
+這是危險的混淆。沽空股票是指借入股份並賣出，希望以較低價格買回。你的風險理論上是無限的，因為股票可以無限上漲。賣出認沽期權意味著同意以特定價格**買入**股份。你的風險限於行使價減去期權金（若股票跌至零）。這是截然不同的策略，具有完全不同的風險狀況。一種是看空（沽空），另一種是中性至看好（沽出認沽期權）。
 
-**Misconception 2: "You should sell puts on stocks you do not want to own because you will never get assigned."**
+**誤解2：「你應該在不想持有的股票上賣出認沽期權，因為你永遠不會被行使。」**
 
-This is extremely dangerous thinking. While it is true that most OTM puts expire worthless, the ones that do not can cause enormous damage. If you sell puts on a stock you would not want to own and it drops 40%, you are forced to buy 100 shares of a company you do not believe in, at a price well above the current market. Only sell puts on stocks you genuinely want to own at the strike price.
+這種想法極度危險。雖然大多數價外認沽期權到期歸零，但那些沒有歸零的可能造成巨大損失。若你在一隻不想持有的股票上賣出認沽期權，而它下跌40%，你被迫以遠高於當前市價的價格，買入100股你沒有信心的公司股票。只在你真心希望以行使價持有股票的情況下，才賣出認沽期權。
 
-**Misconception 3: "Selling covered calls means you will miss the next big rally."**
+**誤解3：「賣出備兌認購期權意味著你會錯過下一次大型升市。」**
 
-While covered calls do cap your upside, the cap is at a level YOU chose as your target sell price. If AAPL is at $155 and you sell the $180 call, you are saying you would be happy to sell at $180 (a 16% gain). If AAPL rockets to $220, yes, you "missed" $40 of additional gains. But you still made a 16% profit plus the premium. Missing out on unexpected gains is not the same as losing money. And statistically, the vast majority of months, the stock stays below the strike and you simply keep the premium.
+雖然備兌認購期權確實限制了你的上行潛力，但限制是在你**選擇**作為目標賣出價的水平。若AAPL在155美元而你賣出180美元的認購期權，你是在說你樂意以180美元賣出（16%的盈利）。若AAPL飛升至220美元，是的，你「錯過了」額外40美元的升幅。但你仍然賺了16%加期權金。錯過意外收益不等同於蝕錢。從統計上看，絕大多數月份股票維持在行使價以下，你只需保留期權金即可。
 
-**Misconception 4: "The premium is too small to be worth the risk."**
+**誤解4：「期權金太小，不值得承擔風險。」**
 
-Individual premiums may seem small, but they compound over time. A $200 premium per month on a $15,000 position is $2,400 per year, a 16% annual yield. Even a conservative $100 per month is $1,200, or 8% annually. This is on top of any dividends and capital appreciation. Over a 20-year investing career, this additional income, reinvested, can add hundreds of thousands of dollars to your portfolio.
+個別期權金看似微小，但隨時間複利積累。每月在15,000美元倉位上賺取200美元期權金，每年便是2,400美元，年收益率16%。即使是保守的每月100美元，也是1,200美元，即年化8%。這還是在任何股息和資本增值之上的收益。在長達20年的投資生涯中，這些額外的入息再投資，可為你的投資組合增添數十萬美元。
 
-**Misconception 5: "Selling puts is just as risky as buying stock."**
+**誤解5：「賣出認沽期權的風險與買入股票一樣。」**
 
-While the maximum loss is similar (both approach zero if the company goes bankrupt), the put seller actually has a better entry. The premium received reduces the effective cost basis. If you sell a $140 put for $3 and get assigned, your cost is $137. A stock buyer at $140 has a $140 cost. In every scenario, the put seller is $3 per share better off. The risk profile is not identical; it is slightly better for the put seller.
+雖然最大虧損相似（若公司破產，兩者均趨近於零），但認沽期權賣家實際上有更好的入市價。收取的期權金降低了實際成本基礎。若你以3美元賣出140美元認沽期權並被行使，你的成本是137美元。以140美元買入股票的投資者成本為140美元。在任何情景下，認沽期權賣家每股都多了3美元的優勢。風險狀況並非完全相同，認沽期權賣家的狀況略微更好。
 
-**Misconception 6: "You need to watch the market constantly when selling options."**
+**誤解6：「賣出期權時你需要時刻盯著市場。」**
 
-For the strategies described in this lesson, you sell an option and then largely wait. You may check in once a week to see if any action is needed. Monthly options require attention only around expiration. This is not day trading. It is more like setting a trap and checking it periodically. Many investors manage their option positions in 15-30 minutes per week.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens if I sell a put and the stock gaps down 30% overnight?**
-
-A: You will be assigned at the strike price, and the stock will be worth significantly less than what you paid. This is the primary risk of selling puts. However, this is the same risk you take with a limit buy order or with buying the stock outright. If you sell an AAPL $140 put and AAPL drops to $100, you buy at $140 (effective $137 with premium), and you are immediately sitting on a $37/share loss. This is why you should only sell puts on stocks with strong fundamentals that you believe will recover. In this scenario, the $3 premium cushion, while small relative to the loss, is still better than having a limit order fill at $140 with no cushion at all.
-
-**Q2: Can I close my put position early if the stock starts dropping?**
-
-A: Yes. You can always buy back your short put before expiration. If the stock drops and the put increases in value, you will pay more than you received, resulting in a net loss. But this allows you to manage risk. For example, a common rule is to close the position if the loss exceeds 2x the premium received. If you sold a put for $3.00 and it is now trading at $9.00, you can buy it back for a $6.00 loss rather than risk assignment. Conversely, if the stock stays flat or rises and the put decays, you can close it early for a profit. A common rule is to buy back when you have captured 50-75% of the maximum premium.
-
-**Q3: Why not just use limit orders? Why complicate things with options?**
-
-A: For small positions (fewer than 100 shares) or when you need exact price fills, limit orders are perfectly fine. Options add value when: (1) you want income while waiting for your price, (2) you are buying in 100-share increments anyway, (3) you want to build positions systematically over time, and (4) you want your cash to work harder. The "complication" is minimal once you understand the mechanics. Selling a cash-secured put takes about 2 minutes on most brokerage platforms.
-
-**Q4: What if I change my mind about wanting to buy the stock after I sold the put?**
-
-A: Buy the put back to close the position. If time has passed and the stock has not dropped, the put will likely be cheaper than what you sold it for, and you will book a profit. If the stock has dropped and the put is more expensive, you will take a small loss. The ability to close positions at any time is one of the advantages of exchange-traded options. You are never truly locked in.
-
-**Q5: How do taxes work on option premiums?**
-
-A: If the put expires worthless, the premium is a short-term capital gain, taxed at your ordinary income rate. If you are assigned, the premium reduces your cost basis in the purchased stock, which affects your future capital gain calculation when you eventually sell the stock. For covered calls, if the call expires worthless, the premium is a short-term gain. If you are assigned and sell your shares, the premium is added to your sale proceeds. Consult a tax professional for your specific situation.
-
-**Q6: Can I sell puts in a retirement account (IRA)?**
-
-A: Yes, most brokers allow cash-secured puts in IRA accounts. You cannot use margin, so the full cash amount must be available (hence "cash-secured"). Covered calls are also allowed in IRAs. The tax advantage of an IRA means the premiums grow tax-deferred (traditional IRA) or tax-free (Roth IRA), making these strategies even more attractive in retirement accounts.
-
-**Q7: How do I choose between different expiration dates?**
-
-A: The sweet spot for most investors is 30-45 days to expiration. Shorter durations (weekly) give you less premium per trade and require more active management. Longer durations (60-90 days) give more premium but tie up your capital longer and have less favorable theta decay. The 30-45 day range offers the best ratio of premium received to management effort. If you prefer less frequent trading, 45-60 days works well. If you want maximum annualized yield, 21-30 days is optimal.
-
-**Q8: What if I want to buy 150 shares? Options only come in 100-share increments.**
-
-A: Use a combination approach. Sell 1 put contract (covering 100 shares) and place a limit order for the remaining 50 shares. Alternatively, if you are patient, sell 1 put contract, get assigned, then sell another put contract for the next 100 shares, and sell the extra 50 shares later. Options work best for round lots of 100 shares.
-
-**Q9: What happens to my put if the company announces a merger or acquisition?**
-
-A: If a company is acquired, options are adjusted based on the terms of the deal. If it is a cash acquisition, options may be settled in cash. If it is a stock-for-stock deal, the options contract is adjusted to deliver the new shares. The Options Clearing Corporation (OCC) handles these adjustments. While the mechanics can be complex, you will not lose your rights as an option holder or have unexpected obligations as a seller beyond what the original contract specified.
-
-**Q10: Is there an optimal order of operations? Do I sell puts first, then covered calls?**
-
-A: A natural progression is: (1) Identify stocks you want to own, (2) sell puts at your target entry price to build positions while earning income, (3) once you own the shares, sell covered calls at your target exit price to earn additional income. This cycle, known as the "wheel strategy," is a continuous loop of selling puts, getting assigned, selling calls, getting called away, and starting over. We will preview this concept in Week 28.
+對於本課描述的策略，你賣出期權後基本上只需等待。你可能每週查看一次，看看是否需要採取行動。月度期權只在到期週前後需要關注。這不是日間交易，更像是設置一個陷阱然後定期查看。許多投資者每週花15至30分鐘管理他們的期權倉位。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
+
+**問題1：若我賣出認沽期權後股票隔夜裂口下跌30%，會發生什麼？**
+
+答：你將以行使價被行使，而股票的市值將遠低於你的買入價。這是賣出認沽期權的主要風險。然而，這與使用限價委託單或直接買入股票所承擔的風險相同。若你賣出AAPL的140美元認沽期權，而AAPL跌至100美元，你以140美元買入（實際成本137美元含期權金），立即面臨每股40美元的未實現虧損。這就是為什麼你應該只在基本面強健、你相信其能夠復甦的股票上賣出認沽期權。在這種情景下，3美元期權金緩衝雖相對虧損微乎其微，但仍優於以140美元成交的限價委託單而沒有任何緩衝。
+
+**問題2：若股票開始下跌，我可以提早平倉我的認沽期權倉位嗎？**
+
+答：可以。你隨時可以在到期前買回你的沽空認沽期權。若股票下跌而認沽期權升值，你需支付比收取時更多的費用，導致淨虧損。但這讓你能夠管理風險。例如，一個常見規則是：若虧損超過收取期權金的2倍，則平倉。若你以3.00美元賣出認沽期權，現在交易價為9.00美元，你可以以6.00美元的虧損買回，而非承擔被行使的風險。相反，若股票橫行或上升，認沽期權時間值衰減，你可以提早平倉獲利。一個常見規則是：在已獲取最大期權金的50至75%時買回。
+
+**問題3：為何不直接使用限價委託單？為何要用期權使事情複雜化？**
+
+答：對於小額倉位（少於100股）或需要精確價格成交時，限價委託單完全合適。期權在以下情況增加價值：（1）你希望在等待目標價時賺取入息；（2）你本就打算以100股為單位買入；（3）你想系統性地隨時間建立倉位；（4）你希望你的現金更加努力工作。一旦你理解了機制，「複雜性」便微乎其微。在大多數券商平台上賣出一份現金擔保認沽期權大約需要2分鐘。
+
+**問題4：若賣出認沽期權後我改變了想買入股票的主意，怎麼辦？**
+
+答：買回認沽期權以平倉。若時間已過而股票未下跌，認沽期權的價格很可能比你賣出時更低，你可以獲利了結。若股票已下跌而認沽期權更貴，你會承受小額虧損。可隨時平倉的能力是交易所買賣期權的優勢之一。你從未真正被鎖定。
+
+**問題5：期權金的稅務如何計算？**
+
+答：若認沽期權到期歸零，期權金為短期資本增益，按你的一般入息稅率課稅。若你被行使，期權金降低你所購股票的成本基礎，影響你最終賣出股票時的資本增益計算。對於備兌認購期權，若認購期權到期歸零，期權金為短期增益。若你被行使並賣出股票，期權金加入你的賣出收益。請諮詢稅務專業人士了解你的具體情況。
+
+**問題6：我可以在退休賬戶（IRA）中賣出認沽期權嗎？**
+
+答：可以，大多數券商允許在IRA賬戶中進行現金擔保認沽期權操作。你不能使用保證金，因此全部現金金額必須可用（因此稱為「現金擔保」）。備兌認購期權在IRA中也被允許。IRA的稅務優惠意味著期權金遞延稅項增長（傳統IRA）或免稅增長（羅斯IRA），使這些策略在退休賬戶中更具吸引力。
+
+**問題7：如何在不同到期日之間作出選擇？**
+
+答：對大多數投資者而言，距到期30至45天是最佳選擇。較短期限（每週）每次交易的期權金較少，需要更積極的管理。較長期限（60至90天）提供更多期權金，但鎖定資金較久，時間值衰減亦較不利。30至45天的範圍提供了所收期權金與管理工作之間的最佳比率。若你偏好較少頻繁的交易，45至60天效果良好。若你希望最大化年化收益率，21至30天是最優選擇。
+
+**問題8：若我想買入150股怎麼辦？期權只以100股為單位。**
+
+答：使用組合方式。賣出1份認沽期權合約（涵蓋100股），並對餘下50股掛出限價委託單。或者，若你有耐心，先賣出1份認沽期權合約，被行使後再賣出另1份認沽期權合約買入下一批100股，之後再補購額外的50股。期權最適合用於100股整數倉位。
+
+**問題9：若公司宣布合並或收購，我的認沽期權會怎樣？**
+
+答：若一家公司被收購，期權將根據交易條款進行調整。若為現金收購，期權可能以現金結算。若為換股交易，期權合約將調整為交付新股份。美國期權清算公司（OCC）負責處理這些調整。雖然機制可能較為複雜，但作為期權持有人你不會失去權利，作為賣家你亦不會承擔超出原始合約所規定的意外義務。
+
+**問題10：是否有最佳操作順序？先賣出認沽期權，然後才賣出備兌認購期權嗎？**
+
+答：自然的操作順序是：（1）識別你想持有的股票，（2）在目標入市價賣出認沽期權，以在賺取入息的同時建立倉位，（3）一旦持有股票，在目標離場價賣出備兌認購期權以賺取額外入息。這個循環稱為「滾輪策略」，是賣出認沽期權、被行使、賣出認購期權、被Call走，然後重新開始的持續循環。我們將在第28週預覽這個概念。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 26: Options as Conditional Orders - Level 3: Advanced"]
 
-**Alex:** Welcome back. Last week we covered the fundamentals of options: calls, puts, strike prices, expiration, time decay. Today we are going to take all of that knowledge and apply it through a mental model that I think is going to change how you think about options forever.
+**Horace（陳馬）：** 歡迎回來。上週我們涵蓋了期權的基礎知識：認購期權、認沽期權、行使價、到期日和時間值衰減。今天，我們將把所有這些知識通過一個思維框架加以應用，我認為這將永遠改變你對期權的看法。
 
-**Sam:** A mental model? What do you mean?
+**Stella（小魚）：** 思維框架？你是什麼意思？
 
-**Alex:** I mean a way of thinking about options that makes them feel intuitive rather than complex. Here it is: selling a put is like placing a limit buy order and getting paid while you wait. Selling a covered call is like placing a limit sell order and getting paid while you wait.
+**Horace（陳馬）：** 我是指一種讓期權感覺直觀而非複雜的思考方式。就是這樣：賣出認沽期權就像掛出限價買入委託單，同時在等待期間收取報酬。賣出備兌認購期權就像掛出限價賣出委託單，同時在等待期間收取報酬。
 
-**Sam:** Wait, that is it? That seems... almost too simple.
+**Stella（小魚）：** 等等，就這樣？這聽起來……幾乎太簡單了。
 
-**Alex:** The best mental models are simple. And this one is powerful because it is nearly perfectly accurate. Let me walk you through exactly what I mean.
+**Horace（陳馬）：** 最好的思維框架往往是簡單的。而這個之所以強大，是因為它幾乎完全準確。讓我詳細解釋我的意思。
 
-[VISUAL: Title card: "Options as Conditional Orders: A New Way to Think About Buying and Selling Stocks"]
+[VISUAL: Title card: "期權作為條件性委託單：重新思考股票買賣的新方式"]
 
-**Alex:** Let us start with something every investor is familiar with: a limit buy order. Sam, explain what a limit buy order is.
+**Horace（陳馬）：** 讓我們從每個投資者都熟悉的東西開始：限價買入委託單。小魚，解釋一下什麼是限價買入委託單。
 
-**Sam:** Sure. It is when you tell your broker, buy this stock for me, but only if the price drops to a certain level. Like, buy Apple at $140 even though it is currently at $155.
+**Stella（小魚）：** 當然。就是你告訴你的券商，幫我買入這隻股票，但只能在價格跌至某個水平時才買。例如，雖然蘋果公司目前在155美元，但只在140美元時才買入。
 
-**Alex:** Perfect. And what happens while you wait for that price?
+**Horace（陳馬）：** 完美。在你等待那個價格的時候會發生什麼？
 
-**Sam:** Nothing. Your cash just sits there.
+**Stella（小魚）：** 什麼都不會發生。你的現金就那樣放著。
 
-**Alex:** Exactly. Your cash sits there earning almost nothing. Maybe 4-5% in a savings rate if you are lucky. Now here is the options alternative. Instead of placing a limit buy order at $140, you sell a cash-secured put at the $140 strike.
+**Horace（陳馬）：** 正是。你的現金就這樣放著，幾乎沒有任何收益。如果你幸運的話，也許能賺到4至5%的儲蓄利率。現在來看期權的替代方案。與其在140美元掛出限價買入委託單，不如在140美元行使價賣出一份現金擔保認沽期權。
 
-[VISUAL: Side-by-side comparison appearing on screen. Left: "Limit Buy Order at $140 - Cash earns: ~0%". Right: "Sell $140 Put for $1.85 - Cash earns: ~16% annualized"]
+[VISUAL: Side-by-side comparison appearing on screen. Left: "以140美元限價買入委託單 - 現金收益：約0%". Right: "以1.85美元賣出140美元認沽期權 - 現金年化收益：約16%"]
 
-**Sam:** So what exactly does selling a put at $140 mean?
+**Stella（小魚）：** 那麼以140美元賣出認沽期權究竟是什麼意思？
 
-**Alex:** It means you are making a promise. You are saying: I agree to buy 100 shares of Apple at $140 per share if the stock drops to that level before the option expires. And in exchange for making that promise, someone pays you a premium. Let us say $1.85 per share, or $185 per contract.
+**Horace（陳馬）：** 這意味著你作出了一個承諾。你是在說：若蘋果公司的股票在期權到期前跌至那個水平，我同意以每股140美元買入100股。作為作出這個承諾的回報，有人支付你期權金。假設每股1.85美元，即每份合約185美元。
 
-**Sam:** So I am getting paid $185 to promise to do something I was already willing to do?
+**Stella（小魚）：** 所以我收取185美元來承諾做一件我本來就願意做的事情？
 
-**Alex:** Yes. That is the beauty of it. You already wanted to buy Apple at $140. The limit order does the same thing for free. The put option does the same thing and pays you for it.
+**Horace（陳馬）：** 是的。這就是其中的美妙之處。你本來就想以140美元買入蘋果公司。限價委託單免費實現同樣的事情。認沽期權實現同樣的事情並付給你報酬。
 
-[ANIMATION: Reference animation/week26_put_as_limit.py - Animation showing two parallel timelines. Top timeline: "Limit Order" shows cash sitting idle, then stock dropping to $140 and order filling. Bottom timeline: "Short Put" shows cash with premium coins being added each month, then stock dropping to $140 and assignment occurring, with the effective purchase price shown as lower than $140 due to accumulated premiums. A counter shows the total premium collected over time.]
+[ANIMATION: Reference animation/week26_put_as_limit.py - Animation showing two parallel timelines. Top timeline: "限價委託單" shows cash sitting idle, then stock dropping to $140 and order filling. Bottom timeline: "沽出認沽期權" shows cash with premium coins being added each month, then stock dropping to $140 and assignment occurring, with the effective purchase price shown as lower than $140 due to accumulated premiums. A counter shows the total premium collected over time.]
 
-**Sam:** OK, let us walk through the possible outcomes. What happens if Apple stays above $140?
+**Stella（小魚）：** 好，讓我們逐一了解可能的結果。若蘋果公司維持在140美元以上會發生什麼？
 
-**Alex:** Your put expires worthless. The word "worthless" sounds bad, but for the seller, it is great. It means your obligation disappears and you keep the $185 premium. Your $14,000 in cash is freed up, and you can sell another put next month.
+**Horace（陳馬）：** 你的認沽期權到期歸零。「歸零」這個詞聽起來不好，但對於賣家而言是好事。這意味著你的義務消失，你保留185美元期權金。你14,000美元的現金被釋放，你可以下個月再賣出認沽期權。
 
-**Sam:** And if Apple drops to $140?
+**Stella（小魚）：** 若蘋果公司跌至140美元呢？
 
-**Alex:** You get assigned. You buy 100 shares at $140, which is exactly what you wanted. But here is the key: your effective purchase price is not $140. It is $140 minus the $1.85 premium, which is $138.15. You got a better deal than the limit order would have given you.
+**Horace（陳馬）：** 你被行使。你以140美元買入100股，這正是你想要的。但關鍵在於：你的實際買入價不是140美元，而是140美元減去1.85美元期權金，即138.15美元。你比限價委託單得到了更好的結果。
 
-[VISUAL: Calculator showing: "$140.00 strike - $1.85 premium = $138.15 effective cost"]
+[VISUAL: Calculator showing: "140.00美元行使價 - 1.85美元期權金 = 138.15美元實際成本"]
 
-**Sam:** What if Apple drops even further, like to $120?
+**Stella（小魚）：** 若蘋果公司跌得更厲害，例如120美元呢？
 
-**Alex:** You still buy at $140. Your effective cost is still $138.15. And yes, you are sitting on an unrealized loss because the stock is at $120. But think about it: the limit order buyer is in the exact same situation, except their cost basis is $140, not $138.15. You are $1.85 per share better off.
+**Horace（陳馬）：** 你仍以140美元買入。你的實際成本仍是138.15美元。是的，你處於未實現虧損狀態，因為股票在120美元。但想想看：限價委託單買家面臨完全相同的情況，只是他們的成本基礎是140美元，而不是138.15美元。你每股多了1.85美元的優勢。
 
-**Sam:** So in every scenario, the put seller does at least as well as the limit order buyer, and usually better?
+**Stella（小魚）：** 所以在每種情景下，認沽期權賣家的結果至少與限價委託單買家一樣好，通常更好？
 
-**Alex:** In terms of economic outcome, yes. The tradeoff is that the put has an expiration date. A limit order can sit there indefinitely. With puts, you need to actively sell a new contract each month.
+**Horace（陳馬）：** 在經濟結果方面，是的。取捨是認沽期權有到期日，而限價委託單可以無限期保持有效。使用認沽期權，你需要每個月積極賣出新的合約。
 
-**Sam:** But that is also when you collect more premium, right?
+**Stella（小魚）：** 但那也是你收取更多期權金的時候，對吧？
 
-**Alex:** Exactly. And that is where the real power shows up. Let me show you what happens when you do this repeatedly.
+**Horace（陳馬）：** 正是。而真正的威力就在這裡顯現出來。讓我給你看看重複操作時會發生什麼。
 
-[VISUAL: Month-by-month table showing repeated put selling. Each month shows: premium collected, stock price, outcome (expired or assigned), cumulative premium. Final row shows effective purchase price after 6 months of collecting premiums before eventual assignment]
+[VISUAL: Month-by-month table showing repeated put selling. Each month shows: 期權金收入, 股票價格, 結果（到期或被行使）, 累計期權金. Final row shows effective purchase price after 6 months of collecting premiums before eventual assignment]
 
-**Alex:** Let us say you sell puts on Apple at $140 every month. Month after month, Apple stays above $140. Each month you collect $150-$250 in premium. After six months, you have collected $1,310 in total premiums. Then in month six, Apple finally drops and you get assigned.
+**Horace（陳馬）：** 假設你每個月都在140美元賣出蘋果公司的認沽期權。月復一月，蘋果公司維持在140美元以上。每個月你收取150至250美元的期權金。六個月後，你共收取了1,310美元的期權金。然後在第六個月，蘋果公司終於下跌，你被行使。
 
-**Sam:** So you waited six months, just like the limit order person would have.
+**Stella（小魚）：** 所以你等了六個月，就像限價委託單的人一樣。
 
-**Alex:** Right. But the limit order person's cost is $140 per share. Your effective cost, after accounting for all the premiums collected, is $126.90 per share. That is a 9.4% better entry price. And this is not some exotic strategy. It is simple, straightforward, and mechanical.
+**Horace（陳馬）：** 對。但限價委託單那個人的成本是每股140美元。你的實際成本，在計入所有收取的期權金後，是每股126.90美元。這是入市價改善了9.4%。這不是什麼奇異的策略，它簡單、直接、有系統。
 
-**Sam:** That is a massive difference. $13.10 per share on 100 shares is $1,310 in your pocket.
+**Stella（小魚）：** 差別巨大。100股上的每股13.10美元就是1,310美元進入你的口袋。
 
-**Alex:** Exactly. And that is just from being willing to do what you were already planning to do, but using the right tool.
+**Horace（陳馬）：** 正是。而這只是因為你願意做你本來就打算做的事情，但使用了正確的工具。
 
-[VISUAL: Two investors side by side. Left: "Limit Order Larry" standing with empty pockets, price tag showing $140/share. Right: "Put Selling Patty" standing with pockets full of cash, price tag showing $126.90/share. Both own the same 100 shares of AAPL.]
+[VISUAL: Two investors side by side. Left: "限價委託單Larry" standing with empty pockets, price tag showing 每股140美元. Right: "賣出認沽期權Patty" standing with pockets full of cash, price tag showing 每股126.90美元. Both own the same 100 shares of AAPL.]
 
-**Sam:** OK, now let us talk about the other side. You mentioned covered calls are like limit sell orders with income.
+**Stella（小魚）：** 好，現在讓我們談談另一面。你提到備兌認購期權就像有入息的限價賣出委託單。
 
-**Alex:** Same concept, reversed. Let us say you own 100 shares of Apple at $155 and you would be happy to sell at $180. Instead of placing a limit sell order, you sell a covered call at the $180 strike.
+**Horace（陳馬）：** 概念相同，方向相反。假設你以155美元持有100股蘋果公司，並樂意以180美元賣出。你不掛出限價賣出委託單，而是賣出行使價180美元的備兌認購期權。
 
-**Sam:** And you collect a premium for agreeing to sell at $180?
+**Stella（小魚）：** 你因為同意以180美元賣出而收取期權金？
 
-**Alex:** Right. Let us say $1.50 per share, or $150 per contract. Now, if Apple stays below $180 by expiration, the call expires worthless. You keep your shares and the $150. If Apple rises above $180, your shares are called away and you sell at $180 plus you keep the $1.50 premium. Your effective sale price is $181.50.
+**Horace（陳馬）：** 對。假設每股1.50美元，即每份合約150美元。現在，若蘋果公司在到期日前維持在180美元以下，認購期權到期歸零。你保留股票和150美元期權金。若蘋果公司升至180美元以上，你的股票被「Call走」，以180美元賣出，加上你保留1.50美元期權金。你的實際賣出價為181.50美元。
 
-[VISUAL: Two scenarios branching from "Sell $180 Call for $1.50". Branch 1: "Stock stays below $180" -> "Keep shares + $150 premium, sell another call". Branch 2: "Stock rises above $180" -> "Sell shares at $180, keep $150, effective price $181.50"]
+[VISUAL: Two scenarios branching from "以1.50美元賣出180美元認購期權". Branch 1: "股票維持在180美元以下" -> "保留股票 + 150美元期權金，再賣出認購期權". Branch 2: "股票升至180美元以上" -> "以180美元賣出股票，保留150美元，實際價格181.50美元"]
 
-**Sam:** So the covered call seller gets a better exit price than the limit seller, just like the put seller gets a better entry price?
+**Stella（小魚）：** 所以備兌認購期權賣家獲得比限價賣出委託單賣家更好的離場價，就像認沽期權賣家獲得比限價委託單買家更好的入市價？
 
-**Alex:** Yes. And the same compounding effect applies. If you sell covered calls month after month and Apple slowly grinds higher, you collect $150-$250 in premium each month. After eight months, when Apple finally crosses $180 and your shares are called away, you have collected over $1,600 in premiums on top of your $180 sale price.
+**Horace（陳馬）：** 是的。同樣的複利效應也適用。若你月復一月賣出備兌認購期權，而蘋果公司緩慢上升，你每個月收取150至250美元的期權金。八個月後，當蘋果公司終於突破180美元，你的股票被Call走，你已經在180美元的賣出價之上額外收取了超過1,600美元的期權金。
 
-**Sam:** Your effective sale price is $196.20. That is remarkable.
+**Stella（小魚）：** 你的實際賣出價是196.20美元。太厲害了。
 
-**Alex:** And that is on top of any dividends you received during those eight months of holding. You were getting paid from three sources: the stock's capital appreciation from $155 to $180, the dividends, and the options premiums.
+**Horace（陳馬）：** 而且這還是在你八個月持倉期間收取的任何股息之上的收益。你從三個來源獲得報酬：股票從155美元到180美元的資本增值、股息，以及期權金。
 
-[VISUAL: Three-layer income stack visualization. Bottom: "Capital Gains: $25/share", Middle: "Dividends: ~$3.80/share", Top: "Options Premium: $16.20/share", Total: "$45.00/share = 29% total return"]
+[VISUAL: Three-layer income stack visualization. Bottom: "資本增益：每股25美元", Middle: "股息：約每股3.80美元", Top: "期權金：每股16.20美元", Total: "每股45.00美元 = 29%總回報"]
 
-**Sam:** Let me make sure I understand the risks though. What are the downsides?
+**Stella（小魚）：** 讓我確保我了解風險。有哪些缺點？
 
-**Alex:** Great question. Let us address that head on. For selling puts, the main risk is that the stock drops significantly and you are forced to buy at the strike price. If Apple drops from $155 to $100 and you sold the $140 put, you buy at $140 and immediately have a $40 per share unrealized loss.
+**Horace（陳馬）：** 好問題。讓我們正面回應這個問題。賣出認沽期權的主要風險是股票大幅下跌，你被迫以行使價買入。若蘋果公司從155美元跌至100美元，而你賣出了140美元認沽期權，你以140美元買入，立即出現每股40美元的未實現虧損。
 
-**Sam:** But you would have had the same loss with a limit order.
+**Stella（小魚）：** 但使用限價委託單你也會有同樣的虧損。
 
-**Alex:** True, except you are $1.85 better off. The real question is: would you still want to own Apple at $140 if it dropped to $100? If Apple is a strong company and you believe it will recover, then you just got a great long-term entry. If Apple is falling because of fundamental problems, you might regret it. That is why rule number one is: only sell puts on stocks you genuinely want to own.
+**Horace（陳馬）：** 沒錯，只不過你多了1.85美元的優勢。真正的問題是：若蘋果公司跌至100美元，你還願意以140美元持有蘋果公司嗎？若蘋果公司是一家強勁的公司，你相信它會復甦，那麼你只是在長期投資上獲得了一個很好的入市點。若蘋果公司因為基本面問題而下跌，你可能會後悔。這就是為什麼第一條規則是：只在你真心希望持有的股票上賣出認沽期權。
 
-[VISUAL: Bold text on screen: "RULE #1: Only sell puts on stocks you GENUINELY want to own at the strike price."]
+[VISUAL: Bold text on screen: "第一條規則：只在你真心希望以行使價持有的股票上賣出認沽期權。"]
 
-**Sam:** And the risk for covered calls?
+**Stella（小魚）：** 備兌認購期權的風險呢？
 
-**Alex:** The risk is opportunity cost. If you sell the $180 call and Apple rockets to $250, you sold at $181.50 and missed out on $68.50 per share of additional gains. You made money, but you left a lot on the table. This is the tradeoff for the income you collected. You are trading unlimited upside for steady income.
+**Horace（陳馬）：** 風險是機會成本。若你賣出180美元認購期權，而蘋果公司飛升至250美元，你以181.50美元賣出，錯過了每股額外68.50美元的升幅。你賺了錢，但留下了很多在桌上。這是你為收取期權金所作的取捨。你用無限的上行潛力換取穩定的入息。
 
-**Sam:** Is there a way to mitigate that?
+**Stella（小魚）：** 有辦法緩解這個問題嗎？
 
-**Alex:** Yes. Choose strike prices that are far enough above the current price that the probability of being called away is low. If Apple is at $155, a $180 call is about 16% above the current price. Most months, Apple will not move up 16% in 30-45 days. Statistically, an OTM covered call at that distance might only be exercised 10-15% of the time.
+**Horace（陳馬）：** 有。選擇距當前價格足夠遠的行使價，使被Call走的機率較低。若蘋果公司在155美元，180美元認購期權大約在當前價格以上16%。大多數月份，蘋果公司不會在30至45天內上升16%。從統計上看，在那個距離的價外備兌認購期權可能只有10至15%的機率被行使。
 
-**Sam:** So you win the premium 85-90% of the time?
+**Stella（小魚）：** 所以你在85至90%的時間都能贏得期權金？
 
-**Alex:** Roughly. And when you do get called away, you are selling at a price you chose as your target. It is not a loss. It is a successful exit at your planned price, plus the bonus of all the premiums you collected along the way.
+**Horace（陳馬）：** 大致如此。而當你確實被Call走時，你是以你選擇的目標價賣出。這不是虧損，而是在你計劃的目標價成功離場，加上你一路收取的所有期權金作為獎勵。
 
-[VISUAL: Probability meter showing "85-90% chance: Keep shares + premium" vs "10-15% chance: Sell shares at target + premium"]
+[VISUAL: Probability meter showing "85至90%機率：保留股票 + 期權金" vs "10至15%機率：以目標價賣出股票 + 期權金"]
 
-**Sam:** Let us talk about the practical side. How do I actually choose the right strike price and expiration?
+**Stella（小魚）：** 讓我們談談實際操作。我如何選擇合適的行使價和到期日？
 
-**Alex:** For puts, start with the question: at what price would I be genuinely excited to buy this stock? Not just willing, but excited. That is your strike. For Apple at $155, maybe $140 feels like a great deal. Maybe $130 is your bargain price. The further below the current price, the less premium you will receive, but the less likely you are to be assigned and the happier you will be if you are.
+**Horace（陳馬）：** 對於認沽期權，從這個問題開始：我真正樂意以什麼價格買入這隻股票？不只是願意，而是真正樂意。那就是你的行使價。對於155美元的蘋果公司，也許140美元感覺是一個好價錢。也許130美元是你的心儀折扣價。距當前價格越遠，你收取的期權金越少，但被行使的機率也越低，若真的被行使你也會更加滿意。
 
-**Sam:** And for expiration?
+**Stella（小魚）：** 到期日呢？
 
-**Alex:** The sweet spot is 30 to 45 days. Here is why. Option time decay accelerates after 45 days. By selling 30-45 day options, you are capturing the period of fastest decay. This gives you the best ratio of premium collected relative to time capital is reserved.
+**Horace（陳馬）：** 最佳選擇是距到期30至45天。原因如下。期權時間值衰減在45天後加速。通過賣出30至45天期權，你正在捕捉衰減最快的時期。這為你提供了相對於預留時間資金而言最佳的期權金收入比率。
 
-[VISUAL: Time decay curve with the 30-45 day zone highlighted and labeled "Sweet Spot: Maximum daily theta decay relative to total premium collected"]
+[VISUAL: Time decay curve with the 30-45 day zone highlighted and labeled "最佳區間：相對於收取期權金總額，每日Theta衰減最大"]
 
-**Sam:** Makes sense. What about position sizing? How much of my portfolio should be in these strategies?
+**Stella（小魚）：** 說得通。倉位規模呢？我的投資組合應該有多少比例用於這些策略？
 
-**Alex:** Great question. Never allocate more than 20% of your options-eligible capital to a single stock. If you have $100,000, that means no more than $20,000 committed to any single put position. For a $140 AAPL put, that is just 1 contract at $14,000. Diversify across 4-6 stocks in different sectors.
+**Horace（陳馬）：** 好問題。永遠不要將超過20%的期權適用資金分配給單一股票。若你有100,000美元，這意味著任何單一認沽期權倉位不超過20,000美元。對於140美元AAPL認沽期權，這只是1份合約，預留14,000美元。跨越4至6隻不同行業的股票進行分散投資。
 
-**Sam:** So if I have $100,000, I might have put positions on Apple, Microsoft, JPMorgan, Johnson and Johnson, and an ETF like SPY?
+**Stella（小魚）：** 所以若我有100,000美元，我可能在蘋果公司、微軟、摩根大通、強生和SPY這樣的交易所買賣基金上各有一個認沽期權倉位？
 
-**Alex:** Exactly. Five positions, each using $14,000-$20,000 in capital. You are diversified across technology, financials, healthcare, and the broad market. If one stock drops and you get assigned, it does not dominate your portfolio.
+**Horace（陳馬）：** 正是。五個倉位，每個使用14,000至20,000美元資金。你在科技、金融、醫療保健和大盤市場之間進行了分散。若一隻股票下跌並被行使，它不會主導你的投資組合。
 
 [VISUAL: Portfolio pie chart showing 5 segments for different put positions, each roughly 15-20% of the total, with 20-25% kept as cash reserve]
 
-**Sam:** I want to come back to something you said. You called this approach a "conditional order." Can you explain that term?
+**Stella（小魚）：** 我想回到你說的一件事。你稱這種方式為「條件性委託單」。你能解釋這個術語嗎？
 
-**Alex:** A conditional order is an order that only executes if certain conditions are met. A limit order is conditional: it only executes if the stock reaches your limit price. A put option is also conditional: you only buy the stock if it drops to the strike price. The option adds a condition that the limit order does not have: a time limit and a premium. But the core concept is the same. You are placing a conditional order with income.
+**Horace（陳馬）：** 條件性委託單是只有在特定條件滿足時才執行的委託單。限價委託單是有條件的：只有在股票達到你的限價時才執行。認沽期權也是有條件的：只有在股票跌至行使價時你才買入股票。期權增加了限價委託單沒有的條件：時間限制和期權金。但核心概念是相同的，你正在掛出一個有入息的條件性委託單。
 
-**Sam:** I like that framing. It makes options feel much less exotic. They are just orders with extra features.
+**Stella（小魚）：** 我喜歡這個框架。它讓期權感覺不那麼陌生了，它們只是具有額外功能的委託單。
 
-**Alex:** Exactly. And that is why I love this mental model. It takes something that feels complex and foreign, an options contract, and translates it into something every investor already understands, a limit order. The only difference is you are getting paid to use the option version.
+**Horace（陳馬）：** 正是。這就是為什麼我喜歡這個思維框架。它把一些感覺複雜和陌生的東西，期權合約，轉換為每個投資者都已經理解的東西，限價委託單。唯一的區別是你使用期權版本時會獲得報酬。
 
-[VISUAL: Equation on screen: "Options = Limit Orders + Premium Income + Time Limit"]
+[VISUAL: Equation on screen: "期權 = 限價委託單 + 期權金收入 + 時間限制"]
 
-**Sam:** Now, is there a scenario where the regular limit order is actually better?
+**Stella（小魚）：** 現在，是否存在普通限價委託單實際上更好的情景？
 
-**Alex:** Yes, a few. First, if you want to buy fewer than 100 shares. Options only come in 100-share increments. If you want 50 shares of a $300 stock, a limit order is your only choice. Second, if you need the order to stay open indefinitely. Options expire, so you need to actively manage the strategy. Third, if the stock has very low options volume and wide bid-ask spreads. In that case, the transaction costs of the option might eat up the premium benefit.
+**Horace（陳馬）：** 有，幾種情況。首先，若你想買入少於100股。期權只以100股為單位。若你想買入300美元股票的50股，限價委託單是你唯一的選擇。其次，若你需要委託單無限期保持有效。期權會到期，所以你需要積極管理策略。第三，若股票的期權成交量很低且買賣差價很大，在這種情況下，期權的交易成本可能會吃掉期權金的好處。
 
-**Sam:** That makes sense. So it is not always options over limit orders. It depends on the situation.
+**Stella（小魚）：** 有道理。所以不是永遠期權優於限價委託單，這取決於情況。
 
-**Alex:** Right. Options are a better tool for certain jobs, and limit orders are a better tool for others. The key is knowing which tool fits the situation.
+**Horace（陳馬）：** 對。期權是某些工作的更好工具，而限價委託單是其他工作的更好工具。關鍵是知道哪種工具適合哪種情況。
 
-**Sam:** Let me ask about retirement accounts. Can I do this in my IRA?
+**Stella（小魚）：** 讓我問問退休賬戶的問題。我可以在IRA中這樣做嗎？
 
-**Alex:** Absolutely. Cash-secured puts and covered calls are both allowed in most IRAs. And they are actually even more powerful in a Roth IRA because the premium income grows tax-free. You do not need margin for these strategies because they are fully cash-secured or covered by shares you already own.
+**Horace（陳馬）：** 當然可以。現金擔保認沽期權和備兌認購期權在大多數IRA中都被允許。由於這些策略完全由現金擔保或由你已持有的股票備兌，它們不需要保證金。它們在羅斯IRA中甚至更為強大，因為期權金收入免稅增長。
 
-[VISUAL: "Options in Retirement Accounts" - Checkmarks next to: Cash-Secured Puts in IRA, Covered Calls in IRA, Cash-Secured Puts in Roth IRA, Covered Calls in Roth IRA. X marks next to: Naked Calls, Spreads (varies by broker), Margin-based strategies]
+[VISUAL: "退休賬戶中的期權" - Checkmarks next to: IRA中的現金擔保認沽期權, IRA中的備兌認購期權, 羅斯IRA中的現金擔保認沽期權, 羅斯IRA中的備兌認購期權. X marks next to: 裸沽認購期權, 差價策略（視券商而異）, 基於保證金的策略]
 
-**Sam:** One more question that I think a lot of viewers are wondering. How much time does this take? Do I need to watch the market all day?
+**Stella（小魚）：** 我認為很多觀眾都在想的最後一個問題是：這需要多少時間？我需要整天盯著市場嗎？
 
-**Alex:** Not at all. Here is what a typical month looks like. On day one, you spend 15-30 minutes selecting your puts or calls and placing the orders. Then you largely forget about it. Maybe you check in once a week for 5 minutes to see where the stock is relative to your strike. On expiration week, you spend another 15 minutes deciding whether to let the option expire or close it early. Total time per month: about one hour.
+**Horace（陳馬）：** 完全不需要。以下是典型的一個月是什麼樣子。第一天，你花15至30分鐘選擇你的認沽期權或認購期權並下單。然後你基本上把它忘掉。也許你每週查看一次，花5分鐘看看股票相對於你的行使價在哪裡。在到期週，你再花15分鐘決定是讓期權到期還是提早平倉。每月總時間：約一小時。
 
-**Sam:** One hour per month for potentially 10-15% additional annual income. That seems like a great return on time invested.
+**Stella（小魚）：** 每月一小時，潛在地帶來10至15%的額外年化回報。這似乎是對時間投入的極好回報。
 
-**Alex:** It is. And this is why I call it the most efficient strategy in investing. The premium per hour of work is extraordinary compared to almost any other investment activity.
+**Horace（陳馬）：** 確實如此。這就是為什麼我稱它為投資中效率最高的策略。每小時工作所賺取的期權金，與幾乎任何其他投資活動相比都是非凡的。
 
-[VISUAL: Calculator: "1 hour/month x 12 months = 12 hours/year. $2,400 annual premium / 12 hours = $200/hour effective rate"]
+[VISUAL: Calculator: "每月1小時 x 12個月 = 每年12小時。年度期權金2,400美元 / 12小時 = 每小時200美元有效回報"]
 
-**Alex:** Let me give you a complete example to tie everything together. Imagine you have $50,000 to invest. You have identified five stocks you want to own. Here is your monthly process.
+**Horace（陳馬）：** 讓我給你一個完整的例子來把一切聯繫在一起。想像你有50,000美元要投資。你已經識別了五隻你想持有的股票。以下是你的月度流程。
 
-[VISUAL: Spreadsheet showing 5 stocks with columns: Stock, Current Price, Target Buy Price (Strike), Put Premium, Monthly Income, Annualized Yield. Shows a total monthly income and annualized return.]
+[VISUAL: Spreadsheet showing 5 stocks with columns: 股票, 當前價格, 目標買入價（行使價）, 認沽期權金, 月度入息, 年化收益率. Shows a total monthly income and annualized return.]
 
-**Alex:** You sell one put on each stock at your target buy prices. Total monthly premium might be $600-$800. Annualized, that is $7,200-$9,600, or 14-19% on your $50,000 capital. Each month, you either keep the premium and sell again, or you get assigned and start selling covered calls on your new shares.
+**Horace（陳馬）：** 你在每隻股票上以你的目標買入價各賣出一份認沽期權。每月期權金總計可能是600至800美元。年化的話，那是7,200至9,600美元，即你50,000美元資金的14至19%。每個月，你要麼保留期權金再賣出，要麼被行使並開始在新持有的股票上賣出備兌認購期權。
 
-**Sam:** And then the cycle continues. Put selling to buy, then covered call selling while you hold. Then if you are called away, you start selling puts again.
+**Stella（小魚）：** 然後循環繼續。賣出認沽期權買入，然後持倉期間賣出備兌認購期權。若被Call走，就再開始賣出認沽期權。
 
-**Alex:** You just described the wheel strategy, which we will formalize in Week 28. But yes, that is the continuous income-generating cycle.
+**Horace（陳馬）：** 你剛剛描述了「滾輪策略」，我們將在第28週正式介紹。但是的，那就是持續產生入息的循環。
 
-**Sam:** Alex, I have to say, this mental model has completely changed how I think about options. They are not some exotic gambling tool. They are enhanced versions of orders I already use.
+**Stella（小魚）：** 陳馬，我必須說，這個思維框架完全改變了我對期權的看法。它們不是什麼異國情調的賭博工具，而是我已經在使用的委託單的增強版本。
 
-**Alex:** That is exactly the mindset shift I was hoping for. Options are tools. Used wisely, they make your investing more efficient, more profitable, and more systematic. In the next two weeks, we will dive deep into each strategy: covered calls in Week 27 and cash-secured puts in Week 28.
+**Horace（陳馬）：** 這正是我希望帶來的思維轉變。期權是工具。明智地使用，它們讓你的投資更加高效、更有盈利能力、更加系統化。在接下來的兩週，我們將深入研究每種策略：第27週的備兌認購期權和第28週的現金擔保認沽期權。
 
-**Sam:** Looking forward to it. Thanks, everyone, for watching.
+**Stella（小魚）：** 在我們結束之前，讓我問一些關於人們使用這種方法時常犯錯誤的問題。
 
-**Alex:** If this video helped you understand options differently, please like, subscribe, and share it with a friend who is intimidated by options. See you next week.
+**Horace（陳馬）：** 好問題。第一個最常見的錯誤是在你不想持有的股票上賣出認沽期權。人們看到波動性股票的高期權金，心想：輕鬆賺錢。然後股票下跌30%，他們被困住了，必須買入100股他們沒有信心的東西。
+
+**Stella（小魚）：** 所以第一條規則：只在你樂意以行使價買入的股票上賣出認沽期權。
+
+**Horace（陳馬）：** 若你不願意以普通委託單在行使價買入100股，就不要在那個行使價賣出認沽期權。句號。
+
+**Stella（小魚）：** 第二個錯誤呢？
+
+**Horace（陳馬）：** 將過多資金集中於一個倉位。若你有100,000美元而你賣出5份同一股票的認沽期權，預留了70,000美元，一次嚴重下跌就會讓你陷入嚴重麻煩。跨越4至6隻股票進行分散，任何單一名稱不超過20%。
+
+[VISUAL: Two portfolio circles. Left: "差勁 - 70%在一隻股票" with one oversized red segment. Right: "良好 - 分散投資" with 5 roughly equal segments in different colors]
+
+**Stella（小魚）：** 第三個錯誤呢？
+
+**Horace（陳馬）：** 忽視盈利公布日曆。盈利公布可以造成隔夜10至20%的裂口走勢。若你有一份在盈利公布週到期的認沽期權，你就面臨那種裂口風險。賣出認沽期權前，一定要查看盈利公布日期。
+
+**Stella（小魚）：** 這些都是非常實用的警告。有什麼最後的想法嗎？
+
+**Horace（陳馬）：** 從小規模開始。在一隻股票上賣出一份認沽期權。觀察這個過程。感受期權時間值衰減時的感覺。看看到期時會發生什麼。在擴大規模前熟悉機制。不必急於求成。
+
+**Stella（小魚）：** 耐心和紀律。這整門課程的主題。
+
+**Horace（陳馬）：** 正是。這兩種品質比任何策略都更有價值。
+
+**Stella（小魚）：** 期待下週我們深入研究備兌認購期權。感謝大家收看。
+
+**Horace（陳馬）：** 若這個視頻幫助你以不同的方式理解了期權，請點讚、訂閱，並分享給一位對期權感到畏懼的朋友。下週見。
 
 [VISUAL: End screen with subscribe button, playlist link, and preview thumbnails for Week 27 and Week 28]
 

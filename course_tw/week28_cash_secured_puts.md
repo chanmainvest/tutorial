@@ -1,1093 +1,1088 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第28週：現金擔保賣權的進場策略
 
-# Week 28: Cash-Secured Puts for Entry
+## 閱讀章節
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+每位投資人在找到心儀的股票時，都面臨同樣的兩難：該現在買，還是等待更好的價格？現在買，若股票下週下跌，可能買貴了。等待，股票可能繼續上漲，錯失良機。這是一場急迫與耐心之間的永恆拉鋸戰，讓數百萬投資人陷入僵局。
 
-Every investor faces the same dilemma when they find a stock they want to buy: should I buy now, or should I wait for a better price? Buying now means you might pay too much if the stock drops next week. Waiting means the stock might continue rising and you miss the opportunity entirely. This is the age-old tug-of-war between urgency and patience, and it paralyzes millions of investors.
+**現金擔保賣權**策略優雅地解決了這個兩難。與其為時機苦惱，你只需選定願意買進的價格，在該履約價賣出賣權，然後領取報酬等待入場。若股票跌至你的目標價，你以折扣價買進；若未跌到，你保留權利金再試一次。相較於單純持有現金等待，沒有任何情境會讓你損失。
 
-The **cash-secured put** strategy elegantly resolves this dilemma. Instead of agonizing over timing, you pick the price you want to pay, sell a put at that strike price, and get paid to wait. If the stock drops to your price, you buy it at a discount. If it does not drop, you keep the premium and try again. There is no scenario where you lose compared to simply waiting with cash in your account.
+**為何這個策略對累積財富至關重要：**
 
-**Why this strategy is critical for building wealth:**
+**1. 將閒置現金轉化為產生收益的資產。** 一般投資人的投資組合中有10%至30%為現金，靜待機會。以一個50萬美元的投資組合為例，這意味著5萬至15萬美元只能賺取存款利率。現金擔保賣權可以為這些閒置資金創造8%至20%的年化報酬，讓死錢變活錢。
 
-**1. It converts idle cash into an income-producing asset.** The average investor keeps 10-30% of their portfolio in cash, waiting for opportunities. On a $500,000 portfolio, that is $50,000-$150,000 earning savings-account rates. Cash-secured puts can generate 8-20% annualized return on that idle cash, turning dead money into active income.
+**2. 讓買進決策去除情緒干擾。** 你不必每天盯著股票、試圖找到完美進場點，而是事先設定理想價格，讓市場向你靠攏。你收到的權利金，是對你的耐心與紀律的補償。這種系統化的方式，消除了多頭市場行情中常見的追漲心態，以及股市下跌時猶豫不決、不敢出手的困境。
 
-**2. It removes emotion from buying decisions.** Instead of watching a stock daily and trying to pick the perfect entry point, you define your ideal price in advance and let the market come to you. The premium you receive is compensation for your patience and discipline. This systematic approach eliminates the panic buying that often occurs during market rallies and the paralysis that prevents buying during dips.
+**3. 確保比市價委託單更好的進場價格。** 當你以3.00美元賣出履約價140美元的賣權，你的實際買進成本是137.00美元。即使被指派履約，你的入場成本也低於任何以140美元市價買進的人。權利金永遠站在你那一邊。
 
-**3. It guarantees a better entry price than a market order.** When you sell a put for $3.00 at a $140 strike, your effective purchase price is $137.00. Even if you are assigned, you entered the stock at a lower cost than anyone who bought at $140 with a regular order. The premium always works in your favor.
+**4. 建立有結構的買進框架。** 你不再需要臨時起意做買進決定，而是建立一份目標股票清單及對應目標價，系統化地賣出賣權。這將投資從一連串情緒化決策，轉化為有條不紊的流程。專業基金經理人數十年來一直使用這種方法。
 
-**4. It creates a structured buying framework.** Instead of making ad hoc buying decisions, you build a list of target stocks with target prices and sell puts systematically. This transforms investing from a series of emotional decisions into a methodical process. Professional fund managers have used this approach for decades.
+**5. 在市場走弱時自然建立部位。** 由於賣權在股票下跌時才會被指派，這個策略會自動在股市回檔和修正期間買進股票，而這正是長期投資人最應該出手的時機。現金擔保賣權是附帶收益的內建「逢低買進」機制。
 
-**5. It naturally builds positions during market weakness.** Because puts are assigned when stocks drop, the strategy automatically buys stocks during pullbacks and corrections, which is exactly when long-term investors should be buying. The cash-secured put is a built-in "buy the dip" mechanism with income attached.
-
-Cash-secured puts are the ideal complement to covered calls (Week 27). Together, they form the complete **wheel strategy**: sell puts to enter positions while collecting income, then sell covered calls on those positions for ongoing income, and if assigned on the calls, start selling puts again. This continuous cycle can generate 12-20% annual income on a well-managed portfolio.
+現金擔保賣權是掩護性買權（第27週）的理想搭檔。兩者合而為一，形成完整的**輪轉策略**：賣出賣權在收益中建立部位，再對持股賣出掩護性買權持續創造收益，若買權被指派，再開始賣出賣權。這個不斷循環的機制，在管理得當的投資組合中，每年可產生12%至20%的收益。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要了解的知識
 
-#### What Is a Cash-Secured Put?
+#### 什麼是現金擔保賣權？
 
-A **cash-secured put** is a position where you:
+**現金擔保賣權**是一種部位操作，你需要：
 
-1. **Sell (write) a put option** at a strike price you are willing to buy the stock at.
-2. **Hold enough cash** in your account to buy 100 shares at that strike price.
+1. **賣出（賣寫）一份賣權**，履約價設定在你願意買進股票的價格。
+2. **在帳戶中保留足夠的現金**，以便在該履約價買進100股。
 
-The "cash-secured" part is critical. Unlike a naked put (which uses margin), a cash-secured put has the full purchase amount set aside. Your broker holds this cash as collateral. If you are assigned, the cash is used to purchase the shares. There is no margin risk.
+「現金擔保」這部分至關重要。與裸賣賣權（使用保證金）不同，現金擔保賣權需要預先備妥完整的購股金額。你的券商將此現金作為擔保品。若被指派履約，這筆現金將用來購買股票，完全沒有保證金風險。
 
 ```
-CASH-SECURED PUT STRUCTURE:
+現金擔保賣權架構：
 
   +---------------------------------------------------+
-  |  POSITION:                                        |
+  |  部位：                                           |
   |                                                   |
-  |  SHORT: 1 AAPL $140 Put, 30 days to expiration   |
-  |  Premium received: $2.50/share ($250 total)       |
+  |  放空：1口 AAPL $140 賣權，距到期日30天           |
+  |  收取的權利金：$2.50/股（共$250）                 |
   |                                                   |
-  |  CASH RESERVED: $14,000 ($140 x 100 shares)      |
+  |  備妥現金：$14,000（$140 x 100股）               |
   |                                                   |
-  |  COMMITMENT:                                      |
-  |  "I agree to buy 100 shares of AAPL at $140      |
-  |   if the stock drops to or below $140 before      |
-  |   expiration. In return, I receive $250 now."     |
+  |  承諾內容：                                       |
+  |  「若股票在到期日前跌至$140或以下，               |
+  |   我同意以$140買進100股AAPL。                    |
+  |   作為回報，我現在收取$250。」                    |
   |                                                   |
-  |  EFFECTIVE PURCHASE PRICE IF ASSIGNED:            |
-  |  $140.00 - $2.50 = $137.50 per share             |
+  |  被指派時的實際買進成本：                         |
+  |  $140.00 - $2.50 = $137.50 每股                  |
   +---------------------------------------------------+
 ```
 
-#### Capital Requirement
+#### 所需資金
 
-The capital required for a cash-secured put equals the strike price multiplied by 100 (shares per contract). This cash must be available in your account and will be held as collateral until the option expires or is closed.
+現金擔保賣權所需資金等於履約價乘以100（每口合約股數）。這筆現金必須在你的帳戶中備妥，並作為擔保品，直到選擇權到期或平倉。
 
 ```
-CAPITAL REQUIREMENT EXAMPLES:
+所需資金範例：
 
-  Stock     Strike    Cash Required    Typical Premium   Yield/Month
-  =====     ======    =============    ===============   ===========
-  AAPL      $140      $14,000          $1.50-$3.50       1.1-2.5%
-  MSFT      $380      $38,000          $4.00-$8.00       1.1-2.1%
-  GOOGL     $160      $16,000          $2.00-$4.50       1.3-2.8%
-  JPM       $180      $18,000          $2.00-$4.00       1.1-2.2%
-  SPY       $520      $52,000          $5.00-$10.00      1.0-1.9%
-  KO        $55       $5,500           $0.60-$1.20       1.1-2.2%
+  股票     履約價    所需現金         典型權利金        每月殖利率
+  =====    ======    =============    ===============   ===========
+  AAPL     $140      $14,000          $1.50-$3.50       1.1-2.5%
+  MSFT     $380      $38,000          $4.00-$8.00       1.1-2.1%
+  GOOGL    $160      $16,000          $2.00-$4.50       1.3-2.8%
+  JPM      $180      $18,000          $2.00-$4.00       1.1-2.2%
+  SPY      $520      $52,000          $5.00-$10.00      1.0-1.9%
+  KO       $55       $5,500           $0.60-$1.20       1.1-2.2%
 
-  NOTE: Lower-priced stocks require less capital per contract,
-  making them more accessible for smaller accounts.
+  注意：較低價格的股票每口合約所需資金較少，
+  對資金規模較小的帳戶更為友善。
   
-  For a $50,000 account:
-    Can sell 3 KO $55 Puts ($16,500 reserved)
-    Can sell 1 AAPL $140 Put ($14,000 reserved)
-    Can sell 1 JPM $180 Put ($18,000 reserved)
-    Remaining cash: $1,500 buffer
+  以$50,000帳戶為例：
+    可賣出3口 KO $55 賣權（備妥$16,500）
+    可賣出1口 AAPL $140 賣權（備妥$14,000）
+    可賣出1口 JPM $180 賣權（備妥$18,000）
+    剩餘緩衝現金：$1,500
 ```
 
-#### Selecting the Strike Price
+#### 履約價的選擇
 
-The strike price is your target buy price. It should be a price at which you would be genuinely happy to own the stock. Here are the key considerations:
-
-```
-STRIKE PRICE SELECTION FRAMEWORK:
-
-  Current Stock Price: $155 (AAPL example)
-
-  APPROACH 1: Fundamental Valuation
-    - Calculate fair value using PE ratio, DCF, or other methods
-    - Set strike at or below fair value
-    - Example: Fair value estimate = $145, sell $145 put
-    - You buy at a discount to your estimate of intrinsic value
-
-  APPROACH 2: Technical Support Levels
-    - Identify price levels where stock has historically found support
-    - Set strike at or just below support
-    - Example: AAPL has support at $148-$150, sell $148 put
-    - You buy at a level where the stock has historically bounced
-
-  APPROACH 3: Percentage Below Market
-    - Set strike at a fixed percentage below current price
-    - Conservative: 10-15% below (strike $132-$140)
-    - Moderate: 5-10% below (strike $140-$147)
-    - Aggressive: 0-5% below (strike $147-$155)
-
-  APPROACH 4: Using Delta
-    - Delta 0.20 = ~20% probability of assignment = ~8-12% OTM
-    - Delta 0.30 = ~30% probability of assignment = ~5-8% OTM
-    - Delta 0.40 = ~40% probability of assignment = ~3-5% OTM
-    - Lower delta = further OTM = lower premium but lower assignment risk
-```
+履約價就是你的目標買進價格，應設定在你真心願意持有該股票的價位。以下是幾個關鍵考量：
 
 ```
-STRIKE PRICE vs. PREMIUM TRADEOFF (AAPL at $155, 30 days):
+履約價選擇框架：
 
-  Strike   Distance   Delta   Premium   Monthly   Ann. Yield   Assign Prob
-  ======   ========   =====   =======   =======   ==========   ==========
-  $155     ATM        0.50    $4.50     3.0%      36.0%        ~50%
-  $150     3.2% OTM   0.35    $2.80     1.9%      22.4%        ~35%
-  $145     6.5% OTM   0.25    $1.70     1.2%      14.1%        ~25%
-  $140     9.7% OTM   0.18    $0.95     0.7%      8.1%         ~18%
-  $135     12.9% OTM  0.12    $0.50     0.4%      4.4%         ~12%
-  $130     16.1% OTM  0.07    $0.25     0.2%      2.3%         ~7%
+  當前股價：$155（以AAPL為例）
 
-  SWEET SPOT: $140-$150 range (5-10% OTM)
-  Balances meaningful premium with a purchase price you want.
+  方法一：基本面評估
+    - 使用本益比、現金流折現或其他方法估算合理價值
+    - 將履約價設定在合理價值或以下
+    - 範例：合理價值估計為$145，賣出$145賣權
+    - 你以低於內在價值的折扣價買進
+
+  方法二：技術面支撐位
+    - 找出股價歷史上曾多次獲得支撐的價位
+    - 將履約價設定在支撐位或略低處
+    - 範例：AAPL在$148-$150有支撐，賣出$148賣權
+    - 你在股價歷史上曾反彈的價位買進
+
+  方法三：低於市價固定百分比
+    - 將履約價設定在當前價格以下固定百分比
+    - 保守型：低於10-15%（履約價$132-$140）
+    - 穩健型：低於5-10%（履約價$140-$147）
+    - 積極型：低於0-5%（履約價$147-$155）
+
+  方法四：使用Delta值
+    - Delta 0.20 = 被指派機率約20% = 價外約8-12%
+    - Delta 0.30 = 被指派機率約30% = 價外約5-8%
+    - Delta 0.40 = 被指派機率約40% = 價外約3-5%
+    - Delta越低 = 越深度價外 = 權利金越低，但被指派風險也越低
 ```
 
-#### Selecting the Expiration
-
-The same principles from covered calls apply to cash-secured puts. The 30-45 day window is optimal for the balance between premium income and theta decay.
-
 ```
-EXPIRATION COMPARISON (AAPL $145 Put):
+履約價與權利金的取捨（AAPL在$155，30天）：
 
-  Expiration    Days   Premium   Ann. Yield   Theta/Day   Management
-  ==========   ====   =======   ==========   =========   ==========
-  1 Week        7     $0.45     33.4%*       $0.064      Weekly
-  2 Weeks       14    $0.80     23.7%*       $0.057      Biweekly
-  1 Month       30    $1.70     14.1%        $0.057      Monthly     <--
-  45 Days       45    $2.40     13.1%        $0.053      ~Monthly    <--
-  2 Months      60    $3.00     12.3%        $0.050      Bimonthly
-  3 Months      90    $4.00     10.9%        $0.044      Quarterly
+  履約價  距離     Delta   權利金   每月報酬  年化殖利率  被指派機率
+  ======  ========  =====   ======   =======   ==========  ==========
+  $155    平值       0.50    $4.50    3.0%      36.0%       ~50%
+  $150    價外3.2%  0.35    $2.80    1.9%      22.4%       ~35%
+  $145    價外6.5%  0.25    $1.70    1.2%      14.1%       ~25%
+  $140    價外9.7%  0.18    $0.95    0.7%      8.1%        ~18%
+  $135    價外12.9% 0.12    $0.50    0.4%      4.4%        ~12%
+  $130    價外16.1% 0.07    $0.25    0.2%      2.3%        ~7%
 
-  * Weekly/biweekly yields look very high annualized but are harder
-    to sustain due to higher transaction frequency and occasional
-    gaps between cycles.
-
-  RECOMMENDED: 30-45 days (marked with arrows)
-  - Best theta decay rate relative to premium
-  - Manageable frequency (monthly attention)
-  - Sufficient premium to justify the trade
+  最佳區間：$140-$150（價外5-10%）
+  在有意義的權利金與理想買進價格之間取得平衡。
 ```
 
-#### Effective Purchase Price
+#### 到期日的選擇
 
-One of the most important calculations in put selling is your **effective purchase price**. This is the actual cost per share if you are assigned, after accounting for the premium received.
+掩護性買權的原則同樣適用於現金擔保賣權。30至45天的時間窗口，是權利金收益與時間價值衰減之間的最佳平衡點。
 
 ```
-EFFECTIVE PURCHASE PRICE FORMULA:
+到期日比較（AAPL $145 賣權）：
 
-  Effective Price = Strike Price - Premium Received
+  到期日      天數   權利金   年化殖利率   每日Theta   管理頻率
+  ==========  ====   ======   ==========   =========   ==========
+  1週         7      $0.45    33.4%*       $0.064      每週
+  2週         14     $0.80    23.7%*       $0.057      每兩週
+  1個月       30     $1.70    14.1%        $0.057      每月     <--
+  45天        45     $2.40    13.1%        $0.053      約每月   <--
+  2個月       60     $3.00    12.3%        $0.050      每兩個月
+  3個月       90     $4.00    10.9%        $0.044      每季
 
-  Example:
-    Sell AAPL $145 Put for $2.80
-    Effective price = $145.00 - $2.80 = $142.20
+  * 週選/雙週選的年化殖利率看似很高，但由於交易頻率較高且
+    週期間偶有空窗，實際上難以持續維持。
 
-  What this means:
-    If you are assigned, you buy 100 shares at $145.
-    But you already received $280 in premium.
-    Your NET cost per share is $142.20.
+  建議：30-45天（箭頭標示處）
+  - 相對於權利金，時間價值衰減速度最佳
+  - 管理頻率合理（每月關注一次）
+  - 權利金充足，值得交易
+```
+
+#### 實際買進成本
+
+賣權操作中最重要的計算之一，是你的**實際買進成本**。這是被指派後，扣除已收取的權利金後，每股的實際成本。
+
+```
+實際買進成本公式：
+
+  實際成本 = 履約價 - 已收取的權利金
+
+  範例：
+    賣出 AAPL $145 賣權，收取 $2.80
+    實際成本 = $145.00 - $2.80 = $142.20
+
+  這代表什麼：
+    若被指派，你以$145買進100股。
+    但你已收取$280的權利金。
+    每股淨成本為$142.20。
     
-    This is equivalent to buying the stock at $142.20 on the open market.
+    這等同於以$142.20在公開市場買進股票。
 
-  WITH REPEATED SELLING (before eventual assignment):
+  多次賣出後（最終被指派前）：
 
-    Month 1: Sell $145 Put for $2.80 -> Not assigned -> Keep $280
-    Month 2: Sell $145 Put for $2.30 -> Not assigned -> Keep $230
-    Month 3: Sell $145 Put for $3.10 -> Not assigned -> Keep $310
-    Month 4: Sell $145 Put for $3.50 -> ASSIGNED
+    第1個月：賣出$145賣權收$2.80 -> 未被指派 -> 保留$280
+    第2個月：賣出$145賣權收$2.30 -> 未被指派 -> 保留$230
+    第3個月：賣出$145賣權收$3.10 -> 未被指派 -> 保留$310
+    第4個月：賣出$145賣權收$3.50 -> 被指派
 
-    Total premiums: $280 + $230 + $310 + $350 = $1,170
-    Per share: $11.70
+    合計權利金：$280 + $230 + $310 + $350 = $1,170
+    每股：$11.70
     
-    Assignment price: $145.00
-    Effective purchase price: $145.00 - $11.70 = $133.30
+    指派價格：$145.00
+    實際買進成本：$145.00 - $11.70 = $133.30
     
-    Stock was at $155 when you started.
-    You effectively bought at $133.30, a 14% discount from the
-    original price and an 8% discount from your $145 strike.
+    開始操作時股價為$155。
+    你實際買進成本為$133.30，
+    比當初價格折讓14%，也比$145履約價低8%。
 ```
 
-#### The Four Scenarios at Expiration
+#### 到期時的四種情境
 
-Every cash-secured put will end in one of these four scenarios:
+每一口現金擔保賣權在到期時，都會出現以下四種情境之一：
 
 ```
-SCENARIO 1: Stock stays well above strike (MOST COMMON)
+情境一：股價維持在履約價以上（最常見）
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $158
+  設定：AAPL在$155，賣出$145賣權收$2.80
+  到期時：AAPL在$158
 
-  Result: Put expires worthless.
-  Premium: Keep $280 (1.9% return in 30 days)
-  Shares: None purchased
-  Cash: $14,500 returned (no longer reserved)
-  Action: Sell another put for next month
+  結果：賣權到期歸零。
+  權利金：保留$280（30天報酬1.9%）
+  股票：未買進
+  現金：$14,500歸還（不再為擔保品）
+  後續操作：下個月再賣出賣權
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
+  |  AAPL 股價走勢：                                 |
   |  $160|           ___/                            |
   |  $155|____/\___/                                 |
   |  $150|                                           |
-  |  $145|- - - - - - - - - - - STRIKE - - - - - -  |
+  |  $145|- - - - - - - - - - - 履約價 - - - - - -  |
   |  $140|                                           |
   |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |      第1天 第7天 第14天 第21天 第30天             |
   |                                                  |
-  |  Stock never threatened the strike.              |
-  |  Put decayed to zero. Keep premium.              |
+  |  股價從未逼近履約價。                            |
+  |  賣權歸零，保留權利金。                          |
   +--------------------------------------------------+
 
 
-SCENARIO 2: Stock drops to strike, hovers near it
+情境二：股價跌至履約價附近，在此徘徊
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $144
+  設定：AAPL在$155，賣出$145賣權收$2.80
+  到期時：AAPL在$144
 
-  Result: Put is $1 in the money. You are assigned.
-  Purchase: Buy 100 shares at $145
-  Premium: Keep $280
-  Effective cost: $142.20 per share
-  Stock value: $144 (small unrealized gain from effective cost!)
-  Action: Start selling covered calls on your new shares
+  結果：賣權價內$1，被指派履約。
+  買進：以$145買進100股
+  權利金：保留$280
+  實際成本：每股$142.20
+  股票市值：$144（相較實際成本有小額未實現獲利！）
+  後續操作：開始對新持股賣出掩護性買權
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
+  |  AAPL 股價走勢：                                 |
   |  $155|____                                       |
   |  $150|    \____                                  |
-  |  $145|- - - - -\__ _STRIKE_ ___/\____           |
+  |  $145|- - - - -\__ _履約價_ ___/\____           |
   |  $140|          \_/                   \          |
   |  $135|                                           |
   |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |      第1天 第7天 第14天 第21天 第30天             |
   |                                                  |
-  |  Stock crossed below strike.                     |
-  |  Assigned at $145, effective cost $142.20.       |
+  |  股價跌破履約價。                                |
+  |  以$145指派，實際成本$142.20。                   |
   +--------------------------------------------------+
 
 
-SCENARIO 3: Stock drops significantly below strike
+情境三：股價大幅跌破履約價
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $125
+  設定：AAPL在$155，賣出$145賣權收$2.80
+  到期時：AAPL在$125
 
-  Result: Put is $20 in the money. You are assigned.
-  Purchase: Buy 100 shares at $145
-  Premium: Keep $280
-  Effective cost: $142.20 per share
-  Stock value: $125 (unrealized loss of $17.20/share)
-  Loss: $1,720 (but $280 less than buying at $145 outright)
+  結果：賣權價內$20，被指派履約。
+  買進：以$145買進100股
+  權利金：保留$280
+  實際成本：每股$142.20
+  股票市值：$125（每股未實現虧損$17.20）
+  虧損：$1,720（但比直接以$145買進少損失$280）
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
+  |  AAPL 股價走勢：                                 |
   |  $155|__                                         |
   |  $150|  \__                                      |
-  |  $145|- - \_STRIKE_ - - - - - - - - - - - - -   |
+  |  $145|- - \_履約價_ - - - - - - - - - - - - -   |
   |  $140|     \                                     |
   |  $135|      \___                                 |
   |  $130|          \____                            |
   |  $125|               \______                     |
   |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |      第1天 第7天 第14天 第21天 第30天             |
   |                                                  |
-  |  Stock dropped hard. Assigned at $145.           |
-  |  Paper loss, but you wanted to own the stock.    |
-  |  Effective cost of $142.20 is still better       |
-  |  than buying at $145 with a limit order.         |
+  |  股價大幅下跌，以$145被指派。                    |
+  |  帳面虧損，但你本就想持有這檔股票。              |
+  |  $142.20的實際成本仍優於以限價單買進$145的結果。 |
   +--------------------------------------------------+
 
 
-SCENARIO 4: Stock rallies strongly above starting price
+情境四：股價從起始價大幅上漲
 ====================================================
-  Setup: AAPL at $155, Sold $145 Put for $2.80
-  At expiration: AAPL at $175
+  設定：AAPL在$155，賣出$145賣權收$2.80
+  到期時：AAPL在$175
 
-  Result: Put expires worthless.
-  Premium: Keep $280 (1.9% return in 30 days)
-  Shares: None purchased
-  Opportunity cost: You "missed" the rally from $155 to $175
+  結果：賣權到期歸零。
+  權利金：保留$280（30天報酬1.9%）
+  股票：未買進
+  機會成本：你「錯過」了從$155到$175的漲幅
   
-  BUT: You also missed nothing with a limit order at $145,
-  which also would not have been filled!
+  但請注意：設定$145限價單的人同樣沒有成交，
+  也同樣錯過了這波上漲！
 
   +--------------------------------------------------+
-  |  AAPL Price Path:                                |
+  |  AAPL 股價走勢：                                 |
   |  $175|                              _____/       |
   |  $170|                         ___/              |
   |  $165|                    ___/                   |
   |  $160|               ___/                        |
   |  $155|____      ___/                             |
   |  $150|    \___/                                  |
-  |  $145|- - - - - - - - -STRIKE- - - - - - - - -  |
+  |  $145|- - - - - - - - -履約價- - - - - - - - -  |
   |      |____|____|____|____|____|                   |
-  |      Day1  Day7  Day14 Day21 Day30               |
+  |      第1天 第7天 第14天 第21天 第30天             |
   |                                                  |
-  |  Stock rallied. You did not buy.                 |
-  |  Same result as a limit order, but you earned    |
-  |  $280 in premium while the limit order earned $0.|
+  |  股價上漲，未買進股票。                          |
+  |  結果與限價單相同，但你額外賺取了               |
+  |  $280權利金，而限價單的收益為$0。               |
   +--------------------------------------------------+
 ```
 
-#### Comparison to Buying Stock Outright
+#### 與直接買股的比較
 
-Let us directly compare three approaches to acquiring the same stock:
-
-```
-THREE APPROACHES TO BUYING AAPL (currently at $155):
-
-APPROACH 1: Buy at Market
-  Action: Buy 100 shares at $155
-  Cost: $15,500
-  If stock goes to $170: Profit = $1,500 (9.7%)
-  If stock goes to $140: Loss = -$1,500 (-9.7%)
-  If stock stays at $155: Gain = $0 (0%)
-
-APPROACH 2: Limit Order at $145
-  Action: Place limit buy at $145, wait
-  Cost if filled: $14,500
-  If stock never reaches $145: No shares, $0 income
-  If stock drops to $145 and assigned: Cost = $145/share
-  Opportunity cost: Cash earns savings rate (~4-5% annually)
-
-APPROACH 3: Cash-Secured Put at $145
-  Action: Sell $145 Put for $2.80, reserve $14,500
-  If stock stays above $145: Keep $280, repeat next month
-  If stock drops to $145: Effective cost = $142.20/share
-  Annual income if never assigned: ~14-17% on reserved capital
-
-SIDE-BY-SIDE COMPARISON TABLE:
-
-  Outcome              Market Buy   Limit Order   CSP ($145)
-  ==================   ==========   ===========   ============
-  Stock to $170        +$1,500      Not filled    Not filled
-                                    $0 income     +$280 income
-  
-  Stock stays $155     $0           Not filled    Not filled
-                                    $0 income     +$280 income
-  
-  Stock to $145        -$1,000      Buys at $145  Buys at $142.20
-                                    $0 income     $280 premium
-  
-  Stock to $130        -$2,500      Buys at $145  Buys at $142.20
-                                    Loss: $1,500  Loss: $1,220
-  
-  Income while         $0           ~$0           $280/month
-  waiting                           (savings rate) (14%+ ann.)
-
-  CONCLUSION: Cash-secured puts win in every scenario except
-  the one where you want to buy at market price RIGHT NOW.
-```
-
-#### Managing Assignments
-
-When you are assigned on a cash-secured put, your broker automatically purchases 100 shares at the strike price using the reserved cash. Here is what to do next:
+讓我們直接比較三種取得同一檔股票的方法：
 
 ```
-ASSIGNMENT MANAGEMENT CHECKLIST:
+買進AAPL的三種方法（當前股價$155）：
 
-  [ ] 1. Confirm the assignment in your account
-        - Check: 100 shares added, cash deducted
-        - Note your cost basis (strike price, adjusted for premium)
+方法一：市價買進
+  操作：以$155市價買進100股
+  成本：$15,500
+  若股價漲至$170：獲利 = $1,500（9.7%）
+  若股價跌至$140：虧損 = -$1,500（-9.7%）
+  若股價維持$155：獲益 = $0（0%）
 
-  [ ] 2. Reassess the stock
-        - Has the fundamental thesis changed?
-        - Is the stock dropping for temporary or permanent reasons?
-        - Would you still buy at this price if starting fresh?
+方法二：$145限價單
+  操作：掛$145限價買單，等待成交
+  若成交，成本：$14,500
+  若股價從未跌至$145：無持股，收益$0
+  若股價跌至$145成交：成本 = 每股$145
+  機會成本：現金賺取存款利率（年約4-5%）
 
-  [ ] 3. If fundamentals are intact:
-        - START SELLING COVERED CALLS on your new shares
-        - Select strike above your effective cost basis
-        - This begins the "wheel strategy" cycle
+方法三：$145現金擔保賣權
+  操作：賣出$145賣權收$2.80，備妥$14,500
+  若股價維持在$145以上：保留$280，下月再重複
+  若股價跌至$145：實際成本 = 每股$142.20
+  若從未被指派，年收益：備妥資金的約14-17%
+
+各情境並排比較表：
+
+  結果               市價買進      限價單        現金擔保賣權（$145）
+  ==================  ==========   ===========   ============
+  股價漲至$170        +$1,500      未成交        未成交
+                                    收益$0        收益+$280
+  
+  股價維持$155        $0           未成交        未成交
+                                    收益$0        收益+$280
+  
+  股價跌至$145        -$1,000      以$145買進    以$142.20買進
+                                    收益$0        已收$280權利金
+  
+  股價跌至$130        -$2,500      以$145買進    以$142.20買進
+                                    虧損：$1,500  虧損：$1,220
+  
+  等待期間的收益      $0           ~$0           $280/月
+                                    （存款利率）   （年化14%+）
+
+  結論：除了你想「立刻以市價買進」的情境外，
+  現金擔保賣權在所有情境中均勝出。
+```
+
+#### 管理被指派的情況
+
+當你的現金擔保賣權被指派時，券商會自動使用備妥的現金，以履約價買進100股。以下是後續操作建議：
+
+```
+指派後處理清單：
+
+  [ ] 1. 確認帳戶中的指派結果
+        - 確認：100股已新增，現金已扣除
+        - 記錄持股成本基礎（履約價，依權利金調整）
+
+  [ ] 2. 重新評估該股票
+        - 基本面論點是否已改變？
+        - 股價下跌是暫時性還是永久性原因？
+        - 若重新出發，你是否仍願在此價格買進？
+
+  [ ] 3. 若基本面依然穩健：
+        - 開始對新持股賣出掩護性買權
+        - 選擇高於實際成本基礎的履約價
+        - 這就開啟了「輪轉策略」的循環
         
-        Example:
-          Assigned at $145 (effective $142.20)
-          Stock now at $143
-          Sell $155 covered call for $2.00
-          If called away: Profit = $155 - $142.20 + $2.00 = $14.80/share
+        範例：
+          以$145被指派（實際成本$142.20）
+          股價現為$143
+          賣出$155掩護性買權收$2.00
+          若被買走：獲利 = $155 - $142.20 + $2.00 = $14.80/股
 
-  [ ] 4. If fundamentals have deteriorated:
-        - Consider selling shares immediately
-        - Take the loss (premium cushion reduces it)
-        - Reallocate capital to better opportunities
-        - Do NOT sell more puts hoping to "average down" unless thesis holds
+  [ ] 4. 若基本面已惡化：
+        - 考慮立即賣出股票
+        - 認賠出場（權利金緩衝已降低虧損）
+        - 將資金重新配置至更好的機會
+        - 切勿單純為了「攤平」而再賣更多賣權，除非論點仍成立
 
-  [ ] 5. Update your portfolio tracking
-        - Record the assignment
-        - Calculate your effective cost basis
-        - Plan your covered call strategy
+  [ ] 5. 更新投資組合紀錄
+        - 記錄指派情況
+        - 計算實際成本基礎
+        - 規劃掩護性買權策略
 ```
 
-#### The Wheel Strategy Preview
+#### 輪轉策略預覽
 
-The **wheel strategy** is a continuous cycle of cash-secured puts and covered calls. It is the most complete income-generating strategy for stock investors. Here is how it works:
+**輪轉策略**是現金擔保賣權與掩護性買權的持續循環，是股票投資人最完整的創造收益策略。其運作方式如下：
 
 ```
-THE WHEEL STRATEGY CYCLE:
+輪轉策略循環：
 
   +------------------------------------------+
   |                                          |
-  |   PHASE 1: SELL CASH-SECURED PUTS       |
-  |   "Getting paid to wait for your price"  |
+  |   第一階段：賣出現金擔保賣權            |
+  |   「等待目標價的同時獲取報酬」           |
   |                                          |
-  |   -> Stock stays above strike?           |
-  |      Keep premium, sell new put          |
-  |      (REPEAT PHASE 1)                   |
+  |   -> 股價維持在履約價以上？             |
+  |      保留權利金，賣出新的賣權           |
+  |      （重複第一階段）                   |
   |                                          |
-  |   -> Stock drops below strike?           |
-  |      Assigned: Buy shares               |
-  |      (MOVE TO PHASE 2)                  |
+  |   -> 股價跌破履約價？                   |
+  |      被指派：買進股票                   |
+  |      （進入第二階段）                   |
   |                                          |
   +------------------------------------------+
                      |
-                     | (Assigned)
+                     | （被指派）
                      v
   +------------------------------------------+
   |                                          |
-  |   PHASE 2: SELL COVERED CALLS           |
-  |   "Getting paid to hold and wait"        |
+  |   第二階段：賣出掩護性買權             |
+  |   「持有股票等待的同時獲取報酬」        |
   |                                          |
-  |   -> Stock stays below strike?           |
-  |      Keep premium, sell new call         |
-  |      (REPEAT PHASE 2)                   |
+  |   -> 股價維持在履約價以下？             |
+  |      保留權利金，賣出新的買權           |
+  |      （重複第二階段）                   |
   |                                          |
-  |   -> Stock rises above strike?           |
-  |      Assigned: Sell shares               |
-  |      (RETURN TO PHASE 1)               |
+  |   -> 股價漲破履約價？                   |
+  |      被指派：賣出股票                   |
+  |      （回到第一階段）                   |
   |                                          |
   +------------------------------------------+
                      |
-                     | (Called away)
+                     | （被買走）
                      v
-             Return to Phase 1
-             (Sell puts again)
+             回到第一階段
+             （再次賣出賣權）
 
 
-INCOME AT EVERY STAGE:
-  Phase 1: Put premiums (while waiting to buy)
-  Phase 2: Call premiums + dividends (while holding)
+每個階段都有收益：
+  第一階段：賣權權利金（等待買進期間）
+  第二階段：買權權利金 + 股利（持有期間）
   
-  There is NEVER a phase where you are not earning income.
+  永遠不會有任何階段是沒有收益的。
 ```
 
 ```
-WHEEL STRATEGY COMPLETE EXAMPLE:
+輪轉策略完整範例：
 
-Stock: JPM (JPMorgan Chase)
-Starting: Cash of $18,000, JPM at $195
+股票：JPM（摩根大通）
+起始條件：現金$18,000，JPM股價$195
 
-PHASE 1 - PUT SELLING:
-  Month 1: Sell $180 Put for $2.50 -> JPM at $192 -> Keep $250
-  Month 2: Sell $180 Put for $2.20 -> JPM at $198 -> Keep $220
-  Month 3: Sell $180 Put for $3.00 -> JPM drops to $175 -> ASSIGNED
+第一階段—賣出賣權：
+  第1個月：賣出$180賣權收$2.50 -> JPM在$192 -> 保留$250
+  第2個月：賣出$180賣權收$2.20 -> JPM在$198 -> 保留$220
+  第3個月：賣出$180賣權收$3.00 -> JPM跌至$175 -> 被指派
 
-  Put premiums collected: $250 + $220 + $300 = $770
-  Shares acquired: 100 at $180
-  Effective cost basis: $180 - $7.70 = $172.30
+  賣權權利金合計：$250 + $220 + $300 = $770
+  取得股票：100股，成本$180
+  實際成本基礎：$180 - $7.70 = $172.30
 
-PHASE 2 - COVERED CALL SELLING:
-  Month 4: Sell $195 Call for $2.80 -> JPM at $182 -> Keep $280
-  Month 5: Sell $195 Call for $2.50 -> JPM at $188 -> Keep $250
-           Also receive JPM dividend: $1.15/share = $115
-  Month 6: Sell $195 Call for $3.20 -> JPM at $190 -> Keep $320
-  Month 7: Sell $195 Call for $3.50 -> JPM rises to $198 -> CALLED AWAY
+第二階段—賣出掩護性買權：
+  第4個月：賣出$195買權收$2.80 -> JPM在$182 -> 保留$280
+  第5個月：賣出$195買權收$2.50 -> JPM在$188 -> 保留$250
+           另收到JPM股利：$1.15/股 = $115
+  第6個月：賣出$195買權收$3.20 -> JPM在$190 -> 保留$320
+  第7個月：賣出$195買權收$3.50 -> JPM漲至$198 -> 被買走
 
-  Call premiums collected: $280 + $250 + $320 + $350 = $1,200
-  Dividend received: $115
-  Sale price: $195
+  買權權利金合計：$280 + $250 + $320 + $350 = $1,200
+  收到股利：$115
+  賣出價格：$195
 
-TOTAL CYCLE RESULTS (7 months):
-  Put premiums:   $770
-  Call premiums:   $1,200
-  Dividend:        $115
-  Capital gain:    ($195 - $180) x 100 = $1,500
+整個循環總結（7個月）：
+  賣權權利金：   $770
+  買權權利金：   $1,200
+  股利：         $115
+  資本利得：     （$195 - $180）x 100 = $1,500
   ================================================
-  TOTAL PROFIT:    $3,585
+  總獲利：       $3,585
 
-  Return on $18,000 capital: 19.9% in 7 months = 34.2% annualized
+  以$18,000資金計算的報酬：7個月19.9% = 年化34.2%
 
-RETURN TO PHASE 1:
-  Month 8: Cash of $19,500+, sell $180 puts again...
-  The wheel keeps turning.
+回到第一階段：
+  第8個月：備有$19,500以上的現金，再次賣出$180賣權……
+  輪子持續轉動。
 ```
 
-#### Position Management: When and How to Close Early
+#### 部位管理：何時及如何提前平倉
 
-Not every put needs to be held to expiration. Here are guidelines for early management:
-
-```
-EARLY CLOSE GUIDELINES:
-
-  TAKE PROFIT (Buy back the put):
-  - Put has lost 50% of its value -> Close for 50% profit
-    Example: Sold for $2.80, now worth $1.40 -> Buy back at $1.40
-    Profit: $140 in ~15 days (vs $280 in 30 days)
-    Why: Capture most of the profit, free up capital, reduce risk
-
-  - Put has lost 75% of its value -> Strongly consider closing
-    Example: Sold for $2.80, now worth $0.70 -> Buy back at $0.70
-    Profit: $210 in ~20 days
-    Why: Remaining $70 is not worth the risk of holding
-
-  CUT LOSS (Buy back the put at a loss):
-  - Put has DOUBLED in value -> Consider closing
-    Example: Sold for $2.80, now worth $5.60 -> Buy back at $5.60
-    Loss: -$280
-    Why: Prevent further loss. The stock has moved against you.
-    Reassess whether you still want to own the stock.
-
-  - Stock has dropped through strike with bad news -> Close
-    If the reason for the drop changes your thesis about the company,
-    take the loss and move on.
-
-  ROLL (Close current put, open new one):
-  - Stock is near strike with a few days left
-  - You still want to own it, but want more premium
-  - Close the current put, sell next month's put
-  - Example: Buy back $145 March Put at $3.50, sell $145 April Put
-    for $5.00 -> Net credit of $1.50
-
-MANAGEMENT SCHEDULE:
-  Day 1-7:    Set it and forget it (unless major news)
-  Day 8-20:   Check weekly. Close if 50%+ profit achieved.
-  Day 21-25:  Evaluate closely. Roll or close if needed.
-  Day 26-30:  Expiration week. Final decision: expire or close.
-```
-
-#### Building a Cash-Secured Put Portfolio
-
-For investors with sufficient capital, running a diversified portfolio of cash-secured puts can generate substantial, consistent income.
+並非每口賣權都需要持有至到期日。以下是提前管理的操作準則：
 
 ```
-CASH-SECURED PUT PORTFOLIO EXAMPLE: $100,000 Capital
+提前平倉操作指南：
 
-Allocation Strategy:
-  - 5 positions across different sectors
-  - 15-20% of capital per position
-  - 10-15% kept as cash buffer for opportunities or margin of safety
+  獲利了結（買回賣權）：
+  - 賣權已損失50%價值 -> 以50%獲利平倉
+    範例：以$2.80賣出，現值$1.40 -> 以$1.40買回
+    獲利：約15天賺$140（對比30天賺$280）
+    原因：鎖定大部分獲利，釋出資金，降低風險
+
+  - 賣權已損失75%價值 -> 強烈建議平倉
+    範例：以$2.80賣出，現值$0.70 -> 以$0.70買回
+    獲利：約20天賺$210
+    原因：剩餘的$70不值得承擔繼續持倉的風險
+
+  停損（以虧損買回賣權）：
+  - 賣權價格翻倍 -> 考慮平倉
+    範例：以$2.80賣出，現值$5.60 -> 以$5.60買回
+    虧損：-$280
+    原因：防止虧損擴大。股票走勢已對你不利。
+    重新評估你是否仍想持有該股票。
+
+  - 股票因負面消息跌破履約價 -> 平倉
+    若下跌原因改變了你對這家公司的基本面看法，
+    接受虧損並繼續前進。
+
+  展期（平倉當前賣權，開新的賣權）：
+  - 距到期日剩幾天，股價接近履約價
+  - 你仍想持有，但希望收取更多權利金
+  - 買回當前賣權，賣出下個月的賣權
+  - 範例：以$3.50買回$145三月賣權，賣出$145四月賣權
+    收$5.00 -> 淨收入$1.50
+
+管理時程表：
+  第1-7天：    設定後靜待（除非有重大消息）
+  第8-20天：   每週確認。若達到50%以上獲利，考慮平倉。
+  第21-25天：  密切評估。必要時展期或平倉。
+  第26-30天：  到期週。最終決定：讓其到期或平倉。
+```
+
+#### 建立現金擔保賣權投資組合
+
+對於資金充裕的投資人，同時操作多個多元化的現金擔保賣權部位，可以創造可觀且穩定的收益。
+
+```
+現金擔保賣權投資組合範例：$100,000資金
+
+配置策略：
+  - 跨不同類股的5個部位
+  - 每個部位佔資金15-20%
+  - 保留10-15%現金作為機會緩衝或安全邊際
 
 +--------------------------------------------------------------+
-| STOCK | SECTOR      | STRIKE | CAPITAL  | PREMIUM | ANN YLD |
+| 股票  | 類股         | 履約價 | 所需資金  | 權利金  | 年化殖利率 |
 +--------------------------------------------------------------+
-| AAPL  | Technology  | $140   | $14,000  | $1.80   | 15.4%   |
-| JPM   | Financials  | $180   | $18,000  | $2.50   | 16.7%   |
-| JNJ   | Healthcare  | $150   | $15,000  | $1.60   | 12.8%   |
-| KO    | Cons.Staple | $55    | $16,500* | $0.70   | 15.3%   |
-|       |             |        | (3 cnts) |         |         |
-| AMZN  | Consumer    | $180   | $18,000  | $3.20   | 21.3%   |
+| AAPL  | 科技         | $140   | $14,000   | $1.80   | 15.4%    |
+| JPM   | 金融         | $180   | $18,000   | $2.50   | 16.7%    |
+| JNJ   | 醫療保健     | $150   | $15,000   | $1.60   | 12.8%    |
+| KO    | 消費必需品   | $55    | $16,500*  | $0.70   | 15.3%    |
+|       |              |        | （3口）   |         |          |
+| AMZN  | 消費         | $180   | $18,000   | $3.20   | 21.3%    |
 +--------------------------------------------------------------+
-| TOTAL               |        | $81,500  | $1,250  | 15.7%   |
-| Cash buffer          |        | $18,500  |         |         |
+| 合計                  |        | $81,500   | $1,250  | 15.7%    |
+| 現金緩衝              |        | $18,500   |         |          |
 +--------------------------------------------------------------+
-* 3 contracts of KO at $55 = $16,500
+* 3口 KO $55 = $16,500
 
-Monthly Income: $1,250 (premiums across 5 positions)
-Annual Income: $15,000 (15.0% on invested capital)
-Annual Income on Total: $15,000 / $100,000 = 15.0%
+每月收益：$1,250（5個部位的合計權利金）
+年收益：$15,000（投入資金的15.0%）
+總資金年收益：$15,000 / $100,000 = 15.0%
 
-Diversification:
-  Technology: 14%
-  Financials: 18%
-  Healthcare: 15%
-  Consumer Staples: 16.5%
-  Consumer Discretionary: 18%
-  Cash: 18.5%
+多元配置：
+  科技類：14%
+  金融類：18%
+  醫療保健：15%
+  消費必需品：16.5%
+  非必需消費：18%
+  現金：18.5%
 ```
 
-#### Comparing Cash-Secured Puts Across Different Market Environments
+#### 比較不同市場環境下的現金擔保賣權表現
 
-Understanding how the strategy performs in different conditions helps you set realistic expectations:
+了解這個策略在不同市況下的表現，有助於設定合理的預期：
 
 ```
-PERFORMANCE IN DIFFERENT MARKETS:
+不同市場環境下的表現：
 
-BULL MARKET (stock rising 15-25% per year):
-  - Puts expire worthless month after month
-  - You collect premium but never buy the stock
-  - Annual return on cash: 10-18% (premiums only)
-  - Emotional challenge: Watching the stock rise without owning it
-  - Reality check: You are earning more than a savings account
-  - Adjustment: Consider selling closer to ATM for higher premiums
-                 or just buy the stock at market
+多頭市場（股票年漲15-25%）：
+  - 賣權月復一月到期歸零
+  - 持續收取權利金，但從未買進股票
+  - 現金年報酬：10-18%（僅權利金）
+  - 情緒挑戰：眼看股票上漲卻沒有持倉
+  - 正確認知：你的收益仍遠高於存款利率
+  - 因應調整：考慮賣出更接近平值的賣權以獲取更高權利金，
+               或直接以市價買進股票
 
-FLAT MARKET (stock moves sideways, +/- 5%):
-  - Most puts expire worthless
-  - Occasional assignment followed by recovery
-  - Annual return on cash: 12-18% (premiums)
-  - This is the IDEAL environment for put selling
-  - You earn consistent income while the stock goes nowhere
+橫盤市場（股票小幅震盪，正負5%）：
+  - 大多數賣權到期歸零
+  - 偶爾被指派後股價回升
+  - 現金年報酬：12-18%（權利金）
+  - 這是賣出賣權的理想環境
+  - 在股價停滯不前的情況下，你仍能穩定創造收益
 
-MILD BEAR MARKET (stock declining 5-15%):
-  - You get assigned on some puts
-  - Effective cost is below strike price (premium cushion)
-  - You own stocks at discounted prices
-  - Transition to covered calls on assigned shares
-  - Net result: Buying stocks at good prices with income along the way
+溫和空頭市場（股票下跌5-15%）：
+  - 部分賣權被指派
+  - 實際成本低於履約價（有權利金緩衝）
+  - 你能以折扣價持有股票
+  - 對被指派的股票轉為賣出掩護性買權
+  - 整體結果：以好價格買進股票，一路都有收益
 
-SEVERE BEAR MARKET (stock declining 25%+):
-  - Multiple assignments
-  - Unrealized losses on assigned shares
-  - Premium cushion helps but does not eliminate losses
-  - This is the time to hold assigned shares and sell covered calls
-  - Long-term: These become your best entry prices
+嚴重空頭市場（股票下跌25%以上）：
+  - 多次被指派
+  - 持股產生未實現虧損
+  - 權利金緩衝有所幫助，但無法完全消除虧損
+  - 此時應持有被指派的股票並賣出掩護性買權
+  - 長期來看：這些往往會成為你最好的買進時機
   
-  HISTORICAL EXAMPLE: Selling AAPL puts in 2022
-    AAPL dropped from $182 to $129 (29% decline)
-    Put seller assigned at ~$150, effective cost ~$145
-    By mid-2023, AAPL recovered to $190
-    Result: 31% gain from effective cost in ~12 months
-    Plus: Covered call premiums during the hold = additional 8-12%
+  歷史案例：2022年賣出AAPL賣權
+    AAPL從$182跌至$129（下跌29%）
+    賣出賣權者被指派於約$150，實際成本約$145
+    2023年中，AAPL反彈至$190
+    結果：從實際成本算起約12個月獲利31%
+    此外：持倉期間賣出掩護性買權的額外收益 = 8-12%
 ```
 
-#### Practical Checklist: Before You Sell a Put
+#### 實用清單：賣出賣權前的確認事項
 
-Use this checklist every time you are about to sell a cash-secured put:
-
-```
-PRE-TRADE CHECKLIST:
-
-  STOCK QUALITY:
-  [ ] Company has been profitable for at least 3 years
-  [ ] Debt-to-equity ratio is reasonable for its industry
-  [ ] No pending litigation or regulatory risks that concern me
-  [ ] I understand what the company does and how it makes money
-  [ ] I would hold this stock for at least 2-3 years if assigned
-
-  STRIKE SELECTION:
-  [ ] Strike is at or below my fair value estimate
-  [ ] Strike is at least 5% below current price (for OTM approach)
-  [ ] If assigned, my total position in this stock stays under 20%
-  [ ] I have confirmed the support level on the price chart
-
-  EXPIRATION SELECTION:
-  [ ] 30-45 days to expiration
-  [ ] No earnings announcement between now and expiration
-  [ ] No major economic events (Fed meeting, etc.) that concern me
-
-  PREMIUM CHECK:
-  [ ] Annualized yield is at least 8% (my minimum threshold)
-  [ ] Bid-ask spread is tight (under $0.30 for a ~$3 option)
-  [ ] Volume and open interest are sufficient (at least 100 OI)
-
-  CAPITAL CHECK:
-  [ ] I have cash to cover the full assignment (strike x 100)
-  [ ] This position does not use more than 20% of my total capital
-  [ ] I have at least 15% of my total capital in cash reserve
-  [ ] I am NOT using margin for this position
-
-  MANAGEMENT PLAN:
-  [ ] I know at what profit level I will close early (50-75%)
-  [ ] I know at what loss level I will cut the position (2x premium)
-  [ ] If assigned, I have a plan (sell covered calls or hold)
-```
-
-#### Risk Management for Cash-Secured Puts
-
-Understanding and managing risk is essential for long-term success:
+每次準備賣出現金擔保賣權前，請使用以下清單：
 
 ```
-RISK MANAGEMENT FRAMEWORK:
+交易前確認清單：
 
-  1. STOCK SELECTION RISK
-     Mitigation: Only sell puts on stocks you want to own
-     - Strong balance sheet (low debt)
-     - Consistent earnings growth
-     - Competitive moat
-     - Reasonable valuation at your strike price
-     Rule: If you would not buy 100 shares at the strike with a
-     market order, do NOT sell a put at that strike.
+  股票品質：
+  [ ] 公司至少連續盈餘3年
+  [ ] 負債比率在其所屬產業中屬合理範圍
+  [ ] 沒有令我擔憂的待決訴訟或監管風險
+  [ ] 我了解這家公司的業務模式及獲利方式
+  [ ] 若被指派，我願意持有這檔股票至少2-3年
 
-  2. CONCENTRATION RISK
-     Mitigation: Diversify across sectors and stocks
-     - Maximum 20% of capital in any single stock
-     - Minimum 4-5 different stocks
-     - Spread across at least 3 sectors
-     Rule: No single assignment should be devastating to your portfolio.
+  履約價選擇：
+  [ ] 履約價等於或低於我的合理價值估算
+  [ ] 履約價至少低於當前股價5%（採用價外策略時）
+  [ ] 若被指派，我在這檔股票的總部位佔比仍在20%以內
+  [ ] 我已確認股價圖上的支撐位
 
-  3. MARKET CRASH RISK
-     Mitigation: Keep 15-20% cash buffer
-     - If ALL positions are assigned, you still have cash reserves
-     - A crash that assigns all puts at once is rare but possible
-     - In a broad crash, your effective costs are still below market
-     Rule: Size positions so that being assigned on ALL of them
-     simultaneously does not exceed your total capital.
+  到期日選擇：
+  [ ] 距到期日30-45天
+  [ ] 現在到到期日之間沒有財報公布日
+  [ ] 沒有令我擔憂的重大經濟事件（如聯準會會議等）
 
-  4. EARNINGS/EVENT RISK
-     Mitigation: Avoid selling puts expiring during earnings week
-     - Earnings can cause 10-20% gaps overnight
-     - If you sell a put through earnings, accept the gap risk
-     - Better: sell puts AFTER earnings, when IV has settled
-     Rule: Know the earnings calendar for every stock you sell puts on.
+  權利金確認：
+  [ ] 年化殖利率至少8%（我設定的最低門檻）
+  [ ] 買賣價差緊密（約$3的選擇權，價差在$0.30以內）
+  [ ] 成交量和未平倉量充足（未平倉量至少100口）
 
-  5. OPPORTUNITY COST RISK
-     Mitigation: Use short-duration puts (30-45 days)
-     - Cash is tied up for the option's duration
-     - If a better opportunity arises, you may not have free cash
-     - Shorter durations free cash more frequently
-     Rule: Keep enough liquid cash to act on unexpected opportunities.
+  資金確認：
+  [ ] 我有現金支應完整指派（履約價 x 100）
+  [ ] 這個部位不超過我總資金的20%
+  [ ] 我至少保留15%的總資金作為現金儲備
+  [ ] 我「不」使用保證金進行此交易
 
-MAXIMUM LOSS CALCULATION:
+  管理計畫：
+  [ ] 我知道在何種獲利水準下提前平倉（50-75%）
+  [ ] 我知道在何種虧損水準下停損（權利金的2倍）
+  [ ] 若被指派，我有計畫（賣出掩護性買權或繼續持有）
+```
 
-  Absolute worst case (stock goes to $0):
-    Max Loss = (Strike Price - Premium) x 100 x Number of Contracts
+#### 現金擔保賣權的風險管理
+
+理解並管理風險是長期成功的關鍵：
+
+```
+風險管理框架：
+
+  1. 股票選擇風險
+     因應方式：只對你願意持有的股票賣出賣權
+     - 穩健的資產負債表（低負債）
+     - 持續成長的盈餘
+     - 具競爭護城河
+     - 在你設定的履約價下具合理估值
+     原則：若你不願意以市價委託買進100股，
+           就不要在該履約價賣出賣權。
+
+  2. 集中度風險
+     因應方式：跨類股及股票多元分散
+     - 單一股票最多佔資金20%
+     - 至少持有4-5檔不同股票
+     - 分散至少3個類股
+     原則：任何單一指派都不應對你的投資組合造成毀滅性打擊。
+
+  3. 市場崩盤風險
+     因應方式：保留15-20%現金緩衝
+     - 若所有部位同時被指派，你仍有現金儲備
+     - 崩盤導致所有賣權同時被指派的情況罕見，但並非不可能
+     - 即使在大崩盤中，你的實際成本仍低於市場
+     原則：部位規模要讓你在所有部位同時被指派時，
+           不會超出你的總資金上限。
+
+  4. 財報/事件風險
+     因應方式：避免賣出在財報公布週到期的賣權
+     - 財報可能在一夜之間造成10-20%的跳空
+     - 若你賣出的賣權跨越財報期，就要接受跳空的風險
+     - 更好的做法：在財報公布後，當隱含波動率回落時再賣出賣權
+     原則：了解你每檔賣出賣權股票的財報日程。
+
+  5. 機會成本風險
+     因應方式：使用短期賣權（30-45天）
+     - 現金在選擇權存續期間被佔用
+     - 若出現更好的機會，你可能沒有充裕的現金
+     - 較短的到期日能更頻繁地釋出資金
+     原則：保留充足的流動現金，以便把握意外出現的機會。
+
+最大虧損計算：
+
+  絕對最壞情境（股票跌至$0）：
+    最大虧損 = （履約價 - 權利金）x 100 x 合約口數
     
-    AAPL $140 Put at $2.80:
-    Max Loss = ($140 - $2.80) x 100 = $13,720 per contract
+    AAPL $140賣權收$2.80：
+    最大虧損 = （$140 - $2.80）x 100 = $13,720 每口合約
     
-    This would require AAPL to go to $0, which is essentially
-    impossible for a company of Apple's size and financial strength.
+    這需要AAPL跌至$0，以蘋果的規模和財務實力而言，
+    這幾乎是不可能發生的情境。
 
-  Realistic worst case (stock drops 30%):
-    AAPL drops from $155 to $108.50
-    You buy at $140, effective cost $137.20
-    Unrealized loss: ($137.20 - $108.50) x 100 = $2,870
+  相對合理的最壞情境（股票下跌30%）：
+    AAPL從$155跌至$108.50
+    你以$140買進，實際成本$137.20
+    未實現虧損：（$137.20 - $108.50）x 100 = $2,870
     
-    This is painful but manageable, especially if you believe
-    AAPL will recover and you start selling covered calls.
+    這雖然令人難受，但尚在可控範圍內——尤其是如果你相信
+    AAPL會反彈，且你已開始賣出掩護性買權。
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見迷思
 
-**Misconception 1: "Selling puts is the same as buying stock, so why bother?"**
+**迷思一：「賣出賣權和買股票一樣，為什麼要多此一舉？」**
 
-While the risk profiles are similar (both have downside exposure), the economics are different. The put seller has a lower effective cost basis (by the amount of the premium), and earns income while waiting for the entry price. A stock buyer at $155 starts at $155. A put seller at $145 strike with $2.80 premium starts at $142.20 if assigned, and earns $280 if not. Over time, the put seller's entry is significantly better.
+雖然兩者的風險輪廓相似（都有下行風險的曝險），但經濟效益不同。賣出賣權者的實際成本基礎較低（低於履約價一個權利金的金額），而且在等待進場價格期間還能創造收益。以$155買進股票的人，起始成本就是$155。以$145履約價、收取$2.80權利金的賣權賣出者，若被指派，實際成本是$142.20；若未被指派，則多賺$280。長期下來，賣出賣權者的進場成本要好得多。
 
-**Misconception 2: "Cash-secured puts tie up too much capital."**
+**迷思二：「現金擔保賣權佔用太多資金。」**
 
-This is true if you compare it to margin-based strategies, but the comparison should be to what you would do with the cash otherwise. If the cash is sitting in a savings account at 4-5%, selling cash-secured puts at 12-18% annualized yield is a dramatic improvement. The capital is "tied up" in the same way it would be tied up waiting for a limit order to fill: you have decided to buy the stock at a certain price, so the capital is already mentally allocated.
+與使用保證金的策略相比確實如此，但正確的比較基準應該是「否則這筆錢你會怎麼用」。若現金閒置在存款帳戶，年利率只有4-5%，那麼賣出現金擔保賣權的年化殖利率12-18%，是大幅改善。這筆資金被「佔用」的方式，就如同等待限價單成交一樣——你已決定在特定價格買進股票，這筆資金在心理上早已預先配置。
 
-**Misconception 3: "You should sell puts on high-volatility stocks for bigger premiums."**
+**迷思三：「應該賣高波動性股票的賣權，這樣可以拿到更多權利金。」**
 
-Higher volatility does mean higher premiums, but it also means higher probability of large drops, which increases assignment risk and potential losses. A biotech stock might offer $8 in premium on a $50 put, but the stock could easily drop 40% on a failed drug trial. You should sell puts on stocks with moderate volatility that you genuinely want to own, not on the most volatile names for premium size alone.
+較高的波動性確實代表較高的權利金，但同時也意味著股票大幅下跌的機率更高，增加了被指派的風險和潛在虧損。一檔生技股的$50賣權或許可以收$8的權利金，但若新藥試驗失敗，股票可能一夜暴跌40%。你應該對波動性適中、真正願意持有的股票賣出賣權，而不是單純追求高額權利金去碰那些最波動的股票。
 
-**Misconception 4: "Getting assigned on a put is a bad outcome."**
+**迷思四：「賣出賣權被指派是壞的結果。」**
 
-Assignment means you bought a stock you wanted at a price you chose, at an effective cost lower than that price. This is a successful execution of your plan. The only time assignment is truly bad is when the stock drops catastrophically due to fundamental problems (fraud, bankruptcy, structural decline). This risk exists equally with any form of stock purchase. Assignment itself is neutral to positive.
+被指派代表你以你設定的價格買進了你想要的股票，實際成本還低於該價格。這是你計畫的成功執行。真正糟糕的指派，只發生在股票因基本面問題（詐欺、破產、結構性衰退）而崩跌的時候。而這種風險，在任何形式的股票買進方式中都同樣存在。被指派本身是中性乃至正面的結果。
 
-**Misconception 5: "I should always roll to avoid assignment."**
+**迷思五：「我應該一直展期來避免被指派。」**
 
-Rolling has a cost. If the stock is below your strike and you roll, you are buying back an in-the-money put (expensive) and selling a new one (hopefully for more). The net credit may be small or you may even pay a debit. If you want the stock at the strike price, just accept assignment. Rolling makes sense only when: (a) your view on the stock has changed and you no longer want to buy, or (b) you want more time to collect premium before buying.
+展期是有成本的。若股票已跌破履約價，買回價內的賣權（較貴）再賣出新的賣權（期望能收得更多），兩者之間的淨收入可能很少，甚至可能需要付出淨借方差額。若你本就想在履約價買進股票，直接接受指派即可。只有在以下情況才考慮展期：（a）你對股票的看法改變，不再想買進；（b）你希望在買進前再多收取一段時間的權利金。
 
-**Misconception 6: "Cash-secured puts only work in bull markets."**
+**迷思六：「現金擔保賣權只在多頭市場有效。」**
 
-Cash-secured puts actually work in ALL market environments, but the outcomes differ. In bull markets: puts expire worthless, you keep premium. In flat markets: same result, premium income is your return. In mild bear markets: you get assigned and buy stocks at a discount, which is ideal for long-term investors. In severe bear markets: you buy stocks at a discount but face unrealized losses, though your effective cost is still better than buying without the put strategy. The strategy fails only if you are selling puts on fundamentally flawed companies.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How is a cash-secured put different from a naked put?**
-
-A: The strategy is the same; the collateral is different. A cash-secured put requires you to have the full cash amount to buy the shares ($14,000 for a $140 put). A naked put uses margin, meaning you only need to post a fraction of the value (perhaps $3,000-$5,000 depending on your broker). Naked puts have the same profit potential but carry additional risk because if you are assigned and the stock drops further, you may face a margin call. In this course, we exclusively teach cash-secured puts because they eliminate margin risk and align with a conservative investing philosophy.
-
-**Q2: Can I sell puts on index ETFs like SPY?**
-
-A: Yes, and SPY puts are among the most liquid options in the world. The capital requirement is higher ($52,000 for a $520 put), but you get broad market diversification in a single contract. SPY puts are an excellent choice for investors who want to build a position in the overall market at a lower price. The premiums on SPY are somewhat lower on a percentage basis (due to lower volatility), but the consistency and liquidity are exceptional.
-
-**Q3: What happens if I do not have enough cash when I am assigned?**
-
-A: If your put is cash-secured, this should not happen because your broker has already reserved the full amount. If you are using margin and get assigned without sufficient funds, your broker will issue a margin call. You will need to either deposit more cash or sell securities to cover the purchase. This is one of the key reasons we recommend cash-secured puts over naked puts: the cash is always there when needed.
-
-**Q4: Should I sell puts weekly or monthly?**
-
-A: Monthly (30-45 days) is recommended for most investors. Weekly puts require more frequent management and have smaller individual premiums. While the annualized yield of weekly puts can be higher, the additional effort and transaction frequency often do not justify the marginal increase. Monthly puts provide a good premium with minimal management. If you are more experienced and have time, selling weekly puts can work, but start with monthly.
-
-**Q5: What is the difference between selling a put and buying a deep-in-the-money call?**
-
-A: Economically, they are similar but not identical. Both give you bullish exposure with a lower initial outlay than buying stock. However, selling a put generates income (you receive premium), while buying a call costs money (you pay premium). Selling a put also requires full cash collateral and has limited profit (the premium). Buying a deep ITM call costs less upfront but loses value to time decay and has unlimited profit potential. For income-oriented investors, selling puts is generally preferred.
-
-**Q6: How do I account for dividends when selling puts?**
-
-A: If you sell a put on a dividend-paying stock and get assigned, you will receive future dividends on the shares you now own. However, you do not receive dividends while you hold the short put position (you do not own the shares yet). This is a minor disadvantage compared to owning the stock outright, but the put premium typically exceeds the dividend you would have received during the same period.
-
-**Q7: What happens to my put if the stock splits?**
-
-A: Options are adjusted for stock splits. If AAPL does a 4-for-1 split and you have a $140 put, your position would be adjusted to 4 contracts of $35 puts (same economic exposure). The OCC handles all adjustments automatically. You do not need to take any action.
-
-**Q8: Can I sell puts in a margin account even if I want them cash-secured?**
-
-A: Yes. You can choose to keep enough cash in your margin account to fully cover the put, effectively making it cash-secured even though the account type allows margin. Many investors use margin accounts for the flexibility but maintain cash reserves equivalent to full coverage. The key discipline is not using the margin to sell more puts than you could cover with cash.
-
-**Q9: What if I want to be more conservative? Can I sell puts on stocks I already own?**
-
-A: Yes, this is called selling an "additional put." If you already own 100 shares of AAPL and sell a $140 put, getting assigned would give you 200 shares. This is a way to double down on stocks you love at lower prices. Just ensure your total position size remains within your risk tolerance and portfolio allocation limits.
-
-**Q10: How does the wheel strategy compare to traditional buy-and-hold?**
-
-A: Over long periods, the wheel strategy typically generates higher income but may slightly underperform during strong bull markets (due to the covered call capping upside). In flat and mildly bearish markets, the wheel significantly outperforms because of the premium income. Research on the CBOE PutWrite Index (PUT) shows that a systematic put-writing strategy has delivered returns comparable to the S&P 500 with about 25-30% less volatility. The wheel adds covered calls on top, further enhancing income. For income-focused investors, the wheel is often superior to pure buy-and-hold.
+現金擔保賣權在「所有」市場環境中都有效，只是結果不同。多頭市場：賣權到期歸零，保留權利金。橫盤市場：結果相同，權利金收益就是你的報酬。溫和空頭市場：被指派並以折扣價買進股票，對長期投資人而言是理想的結果。嚴重空頭市場：以折扣價買進股票，但面臨未實現虧損，不過實際成本仍優於不用賣權策略直接買進。這個策略唯一會失敗的情況，是你對基本面有根本問題的公司賣出賣權。
 
 ---
 
-## YouTube Script
+### d) 常見問答
 
-[VISUAL: Animated intro with show logo. Text: "Week 28: Cash-Secured Puts for Entry - Level 3: Advanced"]
+**Q1：現金擔保賣權與裸賣賣權有何不同？**
 
-**Alex:** Welcome back. Over the past three weeks, we have built a complete foundation in options. We started with the basics in Week 25, then learned to think of options as conditional orders in Week 26, and mastered covered calls for income in Week 27. Today we complete the picture with cash-secured puts.
+A：策略相同，差別在於擔保品。現金擔保賣權要求你擁有完整的買股現金（$140賣權需要$14,000）。裸賣賣權使用保證金，你只需繳存部分金額（依券商規定，可能只需$3,000至$5,000）。裸賣賣權的獲利潛力相同，但風險更高——若被指派後股價繼續下跌，你可能面臨追繳保證金的情形。本課程完全採用現金擔保賣權，因為它消除了保證金風險，符合保守投資理念。
 
-**Sam:** And then we are going to put it all together with the wheel strategy?
+**Q2：我可以對 SPY 等指數股票型基金賣出賣權嗎？**
 
-**Alex:** That is exactly right. Cash-secured puts are the entry mechanism of the wheel. They are how you get into stocks while getting paid to do so. By the end of today, you will have the complete toolkit.
+A：可以，而且 SPY 賣權是全球流動性最高的選擇權之一。所需資金較高（$520賣權需要$52,000），但一口合約就能獲得廣泛的市場分散效果。SPY 賣權是想要在整體市場較低價格建立部位的投資人的絕佳選擇。由於波動性較低，SPY 的百分比權利金略低，但其穩定性和流動性表現優異。
 
-[VISUAL: A wheel diagram showing the cycle: "Cash -> Sell Puts -> Assigned -> Own Shares -> Sell Calls -> Called Away -> Cash" with today's focus "Sell Puts" highlighted]
+**Q3：若被指派時我的資金不足，會怎樣？**
 
-**Sam:** OK, let us start with the basics. What is a cash-secured put?
+A：若你的賣權是現金擔保的，這種情況不應該發生，因為券商已預先備妥全額現金。若你使用保證金且被指派時資金不足，券商將發出追繳保證金通知。你需要存入更多現金，或賣出部分持股來支應購股款項。這正是我們推薦現金擔保賣權而非裸賣賣權的關鍵原因：需要時，現金隨時備妥。
 
-**Alex:** A cash-secured put is when you sell a put option and keep enough cash in your account to buy the shares if you are assigned. You are making a promise: I will buy this stock at this price if it drops to that level. In return, someone pays you a premium right now.
+**Q4：我應該每週還是每月賣出賣權？**
 
-**Sam:** And the "cash-secured" part means I am not using borrowed money?
+A：建議大多數投資人採用每月（30-45天）的週期。週選擇權需要更頻繁的管理，且每次個別收取的權利金較少。雖然週選擇權的年化殖利率在理論上可能更高，但額外付出的心力和交易頻率，往往不值得那點邊際差異。月選擇權提供良好的權利金收益，管理工作也最少。若你是較有經驗、且有時間的投資人，操作週選擇權也可行，但建議從月選擇權開始。
 
-**Alex:** Exactly. Your broker holds the full amount, say $14,000 for a $140 put, as collateral. If you are assigned, that cash is used to buy the shares. No margin, no borrowed money, no surprises.
+**Q5：賣出賣權和買進深度價內買權有何不同？**
 
-[VISUAL: Diagram showing a bank vault labeled "$14,000" connected to a put option contract. Arrow labeled "Premium $280" flowing from the option to the investor's pocket. Arrow labeled "If assigned" flowing from the vault to "100 shares"]
+A：在經濟效益上，兩者相似但不完全相同。兩者都提供比直接買股更低的初始成本的多頭曝險。然而，賣出賣權可創造收益（你收取權利金），而買進買權則需要花費金錢（你支付權利金）。賣出賣權還需要完整的現金擔保，且獲利有限（上限為權利金）。買進深度價內買權的初始成本較低，但會受到時間價值損耗影響，不過獲利潛力無上限。對以創造收益為目標的投資人而言，賣出賣權通常是較佳的選擇。
 
-**Sam:** Let me walk through an example. Apple is at $155 and I think $145 is a great price to buy.
+**Q6：賣出賣權時如何考量股利因素？**
 
-**Alex:** Perfect setup. Instead of placing a limit order at $145, you sell one AAPL $145 put expiring in 30 days. Let us say the premium is $2.80. You receive $280 immediately, and your broker reserves $14,500 in cash.
+A：若你對一檔配息股票賣出賣權並被指派，你日後將收到這些股票的股利。然而，在你持有空頭賣權部位期間（尚未持有股票），你不會收到股利。相較於直接持股，這是一個小小的劣勢，但在同等期間內，賣出賣權所收取的權利金通常會超過你本可收到的股利。
 
-**Sam:** And now what?
+**Q7：若股票發生股票分割，我持有的賣權會怎樣？**
 
-**Alex:** Now you wait. And one of four things will happen.
+A：選擇權會根據股票分割進行調整。若 AAPL 進行四股拆一的股票分割，而你持有一口$140賣權，你的部位將被調整為四口$35賣權（經濟曝險不變）。美國選擇權結算公司（OCC）會自動處理所有調整，你無需採取任何行動。
 
-[ANIMATION: Reference animation/week28_cash_secured_put.py - Animation showing a stock price chart with AAPL starting at $155 and a $145 strike line drawn horizontally. Four animated paths branch from the starting point: (1) stock stays flat around $155, (2) stock rises to $175, (3) stock drops to $144, (4) stock drops sharply to $125. For each path, the animation shows the outcome: premium kept or assignment occurring, with the effective cost calculator updating in real-time. A running P&L display shows the put seller's position at each stage.]
+**Q8：若我有保證金帳戶，但想將其作為現金擔保，可以嗎？**
 
-**Alex:** Scenario one, the most common: Apple stays above $145. The put expires worthless. You keep the $280 and your $14,500 is freed up. You earned 1.9% in 30 days, which is 23.6% annualized. Then you sell another put for next month.
+A：可以。即使帳戶類型允許使用保證金，你仍可選擇在保證金帳戶中備妥足夠的現金，實際上將其視為現金擔保。許多投資人使用保證金帳戶是為了靈活性，但同時維持等同於完整保障的現金儲備。關鍵的自我紀律在於：不要利用保證金去賣出超出你現金能力所能涵蓋的賣權口數。
 
-**Sam:** Nice. Scenario two?
+**Q9：若我想更保守，可以對我已持有的股票再賣出賣權嗎？**
 
-**Alex:** Apple drops to exactly $145 or slightly below. You are assigned. You buy 100 shares at $145. But remember, you already received $2.80 per share in premium, so your effective cost is $142.20.
+A：可以，這稱為「額外賣權」。若你已持有100股 AAPL，再賣出一口$140賣權，被指派後你將持有200股。這是一種在你喜愛的股票以更低價格加碼的方式。只需確保你在這檔股票上的總部位規模，仍在你的風險承受範圍和投資組合配置上限之內。
 
-**Sam:** Which is lower than what a limit order would have given me.
+**Q10：輪轉策略與傳統的買進持有策略相比如何？**
 
-**Alex:** By $2.80 per share. That is 1.9% better than a limit order. And it does not sound like much, but over many cycles, these savings compound dramatically.
-
-[VISUAL: Two receipts side by side. Left: "Limit Order Receipt - 100 shares AAPL at $145.00 - Total: $14,500". Right: "Cash-Secured Put Receipt - 100 shares AAPL at $145.00 - Premium Received: -$280 - Effective Cost: $14,220 - Savings: $280"]
-
-**Sam:** What about scenario three, a big drop?
-
-**Alex:** Say Apple drops to $125. You are assigned at $145, effective cost $142.20. You are now sitting on an unrealized loss of $17.20 per share. This is the risk of the strategy.
-
-**Sam:** But the limit order person is also sitting on a loss.
-
-**Alex:** Right. The limit order buyer at $145 has an unrealized loss of $20 per share. You have a loss of $17.20 per share. You are $2.80 better off. In a big drop, nobody wins, but the put seller loses slightly less.
-
-**Sam:** And scenario four? Apple rockets higher?
-
-**Alex:** Apple goes to $175. Your put expires worthless. You keep the $280 but you did not buy any shares. You "missed" the rally. But here is the thing: your limit order at $145 also was not filled. The limit order person also missed the rally and earned nothing. You at least earned $280.
-
-[VISUAL: Scoreboard showing all four scenarios. For each, the put seller's outcome is compared to the limit order person's outcome. In every scenario, the put seller is equal to or better than the limit order approach.]
-
-**Alex:** In every single scenario, the put seller does at least as well as the limit order, and usually better. That is the fundamental mathematical advantage of this strategy.
-
-**Sam:** That is compelling. Now let me ask about strike price selection. How do I decide what strike to sell?
-
-**Alex:** There are several approaches, and the best one depends on your situation. The first approach is fundamental valuation. You estimate the stock's fair value and set your strike at or below that number.
-
-**Sam:** So if I think Apple is worth $145 based on its PE ratio and earnings, I sell the $145 put?
-
-**Alex:** Exactly. You are saying, I am willing to buy Apple at fair value, and I will accept premium for making that commitment. The second approach is using support levels from a price chart. If Apple has bounced off $148 three times in the past year, that is a strong support level and a logical strike.
-
-**Sam:** And the third approach?
-
-**Alex:** Percentage below market. Simply go 5-10% below the current price. For Apple at $155, that is $140-$147. This is the simplest approach and works well for beginners.
-
-[VISUAL: Three-panel display. Panel 1: Fundamental analysis showing PE ratio and earnings with a "Fair Value: $145" label. Panel 2: Price chart with support line at $148. Panel 3: Current price $155 with 5% and 10% arrows pointing to $147 and $140 respectively.]
-
-**Sam:** I notice there is always a tradeoff between the premium and the strike distance. Can you walk through that?
-
-**Alex:** Absolutely. The further out of the money you go, the less premium you receive, but the lower your probability of being assigned. Think of it as a dial between income and safety.
-
-[VISUAL: A dial/gauge with "More Income" on the left and "More Safety" on the right. Specific strike prices are marked along the dial with their premiums and assignment probabilities.]
-
-**Alex:** At the $155 strike, right at the money, you might get $4.50 in premium. That is a 3% monthly return, but there is a 50% chance you get assigned. At the $145 strike, 6.5% out of the money, you get $1.70. That is a 1.2% monthly return with about a 25% chance of assignment. At $135, 13% out of the money, you get $0.50. That is 0.4% per month with only a 12% chance of assignment.
-
-**Sam:** So for conservative investors, the $140-$145 range seems like the sweet spot?
-
-**Alex:** For most people, yes. You are getting a meaningful premium, maybe 1-2% per month, with a 15-25% chance of assignment at a price you would love to own the stock. If you are assigned, you are happy. If you are not, you earned income. Win-win.
-
-**Sam:** Now let us talk about what happens after assignment. I sold a put, I got assigned, I now own 100 shares. What do I do?
-
-**Alex:** This is where the wheel strategy comes alive. Step one: check that the stock's fundamentals are still intact. Is this drop temporary or permanent? If the company is still strong, step two: start selling covered calls on your new shares.
-
-**Sam:** So I immediately transition from put selling to covered call selling?
-
-**Alex:** Exactly. Let us say you were assigned on AAPL at $145, effective cost $142.20. The stock is now at $143. You sell a $155 covered call for $2.50. Now you are collecting income while you wait for the stock to recover.
-
-[VISUAL: Transition animation showing the wheel turning from "Phase 1: Put Selling" to "Phase 2: Covered Call Selling". The investor's dashboard changes from showing a short put position to showing long shares plus a short call.]
-
-**Alex:** If Apple recovers to $155 and your shares are called away, your total profit on the cycle is: $155 minus $142.20 effective cost plus $2.50 call premium equals $15.30 per share. That is a $1,530 profit on a position that started with a put.
-
-**Sam:** And then you go back to selling puts?
-
-**Alex:** You go back to Phase 1. You have $15,500 in cash from the sale, plus the accumulated premiums. You sell another put and the wheel keeps turning.
-
-[VISUAL: The complete wheel cycle shown as a circular flow chart with dollar amounts at each stage, showing how capital grows through each phase]
-
-**Sam:** Let me ask about the complete portfolio approach. If I have $100,000, how should I set this up?
-
-**Alex:** Divide your capital across 4-6 quality stocks in different sectors. Keep 15-20% as a cash buffer. Sell one monthly put on each stock.
-
-[VISUAL: Portfolio allocation pie chart with 5 stocks and a cash buffer segment, showing the specific positions and premiums]
-
-**Alex:** With $100,000, you might have five positions using about $80,000 in capital, with $20,000 in reserve. Each month, you collect roughly $1,000-$1,500 in total premiums. That is $12,000-$18,000 per year, or 12-18% on your total capital.
-
-**Sam:** And if one or two get assigned?
-
-**Alex:** You start selling covered calls on those positions while continuing to sell puts on the others. Your portfolio evolves naturally between Phase 1 and Phase 2 positions. Some months you might have all puts. Other months, a mix of puts and covered calls. The income keeps flowing regardless.
-
-**Sam:** This is starting to feel like a real income business.
-
-**Alex:** That is exactly what it is. And the best part is, it aligns perfectly with what a long-term investor already wants to do. You are buying quality stocks at good prices and selling them at higher prices. The wheel just pays you at every step of that process.
-
-[ANIMATION: Reference animation/week28_cash_secured_put.py - A second animation sequence showing a 12-month wheel strategy simulation. The animation shows a portfolio of 3 stocks cycling through put selling and covered call phases. A monthly income tracker shows premiums accumulating. An equity curve shows the portfolio value growing steadily compared to a simple buy-and-hold approach. Key metrics update: total premiums collected, number of assignments, total return.]
-
-**Sam:** Let us talk about risk management. What are the things that could go wrong?
-
-**Alex:** The biggest risk is a stock you sell puts on experiencing a fundamental deterioration. Imagine selling puts on a company that then announces massive fraud or a failed product. The stock drops 50% and you are forced to buy at your strike price.
-
-**Sam:** How do you protect against that?
-
-**Alex:** Three ways. First, only sell puts on high-quality companies with strong balance sheets, competitive moats, and consistent earnings. You are not selling puts on speculative biotech stocks or meme stocks. Second, diversify. If you have five positions and one stock drops 30%, it is painful but not devastating. Third, have a stop-loss mentality. If the stock starts dropping and the fundamental thesis changes, buy back the put at a loss. A $500 loss is much better than a $5,000 loss.
-
-[VISUAL: Three pillars of risk management: "Quality Companies" (images of blue-chip logos), "Diversification" (pie chart), "Stop-Loss Discipline" (circuit breaker image)]
-
-**Sam:** What about market-wide crashes? Like 2008 or March 2020?
-
-**Alex:** In a broad market crash, if you have puts on five stocks and the market drops 25%, you could be assigned on all of them. This is where the cash buffer matters. If you have $100,000 and only $80,000 in put positions, you can handle the assignments without stress.
-
-**Alex:** But here is the silver lining: in a crash, you are buying stocks at your target prices during maximum fear. Historically, these have been the best times to buy. If you sold $145 puts on Apple and the market crashes to bring Apple to $130, you buy at an effective cost of $142.20. If Apple recovers to $200 over the next two years, which it historically does, you made an incredible entry.
-
-**Sam:** So the short-term pain is real, but the long-term opportunity is also real.
-
-**Alex:** Exactly. The put seller's advantage is that they entered at $142.20, not $145. Every dollar matters when you are buying at a low.
-
-[VISUAL: Historical chart showing S&P 500 crashes and recoveries: 2008, 2020, 2022. Arrows showing "Put sellers buying here" at the low points, with recovery trajectories and eventual profits.]
-
-**Sam:** Let me ask about expiration selection. We talked about 30-45 days being the sweet spot for covered calls. Is it the same for puts?
-
-**Alex:** Same principles apply. 30-45 days gives you the best balance of premium versus time commitment. Theta decay accelerates after 45 days, so you capture the most decay per day. Monthly cycles align well with most people's schedules: spend 30 minutes on expiration day managing positions, then forget about it for three weeks.
-
-**Sam:** What about weekly puts?
-
-**Alex:** Weekly puts give you higher annualized yields on paper, but they require weekly attention, have smaller absolute premiums per trade, and sometimes the bid-ask spread eats up a larger percentage of the premium. For most investors, monthly is the way to go. Weekly works for experienced traders who enjoy the process.
-
-[VISUAL: Calendar view showing monthly put selling schedule. One day per month highlighted as "Management Day" where positions are reviewed and new puts are sold.]
-
-**Sam:** Can I do all of this in my Roth IRA?
-
-**Alex:** Absolutely, and I strongly recommend it. In a Roth IRA, the premium income grows tax-free forever. No capital gains tax, no income tax on premiums. Over 20-30 years, the tax savings from doing this strategy in a Roth IRA can amount to tens or hundreds of thousands of dollars.
-
-**Sam:** That is huge. What about traditional IRAs?
-
-**Alex:** Also excellent. The income grows tax-deferred. You pay taxes when you withdraw, but in the meantime, you can reinvest the full premium amount without any tax drag. Both IRA types are ideal for the wheel strategy.
-
-[VISUAL: Comparison of three accounts: "Taxable: Premium taxed at 22-37%", "Traditional IRA: Tax-deferred", "Roth IRA: TAX-FREE". A 20-year growth chart shows the compounding difference.]
-
-**Sam:** Let us do one more complete example. Walk me through a full year of cash-secured put selling.
-
-**Alex:** Let us do it with Microsoft, currently at $420. We think $380 is a great entry price.
-
-[VISUAL: MSFT stock chart with $380 level marked. Monthly timeline below showing put selling activity.]
-
-**Alex:** Month 1: We sell the $380 put for $4.50. Microsoft stays at $415. Put expires. We keep $450.
-
-Month 2: Sell $380 put for $3.80. Microsoft at $425. Expires. Keep $380.
-
-Month 3: Sell $380 put for $5.00. Microsoft at $410. Expires. Keep $500.
-
-Month 4: Sell $380 put for $4.20. Microsoft at $418. Expires. Keep $420.
-
-Month 5: Sell $380 put for $6.50 (higher IV before earnings). Microsoft drops to $395 after earnings but stays above $380. Expires. Keep $650.
-
-Month 6: Sell $380 put for $4.00. Microsoft at $400. Expires. Keep $400.
-
-**Sam:** So after six months, we have collected $2,800 in premiums and Microsoft never hit our price.
-
-**Alex:** Right. $2,800 on $38,000 reserved capital is 7.4% in six months, or about 14.7% annualized. And we still have not bought the stock.
-
-Month 7: Sell $380 put for $5.20. Microsoft drops to $375. We get assigned.
-
-**Sam:** So now we own 100 shares at $380.
-
-**Alex:** Yes, but our effective cost is much lower. We collected $2,800 plus the final $520 premium. Total premiums: $3,320, or $33.20 per share. Our effective cost basis is $380 minus $33.20 equals $346.80.
-
-[VISUAL: Calculator showing the running total: 7 months of premiums adding up to $3,320. Final effective cost: $346.80 vs original price of $420 when we started. Savings: $73.20 per share or 17.4%.]
-
-**Sam:** We effectively bought Microsoft at $346.80 when it was at $420 when we started. That is a 17% discount.
-
-**Alex:** And now we start Phase 2. We sell covered calls on our 100 shares at a strike above our cost basis. Even though Microsoft is at $375 now, our cost is $346.80, so we have room to sell calls at $360, $370, or $380 and still make a profit if called away.
-
-**Sam:** The wheel keeps turning.
-
-**Alex:** And income keeps flowing. That is the beauty of the system.
-
-**Sam:** One last thing I want to address. Some people watching this are going to say, why not just buy the stock? Why go through all this?
-
-**Alex:** Fair question. If you have a stock you want to own right now and you believe it will go up significantly, buying at market is fine. Cash-secured puts are not about avoiding stock ownership. They are about making the process of building positions more efficient and profitable.
-
-**Alex:** Think of it this way. A contractor could dig a foundation with a shovel or with an excavator. Both get the job done. But the excavator is more efficient. Cash-secured puts are the excavator. Same end result, stock ownership, but with income along the way and a better effective entry price.
-
-[VISUAL: Side-by-side: "Buying Stock = Shovel" (simple, direct) vs "Cash-Secured Puts = Excavator" (more efficient, better result)]
-
-**Sam:** I love that analogy. Let me summarize today. A cash-secured put means selling a put while holding enough cash to buy the shares. It is like a limit buy order that pays you. Your effective purchase price is always lower than the strike price because of the premium. If the stock stays above the strike, you keep the premium and try again. If you are assigned, you start selling covered calls. And this creates the wheel strategy: a continuous cycle of income generation.
-
-**Alex:** Perfect. And I want to leave everyone with this thought: the wheel strategy is not about getting rich quick. It is about building a systematic, income-generating investment machine. Month after month, year after year, the premiums accumulate, the positions cycle, and your wealth grows with a level of consistency that few other strategies can match.
-
-**Sam:** Before we close, can we do a rapid-fire FAQ? I have a bunch of quick questions that viewers have sent in.
-
-**Alex:** Let us do it.
-
-**Sam:** Can I sell puts in a Roth IRA?
-
-**Alex:** Yes, and I highly recommend it. Premiums grow tax-free forever. Most brokers allow cash-secured puts and covered calls in Roth and traditional IRAs.
-
-**Sam:** What happens if I get assigned and the stock keeps dropping?
-
-**Alex:** You hold the stock and start selling covered calls. The premiums from covered calls reduce your cost basis further. If the company is still fundamentally sound, the stock will eventually recover, and you will profit from the recovery plus all the premiums collected.
-
-**Sam:** Is there a minimum account size?
-
-**Alex:** For cash-secured puts, you need enough to buy 100 shares at the strike price. For a $55 stock like Coca-Cola, that is $5,500. For a $180 stock like JPMorgan, that is $18,000. Start with lower-priced quality stocks if you have a smaller account.
-
-**Sam:** Can I sell puts on ETFs?
-
-**Alex:** Yes, SPY, QQQ, IWM, and sector ETFs all have active options markets. ETF puts are a great way to build positions in the broad market at lower prices. The premiums are slightly lower percentage-wise due to lower volatility, but the diversification benefit is significant.
-
-**Sam:** What is the difference between a cash-secured put and a naked put?
-
-**Alex:** Same option trade, different collateral. Cash-secured means you have 100% of the cash to buy the shares. Naked means you are using margin and only posting a fraction. We exclusively teach cash-secured because it eliminates margin risk. Never sell naked puts as a beginner.
-
-**Sam:** How many stocks should I sell puts on at once?
-
-**Alex:** Four to six is a good range. This gives you diversification without becoming unmanageable. Each position should use no more than 20% of your total capital, and you should keep 15-20% as a cash reserve.
-
-**Sam:** What if I want to buy a stock right now? Should I still sell a put?
-
-**Alex:** If you want to buy immediately and you are bullish, just buy the stock. Cash-secured puts are for when you want to buy at a LOWER price. If you are patient and have a target entry, sell the put. If you think the stock is going up and you do not want to miss it, buy at market.
-
-**Sam:** Last question: what is the single biggest mistake new put sellers make?
-
-**Alex:** Selling puts on stocks they would not actually want to own. They see a fat premium on a volatile stock and think, "This will never hit the strike." Then it does, and they are stuck owning 100 shares of a company they do not believe in. Only sell puts on stocks you love at prices you would celebrate buying at.
-
-**Sam:** Love it. Sell puts on stocks you love at prices you would celebrate. That should be on a poster.
-
-**Alex:** Maybe I will make one.
-
-**Sam:** Thank you all for joining us through these four weeks of options education. We started knowing nothing about options, and now we have a complete, practical framework.
-
-**Alex:** If you have watched all four lessons, you now understand more about practical options strategies than most investors ever will. Start small, practice with one or two positions, and scale up as you gain confidence. The wheel rewards patience and discipline.
-
-**Sam:** Let me give our four-lesson summary for anyone who wants the big picture.
-
-[VISUAL: Four-panel summary appearing one by one]
-
-**Sam:** Week 25: We learned what options are. Calls, puts, strike prices, expiration, time decay. The building blocks.
-
-**Sam:** Week 26: We learned to think of options as conditional orders. Puts are paid limit buys. Calls are paid limit sells. This is the mental model that makes everything click.
-
-**Sam:** Week 27: We mastered covered calls. Own shares, sell calls, generate income. Premium income can be 2-3 times dividends or more.
-
-**Sam:** Week 28: We completed the picture with cash-secured puts. Get paid to wait for your buy price. When assigned, start selling covered calls. The wheel keeps turning.
-
-**Alex:** And here is the beautiful thing: these four lessons give you a complete, practical system. You do not need to learn straddles, strangles, iron condors, or butterfly spreads. The wheel strategy, using only cash-secured puts and covered calls, is all most long-term investors will ever need.
-
-**Sam:** Simple, powerful, and proven. Thanks for watching, everyone.
-
-**Alex:** Please like and subscribe if this series has been valuable. And leave a comment telling us about your first cash-secured put or covered call trade. We love hearing your stories. See you in the next lesson.
-
-[VISUAL: End screen with subscribe button. Series recap showing all four weeks: "Week 25: Options Basics -> Week 26: Options as Orders -> Week 27: Covered Calls -> Week 28: Cash-Secured Puts". Text: "You now have the complete toolkit. Start the wheel."]
+A：長期來看，輪轉策略通常能創造更高的收益，但在強勁多頭市場中可能略遜一籌（因為掩護性買權封頂了上方獲利空間）。在橫盤及溫和空頭市場中，輪轉策略因為有權利金收益，表現顯著優於買進持有。芝加哥選擇權交易所（CBOE）賣權指數（PUT）的研究顯示，系統化賣出賣權的策略，歷史報酬與標普500指數相當，但波動性低約25%至30%。輪轉策略在此基礎上疊加了掩護性買權，進一步提升收益。對以創造收益為主的投資人而言，輪轉策略往往優於純粹的買進持有。
 
 ---
 
-*Animation Reference: animation/week28_cash_secured_put.py - This animation shows two main sequences. First, an interactive payoff diagram for a cash-secured put, where the strike price and premium can be adjusted. The effective purchase price updates dynamically. Four stock price paths are animated to show each scenario (stays above, drops to strike, drops well below, rallies higher), with outcome boxes appearing for each. Second, a 12-month wheel strategy simulation showing a portfolio of 3 stocks cycling through put and covered call phases. Monthly income bars accumulate in a chart, and an equity curve compares the wheel approach to simple buy-and-hold, demonstrating the income advantage in flat and mildly bearish markets.*
+## YouTube 腳本
+
+[VISUAL: 帶有節目標誌的動畫片頭。文字：「第28週：現金擔保賣權的進場策略——第三級：進階」]
+
+**Horace（陳馬）：** 歡迎回來。過去三週，我們已建立了完整的選擇權基礎知識。第25週從基礎概念出發，第26週學會把選擇權視為附條件委託單，第27週掌握了掩護性買權的操作技巧。今天，我們用現金擔保賣權來完成整幅拼圖。
+
+**Stella（小魚）：** 然後我們要把這一切整合成輪轉策略了嗎？
+
+**Horace（陳馬）：** 正是。現金擔保賣權是輪轉策略的進場機制，是你在創造收益的同時進場持股的方式。今天結束後，你將擁有完整的工具組合。
+
+[VISUAL: 輪轉示意圖，顯示循環：「現金 -> 賣出賣權 -> 被指派 -> 持股 -> 賣出買權 -> 被買走 -> 現金」，今日重點「賣出賣權」以高亮標示]
+
+**Stella（小魚）：** 好，讓我們從基礎開始。什麼是現金擔保賣權？
+
+**Horace（陳馬）：** 現金擔保賣權，就是賣出一口賣權，同時在帳戶中備妥足夠的現金買入股票（若被指派）。你做出一個承諾：若股票跌至某個價格，我願意以那個價格買進。作為回報，對方現在就付你一筆權利金。
+
+**Stella（小魚）：** 「現金擔保」的意思，就是我不是在用借來的錢？
+
+**Horace（陳馬）：** 正確。你的券商會將全額資金——比方說$140賣權的$14,000——作為擔保品備妥。若被指派，這筆現金就用來買進股票。沒有保證金，沒有借款，沒有任何意外。
+
+[VISUAL: 示意圖顯示標著「$14,000」的銀行金庫，連接一口賣權合約。標著「權利金$280」的箭頭從合約流向投資人口袋。標著「若被指派」的箭頭從金庫指向「100股」]
+
+**Stella（小魚）：** 讓我來舉個例子。蘋果股價在$155，我認為$145是很好的買進價格。
+
+**Horace（陳馬）：** 完美的設定。與其掛$145的限價單，你賣出一口30天後到期的 AAPL $145 賣權，假設權利金是$2.80。你立刻收到$280，券商同時為你預留$14,500的現金。
+
+**Stella（小魚）：** 然後呢？
+
+**Horace（陳馬）：** 然後你等待。接下來會發生四種情況之一。
+
+[ANIMATION: Reference animation/week28_cash_secured_put.py - 動畫顯示 AAPL 股價走勢圖，起始點在$155，水平畫出$145履約價線。從起始點分出四條動畫路徑：（1）股價維持在$155附近，（2）股價上漲至$175，（3）股價跌至$144，（4）股價大幅下跌至$125。每條路徑顯示對應結果：保留權利金或發生指派，實際成本計算機即時更新。同時顯示賣出賣權者在每個階段的損益。]
+
+**Horace（陳馬）：** 情境一，最常見的情況：蘋果維持在$145以上。賣權到期歸零。你保留$280，$14,500的預留資金也解凍。30天賺了1.9%，年化23.6%。然後你再賣下個月的賣權。
+
+**Stella（小魚）：** 很好。情境二呢？
+
+**Horace（陳馬）：** 蘋果跌到剛好$145或略低。你被指派，以$145買進100股。但記得，你已先收了每股$2.80的權利金，所以實際成本是$142.20。
+
+**Stella（小魚）：** 比限價單的結果還要低。
+
+**Horace（陳馬）：** 每股低了$2.80。聽起來不多，但經過多次循環累積，這些節省的成本複利效果驚人。
+
+[VISUAL: 兩張收據並排。左方：「限價單收據——100股 AAPL @$145.00——總計：$14,500」。右方：「現金擔保賣權收據——100股 AAPL @$145.00——已收權利金：-$280——實際成本：$14,220——節省：$280」]
+
+**Stella（小魚）：** 那情境三，大幅下跌的情況？
+
+**Horace（陳馬）：** 假設蘋果跌至$125。你以$145被指派，實際成本$142.20。你現在每股有$17.20的未實現虧損。這就是這個策略的風險所在。
+
+**Stella（小魚）：** 但是掛限價單的人也是一樣在虧損。
+
+**Horace（陳馬）：** 對。以$145限價單買進的人，每股虧損$20。你虧損$17.20。你少虧了$2.80。大跌的時候沒有人是贏家，但賣出賣權者的損失稍小。
+
+**Stella（小魚）：** 那情境四呢？蘋果大漲？
+
+**Horace（陳馬）：** 蘋果漲到$175。你的賣權到期歸零，保留$280，但沒有買到任何股票。你「錯過」了這波漲勢。但關鍵在於：你在$145的限價單也沒有成交。掛限價單的人同樣沒有搭上這波行情，而且什麼都沒賺。你至少多了$280。
+
+[VISUAL: 計分板顯示四種情境。每種情境中，賣出賣權者的結果與限價單的結果並排比較。在每種情境中，賣出賣權者都不差於甚至優於限價單的方式。]
+
+**Horace（陳馬）：** 在每一個情境中，賣出賣權者的結果至少和限價單一樣好，通常更好。這就是這個策略從數學上看的根本優勢。
+
+**Stella（小魚）：** 說得很有力。那我們來談談履約價的選擇。我怎麼決定要賣哪個履約價？
+
+**Horace（陳馬）：** 有幾種方法，最合適的取決於你的情況。第一種是基本面估值。你估算股票的合理價值，將履約價設定在那個數字或以下。
+
+**Stella（小魚）：** 所以如果我根據本益比和盈餘，認為蘋果值$145，我就賣$145的賣權？
+
+**Horace（陳馬）：** 正是。你在說：我願意在合理價值買進蘋果，而且我願意為了做出這個承諾而收取權利金。第二種方法是從股價圖中找出技術面支撐位。如果蘋果在過去一年三度在$148附近反彈，那是強勁的支撐位，也是設定履約價的合理選擇。
+
+**Stella（小魚）：** 第三種方法呢？
+
+**Horace（陳馬）：** 固定低於市價的百分比。簡單來說，就是設定在當前股價以下5-10%。蘋果在$155，就是$140至$147。這是最簡單的方式，對初學者來說很有效。
+
+[VISUAL: 三格顯示。第一格：基本面分析，顯示本益比和盈餘，標示「合理價值：$145」。第二格：股價圖，標出$148的支撐線。第三格：當前股價$155，以5%和10%箭頭分別指向$147和$140。]
+
+**Stella（小魚）：** 我注意到權利金和履約價距離之間永遠存在取捨。能帶我了解這個概念嗎？
+
+**Horace（陳馬）：** 當然。越深度價外，收取的權利金就越少，但被指派的機率也越低。可以把它想像成一個在收益和安全性之間調節的旋鈕。
+
+[VISUAL: 一個旋鈕/儀表，左側標示「更多收益」，右側標示「更高安全性」。各履約價沿刻度標示，顯示對應的權利金和被指派機率。]
+
+**Horace（陳馬）：** 在$155的平值履約價，你可能收到$4.50的權利金。月報酬3%，但被指派機率50%。$145的履約價，價外6.5%，可收$1.70，月報酬1.2%，被指派機率約25%。$135的履約價，價外13%，只收$0.50，月報酬0.4%，被指派機率只有12%。
+
+**Stella（小魚）：** 那對保守型投資人來說，$140至$145的區間似乎是最佳點？
+
+**Horace（陳馬）：** 對大多數人而言，確實如此。你能收到有意義的權利金，大概每月1-2%，被指派到你喜歡的股票的機率是15-25%。若被指派，你很開心；若沒被指派，你賺到了收益。兩種結果都好。
+
+**Stella（小魚）：** 那我們來談談被指派後的處理。我賣了賣權，被指派了，現在持有100股，接下來怎麼做？
+
+**Horace（陳馬）：** 這就是輪轉策略活起來的地方。第一步：確認股票的基本面仍然穩健。這次下跌是暫時性還是永久性的？如果公司依然體質良好，第二步：開始對你的新持股賣出掩護性買權。
+
+**Stella（小魚）：** 所以我要立刻從賣出賣權切換到賣出掩護性買權？
+
+**Horace（陳馬）：** 正是。假設你以$145被指派 AAPL，實際成本$142.20，現在股價在$143。你賣出一口$155掩護性買權收$2.50。現在你在等待股票回升的同時，持續創造收益。
+
+[VISUAL: 轉換動畫，顯示輪子從「第一階段：賣出賣權」轉至「第二階段：賣出掩護性買權」。投資人的操作介面從顯示空頭賣權部位，轉換為顯示多頭持股加上空頭買權。]
+
+**Horace（陳馬）：** 若蘋果回升至$155，你的股票被買走，整個循環的總獲利是：$155減去$142.20的實際成本，再加上$2.50的買權權利金，等於每股$15.30的獲利。也就是$1,530的利潤——而這一切都從賣出一口賣權開始。
+
+**Stella（小魚）：** 然後再回去賣賣權？
+
+**Horace（陳馬）：** 回到第一階段。你從賣股的$15,500，加上累積的權利金，再賣出下一口賣權，輪子繼續轉。
+
+[VISUAL: 完整的輪轉循環流程圖，標示每個階段的金額，顯示資本如何在每個階段成長]
+
+**Stella（小魚）：** 我想問一下整體投資組合的操作。如果我有$100,000，應該怎麼設定？
+
+**Horace（陳馬）：** 把資金分配到4至6檔不同類股的優質股票，保留15-20%作為現金緩衝，然後對每檔股票賣出一口月選擇權。
+
+[VISUAL: 投資組合配置圓餅圖，顯示5檔股票和現金緩衝區塊，以及各部位的具體內容和權利金]
+
+**Horace（陳馬）：** 以$100,000為例，你可能有五個部位使用約$80,000的資金，保留$20,000儲備。每個月合計收取約$1,000至$1,500的權利金，也就是每年$12,000至$18,000，相當於你總資金的12-18%。
+
+**Stella（小魚）：** 若有一兩個部位被指派怎麼辦？
+
+**Horace（陳馬）：** 你就對那些部位開始賣出掩護性買權，同時繼續對其他部位賣出賣權。你的投資組合自然地在第一和第二階段部位之間流動。有些月份可能全部是賣權，其他月份則是賣權和掩護性買權的混合。不管哪種狀況，收益都持續流入。
+
+**Stella（小魚）：** 這開始感覺像是一門真正的創收事業了。
+
+**Horace（陳馬）：** 確實如此。而且最棒的地方在於，它和長期投資人本就想做的事完全吻合。你在好的價格買進優質股票，在更高的價格賣出。輪轉策略只是讓你在整個過程中的每一步都能獲得報酬。
+
+[ANIMATION: Reference animation/week28_cash_secured_put.py - 第二段動畫序列，顯示12個月的輪轉策略模擬。動畫展示由3檔股票組成的投資組合，在賣出賣權和賣出掩護性買權的各階段之間循環。月收益追蹤器顯示權利金持續累積。績效曲線比較輪轉策略與單純買進持有的差異，體現在橫盤及溫和空頭市場中的收益優勢。關鍵指標即時更新：累計收取的權利金、被指派次數、總報酬。]
+
+**Stella（小魚）：** 讓我們談談風險管理。哪些地方可能出問題？
+
+**Horace（陳馬）：** 最大的風險，是你賣出賣權的股票出現基本面惡化。想像一下，你對一家公司賣出賣權，然後它宣布大規模財務舞弊或產品嚴重失敗。股票暴跌50%，你被迫在你的履約價買進。
+
+**Stella（小魚）：** 怎麼防範這種情況？
+
+**Horace（陳馬）：** 三個方法。第一，只對資產負債表穩健、擁有競爭護城河、且盈餘持續穩定的高品質公司賣出賣權。你不是在投機型生技股或當紅迷因股上賣賣權。第二，分散持股。若你有五個部位，其中一檔跌了30%，很痛苦，但不至於毀滅性的衝擊。第三，要有停損的心態。如果股票開始下跌，且基本面論點已改變，就虧損買回賣權。虧損$500遠好過虧損$5,000。
+
+[VISUAL: 風險管理三大支柱：「優質公司」（藍籌股標誌圖片）、「多元配置」（圓餅圖）、「停損紀律」（斷路器圖片）]
+
+**Stella（小魚）：** 那遇到大盤崩盤怎麼辦？像是2008年或2020年3月那樣？
+
+**Horace（陳馬）：** 若市場大幅崩跌，你持有五檔股票的賣權，而市場下跌25%，你可能五口賣權全部被指派。這就是現金緩衝的重要性。若你有$100,000，只有$80,000在賣權部位，即使全部被指派，你也能從容應對。
+
+**Horace（陳馬）：** 但這裡有個值得關注的轉機：在大崩盤中，你是在市場恐慌情緒最高點時，以你的目標價買進股票。從歷史上看，這些往往是最好的買進時機。若你對蘋果賣出$145賣權，然後市場崩跌讓蘋果跌至$130，你的實際成本是$142.20。若蘋果在未來兩年回升至$200——就如歷史走勢一樣——你創造了一個絕佳的入場點。
+
+**Stella（小魚）：** 短期的痛苦是真實的，但長期的機會也是真實的。
+
+**Horace（陳馬）：** 正是。賣出賣權者的優勢在於，他們的入場成本是$142.20，而不是$145。在低點買進時，每一塊錢都很重要。
+
+[VISUAL: 歷史走勢圖顯示標普500的崩跌與復甦：2008年、2020年、2022年。箭頭標示「賣出賣權者在此買進」，指向各低點，並顯示後續的復甦軌跡和最終獲利。]
+
+**Stella（小魚）：** 讓我問到期日的選擇。我們談到30-45天是掩護性買權的最佳區間。賣出賣權也一樣嗎？
+
+**Horace（陳馬）：** 原則完全相同。30-45天在權利金收益與時間投入之間取得最佳平衡。45天後的時間價值衰減加速，所以你每天能捕獲最大的時間價值損耗。月選擇權的周期也符合大多數人的生活節奏：到期日花30分鐘管理部位，然後三週都不必擔心。
+
+**Stella（小魚）：** 週選擇權呢？
+
+**Horace（陳馬）：** 週選擇權在帳面上的年化殖利率較高，但需要每週關注，每次交易的絕對權利金金額較小，而且有時買賣價差佔權利金的比例更大。對大多數投資人來說，月選擇權是首選。週選擇權適合喜歡這個流程、且有時間的有經驗交易者。
+
+[VISUAL: 月選擇權操作日曆視圖。每個月有一天以高亮標示為「管理日」，進行部位審查並賣出新的賣權。]
+
+**Stella（小魚）：** 我可以在 Roth IRA 帳戶裡做這些操作嗎？
+
+**Horace（陳馬）：** 完全可以，而且我強烈建議這麼做。在 Roth IRA 中，權利金收益永久免稅增長。沒有資本利得稅，也沒有對權利金的所得稅。20至30年下來，在 Roth IRA 中操作這個策略所節省的稅，可能高達數萬甚至數十萬美元。
+
+**Stella（小魚）：** 這非常重要。那傳統 IRA 呢？
+
+**Horace（陳馬）：** 同樣很棒。收益可以延稅增長。你提領時才需要繳稅，但在此之前，你可以把完整的權利金金額再投入，不會有任何稅負拖累。兩種 IRA 帳戶類型都非常適合輪轉策略。
+
+[VISUAL: 三種帳戶的比較：「一般課稅帳戶：權利金按22-37%課稅」、「傳統IRA：延稅」、「Roth IRA：完全免稅」。20年複利成長圖顯示三者之間的差異。]
+
+**Stella（小魚）：** 讓我們再做一個完整的範例。帶我了解賣出現金擔保賣權的一整年是什麼樣子。
+
+**Horace（陳馬）：** 用微軟來試試看，目前股價$420，我們認為$380是很好的進場價格。
+
+[VISUAL: MSFT股價圖，標出$380的價位。下方顯示月度時間軸，呈現賣出賣權的操作記錄。]
+
+**Horace（陳馬）：** 第一個月：賣出$380賣權收$4.50。微軟維持在$415，賣權到期，保留$450。
+
+第二個月：賣出$380賣權收$3.80。微軟在$425，到期，保留$380。
+
+第三個月：賣出$380賣權收$5.00。微軟在$410，到期，保留$500。
+
+第四個月：賣出$380賣權收$4.20。微軟在$418，到期，保留$420。
+
+第五個月：財報前隱含波動率上升，賣出$380賣權收$6.50。財報後微軟跌至$395，但維持在$380以上，到期，保留$650。
+
+第六個月：賣出$380賣權收$4.00。微軟在$400，到期，保留$400。
+
+**Stella（小魚）：** 所以六個月後，我們累計收了$2,800的權利金，微軟從未跌到我們的目標價。
+
+**Horace（陳馬）：** 對。$2,800除以$38,000的備用資金，六個月報酬7.4%，年化約14.7%。而且我們還沒有買到股票。
+
+第七個月：賣出$380賣權收$5.20，微軟跌至$375，我們被指派。
+
+**Stella（小魚）：** 所以現在我們以$380持有100股。
+
+**Horace（陳馬）：** 是的，但我們的實際成本低得多。我們已收取$2,800加上最後這口的$520，合計權利金$3,320，每股$33.20。實際成本基礎是$380減去$33.20，等於$346.80。
+
+[VISUAL: 計算機顯示累計記錄：7個月的權利金合計$3,320。最終實際成本：$346.80，對比最初的起始股價$420。節省：每股$73.20，折讓17.4%。]
+
+**Stella（小魚）：** 我們實際上是在蘋果原先$420的基礎上，以$346.80買進了微軟。折讓了17%！
+
+**Horace（陳馬）：** 現在我們進入第二階段。對我們持有的100股賣出掩護性買權，履約價設定在高於我們成本基礎的位置。雖然微軟現在只在$375，但我們的成本是$346.80，所以無論賣$360、$370還是$380的買權，若被買走，我們都能獲利。
+
+**Stella（小魚）：** 輪子繼續轉。
+
+**Horace（陳馬）：** 收益也持續流入。這就是這個系統的魅力所在。
+
+**Stella（小魚）：** 最後一件事，我想回應一些觀眾可能有的疑問。有些人會說：為什麼不直接買股票就好？為什麼要這麼麻煩？
+
+**Horace（陳馬）：** 這是個好問題。如果你現在就想持有某檔股票，而且相信它會大漲，那直接以市價買進完全沒問題。現金擔保賣權不是在逃避持股，而是讓建立部位的過程更有效率、更有獲利。
+
+**Horace（陳馬）：** 換個方式想。建築工人可以用鏟子挖地基，也可以用挖土機。兩者都能完成工作，但挖土機效率更高。現金擔保賣權就是那台挖土機。結果相同——持有股票——但一路上都有收益，進場成本也更好。
+
+[VISUAL: 並排比較：「買股票 = 鏟子」（簡單、直接）與「現金擔保賣權 = 挖土機」（更有效率、結果更好）]
+
+**Stella（小魚）：** 我喜歡這個比喻。讓我來總結今天的重點。現金擔保賣權是在備妥足夠現金的前提下賣出賣權。它就像一張付你錢的限價買單。由於權利金的關係，你的實際買進成本永遠低於履約價。若股價維持在履約價以上，你保留權利金並重複操作。若被指派，你開始賣出掩護性買權。這就形成了輪轉策略：一個持續創造收益的循環機制。
+
+**Horace（陳馬）：** 完美。我想給大家留下這樣一個想法：輪轉策略不是快速致富的方法，而是建立一套系統化、可持續創造收益的投資機器。月復一月，年復一年，權利金不斷累積，部位持續輪轉，你的財富以多數其他策略難以比擬的穩定性持續增長。
+
+**Stella（小魚）：** 在結尾之前，我們來做一個快問快答好嗎？我收集了一些觀眾的提問。
+
+**Horace（陳馬）：** 開始吧。
+
+**Stella（小魚）：** 可以在 Roth IRA 裡賣出賣權嗎？
+
+**Horace（陳馬）：** 可以，而且我非常推薦。權利金在帳戶內永久免稅增長。大多數券商都允許在 Roth 和傳統 IRA 帳戶中操作現金擔保賣權和掩護性買權。
+
+**Stella（小魚）：** 若被指派後股票繼續下跌怎麼辦？
+
+**Horace（陳馬）：** 繼續持股並開始賣掩護性買權。掩護性買權的權利金會持續降低你的成本基礎。若這家公司基本面依然穩健，股票終將反彈，你將從反彈中獲利，再加上所有收取的權利金。
+
+**Stella（小魚）：** 帳戶最低需要多少資金？
+
+**Horace（陳馬）：** 現金擔保賣權需要備妥以履約價買進100股的現金。可口可樂這種$55的股票，需要$5,500。摩根大通這種$180的股票，需要$18,000。若帳戶規模較小，可以從較低價位的優質股票開始。
+
+**Stella（小魚）：** 可以對指數股票型基金賣出賣權嗎？
+
+**Horace（陳馬）：** 可以，SPY、QQQ、IWM及各類股指數股票型基金都有活躍的選擇權市場。指數股票型基金的賣權是建立整體市場部位、以較低價格入場的好方法。由於波動性較低，百分比權利金略低，但分散效果非常顯著。
+
+**Stella（小魚）：** 現金擔保賣權和裸賣賣權有什麼差別？
+
+**Horace（陳馬）：** 操作相同，擔保品不同。現金擔保代表你有100%的買股現金備妥。裸賣是使用保證金，只需繳存部分金額。我們完全採用現金擔保賣權，因為它消除了保證金風險。初學者絕對不要裸賣賣權。
+
+**Stella（小魚）：** 同時應該對多少檔股票賣出賣權？
+
+**Horace（陳馬）：** 4至6檔是合適的範圍。這樣既能分散風險，又不至於難以管理。每個部位最多佔你總資金的20%，並且保留15-20%作為現金儲備。
+
+**Stella（小魚）：** 若我現在就想買某檔股票，還需要賣出賣權嗎？
+
+**Horace（陳馬）：** 若你想立即買進，而且看多，直接買股票就好。現金擔保賣權是為了讓你在「更低的價格」買進而設計的。若你有耐心，且有目標進場價，就賣出賣權。若你認為股票要漲，不想錯過，就以市價買進。
+
+**Stella（小魚）：** 最後一個問題：新手賣出賣權最常犯的最大錯誤是什麼？
+
+**Horace（陳馬）：** 對自己其實不想持有的股票賣出賣權。他們看到一檔波動性高的股票有豐厚的權利金，心想「這不可能跌到履約價」。然後它跌了，他們被迫持有100股自己根本不看好的公司。只對你真心喜愛、且在你會拍手叫好的價格買進的股票賣出賣權。
+
+**Stella（小魚）：** 說得好。對你喜愛的股票，以你會拍手叫好的價格賣出賣權。這句話應該做成海報。
+
+**Horace（陳馬）：** 也許我真的會做一張。
+
+**Stella（小魚）：** 感謝大家陪伴我們走過這四週的選擇權課程。我們從對選擇權一無所知，到現在已擁有完整的實用框架。
+
+**Horace（陳馬）：** 若你看完了這四堂課，你現在對選擇權實用策略的了解，已超過大多數投資人的程度。從小規模開始，用一兩個部位實際操作，然後隨著信心增長逐步擴大規模。輪轉策略回報有耐心、有紀律的人。
+
+**Stella（小魚）：** 讓我來為希望了解整體架構的觀眾做四堂課的總結。
+
+[VISUAL: 四格摘要逐一出現]
+
+**Stella（小魚）：** 第25週：我們了解了什麼是選擇權。買權、賣權、履約價、到期日、時間價值衰減。這些是一切的建構基礎。
+
+**Stella（小魚）：** 第26週：我們學會把選擇權視為附條件委託單。賣出賣權是附報酬的限價買單；賣出買權是附報酬的限價賣單。這個思維模型讓一切豁然開朗。
+
+**Stella（小魚）：** 第27週：我們掌握了掩護性買權。持有股票、賣出買權、創造收益。權利金收益可以是股利的兩三倍甚至更多。
+
+**Stella（小魚）：** 第28週：我們以現金擔保賣權完成了整個拼圖。在等待目標買進價格的同時獲取報酬。被指派後，開始賣出掩護性買權。輪子持續轉動。
+
+**Horace（陳馬）：** 這四堂課給了你一套完整的實用系統。你不需要再去學習跨式策略、勒式策略、鐵禿鷹策略或蝴蝶價差。只用現金擔保賣權和掩護性買權組成的輪轉策略，就是大多數長期投資人終其一生所需要的全部。
+
+**Stella（小魚）：** 簡單、有力、歷經驗證。感謝大家收看。
+
+**Horace（陳馬）：** 若這個系列對你有幫助，請按讚並訂閱。也在留言告訴我們你的第一筆現金擔保賣權或掩護性買權交易，我們很喜歡聽你們的故事。下一堂課見。
+
+[VISUAL: 結尾畫面，附有訂閱按鈕。系列回顧：「第25週：選擇權基礎 -> 第26週：選擇權即委託單 -> 第27週：掩護性買權 -> 第28週：現金擔保賣權」。文字：「你現在已擁有完整的工具組合。開始輪轉吧。」]
+
+---
+
+*動畫參考：animation/week28_cash_secured_put.py——此動畫包含兩段主要序列。第一段是現金擔保賣權的互動式損益圖，可調整履約價和權利金，實際買進成本即時更新。動畫呈現四條股價走勢路徑（維持在履約價以上、跌至履約價、大幅跌破、大幅上漲），並逐一顯示各情境的結果方塊。第二段是12個月的輪轉策略模擬，顯示由3檔股票組成的投資組合在賣出賣權和賣出掩護性買權各階段之間的循環。月收益長條圖持續累積，績效曲線比較輪轉策略與單純買進持有的差異，展現在橫盤及溫和空頭市場中的收益優勢。*

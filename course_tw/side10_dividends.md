@@ -1,365 +1,362 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
-
-# Side Lesson 10: Dividend Investing Strategy
+# 補充課第10課：股利投資策略
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Dividend investing is one of the oldest and most intuitive strategies in the stock market. The idea of owning companies that regularly send you cash is deeply appealing -- it feels tangible and rewarding in a way that abstract capital gains do not. But dividend investing is also surrounded by myths, traps, and misunderstandings that can lead investors astray. This lesson provides a thorough examination of how dividends work, how to evaluate them, and how to avoid the costly mistakes that plague many income-focused investors.
-
----
-
-### a) Why This Is Important
-
-**Dividends have been a massive component of total stock market returns.** Historically, dividends have accounted for roughly 30-40% of the S&P 500's total return over long periods. An investor who ignores dividends is ignoring a significant source of wealth creation. Between 1930 and 2023, reinvested dividends accounted for approximately 84% of the total return of the S&P 500. The power of dividend reinvestment over long time horizons is staggering.
-
-**Many investors confuse dividend investing with conservative investing.** While some dividend-paying stocks are indeed stable blue-chip companies, a high dividend yield can actually be a sign of danger. Understanding the nuances of dividends helps you distinguish between genuinely strong income investments and dividend traps that destroy wealth.
-
-**Retirement planning often revolves around income.** Retirees frequently seek dividend-paying investments to generate cash flow without selling assets. Understanding dividend investing is essential for constructing a portfolio that generates sustainable income in retirement.
-
-**Tax treatment of dividends matters significantly.** Qualified dividends receive preferential tax treatment compared to ordinary income, but not all dividends qualify. Understanding the tax implications helps you make better decisions about where to hold dividend-paying investments.
-
-**Dividend growth is a signal of corporate health.** Companies that consistently grow their dividends over decades -- so-called Dividend Aristocrats -- have demonstrated financial discipline and earning power. Studying dividend policies provides insight into a company's financial health and management quality.
+股利投資是股票市場中歷史最悠久、最直觀的投資策略之一。擁有定期支付現金的公司，這個概念極具吸引力——它的具體感與成就感，是抽象的資本利得所無法比擬的。然而，股利投資也充斥著各種迷思、陷阱與誤解，可能讓投資人誤入歧途。本課將深入探討股利的運作方式、評估方法，以及如何避免許多以收益為導向的投資人常犯的昂貴錯誤。
 
 ---
 
-### b) What You Need to Know
+### a) 為何重要
 
-#### What Is a Dividend?
+**股利一直是股市總報酬的重大組成部分。** 歷史上，股利在長期間約佔標普500指數總報酬的30至40%。忽視股利的投資人，等同於忽視一個重要的財富創造來源。從1930年至2023年，再投資股利約佔標普500指數總報酬的84%。股利再投資在漫長時間軸上的威力令人歎為觀止。
 
-A dividend is a payment made by a company to its shareholders, typically from profits. When a company earns more money than it needs to reinvest in the business, it can return the excess to shareholders through dividends.
+**許多投資人將股利投資與保守投資混為一談。** 雖然部分配息股票確實是穩健的藍籌股，但高股利殖利率實際上可能是危險訊號。理解股利的細微差異，有助於你辨別真正優質的收益投資，以及摧毀財富的股利陷阱。
 
-Dividends are usually paid quarterly in the United States, though some companies pay monthly (common among REITs) and international companies often pay semi-annually or annually.
+**退休規劃往往以收益為核心。** 退休人士經常尋求配息投資以產生現金流，而無需出售資產。理解股利投資對於建構能在退休後持續產生收益的投資組合至關重要。
 
-The company's board of directors decides:
-- Whether to pay a dividend at all.
-- How much to pay per share.
-- When to pay it.
+**股利的稅務處理方式影響深遠。** 合格股利享有較普通所得更優惠的稅率，但並非所有股利都符合資格。了解稅務影響有助於做出更明智的決策，判斷應在何處持有配息投資。
 
-Once declared, the dividend is an obligation of the company. Unlike stock buybacks (the other major method of returning capital), dividends create an expectation of regular future payments. Cutting a dividend is a significant negative signal and usually triggers a sharp stock price decline.
-
-#### Key Dividend Metrics
-
-**Dividend Yield** is the annual dividend per share divided by the stock price. If a stock pays $2 per year in dividends and trades at $50, the yield is 4%.
-
-Dividend yield is the most commonly cited metric, but it can be misleading. Yield rises when a stock's price falls -- so a high yield might mean a stock has crashed because the company is in trouble, not because it is a generous payer.
-
-**Dividend Payout Ratio** is the percentage of earnings paid out as dividends. If a company earns $5 per share and pays $2 in dividends, the payout ratio is 40%.
-
-- A payout ratio below 50% is generally considered conservative and sustainable.
-- A payout ratio of 50-75% is moderate.
-- A payout ratio above 75% may be concerning -- the company is paying out most of its earnings, leaving little room for growth or for absorbing an earnings decline.
-- A payout ratio above 100% means the company is paying more in dividends than it earns. This is unsustainable and often precedes a dividend cut.
-
-**Dividend Growth Rate** measures how quickly a company increases its dividend over time. A company that has grown its dividend at 7% per year will double its payout roughly every 10 years. Dividend growth rate is arguably more important than current yield for long-term investors, because it drives future income and often signals growing earnings.
-
-#### Dividend Yield vs. Dividend Growth
-
-One of the most important concepts in dividend investing is the trade-off between current yield and growth:
-
-**High-yield stocks** (4-8%+ yield) often include:
-- Utilities
-- REITs
-- Tobacco companies
-- Mature companies with limited growth prospects
-- Companies in distress (where the high yield is a warning sign)
-
-These stocks provide immediate income but may have limited dividend growth potential. They can also be particularly sensitive to interest rate changes -- when bond yields rise, high-yield stocks often decline because investors can get comparable income from safer bonds.
-
-**Dividend growth stocks** (1-3% yield with strong growth) often include:
-- Technology companies (Apple, Microsoft)
-- Healthcare companies (Johnson & Johnson, Abbott)
-- Consumer staples (Procter & Gamble)
-- Industrials with competitive advantages
-
-These stocks start with a lower yield but grow it significantly over time. A stock yielding 2% today that grows its dividend at 10% per year will yield over 5% on your original cost in 10 years, and over 13% in 20 years. This concept -- yield on cost -- is powerful for long-term investors.
-
-The optimal approach depends on your time horizon:
-- If you need income now (already in retirement), higher current yield may be appropriate.
-- If you are building wealth for future income (10+ years away), dividend growth stocks typically deliver better long-term results.
-
-#### Dividend Aristocrats and Kings
-
-**Dividend Aristocrats** are S&P 500 companies that have increased their dividend for at least 25 consecutive years. As of recent counts, there are approximately 65 Dividend Aristocrats. Examples include:
-
-- Procter & Gamble (67+ consecutive years of increases)
-- Coca-Cola (60+ years)
-- Johnson & Johnson (60+ years)
-- 3M, Colgate-Palmolive, Emerson Electric
-
-**Dividend Kings** are an even more exclusive group -- companies that have increased dividends for 50 or more consecutive years. There are fewer than 50 Dividend Kings.
-
-The Aristocrat/King track record is valuable because it demonstrates:
-- Long-term earning power through multiple recessions and market cycles.
-- Management discipline in capital allocation.
-- Competitive advantages that protect profits over decades.
-
-However, past dividend growth does not guarantee future growth. Companies occasionally fall from Aristocrat status when they freeze or cut their dividends. General Electric and AT&T are notable examples of former dividend stalwarts that eventually cut.
-
-The ProShares S&P 500 Dividend Aristocrats ETF (NOBL) tracks this group and provides an easy way to invest in the strategy.
-
-#### Important Dividend Dates
-
-Understanding dividend timing is essential:
-
-- **Declaration Date:** The board of directors announces the dividend amount and payment schedule.
-- **Ex-Dividend Date:** The critical date. If you buy the stock on or after this date, you do NOT receive the upcoming dividend. To receive the dividend, you must own the stock before the ex-dividend date.
-- **Record Date:** The company checks its records to determine who owned shares. This is typically one business day after the ex-dividend date.
-- **Payment Date:** The day the dividend is actually deposited into your account.
-
-On the ex-dividend date, the stock price typically drops by approximately the dividend amount. This is not a coincidence or a market anomaly -- it is a direct adjustment. If a $50 stock pays a $1 dividend, it will open at approximately $49 on the ex-dividend date. Buying a stock just before the ex-date to "capture" the dividend is not a free lunch -- you receive the dividend but suffer an offsetting price decline.
-
-#### Dividend Reinvestment Plans (DRIPs)
-
-A DRIP automatically reinvests your dividends into additional shares of the same stock or fund. Instead of receiving cash, you receive more shares, which then generate their own dividends, creating a compounding cycle.
-
-Benefits of DRIPs:
-- **Automated compounding:** Eliminates the temptation to spend dividends.
-- **Dollar-cost averaging:** You buy more shares when prices are low, fewer when prices are high.
-- **Fractional shares:** Most DRIPs allow purchasing fractional shares, so every penny is invested.
-- **No commission:** Many DRIPs purchase shares without transaction fees.
-
-For investors who do not need current income, DRIPs are generally the best approach. The compounding effect of reinvested dividends over 20-30 years is dramatic.
-
-However, if you are in retirement and need the income, turning off DRIP and receiving cash is perfectly appropriate.
-
-#### Tax Treatment of Dividends
-
-Dividends in the United States receive two different tax treatments:
-
-**Qualified Dividends** are taxed at the lower long-term capital gains rates (0%, 15%, or 20%, depending on your income). To qualify:
-- The dividend must be paid by a U.S. corporation or a qualified foreign corporation.
-- You must hold the stock for more than 60 days during the 121-day period beginning 60 days before the ex-dividend date.
-
-Most dividends from U.S. stocks held for more than a few months qualify for this favorable treatment.
-
-**Ordinary (Non-Qualified) Dividends** are taxed at your ordinary income tax rate, which can be as high as 37%. Non-qualified dividends include:
-- REIT dividends
-- Money market fund dividends
-- Short-term holding dividends (held less than 60 days)
-- Some foreign stock dividends
-
-The tax difference is significant. An investor in the 35% tax bracket keeps 80% of qualified dividends but only 65% of ordinary dividends. This difference argues for holding REITs and other non-qualified dividend payers in tax-advantaged accounts (IRAs, 401(k)s).
-
-#### The Dividend Trap: When High Yield Is a Warning
-
-The most dangerous mistake in dividend investing is chasing yield -- buying a stock simply because it has the highest dividend yield. High yield is often a trap:
-
-**Why yield gets abnormally high:**
-- The stock price has fallen sharply due to deteriorating business fundamentals. A $50 stock paying $2 (4% yield) becomes a $25 stock paying $2 (8% yield) -- but the price fell because the company is in trouble.
-- The payout ratio has become unsustainable. The company is paying out more than it earns, which cannot continue indefinitely.
-- The market anticipates a dividend cut. The current yield looks high, but it is based on a dividend that is about to be reduced.
-
-**Red flags for a potential dividend trap:**
-- Payout ratio above 80-90% (varies by industry).
-- Declining revenue or earnings over multiple years.
-- Rising debt levels.
-- Yield significantly higher than industry peers (e.g., one bank yields 8% while all others yield 3%).
-- Industry facing structural decline (e.g., traditional retail, coal).
-
-**Historical examples of dividend traps:**
-- General Electric was long considered a dividend stalwart before cutting its dividend by 50% in 2017 and then to a penny in 2018.
-- Many bank stocks offered high yields before the 2008 financial crisis, then slashed or eliminated their dividends.
-- Various energy companies cut dividends during the 2014-2016 and 2020 oil price crashes.
-
-The lesson: a dividend is only as good as the earnings that support it. Always evaluate the underlying business before being seduced by yield.
-
-#### Total Return vs. Income-Only Focus
-
-A critical conceptual error many dividend investors make is focusing solely on income while ignoring total return.
-
-**Total return = price appreciation + dividends**
-
-Two stocks:
-- Stock A: 1% dividend yield, 12% price appreciation = 13% total return
-- Stock B: 5% dividend yield, 4% price appreciation = 9% total return
-
-Stock A delivers a higher total return despite a much lower dividend. An investor who only buys high-yield stocks might underperform an investor who focuses on total return.
-
-Furthermore, in a taxable account, dividends create an immediate tax liability, while unrealized capital gains are tax-deferred. From a tax perspective, price appreciation is more efficient than dividends.
-
-The financially rational approach is to maximize total return and, if you need income, sell shares as needed (the "total return approach" or "homemade dividend"). This gives you more flexibility and often better after-tax results.
-
-However, many investors find psychological comfort in receiving dividends without selling shares. If this behavioral benefit keeps you invested during downturns and prevents destructive trading, the slightly lower tax efficiency may be a worthwhile trade-off.
-
-#### Dividend ETFs and Funds
-
-For investors who want diversified dividend exposure, several ETFs are available:
-
-- **Vanguard Dividend Appreciation ETF (VIG):** Focuses on companies with 10+ years of consecutive dividend increases. Emphasizes dividend growth over high current yield. Low expense ratio (0.06%).
-- **Schwab U.S. Dividend Equity ETF (SCHD):** Selects high-quality dividend stocks using fundamental analysis. Strong track record with low expense ratio (0.06%).
-- **Vanguard High Dividend Yield ETF (VYM):** Focuses on above-average yielding large-cap stocks. Higher current yield than VIG but less emphasis on growth. Expense ratio (0.06%).
-- **ProShares S&P 500 Dividend Aristocrats ETF (NOBL):** Tracks the Dividend Aristocrats index. Expense ratio (0.35%).
-- **iShares Select Dividend ETF (DVY):** Focuses on high-yielding U.S. stocks. Higher yield but potentially more value traps. Expense ratio (0.38%).
-
-For most investors, a combination of VIG (dividend growth) and VYM (higher current yield) or simply SCHD covers the dividend investing landscape effectively at minimal cost.
+**股利成長是企業健康的訊號。** 數十年來持續增加股利的公司——即所謂的股利貴族——展現了財務紀律與獲利能力。研究股利政策能讓人深入了解公司的財務健康狀況與管理品質。
 
 ---
 
-### c) Common Misconceptions
+### b) 必備知識
 
-**Misconception 1: "Dividends are free money."**
-Dividends are not free. When a company pays a dividend, its stock price drops by approximately the dividend amount on the ex-dividend date. The company is distributing cash that was part of its value. You are effectively receiving some of your own money back. The total value of your investment (stock price plus cash received) does not change at the moment of the dividend payment. Over time, the company's earnings replenish the cash, but the dividend itself is not created from thin air.
+#### 什麼是股利？
 
-**Misconception 2: "I should buy stocks right before the ex-dividend date to capture the dividend."**
-This strategy does not work because the stock price drops by the dividend amount on the ex-date. You receive $1 in dividends but your stock is worth $1 less. Worse, in a taxable account, you owe taxes on the dividend you received, making this a losing strategy. The dividend capture approach only enriches your tax preparer.
+股利是公司從獲利中支付給股東的款項。當公司賺到的錢超過再投入業務所需時，可將多餘的部分以股利形式返還給股東。
 
-**Misconception 3: "A stock that pays no dividend is a bad investment."**
-Many of the best-performing stocks in history -- including Amazon, Google (Alphabet), and Berkshire Hathaway -- have paid little or no dividends. These companies reinvest all profits into growth. If a company can generate high returns by reinvesting earnings, shareholders are better off with growth than with dividends. Warren Buffett himself has argued that Berkshire shareholders benefit more from retained earnings than they would from dividends.
+在美國，股利通常按季支付，不過部分公司（常見於不動產投資信託）按月支付，國際公司則常按半年或每年支付。
 
-**Misconception 4: "Dividend stocks are always safe and conservative."**
-While many dividend-paying companies are stable, large-cap blue chips, high dividend yield can actually signal elevated risk. Banks before 2008, energy companies before oil crashes, and telecom companies during industry disruption all offered high yields right before devastating losses. Dividend stocks can and do lose significant value.
+公司董事會決定：
+- 是否配息。
+- 每股配息金額。
+- 配息時間。
 
-**Misconception 5: "I should build a portfolio entirely of dividend stocks."**
-An all-dividend portfolio introduces sector concentration risk. Dividend-paying stocks are concentrated in certain sectors (utilities, financials, consumer staples, energy) and underrepresented in others (technology, healthcare, growth companies). A dividend-only approach can miss the highest-growth opportunities in the market. Better to use a diversified core portfolio and add dividend-focused investments as a complement.
+一旦宣告，股利即成為公司的義務。與股票買回（另一種主要的資本返還方式）不同，股利會形成定期未來付款的預期。削減股利是重大負面訊號，通常引發股價急跌。
 
-**Misconception 6: "Yield on cost is a meaningful investment metric."**
-Yield on cost -- the current dividend divided by your original purchase price -- is psychologically satisfying but financially irrelevant. What matters is the current yield relative to the current price. If your yield on cost is 10% because you bought 20 years ago, that does not change the fact that the stock currently yields 3% based on today's price. Your capital could potentially earn a better return elsewhere. The opportunity cost is based on current prices, not historical ones.
+#### 主要股利指標
+
+**股利殖利率**是年度每股股利除以股價。若一檔股票每年配息2美元，股價為50美元，殖利率即為4%。
+
+股利殖利率是最常被引用的指標，但可能產生誤導。當股價下跌時，殖利率上升——因此高殖利率可能意味著股票因公司陷入困境而崩跌，而非公司大方配息。
+
+**股利發放率**是以股利支付的盈餘百分比。若公司每股盈餘5美元，支付2美元股利，發放率即為40%。
+
+- 發放率低於50%通常被視為保守且可持續。
+- 發放率50至75%屬於中等。
+- 發放率超過75%可能令人擔憂——公司將大部分盈餘用於配息，幾乎沒有成長空間，也難以承受盈餘下滑。
+- 發放率超過100%意味著公司配息金額超過其盈餘。這是不可持續的，往往預示著股利即將被削減。
+
+**股利成長率**衡量公司增加股利的速度。每年以7%速度增加股利的公司，約每10年使配息翻倍。對長期投資人而言，股利成長率可說比當前殖利率更重要，因為它推動未來收益，往往也是盈餘成長的訊號。
+
+#### 股利殖利率與股利成長
+
+股利投資中最重要的概念之一是當前殖利率與成長之間的取捨：
+
+**高殖利率股票**（殖利率4至8%以上）通常包括：
+- 公用事業
+- 不動產投資信託
+- 菸草公司
+- 成長前景有限的成熟公司
+- 陷入困境的公司（高殖利率在此是警示訊號）
+
+這些股票提供即時收益，但股利成長潛力可能有限。對利率變動也特別敏感——當公債殖利率上升時，高殖利率股票往往下跌，因為投資人能從較安全的公債獲得相近收益。
+
+**股利成長股**（殖利率1至3%，但成長強勁）通常包括：
+- 科技公司（蘋果、微軟）
+- 醫療保健公司（嬌生、亞培）
+- 民生必需品（寶僑）
+- 具競爭優勢的工業股
+
+這些股票起始殖利率較低，但隨時間大幅成長。今天殖利率2%、每年股利成長10%的股票，10年後相對於原始成本的殖利率將超過5%，20年後更超過13%。這個概念——**成本殖利率**——對長期投資人極具威力。
+
+最佳策略取決於你的時間軸：
+- 如果你現在就需要收益（已退休），較高的當前殖利率可能較合適。
+- 如果你為未來收益累積財富（距退休10年以上），股利成長股通常能帶來更好的長期成果。
+
+#### 股利貴族與股利之王
+
+**股利貴族**是標普500指數中連續至少25年增加股利的公司。近期統計約有65家股利貴族。例如：
+
+- 寶僑（連續增加67年以上）
+- 可口可樂（60年以上）
+- 嬌生（60年以上）
+- 3M、高露潔、艾默生電氣
+
+**股利之王**是更為稀罕的群體——連續增加股利50年或以上的公司。股利之王不足50家。
+
+貴族／之王的記錄彌足珍貴，因為它展示了：
+- 歷經多次衰退與市場週期的長期獲利能力。
+- 資本配置的管理紀律。
+- 保護數十年獲利的競爭優勢。
+
+然而，過往股利成長並不保證未來成長。公司偶爾會因凍結或削減股利而喪失貴族資格。奇異電氣與AT&T是昔日股利大戶最終削減股利的著名案例。
+
+ProShares標普500股利貴族指數股票型基金（NOBL）追蹤此群體，提供簡便的策略投資方式。
+
+#### 重要股利日期
+
+了解股利時間點至關重要：
+
+- **宣告日：** 董事會宣布股利金額與配息時程。
+- **除息日：** 關鍵日期。若在此日或之後買入股票，將**不**獲得即將到來的股利。若要獲得股利，必須在除息日之前持有股票。
+- **股利基準日：** 公司查閱記錄以確定股東名單。通常在除息日後一個營業日。
+- **配息日：** 股利實際撥入帳戶的日期。
+
+在除息日當天，股價通常會下跌約等同股利的金額。這並非巧合或市場異象——而是直接調整。若一檔50美元的股票配息1美元，除息日當天開盤價約為49美元。在除息日前買入以「捕捉」股利並非免費午餐——你收到股利，但同時承受相應的股價下跌。
+
+#### 股利再投資計畫（DRIP）
+
+股利再投資計畫自動將你的股利再投資於同一檔股票或基金的額外股份。你不是收到現金，而是取得更多股份，這些股份再產生自己的股利，購入更多股份，形成複利循環。
+
+股利再投資計畫的優點：
+- **自動複利：** 消除花費股利的衝動。
+- **定期定額投資：** 股價低時買入更多股份，股價高時買入較少。
+- **零股：** 大多數計畫允許購買零股，讓每一分錢都得到投資。
+- **免手續費：** 許多計畫購買股份免收交易費。
+
+對於不需要當前收益的投資人，股利再投資計畫通常是最佳方式。20至30年間再投資股利的複利效應相當驚人。
+
+然而，若你已退休且需要收益，關閉再投資計畫並收取現金是完全合理的選擇。
+
+#### 股利的稅務處理
+
+美國的股利分兩種不同稅務處理方式：
+
+**合格股利**按較低的長期資本利得稅率課稅（0%、15%或20%，視所得而定）。符合資格的條件：
+- 股利必須由美國公司或合格外國公司支付。
+- 你必須在除息日前60天起算的121天期間內，持有股票超過60天。
+
+持有超過幾個月的美國股票，大多數股利符合此優惠稅率。
+
+**普通（非合格）股利**按一般所得稅率課稅，最高可達37%。非合格股利包括：
+- 不動產投資信託股利
+- 貨幣市場基金股利
+- 短期持有股利（持有不足60天）
+- 部分外國股票股利
+
+稅率差異顯著。稅率35%級距的投資人，合格股利可保留80%，但普通股利僅能保留65%。此差異說明應將不動產投資信託等非合格股利支付者持於稅賦優惠帳戶（個人退休帳戶、401(k)）。
+
+#### 股利陷阱：高殖利率是警示訊號
+
+股利投資中最危險的錯誤是追逐殖利率——僅因股利殖利率最高而買入股票。高殖利率往往是陷阱：
+
+**殖利率異常偏高的原因：**
+- 股價因業務基本面惡化而急跌。原本50美元配息2美元（殖利率4%）的股票，變成25美元配息2美元（殖利率8%）——但股價下跌是因公司陷入困境。
+- 發放率已變得不可持續。公司支付的股利超過其盈餘，這種情況無法無限期維持。
+- 市場預期股利將被削減。當前殖利率看似偏高，但它是基於即將被調降的股利。
+
+**潛在股利陷阱的警示訊號：**
+- 發放率超過80至90%（依產業而異）。
+- 連續多年營收或盈餘下滑。
+- 負債水平上升。
+- 殖利率遠高於同業（例如某家銀行殖利率8%，而所有其他銀行殖利率僅3%）。
+- 產業面臨結構性衰退（例如傳統零售、煤炭）。
+
+**股利陷阱的歷史案例：**
+- 奇異電氣長期被視為股利大戶，卻於2017年削減股利50%，2018年更削減至象徵性的1美分。
+- 許多銀行股在2008年金融危機前提供高殖利率，隨後大幅削減或取消股利。
+- 各能源公司在2014至2016年及2020年油價暴跌期間削減股利。
+
+教訓：股利的品質取決於支撐它的盈餘。在被殖利率吸引之前，務必評估公司的基本面。
+
+#### 總報酬與純收益導向
+
+許多股利投資人常犯的概念性錯誤，是只專注於收益而忽視總報酬。
+
+**總報酬 = 價格增值 + 股利**
+
+兩檔股票：
+- 股票A：股利殖利率1%，價格增值12% = 總報酬13%
+- 股票B：股利殖利率5%，價格增值4% = 總報酬9%
+
+儘管股利低得多，股票A的總報酬卻更高。只買高殖利率股票的投資人，可能表現落後於專注總報酬的投資人。
+
+此外，在應稅帳戶中，股利會立即產生稅務負擔，而未實現資本利得則可遞延課稅。從稅務角度看，價格增值比股利更有效率。
+
+理性的財務做法是最大化總報酬，如需收益則按需賣出股份（「總報酬法」或「自製股利」）。這給予你更大的靈活性，且稅後成果通常更佳。
+
+然而，許多投資人在不需要賣出股份的情況下領取股利，心理上更為安慰。若這種心理益處讓你在市場下跌時繼續持股、避免破壞性的交易行為，些微的稅務效率損失或許是值得的取捨。
+
+#### 股利指數股票型基金與基金
+
+對希望獲得多元化股利曝險的投資人，有幾檔指數股票型基金可供選擇：
+
+- **先鋒股利增值指數股票型基金（VIG）：** 聚焦連續增加股利10年以上的公司。強調股利成長而非高當前殖利率。低費用率（0.06%）。
+- **嘉信美國股利股票指數股票型基金（SCHD）：** 運用基本面分析篩選優質配息股。業績表現優異，費用率低（0.06%）。
+- **先鋒高股利殖利率指數股票型基金（VYM）：** 聚焦殖利率高於平均的大型股。當前殖利率高於VIG，但較不強調成長。費用率（0.06%）。
+- **ProShares標普500股利貴族指數股票型基金（NOBL）：** 追蹤股利貴族指數。費用率（0.35%）。
+- **iShares精選股利指數股票型基金（DVY）：** 聚焦高殖利率美國股票。殖利率較高，但可能有更多價值陷阱。費用率（0.38%）。
+
+對大多數投資人而言，VIG（股利成長）與VYM（較高當前殖利率）的組合，或僅選擇SCHD，即能以最低成本有效涵蓋股利投資領域。
 
 ---
 
-### d) Common Questions and Answers
+### c) 常見迷思
 
-**Q: What is a good dividend yield?**
-A: For the broad stock market, the S&P 500 currently yields roughly 1.3-1.8%. Individual high-quality dividend stocks typically yield 2-4%. Anything above 5-6% should be scrutinized carefully -- ask why the yield is so high. Is it because the company is in a naturally high-yielding industry (like REITs or utilities), or because the stock price has crashed? A sustainable 3% yield with 7-8% annual dividend growth is generally better than a 7% yield with no growth and high risk of a cut.
+**迷思一：「股利是免費的錢。」**
+股利並非免費。公司支付股利時，股票股價在除息日當天會下跌約等同股利的金額。公司正在分配原屬於其價值的現金。你實際上是在取回自己部分的錢。投資總值（股票股價加上收到的現金）在股利支付那一刻並不改變。隨時間推移，公司的盈餘補充了現金，但股利本身並非憑空創造。
 
-**Q: How often should dividends be paid?**
-A: In the U.S., quarterly is the most common frequency. Some REITs and closed-end funds pay monthly. Many international companies pay semi-annually or annually. The payment frequency does not fundamentally matter -- a company paying $4 per year quarterly ($1 per quarter) is equivalent to one paying $4 annually in a single payment, assuming the same total amount.
+**迷思二：「我應該在除息日前買入股票以捕捉股利。」**
+這個策略行不通，因為股價在除息日會下跌股利金額。你收到1美元股利，但股票價值也少了1美元。更糟的是，在應稅帳戶中，你還需就收到的股利繳稅，使這個策略變成虧損。股利捕捉法只是讓你的稅務顧問受益。
 
-**Q: Should I reinvest dividends or take the cash?**
-A: If you do not need the income, reinvest. The compounding effect is powerful. If you are in retirement or need the cash flow, taking dividends as income is perfectly fine -- that is what they are for. In a taxable account during the accumulation phase, reinvesting means paying taxes on dividends you reinvested, which is a minor tax drag.
+**迷思三：「不配息的股票是糟糕的投資。」**
+歷史上最佳表現的股票中，包括亞馬遜、谷歌（Alphabet）與波克夏哈薩威，幾乎或完全不配息。這些公司將所有獲利再投入成長。若公司能透過再投資盈餘產生高報酬，股東從成長中獲益更勝於股利。巴菲特本人也曾主張，波克夏股東從保留盈餘中獲益，遠勝於發放股利。
 
-**Q: Are dividend-paying stocks better than growth stocks?**
-A: Neither is inherently better. Over different time periods, each style has outperformed the other. From 2010-2020, growth stocks dramatically outperformed dividend payers. In other periods, dividend payers have led. The best approach for most investors is a diversified portfolio that includes both, rather than making an all-or-nothing bet on one style.
+**迷思四：「配息股票永遠安全且保守。」**
+雖然許多配息公司是穩健的大型藍籌股，但高股利殖利率實際上可能意味著較高風險。2008年前的銀行股、油價暴跌前的能源股，以及產業受干擾期間的電信股，都在遭受慘重損失前提供了高殖利率。配息股票確實可能大幅跌價。
 
-**Q: What happens to dividends during a recession?**
-A: Some companies cut or suspend dividends during recessions to conserve cash. Others -- particularly Dividend Aristocrats -- maintain and even increase their dividends through downturns. During the COVID pandemic of 2020, many companies cut dividends (including major names like Boeing, Disney, and numerous banks), while others (like Procter & Gamble, Johnson & Johnson, and Coca-Cola) continued increasing them. Dividend sustainability during recessions depends on the company's financial strength and industry.
+**迷思五：「我應該建立完全由配息股票組成的投資組合。」**
+純股利投資組合會引入類股集中風險。配息股票集中在特定類股（公用事業、金融、民生必需品、能源），而在其他類股（科技、醫療保健、成長股）的比重不足。純股利策略可能錯失市場中成長最快的機會。最好以多元化核心投資組合為主，再將股利導向投資作為補充。
 
-**Q: How do stock buybacks compare to dividends?**
-A: Buybacks and dividends are both methods of returning cash to shareholders. Buybacks reduce the share count, increasing each remaining shareholder's ownership stake and earnings per share. Unlike dividends, buybacks are more tax-efficient in taxable accounts (no immediate tax event) and more flexible (the company can pause buybacks without the stigma of a dividend cut). Some investors prefer dividends for their tangibility and predictability. Others prefer buybacks for their tax efficiency. Many companies do both.
-
-**Q: Can I live off dividends in retirement?**
-A: It is possible but requires a substantial portfolio. If your annual expenses are $60,000 and your portfolio yields 3%, you need a $2 million portfolio to cover expenses from dividends alone. This approach works but has limitations: it may constrain your asset allocation (overweighting high-yield stocks) and ignore the total return approach, which often produces better outcomes. Many financial planners recommend a total return approach -- combining dividends with selective share sales -- rather than relying on dividends alone.
+**迷思六：「成本殖利率是有意義的投資指標。」**
+成本殖利率——當前股利除以原始購買價格——在心理上令人滿足，但在財務上並不重要。重要的是相對於當前股價的當前殖利率。如果你的成本殖利率因為20年前買入而達到10%，這並不改變股票當前股價的殖利率僅3%的事實。你的資本可能在其他地方獲得更好的報酬。機會成本是基於當前股價，而非歷史股價。
 
 ---
 
-## YouTube Script
+### d) 常見問與答
 
-**Side Lesson 10: Dividend Investing Strategy**
+**問：多高的股利殖利率算合理？**
+答：對整體股市而言，標普500指數目前殖利率約在1.3至1.8%。優質個別配息股票通常殖利率為2至4%。超過5至6%的都應仔細審查——為何殖利率如此之高？是因為公司所在產業本來殖利率較高（如不動產投資信託或公用事業），還是因為股價已崩跌？永續的3%殖利率搭配每年7至8%的股利成長，通常優於7%殖利率、零成長且高度面臨削減風險的配息。
+
+**問：股利應多久支付一次？**
+答：在美國，按季支付是最常見的頻率。部分不動產投資信託與封閉式基金按月支付。許多國際公司按半年或每年支付。支付頻率在本質上並不重要——每季支付4美元（每季1美元）的公司，與每年一次支付4美元的公司相同，假設總金額相同。
+
+**問：我應該再投資股利還是取現？**
+答：若不需要收益，就再投資。複利效應相當強大。若你已退休或需要現金流，以股利作為收益是完全合理的——這正是股利的用途。在積累財富階段的應稅帳戶中，再投資意味著需就再投資的股利繳稅，這是輕微的稅務阻力。
+
+**問：配息股票比成長股更好嗎？**
+答：沒有任何一方天生更好。在不同時期，各種風格交替領先。2010至2020年間，成長股表現大幅超越配息股。在其他時期，配息股則領先。對大多數投資人而言，最佳方式是包含兩者的多元化投資組合，而非對任一風格押注全壓。
+
+**問：衰退期間股利會如何？**
+答：部分公司在衰退期間削減或暫停股利以保留現金。其他公司——尤其是股利貴族——在低迷期間維持甚至增加股利。2020年新冠疫情期間，許多公司削減股利（包括波音、迪士尼及多家銀行等大型企業），而其他公司（如寶僑、嬌生與可口可樂）則繼續增加股利。衰退期間的股利可持續性取決於公司的財務實力與所在產業。
+
+**問：庫藏股回購與股利相比如何？**
+答：庫藏股回購與股利都是將現金返還給股東的方式。回購減少流通股數，提升每位剩餘股東的持股比例與每股盈餘。與股利不同，回購在應稅帳戶中更具稅務效率（無即時稅務事件），也更靈活（公司可暫停回購而不會像削減股利一樣引發負面觀感）。部分投資人偏好股利的具體性與可預期性。其他人則偏好回購的稅務效率。許多公司兩者並行。
+
+**問：退休後能靠股利生活嗎？**
+答：可以，但需要相當規模的投資組合。若年度支出為6萬美元，而投資組合殖利率為3%，你需要200萬美元的投資組合才能完全靠股利支應支出。這個方法可行，但有其限制：可能限制你的資產配置（過度集中於高殖利率股票），也忽略了通常產生更好成果的總報酬法。許多財務規劃師建議採用總報酬法——結合股利與選擇性賣出股份——而非單純依賴股利。
 
 ---
 
-**Alex:** Alright Sam, today we are talking about one of the most popular investment strategies out there -- dividend investing. Do you like the idea of getting paid just for owning stocks?
+## YouTube腳本
 
-**Sam:** Who would not? Getting a check in the mail every quarter just for holding shares sounds amazing. It is like a paycheck from your portfolio.
+**補充課第10課：股利投資策略**
 
-**Alex:** It is appealing. And dividend investing can be a powerful strategy. But it is also one of the most misunderstood areas of investing, and the mistakes people make can be costly. Let us start with the basics.
+---
+
+**Horace（陳馬）：** 好了，小魚，今天我們要談的是最熱門的投資策略之一——股利投資。你喜歡光持有股票就能收錢的感覺嗎？
+
+**Stella（小魚）：** 誰不喜歡呢？每季都能收到股利，只因為持有股份，聽起來就很棒。就像投資組合給你的薪水一樣。
+
+**Horace（陳馬）：** 確實很吸引人。股利投資可以是一個強大的策略。但它也是投資領域中最常被誤解的範疇之一，人們犯的錯誤代價高昂。我們先從基礎開始。
 
 [VISUAL: A company's income statement. Revenue flows in at the top. After expenses, taxes, and reinvestment, a portion of profit flows out as dividends to shareholders.]
 
-**Sam:** So what exactly is a dividend?
+**Stella（小魚）：** 那股利到底是什麼？
 
-**Alex:** A dividend is simply a payment a company makes to its shareholders from its profits. Think of it as the company saying, "We made money this quarter, and we are sharing some of it with our owners." Most U.S. companies that pay dividends do so quarterly.
+**Horace（陳馬）：** 股利就是公司從獲利中支付給股東的款項。把它想成公司在說：「我們這季賺到錢，我們要與股東分享一部分。」大多數有配息的美國公司按季支付股利。
 
-**Sam:** Does every company pay dividends?
+**Stella（小魚）：** 每家公司都配息嗎？
 
-**Alex:** No. Many companies -- especially younger, faster-growing ones like Amazon or Google -- pay no dividends at all. They reinvest all their profits back into the business. Other companies, particularly mature blue chips like Procter & Gamble or Coca-Cola, have paid dividends for decades.
+**Horace（陳馬）：** 不是。許多公司——尤其是像亞馬遜或谷歌這類較年輕、成長較快的公司——完全不配息。它們將所有獲利再投入業務。其他公司，尤其是像寶僑或可口可樂這類成熟的藍籌股，已配息數十年。
 
-**Sam:** How do I know how much a stock pays in dividends?
+**Stella（小魚）：** 我怎麼知道一檔股票配多少股利？
 
-**Alex:** The key metric is dividend yield. It is the annual dividend per share divided by the stock price. If a stock pays $3 per year and trades at $100, the yield is 3%.
+**Horace（陳馬）：** 關鍵指標是股利殖利率。就是年度每股股利除以股價。若一檔股票每年配息3美元，股價為100美元，殖利率就是3%。
 
 [ANIMATION: Simple equation: Annual Dividend ($3) divided by Stock Price ($100) = Dividend Yield (3%). Then show how yield changes: if price drops to $75, same $3 dividend = 4% yield. If price rises to $150, same $3 dividend = 2% yield.]
 
-**Sam:** So yield changes as the stock price moves, even if the dividend stays the same?
+**Stella（小魚）：** 所以即使股利維持不變，殖利率也會隨股價變動而改變？
 
-**Alex:** Exactly. And this is where the first trap lies. A rising yield is not always good news. If the yield is rising because the stock price is falling, that could mean the company is in trouble and the dividend might be at risk.
+**Horace（陳馬）：** 正是。而這就是第一個陷阱所在。殖利率上升並不總是好消息。若殖利率上升是因為股價下跌，那可能意味著公司遇到麻煩，股利可能面臨風險。
 
-**Sam:** That makes sense. What yield should I look for?
+**Stella（小魚）：** 這說得通。我應該尋找多高的殖利率？
 
-**Alex:** The S&P 500 as a whole yields roughly 1.5% these days. Quality individual dividend stocks typically yield 2-4%. If you see a stock yielding 7%, 8%, or higher, that should trigger caution, not excitement.
+**Horace（陳馬）：** 標普500指數整體殖利率目前約在1.5%左右。優質的個別配息股票通常殖利率為2至4%。若你看到殖利率達7%、8%或更高，應該謹慎而非興奮。
 
-**Sam:** Why?
+**Stella（小魚）：** 為什麼？
 
-**Alex:** Because abnormally high yields usually mean one of two things. Either the company is in a naturally high-yielding industry like utilities or REITs, which is fine. Or the stock price has crashed because the business is deteriorating, and the market expects a dividend cut. This is called a dividend trap.
+**Horace（陳馬）：** 因為異常高的殖利率通常意味著兩件事之一。要麼公司所在產業本來殖利率就較高，如公用事業或不動產投資信託，這是正常的。要麼股價已崩跌，因為業務正在惡化，市場預期股利將被削減。這就叫做股利陷阱。
 
 [VISUAL: Two scenarios labeled "Healthy 4% Yield" and "Dividend Trap 8% Yield." Healthy scenario shows stable earnings supporting the dividend. Trap scenario shows declining earnings, high payout ratio, and an impending dividend cut.]
 
-**Sam:** How do I tell the difference?
+**Stella（小魚）：** 我怎麼分辨？
 
-**Alex:** Check the payout ratio -- the percentage of earnings being paid out as dividends. If a company earns $5 per share and pays $2 in dividends, the payout ratio is 40%. That is healthy and sustainable.
+**Horace（陳馬）：** 查看股利發放率——以股利支付的盈餘百分比。若公司每股盈餘5美元，支付2美元股利，發放率就是40%。這是健康且可持續的。
 
-**Sam:** What if the payout ratio is really high?
+**Stella（小魚）：** 如果發放率很高呢？
 
-**Alex:** If it is above 80%, you should investigate why. If it is above 100% -- meaning the company is paying more in dividends than it earns -- that is a major red flag. That is unsustainable. The company is borrowing money or depleting reserves to maintain the dividend, and a cut is likely coming.
+**Horace（陳馬）：** 若超過80%，你應該調查原因。若超過100%——意味著公司支付的股利超過其盈餘——那是重大警示訊號。這是不可持續的。公司在借錢或動用儲備金來維持股利，削減很可能即將到來。
 
 [ANIMATION: A gas tank metaphor. Conservative payout (40%): tank stays more than half full. High payout (80%): tank is getting low. Payout over 100%: tank is empty, car is running on fumes, engine sputtering.]
 
-**Sam:** Got it. What about companies that keep increasing their dividend year after year?
+**Stella（小魚）：** 明白了。那年年增加股利的公司呢？
 
-**Alex:** You are talking about Dividend Aristocrats -- S&P 500 companies that have increased their dividend for at least 25 consecutive years. There are about 65 of them. And Dividend Kings have increased for 50 or more years.
+**Horace（陳馬）：** 你說的是股利貴族——標普500指數中連續至少25年增加股利的公司。共有約65家。而股利之王則是連續增加50年或以上的公司。
 
-**Sam:** Fifty years! That means they raised dividends through multiple recessions, the dot-com crash, 2008, COVID...
+**Stella（小魚）：** 五十年！那意味著它們在多次衰退、科技泡沫崩潰、2008年、新冠疫情期間都持續增加股利……
 
-**Alex:** Exactly. That track record demonstrates extraordinary financial resilience. Companies like Procter & Gamble, Coca-Cola, and Johnson & Johnson have been raising dividends for over 60 years. That kind of consistency speaks volumes about the underlying business quality.
+**Horace（陳馬）：** 正是。這樣的記錄展示了非凡的財務韌性。像寶僑、可口可樂和嬌生這樣的公司，已持續增加股利超過60年。這種一致性充分說明了底層業務的品質。
 
 [VISUAL: Timeline showing Procter & Gamble's dividend history -- consistent increases through recessions, market crashes, and economic turmoil spanning decades.]
 
-**Sam:** So should I just buy all the Dividend Aristocrats?
+**Stella（小魚）：** 那我應該直接買所有股利貴族嗎？
 
-**Alex:** There is actually an ETF for that -- NOBL, the ProShares S&P 500 Dividend Aristocrats ETF. It is a reasonable approach, but remember that past performance does not guarantee future performance. Companies do fall off the Aristocrat list. General Electric and AT&T were once considered dividend royalty before they cut.
+**Horace（陳馬）：** 為此有一檔指數股票型基金——NOBL，即ProShares標普500股利貴族指數股票型基金。這是一個合理的做法，但請記住，過往績效不代表未來表現。公司確實會從貴族名單上除名。奇異電氣和AT&T曾被視為股利貴族，卻最終削減股利。
 
-**Sam:** Now, here is something I find confusing -- the ex-dividend date. What is that about?
+**Stella（小魚）：** 現在，有個讓我困惑的東西——除息日。那是怎麼回事？
 
-**Alex:** This is crucial. The ex-dividend date is the cutoff for receiving the next dividend. If you buy the stock before the ex-dividend date, you get the dividend. If you buy on or after the ex-dividend date, you do not.
+**Horace（陳馬）：** 這非常重要。除息日是獲得下一期股利的截止時間點。若在除息日之前買入股票，你就能獲得股利。若在除息日當天或之後買入，你就無法獲得。
 
 [ANIMATION: A timeline showing the four dividend dates: Declaration Date (company announces dividend), Ex-Dividend Date (must own stock BEFORE this date), Record Date (company checks records), Payment Date (dividend hits your account). An investor buying one day before ex-date gets the dividend; an investor buying on ex-date does not.]
 
-**Sam:** So I should buy right before the ex-dividend date to grab the dividend, right?
+**Stella（小魚）：** 所以我應該在除息日前買入以獲得股利，對嗎？
 
-**Alex:** I knew you would say that. And this is one of the biggest misconceptions in dividend investing. On the ex-dividend date, the stock price drops by approximately the dividend amount. So if a $50 stock pays a $1 dividend, it opens at roughly $49 on the ex-date.
+**Horace（陳馬）：** 我就知道你會這樣說。而這正是股利投資中最大的迷思之一。在除息日當天，股票股價會下跌約等同股利的金額。所以若一檔50美元的股票配息1美元，除息日的開盤價約為49美元。
 
-**Sam:** So I get $1 in cash but my stock is worth $1 less. It is a wash?
+**Stella（小魚）：** 所以我收到1美元現金，但股票少了1美元。兩者相抵？
 
-**Alex:** Exactly. The total value of your position does not change. But in a taxable account, it is actually worse than a wash -- because you now owe taxes on that $1 dividend. You got $1 in cash, your stock dropped $1, and you owe maybe $0.15 to $0.37 in taxes. You actually lost money.
+**Horace（陳馬）：** 正是。你的持倉總值並不改變。但在應稅帳戶中，這實際上比相抵更糟——因為你現在需就那1美元股利繳稅。你收到1美元現金，股票跌了1美元，還需繳納約0.15至0.37美元的稅。你實際上虧損了。
 
-**Sam:** That is a huge misconception. I bet a lot of beginners make that mistake.
+**Stella（小魚）：** 這是個很大的迷思。我相信很多初學者都犯了這個錯誤。
 
-**Alex:** Many do. The dividend capture strategy sounds clever but it is a losing proposition after taxes and transaction costs.
+**Horace（陳馬）：** 很多人確實如此。股利捕捉策略聽起來聰明，但在稅務和交易成本之後是虧損的策略。
 
-**Sam:** What about reinvesting dividends? I have heard of DRIPs.
+**Stella（小魚）：** 那股利再投資呢？我聽說過DRIP。
 
-**Alex:** DRIP stands for Dividend Reinvestment Plan. Instead of receiving your dividends as cash, the money is automatically used to buy more shares of the same stock. Those new shares then generate their own dividends, which buy more shares, and so on.
+**Horace（陳馬）：** DRIP代表股利再投資計畫。你的股利不是以現金形式收取，而是自動用來購買同一檔股票的更多股份。這些新股份再產生自己的股利，購入更多股份，如此循環。
 
 [ANIMATION: A snowball rolling downhill, getting larger. Each rotation represents a dividend payment being reinvested. After 30 years, the snowball is enormous. Labels show: Year 1: 100 shares generating $200 in dividends. Year 10: 130 shares generating $390. Year 20: 190 shares generating $760. Year 30: 310 shares generating $1,550.]
 
-**Sam:** So DRIP creates a compounding cycle.
+**Stella（小魚）：** 所以DRIP創造了複利循環。
 
-**Alex:** Yes. And the results over long periods are remarkable. An investor who reinvested all S&P 500 dividends since 1930 would have roughly 84% of their wealth attributable to reinvested dividends. The other 16% comes from price appreciation alone.
+**Horace（陳馬）：** 是的。而長期的成果相當驚人。自1930年起再投資所有標普500股利的投資人，其財富約84%可歸功於再投資的股利。另外16%才是單純的股價增值。
 
-**Sam:** Eighty-four percent! That is incredible.
+**Stella（小魚）：** 百分之八十四！真是難以置信。
 
-**Alex:** It shows the enormous power of compounding reinvested income over very long periods. Of course, most of us do not have 90-year investment horizons, but even over 20-30 years, the effect is dramatic.
+**Horace（陳馬）：** 這顯示了在極長時間內複利再投資收益的巨大威力。當然，我們大多數人沒有90年的投資時間軸，但即使在20至30年間，效果也相當顯著。
 
-**Sam:** How are dividends taxed?
+**Stella（小魚）：** 股利如何課稅？
 
-**Alex:** There are two categories. Qualified dividends are taxed at the lower long-term capital gains rate -- 0%, 15%, or 20% depending on your income. Most dividends from U.S. stocks you have held for more than 60 days qualify.
+**Horace（陳馬）：** 分兩種類別。合格股利按較低的長期資本利得稅率課稅——視所得而定為0%、15%或20%。大多數持有超過60天的美國股票股利都符合資格。
 
-**Sam:** And non-qualified dividends?
+**Stella（小魚）：** 那非合格股利呢？
 
-**Alex:** Those are taxed at your ordinary income tax rate, which can be as high as 37%. REIT dividends, for example, are generally non-qualified. So are dividends from stocks you have held for a very short time.
+**Horace（陳馬）：** 那些按一般所得稅率課稅，最高可達37%。不動產投資信託股利通常是非合格的。持有時間極短的股票股利也是如此。
 
 [VISUAL: Tax rate comparison. Qualified dividends: 0% (low income), 15% (middle income), 20% (high income). Ordinary dividends: 10% to 37% depending on tax bracket. Annotation: "This is why REIT dividends are better held in tax-advantaged accounts."]
 
-**Sam:** That is a big difference. Makes me want to keep all my dividends in qualified territory.
+**Stella（小魚）：** 差異很大。讓我想把所有股利都放在合格類別裡。
 
-**Alex:** Smart thinking. And for non-qualified dividend payers like REITs, consider holding them in IRAs or 401(k)s where the tax treatment does not matter.
+**Horace（陳馬）：** 想法正確。對於不動產投資信託等非合格股利支付者，考慮將其持於個人退休帳戶或401(k)，這樣稅務處理方式就無關緊要了。
 
-**Sam:** Now let me ask the big philosophical question. Should I focus on dividends or total return?
+**Stella（小魚）：** 現在讓我問一個重大的哲學問題。我應該專注於股利還是總報酬？
 
-**Alex:** This is the most important question in dividend investing, and many investors get it wrong. Let me illustrate.
+**Horace（陳馬）：** 這是股利投資中最重要的問題，許多投資人都回答錯了。讓我來說明。
 
 [ANIMATION: Two stocks over 10 years.
 Stock A: 1.5% dividend yield, 11% price appreciation = 12.5% total return.
@@ -368,21 +365,21 @@ Both start at $100,000. After 10 years:
 Stock A: $327,000 total value (smaller income stream but much larger portfolio).
 Stock B: $216,000 total value (larger income stream but smaller portfolio).]
 
-**Sam:** So Stock A crushed Stock B in total return, even though Stock B had a much higher dividend.
+**Stella（小魚）：** 所以股票A的總報酬遠勝股票B，儘管股票B的股利高得多。
 
-**Alex:** Right. And if the Stock A investor needed income, they could simply sell a few shares. This is called the "total return approach" or "homemade dividend." You optimize for the highest total return and create your own income by selling shares as needed.
+**Horace（陳馬）：** 對。如果股票A的投資人需要收益，只需賣出幾股即可。這被稱為「總報酬法」或「自製股利」。你優化最高總報酬，並在需要時賣出股份自行創造收益。
 
-**Sam:** Is there any reason to prefer dividends over selling shares?
+**Stella（小魚）：** 有沒有任何理由偏好股利而非賣出股份？
 
-**Alex:** The main argument is behavioral. Many people find it psychologically easier to spend dividends than to sell shares. Selling feels like you are eating your seed corn. Receiving a dividend feels like the tree is bearing fruit. If this psychological comfort keeps you invested and prevents panic selling, it has real value.
+**Horace（陳馬）：** 主要論點是行為層面。許多人心理上更容易花掉股利而非賣出股份。賣股感覺像是在消耗本金。收到股利則感覺像是樹木結出果實。若這種心理安慰能讓你繼續持股、防止恐慌性賣出，它就有真實的價值。
 
-**Sam:** So it is about knowing yourself.
+**Stella（小魚）：** 所以這關乎了解自己。
 
-**Alex:** Exactly. The financially optimal approach is total return. But the best approach is whichever one you will actually stick with through good times and bad.
+**Horace（陳馬）：** 正是。財務上最優的方式是總報酬。但最好的方式是你實際能在好時機與壞時機都堅持下去的方法。
 
-**Sam:** What about building a dividend portfolio? Should I pick individual stocks or use ETFs?
+**Stella（小魚）：** 那建立股利投資組合呢？我應該挑選個股還是使用指數股票型基金？
 
-**Alex:** For most people, dividend ETFs are the better choice. Let me highlight the big ones.
+**Horace（陳馬）：** 對大多數人來說，股利指數股票型基金是更好的選擇。讓我介紹主要的幾檔。
 
 [VISUAL: Table of major dividend ETFs:
 VIG -- Vanguard Dividend Appreciation ETF -- Focus: dividend growth -- Expense: 0.06%
@@ -390,32 +387,32 @@ SCHD -- Schwab U.S. Dividend Equity ETF -- Focus: quality + yield -- Expense: 0.
 VYM -- Vanguard High Dividend Yield ETF -- Focus: higher current yield -- Expense: 0.06%
 NOBL -- ProShares Dividend Aristocrats ETF -- Focus: 25+ year increasers -- Expense: 0.35%]
 
-**Alex:** VIG focuses on companies growing their dividends. SCHD blends quality metrics with yield. VYM aims for higher current income. And NOBL tracks the Dividend Aristocrats. Each has a slightly different approach, and all are available at very low cost.
+**Horace（陳馬）：** VIG專注於持續增加股利的公司。SCHD將品質指標與殖利率相結合。VYM以較高當前收益為目標。而NOBL追蹤股利貴族。每檔的策略略有不同，且都能以極低成本取得。
 
-**Sam:** If I had to pick one?
+**Stella（小魚）：** 如果只能選一檔？
 
-**Alex:** SCHD has become enormously popular for good reason. It balances yield, quality, and growth well. But honestly, any of these would serve you well as a core dividend holding.
+**Horace（陳馬）：** SCHD因為有充分的理由而大受歡迎。它在殖利率、品質與成長之間取得良好平衡。但老實說，這幾檔任何一個都能作為核心股利持倉。
 
-**Sam:** Can I live off dividends in retirement?
+**Stella（小魚）：** 退休後能靠股利生活嗎？
 
-**Alex:** You can, but the math requires a substantial portfolio. If you need $60,000 per year and your portfolio yields 3%, you need $2 million invested. At a 4% yield, you need $1.5 million. The risk is that you might over-concentrate in high-yield stocks to reach your income target, sacrificing diversification and growth.
+**Horace（陳馬）：** 可以，但所需的投資組合規模相當大。若你需要每年6萬美元，而投資組合殖利率為3%，你需要投資200萬美元。在4%殖利率下，需要150萬美元。風險在於你可能為了達到收益目標而過度集中於高殖利率股票，犧牲了多元化與成長性。
 
-**Sam:** What is the alternative?
+**Stella（小魚）：** 有什麼替代方案？
 
-**Alex:** The total return approach we discussed. Build a diversified portfolio optimized for total return, then withdraw 3.5-4% per year through a combination of dividends and share sales. This gives you more flexibility in asset allocation and often produces better long-term outcomes.
+**Horace（陳馬）：** 我們討論過的總報酬法。建立為總報酬優化的多元化投資組合，然後透過股利與賣出股份的結合每年提取3.5至4%。這給予你在資產配置上更大的靈活性，且通常產生更好的長期成果。
 
 [VISUAL: Two retirement portfolio strategies side by side. "Dividend Income Only" -- concentrated in high-yield sectors, limited growth, yield risk. "Total Return" -- diversified across all sectors, combines dividends with selective sales, more flexible.]
 
-**Sam:** Let me put my key takeaways together. Dividends are a powerful part of total return, especially when reinvested. Dividend yield can be misleading -- always check the payout ratio and business fundamentals. Dividend Aristocrats are companies with incredible track records of consecutive increases. The ex-dividend date trick does not work. Qualified dividends get favorable tax treatment. Total return matters more than yield alone. And for most people, dividend ETFs like SCHD or VIG are better than picking individual stocks.
+**Stella（小魚）：** 讓我整理一下關鍵重點。股利是總報酬的重要組成部分，尤其是再投資後。股利殖利率可能產生誤導——務必查看股利發放率與業務基本面。股利貴族是擁有驚人連續增加記錄的公司。除息日技巧行不通。合格股利享有優惠稅率。總報酬比單純殖利率更重要。對大多數人而言，SCHD或VIG等股利指數股票型基金優於挑選個股。
 
-**Alex:** Spot on. Dividend investing is a legitimate, time-tested strategy. Just make sure you are doing it with your eyes open, focusing on quality and sustainability rather than chasing the highest yield.
+**Horace（陳馬）：** 說得很好。股利投資是一個合法且經時間驗證的策略。只要確保你睜大眼睛去做，專注於品質與可持續性，而非追逐最高殖利率。
 
 [ANIMATION: Final graphic -- a tree growing over decades, producing fruit (dividends) that get replanted (reinvested). The tree grows larger each year, producing more fruit. Text overlay: "Plant quality. Reinvest patiently. Harvest in time."]
 
-**Sam:** Great lesson. Next up, we are diving into retirement accounts -- 401(k)s, IRAs, Roth accounts. The alphabet soup of tax-advantaged investing.
+**Stella（小魚）：** 精彩的一課。下一課，我們要深入探討退休帳戶——401(k)、個人退休帳戶、Roth帳戶。稅賦優惠投資的字母湯。
 
-**Alex:** An essential topic. The right retirement account strategy can save you tens of thousands in taxes. We will break it all down.
+**Horace（陳馬）：** 這是個重要的主題。正確的退休帳戶策略可以幫你省下數以萬計的稅款。我們將一一拆解。
 
 ---
 
-*End of Side Lesson 10*
+*補充課第10課結束*

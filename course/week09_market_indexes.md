@@ -696,197 +696,197 @@ A: Several factors cause tracking differences. Expense ratios are the most obvio
 
 [VISUAL: Animated intro with title "Week 9: Understanding Market Indexes"]
 
-**Alex:** Welcome back everyone. Today we are going to pull back the curtain on something you hear about every single day but probably do not fully understand -- market indexes. The Dow is up, the S&P is down, the NASDAQ hit a record. What do all these numbers actually mean, and why should you care?
+**Horace:** Welcome back everyone. Today we are going to pull back the curtain on something you hear about every single day but probably do not fully understand -- market indexes. The Dow is up, the S&P is down, the NASDAQ hit a record. What do all these numbers actually mean, and why should you care?
 
-**Sam:** Honestly, I have always just assumed they all measure the same thing -- you know, how the stock market is doing. Are they really that different?
+**Stella:** Honestly, I have always just assumed they all measure the same thing -- you know, how the stock market is doing. Are they really that different?
 
-**Alex:** They are very different, and understanding those differences is crucial. Let me ask you this -- if I told you "the Dow was up 1% today but the S&P 500 was down 0.5%," what would you think?
+**Horace:** They are very different, and understanding those differences is crucial. Let me ask you this -- if I told you "the Dow was up 1% today but the S&P 500 was down 0.5%," what would you think?
 
-**Sam:** I would be confused. How can the market be up and down at the same time?
+**Stella:** I would be confused. How can the market be up and down at the same time?
 
-**Alex:** Exactly. And that confusion disappears once you understand what each index actually measures and how it is built. Think of indexes like recipes. The S&P 500 and the Dow share some of the same ingredients -- they both include Apple, Microsoft, and other big companies. But the recipes are different. Different quantities, different preparation methods, different results.
+**Horace:** Exactly. And that confusion disappears once you understand what each index actually measures and how it is built. Think of indexes like recipes. The S&P 500 and the Dow share some of the same ingredients -- they both include Apple, Microsoft, and other big companies. But the recipes are different. Different quantities, different preparation methods, different results.
 
 [VISUAL: Kitchen analogy showing two recipes side by side, same ingredients but different proportions, producing different dishes. Labels show "Dow Recipe: 30 ingredients, measure by price" and "S&P 500 Recipe: 500 ingredients, measure by size"]
 
-**Sam:** So what is the recipe for an index? What are the key design choices?
+**Stella:** So what is the recipe for an index? What are the key design choices?
 
-**Alex:** Every index has three critical design decisions. First, which stocks to include -- the selection rules. Second, how much weight to give each stock -- the weighting method. And third, how and when to update the list -- the maintenance rules. Let us start with the weighting method because that is where the biggest differences lie.
+**Horace:** Every index has three critical design decisions. First, which stocks to include -- the selection rules. Second, how much weight to give each stock -- the weighting method. And third, how and when to update the list -- the maintenance rules. Let us start with the weighting method because that is where the biggest differences lie.
 
 [VISUAL: Three pillars labeled "Selection," "Weighting," and "Maintenance" supporting a platform labeled "Market Index"]
 
-**Sam:** Okay, what are the different weighting methods?
+**Stella:** Okay, what are the different weighting methods?
 
-**Alex:** There are three main ones: price-weighted, market-cap-weighted, and equal-weighted. Let me illustrate with a simple example. Imagine an index with just three stocks.
+**Horace:** There are three main ones: price-weighted, market-cap-weighted, and equal-weighted. Let me illustrate with a simple example. Imagine an index with just three stocks.
 
 [ANIMATION: animation/week09_index_construction.py - Animated comparison of three weighting methods using three hypothetical stocks. The animation shows three columns, each representing a different weighting approach. Stock A has a high price but medium market cap, Stock B has a medium price and small market cap, and Stock C has a low price but large market cap. The bars dynamically resize as the user watches, showing how the same three stocks produce completely different portfolio weights depending on the method chosen. The animation then shows a simulated day where Stock C rises 10% and illustrates how the index return differs across all three methods.]
 
-**Alex:** Stock A trades at $300 per share, Stock B at $200, and Stock C at $100. In a price-weighted index, like the Dow, Stock A dominates simply because it has the highest share price. It gets 50% of the weight.
+**Horace:** Stock A trades at $300 per share, Stock B at $200, and Stock C at $100. In a price-weighted index, like the Dow, Stock A dominates simply because it has the highest share price. It gets 50% of the weight.
 
-**Sam:** Wait, so a stock gets more influence just because its price per share happens to be higher? That seems arbitrary.
+**Stella:** Wait, so a stock gets more influence just because its price per share happens to be higher? That seems arbitrary.
 
-**Alex:** It is arbitrary! And that is the fundamental flaw of price-weighting. A company's share price is largely a cosmetic choice. A $300 stock could easily be a $150 stock if the company did a 2-for-1 split. The company's actual value has not changed at all, but its influence in a price-weighted index just got cut in half.
+**Horace:** It is arbitrary! And that is the fundamental flaw of price-weighting. A company's share price is largely a cosmetic choice. A $300 stock could easily be a $150 stock if the company did a 2-for-1 split. The company's actual value has not changed at all, but its influence in a price-weighted index just got cut in half.
 
-**Sam:** So when a Dow stock splits, it immediately loses influence in the Dow?
+**Stella:** So when a Dow stock splits, it immediately loses influence in the Dow?
 
-**Alex:** Exactly. And the Dow has to adjust its divisor -- a special number it divides by -- to keep the index level from jumping around. The Dow divisor has been adjusted so many times over the decades that it is now less than 1. The original divisor was 30 -- just the number of stocks.
+**Horace:** Exactly. And the Dow has to adjust its divisor -- a special number it divides by -- to keep the index level from jumping around. The Dow divisor has been adjusted so many times over the decades that it is now less than 1. The original divisor was 30 -- just the number of stocks.
 
 [VISUAL: Timeline showing the Dow divisor from 1928 (value of 30) to present (value less than 1), with major adjustments labeled for stock splits and constituent changes]
 
-**Sam:** Okay, so price-weighting has problems. What about cap-weighting?
+**Stella:** Okay, so price-weighting has problems. What about cap-weighting?
 
-**Alex:** Market-cap weighting is what the S&P 500 and most modern indexes use. Instead of weighting by share price, you weight by total market value -- share price times the number of shares outstanding. So a trillion-dollar company gets ten times the weight of a hundred-billion-dollar company. This makes much more economic sense. The biggest companies should have the most influence because they represent the most economic activity.
+**Horace:** Market-cap weighting is what the S&P 500 and most modern indexes use. Instead of weighting by share price, you weight by total market value -- share price times the number of shares outstanding. So a trillion-dollar company gets ten times the weight of a hundred-billion-dollar company. This makes much more economic sense. The biggest companies should have the most influence because they represent the most economic activity.
 
-**Sam:** That sounds more logical. Is there a downside?
+**Stella:** That sounds more logical. Is there a downside?
 
-**Alex:** The big downside is concentration. When a handful of companies get extremely large, they dominate the index. In recent years, the top 10 stocks in the S&P 500 have represented over 30% of the entire index. So when someone says "I own an S&P 500 index fund for diversification," they should realize that almost a third of their money is in just 10 companies.
+**Horace:** The big downside is concentration. When a handful of companies get extremely large, they dominate the index. In recent years, the top 10 stocks in the S&P 500 have represented over 30% of the entire index. So when someone says "I own an S&P 500 index fund for diversification," they should realize that almost a third of their money is in just 10 companies.
 
 [VISUAL: Pie chart of S&P 500 showing the top 10 stocks as a large wedge, with the remaining 490 stocks divided into progressively smaller segments. Animated transition showing how this concentration has grown over the past 20 years.]
 
-**Sam:** That is surprising. I always thought of the S&P 500 as this perfectly diversified portfolio of 500 companies.
+**Stella:** That is surprising. I always thought of the S&P 500 as this perfectly diversified portfolio of 500 companies.
 
-**Alex:** It is 500 companies, but it is not 500 equal positions. The bottom 300 stocks combined might make up less than 10% of the index. So really, the S&P 500 behaves more like a portfolio of 50 to 100 meaningful positions with 400 rounding errors.
+**Horace:** It is 500 companies, but it is not 500 equal positions. The bottom 300 stocks combined might make up less than 10% of the index. So really, the S&P 500 behaves more like a portfolio of 50 to 100 meaningful positions with 400 rounding errors.
 
-**Sam:** Harsh but fair. What about equal-weighting?
+**Stella:** Harsh but fair. What about equal-weighting?
 
-**Alex:** Equal-weighting is exactly what it sounds like. Every stock gets the same weight, regardless of its price or its market cap. In a 500-stock index, each stock is 0.2% of the portfolio. A $10 billion company has the same influence as a $3 trillion company.
+**Horace:** Equal-weighting is exactly what it sounds like. Every stock gets the same weight, regardless of its price or its market cap. In a 500-stock index, each stock is 0.2% of the portfolio. A $10 billion company has the same influence as a $3 trillion company.
 
-**Sam:** That seems more democratic. Does it perform better?
+**Stella:** That seems more democratic. Does it perform better?
 
-**Alex:** Historically, yes -- over very long periods, the equal-weighted S&P 500 has modestly outperformed the cap-weighted version. But there are two important caveats. First, equal-weighting requires constant rebalancing. Every quarter, you have to sell your winners and buy your losers to get back to equal weights. That generates transaction costs and tax consequences. Second, it does not always outperform. When mega-cap stocks are on a tear, the cap-weighted version wins handily.
+**Horace:** Historically, yes -- over very long periods, the equal-weighted S&P 500 has modestly outperformed the cap-weighted version. But there are two important caveats. First, equal-weighting requires constant rebalancing. Every quarter, you have to sell your winners and buy your losers to get back to equal weights. That generates transaction costs and tax consequences. Second, it does not always outperform. When mega-cap stocks are on a tear, the cap-weighted version wins handily.
 
 [VISUAL: Performance chart comparing S&P 500 (cap-weighted) vs. S&P 500 Equal Weight (RSP) over 20 years, with shaded periods showing which method was winning during each phase]
 
-**Sam:** So there is no perfect weighting method.
+**Stella:** So there is no perfect weighting method.
 
-**Alex:** No, there is not. Each has trade-offs. Let me summarize with a quick comparison.
+**Horace:** No, there is not. Each has trade-offs. Let me summarize with a quick comparison.
 
 [VISUAL: Three-column comparison table showing Price-Weighted, Cap-Weighted, and Equal-Weighted side by side, with rows for: what drives weight, concentration risk, rebalancing needs, turnover, bias, and famous examples]
 
-**Sam:** Got it. Now let us talk about the actual indexes. Can you walk me through the big ones? Starting with the Dow?
+**Stella:** Got it. Now let us talk about the actual indexes. Can you walk me through the big ones? Starting with the Dow?
 
-**Alex:** The Dow Jones Industrial Average was created in 1896. It tracks just 30 stocks and uses price-weighting. The stocks are hand-picked by a committee -- there is no formula for selection. It is one of the oldest and most recognized market indicators in the world, but from an analytical standpoint, it is probably the weakest of the major indexes.
+**Horace:** The Dow Jones Industrial Average was created in 1896. It tracks just 30 stocks and uses price-weighting. The stocks are hand-picked by a committee -- there is no formula for selection. It is one of the oldest and most recognized market indicators in the world, but from an analytical standpoint, it is probably the weakest of the major indexes.
 
-**Sam:** If it is so flawed, why does everyone still talk about it?
+**Stella:** If it is so flawed, why does everyone still talk about it?
 
-**Alex:** Tradition and brand recognition. "The Dow was up 300 points" has been a headline for over a century. Financial media keep reporting it because audiences recognize it. And to be fair, over the very long term, the Dow roughly tracks the broader market because its 30 components are major companies that overlap significantly with the S&P 500. It just does so with more noise and distortion than necessary.
+**Horace:** Tradition and brand recognition. "The Dow was up 300 points" has been a headline for over a century. Financial media keep reporting it because audiences recognize it. And to be fair, over the very long term, the Dow roughly tracks the broader market because its 30 components are major companies that overlap significantly with the S&P 500. It just does so with more noise and distortion than necessary.
 
 [VISUAL: Side-by-side chart of Dow Jones and S&P 500 over 50 years showing similar general trajectory but notable divergences in certain years, with percentage difference highlighted]
 
-**Sam:** What about the S&P 500? That seems like the gold standard.
+**Stella:** What about the S&P 500? That seems like the gold standard.
 
-**Alex:** It is. The S&P 500 is the single most important benchmark in global finance. It covers about 500 large-cap U.S. stocks, representing roughly 80% of the total U.S. stock market value. It uses float-adjusted market-cap weighting, and its components are selected by a committee based on specific criteria -- size, profitability, liquidity, and public float.
+**Horace:** It is. The S&P 500 is the single most important benchmark in global finance. It covers about 500 large-cap U.S. stocks, representing roughly 80% of the total U.S. stock market value. It uses float-adjusted market-cap weighting, and its components are selected by a committee based on specific criteria -- size, profitability, liquidity, and public float.
 
-**Sam:** What does float-adjusted mean?
+**Stella:** What does float-adjusted mean?
 
-**Alex:** Great question. Float adjustment means the index only counts shares that are actually available for public trading. If a company has a billion shares outstanding but the founder holds 300 million of them, only 700 million count toward the index weight. This makes sense because index funds cannot buy shares that are locked up by insiders. The weight should reflect what is actually investable.
+**Horace:** Great question. Float adjustment means the index only counts shares that are actually available for public trading. If a company has a billion shares outstanding but the founder holds 300 million of them, only 700 million count toward the index weight. This makes sense because index funds cannot buy shares that are locked up by insiders. The weight should reflect what is actually investable.
 
 [VISUAL: Diagram of a company's shares showing Total Shares Outstanding as a full circle, with insider holdings, government holdings, and restricted shares carved out, leaving the "free float" portion. An arrow shows this float being used for index weight calculation.]
 
-**Sam:** And the NASDAQ?
+**Stella:** And the NASDAQ?
 
-**Alex:** You need to distinguish between the NASDAQ Composite and the NASDAQ-100. The NASDAQ Composite includes all 3,000-plus stocks listed on the NASDAQ exchange. The NASDAQ-100, which is what the famous QQQ ETF tracks, includes only the 100 largest non-financial companies on the exchange. Because so many large technology companies are listed on NASDAQ, the NASDAQ-100 has a very heavy technology tilt -- often 50% or more of its weight is in tech stocks.
+**Horace:** You need to distinguish between the NASDAQ Composite and the NASDAQ-100. The NASDAQ Composite includes all 3,000-plus stocks listed on the NASDAQ exchange. The NASDAQ-100, which is what the famous QQQ ETF tracks, includes only the 100 largest non-financial companies on the exchange. Because so many large technology companies are listed on NASDAQ, the NASDAQ-100 has a very heavy technology tilt -- often 50% or more of its weight is in tech stocks.
 
-**Sam:** So when people say "the NASDAQ was up 2%," they are basically saying tech stocks did well?
+**Stella:** So when people say "the NASDAQ was up 2%," they are basically saying tech stocks did well?
 
-**Alex:** Usually, yes. Although technically the NASDAQ is an exchange, not a sector index, the concentration of tech mega-caps makes it behave like one. That is important to understand -- if you own a NASDAQ-100 ETF and also hold individual tech stocks, you may be much more concentrated in technology than you realize.
+**Horace:** Usually, yes. Although technically the NASDAQ is an exchange, not a sector index, the concentration of tech mega-caps makes it behave like one. That is important to understand -- if you own a NASDAQ-100 ETF and also hold individual tech stocks, you may be much more concentrated in technology than you realize.
 
 [VISUAL: NASDAQ-100 sector breakdown as a stacked bar chart, with technology dominating. A second bar shows a hypothetical portfolio combining QQQ with individual tech stocks, revealing extreme sector concentration.]
 
-**Sam:** Now, what about the Russell indexes? I hear about the Russell 2000 a lot.
+**Stella:** Now, what about the Russell indexes? I hear about the Russell 2000 a lot.
 
-**Alex:** The Russell family is unique because it is entirely rules-based -- no committee picks and chooses. The Russell 3000 is the broadest U.S. index, covering about 98% of the investable U.S. equity market. It splits into the Russell 1000 for the top thousand stocks by market cap and the Russell 2000 for the next two thousand. The Russell 2000 is THE benchmark for small-cap stocks.
+**Horace:** The Russell family is unique because it is entirely rules-based -- no committee picks and chooses. The Russell 3000 is the broadest U.S. index, covering about 98% of the investable U.S. equity market. It splits into the Russell 1000 for the top thousand stocks by market cap and the Russell 2000 for the next two thousand. The Russell 2000 is THE benchmark for small-cap stocks.
 
-**Sam:** What is special about how Russell updates its indexes?
+**Stella:** What is special about how Russell updates its indexes?
 
-**Alex:** The Russell indexes reconstitute once per year, in late June, based on market caps measured on a specific "rank day" in May. This is a massive event. Every stock that has grown enough crosses from the Russell 2000 to the Russell 1000, and every stock that has shrunk moves the other direction. Because this all happens on a single day with completely predictable rules, the trading volume is extraordinary.
+**Horace:** The Russell indexes reconstitute once per year, in late June, based on market caps measured on a specific "rank day" in May. This is a massive event. Every stock that has grown enough crosses from the Russell 2000 to the Russell 1000, and every stock that has shrunk moves the other direction. Because this all happens on a single day with completely predictable rules, the trading volume is extraordinary.
 
 [ANIMATION: animation/week09_index_construction.py - Animated calendar showing the Russell reconstitution timeline: rank day in May, preliminary lists published in June, final reconstitution at market close on the last Friday of June. Volume bars show the massive spike in trading on reconstitution day, with the dollar value of forced index fund trades labeled. Stocks are shown visually migrating from one index to another as size thresholds are crossed.]
 
-**Sam:** How big is the volume spike?
+**Stella:** How big is the volume spike?
 
-**Alex:** On Russell reconstitution day, trading volume can be two to three times normal levels. Billions of dollars of forced buying and selling occur as index funds adjust. This creates predictable price patterns that hedge funds actively exploit. Small-cap stocks being promoted to the Russell 1000 often see price increases in the weeks leading up to reconstitution as traders front-run the forced buying.
+**Horace:** On Russell reconstitution day, trading volume can be two to three times normal levels. Billions of dollars of forced buying and selling occur as index funds adjust. This creates predictable price patterns that hedge funds actively exploit. Small-cap stocks being promoted to the Russell 1000 often see price increases in the weeks leading up to reconstitution as traders front-run the forced buying.
 
-**Sam:** That seems like a disadvantage for index fund investors.
+**Stella:** That seems like a disadvantage for index fund investors.
 
-**Alex:** It is, and it is called the "index inclusion tax." When index funds must buy a newly added stock, they are buying from traders who already bought at a lower price in anticipation. And when they must sell a deleted stock, they are selling to traders who will buy at a lower price. The index fund is systematically on the wrong side of these predictable trades. The cost is estimated at 20 to 80 basis points per year for some small-cap index funds.
+**Horace:** It is, and it is called the "index inclusion tax." When index funds must buy a newly added stock, they are buying from traders who already bought at a lower price in anticipation. And when they must sell a deleted stock, they are selling to traders who will buy at a lower price. The index fund is systematically on the wrong side of these predictable trades. The cost is estimated at 20 to 80 basis points per year for some small-cap index funds.
 
 [VISUAL: Price chart of a stock being added to the S&P 500 showing the announcement date, the run-up in price as traders front-run, the effective date spike, and the partial reversion afterward. Key price levels and the cost to index fund investors are labeled.]
 
-**Sam:** Is there any way to reduce that cost?
+**Stella:** Is there any way to reduce that cost?
 
-**Alex:** Some fund managers use patient trading strategies, spreading their reconstitution trades over several days instead of executing everything at the close on the effective date. Others use "reconstitution-aware" indexing that anticipates changes and trades gradually. Vanguard, for example, is known for being thoughtful about minimizing these costs.
+**Horace:** Some fund managers use patient trading strategies, spreading their reconstitution trades over several days instead of executing everything at the close on the effective date. Others use "reconstitution-aware" indexing that anticipates changes and trades gradually. Vanguard, for example, is known for being thoughtful about minimizing these costs.
 
-**Sam:** Let us talk about global indexes for a minute. If I want to invest internationally, what do I need to know?
+**Stella:** Let us talk about global indexes for a minute. If I want to invest internationally, what do I need to know?
 
-**Alex:** The two dominant providers for international indexes are MSCI and FTSE. MSCI World covers 23 developed markets. MSCI Emerging Markets covers 24 emerging market countries. MSCI ACWI combines both. FTSE has similar products. One important gotcha -- an index labeled "World" typically means developed markets only, which can be confusing.
+**Horace:** The two dominant providers for international indexes are MSCI and FTSE. MSCI World covers 23 developed markets. MSCI Emerging Markets covers 24 emerging market countries. MSCI ACWI combines both. FTSE has similar products. One important gotcha -- an index labeled "World" typically means developed markets only, which can be confusing.
 
-**Sam:** So MSCI World does not include the whole world?
+**Stella:** So MSCI World does not include the whole world?
 
-**Alex:** Correct. MSCI World excludes emerging markets. If you want true global coverage, you need MSCI ACWI -- All Country World Index -- which combines developed and emerging markets. Or you need to combine a developed markets fund with a separate emerging markets fund.
+**Horace:** Correct. MSCI World excludes emerging markets. If you want true global coverage, you need MSCI ACWI -- All Country World Index -- which combines developed and emerging markets. Or you need to combine a developed markets fund with a separate emerging markets fund.
 
 [VISUAL: Nested box diagram showing MSCI ACWI as the outer box containing MSCI World (developed) and MSCI Emerging Markets. Country flags are placed in each box with approximate weights. A callout points to South Korea, which appears in MSCI EM but FTSE Developed.]
 
-**Sam:** You mentioned something about South Korea and a classification discrepancy?
+**Stella:** You mentioned something about South Korea and a classification discrepancy?
 
-**Alex:** Yes, this is a real-world gotcha. MSCI classifies South Korea as an emerging market. FTSE classifies it as a developed market. If you buy, say, an MSCI-based developed markets ETF and pair it with an FTSE-based emerging markets ETF, you will have zero exposure to South Korea -- it falls through the cracks. Always check that your international ETFs use the same index provider, or at least verify that you are not creating unintended gaps.
+**Horace:** Yes, this is a real-world gotcha. MSCI classifies South Korea as an emerging market. FTSE classifies it as a developed market. If you buy, say, an MSCI-based developed markets ETF and pair it with an FTSE-based emerging markets ETF, you will have zero exposure to South Korea -- it falls through the cracks. Always check that your international ETFs use the same index provider, or at least verify that you are not creating unintended gaps.
 
-**Sam:** That is something I never would have thought to check.
+**Stella:** That is something I never would have thought to check.
 
-**Alex:** It is the kind of detail that only matters until you realize your portfolio has been underweight one of the largest economies in Asia for years. The fix is simple -- just use ETFs from the same provider family.
+**Horace:** It is the kind of detail that only matters until you realize your portfolio has been underweight one of the largest economies in Asia for years. The fix is simple -- just use ETFs from the same provider family.
 
-**Sam:** Okay, let us talk about choosing benchmarks. How do I know which index to compare my portfolio against?
+**Stella:** Okay, let us talk about choosing benchmarks. How do I know which index to compare my portfolio against?
 
-**Alex:** The benchmark should match your portfolio across four dimensions: geography, market cap, style, and asset class. If you own U.S. large-cap stocks, benchmark against the S&P 500 or Russell 1000. If you own U.S. small-cap stocks, use the Russell 2000. If you own international developed markets, use MSCI EAFE or FTSE Developed ex-US.
+**Horace:** The benchmark should match your portfolio across four dimensions: geography, market cap, style, and asset class. If you own U.S. large-cap stocks, benchmark against the S&P 500 or Russell 1000. If you own U.S. small-cap stocks, use the Russell 2000. If you own international developed markets, use MSCI EAFE or FTSE Developed ex-US.
 
-**Sam:** What happens if you pick the wrong benchmark?
+**Stella:** What happens if you pick the wrong benchmark?
 
-**Alex:** You get a distorted picture of your performance. Imagine you built a portfolio of small-cap value stocks in a year when large-cap growth stocks dominated the market. Against the S&P 500, you might look terrible -- maybe you returned 8% while the S&P returned 25%. But against the Russell 2000 Value, which returned 5%, you actually outperformed by 3 percentage points. The right benchmark reveals your actual skill; the wrong benchmark creates an illusion in either direction.
+**Horace:** You get a distorted picture of your performance. Imagine you built a portfolio of small-cap value stocks in a year when large-cap growth stocks dominated the market. Against the S&P 500, you might look terrible -- maybe you returned 8% while the S&P returned 25%. But against the Russell 2000 Value, which returned 5%, you actually outperformed by 3 percentage points. The right benchmark reveals your actual skill; the wrong benchmark creates an illusion in either direction.
 
 [VISUAL: Bar chart showing the same portfolio return (8%) compared against three different benchmarks -- S&P 500 (25%), Russell 2000 (10%), and Russell 2000 Value (5%) -- showing how the portfolio looks bad, okay, or great depending on benchmark choice]
 
-**Sam:** So benchmark selection is not just an academic exercise -- it actually changes how you evaluate yourself.
+**Stella:** So benchmark selection is not just an academic exercise -- it actually changes how you evaluate yourself.
 
-**Alex:** Exactly. And it changes your behavior. If you benchmark against the wrong index and feel like you are underperforming, you might abandon a perfectly good strategy out of frustration. That is one of the most expensive mistakes an investor can make.
+**Horace:** Exactly. And it changes your behavior. If you benchmark against the wrong index and feel like you are underperforming, you might abandon a perfectly good strategy out of frustration. That is one of the most expensive mistakes an investor can make.
 
-**Sam:** Let me ask about something practical. When I buy an S&P 500 index fund, am I really getting the same returns as the S&P 500?
+**Stella:** Let me ask about something practical. When I buy an S&P 500 index fund, am I really getting the same returns as the S&P 500?
 
-**Alex:** Very close, but not identical. The fund has an expense ratio -- the annual fee -- that drags on returns. Even at 0.03%, which is what the cheapest S&P 500 funds charge, that is money you do not get. Beyond that, there is tracking error from cash drag -- the fund holds a tiny bit of cash for redemptions. There is also the reconstitution cost we discussed. And there is the timing of reconstitution trades -- the fund may not execute at exactly the same prices the index calculation assumes.
+**Horace:** Very close, but not identical. The fund has an expense ratio -- the annual fee -- that drags on returns. Even at 0.03%, which is what the cheapest S&P 500 funds charge, that is money you do not get. Beyond that, there is tracking error from cash drag -- the fund holds a tiny bit of cash for redemptions. There is also the reconstitution cost we discussed. And there is the timing of reconstitution trades -- the fund may not execute at exactly the same prices the index calculation assumes.
 
-**Sam:** How much do all those factors add up to?
+**Stella:** How much do all those factors add up to?
 
-**Alex:** For the best S&P 500 funds, total tracking difference is often less than 5 basis points -- so $50 per $100,000 invested per year. For less efficient funds or more exotic indexes, it can be much larger. This is why comparing expense ratios alone is not sufficient. You should also look at the fund's tracking difference -- the gap between the fund's actual return and the index's return -- over multiple years.
+**Horace:** For the best S&P 500 funds, total tracking difference is often less than 5 basis points -- so $50 per $100,000 invested per year. For less efficient funds or more exotic indexes, it can be much larger. This is why comparing expense ratios alone is not sufficient. You should also look at the fund's tracking difference -- the gap between the fund's actual return and the index's return -- over multiple years.
 
 [VISUAL: Chart showing the cumulative cost of tracking difference over 30 years for three hypothetical funds tracking the same index: Fund A (0.03% tracking difference), Fund B (0.10%), and Fund C (0.25%). The compounding effect over decades turns small differences into meaningful dollar amounts.]
 
-**Sam:** One more question -- what is the difference between a price index and a total return index?
+**Stella:** One more question -- what is the difference between a price index and a total return index?
 
-**Alex:** This is critical and most people do not realize it. The S&P 500 level you see quoted on the news -- 5,000, 5,200, whatever -- is the price index. It only tracks stock price changes. But stocks also pay dividends. The total return index reinvests those dividends, and over long periods, the difference is enormous. Historically, dividends have contributed about 2 to 3 percentage points of annual return. Over 30 years, reinvested dividends can account for more than half of your total wealth accumulation.
+**Horace:** This is critical and most people do not realize it. The S&P 500 level you see quoted on the news -- 5,000, 5,200, whatever -- is the price index. It only tracks stock price changes. But stocks also pay dividends. The total return index reinvests those dividends, and over long periods, the difference is enormous. Historically, dividends have contributed about 2 to 3 percentage points of annual return. Over 30 years, reinvested dividends can account for more than half of your total wealth accumulation.
 
-**Sam:** So when I compare my portfolio return to "the S&P 500," I should make sure I am comparing to the total return version?
+**Stella:** So when I compare my portfolio return to "the S&P 500," I should make sure I am comparing to the total return version?
 
-**Alex:** Absolutely. If your index fund returned 10% and you compare it to the price-only S&P 500 return of 7.5%, you might think you crushed the index. But really, you just matched it -- the difference was dividends. Always benchmark against total return.
+**Horace:** Absolutely. If your index fund returned 10% and you compare it to the price-only S&P 500 return of 7.5%, you might think you crushed the index. But really, you just matched it -- the difference was dividends. Always benchmark against total return.
 
 [VISUAL: Two line charts growing from the same starting point -- one labeled "S&P 500 Price Return" and one labeled "S&P 500 Total Return (with dividends)." The gap between them widens dramatically over 30 years, with the total return line ending roughly 2x higher.]
 
-**Sam:** That gap is striking. All right, let us do our summary. Give me the key takeaways from today.
+**Stella:** That gap is striking. All right, let us do our summary. Give me the key takeaways from today.
 
-**Alex:** Three things to remember. First, the weighting method is the single most important design choice in an index. Price-weighted, cap-weighted, and equal-weighted produce meaningfully different portfolios and returns from the same set of stocks. Know what method your index fund uses and understand its biases.
+**Horace:** Three things to remember. First, the weighting method is the single most important design choice in an index. Price-weighted, cap-weighted, and equal-weighted produce meaningfully different portfolios and returns from the same set of stocks. Know what method your index fund uses and understand its biases.
 
-**Sam:** Second?
+**Stella:** Second?
 
-**Alex:** Cap-weighted indexes, which are by far the most popular, have an inherent concentration risk. A small number of mega-cap stocks can dominate the index. That is not necessarily bad, but you should own that risk consciously, not by accident.
+**Horace:** Cap-weighted indexes, which are by far the most popular, have an inherent concentration risk. A small number of mega-cap stocks can dominate the index. That is not necessarily bad, but you should own that risk consciously, not by accident.
 
-**Sam:** And third?
+**Stella:** And third?
 
-**Alex:** Index reconstitution and rebalancing create predictable trading patterns that impose costs on index fund investors. These costs are generally small for large-cap indexes like the S&P 500 but can be meaningful for small-cap indexes. Understanding these mechanics helps you choose better funds and set more realistic return expectations.
+**Horace:** Index reconstitution and rebalancing create predictable trading patterns that impose costs on index fund investors. These costs are generally small for large-cap indexes like the S&P 500 but can be meaningful for small-cap indexes. Understanding these mechanics helps you choose better funds and set more realistic return expectations.
 
 [VISUAL: Summary card with three key takeaways. A preview graphic for next week's lesson on economic cycles shows a sine wave with labels for expansion, peak, contraction, and trough.]
 
-**Sam:** This was really eye-opening. I never realized there was so much going on under the hood of something as simple as an index fund.
+**Stella:** This was really eye-opening. I never realized there was so much going on under the hood of something as simple as an index fund.
 
-**Alex:** That is the thing -- index funds are simple to own but not simple in their construction. The more you understand the machinery, the better decisions you will make. Next week, we are diving into economic cycles -- how the economy moves through expansion, peak, contraction, and trough, and what that means for your portfolio. See you then.
+**Horace:** That is the thing -- index funds are simple to own but not simple in their construction. The more you understand the machinery, the better decisions you will make. Next week, we are diving into economic cycles -- how the economy moves through expansion, peak, contraction, and trough, and what that means for your portfolio. See you then.
 
-**Sam:** Can not wait. Thanks everyone for watching!
+**Stella:** Can not wait. Thanks everyone for watching!
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

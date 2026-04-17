@@ -1,446 +1,443 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 11: Retirement Accounts - 401k, IRA, Roth
+# 補充課第十一課：退休賬戶 — 401(k)、IRA、Roth
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-The U.S. tax code provides a variety of tax-advantaged accounts designed to encourage retirement savings. Understanding these accounts -- how they work, their contribution limits, their tax implications, and how to use them strategically -- is one of the most impactful financial skills you can develop. The difference between using retirement accounts well and using them poorly can easily amount to hundreds of thousands of dollars over a lifetime. This lesson covers the major account types, their rules, and strategies for maximizing their benefits at every life stage.
-
----
-
-### a) Why This Is Important
-
-**Tax savings are guaranteed returns.** Unlike market performance, which is uncertain, tax savings are guaranteed. Every dollar you save in taxes through proper use of retirement accounts is a dollar that compounds for you. Over 30 years, even modest annual tax savings can grow into substantial wealth.
-
-**The government is incentivizing you to save.** Through tax deductions, tax-free growth, and employer matches, the government and your employer are essentially giving you free money to save for retirement. Not taking full advantage of these incentives is leaving money on the table.
-
-**The rules are complex and expensive to ignore.** Contribution limits, income phase-outs, required minimum distributions, early withdrawal penalties, and Roth conversion strategies all have specific rules. Mistakes can result in penalties, unnecessary taxes, or missed opportunities that compound over decades.
-
-**Your choice of account type affects decades of returns.** Whether you save in a Traditional or Roth account has implications that play out over 20-40 years. Making the right choice (or strategically using both) depends on your current tax bracket, expected future tax bracket, and retirement plans.
-
-**Employer matches are the highest-return investment available.** A 401(k) employer match -- say, 50% of your contributions up to 6% of salary -- represents an immediate 50% return on your money. No investment in the market can guarantee that. Understanding how to capture the full match is priority number one.
+美國稅法提供多種稅務優惠賬戶，旨在鼓勵退休儲蓄。了解這些賬戶——其運作方式、供款上限、稅務影響，以及如何策略性地善用它們——是您能掌握的最具影響力的理財技能之一。善用與不善用退休賬戶之間的差距，終生累計下來可輕易達到數十萬美元。本課涵蓋主要賬戶類型、相關規則，以及在人生各個階段如何最大化其效益的策略。
 
 ---
 
-### b) What You Need to Know
+### a) 為何這很重要
 
-#### The Two Tax Models: Traditional vs. Roth
+**稅務節省是有保證的回報。** 與不確定的市場表現不同，稅務節省是有保證的。透過妥善使用退休賬戶節省的每一元稅款，都會為您複息增長。在三十年間，即使是適度的年度稅務節省，也可增長為可觀的財富。
 
-Every retirement account follows one of two tax models:
+**政府正在激勵您儲蓄。** 透過稅務扣減、免稅增長和僱主配對，政府和您的僱主實際上是在給您免費的金錢，鼓勵您為退休儲蓄。不充分利用這些激勵措施，等同於白白放棄金錢。
 
-**Traditional (Tax-Deferred):**
-- Contributions may be tax-deductible (you pay less tax today).
-- Money grows tax-deferred (no annual taxes on gains or income).
-- Withdrawals in retirement are taxed as ordinary income.
-- Think of it as: "Tax break now, pay taxes later."
+**規則複雜，忽視代價高昂。** 供款上限、收入逐步淘汰門檻、最低必須分派、提前提款罰款和Roth轉換策略，都有各自的具體規則。錯誤可能導致罰款、不必要的稅款，或錯過在數十年間複利積累的機會。
 
-**Roth (Tax-Free Growth):**
-- Contributions are made with after-tax money (no tax break today).
-- Money grows tax-free.
-- Qualified withdrawals in retirement are completely tax-free.
-- Think of it as: "Pay taxes now, never pay taxes again."
+**您選擇的賬戶類型影響數十年的回報。** 選擇傳統賬戶還是Roth賬戶，其影響會在二十至四十年間逐步呈現。正確選擇（或策略性地同時使用兩者）取決於您目前的稅率、預期的退休稅率和退休計劃。
 
-The fundamental question is: will your tax rate be higher now or in retirement? If higher now, Traditional saves you more. If higher in retirement, Roth saves you more. If you are unsure (which most people are), having money in both Traditional and Roth accounts provides tax diversification -- the ability to choose which bucket to withdraw from in retirement to minimize taxes.
-
-#### 401(k) Plans
-
-The 401(k) is an employer-sponsored retirement plan. It is the most common retirement savings vehicle for American workers.
-
-**Key features:**
-
-- **Contribution limits (2024-2025):** $23,000 per year for employees under 50. $30,500 for employees 50 and older (includes a $7,500 catch-up contribution). These limits are adjusted periodically for inflation.
-- **Employer match:** Many employers match a portion of your contributions. Common formulas include 50% match on the first 6% of salary, or dollar-for-dollar match on the first 3-4%. The match is essentially free money and should always be captured in full.
-- **Investment options:** 401(k) plans offer a menu of investment options selected by the employer, typically including a mix of index funds, actively managed funds, target-date funds, and sometimes company stock. The quality and cost of these options vary dramatically between plans.
-- **Vesting:** Your own contributions are always 100% vested (they belong to you immediately). Employer match contributions may be subject to a vesting schedule -- meaning you must work for the employer for a certain number of years before the match is fully yours. Common vesting schedules range from immediate vesting to 4-6 year graduated vesting.
-- **Loans and hardship withdrawals:** Most 401(k) plans allow loans (you borrow from yourself and repay with interest) and hardship withdrawals (subject to penalties and taxes). These should be last resorts.
-- **Early withdrawal penalty:** Withdrawals before age 59 1/2 generally incur a 10% penalty on top of ordinary income taxes. Exceptions include the Rule of 55 (penalty-free withdrawals if you leave your employer at age 55 or later) and substantially equal periodic payments (72(t) distributions).
-
-**Traditional 401(k) vs. Roth 401(k):**
-
-Many employers now offer both options:
-
-- **Traditional 401(k):** Contributions reduce your taxable income today. A $23,000 contribution in the 24% bracket saves you $5,520 in taxes this year. Withdrawals in retirement are taxed as ordinary income.
-- **Roth 401(k):** Contributions do not reduce your taxable income. You pay taxes on the full amount today. But withdrawals in retirement -- including all growth -- are tax-free. The contribution limits are the same for both.
-
-The employer match, regardless of whether you choose Traditional or Roth for your contributions, always goes into a Traditional (pre-tax) bucket. So even if you contribute entirely to a Roth 401(k), the match will be Traditional and taxable upon withdrawal.
-
-#### Individual Retirement Accounts (IRAs)
-
-IRAs are retirement accounts you open yourself, independent of an employer. They provide additional tax-advantaged savings beyond your 401(k).
-
-**Traditional IRA:**
-
-- **Contribution limit (2024-2025):** $7,000 per year ($8,000 if age 50+).
-- **Tax deductibility:** If you are not covered by an employer plan, contributions are fully deductible regardless of income. If you are covered by an employer plan, deductibility phases out at higher incomes (the exact phase-out range is adjusted annually and depends on filing status).
-- **Growth:** Tax-deferred.
-- **Withdrawals:** Taxed as ordinary income. 10% early withdrawal penalty before age 59 1/2 (with some exceptions).
-- **Required Minimum Distributions (RMDs):** Must begin taking distributions at age 73 (increasing to 75 in 2033 under SECURE 2.0). RMDs ensure the government eventually collects taxes on tax-deferred money.
-
-**Roth IRA:**
-
-- **Contribution limit:** Same as Traditional IRA ($7,000/$8,000 if 50+).
-- **Income limits:** You cannot contribute directly to a Roth IRA if your modified adjusted gross income (MAGI) exceeds certain thresholds. For 2024, the phase-out begins at $146,000 for single filers and $230,000 for married filing jointly. Above these limits, you must use the "backdoor Roth" strategy (discussed below).
-- **Tax treatment:** No deduction for contributions. Tax-free growth. Tax-free withdrawals in retirement (after age 59 1/2 and the account has been open for 5 years).
-- **Contribution withdrawals:** You can withdraw your contributions (but not earnings) at any time, tax-free and penalty-free. This makes the Roth IRA more flexible than a Traditional IRA.
-- **No RMDs:** Unlike Traditional IRAs, Roth IRAs have no required minimum distributions during the owner's lifetime. Money can grow tax-free indefinitely and be passed to heirs.
-
-#### The Backdoor Roth IRA
-
-High-income earners who exceed Roth IRA income limits can still get money into a Roth IRA through the backdoor strategy:
-
-1. Make a non-deductible contribution to a Traditional IRA ($7,000).
-2. Convert the Traditional IRA to a Roth IRA (ideally before it earns any gains).
-3. Pay taxes on any gains (minimal if converted quickly).
-
-This is legal and has been widely used. However, if you have existing Traditional IRA balances, the pro-rata rule applies -- the IRS treats all your Traditional IRA balances as one pot, and the taxable portion of the conversion is based on the ratio of pre-tax to after-tax money across all your Traditional IRAs.
-
-**Mega Backdoor Roth:** Some 401(k) plans allow after-tax contributions above the standard limit, which can then be converted to Roth. The total 401(k) limit (employee + employer contributions) is $69,000 (2024). If your employer contributions and regular 401(k) contributions total $30,000, you might be able to contribute an additional $39,000 in after-tax contributions and convert them to Roth. This is not available in all plans but is highly valuable where offered.
-
-#### Required Minimum Distributions (RMDs)
-
-The government allows tax-deferred growth in Traditional accounts but eventually wants its tax revenue. RMDs are the mechanism:
-
-- **Starting age:** 73 for those turning 73 in 2023 or later. This will increase to 75 starting in 2033.
-- **Calculation:** RMD = Account balance at end of prior year / IRS life expectancy factor. The life expectancy factor decreases as you age, meaning RMDs represent a growing percentage of your account each year.
-- **Penalty for missing RMDs:** 25% excise tax on the amount not distributed (reduced from the previous 50% penalty by SECURE 2.0). This penalty can be reduced to 10% if corrected within two years.
-- **Applies to:** Traditional IRAs, Traditional 401(k)s, and other tax-deferred accounts.
-- **Does NOT apply to:** Roth IRAs (during the owner's lifetime). Roth 401(k)s previously required RMDs, but SECURE 2.0 eliminated this requirement starting in 2024.
-
-RMDs can create a significant tax burden if Traditional accounts have grown very large. This is one reason Roth conversions before RMD age can be strategically valuable -- you pay taxes now at potentially lower rates to avoid forced distributions later at potentially higher rates.
-
-#### Roth Conversion Strategies
-
-A Roth conversion involves moving money from a Traditional IRA or 401(k) to a Roth IRA. You pay ordinary income taxes on the converted amount in the year of conversion, but all future growth and withdrawals are tax-free.
-
-**When Roth conversions make the most sense:**
-
-- **Low-income years:** Between jobs, early retirement (before Social Security and RMDs begin), sabbaticals, or years with unusually low income. You can convert at a lower tax rate than you would otherwise pay.
-- **The "gap years" between retirement and RMDs:** If you retire at 60 and RMDs do not start until 73, you have 13 years where you might be in a lower tax bracket. Systematically converting Traditional IRA money to Roth during this window can dramatically reduce future RMDs and lifetime taxes.
-- **When you expect higher future tax rates:** If tax rates rise (as they may when current rates expire) or if your future income will be high, converting now locks in today's lower rates.
-- **Estate planning:** Roth IRAs pass to heirs with no income tax due on withdrawals (though heirs must deplete the account within 10 years under current rules). Converting to Roth before death allows you to prepay the taxes and leave a larger, tax-free inheritance.
-
-**Roth Conversion Ladder:** This is a strategy for early retirees (before age 59 1/2) to access retirement funds without penalty. You convert Traditional IRA money to Roth each year. After a 5-year waiting period, each conversion's principal can be withdrawn penalty-free. By doing conversions every year, you create a "ladder" of accessible funds.
-
-**Important consideration:** Converting too much in one year can push you into a higher tax bracket, triggering additional Medicare premiums (IRMAA), reducing ACA health insurance subsidies, or creating other tax complications. Conversions should be planned carefully, ideally with a tax professional.
-
-#### Contribution Priority: Where to Put Your Money First
-
-Given limited dollars, here is the generally recommended order of contributions:
-
-1. **401(k) up to the employer match.** This is the highest-return investment available -- immediate 50-100% return on matched dollars. Never leave match money on the table.
-2. **Pay off high-interest debt.** Credit card debt at 20%+ interest earns a guaranteed "return" when eliminated. No investment reliably beats this.
-3. **Max out Roth IRA or Traditional IRA** ($7,000/$8,000). IRAs typically offer more investment choices and lower fees than 401(k) plans.
-4. **Max out remaining 401(k) contributions** ($23,000/$30,500 total).
-5. **HSA (Health Savings Account)** if eligible. An HSA is a triple-tax-advantaged account (tax-deductible contributions, tax-free growth, tax-free withdrawals for medical expenses). It is the only account with all three benefits.
-6. **Mega Backdoor Roth** if available in your 401(k) plan.
-7. **Taxable brokerage account.** After maxing all tax-advantaged options, invest in a regular brokerage account using tax-efficient strategies.
-
-This order maximizes the value of tax-advantaged space. However, individual circumstances may warrant adjustments -- for example, if your 401(k) plan has terrible investment options, you might prioritize the IRA over the 401(k) beyond the match.
-
-#### Which Account Type for Which Life Stage
-
-**Early career (20s, lower income):**
-- Roth contributions are often ideal because you are likely in a lower tax bracket. The tax deduction from Traditional contributions saves less at low tax rates.
-- Roth 401(k) and Roth IRA are strong choices.
-- Always capture the full employer match.
-
-**Mid-career (30s-40s, growing income):**
-- As income and tax rates rise, the tax deduction from Traditional contributions becomes more valuable.
-- A split strategy -- some Traditional, some Roth -- provides tax diversification.
-- Max out all available tax-advantaged space if possible.
-
-**Peak earning years (40s-50s, highest income):**
-- Traditional 401(k) contributions save the most in taxes at high brackets.
-- Backdoor Roth IRA for additional tax-free savings.
-- Mega Backdoor Roth if your plan allows it.
-- HSA contributions if eligible.
-
-**Pre-retirement (50s-60s):**
-- Catch-up contributions become available ($7,500 extra in 401(k), $1,000 extra in IRA).
-- Consider whether Roth conversions make sense before RMDs begin.
-- Start planning withdrawal strategies for different account types.
-
-**Retirement (60s+):**
-- Strategic withdrawals from the right accounts in the right order to minimize lifetime taxes.
-- Roth conversions during low-income years before Social Security and RMDs.
-- RMDs begin at 73 -- plan for the tax impact.
-- Consider qualified charitable distributions (QCDs) from IRAs after age 70 1/2 to satisfy RMDs while reducing taxable income.
+**僱主配對是現有最高回報的投資。** 401(k)僱主配對——例如，配對您薪酬6%以內供款的50%——代表您的資金即時獲得50%的回報。市場上沒有任何投資能保證這樣的回報。了解如何獲取全額配對是首要任務。
 
 ---
 
-### c) Common Misconceptions
+### b) 您需要了解的知識
 
-**Misconception 1: "I should always choose Roth because tax-free money is better."**
-Tax-free growth is powerful, but it is not always the best choice. If you are in the 32% tax bracket, a Traditional 401(k) contribution saves you $0.32 per dollar contributed. If you retire in the 22% bracket, you pay only $0.22 per dollar withdrawn. You save $0.10 per dollar -- and that savings compounds over decades. The right choice depends on your current vs. future tax rates, not on a blanket rule.
+#### 兩種稅務模型：傳統型與Roth型
 
-**Misconception 2: "I cannot afford to save for retirement."**
-A Traditional 401(k) contribution reduces your take-home pay by less than the contribution amount because of the tax deduction. A $500/month contribution in the 24% bracket only reduces your paycheck by $380. The remaining $120 comes from tax savings. Additionally, employer matches multiply your savings for free. Even small contributions are better than none.
+每個退休賬戶均採用以下兩種稅務模型之一：
 
-**Misconception 3: "I should wait until I make more money to start saving."**
-Time in the market is more powerful than the amount you invest. Someone who saves $200/month starting at age 25 will have more at age 65 than someone who saves $400/month starting at age 35, assuming the same returns. Starting early -- even with small amounts -- gives compounding more time to work.
+**傳統型（稅款遞延）：**
+- 供款可能可以扣稅（您今天繳納較少稅款）。
+- 資金在免稅情況下增長（每年無需就增益或收入繳稅）。
+- 退休時提款按普通收入徵稅。
+- 可理解為：「現在享受稅務優惠，日後才繳稅。」
 
-**Misconception 4: "My employer match means I am saving enough."**
-The employer match is a starting point, not a destination. If your employer matches 3% and you contribute 3%, you are saving 6% of your salary. Most financial planners recommend saving 15-20% of gross income for retirement (including the match). The match gets you partway there, but you likely need to contribute well beyond the match level.
+**Roth型（免稅增長）：**
+- 供款以稅後資金支付（今天沒有稅務優惠）。
+- 資金免稅增長。
+- 退休時符合資格的提款完全免稅。
+- 可理解為：「現在繳稅，以後永不再繳。」
 
-**Misconception 5: "I can always contribute to a Roth IRA."**
-Roth IRA contributions have income limits. If your income exceeds the threshold, you cannot contribute directly. You can use the backdoor Roth strategy, but you need to be aware of the pro-rata rule and plan accordingly. Additionally, some proposed legislation has sought to limit or eliminate the backdoor Roth, so the strategy's future is not guaranteed.
+根本問題是：您現在的稅率還是退休後的稅率更高？若現在較高，傳統型為您節省更多，因為您避免了今天的高稅款，並在日後繳付較低的稅款。若退休後較高，Roth型為您節省更多，因為您今天繳付較低稅款，並避免了日後的高稅款。如果您不確定（大多數人都是如此），同時在傳統型和Roth型賬戶持有資金，可提供稅務多元化——即在退休時選擇從哪個「桶」提款以最大程度減少稅款的能力。
 
-**Misconception 6: "My 401(k) is my whole retirement plan."**
-A 401(k) is an important piece, but comprehensive retirement planning includes Social Security optimization, healthcare cost planning (including Medicare), potential long-term care needs, pension benefits (if any), home equity, and taxable investment accounts. Viewing the 401(k) in isolation can lead to incomplete planning.
+#### 401(k) 計劃
 
-**Misconception 7: "I should never touch retirement accounts before age 59 1/2."**
-While early withdrawals generally incur a 10% penalty, there are important exceptions: the Rule of 55 (for 401(k)s upon leaving an employer), substantially equal periodic payments (72(t)), Roth contribution withdrawals (always penalty-free), first-time home purchase (IRA, up to $10,000), and the Roth conversion ladder for early retirees. These provisions provide more flexibility than most people realize.
+401(k)是一種由僱主贊助的退休計劃，是美國工薪族最常見的退休儲蓄工具。
+
+**主要特點：**
+
+- **供款上限（2024-2025年）：** 50歲以下員工每年$23,000。50歲及以上員工為$30,500（包含$7,500的補充供款）。這些上限定期根據通脹調整。
+- **僱主配對：** 許多僱主會配對您一部分的供款。常見的公式包括薪酬6%以內供款的50%配對，或薪酬3-4%以內的1對1配對。配對基本上是免費資金，應始終全額獲取。
+- **投資選項：** 401(k)計劃提供由僱主選擇的投資菜單，通常包括指數基金、主動管理基金、目標日期基金，有時還有公司股票。不同計劃的選項質素和費用差異巨大。
+- **歸屬期：** 您自己的供款始終100%即時歸屬於您。僱主配對供款可能受歸屬期程表限制——意味著您必須在僱主處工作一定年數，配對才完全屬於您。常見的歸屬期程表從即時歸屬到4-6年漸進式歸屬不等。
+- **貸款和困難提款：** 大多數401(k)計劃允許貸款（您向自己借款並支付利息）和困難提款（須繳罰款和稅款）。這些應作為最後手段。
+- **提前提款罰款：** 59½歲前提款通常需額外繳付10%罰款，加上普通收入稅。例外情況包括55歲規則（若您在55歲或以後離開僱主，可免罰款提款）及大致相等的定期支付（72(t)分派）。
+
+**傳統401(k)與Roth 401(k)：**
+
+許多僱主現提供兩種選項：
+
+- **傳統401(k)：** 供款減少您今天的應稅收入。在24%稅率下$23,000的供款，今年可為您節省$5,520的稅款。退休時提款按普通收入徵稅。
+- **Roth 401(k)：** 供款不減少您的應稅收入。您今天就整個金額繳稅。但退休時的提款——包括所有增長——均免稅。兩者的供款上限相同。
+
+僱主配對，無論您選擇傳統型還是Roth型供款，都始終存入傳統型（稅前）桶中。因此，即使您完全選擇Roth 401(k)供款，配對部分仍屬傳統型，提款時須繳稅。
+
+#### 個人退休賬戶 (IRA)
+
+IRA是您獨立於僱主自行開設的退休賬戶，可在401(k)以外提供額外的稅務優惠儲蓄。
+
+**傳統IRA：**
+
+- **供款上限（2024-2025年）：** 每年$7,000（50歲以上為$8,000）。
+- **稅務扣減：** 若您未受僱主計劃覆蓋，供款可全額扣稅，不論收入水平。若您受僱主計劃覆蓋，可扣減額度在較高收入時逐步淘汰（確切的淘汰範圍每年調整，並取決於報稅狀況）。
+- **增長：** 稅款遞延。
+- **提款：** 按普通收入徵稅。59½歲前提款有10%罰款（部分例外情況適用）。
+- **最低必須分派 (RMD)：** 必須在73歲時開始提款（根據SECURE 2.0法案，2033年起提高至75歲）。RMD確保政府最終能就稅款遞延資金徵稅。
+
+**Roth IRA：**
+
+- **供款上限：** 與傳統IRA相同（$7,000；50歲以上$8,000）。
+- **收入限制：** 若您的修正後調整總收入（MAGI）超過特定門檻，您不能直接向Roth IRA供款。2024年，單身報稅者的供款逐步淘汰門檻從$146,000開始，聯合申報已婚夫婦為$230,000。超過這些限制，您必須使用「後門Roth」策略（見下文）。
+- **稅務處理：** 供款無扣減。免稅增長。退休時（59½歲後，且賬戶已開設5年）提款免稅。
+- **供款提款：** 您可隨時提取您的供款（但非收益），免稅且免罰款。這使Roth IRA比傳統IRA更靈活。
+- **無RMD：** 與傳統IRA不同，Roth IRA在賬戶持有人有生之年無最低必須分派。資金可無限期免稅增長，並可傳給繼承人。
+
+#### 後門Roth IRA
+
+超過Roth IRA收入限制的高收入人士，仍可透過後門策略將資金存入Roth IRA：
+
+1. 向傳統IRA存入不可扣稅的供款（$7,000）。
+2. 將傳統IRA轉換為Roth IRA（理想情況下在產生任何增益之前）。
+3. 就任何增益繳稅（若迅速轉換，金額極少）。
+
+這是完全合法且被廣泛使用的方法。然而，若您已有傳統IRA餘額，按比例規則將適用——美國國稅局將您所有傳統IRA餘額視為一個整體，轉換的應稅部分按您所有傳統IRA中稅前與稅後資金的比例計算。
+
+**超級後門Roth：** 部分401(k)計劃允許在標準上限以上進行稅後供款，然後可轉換為Roth。401(k)的總上限（員工加僱主供款）為$69,000（2024年）。若您的僱主供款和常規401(k)供款合計$30,000，您可能可以額外貢獻$39,000的稅後供款，並將其轉換為Roth。並非所有計劃都提供此功能，但在有提供的地方極具價值。
+
+#### 最低必須分派 (RMD)
+
+政府允許在傳統賬戶中進行稅款遞延增長，但最終希望獲得其稅收。RMD是其機制：
+
+- **起始年齡：** 2023年或之後年滿73歲者，起始年齡為73歲。2033年起將提高至75歲。
+- **計算方式：** RMD = 上一年度末賬戶餘額 ÷ 美國國稅局預期壽命因子。預期壽命因子隨年齡增長而減小，意味著RMD每年代表您賬戶中越來越高的比例。
+- **遺漏RMD的罰款：** 對未分派金額徵收25%的附加稅（根據SECURE 2.0法案從之前的50%罰款降低）。若在兩年內糾正，此罰款可降至10%。
+- **適用於：** 傳統IRA、傳統401(k)及其他稅款遞延賬戶。
+- **不適用於：** Roth IRA（在賬戶持有人有生之年）。Roth 401(k)此前需要RMD，但SECURE 2.0法案自2024年起取消了此要求。
+
+若傳統賬戶增長非常龐大，RMD可能造成重大稅務負擔。這是在RMD年齡前進行Roth轉換具有策略性價值的原因之一——您現在以潛在較低的稅率繳稅，以避免日後在潛在更高稅率下被迫分派。
+
+#### Roth轉換策略
+
+Roth轉換涉及將資金從傳統IRA或401(k)轉移至Roth IRA。您在轉換當年就轉換金額繳付普通收入稅，但所有未來增長和提款均免稅。
+
+**Roth轉換最有意義的時機：**
+
+- **低收入年份：** 失業、提前退休（在社會保障和RMD開始之前）、休假，或收入異常低的年份。您可以以比平時更低的稅率進行轉換。
+- **退休與RMD之間的「空檔期」：** 若您在60歲退休，而RMD直到73歲才開始，您有13年可能處於較低稅率級別。在此時段內系統地將傳統IRA資金轉換為Roth，可大幅減少未來的RMD和終生稅款。
+- **預期未來稅率更高時：** 若稅率上升（當前稅率到期後可能發生），或若您未來的收入將較高，立即鎖定今天較低的稅率。
+- **遺產規劃：** Roth IRA傳予繼承人時，提款無需繳付入息稅（儘管繼承人須在10年內耗盡賬戶，依現行規定）。在去世前轉換為Roth，允許您預先繳付稅款，留下更大的免稅遺產。
+
+**Roth轉換階梯：** 這是為59½歲前提前退休者設計的策略，無需罰款即可動用退休資金。您每年將一部分傳統IRA資金轉換為Roth。經過5年等待期後，每次轉換的本金可以免罰款提取。每年進行轉換，即可建立一個「可動用資金階梯」。
+
+**重要考量：** 在同一年度轉換過多，可能使您進入更高的稅率級別，觸發額外的醫療保險保費（IRMAA）、減少ACA醫療保險補貼，或產生其他稅務複雜情況。轉換應謹慎規劃，最好與稅務專業人士共同進行。
+
+#### 供款優先順序：首先將資金存入何處
+
+鑑於資金有限，以下是普遍推薦的供款優先順序：
+
+1. **401(k)至僱主配對上限。** 這是現有回報率最高的投資——配對的每一元可獲得即時50-100%的回報。絕不放棄配對資金。
+2. **還清高息債務。** 利率20%以上的信用卡債務，清償後可獲得有保證的「回報」。沒有任何投資能可靠地超越這一點。
+3. **將Roth IRA或傳統IRA存滿**（$7,000/$8,000）。IRA通常比401(k)計劃提供更多投資選擇和更低費用。
+4. **存滿剩餘的401(k)供款**（總計$23,000/$30,500）。
+5. **HSA（健康儲蓄賬戶）**（若符合資格）。HSA是三重稅務優惠賬戶（供款可扣稅、免稅增長、醫療費用提款免稅）。它是唯一三項優惠兼備的賬戶。
+6. **超級後門Roth**（若您的401(k)計劃提供）。
+7. **應稅證券賬戶。** 在充分利用所有稅務優惠空間後，使用稅務高效策略在普通證券賬戶投資。
+
+此順序最大化了稅務優惠空間的價值。然而，個人情況可能需要調整——例如，若您的401(k)計劃投資選項欠佳，您可能會在配對之外優先考慮IRA而非401(k)。
+
+#### 不同人生階段應選擇哪種賬戶類型
+
+**職業初期（20多歲，收入較低）：**
+- Roth供款通常是理想選擇，因為您很可能處於較低稅率級別。傳統供款的稅務扣減在低稅率下節省較少。
+- Roth 401(k)和Roth IRA是強力選擇。
+- 始終獲取全額僱主配對。
+
+**職業中期（30-40多歲，收入增長）：**
+- 隨著收入和稅率上升，傳統供款的稅務扣減變得更有價值。
+- 混合策略——部分傳統型，部分Roth型——提供稅務多元化。
+- 若可能，存滿所有可用的稅務優惠空間。
+
+**收入高峰期（40-50多歲，收入最高）：**
+- 傳統401(k)供款在高稅率下節省最多稅款。
+- 透過後門Roth IRA進行額外的免稅儲蓄。
+- 若您的計劃允許，使用超級後門Roth。
+- 若符合資格，進行HSA供款。
+
+**退休前期（50-60多歲）：**
+- 補充供款變得可用（401(k)額外$7,500，IRA額外$1,000）。
+- 考慮在RMD開始前是否進行Roth轉換。
+- 開始規劃不同賬戶類型的提款策略。
+
+**退休期（60多歲以上）：**
+- 以正確的順序從正確的賬戶進行策略性提款，以最小化終生稅款。
+- 在社會保障和RMD之前的低收入年份進行Roth轉換。
+- RMD從73歲開始——規劃稅務影響。
+- 考慮70½歲後從IRA進行合資格慈善捐款（QCD），以滿足RMD同時減少應稅收入。
 
 ---
 
-### d) Common Questions and Answers
+### c) 常見誤解
 
-**Q: Traditional or Roth -- which is better?**
-A: Neither is universally better. The answer depends on your current marginal tax rate, your expected tax rate in retirement, and your personal financial situation. As a rough guide: if your current marginal rate is 22% or lower, Roth is often favorable. If it is 32% or higher, Traditional is often favorable. At 24%, it could go either way. When in doubt, split contributions between both for tax diversification.
+**誤解一：「我應該始終選擇Roth，因為免稅資金更好。」**
+免稅增長固然強大，但並非總是最佳選擇。若您處於32%稅率級別，傳統401(k)供款每元可為您節省$0.32。若您在22%稅率退休，每元提款只繳$0.22。您每元節省$0.10——而這一節省會在數十年間複利增長。正確的選擇取決於您目前與未來的稅率，而非一概而論的規則。
 
-**Q: What happens to my 401(k) when I leave my job?**
-A: You have several options. (1) Leave it in the former employer's plan (if the plan allows). (2) Roll it over to your new employer's 401(k). (3) Roll it over to a Traditional IRA (no tax impact if done correctly). (4) Cash it out (triggering taxes and a 10% penalty if under 59 1/2 -- almost always a bad idea). For most people, rolling to an IRA offers the most investment flexibility and lowest fees.
+**誤解二：「我負擔不起退休儲蓄。」**
+傳統401(k)供款對您實際薪酬的影響，比供款金額少，因為有稅務扣減。每月$500的供款在24%稅率下，只使您的薪酬減少$380。其餘$120來自稅務節省。此外，僱主配對可免費倍增您的儲蓄。即使是少量供款也比沒有強。
 
-**Q: Can I have both a 401(k) and an IRA?**
-A: Yes. The 401(k) is employer-sponsored; the IRA is individual. You can contribute to both in the same year, up to their respective limits. However, if you have a 401(k), your ability to deduct Traditional IRA contributions may be limited based on your income. Roth IRA contributions are subject to separate income limits regardless of 401(k) participation.
+**誤解三：「我應該等到賺更多錢後再開始儲蓄。」**
+在市場中的時間比您投資的金額更有力量。從25歲開始每月儲蓄$200的人，到65歲時的積蓄，將多於假設相同回報情況下從35歲開始每月儲蓄$400的人。盡早開始——即使金額很少——給複利更多時間發揮作用。
 
-**Q: What if my 401(k) has terrible investment options?**
-A: Contribute at least enough to get the full employer match -- the match return outweighs high fund fees. Beyond the match, consider directing additional savings to an IRA (which you control) or a taxable account with better investment options. Also, advocate to your HR department for better plan options -- many companies have improved their plans in response to employee feedback.
+**誤解四：「有僱主配對就代表我儲蓄足夠了。」**
+僱主配對是一個起點，而非目的地。若您的僱主配對3%，您供款3%，您儲蓄了薪酬的6%。大多數財務規劃師建議為退休儲蓄薪酬的15-20%（包括配對）。配對帶您走一部分路，但您很可能需要在配對水平以上大幅供款。
 
-**Q: How does the Health Savings Account (HSA) fit in?**
-A: The HSA is uniquely powerful. Contributions are tax-deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free -- triple tax advantage. If you have a high-deductible health plan, you can contribute up to $4,150 (individual) or $8,300 (family) in 2024. The optimal strategy is to contribute the maximum, invest the funds for growth, pay current medical expenses out of pocket, and let the HSA grow for decades. After age 65, you can withdraw HSA funds for any purpose (not just medical) -- non-medical withdrawals are taxed as ordinary income, similar to a Traditional IRA.
+**誤解五：「我隨時可以向Roth IRA供款。」**
+Roth IRA供款有收入限制。若您的收入超過門檻，您不能直接供款。您可以使用後門Roth策略，但需注意按比例規則並做好相應規劃。此外，部分擬議立法曾試圖限制或取消後門Roth，因此該策略的未來並無保證。
 
-**Q: What is the Rule of 55?**
-A: If you leave your employer in the year you turn 55 or later, you can take penalty-free withdrawals from that employer's 401(k). This does not apply to IRAs or 401(k)s from previous employers. It is particularly useful for people who retire between 55 and 59 1/2. Note: you must separate from service during or after the year you turn 55 -- you cannot quit at 54 and wait until 55 to start withdrawing.
+**誤解六：「我的401(k)就是我整個退休計劃。」**
+401(k)是重要的一部分，但全面的退休規劃還包括社會保障優化、醫療費用規劃（包括醫療保險）、潛在的長期護理需求、退休金福利（如有）、物業淨值和應稅投資賬戶。孤立地看待401(k)可能導致規劃不完整。
 
-**Q: Should I take a 401(k) loan?**
-A: Generally no, but there are situations where it makes sense. 401(k) loans must be repaid within 5 years (or upon leaving the employer), and the borrowed money misses out on market growth during the loan period. However, in emergencies, a 401(k) loan is usually better than a hardship withdrawal (which triggers taxes and penalties) or high-interest credit card debt. If you take a 401(k) loan, prioritize rapid repayment.
-
-**Q: When should I start Roth conversions?**
-A: The ideal window for Roth conversions is often early retirement -- after you stop earning a salary but before Social Security and RMDs begin. During these years, your taxable income may be very low, allowing you to convert at the lowest possible tax rates. The key is to fill up the lower tax brackets each year without pushing into higher ones. A tax professional can help optimize conversion amounts annually.
-
-**Q: What about retirement accounts for the self-employed?**
-A: Self-employed individuals have access to several powerful options. The Solo 401(k) allows contributions of up to $69,000 (2024) and includes both employee and employer contribution components. The SEP IRA allows contributions of up to 25% of net self-employment income, with a maximum of $69,000. The SIMPLE IRA is designed for small businesses with 100 or fewer employees. The Solo 401(k) is generally the most flexible and generous option for self-employed individuals.
+**誤解七：「我永遠不應在59½歲前動用退休賬戶。」**
+雖然提前提款通常須繳10%罰款，但有重要例外：55歲規則（離開僱主時適用於401(k)）、大致相等的定期支付（72(t)）、Roth供款提款（始終免罰款）、首次置業（IRA，最高$10,000）和提前退休者的Roth轉換階梯。這些條款提供了大多數人意識到的更多靈活性。
 
 ---
 
-## YouTube Script
+### d) 常見問題與解答
 
-**Side Lesson 11: Retirement Accounts - 401k, IRA, Roth**
+**問：傳統型還是Roth型——哪個更好？**
+答：沒有哪個普遍更好。答案取決於您目前的邊際稅率、預期的退休稅率和個人財務狀況。粗略指引：若您目前的邊際稅率為22%或以下，Roth通常更有利。若為32%或以上，傳統型通常更有利。在24%時，可能兩者都適合。如不確定，在兩者之間分配供款以實現稅務多元化。
+
+**問：離職後我的401(k)怎麼辦？**
+答：您有幾種選擇。(1) 留在前僱主的計劃中（若計劃允許）；(2) 轉移到新僱主的401(k)；(3) 轉移到傳統IRA（若操作正確，無稅務影響）；(4) 套現（59½歲以下將觸發稅款和10%罰款——幾乎總是個壞主意）。對大多數人而言，轉移到IRA提供最多的投資靈活性和最低費用。
+
+**問：我可以同時持有401(k)和IRA嗎？**
+答：可以。401(k)由僱主贊助；IRA是個人賬戶。您可以在同一年度同時向兩者供款，各自不超過其上限。但若您有401(k)，您扣減傳統IRA供款的能力可能會根據您的收入受到限制。Roth IRA供款受單獨的收入限制，不論401(k)參與情況。
+
+**問：若我的401(k)投資選項很差怎麼辦？**
+答：至少供款足以獲得全額僱主配對——配對回報超過了高基金費用的不利影響。超過配對部分，考慮將額外儲蓄轉至IRA（您自行控制）或具有更好投資選項的應稅賬戶。同時，向人力資源部門倡議提供更好的計劃選項——許多公司已根據員工反饋改善了其計劃。
+
+**問：健康儲蓄賬戶 (HSA) 如何配合？**
+答：HSA具有獨特的強大之處。供款可扣稅，增長免稅，合資格醫療費用的提款亦免稅——三重稅務優惠。若您有高免賠額健康計劃，2024年可供款最多$4,150（個人）或$8,300（家庭）。最佳策略是供款最高額，將資金投資增長，自付當前醫療費用，讓HSA增長數十年。65歲後，您可將HSA資金用於任何用途（不僅限於醫療）——非醫療提款按普通收入徵稅，類似傳統IRA。
+
+**問：55歲規則是什麼？**
+答：若您在年滿55歲的當年或之後離開僱主，您可從該僱主的401(k)免罰款提款。此規則不適用於IRA或前僱主的401(k)。對於在55至59½歲之間退休的人士特別有用。注意：您必須在年滿55歲的當年或之後才離職——不能在54歲辭職然後等到55歲才開始提款。
+
+**問：我應該申請401(k)貸款嗎？**
+答：通常不應，但有時是合理的。401(k)貸款須在5年內償還（或離職時），借款期間的資金將錯過市場增長機會。然而，在緊急情況下，401(k)貸款通常優於困難提款（會觸發稅款和罰款）或高息信用卡債務。若您申請401(k)貸款，應優先快速償還。
+
+**問：何時應開始進行Roth轉換？**
+答：Roth轉換的理想時機通常是提前退休後——停止領取薪資但社會保障和RMD尚未開始之前。在這些年份，您的應稅收入可能非常低，允許您以最低可能的稅率進行轉換。關鍵是每年填滿較低的稅率級別，而不推入更高的級別。稅務專業人士可協助每年優化轉換金額。
+
+**問：自僱人士的退休賬戶如何？**
+答：自僱人士可使用幾種強大的選項。個人401(k)允許供款最高$69,000（2024年），包括員工和僱主供款部分。SEP IRA允許供款最高淨自僱收入的25%，上限$69,000。SIMPLE IRA專為100名或以下員工的小型企業設計。個人401(k)通常是自僱人士最靈活、最慷慨的選項。
 
 ---
 
-**Alex:** Sam, today we are covering what might be the most financially impactful topic in our entire series -- retirement accounts. This is where the tax code actually works in your favor.
+## YouTube腳本
 
-**Sam:** I have to be honest, Alex. The alphabet soup of 401(k), IRA, Roth, HSA -- it makes my head spin. I have a 401(k) at work, but I am not even sure I understand how it works.
-
-**Alex:** You are not alone. Most people set up their 401(k) on their first day of work, pick some funds at random, and never think about it again. But understanding these accounts can easily be worth hundreds of thousands of dollars over your career. Let us break it down.
-
-[VISUAL: The three main retirement account types displayed as three doors. Door 1: 401(k) -- "Your employer's plan." Door 2: Traditional IRA -- "Your own pre-tax account." Door 3: Roth IRA -- "Your own after-tax account."]
-
-**Sam:** Let us start with the most basic question. Why do retirement accounts exist?
-
-**Alex:** The government wants people to save for retirement so they do not become dependent on Social Security or welfare programs. To encourage saving, they offer tax incentives. These incentives come in two flavors -- and understanding them is the foundation of everything else.
-
-[ANIMATION: Two paths diverging from a single contribution.
-Path 1 -- Traditional: Money goes in pre-tax. Grows without taxes. Gets taxed when you take it out in retirement.
-Path 2 -- Roth: Money goes in after-tax. Grows without taxes. Comes out completely tax-free in retirement.]
-
-**Sam:** So Traditional means I get a tax break now and pay later. Roth means I pay taxes now and never pay again.
-
-**Alex:** Exactly. That is the single most important concept. Everything else is details and strategy built on top of that foundation.
-
-**Sam:** Which one is better?
-
-**Alex:** That is the million-dollar question, and the answer is -- it depends. If your tax rate is higher now than it will be in retirement, Traditional saves you more because you are avoiding high taxes today and paying low taxes later. If your tax rate is lower now than it will be in retirement, Roth saves you more because you are paying low taxes today and avoiding high taxes later.
-
-[VISUAL: Tax bracket comparison.
-Scenario A: Person in 24% bracket now, expects 22% in retirement. Arrow points to Traditional -- "Save at 24%, pay at 22% = net savings."
-Scenario B: Person in 12% bracket now, expects 22% in retirement. Arrow points to Roth -- "Pay at 12%, save at 22% = net savings."
-Scenario C: Person in 24% bracket now, unsure about retirement rates. Arrow points to Both -- "Split contributions for tax diversification."]
-
-**Sam:** What if I have no idea what my tax rate will be in 30 years?
-
-**Alex:** Great question, and honestly, nobody knows for sure. Tax rates could change, your income could change, your filing status could change. That is why many financial planners recommend having money in both Traditional and Roth accounts. This is called tax diversification. In retirement, you can pull from whichever bucket minimizes your tax bill each year.
-
-**Sam:** That makes sense. Okay, let us talk about the 401(k). That is the one most people encounter first.
-
-**Alex:** Right. A 401(k) is an employer-sponsored plan. Your employer sets it up, chooses the investment options, and -- critically -- may match some of your contributions.
-
-**Sam:** Tell me about the match. That is the free money part, right?
-
-**Alex:** This is the most important part of any 401(k) discussion. A common match formula is: the employer matches 50% of your contributions up to 6% of your salary. Let us say you make $80,000 per year.
-
-[ANIMATION: Salary: $80,000. You contribute 6% = $4,800. Employer matches 50% of that = $2,400. Total going into your account: $7,200. That $2,400 match is a 50% instant return on your $4,800 contribution. No investment in the world guarantees a 50% return.]
-
-**Sam:** So if I do not contribute at least 6%, I am literally leaving free money on the table?
-
-**Alex:** Exactly. If your employer offers a match, contributing enough to get the full match should be your absolute number one financial priority. Before paying off low-interest debt, before investing in a taxable account, before anything else. There is no investment that can match a guaranteed 50% or 100% return.
-
-**Sam:** How much can I put into a 401(k)?
-
-**Alex:** For 2024-2025, the employee contribution limit is $23,000. If you are 50 or older, you can add a $7,500 catch-up contribution, bringing the total to $30,500. The employer match is on top of these limits.
-
-**Sam:** $23,000 is a lot of money. What if I cannot afford to max it out?
-
-**Alex:** Then contribute what you can, but always at least enough to get the full employer match. And remember, if you choose Traditional (pre-tax) contributions, the impact on your paycheck is less than the contribution amount because of the tax savings.
-
-[ANIMATION: Paycheck impact calculation.
-Contributing $500/month to Traditional 401(k).
-In the 24% tax bracket.
-Tax savings: $500 x 24% = $120.
-Actual paycheck reduction: $500 - $120 = $380.
-"You save $500, but your paycheck only drops by $380. The other $120 comes from tax savings."]
-
-**Sam:** So it costs me $380 to save $500? That is actually quite affordable.
-
-**Alex:** Right. Many people overestimate the cost of 401(k) contributions because they forget the tax benefit. Now, many employers also offer a Roth 401(k) option. Same contribution limits, but no tax deduction. You pay taxes on the full $500, but it grows and comes out tax-free.
-
-**Sam:** Let us move to IRAs. How are they different from 401(k)s?
-
-**Alex:** IRAs are individual accounts you open yourself at any brokerage. They are independent of your employer. The main advantages of IRAs over 401(k)s are more investment choices and typically lower fees.
-
-[VISUAL: Comparison table.
-401(k): Employer-sponsored. Limited investment menu. $23,000 limit. May have employer match.
-IRA: You open it yourself. Unlimited investment choices. $7,000 limit. No employer match.
-Both available as Traditional or Roth.]
-
-**Sam:** The contribution limit is much lower -- only $7,000.
-
-**Alex:** Yes, and there is another catch with IRAs. Income limits affect whether you can contribute and whether contributions are deductible. For Roth IRAs, if your income exceeds roughly $146,000 as a single filer or $230,000 as a married couple, you cannot contribute directly.
-
-**Sam:** So high earners are locked out of Roth IRAs?
-
-**Alex:** Not entirely. There is a legal workaround called the backdoor Roth IRA.
-
-[ANIMATION: Three-step process illustrated as a pipeline.
-Step 1: Contribute $7,000 to a non-deductible Traditional IRA.
-Step 2: Convert the Traditional IRA to a Roth IRA.
-Step 3: Pay taxes on any gains (minimal if done quickly).
-Result: $7,000 in your Roth IRA, regardless of income.]
-
-**Sam:** Is that really legal?
-
-**Alex:** Completely legal and widely used. The IRS has never challenged it. However, there is a complication called the pro-rata rule. If you have existing Traditional IRA balances, the conversion is partially taxable based on the ratio of pre-tax money in all your IRAs. The cleanest way to do a backdoor Roth is to have zero balance in Traditional IRAs -- which might mean rolling them into your 401(k) first.
-
-**Sam:** This is getting strategic. Let us talk about Roth conversions more broadly.
-
-**Alex:** Roth conversions are one of the most powerful tax planning tools available. The idea is simple: move money from a Traditional account to a Roth account, pay taxes on the conversion, and enjoy tax-free growth and withdrawals going forward.
-
-**Sam:** But why would I voluntarily pay taxes?
-
-**Alex:** Because you might pay less now than later. The golden window for Roth conversions is often early retirement. Let me illustrate.
-
-[ANIMATION: Timeline of a person's financial life.
-Age 55-65: Early retirement. No salary. Low income. Low tax bracket.
-Age 65-70: Social Security begins. Income increases.
-Age 73+: RMDs from Traditional accounts begin. Income increases more.
-The "conversion window" between 55-65 is highlighted -- this is when tax rates are lowest and conversions are cheapest.]
-
-**Alex:** Between retirement and when Social Security and RMDs start, you might be in the 10% or 12% tax bracket. If you convert Traditional IRA money to Roth during this window, you pay a low rate now and avoid paying a potentially much higher rate later when RMDs pile on top of Social Security income.
-
-**Sam:** What are RMDs exactly?
-
-**Alex:** Required Minimum Distributions. Starting at age 73, the government forces you to withdraw a minimum amount from your Traditional IRA and 401(k) each year. They let you defer taxes for decades, but they want their money eventually.
-
-[VISUAL: RMD table showing approximate percentages:
-Age 73: ~3.8% of balance
-Age 75: ~4.1%
-Age 80: ~5.0%
-Age 85: ~6.3%
-Age 90: ~8.2%
-Text: "The percentage increases each year, forcing out more money and more taxes."]
-
-**Sam:** And if I do not take my RMD?
-
-**Alex:** There is a 25% penalty on the amount you should have taken but did not. That is on top of the ordinary income tax you still owe.
-
-**Sam:** Ouch. What about Roth IRAs? Do they have RMDs?
-
-**Alex:** No, and this is a huge advantage of Roth accounts. Roth IRAs have no RMDs during the owner's lifetime. Your money can grow tax-free for as long as you live. If you do not need the money, you can leave it growing for your heirs.
-
-**Sam:** So there is a planning advantage to getting money into Roth accounts before RMDs start.
-
-**Alex:** Absolutely. Every dollar you convert to Roth before age 73 is a dollar that does not contribute to your RMD calculation. This can keep your future income lower, potentially reducing taxes on Social Security benefits and Medicare premiums.
-
-**Sam:** I have also heard about something called a Roth conversion ladder for early retirees.
-
-**Alex:** This is a strategy for people who retire before age 59 1/2. Normally, you cannot access retirement funds without a 10% penalty. But with a Roth conversion ladder, you convert a portion of your Traditional IRA to Roth each year. After a 5-year waiting period, the converted principal can be withdrawn penalty-free.
-
-[ANIMATION: Ladder diagram.
-Year 1 (age 45): Convert $40,000. Must wait 5 years.
-Year 2 (age 46): Convert $40,000. Must wait 5 years.
-...continues each year...
-Year 6 (age 50): Year 1's conversion is now accessible penalty-free.
-Year 7 (age 51): Year 2's conversion is accessible.
-"By year 6, you have a continuous ladder of accessible funds."]
-
-**Sam:** That is clever. But you need 5 years of living expenses from other sources to bridge the gap.
-
-**Alex:** Correct. Taxable accounts, Roth contributions (which can always be withdrawn penalty-free), or other savings can cover the gap. This strategy requires planning but can be extremely effective.
-
-**Sam:** Let us talk about priority. If I have limited dollars, where should they go first?
-
-**Alex:** Here is the generally recommended priority.
-
-[VISUAL: A numbered pyramid/staircase.
-Step 1: 401(k) up to employer match (free money -- always first)
-Step 2: Pay off high-interest debt (guaranteed return)
-Step 3: Max out IRA (Roth or Traditional, $7,000)
-Step 4: Max out remaining 401(k) ($23,000 total)
-Step 5: HSA if eligible (triple tax advantage)
-Step 6: Mega Backdoor Roth if available
-Step 7: Taxable brokerage account]
-
-**Sam:** Why does the IRA come before maxing out the 401(k)?
-
-**Alex:** Because IRAs give you complete control over investment choices and fees. Many 401(k) plans have limited menus and higher-cost funds. Your IRA can hold any index fund or ETF at rock-bottom costs. However, if your 401(k) plan has excellent low-cost options -- like many large employer plans do -- this ordering becomes less important.
-
-**Sam:** Where does the HSA fit in? I have heard it called the best retirement account.
-
-**Alex:** The HSA is uniquely powerful because it offers triple tax benefits. Contributions are tax-deductible, growth is tax-free, and withdrawals for medical expenses are tax-free. No other account offers all three. And after age 65, you can withdraw HSA funds for any purpose -- non-medical withdrawals are simply taxed as ordinary income, like a Traditional IRA.
-
-**Sam:** So it is basically a super-IRA for healthcare.
-
-**Alex:** Exactly. The optimal strategy, if you can afford it, is to contribute the maximum, invest the funds for long-term growth, and pay current medical expenses out of pocket. This lets the HSA compound for decades.
-
-**Sam:** Now, at different life stages, the strategy changes, right?
-
-**Alex:** Absolutely. Let me walk through the general framework.
-
-[ANIMATION: Four life stage panels, each showing recommended account strategy:
-Panel 1 -- Early Career (20s, lower income): "Roth is king. Tax rates are low now. Capture the employer match. Start small but start NOW."
-Panel 2 -- Mid-Career (30s-40s, rising income): "Mix of Traditional and Roth. Max out all accounts if possible. Tax diversification becomes important."
-Panel 3 -- Peak Earnings (40s-50s): "Traditional 401(k) for maximum tax deduction. Backdoor Roth IRA. Catch-up contributions after 50."
-Panel 4 -- Retirement: "Strategic Roth conversions during low-income years. Careful withdrawal sequencing. RMD planning."]
-
-**Sam:** So the strategy evolves as your income and tax situation change over your career.
-
-**Alex:** Exactly. There is no single right answer for everyone at every stage. The key principles are: always capture the match, maximize tax-advantaged space when possible, choose Traditional vs. Roth based on your current tax bracket, and plan ahead for the conversion and withdrawal strategies that minimize lifetime taxes.
-
-**Sam:** Let me summarize. Traditional accounts give you a tax break now and you pay taxes later. Roth accounts take no break now but are tax-free forever. The 401(k) is employer-sponsored with higher contribution limits and potential matching. The IRA is individual with more investment freedom. The backdoor Roth lets high earners get into Roth IRAs. Roth conversions during low-income years can save enormous amounts in taxes. And RMDs force you to take money from Traditional accounts starting at 73 -- another reason to convert to Roth earlier.
-
-**Alex:** That is an excellent summary. The single biggest mistake people make is not understanding these tools and leaving tax savings on the table. The second biggest mistake is not starting early enough. Even small contributions at age 25 dramatically outgrow larger contributions starting at age 35.
-
-[ANIMATION: Final comparison.
-Person A: Contributes $300/month starting at age 25. Stops at age 35 (10 years, $36,000 total contributed).
-Person B: Contributes $300/month starting at age 35. Continues to age 65 (30 years, $108,000 total contributed).
-At age 65, assuming 8% returns:
-Person A: ~$490,000.
-Person B: ~$440,000.
-Person A contributed THREE TIMES LESS but ended up with MORE money because of the 10-year head start.]
-
-**Sam:** That is the power of compounding right there. Starting early really does matter.
-
-**Alex:** It is the single most important decision you can make for your financial future. The best time to start was 10 years ago. The second best time is today.
-
-**Sam:** Next lesson, we are looking at something that has been growing fast in the investment world -- ESG and sustainable investing.
-
-**Alex:** Right. We will cover whether investing with environmental and social principles in mind helps or hurts your returns, and how to navigate the growing world of ESG funds.
+**補充課第十一課：退休賬戶 — 401(k)、IRA、Roth**
 
 ---
 
-*End of Side Lesson 11*
+**Horace（陳馬）：** 小魚，今天我們要講的，可能是我們整個系列中財務影響最大的話題——退休賬戶。這是稅法真正對您有利的地方。
+
+**Stella（小魚）：** 老實說，陳馬，401(k)、IRA、Roth、HSA這堆縮寫，讓我頭都大了。我在公司有一個401(k)，但我甚至不確定自己是否真的了解它如何運作。
+
+**Horace（陳馬）：** 您並不孤單。大多數人在第一天上班時設置好401(k)，隨機選擇一些基金，之後就再也不去想它了。但了解這些賬戶，在您的職業生涯中輕易可以價值數十萬美元。讓我們一步步來理清楚。
+
+[VISUAL: 三種主要退休賬戶類型顯示為三扇門。第一扇門：401(k)——「您僱主的計劃」。第二扇門：傳統IRA——「您自己的稅前賬戶」。第三扇門：Roth IRA——「您自己的稅後賬戶」。]
+
+**Stella（小魚）：** 讓我們從最基本的問題開始。為什麼退休賬戶存在？
+
+**Horace（陳馬）：** 政府希望人們為退休儲蓄，這樣他們就不會依賴社會保障或福利計劃。為了鼓勵儲蓄，他們提供稅務優惠。這些優惠有兩種形式——了解它們是所有其他知識的基礎。
+
+[ANIMATION: 兩條路從單一供款分叉。
+路徑一——傳統型：資金以稅前方式存入。在免稅情況下增長。退休時取出時才繳稅。
+路徑二——Roth型：資金以稅後方式存入。在免稅情況下增長。退休時完全免稅取出。]
+
+**Stella（小魚）：** 所以傳統型是我現在享受稅務優惠，以後再繳稅。Roth型是我現在繳稅，以後永遠不再繳。
+
+**Horace（陳馬）：** 完全正確。這是最重要的概念。其他所有內容都是建立在這個基礎上的細節和策略。
+
+**Stella（小魚）：** 哪個更好？
+
+**Horace（陳馬）：** 這是百萬美元的問題，答案是——視乎情況。若您現在的稅率高於退休時，傳統型為您節省更多，因為您今天避免了高稅款，日後繳付低稅款。若您現在的稅率低於退休時，Roth型為您節省更多，因為您今天繳付低稅款，日後避免了高稅款。
+
+[VISUAL: 稅率級別比較。
+情況A：此人現在處於24%稅率，預期退休時為22%。箭頭指向傳統型——「以24%節稅，以22%繳稅 = 淨節省」。
+情況B：此人現在處於12%稅率，預期退休時為22%。箭頭指向Roth型——「以12%繳稅，以22%節稅 = 淨節省」。
+情況C：此人現在處於24%稅率，對退休稅率不確定。箭頭指向兩者——「分散供款以實現稅務多元化」。]
+
+**Stella（小魚）：** 如果我根本不知道三十年後我的稅率是多少怎麼辦？
+
+**Horace（陳馬）：** 好問題，老實說，沒有人能確定。稅率可能改變，您的收入可能改變，您的報稅狀況可能改變。這就是為什麼許多財務規劃師建議在傳統型和Roth型賬戶中都持有資金。這叫做稅務多元化。退休時，您可以每年從最能減少稅務負擔的「桶」中提款。
+
+**Stella（小魚）：** 這很有道理。好，讓我們來談談401(k)。那是大多數人最先接觸到的賬戶。
+
+**Horace（陳馬）：** 對。401(k)是由僱主贊助的計劃。您的僱主設立它，選擇投資選項，並且——關鍵是——可能會配對您的一些供款。
+
+**Stella（小魚）：** 告訴我關於配對的事。那是免費資金的部分，對吧？
+
+**Horace（陳馬）：** 這是任何401(k)討論中最重要的部分。一個常見的配對公式是：僱主配對您薪酬6%以內供款的50%。假設您年薪$80,000。
+
+[ANIMATION: 薪酬：$80,000。您供款6% = $4,800。僱主配對其中50% = $2,400。存入您賬戶的總額：$7,200。這$2,400的配對等於您$4,800供款即時獲得50%的回報。世界上沒有任何投資能保證50%的回報。]
+
+**Stella（小魚）：** 所以如果我不至少供款6%，我實際上是在白白放棄免費資金？
+
+**Horace（陳馬）：** 完全正確。若您的僱主提供配對，供款足以獲得全額配對應是您絕對首要的財務優先事項。在還清低息債務之前，在應稅賬戶投資之前，在任何其他事情之前。沒有任何投資可以媲美有保證的50%或100%回報。
+
+**Stella（小魚）：** 401(k)我可以存多少？
+
+**Horace（陳馬）：** 2024-2025年，員工供款上限為$23,000。若您50歲或以上，可額外補充$7,500，合計$30,500。僱主配對在這些上限之外計算。
+
+**Stella（小魚）：** $23,000是很多錢。如果我負擔不起存滿怎麼辦？
+
+**Horace（陳馬）：** 那就量力而為，但始終至少供款足以獲得全額僱主配對。記住，若您選擇傳統型（稅前）供款，對您薪酬的影響比供款金額少，因為有稅務節省。
+
+[ANIMATION: 薪酬影響計算。
+每月向傳統401(k)供款$500。
+處於24%稅率。
+稅務節省：$500 x 24% = $120。
+實際薪酬減少：$500 - $120 = $380。
+「您節省了$500，但您的薪酬只減少了$380。另外$120來自稅務節省。」]
+
+**Stella（小魚）：** 所以我花$380就能儲蓄$500？這其實還挺划算的。
+
+**Horace（陳馬）：** 對。很多人高估了401(k)供款的成本，因為他們忘記了稅務優惠。現在，很多僱主也提供Roth 401(k)選項。相同的供款上限，但沒有稅務扣減。您就整個$500繳稅，但它增長後取出時免稅。
+
+**Stella（小魚）：** 讓我們轉移到IRA。它們與401(k)有何不同？
+
+**Horace（陳馬）：** IRA是您在任何證券行自行開設的個人賬戶。它們獨立於您的僱主。IRA相對於401(k)的主要優勢是更多的投資選擇和通常更低的費用。
+
+[VISUAL: 比較表。
+401(k)：由僱主贊助。有限的投資菜單。$23,000上限。可能有僱主配對。
+IRA：您自行開設。無限的投資選擇。$7,000上限。無僱主配對。
+兩者均可選傳統型或Roth型。]
+
+**Stella（小魚）：** 供款上限低得多——只有$7,000。
+
+**Horace（陳馬）：** 是的，IRA還有另一個限制。收入限制影響您是否可以供款以及供款是否可以扣稅。對於Roth IRA，若您的收入作為單身報稅者超過約$146,000，或已婚聯合申報超過$230,000，您不能直接供款。
+
+**Stella（小魚）：** 所以高收入人士被拒於Roth IRA之外？
+
+**Horace（陳馬）：** 不完全是。有一個合法的解決方法叫做後門Roth IRA。
+
+[ANIMATION: 三步驟過程如管道圖示。
+第一步：向不可扣稅的傳統IRA供款$7,000。
+第二步：將傳統IRA轉換為Roth IRA。
+第三步：就任何增益繳稅（若迅速完成，金額極少）。
+結果：無論收入水平，$7,000存入您的Roth IRA。]
+
+**Stella（小魚）：** 這真的合法嗎？
+
+**Horace（陳馬）：** 完全合法，且被廣泛使用。美國國稅局從未對此提出異議。但有一個叫按比例規則的複雜情況。若您已有傳統IRA餘額，轉換會部分應稅，比例基於您所有IRA中稅前資金的比率。進行後門Roth最簡潔的方式，是傳統IRA餘額為零——這可能意味著先將其轉移至您的401(k)。
+
+**Stella（小魚）：** 這越來越有策略性了。讓我們更廣泛地談談Roth轉換。
+
+**Horace（陳馬）：** Roth轉換是現有最強大的稅務規劃工具之一。概念很簡單：將資金從傳統賬戶轉移到Roth賬戶，就轉換繳稅，然後享受免稅增長和免稅提款。
+
+**Stella（小魚）：** 但我為什麼要自願繳稅呢？
+
+**Horace（陳馬）：** 因為您現在繳的稅可能比日後少。Roth轉換的黃金時機通常是提前退休。讓我來說明一下。
+
+[ANIMATION: 一個人財務人生的時間軸。
+55-65歲：提前退休。無薪酬。低收入。低稅率。
+65-70歲：社會保障開始。收入增加。
+73歲以上：傳統賬戶的RMD開始。收入進一步增加。
+55-65歲之間的「轉換時窗」被高亮顯示——這是稅率最低、轉換最便宜的時候。]
+
+**Horace（陳馬）：** 在退休後、社會保障和RMD開始前，您可能處於10%或12%稅率。若您在此時窗將傳統IRA資金轉換為Roth，您現在以低稅率繳稅，避免日後RMD疊加社會保障收入時以潛在更高稅率繳稅。
+
+**Stella（小魚）：** RMD到底是什麼？
+
+**Horace（陳馬）：** 最低必須分派。從73歲開始，政府強制您每年從傳統IRA和401(k)中提取最低金額。他們讓您延後繳稅數十年，但他們最終希望收回稅款。
+
+[VISUAL: RMD表格顯示大約百分比：
+73歲：約餘額的3.8%
+75歲：約4.1%
+80歲：約5.0%
+85歲：約6.3%
+90歲：約8.2%
+文字：「百分比每年增加，迫使取出更多資金和繳付更多稅款。」]
+
+**Stella（小魚）：** 如果我不取RMD怎麼辦？
+
+**Horace（陳馬）：** 對您應取但未取的金額徵收25%的罰款。這還在您仍需繳付的普通收入稅之上。
+
+**Stella（小魚）：** 好厲害的罰款。Roth IRA有RMD嗎？
+
+**Horace（陳馬）：** 沒有，而這是Roth賬戶的巨大優勢。Roth IRA在賬戶持有人有生之年沒有RMD。您的資金可以無限期免稅增長。若您不需要這筆錢，可以讓它繼續增長留給繼承人。
+
+**Stella（小魚）：** 所以在RMD開始之前將資金轉入Roth賬戶有規劃上的優勢。
+
+**Horace（陳馬）：** 絕對是。您在73歲前轉換為Roth的每一元，都是不計入RMD計算的一元。這可以使您未來的收入保持在較低水平，潛在地減少社會保障福利和醫療保險保費的稅款。
+
+**Stella（小魚）：** 我也聽說過一種叫做Roth轉換階梯的東西，適用於提前退休者。
+
+**Horace（陳馬）：** 這是為59½歲前退休者設計的策略。通常，您不能在沒有10%罰款的情況下動用退休資金。但透過Roth轉換階梯，您每年將一部分傳統IRA轉換為Roth。經過5年等待期後，每次轉換的本金可以免罰款提取。
+
+[ANIMATION: 階梯圖。
+第一年（45歲）：轉換$40,000。需等待5年。
+第二年（46歲）：轉換$40,000。需等待5年。
+……每年繼續……
+第六年（50歲）：第一年的轉換現在可以免罰款動用。
+第七年（51歲）：第二年的轉換可以動用。
+「到第六年，您已建立起一個持續可動用資金的階梯。」]
+
+**Stella（小魚）：** 很聰明。但您需要5年的生活費用來自其他來源，以填補這個缺口。
+
+**Horace（陳馬）：** 正確。應稅賬戶、Roth供款（始終可以免罰款提取）或其他儲蓄可以填補缺口。這個策略需要規劃，但可以非常有效。
+
+**Stella（小魚）：** 讓我們來談談優先順序。如果我的資金有限，應該首先把錢放在哪裏？
+
+**Horace（陳馬）：** 以下是普遍推薦的優先順序。
+
+[VISUAL: 編號的金字塔/階梯。
+第一步：401(k)至僱主配對（免費資金——永遠第一）
+第二步：還清高息債務（有保證的回報）
+第三步：存滿IRA（Roth或傳統型，$7,000）
+第四步：存滿剩餘的401(k)（總計$23,000）
+第五步：若符合資格，使用HSA（三重稅務優惠）
+第六步：若可用，使用超級後門Roth
+第七步：應稅證券賬戶]
+
+**Stella（小魚）：** 為什麼IRA排在存滿401(k)之前？
+
+**Horace（陳馬）：** 因為IRA讓您完全控制投資選擇和費用。許多401(k)計劃有有限的菜單和較高成本的基金。您的IRA可以以極低成本持有任何指數基金或ETF。然而，若您的401(k)計劃有出色的低成本選項——就像許多大型僱主計劃那樣——這個順序的重要性就會降低。
+
+**Stella（小魚）：** HSA適合放在哪裏？我聽說它被稱為最好的退休賬戶。
+
+**Horace（陳馬）：** HSA具有獨特的強大之處，因為它提供三重稅務優惠。供款可扣稅，增長免稅，醫療費用的提款亦免稅。沒有其他賬戶同時提供全部三項優惠。65歲後，您可將HSA資金用於任何用途——非醫療提款僅按普通收入徵稅，類似傳統IRA。
+
+**Stella（小魚）：** 所以它基本上是一個醫療版的超級IRA。
+
+**Horace（陳馬）：** 完全正確。如果您負擔得起，最佳策略是供款最高額，將資金投資作長期增長，並自付當前醫療費用。這讓HSA能夠複利增長數十年。
+
+**Stella（小魚）：** 現在，在不同的人生階段，策略是會改變的，對吧？
+
+**Horace（陳馬）：** 絕對是。讓我介紹一下總體框架。
+
+[ANIMATION: 四個人生階段面板，每個面板顯示推薦的賬戶策略：
+面板一——職業初期（20多歲，收入較低）：「Roth是王道。現在稅率低。獲取僱主配對。從少量開始，但立即開始。」
+面板二——職業中期（30-40多歲，收入上升）：「傳統型和Roth型混合。盡可能存滿所有賬戶。稅務多元化變得重要。」
+面板三——收入高峰期（40-50多歲）：「傳統401(k)以獲得最大稅務扣減。後門Roth IRA。50歲後補充供款。」
+面板四——退休期：「在低收入年份進行策略性Roth轉換。謹慎的提款順序。RMD規劃。」]
+
+**Stella（小魚）：** 所以策略隨著您職業生涯中收入和稅務狀況的變化而演變。
+
+**Horace（陳馬）：** 完全正確。沒有一個對所有人在每個階段都適用的正確答案。關鍵原則是：始終獲取配對，盡可能最大化稅務優惠空間，根據您目前的稅率選擇傳統型或Roth型，並提前規劃轉換和提款策略，以最小化終生稅款。
+
+**Stella（小魚）：** 讓我總結一下。傳統型賬戶現在給您稅務優惠，日後再繳稅。Roth型賬戶現在不享受優惠，但永遠免稅。401(k)是由僱主贊助的，有較高的供款上限和潛在配對。IRA是個人的，有更多的投資自由度。後門Roth讓高收入人士進入Roth IRA。在低收入年份進行Roth轉換可以節省大量稅款。而RMD從73歲開始迫使您從傳統賬戶取款——這是提早轉換為Roth的另一個原因。
+
+**Horace（陳馬）：** 這是一個很好的總結。人們犯的最大錯誤，是不了解這些工具，白白放棄稅務節省。第二大錯誤是沒有足夠早開始。即使是在25歲時的少量供款，也能大幅超過35歲開始的更大供款。
+
+[ANIMATION: 最終比較。
+甲人：從25歲開始每月供款$300。在35歲停止（10年，共供款$36,000）。
+乙人：從35歲開始每月供款$300。持續至65歲（30年，共供款$108,000）。
+假設8%回報，在65歲時：
+甲人：約$490,000。
+乙人：約$440,000。
+甲人供款少了三倍，但因有10年的先發優勢，最終積累更多。]
+
+**Stella（小魚）：** 這就是複利的力量。早開始真的很重要。
+
+**Horace（陳馬）：** 這是您能為自己財務未來做出的最重要決定。最好的開始時機是十年前，其次就是今天。
+
+**Stella（小魚）：** 下一課，我們將看看投資世界中快速增長的領域——ESG和可持續投資。
+
+**Horace（陳馬）：** 對。我們將探討以環境和社會原則投資是否有助於或損害您的回報，以及如何在不斷增長的ESG基金世界中導航。
+
+---
+
+*補充課第十一課完*

@@ -1,438 +1,435 @@
-<!-- 此檔案需要翻譯為香港繁體中文 -->
-<!-- This file needs translation to HK Traditional Chinese -->
-
-# Side Lesson 12: ESG and Sustainable Investing
+# 旁課第12課：ESG與可持續投資
 
 ---
 
-## Reading Section
+## 閱讀部分
 
-Environmental, Social, and Governance (ESG) investing has grown from a niche approach into one of the most debated topics in the investment world. With trillions of dollars now flowing into funds marketed as sustainable, responsible, or ESG-focused, every investor needs to understand what ESG actually means, how it is measured, whether it affects returns, and how to separate genuine sustainable investing from marketing hype. This lesson provides a balanced, evidence-based look at the ESG landscape.
-
----
-
-### a) Why This Is Important
-
-**ESG is now mainstream.** Global ESG assets have grown from approximately $22 trillion in 2016 to over $35 trillion by the mid-2020s. According to various estimates, ESG-related assets could reach $50 trillion by 2030. Whether you actively seek ESG investments or not, you are likely already exposed to ESG considerations through your existing funds. Understanding what drives this movement helps you make informed decisions.
-
-**The debate is polarized and confusing.** ESG investing has become politically charged. Some view it as essential for addressing climate change and social inequality. Others see it as ideological interference in markets. The truth is more nuanced than either extreme, and investors need facts rather than slogans to make good decisions.
-
-**Greenwashing is a real risk.** As ESG has become marketable, some fund companies have slapped ESG labels on products with minimal changes to their actual investment approach. Understanding what genuine ESG integration looks like helps you avoid paying premium fees for ordinary funds dressed in green clothing.
-
-**Materiality matters for returns.** Research has shown that some ESG factors -- particularly governance quality and environmental risk management -- are financially material, meaning they affect a company's bottom line and stock performance. Understanding which ESG factors are financially relevant helps you distinguish between ESG as a values-based choice and ESG as a risk management tool.
-
-**Your values and your portfolio do not have to conflict.** Many investors want their money to align with their values but worry about sacrificing returns. Understanding the evidence on ESG and performance allows you to make an informed trade-off -- or discover that the trade-off may be smaller than you feared.
+環境、社會與管治（ESG）投資已從一個小眾方式發展成為投資界最具爭議的話題之一。隨著數萬億美元流入以可持續、負責任或ESG為標籤的基金，每位投資者都需要了解ESG的真正含義、如何衡量、是否影響回報，以及如何區分真正的可持續投資與行銷噱頭。本課以平衡、以實證為基礎的視角審視ESG格局。
 
 ---
 
-### b) What You Need to Know
+### a) 為何重要
 
-#### What Does ESG Stand For?
+**ESG現已成為主流。** 全球ESG資產從2016年的約22萬億美元增長至2020年代中期的逾35萬億美元。根據各方估計，ESG相關資產到2030年或達50萬億美元。無論你是否主動尋求ESG投資，你很可能已透過現有基金接觸ESG考量。了解推動這一趨勢的因素，有助你作出明智決策。
 
-ESG evaluates companies on three broad categories of non-financial factors:
+**爭議兩極化且令人困惑。** ESG投資已帶有政治色彩。部分人視之為應對氣候變化和社會不平等的必要手段；另一些人則視之為對市場的意識形態干預。事實遠比任何一個極端更為複雜，投資者需要事實而非口號來作出正確決策。
 
-**Environmental (E):**
-- Carbon emissions and climate change exposure
-- Energy efficiency and renewable energy use
-- Water usage and pollution
-- Waste management and recycling
-- Biodiversity impact
-- Environmental regulation compliance
+**洗綠是真實風險。** 隨著ESG變得可市場化，部分基金公司在幾乎沒有實質改變投資方式的情況下，便為產品貼上ESG標籤。了解真正的ESG整合是什麼樣子，有助你避免為披著綠色外衣的普通基金支付溢價費用。
 
-**Social (S):**
-- Employee treatment, wages, and working conditions
-- Diversity, equity, and inclusion practices
-- Supply chain labor standards
-- Community relations and impact
-- Customer privacy and data security
-- Product safety and quality
+**重要性對回報至關重要。** 研究顯示，某些ESG因素——尤其是管治質素和環境風險管理——具有財務重要性，即影響公司盈利和股價表現。了解哪些ESG因素與財務相關，有助你區分ESG作為價值觀選擇與ESG作為風險管理工具。
 
-**Governance (G):**
-- Board composition and independence
-- Executive compensation alignment with shareholder interests
-- Accounting transparency and financial reporting quality
-- Shareholder rights and voting structure
-- Anti-corruption policies
-- Business ethics and regulatory compliance
-
-These three pillars capture a wide range of considerations that go beyond traditional financial analysis. The idea is that companies managing these factors well are better positioned for long-term success, while companies that ignore them face risks that may not be visible in standard financial statements.
-
-#### ESG Ratings Agencies
-
-Several organizations rate companies on ESG criteria, but their approaches and conclusions often differ:
-
-**MSCI ESG Ratings:** The most widely used ESG rating system. Rates companies on a scale from AAA (leader) to CCC (laggard) based on exposure to industry-specific ESG risks and how well companies manage those risks. Over 8,500 companies are rated.
-
-**Sustainalytics (owned by Morningstar):** Measures ESG risk using an absolute scale. Lower scores mean lower risk. Focuses on unmanaged ESG risk -- the gap between a company's exposure to ESG issues and how well it manages them.
-
-**S&P Global ESG Scores:** Based on the Corporate Sustainability Assessment (CSA). Companies receive scores from 0-100 across various ESG criteria.
-
-**ISS ESG (Institutional Shareholder Services):** Focuses heavily on governance factors and proxy voting recommendations.
-
-**A critical problem: low correlation between raters.** Research has consistently shown that ESG ratings from different agencies are poorly correlated with each other. Two rating agencies might give the same company a top ESG rating and a below-average ESG rating, respectively. This happens because:
-
-- They weight the E, S, and G pillars differently.
-- They measure different underlying metrics.
-- They use different methodologies (some assess risk exposure, others assess management quality).
-- They may have different views on what constitutes "good" ESG performance.
-
-This low correlation is fundamentally different from credit ratings, where agencies like Moody's, S&P, and Fitch show high correlation. It means that ESG ratings are more subjective and less reliable as a single measure of sustainability.
-
-For investors, the practical implication is clear: do not rely on a single ESG rating. Understand what the rating is actually measuring and whether it aligns with what you care about.
-
-#### Approaches to ESG Investing
-
-There are several distinct approaches to incorporating ESG into investment decisions:
-
-**1. Negative Screening (Exclusion)**
-The oldest and simplest approach. Exclude entire industries or companies that conflict with your values:
-- No tobacco companies
-- No weapons manufacturers
-- No fossil fuel producers
-- No companies involved in gambling or alcohol
-
-Pros: Simple to implement. Clear values alignment.
-Cons: Reduces investment universe. May exclude well-managed companies in "sin" sectors. May miss that some excluded companies are transitioning to better practices.
-
-**2. Positive Screening (Best-in-Class)**
-Instead of excluding entire sectors, select the best ESG performers within each sector. A best-in-class fund might hold oil companies -- but only the ones with the strongest environmental practices and transition plans.
-
-Pros: Maintains sector diversification. Rewards corporate improvement.
-Cons: May still hold companies in controversial industries. The "best" oil company is still an oil company.
-
-**3. ESG Integration**
-Incorporates ESG factors into traditional financial analysis as additional data points -- not as moral judgments, but as risk factors. An analyst might downgrade a company because poor environmental practices create regulatory risk, or upgrade one because strong governance reduces the likelihood of fraud.
-
-Pros: Focused on financial materiality. Compatible with any investment style.
-Cons: May not satisfy investors seeking strong values alignment. Can be difficult to verify how deeply ESG is actually integrated.
-
-**4. Impact Investing**
-Targets investments that generate measurable positive social or environmental outcomes alongside financial returns. Examples include green bonds financing renewable energy projects, community development financial institutions, or funds investing in clean water technology.
-
-Pros: Direct, measurable impact. Strong values alignment.
-Cons: Often available only in private markets. May involve lower returns or higher fees. Measuring impact is challenging.
-
-**5. Shareholder Engagement (Active Ownership)**
-Uses ownership stakes to influence corporate behavior through proxy voting, shareholder resolutions, and direct dialogue with management. Rather than divesting from problematic companies, engaged investors use their power as owners to push for change from within.
-
-Pros: Can drive real corporate change. Maintains investment exposure.
-Cons: Requires scale and resources. Change is slow. Outcomes are uncertain.
-
-Most ESG funds and ETFs use some combination of these approaches. Understanding which approach a fund takes is essential for evaluating whether it matches your objectives.
-
-#### Does ESG Hurt or Help Returns?
-
-This is the central question, and the evidence is more nuanced than either ESG advocates or critics suggest:
-
-**The academic evidence:**
-
-- **Meta-analyses are generally positive.** A landmark 2015 meta-study by Friede, Busch, and Bassen analyzed over 2,200 studies and found that roughly 90% showed a non-negative relationship between ESG and financial performance, with the majority showing a positive relationship. However, this does not mean ESG strategies consistently outperform -- it means they do not consistently underperform.
-
-- **Governance factors have the strongest link to performance.** Companies with strong governance -- independent boards, aligned executive compensation, transparent accounting -- tend to outperform. This is not controversial; good management has always been a sign of a good investment.
-
-- **Environmental factors show mixed results.** Companies managing environmental risks well may outperform in the long run, particularly as regulation increases. But in the short term, fossil fuel companies have sometimes outperformed, especially during energy price spikes.
-
-- **Social factors are the hardest to link to performance.** Employee satisfaction, diversity, and community engagement are important values, but their direct connection to stock returns is less clear and more dependent on industry context.
-
-**Practical performance:**
-
-- Over the 2015-2020 period, many ESG funds outperformed traditional benchmarks. This was partly because ESG funds were overweight in technology stocks (which tend to score well on ESG) and underweight in energy (which scores poorly). When tech stocks led the market, ESG looked great.
-
-- In 2021-2022, when energy prices surged, ESG funds that excluded fossil fuels underperformed benchmarks. This highlighted that ESG performance is partly driven by sector bets, not necessarily by the ESG approach itself.
-
-- Over very long periods, the difference between ESG and non-ESG fund performance is generally small -- often smaller than the difference in fees charged.
-
-**The balanced conclusion:** ESG investing neither clearly helps nor clearly hurts returns compared to conventional investing, after accounting for sector exposure and fees. The claim that ESG always outperforms is wrong. The claim that ESG always sacrifices returns is also wrong. What matters most is fees, diversification, and the specific implementation of the ESG strategy.
-
-#### Greenwashing: When ESG Is Just Marketing
-
-Greenwashing is the practice of making misleading claims about the environmental or social benefits of an investment product. As ESG has become commercially popular, greenwashing has become a significant problem:
-
-**Common forms of greenwashing:**
-
-- **Relabeling existing funds.** A conventional fund adds "ESG" or "Sustainable" to its name with minimal changes to its holdings. The top holdings might be identical to a non-ESG fund.
-- **Vague ESG criteria.** A fund claims to "consider" ESG factors without specifying how or what impact this has on portfolio construction.
-- **Cherry-picking metrics.** Highlighting a company's environmental initiatives while ignoring its poor labor practices or governance issues.
-- **Exclusion of only the most obvious offenders.** A fund excludes tobacco and weapons but holds everything else, claiming to be "ESG-focused."
-- **Misleading marketing materials.** Using images of wind turbines and solar panels in marketing for a fund that has no meaningful clean energy exposure.
-
-**How to identify genuine ESG funds:**
-
-1. **Read the methodology.** A genuine ESG fund will clearly explain its screening criteria, the ESG data sources it uses, and how ESG factors influence security selection.
-2. **Check the holdings.** Look at the fund's top 10 and full holdings list. Do they actually differ meaningfully from a conventional index fund? If an "ESG fund" holds all the same stocks as the S&P 500, it may be greenwashing.
-3. **Compare to benchmarks.** Some ESG indices (like the MSCI ESG Leaders Index) have specific inclusion criteria. Funds tracking these indices are more transparent than those with vague ESG claims.
-4. **Look at the expense ratio.** Some funds charge a premium for the ESG label. If the fund is doing nothing meaningfully different from a low-cost index fund, the premium is not justified.
-5. **Check regulatory filings.** In the EU, funds must classify under SFDR (Sustainable Finance Disclosure Regulation) categories -- Article 6, 8, or 9 -- with increasing levels of sustainability commitment. Article 9 funds have the strictest requirements.
-
-#### The Materiality Concept
-
-Not all ESG factors are equally relevant to all companies. Materiality refers to which ESG issues are most likely to affect a company's financial performance:
-
-- **For an oil company:** Carbon emissions, environmental accidents, and regulatory risk are highly material. Employee diversity, while socially important, is less likely to affect the stock price.
-- **For a tech company:** Data privacy, cybersecurity, and employee retention are highly material. Carbon emissions are less critical (though not irrelevant).
-- **For a bank:** Governance, lending practices, and anti-money laundering compliance are highly material. Water usage is not.
-
-The Sustainability Accounting Standards Board (SASB) has developed materiality maps for 77 industries, identifying which ESG issues are financially relevant for each. Funds that focus on financially material ESG factors tend to show stronger performance connections than those applying the same ESG criteria uniformly across all sectors.
-
-This concept is important because it separates two distinct motivations for ESG investing:
-1. **Values-based:** "I want my money to reflect my ethical beliefs, regardless of financial impact."
-2. **Financially material:** "I believe ESG risk management makes companies better long-term investments."
-
-Both motivations are valid, but they lead to different investment approaches and expectations.
-
-#### Major ESG Funds and ETFs
-
-For investors who want ESG exposure, several well-established options exist:
-
-- **Vanguard ESG U.S. Stock ETF (ESGV):** Excludes companies involved in adult entertainment, alcohol, tobacco, weapons, fossil fuels, gambling, and nuclear power. Also screens for certain UN Global Compact violations. Expense ratio: 0.09%.
-- **iShares ESG Aware MSCI USA ETF (ESGU):** Uses MSCI ESG ratings to overweight higher-rated companies and underweight lower-rated ones, while maintaining broad market exposure. Expense ratio: 0.15%.
-- **iShares MSCI USA ESG Select ETF (SUSA):** Selects companies with high ESG ratings from the MSCI USA Index. More concentrated approach. Expense ratio: 0.25%.
-- **Parnassus Core Equity Fund (PRBLX):** One of the oldest and largest actively managed ESG funds. Integrates ESG analysis with fundamental stock selection. Expense ratio: 0.82%.
-- **SPDR S&P 500 ESG ETF (EFIV):** Tracks an ESG-screened version of the S&P 500. Excludes tobacco, controversial weapons, and UN Global Compact violators, then selects the top 75% by ESG score. Expense ratio: 0.10%.
-
-When selecting an ESG fund, always check: what exactly does the fund exclude or include, and does that align with your specific values and financial goals?
+**你的價值觀與投資組合不必衝突。** 許多投資者希望資金與其價值觀一致，但擔心犧牲回報。了解ESG與表現的實證，讓你能作出明智的取捨——或發現取捨可能比你想象中更小。
 
 ---
 
-### c) Common Misconceptions
+### b) 你需要知道的
 
-**Misconception 1: "ESG investing means sacrificing returns."**
-The evidence does not support this as a blanket statement. Meta-analyses of thousands of studies show that ESG integration is generally neutral to slightly positive for returns. Some ESG strategies have outperformed in some periods and underperformed in others, largely driven by sector exposures rather than the ESG approach itself. The key determinants of returns are still fees, diversification, and time horizon -- not whether the fund has an ESG label.
+#### ESG代表什麼？
 
-**Misconception 2: "ESG ratings are objective and reliable."**
-ESG ratings are highly subjective and vary dramatically between rating agencies. The same company can receive a top rating from one agency and a mediocre rating from another. This lack of standardization means investors should understand what specific methodology a rating uses rather than treating any single ESG score as gospel.
+ESG從三大類別評估公司的非財務因素：
 
-**Misconception 3: "ESG means only investing in wind turbines and solar panels."**
-ESG is much broader than environmental issues. It includes corporate governance, labor practices, data privacy, supply chain management, and many other factors. Most ESG funds hold a broad cross-section of the economy, including technology, healthcare, financial services, and consumer goods companies -- not just renewable energy firms.
+**環境（E）：**
+- 碳排放與氣候變化暴露
+- 能源效益與可再生能源使用
+- 用水量與污染
+- 廢物管理與回收
+- 生物多樣性影響
+- 環境法規合規
 
-**Misconception 4: "If I buy an ESG fund, I am making a direct positive impact on the world."**
-Buying shares in the secondary market does not directly provide capital to the companies you buy. If you purchase shares of a solar company through an ETF, the solar company does not receive your money -- a previous shareholder does. Your impact as a shareholder comes through voting rights, shareholder engagement, and signaling demand for ESG products -- not through direct capital allocation. For direct impact, look at green bonds, community development investments, or impact investing in private markets.
+**社會（S）：**
+- 員工待遇、薪酬與工作條件
+- 多元化、公平及包容實踐
+- 供應鏈勞工標準
+- 社區關係與影響
+- 客戶私隱與數據安全
+- 產品安全與質量
 
-**Misconception 5: "ESG is just political correctness in investing."**
-While ESG has become politically polarized, many ESG factors are simply good risk management. Evaluating a company's governance quality, regulatory compliance, environmental liabilities, and customer data protection are not political acts -- they are standard due diligence. The governance pillar, in particular, has long been recognized as a fundamental aspect of investment analysis, regardless of one's political views.
+**管治（G）：**
+- 董事會組成與獨立性
+- 高管薪酬與股東利益掛鈎
+- 會計透明度與財務報告質量
+- 股東權益與投票結構
+- 反貪腐政策
+- 商業道德與合規
 
-**Misconception 6: "All ESG funds are the same."**
-ESG funds vary enormously in their approaches. Some exclude entire industries. Others use best-in-class selection. Some integrate ESG into financial analysis without excluding anything. The term "ESG fund" tells you almost nothing about what the fund actually does. Always read the methodology before investing.
+這三大支柱涵蓋了傳統財務分析以外的廣泛考量。其理念是，管理好這些因素的公司更有利於長期成功，而忽視這些因素的公司則面臨標準財務報表中可能看不見的風險。
 
-**Misconception 7: "Companies with high ESG scores are automatically good investments."**
-A high ESG score reflects how well a company manages ESG risks -- it does not address valuation, earnings growth, competitive position, or other fundamental investment factors. An overvalued company with a perfect ESG score is still a bad investment. ESG analysis should complement, not replace, traditional financial analysis.
+#### ESG評級機構
+
+多個組織按ESG標準對公司進行評級，但其方法和結論往往各異：
+
+**MSCI ESG評級：** 最廣泛使用的ESG評級系統。根據行業特定ESG風險的暴露程度以及公司管理這些風險的能力，將公司從AAA（領導者）到CCC（落後者）進行評級。超過8,500家公司被評級。
+
+**Sustainalytics（晨星旗下）：** 以絕對標準衡量ESG風險。分數越低代表風險越低。專注於未受管理的ESG風險——公司面臨的ESG問題與其管理能力之間的差距。
+
+**標普全球ESG評分：** 基於企業可持續發展評估（CSA）。公司在各ESG標準中獲得0至100分。
+
+**ISS ESG（機構股東服務）：** 著重管治因素和股東大會投票建議。
+
+**一個關鍵問題：評級機構之間相關性低。** 研究一再顯示，不同機構的ESG評級彼此相關性低。兩家評級機構可能分別給同一家公司最高ESG評級和低於平均ESG評級。原因在於：
+
+- 它們對環境、社會和管治三大支柱的權重各異。
+- 它們衡量不同的底層指標。
+- 它們使用不同方法（部分評估風險暴露，另一些評估管理質素）。
+- 它們對「良好」ESG表現的定義可能不同。
+
+這種低相關性與信用評級根本不同，穆迪、標普和惠譽之間的相關性極高。這意味著ESG評級更為主觀，作為單一可持續性衡量標準較不可靠。
+
+對投資者而言，實際含義很清楚：不要依賴單一ESG評級。了解評級實際上在衡量什麼，以及它是否符合你的關切。
+
+#### ESG投資方式
+
+將ESG納入投資決策有幾種不同方式：
+
+**1. 負面篩選（排除）**
+最古老、最簡單的方式。排除與你價值觀相牴觸的整個行業或公司：
+- 不投資煙草公司
+- 不投資武器製造商
+- 不投資化石燃料生產商
+- 不投資涉及賭博或酒精的公司
+
+優點：易於實施。價值觀一致性清晰。
+缺點：縮小投資範圍。可能排除「罪惡」板塊中管理良好的公司。可能忽視部分被排除公司正向更好實踐轉型。
+
+**2. 正面篩選（同類最佳）**
+不排除整個板塊，而是在每個板塊內選擇ESG表現最佳的公司。同類最佳基金可能持有石油公司——但僅選擇環境實踐和轉型計劃最強的公司。
+
+優點：保持板塊多元化。獎勵企業改善。
+缺點：仍可能持有具爭議行業的公司。「最佳」石油公司終究還是石油公司。
+
+**3. ESG整合**
+將ESG因素作為額外數據點納入傳統財務分析——不是道德判斷，而是風險因素。分析師可能因環境實踐不佳導致監管風險而下調公司評級，或因管治健全降低欺詐可能性而上調評級。
+
+優點：專注於財務重要性。與任何投資風格兼容。
+缺點：可能無法滿足尋求強烈價值觀一致性的投資者。難以核實ESG實際整合深度。
+
+**4. 影響力投資**
+針對在財務回報之外能產生可衡量正面社會或環境成果的投資。例如融資可再生能源項目的綠色債券、社區發展金融機構，或投資清潔水技術的基金。
+
+優點：直接、可衡量的影響。強烈的價值觀一致性。
+缺點：通常只在私人市場提供。可能涉及較低回報或較高費用。衡量影響具挑戰性。
+
+**5. 股東參與（積極持有）**
+利用持股透過委託投票、股東決議和直接與管理層對話來影響企業行為。積極參與的投資者不是從問題公司撤資，而是利用股東權力從內部推動改變。
+
+優點：可推動真正的企業變革。維持投資敞口。
+缺點：需要規模和資源。變革緩慢。結果不確定。
+
+大多數ESG基金和交易所買賣基金結合使用上述多種方式。了解基金採用哪種方式，對評估它是否符合你的目標至關重要。
+
+#### ESG是否損害或提升回報？
+
+這是核心問題，實證比ESG倡導者或批評者的說法都更為複雜：
+
+**學術實證：**
+
+- **元分析普遍正面。** Friede、Busch和Bassen於2015年發表的一項里程碑元研究分析了逾2,200項研究，發現約90%顯示ESG與財務表現之間的關係非負，大多數顯示正面關係。但這並不意味著ESG策略持續跑贏——只是沒有持續跑輸。
+
+- **管治因素與表現的關聯最強。** 管治健全的公司——獨立董事會、薪酬激勵對齊、會計透明——傾向跑贏。這並不具爭議；良好管理一向是良好投資的標誌。
+
+- **環境因素結果參差。** 環境風險管理良好的公司長期可能跑贏，尤其在監管收緊之際。但短期內，化石燃料公司有時會跑贏，特別是在能源價格飆升期間。
+
+- **社會因素最難與表現掛鈎。** 員工滿意度、多元化和社區參與是重要價值觀，但其與股票回報的直接關係不夠清晰，且更依賴於行業環境。
+
+**實際表現：**
+
+- 在2015至2020年期間，許多ESG基金跑贏傳統基準。部分原因是ESG基金超配科技股（ESG評分通常較高）而低配能源板塊（評分通常較低）。當科技股引領市場時，ESG表現突出。
+
+- 2021至2022年，能源價格飆升，排除化石燃料的ESG基金跑輸基準。這突顯了ESG表現部分由板塊配置驅動，而非必然由ESG方式本身驅動。
+
+- 從極長時期來看，ESG與非ESG基金的表現差異普遍較小——往往小於收費差異。
+
+**平衡結論：** ESG投資相對於傳統投資，在調整板塊敞口和費用後，既不明顯有利也不明顯有損回報。ESG總是跑贏的說法是錯誤的。ESG總是犧牲回報的說法同樣錯誤。最重要的仍是費用、多元化，以及ESG策略的具體執行方式。
+
+#### 洗綠：ESG只是行銷的情況
+
+洗綠是指對投資產品的環境或社會效益作出誤導性聲明的做法。隨著ESG在商業上日趨流行，洗綠已成為重大問題：
+
+**洗綠的常見形式：**
+
+- **為現有基金重新標籤。** 一隻傳統基金在幾乎不改變持倉的情況下，在名稱中加入「ESG」或「可持續」。十大持倉可能與非ESG基金完全相同。
+- **模糊的ESG標準。** 基金聲稱「考慮」ESG因素，但沒有說明如何考慮或對投資組合構建有何影響。
+- **精心挑選指標。** 強調公司的環保舉措，同時忽視其惡劣的勞工實踐或管治問題。
+- **只排除最明顯的違規者。** 基金排除煙草和武器，但持有其他一切，聲稱「專注ESG」。
+- **誤導性行銷材料。** 在無實質清潔能源敞口的基金行銷中使用風力渦輪機和太陽能電池板的圖像。
+
+**如何識別真正的ESG基金：**
+
+1. **閱讀方法論。** 真正的ESG基金會清楚說明其篩選標準、使用的ESG數據來源，以及ESG因素如何影響證券選擇。
+2. **檢查持倉。** 查看基金的十大及全部持倉清單。它們是否與傳統指數基金有實質差異？若「ESG基金」持有與標普500相同的股票，可能是洗綠。
+3. **與基準比較。** 部分ESG指數（如MSCI ESG領導者指數）設有具體納入標準。追蹤這些指數的基金比聲稱模糊的ESG更為透明。
+4. **查看費用比率。** 部分基金為ESG標籤收取溢價。若基金與低成本指數基金沒有實質分別，溢價不合理。
+5. **查閱監管申報文件。** 在歐盟，基金須依據《可持續金融披露條例》（SFDR）分類——第6、8或9條——可持續承諾程度遞增。第9條基金要求最嚴格。
+
+#### 重要性概念
+
+並非所有ESG因素對所有公司同等重要。重要性是指哪些ESG議題最有可能影響公司的財務表現：
+
+- **對石油公司：** 碳排放、環境事故和監管風險高度重要。員工多元化雖具社會意義，但較不可能影響股價。
+- **對科技公司：** 數據私隱、網絡安全和員工留任率高度重要。碳排放較不關鍵（但並非無關）。
+- **對銀行：** 管治、貸款實踐和反洗錢合規高度重要。用水量則不重要。
+
+可持續會計準則委員會（SASB）已為77個行業制定了重要性地圖，識別哪些ESG議題在財務上與各行業相關。專注於財務重要性ESG因素的基金，往往比在所有板塊統一套用相同ESG標準的基金，顯示出更強的表現關聯。
+
+這一概念很重要，因為它區分了ESG投資的兩種動機：
+1. **基於價值觀：**「我希望資金反映我的倫理信念，不論財務影響。」
+2. **財務重要性：**「我相信ESG風險管理使公司成為更好的長期投資。」
+
+兩種動機都合理，但它們帶來不同的投資方式和預期。
+
+#### 主要ESG基金及交易所買賣基金
+
+對尋求ESG敞口的投資者，有幾個完善選項：
+
+- **Vanguard ESG U.S. Stock ETF（ESGV）：** 排除涉及成人娛樂、酒精、煙草、武器、化石燃料、賭博和核電的公司。同時篩選某些違反聯合國全球契約的行為。費用比率：0.09%。
+- **iShares ESG Aware MSCI USA ETF（ESGU）：** 使用MSCI ESG評級超配高評級公司並低配低評級公司，同時維持廣泛市場敞口。費用比率：0.15%。
+- **iShares MSCI USA ESG Select ETF（SUSA）：** 從MSCI美國指數中選取ESG評級高的公司。方式較為集中。費用比率：0.25%。
+- **Parnassus Core Equity Fund（PRBLX）：** 最古老、最大的積極管理型ESG基金之一。將ESG分析與基本面選股整合。費用比率：0.82%。
+- **SPDR S&P 500 ESG ETF（EFIV）：** 追蹤標普500的ESG篩選版本。排除煙草、具爭議性武器和聯合國全球契約違規者，再按ESG分數選取前75%。費用比率：0.10%。
+
+選擇ESG基金時，務必確認：基金實際排除或納入什麼，以及是否符合你的具體價值觀和財務目標。
 
 ---
 
-### d) Common Questions and Answers
+### c) 常見誤解
 
-**Q: Should I invest in ESG funds?**
-A: It depends on your priorities. If aligning your investments with your values is important to you and you find an ESG fund that matches your specific concerns at a reasonable cost, go ahead. If your primary goal is maximizing returns at the lowest cost, a standard low-cost index fund will serve you well -- and its ESG performance will not be dramatically different. The most important decision is between investing and not investing, not between ESG and non-ESG.
+**誤解一：「ESG投資意味著犧牲回報。」**
+實證並不支持這一籠統說法。逾千項研究的元分析顯示，ESG整合對回報普遍中性至略為正面。部分ESG策略在某些時期跑贏，在另一些時期跑輸，主要由板塊敞口而非ESG方式本身驅動。回報的關鍵決定因素仍是費用、多元化和持投年期——而非基金是否有ESG標籤。
 
-**Q: Do ESG funds cost more?**
-A: They tend to charge slightly higher fees than equivalent non-ESG index funds, but the gap has narrowed considerably. The Vanguard ESG U.S. Stock ETF (ESGV) charges 0.09%, compared to 0.03% for Vanguard's Total Stock Market ETF (VTI). This 0.06% difference is modest. However, some actively managed ESG funds charge 0.50-1.00% or more, which may not be justified purely on ESG grounds.
+**誤解二：「ESG評級客觀可靠。」**
+ESG評級高度主觀，不同評級機構之間差異懸殊。同一家公司可能從一家機構獲得最高評級，從另一家獲得普通評級。缺乏標準化意味著投資者應了解特定評級使用的具體方法，而非將任何單一ESG分數視為金科玉律。
 
-**Q: If I own a total stock market index fund, am I already exposed to ESG-friendly companies?**
-A: Yes. A total stock market index fund holds every publicly traded company, including the highest-rated ESG performers. You also hold the lowest-rated ones. The difference with an ESG fund is the weighting -- ESG funds overweight companies with strong ESG profiles and underweight or exclude those with poor profiles. But a total market fund already gives you significant exposure to ESG leaders.
+**誤解三：「ESG意味著只投資風力渦輪機和太陽能電池板。」**
+ESG遠比環境議題廣泛，包括企業管治、勞工實踐、數據私隱、供應鏈管理等許多其他因素。大多數ESG基金持有廣泛的經濟體截面，包括科技、醫療、金融服務和消費品公司——而不僅僅是可再生能源公司。
 
-**Q: How do I know if a fund is genuinely ESG or just greenwashing?**
-A: Check the fund's prospectus for specific ESG criteria and methodology. Compare the fund's holdings to a standard index fund -- if they are nearly identical, the ESG label may be cosmetic. Look for third-party certifications or adherence to recognized ESG frameworks. Check whether the fund tracks a well-defined ESG index with transparent rules. Be skeptical of vague claims like "we consider ESG factors" without specific details.
+**誤解四：「若購買ESG基金，即直接對世界產生正面影響。」**
+在二級市場購買股份並不直接向購買的公司提供資本。若你透過交易所買賣基金購買太陽能公司股份，太陽能公司不會收到你的資金——而是前一位股東收到。你作為股東的影響力來自投票權、股東參與和對ESG產品釋放需求訊號——而非直接資本配置。要尋求直接影響，可考慮綠色債券、社區發展投資或私人市場的影響力投資。
 
-**Q: Can I do ESG investing in my 401(k)?**
-A: It depends on your plan's investment options. Some 401(k) plans include ESG-focused target-date funds or ESG index funds. If your plan does not offer ESG options, you could request them through your HR department. Alternatively, you can focus your ESG investing in your IRA or taxable account, where you have full control over fund selection, and use whatever options are best in your 401(k).
+**誤解五：「ESG只是投資中的政治正確。」**
+雖然ESG已帶有政治極化色彩，但許多ESG因素只是良好的風險管理。評估公司管治質量、合規情況、環境負債和客戶數據保護，並非政治行為——而是標準盡職調查。管治支柱尤其早已被普遍認可為投資分析的基本面，與政治立場無關。
 
-**Q: What about fossil fuel divestment? Does it work?**
-A: The effectiveness of fossil fuel divestment is debated. From an investment perspective, divesting from fossil fuels has had mixed results -- it helped during periods of low oil prices but hurt during energy booms. From an impact perspective, selling your shares does not reduce a company's revenue or operations -- it simply transfers ownership to a different investor. The impact argument for divestment rests primarily on stigmatization and signaling, rather than direct financial pressure. Shareholder engagement (pushing for change from within) may be more effective at influencing corporate behavior.
+**誤解六：「所有ESG基金都一樣。」**
+ESG基金在方式上差異極大。部分排除整個行業，另一些採用同類最佳篩選，還有些將ESG整合入財務分析而不排除任何公司。「ESG基金」這個術語幾乎無法說明基金實際上做什麼。投資前務必閱讀方法論。
 
-**Q: What is the difference between ESG, SRI, and impact investing?**
-A: These terms are related but distinct. **ESG (Environmental, Social, Governance)** integrating refers to considering these factors in investment analysis -- it can range from light integration to heavy screening. **SRI (Socially Responsible Investing)** is an older term that typically involves negative screening -- excluding "sin stocks" or industries that conflict with values. **Impact investing** specifically targets investments that generate measurable positive social or environmental outcomes, often in private markets. ESG is the broadest term and most commonly used today.
-
-**Q: Will ESG regulations change how I invest?**
-A: Regulatory trends are pushing toward more ESG disclosure by companies and stricter standards for funds marketing themselves as ESG. In the EU, the SFDR already classifies funds by their sustainability claims. In the U.S., the SEC has proposed enhanced climate disclosure rules and scrutinized funds making ESG claims. These regulations should benefit investors by reducing greenwashing and improving transparency, but they may also lead to some funds dropping the ESG label rather than meeting stricter requirements. For individual investors, the practical impact is better information to make informed choices.
+**誤解七：「ESG評分高的公司自動是好的投資。」**
+高ESG評分反映的是公司管理ESG風險的能力——並不涉及估值、盈利增長、競爭地位或其他基本投資因素。估值過高的公司即便ESG評分完美，仍是糟糕的投資。ESG分析應補充而非取代傳統財務分析。
 
 ---
 
-## YouTube Script
+### d) 常見問題解答
 
-**Side Lesson 12: ESG and Sustainable Investing**
+**問：我應否投資ESG基金？**
+答：視乎你的優先考慮。若讓投資與價值觀一致對你很重要，並且你找到以合理費用符合你具體關切的ESG基金，那就去做。若你的主要目標是以最低成本最大化回報，標準低成本指數基金將同樣有效——其ESG表現與ESG基金也不會有天壤之別。最重要的決定是投資與否，而非ESG與非ESG之間的選擇。
+
+**問：ESG基金費用更高嗎？**
+答：它們往往比同等非ESG指數基金收取略高費用，但差距已大幅縮小。Vanguard ESG U.S. Stock ETF（ESGV）收費0.09%，相比Vanguard全股市ETF（VTI）的0.03%。這0.06%的差距相當溫和。但部分積極管理型ESG基金收取0.50%至1.00%甚至更多，純粹以ESG理由難以合理化。
+
+**問：若持有全市場指數基金，我是否已接觸ESG友好公司？**
+答：是的。全市場指數基金持有每一家上市公司，包括ESG評分最高的公司。你同樣持有評分最低的公司。ESG基金的差別在於權重配置——ESG基金超配ESG表現強勁的公司，低配或排除表現較差的公司。但全市場基金已讓你對ESG領先企業有顯著敞口。
+
+**問：如何判斷基金是真正的ESG還是洗綠？**
+答：查閱基金招股說明書中的具體ESG標準和方法論。將基金持倉與標準指數基金比較——若幾乎相同，ESG標籤可能是裝飾性的。尋找第三方認證或對公認ESG框架的遵從。確認基金是否追蹤具透明規則的明確ESG指數。對「我們考慮ESG因素」等模糊聲明持懷疑態度，若沒有具體細節更應如此。
+
+**問：我能在強積金（MPF）賬戶中投資ESG嗎？**
+答：視乎你計劃的投資選項。部分強積金計劃包含以ESG為重點的目標日期基金或ESG指數基金。若你的計劃不提供ESG選項，可透過人力資源部門提出要求。或者，你可將ESG投資集中在個人退休賬戶或應課稅賬戶，在那裡你有完全的基金選擇控制權，並在強積金中選用最佳選項。
+
+**問：化石燃料撤資有效嗎？**
+答：化石燃料撤資的有效性備受爭議。從投資角度來看，撤資效果參差——在油價低迷期間有幫助，但在能源繁榮期間有損失。從影響角度來看，出售股份不會減少公司的收入或業務——只是將所有權轉移給另一位投資者。撤資的影響力論點主要基於污名化和信號效應，而非直接財務壓力。股東參與（從內部推動改變）可能在影響企業行為方面更為有效。
+
+**問：ESG、SRI和影響力投資有何區別？**
+答：這些術語相關但有區別。**ESG（環境、社會、管治）整合**是指在投資分析中考慮這些因素——可從輕度整合到重度篩選。**SRI（社會責任投資）**是一個較舊的術語，通常涉及負面篩選——排除「罪惡股票」或與價值觀相牴觸的行業。**影響力投資**專門針對產生可衡量的正面社會或環境成果的投資，通常在私人市場。ESG是最廣泛的術語，今天最為常用。
+
+**問：ESG法規會改變我的投資方式嗎？**
+答：監管趨勢正推動公司進行更多ESG信息披露，並對以ESG自我標榜的基金制定更嚴格標準。在歐盟，《可持續金融披露條例》已按可持續聲明對基金分類。在美國，證監會已提出加強氣候披露要求，並對提出ESG聲明的基金進行審查。這些法規應透過減少洗綠和提高透明度使投資者受益，但也可能導致部分基金放棄ESG標籤，而不是符合更嚴格的要求。對個人投資者而言，實際影響是獲得更好的信息以作出明智選擇。
 
 ---
 
-**Alex:** Our final side lesson tackles one of the most debated topics in modern investing -- ESG and sustainable investing. Sam, what comes to mind when you hear "ESG investing"?
+## YouTube腳本
 
-**Sam:** Honestly? It feels kind of vague. Something about being environmentally friendly? Not investing in oil companies? I have seen a lot of funds with "sustainable" in the name, but I am not really sure what makes them different.
-
-**Alex:** That vagueness is actually part of the problem -- and it is exactly what we are going to clear up today. ESG stands for Environmental, Social, and Governance, and it represents a massive shift in how some investors think about putting their money to work.
-
-[VISUAL: Three pillars labeled E, S, and G with icons and examples under each.
-E: Carbon emissions, energy use, pollution, water management, climate risk.
-S: Employee treatment, diversity, data privacy, supply chain labor, community impact.
-G: Board independence, executive pay, accounting practices, shareholder rights, ethics.]
-
-**Sam:** So it covers way more than just the environment?
-
-**Alex:** Way more. Governance is actually the oldest part of ESG and arguably the most financially relevant. Investors have cared about board quality, executive compensation, and accounting transparency for decades. The environmental and social pillars are newer but have gained enormous attention.
-
-**Sam:** How big is this movement?
-
-**Alex:** Enormous. Global ESG assets exceeded $35 trillion by the mid-2020s. Some projections suggest this could reach $50 trillion by 2030. Whether you actively choose ESG or not, it is reshaping how companies operate, how funds are constructed, and how regulators think about financial disclosure.
-
-[ANIMATION: A growth chart showing ESG assets under management from 2012 to projected 2030. The curve steepens dramatically after 2018. Labels show key milestones -- Paris Agreement (2015), EU Green Deal (2019), ESG fund boom (2020-2021).]
-
-**Sam:** Okay, let us get to the question everyone wants answered. Does ESG investing help or hurt returns?
-
-**Alex:** I love that you went straight there, because this is where most of the debate centers. And the honest answer is -- it depends on the time period, the specific ESG approach, and the sector exposure.
-
-**Sam:** That is not a very satisfying answer.
-
-**Alex:** Let me give you more detail. The largest meta-study on this topic, analyzing over 2,200 individual studies, found that roughly 90% showed a non-negative relationship between ESG and financial performance. The majority showed slightly positive results.
-
-[VISUAL: Pie chart of research findings: "Positive relationship: ~60%. Neutral relationship: ~30%. Negative relationship: ~10%." Source cited as Friede, Busch, & Bassen, 2015.]
-
-**Sam:** So ESG does not hurt returns? That contradicts what I have heard from some people.
-
-**Alex:** The research suggests it is generally neutral to slightly positive -- over long periods and on average. But there are important caveats. First, the period from 2015-2020 was very favorable for ESG because ESG funds tended to be overweight in technology stocks, which were booming. When people said "ESG outperforms," what was really happening was "tech stocks outperform."
-
-**Sam:** And when tech stocks did not outperform?
-
-**Alex:** Exactly. In 2021 and 2022, energy prices surged. ESG funds that excluded fossil fuel companies lagged the broader market because they missed the energy rally. This showed that a lot of ESG "performance" was really just sector betting in disguise.
-
-[ANIMATION: Two fund performance lines from 2015 to 2023.
-2015-2020: ESG fund outperforms standard index (tech tailwind).
-2021-2022: ESG fund underperforms (energy headwind).
-Overall: The two lines are close, weaving around each other.
-Text: "Sector exposure, not ESG itself, drove most of the difference."]
-
-**Sam:** So the honest takeaway is...
-
-**Alex:** ESG investing neither clearly helps nor clearly hurts returns compared to conventional investing, after adjusting for sector exposure and fees. The factors that matter most for returns are still the same -- low fees, broad diversification, and staying invested for the long term. The ESG label, by itself, is not a performance predictor.
-
-**Sam:** That is actually reassuring. It means I do not have to sacrifice returns if I want to invest according to my values.
-
-**Alex:** Right. The trade-off, if there is one, is typically very small. You might give up a few basis points in performance in exchange for values alignment. For many people, that is a trade worth making.
-
-**Sam:** Now, you mentioned different approaches to ESG investing. Can you break those down?
-
-**Alex:** There are five main approaches, and understanding which one a fund uses is crucial.
-
-[VISUAL: Five approaches shown as a spectrum from simplest to most complex:
-1. Negative Screening -- "Exclude the bad"
-2. Positive Screening -- "Select the best within each sector"
-3. ESG Integration -- "Use ESG as risk data alongside financial data"
-4. Shareholder Engagement -- "Own and influence from within"
-5. Impact Investing -- "Target measurable positive outcomes"]
-
-**Alex:** The simplest is negative screening -- just excluding industries you object to. No tobacco, no weapons, no fossil fuels. Easy to understand, easy to implement.
-
-**Sam:** But you lose diversification, right?
-
-**Alex:** Potentially. If you exclude all energy companies and energy has a great year, you miss out. The next approach, positive screening or best-in-class, is more nuanced. Instead of excluding entire sectors, you pick the best ESG performers within each sector. So you might hold an oil company -- but only the one with the strongest environmental and safety record.
-
-**Sam:** That seems more balanced.
-
-**Alex:** It is. Then there is ESG integration, where ESG data is used alongside traditional financial analysis. An analyst might say, "This company has poor cybersecurity practices, which increases the risk of a data breach and regulatory fines, so I am going to adjust my valuation downward." That is ESG integration -- it is risk management, not morality.
-
-**Sam:** And shareholder engagement?
-
-**Alex:** This is where investors use their ownership power to push for change. Instead of selling shares of a polluting company, you keep your shares and vote for resolutions demanding emissions reductions. Some of the largest investors in the world -- BlackRock, State Street, Vanguard -- use shareholder engagement extensively.
-
-**Sam:** Does that actually work?
-
-**Alex:** It can. Major shareholder campaigns have led to changes in corporate climate strategies, board composition, and executive compensation practices. It is slower than divestment but arguably more impactful because it changes corporate behavior directly.
-
-**Sam:** What about impact investing?
-
-**Alex:** Impact investing goes furthest. You are specifically targeting investments that generate measurable positive outcomes -- a green bond funding a solar farm, a community development fund supporting affordable housing, a venture fund backing clean water technology. The challenge is that true impact investments are often in private markets and less accessible to individual investors.
-
-**Sam:** Let us talk about something I have been suspicious of -- greenwashing. How do I know if a fund is genuinely ESG or just marketing?
-
-**Alex:** This is a huge issue, and your skepticism is warranted.
-
-[VISUAL: Side-by-side comparison.
-"Real ESG Fund:" Clearly defined exclusion criteria. Top holdings differ meaningfully from standard index. Specific ESG methodology published. Engages in proxy voting on ESG issues.
-"Greenwashed Fund:" Added "ESG" to fund name. Top 10 holdings identical to S&P 500. Vague claim of "considering ESG factors." Higher fee than comparable non-ESG fund.]
-
-**Alex:** Here are the red flags. If a fund's top holdings are virtually identical to the S&P 500 but it charges a higher fee and has "Sustainable" in the name, that is suspicious. If the fund's prospectus talks about ESG in vague terms -- "we may consider ESG factors" -- without specific criteria, that is a red flag. If the fund was recently renamed from something generic to something ESG-sounding without changing its strategy, that is greenwashing.
-
-**Sam:** So what should I look for in a genuine ESG fund?
-
-**Alex:** Look for a clearly defined methodology. Which ESG data sources does the fund use? What specific screens are applied? How do ESG factors influence stock selection and weighting? Compare the holdings to a standard index fund -- there should be meaningful differences. And check the expense ratio -- a genuine, well-run ESG index fund should not cost dramatically more than a standard index fund.
-
-**Sam:** Can you give me some specific fund examples?
-
-**Alex:** Sure. Let me walk through a few of the most popular options.
-
-[VISUAL: Fund comparison table.
-ESGV (Vanguard ESG U.S. Stock): Excludes adult entertainment, alcohol, tobacco, weapons, fossil fuels, gambling, nuclear. Expense: 0.09%.
-ESGU (iShares ESG Aware): Uses MSCI ESG ratings to tilt toward leaders. Maintains broad market exposure. Expense: 0.15%.
-EFIV (SPDR S&P 500 ESG): ESG-screened S&P 500. Excludes worst offenders, selects top 75% by ESG score. Expense: 0.10%.
-For comparison -- VTI (Vanguard Total Stock Market, non-ESG): Holds everything. Expense: 0.03%.]
-
-**Sam:** So the cheapest ESG option is 0.09% versus 0.03% for a standard total market fund. That is a pretty small difference.
-
-**Alex:** Six basis points -- about 60 cents per year on every $1,000 invested. Over a lifetime, that adds up, but it is far less than the 0.50-1.00% premium that some actively managed ESG funds charge.
-
-**Sam:** Now, I want to understand the ratings issue. You mentioned that ESG ratings from different agencies can disagree. How bad is it?
-
-**Alex:** It is surprisingly bad. Research has shown that the correlation between ESG ratings from different agencies is roughly 0.5 to 0.6. For comparison, credit ratings from Moody's and S&P correlate at about 0.99. In other words, ESG ratings are highly subjective.
-
-[ANIMATION: The same company -- let us call it Company X -- being rated by three different ESG agencies.
-Agency 1: "A -- ESG Leader!" (focused on environmental practices)
-Agency 2: "Average" (focused on governance concerns)
-Agency 3: "Below Average" (focused on supply chain labor issues)
-Same company, same data, three very different conclusions.]
-
-**Sam:** That is really problematic. How can I make decisions if the experts cannot even agree?
-
-**Alex:** It means you should not outsource your ESG thinking entirely to a rating agency. Understand what specific factors you care about. If climate change is your priority, look at a company's carbon emissions data directly rather than relying on a composite ESG score that mixes climate data with unrelated governance metrics.
-
-**Sam:** What about the materiality concept you mentioned?
-
-**Alex:** This is really important. Materiality means asking: which ESG factors actually affect a company's bottom line? Not every ESG issue is equally relevant to every company.
-
-[VISUAL: Materiality matrix.
-For a tech company: Data privacy (HIGH materiality), carbon emissions (LOW materiality).
-For an oil company: Carbon emissions (HIGH), data privacy (LOW).
-For a bank: Governance and lending practices (HIGH), water usage (LOW).
-For a food company: Supply chain labor (HIGH), cybersecurity (LOW).]
-
-**Alex:** A fund that focuses on financially material ESG factors -- the ones most likely to affect profits and risk -- tends to show a stronger connection to performance than one that applies the same generic ESG criteria to every company regardless of industry.
-
-**Sam:** That makes sense. A tech company's biggest ESG risk is not water usage -- it is a data breach.
-
-**Alex:** Exactly. The SASB, now part of the IFRS Foundation, has mapped out which ESG issues are financially material for 77 different industries. This framework is incredibly useful for investors who want ESG analysis that actually connects to financial outcomes.
-
-**Sam:** Let me ask a philosophical question. If I buy shares in an ESG fund, am I actually making a positive impact on the world?
-
-**Alex:** This is a question that deserves an honest answer. When you buy shares of an ESG ETF, you are buying shares in the secondary market from another investor. The companies in the fund do not receive your money. In that direct sense, your purchase does not fund sustainable activities.
-
-**Sam:** So what impact does it have?
-
-**Alex:** Your impact comes through three channels. First, signaling -- when trillions of dollars flow toward ESG funds, it sends a message to companies and fund managers about investor priorities. Second, voting -- ESG fund managers often vote proxies in favor of sustainability resolutions. Third, pricing -- in theory, if enough investors avoid certain companies, their cost of capital rises, making it more expensive for them to operate.
-
-[VISUAL: Three channels of ESG investor impact:
-1. Signaling: "We care about this" arrow pointing to corporate behavior change.
-2. Voting: Proxy votes on ESG shareholder resolutions.
-3. Pricing: Reduced demand for excluded stocks theoretically raises their cost of capital.
-Note at bottom: "Direct impact is indirect and debated."]
-
-**Sam:** So it is indirect impact at best.
-
-**Alex:** For most individual investors, yes. If you want direct impact, you would look at green bonds (where your money directly finances specific environmental projects), community investing, or direct engagement with companies. But even indirect signaling has value at scale -- and the ESG movement has demonstrably changed how many companies report, plan, and operate.
-
-**Sam:** Where does the political debate fit into all this?
-
-**Alex:** ESG has become politically polarized, with some states mandating ESG consideration and others banning it in public pension funds. My advice to individual investors: separate the political noise from the investment analysis. Good governance is not political. Assessing environmental regulatory risk is not political. Understanding supply chain risks is not political. These are all standard investment analysis practices -- they just have an ESG label now.
-
-**Sam:** Fair enough. Let me summarize what I have learned. ESG stands for Environmental, Social, and Governance -- three categories of non-financial factors. ESG ratings are subjective and inconsistent across agencies. ESG investing takes many forms, from simple exclusion to deep integration to impact investing. The evidence suggests ESG neither clearly helps nor hurts returns -- fees and diversification matter more. Greenwashing is real, and I should verify what any "ESG" fund actually does. Materiality matters -- focus on ESG factors that are financially relevant to each industry. And my impact as an ESG investor is primarily indirect, through signaling, voting, and pricing effects.
-
-**Alex:** That is an outstanding summary. Whether you choose to invest in ESG funds or not, understanding these concepts makes you a more informed investor. And that is what this whole series has been about -- giving you the knowledge to make deliberate, rational investment decisions.
-
-[ANIMATION: Final graphic showing a balanced portfolio with optional ESG overlay. Text: "ESG is a lens, not a magic formula. Understand what you own, why you own it, and what impact you expect. Invest with both your head and your values."]
-
-**Sam:** Thanks, Alex. This has been an incredible series. I feel like I actually understand investing now -- not just the basics, but the real nuances.
-
-**Alex:** And that was always the goal. Investing does not have to be complicated, but it does have to be informed. Take what you have learned, apply it consistently, keep costs low, stay diversified, think long-term, and you will be ahead of the vast majority of investors out there.
-
-**Sam:** To everyone watching -- thank you for learning with us. Go put this knowledge to work.
-
-**Alex:** See you out there.
+**旁課第12課：ESG與可持續投資**
 
 ---
 
-*End of Side Lesson 12*
+**Horace（陳馬）：** 我們的最後一課旁課要探討現代投資中最具爭議的話題之一——ESG與可持續投資。Stella（小魚），聽到「ESG投資」你有什麼想法？
+
+**Stella（小魚）：** 老實說？感覺有點模糊。大概是環保的意思？不投資石油公司？我見過很多名稱裡有「可持續」的基金，但我不太確定它們有什麼不同。
+
+**Horace（陳馬）：** 這種模糊感其實正是問題所在——而這正是我們今天要釐清的。ESG代表環境、社會與管治，它代表部分投資者在運用資金方式上的重大轉變。
+
+[VISUAL: 三根支柱標記為E、S和G，每根下方有圖標和示例。
+E：碳排放、能源使用、污染、水資源管理、氣候風險。
+S：員工待遇、多元化、數據私隱、供應鏈勞工、社區影響。
+G：董事會獨立性、高管薪酬、會計實踐、股東權益、道德。]
+
+**Stella（小魚）：** 所以涵蓋的範圍遠不只環境？
+
+**Horace（陳馬）：** 遠不止。管治實際上是ESG最古老的部分，可以說也是財務上最相關的部分。投資者幾十年來一直關注董事會質量、高管薪酬和會計透明度。環境和社會支柱較新，但已獲得大量關注。
+
+**Stella（小魚）：** 這個趨勢有多大規模？
+
+**Horace（陳馬）：** 非常龐大。到2020年代中期，全球ESG資產超過35萬億美元。部分預測指，到2030年可能達50萬億美元。無論你是否主動選擇ESG，它正在重塑公司的運作方式、基金的構建方式，以及監管機構對財務信息披露的思考方式。
+
+[ANIMATION: 顯示2012年至預計2030年管理資產規模的增長圖表。曲線在2018年後急劇上揚。標籤顯示關鍵里程碑——巴黎協定（2015年）、歐盟綠色協議（2019年）、ESG基金熱潮（2020至2021年）。]
+
+**Stella（小魚）：** 好，讓我們直接談大家最想知道的問題。ESG投資是否有助或損害回報？
+
+**Horace（陳馬）：** 我喜歡你直接切入，因為這正是大多數爭論的核心。而誠實的答案是——視乎時期、具體的ESG方式和板塊敞口。
+
+**Stella（小魚）：** 這個答案不太令人滿意。
+
+**Horace（陳馬）：** 讓我提供更多細節。針對這個話題最大的元研究分析了逾2,200項個別研究，發現約90%顯示ESG與財務表現之間的關係非負。大多數顯示略為正面的結果。
+
+[VISUAL: 研究結果餅圖：「正面關係：約60%。中性關係：約30%。負面關係：約10%。」資料來源標注為Friede、Busch及Bassen，2015年。]
+
+**Stella（小魚）：** 所以ESG不會損害回報？這與我聽到的一些說法相矛盾。
+
+**Horace（陳馬）：** 研究表明它長期平均而言普遍中性至略為正面。但有重要的附帶說明。首先，2015至2020年對ESG非常有利，因為ESG基金傾向超配科技股，而科技股正在蓬勃發展。當人們說「ESG跑贏」時，真正發生的是「科技股跑贏」。
+
+**Stella（小魚）：** 那當科技股不跑贏時呢？
+
+**Horace（陳馬）：** 正是。在2021和2022年，能源價格飆升。排除化石燃料公司的ESG基金落後於大市，因為它們錯過了能源反彈。這表明許多ESG「表現」實際上只是板塊投注的偽裝。
+
+[ANIMATION: 2015至2023年兩條基金表現線。
+2015至2020年：ESG基金跑贏標準指數（科技股順風）。
+2021至2022年：ESG基金跑輸（能源股逆風）。
+總體：兩條線相近，互相交錯。
+文字：「板塊敞口而非ESG本身驅動了大部分差距。」]
+
+**Stella（小魚）：** 所以誠實的結論是……
+
+**Horace（陳馬）：** ESG投資相對於傳統投資，在調整板塊敞口和費用後，既不明顯有利也不明顯有損回報。決定回報最重要的因素仍是一樣的——低費用、廣泛多元化和長期持投。ESG標籤本身並非表現預測指標。
+
+**Stella（小魚）：** 這實際上令人放心。意味著若我想按照自己的價值觀投資，不必犧牲回報。
+
+**Horace（陳馬）：** 是的。取捨，如果有的話，通常很小。你可能為了價值觀一致性而放棄幾個基點的表現。對許多人來說，這是值得的取捨。
+
+**Stella（小魚）：** 你提到了ESG投資的不同方式。能否逐一說明？
+
+**Horace（陳馬）：** 主要有五種方式，了解基金使用哪種方式至關重要。
+
+[VISUAL: 五種方式由最簡單到最複雜的光譜：
+1. 負面篩選——「排除壞的」
+2. 正面篩選——「在每個板塊中選最好的」
+3. ESG整合——「將ESG作為財務數據之外的風險數據」
+4. 股東參與——「持有並從內部影響」
+5. 影響力投資——「針對可衡量的正面成果」]
+
+**Horace（陳馬）：** 最簡單的是負面篩選——排除你反對的行業。不投資煙草、武器、化石燃料。易於理解，易於執行。
+
+**Stella（小魚）：** 但會損失多元化，對嗎？
+
+**Horace（陳馬）：** 可能。若你排除所有能源公司而能源板塊表現出色，你就錯過了。下一種方式，正面篩選或同類最佳，更為細緻。不是排除整個板塊，而是在每個板塊內挑選ESG表現最佳的公司。你可能持有一家石油公司——但僅選擇環境和安全記錄最強的公司。
+
+**Stella（小魚）：** 這似乎更平衡。
+
+**Horace（陳馬）：** 是的。然後是ESG整合，即將ESG數據與傳統財務分析並用。分析師可能會說：「這家公司的網絡安全實踐不佳，增加了數據洩露和監管罰款的風險，所以我要下調估值。」這就是ESG整合——是風險管理，不是道德。
+
+**Stella（小魚）：** 那股東參與呢？
+
+**Horace（陳馬）：** 這是投資者利用持股推動改變的地方。不是出售污染企業的股份，而是保留股份並投票支持要求減排的決議。全球最大的投資者——貝萊德、道富、Vanguard——都廣泛使用股東參與。
+
+**Stella（小魚）：** 這真的有效嗎？
+
+**Horace（陳馬）：** 可以。重大股東運動已推動企業氣候策略、董事會構成和高管薪酬實踐的改變。比撤資慢，但可以說更有影響力，因為它直接改變了企業行為。
+
+**Stella（小魚）：** 影響力投資呢？
+
+**Horace（陳馬）：** 影響力投資走得最遠。你專門針對能產生可衡量正面成果的投資——為太陽能農場融資的綠色債券、支持可負擔住房的社區發展基金、投資清潔水技術的創業基金。挑戰在於，真正的影響力投資通常在私人市場，個人投資者較難接觸。
+
+**Stella（小魚）：** 讓我們談談我一直很懷疑的事——洗綠。如何知道一隻基金是真正的ESG還是只是行銷？
+
+**Horace（陳馬）：** 這是個重大問題，你的懷疑是有道理的。
+
+[VISUAL: 並排對比。
+「真正的ESG基金：」明確界定的排除標準。十大持倉與標準指數有實質差異。已發布具體ESG方法論。就ESG議題行使委託投票。
+「洗綠基金：」在基金名稱中加入「ESG」。十大持倉與標普500相同。模糊聲稱「考慮ESG因素」。費用高於可比非ESG基金。]
+
+**Horace（陳馬）：** 以下是警示信號。若一隻基金的十大持倉與標普500幾乎相同，但收取較高費用且名稱中有「可持續」，這很可疑。若基金招股說明書以模糊措辭談及ESG——「我們可能考慮ESG因素」——沒有具體標準，這是警示信號。若基金最近從普通名稱改為ESG聽起來的名稱，而沒有改變策略，那就是洗綠。
+
+**Stella（小魚）：** 那我應在真正的ESG基金中尋找什麼？
+
+**Horace（陳馬）：** 尋找明確界定的方法論。基金使用哪些ESG數據來源？應用哪些具體篩選？ESG因素如何影響選股和權重？將持倉與標準指數基金比較——應有實質差異。並查看費用比率——良好運作的ESG指數基金費用不應大幅高於標準指數基金。
+
+**Stella（小魚）：** 能舉一些具體的基金例子嗎？
+
+**Horace（陳馬）：** 當然。讓我介紹幾個最受歡迎的選項。
+
+[VISUAL: 基金比較表。
+ESGV（Vanguard ESG美國股票）：排除成人娛樂、酒精、煙草、武器、化石燃料、賭博、核能。費用：0.09%。
+ESGU（iShares ESG Aware）：使用MSCI ESG評級向領導者傾斜。維持廣泛市場敞口。費用：0.15%。
+EFIV（SPDR S&P 500 ESG）：經ESG篩選的標普500。排除最差違規者，按ESG分數選取前75%。費用：0.10%。
+作比較——VTI（Vanguard全股市，非ESG）：持有所有股票。費用：0.03%。]
+
+**Stella（小魚）：** 所以最便宜的ESG選項是0.09%，相比標準全市場基金的0.03%。差距相當小。
+
+**Horace（陳馬）：** 六個基點——每1,000元投資每年約60仙。長期積累起來，但遠少於部分積極管理型ESG基金收取的0.50%至1.00%溢價。
+
+**Stella（小魚）：** 現在，我想了解評級問題。你提到不同機構的ESG評級可能不一致。情況有多嚴重？
+
+**Horace（陳馬）：** 情況出奇地嚴重。研究顯示，不同機構ESG評級之間的相關性約為0.5至0.6。相比之下，穆迪和標普的信用評級相關性約為0.99。換句話說，ESG評級高度主觀。
+
+[ANIMATION: 同一家公司——我們稱之為X公司——被三家不同ESG機構評級。
+機構一：「A——ESG領導者！」（專注環境實踐）
+機構二：「平均」（專注管治問題）
+機構三：「低於平均」（專注供應鏈勞工問題）
+同一家公司，同樣數據，三個截然不同的結論。]
+
+**Stella（小魚）：** 這真的很有問題。若專家都無法達成一致，我怎麼能作出決定？
+
+**Horace（陳馬）：** 這意味著你不應完全將ESG思考外包給評級機構。了解你具體關心哪些因素。若氣候變化是你的首要任務，直接查看公司的碳排放數據，而不是依賴將氣候數據與無關管治指標混合的綜合ESG分數。
+
+**Stella（小魚）：** 你提到的重要性概念呢？
+
+**Horace（陳馬）：** 這非常重要。重要性意味著問：哪些ESG因素實際上影響公司的盈利？並非每個ESG議題對每家公司同等重要。
+
+[VISUAL: 重要性矩陣。
+對科技公司：數據私隱（高度重要），碳排放（低度重要）。
+對石油公司：碳排放（高度），數據私隱（低度）。
+對銀行：管治和貸款實踐（高度），用水量（低度）。
+對食品公司：供應鏈勞工（高度），網絡安全（低度）。]
+
+**Horace（陳馬）：** 專注於財務重要性ESG因素——最有可能影響盈利和風險的因素——的基金，往往比在所有公司不分行業統一套用通用ESG標準的基金，顯示出更強的表現關聯。
+
+**Stella（小魚）：** 這很有道理。科技公司的最大ESG風險不是用水量——而是數據洩露。
+
+**Horace（陳馬）：** 正是。SASB現隸屬於國際財務報告準則基金會，已針對77個不同行業繪製了哪些ESG議題在財務上重要的地圖。對希望ESG分析真正與財務成果掛鈎的投資者，這一框架極為有用。
+
+**Stella（小魚）：** 讓我問一個哲學問題。若我購買ESG基金的股份，我真的在對世界產生正面影響嗎？
+
+**Horace（陳馬）：** 這個問題值得誠實回答。當你購買ESG交易所買賣基金的股份時，你是在二級市場從另一位投資者手中購買股份。基金中的公司不會收到你的錢。在這個直接意義上，你的購買不會資助可持續活動。
+
+**Stella（小魚）：** 那有什麼影響？
+
+**Horace（陳馬）：** 你的影響通過三個渠道產生。首先是信號——當數萬億美元流向ESG基金時，向公司和基金經理傳達了投資者優先事項的訊息。其次是投票——ESG基金經理通常就可持續決議投票。第三是定價——理論上，若足夠多的投資者迴避某些公司，它們的資本成本上升，使它們的運營更昂貴。
+
+[VISUAL: ESG投資者影響力的三個渠道：
+1. 信號：「我們關心這個」箭頭指向企業行為改變。
+2. 投票：ESG股東決議的委託投票。
+3. 定價：減少對被排除股票的需求，理論上提高其資本成本。
+底部注意：「直接影響是間接的，且存在爭議。」]
+
+**Stella（小魚）：** 所以充其量是間接影響。
+
+**Horace（陳馬）：** 對大多數個人投資者而言，是的。若你想要直接影響，可以考慮綠色債券（你的資金直接為特定環境項目融資）、社區投資或直接與公司參與。但即使是間接信號也有規模價值——ESG運動已明顯改變了許多公司的報告、規劃和運作方式。
+
+**Stella（小魚）：** 政治爭論在這裡如何定位？
+
+**Horace（陳馬）：** ESG已帶有政治極化色彩，部分地區授權考慮ESG，另一些則在公共退休基金中禁止。我對個人投資者的建議：將政治噪音與投資分析分開。良好的管治不是政治。評估環境監管風險不是政治。了解供應鏈風險不是政治。這些都是標準的投資分析實踐——只是現在有了ESG標籤。
+
+**Stella（小魚）：** 說得有理。讓我總結一下我所學到的。ESG代表環境、社會和管治——三類非財務因素。ESG評級是主觀的，不同機構之間不一致。ESG投資有多種形式，從簡單排除到深度整合到影響力投資。實證表明ESG既不明顯有利也不明顯有損回報——費用和多元化更為重要。洗綠是真實存在的，我應核實任何「ESG」基金實際上做什麼。重要性很重要——專注於與各行業財務相關的ESG因素。而我作為ESG投資者的影響主要是間接的，通過信號、投票和定價效應。
+
+**Horace（陳馬）：** 這是一個出色的總結。無論你選擇投資ESG基金與否，了解這些概念讓你成為更明智的投資者。而這正是整個系列的目的——給予你作出審慎、理性投資決策的知識。
+
+[ANIMATION: 最終圖表顯示帶有可選ESG疊加的平衡投資組合。文字：「ESG是一個視角，不是魔法公式。了解你持有什麼、為何持有，以及你期望什麼影響。以頭腦和價值觀投資。」]
+
+**Stella（小魚）：** 謝謝你，Horace。這個系列真的很精彩。我感覺自己現在真的理解了投資——不只是基礎知識，而是真正的細微差別。
+
+**Horace（陳馬）：** 而這始終是目標。投資不必複雜，但必須有據可依。運用你所學到的知識，持之以恆地應用，保持低費用，廣泛多元化，長期思考，你將領先於絕大多數投資者。
+
+**Stella（小魚）：** 致每位觀看的朋友——感謝你與我們一起學習。去把這些知識付諸實踐吧。
+
+**Horace（陳馬）：** 我們江湖再見。
+
+---
+
+*旁課第12課完*

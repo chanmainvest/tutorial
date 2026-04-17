@@ -794,276 +794,276 @@ A: Practice is the only answer. Pick a company you know well -- perhaps one whos
 
 [VISUAL: Animated intro with title "Week 8: Reading Financial Statements - Basics"]
 
-**Alex:** Welcome back everyone. Today we are learning one of the most fundamental skills in all of investing -- how to read financial statements. If last week was about the discipline of rebalancing, this week is about developing the ability to actually understand what a company is doing with its money. And I promise you, once you learn this, you will never look at a stock the same way again.
+**Horace:** Welcome back everyone. Today we are learning one of the most fundamental skills in all of investing -- how to read financial statements. If last week was about the discipline of rebalancing, this week is about developing the ability to actually understand what a company is doing with its money. And I promise you, once you learn this, you will never look at a stock the same way again.
 
-**Sam:** I will be honest, Alex. Financial statements sound intimidating. When I see those huge tables of numbers in an annual report, my eyes glaze over. Where do I even start?
+**Stella:** I will be honest, Horace. Financial statements sound intimidating. When I see those huge tables of numbers in an annual report, my eyes glaze over. Where do I even start?
 
-**Alex:** Here is the good news. There are only three financial statements you need to understand, and each one answers a simple question. The income statement answers: "Did the company make money?" The balance sheet answers: "What does the company own and owe right now?" And the cash flow statement answers: "Where did the cash actually come from, and where did it go?"
+**Horace:** Here is the good news. There are only three financial statements you need to understand, and each one answers a simple question. The income statement answers: "Did the company make money?" The balance sheet answers: "What does the company own and owe right now?" And the cash flow statement answers: "Where did the cash actually come from, and where did it go?"
 
-**Sam:** Three statements, three questions. I can handle that.
+**Stella:** Three statements, three questions. I can handle that.
 
-**Alex:** Good. And here is the even better news -- you do not need to understand every line item on day one. You need to understand the structure, know where to look for the important numbers, and most importantly, understand how the three statements connect to each other. That is what we are going to do today.
+**Horace:** Good. And here is the even better news -- you do not need to understand every line item on day one. You need to understand the structure, know where to look for the important numbers, and most importantly, understand how the three statements connect to each other. That is what we are going to do today.
 
 [VISUAL: Three side-by-side document icons labeled "Income Statement," "Balance Sheet," and "Cash Flow Statement," with their key questions displayed beneath each one]
 
-**Sam:** Let us start at the beginning. The income statement.
+**Stella:** Let us start at the beginning. The income statement.
 
-**Alex:** The income statement -- also called the profit and loss statement, or P&L -- shows the company's financial performance over a period of time. Usually a quarter or a year. Think of it as a movie, not a photograph. It captures everything that happened between two dates.
+**Horace:** The income statement -- also called the profit and loss statement, or P&L -- shows the company's financial performance over a period of time. Usually a quarter or a year. Think of it as a movie, not a photograph. It captures everything that happened between two dates.
 
-**Sam:** And it starts with revenue at the top?
+**Stella:** And it starts with revenue at the top?
 
-**Alex:** Exactly. Revenue, also called sales or the "top line," is the total amount the company earned from selling its products or services. Then you subtract costs, layer by layer, until you get to net income at the bottom -- which is why net income is called the "bottom line."
+**Horace:** Exactly. Revenue, also called sales or the "top line," is the total amount the company earned from selling its products or services. Then you subtract costs, layer by layer, until you get to net income at the bottom -- which is why net income is called the "bottom line."
 
 [ANIMATION: animation/week08_three_statements.py - Animated waterfall chart building the income statement from top to bottom. Starting with a tall Revenue bar, then sequentially subtracting COGS (the bar shrinks), operating expenses (shrinks more), interest (shrinks slightly), and taxes (shrinks again) to arrive at the final Net Income bar. Each subtraction is animated with the expense amount visually "cutting" from the revenue bar, and margin percentages appear alongside each level.]
 
-**Sam:** What are the layers of costs?
+**Stella:** What are the layers of costs?
 
-**Alex:** The first and usually largest is Cost of Goods Sold, or COGS. This is the direct cost of producing whatever the company sells -- raw materials, factory labor, shipping. Revenue minus COGS gives you gross profit.
+**Horace:** The first and usually largest is Cost of Goods Sold, or COGS. This is the direct cost of producing whatever the company sells -- raw materials, factory labor, shipping. Revenue minus COGS gives you gross profit.
 
-**Sam:** And gross margin is gross profit divided by revenue?
+**Stella:** And gross margin is gross profit divided by revenue?
 
-**Alex:** Right. A company with $1 million in revenue and $600,000 in COGS has a gross profit of $400,000 and a gross margin of 40%. That 40% tells you that for every dollar of revenue, 40 cents is left after covering the direct costs of production.
+**Horace:** Right. A company with $1 million in revenue and $600,000 in COGS has a gross profit of $400,000 and a gross margin of 40%. That 40% tells you that for every dollar of revenue, 40 cents is left after covering the direct costs of production.
 
-**Sam:** What is a good gross margin?
+**Stella:** What is a good gross margin?
 
-**Alex:** It depends entirely on the industry. Software companies often have gross margins of 70-85% because the cost of producing one more copy of software is nearly zero. Grocery retailers might have gross margins of 25-30% because they are selling physical goods with thin markups. The key is to compare within the same industry and to watch the trend over time. If gross margin is declining, it usually means either input costs are rising or the company is being forced to cut prices due to competition.
+**Horace:** It depends entirely on the industry. Software companies often have gross margins of 70-85% because the cost of producing one more copy of software is nearly zero. Grocery retailers might have gross margins of 25-30% because they are selling physical goods with thin markups. The key is to compare within the same industry and to watch the trend over time. If gross margin is declining, it usually means either input costs are rising or the company is being forced to cut prices due to competition.
 
 [VISUAL: Bar chart showing typical gross margins by industry -- Software 75%, Pharmaceuticals 65%, Consumer Staples 40%, Retail 30%, Grocery 25%]
 
-**Sam:** After gross profit, what comes next?
+**Stella:** After gross profit, what comes next?
 
-**Alex:** Operating expenses -- the costs of running the business beyond producing the product. This includes Selling, General and Administrative expenses (SG&A), Research and Development (R&D), and Depreciation and Amortization (D&A). Subtract these from gross profit and you get operating income, also called EBIT -- Earnings Before Interest and Taxes.
+**Horace:** Operating expenses -- the costs of running the business beyond producing the product. This includes Selling, General and Administrative expenses (SG&A), Research and Development (R&D), and Depreciation and Amortization (D&A). Subtract these from gross profit and you get operating income, also called EBIT -- Earnings Before Interest and Taxes.
 
-**Sam:** Why is operating income important?
+**Stella:** Why is operating income important?
 
-**Alex:** Because it shows how profitable the core business operations are, before considering how the company is financed (interest) or where it is located (taxes). Two identical businesses with different amounts of debt will have different net incomes but similar operating incomes. Operating margin -- EBIT divided by revenue -- is one of the most useful metrics for comparing companies.
+**Horace:** Because it shows how profitable the core business operations are, before considering how the company is financed (interest) or where it is located (taxes). Two identical businesses with different amounts of debt will have different net incomes but similar operating incomes. Operating margin -- EBIT divided by revenue -- is one of the most useful metrics for comparing companies.
 
-**Sam:** Then below operating income?
+**Stella:** Then below operating income?
 
-**Alex:** You subtract interest expense -- the cost of borrowed money -- and then taxes. What is left is net income, the famous bottom line. This is what is available for shareholders, either to be paid as dividends or reinvested in the business.
+**Horace:** You subtract interest expense -- the cost of borrowed money -- and then taxes. What is left is net income, the famous bottom line. This is what is available for shareholders, either to be paid as dividends or reinvested in the business.
 
-**Sam:** And Earnings Per Share is just net income divided by the number of shares outstanding?
+**Stella:** And Earnings Per Share is just net income divided by the number of shares outstanding?
 
-**Alex:** Exactly. If a company earns $100 million in net income and has 50 million shares outstanding, EPS is $2.00. That is the number you see in earnings reports and the denominator in the P/E ratio.
+**Horace:** Exactly. If a company earns $100 million in net income and has 50 million shares outstanding, EPS is $2.00. That is the number you see in earnings reports and the denominator in the P/E ratio.
 
 [VISUAL: Complete income statement example with all major line items, margins calculated and displayed on the right side, with arrows pointing from key items to their corresponding margin calculations]
 
-**Sam:** Got it. Now the balance sheet. This one always confuses me.
+**Stella:** Got it. Now the balance sheet. This one always confuses me.
 
-**Alex:** The balance sheet is actually elegant once you understand the fundamental equation. Assets equals Liabilities plus Shareholders' Equity. Everything the company owns, everything it owes, and the difference belongs to shareholders. This equation always balances -- that is literally why it is called a balance sheet.
+**Horace:** The balance sheet is actually elegant once you understand the fundamental equation. Assets equals Liabilities plus Shareholders' Equity. Everything the company owns, everything it owes, and the difference belongs to shareholders. This equation always balances -- that is literally why it is called a balance sheet.
 
-**Sam:** Can you give me a real-world analogy?
+**Stella:** Can you give me a real-world analogy?
 
-**Alex:** Sure. Think about your personal finances. Your assets are your house, your car, your savings account. Your liabilities are your mortgage, your car loan, your credit card balance. Your equity -- your net worth -- is the difference. If you own a $500,000 house with a $300,000 mortgage, your equity in the house is $200,000.
+**Horace:** Sure. Think about your personal finances. Your assets are your house, your car, your savings account. Your liabilities are your mortgage, your car loan, your credit card balance. Your equity -- your net worth -- is the difference. If you own a $500,000 house with a $300,000 mortgage, your equity in the house is $200,000.
 
 [VISUAL: Split screen showing a personal balance sheet (house, car, bank account on left; mortgage, car loan on right; net worth at bottom) transitioning to a corporate balance sheet with the same structure]
 
-**Sam:** That makes sense. So a company with $1 billion in assets and $600 million in liabilities has $400 million in equity.
+**Stella:** That makes sense. So a company with $1 billion in assets and $600 million in liabilities has $400 million in equity.
 
-**Alex:** Exactly. And that $400 million in equity is the book value of the company -- what accountants say it is worth. The stock market might value it at more or less than book value, which is why the Price-to-Book ratio exists. But that is a Week 21 topic.
+**Horace:** Exactly. And that $400 million in equity is the book value of the company -- what accountants say it is worth. The stock market might value it at more or less than book value, which is why the Price-to-Book ratio exists. But that is a Week 21 topic.
 
-**Sam:** What is the difference between current and non-current on the balance sheet?
+**Stella:** What is the difference between current and non-current on the balance sheet?
 
-**Alex:** Great question. Current means within one year. Current assets are things that will be converted to cash within a year -- like accounts receivable (money customers owe you), inventory (products waiting to be sold), and of course cash itself. Current liabilities are obligations due within a year -- like accounts payable (money you owe suppliers) and short-term debt.
+**Horace:** Great question. Current means within one year. Current assets are things that will be converted to cash within a year -- like accounts receivable (money customers owe you), inventory (products waiting to be sold), and of course cash itself. Current liabilities are obligations due within a year -- like accounts payable (money you owe suppliers) and short-term debt.
 
-**Sam:** And non-current is everything longer term?
+**Stella:** And non-current is everything longer term?
 
-**Alex:** Right. Non-current assets include things like property, factories, equipment -- the long-lived assets that support the business for years. Non-current liabilities are mainly long-term debt -- bonds and loans that mature more than a year out.
+**Horace:** Right. Non-current assets include things like property, factories, equipment -- the long-lived assets that support the business for years. Non-current liabilities are mainly long-term debt -- bonds and loans that mature more than a year out.
 
 [VISUAL: Balance sheet diagram with current assets and liabilities highlighted at the top, non-current items below, with a timeline showing "within 1 year" versus "beyond 1 year" to illustrate the distinction]
 
-**Sam:** Why does the current versus non-current distinction matter?
+**Stella:** Why does the current versus non-current distinction matter?
 
-**Alex:** Because it tells you about the company's short-term financial health. If current liabilities exceed current assets, the company might struggle to pay its bills. The current ratio -- current assets divided by current liabilities -- is a quick health check. Above 1.5 is generally comfortable. Below 1.0 means the company may not be able to cover its short-term obligations without additional financing.
+**Horace:** Because it tells you about the company's short-term financial health. If current liabilities exceed current assets, the company might struggle to pay its bills. The current ratio -- current assets divided by current liabilities -- is a quick health check. Above 1.5 is generally comfortable. Below 1.0 means the company may not be able to cover its short-term obligations without additional financing.
 
-**Sam:** That sounds like a critical thing to check.
+**Stella:** That sounds like a critical thing to check.
 
-**Alex:** It is. Plenty of companies have gone bankrupt not because they were unprofitable, but because they ran out of cash to pay bills that came due. Profitable companies can die of illiquidity. This is why the balance sheet matters even for companies with strong income statements.
+**Horace:** It is. Plenty of companies have gone bankrupt not because they were unprofitable, but because they ran out of cash to pay bills that came due. Profitable companies can die of illiquidity. This is why the balance sheet matters even for companies with strong income statements.
 
-**Sam:** Okay, now the third statement -- cash flow. You mentioned this is the most important one?
+**Stella:** Okay, now the third statement -- cash flow. You mentioned this is the most important one?
 
-**Alex:** Many experienced investors consider it the most important, and I agree. Here is why. The income statement uses something called accrual accounting. That means revenue is recorded when it is earned, not when cash is received. Expenses are recorded when incurred, not when cash is paid. This creates a gap between accounting profits and actual cash.
+**Horace:** Many experienced investors consider it the most important, and I agree. Here is why. The income statement uses something called accrual accounting. That means revenue is recorded when it is earned, not when cash is received. Expenses are recorded when incurred, not when cash is paid. This creates a gap between accounting profits and actual cash.
 
 [VISUAL: Two timelines showing the same transaction -- the income statement records the sale when goods are delivered, but the cash flow statement records it when payment is received weeks later]
 
-**Sam:** Can you give me an example of why that matters?
+**Stella:** Can you give me an example of why that matters?
 
-**Alex:** Sure. Imagine a company sells $10 million worth of products in December but gives customers 90 days to pay. On the December income statement, it books $10 million in revenue and reports a nice profit. But the cash? The cash does not arrive until March. On December 31st, the company has a healthy income statement but might not have enough cash to pay its January bills.
+**Horace:** Sure. Imagine a company sells $10 million worth of products in December but gives customers 90 days to pay. On the December income statement, it books $10 million in revenue and reports a nice profit. But the cash? The cash does not arrive until March. On December 31st, the company has a healthy income statement but might not have enough cash to pay its January bills.
 
-**Sam:** So a company can be profitable on paper but broke in reality?
+**Stella:** So a company can be profitable on paper but broke in reality?
 
-**Alex:** Exactly. And this is not hypothetical. Many fast-growing companies have gone bankrupt precisely because of this dynamic. They grew so fast that their cash was tied up in receivables and inventory, and they could not pay their obligations even though the income statement showed profits.
+**Horace:** Exactly. And this is not hypothetical. Many fast-growing companies have gone bankrupt precisely because of this dynamic. They grew so fast that their cash was tied up in receivables and inventory, and they could not pay their obligations even though the income statement showed profits.
 
-**Sam:** That is scary. So the cash flow statement shows what is really happening with the cash?
+**Stella:** That is scary. So the cash flow statement shows what is really happening with the cash?
 
-**Alex:** It does. And it has three sections. Operating activities, investing activities, and financing activities.
+**Horace:** It does. And it has three sections. Operating activities, investing activities, and financing activities.
 
 [ANIMATION: animation/week08_three_statements.py - Animated funnel diagram showing cash flowing through the three sections. Cash from operations flows in at the top (green), then investing activities show cash flowing out for equipment and acquisitions (red arrows going down), then financing activities show debt and equity flows (blue arrows both directions). The remaining cash at the bottom updates a running cash balance counter that matches the balance sheet.]
 
-**Alex:** Operating activities start with net income from the income statement and then adjust for all the non-cash items and working capital changes. You add back depreciation because it is a non-cash charge -- the company did not actually write a check for depreciation. You subtract increases in receivables because that revenue has not been collected as cash yet. You subtract increases in inventory because the company spent cash buying inventory.
+**Horace:** Operating activities start with net income from the income statement and then adjust for all the non-cash items and working capital changes. You add back depreciation because it is a non-cash charge -- the company did not actually write a check for depreciation. You subtract increases in receivables because that revenue has not been collected as cash yet. You subtract increases in inventory because the company spent cash buying inventory.
 
-**Sam:** So operating cash flow is the real cash the business generated from its operations?
+**Stella:** So operating cash flow is the real cash the business generated from its operations?
 
-**Alex:** Exactly. And here is the key test: if operating cash flow is consistently well above net income, that is a sign of high-quality earnings. The company is generating real cash, not just accounting profits. If operating cash flow is consistently below net income, red flag. Something in the accounting is creating profits that do not translate to cash.
+**Horace:** Exactly. And here is the key test: if operating cash flow is consistently well above net income, that is a sign of high-quality earnings. The company is generating real cash, not just accounting profits. If operating cash flow is consistently below net income, red flag. Something in the accounting is creating profits that do not translate to cash.
 
-**Sam:** What about the investing section?
+**Stella:** What about the investing section?
 
-**Alex:** Investing activities show cash spent on or received from long-term assets. The biggest item is usually capital expenditures -- buying property, equipment, or technology. This section is usually negative, which is fine -- it means the company is investing in its future. If it is positive, it often means the company is selling assets, which could be strategic or could be a sign of distress.
+**Horace:** Investing activities show cash spent on or received from long-term assets. The biggest item is usually capital expenditures -- buying property, equipment, or technology. This section is usually negative, which is fine -- it means the company is investing in its future. If it is positive, it often means the company is selling assets, which could be strategic or could be a sign of distress.
 
-**Sam:** And financing activities?
+**Stella:** And financing activities?
 
-**Alex:** Financing shows cash flows between the company and its investors and lenders. Taking on new debt or issuing new stock brings cash in. Paying off debt, paying dividends, or buying back shares sends cash out.
+**Horace:** Financing shows cash flows between the company and its investors and lenders. Taking on new debt or issuing new stock brings cash in. Paying off debt, paying dividends, or buying back shares sends cash out.
 
 [VISUAL: Three-column summary with icons: Operating (factory/gear icon) = "Cash from running the business," Investing (building/plant icon) = "Cash for building the future," Financing (handshake icon) = "Cash between company and capital providers"]
 
-**Sam:** Now here is something I have been reading about -- free cash flow. How does that fit in?
+**Stella:** Now here is something I have been reading about -- free cash flow. How does that fit in?
 
-**Alex:** Free cash flow is the single most important number for investors. It is cash from operations minus capital expenditures. Think of it as the cash left over after the company has paid all its operating expenses and invested in maintaining and growing its assets.
+**Horace:** Free cash flow is the single most important number for investors. It is cash from operations minus capital expenditures. Think of it as the cash left over after the company has paid all its operating expenses and invested in maintaining and growing its assets.
 
-**Sam:** Why is it so important?
+**Stella:** Why is it so important?
 
-**Alex:** Because free cash flow is the money that is truly available for shareholders. It can be used to pay dividends, buy back shares, pay down debt, make acquisitions, or simply build a cash reserve. Companies with strong, growing free cash flow are the ones that can reward shareholders over the long term. Companies with weak or negative free cash flow are either in growth mode (spending heavily to build the business) or in trouble.
+**Horace:** Because free cash flow is the money that is truly available for shareholders. It can be used to pay dividends, buy back shares, pay down debt, make acquisitions, or simply build a cash reserve. Companies with strong, growing free cash flow are the ones that can reward shareholders over the long term. Companies with weak or negative free cash flow are either in growth mode (spending heavily to build the business) or in trouble.
 
-**Sam:** How can I tell the difference between "good negative FCF" from growth spending and "bad negative FCF" from problems?
+**Stella:** How can I tell the difference between "good negative FCF" from growth spending and "bad negative FCF" from problems?
 
-**Alex:** Great question. Look at what is driving the negative FCF. If it is heavy capital expenditure or R&D investment in a company with strong revenue growth and expanding addressable market, that can be good -- they are investing in future cash flows. Amazon had negative free cash flow for years while building its logistics network and AWS infrastructure, and that turned out to be brilliantly invested money. But if FCF is negative because operating cash flow itself is weak -- meaning the existing business is not generating cash -- that is a serious concern regardless of how much they are spending on growth.
+**Horace:** Great question. Look at what is driving the negative FCF. If it is heavy capital expenditure or R&D investment in a company with strong revenue growth and expanding addressable market, that can be good -- they are investing in future cash flows. Amazon had negative free cash flow for years while building its logistics network and AWS infrastructure, and that turned out to be brilliantly invested money. But if FCF is negative because operating cash flow itself is weak -- meaning the existing business is not generating cash -- that is a serious concern regardless of how much they are spending on growth.
 
 [VISUAL: Side-by-side comparison: "Good Negative FCF" (strong operating cash flow minus large capex for growth) versus "Bad Negative FCF" (weak operating cash flow, business itself is burning cash)]
 
-**Sam:** Can you show me how the three statements connect to each other? That is the part I find most confusing.
+**Stella:** Can you show me how the three statements connect to each other? That is the part I find most confusing.
 
-**Alex:** This is the most important concept in all of financial statement analysis. Let me walk you through it.
+**Horace:** This is the most important concept in all of financial statement analysis. Let me walk you through it.
 
 [ANIMATION: animation/week08_three_statements.py - Animated diagram showing all three statements side by side with animated arrows showing the connections between them. Net Income flows from the Income Statement to both the Balance Sheet (Retained Earnings) and the Cash Flow Statement (starting point). The Cash Flow Statement's ending cash balance updates the Cash line on the Balance Sheet. Depreciation reduces PP&E on the Balance Sheet while being added back on the Cash Flow Statement. New debt appears in Financing Activities and increases Liabilities on the Balance Sheet.]
 
-**Alex:** Start with the income statement. Net income -- the bottom line -- flows to two places. First, it flows to the balance sheet. Specifically, it increases Retained Earnings, which is part of shareholders' equity. This makes sense -- if the company earned money, the shareholders' claim on the business grew.
+**Horace:** Start with the income statement. Net income -- the bottom line -- flows to two places. First, it flows to the balance sheet. Specifically, it increases Retained Earnings, which is part of shareholders' equity. This makes sense -- if the company earned money, the shareholders' claim on the business grew.
 
-**Sam:** And the second place?
+**Stella:** And the second place?
 
-**Alex:** Net income is also the starting point of the cash flow statement, under the indirect method, which is what most companies use. From there, you make adjustments to reconcile accounting profit with actual cash flow. And the ending cash balance from the cash flow statement becomes the cash line item on the balance sheet.
+**Horace:** Net income is also the starting point of the cash flow statement, under the indirect method, which is what most companies use. From there, you make adjustments to reconcile accounting profit with actual cash flow. And the ending cash balance from the cash flow statement becomes the cash line item on the balance sheet.
 
-**Sam:** So the cash flow statement is the bridge between the income statement and the balance sheet?
+**Stella:** So the cash flow statement is the bridge between the income statement and the balance sheet?
 
-**Alex:** That is a brilliant way to think about it. The income statement tells a story in accrual accounting terms. The cash flow statement translates that story into cash terms. And the balance sheet is the cumulative snapshot that reflects everything that has happened.
+**Horace:** That is a brilliant way to think about it. The income statement tells a story in accrual accounting terms. The cash flow statement translates that story into cash terms. And the balance sheet is the cumulative snapshot that reflects everything that has happened.
 
-**Sam:** Can you walk me through a specific example?
+**Stella:** Can you walk me through a specific example?
 
-**Alex:** Let us say a company makes a sale on credit for $10,000. The product cost $6,000. On the income statement: revenue goes up $10,000, COGS goes up $6,000, and profit increases by $4,000. On the balance sheet: accounts receivable goes up $10,000 (the customer owes us), inventory goes down $6,000 (we shipped the product), and retained earnings goes up $4,000 (the profit). On the cash flow statement: net income shows the $4,000 profit, but then we subtract $10,000 for the increase in receivables and add back $6,000 for the decrease in inventory. Net cash impact: zero.
+**Horace:** Let us say a company makes a sale on credit for $10,000. The product cost $6,000. On the income statement: revenue goes up $10,000, COGS goes up $6,000, and profit increases by $4,000. On the balance sheet: accounts receivable goes up $10,000 (the customer owes us), inventory goes down $6,000 (we shipped the product), and retained earnings goes up $4,000 (the profit). On the cash flow statement: net income shows the $4,000 profit, but then we subtract $10,000 for the increase in receivables and add back $6,000 for the decrease in inventory. Net cash impact: zero.
 
-**Sam:** Zero? The company made a $4,000 profit but got zero cash?
+**Stella:** Zero? The company made a $4,000 profit but got zero cash?
 
-**Alex:** Exactly. No cash changes hands until the customer actually pays. The income statement says "we made money." The cash flow statement says "but we have not collected it yet." This is why you need both statements. One without the other gives you an incomplete and potentially misleading picture.
+**Horace:** Exactly. No cash changes hands until the customer actually pays. The income statement says "we made money." The cash flow statement says "but we have not collected it yet." This is why you need both statements. One without the other gives you an incomplete and potentially misleading picture.
 
 [VISUAL: The $10,000 credit sale traced through all three statements simultaneously, with the key insight "Profit does not equal cash!" highlighted]
 
-**Sam:** That is an incredible example. Now I understand why people say the cash flow statement is the truth detector.
+**Stella:** That is an incredible example. Now I understand why people say the cash flow statement is the truth detector.
 
-**Alex:** It is. And here is a rule of thumb that will serve you well for your entire investing career: when the income statement and the cash flow statement tell different stories, trust the cash flow statement. Cash does not lie.
+**Horace:** It is. And here is a rule of thumb that will serve you well for your entire investing career: when the income statement and the cash flow statement tell different stories, trust the cash flow statement. Cash does not lie.
 
-**Sam:** Let us talk about ratios. I see these mentioned all the time -- current ratio, ROE, debt-to-equity. What are the essential ones?
+**Stella:** Let us talk about ratios. I see these mentioned all the time -- current ratio, ROE, debt-to-equity. What are the essential ones?
 
-**Alex:** There are four categories of ratios you should know. Profitability ratios tell you how effectively the company converts revenue into profit. Liquidity ratios tell you whether the company can pay its short-term bills. Leverage ratios tell you how much debt the company is carrying. And efficiency ratios tell you how well the company manages its assets.
+**Horace:** There are four categories of ratios you should know. Profitability ratios tell you how effectively the company converts revenue into profit. Liquidity ratios tell you whether the company can pay its short-term bills. Leverage ratios tell you how much debt the company is carrying. And efficiency ratios tell you how well the company manages its assets.
 
 [VISUAL: Four quadrants labeled Profitability, Liquidity, Leverage, and Efficiency, each with their key ratios listed]
 
-**Alex:** For profitability, the most important is Return on Equity -- ROE. It measures how much profit the company generates for each dollar of shareholder equity. An ROE of 15% means the company generates $15 of profit for every $100 of shareholder investment. Above 15% is generally good. Above 20% is excellent. Below 10% may suggest the company is not using shareholders' capital efficiently.
+**Horace:** For profitability, the most important is Return on Equity -- ROE. It measures how much profit the company generates for each dollar of shareholder equity. An ROE of 15% means the company generates $15 of profit for every $100 of shareholder investment. Above 15% is generally good. Above 20% is excellent. Below 10% may suggest the company is not using shareholders' capital efficiently.
 
-**Sam:** But I have heard ROE can be misleading?
+**Stella:** But I have heard ROE can be misleading?
 
-**Alex:** Very perceptive. This is where the DuPont decomposition comes in. ROE equals profit margin times asset turnover times financial leverage. A company can have a high ROE for three very different reasons: it has great margins, it uses assets efficiently, or it has a lot of debt. The first two are healthy. The third is risky.
+**Horace:** Very perceptive. This is where the DuPont decomposition comes in. ROE equals profit margin times asset turnover times financial leverage. A company can have a high ROE for three very different reasons: it has great margins, it uses assets efficiently, or it has a lot of debt. The first two are healthy. The third is risky.
 
-**Sam:** So two companies with the same 20% ROE might be very different?
+**Stella:** So two companies with the same 20% ROE might be very different?
 
-**Alex:** Exactly. Company A might have 20% ROE because it has a 10% profit margin and turns over its assets efficiently. Company B might have 20% ROE because it is leveraged to the hilt with debt. If a recession hits, Company A is fine. Company B might face a debt crisis. The DuPont decomposition reveals which type of ROE you are dealing with.
+**Horace:** Exactly. Company A might have 20% ROE because it has a 10% profit margin and turns over its assets efficiently. Company B might have 20% ROE because it is leveraged to the hilt with debt. If a recession hits, Company A is fine. Company B might face a debt crisis. The DuPont decomposition reveals which type of ROE you are dealing with.
 
 [VISUAL: DuPont framework showing ROE broken into three components, with two different companies achieving the same ROE through different combinations]
 
-**Sam:** What about those red flags you mentioned in the reading? What should scare me when I look at financial statements?
+**Stella:** What about those red flags you mentioned in the reading? What should scare me when I look at financial statements?
 
-**Alex:** The number one red flag is a persistent divergence between net income and cash from operations. If the company keeps reporting profits but cash flow keeps declining or is negative, something is not right. The profits may be accounting-driven rather than real.
+**Horace:** The number one red flag is a persistent divergence between net income and cash from operations. If the company keeps reporting profits but cash flow keeps declining or is negative, something is not right. The profits may be accounting-driven rather than real.
 
-**Sam:** What causes that divergence?
+**Stella:** What causes that divergence?
 
-**Alex:** Several things. Accounts receivable growing faster than revenue -- the company is booking sales but not collecting cash. Inventory building up faster than revenue -- the company is producing products it cannot sell. Capitalizing expenses -- putting costs on the balance sheet as "assets" instead of running them through the income statement as expenses. All of these inflate reported profit while draining cash.
+**Horace:** Several things. Accounts receivable growing faster than revenue -- the company is booking sales but not collecting cash. Inventory building up faster than revenue -- the company is producing products it cannot sell. Capitalizing expenses -- putting costs on the balance sheet as "assets" instead of running them through the income statement as expenses. All of these inflate reported profit while draining cash.
 
-**Sam:** Can you give me a real-world example?
+**Stella:** Can you give me a real-world example?
 
-**Alex:** Think about a company that is "stuffing the channel" -- shipping huge quantities of product to distributors at the end of every quarter to hit revenue targets. The distributors have not sold the product to actual customers, but the company books it as revenue. Receivables balloon. Inventory at the distributors piles up. Eventually, the distributors stop ordering, the music stops, and revenue collapses. This exact pattern has been seen in companies from pharmaceutical firms to tech hardware companies.
+**Horace:** Think about a company that is "stuffing the channel" -- shipping huge quantities of product to distributors at the end of every quarter to hit revenue targets. The distributors have not sold the product to actual customers, but the company books it as revenue. Receivables balloon. Inventory at the distributors piles up. Eventually, the distributors stop ordering, the music stops, and revenue collapses. This exact pattern has been seen in companies from pharmaceutical firms to tech hardware companies.
 
 [VISUAL: Chart showing revenue line steadily climbing while accounts receivable line climbs even faster, with the gap highlighted as a warning sign]
 
-**Sam:** Another red flag you mentioned was frequent "one-time" charges. What is that about?
+**Stella:** Another red flag you mentioned was frequent "one-time" charges. What is that about?
 
-**Alex:** This is one of my favorites. Some companies report "one-time" restructuring charges almost every single year. They present adjusted earnings that exclude these charges, making profitability look much better than the GAAP earnings. But if a company has a "one-time" charge every year for ten years, it is not one-time -- it is a recurring cost of doing business that management is trying to sweep under the rug.
+**Horace:** This is one of my favorites. Some companies report "one-time" restructuring charges almost every single year. They present adjusted earnings that exclude these charges, making profitability look much better than the GAAP earnings. But if a company has a "one-time" charge every year for ten years, it is not one-time -- it is a recurring cost of doing business that management is trying to sweep under the rug.
 
-**Sam:** So I should be skeptical of adjusted earnings?
+**Stella:** So I should be skeptical of adjusted earnings?
 
-**Alex:** Always compare adjusted earnings to GAAP earnings and to cash from operations. If adjusted earnings are significantly higher than both GAAP earnings and operating cash flow, management may be painting too rosy a picture.
+**Horace:** Always compare adjusted earnings to GAAP earnings and to cash from operations. If adjusted earnings are significantly higher than both GAAP earnings and operating cash flow, management may be painting too rosy a picture.
 
-**Sam:** Let me try to put this all together with a practical exercise. If I am looking at a stock for the first time, what is my checklist?
+**Stella:** Let me try to put this all together with a practical exercise. If I am looking at a stock for the first time, what is my checklist?
 
-**Alex:** Great idea. Here is my framework.
+**Horace:** Great idea. Here is my framework.
 
-[VISUAL: Numbered checklist appearing one item at a time as Alex describes each step]
+[VISUAL: Numbered checklist appearing one item at a time as Horace describes each step]
 
-**Alex:** Step one: check revenue trends. Is revenue growing? How fast? Is growth accelerating or decelerating? Step two: check margin trends. Are gross, operating, and net margins stable, expanding, or contracting? Step three: look at the balance sheet. Is debt reasonable relative to equity? Is the current ratio above 1.5? How much cash is on hand? Step four: check cash from operations versus net income. Are they in the same ballpark, or is there a big gap? Step five: calculate free cash flow and the FCF yield. Is the company generating real cash after capital expenditures? Step six: look for red flags -- rapidly growing receivables or inventory, frequent one-time charges, declining cash despite reported profits.
+**Horace:** Step one: check revenue trends. Is revenue growing? How fast? Is growth accelerating or decelerating? Step two: check margin trends. Are gross, operating, and net margins stable, expanding, or contracting? Step three: look at the balance sheet. Is debt reasonable relative to equity? Is the current ratio above 1.5? How much cash is on hand? Step four: check cash from operations versus net income. Are they in the same ballpark, or is there a big gap? Step five: calculate free cash flow and the FCF yield. Is the company generating real cash after capital expenditures? Step six: look for red flags -- rapidly growing receivables or inventory, frequent one-time charges, declining cash despite reported profits.
 
-**Sam:** That is a solid framework. How long does it take to do this analysis?
+**Stella:** That is a solid framework. How long does it take to do this analysis?
 
-**Alex:** Once you have practice, you can do a preliminary screen in about 15-20 minutes per company. The deep dive -- reading the full 10-K, understanding the footnotes, comparing to peers -- might take several hours. But even the quick screen will catch the most obvious problems and opportunities.
+**Horace:** Once you have practice, you can do a preliminary screen in about 15-20 minutes per company. The deep dive -- reading the full 10-K, understanding the footnotes, comparing to peers -- might take several hours. But even the quick screen will catch the most obvious problems and opportunities.
 
-**Sam:** Let us talk about something from the CFA perspective. What is this "quality of earnings" concept?
+**Stella:** Let us talk about something from the CFA perspective. What is this "quality of earnings" concept?
 
-**Alex:** Quality of earnings is one of the most important concepts in the CFA curriculum and in professional investing. It asks: how reliable and sustainable are the reported profits? High-quality earnings are backed by cash, come from the company's core business, and are likely to continue in the future. Low-quality earnings are driven by accounting choices, one-time events, or aggressive assumptions.
+**Horace:** Quality of earnings is one of the most important concepts in the CFA curriculum and in professional investing. It asks: how reliable and sustainable are the reported profits? High-quality earnings are backed by cash, come from the company's core business, and are likely to continue in the future. Low-quality earnings are driven by accounting choices, one-time events, or aggressive assumptions.
 
-**Sam:** How do I assess quality?
+**Stella:** How do I assess quality?
 
-**Alex:** The simplest test is the accruals ratio. Take net income, subtract cash from operations, and divide by average total assets. A low or negative accruals ratio means earnings are mostly cash-backed -- high quality. A high accruals ratio means earnings are driven by non-cash accounting items -- lower quality. Academic research has shown that companies with high accruals ratios tend to underperform in subsequent years.
+**Horace:** The simplest test is the accruals ratio. Take net income, subtract cash from operations, and divide by average total assets. A low or negative accruals ratio means earnings are mostly cash-backed -- high quality. A high accruals ratio means earnings are driven by non-cash accounting items -- lower quality. Academic research has shown that companies with high accruals ratios tend to underperform in subsequent years.
 
 [VISUAL: Formula for accruals ratio with examples of high-quality (low ratio) and low-quality (high ratio) companies, with subsequent stock performance shown]
 
-**Sam:** That is a powerful tool. One more question -- you mentioned IFRS versus GAAP. Does it matter for regular investors?
+**Stella:** That is a powerful tool. One more question -- you mentioned IFRS versus GAAP. Does it matter for regular investors?
 
-**Alex:** It matters if you invest internationally. US companies report under US GAAP. Most of the rest of the world uses International Financial Reporting Standards, or IFRS. The two systems are broadly similar but differ in important details. For example, under US GAAP, a company can use LIFO (Last In, First Out) for inventory, which can significantly affect reported profits during inflationary periods. IFRS does not allow LIFO. When comparing a US company to a European competitor, you need to be aware of these differences.
+**Horace:** It matters if you invest internationally. US companies report under US GAAP. Most of the rest of the world uses International Financial Reporting Standards, or IFRS. The two systems are broadly similar but differ in important details. For example, under US GAAP, a company can use LIFO (Last In, First Out) for inventory, which can significantly affect reported profits during inflationary periods. IFRS does not allow LIFO. When comparing a US company to a European competitor, you need to be aware of these differences.
 
-**Sam:** Do I need to memorize all the differences?
+**Stella:** Do I need to memorize all the differences?
 
-**Alex:** No. Just be aware that they exist and be cautious when comparing companies that report under different standards. When in doubt, focus on cash-flow-based metrics, which are less affected by accounting standard differences.
+**Horace:** No. Just be aware that they exist and be cautious when comparing companies that report under different standards. When in doubt, focus on cash-flow-based metrics, which are less affected by accounting standard differences.
 
 [VISUAL: Simple comparison table showing the three most important GAAP vs. IFRS differences: inventory methods, development cost treatment, and lease accounting]
 
-**Sam:** Before we wrap up, can you walk me through what a quick analysis looks like in practice? Maybe give me a company scenario?
+**Stella:** Before we wrap up, can you walk me through what a quick analysis looks like in practice? Maybe give me a company scenario?
 
-**Alex:** Absolutely. Let me give you Widget Corp from the reading. Revenue grew 11% -- looks good on the surface. But gross margin declined from 46.7% to 45% -- costs are rising faster than revenue. Operating income actually fell 3% despite 11% revenue growth. And the cash flow statement is the real eye-opener: cash from operations dropped 51%, from $49,000 to $24,000. Receivables and inventory are both growing at more than three times the rate of revenue.
+**Horace:** Absolutely. Let me give you Widget Corp from the reading. Revenue grew 11% -- looks good on the surface. But gross margin declined from 46.7% to 45% -- costs are rising faster than revenue. Operating income actually fell 3% despite 11% revenue growth. And the cash flow statement is the real eye-opener: cash from operations dropped 51%, from $49,000 to $24,000. Receivables and inventory are both growing at more than three times the rate of revenue.
 
-**Sam:** That sounds bad despite the revenue growth.
+**Stella:** That sounds bad despite the revenue growth.
 
-**Alex:** Exactly. And when you calculate free cash flow -- cash from operations of $24,000 minus capital expenditures of $50,000 -- it is negative $26,000. The company is burning cash. They covered the shortfall by borrowing $60,000 in new long-term debt. Revenue growth is masking fundamental deterioration in the business.
+**Horace:** Exactly. And when you calculate free cash flow -- cash from operations of $24,000 minus capital expenditures of $50,000 -- it is negative $26,000. The company is burning cash. They covered the shortfall by borrowing $60,000 in new long-term debt. Revenue growth is masking fundamental deterioration in the business.
 
-**Sam:** So on the surface it looks like a growing company, but underneath it is a company borrowing money to paper over declining profitability and cash flow problems.
+**Stella:** So on the surface it looks like a growing company, but underneath it is a company borrowing money to paper over declining profitability and cash flow problems.
 
-**Alex:** That is exactly right. And this is why you need all three statements. The income statement alone says "growing company." The balance sheet raises questions about rising debt, receivables, and inventory. The cash flow statement reveals the truth: this business is not generating cash from its operations.
+**Horace:** That is exactly right. And this is why you need all three statements. The income statement alone says "growing company." The balance sheet raises questions about rising debt, receivables, and inventory. The cash flow statement reveals the truth: this business is not generating cash from its operations.
 
 [VISUAL: Three-panel dashboard showing Widget Corp's income statement (green arrow for revenue growth), balance sheet (yellow warning for rising debt and receivables), and cash flow statement (red alert for negative FCF), with an overall verdict: "Proceed with extreme caution"]
 
-**Sam:** This whole lesson has been an eye-opener. If I had to remember three things from today, what would they be?
+**Stella:** This whole lesson has been an eye-opener. If I had to remember three things from today, what would they be?
 
-**Alex:** First, always look at all three financial statements together. The income statement, balance sheet, and cash flow statement each tell part of the story, and the connections between them reveal the full picture. Second, when in doubt, follow the cash. Cash from operations is the most reliable indicator of a company's financial health because it is the hardest number to manipulate. Third, watch the trends, not just the absolute numbers. A single year's financial statements tell you where the company is; multiple years of statements tell you where it is going.
+**Horace:** First, always look at all three financial statements together. The income statement, balance sheet, and cash flow statement each tell part of the story, and the connections between them reveal the full picture. Second, when in doubt, follow the cash. Cash from operations is the most reliable indicator of a company's financial health because it is the hardest number to manipulate. Third, watch the trends, not just the absolute numbers. A single year's financial statements tell you where the company is; multiple years of statements tell you where it is going.
 
-**Sam:** Perfect. So to summarize: the income statement tells me if the company made money, the balance sheet tells me what it owns and owes, and the cash flow statement tells me whether the profits are real by showing where the cash actually went. And I should never look at any one of them without the other two.
+**Stella:** Perfect. So to summarize: the income statement tells me if the company made money, the balance sheet tells me what it owns and owes, and the cash flow statement tells me whether the profits are real by showing where the cash actually went. And I should never look at any one of them without the other two.
 
-**Alex:** That is an excellent summary. You are now equipped to do something most investors never bother to do -- actually read the financial statements before buying a stock. It is like reading the inspection report before buying a house. It will not guarantee a good outcome, but it will help you avoid the worst disasters.
+**Horace:** That is an excellent summary. You are now equipped to do something most investors never bother to do -- actually read the financial statements before buying a stock. It is like reading the inspection report before buying a house. It will not guarantee a good outcome, but it will help you avoid the worst disasters.
 
 [VISUAL: Summary card with three key takeaways:
 1. All three financial statements tell one interconnected story -- read them together
 2. When earnings and cash flow diverge, trust the cash flow
 3. Watch trends over multiple years, not just single snapshots]
 
-**Sam:** Next week, we are going to dive into the world of investing psychology and behavioral finance. Why do smart people make dumb investment decisions? And how can we protect ourselves from our own worst instincts?
+**Stella:** Next week, we are going to dive into the world of investing psychology and behavioral finance. Why do smart people make dumb investment decisions? And how can we protect ourselves from our own worst instincts?
 
-**Alex:** It is going to be fascinating. See you then.
+**Horace:** It is going to be fascinating. See you then.
 
-**Sam:** Thanks everyone for watching!
+**Stella:** Thanks everyone for watching!
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

@@ -1,838 +1,834 @@
-<!-- 此文件需要翻译为简体中文 -->
-<!-- This file needs translation to Simplified Chinese -->
-
-# Week 21: Equity Valuation - P/E, P/B, and DCF
+# 第21周：股票估值 - 市盈率、市净率与DCF
 
 ---
 
-## Reading Section
+## 阅读部分
 
-### a) Why This Is Important
+### a) 为什么这很重要
 
-Valuation is the single most critical skill that separates successful investors from those who simply guess. Every stock you buy has a price -- but does that price reflect what the company is actually worth? Without a framework for answering that question, you are flying blind.
+估值是将成功投资者与那些仅凭猜测行事之人区分开来的最关键技能。你买入的每一支股票都有价格——但这个价格是否真正反映了公司的内在价值？如果没有一套回答这一问题的框架，你就是在盲目飞行。
 
-Consider two investors looking at the same company. Investor A sees the stock price has risen 50% in the past year and buys, hoping the trend continues. Investor B calculates that the stock trades at 35 times earnings, well above its historical average and its peers, suggesting the market has already priced in years of optimistic growth. Investor B waits for a better entry point. Over time, Investor B systematically outperforms because she has a valuation discipline.
+设想两位投资者看好同一家公司。投资者A看到股票在过去一年上涨了50%，便买入，寄望于趋势延续。投资者B则计算出该股的市盈率为35倍，远高于其历史均值和同业水平，这表明市场已将多年乐观增长预期纳入定价。投资者B等待更好的入场时机。长期来看，投资者B之所以系统性地跑赢，正是因为她坚守估值纪律。
 
-Valuation matters for several reasons:
+估值的重要性体现在以下几个方面：
 
-1. **It anchors your decisions.** Without valuation, you are reacting to headlines and price movements. With valuation, you have an independent estimate of what a company is worth and can act rationally when markets are irrational.
+1. **它锚定你的决策。** 没有估值，你只是在对新闻头条和价格波动做出反应。有了估值，你对公司的价值有了独立判断，能在市场非理性时保持理性。
 
-2. **It helps you compare apples to oranges.** A stock trading at $500 per share is not "more expensive" than one trading at $20. Valuation ratios let you compare companies of different sizes, in different industries, and at different stages of growth on a level playing field.
+2. **它帮助你进行横向比较。** 每股500元的股票并不比每股20元的股票"更贵"。估值倍数能让你在同一水平线上比较不同规模、不同行业、不同成长阶段的公司。
 
-3. **It protects you from permanent loss of capital.** The most devastating investment losses come from overpaying for assets. A rigorous valuation process serves as your margin of safety -- the gap between the price you pay and the value you receive.
+3. **它保护你免遭永久性资本损失。** 最惨烈的投资亏损往往源于为资产支付了过高的价格。严格的估值流程是你的安全边际——即你所支付的价格与你所获得的价值之间的差距。
 
-4. **It applies everywhere.** Whether you are buying individual stocks, evaluating an ETF, assessing a private business, or even negotiating the purchase of a house, valuation principles are universal.
+4. **它放之四海而皆准。** 无论是买入个股、评估一支交易所交易基金、审查一家私营企业，还是谈判购买一套房子，估值原则都是通用的。
 
-This lesson covers the most widely used valuation methods: relative valuation through multiples (P/E, P/B, EV/EBITDA) and absolute valuation through discounted cash flow (DCF) analysis. By the end, you will know when to use each method, how to apply them correctly, and how to avoid the most common traps.
+本课涵盖最广泛使用的估值方法：基于倍数的相对估值（市盈率、市净率、EV/EBITDA）以及绝对估值中的现金流折现（DCF）分析。学完本课，你将知道每种方法的适用场景、如何正确应用，以及如何规避最常见的陷阱。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要掌握的内容
 
-#### 1. The Two Schools of Valuation
+#### 1. 估值的两大流派
 
-All valuation approaches fall into two broad categories:
+所有估值方法都可归为两大类：
 
-**Relative Valuation (Multiples-Based)**
-- Asks: "What is this company worth compared to similar companies?"
-- Uses ratios like P/E, P/B, EV/EBITDA to compare across peers
-- Fast, intuitive, and widely used on Wall Street
-- Weakness: if the entire sector is overvalued, relative valuation will not warn you
+**相对估值（基于倍数）**
+- 核心问题："这家公司与同类公司相比值多少钱？"
+- 使用市盈率、市净率、EV/EBITDA等比率进行同业比较
+- 快捷、直观，在华尔街广泛使用
+- 弱点：若整个板块估值过高，相对估值不会发出警示
 
-**Absolute Valuation (Intrinsic Value)**
-- Asks: "What is this company worth based on its own cash flows?"
-- Uses discounted cash flow (DCF) analysis
-- More rigorous and theoretically sound
-- Weakness: highly sensitive to assumptions about future growth and discount rates
+**绝对估值（内在价值）**
+- 核心问题："基于公司自身的现金流，它值多少钱？"
+- 使用现金流折现（DCF）分析
+- 更为严谨，在理论上更为可靠
+- 弱点：对未来增长率和折现率的假设高度敏感
 
-Neither approach is universally superior. The best analysts use both and look for convergence.
+两种方法均非普遍优越。最优秀的分析师会同时使用两者，并寻求结论的相互印证。
 
 ```
-VALUATION FRAMEWORK OVERVIEW
+估值框架概览
 ============================
 
-                    VALUATION
+                    估值
                    /          \
                   /            \
-         RELATIVE              ABSOLUTE
-        (Multiples)              (DCF)
+         相对估值              绝对估值
+        （倍数法）               （DCF）
         /    |    \                |
-      P/E   P/B  EV/EBITDA    Discount
-                               Future
-                              Cash Flows
+      市盈率 市净率 EV/EBITDA    折现
+                               未来
+                              现金流
                                  |
-                            Present Value
+                            现值
                                  |
-                          Intrinsic Value
+                          内在价值
 ```
 
 ---
 
-#### 2. Price-to-Earnings Ratio (P/E)
+#### 2. 市盈率（P/E）
 
-The P/E ratio is the most commonly cited valuation metric. It tells you how much investors are willing to pay for each dollar of earnings.
+市盈率是最常被引用的估值指标。它反映了投资者愿意为每一元盈利支付多少倍的价格。
 
-**Formula:**
-
-```
-P/E Ratio = Stock Price / Earnings Per Share (EPS)
-```
-
-Or equivalently for the whole company:
+**公式：**
 
 ```
-P/E Ratio = Market Capitalization / Net Income
+市盈率 = 股票价格 / 每股盈利（EPS）
 ```
 
-**Example:**
-- Stock price: $150
-- Earnings per share: $10
-- P/E = $150 / $10 = 15x
-
-This means investors are paying $15 for every $1 of current earnings. Another way to think about it: if earnings stayed flat forever, it would take 15 years for the company to "earn back" its stock price.
-
-**Trailing P/E vs. Forward P/E**
+或从整个公司的维度等价表达：
 
 ```
-TRAILING P/E vs. FORWARD P/E
+市盈率 = 市值 / 净利润
+```
+
+**示例：**
+- 股价：150元
+- 每股盈利：10元
+- 市盈率 = 150 / 10 = 15倍
+
+这意味着投资者为当前每1元盈利支付了15元。换一种理解方式：若盈利永远维持不变，公司需要15年才能"赚回"其股价。
+
+**滚动市盈率 vs. 前瞻市盈率**
+
+```
+滚动市盈率 vs. 前瞻市盈率
 =============================
 
-Trailing P/E                    Forward P/E
+滚动市盈率                      前瞻市盈率
 -----------                    -----------
-Uses PAST earnings             Uses ESTIMATED future earnings
-(last 12 months)               (next 12 months)
+使用过去盈利                   使用预估未来盈利
+（过去12个月）                 （未来12个月）
 
-Price / Last Year EPS          Price / Expected Next Year EPS
+股价 / 上年每股盈利             股价 / 预期下年每股盈利
 
-More reliable data             More forward-looking
-but backward-looking           but relies on analyst estimates
+数据更可靠                     更具前瞻性
+但属于滞后指标                 但依赖分析师预测
 
-Example:                       Example:
-Price = $150                   Price = $150
-Last year EPS = $10            Est. next year EPS = $12
-Trailing P/E = 15x             Forward P/E = 12.5x
+示例：                         示例：
+股价 = 150元                   股价 = 150元
+上年每股盈利 = 10元             预计下年每股盈利 = 12元
+滚动市盈率 = 15倍               前瞻市盈率 = 12.5倍
 ```
 
-**Key insight:** A company with a trailing P/E of 15x and a forward P/E of 12.5x is expected to grow earnings by 20%. The gap between trailing and forward P/E tells you about growth expectations.
+**核心洞察：** 一家公司滚动市盈率为15倍、前瞻市盈率为12.5倍，意味着市场预期其盈利增长20%。滚动与前瞻市盈率之间的差距揭示了增长预期的高低。
 
-**The PEG Ratio -- Adjusting P/E for Growth**
+**PEG比率——将市盈率与增长挂钩**
 
-A stock with a P/E of 30 might look expensive, but if it is growing earnings at 30% per year, the high P/E is justified. The PEG ratio adjusts for this:
-
-```
-PEG Ratio = P/E Ratio / Earnings Growth Rate (%)
-
-Example:
-P/E = 30, Growth = 30% --> PEG = 30/30 = 1.0 (fairly valued)
-P/E = 30, Growth = 15% --> PEG = 30/15 = 2.0 (expensive)
-P/E = 15, Growth = 20% --> PEG = 15/20 = 0.75 (cheap)
-
-Rule of thumb:
-PEG < 1.0  -->  Potentially undervalued
-PEG = 1.0  -->  Fairly valued
-PEG > 1.5  -->  Potentially overvalued
-```
-
-**Caution:** PEG ratios assume growth is linear and sustainable. For cyclical or early-stage companies, this assumption can be dangerously wrong.
-
-**What is a "normal" P/E?**
+一支市盈率为30倍的股票看起来似乎很贵，但若其盈利每年增长30%，高市盈率便是合理的。PEG比率对此进行了修正：
 
 ```
-HISTORICAL S&P 500 P/E RANGE
+PEG比率 = 市盈率 / 盈利增速（%）
+
+示例：
+市盈率 = 30，增速 = 30% --> PEG = 30/30 = 1.0（合理估值）
+市盈率 = 30，增速 = 15% --> PEG = 30/15 = 2.0（偏贵）
+市盈率 = 15，增速 = 20% --> PEG = 15/20 = 0.75（偏便宜）
+
+经验法则：
+PEG < 1.0  -->  潜在低估
+PEG = 1.0  -->  合理估值
+PEG > 1.5  -->  潜在高估
+```
+
+**注意：** PEG比率假设增长是线性且可持续的。对于周期性或早期阶段的公司，这一假设可能存在危险的偏差。
+
+**"正常"市盈率是多少？**
+
+```
+标普500历史市盈率区间
 ==============================
 
-         Cheap              Fair            Expensive
+         偏便宜              合理            偏贵
   |---------|----------------|----------------|---------|
-  5x       10x              16x              25x       35x+
+  5倍      10倍             16倍             25倍      35倍+
 
-  Shiller CAPE long-term average: ~16-17x
+  席勒周期调整市盈率（CAPE）长期均值：约16-17倍
 
-  Sector variations (typical ranges):
-  - Utilities:        12-18x (low growth, stable)
-  - Banks:            8-14x  (cyclical, regulated)
-  - Consumer Staples: 18-25x (steady, defensive)
-  - Technology:       20-35x (high growth)
-  - Biotech:          N/A    (often no earnings)
+  各板块典型区间：
+  - 公用事业：    12-18倍（低增长，收益稳定）
+  - 银行：        8-14倍  （周期性，受监管）
+  - 消费必需品：  18-25倍（稳健，防御性）
+  - 科技：        20-35倍（高增长）
+  - 生物科技：    不适用  （通常无盈利）
 ```
 
 ---
 
-#### 3. Price-to-Book Ratio (P/B)
+#### 3. 市净率（P/B）
 
-The P/B ratio compares a company's market value to its accounting book value (total assets minus total liabilities).
+市净率将公司的市场价值与其账面价值（总资产减去总负债）进行比较。
 
-**Formula:**
-
-```
-P/B Ratio = Stock Price / Book Value Per Share
-
-Or: P/B = Market Cap / Total Shareholders' Equity
-```
-
-**Example:**
-- Stock price: $50
-- Book value per share: $25
-- P/B = $50 / $25 = 2.0x
-
-This means the market values the company at twice its accounting book value. The premium reflects intangible assets (brand, intellectual property, human capital) that accounting does not capture.
-
-**When P/B Works Best:**
+**公式：**
 
 ```
-P/B IS MOST USEFUL FOR:              P/B IS LEAST USEFUL FOR:
-========================              =========================
-- Banks and financial firms           - Technology companies
-  (assets = loans, securities)          (value is in IP, not assets)
-- Insurance companies                 - Service companies
-- Real estate companies                 (few tangible assets)
-- Asset-heavy industrials             - Pharma/biotech
-- Companies in distress                 (value is in pipeline)
-  (floor value assessment)
+市净率 = 股价 / 每股账面价值
+
+或：市净率 = 市值 / 股东权益总额
 ```
 
-**Key insight:** For banks, P/B is the primary valuation metric because a bank's assets (loans) and liabilities (deposits) are already marked close to market value. A bank trading below 1.0x book value is signaling that the market believes its loans are worth less than stated -- a sign of potential trouble.
+**示例：**
+- 股价：50元
+- 每股账面价值：25元
+- 市净率 = 50 / 25 = 2.0倍
 
-**Decomposing P/B with ROE:**
+这意味着市场对该公司的估值是其账面价值的两倍。溢价部分反映了会计账目未能体现的无形资产——品牌、知识产权、人力资本等。
 
-There is an elegant relationship between P/B and return on equity (ROE):
+**市净率最适用的场景：**
 
 ```
-P/B = ROE x P/E
+市净率最适用于：                 市净率最不适用于：
+========================          =========================
+- 银行和金融机构                  - 科技公司
+  （资产 = 贷款、证券）            （价值在于知识产权，非资产）
+- 保险公司                        - 服务型公司
+- 房地产公司                        （几乎没有有形资产）
+- 资产密集型工业企业              - 医药/生物科技公司
+- 陷入困境的公司                    （价值在于在研管线）
+  （底部价值评估）
+```
 
-If ROE = 15% and P/E = 20x:
-P/B = 0.15 x 20 = 3.0x
+**核心洞察：** 对于银行而言，市净率是核心估值指标，因为银行的资产（贷款）和负债（存款）已基本按接近市场价值列账。若一家银行的市净率低于1倍，则意味着市场认为其贷款资产的实际价值低于账面记载——这是一个潜在的风险信号。
 
-Implication:
-- High ROE companies deserve high P/B ratios
-- A company with P/B > 1 but low ROE is overvalued
-- A company with P/B < 1 and high ROE may be undervalued
+**通过净资产收益率解构市净率：**
+
+市净率与净资产收益率（ROE）之间存在一种优雅的关系：
+
+```
+市净率 = 净资产收益率 x 市盈率
+
+若净资产收益率 = 15%，市盈率 = 20倍：
+市净率 = 0.15 x 20 = 3.0倍
+
+启示：
+- 高净资产收益率的公司理应享有高市净率
+- 市净率 > 1 但净资产收益率低，则属于估值过高
+- 市净率 < 1 但净资产收益率高，则可能被低估
 ```
 
 ---
 
-#### 4. Enterprise Value Multiples (EV/EBITDA)
+#### 4. 企业价值倍数（EV/EBITDA）
 
-Enterprise value (EV) represents the total value of a company to all capital providers -- both equity holders and debt holders.
+企业价值（EV）代表公司对所有资本提供者的总价值——包括股权持有人和债权持有人。
 
-**Enterprise Value Formula:**
-
-```
-EV = Market Cap + Total Debt - Cash and Cash Equivalents
-
-Example:
-Market Cap:    $10 billion
-Total Debt:     $3 billion
-Cash:           $1 billion
-EV = $10B + $3B - $1B = $12 billion
-```
-
-**Why EV matters:** Two companies with identical market caps of $10 billion may have very different enterprise values if one carries $5 billion in debt and the other has $5 billion in cash. EV captures the true "acquisition price" -- what you would actually pay to buy the entire business.
-
-**EV/EBITDA Ratio:**
+**企业价值公式：**
 
 ```
-EV/EBITDA = Enterprise Value / Earnings Before Interest, Taxes,
-            Depreciation, and Amortization
+企业价值 = 市值 + 总债务 - 现金及现金等价物
+
+示例：
+市值：       100亿元
+总债务：      30亿元
+现金：        10亿元
+企业价值 = 100亿 + 30亿 - 10亿 = 120亿元
 ```
 
-**Why EV/EBITDA is often preferred over P/E:**
+**为何企业价值重要：** 两家市值同为100亿元的公司，若一家背负50亿元债务，另一家持有50亿元现金，则其企业价值可能截然不同。企业价值反映的是真实的"收购价格"——即收购整个业务实际需要支付的金额。
+
+**EV/EBITDA比率：**
 
 ```
-ADVANTAGE OF EV/EBITDA OVER P/E
+EV/EBITDA = 企业价值 / 息税折旧摊销前利润
+```
+
+**EV/EBITDA优于市盈率的原因：**
+
+```
+EV/EBITDA相对市盈率的优势
 =================================
 
-1. Capital Structure Neutral
-   P/E is affected by how a company finances itself
-   EV/EBITDA is not
+1. 资本结构中性
+   市盈率受公司融资方式影响
+   EV/EBITDA不受此影响
 
-2. Depreciation Neutral
-   Companies with different depreciation policies
-   are comparable on EBITDA
+2. 折旧政策中性
+   采用不同折旧政策的公司
+   在EBITDA口径下可横向比较
 
-3. Tax Neutral
-   Companies in different tax jurisdictions
-   are comparable
+3. 税收中性
+   处于不同税收管辖区的公司
+   可横向比较
 
-4. Works for Unprofitable Companies
-   A company can have negative net income but
-   positive EBITDA
+4. 适用于亏损公司
+   公司可能出现净亏损，但
+   EBITDA仍为正值
 
-Typical EV/EBITDA Ranges:
-- Mature industrials:     6-10x
-- Consumer brands:        10-14x
-- Software/SaaS:          15-25x
-- High-growth tech:       25-40x+
+典型EV/EBITDA区间：
+- 成熟工业企业：     6-10倍
+- 消费品牌：         10-14倍
+- 软件/SaaS：        15-25倍
+- 高增长科技：       25-40倍+
 ```
 
-**EV/EBITDA in Practice -- A Comparison:**
+**EV/EBITDA实践应用——对比示例：**
 
 ```
-COMPANY COMPARISON EXAMPLE
+公司对比示例
 ============================
 
-                    Company A       Company B
+                    公司A           公司B
                     ---------       ---------
-Market Cap          $10B            $10B
-Debt                $0              $5B
-Cash                $2B             $0
-Enterprise Value    $8B             $15B
+市值                100亿元         100亿元
+债务                0               50亿元
+现金                20亿元          0
+企业价值            80亿元          150亿元
 
-Revenue             $5B             $5B
-EBITDA              $1B             $1.5B
+营收                50亿元          50亿元
+EBITDA              10亿元          15亿元
 
-P/E                 20x             20x     <-- Look identical!
-EV/EBITDA           8.0x            10.0x   <-- Company A is cheaper
+市盈率              20倍            20倍     <-- 看起来完全相同！
+EV/EBITDA           8.0倍           10.0倍   <-- 公司A更便宜
 
-Company A is actually cheaper because it has no debt
-and significant cash. P/E missed this entirely.
+公司A实际上更便宜，因为它没有债务
+且持有大量现金。市盈率完全忽略了这一点。
 ```
 
 ---
 
-#### 5. Discounted Cash Flow (DCF) Basics
+#### 5. 现金流折现（DCF）基础
 
-DCF is the gold standard of absolute valuation. It values a company based on the present value of all future cash flows it will generate.
+DCF是绝对估值的黄金标准。它基于公司未来所有现金流的现值对其进行估值。
 
-**The Core Principle:**
+**核心原理：**
 
-A dollar today is worth more than a dollar tomorrow because:
-1. You could invest today's dollar and earn a return
-2. There is risk that tomorrow's dollar might not materialize
-3. Inflation erodes purchasing power
+今日的一元钱比明日的一元钱更有价值，原因在于：
+1. 你可以将今天的钱拿去投资并获得收益
+2. 明天的钱存在无法兑现的风险
+3. 通胀会侵蚀购买力
 
-**The DCF Formula:**
+**DCF公式：**
 
 ```
                    CF_1         CF_2         CF_3               CF_n + TV
-Value = --------- + --------- + --------- + ... + ---------
+价值 = --------- + --------- + --------- + ... + ---------
               (1+r)^1     (1+r)^2     (1+r)^3           (1+r)^n
 
-Where:
-CF  = Free Cash Flow in each period
-r   = Discount rate (WACC)
-TV  = Terminal Value
-n   = Number of projection years (typically 5-10)
+其中：
+CF  = 各期自由现金流
+r   = 折现率（WACC）
+TV  = 终值
+n   = 预测年数（通常为5-10年）
 ```
 
-**Step-by-Step DCF Process:**
+**DCF分步流程：**
 
 ```
-DCF VALUATION STEPS
+DCF估值步骤
 ====================
 
-Step 1: Project Free Cash Flows (5-10 years)
+第一步：预测自由现金流（5-10年）
   |
   v
-Step 2: Determine the Discount Rate (WACC)
+第二步：确定折现率（WACC）
   |
   v
-Step 3: Calculate Terminal Value
+第三步：计算终值
   |
   v
-Step 4: Discount Everything to Present Value
+第四步：将所有现金流折现至现值
   |
   v
-Step 5: Sum Up = Enterprise Value
+第五步：加总 = 企业价值
   |
   v
-Step 6: Subtract Debt, Add Cash = Equity Value
+第六步：减去债务，加回现金 = 股权价值
   |
   v
-Step 7: Divide by Shares Outstanding = Per Share Value
+第七步：除以流通股数 = 每股价值
 ```
 
-**Step 1: Projecting Free Cash Flows**
+**第一步：预测自由现金流**
 
-Free Cash Flow (FCF) is the cash a business generates after accounting for capital expenditures:
-
-```
-Free Cash Flow = Operating Cash Flow - Capital Expenditures
-
-Or more detailed:
-FCF = Net Income
-    + Depreciation & Amortization
-    - Changes in Working Capital
-    - Capital Expenditures
-```
-
-You project FCF for each of the next 5-10 years based on:
-- Historical growth rates
-- Industry trends
-- Management guidance
-- Your own analysis of competitive position
-
-**Step 2: The Discount Rate (WACC)**
-
-The Weighted Average Cost of Capital represents the blended cost of a company's debt and equity financing:
+自由现金流（FCF）是企业在扣除资本支出后产生的现金：
 
 ```
-WACC = (E/V) x Re + (D/V) x Rd x (1 - Tax Rate)
+自由现金流 = 经营现金流 - 资本支出
 
-Where:
-E/V = Proportion of equity financing
-D/V = Proportion of debt financing
-Re  = Cost of equity (from CAPM: Rf + Beta x Market Premium)
-Rd  = Cost of debt (interest rate on borrowings)
-
-Typical WACC ranges:
-- Large, stable company:    7-9%
-- Mid-cap growth company:   9-12%
-- Small/risky company:      12-18%
-- Startup/speculative:      20-30%+
+或更详细的表达：
+自由现金流 = 净利润
+    + 折旧与摊销
+    - 营运资本变动
+    - 资本支出
 ```
 
-**Step 3: Terminal Value**
+你需要基于以下因素预测未来5-10年每年的自由现金流：
+- 历史增长率
+- 行业趋势
+- 管理层指引
+- 你对竞争地位的独立判断
 
-Since companies can theoretically live forever, you need to estimate value beyond the projection period. This is the terminal value, and it often represents 60-80% of total DCF value.
+**第二步：折现率（WACC）**
+
+加权平均资本成本代表公司债务融资成本与股权融资成本的加权混合：
 
 ```
-TWO METHODS FOR TERMINAL VALUE
+WACC = (E/V) x Re + (D/V) x Rd x (1 - 税率)
+
+其中：
+E/V = 股权融资占比
+D/V = 债务融资占比
+Re  = 股权成本（来自CAPM：无风险利率 + 贝塔 x 市场溢价）
+Rd  = 债务成本（借款利率）
+
+典型WACC区间：
+- 大型稳健公司：     7-9%
+- 中型成长公司：     9-12%
+- 小型/高风险公司：  12-18%
+- 初创/投机性企业：  20-30%+
+```
+
+**第三步：终值**
+
+由于公司理论上可以永续经营，你需要估算预测期之后的价值，即终值。终值通常占DCF总价值的60%-80%。
+
+```
+终值的两种计算方法
 ================================
 
-Method 1: Gordon Growth Model (Perpetuity Growth)
+方法一：戈登增长模型（永续增长）
 -------------------------------------------------
-TV = Final Year FCF x (1 + g) / (WACC - g)
+终值 = 最后一年自由现金流 x (1 + g) / (WACC - g)
 
-Where g = long-term growth rate (typically 2-3%, close to
-inflation or GDP growth)
+其中g = 长期增长率（通常为2%-3%，接近
+通胀率或GDP增速）
 
-Example:
-Final Year FCF = $100M, WACC = 10%, g = 2.5%
-TV = $100M x 1.025 / (0.10 - 0.025) = $1,367M
+示例：
+最后一年自由现金流 = 1亿元，WACC = 10%，g = 2.5%
+终值 = 1亿元 x 1.025 / (0.10 - 0.025) = 13.67亿元
 
 
-Method 2: Exit Multiple
+方法二：退出倍数法
 -------------------------------------------------
-TV = Final Year EBITDA x Exit EV/EBITDA Multiple
+终值 = 最后一年EBITDA x 退出EV/EBITDA倍数
 
-Example:
-Final Year EBITDA = $150M, Exit Multiple = 10x
-TV = $150M x 10 = $1,500M
+示例：
+最后一年EBITDA = 1.5亿元，退出倍数 = 10倍
+终值 = 1.5亿元 x 10 = 15亿元
 ```
 
-**Step 4-7: Putting It All Together**
+**第四步至第七步：整合汇总**
 
 ```
-COMPLETE DCF EXAMPLE
+DCF完整示例
 =====================
 
-Assumptions:
-- Current FCF: $100M, growing 12% for 5 years, then 2.5% forever
-- WACC: 10%
-- Shares outstanding: 50 million
-- Debt: $200M, Cash: $50M
+假设条件：
+- 当前自由现金流：1亿元，未来5年增速12%，此后永续增长2.5%
+- WACC：10%
+- 流通股数：5000万股
+- 债务：2亿元，现金：5000万元
 
-Year        FCF         Discount Factor     Present Value
+年份        自由现金流     折现系数              现值
 ----        ---         ---------------     -------------
-1           $112M       1/(1.10)^1 = 0.909  $101.8M
-2           $125M       1/(1.10)^2 = 0.826  $103.3M
-3           $140M       1/(1.10)^3 = 0.751  $105.2M
-4           $157M       1/(1.10)^4 = 0.683  $107.3M
-5           $176M       1/(1.10)^5 = 0.621  $109.3M
+1           1.12亿元    1/(1.10)^1 = 0.909  1.018亿元
+2           1.25亿元    1/(1.10)^2 = 0.826  1.033亿元
+3           1.40亿元    1/(1.10)^3 = 0.751  1.052亿元
+4           1.57亿元    1/(1.10)^4 = 0.683  1.073亿元
+5           1.76亿元    1/(1.10)^5 = 0.621  1.093亿元
                                             ---------
-                        PV of Cash Flows:   $526.9M
+                        现金流现值合计：     5.269亿元
 
-Terminal Value = $176M x 1.025 / (0.10 - 0.025) = $2,405M
-PV of Terminal Value = $2,405M x 0.621 = $1,493M
+终值 = 1.76亿元 x 1.025 / (0.10 - 0.025) = 24.05亿元
+终值现值 = 24.05亿元 x 0.621 = 14.93亿元
 
-Enterprise Value = $526.9M + $1,493M = $2,020M
-Equity Value = $2,020M - $200M + $50M = $1,870M
-Per Share Value = $1,870M / 50M = $37.40
+企业价值 = 5.269亿元 + 14.93亿元 = 20.20亿元
+股权价值 = 20.20亿元 - 2亿元 + 0.5亿元 = 18.70亿元
+每股价值 = 18.70亿元 / 5000万股 = 37.40元
 
-If the stock trades at $30, it may be undervalued.
-If the stock trades at $50, it may be overvalued.
+若股价为30元，可能被低估。
+若股价为50元，可能被高估。
 ```
 
 ---
 
-#### 6. Sensitivity Analysis -- Why Assumptions Matter
+#### 6. 敏感性分析——为什么假设条件至关重要
 
-Small changes in DCF assumptions produce large changes in value. This is why sensitivity analysis is essential.
+DCF假设条件的微小变化会导致估值结果的大幅波动。因此，敏感性分析不可或缺。
 
 ```
-SENSITIVITY TABLE: IMPACT ON PER-SHARE VALUE
+敏感性分析表：对每股价值的影响
 ==============================================
 
-                    Terminal Growth Rate
+                    终值增长率
                   1.5%    2.0%    2.5%    3.0%    3.5%
               +-------+-------+-------+-------+-------+
-    8%    |  $52.10 | $56.80 | $62.70 | $70.30 | $80.40 |
+    8%    |  52.10元 | 56.80元 | 62.70元 | 70.30元 | 80.40元 |
           +-------+-------+-------+-------+-------+
-W   9%    |  $42.30 | $45.40 | $49.30 | $54.10 | $60.20 |
+W   9%    |  42.30元 | 45.40元 | 49.30元 | 54.10元 | 60.20元 |
 A         +-------+-------+-------+-------+-------+
-C  10%    |  $34.90 | $37.00 | $39.60 | $42.80 | $46.80 |
+C  10%    |  34.90元 | 37.00元 | 39.60元 | 42.80元 | 46.80元 |
 C         +-------+-------+-------+-------+-------+
-   11%    |  $29.20 | $30.70 | $32.50 | $34.70 | $37.40 |
+   11%    |  29.20元 | 30.70元 | 32.50元 | 34.70元 | 37.40元 |
           +-------+-------+-------+-------+-------+
-   12%    |  $24.70 | $25.80 | $27.10 | $28.70 | $30.60 |
+   12%    |  24.70元 | 25.80元 | 27.10元 | 28.70元 | 30.60元 |
           +-------+-------+-------+-------+-------+
 
-Notice: Moving from WACC 10% / Growth 2.5% to
-WACC 8% / Growth 3.5% more than DOUBLES the value!
+注意：从WACC 10% / 增速2.5% 移至
+WACC 8% / 增速3.5%，估值超过翻倍！
 ```
 
-**Key takeaway:** Never rely on a single DCF output. Always build a range of values using different assumptions.
+**关键结论：** 切勿依赖单一DCF输出结果。务必在不同假设组合下建立价值区间。
 
 ---
 
-#### 7. Relative vs. Absolute Valuation -- When to Use Each
+#### 7. 相对估值与绝对估值——何时各自适用
 
 ```
-DECISION MATRIX: WHICH METHOD TO USE
+决策矩阵：选择哪种方法
 ======================================
 
-Situation                           Best Method(s)
+情景                                最佳方法
 ---------                           --------------
-Quick screening of many stocks      P/E, EV/EBITDA
-Comparing within an industry        EV/EBITDA, P/E
-Banks and financials                P/B, P/E
-Asset-heavy businesses              P/B, EV/EBITDA
-High-growth companies               Forward P/E, PEG, DCF
-Pre-revenue startups                DCF (revenue-based)
-M&A / buyout analysis               EV/EBITDA, DCF
-Deep fundamental analysis           DCF with multiples check
-Cyclical businesses at trough       Normalized P/E, P/B, DCF
-Companies with lots of debt         EV/EBITDA (NOT P/E)
-REITs and MLPs                      P/FFO, Dividend Yield
+快速筛选大量股票                    市盈率、EV/EBITDA
+行业内横向比较                      EV/EBITDA、市盈率
+银行及金融机构                      市净率、市盈率
+资产密集型企业                      市净率、EV/EBITDA
+高增长公司                          前瞻市盈率、PEG、DCF
+收入前期初创企业                    DCF（基于营收）
+并购/收购分析                       EV/EBITDA、DCF
+深度基本面分析                      DCF结合倍数交叉验证
+处于低谷的周期性企业                正常化市盈率、市净率、DCF
+高负债公司                          EV/EBITDA（不宜用市盈率）
+房地产投资信托及MLP                 P/FFO、股息收益率
 ```
 
 ---
 
-#### 8. Common Valuation Traps
+#### 8. 常见估值陷阱
 
-**Trap 1: Value Traps**
-A stock looks cheap on every metric (low P/E, low P/B) but stays cheap or gets cheaper because the business is in structural decline.
+**陷阱一：价值陷阱**
+一支股票在各项指标上看起来都很便宜（低市盈率、低市净率），却因为业务处于结构性衰退而长期保持低估甚至继续下跌。
 
 ```
-VALUE TRAP WARNING SIGNS
+价值陷阱警示信号
 ========================
-- Revenue declining for 3+ years
-- Market share loss to new competitors
-- Industry disruption (think: newspapers, video rental)
-- Low P/E but also low or declining ROE
-- Management unable to articulate a turnaround plan
-- "Cheap for a reason" -- the market is not always wrong
+- 营收连续3年以上下滑
+- 市场份额持续被新竞争对手蚕食
+- 行业遭受颠覆（如：报纸业、录像带租赁业）
+- 市盈率低，但净资产收益率也低甚至持续下降
+- 管理层无法清晰阐述转型计划
+- "便宜自有便宜的理由"——市场并非总是错的
 ```
 
-**Trap 2: Growth Traps**
-Overpaying for growth that never materializes or that compresses margins.
+**陷阱二：增长陷阱**
+为从未兑现或导致利润率压缩的增长付出过高溢价。
 
-**Trap 3: Accounting Manipulation**
-Earnings can be manipulated. Cash flow is harder to fake. Always cross-check P/E with cash flow multiples (P/FCF).
+**陷阱三：会计操纵**
+盈利可以通过会计手段进行操纵，现金流则更难造假。务必用现金流倍数（P/FCF）交叉验证市盈率。
 
-**Trap 4: Comparing Unlike Companies**
-A software company's P/E cannot be meaningfully compared to a bank's P/E. Always compare within the same industry or business model.
+**陷阱四：拿不同性质的公司做比较**
+软件公司的市盈率与银行的市盈率之间没有实质可比性。务必在同一行业或相近商业模式内进行比较。
 
-**Trap 5: Ignoring the Balance Sheet**
-P/E ignores debt entirely. A company with a P/E of 10x and massive debt is not necessarily cheaper than one with a P/E of 15x and no debt. Use EV/EBITDA for a cleaner picture.
+**陷阱五：忽视资产负债表**
+市盈率完全忽略了债务因素。一家市盈率为10倍但背负沉重债务的公司，不一定比市盈率15倍但零负债的公司更便宜。使用EV/EBITDA可获得更清晰的比较。
 
-**Trap 6: Terminal Value Dominance in DCF**
-When terminal value represents more than 80% of your DCF output, your valuation is essentially a guess about perpetual growth rates. Be skeptical.
+**陷阱六：DCF中终值占比过重**
+当终值超过DCF总价值的80%时，你的估值本质上是在猜测永续增长率。对此应保持审慎。
 
 ```
-HEALTHY DCF STRUCTURE
+健康的DCF结构
 =====================
 
-              Terminal Value
-              as % of Total
+              终值占总价值的
+              比例
               ===============
-Reasonable:   50-70%
-Caution:      70-80%
-Dangerous:    80%+    <-- You are not valuing cash flows,
-                          you are guessing about eternity
+合理范围：    50-70%
+需注意：      70-80%
+危险区间：    80%+    <-- 你估值的不是现金流，
+                          而是在猜测永恒
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常见误区
 
-**Misconception 1: "A low P/E means the stock is cheap."**
+**误区一："低市盈率意味着股票便宜。"**
 
-Reality: A low P/E might mean the market expects earnings to decline. A company earning $5/share today trading at 8x P/E ($40) might see earnings drop to $2/share next year, making the forward P/E actually 20x. Always look at forward estimates and the trajectory of earnings.
+现实：低市盈率可能意味着市场预期盈利将下降。一家公司今年每股盈利5元，以8倍市盈率（股价40元）交易，但若明年每股盈利跌至2元，则前瞻市盈率实际上高达20倍。务必关注前瞻预测和盈利走势。
 
-**Misconception 2: "A high P/E means the stock is expensive."**
+**误区二："高市盈率意味着股票贵。"**
 
-Reality: A high P/E can be perfectly justified by high growth. Amazon traded at enormous P/E ratios for years because it was reinvesting all profits into growth. Investors who avoided it due to "high P/E" missed one of the greatest wealth-creation stories in market history. Context matters.
+现实：高市盈率完全可能因高增长而具有合理性。亚马逊多年来以极高的市盈率交易，因为公司将所有利润再投入到增长中。那些以"市盈率太高"为由回避它的投资者，错过了市场历史上最伟大的财富创造机会之一。背景至关重要。
 
-**Misconception 3: "DCF gives you the 'true' value of a stock."**
+**误区三："DCF给出了股票的'真实'价值。"**
 
-Reality: DCF gives you an estimate that is only as good as your assumptions. Garbage in, garbage out. Two analysts can run a DCF on the same company and get values that differ by 100%. DCF is a framework for thinking, not a crystal ball.
+现实：DCF给出的估值只与其假设条件一样可靠——输入垃圾，输出垃圾。两位分析师对同一家公司运行DCF，可能得出相差100%的估值。DCF是一套思考框架，而非水晶球。
 
-**Misconception 4: "Book value represents what a company is actually worth."**
+**误区四："账面价值代表公司的实际价值。"**
 
-Reality: Book value is an accounting concept, not a market concept. It reflects historical cost minus depreciation, not current market value. A factory bought for $100 million twenty years ago might be worth $200 million or $10 million today -- book value tells you neither.
+现实：账面价值是一个会计概念，而非市场概念。它反映的是历史成本减去折旧，而非当前市场价值。一座二十年前花费1亿元购入的工厂，如今可能价值2亿元，也可能只值1000万元——账面价值对此无从揭示。
 
-**Misconception 5: "You can value any company with any metric."**
+**误区五："任何公司都可以用任何指标来估值。"**
 
-Reality: Different business models require different valuation approaches. Trying to value a pre-revenue biotech on P/E is meaningless. Trying to value a bank on EV/EBITDA is misleading (banks' debt is their raw material, not their financing). Match the method to the business.
+现实：不同的商业模式需要不同的估值方法。用市盈率来估值一家尚无营收的生物科技公司毫无意义。用EV/EBITDA来估值银行则具有误导性（对银行而言，债务是其原材料，而非融资工具）。方法要与业务性质相匹配。
 
-**Misconception 6: "The market always gets valuation right."**
+**误区六："市场的估值总是正确的。"**
 
-Reality: In the short run, markets can deviate wildly from fundamental value. The dot-com bubble saw companies with no revenue trading at billions of dollars. The 2008 crisis saw bank stocks trading at fractions of book value. Valuation is your anchor when the market goes to extremes.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: If a company has negative earnings, how do I calculate P/E?**
-
-A: You cannot calculate a meaningful P/E for a company with negative earnings. Instead, use alternative metrics: Price-to-Sales (P/S), EV/EBITDA (if EBITDA is positive), EV/Revenue, or a DCF based on projected future profitability. For pre-revenue companies, you may need to use scenario-based DCF or comparable transaction analysis.
-
-**Q2: What discount rate should I use in a DCF?**
-
-A: The theoretically correct discount rate is the Weighted Average Cost of Capital (WACC), which typically ranges from 7-12% for most public companies. In practice, many individual investors use a simpler approach: a flat 10% discount rate for average-risk companies, higher for riskier ones. Warren Buffett reportedly uses the 10-year Treasury rate as his discount rate, arguing that if an investment cannot beat risk-free returns, it is not worth making.
-
-**Q3: How do I know if a sector is overvalued, not just individual stocks?**
-
-A: Compare the sector's current average P/E or EV/EBITDA to its own historical average. If the technology sector historically trades at 22x earnings and currently trades at 35x, the entire sector may be overvalued. Also compare the earnings yield (1/P/E) to bond yields. If stocks yield less than bonds, the equity risk premium has compressed, which is typically a warning sign.
-
-**Q4: What is the Shiller CAPE ratio and why does it matter?**
-
-A: The Cyclically Adjusted Price-to-Earnings ratio (CAPE) divides the current price by the average of inflation-adjusted earnings over the past 10 years. This smooths out the business cycle so you do not mistakenly think stocks are cheap at cyclical earnings peaks or expensive at cyclical troughs. The historical average CAPE for the S&P 500 is about 16-17x. When CAPE is significantly above this, subsequent 10-year returns have historically been below average.
-
-**Q5: Should I use trailing or forward P/E?**
-
-A: Use both and compare them. Trailing P/E uses verified historical data, so it is more reliable but backward-looking. Forward P/E uses analyst estimates, which are forward-looking but can be wrong. The relationship between the two tells you about growth expectations. A wide gap (forward much lower than trailing) implies high expected growth, but verify whether that growth is realistic.
-
-**Q6: How accurate are DCF models in practice?**
-
-A: Individual DCF outputs are frequently wrong because assumptions about growth rates, margins, and discount rates are uncertain. However, the DCF framework is extremely valuable as a thinking tool. It forces you to explicitly state your assumptions, which you can then debate and stress-test. The sensitivity table (showing value under different assumption combinations) is often more useful than any single number.
-
-**Q7: Why do some value investors prefer EV/EBITDA over P/E?**
-
-A: EV/EBITDA is capital-structure neutral (it does not penalize companies for having debt or reward them for having cash in misleading ways), it removes the effect of different depreciation policies and tax rates, and it better approximates operating cash flow. It is particularly useful for comparing companies that might be acquisition targets, since an acquirer buys the entire enterprise, not just the equity.
-
-**Q8: Can I use these valuation techniques for ETFs?**
-
-A: Yes. Most ETF providers publish the weighted average P/E, P/B, and other valuation metrics for their funds. You can compare the S&P 500 ETF's current P/E to its historical average to assess whether the broad market is cheap or expensive. For sector ETFs, compare the current multiples to sector historical averages. You generally would not run a DCF on an ETF, but the concept of discounting future cash flows applies to any asset.
-
-**Q9: What is the difference between equity value and enterprise value?**
-
-A: Equity value (market cap) is what belongs to shareholders. Enterprise value is what belongs to all capital providers (shareholders plus debt holders, minus cash). Think of it this way: if you buy a house for $500,000 with a $400,000 mortgage and $100,000 of equity, the enterprise value of the house is $500,000 (what it costs to own the whole thing) while the equity value is $100,000 (your stake). Always match the numerator to the denominator: equity value goes with earnings (P/E), enterprise value goes with EBITDA (EV/EBITDA).
-
-**Q10: How do professional analysts actually value stocks?**
-
-A: Most professional analysts use a combination: a primary valuation based on EV/EBITDA or P/E relative to peers, a DCF as a cross-check, and potentially a sum-of-the-parts analysis for diversified companies. They then triangulate between these methods. If all methods suggest the stock is undervalued, the conviction is high. If the methods disagree, further investigation is needed to understand why.
+现实：短期内，市场可能大幅偏离基本面价值。互联网泡沫时期，一些毫无营收的公司市值高达数十亿元。2008年金融危机期间，多家银行股以账面价值的几分之一交易。估值是你在市场走向极端时的定锚。
 
 ---
 
-## YouTube Script
+### d) 常见问题与解答
+
+**问题1：若一家公司盈利为负，如何计算市盈率？**
+
+答：对于盈利为负的公司，无法计算有意义的市盈率。此时应改用其他指标：市销率（P/S）、EV/EBITDA（若EBITDA为正）、EV/营收，或基于预计未来盈利能力的DCF。对于尚无营收的公司，可能需要采用情景式DCF或可比交易分析。
+
+**问题2：DCF中应使用什么折现率？**
+
+答：理论上正确的折现率是加权平均资本成本（WACC），对于大多数上市公司通常在7%-12%之间。实践中，许多个人投资者采用更为简洁的方法：对于风险平均的公司使用固定10%的折现率，风险较高的公司则相应提高。据报道，沃伦·巴菲特以10年期国债利率作为折现率，其逻辑是：若一项投资无法跑赢无风险回报，便不值得进行。
+
+**问题3：如何判断一个板块是否整体高估，而非仅是个别股票？**
+
+答：将该板块当前的平均市盈率或EV/EBITDA与其自身历史均值进行比较。若科技板块历史上以22倍市盈率交易，当前却达到35倍，则整个板块可能存在高估。此外，可将盈利收益率（市盈率的倒数，即1/PE）与债券收益率进行比较。若股票的收益率低于债券，则股权风险溢价已被压缩，这通常是一个警示信号。
+
+**问题4：什么是席勒周期调整市盈率（CAPE），为什么重要？**
+
+答：周期调整市盈率（CAPE）以当前价格除以过去10年经通胀调整后盈利的平均值。这一方式平滑了商业周期的影响，避免在周期性盈利高峰时误判股票便宜，或在盈利低谷时误判股票昂贵。标普500的CAPE历史均值约为16-17倍。当CAPE显著高于该水平时，历史经验表明此后10年的投资回报率往往低于均值。
+
+**问题5：应使用滚动市盈率还是前瞻市盈率？**
+
+答：两者都应参考，并加以比较。滚动市盈率使用经过核实的历史数据，因此更为可靠，但属于滞后指标；前瞻市盈率使用分析师预测，具有前瞻性，但可能出错。两者之间的关系揭示了增长预期——差距较大（前瞻市盈率远低于滚动市盈率）意味着高增长预期，但需验证该增长是否切实可行。
+
+**问题6：DCF模型在实践中有多准确？**
+
+答：由于增长率、利润率和折现率等假设存在不确定性，单一DCF输出结果往往存在偏差。然而，DCF框架作为一种思考工具极具价值。它迫使你明确列出所有假设，进而进行讨论和压力测试。展示不同假设组合下估值结果的敏感性分析表，其实用价值往往超过任何单一数字。
+
+**问题7：为什么一些价值投资者偏好EV/EBITDA而非市盈率？**
+
+答：EV/EBITDA对资本结构保持中性（不因公司负债而受到惩罚，也不以误导性方式奖励持有大量现金的公司），消除了不同折旧政策和税率的影响，并能更好地近似经营现金流。对于可能成为收购标的的公司，该指标尤为适用——因为收购方买入的是整个企业，而非仅仅是股权。
+
+**问题8：这些估值方法能用于评估交易所交易基金吗？**
+
+答：可以。大多数交易所交易基金的管理方会公布其基金的加权平均市盈率、市净率等估值指标。你可以将标普500指数交易所交易基金当前的市盈率与历史均值进行比较，以评估大盘整体是否便宜或昂贵。对于板块类交易所交易基金，则将当前倍数与该板块历史均值进行比较。通常不需要对交易所交易基金进行DCF分析，但折现未来现金流的理念适用于任何资产。
+
+**问题9：股权价值与企业价值有何区别？**
+
+答：股权价值（市值）归属于股东。企业价值归属于所有资本提供者（股东加上债权人，再减去现金）。这样理解：你以50万元买入一套房子，其中贷款40万元，自有资金10万元。该房子的企业价值是50万元（买下整个房子需要支付的金额），而股权价值是10万元（你的权益部分）。分子与分母必须相匹配：股权价值对应盈利（市盈率），企业价值对应EBITDA（EV/EBITDA）。
+
+**问题10：专业分析师在实践中如何对股票进行估值？**
+
+答：大多数专业分析师会综合运用多种方法：以EV/EBITDA或市盈率相对同业的比较作为主要估值依据，以DCF作为交叉验证，对于多元化集团还可能采用分部加总估值法。然后在这些方法之间寻求综合研判。若所有方法均显示股票被低估，则投资确信度较高；若各方法结论存在分歧，则需进一步深入研究，弄清背后的原因。
+
+---
+
+## YouTube脚本
 
 [VISUAL: Animated intro with title "Week 21: Equity Valuation - P/E, P/B, and DCF"]
 
-**Alex:** Welcome back everyone. Today we are tackling one of the most important topics in all of investing -- how to actually figure out what a stock is worth. This is equity valuation, and I promise you, once you understand this, you will look at the stock market completely differently.
+**Horace（陳馬）：** 欢迎大家回来。今天我们来讲投资领域最重要的话题之一——如何判断一支股票究竟值多少钱。这就是股票估值，我保证，一旦你搞懂了这个，看待股市的方式会完全不同。
 
-**Sam:** I have to admit, Alex, this is something I have been confused about for a while. When I look at stock prices, I see numbers like $150 for one company and $30 for another. Does that mean the $30 stock is cheaper?
+**Stella（小魚）：** 陳馬，说实话，这个问题我一直有点搞不清楚。我看股价，看到一家公司150元，另一家30元。那30元的是不是更便宜？
 
-**Alex:** That is one of the biggest beginner mistakes, and I am glad you brought it up right away. The stock price alone tells you absolutely nothing about whether a stock is cheap or expensive. Think of it this way -- if I told you a slice of pizza costs $5, is that expensive?
+**Horace（陳馬）：** 这是初学者最常犯的错误之一，很高兴你一开始就提出来了。股价本身完全不能说明股票是贵还是便宜。打个比方——如果我告诉你一片披萨卖5元，你觉得贵吗？
 
-**Sam:** I guess it depends on how big the slice is?
+**Stella（小魚）：** 要看这片披萨有多大吧？
 
-**Alex:** Exactly! A tiny sliver for $5 is outrageous, but a massive New York-style slice for $5 is a bargain. The stock price is the $5 -- the valuation metrics we are going to learn today are how you measure the size of the slice.
+**Horace（陳馬）：** 完全正确！一小片5元确实贵，但一大片纽约风格的5元绝对划算。股价就是那个"5元"——我们今天要学的估值指标，就是用来衡量"这片披萨有多大"的工具。
 
 [VISUAL: Side-by-side comparison showing two pizza slices of different sizes, both labeled $5, transitioning to two stocks at different prices with their earnings highlighted]
 
-**Sam:** Okay, that makes sense. So where do we start?
+**Stella（小魚）：** 好，这个比喻很好理解。那我们从哪里开始？
 
-**Alex:** Let us start with the most famous valuation metric in the world -- the price-to-earnings ratio, or P/E.
+**Horace（陳馬）：** 从全世界最著名的估值指标开始——市盈率，也就是P/E。
 
-[VISUAL: Large text showing "P/E = Price / Earnings Per Share"]
+[VISUAL: 大字体显示"市盈率 = 股价 / 每股盈利"]
 
-**Alex:** The P/E ratio tells you how many dollars investors are willing to pay for each dollar of earnings. If a stock trades at $150 and earns $10 per share, the P/E is 15. That means investors are paying $15 for every $1 of profit.
+**Horace（陳馬）：** 市盈率告诉你，投资者愿意为每一元盈利支付多少倍的价格。比如一支股票价格150元，每股盈利10元，市盈率就是15倍。也就是说，投资者为每1元利润付出了15元。
 
-**Sam:** So a lower P/E is better, right? It means you are paying less for each dollar of earnings?
+**Stella（小魚）：** 那市盈率越低越好，对吗？说明你为每元盈利付的钱更少？
 
-**Alex:** That is the intuition, but it is not that simple. And this is where most people go wrong. A low P/E can mean the stock is cheap, yes. But it can also mean the market expects earnings to fall. If a company earned $10 this year but the market thinks it will earn only $5 next year, the trailing P/E looks low, but the forward P/E is actually double.
+**Horace（陳馬）：** 直觉上是这样，但没这么简单。这也是大多数人会出错的地方。低市盈率确实可能意味着股票便宜，但也可能意味着市场预期盈利即将下滑。假设一家公司今年赚了10元，但市场认为明年只能赚5元，那滚动市盈率看起来很低，但前瞻市盈率其实翻倍了。
 
-**Sam:** Wait, what is the difference between trailing and forward P/E?
+**Stella（小魚）：** 等等，滚动市盈率和前瞻市盈率有什么区别？
 
-**Alex:** Great question. Trailing P/E uses earnings from the past twelve months -- it is based on actual, reported numbers. Forward P/E uses estimated earnings for the next twelve months -- it is based on analyst forecasts.
+**Horace（陳馬）：** 好问题。滚动市盈率用的是过去12个月的实际盈利，数据是经过核实的。前瞻市盈率用的是未来12个月的盈利预测，是分析师估算的，有前瞻性，但也可能出错。
 
 [ANIMATION: animation/week21_dcf_model.py - Animated bar chart showing a company's trailing earnings vs. forward estimated earnings, with P/E ratios calculated dynamically as the bars change height. The animation shows how the same stock price produces different P/E ratios depending on which earnings figure you use.]
 
-**Sam:** So you need to look at both?
+**Stella（小魚）：** 所以两个都要看？
 
-**Alex:** Absolutely. And pay attention to the gap between them. If trailing P/E is 20 and forward P/E is 15, the market expects about 33% earnings growth. But if trailing is 15 and forward is 20, the market expects earnings to decline. That gap tells a story.
+**Horace（陳馬）：** 必须的。而且要注意两者之间的差距。如果滚动市盈率是20倍、前瞻市盈率是15倍，说明市场预期盈利增长大约33%。但如果滚动是15倍、前瞻是20倍，则意味着盈利预计下滑。这个差距本身就在讲一个故事。
 
-**Sam:** This is already more nuanced than I expected. What about when people say "the market P/E is 22" -- what does that mean?
+**Stella（小魚）：** 比我想象的要复杂得多。那当人们说"市场市盈率是22倍"，是什么意思？
 
-**Alex:** They are talking about the weighted average P/E of the entire S&P 500 index. Historically, the S&P 500 has traded at an average P/E of about 16 to 17 times. When it gets much higher than that, say above 25, it tends to mean stocks are getting expensive relative to historical norms.
+**Horace（陳馬）：** 他们说的是整个标普500指数的加权平均市盈率。历史上，标普500的平均市盈率大概在16到17倍左右。当市盈率远超这个水平，比如超过25倍，通常意味着股市相对于历史均值开始偏贵。
 
-[VISUAL: Historical chart of S&P 500 P/E ratio from 1950 to present, with bands showing "cheap" (below 12), "fair" (12-20), and "expensive" (above 20) zones, with notable market events labeled]
+[VISUAL: Historical chart of S&P 500 P/E ratio from 1950 to present, with bands showing "偏便宜"（低于12倍）、"合理"（12-20倍）and "偏贵"（高于20倍）zones, with notable market events labeled]
 
-**Sam:** But tech companies trade at way higher P/Es than that, right?
+**Stella（小魚）：** 但科技公司的市盈率不是远高于这个水平吗？
 
-**Alex:** They do, and that is because P/E comparisons only work within similar categories. A technology company growing revenues at 30% per year deserves a higher P/E than a utility growing at 3%. This is where the PEG ratio comes in -- you divide the P/E by the earnings growth rate. A PEG of 1.0 suggests the stock is fairly priced for its growth. Below 1.0, it may be a bargain. Above 1.5, you are probably overpaying for the growth.
+**Horace（陳馬）：** 是的，因为市盈率的比较只有在同类之间才有意义。一家年营收增长30%的科技公司，理应享有比年增长3%的公用事业公司更高的市盈率。这就引出了PEG比率——用市盈率除以盈利增速。PEG等于1.0说明估值与增长相匹配，低于1.0可能是低估，高于1.5则可能为高增长支付了过高溢价。
 
-**Sam:** Okay, so P/E is useful but has limitations. What about P/B -- the price-to-book ratio?
+**Stella（小魚）：** 好的，市盈率有用但有局限。那市净率——P/B呢？
 
-**Alex:** Price-to-book compares the stock price to the company's book value, which is essentially what the accountants say the company is worth on paper -- total assets minus total liabilities.
+**Horace（陳馬）：** 市净率将股价与公司的账面价值进行比较，也就是会计账本上公司的净资产——总资产减去总负债。
 
-[VISUAL: Balance sheet diagram showing Assets on one side, Liabilities + Equity on the other, with Book Value highlighted as the equity portion]
+[VISUAL: Balance sheet diagram showing 资产 on one side, 负债 + 股东权益 on the other, with 账面价值 highlighted as the equity portion]
 
-**Alex:** If a company has a P/B of 2.0, it means the market values it at twice its book value. The premium reflects things that do not show up on the balance sheet -- brand value, intellectual property, talented employees, growth prospects.
+**Horace（陳馬）：** 如果一家公司市净率为2.0倍，说明市场对它的估值是账面价值的两倍。这个溢价反映的是资产负债表上看不到的东西——品牌价值、知识产权、优秀员工、成长空间。
 
-**Sam:** When would I use P/B instead of P/E?
+**Stella（小魚）：** 什么情况下该用市净率，而不是市盈率？
 
-**Alex:** P/B is most useful for financial companies -- banks, insurance companies -- because their assets are mostly financial instruments that are already close to market value. For a bank, book value is a pretty good approximation of what its assets are actually worth. A bank trading below 1.0 times book is basically the market saying "we think some of those loans on your books are not going to be repaid."
+**Horace（陳馬）：** 市净率最适合用于金融类公司——银行、保险公司——因为它们的资产大多是金融工具，已经接近市场价值。对于银行而言，账面价值是对其资产实际价值的合理近似。一家银行的市净率低于1倍，基本上是市场在说："我们认为你账本上的一些贷款是收不回来的。"
 
-**Sam:** That is a red flag then?
+**Stella（小魚）：** 那是一个危险信号？
 
-**Alex:** It can be an opportunity or a red flag, depending on whether the market is right or overreacting. During the 2008 financial crisis, many solid banks traded well below book value. Investors who bought them made enormous returns. But some banks that traded below book really did have terrible loan portfolios and went bankrupt. That is the art of investing -- figuring out which situation you are in.
+**Horace（陳馬）：** 这取决于市场是对的，还是反应过度了。2008年金融危机期间，不少优质银行股跌破账面价值，买入的投资者后来获得了丰厚回报。但也有一些账面价值已经打折的银行确实贷款组合很糟糕，最终破产。这就是投资的艺术所在——判断你面对的是哪种情况。
 
 [VISUAL: Chart showing major bank stock P/B ratios during 2008-2009, with banks that recovered versus banks that failed highlighted in different colors]
 
-**Sam:** This is getting really interesting. You mentioned EV/EBITDA earlier -- that sounds more complicated.
+**Stella（小魚）：** 越来越有意思了。你之前提到EV/EBITDA，听起来更复杂。
 
-**Alex:** It sounds complicated, but it is actually more straightforward than P/E in many ways. Let me break it down. First, enterprise value. Think of buying a house. The house costs $500,000, but you have a $400,000 mortgage. Your equity -- your stake -- is $100,000. The enterprise value of the house is $500,000, because that is what it costs to own the whole thing free and clear.
+**Horace（陳馬）：** 听起来复杂，但很多时候比市盈率更好理解。让我一步步拆解。先说企业价值。想象你在买一套房子，总价500万元，但你背着400万元的贷款，自有资金100万元。你的股权——你的那份——是100万元。这套房子的企业价值是500万元，因为完整买下它需要这个价格。
 
-**Sam:** So enterprise value is like the total price tag of the company?
+**Stella（小魚）：** 所以企业价值就像整个公司的总价格标签？
 
-**Alex:** Exactly. It is market cap plus debt minus cash. It represents what it would actually cost an acquirer to buy the entire business -- they buy the equity, assume the debt, but get the cash.
+**Horace（陳馬）：** 正是。它等于市值加上债务，再减去现金。它代表的是一个收购方实际买下整个业务所需支付的总金额——买入股权、承接债务，但同时也拿到了现金。
 
-[VISUAL: Animated diagram showing Enterprise Value as a stack: Market Cap on top, plus Debt, minus Cash, equals Enterprise Value. Two companies side by side with same market cap but different EVs due to different debt and cash levels.]
+[VISUAL: Animated diagram showing Enterprise Value as a stack: 市值 on top, plus 债务, minus 现金, equals 企业价值. Two companies side by side with same market cap but different EVs due to different debt and cash levels.]
 
-**Alex:** Now, EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. It is a rough proxy for operating cash flow. When you divide EV by EBITDA, you get a cleaner valuation metric than P/E because it strips out the effects of how a company is financed, how it is taxed, and how it depreciates its assets.
+**Horace（陳馬）：** EBITDA是息税折旧摊销前利润，可以粗略理解为经营现金流。用企业价值除以EBITDA，得出的估值指标比市盈率更为清晰，因为它剥除了融资方式、税率和折旧政策的影响。
 
-**Sam:** Why is that better?
+**Stella（小魚）：** 这比市盈率好在哪里？
 
-**Alex:** Let me give you an example. Imagine two identical restaurant chains. Both generate the same revenue and the same operating profit. But Company A financed its expansion with debt, so it pays a lot of interest, which reduces net income and makes P/E look high. Company B used equity financing, so no interest expense, and P/E looks low. On P/E, Company B looks cheaper. But on EV/EBITDA, they look the same -- because EV/EBITDA ignores the financing decision. It just looks at the operations.
+**Horace（陳馬）：** 举个例子。设想两家经营完全相同的连锁餐厅。两者营收和经营利润一样。但公司A用债务融资扩张，因此要支付大量利息，压低了净利润，市盈率看起来很高。公司B用股权融资，没有利息支出，市盈率看起来较低。从市盈率来看，公司B更便宜。但从EV/EBITDA来看，两者一样——因为EV/EBITDA忽略融资决策，只看经营层面。
 
-**Sam:** That makes so much sense. So EV/EBITDA is better for comparing companies with different amounts of debt.
+**Stella（小魚）：** 非常清晰。所以EV/EBITDA更适合比较负债水平不同的公司。
 
-**Alex:** Exactly. And it is the metric most commonly used in mergers and acquisitions, because when a company buys another company, they are buying the enterprise.
+**Horace（陳馬）：** 完全正确。它也是并购交易中最常用的指标，因为收购方买入的是整个企业。
 
 [VISUAL: Comparison table showing two companies with identical operations but different capital structures, demonstrating how P/E gives misleading signals while EV/EBITDA shows they are equivalent]
 
-**Sam:** Okay, these are all relative valuation methods -- comparing one company to another. What about figuring out what a company is worth on its own?
+**Stella（小魚）：** 好的，这些都是相对估值方法——把一家公司与另一家比较。那如何单独判断一家公司本身的价值？
 
-**Alex:** Now we get to the grand daddy of valuation methods: the discounted cash flow, or DCF.
+**Horace（陳馬）：** 这就到了估值方法的"祖师爷"：现金流折现，也就是DCF。
 
-[VISUAL: Title card "Discounted Cash Flow Analysis" with dramatic music]
+[VISUAL: Title card "现金流折现分析" with dramatic music]
 
-**Alex:** The DCF is based on a simple but powerful idea: a company is worth the sum of all the cash it will generate in the future, discounted back to today's value.
+**Horace（陳馬）：** DCF基于一个简单却强大的理念：公司的价值等于它未来所有现金流折现到今天的总和。
 
-**Sam:** Discounted? Why would you discount future cash?
+**Stella（小魚）：** 折现？为什么要对未来的现金打折扣？
 
-**Alex:** Because a dollar today is worth more than a dollar tomorrow. If I offered you $100 today or $100 in a year, which would you take?
+**Horace（陳馬）：** 因为今天的一元钱比明天的一元钱更有价值。如果我问你，你要今天的100元还是一年后的100元？
 
-**Sam:** Today, obviously.
+**Stella（小魚）：** 当然是今天的。
 
-**Alex:** Why?
+**Horace（陳馬）：** 为什么？
 
-**Sam:** Because I could invest that $100 and have maybe $108 or $110 by next year.
+**Stella（小魚）：** 因为我可以把这100元拿去投资，一年后可能变成108元甚至110元。
 
-**Alex:** Exactly. So $100 next year is really only worth about $91 to $93 today, assuming you could earn 8-10% on your money. That is discounting. You are adjusting future cash flows to reflect their present value.
+**Horace（陳馬）：** 正是。所以明年的100元，按照8%-10%的投资回报率折算，今天大概只值91到93元。这就是折现——把未来的现金流调整为当前价值。
 
 [ANIMATION: animation/week21_dcf_model.py - Animated visualization showing future cash flow bars stretching into the future, each one getting slightly larger (growth), but then showing the "discounting" effect where each bar shrinks as it is brought back to present value. The sum of the discounted bars builds up to show the total present value. The terminal value appears as a large block at the end.]
 
-**Sam:** So in a DCF, you project out future cash flows and discount them back?
+**Stella（小魚）：** 所以DCF就是把未来的现金流预测出来，再折现回来？
 
-**Alex:** Right. There are basically four steps. First, you estimate free cash flow for the next five to ten years. Second, you calculate a terminal value to capture all cash flows beyond that period. Third, you discount everything back to the present using a rate called WACC -- the weighted average cost of capital. Fourth, you add it all up, subtract debt, add cash, and divide by shares to get a per-share value.
+**Horace（陳馬）：** 对。基本上分四步。第一步，估算未来五到十年的自由现金流。第二步，计算终值，用于体现预测期之后的所有现金流价值。第三步，用一个叫做WACC——加权平均资本成本——的折现率把所有现金流折现到当前。第四步，把所有现值加总，减去债务，加上现金，再除以股数，得出每股价值。
 
-**Sam:** What is this terminal value? It sounds important.
+**Stella（小魚）：** 这个终值是什么？听起来很重要。
 
-**Alex:** It is incredibly important -- and also the most dangerous part of a DCF. Since a company can theoretically live forever, you cannot project cash flows for eternity. So after your projection period -- say ten years -- you estimate what all remaining future cash flows are worth using a simple formula. The problem is that terminal value often represents 60 to 80 percent of the total value.
+**Horace（陳馬）：** 非常重要——也是DCF中最危险的部分。由于公司理论上可以永续经营，你不可能把现金流预测到永远。所以在预测期结束后——比如十年——你用一个简单的公式来估算剩余所有未来现金流的价值。问题是，终值通常占DCF总价值的60%到80%。
 
-**Sam:** Whoa, so most of the value comes from a single estimate about the distant future?
+**Stella（小魚）：** 哇，大部分价值来自对遥远未来的一个估算？
 
-**Alex:** Yes, and this is why DCF has its critics. You are essentially making a guess about growth rates decades from now. A small change in assumptions can swing the value by 50% or more.
+**Horace（陳馬）：** 是的，这也是DCF备受批评的原因。你本质上是在猜测几十年后的增速。假设条件的微小变化就能让估值波动50%甚至更多。
 
-[VISUAL: Pie chart showing typical DCF breakdown -- 30% from projected cash flows, 70% from terminal value, with annotation "This is why sensitivity analysis matters!"]
+[VISUAL: Pie chart showing typical DCF breakdown -- 30% from projected cash flows, 70% from terminal value, with annotation "这就是为什么敏感性分析至关重要！"]
 
-**Sam:** That sounds scary. How do you deal with that uncertainty?
+**Stella（小魚）：** 这听起来挺吓人的。怎么应对这种不确定性？
 
-**Alex:** You build a sensitivity table. Instead of producing one number, you produce a range. You show what the stock is worth under different combinations of growth rates and discount rates. If the stock looks undervalued under most reasonable scenarios, you have a compelling case. If it only looks cheap under the most optimistic assumptions, be careful.
+**Horace（陳馬）：** 建立敏感性分析表。不要给出一个单一数字，而是给出一个价值区间。展示不同增长率和折现率组合下的估值结果。如果在大多数合理假设下股票都显示出低估，那才是真正有说服力的投资机会。如果只有在最乐观的假设下才看起来便宜，就要小心了。
 
-[VISUAL: Interactive sensitivity table with WACC on one axis and growth rate on the other, showing how value changes across different assumption combinations, with cells color-coded green (undervalued) to red (overvalued)]
+[VISUAL: Interactive sensitivity table with WACC on one axis and growth rate on the other, showing how value changes across different assumption combinations, with cells color-coded green (被低估) to red (被高估)]
 
-**Sam:** Can you walk me through a quick example?
+**Stella（小魚）：** 能不能带我走一个简单的例子？
 
-**Alex:** Sure. Let us say a company generates $100 million in free cash flow this year and we expect it to grow at 12% per year for five years. After that, we assume it grows at 2.5% forever. Our discount rate is 10%.
+**Horace（陳馬）：** 当然。假设一家公司当前自由现金流为1亿元，我们预期未来五年每年增长12%，之后永续增长2.5%，折现率为10%。
 
-**Sam:** Those seem like reasonable numbers.
+**Stella（小魚）：** 这些假设听起来挺合理的。
 
-**Alex:** Year one cash flow is $112 million. Year two, $125 million. And so on up to $176 million in year five. You discount each of those back. Then the terminal value is $176 million times 1.025, divided by the difference between 10% and 2.5%, which gives you about $2.4 billion. Discount that back five years and it is about $1.5 billion. Add up the projected cash flows and the discounted terminal value, and you get about $2 billion in enterprise value. Subtract $200 million in debt, add $50 million in cash, divide by 50 million shares, and you get $37.40 per share.
+**Horace（陳馬）：** 第一年现金流是1.12亿元，第二年1.25亿元，依此类推，第五年达到1.76亿元。把每年的现金流折现回来。然后终值等于1.76亿元乘以1.025，除以10%与2.5%的差值，大约得到24亿元。折现五年后约为14.9亿元。把预测期现金流现值和终值现值加总，得到大约20.2亿元的企业价值。减去2亿元债务，加上5000万元现金，再除以5000万股，每股价值约为37.40元。
 
-**Sam:** So if the stock is trading at $30, it is undervalued?
+**Stella（小魚）：** 那如果股价是30元，说明被低估了？
 
-**Alex:** According to this model, yes. But remember -- change the growth rate from 12% to 8%, and the value might drop to $28. Change the discount rate from 10% to 12%, and it might drop further. The DCF does not tell you the answer; it tells you what the answer would be if your assumptions are correct.
+**Horace（陳馬）：** 按照这个模型，是的。但请记住——如果把增速从12%调低到8%，估值可能跌到28元；如果把折现率从10%调高到12%，还会进一步下降。DCF不是给你答案的，而是在告诉你"如果你的假设成立，答案会是什么"。
 
 [VISUAL: The DCF example numbers building step by step on screen, with the final per-share value highlighted]
 
-**Sam:** This is really helpful. But I am curious -- when should I use P/E versus EV/EBITDA versus DCF? When does each one shine?
+**Stella（小魚）：** 讲得很清楚。不过我想问——什么时候用市盈率，什么时候用EV/EBITDA，什么时候用DCF？各自适合什么场景？
 
-**Alex:** Great question. For quick screening when you are looking at many stocks, use P/E and EV/EBITDA. They are fast and easy to compare. For financial companies -- banks, insurance -- use P/B because their balance sheets are the business. For companies with a lot of debt, use EV/EBITDA instead of P/E because it accounts for leverage. For a deep dive where you want your own independent estimate of value, build a DCF. For high-growth companies with no current earnings, you might need a revenue-based DCF or EV/Revenue.
+**Horace（陳馬）：** 好问题。快速筛选大量股票时，用市盈率和EV/EBITDA，快速又便于比较。金融类公司——银行、保险——用市净率，因为它们的资产负债表就是业务本身。高负债公司用EV/EBITDA而非市盈率，因为前者已考虑了杠杆。需要独立深入估值时，建DCF模型。高增长但当前无盈利的公司，可能需要基于营收的DCF或EV/营收。
 
-**Sam:** And you mentioned using multiple methods together?
+**Stella（小魚）：** 你也提到要多种方法结合使用？
 
-**Alex:** Always. If P/E says a stock is cheap, EV/EBITDA says it is cheap, and your DCF says it is cheap under most reasonable assumptions -- now you really have something. If they disagree, you need to figure out why. The disagreement itself is informative.
+**Horace（陳馬）：** 一定要。如果市盈率显示便宜，EV/EBITDA显示便宜，你的DCF在大多数合理假设下也显示便宜——这才是真正有力的买入理由。如果三者结论不一致，你需要弄清楚为什么，不一致本身就很有信息量。
 
-[VISUAL: Venn diagram showing the three valuation methods overlapping, with "High Conviction Buy" in the center where all three agree]
+[VISUAL: Venn diagram showing the three valuation methods overlapping, with "高确信度买入" in the center where all three agree]
 
-**Sam:** Before we wrap up, can we talk about traps? Where do people go wrong with valuation?
+**Stella（小魚）：** 在收尾之前，能聊聊常见的陷阱吗？大家容易在哪里出错？
 
-**Alex:** The biggest trap is the value trap. You find a stock with a low P/E, low P/B, looks cheap on every metric. You buy it, and it keeps going down. Why? Because the business is in structural decline. The market was not wrong to price it cheaply -- it was right. Think about Kodak when digital photography was taking over, or traditional taxi companies when ridesharing arrived.
+**Horace（陳馬）：** 最大的陷阱是价值陷阱。你找到一支股票，市盈率低、市净率低，各项指标都显示便宜。买了之后，股价继续跌。为什么？因为这个业务在结构性衰退。市场对它定价低，不是犯了错，而是对的。想想当数码摄影兴起时的柯达，或者网约车出现后的传统出租车公司。
 
-**Sam:** So how do you avoid that?
+**Stella（小魚）：** 那怎么避免这个陷阱？
 
-**Alex:** Ask yourself: is the business cheap because the market is overreacting to temporary bad news, or cheap because the business model is dying? If revenue has been declining for years, market share is shrinking, and management has no credible plan to turn things around -- that is probably a value trap, not a value opportunity.
+**Horace（陳馬）：** 问自己：这个股票便宜，是因为市场对短期坏消息反应过度，还是因为商业模式正在走向终结？如果营收已经连续多年下滑，市场份额持续萎缩，管理层又拿不出可信的转型计划——那大概率是价值陷阱，而不是价值机会。
 
-[VISUAL: Two paths diverging -- one labeled "Genuine Value Opportunity" showing a stock recovering, the other labeled "Value Trap" showing a stock continuing to decline despite low multiples]
+[VISUAL: Two paths diverging -- one labeled "真正的价值机会" showing a stock recovering, the other labeled "价值陷阱" showing a stock continuing to decline despite low multiples]
 
-**Alex:** The second big trap is overpaying for growth. Just because a company is growing fast does not mean any price is justified. At some point, the P/E is so high that the company would need to grow at 40% for twenty years to justify it. That almost never happens.
+**Horace（陳馬）：** 第二个大陷阱是为增长支付过高溢价。增长快并不意味着任何价格都合理。到某个点，市盈率高到需要公司连续20年保持40%的增长才能撑得住，而这在历史上几乎从未发生过。
 
-**Sam:** What is the reality check for that?
+**Stella（小魚）：** 对此有什么检验方法吗？
 
-**Alex:** Use the PEG ratio as a starting point, and always ask: what growth rate is currently baked into the stock price? If a stock trades at 50 times earnings, the market is expecting massive growth. Is that realistic? How many companies in history have sustained 30% earnings growth for more than a few years? Very, very few.
+**Horace（陳馬）：** 用PEG比率作为起点，同时问自己：当前股价已经隐含了多高的增长预期？如果一支股票市盈率50倍，市场预期的增长是非常巨大的。这现实吗？历史上有多少公司能维持30%的盈利增长超过几年？极少极少。
 
-**Sam:** And the accounting trap?
+**Stella（小魚）：** 还有会计陷阱？
 
-**Alex:** Yes -- earnings can be manipulated through accounting choices. Aggressive revenue recognition, capitalizing expenses, one-time charges that happen every year. Always cross-check earnings-based metrics with cash flow-based metrics. If a company reports strong earnings but weak cash flow, something might be off.
+**Horace（陳馬）：** 对——盈利可以通过会计手段被操纵，比如激进的收入确认、费用资本化、每年都出现的"一次性"支出。现金流就更难造假了。务必用现金流类指标（比如P/FCF）来交叉验证盈利类指标。如果一家公司报告的盈利亮眼，但自由现金流很弱，那就要警惕了。
 
-[VISUAL: Side-by-side comparison showing "Reported Earnings" vs. "Free Cash Flow" for a hypothetical company, with divergence highlighted as a warning sign]
+[VISUAL: Side-by-side comparison showing "报告盈利" vs. "自由现金流" for a hypothetical company, with divergence highlighted as a warning sign]
 
-**Sam:** Can we do a quick practice exercise? Give me a real-world-style scenario.
+**Stella（小魚）：** 能出一道实战练习题吗？给我一个真实场景。
 
-**Alex:** Absolutely. Let us say you are looking at two companies in the same industry -- consumer packaged goods. Company A has a P/E of 12, P/B of 1.5, and EV/EBITDA of 8. Company B has a P/E of 28, P/B of 6.0, and EV/EBITDA of 18. Which is cheaper?
+**Horace（陳馬）：** 没问题。假设你在看同一行业的两家公司——消费日用品。公司A市盈率12倍、市净率1.5倍、EV/EBITDA 8倍。公司B市盈率28倍、市净率6倍、EV/EBITDA 18倍。哪个更便宜？
 
-**Sam:** Company A, obviously. Every metric is lower.
+**Stella（小魚）：** 公司A，明显嘛，每个指标都更低。
 
-**Alex:** Not so fast. What if I told you Company A's revenue has been declining 5% per year, its market share is shrinking, and management just cut the dividend? Meanwhile, Company B has been growing revenue 15% per year, has a dominant brand, and generates enormous free cash flow.
+**Horace（陳馬）：** 别急。如果我告诉你，公司A的营收每年下滑5%，市场份额持续流失，管理层刚刚削减了股息；而公司B营收每年增长15%，拥有强势品牌，自由现金流充沛，又怎么说？
 
-**Sam:** Then Company A might be a value trap.
+**Stella（小魚）：** 那公司A可能是价值陷阱。
 
-**Alex:** Exactly. Now let us say you run a DCF on both. Company A, even with declining revenues, has a DCF value of $45 and trades at $35 -- a 22% discount. Company B's DCF value is $120 and it trades at $115 -- only a 4% discount. Which do you buy?
+**Horace（陳馬）：** 正是。现在假设你对两家公司都做了DCF。公司A即便考虑营收下滑，DCF估值是45元，而股价是35元——折价22%。公司B的DCF估值是120元，股价115元——折价只有4%。你买哪个？
 
-**Sam:** It is tempting to say Company A because the discount is bigger, but if the business is deteriorating, the DCF inputs might be too optimistic.
+**Stella（小魚）：** 直觉上想选公司A因为折价幅度更大，但如果业务在持续恶化，DCF的输入假设可能本身就太乐观了。
 
-**Alex:** Now you are thinking like a real analyst. The answer is: you need to stress-test both DCFs. If Company A's DCF value drops to $30 under pessimistic assumptions, it is overvalued at $35. If Company B's DCF holds up at $100 or above under most scenarios, it might actually be the better buy at $115 despite the smaller discount.
+**Horace（陳馬）：** 现在你已经在用真正的分析师思维了。答案是：你需要对两个DCF都做压力测试。如果公司A在悲观情景下估值跌到30元以下，那35元的股价其实是高估的。如果公司B的DCF在大多数情景下都维持在100元以上，那115元买入可能才是更好的机会，尽管折价幅度更小。
 
-[VISUAL: Decision tree showing the analytical process: screen with multiples, then dig deeper with fundamentals, then validate with DCF, then stress-test assumptions]
+[VISUAL: Decision tree showing the analytical process: 用倍数初步筛选, then 深入基本面研究, then 用DCF验证, then 压力测试假设]
 
-**Sam:** So valuation is not about finding the lowest number -- it is about finding the best risk-adjusted opportunity.
+**Stella（小魚）：** 所以估值不是找最低的数字，而是寻找风险调整后最优的机会。
 
-**Alex:** Perfectly said. And that requires combining quantitative metrics with qualitative judgment about the business. The numbers are the starting point, not the conclusion.
+**Horace（陳馬）：** 说得太好了。这需要把定量指标与对业务的定性判断结合起来。数字是起点，不是终点。
 
-**Sam:** What about sector-specific tricks? You mentioned banks use P/B. Are there other sector-specific metrics I should know?
+**Stella（小魚）：** 那行业特定的估值方式呢？你提到银行用市净率，还有其他我应该了解的行业专用指标吗？
 
-**Alex:** Great question. REITs use Price-to-FFO -- funds from operations -- because traditional earnings do not capture real estate economics well. Airlines and industrials sometimes use EV/EBITDAR, adding back rent expenses. Software companies often use EV/Revenue or a "Rule of 40" -- growth rate plus profit margin should exceed 40. Insurance companies use Price-to-Book and combined ratios. Each industry has its own language, and speaking that language is essential for accurate valuation.
+**Horace（陳馬）：** 好问题。房地产投资信托用的是P/FFO（股价与经营性现金流之比），因为传统盈利指标无法准确反映房地产的经济逻辑。航空公司和工业企业有时用EV/EBITDAR，额外加回租赁费用。软件公司常用EV/营收或"40法则"——增速加利润率之和应超过40%。保险公司看市净率和综合成本率。每个行业都有自己的语言，懂得这门语言才能做出准确的估值。
 
-[VISUAL: Table showing industry-specific valuation metrics: Banks (P/B, P/TBV), REITs (P/FFO, P/AFFO), Software (EV/Revenue, Rule of 40), Insurance (P/B, Combined Ratio), Airlines (EV/EBITDAR), Pharma (Pipeline Value, EV/Revenue)]
+[VISUAL: Table showing industry-specific valuation metrics: 银行（市净率、有形账面价值市净率），房地产投资信托（P/FFO、P/AFFO），软件（EV/营收、40法则），保险（市净率、综合成本率），航空（EV/EBITDAR），医药（研发管线价值、EV/营收）]
 
-**Sam:** This course keeps expanding my toolkit. Okay, if I had to remember just three things from today, what would they be?
+**Stella（小魚）：** 这门课不断在扩充我的工具箱。好，如果今天只记三件事，你会选哪三件？
 
-**Alex:** First, no single valuation metric tells the whole story -- use multiple methods and look for convergence. Second, context matters enormously -- always compare within the same industry and consider the growth profile. Third, a valuation model is only as good as its assumptions -- focus more on understanding the range of possible values than on finding a single "right" number.
+**Horace（陳馬）：** 第一，没有任何单一的估值指标能讲清楚全部故事——要用多种方法，寻求相互印证。第二，背景至关重要——务必在同行业内进行比较，并充分考虑增长特征。第三，估值模型只与其假设一样可靠——与其纠结一个"精确"的数字，不如专注于理解合理的价值区间。
 
-**Sam:** Valuation is not a science -- it is a framework for thinking.
+**Stella（小魚）：** 估值不是一门精确科学，而是一套思考框架。
 
-**Alex:** That is exactly right. And the more you practice, the better your intuition becomes for what "cheap" and "expensive" really mean.
+**Horace（陳馬）：** 说得正是。练得越多，你对"便宜"和"贵"的直觉就越准。
 
 [VISUAL: Summary card with the three key takeaways, plus a preview of next week's lesson on currency and international diversification]
 
-**Alex:** Next week, we are going global. We will talk about international diversification, currency risk, and why most investors have too much of their money in their home country. See you then.
+**Horace（陳馬）：** 下周我们走向全球。我们会聊国际分散投资、汇率风险，以及为什么大多数投资者把太多钱押注在本国市场。下周见。
 
-**Sam:** Can not wait. Thanks everyone for watching!
+**Stella（小魚）：** 太期待了。感谢大家收看！
 
 [VISUAL: End screen with subscribe button and links to previous lessons]
 

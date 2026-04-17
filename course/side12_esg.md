@@ -250,44 +250,44 @@ A: Regulatory trends are pushing toward more ESG disclosure by companies and str
 
 ---
 
-**Alex:** Our final side lesson tackles one of the most debated topics in modern investing -- ESG and sustainable investing. Sam, what comes to mind when you hear "ESG investing"?
+**Horace:** Our final side lesson tackles one of the most debated topics in modern investing -- ESG and sustainable investing. Stella, what comes to mind when you hear "ESG investing"?
 
-**Sam:** Honestly? It feels kind of vague. Something about being environmentally friendly? Not investing in oil companies? I have seen a lot of funds with "sustainable" in the name, but I am not really sure what makes them different.
+**Stella:** Honestly? It feels kind of vague. Something about being environmentally friendly? Not investing in oil companies? I have seen a lot of funds with "sustainable" in the name, but I am not really sure what makes them different.
 
-**Alex:** That vagueness is actually part of the problem -- and it is exactly what we are going to clear up today. ESG stands for Environmental, Social, and Governance, and it represents a massive shift in how some investors think about putting their money to work.
+**Horace:** That vagueness is actually part of the problem -- and it is exactly what we are going to clear up today. ESG stands for Environmental, Social, and Governance, and it represents a massive shift in how some investors think about putting their money to work.
 
 [VISUAL: Three pillars labeled E, S, and G with icons and examples under each.
 E: Carbon emissions, energy use, pollution, water management, climate risk.
 S: Employee treatment, diversity, data privacy, supply chain labor, community impact.
 G: Board independence, executive pay, accounting practices, shareholder rights, ethics.]
 
-**Sam:** So it covers way more than just the environment?
+**Stella:** So it covers way more than just the environment?
 
-**Alex:** Way more. Governance is actually the oldest part of ESG and arguably the most financially relevant. Investors have cared about board quality, executive compensation, and accounting transparency for decades. The environmental and social pillars are newer but have gained enormous attention.
+**Horace:** Way more. Governance is actually the oldest part of ESG and arguably the most financially relevant. Investors have cared about board quality, executive compensation, and accounting transparency for decades. The environmental and social pillars are newer but have gained enormous attention.
 
-**Sam:** How big is this movement?
+**Stella:** How big is this movement?
 
-**Alex:** Enormous. Global ESG assets exceeded $35 trillion by the mid-2020s. Some projections suggest this could reach $50 trillion by 2030. Whether you actively choose ESG or not, it is reshaping how companies operate, how funds are constructed, and how regulators think about financial disclosure.
+**Horace:** Enormous. Global ESG assets exceeded $35 trillion by the mid-2020s. Some projections suggest this could reach $50 trillion by 2030. Whether you actively choose ESG or not, it is reshaping how companies operate, how funds are constructed, and how regulators think about financial disclosure.
 
 [ANIMATION: A growth chart showing ESG assets under management from 2012 to projected 2030. The curve steepens dramatically after 2018. Labels show key milestones -- Paris Agreement (2015), EU Green Deal (2019), ESG fund boom (2020-2021).]
 
-**Sam:** Okay, let us get to the question everyone wants answered. Does ESG investing help or hurt returns?
+**Stella:** Okay, let us get to the question everyone wants answered. Does ESG investing help or hurt returns?
 
-**Alex:** I love that you went straight there, because this is where most of the debate centers. And the honest answer is -- it depends on the time period, the specific ESG approach, and the sector exposure.
+**Horace:** I love that you went straight there, because this is where most of the debate centers. And the honest answer is -- it depends on the time period, the specific ESG approach, and the sector exposure.
 
-**Sam:** That is not a very satisfying answer.
+**Stella:** That is not a very satisfying answer.
 
-**Alex:** Let me give you more detail. The largest meta-study on this topic, analyzing over 2,200 individual studies, found that roughly 90% showed a non-negative relationship between ESG and financial performance. The majority showed slightly positive results.
+**Horace:** Let me give you more detail. The largest meta-study on this topic, analyzing over 2,200 individual studies, found that roughly 90% showed a non-negative relationship between ESG and financial performance. The majority showed slightly positive results.
 
 [VISUAL: Pie chart of research findings: "Positive relationship: ~60%. Neutral relationship: ~30%. Negative relationship: ~10%." Source cited as Friede, Busch, & Bassen, 2015.]
 
-**Sam:** So ESG does not hurt returns? That contradicts what I have heard from some people.
+**Stella:** So ESG does not hurt returns? That contradicts what I have heard from some people.
 
-**Alex:** The research suggests it is generally neutral to slightly positive -- over long periods and on average. But there are important caveats. First, the period from 2015-2020 was very favorable for ESG because ESG funds tended to be overweight in technology stocks, which were booming. When people said "ESG outperforms," what was really happening was "tech stocks outperform."
+**Horace:** The research suggests it is generally neutral to slightly positive -- over long periods and on average. But there are important caveats. First, the period from 2015-2020 was very favorable for ESG because ESG funds tended to be overweight in technology stocks, which were booming. When people said "ESG outperforms," what was really happening was "tech stocks outperform."
 
-**Sam:** And when tech stocks did not outperform?
+**Stella:** And when tech stocks did not outperform?
 
-**Alex:** Exactly. In 2021 and 2022, energy prices surged. ESG funds that excluded fossil fuel companies lagged the broader market because they missed the energy rally. This showed that a lot of ESG "performance" was really just sector betting in disguise.
+**Horace:** Exactly. In 2021 and 2022, energy prices surged. ESG funds that excluded fossil fuel companies lagged the broader market because they missed the energy rally. This showed that a lot of ESG "performance" was really just sector betting in disguise.
 
 [ANIMATION: Two fund performance lines from 2015 to 2023.
 2015-2020: ESG fund outperforms standard index (tech tailwind).
@@ -295,17 +295,17 @@ G: Board independence, executive pay, accounting practices, shareholder rights, 
 Overall: The two lines are close, weaving around each other.
 Text: "Sector exposure, not ESG itself, drove most of the difference."]
 
-**Sam:** So the honest takeaway is...
+**Stella:** So the honest takeaway is...
 
-**Alex:** ESG investing neither clearly helps nor clearly hurts returns compared to conventional investing, after adjusting for sector exposure and fees. The factors that matter most for returns are still the same -- low fees, broad diversification, and staying invested for the long term. The ESG label, by itself, is not a performance predictor.
+**Horace:** ESG investing neither clearly helps nor clearly hurts returns compared to conventional investing, after adjusting for sector exposure and fees. The factors that matter most for returns are still the same -- low fees, broad diversification, and staying invested for the long term. The ESG label, by itself, is not a performance predictor.
 
-**Sam:** That is actually reassuring. It means I do not have to sacrifice returns if I want to invest according to my values.
+**Stella:** That is actually reassuring. It means I do not have to sacrifice returns if I want to invest according to my values.
 
-**Alex:** Right. The trade-off, if there is one, is typically very small. You might give up a few basis points in performance in exchange for values alignment. For many people, that is a trade worth making.
+**Horace:** Right. The trade-off, if there is one, is typically very small. You might give up a few basis points in performance in exchange for values alignment. For many people, that is a trade worth making.
 
-**Sam:** Now, you mentioned different approaches to ESG investing. Can you break those down?
+**Stella:** Now, you mentioned different approaches to ESG investing. Can you break those down?
 
-**Alex:** There are five main approaches, and understanding which one a fund uses is crucial.
+**Horace:** There are five main approaches, and understanding which one a fund uses is crucial.
 
 [VISUAL: Five approaches shown as a spectrum from simplest to most complex:
 1. Negative Screening -- "Exclude the bad"
@@ -314,45 +314,45 @@ Text: "Sector exposure, not ESG itself, drove most of the difference."]
 4. Shareholder Engagement -- "Own and influence from within"
 5. Impact Investing -- "Target measurable positive outcomes"]
 
-**Alex:** The simplest is negative screening -- just excluding industries you object to. No tobacco, no weapons, no fossil fuels. Easy to understand, easy to implement.
+**Horace:** The simplest is negative screening -- just excluding industries you object to. No tobacco, no weapons, no fossil fuels. Easy to understand, easy to implement.
 
-**Sam:** But you lose diversification, right?
+**Stella:** But you lose diversification, right?
 
-**Alex:** Potentially. If you exclude all energy companies and energy has a great year, you miss out. The next approach, positive screening or best-in-class, is more nuanced. Instead of excluding entire sectors, you pick the best ESG performers within each sector. So you might hold an oil company -- but only the one with the strongest environmental and safety record.
+**Horace:** Potentially. If you exclude all energy companies and energy has a great year, you miss out. The next approach, positive screening or best-in-class, is more nuanced. Instead of excluding entire sectors, you pick the best ESG performers within each sector. So you might hold an oil company -- but only the one with the strongest environmental and safety record.
 
-**Sam:** That seems more balanced.
+**Stella:** That seems more balanced.
 
-**Alex:** It is. Then there is ESG integration, where ESG data is used alongside traditional financial analysis. An analyst might say, "This company has poor cybersecurity practices, which increases the risk of a data breach and regulatory fines, so I am going to adjust my valuation downward." That is ESG integration -- it is risk management, not morality.
+**Horace:** It is. Then there is ESG integration, where ESG data is used alongside traditional financial analysis. An analyst might say, "This company has poor cybersecurity practices, which increases the risk of a data breach and regulatory fines, so I am going to adjust my valuation downward." That is ESG integration -- it is risk management, not morality.
 
-**Sam:** And shareholder engagement?
+**Stella:** And shareholder engagement?
 
-**Alex:** This is where investors use their ownership power to push for change. Instead of selling shares of a polluting company, you keep your shares and vote for resolutions demanding emissions reductions. Some of the largest investors in the world -- BlackRock, State Street, Vanguard -- use shareholder engagement extensively.
+**Horace:** This is where investors use their ownership power to push for change. Instead of selling shares of a polluting company, you keep your shares and vote for resolutions demanding emissions reductions. Some of the largest investors in the world -- BlackRock, State Street, Vanguard -- use shareholder engagement extensively.
 
-**Sam:** Does that actually work?
+**Stella:** Does that actually work?
 
-**Alex:** It can. Major shareholder campaigns have led to changes in corporate climate strategies, board composition, and executive compensation practices. It is slower than divestment but arguably more impactful because it changes corporate behavior directly.
+**Horace:** It can. Major shareholder campaigns have led to changes in corporate climate strategies, board composition, and executive compensation practices. It is slower than divestment but arguably more impactful because it changes corporate behavior directly.
 
-**Sam:** What about impact investing?
+**Stella:** What about impact investing?
 
-**Alex:** Impact investing goes furthest. You are specifically targeting investments that generate measurable positive outcomes -- a green bond funding a solar farm, a community development fund supporting affordable housing, a venture fund backing clean water technology. The challenge is that true impact investments are often in private markets and less accessible to individual investors.
+**Horace:** Impact investing goes furthest. You are specifically targeting investments that generate measurable positive outcomes -- a green bond funding a solar farm, a community development fund supporting affordable housing, a venture fund backing clean water technology. The challenge is that true impact investments are often in private markets and less accessible to individual investors.
 
-**Sam:** Let us talk about something I have been suspicious of -- greenwashing. How do I know if a fund is genuinely ESG or just marketing?
+**Stella:** Let us talk about something I have been suspicious of -- greenwashing. How do I know if a fund is genuinely ESG or just marketing?
 
-**Alex:** This is a huge issue, and your skepticism is warranted.
+**Horace:** This is a huge issue, and your skepticism is warranted.
 
 [VISUAL: Side-by-side comparison.
 "Real ESG Fund:" Clearly defined exclusion criteria. Top holdings differ meaningfully from standard index. Specific ESG methodology published. Engages in proxy voting on ESG issues.
 "Greenwashed Fund:" Added "ESG" to fund name. Top 10 holdings identical to S&P 500. Vague claim of "considering ESG factors." Higher fee than comparable non-ESG fund.]
 
-**Alex:** Here are the red flags. If a fund's top holdings are virtually identical to the S&P 500 but it charges a higher fee and has "Sustainable" in the name, that is suspicious. If the fund's prospectus talks about ESG in vague terms -- "we may consider ESG factors" -- without specific criteria, that is a red flag. If the fund was recently renamed from something generic to something ESG-sounding without changing its strategy, that is greenwashing.
+**Horace:** Here are the red flags. If a fund's top holdings are virtually identical to the S&P 500 but it charges a higher fee and has "Sustainable" in the name, that is suspicious. If the fund's prospectus talks about ESG in vague terms -- "we may consider ESG factors" -- without specific criteria, that is a red flag. If the fund was recently renamed from something generic to something ESG-sounding without changing its strategy, that is greenwashing.
 
-**Sam:** So what should I look for in a genuine ESG fund?
+**Stella:** So what should I look for in a genuine ESG fund?
 
-**Alex:** Look for a clearly defined methodology. Which ESG data sources does the fund use? What specific screens are applied? How do ESG factors influence stock selection and weighting? Compare the holdings to a standard index fund -- there should be meaningful differences. And check the expense ratio -- a genuine, well-run ESG index fund should not cost dramatically more than a standard index fund.
+**Horace:** Look for a clearly defined methodology. Which ESG data sources does the fund use? What specific screens are applied? How do ESG factors influence stock selection and weighting? Compare the holdings to a standard index fund -- there should be meaningful differences. And check the expense ratio -- a genuine, well-run ESG index fund should not cost dramatically more than a standard index fund.
 
-**Sam:** Can you give me some specific fund examples?
+**Stella:** Can you give me some specific fund examples?
 
-**Alex:** Sure. Let me walk through a few of the most popular options.
+**Horace:** Sure. Let me walk through a few of the most popular options.
 
 [VISUAL: Fund comparison table.
 ESGV (Vanguard ESG U.S. Stock): Excludes adult entertainment, alcohol, tobacco, weapons, fossil fuels, gambling, nuclear. Expense: 0.09%.
@@ -360,13 +360,13 @@ ESGU (iShares ESG Aware): Uses MSCI ESG ratings to tilt toward leaders. Maintain
 EFIV (SPDR S&P 500 ESG): ESG-screened S&P 500. Excludes worst offenders, selects top 75% by ESG score. Expense: 0.10%.
 For comparison -- VTI (Vanguard Total Stock Market, non-ESG): Holds everything. Expense: 0.03%.]
 
-**Sam:** So the cheapest ESG option is 0.09% versus 0.03% for a standard total market fund. That is a pretty small difference.
+**Stella:** So the cheapest ESG option is 0.09% versus 0.03% for a standard total market fund. That is a pretty small difference.
 
-**Alex:** Six basis points -- about 60 cents per year on every $1,000 invested. Over a lifetime, that adds up, but it is far less than the 0.50-1.00% premium that some actively managed ESG funds charge.
+**Horace:** Six basis points -- about 60 cents per year on every $1,000 invested. Over a lifetime, that adds up, but it is far less than the 0.50-1.00% premium that some actively managed ESG funds charge.
 
-**Sam:** Now, I want to understand the ratings issue. You mentioned that ESG ratings from different agencies can disagree. How bad is it?
+**Stella:** Now, I want to understand the ratings issue. You mentioned that ESG ratings from different agencies can disagree. How bad is it?
 
-**Alex:** It is surprisingly bad. Research has shown that the correlation between ESG ratings from different agencies is roughly 0.5 to 0.6. For comparison, credit ratings from Moody's and S&P correlate at about 0.99. In other words, ESG ratings are highly subjective.
+**Horace:** It is surprisingly bad. Research has shown that the correlation between ESG ratings from different agencies is roughly 0.5 to 0.6. For comparison, credit ratings from Moody's and S&P correlate at about 0.99. In other words, ESG ratings are highly subjective.
 
 [ANIMATION: The same company -- let us call it Company X -- being rated by three different ESG agencies.
 Agency 1: "A -- ESG Leader!" (focused on environmental practices)
@@ -374,13 +374,13 @@ Agency 2: "Average" (focused on governance concerns)
 Agency 3: "Below Average" (focused on supply chain labor issues)
 Same company, same data, three very different conclusions.]
 
-**Sam:** That is really problematic. How can I make decisions if the experts cannot even agree?
+**Stella:** That is really problematic. How can I make decisions if the experts cannot even agree?
 
-**Alex:** It means you should not outsource your ESG thinking entirely to a rating agency. Understand what specific factors you care about. If climate change is your priority, look at a company's carbon emissions data directly rather than relying on a composite ESG score that mixes climate data with unrelated governance metrics.
+**Horace:** It means you should not outsource your ESG thinking entirely to a rating agency. Understand what specific factors you care about. If climate change is your priority, look at a company's carbon emissions data directly rather than relying on a composite ESG score that mixes climate data with unrelated governance metrics.
 
-**Sam:** What about the materiality concept you mentioned?
+**Stella:** What about the materiality concept you mentioned?
 
-**Alex:** This is really important. Materiality means asking: which ESG factors actually affect a company's bottom line? Not every ESG issue is equally relevant to every company.
+**Horace:** This is really important. Materiality means asking: which ESG factors actually affect a company's bottom line? Not every ESG issue is equally relevant to every company.
 
 [VISUAL: Materiality matrix.
 For a tech company: Data privacy (HIGH materiality), carbon emissions (LOW materiality).
@@ -388,19 +388,19 @@ For an oil company: Carbon emissions (HIGH), data privacy (LOW).
 For a bank: Governance and lending practices (HIGH), water usage (LOW).
 For a food company: Supply chain labor (HIGH), cybersecurity (LOW).]
 
-**Alex:** A fund that focuses on financially material ESG factors -- the ones most likely to affect profits and risk -- tends to show a stronger connection to performance than one that applies the same generic ESG criteria to every company regardless of industry.
+**Horace:** A fund that focuses on financially material ESG factors -- the ones most likely to affect profits and risk -- tends to show a stronger connection to performance than one that applies the same generic ESG criteria to every company regardless of industry.
 
-**Sam:** That makes sense. A tech company's biggest ESG risk is not water usage -- it is a data breach.
+**Stella:** That makes sense. A tech company's biggest ESG risk is not water usage -- it is a data breach.
 
-**Alex:** Exactly. The SASB, now part of the IFRS Foundation, has mapped out which ESG issues are financially material for 77 different industries. This framework is incredibly useful for investors who want ESG analysis that actually connects to financial outcomes.
+**Horace:** Exactly. The SASB, now part of the IFRS Foundation, has mapped out which ESG issues are financially material for 77 different industries. This framework is incredibly useful for investors who want ESG analysis that actually connects to financial outcomes.
 
-**Sam:** Let me ask a philosophical question. If I buy shares in an ESG fund, am I actually making a positive impact on the world?
+**Stella:** Let me ask a philosophical question. If I buy shares in an ESG fund, am I actually making a positive impact on the world?
 
-**Alex:** This is a question that deserves an honest answer. When you buy shares of an ESG ETF, you are buying shares in the secondary market from another investor. The companies in the fund do not receive your money. In that direct sense, your purchase does not fund sustainable activities.
+**Horace:** This is a question that deserves an honest answer. When you buy shares of an ESG ETF, you are buying shares in the secondary market from another investor. The companies in the fund do not receive your money. In that direct sense, your purchase does not fund sustainable activities.
 
-**Sam:** So what impact does it have?
+**Stella:** So what impact does it have?
 
-**Alex:** Your impact comes through three channels. First, signaling -- when trillions of dollars flow toward ESG funds, it sends a message to companies and fund managers about investor priorities. Second, voting -- ESG fund managers often vote proxies in favor of sustainability resolutions. Third, pricing -- in theory, if enough investors avoid certain companies, their cost of capital rises, making it more expensive for them to operate.
+**Horace:** Your impact comes through three channels. First, signaling -- when trillions of dollars flow toward ESG funds, it sends a message to companies and fund managers about investor priorities. Second, voting -- ESG fund managers often vote proxies in favor of sustainability resolutions. Third, pricing -- in theory, if enough investors avoid certain companies, their cost of capital rises, making it more expensive for them to operate.
 
 [VISUAL: Three channels of ESG investor impact:
 1. Signaling: "We care about this" arrow pointing to corporate behavior change.
@@ -408,27 +408,27 @@ For a food company: Supply chain labor (HIGH), cybersecurity (LOW).]
 3. Pricing: Reduced demand for excluded stocks theoretically raises their cost of capital.
 Note at bottom: "Direct impact is indirect and debated."]
 
-**Sam:** So it is indirect impact at best.
+**Stella:** So it is indirect impact at best.
 
-**Alex:** For most individual investors, yes. If you want direct impact, you would look at green bonds (where your money directly finances specific environmental projects), community investing, or direct engagement with companies. But even indirect signaling has value at scale -- and the ESG movement has demonstrably changed how many companies report, plan, and operate.
+**Horace:** For most individual investors, yes. If you want direct impact, you would look at green bonds (where your money directly finances specific environmental projects), community investing, or direct engagement with companies. But even indirect signaling has value at scale -- and the ESG movement has demonstrably changed how many companies report, plan, and operate.
 
-**Sam:** Where does the political debate fit into all this?
+**Stella:** Where does the political debate fit into all this?
 
-**Alex:** ESG has become politically polarized, with some states mandating ESG consideration and others banning it in public pension funds. My advice to individual investors: separate the political noise from the investment analysis. Good governance is not political. Assessing environmental regulatory risk is not political. Understanding supply chain risks is not political. These are all standard investment analysis practices -- they just have an ESG label now.
+**Horace:** ESG has become politically polarized, with some states mandating ESG consideration and others banning it in public pension funds. My advice to individual investors: separate the political noise from the investment analysis. Good governance is not political. Assessing environmental regulatory risk is not political. Understanding supply chain risks is not political. These are all standard investment analysis practices -- they just have an ESG label now.
 
-**Sam:** Fair enough. Let me summarize what I have learned. ESG stands for Environmental, Social, and Governance -- three categories of non-financial factors. ESG ratings are subjective and inconsistent across agencies. ESG investing takes many forms, from simple exclusion to deep integration to impact investing. The evidence suggests ESG neither clearly helps nor hurts returns -- fees and diversification matter more. Greenwashing is real, and I should verify what any "ESG" fund actually does. Materiality matters -- focus on ESG factors that are financially relevant to each industry. And my impact as an ESG investor is primarily indirect, through signaling, voting, and pricing effects.
+**Stella:** Fair enough. Let me summarize what I have learned. ESG stands for Environmental, Social, and Governance -- three categories of non-financial factors. ESG ratings are subjective and inconsistent across agencies. ESG investing takes many forms, from simple exclusion to deep integration to impact investing. The evidence suggests ESG neither clearly helps nor hurts returns -- fees and diversification matter more. Greenwashing is real, and I should verify what any "ESG" fund actually does. Materiality matters -- focus on ESG factors that are financially relevant to each industry. And my impact as an ESG investor is primarily indirect, through signaling, voting, and pricing effects.
 
-**Alex:** That is an outstanding summary. Whether you choose to invest in ESG funds or not, understanding these concepts makes you a more informed investor. And that is what this whole series has been about -- giving you the knowledge to make deliberate, rational investment decisions.
+**Horace:** That is an outstanding summary. Whether you choose to invest in ESG funds or not, understanding these concepts makes you a more informed investor. And that is what this whole series has been about -- giving you the knowledge to make deliberate, rational investment decisions.
 
 [ANIMATION: Final graphic showing a balanced portfolio with optional ESG overlay. Text: "ESG is a lens, not a magic formula. Understand what you own, why you own it, and what impact you expect. Invest with both your head and your values."]
 
-**Sam:** Thanks, Alex. This has been an incredible series. I feel like I actually understand investing now -- not just the basics, but the real nuances.
+**Stella:** Thanks, Horace. This has been an incredible series. I feel like I actually understand investing now -- not just the basics, but the real nuances.
 
-**Alex:** And that was always the goal. Investing does not have to be complicated, but it does have to be informed. Take what you have learned, apply it consistently, keep costs low, stay diversified, think long-term, and you will be ahead of the vast majority of investors out there.
+**Horace:** And that was always the goal. Investing does not have to be complicated, but it does have to be informed. Take what you have learned, apply it consistently, keep costs low, stay diversified, think long-term, and you will be ahead of the vast majority of investors out there.
 
-**Sam:** To everyone watching -- thank you for learning with us. Go put this knowledge to work.
+**Stella:** To everyone watching -- thank you for learning with us. Go put this knowledge to work.
 
-**Alex:** See you out there.
+**Horace:** See you out there.
 
 ---
 

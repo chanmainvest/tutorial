@@ -668,181 +668,181 @@ A: Absolutely. If Investor A put in $100,000 at inception and never touched it, 
 
 [VISUAL: Animated intro with title "Week 17: Performance Metrics - Volatility, Drawdowns, and Risk-Adjusted Returns"]
 
-**Alex:** Welcome back everyone. Today we are talking about something that is absolutely critical for your success as an investor, but that most people get completely wrong. We are talking about how to actually measure investment performance.
+**Horace:** Welcome back everyone. Today we are talking about something that is absolutely critical for your success as an investor, but that most people get completely wrong. We are talking about how to actually measure investment performance.
 
-**Sam:** This seems pretty straightforward, Alex. I look at my portfolio, I see it went up 15% this year, that is my performance, right?
+**Stella:** This seems pretty straightforward, Horace. I look at my portfolio, I see it went up 15% this year, that is my performance, right?
 
-**Alex:** And that right there is the mistake almost everyone makes. Let me ask you something. If I told you I made 15% last year, would you be impressed?
+**Horace:** And that right there is the mistake almost everyone makes. Let me ask you something. If I told you I made 15% last year, would you be impressed?
 
-**Sam:** I mean, 15% sounds pretty good.
+**Stella:** I mean, 15% sounds pretty good.
 
-**Alex:** What if I told you that to make that 15%, my portfolio dropped 45% in the spring, I could not sleep for three months, and I nearly sold everything at the bottom?
+**Horace:** What if I told you that to make that 15%, my portfolio dropped 45% in the spring, I could not sleep for three months, and I nearly sold everything at the bottom?
 
-**Sam:** That sounds terrifying. Okay, so the 15% does not tell the whole story.
+**Stella:** That sounds terrifying. Okay, so the 15% does not tell the whole story.
 
-**Alex:** Not even close. Today we are going to learn the metrics that professionals use to evaluate performance properly. We will cover volatility, drawdowns, the Sharpe ratio, the Sortino ratio, and one of the most misunderstood concepts in all of finance -- the difference between time-weighted and money-weighted returns.
+**Horace:** Not even close. Today we are going to learn the metrics that professionals use to evaluate performance properly. We will cover volatility, drawdowns, the Sharpe ratio, the Sortino ratio, and one of the most misunderstood concepts in all of finance -- the difference between time-weighted and money-weighted returns.
 
 [VISUAL: Agenda slide showing the five main topics with icons: a zigzag line for volatility, a falling arrow for drawdowns, a scale/balance for Sharpe, a half-scale for Sortino, and a clock vs. money bag for TWR vs. MWR]
 
-**Sam:** Let us start from the beginning. When people talk about volatility, what exactly do they mean?
+**Stella:** Let us start from the beginning. When people talk about volatility, what exactly do they mean?
 
-**Alex:** Volatility is simply a measure of how much returns bounce around. Technically, it is the standard deviation of returns. Think of it this way. Imagine you have two roads to get to the same destination, and both take the same time. Road A is a smooth highway. Road B is a roller coaster with huge hills and sharp turns. They get you to the same place, but the experience is very different.
+**Horace:** Volatility is simply a measure of how much returns bounce around. Technically, it is the standard deviation of returns. Think of it this way. Imagine you have two roads to get to the same destination, and both take the same time. Road A is a smooth highway. Road B is a roller coaster with huge hills and sharp turns. They get you to the same place, but the experience is very different.
 
-**Sam:** I would definitely prefer Road A.
+**Stella:** I would definitely prefer Road A.
 
-**Alex:** Most investors would. And in investing, the smooth road has low volatility and the roller coaster has high volatility. The S&P 500 typically has an annual volatility of about 15 to 16 percent. That means in a normal year, you should expect the market to fluctuate within a range of about 15% above or below the average return.
+**Horace:** Most investors would. And in investing, the smooth road has low volatility and the roller coaster has high volatility. The S&P 500 typically has an annual volatility of about 15 to 16 percent. That means in a normal year, you should expect the market to fluctuate within a range of about 15% above or below the average return.
 
 [ANIMATION: animation/week17_volatility.py - Two animated portfolio lines growing over the same 5-year period to the same ending value. Line A is smooth with gentle undulations. Line B zigzags wildly with large swings. Both reach the same final point. Labels show "Low Volatility: 8%" and "High Volatility: 25%". A final annotation appears: "Same return. Very different experience."]
 
-**Sam:** So if the average return is 10% and volatility is 15%, the range of typical outcomes in a year would be negative 5% to positive 25%?
+**Stella:** So if the average return is 10% and volatility is 15%, the range of typical outcomes in a year would be negative 5% to positive 25%?
 
-**Alex:** Roughly, yes. That is one standard deviation in each direction, which covers about two thirds of outcomes. Two standard deviations -- covering about 95% of outcomes -- would be negative 20% to positive 40%. That is why even in a normal environment, without any crisis, you can see the market drop 20% and it is completely within the realm of normal.
+**Horace:** Roughly, yes. That is one standard deviation in each direction, which covers about two thirds of outcomes. Two standard deviations -- covering about 95% of outcomes -- would be negative 20% to positive 40%. That is why even in a normal environment, without any crisis, you can see the market drop 20% and it is completely within the realm of normal.
 
-**Sam:** That is actually useful to know. So when the market drops 15%, that is just normal volatility, not necessarily a crisis.
+**Stella:** That is actually useful to know. So when the market drops 15%, that is just normal volatility, not necessarily a crisis.
 
-**Alex:** Exactly. And this is where many investors go wrong. They see a 10 or 15 percent decline and they panic, thinking something is fundamentally broken. In reality, the market drops 10% or more roughly once every 18 months on average. It drops 20% or more about once every 4 to 5 years. These are features of equity investing, not bugs.
+**Horace:** Exactly. And this is where many investors go wrong. They see a 10 or 15 percent decline and they panic, thinking something is fundamentally broken. In reality, the market drops 10% or more roughly once every 18 months on average. It drops 20% or more about once every 4 to 5 years. These are features of equity investing, not bugs.
 
 [VISUAL: Timeline from 1980 to present showing all S&P 500 corrections (10%+) and bear markets (20%+) plotted as vertical bars below the x-axis, demonstrating how frequent these events are. A rising line above shows the long-term upward trend despite the corrections.]
 
-**Sam:** Okay, so volatility tells me about the bumpiness of the ride. But you mentioned something about volatility being an imperfect measure of risk?
+**Stella:** Okay, so volatility tells me about the bumpiness of the ride. But you mentioned something about volatility being an imperfect measure of risk?
 
-**Alex:** Yes, and this is crucial. Volatility treats upside and downside moves identically. If your stock jumps 20% in a month, that increases its measured volatility. But nobody thinks of a big gain as risk, right?
+**Horace:** Yes, and this is crucial. Volatility treats upside and downside moves identically. If your stock jumps 20% in a month, that increases its measured volatility. But nobody thinks of a big gain as risk, right?
 
-**Sam:** No, that sounds great.
+**Stella:** No, that sounds great.
 
-**Alex:** Exactly. This is the fundamental limitation of volatility as a risk measure. It penalizes you for good outcomes as much as bad ones. We will come back to this when we talk about the Sortino ratio, which fixes this problem. But first, let us talk about the risk metric that matters most to real human beings -- drawdowns.
+**Horace:** Exactly. This is the fundamental limitation of volatility as a risk measure. It penalizes you for good outcomes as much as bad ones. We will come back to this when we talk about the Sortino ratio, which fixes this problem. But first, let us talk about the risk metric that matters most to real human beings -- drawdowns.
 
-**Sam:** What exactly is a drawdown?
+**Stella:** What exactly is a drawdown?
 
-**Alex:** A drawdown is the decline from a portfolio's peak value to its subsequent trough. It answers the question every investor actually cares about: how much did I lose from the top?
+**Horace:** A drawdown is the decline from a portfolio's peak value to its subsequent trough. It answers the question every investor actually cares about: how much did I lose from the top?
 
 [VISUAL: Large animated chart showing a portfolio growing from $100,000. The line rises to a peak of $150,000, then drops to $105,000 (a 30% drawdown), then recovers to $160,000. Red shading fills the area between the peak and the trough, labeled "Maximum Drawdown: -30%". The recovery period is highlighted in yellow. Clear labels show "Peak", "Trough", "Drawdown Period", and "Recovery Period".]
 
-**Alex:** There is a mathematical reality about drawdowns that most people do not intuitively grasp. If your portfolio drops 50%, you need a 100% gain just to get back to even. Not 50% -- 100%.
+**Horace:** There is a mathematical reality about drawdowns that most people do not intuitively grasp. If your portfolio drops 50%, you need a 100% gain just to get back to even. Not 50% -- 100%.
 
-**Sam:** Wait, why 100%?
+**Stella:** Wait, why 100%?
 
-**Alex:** Because if you start with $100 and lose 50%, you have $50. Now you need to double from $50 to get back to $100. And doubling your money is a 100% gain. This asymmetry is devastating at large drawdown levels.
+**Horace:** Because if you start with $100 and lose 50%, you have $50. Now you need to double from $50 to get back to $100. And doubling your money is a 100% gain. This asymmetry is devastating at large drawdown levels.
 
 [ANIMATION: animation/week17_drawdown_recovery.py - Animated bar chart showing loss percentages on the left and required recovery gains on the right. Starts with small losses (-10% needs +11.1%) and progressively shows larger losses up to -90% needs +900%. The bars on the right grow exponentially while the bars on the left grow linearly, visually demonstrating the asymmetry. Each pair of bars animates in sequence with the recovery bar "growing" up dramatically.]
 
-**Sam:** So a 75% loss needs a 300% gain to recover? That could take decades!
+**Stella:** So a 75% loss needs a 300% gain to recover? That could take decades!
 
-**Alex:** It can. The S&P 500 after the Great Depression did not recover to its 1929 peak until 1954 -- twenty-five years later. That is why Warren Buffett's first rule of investing is "never lose money" and the second rule is "never forget rule number one." He is not speaking literally -- all investors experience losses. He means that avoiding catastrophic drawdowns is the single most important thing you can do.
+**Horace:** It can. The S&P 500 after the Great Depression did not recover to its 1929 peak until 1954 -- twenty-five years later. That is why Warren Buffett's first rule of investing is "never lose money" and the second rule is "never forget rule number one." He is not speaking literally -- all investors experience losses. He means that avoiding catastrophic drawdowns is the single most important thing you can do.
 
-**Sam:** This is making me think differently about risk already. Okay, so how do we combine return and risk into a single number?
+**Stella:** This is making me think differently about risk already. Okay, so how do we combine return and risk into a single number?
 
-**Alex:** That brings us to the Sharpe ratio, which is arguably the most important metric in all of performance analysis. It was created by William Sharpe, who won the Nobel Prize in Economics.
+**Horace:** That brings us to the Sharpe ratio, which is arguably the most important metric in all of performance analysis. It was created by William Sharpe, who won the Nobel Prize in Economics.
 
 [VISUAL: Photo of William Sharpe with the formula displayed prominently: Sharpe = (Rp - Rf) / sigma_p, with each component labeled: "Portfolio return minus Risk-free rate, divided by Portfolio volatility"]
 
-**Alex:** The Sharpe ratio measures excess return per unit of risk. The numerator is your portfolio return minus the risk-free rate -- this is the extra return you earned for taking risk. The denominator is your volatility. The higher the ratio, the more efficiently you converted risk into return.
+**Horace:** The Sharpe ratio measures excess return per unit of risk. The numerator is your portfolio return minus the risk-free rate -- this is the extra return you earned for taking risk. The denominator is your volatility. The higher the ratio, the more efficiently you converted risk into return.
 
-**Sam:** Can you walk me through a real example?
+**Stella:** Can you walk me through a real example?
 
-**Alex:** Of course. Let us say Portfolio A returned 14% with a volatility of 20%, and the risk-free rate is 4%. The Sharpe ratio is 14 minus 4, divided by 20, which equals 0.50. Now Portfolio B returned only 9% with a volatility of 8%. Its Sharpe is 9 minus 4 divided by 8, which equals 0.625.
+**Horace:** Of course. Let us say Portfolio A returned 14% with a volatility of 20%, and the risk-free rate is 4%. The Sharpe ratio is 14 minus 4, divided by 20, which equals 0.50. Now Portfolio B returned only 9% with a volatility of 8%. Its Sharpe is 9 minus 4 divided by 8, which equals 0.625.
 
-**Sam:** So Portfolio B has a lower return but a higher Sharpe ratio?
+**Stella:** So Portfolio B has a lower return but a higher Sharpe ratio?
 
-**Alex:** Exactly. Portfolio B was more efficient with its risk. And here is the key insight. If Portfolio B used a little bit of leverage -- say borrowed at the risk-free rate and scaled up to the same volatility as Portfolio A -- it would produce a higher return than A. The Sharpe ratio tells you which strategy is fundamentally better, regardless of how much risk you choose to take.
+**Horace:** Exactly. Portfolio B was more efficient with its risk. And here is the key insight. If Portfolio B used a little bit of leverage -- say borrowed at the risk-free rate and scaled up to the same volatility as Portfolio A -- it would produce a higher return than A. The Sharpe ratio tells you which strategy is fundamentally better, regardless of how much risk you choose to take.
 
 [ANIMATION: animation/week17_sharpe_visual.py - A coordinate plane with volatility on x-axis and return on y-axis. The risk-free rate is marked at 4% on the y-axis. Two dots represent Portfolio A (20%, 14%) and Portfolio B (8%, 9%). Lines are drawn from the risk-free rate through each dot. Portfolio B's line is steeper (higher slope = higher Sharpe). An animated leverage slider shows Portfolio B sliding along its line to higher risk/return levels, eventually surpassing Portfolio A's return at the same risk level.]
 
-**Sam:** That is elegant. So when comparing any two investments, the one with the higher Sharpe ratio is always better?
+**Stella:** That is elegant. So when comparing any two investments, the one with the higher Sharpe ratio is always better?
 
-**Alex:** In theory, yes, assuming the returns are normally distributed and you can use leverage freely. In practice, there are complications. Returns are not always normally distributed -- they can have fat tails and skewness. And not everyone can use leverage. But as a general ranking tool, the Sharpe ratio is the industry standard.
+**Horace:** In theory, yes, assuming the returns are normally distributed and you can use leverage freely. In practice, there are complications. Returns are not always normally distributed -- they can have fat tails and skewness. And not everyone can use leverage. But as a general ranking tool, the Sharpe ratio is the industry standard.
 
-**Sam:** What is a good Sharpe ratio?
+**Stella:** What is a good Sharpe ratio?
 
-**Alex:** The long-run Sharpe ratio of the US stock market is about 0.4 to 0.5. A 60/40 balanced portfolio is typically around 0.5 to 0.6. Anything above 0.7 is quite good. Above 1.0 is excellent -- you are in the top tier. And if someone tells you they have a Sharpe ratio above 2.0 over any extended period, be very, very skeptical.
+**Horace:** The long-run Sharpe ratio of the US stock market is about 0.4 to 0.5. A 60/40 balanced portfolio is typically around 0.5 to 0.6. Anything above 0.7 is quite good. Above 1.0 is excellent -- you are in the top tier. And if someone tells you they have a Sharpe ratio above 2.0 over any extended period, be very, very skeptical.
 
-**Sam:** Why skeptical?
+**Stella:** Why skeptical?
 
-**Alex:** Because sustained Sharpe ratios above 2.0 are almost unheard of in liquid markets. When you see them, it is usually because of one of a few things. The returns are calculated on illiquid assets marked at stale prices, which artificially smooths volatility. Or there is survivorship bias -- you are only seeing the fund that survived while the other 99 that used the same strategy blew up. Or the strategy is selling tail risk -- collecting small premiums that look like steady income until a catastrophe hits and wipes out years of gains in a week.
+**Horace:** Because sustained Sharpe ratios above 2.0 are almost unheard of in liquid markets. When you see them, it is usually because of one of a few things. The returns are calculated on illiquid assets marked at stale prices, which artificially smooths volatility. Or there is survivorship bias -- you are only seeing the fund that survived while the other 99 that used the same strategy blew up. Or the strategy is selling tail risk -- collecting small premiums that look like steady income until a catastrophe hits and wipes out years of gains in a week.
 
-**Sam:** Like picking up pennies in front of a steamroller.
+**Stella:** Like picking up pennies in front of a steamroller.
 
-**Alex:** That is the classic metaphor, and it is perfect. The Sharpe ratio of picking up pennies in front of a steamroller looks amazing right up until the steamroller catches you.
+**Horace:** That is the classic metaphor, and it is perfect. The Sharpe ratio of picking up pennies in front of a steamroller looks amazing right up until the steamroller catches you.
 
 [VISUAL: Illustrated metaphor showing someone picking up coins on a road with a steamroller approaching in the background, with a P&L chart below showing steady gains followed by a sudden catastrophic loss]
 
-**Sam:** You mentioned earlier that the Sharpe ratio has a flaw because it treats upside volatility the same as downside volatility. How does the Sortino ratio fix this?
+**Stella:** You mentioned earlier that the Sharpe ratio has a flaw because it treats upside volatility the same as downside volatility. How does the Sortino ratio fix this?
 
-**Alex:** The Sortino ratio uses the same basic structure as the Sharpe -- excess return in the numerator -- but in the denominator, instead of total standard deviation, it uses only the downside deviation. That is, it only counts the volatility that comes from returns below your target, usually the risk-free rate.
+**Horace:** The Sortino ratio uses the same basic structure as the Sharpe -- excess return in the numerator -- but in the denominator, instead of total standard deviation, it uses only the downside deviation. That is, it only counts the volatility that comes from returns below your target, usually the risk-free rate.
 
-**Sam:** So it ignores the good kind of volatility.
+**Stella:** So it ignores the good kind of volatility.
 
-**Alex:** Exactly. Imagine two hedge funds. Both return 12% per year with the same Sharpe ratio. But Fund X achieves this with symmetric returns -- gains and losses are roughly equal in size. Fund Y achieves it by having many small gains and very few but slightly larger losses -- most of its volatility comes from the upside. The Sortino ratio would rate Fund Y much higher than Fund X, even though the Sharpe ratio says they are equal.
+**Horace:** Exactly. Imagine two hedge funds. Both return 12% per year with the same Sharpe ratio. But Fund X achieves this with symmetric returns -- gains and losses are roughly equal in size. Fund Y achieves it by having many small gains and very few but slightly larger losses -- most of its volatility comes from the upside. The Sortino ratio would rate Fund Y much higher than Fund X, even though the Sharpe ratio says they are equal.
 
 [VISUAL: Two return distribution histograms side by side. Fund X shows a symmetric bell curve. Fund Y shows a right-skewed distribution with a higher peak. Both have the same Sharpe ratio labeled, but Fund Y shows a much higher Sortino ratio. The downside portion of each distribution is highlighted in red, showing that Fund Y has much less downside area.]
 
-**Sam:** When should I use the Sortino versus the Sharpe?
+**Stella:** When should I use the Sortino versus the Sharpe?
 
-**Alex:** Use the Sharpe as your default -- it is the standard, everyone calculates it, and it is easy to compare across studies. Use the Sortino when you are comparing strategies that have very different return distributions. This is especially important for options strategies, trend following, and anything with asymmetric payoffs. A covered call strategy, for example, will look different on Sharpe versus Sortino because the distribution is truncated on the upside.
+**Horace:** Use the Sharpe as your default -- it is the standard, everyone calculates it, and it is easy to compare across studies. Use the Sortino when you are comparing strategies that have very different return distributions. This is especially important for options strategies, trend following, and anything with asymmetric payoffs. A covered call strategy, for example, will look different on Sharpe versus Sortino because the distribution is truncated on the upside.
 
-**Sam:** This brings up a question. What other metrics should I know about?
+**Stella:** This brings up a question. What other metrics should I know about?
 
-**Alex:** There are a few more worth knowing. The Calmar ratio divides annualized return by maximum drawdown -- it tells you how much return you earned per unit of worst-case pain. The Information ratio measures excess return over a benchmark divided by tracking error -- it is how active managers are evaluated. And Jensen's Alpha measures whether a portfolio beat what the Capital Asset Pricing Model predicted it should earn, given its level of market risk.
+**Horace:** There are a few more worth knowing. The Calmar ratio divides annualized return by maximum drawdown -- it tells you how much return you earned per unit of worst-case pain. The Information ratio measures excess return over a benchmark divided by tracking error -- it is how active managers are evaluated. And Jensen's Alpha measures whether a portfolio beat what the Capital Asset Pricing Model predicted it should earn, given its level of market risk.
 
-**Sam:** That is a lot of metrics. Do professionals really look at all of these?
+**Stella:** That is a lot of metrics. Do professionals really look at all of these?
 
-**Alex:** Not all of them, but they typically look at a dashboard of metrics, not just one number. The standard professional analysis would include annualized return, volatility, Sharpe ratio, maximum drawdown, and sometimes Sortino and Calmar. Looking at multiple metrics gives you a three-dimensional picture of performance instead of a flat snapshot.
+**Horace:** Not all of them, but they typically look at a dashboard of metrics, not just one number. The standard professional analysis would include annualized return, volatility, Sharpe ratio, maximum drawdown, and sometimes Sortino and Calmar. Looking at multiple metrics gives you a three-dimensional picture of performance instead of a flat snapshot.
 
 [VISUAL: Mock-up of a professional performance dashboard showing a portfolio vs. benchmark with all key metrics: return, volatility, Sharpe, Sortino, max drawdown, Calmar, beta, alpha, Information ratio. Color-coded green/red to show where the portfolio outperforms/underperforms.]
 
-**Sam:** Alright, let us move to the last topic, which you said is one of the most misunderstood concepts in finance -- time-weighted versus money-weighted returns. What is the difference?
+**Stella:** Alright, let us move to the last topic, which you said is one of the most misunderstood concepts in finance -- time-weighted versus money-weighted returns. What is the difference?
 
-**Alex:** This is where it gets really interesting. Let me set up a scenario. Imagine a fund that returns plus 30% in Year 1 and minus 10% in Year 2.
+**Horace:** This is where it gets really interesting. Let me set up a scenario. Imagine a fund that returns plus 30% in Year 1 and minus 10% in Year 2.
 
-**Sam:** Okay, so a great year followed by a bad year.
+**Stella:** Okay, so a great year followed by a bad year.
 
-**Alex:** Right. Now imagine three different investors. Investor A puts in $10,000 at the start and does not touch it. Investor B puts in $10,000 at the start, but then adds $50,000 at the start of Year 2 because she was impressed by the 30% gain. Investor C starts with $50,000 and withdraws $40,000 at the end of Year 1 because she wanted to lock in profits.
+**Horace:** Right. Now imagine three different investors. Investor A puts in $10,000 at the start and does not touch it. Investor B puts in $10,000 at the start, but then adds $50,000 at the start of Year 2 because she was impressed by the 30% gain. Investor C starts with $50,000 and withdraws $40,000 at the end of Year 1 because she wanted to lock in profits.
 
-**Sam:** They are all in the same fund, so they should have the same return, right?
+**Stella:** They are all in the same fund, so they should have the same return, right?
 
-**Alex:** The fund has the same return, yes. The time-weighted return, which ignores cash flows, is about 8.2% annualized for all three investors. But the money-weighted returns -- the actual returns these investors experienced -- are wildly different.
+**Horace:** The fund has the same return, yes. The time-weighted return, which ignores cash flows, is about 8.2% annualized for all three investors. But the money-weighted returns -- the actual returns these investors experienced -- are wildly different.
 
 [ANIMATION: animation/week17_twr_mwr.py - Three animated portfolio simulations running simultaneously. Investor A shows a simple line growing 30% then declining 10%. Investor B shows a small line growing 30%, then a large cash deposit animates in, and the combined portfolio drops 10% on a much larger base -- ending animation shows the dollar loss prominently. Investor C shows a large line growing 30%, then a large cash withdrawal animates out, and the small remaining portfolio drops 10% on a small base -- ending animation shows the dollar gain prominently. Final screen shows all three money-weighted returns side by side with the identical time-weighted return.]
 
-**Alex:** Investor A has the same TWR and MWR because she made no additional moves. Investor B, who added money before the decline, has a money-weighted return of roughly negative 4.6%. She actually lost money despite being in a fund that gained.
+**Horace:** Investor A has the same TWR and MWR because she made no additional moves. Investor B, who added money before the decline, has a money-weighted return of roughly negative 4.6%. She actually lost money despite being in a fund that gained.
 
-**Sam:** That is shocking.
+**Stella:** That is shocking.
 
-**Alex:** And Investor C, who pulled money before the decline, has a money-weighted return of roughly positive 20.8%. She did phenomenally despite being in the same fund. Same fund, same performance, but three totally different investor experiences.
+**Horace:** And Investor C, who pulled money before the decline, has a money-weighted return of roughly positive 20.8%. She did phenomenally despite being in the same fund. Same fund, same performance, but three totally different investor experiences.
 
-**Sam:** So the timing of when you add and remove money completely changes your result.
+**Stella:** So the timing of when you add and remove money completely changes your result.
 
-**Alex:** Completely. And this is not a contrived example. There is extensive academic research showing that the average investor earns substantially less than the funds they invest in. The DALBAR studies show that while the S&P 500 has averaged roughly 10% per year over the past 30 years, the average equity fund investor has earned only about 5 to 6%. That 4 percentage point gap is the "behavior gap."
+**Horace:** Completely. And this is not a contrived example. There is extensive academic research showing that the average investor earns substantially less than the funds they invest in. The DALBAR studies show that while the S&P 500 has averaged roughly 10% per year over the past 30 years, the average equity fund investor has earned only about 5 to 6%. That 4 percentage point gap is the "behavior gap."
 
 [VISUAL: Bar chart showing "Fund Return" at approximately 10% next to "Investor Return" at approximately 5.5%, with the gap between them labeled "The Behavior Gap: ~4.2% per year lost to bad timing"]
 
-**Sam:** Because people buy after things go up and sell after things go down.
+**Stella:** Because people buy after things go up and sell after things go down.
 
-**Alex:** Exactly. Fear and greed dominate investor behavior. When markets are roaring, everyone wants in -- they add money at the peaks. When markets crash, everyone wants out -- they pull money at the troughs. This is literally the opposite of buy low, sell high.
+**Horace:** Exactly. Fear and greed dominate investor behavior. When markets are roaring, everyone wants in -- they add money at the peaks. When markets crash, everyone wants out -- they pull money at the troughs. This is literally the opposite of buy low, sell high.
 
-**Sam:** So when my brokerage account shows me my return, which one is it using?
+**Stella:** So when my brokerage account shows me my return, which one is it using?
 
-**Alex:** Most brokerage accounts report time-weighted returns. This means the return number you see may not reflect your actual experience if you have been making deposits and withdrawals. If you want to know your true personal return, you need to calculate the money-weighted return using the XIRR function in a spreadsheet.
+**Horace:** Most brokerage accounts report time-weighted returns. This means the return number you see may not reflect your actual experience if you have been making deposits and withdrawals. If you want to know your true personal return, you need to calculate the money-weighted return using the XIRR function in a spreadsheet.
 
-**Sam:** Which one is "right?"
+**Stella:** Which one is "right?"
 
-**Alex:** Neither is right or wrong -- they answer different questions. Time-weighted return answers "did the investment strategy work?" Money-weighted return answers "did I personally make money?" For evaluating a fund manager, use TWR -- it is not fair to penalize them for when you chose to invest. For evaluating your own financial progress, use MWR -- it captures the reality of your decisions.
+**Horace:** Neither is right or wrong -- they answer different questions. Time-weighted return answers "did the investment strategy work?" Money-weighted return answers "did I personally make money?" For evaluating a fund manager, use TWR -- it is not fair to penalize them for when you chose to invest. For evaluating your own financial progress, use MWR -- it captures the reality of your decisions.
 
-**Sam:** This has been incredibly eye-opening. So to summarize, I should not just look at returns -- I need to look at volatility, drawdowns, and risk-adjusted ratios like the Sharpe and Sortino. And I need to understand the difference between how well my strategy performed and how well I personally performed.
+**Stella:** This has been incredibly eye-opening. So to summarize, I should not just look at returns -- I need to look at volatility, drawdowns, and risk-adjusted ratios like the Sharpe and Sortino. And I need to understand the difference between how well my strategy performed and how well I personally performed.
 
-**Alex:** That is a perfect summary. Let me give you a practical takeaway. After every year, sit down and calculate these five things for your portfolio. One, your total return. Two, your portfolio's volatility. Three, your Sharpe ratio. Four, your maximum drawdown during the year. Five, your money-weighted return using XIRR.
+**Horace:** That is a perfect summary. Let me give you a practical takeaway. After every year, sit down and calculate these five things for your portfolio. One, your total return. Two, your portfolio's volatility. Three, your Sharpe ratio. Four, your maximum drawdown during the year. Five, your money-weighted return using XIRR.
 
 [VISUAL: Checklist graphic showing "Annual Performance Review - 5 Must-Calculate Metrics" with the five items listed cleanly]
 
-**Alex:** Compare your Sharpe ratio to a simple 60/40 benchmark. If your Sharpe is lower, your added complexity is not being rewarded. Compare your money-weighted return to your time-weighted return. If there is a big gap, your timing of deposits and withdrawals is hurting you, and you should consider automating contributions.
+**Horace:** Compare your Sharpe ratio to a simple 60/40 benchmark. If your Sharpe is lower, your added complexity is not being rewarded. Compare your money-weighted return to your time-weighted return. If there is a big gap, your timing of deposits and withdrawals is hurting you, and you should consider automating contributions.
 
-**Sam:** What if my Sharpe ratio is lower than the benchmark?
+**Stella:** What if my Sharpe ratio is lower than the benchmark?
 
-**Alex:** Then you need to honestly ask yourself whether your active decisions are adding value. Many investors discover that despite spending hours researching stocks, they would have been better off in a simple index fund. That is not a failure -- that is valuable self-knowledge. You can redirect that energy toward the aspects of financial planning that matter more, like saving rate, tax optimization, and staying invested during downturns.
+**Horace:** Then you need to honestly ask yourself whether your active decisions are adding value. Many investors discover that despite spending hours researching stocks, they would have been better off in a simple index fund. That is not a failure -- that is valuable self-knowledge. You can redirect that energy toward the aspects of financial planning that matter more, like saving rate, tax optimization, and staying invested during downturns.
 
-**Sam:** This is the most practical episode we have done yet. Thank you for walking through all of this.
+**Stella:** This is the most practical episode we have done yet. Thank you for walking through all of this.
 
-**Alex:** Before we wrap up, I want to emphasize one final point. These metrics are tools for learning and improving. Do not obsess over short-term Sharpe ratios or panic over a bad quarter's drawdown. Calculate these annually, look at trends over time, and use them to gradually refine your approach. The best investors are the ones who treat their portfolio as a continuous learning experiment, and these metrics are how you keep score honestly.
+**Horace:** Before we wrap up, I want to emphasize one final point. These metrics are tools for learning and improving. Do not obsess over short-term Sharpe ratios or panic over a bad quarter's drawdown. Calculate these annually, look at trends over time, and use them to gradually refine your approach. The best investors are the ones who treat their portfolio as a continuous learning experiment, and these metrics are how you keep score honestly.
 
 [VISUAL: End screen with key takeaways in bullet points:
 - Returns without risk context are meaningless
@@ -852,12 +852,12 @@ A: Absolutely. If Investor A put in $100,000 at inception and never touched it, 
 - TWR measures the strategy; MWR measures your experience
 - Calculate these annually to track your improvement]
 
-**Sam:** Same time next week?
+**Stella:** Same time next week?
 
-**Alex:** Same time next week. We will be talking about interest rates and how the Federal Reserve affects everything from bond prices to stock valuations. You will not want to miss it.
+**Horace:** Same time next week. We will be talking about interest rates and how the Federal Reserve affects everything from bond prices to stock valuations. You will not want to miss it.
 
 [VISUAL: Preview card for Week 18 with "Interest Rates and Central Bank Policy" and an animated Federal Reserve building icon]
 
-**Alex:** Thanks for watching everyone. If this episode helped you think differently about performance measurement, share it with a friend who is just looking at returns and thinking they have the whole picture. See you next week.
+**Horace:** Thanks for watching everyone. If this episode helped you think differently about performance measurement, share it with a friend who is just looking at returns and thinking they have the whole picture. See you next week.
 
 [VISUAL: Outro animation with subscribe button and links to previous episodes]

@@ -258,87 +258,87 @@ A: In the U.S., the IRS treats cryptocurrency as property. Selling crypto, tradi
 
 ---
 
-**Alex:** Alright, Sam. Today we tackle the most divisive topic in investing. Cryptocurrency.
+**Horace:** Alright, Stella. Today we tackle the most divisive topic in investing. Cryptocurrency.
 
-**Sam:** I have been both excited and nervous about this one. Crypto feels like something I need to understand, but there is so much noise around it. People either say it is the future of money or the biggest scam ever.
+**Stella:** I have been both excited and nervous about this one. Crypto feels like something I need to understand, but there is so much noise around it. People either say it is the future of money or the biggest scam ever.
 
-**Alex:** And that polarization is part of the problem. The truth is somewhere in the middle, and our job today is to cut through the hype and the fear to give you a factual, balanced understanding.
+**Horace:** And that polarization is part of the problem. The truth is somewhere in the middle, and our job today is to cut through the hype and the fear to give you a factual, balanced understanding.
 
 [VISUAL: A spectrum bar. Far left: "Crypto is a scam." Far right: "Crypto will replace all money." A marker sits in the middle: "The truth is here -- it is a new asset class with real innovation, real risks, and a lot of uncertainty."]
 
-**Sam:** Let us start at the very beginning. What is a blockchain?
+**Stella:** Let us start at the very beginning. What is a blockchain?
 
-**Alex:** A blockchain is essentially a digital ledger -- a record of transactions -- that is shared across thousands of computers worldwide. Instead of one bank keeping the records, everyone in the network has a copy.
+**Horace:** A blockchain is essentially a digital ledger -- a record of transactions -- that is shared across thousands of computers worldwide. Instead of one bank keeping the records, everyone in the network has a copy.
 
 [ANIMATION: Traditional banking -- a single ledger in a bank vault. Then transition to blockchain -- the same ledger copied across thousands of computers around the globe. When a new transaction occurs, all copies update simultaneously.]
 
-**Sam:** What makes it special?
+**Stella:** What makes it special?
 
-**Alex:** Three things. First, it is decentralized -- no single entity controls it. Second, it is immutable -- once a transaction is recorded, it cannot be changed or deleted. Third, it is transparent -- anyone can verify the records. These properties allow people to transfer value without trusting a central authority.
+**Horace:** Three things. First, it is decentralized -- no single entity controls it. Second, it is immutable -- once a transaction is recorded, it cannot be changed or deleted. Third, it is transparent -- anyone can verify the records. These properties allow people to transfer value without trusting a central authority.
 
-**Sam:** And Bitcoin was the first application of this technology?
+**Stella:** And Bitcoin was the first application of this technology?
 
-**Alex:** Correct. Bitcoin was created in 2008 by someone using the name Satoshi Nakamoto -- we still do not know who they really are. It launched in January 2009 as a peer-to-peer electronic cash system. The idea was simple: what if you could send money directly to anyone in the world, without a bank, with no one able to stop or reverse the transaction?
+**Horace:** Correct. Bitcoin was created in 2008 by someone using the name Satoshi Nakamoto -- we still do not know who they really are. It launched in January 2009 as a peer-to-peer electronic cash system. The idea was simple: what if you could send money directly to anyone in the world, without a bank, with no one able to stop or reverse the transaction?
 
-**Sam:** So how does Bitcoin actually work?
+**Stella:** So how does Bitcoin actually work?
 
-**Alex:** At its core, Bitcoin is a network of computers that maintain a shared ledger of all bitcoin transactions ever made. New transactions are grouped into blocks. Miners -- people running powerful computers -- compete to validate each block by solving a complex mathematical puzzle. The winner adds the block to the chain and receives newly created bitcoin as a reward.
+**Horace:** At its core, Bitcoin is a network of computers that maintain a shared ledger of all bitcoin transactions ever made. New transactions are grouped into blocks. Miners -- people running powerful computers -- compete to validate each block by solving a complex mathematical puzzle. The winner adds the block to the chain and receives newly created bitcoin as a reward.
 
 [ANIMATION: Transaction enters the network. Multiple miners race to solve the puzzle. Winner adds the block. Chain grows. Reward flows to the winning miner. All other nodes verify and update their copies.]
 
-**Sam:** How many bitcoins exist?
+**Stella:** How many bitcoins exist?
 
-**Alex:** There will only ever be 21 million. That is hard-coded into the protocol and cannot be changed. About 19.5 million have been mined so far. The mining reward gets cut in half roughly every four years -- this is called the "halving." It creates a predictable, diminishing supply schedule.
+**Horace:** There will only ever be 21 million. That is hard-coded into the protocol and cannot be changed. About 19.5 million have been mined so far. The mining reward gets cut in half roughly every four years -- this is called the "halving." It creates a predictable, diminishing supply schedule.
 
-**Sam:** So it is designed to be scarce, like gold?
+**Stella:** So it is designed to be scarce, like gold?
 
-**Alex:** That is the comparison many people make. Hence the nickname "digital gold." But there are important differences. Gold has been valued for thousands of years. Bitcoin has been around since 2009. Gold has physical properties and industrial uses. Bitcoin is purely digital. Whether Bitcoin truly functions as a store of value over the long term is still an open question.
+**Horace:** That is the comparison many people make. Hence the nickname "digital gold." But there are important differences. Gold has been valued for thousands of years. Bitcoin has been around since 2009. Gold has physical properties and industrial uses. Bitcoin is purely digital. Whether Bitcoin truly functions as a store of value over the long term is still an open question.
 
-**Sam:** What about Ethereum? How is it different?
+**Stella:** What about Ethereum? How is it different?
 
-**Alex:** Ethereum, launched in 2015, took blockchain a step further. While Bitcoin is mainly about transferring value -- sending money from A to B -- Ethereum introduced smart contracts. These are programs that run on the blockchain and execute automatically when certain conditions are met.
+**Horace:** Ethereum, launched in 2015, took blockchain a step further. While Bitcoin is mainly about transferring value -- sending money from A to B -- Ethereum introduced smart contracts. These are programs that run on the blockchain and execute automatically when certain conditions are met.
 
 [VISUAL: A simple smart contract illustration. "IF buyer sends $100 AND seller sends product confirmation, THEN release payment to seller." No bank, no escrow service, no middleman.]
 
-**Sam:** Give me a real-world example.
+**Stella:** Give me a real-world example.
 
-**Alex:** Sure. Imagine a freelancer and a client agreeing on a project. They could create a smart contract that holds the client's payment in escrow. When the freelancer submits the work and the client approves it, the payment is automatically released. If the client does not approve within 30 days, the contract refunds the money. All of this happens without a bank, lawyer, or escrow service.
+**Horace:** Sure. Imagine a freelancer and a client agreeing on a project. They could create a smart contract that holds the client's payment in escrow. When the freelancer submits the work and the client approves it, the payment is automatically released. If the client does not approve within 30 days, the contract refunds the money. All of this happens without a bank, lawyer, or escrow service.
 
-**Sam:** That is actually pretty cool. So Ethereum is a platform for building these automated agreements?
+**Stella:** That is actually pretty cool. So Ethereum is a platform for building these automated agreements?
 
-**Alex:** Exactly. Ethereum is like a programmable world computer. Thousands of applications have been built on it -- decentralized exchanges, lending platforms, digital art marketplaces, games, and more. The native currency, Ether or ETH, is used to pay for transactions on the network.
+**Horace:** Exactly. Ethereum is like a programmable world computer. Thousands of applications have been built on it -- decentralized exchanges, lending platforms, digital art marketplaces, games, and more. The native currency, Ether or ETH, is used to pay for transactions on the network.
 
-**Sam:** Are there other cryptocurrencies I should know about?
+**Stella:** Are there other cryptocurrencies I should know about?
 
-**Alex:** There are thousands, but most are not worth your attention. The important categories are stablecoins -- like USDC and Tether -- which are designed to maintain a $1 value and are used heavily in crypto trading. Then there are alternative Layer 1 blockchains like Solana, which compete with Ethereum on speed and cost. And then there are meme coins like Dogecoin, which are pure speculation.
+**Horace:** There are thousands, but most are not worth your attention. The important categories are stablecoins -- like USDC and Tether -- which are designed to maintain a $1 value and are used heavily in crypto trading. Then there are alternative Layer 1 blockchains like Solana, which compete with Ethereum on speed and cost. And then there are meme coins like Dogecoin, which are pure speculation.
 
-**Sam:** Let me ask the big question. Is crypto a good investment?
+**Stella:** Let me ask the big question. Is crypto a good investment?
 
-**Alex:** That depends entirely on your perspective and time horizon. Let me show you the volatility profile.
+**Horace:** That depends entirely on your perspective and time horizon. Let me show you the volatility profile.
 
 [ANIMATION: Three volatility charts side by side over 5 years. Bonds: gentle waves. Stocks: moderate waves. Bitcoin: massive spikes and crashes. Annotations show Bitcoin's 77% decline in 2022, followed by its recovery.]
 
-**Sam:** That Bitcoin chart looks like a heart monitor during a horror movie.
+**Stella:** That Bitcoin chart looks like a heart monitor during a horror movie.
 
-**Alex:** And that is actually the defining characteristic you need to understand. Bitcoin's annualized volatility runs around 60-80% -- roughly four times that of the stock market. In practical terms, 50% drawdowns are not unusual. They have happened multiple times.
+**Horace:** And that is actually the defining characteristic you need to understand. Bitcoin's annualized volatility runs around 60-80% -- roughly four times that of the stock market. In practical terms, 50% drawdowns are not unusual. They have happened multiple times.
 
-**Sam:** So how can anyone call that an investment?
+**Stella:** So how can anyone call that an investment?
 
-**Alex:** Fair question. The counter-argument is that despite these brutal drawdowns, Bitcoin has delivered extraordinary long-term returns for those who held through the volatility. Someone who bought in 2015 and held through two 50%+ crashes would still have massive gains. But -- and this is critical -- past returns do not guarantee future returns. Bitcoin's early days involved going from near-zero to substantial value. That kind of percentage gain cannot repeat at current price levels.
+**Horace:** Fair question. The counter-argument is that despite these brutal drawdowns, Bitcoin has delivered extraordinary long-term returns for those who held through the volatility. Someone who bought in 2015 and held through two 50%+ crashes would still have massive gains. But -- and this is critical -- past returns do not guarantee future returns. Bitcoin's early days involved going from near-zero to substantial value. That kind of percentage gain cannot repeat at current price levels.
 
-**Sam:** What about correlation? I have heard crypto moves independently of stocks.
+**Stella:** What about correlation? I have heard crypto moves independently of stocks.
 
-**Alex:** That was more true in crypto's early years. More recently, particularly since 2020, Bitcoin has shown increasing correlation with risk assets, especially tech stocks. During market sell-offs, crypto has tended to sell off even harder.
+**Horace:** That was more true in crypto's early years. More recently, particularly since 2020, Bitcoin has shown increasing correlation with risk assets, especially tech stocks. During market sell-offs, crypto has tended to sell off even harder.
 
 [VISUAL: Correlation chart showing Bitcoin's rolling 1-year correlation with the S&P 500 from 2015 to present. Low correlation early on, rising to 0.5-0.7 in recent years.]
 
-**Sam:** So it is not really the uncorrelated diversifier some people claim?
+**Stella:** So it is not really the uncorrelated diversifier some people claim?
 
-**Alex:** Not reliably, no. During calm markets, it may show lower correlation. But during crises -- when diversification matters most -- crypto has tended to drop alongside stocks. It has behaved more like a high-risk, high-beta asset than like a safe haven.
+**Horace:** Not reliably, no. During calm markets, it may show lower correlation. But during crises -- when diversification matters most -- crypto has tended to drop alongside stocks. It has behaved more like a high-risk, high-beta asset than like a safe haven.
 
-**Sam:** If I decide I want some crypto exposure, how much should I have?
+**Stella:** If I decide I want some crypto exposure, how much should I have?
 
-**Alex:** Most financial professionals suggest somewhere between 0% and 5%, depending on your risk tolerance. Let me frame it this way.
+**Horace:** Most financial professionals suggest somewhere between 0% and 5%, depending on your risk tolerance. Let me frame it this way.
 
 [VISUAL: Portfolio impact scenarios. Starting portfolio: $100,000.
 - 0% crypto: portfolio behavior driven entirely by stocks/bonds.
@@ -347,57 +347,57 @@ A: In the U.S., the IRS treats cryptocurrency as property. Selling crypto, tradi
 - 10% crypto ($10,000): if crypto drops 50%, total portfolio impact is -5%. Significant.
 - 20% crypto ($20,000): if crypto drops 50%, total portfolio impact is -10%. Painful.]
 
-**Sam:** That framing is really helpful. At 2-5%, even a catastrophic crypto crash barely dents the overall portfolio.
+**Stella:** That framing is really helpful. At 2-5%, even a catastrophic crypto crash barely dents the overall portfolio.
 
-**Alex:** Exactly. That is the sweet spot for most people. Enough to participate in potential upside, small enough that you can sleep at night during a crash. The golden rule: never invest more in crypto than you could afford to lose entirely.
+**Horace:** Exactly. That is the sweet spot for most people. Enough to participate in potential upside, small enough that you can sleep at night during a crash. The golden rule: never invest more in crypto than you could afford to lose entirely.
 
-**Sam:** How do I actually buy crypto?
+**Stella:** How do I actually buy crypto?
 
-**Alex:** You have three main options. First, and simplest for most people, buy a spot Bitcoin ETF through your existing brokerage account. Tickers like IBIT from BlackRock or FBTC from Fidelity. You buy and sell it just like any stock.
+**Horace:** You have three main options. First, and simplest for most people, buy a spot Bitcoin ETF through your existing brokerage account. Tickers like IBIT from BlackRock or FBTC from Fidelity. You buy and sell it just like any stock.
 
-**Sam:** That sounds easy.
+**Stella:** That sounds easy.
 
-**Alex:** It is. You pay an expense ratio of roughly 0.20-0.50%, but you avoid dealing with crypto wallets, private keys, and exchanges. Second option: open an account on a regulated crypto exchange like Coinbase and buy crypto directly. Third: some traditional brokerages now let you trade crypto directly within your account.
+**Horace:** It is. You pay an expense ratio of roughly 0.20-0.50%, but you avoid dealing with crypto wallets, private keys, and exchanges. Second option: open an account on a regulated crypto exchange like Coinbase and buy crypto directly. Third: some traditional brokerages now let you trade crypto directly within your account.
 
-**Sam:** If I buy on an exchange, how do I keep my crypto safe?
+**Stella:** If I buy on an exchange, how do I keep my crypto safe?
 
-**Alex:** This is incredibly important. The collapse of FTX in 2022 showed that customer funds on exchanges are not always safe. The exchange went bankrupt, and billions in customer assets were caught in the bankruptcy proceedings.
+**Horace:** This is incredibly important. The collapse of FTX in 2022 showed that customer funds on exchanges are not always safe. The exchange went bankrupt, and billions in customer assets were caught in the bankruptcy proceedings.
 
 [VISUAL: Newspaper headlines about FTX collapse. Then a graphic showing the custody spectrum: Exchange custody (convenient but risky) to Self-custody via hardware wallet (secure but you are responsible) to ETF custody (regulated and convenient).]
 
-**Alex:** If you hold significant amounts, consider moving your crypto to a hardware wallet -- a physical device like a Ledger that stores your private keys offline. The mantra in crypto is "not your keys, not your coins."
+**Horace:** If you hold significant amounts, consider moving your crypto to a hardware wallet -- a physical device like a Ledger that stores your private keys offline. The mantra in crypto is "not your keys, not your coins."
 
-**Sam:** What about the seed phrase I keep hearing about?
+**Stella:** What about the seed phrase I keep hearing about?
 
-**Alex:** Your seed phrase is a set of 12 to 24 words that can restore your entire crypto wallet. If you lose access to your wallet, the seed phrase is your recovery mechanism. But if someone else gets your seed phrase, they have full access to your crypto. Store it offline, in a secure location, and never share it with anyone. No legitimate company will ever ask for your seed phrase.
+**Horace:** Your seed phrase is a set of 12 to 24 words that can restore your entire crypto wallet. If you lose access to your wallet, the seed phrase is your recovery mechanism. But if someone else gets your seed phrase, they have full access to your crypto. Store it offline, in a secure location, and never share it with anyone. No legitimate company will ever ask for your seed phrase.
 
-**Sam:** How is crypto taxed?
+**Stella:** How is crypto taxed?
 
-**Alex:** In the U.S., the IRS treats crypto as property. Every time you sell crypto, trade one crypto for another, or use crypto to buy something, it is a taxable event. If you held the crypto for more than a year, gains are taxed at long-term capital gains rates. Less than a year, ordinary income rates.
+**Horace:** In the U.S., the IRS treats crypto as property. Every time you sell crypto, trade one crypto for another, or use crypto to buy something, it is a taxable event. If you held the crypto for more than a year, gains are taxed at long-term capital gains rates. Less than a year, ordinary income rates.
 
-**Sam:** So even swapping Bitcoin for Ethereum triggers a tax event?
+**Stella:** So even swapping Bitcoin for Ethereum triggers a tax event?
 
-**Alex:** Yes. And this catches a lot of people off guard. You need to track every transaction -- purchase price, sale price, dates, fees. It can get complicated quickly if you are actively trading. This is another reason why a Bitcoin ETF is simpler -- your brokerage handles the tax reporting.
+**Horace:** Yes. And this catches a lot of people off guard. You need to track every transaction -- purchase price, sale price, dates, fees. It can get complicated quickly if you are actively trading. This is another reason why a Bitcoin ETF is simpler -- your brokerage handles the tax reporting.
 
 [VISUAL: Two paths. "Direct crypto ownership: you track every transaction, report on Schedule D, potential nightmare with DeFi and swaps." "Crypto ETF: brokerage sends you a 1099, just like any other stock."]
 
-**Sam:** Where do things stand on regulation?
+**Stella:** Where do things stand on regulation?
 
-**Alex:** It is a moving target. In the U.S., there has been ongoing debate about whether various crypto tokens are securities (regulated by the SEC) or commodities (regulated by the CFTC). The approval of spot Bitcoin ETFs in 2024 was a significant step toward mainstream acceptance. Broader regulatory frameworks are still being developed.
+**Horace:** It is a moving target. In the U.S., there has been ongoing debate about whether various crypto tokens are securities (regulated by the SEC) or commodities (regulated by the CFTC). The approval of spot Bitcoin ETFs in 2024 was a significant step toward mainstream acceptance. Broader regulatory frameworks are still being developed.
 
-**Sam:** Is there a chance crypto could be banned?
+**Stella:** Is there a chance crypto could be banned?
 
-**Alex:** In the U.S., an outright ban is highly unlikely at this point. The genie is out of the bottle -- too many institutional investors and mainstream financial products are involved. However, regulations could become more restrictive, particularly around privacy coins, DeFi platforms, and tax compliance. In some countries like China, crypto trading has already been banned.
+**Horace:** In the U.S., an outright ban is highly unlikely at this point. The genie is out of the bottle -- too many institutional investors and mainstream financial products are involved. However, regulations could become more restrictive, particularly around privacy coins, DeFi platforms, and tax compliance. In some countries like China, crypto trading has already been banned.
 
-**Sam:** Let me try to summarize. Blockchain is the underlying technology -- a shared, tamper-proof ledger. Bitcoin is the original cryptocurrency, designed as digital money with a fixed supply of 21 million. Ethereum expanded blockchain to support smart contracts and applications. Crypto is extremely volatile -- 4 times more than stocks. Its correlation to stocks has been increasing, so it is not a reliable diversifier during crises. For most investors, a 2-5% allocation through a Bitcoin ETF is the simplest approach. Security and custody matter enormously. And every crypto transaction is a taxable event.
+**Stella:** Let me try to summarize. Blockchain is the underlying technology -- a shared, tamper-proof ledger. Bitcoin is the original cryptocurrency, designed as digital money with a fixed supply of 21 million. Ethereum expanded blockchain to support smart contracts and applications. Crypto is extremely volatile -- 4 times more than stocks. Its correlation to stocks has been increasing, so it is not a reliable diversifier during crises. For most investors, a 2-5% allocation through a Bitcoin ETF is the simplest approach. Security and custody matter enormously. And every crypto transaction is a taxable event.
 
-**Alex:** Excellent summary. The most important thing is to approach crypto with open eyes. It is real technology with genuine innovation. But it is also young, volatile, and full of speculation. A small, informed allocation is reasonable. Betting your retirement on it is not.
+**Horace:** Excellent summary. The most important thing is to approach crypto with open eyes. It is real technology with genuine innovation. But it is also young, volatile, and full of speculation. A small, informed allocation is reasonable. Betting your retirement on it is not.
 
 [ANIMATION: Final graphic showing a balanced portfolio with a small crypto allocation highlighted. Text: "Crypto: Approach with curiosity and caution. Size for the risk you can actually bear."]
 
-**Sam:** Next lesson we are going to explore a classic investment strategy that has been popular for decades -- dividend investing.
+**Stella:** Next lesson we are going to explore a classic investment strategy that has been popular for decades -- dividend investing.
 
-**Alex:** One of my favorite topics. We will talk about why dividends matter, how to evaluate them, and the traps that catch unsuspecting income investors. See you then.
+**Horace:** One of my favorite topics. We will talk about why dividends matter, how to evaluate them, and the traps that catch unsuspecting income investors. See you then.
 
 ---
 

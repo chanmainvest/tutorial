@@ -1,84 +1,81 @@
-<!-- 此檔案需要翻譯為台灣繁體中文 -->
-<!-- This file needs translation to TW Traditional Chinese -->
+# 第29週：選擇權希臘字母——衡量與管理風險
 
-# Week 29: The Option Greeks - Measuring and Managing Risk
+## 閱讀章節
 
-## Reading Section
+### a) 為什麼這很重要
 
-### a) Why This Is Important
+在第25至28週，你學會了如何將選擇權作為工具來使用：買進買權與賣權、賣出掩護性買權，以及賣出現金擔保賣權。你理解了選擇權的基本運作機制。但知道如何駕駛一輛車，和看懂儀表板是兩回事。希臘字母就是你的儀表板。它們精確告訴你，當市場條件改變時，你的選擇權部位將如何反應。
 
-In Weeks 25 through 28, you learned how to use options as tools: buying calls and puts, selling covered calls, and selling cash-secured puts. You understood the basic mechanics of how options work. But knowing how to drive a car is different from understanding the dashboard. The Greeks are your dashboard. They tell you exactly how your options position will behave when market conditions change.
+**為什麼每位選擇權交易者都必須了解希臘字母：**
 
-**Why every options trader needs to understand the Greeks:**
+**1. 沒有希臘字母，你就像瞎飛。** 假設你賣出一口掩護性買權，股票上漲了3美元。你的買權虧損了多少？隔夜時間流逝讓它賺了多少？如果隱含波動性下降2%，它又會如何變動？沒有希臘字母，你只是在猜。有了希臘字母，你可以精確回答這每一個問題。專業選擇權交易者在進場前，絕對不會不知道自己的希臘字母曝險。你也應該如此。
 
-**1. Without the Greeks, you are flying blind.** Suppose you sell a covered call and the stock moves up $3. How much did your call option lose? How much did it gain from time passing overnight? How much will it change if implied volatility drops by 2%? Without the Greeks, you are guessing. With the Greeks, you can answer each of these questions with precision. Professional options traders never enter a position without knowing their Greek exposures. Neither should you.
+**2. 希臘字母解釋你的部位為何賺錢或虧錢。** 許多初學選擇權的投資人會感到困惑：為什麼股票上漲了，買權的價格卻沒有跟著上漲？或者，股票明明下跌，賣權的價值卻減少了？希臘字母解釋了這些表面上的矛盾。也許是波動性壓縮抵消了方向性獲利；也許是時間耗損吃掉了權利金。理解希臘字母，能將困惑化為清晰。
 
-**2. The Greeks explain why your position made or lost money.** Many beginning options traders are confused when their call option does not go up even though the stock went up. Or they are puzzled when their put option lost value despite the stock dropping. The Greeks explain these apparent paradoxes. Perhaps volatility crushed offset the directional gain. Perhaps time decay ate through the premium. Understanding the Greeks turns confusion into clarity.
+**3. 希臘字母讓你在風險成真之前就能管理它。** 如果你知道自己的投資組合貝塔值為+500，你就知道市場上漲1美元，你大約賺500美元；市場下跌1美元，你大約虧500美元。如果這個曝險太大，你可以在市場波動之前調整，而不是在之後。風險管理，是專業交易與賭博之間的差別。
 
-**3. The Greeks allow you to manage risk before it becomes a problem.** If you know your portfolio has a delta of +500, you know you will gain approximately $500 if the market goes up $1 and lose approximately $500 if the market drops $1. If that exposure is too large, you can adjust before the market moves, not after. Risk management is the difference between professional trading and gambling.
+**4. 希臘字母連結到後續所有內容。** 第30週（價差與禿鷹策略）、第37週（選擇權槓桿）、第38週（長期期權）以及第40週（波動率指數與波動性）都預設你能用希臘字母的思維來分析。價差策略的本質就是組合希臘字母曝險。不理解Vega，波動性交易根本無從談起。長期期權分析依賴於理解Delta與Theta在長存續期間下的行為。本週是所有進階選擇權教材的基礎。
 
-**4. The Greeks connect to everything that follows.** Weeks 30 (spreads and condors), 37 (options leverage), 38 (LEAPS), and 40 (VIX and volatility) all assume you can think in terms of Greeks. Spreads are fundamentally about combining Greek exposures. Volatility trading is impossible without understanding vega. LEAPS analysis relies on understanding how delta and theta behave at long durations. This week is the foundation for all advanced options material.
+**5. 希臘字母給了你與市場共通的語言。** 當財經媒體談到「軋空Gamma」或「Vega風險」，你將清楚知道那是什麼意思。當你的券商平台顯示希臘字母數值時，你將懂得如何解讀。你將能流利使用選擇權的專業語言。
 
-**5. The Greeks give you a common language with the market.** When financial media says "gamma squeeze" or "vega risk," you will know exactly what they mean. When your brokerage platform displays Greek values, you will know how to interpret them. You become conversant in the professional language of options.
-
-We will cover all five major Greeks: delta, gamma, theta, vega, and rho. We will also explore how they interact with each other and how to use them for practical position management. By the end of this lesson, you will be able to look at any options position and understand exactly what risks you are taking and how the position will behave as markets move.
+我們將涵蓋五大主要希臘字母：Delta、Gamma、Theta、Vega與Rho。我們也會探討它們彼此如何互動，以及如何實際應用於部位管理。學完本課後，你將能看著任何一個選擇權部位，清楚了解自己承擔的是哪些風險，以及當市場移動時，部位將如何反應。
 
 ---
 
-### b) What You Need to Know
+### b) 你需要知道的事
 
-#### Overview of the Greeks
+#### 希臘字母總覽
 
-The Greeks are sensitivity measures. Each Greek tells you how much an option's price will change when one specific input changes, holding everything else constant. They are partial derivatives for those who remember calculus, but you do not need calculus to use them effectively.
-
-```
-THE FIVE MAJOR GREEKS:
-
-  Greek    Measures Sensitivity To     Range (Long Call)    Analogy
-  =====    =========================  ==================   ==============
-  Delta    Stock price movement        0 to +1.0           Speedometer
-  Gamma    Change in delta             Always positive      Acceleration
-  Theta    Time passing                Always negative      Melting ice
-  Vega     Implied volatility change   Always positive      Weather vane
-  Rho      Interest rate change        Small positive       Thermostat
-
-  NOTE: These are for LONG calls. Signs flip for short positions
-  and some flip for puts vs. calls (see detailed sections below).
-```
-
-Think of it this way. If an option is a car, delta tells you how fast you are going (speed), gamma tells you how quickly your speed is changing (acceleration), theta tells you how much fuel you burn per hour (cost of time), vega tells you how sensitive you are to road conditions (volatility), and rho tells you how much the air temperature matters (interest rates, usually minor).
-
-#### Delta: Directional Exposure
-
-Delta is the most important Greek for most investors. It measures how much an option's price changes when the underlying stock moves by $1.
+希臘字母是敏感度衡量指標。每個希臘字母告訴你，當某一個特定輸入變數改變時（其他條件不變），選擇權的價格會變動多少。對記得微積分的人來說，它們是偏導數——但你不需要懂微積分，也能有效地使用它們。
 
 ```
-DELTA VALUES:
+五大主要希臘字母：
 
-  Long Call:  Delta ranges from 0 to +1.0
-  Long Put:   Delta ranges from -1.0 to 0
-  Short Call: Delta ranges from -1.0 to 0
-  Short Put:  Delta ranges from 0 to +1.0
+  希臘字母    衡量對象              範圍（買進買權）       類比
+  ========    ====================  ================   ==============
+  Delta       股票價格變動           0 至 +1.0          速度計
+  Gamma       Delta的變化率          永遠為正值          加速度
+  Theta       時間流逝              永遠為負值          融化的冰
+  Vega        隱含波動性變化         永遠為正值          風向標
+  Rho         利率變化              小幅正值            溫度計
 
-  STOCK (for reference):
-  Long 100 shares  = Delta of +100 (or +1.0 per share)
-  Short 100 shares = Delta of -100 (or -1.0 per share)
+  注意：以上適用於「買進買權」。放空部位的符號相反，
+  賣權與買權之間部分符號也會翻轉（詳見下方各節）。
 ```
 
-**Example:** If a call option has a delta of 0.60, it will gain approximately $0.60 when the stock goes up $1, and lose approximately $0.60 when the stock drops $1. Since one contract controls 100 shares, the contract gains or loses about $60 per $1 stock move.
+這樣來思考：如果選擇權是一輛車，Delta告訴你行駛速度（速率），Gamma告訴你速度變化的快慢（加速度），Theta告訴你每小時燃油消耗（時間成本），Vega告訴你對路況的敏感度（波動性），Rho告訴你氣溫影響多大（利率，通常微乎其微）。
+
+#### Delta：方向性曝險
+
+對大多數投資人來說，Delta是最重要的希臘字母。它衡量當標的股票移動1美元時，選擇權價格變動多少。
 
 ```
-DELTA AND MONEYNESS:
+Delta值：
 
-  Stock Price = $150
+  買進買權：  Delta範圍從 0 至 +1.0
+  買進賣權：  Delta範圍從 -1.0 至 0
+  放空買權：  Delta範圍從 -1.0 至 0
+  放空賣權：  Delta範圍從 0 至 +1.0
 
-  Deep ITM Call ($120 strike):   Delta ~ 0.95
-  ITM Call ($140 strike):        Delta ~ 0.75
-  ATM Call ($150 strike):        Delta ~ 0.50
-  OTM Call ($160 strike):        Delta ~ 0.30
-  Deep OTM Call ($180 strike):   Delta ~ 0.05
+  股票（供參考）：
+  買進100股  = Delta +100（或每股 +1.0）
+  放空100股  = Delta -100（或每股 -1.0）
+```
 
-  Delta Curve for a Call Option:
+**範例：** 若一口買權的Delta為0.60，股票上漲1美元，它大約增值0.60美元；股票下跌1美元，大約減值0.60美元。由於一口合約控制100股，每1美元的股價變動，該合約大約賺或虧60美元。
+
+```
+Delta與價內外程度的關係：
+
+  股票價格 = $150
+
+  深度價內買權（履約價$120）：   Delta ~ 0.95
+  價內買權（履約價$140）：       Delta ~ 0.75
+  平價買權（履約價$150）：       Delta ~ 0.50
+  價外買權（履約價$160）：       Delta ~ 0.30
+  深度價外買權（履約價$180）：   Delta ~ 0.05
+
+  買權的Delta曲線：
 
   Delta
   1.0 |                                      ___________
@@ -94,45 +91,45 @@ DELTA AND MONEYNESS:
   0.0 |_/
       +----+----+----+----+----+----+----+----+----+----
        80   90  100  110  120  130  140  150  160  170
-                         Stock Price
-                    (Strike = $130)
+                         股票價格
+                    （履約價 = $130）
 ```
 
-**Delta as Probability Approximation:** Delta roughly approximates the probability that the option will expire in the money. A delta of 0.30 suggests roughly a 30% chance of expiring ITM. This is not mathematically precise (delta and probability of ITM are calculated differently), but it is a useful mental shortcut.
+**Delta作為機率近似值：** Delta粗略近似於選擇權於到期日到期時處於價內的機率。Delta為0.30，暗示約有30%的機率到期價內。這在數學上並不精確（Delta與到期價內機率的計算方式不同），但作為心理捷徑相當好用。
 
-**Delta as Share Equivalence:** Delta tells you how many shares your option behaves like. Owning one call with a delta of 0.50 is roughly equivalent to owning 50 shares. This concept is called the "delta-equivalent position."
-
-```
-DELTA-EQUIVALENT POSITIONS:
-
-  Position                         Delta    Equivalent To
-  ==============================   =====    ======================
-  Long 1 ATM Call (delta 0.50)     +50      Long 50 shares
-  Long 2 ATM Calls (delta 0.50)   +100     Long 100 shares
-  Long 1 ITM Call (delta 0.80)     +80      Long 80 shares
-  Short 1 ATM Put (delta -0.50)    +50      Long 50 shares
-  Covered Call (stock + short       +30      Long 30 shares
-    ATM call: +100 + (-70))
-```
-
-#### Gamma: The Rate of Change of Delta
-
-Gamma measures how much delta changes when the stock price moves by $1. If delta is speed, gamma is acceleration. Gamma tells you how quickly your directional exposure is shifting.
+**Delta作為股數當量：** Delta告訴你，你的選擇權等同於持有多少股股票。持有一口Delta為0.50的買權，大致等同於持有50股。這個概念稱為「Delta當量部位」。
 
 ```
-GAMMA BEHAVIOR:
+Delta當量部位：
 
-  Gamma is HIGHEST for:
-    - At-the-money options (delta ~ 0.50)
-    - Options near expiration (< 7 days)
-    - Lower volatility environments
+  部位                              Delta    等同於
+  ================================  =====    ======================
+  買進1口平價買權（Delta 0.50）      +50      買進50股
+  買進2口平價買權（Delta 0.50）     +100     買進100股
+  買進1口價內買權（Delta 0.80）      +80      買進80股
+  放空1口平價賣權（Delta -0.50）     +50      買進50股
+  掩護性買權（股票＋放空平價買權：   +30      買進30股
+    +100 + (-70)）
+```
 
-  Gamma is LOWEST for:
-    - Deep ITM or deep OTM options
-    - Options far from expiration (> 90 days)
-    - Higher volatility environments
+#### Gamma：Delta的變化率
 
-  Gamma Profile by Moneyness (30 days to expiration):
+Gamma衡量當股票價格移動1美元時，Delta變化多少。如果Delta是速度，Gamma就是加速度。Gamma告訴你，你的方向性曝險正在以多快的速度移動。
+
+```
+Gamma的行為特性：
+
+  Gamma最大的情況：
+    - 平價選擇權（Delta ~ 0.50）
+    - 接近到期日的選擇權（< 7天）
+    - 低波動性環境
+
+  Gamma最小的情況：
+    - 深度價內或深度價外選擇權
+    - 距到期日較遠的選擇權（> 90天）
+    - 高波動性環境
+
+  Gamma依價內外程度分布（距到期日30天）：
 
   Gamma
   0.05 |
@@ -147,78 +144,77 @@ GAMMA BEHAVIOR:
        |                           *
   0.00 +----+----+----+----+----+----
        80   90  100  110  120  130  140
-                 Stock Price
-              (Strike = $110)
+                 股票價格
+              （履約價 = $110）
 ```
 
-**Why Gamma Matters:**
+**為什麼Gamma重要：**
 
-When you are long gamma (bought options), delta moves in your favor. If the stock goes up, your delta increases and you make more on further upside. If the stock goes down, your delta decreases and you lose less on further downside. Long gamma is like having a built-in adjustment mechanism.
+當你持有正Gamma（買進選擇權），Delta會朝有利方向移動。股票上漲，Delta增加，你在後續漲幅中賺得更多；股票下跌，Delta減少，你在後續跌幅中虧得更少。正Gamma就像內建的自動調節機制。
 
-When you are short gamma (sold options), delta moves against you. If the stock goes up, your short call becomes more negative delta (you are increasingly short). If the stock drops, your short put becomes more positive delta (you are increasingly long a falling stock). Short gamma is the risk sellers take in exchange for collecting premium.
-
-```
-GAMMA EFFECT ON DELTA:
-
-  Example: AAPL ATM Call, Strike $150, Delta = 0.50, Gamma = 0.03
-
-  Stock moves UP $1 to $151:
-    New Delta = 0.50 + 0.03 = 0.53
-    The option now moves $0.53 for each additional $1 up
-
-  Stock moves DOWN $1 to $149:
-    New Delta = 0.50 - 0.03 = 0.47
-    The option now moves $0.47 for each additional $1 down
-
-  Stock moves UP $5 to $155:
-    Delta shifts from 0.50 toward ~0.65 (gamma adds ~0.03 per $1)
-    The option acts increasingly like stock on the way up
-
-  Stock moves DOWN $5 to $145:
-    Delta shifts from 0.50 toward ~0.35
-    The option becomes less sensitive on the way down
-
-  This is the beauty of long gamma: you accelerate into winners
-  and decelerate into losers.
-```
-
-**Gamma Risk Near Expiration:**
-
-Gamma explodes near expiration for at-the-money options. This is why expiration week is dangerous for option sellers. An ATM option with one day to expiration might have a gamma of 0.15 or higher, meaning delta swings wildly with small stock moves.
+當你持有負Gamma（賣出選擇權），Delta會朝不利方向移動。股票上漲，你的放空買權變得Delta愈來愈負（你對上漲的股票愈來愈放空）；股票下跌，你的放空賣權變得Delta愈來愈正（你對下跌的股票愈來愈多頭）。負Gamma是賣方為了收取權利金而承擔的風險。
 
 ```
-GAMMA BY TIME TO EXPIRATION (ATM Option):
+Gamma對Delta的影響：
 
-  Days to Exp    Gamma      Interpretation
+  範例：蘋果公司（AAPL）平價買權，履約價$150，Delta = 0.50，Gamma = 0.03
+
+  股票上漲$1至$151：
+    新Delta = 0.50 + 0.03 = 0.53
+    選擇權現在每再上漲$1，增值$0.53
+
+  股票下跌$1至$149：
+    新Delta = 0.50 - 0.03 = 0.47
+    選擇權現在每再下跌$1，減值$0.47
+
+  股票上漲$5至$155：
+    Delta從0.50逐步移向約0.65（每$1疊加約0.03的Gamma）
+    選擇權在上漲途中愈來愈像股票
+
+  股票下跌$5至$145：
+    Delta從0.50逐步移向約0.35
+    選擇權在下跌途中敏感度下降
+
+  這就是持有正Gamma的美妙之處：贏家加速，輸家減速。
+```
+
+**到期日前Gamma風險暴增：**
+
+對平價選擇權來說，Gamma在接近到期日時會急速膨脹。這正是選擇權賣方在結算週特別危險的原因。一口距到期日僅一天的平價選擇權，Gamma可能高達0.15甚至更高，意味著Delta隨著小幅股價波動而劇烈搖擺。
+
+```
+Gamma依距到期日天數（平價選擇權）：
+
+  距到期日天數    Gamma      解讀
   ===========    =====      ====================================
-  90 days        0.012      Delta changes slowly, stable position
-  60 days        0.015      Moderate delta sensitivity
-  30 days        0.022      Delta becoming more reactive
-  14 days        0.035      Noticeable delta swings on moves
-  7 days         0.055      Delta is quite jumpy
-  3 days         0.090      Delta swings significantly
-  1 day          0.180      Delta is extremely unstable
-  Expiration     HUGE       ATM option flips between 0 and 1.0
+  90天           0.012      Delta變化緩慢，部位穩定
+  60天           0.015      Delta敏感度適中
+  30天           0.022      Delta反應趨於明顯
+  14天           0.035      波動時Delta明顯搖擺
+  7天            0.055      Delta相當跳動
+  3天            0.090      Delta大幅搖擺
+  1天            0.180      Delta極度不穩定
+  到期日         極大        平價選擇權在0與1.0之間翻轉
 ```
 
-#### Theta: Time Decay
+#### Theta：時間耗損
 
-Theta measures how much an option's price decreases as one day passes, all else being equal. We introduced this concept in Week 25, but now we quantify it precisely.
+Theta衡量在其他條件不變的情況下，每過一天選擇權價格減少多少。我們在第25週已介紹過這個概念，現在我們要精確量化它。
 
 ```
-THETA CHARACTERISTICS:
+Theta的特性：
 
-  Long options:  Theta is NEGATIVE (you lose money each day)
-  Short options: Theta is POSITIVE (you earn money each day)
+  買進選擇權：  Theta為負值（每天虧損）
+  賣出選擇權：  Theta為正值（每天獲利）
 
-  Theta is LARGEST (most negative) for:
-    - At-the-money options
-    - Options near expiration
-    - High implied volatility options
+  Theta最大（最為負值）的情況：
+    - 平價選擇權
+    - 接近到期日的選擇權
+    - 高隱含波動性的選擇權
 
-  Theta Decay Curve (ATM Option, $5.00 initial premium):
+  Theta耗損曲線（平價選擇權，初始權利金$5.00）：
 
-  Value
+  價值
   $5 |*
      | *
   $4 |  *
@@ -231,671 +227,666 @@ THETA CHARACTERISTICS:
      |                   *********
   $0 +----+----+----+----+----+----
      90   75   60   45   30   15   0
-              Days to Expiration
+              距到期日天數
 ```
 
-**Theta as Daily Cost:**
+**Theta作為每日成本：**
 
-If theta is -$0.05, the option loses $0.05 per share per day, or $5.00 per contract per day. Over a weekend (two non-trading days), the option loses approximately $10.00.
+若Theta為-$0.05，代表選擇權每天每股虧損$0.05，即每口合約每天虧損$5.00。若過一個週末（兩個非交易日），選擇權大約虧損$10.00。
 
 ```
-THETA BY STRIKE AND EXPIRATION (Stock at $150):
+Theta依履約價與到期日（股票在$150）：
 
-  30 Days to Expiration:
-  Strike    Type    Premium    Theta/Day    Days to Lose 50%
+  距到期日30天：
+  履約價    類型    權利金     每日Theta    耗損50%所需天數
   ======    ====    =======    =========    ================
-  $140      Call    $12.50     -$0.03       ~208 days (deep ITM)
-  $145      Call    $8.20      -$0.05       ~82 days
-  $150      Call    $5.00      -$0.08       ~31 days
-  $155      Call    $2.80      -$0.07       ~20 days
-  $160      Call    $1.20      -$0.04       ~15 days
+  $140      買權    $12.50     -$0.03       約208天（深度價內）
+  $145      買權    $8.20      -$0.05       約82天
+  $150      買權    $5.00      -$0.08       約31天
+  $155      買權    $2.80      -$0.07       約20天
+  $160      買權    $1.20      -$0.04       約15天
 
-  NOTE: ATM options have highest absolute theta, but OTM options
-  lose a higher PERCENTAGE of their value per day.
+  注意：平價選擇權的絕對Theta值最高，但價外選擇權
+  每天虧損的「百分比」更高。
 
-  7 Days to Expiration:
-  Strike    Type    Premium    Theta/Day    % Lost/Day
+  距到期日7天：
+  履約價    類型    權利金     每日Theta    每日耗損%
   ======    ====    =======    =========    ==========
-  $145      Call    $5.80      -$0.04       0.7%
-  $150      Call    $1.80      -$0.18       10.0%
-  $155      Call    $0.40      -$0.10       25.0%
+  $145      買權    $5.80      -$0.04       0.7%
+  $150      買權    $1.80      -$0.18       10.0%
+  $155      買權    $0.40      -$0.10       25.0%
 
-  ATM theta TRIPLES in the last week compared to 30 days out.
+  相較於30天期，最後一週的平價Theta增加了近三倍。
 ```
 
-**Why Theta Matters for Strategy Selection:**
+**為什麼Theta對策略選擇至關重要：**
 
-When you sell options (covered calls, cash-secured puts), theta is your profit engine. You want maximum theta, which means selling ATM or slightly OTM options with 30-45 days to expiration. When you buy options, theta is your cost of doing business. You want to minimize it by buying longer-dated options or ITM options (higher percentage of intrinsic value, less extrinsic to decay).
+當你賣出選擇權（掩護性買權、現金擔保賣權），Theta是你的獲利引擎。你希望Theta最大化，意味著賣出距到期日30至45天的平價或略微價外選擇權。當你買進選擇權，Theta是你的持有成本。你希望最小化它，方式是買進到期日更長的選擇權，或價內選擇權（內含價值比例較高，時間價值較少可供耗損）。
 
-#### Vega: Volatility Sensitivity
+#### Vega：波動性敏感度
 
-Vega measures how much an option's price changes when implied volatility changes by one percentage point. Unlike delta and theta, vega is the same sign for both calls and puts.
-
-```
-VEGA CHARACTERISTICS:
-
-  Long options (calls or puts):  Vega is POSITIVE
-    -> You benefit when IV rises, you lose when IV falls
-
-  Short options (calls or puts): Vega is NEGATIVE
-    -> You benefit when IV falls, you lose when IV rises
-
-  Vega is LARGEST for:
-    - At-the-money options
-    - Options with MORE time to expiration (opposite of theta!)
-    - Higher-priced stocks (in absolute terms)
-```
+Vega衡量當隱含波動性每變動一個百分點時，選擇權價格變動多少。與Delta和Theta不同，Vega對買權和賣權的符號相同。
 
 ```
-VEGA EXAMPLE:
+Vega的特性：
 
-  AAPL $150 Call, 30 days to expiration
-  Current IV = 25%, Premium = $4.00, Vega = $0.10
+  買進選擇權（買權或賣權）：  Vega為正值
+    -> 隱含波動性上升，你獲利；隱含波動性下跌，你虧損
 
-  If IV rises from 25% to 27% (+2 points):
-    Premium change = +2 x $0.10 = +$0.20
-    New premium = $4.20
+  賣出選擇權（買權或賣權）：  Vega為負值
+    -> 隱含波動性下跌，你獲利；隱含波動性上升，你虧損
 
-  If IV drops from 25% to 22% (-3 points):
-    Premium change = -3 x $0.10 = -$0.30
-    New premium = $3.70
-
-  Per contract (100 shares):
-    IV up 2 points: gain $20
-    IV down 3 points: lose $30
-```
-
-**Volatility Crush:** This is why vega matters enormously. Before earnings announcements, implied volatility spikes as the market anticipates a big move. After the announcement, IV collapses back to normal levels. This is called "volatility crush" or "IV crush."
-
-```
-VOLATILITY CRUSH EXAMPLE:
-
-  AAPL $150 Call, 7 days before earnings:
-    IV = 45%, Premium = $6.00, Vega = $0.08
-
-  AAPL reports earnings. Stock moves from $150 to $153 (+$3).
-  But IV drops from 45% to 28% (-17 points).
-
-  Delta gain:  +$3 x 0.50 delta = +$1.50
-  Vega loss:   -17 x $0.08 vega  = -$1.36
-  Theta loss:  -1 day x $0.15    = -$0.15
-
-  Net change: +$1.50 - $1.36 - $0.15 = -$0.01
-
-  THE STOCK WENT UP $3 AND THE CALL OPTION BROKE EVEN.
-
-  This is vega at work. Many beginners buy calls before earnings,
-  correctly predict the direction, and STILL lose money because
-  they did not account for volatility crush.
+  Vega最大的情況：
+    - 平價選擇權
+    - 距到期日更長的選擇權（與Theta相反！）
+    - 股價較高的股票（就絕對值而言）
 ```
 
 ```
-VEGA BY TIME TO EXPIRATION (ATM Option, Stock at $150):
+Vega範例：
 
-  Days to Exp    Vega/1% IV    Premium at 25% IV
-  ===========    ==========    ==================
-  7 days         $0.04         $2.10
-  14 days        $0.06         $3.00
-  30 days        $0.10         $4.30
-  60 days        $0.14         $6.10
-  90 days        $0.17         $7.50
-  180 days       $0.24         $10.60
-  365 days       $0.34         $15.00
+  蘋果公司（AAPL）$150買權，距到期日30天
+  目前隱含波動性 = 25%，權利金 = $4.00，Vega = $0.10
 
-  KEY INSIGHT: Longer-dated options have MORE vega.
-  LEAPS are very sensitive to IV changes.
-  Short-dated options have LESS vega but MORE gamma.
+  若隱含波動性從25%升至27%（+2個百分點）：
+    權利金變動 = +2 x $0.10 = +$0.20
+    新權利金 = $4.20
+
+  若隱含波動性從25%降至22%（-3個百分點）：
+    權利金變動 = -3 x $0.10 = -$0.30
+    新權利金 = $3.70
+
+  每口合約（100股）：
+    隱含波動性升2個百分點：獲利$20
+    隱含波動性降3個百分點：虧損$30
 ```
 
-#### Rho: Interest Rate Sensitivity
-
-Rho measures how much an option's price changes when interest rates change by one percentage point. Rho is the least important Greek for most retail traders because interest rates change slowly and the effect is small for short-dated options.
+**波動性壓縮：** 這正是Vega舉足輕重的原因。在財報公告前，隱含波動性因市場預期大幅波動而飆升。公告後，不確定性消除，隱含波動性隨即崩跌，稱為「波動性壓縮」或「隱含波動性壓縮」。
 
 ```
-RHO CHARACTERISTICS:
+波動性壓縮範例：
 
-  Long Calls:  Rho is POSITIVE (higher rates -> higher call prices)
-  Long Puts:   Rho is NEGATIVE (higher rates -> lower put prices)
+  蘋果公司（AAPL）$150買權，距財報公告7天：
+    隱含波動性 = 45%，權利金 = $6.00，Vega = $0.08
 
-  Why? Higher rates increase the cost of carrying stock.
-  A call is a substitute for buying stock, so it becomes
-  more valuable when the alternative (buying stock) is more
-  expensive to finance.
+  蘋果公司公布財報，股票從$150上漲至$153（+$3）。
+  但隱含波動性從45%崩跌至28%（-17個百分點）。
 
-  RHO EXAMPLE:
+  Delta獲利：  +$3 x 0.50 Delta = +$1.50
+  Vega虧損：  -17 x $0.08 Vega  = -$1.36
+  Theta虧損：  -1天 x $0.15     = -$0.15
 
-  AAPL $150 Call, 90 days to expiration, Rho = $0.08
+  淨變動：+$1.50 - $1.36 - $0.15 = -$0.01
 
-  If rates rise 1% (e.g., from 4.5% to 5.5%):
-    Premium change = +$0.08 per share (+$8 per contract)
+  股票上漲了$3，買權卻幾乎持平。
 
-  For LEAPS (365+ days), Rho can be $0.30-$0.50
-  For weekly options, Rho is near zero.
-
-  WHEN RHO MATTERS:
-  - LEAPS positions held during rate-changing cycles
-  - Large portfolios with significant options exposure
-  - Periods of rapid Fed rate changes (like 2022-2023)
+  這就是Vega在作用。許多初學者在財報前買進買權，
+  方向判斷正確，卻仍然虧損，因為他們沒有考慮波動性壓縮。
 ```
 
-#### How the Greeks Interact
+```
+Vega依距到期日天數（平價選擇權，股票在$150）：
 
-The Greeks do not operate in isolation. Real market moves change multiple factors simultaneously, and the Greeks interact with each other in important ways.
+  距到期日天數    每1%隱含波動性的Vega    25%隱含波動性下的權利金
+  ===========    ==================    ====================
+  7天            $0.04                 $2.10
+  14天           $0.06                 $3.00
+  30天           $0.10                 $4.30
+  60天           $0.14                 $6.10
+  90天           $0.17                 $7.50
+  180天          $0.24                 $10.60
+  365天          $0.34                 $15.00
+
+  關鍵洞察：到期日較長的選擇權Vega更大。
+  長期期權對隱含波動性變化非常敏感。
+  短期選擇權Vega較小，但Gamma較大。
+```
+
+#### Rho：利率敏感度
+
+Rho衡量當利率每變動一個百分點時，選擇權價格變動多少。對大多數散戶交易者而言，Rho是最不重要的希臘字母，因為利率變動緩慢，且對短期選擇權的影響很小。
 
 ```
-INTERACTION MAP:
+Rho的特性：
+
+  買進買權：  Rho為正值（利率升 -> 買權價格升）
+  買進賣權：  Rho為負值（利率升 -> 賣權價格降）
+
+  為什麼？較高的利率增加了持有股票的融資成本。
+  買權是購買股票的替代品，因此當持股的替代方式
+  （直接買股票）融資成本更高時，買權變得更有價值。
+
+  Rho範例：
+
+  蘋果公司（AAPL）$150買權，距到期日90天，Rho = $0.08
+
+  若利率上升1%（例如從4.5%升至5.5%）：
+    權利金變動 = 每股+$0.08（每口合約+$8）
+
+  對長期期權（365天以上），Rho可達$0.30-$0.50
+  對週選擇權，Rho趨近於零。
+
+  Rho何時重要：
+  - 在利率變動週期中持有的長期期權部位
+  - 具有重大選擇權曝險的大型投資組合
+  - 聯準會快速升降息時期（如2022-2023年）
+```
+
+#### 希臘字母如何相互作用
+
+希臘字母並非各自獨立運作。真實的市場波動會同時改變多個因素，希臘字母之間會以重要方式相互影響。
+
+```
+互動圖：
 
   +------------------+
-  |   STOCK PRICE    |-----> Delta (primary)
-  |    changes       |-----> Gamma (adjusts delta)
-  +------------------+       Theta (affected by moneyness)
-                             Vega (affected by moneyness)
+  |    股票價格      |-----> Delta（主要）
+  |      變動        |-----> Gamma（調整Delta）
+  +------------------+       Theta（受價內外程度影響）
+                             Vega（受價內外程度影響）
 
   +------------------+
-  |  TIME PASSING    |-----> Theta (primary)
-  |                  |-----> Gamma (increases near exp)
-  +------------------+       Vega (decreases near exp)
-                             Delta (ATM stays ~0.50)
+  |    時間流逝      |-----> Theta（主要）
+  |                  |-----> Gamma（接近到期日時增加）
+  +------------------+       Vega（接近到期日時減少）
+                             Delta（平價選擇權維持約0.50）
 
   +------------------+
-  |  VOLATILITY      |-----> Vega (primary)
-  |   changes        |-----> Delta (shifts toward 0.50)
-  +------------------+       Gamma (decreases with high IV)
-                             Theta (increases with high IV)
+  |    波動性        |-----> Vega（主要）
+  |      變動        |-----> Delta（移向0.50）
+  +------------------+       Gamma（高隱含波動性時減少）
+                             Theta（高隱含波動性時增加）
 
   +------------------+
-  |  INTEREST RATE   |-----> Rho (primary)
-  |   changes        |       (minor interactions with others)
+  |    利率          |-----> Rho（主要）
+  |      變動        |       （與其他希臘字母的互動較小）
   +------------------+
 ```
 
-**Key Interaction 1: Gamma and Theta are Opposites**
+**關鍵互動一：Gamma與Theta互為對立**
 
-This is the most important interaction. Options that have high gamma also have high theta. You cannot get one without the other. This creates a fundamental tradeoff:
-
-```
-THE GAMMA-THETA TRADEOFF:
-
-  Long Options (bought):
-    + Positive Gamma (delta moves in your favor)
-    - Negative Theta (you pay for this benefit daily)
-
-  Short Options (sold):
-    + Positive Theta (you earn money daily)
-    - Negative Gamma (delta moves against you)
-
-  You CANNOT have positive gamma and positive theta.
-  This is the iron law of options.
-
-  Example: Long ATM Call
-    Delta = +0.50, Gamma = +0.03, Theta = -0.08, Vega = +0.10
-
-  Example: Short ATM Call
-    Delta = -0.50, Gamma = -0.03, Theta = +0.08, Vega = -0.10
-
-  The question every options trader faces:
-  "Do I want to pay theta to own gamma, or collect theta
-   and accept gamma risk?"
-```
-
-**Key Interaction 2: Vega and Time**
-
-Options with more time have more vega but less gamma. Options with less time have more gamma but less vega. This means the dominant risk factor shifts as expiration approaches.
+這是最重要的互動關係。Gamma高的選擇權，Theta也高。你無法只得其一。這形成了一個根本的取捨：
 
 ```
-DOMINANT RISK BY TIME HORIZON:
+Gamma-Theta取捨：
 
-  Time to Exp     Dominant Greek    Key Risk
-  ===========     ==============    =========================
-  > 60 days       Vega              IV changes drive P&L
-  30-60 days      Vega/Theta        Both matter significantly
-  14-30 days      Theta/Gamma       Decay accelerates, gamma grows
-  < 14 days       Gamma/Theta       Gamma risk dominates
-  < 3 days        Gamma             Pure gamma risk for ATM
+  買進選擇權（買方）：
+    + 正Gamma（Delta朝有利方向移動）
+    - 負Theta（你每天為此付出代價）
+
+  賣出選擇權（賣方）：
+    + 正Theta（你每天賺取收入）
+    - 負Gamma（Delta朝不利方向移動）
+
+  你永遠無法同時擁有正Gamma與正Theta。
+  這是選擇權的鐵律。
+
+  範例：買進平價買權
+    Delta = +0.50，Gamma = +0.03，Theta = -0.08，Vega = +0.10
+
+  範例：放空平價買權
+    Delta = -0.50，Gamma = -0.03，Theta = +0.08，Vega = -0.10
+
+  每位選擇權交易者面對的問題：
+  「我要付出Theta來擁有Gamma，還是收取Theta並接受Gamma風險？」
 ```
 
-**Key Interaction 3: All Greeks in a Real Scenario**
+**關鍵互動二：Vega與時間的關係**
+
+到期日較長的選擇權Vega較大，但Gamma較小；到期日較短的選擇權Gamma較大，但Vega較小。這意味著，隨著到期日逼近，主導風險因素也在轉移。
 
 ```
-COMPLETE GREEK ANALYSIS:
+依時間區間劃分的主導風險：
 
-  Position: Long 5 AAPL $150 Calls, 30 days to expiration
-  Stock at $148, IV = 28%
-
-  Per Contract    x5 Contracts    Meaning
-  ============    ============    ================================
-  Delta: +0.45    +225            ~Equivalent to long 225 shares
-  Gamma: +0.025   +12.5           Delta increases 12.5 per $1 up
-  Theta: -$0.07   -$35/day        Position costs $35/day to hold
-  Vega:  +$0.10   +$50/1% IV      Each 1% IV rise adds $50
-  Rho:   +$0.06   +$30/1% rate    Minimal concern
-
-  SCENARIO A: Stock goes to $153 (+$5), IV stays, 5 days pass
-    Delta P&L:  +$5 x 225 = +$1,125 (approximate, delta changes)
-    Theta P&L:  -$35 x 5 = -$175
-    Gamma adj:  Delta rose from 225 to ~288, accelerating gains
-    NET: approximately +$1,050
-
-  SCENARIO B: Stock stays at $148, IV drops 3%, 5 days pass
-    Delta P&L:  $0
-    Vega P&L:   -3 x $50 = -$150
-    Theta P&L:  -$35 x 5 = -$175
-    NET: approximately -$325
-
-  SCENARIO C: Stock drops to $143 (-$5), IV spikes +5%, 5 days pass
-    Delta P&L:  -$5 x 225 = -$1,125 (approximate)
-    Vega P&L:   +5 x $50 = +$250
-    Theta P&L:  -$35 x 5 = -$175
-    Gamma adj:  Delta fell from 225 to ~163, decelerating losses
-    NET: approximately -$900 (vega partially offset delta loss)
+  距到期日      主導希臘字母    主要風險
+  ===========   ============    =========================
+  > 60天        Vega            隱含波動性變動驅動損益
+  30-60天       Vega/Theta      兩者都舉足輕重
+  14-30天       Theta/Gamma     耗損加速，Gamma成長
+  < 14天        Gamma/Theta     Gamma風險主導
+  < 3天         Gamma           平價選擇權面臨純Gamma風險
 ```
 
-#### Practical Position Management Using the Greeks
-
-Now let us apply the Greeks to the strategies you already know.
-
-**Covered Call Greek Profile:**
+**關鍵互動三：真實情境下的所有希臘字母**
 
 ```
-COVERED CALL: Long 100 shares + Short 1 ATM Call
+完整希臘字母分析：
 
-  Component             Delta    Gamma    Theta    Vega
+  部位：買進5口蘋果公司（AAPL）$150買權，距到期日30天
+  股票在$148，隱含波動性 = 28%
+
+  每口合約      x5口合約        意義
+  ============  ============    ================================
+  Delta: +0.45  +225            ~等同於多頭225股
+  Gamma: +0.025 +12.5           每上漲$1，Delta增加12.5
+  Theta: -$0.07 -$35/天         每天持有成本$35
+  Vega:  +$0.10 +$50/1%隱波     每1%隱含波動性上升增加$50
+  Rho:   +$0.06 +$30/1%利率     影響微小，無需擔憂
+
+  情境A：股票漲至$153（+$5），隱含波動性不變，過去5天
+    Delta損益：  +$5 x 225 = +$1,125（近似值，Delta會變動）
+    Theta損益：  -$35 x 5 = -$175
+    Gamma調整：  Delta從225升至約288，加速獲利
+    淨損益：約 +$1,050
+
+  情境B：股票維持在$148，隱含波動性下降3%，過去5天
+    Delta損益：  $0
+    Vega損益：   -3 x $50 = -$150
+    Theta損益：  -$35 x 5 = -$175
+    淨損益：約 -$325
+
+  情境C：股票跌至$143（-$5），隱含波動性飆升+5%，過去5天
+    Delta損益：  -$5 x 225 = -$1,125（近似值）
+    Vega損益：   +5 x $50 = +$250
+    Theta損益：  -$35 x 5 = -$175
+    Gamma調整：  Delta從225降至約163，虧損減速
+    淨損益：約 -$900（Vega部分抵消了Delta虧損）
+```
+
+#### 利用希臘字母進行實際部位管理
+
+現在讓我們將希臘字母應用到你已熟悉的策略。
+
+**掩護性買權的希臘字母組成：**
+
+```
+掩護性買權：買進100股 + 放空1口平價買權
+
+  組成部分              Delta    Gamma    Theta    Vega
   ====================  ======   ======   ======   ======
-  Long 100 shares       +100     0        0        0
-  Short 1 ATM Call      -50      -0.025   +0.08    -0.10
+  買進100股             +100     0        0        0
+  放空1口平價買權        -50      -0.025   +0.08    -0.10
   ---------------------------------------------------------
-  NET POSITION          +50      -0.025   +0.08    -0.10
+  淨部位                +50      -0.025   +0.08    -0.10
 
-  Interpretation:
-  - Delta +50: You are still bullish, but only half as much as
-    owning stock outright. You profit from moderate upside.
-  - Gamma -0.025: Delta moves against you on big moves. If stock
-    surges, your net delta SHRINKS (capped upside). If stock
-    drops, your net delta GROWS (increasing loss exposure).
-  - Theta +0.08: You earn ~$8/day from time decay. This is your
-    income stream.
-  - Vega -0.10: You benefit from falling IV. If IV drops, your
-    short call loses value (good for you since you sold it).
+  解讀：
+  - Delta +50：你仍然看多，但只有直接持股的一半曝險。
+    你在溫和上漲中獲利。
+  - Gamma -0.025：大幅波動對你不利。若股票急漲，
+    淨Delta會縮小（上漲空間受限）；若股票急跌，
+    淨Delta會增大（虧損曝險加大）。
+  - Theta +0.08：每天從時間耗損中賺取約$8，這是你的收入來源。
+  - Vega -0.10：你受益於隱含波動性下降。若隱含波動性下跌，
+    你的放空買權減值（對你有利，因為你是賣方）。
 ```
 
-**Cash-Secured Put Greek Profile:**
+**現金擔保賣權的希臘字母組成：**
 
 ```
-CASH-SECURED PUT: Cash + Short 1 ATM Put
+現金擔保賣權：現金 + 放空1口平價賣權
 
-  Component             Delta    Gamma    Theta    Vega
+  組成部分              Delta    Gamma    Theta    Vega
   ====================  ======   ======   ======   ======
-  Cash                  0        0        0        0
-  Short 1 ATM Put       +50      -0.025   +0.08    -0.10
+  現金                  0        0        0        0
+  放空1口平價賣權        +50      -0.025   +0.08    -0.10
   ---------------------------------------------------------
-  NET POSITION          +50      -0.025   +0.08    -0.10
+  淨部位                +50      -0.025   +0.08    -0.10
 
-  Notice: The Greek profile is nearly IDENTICAL to the covered call.
-  This is not a coincidence. Put-call parity tells us that a
-  covered call and a cash-secured put at the same strike have
-  equivalent risk/reward profiles.
+  注意：其希臘字母組成幾乎與掩護性買權相同。
+  這並非巧合。賣權與買權的等價關係告訴我們，
+  在相同履約價下，掩護性買權與現金擔保賣權
+  具有等價的風險報酬組成。
 ```
 
-**Portfolio-Level Greek Management:**
+**投資組合層級的希臘字母管理：**
 
 ```
-SAMPLE OPTIONS PORTFOLIO:
+選擇權投資組合範例：
 
-  Position                          Delta  Gamma  Theta  Vega
+  部位                              Delta  Gamma  Theta  Vega
   ================================  =====  =====  =====  =====
-  Long 200 sh AAPL                  +200   0      0      0
-  Short 2 AAPL $155 Calls (30d)    -110   -0.06  +0.18  -0.22
-  Short 1 MSFT $400 Put (45d)       +40   -0.02  +0.06  -0.12
-  Long 3 SPY $520 Puts (60d)       -120   +0.05  -0.15  +0.36
+  多頭200股蘋果公司（AAPL）         +200   0      0      0
+  放空2口AAPL $155買權（30天）      -110   -0.06  +0.18  -0.22
+  放空1口微軟（MSFT）$400賣權（45天） +40  -0.02  +0.06  -0.12
+  買進3口標普500指數ETF（SPY）$520
+    賣權（60天）                    -120   +0.05  -0.15  +0.36
   ================================================================
-  PORTFOLIO TOTALS                  +10    -0.03  +0.09  +0.02
+  投資組合合計                      +10    -0.03  +0.09  +0.02
 
-  ANALYSIS:
-  - Delta +10:  Nearly neutral. $1 market move = ~$10 P&L.
-                This is a well-hedged portfolio.
-  - Gamma -0.03: Slightly short gamma. Big moves hurt slightly.
-  - Theta +0.09: Earning ~$9/day net. Positive carry.
-  - Vega +0.02: Near neutral on IV. Slight benefit if IV rises.
+  分析：
+  - Delta +10：幾乎中性。市場移動$1 = 損益約$10。
+              這是一個避險完善的投資組合。
+  - Gamma -0.03：略微負Gamma。大幅波動略有損害。
+  - Theta +0.09：每天淨賺約$9，正向持有成本。
+  - Vega +0.02：隱含波動性近中性，若隱含波動性上升略微受益。
 
-  This portfolio earns income from theta while being
-  approximately market-neutral. The protective puts offset
-  the directional risk of the stock position and short calls.
+  這個投資組合從Theta中賺取收入，同時維持
+  大致市場中性。保護性賣權抵消了股票部位
+  和放空買權的方向性風險。
 ```
 
 ```
-WHEN TO ADJUST (RULES OF THUMB):
+何時調整（經驗法則）：
 
-  Greek      Warning Level            Adjustment Options
-  =====      ====================     ==============================
-  Delta      > 70% of portfolio       Sell calls, buy puts, reduce
-             value in one direction   stock, add hedges
+  希臘字母   警示水準                    調整選項
+  =====      ====================        ==============================
+  Delta      > 投資組合價值70%           賣出買權、買進賣權、減持股票、
+             朝單一方向集中             增加避險部位
 
-  Gamma      High short gamma near    Close or roll positions away
-             expiration               from expiration week
+  Gamma      接近到期日時負Gamma過高      收盤或轉倉至到期日之前
 
-  Theta      Negative theta on a      Switch from buying to selling
-             position held for        strategies, or add income
-             income generation        overlay
+  Theta      收入型部位出現負Theta        從買方策略切換至賣方策略，
+                                        或加入收益型配置
 
-  Vega       Large vega before        Reduce vega before known
-             earnings/events          events, or accept the risk
+  Vega       大型財報或事件前Vega曝險大    在已知波動事件前降低Vega，
+                                        或接受此風險
 
-  Rho        Only for LEAPS           Factor rate expectations
-             portfolios               into LEAPS timing
+  Rho        僅適用於長期期權            將利率預期納入長期期權的
+             投資組合                   進場時機考量
 ```
 
-#### The Greeks Over the Life of an Option
+#### 選擇權生命週期中希臘字母的演變
 
-Understanding how Greeks evolve is essential for timing entries and exits.
+了解希臘字母如何隨時間演變，對於掌握進出場時機至關重要。
 
 ```
-LIFECYCLE OF AN ATM CALL OPTION:
+一口平價買權的生命週期：
 
-  Day    Delta   Gamma   Theta    Vega     Phase
+  天數   Delta   Gamma   Theta    Vega     階段
   ====   =====   =====   ======   =====    ================
-  90     0.52    0.012   -$0.04   $0.17    Vega-dominant
-  75     0.51    0.013   -$0.04   $0.15    Vega still primary
-  60     0.51    0.015   -$0.05   $0.14    Transition begins
-  45     0.51    0.018   -$0.06   $0.12    Theta growing
-  30     0.50    0.022   -$0.08   $0.10    Theta and gamma rise
-  21     0.50    0.028   -$0.09   $0.08    Gamma accelerating
-  14     0.50    0.035   -$0.11   $0.06    Gamma dominates vega
-  7      0.50    0.055   -$0.15   $0.04    High gamma, high theta
-  3      0.50    0.090   -$0.22   $0.02    Extreme gamma/theta
-  1      0.50    0.180   -$0.40   $0.01    Explosive gamma risk
-  0      0/1.0   Inf     N/A      0        Binary outcome
+  90     0.52    0.012   -$0.04   $0.17    Vega主導期
+  75     0.51    0.013   -$0.04   $0.15    Vega仍為主力
+  60     0.51    0.015   -$0.05   $0.14    轉換開始
+  45     0.51    0.018   -$0.06   $0.12    Theta逐漸增強
+  30     0.50    0.022   -$0.08   $0.10    Theta與Gamma上升
+  21     0.50    0.028   -$0.09   $0.08    Gamma加速
+  14     0.50    0.035   -$0.11   $0.06    Gamma主導Vega
+  7      0.50    0.055   -$0.15   $0.04    高Gamma、高Theta
+  3      0.50    0.090   -$0.22   $0.02    極端Gamma/Theta
+  1      0.50    0.180   -$0.40   $0.01    Gamma風險爆炸
+  0      0/1.0   極大    N/A      0        二元結果
 
-  MANAGEMENT IMPLICATION:
-  - Sell options 30-45 days out to capture theta efficiently
-  - Close short options at 50-75% profit or roll before < 14 days
-  - Avoid holding short ATM options into expiration week
-  - Buy options farther out (60-90 days) to minimize theta cost
+  管理意涵：
+  - 在距到期日30-45天賣出選擇權，以有效捕捉Theta
+  - 在獲利達50-75%時平倉放空選擇權，或在距到期日<14天前轉倉
+  - 避免在結算週持有放空平價選擇權
+  - 買進選擇權時選擇更長到期日（60-90天），以降低Theta成本
 ```
 
 ---
 
-### c) Common Misconceptions
+### c) 常見誤解
 
-**Misconception 1: "Delta is the probability that the option will expire in the money."**
+**誤解一：「Delta就是選擇權到期時處於價內的機率。」**
 
-Delta approximates this probability but is not equal to it. The mathematical probability of expiring ITM (from the options pricing model) is given by N(d2) in the Black-Scholes formula, while delta is N(d1). For practical purposes, delta is close enough to serve as a quick estimate, but if you need precise probabilities, use your brokerage platform's probability calculator. The difference is largest for high-volatility, long-dated options.
+Delta只是近似這個機率，兩者並不相等。到期價內的數學機率（來自選擇權定價模型）在Black-Scholes公式中由N(d2)給出，而Delta是N(d1)。就實用目的而言，Delta作為快速估計值已經足夠近似，但如果你需要精確機率，請使用券商平台的機率計算工具。兩者的差異在高波動性、到期日長的選擇權上最為顯著。
 
-**Misconception 2: "Theta is constant and predictable."**
+**誤解二：「Theta是固定且可預測的。」**
 
-Theta is neither constant nor perfectly predictable. It changes every day based on moneyness, time to expiration, and implied volatility. An option's theta today might be -$0.05 and next week -$0.08. Do not project current theta forward linearly. Also, theta decay does not happen uniformly throughout the trading day. Academic models assume continuous decay, but in practice, much of the daily theta loss is priced in at the overnight close.
+Theta既不固定，也無法完美預測。它每天都會根據價內外程度、距到期日天數和隱含波動性而改變。一口選擇權今天的Theta可能是-$0.05，下週可能是-$0.08。不要將當前的Theta線性外推。此外，Theta耗損並非在交易日內均勻發生。學術模型假設連續耗損，但在實務上，大部分的每日Theta損失都反映在隔夜收盤價格中。
 
-**Misconception 3: "I should only care about delta because it is the biggest Greek."**
+**誤解三：「我應該只關注Delta，因為它是最大的希臘字母。」**
 
-For short-term, directional trades, delta is indeed dominant. But for income strategies like covered calls and cash-secured puts, theta is your primary profit driver. For earnings plays, vega may be more important than delta. The "most important" Greek depends entirely on your strategy and time horizon. Professional traders manage all five Greeks simultaneously.
+對短期方向性交易，Delta確實是主導因素。但對掩護性買權和現金擔保賣權等收益型策略，Theta才是你的主要獲利驅動力。對財報行情，Vega可能比Delta更重要。「最重要的」希臘字母完全取決於你的策略和時間區間。專業交易者同時管理全部五個希臘字母。
 
-**Misconception 4: "The Greeks are exact predictions."**
+**誤解四：「希臘字母是精確的預測。」**
 
-The Greeks are instantaneous measures based on current conditions and a mathematical model. They change constantly. An option with delta 0.50 now might have delta 0.55 after a $2 stock move, even though the original delta predicted a $1.00 gain on a $2 move ($0.50 x 2). That is gamma at work. The Greeks are first-order approximations, and they work best for small changes over short time periods.
+希臘字母是基於當前條件和數學模型的瞬間衡量值，它們時刻在變化。Delta為0.50的選擇權，在股票移動$2後，Delta可能已變成0.55，即使原始Delta預測$2移動帶來$1.00的獲利（0.50 x 2）。這就是Gamma在起作用。希臘字母是一階近似值，最適用於短時間內的小幅變動。
 
-**Misconception 5: "Selling options is free money because of positive theta."**
+**誤解五：「賣出選擇權因為有正Theta，等於免費賺錢。」**
 
-Positive theta is earned in exchange for negative gamma. You collect small daily income but accept the risk of large losses during big moves. The income is not free; it is compensation for bearing risk. An option seller who only thinks about theta and ignores gamma is like an insurance company that only counts premiums and ignores claims. Eventually, a catastrophic event arrives.
+正Theta是用負Gamma換來的。你每天收取小額收入，但承受大幅波動時巨額虧損的風險。這個收入並不免費；它是承擔風險的補償。只想著Theta而忽視Gamma的選擇權賣方，就像只計算保費、不考慮理賠的保險公司。終有一天，災難性事件會到來。
 
-**Misconception 6: "Vega does not matter for covered calls and cash-secured puts."**
+**誤解六：「Vega對掩護性買權和現金擔保賣權無關緊要。」**
 
-It absolutely does. If you sell a covered call when IV is low and then IV spikes, your short call increases in value, creating an unrealized loss. You want to sell options when IV is high (you collect more premium and benefit when IV drops) and buy options when IV is low. Ignoring vega means you may consistently sell cheap options and buy expensive ones.
+它絕對有關係。如果你在隱含波動性低的時候賣出掩護性買權，然後隱含波動性飆升，你的放空買權增值，形成未實現虧損。你希望在隱含波動性高時賣出選擇權（收取更多權利金，並在隱含波動性下跌時受益），在隱含波動性低時買進選擇權。忽視Vega，意味著你可能持續賣出便宜的選擇權、買進昂貴的選擇權。
 
-**Misconception 7: "Rho is irrelevant and can be completely ignored."**
+**誤解七：「Rho無關緊要，可以完全忽略。」**
 
-For short-dated options, rho is indeed negligible. But for LEAPS (options with a year or more to expiration), rho can have a meaningful impact. During the 2022-2023 rate hiking cycle, rho effects moved LEAPS prices noticeably. If you trade LEAPS (which we cover in Week 38), you need to factor in rho.
-
----
-
-### d) Q&A
-
-**Q: How do I find the Greeks for my options positions?**
-
-A: Every major brokerage platform displays the Greeks. In most platforms, you can add columns for delta, gamma, theta, vega, and rho to your options chain display. When you have an open position, the portfolio view typically shows the position-level Greeks (per-contract values multiplied by the number of contracts). If your platform does not display Greeks prominently, look for an "options analytics" or "risk profile" section.
-
-**Q: Do the Greeks change over the weekend?**
-
-A: The Greeks themselves (the sensitivity measures) are recalculated when the market opens on Monday. However, theta decay does occur over the weekend. Most options pricing models assume 365-day decay, meaning the option loses about 2/365 of its time value over a two-day weekend. Some traders debate exactly how weekends are priced, but empirically, selling options on Friday and buying them back on Monday often captures weekend theta. This is a minor point for long-term strategy but relevant for short-term traders.
-
-**Q: How do I calculate the Greeks for an entire portfolio?**
-
-A: Portfolio Greeks are additive. Simply sum the delta, gamma, theta, and vega of each individual position. Long positions contribute their natural sign, and short positions contribute the opposite sign. Most brokerage platforms calculate portfolio Greeks automatically. This is how professional traders manage risk: they monitor portfolio-level Greeks and adjust when any Greek gets too large in one direction.
-
-**Q: What is "delta-neutral" and should I try to be delta-neutral?**
-
-A: A delta-neutral position has a net delta near zero, meaning it does not benefit or suffer from small stock price movements. Market makers maintain delta-neutral books constantly. For a retail investor running income strategies, perfect delta neutrality is not necessary. However, understanding how close to neutral you are helps you manage risk. If your portfolio delta is +800, you are essentially long 800 shares worth of exposure. That might be appropriate or it might be too aggressive, depending on your risk tolerance and portfolio size.
-
-**Q: What is the "gamma squeeze" that I hear about in the news?**
-
-A: A gamma squeeze occurs when market makers who sold call options need to buy stock to hedge their positions as the stock rises. Here is the chain reaction: retail traders buy calls, market makers sell those calls and are now short gamma and short delta. To hedge, market makers buy shares proportional to their delta exposure. As the stock rises, the calls' delta increases (gamma), so market makers must buy even more shares. This additional buying pushes the stock higher, which increases delta further, creating a feedback loop. The GameStop (GME) event in January 2021 was partly driven by a gamma squeeze.
-
-**Q: How much does it cost me per day to hold a long options position?**
-
-A: Check the theta value. If theta is -$0.05 per share, it costs you $5 per contract per day. Over 30 days, that is $150 per contract. Compare this cost to the potential gain you expect from delta (directional move) and any vega benefit. If your expected gain from a stock move does not comfortably exceed the theta cost over your expected holding period, the trade has poor risk-reward from a Greek perspective.
-
-**Q: Should I adjust my position when one Greek gets extreme?**
-
-A: Yes, but do not over-adjust. The most common adjustment triggers are: (1) Delta gets too large relative to your risk tolerance, suggesting you should hedge or reduce the position. (2) Gamma becomes very high near expiration on short positions, suggesting you should close or roll. (3) Vega exposure is large going into a known volatility event like earnings. For income strategies (covered calls, cash-secured puts), the most practical adjustment is rolling: closing the current position and opening a new one at a different strike or expiration. We discussed rolling mechanics in Weeks 27 and 28.
-
-**Q: Are the Greeks the same in the Black-Scholes model and in real markets?**
-
-A: The conceptual meanings are the same, but the actual values differ depending on the model used. Black-Scholes assumes constant volatility and log-normal price distribution. In reality, volatility varies, prices have fat tails, and the volatility smile (different IVs for different strikes) affects the Greeks. Market-made Greeks use more sophisticated models that account for these factors. For a retail investor using Greek values from a brokerage platform, the values are accurate enough for position management. You do not need to worry about the mathematical model differences.
+對短期選擇權，Rho確實可以忽略。但對於長期期權（距到期日一年以上的選擇權），Rho可能有顯著影響。在2022至2023年的升息週期中，Rho效應明顯移動了長期期權的價格。如果你交易長期期權（我們在第38週涵蓋此主題），你需要將Rho納入考量。
 
 ---
 
-## YouTube Script
+### d) 問與答
+
+**問：我要如何查看選擇權部位的希臘字母？**
+
+答：所有主要券商平台都會顯示希臘字母。在大多數平台上，你可以在選擇權報價鏈中新增Delta、Gamma、Theta、Vega和Rho的欄位。當你持有未平倉部位時，投資組合檢視通常會顯示部位層級的希臘字母（每口合約的數值乘以合約數量）。若你的平台未明顯顯示希臘字母，請尋找「選擇權分析」或「風險輪廓」等功能區塊。
+
+**問：週末期間希臘字母會改變嗎？**
+
+答：希臘字母本身（敏感度衡量值）會在週一開盤時重新計算。然而，Theta耗損確實發生在週末。大多數選擇權定價模型假設以365天計算耗損，這意味著選擇權在兩天的週末中大約損失其時間價值的2/365。部分交易者爭論週末的定價方式，但從實證來看，週五賣出選擇權、週一買回，通常能捕捉到週末Theta。這對長期策略影響不大，但對短線交易者有其意義。
+
+**問：我如何計算整個投資組合的希臘字母？**
+
+答：投資組合的希臘字母可以直接加總。只需將每個個別部位的Delta、Gamma、Theta和Vega相加即可。多頭部位貢獻其自然符號，空頭部位貢獻相反符號。大多數券商平台會自動計算投資組合希臘字母。這正是專業交易者管理風險的方式：他們監控投資組合層級的希臘字母，並在任何希臘字母朝單一方向過度集中時進行調整。
+
+**問：什麼是「Delta中性」，我應該追求Delta中性嗎？**
+
+答：Delta中性部位的淨Delta接近零，意味著它不受小幅股價波動的影響。造市商持續維持Delta中性的帳簿。對執行收益型策略的散戶投資人來說，完美的Delta中性並非必要。然而，了解自己離中性有多遠，有助於風險管理。若你的投資組合Delta為+800，你實際上承受了相當於多頭800股的曝險。這可能是適當的，也可能過於激進，取決於你的風險承受度和投資組合規模。
+
+**問：我在新聞中常聽到的「軋空Gamma」是什麼？**
+
+答：軋空Gamma發生在賣出買權的造市商必須買進股票以避險、而股票持續上漲時。這是一個連鎖反應：散戶交易者買進買權，造市商賣出這些買權，此時造市商是負Gamma且負Delta。為了避險，造市商按照其Delta曝險比例買進股票。隨著股票上漲，買權的Delta增加（Gamma效應），造市商必須買進更多股票。這個額外的買盤推動股票更高，進一步增加Delta，形成正向回饋循環。2021年1月的遊戲驛站（GME）事件，部分就是由軋空Gamma所驅動。
+
+**問：每天持有一個買進選擇權的部位，成本是多少？**
+
+答：查看Theta值。若Theta為每股-$0.05，每口合約每天成本為$5。持有30天，每口合約共$150。將此成本與你預期從Delta（方向性波動）和Vega獲益相比較。若你預期的股價波動獲利無法在預期持有期間內輕鬆超過Theta成本，這筆交易從希臘字母角度來看，風險報酬就不理想。
+
+**問：當某個希臘字母變得極端時，我應該調整部位嗎？**
+
+答：應該，但不要過度調整。最常見的調整觸發條件為：（1）Delta相對於你的風險承受度過大，表示你應該避險或減少部位。（2）放空部位在接近到期日時Gamma變得非常高，表示你應該平倉或轉倉。（3）在財報等已知波動事件前，Vega曝險較大。對收益型策略（掩護性買權、現金擔保賣權），最實際的調整方式是轉倉：平掉現有部位，在不同履約價或到期日重新建立新部位。我們在第27和28週討論了轉倉的操作機制。
+
+**問：Black-Scholes模型與真實市場中的希臘字母相同嗎？**
+
+答：概念意義相同，但實際數值會因所用模型而異。Black-Scholes假設波動性固定且價格呈對數常態分佈。現實中，波動性是變動的，價格具有厚尾特性，且波動率微笑（不同履約價有不同的隱含波動性）會影響希臘字母的數值。造市商使用更精密的模型來計算希臘字母，以考量這些因素。對使用券商平台希臘字母數值的散戶投資人來說，這些數值對部位管理而言已足夠精確。你不需要擔心數學模型之間的差異。
+
+---
+
+## YouTube腳本
 
 [VISUAL: Animated intro with show logo. Text: "Week 29: The Option Greeks - Level 3: Advanced"]
 
-**Alex:** Welcome back, everyone. Today we are tackling what I consider the most important week in our entire options education series. We are going to learn the option Greeks.
+**Horace（陳馬）：** 大家好，歡迎回來。今天我們要挑戰整個選擇權教育系列中，我認為最重要的一週。我們要學習選擇權希臘字母。
 
-**Sam:** The Greeks. Delta, theta, gamma, vega. I have seen these terms on my brokerage platform but I have to admit, I usually just ignore them. Are they really that important?
+**Stella（小魚）：** 希臘字母。Delta、Theta、Gamma、Vega。我在券商平台上看過這些名詞，老實說，我通常直接跳過。它們真的那麼重要嗎？
 
-**Alex:** They are absolutely essential. Let me put it this way. In Weeks 25 through 28, we taught you how to drive the car. Today we are going to teach you how to read the dashboard. Without the dashboard, you do not know how fast you are going, how much fuel you have, or whether the engine is overheating.
+**Horace（陳馬）：** 絕對必要。讓我這樣比喻。在第25到28週，我們教你怎麼開車。今天，我們要教你看懂儀表板。沒有儀表板，你不知道自己開多快、油還剩多少，也不知道引擎有沒有過熱。
 
-[VISUAL: Car dashboard analogy. A car dashboard appears with five gauges labeled: Delta (Speedometer), Gamma (Acceleration), Theta (Fuel Gauge), Vega (Weather), Rho (Temperature)]
+[VISUAL: Car dashboard analogy. A car dashboard appears with five gauges labeled: Delta（速度計）, Gamma（加速度）, Theta（油量表）, Vega（天氣）, Rho（溫度計）]
 
-**Sam:** OK that is a great analogy. So there are five major Greeks?
+**Stella（小魚）：** 好，這個比喻真的很有感覺。所以一共有五個主要希臘字母？
 
-**Alex:** Five. Delta, gamma, theta, vega, and rho. Each one measures how sensitive your option's price is to a specific factor. Delta measures sensitivity to stock price, gamma measures how delta itself changes, theta measures the effect of time passing, vega measures sensitivity to implied volatility, and rho measures sensitivity to interest rates.
+**Horace（陳馬）：** 五個。Delta、Gamma、Theta、Vega和Rho。每一個都衡量你的選擇權價格對某個特定因素的敏感度。Delta衡量對股票價格的敏感度，Gamma衡量Delta本身如何變化，Theta衡量時間流逝的效應，Vega衡量對隱含波動性的敏感度，Rho則衡量對利率的敏感度。
 
-**Sam:** Let us start with the big one. Delta.
+**Stella（小魚）：** 我們先從最重要的開始吧。Delta。
 
-**Alex:** Delta is the king of the Greeks. It tells you how much your option's price will change when the stock moves by one dollar. A call option with a delta of 0.60 will gain approximately 60 cents when the stock goes up one dollar, and lose approximately 60 cents when the stock goes down one dollar.
+**Horace（陳馬）：** Delta是希臘字母之王。它告訴你，當股票移動一美元時，你的選擇權價格會變動多少。Delta為0.60的買權，股票上漲一美元，大約增值60美分；股票下跌一美元，大約減值60美分。
 
 [VISUAL: Number line showing stock price moving from $149 to $150 to $151. An option price bar moves from $4.40 to $5.00 to $5.60 with delta = 0.60 labeled]
 
-**Sam:** So delta basically tells me how much of the stock's movement I capture?
+**Stella（小魚）：** 所以Delta基本上告訴我，我能捕捉到多少股票的漲跌幅？
 
-**Alex:** Exactly. And here is something really important. Delta changes depending on where the stock price is relative to the strike price. An at-the-money option has a delta around 0.50. A deep in-the-money option has a delta approaching 1.0. And a far out-of-the-money option has a delta approaching zero.
+**Horace（陳馬）：** 完全正確。還有一件很重要的事。Delta會隨著股票價格與履約價的相對位置而改變。平價選擇權的Delta約為0.50，深度價內選擇權的Delta接近1.0，而遠離價外的選擇權Delta則趨近於零。
 
-**Sam:** So an at-the-money call captures about half the stock's movement?
+**Stella（小魚）：** 所以平價買權大約只捕捉到股票一半的漲跌幅？
 
-**Alex:** Right. And this connects to another useful interpretation of delta. It roughly approximates the probability that the option will expire in the money. An ATM option with a delta of 0.50 has roughly a 50% chance of expiring in the money. An OTM option with a delta of 0.20 has roughly a 20% chance.
+**Horace（陳馬）：** 對。而這也連結到Delta另一個很實用的解讀方式。它粗略地近似了選擇權到期時處於價內的機率。Delta為0.50的平價選擇權，大約有50%的機率到期價內；Delta為0.20的價外選擇權，大約有20%的機率。
 
-[ANIMATION: Reference animation/week29_delta_curve.py - A smooth S-curve showing delta values (y-axis, 0 to 1.0) plotted against stock price (x-axis). As the stock price slides along the x-axis, a dot traces the curve and a delta readout updates in real time. Annotations appear at key points: "Deep OTM: delta near 0", "ATM: delta = 0.50", "Deep ITM: delta near 1.0".]
+[ANIMATION: Reference animation/week29_delta_curve.py - A smooth S-curve showing delta values (y-axis, 0 to 1.0) plotted against stock price (x-axis). As the stock price slides along the x-axis, a dot traces the curve and a delta readout updates in real time. Annotations appear at key points: "深度價外：Delta趨近0", "平價：Delta = 0.50", "深度價內：Delta趨近1.0".]
 
-**Sam:** Wait, I just realized something. If I own one call with a delta of 0.50, that is like owning 50 shares of stock?
+**Stella（小魚）：** 等一下，我突然意識到一件事。如果我持有一口Delta為0.50的買權，那不就等同於持有50股嗎？
 
-**Alex:** You just discovered what professionals call the "delta-equivalent position." One call with delta 0.50 controls 100 shares, but it moves like 50 shares. Two of those calls would give you delta of 100, equivalent to owning 100 shares. This is incredibly useful for understanding how much market exposure you actually have.
+**Horace（陳馬）：** 你剛剛發現了專業人士所說的「Delta當量部位」。一口Delta為0.50的買權控制100股，但它的波動就像50股。兩口這樣的買權會給你+100的Delta，等同於持有100股。這對了解你實際承擔多大的市場曝險，非常有幫助。
 
-**Sam:** So if I have a covered call, which is long 100 shares and short one call, I can add up the deltas?
+**Stella（小魚）：** 所以如果我持有掩護性買權，也就是多頭100股加上放空一口買權，我可以把Delta相加嗎？
 
-**Alex:** Exactly. If you own 100 shares, your delta is plus 100. You sell an at-the-money call with a delta of 0.50. That short call has a delta of minus 50, because you sold it. Net delta: plus 50. Your covered call position acts like owning 50 shares instead of 100.
+**Horace（陳馬）：** 完全正確。持有100股，Delta為正100。你賣出一口Delta為0.50的平價買權，由於你是賣方，那口放空買權的Delta是負50。淨Delta：正50。你的掩護性買權部位，表現得像持有50股，而不是100股。
 
-[VISUAL: Building blocks showing: "Long 100 shares: Delta = +100" plus "Short 1 ATM Call: Delta = -50" equals "Net: Delta = +50"]
+[VISUAL: Building blocks showing: "多頭100股：Delta = +100" plus "放空1口平價買權：Delta = -50" equals "淨Delta = +50"]
 
-**Sam:** That makes a lot of sense. It explains why covered calls reduce your upside but also reduce your risk.
+**Stella（小魚）：** 這很有道理，也解釋了為什麼掩護性買權能降低上漲空間，同時也降低風險。
 
-**Alex:** Precisely. Now let us talk about the Greek that modifies delta. Gamma.
+**Horace（陳馬）：** 正是如此。現在來談調整Delta的希臘字母——Gamma。
 
-**Sam:** Gamma. I have heard this one come up a lot, especially during the GameStop saga.
+**Stella（小魚）：** Gamma。這個名詞出現頻率很高，尤其是遊戲驛站（GME）事件期間。
 
-**Alex:** Gamma is the rate of change of delta. If delta is your speed, gamma is your acceleration. When a stock moves one dollar, gamma tells you how much delta will change.
+**Horace（陳馬）：** Gamma是Delta的變化率。如果Delta是速度，Gamma就是加速度。當股票移動一美元，Gamma告訴你Delta會改變多少。
 
-**Sam:** Can you give me a concrete example?
+**Stella（小魚）：** 可以給我一個具體的例子嗎？
 
-**Alex:** Sure. Say you have an at-the-money call with delta 0.50 and gamma 0.03. The stock goes up one dollar. Your new delta is 0.50 plus 0.03, which equals 0.53. Now for the next dollar up, your option gains 53 cents instead of 50 cents. The stock goes up another dollar, delta becomes 0.56. Your option is accelerating. It is capturing more and more of the stock's upside.
+**Horace（陳馬）：** 當然。假設你有一口平價買權，Delta為0.50，Gamma為0.03。股票上漲一美元，新Delta是0.50加上0.03，等於0.53。現在再漲一美元，選擇權就能賺53美分，而不是50美分。再漲一美元，Delta變成0.56。你的選擇權在加速——它捕捉到愈來愈多的上漲幅度。
 
 [ANIMATION: Reference animation/week29_gamma_acceleration.py - A ball rolling along a curved surface. As the ball rolls "uphill" (stock going up), it speeds up, showing acceleration. Delta readout increases from 0.50 to 0.53 to 0.56 to 0.59. A parallel animation shows the option price curve becoming steeper. When the ball rolls "downhill" (stock going down), it slows down, showing deceleration. Delta decreases from 0.50 to 0.47 to 0.44.]
 
-**Sam:** So if I own the option, gamma is my friend? I accelerate into winners and decelerate into losers?
+**Stella（小魚）：** 所以如果我是買進選擇權，Gamma對我有利？贏家加速，輸家減速？
 
-**Alex:** Exactly right. When you are long an option, you are long gamma. Delta moves in your favor. But here is the catch. If you are short an option, you are short gamma. And then delta moves against you. If you sold a call and the stock surges up, your short delta gets bigger and bigger. You are increasingly short a rising stock.
+**Horace（陳馬）：** 說得完全正確。當你買進選擇權，你是正Gamma，Delta朝有利方向移動。但問題來了：如果你賣出選擇權，你就是負Gamma。Delta會朝不利方向移動。如果你賣出買權而股票急漲，你的負Delta愈來愈大——你對上漲的股票放得愈來愈空。
 
-**Sam:** That sounds dangerous.
+**Stella（小魚）：** 聽起來很危險。
 
-**Alex:** It can be, especially near expiration. And this brings up the critical concept of gamma risk near expiration. Gamma is highest for at-the-money options with very little time left. An ATM option with one day to expiration might have gamma of 0.15 or higher, compared to gamma of 0.02 for a 60-day option. That means delta is swinging wildly.
+**Horace（陳馬）：** 確實可能很危險，尤其在接近到期日時。這帶出了Gamma風險在接近到期日時急速暴增的關鍵概念。Gamma對距到期日非常短的平價選擇權最高。距到期日僅一天的平價選擇權，Gamma可能高達0.15甚至更高，相較之下，60天期的選擇權Gamma只有約0.02。這意味著Delta搖擺劇烈。
 
-[VISUAL: Two gamma curves side by side. Left: "60 days to expiration" showing a gentle, wide bell curve centered at ATM. Right: "1 day to expiration" showing a sharp, tall spike at ATM. Labels: "Low gamma, stable delta" vs. "High gamma, unstable delta"]
+[VISUAL: Two gamma curves side by side. Left: "距到期日60天"，顯示以平價為中心的平緩寬鐘形曲線。Right: "距到期日1天"，顯示平價位置的尖銳高峰。Labels: "低Gamma，Delta穩定" vs. "高Gamma，Delta不穩定"]
 
-**Sam:** Is that why you always recommend closing short options before expiration week?
+**Stella（小魚）：** 這就是你一直建議在結算週前平倉放空選擇權的原因？
 
-**Alex:** That is exactly why. In Weeks 27 and 28, we said to close or roll positions when they reach 50 to 75 percent of maximum profit, and never let them go to expiration. Now you understand the mathematical reason. Gamma risk becomes extreme in the last few days.
+**Horace（陳馬）：** 正是這個原因。在第27和28週，我們說過當獲利達到最大值的50至75%時應平倉或轉倉，絕不讓選擇權持有到到期日。現在你理解了背後的數學原因。在最後幾天，Gamma風險變得極端。
 
-**Sam:** OK, moving on to the Greek I probably understand best from our earlier lessons. Theta.
+**Stella（小魚）：** 好，接下來是我從之前課程中最熟悉的希臘字母。Theta。
 
-**Alex:** Theta is time decay. It measures how much an option's price decreases as one day passes, assuming nothing else changes. If theta is minus 0.05, the option loses 5 cents per share per day, or $5 per contract per day.
+**Horace（陳馬）：** Theta是時間耗損。它衡量在其他條件不變的情況下，每過一天選擇權價格減少多少。如果Theta是-0.05，選擇權每天每股損失5美分，也就是每口合約每天損失5美元。
 
-**Sam:** And we talked about how theta accelerates near expiration, right?
+**Stella（小魚）：** 而且我們之前談過，Theta在接近到期日時會加速，對吧？
 
-**Alex:** Right. Theta is not constant. An ATM option with 90 days left might lose $4 a day in time value. That same option with 7 days left might lose $15 a day. And with 1 day left, it might lose $40 a day. The decay is slow at first and then accelerates dramatically.
+**Horace（陳馬）：** 對。Theta並非固定值。距到期日90天的平價選擇權，每天可能損失4美元的時間價值。同一口選擇權剩7天時，每天可能損失15美元。剩1天時，可能損失40美元。耗損一開始很緩慢，到後段才急速加速。
 
-[VISUAL: The classic theta decay curve. A horizontal line representing option premium starts at the left at $5.00 and curves downward, slowly at first, then steeply in the last third, reaching $0 at expiration. Calendar days tick by at the bottom. Annotations show: "First 30 days: lose $1", "Next 30 days: lose $1.50", "Last 30 days: lose $2.50"]
+[VISUAL: The classic theta decay curve. A horizontal line representing option premium starts at the left at $5.00 and curves downward, slowly at first, then steeply in the last third, reaching $0 at expiration. Calendar days tick by at the bottom. Annotations show: "前30天：損失$1"，"接下來30天：損失$1.50"，"最後30天：損失$2.50"]
 
-**Sam:** And this is why covered calls and cash-secured puts are sold 30 to 45 days out? To capture the acceleration?
+**Stella（小魚）：** 這就是為什麼掩護性買權和現金擔保賣權要在距到期日30至45天賣出？為了捕捉加速耗損？
 
-**Alex:** Exactly. The sweet spot is selling options when they are entering the steep part of the decay curve, around 30 to 45 days to expiration. You get meaningful premium but you are positioned to benefit from the fastest decay.
+**Horace（陳馬）：** 完全正確。最佳甜蜜點是在選擇權進入耗損曲線陡坡區間時賣出，大約是距到期日30至45天。你能收取到有意義的權利金，同時受益於最快速的耗損。
 
-**Sam:** Now here is something I have been confused about. Theta is your enemy if you buy options and your friend if you sell them. But you said gamma is good for buyers and bad for sellers. So they are connected?
+**Stella（小魚）：** 現在有件事讓我困惑。Theta對買進選擇權是敵人，對賣出選擇權是朋友。但你說Gamma對買方有利，對賣方有害。所以它們是連動的？
 
-**Alex:** You just identified the most important relationship in all of options theory. The gamma-theta tradeoff. You cannot have positive gamma without negative theta, and you cannot have positive theta without negative gamma. They are two sides of the same coin.
+**Horace（陳馬）：** 你剛剛找到了選擇權理論中最重要的關係。Gamma-Theta取捨。你無法在擁有正Gamma的同時擁有正Theta，反之亦然。它們是同一枚硬幣的兩面。
 
-[VISUAL: A see-saw/balance beam. On one side "Gamma" with a plus sign, on the other side "Theta" with a plus sign. They cannot both be up at the same time. When you are long options: gamma up, theta down. When you are short options: theta up, gamma down.]
+[VISUAL: A see-saw/balance beam. On one side "Gamma" with a plus sign, on the other side "Theta" with a plus sign. They cannot both be up at the same time. When you are long options: Gamma上升，Theta下降。When you are short options: Theta上升，Gamma下降。]
 
-**Alex:** If you buy an option, you pay theta every single day for the privilege of owning gamma. If you sell an option, you earn theta every day but you take on gamma risk. This is the fundamental tradeoff that drives all options strategies.
+**Horace（陳馬）：** 如果你買進選擇權，你每天支付Theta，以換取擁有Gamma的特權。如果你賣出選擇權，你每天賺取Theta，但承擔Gamma風險。這是驅動所有選擇權策略的根本取捨。
 
-**Sam:** So every options trade is essentially a choice: do I want to pay for gamma or collect theta?
+**Stella（小魚）：** 所以每一筆選擇權交易，本質上都是一個選擇：我想付費買Gamma，還是收取Theta？
 
-**Alex:** That is a beautifully simple way to put it, and yes. In our strategies, covered calls and cash-secured puts, we are choosing to collect theta and accept gamma risk. That is appropriate for income-focused investors. But buying protective puts, for example, is choosing to pay theta for the gamma protection.
+**Horace（陳馬）：** 這個說法既簡單又精準，完全正確。在我們的策略——掩護性買權和現金擔保賣權——我們選擇收取Theta，並接受Gamma風險。這對以收益為重的投資人是適合的選擇。但買進保護性賣權，例如，就是選擇支付Theta來換取Gamma保護。
 
-**Sam:** OK, now let us talk about vega. This one seems mysterious to a lot of people.
+**Stella（小魚）：** 好，現在來談對很多人來說最神秘的希臘字母——Vega。
 
-**Alex:** Vega measures how much an option's price changes when implied volatility changes by one percentage point. If your option has a vega of 0.10, and implied volatility goes up by 2 percentage points, your option gains 20 cents per share, or $20 per contract.
+**Horace（陳馬）：** Vega衡量當隱含波動性每變動一個百分點時，選擇權價格變動多少。如果你的選擇權Vega為0.10，隱含波動性上升2個百分點，選擇權每股增值20美分，即每口合約增值20美元。
 
-**Sam:** And vega is the same sign for calls and puts, right? Both benefit from rising volatility?
+**Stella（小魚）：** 而Vega對買權和賣權的符號相同，對吧？兩者都受益於波動性上升？
 
-**Alex:** Correct. When you buy any option, call or put, you are long vega. You benefit when volatility rises and you lose when volatility falls. When you sell any option, you are short vega. You benefit from falling volatility.
+**Horace（陳馬）：** 正確。當你買進任何選擇權，不論買權還是賣權，你就是正Vega。波動性上升你獲益，波動性下跌你虧損。當你賣出任何選擇權，你就是負Vega。波動性下跌你獲益。
 
-[VISUAL: Two bars. "Long Options" with arrows showing "IV Up = You Win, IV Down = You Lose". "Short Options" with arrows showing "IV Up = You Lose, IV Down = You Win"]
+[VISUAL: Two bars. "買進選擇權"，箭頭顯示「隱含波動性升 = 獲利，隱含波動性降 = 虧損」。"賣出選擇權"，箭頭顯示「隱含波動性升 = 虧損，隱含波動性降 = 獲利」]
 
-**Sam:** I want to talk about something that I think confuses a lot of beginners. Volatility crush around earnings.
+**Stella（小魚）：** 我想聊一件我認為讓很多初學者困惑的事——財報前後的波動性壓縮。
 
-**Alex:** This is perhaps the most expensive lesson beginners learn. Before earnings, implied volatility spikes because the market is uncertain about the result. After earnings, the uncertainty is resolved and IV collapses. We call this IV crush or volatility crush.
+**Horace（陳馬）：** 這可能是初學者最昂貴的一堂課。財報前，隱含波動性飆升，因為市場對結果充滿不確定性。財報公布後，不確定性消除，隱含波動性急速崩跌。我們稱之為隱含波動性壓縮或波動性壓縮。
 
-**Sam:** And this can cause a situation where you correctly predict the direction but still lose money?
+**Stella（小魚）：** 而這可能造成一種情況：你判斷方向正確，卻仍然虧損？
 
-**Alex:** Exactly. Let me walk through a real example. Say Apple is at $150. You buy the $150 call for $6 with 7 days to expiration. Implied volatility is at 45% because earnings are tomorrow. Apple reports good earnings and the stock goes up $3 to $153.
+**Horace（陳馬）：** 完全正確。讓我用一個真實例子說明。假設蘋果公司（AAPL）股價在$150。你買進$150的買權，距到期日7天，花了$6。此時隱含波動性為45%，因為明天是財報日。蘋果公布良好財報，股票上漲$3至$153。
 
-[ANIMATION: Reference animation/week29_iv_crush.py - Two-part animation. Part 1: Before earnings, a bar shows option premium at $6.00 broken into intrinsic ($0) and extrinsic ($6.00). IV gauge reads 45%. Part 2: After earnings, stock jumps from $150 to $153. Delta should have added $1.50. But IV gauge drops from 45% to 28%. Vega loss of $1.36 appears. Theta loss of $0.15 appears. The option premium bar shows final value of $5.99, barely changed. Text flashes: "The stock went up $3 and you made $0!"]
+[ANIMATION: Reference animation/week29_iv_crush.py - Two-part animation. Part 1: Before earnings, a bar shows option premium at $6.00 broken into intrinsic（內含價值$0）and extrinsic（時間價值$6.00）。IV gauge reads 45%. Part 2: After earnings, stock jumps from $150 to $153. Delta should have added $1.50. But IV gauge drops from 45% to 28%. Vega loss of $1.36 appears. Theta loss of $0.15 appears. The option premium bar shows final value of $5.99, barely changed. Text flashes: "股票漲了$3，你卻幾乎沒賺！"]
 
-**Alex:** Your delta gain is about $1.50, which is $3 times a delta of 0.50. But your vega loss is $1.36, which is 17 percentage points of IV crush times a vega of $0.08. And you lost another $0.15 to theta. Net gain: essentially zero. The stock went up $3 and your call option went nowhere.
+**Horace（陳馬）：** 你的Delta獲利大約是$1.50，也就是$3乘以0.50的Delta。但你的Vega損失是$1.36，也就是17個百分點的隱含波動性壓縮乘以$0.08的Vega。再加上Theta損失$0.15。淨損益：幾乎為零。股票漲了$3，你的買權卻原地踏步。
 
-**Sam:** That is incredible. And incredibly frustrating if you do not understand why.
+**Stella（小魚）：** 太不可思議了。而且如果你不理解原因，真的會令人非常沮喪。
 
-**Alex:** Which is exactly why vega matters. If you buy options before earnings, you are buying expensive volatility. Even if you are right on direction, you need the stock to move A LOT to overcome the IV crush. Many professional traders actually sell options before earnings specifically to profit from the crush.
+**Horace（陳馬）：** 這正是Vega為什麼重要的原因。如果你在財報前買進選擇權，你買的是昂貴的波動性。就算方向判斷正確，你需要股票大幅移動，才能克服波動性壓縮帶來的損失。許多專業交易者，其實會在財報前賣出選擇權，專門從壓縮中獲利。
 
-**Sam:** So as a covered call seller, vega actually works in my favor after earnings?
+**Stella（小魚）：** 所以作為掩護性買權的賣方，財報後的波動性壓縮對我其實有利？
 
-**Alex:** Yes. If you sold a covered call and IV was high, after earnings when IV drops, your short call loses value, which benefits you. You could buy it back cheaply. This is one reason some traders like to sell covered calls right before earnings, though the gamma risk of a large stock move is the other side of that coin.
+**Horace（陳馬）：** 是的。如果你在隱含波動性高時賣出掩護性買權，財報後隱含波動性下跌，你的放空買權減值，對你有利。你可以以便宜的價格買回平倉。這也是部分交易者喜歡在財報前賣出掩護性買權的原因之一，不過大幅股價波動的Gamma風險是另一面必須考慮的代價。
 
-**Sam:** Let us briefly cover rho since you mentioned it is the least important Greek.
+**Stella（小魚）：** 我們快速談一下Rho，因為你之前說它是最不重要的希臘字母。
 
-**Alex:** Rho measures sensitivity to interest rate changes. For a 30-day option, rho is typically very small, maybe $0.02. Meaning a full 1% change in interest rates would only move the option by 2 cents. But for LEAPS with a year or more to expiration, rho can be $0.30 to $0.50. During the Fed's rapid rate hiking cycle in 2022 and 2023, rho effects were noticeable on LEAPS positions.
+**Horace（陳馬）：** Rho衡量對利率變動的敏感度。對一口30天期的選擇權來說，Rho通常非常小，可能只有$0.02。意思是利率完整地變動1個百分點，選擇權只會移動2美分。但對於距到期日一年以上的長期期權，Rho可以達到$0.30至$0.50。在2022至2023年聯準會快速升息週期中，Rho效應在長期期權部位上是可以被明顯察覺的。
 
-[VISUAL: Simple chart. "Rho Impact by Expiration". Weekly option: "$0.005 per 1% rate change - Ignore it". Monthly option: "$0.02 - Mostly ignore". 6-month: "$0.12 - Be aware". LEAPS: "$0.35 - Factor it in".]
+[VISUAL: Simple chart. "Rho依到期日的影響"。週選擇權："每1%利率變動$0.005——可忽略"。月選擇權："$0.02——大致可忽略"。6個月："$0.12——需留意"。長期期權："$0.35——納入考量"。]
 
-**Sam:** So for our covered calls and cash-secured puts on monthly options, we can basically ignore rho?
+**Stella（小魚）：** 所以對我們的月度掩護性買權和現金擔保賣權，基本上可以忽略Rho？
 
-**Alex:** Correct. Rho becomes important only for LEAPS, which we will cover in Week 38.
+**Horace（陳馬）：** 正確。Rho只對長期期權才重要，我們在第38週會涵蓋這個主題。
 
-**Sam:** OK, so we have covered all five Greeks individually. How do they all work together?
+**Stella（小魚）：** 好，我們已經個別介紹了五個希臘字母。它們如何共同運作？
 
-**Alex:** This is where it gets really powerful. Let me show you how to analyze an actual position using all the Greeks at once.
+**Horace（陳馬）：** 這才是真正強大的地方。讓我示範如何用所有希臘字母同時分析一個實際部位。
 
-[VISUAL: A portfolio dashboard showing a covered call position. AAPL long 100 shares at $155. Short 1 AAPL $155 Call, 30 days out. The Greeks are displayed in a panel: Net Delta: +50, Gamma: -0.025, Theta: +$8/day, Vega: -$10 per 1% IV]
+[VISUAL: A portfolio dashboard showing a covered call position. AAPL多頭100股，股價$155。放空1口AAPL $155買權，距到期日30天。希臘字母顯示在面板中：淨Delta：+50，Gamma：-0.025，Theta：+$8/天，Vega：-$10/1%隱含波動性]
 
-**Alex:** This is our covered call. Net delta of plus 50 tells us we are moderately bullish. Gamma of minus 0.025 tells us delta will move against us on big moves. Theta of plus 8 dollars a day means we earn about $8 per day from time decay. And vega of minus 10 means each 1% drop in IV earns us about $10.
+**Horace（陳馬）：** 這是我們的掩護性買權。淨Delta +50告訴我們，我們是溫和多頭。Gamma -0.025告訴我們，大幅波動時Delta對我們不利。Theta每天+8美元，意味著我們每天從時間耗損中賺約$8。Vega -10，意味著每1%的隱含波動性下跌為我們賺約$10。
 
-**Sam:** So on a boring day where the stock does not move and IV does not change, we make $8 from theta?
+**Stella（小魚）：** 所以在一個股票不動、隱含波動性也不變的無聊交易日，我們從Theta賺$8？
 
-**Alex:** Exactly. And on a day where the stock does not move but IV drops by 1%, we make $8 from theta plus $10 from vega, for $18 total. This is why covered calls perform beautifully in flat, calm markets.
+**Horace（陳馬）：** 完全正確。而且在股票不動但隱含波動性下跌1%的日子，我們從Theta賺$8，加上從Vega賺$10，合計$18。這正是掩護性買權在盤整、平靜的市場中表現優異的原因。
 
-**Sam:** And what about a day where the stock moves big?
+**Stella（小魚）：** 那如果股票大幅波動呢？
 
-**Alex:** If the stock drops $3, we lose about $150 from delta ($3 times 50) minus $8 from theta. And because of negative gamma, our delta got bigger on the way down, so the actual loss might be closer to $165. But if the stock drops, IV usually rises, which partially offsets through vega. This interplay is what makes options analysis rich and nuanced.
+**Horace（陳馬）：** 如果股票下跌$3，我們從Delta損失大約$150（$3乘以50），再扣掉Theta的$8。由於負Gamma，Delta在下跌過程中不斷增大，所以實際損失可能更接近$165。但若股票下跌，隱含波動性通常上升，這透過Vega部分抵消了損失。這種相互作用，正是讓選擇權分析如此深邃而細膩的原因。
 
-**Sam:** What about the connection between time to expiration and which Greek matters most?
+**Stella（小魚）：** 那距到期日時間的長短，和哪個希臘字母最重要，之間有什麼關聯？
 
-**Alex:** This is an excellent point. The dominant Greek shifts over the life of an option. For a 90-day option, vega is dominant. A 2% change in IV moves the option more than a typical day's stock movement. For a 30-day option, theta and delta are co-dominant. And for an option in the last week, gamma overwhelms everything.
+**Horace（陳馬）：** 這是個很好的問題。在選擇權的生命週期中，主導的希臘字母會轉移。對90天期的選擇權，Vega是主導者。隱含波動性2%的變動，對選擇權的影響超過一般的一日股價波動。對30天期的選擇權，Theta和Delta並駕齊驅。對最後一週的選擇權，Gamma凌駕一切。
 
-[VISUAL: A timeline bar from 90 days to 0 days. Different colored zones show which Greek is dominant: Green "Vega Zone" from 90 to 60 days. Yellow "Theta/Delta Zone" from 60 to 14 days. Red "Gamma Zone" from 14 to 0 days. Below: "This is why we sell 30-45 day options: we are in the Theta Zone, not the Gamma Zone."]
+[VISUAL: A timeline bar from 90 days to 0 days. Different colored zones show which Greek is dominant: 綠色「Vega區間」從90天到60天。黃色「Theta/Delta區間」從60天到14天。紅色「Gamma區間」從14天到0天。Below: "這正是我們在30-45天賣出選擇權的原因：我們處於Theta區間，而非Gamma區間。"]
 
-**Sam:** That visualization really clicks. We want to be in the theta zone, collecting income, and we want to get out before we enter the gamma zone.
+**Stella（小魚）：** 這個圖示真的讓我一目了然。我們想要待在Theta區間，收取收入，並在進入Gamma區間之前離場。
 
-**Alex:** Precisely. And this is what we mean by managing positions using the Greeks. It is not about calculating exact numbers to the third decimal place. It is about understanding the regime you are in and positioning accordingly.
+**Horace（陳馬）：** 正是如此。而這就是用希臘字母管理部位的意義所在。並不是要你精確計算到小數點後三位，而是理解你所處的市場環境，並做出相應的配置。
 
-**Sam:** Can you talk about portfolio-level Greeks? Because in the reading, you showed how to add up Greeks across positions.
+**Stella（小魚）：** 能談談投資組合層級的希臘字母嗎？因為在閱讀章節裡，你展示了如何跨部位加總希臘字母。
 
-**Alex:** Portfolio Greeks are simply the sum of all your individual position Greeks. And this is how professional traders think. They do not look at each trade in isolation. They look at their total portfolio delta, gamma, theta, and vega.
+**Horace（陳馬）：** 投資組合的希臘字母就是所有個別部位希臘字母的總和。而這正是專業交易者的思維方式。他們不單獨看每一筆交易，而是看整個投資組合的總Delta、總Gamma、總Theta和總Vega。
 
-[VISUAL: A table showing a multi-position portfolio. Row 1: Long 200 shares AAPL, delta +200. Row 2: Short 2 AAPL calls, delta -110. Row 3: Short 1 MSFT put, delta +40. Row 4: Long 3 SPY puts, delta -120. Total row highlighted: Delta +10, Gamma -0.03, Theta +$9/day, Vega +$2/1%IV. Annotation: "Nearly delta-neutral, positive theta, slight long vega."]
+[VISUAL: A table showing a multi-position portfolio. 第1行：多頭200股蘋果公司（AAPL），Delta +200。第2行：放空2口AAPL買權，Delta -110。第3行：放空1口微軟（MSFT）賣權，Delta +40。第4行：買進3口SPY賣權，Delta -120。合計行醒目標示：Delta +10，Gamma -0.03，Theta +$9/天，Vega +$2/1%隱含波動性。Annotation: "幾乎Delta中性，正Theta，略微正Vega。"]
 
-**Alex:** This portfolio has a net delta of plus 10. That means a $1 move in the market affects the portfolio by only about $10. It is nearly neutral. But it earns $9 per day from theta. And it has protective puts that give a small positive vega exposure.
+**Horace（陳馬）：** 這個投資組合的淨Delta為+10。意味著市場移動$1，整個投資組合只影響約$10。幾乎完全中性。但它每天從Theta賺$9。而且它持有保護性賣權，帶來小幅正Vega曝險。
 
-**Sam:** That is elegant. You are earning income while being almost indifferent to market direction.
+**Stella（小魚）：** 這樣的設計很精妙。你賺取收入的同時，對市場方向幾乎不在乎。
 
-**Alex:** And the protective puts ensure that if the market crashes and volatility spikes, the vega benefit from those puts helps offset some of the losses. The Greeks all balance each other.
+**Horace（陳馬）：** 而那些保護性賣權確保了，一旦市場崩盤且波動性急升，這些賣權的Vega獲益可以部分抵消損失。希臘字母彼此相互平衡。
 
-**Sam:** Let me ask a practical question. How should someone at home actually use the Greeks?
+**Stella（小魚）：** 讓我問一個實際問題。在家的投資人，應該如何實際運用希臘字母？
 
-**Alex:** For someone running covered calls and cash-secured puts, here is what I recommend. First, always check delta before entering a trade. Know how much directional exposure you are taking. Second, check theta relative to your premium. If theta is $8 per day and you collected $250 in premium, you know the option will decay that premium in about 31 days. Third, glance at vega and think about whether IV is high or low. If IV is in the top 20% of its historical range, it is a good time to sell options. If IV is in the bottom 20%, be cautious about selling because there is less premium and vega risk is skewed against you. Fourth, respect gamma by not holding positions into expiration week.
+**Horace（陳馬）：** 對於操作掩護性買權和現金擔保賣權的人，我建議這樣做。第一，進場前一定要查看Delta，了解自己承擔了多大的方向性曝險。第二，對比Theta與你收到的權利金。若Theta每天$8，你收到$250的權利金，代表大約31天後這個權利金就會耗損完畢。第三，看一下Vega，思考隱含波動性目前是高還是低。若隱含波動性處於歷史區間的前20%，是賣出選擇權的好時機。若處於後20%，賣出選擇權就要謹慎——權利金較少，且Vega風險對你不利。第四，尊重Gamma，不要在結算週繼續持有部位。
 
-[VISUAL: Checklist on screen. "Before Every Options Trade, Check:" followed by checkmarks: "1. Delta - How much directional exposure?", "2. Theta - How much do I earn per day?", "3. Vega - Is IV high or low?", "4. Gamma - Am I too close to expiration?"]
+[VISUAL: Checklist on screen. "每次選擇權交易前，確認：" followed by checkmarks: "1. Delta——我承擔了多少方向性曝險？", "2. Theta——我每天能賺多少？", "3. Vega——隱含波動性是高是低？", "4. Gamma——我距到期日是否太近了？"]
 
-**Sam:** That is a manageable checklist. You do not have to be a math genius.
+**Stella（小魚）：** 這個清單很好操作。你不需要是數學天才。
 
-**Alex:** You really do not. The Greeks are about intuition, not calculation. Your brokerage platform calculates them. You just need to understand what they mean and how they work together.
+**Horace（陳馬）：** 真的不需要。希臘字母要的是直覺，不是計算。你的券商平台已經幫你算好了。你只需要理解它們的意義，以及它們如何共同運作。
 
-**Sam:** So let me try to summarize the five Greeks in one sentence each.
+**Stella（小魚）：** 那讓我試著用一句話總結每個希臘字母。
 
-**Alex:** Go for it.
+**Horace（陳馬）：** 來吧。
 
-**Sam:** Delta tells me how much I make or lose per dollar of stock movement. Gamma tells me how fast my delta is changing, which is why big moves are risky for sellers. Theta tells me how much money I earn or spend per day just from time passing. Vega tells me how much volatility changes will affect my position, which is why earnings are tricky. And rho tells me about interest rate sensitivity, which mostly matters for LEAPS.
+**Stella（小魚）：** Delta告訴我每一美元的股票波動，我賺或虧多少。Gamma告訴我Delta變化的速度，也是為什麼大幅波動對賣方風險如此高。Theta告訴我每天光是時間流逝，我能賺或花多少錢。Vega告訴我波動性變化會如何影響我的部位，也是為什麼財報行情如此棘手。Rho告訴我利率敏感度，主要對長期期權才重要。
 
-**Alex:** That is an excellent summary. I would not change a word.
+**Horace（陳馬）：** 這個總結非常完美，我一個字都不想改。
 
-[VISUAL: Five Greek letters displayed large on screen: Delta, Gamma, Theta, Vega, Rho. Each with a one-line summary below matching Sam's recap]
+[VISUAL: Five Greek letters displayed large on screen: Delta, Gamma, Theta, Vega, Rho. Each with a one-line summary below matching Stella's recap]
 
-**Sam:** One more thing. The gamma-theta tradeoff. Can you restate that clearly?
+**Stella（小魚）：** 最後一件事。Gamma-Theta取捨。能請你再清楚地說明一次嗎？
 
-**Alex:** The gamma-theta tradeoff is the iron law of options. If you buy options, you own gamma, meaning delta moves in your favor. But you pay for it through theta, losing money every day. If you sell options, you earn theta every day. But you are short gamma, meaning delta moves against you on big moves. You can never have both positive gamma and positive theta. Every options strategy is a choice about which side of this tradeoff you want to be on.
+**Horace（陳馬）：** Gamma-Theta取捨是選擇權的鐵律。如果你買進選擇權，你擁有Gamma，意味著Delta朝有利方向移動。但你要透過Theta每天為此付出代價。如果你賣出選擇權，你每天賺取Theta。但你是負Gamma，意味著大幅波動時Delta對你不利。你永遠無法同時擁有正Gamma和正Theta。這是每個選擇權策略都必須面對的選擇——你想待在取捨的哪一側。
 
-**Sam:** And in our strategies, covered calls and cash-secured puts, we chose the theta side.
+**Stella（小魚）：** 而在我們的策略——掩護性買權和現金擔保賣權——我們選擇了Theta那一側。
 
-**Alex:** Correct. We are willing to accept gamma risk, the risk of large moves, in exchange for steady daily income from theta. And we manage the gamma risk by not holding positions into expiration week and by rolling or closing positions at the right time.
+**Horace（陳馬）：** 正確。我們願意承受Gamma風險，也就是大幅波動的風險，以換取每天穩定的Theta收入。而我們透過不在結算週持有部位，以及在適當時機平倉或轉倉，來管理Gamma風險。
 
-**Sam:** This has been incredibly illuminating. I feel like I actually understand what is happening under the hood now.
+**Stella（小魚）：** 今天真的讓我大開眼界。我感覺自己終於理解了引擎蓋下面發生的事。
 
-**Alex:** And that is exactly the goal. Next week, we are going to use these Greeks to analyze more complex structures: spreads and condors. You will see how combining options in specific ways lets you create positions with precisely tailored Greek exposures. The Greeks are the language of that discussion.
+**Horace（陳馬）：** 這正是今天的目標。下週，我們要用這些希臘字母來分析更複雜的結構：價差和禿鷹策略。你將看到，如何透過特定方式組合選擇權，建立具有精確希臘字母曝險的部位。希臘字母就是那個討論的語言。
 
-[VISUAL: Preview card showing "Next Week: Spreads and Condors - Combining Options for Tailored Risk/Reward"]
+[VISUAL: Preview card showing "下週：價差與禿鷹策略——組合選擇權以打造客製化風險報酬"]
 
-**Sam:** Looking forward to it. Before we wrap up, any final piece of advice on the Greeks?
+**Stella（小魚）：** 很期待。在結束之前，關於希臘字母，有沒有最後一個建議？
 
-**Alex:** Yes. Do not obsess over the exact numbers. Focus on the signs and the relative magnitudes. Positive or negative delta tells you your directional bias. The magnitude tells you how much. Positive theta means you earn income, negative means you spend it. Positive vega means you benefit from volatility, negative means calm markets help you. Think in these terms and the Greeks become intuitive, not mathematical.
+**Horace（陳馬）：** 有。不要過度執著於精確的數字。專注於符號和相對大小。正負Delta告訴你方向性傾向，數字大小告訴你程度。正Theta意味著你在賺收入，負Theta意味著你在花費。正Vega意味著你受益於波動性，負Vega意味著平靜的市場對你有利。用這種方式思考，希臘字母就會變成直覺，而不是數學。
 
-**Sam:** Excellent. Thanks, everyone, for watching. We will see you next week for spreads and condors.
+**Stella（小魚）：** 說得太好了。謝謝大家收看，我們下週的價差與禿鷹策略再見。
 
-[VISUAL: End screen with show logo, "Week 29: The Option Greeks" summary, and preview of Week 30]
+[VISUAL: End screen with show logo, "第29週：選擇權希臘字母" summary, and preview of Week 30]
 
-**Alex:** See you then.
+**Horace（陳馬）：** 下週見。

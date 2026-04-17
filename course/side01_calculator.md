@@ -243,161 +243,161 @@ A: The TI BA II Plus uses 13-digit internal precision, which matches or exceeds 
 
 **[VISUAL: Close-up shot of TI BA II Plus calculator on a clean desk. Title card: "Mastering the TI BA II Plus"]**
 
-**Alex:** Alright Sam, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
+**Horace:** Alright Stella, today we are doing something a little different. We are going hands-on with the financial calculator. And I know what people are thinking -- "It is 2026, why do I need a calculator when I have Excel?"
 
-**Sam:** Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
+**Stella:** Right, I thought the same thing. But then I started studying for the CFA and realized that the calculator is not just a tool -- it actually teaches you how to think about money over time.
 
-**Alex:** Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
+**Horace:** Exactly. And honestly, once you get comfortable with it, you can solve problems faster on this thing than you can in a spreadsheet. No booting up, no file management, just punch and go.
 
 **[VISUAL: Calculator laid flat with all keys visible. Arrows pointing to the five TVM keys: N, I/Y, PV, PMT, FV]**
 
-**Alex:** So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
+**Horace:** So let us start with the five most important keys on this calculator. The TVM keys -- Time Value of Money. They sit right here in the third row. N, I/Y, PV, PMT, FV. These five keys handle probably 80% of everything you will ever do on this calculator.
 
-**Sam:** Can you walk through what each one means in plain English?
+**Stella:** Can you walk through what each one means in plain English?
 
-**Alex:** Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
+**Horace:** Sure. N is the number of periods -- not years, periods. I/Y is the interest rate per year. PV is how much money is worth right now. PMT is a regular payment that happens every period. And FV is how much money is worth in the future.
 
 **[ANIMATION: A timeline showing $1,000 at time 0, growing with arrows to $1,500 at time 5. Labels appear: PV = -1000 at left, FV = +1500 at right, N = 5 above the timeline]**
 
-**Sam:** Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
+**Stella:** Okay, but here is where I always got confused when I started. The negative signs. Why is PV negative sometimes?
 
-**Alex:** This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
+**Horace:** This is the number one thing to understand. The calculator uses a cash flow sign convention. Negative means money is leaving you. Positive means money is coming to you. So if you invest a thousand dollars today, that money is leaving your wallet. PV equals negative one thousand.
 
-**Sam:** And when you get money back in the future?
+**Stella:** And when you get money back in the future?
 
-**Alex:** That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
+**Horace:** That is positive. FV equals positive fifteen hundred. Think of yourself standing in the middle. Money going away from you is negative. Money coming toward you is positive.
 
 **[VISUAL: Person icon in center. Arrows going left labeled "NEGATIVE (outflows)" and arrows going right labeled "POSITIVE (inflows)"]**
 
-**Sam:** What happens if you mess up the signs?
+**Stella:** What happens if you mess up the signs?
 
-**Alex:** You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
+**Horace:** You either get Error 5 -- which means no solution exists -- or you get a number that looks plausible but is completely wrong. And that is actually more dangerous because you might not catch it.
 
 **[VISUAL: Calculator screen showing "Error 5" with a red X]**
 
-**Alex:** Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
+**Horace:** Let me show you a real example. Say you want to know how much ten thousand dollars grows to in twenty years at eight percent per year.
 
 **[VISUAL: Hands on calculator, each keystroke shown with on-screen caption]**
 
-**Alex:** First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
+**Horace:** First, I always clear the TVM registers. Second, then FV -- that is CLR TVM. Clean slate. Now: two, zero, N. Eight, I/Y. Negative ten thousand, PV. Zero, PMT -- because there are no additional contributions. Now CPT, FV. And we get forty-six thousand, six hundred nine dollars and fifty-seven cents.
 
-**Sam:** That is the power of compound interest right there. Your money more than quadrupled.
+**Stella:** That is the power of compound interest right there. Your money more than quadrupled.
 
-**Alex:** In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
+**Horace:** In twenty years at eight percent, yes. And notice I entered PV as negative because the ten thousand is money I am investing -- it is leaving me. The calculator gives me a positive FV because that is money coming back to me.
 
 **[ANIMATION: Bar chart showing $10,000 growing year by year to $46,609.57 over 20 years, with compound interest highlighted in a different color from the original principal]**
 
-**Sam:** Okay, let us try something people actually deal with. Mortgages.
+**Stella:** Okay, let us try something people actually deal with. Mortgages.
 
-**Alex:** Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
+**Horace:** Perfect. Let us say you are borrowing three hundred thousand dollars for a thirty-year mortgage at six point five percent. What is your monthly payment?
 
 **[VISUAL: House icon with price tag $300,000, "30 years", "6.5%"]**
 
-**Alex:** First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
+**Horace:** First thing -- this is a monthly problem. So we need to deal with P/Y. Press second, then I/Y -- that takes you to the P/Y setting. Enter twelve, press ENTER. Then press second, CPT to quit out of there.
 
-**Sam:** And this tells the calculator that payments happen twelve times a year?
+**Stella:** And this tells the calculator that payments happen twelve times a year?
 
-**Alex:** Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
+**Horace:** Exactly. Now the calculator knows to divide the annual rate by twelve internally. So: N equals three sixty -- that is thirty times twelve. I/Y equals six point five -- the annual rate, not the monthly rate. PV equals three hundred thousand -- positive, because the bank is giving you this money.
 
-**Sam:** Wait, the loan amount is positive?
+**Stella:** Wait, the loan amount is positive?
 
-**Alex:** Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
+**Horace:** Yes! The bank is handing you three hundred thousand dollars. That money is coming to you. It is an inflow. Your payments going back to the bank will be negative -- outflows.
 
-**Sam:** That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
+**Stella:** That is counterintuitive at first but it makes sense when you think about the direction of the cash flow.
 
-**Alex:** FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
+**Horace:** FV equals zero because by the end of thirty years, the loan is fully paid off. Now CPT PMT, and we get negative one thousand eight hundred ninety-six dollars and twenty cents.
 
 **[VISUAL: Calculator screen showing -1,896.20]**
 
-**Sam:** Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
+**Stella:** Almost nineteen hundred a month. And it is negative because that is money leaving your pocket.
 
-**Alex:** Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
+**Horace:** Every single month for thirty years. And here is something eye-opening. Let me show you the amortization. Press second, PV -- that is the AMORT function. Set P1 to one and P2 to twelve. Now scroll down.
 
 **[VISUAL: Split screen showing calculator and a pie chart of first year payments]**
 
-**Alex:** In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
+**Horace:** In the first year, you pay about twenty-two thousand seven hundred in total payments. Of that, about nineteen thousand three hundred goes to interest and only about thirty-four hundred goes to principal.
 
-**Sam:** So in the first year, eighty-five percent of your payment is just interest?
+**Stella:** So in the first year, eighty-five percent of your payment is just interest?
 
-**Alex:** Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
+**Horace:** Welcome to amortization. Now check the last year -- set P1 to three forty-nine and P2 to three sixty. Almost the entire payment is principal. That is how amortization works. Early on, you are mostly paying interest. Later, you are mostly paying down the loan.
 
 **[ANIMATION: Stacked bar chart showing the interest vs principal split over 30 years, with interest shrinking and principal growing over time]**
 
-**Sam:** This is why people say the first few years of a mortgage are "expensive."
+**Stella:** This is why people say the first few years of a mortgage are "expensive."
 
-**Alex:** Now let us shift gears to something every investor needs. NPV and IRR.
+**Horace:** Now let us shift gears to something every investor needs. NPV and IRR.
 
 **[VISUAL: Title card "NPV and IRR: Making Investment Decisions"]**
 
-**Alex:** Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
+**Horace:** Say a friend offers you a business opportunity. You invest fifty thousand dollars today and expect to get back fifteen thousand per year for five years. Is this a good deal if your required return is ten percent?
 
-**Sam:** So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
+**Stella:** So we need to figure out if those future cash flows are worth more than fifty thousand in today's dollars.
 
-**Alex:** Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
+**Horace:** Right. Press CF to enter the cash flow worksheet. CF0 is your initial investment -- negative fifty thousand. Then C01 is fifteen thousand, F01 is five -- meaning that fifteen thousand repeats five times. Now press NPV. Enter I equals ten. Scroll down and CPT.
 
 **[VISUAL: Cash flow timeline showing -$50,000 at time 0, then $15,000 at times 1 through 5]**
 
-**Alex:** NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
+**Horace:** NPV equals six thousand eight hundred sixty-one dollars and eighty cents. It is positive, which means this deal creates value above and beyond your ten percent requirement.
 
-**Sam:** And IRR?
+**Stella:** And IRR?
 
-**Alex:** Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
+**Horace:** Press IRR, then CPT. We get fifteen point two four percent. That is the actual rate of return on this investment. Since it is above your required ten percent, the project is a go.
 
 **[VISUAL: Comparison showing "NPV = $6,861.80 > 0 = ACCEPT" and "IRR = 15.24% > 10% = ACCEPT" with green checkmarks]**
 
-**Sam:** Do NPV and IRR always agree?
+**Stella:** Do NPV and IRR always agree?
 
-**Alex:** For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
+**Horace:** For simple projects like this one -- one upfront cost followed by positive inflows -- yes, they always agree. But for more complex scenarios, like comparing two mutually exclusive projects of different sizes, they can disagree. When they do, always trust NPV. It measures actual value creation in dollars.
 
 **[ANIMATION: Two project timelines side by side. Project A: small investment, high IRR. Project B: large investment, lower IRR but higher NPV. Arrow pointing to Project B labeled "NPV says choose B"]**
 
-**Sam:** Let us do bonds. That is where I see a lot of people struggle.
+**Stella:** Let us do bonds. That is where I see a lot of people struggle.
 
-**Alex:** Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
+**Horace:** Bonds are just a specific type of TVM problem. You pay a price today, receive coupon payments along the way, and get your principal back at maturity. Let me show you.
 
 **[VISUAL: Bond diagram showing price paid at left, coupon payments as arrows going up at regular intervals, and face value returned at the end]**
 
-**Alex:** Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
+**Horace:** Say you are looking at a bond with a five percent coupon, semi-annual payments, ten years to maturity, and the market requires a six percent yield. What should you pay?
 
-**Alex:** Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
+**Horace:** Set P/Y to two because coupons are semi-annual. N equals twenty -- ten years times two. I/Y equals six -- the annual yield. PMT equals twenty-five -- that is one thousand times five percent divided by two. FV equals one thousand -- the face value you get back at maturity. CPT PV.
 
 **[VISUAL: Calculator keystrokes with annotations]**
 
-**Alex:** Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
+**Horace:** Negative nine hundred twenty-five dollars and sixty-one cents. So this bond trades at a discount because the coupon rate of five percent is below the market yield of six percent.
 
-**Sam:** It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
+**Stella:** It makes intuitive sense. If the market demands six percent but the bond only pays five percent in coupons, the price has to drop to make up the difference.
 
-**Alex:** And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
+**Horace:** And the reverse is true. If the coupon were seven percent and the market wanted six percent, the bond would trade at a premium above one thousand.
 
 **[ANIMATION: See-saw diagram. Coupon rate on one side, market yield on the other. When yield > coupon, price dips below par. When yield < coupon, price rises above par.]**
 
-**Sam:** What about finding the yield when you know the price?
+**Stella:** What about finding the yield when you know the price?
 
-**Alex:** Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
+**Horace:** Same setup, but instead of computing PV, you enter PV as negative nine fifty -- say that is the market price -- and compute I/Y. You get the yield to maturity.
 
-**Alex:** Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
+**Horace:** Before we wrap up, let me give you my top five calculator tips that will save you hours of frustration.
 
 **[VISUAL: Numbered list appearing one by one]**
 
-**Alex:** Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
+**Horace:** Number one -- always clear TVM before a new problem. Second then FV. Make it a habit. Number two -- always check P/Y. Press second then I/Y and verify before every problem. Number three -- write down your inputs before touching the calculator. N equals what, I/Y equals what, and so on. This catches sign errors before they happen.
 
-**Sam:** What about number four?
+**Stella:** What about number four?
 
-**Alex:** Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
+**Horace:** Number four -- when in doubt about signs, draw a timeline. Put yourself at time zero. Arrows going down are negative, arrows coming up are positive. And number five -- practice with problems where you know the answer. Take a simple savings account problem, solve it by hand, then verify on the calculator. Build confidence.
 
 **[VISUAL: Timeline drawing with person icon, downward arrow labeled "PV (-)" at left, upward arrows labeled "PMT (+)" in middle, upward arrow labeled "FV (+)" at right]**
 
-**Sam:** Any advice for people preparing for the CFA or other exams?
+**Stella:** Any advice for people preparing for the CFA or other exams?
 
-**Alex:** Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
+**Horace:** Set your calculator to four decimal places for the exam -- second, dot, four, enter. Learn the keystrokes so well that you do not have to think about them. And remember, on exam day, you are solving dozens of TVM problems. Speed comes from practice, not from shortcuts.
 
-**Sam:** Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
+**Stella:** Great stuff. The calculator seems intimidating at first but once you get the logic of signs and periods, it becomes second nature.
 
-**Alex:** Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
+**Horace:** Exactly. It is like learning to drive. At first you are thinking about every little action. After a while, it is just muscle memory. Go practice the examples we covered today. Try changing the inputs and see how the outputs change. That is how you build real intuition.
 
 **[VISUAL: Recap screen listing key topics: "TVM Keys | Sign Convention | P/Y Settings | NPV & IRR | Bond Calculations | Amortization"]**
 
-**Sam:** Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
+**Stella:** Next time we will use these skills on real-world cases. But for now, grab your calculator and start punching numbers. See you in the next one.
 
 **[VISUAL: End card with channel info and "Next: Side Lesson 02 -- Reading a 10-K Filing"]**
 
