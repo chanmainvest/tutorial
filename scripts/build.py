@@ -349,16 +349,16 @@ def build_page_list(course_files):
         "level": None, "type": "info", "nav_title": "Glossary",
     })
 
-    if "disclaimer.md" in course_files:
-        pages.append({
-            "slug": "disclaimer", "file": "disclaimer.md", "title": "Disclaimer",
-            "level": None, "type": "info", "nav_title": "Disclaimer",
-        })
-
     if "faq.md" in course_files:
         pages.append({
             "slug": "faq", "file": "faq.md", "title": "FAQ",
             "level": None, "type": "info", "nav_title": "FAQ",
+        })
+
+    if "disclaimer.md" in course_files:
+        pages.append({
+            "slug": "disclaimer", "file": "disclaimer.md", "title": "Disclaimer",
+            "level": None, "type": "info", "nav_title": "Disclaimer",
         })
 
     return pages
@@ -589,6 +589,9 @@ SITE_CSS = """
     --menu-text: #2d3748;
     --menu-hover: #f1ece2;
     --menu-sub-bg: #f8f4eb;
+    --scrollbar-track: #f1ece2;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #a8893f;
 }
 
 html[data-theme="dark"] {
@@ -617,6 +620,9 @@ html[data-theme="dark"] {
     --menu-text: #d6dee8;
     --menu-hover: rgba(197,164,78,0.12);
     --menu-sub-bg: #0f1724;
+    --scrollbar-track: #0a0f1a;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #d8bb6c;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -793,6 +799,21 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
     flex-direction: column;
     overflow-y: auto;
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    /* Theme-aware scrollbar (Firefox + Chromium) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar { width: 10px; }
+.menu-panel::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 2px solid var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
 }
 /* Right-side variant (legacy) */
 .menu-panel:not(.menu-panel-left) {

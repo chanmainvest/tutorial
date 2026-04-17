@@ -32,6 +32,9 @@
     --menu-text: #2d3748;
     --menu-hover: #f1ece2;
     --menu-sub-bg: #f8f4eb;
+    --scrollbar-track: #f1ece2;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #a8893f;
 }
 
 html[data-theme="dark"] {
@@ -60,6 +63,9 @@ html[data-theme="dark"] {
     --menu-text: #d6dee8;
     --menu-hover: rgba(197,164,78,0.12);
     --menu-sub-bg: #0f1724;
+    --scrollbar-track: #0a0f1a;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #d8bb6c;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -236,6 +242,21 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
     flex-direction: column;
     overflow-y: auto;
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    /* Theme-aware scrollbar (Firefox + Chromium) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar { width: 10px; }
+.menu-panel::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 2px solid var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
 }
 /* Right-side variant (legacy) */
 .menu-panel:not(.menu-panel-left) {
@@ -693,8 +714,8 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <a href="side30.html" class="menu-sublink">Side 30: Wheel strategy</a>
 </div></div>
 <a href="glossary.html" class="menu-link">Glossary</a>
-<a href="disclaimer.html" class="menu-link">Disclaimer</a>
-<a href="faq.html" class="menu-link">FAQ</a></div><div class="lang-swap" data-lang-section="hk"><a href="index.html" class="menu-link menu-top">首頁</a>
+<a href="faq.html" class="menu-link">FAQ</a>
+<a href="disclaimer.html" class="menu-link">Disclaimer</a></div><div class="lang-swap" data-lang-section="hk"><a href="index.html" class="menu-link menu-top">首頁</a>
 <div class="menu-group">
 <button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
@@ -812,8 +833,8 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <a href="side30.html" class="menu-sublink">附加課程 30：滾輪策略</a>
 </div></div>
 <a href="glossary.html" class="menu-link">詞彙表</a>
-<a href="disclaimer.html" class="menu-link">免責聲明</a>
-<a href="faq.html" class="menu-link">常見問題</a></div><div class="lang-swap" data-lang-section="tw"><a href="index.html" class="menu-link menu-top">首頁</a>
+<a href="faq.html" class="menu-link">常見問題</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a></div><div class="lang-swap" data-lang-section="tw"><a href="index.html" class="menu-link menu-top">首頁</a>
 <div class="menu-group">
 <button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
@@ -931,8 +952,8 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <a href="side30.html" class="menu-sublink">補充課程 30：滾輪策略</a>
 </div></div>
 <a href="glossary.html" class="menu-link">詞彙表</a>
-<a href="disclaimer.html" class="menu-link">免責聲明</a>
-<a href="faq.html" class="menu-link">常見問題</a></div><div class="lang-swap" data-lang-section="cn"><a href="index.html" class="menu-link menu-top">首页</a>
+<a href="faq.html" class="menu-link">常見問題</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a></div><div class="lang-swap" data-lang-section="cn"><a href="index.html" class="menu-link menu-top">首页</a>
 <div class="menu-group">
 <button class="menu-trigger" type="button" aria-expanded="false"><span>第一级：入门</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
@@ -1050,8 +1071,8 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <a href="side30.html" class="menu-sublink">补充课程 30：滚轮策略</a>
 </div></div>
 <a href="glossary.html" class="menu-link">词汇表</a>
-<a href="disclaimer.html" class="menu-link">免责声明</a>
-<a href="faq.html" class="menu-link">常见问题</a></div>
+<a href="faq.html" class="menu-link">常见问题</a>
+<a href="disclaimer.html" class="menu-link">免责声明</a></div>
         </div>
     </aside>
 
