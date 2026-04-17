@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1423,239 +1452,6 @@ A: You can, but it is generally not recommended for beginners. Legging in expose
 <p>
 A: For a typical retail account ($50,000-$200,000), 3-5 iron condor positions at any given time is reasonable. Diversify across different underlyings and stagger entry dates by one to two weeks. This ensures you do not have all positions expiring at the same time and reduces correlation risk. Total capital at risk in iron condors should not exceed 15-20% of your portfolio.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 30: Spreads and Condors - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace:</strong> Welcome back. Last week we learned the option Greeks. This week we are going to use those Greeks to build more sophisticated options positions. We are talking about spreads and iron condors.
-</p>
-<p>
-<strong>Stella:</strong> This is exciting because one of the limitations of covered calls and cash-secured puts is the capital requirement. You need to own 100 shares or set aside $14,000 in cash. Spreads seem like they can do similar things with much less capital.
-</p>
-<p>
-<strong>Horace:</strong> That is exactly right. A cash-secured put on Apple might require $15,000 in capital. A put spread on Apple might require $350. You achieve similar economic exposure with a fraction of the capital. And more importantly, your maximum loss is defined before you enter the trade.
-</p>
-<p>
-[VISUAL: Side-by-side comparison. Left: "Cash-Secured Put" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "Bull Put Spread" showing $350 capital, $150 max profit, $350 max loss. Annotation: "27x less capital required."]
-</p>
-<p>
-<strong>Stella:</strong> Let us start with the basics. What exactly is a spread?
-</p>
-<p>
-<strong>Horace:</strong> A spread is simply buying one option and selling another option on the same stock. By combining a long and short option, you create a position where both your profit and your loss are limited. The two options partially offset each other.
-</p>
-<p>
-<strong>Stella:</strong> And there are different types of spreads?
-</p>
-<p>
-<strong>Horace:</strong> There are four basic vertical spreads. A vertical spread means both options have the same expiration but different strike prices. You have the bull call spread, the bear put spread, the bull put spread, and the bear call spread. The first two are debit spreads where you pay money to enter. The second two are credit spreads where you receive money to enter.
-</p>
-<p>
-[VISUAL: A 2x2 grid. Columns: "Debit (You Pay)" and "Credit (You Receive)". Rows: "Bullish" and "Bearish". Bull Call Spread in top-left, Bull Put Spread in top-right, Bear Put Spread in bottom-left, Bear Call Spread in bottom-right]
-</p>
-<p>
-<strong>Stella:</strong> Let us walk through a bull call spread first since it is the most intuitive.
-</p>
-<p>
-<strong>Horace:</strong> Sure. Let us say Apple is at $150 and you are moderately bullish. You buy the $150 call for $5.00 and you sell the $155 call for $2.50. Your net cost is $2.50 per share, or $250 per spread. That is your maximum loss. Your maximum profit is the difference between the strikes, $5.00, minus what you paid, $2.50, which equals $2.50 per share or $250.
-</p>
-<p>
-[ANIMATION: Reference animation/week30_spread_payoff.py - Building a spread payoff diagram step by step. First, the long call payoff line appears (the classic hockey stick shape starting at -$500 at $150 and rising after $150). Then the short call payoff appears (inverted hockey stick starting at +$250 at $155). Finally, the two are combined into the spread payoff, which shows the characteristic shape: flat at -$250 below $150, rising between $150 and $155, and flat at +$250 above $155.]
-</p>
-<p>
-<strong>Stella:</strong> So my maximum risk is the $250 I paid, and no matter how high Apple goes, I can only make $250?
-</p>
-<p>
-<strong>Horace:</strong> Correct. You have capped both your downside and your upside. The breakeven is $152.50, which is the lower strike plus the premium paid. Below $150, you lose the full $250. Between $150 and $155, your profit increases linearly. Above $155, you keep the maximum $250.
-</p>
-<p>
-<strong>Stella:</strong> And how does this compare to just buying the $150 call outright?
-</p>
-<p>
-<strong>Horace:</strong> Great question. If you just bought the $150 call for $5.00, your maximum loss is $500, and your profit potential is unlimited. The spread costs $250 instead of $500, so you risk half as much. But you give up anything above $155. The spread is more capital efficient but has a capped reward.
-</p>
-<p>
-[VISUAL: Two payoff diagrams overlaid. Solid line: Bull Call Spread, showing the characteristic capped shape. Dashed line: Long Call alone, showing unlimited upside. The area between them above $155 is shaded and labeled "Upside you give up in exchange for lower cost and lower risk"]
-</p>
-<p>
-<strong>Stella:</strong> Now let us talk about credit spreads. These are the income-generating version, right?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. With a credit spread, you receive money upfront and your goal is for both options to expire worthless. Let me walk through a bull put spread. Apple is at $155. You sell the $150 put for $2.80 and buy the $145 put for $1.30. You receive a net credit of $1.50 per share, or $150 per spread.
-</p>
-<p>
-<strong>Stella:</strong> So I get paid $150 to enter the trade. What are the outcomes?
-</p>
-<p>
-<strong>Horace:</strong> If Apple stays above $150 at expiration, both puts expire worthless and you keep the entire $150. That is your maximum profit. If Apple drops below $145, you hit maximum loss: the $5.00 width minus the $1.50 credit, which is $3.50 per share or $350 per spread. In between, there is a breakeven at $148.50.
-</p>
-<p>
-[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL currently at $155 - you have $6.50 of cushion"]
-</p>
-<p>
-<strong>Stella:</strong> So I need Apple to stay above $148.50 to profit. And it is currently at $155. That seems very doable.
-</p>
-<p>
-<strong>Horace:</strong> And that is the appeal of credit spreads. You do not need the stock to go up. You just need it to not go down too much. The probability of profit is around 70% for this trade, based on the delta of the short strike.
-</p>
-<p>
-<strong>Stella:</strong> Now let us get to the star of the show. The iron condor.
-</p>
-<p>
-<strong>Horace:</strong> The iron condor is simply a bull put spread and a bear call spread on the same stock, same expiration. You are selling premium on both sides, betting that the stock stays within a range.
-</p>
-<p>
-[ANIMATION: Reference animation/week30_iron_condor_build.py - Building an iron condor step by step. First, a stock price at $150 with a number line. Then the bull put spread appears below: sell $140 put and buy $135 put, with the payoff shape shown below the line. Then the bear call spread appears above: sell $160 call and buy $165 call, with the payoff shape shown above the line. Finally, both are combined into the complete iron condor payoff, showing the characteristic "table top" shape: loss zones on both ends, profit plateau in the middle.]
-</p>
-<p>
-<strong>Stella:</strong> Walk me through a specific example.
-</p>
-<p>
-<strong>Horace:</strong> Apple is at $150. On the downside, I sell the $140 put for $1.20 and buy the $135 put for $0.50. On the upside, I sell the $160 call for $1.00 and buy the $165 call for $0.30. Total credit received: $1.40 per share, or $140 per iron condor.
-</p>
-<p>
-<strong>Stella:</strong> And the maximum loss?
-</p>
-<p>
-<strong>Horace:</strong> The maximum loss is the width of one spread, $5.00, minus the total credit, $1.40, which equals $3.60 per share or $360. This happens if Apple drops below $135 or rises above $165 at expiration.
-</p>
-<p>
-<strong>Stella:</strong> What is the profit zone?
-</p>
-<p>
-<strong>Horace:</strong> The profit zone is between the two breakevens. Lower breakeven is $140 minus $1.40, which is $138.60. Upper breakeven is $160 plus $1.40, which is $161.40. So Apple needs to stay between $138.60 and $161.40. That is a $22.80 range, or about 7.6% in either direction from the current price.
-</p>
-<p>
-[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "Profit Zone: $138.60 to $161.40 (15.2% total range)" and "Probability of Profit: ~67%"]
-</p>
-<p>
-<strong>Stella:</strong> Let us look at the Greeks for this iron condor, because that connects to what we learned last week.
-</p>
-<p>
-<strong>Horace:</strong> Great idea. The iron condor has near-zero delta, which means it is market neutral. It does not care if the stock goes up or down a little. It has negative gamma, which means big moves in either direction hurt. It has positive theta, meaning you earn money every day from time decay. And it has negative vega, meaning you benefit when implied volatility decreases.
-</p>
-<p>
-[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/day (with a dollar sign icon). Vega: -$4 per 1% IV (with a down-arrow icon). Commentary below each: "Market neutral", "Big moves hurt", "Earns $3/day", "Lower IV helps"]
-</p>
-<p>
-<strong>Stella:</strong> So it is basically a bet that things stay boring?
-</p>
-<p>
-<strong>Horace:</strong> That is a perfect way to describe it. And here is the thing: markets are boring most of the time. Stocks spend roughly 70 to 80% of their time in consolidation ranges. The iron condor is designed to profit during those boring periods.
-</p>
-<p>
-<strong>Stella:</strong> OK, now here is the critical question. How do we manage these positions? Because I know from the reading that management is what separates profitable condor traders from losing ones.
-</p>
-<p>
-<strong>Horace:</strong> This is the most important part of the entire lesson. Rule number one: take profits early. When your iron condor has captured 50% of the maximum profit, close it. Do not wait for the remaining 50%.
-</p>
-<p>
-<strong>Stella:</strong> Why not? If it is working, why not let it run?
-</p>
-<p>
-<strong>Horace:</strong> Because the risk-reward flips. In the first half of the trade, you are capturing $70 of profit while risking a $360 max loss. Once you have captured $70, you are now risking $360 to make an additional $70. The last 50% of profit takes disproportionately longer and exposes you to increasing gamma risk as expiration approaches.
-</p>
-<p>
-[VISUAL: A risk/reward timeline. Left side "Day 1-15" showing "Earning $70 profit" with low risk meter. Right side "Day 15-30" showing "Earning final $70" with high risk meter. Arrow pointing to day 15 saying "Close here for optimal risk-adjusted return"]
-</p>
-<p>
-<strong>Stella:</strong> That makes a lot of sense. What is rule number two?
-</p>
-<p>
-<strong>Horace:</strong> Cut your losses at a predetermined level. I recommend closing if the loss reaches 1.5 to 2 times the credit received. So if you received $1.40, close if the spread is worth $2.80 to $3.50. Never let a spread reach maximum loss.
-</p>
-<p>
-<strong>Stella:</strong> And rule number three?
-</p>
-<p>
-<strong>Horace:</strong> Close before expiration week. Gamma risk becomes extreme in the last five to seven trading days, especially for at-the-money strikes. If the stock has drifted toward one of your short strikes, you are sitting on a time bomb of gamma. Close the position and redeploy into a new expiration cycle.
-</p>
-<p>
-[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "Trading Zone". Days 22-25 in yellow labeled "Consider closing". Days 26-30 in red labeled "Danger Zone - Close!"]
-</p>
-<p>
-<strong>Stella:</strong> What if one side of the condor is being threatened? Like if Apple starts dropping toward my $140 put?
-</p>
-<p>
-<strong>Horace:</strong> You have several options. First, you can close the entire iron condor and accept the loss on the threatened side while banking the profit on the winning side. Second, you can close just the threatened side and leave the winning side on. Third, you can roll the threatened side to a lower strike and further expiration.
-</p>
-<p>
-<strong>Stella:</strong> Can you walk through the rolling scenario?
-</p>
-<p>
-<strong>Horace:</strong> Sure. Say you sold the $140/$135 put spread as part of your condor, and Apple has dropped to $142. The put spread is now worth $2.50, meaning you have a $1.10 loss on that side. But the call spread side is nearly worthless since Apple moved away from $160. You can close the entire put spread for $2.50, then simultaneously sell a new $138/$133 put spread 30 days out for maybe $1.80. Your net cost to roll is $0.70. You now have more time and a lower short strike.
-</p>
-<p>
-[ANIMATION: Reference animation/week30_condor_adjustment.py - An iron condor payoff diagram on a stock that starts at $150. The stock price dot moves to $142. The left side of the condor flashes red. Then the animation shows the left side being "lifted" and moved to a new, lower position ($138/$133), with the payoff diagram adjusting in real-time. A timer resets from 15 days to 45 days, showing the extra time gained.]
-</p>
-<p>
-<strong>Stella:</strong> But you only roll if your thesis is intact, right? If Apple is crashing because of bad news, maybe you just close and move on.
-</p>
-<p>
-<strong>Horace:</strong> Exactly. Rolling is for when the stock has drifted but your thesis of range-bound behavior is still valid. If the stock has fundamentally broken out, if there is a regime change, close the position and reassess. Never roll into a hole. One roll is fine. Two rolls is aggressive. Three rolls means your thesis was wrong.
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about position sizing. How many condors should someone trade?
-</p>
-<p>
-<strong>Horace:</strong> The golden rule is never risk more than 2 to 5% of your total portfolio on a single spread or iron condor. For a $100,000 portfolio at 3% risk per trade, your max risk is $3,000. With an iron condor that has $360 max loss, you could trade up to 8 contracts. But I would suggest diversifying across 3 to 5 different underlyings rather than putting all 8 contracts on one stock.
-</p>
-<p>
-[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "Options Spreads - Active Income". The rest shows "Stocks 60%", "Bonds 25%", "Cash 11%". A zoom-in on the Options Spreads slice shows it divided into: "AAPL Condor 1.1%", "SPY Condor 0.7%", "MSFT Put Spread 1.2%", "QQQ Call Spread 1.0%"]
-</p>
-<p>
-<strong>Stella:</strong> What about choosing between individual stocks and indexes for iron condors?
-</p>
-<p>
-<strong>Horace:</strong> Indexes like SPY, QQQ, and IWM have major advantages for iron condors. They are extremely liquid with tight bid-ask spreads. They cannot gap as dramatically as individual stocks because they are diversified baskets. And if you use SPX options instead of SPY, they qualify for 60/40 tax treatment: 60% long-term capital gains and 40% short-term, regardless of how long you hold. That tax advantage alone can add 1 to 2% annually.
-</p>
-<p>
-<strong>Stella:</strong> But individual stocks have higher premiums, right? Because they are more volatile?
-</p>
-<p>
-<strong>Horace:</strong> They do, and that is the tradeoff. Higher premium but also higher risk. An individual stock can gap 10% on earnings. SPY might gap 3% on a terrible news day. For pure income generation via iron condors, I lean toward index options. For directional views expressed through spreads, individual stocks can make sense.
-</p>
-<p>
-<strong>Stella:</strong> Let me ask about debit spreads versus credit spreads. When would I use one over the other?
-</p>
-<p>
-<strong>Horace:</strong> Use credit spreads when implied volatility is high and you want to profit from time decay. You are essentially saying, "I do not think the stock will reach this level." Use debit spreads when you have a directional conviction and IV is low or moderate. You are saying, "I think the stock will move in this direction." High IV makes credit spreads attractive because you collect more premium. Low IV makes debit spreads attractive because options are cheap to buy.
-</p>
-<p>
-[VISUAL: A decision flowchart. "What is your view?" branches into "Directional" and "Neutral/Range-bound". "Directional" leads to "Is IV high?" If yes: "Credit spread in the direction you expect". If no: "Debit spread in the direction you expect". "Neutral/Range-bound" leads directly to "Iron Condor (credit on both sides)"]
-</p>
-<p>
-<strong>Stella:</strong> Before we wrap up, can you give me the key metrics to check before entering a spread trade?
-</p>
-<p>
-<strong>Horace:</strong> Here is my checklist. One, probability of profit should be above 60% for credit spreads. Two, risk-to-reward ratio should be reasonable, ideally the maximum loss should be no more than 3 to 4 times the maximum profit for credit spreads. Three, the credit received should be at least 20 to 30% of the width of the spread to ensure adequate premium. Four, implied volatility rank should be above 30 for credit spreads, meaning IV is in the upper third of its annual range. Five, there should be no major earnings or catalysts before expiration. And six, position size should be under 5% of portfolio risk.
-</p>
-<p>
-[VISUAL: Checklist displayed on screen: "Pre-Trade Checklist for Credit Spreads" with six items, each with a checkbox: "1. Probability of Profit > 60%", "2. Max Loss < 4x Max Profit", "3. Credit > 20% of spread width", "4. IV Rank > 30", "5. No earnings/catalysts in window", "6. Position risk < 5% of portfolio"]
-</p>
-<p>
-<strong>Stella:</strong> That is a solid framework. I feel like I could actually start using this.
-</p>
-<p>
-<strong>Horace:</strong> And you should start small. Paper trade your first 10 iron condors. Get comfortable with the mechanics, the management rules, and the emotional discipline of taking profits at 50% and cutting losses at 2x. Once you are consistent in paper trading, move to one or two real contracts.
-</p>
-<p>
-<strong>Stella:</strong> Next week we are moving to fixed income, right? Yield curves?
-</p>
-<p>
-<strong>Horace:</strong> That is right. We are taking a break from options to build our bond knowledge. We will come back to options in Week 37. But everything we learned about Greeks and spreads will be waiting for you when we return.
-</p>
-<p>
-<strong>Stella:</strong> Thanks, everyone. See you next week.
-</p>
-<p>
-[VISUAL: End screen with show logo, "Week 30: Spreads and Condors" summary, and preview of Week 31: Yield Curves]
-</p>
-<p>
-<strong>Horace:</strong> See you then.
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第30週：價差與鐵鷹式策略——有限風險期權策略</h1>
@@ -2414,239 +2210,6 @@ $135      $140                     $160      $165
 </p>
 <p>
 答：對於典型的零售賬戶（5萬至20萬美元），同時持有3至5個鐵鷹式策略倉位是合理的。在不同標的分散風險，並將入場日期錯開一至兩週。這確保所有倉位不在同一時間到期，從而降低相關性風險。鐵鷹式策略佔投資組合的總風險資金不應超過15至20%。
-</p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: 動態片頭，節目標誌。文字：「第30週：價差與鐵鷹式策略——三級：進階」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎回來。上週我們學了期權希臘字母，今週我們要利用這些知識來建立更複雜的期權倉位。我們要討論的是價差策略和鐵鷹式策略。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好興奮！因為備兌認購期權和現金擔保認沽期權的其中一個限制，就是資金門檻很高。你需要持有100股，或者預留1.4萬美元現金。價差策略看起來可以用少得多的資金達到類似效果。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。蘋果公司的現金擔保認沽期權可能需要1.5萬美元資金，但蘋果公司的認沽期權價差可能只需350美元。你用一小部分資金達到相近的經濟風險敞口。更重要的是，你在入場前便已知道最大虧損是多少。
-</p>
-<p>
-[VISUAL: 並排比較。左方：「現金擔保認沽期權」——顯示15,000美元資金、280美元最大利潤、15,000美元最大虧損。右方：「牛市認沽期權價差」——顯示350美元資金、150美元最大利潤、350美元最大虧損。標注：「所需資金少27倍。」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們先從基礎說起。什麼是價差？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 價差簡單來說，就是在同一隻股票上同時買入一個期權並賣出另一個期權。透過組合多頭和空頭期權，你建立了一個盈虧均有上限的倉位。兩個期權部分互相抵銷。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 價差有不同類型嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有四種基本的垂直價差。垂直價差是指兩個期權的到期日相同，但行使價不同。分別是：牛市認購期權價差、熊市認沽期權價差、牛市認沽期權價差，以及熊市認購期權價差。前兩種是付出期權金價差，你需要付款入場；後兩種是收取期權金價差，入場時你會收到款項。
-</p>
-<p>
-[VISUAL: 2x2方格。橫軸：「付出期權金（你付款）」和「收取期權金（你收款）」。縱軸：「看漲」和「看跌」。左上：牛市認購期權價差；右上：牛市認沽期權價差；左下：熊市認沽期權價差；右下：熊市認購期權價差]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們先逐步講解牛市認購期權價差，因為它最直觀。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 好的。假設蘋果公司股價是150美元，你對後市適度看漲。你以5.00美元買入150美元認購期權，同時以2.50美元賣出155美元認購期權。你的淨成本是每股2.50美元，即每個價差250美元。這就是你的最大虧損。你的最大利潤是兩個行使價之差5.00美元，減去你付出的2.50美元，等於每股2.50美元，即250美元。
-</p>
-<p>
-[ANIMATION: 參考animation/week30_spread_payoff.py——逐步建立價差損益圖。首先，多頭認購期權的損益線出現（從150美元的-500美元開始向右上方延伸的經典曲棍球棒形狀）。然後，空頭認購期權的損益線出現（從155美元開始的反向曲棍球棒形狀）。最後，兩者合併成價差損益圖，顯示出典型形狀：150美元以下持平於-250美元，150至155美元間線性上升，155美元以上持平於+250美元。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以我的最大風險是付出的250美元，無論蘋果公司升得多高，我也只能賺到250美元？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正確。你已同時為下行和上行設定上限。損益平衡點是152.50美元，即較低行使價加上已付期權金。低於150美元時，你損失全部250美元；150至155美元之間，利潤線性增加；高於155美元時，你鎖定最大利潤250美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這與直接買入150美元認購期權相比如何？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 好問題。若你直接以5.00美元買入150美元認購期權，最大虧損是500美元，而利潤潛力無限。價差只需250美元，風險減半。但你放棄了155美元以上的所有利潤。價差的資金效率更高，但回報有上限。
-</p>
-<p>
-[VISUAL: 兩條損益圖疊加。實線：牛市認購期權價差，顯示有上限的特徵形狀。虛線：單獨買入認購期權，顯示無限上行空間。155美元以上兩條線之間的區域以陰影標示，標注：「為換取更低成本和更低風險而放棄的上行空間」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在談談收取期權金價差。這是用於產生收益的版本，對嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。透過收取期權金價差，你在入場時先收取款項，目標是讓兩個期權均到期作廢。讓我用牛市認沽期權價差來說明。蘋果公司股價155美元。你以2.80美元賣出150美元認沽期權，同時以1.30美元買入145美元認沽期權。你的淨收取期權金是每股1.50美元，即每個價差150美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以入場時我收到150美元。可能的結果有哪些？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 若蘋果公司到期時維持在150美元以上，兩張認沽期權均到期作廢，你保留全部150美元，這是最大利潤。若蘋果公司跌破145美元，你觸及最大虧損：5.00美元的寬度減去1.50美元期權金，即每股3.50美元或每個價差350美元。損益平衡點在兩者之間的148.50美元。
-</p>
-<p>
-[VISUAL: 牛市認沽期權價差損益圖，附有標注。150美元以上為持平的+150美元線。150至145美元之間為斜線。145美元以下為持平的-350美元線。損益平衡點標注於148.50美元。標注：「蘋果公司目前報155美元——你有6.50美元的緩衝空間」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以我需要蘋果公司維持在148.50美元以上才能獲利。而它目前在155美元。這看起來很有把握。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 而這正是收取期權金價差的吸引力所在。你不需要股票上漲，只需要它不要跌得太厲害。基於空頭行使價的Delta，這筆交易的獲利概率約為70%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在我們進入今天的主角——鐵鷹式策略。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 鐵鷹式策略就是在同一隻股票、同一到期日上，同時組合牛市認沽期權價差和熊市認購期權價差。你在兩側均賣出期權金，押注股票維持在某個區間內。
-</p>
-<p>
-[ANIMATION: 參考animation/week30_iron_condor_build.py——逐步建立鐵鷹式策略。首先，當前股價150美元和一條數軸。然後，牛市認沽期權價差出現於下方：賣出140美元認沽期權並買入135美元認沽期權，損益形狀顯示於數軸下方。接著，熊市認購期權價差出現於上方：賣出160美元認購期權並買入165美元認購期權，損益形狀顯示於數軸上方。最後，兩者合併成完整的鐵鷹式策略損益圖，顯示出「桌面」形狀：兩端為虧損區，中間為獲利平台。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 可以帶我們走一遍具體例子嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然。蘋果公司股價150美元。在下行方向，我以1.20美元賣出140美元認沽期權，同時以0.50美元買入135美元認沽期權。在上行方向，我以1.00美元賣出160美元認購期權，同時以0.30美元買入165美元認購期權。總計淨收取期權金：每股1.40美元，即每張鐵鷹式策略140美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最大虧損是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最大虧損是單個價差的寬度5.00美元，減去總收取期權金1.40美元，等於每股3.60美元或360美元。當蘋果公司在到期日跌破135美元或升破165美元時，就會觸及最大虧損。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 獲利區間是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 獲利區間在兩個損益平衡點之間。下方損益平衡點是140美元減1.40美元，等於138.60美元。上方損益平衡點是160美元加1.40美元，等於161.40美元。所以蘋果公司需要維持在138.60至161.40美元之間。這是一個22.80美元的區間，約等於從當前股價起任一方向移動7.6%以內。
-</p>
-<p>
-[VISUAL: 經典鐵鷹式策略損益圖，獲利區間以綠色標示。當前股價150美元標注於中央。圖表下方顯示：「獲利區間：138.60至161.40美元（總區間15.2%）」和「獲利概率：約67%」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來看看這個鐵鷹式策略的希臘字母，這與我們上週學的內容直接相關。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 好主意。鐵鷹式策略的Delta接近零，即市場中性——股票小幅漲跌對它影響不大。它的Gamma是負值，意味著任一方向的大幅移動均對倉位不利。它的Theta是正值，意思是每天都能從時間值衰減中賺錢。它的Vega是負值，即隱含波動率下降時有利。
-</p>
-<p>
-[VISUAL: 鐵鷹式策略的希臘字母儀表板。Delta：+0.01（接近零，綠色打勾）。Gamma：-0.009（警示符號）。Theta：每天+3美元（美元符號圖標）。Vega：每1%隱含波動率變動-4美元（向下箭頭圖標）。每項下方附解說：「市場中性」、「大幅移動不利」、「每天賺取3美元」、「隱含波動率下降有利」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以本質上是押注市場保持平靜？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是一個完美的描述。而且事實是：市場大多數時候確實很平靜。股票大約有70至80%的時間在整理區間內波動。鐵鷹式策略正是為這些平淡時期而設計的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，現在最關鍵的問題來了。我們如何管理這些倉位？因為閱讀材料提到，管理能力才是決定鐵鷹式策略交易員盈虧的關鍵。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是整節課最重要的部分。第一條規則：提早止盈。當鐵鷹式策略已賺取最大利潤的50%時，平倉。不要等待剩餘的50%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為什麼不呢？如果策略正在發揮作用，為什麼不繼續持有？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 因為風險回報比發生了逆轉。在交易的前半段，你賺取70美元利潤，同時承受最大360美元的虧損風險。一旦你已賺取70美元，你現在是冒著損失360美元的風險，去賺取額外的70美元。最後50%的利潤需要不成比例地更長時間，而且隨著到期日臨近，Gamma風險也在急劇增加。
-</p>
-<p>
-[VISUAL: 風險回報時間軸。左側「第1至15天」顯示「賺取70美元利潤」，風險計量器顯示較低。右側「第15至30天」顯示「賺取最後70美元」，風險計量器顯示較高。箭頭指向第15天，標注：「在此平倉以獲得最佳風險調整後回報」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這很有道理。第二條規則是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在預設水平止損。我建議若虧損達到已收期權金的1.5至2倍時平倉。所以若你收取了1.40美元，當價差價值達到2.80至3.50美元時即平倉。絕不讓價差達到最大虧損。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第三條規則呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在到期週前平倉。Gamma風險在最後五至七個交易日會變得極為嚴峻，尤其是接近平值的行使價。若股票已向你的某個空頭行使價靠攏，你手上就持有著一顆Gamma定時炸彈。平倉並轉入新的到期月份。
-</p>
-<p>
-[VISUAL: 顯示30天期權生命週期的日曆。第1至21天以綠色標示，標注「交易窗口」。第22至25天以黃色標示，標注「考慮平倉」。第26至30天以紅色標示，標注「危險區——必須平倉！」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果鐵鷹式策略的某一側受到威脅怎麼辦？比如蘋果公司開始跌向我140美元的認沽期權行使價？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你有幾個選擇。第一，平倉整個鐵鷹式策略，接受受威脅一側的損失，同時鎖定獲利一側的利潤。第二，只平倉受威脅的一側，讓獲利的一側繼續持有。第三，將受威脅的一側轉倉至更遠的到期日或更低的行使價。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 可以詳細說說轉倉的情況嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然。假設你作為鐵鷹式策略的一部分賣出了140美元／135美元認沽期權價差，而蘋果公司已下跌至142美元，接近你的140美元空頭行使價。認沽期權價差現時值2.50美元，意味著該部分已虧損1.10美元。但由於蘋果公司已遠離160美元，認購期權價差那側幾乎毫無價值，賺了錢。你可以以2.50美元平倉整個認沽期權價差，然後同時在30天後的到期日賣出新的138美元／133美元認沽期權價差，或可收取約1.80美元。轉倉的淨成本是0.70美元。你現在有了更多時間和更低的空頭行使價。
-</p>
-<p>
-[ANIMATION: 參考animation/week30_condor_adjustment.py——一個以150美元為起點的股票鐵鷹式策略損益圖。股價點移動至142美元。鐵鷹式策略左側閃爍紅色。然後動畫顯示左側被「拾起」並移至新的、更低的位置（138美元／133美元），損益圖實時調整。計時器從15天重置為45天，顯示獲得的額外時間。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但你只在論點仍然成立的情況下才轉倉，對嗎？如果蘋果公司因為壞消息而急跌，也許你就應該直接平倉了事。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。轉倉適用於股票只是緩慢漂移、但你認為區間整理的論點仍然成立的情況。若股票已發生根本性突破，若市場格局已改變，則平倉並重新評估。絕不要「越轉越深」。轉倉一次沒問題，轉倉兩次已算進取，轉倉三次則說明你的論點從一開始就是錯的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們談談倉位規模管理。一個人應該同時交易多少個鐵鷹式策略倉位？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 黃金法則是：單個價差或鐵鷹式策略的風險永遠不應超過投資組合總值的2至5%。對於一個10萬美元的投資組合，每筆交易風險3%，即最大風險3,000美元。鐵鷹式策略最大虧損為360美元，你最多可以交易8張合約。但我建議將其分散至3至5個不同標的，而非全部集中在一隻股票上。
-</p>
-<p>
-[VISUAL: 10萬美元投資組合的餅圖。一個小切片（4%）標注「期權價差——主動收益」。其餘顯示「股票60%」、「債券25%」、「現金11%」。期權價差切片放大後分為：「蘋果公司鐵鷹式策略1.1%」、「標普500ETF鐵鷹式策略0.7%」、「微軟公司認沽期權價差1.2%」、「納指ETF認購期權價差1.0%」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那麼在個股和指數之間如何選擇鐵鷹式策略的標的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 指數，如標普500ETF、納指ETF和羅素2000ETF，在鐵鷹式策略上有重大優勢。它們流動性極高，買賣差價很窄。它們不會像個股般大幅跳空，因為它們是分散化的籃子。而且若你使用標普500指數期權而非標普500ETF期權，可享有60/40稅務待遇：60%為長期資本利得，40%為短期，不論持倉時間長短。僅這一稅務優勢每年便可帶來1至2%的額外回報。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但個股有更高的期權金，對吧？因為波動性更大？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是的，而這正是取捨所在。期權金更高，但風險也更高。個股可能因業績公佈而跳空10%。標普500ETF在非常惡劣的消息面下可能跳空3%。對於透過鐵鷹式策略純粹產生收益而言，我傾向使用指數期權。對於透過價差表達方向性觀點，個股是有其道理的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我想問一下付出期權金價差和收取期權金價差。什麼時候應該用哪一個？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當隱含波動率高、你想從時間值衰減中獲利時，使用收取期權金價差。你的立場本質上是：「我不認為股票會到達這個水平。」當你有方向性信念、且隱含波動率低或中等時，使用付出期權金價差。你的立場是：「我認為股票會向這個方向移動。」高隱含波動率讓收取期權金價差更具吸引力，因為你能收取更多期權金。低隱含波動率讓付出期權金價差更具吸引力，因為期權的購買成本便宜。
-</p>
-<p>
-[VISUAL: 決策流程圖。「你的市場觀點？」分叉為「方向性」和「中性／區間整理」。「方向性」引向「隱含波動率高嗎？」若是：「沿預期方向建立收取期權金價差」；若否：「沿預期方向建立付出期權金價差」。「中性／區間整理」直接引向「鐵鷹式策略（兩側均收取期權金）」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在我們結束之前，能給我整理一下入場價差交易前需要確認的關鍵指標嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 以下是我的核查清單。第一，收取期權金價差的獲利概率應高於60%。第二，風險回報比應合理，理想情況下收取期權金價差的最大虧損不應超過最大利潤的3至4倍。第三，收取的期權金至少應佔價差寬度的20至30%，以確保有足夠的期權金收入。第四，隱含波動率排名應高於30，意味著當前隱含波動率處於年內高位的三分之一以上，適合使用收取期權金價差。第五，到期日前不應有重大業績公佈或催化劑。第六，倉位風險應低於投資組合的5%。
-</p>
-<p>
-[VISUAL: 屏幕顯示核查清單：「收取期權金價差入場前核查清單」，六項各帶一個核取方塊：「1. 獲利概率 > 60%」、「2. 最大虧損 < 最大利潤的4倍」、「3. 期權金 > 價差寬度的20%」、「4. 隱含波動率排名 > 30」、「5. 到期窗口內無業績公佈／催化劑」、「6. 倉位風險 < 投資組合的5%」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這是一個很紮實的框架。我感覺我真的可以開始實際運用了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你應該從小做起。先用模擬賬戶交易前10個鐵鷹式策略，熟悉操作機制、管理規則，以及在50%時止盈、2倍時止損所需的情緒紀律。在模擬交易中取得穩定成績後，再轉到一兩張真實合約。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 下週我們是要轉到固定收益，講收益率曲線，對嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 沒錯。我們要暫別期權，建立債券方面的知識。我們會在第37週回到期權。但你今天學到的所有關於希臘字母和價差的知識，到時候都會派上用場。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 謝謝大家。下週見。
-</p>
-<p>
-[VISUAL: 片尾畫面，節目標誌，「第30週：價差與鐵鷹式策略」內容摘要，以及第31週預告：收益率曲線]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下週見。
 </p>
             </div>
             <div id="content-tw" class="lang-content">
@@ -3410,239 +2973,6 @@ $20 寬度（$145/$125）：
 <p>
 答：對於典型的零售帳戶（$50,000至$200,000），同時持有3至5個鐵禿鷹策略部位是合理的。在不同標的之間分散配置，並將進場日期錯開一至兩週。這確保你的部位不會全部在同一時間到期，也降低了相關性風險。鐵禿鷹策略的總風險資本不應超過投資組合的15至20%。
 </p>
-<hr>
-<h2>YouTube 腳本</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 30: Spreads and Condors - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎回來。上週我們學習了選擇權希臘字母。這週我們要用這些希臘字母來建構更複雜的選擇權部位。我們要談的是價差策略與鐵禿鷹策略。
-</p>
-<p>
-<strong>Stella：</strong> 這真的很讓人期待，因為掩護性買權與現金擔保賣權有一個限制，就是資本需求。你需要持有100股或預留$14,000現金。價差策略感覺用少得多的資本就能達到類似的效果。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。蘋果的現金擔保賣權可能需要$15,000的資本。蘋果的賣權價差可能只需要$350。你用一小部分的資本達到類似的經濟曝險。更重要的是，你的最大虧損在進場前就已確定。
-</p>
-<p>
-[VISUAL: Side-by-side comparison. Left: "現金擔保賣權" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "多頭賣權價差" showing $350 capital, $150 max profit, $350 max loss. Annotation: "所需資本減少27倍。"]
-</p>
-<p>
-<strong>Stella：</strong> 我們先從基礎開始。什麼是價差策略？
-</p>
-<p>
-<strong>Horace：</strong> 價差策略就是同時在同一標的股票上買入一個選擇權並賣出另一個選擇權。透過結合多頭與空頭選擇權，你建立了一個獲利與虧損都有限的部位。兩個選擇權互相部分抵消。
-</p>
-<p>
-<strong>Stella：</strong> 價差策略有不同的類型嗎？
-</p>
-<p>
-<strong>Horace：</strong> 有四種基本的垂直價差。垂直價差是指兩個選擇權的到期日相同但履約價不同。分別是多頭買權價差、空頭賣權價差、多頭賣權價差與空頭買權價差。前兩種是借方價差，進場時需要付錢；後兩種是信用價差，進場時收取資金。
-</p>
-<p>
-[VISUAL: A 2x2 grid. Columns: "借方（你付錢）" and "信用（你收取）". Rows: "看多" and "看空". 多頭買權價差 in top-left, 多頭賣權價差 in top-right, 空頭賣權價差 in bottom-left, 空頭買權價差 in bottom-right]
-</p>
-<p>
-<strong>Stella：</strong> 我們先來走過多頭買權價差，因為它最直觀。
-</p>
-<p>
-<strong>Horace：</strong> 好的。假設蘋果在$150，你溫和看多。你以$5.00買入$150買權，以$2.50賣出$155買權。淨成本是每股$2.50，即每口價差$250。這是你的最大虧損。最大獲利是兩個履約價之差$5.00，減去你支付的$2.50，等於每股$2.50或$250。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_spread_payoff.py - Building a spread payoff diagram step by step. First, the long call payoff line appears (the classic hockey stick shape starting at -$500 at $150 and rising after $150). Then the short call payoff appears (inverted hockey stick starting at +$250 at $155). Finally, the two are combined into the spread payoff, which shows the characteristic shape: flat at -$250 below $150, rising between $150 and $155, and flat at +$250 above $155.]
-</p>
-<p>
-<strong>Stella：</strong> 所以我的最大風險是付出的$250，不管蘋果漲多高，我最多只能賺$250？
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。你同時限制了下行與上行空間。損益平衡點是$152.50，也就是較低履約價加上支付的權利金。低於$150，損失全部$250。在$150至$155之間，獲利線性增加。高於$155，鎖定最大獲利$250。
-</p>
-<p>
-<strong>Stella：</strong> 與直接買入$150買權相比如何？
-</p>
-<p>
-<strong>Horace：</strong> 好問題。若你直接以$5.00買入$150買權，最大虧損是$500，獲利潛力無限。價差策略的成本是$250而非$500，風險只有一半。但你放棄了$155以上的所有漲幅。價差策略資本效率更高，但報酬有上限。
-</p>
-<p>
-[VISUAL: Two payoff diagrams overlaid. Solid line: 多頭買權價差, showing the characteristic capped shape. Dashed line: 單獨多頭買權, showing unlimited upside. The area between them above $155 is shaded and labeled "為了降低成本與風險而放棄的上行空間"]
-</p>
-<p>
-<strong>Stella：</strong> 現在讓我們談談信用價差。這是產生收益的版本，對嗎？
-</p>
-<p>
-<strong>Horace：</strong> 確實。使用信用價差，你預先收取資金，目標是讓兩個選擇權都到期無價值。讓我帶你走過一個多頭賣權價差。蘋果在$155。你以$2.80賣出$150賣權，以$1.30買入$145賣權。淨收取的信用是每股$1.50，即每口價差$150。
-</p>
-<p>
-<strong>Stella：</strong> 所以我進場時收取$150。有哪些可能的結果？
-</p>
-<p>
-<strong>Horace：</strong> 若蘋果在到期時維持在$150以上，兩個賣權均到期無價值，你保留整個$150。這是你的最大獲利。若蘋果跌破$145，你達到最大虧損：$5.00的價差寬度減去$1.50的信用，等於每股$3.50或$350。兩者之間的損益平衡點在$148.50。
-</p>
-<p>
-[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL 目前位於 $155——你有 $6.50 的緩衝空間"]
-</p>
-<p>
-<strong>Stella：</strong> 所以我需要蘋果維持在$148.50以上才能獲利。而目前它在$155。看起來很容易實現。
-</p>
-<p>
-<strong>Horace：</strong> 這正是信用價差的吸引力所在。你不需要股票上漲，只需要它不要跌太多。這筆交易的獲利機率約為70%，這是根據空頭履約價的Delta計算得出的。
-</p>
-<p>
-<strong>Stella：</strong> 現在讓我們進入主角——鐵禿鷹策略。
-</p>
-<p>
-<strong>Horace：</strong> 鐵禿鷹策略就是在同一標的股票、相同到期日上，結合多頭賣權價差與空頭買權價差。你在兩側都賣出權利金，押注股票維持在一個區間內。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_iron_condor_build.py - Building an iron condor step by step. First, a stock price at $150 with a number line. Then the bull put spread appears below: sell $140 put and buy $135 put, with the payoff shape shown below the line. Then the bear call spread appears above: sell $160 call and buy $165 call, with the payoff shape shown above the line. Finally, both are combined into the complete iron condor payoff, showing the characteristic "table top" shape: loss zones on both ends, profit plateau in the middle.]
-</p>
-<p>
-<strong>Stella：</strong> 可以帶我走過一個具體的例子嗎？
-</p>
-<p>
-<strong>Horace：</strong> 當然。蘋果在$150。下方，我以$1.20賣出$140賣權，以$0.50買入$135賣權。上方，我以$1.00賣出$160買權，以$0.30買入$165買權。收取的總信用：每股$1.40，即每口鐵禿鷹策略$140。
-</p>
-<p>
-<strong>Stella：</strong> 最大虧損呢？
-</p>
-<p>
-<strong>Horace：</strong> 最大虧損是一個價差的寬度$5.00，減去總信用$1.40，等於每股$3.60或$360。這在蘋果到期時跌破$135或漲過$165時發生。
-</p>
-<p>
-<strong>Stella：</strong> 獲利區間是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 獲利區間在兩個損益平衡點之間。下方損益平衡點是$140減去$1.40，等於$138.60。上方損益平衡點是$160加上$1.40，等於$161.40。所以蘋果需要維持在$138.60至$161.40之間，這是一個$22.80的區間，相當於目前股價任一方向的7.6%。
-</p>
-<p>
-[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "獲利區間：$138.60 至 $161.40（總計15.2%的區間）" and "獲利機率：約67%"]
-</p>
-<p>
-<strong>Stella：</strong> 讓我們看看這個鐵禿鷹策略的希臘字母，因為這連結到我們上週學的內容。
-</p>
-<p>
-<strong>Horace：</strong> 好主意。鐵禿鷹策略的Delta接近於零，意味著它是市場中性的，不在乎股票是小漲還是小跌。它有負的Gamma，意味著任一方向的大幅波動都會造成傷害。它有正的Theta，每天從時間價值衰減中獲利。還有負的Vega，意味著你受益於隱含波動率下降。
-</p>
-<p>
-[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/天 (with a dollar sign icon). Vega: -$4 每1% IV (with a down-arrow icon). Commentary below each: "市場中性", "大幅波動有害", "每天賺$3", "較低隱含波動率有利"]
-</p>
-<p>
-<strong>Stella：</strong> 所以基本上是押注事情維持無聊？
-</p>
-<p>
-<strong>Horace：</strong> 這個形容非常貼切。而且事實是：市場大部分時間確實很「無聊」。股票大約有70至80%的時間都在盤整區間內波動。鐵禿鷹策略正是設計來在那些平淡時期獲利的。
-</p>
-<p>
-<strong>Stella：</strong> 好，現在關鍵問題來了。我們如何管理這些部位？因為我從閱讀材料中知道，管理能力才是讓鐵禿鷹策略交易者盈利與虧損的分水嶺。
-</p>
-<p>
-<strong>Horace：</strong> 這是整堂課最重要的部分。規則一：提早獲利了結。當你的鐵禿鷹策略獲取了最大獲利的50%時，平倉它。不要等待剩餘的50%。
-</p>
-<p>
-<strong>Stella：</strong> 為什麼不等？如果進行得順利，為何要提早出場？
-</p>
-<p>
-<strong>Horace：</strong> 因為風報比翻轉了。在交易的前半段，你在風險最大虧損$360的情況下獲取$70的獲利。一旦你已經獲取了$70，你現在是在冒$360的風險去賺額外的$70。最後50%的獲利需要不成比例的更長時間，並在到期日接近時暴露你於日益增加的Gamma風險。
-</p>
-<p>
-[VISUAL: A risk/reward timeline. Left side "第1至15天" showing "賺取$70獲利" with low risk meter. Right side "第15至30天" showing "賺取最後$70" with high risk meter. Arrow pointing to day 15 saying "在此平倉可獲得最佳風險調整後報酬"]
-</p>
-<p>
-<strong>Stella：</strong> 這很有道理。規則二是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 在預定水位認損。我建議若虧損達到收取信用的1.5至2倍時平倉。所以若收取了$1.40，若價差價值達到$2.80至$3.50時平倉。永遠不要讓價差達到最大虧損。
-</p>
-<p>
-<strong>Stella：</strong> 規則三呢？
-</p>
-<p>
-<strong>Horace：</strong> 在到期週前平倉。Gamma風險在最後五至七個交易日會變得極為嚴重，尤其是對平價履約價而言。若股票漂移至你的某個空頭履約價附近，你等於坐在一顆Gamma定時炸彈上。平倉部位，進入新的到期週期。
-</p>
-<p>
-[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "交易區間". Days 22-25 in yellow labeled "考慮平倉". Days 26-30 in red labeled "危險區——平倉！"]
-</p>
-<p>
-<strong>Stella：</strong> 若鐵禿鷹策略的某一側受到威脅怎麼辦？例如蘋果開始向$140賣權靠近？
-</p>
-<p>
-<strong>Horace：</strong> 你有幾個選項。第一，平倉整個鐵禿鷹策略，承受受威脅那側的損失，同時兌現獲利那側的收益。第二，只平倉受威脅的那側，讓獲利的那側繼續持有。第三，將受威脅的那側展期至更低的履約價或更遠的到期日。
-</p>
-<p>
-<strong>Stella：</strong> 你能帶我走過展期的情境嗎？
-</p>
-<p>
-<strong>Horace：</strong> 當然。假設你賣出$140/$135賣權價差作為鐵禿鷹策略的一部分，而蘋果已下跌至$142。賣權價差現在價值$2.50，意味著那一側有$1.10的虧損。但買權價差那側幾乎無價值，因為蘋果已遠離$160。你可以以$2.50平倉整個賣權價差，然後同時賣出30天後到期的新$138/$133賣權價差，或許可收取$1.80。展期的淨成本是$0.70。你現在有更多時間，且空頭履約價更低。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_condor_adjustment.py - An iron condor payoff diagram on a stock that starts at $150. The stock price dot moves to $142. The left side of the condor flashes red. Then the animation shows the left side being "lifted" and moved to a new, lower position ($138/$133), with the payoff diagram adjusting in real-time. A timer resets from 15 days to 45 days, showing the extra time gained.]
-</p>
-<p>
-<strong>Stella：</strong> 但你只有在論點仍然成立的情況下才展期，對嗎？如果蘋果是因為壞消息而暴跌，或許就直接平倉認賠走人。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。展期適用於股票漂移但你的區間震盪論點仍然有效的情況。若股票已根本性地突破，若趨勢已改變，就平倉並重新評估。永遠不要越展越深。展期一次可以，激進的展期第二次。若要展第三次，意味著你的論點從一開始就錯了。
-</p>
-<p>
-<strong>Stella：</strong> 讓我們談談部位規模。一個人應該交易多少口鐵禿鷹策略？
-</p>
-<p>
-<strong>Horace：</strong> 黃金法則是，單一價差或鐵禿鷹策略的風險永遠不超過總投資組合的2至5%。對於$100,000的投資組合，每筆交易風險3%，最大風險是$3,000。每口鐵禿鷹策略最大虧損$360，最多可交易8口合約。但我建議分散在3至5個不同標的上，而不是把全部8口都押在同一支股票上。
-</p>
-<p>
-[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "選擇權價差——主動收益". The rest shows "股票 60%", "債券 25%", "現金 11%". A zoom-in on the Options Spreads slice shows it divided into: "AAPL 鐵禿鷹策略 1.1%", "SPY 鐵禿鷹策略 0.7%", "MSFT 賣權價差 1.2%", "QQQ 買權價差 1.0%"]
-</p>
-<p>
-<strong>Stella：</strong> 對於鐵禿鷹策略，選擇個股還是SPY等指數好呢？
-</p>
-<p>
-<strong>Horace：</strong> 指數型選擇權如SPY、QQQ、IWM對於鐵禿鷹策略有重大優勢。它們流動性極高，買賣價差很窄。它們不會像個股那樣大幅跳空，因為它們是分散的一籃子股票。另外，若你使用SPX選擇權而非SPY，符合六四稅務優惠待遇：60%享有長期資本利得稅率，40%為短期，無論持有多久都是如此。光是這個稅務優勢每年就能增加1至2%的報酬。
-</p>
-<p>
-<strong>Stella：</strong> 但個股的權利金比較高，對吧？因為波動性更大？
-</p>
-<p>
-<strong>Horace：</strong> 確實，而這就是取捨之道。權利金更高，但風險也更大。個股可能因財報而跳空10%。SPY在極糟的消息日可能跳空3%。純粹以鐵禿鷹策略產生收益而言，我傾向選擇指數型選擇權。若要透過價差策略表達方向性觀點，個股可能更有意義。
-</p>
-<p>
-<strong>Stella：</strong> 讓我問問借方價差與信用價差的問題。什麼時候該用哪一種？
-</p>
-<p>
-<strong>Horace：</strong> 當隱含波動率偏高且你想從時間價值衰減獲利時，使用信用價差。你基本上是在說：「我不認為股票會到達這個水位。」當你有方向性確信且隱含波動率偏低或適中時，使用借方價差。你是在說：「我認為股票會往這個方向移動。」高隱含波動率使信用價差具有吸引力，因為你收取更多權利金；低隱含波動率使借方價差具有吸引力，因為選擇權買起來便宜。
-</p>
-<p>
-[VISUAL: A decision flowchart. "你的觀點是什麼？" branches into "方向性" and "中性/區間震盪". "方向性" leads to "隱含波動率是否偏高？". If yes: "朝預期方向的信用價差". If no: "朝預期方向的借方價差". "中性/區間震盪" leads directly to "鐵禿鷹策略（兩側均賣出信用）"]
-</p>
-<p>
-<strong>Stella：</strong> 在我們結束之前，可以給我進場價差交易前要確認的關鍵指標嗎？
-</p>
-<p>
-<strong>Horace：</strong> 以下是我的確認清單。第一，信用價差的獲利機率應高於60%。第二，風報比應合理，理想上信用價差的最大虧損不超過最大獲利的3至4倍。第三，收取的信用應至少是價差寬度的20至30%，以確保收取了足夠的權利金。第四，隱含波動率排名應高於30，意味著隱含波動率處於年度範圍的前三分之一。第五，到期前不應有重大財報或催化事件。第六，部位風險應低於投資組合的5%。
-</p>
-<p>
-[VISUAL: Checklist displayed on screen: "信用價差進場前確認清單" with six items, each with a checkbox: "1. 獲利機率 > 60%", "2. 最大虧損 < 最大獲利的4倍", "3. 信用 > 價差寬度的20%", "4. 隱含波動率排名 > 30", "5. 交易期間無財報/催化事件", "6. 部位風險 < 投資組合的5%"]
-</p>
-<p>
-<strong>Stella：</strong> 這是一個扎實的框架。我覺得我真的可以開始運用這套方法了。
-</p>
-<p>
-<strong>Horace：</strong> 你應該從小規模開始。先模擬交易你的前10口鐵禿鷹策略。熟悉操作機制、管理規則，以及在50%時獲利了結、在2倍虧損時認損的情緒紀律。一旦在模擬交易中保持一致性，再移至一至兩口真實合約。
-</p>
-<p>
-<strong>Stella：</strong> 下週我們要進入固定收益，對嗎？殖利率曲線？
-</p>
-<p>
-<strong>Horace：</strong> 沒錯。我們要暫別選擇權，建構我們的債券知識。我們將在第三十七週回到選擇權主題。但我們學過的希臘字母與價差知識會在你回來時等著你。
-</p>
-<p>
-<strong>Stella：</strong> 謝謝大家，我們下週見。
-</p>
-<p>
-[VISUAL: End screen with show logo, "第三十週：價差與鐵禿鷹策略" summary, and preview of Week 31: 殖利率曲線]
-</p>
-<p>
-<strong>Horace：</strong> 下週見。
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第30周：价差与铁鹰策略——有限风险期权策略</h1>
@@ -4401,239 +3731,6 @@ AAPL股价150美元，30天，牛市看跌价差：
 </p>
 <p>
 答：对于典型的散户账户（50,000至200,000美元），同时持有3至5个铁鹰策略头寸是合理的。跨不同标的分散，并将建仓日期错开一至两周。这样可以避免所有头寸同时到期，并降低相关性风险。铁鹰策略中的总风险资本不应超过投资组合的15%至20%。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 30: Spreads and Condors - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎回来。上周我们学习了期权的希腊字母。这周我们要用这些希腊字母来构建更复杂的期权头寸。我们要讲的是价差策略和铁鹰策略。
-</p>
-<p>
-<strong>Stella：</strong> 这太令人兴奋了，因为备兑看涨期权和现金担保看跌期权的局限性之一就是资金门槛太高。你需要持有100股或者预留14,000美元的现金。价差策略似乎可以用少得多的资金实现类似的效果。
-</p>
-<p>
-<strong>Horace：</strong> 完全正确。苹果公司的现金担保看跌期权可能需要15,000美元资金，而苹果公司的看跌期权价差可能只需要350美元。你用极少的资金实现了相似的经济敞口。更重要的是，你在建仓前就已经明确了最大亏损。
-</p>
-<p>
-[VISUAL: Side-by-side comparison. Left: "现金担保看跌期权" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "牛市看跌价差" showing $350 capital, $150 max profit, $350 max loss. Annotation: "所需资金减少27倍。"]
-</p>
-<p>
-<strong>Stella：</strong> 我们从基础开始讲。价差到底是什么？
-</p>
-<p>
-<strong>Horace：</strong> 价差就是同时买入一个期权和卖出同一只股票上的另一个期权。通过组合多头和空头期权，你构建了一个盈利和亏损都有限的头寸。两个期权互相部分抵消。
-</p>
-<p>
-<strong>Stella：</strong> 价差有不同的类型吗？
-</p>
-<p>
-<strong>Horace：</strong> 基本的垂直价差有四种。垂直价差意味着两个期权的到期日相同，但行权价不同。分别是牛市看涨价差、熊市看跌价差、牛市看跌价差和熊市看涨价差。前两种是借方价差，需要你付钱建仓；后两种是贷方价差，你收取资金建仓。
-</p>
-<p>
-[VISUAL: A 2x2 grid. Columns: "借方（你支付）" and "贷方（你收取）". Rows: "看涨方向" and "看跌方向". 牛市看涨价差 in top-left, 牛市看跌价差 in top-right, 熊市看跌价差 in bottom-left, 熊市看涨价差 in bottom-right]
-</p>
-<p>
-<strong>Stella：</strong> 我们先来讲牛市看涨价差，因为它最直观。
-</p>
-<p>
-<strong>Horace：</strong> 好的。假设苹果公司股价150美元，你判断温和看涨。你以5.00美元买入150美元的看涨期权，同时以2.50美元卖出155美元的看涨期权。净成本是每股2.50美元，即每手价差250美元。这就是你的最大亏损。最大盈利是两个行权价之差5.00美元，减去你支付的2.50美元，等于每股2.50美元，即250美元。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_spread_payoff.py - Building a spread payoff diagram step by step. First, the long call payoff line appears (the classic hockey stick shape starting at -$500 at $150 and rising after $150). Then the short call payoff appears (inverted hockey stick starting at +$250 at $155). Finally, the two are combined into the spread payoff, which shows the characteristic shape: flat at -$250 below $150, rising between $150 and $155, and flat at +$250 above $155.]
-</p>
-<p>
-<strong>Stella：</strong> 所以我的最大风险是支付的250美元，而且无论苹果涨多高，我最多只能赚250美元？
-</p>
-<p>
-<strong>Horace：</strong> 完全正确。你同时封顶了下行风险和上行空间。盈亏平衡点是152.50美元，即较低行权价加上已付期权费。低于150美元，损失全部250美元。150至155美元之间，盈利线性增加。高于155美元，锁定最大盈利250美元。
-</p>
-<p>
-<strong>Stella：</strong> 这与直接买入150美元的看涨期权相比如何？
-</p>
-<p>
-<strong>Horace：</strong> 好问题。如果你直接以5.00美元买入150美元的看涨期权，最大亏损是500美元，盈利潜力无限。价差的成本是250美元而非500美元，风险减半了。但你放弃了155美元以上的所有上涨空间。价差策略更高效，但收益有上限。
-</p>
-<p>
-[VISUAL: Two payoff diagrams overlaid. Solid line: 牛市看涨价差, showing the characteristic capped shape. Dashed line: 单腿多头看涨期权, showing unlimited upside. The area between them above $155 is shaded and labeled "为换取更低成本和风险而放弃的上涨空间"]
-</p>
-<p>
-<strong>Stella：</strong> 现在我们来讲贷方价差。这是收益生成的版本，对吧？
-</p>
-<p>
-<strong>Horace：</strong> 正是。贷方价差是你预先收取资金，目标是两个期权均到期作废。我来演示一个牛市看跌价差。苹果公司股价155美元。你以2.80美元卖出150美元的看跌期权，以1.30美元买入145美元的看跌期权。净收取贷方每股1.50美元，即每手价差150美元。
-</p>
-<p>
-<strong>Stella：</strong> 所以我建仓时就收到了150美元。可能的结果有哪些？
-</p>
-<p>
-<strong>Horace：</strong> 若苹果公司到期时保持在150美元以上，两个看跌期权均到期作废，你保留全部150美元，这是最大盈利。若苹果公司跌破145美元，达到最大亏损：价差宽度5.00美元减去收取的1.50美元，即每股3.50美元，或每手350美元。盈亏平衡点在148.50美元。
-</p>
-<p>
-[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL当前价格155美元——你拥有6.50美元的缓冲空间"]
-</p>
-<p>
-<strong>Stella：</strong> 所以我需要苹果公司保持在148.50美元以上才能盈利，而它当前在155美元。这看起来非常可行。
-</p>
-<p>
-<strong>Horace：</strong> 这正是贷方价差的魅力所在。你不需要股票上涨，只需要它不要跌得太多。根据空头行权价的delta，这笔交易的获利概率约为70%。
-</p>
-<p>
-<strong>Stella：</strong> 现在我们来讲重头戏——铁鹰策略。
-</p>
-<p>
-<strong>Horace：</strong> 铁鹰策略就是在同一只股票、相同到期日上同时构建牛市看跌价差和熊市看涨价差。你同时在两侧卖出期权费，押注股票维持在某个区间内。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_iron_condor_build.py - Building an iron condor step by step. First, a stock price at $150 with a number line. Then the bull put spread appears below: sell $140 put and buy $135 put, with the payoff shape shown below the line. Then the bear call spread appears above: sell $160 call and buy $165 call, with the payoff shape shown above the line. Finally, both are combined into the complete iron condor payoff, showing the characteristic "table top" shape: loss zones on both ends, profit plateau in the middle.]
-</p>
-<p>
-<strong>Stella：</strong> 请给我演示一个具体的例子。
-</p>
-<p>
-<strong>Horace：</strong> 苹果公司股价150美元。下方，我以1.20美元卖出140美元的看跌期权，以0.50美元买入135美元的看跌期权。上方，我以1.00美元卖出160美元的看涨期权，以0.30美元买入165美元的看涨期权。总收取贷方：每股1.40美元，即每手铁鹰策略140美元。
-</p>
-<p>
-<strong>Stella：</strong> 那最大亏损呢？
-</p>
-<p>
-<strong>Horace：</strong> 最大亏损是一个价差的宽度5.00美元，减去总贷方1.40美元，等于每股3.60美元，即360美元。这发生在苹果公司到期时跌破135美元或涨超165美元的情形下。
-</p>
-<p>
-<strong>Stella：</strong> 盈利区间是什么？
-</p>
-<p>
-<strong>Horace：</strong> 盈利区间在两个盈亏平衡点之间。下方盈亏平衡点是140减1.40，等于138.60美元。上方盈亏平衡点是160加1.40，等于161.40美元。因此苹果公司需要保持在138.60至161.40美元之间。这是一个22.80美元的区间，相当于从当前价格向任一方向不超过7.6%。
-</p>
-<p>
-[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "盈利区间：138.60至161.40美元（总区间幅度15.2%）" and "获利概率：约67%"]
-</p>
-<p>
-<strong>Stella：</strong> 我们来看看这个铁鹰策略的希腊字母，因为这与我们上周学的内容直接相关。
-</p>
-<p>
-<strong>Horace：</strong> 好主意。铁鹰策略的delta接近零，意味着它是市场中性的——股票小幅上涨或下跌都无所谓。Gamma为负，意味着任何方向的大幅波动都对你不利。Theta为正，意味着你每天通过时间价值衰减赚取资金。Vega为负，意味着隐含波动率下降时你受益。
-</p>
-<p>
-[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/天 (with a dollar sign icon). Vega: -$4（每1% IV变动）(with a down-arrow icon). Commentary below each: "市场中性", "大幅波动有害", "每天赚取3美元", "IV下降受益"]
-</p>
-<p>
-<strong>Stella：</strong> 所以它基本上是在押注行情保持无聊？
-</p>
-<p>
-<strong>Horace：</strong> 这是个绝妙的描述。而且事实是：市场大部分时间确实很无聊。股票约有70%至80%的时间处于区间整理状态。铁鹰策略就是为了在这些无聊时期获利而设计的。
-</p>
-<p>
-<strong>Stella：</strong> 好，现在来回答关键问题。我们如何管理这些头寸？因为我在阅读资料中了解到，管理能力才是盈利的铁鹰策略交易者与亏损者的分水岭。
-</p>
-<p>
-<strong>Horace：</strong> 这是整节课最重要的部分。规则一：提前锁定盈利。当你的铁鹰策略已经获取了最大盈利的50%时，平仓。不要等待剩余的50%。
-</p>
-<p>
-<strong>Stella：</strong> 为什么不呢？如果交易进展顺利，为什么不让它继续运行？
-</p>
-<p>
-<strong>Horace：</strong> 因为风险回报比已经翻转了。在交易的前半段，你在赚取70美元盈利，风险敞口是360美元最大亏损。一旦你已经获取了70美元，你现在是在冒360美元的风险去赚最后的70美元。最后50%的盈利需要不成比例的更长时间，同时随着到期日临近，Gamma风险不断上升。
-</p>
-<p>
-[VISUAL: A risk/reward timeline. Left side "第1至15天" showing "赚取70美元盈利" with low risk meter. Right side "第15至30天" showing "赚取最后70美元" with high risk meter. Arrow pointing to day 15 saying "在此处平仓以获取最优风险调整后收益"]
-</p>
-<p>
-<strong>Stella：</strong> 这非常有道理。规则二是什么？
-</p>
-<p>
-<strong>Horace：</strong> 在预设水平止损。我建议若亏损达到收取贷方的1.5至2倍时平仓。所以若你收取了1.40美元，当价差价值达到2.80至3.50美元时平仓。绝不让价差达到最大亏损。
-</p>
-<p>
-<strong>Stella：</strong> 规则三呢？
-</p>
-<p>
-<strong>Horace：</strong> 到期周前平仓。Gamma风险在最后五到七个交易日会变得极为危险，尤其是对于平价行权价而言。若股价已向某个空头行权价漂移，你就坐在了Gamma的定时炸弹上。平仓头寸，重新部署至新的到期周期。
-</p>
-<p>
-[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "交易窗口". Days 22-25 in yellow labeled "考虑平仓". Days 26-30 in red labeled "危险区——立即平仓！"]
-</p>
-<p>
-<strong>Stella：</strong> 如果铁鹰策略一侧受到威胁怎么办？比如苹果公司开始向140美元的看跌期权行权价下跌？
-</p>
-<p>
-<strong>Horace：</strong> 你有几个选择。第一，平仓整个铁鹰策略，接受被威胁一侧的亏损，同时锁定获利一侧的盈利。第二，仅平仓被威胁的一侧，保留获利的一侧继续持有。第三，将被威胁的一侧移至更远的到期日或更虚值的行权价。
-</p>
-<p>
-<strong>Stella：</strong> 能演示一下移仓操作吗？
-</p>
-<p>
-<strong>Horace：</strong> 当然。假设你在铁鹰策略中卖出了140/135美元的看跌价差，苹果公司跌至142美元。该看跌价差现价2.50美元，意味着这一侧已亏损1.10美元。但由于苹果公司远离了160美元，看涨价差一侧此时几乎已没有价值。你可以以2.50美元平仓整个看跌价差，同时以约1.80美元卖出一个新的30天后到期的138/133美元看跌价差。移仓净借方为0.70美元。你现在拥有更多时间，且空头行权价更低。
-</p>
-<p>
-[ANIMATION: Reference animation/week30_condor_adjustment.py - An iron condor payoff diagram on a stock that starts at $150. The stock price dot moves to $142. The left side of the condor flashes red. Then the animation shows the left side being "lifted" and moved to a new, lower position ($138/$133), with the payoff diagram adjusting in real-time. A timer resets from 15 days to 45 days, showing the extra time gained.]
-</p>
-<p>
-<strong>Stella：</strong> 但只有当你的判断仍然成立时才选择移仓，对吗？如果苹果公司因为坏消息而崩跌，也许就直接平仓了事。
-</p>
-<p>
-<strong>Horace：</strong> 完全正确。移仓适用于股票有所漂移但区间震荡判断仍然有效的情形。如果股票已从根本上突破，如果市场格局已经改变，就平仓头寸，重新评估。永远不要越移越深。移仓一次可以接受，移仓两次就比较激进了，移仓三次意味着你的判断从一开始就是错的。
-</p>
-<p>
-<strong>Stella：</strong> 我们来聊聊仓位管理。一个人应该同时持有多少手铁鹰策略？
-</p>
-<p>
-<strong>Horace：</strong> 黄金法则是单笔价差或铁鹰策略的风险永远不要超过总投资组合的2%至5%。对于100,000美元的投资组合，每笔交易3%风险，最大风险是3,000美元。铁鹰策略最大亏损为360美元，理论上可以交易最多8手。但我建议分散至3至5个不同的标的，而不是把全部8手都压在一只股票上。
-</p>
-<p>
-[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "期权价差——主动收益". The rest shows "股票 60%", "债券 25%", "现金 11%". A zoom-in on the 期权价差 slice shows it divided into: "AAPL铁鹰策略 1.1%", "SPY铁鹰策略 0.7%", "MSFT看跌价差 1.2%", "QQQ看涨价差 1.0%"]
-</p>
-<p>
-<strong>Stella：</strong> 铁鹰策略应该选择个股还是SPY等指数？
-</p>
-<p>
-<strong>Horace：</strong> 指数期权（SPY、QQQ、IWM）对铁鹰策略有显著优势。流动性极强，买卖价差极窄。由于是分散化的指数，不会像个股那样出现剧烈跳空。若使用SPX期权而非SPY，还可享受60/40的税务处理：无论持仓多长时间，60%按长期资本利得税率，40%按短期税率征税。仅这一税务优势每年就能增加1至2个百分点的收益。
-</p>
-<p>
-<strong>Stella：</strong> 但个股的期权费更高，对吧？因为它们波动性更大？
-</p>
-<p>
-<strong>Horace：</strong> 确实如此，这就是取舍所在。更高的期权费，但也面临更高的风险。个股可能因财报跳空10%。苹果公司遭遇极坏消息时可能跳空3%。对于纯粹通过铁鹰策略创造收益的目标，我倾向于选择指数期权。对于通过价差表达方向性判断的情形，个股可能更有意义。
-</p>
-<p>
-<strong>Stella：</strong> 我来问一下借方价差和贷方价差的选择。什么情况下用哪种？
-</p>
-<p>
-<strong>Horace：</strong> 当隐含波动率较高，且希望从时间价值衰减中获利时，使用贷方价差。你的意思是："我认为股票不会到达这个价位。"当你有强烈的方向性判断，且IV处于低位或适中水平时，使用借方价差。你的意思是："我认为股票会朝这个方向运动。"高IV使贷方价差更具吸引力，因为你能收取更多期权费。低IV使借方价差更具吸引力，因为期权买入成本低廉。
-</p>
-<p>
-[VISUAL: A decision flowchart. "你的判断是什么？" branches into "有方向性" and "中性/区间震荡". "有方向性" leads to "当前IV高吗？" If yes: "朝预期方向建立贷方价差". If no: "朝预期方向建立借方价差". "中性/区间震荡" leads directly to "铁鹰策略（两侧均贷方）"]
-</p>
-<p>
-<strong>Stella：</strong> 在我们结束之前，能给我总结一下建仓价差交易前需要检查的关键指标吗？
-</p>
-<p>
-<strong>Horace：</strong> 以下是我的检查清单。第一，贷方价差的获利概率应高于60%。第二，风险回报比应合理，贷方价差的最大亏损最好不超过最大盈利的3至4倍。第三，收取的贷方至少应为价差宽度的20%至30%，以确保期权费充足。第四，隐含波动率排名应高于30，意味着当前IV处于年度区间的前三分之一。第五，到期日前不应有重大财报或催化事件。第六，头寸风险应低于投资组合的5%。
-</p>
-<p>
-[VISUAL: Checklist displayed on screen: "贷方价差建仓前检查清单" with six items, each with a checkbox: "1. 获利概率 > 60%", "2. 最大亏损 < 最大盈利的4倍", "3. 贷方 > 价差宽度的20%", "4. IV排名 > 30", "5. 持仓期内无财报/催化剂", "6. 头寸风险 < 组合的5%"]
-</p>
-<p>
-<strong>Stella：</strong> 这是一套扎实的框架。我感觉真的可以开始应用这些了。
-</p>
-<p>
-<strong>Horace：</strong> 你应该从小开始。先模拟交易你的前10手铁鹰策略。熟悉操作机制、管理规则，以及在50%获利时平仓、在2倍亏损时止损的情绪纪律。一旦在模拟交易中做到稳定一致，再用一到两手真实合约开始实战。
-</p>
-<p>
-<strong>Stella：</strong> 下周我们要进入固定收益领域了，对吧？讲收益率曲线？
-</p>
-<p>
-<strong>Horace：</strong> 没错。我们要暂别期权，去夯实债券知识的基础。我们会在第37周回到期权。但我们学过的所有关于希腊字母和价差策略的内容，到时候都会在等着你。
-</p>
-<p>
-<strong>Stella：</strong> 感谢各位收看，下周见。
-</p>
-<p>
-[VISUAL: End screen with show logo, "第30周：价差与铁鹰策略" summary, and preview of Week 31: 收益率曲线]
-</p>
-<p>
-<strong>Horace：</strong> 下周见。
 </p>
             </div>
         </div>

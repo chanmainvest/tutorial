@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -956,183 +985,6 @@ A: Different strikes have different Greek profiles. At-the-money options have th
 <strong>Q: What happens to the Greeks during earnings announcements?</strong>
 A: Before earnings, implied volatility rises (because uncertainty increases), boosting option prices through vega. Delta may shift as the expected move gets priced in. After earnings, implied volatility typically drops sharply (the "vol crush"), which hurts long option holders through negative vega impact. Gamma becomes very important around earnings because the stock can move significantly in either direction. Many option sellers specifically target the post-earnings vol crush by selling options before the announcement and profiting from the volatility decline. However, this strategy risks large losses if the stock moves more than expected.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Dashboard showing multiple Greek values updating in real-time as a stock price moves, with gauges and meters for each Greek]
-</p>
-<p>
-<strong>Horace:</strong> If you have been following our options lessons, you know about delta -- how much an option moves when the stock moves. But delta is just the beginning. There is a whole world of sensitivities beneath the surface that professional traders track obsessively.
-</p>
-<p>
-<strong>Stella:</strong> Gamma, rho, charm, vanna -- these sound like characters from a Greek mythology class, but they are actually the keys to understanding why options sometimes behave in ways that surprise you. Today, we are going deep on the Greeks.
-</p>
-<p>
-[VISUAL: Title card "Options Greeks Deep Dive: Beyond Delta"]
-</p>
-<hr>
-<p>
-[SECTION 1 - GAMMA: THE MOST IMPORTANT SECOND-ORDER GREEK - 1:30]
-</p>
-<p>
-[ANIMATION: A speedometer showing delta, with gamma as the needle showing how fast the speedometer is changing]
-</p>
-<p>
-<strong>Horace:</strong> Let us start with gamma, because it is the most important Greek after delta. If delta tells you how fast your option price changes, gamma tells you how fast delta itself changes.
-</p>
-<p>
-<strong>Stella:</strong> Think of it like driving a car. Delta is your speed. Gamma is your acceleration. A delta of 0.50 means you are going 50 miles per hour. A gamma of 0.05 means for every $1 the stock moves, your speed increases by 5 miles per hour.
-</p>
-<p>
-[VISUAL: Car analogy: Delta = Speed, Gamma = Acceleration, with option values changing alongside]
-</p>
-<p>
-<strong>Horace:</strong> Here is why this matters. If you buy an option with a delta of 0.50 and a gamma of 0.05, and the stock goes up $1, your delta becomes 0.55. Now you are making more money per dollar of stock movement than before.
-</p>
-<p>
-<strong>Stella:</strong> And if the stock goes up another dollar, delta becomes 0.60. Then 0.65. The option is accelerating in your favor. This is the beauty of positive gamma for option buyers -- the more the stock moves in your direction, the faster your profits grow.
-</p>
-<p>
-[ANIMATION: Profit curve showing non-linear acceleration of gains for long option position vs linear gains for stock position]
-</p>
-<p>
-<strong>Horace:</strong> But here is the flip side. If you are selling options, you have negative gamma. The stock moves against you, and your losses accelerate. The more it moves, the faster you lose.
-</p>
-<hr>
-<p>
-[SECTION 2 - THE GAMMA-THETA TRADEOFF - 4:00]
-</p>
-<p>
-[VISUAL: Balance scale with "Gamma (Movement Opportunity)" on one side and "Theta (Time Decay Cost)" on the other]
-</p>
-<p>
-<strong>Stella:</strong> Now here is the fundamental trade-off in options trading. Gamma and theta are enemies. You cannot have one without paying for it with the other.
-</p>
-<p>
-<strong>Horace:</strong> If you buy options, you get positive gamma -- you benefit from big moves. But you pay for it through negative theta -- time decay erodes your option's value every day.
-</p>
-<p>
-<strong>Stella:</strong> If you sell options, you get positive theta -- you collect time decay like a landlord collecting rent. But you pay for it through negative gamma -- big moves hurt you, and the bigger the move, the worse it gets.
-</p>
-<p>
-[ANIMATION: Two scenarios playing out side by side:
-Left: Option buyer -- stock moves big, gamma kicks in, profits exceed theta losses
-Right: Option buyer -- stock stays flat, theta drains value day after day]
-</p>
-<p>
-<strong>Horace:</strong> This is why selling options feels great in calm markets. Theta drips into your account every day like a dividend. But when the market suddenly moves -- and it always does eventually -- negative gamma can wipe out weeks or months of theta in a single session.
-</p>
-<p>
-<strong>Stella:</strong> The sweet spot for option sellers is usually 30 to 60 days until expiration. You get decent theta, but gamma is not yet extreme. Selling options with only a week to expiration gives you amazing daily theta but dangerously high gamma.
-</p>
-<p>
-[VISUAL: Chart showing gamma and theta curves as a function of days to expiration, with the "danger zone" near expiration highlighted]
-</p>
-<hr>
-<p>
-[SECTION 3 - VANNA AND CHARM - 6:30]
-</p>
-<p>
-[VISUAL: Three-dimensional surface showing how delta changes with both stock price AND implied volatility]
-</p>
-<p>
-<strong>Horace:</strong> Now let us move to the more exotic Greeks. Vanna measures how delta changes when implied volatility changes. And it explains something that confuses a lot of option traders.
-</p>
-<p>
-<strong>Stella:</strong> Have you ever held an out-of-the-money call, the stock barely moved, but the option still gained or lost significant value? That is often vanna at work.
-</p>
-<p>
-<strong>Horace:</strong> Here is how it works. Say you own an OTM call with a delta of 0.25. Suddenly, implied volatility spikes -- maybe bad news hits the market. Normally, you would think rising volatility helps you because your option has positive vega. And it does. But vanna also pushes your delta higher. Your 0.25 delta option might become a 0.35 delta option, making your position more sensitive to the stock's movements.
-</p>
-<p>
-[ANIMATION: OTM call option with delta arrow growing as IV increases, showing the vanna effect]
-</p>
-<p>
-<strong>Stella:</strong> In institutional markets, these vanna effects drive what traders call "vanna flows." When implied volatility drops -- like after an earnings announcement -- market makers have to buy stock to adjust their delta hedges. This buying pressure pushes stocks higher. It is one reason why stocks often rally after the uncertainty of an event passes.
-</p>
-<p>
-<strong>Horace:</strong> Then there is charm, which is how delta changes with time. An out-of-the-money option's delta drifts toward zero as expiration approaches. Charm tells you how fast this drift happens.
-</p>
-<p>
-[VISUAL: OTM call option delta declining over time as expiration approaches, with charm as the slope of the decline]
-</p>
-<p>
-<strong>Stella:</strong> Charm matters most over weekends and holidays. If you are delta-hedged going into a Friday and the stock does not move over the weekend, your delta has still changed by Monday morning because two days of charm have accumulated. Professional traders adjust for this, which is one reason why Monday mornings can have unusual options-related trading activity.
-</p>
-<hr>
-<p>
-[SECTION 4 - PORTFOLIO GREEK MANAGEMENT - 9:00]
-</p>
-<p>
-[VISUAL: "Greek Dashboard" showing a sample portfolio with aggregate delta, gamma, theta, and vega values]
-</p>
-<p>
-<strong>Horace:</strong> Professional options traders do not think about individual options. They think about their entire portfolio as a set of Greek exposures.
-</p>
-<p>
-<strong>Stella:</strong> Imagine a dashboard with four gauges. Delta -- your directional exposure. Gamma -- your exposure to big moves. Theta -- your daily time decay income or cost. Vega -- your exposure to volatility changes.
-</p>
-<p>
-[ANIMATION: Dashboard gauges for a delta-neutral, negative gamma, positive theta, short vega portfolio -- typical for option sellers]
-</p>
-<p>
-<strong>Horace:</strong> An option-selling portfolio might show: delta near zero (market-neutral), negative gamma (hurt by big moves), positive theta (collecting daily income), and negative vega (hurt by rising volatility). That is the profile of strategies like iron condors and short strangles.
-</p>
-<p>
-<strong>Stella:</strong> A long options portfolio shows the opposite: positive gamma (benefits from big moves), negative theta (paying daily time decay), and positive vega (benefits from rising volatility).
-</p>
-<p>
-<strong>Horace:</strong> The art of portfolio management is keeping each Greek within your risk tolerance while generating positive expected returns. If your gamma gets too negative, you might buy some options to bring it back. If your vega gets too positive, you might sell some to reduce it.
-</p>
-<p>
-[VISUAL: Risk management example showing a position that exceeds gamma limits and the adjustment trade to bring it back in line]
-</p>
-<p>
-<strong>Stella:</strong> For individual investors, you do not need to manage Greeks this precisely. But understanding the concepts helps you recognize when your options portfolio is exposed to risks you did not intend. If you sold a bunch of puts and your gamma is very negative, you know that a sharp market drop will hurt you disproportionately. That awareness alone is valuable.
-</p>
-<hr>
-<p>
-[SECTION 5 - GAMMA EXPOSURE AND MARKET IMPACT - 11:00]
-</p>
-<p>
-[VISUAL: GEX chart showing aggregate market maker gamma exposure at different stock price levels]
-</p>
-<p>
-<strong>Horace:</strong> Let us end with something fascinating -- how gamma affects the entire stock market, not just individual options.
-</p>
-<p>
-<strong>Stella:</strong> Options market makers hold enormous positions. Their aggregate gamma exposure at different stock price levels actually influences how the market behaves.
-</p>
-<p>
-<strong>Horace:</strong> When market makers have positive gamma overall, they buy stocks when the price falls and sell when it rises. This acts like a shock absorber, dampening volatility. It is one reason why the market can feel "pinned" near large option strikes -- market maker hedging activity pushes the price back toward the strike.
-</p>
-<p>
-[ANIMATION: Ball rolling in a valley near a strike price, with positive gamma walls on either side pushing it back toward the center]
-</p>
-<p>
-<strong>Stella:</strong> But when market makers have negative gamma -- often after selling a lot of put options to hedgers -- they have to sell when the stock falls and buy when it rises. This amplifies moves instead of dampening them. Markets with negative gamma exposure tend to be more volatile and prone to sharp selloffs.
-</p>
-<p>
-[ANIMATION: Ball on a hilltop, with negative gamma slopes accelerating movement away from the center in either direction]
-</p>
-<p>
-<strong>Horace:</strong> This is why some traders track aggregate gamma exposure data. When dealer gamma flips from positive to negative, it can signal that volatility is about to increase -- because the mechanical hedging flows that normally stabilize the market are now destabilizing it.
-</p>
-<p>
-<strong>Stella:</strong> You do not need to trade based on gamma exposure data as a retail investor. But understanding this mechanism helps explain why markets sometimes move sharply for no apparent fundamental reason -- it is often the Greeks at work behind the scenes.
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Margin and Leverage"]
-</p>
-<p>
-<strong>Horace:</strong> Next time, we are covering a topic that can make or break your investing journey -- margin accounts, leverage, and the regulations that govern them. See you there.
-</p>
-<p>
-[END - 13:30]
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <p>
@@ -1434,183 +1286,6 @@ Color（又稱Gamma衰減）衡量時間流逝時Gamma的變化量。
 <strong>問：業績公告期間希臘值會發生什麼變化？</strong>
 答：業績公告前，引申波幅上升（因不確定性增加），通過Vega提升期權價格。Delta可能隨著預期波動被計入而移動。業績公告後，引申波幅通常急劇下降（「波動率崩塌」），對多頭期權持有人造成負Vega影響。Gamma在業績公告前後非常重要，因為股票可能朝任一方向大幅波動。許多期權賣家專門針對業績公告後的波動率崩塌——在公告前沽出期權，從波動性下降中獲利。然而，若股票移動幅度超出預期，此策略面臨重大損失風險。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Dashboard showing multiple Greek values updating in real-time as a stock price moves, with gauges and meters for each Greek]
-</p>
-<p>
-<strong>Horace：</strong> 如果你一直跟着我們的期權課程，你應該了解Delta——期權隨股票移動的幅度。但Delta只是開始。在水面之下，有整個世界的敏感度是專業交易員所密切追蹤的。
-</p>
-<p>
-<strong>Stella：</strong> Gamma、Rho、Charm、Vanna——這些聽起來像希臘神話課的角色，但它們實際上是理解期權為何有時以令你意外的方式表現的關鍵。今天，我們深入探討希臘值。
-</p>
-<p>
-[VISUAL: Title card "期權希臘值深度剖析：超越Delta"]
-</p>
-<hr>
-<p>
-[SECTION 1 - GAMMA：最重要的二階希臘值 - 1:30]
-</p>
-<p>
-[ANIMATION: A speedometer showing delta, with gamma as the needle showing how fast the speedometer is changing]
-</p>
-<p>
-<strong>Horace：</strong> 讓我們從Gamma開始，因為它是繼Delta之後最重要的希臘值。如果Delta告訴你期權價格的變化速度，Gamma則告訴你Delta本身的變化速度。
-</p>
-<p>
-<strong>Stella：</strong> 想像開車。Delta是你的速度。Gamma是你的加速度。Delta為0.50意味着你以每小時50英里行駛。Gamma為0.05意味着股票每移動$1，你的速度增加5英里每小時。
-</p>
-<p>
-[VISUAL: Car analogy: Delta = Speed（速度）, Gamma = Acceleration（加速度）, with option values changing alongside]
-</p>
-<p>
-<strong>Horace：</strong> 這為何重要？若你買入一張Delta為0.50、Gamma為0.05的期權，股票上升$1，你的Delta變為0.55。現在你每一元股票波動賺得的錢比之前更多。
-</p>
-<p>
-<strong>Stella：</strong> 若股票再上升一元，Delta變為0.60。然後0.65。期權正在朝你有利的方向加速。這就是正Gamma對期權買家的美妙之處——股票朝你的方向移動越多，你的盈利增長越快。
-</p>
-<p>
-[ANIMATION: Profit curve showing non-linear acceleration of gains for long option position vs linear gains for stock position]
-</p>
-<p>
-<strong>Horace：</strong> 但這有另一面。若你在沽出期權，你持有負Gamma。股票朝不利方向移動，你的損失加速。波動越大，虧損越快。
-</p>
-<hr>
-<p>
-[SECTION 2 - GAMMA與THETA的取捨 - 4:00]
-</p>
-<p>
-[VISUAL: Balance scale with "Gamma（波動機遇）" on one side and "Theta（時間損耗成本）" on the other]
-</p>
-<p>
-<strong>Stella：</strong> 現在說到期權交易的根本取捨。Gamma和Theta是天敵。你不能擁有其一而不為另一付代價。
-</p>
-<p>
-<strong>Horace：</strong> 若你買入期權，你獲得正Gamma——受益於大幅波動。但你通過負Theta支付代價——時間損耗每天侵蝕期權價值。
-</p>
-<p>
-<strong>Stella：</strong> 若你沽出期權，你獲得正Theta——像業主收取租金一樣收取時間損耗。但你通過負Gamma支付代價——大幅波動損害你，而且波動越大，損害越嚴重。
-</p>
-<p>
-[ANIMATION: Two scenarios playing out side by side:
-Left: Option buyer -- stock moves big, gamma kicks in, profits exceed theta losses
-Right: Option buyer -- stock stays flat, theta drains value day after day]
-</p>
-<p>
-<strong>Horace：</strong> 這正是在平靜市場中沽出期權感覺良好的原因。Theta每天滴入你的帳戶，就像股息一樣。但當市場突然波動——而它總是會的——負Gamma可以在單一交易日內抹去數週或數月的Theta。
-</p>
-<p>
-<strong>Stella：</strong> 期權賣家的最佳選擇通常是距到期30至60天。你獲得合理的Theta，但Gamma尚未達到極端水平。沽出只剩一週到期的期權，每日Theta雖然驚人，但Gamma危險地高。
-</p>
-<p>
-[VISUAL: Chart showing gamma and theta curves as a function of days to expiration, with the "danger zone" near expiration highlighted]
-</p>
-<hr>
-<p>
-[SECTION 3 - VANNA與CHARM - 6:30]
-</p>
-<p>
-[VISUAL: Three-dimensional surface showing how delta changes with both stock price AND implied volatility]
-</p>
-<p>
-<strong>Horace：</strong> 現在讓我們轉向更深奧的希臘值。Vanna衡量引申波幅變化時Delta的變化量。它解釋了令許多期權交易員困惑的現象。
-</p>
-<p>
-<strong>Stella：</strong> 你有沒有持有過一張價外認購期權，股票幾乎沒有移動，但期權仍大幅升值或貶值？這往往是Vanna在起作用。
-</p>
-<p>
-<strong>Horace：</strong> 它的原理是這樣的。假設你持有一張Delta為0.25的價外認購期權。突然，引申波幅急升——可能是壞消息衝擊市場。通常你會認為波動性上升對你有利，因為期權有正Vega。的確如此。但Vanna同時也推高了你的Delta。你0.25的Delta期權可能變成0.35的Delta期權，令你的倉位對股票波動更為敏感。
-</p>
-<p>
-[ANIMATION: OTM call option with delta arrow growing as IV increases, showing the vanna effect]
-</p>
-<p>
-<strong>Stella：</strong> 在機構市場中，這些Vanna效應推動了交易員所稱的「Vanna資金流」。當引申波幅下降——如業績公告後——莊家需要買入股票來調整其Delta對沖倉位。這股買盤推高股價。這正是為何股票往往在不確定事件過去後反彈的原因之一。
-</p>
-<p>
-<strong>Horace：</strong> 然後是Charm，即Delta如何隨時間變化。價外期權的Delta隨着到期日臨近而趨向零。Charm告訴你這種漂移發生的速度。
-</p>
-<p>
-[VISUAL: OTM call option delta declining over time as expiration approaches, with charm as the slope of the decline]
-</p>
-<p>
-<strong>Stella：</strong> Charm在週末和假期最為重要。若你在週五進行Delta對沖，而股票在週末不波動，到了週一早上你的Delta已經改變，因為累積了兩天的Charm效應。專業交易員會調整這一點，這也是為何週一早上有時有不尋常的期權相關交易活動的原因之一。
-</p>
-<hr>
-<p>
-[SECTION 4 - 投資組合的希臘值管理 - 9:00]
-</p>
-<p>
-[VISUAL: "Greek Dashboard" showing a sample portfolio with aggregate delta, gamma, theta, and vega values]
-</p>
-<p>
-<strong>Horace：</strong> 專業期權交易員不把個別期權當做思考對象。他們把整個投資組合視為一組希臘值敞口。
-</p>
-<p>
-<strong>Stella：</strong> 想像一個儀表板，有四個儀表盤。Delta——你的方向性敞口。Gamma——你對大幅波動的敞口。Theta——你每日的時間損耗收入或成本。Vega——你對波動性變化的敞口。
-</p>
-<p>
-[ANIMATION: Dashboard gauges for a delta-neutral, negative gamma, positive theta, short vega portfolio -- typical for option sellers]
-</p>
-<p>
-<strong>Horace：</strong> 一個期權賣家的投資組合可能顯示：Delta接近零（市場中性）、負Gamma（受大幅波動所害）、正Theta（收取每日收入）、負Vega（受波動性上升所害）。這便是鐵鷹式策略和短倉勒式策略等策略的特徵。
-</p>
-<p>
-<strong>Stella：</strong> 多頭期權投資組合則顯示相反：正Gamma（受益於大幅波動）、負Theta（每日支付時間損耗）和正Vega（受益於波動性上升）。
-</p>
-<p>
-<strong>Horace：</strong> 投資組合管理的藝術，在於在產生正預期回報的同時，將每個希臘值控制在你的風險承受能力之內。若你的Gamma過於負值，你可能買入一些期權來修正。若你的Vega過於正值，你可能沽出一些來降低。
-</p>
-<p>
-[VISUAL: Risk management example showing a position that exceeds gamma limits and the adjustment trade to bring it back in line]
-</p>
-<p>
-<strong>Stella：</strong> 對個人投資者而言，你不需要如此精確地管理希臘值。但理解這些概念，有助於你識別投資組合何時暴露於你並不打算承擔的風險。若你沽出了大量認沽期權而Gamma非常負，你便知道市場急跌將對你造成不成比例的傷害。光是這種意識本身便已非常寶貴。
-</p>
-<hr>
-<p>
-[SECTION 5 - GAMMA敞口與市場影響 - 11:00]
-</p>
-<p>
-[VISUAL: GEX chart showing aggregate market maker gamma exposure at different stock price levels]
-</p>
-<p>
-<strong>Horace：</strong> 讓我們以一個引人入勝的話題作結——Gamma如何影響整個股票市場，而非只是個別期權。
-</p>
-<p>
-<strong>Stella：</strong> 期權莊家持有龐大倉位。他們在不同股價水平的整體Gamma敞口，實際上影響著市場的表現。
-</p>
-<p>
-<strong>Horace：</strong> 當莊家整體持有正Gamma時，他們在價格下跌時買入股票，在上升時賣出。這起到減震器的作用，抑制波動性。這正是為何市場有時感覺「被釘住」在大型期權行使價附近——莊家的對沖活動將價格推回行使價。
-</p>
-<p>
-[ANIMATION: Ball rolling in a valley near a strike price, with positive gamma walls on either side pushing it back toward the center]
-</p>
-<p>
-<strong>Stella：</strong> 但當莊家持有負Gamma——往往是在向對沖者大量沽出認沽期權之後——他們在股票下跌時賣出，在上升時買入。這放大了波動，而非抑制。持有負Gamma敞口的市場往往更為波動，容易出現急劇下跌。
-</p>
-<p>
-[ANIMATION: Ball on a hilltop, with negative gamma slopes accelerating movement away from the center in either direction]
-</p>
-<p>
-<strong>Horace：</strong> 這正是部分交易員追蹤整體Gamma敞口數據的原因。當莊家Gamma從正轉負，可能預示波動性即將上升——因為正常穩定市場的機械對沖資金流，此時已轉為擾動市場。
-</p>
-<p>
-<strong>Stella：</strong> 作為散戶投資者，你不需要根據Gamma敞口數據進行交易。但理解這一機制，有助於解釋為何市場有時無故大幅波動——往往是背後的希臘值在發揮作用。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Margin and Leverage"]
-</p>
-<p>
-<strong>Horace：</strong> 下次，我們將涵蓋一個可以成就或摧毀你投資之旅的話題——保證金帳戶、槓桿及監管它們的法規。下次見。
-</p>
-<p>
-[END - 13:30]
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>補充課第20課：選擇權希臘字母——深度解析</h1>
@@ -1909,183 +1584,6 @@ Color（也稱為Gamma衰減）衡量Gamma隨時間流逝的變化量。
 <strong>問：財報公告期間希臘字母會發生什麼？</strong>
 答：財報前，隱含波動率上升（因為不確定性增加），通過Vega提振選擇權價格。隨著預期波動被定價，Delta可能移動。財報後，隱含波動率通常急劇下降（「波動率崩塌」），通過負Vega影響損害多頭選擇權持有者。Gamma在財報前後非常重要，因為股票可以在任意方向大幅移動。許多選擇權賣方專門針對財報後的波動率崩塌，在公告前賣出選擇權，從波動率下降中獲利。然而，如果股票移動超出預期，此策略面臨大額損失的風險。
 </p>
-<hr>
-<h2>YouTube 腳本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Dashboard showing multiple Greek values updating in real-time as a stock price moves, with gauges and meters for each Greek]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果您一直在跟著我們的選擇權課程，您知道Delta——股票移動時選擇權移動的幅度。但Delta只是開始。在表面之下，還有一整個世界的敏感度，是專業交易者痴迷追蹤的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> Gamma、Rho、Charm、Vanna——這些聽起來像是希臘神話課的角色，但它們實際上是理解為什麼選擇權有時以令您驚訝的方式表現的關鍵。今天，我們將深入探討希臘字母。
-</p>
-<p>
-[VISUAL: Title card "選擇權希臘字母深度解析：超越Delta"]
-</p>
-<hr>
-<p>
-[SECTION 1 - GAMMA：最重要的二階希臘字母 - 1:30]
-</p>
-<p>
-[ANIMATION: A speedometer showing delta, with gamma as the needle showing how fast the speedometer is changing]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我們從Gamma開始，因為它是繼Delta之後最重要的希臘字母。如果Delta告訴您選擇權價格變化的速度，Gamma告訴您Delta本身變化的速度。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 把它想像成開車。Delta是您的速度。Gamma是您的加速度。Delta為0.50意味著您正以時速50英里行駛。Gamma為0.05意味著股票每移動1美元，您的速度增加每小時5英里。
-</p>
-<p>
-[VISUAL: Car analogy: Delta = Speed, Gamma = Acceleration, with option values changing alongside]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這就是為什麼這很重要。如果您買入Delta為0.50、Gamma為0.05的選擇權，股票上漲1美元，您的Delta變為0.55。現在您每美元股票移動比以前賺更多錢。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果股票再上漲一美元，Delta變為0.60。然後0.65。選擇權正在朝您的方向加速。這就是對選擇權買方來說正Gamma的美妙之處——股票朝您的方向移動越多，您的利潤增長越快。
-</p>
-<p>
-[ANIMATION: Profit curve showing non-linear acceleration of gains for long option position vs linear gains for stock position]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 但這裡有反面。如果您賣出選擇權，您有負Gamma。股票對您不利地移動，您的損失加速。移動越多，您損失越快。
-</p>
-<hr>
-<p>
-[SECTION 2 - GAMMA-THETA的權衡 - 4:00]
-</p>
-<p>
-[VISUAL: Balance scale with "Gamma (Movement Opportunity)" on one side and "Theta (Time Decay Cost)" on the other]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在這是選擇權交易中的基本權衡。Gamma和Theta是敵人。您不能擁有一個而不為另一個付出代價。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果您買入選擇權，您得到正Gamma——您受益於大幅波動。但您通過負Theta為此付出代價——時間衰減每天侵蝕您的選擇權價值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果您賣出選擇權，您得到正Theta——您像房東收租一樣收取時間衰減。但您通過負Gamma為此付出代價——大幅波動傷害您，波動越大，越糟糕。
-</p>
-<p>
-[ANIMATION: Two scenarios playing out side by side:
-Left: Option buyer -- stock moves big, gamma kicks in, profits exceed theta losses
-Right: Option buyer -- stock stays flat, theta drains value day after day]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這就是為什麼在平靜市場中賣出選擇權感覺很好。Theta每天像股利一樣滴入您的帳戶。但當市場突然移動——而且它最終總會移動——負Gamma可能在單個交易日中抹去數週或數月的Theta。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 選擇權賣方的甜蜜點通常是距到期30至60天。您得到不錯的Theta，但Gamma還不是極端的。以只有一週到期賣出選擇權可以給您驚人的每日Theta，但卻是危險的高Gamma。
-</p>
-<p>
-[VISUAL: Chart showing gamma and theta curves as a function of days to expiration, with the "danger zone" near expiration highlighted]
-</p>
-<hr>
-<p>
-[SECTION 3 - VANNA和CHARM - 6:30]
-</p>
-<p>
-[VISUAL: Three-dimensional surface showing how delta changes with both stock price AND implied volatility]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現在讓我們轉向更進階的希臘字母。Vanna衡量隱含波動率變化時Delta的變化量。它解釋了一些讓許多選擇權交易者困惑的事情。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 您是否曾持有一個價外買權，股票幾乎沒有移動，但選擇權仍然獲得或損失了顯著的價值？那往往就是Vanna在起作用。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 它是如何運作的。假設您持有Delta為0.25的價外買權。突然，隱含波動率飆升——也許壞消息打擊了市場。通常，您會認為波動率上升對您有利，因為您的選擇權有正Vega。確實如此。但Vanna也通過波動率上升推高了您的Delta。您的0.25 Delta選擇權可能變成0.35 Delta選擇權，使您的部位對股票移動更敏感。
-</p>
-<p>
-[ANIMATION: OTM call option with delta arrow growing as IV increases, showing the vanna effect]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在機構市場中，這些Vanna效應驅動交易者所稱的「Vanna流」。當隱含波動率下降時——如財報公告後——造市商必須買入股票以調整其Delta避險。這種買入壓力推動股票走高。這是事件不確定性消除後股票往往反彈的原因之一。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 然後是Charm，即Delta隨時間的變化。價外選擇權的Delta隨到期日臨近而向零漂移。Charm告訴您這種漂移發生的速度。
-</p>
-<p>
-[VISUAL: OTM call option delta declining over time as expiration approaches, with charm as the slope of the decline]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> Charm在週末和假日最為重要。如果您在週五持有Delta避險部位，而股票在週末不移動，您的Delta在週一早上仍然發生了變化，因為兩天的Charm已經累積。專業交易者對此進行調整，這也是為什麼週一早上可能有異常的選擇權相關交易活動的原因之一。
-</p>
-<hr>
-<p>
-[SECTION 4 - 投資組合希臘字母管理 - 9:00]
-</p>
-<p>
-[VISUAL: "Greek Dashboard" showing a sample portfolio with aggregate delta, gamma, theta, and vega values]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 專業選擇權交易者不思考個別選擇權。他們將整個投資組合視為一組希臘字母暴險。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 想像一個有四個儀表的控制台。Delta——您的方向性暴險。Gamma——您對大幅波動的暴險。Theta——您的每日時間衰減收入或成本。Vega——您對波動率變化的暴險。
-</p>
-<p>
-[ANIMATION: Dashboard gauges for a delta-neutral, negative gamma, positive theta, short vega portfolio -- typical for option sellers]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 選擇權賣方投資組合可能顯示：Delta接近零（市場中立），負Gamma（受大幅波動傷害），正Theta（每日收取收入），負Vega（受波動率上升傷害）。這是鐵禿鷹策略和空頭勒式策略等策略的輪廓。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 多頭選擇權投資組合顯示相反：正Gamma（受益於大幅波動），負Theta（支付每日時間衰減），正Vega（受益於波動率上升）。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 投資組合管理的藝術是在每個希臘字母保持在您的風險承受範圍內的同時，產生正預期報酬。如果您的Gamma變得太負，您可能買入一些選擇權將其帶回。如果您的Vega變得太正，您可能賣出一些以減少它。
-</p>
-<p>
-[VISUAL: Risk management example showing a position that exceeds gamma limits and the adjustment trade to bring it back in line]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對於個人投資者，您不需要這麼精確地管理希臘字母。但理解這些概念有助於您識別何時您的選擇權投資組合面臨您未曾打算的風險。如果您賣出了大量賣權，而您的Gamma非常負，您知道市場的急劇下跌將對您造成不成比例的傷害。僅這種意識本身就是有價值的。
-</p>
-<hr>
-<p>
-[SECTION 5 - GAMMA暴險與市場影響 - 11:00]
-</p>
-<p>
-[VISUAL: GEX chart showing aggregate market maker gamma exposure at different stock price levels]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我們以一個迷人的話題結束——Gamma如何影響整個股票市場，而不僅僅是個別選擇權。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 選擇權造市商持有龐大的部位。他們在不同股票價格水準的總Gamma暴險實際上影響著市場的表現。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當造市商整體上有正Gamma時，他們在價格下跌時買入股票，在上漲時賣出。這就像一個減震器，抑制波動率。這是為什麼市場可能感覺「被釘」在大型選擇權履約價附近的原因之一——造市商的避險活動將價格推回到履約價附近。
-</p>
-<p>
-[ANIMATION: Ball rolling in a valley near a strike price, with positive gamma walls on either side pushing it back toward the center]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但當造市商有負Gamma——通常是在他們向避險者賣出了大量賣權之後——他們必須在股票下跌時賣出，在股票上漲時買入。這放大了波動，而非抑制。具有負Gamma暴險的市場往往更加波動，容易出現急劇下跌。
-</p>
-<p>
-[ANIMATION: Ball on a hilltop, with negative gamma slopes accelerating movement away from the center in either direction]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這就是為什麼一些交易者追蹤總Gamma暴險數據。當交易商Gamma從正轉負時，它可能發出波動率即將增加的信號——因為通常穩定市場的機械性避險資金流現在正在使其不穩定。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 作為散戶投資者，您不需要根據Gamma暴險數據進行交易。但了解這一機制有助於解釋為什麼市場有時在沒有明顯基本面原因的情況下急劇波動——這往往是幕後希臘字母在起作用。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Margin and Leverage"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下次，我們將涵蓋一個可能決定您投資旅程成敗的話題——保證金帳戶、槓桿和管理它們的法規。下次見。
-</p>
-<p>
-[END - 13:30]
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>补充课第二十节：期权希腊值——深度解析</h1>
@@ -2383,183 +1881,6 @@ A：不同行权价有不同的希腊值特征。平值期权的Gamma、Theta和
 <p>
 <strong>Q：财报发布期间希腊值会发生什么变化？</strong>
 A：财报前，隐含波动率上升（因不确定性增加），通过Vega推高期权价格。Delta可能随着预期波动被定价而变化。财报后，隐含波动率通常急剧下降（"波动率崩塌"），通过负Vega影响伤害做多期权持有者。Gamma在财报期间极为重要，因为股票可能大幅向任何方向运动。许多期权卖方专门针对财报后的波动率崩塌，在公告前卖出期权，从波动性下降中获利。然而，若股票运动超出预期，这一策略面临巨大亏损风险。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Dashboard showing multiple Greek values updating in real-time as a stock price moves, with gauges and meters for each Greek]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果你一直跟随我们的期权课程，你已经了解Delta——股票运动时期权的变动幅度。但Delta只是开始。在这个表面之下，还有一整个职业交易员痴迷追踪的敏感度世界。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> Gamma、Rho、Charm、Vanna——这些听起来像希腊神话课上的人物，但实际上它们是理解为什么期权有时会出人意料地表现的关键。今天，我们要深入剖析这些希腊值。
-</p>
-<p>
-[VISUAL: Title card "Options Greeks Deep Dive: Beyond Delta"]
-</p>
-<hr>
-<p>
-[SECTION 1 - GAMMA: THE MOST IMPORTANT SECOND-ORDER GREEK - 1:30]
-</p>
-<p>
-[ANIMATION: A speedometer showing delta, with gamma as the needle showing how fast the speedometer is changing]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 让我们从Gamma开始，因为它是Delta之后最重要的希腊值。如果Delta告诉你期权价格的变化速度，Gamma告诉你Delta本身的变化速度。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 把它想象成开车。Delta是你的速度。Gamma是你的加速度。Delta为0.50意味着你在以每小时50英里的速度行驶。Gamma为0.05意味着股票每移动1美元，你的速度增加5英里每小时。
-</p>
-<p>
-[VISUAL: Car analogy: Delta = Speed, Gamma = Acceleration, with option values changing alongside]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这为什么重要。如果你买入一份Delta为0.50、Gamma为0.05的期权，股票上涨1美元，你的Delta变为0.55。现在你从每1美元股票运动中赚到的钱比以前更多了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果股票再上涨1美元，Delta变为0.60。然后0.65。期权正在朝你有利的方向加速。这就是期权买方正Gamma的魅力——股票朝你的方向运动越多，你的利润增长越快。
-</p>
-<p>
-[ANIMATION: Profit curve showing non-linear acceleration of gains for long option position vs linear gains for stock position]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 但这里有反面。如果你在卖出期权，你处于负Gamma。股票朝你不利的方向运动，你的亏损加速。运动越大，亏损越快。
-</p>
-<hr>
-<p>
-[SECTION 2 - THE GAMMA-THETA TRADEOFF - 4:00]
-</p>
-<p>
-[VISUAL: Balance scale with "Gamma (Movement Opportunity)" on one side and "Theta (Time Decay Cost)" on the other]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 现在来看期权交易中的根本性权衡。Gamma和Theta是对立的。你不能拥有其一而不为另一个付出代价。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果你买入期权，你获得正Gamma——受益于大幅波动。但你通过负Theta来为此付出代价——时间价值损耗每天都在侵蚀期权价值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果你卖出期权，你获得正Theta——像房东收租一样收取时间价值损耗。但你通过负Gamma为此付出代价——大幅波动会伤害你，而且波动越大，伤害越重。
-</p>
-<p>
-[ANIMATION: Two scenarios playing out side by side:
-Left: Option buyer -- stock moves big, gamma kicks in, profits exceed theta losses
-Right: Option buyer -- stock stays flat, theta drains value day after day]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这就是为什么在平静市场中卖出期权感觉很好。Theta每天像股息一样滴入你的账户。但当市场突然波动时——而这总会发生——负Gamma可能在一个交易日内抹去数周甚至数月的Theta。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 期权卖方的最佳区间通常是30到60天到期。你获得不错的Theta，但Gamma还不极端。卖出只有一周到期的期权会给你惊人的每日Theta，但却有危险的高Gamma。
-</p>
-<p>
-[VISUAL: Chart showing gamma and theta curves as a function of days to expiration, with the "danger zone" near expiration highlighted]
-</p>
-<hr>
-<p>
-[SECTION 3 - VANNA AND CHARM - 6:30]
-</p>
-<p>
-[VISUAL: Three-dimensional surface showing how delta changes with both stock price AND implied volatility]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 现在让我们转向更奇特的希腊值。Vanna衡量隐含波动率变化时Delta的变化量。它解释了许多期权交易者感到困惑的事情。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你有没有持有过虚值看涨期权，股票几乎没动，但期权却仍然大幅涨跌？这往往就是Vanna在起作用。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这是它的工作原理。假设你持有一份Delta为0.25的虚值看涨期权。突然，隐含波动率飙升——也许是坏消息冲击市场。通常你会认为波动性上升对你有利，因为你的期权有正Vega。确实如此。但Vanna也通过推高Delta来发挥作用。你的0.25 Delta期权可能变成0.35 Delta的期权，使你的持仓对股票运动更为敏感。
-</p>
-<p>
-[ANIMATION: OTM call option with delta arrow growing as IV increases, showing the vanna effect]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在机构市场中，这些Vanna效应驱动了交易员所称的"Vanna流"。当隐含波动率下降时——如财报发布后——做市商必须买入股票来调整其Delta对冲。这种买盘推动股价上涨。这就是为什么股票在事件不确定性消除后往往会上涨的原因之一。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 然后是Charm，即Delta如何随时间变化。虚值期权的Delta随到期日临近而向零漂移。Charm告诉你这种漂移发生的速度。
-</p>
-<p>
-[VISUAL: OTM call option delta declining over time as expiration approaches, with charm as the slope of the decline]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> Charm在周末和节假日最为重要。如果你在周五进行Delta对冲，而股票在周末没有运动，到周一早上你的Delta已经因为两天Charm的累积而发生了变化。职业交易员会针对这一点进行调整，这也是为什么周一早上往往有与期权相关的异常交易活动。
-</p>
-<hr>
-<p>
-[SECTION 4 - PORTFOLIO GREEK MANAGEMENT - 9:00]
-</p>
-<p>
-[VISUAL: "Greek Dashboard" showing a sample portfolio with aggregate delta, gamma, theta, and vega values]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 职业期权交易员不思考单个期权。他们将整个投资组合视为一组希腊值敞口。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 想象一个有四个仪表盘的控制面板。Delta——方向性敞口。Gamma——对大幅波动的敞口。Theta——每日时间价值损耗收入或成本。Vega——对波动性变化的敞口。
-</p>
-<p>
-[ANIMATION: Dashboard gauges for a delta-neutral, negative gamma, positive theta, short vega portfolio -- typical for option sellers]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一个期权卖方投资组合可能显示：Delta接近于零（市场中性）、负Gamma（被大幅波动伤害）、正Theta（收取每日收益）和负Vega（被波动性上升伤害）。这就是铁鹰策略和空头宽跨式期权等策略的特征。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 做多期权的投资组合显示相反的特征：正Gamma（受益于大幅波动）、负Theta（每日支付时间价值损耗）和正Vega（受益于波动性上升）。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 投资组合管理的艺术在于在产生正期望收益的同时，将每个希腊值保持在你的风险承受范围内。如果Gamma变得太负，你可能会买入一些期权来修正它。如果Vega变得太正，你可能会卖出一些来降低它。
-</p>
-<p>
-[VISUAL: Risk management example showing a position that exceeds gamma limits and the adjustment trade to bring it back in line]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 对于个人投资者，你不需要如此精确地管理希腊值。但理解这些概念有助于你识别期权投资组合在你未曾预期的风险敞口时发出的信号。如果你卖出了大量看跌期权，Gamma非常负，你就知道市场的急剧下跌会成比例地伤害你。仅仅这种意识就很有价值。
-</p>
-<hr>
-<p>
-[SECTION 5 - GAMMA EXPOSURE AND MARKET IMPACT - 11:00]
-</p>
-<p>
-[VISUAL: GEX chart showing aggregate market maker gamma exposure at different stock price levels]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 让我们以一个令人着迷的话题结束——Gamma如何影响整个股市，而不仅仅是单个期权。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 期权做市商持有巨大头寸。他们在不同股价水平的总体Gamma敞口实际上影响着市场的行为方式。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 当做市商总体上处于正Gamma时，他们在股价下跌时买入、在上涨时卖出。这就像减震器，抑制了波动性。这也是为什么市场有时会感觉"钉住"在大型期权行权价附近——做市商的对冲活动将股价推回行权价。
-</p>
-<p>
-[ANIMATION: Ball rolling in a valley near a strike price, with positive gamma walls on either side pushing it back toward the center]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但当做市商处于负Gamma时——通常是在向对冲方卖出大量看跌期权之后——他们在股价下跌时不得不卖出，在上涨时买入。这会放大运动，而非抑制。负Gamma敞口的市场往往更具波动性，更容易出现急剧下跌。
-</p>
-<p>
-[ANIMATION: Ball on a hilltop, with negative gamma slopes accelerating movement away from the center in either direction]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这就是为什么一些交易员跟踪总体Gamma敞口数据。当做市商的Gamma从正转负时，可能预示着波动性即将上升——因为通常稳定市场的机械性对冲流动现在正在使其不稳定。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 作为散户投资者，你不需要根据Gamma敞口数据进行交易。但理解这一机制有助于解释为什么市场有时在没有明显基本面原因的情况下大幅波动——这往往是幕后希腊值在起作用。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Margin and Leverage"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下次，我们将介绍一个可能成就或毁掉你投资之旅的话题——融资账户、杠杆以及监管规定。我们在那里见。
-</p>
-<p>
-[END - 13:30]
 </p>
             </div>
         </div>

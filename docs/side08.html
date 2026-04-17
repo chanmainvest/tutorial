@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -950,246 +979,6 @@ A: For mutual fund expense ratios, no -- they are set by the fund company and ap
 <strong>Q: Is there ever a case for paying higher fees?</strong>
 A: In limited circumstances, yes. Some alternative strategies (like managed futures, long-short equity, or market-neutral funds) require active management by definition and cannot be replicated with a simple index fund. In these cases, higher fees may be justified -- but you should still compare fees among similar strategies and be realistic about expected returns. For plain vanilla stock and bond investing, there is rarely a good reason to pay high fees.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-<strong>Side Lesson 8: Understanding Mutual Fund Fees</strong>
-</p>
-<hr>
-<p>
-<strong>Horace:</strong> Today we are talking about something that might sound boring but is absolutely critical to your financial future: investment fees. Stella, do you know what fees you are paying on your investments?
-</p>
-<p>
-<strong>Stella:</strong> Honestly? Not exactly. I know my fund has an expense ratio of something like 0.8% or maybe it is 0.08%. I cannot remember which.
-</p>
-<p>
-<strong>Horace:</strong> And that right there is exactly the problem. The difference between 0.8% and 0.08% is enormous over time, but most investors do not know -- or care -- until it is too late.
-</p>
-<p>
-[VISUAL: Two identical-looking fund fact sheets side by side. One shows 0.80% expense ratio, the other shows 0.08%. A magnifying glass zooms in on the fee line.]
-</p>
-<p>
-<strong>Stella:</strong> Okay, so walk me through this. What exactly is an expense ratio?
-</p>
-<p>
-<strong>Horace:</strong> The expense ratio is the annual percentage of your money that the fund takes to cover its operating costs -- paying the portfolio managers, administrative staff, legal and accounting fees, technology, and so on. If a fund has a 0.50% expense ratio, it takes $5 for every $1,000 you have invested, every year.
-</p>
-<p>
-<strong>Stella:</strong> Five dollars per thousand does not sound like much.
-</p>
-<p>
-<strong>Horace:</strong> That is how they get you. Let me show you what happens over a full career of investing.
-</p>
-<p>
-[ANIMATION: Two investors both start with $100,000 and earn 8% gross return per year. Investor A pays 0.03% in fees. Investor B pays 1.00% in fees. The animation shows both portfolios growing over 30 years. At the end, Investor A has $997,000. Investor B has $761,000. The gap of $236,000 is highlighted in red.]
-</p>
-<p>
-<strong>Stella:</strong> Wait. The 1% fee investor lost $236,000 compared to the 0.03% investor? On the same $100,000?
-</p>
-<p>
-<strong>Horace:</strong> Two hundred and thirty-six thousand dollars. That is the true cost of a fee that "does not sound like much." And this is not some unlikely scenario. Millions of Americans are in funds charging 0.50% to 1.50% right now, when they could be in funds charging 0.03%.
-</p>
-<p>
-<strong>Stella:</strong> But why is the difference so enormous? It is only about 1% per year.
-</p>
-<p>
-<strong>Horace:</strong> Because of compounding. Every year, the fee is deducted from your total balance. That money is gone -- it no longer earns returns for you. It is compound growth working in reverse. You are not just losing 1% per year. You are losing all the future growth that 1% would have generated.
-</p>
-<p>
-[ANIMATION: A tree metaphor. A small branch is cut each year (representing the fee). But the leaves and future branches that would have grown from that branch are also lost. Over 30 years, the tree that keeps its branches is dramatically larger.]
-</p>
-<p>
-<strong>Stella:</strong> That tree analogy really drives it home. Okay, so expense ratio is the big one. Are there other fees I should watch for?
-</p>
-<p>
-<strong>Horace:</strong> Unfortunately, yes. Let us go through the full menu of fund fees.
-</p>
-<p>
-<strong>Stella:</strong> There is a menu?
-</p>
-<p>
-<strong>Horace:</strong> More like a trap-laden obstacle course. First up: loads.
-</p>
-<p>
-[VISUAL: A toll booth metaphor. "Front-end load: pay to enter." "Back-end load: pay to exit."]
-</p>
-<p>
-<strong>Horace:</strong> A front-end load is a sales commission you pay when you buy the fund. Typically 3% to 5.75%. So if you invest $10,000 in a fund with a 5% front-end load, only $9,500 actually gets invested. Five hundred dollars goes straight to the broker who sold you the fund.
-</p>
-<p>
-<strong>Stella:</strong> So I am starting in a hole before the fund even does anything?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. And then you still pay the annual expense ratio on top of that. Back-end loads work the other way -- you pay when you sell. They typically decrease the longer you hold the fund, eventually reaching zero after 5-7 years.
-</p>
-<p>
-<strong>Stella:</strong> So they lock you in.
-</p>
-<p>
-<strong>Horace:</strong> That is precisely the point. Even if the fund performs terribly, you face a penalty for leaving. It is a hostage fee.
-</p>
-<p>
-<strong>Stella:</strong> Are loads still common?
-</p>
-<p>
-<strong>Horace:</strong> Less common than they used to be, thankfully. The trend is strongly toward no-load funds. But they still exist, especially in funds sold through commission-based financial advisors. My advice is simple: never buy a fund with a load. There is always a comparable no-load alternative.
-</p>
-<p>
-<strong>Stella:</strong> What about 12b-1 fees? I have seen that term but never understood it.
-</p>
-<p>
-<strong>Horace:</strong> 12b-1 fees are named after the SEC rule that allows them. They are annual charges -- up to 1% per year -- that the fund deducts to pay for marketing and distribution. This includes advertising, printing brochures, and paying commissions to brokers who recommend the fund.
-</p>
-<p>
-<strong>Stella:</strong> So I am paying for the fund to advertise itself to other people?
-</p>
-<p>
-<strong>Horace:</strong> Yes. The original theory was that attracting more investors would create economies of scale, lowering costs for everyone. But in practice, that rarely happens. You are just subsidizing the fund company's sales efforts.
-</p>
-<p>
-[VISUAL: A pie chart of where 12b-1 fees go: broker compensation 60%, advertising 25%, other distribution costs 15%]
-</p>
-<p>
-<strong>Stella:</strong> Are 12b-1 fees included in the expense ratio?
-</p>
-<p>
-<strong>Horace:</strong> Yes, they are. So a fund with a 1.00% expense ratio might have a 0.25% management fee, a 0.25% 12b-1 fee, and 0.50% in other operating expenses. The 12b-1 fee is buried inside the total.
-</p>
-<p>
-<strong>Stella:</strong> What about trading costs? I have heard those can be significant.
-</p>
-<p>
-<strong>Horace:</strong> This is a hidden cost that many investors completely miss. When a fund manager buys and sells stocks within the portfolio, the fund incurs brokerage commissions and bid-ask spreads. These costs are not included in the expense ratio. They are real costs that reduce your returns, but they are much harder to find.
-</p>
-<p>
-<strong>Stella:</strong> How do I estimate trading costs?
-</p>
-<p>
-<strong>Horace:</strong> Look at the fund's turnover ratio. A 100% turnover ratio means the fund essentially replaced its entire portfolio in one year. Higher turnover means higher trading costs. Studies estimate that trading costs add roughly 0.5% to 1.0% per year for high-turnover actively managed funds.
-</p>
-<p>
-[ANIMATION: Two funnel diagrams. Left funnel (index fund): 8% gross return enters, 0.03% expense ratio and minimal trading costs drain out, 7.95% net return exits. Right funnel (active fund): 8% gross return enters, 0.80% expense ratio, 0.50% trading costs, and 0.30% tax drag drain out, 6.40% net return exits.]
-</p>
-<p>
-<strong>Stella:</strong> So the true cost of that active fund is not 0.80%. It is closer to 1.60% when you add in trading costs and tax drag?
-</p>
-<p>
-<strong>Horace:</strong> For a high-turnover fund in a taxable account, absolutely. That is why the total cost of ownership is the number you should care about, not just the headline expense ratio.
-</p>
-<p>
-<strong>Stella:</strong> Speaking of taxes, how do fund fees interact with taxes?
-</p>
-<p>
-<strong>Horace:</strong> Great segue. When a fund sells stocks at a profit, it distributes those capital gains to shareholders -- and you owe taxes on them, even if you did not sell any shares yourself. Active funds with high turnover generate more capital gains distributions, creating a bigger annual tax bill.
-</p>
-<p>
-<strong>Stella:</strong> That seems unfair. I did not sell anything. Why do I owe taxes?
-</p>
-<p>
-<strong>Horace:</strong> It is the structure of mutual funds. The fund itself does not pay taxes -- it passes gains through to shareholders. Index funds, because they rarely sell holdings, generate very few capital gains. This tax efficiency is another hidden advantage of indexing.
-</p>
-<p>
-<strong>Stella:</strong> Let me put this all together. Say I am comparing two funds. How do I figure out the total cost?
-</p>
-<p>
-<strong>Horace:</strong> Here is my checklist.
-</p>
-<p>
-[VISUAL: "Total Cost Checklist" appearing as a clipboard with checkboxes:
-</p>
-<li>Expense ratio</li>
-<li>Front-end or back-end loads</li>
-<li>12b-1 fees (included in expense ratio but worth noting)</li>
-<li>Turnover ratio (proxy for trading costs)</li>
-<li>Tax-cost ratio (for taxable accounts)</li>
-<li>Transaction fees (does your brokerage charge to buy/sell?)</li>
-<li>Account maintenance fees</li>
-<li>Advisor fees (if applicable)]</li>
-<p>
-<strong>Horace:</strong> Add it all up, and you get your true cost of investing. For a well-chosen portfolio of index funds held at a discount brokerage with no advisor, the total cost might be 0.05-0.10% per year. For an advisor-managed portfolio of actively managed funds with loads, the total cost could easily exceed 2.00% per year.
-</p>
-<p>
-<strong>Stella:</strong> A 2% annual difference does not sound huge, but we just saw what that does over 30 years.
-</p>
-<p>
-<strong>Horace:</strong> Let me show the full comparison.
-</p>
-<p>
-[ANIMATION: Bar chart showing ending wealth from $100,000 after 30 years at 8% gross return:
-0.05% total cost: $993,000
-0.50% total cost: $880,000
-1.00% total cost: $761,000
-1.50% total cost: $657,000
-2.00% total cost: $567,000
-The bars decrease dramatically, with the dollar difference between each labeled]
-</p>
-<p>
-<strong>Stella:</strong> The 2% total cost investor ends up with $567,000. The 0.05% investor ends up with $993,000. That is $426,000 more. On the same $100,000 starting investment with the same gross market return.
-</p>
-<p>
-<strong>Horace:</strong> Four hundred and twenty-six thousand dollars. That is the price of not paying attention to fees. And remember, most actively managed funds do not even outperform their benchmark before fees. So you are paying extra for the privilege of worse returns.
-</p>
-<p>
-<strong>Stella:</strong> How do actively managed funds justify their fees?
-</p>
-<p>
-<strong>Horace:</strong> They claim superior stock selection, risk management, and expertise. But the data tells a different story. Over 15-year periods, roughly 85% to 90% of actively managed large-cap U.S. stock funds fail to beat the S&P 500 index after fees.
-</p>
-<p>
-[VISUAL: A scoreboard showing "Active Funds vs. S&P 500 over 15 years" -- Active wins: 10-15%. S&P 500 wins: 85-90%.]
-</p>
-<p>
-<strong>Stella:</strong> So paying higher fees for active management is essentially paying more for a lower probability of success.
-</p>
-<p>
-<strong>Horace:</strong> Precisely. And even among the small minority that do outperform, we cannot identify them in advance. Past performance does not reliably predict future performance. The fee, however, is guaranteed to drag on your returns every single year.
-</p>
-<p>
-<strong>Stella:</strong> What about my 401(k)? I just picked the default option and never looked at fees.
-</p>
-<p>
-<strong>Horace:</strong> You should absolutely check. Many 401(k) plans include a mix of low-cost and high-cost options. Some plans are excellent, with Vanguard or Fidelity index funds at rock-bottom fees. Others are loaded with expensive actively managed funds and may even charge additional plan administration fees.
-</p>
-<p>
-<strong>Stella:</strong> How do I find out?
-</p>
-<p>
-<strong>Horace:</strong> Your plan is required to send you an annual fee disclosure. Look for it in your plan documents or online portal. Compare the expense ratios of your current funds to equivalent index fund options in the plan. If your plan only offers expensive options, talk to your HR department -- companies have been increasingly pressured to add low-cost choices.
-</p>
-<p>
-[VISUAL: Sample 401(k) fee disclosure showing a fund lineup with expense ratios highlighted. Arrow pointing to a fund at 1.20% with text: "This is costing you." Another arrow pointing to an index option at 0.04% with text: "Switch to this."]
-</p>
-<p>
-<strong>Stella:</strong> What about financial advisor fees? That is a whole separate layer, right?
-</p>
-<p>
-<strong>Horace:</strong> Right. If you work with a financial advisor who charges 1% of assets under management, that is on top of the fund fees. So even if they put you in low-cost index funds at 0.05%, your total cost is 1.05%. On a $500,000 portfolio, that is $5,250 per year.
-</p>
-<p>
-<strong>Stella:</strong> When is that worth it?
-</p>
-<p>
-<strong>Horace:</strong> A good advisor earns their fee through comprehensive financial planning -- tax optimization, estate planning, insurance review, behavioral coaching during market crashes, Social Security optimization, and retirement income planning. If your advisor just picks funds and rebalances once a year, you can get that from a robo-advisor for 0.25% or do it yourself for free.
-</p>
-<p>
-<strong>Stella:</strong> Let me sum up the key takeaways. Fees compound and destroy wealth over time. The expense ratio is important but not the only cost. Loads and 12b-1 fees are generally red flags. High turnover means hidden trading and tax costs. Most active managers do not earn their higher fees. Always compare the total cost of ownership. And for most people, low-cost index funds are the best deal.
-</p>
-<p>
-<strong>Horace:</strong> Perfect. If you take one thing from this lesson, let it be this: a dollar saved in fees is a dollar that compounds for you, not against you. Over a lifetime, that is worth hundreds of thousands of dollars.
-</p>
-<p>
-[ANIMATION: Final image -- a split-screen future. On the left, "High-Fee Investor" looking stressed at a modest retirement. On the right, "Low-Fee Investor" relaxing comfortably with significantly more wealth. Text overlay: "The fee you save today grows for you tomorrow."]
-</p>
-<p>
-<strong>Stella:</strong> Next lesson, we are going to explore something much more exciting but also much more controversial -- crypto and digital assets.
-</p>
-<p>
-<strong>Horace:</strong> That is right. Love it or hate it, crypto is part of the investment landscape. We will give you the facts so you can make your own informed decision.
-</p>
-<hr>
-<p>
-<em>End of Side Lesson 8</em>
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>補充課第8課：認識互惠基金費用</h1>
@@ -1481,246 +1270,6 @@ The bars decrease dramatically, with the dollar difference between each labeled]
 <p>
 <strong>問：是否存在應支付較高費用的情況？</strong>
 答：在有限情況下，是的。部分另類策略（如管理期貨、多空股票或市場中性基金）本質上需要主動管理，無法以簡單指數基金複製。在此類情況下，較高費用可能有理可據——但你仍應比較同類策略間的費用，並對預期回報保持現實態度。對於普通股票和債券投資，鮮有充分理由支付高額費用。
-</p>
-<hr>
-<h2>YouTube影片腳本</h2>
-<p>
-<strong>補充課第8課：認識互惠基金費用</strong>
-</p>
-<hr>
-<p>
-<strong>Horace（陳馬）：</strong> 今天我們要談論一個聽起來可能沉悶，但對你的財務未來絕對至關重要的話題：投資費用。Stella，你知道自己的投資在支付多少費用嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 老實說？不完全知道。我知道我的基金有個開支比率，好像是0.8%，或者是0.08%。我記不清楚了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 而這正是問題所在。0.8%與0.08%的差距隨時間推移是巨大的，但大多數投資者要到為時已晚才知道，甚至根本不在意。
-</p>
-<p>
-[VISUAL: Two identical-looking fund fact sheets side by side. One shows 0.80% expense ratio, the other shows 0.08%. A magnifying glass zooms in on the fee line.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，那麼帶我了解一下。開支比率究竟是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 開支比率是基金每年從你的資金中扣取的百分比，用以支付其運營成本——支付基金組合經理、行政人員、法律及會計費用、技術費用等等。若基金的開支比率為0.50%，每投資1,000美元，每年就扣除5美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每千元5美元聽起來不多。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這就是他們的如意算盤。讓我給你看整個投資生涯下來會發生什麼。
-</p>
-<p>
-[ANIMATION: Two investors both start with $100,000 and earn 8% gross return per year. Investor A pays 0.03% in fees. Investor B pays 1.00% in fees. The animation shows both portfolios growing over 30 years. At the end, Investor A has $997,000. Investor B has $761,000. The gap of $236,000 is highlighted in red.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 等等。支付1%費用的投資者比0.03%的投資者少了236,000美元？同樣是100,000美元起點？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 二十三萬六千美元。這就是那個「聽起來不多」的費用的真實代價。這並非不可能發生的情景。現在有數以百萬計的美國人持有收費0.50%至1.50%的基金，而他們本可選用收費0.03%的基金。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但為什麼差距這麼大？每年也就相差約1%而已。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正因為複利。每年，費用從你的總結餘中扣除。那筆錢消失了——它再也不為你賺取回報。這是複利效應的逆向運作。你不只是每年損失1%，你還在失去那1%本可產生的所有未來增長。
-</p>
-<p>
-[ANIMATION: A tree metaphor. A small branch is cut each year (representing the fee). But the leaves and future branches that would have grown from that branch are also lost. Over 30 years, the tree that keeps its branches is dramatically larger.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這個大樹的比喻確實發人深省。好，所以開支比率是最主要的。還有其他我應該留意的費用嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 不幸地，是有的。讓我們逐一介紹基金費用的完整清單。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有清單的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 更像是一條佈滿陷阱的障礙賽道。首先：認購費。
-</p>
-<p>
-[VISUAL: A toll booth metaphor. "Front-end load: pay to enter." "Back-end load: pay to exit."]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 前端認購費是你購買基金時支付的銷售佣金，通常為3%至5.75%。所以若你以5%前端認購費投資10,000美元，實際只有9,500美元投入基金。五百美元直接落入向你銷售基金的經紀人口袋。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以在基金有任何動作之前，我就已經虧損了？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。然後你還要在此基礎上繼續支付年度開支比率。後端贖回費則相反——你賣出時才支付。它通常隨持有時間增長而遞減，5至7年後最終歸零。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以他們把你鎖住了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是目的所在。即使基金表現糟糕，你離場也要面臨罰款。這是一種人質費用。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 認購費現在還普遍嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 比以前少見了，謝天謝地。趨勢強烈傾向免佣基金。但它們仍然存在，尤其在佣金制財務顧問銷售的基金中。我的建議很簡單：絕不購買含認購費的基金。總有同等的免佣替代品。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那12b-1費用呢？我見過這個名詞但從未理解。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 12b-1費用以允許它的美國證券交易委員會規定命名。這是每年最高1%的費用，基金從中扣除，用於支付市場推廣及分銷費用，包括廣告、印刷宣傳冊，以及向推薦該基金的經紀人支付佣金。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以我在為基金向其他人打廣告買單？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是的。原本的理論是吸引更多投資者會帶來規模經濟，降低所有人的成本。但實際上，這很少發生。你只是在補貼基金公司的銷售努力。
-</p>
-<p>
-[VISUAL: A pie chart of where 12b-1 fees go: broker compensation 60%, advertising 25%, other distribution costs 15%]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 12b-1費用包含在開支比率內嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是的。所以一隻開支比率為1.00%的基金，可能包含0.25%管理費、0.25%的12b-1費用，以及0.50%其他運營費用。12b-1費用隱藏在總費用之中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 交易成本呢？我聽說這些可能相當可觀。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是許多投資者完全忽略的隱藏成本。當基金經理在投資組合內買賣股票時，基金會產生佣金及買賣差價成本。這些成本不計入開支比率，它們是真實的成本，會降低你的回報，但卻難以找到。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何估算交易成本？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 查看基金的換手率。100%的換手率意味著基金在一年內基本上更換了整個投資組合。換手率愈高，交易成本愈高。研究估計，高換手率主動管理基金的交易成本每年額外增加約0.5%至1.0%。
-</p>
-<p>
-[ANIMATION: Two funnel diagrams. Left funnel (index fund): 8% gross return enters, 0.03% expense ratio and minimal trading costs drain out, 7.95% net return exits. Right funnel (active fund): 8% gross return enters, 0.80% expense ratio, 0.50% trading costs, and 0.30% tax drag drain out, 6.40% net return exits.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以那隻主動管理基金的真實成本不是0.80%。加上交易成本和稅務拖累，接近1.60%？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對於應稅帳戶中的高換手率基金，確實如此。這就是為什麼總持有成本才是你應該關注的數字，而不只是標題開支比率。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 說到稅務，基金費用與稅務是如何相互影響的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 好的引伸。當基金出售股票獲利時，它會將那些資本增值分配給持有人——你需要就此繳稅，即使你本身沒有出售任何基金單位。高換手率的主動管理基金會產生更多資本增值分配，每年帶來更大的稅務賬單。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這似乎不公平。我沒有賣出任何東西。為什麼我要交稅？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是互惠基金的架構。基金本身不繳稅——它將資本增值轉予持有人。指數基金因為很少出售持倉，產生的資本增值極少。這種稅務效益是被動投資的另一個隱藏優勢。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我把這些整合起來。假設我在比較兩隻基金。我如何計算總成本？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是我的檢查清單。
-</p>
-<p>
-[VISUAL: "Total Cost Checklist" appearing as a clipboard with checkboxes:
-</p>
-<li>Expense ratio</li>
-<li>Front-end or back-end loads</li>
-<li>12b-1 fees (included in expense ratio but worth noting)</li>
-<li>Turnover ratio (proxy for trading costs)</li>
-<li>Tax-cost ratio (for taxable accounts)</li>
-<li>Transaction fees (does your brokerage charge to buy/sell?)</li>
-<li>Account maintenance fees</li>
-<li>Advisor fees (if applicable)]</li>
-<p>
-<strong>Horace（陳馬）：</strong> 把所有項目加起來，就得到了你的真實投資成本。對於持有指數基金、存放於折扣經紀商、無需顧問的精心構建投資組合，總成本可能僅為每年0.05%至0.10%。對於由顧問管理、含認購費的主動管理基金投資組合，總成本可能輕易超過每年2.00%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每年2%的差距聽起來不大，但我們剛剛看到了30年後的結果。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我展示完整比較。
-</p>
-<p>
-[ANIMATION: Bar chart showing ending wealth from $100,000 after 30 years at 8% gross return:
-0.05% total cost: $993,000
-0.50% total cost: $880,000
-1.00% total cost: $761,000
-1.50% total cost: $657,000
-2.00% total cost: $567,000
-The bars decrease dramatically, with the dollar difference between each labeled]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2%總成本的投資者最終得到567,000美元。0.05%的投資者最終得到993,000美元。差距是426,000美元。同樣的100,000美元起點，同樣的市場總回報。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 四十二萬六千美元。這是不注意費用的代價。而且記住，大多數主動管理基金甚至在扣費前就無法跑贏基準指數。所以你是在為更差的回報付出更高的代價。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 主動管理基金如何為其費用辯護？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 他們聲稱具有卓越的選股能力、風險管理和專業知識。但數據講述了一個截然不同的故事。在15年期間，約85%至90%的主動管理大盤美國股票基金在扣除費用後跑輸標普500指數。
-</p>
-<p>
-[VISUAL: A scoreboard showing "Active Funds vs. S&P 500 over 15 years" -- Active wins: 10-15%. S&P 500 wins: 85-90%.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以支付較高費用進行主動管理，本質上是花更多錢獲得更低的成功機率。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 精準。而且即使在跑贏的小數群體中，我們也無法事先識別他們。過往表現並不能可靠地預測未來表現。而費用，卻保證每年都會拖累你的回報。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我的401(k)呢？我只是選了默認選項，從未查看費用。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你絕對應該查一查。許多401(k)計劃包含低成本和高成本選項的混合。有些計劃非常出色，擁有先鋒或富達的指數基金，費用極低。其他計劃則充斥著昂貴的主動管理基金，甚至可能收取額外的計劃行政費用。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何查明呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你的計劃須向你發送年度費用披露。在你的計劃文件或網上帳戶門戶中查找。將你目前基金的開支比率與計劃中同等指數基金選項進行比較。若你的計劃只提供昂貴選項，可以與你的人力資源部門溝通——企業已越來越多地被要求增加低成本選擇。
-</p>
-<p>
-[VISUAL: Sample 401(k) fee disclosure showing a fund lineup with expense ratios highlighted. Arrow pointing to a fund at 1.20% with text: "This is costing you." Another arrow pointing to an index option at 0.04% with text: "Switch to this."]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 財務顧問費用呢？那是另一個獨立的層次，對嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。若你與收取1%管理資產費的財務顧問合作，這是在基金費用之上的額外費用。所以即使他們為你選擇了費用0.05%的低成本指數基金，你的總費用也達到1.05%。對於500,000美元的投資組合，這每年高達5,250美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 什麼情況下這是值得的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 優秀的顧問通過全面的財務規劃賺取費用——稅務優化、遺產規劃、保險審查、市場崩盤時的行為輔導、社會保障優化及退休收入規劃。若你的顧問只是選擇基金並每年再平衡一次，你可以通過智能投資顧問以0.25%的費用獲得同等服務，或自己免費完成。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我總結主要要點。費用複利累積，長期侵蝕財富。開支比率重要，但並非唯一成本。認購費和12b-1費用通常是警示訊號。高換手率意味著隱藏的交易和稅務成本。大多數主動管理基金無法為較高費用提供合理依據。始終比較總持有成本。對大多數人而言，低成本指數基金是最佳選擇。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完美。若你從這課中只記住一件事，請記住：省下的每一分費用，都能為你複利增長，而非反向侵蝕你。終其一生，這相當於數十萬美元的差距。
-</p>
-<p>
-[ANIMATION: Final image -- a split-screen future. On the left, "High-Fee Investor" looking stressed at a modest retirement. On the right, "Low-Fee Investor" relaxing comfortably with significantly more wealth. Text overlay: "The fee you save today grows for you tomorrow."]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 下一課，我們將探討一個更令人興奮但也極具爭議的話題——加密貨幣與數字資產。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。無論你是愛它還是恨它，加密貨幣已是投資領域的一部分。我們將為你提供事實，讓你能夠作出自己的明智決定。
-</p>
-<hr>
-<p>
-<em>補充課第8課完</em>
 </p>
             </div>
             <div id="content-tw" class="lang-content">
@@ -2017,246 +1566,6 @@ Now I have the terminology. Let me produce the full Taiwan Traditional Chinese t
 <strong>問：是否有支付更高費用的理由？</strong>
 答：在有限的情況下，有。某些另類策略（如管理期貨、多空股票或市場中性基金）本質上需要主動管理，無法用簡單的指數基金複製。在這些情況下，較高的費用可能是合理的——但你仍應比較類似策略的費用，並對預期報酬保持現實態度。對於普通的股票和債券投資，幾乎沒有充分理由支付高費用。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-<strong>副課八：了解共同基金費用</strong>
-</p>
-<hr>
-<p>
-<strong>Horace：</strong> 今天我們要談論一個聽起來可能很無聊，但對你的財務未來絕對至關重要的話題：投資費用。Stella（小魚），你知道你的投資正在支付什麼費用嗎？
-</p>
-<p>
-<strong>Stella：</strong> 說實話？不太清楚。我知道我的基金費用率大概是0.8%，或者可能是0.08%。我記不清楚是哪一個了。
-</p>
-<p>
-<strong>Horace：</strong> 這正是問題所在。0.8%和0.08%之間的差距隨著時間推移是巨大的，但大多數投資人不知道——或者不在乎——直到為時已晚。
-</p>
-<p>
-[VISUAL: Two identical-looking fund fact sheets side by side. One shows 0.80% expense ratio, the other shows 0.08%. A magnifying glass zooms in on the fee line.]
-</p>
-<p>
-<strong>Stella：</strong> 好的，那麼請跟我解釋一下。費用率究竟是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 費用率是你的錢每年被基金扣取的百分比，用於支付其運營成本——支付投資組合經理人、行政人員、法律和會計費用、技術等等。若基金的費用率為0.50%，每投資1,000美元，每年就會扣取5美元。
-</p>
-<p>
-<strong>Stella：</strong> 每千美元5美元聽起來不多。
-</p>
-<p>
-<strong>Horace：</strong> 這就是他們讓你上當的方式。讓我展示一下在整個投資生涯中會發生什麼。
-</p>
-<p>
-[ANIMATION: Two investors both start with $100,000 and earn 8% gross return per year. Investor A pays 0.03% in fees. Investor B pays 1.00% in fees. The animation shows both portfolios growing over 30 years. At the end, Investor A has $997,000. Investor B has $761,000. The gap of $236,000 is highlighted in red.]
-</p>
-<p>
-<strong>Stella：</strong> 等等。1%費用的投資人比0.03%費用的投資人少了23萬6,000美元？在同樣的10萬美元投資上？
-</p>
-<p>
-<strong>Horace：</strong> 二十三萬六千美元。這就是那個「聽起來不多」的費用的真實成本。這不是某個不可能發生的情境。現在有數百萬美國人投資於費用0.50%至1.50%的基金，而他們本可以投資費用0.03%的基金。
-</p>
-<p>
-<strong>Stella：</strong> 但為什麼差距如此巨大？每年不過1%左右。
-</p>
-<p>
-<strong>Horace：</strong> 因為複利。每年，費用從你的總資產餘額中扣除。那筆錢消失了——它不再為你創造報酬。這是複利以相反方式運作。你不僅僅是每年損失1%。你還失去了那1%本可產生的所有未來增長。
-</p>
-<p>
-[ANIMATION: A tree metaphor. A small branch is cut each year (representing the fee). But the leaves and future branches that would have grown from that branch are also lost. Over 30 years, the tree that keeps its branches is dramatically larger.]
-</p>
-<p>
-<strong>Stella：</strong> 那棵樹的比喻真的很說明問題。好的，費用率是最重要的一項。還有其他費用我應該注意的嗎？
-</p>
-<p>
-<strong>Horace：</strong> 很遺憾，有。讓我們一一介紹共同基金費用的完整清單。
-</p>
-<p>
-<strong>Stella：</strong> 還有清單？
-</p>
-<p>
-<strong>Horace：</strong> 更像是一條充滿陷阱的障礙賽道。首先：手續費。
-</p>
-<p>
-[VISUAL: A toll booth metaphor. "Front-end load: pay to enter." "Back-end load: pay to exit."]
-</p>
-<p>
-<strong>Horace：</strong> 前收型手續費是你購買基金時支付的銷售佣金。通常在3%至5.75%之間。所以若你以5%前收型手續費投資1萬美元，實際投入基金的只有9,500美元。有500美元直接進入了向你銷售基金的券商口袋。
-</p>
-<p>
-<strong>Stella：</strong> 所以在基金做任何事情之前，我就已經在虧損了？
-</p>
-<p>
-<strong>Horace：</strong> 正是。然後你還要在此之上支付年費用率。後收型手續費則反過來運作——你在贖回時支付。它們通常隨著你持有基金的時間越長而遞減，通常在5至7年後降至零。
-</p>
-<p>
-<strong>Stella：</strong> 所以他們把你鎖進去了。
-</p>
-<p>
-<strong>Horace：</strong> 這正是重點所在。即使基金績效很糟糕，你也面臨離開的懲罰。這是一種人質費用。
-</p>
-<p>
-<strong>Stella：</strong> 手續費現在還普遍嗎？
-</p>
-<p>
-<strong>Horace：</strong> 比以前少多了，謝天謝地。趨勢強烈地轉向免手續費基金。但它們仍然存在，特別是在通過佣金制理財顧問銷售的基金中。我的建議很簡單：絕對不要購買有手續費的基金。總有一個可比的免手續費替代品。
-</p>
-<p>
-<strong>Stella：</strong> 那12b-1費用呢？我見過這個詞但從來不理解它。
-</p>
-<p>
-<strong>Horace：</strong> 12b-1費用以允許其存在的美國證管會規則命名。它們是每年高達1%的費用——基金扣除這部分用於支付行銷和銷售費用。這包括廣告、印刷宣傳冊，以及向推薦基金的券商支付佣金。
-</p>
-<p>
-<strong>Stella：</strong> 所以我在為基金向其他人打廣告買單？
-</p>
-<p>
-<strong>Horace：</strong> 是的。最初的理論是，吸引更多投資人將創造規模效益，為所有人降低成本。但實際上，這很少發生。你只是在補貼基金公司的銷售工作。
-</p>
-<p>
-[VISUAL: A pie chart of where 12b-1 fees go: broker compensation 60%, advertising 25%, other distribution costs 15%]
-</p>
-<p>
-<strong>Stella：</strong> 12b-1費用包含在費用率中嗎？
-</p>
-<p>
-<strong>Horace：</strong> 是的，它們包含在其中。所以費用率為1.00%的基金可能包含0.25%的管理費、0.25%的12b-1費用和0.50%的其他運營費用。12b-1費用被埋藏在總費用中。
-</p>
-<p>
-<strong>Stella：</strong> 那交易成本呢？我聽說這可能很重要。
-</p>
-<p>
-<strong>Horace：</strong> 這是許多投資人完全忽略的隱藏成本。當基金經理人在投資組合中買賣股票時，基金會產生券商佣金和買賣價差。這些成本不包含在費用率中。它們是真實的成本，會降低你的報酬，但很難找到相關資訊。
-</p>
-<p>
-<strong>Stella：</strong> 我如何估計交易成本？
-</p>
-<p>
-<strong>Horace：</strong> 看看基金的周轉率。100%的周轉率意味著基金在一年內基本上更換了整個投資組合。周轉率越高意味著交易成本越高。研究估計，對於高周轉率的主動管理基金，交易成本每年大約增加0.5%至1.0%。
-</p>
-<p>
-[ANIMATION: Two funnel diagrams. Left funnel (index fund): 8% gross return enters, 0.03% expense ratio and minimal trading costs drain out, 7.95% net return exits. Right funnel (active fund): 8% gross return enters, 0.80% expense ratio, 0.50% trading costs, and 0.30% tax drag drain out, 6.40% net return exits.]
-</p>
-<p>
-<strong>Stella：</strong> 所以那檔主動管理基金的真實成本不是0.80%。加上交易成本和稅務拖累，實際上接近1.60%？
-</p>
-<p>
-<strong>Horace：</strong> 對於應稅帳戶中的高周轉率基金，絕對是這樣。這就是為什麼總持有成本才是你應該關心的數字，而不僅僅是標題費用率。
-</p>
-<p>
-<strong>Stella：</strong> 說到稅務，基金費用與稅務如何互動？
-</p>
-<p>
-<strong>Horace：</strong> 好的過渡。當基金以獲利賣出股票時，它將那些資本利得分配給持有人——你需要就這些利得繳稅，即使你自己沒有賣出任何份額。高周轉率的主動管理基金產生更多的資本利得分配，每年帶來更大的稅單。
-</p>
-<p>
-<strong>Stella：</strong> 這看起來不公平。我什麼都沒有賣。為什麼我要繳稅？
-</p>
-<p>
-<strong>Horace：</strong> 這是共同基金的結構。基金本身不繳稅——它將利得轉給持有人。指數基金因為很少賣出持有部位，幾乎不產生資本利得。這種稅務效率是被動投資的另一個隱藏優勢。
-</p>
-<p>
-<strong>Stella：</strong> 讓我把這些整合起來。假設我在比較兩檔基金。我如何計算總成本？
-</p>
-<p>
-<strong>Horace：</strong> 以下是我的檢查清單。
-</p>
-<p>
-[VISUAL: "Total Cost Checklist" appearing as a clipboard with checkboxes:
-</p>
-<li>Expense ratio</li>
-<li>Front-end or back-end loads</li>
-<li>12b-1 fees (included in expense ratio but worth noting)</li>
-<li>Turnover ratio (proxy for trading costs)</li>
-<li>Tax-cost ratio (for taxable accounts)</li>
-<li>Transaction fees (does your brokerage charge to buy/sell?)</li>
-<li>Account maintenance fees</li>
-<li>Advisor fees (if applicable)]</li>
-<p>
-<strong>Horace：</strong> 把所有這些加起來，你就得到了你的真實投資成本。對於在折扣券商持有的精選指數基金投資組合，且沒有顧問，總成本可能每年只有0.05%至0.10%。對於由主動管理基金加手續費組成的顧問管理投資組合，總成本可能輕易超過每年2.00%。
-</p>
-<p>
-<strong>Stella：</strong> 每年2%的差距聽起來不大，但我們剛才看到三十年下來會造成什麼影響。
-</p>
-<p>
-<strong>Horace：</strong> 讓我展示完整的比較。
-</p>
-<p>
-[ANIMATION: Bar chart showing ending wealth from $100,000 after 30 years at 8% gross return:
-0.05% total cost: $993,000
-0.50% total cost: $880,000
-1.00% total cost: $761,000
-1.50% total cost: $657,000
-2.00% total cost: $567,000
-The bars decrease dramatically, with the dollar difference between each labeled]
-</p>
-<p>
-<strong>Stella：</strong> 2%總成本的投資人最終得到56萬7,000美元。0.05%的投資人得到99萬3,000美元。相差42萬6,000美元。在同樣的10萬美元起始投資和同樣的毛市場報酬下。
-</p>
-<p>
-<strong>Horace：</strong> 四十二萬六千美元。這是不注意費用的代價。記住，大多數主動管理基金甚至在扣費前都無法超越其基準。所以你付出更多，卻得到更差的報酬。
-</p>
-<p>
-<strong>Stella：</strong> 主動管理基金如何為其費用辯護？
-</p>
-<p>
-<strong>Horace：</strong> 他們聲稱擁有卓越的選股能力、風險管理和專業知識。但數據告訴我們不同的故事。在15年期間，約85%至90%的主動管理大型股美國股票基金，扣除費用後無法超越標普500指數。
-</p>
-<p>
-[VISUAL: A scoreboard showing "Active Funds vs. S&P 500 over 15 years" -- Active wins: 10-15%. S&P 500 wins: 85-90%.]
-</p>
-<p>
-<strong>Stella：</strong> 所以為主動管理支付更高費用，本質上是花更多錢來換取更低的成功機率。
-</p>
-<p>
-<strong>Horace：</strong> 正是。即使在少數確實表現優異的基金中，我們也無法事先識別它們。過去績效無法可靠預測未來績效。但費用保證每一年都會拖累你的報酬。
-</p>
-<p>
-<strong>Stella：</strong> 我的401(k)怎麼樣？我只是選了預設選項，從來沒有看過費用。
-</p>
-<p>
-<strong>Horace：</strong> 你絕對應該查一下。許多401(k)計劃包含低成本和高成本選項的組合。有些計劃非常出色，提供先鋒或富達的指數基金，費用極低。其他計劃則充斥著昂貴的主動管理基金，甚至可能收取額外的計劃行政費用。
-</p>
-<p>
-<strong>Stella：</strong> 我如何找出來？
-</p>
-<p>
-<strong>Horace：</strong> 你的計劃有義務每年向你發送費用揭露。在你的計劃文件或線上入口網站中查找它。比較你目前基金的費用率與計劃中同等指數基金選項的費用率。若你的計劃只提供昂貴的選項，可以與人力資源部門溝通——公司越來越被迫增加低成本選項。
-</p>
-<p>
-[VISUAL: Sample 401(k) fee disclosure showing a fund lineup with expense ratios highlighted. Arrow pointing to a fund at 1.20% with text: "This is costing you." Another arrow pointing to an index option at 0.04% with text: "Switch to this."]
-</p>
-<p>
-<strong>Stella：</strong> 那理財顧問費用呢？那是一個完全獨立的費用層次，對吧？
-</p>
-<p>
-<strong>Horace：</strong> 對。若你與收取管理資產規模1%費用的理財顧問合作，那是在基金費用之上額外的費用。所以即使他們為你配置費用0.05%的低成本指數基金，你的總成本也是1.05%。對於50萬美元的投資組合，那就是每年5,250美元。
-</p>
-<p>
-<strong>Stella：</strong> 什麼時候這是值得的？
-</p>
-<p>
-<strong>Horace：</strong> 好的顧問通過全面的財務規劃來賺取他們的費用——稅務優化、遺產規劃、保險審查、市場崩盤時的行為指導、社會安全優化和退休收入規劃。若你的顧問只是挑選基金並每年再平衡一次，你可以從機器人理財顧問以0.25%的費用獲得這些服務，或者自己免費完成。
-</p>
-<p>
-<strong>Stella：</strong> 讓我總結一下主要要點。費用隨時間複利並摧毀財富。費用率很重要，但不是唯一的成本。手續費和12b-1費用通常是警訊。高周轉率意味著隱藏的交易和稅務成本。大多數主動管理基金賺不回其更高的費用。始終比較持有的總成本。對大多數人而言，低成本指數基金是最划算的選擇。
-</p>
-<p>
-<strong>Horace：</strong> 完美。若你從這節課中只記住一件事，讓它是這個：節省的每一分費用，都是為你複利成長的一分錢，而不是與你作對的一分錢。一生下來，那的價值高達數十萬美元。
-</p>
-<p>
-[ANIMATION: Final image -- a split-screen future. On the left, "High-Fee Investor" looking stressed at a modest retirement. On the right, "Low-Fee Investor" relaxing comfortably with significantly more wealth. Text overlay: "The fee you save today grows for you tomorrow."]
-</p>
-<p>
-<strong>Stella：</strong> 下一課，我們將探索一個更令人興奮但也更具爭議的話題——加密貨幣和數位資產。
-</p>
-<p>
-<strong>Horace：</strong> 沒錯。不管你喜不喜歡，加密貨幣都是投資格局的一部分。我們將為你提供事實，讓你能夠做出自己的明智決定。
-</p>
-<hr>
-<p>
-<em>副課八結束</em>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <p>
@@ -2551,246 +1860,6 @@ Now I have the full terminology dictionary. Let me produce the translation:
 <p>
 <strong>问：有没有情况适合支付更高费用？</strong>
 答：在有限情况下，是的。部分另类策略（如管理期货、多空股票或市场中性基金）在定义上需要主动管理，无法通过简单指数基金复制。在这些情况下，较高费用或有正当性——但你仍应比较同类策略间的费用，并对预期收益保持现实态度。对于普通股票和债券投资，几乎没有理由支付高额费用。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-<strong>副课八：读懂共同基金费用</strong>
-</p>
-<hr>
-<p>
-<strong>Horace：</strong> 今天我们要讲一个听起来枯燥、却对你的财务未来至关重要的话题：投资费用。Stella，你知道自己的投资在支付哪些费用吗？
-</p>
-<p>
-<strong>Stella：</strong> 说实话？不太清楚。我知道我的基金有个费率，好像是0.8%还是0.08%，我记不住了。
-</p>
-<p>
-<strong>Horace：</strong> 这正是问题所在。0.8%和0.08%在长期内相差悬殊，但大多数投资者根本不知道——或者不在意——直到为时已晚。
-</p>
-<p>
-[VISUAL: 两张看起来相同的基金资料表并排放置。一张显示费率0.80%，另一张显示0.08%。一个放大镜聚焦在费用那一行。]
-</p>
-<p>
-<strong>Stella：</strong> 好，那给我讲讲。费率到底是什么？
-</p>
-<p>
-<strong>Horace：</strong> 费率是基金每年从你的资金中提取的百分比，用于支付运营成本——支付基金经理、行政人员、法务和会计费用、技术费用等等。如果一只基金的费率是0.50%，那你每投入1,000元，每年就要支付5元。
-</p>
-<p>
-<strong>Stella：</strong> 每一千块五块钱听起来没多少。
-</p>
-<p>
-<strong>Horace：</strong> 这就是他们让你上钩的方式。让我来展示整个职业生涯投资下来会发生什么。
-</p>
-<p>
-[ANIMATION: 两位投资者都以10万元起步，税前年化收益率8%。投资者A支付0.03%的费用，投资者B支付1.00%的费用。动画展示两个投资组合在30年内的增长。最终，投资者A拥有99.7万元，投资者B拥有76.1万元。两者之间23.6万元的差距用红色高亮标出。]
-</p>
-<p>
-<strong>Stella：</strong> 等等。1%费用的投资者与0.03%的相比少了23.6万元？同样是10万元本金？
-</p>
-<p>
-<strong>Horace：</strong> 二十三万六千元。这就是那个"听起来没多少"的费用的真实代价。而这不是什么极端假设——眼下有数百万投资者置身于收费0.50%至1.50%的基金中，而他们本可以选择收费0.03%的基金。
-</p>
-<p>
-<strong>Stella：</strong> 但为什么差距这么大？每年不过1%左右的差距而已。
-</p>
-<p>
-<strong>Horace：</strong> 因为复利。每年，费用从你的总余额中扣除。这笔钱就消失了——它再也无法为你产生收益。这是复利在反向运作。你损失的不只是每年的1%，还有那1%本可产生的所有未来增长。
-</p>
-<p>
-[ANIMATION: 一棵树的比喻。每年有一根小树枝被剪掉（代表费用）。但那根树枝上本可长出的叶子和未来的新枝，也随之消失。30年后，保留了所有枝干的那棵树远比另一棵高大。]
-</p>
-<p>
-<strong>Stella：</strong> 这个树的比喻真的很直观。好，费率是最重要的。还有其他费用要注意吗？
-</p>
-<p>
-<strong>Horace：</strong> 不幸的是，有。让我们来过一遍基金费用的完整清单。
-</p>
-<p>
-<strong>Stella：</strong> 还有清单？
-</p>
-<p>
-<strong>Horace：</strong> 更像是一条布满陷阱的障碍跑道。首先是销售费用。
-</p>
-<p>
-[VISUAL: 收费站比喻。"前端销售费：入场时付费。" "后端销售费：离场时付费。"]
-</p>
-<p>
-<strong>Horace：</strong> 前端销售费是你购买基金时支付的销售佣金，通常为3%至5.75%。若你向一只收取5%前端费的基金投入1万元，实际进入基金的只有9,500元。五百元直接进了向你销售基金的经纪商的口袋。
-</p>
-<p>
-<strong>Stella：</strong> 所以在基金还没做任何事情之前，我就已经亏了一个坑？
-</p>
-<p>
-<strong>Horace：</strong> 正是。然后你还得在此基础上支付年度费率。后端销售费则反过来——赎回时才付费。通常持有时间越长，费用越低，5至7年后降为零。
-</p>
-<p>
-<strong>Stella：</strong> 所以是把你锁住了。
-</p>
-<p>
-<strong>Horace：</strong> 这正是其意图所在。即便基金表现糟糕透顶，离开也要付出代价。这是一种"人质费用"。
-</p>
-<p>
-<strong>Stella：</strong> 销售费用还常见吗？
-</p>
-<p>
-<strong>Horace：</strong> 比过去少见得多，值得庆幸。趋势明显转向免销售费基金。但它们依然存在，尤其在佣金制财务顾问销售的基金中。我的建议很简单：永远不要购买含销售费的基金。总有可比的免费替代品。
-</p>
-<p>
-<strong>Stella：</strong> 那12b-1费用呢？我见过这个词但从来不明白是什么意思。
-</p>
-<p>
-<strong>Horace：</strong> 12b-1费用以允许其存在的SEC规则命名。这是每年高达1%的年费，由基金扣除，用于支付营销和分销费用，包括广告、印刷宣传册，以及向推荐该基金的经纪商支付佣金。
-</p>
-<p>
-<strong>Stella：</strong> 所以我是在为基金向别人打广告买单？
-</p>
-<p>
-<strong>Horace：</strong> 是的。最初的理论是，吸引更多投资者会产生规模经济，从而降低所有人的成本。但实际上这几乎从未发生。你只是在补贴基金公司的销售工作。
-</p>
-<p>
-[VISUAL: 显示12b-1费用去向的饼图：经纪商报酬60%，广告25%，其他分销成本15%]
-</p>
-<p>
-<strong>Stella：</strong> 12b-1费用包含在费率里面吗？
-</p>
-<p>
-<strong>Horace：</strong> 是的。所以一只费率为1.00%的基金，可能包含0.25%的管理费、0.25%的12b-1费用，以及0.50%的其他运营费用。12b-1费用隐藏在总额中。
-</p>
-<p>
-<strong>Stella：</strong> 那交易成本呢？我听说那也很可观。
-</p>
-<p>
-<strong>Horace：</strong> 这是许多投资者完全忽视的隐性成本。当基金经理在组合内买卖股票时，基金会产生经纪佣金和买卖价差。这些成本不包含在费率中，但会实实在在地侵蚀你的收益，而且很难找到。
-</p>
-<p>
-<strong>Stella：</strong> 我怎么估算交易成本？
-</p>
-<p>
-<strong>Horace：</strong> 看基金的换手率。100%的换手率意味着基金在一年内实质上替换了整个组合一次。换手率越高，交易成本越高。研究估计，对于换手率高的主动管理基金，交易成本每年额外增加约0.5%至1.0%。
-</p>
-<p>
-[ANIMATION: 两个漏斗示意图。左侧漏斗（指数基金）：8%税前收益流入，0.03%费率和极低交易成本流出，7.95%净收益流出。右侧漏斗（主动基金）：8%税前收益流入，0.80%费率、0.50%交易成本、0.30%税务拖累流出，6.40%净收益流出。]
-</p>
-<p>
-<strong>Stella：</strong> 所以那只主动基金的真实成本不是0.80%，加上交易成本和税务拖累，接近1.60%？
-</p>
-<p>
-<strong>Horace：</strong> 对于应税账户中换手率高的基金，完全可能如此。这就是为什么你应该关注的是总持有成本，而非只盯着标题费率。
-</p>
-<p>
-<strong>Stella：</strong> 说到税，基金费用和税务是如何相互作用的？
-</p>
-<p>
-<strong>Horace：</strong> 问得好。当基金出售股票获利时，它会将这些资本利得分配给持有人——即便你自己没有赎回任何份额，你也欠税。换手率高的主动基金产生更多资本利得分配，带来更大的年度税负。
-</p>
-<p>
-<strong>Stella：</strong> 这似乎不公平。我什么都没卖，为什么要缴税？
-</p>
-<p>
-<strong>Horace：</strong> 这是共同基金的结构使然。基金本身不缴税——它将收益传递给持有人。指数基金因为几乎不卖出持仓，产生极少的资本利得。这种税务效率是指数投资另一个隐藏的优势。
-</p>
-<p>
-<strong>Stella：</strong> 让我把这一切整合起来。假设我要比较两只基金，我怎么算总成本？
-</p>
-<p>
-<strong>Horace：</strong> 这是我的检查清单。
-</p>
-<p>
-[VISUAL: "总成本检查清单"以带勾选框的剪贴板形式呈现：
-</p>
-<li>费率</li>
-<li>前端或后端销售费</li>
-<li>12b-1费用（含于费率中，但值得单独关注）</li>
-<li>换手率（交易成本的代理指标）</li>
-<li>税务成本比率（适用于应税账户）</li>
-<li>交易手续费（你的券商是否收取买卖手续费？）</li>
-<li>账户维护费</li>
-<li>顾问费（如适用）]</li>
-<p>
-<strong>Horace：</strong> 全部加总，就得到你的真实投资成本。对于一个精心配置的指数基金组合、在折扣券商账户持有且无顾问参与的情况下，总成本可能仅为每年0.05%至0.10%。而对于一个由顾问管理、配置含销售费的主动基金的投资组合，总成本很容易超过每年2.00%。
-</p>
-<p>
-<strong>Stella：</strong> 2%的年度差距听起来不大，但我们刚刚看到30年后会产生什么效果。
-</p>
-<p>
-<strong>Horace：</strong> 让我展示完整对比。
-</p>
-<p>
-[ANIMATION: 柱状图显示10万元在8%税前年化收益率下持续30年的最终财富：
-总成本0.05%：99.3万元
-总成本0.50%：88.0万元
-总成本1.00%：76.1万元
-总成本1.50%：65.7万元
-总成本2.00%：56.7万元
-柱状图依次递减，每档差额均有标注]
-</p>
-<p>
-<strong>Stella：</strong> 总成本2%的投资者最终拥有56.7万元，总成本0.05%的投资者拥有99.3万元，相差42.6万元——同样10万元起点，同样的市场税前收益率。
-</p>
-<p>
-<strong>Horace：</strong> 四十二万六千元。这是不关注费用的代价。而且记住，大多数主动管理基金在费前就无法跑赢基准。所以你是在花更多的钱，换来更差的收益。
-</p>
-<p>
-<strong>Stella：</strong> 主动管理基金凭什么证明自己的费用是合理的？
-</p>
-<p>
-<strong>Horace：</strong> 他们声称有超强的选股能力、风险管理和专业知识。但数据的回答截然不同。在15年维度内，大约85%至90%的主动管理大盘美股基金，税后收益落后于标普500指数。
-</p>
-<p>
-[VISUAL: 计分板显示"主动基金vs.标普500，15年维度"——主动基金胜出：10%至15%；标普500胜出：85%至90%。]
-</p>
-<p>
-<strong>Stella：</strong> 所以为主动管理支付更高费用，本质上是花更多的钱买一个更低的成功概率。
-</p>
-<p>
-<strong>Horace：</strong> 正是如此。即便在少数确实跑赢的基金中，我们也无法提前识别出它们。过往业绩无法可靠预测未来表现。而费用是确定的——它每一年都在拖累你的收益。
-</p>
-<p>
-<strong>Stella：</strong> 我的401(k)怎么办？我只是选了默认选项，从来没看过费用。
-</p>
-<p>
-<strong>Horace：</strong> 你绝对应该查一查。许多401(k)计划提供低成本和高成本选项的混合。有些计划很优秀，提供先锋或富达的极低费率指数基金；另一些则充斥着昂贵的主动管理基金，甚至还收取额外的计划管理费。
-</p>
-<p>
-<strong>Stella：</strong> 我怎么查？
-</p>
-<p>
-<strong>Horace：</strong> 你的计划必须每年向你发送费用披露文件。在计划文件或网络平台中找找看。对比你当前持有基金的费率与计划内同类指数基金选项。如果你的计划只提供昂贵的选项，可以向人事部门反映——企业越来越多地被迫增加低成本选择。
-</p>
-<p>
-[VISUAL: 样例401(k)费用披露表，显示基金列表并高亮标出费率。一个箭头指向费率1.20%的基金，旁边写着"这正在消耗你的财富"。另一个箭头指向0.04%的指数基金选项，写着"换成这个。"]
-</p>
-<p>
-<strong>Stella：</strong> 财务顾问费用呢？那是完全不同的一层费用，对吧？
-</p>
-<p>
-<strong>Horace：</strong> 对。如果你的财务顾问按资产管理规模收取1%费用，这是叠加在基金费用之上的。所以即便顾问为你配置0.05%费率的低成本指数基金，总成本也达到了1.05%。对于50万元的投资组合，这意味着每年5,250元。
-</p>
-<p>
-<strong>Stella：</strong> 什么时候值得这样做？
-</p>
-<p>
-<strong>Horace：</strong> 好的顾问通过全面的财务规划赚取自己的报酬——税务优化、遗产规划、保险审查、市场崩盘时的行为引导、社保最优化和退休收入规划。如果顾问只是选选基金、一年再平衡一次，这些事你完全可以花0.25%用智能投顾解决，甚至免费自己做。
-</p>
-<p>
-<strong>Stella：</strong> 让我来总结一下关键要点：费用通过复利摧毁财富；费率重要，但不是唯一成本；销售费用和12b-1费用通常是危险信号；换手率高意味着隐性交易成本和税务成本；大多数主动基金经理无法证明更高费用的合理性；始终比较总持有成本；对大多数人而言，低成本指数基金是最优选择。
-</p>
-<p>
-<strong>Horace：</strong> 完美。如果你只从这一课中带走一件事，那就是这个：省下的费用每一分钱都在为你复利增长，而非对你反向复利。一生积累下来，这意味着数十万元的差距。
-</p>
-<p>
-[ANIMATION: 最终画面——分屏对比未来。左侧，"高费用投资者"看着有限的退休储蓄面露愁容。右侧，"低费用投资者"悠然享受富足的退休生活。文字叠加："你今天省下的费用，明天为你增长。"]
-</p>
-<p>
-<strong>Stella：</strong> 下一课，我们将探讨一个远比这更令人兴奋、也更具争议性的话题——加密货币与数字资产。
-</p>
-<p>
-<strong>Horace：</strong> 没错。不管你爱它还是恨它，加密货币已是投资版图的一部分。我们将为你呈现事实，让你能做出自己的知情决策。
-</p>
-<hr>
-<p>
-<em>副课八完</em>
 </p>
             </div>
         </div>

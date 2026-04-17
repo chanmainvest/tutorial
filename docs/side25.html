@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1282,243 +1311,6 @@ A10: Several major shifts have occurred. Fee compression has reduced average fee
 <strong>問題10：對沖基金行業在過去十年如何改變？</strong>
 答案10：發生了幾項重大轉變。費用壓縮已將平均費用從「2%+20%」降至約「1.4%+17%」。機構投資者現已主導投資者基礎，取代了富裕個人。量化和系統性策略相對於主觀策略的比重有所增加。2008年後，監管要求大幅提升，大多數大型基金現已向美國證券交易委員會（SEC）登記。流動性另類交易所買賣基金的興起為對沖基金的回報和費用帶來競爭壓力。城堡投資、千禧管理及Point72等多策略超大型基金已吸納了大部分人才和資金，使規模較小的基金更難競爭。
 </p>
-<hr>
-<h2>第二部分：YouTube影片腳本</h2>
-<hr>
-<p>
-<strong>標題：對沖基金全解析：策略、費用及DIY替代方案</strong>
-</p>
-<p>
-<strong>時長：約18分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Animated skyline with hedge fund offices in glass towers, zooming into a trading floor]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> Stella，對沖基金聽起來總是那麼神秘。數十億元的押注、秘而不宣的基金經理、2%加20%的費用。這些機構裡面究竟在做什麼？我覺得每次看財經新聞都會提到對沖基金，但我還是搞不清楚它們到底在做什麼。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你並不孤單。大多數人覺得對沖基金令人困惑，因為這個術語涵蓋了極廣泛的策略。但一旦拆解開來，核心概念其實很簡單。
-</p>
-<p>
-讓我來揭開神秘面紗。對沖基金其實只是一個私人投資池，可以使用大多數普通基金無法使用的策略，如沽空、槓桿及衍生工具。可以把它理解為靈活度最高、監管最少（至少相對於互惠基金而言）的投資基金。
-</p>
-<p>
-<strong>[ANIMATION: Pool of money graphic showing arrows going both up (long) and down (short), with leverage multiplier appearing]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 所以「對沖」這部分是指他們對沖風險嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最初是的。1949年阿爾弗雷德·溫斯洛·瓊斯創立的第一隻對沖基金確實結合了買入股票和沽空股票來降低市場風險。但今天，「對沖基金」更多描述的是一種收費結構和法律形式，而非特定的投資方法。部分對沖基金比普通股票基金更具進攻性。
-</p>
-<p>
-<strong>[VISUAL: Timeline from 1949 to present showing growth of hedge fund industry from $1 million to $4+ trillion]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 4萬億元。這是一筆巨款。它們實際上使用什麼策略？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有四大主要類別。讓我們從最常見的開始：好淡倉股票策略。
-</p>
-<p>
-<strong>[ANIMATION: Split screen showing "LONG" column with stocks going up and "SHORT" column with stocks going down, with net exposure meter in the middle]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 基金買入預期上漲的股票，沽空預期下跌的股票。典型的基金可能持有130%好倉和30%淡倉，對市場形成100%的淨敞口，但同時有更多倉位在運作。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 所以他們既從贏家又從輸家身上賺錢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。關鍵技能在於在好淡倉兩邊都產生正差異。若好倉回報15%而淡倉虧損5%，扣費前的總差異便是20%。
-</p>
-<p>
-<strong>[VISUAL: Bar chart comparing long portfolio returns vs short portfolio returns, with spread highlighted]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第二類策略是什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 環球宏觀。這類基金押注宏觀經濟趨勢的大方向。例如貨幣、利率、商品、股票指數。索羅斯在1992年沽空英鎊，一日內賺取超過10億美元的故事廣為人知。
-</p>
-<p>
-<strong>[ANIMATION: World map with arrows showing capital flows, currency pairs fluctuating, central bank icons adjusting rates]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 聽起來風險極高。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 確實可以。環球宏觀基金的授權最為廣泛——它們可在全球任何市場建立好倉或淡倉。優勢是靈活，劣勢是宏觀經濟預測真的很難。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第三類是什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 事件驅動策略。這類基金從企業事件中獲利。
-</p>
-<p>
-<strong>[ANIMATION: Company A reaching toward Company B with a merger arrow, showing target stock price at $48 with announced price of $50, and the $2 spread highlighted]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最常見的是收購套利。當A公司宣布以每股50元收購B公司，B公司股票可能在48元交易。你在48元買入，若交易完成，便收取50元。這2元差價就是你的利潤。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 只有2元？感覺很微薄。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 是的，但這些交易通常在三至六個月內完成。換算成年化回報，48元股票上的2元差價在四個月內完成，年化約為12-15%。而且你同時在二三十宗交易中分散風險。
-</p>
-<p>
-<strong>[VISUAL: Table showing multiple merger deals with spreads, days to close, and annualized returns]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第四類呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 相對價值。這類基金利用相關證券之間的定價差異獲利。例如，若兩隻相似的債券定價不同，你買入便宜的那隻，沽空昂貴的那隻，當價格收斂時獲利。
-</p>
-<p>
-<strong>[ANIMATION: Two securities plotted on a graph showing historical price relationship, diverging and then converging, with buy/sell signals marked]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現在讓我們談談房間裡的大象：費用。2%加20%。這對我的回報實際上意味著什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我給你看看數字。
-</p>
-<p>
-<strong>[ANIMATION: Calculator showing: $100,000 invested, 10% gross return = $10,000. Management fee 2% = $2,000. Remaining profit: $8,000. Performance fee 20% of $8,000 = $1,600. Net to investor: $6,400 or 6.4%]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在10%的總回報上，扣除費用後你保留6.4%。基金取走3.6%。這意味著基金經理拿走了總利潤的36%。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 36%？！那超過我收益的三分之一！
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對。而在基金只有5%總回報的年份，比例上更糟糕。僅管理費就佔去2%，只剩3%。然後這3%的20%又作為業績費，最終你只留下2.4%。在5%的回報上，你保留的不到一半。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 就算基金虧錢，基金經理還是能從管理費中賺錢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。2%的管理費不論業績如何都會收取。一隻管理10億元的基金，即使虧損10%，也能從管理費中取得2,000萬元收入。這就是許多人批評這種結構的原因：即使投資者虧損，基金經理也有錢賺。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison showing fee drag at different return levels: 5%, 10%, 15%, 20% gross returns with net returns after 2-and-20]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那麼這種費用結構實際上物有所值嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 平均而言，沒有。過去15年，普通對沖基金的扣費後回報跑輸了簡單的六四股債投資組合。HFRI指數與標普500的差距相當顯著。
-</p>
-<p>
-<strong>[ANIMATION: Line chart showing S&P 500 total return vs HFRI Fund Weighted Composite vs 60/40 portfolio from 2010 to present]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那退休基金和捐贈基金為什麼繼續投資？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 因為平均數掩蓋了極端值。頂四分之一的對沖基金表現大幅優於市場。而機構投資者關心的不只是回報。它們需要穩定的收入、有限的回撤，以及與公開市場的低相關性。
-</p>
-<p>
-<strong>[VISUAL: Distribution bell curve showing hedge fund returns with top quartile and bottom quartile highlighted]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是對我們普通投資者而言最有趣的地方。我們能否在沒有對沖基金高昂收費的情況下獲取這些策略？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當然可以。這是過去十年投資界最重大的轉變之一。許多對沖基金策略現可透過交易所買賣基金以極低成本獲取。
-</p>
-<p>
-<strong>[ANIMATION: Side-by-side comparison table showing Hedge Fund vs ETF Alternative with rows for fees, minimums, liquidity, transparency]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好淡倉股票交易所買賣基金收費約0.75%，而非2%+20%。收購套利交易所買賣基金收費約0.50%。管理期貨交易所買賣基金收費約0.60%。而且提供每日流動性和完全透明度。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那麼有什麼缺點？為什麼不是所有人都用交易所買賣基金？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有幾個原因。首先，交易所買賣基金版本通常採用系統性量化方法。它們無法複製技術熟練的主觀基金經理的判斷。其次，部分策略如困境債務或積極投資很難以交易所買賣基金形式呈現。第三，表現最佳的對沖基金絕不會將策略開放為低成本交易所買賣基金。你獲得的是策略，而非最優秀的實踐者。
-</p>
-<p>
-<strong>[VISUAL: Venn diagram showing "Hedge Fund Advantages" (manager skill, illiquid opportunities, concentrated bets) vs "ETF Advantages" (low fees, liquidity, transparency, no minimums) with overlap area (strategy exposure, diversification)]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你會建議如何建立一個DIY對沖基金替代投資組合？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這裡有一個簡單的三基金方法。
-</p>
-<p>
-<strong>[ANIMATION: Pie chart building piece by piece: 60% core equity index, 20% long/short equity ETF, 10% managed futures ETF, 10% merger arbitrage ETF]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 從你的總投資組合中，撥出10-20%配置於流動性另類產品。你可以在好淡倉股票交易所買賣基金和管理期貨交易所買賣基金之間分配。管理期貨部分尤為有價值，因為它在股票熊市期間往往表現良好，提供真正的危機保護。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這些交易所買賣基金替代品的風險如何？它們是否比實際的對沖基金更安全？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在某些方面是的。你有每日流動性，永遠不會被鎖定。你有完全透明度，知道自己持有什麼。費用也較低，讓你保留更多回報。但底層策略仍帶有風險。若選股失誤，好淡倉基金可能在兩邊同時虧損。在橫行無趨勢的市場中，管理期貨可能出現較大波動。
-</p>
-<p>
-<strong>[VISUAL: Risk comparison chart showing various strategies with volatility, max drawdown, and correlation to S&P 500]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對於試圖在對沖基金和交易所買賣基金替代品之間作出選擇的人，你有什麼最後建議？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 除非你投資超過500萬元，且能接觸頂級基金經理，否則交易所買賣基金替代品是正確選擇。光是節省的費用，隨時間複利累積便極為可觀。在100萬元投資組合上1.5%的費用差異複利20年，便是數十萬元的差距。
-</p>
-<p>
-<strong>[ANIMATION: Two growth charts diverging over 20 years, one with 2-and-20 fees and one with 0.75% ETF fees, showing the growing dollar gap]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 光是費用就差了數十萬。這個例子真的一針見血。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對沖基金行業出售的是排他性和神秘感。但對大多數投資者而言，普及版本提供了你真正想要的策略敞口，而且價格合理。專注於了解策略，選擇低成本的執行工具，並控制好費用預算。
-</p>
-<p>
-<strong>[VISUAL: Summary card showing "Key Takeaways" with bullet points: 4 strategy categories, 2-and-20 fee impact, ETF alternatives exist, 10-20% portfolio allocation, fees matter enormously]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 謝謝Stella。對沖基金終於對我來說有意義了。而且我很高興不需要100萬元才能開始。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是現代市場的美妙之處。策略現在人人可及。你只需了解自己買的是什麼，以及為什麼買。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在我們結束之前，你能快速解釋一下如何評估流動性另類交易所買賣基金嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有三件事要檢查。第一，了解策略。閱讀招股說明書，確保你知道基金實際在做什麼。是好淡倉股票？管理期貨？還是多策略？第二，查看費用。超過1%的費用應引起質疑。第三，審視危機表現。另類產品的真正價值在熊市期間才顯現。若基金在2020年崩市期間跌幅與標普500相當，那它並未提供你所付費用應有的多元化效果。
-</p>
-<p>
-<strong>[VISUAL: Three-step evaluation checklist: 1) Understand the strategy, 2) Check fees (<1% preferred), 3) Review crisis performance (should hold up better than stocks)]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這個框架非常清晰。我想我會先從管理期貨交易所買賣基金入手，作為危機保護。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 明智之選。這是所有另類策略中最經得起考驗的多元化工具之一。只要記住，在強勁牛市期間它會跑輸股票。這就是保險的代價。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on options strategies and portfolio construction]</strong>
-</p>
-<hr>
-<p>
-<em>補充課第25課完</em>
-</p>
-<hr>
-<p>
-<em>補充資源：如需全面的對沖基金業績數據，請參閱BarclayHedge或對沖基金研究公司（Hedge Fund Research, Inc.）發布的HFRI指數。</em>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <p>
@@ -1839,243 +1631,6 @@ A9：虽然两者都是主要面向合格投资者的另类投资工具，但本
 <p>
 <strong>Q10：过去十年，对冲基金行业发生了哪些变化？</strong>
 A10：若干重大转变已经发生。费用压缩已将平均费率从2/20降至约1.4和17。机构投资者已取代富裕个人，成为主要投资群体。量化和系统化策略相对于主观判断型策略的占比有所增长。2008年后，监管要求大幅提高，大多数大型基金现已在证监会登记注册。流动性另类投资交易所交易基金的兴起对对冲基金的收益和费用形成竞争压力。城堡投资、千禧管理和Point72等多策略超大型基金吸收了大量人才和资本，使规模较小的基金愈发难以竞争。
-</p>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>标题：对冲基金全解析：策略、费用与DIY替代方案</strong>
-</p>
-<p>
-<strong>时长：约18分钟</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Animated skyline with hedge fund offices in glass towers, zooming into a trading floor]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 小魚，对冲基金听起来总是那么神秘。数十亿美元的押注、行事低调的基金经理、2/20的费用。这些基金内部究竟在做什么？我感觉每次读到金融新闻，对冲基金都会出现，但我还是没真正搞清楚它们在做什么。
-</p>
-<p>
-<strong>Stella：</strong> 你并不孤单。大多数人觉得对冲基金难以理解，因为这个词涵盖了极为广泛的策略。但一旦拆解开来，核心概念其实很简单。
-</p>
-<p>
-让我来揭开这层神秘面纱。对冲基金本质上是一个私募投资池，可以使用大多数普通基金无法采用的策略，比如做空、杠杆和衍生品。把它想象成一只拥有最大灵活度、相比公募基金受到最少监管的投资基金。
-</p>
-<p>
-<strong>[ANIMATION: Pool of money graphic showing arrows going both up (long) and down (short), with leverage multiplier appearing]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 那"对冲"的意思是说他们对冲押注？
-</p>
-<p>
-<strong>Stella：</strong> 最初确实如此。1949年阿尔弗雷德·温斯洛·琼斯创立的第一只对冲基金，就是通过结合买入股票和做空来降低市场风险。但如今，"对冲基金"更多描述的是一种收费结构和法律形式，而非具体方法。有些对冲基金比普通股票基金更为激进。
-</p>
-<p>
-<strong>[VISUAL: Timeline from 1949 to present showing growth of hedge fund industry from $1 million to $4+ trillion]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 4万亿美元。这是一笔巨款。它们实际采用什么策略？
-</p>
-<p>
-<strong>Stella：</strong> 有四大主要类别。先从最常见的说起：多空股票。
-</p>
-<p>
-<strong>[ANIMATION: Split screen showing "LONG" column with stocks going up and "SHORT" column with stocks going down, with net exposure meter in the middle]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 基金买入它们预期会上涨的股票，同时做空预期会下跌的股票。典型基金可能有130%的多头和30%的空头，净市场敞口为100%，但同时持有更多仓位在运作。
-</p>
-<p>
-<strong>Horace：</strong> 所以他们既从赢家那里赚钱，也从输家那里赚钱？
-</p>
-<p>
-<strong>Stella：</strong> 正是。关键技能在于在多空两侧都能产生正向价差。如果多头组合收益15%，空头组合亏损5%，那么扣除费用前的总价差就是20%。
-</p>
-<p>
-<strong>[VISUAL: Bar chart comparing long portfolio returns vs short portfolio returns, with spread highlighted]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 第二类策略是什么？
-</p>
-<p>
-<strong>Stella：</strong> 全球宏观。这类基金押注宏观经济趋势。想想货币、利率、大宗商品、股票指数。乔治·索罗斯1992年做空英镑，一天赚了超过10亿美元，就是典型案例。
-</p>
-<p>
-<strong>[ANIMATION: World map with arrows showing capital flows, currency pairs fluctuating, central bank icons adjusting rates]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 听起来风险极大。
-</p>
-<p>
-<strong>Stella：</strong> 确实如此。全球宏观基金的投资范围最广，可以在全球任何市场做多或做空。优势是灵活性，劣势是宏观经济预测真的很难。
-</p>
-<p>
-<strong>Horace：</strong> 第三类是什么？
-</p>
-<p>
-<strong>Stella：</strong> 事件驱动策略。这类基金从公司事件中获利。
-</p>
-<p>
-<strong>[ANIMATION: Company A reaching toward Company B with a merger arrow, showing target stock price at $48 with announced price of $50, and the $2 spread highlighted]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 最常见的是并购套利。当A公司宣布以每股50美元收购B公司时，B公司股票可能在48美元交易。你在48美元买入，如果交易完成，你就收取50美元。这2美元的价差就是你的利润。
-</p>
-<p>
-<strong>Horace：</strong> 只有2美元？感觉太少了。
-</p>
-<p>
-<strong>Stella：</strong> 是少，但这些交易通常在三到六个月内完成。以年化计算，一只48美元的股票在四个月内获得2美元的价差，年化收益约为12%至15%。而且你同时分散在二三十个交易中。
-</p>
-<p>
-<strong>[VISUAL: Table showing multiple merger deals with spreads, days to close, and annualized returns]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 那第四类呢？
-</p>
-<p>
-<strong>Stella：</strong> 相对价值。这类基金利用相关证券之间的定价偏差获利。例如，如果两只类似的债券定价不同，你买入便宜的那只，做空贵的那只，待价格回归时获利。
-</p>
-<p>
-<strong>[ANIMATION: Two securities plotted on a graph showing historical price relationship, diverging and then converging, with buy/sell signals marked]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 现在说说最重要的话题：费用。2/20。这对我的收益意味着什么？
-</p>
-<p>
-<strong>Stella：</strong> 我来给你算算。
-</p>
-<p>
-<strong>[ANIMATION: Calculator showing: $100,000 invested, 10% gross return = $10,000. Management fee 2% = $2,000. Remaining profit: $8,000. Performance fee 20% of $8,000 = $1,600. Net to investor: $6,400 or 6.4%]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在10%的总收益下，扣除费用后你保留6.4%。基金拿走3.6%。也就是说，基金经理获取了总利润的36%。
-</p>
-<p>
-<strong>Horace：</strong> 36%？！那超过三分之一的收益啊！
-</p>
-<p>
-<strong>Stella：</strong> 没错。而且在基金总收益只有5%的年份，情况按比例更糟糕。光管理费就拿走2%，只剩3%。然后3%中的20%又作为业绩提成被提走，你最终只剩下2.4%。5%的收益里，你连一半都留不住。
-</p>
-<p>
-<strong>Horace：</strong> 即使基金亏损，基金经理也能靠管理费赚钱？
-</p>
-<p>
-<strong>Stella：</strong> 正是。2%的管理费无论表现如何都会收取。一只10亿美元的基金，即使亏损10%，也能产生2000万美元的管理费收入。这正是许多人批评这种收费结构的原因：即便投资者亏钱，基金经理照样盈利。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison showing fee drag at different return levels: 5%, 10%, 15%, 20% gross returns with net returns after 2-and-20]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 那这种费用结构实际上值得吗？
-</p>
-<p>
-<strong>Stella：</strong> 平均而言，不值得。过去15年，扣除费用后，普通对冲基金跑输了简单的六四股债投资组合。HFRI指数显著落后于标普500。
-</p>
-<p>
-<strong>[ANIMATION: Line chart showing S&P 500 total return vs HFRI Fund Weighted Composite vs 60/40 portfolio from 2010 to present]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 那养老基金和捐赠基金为什么还在持续投资？
-</p>
-<p>
-<strong>Stella：</strong> 因为平均值掩盖了极端值。排名前四分之一的对冲基金大幅跑赢。而且机构关心的不仅仅是收益。它们需要稳定的收入、有限的回撤，以及与公开市场的低相关性。
-</p>
-<p>
-<strong>[VISUAL: Distribution bell curve showing hedge fund returns with top quartile and bottom quartile highlighted]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 说到对我们普通投资者最有意思的部分。我们能不能在不支付对冲基金高价的情况下获取这些策略？
-</p>
-<p>
-<strong>Stella：</strong> 绝对可以。过去十年，这是投资领域最重大的转变之一。许多对冲基金策略现在已可通过交易所交易基金以极低成本获取。
-</p>
-<p>
-<strong>[ANIMATION: Side-by-side comparison table showing Hedge Fund vs ETF Alternative with rows for fees, minimums, liquidity, transparency]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 多空股票交易所交易基金收取约0.75%的费用，而非2/20。并购套利交易所交易基金收取约0.50%。管理期货交易所交易基金收取约0.60%。而且全部提供每日流动性和完全透明度。
-</p>
-<p>
-<strong>Horace：</strong> 那缺点是什么？为什么不是所有人都选择用交易所交易基金？
-</p>
-<p>
-<strong>Stella：</strong> 有几个原因。第一，交易所交易基金版本通常采用系统化量化方法，无法复制优秀主观判断型基金经理的判断力。第二，不良债务或激进投资等策略很难打包成交易所交易基金。第三，最优秀的对冲基金经理绝不会将自己的策略开放为低成本的交易所交易基金。你获取的是策略框架，而非最顶尖的实践者。
-</p>
-<p>
-<strong>[VISUAL: Venn diagram showing "Hedge Fund Advantages" (manager skill, illiquid opportunities, concentrated bets) vs "ETF Advantages" (low fees, liquidity, transparency, no minimums) with overlap area (strategy exposure, diversification)]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 你会建议如何构建一个DIY对冲基金替代投资组合？
-</p>
-<p>
-<strong>Stella：</strong> 这里有一个简单的三基金方法。
-</p>
-<p>
-<strong>[ANIMATION: Pie chart building piece by piece: 60% core equity index, 20% long/short equity ETF, 10% managed futures ETF, 10% merger arbitrage ETF]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 从你的整体投资组合中拿出10%-20%配置于流动性另类投资。你可以将其分配在一只多空股票交易所交易基金和一只管理期货交易所交易基金之间。管理期货组件尤其有价值，因为它在股票熊市中往往表现出色，提供真正的危机保护。
-</p>
-<p>
-<strong>Horace：</strong> 这些交易所交易基金替代品的风险如何？它们比真正的对冲基金更安全吗？
-</p>
-<p>
-<strong>Stella：</strong> 在某些方面是的。你享有每日流动性，永远不会被锁定。你拥有完全透明度，清楚知道自己持有什么。你的费用更低，能保留更多收益。但底层策略仍然存在风险。如果选股出错，多空基金可能在多空两侧都亏损。在震荡无趋势的市场中，管理期货可能大幅震荡。
-</p>
-<p>
-<strong>[VISUAL: Risk comparison chart showing various strategies with volatility, max drawdown, and correlation to S&P 500]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 对于试图在对冲基金和交易所交易基金替代品之间做出选择的人，有什么最终建议？
-</p>
-<p>
-<strong>Stella：</strong> 除非你能投资500万美元以上并能接触到顶级基金经理，否则交易所交易基金替代品才是正确选择。单是节省下来的费用，长期复利后就相当可观。在100万美元的投资组合上，1.5个百分点的费差复利20年，就是数十万美元的差距。
-</p>
-<p>
-<strong>[ANIMATION: Two growth charts diverging over 20 years, one with 2-and-20 fees and one with 0.75% ETF fees, showing the growing dollar gap]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 光是费用差异就有数十万。这真的说明问题了。
-</p>
-<p>
-<strong>Stella：</strong> 对冲基金行业出售的是排他性和神秘感。但对于大多数投资者来说，大众化版本提供了你真正想要的策略敞口，且价格合理。专注于理解策略，选择低成本的实现方式，严控费用预算。
-</p>
-<p>
-<strong>[VISUAL: Summary card showing "Key Takeaways" with bullet points: 4 strategy categories, 2-and-20 fee impact, ETF alternatives exist, 10-20% portfolio allocation, fees matter enormously]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 谢谢你，小魚。对冲基金终于对我来说说得通了。而且我很高兴不需要一百万美元才能入门。
-</p>
-<p>
-<strong>Stella：</strong> 这就是现代市场的魅力所在。这些策略现在人人皆可获取。你只需要清楚自己在买什么，以及为什么要买。
-</p>
-<p>
-<strong>Horace：</strong> 走之前，能快速讲一下如何评估一只流动性另类投资交易所交易基金吗？
-</p>
-<p>
-<strong>Stella：</strong> 检查三件事。第一，理解策略。阅读招募说明书，确保你知道该基金实际在做什么。是多空股票？管理期货？多策略？第二，检查费用。超过1%的费用就应该引发疑问。第三，回顾危机期间的表现。另类投资的真正价值在熊市中才得以体现。如果该基金在2020年市场暴跌中跌幅与标普500相当，说明它并未提供你所支付的那种分散化效果。
-</p>
-<p>
-<strong>[VISUAL: Three-step evaluation checklist: 1) Understand the strategy, 2) Check fees (<1% preferred), 3) Review crisis performance (should hold up better than stocks)]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 这个框架真的很简洁。我想我会先从管理期货交易所交易基金入手，争取一些危机保护。
-</p>
-<p>
-<strong>Stella：</strong> 明智之选。这是所有另类策略中经过最充分验证的分散化工具之一。只需记住，在强劲牛市期间它的表现会落后于股票。这就是持有保险的代价。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on options strategies and portfolio construction]</strong>
-</p>
-<hr>
-<p>
-<em>补充课第二十五课完</em>
-</p>
-<hr>
-<p>
-<em>补充资源：如需获取全面的对冲基金业绩数据库，请访问BarclayHedge或对冲基金研究公司（Hedge Fund Research, Inc.）发布的HFRI指数。</em>
 </p>
             </div>
         </div>

@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1584,271 +1613,6 @@ I類儲蓄債券值得專門介紹，因為它結合了TIPS所缺乏的幾項優
 <strong>問：聯邦儲備局與通脹有何關係？</strong>
 答：聯邦儲備局肩負雙重使命：最大就業和物價穩定。它以PCE指數量度，目標是每年2%通脹。當通脹超過目標時，聯邦儲備局加息以冷卻經濟活動，使借貸更加昂貴並放緩支出。當通脹過低或經濟疲弱時，降息以刺激增長。聯邦儲備局也可使用資產負債表工具——量化寬鬆（購買債券注入資金）或量化緊縮（讓債券到期以減少貨幣供應）。聯邦儲備局在對抗通脹方面的公信力至關重要，因為若市場相信聯邦儲備局將容忍更高通脹，預期便會自我實現。
 </p>
-<hr>
-<h2>第二部分：YouTube劇本</h2>
-<hr>
-<h3>「通脹：您無法投票反對的稅（及如何戰勝它）」</h3>
-<p>
-<strong>目標長度：</strong> 18至22分鐘
-<strong>語調：</strong> 緊迫但不令人恐慌，具教育性，賦予觀眾能量
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Time-lapse of a price tag on a gallon of milk changing from $1.50 to $2.00 to $3.00 to $4.50 over decades. Title card: "Understanding Inflation"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我問大家一個問題。若我告訴您有一種稅，每年從您的積蓄中拿走兩至三個百分點，您無法投票反對它，沒有豁免條款，而大多數人都忽略了它——您想了解它嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當然想。是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 通脹。無聲的竊賊。
-</p>
-<p>
-<strong>[ANIMATION: Stack of dollar bills. Each year, a few bills from the stack disappear. After 30 years, roughly half the stack is gone. Label: "Purchasing power of $100 at 3% annual inflation: $41 after 30 years."]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每年兩至三個百分點聽起來不算多吧。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是它危險的地方。日復一日它是隱形的。您不會注意到今年咖啡貴了幾毫。但將其複利計算二十至三十年，您的購買力就損失了一半。以3%通脹計算，今天的一百元在三十年後只能購買約四十一元的商品。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 通脹實際上是如何量度的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美國的主要指標是消費物價指數，即CPI。美國勞工統計局追蹤約兩百個類別中約八萬種商品的價格，並根據普通城市消費者的消費方式加以加權。
-</p>
-<p>
-<strong>[VISUAL: Pie chart of CPI components with weights: Housing 36%, Transportation 16%, Food 13%, Medical 7%, Education 6%, Recreation 5%, Apparel 2%, Other 15%]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 住房是最大的組成部分，佔三十六個百分點。然後是交通、食品和醫療保健。所以當人們說「通脹為三個百分點」，意思是這所有類別的加權平均值上漲了三個百分點。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但我個人對通脹的體驗可能與官方數字非常不同。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。若您是在昂貴城市租屋的年輕人，在住房和教育上支出龐大，您的個人通脹率可能高於CPI。若您是已供完樓的退休人士，大量支出用於醫療保健，您的通脹也可能更高，因為醫療費用通脹快於平均水平。CPI是平均值，而很少人恰好是平均值。
-</p>
-<p>
-<strong>[VISUAL: Three icons -- young renter, suburban family, retiree. Each with their own "personal CPI" showing different rates: 4.2%, 2.8%, 4.5%]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我聽說有人說政府操縱CPI以使通脹看起來更低。這是真的嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 關於CPI方法論確實存在合理的爭論——例如如何計算科技質量改進、如何量度住房成本，以及如何處理消費者轉購廉宜替代品的情況。這些方法論選擇確實影響數字。但稱其為「操縱」暗示存在惡意，而相關證據並不支持這一點。追蹤數百萬網絡價格的獨立價格指數，普遍確認CPI大致準確。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現在讓我解釋一些能改變您看待每個投資回報方式的東西。
-</p>
-<p>
-<strong>[VISUAL: Title card: "Nominal vs. Real Returns"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當有人說「股市去年回報十個百分點」，那是名義回報。是原始數字。但若通脹為三個百分點，您的實際回報——您購買力的真實增長——只有約七個百分點。
-</p>
-<p>
-<strong>[ANIMATION: Thermometer graphic. Nominal return = 10% (top of thermometer). Inflation = 3% (red zone subtracted from top). Real return = ~7% (what remains). Clear visual that inflation "eats" part of your return.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以實際回報才是真正重要的。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 永遠如此。讓我向您展示長期而言不同資產類別的意義。
-</p>
-<p>
-<strong>[VISUAL: Bar chart of historical real returns (after inflation): Stocks ~7%, Long-term Government Bonds ~2%, Treasury Bills (Cash) ~0.4%, Gold ~1%]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 自1926年以來，股票每年實際回報約七個百分點。政府債券約兩個百分點。現金——國庫券——約零點四個百分點。幾乎為零。黃金約一個百分點。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現金基本上是原地踏步。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這還是稅前的情況。若您在儲蓄帳戶賺取四個百分點而繳交二十五個百分點的稅，您的稅後回報為三個百分點。若通脹為三個百分點，您的稅後實際回報為零。您辛勤工作了一整年賺取的利息，正好抵消通脹。毫無所獲。
-</p>
-<p>
-<strong>[ANIMATION: Person running on a treadmill. The speed increases labeled "Inflation 3%." The person speeds up to match, labeled "Savings account 4%, after tax 3%." Net progress: zero. Treadmill labeled "Cash trap."]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這正是為何人們說現金是一種虧損的投資。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 長期而言，是的。這正是每個投資組合都需要能夠跑贏通脹的資產的原因。而跑贏通脹的冠軍是股票。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但在通脹高企的1970年代，股票遭受了重創。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 不錯。短期而言，意外通脹對股票而言是災難性的。當通脹飆升，聯邦儲備局加息，提高未來盈利的折現率，壓縮估值。1970年代標普500指數實際回報慘淡。但從1970年到2000年——一個涵蓋整個通脹時代的三十年期——股票每年仍實現約七個百分點的實際回報。
-</p>
-<p>
-<strong>[VISUAL: Chart showing S&P 500 real returns by decade. 1970s: poor. 1980s: excellent. 1990s: excellent. The 30-year average smooths to approximately historical norms.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 教訓是：股票是糟糕的短期通脹對沖工具，卻是出色的長期通脹對沖工具。企業能夠提高售價、創新、削減成本，並以名義計算提升盈利。給予足夠時間，股票回報將超越通脹。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那麼專門設計用來抵禦通脹的工具呢？TIPS？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美國抗通脹國債（TIPS）。這些是政府債券，其本金根據CPI調整。若通脹為三個百分點，您的本金上升三個百分點，利息按更高的本金計算。
-</p>
-<p>
-<strong>[ANIMATION: Bond certificate with face value $10,000. Year 1: CPI up 3%, principal becomes $10,300, interest paid on $10,300. Year 2: CPI up 2.5%, principal becomes $10,558, interest on $10,558. The principal staircase graphic climbing with inflation.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> TIPS保證實際回報。若您購買收益率為兩個百分點的TIPS，無論通脹如何，您將賺取高於通脹兩個百分點的回報。這種確定性非常強大。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有什麼代價？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 兩點。首先，實際收益率適中——通常低於兩個百分點。TIPS保護購買力，但不能讓您致富。其次，通脹調整部分每年須繳稅，即使您要到到期日才以現金收到本金調整額。這種「幻影收入」稅使TIPS在應稅帳戶中效率較低。若可能，請在個人退休帳戶（IRA）中持有TIPS。
-</p>
-<p>
-<strong>[VISUAL: Comparison table: TIPS -- Pros: Inflation protection, government backed, real return guaranteed. Cons: Low real yield, phantom income tax, still has interest rate risk.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 房地產和商品作為通脹對沖工具又如何？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 房地產很出色，因為租金和物業價值往往隨通脹上升。若您擁有出租物業，可提高租金。隨著通脹侵蝕債務的實際價值，您的固定利率按揭在實際價值方面變得更廉宜。挑戰在於房地產流動性低且需要主動管理。
-</p>
-<p>
-<strong>[ANIMATION: House with rent sign. Arrow showing rent increasing with CPI. Mortgage payment staying flat. The gap between rent and mortgage widening over time = growing real income.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 商品——石油、金屬、農產品——提供直接的通脹投資敞口，因為商品價格本身就是CPI的組成部分。當商品價格上漲，通脹隨之上升。問題在於商品的長期回報並不突出，而商品期貨涉及複雜的展倉機制，可能拖累回報。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 黃金呢？通脹期間大家都談論黃金。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 黃金的往績褒貶不一。它在1970年代和2020年後通脹期間表現出色。但從1980至2000年，在通脹平均三點五個百分點的情況下，黃金損失了七十個百分點的實際價值。黃金與其說是通脹對沖工具，不如說是危機對沖工具——它在人們對貨幣體系失去信心時大放異彩，而非在日常兩至三個百分點的通脹時期。
-</p>
-<p>
-<strong>[VISUAL: Gold real price chart from 1970-present. Massive spike in late 1970s, long decline 1980-2000, rise 2000-2012, flat 2012-2018, surge 2019-present. Inconsistent pattern highlighted.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> I類儲蓄債券呢？您提到它們與TIPS並列。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> I類儲蓄債券是財政部發行的儲蓄債券，在我看來，對小額投資者而言是個人理財中最不為人知的秘密之一。它們結合固定利率與每六個月調整一次的通脹利率。利息延遲至贖回時才須繳稅。州稅完全豁免。而且綜合利率永遠不會低於零，因此內置了通縮保護。
-</p>
-<p>
-<strong>[VISUAL: I-Bond structure. "Fixed Rate (permanent) + Inflation Rate (adjusts every 6 months) = Composite Rate." Benefits listed: tax-deferred, no market risk, deflation floor. Limit: $10,000/year per person.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 上限是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每人每年電子購買10,000元，另可透過退稅購入最多5,000元紙質債券。您必須持有至少一年，五年前贖回將損失三個月利息。但在這些限制條件內，I類儲蓄債券難以超越。在2022年通脹飆升期間，綜合利率超過九個百分點。九個百分點，由美國政府擔保，附帶稅務遞延。這可以說是當時任何地方可獲取的最佳無風險投資。
-</p>
-<p>
-<strong>[ANIMATION: I-Bond rate chart showing composite rates spiking above 9% in late 2022, then gradually declining as inflation eased. Annotation: "Still an excellent deal whenever the fixed rate is positive."]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這應如何改變人們的退休規劃方式？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 應有重大改變。讓我向您展示退休人士最常犯的錯誤。
-</p>
-<p>
-<strong>[VISUAL: Two retirement scenarios side by side]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 情景一：擁有一百萬元投資組合的退休人士，每年提取四萬元，金額固定，未按通脹調整。第一年，提款率為四個百分點。沒問題。但在第二十年，以每年三個百分點通脹計算，四萬元的購買力以今日幣值計只有約兩萬兩千元。他們的生活水平實際上已減半。
-</p>
-<p>
-<strong>[ANIMATION: Bar chart showing $40,000 flat withdrawal each year. A second overlay shows the real purchasing power declining each year. By year 20, the bars are nearly half height.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 情景二：相同的投資組合，但提款每年增加三個百分點以追上通脹。第一年：四萬元。第十年：五萬四千元。第二十年：七萬兩千元。購買力得以維持，但投資組合承受的壓力大得多。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這正是為何4%法則假設通脹調整後的提款，對嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。它需要相當比例的股票配置——通常為五十至六十個百分點的股票——以在三十年退休生涯中產生維持提款增長所需的實際增長。全數配置債券的投資組合無法達到這個目標。
-</p>
-<p>
-<strong>[VISUAL: Portfolio survival chart. 100% bonds fails after ~18 years with inflation-adjusted withdrawals. 50/50 survives 30 years in most scenarios. 60/40 or 70/30 provides margin of safety.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 社會保障又如何？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 社會保障是退休人士擁有的最佳通脹對沖工具之一，因為福利金每年根據CPI調整。它提供了任何私人投資都無法完全複製的實際收入底線。這正是延遲領取社會保障以最大化福利金如此有價值的原因之一——您在增加通脹保護收入流的規模。
-</p>
-<p>
-<strong>[VISUAL: Social Security benefit with annual COLA adjustments shown. Starting at $2,500/month, rising to $3,360/month after 10 years at 3% annual COLA. Purchasing power maintained.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我們把所有內容整合起來。實際投資者應如何應對通脹？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 五點。
-</p>
-<p>
-<strong>[VISUAL: Five-point framework appearing one by one]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第一，以實際價值思考。每次看到投資回報，在腦海中減去通脹。那個五個百分點的定期存款，實際回報只有兩個百分點，扣稅後可能只有一個百分點。訓練自己以實際回報思考。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第二點？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 長期持有股票。股票是最佳的長期通脹對沖工具，因為企業以名義計算增加收入和盈利。不要因通脹上升而放棄股票——正是在那時您最需要其抗通脹特性。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第三——在固定收益配置中納入TIPS或I類儲蓄債券。將二十至三十個百分點的債券投資組合配置於通脹保護證券。這確保您的投資組合中至少有一部分明確保證能追上CPI。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第四——對長存續期固定利率債券保持謹慎。這是通脹期間最脆弱的資產類別。利率上升時，長期債券遭受重創。在通脹環境中縮短債券的存續期。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第五——以實際價值規劃退休提款。您的支出需求將隨通脹增長。以通脹調整後的提款而非固定金額建立退休計劃模型。使用保守的通脹假設——三個百分點或更高——而非寄望於聯邦儲備局的兩個百分點目標。
-</p>
-<p>
-<strong>[ANIMATION: Portfolio pie chart showing recommended allocation with inflation awareness: Broad equities (50-60%), TIPS (10-15%), Short/intermediate bonds (15-20%), Real estate/REITs (5-10%), Commodities (0-5%), Cash for near-term needs (5-10%)]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最重要的是，通脹不是需要恐懼的東西——而是需要規劃的東西。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。您無法控制通脹。但您可以建立能夠抵禦它的投資組合，以實際價值規劃退休生活，並確保您的購買力隨時間增長而非侵蝕。這就是整個遊戲的核心。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最後一點。人們常將縮脹、通縮和滯脹混為一談。能否解釋清楚？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 三者差別很大。縮脹意味著通脹正在放緩——價格仍在上漲，只是速度較慢。這通常對投資有利。通縮意味著價格實際上正在下跌。聽起來不錯，但在經濟上非常危險——它加重了實際債務負擔，抑制消費，並可能螺旋式陷入蕭條。日本在1990和2000年代的大部分時間經歷了通縮，結果是災難性的。而滯脹是噩夢般的情景：停滯性增長、高失業率和高通脹同時出現。1970年代是典型例子。股票和債券在滯脹期間均表現欠佳。
-</p>
-<p>
-<strong>[VISUAL: Three scenarios on a spectrum. Left: "Disinflation (2015-2019): Inflation falling from 3% to 1.5%. Generally positive for assets." Center: "Deflation (Japan 1990s): Prices falling. Dangerous." Right: "Stagflation (US 1970s): High inflation + recession. Worst case for investors."]</strong>
-</p>
-<p>
-<strong>[VISUAL: Recap: "Think in Real Returns | Equities for Long-Term Hedge | TIPS/I-Bonds for Guaranteed Real Returns | I-Bonds for Tax-Deferred Protection | Shorten Bond Duration | Plan Retirement in Real Terms"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 去看看您的投資組合。有多少在賺取低於通脹收益率的現金？有多少是長存續期債券？您的稅後實際回報是多少？這些才是真正重要的問題。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下集見。
-</p>
-<p>
-<strong>[VISUAL: End card with channel info and "Explore More: Full Course Curriculum"]</strong>
-</p>
-<hr>
-<p>
-<strong>附加課程第06課完</strong>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <p>
@@ -2181,271 +1945,6 @@ I-Bonds值得單獨討論，因為它們結合了TIPS所缺乏的幾項優勢：
 <strong>問：聯準會與通膨的關係是什麼？</strong>
 答：聯準會肩負雙重使命：最大就業和物價穩定。它以PCE指數衡量2%的年通膨目標。當通膨超過目標時，聯準會提高聯邦基金利率以冷卻經濟活動、使借貸更昂貴、放緩支出。當通膨過低或經濟疲弱時，則降息以刺激成長。聯準會也可使用資產負債表工具——量化寬鬆（購買債券以注入資金）或量化緊縮（讓債券到期以縮減貨幣供給）。聯準會對抗通膨的公信力至關重要，因為若市場相信聯準會將容忍更高的通膨，這種預期便會自我實現。
 </p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<h3>「通膨：您無法投票反對的稅（以及如何戰勝它）」</h3>
-<p>
-<strong>目標長度：</strong> 18至22分鐘
-<strong>基調：</strong> 緊迫但不危言聳聽，具教育性，給予觀眾力量
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Time-lapse of a price tag on a gallon of milk changing from $1.50 to $2.00 to $3.00 to $4.50 over decades. Title card: "Understanding Inflation"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我問您一個問題。如果我告訴您，有一種稅每年從您的積蓄中拿走2到3%，您無法投票反對，沒有任何豁免，而且大多數人對此視而不見——您想了解這是什麼嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當然。那是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 通膨。無聲的竊賊。
-</p>
-<p>
-<strong>[ANIMATION: Stack of dollar bills. Each year, a few bills from the stack disappear. After 30 years, roughly half the stack is gone. Label: "Purchasing power of $100 at 3% annual inflation: $41 after 30 years."]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 但每年2到3%聽起來不多。
-</p>
-<p>
-<strong>Horace：</strong> 這正是它危險的地方。日常生活中它是看不見的。您不會注意到今年咖啡貴了2毛錢。但複利計算二十或三十年，您就損失了一半的購買力。今天100美元在3%通膨下，三十年後只能購買41美元的商品。
-</p>
-<p>
-<strong>Stella：</strong> 通膨實際上是怎麼衡量的？
-</p>
-<p>
-<strong>Horace：</strong> 美國的主要指標是消費者物價指數，也就是CPI。美國勞工統計局追蹤200個類別中大約8萬個項目的價格，根據普通城市消費者的消費方式進行加權。
-</p>
-<p>
-<strong>[VISUAL: Pie chart of CPI components with weights: Housing 36%, Transportation 16%, Food 13%, Medical 7%, Education 6%, Recreation 5%, Apparel 2%, Other 15%]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 住房是最大的組成部分，佔36%。接下來是交通、食品和醫療保健。所以當人們說「通膨是3%」時，他們的意思是所有這些類別的加權平均上漲了3%。
-</p>
-<p>
-<strong>Stella：</strong> 但我個人對通膨的感受可能與官方數字非常不同。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。如果您是在昂貴城市大量支出住房和教育的年輕租屋族，您的個人通膨率可能高於CPI。如果您是擁有自住房且大量支出醫療保健的退休人員，您的通膨也可能更高，因為醫療費用的通膨速度高於平均。CPI是一個平均值，很少有人恰好是平均水準。
-</p>
-<p>
-<strong>[VISUAL: Three icons -- young renter, suburban family, retiree. Each with their own "personal CPI" showing different rates: 4.2%, 2.8%, 4.5%]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 我聽說有人說政府操縱CPI讓通膨看起來更低。這是真的嗎？
-</p>
-<p>
-<strong>Horace：</strong> 關於CPI方法論，確實存在合理的爭議——例如他們如何計算科技產品的品質提升、如何衡量住房成本，以及如何處理消費者轉向更便宜替代品的行為。這些方法論選擇確實影響數字。但說是「操縱」就暗示了惡意，而現有證據並不支持這種說法。追蹤數百萬線上價格的獨立物價指數，通常也確認CPI在合理範圍內。
-</p>
-<p>
-<strong>Horace：</strong> 現在讓我解釋一件事，它將改變您對曾見過的每一個投資報酬的思考方式。
-</p>
-<p>
-<strong>[VISUAL: Title card: "Nominal vs. Real Returns"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 當有人說「去年股市報酬10%」，那是名目報酬。是原始數字。但如果通膨是3%，您的實質報酬——您購買力的實際增長——只有約7%。
-</p>
-<p>
-<strong>[ANIMATION: Thermometer graphic. Nominal return = 10% (top of thermometer). Inflation = 3% (red zone subtracted from top). Real return = ~7% (what remains). Clear visual that inflation "eats" part of your return.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 所以實質報酬才是真正重要的。
-</p>
-<p>
-<strong>Horace：</strong> 永遠如此。讓我給您看看這對不同資產類別長期意味著什麼。
-</p>
-<p>
-<strong>[VISUAL: Bar chart of historical real returns (after inflation): Stocks ~7%, Long-term Government Bonds ~2%, Treasury Bills (Cash) ~0.4%, Gold ~1%]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 自1926年以來，股票每年的實質報酬約為7%。政府公債約為2%。現金——國庫券——約為0.4%。幾乎接近零。黃金約為1%。
-</p>
-<p>
-<strong>Stella：</strong> 現金基本上原地踏步。
-</p>
-<p>
-<strong>Horace：</strong> 而且那還是稅前。如果您在儲蓄帳戶上賺取4%，繳25%的稅，稅後報酬是3%。如果通膨是3%，您的實質稅後報酬是零。您辛苦了一整年賺取的利息，恰好只抵消了通膨。什麼都沒得到。
-</p>
-<p>
-<strong>[ANIMATION: Person running on a treadmill. The speed increases labeled "Inflation 3%." The person speeds up to match, labeled "Savings account 4%, after tax 3%." Net progress: zero. Treadmill labeled "Cash trap."]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 這就是為什麼人們說現金是虧損的投資。
-</p>
-<p>
-<strong>Horace：</strong> 長期而言，是的。這也是為什麼每個投資組合都需要能夠戰勝通膨的資產。而通膨戰勝者的冠軍，是股票。
-</p>
-<p>
-<strong>Stella：</strong> 但1970年代高通膨時，股票表現慘烈。
-</p>
-<p>
-<strong>Horace：</strong> 沒錯。短期而言，意外通膨對股票非常不利。當通膨飆升時，聯準會升息，這提高了未來盈餘的折現率，從而壓縮估值。1970年代S&P 500的實質報酬非常糟糕。但從1970年到2000年——涵蓋整個通膨時代的三十年——股票的實質年報酬仍約為7%。
-</p>
-<p>
-<strong>[VISUAL: Chart showing S&P 500 real returns by decade. 1970s: poor. 1980s: excellent. 1990s: excellent. The 30-year average smooths to approximately historical norms.]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 教訓：股票是短期糟糕的通膨避險工具，但卻是優秀的長期避險工具。企業可以提高售價、創新、削減成本，並以名目金額增加盈餘。給予足夠時間，股票報酬將超越通膨。
-</p>
-<p>
-<strong>Stella：</strong> 那麼專門設計來防範通膨的工具呢？TIPS？
-</p>
-<p>
-<strong>Horace：</strong> 通膨保值國庫券。這些是政府公債，其本金隨CPI調整。若通膨為3%，您的本金增加3%，您的利息按較高的金額計算。
-</p>
-<p>
-<strong>[ANIMATION: Bond certificate with face value $10,000. Year 1: CPI up 3%, principal becomes $10,300, interest paid on $10,300. Year 2: CPI up 2.5%, principal becomes $10,558, interest on $10,558. The principal staircase graphic climbing with inflation.]</strong>
-</p>
-<p>
-<strong>Horace：</strong> TIPS保證實質報酬。若您購買殖利率2%的TIPS，無論通膨如何變化，您都將賺取比通膨高2%的報酬。這是強大的確定性。
-</p>
-<p>
-<strong>Stella：</strong> 有什麼缺點嗎？
-</p>
-<p>
-<strong>Horace：</strong> 兩點。第一，實質殖利率適中——通常低於2%。TIPS保護您的購買力，但不會讓您致富。第二，通膨調整部分每年須課稅，即便您在到期前不會以現金收到這部分調整。這種「幻影收入」稅使TIPS在應稅帳戶中效率較低。若可能，將它們持有在個人退休帳戶（IRA）中。
-</p>
-<p>
-<strong>[VISUAL: Comparison table: TIPS -- Pros: Inflation protection, government backed, real return guaranteed. Cons: Low real yield, phantom income tax, still has interest rate risk.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 房地產和大宗商品作為通膨避險工具呢？
-</p>
-<p>
-<strong>Horace：</strong> 房地產很出色，因為租金和房產價值往往隨通膨上漲。若您擁有出租房產，可以提高租金。隨著通膨侵蝕債務的實質價值，您的固定利率房貸在實質上變得更便宜。挑戰在於房地產缺乏流動性，需要積極管理。
-</p>
-<p>
-<strong>[ANIMATION: House with rent sign. Arrow showing rent increasing with CPI. Mortgage payment staying flat. The gap between rent and mortgage widening over time = growing real income.]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 大宗商品——石油、金屬、農產品——提供直接的通膨曝險，因為大宗商品價格字面上就是CPI的組成部分。大宗商品價格上漲時，通膨也上升。問題在於大宗商品的長期報酬不夠亮眼，且大宗商品期貨涉及複雜的轉倉動態，可能拖累報酬。
-</p>
-<p>
-<strong>Stella：</strong> 黃金呢？每個人都在通膨時期談論黃金。
-</p>
-<p>
-<strong>Horace：</strong> 黃金的記錄是混雜的。它在1970年代和2020年後的通膨期間表現卓越。但從1980年到2000年，在通膨平均3.5%的情況下，黃金損失了70%的實質價值。黃金更像是危機避險工具，而非例行性通膨避險工具——當人們對貨幣體系失去信心時它才閃耀，而不是在例行的2至3%通膨中。
-</p>
-<p>
-<strong>[VISUAL: Gold real price chart from 1970-present. Massive spike in late 1970s, long decline 1980-2000, rise 2000-2012, flat 2012-2018, surge 2019-present. Inconsistent pattern highlighted.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> I-Bonds呢？您之前提到過它們和TIPS並列。
-</p>
-<p>
-<strong>Horace：</strong> I-Bonds是來自財政部的儲蓄債券，在我看來，對小額投資人而言是個人理財中最鮮為人知的秘密之一。它們結合了固定利率與每六個月調整一次的通膨利率。利息在您贖回之前遞延課稅。州稅完全豁免。而且綜合利率永遠不會低於零，因此內建通縮保護。
-</p>
-<p>
-<strong>[VISUAL: I-Bond structure. "Fixed Rate (permanent) + Inflation Rate (adjusts every 6 months) = Composite Rate." Benefits listed: tax-deferred, no market risk, deflation floor. Limit: $10,000/year per person.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 上限是多少？
-</p>
-<p>
-<strong>Horace：</strong> 每人每年電子購買10,000美元，另可透過退稅購買最多5,000美元紙本債券。您必須持有至少一年，若五年前贖回則損失三個月的利息。但在這些限制條件下，I-Bonds很難被超越。在2022年通膨飆升期間，綜合利率超過9%。9%，由美國政府擔保，且具備遞延課稅優惠。這可以說是當時任何地方可獲得的最佳無風險投資。
-</p>
-<p>
-<strong>[ANIMATION: I-Bond rate chart showing composite rates spiking above 9% in late 2022, then gradually declining as inflation eased. Annotation: "Still an excellent deal whenever the fixed rate is positive."]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 這應該如何改變人們的退休規劃方式？
-</p>
-<p>
-<strong>Horace：</strong> 大幅改變。讓我給您看看退休人員最常犯的單一最大錯誤。
-</p>
-<p>
-<strong>[VISUAL: Two retirement scenarios side by side]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 情境一：一位退休人員擁有100萬美元的投資組合，每年固定提款4萬美元，不調整通膨。第一年，這是4%，很好。但在第二十年，經過3%的年通膨，那4萬美元的購買力以今日美元計算只剩約2.2萬美元。他們的生活水準實際上已腰斬。
-</p>
-<p>
-<strong>[ANIMATION: Bar chart showing $40,000 flat withdrawal each year. A second overlay shows the real purchasing power declining each year. By year 20, the bars are nearly half height.]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 情境二：同樣的投資組合，但每年提款金額增加3%以跟上通膨。第一年：4萬美元。第十年：5.4萬美元。第二十年：7.2萬美元。現在購買力得以維持，但投資組合的壓力大得多。
-</p>
-<p>
-<strong>Stella：</strong> 這就是為什麼4%法則假設通膨調整後的提款，對嗎？
-</p>
-<p>
-<strong>Horace：</strong> 正確。而且它需要相當大的股票配置——通常50至60%的股票——以產生維持三十年退休期間不斷增加提款所需的實質成長。純債券投資組合無法跟上。
-</p>
-<p>
-<strong>[VISUAL: Portfolio survival chart. 100% bonds fails after ~18 years with inflation-adjusted withdrawals. 50/50 survives 30 years in most scenarios. 60/40 or 70/30 provides margin of safety.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 社會安全福利金呢？
-</p>
-<p>
-<strong>Horace：</strong> 社會安全福利金是退休人員擁有的最佳通膨避險工具之一，因為福利金每年根據CPI進行生活費用調整。它提供了沒有任何私人投資能夠完全複製的實質收入底線。這也是為什麼延遲領取社會安全福利金以最大化金額如此寶貴的原因——您是在增加您的通膨保護收入流的規模。
-</p>
-<p>
-<strong>[VISUAL: Social Security benefit with annual COLA adjustments shown. Starting at $2,500/month, rising to $3,360/month after 10 years at 3% annual COLA. Purchasing power maintained.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 讓我們把一切整合起來。實際的投資人應如何應對通膨？
-</p>
-<p>
-<strong>Horace：</strong> 五件事。
-</p>
-<p>
-<strong>[VISUAL: Five-point framework appearing one by one]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 第一，以實質報酬思考。每次看到投資報酬時，心裡自動減去通膨。那5%的定期存單實際上是2%的實質報酬，扣稅後可能只有1%。訓練自己以實質報酬思考。
-</p>
-<p>
-<strong>Stella：</strong> 第二點呢？
-</p>
-<p>
-<strong>Horace：</strong> 長期持有股票。股票是最佳的長期通膨避險工具，因為企業以名目金額增加營收和盈餘。不要因為通膨上升就拋棄股票——那正是您最需要其通膨避險屬性的時候。
-</p>
-<p>
-<strong>Horace：</strong> 第三——在固定收益配置中納入TIPS或I-Bonds。將20至30%的債券投資組合配置於通膨保護型證券。這確保您的投資組合至少有一部分明確保證跟上CPI。
-</p>
-<p>
-<strong>Horace：</strong> 第四——對長存續期間固定利率債券保持謹慎。這些是通膨期間最脆弱的資產類別。當利率上升時，長期債券遭受重創。在通膨環境下縮短債券的存續期間。
-</p>
-<p>
-<strong>Horace：</strong> 第五——以實質金額規劃退休提款。您的支出需求將隨通膨增加。以通膨調整後的提款而非固定金額對您的退休計畫建模。使用保守的通膨假設——3%或更高——而不是期望聯準會2%的目標能夠實現。
-</p>
-<p>
-<strong>[ANIMATION: Portfolio pie chart showing recommended allocation with inflation awareness: Broad equities (50-60%), TIPS (10-15%), Short/intermediate bonds (15-20%), Real estate/REITs (5-10%), Commodities (0-5%), Cash for near-term needs (5-10%)]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 結論是，通膨不是令人恐懼的事——而是需要規劃的事。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。您無法控制通膨。但您可以建立一個能夠承受通膨的投資組合、以實質金額規劃退休，並確保您的購買力隨時間增長而非縮水。這才是整個遊戲的關鍵。
-</p>
-<p>
-<strong>Stella：</strong> 最後一件事。人們常把通膨放緩、通縮和停滯性通膨混為一談。您能釐清一下嗎？
-</p>
-<p>
-<strong>Horace：</strong> 它們截然不同。通膨放緩意味著通膨正在減速——物價仍在上漲，只是更慢。這通常對投資有利。通縮意味著物價實際下跌。聽起來不錯，但在經濟上很危險——它增加了債務的實質負擔，抑制消費，並可能螺旋式進入蕭條。日本在1990和2000年代經歷了通縮，影響極為深遠。而停滯性通膨則是噩夢情境：停滯的成長、高失業率和高通膨同時並存。1970年代是典型例子。股票和債券在停滯性通膨中往往表現不佳。
-</p>
-<p>
-<strong>[VISUAL: Three scenarios on a spectrum. Left: "Disinflation (2015-2019): Inflation falling from 3% to 1.5%. Generally positive for assets." Center: "Deflation (Japan 1990s): Prices falling. Dangerous." Right: "Stagflation (US 1970s): High inflation + recession. Worst case for investors."]</strong>
-</p>
-<p>
-<strong>[VISUAL: Recap: "Think in Real Returns | Equities for Long-Term Hedge | TIPS/I-Bonds for Guaranteed Real Returns | I-Bonds for Tax-Deferred Protection | Shorten Bond Duration | Plan Retirement in Real Terms"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 去看看您的投資組合。有多少是在低於通膨利率下持有的現金？有多少是長存續期間債券？您的實質稅後報酬是多少？這些才是真正重要的問題。
-</p>
-<p>
-<strong>Horace：</strong> 下集再見。
-</p>
-<p>
-<strong>[VISUAL: End card with channel info and "Explore More: Full Course Curriculum"]</strong>
-</p>
-<hr>
-<p>
-<strong>補充課程第06課完</strong>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <p>
@@ -2777,271 +2276,6 @@ I债券值得专门讨论，因为它结合了TIPS所缺乏的多重优势：
 <p>
 <strong>问：美联储与通胀有什么关系？</strong>
 答：美联储有双重使命：实现最大就业和价格稳定。它的通胀目标是以PCE指数衡量的年2%。当通胀超过目标时，美联储上调联邦基金利率以冷却经济活动，使借贷更昂贵并减缓支出。当通胀过低或经济疲软时，降息以刺激增长。美联储还可以使用资产负债表工具——量化宽松（购买债券注入资金）或量化紧缩（让债券到期以减少货币供应）。美联储在抗击通胀方面的公信力至关重要，因为如果市场相信美联储会容忍更高的通胀，预期就会自我实现。
-</p>
-<hr>
-<h2>第二部分：YouTube 脚本</h2>
-<hr>
-<h3>"通胀：你无权投票否决的税（以及如何战胜它）"</h3>
-<p>
-<strong>目标时长：</strong> 18至22分钟
-<strong>语气：</strong> 紧迫但不危言耸听，教育性，赋予力量
-</p>
-<hr>
-<p>
-<strong>[VISUAL: 一加仑牛奶价格标签的延时画面，数十年间从1.50美元变为2.00美元、3.00美元、4.50美元。标题卡："理解通胀"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我来问你一个问题。如果我告诉你，有一种税每年会从你的存款中拿走2%至3%，你无法投票否决，没有豁免，而且大多数人都忽视了它——你想了解吗？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 当然想。是什么？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 通胀。无声的窃贼。
-</p>
-<p>
-<strong>[ANIMATION: 一叠钞票。每年，几张从这叠钞票中消失。30年后，大约一半的钞票不见了。标注："100美元在3%年通胀率下30年后的购买力：41美元。"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但每年2%至3%听起来并不多。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这正是它危险所在。它在日常生活中是无形的。你不会注意到今年的咖啡贵了两毛钱。但复利二三十年，你已经损失了一半的购买力。按3%通胀率，100美元在30年后只能购买约41美元的商品。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 通胀实际上是如何衡量的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美国的主要衡量指标是消费者价格指数（CPI）。美国劳工统计局追踪200个类别约8万种商品的价格。它们按普通城市消费者的消费方式加权。
-</p>
-<p>
-<strong>[VISUAL: CPI各组成部分权重的饼图：住房36%、交通16%、食品13%、医疗7%、教育6%、娱乐5%、服装2%、其他15%]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 住房是最大的组成部分，占36%。然后是交通、食品和医疗。所以当人们说"通胀是3%"，他们的意思是这些类别的加权平均上涨了3%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但我个人的通胀体验可能与官方数据非常不同。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正确。如果你是一个在昂贵城市大量支出于住房和教育的年轻租房者，你的个人通胀率可能高于CPI。如果你是一个已还清房贷、大量支出于医疗的退休人员，你的通胀可能也偏高，因为医疗成本涨得比平均水平快。CPI是一个平均值，很少有人是完全平均的。
-</p>
-<p>
-<strong>[VISUAL: 三个图标——年轻租房者、郊区家庭、退休人员。每个显示不同的"个人CPI"：4.2%、2.8%、4.5%]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我听说政府操纵CPI让通胀看起来更低。这是真的吗？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> CPI方法论存在合理的争论——例如他们如何考虑科技产品的质量改进、如何衡量住房成本，以及如何处理消费者转向更便宜替代品的行为。这些方法论选择确实影响数字。但说这是"操纵"意味着存在不良意图，而证据不支持这一点。独立的价格指数，如追踪数百万在线价格的学术项目，通常证实CPI在正确的范围内。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 现在让我解释一件将改变你对每一个投资收益看法的事情。
-</p>
-<p>
-<strong>[VISUAL: 标题卡："名义收益与实际收益"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 当有人说"去年股市回报了10%"，这是名义收益。是原始数字。但如果通胀是3%，你的实际收益——购买力的实际增加——只有约7%。
-</p>
-<p>
-<strong>[ANIMATION: 温度计图。名义收益 = 10%（温度计顶部）。通胀 = 3%（从顶部减去的红色区域）。实际收益 = 约7%（剩余部分）。清晰显示通胀"侵蚀"了部分收益。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以实际收益才是真正重要的。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 永远如此。让我向你展示这对不同资产类别长期表现意味着什么。
-</p>
-<p>
-<strong>[VISUAL: 历史实际收益柱状图（扣除通胀后）：股票约7%，长期国债约2%，国库券（现金）约0.4%，黄金约1%]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 自1926年以来，股票实际年回报约为7%。政府债券约2%。现金——国库券——约0.4%。几乎接近零。黄金约1%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 现金基本上是在原地踏步。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 而且那还是税前的。如果你在储蓄账户上获得4%，缴纳25%税款，税后收益是3%。如果通胀是3%，你的税后实际收益是零。你工作了一整年赚取的利息，恰好抵消通胀。没有任何收获。
-</p>
-<p>
-<strong>[ANIMATION: 一个人在跑步机上跑步。速度加快，标注"通胀3%"。那人加速匹配，标注"储蓄账户4%，税后3%"。净进展：零。跑步机标注"现金陷阱"。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这就是为什么人们说现金是亏损的投资。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 从长期来看，是的。这正是为什么每个投资组合都需要能跑赢通胀的资产。而跑赢通胀的冠军是股票。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但股票在通胀高企的1970年代遭受了重创。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 没错。短期内，意外通胀对股票非常不利。当通胀飙升时，美联储加息，这提高了未来盈利的折现率，从而压缩估值。标普500在1970年代的实际收益率惨不忍睹。但从1970年到2000年——一个涵盖整个通胀时代的30年时期——股票仍然实现了约每年7%的实际收益。
-</p>
-<p>
-<strong>[VISUAL: 按十年划分的标普500实际收益图。1970年代：差。1980年代：出色。1990年代：出色。30年平均趋近于约历史正常水平。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 教训：股票是糟糕的短期通胀对冲工具，但却是出色的长期对冲工具。企业可以提价、创新、削减成本，并以名义价值增长盈利。给予足够时间，股票收益压倒通胀。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那专门为抵御通胀设计的工具呢？TIPS？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 通胀保值国债。这些是政府债券，其本金根据CPI进行调整。如果通胀是3%，你的本金上涨3%，利息按更高的金额计算。
-</p>
-<p>
-<strong>[ANIMATION: 面值1万美元的债券凭证。第一年：CPI上涨3%，本金变为10,300美元，按10,300美元支付利息。第二年：CPI上涨2.5%，本金变为10,558美元，按10,558美元计息。本金随通胀攀升的阶梯图。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> TIPS保证实际收益。如果你购买收益率为2%的TIPS，无论通胀如何变化，你将获得高于通胀2%的收益。这种确定性非常有价值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 有什么缺点？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 两点。第一，实际收益率较低——通常低于2%。TIPS保护你的购买力，但不会让你致富。第二，通胀调整每年需缴税，即使到期前你实际上收不到本金调整部分。这种"虚拟收入"税使TIPS在应税账户中效率较低。如果可能的话，在个人退休账户（IRA）中持有。
-</p>
-<p>
-<strong>[VISUAL: 对比表：TIPS——优点：通胀保护、政府担保、保证实际收益。缺点：实际收益率低、虚拟收入税、仍有利率风险。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 房地产和大宗商品作为通胀对冲工具呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 房地产非常出色，因为租金和房产价值往往随通胀上涨。如果你拥有出租物业，可以提高租金。随着通胀侵蚀债务实际价值，你的固定利率按揭在实际上变得更便宜。挑战在于房地产流动性差，需要主动管理。
-</p>
-<p>
-<strong>[ANIMATION: 带出租牌的房子。箭头显示租金随CPI增加。按揭还款保持不变。租金与按揭之间的差距随时间扩大 = 增长的实际收入。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 大宗商品——石油、金属、农产品——提供直接的通胀敞口，因为大宗商品价格本身就是CPI的组成部分。当大宗商品价格上涨时，通胀就上升。问题是长期大宗商品回报并不令人印象深刻，而且大宗商品期货涉及复杂的展期机制，可能拖累收益。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 黄金呢？通胀期间人人谈论黄金。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 黄金的记录参差不齐。它在1970年代的滞胀期和2020年后的通胀期间表现出色。但从1980年到2000年，黄金实际价值损失了70%，而通胀平均约为3.5%。黄金与其说是通胀对冲工具，不如说是危机对冲工具——当人们对货币体系失去信心时它才会大放异彩，而非在常规2%至3%通胀期间。
-</p>
-<p>
-<strong>[VISUAL: 1970年至今的黄金实际价格图表。1970年代末大幅飙升，1980年至2000年长期下滑，2000年至2012年上涨，2012年至2018年横盘，2019年至今飙升。不一致的走势被突出显示。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> I债券呢？你提到了它们与TIPS并列。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> I债券是财政部发行的储蓄债券，在我看来，对于小投资者而言是个人理财领域最鲜为人知的秘密之一。它们将固定利率与每六个月调整一次的通胀利率相结合。利息在你兑换前可以税收递延。州税完全豁免。综合利率永不低于零，因此内置了通缩保护。
-</p>
-<p>
-<strong>[VISUAL: I债券结构。"固定利率（永久）+ 通胀利率（每6个月调整）= 综合利率。"优点列表：税收递延、无市场风险、通缩底线。限额：每人每年1万美元。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 限额是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每人每年电子形式1万美元，另可通过退税以纸质形式购买最多5000美元。你必须持有至少一年，如果五年前兑换，损失三个月的利息。但在这些限制条件内，I债券很难被超越。2022年通胀飙升期间，综合利率超过9%。9%，由美国政府担保，还有税收递延。这可以说是当时任何地方可获得的最佳无风险投资。
-</p>
-<p>
-<strong>[ANIMATION: I债券利率图表，显示2022年底综合利率飙升至9%以上，随后随通胀缓和逐渐下降。注释："只要固定利率为正，仍然是极好的投资。"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这应该如何改变人们的退休规划方式？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 应该大幅改变。让我展示退休人员犯的最大错误。
-</p>
-<p>
-<strong>[VISUAL: 两种退休场景并排]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 场景一：一位拥有100万美元投资组合的退休人员，每年固定提取4万美元，不根据通胀调整。第一年提取4%，没问题。但20年后，在3%年通胀率下，那4万美元的购买力只相当于今天的2.2万美元。他们的生活水平实际上减半了。
-</p>
-<p>
-<strong>[ANIMATION: 柱状图显示每年固定提取4万美元。第二层叠加显示实际购买力每年下降。到第20年，柱子几乎只有一半高度。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 场景二：相同的投资组合，但提款每年增加3%以跟上通胀。第一年：4万美元。第十年：5.4万美元。第二十年：7.2万美元。现在购买力得以维持，但投资组合承受了更大的压力。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这正是4%法则假设通胀调整提款的原因，对吧？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 对。而且它需要有意义的股票配置——通常50%至60%的股票——以产生支撑30年退休期间不断增加提款所需的实际增长。纯债券投资组合无法跟上。
-</p>
-<p>
-<strong>[VISUAL: 投资组合存续图表。100%债券在通胀调整提款约18年后耗尽。50/50在大多数情景下存续30年。60/40或70/30提供安全边际。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 社会保障怎么样？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 社会保障是退休人员拥有的最好通胀对冲工具之一，因为福利金每年根据CPI进行调整。它提供了任何私人投资都无法完全复制的实际收入底线。这正是延迟领取社会保障以最大化福利金如此有价值的原因之一——你正在增加通胀保护收入流的规模。
-</p>
-<p>
-<strong>[VISUAL: 社会保障福利金随每年COLA调整显示。从每月2,500美元起，在3%年度COLA下10年后增至每月3,360美元。购买力得以维持。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 让我们把这一切整合在一起。实际投资者应该如何应对通胀？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 五点。
-</p>
-<p>
-<strong>[VISUAL: 五点框架逐一出现]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第一，以实际价值思考。每当你看到投资收益，在心里减去通胀。那5%的存款利率实际上只有2%的实际收益，税后可能只有1%。训练自己以实际收益思考。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第二点？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 长期持有股票。股票是最好的长期通胀对冲工具，因为企业的营收和盈利以名义价值增长。不要因为通胀升高就放弃股票——正是在这时候你最需要它们的通胀对冲特性。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第三——在固定收益配置中纳入TIPS或I债券。将20%至30%的债券组合配置于通胀保护证券。这确保你至少有一部分投资组合明确保证跟上CPI。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第四——对长久期固定利率债券保持谨慎。这是通胀期间最脆弱的资产类别。当利率上升时，长期债券遭受重创。在通胀环境中缩短债券久期。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第五——以实际价值规划退休提款。你的支出需求将随通胀增长。用通胀调整后的提款金额（而非固定美元金额）来模拟你的退休计划。使用保守的通胀假设——3%或更高——而非寄望于美联储的2%目标。
-</p>
-<p>
-<strong>[ANIMATION: 考虑通胀因素的投资组合推荐配置饼图：广泛股票（50%至60%）、TIPS（10%至15%）、短/中期债券（15%至20%）、房地产/REITs（5%至10%）、大宗商品（0%至5%）、近期需求现金（5%至10%）]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 总结就是：通胀不是用来恐惧的，而是用来规划的。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正确。你无法控制通胀。但你可以建立一个能够抵御它的投资组合，以实际价值规划退休，并确保你的购买力随时间增长而非侵蚀。这就是整个游戏。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最后一件事。人们常把去通胀、通缩和滞胀混用。能解释一下吗？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这些是截然不同的概念。去通胀意味着通胀正在放缓——价格仍在上涨，只是涨得更慢。这通常对投资是利好的。通缩意味着价格实际在下降。听起来对消费者有利，但在经济上是危险的——它增加了债务的实际负担，抑制消费，并可能螺旋式陷入萧条。日本在1990年代和2000年代经历了通缩，影响极为深远。滞胀是噩梦情景：经济停滞增长、高失业率和高通胀同时出现。1970年代是经典例子。股票和债券在滞胀期间往往都表现糟糕。
-</p>
-<p>
-<strong>[VISUAL: 三种情景在区间上。左侧："去通胀（2015—2019年）：通胀从3%降至1.5%。总体上对资产有利。"中部："通缩（日本1990年代）：价格下跌。危险。"右侧："滞胀（美国1970年代）：高通胀+经济衰退。投资者最坏情况。"]</strong>
-</p>
-<p>
-<strong>[VISUAL: 总结："以实际收益思考 | 长期对冲选股票 | TIPS/I债券保证实际收益 | I债券享受税收递延保护 | 缩短债券久期 | 以实际价值规划退休"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 去检查你的投资组合。有多少放在低于通胀的现金里？有多少在长久期债券里？你的税后实际收益是多少？这些才是真正重要的问题。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下期见。
-</p>
-<p>
-<strong>[VISUAL: 结尾卡，显示频道信息及"探索更多：完整课程大纲"]</strong>
-</p>
-<hr>
-<p>
-<strong>补充课第06课结束</strong>
 </p>
             </div>
         </div>

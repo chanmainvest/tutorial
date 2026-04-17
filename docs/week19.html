@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1550,242 +1579,6 @@ A: Activist investors buy significant stakes in companies they believe are poorl
 <p>
 A: WACC is the discount rate used in DCF valuation. When you discount a company's future free cash flows back to the present, you use the WACC as the rate. A lower WACC means future cash flows are worth more today, resulting in a higher valuation. A higher WACC means future cash flows are worth less, resulting in a lower valuation. This is the direct link between corporate finance and valuation -- the company's capital structure decisions (which determine WACC) directly affect what the company is worth.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
-</p>
-<p>
-<strong>Horace:</strong> Welcome back everyone. Today we are going under the hood of how companies actually manage their money. This is corporate finance, and I promise you this will change how you look at every company you invest in.
-</p>
-<p>
-<strong>Stella:</strong> Why should I care about how a company structures its finances? I just want to know if the stock price is going up.
-</p>
-<p>
-<strong>Horace:</strong> And that is exactly why you need to understand this. Stock prices over the long term are driven by how effectively management allocates capital. Think of it this way -- when you buy a stock, you are essentially hiring the management team to invest your money for you. Would you hire someone without understanding how they plan to use your money?
-</p>
-<p>
-<strong>Stella:</strong> When you put it that way, no.
-</p>
-<p>
-<strong>Horace:</strong> Exactly. So let us start with the most fundamental decision in corporate finance: how should a company fund itself? Should it use debt, equity, or some combination?
-</p>
-<p>
-[VISUAL: Title card "Capital Structure: Debt vs. Equity" with a building illustration. One side of the building is labeled "Debt" and is shaded blue, the other side "Equity" shaded green. The proportion changes dynamically.]
-</p>
-<p>
-<strong>Stella:</strong> I think I know this. Debt is borrowed money and equity is ownership money, right?
-</p>
-<p>
-<strong>Horace:</strong> Correct. But the choice between them has enormous consequences. Let me give you a concrete example. Imagine two identical pizza restaurant chains, each with $1 million in assets generating $150,000 in operating income. Chain A is financed entirely with equity -- the owners put up all the money. Chain B is financed with $500,000 in equity and $500,000 in debt at 6% interest.
-</p>
-<p>
-<strong>Stella:</strong> So Chain B owes $30,000 a year in interest.
-</p>
-<p>
-<strong>Horace:</strong> Right. Chain A earns $150,000 before tax, pays $37,500 in tax at a 25% rate, and keeps $112,500. That is an 11.25% return on the owners' million-dollar investment. Chain B earns $150,000 but pays $30,000 in interest, leaving $120,000 before tax. After $30,000 in tax, they keep $90,000. But here is the key -- the owners only invested $500,000, so their return is 18%.
-</p>
-<p>
-[ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
-</p>
-<p>
-<strong>Stella:</strong> Wait, Chain B's owners made a higher return even though the company had lower net income?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. This is the power of leverage. Because the owners put up less money but the business generated the same operating income, their return on equity is higher. But here is the catch. What happens if the business has a bad year and operating income drops to $20,000?
-</p>
-<p>
-<strong>Stella:</strong> Chain A would still make a small profit, but Chain B has to pay $30,000 in interest on only $20,000 of income -- they are in the red.
-</p>
-<p>
-<strong>Horace:</strong> Precisely. Leverage magnifies returns in both directions. Good times become great, and bad times become terrible. This is the fundamental tradeoff of debt -- higher potential returns but also higher risk.
-</p>
-<p>
-<strong>Stella:</strong> So is there an optimal amount of debt?
-</p>
-<p>
-<strong>Horace:</strong> There is, and finding it is one of the central problems in corporate finance. In 1958, two economists named Modigliani and Miller proved something remarkable. In a perfect world -- no taxes, no bankruptcy costs -- the mix of debt and equity would not matter at all. The total value of the firm would be the same regardless.
-</p>
-<p>
-<strong>Stella:</strong> But we do not live in a perfect world.
-</p>
-<p>
-<strong>Horace:</strong> Right. In reality, there are two major frictions that make capital structure matter. First, interest on debt is tax-deductible, which gives debt a cost advantage. If a company borrows $1 million at 5%, the $50,000 in interest reduces taxable income, saving $12,500 in taxes at a 25% rate. That tax shield is worth real money. Second, too much debt creates the risk of financial distress -- if you cannot make your interest payments, you face bankruptcy, which is enormously costly.
-</p>
-<p>
-[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "Optimal Capital Structure" and is shown around 30-50% debt for a typical company. Annotations show "tax benefits dominating" on the left side and "distress costs dominating" on the right side.]
-</p>
-<p>
-<strong>Stella:</strong> So the optimal capital structure balances the tax benefits of debt against the bankruptcy risks?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. And this optimal point varies by industry. A utility company with stable, predictable cash flows can safely carry 50-60% debt. A technology startup with volatile and uncertain cash flows should carry very little. The general rule is: the more stable and predictable your cash flows, the more debt you can safely handle.
-</p>
-<p>
-<strong>Stella:</strong> This makes sense. Now, you mentioned WACC earlier. What is that?
-</p>
-<p>
-<strong>Horace:</strong> WACC stands for Weighted Average Cost of Capital. It is the blended cost of all the money a company uses. Think of it as the minimum return the company must earn on its investments to satisfy both its lenders and its shareholders.
-</p>
-<p>
-<strong>Stella:</strong> How do you calculate it?
-</p>
-<p>
-<strong>Horace:</strong> You take the cost of equity multiplied by the equity weight, plus the cost of debt (after tax) multiplied by the debt weight. Let me use a real example. Say a company has a $800 million market cap and $200 million in debt. Shareholders require a 10% return and the company borrows at 5%. The tax rate is 25%.
-</p>
-<p>
-<strong>Horace:</strong> Equity weight is 80%, debt weight is 20%. WACC equals 10% times 80% plus 5% times 20% times 75%, which is 8% plus 0.75%, equaling 8.75%.
-</p>
-<p>
-[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "Every project must clear this bar to create value."]
-</p>
-<p>
-<strong>Stella:</strong> So if the company invests in a project that returns 7%, that is bad?
-</p>
-<p>
-<strong>Horace:</strong> It is destroying value. The project earns 7% but the capital costs 8.75%. Shareholders would have been better off getting their money back. This is one of the most important concepts in all of corporate finance -- only invest in projects that earn above the cost of capital.
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about what happens when the company has more cash than good projects. How does it return money to shareholders?
-</p>
-<p>
-<strong>Horace:</strong> Two main ways: dividends and share buybacks. Let us start with dividends. A dividend is simply a cash payment from the company to its shareholders. If a company pays $1 per share per quarter and you own 1,000 shares, you receive $1,000 in cash every three months.
-</p>
-<p>
-<strong>Stella:</strong> That sounds great. Why does not every company pay dividends?
-</p>
-<p>
-<strong>Horace:</strong> Because some companies have better uses for their cash. If a company can reinvest profits at a 25% return, sending that money to shareholders who might only earn 8% in the market is a poor decision. Amazon famously paid no dividends for decades because Jeff Bezos could reinvest every dollar at extraordinary returns. But mature companies with limited growth opportunities should return excess cash rather than hoarding it or wasting it on low-return projects.
-</p>
-<p>
-[VISUAL: Decision tree flowchart. Starting with "Company has $100M in free cash flow." First branch: "Can we invest at returns above WACC?" If yes, "Invest in growth." If no, "Return cash to shareholders" which branches into "Dividends" and "Buybacks" with pros and cons listed for each.]
-</p>
-<p>
-<strong>Stella:</strong> What makes a dividend safe or risky?
-</p>
-<p>
-<strong>Horace:</strong> The key metric is the payout ratio -- what percentage of earnings is being paid out as dividends. A payout ratio of 40% is very comfortable. It means the company can absorb a significant earnings decline and still afford the dividend. A payout ratio of 90% is dangerous -- any earnings stumble could force a cut. Even more important, look at whether free cash flow covers the dividend. Some companies report good earnings but poor cash flow, and if the cash is not there, the dividend is not sustainable.
-</p>
-<p>
-<strong>Stella:</strong> What happens when a company cuts its dividend?
-</p>
-<p>
-<strong>Horace:</strong> It is usually a bloodbath for the stock price. Dividend cuts are one of the strongest negative signals a company can send. They are saying "we can no longer afford to pay you." The stock typically drops 20-30% on a dividend cut announcement because it signals fundamental deterioration AND forces income-seeking investors -- who held the stock specifically for the dividend -- to sell.
-</p>
-<p>
-[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "Dividend cuts are among the most destructive single-day events for shareholders."]
-</p>
-<p>
-<strong>Stella:</strong> Okay, so what about buybacks? How do they work?
-</p>
-<p>
-<strong>Horace:</strong> When a company buys back its own shares, it reduces the number of shares outstanding. If a company has 100 million shares and buys back 10 million, there are now only 90 million shares. Each remaining share represents a larger piece of the company. If earnings stay the same at $100 million, EPS goes from $1.00 to $1.11 -- an 11% increase without the company earning a single additional dollar of profit.
-</p>
-<p>
-<strong>Stella:</strong> That is clever. So buybacks increase your ownership percentage?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. But here is where it gets controversial. Buybacks only create value if the company is buying at a reasonable price. If the stock is worth $50 and the company buys at $30, that is a fantastic deal -- they are buying dollars for 60 cents. But if the stock is worth $30 and they are buying at $50, they are paying $1.67 for every dollar of value. That destroys value for remaining shareholders.
-</p>
-<p>
-<strong>Stella:</strong> How do I know if a buyback is being done at a good price?
-</p>
-<p>
-<strong>Horace:</strong> Look at the valuation metrics we learned in Week 21. If the company is buying back stock when its P/E is below its historical average and below peers, that is likely a good buyback. If it is buying at all-time-high valuations, be skeptical. Also, and this is critical -- check whether the share count is actually declining. Many companies announce huge buyback programs but the share count barely moves because they are simultaneously issuing new shares as executive compensation.
-</p>
-<p>
-[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "Total Shares Outstanding." On one side, slices are being removed (buybacks). On the other side, new slices are being added (stock-based compensation). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "Announced buybacks: $5B. Actual share reduction: 2%. Executive compensation: the hidden cost."]
-</p>
-<p>
-<strong>Stella:</strong> That feels like a scam.
-</p>
-<p>
-<strong>Horace:</strong> It is one of the most common forms of shareholder wealth transfer, and most retail investors never notice it. Always check shares outstanding over time, not just buyback announcements.
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about corporate governance. What is it and why should an investor care?
-</p>
-<p>
-<strong>Horace:</strong> Corporate governance is the system that keeps management accountable to shareholders. Remember, when you own a stock, you are an owner of the company but you do not run it day to day. You delegate that to the CEO and management team. The governance system ensures they act in your interest, not just their own.
-</p>
-<p>
-<strong>Stella:</strong> What is the main risk if governance is weak?
-</p>
-<p>
-<strong>Horace:</strong> The agency problem. Managers and shareholders have naturally different interests. Shareholders want to maximize the value of their investment. Managers want to maximize their compensation, job security, and prestige. These goals overlap sometimes, but not always. A CEO might pursue a massive acquisition not because it is the best use of shareholder capital, but because running a bigger company means higher pay and more power.
-</p>
-<p>
-[VISUAL: Two-column comparison showing "What shareholders want" vs. "What managers might want." Shareholders: maximize returns, efficient capital use, transparency, appropriate risk. Managers: higher pay, bigger empire, job security, personal perks. The overlap area is labeled "Good governance aligns these."]
-</p>
-<p>
-<strong>Stella:</strong> What are the warning signs of bad governance?
-</p>
-<p>
-<strong>Horace:</strong> Several red flags. First, the CEO is also the chairman of the board -- the person being overseen is overseeing themselves. Second, board members have served for 15 or 20 years -- they are likely captured by management and not truly independent. Third, executive compensation is excessive relative to performance. If the stock drops 30% but the CEO still gets a $20 million bonus, the pay structure is broken. Fourth, dual-class share structures where insiders control voting with a small economic stake.
-</p>
-<p>
-<strong>Stella:</strong> You mentioned dual-class shares. How does that work?
-</p>
-<p>
-<strong>Horace:</strong> Some companies issue two classes of stock. Class A might have 1 vote per share and Class B has 10 votes per share. The founders hold the Class B shares. So a founder might own only 10% of the economic value of the company but control 51% of the votes. Google, Meta, and Snap all have structures like this.
-</p>
-<p>
-<strong>Stella:</strong> Is that bad?
-</p>
-<p>
-<strong>Horace:</strong> It depends on who the founder is. If the founder is Mark Zuckerberg building Meta into one of the world's most valuable companies, the dual-class structure arguably protects the long-term vision from short-term pressure. If the founder is running the company into the ground, the dual-class structure prevents shareholders from holding them accountable. It is a bet on the judgment of one person.
-</p>
-<p>
-<strong>Stella:</strong> One last topic. You mentioned that most acquisitions destroy value. Why do companies keep doing them?
-</p>
-<p>
-<strong>Horace:</strong> This is one of the great puzzles of corporate finance. Study after study shows that on average, the acquiring company's stock falls on announcement of a major acquisition. The target company's shareholders get a 20-30% premium, but the acquirer's shareholders lose value. Yet the M&A industry is enormous and CEOs keep doing deals.
-</p>
-<p>
-<strong>Stella:</strong> Why?
-</p>
-<p>
-<strong>Horace:</strong> Several reasons. One, CEO compensation is often tied to company size -- bigger company, bigger paycheck. Two, overconfidence -- every CEO thinks they will be the exception who makes the acquisition work. Three, investment bankers earn enormous fees from deals, so they are always pitching acquisition ideas. Four, sometimes acquisitions are genuinely the right move, and the statistical average includes both good and bad deals.
-</p>
-<p>
-[VISUAL: Bar chart showing "Average stock price reaction to M&A announcements." Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "On average, M&A transfers value from acquirer to target shareholders."]
-</p>
-<p>
-<strong>Stella:</strong> So how do I evaluate an acquisition as a shareholder?
-</p>
-<p>
-<strong>Horace:</strong> Ask five questions. One, what price is being paid? Compare it to the target's valuation multiples and to comparable transactions. Two, how is it being funded? All-cash is usually better than stock (issuing stock dilutes existing shareholders). Three, what are the claimed synergies, and are they realistic? Cuts synergies (cost savings) are more reliable than growth synergies (revenue increases). Four, what is the acquirer's track record with previous deals? Some companies are serial acquirers with a history of value destruction. Five, does the deal make strategic sense, or is it empire building?
-</p>
-<p>
-<strong>Stella:</strong> This has been incredibly dense but really valuable. Let me try to summarize. Capital structure is the mix of debt and equity -- debt amplifies returns but increases risk. WACC is the minimum return a company must earn. Dividends and buybacks are how companies return cash, but both can be done well or poorly. And governance is the system that keeps management honest.
-</p>
-<p>
-<strong>Horace:</strong> Perfect summary. And here is the one thing I want you to take away from today. When you evaluate any company as an investment, ask yourself: is management creating value with my money or extracting value from me? Capital allocation quality, shareholder returns policy, and governance structures will tell you the answer.
-</p>
-<p>
-[VISUAL: A "Management Quality Checklist" with six items:
-</p>
-<li>ROIC consistently above WACC?</li>
-<li>Share count actually declining?</li>
-<li>Dividend well-covered by FCF?</li>
-<li>M&A track record positive?</li>
-<li>Board independent with aligned incentives?</li>
-<li>Management has meaningful stock ownership?]</li>
-<p>
-<strong>Stella:</strong> Next week?
-</p>
-<p>
-<strong>Horace:</strong> Next week we are going to look at earnings and cash flow quality -- how to tell whether a company's reported profits are real or an accounting mirage. It is one of the most practical skills you can develop as an investor, and it connects directly to what we learned today about capital allocation.
-</p>
-<p>
-[VISUAL: Preview card for Week 20 with "Earnings and Cash Flow: Quality, Manipulation, and Free Cash Flow"]
-</p>
-<p>
-<strong>Horace:</strong> Thanks for watching everyone. Corporate finance might not sound glamorous, but I promise you -- the investors who understand how companies use their money consistently outperform those who just chase stock prices. Share this with anyone who is making investment decisions without looking under the hood. See you next week.
-</p>
-<p>
-[VISUAL: Outro animation with subscribe button and links to previous episodes]
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第19週：企業財務 - 資本結構、WACC、股息與公司治理</h1>
@@ -2673,242 +2466,6 @@ CEO希望管理更大的公司（更高的聲望和薪酬），
 <p>
 答：WACC是現金流折現估值（DCF）所使用的折現率。當你將一家公司未來的自由現金流折算回現值時，便是以WACC作為折現率。WACC越低，未來現金流在今天的價值越高，估值越高。WACC越高，未來現金流在今天的價值越低，估值越低。這正是企業財務與估值之間的直接連繫——公司的資本結構決策（決定WACC）直接影響公司的內在價值。
 </p>
-<hr>
-<h2>YouTube劇本</h2>
-<p>
-[VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 大家好，歡迎回來。今天我們要深入了解企業如何管理自己的資金。這就是企業財務，我敢保證，學完這一課，你看待每一家投資對象的眼光都會截然不同。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我為什麼要在乎一家公司的財務架構？我只想知道股價會不會上漲。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正正就是你需要理解這個的原因。長遠來說，股價的走向取決於管理層配置資本的能力高低。換個角度想——當你買入一支股票，你其實是在僱用那個管理團隊替你投資。難道你在僱人之前，不想了解他們打算怎樣用你的錢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你這樣說就有道理了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對吧。那我們就從企業財務中最根本的決策說起：一家公司應該如何為自己融資？用債務、股本，還是兩者結合？
-</p>
-<p>
-[VISUAL: Title card "Capital Structure: Debt vs. Equity" with a building illustration. One side of the building is labeled "債務" and is shaded blue, the other side "股本" shaded green. The proportion changes dynamically.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我好像知道這個。債務是借來的錢，股本是自己的錢，對嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 沒錯。但選擇哪一種對公司的影響是天淵之別。我給你一個具體的例子。假設有兩條規模完全相同的比薩連鎖店，各自持有價值一百萬美元的資產，並產生十五萬美元的營業利潤。A連鎖店純以股本融資——老闆自己掏錢。B連鎖店以五十萬美元股本加上五十萬美元、利率6%的債務融資。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那B連鎖店每年要付三萬美元利息。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。A連鎖店稅前賺取十五萬，按25%稅率繳納三萬七千五百元稅款，保留十一萬二千五百元。這相當於老闆一百萬美元投資所獲得的11.25%回報率。B連鎖店同樣賺取十五萬，但扣除三萬元利息後，稅前利潤為十二萬。再繳三萬元稅款後，保留九萬元。但關鍵在這裡——B的老闆只投入了五十萬美元，所以他們的股本回報率是18%。
-</p>
-<p>
-[ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 等等，B連鎖店的老闆在淨利潤更低的情況下，卻取得了更高的回報率？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。這就是槓桿的威力。因為老闆投入的錢更少，但業務產生的營業利潤相同，他們的股本回報率因此更高。但問題來了。如果業務遇上逆境，營業利潤跌至兩萬美元，會發生什麼事？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> A連鎖店還是能賺到一點利潤，但B連鎖店光是利息就要付三萬，但只賺了兩萬——他們就虧本了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一針見血。槓桿在兩個方向上都放大回報：好日子變得更好，壞日子變得更壞。這就是債務最根本的取捨——潛在回報更高，但風險同樣更高。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那麼有沒有一個最理想的負債水平？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有的，尋找這個最理想水平是企業財務的核心問題之一。1958年，兩位經濟學家莫迪利亞尼和米勒證明了一件令人驚嘆的事：在一個完美的世界裡——沒有稅收、沒有破產成本——債務和股本的比例根本無關重要。企業的總價值無論以何種方式融資都保持不變。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但我們並不是生活在完美的世界裡。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。在現實中，有兩個主要的摩擦因素使資本結構變得重要。第一，債務利息可以扣稅，令債務在成本上具有優勢。如果一家公司以5%的利率借入一百萬，那五萬元的利息就能減少應課稅收入，以25%的稅率計算，節省一萬二千五百元的稅款。這個稅盾實實在在地值錢。第二，過多的債務會製造財務困境風險——如果你付不起利息，便面臨破產，代價極為高昂。
-</p>
-<p>
-[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "最優資本結構" and is shown around 30-50% debt for a typical company. Annotations show "稅務優勢主導" on the left side and "財務困境成本主導" on the right side.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以最優資本結構是在債務的稅務優勢與破產風險之間取得平衡？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。而這個最優點因行業而異。現金流穩定可預期的公用事業公司可以安全地承擔50-60%的債務。現金流波動且難以預測的科技初創公司則應盡量少用債務。一般法則是：現金流越穩定可預期，就能安全承擔越多債務。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這說得通。你之前提到WACC，那是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> WACC是加權平均資本成本。它是公司使用的所有資金成本的加權平均值。你可以把它理解為公司的投資必須達到的最低門檻回報率——任何項目都必須至少達到WACC，才能為股東創造價值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 怎麼計算？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 股本成本乘以股本權重，加上稅後債務成本乘以債務權重。讓我用一個具體例子說明。假設一家公司市值八億美元，債務兩億美元。股東要求的回報率是10%，公司的借貸利率是5%，稅率25%。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 股本權重80%，債務權重20%。WACC等於10%乘80%，加5%乘20%乘75%，即8%加0.75%，等於8.75%。
-</p>
-<p>
-[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "每個項目必須跨越這條門檻才能創造價值。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以如果公司投資一個回報率7%的項目，那就是壞事？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那是在摧毀價值。項目賺7%，但資本的成本是8.75%。股東把錢拿回去自己投資，效果還更好。這是整個企業財務中最重要的概念之一——只投資於回報率超過資本成本的項目。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那我們說說，當公司賺的錢多過好的投資機會時，怎麼把錢還給股東？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 主要有兩種方式：股息和股份回購。先說股息。股息就是公司直接向股東支付的現金。如果一家公司每季每股派息一美元，你持有一千股，每三個月就收到一千美元的現金。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聽起來很好啊。為什麼不是每家公司都派息？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 因為部分公司有更好的資金用途。如果一家公司能以25%的回報率再投資利潤，把錢分給可能只能在市場賺8%的股東，根本是浪費。亞馬遜多年來以零派息聞名，就是因為貝佐斯能夠以極高的回報率再投資每一分錢。但對於增長機會有限的成熟企業，與其囤積現金或浪費在低回報項目上，不如將多餘的現金返還給股東。
-</p>
-<p>
-[VISUAL: Decision tree flowchart. Starting with "公司擁有一億美元自由現金流。" First branch: "能否投資於回報率超過WACC的項目？" If yes, "投資於增長。" If no, "將現金返還給股東" which branches into "股息" and "回購" with pros and cons listed for each.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 怎麼判斷一份股息是安全的還是有風險的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 關鍵指標是派息比率——盈利中有多少百分比以股息形式派出。40%的派息比率非常舒適，意味著公司即使盈利大幅下滑，也仍然負擔得起股息。90%的派息比率就很危險——任何盈利下滑都可能迫使公司削減股息。更重要的是，看自由現金流能否覆蓋股息。有些公司公布的盈利不錯，但現金流很差，如果現金不夠，股息就難以為繼。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果公司削減股息，會發生什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 股價通常會慘不忍睹。削減股息是公司能發出的最強負面信號之一。這等於在說「我們再也負擔不起給你的回報了。」削減股息的公告通常導致股價當天跌20-30%，一來是因為這預示著基本面惡化，二來是因為專為股息而持股的投資者被迫沽出。
-</p>
-<p>
-[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "削減股息是對股東最具破壞力的單日事件之一。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好的，那股份回購是怎麼運作的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當一家公司回購自己的股份，已發行股份的數量就會減少。如果一家公司有一億股，回購了一千萬股，剩下只有九千萬股。每一位繼續持股的股東，持有的公司比例就更大了。如果盈利保持不變，維持一億美元，每股盈利就從一美元增加到一點一一美元——公司沒有多賺一分錢，但每股盈利增加了11%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這個操作很聰明。所以回購會提升你的持股比例？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。但這裡存在爭議的地方。只有在合理的價格下進行回購，才能創造價值。如果股票的內在價值是五十美元，公司在三十美元的時候買入，那是非常划算的——他們用六十美分買到了一美元的價值。但如果股票的內在價值是三十美元，他們卻在五十美元時買入，那就是用一元六毛七買了一美元的價值，對留守的股東造成損害。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我怎麼知道一個回購計劃的買入價是否合理？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 看看我們在第21週學習的估值指標。如果公司在市盈率低於其歷史均值、也低於同業的時候進行回購，很可能是好的回購。如果在估值創歷史新高的時候進行，那就要存疑了。還有一點非常關鍵——核查股份數量是否真的在減少。許多公司宣布大規模回購計劃，但股份數量幾乎沒有變化，因為他們同時在以股票薪酬的形式發行新股。
-</p>
-<p>
-[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "已發行股份總數。" On one side, slices are being removed (回購). On the other side, new slices are being added (股票薪酬). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "宣布的回購金額：50億。實際股份減少：2%。高管薪酬：不為人知的代價。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 感覺像被騙了一樣。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是股東財富最常見的轉移方式之一，但大多數散戶投資者從來沒有注意到。永遠要追蹤實際的已發行股份數量，而不只是看回購公告。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談公司治理。什麼是公司治理，投資者為什麼要在意？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 公司治理是讓管理層對股東負責的體系。記住，當你持有一支股票，你是公司的擁有者，但你並不是日常運作的管理者。你把這個職責委託給了CEO和管理團隊。公司治理體系確保他們以你的利益行事，而不只是為自己謀利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 公司治理薄弱，最大的風險是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 代理問題。管理層和股東的利益天生就有分歧。股東希望最大化投資的價值與回報，管理層則希望最大化自己的薪酬、工作保障和聲望。這些目標有時重疊，但並非一直如此。一個CEO可能去進行一宗大規模收購，不是因為這是股東資本最好的用途，而是因為管理更大的公司意味著更高的薪酬和更大的權力。
-</p>
-<p>
-[VISUAL: Two-column comparison showing "股東的期望" vs. "管理層可能的期望。" 股東：最大化回報、有效率的資本運用、透明度、適度的風險。管理層：更高薪酬、更大版圖、工作保障、個人特權。The overlap area is labeled "良好的公司治理使兩者利益對齊。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 公司治理不良有哪些警告信號？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 幾個危險信號。第一，CEO同時兼任董事局主席——被監督的人在監督自己。第二，董事會成員任職已達十五或二十年——他們很可能已被管理層「俘獲」，並非真正獨立。第三，高管薪酬相對於業績過高。如果股價跌了30%，CEO仍然獲得兩千萬美元的花紅，薪酬架構根本就壞掉了。第四，雙重股份結構，使內部人士以少量的經濟持股控制大多數投票權。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你剛才提到雙重股份，那是怎麼運作的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 部分公司發行兩類股份。A類股每股一票，B類股每股十票。創辦人持有B類股。因此，一位創辦人可能只持有公司10%的經濟利益，卻掌握51%的投票權。Google、Meta和Snap都有這樣的架構。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這是壞事嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 視乎創辦人是誰。如果創辦人是帶領Meta成為全球最具價值公司之一的朱克伯格，雙重股份結構或許能保護長遠願景免受短視股東的干擾。但如果創辦人正在把公司帶向衰落，雙重股份結構卻能阻止股東追究其責任。這是對某一個人判斷力的一場豪賭。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最後一個話題。你說過大多數收購都在摧毀價值，那為什麼公司還是不斷這樣做？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是企業財務中最大的謎題之一。一項又一項研究顯示，平均而言，收購方的股票在宣布重大收購後便會下跌。目標公司的股東獲得20-30%的溢價，但收購方的股東卻損失了價值。儘管如此，併購行業規模龐大，CEO們仍不斷出手。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有幾個原因。第一，CEO的薪酬往往與公司規模掛鉤——公司越大，薪酬越高。第二，過度自信——每位CEO都認為自己是那個能讓收購奏效的例外。第三，投資銀行從交易中賺取巨額佣金，因此永遠在游說各種收購構想。第四，有時收購確實是正確的決定，而統計平均值涵蓋了好的和壞的交易。
-</p>
-<p>
-[VISUAL: Bar chart showing "宣布併購後的平均股價反應。" 目標公司：+25%（綠色）。收購方：-3%（紅色）。合計：-1%（淺紅色）。Caption: "平均而言，併購將價值從收購方轉移至目標公司股東。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那身為股東，我應該怎樣評估一宗收購？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 問五個問題。第一，支付的價格是多少？與目標公司的估值倍數及可比交易作比較。第二，如何融資？全現金通常優於股份交換（發行新股攤薄現有股東）。第三，宣稱的協同效益是什麼，是否切實可行？成本協同效益（節省開支）比業務協同效益（增加收入）更為可靠。第四，收購方在以往交易中的往績如何？有些公司是慣性收購者，且往績欠佳。第五，這宗交易在戰略上是否合理，還是純粹為了擴大版圖？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這一課的內容非常密集，但真的很有價值。讓我嘗試總結一下。資本結構是債務和股本的組合——債務放大回報但增加風險。WACC是公司必須達到的最低回報率。股息和回購是公司返還現金的方式，但兩者都有好的和壞的做法。公司治理是保持管理層誠信的體系。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完美的總結。我希望你從今天帶走的最重要的一件事是：每當你評估任何一家公司的投資價值時，問問自己：管理層是在用我的錢創造價值，還是在從我這裡榨取價值？資本配置的質素、股東回報政策和公司治理架構，都能給你答案。
-</p>
-<p>
-[VISUAL: A "管理層質素檢查清單" with six items:
-</p>
-<li>ROIC持續高於WACC？</li>
-<li>股份數量是否真的在下降？</li>
-<li>股息由自由現金流充分覆蓋？</li>
-<li>收購往績良好？</li>
-<li>董事會獨立且激勵對齊？</li>
-<li>管理層有相當比例的個人持股？]</li>
-<p>
-<strong>Stella（小魚）：</strong> 下週呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下週我們將探討盈利和現金流質素——如何分辨一家公司公布的利潤是真實的，還是一場會計幻象。這是投資者可以培養的最實用技能之一，也與我們今天所學的資本配置知識直接相連。
-</p>
-<p>
-[VISUAL: Preview card for Week 20 with "第20週：盈利與現金流：質素、操控與自由現金流"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 感謝大家收看。企業財務聽起來可能不算迷人，但我保證——那些理解企業如何運用資金的投資者，在長期回報上必然勝過那些只是追逐股價的人。如果你身邊有朋友在作投資決策時從不深入了解企業內部，把這集分享給他們。我們下週見。
-</p>
-<p>
-[VISUAL: Outro animation with subscribe button and links to previous episodes]
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第19週：企業財務——資本結構、加權平均資金成本、股利與公司治理</h1>
@@ -3795,242 +3352,6 @@ v
 </p>
 <p>
 答：WACC是現金流量折現法（DCF）估值中使用的折現率。當你將一家公司未來的自由現金流量折現至現值時，使用的就是WACC作為折現率。較低的WACC意味著未來現金流量在今天更具價值，因而得出較高的估值；較高的WACC意味著未來現金流量的現值較低，因而得出較低的估值。這是企業財務與估值之間的直接連結——公司的資本結構決策（決定WACC）直接影響公司的價值。
-</p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎回來，大家好。今天我們要深入研究企業如何實際管理自己的資金。這就是企業財務，我向你保證，學完今天這堂課，你看每一家投資標的的方式都會徹底改變。
-</p>
-<p>
-<strong>Stella：</strong> 我為什麼要在意一家公司如何規劃它的財務結構？我只想知道股價會不會漲。
-</p>
-<p>
-<strong>Horace：</strong> 這正是你需要理解這件事的原因。從長期來看，股價是由管理層配置資本的效率所驅動的。換個角度想——當你買進一檔股票，你等於是在聘用管理團隊替你投資。如果不了解他們打算如何運用你的資金，你會雇用這樣一個人嗎？
-</p>
-<p>
-<strong>Stella：</strong> 這樣說的話，當然不會。
-</p>
-<p>
-<strong>Horace：</strong> 正是。所以我們先從企業財務最根本的決策開始：公司應該如何融資？應該靠債務、股東權益，還是兩者的組合？
-</p>
-<p>
-[VISUAL: Title card "資本結構：債務與股東權益" with a building illustration. One side of the building is labeled "債務" and is shaded blue, the other side "股東權益" shaded green. The proportion changes dynamically.]
-</p>
-<p>
-<strong>Stella：</strong> 我想我知道這個。債務是借來的錢，股東權益是所有者的錢，對吧？
-</p>
-<p>
-<strong>Horace：</strong> 正確。但選擇兩者之間有巨大的影響。讓我給你一個具體的例子。想像兩家完全相同的比薩連鎖店，每家都有100萬美元的資產，產生15萬美元的營業利益。A連鎖店完全以股東權益融資——老闆拿出全部的錢。B連鎖店則以50萬美元的股東權益和50萬美元、年利率6%的債務融資。
-</p>
-<p>
-<strong>Stella：</strong> 所以B連鎖店每年要付3萬美元的利息。
-</p>
-<p>
-<strong>Horace：</strong> 對。A連鎖店稅前賺了15萬美元，以25%稅率繳稅3.75萬美元，留下11.25萬美元。這對老闆百萬美元的投資來說，報酬率是11.25%。B連鎖店賺了15萬美元，但扣掉3萬美元利息，剩下12萬美元稅前利益。繳完3萬美元的稅，留下9萬美元。但關鍵在於——老闆只投入了50萬美元，所以他們的股東權益報酬率是18%。
-</p>
-<p>
-[ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
-</p>
-<p>
-<strong>Stella：</strong> 等一下，B連鎖店的老闆儘管公司淨利較低，股東權益報酬率卻更高？
-</p>
-<p>
-<strong>Horace：</strong> 正是如此。這就是槓桿的力量。由於老闆投入的資本較少，但公司產生了相同的營業利益，他們的股東權益報酬率因此更高。但這裡有個陷阱。如果公司遇到景氣不好的一年，營業利益跌到2萬美元，會怎樣？
-</p>
-<p>
-<strong>Stella：</strong> A連鎖店還能賺取小額利潤，但B連鎖店必須在只有2萬美元收入的情況下支付3萬美元利息——他們虧損了。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。槓桿在兩個方向上都會放大結果。好時機變得更好，壞時機變得更糟。這就是債務的根本取捨——更高的潛在報酬，但也伴隨更高的風險。
-</p>
-<p>
-<strong>Stella：</strong> 那麼，是否有一個最適的負債量？
-</p>
-<p>
-<strong>Horace：</strong> 有的，找到最適點是企業財務的核心問題之一。1958年，兩位經濟學家莫迪利安尼和米勒證明了一件了不起的事。在一個完美的世界裡——沒有稅、沒有破產成本——債務與股東權益的組合根本無關緊要。無論如何融資，公司的總價值都相同。
-</p>
-<p>
-<strong>Stella：</strong> 但我們並不活在完美的世界裡。
-</p>
-<p>
-<strong>Horace：</strong> 對。在現實中，有兩大摩擦使資本結構變得重要。第一，債務利息可以扣抵稅額，使債務具有成本優勢。如果一家公司以5%的利率借入100萬美元，5萬美元的利息費用會減少應稅所得，以25%稅率計算可省下1.25萬美元的稅款。這個稅盾是真實存在的價值。第二，過多的債務會帶來財務困境的風險——若無法支付利息，你便面臨破產，其代價極為高昂。
-</p>
-<p>
-[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (tax benefit) but then peaks and declines (bankruptcy costs). The peak is labeled "最適資本結構" and is shown around 30-50% debt for a typical company. Annotations show "稅務利益主導" on the left side and "財務困境成本主導" on the right side.]
-</p>
-<p>
-<strong>Stella：</strong> 所以最適資本結構是在債務的稅務利益與破產風險之間取得平衡？
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。而且這個最適點因產業而異。擁有穩定、可預期現金流量的公用事業公司可以安全地承擔50-60%的負債。現金流量波動且不確定的科技新創公司則應盡量少借。一般法則是：你的現金流量越穩定、越可預期，你就能安全地承擔越多債務。
-</p>
-<p>
-<strong>Stella：</strong> 這很合理。現在，你之前提到了WACC。那是什麼？
-</p>
-<p>
-<strong>Horace：</strong> WACC代表加權平均資金成本，是公司所使用的所有資本的混合成本。把它想成公司在投資上必須賺取的最低報酬率，才能同時讓債權人和股東都滿意。
-</p>
-<p>
-<strong>Stella：</strong> 怎麼計算？
-</p>
-<p>
-<strong>Horace：</strong> 用股東權益成本乘以股東權益權重，加上稅後債務成本乘以債務權重。讓我用一個實際的例子。假設一家公司市值8億美元，負債2億美元。股東要求10%的報酬率，公司的借款利率為5%，稅率為25%。
-</p>
-<p>
-<strong>Horace：</strong> 股東權益權重為80%，債務權重為20%。加權平均資金成本等於10%乘以80%，加上5%乘以20%乘以75%，等於8%加上0.75%，合計8.75%。
-</p>
-<p>
-[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% x 80% = 8.0%) and debt block (small, labeled 5% x 20% x 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "每個專案都必須跨越這條門檻才能創造價值。"]
-</p>
-<p>
-<strong>Stella：</strong> 所以如果公司投資一個報酬率7%的專案，那就很糟？
-</p>
-<p>
-<strong>Horace：</strong> 那正在摧毀價值。這個專案賺7%，但資本成本是8.75%。股東若能把錢拿回去，反而更划算。這是整個企業財務領域中最重要的概念之一——只投資報酬率超過資金成本的專案。
-</p>
-<p>
-<strong>Stella：</strong> 讓我們談談當公司擁有超過優質專案所需的現金時，它如何將資金回饋給股東。
-</p>
-<p>
-<strong>Horace：</strong> 主要有兩種方式：股利和股票買回。先從股利說起。股利就是公司直接付現金給股東。如果一家公司每季每股配發1美元，而你持有1,000股，你每三個月就能收到1,000美元。
-</p>
-<p>
-<strong>Stella：</strong> 聽起來很棒。為什麼不是每家公司都發股利呢？
-</p>
-<p>
-<strong>Horace：</strong> 因為有些公司對現金有更好的用途。如果一家公司能以25%的報酬率將利潤再投入，那麼把那筆錢發給報酬率可能只有8%的股東，就是個糟糕的決策。亞馬遜著名地幾十年不發股利，因為傑夫·貝佐斯能以驚人的報酬率再投入每一美元。但對於成長機會有限的成熟企業來說，應該將多餘現金回饋給股東，而非囤積或浪費在低報酬的專案上。
-</p>
-<p>
-[VISUAL: Decision tree flowchart. Starting with "公司有1億美元自由現金流量。" First branch: "我們能否以高於WACC的報酬率投資？" If yes, "投資成長。" If no, "回饋現金給股東" which branches into "股利" and "股票買回" with pros and cons listed for each.]
-</p>
-<p>
-<strong>Stella：</strong> 是什麼讓一筆股利安全或有風險？
-</p>
-<p>
-<strong>Horace：</strong> 關鍵指標是股利支付率——盈餘中有多大比例以股利形式配發出去。支付率40%非常舒適，代表公司可以承受相當大的盈餘下滑，仍然有能力支付股利。支付率90%則相當危險——任何盈餘失誤都可能迫使公司削減股利。更重要的是，要看自由現金流量是否足以覆蓋股利。有些公司盈餘看起來不錯，但現金流量卻很差，若現金不在，股利就無法持久。
-</p>
-<p>
-<strong>Stella：</strong> 當公司削減股利時會發生什麼事？
-</p>
-<p>
-<strong>Horace：</strong> 對股價來說通常是一場浩劫。削減股利是公司能傳遞的最強烈的負面訊號之一。那等於在說「我們再也付不起了。」股價在削減股利宣告當天通常下跌20-30%，因為這同時傳遞了公司基本面惡化的訊號，且迫使那些持有該股票專門為了股利的收益型投資人出售持股。
-</p>
-<p>
-[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "削減股利是對股東最具殺傷力的單日事件之一。"]
-</p>
-<p>
-<strong>Stella：</strong> 好，那股票買回呢？它是如何運作的？
-</p>
-<p>
-<strong>Horace：</strong> 當公司買回自家股票，流通在外的股數就會減少。如果一家公司有1億股，買回1,000萬股，就只剩下9,000萬股。每股留存的股票代表更大比例的公司所有權。如果盈餘維持不變，仍為1億美元，每股盈餘就從1.00美元提升至1.11美元——在公司沒有多賺一分錢的情況下，增加了11%。
-</p>
-<p>
-<strong>Stella：</strong> 很聰明。所以股票買回提高了你的持股比例？
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。但這裡存在爭議。股票買回只有在公司以合理價格買入時才能創造價值。如果股票價值50美元，而公司以30美元買進，那是個絕佳的交易——他們用60分錢買到一美元的價值。但如果股票價值30美元，他們卻以50美元買進，那他們是在花1.67美元購買一美元的價值，這摧毀了留存股東的利益。
-</p>
-<p>
-<strong>Stella：</strong> 我怎麼知道一項股票買回是在合理的價格下進行？
-</p>
-<p>
-<strong>Horace：</strong> 參考我們在第21週學到的估值指標。如果公司在本益比低於歷史平均值及低於同業時買回股票，那很可能是好的買回。如果是在估值創歷史新高時買入，則要保持懷疑。而且——這一點至關重要——要檢查流通在外股數是否真的在減少。許多公司宣布大規模買回計畫，但股數幾乎紋絲不動，因為他們同時以高階主管薪酬的名義發行了新股。
-</p>
-<p>
-[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "流通在外股數總計。" On one side, slices are being removed (股票買回). On the other side, new slices are being added (股權薪酬). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "宣告的股票買回：50億美元。實際股數減少：2%。高階主管薪酬：隱藏的代價。"]
-</p>
-<p>
-<strong>Stella：</strong> 那感覺像詐騙。
-</p>
-<p>
-<strong>Horace：</strong> 這是最常見的股東財富轉移形式之一，而大多數散戶投資人從未察覺。永遠要檢查流通在外股數隨時間的變化，而不只是看買回公告。
-</p>
-<p>
-<strong>Stella：</strong> 讓我們來談談公司治理。它是什麼，投資人為何需要關心？
-</p>
-<p>
-<strong>Horace：</strong> 公司治理是讓管理層對股東負責的制度。記住，當你持有一檔股票，你是公司的所有者，但你不負責日常經營。你把這項工作委派給了執行長和管理團隊。公司治理制度確保他們以你的利益行事，而非只顧自己。
-</p>
-<p>
-<strong>Stella：</strong> 公司治理薄弱的主要風險是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 代理問題。管理層和股東的利益天生就不完全一致。股東希望最大化投資價值。管理層希望最大化自身的薪酬、工作保障和聲望。這些目標有時重疊，但並非始終如此。一位執行長可能推動大規模的併購，並非因為那是股東資金的最佳用途，而是因為管理一家更大的公司意味著更高的薪酬和更大的權力。
-</p>
-<p>
-[VISUAL: Two-column comparison showing "股東希望什麼" vs. "管理層可能希望什麼。" Shareholders: 最大化報酬、高效資本配置、透明度、適當風險承擔. Managers: 更高薪酬、更大商業版圖、工作保障、個人特殊福利. The overlap area is labeled "良好的公司治理使這兩者保持一致。"]
-</p>
-<p>
-<strong>Stella：</strong> 公司治理差的警訊有哪些？
-</p>
-<p>
-<strong>Horace：</strong> 有幾個警訊。第一，執行長同時兼任董事長——被監督的人在監督自己。第二，董事任期超過15年或20年——他們很可能已被管理層收買，並非真正獨立。第三，高階主管薪酬相對於績效顯得過高。如果股價下跌30%，執行長卻仍獲得2,000萬美元的獎金，薪酬結構就已崩壞。第四，雙重股權結構使內部人以少數經濟利益掌控多數表決權。
-</p>
-<p>
-<strong>Stella：</strong> 你提到了雙重股權結構，那是怎麼運作的？
-</p>
-<p>
-<strong>Horace：</strong> 有些公司發行兩種類別的股票。A類股可能每股有1票表決權，B類股則有10票。創辦人持有B類股。因此，一位創辦人可能只持有公司10%的經濟價值，卻掌控了51%的表決權。谷歌、Meta和Snap都有這樣的結構。
-</p>
-<p>
-<strong>Stella：</strong> 這不好嗎？
-</p>
-<p>
-<strong>Horace：</strong> 這取決於創辦人是誰。如果創辦人是馬克·祖克柏，正在把Meta打造成全球最有價值的公司之一，雙重股權結構可以說是在保護長期願景免受短期壓力的侵擾。如果創辦人正在把公司帶向深淵，雙重股權結構就讓股東無法追究其責任。這是一場對單一個人判斷力的豪賭。
-</p>
-<p>
-<strong>Stella：</strong> 最後一個話題。你提到大多數併購都會摧毀價值，為什麼公司還是一直在做？
-</p>
-<p>
-<strong>Horace：</strong> 這是企業財務中最大的謎題之一。一份又一份的研究顯示，在宣告重大併購時，收購方的股價平均會下跌。目標公司的股東獲得了20-30%的溢價，但收購方的股東卻損失了價值。但併購業規模龐大，執行長們依然持續進行。
-</p>
-<p>
-<strong>Stella：</strong> 為什麼呢？
-</p>
-<p>
-<strong>Horace：</strong> 幾個原因。第一，執行長的薪酬往往與公司規模掛鉤——公司越大，薪水越高。第二，過度自信——每位執行長都認為自己會是那個讓併購成功的例外。第三，投資銀行從交易中賺取鉅額手續費，因此總在推銷併購構想。第四，有時候收購確實是正確的決策，而統計平均值包含了好與壞的併購案。
-</p>
-<p>
-[VISUAL: Bar chart showing "M&A宣告後的平均股價反應。" Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "平均而言，併購將價值從收購方股東轉移至目標方股東。"]
-</p>
-<p>
-<strong>Stella：</strong> 那身為股東，我如何評估一樁收購案？
-</p>
-<p>
-<strong>Horace：</strong> 問自己五個問題。第一，支付的價格是多少？將其與目標公司的估值倍數和可比較交易進行比較。第二，如何融資？全現金通常優於換股（發行新股會稀釋現有股東）。第三，所聲稱的綜效是否合理？成本節省的綜效（削減開支）比營收增長的綜效（收入增加）更為可靠。第四，收購方過去的併購紀錄如何？有些公司是連續收購者，且有長期摧毀價值的紀錄。第五，這樁交易在策略上是否合理，還是只是帝國擴張？
-</p>
-<p>
-<strong>Stella：</strong> 今天的內容非常密集，但真的很有價值。讓我試著總結一下。資本結構是債務與股東權益的組合——債務放大報酬但增加風險。加權平均資金成本是公司必須賺取的最低報酬率。股利和股票買回是公司回饋現金的方式，但兩者都可以做得好或做得差。而公司治理是讓管理層保持誠信的制度。
-</p>
-<p>
-<strong>Horace：</strong> 完美的總結。而這是我希望你從今天帶走的唯一一件事。當你評估任何一家公司作為投資標的時，問問自己：管理層正在用我的錢創造價值，還是在從我這裡汲取價值？資本配置的品質、股東回饋政策，以及公司治理結構，會告訴你答案。
-</p>
-<p>
-[VISUAL: A "管理層品質檢核清單" with six items:
-</p>
-<li>投入資本報酬率持續高於加權平均資金成本？</li>
-<li>流通在外股數真的在減少？</li>
-<li>股利獲自由現金流量充分覆蓋？</li>
-<li>併購的過往紀錄為正面？</li>
-<li>董事會獨立且利益一致？</li>
-<li>管理層有顯著的股票持有？]</li>
-<p>
-<strong>Stella：</strong> 下週呢？
-</p>
-<p>
-<strong>Horace：</strong> 下週我們要來探討盈餘與現金流量品質——如何判斷一家公司所申報的利潤是真實的，還是會計上的幻象。這是你身為投資人能培養的最實用技能之一，而且它與我們今天所學的資本配置直接相連。
-</p>
-<p>
-[VISUAL: Preview card for Week 20 with "第20週：盈餘與現金流量——品質、操控手法與自由現金流量"]
-</p>
-<p>
-<strong>Horace：</strong> 感謝大家今天的收看。企業財務聽起來可能不夠迷人，但我向你保證——真正理解企業如何運用資金的投資人，始終勝過那些只追逐股價的人。如果你身邊有任何在沒有深入了解管理層的情況下就做投資決策的人，把這部影片分享給他們。下週見。
-</p>
-<p>
-[VISUAL: Outro animation with subscribe button and links to previous episodes]
 </p>
             </div>
             <div id="content-cn" class="lang-content">
@@ -4920,242 +4241,6 @@ CEO希望管理更大的公司（更高声望、
 </p>
 <p>
 答：WACC是现金流折现（DCF）估值中使用的折现率。当你将公司未来的自由现金流折现至今日时，使用的正是WACC作为折现率。WACC越低，未来现金流的现值越高，估值越高；WACC越高，未来现金流的现值越低，估值越低。这正是公司财务与估值之间的直接纽带——公司的资本结构决策（决定WACC）直接影响公司的内在价值。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[VISUAL: Animated intro with title "Week 19: Corporate Finance - Capital Structure, WACC, Dividends, and Governance"]
-</p>
-<p>
-<strong>陳馬：</strong> 欢迎回来！今天我们要深入了解公司实际上是如何管理资金的。这就是公司财务，我敢保证，学完这一讲，你看每一家投资标的的眼光都会彻底不同。
-</p>
-<p>
-<strong>小魚：</strong> 我为什么要关心一家公司怎么安排它的财务结构？我只想知道股价会不会涨。
-</p>
-<p>
-<strong>陳馬：</strong> 这正是你为什么需要理解这一点的原因。从长远来看，股价是由管理层分配资本的效率驱动的。这样想——当你买入一只股票，本质上是在雇用管理团队替你投资。你会在不了解他们如何运用你的钱的情况下就把钱交给他们吗？
-</p>
-<p>
-<strong>小魚：</strong> 这么说的话，当然不会。
-</p>
-<p>
-<strong>陳馬：</strong> 对。所以我们先从公司财务最根本的决策说起：公司应该如何为自身融资？应该用债务、股权，还是两者结合？
-</p>
-<p>
-[VISUAL: Title card "Capital Structure: Debt vs. Equity" with a building illustration. One side of the building is labeled "债务" and is shaded blue, the other side "股权" shaded green. The proportion changes dynamically.]
-</p>
-<p>
-<strong>小魚：</strong> 我觉得我知道。债务是借来的钱，股权是所有者自己出的钱，对吧？
-</p>
-<p>
-<strong>陳馬：</strong> 没错。但两者的选择带来的影响天差地别。来看一个具体例子。假设两家资产规模同为100万美元的连锁披萨店，都产生了15万美元的经营利润。甲店全部以股权融资，业主自己出资。乙店以50万美元股权加50万美元债务（利率6%）融资。
-</p>
-<p>
-<strong>小魚：</strong> 那乙店每年要付3万美元利息。
-</p>
-<p>
-<strong>陳馬：</strong> 对。甲店税前盈利15万美元，按25%税率缴税3.75万美元，留下11.25万美元。相对于业主投入的100万美元，净资产收益率是11.25%。乙店盈利15万美元，但付完3万美元利息后，税前利润为12万美元，缴税3万美元后净利润是9万美元。关键来了——业主只投入了50万美元，所以他们的净资产收益率是18%。
-</p>
-<p>
-[ANIMATION: animation/week19_leverage_effect.py - Split screen showing two identical restaurant buildings. Money flows in from the top (revenue) and out the bottom (expenses). Chain A shows all equity funding with a modest return arrow. Chain B shows half equity, half debt, with a larger return arrow on the equity portion but also an interest payment flowing out to a bank. As the operating income slider moves, both chains' returns change -- but Chain B's moves more dramatically in both directions, showing the leverage amplification effect.]
-</p>
-<p>
-<strong>小魚：</strong> 等一下，乙店的业主明明净利润更低，净资产收益率却更高？
-</p>
-<p>
-<strong>陳馬：</strong> 正是。这就是杠杆的威力。因为业主投入的资本更少，但公司产生的经营利润相同，所以他们的净资产收益率更高。但这里有个陷阱——如果生意不好，经营利润跌到2万美元怎么办？
-</p>
-<p>
-<strong>小魚：</strong> 甲店还能小赚一点，但乙店要付3万美元利息，收入只有2万美元，直接亏损了。
-</p>
-<p>
-<strong>陳馬：</strong> 完全正确。杠杆对收益的放大是双向的——好的时候锦上添花，差的时候雪上加霜。这就是债务最根本的权衡：更高的潜在回收，但也意味着更高的风险。
-</p>
-<p>
-<strong>小魚：</strong> 那存不存在一个最优的债务量？
-</p>
-<p>
-<strong>陳馬：</strong> 有，找到这个最优点正是公司财务的核心难题之一。1958年，两位经济学家莫迪利亚尼和米勒证明了一件了不起的事：在完美市场中——无税收、无破产成本——债务与股权的组合根本不重要，企业总价值始终不变。
-</p>
-<p>
-<strong>小魚：</strong> 但我们生活的世界并不完美。
-</p>
-<p>
-<strong>陳馬：</strong> 对。现实中有两个主要的摩擦因素，使得资本结构变得举足轻重。第一，债务利息可以税前扣除，赋予债务成本优势。如果一家公司借款100万美元，利率5%，5万美元的利息支出会减少应税收入，按25%税率计算可节省1.25万美元税款。这个税盾是真实的价值。第二，过多的债务会带来财务困境风险——一旦无法偿付利息，公司将面临破产，代价极为高昂。
-</p>
-<p>
-[VISUAL: A graph showing firm value on the y-axis and debt ratio on the x-axis. The value curve rises as debt increases (税盾收益) but then peaks and declines (破产成本). The peak is labeled "最优资本结构" and is shown around 30-50% debt for a typical company. Annotations show "税盾效益主导" on the left side and "财务困境成本主导" on the right side.]
-</p>
-<p>
-<strong>小魚：</strong> 所以最优资本结构就是在债务的税收收益与破产风险之间取得平衡？
-</p>
-<p>
-<strong>陳馬：</strong> 对。而且这个最优点因行业而异。现金流稳定可预测的公用事业公司可以安全地承担50%至60%的债务。现金流不稳定的科技初创公司则应尽量少借债。基本原则是：现金流越稳定可预测，就能承担越多的债务。
-</p>
-<p>
-<strong>小魚：</strong> 这很有道理。你之前提到了WACC，那是什么？
-</p>
-<p>
-<strong>陳馬：</strong> WACC是加权平均资本成本，是公司所使用全部资本的加权平均成本。可以把它理解为公司投资项目必须达到的最低回收率，才能让债权人和股东都满意。
-</p>
-<p>
-<strong>小魚：</strong> 怎么计算？
-</p>
-<p>
-<strong>陳馬：</strong> 用股权成本乘以股权权重，加上税后债务成本乘以债务权重。用一个真实的例子来说明。假设一家公司市值8亿美元，债务2亿美元，股东要求10%的回收率，公司借款利率5%，税率25%。
-</p>
-<p>
-<strong>陳馬：</strong> 股权权重80%，债务权重20%。WACC等于10%乘以80%加上5%乘以20%乘以75%，等于8%加0.75%，合计8.75%。
-</p>
-<p>
-[VISUAL: Animated WACC calculation showing the components assembling like building blocks. Equity block (large, labeled 10% × 80% = 8.0%) and debt block (small, labeled 5% × 20% × 75% = 0.75%) stack together to form the total WACC bar of 8.75%. A "hurdle" line is drawn at 8.75% with the text "每一个项目都必须越过这条线，才能创造价值。"]
-</p>
-<p>
-<strong>小魚：</strong> 所以如果公司投资一个回收率7%的项目，那是坏事？
-</p>
-<p>
-<strong>陳馬：</strong> 这是在毁灭价值。项目赚了7%，但资本成本是8.75%。股东不如把钱拿回去自己投资，结果会更好。这是整个公司财务中最重要的概念之一——只有在回收率高于资本成本的情况下，才值得投资。
-</p>
-<p>
-<strong>小魚：</strong> 那我们来聊聊公司有多余现金、没有好的投资项目时怎么办？它如何向股东返还价值？
-</p>
-<p>
-<strong>陳馬：</strong> 主要有两种方式：股息和股份回购。先说股息。股息就是公司直接向股东支付的现金。如果一家公司每股每季度派息1美元，你持有1000股，你每三个月就会收到1000美元现金。
-</p>
-<p>
-<strong>小魚：</strong> 这听起来很棒啊。为什么不是每家公司都派股息？
-</p>
-<p>
-<strong>陳馬：</strong> 因为有些公司有更好的资金用途。如果一家公司能以25%的回收率将利润再投资，把这笔钱返还给可能只能在市场上赚8%的股东，显然得不偿失。亚马逊出了名的多年不派股息，因为贝佐斯每一美元的再投资都能带来惊人的回收。但对于增长机会有限的成熟企业来说，与其囤积现金或浪费在低回报项目上，不如将多余资金返还给股东。
-</p>
-<p>
-[VISUAL: Decision tree flowchart. Starting with "公司拥有1亿美元自由现金流。" First branch: "能否找到回收率高于WACC的投资？" If yes, "投入增长。" If no, "向股东返还现金" which branches into "股息" and "回购" with pros and cons listed for each.]
-</p>
-<p>
-<strong>小魚：</strong> 怎么判断一只股息是安全还是危险的？
-</p>
-<p>
-<strong>陳馬：</strong> 关键指标是派息率——盈利中有多大比例以股息形式派出。40%的派息率非常稳健，意味着盈利即使大幅下滑，公司仍能维持股息。90%的派息率则很危险——一旦盈利稍有波动，就可能被迫削减股息。更重要的是，要看自由现金流是否能覆盖股息。有些公司账面盈利不错但现金流很差，如果实际资金不足，股息就无法持续。
-</p>
-<p>
-<strong>小魚：</strong> 如果公司削减股息，会发生什么？
-</p>
-<p>
-<strong>陳馬：</strong> 通常是股价大跌。股息削减是公司能发出的最强烈的负面信号之一，意味着公司在说"我们再也负担不起给你派钱了"。股价在削减股息宣布当天通常会下跌20%至30%，原因有二：一是传达出管理层对基本面缺乏信心；二是迫使那些专门持有该股以获取股息收益的投资者被迫卖出。
-</p>
-<p>
-[VISUAL: A chart showing a hypothetical stock price stable at $50 with consistent quarterly dividends. On the day the dividend cut is announced, the price gaps down to $35 with high volume. The stock then drifts lower over the following weeks. A caption reads: "股息削减是对股东单日破坏性最大的事件之一。"]
-</p>
-<p>
-<strong>小魚：</strong> 好，那回购是怎么运作的？
-</p>
-<p>
-<strong>陳馬：</strong> 当公司回购自身股票时，流通股数量减少。如果一家公司有1亿股流通股，回购了1000万股，就只剩9000万股了。每一位留存股东所持有的公司份额随之上升。如果盈利保持不变，仍是1亿美元，每股盈利就从1美元增至1.11美元——公司没有多赚一分钱，但每股盈利提升了11%。
-</p>
-<p>
-<strong>小魚：</strong> 很巧妙。所以回购提高了你的持股比例？
-</p>
-<p>
-<strong>陳馬：</strong> 正是。但这里有个颇具争议的地方。只有在合理价格下进行回购，才能创造价值。如果股票内在价值是50美元，公司以30美元买入，那简直是以六折购入真实价值——超值之极。但如果股票内在价值是30美元，公司以50美元买入，那就是花167分购买一块钱的东西，留存股东的利益因此受损。
-</p>
-<p>
-<strong>小魚：</strong> 我怎么判断回购是否在合理价格下进行？
-</p>
-<p>
-<strong>陳馬：</strong> 参照我们在第二十一周学过的估值指标。如果公司在市盈率低于历史均值且低于同行的时候回购股票，那很可能是好的回购。如果在历史估值高点回购，就要保持警惕。还有一点至关重要——核查流通股数量是否真的在减少。很多公司大张旗鼓地宣布回购计划，但流通股数几乎纹丝不动，因为他们同时在以股票薪酬的形式增发新股。
-</p>
-<p>
-[ANIMATION: animation/week19_buyback_dilution.py - A pie chart showing "流通股总数。" On one side, slices are being removed (回购). On the other side, new slices are being added (股票薪酬). The net effect is shown over 5 years -- despite $5 billion in announced buybacks, the pie barely changes size. Final reveal shows "宣布回购：50亿美元。实际股份减少：2%。高管薪酬：隐藏的代价。"]
-</p>
-<p>
-<strong>小魚：</strong> 这感觉像是在骗人。
-</p>
-<p>
-<strong>陳馬：</strong> 这是最常见的股东财富转移方式之一，绝大多数散户投资者对此浑然不觉。请务必追踪流通股数量的实际变化，而不是只看回购公告。
-</p>
-<p>
-<strong>小魚：</strong> 我们来聊聊公司治理。它是什么，投资者为什么要在意？
-</p>
-<p>
-<strong>陳馬：</strong> 公司治理是让管理层对股东负责的制度体系。记住，当你持有一只股票，你是公司的所有者，但日常经营由CEO和管理团队负责。治理制度确保他们以你的利益为先，而不是只顾自身。
-</p>
-<p>
-<strong>小魚：</strong> 治理不健全的主要风险是什么？
-</p>
-<p>
-<strong>陳馬：</strong> 代理问题。管理层与股东的利益天然存在分歧。股东希望最大化投资价值与回收，管理层则希望最大化自身薪酬、职位安全和个人声望。这些目标有时重叠，但并非总是如此。一位CEO可能推动大规模并购，并非因为这是股东资本的最佳用途，而是因为执掌更大的公司意味着更高的薪酬和更大的权力。
-</p>
-<p>
-[VISUAL: Two-column comparison showing "股东期望" vs. "管理层可能的期望。" 股东：最大化回收，高效资本配置，透明度，承担适当风险。管理层：更高薪酬，更大版图，职位安全，个人特权。The overlap area is labeled "良好的治理使两者利益趋于一致。"]
-</p>
-<p>
-<strong>小魚：</strong> 治理不健全有哪些警示信号？
-</p>
-<p>
-<strong>陳馬：</strong> 几个明显的红旗：第一，CEO兼任董事长——被监督者自己监督自己。第二，董事会成员任期长达15至20年——很可能已被管理层"收服"，缺乏真正的独立性。第三，高管薪酬与业绩严重脱节。若股价下跌30%，CEO仍拿走2000万美元奖金，说明薪酬体系已经失灵。第四，创始人以少量经济权益控制投票权的双重股权结构。
-</p>
-<p>
-<strong>小魚：</strong> 你提到双重股权结构，具体是怎么运作的？
-</p>
-<p>
-<strong>陳馬：</strong> 有些公司发行两类股票。A类股可能每股1票，B类股每股10票，创始人持有B类股。这样一来，创始人可能只拥有公司10%的经济价值，却控制51%的投票权。谷歌、脸书和Snap都采用这种结构。
-</p>
-<p>
-<strong>小魚：</strong> 这是坏事吗？
-</p>
-<p>
-<strong>陳馬：</strong> 取决于创始人是谁。如果是扎克伯格在把脸书打造成全球最有价值的公司之一，双重股权结构或许确实保护了长期愿景不受短期压力干扰。但如果创始人正在把公司带向深渊，这种结构就会阻止股东追责。说到底，这是对某一个人判断力的押注。
-</p>
-<p>
-<strong>小魚：</strong> 最后一个话题。你说大多数并购都在毁灭价值，那为什么公司还是前赴后继地去做？
-</p>
-<p>
-<strong>陳馬：</strong> 这是公司财务领域最耐人寻味的谜题之一。一项项研究表明，大型并购宣布后，收购方的股价平均会下跌。目标公司股东拿到20%至30%的溢价，收购方股东却蒙受损失。但并购行业依然庞大，CEO们仍在不断出手。
-</p>
-<p>
-<strong>小魚：</strong> 为什么？
-</p>
-<p>
-<strong>陳馬：</strong> 原因有几个。第一，CEO的薪酬往往与公司规模挂钩——公司越大，薪水越高。第二，过度自信——每位CEO都觉得自己会是例外，能把并购做成功。第三，投资银行从交易中赚取巨额费用，因此总在向CEO力推并购创意。第四，有些并购确实是正确之举，统计平均数掩盖了好与坏的并购。
-</p>
-<p>
-[VISUAL: Bar chart showing "并购宣布后的平均股价反应。" Target company: +25% in green. Acquiring company: -3% in red. Combined: -1% in light red. Caption: "平均而言，并购将价值从收购方股东转移至目标公司股东。"]
-</p>
-<p>
-<strong>小魚：</strong> 那作为股东，我如何评估一项并购？
-</p>
-<p>
-<strong>陳馬：</strong> 问自己五个问题。第一，收购价格如何？与目标公司的估值倍数及可比交易相比较。第二，融资方式是什么？全现金通常优于增发股票（增发会稀释现有股东）。第三，声称的协同效应是否合理？成本节约型协同效应比收入增长型协同效应更可靠。第四，收购方此前有怎样的并购记录？有些公司是惯于并购的连续收购者，历史记录一塌糊涂。第五，这笔交易战略上是否讲得通，还是纯粹是扩张版图的冲动？
-</p>
-<p>
-<strong>小魚：</strong> 今天的内容信息量非常大，但真的很有价值。让我来总结一下。资本结构是债务与股权的组合——债务放大回收，同时提高风险。加权平均资本成本（WACC）是公司必须达到的最低回收率。股息和回购是公司返还现金的方式，但两者都有做对和做错之分。公司治理是让管理层保持诚信的制度保障。
-</p>
-<p>
-<strong>陳馬：</strong> 总结得非常准确。这里有一件事我希望你从今天学习中带走：每当你评估一家公司的投资价值时，请问自己——管理层是在用我的钱创造价值，还是在从我身上提取价值？资本配置质量、股东回报政策以及公司治理结构，都会给你答案。
-</p>
-<p>
-[VISUAL: A "管理层质量核查清单" with six items:
-</p>
-<li>投资资本回报率（ROIC）是否持续高于WACC？</li>
-<li>流通股数是否真的在减少？</li>
-<li>股息是否有充裕的自由现金流覆盖？</li>
-<li>并购历史记录是否积极？</li>
-<li>董事会是否具备独立性且激励机制是否对齐？</li>
-<li>管理层是否持有大量公司股票？]</li>
-<p>
-<strong>小魚：</strong> 下周讲什么？
-</p>
-<p>
-<strong>陳馬：</strong> 下周我们要深入解析盈利与现金流的质量——如何分辨一家公司报告的利润是真实的还是会计上的幻象。这是投资者能培养的最实用的技能之一，也与我们今天学到的资本配置内容直接相连。
-</p>
-<p>
-[VISUAL: Preview card for Week 20 with "第二十周：盈利与现金流——质量、操控手法与自由现金流"]
-</p>
-<p>
-<strong>陳馬：</strong> 感谢各位的收看！公司财务听起来可能不够性感，但我向你保证——真正理解公司如何运用资金的投资者，长期表现远胜于那些只会追逐股价的人。如果你身边有正在做投资决策却从未深入研究过这些问题的朋友，请把这个视频分享给他们。我们下周见。
-</p>
-<p>
-[VISUAL: Outro animation with subscribe button and links to previous episodes]
 </p>
             </div>
         </div>

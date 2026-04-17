@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -686,23 +715,23 @@ By the end of this course, you will be able to:
 <p>
 The course is organized into <strong>five progressive levels</strong>, each building on the last:
 </p>
-<h3>Level 1: Foundation (Weeks 1-12)</h3>
+<h3><a href="level1.html" class="level-link">Level 1: Foundation (Weeks 1-12)</a></h3>
 <p>
 Start with the fundamentals -- why investing matters, how markets work, and how to build your first portfolio. No prior knowledge required. You will learn about ETFs, bonds, risk and return, behavioral biases, and the basics of reading financial statements.
 </p>
-<h3>Level 2: Intermediate (Weeks 13-24)</h3>
+<h3><a href="level2.html" class="level-link">Level 2: Intermediate (Weeks 13-24)</a></h3>
 <p>
 Expand your toolkit with multi-asset allocation, sector rotation, performance metrics, equity valuation, and factor investing. You will learn to analyze companies, understand interest rates, and combine multiple strategies.
 </p>
-<h3>Level 3: Advanced (Weeks 25-36)</h3>
+<h3><a href="level3.html" class="level-link">Level 3: Advanced (Weeks 25-36)</a></h3>
 <p>
 Enter the world of options and fixed income. Learn to use covered calls, cash-secured puts, and credit spreads for income. Dive deep into yield curves, duration, credit analysis, and advanced financial statement analysis.
 </p>
-<h3>Level 4: Sophisticated (Weeks 37-46)</h3>
+<h3><a href="level4.html" class="level-link">Level 4: Sophisticated (Weeks 37-46)</a></h3>
 <p>
 Master options leverage, LEAPS, futures, volatility trading, and professional risk management. Learn about VaR models, active portfolio management, market microstructure, and strategy backtesting.
 </p>
-<h3>Level 5: Expert (Weeks 47-52)</h3>
+<h3><a href="level5.html" class="level-link">Level 5: Expert (Weeks 47-52)</a></h3>
 <p>
 Bring it all together with tail risk hedging, structured products, volatility arbitrage, managed futures, and complete portfolio integration. Graduate with the skills to build a professional-grade, all-weather portfolio.
 </p>
@@ -848,132 +877,6 @@ All course materials are available in four languages:
 <p>
 <em>本課程依據MIT授權條款提供，免費向所有人開放。請參閱<a href="disclaimer.html">免責聲明</a>了解重要法律資訊。</em>
 </p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 陳馬投資教程：由零開始到專業水平｜課程概覽
-</p>
-<p>
-<strong>目標播放時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（導師）：經驗豐富的散戶交易者，憑多年市場經驗講解概念</li>
-<li><strong>Stella</strong>（學生）：剛大學畢業、正在學習如何投資儲蓄的新手，提出觀眾心中的疑問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[片頭序幕]</strong>
-</p>
-<p>
-[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
-</p>
-<p>
-<strong>Horace：</strong> 大家好，我係Horace，歡迎收看陳馬投資教程——一個免費的52週課程，帶你由投資零基礎，一步步晉升至管理專業級別的投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 我係Stella。我剛剛大學畢業，有一筆儲蓄放喺銀行戶口，心裡知道應該做些更聰明的安排。但老實說，每次嘗試學投資，都會被各種術語同相互矛盾的意見搞到一頭霧水。
-</p>
-<p>
-<strong>Horace：</strong> 這正正就係這個課程存在的原因。我花了多年時間研究市場——特許財務分析師課程、數十年的交易經驗、無數書籍和研究報告。某個時刻我意識到，如果把我所有的筆記好好整理，可以成為一套完整的投資教育。所以我們就建立了這個課程。
-</p>
-<p>
-<strong>Stella：</strong> 這個課程適合哪些人？
-</p>
-<p>
-<strong>Horace：</strong> 任何想認真了解投資的人。完全的新手從第一層次開始，一步一步建立基礎。但即使你已經投資一段時間，我都建議你從早期層次開始——你可能會驚訝地發現自己的基礎存在一些缺口。
-</p>
-<hr>
-<p>
-<strong>[第一節：課程架構]</strong>
-</p>
-<p>
-[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
-</p>
-<p>
-<strong>Horace：</strong> 課程分為五個層次，橫跨52週。把它想像成一個金字塔。
-</p>
-<p>
-<strong>Stella：</strong> 跟我介紹一下各個層次吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一層次是基礎篇——十二週，涵蓋投資的意義、交易所買賣基金、風險與回報、債券、黃金、再平衡、財務報表，以及如何建立你的第一個投資組合。到第12週，你將建立起一個真實的、多元化的投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 而那只是個開始？
-</p>
-<p>
-<strong>Horace：</strong> 第二層次是進階篇——你將學習好淡倉交易、多資產配置、板塊輪動、績效指標、股票估值及因子投資。到第24週，你已經擁有了認真投資者的思維模式。
-</p>
-<p>
-<strong>Stella：</strong> 然後就到期權了？
-</p>
-<p>
-<strong>Horace：</strong> 第三層次涵蓋期權與固定收益。但我們教的期權，不是投機工具。我們把它當作強化版的落單工具——備兌認購期權用來創造收益，現金擔保認沽期權用於低位建倉，信用利差策略用於限定風險的交易。再加上對債券、收益率曲線及信用分析的深入探討。
-</p>
-<p>
-<strong>Stella：</strong> 第四層次呢？
-</p>
-<p>
-<strong>Horace：</strong> 那就更精深了——期權槓桿、長期期權、期貨、波動率指數交易、專業風險管理、回測。這些是把普通投資者同認真投資者區分開來的工具。
-</p>
-<p>
-<strong>Stella：</strong> 第五層次是總結篇？
-</p>
-<p>
-<strong>Horace：</strong> 六週的時間把所有知識融會貫通。尾部風險對沖、結構性產品、波動性套利、管理期貨，以及最終整合——建立你的全天候投資組合。
-</p>
-<hr>
-<p>
-<strong>[第二節：這個課程有何不同]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 市面上有很多投資課程。這個有什麼特別？
-</p>
-<p>
-<strong>Horace：</strong> 三點。第一，循序漸進的結構。每週都建立在前一週的基礎之上。你不會在未了解風險之前就接觸期權；你不會在未理解因子為何物之前就學習因子投資。
-</p>
-<p>
-<strong>Stella：</strong> 第二點？
-</p>
-<p>
-<strong>Horace：</strong> 以真正的課程體系為基礎。特許財務分析師課程是投資專業人士的黃金標準。我們提取了這套知識體系，重新為散戶投資者整理——保留嚴謹性，去除不相關的部分。
-</p>
-<p>
-<strong>Stella：</strong> 第三點？
-</p>
-<p>
-<strong>Horace：</strong> 完全免費。MIT授權條款。隨意使用、分享、二次開發。筆記已經寫好，研究已經完成。沒有理由把它鎖在付費牆後面。
-</p>
-<hr>
-<p>
-<strong>[第三節：如何使用這個課程]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 大家應該怎樣學習這個課程？
-</p>
-<p>
-<strong>Horace：</strong> 每週一課。先閱讀文章——那裡有完整的材料，包括公式、表格和圖表。然後看影片加以鞏固。我們還有30堂補充課堂，涵蓋實用題目，例如計算器使用、稅務效益、退休賬戶及特定策略。隨時有需要就去看。
-</p>
-<p>
-<strong>Stella：</strong> 如果大家有問題呢？
-</p>
-<p>
-<strong>Horace：</strong> 歡迎加入我們的Patreon。那裡我們會做問答環節和深度討論。
-</p>
-<p>
-<strong>Stella：</strong> 我已經迫不及待想開始了。我們就進入第1週吧。
-</p>
-<p>
-<strong>Horace：</strong> 第1週見。
-</p>
-<p>
-<strong>[完]</strong>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>陳馬投資教學：從入門到專業</h1>
@@ -1069,132 +972,6 @@ All course materials are available in four languages:
 <p>
 <em>本課程依MIT授權條款提供，對所有人免費開放。重要法律資訊請參閱<a href="disclaimer.html">免責聲明</a>。</em>
 </p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 陳馬投資教學：從入門到專業 | 課程總覽
-</p>
-<p>
-<strong>目標時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：資深散戶交易者，從多年市場經驗中分享概念</li>
-<li><strong>Stella</strong>（學生）：剛大學畢業，正在學習如何投資她的積蓄，提出觀眾心中的問題</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[片頭序列]</strong>
-</p>
-<p>
-[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
-</p>
-<p>
-<strong>Horace：</strong> 大家好。我是Horace，歡迎來到陳馬投資教學——一個免費的52週課程，將帶您從對投資一無所知，到能夠管理專業級的投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 我是Stella。我剛大學畢業，有一些存款放在銀行帳戶裡，我知道我應該更聰明地運用這些錢。但說實話，每次我想學投資，就會被一堆術語和互相矛盾的建議搞得不知所措。
-</p>
-<p>
-<strong>Horace：</strong> 這正是這門課存在的原因。我花了多年研究市場——CFA課程、數十年的交易經驗、無數的書籍和研究報告。在某個時刻，我意識到如果把所有筆記好好整理，可以成為一套完整的投資教育。所以這就是我們建立的東西。
-</p>
-<p>
-<strong>Stella：</strong> 這門課適合哪些人？
-</p>
-<p>
-<strong>Horace：</strong> 任何想要真正理解投資的人。完全的初學者可以從第一級開始逐步建立。但即使您已經投資一段時間，我也鼓勵您從早期的等級開始——您可能會驚訝地發現自己基礎上的缺口。
-</p>
-<hr>
-<p>
-<strong>[第一段：課程架構]</strong>
-</p>
-<p>
-[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
-</p>
-<p>
-<strong>Horace：</strong> 課程分為五個等級，涵蓋52週。可以把它想成一個金字塔。
-</p>
-<p>
-<strong>Stella：</strong> 帶我了解一下各個等級吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一級是基礎篇——十二週，涵蓋為什麼投資很重要、指數型基金、風險與報酬、債券、黃金、再平衡、財務報表，以及建立您的第一個投資組合。到第12週，您將會建立起一個真實的多元化投資組合並開始運作。
-</p>
-<p>
-<strong>Stella：</strong> 那只是開始而已？
-</p>
-<p>
-<strong>Horace：</strong> 第二級是進階篇——您將學習多空交易、多資產配置、類股輪動、績效指標、股票估值與因子投資。到第24週，您將以嚴謹投資者的眼光思考問題。
-</p>
-<p>
-<strong>Stella：</strong> 然後是選擇權？
-</p>
-<p>
-<strong>Horace：</strong> 第三級涵蓋選擇權與固定收益。但我們不把選擇權當作投機工具來教。我們把它們當作進階的委託類型——用掩護性買權創造收益、用現金擔保賣權建立部位、用信用價差進行有限風險交易。此外還深入探討債券、殖利率曲線與信用分析。
-</p>
-<p>
-<strong>Stella：</strong> 第四級呢？
-</p>
-<p>
-<strong>Horace：</strong> 那是更精深的領域——選擇權槓桿、長期期權、期貨、波動率指數交易、專業風險管理、回測。這些工具區分了普通投資者與認真投資者。
-</p>
-<p>
-<strong>Stella：</strong> 第五級是最終的收尾？
-</p>
-<p>
-<strong>Horace：</strong> 六週將所有內容融合在一起。尾部風險避險、結構性商品、波動率套利、管理型期貨，以及最終整合——建立您的全天候投資組合。
-</p>
-<hr>
-<p>
-<strong>[第二段：這門課有什麼不同]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 市面上有很多投資課程。這門課有什麼不同？
-</p>
-<p>
-<strong>Horace：</strong> 有三點。第一，它是循序漸進架構的。每週都建立在前一週的基礎上。您不會在不理解風險的情況下就跳入選擇權。您不會在不理解什麼是因子的情況下就學習因子投資。
-</p>
-<p>
-<strong>Stella：</strong> 第二點呢？
-</p>
-<p>
-<strong>Horace：</strong> 它以真正的課程為基礎。CFA考試是投資專業人士的黃金標準。我們吸收了這套知識體系，並針對散戶投資者重新整理——保留嚴謹性，刪去不相關的部分。
-</p>
-<p>
-<strong>Stella：</strong> 第三點？
-</p>
-<p>
-<strong>Horace：</strong> 它是免費的。MIT授權。使用它、分享它、在它的基礎上繼續發展。筆記已經寫好了，研究已經完成了。沒有理由把它鎖在付費牆後面。
-</p>
-<hr>
-<p>
-<strong>[第三段：如何使用本課程]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 大家應該怎麼使用這門課？
-</p>
-<p>
-<strong>Horace：</strong> 每週一堂課。先閱讀文章——那裡有完整的資料，包括公式、表格和圖表。然後觀看影片加強記憶。我們還有30堂補充課程，涵蓋實用主題，如計算機使用、稅務效率、退休帳戶和特定策略。有需要時隨時可以學習這些課程。
-</p>
-<p>
-<strong>Stella：</strong> 如果大家有問題呢？
-</p>
-<p>
-<strong>Horace：</strong> 加入我們的Patreon。那是我們進行問答和深入討論的地方。
-</p>
-<p>
-<strong>Stella：</strong> 我已經迫不及待想開始了。讓我們直接進入第一週吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一週見。
-</p>
-<p>
-<strong>[結束]</strong>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>陈马投资教学：从入门到专业</h1>
@@ -1289,132 +1066,6 @@ All course materials are available in four languages:
 <hr>
 <p>
 <em>本课程依据MIT许可协议提供，对所有人免费开放。请参阅<a href="disclaimer.html">免责声明</a>以获取重要法律信息。</em>
-</p>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 陈马投资教学：从入门到专业 | 课程概览
-</p>
-<p>
-<strong>目标时长：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（教师）：经验丰富的零售投资者，以多年市场经验讲解概念</li>
-<li><strong>Stella</strong>（学生）：刚从大学毕业，正在学习如何投资储蓄，提出观众心中的疑问</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[INTRO SEQUENCE]</strong>
-</p>
-<p>
-[VISUAL: Title card with "Chanma Investment Tutorial" and tagline "From Beginner to Professional"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎。我是Horace（陈马），这是陈马投资教学——一套免费的52周课程，将带您从对投资一无所知，到管理专业级投资组合。
-</p>
-<p>
-<strong>Stella：</strong> 我是Stella（小鱼）。我刚刚大学毕业，有一些存款放在银行账户里，我知道应该更聪明地利用它们。但说实话，每次我尝试学习投资，都会被各种术语和相互矛盾的建议搞得不知所措。
-</p>
-<p>
-<strong>Horace：</strong> 这正是本课程存在的原因。我花了多年时间研究市场——CFA课程、数十年的交易经验、无数书籍和研究报告。在某个时刻，我意识到我所有的笔记，如果整理得当，可以构成一套完整的投资教育。所以这就是我们构建的内容。
-</p>
-<p>
-<strong>Stella：</strong> 这门课程适合哪些人？
-</p>
-<p>
-<strong>Horace：</strong> 任何想要真正理解投资的人。完全的初学者从第一级开始，逐步提升。但即使您已经投资了一段时间，我也建议您从早期级别开始——您可能会对自己基础中的漏洞感到惊讶。
-</p>
-<hr>
-<p>
-<strong>[SEGMENT 1: COURSE STRUCTURE]</strong>
-</p>
-<p>
-[VISUAL: Pyramid diagram showing 5 levels stacking from Foundation to Expert]
-</p>
-<p>
-<strong>Horace：</strong> 本课程分为五个层级，共52周。把它想象成一座金字塔。
-</p>
-<p>
-<strong>Stella：</strong> 带我了解一下各个层级吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一级是基础——十二周，涵盖为什么投资很重要、指数基金、风险与收益、债券、黄金、再平衡、财务报表，以及构建您的第一个投资组合。到第12周时，您将拥有一个真实、多元化的投资组合并开始运作。
-</p>
-<p>
-<strong>Stella：</strong> 而那仅仅是开始？
-</p>
-<p>
-<strong>Horace：</strong> 第二级是中级——您将学习多空交易、多资产配置、板块轮动、业绩指标、股票估值和因子投资。到第24周时，您将像一个认真的投资者那样思考。
-</p>
-<p>
-<strong>Stella：</strong> 然后是期权？
-</p>
-<p>
-<strong>Horace：</strong> 第三级涵盖期权和固定收益。但我们不把期权当作投机工具来教。我们将其作为增强型订单类型来教——用备兑看涨期权获取收益，用现金担保看跌期权建仓，用信用价差进行有限风险交易。另外还深入研究债券、收益率曲线和信用分析。
-</p>
-<p>
-<strong>Stella：</strong> 第四级呢？
-</p>
-<p>
-<strong>Horace：</strong> 那是进入高阶的地方——期权杠杆、长期期权、期货、波动率指数交易、专业风险管理、回测。这些工具将普通投资者与认真的投资者区分开来。
-</p>
-<p>
-<strong>Stella：</strong> 第五级是最终综合？
-</p>
-<p>
-<strong>Horace：</strong> 六周时间把所有内容融会贯通。尾部风险对冲、结构性产品、波动率套利、管理期货，以及最终整合——构建您的全天候投资组合。
-</p>
-<hr>
-<p>
-<strong>[SEGMENT 2: WHAT MAKES THIS COURSE DIFFERENT]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 市面上有很多投资课程。这门课有什么不同？
-</p>
-<p>
-<strong>Horace：</strong> 三点。第一，结构是循序渐进的。每周都建立在前一周的基础上。您不会在不理解风险的情况下直接跳入期权。您不会在不理解因子是什么的情况下学习因子投资。
-</p>
-<p>
-<strong>Stella：</strong> 第二点？
-</p>
-<p>
-<strong>Horace：</strong> 基于真实课程。CFA项目是投资专业人士的黄金标准。我们吸取了那些知识体系，并为零售投资者重新整理——保留了严谨性，但删去了不相关的部分。
-</p>
-<p>
-<strong>Stella：</strong> 第三点？
-</p>
-<p>
-<strong>Horace：</strong> 免费。MIT许可协议。使用它、分享它、在它基础上构建。笔记已经写好，研究已经完成。没有理由将其锁在付费墙后面。
-</p>
-<hr>
-<p>
-<strong>[SEGMENT 3: HOW TO USE THIS COURSE]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 人们应该如何使用这门课程？
-</p>
-<p>
-<strong>Horace：</strong> 每周一课。先阅读文章——那会给您提供包含公式、表格和图表的完整材料。然后观看视频加深理解。我们还有30节补充课程，涵盖实用主题，如计算器使用、税务效率、退休账户和具体策略。需要时随时学习。
-</p>
-<p>
-<strong>Stella：</strong> 如果大家有问题呢？
-</p>
-<p>
-<strong>Horace：</strong> 在Patreon上加入我们。那是我们进行问答和深入讨论的地方。
-</p>
-<p>
-<strong>Stella：</strong> 我很期待开始。让我们直接进入第一周吧。
-</p>
-<p>
-<strong>Horace：</strong> 那里见。
-</p>
-<p>
-<strong>[END]</strong>
 </p>
             </div>
         </div>

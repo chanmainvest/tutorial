@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1541,244 +1570,6 @@ A: The Z-Score is particularly valuable for credit analysis. Before buying a cor
 <p>
 A: The biggest red flag is when multiple indicators point in the same direction simultaneously. A company with a high Beneish M-Score, declining Z-Score, cash flow lagging reported earnings, growing goodwill, significant off-balance-sheet items, and aggressive non-GAAP adjustments is waving every possible warning flag. Individually, each factor has innocent explanations. Together, they paint a picture of a company where the financial statements cannot be trusted at face value.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<hr>
-<p>
-<strong>[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]</strong>
-</p>
-<p>
-<strong>Horace:</strong> Welcome back. Today we are going beyond basic financial statements into the advanced territory -- the tricks, traps, and tools that separate amateur investors from professionals. If you have ever wondered how investors like Warren Buffett or Michael Burry spot problems that everyone else misses, this is how.
-</p>
-<p>
-<strong>Stella:</strong> I feel like I have a decent grasp of income statements and balance sheets from earlier lessons. What am I missing?
-</p>
-<p>
-<strong>Horace:</strong> You are missing the layer beneath the surface. Let me give you a provocative question: If a company reports $500 million in net income, is that good?
-</p>
-<p>
-<strong>Stella:</strong> Well, it depends on the context, but $500 million in profit sounds pretty good.
-</p>
-<p>
-<strong>Horace:</strong> What if I told you that same company's operating cash flow was only $100 million?
-</p>
-<p>
-<strong>Stella:</strong> That is a huge gap. Where did the other $400 million go?
-</p>
-<p>
-<strong>Horace:</strong> That is exactly the right question. The gap between reported earnings and cash flow is called "accruals," and it is one of the most powerful signals in financial analysis. High accruals often mean the company is recognizing revenue or deferring expenses in ways that do not reflect real cash generation. And research shows that companies with high accruals significantly underperform the market.
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "Accruals: $400M"]</strong>
-</p>
-<p>
-<strong>Stella:</strong> So I should always compare net income to cash flow?
-</p>
-<p>
-<strong>Horace:</strong> Always. The ratio of operating cash flow to net income is the simplest earnings quality test. If it is above 1.0 -- meaning cash flow exceeds reported earnings -- that is high quality. If it is below 0.5, investigate immediately. If it is negative -- the company reports profits but actually burns cash -- that is a screaming red flag.
-</p>
-<p>
-<strong>[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 (High Quality), 0.8-1.0 (Good), 0.5-0.8 (Investigate), <0.5 (Red Flag)]</strong>
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about one of the most controversial topics in tech investing -- stock-based compensation. I see companies exclude it from their "adjusted" earnings all the time.
-</p>
-<p>
-<strong>Horace:</strong> This is one of my pet peeves. Stock-based compensation, or SBC, is a real cost. When a company pays employees with stock options or restricted stock units, it is transferring value from existing shareholders to employees. If the company did not use SBC, it would need to pay higher cash salaries.
-</p>
-<p>
-<strong>Stella:</strong> But management says it is a "non-cash" expense.
-</p>
-<p>
-<strong>Horace:</strong> Sure, there is no cash leaving the bank account. But your ownership stake is being diluted. Let me show you how big the impact can be.
-</p>
-<p>
-<strong>[VISUAL: Example showing Tech Company XYZ -- GAAP EPS of $0.50 vs. "Adjusted" EPS of $0.70, a 40% difference entirely due to excluding SBC]</strong>
-</p>
-<p>
-<strong>Horace:</strong> For some large tech companies, SBC exceeds 20% of revenue. If you value the stock using adjusted earnings that exclude SBC, you could overpay by 30 to 40 percent. Always start with GAAP earnings.
-</p>
-<p>
-<strong>Stella:</strong> Are there red flags I should watch for with SBC?
-</p>
-<p>
-<strong>Horace:</strong> Yes. SBC exceeding 15% of revenue is aggressive. Diluted share count increasing more than 3% per year means shareholders are being diluted significantly. And watch for companies where SBC as a percentage of revenue is growing over time -- it suggests the company is funding its operations partly by printing stock.
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: cost of goods sold, operating expenses, cash compensation, SBC expense, and profit. The SBC slice grows larger over successive years while the profit slice remains stable, illustrating how SBC consumes an increasing share of revenue.]</strong>
-</p>
-<p>
-<strong>Stella:</strong> What about off-balance-sheet items? I thought those were fixed after the 2008 financial crisis.
-</p>
-<p>
-<strong>Horace:</strong> Partially fixed. Operating leases are now on the balance sheet, which was a huge improvement. But several important items still lurk off-balance-sheet or in the footnotes.
-</p>
-<p>
-<strong>Stella:</strong> Like what?
-</p>
-<p>
-<strong>Horace:</strong> Unconsolidated joint ventures, where a company owns 20 to 49 percent of another business. The joint venture's debt does not appear on the parent company's balance sheet. Variable interest entities -- special purpose entities that may not be consolidated. Purchase commitments. Guarantee obligations. These can represent billions of dollars in hidden exposure.
-</p>
-<p>
-<strong>[VISUAL: Iceberg diagram -- visible portion above water shows "On-Balance-Sheet Items" (debt, leases, etc.), below water shows "Off-Balance-Sheet Items" (JV debt, purchase commitments, guarantees, pension deficits, contingent liabilities)]</strong>
-</p>
-<p>
-<strong>Stella:</strong> Where do I find this information?
-</p>
-<p>
-<strong>Horace:</strong> Footnotes. The 10-K annual filing has footnotes on "Commitments and Contingencies," "Variable Interest Entities," and "Investments in Affiliates." The SEC also requires a specific section in the MD&A called "Off-Balance-Sheet Arrangements." You have to actually read these sections -- most investors skip them, which is exactly why the information stays hidden.
-</p>
-<p>
-<strong>Stella:</strong> OK, let us talk about goodwill. I see it on balance sheets all the time and I honestly do not understand it.
-</p>
-<p>
-<strong>Horace:</strong> Goodwill is the premium a company pays when it acquires another company above the fair value of the identifiable assets. If Company A buys Company B for $5 billion, and Company B's identifiable assets minus liabilities are worth $2 billion, the remaining $3 billion goes on the balance sheet as "goodwill."
-</p>
-<p>
-<strong>Stella:</strong> And that $3 billion just sits there?
-</p>
-<p>
-<strong>Horace:</strong> Indefinitely. Under current rules, goodwill is not amortized -- it just sits on the balance sheet until management determines it is "impaired," meaning the acquired business is no longer worth what they paid for it. Then they take a write-down.
-</p>
-<p>
-<strong>[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label "Premium paid for acquisitions -- may or may not be worth what's on the books"]</strong>
-</p>
-<p>
-<strong>Horace:</strong> Here is the problem. For serial acquirers -- companies that grow primarily through acquisition -- goodwill can become 30 to 60 percent of total assets. That means a huge portion of the company's balance sheet is based on the assumption that past acquisitions were worth what was paid. If that assumption is wrong, the balance sheet is overstated.
-</p>
-<p>
-<strong>Stella:</strong> How do I know if goodwill is too high?
-</p>
-<p>
-<strong>Horace:</strong> Compare goodwill to total assets and to shareholders' equity. If goodwill exceeds 50% of total assets or exceeds total equity, dig deeper. Look at whether acquired businesses are meeting their original performance projections. Check if the company has a history of goodwill impairments. And be especially skeptical of companies that make frequent acquisitions at high premiums but show limited organic growth.
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about pension obligations. I hear they can be massive.
-</p>
-<p>
-<strong>Horace:</strong> They can be. A defined benefit pension creates a legal obligation to pay retirees fixed amounts for the rest of their lives. The present value of those payments can be enormous -- tens of billions of dollars for large companies. And here is the tricky part: the size of this obligation depends heavily on assumptions that management chooses.
-</p>
-<p>
-<strong>[VISUAL: Pension accounting diagram showing Plan Assets on one side, Projected Benefit Obligation on the other, with the gap labeled "Funded Status"]</strong>
-</p>
-<p>
-<strong>Horace:</strong> The discount rate is the most impactful assumption. A 0.5% change in the discount rate can swing the pension obligation by 7 to 8 percent. For a company with a $10 billion pension obligation, that is $700 to $800 million from a single assumption change. Management sets this assumption, creating room for manipulation.
-</p>
-<p>
-<strong>Stella:</strong> What should I look for?
-</p>
-<p>
-<strong>Horace:</strong> Compare the company's discount rate to peers. If it is significantly higher, they may be understating their obligation. Also compare expected return on plan assets to actual historical returns. If the expected return is unrealistically high, pension expense is understated. And track the funded status over time -- a growing pension deficit is a liability that will eventually demand cash contributions.
-</p>
-<p>
-<strong>Stella:</strong> This is great. Now, you mentioned two scoring models -- the Beneish M-Score and the Altman Z-Score. Let us walk through those.
-</p>
-<p>
-<strong>Horace:</strong> These are two of the most powerful quantitative tools in financial analysis. Let us start with the Beneish M-Score, which detects earnings manipulation.
-</p>
-<p>
-<strong>[VISUAL: Formula display showing the M-Score equation with all 8 variables]</strong>
-</p>
-<p>
-<strong>Horace:</strong> The M-Score combines eight financial ratios into a single number. The threshold is negative 1.78. If the M-Score is above that threshold, the company has a statistically elevated probability of manipulating its earnings.
-</p>
-<p>
-<strong>Stella:</strong> What kinds of things does it look for?
-</p>
-<p>
-<strong>Horace:</strong> Each variable captures a different type of manipulation signal. The Days Sales in Receivables Index checks if receivables are growing faster than sales -- a classic revenue recognition red flag. The Asset Quality Index checks if the company is capitalizing more expenses as assets. Total Accruals to Total Assets measures the overall level of accrual accounting.
-</p>
-<p>
-<strong>[VISUAL: Each of the 8 M-Score variables listed with a one-line plain-English description of what it detects]</strong>
-</p>
-<p>
-<strong>Stella:</strong> Has this actually caught real frauds?
-</p>
-<p>
-<strong>Horace:</strong> Yes. Enron's M-Score exceeded the manipulation threshold years before the fraud was publicly exposed. WorldCom showed elevated scores. Many pre-crisis financial companies showed high M-Scores. It is not perfect -- it catches about 76% of manipulators with a 17% false positive rate -- but it is a remarkably effective screening tool.
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M-Score over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]</strong>
-</p>
-<p>
-<strong>Stella:</strong> And the Altman Z-Score?
-</p>
-<p>
-<strong>Horace:</strong> The Z-Score predicts bankruptcy. It combines five financial ratios -- working capital, retained earnings, operating earnings, market capitalization, and sales -- all scaled by total assets.
-</p>
-<p>
-<strong>[VISUAL: Z-Score formula with the three zones marked: Safe Zone (>2.99), Grey Zone (1.81-2.99), Distress Zone (<1.81)]</strong>
-</p>
-<p>
-<strong>Horace:</strong> If the Z-Score is above 2.99, the company is in the safe zone. Between 1.81 and 2.99 is the grey zone -- monitor closely. Below 1.81 is the distress zone -- the company has a high probability of bankruptcy within two years.
-</p>
-<p>
-<strong>Stella:</strong> Can I use these two scores together?
-</p>
-<p>
-<strong>Horace:</strong> Absolutely, and I would recommend it. The M-Score tells you if the company might be manipulating its earnings. The Z-Score tells you if the company might be heading for bankruptcy. A company with both a high M-Score (potential manipulation) and a low Z-Score (financial distress) is a company you should probably avoid entirely.
-</p>
-<p>
-<strong>Stella:</strong> Let us briefly cover GAAP versus IFRS differences. Why does this matter?
-</p>
-<p>
-<strong>Horace:</strong> If you invest internationally -- and most diversified investors should -- you will encounter companies using IFRS instead of US GAAP. The differences can make the same underlying business look meaningfully different on paper.
-</p>
-<p>
-<strong>[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]</strong>
-</p>
-<p>
-<strong>Horace:</strong> Here are the biggest ones. First, inventory: US GAAP allows LIFO, which during inflation produces higher cost of goods sold and lower taxes. IFRS prohibits LIFO. So a US company using LIFO will report lower earnings and lower inventory values than an identical IFRS company.
-</p>
-<p>
-<strong>Stella:</strong> How do I adjust for that?
-</p>
-<p>
-<strong>Horace:</strong> US companies disclose a "LIFO reserve" in their footnotes. Add that to inventory and equity to get a FIFO-equivalent balance sheet.
-</p>
-<p>
-<strong>Horace:</strong> Second, R&D: IFRS allows capitalizing development costs if certain criteria are met. US GAAP requires expensing all R&D immediately. So an IFRS tech company might have higher reported assets and higher earnings than an identical US GAAP company.
-</p>
-<p>
-<strong>Stella:</strong> What about asset impairments?
-</p>
-<p>
-<strong>Horace:</strong> Good one. Under IFRS, impairments on assets other than goodwill can be reversed if the value recovers. Under US GAAP, once you write down an asset, it stays written down. This means IFRS companies can report gains from impairment reversals that would never appear under US GAAP.
-</p>
-<p>
-<strong>[VISUAL: Summary checklist -- "Before Comparing GAAP and IFRS Companies" with adjustment steps listed]</strong>
-</p>
-<p>
-<strong>Stella:</strong> This has been incredibly dense but valuable. Let me try to summarize the key takeaways.
-</p>
-<p>
-<strong>Horace:</strong> Go for it.
-</p>
-<p>
-<strong>Stella:</strong> First, always compare earnings to cash flow -- the accrual gap is the simplest earnings quality test. Second, stock-based compensation is a real cost; do not accept adjusted earnings that exclude it. Third, off-balance-sheet items still exist and can be enormous -- read the footnotes. Fourth, goodwill can overstate a balance sheet -- be skeptical of serial acquirers. Fifth, use the Beneish M-Score and Altman Z-Score as quantitative screening tools. And sixth, adjust for GAAP-versus-IFRS differences when comparing international companies.
-</p>
-<p>
-<strong>Horace:</strong> Excellent. And I would add one overarching principle: the single biggest red flag is when multiple warning signs appear simultaneously. Any one of these factors might have an innocent explanation. But when you see high accruals, a deteriorating M-Score, growing goodwill, aggressive non-GAAP adjustments, and off-balance-sheet items all at the same company -- run.
-</p>
-<p>
-<strong>Stella:</strong> Great advice. Next week we are building income-generating portfolios. I am looking forward to something more actionable after this analytical deep dive.
-</p>
-<p>
-<strong>Horace:</strong> It will be a practical session. We will cover dividends, bond coupons, option premiums, and how to build a portfolio that generates sustainable income. See you then.
-</p>
-<p>
-**[VISUAL: End card with key takeaways:
-</p>
-<li>Cash flow quality trumps reported earnings -- always compare OCF to net income</li>
-<li>Stock-based compensation is a real cost; use GAAP earnings, not adjusted</li>
-<li>Off-balance-sheet items still exist -- read the footnotes</li>
-<li>Beneish M-Score detects manipulation; Altman Z-Score predicts bankruptcy</li>
-<li>GAAP vs. IFRS differences require adjustments for cross-border comparisons</li>
-<li>Multiple simultaneous red flags are the strongest warning signal]**</li>
-<hr>
-<p>
-<em>End of Week 35</em>
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第35週：進階財務報表分析</h1>
@@ -2654,244 +2445,6 @@ Z值是有用的篩選工具，而非萬能的預言。它以1960年代的製造
 </p>
 <p>
 答：最大的危險信號，是多個指標同時指向同一方向。一家Beneish M值偏高、Z值持續下降、現金流落後於申報盈利、商譽持續增長、存在重大表外項目且頻繁作出進取非GAAP調整的公司，正在揮動每一面可能的警示旗幟。單獨來看，每個因素都可能有無辜的解釋。但合在一起，它們描繪出一幅財務報表不可照單全收的圖像。
-</p>
-<hr>
-<h2>YouTube腳本</h2>
-<hr>
-<p>
-<strong>[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎回來。今天我們要超越基本財務報表，進入進階領域——那些將業餘投資者與專業人士區分開來的技巧、陷阱和工具。若你曾好奇巴菲特或Michael Burry等投資者如何發現別人都忽視的問題，答案就在這裡。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我覺得自己從早前的課堂已對損益表和資產負債表有一定掌握。那我還欠缺什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你欠缺的是表面之下那一層。讓我問你一個發人深省的問題：若一家公司申報淨利潤5億美元，這算好嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 嗯，要視乎情況，但5億美元的盈利聽起來相當不錯。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 要是我告訴你，同一家公司的經營現金流只有1億美元呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這差距很大。其餘那4億美元去了哪裡？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是對的問題。申報盈利與現金流之間的差距稱為「應計項目」，它是財務分析中最有力的信號之一。高應計水平往往意味著公司以不反映真實現金產生的方式確認收入或遞延費用。研究顯示，高應計水平的公司表現顯著遜於市場。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "應計項目：4億美元"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以我應該時刻將淨利潤與現金流作比較？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一定要。經營現金流對淨利潤的比率，是最簡單的盈利質素測試。若高於1.0——即現金流超越申報盈利——質素高。若低於0.5，應立即調查。若為負數——公司申報盈利但實際消耗現金——那是尖叫般的危險信號。
-</p>
-<p>
-<strong>[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 （高質素）, 0.8-1.0 （良好）, 0.5-0.8 （須調查）, <0.5 （危險信號）]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談科技投資中最具爭議的話題之一——以股代薪。我經常見到公司在「調整後」盈利中剔除這一項。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是我最不以為然的做法之一。以股代薪，即SBC，是真實的成本。當公司用股票期權或限制性股票單位支付員工薪酬時，是將價值從現有股東轉移至員工。若公司不採用SBC，就需要支付更高的現金薪酬。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但管理層說這是「非現金」費用。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 沒錯，賬戶不會有現金流出。但你的持股比例正在被攤薄。讓我展示一下這個影響有多大。
-</p>
-<p>
-<strong>[VISUAL: Example showing Tech Company XYZ -- GAAP每股盈利為0.50美元 vs. 「調整後」每股盈利為0.70美元，差距40%完全源於剔除SBC]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對某些大型科技公司而言，SBC超過收入的20%。若你以剔除SBC的調整後盈利進行估值，可能會溢付30至40%。請始終以GAAP盈利為基礎。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在SBC方面，有哪些危險信號需要留意？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有。SBC超過收入的15%屬於進取做法。攤薄後股份數目每年增加逾3%，意味著股東正被大幅攤薄。還要留意SBC佔收入的百分比是否隨時間上升——這表明公司在某程度上靠「印股票」來資助其運營。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: cost of goods sold, operating expenses, cash compensation, SBC expense, and profit. The SBC slice grows larger over successive years while the profit slice remains stable, illustrating how SBC consumes an increasing share of revenue.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 表外項目又如何？我以為2008年金融危機後已解決了這個問題。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 部分解決了。經營性租賃現已納入資產負債表，這是一大進步。但仍有幾類重要項目潛伏於資產負債表之外或附註之中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 例如哪些？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 未並表的合營企業，即公司持有另一業務20至49%股權的情況。合營企業的債務不在母公司資產負債表上呈現。可變權益實體——可能未被並表的特殊目的實體。採購承諾。擔保義務。這些可能代表數以十億計的隱藏敞口。
-</p>
-<p>
-<strong>[VISUAL: Iceberg diagram -- visible portion above water shows「表內項目」（debt, leases等）, below water shows「表外項目」（合營企業債務、採購承諾、擔保、退休金赤字、或有負債）]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這些資料在哪裡找？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 附註。10-K年報有關「承諾及或有負債」、「可變權益實體」及「對聯營公司的投資」的附註。美國證監會亦要求在MD&A（管理層討論及分析）的「表外安排」一節作出披露。你必須真正閱讀這些部分——大多數投資者跳過它們，這正是相關資訊得以藏匿的原因。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，我們來談談商譽。我在資產負債表上經常見到這個項目，但老實說，我並不真正理解它。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 商譽是公司收購另一家公司時，超出可識別資產公允價值所支付的溢價。若甲公司以50億美元收購乙公司，而乙公司的可識別淨資產值20億美元，餘下的30億美元就在資產負債表上記為「商譽」。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那30億美元就這樣留在那裡？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 無限期地留在那裡。根據現行準則，商譽不予攤銷——它就留在資產負債表上，直至管理層判定其已「減值」，即被收購業務的價值已低於當初支付的代價。然後才進行撇減。
-</p>
-<p>
-<strong>[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label「為收購支付的溢價——其賬面值是否物有所值，尚未可知」]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 問題在於，對於連環收購方——主要靠收購擴張的公司——商譽可佔總資產的30至60%。這意味著資產負債表的很大一部分，建立在過去收購價格是否合理的假設之上。若這個假設有誤，資產負債表就被高估了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何知道商譽是否過多？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 將商譽與總資產及股東權益作比較。若商譽超過總資產50%或超過股東權益，則需深入研究。查閱被收購業務是否達到原始業績預測。檢視公司是否有商譽減值的歷史。對於頻繁以高溢價收購、但有機增長有限的公司，尤其要保持懷疑。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談退休金義務。我聽說它們的規模可以非常龐大。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 確實。界定福利退休金計劃形成了向退休人員終身支付固定金額的法律義務。這些付款的現值可以極為龐大——大型公司可達數百億美元。更棘手的是，這一義務的規模在很大程度上取決於管理層選擇的假設。
-</p>
-<p>
-<strong>[VISUAL: Pension accounting diagram showing計劃資產 on one side, 預計福利義務 on the other, with the gap labeled「資金狀況」]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 折現率是最具影響力的假設。折現率變動0.5%，可令退休金義務的規模波動7至8%。對於擁有100億美元退休金義務的公司，單是一個假設的改變，就可帶來7至8億美元的差異。而這個假設由管理層設定，為操縱提供了空間。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我應留意什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 將公司的折現率與同業作比較。若明顯偏高，他們可能低估了義務規模。同時比較計劃資產的預期回報與實際歷史回報。若預期回報不切實際地偏高，退休金費用就被低估了。追蹤資金狀況的變化趨勢——退休金赤字不斷擴大，是最終需要現金供款的負債。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 非常好。你提到了兩個評分模型——Beneish M值和Altman Z值。我們來逐一說明。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是財務分析中最有力的兩個量化工具。先從Beneish M值開始，它用於偵測盈利操縱。
-</p>
-<p>
-<strong>[VISUAL: Formula display showing the M值方程式 with all 8 variables]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> M值將八個財務比率合併為一個數字。臨界值為負1.78。若M值高於這個臨界值，公司在統計上具有較高的盈利操縱可能性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 它具體偵測哪些情況？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每個變量捕捉不同類型的操縱信號。應收賬款天數指數檢視應收賬款增速是否快於銷售——這是收入確認問題的典型危險信號。資產質量指數檢視公司是否將更多費用資本化為資產。總應計佔總資產比率衡量應計會計的整體水平。
-</p>
-<p>
-<strong>[VISUAL: Each of the 8 M值變量 listed with a one-line plain-English description of what it detects]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這個方法有沒有真實偵測到欺詐案例？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有。安然公司的M值在欺詐公開曝光數年前，已超越操縱臨界值。世通公司的M值偏高同樣如此。許多危機前的金融公司都顯示出較高的M值。它並非完美——能偵測約76%的操縱者，誤報率約17%——但它是非常有效的篩選工具。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M-Score over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那Altman Z值呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> Z值用於預測破產。它結合五個財務比率——營運資本、留存盈利、經營盈利、市值及銷售額——全部以總資產作除數。
-</p>
-<p>
-<strong>[VISUAL: Z值公式 with the three zones marked: 安全區（>2.99）、灰色區（1.81-2.99）、困境區（<1.81）]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 若Z值高於2.99，公司處於安全區。介乎1.81至2.99之間是灰色區——需密切監察。低於1.81是困境區——公司在未來兩年內破產的可能性較高。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我可以同時使用這兩個分數嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 絕對可以，而且我建議你這樣做。M值告訴你公司是否可能操縱其盈利。Z值告訴你公司是否正走向破產。一家M值偏高（潛在操縱）且Z值偏低（財務困境）的公司，是你很可能應完全迴避的公司。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們簡單談談GAAP與IFRS的差異。這為何重要？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 若你進行國際投資——大多數多元化投資者都應如此——你將遇到採用IFRS而非美國GAAP的公司。兩者之間的差異，可令同一盤生意在紙面上看起來截然不同。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 以下是最主要的差異。首先，存貨計價：美國GAAP允許後進先出法，在通脹期間產生較高的銷售成本和較低的稅負。IFRS禁止後進先出法。因此，採用後進先出法的美國公司，其盈利和存貨價值將低於同等的IFRS公司。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如何調整這一差異？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美國公司在附註中披露「後進先出法儲備」。將其加入存貨及股東權益，即可得出相當於先進先出法的資產負債表。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 其次，研發費用：IFRS允許在符合特定標準的情況下將開發成本資本化。美國GAAP要求所有研發費用即時費用化。因此，一家IFRS科技公司可能比同等的美國GAAP公司呈現出更高的資產及更高的盈利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 資產減值呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 問得好。在IFRS下，商譽以外的資產減值可在價值回升時轉回。在美國GAAP下，資產一旦被撇減，便永久保持撇減後的水平。這意味著IFRS公司的盈利可包括轉回過往撇減所帶來的收益，而這類收益在美國GAAP下不會出現。
-</p>
-<p>
-<strong>[VISUAL: Summary checklist -- 「比較GAAP與IFRS公司前的調整步驟」 with adjustment steps listed]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這一課內容非常密集，但極具價值。讓我嘗試總結關鍵要點。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 請說。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第一，始終將盈利與現金流作比較——應計差距是最簡單的盈利質素測試。第二，以股代薪是真實成本；不要接受剔除它的調整後盈利。第三，表外項目仍然存在且可能規模龐大——閱讀附註。第四，商譽可能高估資產負債表——對連環收購方保持懷疑。第五，使用Beneish M值和Altman Z值作為量化篩選工具。第六，比較國際公司時，要調整GAAP與IFRS的差異。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 非常好。我還要補充一個總括性原則：最大的危險信號，是多個警示信號同時出現。一家Beneish M值偏高、Z值持續下降、現金流落後於申報盈利、商譽不斷增長、存在重大表外項目，且大量使用進取的非GAAP調整的公司——請敬而遠之。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 忠告良言。下週我們將建構創造收益的投資組合。在這次深度分析之後，我很期待一些更實際可操作的內容。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那將是一個實務課堂。我們將探討股息、債券票息、期權金，以及如何建立一個可持續創造收益的投資組合。到時見。
-</p>
-<p>
-**[VISUAL: End card with key takeaways:
-</p>
-<li>現金流質素勝過申報盈利——始終比較經營現金流與淨利潤</li>
-<li>以股代薪是真實成本；採用GAAP盈利，而非調整後盈利</li>
-<li>表外項目依然存在——閱讀附註</li>
-<li>Beneish M值偵測操縱；Altman Z值預測破產</li>
-<li>GAAP與IFRS的差異需要調整才能作跨境比較</li>
-<li>多個危險信號同時出現，是最強烈的警示信號]**</li>
-<hr>
-<p>
-<em>第35週完</em>
 </p>
             </div>
             <div id="content-tw" class="lang-content">
@@ -3771,244 +3324,6 @@ A：Z分數在信用分析中特別有價值。在購買公司債券前，計算
 <p>
 A：最大的警訊是多項指標同時指向同一方向。若一家公司同時呈現M分數偏高（潛在操縱）、Z分數下滑、現金流落後於所報告盈餘、商譽持續增長、大量表外項目，以及激進的非GAAP調整——那麼它正在同時揮舞所有可能的警示旗幟。這些因素各自都可能有無辜的解釋，但加在一起，便描繪出一幅財務報表難以當作真實面貌接受的企業圖景。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<hr>
-<p>
-<strong>[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 歡迎回來。今天我們要超越基礎財務報表的層次，進入進階領域——那些將業餘投資人與專業投資人區分開來的技巧、陷阱與工具。如果你曾好奇，為什麼像巴菲特或邁克·伯瑞這樣的投資人，能看出別人都忽略的問題，答案就在這裡。
-</p>
-<p>
-<strong>Stella：</strong> 我覺得我對損益表和資產負債表已經有一定的掌握了。那我還欠缺什麼？
-</p>
-<p>
-<strong>Horace：</strong> 你欠缺的是表面之下的那一層。讓我問你一個很有意思的問題：如果一家公司申報了5億美元的淨利，這算好嗎？
-</p>
-<p>
-<strong>Stella：</strong> 嗯，要看情境，但5億美元的盈餘聽起來很不錯。
-</p>
-<p>
-<strong>Horace：</strong> 如果我說，同一家公司的營業現金流只有1億美元呢？
-</p>
-<p>
-<strong>Stella：</strong> 這個差距太大了。另外4億美元去哪了？
-</p>
-<p>
-<strong>Horace：</strong> 這正是該問的問題。所報告盈餘與現金流之間的差距，稱為「應計項目」，它是財務分析中最有力的訊號之一。高應計項目往往意味著公司以不反映真實現金產生能力的方式認列收入或遞延費用。而研究顯示，高應計項目的公司，市場績效明顯落後。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "應計項目：4億美元"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 所以我應該永遠都要比較淨利和現金流？
-</p>
-<p>
-<strong>Horace：</strong> 永遠都要。營業現金流與淨利的比率，是最簡單的盈餘品質測試。若比率高於1.0——也就是現金流超過所報告盈餘——品質就高。若低於0.5，立即深入調查。若是負數——公司申報獲利卻實際燒錢——那就是最刺眼的警訊。
-</p>
-<p>
-<strong>[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 （高品質）、0.8-1.0 （良好）、0.5-0.8 （待調查）、<0.5 （警訊）]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 我們來聊聊科技投資中最具爭議的話題之一——股票薪酬。我常看到公司在「調整後」盈餘中把它排除掉。
-</p>
-<p>
-<strong>Horace：</strong> 這是我的一大心結。股票薪酬，也就是SBC，是真實的成本。當一家公司以股票選擇權或限制性股票單位支付員工薪酬，就是將價值從現有股東轉移給員工。若不使用股票薪酬，就必須支付更高的現金薪資。
-</p>
-<p>
-<strong>Stella：</strong> 但管理層說這是「非現金」費用。
-</p>
-<p>
-<strong>Horace：</strong> 沒錯，帳戶裡沒有現金流出。但你的持股比例正在被稀釋。讓我來說明影響有多大。
-</p>
-<p>
-<strong>[VISUAL: Example showing Tech Company XYZ -- GAAP每股盈餘 0.50美元 vs.「調整後」每股盈餘 0.70美元，兩者相差40%，差異完全來自排除股票薪酬]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 部分大型科技公司的股票薪酬超過營收的20%。若你以排除股票薪酬的調整後盈餘來評估股票，可能高估30至40%。務必以GAAP盈餘作為起點。
-</p>
-<p>
-<strong>Stella：</strong> 在股票薪酬方面，有哪些警訊需要注意？
-</p>
-<p>
-<strong>Horace：</strong> 有幾點。股票薪酬超過營收的15%屬於激進。稀釋後股數每年增加超過3%，表示股東的持股正被顯著稀釋。還要留意股票薪酬占營收比例隨時間上升的公司——這表示公司在某種程度上靠「印股票」來維持營運。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: 銷售成本、營業費用、現金薪酬、股票薪酬費用, and 盈餘. The 股票薪酬 slice grows larger over successive years while the 盈餘 slice remains stable, illustrating how SBC consumes an increasing share of revenue.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 那表外項目呢？我以為2008年金融危機後這個問題已經解決了。
-</p>
-<p>
-<strong>Horace：</strong> 部分解決了。營業租賃現在已納入資產負債表，這是很大的進步。但仍有幾類重要項目遊離於資產負債表之外或藏在附註裡。
-</p>
-<p>
-<strong>Stella：</strong> 比如說？
-</p>
-<p>
-<strong>Horace：</strong> 未合併合資企業——公司持有另一業務20至49%的股份，合資企業的債務不呈現在母公司的資產負債表上。可變利益實體——可能不納入合併的特殊目的個體。採購承諾。擔保義務。這些可能代表數十億美元的隱性風險。
-</p>
-<p>
-<strong>[VISUAL: Iceberg diagram -- visible portion above water shows「資產負債表內項目」（債務、租賃等），below water shows「表外項目」（合資企業債務、採購承諾、擔保、退休金缺口、或有負債）]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 哪裡可以找到這些資訊？
-</p>
-<p>
-<strong>Horace：</strong> 附註。10-K年度申報文件中有「承諾與或有事項」、「可變利益實體」及「被投資公司投資」等附註章節。美國證管會也要求在管理層討論與分析中，設有專門的「表外安排」章節進行揭露。你必須真正去閱讀這些章節——多數投資人略過不看，這也正是這些資訊持續被掩蓋的原因。
-</p>
-<p>
-<strong>Stella：</strong> 好，我們來談談商譽。我在資產負債表上常常看到它，說實話我不太懂它的意涵。
-</p>
-<p>
-<strong>Horace：</strong> 商譽是企業在收購另一家公司時，超出可辨認資產公允價值所支付的溢價。若甲公司以50億美元收購乙公司，而乙公司可辨認資產減負債後的淨值為20億美元，剩餘的30億美元就記錄在資產負債表上，稱為「商譽」。
-</p>
-<p>
-<strong>Stella：</strong> 那30億美元就這樣放在那裡？
-</p>
-<p>
-<strong>Horace：</strong> 無限期放著。依現行規定，商譽不進行攤銷——它就這樣躺在資產負債表上，直到管理層認定其已「減損」，也就是被收購的業務不再值當初支付的金額，才認列沖銷。
-</p>
-<p>
-<strong>[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label「為收購支付的溢價——帳面價值不一定反映真實價值」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 問題在這裡。對連環收購者——主要靠收購成長的公司——商譽可能占總資產的30至60%。這表示公司資產負債表的很大一部分，是建立在「過去收購值回票價」的假設之上。若這個假設錯誤，資產負債表就是高估的。
-</p>
-<p>
-<strong>Stella：</strong> 我怎麼知道商譽是否過高？
-</p>
-<p>
-<strong>Horace：</strong> 比較商譽占總資產及股東權益的比例。若商譽超過總資產的50%或超過股東權益，就要深入調查。看看被收購的業務是否達到原始的績效預測。查看公司是否有商譽減損的紀錄。對於頻繁以高溢價進行收購、但自身有機成長有限的公司，要特別保持懷疑態度。
-</p>
-<p>
-<strong>Stella：</strong> 來談談退休金義務。我聽說這方面的規模可能非常龐大。
-</p>
-<p>
-<strong>Horace：</strong> 確實如此。確定給付退休金計畫產生的法律義務，是終身按固定金額支付退休人員給付。這些給付的現值可能極為驚人——對於大型企業而言可能高達數百億美元。而更棘手的是：這項義務的規模，在很大程度上取決於管理層所選擇的假設。
-</p>
-<p>
-<strong>[VISUAL: Pension accounting diagram showing 計畫資產 on one side, 預計給付義務 on the other, with the gap labeled「提存狀況」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 折現率是影響最大的假設。折現率變動0.5%，可能讓退休金義務波動7至8%。對於預計給付義務達100億美元的公司，這代表僅因單一假設改變，就出現7至8億美元的差距。而管理層正是負責設定這個假設的人，由此產生了操縱空間。
-</p>
-<p>
-<strong>Stella：</strong> 我應該留意哪些跡象？
-</p>
-<p>
-<strong>Horace：</strong> 將公司的折現率與同業比較。若顯著偏高，他們可能低估了義務。同時比較計畫資產的預期報酬率與歷史實際報酬。若預期報酬率脫離現實地偏高，退休金費用就被低估了。並持續追蹤提存狀況的變化——持續擴大的退休金缺口，是遲早需要現金填補的負債。
-</p>
-<p>
-<strong>Stella：</strong> 太棒了。現在，你提到了兩個評分模型——貝尼什M分數和奧特曼Z分數。我們來逐一說明。
-</p>
-<p>
-<strong>Horace：</strong> 這兩個是財務分析中最強大的量化工具。我們先從用來偵測盈餘操縱的貝尼什M分數開始。
-</p>
-<p>
-<strong>[VISUAL: Formula display showing the M分數 equation with all 8 variables]</strong>
-</p>
-<p>
-<strong>Horace：</strong> M分數將八個財務比率整合為單一數值，臨界值為負1.78。若M分數高於這個臨界值，表示該公司在統計上具有較高的盈餘操縱可能性。
-</p>
-<p>
-<strong>Stella：</strong> 它具體在看哪些事情？
-</p>
-<p>
-<strong>Horace：</strong> 每個變數捕捉不同類型的操縱訊號。應收帳款天數指數，檢測應收帳款成長速度是否快於銷售額——這是收入認列問題的經典警訊。資產品質指數，檢測公司是否將越來越多的費用資本化為資產。總應計項目占總資產比，衡量整體應計會計手法的水準。
-</p>
-<p>
-<strong>[VISUAL: Each of the 8 M分數 variables listed with a one-line plain-English description of what it detects]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 這個模型真的抓到過真實的詐欺案例嗎？
-</p>
-<p>
-<strong>Horace：</strong> 有。安隆的M分數在詐欺公開曝光前數年便已超越操縱臨界值。世界通訊在詐欺揭露前也呈現偏高的分數。許多金融海嘯前的金融公司同樣顯示偏高的M分數。它並非完美——大約能捕捉76%的操縱者，誤判率約為17%——但它是一個效力驚人的篩選工具。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M分數 over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 奧特曼Z分數呢？
-</p>
-<p>
-<strong>Horace：</strong> Z分數用來預測破產。它整合了五個財務比率——營運資本、保留盈餘、營業盈餘、市值及銷售額——全部以總資產加以標準化。
-</p>
-<p>
-<strong>[VISUAL: Z分數 formula with the three zones marked: 安全區（>2.99）、灰色區（1.81-2.99）、危機區（<1.81）]</strong>
-</p>
-<p>
-<strong>Horace：</strong> Z分數高於2.99屬於安全區；介於1.81至2.99之間是灰色區，需密切關注；低於1.81是危機區，表示公司在未來兩年內破產的可能性很高。
-</p>
-<p>
-<strong>Stella：</strong> 這兩個分數可以一起使用嗎？
-</p>
-<p>
-<strong>Horace：</strong> 當然可以，而且我強烈建議這樣做。M分數告訴你公司是否可能在操縱盈餘，Z分數告訴你公司是否正走向破產。若一家公司同時呈現偏高的M分數（潛在操縱）和偏低的Z分數（財務危機），這家公司你很可能要完全迴避。
-</p>
-<p>
-<strong>Stella：</strong> 我們簡單談一下GAAP與IFRS的差異。為什麼這個對投資人很重要？
-</p>
-<p>
-<strong>Horace：</strong> 如果你進行跨國投資——多數分散投資的人都應該這樣做——你就會遇到採用IFRS而非美國GAAP的公司。這些差異可能讓相同的基本業務在帳面上看起來截然不同。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 以下是幾個最重要的差異。第一，存貨：美國GAAP允許後進先出法，在通膨期間，採用此法的公司銷售成本較高，稅負較低。IFRS禁止後進先出法。因此，同樣的業務，採用後進先出法的美國公司，盈餘和存貨帳面價值都會低於採用IFRS的公司。
-</p>
-<p>
-<strong>Stella：</strong> 我要怎麼調整這個差異？
-</p>
-<p>
-<strong>Horace：</strong> 美國公司會在附註中揭露「後進先出法準備」。將這個數字加回存貨和股東權益，就能得到先進先出法下的可比較資產負債表。
-</p>
-<p>
-<strong>Horace：</strong> 第二，研發成本：IFRS允許在符合特定條件的情況下，對開發成本進行資本化。美國GAAP要求將所有研發費用立即費用化。因此，相同的IFRS科技公司，其資產和盈餘都可能高於採用美國GAAP的同業。
-</p>
-<p>
-<strong>Stella：</strong> 資產減損呢？
-</p>
-<p>
-<strong>Horace：</strong> 問得很好。在IFRS下，商譽以外資產的減損可以在價值回升時迴轉。在美國GAAP下，資產一旦沖銷，就無法回頭。這意味著IFRS公司的盈餘，可能包含迴轉先前減損所產生的利益，而這類利益在美國GAAP下根本不會出現。
-</p>
-<p>
-<strong>[VISUAL: Summary checklist -- 「跨GAAP與IFRS公司比較前」with adjustment steps listed]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 今天的內容非常豐富，但也非常有價值。讓我試著總結一下幾個核心重點。
-</p>
-<p>
-<strong>Horace：</strong> 請說。
-</p>
-<p>
-<strong>Stella：</strong> 第一，永遠要比較盈餘與現金流——應計項目差距是最簡單的盈餘品質測試。第二，股票薪酬是真實的成本；不要接受排除它的調整後盈餘。第三，表外項目仍然存在且規模可能龐大——務必閱讀附註。第四，商譽可能讓資產負債表失真——對連環收購者要保持懷疑。第五，運用貝尼什M分數和奧特曼Z分數作為量化篩選工具。第六，比較跨國公司時，須針對GAAP與IFRS的差異進行調整。
-</p>
-<p>
-<strong>Horace：</strong> 非常好。我還想補充一個最核心的原則：當多個警訊同時出現，才是最大的警訊。一家公司若同時呈現高應計項目、M分數惡化、商譽持續增長、激進的非GAAP調整，以及大量表外項目——那就快跑。單獨來看，每個因素都可能有無辜的解釋。但加在一起，就描繪出一家財務報表難以依其表面數字信任的企業圖景。
-</p>
-<p>
-<strong>Stella：</strong> 說得太好了。下週我們要建構創造收入的投資組合。在這次深度分析之後，終於要進入更有行動感的內容了，很期待。
-</p>
-<p>
-<strong>Horace：</strong> 那會是很務實的一堂課。我們會介紹股利、債券票面利率、選擇權權利金，以及如何建構一個能持續產生收入的投資組合。下週見。
-</p>
-<p>
-**[VISUAL: End card with key takeaways:
-</p>
-<li>現金流品質勝於所報告盈餘——永遠要比較營業現金流與淨利</li>
-<li>股票薪酬是真實成本；使用GAAP盈餘，而非調整後數字</li>
-<li>表外項目仍然存在——務必閱讀附註</li>
-<li>貝尼什M分數偵測操縱；奧特曼Z分數預測破產</li>
-<li>GAAP與IFRS的差異，跨境比較時需進行調整</li>
-<li>多項警訊同時出現，才是最強烈的警示訊號]**</li>
-<hr>
-<p>
-<em>第35週結束</em>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第35周：高级财务报表分析</h1>
@@ -4886,244 +4201,6 @@ Z值是有用的筛选工具，而非预言机。它是基于20世纪60年代的
 </p>
 <p>
 答：最大的危险信号是多个指标同时指向同一方向。一家M值高（潜在操纵）、Z值持续下降（财务困境）、现金流落后于报告盈利、商誉持续增长、存在重大表外项目、且进行激进的非GAAP调整的公司，正在亮起所有可能的警告信号。单独来看，每个因素都可能有无害的解释。合在一起，它们描绘出一幅财务报表的表面数字难以轻信的图景。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<hr>
-<p>
-<strong>[VISUAL: Title card -- "Week 35: Advanced Financial Statement Analysis" with magnifying glass over financial statements]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 欢迎回来。今天我们要从基础财务报表分析进入高级领域——那些将业余投资者与专业人士区分开来的技巧、陷阱和工具。如果你曾好奇巴菲特或迈克尔·伯里这样的投资者是如何发现其他人都忽视的问题的，答案就在这里。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我觉得从之前的课程来看，我对利润表和资产负债表还算有些掌握。我还缺少什么？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你缺少的是表面之下的那一层。让我问你一个发人深省的问题：如果一家公司报告了5亿元的净利润，这是好事吗？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 嗯，这取决于具体情况，但5亿元的利润听起来挺不错的。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果我告诉你，这家公司的经营现金流只有1亿元呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 差距太大了。另外那4亿元去哪儿了？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这正是关键所在。报告盈利与现金流之间的差距被称为"应计项目"，它是财务分析中最有力的信号之一。高应计额往往意味着公司以不能反映真实现金流的方式确认收入或递延费用。研究表明，高应计额的公司相对于市场有明显的跑输表现。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of reported earnings ($500M) vs. operating cash flow ($100M) with a large red "gap" labeled "Accruals: $400M"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以我应该始终将净利润与现金流进行比较？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 始终如此。经营现金流与净利润的比率是最简单的盈利质量测试。如果大于1.0——也就是现金流超过报告盈利——那就是高质量。如果低于0.5，立刻进行调查。如果是负数——公司报告盈利但实际在消耗现金——那就是呼之欲出的危险信号。
-</p>
-<p>
-<strong>[VISUAL: Quality gauge showing OCF/Net Income ratio with zones marked: >1.0 (高质量), 0.8-1.0 (良好), 0.5-0.8 (需调查), <0.5 (危险信号)]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们来聊聊科技投资中最具争议的话题之一——股权激励。我经常看到公司在"调整后"盈利中将其剔除。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这是我最头疼的问题之一。股权激励，也就是SBC，是真实的成本。当公司用股票期权或限制性股票单元支付员工报酬时，它是在将价值从现有股东转移给员工。如果公司不使用股权激励，就需要支付更高的现金薪资。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但管理层说这是"非现金"费用。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 没错，没有现金离开银行账户。但你的持股比例正在被稀释。让我展示一下这种影响可以有多大。
-</p>
-<p>
-<strong>[VISUAL: Example showing Tech Company XYZ -- GAAP EPS of $0.50 vs. "Adjusted" EPS of $0.70, a 40% difference entirely due to excluding SBC]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 对于某些大型科技公司，股权激励超过收入的20%。如果你用剔除了股权激励的调整后盈利来估值，可能会多付出30%到40%。始终以GAAP盈利为起点。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 关于股权激励，有哪些危险信号需要关注？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有的。股权激励超过收入15%属于激进。稀释后股份数量每年增加超过3%意味着股东被显著稀释。还要关注股权激励占收入比例随时间上升的公司——这表明公司在一定程度上通过"印股票"来资助运营。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Animated pie chart showing a company's revenue being divided into portions: cost of goods sold, operating expenses, cash compensation, SBC expense, and profit. The SBC slice grows larger over successive years while the profit slice remains stable, illustrating how SBC consumes an increasing share of revenue.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 表外项目呢？我以为2008年金融危机后已经解决了这个问题。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 部分解决了。经营性租赁现在已纳入资产负债表，这是一大进步。但仍有几类重要项目游离于表外或藏在附注中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 比如什么？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 未合并合营企业，即公司持有另一业务20%到49%股权的情况。合营企业的债务不会出现在母公司的资产负债表上。可变利益实体——可能不被合并的特殊目的实体。采购承诺。担保义务。这些可能代表数十亿元的隐性风险敞口。
-</p>
-<p>
-<strong>[VISUAL: Iceberg diagram -- visible portion above water shows "表内项目"（债务、租赁等）, below water shows "表外项目"（合营企业债务、采购承诺、担保、养老金缺口、或有负债）]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我在哪里能找到这些信息？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 附注。10-K年度报告的附注中有"承诺与或有事项"、"可变利益实体"和"对联营公司的投资"等章节。美国证监会还要求在管理层讨论与分析部分设立"表外安排"专项章节。你必须真正阅读这些部分——大多数投资者会跳过它们，这也正是为什么这些信息能够隐藏其中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好的，我们来聊聊商誉。我经常在资产负债表上看到它，但老实说我不太明白。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 商誉是公司收购另一家公司时，支付价格超过可辨认资产公允价值的溢价部分。如果A公司以50亿元收购B公司，而B公司的可辨认资产减去负债的净值为20亿元，那剩余的30亿元就作为"商誉"记录在资产负债表上。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这30亿元就这样一直放在那里？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 无限期地放着。根据现行规则，商誉不进行摊销——它就停在资产负债表上，直到管理层认定它"减值"了，也就是被收购业务的价值不再值当初支付的价格。然后他们才进行减记。
-</p>
-<p>
-<strong>[VISUAL: Balance sheet graphic showing goodwill as a large block, with a label "为收购支付的溢价——账面价值是否实至名归尚未可知"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 问题在这里。对于连续并购型公司——主要通过并购来增长的公司——商誉可能占总资产的30%到60%。这意味着公司资产负债表的很大一部分，建立在以往收购是否物有所值的假设之上。如果这个假设是错误的，资产负债表就被高估了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何判断商誉是否过高？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 将商誉与总资产和股东权益进行比较。如果商誉超过总资产50%或超过权益总额，就需要深入调查。查看被收购业务是否达到了原始业绩预测。检查公司是否有商誉减值的历史记录。对于频繁以高溢价进行并购但有机增长有限的公司，要格外谨慎。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们来聊聊养老金义务。我听说它们可能规模非常大。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 确实可以。固定收益养老金为退休员工创造了终身支付固定金额的法定义务。这些付款的现值可能是天文数字——大型公司可能高达数百亿元。而且有一个棘手之处：这一义务的规模很大程度上取决于管理层所选择的假设。
-</p>
-<p>
-<strong>[VISUAL: Pension accounting diagram showing 计划资产 on one side, 预计福利义务 on the other, with the gap labeled "资金充足状况"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 折现率是影响最大的假设。折现率变动0.5%，就可能使养老金义务摆动7%到8%。对于预计福利义务为100亿元的公司，这意味着仅一个假设的变化就带来7至8亿元的影响。管理层设定这一假设，由此产生了操纵空间。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我应该关注什么？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 将公司的折现率与同行进行比较。如果明显偏高，他们可能在低估义务规模。同样比较计划资产的预期收益率与实际历史收益率。如果预期收益率高得不切实际，养老金费用就被低估了。还要追踪资金充足状况随时间的变化——不断扩大的养老金缺口是迟早需要现金填补的负债。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 太好了。现在你提到了两个评分模型——贝尼什M值和阿尔特曼Z值。我们来逐一介绍一下。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这是财务分析中最强大的两个量化工具。我们从检测盈利操纵的贝尼什M值开始。
-</p>
-<p>
-<strong>[VISUAL: Formula display showing the M-Score equation with all 8 variables]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> M值将八个财务比率合并为一个数字。临界值是负1.78。如果M值高于这个阈值，该公司在统计上存在更高的盈利操纵概率。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 它具体检测哪些内容？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每个变量捕捉不同类型的操纵信号。应收账款天数指数检测应收账款是否增长快于销售额——这是经典的收入确认危险信号。资产质量指数检测公司是否将更多费用资本化为资产。总应计额占总资产比率则衡量应计会计的整体水平。
-</p>
-<p>
-<strong>[VISUAL: Each of the 8 M-Score variables listed with a one-line plain-English description of what it detects]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这个模型真的发现过真实的欺诈案例吗？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是的。安然公司的M值在欺诈被公开曝光数年前就超过了操纵临界值。世通公司显示出较高的M值。许多危机前的金融公司也显示出较高的M值。它并不完美——能识别约76%的操纵者，误报率约为17%——但作为筛选工具，它的效果令人印象深刻。
-</p>
-<p>
-<strong>[ANIMATION: Reference animation/week35_earnings_quality.py -- Timeline animation showing a fictional company's M-Score over 5 years, starting in the safe zone (below -1.78), gradually rising as various manipulation indicators worsen, crossing the threshold, and eventually resulting in a restatement/fraud revelation. Each variable's contribution is shown as a colored segment of a stacked bar.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 阿尔特曼Z值呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> Z值用于预测破产。它将五个财务比率——营运资金、留存收益、经营盈利、市值和销售额——全部以总资产为基础进行标准化。
-</p>
-<p>
-<strong>[VISUAL: Z-Score formula with the three zones marked: 安全区（>2.99）, 灰色区（1.81-2.99）, 困境区（<1.81）]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果Z值高于2.99，公司处于安全区。1.81到2.99之间是灰色区——需要密切监控。低于1.81是困境区——公司在未来两年内破产的概率很高。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我可以同时使用这两个评分吗？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 当然可以，而且我建议这样做。M值告诉你公司是否可能在操纵盈利。Z值告诉你公司是否可能走向破产。一家M值高（潜在操纵）且Z值低（财务困境）的公司，是你很可能应该完全回避的公司。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们简单介绍一下GAAP与IFRS的差异。为什么这很重要？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果你进行国际投资——大多数分散投资者应该这样做——你会遇到使用IFRS而非美国GAAP的公司。这些差异可能让同一家基础业务在账面上呈现出显著不同的面貌。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side table showing key GAAP vs. IFRS differences]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 以下是最重要的几点。第一，存货：美国GAAP允许后进先出法，在通胀期间产生更高的销售成本和更低的税负。IFRS禁止后进先出法。因此，使用后进先出法的美国公司与同等条件的IFRS公司相比，报告盈利更低，存货价值也更低。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何进行调整？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美国公司会在附注中披露"后进先出储备"。将其加入存货和权益，即可得到先进先出法口径的资产负债表。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第二，研发：IFRS允许在满足特定条件时对开发成本进行资本化。美国GAAP要求所有研发立即费用化。因此，同等条件下，IFRS科技公司的报告资产可能更高，费用更低。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 资产减值呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这个问题问得好。在IFRS下，商誉以外资产的减值损失可以在价值回升时转回。在美国GAAP下，资产一旦减记，就不可逆转。这意味着IFRS公司的盈利中可以包含转回以前减值损失的收益，而这种情况在美国GAAP下不会出现。
-</p>
-<p>
-<strong>[VISUAL: Summary checklist -- "比较GAAP和IFRS公司前的准备事项" with adjustment steps listed]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 今天的内容非常密集，但很有价值。让我来总结一下关键要点。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 请说。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第一，始终将盈利与现金流进行比较——应计差距是最简单的盈利质量测试。第二，股权激励是真实的成本；不要接受剔除了它的调整后盈利。第三，表外项目依然存在且可能规模巨大——阅读附注。第四，商誉可能高估资产负债表——对连续并购型公司保持警惕。第五，使用贝尼什M值和阿尔特曼Z值作为量化筛选工具。第六，比较国际公司时，需要针对GAAP与IFRS的差异进行调整。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 非常好。我还想补充一个最重要的原则：最大的危险信号是多个预警信号同时出现。每一个因素单独来看都可能有无害的解释。但当你在同一家公司看到高应计额、M值恶化、商誉持续增长、激进的非GAAP调整以及重大表外项目时——撤退吧。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 非常好的建议。下周我们将构建创收型投资组合。经过这次深度的分析探讨，我很期待一些更具实操性的内容。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下周会是一次实战课程。我们将涵盖股息、债券票息、期权费，以及如何构建能产生可持续收入的投资组合。到时见。
-</p>
-<p>
-**[VISUAL: End card with key takeaways:
-</p>
-<li>现金流质量优先于报告盈利——始终比较经营现金流与净利润</li>
-<li>股权激励是真实的成本；使用GAAP盈利，而非调整后盈利</li>
-<li>表外项目依然存在——阅读附注</li>
-<li>贝尼什M值检测操纵；阿尔特曼Z值预测破产</li>
-<li>GAAP与IFRS差异需要调整才能进行跨境比较</li>
-<li>多个危险信号同时出现是最强烈的预警信号]**</li>
-<hr>
-<p>
-<em>第35周结束</em>
 </p>
             </div>
         </div>

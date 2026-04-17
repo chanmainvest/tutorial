@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1430,216 +1459,6 @@ A7: Trend following is highly complementary to both. Factor investing tends to h
 <p>
 A8: This is a legitimate concern but less pressing than it appears. The global futures market is enormous -- daily turnover in major futures contracts exceeds hundreds of billions of dollars. The entire CTA industry manages approximately $400 billion, which is small relative to the markets it trades. However, crowding in specific markets or specific trend signals can cause problems. If every CTA uses the same 200-day moving average on crude oil, their simultaneous entry and exit creates self-fulfilling and then self-defeating dynamics. Professional CTAs mitigate this by using diverse signal sets, staggering entry/exit points, and trading less liquid markets that smaller competitors cannot access.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[VISUAL: Channel intro animation with trend charts across multiple markets -- stocks, bonds, commodities, currencies]
-</p>
-<p>
-<strong>Horace:</strong> Welcome to Week 51. Today we are covering one of the most important topics in the entire course: managed futures and trend following. This strategy has been responsible for some of the most consistent portfolio protection during market crises, and it is now accessible to retail investors through ETFs.
-</p>
-<p>
-<strong>Stella:</strong> I have been looking forward to this one. Managed futures always seemed mysterious to me -- like a black box that hedge funds use. Can we demystify it?
-</p>
-<p>
-[VISUAL: Title card "Managed Futures: Demystified"]
-</p>
-<p>
-<strong>Horace:</strong> Absolutely. And the surprise is how simple the core concept is. At its heart, trend following -- which accounts for about 70 percent of the managed futures industry -- does one thing: it buys assets that are going up and sells assets that are going down.
-</p>
-<p>
-<strong>Stella:</strong> That is it? That sounds almost too simple.
-</p>
-<p>
-<strong>Horace:</strong> The elegance IS the simplicity. A basic trend following system might use a 200-day moving average. When the price is above the 200-day average, you go long. When it is below, you go short. Apply this across 50 to 100 different futures markets -- stocks, bonds, commodities, currencies -- size each position by inverse volatility so that each market contributes equal risk, and you have a professional-grade trend following strategy.
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py -- Animated price chart showing a trend developing over time. A moving average line follows the price. Green arrows appear when buy signals trigger (price crosses above MA), red arrows when sell/short signals trigger (price crosses below MA). Profit and loss accumulates on a running total below the chart.]
-</p>
-<p>
-<strong>Stella:</strong> If it is that simple, why does not everyone do it?
-</p>
-<p>
-<strong>Horace:</strong> Two reasons. First, it is operationally complex even though the concept is simple. You need to trade futures across dozens of markets, manage leverage and margin, and operate around the clock across global time zones. Second -- and this is the bigger barrier -- it is psychologically brutal. Buying something that has already gone up feels like chasing. Holding through a 15 percent drawdown while the S&P is ripping higher requires iron discipline. Most people cannot do it.
-</p>
-<p>
-[VISUAL: Title card "Time Series Momentum: The Academic Evidence"]
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about the academic foundation. Is there serious research behind this?
-</p>
-<p>
-<strong>Horace:</strong> Extensive research. The landmark paper was by Moskowitz, Ooi, and Pedersen at AQR Capital Management in 2012. They studied 58 different futures markets across equities, bonds, currencies, and commodities, going back decades. They found that time series momentum -- an asset's own past returns predicting its future returns -- was positive and statistically significant in every single asset class.
-</p>
-<p>
-<strong>Stella:</strong> Every asset class?
-</p>
-<p>
-<strong>Horace:</strong> Every one. Equities, bonds, currencies, commodities. The effect was robust across multiple lookback periods from one month to twelve months. It persisted after transaction costs. And it was NOT explained by traditional risk factors. This is not some fragile anomaly -- it is one of the most robust patterns in financial markets.
-</p>
-<p>
-[VISUAL: Table showing TSMOM returns across asset classes with Sharpe ratios]
-</p>
-<p>
-<strong>Stella:</strong> Why do trends exist? It seems like markets should be efficient enough to eliminate predictable patterns.
-</p>
-<p>
-<strong>Horace:</strong> Markets are adaptively efficient, not perfectly efficient. Several forces create trends. First, behavioral biases: investors anchor to old prices and underreact to new information, so prices adjust to new realities slowly rather than instantly. Second, institutional factors: central bank interest rate cycles create multi-year trends in bonds and currencies. Stop-losses and margin calls force selling during declines, extending downward trends. Third, real economic forces: commodity supply-demand imbalances take years to resolve, business cycles create multi-quarter earnings trends, and geopolitical shifts create currency movements that play out over months or years.
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py -- Animated diagram showing the behavioral cycle: new information arrives -> slow initial reaction (anchoring) -> gradual price adjustment -> herding amplifies the move -> overshoot -> eventual mean reversion. The animation highlights how trend following captures the middle portion of this cycle.]
-</p>
-<p>
-<strong>Stella:</strong> Now let us talk about what I think is the most compelling feature: crisis alpha. What happens to trend following during market crashes?
-</p>
-<p>
-[VISUAL: Title card "Crisis Alpha: The Ultimate Portfolio Insurance"]
-</p>
-<p>
-<strong>Horace:</strong> Crisis alpha is the term coined by Kathryn Kaminski to describe trend following's remarkable property of generating positive returns during major market dislocations. Let me walk you through the mechanism.
-</p>
-<p>
-<strong>Stella:</strong> Please.
-</p>
-<p>
-<strong>Horace:</strong> When a crisis begins, there is typically a sudden initial shock -- think of the market dropping 5 percent in a few days. At this point, trend following systems are usually still long equities, so they LOSE money. This is the cost phase.
-</p>
-<p>
-<strong>Stella:</strong> That does not sound like crisis protection.
-</p>
-<p>
-<strong>Horace:</strong> Patience. As the decline continues -- say over several weeks -- the trend signals start to flip. Moving averages cross, breakout signals trigger. The systems move from long to flat to short. Simultaneously, other trends emerge: bonds rally as investors flee to safety, certain commodities sell off, the dollar may strengthen. The trend following system goes long bonds, short equities, short certain commodities.
-</p>
-<p>
-[VISUAL: Timeline showing the five phases of crisis alpha: initial shock, signal flip, trend development, crisis deepening, recovery]
-</p>
-<p>
-<strong>Stella:</strong> So the system needs time to adapt.
-</p>
-<p>
-<strong>Horace:</strong> Exactly. And this is the key insight. The longer and more sustained the crisis, the more profitable trend following becomes. During the 2008 financial crisis, which played out over 18 months, trend following strategies returned approximately 18 percent while the S&P 500 lost 57 percent. During the dot-com crash, which lasted nearly three years, trend following returned about 28 percent cumulatively.
-</p>
-<p>
-<strong>Stella:</strong> What about COVID? That was a crash but also a very quick recovery.
-</p>
-<p>
-<strong>Horace:</strong> COVID is the perfect counter-example. The crash from peak to trough happened in just five weeks -- the fastest 30 percent decline in stock market history. Trend following systems barely had time to flip from long to short before the market reversed sharply upward. The result: managed futures lost about 3 percent during COVID, which is essentially flat. Not a disaster, but not the crisis alpha we saw in 2008.
-</p>
-<p>
-[VISUAL: Side-by-side comparison charts of trend following vs S&P 500 during GFC 2008 and COVID 2020]
-</p>
-<p>
-<strong>Stella:</strong> So trend following protects against long, grinding bear markets but not flash crashes.
-</p>
-<p>
-<strong>Horace:</strong> That is the right way to think about it. And here is the important corollary: the truly dangerous bear markets -- the ones that destroy retirement portfolios and force people to sell at the bottom -- are almost always the extended ones. The GFC. The dot-com crash. These lasted months to years and caused 40 to 60 percent losses. Quick crashes with quick recoveries, like COVID, are traumatic but not financially devastating if you stay invested. Trend following provides the most protection precisely when you need it most.
-</p>
-<p>
-<strong>Stella:</strong> What about 2022? I heard that was a standout year for managed futures.
-</p>
-<p>
-[VISUAL: Title card "2022: Trend Following's Finest Hour"]
-</p>
-<p>
-<strong>Horace:</strong> 2022 may have been the most important year in the history of trend following, in terms of proving its value to the investing world. Here is why: in 2022, stocks fell 25 percent, and bonds -- which are supposed to protect you during stock declines -- also fell, losing about 13 percent. The traditional 60/40 portfolio had its worst year in decades. Meanwhile, trend following strategies returned approximately 24 percent.
-</p>
-<p>
-<strong>Stella:</strong> Positive 24 percent while both stocks and bonds lost money? How?
-</p>
-<p>
-<strong>Horace:</strong> Multiple sustained trends across asset classes, all in the same direction. Interest rates rose steadily throughout the year as the Federal Reserve hiked aggressively. This created a strong, persistent short-bond trend. Energy commodities spiked due to the Russia-Ukraine conflict. The US dollar strengthened against nearly every other currency. And equities declined gradually over many months, giving trend following systems plenty of time to establish short positions. The key word is "gradually" -- these were not sudden shocks but sustained, multi-month trends.
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py -- Animated portfolio simulation showing positions across asset classes during 2022: short bonds building over time, long energy commodities, long USD, short equities. Each position's contribution to the overall return is shown as a stacking bar chart that grows throughout the year.]
-</p>
-<p>
-<strong>Stella:</strong> So 2022 was the year that proved trend following works when nothing else does.
-</p>
-<p>
-<strong>Horace:</strong> Precisely. And it vindicated the investors who maintained their managed futures allocation through the difficult 2010s, when trend following underperformed and many institutions abandoned it. The lesson is clear: crisis protection strategies only work if you hold them through the calm periods too. You cannot time when the crisis will come.
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about practical implementation. How can a regular investor access this?
-</p>
-<p>
-[VISUAL: Title card "Implementation: ETFs and Beyond"]
-</p>
-<p>
-<strong>Horace:</strong> The two most prominent options are DBMF and KMLM. DBMF, from iMGP, uses a factor-based approach to replicate the returns of the top 20 CTAs. It has the largest AUM at about 3 billion dollars and the broadest market coverage. KMLM, from KFA Mount Lucas, tracks a rules-based trend following index across commodities, currencies, and bonds. Both charge around 85 to 95 basis points, which sounds expensive but is far cheaper than the traditional CTA fee structure of 2 percent management fee plus 20 percent performance fee.
-</p>
-<p>
-<strong>Stella:</strong> Which one should someone choose?
-</p>
-<p>
-<strong>Horace:</strong> If picking one, I would lean toward DBMF because it includes equity index futures in its replication, while KMLM does not. This means DBMF can go short equity indexes during a bear market, which is a significant component of crisis alpha. If you have enough allocation to split between two products -- say, a 10 percent allocation to managed futures -- I would do 7 percent in DBMF and 3 percent in KMLM to get strategy diversification.
-</p>
-<p>
-<strong>Stella:</strong> What is a reasonable allocation?
-</p>
-<p>
-<strong>Horace:</strong> Research from AQR, Man Group, and other leading quant firms consistently points to 10 to 15 percent as the sweet spot. At this level, you get meaningful drawdown reduction -- potentially shaving 8 to 10 percentage points off the worst drawdown -- while maintaining strong portfolio returns. Below 5 percent, the impact is too small to matter. Above 20 percent, you start to feel significant drag during bull markets.
-</p>
-<p>
-[VISUAL: Chart showing the efficient frontier with and without managed futures, demonstrating the improvement in risk-return trade-off]
-</p>
-<p>
-<strong>Stella:</strong> What about behavioral challenges? You mentioned that trend following feels uncomfortable.
-</p>
-<p>
-<strong>Horace:</strong> This might be the most important practical consideration. During a strong equity bull market -- like 2013 or 2019, when the S&P 500 returned 30-plus percent -- your managed futures allocation might return 3 to 5 percent. Every quarterly statement, you will see this allocation dragging on your total portfolio return. The temptation to eliminate it and go all-in on equities is enormous.
-</p>
-<p>
-<strong>Stella:</strong> How do you stay disciplined?
-</p>
-<p>
-<strong>Horace:</strong> Three things. First, mentally reframe the allocation as insurance. You do not cancel your homeowner's insurance because your house did not burn down last year. Second, look at your portfolio's risk metrics, not just returns. The Sharpe ratio, maximum drawdown, and volatility of the portfolio WITH managed futures is better than without, even if the raw return is slightly lower in bull markets. Third, remember 2008 and 2022. Those are the years that define long-term wealth. If managed futures reduce your drawdown from 50 percent to 30 percent in the next crisis, you need a 43 percent gain to recover from 30 percent versus a 100 percent gain from 50 percent. That difference compounds over a lifetime.
-</p>
-<p>
-[VISUAL: Recovery math comparison: 30% drawdown needs 43% to recover vs 50% drawdown needs 100% to recover]
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about the long-term picture. Has trend following always worked?
-</p>
-<p>
-<strong>Horace:</strong> Remarkably, yes. Research going back to the 1800s shows positive trend following returns across every multi-decade period. The strategy has survived world wars, the Great Depression, multiple financial crises, the transition from floor trading to electronic markets, and the rise of algorithmic trading. It has been profitable for over 100 years.
-</p>
-<p>
-<strong>Stella:</strong> Why has it not been arbitraged away in all that time?
-</p>
-<p>
-<strong>Horace:</strong> Because the barriers to implementation are structural and psychological, not informational. Everyone <em>knows</em> that trends exist. But executing a trend following strategy requires trading dozens of markets simultaneously, managing leverage, operating globally, and maintaining discipline through inevitable drawdowns. Most investors -- including most professionals -- cannot do this consistently. Additionally, trend following profits from behavioral biases that are deeply wired into human psychology: anchoring, herding, loss aversion. As long as humans are involved in markets, trends will exist.
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py -- Historical timeline animation showing trend following returns by decade from the 1880s to 2020s, with major historical events marked. The visual shows that the strategy has been consistently profitable across radically different market regimes and eras.]
-</p>
-<p>
-<strong>Stella:</strong> How does managed futures fit with everything else we have learned in this course?
-</p>
-<p>
-<strong>Horace:</strong> That is the perfect segue to next week's integration lesson, but I will preview it. Think of your portfolio as having multiple layers. The core is your market exposure -- stocks and bonds. Factor tilts add a modest return premium with controlled tracking error. Options strategies provide income and tail hedging. And managed futures provide the ultimate diversifier -- a strategy that is genuinely uncorrelated to everything else and provides positive returns during the crises that threaten the rest of your portfolio.
-</p>
-<p>
-<strong>Stella:</strong> So managed futures is the portfolio's insurance policy?
-</p>
-<p>
-<strong>Horace:</strong> Insurance policy with a positive expected return. Most insurance costs money -- you pay premiums and hope to never collect. Managed futures, historically, have generated positive returns on average while ALSO providing crisis protection. It is not a free lunch -- you endure periods of underperformance as the cost -- but over a full market cycle, it adds value on both the return and risk dimensions.
-</p>
-<p>
-<strong>Stella:</strong> This has been incredibly insightful. I feel like managed futures is the missing piece that most portfolios lack.
-</p>
-<p>
-<strong>Horace:</strong> It absolutely is. The largest, most sophisticated institutional investors -- Norwegian Government Pension Fund, Yale Endowment, Australian super funds -- have been allocating to managed futures for decades. It is only recently that retail investors have gained access through ETFs. Take advantage of it.
-</p>
-<p>
-<strong>Stella:</strong> Next week is the grand finale. We bring everything together.
-</p>
-<p>
-<strong>Horace:</strong> Week 52: Portfolio Integration -- putting all 52 weeks of learning into a single, coherent investment framework. See you then.
-</p>
-<p>
-[VISUAL: End card with lesson summary, ETF comparison table, and recommended readings]
-</p>
-<hr>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第51週：管理期貨與趨勢跟蹤</h1>
@@ -2399,215 +2218,6 @@ WTMF             3.8%       7.2%       0.25      -8.5%
 </p>
 <p>
 解答八：這是一個合理的關注點，但實際問題比表面上看起來要小。全球期貨市場規模龐大——主要期貨合約的每日交易量超過數千億美元。整個CTA行業管理約4,000億美元，相對其所交易的市場而言規模甚小。然而，特定市場或特定趨勢訊號的倉位擁擠可能造成問題。若所有CTA都對原油使用相同的200日移動平均線，其同步進出場會造成自我實現繼而自我失效的動態。專業CTA透過使用多元化訊號組合、錯開進出場時間點，以及交易規模較小的競爭對手難以涉足的較低流動性市場，來緩解這一問題。
-</p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: 頻道開場動畫，展示多個市場的趨勢圖表——股票、債券、商品、外匯]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎來到第51週。今天我們討論整個課程中最重要的課題之一：管理期貨與趨勢跟蹤。這一策略在市場危機期間提供了最持續的投資組合保護，而且現在散戶投資者已可透過交易所買賣基金取得這種策略。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我一直很期待這一課。管理期貨對我來說一向神秘，感覺像是對沖基金專用的黑箱。我們可以揭開它的神秘面紗嗎？
-</p>
-<p>
-[VISUAL: 標題卡「管理期貨：揭開神秘面紗」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然可以。令人意想不到的是，核心概念其實非常簡單。趨勢跟蹤——約佔管理期貨行業七成——只做一件事：買入上升的資產，沽空下跌的資產。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 就這樣？聽起來幾乎太簡單了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 簡單本身就是精妙所在。一個基本的趨勢跟蹤系統可能使用200日移動平均線。當價格高於200日均線，你做好倉；當價格低於均線，你做淡倉。將這個方法應用於50至100個不同的期貨市場——股票、債券、商品、外匯——以反波動性方式設定每個倉位的大小，令每個市場貢獻相等風險，這就是一個專業級別的趨勢跟蹤策略。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py——動畫價格圖，展示趨勢隨時間形成。移動平均線跟隨價格走動。買入訊號觸發時出現綠色箭頭（價格突破均線上方），賣出/沽空訊號觸發時出現紅色箭頭（價格跌穿均線下方）。圖表下方顯示滾動盈虧累計。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 若真的這麼簡單，為何不是所有人都這樣做？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 兩個原因。第一，概念雖簡單，但操作上相當複雜。你需要在數十個市場交易期貨、管理槓桿和保證金，並全天候在全球各時區運作。第二——而且這是更大的障礙——在心理上極為折磨。在已上升的東西上繼續買入，感覺像是追高。在標普500狂飆之際還要忍受15%的回撤，需要鋼鐵般的意志。大多數人做不到。
-</p>
-<p>
-[VISUAL: 標題卡「時間序列動量：學術依據」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談學術基礎。背後有嚴肅的研究支持嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有大量研究。里程碑論文是AQR資本管理公司的Moskowitz、Ooi及Pedersen於2012年發表的。他們研究了跨越股票、債券、外匯和商品的58個不同期貨市場，追溯了數十年的數據。他們發現，時間序列動量——資產自身的過去回報預測未來回報——在每一個資產類別中均顯著為正。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每一個資產類別？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每一個。股票、債券、外匯、商品，全部都是。這種效應在1至12個月的多個回望期均穩健存在，扣除交易成本後仍然持續，且無法以傳統風險因子解釋。這不是什麼脆弱的異常現象——而是金融市場中最穩健的規律之一。
-</p>
-<p>
-[VISUAL: 顯示各資產類別TSMOM回報及夏普比率的表格]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為何趨勢會存在？感覺市場應該有足夠的效率消除可預測的規律。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 市場是適應性有效，而非完全有效。多種力量製造趨勢。首先是行為偏誤：投資者錨定舊價格，對新資訊反應不足，導致價格緩慢而非即時調整至新現實。其次是機構因素：央行利率周期在債券和外匯市場創造多年趨勢；止損盤和保證金追繳在下跌期間迫使拋售，延長下行趨勢。第三是真實的經濟力量：商品供需失衡需要數年解決，商業周期在數個季度內形成盈利趨勢，地緣政治轉變帶來的外匯走勢在數月或數年間逐步呈現。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py——動畫圖展示行為周期：新資訊出現 → 初始反應緩慢（錨定效應）→ 價格逐漸調整 → 羊群效應放大走勢 → 超調 → 最終均值回歸。動畫突出顯示趨勢跟蹤如何捕捉此周期的中間部分。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在我們來談談我認為最吸引人的特性：危機阿爾法。趨勢跟蹤在市場崩盤期間會發生什麼？
-</p>
-<p>
-[VISUAL: 標題卡「危機阿爾法：終極投資組合保障」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 危機阿爾法是Kathryn Kaminski創造的術語，用來描述趨勢跟蹤在重大市場動盪期間產生正回報的非凡特性。讓我帶你了解其背後的機制。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 請說。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 危機發生時，通常先有一個突如其來的初始衝擊——想像市場在數天內下跌5%。此時，趨勢跟蹤系統通常仍持有股票好倉，因此會出現虧損。這是成本階段。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這聽起來不像是危機保護。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 請耐心聽下去。隨著跌勢持續——例如延續數週——趨勢訊號開始轉換。移動平均線交叉，突破訊號觸發，系統由好倉轉為平倉再到淡倉。與此同時，其他趨勢亦隨之出現：投資者逃往避險資產，債券上升；某些商品下跌；美元可能走強。趨勢跟蹤系統轉為做好債券、沽空股票、沽空部分商品。
-</p>
-<p>
-[VISUAL: 時間軸展示危機阿爾法的五個階段：初始衝擊、訊號轉換、趨勢形成、危機深化、復甦]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以系統需要時間來適應。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是如此。這是核心洞見。危機持續時間越長，趨勢跟蹤的獲利越豐厚。2008年金融危機歷時約18個月，趨勢跟蹤策略回報約為18%，而標普500同期則下跌了57%。科網股崩盤歷時近三年，趨勢跟蹤累計回報約為28%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 新冠疫情呢？那也是一次崩市，但復甦也非常迅速。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 新冠疫情是最佳的反面例子。從高位到低位的跌勢僅歷時約五週——是史上最快的30%跌幅。趨勢跟蹤系統幾乎沒有時間由好倉轉換為淡倉，市場便急劇反彈。結果：管理期貨虧損約3%，基本上持平。不是災難，但也沒有我們在2008年見到的危機阿爾法。
-</p>
-<p>
-[VISUAL: 2008年全球金融危機及2020年新冠疫情期間，趨勢跟蹤與標普500的並排對比圖表]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以趨勢跟蹤能保護投資者免受漫長、磨人的熊市影響，但無法抵擋閃崩。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是正確的理解方式。而且有一個重要的推論：真正危險的熊市——那些毀掉退休投資組合、逼使人們在低位沽貨的熊市——幾乎都是持續性的。全球金融危機、科網股崩盤，都持續了數月至數年，造成40至60%的損失。像新冠疫情那樣的快速崩盤後迅速復甦，固然令人驚恐，但若你能堅持持倉，在財務上並不致命。趨勢跟蹤正是在你最需要保護之時提供最佳的保護。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2022年呢？我聽說那是管理期貨的出色之年。
-</p>
-<p>
-[VISUAL: 標題卡「2022年：趨勢跟蹤的高光時刻」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 2022年就趨勢跟蹤向投資界證明其價值而言，或許是其歷史上最重要的一年。原因如下：2022年，股票下跌25%，而本應在股票下跌時保護你的債券，也同樣虧損，跌幅約13%。傳統的六四投資組合錄得了數十年來最差的年度表現。與此同時，趨勢跟蹤策略錄得約24%的回報。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在股票和債券同時虧損的情況下，正回報24%？這是怎麼做到的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 多個資產類別同時出現持續趨勢，且方向一致。隨著聯儲局積極加息，全年利率穩步上升，形成強勁持續的債券淡倉趨勢。受俄烏衝突影響，能源商品急升。美元對幾乎所有貨幣持續升值。股票在數月間緩慢下跌，給予趨勢跟蹤系統充裕時間建立淡倉。關鍵詞是「緩慢」——這些不是突發衝擊，而是持續數月的趨勢。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py——動畫投資組合模擬，展示2022年各資產類別的倉位演變：債券淡倉隨時間建立、能源商品好倉、美元好倉、股票淡倉。每個倉位對整體回報的貢獻以疊加柱狀圖形式全年累積呈現。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以2022年正是證明了趨勢跟蹤能在其他一切都失效時依然奏效的一年。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是如此。這也為那些在艱難的2010年代堅持持有管理期貨配置的投資者平反——當時趨勢跟蹤表現遜色，許多機構紛紛放棄了這一策略。教訓非常清晰：危機保護策略只有在你同時持有平靜時期的倉位才能發揮作用。你無法預測危機何時到來。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談實際操作。普通投資者如何取得這種策略？
-</p>
-<p>
-[VISUAL: 標題卡「實施方式：交易所買賣基金及其他選擇」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 兩個最突出的選擇是DBMF和KMLM。DBMF由iMGP發行，採用因子法複製前20大CTA的回報。其管理資產規模最大，約30億美元，市場覆蓋最廣。KMLM由KFA Mount Lucas發行，追蹤涵蓋商品、外匯及債券的規則化趨勢跟蹤指數。兩者均收取約85至95個基點的費用，聽起來貴，但遠比傳統CTA的費用結構便宜——後者收取2%管理費加20%表現費。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 應該選擇哪一個？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 若只選一種，我傾向DBMF，因為它的複製策略包含股票指數期貨，而KMLM則不包括。這意味著DBMF在熊市期間可以沽空股票指數，而這是危機阿爾法的重要組成部分。若你的配置規模足以分拆為兩種產品——例如將10%的管理期貨配置分拆——我會選擇7%配置DBMF，3%配置KMLM，以取得策略分散效果。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 合理的配置比例是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> AQR、Man Group及其他主要量化研究機構的研究一致指向10至15%為最優區間。在此水平，你能取得有意義的回撤降低——有機會將最大回撤減少8至10個百分點——同時維持強勁的投資組合回報。低於5%，影響太微小。高於20%，你在牛市期間會感受到顯著的拖累。
-</p>
-<p>
-[VISUAL: 顯示加入及不加入管理期貨的效率前緣圖，展示風險回報比的改善]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 行為挑戰呢？你提到趨勢跟蹤在心理上讓人感覺不舒服。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這或許是最重要的實際考量。在強勁股票牛市期間——如2013年或2019年，標普500回報超過30%——你的管理期貨配置可能只錄得3至5%的回報。每個季度報表，你都會看到這部分配置拖累整體投資組合回報。想要將其清掉、全力押注股票的誘惑極大。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如何保持紀律？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 三件事。第一，在心理上將此配置重新定性為保險。你不會因為去年屋子沒有失火便取消火災保險。第二，關注投資組合的風險指標，而非單純的回報。持有管理期貨的投資組合在夏普比率、最大回撤及波動性方面均優於不持有的組合，即使在牛市中的純回報可能略低。第三，記住2008年和2022年。那才是決定長期財富的關鍵年份。若管理期貨將你下次危機的回撤從50%降至30%，你只需回升43%便能復元，而非從50%回撤需要的100%回升。這個差距在一生中複利累計，意義深遠。
-</p>
-<p>
-[VISUAL: 復元數學對比：30%回撤需要43%才能復元，對比50%回撤需要100%才能復元]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談長遠的大格局。趨勢跟蹤是否一直有效？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 令人驚嘆地，是的。追溯至19世紀的研究顯示，趨勢跟蹤在每個多十年期間均錄得正回報。這一策略歷經了世界大戰、大蕭條、多次金融危機、由場內交易到電子化市場的轉型，以及算法交易的崛起，依然屹立不倒。在超過100年的歲月中持續盈利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為何它在這段時間內沒有被套利消除？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 因為實施障礙來自結構和心理層面，而非資訊層面。人人都<em>知道</em>趨勢存在，但執行趨勢跟蹤策略需要同時交易數十個市場、管理槓桿、全球化運作，以及在不可避免的回撤中堅持紀律。大多數投資者——包括大多數專業人士——無法持之以恆地做到這一點。此外，趨勢跟蹤從人類心理中根深蒂固的行為偏誤中獲利：錨定效應、羊群效應、損失厭惡。只要人類仍參與市場，趨勢便會持續存在。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py——歷史時間軸動畫，展示由1880年代至2020年代的趨勢跟蹤分十年回報，標注重大歷史事件。視覺呈現表明，該策略在截然不同的市場環境和時代中均保持持續盈利。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 管理期貨如何與我們在課程中學到的其他內容相配合？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正好引出下一週整合課的鋪墊，但我先預告一下。把你的投資組合想像成具有多個層次。核心是你的市場敞口——股票和債券。因子傾斜以可控的追蹤誤差增添適度的回報溢價。期權策略提供收益及尾部對沖。而管理期貨則提供終極分散工具——一種與其他所有策略真正不相關，並在威脅投資組合其他部分的危機中提供正回報的策略。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以管理期貨是投資組合的保障政策？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一份有正預期回報的保障政策。大多數保障都需要付出代價——你支付保費，希望永遠不需要索賠。管理期貨在歷史上平均錄得正回報，同時亦提供危機保護。這並非免費的午餐——你要忍受跑輸時期作為代價——但在完整的市場周期中，它在回報和風險兩個維度上均增加價值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這次討論極具啟發性。我感覺管理期貨正是大多數投資組合所缺少的那一塊拼圖。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 確實如此。規模最大、最精明的機構投資者——挪威政府養老基金、耶魯捐贈基金、澳大利亞超級年金——已配置管理期貨數十年。直至近年，散戶投資者才透過交易所買賣基金獲得渠道。請善加利用。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 下週是大結局，我們將把一切融匯貫通。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第52週：投資組合整合——將整整52週的學習濃縮成一套完整一貫的投資框架。下週見。
-</p>
-<p>
-[VISUAL: 結尾卡，附課程重點摘要、交易所買賣基金比較表及推薦閱讀]
 </p>
             </div>
             <div id="content-tw" class="lang-content">
@@ -3376,215 +2986,6 @@ SG趨勢指數       9.5%      13.2%       0.52     -10.8%
 <p>
 解答：這是一個合理的顧慮，但問題沒有看起來那麼嚴峻。全球期貨市場規模龐大——主要期貨合約的每日成交額超過數千億美元。整個CTA產業管理的資產規模約4,000億美元，相對於其交易的市場規模而言很小。然而，特定市場或特定趨勢訊號的擁擠問題確實存在。若每家CTA都使用相同的200日移動平均線交易原油，其同步進出場會製造自我實現進而自我破壞的動態。專業CTA透過使用多元化的訊號組合、錯開進出場時機，以及交易規模較小的競爭對手難以進入的非流動性市場來緩解這個問題。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: 頻道開場動畫，展示跨多個市場的趨勢圖表——股票、債券、大宗商品、貨幣]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎來到第51週。今天我們要討論整個課程中最重要的主題之一：管理期貨與趨勢跟隨。這個策略在市場危機期間提供了一些最穩定的投資組合保護，而且現在一般投資人也可以透過指數股票型基金（ETF）來取得。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我一直很期待這個單元。管理期貨對我來說一直感覺很神秘——像是避險基金使用的黑盒子。我們可以把它說清楚嗎？
-</p>
-<p>
-[VISUAL: 標題卡「管理期貨：揭開神秘面紗」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然可以。而且令人驚訝的是，核心概念有多簡單。趨勢跟隨——約佔管理期貨產業70%的比重——做的是一件事：買入上漲的資產，放空下跌的資產。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 就這樣？聽起來簡單得有點過頭了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 優雅之處就在於它的簡單。一個基本的趨勢跟隨系統可能使用200日移動平均線。當價格高於200日均線，你做多；當價格低於均線，你做空。將這個邏輯應用於50至100個不同的期貨市場——股票、債券、大宗商品、貨幣——以反向波動性為每個市場設定部位規模，讓每個市場貢獻等量風險，你就有了一個專業級的趨勢跟隨策略。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py — 動態價格圖，顯示趨勢隨時間發展。移動平均線跟隨價格走動。當買入訊號觸發（價格向上穿越均線）時出現綠色箭頭，當賣出／做空訊號觸發（價格向下穿越均線）時出現紅色箭頭。圖表下方的累計損益持續滾動顯示。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果這麼簡單，為什麼不是所有人都在用？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 原因有兩個。首先，雖然概念簡單，但執行層面很複雜。你需要在數十個市場同時交易期貨，管理槓桿與保證金，並在全球各個時區全天候運作。其次——這才是更大的障礙——心理上非常煎熬。在某樣東西已經漲上去之後才買入，感覺像在追高。在標普500強勁反彈的同時，硬撐著15%的回撤，需要的是鐵一般的紀律。大多數人做不到。
-</p>
-<p>
-[VISUAL: 標題卡「時間序列動能：學術證據」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我們來談談學術基礎。這背後有嚴肅的研究支撐嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有大量研究支撐。里程碑式的論文是AQR資本管理的Moskowitz、Ooi與Pedersen在2012年發表的研究。他們研究了跨股票、債券、貨幣與大宗商品的58個不同期貨市場，回顧數十年的資料。他們發現，時間序列動能——資產本身的過去報酬預測未來報酬——在每一個資產類別中都具有統計顯著的正向效果。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每一個資產類別？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每一個。股票、債券、貨幣、大宗商品，通通有效。這個效果在1個月到12個月的多個回顧期中都穩健存在。扣除交易成本後依然持續。而且無法以傳統風險因子解釋。這不是什麼脆弱的異常現象——而是金融市場中最穩健的規律之一。
-</p>
-<p>
-[VISUAL: 表格顯示各資產類別的時間序列動能報酬與夏普比率]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為什麼趨勢會存在？市場感覺應該夠有效率，能夠消除可預測的規律才對。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 市場是適應性有效，而非完全有效。有幾股力量製造了趨勢。首先是行為偏誤：投資人錨定舊有價格，對新資訊反應不足，所以價格緩慢而非即刻地調整至新現實。其次是機構性因素：央行的利率週期在債券與貨幣市場製造多年趨勢；停損與追繳保證金在下跌期間迫使賣出，延長向下趨勢。第三是真實的經濟力量：大宗商品供需失衡需要數年才能化解，景氣循環製造多季度的盈餘趨勢，地緣政治轉變製造在數個月至數年間持續發酵的貨幣走勢。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py — 動態圖解顯示行為循環：新資訊出現 → 初始反應遲緩（錨定效應）→ 價格逐漸調整 → 羊群效應放大走勢 → 過度超漲超跌 → 最終均值回歸。動畫強調趨勢跟隨如何捕捉這個循環的中段獲利。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在來談談我認為最吸引人的特性：危機阿爾法。趨勢跟隨在市場崩盤期間會發生什麼事？
-</p>
-<p>
-[VISUAL: 標題卡「危機阿爾法：終極的投資組合保險」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 危機阿爾法是Kathryn Kaminski用來描述趨勢跟隨在重大市場動盪期間創造正報酬這項顯著特性的術語。讓我帶你了解它的運作機制。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 請說。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 危機開始時，通常會有一個突發性的初始衝擊——想像一下市場在幾天內跌了5%。此時，趨勢跟隨系統通常仍然做多股票，所以它們虧損。這是成本階段。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聽起來不像是危機保護。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 別急。隨著跌勢持續——比如說延續幾週——趨勢訊號開始翻轉。均線交叉，突破訊號觸發。系統從做多轉為觀望再轉為做空。與此同時，其他趨勢也開始浮現：隨著投資人逃往安全資產，債券上漲；某些大宗商品下跌；美元可能走強。趨勢跟隨系統做多債券、做空股票、做空某些大宗商品。
-</p>
-<p>
-[VISUAL: 時間軸顯示危機阿爾法的五個階段：初始衝擊、訊號翻轉、趨勢發展、危機深化、復甦期]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以系統需要時間來適應。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。而這是核心洞見。危機持續時間越長、越持久，趨勢跟隨就越獲利。2008年金融危機歷時約18個月，趨勢跟隨策略的報酬約為18%，而標普500卻重挫57%。網路泡沫崩盤歷時近三年，趨勢跟隨累計報酬約達28%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那新冠呢？那也是一次崩盤，但復甦非常迅速。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 新冠是完美的反例。從高點到低點的崩盤只花了約五週——是股市歷史上最快的30%跌幅。趨勢跟隨系統幾乎來不及從做多翻轉至做空，市場便已急劇反彈向上。結果：管理期貨虧損約3%，基本上等同於持平。不是災難，但也沒有展現出2008年那種危機阿爾法。
-</p>
-<p>
-[VISUAL: 並排比較圖，顯示2008年全球金融危機與2020年新冠期間，趨勢跟隨與標普500的走勢對比]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以趨勢跟隨能防禦漫長而磨人的空頭市場，但無法防禦閃崩。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是正確的理解方式。而這裡有一個重要的推論：真正危險的空頭市場——那些摧毀退休投資組合、迫使人們在底部賣出的——幾乎總是延伸型的。全球金融危機。網路泡沫崩盤。這些都持續了數個月至數年，造成40至60%的損失。帶著快速反彈的快速崩盤，如新冠，雖然讓人心驚，但只要持倉不動，財務上並非毀滅性的。趨勢跟隨恰恰在你最需要的時候提供最佳保護。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2022年呢？我聽說那是管理期貨的傑出年份。
-</p>
-<p>
-[VISUAL: 標題卡「2022年：趨勢跟隨最光輝的時刻」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 就向投資界證明其價值而言，2022年可能是趨勢跟隨有史以來最重要的一年。原因如下：2022年股票跌了25%，而原本應該在股票下跌期間保護你的債券——也跌了，損失約13%。傳統60/40投資組合創下數十年來最差的一年。與此同時，趨勢跟隨策略的報酬約為24%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在股票與債券雙雙虧損的情況下，還能拿到正的24%？怎麼辦到的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 跨資產類別出現了多個持續性趨勢，而且全都朝同一個方向。隨著聯準會積極升息，全年利率穩定上升，製造了強勁而持續的做空債券趨勢。能源大宗商品因俄烏衝突而飆升。美元對幾乎所有貨幣走強。股票在數個月的時間裡緩慢下跌，給了趨勢跟隨系統充裕的時間建立做空部位。關鍵詞是「緩慢」——這些不是突發性衝擊，而是持續數月的趨勢。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py — 動態投資組合模擬，顯示2022年各資產類別的部位逐步建立：做空債券部位隨時間累積、做多能源大宗商品、做多美元、做空股票。每個部位對總報酬的貢獻以堆疊長條圖的形式在全年中持續增長。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以2022年是證明趨勢跟隨在其他一切都失效時仍然有效的那一年。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。它也為那些在艱難的2010年代仍然維持管理期貨配置的投資人平反了——當時趨勢跟隨持續落後，許多機構已經放棄了它。教訓非常清晰：危機保護策略只有在平靜期也持有的情況下才能發揮作用。你無法預測危機何時會來臨。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談實際執行。一般投資人如何取得這類工具？
-</p>
-<p>
-[VISUAL: 標題卡「執行：ETF與其他方式」]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 兩個最具代表性的選項是DBMF與KMLM。iMGP的DBMF以因子為基礎的方法，複製前20大CTA的報酬，資產管理規模最大，約30億美元，市場覆蓋範圍也最廣。KFA Mount Lucas的KMLM追蹤一個規則化的趨勢跟隨指數，涵蓋大宗商品、貨幣與債券。兩者費用率都在85至95個基點左右，聽起來不便宜，但比傳統CTA的費用結構——2%管理費加上20%績效費——要便宜得多。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 應該選哪一個？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 若只選一檔，我會傾向選DBMF，因為它的複製範疇包含股票指數期貨，而KMLM不包含。這意味著DBMF在空頭市場期間可以做空股票指數，而這是危機阿爾法的重要組成部分。若配置規模足以分成兩個產品——比如10%的管理期貨配置——我會選擇7%配置DBMF、3%配置KMLM，以獲得策略上的多元化。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 合理的配置比例是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> AQR、Man Group等頂尖量化研究機構的研究一致指向10至15%是最佳的配置比例。在這個水準，你能獲得有意義的回撤降低效果——最大回撤有可能減少8至10個百分點——同時維持強勁的投資組合報酬。低於5%，影響太小。超過20%，你在多頭市場期間會感受到顯著的拖累。
-</p>
-<p>
-[VISUAL: 圖表顯示加入與未加入管理期貨時的效率前緣，說明風險報酬比的改善]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 行為挑戰呢？你之前提到趨勢跟隨在心理上令人不舒服。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這可能是最重要的實務考量。在強勁的股票多頭市場期間——例如2013年或2019年，標普500報酬超過30%——你的管理期貨配置可能只有3至5%的報酬。每個季度的對帳單，你都會看到這筆配置拖累了整體投資組合報酬。想要砍掉它、把所有資金都押在股票上的誘惑非常巨大。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 怎麼保持紀律？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有三件事。第一，從心理上重新定位這筆配置是保險費用。你不會因為去年房子沒燒掉就取消住宅保險。第二，看投資組合的風險指標，而不只是報酬。有管理期貨的投資組合，其夏普比率、最大回撤與波動性都優於沒有管理期貨的版本，即使在多頭市場期間的原始報酬率略低。第三，記住2008年與2022年。那些年份才是定義長期財富積累的關鍵。如果管理期貨能在下一次危機中將你的回撤從50%降至30%，你只需要43%的報酬就能從30%的虧損中恢復，而不是需要100%的報酬才能從50%的虧損中恢復。這個差距在一生的時間裡將複利成巨大的差異。
-</p>
-<p>
-[VISUAL: 恢復數學比較：30%回撤需要43%才能恢復，vs. 50%回撤需要100%才能恢復]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談長期圖景。趨勢跟隨一直有效嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 非常了不起地，是的。可追溯至1800年代的研究顯示，趨勢跟隨在每個數十年期間都創造正報酬。這個策略歷經了世界大戰、大蕭條、多次金融危機、從場內交易到電子市場的轉型，以及演算法交易的崛起，仍然持續有效。超過100年都獲利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為何在這麼長的時間裡，它沒有被套利消除？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 因為執行的障礙在於結構性與心理性，而非資訊性。所有人都「知道」趨勢存在。但執行趨勢跟隨策略需要同時交易數十個市場、管理槓桿、在全球各地運作，並在不可避免的回撤期間保持紀律。大多數投資人——包括大多數專業人士——無法持續做到這一點。此外，趨勢跟隨從深植於人類心理的行為偏誤中獲利：錨定效應、羊群效應、損失厭惡。只要人類還在市場中，趨勢就會存在。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py — 歷史時間軸動畫，顯示1880年代至2020年代的趨勢跟隨報酬（按十年分期），並標記重大歷史事件。動態呈現出這個策略在截然不同的市場環境與時代中持續獲利的規律。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 管理期貨如何與本課程中所學的其他一切配合？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正好引出下週的整合課程，但我先給你預告。把你的投資組合想像成由多個層次組成。核心是市場曝險——股票與債券。因子傾斜在可控的追蹤誤差下增添一些報酬溢酬。選擇權策略提供收益與尾部避險。而管理期貨提供終極的分散工具——一個真正與其他一切不相關的策略，並在威脅投資組合其他部分的危機期間創造正報酬。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以管理期貨是投資組合的保險政策？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是一個預期報酬為正的保險政策。大多數保險都要花錢——你繳保費，希望永遠用不到。管理期貨在歷史上平均創造正報酬，同時提供危機保護。它不是免費的午餐——你忍受落後期作為代價——但在完整的市場週期中，它在報酬與風險兩個面向都帶來貢獻。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這真的讓我大開眼界。我感覺管理期貨是大多數投資組合缺少的那一塊拼圖。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 確實如此。全球規模最大、最精密的機構投資人——挪威政府退休基金、耶魯捐贈基金、澳洲超級年金基金——幾十年來一直配置管理期貨。近年來，一般投資人才得以透過ETF取得這類工具。好好把握這個機會。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 下週是大結局，我們將所有東西整合在一起。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第52週：投資組合整合——將52週所學的一切融入單一、連貫的投資框架。下週見。
-</p>
-<p>
-[VISUAL: 結尾卡片，顯示課程重點摘要、ETF比較表與推薦延伸閱讀]
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第51周：管理期货与趋势跟踪</h1>
@@ -4345,215 +3746,6 @@ SG趋势指数      9.5%      13.2%      0.52      -10.8%
 </p>
 <p>
 解答：这是一个合理的担忧，但实际上并不像表面上那么紧迫。全球期货市场规模庞大——主要期货合约的日成交额超过数千亿美元。整个CTA行业管理约4000亿美元，相对于其所交易的市场而言规模较小。然而，特定市场或特定趋势信号的拥挤现象确实会引发问题。如果每家CTA都对原油使用相同的200日移动平均线，其同步进出场就会产生自我实现继而自我瓦解的动态。专业CTA通过使用多样化的信号集合、错开进出场时间点，以及交易规模较小的竞争对手无法触及的流动性较低市场来缓解这一问题。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[VISUAL: 频道片头动画，趋势图表横跨多个市场——股票、债券、大宗商品、货币]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 欢迎来到第51周。今天我们要讲的，是整个课程中最重要的话题之一：管理期货与趋势跟踪。这一策略在历次市场危机中提供了最稳定的投资组合保护，而且现在已可通过交易所交易基金为零售投资者所用。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我一直很期待这一期。管理期货在我看来一直很神秘，感觉像是对冲基金才用的黑盒子。我们能把它说清楚吗？
-</p>
-<p>
-[VISUAL: 标题卡 "管理期货：揭开神秘面纱"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 当然可以。而且这里有个让人意外的地方——核心概念其实非常简单。趋势跟踪占管理期货行业约70%的份额，它只做一件事：买入上涨的资产，卖出下跌的资产。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 就这样？听起来也太简单了吧。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 它的优雅，恰恰在于这份简洁。一个基础的趋势跟踪系统可能只用一条200日移动平均线。当价格高于200日均线，做多；低于均线，做空。将这套逻辑应用于50到100个不同的期货市场——股票、债券、大宗商品、货币——再根据反向波动性来设定每个市场的仓位大小，使每个市场贡献相等的风险，你就拥有了一套专业级别的趋势跟踪策略。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py —— 动态价格走势图，展示趋势随时间形成的过程。均线跟随价格移动。当买入信号触发时（价格上穿均线）显示绿色箭头，当卖出/做空信号触发时（价格下穿均线）显示红色箭头。图表下方实时累计显示盈亏变化。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 既然这么简单，为什么不是所有人都在用？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有两个原因。第一，概念虽简单，操作上却相当复杂。你需要同时在几十个市场交易期货，管理杠杆和保证金，并在全球各时区全天候运作。第二，也是更大的障碍——心理上非常煎熬。在价格已经涨了很多之后买入，感觉像是在追高。在标普500节节攀升时，顶着15%的回撤坚守仓位，需要钢铁般的意志。大多数人做不到。
-</p>
-<p>
-[VISUAL: 标题卡 "时间序列动量：学术依据"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们来聊聊学术基础。这方面有严肃的研究支撑吗？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 研究非常充分。最具里程碑意义的论文是AQR资本管理公司的Moskowitz、Ooi和Pedersen于2012年发表的研究。他们对58个不同期货市场进行了研究，涵盖权益、债券、货币和大宗商品，时间跨度长达数十年。他们发现，时间序列动量——用资产自身的历史收益预测未来收益——在每一个资产类别中都是正值且具有统计显著性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每一个资产类别？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 每一个。权益、债券、货币、大宗商品，无一例外。这一效应在多个回溯周期（从1个月到12个月）中均稳健存在，扣除交易成本后依然显著，且无法被传统风险因子所解释。这不是某种脆弱的异常现象——它是金融市场中最稳健的规律之一。
-</p>
-<p>
-[VISUAL: 展示各资产类别时间序列动量收益及夏普比率的表格]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 趋势为什么会存在？感觉市场应该有足够的效率来消除这些可预测的规律。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 市场是适应性有效的，而非完全有效的。有几种力量在创造趋势。第一，行为偏误：投资者锚定于旧价格，对新信息反应迟钝，所以价格对新现实的调整是缓慢的，而非即时的。第二，机构因素：央行的利率周期在债券和货币市场创造了多年期趋势；止损单和追缴保证金在下跌过程中迫使被动卖出，从而延长了下行趋势。第三，真实的经济力量：大宗商品供需失衡需要数年才能化解，经济周期创造了多个季度的盈利趋势，地缘政治变化则推动货币在数月乃至数年内持续移动。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py —— 动态图示展示行为周期：新信息出现 → 初始反应迟缓（锚定效应）→ 价格逐渐调整 → 羊群效应放大行情 → 超调 → 最终均值回归。动画重点呈现趋势跟踪如何捕捉这一周期的中间段。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 现在我们来谈谈我认为最引人注目的特性：危机阿尔法。在市场崩盘时，趋势跟踪会发生什么？
-</p>
-<p>
-[VISUAL: 标题卡 "危机阿尔法：终极投资组合保险"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> "危机阿尔法"是Kathryn Kaminski用来描述趋势跟踪一个非凡特性的术语——在重大市场动荡期间创造正收益的能力。让我来梳理一下它的运作机制。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 请讲。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 危机开始时，通常会出现突然的初始冲击——比如市场在几天内下跌5%。此时，趋势跟踪系统通常仍然持有股票多仓，所以会亏损。这是代价阶段。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这听起来不像危机保护啊。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 稍安勿躁。随着下跌的持续——比如说延续数周——趋势信号开始翻转。均线交叉，突破信号触发。系统从多头切换到空仓，再到空头。与此同时，其他趋势也开始显现：投资者逃往避险资产推动债券上涨，某些大宗商品随之走弱，美元可能走强。趋势跟踪系统开始做多债券、做空股票、做空部分大宗商品。
-</p>
-<p>
-[VISUAL: 时间轴展示危机阿尔法的五个阶段：初始冲击、信号翻转、趋势形成、危机深化、复苏]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以系统需要时间来适应。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是如此。这是核心洞察：危机持续时间越长，趋势越持续，趋势跟踪就越能盈利。2008年金融危机历时18个月，趋势跟踪策略录得约18%的收益，而标普500同期下跌了57%。互联网泡沫崩溃历时近三年，趋势跟踪的累计收益约达28%。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那新冠疫情呢？那次是崩盘，但也是非常快速的反弹。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 新冠是最好的反例。从峰值到谷底仅用了约五周时间——是股市历史上最快的30%跌幅。趋势跟踪系统几乎来不及从多头翻转至空头，市场就已经急速反弹。结果：管理期货亏损约3%，基本上是平局。谈不上灾难，但也没有我们在2008年看到的那种危机阿尔法。
-</p>
-<p>
-[VISUAL: 并排对比图表，展示趋势跟踪与标普500在2008年全球金融危机和2020年新冠崩盘期间的表现]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以趋势跟踪能保护抵御漫长的磨底熊市，但对闪崩无能为力。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这是正确的理解方式。还有一个重要推论：真正危险的熊市——那些摧毁退休储蓄、迫使人们在底部抛售的熊市——几乎总是持续时间很长的那种。全球金融危机、互联网泡沫崩溃，历时数月乃至数年，造成40%至60%的损失。快速崩盘后快速反弹的情形（比如新冠），虽然在情绪上令人煎熬，但只要坚持不减仓，财务上并不会造成毁灭性影响。趋势跟踪恰恰在你最需要保护的时候，提供最强大的保护。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那2022年呢？我听说那一年对管理期货来说是高光时刻。
-</p>
-<p>
-[VISUAL: 标题卡 "2022年：趋势跟踪最高光的时刻"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 2022年或许是趋势跟踪历史上最重要的一年，因为它向投资界证明了这一策略的价值所在。原因如下：2022年，股票下跌了25%，而本应在股市下跌时起到保护作用的债券，也同样下跌了约13%。传统的60/40投资组合遭遇了数十年来最糟糕的一年。与此同时，趋势跟踪策略录得约24%的收益。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在股票和债券双双亏损的情况下录得正24%？这是怎么做到的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 多个资产类别同时出现了持续性的方向性趋势。随着美联储持续激进加息，全年利率稳步上升，形成了强劲且持续的债券空头趋势。受俄乌冲突影响，能源大宗商品价格骤升。美元对几乎所有其他货币持续走强。股市则在数月间缓慢下跌，给趋势跟踪系统充足的时间建立空头仓位。关键词是"缓慢"——这些不是突然的冲击，而是持续数月的方向性趋势。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py —— 动态投资组合模拟，展示2022年各资产类别仓位的动态变化：债券空头持续累积、能源大宗商品多头、美元多头、股票空头。每个仓位对整体收益的贡献以全年不断增长的堆叠柱状图呈现。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以2022年正是证明了趋势跟踪在其他策略都失效时依然有效的那一年。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是如此。这也为那些在艰难的2010年代依然坚守管理期货配置的投资者正了名——那十年间趋势跟踪表现不佳，许多机构纷纷减仓乃至清仓，结果恰恰错过了2022年的大行情。教训很清晰：危机保护策略只有在平静时期也坚持持有，才能在危机来临时真正发挥作用。没有人能预知危机何时到来。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们来聊聊实际操作。普通投资者如何获取这一敞口？
-</p>
-<p>
-[VISUAL: 标题卡 "实施方案：交易所交易基金及其他"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最主要的两个选项是DBMF和KMLM。DBMF由iMGP管理，采用基于因子的方法复制前20大CTA的收益，管理规模约30亿美元，是两者中规模更大的。KMLM由KFA Mount Lucas管理，追踪一个基于规则的趋势跟踪指数，覆盖大宗商品、货币和债券市场。两者的费用率均在85至95个基点左右，虽然听起来不便宜，但远比传统CTA的2%管理费加20%业绩提成要划算得多。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 应该选哪一个？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果只选一款，我会倾向于DBMF，因为它在复制中纳入了股票指数期货，而KMLM不包含这一块。这意味着DBMF在熊市中能够做空股票指数，而这是危机阿尔法的重要组成部分。如果你有足够的配置规模可以分散到两款产品——比如10%的管理期货总配置——我建议7%配DBMF，3%配KMLM，以获得策略层面的分散化。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 合理的配置比例是多少？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> AQR、Man Group等顶尖量化机构的研究一致指向10%至15%作为最优区间。在这一水平上，你能获得有意义的回撤降低——最大回撤可能减少8至10个百分点——同时维持强劲的投资组合收益。低于5%，影响太小，不值一提；超过20%，在牛市期间你会明显感受到拖累。
-</p>
-<p>
-[VISUAL: 图表展示加入管理期货前后的有效边界，呈现风险收益权衡的改善]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那么行为挑战呢？你刚才提到趋势跟踪在心理上令人不舒适。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这或许是最重要的实操考量。在强劲的股票牛市期间——比如2013年或2019年，标普500涨幅超过30%——你的管理期货配置可能只有3%至5%的收益。每次看到季度报告，你都会看到这部分配置在拖累整体业绩。想要清仓这块、把所有资金都投入股票的冲动会非常强烈。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 怎样才能保持纪律？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 三点。第一，在心理上把这部分配置重新定位为保险。你不会因为去年房子没有失火就取消家财险。第二，关注投资组合的风险指标，而不仅仅是收益。含管理期货的投资组合，其夏普比率、最大回撤和波动性均优于不含管理期货的组合，即便牛市期间的绝对收益略低。第三，记住2008年和2022年。那才是决定长期财富积累的关键年份。如果管理期货在下一次危机中将你的回撤从50%降至30%，你需要涨43%才能从30%的回撤中恢复，而从50%的回撤恢复则需要涨100%。这个差距，在一生的投资中会产生巨大的复利效应。
-</p>
-<p>
-[VISUAL: 回撤恢复数学对比：30%回撤需涨43%恢复 vs 50%回撤需涨100%恢复]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我们来谈谈长期画卷。趋势跟踪是否一直有效？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 显著地，是的。追溯至19世纪的研究表明，趋势跟踪在每一个多年期区间均录得正收益。这一策略历经世界大战、大萧条、多次金融危机、从场内交易到电子交易的变革，以及算法交易的兴起，超过100年来始终保持盈利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 为何在这么长的时间里没有被套利消除？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 因为实施的障碍是结构性和心理性的，而非信息性的。每个人都<em>知道</em>趋势存在。但执行趋势跟踪策略需要同时交易数十个市场、管理杠杆、在全球运营，并在不可避免的回撤中坚守纪律。大多数投资者——包括大多数专业人士——无法持之以恒地做到这一点。此外，趋势跟踪从根植于人类心理深处的行为偏误中获利：锚定效应、羊群效应、损失厌恶。只要市场中有人类参与，趋势就会存在。
-</p>
-<p>
-[ANIMATION: animation/week51_trend_following.py —— 历史时间轴动画，展示从19世纪80年代至2020年代各年代的趋势跟踪收益，并标注重大历史事件。画面直观呈现该策略在截然不同的市场环境和历史时代中的一贯盈利性。]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 管理期货与我们在本课程中学到的所有其他内容如何配合？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这正好引出了下周整合课程的话题，但我先给你一个预告。把你的投资组合想象成多个层次。核心是市场敞口——股票和债券。因子倾斜在可控的追踪误差下增加适度的收益溢价。期权策略提供收入和尾部对冲。而管理期货提供终极的分散化工具——一种与其他所有资产真正不相关的策略，并在威胁投资组合其余部分的危机中创造正收益。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以管理期货是投资组合的保险单？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 是一张具有正期望收益的保险单。大多数保险都是要付费的——你缴纳保费，希望永远用不上理赔。而管理期货，从历史上看，在提供危机保护的同时，平均也创造了正收益。这不是免费的午餐——你要以跑输的时期作为代价——但在完整的市场周期中，它在收益和风险两个维度都创造了价值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这一期内容真的让我受益匪浅。我感觉管理期货正是大多数投资组合所缺失的那块拼图。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 的确如此。全球最大、最成熟的机构投资者——挪威政府养老基金、耶鲁捐赠基金、澳大利亚超级年金基金——已经配置管理期货数十年之久。零售投资者最近才通过交易所交易基金获得了这扇门。好好把握这个机会。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 下周是压轴大戏，我们要把所有内容整合在一起。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第52周：投资组合整合——将52周的学习成果融汇为一个完整、连贯的投资框架。下周见。
-</p>
-<p>
-[VISUAL: 结尾卡，包含课程要点总结、交易所交易基金对比表格及推荐延伸阅读]
 </p>
             </div>
         </div>

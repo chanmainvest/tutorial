@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -716,7 +745,7 @@ By the end of these twelve weeks, you will be able to:
 Level 1 is designed for complete beginners. If you have never invested before, or if you have been investing without fully understanding why, this level gives you the foundation to make informed decisions. Even experienced investors benefit from revisiting these fundamentals -- the basics are where the biggest mistakes happen.
 </p>
 <h3>Weekly Lessons</h3>
-<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>1</td><td>Why Invest? The Time Value of Money</td></tr><tr><td>2</td><td>Index Funds and ETFs</td></tr><tr><td>3</td><td>Understanding Risk and Return</td></tr><tr><td>4</td><td>The 60/40 Portfolio</td></tr><tr><td>5</td><td>Bonds - Your Portfolio's Shock Absorber</td></tr><tr><td>6</td><td>Gold and Commodities as Diversifiers</td></tr><tr><td>7</td><td>Portfolio Rebalancing</td></tr><tr><td>8</td><td>Reading Financial Statements - Basics</td></tr><tr><td>9</td><td>Understanding Market Indexes</td></tr><tr><td>10</td><td>Economic Cycles and Your Portfolio</td></tr><tr><td>11</td><td>Behavioral Biases - Your Brain vs Your Money</td></tr><tr><td>12</td><td>Building Your First Portfolio</td></tr></tbody></table>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week01.html'"><td><a href="week01.html">1</a></td><td><a href="week01.html">Why Invest? The Time Value of Money</a></td></tr><tr class="week-row" onclick="window.location='week02.html'"><td><a href="week02.html">2</a></td><td><a href="week02.html">Index Funds and ETFs</a></td></tr><tr class="week-row" onclick="window.location='week03.html'"><td><a href="week03.html">3</a></td><td><a href="week03.html">Understanding Risk and Return</a></td></tr><tr class="week-row" onclick="window.location='week04.html'"><td><a href="week04.html">4</a></td><td><a href="week04.html">The 60/40 Portfolio</a></td></tr><tr class="week-row" onclick="window.location='week05.html'"><td><a href="week05.html">5</a></td><td><a href="week05.html">Bonds - Your Portfolio's Shock Absorber</a></td></tr><tr class="week-row" onclick="window.location='week06.html'"><td><a href="week06.html">6</a></td><td><a href="week06.html">Gold and Commodities as Diversifiers</a></td></tr><tr class="week-row" onclick="window.location='week07.html'"><td><a href="week07.html">7</a></td><td><a href="week07.html">Portfolio Rebalancing</a></td></tr><tr class="week-row" onclick="window.location='week08.html'"><td><a href="week08.html">8</a></td><td><a href="week08.html">Reading Financial Statements - Basics</a></td></tr><tr class="week-row" onclick="window.location='week09.html'"><td><a href="week09.html">9</a></td><td><a href="week09.html">Understanding Market Indexes</a></td></tr><tr class="week-row" onclick="window.location='week10.html'"><td><a href="week10.html">10</a></td><td><a href="week10.html">Economic Cycles and Your Portfolio</a></td></tr><tr class="week-row" onclick="window.location='week11.html'"><td><a href="week11.html">11</a></td><td><a href="week11.html">Behavioral Biases - Your Brain vs Your Money</a></td></tr><tr class="week-row" onclick="window.location='week12.html'"><td><a href="week12.html">12</a></td><td><a href="week12.html">Building Your First Portfolio</a></td></tr></tbody></table>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第一級：基礎篇（第1至12週）</h1>
@@ -775,73 +804,7 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 第一級專為完全初學者而設。如果你從未投資過，或者你一直在投資但未能完全理解背後的原因，本級別將為你提供作出明智決策所需的基礎。即使是經驗豐富的投資者，重溫這些基礎知識同樣受益匪淺——最大的錯誤往往就出在基本功上。
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>1</td><td>為何投資？貨幣的時間價值</td></tr><tr><td>2</td><td>指數基金與交易所買賣基金</td></tr><tr><td>3</td><td>理解風險與回報</td></tr><tr><td>4</td><td>60/40投資組合</td></tr><tr><td>5</td><td>債券——你投資組合的緩衝器</td></tr><tr><td>6</td><td>黃金與商品作為分散投資工具</td></tr><tr><td>7</td><td>投資組合再平衡</td></tr><tr><td>8</td><td>閱讀財務報表——基礎篇</td></tr><tr><td>9</td><td>認識市場指數</td></tr><tr><td>10</td><td>經濟週期與你的投資組合</td></tr><tr><td>11</td><td>行為偏差——你的大腦與你的錢</td></tr><tr><td>12</td><td>建立你的第一個投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第一級概覽：奠定你的投資基礎 | 陳馬投資教學
-</p>
-<p>
-<strong>目標片長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陳馬，導師）：資深散戶投資者，憑多年市場經驗深入淺出地講解概念</li>
-<li><strong>Stella</strong>（小魚，學員）：剛畢業的大學生，正在學習如何投資儲蓄，代觀眾提問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 1: Foundation - Your First 12 Weeks"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到陳馬投資教學的第一級。我是 Horace，在接下來的十二週，我們將一起建立整個課程的根基。
-</p>
-<p>
-<strong>Stella：</strong> 我是 Stella。我是從零開始的——剛剛畢業，手頭有一點儲蓄，知道應該要投資，但老實說，真的不知道從何入手。
-</p>
-<p>
-<strong>Horace：</strong> 這正是我們希望你所處的起點。第一級不預設任何先備知識。我們從金融世界最重要的問題開始：你為什麼應該投資？
-</p>
-<p>
-<strong>Stella：</strong> 這就是第一週的內容，對嗎？貨幣的時間價值？
-</p>
-<p>
-<strong>Horace：</strong> 沒錯。我們會讓你看到，錢放在銀行賬戶裡，其實每一天都因為通脹而悄悄貶值。然後在第2至4週，我們會介紹最簡單、最有效的工具——指數基金和交易所買賣基金、風險與回報之間的取捨，以及經典的60/40投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 之後會更有趣嗎？
-</p>
-<p>
-<strong>Horace：</strong> 第5至8週會進一步擴充你的工具箱。你將學到債券如何在投資組合中擔當緩衝器的角色、黃金與商品如何降低波動性、再平衡的紀律，以及如何閱讀三份核心財務報表——損益表、資產負債表和現金流量表。
-</p>
-<p>
-<strong>Stella：</strong> 最後那個聽起來很嚇人。
-</p>
-<p>
-<strong>Horace：</strong> 只要知道看什麼重點，其實沒有你想的那麼難。然後在第9至12週，我們會把所有東西融合在一起。你將了解市場指數的運作方式、經濟週期如何影響你的投資、令大多數投資者高買低賣的行為偏差，最後，你將親手建立你的第一個真正的投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 所以到了第12週，我真的會有一個投資組合？
-</p>
-<p>
-<strong>Horace：</strong> 一個建立在你真正理解的原則之上、經過妥善分散的投資組合。這正是整個課程的核心——不只是照著指示做，而是真正明白每個決定背後的道理。
-</p>
-<p>
-<strong>Stella：</strong> 我準備好了。我們開始吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一週見。
-</p>
-<p>
-<strong>[完]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week01.html'"><td><a href="week01.html">1</a></td><td><a href="week01.html">為何投資？貨幣的時間價值</a></td></tr><tr class="week-row" onclick="window.location='week02.html'"><td><a href="week02.html">2</a></td><td><a href="week02.html">指數基金與交易所買賣基金</a></td></tr><tr class="week-row" onclick="window.location='week03.html'"><td><a href="week03.html">3</a></td><td><a href="week03.html">理解風險與回報</a></td></tr><tr class="week-row" onclick="window.location='week04.html'"><td><a href="week04.html">4</a></td><td><a href="week04.html">60/40投資組合</a></td></tr><tr class="week-row" onclick="window.location='week05.html'"><td><a href="week05.html">5</a></td><td><a href="week05.html">債券——你投資組合的緩衝器</a></td></tr><tr class="week-row" onclick="window.location='week06.html'"><td><a href="week06.html">6</a></td><td><a href="week06.html">黃金與商品作為分散投資工具</a></td></tr><tr class="week-row" onclick="window.location='week07.html'"><td><a href="week07.html">7</a></td><td><a href="week07.html">投資組合再平衡</a></td></tr><tr class="week-row" onclick="window.location='week08.html'"><td><a href="week08.html">8</a></td><td><a href="week08.html">閱讀財務報表——基礎篇</a></td></tr><tr class="week-row" onclick="window.location='week09.html'"><td><a href="week09.html">9</a></td><td><a href="week09.html">認識市場指數</a></td></tr><tr class="week-row" onclick="window.location='week10.html'"><td><a href="week10.html">10</a></td><td><a href="week10.html">經濟週期與你的投資組合</a></td></tr><tr class="week-row" onclick="window.location='week11.html'"><td><a href="week11.html">11</a></td><td><a href="week11.html">行為偏差——你的大腦與你的錢</a></td></tr><tr class="week-row" onclick="window.location='week12.html'"><td><a href="week12.html">12</a></td><td><a href="week12.html">建立你的第一個投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第一級：基礎（第1-12週）</h1>
@@ -900,73 +863,7 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 第一級專為完全的初學者設計。如果您從未投資過，或者您在投資但不完全理解原因，本級將為您提供做出明智決策的基礎。即使是有經驗的投資者也能從重新審視這些基本原則中獲益——基礎知識正是最容易犯下大錯誤的地方。
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>1</td><td>為何投資？貨幣時間價值</td></tr><tr><td>2</td><td>指數基金與指數股票型基金</td></tr><tr><td>3</td><td>了解風險與報酬</td></tr><tr><td>4</td><td>60/40投資組合</td></tr><tr><td>5</td><td>債券——您投資組合的緩衝器</td></tr><tr><td>6</td><td>黃金與大宗商品作為分散投資工具</td></tr><tr><td>7</td><td>投資組合再平衡</td></tr><tr><td>8</td><td>閱讀財務報表——基礎</td></tr><tr><td>9</td><td>了解市場指數</td></tr><tr><td>10</td><td>經濟週期與您的投資組合</td></tr><tr><td>11</td><td>行為偏誤——您的大腦對抗您的資金</td></tr><tr><td>12</td><td>建立您的第一個投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第一級概述：您的投資基礎 | 陳馬投資教學
-</p>
-<p>
-<strong>目標時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：有經驗的散戶交易者，從多年市場經驗中解釋概念</li>
-<li><strong>Stella</strong>（學生）：剛大學畢業的年輕女性，正在學習投資她的儲蓄，提出觀眾心中的問題</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[INTRO]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 1: Foundation - Your First 12 Weeks"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到陳馬投資教學的第一級。我是Horace（陳馬），在接下來的十二週裡，我們將建立本課程所有內容都賴以為基礎的根基。
-</p>
-<p>
-<strong>Stella：</strong> 我是Stella（小魚）。我是從零開始的——我剛畢業，有一些積蓄，我知道我應該投資，但老實說，我真的不知道從哪裡開始。
-</p>
-<p>
-<strong>Horace：</strong> 這正是我們希望你所處的狀態。第一級不需要任何先備知識。我們從金融中最重要的問題開始：你為什麼應該投資？
-</p>
-<p>
-<strong>Stella：</strong> 那是第一週，對吧？貨幣時間價值？
-</p>
-<p>
-<strong>Horace：</strong> 正是。我們將向你展示，為何放在銀行帳戶裡的錢，事實上每一天都因為通膨而在貶值。然後在第2到第4週，我們介紹最簡單也最有效的工具——指數基金和指數股票型基金、風險與報酬之間的取捨，以及經典的60/40投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 然後會變得更有趣嗎？
-</p>
-<p>
-<strong>Horace：</strong> 第5到第8週將擴展你的工具箱。你將學習債券如何在投資組合中扮演緩衝器的角色，為什麼黃金和大宗商品能降低波動性，再平衡的紀律，以及如何閱讀三份核心財務報表——損益表、資產負債表和現金流量表。
-</p>
-<p>
-<strong>Stella：</strong> 最後那個聽起來挺嚇人的。
-</p>
-<p>
-<strong>Horace：</strong> 一旦你知道要關注什麼，就不像看起來那麼難了。然後在第9到第12週，我們將一切融會貫通。你將了解市場指數如何運作、經濟週期如何影響你的投資、導致大多數投資者高買低賣的行為偏誤，最後，你將建立你的第一個真實投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 所以到第12週，我實際上會擁有一個投資組合？
-</p>
-<p>
-<strong>Horace：</strong> 一個建立在你所理解的原則上、經過適當分散的投資組合。這正是重點所在——不只是遵循指示，而是理解每個決策背後的原因。
-</p>
-<p>
-<strong>Stella：</strong> 我準備好了。我們開始吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一週見。
-</p>
-<p>
-<strong>[END]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week01.html'"><td><a href="week01.html">1</a></td><td><a href="week01.html">為何投資？貨幣時間價值</a></td></tr><tr class="week-row" onclick="window.location='week02.html'"><td><a href="week02.html">2</a></td><td><a href="week02.html">指數基金與指數股票型基金</a></td></tr><tr class="week-row" onclick="window.location='week03.html'"><td><a href="week03.html">3</a></td><td><a href="week03.html">了解風險與報酬</a></td></tr><tr class="week-row" onclick="window.location='week04.html'"><td><a href="week04.html">4</a></td><td><a href="week04.html">60/40投資組合</a></td></tr><tr class="week-row" onclick="window.location='week05.html'"><td><a href="week05.html">5</a></td><td><a href="week05.html">債券——您投資組合的緩衝器</a></td></tr><tr class="week-row" onclick="window.location='week06.html'"><td><a href="week06.html">6</a></td><td><a href="week06.html">黃金與大宗商品作為分散投資工具</a></td></tr><tr class="week-row" onclick="window.location='week07.html'"><td><a href="week07.html">7</a></td><td><a href="week07.html">投資組合再平衡</a></td></tr><tr class="week-row" onclick="window.location='week08.html'"><td><a href="week08.html">8</a></td><td><a href="week08.html">閱讀財務報表——基礎</a></td></tr><tr class="week-row" onclick="window.location='week09.html'"><td><a href="week09.html">9</a></td><td><a href="week09.html">了解市場指數</a></td></tr><tr class="week-row" onclick="window.location='week10.html'"><td><a href="week10.html">10</a></td><td><a href="week10.html">經濟週期與您的投資組合</a></td></tr><tr class="week-row" onclick="window.location='week11.html'"><td><a href="week11.html">11</a></td><td><a href="week11.html">行為偏誤——您的大腦對抗您的資金</a></td></tr><tr class="week-row" onclick="window.location='week12.html'"><td><a href="week12.html">12</a></td><td><a href="week12.html">建立您的第一個投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第一级：基础（第1-12周）</h1>
@@ -1025,73 +922,7 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 第一级专为完全的初学者设计。如果您从未投资过，或者您一直在投资但并未完全理解其中的原因，本级别将为您提供做出明智决策的基础。即使是有经验的投资者，也能从重温这些基础知识中获益——基础部分往往是最大的错误发生之处。
 </p>
 <h3>每周课程</h3>
-<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>1</td><td>为什么要投资？货币的时间价值</td></tr><tr><td>2</td><td>指数基金与交易所交易基金</td></tr><tr><td>3</td><td>理解风险与收益</td></tr><tr><td>4</td><td>60/40投资组合</td></tr><tr><td>5</td><td>债券——您投资组合的缓冲器</td></tr><tr><td>6</td><td>黄金和大宗商品作为分散投资工具</td></tr><tr><td>7</td><td>投资组合再平衡</td></tr><tr><td>8</td><td>阅读财务报表——基础入门</td></tr><tr><td>9</td><td>理解市场指数</td></tr><tr><td>10</td><td>经济周期与您的投资组合</td></tr><tr><td>11</td><td>行为偏差——您的大脑与您的金钱</td></tr><tr><td>12</td><td>构建您的第一个投资组合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 第一级概览：奠定您的投资基础 | 陈马投资教学
-</p>
-<p>
-<strong>目标时长：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陈馬，教师角色）：经验丰富的散户交易者，从多年市场经历中讲解概念</li>
-<li><strong>Stella</strong>（小魚，学生角色）：刚刚大学毕业，正在学习如何投资储蓄，提出观众心中所想的问题</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[开场]</strong>
-</p>
-<p>
-[VISUAL: 标题卡"第一级：基础——您的前12周"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎来到陈马投资教学第一级。我是Horace（陈馬），在接下来的十二周里，我们将共同建立整个课程其余内容所依赖的基础。
-</p>
-<p>
-<strong>Stella：</strong> 我是Stella（小魚）。我是从零开始的——我刚刚毕业，有一些储蓄，知道自己应该投资，但说实话，我真的不知道从哪里开始。
-</p>
-<p>
-<strong>Horace：</strong> 这正是我们期望您所处的状态。第一级不需要任何先验知识。我们从金融领域最重要的问题开始：您为什么要投资？
-</p>
-<p>
-<strong>Stella：</strong> 这就是第一周的内容，对吗？货币的时间价值？
-</p>
-<p>
-<strong>Horace：</strong> 没错。我们会向您展示，为什么放在银行账户里的钱实际上每天都在因为通胀而贬值。然后在第2到第4周，我们介绍最简单、最有效的工具——指数基金和交易所交易基金、风险与收益之间的权衡，以及经典的60/40投资组合。
-</p>
-<p>
-<strong>Stella：</strong> 然后会变得更有意思？
-</p>
-<p>
-<strong>Horace：</strong> 第5到第8周将扩展您的工具箱。您将学习债券如何在投资组合中充当缓冲器，为什么黄金和大宗商品能降低波动性，再平衡的纪律，以及如何阅读三大核心财务报表——利润表、资产负债表和现金流量表。
-</p>
-<p>
-<strong>Stella：</strong> 最后那个听起来挺吓人的。
-</p>
-<p>
-<strong>Horace：</strong> 一旦您知道关注什么，其实并不像看起来那么难。然后在第9到第12周，我们将所有内容融会贯通。您将了解市场指数如何运作，经济周期如何影响您的投资，导致大多数投资者高买低卖的行为偏差，最后，您将构建您的第一个真实投资组合。
-</p>
-<p>
-<strong>Stella：</strong> 所以到第12周，我真的会拥有一个投资组合？
-</p>
-<p>
-<strong>Horace：</strong> 一个建立在您所理解的原则之上、经过合理分散的投资组合。这才是重点所在——不只是遵循指令，而是理解每个决策背后的逻辑。
-</p>
-<p>
-<strong>Stella：</strong> 我准备好了。让我们开始吧。
-</p>
-<p>
-<strong>Horace：</strong> 第一周见。
-</p>
-<p>
-<strong>[结束]</strong>
-</p>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week01.html'"><td><a href="week01.html">1</a></td><td><a href="week01.html">为什么要投资？货币的时间价值</a></td></tr><tr class="week-row" onclick="window.location='week02.html'"><td><a href="week02.html">2</a></td><td><a href="week02.html">指数基金与交易所交易基金</a></td></tr><tr class="week-row" onclick="window.location='week03.html'"><td><a href="week03.html">3</a></td><td><a href="week03.html">理解风险与收益</a></td></tr><tr class="week-row" onclick="window.location='week04.html'"><td><a href="week04.html">4</a></td><td><a href="week04.html">60/40投资组合</a></td></tr><tr class="week-row" onclick="window.location='week05.html'"><td><a href="week05.html">5</a></td><td><a href="week05.html">债券——您投资组合的缓冲器</a></td></tr><tr class="week-row" onclick="window.location='week06.html'"><td><a href="week06.html">6</a></td><td><a href="week06.html">黄金和大宗商品作为分散投资工具</a></td></tr><tr class="week-row" onclick="window.location='week07.html'"><td><a href="week07.html">7</a></td><td><a href="week07.html">投资组合再平衡</a></td></tr><tr class="week-row" onclick="window.location='week08.html'"><td><a href="week08.html">8</a></td><td><a href="week08.html">阅读财务报表——基础入门</a></td></tr><tr class="week-row" onclick="window.location='week09.html'"><td><a href="week09.html">9</a></td><td><a href="week09.html">理解市场指数</a></td></tr><tr class="week-row" onclick="window.location='week10.html'"><td><a href="week10.html">10</a></td><td><a href="week10.html">经济周期与您的投资组合</a></td></tr><tr class="week-row" onclick="window.location='week11.html'"><td><a href="week11.html">11</a></td><td><a href="week11.html">行为偏差——您的大脑与您的金钱</a></td></tr><tr class="week-row" onclick="window.location='week12.html'"><td><a href="week12.html">12</a></td><td><a href="week12.html">构建您的第一个投资组合</a></td></tr></tbody></table>
             </div>
         </div>
     </main>

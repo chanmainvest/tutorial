@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1500,208 +1529,6 @@ A: This is a pragmatic approach that some advisors recommend. You could lump sum
 <strong>問：我應該對投資組合的不同部分使用不同的方法嗎？</strong>
 答：這是一些顧問推薦的實用方法。你可以對債券配置進行一次過投資（波動性較低，情緒風險較小）並對股票配置使用平均成本法（波動性較高，情緒風險較大）。或者對大型股票進行一次過投資，對更具波動性的小型股票和國際配置使用平均成本法。這種混合方法承認不同資產類別對投資者的心理重量不同。
 </p>
-<hr>
-<h2>第二部分：YouTube 影片腳本</h2>
-<hr>
-<h3>「平均成本法 vs. 一次過投資：數據到底說了什麼」</h3>
-<p>
-<strong>目標長度：</strong> 16至20分鐘
-<strong>語調：</strong> 均衡、以數據為導向、尊重兩方觀點
-</p>
-<hr>
-<p>
-<strong>[VISUAL: 一個人站在十字路口。一條路標著「立刻全部投入」，另一條標著「分批逐步投入」。標題卡：「平均成本法 vs. 一次過投資：真正的答案」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 你剛收到十萬元。也許是遺產、花紅，或者你賣掉了房子。你想投資它。你是今天全部投入，還是在接下來一年分批投入？
-</p>
-<p>
-<strong>Stella：</strong> 我覺得大多數人的直覺是分批投入，感覺更安全。
-</p>
-<p>
-<strong>Horace：</strong> 這種感覺是有道理的。但讓我們來看看數據實際說了什麼，因為它可能會讓你感到驚訝。然後我們再討論為什麼數據對每個人來說可能不是最終答案。
-</p>
-<p>
-<strong>[VISUAL: 標題卡分成兩欄：「數學 | 心理學」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 讓我先從數學說起。先鋒集團發表了一項比較一次過投資與平均成本法的里程碑式研究。他們研究了1926年以來美國每一個可能的12個月期間，並在英國和澳洲市場進行了驗證。
-</p>
-<p>
-<strong>[VISUAL: 先鋒集團研究報告封面，然後是柱狀圖顯示「一次過投資勝出：68%」對比「平均成本法勝出：32%」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 結果：一次過投資在大約三分之二的時間跑贏平均成本法。當它勝出時，在12個月的平均成本法期間平均跑贏約2.3%。
-</p>
-<p>
-<strong>Stella：</strong> 三分之二的時間是很多。為什麼？
-</p>
-<p>
-<strong>Horace：</strong> 邏輯很簡單。市場上升的時間多於下跌的時間。大約75%的曆年是正的。如果你的資金在現金中等待投資，而市場很可能上升，那麼每個月的延遲都是錯失回報的一個月。
-</p>
-<p>
-<strong>[ANIMATION: 時間軸顯示12個月。平均成本法每月投入$10,000。市場線在整個期間呈上升趨勢。每次平均成本法供款都以逐步上漲的價格買入。第一筆$10,000獲得12個月的增長。最後一筆$10,000只獲得1個月。一次過投資疊加顯示全部$120,000獲得12個月的增長。]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 這樣想吧。使用平均成本法，你的第一筆供款投資12個月，第二筆11個月，第三筆10個月，以此類推。你的最後一筆供款只有1個月的市場敞口。但一次過投資，每一分錢都獲得完整的12個月。在上升的市場中，這是一個巨大的優勢。
-</p>
-<p>
-<strong>Stella：</strong> 好，那三分之一平均成本法勝出的情況呢？
-</p>
-<p>
-<strong>Horace：</strong> 那是市場在平均成本法期間下跌的時候。在這些情況下，你後來的供款以更低的價格買入，所以你以更低的平均成本獲得了更多份額。如果市場然後反彈，你就佔了上風。
-</p>
-<p>
-<strong>[ANIMATION: 相同的時間軸，但市場線在前6個月下跌然後恢復。平均成本法供款在下跌期間以更低的價格買入。平均成本法投資組合最終比一次過投資組合價值更高。]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 問題是你事先無法知道你在哪個場景中。你基本上是在賭接下來12個月會是正還是負。從歷史上看，正面的可能性超過兩倍。
-</p>
-<p>
-<strong>Stella：</strong> 讓我來扮演魔鬼代言人。我聽到了你說的數學。但想像一下，你從剛過世的父母那裡繼承了二十萬元。那筆錢充滿了情感。你週一全部投入，到週五市場下跌了15%。你在一週內損失了三萬元父母的遺產。
-</p>
-<p>
-<strong>[VISUAL: 富有同情心的影像——一個人看著顯示投資組合下跌的手機，旁邊有一張家庭照片]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 而這個場景正是為什麼數學不是全部的原因。那種經歷的心理代價可能是巨大的。你可能恐慌出貨。你可能對投資產生永久的恐懼。你可能幾個月都無法入睡。
-</p>
-<p>
-<strong>Stella：</strong> 所以你無法堅持的最佳策略，比你能堅持的次優策略更差。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。這是核心矛盾。一次過投資最大化預期財富。平均成本法最小化最大後悔。對很多人來說，最小化後悔是正確的目標。
-</p>
-<p>
-<strong>[VISUAL: 兩欄對比。欄1：「一次過投資——最大化預期財富」，圖表顯示更高的平均結果但更寬的範圍。欄2：「平均成本法——最小化最大後悔」，圖表顯示略低的平均值但更窄的結果範圍。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 有折衷方案嗎？
-</p>
-<p>
-<strong>Horace：</strong> 有幾個。我最喜歡的是我所說的加速式平均成本法。不是12個月，而是壓縮至3至4個月。這減少了等待的機會成本，同時仍然提供了不需要在一天內全部投入的心理安慰。
-</p>
-<p>
-<strong>[VISUAL: 三種策略在一個範圍上。最左邊：「完整平均成本法（12個月）」——最保守。中間：「加速式平均成本法（3至4個月）」——均衡。最右邊：「完整一次過投資」——最高預期回報。]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 另一個選擇：立刻投入一半，其餘一半在6個月內以平均成本法投入。研究表明這能捕捉大約75%的一次過投資優勢，同時將最大後悔減少約一半。
-</p>
-<p>
-<strong>Stella：</strong> 讓我問一個沒有人想回答的問題。如果你一次過投資後市場下跌20%，該怎麼辦？
-</p>
-<p>
-<strong>Horace：</strong> 讓我們看看真實的歷史。如果你有最糟糕的時機，在2008年金融危機之前的絕對頂峰——你能選擇的最差一天——一次過投資，需要多長時間恢復？
-</p>
-<p>
-<strong>[VISUAL: 圖表顯示從2007年10月頂峰到恢復的標普500走勢。確切的恢復日期有標記。]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 約5年半才能回到盈虧平衡。到2013年你已經恢復了。到2019年你的資金已經翻倍以上。記住，這是絕對最壞的情況。大多數一次過投資在大多數年份永遠不會面臨接近50%的回撤。
-</p>
-<p>
-<strong>Stella：</strong> 5年半在親身經歷時感覺很長。
-</p>
-<p>
-<strong>Horace：</strong> 確實如此。這就是你的投資期為何重要。如果你兩年後需要這筆錢，一次過投資還是平均成本法投入股票都不合適——它應該在短期債券或現金中。如果你的投資期是20或30年，5年的恢復期只是一個小插曲。
-</p>
-<p>
-<strong>[ANIMATION: 時間軸顯示30年投資期。2008年崩盤在第1至6年出現為一個低谷，但到第10年已幾乎看不見。到第30年，它只是長期上升趨勢中的一個小凸起。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 關於平均成本法實際上不是風險降低策略而只是延遲投資的論點呢？
-</p>
-<p>
-<strong>Horace：</strong> 這是正確的，而且是一個重要的觀點。一旦你的平均成本法計劃完成，你的市場敞口與一次過投資者完全相同。如果崩盤在第13個月發生——在你12個月的平均成本法完成後——你們兩個都受到同樣的衝擊。平均成本法只保護你免受在平均成本法窗口期間發生的崩盤影響，完全不會降低你的長期風險。
-</p>
-<p>
-<strong>[ANIMATION: 兩個投資組合。一次過投資者從第1個月起完全投資。平均成本法投資者逐漸在第12個月達到相同水平。第12個月後，兩個投資組合完全相同。第18個月的崩盤對兩者產生同等影響。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 我認為關鍵的洞察是，這個問題比人們認為的重要性要低得多。
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。讓我把它放在背景中。在30年的投資期內，初始投資的一次過投資與12個月平均成本法之間的差異，影響的可能只是你總體結果的頭1至2%。是什麼驅動了其他98%？你儲蓄了多少。你的資產配置是什麼。你是否在下跌期間保持投資。你是否進行再平衡。你是否有效管理稅務。這些因素才是決定性的。
-</p>
-<p>
-<strong>[VISUAL: 圓餅圖「決定你30年結果的因素」。平均成本法 vs. 一次過投資：1至2%。儲蓄率：30%。資產配置：35%。保持投資：20%。稅務效益：10至15%。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 所以我們花了整整一集討論只影響1至2%結果的事情。
-</p>
-<p>
-<strong>Horace：</strong> 我們這樣做，是因為這個問題讓人們癱瘓了。一個從未投資的投資者，因為無法在一次過投資和平均成本法之間做出選擇，損失了100%的潛在回報。最大的風險不是在一次過投資和平均成本法之間選錯了。最大的風險是根本沒有選擇。
-</p>
-<p>
-<strong>[VISUAL: 三種結果排名。最差：「永遠不投資（永遠持有現金）」。較好：「12個月平均成本法」。最好（平均而言）：「一次過投資」。「永遠不投資」與任何策略之間的差距是巨大的。平均成本法與一次過投資之間的差距是適度的。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 讓我提到你之前提到的「世界上最糟糕的市場擇時者」研究。告訴我更多關於那個的事情。
-</p>
-<p>
-<strong>Horace：</strong> 嘉信理財進行了這項迷人的分析。他們研究了在20年滾動期間，每位每年投資兩千元的五名投資者。
-</p>
-<p>
-<strong>[VISUAL: 出現五種投資者類型。「完美擇時者：在年度最低點投資。」「立刻投資者：1月1日投資。」「平均成本法投資者：全年分散投資。」「糟糕擇時者：在年度最高點投資。」「現金囤積者：永遠不投資。」]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 完美擇時者每年在絕對最低點投資。立刻投資者在每個交易年度的第一天投入資金。平均成本法投資者每月分散投入。糟糕擇時者每年都設法在絕對最差的時機投資。現金囤積者把一切都放在國庫券中。
-</p>
-<p>
-<strong>Stella：</strong> 結果是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 完美擇時者做得最好，這是顯而易見的。但立刻投資者跟隨在後，非常接近。平均成本法排在第三。糟糕擇時者排在第四。現金囤積者遠遠墊底，差距巨大。
-</p>
-<p>
-<strong>[ANIMATION: 柱狀圖從左到右逐步顯示20年後的最終價值。每根柱子都有標籤和數值。任何投資策略與現金囤積者之間的差距，遠大於最佳和最差擇時者之間的差距。]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 所以即使是世界上最糟糕的市場擇時者——某個每一年都在頂峰投資的人——也大幅跑贏了留在現金中的人。
-</p>
-<p>
-<strong>Horace：</strong> 以倍計。教訓是清晰的：最佳擇時和最差擇時之間的差異，相比投資和不投資之間的差異是微不足道的。在市場中的時間壓倒了市場擇時。這可以說是個人理財中最重要的一張圖表。
-</p>
-<p>
-<strong>Stella：</strong> 關於價值平均法呢？你簡短地提到過。
-</p>
-<p>
-<strong>Horace：</strong> 價值平均法針對特定的投資組合增長率。你不是每月投入固定金額，而是調整投資以達到目標價值。如果市場下跌，你投入更多。如果市場上升，你投入更少。它自動在低價位買入更多，在高價位買入更少。
-</p>
-<p>
-<strong>[ANIMATION: 兩個柱狀圖並排顯示12個月。左邊：「平均成本法」——每月等高的柱子。右邊：「價值平均法」——下跌月份的高柱，上升月份的低柱。總投入相似，但分布不同。]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 一些研究表明，價值平均法比標準平均成本法產生略好的回報。但它更複雜，現金流不可預測，而且平均來說仍然不能跑贏一次過投資。對於喜歡優化且能承受可變供款金額的投資者來說，這是合理的中間道路。
-</p>
-<p>
-<strong>Stella：</strong> 那麼實際要點是什麼？
-</p>
-<p>
-<strong>Horace：</strong> 如果你能承受波動且投資期很長，一次過投資然後繼續過你的生活。如果想到一次性投入讓你夜不能寐，在3至6個月內以平均成本法投入，好好睡覺。如果你想要折衷，立刻投入60%並對其餘部分使用平均成本法。如果你陷入癱瘓，設置自動月度投資並讓系統完成工作。最重要的是完成投資並保持投資。
-</p>
-<p>
-<strong>Stella：</strong> 任何能讓你從現金轉移到目標配置的方法都是好方法。
-</p>
-<p>
-<strong>Horace：</strong> 只要你不在市場出現小波動時撤銷它。這讓我們回到了投資中的真正技能——不是入市策略，而是一旦入市後保持方向的情緒紀律。
-</p>
-<p>
-<strong>[VISUAL: 決策流程圖。「有一次過資金？」-> 「能承受波動？」-> 是：「今天一次過投資。」否：「能承諾時間表？」-> 是：「3至6個月平均成本法。」否：「現在投入50至60%，其餘每月自動投資。」所有路徑匯聚至：「保持投資。不要在下跌時賣出。」]</strong>
-</p>
-<p>
-<strong>[VISUAL: 重點回顧：「一次過投資約68%的時間勝出 | 平均成本法降低最大後悔 | 長期差異很小 | 真正的風險是根本不投資 | 選擇你能堅持的方法」]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 非常好。下次見。
-</p>
-<p>
-<strong>[VISUAL: 結束卡片顯示頻道資訊及「下一集：附加課程 06 — 認識通脹」]</strong>
-</p>
-<hr>
-<p>
-<strong>附加課程 05 完</strong>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <p>
@@ -2046,208 +1873,6 @@ The translation is complete and ready to write. Key Taiwan-specific terminology 
 <p>
 <strong>问：我是否应该对投资组合的不同部分采用不同的方法？</strong>
 答：这是一些顾问推荐的务实方法。你可以对债券配置（波动性较低，情绪风险较小）进行一次性投资，对股票配置（波动性较高，情绪风险较大）进行定投。或者对大盘股一次性投资，对波动性更大的小盘股和国际配置进行定投。这种混合方法承认不同资产类别对投资者具有不同的心理重量。
-</p>
-<hr>
-<h2>第二部分：YouTube 脚本</h2>
-<hr>
-<h3>"一次性投资与定投：数据真正告诉我们什么"</h3>
-<p>
-<strong>目标时长：</strong> 16-20 分钟
-<strong>基调：</strong> 平衡、数据驱动、尊重双方观点
-</p>
-<hr>
-<p>
-<strong>[VISUAL: 一个人站在十字路口。一条路标注"立即全部投入"，另一条标注"分批逐步投入"。标题卡："定投与一次性投资：真正的答案"]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 你刚刚得到了十万美元。也许是遗产、奖金，或者你卖掉了房子。你想投资它。你是今天全部投入，还是在接下来一年里分批投入？
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 我觉得大多数人的直觉是分批投入。感觉更安全。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 这种感觉是有道理的。但让我们来看看数据实际上告诉了我们什么，因为它可能会让你感到意外。然后让我们讨论一下为什么数据对每个人来说可能都不是最终答案。
-</p>
-<p>
-<strong>[VISUAL: 标题卡分为两部分："数学 | 心理学"]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 让我从数学开始。先锋集团发表了一项里程碑式的研究，比较了一次性投资和定投。他们研究了1926年以来美国每一个可能的12个月时期，同时还检查了英国和澳大利亚市场。
-</p>
-<p>
-<strong>[VISUAL: 先锋集团研究报告封面，然后是柱状图显示"一次性投资胜出：68%" vs "定投胜出：32%"]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 结果：一次性投资在约三分之二的时间内胜出了定投。当它胜出时，在12个月定投期间内平均超出约2.3个百分点。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 三分之二的时间是很多了。为什么？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 简单的逻辑。市场上涨的时间多于下跌的时间。约75%的自然年是正收益年。如果你的资金闲置在现金中等待投入，而市场很可能上涨，那么每个月的延迟就是错失的一个月收益。
-</p>
-<p>
-<strong>[ANIMATION: 时间轴显示12个月。每月1万美元进入定投。市场线在此期间呈上升趋势。每笔定投以递增的价格买入。第一笔1万美元获得12个月的增长。最后一笔只获得1个月。一次性投资叠加显示全部12万美元获得12个月的增长。]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 这样想。通过定投，你的第一笔资金投入市场12个月，第二笔11个月，第三笔10个月，以此类推。你的最后一笔只有1个月的市场敞口。但通过一次性投资，每一分钱都获得完整的12个月。在上涨的市场中，这是一个巨大的优势。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 好的，那定投胜出的那三分之一时间呢？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 那是市场在定投期间下跌的情况。在这些情况下，你后面的定投以较低的价格买入，所以你以较低的平均成本获得了更多份额。如果市场随后恢复，你就领先了。
-</p>
-<p>
-<strong>[ANIMATION: 同样的时间轴，但市场线在前6个月下跌然后恢复。定投在下跌期间以较低价格买入。定投投资组合最终价值高于一次性投资投资组合。]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 问题是你无法提前知道你处于哪种情景。你本质上是在押注接下来的12个月是正还是负。从历史上看，正面的可能性超过两倍。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 让我来唱唱反调。我听你说数学了。但想象一下你继承了父母刚过世留下的20万美元。那笔钱带着深厚的情感。你周一全部投入，到周五市场下跌了15%。你在一周内损失了3万美元的父母遗产。
-</p>
-<p>
-<strong>[VISUAL: 充满同理心的图像——一个人看着显示投资组合下跌的手机，旁边放着家庭照片]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 而那种情景正是为什么数学不是全部答案。那种经历的心理成本可能是巨大的。你可能会恐慌性卖出。你可能对投资产生永久性恐惧。你可能会失眠几个月。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 所以你无法坚持的最佳策略，比你能坚持的次优策略更糟糕。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 正是。这是核心矛盾。一次性投资最大化了预期财富。定投最小化了最大后悔。对许多人来说，最小化后悔是正确的目标。
-</p>
-<p>
-<strong>[VISUAL: 两栏比较。左栏："一次性投资——最大化预期财富"，图表显示更高的平均结果但更宽的范围。右栏："定投——最小化最大后悔"，图表显示略低的平均值但更窄的结果范围。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 有没有折中方案？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 有几种。我最喜欢的是我所说的加速定投。不是12个月，而是压缩到3到4个月。这在提供心理安慰的同时减少了等待的机会成本。一些研究表明，3个月的定投能捕获大部分"减少后悔"的收益，同时对预期收益的拖累更小。
-</p>
-<p>
-<strong>[VISUAL: 一个谱系上的三种策略。最左："完整定投（12个月）"——最保守。中间："加速定投（3-4个月）"——平衡。最右："完整一次性投资"——最高预期收益。]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 另一个选择：立即投入一半，其余在6个月内定投。研究表明这能获得约75%的一次性投资预期价值优势，同时将最大后悔减少约一半。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 让我问那个没人想回答的问题。如果你一次性投资然后市场下跌了20%怎么办？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 让我们看看真实历史。如果你的时机极其糟糕，在2008年金融危机之前的绝对高点一次性投资——你所能选的最糟糕的一天——需要多长时间才能恢复？
-</p>
-<p>
-<strong>[VISUAL: 图表显示从2007年10月高点到恢复的标普500走势。恢复日期被标注出来。]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 约五年半才能回本。到2013年，你回来了。到2019年，你的钱超过翻倍。记住，这是绝对的最坏情况。大多数一次性投资在大多数年份中从未面临接近50%的回撤。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 五年半在经历的时候感觉很长。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 是的。这就是你的投资时限很重要的原因。如果你两年内需要这笔钱，无论是一次性投资还是定投到股票都不合适——它应该放在短期债券或现金中。如果你的投资时限是二十或三十年，五年的恢复期只是一个小插曲。
-</p>
-<p>
-<strong>[ANIMATION: 时间轴显示30年投资时限。2008年崩盘在第1-6年出现为一次下跌，但到第10年几乎看不见了。到第30年，它只是一条长期上升轨迹上的一个小凸起。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 关于定投不是真正的风险降低策略、而只是延迟投资的论点怎么看？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 这是正确的，也是重要的观点。一旦你的定投计划完成，你与一次性投资者拥有完全相同的市场敞口。如果崩盘发生在第13个月——在你12个月定投完成之后——两者受到的冲击是一样的。定投只保护你免受发生在定投窗口期内的崩盘影响。它根本不降低你的长期风险。
-</p>
-<p>
-<strong>[ANIMATION: 两个投资组合。一次性投资者从第1个月起完全投入。定投者逐渐在第12个月达到同等水平。第12个月后，两个投资组合完全相同。第18个月的崩盘对两者影响相同。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 我认为关键洞察是这个问题的重要性远不如人们想象的那么大。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 完全正确。让我来提供一些视角。在30年的投资时限内，初始投资的一次性投资与12个月定投之间的差异可能影响你总结果的1到2个百分点。是什么驱动了其余的98%？你存了多少。你的资产配置是什么。你是否在下跌中坚持投资。你是否再平衡。你是否有效管理税务。这些因素占主导地位。
-</p>
-<p>
-<strong>[VISUAL: 饼图"决定你30年结果的因素"。定投vs一次性投资：1-2%。储蓄率：30%。资产配置：35%。坚持投资：20%。税务效率：10-15%。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 所以我们花了一整集讨论只占结果1到2%的东西。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 是的，因为这是让人们陷入瘫痪的问题。一个因为无法在一次性投资和定投之间做出决定而从不投资的投资者，会损失100%的潜在收益。最大的风险不是在LSI和定投之间做出错误的选择。最大的风险是根本不做选择。
-</p>
-<p>
-<strong>[VISUAL: 三种结果排名。最差："从不投资（永远持现金）"。较好："12个月定投"。最好（平均）："一次性投资"。"从不投资"与任何一种策略之间的差距是巨大的。定投和一次性投资之间的差距很小。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 让我提起你之前提到的"世界上最糟糕的市场择时者"研究。告诉我那个研究。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 嘉信理财进行了这项引人入胜的分析。他们研究了五位投资者在20年滚动期内的情况，每人每年投资2000美元。
-</p>
-<p>
-<strong>[VISUAL: 五种投资者档案出现。"完美择时者：每年低点买入。""即时投资者：1月1日买入。""定投者：全年分散投入。""糟糕择时者：每年高点买入。""现金持有者：从不投资。"]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 完美择时者每年都在绝对低点买入。即时投资者在每年第一个交易日存入资金。定投者每月分散投入。糟糕择时者每年都能设法在绝对最差的时刻买入。而现金持有者将一切都保留在国债中。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 结果如何？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 完美择时者当然做得最好。但即时投资者与其非常接近。定投者排第三。糟糕择时者排第四。而现金持有者垫底，差距巨大。
-</p>
-<p>
-<strong>[ANIMATION: 柱状图从左到右显示20年期末价值。每个柱子都有标签和数值。任何投资策略与现金持有者之间的差距，远大于最好与最差择时者之间的差距。]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 所以即使是世界上最糟糕的市场择时者——每年都在绝对高点买入的人——也大幅跑赢了持有现金的人。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 倍数级的差距。教训是明确的：最佳时机和最差时机之间的差异，与投资和不投资之间的差异相比是微小的。在市场中的时间远比入市的时机重要。这可以说是个人理财中最重要的图表。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 价值平均法怎么样？你简短地提到过。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 价值平均法以特定的投资组合增长率为目标。你不是每月投入固定金额，而是调整投入以达到目标价值。如果市场下跌，你投入更多。如果上涨，你投入更少。它自动在低价时买入更多，在高价时买入更少。
-</p>
-<p>
-<strong>[ANIMATION: 两个柱状图并排显示12个月。左："定投"——每月等高的柱子。右："价值平均法"——下跌月份柱子高，上涨月份柱子低。总投入相似，但分布不同。]</strong>
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 一些研究表明，价值平均法比标准定投产生略好的收益。但它更复杂，现金流不可预测，而且平均来看仍然无法胜过一次性投资。对于喜欢优化且能够处理可变缴款额的投资者来说，这是合理的中间路线。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 那么实际的收获是什么？
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 如果你能承受波动且投资时限较长，一次性投资然后继续生活。如果一次性投资的想法让你夜不能寐，在3到6个月内定投并好好睡觉。如果你想要折中，立即投入60%并定投其余。如果你陷入瘫痪，设置自动月度投资让系统替你完成工作。最重要的是入市并保持投资。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 任何能让你从现金转向目标配置的方法都是好方法。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 只要你在市场波动时不撤回就行。这让我们回到了投资中真正的技能——不是入市策略，而是在入市后坚持到底的情绪纪律。
-</p>
-<p>
-<strong>[VISUAL: 决策流程图。"有一次性资金？" -> "能承受波动？" -> 是："今天一次性投资。" 否："能遵守计划？" -> 是："在3-6个月内定投。" 否："立即投入50-60%，其余每月自动投入。" 所有路径汇聚到："保持投资。下跌时不要卖出。"]</strong>
-</p>
-<p>
-<strong>[VISUAL: 回顾："一次性投资约68%的时间胜出 | 定投减少最大后悔 | 长期差异很小 | 真正的风险是根本不投资 | 选择你能坚持的方法"]</strong>
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 完美。下期见。
-</p>
-<p>
-<strong>[VISUAL: 片尾卡，含频道信息和"下一课：补充课 06——理解通胀"]</strong>
-</p>
-<hr>
-<p>
-<strong>补充课 05 结束</strong>
 </p>
             </div>
         </div>

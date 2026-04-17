@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1246,252 +1275,6 @@ A10: Currency movements directly affect the dollar value of foreign dividends. I
 <strong>問題十：貨幣走勢如何影響國際股息收益率？</strong>
 答案十：貨幣走勢直接影響外國股息的美元價值。若歐洲股票派發2歐元股息，而歐元兌美元貶值10%，你的美元股息即減少10%。這令未對沖的國際股息策略在美元收入方面的可預測性下降。若你依賴國際股息作為收入，使用對沖交易所買賣基金可提供更穩定的美元計現金流。對長線再投資股息的投資者而言，股息派發中的貨幣波動較不令人擔憂，因為股息將按現行匯率再投資。
 </p>
-<hr>
-<h2>第二部分：YouTube 影片腳本</h2>
-<hr>
-<p>
-<strong>標題：貨幣對沖詳解：保護你的國際投資</strong>
-</p>
-<p>
-<strong>時長：約17分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 小魚，我持有一隻國際股票交易所買賣基金。我朋友說我在不知不覺中進行了一個「貨幣押注」。這是什麼意思？我應該擔心嗎？
-</p>
-<p>
-<strong>Stella：</strong> 你朋友提出了一個大多數投資者忽略的重點。
-</p>
-<p>
-<strong>Stella：</strong> 你朋友說得對。當你購買國際股票時，你實際上在進行兩個押注。一個押注外國股票上漲，另一個押注外幣相對美元保值。
-</p>
-<p>
-<strong>[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "Stock Return" pointing to a stock chart. Arrow 2 labeled "Currency Return" pointing to an exchange rate chart. Both arrows merge into "Your Total Return"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 你能用實例說明這是如何運作的嗎？
-</p>
-<p>
-<strong>Stella：</strong> 當然。假設你以每美元兌換110日圓的匯率，投資一萬美元購買日本股票交易所買賣基金。
-</p>
-<p>
-<strong>[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 日本股票上漲15%。好消息，對吧？你的投資現值126萬5千日圓。
-</p>
-<p>
-<strong>Horace：</strong> 聽起來是不錯的回報。
-</p>
-<p>
-<strong>Stella：</strong> 但等等。在你持倉期間，日圓走弱了。匯率從每美元110日圓移動至130日圓。現在我們換算回去。
-</p>
-<p>
-<strong>[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "-2.7% dollar return" despite "+15% yen return"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 我虧損了？！股票上漲了15%，我卻虧損了？
-</p>
-<p>
-<strong>Stella：</strong> 以美元計算，是的。日圓貶值了約15%，不僅抵消了你的股票漲幅，還令你出現虧損。這就是貨幣風險的實際作用。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side bars showing: Local Return +15%, Currency Return -15.4%, Dollar Return -2.7%]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 太痛苦了。我怎樣保護自己？
-</p>
-<p>
-<strong>Stella：</strong> 這就是貨幣對沖的作用所在。你可以抵消貨幣效應，使你的回報接近本地股票市場的回報。
-</p>
-<p>
-<strong>[ANIMATION: Same scenario replayed but with a "HEDGE" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 對沖實際上是如何運作的？
-</p>
-<p>
-<strong>Stella：</strong> 主要工具稱為遠期合約。它鎖定未來某個日期的匯率。當你購買對沖交易所買賣基金時，基金管理人簽訂遠期合約，以預定匯率出售外幣並買入美元。
-</p>
-<p>
-<strong>[ANIMATION: Timeline showing: Today - enter forward contract to sell yen at rate 110. One month later - regardless of spot rate, exchange at 110. New forward contract entered. Process repeats monthly]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 每個月，基金滾動遠期合約。這有效地消除了你回報中的貨幣波動。無論日圓升或跌，對沖都鎖定了近似相同的匯率。
-</p>
-<p>
-<strong>Horace：</strong> 這需要付出成本嗎？
-</p>
-<p>
-<strong>Stella：</strong> 這就是有趣之處。對沖成本由兩國之間的利率差異決定。
-</p>
-<p>
-<strong>[VISUAL: Balance scale with "US Interest Rate 5%" on one side and "Japanese Interest Rate 0%" on the other. Arrow pointing down to "Hedging Benefit: ~5% per year"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 目前，美國利率遠高於日本利率。當你將日圓對沖回美元時，你實際上賺取了利率差異。這約為每年5%的額外回報。
-</p>
-<p>
-<strong>Horace：</strong> 等等，對沖讓我賺錢？
-</p>
-<p>
-<strong>Stella：</strong> 在這個利率環境下，是的。這稱為「遠期溢價」或「套息」。當美國利率高於外國利率時，對沖產生正套息。但這是雙向的。若美國利率跌至低於日本利率，對沖就需要付出成本了。
-</p>
-<p>
-<strong>[ANIMATION: See-saw showing US rates on one side and foreign rates on the other. When US side is higher, hedging pays. When foreign side is higher, hedging costs]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 所以對沖與非對沖之間的選擇並不簡單。
-</p>
-<p>
-<strong>Stella：</strong> 一點也不。讓我用真實的交易所買賣基金向你展示實際差異。
-</p>
-<p>
-<strong>[VISUAL: Performance comparison chart showing EFA (unhedged EAFE) vs HEFA (hedged EAFE) over 5 years, with periods of dollar strength and weakness marked]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在美元走強時期，如2021年及2022年，對沖版本大幅跑贏非對沖版本。在美元走弱時期，如2017年，非對沖版本則勝出。從非常長線來看，差距往往會相互抵消。
-</p>
-<p>
-<strong>Horace：</strong> 那我如何決定？
-</p>
-<p>
-<strong>Stella：</strong> 讓我給你一個簡單的框架。
-</p>
-<p>
-<strong>[ANIMATION: Decision tree appearing step by step]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一個問題：你投資的是國際債券還是股票？
-</p>
-<p>
-<strong>Horace：</strong> 為什麼這很重要？
-</p>
-<p>
-<strong>Stella：</strong> 對債券而言，一定要對沖。債券回報較小，可能只有3至4%。貨幣波動性可達10至15%。未對沖的國際債券基本上是一個附帶少量債券收入的貨幣押注。
-</p>
-<p>
-<strong>[VISUAL: Risk comparison showing International Bond Return (3-4%) vs Currency Volatility (10-15%), with the currency risk dwarfing the bond return]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 這正是為什麼先鋒的國際債券交易所買賣基金BNDX默認已對沖。對債券而言這本就是合理的做法。
-</p>
-<p>
-<strong>Horace：</strong> 那股票呢？
-</p>
-<p>
-<strong>Stella：</strong> 對股票而言，情況較為複雜，因為股票回報較大，貨幣佔總風險的比例較小。以下是我的框架。
-</p>
-<p>
-**[ANIMATION: Framework card showing three scenarios:
-</p>
-<li>Short time horizon (1-3 years): Hedge more (75-100%)</li>
-<li>Medium time horizon (3-10 years): Partial hedge (50%)</li>
-<li>Long time horizon (10+ years): Less hedging needed (0-50%)]**</li>
-<p>
-<strong>Stella：</strong> 若你一至三年後需要動用這筆錢，應積極對沖。一年內貨幣可移動10至15%。三至十年的中期，50%對沖是合理的折衷方案。十年以上，貨幣往往均值回歸，對沖的重要性較低。
-</p>
-<p>
-<strong>Horace：</strong> 那新興市場呢？
-</p>
-<p>
-<strong>Stella：</strong> 一般而言，不予對沖。對沖新興市場貨幣成本高昂，因為利率差異大，遠期市場流動性也較低。此外，新興市場貨幣風險敞口提供真實的分散化收益。
-</p>
-<p>
-<strong>[VISUAL: Cost comparison showing hedging costs: Euro (~2-3% benefit currently), Yen (~4-5% benefit currently), Brazilian Real (~8-10% cost), Indian Rupee (~5-7% cost)]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 成本差異太大了。
-</p>
-<p>
-<strong>Stella：</strong> 確實如此。對沖日圓目前實際上讓你賺錢，但對沖巴西雷亞爾每年可能需付出8至10%的成本。經濟效益完全不同。
-</p>
-<p>
-<strong>Horace：</strong> 讓我確保我理解了實際步驟。若我想對沖我的國際已發展市場股票，我實際上需要做什麼？
-</p>
-<p>
-<strong>Stella：</strong> 只需購買對沖版的交易所買賣基金，而非非對沖版本。
-</p>
-<p>
-**[VISUAL: Table comparing popular ETFs:
-Unhedged: EFA, VEA, IEFA (EAFE equities)
-Hedged: HEFA, HEZU (Eurozone), HEWJ (Japan)
-Unhedged: BNDX? No - BNDX is already hedged!
-Unhedged International Bonds: Not recommended for most investors]**
-</p>
-<p>
-<strong>Stella：</strong> 對EAFE股票，你可以用HEFA代替EFA。針對日本，用HEWJ代替EWJ。針對歐元區，用HEZU代替EZU。實際上只是購買不同的代號而已。
-</p>
-<p>
-<strong>Horace：</strong> 這出乎意料地簡單。
-</p>
-<p>
-<strong>Stella：</strong> 交易所買賣基金在內部處理所有遠期合約管理。你無需開設外匯賬戶或自行管理任何合約。
-</p>
-<p>
-<strong>Horace：</strong> 有一點我不太明白。若我持有VT這隻全球股票交易所買賣基金，我的貨幣風險敞口是多少？
-</p>
-<p>
-<strong>Stella：</strong> VT大約持有60%美國股票及40%國際股票。美國部分沒有外幣風險敞口。國際部分有完整的風險敞口。所以你VT持倉中大約40%面臨外幣風險敞口。
-</p>
-<p>
-<strong>[ANIMATION: Pie chart of VT showing 60% US (no FX risk) and 40% International (full FX risk), with the 40% section broken down by currency: Euro, Yen, Pound, Others]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 這是我需要擔心的事情嗎？
-</p>
-<p>
-<strong>Stella：</strong> 對於長線投資者，可能不必太擔心。在20年以上的時間範圍內，貨幣效應相對於股票回報通常較小。但若你想降低波動性或持有期較短，可考慮將部分40%替換為對沖國際交易所買賣基金。
-</p>
-<p>
-<strong>Horace：</strong> 最後有什麼建議嗎？
-</p>
-<p>
-<strong>Stella：</strong> 三點。第一，國際債券一定要對沖。幾乎沒有反對的理由。
-</p>
-<p>
-<strong>[ANIMATION: Three final takeaway cards appearing]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第二，對國際股票，要主動作出選擇。不要因為非對沖最為普遍就默認選它。看看利率環境。若美國利率顯著較高，對沖不僅降低風險，還能為你帶來額外回報。
-</p>
-<p>
-<strong>Horace：</strong> 第三點呢？
-</p>
-<p>
-<strong>Stella：</strong> 不要過度複雜化。對大多數投資者而言，在對沖與非對沖國際股票交易所買賣基金之間簡單地作出分配，再加上對沖的國際債券，便能捕捉到大部分收益。你無需自行交易貨幣或管理遠期合約。
-</p>
-<p>
-<strong>[VISUAL: Summary card showing recommended approach: International Bonds = 100% Hedged, International Developed Stocks = 50% Hedged / 50% Unhedged, Emerging Market Stocks = 100% Unhedged]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 清晰簡單。謝謝你，小魚。
-</p>
-<p>
-<strong>Stella：</strong> 貨幣風險就是那種在衝擊你之前隱而不見的事物。現在你已了解它，便可以主動管理，而非被它突然打個措手不及。
-</p>
-<p>
-<strong>Horace：</strong> 好消息是，在當前的利率差異下，對沖歐元和日圓實際上為我們帶來額外回報。
-</p>
-<p>
-<strong>Stella：</strong> 是的。這種情況不會永遠持續，但目前的數學邏輯強烈支持對沖已發展市場貨幣。趁這一情況持續時好好把握，並留意利率環境的變化。
-</p>
-<p>
-<strong>Horace：</strong> 我想我的行動計劃已很清晰：對沖我的國際債券，考慮對沖一半的國際已發展市場股票，新興市場則不予對沖。
-</p>
-<p>
-<strong>Stella：</strong> 這是一個穩健、有理可據的做法。簡單、站得住腳，適合大多數長線投資者。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]</strong>
-</p>
-<hr>
-<p>
-<em>補充課第29課完</em>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>補充課程 29：國際投資者的貨幣避險</h1>
@@ -1786,252 +1569,6 @@ A9：歷史上，在大多數全球危機期間，美元確實因投資者尋求
 <strong>Q10：貨幣走勢如何影響國際股利殖利率？</strong>
 A10：貨幣走勢直接影響外國股利的美元價值。若某歐洲股票支付 2 歐元股利，而歐元兌美元貶值了 10%，你的美元股利將減少 10%。這使得未避險的國際股利策略，在美元計價收入方面較不可預測。若你依賴國際股利作為生活收入，使用避險型指數股票型基金可提供更穩定的美元計價現金流。對再投資股利的長期投資者而言，股利支付中的貨幣波動較不需要擔憂，因為這些股利是以當時的匯率再投入的。
 </p>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>標題：貨幣避險大解析：保護你的國際投資</strong>
-</p>
-<p>
-<strong>長度：約 17 分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]</strong>
-</p>
-<p>
-<strong>Horace：</strong> Stella，我有持有國際股票的指數股票型基金。我朋友說我在不知不覺中下了一個「貨幣賭注」。這是什麼意思？我應該擔心嗎？
-</p>
-<p>
-<strong>Stella：</strong> 你朋友提出了一個大多數投資者都忽略的好問題。
-</p>
-<p>
-<strong>Stella：</strong> 你朋友說得對。當你買國際股票時，你其實同時在下兩個賭注。一個是押注外國股票會上漲。另一個是押注外幣兌美元的匯率會維持住。
-</p>
-<p>
-<strong>[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "股票報酬" pointing to a stock chart. Arrow 2 labeled "貨幣報酬" pointing to an exchange rate chart. Both arrows merge into "你的總報酬"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 可以給我舉個實際例子嗎？
-</p>
-<p>
-<strong>Stella：</strong> 當然。假設你用一萬美元投資一檔日本股票的指數股票型基金。當時的匯率是每美元兌一百一十日圓。
-</p>
-<p>
-<strong>[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 日本股票上漲了百分之十五。聽起來很棒，對吧？你的投資現在價值一百二十六萬五千日圓。
-</p>
-<p>
-<strong>Horace：</strong> 那聽起來報酬很不錯啊。
-</p>
-<p>
-<strong>Stella：</strong> 但等一下。就在你投資的這段期間，日圓貶值了。匯率從每美元兌一百一十日圓，跌到了一百三十日圓。現在我們來換算回美元。
-</p>
-<p>
-<strong>[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "美元報酬 -2.7%" despite "日圓報酬 +15%"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 我虧錢了？！股票漲了百分之十五，我竟然虧錢？
-</p>
-<p>
-<strong>Stella：</strong> 以美元計算，是的。日圓貶值了約百分之十五，完全抹去了你的股票漲幅，甚至還倒賠。這就是貨幣風險的真實面貌。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side bars showing: 當地報酬 +15%、貨幣報酬 -15.4%、美元報酬 -2.7%]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 太痛苦了。我該怎麼保護自己？
-</p>
-<p>
-<strong>Stella：</strong> 這就是貨幣避險派上用場的地方。你可以中和貨幣效應，讓你的報酬貼近當地股市的報酬。
-</p>
-<p>
-<strong>[ANIMATION: Same scenario replayed but with a "避險" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 避險實際上是怎麼運作的？
-</p>
-<p>
-<strong>Stella：</strong> 主要工具叫做遠期合約，它能鎖定未來特定日期的匯率。當你買避險型指數股票型基金時，基金經理人會簽訂遠期合約，以預定的匯率賣出外幣、買入美元。
-</p>
-<p>
-<strong>[ANIMATION: Timeline showing: 今天 — 以匯率110簽訂遠期合約賣出日圓。一個月後 — 無論即期匯率如何，均以110進行兌換。簽訂新的遠期合約。每月重複執行]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 每個月，基金會滾動遠期合約。這有效消除了貨幣波動對你報酬的影響。不管日圓漲跌，避險都能讓你以大致相同的匯率兌換。
-</p>
-<p>
-<strong>Horace：</strong> 這樣做需要成本嗎？
-</p>
-<p>
-<strong>Stella：</strong> 這就是有意思的地方了。避險成本是由兩國之間的利率差異決定的。
-</p>
-<p>
-<strong>[VISUAL: Balance scale with "美國利率 5%" on one side and "日本利率 0%" on the other. Arrow pointing down to "避險收益：每年約 5%"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 現在美國利率遠高於日本利率。當你把日圓避險換回美元時，你實際上是在「賺取」利率差異，每年大約額外多賺百分之五。
-</p>
-<p>
-<strong>Horace：</strong> 等等，避險還能讓我「賺錢」？
-</p>
-<p>
-<strong>Stella：</strong> 在這樣的利率環境下，確實如此。這叫做「遠期溢價」或「利差收益」。當美國利率高於外國利率時，避險可帶來正向收益。但這是雙向的——若美國利率跌破日本利率，避險就要花錢了。
-</p>
-<p>
-<strong>[ANIMATION: See-saw showing 美國利率 on one side and 外國利率 on the other. When 美國 side is higher, 避險帶來收益. When 外國 side is higher, 避險需付出代價]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 所以選擇避險型還是未避險型，並不是非黑即白的。
-</p>
-<p>
-<strong>Stella：</strong> 完全不是。讓我用實際的指數股票型基金來說明兩者的差異。
-</p>
-<p>
-<strong>[VISUAL: Performance comparison chart showing EFA（未避險歐澳遠東指數）vs HEFA（避險歐澳遠東指數）over 5 years, with periods of 美元走強 and 美元走弱 marked]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在美元走強期間，例如二○二一年和二○二二年，避險版大幅贏過未避險版。在美元走弱期間，例如二○一七年，未避險版則更勝一籌。從非常長期的角度來看，差距往往會趨於一致。
-</p>
-<p>
-<strong>Horace：</strong> 那我要怎麼決定？
-</p>
-<p>
-<strong>Stella：</strong> 讓我給你一個簡單的框架。
-</p>
-<p>
-<strong>[ANIMATION: Decision tree appearing step by step]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一個問題：你投資的是國際債券還是股票？
-</p>
-<p>
-<strong>Horace：</strong> 這有什麼關係？
-</p>
-<p>
-<strong>Stella：</strong> 對債券而言，一律進行避險。債券報酬很小，大概只有百分之三到四。貨幣波動性可能高達百分之十到十五。未避險的國際債券，基本上就是帶著一點債券利息的貨幣投機。
-</p>
-<p>
-<strong>[VISUAL: Risk comparison showing 國際債券報酬（3-4%）vs 貨幣波動性（10-15%），with the currency risk dwarfing the bond return]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 這也是 Vanguard 國際債券指數股票型基金 BNDX 預設已進行避險的原因。對債券而言，這樣做完全合理。
-</p>
-<p>
-<strong>Horace：</strong> 那股票呢？
-</p>
-<p>
-<strong>Stella：</strong> 對股票而言，就更需要因時制宜了，因為股票報酬比較大，所以貨幣佔總風險的比例較小。以下是我的框架。
-</p>
-<p>
-**[ANIMATION: Framework card showing three scenarios:
-</p>
-<li>短期時間軸（1-3 年）：加強避險（75-100%）</li>
-<li>中期時間軸（3-10 年）：部分避險（50%）</li>
-<li>長期時間軸（10 年以上）：避險必要性降低（0-50%）]**</li>
-<p>
-<strong>Stella：</strong> 若你一到三年內需要動用這筆錢，就要積極避險。貨幣一年之內可能輕易波動百分之十到十五。三到十年的中期，五成避險是合理的折衷。十年以上的長期，因貨幣傾向均值回歸，避險的重要性就相對降低了。
-</p>
-<p>
-<strong>Horace：</strong> 新興市場呢？
-</p>
-<p>
-<strong>Stella：</strong> 一般來說，保持未避險。對新興市場貨幣進行避險成本很高，因為利率差異大，遠期市場的流動性也較低。加上新興市場貨幣曝險本身提供了真實的多元化效益。
-</p>
-<p>
-<strong>[VISUAL: Cost comparison showing hedging costs: 歐元（目前約帶來 2-3% 收益）、日圓（目前約帶來 4-5% 收益）、巴西里拉（約需付出 8-10% 成本）、印度盧比（約需付出 5-7% 成本）]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 成本差距真的很大。
-</p>
-<p>
-<strong>Stella：</strong> 正是。現在避險日圓實際上能讓你賺錢，但避險巴西里拉每年可能要花掉你百分之八到十。兩者的經濟邏輯完全不同。
-</p>
-<p>
-<strong>Horace：</strong> 讓我確認一下實際操作步驟。如果我想對持有的國際已開發市場股票進行避險，我實際上需要做什麼？
-</p>
-<p>
-<strong>Stella：</strong> 很簡單，就是買避險型指數股票型基金而不是未避險型。
-</p>
-<p>
-**[VISUAL: Table comparing popular ETFs:
-未避險型：EFA、VEA、IEFA（歐澳遠東股票）
-避險型：HEFA、HEZU（歐元區）、HEWJ（日本）
-BNDX 是未避險型嗎？不——BNDX 已預設進行避險！
-未避險型國際債券：大多數投資者不建議使用]**
-</p>
-<p>
-<strong>Stella：</strong> 持有歐澳遠東股票，可以用 HEFA 取代 EFA。專門投資日本，就用 HEWJ 取代 EWJ。偏好歐元區，就用 HEZU 取代 EZU。字面上只是換一個代碼而已。
-</p>
-<p>
-<strong>Horace：</strong> 這意外地簡單。
-</p>
-<p>
-<strong>Stella：</strong> 指數股票型基金在內部處理了所有遠期合約的管理工作。你不需要開外匯帳戶或自行管理任何合約。
-</p>
-<p>
-<strong>Horace：</strong> 有一件事我還不太明白。如果我持有 VT 這檔全球股票指數股票型基金，我的貨幣曝險是什麼情況？
-</p>
-<p>
-<strong>Stella：</strong> VT 大約持有百分之六十的美國股票和百分之四十的國際股票。美國部分沒有外幣曝險，國際部分則完全曝險。所以你 VT 持倉中，大約百分之四十暴露在外幣匯率的風險之下。
-</p>
-<p>
-<strong>[ANIMATION: Pie chart of VT showing 60% 美國（無外匯風險）and 40% 國際（完整外匯風險），with the 40% section broken down by currency: 歐元、日圓、英鎊、其他]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 這是我需要擔心的事嗎？
-</p>
-<p>
-<strong>Stella：</strong> 對長期投資者而言，可能不需要太擔心。二十年以上的長期來看，相較於股票報酬本身，貨幣效應通常相對較小。但如果你想降低波動性，或時間軸較短，可以考慮將那百分之四十的部分，替換成部分的避險型國際指數股票型基金。
-</p>
-<p>
-<strong>Horace：</strong> 最後有什麼建議嗎？
-</p>
-<p>
-<strong>Stella：</strong> 三件事。第一，國際債券一律進行避險，這幾乎沒有反對的理由。
-</p>
-<p>
-<strong>[ANIMATION: Three final takeaway cards appearing]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第二，對國際股票要做出有意識的選擇，不要只因為未避險型比較常見就默認選它。要看利率環境。如果美國利率明顯高於外國，避險不只降低風險，還能帶給你額外報酬。
-</p>
-<p>
-<strong>Horace：</strong> 第三呢？
-</p>
-<p>
-<strong>Stella：</strong> 不要把事情搞得太複雜。對大多數投資者而言，簡單地在避險型和未避險型國際股票指數股票型基金之間做個分配，再搭配避險型國際債券，就能獲得大部分的效益。你不需要自己交易外幣或管理遠期合約。
-</p>
-<p>
-<strong>[VISUAL: Summary card showing recommended approach: 國際債券 = 100% 避險、國際已開發市場股票 = 50% 避險 / 50% 未避險、新興市場股票 = 100% 未避險]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 清晰又簡單。謝謝你，Stella。
-</p>
-<p>
-<strong>Stella：</strong> 貨幣風險就是那種在打到你之前完全隱形的東西。現在你理解了，就能主動管理它，而不是被它打個措手不及。
-</p>
-<p>
-<strong>Horace：</strong> 而且好消息是，以目前的利率差異來看，對歐元和日圓進行避險，實際上還能替我們帶來額外報酬。
-</p>
-<p>
-<strong>Stella：</strong> 沒錯。這種狀況不會永遠持續，但現在的數字強烈支持對已開發市場貨幣進行避險。趁著有利可圖的時候好好把握，同時也要留意利率環境的變化。
-</p>
-<p>
-<strong>Horace：</strong> 我想我的行動方案很清楚了：對國際債券進行避險、考慮對一半的國際已開發市場股票進行避險，新興市場則保持未避險。
-</p>
-<p>
-<strong>Stella：</strong> 這是一個紮實、有邏輯依據的做法。簡單、站得住腳，而且適合大多數長期投資者。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]</strong>
-</p>
-<hr>
-<p>
-<em>補充課程 29 結束</em>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>补充课程第29课：国际投资者的货币对冲</h1>
@@ -2325,252 +1862,6 @@ BNDX 是未避險型嗎？不——BNDX 已預設進行避險！
 <p>
 <strong>问题十：货币变动如何影响国际股息收益率？</strong>
 答：货币变动直接影响外国股息的美元价值。若欧洲股票派发2欧元股息，而欧元兑美元贬值10%，您以美元计算的股息下降10%。这使得未对冲的国际股息策略在美元收入方面可预测性较差。若您依赖国际股息获取收入，使用对冲型交易所交易基金可提供更稳定的美元计价现金流。对于再投资股息的长期投资者而言，股息支付中的货币波动影响较小，因为它们按现行汇率再投资。
-</p>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>标题：货币对冲详解：保护您的国际投资</strong>
-</p>
-<p>
-<strong>时长：约17分钟</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]</strong>
-</p>
-<p>
-<strong>Horace：</strong> Stella，我持有一只国际股票交易所交易基金。我的朋友说我在不知情的情况下做了一个"货币押注"。这是什么意思？我应该担心吗？
-</p>
-<p>
-<strong>Stella：</strong> 您的朋友提出了一个大多数投资者都会忽视的重要问题。
-</p>
-<p>
-<strong>Stella：</strong> 您的朋友说得对。当您购买国际股票时，您实际上同时做了两个押注。一个是外国股票会上涨。另一个是外国货币相对美元保值。
-</p>
-<p>
-<strong>[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "Stock Return" pointing to a stock chart. Arrow 2 labeled "Currency Return" pointing to an exchange rate chart. Both arrows merge into "Your Total Return"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 您能用实例说明这是如何运作的吗？
-</p>
-<p>
-<strong>Stella：</strong> 当然。假设您投资1万美元购买一只日本股票交易所交易基金。汇率为每美元110日元。
-</p>
-<p>
-<strong>[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 日本股票上涨15%。好消息，对吧？您的投资现在价值126.5万日元。
-</p>
-<p>
-<strong>Horace：</strong> 这听起来是不错的收益。
-</p>
-<p>
-<strong>Stella：</strong> 但请等等。在您持有期间，日元走弱了。汇率从每美元110日元变为130日元。现在让我们换回美元。
-</p>
-<p>
-<strong>[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "-2.7% dollar return" despite "+15% yen return"]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 我亏损了？！股票上涨了15%，我却亏损了？
-</p>
-<p>
-<strong>Stella：</strong> 以美元计算，是的。日元贬值约15%，超过了您的股票涨幅。这就是货币风险的实际体现。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side bars showing: Local Return +15%, Currency Return -15.4%, Dollar Return -2.7%]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 太痛苦了。我如何保护自己？
-</p>
-<p>
-<strong>Stella：</strong> 这就是货币对冲的用武之地。您可以消除货币效应，使您的收益与本地股市收益相匹配。
-</p>
-<p>
-<strong>[ANIMATION: Same scenario replayed but with a "HEDGE" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 对冲实际上是怎么运作的？
-</p>
-<p>
-<strong>Stella：</strong> 主要工具称为远期合约。它锁定未来某日期的汇率。当您购买对冲型交易所交易基金时，基金管理人签订远期合约，以预定汇率卖出外币并买入美元。
-</p>
-<p>
-<strong>[ANIMATION: Timeline showing: Today - enter forward contract to sell yen at rate 110. One month later - regardless of spot rate, exchange at 110. New forward contract entered. Process repeats monthly]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 基金每个月滚动远期合约。这有效地从您的收益中消除货币波动。无论日元涨跌，对冲都锁定大致相同的汇率。
-</p>
-<p>
-<strong>Horace：</strong> 这需要付出代价吗？
-</p>
-<p>
-<strong>Stella：</strong> 这里就有趣了。对冲成本由两国之间的利差决定。
-</p>
-<p>
-<strong>[VISUAL: Balance scale with "US Interest Rate 5%" on one side and "Japanese Interest Rate 0%" on the other. Arrow pointing down to "Hedging Benefit: ~5% per year"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 目前，美国利率远高于日本利率。当您将日元对冲回美元时，您实际上赚到了利差。这大约相当于每年5%的额外收益。
-</p>
-<p>
-<strong>Horace：</strong> 等等，对冲居然让我赚钱？
-</p>
-<p>
-<strong>Stella：</strong> 在当前利率环境下，是的。这被称为"远期溢价"或"套利"。当美国利率高于外国利率时，对冲产生正套利。但这是双向的。如果美国利率降至日本利率以下，对冲就会产生成本。
-</p>
-<p>
-<strong>[ANIMATION: See-saw showing US rates on one side and foreign rates on the other. When US side is higher, hedging pays. When foreign side is higher, hedging costs]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 所以对冲与非对冲之间的选择并不简单。
-</p>
-<p>
-<strong>Stella：</strong> 完全不简单。让我用真实的交易所交易基金向您展示实际差异。
-</p>
-<p>
-<strong>[VISUAL: Performance comparison chart showing EFA (unhedged EAFE) vs HEFA (hedged EAFE) over 5 years, with periods of dollar strength and weakness marked]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在美元走强时期，如2021年和2022年，对冲版大幅跑赢非对冲版，因为它们避免了美元升值的拖累。在美元走弱时期，如2017年，非对冲版表现更好。从非常长期来看，差距往往会趋于平衡。
-</p>
-<p>
-<strong>Horace：</strong> 那我如何做出决策呢？
-</p>
-<p>
-<strong>Stella：</strong> 让我给您一个简单的框架。
-</p>
-<p>
-<strong>[ANIMATION: Decision tree appearing step by step]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一个问题：您投资的是国际债券还是股票？
-</p>
-<p>
-<strong>Horace：</strong> 这为什么重要？
-</p>
-<p>
-<strong>Stella：</strong> 对于债券，始终应对冲。债券收益较小，可能只有3%到4%。货币波动性可达10%到15%。未对冲的国际债券基本上是一种货币押注，只是附带一点债券收益。
-</p>
-<p>
-<strong>[VISUAL: Risk comparison showing International Bond Return (3-4%) vs Currency Volatility (10-15%), with the currency risk dwarfing the bond return]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 这就是为什么先锋的国际债券交易所交易基金BNDX默认已对冲。对债券而言，这只是合理之举。
-</p>
-<p>
-<strong>Horace：</strong> 那对于股票呢？
-</p>
-<p>
-<strong>Stella：</strong> 对于股票，情况更为复杂，因为股票收益更大，所以货币是总风险中占比较小的部分。以下是我的框架。
-</p>
-<p>
-**[ANIMATION: Framework card showing three scenarios:
-</p>
-<li>Short time horizon (1-3 years): Hedge more (75-100%)</li>
-<li>Medium time horizon (3-10 years): Partial hedge (50%)</li>
-<li>Long time horizon (10+ years): Less hedging needed (0-50%)]**</li>
-<p>
-<strong>Stella：</strong> 如果您一到三年内需要这笔资金，则积极对冲。货币一年内可能波动10%到15%。在三到十年的时间范围内，50%的对冲是合理的折中方案。十年以上，货币趋于均值回归，对冲的重要性降低。
-</p>
-<p>
-<strong>Horace：</strong> 那新兴市场呢？
-</p>
-<p>
-<strong>Stella：</strong> 通常不对冲。对冲新兴市场货币成本高昂，因为利差较大，远期市场流动性较低。加之新兴市场货币敞口提供真实的分散化收益。
-</p>
-<p>
-<strong>[VISUAL: Cost comparison showing hedging costs: Euro (~2-3% benefit currently), Yen (~4-5% benefit currently), Brazilian Real (~8-10% cost), Indian Rupee (~5-7% cost)]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 成本差异非常大。
-</p>
-<p>
-<strong>Stella：</strong> 完全正确。目前对冲日元实际上为您带来收益，但对冲巴西雷亚尔每年可能花费您8%到10%。经济逻辑完全不同。
-</p>
-<p>
-<strong>Horace：</strong> 让我确认我理解了实际操作步骤。如果我想对冲我的国际发达市场股票，我实际上应该怎么做？
-</p>
-<p>
-<strong>Stella：</strong> 只需购买对冲型交易所交易基金，而非非对冲型。
-</p>
-<p>
-**[VISUAL: Table comparing popular ETFs:
-Unhedged: EFA, VEA, IEFA (EAFE equities)
-Hedged: HEFA, HEZU (Eurozone), HEWJ (Japan)
-Unhedged: BNDX? No - BNDX is already hedged!
-Unhedged International Bonds: Not recommended for most investors]**
-</p>
-<p>
-<strong>Stella：</strong> 对于EAFE股票，您可以使用HEFA代替EFA。针对日本的，用HEWJ代替EWJ。针对欧元区的，用HEZU代替EZU。字面上就是买不同的代码。
-</p>
-<p>
-<strong>Horace：</strong> 原来如此简单。
-</p>
-<p>
-<strong>Stella：</strong> 交易所交易基金在内部处理所有远期合约管理。您无需开设外汇账户或自己管理任何合约。
-</p>
-<p>
-<strong>Horace：</strong> 有一点让我困惑。如果我持有VT这只全球股票交易所交易基金，我的货币敞口是什么？
-</p>
-<p>
-<strong>Stella：</strong> VT约有60%是美国股票，40%是国际股票。美国部分没有外币敞口。国际部分具有完全敞口。所以您VT持仓中大约40%面临外币风险。
-</p>
-<p>
-<strong>[ANIMATION: Pie chart of VT showing 60% US (no FX risk) and 40% International (full FX risk), with the 40% section broken down by currency: Euro, Yen, Pound, Others]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 这是我应该担心的问题吗？
-</p>
-<p>
-<strong>Stella：</strong> 对于长期投资者而言，可能不需要过多担忧。20年以上，货币效应相对于股票收益往往较小。但如果您想降低波动性，或者投资期限较短，可以考虑将部分40%替换为对冲型国际交易所交易基金。
-</p>
-<p>
-<strong>Horace：</strong> 有什么最后的建议吗？
-</p>
-<p>
-<strong>Stella：</strong> 三点。第一，始终对冲国际债券。几乎没有反对的理由。
-</p>
-<p>
-<strong>[ANIMATION: Three final takeaway cards appearing]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第二，对于国际股票，做出有意识的选择。不要仅仅因为非对冲型最常见就默认选择它。审视利率环境。如果美国利率显著较高，对冲不仅降低风险，还能为您带来额外收益。
-</p>
-<p>
-<strong>Horace：</strong> 第三点呢？
-</p>
-<p>
-<strong>Stella：</strong> 不要过度复杂化。对大多数投资者而言，在对冲型和非对冲型国际股票交易所交易基金之间简单分配，加上对冲型国际债券，就能获取大部分收益。您无需自己交易货币或管理远期合约。
-</p>
-<p>
-<strong>[VISUAL: Summary card showing recommended approach: International Bonds = 100% Hedged, International Developed Stocks = 50% Hedged / 50% Unhedged, Emerging Market Stocks = 100% Unhedged]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 清晰简洁。谢谢Stella。
-</p>
-<p>
-<strong>Stella：</strong> 货币风险就是这种东西，在它影响您之前是不可见的。现在您理解了它，就可以主动管理它，而不是被它打个措手不及。
-</p>
-<p>
-<strong>Horace：</strong> 好消息是，鉴于当前的利差，对冲欧元和日元实际上为我们带来额外收益。
-</p>
-<p>
-<strong>Stella：</strong> 对。这种情况不会永远持续，但目前数学上强烈支持对冲发达市场货币。趁现在把握这个机会，同时关注利率环境的变化。
-</p>
-<p>
-<strong>Horace：</strong> 我认为我的行动清单很明确：对冲我的国际债券，考虑对冲一半的国际发达市场股票，以及对新兴市场保持非对冲。
-</p>
-<p>
-<strong>Stella：</strong> 这是一个扎实、有充分依据的策略。简单、合理，且适合大多数长期投资者。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]</strong>
-</p>
-<hr>
-<p>
-<em>补充课程第29课完</em>
 </p>
             </div>
         </div>

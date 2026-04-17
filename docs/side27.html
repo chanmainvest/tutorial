@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -964,7 +993,10 @@ A10: Yes, to a degree. Most screeners allow you to save screen configurations an
                 <p>
 Now I have all the terminology I need. Let me produce the full HK Traditional Chinese translation:
 </p>
-<pre><code class="language-markdown"># 附加課程第27課：建立觀察名單與股票篩選
+<p>
+```markdown
+</p>
+<h1>附加課程第27課：建立觀察名單與股票篩選</h1>
 <hr>
 <h2>第一部分：閱讀材料</h2>
 <hr>
@@ -1263,255 +1295,15 @@ Now I have all the terminology I need. Let me produce the full HK Traditional Ch
 <strong>問題十：我可以自動化我的篩選流程嗎？</strong>
 答十：在一定程度上可以。大多數篩選工具允許你保存篩選配置並一鍵執行。Portfolio123和Stock Rover等平台允許你設置電郵提醒，當新股票進入你的篩選條件時通知你。你也可以透過券商平台對觀察名單中的股票設置價格提醒，當股票達到你的目標入市價時通知你。然而，定性研究步驟——閱讀財務報表、收聽業績說明會和評估競爭地位——無法自動化，也不應被略過。
 </p>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>標題：如何建立觀察名單：像專業人士一樣篩選股票</strong>
-</p>
-<p>
-<strong>時長：約17分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Massive wall of stock tickers scrolling rapidly, overwhelming and chaotic]</strong>
-</p>
-<p>
-<strong>Horace：</strong> Stella，市場上有數以千計的股票。專業投資者如何找到值得研究的那些？我感覺自己被選擇淹沒了。
-</p>
-<p>
-<strong>Stella：</strong> 這正是股票篩選工具存在的原因。它們就像股票的搜尋引擎。你告訴篩選工具你想要什麼，它就過濾掉其他一切。
-</p>
-<p>
-<strong>[ANIMATION: The wall of tickers gets filtered through a funnel labeled "SCREENER" with criteria labels on the sides. Only a small group of tickers comes out the bottom]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 那我從哪裡開始？
-</p>
-<p>
-<strong>Stella：</strong> 首先，你需要知道自己是哪類投資者。這決定了你使用哪些篩選條件。你是在尋找便宜的股票、快速成長的公司，還是可靠的股息派發者？
-</p>
-<p>
-<strong>[VISUAL: Three investor profiles shown as cards: "Value Investor" with magnifying glass icon, "Growth Investor" with rocket icon, "Dividend Investor" with cash flow icon]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 假設我想找到優質的價值股。那個篩選會是什麼樣子？
-</p>
-<p>
-<strong>Stella：</strong> 讓我帶你一步步建立一個。我將使用Finviz，它是免費的，也是最好的篩選工具之一。
-</p>
-<p>
-<strong>[VISUAL: Screen recording style showing Finviz screener interface with filters being applied one at a time]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一步，設定基本篩選條件縮小範圍。市值高於五億美元，排除投機性微型股。平均日成交量高於十萬股，確保我們實際上能交易這些股票。
-</p>
-<p>
-<strong>[ANIMATION: Universe shrinking from 6,000+ stocks to approximately 3,000 as basic filters are applied, shown as a funnel graphic]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 這已經將範圍縮減了一半。
-</p>
-<p>
-<strong>Stella：</strong> 現在第二步，應用我們的核心價值標準。市盈率低於15。市賬率低於2。正自由現金流。
-</p>
-<p>
-<strong>[ANIMATION: Funnel continues to narrow. Stock count drops from 3,000 to approximately 200]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第三步，加入質量篩選條件。股本回報率高於10%。負債對股本比率低於1。流動比率高於1.5。這確保我們找到的是既便宜又健康的公司，而非便宜且垂死的公司。
-</p>
-<p>
-<strong>[ANIMATION: Funnel narrows further. Count drops to approximately 40 stocks]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 40隻股票。那實際上是可以管理的數量。
-</p>
-<p>
-<strong>Stella：</strong> 正是。從六千隻到四十隻，大約只需五分鐘。現在真正的工作開始了。
-</p>
-<p>
-<strong>Horace：</strong> 接下來是什麼？
-</p>
-<p>
-<strong>Stella：</strong> 這就是你的觀察名單發揮作用的地方。我首先按板塊整理每隻篩選出的股票。
-</p>
-<p>
-<strong>[ANIMATION: The 40 stock tickers sort themselves into sector buckets: Financials (8 stocks), Industrials (7), Consumer Staples (6), Energy (5), Healthcare (5), Others (9)]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 板塊分類至關重要，因為你只能拿蘋果與蘋果比較。市盈率為10的銀行與市盈率為10的科技公司是不同的。在每個板塊內，我才能進行有意義的排名和比較。
-</p>
-<p>
-<strong>Horace：</strong> 這說得通。你在每個板塊內比較什麼？
-</p>
-<p>
-<strong>Stella：</strong> 我看相對估值。哪隻股票與同板塊同業相比最便宜？我查看相對質量。哪隻股票的資本回報率最高？我也看趨勢。公司是在改善還是在惡化？
-</p>
-<p>
-<strong>[VISUAL: Table showing 4 financial stocks side by side with columns for P/E, P/B, ROE, Debt/Equity, Revenue Growth, with the most attractive values highlighted in green]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 所以你在板塊內排名。接下來是什麼？
-</p>
-<p>
-<strong>Stella：</strong> 分類到三個層級。
-</p>
-<p>
-<strong>[ANIMATION: Three tiers appearing as labeled folders. Tier 1: "Research Now" (red/urgent). Tier 2: "Research Soon" (yellow). Tier 3: "Monitor" (green/patient)]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一層立即進行深入研究。這些是既便宜、高質量，又有催化劑的股票——可能是即將到來的業績報告、新產品發布，或內部人士買入。
-</p>
-<p>
-<strong>Horace：</strong> 有多少股票進入第一層？
-</p>
-<p>
-<strong>Stella：</strong> 最多五到十隻。這些是本週獲得你全力關注的最佳投資理念。第二層有15至20隻股票，在有時間時研究。第三層是你想監控但不需要急於入手的其他一切。
-</p>
-<p>
-<strong>Horace：</strong> 「深入研究」實際上是什麼樣子的？
-</p>
-<p>
-<strong>Stella：</strong> 讓我展示我的工作流程。
-</p>
-<p>
-<strong>[ANIMATION: Research workflow as a horizontal pipeline. Step 1: Company Overview (10 min). Step 2: Financial Statements (30 min). Step 3: Earnings Call (30 min). Step 4: Competitive Analysis (30 min). Step 5: Valuation (30 min). Step 6: Decision (15 min)]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 從快速了解公司概況開始。業務是什麼？如何賺錢？競爭對手是誰？這需要十分鐘，為後續一切提供背景。
-</p>
-<p>
-<strong>Horace：</strong> 然後是財務報表？
-</p>
-<p>
-<strong>Stella：</strong> 對。調出五年的損益表、資產負債表和現金流量表。尋找趨勢。收入是否增長？利潤率是擴張還是收縮？負債是增加還是減少？自由現金流是否為正且在增長？
-</p>
-<p>
-<strong>[VISUAL: Simplified 5-year financial trend showing Revenue, Operating Margin, and Free Cash Flow with arrows indicating trends]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 然後收聽或閱讀最近業績說明會的文字記錄。管理層評論告訴你數字無法表達的事情，例如他們的策略、顧慮和展望。
-</p>
-<p>
-<strong>Horace：</strong> 聽起來每隻股票要做很多工作。
-</p>
-<p>
-<strong>Stella：</strong> 徹底研究每隻股票需要兩到四小時。這正是篩選和分類如此重要的原因。你不能在市場上的每隻股票上花四小時，但你可以在每週排名前五的候選者上各花四小時。
-</p>
-<p>
-<strong>Horace：</strong> 讓我問問一些常見的篩選策略。如果我更傾向於成長型投資者呢？
-</p>
-<p>
-<strong>Stella：</strong> 那你的篩選看起來完全不同。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of Value Screen criteria vs Growth Screen criteria]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 對於成長型篩選，我會篩選收入增長高於15%、盈利增長高於20%、股本回報率高於15%，以及PEG比率低於1.5。PEG比率是關鍵，因為它將市盈率與增長率相關聯。PEG低於1意味著你支付的費用低於增長率的一倍。
-</p>
-<p>
-<strong>Horace：</strong> 對於股息投資者呢？
-</p>
-<p>
-<strong>Stella：</strong> 股息率介於2%至5%之間，因為高於5%的可能預示股息削減風險。派息比率低於65%以確保可持續性。連續年度增長超過10年。以及正的自由現金流增長。
-</p>
-<p>
-<strong>[ANIMATION: Three screening funnels side by side, each labeled Value/Growth/Dividend, showing different criteria and different stocks emerging from each]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 我可以結合這些方法嗎？
-</p>
-<p>
-<strong>Stella：</strong> 當然可以。許多成功投資者使用GARP方法，即以合理價格買入成長股。你同時篩選成長指標和估值指標。這既避免了價值陷阱，也避免了過度定價的成長股。
-</p>
-<p>
-<strong>Horace：</strong> 使用篩選工具時最大的錯誤是什麼？
-</p>
-<p>
-<strong>Stella：</strong> 第一：將篩選結果視為買入建議。篩選是起點，而非答案。
-</p>
-<p>
-<strong>[VISUAL: Red X over a screener result list with text "NOT a buy list"]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第二：過度篩選。如果你同時使用十五個標準，你可能得到零結果或只有奇怪的統計異常值。從四到六個核心標準開始。
-</p>
-<p>
-<strong>Horace：</strong> 第三是什麼？
-</p>
-<p>
-<strong>Stella：</strong> 篩選一次後再也不更新。市場每週都在變化。定期執行篩選。上個月太貴的股票，在回調後可能成為便宜貨。
-</p>
-<p>
-<strong>[ANIMATION: Calendar showing weekly screening schedule with check marks]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 第四呢？
-</p>
-<p>
-<strong>Stella：</strong> 忽視定性因素。篩選工具只捕捉數字。它們無法告訴你管理質量、競爭護城河、監管風險或技術顛覆。數字為你提供候選者。你的判斷力做出最終決定。
-</p>
-<p>
-<strong>[VISUAL: Split screen showing "Quantitative" (screener data, charts, ratios) on one side and "Qualitative" (management, moat, industry trends, risks) on the other, both pointing to "Investment Decision" at bottom]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 最後一件事。如何長期保持觀察名單有序？
-</p>
-<p>
-<strong>Stella：</strong> 我建議使用簡單的電子表格或你券商平台的觀察名單功能。建立以下幾列：股票代碼、板塊、當前價格、你的目標價格、一句話關鍵論點，以及最後審查日期。
-</p>
-<p>
-<strong>[VISUAL: Clean spreadsheet template with columns: Ticker, Sector, Tier, Price, Target, P/E, Thesis, Last Reviewed, with a few sample entries filled in]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 每月審查整個觀察名單。移除不再符合你標準的股票。從篩選中添加新股票。更新價格和筆記。讓它保持活躍和最新，而非一份設置後置之不理的塵封名單。
-</p>
-<p>
-<strong>Horace：</strong> 這真的很實用。總結一下：篩選縮小範圍，按板塊組織，分層分類，對最佳候選者進行深入研究。
-</p>
-<p>
-<strong>Stella：</strong> 正是。這是一個可重複、系統性的流程。最優秀的投資者並非擁有最炫目的投資理念。而是擁有最有紀律的流程。
-</p>
-<p>
-<strong>[VISUAL: Summary card with the complete workflow: Screen (weekly) -&gt; Sector Group -&gt; Triage (Tiers 1-2-3) -&gt; Deep Research -&gt; Valuation -&gt; Decision -&gt; Monitor]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 謝謝你Stella（小魚）。我今晚就去設置我的第一個篩選。
-</p>
-<p>
-<strong>Stella：</strong> 從簡單開始。四個標準。看看結果如何。然後逐步優化。你的流程會隨著每次迭代而改善。
-</p>
-<p>
-<strong>Horace：</strong> 對於剛入門的人，有什麼最後的快速提示？
-</p>
-<p>
-<strong>Stella：</strong> 三點。第一，寫下你將每隻股票加入觀察名單的原因。一句話的論點能強迫你思路清晰。第二，在日曆上設置每月提醒審查觀察名單。過時的觀察名單毫無用處。第三，跟蹤你篩選成效。你篩選和研究的股票實際上跑贏了嗎？如果沒有，則優化你的標準。
-</p>
-<p>
-<strong>[VISUAL: Calendar with monthly review reminder, notebook with written thesis examples, and performance tracker spreadsheet shown side by side]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 寫下來、定期審查、追蹤成效。簡單但有力的習慣。
-</p>
-<p>
-<strong>Stella：</strong> 正是。最優秀的投資者並非最聰明的。而是最有紀律的。你的篩選流程就是這份紀律的基礎。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on fundamental analysis and valuation]</strong>
-</p>
-<hr>
-<p>
-<em>附加課程第27課完</em>
-</code></pre>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <p>
 Now I have the full terminology glossary. Let me produce the Taiwan Traditional Chinese translation:
 </p>
-<pre><code class="language-markdown"># 補充課第27課：觀察名單建立與選股篩選
+<p>
+```markdown
+</p>
+<h1>補充課第27課：觀察名單建立與選股篩選</h1>
 <hr>
 <h2>第一部分：閱讀章節</h2>
 <hr>
@@ -1796,7 +1588,7 @@ A6：將估值標準與品質和動能標準結合。便宜且有獲利能力、
 </p>
 <p>
 <strong>Q7：靜態觀察名單和動態觀察名單有何區別？</strong>
-A7：靜態觀察名單是你無論當前指標如何都會追蹤的固定公司名單。你可能一直關注Apple、JPMorgan和Johnson &amp; Johnson，因為它們是產業風向標。動態觀察名單依篩選結果而變化。股票在通過篩選條件時加入，不再符合條件時移除。最佳方法是兩者結合：一份你始終追蹤的優質公司核心靜態名單，加上由篩選流程填充的動態部分。
+A7：靜態觀察名單是你無論當前指標如何都會追蹤的固定公司名單。你可能一直關注Apple、JPMorgan和Johnson & Johnson，因為它們是產業風向標。動態觀察名單依篩選結果而變化。股票在通過篩選條件時加入，不再符合條件時移除。最佳方法是兩者結合：一份你始終追蹤的優質公司核心靜態名單，加上由篩選流程填充的動態部分。
 </p>
 <p>
 <strong>Q8：我如何整理觀察名單股票的研究筆記？</strong>
@@ -1809,249 +1601,6 @@ A9：當原始投資論點被打破時移除股票，而非僅因股價走勢不
 <p>
 <strong>Q10：我能自動化篩選流程嗎？</strong>
 A10：在一定程度上可以。大多數篩選工具允許你儲存篩選設定，一鍵執行。Portfolio123和Stock Rover等平台，允許你設置電子郵件提醒，當新股票進入篩選條件時通知你。你也可以透過你的券商平台，為觀察名單股票設置價格提醒，在股票達到目標進場價位時通知你。然而，質化研究步驟——閱讀財務報表、聆聽法說會，以及評估競爭地位——無法自動化，也不應被跳過。
-</p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>標題：如何建立觀察名單：像專業人士一樣篩選股票</strong>
-</p>
-<p>
-<strong>長度：約17分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Massive wall of stock tickers scrolling rapidly, overwhelming and chaotic]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 小魚，市場上有成千上萬支股票。專業投資人如何找到值得研究的那些？我感覺自己溺在選擇的汪洋中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這正是選股篩選工具存在的原因。它們就像股票的搜索引擎。你告訴篩選工具你的需求，它就過濾掉其他一切。
-</p>
-<p>
-<strong>[ANIMATION: The wall of tickers gets filtered through a funnel labeled "SCREENER" with criteria labels on the sides. Only a small group of tickers comes out the bottom]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那我從哪裡開始？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 首先，你需要知道自己是哪種投資人。這決定你使用哪些篩選條件。你是在尋找便宜的股票、快速成長的公司，還是可靠的股利發放者？
-</p>
-<p>
-<strong>[VISUAL: Three investor profiles shown as cards: "Value Investor" with magnifying glass icon, "Growth Investor" with rocket icon, "Dividend Investor" with cash flow icon]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 假設我想尋找好的價值股。篩選條件會是什麼樣子？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我一步一步帶你建立一個。我會使用Finviz，它是免費的，也是最好的篩選工具之一。
-</p>
-<p>
-<strong>[VISUAL: Screen recording style showing Finviz screener interface with filters being applied one at a time]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第一步，設定基本篩選條件縮小範圍。市值高於5億美元，排除投機性的微型股。平均成交量高於10萬股，確保我們實際上能交易這些股票。
-</p>
-<p>
-<strong>[ANIMATION: Universe shrinking from 6,000+ stocks to approximately 3,000 as basic filters are applied, shown as a funnel graphic]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這已經把範圍縮小了一半。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在第二步，套用我們的核心價值標準。本益比低於15。股價淨值比低於2。正自由現金流。
-</p>
-<p>
-<strong>[ANIMATION: Funnel continues to narrow. Stock count drops from 3,000 to approximately 200]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第三步，加入品質篩選。股東權益報酬率高於10%。負債權益比低於1。流動比率高於1.5。這些確保我們找到的是便宜且健康的公司，而非便宜且垂死的公司。
-</p>
-<p>
-<strong>[ANIMATION: Funnel narrows further. Count drops to approximately 40 stocks]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 40支股票。這實際上是可管理的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。從6,000支縮減至40支，大約只需5分鐘。現在真正的工作開始了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 接下來做什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是觀察名單派上用場的地方。我首先將每支篩選出的股票依類股分組。
-</p>
-<p>
-<strong>[ANIMATION: The 40 stock tickers sort themselves into sector buckets: Financials (8 stocks), Industrials (7), Consumer Staples (6), Energy (5), Healthcare (5), Others (9)]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 類股分組至關重要，因為你只能做蘋果對蘋果的比較。本益比10倍的銀行，與本益比10倍的科技公司，是截然不同的。在同一類股內，才能有意義地排名和比較。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有道理。在每個類股內你比較什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我看相對估值。哪支股票相較於同類股同業最便宜？我看相對品質。哪支資本報酬率最高？我也看趨勢。公司是在改善還是惡化？
-</p>
-<p>
-<strong>[VISUAL: Table showing 4 financial stocks side by side with columns for P/E, P/B, ROE, Debt/Equity, Revenue Growth, with the most attractive values highlighted in green]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 所以你在類股內排名。下一步是什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 分流至三個層級。
-</p>
-<p>
-<strong>[ANIMATION: Three tiers appearing as labeled folders. Tier 1: "Research Now" (red/urgent). Tier 2: "Research Soon" (yellow). Tier 3: "Monitor" (green/patient)]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第一層立即進行深度研究。這些是便宜、高品質，且有催化劑的股票——可能是即將到來的財報、新產品發布，或內部人士買進。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第一層有多少支股票？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最多5至10支。這些是本週獲得你全力關注的最佳構想。第二層有15至20支，在有時間時研究。第三層是所有你想監控但不需要急迫的其他股票。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 「深度研究」實際上是什麼樣子？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我展示我的工作流程。
-</p>
-<p>
-<strong>[ANIMATION: Research workflow as a horizontal pipeline. Step 1: Company Overview (10 min). Step 2: Financial Statements (30 min). Step 3: Earnings Call (30 min). Step 4: Competitive Analysis (30 min). Step 5: Valuation (30 min). Step 6: Decision (15 min)]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 從快速的公司概覽開始。業務做什麼？如何賺錢？競爭者是誰？這需要10分鐘，為後續一切提供背景。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 然後是財務報表？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對。查閱5年的損益表、資產負債表和現金流量表。尋找趨勢。營收是否成長？利潤率是擴張還是收縮？負債是增加還是減少？自由現金流是否為正且成長？
-</p>
-<p>
-<strong>[VISUAL: Simplified 5-year financial trend showing Revenue, Operating Margin, and Free Cash Flow with arrows indicating trends]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 然後聆聽或閱讀最近一次法說會的文字稿。管理層評論告訴你數字無法呈現的事情，例如他們的策略、顧慮和展望。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 聽起來每支股票要花很多功夫。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 徹底研究每支股票需要2至4小時。這正是篩選和分流如此重要的原因。你無法在市場上的每支股票各花4小時，但你可以每週在你的前5名候選標的各花4小時。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我問一些常見的篩選策略。如果我更像是成長型投資人呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那你的篩選條件就完全不同了。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison of Value Screen criteria vs Growth Screen criteria]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對於成長型，我會篩選營收成長率高於15%、盈餘成長率高於20%、ROE高於15%，以及本益成長比低於1.5。本益成長比是關鍵，因為它將本益比與成長率關聯。本益成長比低於1，意味著你付出的倍數低於成長率。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 股利型投資人呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 股利殖利率介於2%至5%之間，因為高於5%的殖利率可能表示減股利風險。配息率低於65%以確保可持續性。連續10年以上每年增加股利。以及正的自由現金流成長。
-</p>
-<p>
-<strong>[ANIMATION: Three screening funnels side by side, each labeled Value/Growth/Dividend, showing different criteria and different stocks emerging from each]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我能結合這些方法嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當然。許多成功的投資人使用GARP方法，即以合理價格買進成長股。你同時篩選成長指標和估值指標。這避免了既陷入價值陷阱又買入過度高估成長股的問題。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 人們使用篩選工具最常犯的錯誤是什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第一：將篩選結果視為買入建議。篩選是起點，而非答案。
-</p>
-<p>
-<strong>[VISUAL: Red X over a screener result list with text "NOT a buy list"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 第二：過度篩選。若同時使用15個標準，你可能得到零結果或只有奇怪的統計異常值。從4至6個核心標準開始。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第三是什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 只篩選一次而不更新。市場每週都在變化。定期執行篩選。上個月估值過高的股票，在回檔後可能是便宜貨。
-</p>
-<p>
-<strong>[ANIMATION: Calendar showing weekly screening schedule with check marks]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第四呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 忽視質化因素。篩選工具只能捕捉數字。它們無法告訴你管理品質、競爭護城河、法規風險或技術顛覆。數字給你候選標的，你的頭腦做最終決定。
-</p>
-<p>
-<strong>[VISUAL: Split screen showing "Quantitative" (screener data, charts, ratios) on one side and "Qualitative" (management, moat, industry trends, risks) on the other, both pointing to "Investment Decision" at bottom]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最後一件事。我如何長期保持觀察名單的有序？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我推薦使用簡單的試算表或你的券商平台的觀察名單功能。建立欄位包括：代碼、類股、當前股價、你的目標價、一句話的核心投資論點，以及最後檢視日期。
-</p>
-<p>
-<strong>[VISUAL: Clean spreadsheet template with columns: Ticker, Sector, Tier, Price, Target, P/E, Thesis, Last Reviewed, with a few sample entries filled in]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每月檢視整份觀察名單。移除不再符合你標準的股票。從篩選中添加新股票。更新價格和筆記。讓它保持活躍和最新，而不是一份設定後就遺忘的塵封名單。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這真的很實用。總結一下：篩選縮小範圍，依類股組織，分流至層級，並對頂尖候選標的進行深度研究。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。這是一個可重複的、系統化的流程。最優秀的投資人，不是那些有最華麗構想的人，而是那些流程最嚴謹的人。
-</p>
-<p>
-<strong>[VISUAL: Summary card with the complete workflow: Screen (weekly) -&gt; Sector Group -&gt; Triage (Tiers 1-2-3) -&gt; Deep Research -&gt; Valuation -&gt; Decision -&gt; Monitor]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 謝謝Stella。我今晚就要設置我的第一個篩選。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 從簡單開始。四個標準。看看結果如何，然後不斷精煉。每一次迭代都會讓你的流程更好。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 給剛入門的人最後的快速提示？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 三件事。第一，寫下你將每支股票加入觀察名單的原因。一句話的投資論點強制你思路清晰。第二，設定日曆提醒，每月檢視你的觀察名單。過時的觀察名單會變得毫無用處。第三，追蹤你的篩選績效。你篩選和研究的股票，實際上表現是否超出大盤？若沒有，精煉你的標準。
-</p>
-<p>
-<strong>[VISUAL: Calendar with monthly review reminder, notebook with written thesis examples, and performance tracker spreadsheet shown side by side]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 寫下來、定期檢視、追蹤結果。簡單但強而有力的習慣。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。最優秀的投資人不是最聰明的，而是最嚴謹的。你的篩選流程，是這種嚴謹紀律的基礎。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on fundamental analysis and valuation]</strong>
-</p>
-<hr>
-<p>
-<em>補充課第27課結束</em>
-</code></pre>
 </p>
             </div>
             <div id="content-cn" class="lang-content">

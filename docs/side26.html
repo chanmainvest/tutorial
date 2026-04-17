@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1199,281 +1228,6 @@ Now I have the full HK terminology. Let me produce the translation:
 <strong>問10：何謂「流動性幻覺」，為何它危險？</strong>
 答10：流動性幻覺發生在市場在平靜時期看似流動性充裕，但在壓力時期卻嚴重非流動的情況下。電子莊家透過張貼大量訂單營造深度、流動市場的表象，但它們可以在狀況改變時即時撤回這些訂單。在看似流動性良好的市場建立持倉的投資者，可能發現在最需要退出時無法以合理價格沽出。這種幻覺在信貸市場（企業債券、槓桿貸款）及規模較小的股票中最為危險，因為這些市場的結構性流動性本身就薄弱。務必透過以下問題對投資組合進行壓力測試：「在市場恐慌期間，我能以合理價格賣出這個持倉嗎？」
 </p>
-<hr>
-<h2>第二部分：YouTube影片腳本</h2>
-<hr>
-<p>
-<strong>標題：市場流動性解析：每位投資者必須了解的知識</strong>
-</p>
-<p>
-<strong>時長：約18分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: 一杯水順暢地倒出，切換至一塊冰，比喻流動與非流動市場]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 小魚，我不斷聽到「流動性是市場的命脈」這句話。對於像我這樣只是想買賣股票的人，這究竟意味著什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 意味著一切。流動性決定你的交易成本、能否在需要時平倉離場，以及金融體系本身是正常運作還是崩潰。
-</p>
-<p>
-<strong>[ANIMATION: 市場屏幕顯示蘋果公司股票的買入價及賣出價。買入價：175.50美元，賣出價：175.51美元。差價標示：0.01美元]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我們從最基本的量度開始：買賣差價。當你看到蘋果公司股票報價為175.51美元，那是賣出價，即賣家的要求。買入價——即買家願意支付的——可能是175.50美元。這一美仙的差距就是差價。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一美仙感覺微不足道。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對於蘋果這類流動性高的股票，確實影響不大。但看看這隻流動性低的細價股。
-</p>
-<p>
-<strong>[ANIMATION: 同一屏幕但顯示一隻細價股。買入價：12.30美元，賣出價：12.85美元。差價標示：0.55美元，即4.4%]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 一隻12美元的股票，差價達55美仙，即往返成本4.4%。以12.85美元買入，以12.30美元賣出，還未等股票移動，你已虧損4.4%。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 很傷！這快速侵蝕回報。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 確實。而那只是差價。還有市場深度，衡量各價位可供交易的成交量。
-</p>
-<p>
-<strong>[ANIMATION: 訂單簿視覺化，顯示不同價位的買盤及賣盤層。左側是深厚的訂單簿，每個價位有數千股；右側是淺薄的訂單簿，每個價位只有數百股]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在深厚的市場中，每個價位有數千股可供交易。你的訂單在不移動價格的情況下完成交割。在薄弱的市場中，你的訂單在吃穿可用訂單時可能令價格逆你而動。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 所以在薄弱市場中，大額交易的衝擊更大。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。這稱為價格衝擊，是大型投資者著迷的隱性成本。
-</p>
-<p>
-<strong>[VISUAL: 圖表顯示大額買盤在流動市場（幾乎不動）與非流動市場（急劇價格飆升）的價格衝擊]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現在，我常聽到聯儲局與流動性的關係。量化寬鬆、量化緊縮。這到底是怎麼回事？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是宏觀層面的問題了。量化寬鬆，即QE，是指聯儲局創造貨幣並用以從市場購買債券。
-</p>
-<p>
-<strong>[ANIMATION: 聯儲局大樓，資金流出，箭頭指向流入的國債及按揭抵押證券。銀行備用金計量表上升]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聯儲局在2008年後及2020年購買了數萬億美元的債券。這令金融體系充斥備用金，並壓低利率。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這對股票有利嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 一般而言是的。量化寬鬆透過多個渠道發揮作用。
-</p>
-<p>
-<strong>[ANIMATION: 三個渠道以管道形式呈現。渠道一：「利率下降」，債券收益率下跌。渠道二：「投資組合再平衡」，投資者從債券轉向股票。渠道三：「信心」，情緒計量表上升]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 較低的利率令債券吸引力下降，推動投資者轉入股票。同時，廉價借貸推動企業回購及經濟增長。而聯儲局支撐市場的信號，亦提振了信心。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那量化緊縮是相反的嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 量化緊縮是指聯儲局讓債券到期而不再投資收益，現金流回聯儲局，實際上從體系中消失。
-</p>
-<p>
-<strong>[ANIMATION: 相同圖解但方向相反。資金流回聯儲局大樓。銀行備用金下降。「流動性」計量表降低]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聯儲局於2022年開始量化緊縮，每月縮減資產負債表最多950億美元。這是大量流動性被抽走。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這對股票不利嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 它製造阻力。看看這張疊加聯儲局資產負債表與標普500指數的圖表。
-</p>
-<p>
-<strong>[VISUAL: 雙軸圖表，顯示2008年至今聯儲局資產負債表（左軸）及標普500指數（右軸）。相關性在視覺上顯而易見]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這相關性十分顯著。它們一起移動。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 並非完美，但這種關係是真實的。當聯儲局增加流動性，風險資產往往受益。當它抽走流動性，風險資產面臨壓力。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你在閱讀材料中提到一個重要點：市場流動性與融資流動性的分別。能解釋一下嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這至關重要，大多數人都忽略了。
-</p>
-<p>
-<strong>[ANIMATION: 分割屏幕。左側：「市場流動性」，顯示訂單流轉的股票交易所。右側：「融資流動性」，顯示銀行透過回購及商業票據相互借貸現金]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 市場流動性關乎交易——你能輕易買賣資產嗎？融資流動性關乎融資——機構能借到運營所需的現金嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 聽起來是相關的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 它們確實相關，而這正是問題所在。當其一崩潰，可能拖垮另一個。
-</p>
-<p>
-<strong>[ANIMATION: 圓形圖解顯示「流動性螺旋」。融資枯竭→被迫賣出資產→市場流動性下降→價格下跌→抵押品價值下降→融資壓力加大→循環，圓圈越轉越快越緊]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是流動性螺旋。融資壓力迫使拋售。拋售降低市場流動性。價格下跌降低抵押品價值。抵押品減少意味著更少融資。螺旋加速。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這聽起來很可怕。這真的發生過嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 多次。讓我給你看三個例子。
-</p>
-<p>
-<strong>[VISUAL: 時間線顯示1998年長期資本管理公司、2008年金融危機及2020年3月新冠疫情暴跌，附各時期關鍵流動性指標]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2008年，同業拆借完全凍結。銀行拒絕相互借貸，因為無法評估對手方風險。衡量同業拆借利率與國債收益率差距的TED息差，從正常的20至50基點飆升至逾450基點。
-</p>
-<p>
-<strong>[ANIMATION: TED息差圖表，顯示2008年從正常水平急升至逾450基點]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 2020年呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2020年3月令人震驚，因為連美國國債市場——全球最具流動性的市場——也出現嚴重錯位。國債的買賣差價擴大至2008年以來未見的水平。莊家無法吸納拋售。聯儲局以無限量化寬鬆及緊急貸款計劃介入，恢復市場運作。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 連國債也不安全？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在信用風險方面，國債是安全的。你在到期時永遠能收回本金。但在流動性方面——即在眼前以合理價格賣出的能力——在真正的恐慌期間沒有任何保證。這是關鍵教訓。信用安全與流動性安全是兩回事。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這個區別非常重要。我一直以為安全就意味著流動性好。
-</p>
-<p>
-<strong>[VISUAL: 並排對比正常國債買賣差價與2020年3月差價，差距以紅色標示]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我們談談風險偏好與避險。我一直聽到這些術語。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這兩種描述市場的主導格局，從根本上關乎資金流向。
-</p>
-<p>
-<strong>[ANIMATION: 雙格圖示。左格「風險偏好」：晴天，資金流入股票、高息債券、新興市場、加密貨幣。美元走弱。波動率指數低。右格「避險」：烏雲密佈，資金流入國債、美元、黃金、日圓。波動率指數急升]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在風險偏好環境中，流動性流入風險資產。差價收窄，波動性低，美元往往因資金流向海外投資而走弱。在避險環境中，流動性湧向安全資產。一切風險資產同步拋售。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我怎麼知道我們處於哪種格局？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 留意幾個關鍵指標。
-</p>
-<p>
-<strong>[VISUAL: 儀表板顯示四個計量表：波動率指數水平、信用利差、美元指數及國債收益率，各以風險偏好及避險區間標示]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 波動率指數低於15一般是風險偏好。高於25是避險。信用利差收窄是風險偏好，擴大是避險。美元下跌是風險偏好，美元急升是避險。國債收益率下跌通常意味著避險，因為投資者湧入避險資產。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那麼個人投資者實際上應如何運用這些資訊？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 幾個實用步驟。
-</p>
-<p>
-<strong>[ANIMATION: 清單逐項出現]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 首先，在非流動性證券中務必使用限價盤。在薄弱市場絕對不要使用市價盤。其次，在差價最窄的一日中段交易，而非在開市或收市時段。第三，查看交易所買賣基金持倉的流動性，而非只看交易所買賣基金本身的成交量。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在投資組合層面呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 維持流動性緩衝。在現金或高流動性短期國債中保持足夠的量，覆蓋至少六個月的生活開支加任何近期支出需求。這能防止你在流動性緊縮期間被迫賣出。
-</p>
-<p>
-<strong>[VISUAL: 投資組合配置圖，顯示「流動性階梯」，從底部最具流動性（現金）至頂部最缺乏流動性（私人投資）]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 並將流動性與你的投資期限配對。一年內需要動用的資金應放在最具流動性的工具中。十年內不會動用的資金可投入較少流動性的投資，賺取流動性溢價。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 流動性溢價，即持有非流動資產可賺取更多？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 歷史上確實如此。流動性較差的細價股，歷史上長期跑贏大型股2%至4%。這一溢價的部分原因是對接受較低流動性的補償。
-</p>
-<p>
-<strong>[VISUAL: 條形圖比較流動與非流動資產類別的歷史回報，流動性溢價部分以高亮標示]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最後一個問題。我是否應該擔心下一次流動性危機？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你應該做好準備，而非憂心忡忡。保持流動性緩衝。避免過度槓桿。在資產類別及地區之間分散投資。並記住，流動性危機為長線投資者創造最佳買入機會。
-</p>
-<p>
-<strong>[VISUAL: 標普500圖表，在主要流動性危機（1998、2008、2020）處標示箭頭，顯示隨後的復甦及恐慌買入的回報]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在流動性危機中持有現金及勇氣的投資者，賺取了非凡的回報。當所有人都急需流動性時，成為流動性提供者，是長期跑贏大市最可靠的來源之一。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 「別人恐懼時，你要貪婪」，正如巴菲特所說。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。而理解流動性機制告訴你，這種恐慌何時達到頂峰，以及機會為何存在。
-</p>
-<p>
-<strong>[VISUAL: 總結幻燈片，列出主要要點：買賣差價衡量成本、市場深度衡量韌性、量化寬鬆增加流動性/量化緊縮抽走流動性、融資與市場流動性相互關聯、風險偏好/避險驅動資金流向、準備勝於預測]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 謝謝你，小魚。我再也不會以同樣的眼光看待買賣差價了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這正是目標所在。流動性在運作時是隱形的，不運作時是毀滅性的。現在你知道如何監察它了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 再多一個問題。作為普通投資者，我實際上如何監察流動性狀況？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 建立一個簡單的儀表板。追蹤波動率指數（VIX）了解股票波動性、透過高息交易所買賣基金如HYG了解信用利差、透過美元指數DXY了解避險資金流向，以及透過國債收益率了解利率驅動的壓力。你不需要彭博終端。免費網站及你的券商平台均提供所有這些數據。
-</p>
-<p>
-<strong>[VISUAL: 簡單四格監察儀表板，顯示波動率指數圖表、HYG價格圖表、DXY美元指數圖表及10年期國債收益率圖表，各標示綠色/黃色/紅色區間]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當四個指標均顯示綠色，流動性充裕。當一至兩個轉黃，要留意。當三個或以上轉紅，是時候提高防守性持倉，確保持有充足現金儲備。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 流動性的交通燈系統。我喜歡。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你真正會用的簡單系統，勝過你忽略的複雜系統。保持實際。
-</p>
-<p>
-<strong>[VISUAL: 結尾屏幕，附頻道訂閱按鈕及相關課程連結，包括央行政策及風險管理]</strong>
-</p>
-<hr>
-<p>
-<em>補充課第二十六課完</em>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>補充課第二十六課：市場流動性</h1>
@@ -1743,281 +1497,6 @@ A9：利率和流動性密切相連。當央行加息時，借貸成本增加，
 <strong>Q10：什麼是「流動性幻覺」，為何它很危險？</strong>
 A10：流動性幻覺發生在市場在平靜時期看起來流動性好，但在壓力期間變得嚴重缺乏流動性。電子造市商通過發布大量委託，提供深度流動性市場的表象，但他們可以在條件改變時立即撤回這些委託。在看似流動性好的市場中建立部位的投資人，可能發現在最需要時無法以合理價格退出。這種幻覺在信用市場（公司債、槓桿貸款）和較小市值股票中最為危險，這些市場的結構性流動性本質上就很薄弱。始終通過詢問「在市場恐慌期間，我能以合理的價格賣出這個部位嗎？」來對你的投資組合進行壓力測試。
 </p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>標題：市場流動性全解析：每位投資人必須理解的知識</strong>
-</p>
-<p>
-<strong>時長：約18分鐘</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Glass of water being poured smoothly, then cutting to a frozen block of ice, metaphor for liquid vs illiquid markets]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> Stella，我一直聽到「流動性是市場的命脈」這句話。對於像我這樣只是想買賣股票的人，這實際上意味著什麼？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這意味著一切。流動性決定你交易付多少錢、你是否能在需要時退出部位，以及金融體系本身是正常運作還是崩潰。
-</p>
-<p>
-<strong>[ANIMATION: Market screen showing bid and ask prices for Apple stock. Bid: $175.50, Ask: $175.51. Spread highlighted: $0.01]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我們從最基本的衡量指標開始：買賣價差。當你看到蘋果股票報價為175.51美元，那是賣價——賣方想要的價格。買價——買方願意支付的價格——可能是175.50美元。那一美分的差額就是價差。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一美分看起來不重要。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 對於蘋果等流動性好的股票，確實微不足道。但看看這隻流動性差的小型股。
-</p>
-<p>
-<strong>[ANIMATION: Same screen but showing a small-cap stock. Bid: $12.30, Ask: $12.85. Spread highlighted: $0.55 or 4.4%]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 一隻12美元股票上55美分的價差，是4.4%的來回成本。以12.85美元買入，以12.30美元賣出，在股票甚至未移動之前你已損失4.4%。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 哎喲。這會快速侵蝕報酬。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 確實如此。而且那只是價差。還有市場深度，衡量每個價位可用的成交量。
-</p>
-<p>
-<strong>[ANIMATION: Order book visualization showing layers of buy and sell orders at various prices. Deep order book on left with thousands of shares per level, shallow order book on right with hundreds per level]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在深度市場中，每個價位有數千股可用。你的委託在不移動價格的情況下成交。在薄弱市場中，你的委託可能在吃穿可用委託的過程中對你造成不利的價格移動。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 所以在薄弱市場中，較大的交易有更大的衝擊。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。這稱為價格衝擊，是大型投資人念念不忘的隱性成本。
-</p>
-<p>
-<strong>[VISUAL: Chart showing price impact of a large buy order in a liquid market (barely moves) vs illiquid market (sharp price spike)]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現在，我聽說很多關於聯準會和流動性的事。量化寬鬆、量化緊縮。這是怎麼回事？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這裡事情變得宏觀了。量化寬鬆，或QE，是指聯準會創造資金並用其在市場上購買公債。
-</p>
-<p>
-<strong>[ANIMATION: Federal Reserve building with money flowing out, arrows pointing to Treasury bonds and mortgage-backed securities flowing in. Bank reserves increasing on a gauge meter]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聯準會在2008年後和2020年再次購買了數兆美元的公債。這使金融體系充滿了準備金，並推低了利率。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這對股票有利嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 通常是的。量化寬鬆通過多個管道發揮作用。
-</p>
-<p>
-<strong>[ANIMATION: Three channels visualized as pipes. Channel 1: "Lower rates" with bond yields dropping. Channel 2: "Portfolio rebalancing" with investors moving from bonds to stocks. Channel 3: "Confidence" with a sentiment gauge rising]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 較低的利率使公債吸引力降低，推動投資人進入股票。同時，廉價借貸助長企業買回和經濟增長。而且聯準會撐你背後的信號提振了信心。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那量化緊縮是反向操作嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 量化緊縮是指聯準會讓其公債到期而不再投資所得。現金流回聯準會，從體系中有效消失。
-</p>
-<p>
-<strong>[ANIMATION: Same diagram but in reverse. Money flowing back into the Fed building. Bank reserves declining. "Liquidity" gauge dropping]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聯準會於2022年開始量化緊縮，縮表速度高達每月950億美元。這排出了大量流動性。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這對股票不利嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 它製造了逆風。看看這張覆疊聯準會資產負債表和標普500的圖表。
-</p>
-<p>
-<strong>[VISUAL: Dual-axis chart showing Fed balance sheet (left axis) and S&P 500 (right axis) from 2008 to present. Correlation is visually apparent]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 相關性驚人。它們一起移動。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 不是完全同步，但這種關係是真實的。當聯準會增加流動性時，風險資產往往受益。當它排出流動性時，它們面臨壓力。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你在閱讀材料中提到了一件重要的事，市場流動性與融資流動性的區別。你能解釋一下嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這是關鍵，大多數人都忽略了它。
-</p>
-<p>
-<strong>[ANIMATION: Split screen. Left side: "Market Liquidity" showing a stock exchange with orders flowing. Right side: "Funding Liquidity" showing banks lending cash to each other with repos and commercial paper]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 市場流動性是關於交易——你能輕鬆買賣資產嗎？融資流動性是關於融資——機構能借到所需現金來運作嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 聽起來它們有關聯。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 確實有，這正是問題所在。當一個崩潰時，可能把另一個也拖下去。
-</p>
-<p>
-<strong>[ANIMATION: Circular diagram showing the "liquidity spiral." Funding dries up -> forced asset sales -> market liquidity drops -> prices fall -> collateral values decline -> more funding pressure -> repeat, with the circle getting faster and tighter]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是流動性螺旋。融資壓力迫使拋售。拋售降低市場流動性。下跌的價格降低擔保品價值。較低的擔保品意味著更少的融資。螺旋加速。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 聽起來很可怕。這實際上發生過嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 多次了。讓我給你看三個例子。
-</p>
-<p>
-<strong>[VISUAL: Timeline showing 1998 LTCM, 2008 Financial Crisis, and March 2020 COVID Crash with key liquidity metrics for each]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在2008年，銀行同業拆款完全凍結。銀行拒絕相互貸款，因為他們無法評估交易對手風險。TED利差——正常情況下在20至50個基點附近——爆炸至超過450個基點。
-</p>
-<p>
-<strong>[ANIMATION: TED spread chart showing the spike from normal levels to 450+ basis points in 2008]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 2020年呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 2020年3月很不尋常，因為即使是全球最具流動性的市場——美國公債市場——也崩潰了。公債的買賣價差擴大至2008年以來未見的水平。交易商無法吸收拋售壓力。聯準會不得不以無限量量化寬鬆和緊急借貸計畫介入。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 連公債都不安全？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在信用風險方面，公債是安全的。到期時你一定會拿回錢。但在流動性方面——現在就以公平價格賣出的能力——在真正的恐慌期間沒有什麼是有保證的。這是一個關鍵教訓。信用安全和流動性安全是兩回事。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這個區分真的很重要。我一直以為安全意味著有流動性。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side showing normal Treasury bid-ask spreads vs March 2020 spreads, with widening highlighted in red]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我們來談談風險偏好和風險規避。我一直聽到這些術語。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這描述兩種主要的市場環境，它們從根本上關乎流動性流向。
-</p>
-<p>
-<strong>[ANIMATION: Two-panel illustration. Left panel "Risk-On": sunny weather, money flowing into stocks, high-yield bonds, emerging markets, crypto. Dollar weakening. VIX low. Right panel "Risk-Off": storm clouds, money flowing into Treasuries, US dollar, gold, Japanese yen. VIX spiking]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在風險偏好環境中，流動性流入風險資產。價差緊縮，波動性低，美元往往因資金流入海外投資而走弱。在風險規避環境中，流動性湧向安全資產。所有風險性資產同步賣出。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我如何知道我們處於哪種環境？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 留意幾個關鍵指標。
-</p>
-<p>
-<strong>[VISUAL: Dashboard showing four gauges: VIX level, Credit spreads, US Dollar index, and Treasury yields. Each labeled with risk-on and risk-off ranges]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> VIX低於15通常是風險偏好。超過25是風險規避。信用利差收窄是風險偏好，擴大是風險規避。美元走弱是風險偏好，美元急升是風險規避。公債殖利率下降通常意味著風險規避，因為投資人湧向避風港。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那麼個別投資人應該如何實際運用所有這些資訊？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 幾個實際步驟。
-</p>
-<p>
-<strong>[ANIMATION: Checklist appearing one item at a time]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 首先，在流動性差的有價證券中一律使用限價委託。絕不在薄弱市場中使用市價委託。其次，在買賣價差最窄的交易日中段交易，而非在開盤或收盤時。第三，檢查任何指數股票型基金底層持有資產的流動性，而不僅僅是指數股票型基金本身的成交量。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 投資組合層面的決策呢？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 保持流動性緩衝。將足夠的資金保存在現金或高流動性短期公債中，至少涵蓋六個月的生活費加上任何近期支出需求。這可以防止你在流動性緊縮期間成為被迫賣家。
-</p>
-<p>
-<strong>[VISUAL: Portfolio allocation diagram showing a "liquidity ladder" from most liquid (cash) at the bottom to least liquid (private investments) at the top]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 並且讓你的流動性與你的投資時間視野相匹配。未來一年內需要的資金應投入流動性最好的工具。十年內不會動用的資金可以投入流動性較差、能賺取流動性溢酬的投資。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 流動性溢酬，持有流動性差的東西你能賺更多？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 歷史上，是的。流動性低於大型股的小型股，歷史上長期跑贏2至4%。部分溢酬是對接受較低流動性的補償。
-</p>
-<p>
-<strong>[VISUAL: Bar chart comparing historical returns of liquid vs. illiquid asset classes, with the liquidity premium portion highlighted]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最後一個問題。我應該擔心下一次流動性危機嗎？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你應該做好準備，而不是擔心。保持那個流動性緩衝。避免過度槓桿。在資產類別和地域之間分散投資。記住，流動性危機為長期投資人創造了最好的買入機會。
-</p>
-<p>
-<strong>[VISUAL: Chart showing S&P 500 with arrows at major liquidity crises (1998, 2008, 2020) showing subsequent recoveries and returns for those who bought during the panic]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 在流動性危機期間擁有現金和勇氣的投資人獲得了非凡的報酬。當其他人迫切需要流動性時，成為流動性提供者是長期超額報酬最可靠的來源之一。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 就像巴菲特說的，當別人恐懼時要貪婪。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 正是。理解流動性機制能告訴你那種恐懼在何時達到頂峰，以及為何機會存在。
-</p>
-<p>
-<strong>[VISUAL: Summary slide with key takeaways: Bid-ask spreads measure cost, Market depth measures resilience, QE adds liquidity / QT drains it, Funding and market liquidity are linked, Risk-on/off drives flows, Preparation beats prediction]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 謝謝你Stella。我再也不會用同樣的眼光看待買賣價差了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是目標。流動性在正常運作時是隱形的，失效時是毀滅性的。現在你知道如何留意它了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 還有一個問題。作為普通投資人，我如何實際監控流動性狀況？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 建立一個簡單的儀表板。觀察VIX了解股票波動性、通過高收益指數股票型基金如HYG了解信用利差、觀察美元指數DXY了解避險資金流向，以及公債殖利率了解利率驅動的壓力。你不需要彭博終端機。免費網站和你的券商平台提供所有這些資訊。
-</p>
-<p>
-<strong>[VISUAL: Simple four-panel monitoring dashboard showing VIX chart, HYG price chart, DXY dollar index chart, and 10-year Treasury yield chart, with green/yellow/red zones marked on each]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 當四個都亮綠燈時，流動性充裕。當一兩個變黃時，要注意了。當三個或更多變紅時，是時候提高你的防禦部位，確保你有足夠的現金準備。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 流動性的交通燈系統。我喜歡這個。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你實際會用的簡單系統，勝過你會忽略的複雜系統。保持實用。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on central bank policy and risk management]</strong>
-</p>
-<hr>
-<p>
-<em>補充課第二十六課結束</em>
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>补充课第26课：市场流动性</h1>
@@ -2286,281 +1765,6 @@ A9：利率与流动性密切相关。央行加息使借贷成本上升，降低
 <p>
 <strong>Q10：什么是"流动性幻觉"？为何危险？</strong>
 A10：流动性幻觉是指市场在平静时期看似流动充裕，但在压力时期却急剧转为严重不足。电子做市商通过大量挂单营造出深度充裕的流动性表象，但一旦条件改变，可以瞬间撤销这些挂单。在看似流动的市场中建立仓位的投资者，可能发现在最需要退出时无法以合理价格成交。这种幻觉在信用市场（企业债、杠杆贷款）和小盘股中最为危险，因为这些市场的结构性流动性本就较为薄弱。请始终对你的投资组合进行压力测试，问自己："市场恐慌时，我能以合理价格卖出这个仓位吗？"
-</p>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>标题：市场流动性解析：每位投资者都必须了解的知识</strong>
-</p>
-<p>
-<strong>时长：约18分钟</strong>
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Glass of water being poured smoothly, then cutting to a frozen block of ice, metaphor for liquid vs illiquid markets]</strong>
-</p>
-<p>
-<strong>Horace：</strong> Stella，我不断听说"流动性是市场的命脉"。对于像我这样只是想买卖股票的人来说，这究竟意味着什么？
-</p>
-<p>
-<strong>Stella：</strong> 这意味着一切。流动性决定你的交易成本、在需要时能否退出仓位，以及金融体系本身是正常运转还是走向崩溃。
-</p>
-<p>
-<strong>[ANIMATION: Market screen showing bid and ask prices for Apple stock. Bid: $175.50, Ask: $175.51. Spread highlighted: $0.01]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 我们先从最基本的指标说起：买卖差价。当你看到苹果股票报价为175.51美元时，这是卖价，即卖方的要价。买价——即买方的出价——可能是175.50美元。这一美分的差距就是差价。
-</p>
-<p>
-<strong>Horace：</strong> 一美分感觉无关紧要啊。
-</p>
-<p>
-<strong>Stella：</strong> 对于苹果这样的流动性强的股票，确实微乎其微。但看看这只流动性差的小盘股。
-</p>
-<p>
-<strong>[ANIMATION: Same screen but showing a small-cap stock. Bid: $12.30, Ask: $12.85. Spread highlighted: $0.55 or 4.4%]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 一只12美元股票上55美分的差价，意味着4.4%的往返成本。以12.85美元买入，以12.30美元卖出，在股价分文未动之前你就已经损失了4.4%。
-</p>
-<p>
-<strong>Horace：</strong> 哎哟，这样下去收益很快就被侵蚀了。
-</p>
-<p>
-<strong>Stella：</strong> 确实如此。而且这只是差价。还有市场深度——它衡量每个价格水平的可用成交量。
-</p>
-<p>
-<strong>[ANIMATION: Order book visualization showing layers of buy and sell orders at various prices. Deep order book on left with thousands of shares per level, shallow order book on right with hundreds per level]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在深度充裕的市场中，每个价格水平都有数千股的挂单。你的订单不会推动价格。在委托簿稀薄的市场中，你的订单可能在消化现有挂单的过程中逐步推高价格。
-</p>
-<p>
-<strong>Horace：</strong> 所以在薄市场中，大额交易的冲击更大。
-</p>
-<p>
-<strong>Stella：</strong> 完全正确。这就是价格冲击，是大型投资者最为关注的隐性成本。
-</p>
-<p>
-<strong>[VISUAL: Chart showing price impact of a large buy order in a liquid market (barely moves) vs illiquid market (sharp price spike)]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 说到美联储和流动性，我经常听到量化宽松、量化紧缩。这是怎么回事？
-</p>
-<p>
-<strong>Stella：</strong> 这就要从宏观角度来看了。量化宽松，简称QE，是指美联储创造货币并用来购买市场上的债券。
-</p>
-<p>
-<strong>[ANIMATION: Federal Reserve building with money flowing out, arrows pointing to Treasury bonds and mortgage-backed securities flowing in. Bank reserves increasing on a gauge meter]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 美联储在2008年后以及2020年再次大规模购债，向金融体系注入了数万亿美元的储备金，并压低了利率。
-</p>
-<p>
-<strong>Horace：</strong> 这对股票有好处？
-</p>
-<p>
-<strong>Stella：</strong> 总体而言是的。量化宽松通过多个渠道发挥作用。
-</p>
-<p>
-<strong>[ANIMATION: Three channels visualized as pipes. Channel 1: "Lower rates" with bond yields dropping. Channel 2: "Portfolio rebalancing" with investors moving from bonds to stocks. Channel 3: "Confidence" with a sentiment gauge rising]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 利率走低使债券吸引力下降，将投资者推向股票。与此同时，廉价的借贷成本助力企业回购和经济增长。美联储兜底的信号也提振了市场信心。
-</p>
-<p>
-<strong>Horace：</strong> 那量化紧缩就是反过来？
-</p>
-<p>
-<strong>Stella：</strong> 量化紧缩是指美联储让持有的债券到期而不再投，现金流回美联储，实际上从体系中消失。
-</p>
-<p>
-<strong>[ANIMATION: Same diagram but in reverse. Money flowing back into the Fed building. Bank reserves declining. "Liquidity" gauge dropping]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 美联储于2022年开始量化紧缩，每月缩表规模最高达950亿美元。这是相当大的流动性抽离。
-</p>
-<p>
-<strong>Horace：</strong> 这对股票不利？
-</p>
-<p>
-<strong>Stella：</strong> 会形成阻力。看看这张将美联储资产负债表与标普500叠加的图表。
-</p>
-<p>
-<strong>[VISUAL: Dual-axis chart showing Fed balance sheet (left axis) and S&P 500 (right axis) from 2008 to present. Correlation is visually apparent]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 相关性非常明显，它们几乎同向运动。
-</p>
-<p>
-<strong>Stella：</strong> 并非完美对应，但这种关系是真实存在的。美联储注入流动性时，风险资产往往受益；美联储抽离流动性时，风险资产便面临压力。
-</p>
-<p>
-<strong>Horace：</strong> 你在阅读部分提到了一个重要概念——市场流动性与融资流动性的区别。能解释一下吗？
-</p>
-<p>
-<strong>Stella：</strong> 这一点至关重要，大多数人往往忽略。
-</p>
-<p>
-<strong>[ANIMATION: Split screen. Left side: "Market Liquidity" showing a stock exchange with orders flowing. Right side: "Funding Liquidity" showing banks lending cash to each other with repos and commercial paper]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 市场流动性关乎交易——你能否方便地买卖资产？融资流动性关乎融资——机构能否借到维持运营所需的现金？
-</p>
-<p>
-<strong>Horace：</strong> 听起来两者有关联。
-</p>
-<p>
-<strong>Stella：</strong> 是的，而这恰恰是问题所在。一旦其中一个出现问题，可能把另一个也拖垮。
-</p>
-<p>
-<strong>[ANIMATION: Circular diagram showing the "liquidity spiral." Funding dries up -> forced asset sales -> market liquidity drops -> prices fall -> collateral values decline -> more funding pressure -> repeat, with the circle getting faster and tighter]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 这就是流动性螺旋。融资枯竭引发强制出售，出售降低市场流动性，价格下跌降低抵押品价值，抵押品减少导致融资进一步收紧，螺旋不断加速。
-</p>
-<p>
-<strong>Horace：</strong> 听起来太可怕了。这真的发生过吗？
-</p>
-<p>
-<strong>Stella：</strong> 发生过不止一次。让我给你看三个例子。
-</p>
-<p>
-<strong>[VISUAL: Timeline showing 1998 LTCM, 2008 Financial Crisis, and March 2020 COVID Crash with key liquidity metrics for each]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 2008年，银行间拆借完全冻结。银行拒绝相互拆借，因为无法评估对手方风险。TED利差——通常在20至50个基点左右——飙升至逾450个基点。
-</p>
-<p>
-<strong>[ANIMATION: TED spread chart showing the spike from normal levels to 450+ basis points in 2008]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 2020年呢？
-</p>
-<p>
-<strong>Stella：</strong> 2020年3月的情况很特殊，因为连美国国债市场——全球流动性最强的市场——都出现了严重错位。国债买卖差价扩大至2008年以来前所未见的水平。交易商无法承接卖盘压力。美联储不得不以无限量化宽松和紧急贷款计划介入，以恢复市场功能。
-</p>
-<p>
-<strong>Horace：</strong> 连国债都不安全？
-</p>
-<p>
-<strong>Stella：</strong> 就信用风险而言，国债是安全的——到期时你肯定能拿回本金。但就流动性而言——即现在能否以公允价格变现——在真正的恐慌中，没有什么是有保障的。这是一个关键启示：信用安全与流动性安全是两回事。
-</p>
-<p>
-<strong>Horace：</strong> 这个区分非常重要。我一直以为安全就等于流动性好。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side showing normal Treasury bid-ask spreads vs March 2020 spreads, with widening highlighted in red]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 我们来聊聊风险偏好与避险。这两个词我经常听到。
-</p>
-<p>
-<strong>Stella：</strong> 这两个词描述的是市场两种主导环境，本质上关乎流动性的流向。
-</p>
-<p>
-<strong>[ANIMATION: Two-panel illustration. Left panel "Risk-On": sunny weather, money flowing into stocks, high-yield bonds, emerging markets, crypto. Dollar weakening. VIX low. Right panel "Risk-Off": storm clouds, money flowing into Treasuries, US dollar, gold, Japanese yen. VIX spiking]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 风险偏好环境下，流动性涌入风险资产。信用利差收窄，波动性低，美元往往走弱（资金流出流向海外投资）。避险环境下，流动性奔向安全资产，所有风险资产同步下跌。
-</p>
-<p>
-<strong>Horace：</strong> 怎么判断我们处于哪种环境？
-</p>
-<p>
-<strong>Stella：</strong> 关注几个关键指标。
-</p>
-<p>
-<strong>[VISUAL: Dashboard showing four gauges: VIX level, Credit spreads, US Dollar index, and Treasury yields. Each labeled with risk-on and risk-off ranges]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 波动率指数低于15通常是风险偏好，高于25是避险。信用利差收窄是风险偏好，扩大是避险。美元走弱是风险偏好，美元急升是避险。国债收益率下降通常意味着避险——投资者涌入避险资产。
-</p>
-<p>
-<strong>Horace：</strong> 那个人投资者实际上应该如何运用这些信息？
-</p>
-<p>
-<strong>Stella：</strong> 有几个实用步骤。
-</p>
-<p>
-<strong>[ANIMATION: Checklist appearing one item at a time]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 第一，在流动性差的证券中，务必使用限价单，切勿在薄市场使用市价单。第二，选择差价最紧的交易日中段交易，而非开盘或收盘时段。第三，检查交易所交易基金底层持仓的流动性，而非仅看交易所交易基金自身的成交量。
-</p>
-<p>
-<strong>Horace：</strong> 在投资组合层面呢？
-</p>
-<p>
-<strong>Stella：</strong> 保持流动性缓冲。持有足够的现金或高流动性短期国债，至少覆盖六个月的生活支出加上近期的支出需求。这能防止你在流动性危机中沦为被动卖家。
-</p>
-<p>
-<strong>[VISUAL: Portfolio allocation diagram showing a "liquidity ladder" from most liquid (cash) at the bottom to least liquid (private investments) at the top]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 让流动性与你的投资期限相匹配。一年内需要动用的资金，应配置在最具流动性的工具中；十年内不会触碰的资金，可以投入流动性较差、但能获得流动性溢价的资产。
-</p>
-<p>
-<strong>Horace：</strong> 流动性溢价——持有流动性差的资产能获得更高收益？
-</p>
-<p>
-<strong>Stella：</strong> 历史数据表明如此。流动性低于大盘股的小盘股，长期年化收益率历史上高出大盘股2%至4%。这一溢价的一部分，正是对接受流动性不足的补偿。
-</p>
-<p>
-<strong>[VISUAL: Bar chart comparing historical returns of liquid vs. illiquid asset classes, with the liquidity premium portion highlighted]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 最后一个问题。我是否应该担心下一次流动性危机？
-</p>
-<p>
-<strong>Stella：</strong> 你应该做好准备，而不是忧心忡忡。保持流动性缓冲，避免过度使用杠杆，在各类资产和地区间分散配置。请记住，流动性危机为长期投资者创造了最佳买入机会。
-</p>
-<p>
-<strong>[VISUAL: Chart showing S&P 500 with arrows at major liquidity crises (1998, 2008, 2020) showing subsequent recoveries and returns for those who bought during the panic]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 在流动性危机中持有现金并有勇气买入的投资者，获得了极为丰厚的回报。当所有人都迫切需要流动性时，成为流动性的提供方，是长期跑赢市场最可靠的途径之一。
-</p>
-<p>
-<strong>Horace：</strong> 正如巴菲特所说，在别人恐惧时贪婪。
-</p>
-<p>
-<strong>Stella：</strong> 完全正确。理解流动性机制，能让你判断出恐惧何时达到顶点，以及这种机会从何而来。
-</p>
-<p>
-<strong>[VISUAL: Summary slide with key takeaways: Bid-ask spreads measure cost, Market depth measures resilience, QE adds liquidity / QT drains it, Funding and market liquidity are linked, Risk-on/off drives flows, Preparation beats prediction]</strong>
-</p>
-<p>
-<strong>Horace：</strong> 谢谢Stella。我再也不会以同样的眼光看待买卖差价了。
-</p>
-<p>
-<strong>Stella：</strong> 这正是我们的目标。流动性在发挥作用时隐而不见，崩溃时却是毁灭性的。现在你知道该如何观察它了。
-</p>
-<p>
-<strong>Horace：</strong> 还有最后一个问题。作为普通投资者，我该如何实际监测流动性状况？
-</p>
-<p>
-<strong>Stella：</strong> 搭建一个简单的监测面板。关注股票波动性的波动率指数、通过高收益交易所交易基金（如HYG）追踪信用利差、通过美元指数（DXY）观察避险资金流向，以及国债收益率的利率压力信号。你不需要彭博终端，免费网站和你的券商平台就能提供所有这些数据。
-</p>
-<p>
-<strong>[VISUAL: Simple four-panel monitoring dashboard showing VIX chart, HYG price chart, DXY dollar index chart, and 10-year Treasury yield chart, with green/yellow/red zones marked on each]</strong>
-</p>
-<p>
-<strong>Stella：</strong> 当四项指标全部显示绿色，流动性充裕。当一两项转为黄色，保持警惕。当三项或更多变红，就是提升防御性布局、确保持有充足现金储备的时候了。
-</p>
-<p>
-<strong>Horace：</strong> 流动性的交通灯系统，我喜欢。
-</p>
-<p>
-<strong>Stella：</strong> 你真正会用的简单系统，胜过你会忽略的复杂系统。保持实用。
-</p>
-<p>
-<strong>[VISUAL: End screen with channel subscribe button and links to related lessons on central bank policy and risk management]</strong>
-</p>
-<hr>
-<p>
-<em>补充课第26课完</em>
 </p>
             </div>
         </div>

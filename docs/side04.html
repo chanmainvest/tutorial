@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1511,229 +1540,6 @@ A: Yes. Foreign taxes paid on dividends from international stock funds may be cl
 <strong>問：國際基金有哪些特殊的稅務考量？</strong>
 答：有。就國際股票基金的股息所繳付的外國稅款，可在您的美國報稅表上申請稅務扣除或外國稅務抵免，後者通常更為有利。在應稅賬戶中，您可以申請此抵免。在稅務優惠賬戶中，外國稅款純粹損耗——您既無法獲得抵免，亦無法扣除。這為在應稅賬戶中持有國際股票基金提供了論據，儘管其因非合資格股息而稅務效益略低，但外國稅務抵免可部分彌補。
 </p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<h3>「稅務攻略：精明投資者如何留住更多回報」</h3>
-<p>
-<strong>目標時長：</strong> 18至22分鐘
-<strong>風格：</strong> 實用、策略性、賦權感
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Side-by-side comparison -- two identical portfolios both earning 8%. One labeled "Tax-Oblivious" shows ending value, the other "Tax-Efficient" shows a significantly larger ending value. Title card: "Tax-Efficient Investing"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果我告訴你，兩位持有完全相同投資組合、回報完全相同、儲蓄率完全相同的投資者，在30年後的總財富可以相差三成至四成，你會怎麼想？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 差距太大了。是什麼造成這個分別？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 稅務。就只是稅務。
-</p>
-<p>
-<strong>[ANIMATION: Dollar bill being cut into pieces. "Taxes" slice taking 1-2% per year. Compound effect shown over 30 years growing from a small annual drag to a huge cumulative impact.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 大多數人都在想著如何找到更好的投資。而你說的是，更大的槓桿其實在於留住你已賺取的回報。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。你無法控制市場，但你絕對可以掌控稅務效益。今天我們要講的策略一點都不複雜——只是大多數人從沒機會學到這些。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我們先從最基本說起。當你以盈利沽售投資時，須繳付資本利得稅。但稅率完全取決於你的持有時間長短。
-</p>
-<p>
-<strong>[VISUAL: Two clocks. One showing less than 12 months labeled "短期：按普通收入稅率課稅（最高37%）." The other showing more than 12 months labeled "長期：優惠稅率（0%、15%或20%）"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 持有一年或以下——短期資本利得，按你的普通收入稅率課稅，對許多專業人士來說是32%至37%。持有超過一年——長期資本利得，稅率為零、15%或20%，視乎你的收入而定。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以在第364天和第366天沽售的差別，可以相差逾15個百分點的稅率？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。一筆10萬美元的利得，就這樣節省了逾1.5萬美元的稅款，僅僅因為多等了兩天。這是最簡單的稅務策略，卻被人一再忽視。
-</p>
-<p>
-<strong>[ANIMATION: Calendar showing 365 days. Day 364 highlighted in red: "稅款$37,000." Day 366 highlighted in green: "稅款$15,000." Arrow showing $22,000 savings.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那股息呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 並非所有股息的稅務待遇都相同。合資格股息享有與長期資本利得相同的優惠稅率。普通股息，例如來自房地產信託基金的股息，則按你的完整收入稅率課稅。債券利息則永遠按普通收入稅率課稅。
-</p>
-<p>
-<strong>[VISUAL: Tax rate comparison table. 合資格股息: 0-20%. 普通股息: 10-37%. 債券利息: 10-37%. 市政債券利息: 0%.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是為何在應稅經紀賬戶中持有債券，是效率最低的做法之一。所有利息收入每年都以你最高的稅率被徵稅。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就帶出了資產配置位置的問題。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。資產配置位置就是把正確的投資放進正確的賬戶類型。你有三個「桶」。
-</p>
-<p>
-<strong>[VISUAL: Three buckets labeled "應稅經紀賬戶," "傳統IRA/401(k)," and "Roth IRA/401(k)" with brief descriptions of tax treatment for each]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 大致框架如下：在應稅賬戶中，持有本身已具稅務效益的資產——低周轉率的指數基金、交易所買賣基金、準備長期持有的股票，以及市政債券。在傳統IRA或401(k)中，持有稅務效益較低的資產——債券、房地產信託基金、高周轉率基金。在Roth賬戶中，持有你預期增長最高的資產，因為那部分增長永遠不會被課稅。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為什麼資產放在哪裡那麼重要？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 讓我用真實數字來說明。
-</p>
-<p>
-<strong>[ANIMATION: Two scenarios running side by side over 20 years. Scenario A: Bond fund in taxable, stock fund in IRA. Scenario B: Stock fund in taxable, bond fund in IRA. Both start with same total dollars. After 20 years, Scenario B shows approximately 10-15% more after-tax wealth.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 相同的整體投資組合、相同的整體回報、相同的整體供款。但透過將債券基金放入IRA（利息不會每年被課稅），以及將股票基金放入應稅賬戶（享有優惠的資本利得稅率），你最終會擁有明顯更多的財富。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，我們來談談稅務虧損收割。這個策略我最常聽到，但理解得最少。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 稅務虧損收割是指沽售已貶值的投資，以鎖定虧損，再用這些虧損抵銷其他地方的利得，從而降低稅單。
-</p>
-<p>
-<strong>[VISUAL: Portfolio showing five positions. Three are up, two are down. Arrows showing the losing positions being sold. Loss amounts flowing to offset gain amounts.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 舉個簡單例子。你以5萬美元買入一隻環球指數基金，現在價值4萬美元，即未實現虧損1萬美元。你沽售它，實現這1萬美元的虧損。即時，你購入另一隻不同的環球指數基金——投資範疇相近但並非相同——以保持市場持倉。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 而那1萬美元的虧損可以抵銷其他地方的利得？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 按一對一的比例抵銷資本利得。若你的投資組合其他地方有1萬美元利得，淨利得便歸零。以15%的稅率計算，你剛節省了1,500美元。若抵銷的是按32%課稅的短期利得，則節省3,200美元。
-</p>
-<p>
-<strong>[ANIMATION: Balance scale. Left side: $10,000虧損. Right side: $10,000利得. They cancel out. 稅單: $0 instead of $1,500-$3,200.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但我聽說這並非真正的免費午餐——更像是稅務遞延？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 問得好。當你以4萬美元購入替代基金時，成本基礎較低。所以當你最終沽售替代基金時，應課稅的利得會多出1萬美元。你遞延了稅務，並非消除它。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那遞延在什麼情況下才有真正的價值？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有三種情況，遞延會變成永久性節稅。第一，若你未來的稅率較低——例如退休後進入較低稅率級距。第二，若你持有至去世，繼承人獲得成本基礎重置。第三，若你將已增值的股份捐予慈善機構，完全繞過資本利得稅。
-</p>
-<p>
-<strong>[VISUAL: Three scenarios listed with dollar amounts showing the savings: "未來稅率較低：節省$800," "去世時成本基礎重置：節省$1,500," "慈善捐贈：節省$1,500"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 即使是純粹的遞延，也有其價值。今天節省的1,500美元，以8%的年回報率投資20年，可增長至7,000美元。僅僅因為遞延一筆稅款的時間價值，便是真實的財富增長。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在說說陷阱——洗售規則。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 美國稅局規定，你不能在虧損沽售後，在沽售日前後30天內購入「實質上相同」的證券。若違反，虧損將被撤銷。
-</p>
-<p>
-<strong>[ANIMATION: Calendar with 61-day window highlighted. Day 31 = 沽售日. Days 1-30 = "不得購入相同證券." Days 32-61 = "不得購入相同證券." Violation shown with red X.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 什麼算是實質上相同？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 相同股票、相同基金、相同CUSIP編號——明顯屬於洗售。購入追蹤不同指數的交易所買賣基金——明顯不屬於。灰色地帶是購入追蹤相同或非常相似指數、但來自不同供應商的交易所買賣基金。IRS尚未給出明確指引，但大多數稅務專業人士認為先鋒標普500交易所買賣基金與嘉信美國全市場交易所買賣基金屬於足夠不同的選擇。
-</p>
-<p>
-<strong>[VISUAL: Traffic light system. 紅色: "相同證券——必然觸發洗售." 黃色: "相同指數、不同供應商——灰色地帶." 綠色: "不同指數、不同供應商——一般安全."]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最大的陷阱往往不是那個顯而易見的。而是自動股息再投資計劃。若你在虧損沽售某基金後，另一個賬戶的股息再投資計劃在30天內買入相同基金，你便誤觸了洗售規則。對任何你正在收割虧損的證券，務必關閉股息再投資計劃。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那IRA的陷阱呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是最嚴重的一種。若你在應稅賬戶虧損沽售，而你的IRA在30天內買入相同證券，虧損將被撤銷。更糟糕的是——你亦無法將被撤銷的虧損計入IRA的成本基礎。那筆虧損就此消失，永久地。這是唯一一種洗售違規可令你蒙受永久損失的情況。
-</p>
-<p>
-<strong>[VISUAL: Red warning banner: "洗售 + IRA = 永久損失。被撤銷的虧損無法追回。"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們拉遠一點看。對一位典型投資者而言，全面的稅務效益策略應該是什麼樣的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 五大支柱。
-</p>
-<p>
-<strong>[VISUAL: Five pillars graphic building up one by one]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第一支柱——持有投資超過一年，以享有長期資本利得稅率。第二支柱——透過資產配置位置，將正確的資產放入正確的賬戶。第三支柱——在應稅賬戶中使用稅務效益高的基金——指數交易所買賣基金優於主動管理互惠基金。第四支柱——在市場下跌時收割虧損，用以抵銷利得。第五支柱——在退休期間透過策略性Roth轉換及稅率級距管理，盡量保持在最低可能的稅率級距中提款。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 每一項單獨來看只節省一點點。但合起來，三十年後……
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 合計起來，對一位典型的高收入專業人士而言，整個職業生涯的稅後財富可額外增加五十萬至一百萬美元。不是靠精挑股票，不是靠擇時入市，而純粹是因為懂得稅務管理。
-</p>
-<p>
-<strong>[ANIMATION: Two wealth trajectories starting from the same point. One climbs normally, the other climbs higher and higher as each pillar is added. The gap at year 30 is substantial. Labels show: "第一支柱: +$50K," "第二支柱: +$120K," and so on, cumulating.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這是我聽過的最有說服力的理由，為了做一件其實並不特別刺激的事。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 稅務效益確實不刺激，但非常有效。而且與挑選下一隻熱門股票不同，這完全在你的掌控之中。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那市政債券呢？什麼情況下才適合使用？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 市政債券是高收入投資者在應稅賬戶中的強大工具。利息免繳聯邦所得稅，若是你所居住的州份發行的債券，通常亦免繳州稅。關鍵在於比較稅務等效收益率。對於稅率35%的投資者，一隻收益率3.5%的市政債券等同於應稅債券的5.4%收益率。若你找不到超越這個水平的應稅債券，市政債券便勝出。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison. 應稅債券: 5.0%收益率, 扣除35%稅款後實得 = 3.25%. 市政債券: 3.5%收益率, 稅率0%實得 = 3.5%. 市政債券勝出. Formula shown: 稅務等效收益率 = 市政債券收益率 ÷ (1 - 稅率).]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但在IRA中絕對不要持有市政債券。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 絕對不要。在稅務優惠賬戶中，免稅優惠形同虛設。你以較低的收益率換取毫無實益的好處。市政債券只屬於應稅賬戶。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最後再說一件重要的事——去世時的成本基礎重置。當你去世時，你應稅投資的成本基礎將重置至市值。那些未實現的利得？全部消失。你的繼承人以現時的價格繼承，無需為你生前的增值繳付任何資本利得稅。
-</p>
-<p>
-<strong>[ANIMATION: Investor buys stock at $10,000. Over decades it grows to $200,000. 未實現利得: $190,000. At death, basis steps up to $200,000. Heir sells at $200,000 and owes $0 in capital gains. The $190,000利得被永久消除.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以稅務虧損收割的價值就更大了。你現在獲得虧損的稅務優惠，而較低的成本基礎最終會被成本基礎重置抹去。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 正是。在你的有生之年收割虧損，用以抵銷利得及收入，而替代證券所遞延的稅款在去世時亦將消除。你享受了虧損帶來的稅務優惠，卻永遠不需要繳付替代投資所遞延的稅款。
-</p>
-<p>
-<strong>[VISUAL: Recap card: "持有>1年 | 資產配置位置 | 稅務效益基金 | 稅務虧損收割 | 市政債券 | 策略性提款 | 成本基礎重置"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在就去看看你的投資組合。檢查各項資產分別在哪個賬戶。看看有沒有值得收割的虧損。計算你的債券持倉的稅務等效收益率。今天的小改變，明天就會複利成巨大的差距。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下集見。
-</p>
-<p>
-<strong>[VISUAL: End card with channel info and "下集：補充課程05——平均成本法對比一次過投入"]</strong>
-</p>
-<hr>
-<p>
-<strong>補充課程04完</strong>
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>附加課程 04：節稅投資——保留更多您賺取的報酬</h1>
@@ -2048,229 +1854,6 @@ A: Yes. Foreign taxes paid on dividends from international stock funds may be cl
 <p>
 <strong>問：國際基金有特殊的稅務考量嗎？</strong>
 答：有。來自國際股票基金股利所繳的外國稅款，可以在您的美國申報表上作為稅務扣除或外國稅收抵免申請。稅收抵免通常更有價值。在應稅帳戶中，您可以申請此抵免。在稅務優惠帳戶中，外國稅款就此損失——您無法獲得抵免或扣除。這創造了在應稅帳戶中持有國際股票基金的理由，儘管其非合格股利使稅務效率略低，因為外國稅收抵免部分彌補了這一點。
-</p>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<h3>「稅務操作手冊：聰明投資人如何保留更多報酬」</h3>
-<p>
-<strong>目標長度：</strong>18至22分鐘
-<strong>基調：</strong>實用、策略性、賦能
-</p>
-<hr>
-<p>
-<strong>[VISUAL: Side-by-side comparison -- two identical portfolios both earning 8%. One labeled "Tax-Oblivious" shows ending value, the other "Tax-Efficient" shows a significantly larger ending value. Title card: "Tax-Efficient Investing"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>如果我告訴您，兩個擁有完全相同投資組合、完全相同報酬和完全相同儲蓄率的投資人，在三十年後的總財富可能相差三十至四十個百分點？
-</p>
-<p>
-<strong>Stella（小魚）：</strong>那差距巨大。差異在哪裡？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>稅務。就只是稅務而已。
-</p>
-<p>
-<strong>[ANIMATION: Dollar bill being cut into pieces. "Taxes" slice taking 1-2% per year. Compound effect shown over 30 years growing from a small annual drag to a huge cumulative impact.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>大多數人想著要找到更好的投資標的。您說的是更大的關鍵是保留您已經賺取的報酬。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>完全正確。您無法控制市場，但您絕對可以控制稅務效率。今天我們要介紹的策略並不複雜——只是大多數地方不會教授這些內容。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>讓我們從絕對的基礎開始。當您以利潤出售投資時，您需要繳納資本利得稅。但稅率完全取決於您持有它的時間長短。
-</p>
-<p>
-<strong>[VISUAL: Two clocks. One showing less than 12 months labeled "Short-Term: Taxed as Ordinary Income (up to 37%)." The other showing more than 12 months labeled "Long-Term: Preferential Rate (0%, 15%, or 20%)"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>持有一年或以下——短期資本利得，按您的一般所得稅率課稅，對於許多專業人士而言，這是百分之三十二至三十七。持有超過一年——長期資本利得，根據您的收入，按零、十五或二十個百分點課稅。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>所以在第364天和第366天之間賣出的差異，可能是稅率差異超過十五個百分點？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>完全正確。在十萬美元的利得上，僅僅再等兩天就可以節省超過一萬五千美元。這是現存最簡單的稅務策略，但人們卻不斷忽視它。
-</p>
-<p>
-<strong>[ANIMATION: Calendar showing 365 days. Day 364 highlighted in red: "$37,000 tax." Day 366 highlighted in green: "$15,000 tax." Arrow showing $22,000 savings.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>股利呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>並非所有股利的課稅方式都相同。合格股利享有與長期資本利得相同的優惠稅率。普通股利，如來自不動產投資信託的，按您的全部所得稅率課稅。而債券利息始終是一般所得。
-</p>
-<p>
-<strong>[VISUAL: Tax rate comparison table. Qualified Dividends: 0-20%. Ordinary Dividends: 10-37%. Bond Interest: 10-37%. Municipal Bond Interest: 0%.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>這就是為什麼在您的應稅券商帳戶中持有債券是您可以做的最缺乏效率的事情之一。所有的利息收入每年都按您的最高稅率課稅。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>這帶我們到了資產擺放位置。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>正確。資產擺放位置是將正確的投資放入正確類型帳戶中。您有三個桶。
-</p>
-<p>
-<strong>[VISUAL: Three buckets labeled "Taxable Brokerage," "Traditional IRA/401(k)," and "Roth IRA/401(k)" with brief descriptions of tax treatment for each]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>一般框架：在您的應稅帳戶中，持有本身已具稅務效率的東西——低週轉率指數基金、指數股票型基金、您計劃永遠持有的股票，以及市政債券。在您的傳統IRA或401(k)中，持有稅務效率低的東西——債券、不動產投資信託、高週轉率基金。在您的Roth中，持有您預期增長最多的資產，因為那些增長永遠不會被課稅。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>為什麼持有位置很重要？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>讓我用真實數字給您看。
-</p>
-<p>
-<strong>[ANIMATION: Two scenarios running side by side over 20 years. Scenario A: Bond fund in taxable, stock fund in IRA. Scenario B: Stock fund in taxable, bond fund in IRA. Both start with same total dollars. After 20 years, Scenario B shows approximately 10-15% more after-tax wealth.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>同樣的總投資組合，同樣的總報酬，同樣的總繳費。但透過將債券基金放在IRA內（其利息不用每年課稅），股票基金放在應稅帳戶中（享受優惠的資本利得稅率），您最終擁有明顯更多的資金。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>好的，讓我們談談稅損收割。這是我聽說最多但理解最少的策略。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>稅損收割是出售已經下跌的投資以鎖定損失。然後您使用該損失來抵消其他地方的利得，從而減少您的稅單。
-</p>
-<p>
-<strong>[VISUAL: Portfolio showing five positions. Three are up, two are down. Arrows showing the losing positions being sold. Loss amounts flowing to offset gain amounts.]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>這裡有個簡單的例子。您以五萬美元購買了一隻全球國際基金。現在價值四萬美元。那是一萬美元的未實現損失。您出售它，實現損失。立即，您購買一隻不同的國際基金——類似的曝險但不完全相同——以保持市場投入。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>那一萬美元的損失抵消了其他地方的利得？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>按美元對美元抵消資本利得。如果您在投資組合的另一部分有一萬美元的長期利得，您的淨利得變為零。按百分之十五的稅率，您剛剛節省了一千五百美元。如果它抵消了按百分之三十二課稅的短期利得，您節省了三千二百美元。
-</p>
-<p>
-<strong>[ANIMATION: Balance scale. Left side: $10,000 loss. Right side: $10,000 gain. They cancel out. Tax bill: $0 instead of $1,500-$3,200.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>但我聽說這並非真正的免費午餐——它更像是稅務遞延。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>敏銳的觀察。當您以四萬美元購買替換基金時，您的成本基礎較低。所以當您最終出售替換品時，您的利得將多出一萬美元。您推遲了稅務，但並沒有消除它。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>那麼什麼時候遞延是有價值的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>遞延變成永久節稅的三種情況。第一，如果您未來的稅率較低——也許您退休後進入較低的稅率級距。第二，如果您持有至死亡，繼承人獲得成本基礎重設。第三，如果您將增值股票捐贈給慈善機構，完全繞過資本利得。
-</p>
-<p>
-<strong>[VISUAL: Three scenarios listed with dollar amounts showing the savings: "Lower Future Rate: $800 saved," "Step-Up at Death: $1,500 saved," "Charitable Donation: $1,500 saved"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>即使是純粹的遞延也有價值。今天投資的一千五百美元，以百分之八的報酬率投資二十年，成長為七千美元。僅僅從推遲納稅的時間價值，就是真實的錢。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>現在是陷阱。清洗銷售規則。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>美國國稅局表示，您不能以虧損出售並在出售日前後三十天內買入「實質相同」的證券。如果您這樣做，損失將被取消。
-</p>
-<p>
-<strong>[ANIMATION: Calendar with 61-day window highlighted. Day 31 = sale date. Days 1-30 = "No purchase of same security." Days 32-61 = "No purchase of same security." Violation shown with red X.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>什麼算作實質相同？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>相同的股票、相同的基金、相同的CUSIP號碼——顯然是的。買入追蹤不同指數的不同指數股票型基金——顯然不是。灰色地帶是買入追蹤相同或非常相似指數的不同指數股票型基金。美國國稅局尚未給出明確指導，但大多數稅務專業人士認為先鋒標普500指數股票型基金和嘉信全市場指數股票型基金足夠不同。
-</p>
-<p>
-<strong>[VISUAL: Traffic light system. Red: "Same security - Always a wash sale." Yellow: "Same index, different provider - Gray area." Green: "Different index, different provider - Generally safe."]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>最大的陷阱不是顯而易見的那個。而是自動股利再投資。如果您以虧損出售基金，而您在另一個帳戶中開啟了股利再投資計畫，在三十天內購買了相同基金，您無意中觸發了清洗銷售。對任何您正在收割損失的證券關閉股利再投資計畫。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>IRA陷阱呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>這是最糟糕的一個。如果您在應稅帳戶中以虧損出售，而您的IRA在三十天內購買了相同的證券，損失將被取消。這裡有個噩夢——您無法將被取消的損失加入IRA的成本基礎。損失永遠消失了。這是清洗銷售違規可能永遠讓您損失金錢的唯一情況。
-</p>
-<p>
-<strong>[VISUAL: Red warning banner: "Wash Sale + IRA = PERMANENT LOSS. The disallowed loss CANNOT be recovered."]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>讓我們退一步。對於典型的投資人，全面的節稅策略是什麼樣的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>五大支柱。
-</p>
-<p>
-<strong>[VISUAL: Five pillars graphic building up one by one]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>支柱一——持有投資超過一年，以獲得長期資本利得稅率。支柱二——透過資產擺放位置將正確的資產放入正確的帳戶中。支柱三——在應稅帳戶中使用稅務效率高的基金——指數股票型基金優於主動式共同基金。支柱四——在市場下跌期間收割損失，並用它們來抵消利得。支柱五——在退休中管理提領，透過策略性Roth轉換和稅率級距管理保持在最低可能的稅率級距。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>這些中的每一個單獨都節省了一點點。但在三十年中合在一起……
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>合在一起，對於典型的高收入專業人士，我們談的是在職業生涯中額外多出五十萬至一百萬美元的稅後財富。不是來自更好的股票選擇。不是來自市場時機。只是來自稅務上的聰明。
-</p>
-<p>
-<strong>[ANIMATION: Two wealth trajectories starting from the same point. One climbs normally, the other climbs higher and higher as each pillar is added. The gap at year 30 is substantial. Labels show: "Pillar 1: +$50K," "Pillar 2: +$120K," and so on, cumulating.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>這是我聽過對某件不特別令人興奮的事情最有說服力的論點。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>稅務效率並不令人興奮。它只是有效。而且與找到下一個熱門股票不同，它完全在您的控制之內。
-</p>
-<p>
-<strong>Stella（小魚）：</strong>市政債券呢？什麼時候有意義？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>市政債券對在應稅帳戶中投資的高收入投資人是一個強大的工具。利息免徵聯邦所得稅，如果債券來自您所在的州，通常也免徵州稅。關鍵是比較稅後等值殖利率。對於適用三十五%稅率的人，殖利率三點五%的市政債券等同於應稅債券的殖利率五點四%。如果您找不到殖利率超過這個數字的應稅債券，市政債券勝出。
-</p>
-<p>
-<strong>[VISUAL: Side-by-side comparison. Taxable bond: 5.0% yield, after 35% tax = 3.25% kept. Municipal bond: 3.5% yield, after 0% tax = 3.5% kept. Muni wins. Formula shown: Tax-Equivalent Yield = Muni Yield / (1 - Tax Rate).]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>但不要放在IRA中。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>絕對不要。在稅務優惠帳戶中，稅務豁免是浪費的。您將以較低的殖利率換取毫無益處的東西。市政債券只屬於應稅帳戶。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>讓我再提一件事——死亡時的成本基礎重設。當您去世時，您應稅投資的成本基礎重設為市場價值。那些未實現的利得？消失了。您的繼承人以現在的價格繼承，對您一生中的增值不欠任何資本利得稅。
-</p>
-<p>
-<strong>[ANIMATION: Investor buys stock at $10,000. Over decades it grows to $200,000. Unrealized gain: $190,000. At death, basis steps up to $200,000. Heir sells at $200,000 and owes $0 in capital gains. The $190,000 gain is permanently erased.]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>所以稅損收割變得更加有價值。您現在獲得損失好處，而替換投資中較低的成本基礎最終被成本基礎重設所消除。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>完全正確。在您的一生中收割損失，用它們來抵消利得和收入，而對替換證券遞延的稅款在死亡時被消除。您獲得損失的稅務好處，並且永遠不需要為遞延的稅款付款。
-</p>
-<p>
-<strong>[VISUAL: Recap card: "Hold >1 Year | Asset Location | Tax-Efficient Funds | Tax-Loss Harvesting | Municipal Bonds | Strategic Withdrawals | Step-Up in Basis"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong>現在就去看看您的投資組合。檢查哪些資產在哪個帳戶中。看看您是否有任何值得收割的損失。計算您的債券持倉的稅後等值殖利率。今天的小改變，明天會複利成巨大的差異。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong>下次見。
-</p>
-<p>
-<strong>[VISUAL: End card with channel info and "Next: Side Lesson 05 -- DCA vs. Lump Sum"]</strong>
-</p>
-<hr>
-<p>
-<strong>附加課程04結束</strong>
 </p>
             </div>
             <div id="content-cn" class="lang-content">
@@ -2589,229 +2172,6 @@ Now I have the terminology. Let me produce the Mainland Simplified Chinese trans
 <p>
 <strong>问：国际基金是否有特殊的税务考量？</strong>
 答：有。从国际股票基金的股息中缴纳的外国税款，可以在你的美国报税单上申报为税务减免或外国税收抵免。抵免通常更有价值。在应税账户中，你可以申报此抵免。在税务优惠账户中，外国税款简单地消失了——你无法获得任何抵免或减免。这创造了在应税账户中持有国际股票基金的理由，尽管来自非合格股息的税务效率略低，但外国税收抵免可以部分弥补。
-</p>
-<hr>
-<h2>第二部分：YouTube 脚本</h2>
-<hr>
-<h3>"税务攻略：聪明的投资者如何留住更多收益"</h3>
-<p>
-<strong>目标时长：</strong> 18-22分钟
-<strong>基调：</strong> 实用、策略性、赋能感
-</p>
-<hr>
-<p>
-<strong>[VISUAL: 并排对比——两个完全相同的投资组合，均实现8%的收益。一个标注"忽视税务"显示最终价值，另一个标注"税务效率"显示明显更高的最终价值。标题卡："税务效率投资"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果我告诉你，两位投资组合完全相同、回报完全相同、储蓄率完全相同的投资者，30年后的总财富可能相差三到四成，你会怎么想？
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 差距太大了。区别是什么？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 税收。仅此而已。
-</p>
-<p>
-<strong>[ANIMATION: 纸币被切成若干块。"税收"那块每年吃掉1-2%。30年的复利效应，从每年小额拖累逐渐演变为巨大的累计影响。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 大多数人想的是寻找更好的投资标的。你是说，更大的杠杆在于留住你已经赚到的钱。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 没错。你无法控制市场，但你完全可以控制税务效率。我们今天要讲的策略并不复杂——只是大多数地方不会教你。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 让我们从最基础的开始。当你以高于买入价出售投资时，你需要缴纳资本利得税。但税率完全取决于你持有的时间。
-</p>
-<p>
-<strong>[VISUAL: 两个时钟。一个显示不足12个月，标注"短期：按普通收入征税（最高37%）"。另一个显示超过12个月，标注"长期：优惠税率（0%、15%或20%）"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 持有一年或以下——短期资本利得，按你的普通收入税率征税，对许多专业人士来说高达32%至37%。持有超过一年——长期资本利得，按零、15%或20%征税，取决于你的收入。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以在第364天和第366天出售的区别，税率可能相差15个百分点以上？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 没错。对于10万美元的收益，仅仅多等两天就能节省超过1.5万美元。这是最简单的税务策略，但人们却一再忽视它。
-</p>
-<p>
-<strong>[ANIMATION: 显示365天的日历。第364天以红色高亮："税款37,000美元"。第366天以绿色高亮："税款15,000美元"。箭头显示节省22,000美元。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 股息呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 并非所有股息的税率都一样。合格股息享有与长期资本利得相同的优惠税率。普通股息，如来自房地产投资信托（REIT）的股息，按你的全额收入税率征税。债券利息始终是普通收入。
-</p>
-<p>
-<strong>[VISUAL: 税率对比表。合格股息：0-20%。普通股息：10-37%。债券利息：10-37%。市政债券利息：0%。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这就是为什么在应税证券账户中持有债券是你能做的效率最低的事情之一。所有利息收入每年都按你的最高税率征税。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这就引出了资产位置策略。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 对。资产位置就是将合适的投资放在合适类型的账户中。你有三个桶。
-</p>
-<p>
-<strong>[VISUAL: 三个桶，分别标注"应税证券账户"、"传统IRA/401(k)"和"罗斯IRA/401(k)"，每个桶下方有简短的税务处理说明]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 总体框架是：在你的应税账户中持有本已税务效率高的东西——低换手率指数基金、交易所交易基金（ETF）、你打算永久持有的股票，以及市政债券。在传统IRA或401(k)中，持有税务效率低的东西——债券、房地产投资信托、高换手率基金。在罗斯账户中，持有你预期增长最快的资产，因为那部分增长永远不会被征税。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 为什么持有的位置很重要？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 让我用真实数字来展示。
-</p>
-<p>
-<strong>[ANIMATION: 两个场景并行运行20年。场景A：债券基金在应税账户，股票基金在IRA。场景B：股票基金在应税账户，债券基金在IRA。两者起始总金额相同。20年后，场景B显示税后财富约多10-15%。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 相同的总投资组合，相同的总回报，相同的总供款。但通过将债券基金放在IRA内（其利息不按年征税），将股票基金放在应税账户（享受优惠的资本利得税率），你最终会拥有更多的钱。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，让我们谈谈亏损收割。这是我听说最多但最不了解的策略。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 亏损收割是出售已经下跌的投资以锁定亏损。然后你用这些亏损抵消其他地方的收益，减少你的税单。
-</p>
-<p>
-<strong>[VISUAL: 投资组合显示五个持仓。三个盈利，两个亏损。箭头显示亏损持仓被出售。亏损金额流向抵消收益金额。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 一个简单的例子。你以5万美元购买了一只全球国际指数基金。现在价值4万美元。这是1万美元的未实现亏损。你出售它，实现亏损。立即买入另一只不同的国际基金——类似敞口但不相同——以保持市场投资。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那1万美元的亏损可以抵消其他地方的收益？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 按美元对美元抵消资本利得。如果你的投资组合其他部分有1万美元的长期收益，你的净收益就变为零。按15%的税率，你刚刚节省了1,500美元。如果它抵消了按32%征税的短期收益，你节省了3,200美元。
-</p>
-<p>
-<strong>[ANIMATION: 天平。左边：10,000美元亏损。右边：10,000美元收益。两者相抵消。税单：$0，而非$1,500-$3,200。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但我听说这不是真正的免费午餐——更像是税务递延。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 好眼力。当你以4万美元购买替代基金时，你的成本基础更低。所以当你最终出售替代品时，你的收益将多出1万美元。你推迟了税款，没有消除它。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那么什么时候递延有价值？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有三种情况，递延会变成永久节省。第一，如果你未来的税率更低——比如退休进入更低的税率区间。第二，如果你持有到去世，继承人获得基础调整。第三，如果你将升值的股份捐给慈善机构，完全绕过资本利得。
-</p>
-<p>
-<strong>[VISUAL: 列出三种情景并显示节省金额："未来税率更低：节省800美元"，"去世时基础调整：节省1,500美元"，"慈善捐赠：节省1,500美元"]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 而且即使是纯粹的递延也有价值。今天投资的1,500美元，以8%的年化收益率增长20年，将变成7,000美元。这是递延税款支付的时间价值所带来的真实金钱。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 现在说说陷阱——洗售规则。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 国税局规定，你不能以亏损出售证券后，在出售前后30天内购买"实质相同"的证券。如果你这样做，亏损将被拒绝。
-</p>
-<p>
-<strong>[ANIMATION: 高亮显示61天窗口的日历。第31天=出售日期。第1-30天="不得购买同一证券"。第32-61天="不得购买同一证券"。违规行为以红色X标示。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 什么算作实质相同？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 相同的股票、相同的基金、相同的CUSIP号码——显然是的。买入追踪不同指数的ETF——显然不是。灰色地带是买入追踪相同或非常相似指数的不同ETF。国税局尚未给出明确指导，但大多数税务专业人士认为先锋标普500 ETF和嘉信全市场ETF有足够的差异。
-</p>
-<p>
-<strong>[VISUAL: 交通灯系统。红色："同一证券——始终构成洗售"。黄色："相同指数、不同提供商——灰色地带"。绿色："不同指数、不同提供商——通常安全"。]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 最大的陷阱不是显而易见的那个。而是自动股息再投资。如果你以亏损出售了一只基金，而另一个账户的股息再投资计划在30天内购买了同一基金，你就无意中触发了洗售。对任何你正在收割亏损的证券关闭股息再投资计划。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> IRA陷阱呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 这是最糟糕的一个。如果你在应税账户以亏损出售，而你的IRA在30天内购买了同一证券，亏损将被拒绝。最噩梦的地方在于——你无法将被拒绝的亏损加入IRA的成本基础。亏损就消失了。永久消失。这是洗售违规会让你永久损失金钱的唯一场景。
-</p>
-<p>
-<strong>[VISUAL: 红色警告横幅："洗售 + IRA = 永久亏损。被拒绝的亏损无法追回。"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 让我们退一步看。一个典型投资者的全面税务效率策略是什么样的？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 五大支柱。
-</p>
-<p>
-<strong>[VISUAL: 五大支柱图形，逐一构建]</strong>
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 支柱一——持有投资超过一年以获得长期资本利得税率。支柱二——通过资产位置将合适的资产放在合适的账户中。支柱三——在应税账户中使用税务效率高的基金——指数ETF优于主动管理共同基金。支柱四——在市场下跌期间收割亏损，用于抵消收益。支柱五——退休时通过战略性罗斯转换和税率区间管理，将提款维持在尽可能低的税率区间。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这些策略单独看每一项都节省一点点。但30年后组合起来……
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 组合起来，一个典型的高收入专业人士在职业生涯中，税后财富可能多出50万至100万美元。不是来自更好的选股。不是来自市场择时。仅仅是因为具备税务智慧。
-</p>
-<p>
-<strong>[ANIMATION: 两条财富轨迹从相同起点出发。一条正常上升，另一条随着每个支柱的加入越来越高。第30年的差距相当可观。标注显示："支柱1：+5万美元"、"支柱2：+12万美元"，依此类推，累计叠加。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 这是我听过的最有说服力的论据，而且它并不特别令人兴奋。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 税务效率不令人兴奋。它只是有效。而且与寻找下一只热门股票不同，它完全在你的掌控之内。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 市政债券呢？什么时候有意义？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 市政债券是高收入投资者在应税账户中的强力工具。利息免征联邦所得税，如果债券来自你所在的州，通常也免征州税。关键在于比较税务等效收益率。对于处于35%税率区间的投资者，3.5%收益率的市政债券相当于应税债券的5.4%收益率。如果你找不到能打败这个数字的应税债券，市政债券胜出。
-</p>
-<p>
-<strong>[VISUAL: 并排对比。应税债券：5.0%收益率，扣除35%税后保留3.25%。市政债券：3.5%收益率，扣除0%税后保留3.5%。市政债券胜出。公式显示：税务等效收益率 = 市政债券收益率 / (1 - 税率)。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 但绝对不能放在IRA里。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 绝对不能。在税务优惠账户中，税收豁免是浪费的。你会获得更低的收益率却毫无好处。市政债券专属于应税账户。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 让我再提一件事——去世时的成本基础调整。当你去世时，你应税投资的成本基础会重置为市场价值。那些未实现的收益？全部消失。你的继承人以当前价格继承，对你一生中升值的部分不欠任何资本利得税。
-</p>
-<p>
-<strong>[ANIMATION: 投资者以10,000美元购买股票。数十年间增长至200,000美元。未实现收益：190,000美元。去世时，基础调整至200,000美元。继承人以200,000美元出售，资本利得税为$0。那190,000美元的收益被永久抹去。]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以亏损收割变得更有价值了。你现在获得亏损好处，而替代投资中较低的成本基础最终会被基础调整所消除。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 没错。在你有生之年收割亏损，用它们抵消收益和收入，替代证券上递延的税款会在去世时消除。你获得亏损的税务好处，却永远不需要为递延的税款买单。
-</p>
-<p>
-<strong>[VISUAL: 回顾卡："持有>1年 | 资产位置 | 税务效率基金 | 亏损收割 | 市政债券 | 战略性提款 | 成本基础调整"]</strong>
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 现在就去看看你的投资组合。检查哪些资产在哪些账户中。看看你是否有值得收割的亏损。计算你的债券持仓的税务等效收益率。今天的小改变会在明天复利成巨大的差异。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下期见。
-</p>
-<p>
-<strong>[VISUAL: 结尾卡，显示频道信息和"下一课：补充课程第05课——定投与一次性投资"]</strong>
-</p>
-<hr>
-<p>
-<strong>补充课程第04课 完</strong>
 </p>
             </div>
         </div>

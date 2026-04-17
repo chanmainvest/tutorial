@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -704,7 +733,7 @@ Level 4 is where retail investing meets institutional thinking. You will learn t
 </ul>
 </p>
 <h3>Weekly Lessons</h3>
-<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>37</td><td>Options Leverage Strategies</td></tr><tr><td>38</td><td>LEAPS and Long-Term Options</td></tr><tr><td>39</td><td>Futures Markets Introduction</td></tr><tr><td>40</td><td>Trading the VIX and Volatility</td></tr><tr><td>41</td><td>Risk Management Like a Pro</td></tr><tr><td>42</td><td>Portfolio Risk Models - VaR and Beyond</td></tr><tr><td>43</td><td>Active Portfolio Management</td></tr><tr><td>44</td><td>Market Microstructure and Execution</td></tr><tr><td>45</td><td>Quantitative Methods for Investors</td></tr><tr><td>46</td><td>Backtesting and Strategy Validation</td></tr></tbody></table>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week37.html'"><td><a href="week37.html">37</a></td><td><a href="week37.html">Options Leverage Strategies</a></td></tr><tr class="week-row" onclick="window.location='week38.html'"><td><a href="week38.html">38</a></td><td><a href="week38.html">LEAPS and Long-Term Options</a></td></tr><tr class="week-row" onclick="window.location='week39.html'"><td><a href="week39.html">39</a></td><td><a href="week39.html">Futures Markets Introduction</a></td></tr><tr class="week-row" onclick="window.location='week40.html'"><td><a href="week40.html">40</a></td><td><a href="week40.html">Trading the VIX and Volatility</a></td></tr><tr class="week-row" onclick="window.location='week41.html'"><td><a href="week41.html">41</a></td><td><a href="week41.html">Risk Management Like a Pro</a></td></tr><tr class="week-row" onclick="window.location='week42.html'"><td><a href="week42.html">42</a></td><td><a href="week42.html">Portfolio Risk Models - VaR and Beyond</a></td></tr><tr class="week-row" onclick="window.location='week43.html'"><td><a href="week43.html">43</a></td><td><a href="week43.html">Active Portfolio Management</a></td></tr><tr class="week-row" onclick="window.location='week44.html'"><td><a href="week44.html">44</a></td><td><a href="week44.html">Market Microstructure and Execution</a></td></tr><tr class="week-row" onclick="window.location='week45.html'"><td><a href="week45.html">45</a></td><td><a href="week45.html">Quantitative Methods for Investors</a></td></tr><tr class="week-row" onclick="window.location='week46.html'"><td><a href="week46.html">46</a></td><td><a href="week46.html">Backtesting and Strategy Validation</a></td></tr></tbody></table>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第四級：進階（第37-46週）</h1>
@@ -751,73 +780,7 @@ Level 4 is where retail investing meets institutional thinking. You will learn t
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>37</td><td>期權槓桿策略</td></tr><tr><td>38</td><td>長期期權及遠期期權</td></tr><tr><td>39</td><td>期貨市場入門</td></tr><tr><td>40</td><td>波動率指數交易與波動性</td></tr><tr><td>41</td><td>專業風險管理</td></tr><tr><td>42</td><td>投資組合風險模型——風險值及更多應用</td></tr><tr><td>43</td><td>主動式投資組合管理</td></tr><tr><td>44</td><td>市場微觀結構與訂單執行</td></tr><tr><td>45</td><td>投資者量化方法</td></tr><tr><td>46</td><td>回測與策略驗證</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第四級概覽：專業級工具 | 陳馬投資教學
-</p>
-<p>
-<strong>目標片長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陳馬，導師）：經驗豐富的散戶交易者，憑藉多年市場經驗深入淺出地講解概念</li>
-<li><strong>Stella</strong>（小魚，學生）：剛畢業的大學生，正在學習投資積蓄，代觀眾提出心中疑問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[片頭]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 4: Sophisticated - Weeks 37-46"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎來到第四級。能夠走到這一步，你對投資的認識已經超越了大多數散戶。現在，我們要進一步縮窄散戶與專業投資者之間的差距。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我要坦白說，看到這些題目——風險值模型、市場微觀結構、量化方法——感覺我們已經踏入對沖基金的領域了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 某程度上確實如此。但關鍵在於——這些工具並非機構的專利。一個懂得倉位管理和風險模型的散戶，每一次都會跑贏那些不懂的人。優勢不在於選股眼光更準，而在於風險管理做得更好。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那我們從哪裡開始？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第37至40週涵蓋進階金融工具。我們先從期權槓桿策略入手——如何在風險可控的前提下，利用期權放大回報。然後是長期期權，它是遠期期權的一種，解決了期權買方面臨的最大問題：時間值損耗。第39和40週則介紹期貨與波動性交易。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我在網上經常看到有人提到波動率指數交易。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這是散戶投資中最常被誤解的領域之一。我們會深入解析期貨升水、期限結構，以及為何大多數波動率指數產品長期都是虧損的——同時教你如何善用這些知識。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 接下來就是風險管理的部分了？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第41至44週可以說是整個課程最重要的內容。風險管理正是區分長線存活投資者與爆倉者的關鍵所在。我們會講解倉位規模管理、風險值、主動管理指標，以及市場微觀結構——即你的訂單究竟是如何被執行的。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 然後最後是量化方法和回測？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。第45和46週為你提供統計工具，讓你能夠客觀地驗證自己的投資想法。做得好的回測是無比寶貴的。但做得差的回測，正是讓人誤以為自己找到了一套必勝交易系統的根源。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這一級感覺會徹底改變我對風險的思考方式。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是我們的目標。讓我們開始吧。
-</p>
-<p>
-<strong>[結束]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week37.html'"><td><a href="week37.html">37</a></td><td><a href="week37.html">期權槓桿策略</a></td></tr><tr class="week-row" onclick="window.location='week38.html'"><td><a href="week38.html">38</a></td><td><a href="week38.html">長期期權及遠期期權</a></td></tr><tr class="week-row" onclick="window.location='week39.html'"><td><a href="week39.html">39</a></td><td><a href="week39.html">期貨市場入門</a></td></tr><tr class="week-row" onclick="window.location='week40.html'"><td><a href="week40.html">40</a></td><td><a href="week40.html">波動率指數交易與波動性</a></td></tr><tr class="week-row" onclick="window.location='week41.html'"><td><a href="week41.html">41</a></td><td><a href="week41.html">專業風險管理</a></td></tr><tr class="week-row" onclick="window.location='week42.html'"><td><a href="week42.html">42</a></td><td><a href="week42.html">投資組合風險模型——風險值及更多應用</a></td></tr><tr class="week-row" onclick="window.location='week43.html'"><td><a href="week43.html">43</a></td><td><a href="week43.html">主動式投資組合管理</a></td></tr><tr class="week-row" onclick="window.location='week44.html'"><td><a href="week44.html">44</a></td><td><a href="week44.html">市場微觀結構與訂單執行</a></td></tr><tr class="week-row" onclick="window.location='week45.html'"><td><a href="week45.html">45</a></td><td><a href="week45.html">投資者量化方法</a></td></tr><tr class="week-row" onclick="window.location='week46.html'"><td><a href="week46.html">46</a></td><td><a href="week46.html">回測與策略驗證</a></td></tr></tbody></table>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第四級：進階（第37-46週）</h1>
@@ -864,73 +827,7 @@ Level 4 is where retail investing meets institutional thinking. You will learn t
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>37</td><td>選擇權槓桿策略</td></tr><tr><td>38</td><td>長期期權（LEAPS）與長期選擇權</td></tr><tr><td>39</td><td>期貨市場入門</td></tr><tr><td>40</td><td>交易波動率指數（VIX）與波動性</td></tr><tr><td>41</td><td>專業風險管理</td></tr><tr><td>42</td><td>投資組合風險模型——風險值（VaR）及其延伸</td></tr><tr><td>43</td><td>主動式投資組合管理</td></tr><tr><td>44</td><td>市場微觀結構與執行</td></tr><tr><td>45</td><td>投資者的量化方法</td></tr><tr><td>46</td><td>回測與策略驗證</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第四級概述：專業級工具｜陳馬投資教學
-</p>
-<p>
-<strong>預計時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陳馬）（老師）：經驗豐富的散戶交易者，從多年市場經驗中解說概念</li>
-<li><strong>Stella</strong>（小魚）（學生）：剛從大學畢業、學習投資積蓄的年輕女性，提出觀眾心中的問題</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 4: Sophisticated - Weeks 37-46"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到第四級。如果你能走到這裡，你對投資的了解已經超過大多數散戶了。現在我們要縮小散戶與專業人士之間的差距。
-</p>
-<p>
-<strong>Stella：</strong> 我必須承認，看著這些主題——風險值模型、市場微觀結構、量化方法——聽起來像是我們要進入避險基金的領域了。
-</p>
-<p>
-<strong>Horace：</strong> 某種程度上確實如此。但重點是——這些工具並非機構的專利。了解部位規模設定和風險模型的散戶，每次都會勝過不懂的人。優勢不在於選出更好的股票，而在於更好地管理風險。
-</p>
-<p>
-<strong>Stella：</strong> 我們從哪裡開始？
-</p>
-<p>
-<strong>Horace：</strong> 第37到40週涵蓋進階金融工具。我們從選擇權槓桿策略開始——如何利用選擇權在具有明確風險的情況下放大報酬。然後是長期期權（LEAPS），這種長期選擇權解決了選擇權買方面臨的最大問題：時間價值損耗。第39和40週介紹期貨和波動性交易。
-</p>
-<p>
-<strong>Stella：</strong> 我在網路上一直看到波動率指數（VIX）交易被提到。
-</p>
-<p>
-<strong>Horace：</strong> 這是散戶投資中最常被誤解的領域之一。我們將揭開正價差（contango）、期限結構的神秘面紗，以及為什麼大多數波動率指數產品會隨著時間虧損——還有如何善用這些知識。
-</p>
-<p>
-<strong>Stella：</strong> 然後是風險管理的部分？
-</p>
-<p>
-<strong>Horace：</strong> 第41到44週可以說是整個課程中最重要的。風險管理是區分能夠存活的投資者與那些爆倉者的關鍵。我們涵蓋部位規模設定、風險值（VaR）、主動管理指標，以及市場微觀結構——了解你的訂單實際上是如何被執行的。
-</p>
-<p>
-<strong>Stella：</strong> 然後我們以量化方法和回測作為結尾？
-</p>
-<p>
-<strong>Horace：</strong> 正是。第45和46週給你統計工具，讓你能夠誠實地驗證自己的想法。正確進行的回測非常有價值。錯誤進行的回測則會讓人自欺欺人，以為自己找到了有效的交易系統。
-</p>
-<p>
-<strong>Stella：</strong> 這個級別感覺會改變我對風險的思考方式。
-</p>
-<p>
-<strong>Horace：</strong> 這正是重點所在。讓我們開始吧。
-</p>
-<p>
-<strong>[結束]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week37.html'"><td><a href="week37.html">37</a></td><td><a href="week37.html">選擇權槓桿策略</a></td></tr><tr class="week-row" onclick="window.location='week38.html'"><td><a href="week38.html">38</a></td><td><a href="week38.html">長期期權（LEAPS）與長期選擇權</a></td></tr><tr class="week-row" onclick="window.location='week39.html'"><td><a href="week39.html">39</a></td><td><a href="week39.html">期貨市場入門</a></td></tr><tr class="week-row" onclick="window.location='week40.html'"><td><a href="week40.html">40</a></td><td><a href="week40.html">交易波動率指數（VIX）與波動性</a></td></tr><tr class="week-row" onclick="window.location='week41.html'"><td><a href="week41.html">41</a></td><td><a href="week41.html">專業風險管理</a></td></tr><tr class="week-row" onclick="window.location='week42.html'"><td><a href="week42.html">42</a></td><td><a href="week42.html">投資組合風險模型——風險值（VaR）及其延伸</a></td></tr><tr class="week-row" onclick="window.location='week43.html'"><td><a href="week43.html">43</a></td><td><a href="week43.html">主動式投資組合管理</a></td></tr><tr class="week-row" onclick="window.location='week44.html'"><td><a href="week44.html">44</a></td><td><a href="week44.html">市場微觀結構與執行</a></td></tr><tr class="week-row" onclick="window.location='week45.html'"><td><a href="week45.html">45</a></td><td><a href="week45.html">投資者的量化方法</a></td></tr><tr class="week-row" onclick="window.location='week46.html'"><td><a href="week46.html">46</a></td><td><a href="week46.html">回測與策略驗證</a></td></tr></tbody></table>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第四级：进阶（第37-46周）</h1>
@@ -977,73 +874,7 @@ Level 4 is where retail investing meets institutional thinking. You will learn t
 </ul>
 </p>
 <h3>每周课程</h3>
-<table><thead><tr><th>周</th><th>主题</th></tr></thead><tbody><tr><td>37</td><td>期权杠杆策略</td></tr><tr><td>38</td><td>LEAPS与长期期权</td></tr><tr><td>39</td><td>期货市场入门</td></tr><tr><td>40</td><td>交易波动率指数与波动性</td></tr><tr><td>41</td><td>专业风险管理</td></tr><tr><td>42</td><td>投资组合风险模型——风险价值（VaR）及更多</td></tr><tr><td>43</td><td>主动投资组合管理</td></tr><tr><td>44</td><td>市场微观结构与执行</td></tr><tr><td>45</td><td>投资者量化方法</td></tr><tr><td>46</td><td>回测与策略验证</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 第四级概述：专业级工具 | 陈马投资教程
-</p>
-<p>
-<strong>目标时长：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老师）：经验丰富的散户交易员，以多年市场经验阐释投资概念</li>
-<li><strong>Stella</strong>（学生）：应届大学毕业生，学习如何投资个人储蓄，提出观众心中的疑问</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[INTRO]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 4: Sophisticated - Weeks 37-46"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎来到第四级。能走到这里，说明您对投资的了解已经超过大多数散户。现在，我们要缩小散户与专业机构之间的差距。
-</p>
-<p>
-<strong>Stella：</strong> 我得承认，看着这些主题——风险价值模型、市场微观结构、量化方法——感觉我们正在踏入对冲基金的领地。
-</p>
-<p>
-<strong>Horace：</strong> 某种程度上确实如此。但关键是——这些工具并非机构专属。懂得仓位管理和风险模型的散户，每次都会跑赢不懂的人。优势不在于选出更好的股票，而在于更好地管理风险。
-</p>
-<p>
-<strong>Stella：</strong> 我们从哪里开始？
-</p>
-<p>
-<strong>Horace：</strong> 第37至40周涵盖高级金融工具。我们从期权杠杆策略开始——如何利用期权在明确风险的前提下放大收益。接着是长期期权（LEAPS），解决期权买方最大的痛点：时间价值损耗。第39和40周介绍期货和波动性交易。
-</p>
-<p>
-<strong>Stella：</strong> 波动率指数交易是我在网上经常看到提到的东西。
-</p>
-<p>
-<strong>Horace：</strong> 这是散户投资中最容易被误解的领域之一。我们将揭开期货升水（contango）、期限结构的神秘面纱，以及为何大多数VIX产品长期亏损——还有如何运用这些知识。
-</p>
-<p>
-<strong>Stella：</strong> 然后是风险管理板块？
-</p>
-<p>
-<strong>Horace：</strong> 第41至44周可以说是整个课程中最重要的部分。风险管理是区分能够存活的投资者与爆仓者的关键所在。我们涵盖仓位管理、风险价值（VaR）、主动管理指标和市场微观结构——了解您的订单究竟是如何被执行的。
-</p>
-<p>
-<strong>Stella：</strong> 最后以量化方法和回测收尾？
-</p>
-<p>
-<strong>Horace：</strong> 正是。第45和46周为您提供客观检验投资思路的统计工具。正确的回测价值无可估量。错误的回测则会让人自欺欺人，以为自己找到了一套有效的交易系统。
-</p>
-<p>
-<strong>Stella：</strong> 这个级别感觉会彻底改变我对风险的思考方式。
-</p>
-<p>
-<strong>Horace：</strong> 这正是重点所在。让我们开始吧。
-</p>
-<p>
-<strong>[END]</strong>
-</p>
+<table><thead><tr><th>周</th><th>主题</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week37.html'"><td><a href="week37.html">37</a></td><td><a href="week37.html">期权杠杆策略</a></td></tr><tr class="week-row" onclick="window.location='week38.html'"><td><a href="week38.html">38</a></td><td><a href="week38.html">LEAPS与长期期权</a></td></tr><tr class="week-row" onclick="window.location='week39.html'"><td><a href="week39.html">39</a></td><td><a href="week39.html">期货市场入门</a></td></tr><tr class="week-row" onclick="window.location='week40.html'"><td><a href="week40.html">40</a></td><td><a href="week40.html">交易波动率指数与波动性</a></td></tr><tr class="week-row" onclick="window.location='week41.html'"><td><a href="week41.html">41</a></td><td><a href="week41.html">专业风险管理</a></td></tr><tr class="week-row" onclick="window.location='week42.html'"><td><a href="week42.html">42</a></td><td><a href="week42.html">投资组合风险模型——风险价值（VaR）及更多</a></td></tr><tr class="week-row" onclick="window.location='week43.html'"><td><a href="week43.html">43</a></td><td><a href="week43.html">主动投资组合管理</a></td></tr><tr class="week-row" onclick="window.location='week44.html'"><td><a href="week44.html">44</a></td><td><a href="week44.html">市场微观结构与执行</a></td></tr><tr class="week-row" onclick="window.location='week45.html'"><td><a href="week45.html">45</a></td><td><a href="week45.html">投资者量化方法</a></td></tr><tr class="week-row" onclick="window.location='week46.html'"><td><a href="week46.html">46</a></td><td><a href="week46.html">回测与策略验证</a></td></tr></tbody></table>
             </div>
         </div>
     </main>

@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -696,7 +725,7 @@ Level 5 is the capstone. Over six weeks, you will master the most advanced portf
 </ul>
 </p>
 <h3>Weekly Lessons</h3>
-<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>47</td><td>Tail Risk Hedging</td></tr><tr><td>48</td><td>Structured Products and Defined Outcomes</td></tr><tr><td>49</td><td>Volatility Arbitrage and Term Structure</td></tr><tr><td>50</td><td>Factor Tilts and Alternative Risk Premia</td></tr><tr><td>51</td><td>Managed Futures and Trend Following</td></tr><tr><td>52</td><td>Portfolio Integration - Putting It All Together</td></tr></tbody></table>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week47.html'"><td><a href="week47.html">47</a></td><td><a href="week47.html">Tail Risk Hedging</a></td></tr><tr class="week-row" onclick="window.location='week48.html'"><td><a href="week48.html">48</a></td><td><a href="week48.html">Structured Products and Defined Outcomes</a></td></tr><tr class="week-row" onclick="window.location='week49.html'"><td><a href="week49.html">49</a></td><td><a href="week49.html">Volatility Arbitrage and Term Structure</a></td></tr><tr class="week-row" onclick="window.location='week50.html'"><td><a href="week50.html">50</a></td><td><a href="week50.html">Factor Tilts and Alternative Risk Premia</a></td></tr><tr class="week-row" onclick="window.location='week51.html'"><td><a href="week51.html">51</a></td><td><a href="week51.html">Managed Futures and Trend Following</a></td></tr><tr class="week-row" onclick="window.location='week52.html'"><td><a href="week52.html">52</a></td><td><a href="week52.html">Portfolio Integration - Putting It All Together</a></td></tr></tbody></table>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第5級：專家（第47-52週）</h1>
@@ -735,73 +764,7 @@ Level 5 is the capstone. Over six weeks, you will master the most advanced portf
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>47</td><td>尾部風險對沖</td></tr><tr><td>48</td><td>結構性產品與定義回報</td></tr><tr><td>49</td><td>波動率套利與期限結構</td></tr><tr><td>50</td><td>因子傾斜與另類風險溢價</td></tr><tr><td>51</td><td>管理期貨與趨勢跟蹤</td></tr><tr><td>52</td><td>投資組合整合——融會貫通</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第5級概覽：成為完整的投資者 | 陳馬投資教學
-</p>
-<p>
-<strong>目標片長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陳馬，老師）：經驗豐富的散戶交易員，以多年市場實戰經驗深入淺出地講解概念</li>
-<li><strong>Stella</strong>（小魚，學生）：剛大學畢業、正在學習如何投資積蓄的新手，代觀眾提問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到第5級——最後一關。你已經走了很遠的路。五十一週前，我們從「為什麼要投資？」開始，而現在，我們將以專業級的投資組合構建作為終點。
-</p>
-<p>
-<strong>Stella：</strong> 我自己都難以置信學了這麼多。回頭望望第1級，那些概念現在感覺完全是本能反應了。
-</p>
-<p>
-<strong>Horace：</strong> 這正是應有的感覺。第5級涵蓋六個主題，將所有知識串連起來。我們從第47週的尾部風險對沖開始——如何保護你的投資組合，免受令毫無準備的投資者損失慘重的市場崩潰所傷害。
-</p>
-<p>
-<strong>Stella：</strong> 就像2008年金融海嘯或新冠疫情時的急跌那種？
-</p>
-<p>
-<strong>Horace：</strong> 完全正確。我們會研究在最需要的時候恰好能發揮作用的投資組合保險策略。第48週則講結構性產品——緩衝型交易所買賣基金、結構性票據，以及愈來愈受散戶歡迎的定義回報投資。
-</p>
-<p>
-<strong>Stella：</strong> 然後是波動率套利？
-</p>
-<p>
-<strong>Horace：</strong> 第49週是整個課程中最令人着迷的主題之一。波動率風險溢價是金融市場上最穩定的回報來源之一。我們將向你展示如何利用隱含波動率與已實現波動率之間的差距來獲利。
-</p>
-<p>
-<strong>Stella：</strong> 那後三週呢？
-</p>
-<p>
-<strong>Horace：</strong> 第50週講因子傾斜與另類風險溢價——構建一個能系統性收割多種回報來源的投資組合。第51週介紹管理期貨與趨勢跟蹤，這類策略能提供危機阿爾法——在市場環境最惡劣的時候，往往反而能取得正回報。
-</p>
-<p>
-<strong>Stella：</strong> 那第52週就是大結局？
-</p>
-<p>
-<strong>Horace：</strong> 第52週，我們將課程中的每一個概念，整合成一個完整的全天候投資組合。完成後，你將擁有一套專業水平的資金管理框架。
-</p>
-<p>
-<strong>Stella：</strong> 從零到專業，只需52週。讓我們好好衝刺到最後。
-</p>
-<p>
-<strong>Horace：</strong> 就是這樣。
-</p>
-<p>
-<strong>[完結]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week47.html'"><td><a href="week47.html">47</a></td><td><a href="week47.html">尾部風險對沖</a></td></tr><tr class="week-row" onclick="window.location='week48.html'"><td><a href="week48.html">48</a></td><td><a href="week48.html">結構性產品與定義回報</a></td></tr><tr class="week-row" onclick="window.location='week49.html'"><td><a href="week49.html">49</a></td><td><a href="week49.html">波動率套利與期限結構</a></td></tr><tr class="week-row" onclick="window.location='week50.html'"><td><a href="week50.html">50</a></td><td><a href="week50.html">因子傾斜與另類風險溢價</a></td></tr><tr class="week-row" onclick="window.location='week51.html'"><td><a href="week51.html">51</a></td><td><a href="week51.html">管理期貨與趨勢跟蹤</a></td></tr><tr class="week-row" onclick="window.location='week52.html'"><td><a href="week52.html">52</a></td><td><a href="week52.html">投資組合整合——融會貫通</a></td></tr></tbody></table>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第五級：專家（第47-52週）</h1>
@@ -840,73 +803,7 @@ Level 5 is the capstone. Over six weeks, you will master the most advanced portf
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>47</td><td>尾部風險避險</td></tr><tr><td>48</td><td>結構型商品與明確結果型投資</td></tr><tr><td>49</td><td>波動率套利與期間結構</td></tr><tr><td>50</td><td>因子傾斜與另類風險溢酬</td></tr><tr><td>51</td><td>管理期貨與趨勢追蹤</td></tr><tr><td>52</td><td>投資組合整合——全面匯總</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第五級概覽：完整的投資人 | 展馬投資教學
-</p>
-<p>
-<strong>目標時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：資深散戶交易人，從多年市場經驗出發講解概念</li>
-<li><strong>Stella</strong>（學生）：甫畢業的大學生，正在學習如何投資積蓄，提出觀眾心中的疑問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到第五級——最後一個級別。你們走了一段非常漫長的路。五十一週前，我們從「為什麼要投資？」開始，現在我們即將以專業級的投資組合建構作為終點。
-</p>
-<p>
-<strong>Stella：</strong> 我幾乎無法相信自己學到了這麼多。回頭看第一級的內容，那些概念現在感覺就像是本能一樣自然。
-</p>
-<p>
-<strong>Horace：</strong> 這正是應該有的感覺。第五級涵蓋六個主題，將所有知識融會貫通。我們從第47週的尾部風險避險開始——學習如何保護你的投資組合，抵禦那種會摧毀毫無準備的投資人的市場崩盤。
-</p>
-<p>
-<strong>Stella：</strong> 像2008年或新冠疫情造成的崩盤那樣？
-</p>
-<p>
-<strong>Horace：</strong> 正是。我們將研究那些在你最需要的時候恰好發揮作用的投資組合保險策略。第48週介紹結構型商品——緩衝型指數股票型基金、結構型票據，以及在散戶投資人之間日益普及的明確結果型投資。
-</p>
-<p>
-<strong>Stella：</strong> 然後是波動率套利？
-</p>
-<p>
-<strong>Horace：</strong> 第49週是課程中最引人入勝的主題之一。波動率風險溢酬是金融領域中最可靠的報酬來源之一。我們將示範如何利用隱含波動率與實現波動率之間的落差。
-</p>
-<p>
-<strong>Stella：</strong> 那後三週呢？
-</p>
-<p>
-<strong>Horace：</strong> 第50週涵蓋因子傾斜與另類風險溢酬——建構一個系統性收割多種報酬來源的投資組合。第51週介紹管理期貨與趨勢追蹤，這些策略提供危機阿爾法——在最惡劣的市場環境中往往能帶來正報酬。
-</p>
-<p>
-<strong>Stella：</strong> 第52週是最後的壓軸好戲？
-</p>
-<p>
-<strong>Horace：</strong> 第52週是我們將課程中每一個概念整合成一個完整的全天候投資組合的時刻。你將帶著一套能以專業水準管理資金的完整框架離開。
-</p>
-<p>
-<strong>Stella：</strong> 從零基礎到專業水準，只需52週。讓我們全力衝刺到最後。
-</p>
-<p>
-<strong>Horace：</strong> 我們一起做到。
-</p>
-<p>
-<strong>[結束]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week47.html'"><td><a href="week47.html">47</a></td><td><a href="week47.html">尾部風險避險</a></td></tr><tr class="week-row" onclick="window.location='week48.html'"><td><a href="week48.html">48</a></td><td><a href="week48.html">結構型商品與明確結果型投資</a></td></tr><tr class="week-row" onclick="window.location='week49.html'"><td><a href="week49.html">49</a></td><td><a href="week49.html">波動率套利與期間結構</a></td></tr><tr class="week-row" onclick="window.location='week50.html'"><td><a href="week50.html">50</a></td><td><a href="week50.html">因子傾斜與另類風險溢酬</a></td></tr><tr class="week-row" onclick="window.location='week51.html'"><td><a href="week51.html">51</a></td><td><a href="week51.html">管理期貨與趨勢追蹤</a></td></tr><tr class="week-row" onclick="window.location='week52.html'"><td><a href="week52.html">52</a></td><td><a href="week52.html">投資組合整合——全面匯總</a></td></tr></tbody></table>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第5级：专家级（第47-52周）</h1>
@@ -945,73 +842,7 @@ Level 5 is the capstone. Over six weeks, you will master the most advanced portf
 </ul>
 </p>
 <h3>每周课程</h3>
-<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>47</td><td>尾部风险对冲</td></tr><tr><td>48</td><td>结构化产品与确定收益</td></tr><tr><td>49</td><td>波动率套利与期限结构</td></tr><tr><td>50</td><td>因子倾斜与另类风险溢价</td></tr><tr><td>51</td><td>管理期货与趋势跟踪</td></tr><tr><td>52</td><td>投资组合整合——将所有内容融汇贯通</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 第5级概述：完整的投资者 | Chanma Investment Tutorial
-</p>
-<p>
-<strong>时长目标：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老师）：经验丰富的散户交易员，从多年市场经验中讲解概念</li>
-<li><strong>Stella</strong>（学生）：刚从大学毕业，学习如何投资自己的积蓄，提出观众心中的疑问</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[开场白]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 5: Expert - Weeks 47-52"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎来到第5级——最终关卡。你已经走过了漫长的道路。五十一周前，我们从"为什么要投资？"开始，现在我们将以专业级投资组合构建作为终点。
-</p>
-<p>
-<strong>Stella：</strong> 我几乎无法相信自己学了这么多。当我回顾第1级的内容时，那些概念现在已经变得得心应手了。
-</p>
-<p>
-<strong>Horace：</strong> 这正是应该有的感觉。第5级涵盖六个主题，将所有内容融汇贯通。我们从第47周的尾部风险对冲开始——如何保护你的投资组合免受那种会摧毁毫无准备的投资者的市场崩溃。
-</p>
-<p>
-<strong>Stella：</strong> 比如2008年或新冠暴跌？
-</p>
-<p>
-<strong>Horace：</strong> 正是。我们将研究在你最需要的时候恰好发挥作用的投资组合保险策略。第48周涵盖结构化产品——缓冲型交易所交易基金、结构性票据和确定收益投资，这些产品在散户投资者中越来越受欢迎。
-</p>
-<p>
-<strong>Stella：</strong> 然后是波动率套利？
-</p>
-<p>
-<strong>Horace：</strong> 第49周是课程中最引人入胜的主题之一。波动率风险溢价是金融领域最可靠的收益来源之一。我们将向你展示如何利用隐含波动率与已实现波动率之间的差距。
-</p>
-<p>
-<strong>Stella：</strong> 最后三周呢？
-</p>
-<p>
-<strong>Horace：</strong> 第50周涵盖因子倾斜与另类风险溢价——构建一个系统性收获多种收益来源的投资组合。第51周介绍管理期货和趋势跟踪，它们提供危机阿尔法——在最恶劣的市场环境中往往能带来正收益。
-</p>
-<p>
-<strong>Stella：</strong> 第52周就是终极压轴了？
-</p>
-<p>
-<strong>Horace：</strong> 第52周是我们将课程中每一个概念整合进一个完整全天候投资组合的时刻。你将带着一套专业水准的资金管理完整框架离开。
-</p>
-<p>
-<strong>Stella：</strong> 从零到专业，52周完成。让我们强势收官。
-</p>
-<p>
-<strong>Horace：</strong> 我们一起来完成它。
-</p>
-<p>
-<strong>[结束]</strong>
-</p>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week47.html'"><td><a href="week47.html">47</a></td><td><a href="week47.html">尾部风险对冲</a></td></tr><tr class="week-row" onclick="window.location='week48.html'"><td><a href="week48.html">48</a></td><td><a href="week48.html">结构化产品与确定收益</a></td></tr><tr class="week-row" onclick="window.location='week49.html'"><td><a href="week49.html">49</a></td><td><a href="week49.html">波动率套利与期限结构</a></td></tr><tr class="week-row" onclick="window.location='week50.html'"><td><a href="week50.html">50</a></td><td><a href="week50.html">因子倾斜与另类风险溢价</a></td></tr><tr class="week-row" onclick="window.location='week51.html'"><td><a href="week51.html">51</a></td><td><a href="week51.html">管理期货与趋势跟踪</a></td></tr><tr class="week-row" onclick="window.location='week52.html'"><td><a href="week52.html">52</a></td><td><a href="week52.html">投资组合整合——将所有内容融汇贯通</a></td></tr></tbody></table>
             </div>
         </div>
     </main>

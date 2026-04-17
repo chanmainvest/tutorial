@@ -136,13 +136,66 @@ def markdown_to_html(md):
 # Strip YouTube script section from markdown
 # ---------------------------------------------------------------------------
 def strip_youtube_section(md):
-    pattern = r"\n---\s*\n\s*## Part 2: YouTube Script.*"
+    """Strip Part 2 (YouTube Script) regardless of locale.
+
+    English uses `## Part 2: YouTube Script`; Chinese translations use the
+    locale-translated equivalent (e.g. `## 第二部分：YouTube 腳本`,
+    `## 第二部分：YouTube脚本`). All variants contain "YouTube" in the
+    `## ` heading, which we use as the anchor.
+    """
+    pattern = r"\n---\s*\n\s*##[^\n]*[Yy]ou[Tt]ube[^\n]*\n.*"
     return re.sub(pattern, "", md, flags=re.DOTALL)
 
 
 def extract_title(md):
     m = re.search(r"^#\s+(.+)$", md, re.MULTILINE)
     return m.group(1) if m else "Untitled"
+
+
+# ---------------------------------------------------------------------------
+# Post-processing: turn level / week references into hyperlinks
+# ---------------------------------------------------------------------------
+def linkify_overview_levels(html):
+    """On the course overview page, wrap `<h3>Level N: ...</h3>` in a link
+    to the corresponding level overview page. Works across all locales as
+    long as the heading still starts with the digit 1-5 after "Level " or
+    its translated equivalent — we anchor on the digit since the word for
+    "Level" varies (Level / 級別 / 等級 / 级别).
+    """
+    pattern = re.compile(r'<h3>([^<]*?\b([1-5])\b[^<]*?)</h3>')
+
+    def repl(m):
+        text = m.group(1)
+        n = m.group(2)
+        return f'<h3><a href="level{n}.html" class="level-link">{text}</a></h3>'
+
+    return pattern.sub(repl, html)
+
+
+def linkify_level_weeks(html, level_num):
+    """On a level overview page, wrap each `<tr>` in the weekly-lessons
+    table with a link to the corresponding week page. The first <td> is
+    the week number; we use it to compute the slug.
+    """
+    if not (1 <= level_num <= 5):
+        return html
+
+    row_pattern = re.compile(
+        r'<tr>\s*<td>(\d{1,2})</td>\s*<td>([^<]+)</td>\s*</tr>'
+    )
+
+    def repl(m):
+        week_num = int(m.group(1))
+        topic = m.group(2).strip()
+        slug = f"week{week_num:02d}"
+        return (
+            f'<tr class="week-row" onclick="window.location=\'{slug}.html\'">'
+            f'<td><a href="{slug}.html">{week_num}</a></td>'
+            f'<td><a href="{slug}.html">{topic}</a></td>'
+            f'</tr>'
+        )
+
+    return row_pattern.sub(repl, html)
 
 
 # ---------------------------------------------------------------------------
@@ -288,30 +341,54 @@ def build_breadcrumb(page, pages):
 # ---------------------------------------------------------------------------
 # Glossary page generation
 # ---------------------------------------------------------------------------
+CATEGORY_TRANSLATIONS = {
+    "Equities & Indices":   {"hk": "股票與指數",       "tw": "股票與指數",       "cn": "股票与指数"},
+    "Funds & ETFs":         {"hk": "基金與ETF",        "tw": "基金與ETF",        "cn": "基金与ETF"},
+    "Bonds & Fixed Income": {"hk": "債券與固定收益",   "tw": "債券與固定收益",   "cn": "债券与固定收益"},
+    "Derivatives & Options":{"hk": "衍生工具與期權",   "tw": "衍生性商品與選擇權","cn": "衍生品与期权"},
+    "Portfolio & Strategy": {"hk": "投資組合與策略",   "tw": "投資組合與策略",   "cn": "投资组合与策略"},
+    "Risk & Performance":   {"hk": "風險與績效",       "tw": "風險與績效",       "cn": "风险与业绩"},
+    "Macroeconomics":       {"hk": "宏觀經濟",         "tw": "總體經濟",         "cn": "宏观经济"},
+    "Trading & Markets":    {"hk": "交易與市場",       "tw": "交易與市場",       "cn": "交易与市场"},
+    "Valuation & Analysis": {"hk": "估值與分析",       "tw": "估值與分析",       "cn": "估值与分析"},
+    "Other":                {"hk": "其他",             "tw": "其他",             "cn": "其他"},
+}
+
+GLOSSARY_TITLE = {
+    "en": "Glossary — Investment Terminology",
+    "hk": "詞彙表 — 投資術語",
+    "tw": "詞彙表 — 投資術語",
+    "cn": "词汇表 — 投资术语",
+}
+
+GLOSSARY_INTRO = {
+    "en": "Cross-reference table for investment terms used throughout the course. These are the canonical translations the auto-translator and the lessons use.",
+    "hk": "本課程所用投資術語的對照表。下表為自動翻譯與各課堂統一採用的標準譯名。",
+    "tw": "本課程所用投資術語的對照表。下表為自動翻譯與各課程統一採用的標準譯名。",
+    "cn": "本课程所用投资术语的对照表。下表为自动翻译与各课程统一采用的标准译名。",
+}
+
+GLOSSARY_HEADERS = ["English", "香港", "台灣", "中國"]
+
+
 def build_glossary_html():
     with open(TERMINOLOGY_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    parts = ['<h1>Glossary &mdash; Investment Terminology</h1>']
-    parts.append(
-        '<p>Cross-reference table for investment terms across English, '
-        'Hong Kong (繁體), Taiwan (繁體), and Mainland China (簡體). '
-        'These translations are the canonical vocabulary used throughout the course.</p>'
-    )
-    intro_lang = {
-        "hk": "詞彙表 — 投資術語對照表（英文 / 香港 / 台灣 / 中國大陸）",
-        "tw": "詞彙表 — 投資術語對照表（英文 / 香港 / 台灣 / 中國大陸）",
-        "cn": "词汇表 — 投资术语对照表（英文 / 香港 / 台湾 / 中国大陆）",
-    }
-
-    def render_table(locale_for_intro=None):
-        out = []
-        if locale_for_intro:
-            out.append(f'<h1>{intro_lang[locale_for_intro]}</h1>')
+    def render(locale):
+        out = [
+            f'<h1>{GLOSSARY_TITLE[locale]}</h1>',
+            f'<p>{GLOSSARY_INTRO[locale]}</p>',
+        ]
+        header_row = "".join(f"<th>{h}</th>" for h in GLOSSARY_HEADERS)
         for category, terms in data["categories"].items():
-            out.append(f'<h2>{category}</h2>')
+            if locale == "en":
+                heading = category
+            else:
+                heading = CATEGORY_TRANSLATIONS.get(category, {}).get(locale, category)
+            out.append(f'<h2>{heading}</h2>')
             out.append('<table class="glossary-table">')
-            out.append('<thead><tr><th>English</th><th>HK 🇭🇰</th><th>TW 🇹🇼</th><th>CN 🇨🇳</th></tr></thead>')
+            out.append(f'<thead><tr>{header_row}</tr></thead>')
             out.append('<tbody>')
             for en, mapping in terms.items():
                 out.append(
@@ -323,8 +400,8 @@ def build_glossary_html():
             out.append('</tbody></table>')
         return "\n".join(out)
 
-    en_html = "\n".join(parts) + "\n" + render_table()
-    lang_contents = {loc: render_table(loc) for loc in ("hk", "tw", "cn")}
+    en_html = render("en")
+    lang_contents = {loc: render(loc) for loc in ("hk", "tw", "cn")}
     return en_html, lang_contents
 
 
@@ -492,7 +569,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -503,21 +579,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -714,6 +801,25 @@ html[data-theme="dark"] th { color: #0f1724; }
 tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
+
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
 
 pre {
     background: var(--code-bg);
@@ -929,7 +1035,7 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
     # Country flags: emoji + ISO letters fallback. Twemoji JS replaces emoji
     # with SVG images at runtime; if that fails we still see the letters.
     lang_buttons = [
-        ("en", "\U0001F1EC\U0001F1E7", "EN", "English"),
+        ("en", "\U0001F1FA\U0001F1F8", "EN", "English"),
         ("hk", "\U0001F1ED\U0001F1F0", "HK", "香港繁體"),
         ("tw", "\U0001F1F9\U0001F1FC", "TW", "台灣繁體"),
         ("cn", "\U0001F1E8\U0001F1F3", "CN", "中国简体"),
@@ -997,11 +1103,11 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
             <div class="nav-controls">
                 <div class="lang-selector">{lang_selector}</div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1109,6 +1215,15 @@ def build():
                     lang_contents[lang] = markdown_to_html(lang_article)
 
             title = extract_title(article_content)
+
+            # Cross-page hyperlink upgrades
+            if page["slug"] == "index":
+                html_content = linkify_overview_levels(html_content)
+                lang_contents = {k: linkify_overview_levels(v) for k, v in lang_contents.items()}
+            elif page["type"] == "level_overview":
+                level_num = page["level"]
+                html_content = linkify_level_weeks(html_content, level_num)
+                lang_contents = {k: linkify_level_weeks(v, level_num) for k, v in lang_contents.items()}
 
         breadcrumb = build_breadcrumb(page, pages)
         prev_page = pages[i - 1] if i > 0 else None

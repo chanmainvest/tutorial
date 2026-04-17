@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -1507,221 +1536,6 @@ A: Duration is primarily a bond concept, but the underlying principle applies to
 <p>
 A: In early 2022, MBS had an effective duration of approximately 4 years. As rates rose sharply from 1.5% to 4.5%, prepayments slowed dramatically (nobody refinances from a 3% mortgage to a 6% mortgage). This caused MBS duration to extend to approximately 7 years, right as rates were rising. The combination of rising rates AND extending duration created losses far worse than the initial 4-year duration would have predicted. This "duration extension" in a rising-rate environment is the practical manifestation of negative convexity, and it is why MBS should be treated with extra caution compared to Treasuries of similar duration.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace:</strong> Welcome back. Last week we learned how to read the yield curve. This week we are going to learn how to measure exactly how much your bonds will move when rates change. We are talking about duration and convexity.
-</p>
-<p>
-<strong>Stella:</strong> Duration is one of those terms I see on every bond fund fact sheet, and I always just kind of gloss over it. I know it is important but I do not really understand what it means.
-</p>
-<p>
-<strong>Horace:</strong> You are not alone. Most retail investors ignore duration, and that is a costly mistake. Duration is the single most important number for understanding your bond portfolio's risk. Let me put it in simple terms. Duration tells you how much your bond or bond fund will change in price for a 1% change in interest rates.
-</p>
-<p>
-<strong>Stella:</strong> Give me an example.
-</p>
-<p>
-<strong>Horace:</strong> If your bond fund has a duration of 6.5 years, like the Vanguard Total Bond Market fund, and rates rise by 1%, your fund will lose approximately 6.5%. On $100,000, that is a $6,500 loss. If rates rise by 2%, you lose approximately 13%, or $13,000.
-</p>
-<p>
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "Duration of 6.5 = lose 6.5% per 1% rate increase"]
-</p>
-<p>
-<strong>Stella:</strong> And if rates fall, the opposite?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. A 1% rate drop would give you approximately a 6.5% gain, or $6,500. Duration works in both directions.
-</p>
-<p>
-<strong>Stella:</strong> OK so higher duration means more sensitivity to rates. What determines a bond's duration?
-</p>
-<p>
-<strong>Horace:</strong> Three main factors. First, maturity. Longer-maturity bonds have higher duration. A 30-year Treasury has a duration around 20 years while a 2-year Treasury has a duration around 1.9 years. Second, coupon rate. Higher coupons mean lower duration because you receive more cash flow earlier. Third, yield level. Higher yields mean lower duration because distant cash flows are discounted more heavily.
-</p>
-<p>
-[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
-</p>
-<p>
-<strong>Stella:</strong> Can you explain the different types of duration? I have seen Macaulay, modified, and effective.
-</p>
-<p>
-<strong>Horace:</strong> Sure. Macaulay duration is the original concept. It is the weighted average time until you receive all the bond's cash flows. Think of it like the balance point on a seesaw. If you put all the bond's cash flows on a timeline, weighted by their present value, the balance point is the Macaulay duration.
-</p>
-<p>
-<strong>Stella:</strong> So for a zero-coupon bond, the Macaulay duration equals the maturity?
-</p>
-<p>
-<strong>Horace:</strong> Exactly, because there is only one cash flow at the end. For a coupon bond, the Macaulay duration is always less than the maturity because the coupon payments pull the balance point forward.
-</p>
-<p>
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "Macaulay Duration = 4.2 years". Below: "Maturity = 5 years, but duration is only 4.2 years"]
-</p>
-<p>
-<strong>Stella:</strong> And modified duration?
-</p>
-<p>
-<strong>Horace:</strong> Modified duration takes Macaulay duration and adjusts it to directly measure price sensitivity. The formula is simple: modified duration equals Macaulay duration divided by one plus the yield. The result tells you the percentage price change for a 1% yield change. When people say "duration" in an investment context, they almost always mean modified duration.
-</p>
-<p>
-<strong>Stella:</strong> What about effective duration?
-</p>
-<p>
-<strong>Horace:</strong> Effective duration is used for bonds with embedded options, like callable bonds and mortgage-backed securities. For these bonds, the cash flows change when rates change because the issuer might call the bond or homeowners might refinance their mortgages. Modified duration does not account for this. Effective duration is calculated empirically by observing how the bond's price actually changes when you bump rates up and down.
-</p>
-<p>
-[VISUAL: Three boxes side by side. "Macaulay Duration: Weighted average time to cash flows. Used for immunization." "Modified Duration: Price sensitivity to rates. Used for risk measurement." "Effective Duration: Price sensitivity for bonds with options. Handles callable bonds and MBS."]
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about PVBP because I want to understand the dollar impact.
-</p>
-<p>
-<strong>Horace:</strong> PVBP stands for Price Value of a Basis Point. One basis point is one hundredth of one percent, or 0.01%. PVBP tells you how many dollars your bond position changes for a 1 basis point move in rates.
-</p>
-<p>
-<strong>Stella:</strong> How do you calculate it?
-</p>
-<p>
-<strong>Horace:</strong> Multiply modified duration by the bond price by 0.0001. For example, a $100,000 position with duration of 8 years has a PVBP of $100,000 times 8 times 0.0001, which equals $80. Every single basis point move in rates changes your position by $80.
-</p>
-<p>
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2-year: $19/bp. 5-year: $45/bp. 10-year: $82/bp. 20-year: $145/bp. 30-year: $200/bp. A highlight shows: "30-year bond: $200 per basis point. A 50 bp move = $10,000 gain or loss."]
-</p>
-<p>
-<strong>Stella:</strong> So if I own $100,000 in TLT, the long-term Treasury ETF, with a duration of 17 years?
-</p>
-<p>
-<strong>Horace:</strong> Your PVBP is $170 per basis point. A 1% rate move, which is 100 basis points, changes your position by $17,000. That is a 17% swing. In 2022, when rates rose about 2.5%, TLT lost approximately 31%. If you knew the duration, you could have predicted that.
-</p>
-<p>
-<strong>Stella:</strong> That really puts it in perspective. Now let us talk about convexity because you said duration alone is not enough.
-</p>
-<p>
-<strong>Horace:</strong> Right. Duration is a straight-line approximation of a curved relationship. Think about it this way. The actual relationship between bond prices and yields is a curve, not a straight line. Duration draws a tangent line to that curve at the current yield. For small movements along the curve, the tangent line is a good approximation. For large movements, the tangent line diverges from the actual curve.
-</p>
-<p>
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "Convexity bonus: you gain MORE than duration predicts." As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "Convexity cushion: you lose LESS than duration predicts."]
-</p>
-<p>
-<strong>Stella:</strong> So convexity always helps you?
-</p>
-<p>
-<strong>Horace:</strong> For bonds with positive convexity, yes. You gain more than duration predicts when rates fall, and you lose less than duration predicts when rates rise. This asymmetry is free. It is a mathematical property of fixed cash flow streams discounted at different rates.
-</p>
-<p>
-<strong>Stella:</strong> How do I use convexity in my calculations?
-</p>
-<p>
-<strong>Horace:</strong> The formula adds a second term. Percentage price change equals negative duration times the rate change, plus one-half times convexity times the rate change squared. The second term is always positive for positive convexity bonds, which is why it always helps.
-</p>
-<p>
-[VISUAL: The formula displayed clearly with a worked example. "% Change = -Duration x Ay + 0.5 x Convexity x (Ay)^2". Example: Duration 10, Convexity 120, rates rise 1%. Duration effect: -10%. Convexity effect: +0.6%. Total: -9.4% instead of -10%. "Convexity saved you 0.6% on a $100,000 portfolio = $600"]
-</p>
-<p>
-<strong>Stella:</strong> Now I have to ask about negative convexity because that sounds scary.
-</p>
-<p>
-<strong>Horace:</strong> Negative convexity is exactly what it sounds like. Instead of the curve bending in your favor, it bends against you. You gain less than expected when rates fall and lose more than expected when rates rise.
-</p>
-<p>
-<strong>Stella:</strong> Why would any bond have negative convexity?
-</p>
-<p>
-<strong>Horace:</strong> The primary cause is embedded options that favor the issuer or the borrower. In a callable bond, the issuer can call (buy back) the bond when rates fall. This caps your upside near the call price. You cannot benefit from further rate declines because the issuer will just take the bond away from you and reissue at lower rates.
-</p>
-<p>
-[VISUAL: Two price-yield curves overlaid. The solid curve (non-callable Treasury) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (callable bond) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "Lost upside due to call option"]
-</p>
-<p>
-<strong>Stella:</strong> And mortgage-backed securities are even worse?
-</p>
-<p>
-<strong>Horace:</strong> Much worse. Every homeowner with a mortgage has the option to refinance at any time. When rates fall, homeowners refinance en masse. Your MBS gets its principal returned at par, and you have to reinvest at the now-lower rates. But when rates rise, nobody refinances. Your money is locked in at the old low rate for much longer than expected. Duration extends exactly when you do not want it to.
-</p>
-<p>
-<strong>Stella:</strong> This is what happened in 2022, right?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. MBS went into 2022 with an effective duration of about 4 years. As rates surged, prepayments collapsed and duration extended to about 7 years. So not only were rates rising, but the MBS was becoming more sensitive to those rising rates as they moved higher. It was a double hit. The MBS ETF MBB lost about 11% that year, and some MBS tranches lost much more.
-</p>
-<p>
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "Rising rates: BAD" and "Extending duration: MAKES IT WORSE." The combination produces a loss that is larger than what 4-year duration would have predicted.]
-</p>
-<p>
-<strong>Stella:</strong> So should I avoid MBS entirely?
-</p>
-<p>
-<strong>Horace:</strong> Not necessarily, but you should understand what you are buying. Government-backed MBS has zero credit risk, and it typically offers a yield premium over comparable Treasuries. That premium is compensation for the negative convexity. If you hold MBS in a stable-rate environment, you collect the extra yield without the convexity problem. The danger is in rapidly changing rate environments. My advice: if you own MBS or a fund that holds MBS, know its duration and understand that in extreme rate moves, it will behave worse than a Treasury of similar duration.
-</p>
-<p>
-<strong>Stella:</strong> Let me bring this back to practical investing. How should someone use duration to manage their bond portfolio?
-</p>
-<p>
-<strong>Horace:</strong> Here is my framework. First, know your duration. Look up the effective duration of every bond fund you own. Calculate your portfolio's weighted average duration. Second, stress test your portfolio. Multiply your duration by 1% and by 2% to see how much you would lose if rates rise. Ask yourself if you can tolerate those losses. Third, match your duration to your horizon. If you need the money in 5 years, your duration should be around 5 years. This immunizes you against rate changes.
-</p>
-<p>
-[VISUAL: A three-step checklist. Step 1: "Know Your Duration" with icons of bond fund fact sheets showing duration numbers. Step 2: "Stress Test" with a table showing "If rates rise 1%/2%/3%, you lose $X/$Y/$Z". Step 3: "Match to Horizon" with a timeline showing "Need money in 7 years -> Duration should be ~7 years"]
-</p>
-<p>
-<strong>Stella:</strong> What about the allocation between short, intermediate, and long bonds?
-</p>
-<p>
-<strong>Horace:</strong> In a rising-rate environment or when you are uncertain, stay short. Duration of 2 to 4 years. You sacrifice some yield but protect against rate surprises. In a falling-rate environment, extend duration. Duration of 8 to 15 years. You capture both higher yields and price gains as rates decline. In a stable-rate environment, intermediate duration is fine. Duration of 5 to 7 years. You get reasonable yield without extreme sensitivity.
-</p>
-<p>
-<strong>Stella:</strong> And what about the yield curve shape? Last week we talked about using the curve's shape for decisions.
-</p>
-<p>
-<strong>Horace:</strong> They connect directly. When the curve is steep, staying short costs you a lot of yield because long rates are much higher. But long bonds have more duration risk. When the curve is flat, there is no yield advantage to extending, so stay short and take less risk. When the curve is inverted, short-term instruments actually yield more, so you get paid more for taking less risk. That is a free lunch, and it is the market's way of telling you to stay short.
-</p>
-<p>
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "Steep Curve: Long bonds yield much more, but duration risk is high. Moderate duration." "Flat Curve: No yield pickup for duration risk. Stay short." "Inverted Curve: Short rates higher than long rates. Stay short, get paid more."]
-</p>
-<p>
-<strong>Stella:</strong> Let us talk about immunization briefly. I find this concept elegant even though it is more of an institutional strategy.
-</p>
-<p>
-<strong>Horace:</strong> Immunization is beautiful in its simplicity. You match your portfolio's duration to the date you need the money. If rates rise, your bonds lose value but you reinvest coupons at higher rates. If rates fall, your bonds gain value but you reinvest coupons at lower rates. These two effects cancel out. At the horizon date, you arrive at approximately the same ending value regardless of what rates did.
-</p>
-<p>
-<strong>Stella:</strong> So it is like a hedge that works in both directions?
-</p>
-<p>
-<strong>Horace:</strong> Exactly. And it does not cost anything. You just have to rebalance periodically to keep the duration matched. The catch is it works perfectly only for parallel yield curve shifts. If the curve twists or the shift is non-parallel, there is some tracking error. But for most retail investors, duration matching is far better than not thinking about duration at all.
-</p>
-<p>
-<strong>Stella:</strong> Let me try to bring all of this together. Duration tells me sensitivity to rates, roughly percentage loss per 1% rate rise. Convexity improves that estimate, and positive convexity always works in my favor. Negative convexity, which is mainly in callable bonds and MBS, works against me. And PVBP converts all of this into actual dollars.
-</p>
-<p>
-<strong>Horace:</strong> Perfect summary. Let me add one more thought. When you are comparing two bonds or two bond funds with similar duration and yield, always prefer the one with higher convexity. It is free protection. You get more upside in a rate decline and less downside in a rate rise. All else equal, higher convexity is always better.
-</p>
-<p>
-[VISUAL: Two bonds displayed side by side. Bond A: Duration 7, Yield 4.5%, Convexity 60. Bond B: Duration 7, Yield 4.5%, Convexity 85. A star or checkmark next to Bond B with text: "Same duration, same yield, but better convexity. Choose Bond B."]
-</p>
-<p>
-<strong>Stella:</strong> And if I can only remember one number?
-</p>
-<p>
-<strong>Horace:</strong> Remember your portfolio duration. If it is 6, you lose approximately 6% for every 1% rates rise. If it is 3, you lose approximately 3%. That single number tells you more about your bond risk than anything else.
-</p>
-<p>
-<strong>Stella:</strong> This has been really helpful. I finally understand what those numbers on my fund fact sheets mean.
-</p>
-<p>
-<strong>Horace:</strong> And that is the whole point. Next week we move to credit analysis, where we will learn how to evaluate the other major risk in bonds: the risk that the borrower does not pay you back. Duration is interest rate risk. Credit analysis is default risk. Together, they give you the complete picture of bond investing.
-</p>
-<p>
-<strong>Stella:</strong> Thanks, everyone. See you next week.
-</p>
-<p>
-[VISUAL: End screen with show logo, "Week 32: Duration and Convexity" summary, and preview of Week 33: Credit Analysis]
-</p>
-<p>
-<strong>Horace:</strong> See you then.
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第32週：存續期與凸性——衡量債券價格敏感度</h1>
@@ -2568,221 +2382,6 @@ MBB：  $58/基點  -&gt; 利率每變動1%，損益$5,800（附負凸性！）
 <p>
 答：2022年初，MBS的有效存續期約為4年。隨著利率從1.5%急升至4.5%，提前還款急劇放緩（沒有人會將3%的按揭再融資為6%的按揭），導致MBS存續期延長至約7年。因此，不僅利率在上升，MBS在利率上升的過程中還變得對利率更加敏感，形成雙重打擊。MBS交易所買賣基金MBB當年損失約11%，部分MBS批次的損失更為嚴重。這種在利率上升環境中「存續期延長」的現象，正是負凸性的實際體現，也是為何與存續期相近的國債相比，MBS應受到更多謹慎對待的原因。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎回來。上週我們學習了如何解讀收益率曲線。本週，我們將學習如何精確衡量利率變動時，你的債券會移動多少。我們今天要講的就是存續期與凸性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 存續期這個詞，我在每份債券基金資料說明書上都會看到，但我一直都是一筆帶過。我知道它很重要，但說實話，我並不真的明白它是什麼意思。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你並不孤單。大多數零售投資者都忽視存續期，這是一個代價昂貴的錯誤。存續期是了解你債券投資組合風險最重要的單一數字。讓我用簡單的話來說：存續期告訴你，當利率每變動1%，你的債券或債券基金的價格會改變多少。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 給我舉個例子吧。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果你的債券基金存續期為6.5年，比如Vanguard全債券市場基金，而利率上升1%，你的基金將損失約6.5%。以$100,000計算，那就是損失$6,500。如果利率上升2%，你大約損失13%，即$13,000。
-</p>
-<p>
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "存續期6.5 = 利率每上升1%，損失6.5%"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那如果利率下跌，是反過來的情況？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。利率下跌1%，你的回報大約為正6.5%，即賺取$6,500。存續期在兩個方向上都適用。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，那存續期越高意味著對利率越敏感。什麼因素決定一隻債券的存續期？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 主要有三個因素。第一，到期年期。到期年期越長，存續期越高。30年期國債的存續期約為20年，而2年期國債的存續期約為1.9年。第二，票息率。票息越高，存續期越短，因為你更早收到更多現金流量。第三，收益率水平。收益率越高，存續期越短，因為遠期現金流量被折現得更重。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 可以解釋一下不同類型的存續期嗎？我見過麥考利、修正和有效存續期。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然。麥考利存續期是最原始的概念。它是收取債券所有現金流量的加權平均時間。想象一下蹺蹺板的平衡點——如果你把債券所有的現金流量按現值加權放在時間軸上，那個平衡點就是麥考利存續期。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那對於零息債券，麥考利存續期就等於到期年期？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確，因為只有到期時的一筆現金流量。對於付息債券，麥考利存續期永遠短於到期年期，因為票息支付將平衡點向前拉近了。
-</p>
-<p>
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "麥考利存續期 = 4.2年". Below: "到期年期 = 5年，但存續期只有4.2年"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 修正存續期又是什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 修正存續期將麥考利存續期調整為直接衡量價格敏感度的指標。公式很簡單：修正存續期等於麥考利存續期除以一加收益率。結果告訴你收益率每變動1%時，價格的百分比變動。在投資語境中，當人們說「存續期」時，幾乎都是指修正存續期。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那有效存續期呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有效存續期用於附有內嵌期權的債券，例如可贖回債券和按揭抵押證券。對於這些債券，當利率變動時，現金流量也會隨之改變，因為發行人可能贖回債券，或者業主可能對其按揭進行再融資。修正存續期無法考慮這些情況。有效存續期是通過實證方式計算的——觀察當利率上下波動時，債券價格實際上如何變化。
-</p>
-<p>
-[VISUAL: Three boxes side by side. "麥考利存續期：現金流量的加權平均時間。用於免疫策略。" "修正存續期：對利率的價格敏感度。用於風險衡量。" "有效存續期：附有期權的債券之價格敏感度。適用於可贖回債券及MBS。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談PVBP吧，因為我想了解美元層面的影響。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> PVBP全稱是每基點價格價值。一個基點是百分之一的百分之一，即0.01%。PVBP告訴你，當利率移動1個基點時，你的債券持倉會改變多少美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如何計算？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 將修正存續期乘以債券價格再乘以0.0001。例如，$100,000的持倉，存續期為8年，其PVBP就是$100,000乘以8再乘以0.0001，等於$80。利率每單一基點的移動，會令你的持倉改變$80。
-</p>
-<p>
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2年期：$19/基點。5年期：$45/基點。10年期：$82/基點。20年期：$145/基點。30年期：$200/基點。A highlight shows: "30年期債券：每基點$200。移動50個基點 = 損益$10,000。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那如果我持有$100,000的TLT，即長期國債交易所買賣基金，存續期為17年？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你的PVBP就是每基點$170。利率移動1%，即100個基點，你的持倉改變$17,000。這是17%的波動。2022年，利率上升約2.5%，TLT損失約31%。如果你了解存續期，就能提前預測到這一點。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這真的很有衝擊力。現在我們來談談凸性，因為你說單靠存續期還不夠。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。存續期是對一個曲線關係的直線近似。換個角度想：債券價格與收益率之間的實際關係是一條曲線，而非直線。存續期在當前收益率處對這條曲線畫了一條切線。對於沿曲線的小幅移動，切線是一個不錯的近似值。但對於大幅移動，切線與實際曲線之間的差距就會越來越大。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "凸性紅利：你的盈利超過存續期預測。" As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "凸性緩衝：你的損失少於存續期預測。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那凸性永遠對你有利？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對於正凸性的債券，是的。利率下跌時，你的盈利超過存續期預測；利率上升時，你的損失少於存續期預測。這種不對稱性是免費的——它是固定現金流量以不同利率折現的數學特性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我在計算中如何使用凸性？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 公式加入了第二項：價格百分比變動等於負存續期乘以利率變動，加上二分之一乘以凸性乘以利率變動的平方。第二項對正凸性債券而言始終為正值，這就是它始終有利的原因。
-</p>
-<p>
-[VISUAL: The formula displayed clearly with a worked example. "% 變動 = -存續期 × Δy + 0.5 × 凸性 × (Δy)²". 例子：存續期10，凸性120，利率上升1%。存續期效應：-10%。凸性效應：+0.6%。合計：-9.4%而非-10%。"凸性為你在$100,000投資組合上節省了0.6%=$600"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在我必須問問負凸性，因為聽起來很可怕。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 負凸性就如字面所說。曲線的彎曲方向不利於你，而非有利。利率下跌時你的盈利少於預期，利率上升時損失多於預期。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為何有些債券會有負凸性？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 主要原因是對發行人或借款人有利的內嵌期權。對於可贖回債券，當利率下跌時，發行人可以贖回（買回）債券。這限制了你的上行空間，接近贖回價格。你無法從利率的進一步下跌中受益，因為發行人會把債券取回，再以較低的利率重新發行。
-</p>
-<p>
-[VISUAL: Two price-yield curves overlaid. The solid curve (non-callable Treasury) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (callable bond) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "因贖回期權而損失的上行空間"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 而按揭抵押證券更差？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 差得多。每位持有按揭的業主都可以隨時選擇再融資。當利率下跌，業主大量再融資。你的MBS以面值收回本金，而你必須以現在更低的利率再投資。但當利率上升，沒有人再融資。你的資金以舊的低利率被鎖定的時間比預期長得多——存續期在最不需要它延長的時候延長了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是2022年發生的事情，對吧？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。2022年初，MBS的有效存續期約為4年。隨著利率從1.5%急升至4.5%，提前還款急劇崩潰，存續期延長至約7年。因此，不僅利率在上升，MBS在利率上升的過程中也變得對利率更加敏感——雙重打擊。MBS交易所買賣基金MBB當年損失約11%，部分MBS批次的損失更為慘重。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "利率上升：不利" and "存續期延長：令情況更差。" The combination produces a loss that is larger than what 4-year duration would have predicted.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那我應該完全避開MBS嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 不一定，但你必須了解自己在買什麼。政府支持的MBS沒有信用風險，而且通常比同期國債提供更高的收益率溢價。那個溢價就是對負凸性的補償。如果你在利率穩定的環境下持有MBS，你可以收取額外收益率而不受凸性問題困擾。危險在於利率急速變動的環境。我的建議是：若你持有MBS或相關基金，務必了解其存續期，並明白在利率出現極端波動時，它的表現將比存續期相近的國債更差。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我把這些帶回到實際投資。人們應如何利用存續期管理債券投資組合？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 以下是我的框架。第一，了解你的存續期。查找你持有的每隻債券基金的有效存續期，計算投資組合的加權平均存續期。第二，對你的投資組合進行壓力測試。將存續期分別乘以1%和2%，看看利率上升時你會損失多少。問問自己能否承受這些損失。第三，將存續期與你的時間horizon配對。若你5年後需要這筆錢，你的存續期應約為5年，這令你對利率變動有免疫力。
-</p>
-<p>
-[VISUAL: A three-step checklist. 第一步：「了解你的存續期」，配以顯示存續期數字的債券基金資料說明書圖示。第二步：「壓力測試」，配以表格顯示「若利率上升1%/2%/3%，你將損失$X/$Y/$Z」。第三步：「與時間horizon配對」，配以時間線顯示「7年後需要資金 -> 存續期應約為7年」]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 短期、中期和長期債券之間的配置又如何？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在利率上升或不確定的環境中，保持短存續期，即2至4年。你犧牲了一些收益率，但對利率意外有所保護。在利率下行的環境中，延長存續期，即8至15年。你同時獲得較高收益率和利率下跌時的資本增值。在利率穩定的環境中，中等存續期即可，即5至7年。你獲得合理的收益率，而不需要承擔極端的敏感度。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那收益率曲線的形態呢？上週我們談到利用曲線形態作決策。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 兩者直接相關。當曲線陡峭時，保持短存續期令你損失很多收益率，因為長端利率高得多。但長期債券的存續期風險更大。當曲線平坦時，延長存續期沒有收益率優勢，所以保持短存續期並承受較少風險。當曲線倒掛時，短期工具的收益率實際上高於長期，你可以獲得更多回報同時承受更少風險。這是免費的午餐，是市場告訴你保持短存續期的方式。
-</p>
-<p>
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "陡峭曲線：長期債券收益率高得多，但存續期風險高。中等存續期。" "平坦曲線：延長存續期沒有收益率回報。保持短存續期。" "倒掛曲線：短端利率高於長端。保持短存續期，獲得更高回報。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我們簡單談談免疫策略。我覺得這個概念很優雅，儘管它更多是機構層面的策略。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 免疫策略的美妙在於其簡潔。你將投資組合的存續期與你需要資金的日期配對。若利率上升，你的債券貶值，但你可以較高利率再投資票息。若利率下跌，你的債券升值，但以較低利率再投資票息。這兩種效應相互抵消。在到期日，無論利率如何變動，你都能達到大約相同的最終價值。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以這像是一個在兩個方向上都有效的對沖？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。而且它不需要任何成本。你只需要定期再平衡，以保持存續期配對。需要注意的是，它只在收益率曲線平行移動時完美運作。若曲線出現扭曲或非平行移動，就會有一些追蹤誤差。但對大多數零售投資者來說，存續期配對遠比完全不考慮存續期要好得多。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我嘗試總結一下。存續期告訴我對利率的敏感度，大致等於利率每上升1%的百分比損失。凸性改善了這個估算，而且正凸性永遠對我有利。負凸性——主要見於可贖回債券和MBS——對我不利。而PVBP則將這一切轉化為實際的美元金額。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完美總結。讓我再補充一點：當你比較存續期和收益率相近的兩隻債券或兩隻債券基金時，永遠優先選擇凸性較高的那隻。這是免費的保護，在利率下跌時你獲得更多上行空間，在利率上升時損失更少下行風險。在其他條件相同的情況下，凸性越高永遠越好。
-</p>
-<p>
-[VISUAL: Two bonds displayed side by side. 債券A：存續期7，收益率4.5%，凸性60。債券B：存續期7，收益率4.5%，凸性85。A star or checkmark next to 債券B with text: "存續期相同，收益率相同，但凸性更好。選擇債券B。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果我只能記住一個數字？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 記住你的投資組合存續期。如果是6，利率每上升1%你就損失約6%。如果是3，你就損失約3%。這個單一數字對你的債券風險的揭示，比任何其他指標都更全面。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這節課非常有幫助。我終於明白我的基金資料說明書上那些數字的意思了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是我們的目標。下週我們轉到信用分析，我們將學習如何評估債券投資中的另一個主要風險：借款人無法還款的風險。存續期是利率風險，信用分析是違約風險。兩者合而為一，才能給你一個完整的債券投資圖景。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 多謝各位，下週見。
-</p>
-<p>
-[VISUAL: End screen with show logo, "第32週：存續期與凸性" summary, and preview of Week 33: Credit Analysis]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 下週見。
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第32週：存續期間與凸性——衡量債券價格敏感度</h1>
@@ -3625,221 +3224,6 @@ MBB：  $58/基點   -&gt; 利率每變動1%，損益約$5,800（含負凸性！
 <p>
 答：2022年初，MBS的有效存續期間約為4年。隨著利率從1.5%急速攀升至4.5%，提前還款大幅萎縮（沒有人會從3%的房貸再融資為6%的房貸）。這導致MBS的存續期間延長至約7年。因此，不僅利率在上升，MBS對那些上升的利率也變得更加敏感。這是雙重打擊。當年MBS指數股票型基金MBB損失約11%，部分MBS分券損失更大。這種在利率上升環境中的「存續期間延長」，正是負凸性在實務上的具體呈現，也是為何與同存續期間公債相比，MBS應被格外謹慎對待的原因。
 </p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎回來。上週我們學習了如何解讀殖利率曲線。本週我們要學習如何精確衡量利率變動時，你的債券會移動多少。我們要討論的是存續期間與凸性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 存續期間是我在每一張債券基金說明書上都會看到的術語，我一直都是大略帶過。我知道它很重要，但我不太清楚它到底是什麼意思。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你不是特例。大多數散戶投資人都忽略了存續期間，但這是個代價高昂的錯誤。存續期間是了解債券投資組合風險最重要的單一數字。讓我用簡單的話來說明。存續期間告訴你，當利率每變動1%時，你的債券或債券基金的價格會變動多少。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 給我一個例子。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 如果你的債券基金存續期間是6.5年，就像Vanguard總體債券市場基金，而利率上升了1%，你的基金將損失約6.5%。對$100,000而言，那就是損失$6,500。如果利率上升2%，你損失約13%，也就是$13,000。
-</p>
-<p>
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "存續期間6.5 = 利率每上升1%損失6.5%"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那如果利率下跌，就是相反的情況？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。利率下跌1%，你大約會獲得6.5%的報酬，也就是$6,500。存續期間對兩個方向都有效。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 好，那麼存續期間越高，就代表對利率越敏感。是什麼決定了債券的存續期間？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 主要有三個因素。第一，到期日。到期日越長的債券，存續期間越高。30年期公債的存續期間約20年，而2年期公債只有約1.9年。第二，票面利率。票面利率越高，存續期間越短，因為你更早收到更多現金流。第三，殖利率水準。殖利率越高，存續期間越短，因為遠期現金流被折現得更多。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (duration) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你能解釋一下不同種類的存續期間嗎？我看過麥考利、修正和有效存續期間。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 當然。麥考利存續期間是最原始的概念。它是收到債券所有現金流之前的加權平均時間。把它想成蹺蹺板上的支點。如果你把債券所有的現金流放在時間軸上，以現值加權，支點就是麥考利存續期間。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以對於零息債券，麥考利存續期間等於到期日？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確，因為只有一筆現金流在最後發生。對於附息債券，麥考利存續期間永遠小於到期日，因為票息支付會將支點往前拉。
-</p>
-<p>
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "麥考利存續期間 = 4.2年". Below: "到期日 = 5年，但存續期間只有4.2年"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那修正存續期間呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 修正存續期間將麥考利存續期間調整為直接衡量價格敏感度的指標。公式很簡單：修正存續期間等於麥考利存續期間除以（一加上殖利率）。結果告訴你殖利率每變動1%，債券價格變動的百分比。當人們在投資情境中說「存續期間」，幾乎都是指修正存續期間。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那有效存續期間呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 有效存續期間用於含有嵌入式選擇權的債券，例如可贖回債券和不動產抵押貸款證券。對於這類債券，當利率變動時，現金流也會改變，因為發行人可能贖回債券，或屋主可能辦理再融資。修正存續期間無法考量這一點。有效存續期間是透過觀察利率上下波動時債券價格的實際變化來實證計算的。
-</p>
-<p>
-[VISUAL: Three boxes side by side. "麥考利存續期間：現金流的加權平均時間。用於免疫策略。" "修正存續期間：對利率的價格敏感度。用於風險衡量。" "有效存續期間：含選擇權債券的價格敏感度。處理可贖回債券和MBS。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來談談PVBP，因為我想了解實際的美元影響。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> PVBP是基點價值的縮寫。一個基點是百分之一的百分之一，即0.01%。PVBP告訴你，利率每移動1個基點，你的債券部位會改變多少美元。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如何計算？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 修正存續期間乘以債券價格再乘以0.0001。例如，$100,000部位，存續期間8年，PVBP就是$100,000乘以8再乘以0.0001，等於$80。利率每移動一個基點，你的部位就改變$80。
-</p>
-<p>
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2年期: $19/基點。5年期: $45/基點。10年期: $82/基點。20年期: $145/基點。30年期: $200/基點。A highlight shows: "30年期債券：每個基點$200。50個基點的波動 = 損益$10,000。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那如果我持有$100,000的TLT，也就是長期公債指數股票型基金，存續期間是17年？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你的PVBP是每個基點$170。1%的利率波動，也就是100個基點，會讓你的部位改變$17,000。那是17%的波動。2022年，利率上升了約2.5%，TLT損失了約31%。如果你知道存續期間，就能預測到這一點。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這真的很有感。現在我們來談談凸性，因為你說單靠存續期間還不夠。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對。存續期間是對曲線關係的直線近似。這樣想吧：債券價格與殖利率之間的實際關係是一條曲線，而不是直線。存續期間在當前殖利率點對那條曲線畫了一條切線。對於沿曲線的小幅移動，切線是個很好的近似值。對於大幅移動，切線就會偏離實際曲線。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (duration) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "凸性紅利：你的獲利超過存續期間的預測。" As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "凸性緩衝：你的損失少於存續期間的預測。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以凸性永遠對你有利？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 對具有正凸性的債券而言，是的。當利率下跌時，你的獲利超過存續期間的預測；當利率上升時，你的損失少於存續期間的預測。這種不對稱性是免費的，它是固定現金流以不同利率折現的數學特性。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我如何在計算中使用凸性？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這個公式加了第二項。價格變動百分比等於負的存續期間乘以利率變動，再加上二分之一乘以凸性乘以利率變動的平方。第二項對正凸性債券永遠為正，這就是為什麼它永遠帶來幫助。
-</p>
-<p>
-[VISUAL: The formula displayed clearly with a worked example. "% 變動 = -存續期間 × Δy + 0.5 × 凸性 × (Δy)²". Example: 存續期間10，凸性120，利率上升1%。存續期間效應：-10%。凸性效應：+0.6%。合計：-9.4%而非-10%。"凸性為你在$100,000的投資組合上節省了0.6% = $600"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 現在我必須問負凸性，因為聽起來很可怕。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 負凸性正是字面上的意思。曲線不是向有利方向彎曲，而是對你不利。當利率下跌時，你的獲利不如預期；當利率上升時，你的損失超過預期。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 為什麼有些債券會有負凸性？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 主要原因是有利於發行人或借款人的嵌入式選擇權。在可贖回債券中，當利率下跌時，發行人可以贖回（買回）債券。這使你的上行空間被限制在贖回價附近。你無法從利率的進一步下跌中獲益，因為發行人會把債券拿回去，再以更低的利率重新發行。
-</p>
-<p>
-[VISUAL: Two price-yield curves overlaid. The solid curve (非可贖回公債) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (可贖回債券) follows the Treasury curve on the right (high rates) but flattens and caps near the call price on the left (low rates). The area between the curves on the left is labeled "因贖回選擇權而損失的上行空間"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那不動產抵押貸款證券的情況更糟？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 糟糕得多。每一位有房貸的屋主都可以隨時辦理再融資。當利率下跌，屋主大規模再融資。你的MBS本金以面額還給你，你被迫在現在較低的利率環境下再投資。但當利率上升，沒有人再融資。你的資金鎖定在舊的低利率下，時間比預期長得多。存續期間恰恰在你不希望它延長的時候延長了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這就是2022年發生的事，對吧？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。MBS進入2022年時的有效存續期間約為4年。隨著利率急速攀升，提前還款崩潰，存續期間延長至約7年。所以不只是利率在上升，MBS在利率上升時對那些利率的敏感度也在增加。這是雙重打擊。當年MBS指數股票型基金MBB損失了約11%，部分MBS分券損失更多。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "利率上升：不利" and "存續期間延長：使情況更加惡化。" The combination produces a loss that is larger than what 4-year duration would have predicted.]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那我應該完全避開MBS嗎？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 不一定，但你應該清楚自己買的是什麼。有政府背書的MBS（由吉利美、房利美、房地美發行）幾乎沒有信用風險，而且通常比同等條件的公債提供更高的殖利率溢酬。那個溢酬是負凸性的補償。如果你在利率穩定的環境中持有MBS，你能收取額外殖利率而不會碰到凸性問題。危險在於利率劇烈變動的環境。我的建議是：如果你持有MBS或含有MBS的基金，要清楚其存續期間，並且了解在極端利率波動下，它的表現會比同存續期間的公債更差。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我把這些帶回實際投資。一個人應該如何利用存續期間來管理他們的債券投資組合？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 以下是我的框架。第一，了解你的存續期間。查詢你持有的每一檔債券基金的有效存續期間，計算投資組合的加權平均存續期間。第二，對你的投資組合進行壓力測試。將你的存續期間分別乘以1%和2%，看看利率上升時你會損失多少。問問自己是否能夠承受這些損失。第三，將存續期間配對至你的時間軸。如果你5年後需要這筆錢，你的存續期間應該約為5年。這能讓你對利率變動產生自然的免疫效果。
-</p>
-<p>
-[VISUAL: A three-step checklist. Step 1: "了解你的存續期間" with icons of bond fund fact sheets showing duration numbers. Step 2: "壓力測試" with a table showing "若利率上升1%/2%/3%，你損失$X/$Y/$Z". Step 3: "配對時間軸" with a timeline showing "7年後需要資金 -> 存續期間應約為7年"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那短期、中期和長期債券的配置呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 在利率上升環境或不確定時，保持短端。存續期間2至4年。你犧牲了一些殖利率，但能防範利率意外。在利率下跌環境中，延長存續期間。存續期間8至15年。你能同時捕捉較高殖利率和利率下跌時的價格漲幅。在利率穩定環境中，中等存續期間是合理的。存續期間5至7年。你能獲得合理殖利率，而不會有極端的敏感度。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那殖利率曲線形態呢？上週我們談到利用曲線形態來做決策。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 它們直接相關。當殖利率曲線陡峭時，保持短端的成本很高，因為長端利率高出很多，但長期債券存在更多存續期間風險。當殖利率曲線平坦時，延長存續期間並不會帶來額外的殖利率優勢，因此保持短端、承擔較少風險。當殖利率曲線倒掛時，短期工具的殖利率實際上高於長期，你能因承擔較少風險而獲得更高報酬。這是免費的午餐，也是市場告訴你保持短端的訊號。
-</p>
-<p>
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "陡峭殖利率曲線：長期債券殖利率高很多，但存續期間風險高。中等存續期間。" "平坦殖利率曲線：無殖利率優勢補償存續期間風險。保持短端。" "倒掛殖利率曲線：短端利率高於長端。保持短端，獲得更高報酬。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我們來簡單談一下免疫策略。即使它更屬於機構層面的策略，我覺得這個概念很優雅。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 免疫策略簡單得讓人嘆為觀止。你將投資組合的存續期間配對到你需要資金的日期。若利率上升，你的債券價值下跌，但你以更高的利率再投資票息。若利率下跌，你的債券價值上漲，但你以更低的利率再投資票息。這兩種效應相互抵消。在期限屆滿時，無論利率發生了什麼，你的最終價值大約相同。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以它就像一個雙向都有效的避險？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完全正確。而且它不需要任何成本，你只需定期再平衡以維持存續期間的配對。問題在於它只對殖利率曲線平行移動的情況完美適用。如果曲線扭轉或移動不平行，會有一些追蹤誤差。但對大多數散戶投資人而言，存續期間配對遠比完全不考慮存續期間要好得多。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 讓我試著把這一切整合在一起。存續期間告訴我對利率的敏感度，大約是每1%利率上升損失的百分比。凸性改善了這個估算，而且正凸性永遠對我有利。負凸性主要出現在可贖回債券和MBS中，會對我不利。PVBP則將這一切轉換成實際金額。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 完美的總結。我再補充一點。當你比較兩張或兩檔存續期間和殖利率相近的債券或基金時，永遠優先選擇凸性較高的那個。它是免費的保護。你在利率下跌時有更多上行空間，在利率上升時有較少下行風險。在其他條件相同的情況下，凸性越高越好。
-</p>
-<p>
-[VISUAL: Two bonds displayed side by side. 債券A：存續期間7，殖利率4.5%，凸性60。債券B：存續期間7，殖利率4.5%，凸性85。A star or checkmark next to 債券B with text: "存續期間相同，殖利率相同，但凸性較佳。選擇債券B。"]
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 如果我只能記住一個數字呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 記住你的投資組合存續期間。如果是6，利率每上升1%，你大約損失6%。如果是3，你大約損失3%。這個單一數字對你的債券風險說明，比任何其他指標都更有力。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 這次的內容非常有幫助。我終於搞懂基金說明書上那些數字的意義了。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是重點所在。下週我們進入信用分析，將學習如何評估債券的另一項主要風險：借款人無力還款的風險。存續期間是利率風險。信用分析是違約風險。兩者合在一起，才能讓你對債券投資有完整的認識。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 謝謝各位。我們下週見。
-</p>
-<p>
-[VISUAL: End screen with show logo, "第32週：存續期間與凸性" summary, and preview of Week 33: Credit Analysis]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 我們下週見。
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第32周：久期与凸性——衡量债券价格敏感性</h1>
@@ -4678,221 +4062,6 @@ MBB：  $58/bp    -&gt; 利率每变动1%，损益约$5,800（含负凸性！）
 </p>
 <p>
 答：2022年初，抵押贷款支持证券的有效久期约为4年。随着利率从1.5%急升至4.5%，提前还款急剧减少（没有人会把3%的房贷再融资成6%的），导致久期延伸至约7年。因此，不仅利率在上升，抵押贷款支持证券对上升利率的敏感性也在同步增强，形成双重打击。当年抵押贷款支持证券ETF MBB损失约11%，部分抵押贷款支持证券分层产品损失更大。这种在利率上升环境中发生的"久期延伸"，正是负凸性在实践中的体现，也是为何抵押贷款支持证券在同等久期下应比国债更加谨慎对待的原因。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[VISUAL: Animated intro with show logo. Text: "Week 32: Duration and Convexity - Level 3: Advanced"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎回来。上周我们学习了如何解读收益率曲线。这周我们要学习如何精确衡量利率变动时你的债券会移动多少。今天的主题是久期与凸性。
-</p>
-<p>
-<strong>Stella：</strong> 久期这个词，我在每一份债券基金说明书上都能看到，但我以前都是直接跳过的。我知道它很重要，但一直搞不清楚它到底是什么意思。
-</p>
-<p>
-<strong>Horace：</strong> 你并不孤单。大多数零售投资者都忽视了久期，但这个代价其实不小。久期是理解债券投资组合风险最关键的一个数字。用最简单的话来说：久期告诉你，当利率变动1%时，你的债券或债券基金的价格会变化多少。
-</p>
-<p>
-<strong>Stella：</strong> 给我举个例子。
-</p>
-<p>
-<strong>Horace：</strong> 如果你的债券基金久期是6.5年，比如先锋全债市场基金，而利率上升了1%，你的基金大约会损失6.5%。10万美元的持仓，就是6,500美元的损失。如果利率上升2%，损失大约是13%，也就是13,000美元。
-</p>
-<p>
-[VISUAL: A scale/gauge showing duration = 6.5 years. As a "rates" slider moves up by 1%, a portfolio value bar drops from $100,000 to $93,500. Text: "久期6.5年 = 利率每上升1%，损失约6.5%"]
-</p>
-<p>
-<strong>Stella：</strong> 那如果利率下降呢，是反过来吗？
-</p>
-<p>
-<strong>Horace：</strong> 完全正确。利率下降1%，你大约能获得6.5%的涨幅，即6,500美元的收益。久期在两个方向上都起作用。
-</p>
-<p>
-<strong>Stella：</strong> 好，所以久期越高，对利率越敏感。那决定债券久期的因素有哪些？
-</p>
-<p>
-<strong>Horace：</strong> 主要有三个因素。第一，到期期限。到期期限越长，久期越高。30年期国债的久期约为20年，而2年期国债的久期约为1.9年。第二，票息率。票息率越高，久期越短，因为你更早收到更多现金流。第三，收益率水平。收益率越高，久期越短，因为远期现金流被折现得更厉害。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_duration_factors.py - Three side-by-side demonstrations. 1) Two bonds with different maturities (2-year and 30-year) showing their cash flow timelines as weighted bars, with the center of gravity (久期) marked. The 30-year has its center much further right. 2) Two bonds with different coupons (2% and 8%) showing how higher coupons pull the center of gravity forward. 3) Two bonds at different yield levels showing how higher yields compress the far cash flows.]
-</p>
-<p>
-<strong>Stella：</strong> 你能解释一下不同类型的久期吗？我见过麦考利久期、修正久期和有效久期。
-</p>
-<p>
-<strong>Horace：</strong> 当然。麦考利久期是最原始的概念。它是债券所有现金流的加权平均到期时间。可以把它想象成跷跷板的支点——把债券所有现金流按现值加权摆放在时间轴上，支点的位置就是麦考利久期。
-</p>
-<p>
-<strong>Stella：</strong> 所以对于零息债券，麦考利久期等于到期期限？
-</p>
-<p>
-<strong>Horace：</strong> 完全正确，因为只有一笔现金流，在最后发生。对于付息债券，麦考利久期总是小于到期期限，因为途中收到的票息将加权平均值向前拉动。
-</p>
-<p>
-[VISUAL: A seesaw/balance beam. On the left side, small bags of money at years 1, 2, 3, 4 represent coupon payments. On the right side, a large bag at year 5 represents the final coupon plus principal. The balance point (triangle fulcrum) is at year 4.2, labeled "麦考利久期 = 4.2年". Below: "到期期限 = 5年，但久期仅为4.2年"]
-</p>
-<p>
-<strong>Stella：</strong> 那修正久期呢？
-</p>
-<p>
-<strong>Horace：</strong> 修正久期在麦考利久期的基础上进行调整，直接衡量价格敏感性。公式很简单：修正久期等于麦考利久期除以（1加上收益率）。结果告诉你，收益率变动1%时债券价格变动的百分比。在投资实践中，人们说的"久期"几乎都是指修正久期。
-</p>
-<p>
-<strong>Stella：</strong> 有效久期呢？
-</p>
-<p>
-<strong>Horace：</strong> 有效久期用于含有内嵌期权的债券，比如可赎回债券和抵押贷款支持证券。对于这类债券，利率变化时现金流也会随之改变，因为发行人可能赎回债券，或者房主可能提前还贷再融资。修正久期无法处理这种情况。有效久期通过实证方式计算——观察债券价格在利率上下波动时的实际变化。
-</p>
-<p>
-[VISUAL: Three boxes side by side. "麦考利久期：现金流加权平均到期时间。用于免疫策略。" "修正久期：对利率的价格敏感性。用于风险衡量。" "有效久期：含期权债券的价格敏感性。适用于可赎回债券和抵押贷款支持证券。"]
-</p>
-<p>
-<strong>Stella：</strong> 我们来谈谈基点价值，因为我想了解实际的美元影响。
-</p>
-<p>
-<strong>Horace：</strong> 基点价值（PVBP）衡量的是收益率变动1个基点（0.01%）时，你的债券持仓变动的美元金额。
-</p>
-<p>
-<strong>Stella：</strong> 怎么计算？
-</p>
-<p>
-<strong>Horace：</strong> 用修正久期乘以债券价格再乘以0.0001。举个例子，10万美元持仓、久期8年的债券，基点价值 = 10万 × 8 × 0.0001 = 80美元。也就是说，利率每变动一个基点，你的持仓就变动80美元。
-</p>
-<p>
-[VISUAL: Table showing PVBP calculations for $100,000 invested in different maturities. 2年期：$19/bp。5年期：$45/bp。10年期：$82/bp。20年期：$145/bp。30年期：$200/bp。A highlight shows: "30年期债券：每个基点$200。利率变动50个基点 = 损益$10,000。"]
-</p>
-<p>
-<strong>Stella：</strong> 所以如果我持有10万美元的TLT，也就是长期国债ETF，久期约为17年？
-</p>
-<p>
-<strong>Horace：</strong> 你的基点价值是每个基点170美元。利率变动1%（100个基点），你的持仓就变动17,000美元，即17%的波动。2022年，利率上升了约2.5%，TLT损失了约31%。如果你事先了解久期，完全可以预判这个结果。
-</p>
-<p>
-<strong>Stella：</strong> 这真的让人印象深刻。现在我们来讲凸性，因为你说过只有久期还不够。
-</p>
-<p>
-<strong>Horace：</strong> 对。久期是对一种曲线关系的直线近似。这样想：债券价格与收益率之间的实际关系是一条曲线，而不是直线。久期是在当前收益率点画出的切线。对于沿曲线的小幅移动，切线是很好的近似；但对于大幅移动，切线与实际曲线的偏差就会越来越大。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_convexity_demo.py - A price-yield curve is drawn (the classic convex curve). A tangent line (久期) is drawn at the current yield point. As the yield slider moves left (rates falling), the actual price on the curve rises above the tangent line - this gap is labeled "凸性红利：你的实际收益大于久期预测。" As the yield slider moves right (rates rising), the actual price on the curve is above the tangent line - this gap is labeled "凸性缓冲：你的实际损失小于久期预测。"]
-</p>
-<p>
-<strong>Stella：</strong> 所以凸性总是对你有利？
-</p>
-<p>
-<strong>Horace：</strong> 对于正凸性债券，是的。利率下降时，你的收益超过久期的预测；利率上升时，你的损失小于久期的预测。这种不对称性是免费的，是固定现金流以不同利率折现时固有的数学属性。
-</p>
-<p>
-<strong>Stella：</strong> 那凸性在计算中怎么用？
-</p>
-<p>
-<strong>Horace：</strong> 公式加入了第二项。价格变动百分比等于负久期乘以利率变动，再加上二分之一乘以凸性乘以利率变动的平方。对于正凸性债券，第二项始终为正，这就是它始终有利的原因。
-</p>
-<p>
-[VISUAL: The formula displayed clearly with a worked example. "价格变动% = -久期 × Δy + 0.5 × 凸性 × (Δy)²"。示例：久期10，凸性120，利率上升1%。久期效应：-10%。凸性效应：+0.6%。合计：-9.4%，而非-10%。"凸性为你在$100,000投资组合中节省了0.6% = $600。"]
-</p>
-<p>
-<strong>Stella：</strong> 现在我必须问一下负凸性，因为听起来很可怕。
-</p>
-<p>
-<strong>Horace：</strong> 负凸性正如其名。曲线不再向有利方向弯曲，而是向不利方向弯曲。利率下降时，涨幅不及预期；利率上升时，跌幅超出预期。
-</p>
-<p>
-<strong>Stella：</strong> 为什么会有债券出现负凸性？
-</p>
-<p>
-<strong>Horace：</strong> 根本原因是债券中有利于发行人或借款人的内嵌期权。对于可赎回债券，当利率下降时，发行人可以赎回债券（以面值买回）。这封住了你的上行空间，使价格被锁定在赎回价附近。你无法从进一步的利率下降中获益，因为发行人会把债券拿走，以更低利率重新发行。
-</p>
-<p>
-[VISUAL: Two price-yield curves overlaid. The solid curve (不可赎回国债) shows a smooth convex shape, with price rising significantly as rates fall. The dashed curve (可赎回债券) follows the Treasury curve on the right (高利率) but flattens and caps near the call price on the left (低利率). The area between the curves on the left is labeled "因赎回期权损失的上行空间"]
-</p>
-<p>
-<strong>Stella：</strong> 抵押贷款支持证券还要更糟？
-</p>
-<p>
-<strong>Horace：</strong> 糟糕得多。每一位有房贷的房主都可以随时选择再融资。当利率下降，房主大量再融资，你持有的抵押贷款支持证券本金以面值提前归还，而你只能以更低的利率进行再投资。但当利率上升，没有人再融资，你的资金被锁定在旧的低利率中，期限远比预期更长，久期大幅延伸。
-</p>
-<p>
-<strong>Stella：</strong> 这就是2022年发生的事，对吗？
-</p>
-<p>
-<strong>Horace：</strong> 完全正确。2022年初，抵押贷款支持证券的有效久期约为4年。随着利率急升，提前还款急剧减少，久期延伸至约7年。所以利率在上升，而抵押贷款支持证券对利率上升的敏感性同时也在增强，形成双重打击。当年抵押贷款支持证券ETF MBB损失约11%，部分分层产品损失更惨重。
-</p>
-<p>
-[ANIMATION: Reference animation/week32_mbs_extension.py - A visualization of MBS duration changing. Starting state: rates at 2%, duration at 4 years, shown as a meter. As rates slide from 2% to 5%, the duration meter extends from 4 to 7 years. Simultaneously, a portfolio value bar drops. Annotations show: "利率上升：不利" and "久期延伸：使情况更糟。" The combination produces a loss that is larger than what 4-year duration would have predicted.]
-</p>
-<p>
-<strong>Stella：</strong> 那我应该完全回避抵押贷款支持证券吗？
-</p>
-<p>
-<strong>Horace：</strong> 不一定，但你必须清楚自己在买什么。政府背书的抵押贷款支持证券没有信用风险，通常也比同期限国债提供更高的收益率。这个溢价正是对负凸性的补偿。如果你在利率稳定的环境下持有抵押贷款支持证券，你可以收取这个额外收益而不用承担凸性风险。危险在于利率剧烈波动的环境。我的建议是：如果你持有抵押贷款支持证券或持仓其中的基金，要了解其久期，并明白在极端利率变动时，它的表现会比同等久期的国债更差。
-</p>
-<p>
-<strong>Stella：</strong> 让我把这些内容联系到实际投资上。投资者应该如何利用久期来管理债券投资组合？
-</p>
-<p>
-<strong>Horace：</strong> 我的框架分三步。第一步，了解你的久期。查出你持有的每只债券基金的有效久期，计算投资组合的加权平均久期。第二步，进行压力测试。用久期乘以1%和2%，估算利率上升时的潜在损失。扪心自问，你能承受这些损失吗？第三步，将久期与你的时间跨度匹配。如果你5年后需要用钱，久期应该在5年左右。这能帮你对冲利率变动的影响。
-</p>
-<p>
-[VISUAL: A three-step checklist. 第一步："了解你的久期"，配以显示久期数字的债券基金说明书图标。第二步："压力测试"，配以表格显示"若利率上升1%/2%/3%，你损失$X/$Y/$Z"。第三步："匹配时间跨度"，配以时间轴显示"7年后需要用钱 -> 久期应约为7年"。]
-</p>
-<p>
-<strong>Stella：</strong> 短期、中期和长期债券之间如何配置？
-</p>
-<p>
-<strong>Horace：</strong> 在利率上升或不确定的环境中，保持短久期，2至4年。你会牺牲一些收益，但能抵御利率的意外冲击。在利率下降的环境中，延长久期，8至15年。你同时获得更高的票息收益和利率下降带来的资本利得。在利率稳定的环境中，中等久期即可，5至7年，在合理收益和可控利率敏感性之间取得平衡。
-</p>
-<p>
-<strong>Stella：</strong> 那收益率曲线的形态呢？上周我们讨论了利用曲线形态做决策。
-</p>
-<p>
-<strong>Horace：</strong> 两者直接相连。当曲线陡峭时，持短端的机会成本较高，因为长端收益率高得多，但长期债券有更高的久期风险。当曲线平坦时，延长久期没有收益优势，应保持短久期、降低风险。当曲线倒挂时，短端实际上收益率更高，这意味着你承担更低风险却能获得更高收益——这是一次免费的午餐，市场在告诉你保持短久期。
-</p>
-<p>
-[VISUAL: A decision matrix combining yield curve shape and duration recommendation. "陡峭曲线：长期债券收益率高得多，但久期风险高。适中久期。" "平坦曲线：延长久期没有收益补偿。保持短久期。" "倒挂曲线：短端利率高于长端。保持短久期，获得更高收益。"]
-</p>
-<p>
-<strong>Stella：</strong> 我们简单聊一下免疫策略吧。我觉得这个概念很精妙，虽然更多是机构投资者使用的策略。
-</p>
-<p>
-<strong>Horace：</strong> 免疫策略的美妙在于它的简洁。你将投资组合的久期与需要用钱的时间相匹配。如果利率上升，你的债券价值下降，但票息再投资的利率更高。如果利率下降，你的债券价值上升，但票息再投资的利率更低。这两种效应相互抵消。到目标时间点，你得到的最终价值大致相同，与利率走势无关。
-</p>
-<p>
-<strong>Stella：</strong> 所以它就像一个双向对冲？
-</p>
-<p>
-<strong>Horace：</strong> 完全是。而且它不需要任何额外成本，你只需定期再平衡，保持久期与目标时间匹配即可。需要注意的是，它在收益率曲线平行移动的情况下效果最佳。若曲线发生扭转或非平行移动，会有一定跟踪误差。但对大多数零售投资者来说，做久期匹配远比完全不考虑久期要好得多。
-</p>
-<p>
-<strong>Stella：</strong> 让我来总结一下。久期告诉我对利率的敏感性，大约是利率每上升1%损失的百分比。凸性改善了这个估算，正凸性总是对我有利。负凸性主要存在于可赎回债券和抵押贷款支持证券中，对我不利。而基点价值将这一切转化为实际美元金额。
-</p>
-<p>
-<strong>Horace：</strong> 完美的总结。我再补充一点：当你比较两只久期和收益率相近的债券或基金时，优先选择凸性更高的那只。这是免费的保护——在利率下降时享有更大的上涨空间，在利率上升时承受更小的下跌损失。在其他条件相同的情况下，更高的凸性永远更优。
-</p>
-<p>
-[VISUAL: Two bonds displayed side by side. 债券A：久期7，收益率4.5%，凸性60。债券B：久期7，收益率4.5%，凸性85。A star or checkmark next to 债券B with text: "相同久期，相同收益率，但凸性更高。选债券B。"]
-</p>
-<p>
-<strong>Stella：</strong> 如果我只能记住一个数字？
-</p>
-<p>
-<strong>Horace：</strong> 记住你的投资组合久期。如果是6，利率每上升1%，你大约损失6%。如果是3，大约损失3%。这一个数字，比任何其他指标都更能告诉你债券的风险所在。
-</p>
-<p>
-<strong>Stella：</strong> 这次讲解真的很有帮助。我终于搞清楚基金说明书上那些数字的含义了。
-</p>
-<p>
-<strong>Horace：</strong> 这正是我们的目的。下周我们进入信用分析，学习如何评估债券的另一类主要风险：借款人不还钱的风险。久期是利率风险；信用分析是违约风险。两者结合，才是债券投资的完整图景。
-</p>
-<p>
-<strong>Stella：</strong> 感谢大家，我们下周见。
-</p>
-<p>
-[VISUAL: End screen with show logo, "第32周：久期与凸性" summary, and preview of Week 33: Credit Analysis]
-</p>
-<p>
-<strong>Horace：</strong> 下周见。
 </p>
             </div>
         </div>

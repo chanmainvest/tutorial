@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -705,7 +734,7 @@ Level 2 takes the foundation you built and expands it significantly. You will mo
 </ul>
 </p>
 <h3>Weekly Lessons</h3>
-<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>13</td><td>Long and Short Trading</td></tr><tr><td>14</td><td>Pair Trading Fundamentals</td></tr><tr><td>15</td><td>Multi-Asset Allocation</td></tr><tr><td>16</td><td>Business Cycles and Sector Rotation</td></tr><tr><td>17</td><td>Performance Metrics - Volatility, Drawdowns, Sharpe</td></tr><tr><td>18</td><td>Interest Rates and Market Returns</td></tr><tr><td>19</td><td>Corporate Finance - What Makes Companies Tick</td></tr><tr><td>20</td><td>Earnings Analysis and Cash Flow</td></tr><tr><td>21</td><td>Equity Valuation - P/E, P/B, and DCF</td></tr><tr><td>22</td><td>Currency and International Diversification</td></tr><tr><td>23</td><td>Factor Investing Introduction</td></tr><tr><td>24</td><td>Building a Multi-Strategy Portfolio</td></tr></tbody></table>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week13.html'"><td><a href="week13.html">13</a></td><td><a href="week13.html">Long and Short Trading</a></td></tr><tr class="week-row" onclick="window.location='week14.html'"><td><a href="week14.html">14</a></td><td><a href="week14.html">Pair Trading Fundamentals</a></td></tr><tr class="week-row" onclick="window.location='week15.html'"><td><a href="week15.html">15</a></td><td><a href="week15.html">Multi-Asset Allocation</a></td></tr><tr class="week-row" onclick="window.location='week16.html'"><td><a href="week16.html">16</a></td><td><a href="week16.html">Business Cycles and Sector Rotation</a></td></tr><tr class="week-row" onclick="window.location='week17.html'"><td><a href="week17.html">17</a></td><td><a href="week17.html">Performance Metrics - Volatility, Drawdowns, Sharpe</a></td></tr><tr class="week-row" onclick="window.location='week18.html'"><td><a href="week18.html">18</a></td><td><a href="week18.html">Interest Rates and Market Returns</a></td></tr><tr class="week-row" onclick="window.location='week19.html'"><td><a href="week19.html">19</a></td><td><a href="week19.html">Corporate Finance - What Makes Companies Tick</a></td></tr><tr class="week-row" onclick="window.location='week20.html'"><td><a href="week20.html">20</a></td><td><a href="week20.html">Earnings Analysis and Cash Flow</a></td></tr><tr class="week-row" onclick="window.location='week21.html'"><td><a href="week21.html">21</a></td><td><a href="week21.html">Equity Valuation - P/E, P/B, and DCF</a></td></tr><tr class="week-row" onclick="window.location='week22.html'"><td><a href="week22.html">22</a></td><td><a href="week22.html">Currency and International Diversification</a></td></tr><tr class="week-row" onclick="window.location='week23.html'"><td><a href="week23.html">23</a></td><td><a href="week23.html">Factor Investing Introduction</a></td></tr><tr class="week-row" onclick="window.location='week24.html'"><td><a href="week24.html">24</a></td><td><a href="week24.html">Building a Multi-Strategy Portfolio</a></td></tr></tbody></table>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第二級：中級（第13至24週）</h1>
@@ -753,67 +782,7 @@ Level 2 takes the foundation you built and expands it significantly. You will mo
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>13</td><td>做多與沽空交易</td></tr><tr><td>14</td><td>配對交易基礎</td></tr><tr><td>15</td><td>多資產配置</td></tr><tr><td>16</td><td>商業週期與板塊輪動</td></tr><tr><td>17</td><td>績效指標——波動性、回撤、夏普比率</td></tr><tr><td>18</td><td>利率與市場回報</td></tr><tr><td>19</td><td>企業財務——驅動公司運作的核心因素</td></tr><tr><td>20</td><td>盈利分析與現金流</td></tr><tr><td>21</td><td>股票估值——市盈率、市淨率與現金流折現</td></tr><tr><td>22</td><td>貨幣與國際分散投資</td></tr><tr><td>23</td><td>因子投資入門</td></tr><tr><td>24</td><td>構建多策略投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第二級概覽：成為認真的投資者 | 陳馬投資教學
-</p>
-<p>
-<strong>目標時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：經驗豐富的散戶交易者，憑藉多年市場經驗講解概念</li>
-<li><strong>Stella</strong>（學生）：剛大學畢業、正在學習投資儲蓄的年輕人，代觀眾提問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 2: Intermediate - Weeks 13-24"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎來到第二級。如果你已完成第一級，你現在已有一個穩固的投資組合，並掌握了基本知識。現在，我們要更上一層樓。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 我的六四比投資組合已經在運行，感覺不錯，但我不斷聽到各種其他策略。我是否錯過了什麼？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是第二級要解答的問題。我們從一些開拓新可能性的概念出發——例如沽空。在第13週，你將了解到，你不僅可以在價格上升時獲利，同樣可以在價格下跌時獲利。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 沽空聽起來一直都很有風險，又很複雜。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 確實可以，但即使你從不親身操作，理解它也至關重要。這正是對沖的運作原理，也是配對交易的基礎，我們會在第14週涵蓋這部分。然後第15和16週會透過多資產配置和板塊輪動，將你的投資組合帶向全球視野。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那分析方面呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第17至20週，你將學會深入剖析背後的細節。我們會講解績效指標——因為單純的回報率並不能說明全部。同樣是15%的回報，劇烈波動的投資組合與穩定增長的投資組合截然不同。之後我們還會深入探討利率、企業財務和盈利分析。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 最後四週呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那正是一切融會貫通的時候。你將學習三種不同的股票估值方法，了解貨幣如何影響你的國際投資，發掘因子投資的魅力，最後構建一個集所有策略於一身的多策略投資組合。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 所以到第24週，我將擁有一個更成熟完善的投資架構？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 你將具備構建一個讓專業人士也刮目相看的投資組合的工具和知識。讓我們開始吧。
-</p>
-<p>
-<strong>[結尾]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week13.html'"><td><a href="week13.html">13</a></td><td><a href="week13.html">做多與沽空交易</a></td></tr><tr class="week-row" onclick="window.location='week14.html'"><td><a href="week14.html">14</a></td><td><a href="week14.html">配對交易基礎</a></td></tr><tr class="week-row" onclick="window.location='week15.html'"><td><a href="week15.html">15</a></td><td><a href="week15.html">多資產配置</a></td></tr><tr class="week-row" onclick="window.location='week16.html'"><td><a href="week16.html">16</a></td><td><a href="week16.html">商業週期與板塊輪動</a></td></tr><tr class="week-row" onclick="window.location='week17.html'"><td><a href="week17.html">17</a></td><td><a href="week17.html">績效指標——波動性、回撤、夏普比率</a></td></tr><tr class="week-row" onclick="window.location='week18.html'"><td><a href="week18.html">18</a></td><td><a href="week18.html">利率與市場回報</a></td></tr><tr class="week-row" onclick="window.location='week19.html'"><td><a href="week19.html">19</a></td><td><a href="week19.html">企業財務——驅動公司運作的核心因素</a></td></tr><tr class="week-row" onclick="window.location='week20.html'"><td><a href="week20.html">20</a></td><td><a href="week20.html">盈利分析與現金流</a></td></tr><tr class="week-row" onclick="window.location='week21.html'"><td><a href="week21.html">21</a></td><td><a href="week21.html">股票估值——市盈率、市淨率與現金流折現</a></td></tr><tr class="week-row" onclick="window.location='week22.html'"><td><a href="week22.html">22</a></td><td><a href="week22.html">貨幣與國際分散投資</a></td></tr><tr class="week-row" onclick="window.location='week23.html'"><td><a href="week23.html">23</a></td><td><a href="week23.html">因子投資入門</a></td></tr><tr class="week-row" onclick="window.location='week24.html'"><td><a href="week24.html">24</a></td><td><a href="week24.html">構建多策略投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第二級：中級（第13-24週）</h1>
@@ -861,67 +830,7 @@ Level 2 takes the foundation you built and expands it significantly. You will mo
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>13</td><td>多空交易</td></tr><tr><td>14</td><td>配對交易基礎</td></tr><tr><td>15</td><td>多資產配置</td></tr><tr><td>16</td><td>景氣循環與類股輪動</td></tr><tr><td>17</td><td>績效指標——波動性、回撤、夏普比率</td></tr><tr><td>18</td><td>利率與市場報酬</td></tr><tr><td>19</td><td>公司財務——是什麼驅動企業運作</td></tr><tr><td>20</td><td>盈餘分析與現金流</td></tr><tr><td>21</td><td>股票估值——本益比、淨值比與現金流折現</td></tr><tr><td>22</td><td>匯率與國際分散投資</td></tr><tr><td>23</td><td>因子投資簡介</td></tr><tr><td>24</td><td>建立多策略投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第二級概覽：成為一位認真的投資者｜陳馬投資教學
-</p>
-<p>
-<strong>目標時長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：資深散戶投資者，從多年市場經驗中講解概念</li>
-<li><strong>Stella</strong>（學生）：剛畢業的大學生，正在學習如何投資積蓄，提出觀眾心中想問的問題</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[INTRO]</strong>
-</p>
-<p>
-[VISUAL: 標題卡「第二級：中級——第13-24週」]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到第二級。如果您完成了第一級，您已經建立了穩固的投資組合，也掌握了基礎知識。現在我們要更上一層樓。
-</p>
-<p>
-<strong>Stella：</strong> 我的60/40投資組合已經在運行了，感覺挺好的，但我一直聽說有很多其他策略。我是否錯過了什麼？
-</p>
-<p>
-<strong>Horace：</strong> 這正是第二級要解答的問題。我們從一些能開啟新可能性的概念開始——比如放空。在第13週，您將學到不只是在價格上漲時能獲利，價格下跌時同樣可以。
-</p>
-<p>
-<strong>Stella：</strong> 放空聽起來總是既有風險又複雜。
-</p>
-<p>
-<strong>Horace：</strong> 確實可以，但即使您從未親自操作，了解它也是不可或缺的。這就是避險的運作原理，也是配對交易的基礎——我們在第14週會介紹。然後第15和16週將帶您的投資組合走向全球，涵蓋多資產配置和類股輪動。
-</p>
-<p>
-<strong>Stella：</strong> 那分析方面呢？
-</p>
-<p>
-<strong>Horace：</strong> 第17到20週是您學習深入剖析的地方。我們會介紹績效指標——因為單純的報酬無法說明全貌。帶著劇烈波動的15%報酬，與穩定成長的15%報酬，是截然不同的兩回事。接著我們會探討利率、公司財務和盈餘分析。
-</p>
-<p>
-<strong>Stella：</strong> 那最後四週呢？
-</p>
-<p>
-<strong>Horace：</strong> 那是一切融合的地方。您將學習三種不同的股票估值方法，了解匯率如何影響您的國際投資，探索因子投資，然後建立一個融合一切的多策略投資組合。
-</p>
-<p>
-<strong>Stella：</strong> 所以到第24週，我將擁有一個更加完善精緻的架構？
-</p>
-<p>
-<strong>Horace：</strong> 您將擁有建構一個讓專業人士也會讚賞的投資組合所需的工具和知識。讓我們開始吧。
-</p>
-<p>
-<strong>[END]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week13.html'"><td><a href="week13.html">13</a></td><td><a href="week13.html">多空交易</a></td></tr><tr class="week-row" onclick="window.location='week14.html'"><td><a href="week14.html">14</a></td><td><a href="week14.html">配對交易基礎</a></td></tr><tr class="week-row" onclick="window.location='week15.html'"><td><a href="week15.html">15</a></td><td><a href="week15.html">多資產配置</a></td></tr><tr class="week-row" onclick="window.location='week16.html'"><td><a href="week16.html">16</a></td><td><a href="week16.html">景氣循環與類股輪動</a></td></tr><tr class="week-row" onclick="window.location='week17.html'"><td><a href="week17.html">17</a></td><td><a href="week17.html">績效指標——波動性、回撤、夏普比率</a></td></tr><tr class="week-row" onclick="window.location='week18.html'"><td><a href="week18.html">18</a></td><td><a href="week18.html">利率與市場報酬</a></td></tr><tr class="week-row" onclick="window.location='week19.html'"><td><a href="week19.html">19</a></td><td><a href="week19.html">公司財務——是什麼驅動企業運作</a></td></tr><tr class="week-row" onclick="window.location='week20.html'"><td><a href="week20.html">20</a></td><td><a href="week20.html">盈餘分析與現金流</a></td></tr><tr class="week-row" onclick="window.location='week21.html'"><td><a href="week21.html">21</a></td><td><a href="week21.html">股票估值——本益比、淨值比與現金流折現</a></td></tr><tr class="week-row" onclick="window.location='week22.html'"><td><a href="week22.html">22</a></td><td><a href="week22.html">匯率與國際分散投資</a></td></tr><tr class="week-row" onclick="window.location='week23.html'"><td><a href="week23.html">23</a></td><td><a href="week23.html">因子投資簡介</a></td></tr><tr class="week-row" onclick="window.location='week24.html'"><td><a href="week24.html">24</a></td><td><a href="week24.html">建立多策略投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第二级：中级（第13-24周）</h1>
@@ -969,67 +878,7 @@ Level 2 takes the foundation you built and expands it significantly. You will mo
 </ul>
 </p>
 <h3>每周课程</h3>
-<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>13</td><td>多空交易</td></tr><tr><td>14</td><td>配对交易基础</td></tr><tr><td>15</td><td>多资产配置</td></tr><tr><td>16</td><td>商业周期与板块轮动</td></tr><tr><td>17</td><td>绩效指标——波动性、最大回撤、夏普比率</td></tr><tr><td>18</td><td>利率与市场收益</td></tr><tr><td>19</td><td>公司金融——是什么让企业运转</td></tr><tr><td>20</td><td>盈利分析与现金流</td></tr><tr><td>21</td><td>股票估值——市盈率、市净率与DCF</td></tr><tr><td>22</td><td>货币与国际多元化</td></tr><tr><td>23</td><td>因子投资入门</td></tr><tr><td>24</td><td>构建多策略投资组合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 第二级概述：成为一名认真的投资者 | 陈马投资教程
-</p>
-<p>
-<strong>目标时长：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（陈马，老师）：经验丰富的散户交易者，从多年市场经验出发讲解概念</li>
-<li><strong>Stella</strong>（小鱼，学生）：刚毕业的大学生，正在学习投资自己的积蓄，提出观众心中的问题</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[INTRO]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 2: Intermediate - Weeks 13-24"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎来到第二级。如果您已经完成了第一级，您应该拥有了扎实的投资组合基础，也理解了基本概念。现在，我们要更上一层楼了。
-</p>
-<p>
-<strong>Stella：</strong> 我的60/40投资组合已经在运行，感觉挺好的。但我一直听说有很多其他策略，我是不是错过了什么？
-</p>
-<p>
-<strong>Horace：</strong> 这正是第二级要解决的问题。我们从一些能开启新可能性的概念开始讲——比如做空。第13周您会学到，不只是价格上涨时能赚钱，价格下跌时同样可以获利。
-</p>
-<p>
-<strong>Stella：</strong> 做空听起来总是风险很大，而且很复杂。
-</p>
-<p>
-<strong>Horace：</strong> 确实可能如此，但即使您自己从不做空，理解它也至关重要。这是对冲的运作方式，也是第14周配对交易的基础。接着第15、16周会通过多资产配置和板块轮动，带您的投资组合走向全球视野。
-</p>
-<p>
-<strong>Stella：</strong> 那分析这块呢？
-</p>
-<p>
-<strong>Horace：</strong> 第17到20周，是您深入了解内部运作的阶段。我们会介绍绩效指标——因为单纯看收益是不够的。同样是15%的收益，伴随剧烈波动和伴随稳定增长，意义完全不同。之后我们还会深入探讨利率、公司金融和盈利分析。
-</p>
-<p>
-<strong>Stella：</strong> 那最后四周呢？
-</p>
-<p>
-<strong>Horace：</strong> 那是所有内容汇聚的地方。您将学习三种不同的股票估值方法，了解货币如何影响国际投资，发现因子投资的奥秘，最后把所有这些融合在一起，构建一个多策略投资组合。
-</p>
-<p>
-<strong>Stella：</strong> 这么说，到第24周结束时，我会拥有一套更加完善的投资体系？
-</p>
-<p>
-<strong>Horace：</strong> 您将掌握构建一个连专业人士都会认可的投资组合所需的工具和知识。我们开始吧。
-</p>
-<p>
-<strong>[END]</strong>
-</p>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week13.html'"><td><a href="week13.html">13</a></td><td><a href="week13.html">多空交易</a></td></tr><tr class="week-row" onclick="window.location='week14.html'"><td><a href="week14.html">14</a></td><td><a href="week14.html">配对交易基础</a></td></tr><tr class="week-row" onclick="window.location='week15.html'"><td><a href="week15.html">15</a></td><td><a href="week15.html">多资产配置</a></td></tr><tr class="week-row" onclick="window.location='week16.html'"><td><a href="week16.html">16</a></td><td><a href="week16.html">商业周期与板块轮动</a></td></tr><tr class="week-row" onclick="window.location='week17.html'"><td><a href="week17.html">17</a></td><td><a href="week17.html">绩效指标——波动性、最大回撤、夏普比率</a></td></tr><tr class="week-row" onclick="window.location='week18.html'"><td><a href="week18.html">18</a></td><td><a href="week18.html">利率与市场收益</a></td></tr><tr class="week-row" onclick="window.location='week19.html'"><td><a href="week19.html">19</a></td><td><a href="week19.html">公司金融——是什么让企业运转</a></td></tr><tr class="week-row" onclick="window.location='week20.html'"><td><a href="week20.html">20</a></td><td><a href="week20.html">盈利分析与现金流</a></td></tr><tr class="week-row" onclick="window.location='week21.html'"><td><a href="week21.html">21</a></td><td><a href="week21.html">股票估值——市盈率、市净率与DCF</a></td></tr><tr class="week-row" onclick="window.location='week22.html'"><td><a href="week22.html">22</a></td><td><a href="week22.html">货币与国际多元化</a></td></tr><tr class="week-row" onclick="window.location='week23.html'"><td><a href="week23.html">23</a></td><td><a href="week23.html">因子投资入门</a></td></tr><tr class="week-row" onclick="window.location='week24.html'"><td><a href="week24.html">24</a></td><td><a href="week24.html">构建多策略投资组合</a></td></tr></tbody></table>
             </div>
         </div>
     </main>

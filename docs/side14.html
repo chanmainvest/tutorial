@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -928,218 +957,6 @@ A: Several significant risks exist. First, valuation uncertainty -- private comp
 <strong>Q: How do I evaluate whether an interval fund is worth the illiquidity?</strong>
 A: Compare the fund's net-of-fee returns to publicly traded alternatives. If an interval fund investing in private credit returns 7% after fees, but a publicly traded high-yield bond ETF returns 6% with daily liquidity, you are earning only 1% extra for accepting quarterly redemption windows. That small premium may not justify the liquidity sacrifice, especially if you might need the money. Look for interval funds where the illiquidity premium is at least 2-3% above comparable liquid alternatives to justify the trade-off.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen showing NYSE trading floor on one side and a private boardroom meeting on the other]
-</p>
-<p>
-<strong>Horace:</strong> When most people think about investing, they think about stocks and bonds -- things you can buy and sell on public exchanges. But there is this whole other world of investing that most people never see.
-</p>
-<p>
-<strong>Stella:</strong> Private markets. Where venture capital firms fund the next big startup, private equity firms buy and transform entire companies, and trillions of dollars change hands far from the public eye. The question is -- should you, as an individual investor, try to access this world?
-</p>
-<p>
-[VISUAL: Title card "Private Markets: PE, VC, BDCs, and Beyond"]
-</p>
-<hr>
-<p>
-[SECTION 1 - THE PRIVATE MARKET LANDSCAPE - 1:30]
-</p>
-<p>
-[ANIMATION: Iceberg graphic -- small portion above water labeled "Public Markets: ~4,000 US companies" and large portion below labeled "Private Markets: Millions of companies"]
-</p>
-<p>
-<strong>Horace:</strong> Here is a stat that surprises most people. There are only about 4,000 publicly traded companies in the United States. That number has actually fallen from about 7,500 in the late 1990s. Meanwhile, there are millions of private businesses.
-</p>
-<p>
-<strong>Stella:</strong> Companies are staying private much longer than they used to. Amazon went public just three years after founding. Today, companies like SpaceX and Stripe have been private for over a decade while reaching valuations of hundreds of billions of dollars.
-</p>
-<p>
-[VISUAL: Timeline showing average years to IPO: 1990s = 4 years, 2000s = 7 years, 2020s = 11+ years]
-</p>
-<p>
-<strong>Horace:</strong> So if you only invest in public markets, you are fishing in an increasingly small pond. That has led a lot of people to ask: How can I get access to private investments?
-</p>
-<hr>
-<p>
-[SECTION 2 - PRIVATE EQUITY AND VENTURE CAPITAL - 3:30]
-</p>
-<p>
-[VISUAL: Three pillars showing "Leveraged Buyouts," "Growth Equity," and "Venture Capital"]
-</p>
-<p>
-<strong>Stella:</strong> Let us break down the main types of private equity investing. The biggest category is leveraged buyouts, or LBOs. A PE firm buys a company using mostly borrowed money -- typically 60 to 70 percent debt and 30 to 40 percent equity.
-</p>
-<p>
-<strong>Horace:</strong> They then work to improve the company -- cutting costs, growing revenue, making strategic acquisitions -- and sell it in three to seven years at a higher price. The returns come from three places: growing the company's earnings, selling at a higher valuation multiple, and paying down debt with the company's cash flow.
-</p>
-<p>
-[ANIMATION: Simple LBO math showing $100M acquisition at 8x EBITDA, sold for $150M at 10x EBITDA five years later, with debt paydown creating equity value]
-</p>
-<p>
-<strong>Stella:</strong> Then there is venture capital, which is the highest-risk, highest-potential-reward segment. VC firms invest in early-stage startups. Most of these investments fail completely. The model depends on finding one or two massive winners out of every 25 or 30 investments.
-</p>
-<p>
-<strong>Horace:</strong> Think about it this way. If a VC fund invests in 30 companies and 20 of them go to zero, five return the original investment, three return 3x, one returns 10x, and one returns 50x -- that one 50x winner makes the entire fund successful. It is a power law distribution.
-</p>
-<p>
-[VISUAL: Power law chart showing VC fund returns by company -- most near zero, a few moderate, one massive winner dominating total returns]
-</p>
-<p>
-<strong>Stella:</strong> That is fundamentally different from stock investing, where returns are more evenly distributed. In VC, the outcome is extreme -- a tiny number of investments generate the vast majority of returns. Miss the big winner, and the whole fund fails.
-</p>
-<p>
-<strong>Horace:</strong> And here is the thing most people do not realize about PE and VC fund returns. There is something called the J-curve.
-</p>
-<p>
-[ANIMATION: J-curve showing negative returns in years 1-3, breakeven around year 4-5, and positive returns in years 5-10]
-</p>
-<p>
-<strong>Stella:</strong> In the early years of a fund, returns are negative. You are paying management fees, the fund is deploying capital, and none of the investments have matured yet. Returns typically do not turn positive until year three to five, and the best returns come in years five through ten. Your money is locked up for a decade or more.
-</p>
-<hr>
-<p>
-[SECTION 3 - ACCESSING PRIVATE MARKETS - 6:00]
-</p>
-<p>
-[VISUAL: Four doors labeled "BDCs," "Interval Funds," "Crowdfunding," and "Public PE Stocks"]
-</p>
-<p>
-<strong>Horace:</strong> Traditionally, you needed to be ultra-wealthy to access private markets. Minimum investments of $250,000 to $10 million, and you had to be an accredited investor. But that has been changing.
-</p>
-<p>
-<strong>Stella:</strong> Let us start with BDCs -- Business Development Companies. These are publicly traded companies that lend to small and mid-sized businesses. Think of them like REITs, but for private credit instead of real estate.
-</p>
-<p>
-[VISUAL: BDC structure diagram showing investors buying shares, BDC lending to private companies, interest income flowing back as dividends]
-</p>
-<p>
-<strong>Horace:</strong> BDCs pay high dividends -- often 8 to 12 percent yields -- because they are required to distribute at least 90 percent of their income. You can buy them through any brokerage account, just like buying a stock.
-</p>
-<p>
-<strong>Stella:</strong> But those high yields come with real risk. During the 2008 financial crisis, many BDCs saw their share prices drop 60 to 80 percent and had to cut dividends significantly. They use leverage, and their borrowers are typically riskier companies that cannot access public bond markets.
-</p>
-<p>
-[VISUAL: BDC performance chart during 2008-2009 showing sharp decline and recovery]
-</p>
-<p>
-<strong>Horace:</strong> Next up: interval funds. These are a newer vehicle that gives retail investors access to private equity and private credit strategies. They are regulated by the SEC, which provides some investor protection.
-</p>
-<p>
-<strong>Stella:</strong> The trade-off is limited liquidity. Unlike a mutual fund where you can sell any day, interval funds only let you redeem quarterly, and even then they might cap redemptions at five to 25 percent of fund assets. So your money can be partially locked up.
-</p>
-<hr>
-<p>
-[SECTION 4 - CROWDFUNDING AND THE ILLIQUIDITY PREMIUM - 8:30]
-</p>
-<p>
-[VISUAL: Smartphone screen showing a crowdfunding platform with startup investment opportunities]
-</p>
-<p>
-<strong>Horace:</strong> Crowdfunding platforms like Wefunder, Republic, and StartEngine have made it possible for anyone to invest in startups for as little as $100. Sounds exciting, right?
-</p>
-<p>
-<strong>Stella:</strong> It can be, but let us be realistic about the risks. Professional VC firms have teams of analysts doing deep due diligence. They negotiate protective terms. They sit on boards and actively help their companies. And even with all of that, most of their investments still fail.
-</p>
-<p>
-[VISUAL: Pie chart showing typical VC portfolio outcome: 50% total losses, 30% modest returns, 15% good returns, 5% home runs]
-</p>
-<p>
-<strong>Horace:</strong> Crowdfunding investors get none of those advantages. Limited information, no protective terms, no board seats, and no secondary market to sell if you change your mind. Your money is locked up until the company either succeeds spectacularly or -- more likely -- fails.
-</p>
-<p>
-<strong>Stella:</strong> This brings us to the concept of the illiquidity premium. The idea is that investors should earn extra returns for accepting illiquidity -- the inability to sell whenever you want.
-</p>
-<p>
-[ANIMATION: Scale graphic balancing "Liquidity" on one side and "Higher Expected Returns" on the other]
-</p>
-<p>
-<strong>Horace:</strong> Research suggests this premium is about 2 to 4 percent per year for private equity compared to public markets. But here are three important caveats.
-</p>
-<p>
-<strong>Stella:</strong> First, that premium is an average, and it varies enormously. Top-quartile PE funds crush the public markets. Bottom-quartile funds underperform badly. Manager selection matters more than in any other asset class.
-</p>
-<p>
-<strong>Horace:</strong> Second, PE return data suffers from survivorship bias. Failed funds stop reporting, so the averages look better than reality.
-</p>
-<p>
-<strong>Stella:</strong> Third, part of what looks like outperformance is actually just compensation for leverage. If you borrowed money to invest in public stocks at the same ratio PE firms use, you would capture much of that so-called premium.
-</p>
-<hr>
-<p>
-[SECTION 5 - PRACTICAL GUIDANCE - 11:00]
-</p>
-<p>
-[VISUAL: Decision tree for private market investing]
-</p>
-<p>
-<strong>Horace:</strong> So after all of this, what should a regular investor actually do?
-</p>
-<p>
-<strong>Stella:</strong> Start with this question: Do I really need private market exposure? For most people building a retirement portfolio, a well-diversified mix of public stocks, bonds, and REITs is more than adequate. Private markets are a complement, not a necessity.
-</p>
-<p>
-[VISUAL: Portfolio allocation pie chart showing "Core: 85-95% Public Markets" and "Satellite: 5-15% Private Markets (optional)"]
-</p>
-<p>
-<strong>Horace:</strong> If you do want some exposure, here is a practical framework. First, only invest money you absolutely will not need for at least five to ten years. Illiquidity is not just an inconvenience -- it can become a crisis if you need the money and cannot access it.
-</p>
-<p>
-<strong>Stella:</strong> Second, consider publicly traded vehicles first. BDCs give you private credit exposure with daily liquidity. Publicly traded PE firms like Blackstone or KKR give you exposure to alternative asset management fee income. These are the easiest, most liquid ways to dip your toes into private markets.
-</p>
-<p>
-<strong>Horace:</strong> Third, if you want to go further, interval funds from reputable managers offer a middle ground -- some illiquidity, but with SEC regulation and periodic redemption windows.
-</p>
-<p>
-[VISUAL: Risk spectrum showing Public PE Stocks -> BDCs -> Interval Funds -> Crowdfunding -> Direct PE/VC, with risk increasing left to right]
-</p>
-<p>
-<strong>Stella:</strong> And fourth, approach crowdfunding with extreme caution. If you invest, treat it like buying a lottery ticket. Only invest amounts you can afford to lose entirely, and spread your bets across many companies rather than concentrating in one or two.
-</p>
-<p>
-<strong>Horace:</strong> The bottom line: private markets offer real opportunities, but they also present real risks that are harder to see and harder to manage than public market risks. Go in with your eyes open, and never invest more than you can afford to lock up for years.
-</p>
-<hr>
-<p>
-[SECTION 6 - THE SECONDARY MARKET AND EMERGING ACCESS - 13:00]
-</p>
-<p>
-[VISUAL: Diagram showing secondary market transactions -- original fund investor selling to secondary buyer at a discount]
-</p>
-<p>
-<strong>Stella:</strong> Before we wrap up, let us mention one more development that is changing private markets -- the secondary market.
-</p>
-<p>
-<strong>Horace:</strong> Traditionally, once you invested in a PE fund, you were locked in for the full ten to twelve year life of the fund. But a growing secondary market now allows investors to sell their fund interests before maturity, usually at a discount to the reported value.
-</p>
-<p>
-<strong>Stella:</strong> This creates an interesting opportunity. Secondary buyers can purchase fund interests at 10 to 20 percent discounts, effectively buying seasoned portfolios of companies at below reported value. Some interval funds and dedicated secondary funds give retail investors access to this strategy.
-</p>
-<p>
-[VISUAL: Chart showing historical secondary market discount levels and how they vary with market conditions]
-</p>
-<p>
-<strong>Horace:</strong> There are also platforms like Forge Global and EquityZen that let individuals buy pre-IPO shares of private companies from employees and early investors. Minimum investments are typically $10,000 or more, and the shares remain illiquid until the company goes public.
-</p>
-<p>
-<strong>Stella:</strong> These platforms have made headlines with companies like SpaceX and Stripe, where enthusiastic investors have paid high prices for pre-IPO access. But remember the risks: limited financial information, uncertain exit timelines, and no guarantee the company will ever go public at a price above what you paid.
-</p>
-<p>
-<strong>Horace:</strong> The private markets landscape is evolving rapidly. More access is becoming available to individual investors, but the fundamental principles remain the same: understand the fees, respect the illiquidity, diversify your exposure, and never invest money you cannot afford to lock up for years.
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Trading Psychology"]
-</p>
-<p>
-<strong>Stella:</strong> In our next lesson, we are tackling something every investor struggles with -- the psychology of trading. See you there.
-</p>
-<p>
-[END - 15:00]
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <p>
@@ -1413,218 +1230,6 @@ BDC的特點：
 <strong>問：如何評估一個區間基金的非流動性是否值得？</strong>
 答：將基金扣費後的回報與上市的替代品進行比較。若一個投資私人信貸的區間基金扣費後回報7%，但一個上市高收益債券交易所買賣基金回報6%且提供每日流動性，你因接受每季贖回窗口而額外賺取的只有1%。這微薄的溢價可能不足以抵銷流動性的犧牲，尤其是若你可能需要動用這筆錢的話。尋找區間基金時，應確保其相對於可比流動性替代品的流動性不足溢價至少達2至3%，以合理化這一取捨。
 </p>
-<hr>
-<h2>YouTube影片劇本</h2>
-<p>
-[開場 - 0:00]
-</p>
-<p>
-[VISUAL: Split screen showing NYSE trading floor on one side and a private boardroom meeting on the other]
-</p>
-<p>
-<strong>Horace：</strong> 大多數人談到投資，首先想到的是股票和債券——可以在公開交易所買賣的東西。但其實還有一個大多數人從未見過的完整投資世界。
-</p>
-<p>
-<strong>Stella：</strong> 私人市場。風險投資公司在這裡資助下一家大型初創企業，私募股權公司買入並改造整家公司，數以萬億美元計的資金在遠離公眾視野的地方易手。問題是——作為個人投資者，你應否嘗試進入這個世界？
-</p>
-<p>
-[VISUAL: Title card "Private Markets: PE, VC, BDCs, and Beyond"]
-</p>
-<hr>
-<p>
-[第1節 - 私人市場格局 - 1:30]
-</p>
-<p>
-[ANIMATION: Iceberg graphic -- small portion above water labeled "Public Markets: ~4,000 US companies" and large portion below labeled "Private Markets: Millions of companies"]
-</p>
-<p>
-<strong>Horace：</strong> 這裡有一個讓大多數人感到驚訝的數據。美國只有大約4,000家上市公司。這個數字實際上已從1990年代末的約7,500家下滑。與此同時，有數以百萬計的私人企業。
-</p>
-<p>
-<strong>Stella：</strong> 企業保持私人狀態的時間比以前長得多。Amazon在成立僅三年後便上市。而今天，SpaceX和Stripe等公司私有已逾十年，估值卻高達數千億美元。
-</p>
-<p>
-[VISUAL: Timeline showing average years to IPO: 1990s = 4 years, 2000s = 7 years, 2020s = 11+ years]
-</p>
-<p>
-<strong>Horace：</strong> 因此，若你只投資公開市場，你是在一個日益縮小的魚塘中捕魚。這促使許多人開始思考：我如何才能獲得私人投資機會？
-</p>
-<hr>
-<p>
-[第2節 - 私募股權與風險投資 - 3:30]
-</p>
-<p>
-[VISUAL: Three pillars showing "Leveraged Buyouts," "Growth Equity," and "Venture Capital"]
-</p>
-<p>
-<strong>Stella：</strong> 讓我們拆解私募股權投資的主要類型。最大的類別是槓桿收購（LBO）。一家私募股權公司主要利用借來的資金收購公司——通常是60至70%債務和30至40%股本。
-</p>
-<p>
-<strong>Horace：</strong> 然後他們致力改善公司——削減成本、增加收入、進行策略性收購——並在三至七年內以更高的價格出售。回報來自三個地方：增加公司盈利、以更高的估值倍數出售，以及利用公司現金流償還債務。
-</p>
-<p>
-[ANIMATION: Simple LBO math showing $100M acquisition at 8x EBITDA, sold for $150M at 10x EBITDA five years later, with debt paydown creating equity value]
-</p>
-<p>
-<strong>Stella：</strong> 然後是風險投資，這是風險最高、潛在回報最大的板塊。風投公司投資於早期初創企業。大多數投資完全失敗。這個模式依賴於在每25至30個投資中，找到一兩個巨大贏家。
-</p>
-<p>
-<strong>Horace：</strong> 這樣想吧。若一個風投基金投資了30家公司，其中20家歸零，5家回本，3家回報3倍，1家回報10倍，另1家回報50倍——那個50倍的贏家讓整個基金成功。這是冪律分佈。
-</p>
-<p>
-[VISUAL: Power law chart showing VC fund returns by company -- most near zero, a few moderate, one massive winner dominating total returns]
-</p>
-<p>
-<strong>Stella：</strong> 這與股票投資有根本性的不同，後者的回報分佈較為均勻。在風險投資中，結果是極端的——極少數投資產生了絕大部分回報。錯過了大贏家，整個基金便告失敗。
-</p>
-<p>
-<strong>Horace：</strong> 還有一件事，是大多數人不了解私募股權和風投基金回報的地方。有一個概念叫做J形曲線。
-</p>
-<p>
-[ANIMATION: J-curve showing negative returns in years 1-3, breakeven around year 4-5, and positive returns in years 5-10]
-</p>
-<p>
-<strong>Stella：</strong> 在基金的早期，回報是負的。你在支付管理費，基金在部署資本，而任何投資都尚未成熟。回報通常要到第三至第五年才轉為正值，而最佳回報在第五至第十年才出現。你的資金被鎖定長達十年或更長時間。
-</p>
-<hr>
-<p>
-[第3節 - 進入私人市場 - 6:00]
-</p>
-<p>
-[VISUAL: Four doors labeled "BDCs," "Interval Funds," "Crowdfunding," and "Public PE Stocks"]
-</p>
-<p>
-<strong>Horace：</strong> 傳統上，你需要非常富有才能進入私人市場。最低投資額為25萬至1,000萬美元，且須為認可投資者。但這一情況已在改變。
-</p>
-<p>
-<strong>Stella：</strong> 讓我們先說說BDC——商業發展公司。這些是向中小型企業提供貸款和投資的上市公司。可以把它們想像成房地產信託基金，但針對私人信貸而非房地產。
-</p>
-<p>
-[VISUAL: BDC structure diagram showing investors buying shares, BDC lending to private companies, interest income flowing back as dividends]
-</p>
-<p>
-<strong>Horace：</strong> BDC派發高股息——通常股息率為8至12%——因為它們須將至少90%的收入分配出去。你可以透過任何券商賬戶購買它們，就像買股票一樣。
-</p>
-<p>
-<strong>Stella：</strong> 但這些高股息率伴隨著真實風險。在2008年金融危機期間，許多BDC的股價下跌了60至80%，不得不大幅削減股息。它們使用槓桿，其借款人通常是風險較高、無法進入公開債券市場的公司。
-</p>
-<p>
-[VISUAL: BDC performance chart during 2008-2009 showing sharp decline and recovery]
-</p>
-<p>
-<strong>Horace：</strong> 接下來是區間基金。這是一種較新的工具，讓散戶投資者能夠獲得私募股權和私人信貸策略。它們受SEC監管，為投資者提供一定保障。
-</p>
-<p>
-<strong>Stella：</strong> 取捨在於流動性有限。與可以任何一天出售的互惠基金不同，區間基金只允許你每季贖回一次，即便如此，也可能將贖回上限設在基金資產的5至25%。因此你的資金可能被部分鎖定。
-</p>
-<hr>
-<p>
-[第4節 - 眾籌與流動性不足溢價 - 8:30]
-</p>
-<p>
-[VISUAL: Smartphone screen showing a crowdfunding platform with startup investment opportunities]
-</p>
-<p>
-<strong>Horace：</strong> Wefunder、Republic和StartEngine等眾籌平台，使任何人都可以以低至100美元投資初創企業。聽起來很令人興奮，對吧？
-</p>
-<p>
-<strong>Stella：</strong> 可以，但讓我們對風險保持現實。專業風投公司擁有分析師團隊進行深入盡職調查。他們爭取保護性條款。他們坐在董事會，積極協助他們的公司。即便如此，他們的大多數投資仍會失敗。
-</p>
-<p>
-[VISUAL: Pie chart showing typical VC portfolio outcome: 50% total losses, 30% modest returns, 15% good returns, 5% home runs]
-</p>
-<p>
-<strong>Horace：</strong> 眾籌投資者沒有這些優勢。資訊有限、沒有保護性條款、沒有董事會席位，也沒有二級市場讓你改變主意時出售。你的資金被鎖定，直至公司成功突圍而出，或者——更可能的是——失敗為止。
-</p>
-<p>
-<strong>Stella：</strong> 這帶出了流動性不足溢價的概念。這個概念是指投資者應因接受流動性不足——即無法隨時出售的限制——而賺取額外回報。
-</p>
-<p>
-[ANIMATION: Scale graphic balancing "Liquidity" on one side and "Higher Expected Returns" on the other]
-</p>
-<p>
-<strong>Horace：</strong> 研究顯示，與公開市場相比，私募股權的這一溢價每年約為2至4%。但有三個重要的注意事項。
-</p>
-<p>
-<strong>Stella：</strong> 第一，這個溢價是平均值，且差異極大。頂四分位私募股權基金大幅跑贏公開市場。末四分位基金則嚴重落後。在任何其他資產類別中，基金管理人的篩選都不如這裡重要。
-</p>
-<p>
-<strong>Horace：</strong> 第二，私募股權回報數據受倖存者偏差影響。失敗的基金停止申報，使平均值看起來比現實更好。
-</p>
-<p>
-<strong>Stella：</strong> 第三，部分看似超額表現的，實際上只是槓桿的補償。若你以私募股權公司使用的相同比例借錢投資公開股票，你將捕獲很大一部分所謂的溢價。
-</p>
-<hr>
-<p>
-[第5節 - 實用指引 - 11:00]
-</p>
-<p>
-[VISUAL: Decision tree for private market investing]
-</p>
-<p>
-<strong>Horace：</strong> 那麼，在了解了這一切之後，普通投資者應該實際怎麼做？
-</p>
-<p>
-<strong>Stella：</strong> 先從這個問題開始：我真的需要私人市場投資敞口嗎？對於大多數建立退休投資組合的人而言，由公開股票、債券和房地產信託基金組成的多元化組合已綽綽有餘。私人市場是補充，而非必需品。
-</p>
-<p>
-[VISUAL: Portfolio allocation pie chart showing "Core: 85-95% Public Markets" and "Satellite: 5-15% Private Markets (optional)"]
-</p>
-<p>
-<strong>Horace：</strong> 若你確實想要一些投資敞口，這裡有一個實用框架。第一，只投資你絕對不會在至少五至十年內需要動用的資金。流動性不足不僅僅是不便——若你需要這筆錢卻無法動用，它可能演變成危機。
-</p>
-<p>
-<strong>Stella：</strong> 第二，優先考慮上市工具。BDC讓你接觸私人信貸，同時享有每日流動性。黑石或KKR等上市私募股權公司，讓你接觸另類資產管理費用收入。這些是進入私人市場的最簡易、最具流動性的方式。
-</p>
-<p>
-<strong>Horace：</strong> 第三，若你想走得更遠，來自知名基金管理人的區間基金提供了一個中間地帶——有一定的流動性限制，但受SEC監管，且有定期的贖回窗口。
-</p>
-<p>
-[VISUAL: Risk spectrum showing Public PE Stocks -> BDCs -> Interval Funds -> Crowdfunding -> Direct PE/VC, with risk increasing left to right]
-</p>
-<p>
-<strong>Stella：</strong> 第四，對眾籌持極度謹慎的態度。若你投資，請把它當作買彩票。只投入你能夠承受全部損失的金額，並將賭注分散於眾多公司，而非集中在一兩家。
-</p>
-<p>
-<strong>Horace：</strong> 結論：私人市場提供真實的機遇，但也呈現比公開市場風險更難看見、更難管理的真實風險。睜大眼睛進入，永遠不要投入超過你能夠鎖定數年的資金。
-</p>
-<hr>
-<p>
-[第6節 - 二級市場與新興准入渠道 - 13:00]
-</p>
-<p>
-[VISUAL: Diagram showing secondary market transactions -- original fund investor selling to secondary buyer at a discount]
-</p>
-<p>
-<strong>Stella：</strong> 在我們結束之前，讓我們提一下另一個正在改變私人市場的發展——二級市場。
-</p>
-<p>
-<strong>Horace：</strong> 傳統上，一旦你投資了一個私募股權基金，你就被鎖定在基金整個十至十二年的存續期中。但一個不斷成長的二級市場，現在允許投資者在基金到期前出售其基金份額，通常以低於申報價值的折讓成交。
-</p>
-<p>
-<strong>Stella：</strong> 這創造了一個有趣的機會。二級買家可以以10至20%的折讓購買基金份額，等同以低於申報價值的價格購入已成熟的投資組合。部分區間基金和專屬二級基金，讓散戶投資者能夠接觸這一策略。
-</p>
-<p>
-[VISUAL: Chart showing historical secondary market discount levels and how they vary with market conditions]
-</p>
-<p>
-<strong>Horace：</strong> 還有Forge Global和EquityZen等平台，讓個人可以從員工和早期投資者手中購買私人公司的Pre-IPO股份。最低投資額通常為10,000美元或以上，股份在公司上市前仍然缺乏流動性。
-</p>
-<p>
-<strong>Stella：</strong> 這些平台因SpaceX和Stripe等公司而引發關注，熱情的投資者為了Pre-IPO准入機會不惜高價。但請記住風險：有限的財務資訊、不確定的退出時間表，以及公司在你購入之後並不保證能以更高的價格上市。
-</p>
-<p>
-<strong>Horace：</strong> 私人市場格局正在迅速演變。個人投資者能夠獲得的渠道越來越多，但基本原則依然不變：了解費用、尊重流動性不足、分散你的投資敞口，絕不要投入你無法鎖定數年的資金。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Trading Psychology"]
-</p>
-<p>
-<strong>Stella：</strong> 在我們的下一課，我們將探討每個投資者都在掙扎的問題——交易心理學。到時見！
-</p>
-<p>
-[END - 15:00]
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>補充課程第14課：私募市場與另類投資</h1>
@@ -1895,218 +1500,6 @@ BDC特點：
 <strong>問：我如何評估一個區間型基金是否值得其非流動性？</strong>
 答：將基金扣除費用後的報酬與上市替代品進行比較。若一個投資私募信貸的區間型基金扣除費用後報酬為7%，但一個上市的高殖利率債券指數股票型基金每日流動性的報酬為6%，你只為接受季度贖回窗口而多賺1%。這個小額溢酬可能無法證明流動性犧牲的合理性，尤其是如果你可能需要這筆錢的話。尋找流動性溢酬比同等流動性替代品高出至少2%-3%的區間型基金，以證明這種取捨是合理的。
 </p>
-<hr>
-<h2>YouTube 腳本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen showing NYSE trading floor on one side and a private boardroom meeting on the other]
-</p>
-<p>
-<strong>Horace：</strong> 大多數人想到投資時，腦海中浮現的是股票和債券——那些可以在公開市場買賣的東西。但還有另一個世界的投資，是大多數人從未見過的。
-</p>
-<p>
-<strong>Stella：</strong> 私募市場。創投公司在這裡資助下一個偉大的新創企業，私募股權公司收購並改造整個公司，數兆美元在公眾視野之外易手。問題是——作為個人投資人，你是否應該嘗試進入這個世界？
-</p>
-<p>
-[VISUAL: Title card "Private Markets: PE, VC, BDCs, and Beyond"]
-</p>
-<hr>
-<p>
-[SECTION 1 - THE PRIVATE MARKET LANDSCAPE - 1:30]
-</p>
-<p>
-[ANIMATION: Iceberg graphic -- small portion above water labeled "Public Markets: ~4,000 US companies" and large portion below labeled "Private Markets: Millions of companies"]
-</p>
-<p>
-<strong>Horace：</strong> 這裡有一個讓大多數人驚訝的數據。美國只有大約4,000家上市公司。這個數字從1990年代末的約7,500家實際上已經下降。與此同時，有數以百萬計的私人企業。
-</p>
-<p>
-<strong>Stella：</strong> 企業保持私人狀態的時間，比以往長得多。亞馬遜在創立僅三年後就上市了。今天，SpaceX和Stripe等公司在私人狀態下已超過十年，估值卻達到數千億美元。
-</p>
-<p>
-[VISUAL: Timeline showing average years to IPO: 1990s = 4 years, 2000s = 7 years, 2020s = 11+ years]
-</p>
-<p>
-<strong>Horace：</strong> 所以如果你只投資公開市場，你是在一個越來越小的池塘裡捕魚。這讓很多人開始問：我如何進入私募投資？
-</p>
-<hr>
-<p>
-[SECTION 2 - PRIVATE EQUITY AND VENTURE CAPITAL - 3:30]
-</p>
-<p>
-[VISUAL: Three pillars showing "Leveraged Buyouts," "Growth Equity," and "Venture Capital"]
-</p>
-<p>
-<strong>Stella：</strong> 讓我們來分解私募股權投資的主要類型。最大的類別是槓桿收購，簡稱LBO。私募股權公司主要使用借款來收購一家公司——通常是60%到70%的債務和30%到40%的股權。
-</p>
-<p>
-<strong>Horace：</strong> 然後他們致力改善公司——削減成本、增加營收、進行策略性收購——並在三至七年內以更高的價格出售。報酬來自三個地方：增加公司盈餘、以更高的估值倍數出售，以及用公司現金流還清債務。
-</p>
-<p>
-[ANIMATION: Simple LBO math showing $100M acquisition at 8x EBITDA, sold for $150M at 10x EBITDA five years later, with debt paydown creating equity value]
-</p>
-<p>
-<strong>Stella：</strong> 然後是創業投資，這是風險最高、潛在報酬最大的板塊。創投公司投資早期新創公司。大多數這些投資完全失敗。這個模式依賴於在每25至30個投資中找到一兩個巨大贏家。
-</p>
-<p>
-<strong>Horace：</strong> 這樣想。如果一個創投基金投資30家公司，其中20家歸零，5家收回原始投資，3家報酬達3倍，1家達10倍，1家達50倍——那個50倍的贏家讓整個基金成功。這是冪次法則分布。
-</p>
-<p>
-[VISUAL: Power law chart showing VC fund returns by company -- most near zero, a few moderate, one massive winner dominating total returns]
-</p>
-<p>
-<strong>Stella：</strong> 這與股票投資根本不同，後者的報酬分布較為均勻。在創投中，結果是極端的——極少數投資產生了絕大多數報酬。錯過大贏家，整個基金就失敗了。
-</p>
-<p>
-<strong>Horace：</strong> 而大多數人不了解的是，私募股權和創投基金報酬中有一個叫做J型曲線的東西。
-</p>
-<p>
-[ANIMATION: J-curve showing negative returns in years 1-3, breakeven around year 4-5, and positive returns in years 5-10]
-</p>
-<p>
-<strong>Stella：</strong> 在基金的最初幾年，報酬是負值。你在支付管理費，基金在部署資本，而還沒有任何投資成熟。報酬通常在第三至第五年才轉正，而最佳報酬出現在第五至第十年。你的資金被鎖定十年或更長時間。
-</p>
-<hr>
-<p>
-[SECTION 3 - ACCESSING PRIVATE MARKETS - 6:00]
-</p>
-<p>
-[VISUAL: Four doors labeled "BDCs," "Interval Funds," "Crowdfunding," and "Public PE Stocks"]
-</p>
-<p>
-<strong>Horace：</strong> 傳統上，你需要非常富有才能進入私募市場。最低投資額25萬至1,000萬美元，而且你必須是合格投資人。但這種情況一直在改變。
-</p>
-<p>
-<strong>Stella：</strong> 讓我們從BDC開始——商業開發公司。這些是向中小企業提供貸款和投資的上市公司。把它們想成不動產投資信託，但針對的是私募信貸而非不動產。
-</p>
-<p>
-[VISUAL: BDC structure diagram showing investors buying shares, BDC lending to private companies, interest income flowing back as dividends]
-</p>
-<p>
-<strong>Horace：</strong> BDC支付高股利——殖利率通常達8%至12%——因為它們被要求至少分配90%的收入。你可以透過任何券商帳戶購買，就像購買一檔股票一樣。
-</p>
-<p>
-<strong>Stella：</strong> 但這些高殖利率伴隨著真實的風險。在2008年金融危機期間，許多BDC的股價下跌60%至80%，不得不大幅削減股利。它們使用槓桿，其借款人通常是無法進入公開債券市場的風險較高的公司。
-</p>
-<p>
-[VISUAL: BDC performance chart during 2008-2009 showing sharp decline and recovery]
-</p>
-<p>
-<strong>Horace：</strong> 接下來是區間型基金。這是一種較新的工具，讓散戶投資人能夠進入私募股權和私募信貸策略。它們受SEC監管，提供一定的投資人保護。
-</p>
-<p>
-<strong>Stella：</strong> 取捨是有限的流動性。與可以隨時賣出的共同基金不同，區間型基金只允許每季贖回，且即便如此，也可能將贖回金額上限設在基金資產的5%至25%。所以你的資金可能部分被鎖定。
-</p>
-<hr>
-<p>
-[SECTION 4 - CROWDFUNDING AND THE ILLIQUIDITY PREMIUM - 8:30]
-</p>
-<p>
-[VISUAL: Smartphone screen showing a crowdfunding platform with startup investment opportunities]
-</p>
-<p>
-<strong>Horace：</strong> Wefunder、Republic和StartEngine等群眾募資平台，讓任何人都能以低至100美元的金額投資新創公司。聽起來很令人興奮，對吧？
-</p>
-<p>
-<strong>Stella：</strong> 可以，但讓我們對風險現實一些。專業創投公司有分析師團隊進行深度盡職調查。他們談判保護性條款。他們在董事會任職並積極支持其公司。即便如此，他們的大多數投資仍然失敗。
-</p>
-<p>
-[VISUAL: Pie chart showing typical VC portfolio outcome: 50% total losses, 30% modest returns, 15% good returns, 5% home runs]
-</p>
-<p>
-<strong>Horace：</strong> 群眾募資投資人沒有這些優勢。資訊有限，沒有保護性條款，沒有董事會席位，也沒有次級市場讓你在改變主意時出售。你的資金被鎖定，直到公司要麼大獲成功，要麼——更可能的是——失敗。
-</p>
-<p>
-<strong>Stella：</strong> 這讓我們想到流動性溢酬的概念。這個想法是，投資人應該因接受流動性不足——即無法隨時賣出的不便——而賺取額外報酬。
-</p>
-<p>
-[ANIMATION: Scale graphic balancing "Liquidity" on one side and "Higher Expected Returns" on the other]
-</p>
-<p>
-<strong>Horace：</strong> 研究表明，私募股權相比公開市場，這個溢酬每年約為2%至4%。但有三個重要的注意事項。
-</p>
-<p>
-<strong>Stella：</strong> 第一，那個溢酬是平均值，且差異極大。頂四分位私募股權基金大幅跑贏公開市場。末四分位基金表現很差。管理人選擇比任何其他資產類別都更重要。
-</p>
-<p>
-<strong>Horace：</strong> 第二，私募股權報酬數據受倖存者偏差所影響。失敗的基金停止申報，所以平均值看起來比實際更好。
-</p>
-<p>
-<strong>Stella：</strong> 第三，看起來像超額表現的部分，實際上只是槓桿的補償。如果你以私募股權公司相同比例借款投資公開股票，你將獲取很大一部分所謂的溢酬。
-</p>
-<hr>
-<p>
-[SECTION 5 - PRACTICAL GUIDANCE - 11:00]
-</p>
-<p>
-[VISUAL: Decision tree for private market investing]
-</p>
-<p>
-<strong>Horace：</strong> 那麼，在這一切之後，普通投資人實際上應該怎麼做？
-</p>
-<p>
-<strong>Stella：</strong> 從這個問題開始：我真的需要私募市場曝險嗎？對於大多數建立退休投資組合的人來說，一個良好分散的公開股票、債券和不動產投資信託組合已綽綽有餘。私募市場是補充，而非必需。
-</p>
-<p>
-[VISUAL: Portfolio allocation pie chart showing "Core: 85-95% Public Markets" and "Satellite: 5-15% Private Markets (optional)"]
-</p>
-<p>
-<strong>Horace：</strong> 如果你確實想要一些曝險，這裡有一個實用框架。首先，只投入你在至少五到十年內絕對不需要的資金。流動性不足不只是不便——如果你需要資金卻無法動用，它可能成為一場危機。
-</p>
-<p>
-<strong>Stella：</strong> 第二，首先考慮上市工具。BDC為你提供每日流動性的私募信貸曝險。Blackstone或KKR等上市私募股權公司，讓你接觸另類資產管理費用收入。這些是進入私募市場最容易、流動性最高的方式。
-</p>
-<p>
-<strong>Horace：</strong> 第三，如果你想更進一步，來自信譽良好管理人的區間型基金提供了一個中間地帶——一些流動性限制，但有SEC監管和定期贖回窗口。
-</p>
-<p>
-[VISUAL: Risk spectrum showing Public PE Stocks -> BDCs -> Interval Funds -> Crowdfunding -> Direct PE/VC, with risk increasing left to right]
-</p>
-<p>
-<strong>Stella：</strong> 第四，以極度謹慎的態度處理群眾募資。如果你投資，把它當作買彩券。只投入你能完全虧損的金額，並將賭注分散在許多公司上，而非集中在一兩家。
-</p>
-<p>
-<strong>Horace：</strong> 結論：私募市場提供了真實的機會，但也呈現了比公開市場風險更難察覺、更難管理的真實風險。睜大眼睛進場，絕不投入超過你能鎖定數年的金額。
-</p>
-<hr>
-<p>
-[SECTION 6 - THE SECONDARY MARKET AND EMERGING ACCESS - 13:00]
-</p>
-<p>
-[VISUAL: Diagram showing secondary market transactions -- original fund investor selling to secondary buyer at a discount]
-</p>
-<p>
-<strong>Stella：</strong> 在我們結束之前，讓我們提及另一個正在改變私募市場的發展——次級市場。
-</p>
-<p>
-<strong>Horace：</strong> 傳統上，一旦你投資了私募股權基金，你就被鎖定在基金的整個十至十二年存續期內。但一個不斷成長的次級市場，現在允許投資人在到期前出售其基金權益，通常以申報價值的折扣出售。
-</p>
-<p>
-<strong>Stella：</strong> 這創造了一個有趣的機會。次級買家可以以10%至20%的折扣購買基金權益，實際上是以低於申報價值的價格購買成熟的被投資公司組合。一些區間型基金和專屬次級基金，讓散戶投資人能夠進入這個策略。
-</p>
-<p>
-[VISUAL: Chart showing historical secondary market discount levels and how they vary with market conditions]
-</p>
-<p>
-<strong>Horace：</strong> 還有Forge Global和EquityZen等平台，讓個人能夠向員工和早期投資人購買私人公司的IPO前股份。最低投資額通常為10,000美元或以上，且股份在公司上市前仍為非流動性資產。
-</p>
-<p>
-<strong>Stella：</strong> 這些平台在SpaceX和Stripe等公司上引起了媒體關注，熱情的投資人為IPO前的入場機會支付了高昂價格。但請記住風險：有限的財務資訊、不確定的退出時間表，以及無法保證公司最終能以高於你購買價格的估值上市。
-</p>
-<p>
-<strong>Horace：</strong> 私募市場格局正在迅速演變。個人投資人可以獲得的入場機會越來越多，但基本原則不變：了解費用，尊重流動性不足，分散你的曝險，永遠不要投入你承擔不起鎖定數年的資金。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Trading Psychology"]
-</p>
-<p>
-<strong>Stella：</strong> 在我們的下一課，我們將探討每個投資人都在掙扎的事情——交易心理學。下節課見。
-</p>
-<p>
-[END - 15:00]
-</p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>附加课程14：私募市场与另类投资</h1>
@@ -2376,218 +1769,6 @@ BDC特點：
 <p>
 <strong>问：如何评估区间基金的流动性不足是否值得？</strong>
 答：将基金扣费后的收益与公开交易的替代品进行比较。如果一只投资于私募信贷的区间基金扣费后年化收益为7%，而公开交易的高收益债券交易所交易基金收益为6%且提供每日流动性，那么你每年仅多获得1%的收益，却要接受季度赎回窗口的限制。这一微薄溢价可能不足以证明牺牲流动性的合理性，尤其是当你可能需要这笔钱的情况下。寻找流动性溢价比可比流动性替代品至少高2%-3%的区间基金，以证明这种权衡的合理性。
-</p>
-<hr>
-<h2>YouTube视频脚本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen showing NYSE trading floor on one side and a private boardroom meeting on the other]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 大多数人在想到投资时，想到的是股票和债券——那些可以在公开交易所买卖的东西。但还有另一个大多数人从未见过的投资世界。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 私募市场。风险投资公司在这里资助下一个伟大的创业公司，私募股权公司收购并改造整个企业，数万亿美元的资金在远离公众视野的地方易手。问题是——作为个人投资者，你应该尝试进入这个世界吗？
-</p>
-<p>
-[VISUAL: Title card "私募市场：PE、VC、BDC及其他"]
-</p>
-<hr>
-<p>
-[SECTION 1 - THE PRIVATE MARKET LANDSCAPE - 1:30]
-</p>
-<p>
-[ANIMATION: Iceberg graphic -- small portion above water labeled "Public Markets: ~4,000 US companies" and large portion below labeled "Private Markets: Millions of companies"]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 有一个让大多数人感到惊讶的统计数字。美国只有约4000家上市公司。这个数字实际上已从1990年代末的约7500家下降。与此同时，有数以百万计的私人企业。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 公司维持私有状态的时间比以前长得多。亚马逊在成立仅三年后就上市了。如今，SpaceX和Stripe等公司私有已超过十年，但估值已达数千亿美元。
-</p>
-<p>
-[VISUAL: Timeline showing average years to IPO: 1990s = 4 years, 2000s = 7 years, 2020s = 11+ years]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 所以如果你只投资公开市场，你是在一个日益缩小的池子里捕鱼。这让很多人开始问：我如何才能进入私募投资？
-</p>
-<hr>
-<p>
-[SECTION 2 - PRIVATE EQUITY AND VENTURE CAPITAL - 3:30]
-</p>
-<p>
-[VISUAL: Three pillars showing "Leveraged Buyouts," "Growth Equity," and "Venture Capital"]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 让我们来分解私募股权投资的主要类型。最大的类别是杠杆收购，即LBO。私募股权公司主要利用借来的钱购买公司——通常是60%至70%的债务和30%至40%的股权。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 然后他们致力于改善公司——削减成本、增加收入、进行战略收购——并在三到七年后以更高的价格出售。收益来自三个方面：提升公司盈利、以更高的估值倍数出售，以及用公司现金流偿还债务。
-</p>
-<p>
-[ANIMATION: Simple LBO math showing $100M acquisition at 8x EBITDA, sold for $150M at 10x EBITDA five years later, with debt paydown creating equity value]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 然后是风险投资，这是风险最高、潜在回报最丰厚的细分领域。风险投资公司投资于早期创业公司。这些投资中的大多数会完全失败。该模式依赖于在每25或30项投资中找到一两个巨大赢家。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 这样想。如果一只风险投资基金投资了30家公司，其中20家归零，5家返还本金，3家回报3倍，1家回报10倍，1家回报50倍——那个50倍的大赢家使整只基金获得成功。这是幂律分布。
-</p>
-<p>
-[VISUAL: Power law chart showing VC fund returns by company -- most near zero, a few moderate, one massive winner dominating total returns]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 这与股票投资有根本性的不同，在股票投资中收益分布更为均匀。在风险投资中，结果是极端的——极少数投资产生了绝大部分的收益。错过大赢家，整只基金就会失败。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 大多数人不知道的一件事是私募股权和风险投资基金收益的特性，叫做J型曲线。
-</p>
-<p>
-[ANIMATION: J-curve showing negative returns in years 1-3, breakeven around year 4-5, and positive returns in years 5-10]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 在基金最初几年，收益为负。你在支付管理费，基金在部署资本，而投资尚未成熟。收益通常要到第三至第五年才转为正数，而最佳收益出现在第五至第十年。你的资金被锁定十年或更长时间。
-</p>
-<hr>
-<p>
-[SECTION 3 - ACCESSING PRIVATE MARKETS - 6:00]
-</p>
-<p>
-[VISUAL: Four doors labeled "BDCs," "Interval Funds," "Crowdfunding," and "Public PE Stocks"]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 传统上，进入私募市场需要拥有巨额财富。最低投资25万至1000万美元，且必须是合格投资者。但这种情况正在改变。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 让我们从企业发展公司（BDC）开始。这些是向中小型企业提供贷款和投资的上市公司。可以把它们想象成私募信贷领域的房地产投资信托基金，而非房地产。
-</p>
-<p>
-[VISUAL: BDC structure diagram showing investors buying shares, BDC lending to private companies, interest income flowing back as dividends]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 企业发展公司支付高股息——通常收益率为8%至12%——因为它们被要求分配至少90%的收入。你可以通过任何经纪账户购买它们，就像购买股票一样。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 但这些高收益率伴随着真实风险。在2008年金融危机期间，许多企业发展公司的股价下跌了60%至80%，不得不大幅削减股息。它们使用杠杆，其借款人通常是无法进入公开债券市场的风险较高的公司。
-</p>
-<p>
-[VISUAL: BDC performance chart during 2008-2009 showing sharp decline and recovery]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 接下来是区间基金。这是一种较新的工具，为散户投资者提供私募股权和私募信贷策略的准入渠道。它们受SEC监管，为投资者提供一定的保护。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 权衡之处在于流动性有限。与可以每天卖出的共同基金不同，区间基金只允许季度赎回，即使如此，也可能将赎回上限设在基金资产的5%至25%。因此，你的资金可能部分被锁定。
-</p>
-<hr>
-<p>
-[SECTION 4 - CROWDFUNDING AND THE ILLIQUIDITY PREMIUM - 8:30]
-</p>
-<p>
-[VISUAL: Smartphone screen showing a crowdfunding platform with startup investment opportunities]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> Wefunder、Republic和StartEngine等众筹平台已使任何人都可以以低至100美元的金额投资创业公司。听起来很令人兴奋，对吗？
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 可以，但让我们对风险保持现实态度。专业风险投资公司有分析师团队进行深入尽职调查。他们谈判保护性条款。他们担任董事会成员并积极支持其公司。即便如此，他们的大多数投资仍然失败。
-</p>
-<p>
-[VISUAL: Pie chart showing typical VC portfolio outcome: 50% total losses, 30% modest returns, 15% good returns, 5% home runs]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 众筹投资者没有这些优势。信息有限，没有保护性条款，没有董事会席位，也没有如果改变主意可以出售的二级市场。你的资金被锁定，直到公司取得惊人成功，或者——更可能的情况——失败。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 这就引出了流动性溢价的概念。这个想法是，投资者应该为接受流动性不足——即无法随时出售的状态——获得额外收益。
-</p>
-<p>
-[ANIMATION: Scale graphic balancing "Liquidity" on one side and "Higher Expected Returns" on the other]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 研究表明，与公开市场相比，私募股权的流动性溢价约为每年2%至4%。但有三个重要注意事项。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 首先，那个溢价是平均值，且差异极大。顶四分位私募股权基金大幅跑赢公开市场。底四分位基金表现糟糕。管理人选择比任何其他资产类别都更重要。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 其次，私募股权收益数据存在幸存者偏差。失败的基金停止报告，所以平均值看起来比现实更好。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 第三，表面上的超额表现，部分实际上只是对使用杠杆的补偿。如果你以私募股权公司使用的相同比例借钱投资公开股票，你将捕获所谓溢价的大部分。
-</p>
-<hr>
-<p>
-[SECTION 5 - PRACTICAL GUIDANCE - 11:00]
-</p>
-<p>
-[VISUAL: Decision tree for private market investing]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 综合以上所有内容，普通投资者实际上应该怎么做？
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 从这个问题开始：我真的需要私募市场风险敞口吗？对于大多数建立退休投资组合的人来说，由公开股票、债券和房地产投资信托基金构成的多元化投资组合已经绰绰有余。私募市场是补充，而非必需品。
-</p>
-<p>
-[VISUAL: Portfolio allocation pie chart showing "Core: 85-95% Public Markets" and "Satellite: 5-15% Private Markets (optional)"]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 如果你确实想要一些敞口，这里有一个实用框架。首先，只投资你至少五到十年内绝对不需要的资金。流动性不足不仅仅是不便——如果你需要资金却无法获取，它可能成为危机。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 其次，首先考虑上市工具。企业发展公司提供具有每日流动性的私募信贷风险敞口。Blackstone或KKR等上市私募股权公司让你接触另类资产管理费用收入。这些是涉足私募市场最简单、流动性最好的方式。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 第三，如果你想进一步，来自知名管理人的区间基金提供了一个中间地带——存在一定的流动性限制，但有SEC监管和定期赎回窗口。
-</p>
-<p>
-[VISUAL: Risk spectrum showing Public PE Stocks -> BDCs -> Interval Funds -> Crowdfunding -> Direct PE/VC, with risk increasing left to right]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 第四，以极度谨慎的态度对待众筹。如果你投资，把它当作购买彩票。只投入你能够完全亏损的金额，并将赌注分散到许多公司，而非集中在一两家。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 结论：私募市场提供真实的机遇，但也存在比公开市场风险更难看清、更难管理的真实风险。睁大眼睛进入，永远不要投入超过你能够锁定多年的资金。
-</p>
-<hr>
-<p>
-[SECTION 6 - THE SECONDARY MARKET AND EMERGING ACCESS - 13:00]
-</p>
-<p>
-[VISUAL: Diagram showing secondary market transactions -- original fund investor selling to secondary buyer at a discount]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 在我们结束之前，让我们提到另一个正在改变私募市场的发展——二级市场。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 传统上，一旦你投资于一只私募股权基金，你就会被锁定在基金十到十二年的整个生命周期中。但一个不断增长的二级市场现在允许投资者在基金到期之前出售其基金权益，通常以低于报告价值的折扣出售。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 这创造了一个有趣的机会。二级买家可以以10%至20%的折扣购买基金权益，实际上是以低于报告价值的价格购买成熟的公司投资组合。一些区间基金和专用二级基金使散户投资者能够获得这一策略。
-</p>
-<p>
-[VISUAL: Chart showing historical secondary market discount levels and how they vary with market conditions]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 还有Forge Global和EquityZen等平台，允许个人从员工和早期投资者那里购买私人公司的Pre-IPO股份。最低投资额通常为1万美元或以上，股份在公司上市之前仍缺乏流动性。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 这些平台因SpaceX和Stripe等公司而受到媒体关注，热情的投资者为了Pre-IPO准入支付了高价。但请记住风险：有限的财务信息、不确定的退出时间表，以及公司不会以高于你购入价格上市的风险。
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 私募市场格局正在快速演变。个人投资者获得更多准入渠道，但基本原则保持不变：了解费用，尊重流动性不足，分散风险敞口，永远不要投入你无法承受锁定多年的资金。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Trading Psychology"]
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 在我们的下一课中，我们将讨论每个投资者都会面对的挑战——交易心理。下次见。
-</p>
-<p>
-[END - 15:00]
 </p>
             </div>
         </div>

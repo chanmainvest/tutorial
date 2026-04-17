@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -953,191 +982,6 @@ A: Margin interest is tax-deductible as an investment expense, but only against 
 <strong>Q: How does margin work with options?</strong>
 A: Options have their own margin requirements that differ from stock margin. Selling naked puts requires margin equal to a percentage of the underlying stock value (typically 20% of the stock price minus the option premium, with a minimum). Selling naked calls requires similar margin. Defined-risk strategies (like vertical spreads) have margin requirements equal to the maximum potential loss. Understanding options margin is essential before selling uncovered options.
 </p>
-<hr>
-<h2>YouTube Script</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen -- left side shows gains accelerating upward with leverage, right side shows losses accelerating downward]
-</p>
-<p>
-<strong>Horace:</strong> Imagine you have $50,000 to invest. But what if you could invest $100,000? Or $150,000? Margin accounts make this possible -- by letting you borrow money from your broker to buy more securities.
-</p>
-<p>
-<strong>Stella:</strong> It sounds great in theory. But leverage is the single most dangerous tool available to individual investors. It has created more financial devastation than any other mechanism. Today, we are covering exactly how margin works, the regulations that govern it, and the very real dangers you need to understand.
-</p>
-<p>
-[VISUAL: Title card "Margin and Leverage: Power, Risk, and the Rules"]
-</p>
-<hr>
-<p>
-[SECTION 1 - HOW MARGIN WORKS - 1:30]
-</p>
-<p>
-[ANIMATION: Diagram showing a cash account ($50K buying $50K in stock) vs a margin account ($50K buying $100K in stock, with $50K borrowed from broker)]
-</p>
-<p>
-<strong>Horace:</strong> In a regular cash account, you can only invest the money you have. Simple. In a margin account, you can borrow money from your broker, using your existing securities as collateral.
-</p>
-<p>
-<strong>Stella:</strong> The Federal Reserve's Regulation T says you can borrow up to 50 percent of a stock's purchase price. So with $50,000 of your own money, you can buy up to $100,000 worth of stock. Your leverage is 2 to 1.
-</p>
-<p>
-[VISUAL: Simple math: $50K equity + $50K borrowed = $100K position. Leverage ratio: 2:1]
-</p>
-<p>
-<strong>Horace:</strong> Now here is what that means for your returns. If the stock goes up 10 percent, your $100,000 position is worth $110,000. Subtract the $50,000 loan, and your equity is $60,000. That is a 20 percent return on your $50,000 -- double the stock's return.
-</p>
-<p>
-<strong>Stella:</strong> But the reverse is equally true. If the stock falls 10 percent, your position drops to $90,000. Equity becomes $40,000. You have lost 20 percent of your money on a 10 percent stock decline.
-</p>
-<p>
-[ANIMATION: Two scenarios branching from initial position -- green branch showing amplified gain, red branch showing amplified loss]
-</p>
-<p>
-<strong>Horace:</strong> And if the stock falls 50 percent? Your $100,000 position is worth $50,000. You still owe $50,000 to the broker. Your equity is zero. You have lost everything. And if it falls further, you actually owe money.
-</p>
-<hr>
-<p>
-[SECTION 2 - MARGIN CALLS - 4:00]
-</p>
-<p>
-[VISUAL: Phone screen showing a "MARGIN CALL" notification with a declining stock chart in the background]
-</p>
-<p>
-<strong>Stella:</strong> The most terrifying two words in investing: margin call. When your equity falls below the maintenance margin requirement -- typically 25 to 35 percent of your position -- your broker demands that you deposit more money or securities immediately.
-</p>
-<p>
-<strong>Horace:</strong> Let us use real numbers. You have $50,000 in equity and $50,000 borrowed, so a $100,000 position. Your broker's maintenance requirement is 35 percent.
-</p>
-<p>
-[ANIMATION: Declining bar chart showing position value falling, equity shrinking, with a red line at 35% maintenance level]
-</p>
-<p>
-<strong>Stella:</strong> If the stock falls 23 percent, your position is worth $76,920. Your equity is $26,920. That is 35 percent of the position value -- right at the maintenance line. Any further decline triggers a margin call.
-</p>
-<p>
-<strong>Horace:</strong> And here is what most people do not realize. Your broker does not have to call you. They do not have to give you time. They can sell your positions -- whichever ones they choose -- immediately, at whatever price the market offers. That is in the margin agreement you signed.
-</p>
-<p>
-<strong>Stella:</strong> During the March 2020 crash, some investors received margin calls and had positions liquidated within hours. In 2008, it was even worse. The combination of rapid declines and frozen credit markets meant margin calls cascaded through the system, forcing selling that pushed prices even lower.
-</p>
-<p>
-[VISUAL: 2008 cascading margin call diagram: Prices Fall -> Margin Calls -> Forced Selling -> Prices Fall Further -> More Margin Calls]
-</p>
-<hr>
-<p>
-[SECTION 3 - PATTERN DAY TRADER AND PORTFOLIO MARGIN - 7:00]
-</p>
-<p>
-[VISUAL: Two-tier regulatory structure showing Reg T for standard margin accounts and Portfolio Margin for advanced accounts]
-</p>
-<p>
-<strong>Horace:</strong> If you use margin for frequent trading, there is another regulation to know: the Pattern Day Trader rule. If you make four or more day trades in a five-day period, you are classified as a pattern day trader and must maintain at least $25,000 in your account.
-</p>
-<p>
-<strong>Stella:</strong> Now, for more sophisticated investors, there is portfolio margin. This is a fundamentally different system. Instead of applying a flat 50 percent initial margin and 25 to 35 percent maintenance to every position, portfolio margin calculates your requirement based on the actual risk of your entire portfolio.
-</p>
-<p>
-[ANIMATION: Comparison showing Reg T treating each position independently vs Portfolio Margin evaluating portfolio-level risk with correlations and hedges]
-</p>
-<p>
-<strong>Horace:</strong> If you own a stock and a protective put on that stock, Reg T margins both positions separately -- as if the put does not exist for margin purposes. Portfolio margin recognizes that the put limits your downside, so it requires less margin.
-</p>
-<p>
-<strong>Stella:</strong> This means portfolio margin can offer significantly more leverage for hedged portfolios -- sometimes 5 to 1 or even 6 to 1, compared to 2 to 1 under Reg T. But that extra leverage is a double-edged sword.
-</p>
-<p>
-<strong>Horace:</strong> Portfolio margin requirements are recalculated dynamically. A spike in market volatility can dramatically increase your requirements overnight, even if your positions have not changed. Investors who were comfortable at 4 to 1 leverage on a quiet Tuesday might face a margin call on a volatile Wednesday morning.
-</p>
-<hr>
-<p>
-[SECTION 4 - LEVERAGED ETFs - 9:30]
-</p>
-<p>
-[VISUAL: Comparison chart showing actual 2x ETF performance vs theoretical 2x returns over a year]
-</p>
-<p>
-<strong>Stella:</strong> There is another way to get leverage without a margin account: leveraged ETFs. These funds use derivatives to deliver a multiple of an index's daily return. A 2x S&P 500 ETF aims to go up 2 percent when the S&P goes up 1 percent, and down 2 percent when it falls 1 percent.
-</p>
-<p>
-<strong>Horace:</strong> Sounds straightforward, right? But there is a hidden problem called volatility decay. Because leveraged ETFs reset daily, the compounding math works against you in choppy markets.
-</p>
-<p>
-[ANIMATION: Simple example -- Index goes up 10%, then down 10%. Starting at $100: After up 10%, index is at $110. After down 10%, index is at $99. 2x ETF: After up 20%, at $120. After down 20%, at $96. The index lost $1, but the 2x ETF lost $4.]
-</p>
-<p>
-<strong>Stella:</strong> Over a short period, this effect is small. Over months or years, it can be devastating. A 2x leveraged S&P 500 ETF held for a full year might return significantly less than twice the S&P 500's return -- or even lose money when the index is positive -- if the market was volatile.
-</p>
-<p>
-<strong>Horace:</strong> This is why leveraged ETFs come with warnings that they are designed for short-term trading, not long-term investing. If you want long-term leveraged exposure, a margin account (with careful risk management) is actually more predictable than a leveraged ETF.
-</p>
-<hr>
-<p>
-[SECTION 5 - USING LEVERAGE RESPONSIBLY - 11:30]
-</p>
-<p>
-[VISUAL: "The Responsible Leverage Framework" with bullet points]
-</p>
-<p>
-<strong>Stella:</strong> After all these warnings, is there ever a good reason to use margin? Yes, but the situations are limited.
-</p>
-<p>
-<strong>Horace:</strong> First, temporary bridge financing. Using margin for a few days while waiting for cash to settle or a transfer to arrive is low-risk and often sensible. You are not speculating -- you are managing cash flow.
-</p>
-<p>
-<strong>Stella:</strong> Second, tax-efficient borrowing. If you have large unrealized gains, borrowing on margin instead of selling appreciated stock can defer capital gains taxes. The margin interest (which is tax-deductible) may cost less than the tax bill from selling.
-</p>
-<p>
-<strong>Horace:</strong> Third, as part of a hedged options strategy under portfolio margin. If you are running a market-neutral, hedged portfolio, portfolio margin recognizes your hedges and provides appropriate leverage.
-</p>
-<p>
-[VISUAL: Leverage risk spectrum: Safe (no leverage) -> Moderate (1.1-1.3x for specific purposes) -> Risky (1.5-2x speculative) -> Dangerous (2x+ concentrated bets)]
-</p>
-<p>
-<strong>Stella:</strong> But here are the rules if you use margin. Never use more than 1.3 to 1 leverage for long-term positions. Always know your margin call trigger price. Keep a cash reserve outside your brokerage account that you can deposit quickly if needed. And never use margin for speculative, concentrated bets.
-</p>
-<p>
-<strong>Horace:</strong> The graveyard of investing is full of people who were right about the direction but wrong about the timing, and margin did not give them enough room to survive the gap between. Do not be one of them.
-</p>
-<hr>
-<p>
-[SECTION 6 - LESSONS FROM HISTORY - 12:00]
-</p>
-<p>
-[VISUAL: Timeline showing major leverage-driven disasters: LTCM 1998, Lehman 2008, Archegos 2021]
-</p>
-<p>
-<strong>Stella:</strong> Let us close with a few cautionary tales that illustrate why leverage demands respect.
-</p>
-<p>
-<strong>Horace:</strong> In 1998, Long-Term Capital Management -- a hedge fund run by Nobel Prize winners -- used leverage ratios exceeding 25 to 1. When their trades went wrong during the Russian debt crisis, the fund nearly collapsed the global financial system and required a $3.6 billion rescue organized by the Federal Reserve.
-</p>
-<p>
-<strong>Stella:</strong> In 2008, investment banks operated at 30 to 1 leverage. When housing-related assets declined, their thin equity cushion evaporated. Bear Stearns and Lehman Brothers collapsed. The entire banking system nearly followed.
-</p>
-<p>
-[VISUAL: Leverage ratios of major institutions before their failures: LTCM 25:1, Bear Stearns 33:1, Lehman Brothers 30:1]
-</p>
-<p>
-<strong>Horace:</strong> And in 2021, Archegos Capital -- a family office -- used hidden leverage through total return swaps to build enormous concentrated positions. When the positions declined, the forced liquidation caused over $10 billion in losses at major banks.
-</p>
-<p>
-<strong>Stella:</strong> The common thread across all of these stories, from 1929 to 2021, from individual retail traders to the most sophisticated institutions on Wall Street, is the same: leverage works brilliantly until it does not. And when it fails, the destruction is disproportionate to the initial risk that seemed so manageable.
-</p>
-<p>
-<strong>Horace:</strong> You can build tremendous wealth without ever using a dollar of margin. Some of the greatest investors in history -- Warren Buffett through Berkshire Hathaway's insurance float, not margin -- achieved extraordinary returns without the kind of leverage that blows up accounts. Patience and time are the safest form of leverage available to you.
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Commodities Investing"]
-</p>
-<p>
-<strong>Stella:</strong> Next time, we are exploring the world of commodities -- energy, metals, agriculture, and how to access these markets. See you there.
-</p>
-<p>
-[END - 14:30]
-</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>附加課程 21：保證金帳戶、�槓桿與風險</h1>
@@ -1433,191 +1277,6 @@ A: Options have their own margin requirements that differ from stock margin. Sel
 <strong>問：期權如何與保證金配合使用？</strong>
 答：期權有其獨立的保證金要求，與股票保證金不同。沽出裸露認沽期權須繳付相當於相關股票一定比率的保證金（通常為股票價格的20%減去期權金，另設最低金額）。沽出裸露認購期權的要求與此類似。風險有限的策略（如垂直差價）的保證金要求等於最大潛在虧損。在沽出未備兌期權前，理解期權保證金至關重要。
 </p>
-<hr>
-<h2>YouTube 腳本</h2>
-<p>
-[開場白 - 0:00]
-</p>
-<p>
-[VISUAL: Split screen -- left side shows gains accelerating upward with leverage, right side shows losses accelerating downward]
-</p>
-<p>
-<strong>Horace：</strong> 假設你有50,000美元可以投資。但如果你能夠投資100,000美元，甚至150,000美元呢？保證金帳戶正是讓這成為可能——透過讓你向券商借款購買更多證券。
-</p>
-<p>
-<strong>Stella：</strong> 聽起來理論上很不錯。但槓桿是個人投資者能夠使用的最危險工具。它所造成的財務破壞，比任何其他機制都要嚴重。今天，我們將詳細講解保證金的運作原理、監管規定，以及你必須了解的真實風險。
-</p>
-<p>
-[VISUAL: Title card "保證金與槓桿：力量、風險與規則"]
-</p>
-<hr>
-<p>
-[第一節 - 保證金的運作方式 - 1:30]
-</p>
-<p>
-[ANIMATION: Diagram showing a cash account ($50K buying $50K in stock) vs a margin account ($50K buying $100K in stock, with $50K borrowed from broker)]
-</p>
-<p>
-<strong>Horace：</strong> 在普通現金帳戶中，你只能以自有資金投資，就是這麼簡單。在保證金帳戶中，你可以向券商借款，以現有證券作抵押。
-</p>
-<p>
-<strong>Stella：</strong> 美聯儲《T條例》規定，你可以借入股票購買價格的最多50%。因此，以50,000美元自有資金，你最多可以買入100,000美元的股票，槓桿比率為2:1。
-</p>
-<p>
-[VISUAL: Simple math: $50,000自有資金 + $50,000借款 = $100,000倉位。槓桿比率：2:1]
-</p>
-<p>
-<strong>Horace：</strong> 這對你的回報意味著什麼呢。若股票升10%，你的100,000美元倉位升至110,000美元。扣除50,000美元借款，你的自有資金為60,000美元。相對你的50,000美元投入，回報率達20%——是股票升幅的兩倍。
-</p>
-<p>
-<strong>Stella：</strong> 但反過來同樣成立。若股票跌10%，倉位跌至90,000美元。自有資金變為40,000美元。股票下跌10%，你卻損失了自有資金的20%。
-</p>
-<p>
-[ANIMATION: Two scenarios branching from initial position -- green branch showing amplified gain, red branch showing amplified loss]
-</p>
-<p>
-<strong>Horace：</strong> 若股票跌50%呢？你的100,000美元倉位只剩50,000美元。你仍然欠券商50,000美元。你的自有資金歸零。若再進一步下跌，你甚至會欠下債務。
-</p>
-<hr>
-<p>
-[第二節 - 追收保證金 - 4:00]
-</p>
-<p>
-[VISUAL: Phone screen showing a "追收保證金" notification with a declining stock chart in the background]
-</p>
-<p>
-<strong>Stella：</strong> 投資中最令人膽寒的兩個字：追收保證金。當你的自有資金跌至維持保證金要求以下——通常為倉位的25%至35%——你的券商便會要求你即時存入更多資金或證券。
-</p>
-<p>
-<strong>Horace：</strong> 讓我們以實際數字說明。你持有50,000美元自有資金，加上50,000美元借款，共100,000美元倉位。你的券商維持要求為35%。
-</p>
-<p>
-[ANIMATION: Declining bar chart showing position value falling, equity shrinking, with a red line at 35% maintenance level]
-</p>
-<p>
-<strong>Stella：</strong> 若股票下跌23%，倉位價值76,920美元，自有資金為26,920美元，恰好佔倉位的35%——正處於維持線。任何進一步下跌均會觸發追收保證金。
-</p>
-<p>
-<strong>Horace：</strong> 而大多數人沒有意識到的是——你的券商無需通知你，也無需給你時間。他們可以立即出售你的倉位——自行決定出售哪些——以市場即時報價成交。這在你所簽署的保證金協議中白紙黑字寫明。
-</p>
-<p>
-<strong>Stella：</strong> 在2020年3月的崩盤期間，部分投資者在數小時內收到追收保證金通知並遭強制平倉。2008年的情況更為嚴峻。股價急速下跌疊加信貸市場凍結，追收保證金在整個體系中連鎖爆發，迫使的拋售進一步壓低股價。
-</p>
-<p>
-[VISUAL: 2008年連鎖追收保證金示意圖：股價下跌 -> 追收保證金 -> 強制拋售 -> 股價進一步下跌 -> 更多追收保證金]
-</p>
-<hr>
-<p>
-[第三節 - 模式日交易者規則與投資組合保證金 - 7:00]
-</p>
-<p>
-[VISUAL: Two-tier regulatory structure showing Reg T for standard margin accounts and Portfolio Margin for advanced accounts]
-</p>
-<p>
-<strong>Horace：</strong> 若你頻繁以保證金交易，還有另一項規定需要了解：模式日交易者規則。若你在五個營業日內進行四次或以上的即日交易，你將被列為模式日交易者，帳戶中須維持至少25,000美元的資金。
-</p>
-<p>
-<strong>Stella：</strong> 對於更成熟的投資者，還有投資組合保證金這一選項。這是一個根本上不同的制度。它不再對每個倉位套用固定的50%初始保證金及25%至35%維持要求，而是根據整體投資組合的實際風險計算保證金要求。
-</p>
-<p>
-[ANIMATION: Comparison showing Reg T treating each position independently vs Portfolio Margin evaluating portfolio-level risk with correlations and hedges]
-</p>
-<p>
-<strong>Horace：</strong> 若你持有某股票及其保護性認沽期權，T條例對兩個倉位分別計算保證金——即視認沽期權於保證金計算中並不存在。投資組合保證金則確認認沽期權限制了你的下行風險，因此要求較低的保證金。
-</p>
-<p>
-<strong>Stella：</strong> 這意味著投資組合保證金可以為對沖投資組合提供大得多的槓桿——有時達5:1甚至6:1，相對T條例的2:1而言。但這額外的槓桿是雙刃劍。
-</p>
-<p>
-<strong>Horace：</strong> 投資組合保證金要求是動態重新計算的。市場波動性急升可能在一夜之間大幅提高你的要求，即使你的倉位未有任何改變。在平靜的週二以4:1槓桿感到游刃有餘的投資者，可能在波動的週三早晨面臨追收保證金。
-</p>
-<hr>
-<p>
-[第四節 - 槓桿交易所買賣基金 - 9:30]
-</p>
-<p>
-[VISUAL: Comparison chart showing actual 2x ETF performance vs theoretical 2x returns over a year]
-</p>
-<p>
-<strong>Stella：</strong> 還有另一種無需保證金帳戶即可獲取槓桿的方式：槓桿交易所買賣基金。這些基金利用衍生工具，提供指數每日回報的倍數。2倍標普500交易所買賣基金的目標是：指數升1%時上升2%，跌1%時下跌2%。
-</p>
-<p>
-<strong>Horace：</strong> 聽起來簡單明瞭，對嗎？但其中有一個隱藏的問題，稱為波動性損耗。由於槓桿交易所買賣基金每日重設，在震蕩市場中，複利計算會對你產生不利影響。
-</p>
-<p>
-[ANIMATION: Simple example -- 指數升10%，再跌10%。以$100起始：升10%後，指數升至$110。跌10%後，指數降至$99。2倍交易所買賣基金：升20%後，升至$120。跌20%後，降至$96。指數虧損$1，但2倍交易所買賣基金虧損$4。]
-</p>
-<p>
-<strong>Stella：</strong> 在短期內，這一效應較小。但經過數月或數年，可能造成嚴重損失。在波動性較高的年份，2倍槓桿標普500交易所買賣基金的全年回報，可能遠低於標普500回報的兩倍——甚至在指數為正的情況下出現虧損。
-</p>
-<p>
-<strong>Horace：</strong> 這正是為何槓桿交易所買賣基金附帶聲明，指其為短線戰術交易而設，不適合長線持有。若你希望獲得長線槓桿敞口，使用保證金帳戶（並配合審慎的風險管理）實際上比槓桿交易所買賣基金更為可預測。
-</p>
-<hr>
-<p>
-[第五節 - 負責任地使用槓桿 - 11:30]
-</p>
-<p>
-[VISUAL: "負責任使用槓桿的框架" with bullet points]
-</p>
-<p>
-<strong>Stella：</strong> 在所有這些警告之後，究竟有沒有正當理由使用保證金？有，但情況相當有限。
-</p>
-<p>
-<strong>Horace：</strong> 第一，短暫過渡性融資。在等待資金交收或轉帳到帳期間短暫使用保證金，並計劃在數日內還清，風險較低，往往是合理的做法。你並非在投機，而是在管理現金流。
-</p>
-<p>
-<strong>Stella：</strong> 第二，稅務效益借貸。若你持有大量未變現盈利，透過保證金借貸以避免出售升值股票，可以遞延資本增值稅。保證金利息（可作稅項扣除）的成本，可能低於出售所產生的稅單。
-</p>
-<p>
-<strong>Horace：</strong> 第三，在投資組合保證金下執行對沖期權策略。若你管理的是市場中性、對沖的投資組合，投資組合保證金能夠確認你的對沖效益，並提供相應的槓桿。
-</p>
-<p>
-[VISUAL: 槓桿風險頻譜：安全（無槓桿）-> 適中（特定用途下1.1至1.3倍）-> 高風險（投機性1.5至2倍）-> 極度危險（2倍以上集中押注）]
-</p>
-<p>
-<strong>Stella：</strong> 但若你使用保證金，務必遵守以下原則。長線倉位的槓桿絕不超過1.3:1。時刻了解你的追收保證金觸發價格。在券商帳戶以外維持現金儲備，以便在需要時迅速存入。絕不在投機性的集中押注上使用保證金。
-</p>
-<p>
-<strong>Horace：</strong> 投資的「墓地」裡，埋葬著許多方向判斷正確、但時機判斷錯誤的人，而保證金沒有給他們足夠的空間去撐過那段差距。請不要成為其中一員。
-</p>
-<hr>
-<p>
-[第六節 - 歷史的教訓 - 12:00]
-</p>
-<p>
-[VISUAL: Timeline showing major leverage-driven disasters: 長期資本管理公司1998年, 雷曼2008年, Archegos 2021年]
-</p>
-<p>
-<strong>Stella：</strong> 最後，讓我們回顧幾個警世故事，說明為何槓桿需要絕對的尊重與謹慎。
-</p>
-<p>
-<strong>Horace：</strong> 1998年，長期資本管理公司——一家由諾貝爾獎得主主理的對沖基金——以超過25:1的槓桿比率執行收斂交易。當其交易在俄羅斯債務危機期間出現差錯，該基金幾乎令全球金融體系崩潰，最終需要由美聯儲主導，籌集36億美元進行緊急救援。
-</p>
-<p>
-<strong>Stella：</strong> 2008年，投資銀行以30:1的槓桿比率運營。當與住房相關的資產下跌，薄薄的自有資金緩衝迅速蒸發。貝爾斯登和雷曼兄弟相繼倒閉。整個銀行體系差點隨之崩潰。
-</p>
-<p>
-[VISUAL: 主要機構倒閉前的槓桿比率：長期資本管理公司 25:1，貝爾斯登 33:1，雷曼兄弟 30:1]
-</p>
-<p>
-<strong>Horace：</strong> 2021年，Archegos資本——一家家族辦公室——透過總回報掉期使用隱性槓桿，在少數幾隻股票上建立龐大的集中倉位。當倉位下跌，主要經紀商要求追加抵押品。超過300億美元倉位的強制平倉，令多家銀行蒙受逾100億美元的合計虧損。
-</p>
-<p>
-<strong>Stella：</strong> 從1929年到2021年，從個人散戶投資者到華爾街最頂尖的機構，這所有故事的共同脈絡都是一樣的：槓桿在順境時運作得無懈可擊，直到有一天它突然失效。而當它失效時，所造成的破壞與當初看似可控的風險完全不成比例。
-</p>
-<p>
-<strong>Horace：</strong> 你可以在從不使用一分錢保證金的情況下，積累龐大的財富。史上一些最偉大的投資者——沃倫·巴菲特透過巴郡的保險浮存金，而非保證金——在不依賴這種可能令帳戶爆倉的槓桿形式的情況下，取得了非凡的回報。耐心和時間，是你可以善用的最安全槓桿形式。
-</p>
-<p>
-[VISUAL: End card with channel logo and "下期：商品投資"]
-</p>
-<p>
-<strong>Stella：</strong> 下次，我們將探索商品世界——能源、金屬、農產品，以及如何進入這些市場。到時見。
-</p>
-<p>
-[完 - 14:30]
-</p>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>附課21：保證金帳戶、槓桿與風險</h1>
@@ -1912,191 +1571,6 @@ FINRA的當日沖銷交易者規則適用於保證金帳戶。若你在連續五
 <p>
 <strong>問：保證金如何與選擇權配合使用？</strong>
 答：選擇權有其特定的保證金要求，與股票保證金不同。裸賣賣權需要等於標的股票價值一定百分比的保證金（通常為股價的20%減去選擇權權利金，有最低限額）。裸賣買權需要類似的保證金。有限風險策略（如垂直價差）的保證金要求等於最大潛在損失。在出售未保護選擇權之前，了解選擇權保證金至關重要。
-</p>
-<hr>
-<h2>YouTube腳本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen -- left side shows gains accelerating upward with leverage, right side shows losses accelerating downward]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 假設你有50,000美元可以投資。但如果你可以投資100,000美元呢？或是150,000美元？保證金帳戶讓這成為可能——它允許你向券商借款購買更多有價證券。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 理論上聽起來很棒。但槓桿是個人投資者可使用的最危險的單一工具。它比任何其他機制造成了更多的財務破壞。今天，我們將詳細介紹保證金的運作方式、規範它的法規，以及你需要了解的真實風險。
-</p>
-<p>
-[VISUAL: Title card "保證金與槓桿：力量、風險與規則"]
-</p>
-<hr>
-<p>
-[SECTION 1 - HOW MARGIN WORKS - 1:30]
-</p>
-<p>
-[ANIMATION: Diagram showing a cash account ($50K buying $50K in stock) vs a margin account ($50K buying $100K in stock, with $50K borrowed from broker)]
-</p>
-<p>
-<strong>Horace：</strong> 在一般的現金帳戶中，你只能投資你擁有的資金。很簡單。在保證金帳戶中，你可以向券商借款，以現有的有價證券作為擔保品。
-</p>
-<p>
-<strong>Stella：</strong> 聯準會的T號法規規定，你最多可以借入股票買入金額的50%。因此，以50,000美元的自有資金，你最多可以買入100,000美元的股票。你的槓桿比率為2:1。
-</p>
-<p>
-[VISUAL: Simple math: $50K equity + $50K borrowed = $100K position. Leverage ratio: 2:1]
-</p>
-<p>
-<strong>Horace：</strong> 這對你的報酬意味著什麼。若股票上漲10%，你的100,000美元部位價值110,000美元。扣除50,000美元貸款，你的淨值為60,000美元。這是你50,000美元的20%報酬——是股票報酬的兩倍。
-</p>
-<p>
-<strong>Stella：</strong> 但反過來同樣成立。若股票下跌10%，你的部位跌至90,000美元。淨值變為40,000美元。在股票下跌10%的情況下，你損失了20%的資金。
-</p>
-<p>
-[ANIMATION: Two scenarios branching from initial position -- green branch showing amplified gain, red branch showing amplified loss]
-</p>
-<p>
-<strong>Horace：</strong> 若股票下跌50%呢？你的100,000美元部位價值50,000美元。你仍然欠券商50,000美元。你的淨值歸零。你賠光了一切。若繼續下跌，你實際上還欠錢。
-</p>
-<hr>
-<p>
-[SECTION 2 - MARGIN CALLS - 4:00]
-</p>
-<p>
-[VISUAL: Phone screen showing a "MARGIN CALL" notification with a declining stock chart in the background]
-</p>
-<p>
-<strong>Stella：</strong> 投資中最令人恐懼的兩個字：追繳保證金。當你的淨值低於維持保證金要求——通常為你部位的25%至35%——你的券商要求你立即補繳資金或有價證券。
-</p>
-<p>
-<strong>Horace：</strong> 讓我們用真實數字說明。你有50,000美元淨值和50,000美元借款，即100,000美元部位。你的券商維持要求為35%。
-</p>
-<p>
-[ANIMATION: Declining bar chart showing position value falling, equity shrinking, with a red line at 35% maintenance level]
-</p>
-<p>
-<strong>Stella：</strong> 若股票下跌23%，你的部位價值76,920美元。你的淨值為26,920美元。這是部位價值的35%——正好在維持線上。任何進一步下跌都會觸發追繳保證金。
-</p>
-<p>
-<strong>Horace：</strong> 大多數人不了解的是：券商不必通知你。他們不必給你時間。他們可以平倉你的部位——自行選擇哪些——立即以市場提供的任何價格執行。這在你簽署的保證金協議中已有明確規定。
-</p>
-<p>
-<strong>Stella：</strong> 在2020年3月的崩盤期間，部分投資者在數小時內收到追繳保證金通知並遭到平倉。在2008年，情況更為嚴峻。快速下跌和凍結的信貸市場相結合，意味著追繳保證金在整個系統中連鎖發生，迫使賣出進一步壓低價格。
-</p>
-<p>
-[VISUAL: 2008 cascading margin call diagram: Prices Fall -> Margin Calls -> Forced Selling -> Prices Fall Further -> More Margin Calls]
-</p>
-<hr>
-<p>
-[SECTION 3 - PATTERN DAY TRADER AND PORTFOLIO MARGIN - 7:00]
-</p>
-<p>
-[VISUAL: Two-tier regulatory structure showing Reg T for standard margin accounts and Portfolio Margin for advanced accounts]
-</p>
-<p>
-<strong>Horace：</strong> 若你使用保證金進行頻繁交易，還有另一條法規需要了解：當日沖銷交易者規則。若你在五天內進行四次或以上的當日沖銷交易，你將被歸類為當日沖銷交易者，必須在帳戶中維持至少25,000美元。
-</p>
-<p>
-<strong>Stella：</strong> 現在，對於更複雜的投資者，有投資組合保證金。這是一個根本不同的制度。它不是對每個部位套用固定的50%初始保證金和25%至35%維持保證金，而是基於你整個投資組合的實際風險計算你的要求。
-</p>
-<p>
-[ANIMATION: Comparison showing Reg T treating each position independently vs Portfolio Margin evaluating portfolio-level risk with correlations and hedges]
-</p>
-<p>
-<strong>Horace：</strong> 若你持有一支股票和該股票的保護性賣權，T號法規對兩個部位分別計算保證金——彷彿賣權在保證金目的上不存在一樣。投資組合保證金認可賣權限制了你的下行風險，因此要求較低的保證金。
-</p>
-<p>
-<strong>Stella：</strong> 這意味著投資組合保證金對已避險的投資組合可以提供顯著更高的槓桿——有時達到5:1甚至6:1，相較於T號法規的2:1。但這額外的槓桿是一把雙刃劍。
-</p>
-<p>
-<strong>Horace：</strong> 投資組合保證金要求是動態重新計算的。市場波動性的驟升可能在一夜之間大幅提高你的要求，即使你的部位沒有發生變化。在平靜的週二對4:1槓桿感到自在的投資者，可能在波動的週三早晨面臨追繳保證金。
-</p>
-<hr>
-<p>
-[SECTION 4 - LEVERAGED ETFs - 9:30]
-</p>
-<p>
-[VISUAL: Comparison chart showing actual 2x ETF performance vs theoretical 2x returns over a year]
-</p>
-<p>
-<strong>Stella：</strong> 還有一種不需要保證金帳戶就能獲得槓桿的方式：槓桿型指數股票型基金。這些基金使用衍生性金融商品提供指數每日報酬的倍數。2倍S&P 500指數股票型基金的目標是，在S&P上漲1%時上漲2%，在下跌1%時下跌2%。
-</p>
-<p>
-<strong>Horace：</strong> 聽起來很直觀，對吧？但有一個隱藏的問題叫做波動衰減。由於槓桿型指數股票型基金每日重設，複利數學在震盪市場中對你不利。
-</p>
-<p>
-[ANIMATION: Simple example -- Index goes up 10%, then down 10%. Starting at $100: After up 10%, index is at $110. After down 10%, index is at $99. 2x ETF: After up 20%, at $120. After down 20%, at $96. The index lost $1, but the 2x ETF lost $4.]
-</p>
-<p>
-<strong>Stella：</strong> 在短期內，這種效應很小。但數月或數年後，它可能相當毀滅性。持有一整年的2倍槓桿S&P 500指數股票型基金，在市場波動的情況下，其報酬可能顯著低於S&P 500報酬的兩倍——甚至在指數為正時虧損。
-</p>
-<p>
-<strong>Horace：</strong> 這就是為什麼槓桿型指數股票型基金帶有警告，說明它們是為短線交易設計的，而非長期投資。若你想要長期的槓桿敞口，保證金帳戶（配合謹慎的風險管理）實際上比槓桿型指數股票型基金更可預測。
-</p>
-<hr>
-<p>
-[SECTION 5 - USING LEVERAGE RESPONSIBLY - 11:30]
-</p>
-<p>
-[VISUAL: "The Responsible Leverage Framework" with bullet points]
-</p>
-<p>
-<strong>Stella：</strong> 在這些警告之後，是否有充分理由使用保證金？有，但情況有限。
-</p>
-<p>
-<strong>Horace：</strong> 首先，暫時性橋接融資。在等待現金交割或轉帳到帳的幾天內使用保證金是低風險且通常合理的。你不是在投機——你是在管理現金流。
-</p>
-<p>
-<strong>Stella：</strong> 其次，節稅借款。若你有大量未實現盈餘，借入保證金而非賣出已增值的股票，可以遞延資本利得稅。保證金利息（可以扣稅）的成本可能低於賣出的稅單。
-</p>
-<p>
-<strong>Horace：</strong> 第三，作為投資組合保證金下已避險選擇權策略的一部分。若你運行一個市場中性的已避險投資組合，投資組合保證金認可你的避險策略並提供適當的槓桿。
-</p>
-<p>
-[VISUAL: Leverage risk spectrum: Safe (no leverage) -> Moderate (1.1-1.3x for specific purposes) -> Risky (1.5-2x speculative) -> Dangerous (2x+ concentrated bets)]
-</p>
-<p>
-<strong>Stella：</strong> 但如果你使用保證金，這是規則。對長期部位永遠不要使用超過1.3:1的槓桿。始終了解你的追繳保證金觸發價格。在你的券商帳戶外保留現金準備，以便在需要時快速存入。永遠不要對投機性的集中賭注使用保證金。
-</p>
-<p>
-<strong>Horace：</strong> 投資的墓地裡滿是那些方向判斷正確但時機判斷錯誤的人，而保證金沒有給他們足夠的空間來熬過這段差距。不要成為其中之一。
-</p>
-<hr>
-<p>
-[SECTION 6 - LESSONS FROM HISTORY - 12:00]
-</p>
-<p>
-[VISUAL: Timeline showing major leverage-driven disasters: LTCM 1998, Lehman 2008, Archegos 2021]
-</p>
-<p>
-<strong>Stella：</strong> 讓我們以幾個說明槓桿為何需要尊重的警示案例作結。
-</p>
-<p>
-<strong>Horace：</strong> 1998年，長期資本管理公司——一個由諾貝爾獎得主管理的避險基金——使用超過25:1的槓桿比率執行收斂交易。當他們的交易在俄羅斯債務危機期間出現問題時，該基金幾乎拖垮了全球金融體系，需要聯準會組織36億美元的救援。
-</p>
-<p>
-<strong>Stella：</strong> 2008年，投資銀行以30:1的槓桿運作。當與住房相關的資產下跌時，薄薄的自有資金緩衝迅速蒸發。貝爾斯登和雷曼兄弟倒閉。整個銀行體系幾乎步其後塵。
-</p>
-<p>
-[VISUAL: Leverage ratios of major institutions before their failures: LTCM 25:1, Bear Stearns 33:1, Lehman Brothers 30:1]
-</p>
-<p>
-<strong>Horace：</strong> 2021年，Archegos資本——一個家族辦公室——使用隱性槓桿形式的總報酬交換，在少數幾支股票中建立了巨大的集中部位。當部位下跌時，強制平倉造成主要券商超過100億美元的損失。
-</p>
-<p>
-<strong>Stella：</strong> 從1929年到2021年，從個人散戶交易者到華爾街最複雜的機構，這些故事共同的主線始終如一：槓桿在發揮作用時表現出色。但一旦失效，破壞力遠超起初看似可控的風險。
-</p>
-<p>
-<strong>Horace：</strong> 你可以在從未使用一分錢保證金的情況下積累巨大財富。歷史上一些最偉大的投資者——Warren Buffett通過Berkshire Hathaway的保險浮存金，而非保證金——在沒有那種能摧毀帳戶的槓桿的情況下，取得了非凡的報酬。耐心和時間是你所能使用的最安全的槓桿形式。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Commodities Investing"]
-</p>
-<p>
-<strong>Stella：</strong> 下一次，我們將探索大宗商品的世界——能源、金屬、農業，以及如何進入這些市場。到時見。
-</p>
-<p>
-[END - 14:30]
 </p>
             </div>
             <div id="content-cn" class="lang-content">
@@ -2395,191 +1869,6 @@ FINRA的频繁日内交易者规则适用于保证金账户。若你在连续五
 <p>
 <strong>问：保证金如何与期权配合使用？</strong>
 答：期权有其自身的保证金要求，与股票保证金不同。卖出裸卖权需要相当于标的股票价值一定比例的保证金（通常为股价的20%减去期权费，设有最低值）。卖出裸看涨期权也有类似要求。风险有限的策略（如垂直价差）的保证金要求等于最大潜在亏损。在卖出非备兑期权之前，理解期权保证金至关重要。
-</p>
-<hr>
-<h2>YouTube脚本</h2>
-<p>
-[INTRO - 0:00]
-</p>
-<p>
-[VISUAL: Split screen -- left side shows gains accelerating upward with leverage, right side shows losses accelerating downward]
-</p>
-<p>
-<strong>Horace（陈马）：</strong> 想象你有5万元可以用来投资。但如果你能投资10万元呢？或者15万元呢？保证金账户让这成为可能——它允许你向券商借钱购买更多证券。
-</p>
-<p>
-<strong>Stella（小鱼）：</strong> 理论上听起来很美好。但杠杆是个人投资者可以使用的最危险的工具。它造成的金融毁灭超过任何其他机制。今天，我们将详细讲解保证金的运作方式、相关监管规定，以及你必须了解的真实风险。
-</p>
-<p>
-[VISUAL: Title card "保证金与杠杆：力量、风险与规则"]
-</p>
-<hr>
-<p>
-[SECTION 1 - HOW MARGIN WORKS - 1:30]
-</p>
-<p>
-[ANIMATION: Diagram showing a cash account ($50K buying $50K in stock) vs a margin account ($50K buying $100K in stock, with $50K borrowed from broker)]
-</p>
-<p>
-<strong>Horace：</strong> 在普通现金账户中，你只能投资你拥有的钱。很简单。在保证金账户中，你可以向券商借钱，以你现有的证券作为抵押物。
-</p>
-<p>
-<strong>Stella：</strong> 美联储的T条例规定，你最多可以借入股票购买价格的50%。所以如果你有5万元自有资金，最多可以买入10万元的股票。你的杠杆是2比1。
-</p>
-<p>
-[VISUAL: Simple math: 5万元权益 + 5万元借款 = 10万元持仓。杠杆比率：2:1]
-</p>
-<p>
-<strong>Horace：</strong> 现在来看这对你的回报意味着什么。如果股票上涨10%，你的10万元持仓价值升至11万元。减去5万元贷款，你的权益为6万元。相对于5万元自有资金，这是20%的回报——是股票涨幅的两倍。
-</p>
-<p>
-<strong>Stella：</strong> 但反过来同样成立。如果股票下跌10%，持仓跌至9万元。权益变为4万元。股票下跌10%，你却亏损了20%的资金。
-</p>
-<p>
-[ANIMATION: Two scenarios branching from initial position -- green branch showing amplified gain, red branch showing amplified loss]
-</p>
-<p>
-<strong>Horace：</strong> 如果股票下跌50%呢？你的10万元持仓价值缩至5万元。你仍欠券商5万元。你的权益为零。你的本金血本无归。若继续下跌，你实际上欠了钱。
-</p>
-<hr>
-<p>
-[SECTION 2 - MARGIN CALLS - 4:00]
-</p>
-<p>
-[VISUAL: Phone screen showing a "MARGIN CALL" notification with a declining stock chart in the background]
-</p>
-<p>
-<strong>Stella：</strong> 投资中最令人恐惧的两个字：追加保证金。当你的权益跌破维持保证金要求——通常是持仓价值的25%至35%——券商会要求你立即追加资金或证券。
-</p>
-<p>
-<strong>Horace：</strong> 让我们用真实数字来说明。你有5万元权益和5万元借款，合计10万元持仓。你的券商维持要求为35%。
-</p>
-<p>
-[ANIMATION: Declining bar chart showing position value falling, equity shrinking, with a red line at 35% maintenance level]
-</p>
-<p>
-<strong>Stella：</strong> 如果股票下跌23%，你的持仓价值为76,920元。权益为26,920元，占持仓价值的35%——恰好在维持线上。再往下跌就会触发追加保证金通知。
-</p>
-<p>
-<strong>Horace：</strong> 而且大多数人不知道的是，你的券商没有义务给你打电话，也没有义务给你时间。他们可以立即卖掉你的持仓——选择哪些持仓由他们决定——以市场价格执行。这在你签署的保证金协议中已有明确规定。
-</p>
-<p>
-<strong>Stella：</strong> 2020年3月崩盘期间，部分投资者收到追加保证金通知后，持仓在数小时内被平仓。2008年更为严重。价格快速下跌与信贷市场冻结相叠加，追加保证金通知在整个市场中连锁引发，强制抛售进一步压低价格。
-</p>
-<p>
-[VISUAL: 2008 cascading margin call diagram: 价格下跌 -> 追加保证金通知 -> 强制抛售 -> 价格进一步下跌 -> 更多追加保证金通知]
-</p>
-<hr>
-<p>
-[SECTION 3 - PATTERN DAY TRADER AND PORTFOLIO MARGIN - 7:00]
-</p>
-<p>
-[VISUAL: Two-tier regulatory structure showing Reg T for standard margin accounts and Portfolio Margin for advanced accounts]
-</p>
-<p>
-<strong>Horace：</strong> 如果你使用保证金进行频繁交易，还有一项规定需要了解：频繁日内交易者规则。如果你在五天内执行四次或更多日内交易，你将被认定为频繁日内交易者，账户中须至少维持25,000美元。
-</p>
-<p>
-<strong>Stella：</strong> 对于更成熟的投资者，还有投资组合保证金。这是一个根本不同的制度。它不是对每个持仓适用统一的50%初始保证金和25%至35%的维持保证金，而是根据整个投资组合的实际风险计算你的保证金要求。
-</p>
-<p>
-[ANIMATION: Comparison showing Reg T treating each position independently vs Portfolio Margin evaluating portfolio-level risk with correlations and hedges]
-</p>
-<p>
-<strong>Horace：</strong> 如果你持有一只股票和该股票的保护性看跌期权，T条例对两个持仓分别计算保证金——仿佛看跌期权在保证金计算上不存在一样。投资组合保证金则认识到看跌期权限制了你的下行风险，因此要求更低的保证金。
-</p>
-<p>
-<strong>Stella：</strong> 这意味着投资组合保证金可以为对冲投资组合提供显著更高的杠杆——有时高达5比1甚至6比1，相比T条例的2比1。但这额外的杠杆是一把双刃剑。
-</p>
-<p>
-<strong>Horace：</strong> 投资组合保证金要求是动态重新计算的。市场波动性骤升可能在一夜之间大幅提高你的要求，即使你的持仓没有变化。周二平静时处于4比1杠杆的投资者，可能在周三早晨波动加剧时收到追加保证金通知。
-</p>
-<hr>
-<p>
-[SECTION 4 - LEVERAGED ETFs - 9:30]
-</p>
-<p>
-[VISUAL: Comparison chart showing actual 2x ETF performance vs theoretical 2x returns over a year]
-</p>
-<p>
-<strong>Stella：</strong> 还有一种无需保证金账户即可获得杠杆的方式：杠杆型交易所交易基金。这些基金使用衍生品实现指数日收益的倍数。一只2倍标普500交易所交易基金旨在：标普上涨1%时上涨2%，下跌1%时下跌2%。
-</p>
-<p>
-<strong>Horace：</strong> 听起来很简单，对吧？但有一个隐藏问题，叫做波动性损耗。由于杠杆型交易所交易基金每日重置，复利计算在震荡市中会对你不利。
-</p>
-<p>
-[ANIMATION: Simple example -- Index goes up 10%, then down 10%. Starting at $100: After up 10%, index is at $110. After down 10%, index is at $99. 2x ETF: After up 20%, at $120. After down 20%, at $96. The index lost $1, but the 2x ETF lost $4.]
-</p>
-<p>
-<strong>Stella：</strong> 在短期内，这种效应很小。但经过数月乃至数年，它可能造成严重损耗。一只持有整整一年的2倍杠杆标普500交易所交易基金，若市场波动较大，其回报可能明显低于标普500回报的两倍——甚至在指数为正时出现亏损。
-</p>
-<p>
-<strong>Horace：</strong> 这就是为什么杠杆型交易所交易基金附有警示，说明其专为短期交易而设计，不适合长期投资。如果你希望获得长期杠杆敞口，保证金账户（配合谨慎的风险管理）实际上比同期持有杠杆型交易所交易基金更为可预测。
-</p>
-<hr>
-<p>
-[SECTION 5 - USING LEVERAGE RESPONSIBLY - 11:30]
-</p>
-<p>
-[VISUAL: "负责任的杠杆使用框架" with bullet points]
-</p>
-<p>
-<strong>Stella：</strong> 在经历了这么多警示之后，使用保证金有没有合理的理由？有，但情形很有限。
-</p>
-<p>
-<strong>Horace：</strong> 第一，过渡性融资。在等待现金交收或转账到账时短暂使用保证金，风险较低，通常是明智之举。你不是在投机——你是在管理现金流。
-</p>
-<p>
-<strong>Stella：</strong> 第二，税务高效的借贷。如果你有大量未实现收益，以保证金借贷代替卖出增值股票可以递延资本利得税。可抵扣的保证金利息可能比卖出产生的税单成本更低。
-</p>
-<p>
-<strong>Horace：</strong> 第三，在投资组合保证金下作为对冲期权策略的一部分。如果你正在运行一个市场中性的对冲投资组合，投资组合保证金认可你的对冲策略，并提供相应的杠杆。
-</p>
-<p>
-[VISUAL: 杠杆风险谱系：安全（无杠杆）-> 适度（1.1-1.3倍，用于特定目的）-> 高风险（1.5-2倍，投机性）-> 危险（2倍以上集中押注）]
-</p>
-<p>
-<strong>Stella：</strong> 但如果你要使用保证金，请遵守以下规则。长期持仓的杠杆绝不超过1.3比1。始终知晓你的追加保证金通知触发价格。在券商账户之外保留现金储备，以便需要时迅速追加。切勿对投机性、集中性押注使用保证金。
-</p>
-<p>
-<strong>Horace：</strong> 投资的坟场里满是这样的人：他们判断了正确的方向，却在时机上判断错误，而保证金没有给他们足够的空间来渡过这段差距。不要成为其中之一。
-</p>
-<hr>
-<p>
-[SECTION 6 - LESSONS FROM HISTORY - 12:00]
-</p>
-<p>
-[VISUAL: Timeline showing major leverage-driven disasters: LTCM 1998, Lehman 2008, Archegos 2021]
-</p>
-<p>
-<strong>Stella：</strong> 让我们以几个警示案例作为结尾，说明为什么杠杆值得敬畏。
-</p>
-<p>
-<strong>Horace：</strong> 1998年，长期资本管理公司——一家由诺贝尔奖得主主持的对冲基金——使用超过25比1的杠杆执行套利交易。当其交易在俄罗斯债务危机中出错时，该基金几乎引发全球金融体系崩溃，最终需要美联储组织的36亿美元救援。
-</p>
-<p>
-<strong>Stella：</strong> 2008年，投资银行以30比1的杠杆运营。当房产相关资产价值下滑时，薄弱的权益缓冲消失殆尽。贝尔斯登和雷曼兄弟相继倒闭，整个银行体系几乎随之崩溃。
-</p>
-<p>
-[VISUAL: 主要机构倒闭前的杠杆比率：LTCM 25:1，贝尔斯登 33:1，雷曼兄弟 30:1]
-</p>
-<p>
-<strong>Horace：</strong> 2021年，Archegos资本——一家家族办公室——通过总收益互换使用隐性杠杆，在少数股票上建立了巨额集中持仓。当持仓下跌时，强制平仓导致多家主要银行蒙受逾百亿美元亏损。
-</p>
-<p>
-<strong>Stella：</strong> 从1929年到2021年，从个人零售投资者到华尔街最精明的机构，所有这些故事的共同主线是一样的：杠杆在有效时运转得无比顺畅，而一旦失效，其破坏力与最初看似可控的风险相比是极不相称的。
-</p>
-<p>
-<strong>Horace：</strong> 不动用一分钱保证金，你同样可以积累巨大财富。历史上一些最伟大的投资者——沃伦·巴菲特通过伯克希尔·哈撒韦的保险浮存金，而非保证金——在不使用那种会摧毁账户的杠杆的情况下，取得了卓越的回报。耐心和时间是你所能获得的最安全的杠杆形式。
-</p>
-<p>
-[VISUAL: End card with channel logo and "Next: Commodities Investing"]
-</p>
-<p>
-<strong>Stella：</strong> 下一次，我们将探索大宗商品的世界——能源、金属、农业，以及如何进入这些市场。下次见。
-</p>
-<p>
-[END - 14:30]
 </p>
             </div>
         </div>

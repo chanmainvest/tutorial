@@ -166,7 +166,6 @@ body {
     cursor: pointer;
     padding: 6px 8px;
     color: var(--nav-text);
-    font-size: 1.1rem;
     line-height: 1;
     transition: all 0.15s;
     display: inline-flex;
@@ -177,21 +176,32 @@ body {
     background: rgba(255,255,255,0.08);
     border-color: rgba(197,164,78,0.4);
 }
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
 .theme-toggle .icon-light { display: none; }
-.theme-toggle .icon-dark { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
-html[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button (always visible) */
+/* Hamburger button — anchored to the absolute top-right corner */
 .hamburger {
     background: none;
     border: 2px solid transparent;
     border-radius: 4px;
     color: var(--nav-text);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 12px;
+    margin-left: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -389,6 +399,25 @@ tr:nth-child(even) td { background: var(--row-stripe); }
 
 .glossary-table th:first-child { width: 28%; }
 
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
 pre {
     background: var(--code-bg);
     padding: 16px 20px;
@@ -513,13 +542,13 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                 <span class="brand-text-long">Chanma Investment</span>
             </a>
             <div class="nav-controls">
-                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇬🇧</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
-                    <span class="icon-dark">&#9789;</span>
-                    <span class="icon-light">&#9728;</span>
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
-                <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -702,7 +731,7 @@ Level 3 introduces two of the most powerful and widely misunderstood areas of fi
 </ul>
 </p>
 <h3>Weekly Lessons</h3>
-<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr><td>25</td><td>Introduction to Options</td></tr><tr><td>26</td><td>Options as Conditional Orders</td></tr><tr><td>27</td><td>Covered Calls for Income</td></tr><tr><td>28</td><td>Cash-Secured Puts for Entry</td></tr><tr><td>29</td><td>Option Greeks - Delta, Theta, Vega</td></tr><tr><td>30</td><td>Credit Spreads and Iron Condors</td></tr><tr><td>31</td><td>Fixed Income Deep Dive - Yield Curves</td></tr><tr><td>32</td><td>Duration and Convexity</td></tr><tr><td>33</td><td>Credit Analysis and Bond Selection</td></tr><tr><td>34</td><td>Interest Rate Sensitivity Across Assets</td></tr><tr><td>35</td><td>Advanced Financial Statement Analysis</td></tr><tr><td>36</td><td>Building an Income-Generating Portfolio</td></tr></tbody></table>
+<table><thead><tr><th>Week</th><th>Topic</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week25.html'"><td><a href="week25.html">25</a></td><td><a href="week25.html">Introduction to Options</a></td></tr><tr class="week-row" onclick="window.location='week26.html'"><td><a href="week26.html">26</a></td><td><a href="week26.html">Options as Conditional Orders</a></td></tr><tr class="week-row" onclick="window.location='week27.html'"><td><a href="week27.html">27</a></td><td><a href="week27.html">Covered Calls for Income</a></td></tr><tr class="week-row" onclick="window.location='week28.html'"><td><a href="week28.html">28</a></td><td><a href="week28.html">Cash-Secured Puts for Entry</a></td></tr><tr class="week-row" onclick="window.location='week29.html'"><td><a href="week29.html">29</a></td><td><a href="week29.html">Option Greeks - Delta, Theta, Vega</a></td></tr><tr class="week-row" onclick="window.location='week30.html'"><td><a href="week30.html">30</a></td><td><a href="week30.html">Credit Spreads and Iron Condors</a></td></tr><tr class="week-row" onclick="window.location='week31.html'"><td><a href="week31.html">31</a></td><td><a href="week31.html">Fixed Income Deep Dive - Yield Curves</a></td></tr><tr class="week-row" onclick="window.location='week32.html'"><td><a href="week32.html">32</a></td><td><a href="week32.html">Duration and Convexity</a></td></tr><tr class="week-row" onclick="window.location='week33.html'"><td><a href="week33.html">33</a></td><td><a href="week33.html">Credit Analysis and Bond Selection</a></td></tr><tr class="week-row" onclick="window.location='week34.html'"><td><a href="week34.html">34</a></td><td><a href="week34.html">Interest Rate Sensitivity Across Assets</a></td></tr><tr class="week-row" onclick="window.location='week35.html'"><td><a href="week35.html">35</a></td><td><a href="week35.html">Advanced Financial Statement Analysis</a></td></tr><tr class="week-row" onclick="window.location='week36.html'"><td><a href="week36.html">36</a></td><td><a href="week36.html">Building an Income-Generating Portfolio</a></td></tr></tbody></table>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第三級：進階（第25至36週）</h1>
@@ -747,67 +776,7 @@ Level 3 introduces two of the most powerful and widely misunderstood areas of fi
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>25</td><td>期權入門</td></tr><tr><td>26</td><td>期權作為條件式委託</td></tr><tr><td>27</td><td>備兌認購期權創收策略</td></tr><tr><td>28</td><td>現金擔保認沽期權建倉策略</td></tr><tr><td>29</td><td>期權希臘值——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用價差策略與鐵鷹式策略</td></tr><tr><td>31</td><td>固定收益深度剖析——收益率曲線</td></tr><tr><td>32</td><td>存續期與凸性</td></tr><tr><td>33</td><td>信用分析與債券篩選</td></tr><tr><td>34</td><td>利率變動對各類資產的敏感度</td></tr><tr><td>35</td><td>進階財務報表分析</td></tr><tr><td>36</td><td>建構創收投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第三級概覽：期權與固定收益精要 | 陳馬投資教學
-</p>
-<p>
-<strong>目標片長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（導師）：資深散戶投資者，憑多年市場經驗深入淺出講解概念</li>
-<li><strong>Stella</strong>（學員）：剛畢業的大學生，正學習投資積蓄，提出觀眾心中的疑問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[片頭]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 歡迎來到第三級。這一關係到很多投資者能否實現重大突破，抑或迷失方向。我們將涵蓋期權與固定收益——這兩個聽起來艱深，但其實是市場上最實用的工具。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 說實話，我對期權有點怯。每次聽到期權，不是有人大賺一筆，就是有人血本無歸。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 那是因為大多數人接觸期權，都是透過投機的故事。我們的切入角度會完全不同。第25週我們從基礎開始，到了第26週，我會徹底改變你對期權的看法——我們會讓你明白，期權其實只是你已熟悉的委託類型的進階版本。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 你是什麼意思？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 現金擔保認沽期權，本質上就是一張限價買入委託，而你還能在等候期間收取報酬。備兌認購期權，就像一張限價賣出委託，同樣讓你在等候期間獲得報酬。一旦你從這個角度理解期權，恐懼自然就消失了。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那之後我們就進入創收策略了？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第27及28週分別講備兌認購期權與現金擔保認沽期權——這兩個是最核心的創收策略。第29週介紹希臘值，讓你精準掌握期權的走勢。第30週則深入信用價差策略與鐵鷹式策略，學習有限風險的創收方法。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 那固定收益那一半呢？
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 第31至36週同樣精彩。你將學會像經濟學家一樣解讀收益率曲線，掌握存續期與凸性來管理利率風險，評估信用質素，到了第36週，你將建立一個完整的創收投資組合，把所有元素融為一體——股息、債券、期權，以及房地產信託基金。
-</p>
-<p>
-<strong>Stella（小魚）：</strong> 聽起來就是一個每個月都真正為你賺錢的投資組合。
-</p>
-<p>
-<strong>Horace（陳馬）：</strong> 這正是我們的目標。我們開始吧。
-</p>
-<p>
-<strong>[完]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week25.html'"><td><a href="week25.html">25</a></td><td><a href="week25.html">期權入門</a></td></tr><tr class="week-row" onclick="window.location='week26.html'"><td><a href="week26.html">26</a></td><td><a href="week26.html">期權作為條件式委託</a></td></tr><tr class="week-row" onclick="window.location='week27.html'"><td><a href="week27.html">27</a></td><td><a href="week27.html">備兌認購期權創收策略</a></td></tr><tr class="week-row" onclick="window.location='week28.html'"><td><a href="week28.html">28</a></td><td><a href="week28.html">現金擔保認沽期權建倉策略</a></td></tr><tr class="week-row" onclick="window.location='week29.html'"><td><a href="week29.html">29</a></td><td><a href="week29.html">期權希臘值——Delta、Theta、Vega</a></td></tr><tr class="week-row" onclick="window.location='week30.html'"><td><a href="week30.html">30</a></td><td><a href="week30.html">信用價差策略與鐵鷹式策略</a></td></tr><tr class="week-row" onclick="window.location='week31.html'"><td><a href="week31.html">31</a></td><td><a href="week31.html">固定收益深度剖析——收益率曲線</a></td></tr><tr class="week-row" onclick="window.location='week32.html'"><td><a href="week32.html">32</a></td><td><a href="week32.html">存續期與凸性</a></td></tr><tr class="week-row" onclick="window.location='week33.html'"><td><a href="week33.html">33</a></td><td><a href="week33.html">信用分析與債券篩選</a></td></tr><tr class="week-row" onclick="window.location='week34.html'"><td><a href="week34.html">34</a></td><td><a href="week34.html">利率變動對各類資產的敏感度</a></td></tr><tr class="week-row" onclick="window.location='week35.html'"><td><a href="week35.html">35</a></td><td><a href="week35.html">進階財務報表分析</a></td></tr><tr class="week-row" onclick="window.location='week36.html'"><td><a href="week36.html">36</a></td><td><a href="week36.html">建構創收投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-tw" class="lang-content">
                 <h1>第三級：進階（第25-36週）</h1>
@@ -852,67 +821,7 @@ Level 3 introduces two of the most powerful and widely misunderstood areas of fi
 </ul>
 </p>
 <h3>每週課程</h3>
-<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr><td>25</td><td>選擇權簡介</td></tr><tr><td>26</td><td>選擇權作為條件式委託</td></tr><tr><td>27</td><td>掩護性買權創造收入</td></tr><tr><td>28</td><td>現金擔保賣權作為進場策略</td></tr><tr><td>29</td><td>選擇權希臘字母——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用價差與鐵禿鷹策略</td></tr><tr><td>31</td><td>固定收益深度探討——殖利率曲線</td></tr><tr><td>32</td><td>存續期間與凸性</td></tr><tr><td>33</td><td>信用分析與債券選擇</td></tr><tr><td>34</td><td>各資產類別的利率敏感度</td></tr><tr><td>35</td><td>進階財務報表分析</td></tr><tr><td>36</td><td>建立創收投資組合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 腳本</h2>
-<hr>
-<p>
-<strong>影片標題：</strong> 第三級概覽：選擇權與固定收益全攻略｜陳馬投資教學
-</p>
-<p>
-<strong>目標片長：</strong> 約5分鐘
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老師）：資深散戶投資人，從多年市場經驗中講解概念</li>
-<li><strong>Stella</strong>（學生）：剛畢業的社會新鮮人，正在學習投資她的積蓄，提出觀眾心中的疑問</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[開場]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
-</p>
-<p>
-<strong>Horace：</strong> 歡迎來到第三級。很多投資人在這裡要麼大幅躍進，要麼迷失方向。我們要介紹選擇權與固定收益——這兩個領域聽起來很嚇人，但其實是最實用的投資工具之一。
-</p>
-<p>
-<strong>Stella：</strong> 老實說，我對選擇權有點怕。每次聽到選擇權，不是有人大賺一筆，就是有人血本無歸。
-</p>
-<p>
-<strong>Horace：</strong> 那是因為大多數人接觸到選擇權，都是透過投機的故事。我們會用完全不同的角度來學習。第25週從基礎開始，到了第26週，我會徹底改變你對選擇權的看法——我們會讓你發現，選擇權其實只是你已經在用的委託方式的進階版本。
-</p>
-<p>
-<strong>Stella：</strong> 什麼意思？
-</p>
-<p>
-<strong>Horace：</strong> 現金擔保賣權本質上就是一個限價買單，而且還能讓你邊等邊收錢。掩護性買權就像限價賣單，同樣讓你邊等邊領錢。一旦你用這個角度來看選擇權，恐懼感自然就消失了。
-</p>
-<p>
-<strong>Stella：</strong> 那接下來就進入創收策略了嗎？
-</p>
-<p>
-<strong>Horace：</strong> 第27和28週會介紹掩護性買權與現金擔保賣權——這是最核心的創收策略。第29週帶你認識希臘字母，讓你精準掌握選擇權的價格走勢。第30週則涵蓋信用價差與鐵禿鷹策略，讓你用有限的風險賺取收入。
-</p>
-<p>
-<strong>Stella：</strong> 那固定收益的部分呢？
-</p>
-<p>
-<strong>Horace：</strong> 第31到36週同樣精彩。你會學會像經濟學家一樣解讀殖利率曲線，掌握存續期間與凸性來管理利率風險，評估信用品質，而且到了第36週，你將建立一個完整的創收投資組合，把所有東西整合在一起——股利、債券、選擇權，還有不動產投資信託。
-</p>
-<p>
-<strong>Stella：</strong> 聽起來就是一個每個月都能幫你賺錢的投資組合。
-</p>
-<p>
-<strong>Horace：</strong> 這正是我們的目標。我們開始吧。
-</p>
-<p>
-<strong>[結尾]</strong>
-</p>
+<table><thead><tr><th>週次</th><th>主題</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week25.html'"><td><a href="week25.html">25</a></td><td><a href="week25.html">選擇權簡介</a></td></tr><tr class="week-row" onclick="window.location='week26.html'"><td><a href="week26.html">26</a></td><td><a href="week26.html">選擇權作為條件式委託</a></td></tr><tr class="week-row" onclick="window.location='week27.html'"><td><a href="week27.html">27</a></td><td><a href="week27.html">掩護性買權創造收入</a></td></tr><tr class="week-row" onclick="window.location='week28.html'"><td><a href="week28.html">28</a></td><td><a href="week28.html">現金擔保賣權作為進場策略</a></td></tr><tr class="week-row" onclick="window.location='week29.html'"><td><a href="week29.html">29</a></td><td><a href="week29.html">選擇權希臘字母——Delta、Theta、Vega</a></td></tr><tr class="week-row" onclick="window.location='week30.html'"><td><a href="week30.html">30</a></td><td><a href="week30.html">信用價差與鐵禿鷹策略</a></td></tr><tr class="week-row" onclick="window.location='week31.html'"><td><a href="week31.html">31</a></td><td><a href="week31.html">固定收益深度探討——殖利率曲線</a></td></tr><tr class="week-row" onclick="window.location='week32.html'"><td><a href="week32.html">32</a></td><td><a href="week32.html">存續期間與凸性</a></td></tr><tr class="week-row" onclick="window.location='week33.html'"><td><a href="week33.html">33</a></td><td><a href="week33.html">信用分析與債券選擇</a></td></tr><tr class="week-row" onclick="window.location='week34.html'"><td><a href="week34.html">34</a></td><td><a href="week34.html">各資產類別的利率敏感度</a></td></tr><tr class="week-row" onclick="window.location='week35.html'"><td><a href="week35.html">35</a></td><td><a href="week35.html">進階財務報表分析</a></td></tr><tr class="week-row" onclick="window.location='week36.html'"><td><a href="week36.html">36</a></td><td><a href="week36.html">建立創收投資組合</a></td></tr></tbody></table>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第三级：进阶（第25-36周）</h1>
@@ -957,67 +866,7 @@ Level 3 introduces two of the most powerful and widely misunderstood areas of fi
 </ul>
 </p>
 <h3>每周课程</h3>
-<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr><td>25</td><td>期权入门</td></tr><tr><td>26</td><td>期权作为条件委托单</td></tr><tr><td>27</td><td>备兑看涨期权产生收益</td></tr><tr><td>28</td><td>现金担保看跌期权建仓</td></tr><tr><td>29</td><td>期权希腊字母——Delta、Theta、Vega</td></tr><tr><td>30</td><td>信用价差和铁鹰策略</td></tr><tr><td>31</td><td>固定收益深度解析——收益率曲线</td></tr><tr><td>32</td><td>久期与凸性</td></tr><tr><td>33</td><td>信用分析与债券筛选</td></tr><tr><td>34</td><td>利率对各类资产的敏感性</td></tr><tr><td>35</td><td>高级财务报表分析</td></tr><tr><td>36</td><td>构建收益型投资组合</td></tr></tbody></table>
-<hr>
-<h2>第二部分：YouTube 脚本</h2>
-<hr>
-<p>
-<strong>视频标题：</strong> 第三级概述：期权与固定收益精通 | 陈马投资教程
-</p>
-<p>
-<strong>时长目标：</strong> 约5分钟
-</p>
-<p>
-<strong>主持人：</strong>
-</p>
-<ul><li><strong>Horace</strong>（老师）：经验丰富的散户交易者，从多年市场经验中讲解概念</li>
-<li><strong>Stella</strong>（学生）：刚毕业的大学生，正在学习如何投资储蓄，提出观众心中的疑问</li>
-<p>
-</ul>
-</p>
-<hr>
-<p>
-<strong>[开场]</strong>
-</p>
-<p>
-[VISUAL: Title card "Level 3: Advanced - Weeks 25-36"]
-</p>
-<p>
-<strong>Horace：</strong> 欢迎来到第三级。在这里，许多投资者要么实现重大飞跃，要么就此迷失。我们将覆盖期权和固定收益——这两个听起来令人生畏，但实际上是最实用工具之一的领域。
-</p>
-<p>
-<strong>Stella：</strong> 说实话，期权让我有点紧张。每次听到它，不是有人大赚一笔，就是有人血本无归。
-</p>
-<p>
-<strong>Horace：</strong> 这是因为大多数人都是通过投机故事接触期权的。我们会用完全不同的方式来学习。第25周从基础开始，到第26周，我会彻底改变您对期权的认知——我们会让您看到，期权其实只是您已经在用的委托单的增强版。
-</p>
-<p>
-<strong>Stella：</strong> 您是什么意思？
-</p>
-<p>
-<strong>Horace：</strong> 现金担保看跌期权本质上就是一种限价买单，区别在于您在等待的过程中还能收到报酬。备兑看涨期权就像限价卖单，同样可以在等待中获得收益。一旦您从这个角度来理解期权，恐惧自然就消失了。
-</p>
-<p>
-<strong>Stella：</strong> 然后我们进入收益策略？
-</p>
-<p>
-<strong>Horace：</strong> 第27周和第28周涵盖备兑看涨期权和现金担保看跌期权——这是最核心的收益策略。第29周介绍希腊字母，它们会精确告诉您期权价格如何变动。第30周涵盖信用价差和铁鹰策略，用于有限风险的收益操作。
-</p>
-<p>
-<strong>Stella：</strong> 那固定收益部分呢？
-</p>
-<p>
-<strong>Horace：</strong> 第31周到第36周同样精彩。您将学会像经济学家一样解读收益率曲线，掌握用于管理利率风险的久期和凸性，学会评估信用质量。到第36周，您将构建一个完整的收益型投资组合，把所有内容融为一体——股息、债券、期权和房地产投资信托。
-</p>
-<p>
-<strong>Stella：</strong> 听起来这个投资组合每个月都能给您带来收益。
-</p>
-<p>
-<strong>Horace：</strong> 这正是我们的目标。让我们开始吧。
-</p>
-<p>
-<strong>[结束]</strong>
-</p>
+<table><thead><tr><th>周次</th><th>主题</th></tr></thead><tbody><tr class="week-row" onclick="window.location='week25.html'"><td><a href="week25.html">25</a></td><td><a href="week25.html">期权入门</a></td></tr><tr class="week-row" onclick="window.location='week26.html'"><td><a href="week26.html">26</a></td><td><a href="week26.html">期权作为条件委托单</a></td></tr><tr class="week-row" onclick="window.location='week27.html'"><td><a href="week27.html">27</a></td><td><a href="week27.html">备兑看涨期权产生收益</a></td></tr><tr class="week-row" onclick="window.location='week28.html'"><td><a href="week28.html">28</a></td><td><a href="week28.html">现金担保看跌期权建仓</a></td></tr><tr class="week-row" onclick="window.location='week29.html'"><td><a href="week29.html">29</a></td><td><a href="week29.html">期权希腊字母——Delta、Theta、Vega</a></td></tr><tr class="week-row" onclick="window.location='week30.html'"><td><a href="week30.html">30</a></td><td><a href="week30.html">信用价差和铁鹰策略</a></td></tr><tr class="week-row" onclick="window.location='week31.html'"><td><a href="week31.html">31</a></td><td><a href="week31.html">固定收益深度解析——收益率曲线</a></td></tr><tr class="week-row" onclick="window.location='week32.html'"><td><a href="week32.html">32</a></td><td><a href="week32.html">久期与凸性</a></td></tr><tr class="week-row" onclick="window.location='week33.html'"><td><a href="week33.html">33</a></td><td><a href="week33.html">信用分析与债券筛选</a></td></tr><tr class="week-row" onclick="window.location='week34.html'"><td><a href="week34.html">34</a></td><td><a href="week34.html">利率对各类资产的敏感性</a></td></tr><tr class="week-row" onclick="window.location='week35.html'"><td><a href="week35.html">35</a></td><td><a href="week35.html">高级财务报表分析</a></td></tr><tr class="week-row" onclick="window.location='week36.html'"><td><a href="week36.html">36</a></td><td><a href="week36.html">构建收益型投资组合</a></td></tr></tbody></table>
             </div>
         </div>
     </main>
