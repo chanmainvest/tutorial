@@ -37,6 +37,101 @@ LEVELS = [
     {"name": "Level 5: Expert", "subtitle": "Portfolio Integration", "range": (47, 52), "overview": "level5_overview"},
 ]
 
+LOCALES = ("en", "hk", "tw", "cn")
+
+# UI strings translated per locale. Used for the hamburger menu, breadcrumb,
+# brand text, footer, prev/next buttons, and "translation pending" placeholder.
+LOCALE_LABELS = {
+    "en": {
+        "brand":            "Chanma Investment",
+        "menu_title":       "Course Navigation",
+        "home":             "Home",
+        "side_lessons":     "Side Lessons",
+        "glossary":         "Glossary",
+        "disclaimer":       "Disclaimer",
+        "faq":              "FAQ",
+        "course_root":      "Chanma Investment Tutorial",
+        "previous":         "Previous",
+        "next":             "Next",
+        "overview_suffix":  " Overview",
+        "translation_pending": "Translation coming soon...",
+        "level_names": [
+            "Level 1: Foundation",
+            "Level 2: Intermediate",
+            "Level 3: Advanced",
+            "Level 4: Sophisticated",
+            "Level 5: Expert",
+        ],
+        "footer_tagline": "Released under the MIT License. Educational content only \u2014 not financial advice.",
+    },
+    "hk": {
+        "brand":            "陳馬投資",
+        "menu_title":       "課程導覽",
+        "home":             "首頁",
+        "side_lessons":     "補充課程",
+        "glossary":         "詞彙表",
+        "disclaimer":       "免責聲明",
+        "faq":              "常見問題",
+        "course_root":      "陳馬投資教學",
+        "previous":         "上一頁",
+        "next":             "下一頁",
+        "overview_suffix":  "總覽",
+        "translation_pending": "翻譯稍後推出……",
+        "level_names": [
+            "第一級：入門",
+            "第二級：中階",
+            "第三級：進階",
+            "第四級：精通",
+            "第五級：專家",
+        ],
+        "footer_tagline": "以 MIT 授權釋出。內容僅作教學用途，並非投資建議。",
+    },
+    "tw": {
+        "brand":            "陳馬投資",
+        "menu_title":       "課程導覽",
+        "home":             "首頁",
+        "side_lessons":     "補充單元",
+        "glossary":         "詞彙表",
+        "disclaimer":       "免責聲明",
+        "faq":              "常見問題",
+        "course_root":      "陳馬投資教學",
+        "previous":         "上一頁",
+        "next":             "下一頁",
+        "overview_suffix":  "總覽",
+        "translation_pending": "翻譯即將推出……",
+        "level_names": [
+            "第一級：入門",
+            "第二級：中階",
+            "第三級：進階",
+            "第四級：專業",
+            "第五級：專家",
+        ],
+        "footer_tagline": "以 MIT 授權釋出。內容僅供教學使用，非投資建議。",
+    },
+    "cn": {
+        "brand":            "陈马投资",
+        "menu_title":       "课程导览",
+        "home":             "首页",
+        "side_lessons":     "补充课程",
+        "glossary":         "词汇表",
+        "disclaimer":       "免责声明",
+        "faq":              "常见问题",
+        "course_root":      "陈马投资教程",
+        "previous":         "上一页",
+        "next":             "下一页",
+        "overview_suffix":  "总览",
+        "translation_pending": "翻译即将推出……",
+        "level_names": [
+            "第一级：入门",
+            "第二级：中阶",
+            "第三级：进阶",
+            "第四级：专业",
+            "第五级:  专家",
+        ],
+        "footer_tagline": "以 MIT 协议发布。内容仅供教学，并非投资建议。",
+    },
+}
+
 
 # ---------------------------------------------------------------------------
 # Simple markdown to HTML converter
@@ -272,9 +367,45 @@ def build_page_list(course_files):
 # ---------------------------------------------------------------------------
 # Multilevel hamburger menu HTML
 # ---------------------------------------------------------------------------
-def build_nav_menu(pages):
+def get_translated_nav_title(page, locale, lang_dirs):
+    """Return the page's translated nav title (or English fallback).
+
+    Handles three cases:
+      - level_overview: synthesised from LOCALE_LABELS[locale]["level_names"]
+      - info pages with no source file (e.g. glossary): use info_label
+      - lesson markdown files: read the translated H1 from the locale's file
+    """
+    L = LOCALE_LABELS[locale]
+    if page.get("type") == "level_overview" and page.get("level"):
+        return L["level_names"][page["level"] - 1] + L["overview_suffix"]
+    if page.get("file") is None:
+        info_label = {
+            "glossary":   L["glossary"],
+            "disclaimer": L["disclaimer"],
+            "faq":        L["faq"],
+        }
+        return info_label.get(page.get("slug"), page.get("nav_title", ""))
+    if locale == "en":
+        return page.get("nav_title", "")
+    lang_dir = lang_dirs.get(locale)
+    if not lang_dir:
+        return page.get("nav_title", "")
+    path = os.path.join(lang_dir, page["file"])
+    if not os.path.exists(path):
+        # Disclaimer/faq might also be info-typed but live under course/.
+        info_label = {
+            "disclaimer": L["disclaimer"],
+            "faq":        L["faq"],
+        }
+        return info_label.get(page.get("slug"), page.get("nav_title", ""))
+    md = open(path, encoding="utf-8").read()
+    return extract_title(strip_youtube_section(md))
+
+
+def build_nav_menu(pages, locale, lang_dirs):
     """Multilevel accordion menu opened by the hamburger button."""
-    parts = ['<a href="index.html" class="menu-link menu-top">Home</a>']
+    L = LOCALE_LABELS[locale]
+    parts = [f'<a href="index.html" class="menu-link menu-top">{L["home"]}</a>']
 
     for level_idx, level in enumerate(LEVELS):
         level_num = level_idx + 1
@@ -282,16 +413,21 @@ def build_nav_menu(pages):
         if not level_pages:
             continue
 
+        level_label = L["level_names"][level_idx]
         parts.append('<div class="menu-group">')
         parts.append(
             f'<button class="menu-trigger" type="button" aria-expanded="false">'
-            f'<span>{level["name"]}</span>'
+            f'<span>{level_label}</span>'
             f'<span class="caret">&#9656;</span>'
             f'</button>'
         )
         parts.append('<div class="menu-sub">')
         for p in level_pages:
-            parts.append(f'<a href="{p["slug"]}.html" class="menu-sublink">{p["nav_title"]}</a>')
+            if p["type"] == "level_overview":
+                title = level_label + L["overview_suffix"]
+            else:
+                title = get_translated_nav_title(p, locale, lang_dirs)
+            parts.append(f'<a href="{p["slug"]}.html" class="menu-sublink">{title}</a>')
         parts.append('</div>')
         parts.append('</div>')
 
@@ -299,17 +435,24 @@ def build_nav_menu(pages):
     if side_pages:
         parts.append('<div class="menu-group">')
         parts.append(
-            '<button class="menu-trigger" type="button" aria-expanded="false">'
-            '<span>Side Lessons</span><span class="caret">&#9656;</span></button>'
+            f'<button class="menu-trigger" type="button" aria-expanded="false">'
+            f'<span>{L["side_lessons"]}</span><span class="caret">&#9656;</span></button>'
         )
         parts.append('<div class="menu-sub">')
         for p in side_pages:
-            parts.append(f'<a href="{p["slug"]}.html" class="menu-sublink">{p["nav_title"]}</a>')
+            title = get_translated_nav_title(p, locale, lang_dirs)
+            parts.append(f'<a href="{p["slug"]}.html" class="menu-sublink">{title}</a>')
         parts.append('</div></div>')
 
-    info_pages = [p for p in pages if p["type"] == "info"]
-    for p in info_pages:
-        parts.append(f'<a href="{p["slug"]}.html" class="menu-link">{p["nav_title"]}</a>')
+    # Info / generated pages: use locale-translated label by slug.
+    info_label = {
+        "glossary":   L["glossary"],
+        "disclaimer": L["disclaimer"],
+        "faq":        L["faq"],
+    }
+    for p in [p for p in pages if p["type"] == "info"]:
+        label = info_label.get(p["slug"], p["nav_title"])
+        parts.append(f'<a href="{p["slug"]}.html" class="menu-link">{label}</a>')
 
     return "\n".join(parts)
 
@@ -317,23 +460,34 @@ def build_nav_menu(pages):
 # ---------------------------------------------------------------------------
 # Breadcrumb
 # ---------------------------------------------------------------------------
-def build_breadcrumb(page, pages):
-    crumbs = ['<a href="index.html">Chanma Investment Tutorial</a>']
+def build_breadcrumb(page, locale, lang_dirs):
+    L = LOCALE_LABELS[locale]
+    root = f'<a href="index.html">{L["course_root"]}</a>'
+    crumbs = [root]
 
     if page["type"] == "level_overview":
         level_num = page["level"]
-        crumbs.append(f'<span>{LEVELS[level_num - 1]["name"]}</span>')
+        crumbs.append(f'<span>{L["level_names"][level_num - 1]}</span>')
     elif page["type"] == "week":
         level_num = page["level"]
-        crumbs.append(f'<a href="level{level_num}.html">{LEVELS[level_num - 1]["name"]}</a>')
-        crumbs.append(f'<span>{page["title"]}</span>')
+        crumbs.append(
+            f'<a href="level{level_num}.html">{L["level_names"][level_num - 1]}</a>'
+        )
+        title = get_translated_nav_title(page, locale, lang_dirs)
+        crumbs.append(f'<span>{title}</span>')
     elif page["type"] == "side":
-        crumbs.append('<span>Side Lessons</span>')
-        crumbs.append(f'<span>{page["title"]}</span>')
+        crumbs.append(f'<span>{L["side_lessons"]}</span>')
+        title = get_translated_nav_title(page, locale, lang_dirs)
+        crumbs.append(f'<span>{title}</span>')
     elif page["type"] == "info":
-        crumbs.append(f'<span>{page["title"]}</span>')
+        info_label = {
+            "glossary":   L["glossary"],
+            "disclaimer": L["disclaimer"],
+            "faq":        L["faq"],
+        }
+        crumbs.append(f'<span>{info_label.get(page["slug"], page["nav_title"])}</span>')
     elif page["slug"] == "index":
-        crumbs = ['<span>Chanma Investment Tutorial</span>']
+        crumbs = [f'<span>{L["course_root"]}</span>']
 
     return ' <span class="bc-sep">&#8250;</span> '.join(crumbs)
 
@@ -594,7 +748,7 @@ body {
 html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
 html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button — anchored to the absolute top-right corner */
+/* Hamburger button — anchored to the top-left, before the brand */
 .hamburger {
     background: none;
     border: 2px solid transparent;
@@ -604,7 +758,7 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
     line-height: 1;
     cursor: pointer;
     padding: 6px 12px;
-    margin-left: 12px;
+    margin-right: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -628,20 +782,29 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 .menu-panel {
     position: fixed;
     top: 0;
-    right: 0;
     width: 340px;
     max-width: 88vw;
     height: 100vh;
     background: var(--menu-bg);
-    border-left: 1px solid var(--menu-border);
     box-shadow: var(--shadow-lg);
-    transform: translateX(100%);
     transition: transform 0.25s ease;
     z-index: 200;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+/* Right-side variant (legacy) */
+.menu-panel:not(.menu-panel-left) {
+    right: 0;
+    border-left: 1px solid var(--menu-border);
+    transform: translateX(100%);
+}
+/* Left-side variant (current default) */
+.menu-panel-left {
+    left: 0;
+    border-right: 1px solid var(--menu-border);
+    transform: translateX(-100%);
 }
 .menu-panel.open { transform: translateX(0); }
 
@@ -739,6 +902,13 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
 .lang-content { display: none; }
 .lang-content.active { display: block; }
+
+/* Language-swappable UI fragments (menu, breadcrumb, brand, footer, prev/next).
+   Block versions hide via display:none; inline versions (spans) use the same
+   default. The `.active-lang` class is toggled by switchLang() in JS. */
+.lang-swap { display: none; }
+.lang-swap.active-lang { display: block; }
+span.lang-swap.active-lang { display: inline; }
 
 h1 {
     font-size: 2rem;
@@ -956,10 +1126,15 @@ function switchLang(lang) {
     document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
     var el = document.getElementById('content-' + lang);
     if (el) el.classList.add('active');
+    // Per-locale UI fragments (menu, breadcrumb, brand, footer, nav buttons)
+    document.querySelectorAll('.lang-swap').forEach(el => {
+        el.classList.toggle('active-lang', el.dataset.langSection === lang);
+    });
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.lang === lang) btn.classList.add('active');
     });
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-' + lang.toUpperCase());
     try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
 }
 
@@ -1031,7 +1206,22 @@ EARLY_THEME_SCRIPT = """(function(){try{var t=localStorage.getItem('preferred-th
 # ---------------------------------------------------------------------------
 # HTML template
 # ---------------------------------------------------------------------------
-def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page, next_page):
+def _wrap_lang_swap(by_locale, default="en", inline=False):
+    """Wrap per-locale strings in <span data-lang-section> elements; only the
+    one matching the active language is shown via JS. `inline=True` uses
+    <span> with display:inline; otherwise uses <div>."""
+    tag = "span" if inline else "div"
+    parts = []
+    for loc in LOCALES:
+        active = " active-lang" if loc == default else ""
+        parts.append(
+            f'<{tag} class="lang-swap{active}" data-lang-section="{loc}">'
+            f'{by_locale[loc]}</{tag}>'
+        )
+    return "".join(parts)
+
+
+def page_template(title, content, lang_contents, menus, breadcrumbs, prev_page, next_page, prev_titles, next_titles):
     # Country flags: emoji + ISO letters fallback. Twemoji JS replaces emoji
     # with SVG images at runtime; if that fails we still see the letters.
     lang_buttons = [
@@ -1052,36 +1242,66 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
             f'</button>'
         )
 
-    prev_html = ""
-    next_html = ""
-    if prev_page:
-        prev_html = (
-            f'<a href="{prev_page["slug"]}.html" class="nav-btn prev">'
-            f'<span style="font-size:1.2rem">&#8592;</span>'
-            f'<span class="nav-btn-text">'
-            f'<span class="btn-label">Previous</span>'
-            f'<span>{prev_page["nav_title"]}</span>'
-            f'</span></a>'
-        )
-    else:
-        prev_html = '<span class="nav-placeholder"></span>'
+    # Per-locale prev/next buttons (label + page title both translated)
+    def render_nav_buttons(loc):
+        L = LOCALE_LABELS[loc]
+        if prev_page:
+            prev_t = prev_titles.get(loc, prev_page["nav_title"])
+            prev_h = (
+                f'<a href="{prev_page["slug"]}.html" class="nav-btn prev">'
+                f'<span style="font-size:1.2rem">&#8592;</span>'
+                f'<span class="nav-btn-text">'
+                f'<span class="btn-label">{L["previous"]}</span>'
+                f'<span>{prev_t}</span></span></a>'
+            )
+        else:
+            prev_h = '<span class="nav-placeholder"></span>'
+        if next_page:
+            next_t = next_titles.get(loc, next_page["nav_title"])
+            next_h = (
+                f'<a href="{next_page["slug"]}.html" class="nav-btn next">'
+                f'<span class="nav-btn-text">'
+                f'<span class="btn-label">{L["next"]}</span>'
+                f'<span>{next_t}</span></span>'
+                f'<span style="font-size:1.2rem">&#8594;</span></a>'
+            )
+        else:
+            next_h = '<span class="nav-placeholder"></span>'
+        return f'<div class="nav-buttons">{prev_h}{next_h}</div>'
 
-    if next_page:
-        next_html = (
-            f'<a href="{next_page["slug"]}.html" class="nav-btn next">'
-            f'<span class="nav-btn-text">'
-            f'<span class="btn-label">Next</span>'
-            f'<span>{next_page["nav_title"]}</span>'
-            f'</span>'
-            f'<span style="font-size:1.2rem">&#8594;</span>'
-            f'</a>'
-        )
-    else:
-        next_html = '<span class="nav-placeholder"></span>'
+    nav_buttons_html = _wrap_lang_swap({l: render_nav_buttons(l) for l in LOCALES})
+    menu_body_html = _wrap_lang_swap({l: menus[l] for l in LOCALES})
+    breadcrumb_html = _wrap_lang_swap({l: breadcrumbs[l] for l in LOCALES}, inline=True)
 
-    hk_content = lang_contents.get("hk", "<p><em>Translation coming soon...</em></p>")
-    tw_content = lang_contents.get("tw", "<p><em>Translation coming soon...</em></p>")
-    cn_content = lang_contents.get("cn", "<p><em>Translation coming soon...</em></p>")
+    brand_html = _wrap_lang_swap(
+        {l: LOCALE_LABELS[l]["brand"] for l in LOCALES}, inline=True
+    )
+    menu_title_html = _wrap_lang_swap(
+        {l: LOCALE_LABELS[l]["menu_title"] for l in LOCALES}, inline=True
+    )
+    footer_tagline_html = _wrap_lang_swap(
+        {l: LOCALE_LABELS[l]["footer_tagline"] for l in LOCALES}, inline=True
+    )
+    footer_links_html = _wrap_lang_swap(
+        {
+            l: (
+                f'{LOCALE_LABELS[l]["course_root"]} &copy; 2025 &middot; '
+                f'<a href="glossary.html">{LOCALE_LABELS[l]["glossary"]}</a> &middot; '
+                f'<a href="disclaimer.html">{LOCALE_LABELS[l]["disclaimer"]}</a> &middot; '
+                f'<a href="faq.html">{LOCALE_LABELS[l]["faq"]}</a> &middot; '
+                f'<a href="https://www.patreon.com/c/hevangel">Patreon</a>'
+            )
+            for l in LOCALES
+        },
+        inline=True,
+    )
+
+    pending_hk = f'<p><em>{LOCALE_LABELS["hk"]["translation_pending"]}</em></p>'
+    pending_tw = f'<p><em>{LOCALE_LABELS["tw"]["translation_pending"]}</em></p>'
+    pending_cn = f'<p><em>{LOCALE_LABELS["cn"]["translation_pending"]}</em></p>'
+    hk_content = lang_contents.get("hk", pending_hk)
+    tw_content = lang_contents.get("tw", pending_tw)
+    cn_content = lang_contents.get("cn", pending_cn)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1096,9 +1316,10 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
 <body>
     <nav class="top-nav">
         <div class="nav-inner">
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             <a href="index.html" class="nav-brand">
                 <span class="brand-icon">&#9670;</span>
-                <span class="brand-text-long">Chanma Investment</span>
+                <span class="brand-text-long">{brand_html}</span>
             </a>
             <div class="nav-controls">
                 <div class="lang-selector">{lang_selector}</div>
@@ -1107,23 +1328,22 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
                     <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
             </div>
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
     <div class="menu-overlay" aria-hidden="true"></div>
-    <aside id="site-menu" class="menu-panel" aria-label="Site navigation">
+    <aside id="site-menu" class="menu-panel menu-panel-left" aria-label="Site navigation">
         <div class="menu-header">
-            <span class="menu-title">Course Navigation</span>
+            <span class="menu-title">{menu_title_html}</span>
             <button class="menu-close" onclick="toggleMenu(false)" aria-label="Close menu">&#10005;</button>
         </div>
         <div class="menu-body">
-            {nav_menu}
+            {menu_body_html}
         </div>
     </aside>
 
     <div class="breadcrumb-bar">
-        <div class="breadcrumb-inner">{breadcrumb}</div>
+        <div class="breadcrumb-inner">{breadcrumb_html}</div>
     </div>
 
     <main class="main-wrap">
@@ -1144,15 +1364,12 @@ def page_template(title, content, lang_contents, nav_menu, breadcrumb, prev_page
     </main>
 
     <footer class="page-footer">
-        <div class="nav-buttons">
-            {prev_html}
-            {next_html}
-        </div>
+        {nav_buttons_html}
     </footer>
 
     <footer class="site-footer">
-        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="glossary.html">Glossary</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
-        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+        <p>{footer_links_html}</p>
+        <p style="margin-top:4px;opacity:0.7;">{footer_tagline_html}</p>
     </footer>
 
     <script>{SITE_JS}</script>
@@ -1185,7 +1402,8 @@ def build():
     print(f"Found {len(course_files)} markdown files in course/")
 
     pages = build_page_list(course_files)
-    nav_menu = build_nav_menu(pages)
+    lang_dirs = {"en": course_dir, "hk": hk_dir, "tw": tw_dir, "cn": cn_dir}
+    menus = {loc: build_nav_menu(pages, loc, lang_dirs) for loc in LOCALES}
 
     glossary_en, glossary_lang = build_glossary_html()
 
@@ -1225,13 +1443,18 @@ def build():
                 html_content = linkify_level_weeks(html_content, level_num)
                 lang_contents = {k: linkify_level_weeks(v, level_num) for k, v in lang_contents.items()}
 
-        breadcrumb = build_breadcrumb(page, pages)
+        breadcrumbs = {loc: build_breadcrumb(page, loc, lang_dirs) for loc in LOCALES}
         prev_page = pages[i - 1] if i > 0 else None
         next_page = pages[i + 1] if i < len(pages) - 1 else None
 
+        prev_titles = {loc: get_translated_nav_title(prev_page, loc, lang_dirs)
+                       for loc in LOCALES} if prev_page else {}
+        next_titles = {loc: get_translated_nav_title(next_page, loc, lang_dirs)
+                       for loc in LOCALES} if next_page else {}
+
         html = page_template(
-            title, html_content, lang_contents, nav_menu, breadcrumb,
-            prev_page, next_page,
+            title, html_content, lang_contents, menus, breadcrumbs,
+            prev_page, next_page, prev_titles, next_titles,
         )
 
         out_name = f"{page['slug']}.html"

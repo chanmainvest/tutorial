@@ -191,7 +191,7 @@ body {
 html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
 html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
-/* Hamburger button — anchored to the absolute top-right corner */
+/* Hamburger button — anchored to the top-left, before the brand */
 .hamburger {
     background: none;
     border: 2px solid transparent;
@@ -201,7 +201,7 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
     line-height: 1;
     cursor: pointer;
     padding: 6px 12px;
-    margin-left: 12px;
+    margin-right: 12px;
     transition: all 0.15s;
 }
 .hamburger:hover {
@@ -225,20 +225,29 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 .menu-panel {
     position: fixed;
     top: 0;
-    right: 0;
     width: 340px;
     max-width: 88vw;
     height: 100vh;
     background: var(--menu-bg);
-    border-left: 1px solid var(--menu-border);
     box-shadow: var(--shadow-lg);
-    transform: translateX(100%);
     transition: transform 0.25s ease;
     z-index: 200;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+/* Right-side variant (legacy) */
+.menu-panel:not(.menu-panel-left) {
+    right: 0;
+    border-left: 1px solid var(--menu-border);
+    transform: translateX(100%);
+}
+/* Left-side variant (current default) */
+.menu-panel-left {
+    left: 0;
+    border-right: 1px solid var(--menu-border);
+    transform: translateX(-100%);
 }
 .menu-panel.open { transform: translateX(0); }
 
@@ -336,6 +345,13 @@ html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 
 .lang-content { display: none; }
 .lang-content.active { display: block; }
+
+/* Language-swappable UI fragments (menu, breadcrumb, brand, footer, prev/next).
+   Block versions hide via display:none; inline versions (spans) use the same
+   default. The `.active-lang` class is toggled by switchLang() in JS. */
+.lang-swap { display: none; }
+.lang-swap.active-lang { display: block; }
+span.lang-swap.active-lang { display: inline; }
 
 h1 {
     font-size: 2rem;
@@ -537,9 +553,10 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <body>
     <nav class="top-nav">
         <div class="nav-inner">
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
             <a href="index.html" class="nav-brand">
                 <span class="brand-icon">&#9670;</span>
-                <span class="brand-text-long">Chanma Investment</span>
+                <span class="brand-text-long"><span class="lang-swap active-lang" data-lang-section="en">Chanma Investment</span><span class="lang-swap" data-lang-section="hk">陳馬投資</span><span class="lang-swap" data-lang-section="tw">陳馬投資</span><span class="lang-swap" data-lang-section="cn">陈马投资</span></span>
             </a>
             <div class="nav-controls">
                 <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
@@ -548,18 +565,17 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
                     <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
                 </button>
             </div>
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
         </div>
     </nav>
 
     <div class="menu-overlay" aria-hidden="true"></div>
-    <aside id="site-menu" class="menu-panel" aria-label="Site navigation">
+    <aside id="site-menu" class="menu-panel menu-panel-left" aria-label="Site navigation">
         <div class="menu-header">
-            <span class="menu-title">Course Navigation</span>
+            <span class="menu-title"><span class="lang-swap active-lang" data-lang-section="en">Course Navigation</span><span class="lang-swap" data-lang-section="hk">課程導覽</span><span class="lang-swap" data-lang-section="tw">課程導覽</span><span class="lang-swap" data-lang-section="cn">课程导览</span></span>
             <button class="menu-close" onclick="toggleMenu(false)" aria-label="Close menu">&#10005;</button>
         </div>
         <div class="menu-body">
-            <a href="index.html" class="menu-link menu-top">Home</a>
+            <div class="lang-swap active-lang" data-lang-section="en"><a href="index.html" class="menu-link menu-top">Home</a>
 <div class="menu-group">
 <button class="menu-trigger" type="button" aria-expanded="false"><span>Level 1: Foundation</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
@@ -678,12 +694,369 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 </div></div>
 <a href="glossary.html" class="menu-link">Glossary</a>
 <a href="disclaimer.html" class="menu-link">Disclaimer</a>
-<a href="faq.html" class="menu-link">FAQ</a>
+<a href="faq.html" class="menu-link">FAQ</a></div><div class="lang-swap" data-lang-section="hk"><a href="index.html" class="menu-link menu-top">首頁</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
+<a href="week01.html" class="menu-sublink">第一週：為何要投資？貨幣的時間價值</a>
+<a href="week02.html" class="menu-sublink">第二週：指數基金與交易所買賣基金</a>
+<a href="week03.html" class="menu-sublink">第三週：理解風險與回報</a>
+<a href="week04.html" class="menu-sublink">第四週：六四投資組合</a>
+<a href="week05.html" class="menu-sublink">第五週：債券——你投資組合的緩衝器</a>
+<a href="week06.html" class="menu-sublink">第六週：黃金與商品作為分散投資工具</a>
+<a href="week07.html" class="menu-sublink">第7週：投資組合再平衡</a>
+<a href="week08.html" class="menu-sublink">第八週：解讀財務報表——基礎篇</a>
+<a href="week09.html" class="menu-sublink">第九週：認識市場指數</a>
+<a href="week10.html" class="menu-sublink">第十週：經濟週期與你的投資組合</a>
+<a href="week11.html" class="menu-sublink">第十一週：行為偏誤——你的大腦對抗你的金錢</a>
+<a href="week12.html" class="menu-sublink">第12週：建立你的第一個投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二級：中階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二級：中階總覽</a>
+<a href="week13.html" class="menu-sublink">第十三週：好倉與淡倉交易</a>
+<a href="week14.html" class="menu-sublink">第14週：配對交易基礎</a>
+<a href="week15.html" class="menu-sublink">第十五週：多資產配置</a>
+<a href="week16.html" class="menu-sublink">第16週：商業週期與板塊輪動</a>
+<a href="week17.html" class="menu-sublink">第17週：績效指標——波動性、回撤與風險調整後回報</a>
+<a href="week18.html" class="menu-sublink">第18週：利率與中央銀行政策</a>
+<a href="week19.html" class="menu-sublink">第19週：企業財務 - 資本結構、WACC、股息與公司治理</a>
+<a href="week20.html" class="menu-sublink">第20週：盈利與現金流——質量、操縱及自由現金流</a>
+<a href="week21.html" class="menu-sublink">第21週：股票估值 — 市盈率、市淨率與現金流折現</a>
+<a href="week22.html" class="menu-sublink">第22週：貨幣與國際分散投資</a>
+<a href="week23.html" class="menu-sublink">第23週：因子投資入門</a>
+<a href="week24.html" class="menu-sublink">第24週：構建多策略投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三級：進階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三級：進階總覽</a>
+<a href="week25.html" class="menu-sublink">第25週：期權入門</a>
+<a href="week26.html" class="menu-sublink">第26週：期權作為條件性委託單</a>
+<a href="week27.html" class="menu-sublink">第27週：備兌認購期權創造收入</a>
+<a href="week28.html" class="menu-sublink">第28週：以現金擔保認沽期權建立入市部位</a>
+<a href="week29.html" class="menu-sublink">第29週：期權希臘字母指標——衡量與管理風險</a>
+<a href="week30.html" class="menu-sublink">第30週：價差與鐵鷹式策略——有限風險期權策略</a>
+<a href="week31.html" class="menu-sublink">第31週：收益率曲線——債券市場的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32週：存續期與凸性——衡量債券價格敏感度</a>
+<a href="week33.html" class="menu-sublink">第三十三週：信用分析與債券選取</a>
+<a href="week34.html" class="menu-sublink">第34週：利率對各類資產的敏感度</a>
+<a href="week35.html" class="menu-sublink">第35週：進階財務報表分析</a>
+<a href="week36.html" class="menu-sublink">第36週：建立產生收入的投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四級：精通</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四級：精通總覽</a>
+<a href="week37.html" class="menu-sublink">第37週：期權槓桿策略</a>
+<a href="week38.html" class="menu-sublink">第38週：長期期權與長線期權策略</a>
+<a href="week39.html" class="menu-sublink">第39週：期貨市場入門</a>
+<a href="week40.html" class="menu-sublink">第40週：交易波動率指數與波動性</a>
+<a href="week41.html" class="menu-sublink">第41週：投資組合風險管理</a>
+<a href="week42.html" class="menu-sublink">第42週：風險值與風險模型</a>
+<a href="week43.html" class="menu-sublink">第43週：主動投資組合管理</a>
+<a href="week44.html" class="menu-sublink">第44週：市場微觀結構</a>
+<a href="week45.html" class="menu-sublink">第45週：投資者量化方法</a>
+<a href="week46.html" class="menu-sublink">第46週：回測與策略驗證</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五級：專家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五級：專家總覽</a>
+<a href="week47.html" class="menu-sublink">第47週：尾部風險對沖</a>
+<a href="week48.html" class="menu-sublink">第48週：結構性產品與定義回報</a>
+<a href="week49.html" class="menu-sublink">第49週：波動性套利與期限結構</a>
+<a href="week50.html" class="menu-sublink">第50週：因子傾斜與另類風險溢價</a>
+<a href="week51.html" class="menu-sublink">第51週：管理期貨與趨勢跟蹤</a>
+<a href="week52.html" class="menu-sublink">第52週：投資組合整合——融會貫通</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>補充課程</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">附加課程 01：掌握 TI BA II Plus 財務計算機</a>
+<a href="side02.html" class="menu-sublink">旁聽課02：像專業人士一樣解讀10-K年報</a>
+<a href="side03.html" class="menu-sublink">補充課第三課：交易所買賣基金的運作原理——創建、贖回與無形機制</a>
+<a href="side04.html" class="menu-sublink">補充課程 04：稅務效益投資——留住更多您賺取的回報</a>
+<a href="side05.html" class="menu-sublink">附加課程 05：平均成本法與一次過投資 —— 數據、數學與心理學</a>
+<a href="side06.html" class="menu-sublink">附加課程第06課：通脹──無聲的竊賊及如何保護您的投資組合</a>
+<a href="side07.html" class="menu-sublink">附錄課第七課：房地產信託基金與房地產投資</a>
+<a href="side08.html" class="menu-sublink">補充課第8課：認識互惠基金費用</a>
+<a href="side09.html" class="menu-sublink">附加課程第9課：加密貨幣與數碼資產概覽</a>
+<a href="side10.html" class="menu-sublink">附加課程第10課：股息投資策略</a>
+<a href="side11.html" class="menu-sublink">補充課第十一課：退休賬戶 — 401(k)、IRA、Roth</a>
+<a href="side12.html" class="menu-sublink">旁課第12課：ESG與可持續投資</a>
+<a href="side13.html" class="menu-sublink">Untitled</a>
+<a href="side14.html" class="menu-sublink">副課第14課：私人市場與另類投資</a>
+<a href="side15.html" class="menu-sublink">補充課程第15課：交易心理與情緒紀律</a>
+<a href="side16.html" class="menu-sublink">Untitled</a>
+<a href="side17.html" class="menu-sublink">附加課 第17課：聯邦儲備局與貨幣政策</a>
+<a href="side18.html" class="menu-sublink">附加課堂18：全球市場與國際投資</a>
+<a href="side19.html" class="menu-sublink">補充課第19課：相關性、協方差與投資組合數學</a>
+<a href="side20.html" class="menu-sublink">附加課程第20課：期權希臘值 -- 深度剖析</a>
+<a href="side21.html" class="menu-sublink">附加課程 21：保證金帳戶、�槓桿與風險</a>
+<a href="side22.html" class="menu-sublink">補充課第22課：商品 — 能源、金屬、農業及投資方法</a>
+<a href="side23.html" class="menu-sublink">補充課第二十三課：技術分析——圖表、指標與形態</a>
+<a href="side24.html" class="menu-sublink">附加課程第24課：投資組合監控工具與資源</a>
+<a href="side25.html" class="menu-sublink">補充課第25課：對沖基金揭秘</a>
+<a href="side26.html" class="menu-sublink">補充課第二十六課：市場流動性</a>
+<a href="side27.html" class="menu-sublink">附加課程第27課：建立觀察名單與股票篩選</a>
+<a href="side28.html" class="menu-sublink">副課第28課：投資者的蒙地卡羅模擬</a>
+<a href="side29.html" class="menu-sublink">補充課第29課：國際投資者的貨幣對沖</a>
+<a href="side30.html" class="menu-sublink">附加課程 30：滾輪策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">詞彙表</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a>
+<a href="faq.html" class="menu-link">常見問題</a></div><div class="lang-swap" data-lang-section="tw"><a href="index.html" class="menu-link menu-top">首頁</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
+<a href="week01.html" class="menu-sublink">第一週：為什麼要投資？貨幣時間價值</a>
+<a href="week02.html" class="menu-sublink">第二週：指數基金與指數股票型基金</a>
+<a href="week03.html" class="menu-sublink">第三週：理解風險與報酬</a>
+<a href="week04.html" class="menu-sublink">第四週：60/40 投資組合</a>
+<a href="week05.html" class="menu-sublink">第五週：債券——您投資組合的避震器</a>
+<a href="week06.html" class="menu-sublink">第六週：黃金與大宗商品作為分散投資工具</a>
+<a href="week07.html" class="menu-sublink">第七週：投資組合再平衡</a>
+<a href="week08.html" class="menu-sublink">第八週：閱讀財務報表－基礎篇</a>
+<a href="week09.html" class="menu-sublink">第九週：了解市場指數</a>
+<a href="week10.html" class="menu-sublink">第十週：經濟循環與你的投資組合</a>
+<a href="week11.html" class="menu-sublink">第十一週：行為偏誤——你的大腦對決你的金錢</a>
+<a href="week12.html" class="menu-sublink">第12週：打造你的第一個投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二級：中階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二級：中階總覽</a>
+<a href="week13.html" class="menu-sublink">第十三週：多頭與空頭交易</a>
+<a href="week14.html" class="menu-sublink">第14週：配對交易基礎</a>
+<a href="week15.html" class="menu-sublink">第15週：多資產配置</a>
+<a href="week16.html" class="menu-sublink">第16週：景氣循環與類股輪動</a>
+<a href="week17.html" class="menu-sublink">第17週：績效指標——波動性、回撤與風險調整後報酬</a>
+<a href="week18.html" class="menu-sublink">第18週：利率與央行政策</a>
+<a href="week19.html" class="menu-sublink">第19週：企業財務——資本結構、加權平均資金成本、股利與公司治理</a>
+<a href="week20.html" class="menu-sublink">第20週：盈餘與現金流——品質、操縱手法與自由現金流</a>
+<a href="week21.html" class="menu-sublink">第21週：股票估值 - 本益比、股價淨值比與現金流折現法</a>
+<a href="week22.html" class="menu-sublink">第22週：貨幣與國際分散投資</a>
+<a href="week23.html" class="menu-sublink">第23週：因子投資入門</a>
+<a href="week24.html" class="menu-sublink">第24週：建構多策略投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三級：進階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三級：進階總覽</a>
+<a href="week25.html" class="menu-sublink">第 25 週：選擇權入門</a>
+<a href="week26.html" class="menu-sublink">第二十六週：選擇權作為條件式委託單</a>
+<a href="week27.html" class="menu-sublink">第27週：掩護性買權創造收益</a>
+<a href="week28.html" class="menu-sublink">第28週：現金擔保賣權的進場策略</a>
+<a href="week29.html" class="menu-sublink">第29週：選擇權希臘字母——衡量與管理風險</a>
+<a href="week30.html" class="menu-sublink">第三十週：價差與鐵禿鷹——定義風險的選擇權策略</a>
+<a href="week31.html" class="menu-sublink">第31週：殖利率曲線——債券市場的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32週：存續期間與凸性——衡量債券價格敏感度</a>
+<a href="week33.html" class="menu-sublink">第33週：信用分析與債券選擇</a>
+<a href="week34.html" class="menu-sublink">第34週：各類資產的利率敏感性</a>
+<a href="week35.html" class="menu-sublink">第35週：進階財務報表分析</a>
+<a href="week36.html" class="menu-sublink">第36週：建構收益型投資組合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四級：專業</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四級：專業總覽</a>
+<a href="week37.html" class="menu-sublink">第37週：選擇權槓桿策略</a>
+<a href="week38.html" class="menu-sublink">第38週：長期期權與長期選擇權策略</a>
+<a href="week39.html" class="menu-sublink">第39週：期貨市場入門</a>
+<a href="week40.html" class="menu-sublink">第 40 週：交易波動率指數與波動性</a>
+<a href="week41.html" class="menu-sublink">第41週：投資組合風險管理</a>
+<a href="week42.html" class="menu-sublink">第42週：風險值與風險模型</a>
+<a href="week43.html" class="menu-sublink">第43週：主動式投資組合管理</a>
+<a href="week44.html" class="menu-sublink">第44週：市場微結構</a>
+<a href="week45.html" class="menu-sublink">第45週：投資人的量化方法</a>
+<a href="week46.html" class="menu-sublink">第46週：回測與策略驗證</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五級：專家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五級：專家總覽</a>
+<a href="week47.html" class="menu-sublink">第47週：尾部風險避險</a>
+<a href="week48.html" class="menu-sublink">第48週：結構型商品與固定成果</a>
+<a href="week49.html" class="menu-sublink">第49週：波動性套利與期限結構</a>
+<a href="week50.html" class="menu-sublink">第50週：因子傾斜與另類風險溢酬</a>
+<a href="week51.html" class="menu-sublink">第51週：管理期貨與趨勢跟隨</a>
+<a href="week52.html" class="menu-sublink">第52週：投資組合整合——全面統整</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>補充單元</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">附加課程第一課：精通TI BA II Plus金融計算機</a>
+<a href="side02.html" class="menu-sublink">補充課程第02課：像專業人士一樣解讀10-K申報</a>
+<a href="side03.html" class="menu-sublink">輔助課第三課：指數股票型基金的實際運作——申購、贖回，以及幕後的無形機制</a>
+<a href="side04.html" class="menu-sublink">附加課程 04：節稅投資——保留更多您賺取的報酬</a>
+<a href="side05.html" class="menu-sublink">Untitled</a>
+<a href="side06.html" class="menu-sublink">補充課程第06課：通膨——無聲的竊賊與如何保護您的投資組合</a>
+<a href="side07.html" class="menu-sublink">附課第七課：不動產投資信託與房地產投資</a>
+<a href="side08.html" class="menu-sublink">副課八：了解共同基金費用</a>
+<a href="side09.html" class="menu-sublink">附加課程第9課：加密貨幣與數位資產概覽</a>
+<a href="side10.html" class="menu-sublink">補充課第10課：股利投資策略</a>
+<a href="side11.html" class="menu-sublink">補充課程第11課：退休帳戶 — 401k、IRA、羅斯帳戶</a>
+<a href="side12.html" class="menu-sublink">附加課程 12：ESG 與永續投資</a>
+<a href="side13.html" class="menu-sublink">補充課程第13課：IPO、SPAC與分拆</a>
+<a href="side14.html" class="menu-sublink">補充課程第14課：私募市場與另類投資</a>
+<a href="side15.html" class="menu-sublink">輔助課程第15課：交易心理與情緒紀律</a>
+<a href="side16.html" class="menu-sublink">補充課程第十六課：市場歷史──崩盤、復甦與規律</a>
+<a href="side17.html" class="menu-sublink">旁支課程第17課：聯準會與貨幣政策</a>
+<a href="side18.html" class="menu-sublink">副課 18：全球市場與國際投資</a>
+<a href="side19.html" class="menu-sublink">補充課 19：相關性、共變異數與投資組合數學</a>
+<a href="side20.html" class="menu-sublink">補充課第20課：選擇權希臘字母——深度解析</a>
+<a href="side21.html" class="menu-sublink">附課21：保證金帳戶、槓桿與風險</a>
+<a href="side22.html" class="menu-sublink">Untitled</a>
+<a href="side23.html" class="menu-sublink">附加課程第二十三課：技術分析——圖表、指標與型態</a>
+<a href="side24.html" class="menu-sublink">補充課 24：投資組合監控工具與資源</a>
+<a href="side25.html" class="menu-sublink">Untitled</a>
+<a href="side26.html" class="menu-sublink">補充課第二十六課：市場流動性</a>
+<a href="side27.html" class="menu-sublink">補充課第27課：觀察名單建立與選股篩選</a>
+<a href="side28.html" class="menu-sublink">Untitled</a>
+<a href="side29.html" class="menu-sublink">補充課程 29：國際投資者的貨幣避險</a>
+<a href="side30.html" class="menu-sublink">補充課程 30：滾輪策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">詞彙表</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a>
+<a href="faq.html" class="menu-link">常見問題</a></div><div class="lang-swap" data-lang-section="cn"><a href="index.html" class="menu-link menu-top">首页</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一级：入门</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一级：入门总览</a>
+<a href="week01.html" class="menu-sublink">第一周：为什么要投资？货币的时间价值</a>
+<a href="week02.html" class="menu-sublink">第二周：指数基金与交易所交易基金</a>
+<a href="week03.html" class="menu-sublink">第三周：理解风险与收益</a>
+<a href="week04.html" class="menu-sublink">第四周：60/40 投资组合</a>
+<a href="week05.html" class="menu-sublink">第五周：债券——你投资组合的减震器</a>
+<a href="week06.html" class="menu-sublink">第六周：黄金与大宗商品作为分散投资工具</a>
+<a href="week07.html" class="menu-sublink">第7周：投资组合再平衡</a>
+<a href="week08.html" class="menu-sublink">第8周：读懂财务报表——基础篇</a>
+<a href="week09.html" class="menu-sublink">第九周：理解市场指数</a>
+<a href="week10.html" class="menu-sublink">第十周：经济周期与你的投资组合</a>
+<a href="week11.html" class="menu-sublink">第十一周：行为偏差——你的大脑与你的财富</a>
+<a href="week12.html" class="menu-sublink">第12周：构建你的第一个投资组合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二级：中阶</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二级：中阶总览</a>
+<a href="week13.html" class="menu-sublink">第13周：多头与空头交易</a>
+<a href="week14.html" class="menu-sublink">第十四周：配对交易基础</a>
+<a href="week15.html" class="menu-sublink">第十五周：多资产配置</a>
+<a href="week16.html" class="menu-sublink">第16周：经济周期与板块轮动</a>
+<a href="week17.html" class="menu-sublink">第十七周：绩效指标——波动性、回撤与风险调整后收益</a>
+<a href="week18.html" class="menu-sublink">第18周：利率与央行政策</a>
+<a href="week19.html" class="menu-sublink">第十九周：公司财务——资本结构、加权平均资本成本、股息与公司治理</a>
+<a href="week20.html" class="menu-sublink">第20周：盈利与现金流——质量、操纵与自由现金流</a>
+<a href="week21.html" class="menu-sublink">第21周：股票估值 - 市盈率、市净率与DCF</a>
+<a href="week22.html" class="menu-sublink">第22周：货币与国际分散投资</a>
+<a href="week23.html" class="menu-sublink">第23周：因子投资入门</a>
+<a href="week24.html" class="menu-sublink">第24周：构建多策略投资组合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三级：进阶</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三级：进阶总览</a>
+<a href="week25.html" class="menu-sublink">第25周：期权入门</a>
+<a href="week26.html" class="menu-sublink">第26周：期权作为条件订单</a>
+<a href="week27.html" class="menu-sublink">第27周：备兑看涨期权增收策略</a>
+<a href="week28.html" class="menu-sublink">第28周：现金担保看跌期权建仓策略</a>
+<a href="week29.html" class="menu-sublink">第29周：期权希腊字母——风险的衡量与管理</a>
+<a href="week30.html" class="menu-sublink">第30周：价差与铁鹰策略——有限风险期权策略</a>
+<a href="week31.html" class="menu-sublink">第31周：收益率曲线——债券市场的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32周：久期与凸性——衡量债券价格敏感性</a>
+<a href="week33.html" class="menu-sublink">第33周：信用分析与债券选择</a>
+<a href="week34.html" class="menu-sublink">第三十四周：利率对各类资产的敏感性分析</a>
+<a href="week35.html" class="menu-sublink">第35周：高级财务报表分析</a>
+<a href="week36.html" class="menu-sublink">第36周：构建创收型投资组合</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四级：专业</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四级：专业总览</a>
+<a href="week37.html" class="menu-sublink">第37周：期权杠杆策略</a>
+<a href="week38.html" class="menu-sublink">第38周：长期期权（LEAPS）与长线期权策略</a>
+<a href="week39.html" class="menu-sublink">第39周：期货市场入门</a>
+<a href="week40.html" class="menu-sublink">第40周：交易波动率指数与波动性</a>
+<a href="week41.html" class="menu-sublink">第41周：投资组合风险管理</a>
+<a href="week42.html" class="menu-sublink">第42周：风险价值与风险模型</a>
+<a href="week43.html" class="menu-sublink">第43周：主动投资组合管理</a>
+<a href="week44.html" class="menu-sublink">第44周：市场微观结构</a>
+<a href="week45.html" class="menu-sublink">第45周：投资者的量化方法</a>
+<a href="week46.html" class="menu-sublink">第46周：回测与策略验证</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五级:  专家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五级:  专家总览</a>
+<a href="week47.html" class="menu-sublink">第47周：尾部风险对冲</a>
+<a href="week48.html" class="menu-sublink">第48周：结构化产品与预定结果</a>
+<a href="week49.html" class="menu-sublink">第四十九周：波动性套利与期限结构</a>
+<a href="week50.html" class="menu-sublink">第50周：因子倾斜与另类风险溢价</a>
+<a href="week51.html" class="menu-sublink">第51周：管理期货与趋势跟踪</a>
+<a href="week52.html" class="menu-sublink">第52周：投资组合整合——融会贯通</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>补充课程</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">补充课程第01课：掌握TI BA II Plus金融计算器</a>
+<a href="side02.html" class="menu-sublink">副课02：像专业人士一样阅读10-K年报</a>
+<a href="side03.html" class="menu-sublink">附课 03：ETF的运作机制——创设、赎回与不可见的市场机制</a>
+<a href="side04.html" class="menu-sublink">补充课程第04课：税务效率投资——留住更多收益</a>
+<a href="side05.html" class="menu-sublink">补充课 05：定投与一次性投资——数学、数据与心理学</a>
+<a href="side06.html" class="menu-sublink">补充课第06课：通胀——无声的窃贼及如何保护你的投资组合</a>
+<a href="side07.html" class="menu-sublink">副课7：房地产投资信托（REITs）与房地产投资</a>
+<a href="side08.html" class="menu-sublink">副课八：读懂共同基金费用</a>
+<a href="side09.html" class="menu-sublink">副课9：加密货币与数字资产概述</a>
+<a href="side10.html" class="menu-sublink">副课10：股息投资策略</a>
+<a href="side11.html" class="menu-sublink">补充课程第11课：退休账户——401k、IRA、Roth账户</a>
+<a href="side12.html" class="menu-sublink">副课12：ESG与可持续投资</a>
+<a href="side13.html" class="menu-sublink">副课13：IPO、SPAC与分拆上市</a>
+<a href="side14.html" class="menu-sublink">附加课程14：私募市场与另类投资</a>
+<a href="side15.html" class="menu-sublink">补充课程第15课：交易心理与情绪纪律</a>
+<a href="side16.html" class="menu-sublink">Untitled</a>
+<a href="side17.html" class="menu-sublink">补充课第17课：美联储与货币政策</a>
+<a href="side18.html" class="menu-sublink">Untitled</a>
+<a href="side19.html" class="menu-sublink">Untitled</a>
+<a href="side20.html" class="menu-sublink">补充课第二十节：期权希腊值——深度解析</a>
+<a href="side21.html" class="menu-sublink">附加课程第21课：保证金账户、杠杆与风险</a>
+<a href="side22.html" class="menu-sublink">副课22：大宗商品——能源、金属、农业及投资方法</a>
+<a href="side23.html" class="menu-sublink">附加课程第23课：技术分析——图表、指标与形态</a>
+<a href="side24.html" class="menu-sublink">补充课程第24课：投资组合监控工具与资源</a>
+<a href="side25.html" class="menu-sublink">补充课第二十五课：揭开对冲基金的神秘面纱</a>
+<a href="side26.html" class="menu-sublink">补充课第26课：市场流动性</a>
+<a href="side27.html" class="menu-sublink">Untitled</a>
+<a href="side28.html" class="menu-sublink">Untitled</a>
+<a href="side29.html" class="menu-sublink">补充课程第29课：国际投资者的货币对冲</a>
+<a href="side30.html" class="menu-sublink">补充课程 30：滚轮策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">词汇表</a>
+<a href="disclaimer.html" class="menu-link">免责声明</a>
+<a href="faq.html" class="menu-link">常见问题</a></div>
         </div>
     </aside>
 
     <div class="breadcrumb-bar">
-        <div class="breadcrumb-inner"><span>Chanma Investment Tutorial</span></div>
+        <div class="breadcrumb-inner"><span class="lang-swap active-lang" data-lang-section="en"><span>Chanma Investment Tutorial</span></span><span class="lang-swap" data-lang-section="hk"><span>陳馬投資教學</span></span><span class="lang-swap" data-lang-section="tw"><span>陳馬投資教學</span></span><span class="lang-swap" data-lang-section="cn"><span>陈马投资教程</span></span></div>
     </div>
 
     <main class="main-wrap">
@@ -1072,15 +1445,12 @@ All course materials are available in four languages:
     </main>
 
     <footer class="page-footer">
-        <div class="nav-buttons">
-            <span class="nav-placeholder"></span>
-            <a href="level1.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">Next</span><span>Level 1: Foundation Overview</span></span><span style="font-size:1.2rem">&#8594;</span></a>
-        </div>
+        <div class="lang-swap active-lang" data-lang-section="en"><div class="nav-buttons"><span class="nav-placeholder"></span><a href="level1.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">Next</span><span>Level 1: Foundation Overview</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="hk"><div class="nav-buttons"><span class="nav-placeholder"></span><a href="level1.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一頁</span><span>第一級：入門總覽</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="tw"><div class="nav-buttons"><span class="nav-placeholder"></span><a href="level1.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一頁</span><span>第一級：入門總覽</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="cn"><div class="nav-buttons"><span class="nav-placeholder"></span><a href="level1.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一页</span><span>第一级：入门总览</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div>
     </footer>
 
     <footer class="site-footer">
-        <p>Chanma Investment Tutorial &copy; 2025 &middot; <a href="glossary.html">Glossary</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></p>
-        <p style="margin-top:4px;opacity:0.7;">Released under the MIT License. Educational content only &mdash; not financial advice.</p>
+        <p><span class="lang-swap active-lang" data-lang-section="en">Chanma Investment Tutorial &copy; 2025 &middot; <a href="glossary.html">Glossary</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="hk">陳馬投資教學 &copy; 2025 &middot; <a href="glossary.html">詞彙表</a> &middot; <a href="disclaimer.html">免責聲明</a> &middot; <a href="faq.html">常見問題</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="tw">陳馬投資教學 &copy; 2025 &middot; <a href="glossary.html">詞彙表</a> &middot; <a href="disclaimer.html">免責聲明</a> &middot; <a href="faq.html">常見問題</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="cn">陈马投资教程 &copy; 2025 &middot; <a href="glossary.html">词汇表</a> &middot; <a href="disclaimer.html">免责声明</a> &middot; <a href="faq.html">常见问题</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span></p>
+        <p style="margin-top:4px;opacity:0.7;"><span class="lang-swap active-lang" data-lang-section="en">Released under the MIT License. Educational content only — not financial advice.</span><span class="lang-swap" data-lang-section="hk">以 MIT 授權釋出。內容僅作教學用途，並非投資建議。</span><span class="lang-swap" data-lang-section="tw">以 MIT 授權釋出。內容僅供教學使用，非投資建議。</span><span class="lang-swap" data-lang-section="cn">以 MIT 协议发布。内容仅供教学，并非投资建议。</span></p>
     </footer>
 
     <script>
@@ -1099,10 +1469,15 @@ function switchLang(lang) {
     document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
     var el = document.getElementById('content-' + lang);
     if (el) el.classList.add('active');
+    // Per-locale UI fragments (menu, breadcrumb, brand, footer, nav buttons)
+    document.querySelectorAll('.lang-swap').forEach(el => {
+        el.classList.toggle('active-lang', el.dataset.langSection === lang);
+    });
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.lang === lang) btn.classList.add('active');
     });
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-' + lang.toUpperCase());
     try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
 }
 
