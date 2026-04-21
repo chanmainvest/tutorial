@@ -147,7 +147,7 @@ Commit the log file in the **same commit** as the code/content changes it produc
 - Prev/next buttons in page footer
 - FAQ, Disclaimer, and Glossary linked in site footer
 - Professional trust-building theme (serif body font, dark navy navigation, gold accents)
-- **On-device AI tutor** (floating bottom-right button on every page) — runs a small Gemma model (~600 MB on first load, then cached in IndexedDB) directly in the browser via WebGPU + transformers.js. Reads the lesson currently shown (in whichever language is active) and answers questions about it. No data leaves the user's browser. Source assets live in `web_assets/chatbot.js` and `web_assets/chatbot.css`; `scripts/build.py` copies them to `docs/assets/` on every build. Browsers without WebGPU (older Safari, in-app browsers) see a graceful "not supported" message instead of a broken UI.
+- **On-device AI tutor** (floating bottom-right button on every page) — runs Gemma 4 E2B (~3.1 GB q4f16 on first load, then cached in IndexedDB) directly in the browser via WebGPU + transformers.js v4 (`Gemma4ForConditionalGeneration` + `AutoProcessor` + `TextStreamer`). Reads the lesson currently shown (in whichever language is active) and answers questions about it. No data leaves the user's browser. Source assets live in `web_assets/chatbot.js` and `web_assets/chatbot.css`; `scripts/build.py` copies them to `docs/assets/` on every build. Browsers without WebGPU (older Safari, in-app browsers) see a graceful "not supported" message instead of a broken UI.
 
 ## Language & Terminology Notes
 

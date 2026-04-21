@@ -13,22 +13,21 @@
  */
 
 const MODEL_OPTIONS = {
-    "gemma-1b": {
-        id: "onnx-community/gemma-3-1b-it-ONNX",
-        size_mb: 600,
-        label: "Gemma 3 1B (≈ 600 MB)",
+    "gemma-4-e2b": {
+        id: "onnx-community/gemma-4-E2B-it-ONNX",
+        size_mb: 3100,
+        label: "Gemma 4 E2B (≈ 3.1 GB)",
     },
-    // Swap-in candidates — uncomment as the matching ONNX builds land:
-    // "gemma-2b": { id: "onnx-community/gemma-3-2b-it-ONNX", size_mb: 1400, label: "Gemma 3 2B (≈ 1.4 GB)" },
-    // "gemma4-mini": { id: "onnx-community/gemma-4-mini-it-ONNX", size_mb: 700, label: "Gemma 4 mini (≈ 700 MB)" },
+    // Fallback — Gemma 3 1B (smaller download, simpler text-only):
+    // "gemma-3-1b": { id: "onnx-community/gemma-3-1b-it-ONNX", size_mb: 600, label: "Gemma 3 1B (≈ 600 MB)" },
 };
 
-const ACTIVE_MODEL = "gemma-1b";
+const ACTIVE_MODEL = "gemma-4-e2b";
 const MAX_CONTEXT_CHARS = 12000;
 const MAX_HISTORY_TURNS = 6;
 const MAX_NEW_TOKENS = 512;
 
-const CDN_URL = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/+esm";
+const CDN_URL = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4/+esm";
 
 const I18N = {
     en: {
@@ -37,11 +36,11 @@ const I18N = {
         intro_h: "Lesson assistant",
         intro_p: "Ask any question about this lesson. The assistant runs a small Gemma model entirely inside your browser using WebGPU. Your questions never leave your device.",
         notes: [
-            "First load downloads the model (≈ 600 MB) and caches it. Subsequent visits are instant.",
-            "Best on a recent desktop browser. Mobile may run out of memory.",
+            "First load downloads the model (≈ 3.1 GB) and caches it. Subsequent visits are instant.",
+            "Best on a recent desktop browser. Mobile and low-RAM machines may run out of memory.",
             "The assistant reads the lesson currently shown — switch language to ask in 中文.",
         ],
-        load_btn: "Load assistant (≈ 600 MB)",
+        load_btn: "Load assistant (≈ 3.1 GB)",
         loading: "Loading model…",
         no_webgpu: "Your browser does not support WebGPU. Try the latest Chrome, Edge, Firefox, or Safari on a desktop.",
         unsupported_title: "On-device AI not available",
@@ -66,11 +65,11 @@ const I18N = {
         intro_h: "課程助手",
         intro_p: "你可以就本堂課問任何問題。助手使用 WebGPU 在你的瀏覽器內運行小型 Gemma 模型,所有對話不會離開你的裝置。",
         notes: [
-            "首次載入會下載模型(約 600 MB)並儲存於瀏覽器。下次再用即時開啟。",
-            "桌面瀏覽器體驗最佳;手機可能因記憶體不足而失敗。",
+            "首次載入會下載模型(約 3.1 GB)並儲存於瀏覽器。下次再用即時開啟。",
+            "桌面瀏覽器體驗最佳;手機或記憶體較少的電腦可能會失敗。",
             "助手只會讀取你目前看到的課程內容 — 切換語言即可用中文發問。",
         ],
-        load_btn: "載入助手(約 600 MB)",
+        load_btn: "載入助手(約 3.1 GB)",
         loading: "正在載入模型……",
         no_webgpu: "你的瀏覽器不支援 WebGPU。請使用最新版桌面 Chrome、Edge、Firefox 或 Safari。",
         unsupported_title: "本機 AI 暫時不能使用",
@@ -95,11 +94,11 @@ const I18N = {
         intro_h: "課程助理",
         intro_p: "您可以針對本單元提出任何問題。助理使用 WebGPU 於您的瀏覽器內執行小型 Gemma 模型,對話不會離開您的裝置。",
         notes: [
-            "首次載入會下載模型(約 600 MB)並儲存於瀏覽器,之後開啟即可立即使用。",
-            "建議使用桌面瀏覽器;行動裝置可能因記憶體不足而失敗。",
+            "首次載入會下載模型(約 3.1 GB)並儲存於瀏覽器,之後開啟即可立即使用。",
+            "建議使用桌面瀏覽器;行動裝置或記憶體較少的電腦可能會失敗。",
             "助理只會讀取您目前顯示的課程 — 切換語言即可用中文提問。",
         ],
-        load_btn: "載入助理(約 600 MB)",
+        load_btn: "載入助理(約 3.1 GB)",
         loading: "正在載入模型……",
         no_webgpu: "您的瀏覽器不支援 WebGPU。請使用最新版桌面 Chrome、Edge、Firefox 或 Safari。",
         unsupported_title: "本機 AI 目前無法使用",
@@ -124,11 +123,11 @@ const I18N = {
         intro_h: "课程助手",
         intro_p: "您可以就本课提出任何问题。助手通过 WebGPU 在您的浏览器中运行小型 Gemma 模型,所有对话不会离开您的设备。",
         notes: [
-            "首次加载会下载模型(约 600 MB)并缓存,后续打开即开即用。",
-            "建议使用桌面浏览器;手机可能因内存不足而失败。",
+            "首次加载会下载模型(约 3.1 GB)并缓存,后续打开即开即用。",
+            "建议使用桌面浏览器;手机或内存较少的电脑可能会失败。",
             "助手只读取您目前显示的课程 — 切换语言即可用中文提问。",
         ],
-        load_btn: "加载助手(约 600 MB)",
+        load_btn: "加载助手(约 3.1 GB)",
         loading: "正在加载模型……",
         no_webgpu: "您的浏览器不支持 WebGPU。请使用最新版桌面 Chrome、Edge、Firefox 或 Safari。",
         unsupported_title: "本地 AI 暂不可用",
@@ -561,17 +560,22 @@ async function loadGenerator(intro) {
     if (generator) return generator;
     if (!pipelinePromise) {
         pipelinePromise = (async () => {
-            const { pipeline } = await import(/* @vite-ignore */ CDN_URL);
+            const tx = await import(/* @vite-ignore */ CDN_URL);
+            const { AutoProcessor, Gemma4ForConditionalGeneration, TextStreamer } = tx;
             const modelInfo = MODEL_OPTIONS[ACTIVE_MODEL];
             const progressEl = ensureProgressUI(intro);
+            resetProgressState();
             const onProgress = (data) => updateProgress(progressEl, data);
-            const gen = await pipeline("text-generation", modelInfo.id, {
-                device: "webgpu",
-                dtype: "q4",
+            const processor = await AutoProcessor.from_pretrained(modelInfo.id, {
                 progress_callback: onProgress,
             });
-            generator = gen;
-            return gen;
+            const model = await Gemma4ForConditionalGeneration.from_pretrained(modelInfo.id, {
+                dtype: "q4f16",
+                device: "webgpu",
+                progress_callback: onProgress,
+            });
+            generator = { processor, model, TextStreamer };
+            return generator;
         })();
     }
     return pipelinePromise;
@@ -589,18 +593,60 @@ function ensureProgressUI(intro) {
     return p;
 }
 
+// Aggregate per-file download bytes across the whole model load so the bar
+// climbs monotonically instead of resetting each time a new file starts.
+const progressFiles = new Map();   // file name → { loaded, total }
+let progressMaxPct = 0;            // monotonic clamp on displayed value
+
 function updateProgress(p, data) {
     if (!data) return;
-    let pct = null;
-    if (typeof data.progress === "number") pct = Math.max(0, Math.min(100, data.progress));
-    else if (data.loaded != null && data.total != null && data.total > 0) {
-        pct = (data.loaded / data.total) * 100;
+    const key = data.file || data.name;
+    if (key) {
+        const entry = progressFiles.get(key) || { loaded: 0, total: 0 };
+        if (data.status === "done") {
+            // Finalize this file: clamp to its known total (or to loaded if unknown).
+            entry.loaded = entry.total || data.total || data.loaded || entry.loaded;
+        } else if (data.loaded != null && data.total != null && data.total > 0) {
+            entry.loaded = data.loaded;
+            entry.total = data.total;
+        } else if (typeof data.progress === "number" && data.total > 0) {
+            entry.loaded = (data.progress / 100) * data.total;
+            entry.total = data.total;
+        }
+        progressFiles.set(key, entry);
     }
-    if (pct == null) return;
+
+    let sumLoaded = 0;
+    let sumTotal = 0;
+    for (const e of progressFiles.values()) {
+        sumLoaded += e.loaded || 0;
+        sumTotal += e.total || 0;
+    }
+    // Use the known model size as a floor for the denominator so we don't
+    // overshoot to ~100% when only the first small file (tokenizer.json,
+    // config.json) has been discovered.
+    const modelInfo = MODEL_OPTIONS[ACTIVE_MODEL];
+    const knownTotal = (modelInfo && modelInfo.size_mb ? modelInfo.size_mb * 1024 * 1024 : 0);
+    const denom = Math.max(sumTotal, knownTotal);
+    if (denom <= 0) return;
+
+    let pct = (sumLoaded / denom) * 100;
+    if (!Number.isFinite(pct)) return;
+    pct = Math.max(0, Math.min(100, pct));
+    // Monotonic: never go backwards, even if a newly-seen file grows the
+    // denominator faster than its bytes have arrived.
+    if (pct < progressMaxPct) pct = progressMaxPct;
+    progressMaxPct = pct;
+
     const fill = p.querySelector(".chat-progress-fill");
     const lbl = p.querySelector(".pct");
     if (fill) fill.style.width = pct.toFixed(1) + "%";
     if (lbl) lbl.textContent = pct.toFixed(0) + "%";
+}
+
+function resetProgressState() {
+    progressFiles.clear();
+    progressMaxPct = 0;
 }
 
 async function startLoad(panel, body, loadBtn, intro) {
@@ -678,34 +724,49 @@ async function handleSend(panel, textarea) {
     ];
 
     try {
+        const { processor, model, TextStreamer } = generator;
+        // Send text-only turns as plain strings, not as multimodal content
+        // arrays. The Gemma 4 chat template applies `| trim` to
+        // message.content, which the Jinja engine in transformers.js does
+        // not implement for ArrayValue — wrapping text in an array would
+        // throw "Unknown ArrayValue filter: trim".
+        const prompt = processor.apply_chat_template(messages, {
+            enable_thinking: false,
+            add_generation_prompt: true,
+            tokenize: false,
+        });
+        const inputs = await processor(prompt, null, null, { add_special_tokens: false });
+
         let acc = "";
         let started = false;
-        const out = await generator(messages, {
-            max_new_tokens: MAX_NEW_TOKENS,
-            do_sample: false,
-            return_full_text: false,
-            streamer: {
-                callback_function: (chunk) => {
-                    if (typeof chunk === "string") {
-                        acc += chunk;
-                    } else if (chunk && chunk.token && typeof chunk.token.text === "string") {
-                        acc += chunk.token.text;
-                    } else if (Array.isArray(chunk)) {
-                        for (const c of chunk) if (c && c.text) acc += c.text;
-                    }
-                    if (!started) { botNode.textContent = ""; started = true; }
-                    botNode.textContent = acc;
-                    body.scrollTop = body.scrollHeight;
-                },
+        const streamer = new TextStreamer(processor.tokenizer, {
+            skip_prompt: true,
+            skip_special_tokens: true,
+            callback_function: (text) => {
+                if (typeof text !== "string" || !text) return;
+                acc += text;
+                if (!started) { botNode.textContent = ""; started = true; }
+                botNode.textContent = acc;
+                body.scrollTop = body.scrollHeight;
             },
         });
-        // Fallback if streamer never fired (some library versions)
+
+        const outputs = await model.generate({
+            ...inputs,
+            max_new_tokens: MAX_NEW_TOKENS,
+            do_sample: false,
+            streamer,
+        });
+
+        // Fallback if streamer never fired
         if (!started) {
-            const generated = Array.isArray(out) ? out[0] : out;
-            const final = (generated && (generated.generated_text || generated[0]?.generated_text)) || "";
-            const reply = typeof final === "string" ? final : (Array.isArray(final) ? final[final.length - 1]?.content || "" : "");
-            botNode.textContent = reply || acc || "";
-            acc = botNode.textContent;
+            const inputLen = inputs.input_ids.dims.at(-1);
+            const decoded = processor.batch_decode(
+                outputs.slice(null, [inputLen, null]),
+                { skip_special_tokens: true },
+            );
+            acc = (decoded && decoded[0]) || "";
+            botNode.textContent = acc;
         }
         renderBotMessage(botNode, acc);
         chatHistory.push({ role: "assistant", content: acc });
@@ -717,20 +778,43 @@ async function handleSend(panel, textarea) {
 
 // ----- Wiring -------------------------------------------------------------
 function buildPanel() {
-    const panel = el("aside", { class: "chat-panel", id: "chat-panel", role: "dialog", "aria-label": "AI tutor" });
+    const panel = el("aside", { class: "chat-panel", id: "chat-panel", role: "dialog", "aria-label": t("title") });
     const header = el("div", { class: "chat-header" });
     const titleWrap = el("div", { class: "chat-title" });
-    titleWrap.appendChild(el("span", {}, t("title")));
+    titleWrap.appendChild(el("span", { class: "chat-header-title" }, t("title")));
     titleWrap.appendChild(el("span", { class: "chat-subtitle" }, t("subtitle")));
     header.appendChild(titleWrap);
-    header.appendChild(el("button", { onclick: () => clearConversation(panel), title: t("clear") }, "↻"));
-    header.appendChild(el("button", { onclick: () => togglePanel(false), title: t("close") }, "✕"));
+    header.appendChild(el("button", { class: "chat-header-clear", onclick: () => clearConversation(panel), title: t("clear") }, "↻"));
+    header.appendChild(el("button", { class: "chat-header-close", onclick: () => togglePanel(false), title: t("close") }, "✕"));
     panel.appendChild(header);
     const body = el("div", { class: "chat-body" });
     panel.appendChild(body);
     document.body.appendChild(panel);
     buildIntroPanel(panel, body);
     return panel;
+}
+
+// Re-translate every static label inside the chat panel. Called whenever
+// the user toggles language so the header / tooltips / composer follow.
+function updateChatI18n() {
+    const panel = document.getElementById("chat-panel");
+    if (!panel) return;
+    panel.setAttribute("aria-label", t("title"));
+    const titleEl = panel.querySelector(".chat-header-title");
+    if (titleEl) titleEl.textContent = t("title");
+    const subtitleEl = panel.querySelector(".chat-subtitle");
+    if (subtitleEl) subtitleEl.textContent = t("subtitle");
+    const clearBtn = panel.querySelector(".chat-header-clear");
+    if (clearBtn) clearBtn.title = t("clear");
+    const closeBtn = panel.querySelector(".chat-header-close");
+    if (closeBtn) closeBtn.title = t("close");
+    const composer = panel.querySelector(".chat-composer");
+    if (composer) {
+        const ta = composer.querySelector("textarea");
+        if (ta) ta.placeholder = t("placeholder");
+        const sendBtn = composer.querySelector("button");
+        if (sendBtn) sendBtn.title = t("send");
+    }
 }
 
 function clearConversation(panel) {
@@ -767,13 +851,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Keep i18n in sync if the user switches language while the panel is open.
     const observer = new MutationObserver(() => {
         const fab = document.getElementById("chat-fab");
-        if (fab) fab.title = t("title");
-        const panel = document.getElementById("chat-panel");
-        if (panel && !generator) {
-            const body = panel.querySelector(".chat-body");
-            if (body && body.querySelector(".chat-intro")) buildIntroPanel(panel, body);
+        if (fab) {
+            fab.title = t("title");
+            fab.setAttribute("aria-label", t("title"));
         }
-        if (panel) rerenderChatMermaid(panel);
+        const panel = document.getElementById("chat-panel");
+        if (panel) {
+            updateChatI18n();
+            if (!generator) {
+                const body = panel.querySelector(".chat-body");
+                if (body && body.querySelector(".chat-intro")) buildIntroPanel(panel, body);
+            }
+            rerenderChatMermaid(panel);
+        }
     });
     document.querySelectorAll(".lang-content").forEach((n) => observer.observe(n, { attributes: true, attributeFilter: ["class"] }));
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
