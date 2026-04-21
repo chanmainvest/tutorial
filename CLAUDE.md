@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Investment education platform ("Chanma Investment Tutorial") that transforms CFA-level knowledge into a structured tutorial course with YouTube content. The repository produces:
+Investment education platform ("Chanma Investment Tutorial") that synthesizes multiple professional certification curricula (CFA, with other certifications to follow) and decades of battle-tested retail investing experience into a structured tutorial course with YouTube content. The course explicitly highlights where professional certification teaching falls short for retail investors and where retail investors have advantages professionals don't. The repository produces:
 - A 52-week core course (beginner to advanced) in Markdown, organized into 5 levels
 - 30 side lessons for supplementary topics
 - A course overview page (home page) and a level overview page for each of the 5 levels
-- YouTube scripts with two-host format: **Horace** (陳馬, experienced retail trader/teacher) and **Stella** (小魚, recent college graduate/student)
+- YouTube scripts with two-host format: **Horace** (陳馬, experienced retail investor/teacher) and **Stella** (小魚, recent college graduate/student)
 - Visual explanations rendered three ways depending on output:
   - **Static images embedded in markdown** — every visual concept has a static image so the markdown reads on its own. Procedural charts use Python (matplotlib) to generate the PNG; conceptual illustrations use AI-generated images (e.g., Nano Banana).
   - **Animations / video for YouTube** — the same visuals become animated clips or short video segments referenced in the YouTube script.
@@ -20,7 +20,7 @@ Investment education platform ("Chanma Investment Tutorial") that transforms CFA
 ## Repository Structure
 
 ```
-references/          # Source materials (CFA syllabus, calculator guide, YouTube strategy)
+references/          # Source materials (professional certification syllabi, calculator guide, YouTube strategy, real-world PM examples)
 course/              # English course materials
   overview.md        # Course overview (serves as website home page)
   level1_overview.md # Level 1-5 overview pages
@@ -32,8 +32,10 @@ course/              # English course materials
   image/             # Static PNG images embedded in lessons + the Python
                      # code that generated them (one .py per .png where
                      # the image is procedural)
-  animation/         # Animation clips / interactive web components that
-                     # the website can swap in for static images
+  animation/         # Animation clips / video segments for the YouTube script
+  interactive/       # Live HTML/JS interactive demos that the website
+                     # can swap in for the static image (same
+                     # weekNN_topic.* naming convention as image/ and animation/)
 course_hk/           # Hong Kong Chinese translations
 course_tw/           # Taiwan Chinese translations
 course_cn/           # Mainland China Chinese translations
@@ -45,8 +47,9 @@ scripts/             # Build and translation scripts (all Python, run via uv)
 
 ## Reference Materials
 
-Three key source documents in `references/` drive content creation:
-- **profession_syllabus.md** — CFA Levels I-III curriculum mapped to retail trader competencies, organized by topic area with "common retail gaps" annotations
+Key source documents in `references/` drive content creation:
+- **profession_syllabus.md** — Professional certification curricula (currently CFA Levels I-III; CMT, CFP, FRM, CAIA and other certifications to be added) mapped to retail investor competencies, organized by topic area with "common retail gaps" annotations
+- **90s.pm.investing.md** — Real-world portfolio-manager case material from the 1990s used as illustrative examples
 - **investment_youtube_strategy.md** — 5-tier YouTube content strategy (Newbie -> Professional) with monetization and teaching philosophy
 - **cfa_calculator_guide.md** — TI BA II Plus calculator walkthrough with keystroke examples
 
@@ -54,12 +57,13 @@ Three key source documents in `references/` drive content creation:
 
 Every lesson file (core weeks, side lessons, level overviews, and course overview) is a **single markdown file** containing both parts:
 
-1. **Reading section (Part 1)**: a) Why this is important, b) What you need to know, c) Common misconceptions, d) Common Q&A — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained).
+1. **Reading section (Part 1)**: a) Why this is important, b) What you need to know, c) Common misconceptions, d) Common Q&A — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
 2. **YouTube script section (Part 2)**: Same material adapted for two hosts (Horace = teacher, Stella = student). Includes `[ANIMATION: ...]` cues at the right locations pointing to clips in `course/animation/`, plus visual explanation descriptions.
 
 **Asset layout for a lesson:**
 - Static images and the Python code that generates procedural ones live under `course/image/` (e.g. `image/week01_compound_growth.png` + `image/week01_compound_growth.py`).
-- Animation clips and interactive web components live under `course/animation/` (e.g. `animation/week01_compound_growth.html` or a video file).
+- Animation clips / video segments for the YouTube script live under `course/animation/` (e.g. `animation/week01_compound_growth.mp4`).
+- Interactive HTML/JS demos for the website live under `course/interactive/` (e.g. `interactive/week01_compound_growth.html`). Same `weekNN_topic.*` naming convention as `image/` and `animation/` so the build can match them up.
 - The markdown file references the static image; the website upgrade step looks for a matching interactive component and, if it exists, swaps the static image for the live demo (with a toggle to fall back to the static image).
 
 **IMPORTANT: Both parts live in the same file intentionally.** When updating or editing any lesson content, you MUST also update the corresponding YouTube script in Part 2 of that same file to keep them consistent. The reading section and YouTube script cover the same material — they must stay in sync.
@@ -68,7 +72,7 @@ The website only displays Part 1 (reading section). `scripts/build.py` strips Pa
 
 ## YouTube Host Characters
 
-- **Horace (陳馬)** — Teacher. Middle-aged experienced retail trader. Explains concepts from years of market experience.
+- **Horace (陳馬)** — Teacher. Middle-aged experienced retail investor. Explains concepts from years of market experience.
 - **Stella (小魚)** — Student. Young college-graduated woman learning to invest her savings. Asks the questions viewers are thinking.
 
 When writing English YouTube scripts, always use the English names (Horace / Stella). In Chinese translations (HK/TW/CN), use ONLY the Chinese names (陳馬 / 小魚) — do not retain or parenthesise the English names.
@@ -77,22 +81,23 @@ When writing English YouTube scripts, always use the English names (Horace / Ste
 
 - Teaching model: Macro context -> Strategy concept -> Tactical execution
 - Progressive skill-building with forward/backward references between lessons
-- Core course maps roughly to CFA curriculum but reordered for retail trader relevance
+- Course is grounded in professional certification knowledge (CFA and others) **plus** battle-tested retail investing experience. It explicitly calls out the blind spots where professional curricula fall short for retail investors, and the situations where retail investors have advantages professionals don't (e.g., no benchmark pressure, ability to hold cash, smaller size). Don't use the word "trader" — this course is for retail *investors*.
 - Side lessons cover practical topics (calculator usage, specific instruments, real-world examples) that don't fit the weekly progression
-- Animations should make abstract financial concepts tangible
+- Animations and interactive demos should make abstract financial concepts tangible — animations carry the explanation in the YouTube script; interactive demos let website readers manipulate the same concept directly.
 - Website is audience-facing (no technical/GitHub details) and hosts the **full** course material — every weekly lesson, side lesson, level overview, course overview, FAQ, disclaimer, and the terminology glossary — across all four languages
 
 ## Build & Development
 
 All scripts are Python. **Always run them via `uv`** as the package manager (e.g. `uv run python scripts/build.py`) — `uv` resolves the project's dependencies (declared in `pyproject.toml`) without polluting the system Python. No Node.js dependencies required for the build pipeline.
 
-- **Website**: `uv run python scripts/build.py` — generates static HTML from all markdown files with multilevel hamburger navigation, breadcrumbs, country flag language selector, dark/light theme toggle, and prev/next page buttons. YouTube scripts are stripped from web output. Where a matching interactive component exists in `course/animation/`, the corresponding static image is replaced with the live component (the user can toggle back to the static image).
+- **Website**: `uv run python scripts/build.py` — generates static HTML from all markdown files with multilevel hamburger navigation, breadcrumbs, country flag language selector, dark/light theme toggle, and prev/next page buttons. YouTube scripts are stripped from web output. Where a matching interactive component exists in `course/interactive/`, the corresponding static image is replaced with the live component (the user can toggle back to the static image).
 - **Static images**: Procedural images live under `course/image/` next to the Python script that generated them — run individually (e.g. `uv run python course/image/week01_compound_growth.py`) to regenerate the PNG.
-- **Animations / interactive components**: Files live under `course/animation/` (HTML/JS for interactive demos, video clips for YouTube).
+- **Animations**: Video clips / animated segments for the YouTube script live under `course/animation/`.
+- **Interactive demos**: HTML/JS components for the website live under `course/interactive/`. The build script auto-detects a matching `interactive/weekNN_topic.html` and swaps it in for the static image (with a toggle so the user can fall back to the static image).
 - **Translation status**: `uv run python scripts/translate.py --check` to see what needs translation.
 - **Auto-translate**: `uv run python scripts/translate-batch.py` — driven by `scripts/configs.json`, which selects the LLM provider (Anthropic / OpenAI / Gemini), model, thinking effort, target locales, optional output directory, and an optional file selector. Requires the matching provider API key (`ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GEMINI_API_KEY`). The script prints per-file progress as it runs.
 - **Full pipeline**: `bash scripts/build-all.sh` — checks translations, auto-translates if a provider API key is set, rebuilds website.
-- **Regeneration**: After editing any markdown file, re-run `uv run python scripts/build.py` to rebuild the website.
+- **Regeneration policy**: Do **not** run `scripts/build.py` or any translation script unless the user explicitly asks. The user often makes incremental edits and does not want a full rebuild or full retranslate after each change. Wait for an explicit "rebuild" / "translate" instruction.
 
 ## Session History (before commit)
 
@@ -142,6 +147,7 @@ Commit the log file in the **same commit** as the code/content changes it produc
 - Prev/next buttons in page footer
 - FAQ, Disclaimer, and Glossary linked in site footer
 - Professional trust-building theme (serif body font, dark navy navigation, gold accents)
+- **On-device AI tutor** (floating bottom-right button on every page) — runs a small Gemma model (~600 MB on first load, then cached in IndexedDB) directly in the browser via WebGPU + transformers.js. Reads the lesson currently shown (in whichever language is active) and answers questions about it. No data leaves the user's browser. Source assets live in `web_assets/chatbot.js` and `web_assets/chatbot.css`; `scripts/build.py` copies them to `docs/assets/` on every build. Browsers without WebGPU (older Safari, in-app browsers) see a graceful "not supported" message instead of a broken UI.
 
 ## Language & Terminology Notes
 

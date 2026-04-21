@@ -2,7 +2,9 @@
 
 **[View the Course Website](https://chanmainvest.github.io/tutorial/)**
 
-A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Based on CFA curriculum knowledge, structured for retail investors with a YouTube-ready teaching format.
+A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Grounded in multiple professional certification curricula (CFA, with more to follow) plus decades of battle-tested retail investing experience. Structured for retail investors with a YouTube-ready teaching format, and explicitly calls out where professional curricula fall short and where retail investors have edges professionals don't.
+
+**Start here:** [Course Overview](course/overview.md) — what the course covers, who it is for, and how to work through it.
 
 ## Course Philosophy
 
@@ -17,6 +19,8 @@ A comprehensive 52-week investment education course with supplementary side less
 ## Core Course (52 Weeks, 1 hour per week)
 
 ### Level 1: Foundation (Weeks 1-12) - Beginner
+
+[Level 1 Overview](course/level1_overview.md)
 
 | Week | Title | Summary |
 |------|-------|---------|
@@ -35,6 +39,8 @@ A comprehensive 52-week investment education course with supplementary side less
 
 ### Level 2: Intermediate (Weeks 13-24)
 
+[Level 2 Overview](course/level2_overview.md)
+
 | Week | Title | Summary |
 |------|-------|---------|
 | 13 | [Long and Short Trading](course/week13_long_short.md) | Making money when prices fall - the concept of shorting and its role in hedging |
@@ -51,6 +57,8 @@ A comprehensive 52-week investment education course with supplementary side less
 | 24 | [Building a Multi-Strategy Portfolio](course/week24_multi_strategy.md) | Combining strategies that work in different market environments |
 
 ### Level 3: Advanced (Weeks 25-36)
+
+[Level 3 Overview](course/level3_overview.md)
 
 | Week | Title | Summary |
 |------|-------|---------|
@@ -69,6 +77,8 @@ A comprehensive 52-week investment education course with supplementary side less
 
 ### Level 4: Sophisticated (Weeks 37-46)
 
+[Level 4 Overview](course/level4_overview.md)
+
 | Week | Title | Summary |
 |------|-------|---------|
 | 37 | [Options Leverage Strategies](course/week37_options_leverage.md) | Using options for magnified returns with defined risk |
@@ -83,6 +93,8 @@ A comprehensive 52-week investment education course with supplementary side less
 | 46 | [Backtesting and Strategy Validation](course/week46_backtesting.md) | How to test ideas honestly without fooling yourself |
 
 ### Level 5: Expert (Weeks 47-52)
+
+[Level 5 Overview](course/level5_overview.md)
 
 | Week | Title | Summary |
 |------|-------|---------|
