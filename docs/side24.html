@@ -485,6 +485,53 @@ blockquote {
     font-style: italic;
 }
 
+.mermaid-block {
+    position: relative;
+    margin: 16px 0;
+    padding: 32px 16px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--code-bg);
+}
+.mermaid-block .mermaid-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.mermaid-block .mermaid-toggle:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+.mermaid-block .mermaid {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+.mermaid-block .mermaid svg { max-width: 100%; height: auto; }
+.mermaid-block .mermaid-source {
+    display: none;
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.mermaid-block[data-view="source"] .mermaid { display: none; }
+.mermaid-block[data-view="source"] .mermaid-source { display: block; }
+
 hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
 a { color: var(--accent); }
@@ -569,7 +616,10 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     .menu-panel { width: 86vw; }
 }
 </style>
+    <link rel="stylesheet" href="assets/chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+    <script type="module" src="assets/chatbot.js" defer></script>
 </head>
 <body>
     <nav class="top-nav">
@@ -2366,6 +2416,49 @@ function applyTheme(theme) {
 function toggleTheme() {
     var current = document.documentElement.getAttribute('data-theme') || 'light';
     applyTheme(current === 'dark' ? 'light' : 'dark');
+    rerenderMermaid();
+}
+
+// --- Mermaid rendering ---
+function getMermaidTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+}
+
+function renderMermaidIn(root) {
+    if (typeof mermaid === 'undefined') return;
+    var nodes = (root || document).querySelectorAll('.mermaid:not([data-processed="true"])');
+    if (!nodes.length) return;
+    try { mermaid.run({ nodes: nodes }); } catch (e) { console.warn('mermaid render failed', e); }
+}
+
+function initMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function rerenderMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    // Restore original source from the sibling <pre class="mermaid-source"><code>
+    // (mermaid replaces the .mermaid contents with SVG on first render).
+    document.querySelectorAll('.mermaid-block').forEach(function(block) {
+        var srcEl = block.querySelector('.mermaid-source code');
+        var pre = block.querySelector('.mermaid');
+        if (srcEl && pre) {
+            pre.removeAttribute('data-processed');
+            pre.innerHTML = srcEl.innerHTML;
+        }
+    });
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function toggleMermaid(btn) {
+    var block = btn.closest('.mermaid-block');
+    if (!block) return;
+    var showingDiagram = block.getAttribute('data-view') === 'diagram';
+    block.setAttribute('data-view', showingDiagram ? 'source' : 'diagram');
+    btn.textContent = showingDiagram ? 'Show diagram' : 'Show source';
 }
 
 // --- Language switching ---
@@ -2383,6 +2476,7 @@ function switchLang(lang) {
     });
     document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-' + lang.toUpperCase());
     try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
+    if (el) renderMermaidIn(el);
 }
 
 // --- Hamburger menu ---
@@ -2429,6 +2523,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof twemoji !== 'undefined') {
         twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
     }
+
+    initMermaid();
 });
 
 // Apply saved theme as early as possible (script in <head>)

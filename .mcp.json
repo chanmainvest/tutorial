@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "batch-review": {
+      "command": "uvx",
+      "args": ["--from", "batch-review-mcp", "batch-review", "--mcp", "--root", ".", "--host", "0.0.0.0"]
+    }
+  }
+}

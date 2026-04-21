@@ -142,8 +142,22 @@ def markdown_to_html(md):
     def replace_code_block(m):
         lang = m.group(1)
         code = m.group(2)
-        code = code.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-        return f'<pre><code class="language-{lang}">{code}</code></pre>'
+        escaped = code.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        if lang == "mermaid":
+            # Emit the whole block on one line (newlines as &#10;) so the
+            # paragraph-wrapping pass below doesn't split it. The browser
+            # decodes &#10; back to a real newline before mermaid reads it.
+            one_line = escaped.replace("\n", "&#10;")
+            return (
+                '<div class="mermaid-block" data-view="diagram">'
+                '<button type="button" class="mermaid-toggle" '
+                'onclick="toggleMermaid(this)" aria-label="Toggle diagram source">'
+                'Show source</button>'
+                f'<pre class="mermaid">{one_line}</pre>'
+                f'<pre class="mermaid-source"><code>{one_line}</code></pre>'
+                '</div>'
+            )
+        return f'<pre><code class="language-{lang}">{escaped}</code></pre>'
 
     html = re.sub(r"```(\w*)\n([\s\S]*?)```", replace_code_block, html)
     html = re.sub(r"`([^`]+)`", r"<code>\1</code>", html)
@@ -1042,6 +1056,53 @@ blockquote {
     font-style: italic;
 }
 
+.mermaid-block {
+    position: relative;
+    margin: 16px 0;
+    padding: 32px 16px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--code-bg);
+}
+.mermaid-block .mermaid-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.mermaid-block .mermaid-toggle:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+.mermaid-block .mermaid {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+.mermaid-block .mermaid svg { max-width: 100%; height: auto; }
+.mermaid-block .mermaid-source {
+    display: none;
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.mermaid-block[data-view="source"] .mermaid { display: none; }
+.mermaid-block[data-view="source"] .mermaid-source { display: block; }
+
 hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
 a { color: var(--accent); }
@@ -1140,6 +1201,49 @@ function applyTheme(theme) {
 function toggleTheme() {
     var current = document.documentElement.getAttribute('data-theme') || 'light';
     applyTheme(current === 'dark' ? 'light' : 'dark');
+    rerenderMermaid();
+}
+
+// --- Mermaid rendering ---
+function getMermaidTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+}
+
+function renderMermaidIn(root) {
+    if (typeof mermaid === 'undefined') return;
+    var nodes = (root || document).querySelectorAll('.mermaid:not([data-processed="true"])');
+    if (!nodes.length) return;
+    try { mermaid.run({ nodes: nodes }); } catch (e) { console.warn('mermaid render failed', e); }
+}
+
+function initMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function rerenderMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    // Restore original source from the sibling <pre class="mermaid-source"><code>
+    // (mermaid replaces the .mermaid contents with SVG on first render).
+    document.querySelectorAll('.mermaid-block').forEach(function(block) {
+        var srcEl = block.querySelector('.mermaid-source code');
+        var pre = block.querySelector('.mermaid');
+        if (srcEl && pre) {
+            pre.removeAttribute('data-processed');
+            pre.innerHTML = srcEl.innerHTML;
+        }
+    });
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function toggleMermaid(btn) {
+    var block = btn.closest('.mermaid-block');
+    if (!block) return;
+    var showingDiagram = block.getAttribute('data-view') === 'diagram';
+    block.setAttribute('data-view', showingDiagram ? 'source' : 'diagram');
+    btn.textContent = showingDiagram ? 'Show diagram' : 'Show source';
 }
 
 // --- Language switching ---
@@ -1157,6 +1261,7 @@ function switchLang(lang) {
     });
     document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-' + lang.toUpperCase());
     try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
+    if (el) renderMermaidIn(el);
 }
 
 // --- Hamburger menu ---
@@ -1203,6 +1308,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof twemoji !== 'undefined') {
         twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
     }
+
+    initMermaid();
 });
 
 // Apply saved theme as early as possible (script in <head>)
@@ -1332,7 +1439,10 @@ def page_template(title, content, lang_contents, menus, breadcrumbs, prev_page, 
     <title>{title} - Chanma Investment Tutorial</title>
     <script>{EARLY_THEME_SCRIPT}</script>
     <style>{SITE_CSS}</style>
+    <link rel="stylesheet" href="assets/chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+    <script type="module" src="assets/chatbot.js" defer></script>
 </head>
 <body>
     <nav class="top-nav">
@@ -1401,6 +1511,24 @@ def page_template(title, content, lang_contents, menus, breadcrumbs, prev_page, 
 # ---------------------------------------------------------------------------
 # Main build function
 # ---------------------------------------------------------------------------
+def copy_web_assets(docs_dir):
+    """Copy static assets (chatbot, etc.) from web_assets/ -> docs/assets/.
+
+    Re-run on every build so edits to web_assets/* land in the published
+    site without manual copying.
+    """
+    src = os.path.join(PROJECT_ROOT, "web_assets")
+    if not os.path.isdir(src):
+        return
+    dst = os.path.join(docs_dir, "assets")
+    os.makedirs(dst, exist_ok=True)
+    import shutil
+    for fn in os.listdir(src):
+        sp = os.path.join(src, fn)
+        if os.path.isfile(sp):
+            shutil.copy2(sp, os.path.join(dst, fn))
+
+
 def build():
     course_dir = os.path.join(PROJECT_ROOT, "course")
     hk_dir = os.path.join(PROJECT_ROOT, "course_hk")
@@ -1409,6 +1537,7 @@ def build():
     docs_dir = os.path.join(PROJECT_ROOT, "docs")
 
     os.makedirs(docs_dir, exist_ok=True)
+    copy_web_assets(docs_dir)
 
     try:
         course_files = sorted(f for f in os.listdir(course_dir) if f.endswith(".md"))
