@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Reflection: Now What? - Chanma Investment Tutorial</title>
+    <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <style>
+:root, html[data-theme="light"] {
+    --bg: #faf7f2;
+    --text: #2d3748;
+    --muted: #718096;
+    --heading: #1a202c;
+    --accent: #1e3a5f;
+    --accent-hover: #2c5282;
+    --accent-light: #e8f0fe;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --code-bg: #f3efe7;
+    --nav-bg: #1e3a5f;
+    --nav-text: #ffffff;
+    --nav-hover: #2c5282;
+    --breadcrumb-bg: #f1ece2;
+    --footer-bg: #1e3a5f;
+    --footer-text: #e2e8f0;
+    --gold: #c5a44e;
+    --row-stripe: #f8f4eb;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+    --menu-bg: #ffffff;
+    --menu-border: #e2e8f0;
+    --menu-text: #2d3748;
+    --menu-hover: #f1ece2;
+    --menu-sub-bg: #f8f4eb;
+    --scrollbar-track: #f1ece2;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #a8893f;
+}
+
+html[data-theme="dark"] {
+    --bg: #0f1724;
+    --text: #d6dee8;
+    --muted: #8a98a8;
+    --heading: #f1f5f9;
+    --accent: #c5a44e;
+    --accent-hover: #d8bb6c;
+    --accent-light: rgba(197,164,78,0.12);
+    --border: #1f2a3a;
+    --card-bg: #16202f;
+    --code-bg: #0b121d;
+    --nav-bg: #0a0f1a;
+    --nav-text: #f5e9c8;
+    --nav-hover: rgba(197,164,78,0.18);
+    --breadcrumb-bg: #131b29;
+    --footer-bg: #0a0f1a;
+    --footer-text: #c8cfdb;
+    --gold: #c5a44e;
+    --row-stripe: #131b29;
+    --shadow: 0 1px 3px rgba(0,0,0,0.45);
+    --shadow-lg: 0 6px 20px rgba(0,0,0,0.6);
+    --menu-bg: #131b29;
+    --menu-border: #1f2a3a;
+    --menu-text: #d6dee8;
+    --menu-hover: rgba(197,164,78,0.12);
+    --menu-sub-bg: #0f1724;
+    --scrollbar-track: #0a0f1a;
+    --scrollbar-thumb: #c5a44e;
+    --scrollbar-thumb-hover: #d8bb6c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color-scheme: light dark; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 17px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 56px;
+    gap: 12px;
+}
+
+.nav-brand {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--nav-text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    margin-right: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-brand .brand-icon {
+    color: var(--gold);
+    font-size: 1.4rem;
+}
+
+/* Right-side controls cluster */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Country flag selector — uses Twemoji for cross-platform rendering */
+.lang-selector { display: flex; align-items: center; gap: 4px; }
+
+.lang-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 6px;
+    line-height: 1;
+    transition: all 0.15s;
+    opacity: 0.7;
+    display: inline-flex;
+    align-items: center;
+    color: var(--nav-text);
+}
+.lang-btn img.emoji,
+.lang-btn .flag-text {
+    width: 22px; height: 22px;
+    vertical-align: middle;
+    font-size: 1.05rem;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.lang-btn .flag-text {
+    width: auto; height: auto;
+    padding: 0 4px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+}
+.lang-btn:hover { opacity: 1; }
+.lang-btn.active {
+    border-color: var(--gold);
+    opacity: 1;
+    background: rgba(197,164,78,0.18);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 8px;
+    color: var(--nav-text);
+    line-height: 1;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(197,164,78,0.4);
+}
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
+.theme-toggle .icon-light { display: none; }
+.theme-toggle .icon-dark  { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-light { display: inline-flex; }
+html[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
+
+/* Hamburger button — anchored to the top-left, before the brand */
+.hamburger {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-right: 12px;
+    transition: all 0.15s;
+}
+.hamburger:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(197,164,78,0.4);
+}
+.hamburger.open { background: rgba(197,164,78,0.18); border-color: var(--gold); }
+
+/* --- Slide-out menu panel --- */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 199;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-panel {
+    position: fixed;
+    top: 0;
+    width: 340px;
+    max-width: 88vw;
+    height: 100vh;
+    background: var(--menu-bg);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.25s ease;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    /* Theme-aware scrollbar (Firefox + Chromium) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar { width: 10px; }
+.menu-panel::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 2px solid var(--scrollbar-track);
+}
+.menu-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+/* Right-side variant (legacy) */
+.menu-panel:not(.menu-panel-left) {
+    right: 0;
+    border-left: 1px solid var(--menu-border);
+    transform: translateX(100%);
+}
+/* Left-side variant (current default) */
+.menu-panel-left {
+    left: 0;
+    border-right: 1px solid var(--menu-border);
+    transform: translateX(-100%);
+}
+.menu-panel.open { transform: translateX(0); }
+
+.menu-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--menu-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--menu-sub-bg);
+}
+.menu-title {
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+.menu-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--menu-text);
+    font-size: 1.4rem;
+    padding: 0 6px;
+    line-height: 1;
+}
+
+.menu-body { padding: 8px 0 20px; }
+
+.menu-link, .menu-sublink, .menu-trigger {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 20px;
+    color: var(--menu-text);
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    font: inherit;
+    font-size: 0.92rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--menu-border);
+    transition: background 0.12s;
+}
+.menu-link:hover, .menu-sublink:hover, .menu-trigger:hover {
+    background: var(--menu-hover);
+    color: var(--accent);
+}
+.menu-link.menu-top { font-weight: 700; }
+
+.menu-trigger { justify-content: space-between; font-weight: 600; }
+.menu-trigger .caret { transition: transform 0.2s ease; color: var(--muted); }
+.menu-trigger[aria-expanded="true"] .caret { transform: rotate(90deg); color: var(--accent); }
+
+.menu-sub {
+    background: var(--menu-sub-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+.menu-group.open .menu-sub { max-height: 1200px; }
+
+.menu-sublink {
+    padding-left: 38px;
+    font-size: 0.86rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--menu-border);
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb-bar {
+    background: var(--breadcrumb-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+}
+.breadcrumb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+.breadcrumb-inner a { color: var(--accent); text-decoration: none; }
+.breadcrumb-inner a:hover { text-decoration: underline; }
+.bc-sep { color: var(--muted); margin: 0 4px; opacity: 0.6; }
+
+/* --- Main Content --- */
+.main-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* Language-swappable UI fragments (menu, breadcrumb, brand, footer, prev/next).
+   Block versions hide via display:none; inline versions (spans) use the same
+   default. The `.active-lang` class is toggled by switchLang() in JS. */
+.lang-swap { display: none; }
+.lang-swap.active-lang { display: block; }
+span.lang-swap.active-lang { display: inline; }
+
+h1 {
+    font-size: 2rem;
+    color: var(--heading);
+    margin: 8px 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+h2 {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-light);
+    font-weight: 700;
+}
+h3 {
+    font-size: 1.2rem;
+    color: var(--heading);
+    margin: 24px 0 10px;
+    font-weight: 700;
+}
+h4 {
+    font-size: 1.05rem;
+    color: var(--heading);
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+p { margin-bottom: 14px; }
+ul, ol { margin: 10px 0 18px 28px; }
+li { margin-bottom: 6px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+th, td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+th {
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+html[data-theme="dark"] th { color: #0f1724; }
+tr:nth-child(even) td { background: var(--row-stripe); }
+
+.glossary-table th:first-child { width: 28%; }
+
+/* Linked level headers on the overview page */
+.level-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-light);
+    transition: color 0.15s, border-color 0.15s;
+}
+.level-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Clickable week rows on level overview pages */
+.week-row { cursor: pointer; transition: background 0.12s; }
+.week-row:hover td { background: var(--accent-light); }
+.week-row td a { color: var(--accent); text-decoration: none; }
+.week-row:hover td a { text-decoration: underline; }
+.week-row td:first-child { width: 4em; text-align: center; font-weight: 700; }
+
+pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    color: var(--text);
+}
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+p code, li code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+.mermaid-block {
+    position: relative;
+    margin: 16px 0;
+    padding: 32px 16px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--code-bg);
+}
+.mermaid-block .mermaid-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.mermaid-block .mermaid-toggle:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+.mermaid-block .mermaid {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+.mermaid-block .mermaid svg { max-width: 100%; height: auto; }
+.mermaid-block .mermaid-source {
+    display: none;
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.mermaid-block[data-view="source"] .mermaid { display: none; }
+.mermaid-block[data-view="source"] .mermaid-source { display: block; }
+
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+/* --- Footer Navigation --- */
+.page-footer {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    gap: 16px;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+    max-width: 45%;
+}
+.nav-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+.nav-btn .btn-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: block;
+    font-weight: 400;
+}
+.nav-btn:hover .btn-label { color: rgba(255,255,255,0.7); }
+html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
+.nav-btn-text { display: flex; flex-direction: column; }
+.nav-btn.next { text-align: right; margin-left: auto; }
+.nav-btn.next .nav-btn-text { align-items: flex-end; }
+.nav-placeholder { flex: 1; }
+
+/* --- Site Footer --- */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+.site-footer a { color: var(--gold); }
+
+/* --- Mobile --- */
+@media (max-width: 640px) {
+    .nav-inner { padding: 0 14px; gap: 6px; }
+    .nav-brand { font-size: 0.95rem; }
+    .nav-brand .brand-text-long { display: none; }
+    .lang-btn { padding: 3px 4px; }
+    .lang-btn img.emoji, .lang-btn .flag-text { width: 18px; height: 18px; font-size: 0.85rem; }
+    .main-wrap { padding: 20px 16px 40px; }
+    h1 { font-size: 1.5rem; }
+    .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+    .menu-panel { width: 86vw; }
+}
+</style>
+    <link rel="stylesheet" href="assets/chatbot.css">
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+    <script type="module" src="assets/chatbot.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-controls="site-menu">&#9776;</button>
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">&#9670;</span>
+                <span class="brand-text-long"><span class="lang-swap active-lang" data-lang-section="en">Chanma Investment</span><span class="lang-swap" data-lang-section="hk">陳馬投資</span><span class="lang-swap" data-lang-section="tw">陳馬投資</span><span class="lang-swap" data-lang-section="cn">陈马投资</span></span>
+            </a>
+            <div class="nav-controls">
+                <div class="lang-selector"><button class="lang-btn active" data-lang="en" onclick="switchLang('en')" title="English" aria-label="English"><span class="emoji-wrap">🇺🇸</span><span class="flag-text" hidden>EN</span></button><button class="lang-btn" data-lang="hk" onclick="switchLang('hk')" title="香港繁體" aria-label="香港繁體"><span class="emoji-wrap">🇭🇰</span><span class="flag-text" hidden>HK</span></button><button class="lang-btn" data-lang="tw" onclick="switchLang('tw')" title="台灣繁體" aria-label="台灣繁體"><span class="emoji-wrap">🇹🇼</span><span class="flag-text" hidden>TW</span></button><button class="lang-btn" data-lang="cn" onclick="switchLang('cn')" title="中国简体" aria-label="中国简体"><span class="emoji-wrap">🇨🇳</span><span class="flag-text" hidden>CN</span></button></div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark / light theme" aria-label="Toggle theme">
+                    <span class="icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" aria-hidden="true"></div>
+    <aside id="site-menu" class="menu-panel menu-panel-left" aria-label="Site navigation">
+        <div class="menu-header">
+            <span class="menu-title"><span class="lang-swap active-lang" data-lang-section="en">Course Navigation</span><span class="lang-swap" data-lang-section="hk">課程導覽</span><span class="lang-swap" data-lang-section="tw">課程導覽</span><span class="lang-swap" data-lang-section="cn">课程导览</span></span>
+            <button class="menu-close" onclick="toggleMenu(false)" aria-label="Close menu">&#10005;</button>
+        </div>
+        <div class="menu-body">
+            <div class="lang-swap active-lang" data-lang-section="en"><a href="index.html" class="menu-link menu-top">Home</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 1: Foundation</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">Level 1: Foundation Overview</a>
+<a href="week01.html" class="menu-sublink">Week 1: Why invest</a>
+<a href="week02.html" class="menu-sublink">Week 2: Index funds etfs</a>
+<a href="week03.html" class="menu-sublink">Week 3: Risk and return</a>
+<a href="week04.html" class="menu-sublink">Week 4: Sixty forty</a>
+<a href="week05.html" class="menu-sublink">Week 5: Bonds</a>
+<a href="week06.html" class="menu-sublink">Week 6: Gold commodities</a>
+<a href="week07.html" class="menu-sublink">Week 7: Rebalancing</a>
+<a href="week08.html" class="menu-sublink">Week 8: Financial statements</a>
+<a href="week09.html" class="menu-sublink">Week 9: Market indexes</a>
+<a href="week10.html" class="menu-sublink">Week 10: Economic cycles</a>
+<a href="week11.html" class="menu-sublink">Week 11: Behavioral biases</a>
+<a href="week12.html" class="menu-sublink">Week 12: First portfolio</a>
+<a href="level1_reflection.html" class="menu-sublink">Level 1: Foundation Reflection</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 2: Intermediate</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">Level 2: Intermediate Overview</a>
+<a href="week13.html" class="menu-sublink">Week 13: Long short</a>
+<a href="week14.html" class="menu-sublink">Week 14: Pair trading</a>
+<a href="week15.html" class="menu-sublink">Week 15: Multi asset</a>
+<a href="week16.html" class="menu-sublink">Week 16: Sector rotation</a>
+<a href="week17.html" class="menu-sublink">Week 17: Performance metrics</a>
+<a href="week18.html" class="menu-sublink">Week 18: Interest rates</a>
+<a href="week19.html" class="menu-sublink">Week 19: Corporate finance</a>
+<a href="week20.html" class="menu-sublink">Week 20: Earnings cashflow</a>
+<a href="week21.html" class="menu-sublink">Week 21: Equity valuation</a>
+<a href="week22.html" class="menu-sublink">Week 22: Currency international</a>
+<a href="week23.html" class="menu-sublink">Week 23: Factor investing</a>
+<a href="week24.html" class="menu-sublink">Week 24: Multi strategy</a>
+<a href="level2_reflection.html" class="menu-sublink">Level 2: Intermediate Reflection</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 3: Advanced</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">Level 3: Advanced Overview</a>
+<a href="week25.html" class="menu-sublink">Week 25: Intro options</a>
+<a href="week26.html" class="menu-sublink">Week 26: Options as orders</a>
+<a href="week27.html" class="menu-sublink">Week 27: Covered calls</a>
+<a href="week28.html" class="menu-sublink">Week 28: Cash secured puts</a>
+<a href="week29.html" class="menu-sublink">Week 29: Option greeks</a>
+<a href="week30.html" class="menu-sublink">Week 30: Spreads condors</a>
+<a href="week31.html" class="menu-sublink">Week 31: Yield curves</a>
+<a href="week32.html" class="menu-sublink">Week 32: Duration convexity</a>
+<a href="week33.html" class="menu-sublink">Week 33: Credit analysis</a>
+<a href="week34.html" class="menu-sublink">Week 34: Rate sensitivity</a>
+<a href="week35.html" class="menu-sublink">Week 35: Advanced fsa</a>
+<a href="week36.html" class="menu-sublink">Week 36: Income portfolio</a>
+<a href="level3_reflection.html" class="menu-sublink">Level 3: Advanced Reflection</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 4: Sophisticated</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">Level 4: Sophisticated Overview</a>
+<a href="week37.html" class="menu-sublink">Week 37: Options leverage</a>
+<a href="week38.html" class="menu-sublink">Week 38: Leaps</a>
+<a href="week39.html" class="menu-sublink">Week 39: Futures</a>
+<a href="week40.html" class="menu-sublink">Week 40: Vix volatility</a>
+<a href="week41.html" class="menu-sublink">Week 41: Risk management</a>
+<a href="week42.html" class="menu-sublink">Week 42: Var risk models</a>
+<a href="week43.html" class="menu-sublink">Week 43: Active management</a>
+<a href="week44.html" class="menu-sublink">Week 44: Microstructure</a>
+<a href="week45.html" class="menu-sublink">Week 45: Quant methods</a>
+<a href="week46.html" class="menu-sublink">Week 46: Backtesting</a>
+<a href="level4_reflection.html" class="menu-sublink">Level 4: Sophisticated Reflection</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Level 5: Expert</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">Level 5: Expert Overview</a>
+<a href="week47.html" class="menu-sublink">Week 47: Tail risk</a>
+<a href="week48.html" class="menu-sublink">Week 48: Structured products</a>
+<a href="week49.html" class="menu-sublink">Week 49: Vol arbitrage</a>
+<a href="week50.html" class="menu-sublink">Week 50: Factor tilts</a>
+<a href="week51.html" class="menu-sublink">Week 51: Managed futures</a>
+<a href="week52.html" class="menu-sublink">Week 52: Integration</a>
+<a href="level5_reflection.html" class="menu-sublink">Level 5: Expert Reflection</a>
+</div>
+</div>
+<a href="reflection.html" class="menu-link menu-top">Course Reflection</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>Side Lessons</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">Side 1: Calculator</a>
+<a href="side02.html" class="menu-sublink">Side 2: 10k filing</a>
+<a href="side03.html" class="menu-sublink">Side 3: Etf mechanics</a>
+<a href="side04.html" class="menu-sublink">Side 4: Tax efficiency</a>
+<a href="side05.html" class="menu-sublink">Side 5: Dca vs lump</a>
+<a href="side06.html" class="menu-sublink">Side 6: Inflation</a>
+<a href="side07.html" class="menu-sublink">Side 7: Reits</a>
+<a href="side08.html" class="menu-sublink">Side 8: Fund fees</a>
+<a href="side09.html" class="menu-sublink">Side 9: Crypto</a>
+<a href="side10.html" class="menu-sublink">Side 10: Dividends</a>
+<a href="side11.html" class="menu-sublink">Side 11: Retirement accounts</a>
+<a href="side12.html" class="menu-sublink">Side 12: Esg</a>
+<a href="side13.html" class="menu-sublink">Side 13: Ipos</a>
+<a href="side14.html" class="menu-sublink">Side 14: Private markets</a>
+<a href="side15.html" class="menu-sublink">Side 15: Trading psychology</a>
+<a href="side16.html" class="menu-sublink">Side 16: Market history</a>
+<a href="side17.html" class="menu-sublink">Side 17: Fed policy</a>
+<a href="side18.html" class="menu-sublink">Side 18: Global markets</a>
+<a href="side19.html" class="menu-sublink">Side 19: Correlation math</a>
+<a href="side20.html" class="menu-sublink">Side 20: Greeks deep dive</a>
+<a href="side21.html" class="menu-sublink">Side 21: Margin leverage</a>
+<a href="side22.html" class="menu-sublink">Side 22: Commodities</a>
+<a href="side23.html" class="menu-sublink">Side 23: Technical analysis</a>
+<a href="side24.html" class="menu-sublink">Side 24: Monitoring tools</a>
+<a href="side25.html" class="menu-sublink">Side 25: Hedge funds</a>
+<a href="side26.html" class="menu-sublink">Side 26: Market liquidity</a>
+<a href="side27.html" class="menu-sublink">Side 27: Watchlist screening</a>
+<a href="side28.html" class="menu-sublink">Side 28: Monte carlo</a>
+<a href="side29.html" class="menu-sublink">Side 29: Currency hedging</a>
+<a href="side30.html" class="menu-sublink">Side 30: Wheel strategy</a>
+</div></div>
+<a href="glossary.html" class="menu-link">Glossary</a>
+<a href="faq.html" class="menu-link">FAQ</a>
+<a href="disclaimer.html" class="menu-link">Disclaimer</a></div><div class="lang-swap" data-lang-section="hk"><a href="index.html" class="menu-link menu-top">首頁</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
+<a href="week01.html" class="menu-sublink">第一週：為何要投資？貨幣的時間價值</a>
+<a href="week02.html" class="menu-sublink">第二週：指數基金與交易所買賣基金</a>
+<a href="week03.html" class="menu-sublink">第三週：理解風險與回報</a>
+<a href="week04.html" class="menu-sublink">第四週：六四投資組合</a>
+<a href="week05.html" class="menu-sublink">第五週：債券——你投資組合的緩衝器</a>
+<a href="week06.html" class="menu-sublink">第六週：黃金與商品作為分散投資工具</a>
+<a href="week07.html" class="menu-sublink">第7週：投資組合再平衡</a>
+<a href="week08.html" class="menu-sublink">第八週：解讀財務報表——基礎篇</a>
+<a href="week09.html" class="menu-sublink">第九週：認識市場指數</a>
+<a href="week10.html" class="menu-sublink">第十週：經濟週期與你的投資組合</a>
+<a href="week11.html" class="menu-sublink">第十一週：行為偏誤——你的大腦對抗你的金錢</a>
+<a href="week12.html" class="menu-sublink">第12週：建立你的第一個投資組合</a>
+<a href="level1_reflection.html" class="menu-sublink">第一級：入門反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二級：中階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二級：中階總覽</a>
+<a href="week13.html" class="menu-sublink">第十三週：好倉與淡倉交易</a>
+<a href="week14.html" class="menu-sublink">第14週：配對交易基礎</a>
+<a href="week15.html" class="menu-sublink">第十五週：多資產配置</a>
+<a href="week16.html" class="menu-sublink">第16週：商業週期與板塊輪動</a>
+<a href="week17.html" class="menu-sublink">第17週：績效指標——波動性、回撤與風險調整後回報</a>
+<a href="week18.html" class="menu-sublink">第18週：利率與中央銀行政策</a>
+<a href="week19.html" class="menu-sublink">第19週：企業財務 - 資本結構、WACC、股息與公司治理</a>
+<a href="week20.html" class="menu-sublink">第20週：盈利與現金流——質量、操縱及自由現金流</a>
+<a href="week21.html" class="menu-sublink">第21週：股票估值 — 市盈率、市淨率與現金流折現</a>
+<a href="week22.html" class="menu-sublink">第22週：貨幣與國際分散投資</a>
+<a href="week23.html" class="menu-sublink">第23週：因子投資入門</a>
+<a href="week24.html" class="menu-sublink">第24週：構建多策略投資組合</a>
+<a href="level2_reflection.html" class="menu-sublink">第二級：中階反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三級：進階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三級：進階總覽</a>
+<a href="week25.html" class="menu-sublink">第25週：期權入門</a>
+<a href="week26.html" class="menu-sublink">第26週：期權作為條件性委託單</a>
+<a href="week27.html" class="menu-sublink">第27週：備兌認購期權創造收入</a>
+<a href="week28.html" class="menu-sublink">第28週：以現金擔保認沽期權建立入市部位</a>
+<a href="week29.html" class="menu-sublink">第29週：期權希臘字母指標——衡量與管理風險</a>
+<a href="week30.html" class="menu-sublink">第30週：價差與鐵鷹式策略——有限風險期權策略</a>
+<a href="week31.html" class="menu-sublink">第31週：收益率曲線——債券市場的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32週：存續期與凸性——衡量債券價格敏感度</a>
+<a href="week33.html" class="menu-sublink">第三十三週：信用分析與債券選取</a>
+<a href="week34.html" class="menu-sublink">第34週：利率對各類資產的敏感度</a>
+<a href="week35.html" class="menu-sublink">第35週：進階財務報表分析</a>
+<a href="week36.html" class="menu-sublink">第36週：建立產生收入的投資組合</a>
+<a href="level3_reflection.html" class="menu-sublink">第三級：進階反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四級：精通</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四級：精通總覽</a>
+<a href="week37.html" class="menu-sublink">第37週：期權槓桿策略</a>
+<a href="week38.html" class="menu-sublink">第38週：長期期權與長線期權策略</a>
+<a href="week39.html" class="menu-sublink">第39週：期貨市場入門</a>
+<a href="week40.html" class="menu-sublink">第40週：交易波動率指數與波動性</a>
+<a href="week41.html" class="menu-sublink">第41週：投資組合風險管理</a>
+<a href="week42.html" class="menu-sublink">第42週：風險值與風險模型</a>
+<a href="week43.html" class="menu-sublink">第43週：主動投資組合管理</a>
+<a href="week44.html" class="menu-sublink">第44週：市場微觀結構</a>
+<a href="week45.html" class="menu-sublink">第45週：投資者量化方法</a>
+<a href="week46.html" class="menu-sublink">第46週：回測與策略驗證</a>
+<a href="level4_reflection.html" class="menu-sublink">第四級：精通反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五級：專家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五級：專家總覽</a>
+<a href="week47.html" class="menu-sublink">第47週：尾部風險對沖</a>
+<a href="week48.html" class="menu-sublink">第48週：結構性產品與定義回報</a>
+<a href="week49.html" class="menu-sublink">第49週：波動性套利與期限結構</a>
+<a href="week50.html" class="menu-sublink">第50週：因子傾斜與另類風險溢價</a>
+<a href="week51.html" class="menu-sublink">第51週：管理期貨與趨勢跟蹤</a>
+<a href="week52.html" class="menu-sublink">第52週：投資組合整合——融會貫通</a>
+<a href="level5_reflection.html" class="menu-sublink">第五級：專家反思</a>
+</div>
+</div>
+<a href="reflection.html" class="menu-link menu-top">課程反思</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>補充課程</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">附加課程 01：掌握 TI BA II Plus 財務計算機</a>
+<a href="side02.html" class="menu-sublink">旁聽課02：像專業人士一樣解讀10-K年報</a>
+<a href="side03.html" class="menu-sublink">補充課第三課：交易所買賣基金的運作原理——創建、贖回與無形機制</a>
+<a href="side04.html" class="menu-sublink">補充課程 04：稅務效益投資——留住更多您賺取的回報</a>
+<a href="side05.html" class="menu-sublink">附加課程 05：平均成本法與一次過投資 —— 數據、數學與心理學</a>
+<a href="side06.html" class="menu-sublink">附加課程第06課：通脹──無聲的竊賊及如何保護您的投資組合</a>
+<a href="side07.html" class="menu-sublink">附錄課第七課：房地產信託基金與房地產投資</a>
+<a href="side08.html" class="menu-sublink">補充課第8課：認識互惠基金費用</a>
+<a href="side09.html" class="menu-sublink">附加課程第9課：加密貨幣與數碼資產概覽</a>
+<a href="side10.html" class="menu-sublink">附加課程第10課：股息投資策略</a>
+<a href="side11.html" class="menu-sublink">補充課第十一課：退休賬戶 — 401(k)、IRA、Roth</a>
+<a href="side12.html" class="menu-sublink">旁課第12課：ESG與可持續投資</a>
+<a href="side13.html" class="menu-sublink">Untitled</a>
+<a href="side14.html" class="menu-sublink">副課第14課：私人市場與另類投資</a>
+<a href="side15.html" class="menu-sublink">補充課程第15課：交易心理與情緒紀律</a>
+<a href="side16.html" class="menu-sublink">Untitled</a>
+<a href="side17.html" class="menu-sublink">附加課 第17課：聯邦儲備局與貨幣政策</a>
+<a href="side18.html" class="menu-sublink">附加課堂18：全球市場與國際投資</a>
+<a href="side19.html" class="menu-sublink">補充課第19課：相關性、協方差與投資組合數學</a>
+<a href="side20.html" class="menu-sublink">附加課程第20課：期權希臘值 -- 深度剖析</a>
+<a href="side21.html" class="menu-sublink">附加課程 21：保證金帳戶、�槓桿與風險</a>
+<a href="side22.html" class="menu-sublink">補充課第22課：商品 — 能源、金屬、農業及投資方法</a>
+<a href="side23.html" class="menu-sublink">補充課第二十三課：技術分析——圖表、指標與形態</a>
+<a href="side24.html" class="menu-sublink">附加課程第24課：投資組合監控工具與資源</a>
+<a href="side25.html" class="menu-sublink">補充課第25課：對沖基金揭秘</a>
+<a href="side26.html" class="menu-sublink">補充課第二十六課：市場流動性</a>
+<a href="side27.html" class="menu-sublink">附加課程第27課：建立觀察名單與股票篩選</a>
+<a href="side28.html" class="menu-sublink">副課第28課：投資者的蒙地卡羅模擬</a>
+<a href="side29.html" class="menu-sublink">補充課第29課：國際投資者的貨幣對沖</a>
+<a href="side30.html" class="menu-sublink">附加課程 30：滾輪策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">詞彙表</a>
+<a href="faq.html" class="menu-link">常見問題</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a></div><div class="lang-swap" data-lang-section="tw"><a href="index.html" class="menu-link menu-top">首頁</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
+<a href="week01.html" class="menu-sublink">第一週：為什麼要投資？貨幣時間價值</a>
+<a href="week02.html" class="menu-sublink">第二週：指數基金與指數股票型基金</a>
+<a href="week03.html" class="menu-sublink">第三週：理解風險與報酬</a>
+<a href="week04.html" class="menu-sublink">第四週：60/40 投資組合</a>
+<a href="week05.html" class="menu-sublink">第五週：債券——您投資組合的避震器</a>
+<a href="week06.html" class="menu-sublink">第六週：黃金與大宗商品作為分散投資工具</a>
+<a href="week07.html" class="menu-sublink">第七週：投資組合再平衡</a>
+<a href="week08.html" class="menu-sublink">第八週：閱讀財務報表－基礎篇</a>
+<a href="week09.html" class="menu-sublink">第九週：了解市場指數</a>
+<a href="week10.html" class="menu-sublink">第十週：經濟循環與你的投資組合</a>
+<a href="week11.html" class="menu-sublink">第十一週：行為偏誤——你的大腦對決你的金錢</a>
+<a href="week12.html" class="menu-sublink">第12週：打造你的第一個投資組合</a>
+<a href="level1_reflection.html" class="menu-sublink">第一級：入門反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二級：中階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二級：中階總覽</a>
+<a href="week13.html" class="menu-sublink">第十三週：多頭與空頭交易</a>
+<a href="week14.html" class="menu-sublink">第14週：配對交易基礎</a>
+<a href="week15.html" class="menu-sublink">第15週：多資產配置</a>
+<a href="week16.html" class="menu-sublink">第16週：景氣循環與類股輪動</a>
+<a href="week17.html" class="menu-sublink">第17週：績效指標——波動性、回撤與風險調整後報酬</a>
+<a href="week18.html" class="menu-sublink">第18週：利率與央行政策</a>
+<a href="week19.html" class="menu-sublink">第19週：企業財務——資本結構、加權平均資金成本、股利與公司治理</a>
+<a href="week20.html" class="menu-sublink">第20週：盈餘與現金流——品質、操縱手法與自由現金流</a>
+<a href="week21.html" class="menu-sublink">第21週：股票估值 - 本益比、股價淨值比與現金流折現法</a>
+<a href="week22.html" class="menu-sublink">第22週：貨幣與國際分散投資</a>
+<a href="week23.html" class="menu-sublink">第23週：因子投資入門</a>
+<a href="week24.html" class="menu-sublink">第24週：建構多策略投資組合</a>
+<a href="level2_reflection.html" class="menu-sublink">第二級：中階反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三級：進階</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三級：進階總覽</a>
+<a href="week25.html" class="menu-sublink">第 25 週：選擇權入門</a>
+<a href="week26.html" class="menu-sublink">第二十六週：選擇權作為條件式委託單</a>
+<a href="week27.html" class="menu-sublink">第27週：掩護性買權創造收益</a>
+<a href="week28.html" class="menu-sublink">第28週：現金擔保賣權的進場策略</a>
+<a href="week29.html" class="menu-sublink">第29週：選擇權希臘字母——衡量與管理風險</a>
+<a href="week30.html" class="menu-sublink">第三十週：價差與鐵禿鷹——定義風險的選擇權策略</a>
+<a href="week31.html" class="menu-sublink">第31週：殖利率曲線——債券市場的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32週：存續期間與凸性——衡量債券價格敏感度</a>
+<a href="week33.html" class="menu-sublink">第33週：信用分析與債券選擇</a>
+<a href="week34.html" class="menu-sublink">第34週：各類資產的利率敏感性</a>
+<a href="week35.html" class="menu-sublink">第35週：進階財務報表分析</a>
+<a href="week36.html" class="menu-sublink">第36週：建構收益型投資組合</a>
+<a href="level3_reflection.html" class="menu-sublink">第三級：進階反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四級：專業</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四級：專業總覽</a>
+<a href="week37.html" class="menu-sublink">第37週：選擇權槓桿策略</a>
+<a href="week38.html" class="menu-sublink">第38週：長期期權與長期選擇權策略</a>
+<a href="week39.html" class="menu-sublink">第39週：期貨市場入門</a>
+<a href="week40.html" class="menu-sublink">第 40 週：交易波動率指數與波動性</a>
+<a href="week41.html" class="menu-sublink">第41週：投資組合風險管理</a>
+<a href="week42.html" class="menu-sublink">第42週：風險值與風險模型</a>
+<a href="week43.html" class="menu-sublink">第43週：主動式投資組合管理</a>
+<a href="week44.html" class="menu-sublink">第44週：市場微結構</a>
+<a href="week45.html" class="menu-sublink">第45週：投資人的量化方法</a>
+<a href="week46.html" class="menu-sublink">第46週：回測與策略驗證</a>
+<a href="level4_reflection.html" class="menu-sublink">第四級：專業反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五級：專家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五級：專家總覽</a>
+<a href="week47.html" class="menu-sublink">第47週：尾部風險避險</a>
+<a href="week48.html" class="menu-sublink">第48週：結構型商品與固定成果</a>
+<a href="week49.html" class="menu-sublink">第49週：波動性套利與期限結構</a>
+<a href="week50.html" class="menu-sublink">第50週：因子傾斜與另類風險溢酬</a>
+<a href="week51.html" class="menu-sublink">第51週：管理期貨與趨勢跟隨</a>
+<a href="week52.html" class="menu-sublink">第52週：投資組合整合——全面統整</a>
+<a href="level5_reflection.html" class="menu-sublink">第五級：專家反思</a>
+</div>
+</div>
+<a href="reflection.html" class="menu-link menu-top">課程反思</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>補充單元</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">附加課程第一課：精通TI BA II Plus金融計算機</a>
+<a href="side02.html" class="menu-sublink">補充課程第02課：像專業人士一樣解讀10-K申報</a>
+<a href="side03.html" class="menu-sublink">輔助課第三課：指數股票型基金的實際運作——申購、贖回，以及幕後的無形機制</a>
+<a href="side04.html" class="menu-sublink">附加課程 04：節稅投資——保留更多您賺取的報酬</a>
+<a href="side05.html" class="menu-sublink">Untitled</a>
+<a href="side06.html" class="menu-sublink">補充課程第06課：通膨——無聲的竊賊與如何保護您的投資組合</a>
+<a href="side07.html" class="menu-sublink">附課第七課：不動產投資信託與房地產投資</a>
+<a href="side08.html" class="menu-sublink">副課八：了解共同基金費用</a>
+<a href="side09.html" class="menu-sublink">附加課程第9課：加密貨幣與數位資產概覽</a>
+<a href="side10.html" class="menu-sublink">補充課第10課：股利投資策略</a>
+<a href="side11.html" class="menu-sublink">補充課程第11課：退休帳戶 — 401k、IRA、羅斯帳戶</a>
+<a href="side12.html" class="menu-sublink">附加課程 12：ESG 與永續投資</a>
+<a href="side13.html" class="menu-sublink">補充課程第13課：IPO、SPAC與分拆</a>
+<a href="side14.html" class="menu-sublink">補充課程第14課：私募市場與另類投資</a>
+<a href="side15.html" class="menu-sublink">輔助課程第15課：交易心理與情緒紀律</a>
+<a href="side16.html" class="menu-sublink">補充課程第十六課：市場歷史──崩盤、復甦與規律</a>
+<a href="side17.html" class="menu-sublink">旁支課程第17課：聯準會與貨幣政策</a>
+<a href="side18.html" class="menu-sublink">副課 18：全球市場與國際投資</a>
+<a href="side19.html" class="menu-sublink">補充課 19：相關性、共變異數與投資組合數學</a>
+<a href="side20.html" class="menu-sublink">補充課第20課：選擇權希臘字母——深度解析</a>
+<a href="side21.html" class="menu-sublink">附課21：保證金帳戶、槓桿與風險</a>
+<a href="side22.html" class="menu-sublink">Untitled</a>
+<a href="side23.html" class="menu-sublink">附加課程第二十三課：技術分析——圖表、指標與型態</a>
+<a href="side24.html" class="menu-sublink">補充課 24：投資組合監控工具與資源</a>
+<a href="side25.html" class="menu-sublink">Untitled</a>
+<a href="side26.html" class="menu-sublink">補充課第二十六課：市場流動性</a>
+<a href="side27.html" class="menu-sublink">補充課第27課：觀察名單建立與選股篩選</a>
+<a href="side28.html" class="menu-sublink">Untitled</a>
+<a href="side29.html" class="menu-sublink">補充課程 29：國際投資者的貨幣避險</a>
+<a href="side30.html" class="menu-sublink">補充課程 30：滾輪策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">詞彙表</a>
+<a href="faq.html" class="menu-link">常見問題</a>
+<a href="disclaimer.html" class="menu-link">免責聲明</a></div><div class="lang-swap" data-lang-section="cn"><a href="index.html" class="menu-link menu-top">首页</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第一级：入门</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level1.html" class="menu-sublink">第一级：入门总览</a>
+<a href="week01.html" class="menu-sublink">第一周：为什么要投资？货币的时间价值</a>
+<a href="week02.html" class="menu-sublink">第二周：指数基金与交易所交易基金</a>
+<a href="week03.html" class="menu-sublink">第三周：理解风险与收益</a>
+<a href="week04.html" class="menu-sublink">第四周：60/40 投资组合</a>
+<a href="week05.html" class="menu-sublink">第五周：债券——你投资组合的减震器</a>
+<a href="week06.html" class="menu-sublink">第六周：黄金与大宗商品作为分散投资工具</a>
+<a href="week07.html" class="menu-sublink">第7周：投资组合再平衡</a>
+<a href="week08.html" class="menu-sublink">第8周：读懂财务报表——基础篇</a>
+<a href="week09.html" class="menu-sublink">第九周：理解市场指数</a>
+<a href="week10.html" class="menu-sublink">第十周：经济周期与你的投资组合</a>
+<a href="week11.html" class="menu-sublink">第十一周：行为偏差——你的大脑与你的财富</a>
+<a href="week12.html" class="menu-sublink">第12周：构建你的第一个投资组合</a>
+<a href="level1_reflection.html" class="menu-sublink">第一级：入门反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第二级：中阶</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level2.html" class="menu-sublink">第二级：中阶总览</a>
+<a href="week13.html" class="menu-sublink">第13周：多头与空头交易</a>
+<a href="week14.html" class="menu-sublink">第十四周：配对交易基础</a>
+<a href="week15.html" class="menu-sublink">第十五周：多资产配置</a>
+<a href="week16.html" class="menu-sublink">第16周：经济周期与板块轮动</a>
+<a href="week17.html" class="menu-sublink">第十七周：绩效指标——波动性、回撤与风险调整后收益</a>
+<a href="week18.html" class="menu-sublink">第18周：利率与央行政策</a>
+<a href="week19.html" class="menu-sublink">第十九周：公司财务——资本结构、加权平均资本成本、股息与公司治理</a>
+<a href="week20.html" class="menu-sublink">第20周：盈利与现金流——质量、操纵与自由现金流</a>
+<a href="week21.html" class="menu-sublink">第21周：股票估值 - 市盈率、市净率与DCF</a>
+<a href="week22.html" class="menu-sublink">第22周：货币与国际分散投资</a>
+<a href="week23.html" class="menu-sublink">第23周：因子投资入门</a>
+<a href="week24.html" class="menu-sublink">第24周：构建多策略投资组合</a>
+<a href="level2_reflection.html" class="menu-sublink">第二级：中阶反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第三级：进阶</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level3.html" class="menu-sublink">第三级：进阶总览</a>
+<a href="week25.html" class="menu-sublink">第25周：期权入门</a>
+<a href="week26.html" class="menu-sublink">第26周：期权作为条件订单</a>
+<a href="week27.html" class="menu-sublink">第27周：备兑看涨期权增收策略</a>
+<a href="week28.html" class="menu-sublink">第28周：现金担保看跌期权建仓策略</a>
+<a href="week29.html" class="menu-sublink">第29周：期权希腊字母——风险的衡量与管理</a>
+<a href="week30.html" class="menu-sublink">第30周：价差与铁鹰策略——有限风险期权策略</a>
+<a href="week31.html" class="menu-sublink">第31周：收益率曲线——债券市场的水晶球</a>
+<a href="week32.html" class="menu-sublink">第32周：久期与凸性——衡量债券价格敏感性</a>
+<a href="week33.html" class="menu-sublink">第33周：信用分析与债券选择</a>
+<a href="week34.html" class="menu-sublink">第三十四周：利率对各类资产的敏感性分析</a>
+<a href="week35.html" class="menu-sublink">第35周：高级财务报表分析</a>
+<a href="week36.html" class="menu-sublink">第36周：构建创收型投资组合</a>
+<a href="level3_reflection.html" class="menu-sublink">第三级：进阶反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第四级：专业</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level4.html" class="menu-sublink">第四级：专业总览</a>
+<a href="week37.html" class="menu-sublink">第37周：期权杠杆策略</a>
+<a href="week38.html" class="menu-sublink">第38周：长期期权（LEAPS）与长线期权策略</a>
+<a href="week39.html" class="menu-sublink">第39周：期货市场入门</a>
+<a href="week40.html" class="menu-sublink">第40周：交易波动率指数与波动性</a>
+<a href="week41.html" class="menu-sublink">第41周：投资组合风险管理</a>
+<a href="week42.html" class="menu-sublink">第42周：风险价值与风险模型</a>
+<a href="week43.html" class="menu-sublink">第43周：主动投资组合管理</a>
+<a href="week44.html" class="menu-sublink">第44周：市场微观结构</a>
+<a href="week45.html" class="menu-sublink">第45周：投资者的量化方法</a>
+<a href="week46.html" class="menu-sublink">第46周：回测与策略验证</a>
+<a href="level4_reflection.html" class="menu-sublink">第四级：专业反思</a>
+</div>
+</div>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>第五级:  专家</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="level5.html" class="menu-sublink">第五级:  专家总览</a>
+<a href="week47.html" class="menu-sublink">第47周：尾部风险对冲</a>
+<a href="week48.html" class="menu-sublink">第48周：结构化产品与预定结果</a>
+<a href="week49.html" class="menu-sublink">第四十九周：波动性套利与期限结构</a>
+<a href="week50.html" class="menu-sublink">第50周：因子倾斜与另类风险溢价</a>
+<a href="week51.html" class="menu-sublink">第51周：管理期货与趋势跟踪</a>
+<a href="week52.html" class="menu-sublink">第52周：投资组合整合——融会贯通</a>
+<a href="level5_reflection.html" class="menu-sublink">第五级:  专家反思</a>
+</div>
+</div>
+<a href="reflection.html" class="menu-link menu-top">课程反思</a>
+<div class="menu-group">
+<button class="menu-trigger" type="button" aria-expanded="false"><span>补充课程</span><span class="caret">&#9656;</span></button>
+<div class="menu-sub">
+<a href="side01.html" class="menu-sublink">补充课程第01课：掌握TI BA II Plus金融计算器</a>
+<a href="side02.html" class="menu-sublink">副课02：像专业人士一样阅读10-K年报</a>
+<a href="side03.html" class="menu-sublink">附课 03：ETF的运作机制——创设、赎回与不可见的市场机制</a>
+<a href="side04.html" class="menu-sublink">补充课程第04课：税务效率投资——留住更多收益</a>
+<a href="side05.html" class="menu-sublink">补充课 05：定投与一次性投资——数学、数据与心理学</a>
+<a href="side06.html" class="menu-sublink">补充课第06课：通胀——无声的窃贼及如何保护你的投资组合</a>
+<a href="side07.html" class="menu-sublink">副课7：房地产投资信托（REITs）与房地产投资</a>
+<a href="side08.html" class="menu-sublink">副课八：读懂共同基金费用</a>
+<a href="side09.html" class="menu-sublink">副课9：加密货币与数字资产概述</a>
+<a href="side10.html" class="menu-sublink">副课10：股息投资策略</a>
+<a href="side11.html" class="menu-sublink">补充课程第11课：退休账户——401k、IRA、Roth账户</a>
+<a href="side12.html" class="menu-sublink">副课12：ESG与可持续投资</a>
+<a href="side13.html" class="menu-sublink">副课13：IPO、SPAC与分拆上市</a>
+<a href="side14.html" class="menu-sublink">附加课程14：私募市场与另类投资</a>
+<a href="side15.html" class="menu-sublink">补充课程第15课：交易心理与情绪纪律</a>
+<a href="side16.html" class="menu-sublink">Untitled</a>
+<a href="side17.html" class="menu-sublink">补充课第17课：美联储与货币政策</a>
+<a href="side18.html" class="menu-sublink">Untitled</a>
+<a href="side19.html" class="menu-sublink">Untitled</a>
+<a href="side20.html" class="menu-sublink">补充课第二十节：期权希腊值——深度解析</a>
+<a href="side21.html" class="menu-sublink">附加课程第21课：保证金账户、杠杆与风险</a>
+<a href="side22.html" class="menu-sublink">副课22：大宗商品——能源、金属、农业及投资方法</a>
+<a href="side23.html" class="menu-sublink">附加课程第23课：技术分析——图表、指标与形态</a>
+<a href="side24.html" class="menu-sublink">补充课程第24课：投资组合监控工具与资源</a>
+<a href="side25.html" class="menu-sublink">补充课第二十五课：揭开对冲基金的神秘面纱</a>
+<a href="side26.html" class="menu-sublink">补充课第26课：市场流动性</a>
+<a href="side27.html" class="menu-sublink">Untitled</a>
+<a href="side28.html" class="menu-sublink">Untitled</a>
+<a href="side29.html" class="menu-sublink">补充课程第29课：国际投资者的货币对冲</a>
+<a href="side30.html" class="menu-sublink">补充课程 30：滚轮策略</a>
+</div></div>
+<a href="glossary.html" class="menu-link">词汇表</a>
+<a href="faq.html" class="menu-link">常见问题</a>
+<a href="disclaimer.html" class="menu-link">免责声明</a></div>
+        </div>
+    </aside>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><span class="lang-swap active-lang" data-lang-section="en"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <span>Course Reflection</span></span><span class="lang-swap" data-lang-section="hk"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <span>課程反思</span></span><span class="lang-swap" data-lang-section="tw"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <span>課程反思</span></span><span class="lang-swap" data-lang-section="cn"><a href="index.html">陈马投资教程</a> <span class="bc-sep">&#8250;</span> <span>课程反思</span></span></div>
+    </div>
+
+    <main class="main-wrap">
+        <div class="content-area">
+            <div id="content-en" class="lang-content active">
+                <h1>Course Reflection: Now What?</h1>
+<p>
+Fifty-two weeks. Five levels. Hundreds of pages of reading, dozens of hours of video, countless concepts and frameworks and strategies. You started this course because you wanted to take control of your own financial future. The question now is whether you will.
+</p>
+<hr>
+<h2>Why This Reflection Exists</h2>
+<p>
+Most investment education ends at the certificate. You finish the syllabus, you close the book, you tell yourself you will start applying it next week. Months later, your portfolio looks the same as before -- maybe a little better, maybe a little worse, but fundamentally unchanged. The knowledge sat on a shelf and slowly evaporated.
+</p>
+<p>
+This course was designed to produce a different outcome. Not a graduate, but a <em>practitioner</em>. The reflection at the end of each level was the local checkpoint. This is the global one. It is not a summary -- you can re-read the overviews for that. It is an honest accounting of what is now true about you that was not true fifty-two weeks ago, and a call to act on it.
+</p>
+<hr>
+<h2>The Hardest Question</h2>
+<p>
+Look at your portfolio. Look at your bank account. Look at how much time you spend thinking about your money versus how much you spent before this course. Then ask yourself the only question that ultimately matters:
+</p>
+<p>
+<strong>Are you actually a different investor than you were a year ago?</strong>
+</p>
+<p>
+If yes -- if your asset allocation reflects your real risk tolerance, if your idle cash is no longer rotting in a checking account, if you can defend every position you hold with a thesis longer than "it has been going up" -- then the course succeeded. Walk forward and keep practicing.
+</p>
+<p>
+If no -- if your portfolio still looks like it did before Week 1, if you still cannot explain to a friend what duration is or why you own what you own -- then the course did not fail you. You failed to act. There is no shame in that admission, only the choice of what you do next.
+</p>
+<hr>
+<h2>What You Now Have That Most Investors Do Not</h2>
+<p>
+You came in as someone who probably owned an S&P 500 fund and a savings account. You leave with the conceptual toolkit of a professional:
+</p>
+<ul><li>A framework for <strong>why</strong> any asset belongs in any portfolio at any time</li>
+<li>A vocabulary for <strong>risk</strong> -- volatility, drawdown, VaR, Sharpe, leverage -- that lets you measure rather than guess</li>
+<li>A mental model for <strong>markets</strong> -- cycles, rates, sectors, factors, regimes -- that lets you read what the world is doing</li>
+<li>A discipline for <strong>execution</strong> -- position sizing, defined risk, transaction costs, backtest hygiene -- that separates serious investors from speculators</li>
+<li>A library of <strong>strategies</strong> -- options income, factor tilts, fixed income laddering, tail hedges, crisis alpha -- that you can pull from for any environment</li>
+<p>
+</ul>
+This is genuinely rare. Most people who manage their own money never assemble even half of it. You are no longer the typical retail investor. The question is whether you act like it.
+</p>
+<hr>
+<h2>Where Most People Fall Short -- And Where You Have an Edge</h2>
+<p>
+The professional certifications you studied through were designed for institutional managers. They optimize for benchmark-relative performance, quarterly reporting cycles, and committee approval. As a retail investor you have advantages no professional has:
+</p>
+<ul><li><strong>You do not need to beat a benchmark.</strong> You can hold cash for years. You can sit out trades. You can wait.</li>
+<li><strong>You can be patient on a different time scale.</strong> Your career does not depend on this quarter's number.</li>
+<li><strong>You can be small.</strong> You can take positions that institutional money cannot, and exit them without moving the market.</li>
+<li><strong>You can stay simple.</strong> You do not have to justify simplicity to a client. A boring portfolio that compounds is a luxury professionals envy.</li>
+<p>
+</ul>
+But the certification curricula also leave gaps the course tried to fill -- behavioral discipline, real-world tax considerations, the psychology of holding through drawdowns, and the long view that only an investor managing their own life can take. Use both. Take the rigor. Discard the constraints that do not apply to you.
+</p>
+<hr>
+<h2>What to Actually Do Now</h2>
+<p>
+Pick three. Do them within the next ninety days. Not "eventually". Within ninety days:
+</p>
+<li><strong>Write your personal investment policy statement.</strong> One page. Allocation targets, rebalancing rules, leverage limits, what you will and will not own, and the conditions under which you would change any of it. This is the single most important document you will ever write about your money.</li>
+<li><strong>Set up your quarterly review ritual.</strong> Same day every quarter. Same template. Performance, drawdowns, cost audit, policy compliance, what to change. Calendar it now.</li>
+<li><strong>Build the income or hedging or crisis-alpha sleeve</strong> that you have been meaning to build. Pick one. Implement it.</li>
+<li><strong>Audit and consolidate.</strong> Close the accounts you do not use. Sell the positions you cannot defend. Simplify until your portfolio reflects your current thinking.</li>
+<li><strong>Teach what you learned.</strong> Pick one concept from each level and explain it to someone -- a partner, a friend, a YouTube comment thread. Teaching is how knowledge becomes yours permanently.</li>
+<hr>
+<h2>What Needs to Change for Good</h2>
+<p>
+The course was a temporary teacher. The habits it asked you to build need to become permanent:
+</p>
+<ul><li><strong>Curiosity over certainty.</strong> Markets keep evolving. The investor who graduates and stops learning becomes the investor who is replaced.</li>
+<li><strong>Process over outcome.</strong> Good outcomes can come from bad processes (luck) and bad outcomes can come from good processes (variance). Judge yourself on the process.</li>
+<li><strong>Discipline over inspiration.</strong> The plan you wrote in calm matters more than the impulse you feel in panic. Pre-commitment is the entire game.</li>
+<li><strong>Humility over expertise.</strong> "I do not know" is the most expensive sentence to refuse to say. The investors who survive longest say it most often.</li>
+<li><strong>Action over study.</strong> No amount of additional reading substitutes for doing. Make the trade. Open the account. Move the cash. Change.</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>A Commitment for the Rest of Your Investing Life</h2>
+<p>
+Write one sentence. The most important one in this entire course. Not what you know, not what you plan to study next -- what you will <em>do</em>, repeatedly, for the rest of your investing life.
+</p>
+<p>
+Examples to make it real:
+</p>
+<blockquote><em>"Every quarter, on the first weekend, I will run my full portfolio review and rebalance to policy without exception."</em></blockquote>
+<blockquote><em>"I will not add any new position I cannot defend in two sentences to a skeptical friend."</em></blockquote>
+<blockquote><em>"I will treat every drawdown as a stress test of my plan, not as a reason to abandon it."</em></blockquote>
+<blockquote><em>"I will revisit this commitment every January and update it based on what the year taught me."</em></blockquote>
+<p>
+The commitment is the artifact this course leaves you with. Everything else -- the videos, the diagrams, the frameworks -- supports it. Without the commitment, the course was entertainment. With it, the course was the start of a different financial life.
+</p>
+<hr>
+<h2>Final Word</h2>
+<p>
+When you started Week 1, you probably hoped this course would tell you what to do with your money. It did not. It taught you how to decide what to do with your money -- which is the only kind of teaching that lasts.
+</p>
+<p>
+The market will keep changing. Strategies will go in and out of favor. New instruments will appear. Old certainties will collapse. None of that is in your control. What is in your control is your process, your discipline, and your willingness to keep showing up and learning.
+</p>
+<p>
+You finished the course. Most people do not. Now do the harder thing: act on it. Compound is patient and impartial. It does not care about your knowledge. It cares about the years you give it.
+</p>
+<p>
+Give it your best years. Start now.
+</p>
+<hr>
+<p>
+<em>See the <a href="disclaimer.html">Disclaimer</a> for important legal information. This course is provided under the MIT License and is free for everyone.</em>
+</p>
+            </div>
+            <div id="content-hk" class="lang-content">
+                <h1>課程反思：之後如何？</h1>
+<p>
+五十二週。五個級別。數百頁閱讀材料、數十小時影片、無數概念、框架與策略。你參加這門課程，是因為你想掌控自己的財務未來。現在的問題，是你是否真的會付諸行動。
+</p>
+<hr>
+<h2>為何需要這份反思</h2>
+<p>
+大多數投資教育在頒發證書時便告終結。你完成課程、合上書本，告訴自己下週就開始實踐。幾個月後，你的投資組合與從前幾乎一樣——也許稍好，也許稍差，但本質上毫無改變。那些知識擺在架上，慢慢蒸發消散。
+</p>
+<p>
+這門課程的設計，是為了帶來截然不同的結果。目標不是培養一位「畢業生」，而是一位<em>實踐者</em>。每個級別結束時的反思，是局部的檢查點；這一份，是全域的總結。它不是摘要——你可以重讀各章概覽。它是一份誠實的盤點：在過去五十二週裡，你究竟有了哪些真正的改變，以及一份呼籲你付諸行動的邀請。
+</p>
+<hr>
+<h2>最難回答的問題</h2>
+<p>
+看看你的投資組合。看看你的銀行帳戶。看看你現在花多少時間思考金錢，與這門課程之前相比有何不同。然後問自己那唯一真正重要的問題：
+</p>
+<p>
+<strong>你是否真的成為了一個與一年前截然不同的投資者？</strong>
+</p>
+<p>
+如果是——如果你的資產配置真實反映了你的風險承受能力，如果你的閒置現金不再在往來帳戶中白白貶值，如果你能夠用超過「它一直在升」的理由為每一個持倉辯護——那麼這門課程成功了。繼續前行，持續實踐。
+</p>
+<p>
+如果不是——如果你的投資組合與第一週之前看起來毫無差別，如果你仍然無法向朋友解釋存續期是甚麼，或者為何你持有某個倉位——那麼課程並沒有辜負你。是你沒有付諸行動。承認這一點無需羞愧，關鍵在於接下來你選擇怎麼做。
+</p>
+<hr>
+<h2>你現在擁有的，是大多數投資者所欠缺的</h2>
+<p>
+你入課時，大概只持有一隻標普500指數基金和一個儲蓄帳戶。你離開時，擁有了一套專業人士水平的概念工具箱：
+</p>
+<ul><li>一套框架，說明<strong>為何</strong>任何資產在任何時候都適合或不適合納入投資組合</li>
+<li>一套<strong>風險</strong>詞彙——波動性、回撤、風險值、夏普比率、槓桿——讓你用數字衡量，而非靠感覺猜測</li>
+<li>一套<strong>市場</strong>思維模型——週期、利率、板塊、因子、市場環境——讓你讀懂世界正在發生什麼</li>
+<li>一套<strong>執行</strong>紀律——倉位管理、有限風險策略、交易成本、回測衛生——將認真的投資者與投機者區分開來</li>
+<li>一個<strong>策略</strong>庫——期權收入、因子傾斜、債券階梯、尾部對沖、危機阿爾法——讓你在任何市場環境中都有招可用</li>
+<p>
+</ul>
+這種組合實屬罕見。大多數自行管理資金的人，一生中連一半都未必能積累齊全。你已不再是典型的散戶投資者。問題在於，你是否會以此要求自己。
+</p>
+<hr>
+<h2>大多數人失敗之處——以及你的優勢所在</h2>
+<p>
+你學習的專業認證課程，是為機構基金經理而設計的。他們的目標是相對基準的表現、按季度的業績報告，以及委員會審批。作為散戶投資者，你擁有任何專業人士都沒有的優勢：
+</p>
+<ul><li><strong>你不需要跑贏基準。</strong> 你可以持有現金多年。你可以放棄某些交易。你可以等待。</li>
+<li><strong>你可以在不同的時間維度上保持耐性。</strong> 你的事業不依賴於這個季度的數字。</li>
+<li><strong>你的規模小。</strong> 你可以進入機構資金無法進入的倉位，並在不影響市場的情況下退出。</li>
+<li><strong>你可以保持簡單。</strong> 你不需要向客戶解釋為何選擇簡單。一個穩健複利的沉悶投資組合，是專業人士羨慕的奢侈。</li>
+<p>
+</ul>
+但這些認證課程也有留白之處，而本課程嘗試填補——行為紀律、現實中的稅務考量、在回撤中堅持持倉的心理建設，以及只有親自管理自己財富的投資者才能擁有的長遠視野。兩者並用。取其嚴謹，捨去那些不適用於你的制度約束。
+</p>
+<hr>
+<h2>現在應該做什麼</h2>
+<p>
+選三項。在未來九十天內完成。不是「遲些」，是九十天內：
+</p>
+<li><strong>撰寫你的個人投資政策聲明。</strong> 一頁紙。包括配置目標、再平衡規則、槓桿上限、你願意及不願意持有的資產類別，以及你會在什麼情況下修改上述任何一項。這是你一生中為自己的金錢所寫的最重要文件。</li>
+<li><strong>建立你的季度檢討慣例。</strong> 每季同一天，採用相同的模板。回報、回撤、成本審核、政策合規性、需要調整的事項。現在就把它加進日曆。</li>
+<li><strong>建立你一直打算建立的收入、對沖或危機阿爾法配置。</strong> 選一個。付諸實行。</li>
+<li><strong>審計並整合。</strong> 關閉你不再使用的帳戶。賣出你無法為之辯護的持倉。化繁為簡，直到你的投資組合真實反映你當前的思考。</li>
+<li><strong>把你學到的東西教給別人。</strong> 從每個級別中各挑一個概念，向某人解釋——伴侶、朋友，或者YouTube評論區。教學是讓知識永久成為你自身一部分的方式。</li>
+<hr>
+<h2>哪些改變需要長期維持</h2>
+<p>
+這門課程是一位臨時老師。它要求你培養的習慣，必須成為永久的常態：
+</p>
+<ul><li><strong>好奇勝於確信。</strong> 市場不斷演變。學完課程便停止學習的投資者，終將被市場淘汰。</li>
+<li><strong>過程勝於結果。</strong> 好結果可能來自壞過程（運氣），壞結果也可能來自好過程（波動）。以過程評價自己。</li>
+<li><strong>紀律勝於靈感。</strong> 你在平靜時寫下的計劃，比你在恐慌時產生的衝動更重要。事前承諾是整個遊戲的核心。</li>
+<li><strong>謙遜勝於專業。</strong> 「我不知道」是最昂貴的一句話——昂貴在你拒絕說出口。投資生涯最長久的人，說這句話最頻繁。</li>
+<li><strong>行動勝於學習。</strong> 再多的閱讀都無法取代實踐。做那個交易。開那個帳戶。搬移那筆現金。改變。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>對你餘下投資生涯的承諾</h2>
+<p>
+寫下一句話。是這整門課程中最重要的一句話。不是你知道什麼，不是你打算下一步學什麼——而是你將會<em>做</em>什麼，反覆地，在你餘下的投資生涯裡。
+</p>
+<p>
+以下是一些真實的例子：
+</p>
+<blockquote><em>「每個季度第一個週末，我將進行完整的投資組合檢討，並按政策再平衡，無一例外。」</em></blockquote>
+<blockquote><em>「我不會新增任何無法用兩句話向持懷疑態度的朋友解釋清楚的倉位。」</em></blockquote>
+<blockquote><em>「我會把每一次回撤視為對我計劃的壓力測試，而不是放棄計劃的理由。」</em></blockquote>
+<blockquote><em>「我會每年一月重新審視這份承諾，並根據這一年教會我的事情加以更新。」</em></blockquote>
+<p>
+這份承諾，是這門課程留給你的成果。其他一切——影片、圖表、框架——都是為它服務的。沒有這份承諾，這門課程不過是娛樂。有了它，這門課程就是另一種財務人生的起點。
+</p>
+<hr>
+<h2>最後的話</h2>
+<p>
+當你開始第一週時，你大概希望這門課程告訴你該如何處置自己的金錢。它沒有。它教會你如何<strong>決定</strong>如何處置自己的金錢——而這才是唯一能長久留存的教導。
+</p>
+<p>
+市場將持續改變。策略將輪番盛衰。新工具將會出現。舊的確信將會崩塌。這一切都不在你的掌控之內。在你掌控之內的，是你的過程、你的紀律，以及你持續出現、持續學習的意願。
+</p>
+<p>
+你完成了這門課程。大多數人做不到。現在請做那件更難的事：付諸行動。複利有耐性，也一視同仁。它不在乎你擁有多少知識。它在乎你給它多少歲月。
+</p>
+<p>
+給它你最好的歲月。從現在開始。
+</p>
+<hr>
+<p>
+<em>請參閱<a href="disclaimer.html">免責聲明</a>以獲取重要法律資訊。本課程根據MIT授權條款提供，向所有人免費開放。</em>
+</p>
+            </div>
+            <div id="content-tw" class="lang-content">
+                <h1>課程反思：接下來呢？</h1>
+<p>
+五十二週。五個層級。數百頁的閱讀材料、數十小時的影片、無數的概念、框架與策略。你選擇這門課，是因為你想掌控自己的財務未來。現在的問題是：你會付諸行動嗎？
+</p>
+<hr>
+<h2>為什麼這份反思如此重要</h2>
+<p>
+大多數投資教育在拿到結業證書後就宣告終止。你完成課綱，闔上書本，告訴自己下週就會開始應用。幾個月後，你的投資組合和以前幾乎一樣——也許略有起色，也許略有下滑，但本質上毫無改變。那些知識就這樣靜靜躺在架上，慢慢蒸發殆盡。
+</p>
+<p>
+這門課的設計是為了產生不同的結果。目標不是培養一位「結業生」，而是一位<em>實踐者</em>。每個層級末尾的回顧是局部的檢查點，而這份，是全局的總結算。它不是摘要——你可以回頭重讀各層級概覽——而是對「過去五十二週，你身上哪些事是真實改變了、哪些沒有」的誠實盤點，以及一次付諸行動的呼喚。
+</p>
+<hr>
+<h2>最難回答的問題</h2>
+<p>
+看看你的投資組合。看看你的銀行帳戶。看看你現在花多少時間思考自己的財務，對比一年前。然後問自己那個唯一真正重要的問題：
+</p>
+<p>
+<strong>你真的和一年前是不同的投資人了嗎？</strong>
+</p>
+<p>
+如果是——如果你的資產配置確實反映了你真實的風險承受能力，如果閒置的現金不再在活期帳戶裡白白貶值，如果你能用一個超過「它一直在漲」的論點來捍衛每一個持倉——那麼這門課成功了。繼續向前，持續實踐。
+</p>
+<p>
+如果不是——如果你的投資組合看起來和第一週開始前沒什麼兩樣，如果你還是無法向朋友解釋存續期間是什麼、或為什麼持有這些部位——那麼這門課沒有辜負你。是你沒有付諸行動。承認這件事不丟人，丟人的是選擇接下來繼續原地踏步。
+</p>
+<hr>
+<h2>你現在擁有的，是大多數投資人從未有過的</h2>
+<p>
+你進來時，大概只持有一檔標普五百的指數基金和一個儲蓄帳戶。你離開時，帶走了專業人士等級的概念工具箱：
+</p>
+<ul><li>一套框架，說明<strong>為何</strong>任何資產在任何時機屬於任何投資組合</li>
+<li>一套關於<strong>風險</strong>的語彙——波動性、回撤、風險值、夏普比率、槓桿——讓你能夠量化而非憑感覺</li>
+<li>一套關於<strong>市場</strong>的心智模型——循環、利率、類股、因子、市場機制——讓你能讀懂世界正在發生什麼</li>
+<li>一套關於<strong>執行</strong>的紀律——部位規模、風險定義、交易成本、回測衛生——將認真的投資人與投機者區分開來</li>
+<li>一個<strong>策略庫</strong>——選擇權收益、因子傾斜、債券梯型配置、尾部避險、危機阿爾法——讓你在任何環境下都能取用</li>
+<p>
+</ul>
+這套組合真的非常罕見。大多數自行管理資金的人，一輩子都無法湊齊其中的一半。你已經不再是典型的散戶投資人。問題是你是否按照這個身份行動。
+</p>
+<hr>
+<h2>大多數人失敗的地方——以及你的優勢所在</h2>
+<p>
+你研讀的專業認證課程，是為機構投資經理設計的。它們的最佳化目標是相對基準的績效、季度報告週期，以及委員會核准。作為散戶投資人，你擁有專業人士所沒有的優勢：
+</p>
+<ul><li><strong>你不需要打敗基準。</strong> 你可以持有現金好幾年。你可以暫不進場。你可以等待。</li>
+<li><strong>你可以在不同的時間尺度上保持耐心。</strong> 你的職涯不取決於本季的績效數字。</li>
+<li><strong>你可以保持規模小。</strong> 你可以建立機構資金無法進入的部位，也可以在不影響市場的情況下退出。</li>
+<li><strong>你可以保持簡單。</strong> 你不必向客戶解釋為什麼選擇簡單。一個無聊但持續複利增長的投資組合，是專業人士羨慕的奢侈品。</li>
+<p>
+</ul>
+但那些認證課程也留下了這門課試圖填補的空缺——行為紀律、現實世界的稅務考量、在回撤中堅守部位的心理建設，以及只有管理自己人生的投資人才能擁有的長期視野。兩者兼用：吸收嚴謹性，拋棄那些不適用於你的限制。
+</p>
+<hr>
+<h2>現在實際該做的事</h2>
+<p>
+選三件，在接下來九十天內完成。不是「最終有一天」，是九十天內：
+</p>
+<li><strong>撰寫你的個人投資政策聲明。</strong> 一頁。配置目標、再平衡規則、槓桿上限、你將持有與不持有的標的，以及你會在什麼條件下調整其中任何一項。這是你這輩子關於自己財務最重要的一份文件。</li>
+<li><strong>建立每季回顧的儀式。</strong> 每季同一天，同一份模板。績效、回撤、成本審計、政策合規性、待調整事項。現在就排進行事曆。</li>
+<li><strong>建立你一直想建立的收益、避險或危機阿爾法配置。</strong> 選一個，執行它。</li>
+<li><strong>審計並整合。</strong> 關閉不再使用的帳戶，賣掉你無法用論點捍衛的持倉，持續精簡，直到你的投資組合忠實反映你當下的思維。</li>
+<li><strong>教授你學到的東西。</strong> 從每個層級各挑一個概念，向某人解釋——伴侶、朋友、YouTube 留言區。教學是讓知識永遠屬於你的方式。</li>
+<hr>
+<h2>需要永久改變的事</h2>
+<p>
+這門課是一位臨時的老師。它要求你建立的習慣，必須成為永久的：
+</p>
+<ul><li><strong>好奇心勝於確定感。</strong> 市場持續演變。結業後停止學習的投資人，最終會被市場淘汰。</li>
+<li><strong>過程勝於結果。</strong> 好結果可能來自壞過程（運氣），壞結果可能來自好過程（變異）。用過程來評判自己。</li>
+<li><strong>紀律勝於靈感。</strong> 你在平靜時寫下的計畫，比你在恐慌中產生的衝動更重要。事前承諾，就是這場遊戲的全部。</li>
+<li><strong>謙遜勝於專業。</strong> 「我不知道」是最昂貴的一句話——昂貴在你拒絕說出口。能存活最久的投資人，說這句話的頻率最高。</li>
+<li><strong>行動勝於鑽研。</strong> 再多的閱讀都無法取代實際動手。下那筆交易。開那個帳戶。移動那筆現金。改變。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>對餘下投資生涯的承諾</h2>
+<p>
+寫下一句話。整門課中最重要的一句話。不是你知道什麼，不是你計劃下一步學什麼——而是你將<em>做</em>什麼，一遍又一遍，在你投資生涯餘下的歲月裡。
+</p>
+<p>
+以下是讓它變得真實的範例：
+</p>
+<blockquote><em>「每季第一個週末，我將執行完整的投資組合回顧並依政策再平衡，不設例外。」</em></blockquote>
+<blockquote><em>「我不會新增任何無法用兩句話向持懷疑態度的朋友說清楚的部位。」</em></blockquote>
+<blockquote><em>「我將把每一次回撤視為對我計畫的壓力測試，而非放棄它的理由。」</em></blockquote>
+<blockquote><em>「我將在每年一月重新審視這份承諾，並根據這一年的經歷加以更新。」</em></blockquote>
+<p>
+這份承諾，是這門課留給你的有形成果。其他所有東西——影片、圖表、框架——都是它的支撐。沒有承諾，這門課不過是一場娛樂。有了承諾，這門課就是不同財務人生的起點。
+</p>
+<hr>
+<h2>最後的話</h2>
+<p>
+當你開始第一週時，你大概希望這門課告訴你該拿自己的錢怎麼辦。它沒有。它教的是你如何決定該拿自己的錢怎麼辦——而這是唯一能持久的那種教導。
+</p>
+<p>
+市場將持續改變。策略將輪流進出流行。新的工具將會出現。舊的確定性將會崩塌。這些都不在你的掌控之中。在你掌控之中的，是你的過程、你的紀律，以及你願意持續出現、持續學習的意志。
+</p>
+<p>
+你完成了這門課。大多數人做不到。現在去做那件更難的事：把它付諸行動。複利是耐心而公正的。它不在乎你的知識。它在乎你給它的歲月。
+</p>
+<p>
+給它你最好的歲月。從現在開始。
+</p>
+<hr>
+<p>
+<em>重要法律資訊請見<a href="disclaimer.html">免責聲明</a>。本課程依 MIT 授權條款提供，對所有人免費開放。</em>
+</p>
+            </div>
+            <div id="content-cn" class="lang-content">
+                <h1>课程反思：接下来怎么做？</h1>
+<p>
+五十二周。五个级别。数百页阅读材料、数十小时视频、无数概念、框架与策略。你开始这门课程，是因为你想掌控自己的财务未来。问题在于，你是否真的会付诸行动。
+</p>
+<hr>
+<h2>为什么要做这次反思</h2>
+<p>
+大多数投资教育止步于证书。你完成了课程大纲，合上书本，告诉自己下周就开始应用。几个月后，你的投资组合和以前看起来别无二致——也许稍好一点，也许稍差一点，但本质上毫无改变。那些知识被束之高阁，慢慢蒸发殆尽。
+</p>
+<p>
+这门课程的设计初衷是产出不同的结果。不是培养一名"结业生"，而是培养一名<em>实践者</em>。每个级别末尾的阶段性总结是局部检查点，而这次是全局检查点。这不是内容摘要——你可以重读各级别概述来回顾内容。这是一次诚实的盘点：五十二周之后，关于你自己，哪些事情是真的，而这些事情在一年前并不成立；同时，这也是一次行动的召唤。
+</p>
+<hr>
+<h2>最难回答的问题</h2>
+<p>
+看看你的投资组合。看看你的银行账户。看看你现在思考金钱的时间，与上课前相比有多大变化。然后问自己那个唯一真正重要的问题：
+</p>
+<p>
+<strong>你是否真的成为了一年前那个截然不同的投资者？</strong>
+</p>
+<p>
+如果答案是肯定的——如果你的资产配置真实反映了你的风险承受能力，如果你的闲置资金不再在活期账户里白白贬值，如果你能为持有的每一个头寸说出一个有实质内容的投资逻辑，而不仅仅是"它一直在涨"——那么这门课程成功了。继续向前走，持续实践。
+</p>
+<p>
+如果答案是否定的——如果你的投资组合和第一周之前看起来没什么两样，如果你仍然无法向朋友解释什么是久期，或者你为什么持有某只标的——那么不是这门课程辜负了你，而是你没有付诸行动。承认这一点没有什么可羞耻的，关键在于接下来你如何选择。
+</p>
+<hr>
+<h2>你现在拥有大多数投资者所没有的东西</h2>
+<p>
+你入门时，大概持有一只标普500指数基金和一个储蓄账户。你结业时，已经具备了专业人士的概念工具箱：
+</p>
+<ul><li>一套框架，用于理解<strong>为什么</strong>任何资产在任何时候都应该属于某个投资组合</li>
+<li>一套关于<strong>风险</strong>的完整词汇——波动性、回撤、风险价值、夏普比率、杠杆——让你能够量化衡量，而不是凭感觉猜测</li>
+<li>一套关于<strong>市场</strong>的心智模型——周期、利率、板块、因子、市场环境——让你能够读懂世界正在发生什么</li>
+<li>一套关于<strong>执行</strong>的纪律——仓位管理、定义风险、交易成本、回测规范——将严肃的投资者与投机者区分开来</li>
+<li>一套<strong>策略库</strong>——期权收益策略、因子倾斜、固定收益阶梯、尾部对冲、危机阿尔法——可供你在任何市场环境中灵活调用</li>
+<p>
+</ul>
+这套体系真的非常难得。大多数自行管理资金的人，一生中连其中的一半都未必能建立起来。你已经不再是典型的散户投资者。问题在于，你是否能按照这个身份去行动。
+</p>
+<hr>
+<h2>大多数人在哪里失败——以及你的优势在哪里</h2>
+<p>
+你所学习的专业认证课程是为机构管理人设计的。它们针对相对基准的表现、季度报告周期以及委员会审批进行优化。作为散户投资者，你拥有职业选手所没有的优势：
+</p>
+<ul><li><strong>你不需要跑赢基准。</strong> 你可以持有现金数年。你可以放弃某些交易。你可以等待。</li>
+<li><strong>你可以在不同的时间维度上保持耐心。</strong> 你的职业生涯不取决于本季度的数字。</li>
+<li><strong>你的体量可以很小。</strong> 你可以建立机构资金无法涉足的头寸，也可以在不影响市场的情况下退出。</li>
+<li><strong>你可以保持简单。</strong> 你不需要向客户解释为什么要选择简单。一个无聊但能持续复利增长的投资组合，是专业人士羡慕却难以拥有的奢侈。</li>
+<p>
+</ul>
+但专业认证课程也存在空白，而这门课程试图填补这些空白——行为纪律、现实中的税务考量、在回撤中持仓的心理建设，以及只有管理自己人生的投资者才能拥有的长远视角。两者兼用。取其严谨，舍弃那些不适用于你的约束。
+</p>
+<hr>
+<h2>现在到底该做什么</h2>
+<p>
+选三件事，在未来九十天内完成。不是"以后某天"，是<strong>九十天内</strong>：
+</p>
+<li><strong>写下你的个人投资政策声明。</strong> 一页纸。包括配置目标、再平衡规则、杠杆上限、你会和不会持有的品种，以及在什么条件下你会改变上述任何一条。这是你一生中关于自己的钱所能写出的最重要的一份文件。</li>
+<li><strong>建立季度复盘习惯。</strong> 每季度固定同一天，使用固定模板。复盘收益、回撤、成本审查、政策合规性，以及需要做哪些调整。现在就记在日历上。</li>
+<li><strong>搭建你一直想搭建的收益策略、对冲策略或危机阿尔法仓位。</strong> 选择其中一个，落地执行。</li>
+<li><strong>审计并整合。</strong> 关闭不再使用的账户。卖掉那些你无法为之辩护的持仓。精简投资组合，直到它真实反映你当前的思考。</li>
+<li><strong>把你学到的东西教给别人。</strong> 从每个级别中各挑一个概念，向某个人讲解——伴侣、朋友，或者在某个视频评论区里分享。教学是让知识真正属于你自己的方式。</li>
+<hr>
+<h2>哪些改变需要长期坚守</h2>
+<p>
+这门课程只是一位临时的老师。它要求你养成的习惯，需要成为永久性的：
+</p>
+<ul><li><strong>以好奇心代替确定性。</strong> 市场持续演变。一个结业后停止学习的投资者，终将被时代淘汰。</li>
+<li><strong>以过程代替结果。</strong> 好的结果可能来自糟糕的过程（运气），糟糕的结果也可能来自优质的过程（方差）。用过程来评判自己。</li>
+<li><strong>以纪律代替冲动。</strong> 你在冷静时写下的计划，比你在恐慌时涌现的念头更重要。事先承诺，才是真正的制胜之道。</li>
+<li><strong>以谦逊代替自负。</strong> "我不知道"是最昂贵的一句话——贵在你不愿说出口。投资生涯最长久的人，最常说这句话。</li>
+<li><strong>以行动代替研究。</strong> 任何额外的阅读都无法替代实践。做那笔交易。开那个账户。转移那笔现金。去改变。</li>
+<p>
+</ul>
+</p>
+<hr>
+<h2>对余生投资之路的承诺</h2>
+<p>
+写下一句话。这是整门课程中最重要的一句话。不是你知道什么，不是你下一步打算学什么——而是你将会<em>做</em>什么，反复去做，贯穿你余生的投资岁月。
+</p>
+<p>
+举几个例子供参考：
+</p>
+<blockquote><em>"每季度第一个周末，我都会完整复盘投资组合，并按照政策进行再平衡，无一例外。"</em></blockquote>
+<blockquote><em>"任何我无法用两句话向一位持怀疑态度的朋友解释清楚的头寸，我都不会新建。"</em></blockquote>
+<blockquote><em>"我会将每一次回撤视为对我计划的压力测试，而不是放弃它的理由。"</em></blockquote>
+<blockquote><em>"我会在每年一月重新审视这份承诺，并根据这一年的收获加以更新。"</em></blockquote>
+<p>
+这份承诺，才是这门课程留给你的真正产物。其他一切——视频、图表、框架——都只是它的支撑。没有这份承诺，这门课程不过是一场娱乐。有了它，这门课程才是不同财务人生的起点。
+</p>
+<hr>
+<h2>最后的话</h2>
+<p>
+当你开始第一周时，你大概希望这门课程告诉你该拿自己的钱怎么办。它没有。它教会了你<strong>如何决定</strong>该拿自己的钱怎么办——而这是唯一一种能够持久的教育方式。
+</p>
+<p>
+市场将继续变化。策略将轮番进出。新的工具将会出现。旧的确定性将会崩塌。这些都不在你的掌控之中。在你掌控之中的，是你的过程、你的纪律，以及你持续出现、持续学习的意愿。
+</p>
+<p>
+你完成了这门课程。大多数人做不到这一点。现在去做更难的事：把它付诸实践。复利是耐心而公正的。它不在乎你有多少知识，它在乎你愿意给它多少年。
+</p>
+<p>
+把你最好的岁月给它。从现在开始。
+</p>
+<hr>
+<p>
+<em>请参阅<a href="disclaimer.html">免责声明</a>了解重要法律信息。本课程依据 MIT 许可证提供，向所有人免费开放。</em>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="lang-swap active-lang" data-lang-section="en"><div class="nav-buttons"><a href="level5_reflection.html" class="nav-btn prev"><span style="font-size:1.2rem">&#8592;</span><span class="nav-btn-text"><span class="btn-label">Previous</span><span>Level 5: Expert Reflection</span></span></a><a href="side01.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">Next</span><span>Side 1: Calculator</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="hk"><div class="nav-buttons"><a href="level5_reflection.html" class="nav-btn prev"><span style="font-size:1.2rem">&#8592;</span><span class="nav-btn-text"><span class="btn-label">上一頁</span><span>第五級：專家反思</span></span></a><a href="side01.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一頁</span><span>附加課程 01：掌握 TI BA II Plus 財務計算機</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="tw"><div class="nav-buttons"><a href="level5_reflection.html" class="nav-btn prev"><span style="font-size:1.2rem">&#8592;</span><span class="nav-btn-text"><span class="btn-label">上一頁</span><span>第五級：專家反思</span></span></a><a href="side01.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一頁</span><span>附加課程第一課：精通TI BA II Plus金融計算機</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div><div class="lang-swap" data-lang-section="cn"><div class="nav-buttons"><a href="level5_reflection.html" class="nav-btn prev"><span style="font-size:1.2rem">&#8592;</span><span class="nav-btn-text"><span class="btn-label">上一页</span><span>第五级:  专家反思</span></span></a><a href="side01.html" class="nav-btn next"><span class="nav-btn-text"><span class="btn-label">下一页</span><span>补充课程第01课：掌握TI BA II Plus金融计算器</span></span><span style="font-size:1.2rem">&#8594;</span></a></div></div>
+    </footer>
+
+    <footer class="site-footer">
+        <p><span class="lang-swap active-lang" data-lang-section="en">Chanma Investment Tutorial &copy; 2025 &middot; <a href="glossary.html">Glossary</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="hk">陳馬投資教學 &copy; 2025 &middot; <a href="glossary.html">詞彙表</a> &middot; <a href="disclaimer.html">免責聲明</a> &middot; <a href="faq.html">常見問題</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="tw">陳馬投資教學 &copy; 2025 &middot; <a href="glossary.html">詞彙表</a> &middot; <a href="disclaimer.html">免責聲明</a> &middot; <a href="faq.html">常見問題</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span><span class="lang-swap" data-lang-section="cn">陈马投资教程 &copy; 2025 &middot; <a href="glossary.html">词汇表</a> &middot; <a href="disclaimer.html">免责声明</a> &middot; <a href="faq.html">常见问题</a> &middot; <a href="https://www.patreon.com/c/hevangel">Patreon</a></span></p>
+        <p style="margin-top:4px;opacity:0.7;"><span class="lang-swap active-lang" data-lang-section="en">Released under the MIT License. Educational content only — not financial advice.</span><span class="lang-swap" data-lang-section="hk">以 MIT 授權釋出。內容僅作教學用途，並非投資建議。</span><span class="lang-swap" data-lang-section="tw">以 MIT 授權釋出。內容僅供教學使用，非投資建議。</span><span class="lang-swap" data-lang-section="cn">以 MIT 协议发布。内容仅供教学，并非投资建议。</span></p>
+    </footer>
+
+    <script>
+// --- Theme handling (must run before paint to avoid flash) ---
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('preferred-theme', theme); } catch(e) {}
+}
+function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+    rerenderMermaid();
+}
+
+// --- Mermaid rendering ---
+function getMermaidTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+}
+
+function renderMermaidIn(root) {
+    if (typeof mermaid === 'undefined') return;
+    var nodes = (root || document).querySelectorAll('.mermaid:not([data-processed="true"])');
+    if (!nodes.length) return;
+    try { mermaid.run({ nodes: nodes }); } catch (e) { console.warn('mermaid render failed', e); }
+}
+
+function initMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function rerenderMermaid() {
+    if (typeof mermaid === 'undefined') return;
+    // Restore original source from the sibling <pre class="mermaid-source"><code>
+    // (mermaid replaces the .mermaid contents with SVG on first render).
+    document.querySelectorAll('.mermaid-block').forEach(function(block) {
+        var srcEl = block.querySelector('.mermaid-source code');
+        var pre = block.querySelector('.mermaid');
+        if (srcEl && pre) {
+            pre.removeAttribute('data-processed');
+            pre.innerHTML = srcEl.innerHTML;
+        }
+    });
+    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), securityLevel: 'loose' });
+    renderMermaidIn(document);
+}
+
+function toggleMermaid(btn) {
+    var block = btn.closest('.mermaid-block');
+    if (!block) return;
+    var showingDiagram = block.getAttribute('data-view') === 'diagram';
+    block.setAttribute('data-view', showingDiagram ? 'source' : 'diagram');
+    btn.textContent = showingDiagram ? 'Show diagram' : 'Show source';
+}
+
+// --- Language switching ---
+function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('content-' + lang);
+    if (el) el.classList.add('active');
+    // Per-locale UI fragments (menu, breadcrumb, brand, footer, nav buttons)
+    document.querySelectorAll('.lang-swap').forEach(el => {
+        el.classList.toggle('active-lang', el.dataset.langSection === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+    });
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-' + lang.toUpperCase());
+    try { localStorage.setItem('preferred-lang', lang); } catch(e) {}
+    if (el) renderMermaidIn(el);
+}
+
+// --- Hamburger menu ---
+function toggleMenu(force) {
+    var panel = document.querySelector('.menu-panel');
+    var overlay = document.querySelector('.menu-overlay');
+    var btn = document.querySelector('.hamburger');
+    if (!panel || !overlay || !btn) return;
+    var open = (typeof force === 'boolean') ? force : !panel.classList.contains('open');
+    panel.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function setupMenuTriggers() {
+    document.querySelectorAll('.menu-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var group = btn.parentElement;
+            var open = !group.classList.contains('open');
+            group.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    });
+}
+
+// --- Init on DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', function() {
+    setupMenuTriggers();
+
+    var saved = null;
+    try { saved = localStorage.getItem('preferred-lang'); } catch(e) {}
+    if (saved && saved !== 'en') switchLang(saved);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') toggleMenu(false);
+    });
+
+    var overlay = document.querySelector('.menu-overlay');
+    if (overlay) overlay.addEventListener('click', function() { toggleMenu(false); });
+
+    // Twemoji upgrade — replaces emoji with high-quality SVGs so flags render
+    // consistently on Windows / Linux where the system font may show letters.
+    if (typeof twemoji !== 'undefined') {
+        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    }
+
+    initMermaid();
+});
+
+// Apply saved theme as early as possible (script in <head>)
+(function() {
+    try {
+        var t = localStorage.getItem('preferred-theme');
+        if (!t) {
+            t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+})();
+</script>
+</body>
+</html>

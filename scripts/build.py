@@ -30,11 +30,11 @@ TERMINOLOGY_PATH = os.path.join(SCRIPTS_DIR, "terminology.json")
 # Course structure definition
 # ---------------------------------------------------------------------------
 LEVELS = [
-    {"name": "Level 1: Foundation", "subtitle": "Beginner", "range": (1, 12), "overview": "level1_overview"},
-    {"name": "Level 2: Intermediate", "subtitle": "Intermediate", "range": (13, 24), "overview": "level2_overview"},
-    {"name": "Level 3: Advanced", "subtitle": "Options & Fixed Income", "range": (25, 36), "overview": "level3_overview"},
-    {"name": "Level 4: Sophisticated", "subtitle": "Professional Tools", "range": (37, 46), "overview": "level4_overview"},
-    {"name": "Level 5: Expert", "subtitle": "Portfolio Integration", "range": (47, 52), "overview": "level5_overview"},
+    {"name": "Level 1: Foundation", "subtitle": "Beginner", "range": (1, 12), "overview": "level1_overview", "reflection": "level1_reflection"},
+    {"name": "Level 2: Intermediate", "subtitle": "Intermediate", "range": (13, 24), "overview": "level2_overview", "reflection": "level2_reflection"},
+    {"name": "Level 3: Advanced", "subtitle": "Options & Fixed Income", "range": (25, 36), "overview": "level3_overview", "reflection": "level3_reflection"},
+    {"name": "Level 4: Sophisticated", "subtitle": "Professional Tools", "range": (37, 46), "overview": "level4_overview", "reflection": "level4_reflection"},
+    {"name": "Level 5: Expert", "subtitle": "Portfolio Integration", "range": (47, 52), "overview": "level5_overview", "reflection": "level5_reflection"},
 ]
 
 LOCALES = ("en", "hk", "tw", "cn")
@@ -54,6 +54,8 @@ LOCALE_LABELS = {
         "previous":         "Previous",
         "next":             "Next",
         "overview_suffix":  " Overview",
+        "reflection_suffix":" Reflection",
+        "course_reflection":"Course Reflection",
         "translation_pending": "Translation coming soon...",
         "level_names": [
             "Level 1: Foundation",
@@ -76,6 +78,8 @@ LOCALE_LABELS = {
         "previous":         "上一頁",
         "next":             "下一頁",
         "overview_suffix":  "總覽",
+        "reflection_suffix":"反思",
+        "course_reflection":"課程反思",
         "translation_pending": "翻譯稍後推出……",
         "level_names": [
             "第一級：入門",
@@ -98,6 +102,8 @@ LOCALE_LABELS = {
         "previous":         "上一頁",
         "next":             "下一頁",
         "overview_suffix":  "總覽",
+        "reflection_suffix":"反思",
+        "course_reflection":"課程反思",
         "translation_pending": "翻譯即將推出……",
         "level_names": [
             "第一級：入門",
@@ -120,6 +126,8 @@ LOCALE_LABELS = {
         "previous":         "上一页",
         "next":             "下一页",
         "overview_suffix":  "总览",
+        "reflection_suffix":"反思",
+        "course_reflection":"课程反思",
         "translation_pending": "翻译即将推出……",
         "level_names": [
             "第一级：入门",
@@ -344,6 +352,22 @@ def build_page_list(course_files):
                     "nav_title": f"Week {week_num}: {topic}",
                 })
 
+        reflection_file = f"{level.get('reflection', '')}.md" if level.get("reflection") else None
+        if reflection_file and reflection_file in course_files:
+            pages.append({
+                "slug": f"level{level_num}_reflection", "file": reflection_file,
+                "title": f"{level['name']} Reflection", "level": level_num,
+                "type": "level_reflection",
+                "nav_title": f"{level['name']} Reflection",
+            })
+
+    if "reflection.md" in course_files:
+        pages.append({
+            "slug": "reflection", "file": "reflection.md",
+            "title": "Course Reflection", "level": None,
+            "type": "course_reflection", "nav_title": "Course Reflection",
+        })
+
     side_files = sorted([f for f in course_files if f.startswith("side")])
     for file in side_files:
         m = re.match(r"side(\d+)_(.+)\.md", file)
@@ -392,6 +416,10 @@ def get_translated_nav_title(page, locale, lang_dirs):
     L = LOCALE_LABELS[locale]
     if page.get("type") == "level_overview" and page.get("level"):
         return L["level_names"][page["level"] - 1] + L["overview_suffix"]
+    if page.get("type") == "level_reflection" and page.get("level"):
+        return L["level_names"][page["level"] - 1] + L["reflection_suffix"]
+    if page.get("type") == "course_reflection":
+        return L["course_reflection"]
     if page.get("file") is None:
         info_label = {
             "glossary":   L["glossary"],
@@ -439,11 +467,20 @@ def build_nav_menu(pages, locale, lang_dirs):
         for p in level_pages:
             if p["type"] == "level_overview":
                 title = level_label + L["overview_suffix"]
+            elif p["type"] == "level_reflection":
+                title = level_label + L["reflection_suffix"]
             else:
                 title = get_translated_nav_title(p, locale, lang_dirs)
             parts.append(f'<a href="{p["slug"]}.html" class="menu-sublink">{title}</a>')
         parts.append('</div>')
         parts.append('</div>')
+
+    course_reflection_page = next((p for p in pages if p["type"] == "course_reflection"), None)
+    if course_reflection_page:
+        parts.append(
+            f'<a href="{course_reflection_page["slug"]}.html" '
+            f'class="menu-link menu-top">{L["course_reflection"]}</a>'
+        )
 
     side_pages = [p for p in pages if p["type"] == "side"]
     if side_pages:
@@ -482,6 +519,14 @@ def build_breadcrumb(page, locale, lang_dirs):
     if page["type"] == "level_overview":
         level_num = page["level"]
         crumbs.append(f'<span>{L["level_names"][level_num - 1]}</span>')
+    elif page["type"] == "level_reflection":
+        level_num = page["level"]
+        crumbs.append(
+            f'<a href="level{level_num}.html">{L["level_names"][level_num - 1]}</a>'
+        )
+        crumbs.append(f'<span>{L["reflection_suffix"].strip()}</span>')
+    elif page["type"] == "course_reflection":
+        crumbs.append(f'<span>{L["course_reflection"]}</span>')
     elif page["type"] == "week":
         level_num = page["level"]
         crumbs.append(

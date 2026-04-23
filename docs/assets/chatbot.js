@@ -23,11 +23,25 @@ const MODEL_OPTIONS = {
 };
 
 const ACTIVE_MODEL = "gemma-4-e2b";
-const MAX_CONTEXT_CHARS = 12000;
+const MAX_CONTEXT_CHARS = 6000;       // current-page slice in the system prompt
 const MAX_HISTORY_TURNS = 6;
 const MAX_NEW_TOKENS = 512;
 
 const CDN_URL = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4/+esm";
+
+// ----- Cross-lesson RAG ---------------------------------------------------
+// A small multilingual embedding model + a static JSON of every lesson's
+// reading section, chunked at build time by scripts/build_chatbot_index.py.
+// Embeddings are computed on-device the first time a given language is
+// used and cached in IndexedDB. At query time we cosine-sim the user's
+// question against the cached embeddings and inject the top-K chunks
+// into the system prompt alongside the current page text.
+const EMBED_MODEL_ID = "Xenova/paraphrase-multilingual-MiniLM-L12-v2";
+const CHUNKS_URL = "assets/chatbot_chunks.json";
+const TOP_K = 5;
+const RAG_DB_NAME = "chanma-chatbot-rag";
+const RAG_STORE = "embeddings";
+const RAG_DB_VERSION = 1;
 
 const I18N = {
     en: {
@@ -53,6 +67,21 @@ const I18N = {
         load_failed: "Could not load the model: ",
         gen_failed: "Generation failed: ",
         no_lesson: "(no lesson text found on this page)",
+        retrieved_header: "RELEVANT EXCERPTS FROM OTHER LESSONS",
+        current_page_header: "CURRENT LESSON (priority — answer using this first)",
+        index_section_label: "Pre-index for cross-lesson search",
+        index_section_help: "Without an index, the assistant answers from the current page only. Indexing one language adds ~5–30 seconds and ~5 MB extra memory.",
+        chip_ready: "Cross-lesson search on",
+        chip_indexing: "Indexing",
+        chip_none: "Index this language",
+        chip_error: "Index failed — retry",
+        chip_ready_title: "The assistant can pull excerpts from any lesson in this language.",
+        chip_index_title: "Click to build the cross-lesson search index for this language (one-time per browser).",
+        chip_retry_title: "Click to retry building the index.",
+        lang_en_full: "English",
+        lang_hk_full: "Hong Kong Chinese",
+        lang_tw_full: "Taiwan Chinese",
+        lang_cn_full: "Mainland Chinese",
         mermaid_chart: "Chart",
         mermaid_source: "Source",
         mermaid_toggle_label: "Toggle Mermaid chart display",
@@ -82,6 +111,21 @@ const I18N = {
         load_failed: "模型載入失敗: ",
         gen_failed: "生成失敗: ",
         no_lesson: "(本頁找不到課程內容)",
+        retrieved_header: "其他課程相關摘錄",
+        current_page_header: "目前課程(優先 — 請先用這部分回答)",
+        index_section_label: "預先建立跨課程搜尋索引",
+        index_section_help: "未建立索引時,助手只會看當前頁面。每種語言索引約需 5–30 秒、額外約 5 MB 記憶體。",
+        chip_ready: "跨課搜尋已啟用",
+        chip_indexing: "建立索引中",
+        chip_none: "為此語言建立索引",
+        chip_error: "建立索引失敗 — 點擊重試",
+        chip_ready_title: "助手可以從本語言的任何課程取出相關摘錄。",
+        chip_index_title: "點擊以為此語言建立跨課程搜尋索引(每個瀏覽器只需一次)。",
+        chip_retry_title: "點擊重試建立索引。",
+        lang_en_full: "英文",
+        lang_hk_full: "中文(香港)",
+        lang_tw_full: "中文(台灣)",
+        lang_cn_full: "中文(大陸)",
         mermaid_chart: "圖表",
         mermaid_source: "原始碼",
         mermaid_toggle_label: "切換 Mermaid 圖表顯示方式",
@@ -111,6 +155,21 @@ const I18N = {
         load_failed: "模型載入失敗: ",
         gen_failed: "生成失敗: ",
         no_lesson: "(本頁找不到課程內容)",
+        retrieved_header: "其他單元相關摘錄",
+        current_page_header: "目前單元(優先 — 請先用這部分回答)",
+        index_section_label: "預先建立跨單元搜尋索引",
+        index_section_help: "未建立索引時,助理只會看目前頁面。每種語言索引約需 5–30 秒、額外約 5 MB 記憶體。",
+        chip_ready: "跨單元搜尋已啟用",
+        chip_indexing: "建立索引中",
+        chip_none: "為此語言建立索引",
+        chip_error: "建立索引失敗 — 點擊重試",
+        chip_ready_title: "助理可以從本語言的任何單元取出相關摘錄。",
+        chip_index_title: "點擊以為此語言建立跨單元搜尋索引(每個瀏覽器只需一次)。",
+        chip_retry_title: "點擊重試建立索引。",
+        lang_en_full: "英文",
+        lang_hk_full: "中文(香港)",
+        lang_tw_full: "中文(台灣)",
+        lang_cn_full: "中文(大陸)",
         mermaid_chart: "圖表",
         mermaid_source: "原始碼",
         mermaid_toggle_label: "切換 Mermaid 圖表顯示方式",
@@ -140,6 +199,21 @@ const I18N = {
         load_failed: "模型加载失败: ",
         gen_failed: "生成失败: ",
         no_lesson: "(本页找不到课程内容)",
+        retrieved_header: "其他课程相关摘录",
+        current_page_header: "当前课程(优先 — 请先用这部分回答)",
+        index_section_label: "预先建立跨课程搜索索引",
+        index_section_help: "未建立索引时,助手只会看当前页面。每种语言索引约需 5–30 秒、额外约 5 MB 内存。",
+        chip_ready: "跨课程搜索已启用",
+        chip_indexing: "建立索引中",
+        chip_none: "为此语言建立索引",
+        chip_error: "建立索引失败 — 点击重试",
+        chip_ready_title: "助手可以从本语言的任何课程取出相关摘录。",
+        chip_index_title: "点击为此语言建立跨课程搜索索引(每个浏览器只需一次)。",
+        chip_retry_title: "点击重试建立索引。",
+        lang_en_full: "英文",
+        lang_hk_full: "中文(香港)",
+        lang_tw_full: "中文(台湾)",
+        lang_cn_full: "中文(大陆)",
         mermaid_chart: "图表",
         mermaid_source: "源码",
         mermaid_toggle_label: "切换 Mermaid 图表显示方式",
@@ -186,16 +260,33 @@ function getActiveLessonText() {
     return text;
 }
 
-function buildSystemPrompt() {
+async function buildSystemPrompt(userQuestion) {
     const lessonText = getActiveLessonText() || t("no_lesson");
-    return (
-        "You are an investing tutor for the Chanma Investment Tutorial. " +
-        "Answer the user's question using ONLY the lesson text below. " +
-        "If the lesson does not cover the question, say so honestly rather than guessing. " +
-        "Reply in the same language the user uses. Keep answers concise (under ~200 words) " +
-        "unless the user explicitly asks for more detail.\n\n" +
-        "LESSON:\n" + lessonText
-    );
+    let retrieved = [];
+    if (userQuestion) {
+        retrieved = await retrieveContext(userQuestion);
+    }
+    const blocks = [
+        "You are an investing tutor for the Chanma Investment Tutorial.",
+        "Answer the user's question using ONLY the course material provided below.",
+        "Prefer the CURRENT LESSON section. Use the RELEVANT EXCERPTS only when",
+        "the current lesson does not cover the question, and cite the lesson",
+        "title in brackets when you draw on an excerpt (e.g. \"[Week 5: Bonds] …\").",
+        "If neither section covers the question, say so honestly rather than guessing.",
+        "Reply in the same language the user uses. Keep answers concise (~200 words)",
+        "unless the user explicitly asks for more detail.",
+        "",
+        t("current_page_header") + ":",
+        lessonText,
+    ];
+    if (retrieved.length) {
+        blocks.push("");
+        blocks.push(t("retrieved_header") + ":");
+        for (const { chunk } of retrieved) {
+            blocks.push(`[${chunk.title}] ${chunk.text}`);
+        }
+    }
+    return blocks.join("\n");
 }
 
 // ----- DOM scaffolding ----------------------------------------------------
@@ -545,9 +636,47 @@ function buildIntroPanel(panel, body) {
             t("load_btn"),
         );
         intro.appendChild(loadBtn);
+
+        // Language checkboxes for cross-lesson indexing. Pre-checks the
+        // current page's language. Already-cached languages show ✓ and
+        // are checked + disabled (re-indexing them is a no-op anyway).
+        const indexSection = el("div", { class: "chat-index-options" });
+        indexSection.appendChild(el("p", { class: "chat-index-label" }, t("index_section_label")));
+        indexSection.appendChild(el("p", { class: "chat-index-help muted" }, t("index_section_help")));
+        const cur = currentLocale();
+        for (const lang of SUPPORTED_LANGS) {
+            const cbId = `chat-index-cb-${lang}`;
+            const wrap = el("label", { class: "chat-index-checkbox", for: cbId });
+            const ready = getLangIndexState(lang) === "ready";
+            const cb = el("input", { type: "checkbox", id: cbId, "data-lang": lang });
+            if (lang === cur || ready) cb.checked = true;
+            if (ready) cb.disabled = true;
+            wrap.appendChild(cb);
+            wrap.appendChild(el("span", {}, t(`lang_${lang}_full`) + (ready ? " ✓" : "")));
+            indexSection.appendChild(wrap);
+        }
+        intro.appendChild(indexSection);
+
         intro.appendChild(el("p", { class: "muted" }, t("subtitle")));
     }
     body.appendChild(intro);
+}
+
+// Update the "✓" + disabled state on intro checkboxes when an indexing
+// run completes (e.g. user kicked off indexing via the chip while the
+// intro is still visible — though normally the intro is gone by then).
+function refreshIntroIndexCheckboxes() {
+    for (const lang of SUPPORTED_LANGS) {
+        const cb = document.getElementById(`chat-index-cb-${lang}`);
+        if (!cb) continue;
+        const span = cb.parentElement.querySelector("span");
+        const ready = getLangIndexState(lang) === "ready";
+        if (ready && span && !span.textContent.includes("✓")) {
+            cb.checked = true;
+            cb.disabled = true;
+            span.textContent = t(`lang_${lang}_full`) + " ✓";
+        }
+    }
 }
 
 // ----- Model state --------------------------------------------------------
@@ -555,6 +684,19 @@ let pipelinePromise = null;
 let generator = null;
 let chatHistory = [];
 let pendingAbort = null;
+
+// ----- RAG state ----------------------------------------------------------
+let embedderPromise = null;
+let embedder = null;
+let chunksPromise = null;
+let allChunks = null;                                 // [{id, lang, url, title, text}]
+const langEmbeddings = new Map();                     // lang → { ids, vectors: Float32Array, dim }
+const langIndexPromises = new Map();                  // lang → Promise<void>  (in-flight build)
+const langIndexState = new Map();                     // lang → "none"|"indexing"|"ready"|"error"
+const langIndexProgress = new Map();                  // lang → { done, total }
+let ragDb = null;                                     // IDBDatabase
+
+const SUPPORTED_LANGS = ["en", "hk", "tw", "cn"];
 
 async function loadGenerator(intro) {
     if (generator) return generator;
@@ -579,6 +721,240 @@ async function loadGenerator(intro) {
         })();
     }
     return pipelinePromise;
+}
+
+// ----- RAG: embedding model + chunks --------------------------------------
+async function loadEmbedder() {
+    if (embedder) return embedder;
+    if (!embedderPromise) {
+        embedderPromise = (async () => {
+            const tx = await import(/* @vite-ignore */ CDN_URL);
+            const { pipeline } = tx;
+            // Small multilingual model — runs on WebGPU when available, falls
+            // back to WASM. Inference is fast enough that q8 is fine.
+            const wantWebgpu = "gpu" in navigator;
+            embedder = await pipeline("feature-extraction", EMBED_MODEL_ID, {
+                device: wantWebgpu ? "webgpu" : "wasm",
+                dtype: "q8",
+            });
+            return embedder;
+        })();
+    }
+    return embedderPromise;
+}
+
+async function loadChunks() {
+    if (allChunks) return allChunks;
+    if (!chunksPromise) {
+        chunksPromise = (async () => {
+            const res = await fetch(CHUNKS_URL);
+            if (!res.ok) throw new Error(`chunks fetch ${res.status}`);
+            allChunks = await res.json();
+            return allChunks;
+        })();
+    }
+    return chunksPromise;
+}
+
+// ----- IndexedDB cache for per-language embeddings ------------------------
+function openRagDb() {
+    if (ragDb) return Promise.resolve(ragDb);
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(RAG_DB_NAME, RAG_DB_VERSION);
+        req.onupgradeneeded = () => {
+            const db = req.result;
+            if (!db.objectStoreNames.contains(RAG_STORE)) {
+                db.createObjectStore(RAG_STORE);
+            }
+        };
+        req.onsuccess = () => { ragDb = req.result; resolve(ragDb); };
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function loadCachedEmbeddings(lang) {
+    try {
+        const db = await openRagDb();
+        return await new Promise((resolve, reject) => {
+            const tx = db.transaction(RAG_STORE, "readonly");
+            const req = tx.objectStore(RAG_STORE).get(lang);
+            req.onsuccess = () => resolve(req.result || null);
+            req.onerror = () => reject(req.error);
+        });
+    } catch (err) {
+        console.warn("RAG cache read failed", err);
+        return null;
+    }
+}
+
+async function saveCachedEmbeddings(lang, payload) {
+    try {
+        const db = await openRagDb();
+        await new Promise((resolve, reject) => {
+            const tx = db.transaction(RAG_STORE, "readwrite");
+            tx.objectStore(RAG_STORE).put(payload, lang);
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+        });
+    } catch (err) {
+        console.warn("RAG cache write failed", err);
+    }
+}
+
+// ----- Embedding & retrieval ----------------------------------------------
+async function embedTexts(texts, onBatch) {
+    const e = await loadEmbedder();
+    const dim = 384;                       // paraphrase-multilingual-MiniLM-L12-v2
+    const out = new Float32Array(texts.length * dim);
+    const batchSize = 16;
+    for (let i = 0; i < texts.length; i += batchSize) {
+        const batch = texts.slice(i, i + batchSize);
+        const result = await e(batch, { pooling: "mean", normalize: true });
+        // transformers.js returns a Tensor — flatten its data into our buffer.
+        const data = result.data;
+        out.set(data, i * dim);
+        if (onBatch) onBatch(Math.min(i + batch.length, texts.length), texts.length);
+    }
+    return { vectors: out, dim };
+}
+
+function setLangIndexState(lang, state, progress) {
+    langIndexState.set(lang, state);
+    if (progress) langIndexProgress.set(lang, progress);
+    else langIndexProgress.delete(lang);
+    refreshIndexChip();
+    refreshIntroIndexCheckboxes();
+}
+
+function getLangIndexState(lang) {
+    return langIndexState.get(lang) || "none";
+}
+
+// Look up a previously-cached embedding set in IndexedDB and hydrate it
+// into the in-memory map without re-embedding. Called once per language
+// when the chat panel is built so the chip reflects state from past sessions.
+async function probeCachedIndex(lang) {
+    if (langEmbeddings.has(lang)) return true;
+    const cached = await loadCachedEmbeddings(lang);
+    if (cached && cached.vectors instanceof ArrayBuffer && Array.isArray(cached.ids)) {
+        const entry = {
+            ids: cached.ids,
+            vectors: new Float32Array(cached.vectors),
+            dim: cached.dim || 384,
+        };
+        langEmbeddings.set(lang, entry);
+        setLangIndexState(lang, "ready");
+        return true;
+    }
+    return false;
+}
+
+async function probeAllCachedIndexes() {
+    for (const lang of SUPPORTED_LANGS) {
+        if (!langIndexState.has(lang)) {
+            await probeCachedIndex(lang);
+        }
+    }
+}
+
+// Explicitly build (or rebuild) the embedding index for one language.
+// Triggered from the intro-panel checkboxes during model load, or from
+// the header chip click later. Never called implicitly from a query —
+// if the user hasn't opted in, retrieval just returns no excerpts.
+async function buildIndexFor(lang) {
+    if (getLangIndexState(lang) === "ready") return;
+    if (langIndexPromises.has(lang)) return langIndexPromises.get(lang);
+
+    const promise = (async () => {
+        setLangIndexState(lang, "indexing", { done: 0, total: 0 });
+        try {
+            await loadEmbedder();
+            const chunks = await loadChunks();
+            const subset = chunks.filter((c) => c.lang === lang);
+            if (subset.length === 0) {
+                langEmbeddings.set(lang, { ids: [], vectors: new Float32Array(0), dim: 384 });
+                setLangIndexState(lang, "ready");
+                return;
+            }
+            const { vectors, dim } = await embedTexts(
+                subset.map((c) => c.text),
+                (done, total) => setLangIndexState(lang, "indexing", { done, total }),
+            );
+            const entry = { ids: subset.map((c) => c.id), vectors, dim };
+            langEmbeddings.set(lang, entry);
+            await saveCachedEmbeddings(lang, {
+                ids: entry.ids,
+                vectors: vectors.buffer,
+                dim,
+            });
+            setLangIndexState(lang, "ready");
+        } catch (err) {
+            console.warn("buildIndexFor failed", lang, err);
+            setLangIndexState(lang, "error");
+            throw err;
+        }
+    })();
+
+    langIndexPromises.set(lang, promise);
+    try {
+        await promise;
+    } finally {
+        langIndexPromises.delete(lang);
+    }
+}
+
+function cosineTopK(query, entry, k, excludeChunk) {
+    const { ids, vectors, dim } = entry;
+    if (!ids.length) return [];
+    // Both query and stored vectors are L2-normalized → dot product = cosine.
+    const scores = new Float32Array(ids.length);
+    for (let i = 0; i < ids.length; i++) {
+        let s = 0;
+        const off = i * dim;
+        for (let d = 0; d < dim; d++) s += query[d] * vectors[off + d];
+        scores[i] = s;
+    }
+    const order = Array.from(scores.keys()).sort((a, b) => scores[b] - scores[a]);
+    const picked = [];
+    const perUrlCount = new Map();
+    for (const i of order) {
+        const id = ids[i];
+        const chunk = allChunks[id];
+        if (!chunk) continue;
+        if (excludeChunk && chunk.url === excludeChunk) continue;
+        // Diversify: at most 2 chunks per source URL so a single lesson
+        // doesn't crowd out everything else.
+        const c = perUrlCount.get(chunk.url) || 0;
+        if (c >= 2) continue;
+        perUrlCount.set(chunk.url, c + 1);
+        picked.push({ chunk, score: scores[i] });
+        if (picked.length >= k) break;
+    }
+    return picked;
+}
+
+function currentPageUrl() {
+    const path = window.location.pathname;
+    const last = path.substring(path.lastIndexOf("/") + 1);
+    return last || "index.html";
+}
+
+async function retrieveContext(question) {
+    try {
+        const lang = currentLocale();
+        // Only retrieve if the user has explicitly opted in to indexing
+        // for this language and it has finished building.
+        if (getLangIndexState(lang) !== "ready") return [];
+        const entry = langEmbeddings.get(lang);
+        if (!entry || !entry.ids.length) return [];
+        const e = await loadEmbedder();
+        const result = await e([question], { pooling: "mean", normalize: true });
+        const queryVec = new Float32Array(result.data);
+        return cosineTopK(queryVec, entry, TOP_K, currentPageUrl());
+    } catch (err) {
+        console.warn("retrieveContext failed", err);
+        return [];
+    }
 }
 
 function ensureProgressUI(intro) {
@@ -652,9 +1028,44 @@ function resetProgressState() {
 async function startLoad(panel, body, loadBtn, intro) {
     loadBtn.disabled = true;
     loadBtn.textContent = t("loading");
+
+    // Snapshot the user's checkbox selection BEFORE we tear down the intro
+    // panel (showChatUI replaces its DOM).
+    const checkedLangs = Array.from(intro.querySelectorAll(".chat-index-checkbox input:checked"))
+        .map((cb) => cb.dataset.lang)
+        .filter((lang) => SUPPORTED_LANGS.includes(lang));
+
     try {
+        // RAG warmup: fetch chunks JSON + embedder model in parallel with
+        // the Gemma download. Both are small (~7 MB JSON, ~50 MB model)
+        // and will finish long before Gemma's 3.1 GB.
+        loadEmbedder().catch((err) => console.warn("embedder load failed", err));
+        loadChunks().catch((err) => console.warn("chunks load failed", err));
+
+        // Build embedding indexes for every checked language in parallel
+        // with Gemma. We do NOT await this — we let it continue running
+        // after the chat UI shows, with the chip reporting progress.
+        // Already-cached languages skip embedding (buildIndexFor short-
+        // circuits when state is already "ready" via probeCachedIndex).
+        const indexingPromise = (async () => {
+            await probeAllCachedIndexes();
+            for (const lang of checkedLangs) {
+                if (getLangIndexState(lang) === "ready") continue;
+                try {
+                    await buildIndexFor(lang);
+                } catch (err) {
+                    // Already marked error — chip will surface it. Don't
+                    // halt the rest of the languages.
+                }
+            }
+        })();
+
         await loadGenerator(intro);
         showChatUI(panel, body);
+        refreshIndexChip();
+        // indexingPromise keeps running in the background; chip updates
+        // come through setLangIndexState → refreshIndexChip.
+        indexingPromise.catch((err) => console.warn("indexing failed", err));
     } catch (err) {
         const errBox = el("p", { class: "chat-msg error" }, t("load_failed") + (err && err.message || String(err)));
         intro.appendChild(errBox);
@@ -718,8 +1129,9 @@ async function handleSend(panel, textarea) {
         chatHistory = chatHistory.slice(-MAX_HISTORY_TURNS * 2);
     }
 
+    const systemPrompt = await buildSystemPrompt(userText);
     const messages = [
-        { role: "system", content: buildSystemPrompt() },
+        { role: "system", content: systemPrompt },
         ...chatHistory,
     ];
 
@@ -787,11 +1199,62 @@ function buildPanel() {
     header.appendChild(el("button", { class: "chat-header-clear", onclick: () => clearConversation(panel), title: t("clear") }, "↻"));
     header.appendChild(el("button", { class: "chat-header-close", onclick: () => togglePanel(false), title: t("close") }, "✕"));
     panel.appendChild(header);
+
+    // Status bar with the cross-lesson index chip. Always present so the
+    // user can see at a glance whether the current language is indexed,
+    // and click to start indexing if not.
+    const statusBar = el("div", { class: "chat-status-bar" });
+    const chip = el("button", { class: "chat-index-chip", type: "button", onclick: () => onIndexChipClick() }, "");
+    statusBar.appendChild(chip);
+    panel.appendChild(statusBar);
+
     const body = el("div", { class: "chat-body" });
     panel.appendChild(body);
     document.body.appendChild(panel);
     buildIntroPanel(panel, body);
+    // Probe IndexedDB for any cached indexes from previous sessions, then
+    // render the chip with the correct state for the current language.
+    probeAllCachedIndexes().then(refreshIndexChip).catch(() => refreshIndexChip());
     return panel;
+}
+
+function refreshIndexChip() {
+    const chip = document.querySelector(".chat-index-chip");
+    if (!chip) return;
+    const lang = currentLocale();
+    const state = getLangIndexState(lang);
+    chip.classList.remove("ready", "indexing", "none", "error");
+    chip.classList.add(state);
+    if (state === "ready") {
+        chip.textContent = "✓ " + t("chip_ready");
+        chip.title = t("chip_ready_title");
+        chip.disabled = true;
+    } else if (state === "indexing") {
+        const p = langIndexProgress.get(lang) || { done: 0, total: 0 };
+        const pct = p.total ? Math.round(100 * p.done / p.total) : 0;
+        chip.textContent = `⏳ ${t("chip_indexing")} ${pct}%`;
+        chip.title = "";
+        chip.disabled = true;
+    } else if (state === "error") {
+        chip.textContent = "⚠ " + t("chip_error");
+        chip.title = t("chip_retry_title");
+        chip.disabled = false;
+    } else {
+        chip.textContent = "○ " + t("chip_none");
+        chip.title = t("chip_index_title");
+        chip.disabled = false;
+    }
+}
+
+async function onIndexChipClick() {
+    const lang = currentLocale();
+    const state = getLangIndexState(lang);
+    if (state === "ready" || state === "indexing") return;
+    try {
+        await buildIndexFor(lang);
+    } catch (err) {
+        // setLangIndexState already marked it as error and refreshed the chip.
+    }
 }
 
 // Re-translate every static label inside the chat panel. Called whenever
@@ -858,6 +1321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const panel = document.getElementById("chat-panel");
         if (panel) {
             updateChatI18n();
+            refreshIndexChip();
             if (!generator) {
                 const body = panel.querySelector(".chat-body");
                 if (body && body.querySelector(".chat-intro")) buildIntroPanel(panel, body);
