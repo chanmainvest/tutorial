@@ -57,8 +57,16 @@ Key source documents in `references/` drive content creation:
 
 Every lesson file (core weeks, side lessons, level overviews, and course overview) is a **single markdown file** containing both parts:
 
-1. **Reading section (Part 1)**: a) Why this is important, b) What you need to know, c) Common misconceptions, d) Common Q&A — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
+1. **Reading section (Part 1)**: four top-level sections — `### 1. Why This Is Important`, `### 2. What You Need to Know`, `### 3. Common Misconceptions`, `### 4. Q&A` — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
 2. **YouTube script section (Part 2)**: Same material adapted for two hosts (Horace = teacher, Stella = student). Includes `[ANIMATION: ...]` cues at the right locations pointing to clips in `course/animation/`, plus visual explanation descriptions.
+
+**Section numbering convention.** Use **decimal-style numbering**, not letter-prefixed lists:
+
+- Top-level reading sections: `### 1.`, `### 2.`, `### 3.`, `### 4.` (NOT `### a)`, `### b)`, etc.).
+- Subsections under §2 (the "What You Need to Know" deep dive): `#### 2.1`, `#### 2.2`, `#### 2.3`, … (NOT bare `#### 1.`, `#### 2.`, which would shadow the top-level numbers).
+- If a §3 or §4 subsection ever needs to be its own H4, use `#### 3.1`, `#### 4.1`, etc. — same dotted-decimal pattern.
+
+This keeps cross-references unambiguous (`§2.4` is one specific subsection, not the fourth bullet under any of four parallel parents) and reads cleanly in both English and Chinese translations. The build strips the now-redundant `## Part 1: Reading Section` heading from the website (Part 2 is already stripped, so naming Part 1 is meaningless on the public site); the H3/H4 numbered sections become the visible top-level structure.
 
 **Asset layout for a lesson:**
 - Static images and the Python code that generates procedural ones live under `course/image/` (e.g. `image/week01_compound_growth.png` + `image/week01_compound_growth.py`).
@@ -68,7 +76,7 @@ Every lesson file (core weeks, side lessons, level overviews, and course overvie
 
 **IMPORTANT: Both parts live in the same file intentionally.** When updating or editing any lesson content, you MUST also update the corresponding YouTube script in Part 2 of that same file to keep them consistent. The reading section and YouTube script cover the same material — they must stay in sync.
 
-The website only displays Part 1 (reading section). `scripts/build.py` strips Part 2 (everything from `## Part 2: YouTube Script` onward) from web output. It also strips the in-markdown "interactive demo description" prose for any lesson where an interactive component is actually present (the live component replaces it); where no interactive component exists, the description is removed and only the static image remains.
+The website only displays Part 1 (reading section). `scripts/build.py` strips Part 2 (everything from `## Part 2: YouTube Script` onward) and the now-redundant `## Part 1: Reading Section` header from web output. It also strips the in-markdown "interactive demo description" prose for any lesson where an interactive component is actually present (the live component replaces it); where no interactive component exists, the description is removed and only the static image remains.
 
 ## YouTube Host Characters
 
@@ -85,6 +93,56 @@ When writing English YouTube scripts, always use the English names (Horace / Ste
 - Side lessons cover practical topics (calculator usage, specific instruments, real-world examples) that don't fit the weekly progression
 - Animations and interactive demos should make abstract financial concepts tangible — animations carry the explanation in the YouTube script; interactive demos let website readers manipulate the same concept directly.
 - Website is audience-facing (no technical/GitHub details) and hosts the **full** course material — every weekly lesson, side lesson, level overview, course overview, FAQ, disclaimer, and the terminology glossary — across all four languages
+
+## Investment Philosophy (`SOUL.md`) — REQUIRED READING
+
+`SOUL.md` in the repo root contains Horace's personal investment
+philosophy: 17 numbered principles (market efficiency vs alpha + the
+expression-toolkit requirement, the 40-year passive consensus and its
+specific reversal triggers, stores of value as belief, sources of
+structural alpha, vol-surface-aware TA in the post-COVID 0DTE era, no
+penny stocks in a passive-flow big-cap world, momentum/mean-reversion
+*and* vol-on/vol-off regimes, the irrational-vs-solvent constraint, the
+four tranches (with options-based phase-3 execution), the barbell
+replacing the passive core, after-tax return management via options and
+margin, US-as-the-only-market with HK/CN uninvestable and TW = TSMC,
+and the Dragon-portfolio shape with both Fed put and tail hedges). It
+is the **soul** of this course — the lens through which every lesson
+must be written and reviewed.
+
+**Read `SOUL.md` before creating, editing, or reviewing any lesson
+content** (core week, side lesson, level overview, course overview,
+glossary entry, FAQ, disclaimer — in any language).
+
+### How to apply SOUL.md to lessons
+
+The course still teaches the canonical professional curriculum (CFA and
+others) as **knowledge** — students must know what the professional
+world believes. But where the canon conflicts with a SOUL.md principle:
+
+1. **Teach the orthodox view first**, accurately and without strawmanning.
+2. **Then add Horace's view**, with the reasoning from SOUL.md. Use first-person voice ("I don't day trade because…", "In my experience…"). In the YouTube script, this is naturally Horace's line.
+3. **Refer the reader** to the lesson where the disagreement is covered in depth, if there is one. Don't litigate the same disagreement five times across the course — pick the right home for the deep treatment and link to it from the others.
+4. **Never present canon as personal conviction** when it isn't, and never hide a disagreement just to keep the lesson tidy.
+
+### Conflict detection during review
+
+When reviewing or editing a lesson, scan it against every SOUL.md
+principle. If the lesson:
+
+- Contradicts a SOUL.md principle without acknowledging it → **flag it** (don't silently rewrite). Surface the conflict in the review summary so Horace can decide whether to add a "my view" sidebar, refer out to another lesson, or leave it (sometimes a lesson legitimately stays neutral and defers the philosophy elsewhere).
+- Aligns with a SOUL.md principle but doesn't make the connection explicit → suggest tightening the link so the philosophy stays load-bearing across the course rather than scattered.
+- Repeats a "my view" sidebar that already exists in another lesson → suggest replacing it with a one-line back-reference, to keep the philosophy DRY.
+
+The point of the flag is **not** to censor the orthodox material — the
+canon stays in the lesson. The flag is so Horace can decide where his
+voice belongs.
+
+### When SOUL.md itself needs updating
+
+If a lesson surfaces a conviction that isn't already in SOUL.md (or
+contradicts it), don't change SOUL.md unilaterally. Flag it for Horace
+to update by hand — SOUL.md is the source of truth, not derived content.
 
 ## Build & Development
 

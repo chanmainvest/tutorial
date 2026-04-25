@@ -539,6 +539,93 @@ a:hover { color: var(--accent-hover); }
 
 img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
 
+/* --- Lesson interactive component (live demo + static fallback) --- */
+.lesson-interactive {
+    margin: 18px 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+.lesson-interactive-modeswitch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card-bg) 94%, var(--accent) 6%);
+    user-select: none;
+}
+.lesson-interactive-mslabel {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+.lesson-interactive-mslabel[data-active="true"] {
+    color: var(--text);
+}
+.lesson-interactive-msbutton {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+.lesson-interactive-msbutton[aria-checked="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+.lesson-interactive-msthumb {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    transition: left 0.18s ease;
+}
+.lesson-interactive-msbutton[aria-checked="true"] .lesson-interactive-msthumb {
+    left: 19px;
+}
+.lesson-interactive-frame-wrap {
+    width: 100%;
+    /* Sized to actual iframe content height; avoids the white bar and the
+       inner scrollbar at the same time. */
+    min-height: 770px;
+}
+.lesson-interactive-frame {
+    width: 100%;
+    height: 770px;
+    border: 0;
+    display: block;
+    background: var(--card-bg);
+}
+.lesson-interactive-fallback {
+    display: block;
+    margin: 0 auto;
+    border-radius: 0;
+}
+/* The `hidden` HTML attribute MUST win over `display: block` above —
+   without this the static image stays visible alongside the iframe. */
+.lesson-interactive-frame-wrap[hidden],
+.lesson-interactive-fallback[hidden] {
+    display: none !important;
+}
+@media (max-width: 640px) {
+    .lesson-interactive-frame-wrap { min-height: 980px; }
+    .lesson-interactive-frame { height: 980px; }
+}
+
 /* --- Footer Navigation --- */
 .page-footer {
     max-width: 820px;
@@ -619,6 +706,9 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <link rel="stylesheet" href="assets/chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], ignoredTags: ['script','noscript','style','textarea','pre','code'], throwOnError: false});"></script>
     <script type="module" src="assets/chatbot.js" defer></script>
 </head>
 <body>
@@ -776,7 +866,7 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
 <a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
-<a href="week01.html" class="menu-sublink">第一週：為何要投資？貨幣的時間價值</a>
+<a href="week01.html" class="menu-sublink">第一週：為何要投資？貨幣時間價值</a>
 <a href="week02.html" class="menu-sublink">第二週：指數基金與交易所買賣基金</a>
 <a href="week03.html" class="menu-sublink">第三週：理解風險與回報</a>
 <a href="week04.html" class="menu-sublink">第四週：六四投資組合</a>
@@ -901,7 +991,7 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
 <button class="menu-trigger" type="button" aria-expanded="false"><span>第一級：入門</span><span class="caret">&#9656;</span></button>
 <div class="menu-sub">
 <a href="level1.html" class="menu-sublink">第一級：入門總覽</a>
-<a href="week01.html" class="menu-sublink">第一週：為什麼要投資？貨幣時間價值</a>
+<a href="week01.html" class="menu-sublink">第一週：為何要投資？貨幣時間價值</a>
 <a href="week02.html" class="menu-sublink">第二週：指數基金與指數股票型基金</a>
 <a href="week03.html" class="menu-sublink">第三週：理解風險與報酬</a>
 <a href="week04.html" class="menu-sublink">第四週：60/40 投資組合</a>
@@ -1151,20 +1241,15 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     </aside>
 
     <div class="breadcrumb-bar">
-        <div class="breadcrumb-inner"><span class="lang-swap active-lang" data-lang-section="en"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">Level 1: Foundation</a> <span class="bc-sep">&#8250;</span> <span>Week 1: Why invest</span></span><span class="lang-swap" data-lang-section="hk"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一級：入門</a> <span class="bc-sep">&#8250;</span> <span>第一週：為何要投資？貨幣的時間價值</span></span><span class="lang-swap" data-lang-section="tw"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一級：入門</a> <span class="bc-sep">&#8250;</span> <span>第一週：為什麼要投資？貨幣時間價值</span></span><span class="lang-swap" data-lang-section="cn"><a href="index.html">陈马投资教程</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一级：入门</a> <span class="bc-sep">&#8250;</span> <span>第一周：为什么要投资？货币的时间价值</span></span></div>
+        <div class="breadcrumb-inner"><span class="lang-swap active-lang" data-lang-section="en"><a href="index.html">Chanma Investment Tutorial</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">Level 1: Foundation</a> <span class="bc-sep">&#8250;</span> <span>Week 1: Why invest</span></span><span class="lang-swap" data-lang-section="hk"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一級：入門</a> <span class="bc-sep">&#8250;</span> <span>第一週：為何要投資？貨幣時間價值</span></span><span class="lang-swap" data-lang-section="tw"><a href="index.html">陳馬投資教學</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一級：入門</a> <span class="bc-sep">&#8250;</span> <span>第一週：為何要投資？貨幣時間價值</span></span><span class="lang-swap" data-lang-section="cn"><a href="index.html">陈马投资教程</a> <span class="bc-sep">&#8250;</span> <a href="level1.html">第一级：入门</a> <span class="bc-sep">&#8250;</span> <span>第一周：为什么要投资？货币的时间价值</span></span></div>
     </div>
 
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
                 <h1>Week 1: Why Invest? The Time Value of Money</h1>
-<p>
-Animation reference: <code>animation/week01_compound_growth.py</code>
-</p>
 <hr>
-<h2>Part 1: Reading Section</h2>
-<hr>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
 Money sitting idle is money losing value. Every single day, inflation chips away at
 the purchasing power of cash stuffed under a mattress or parked in a zero-interest
@@ -1189,101 +1274,116 @@ If you understand TVM, you understand why investing is not optional. It is the o
 way to ensure your wealth grows faster than the economy erodes it.
 </p>
 <p>
-Here is a stark comparison:
+Take the last 55 years and run a thought experiment with three savers. Starting in
+1971, each one deposits exactly $10,000 a year — the same nominal amount, every
+year, no exception. The only thing that differs is <em>where</em> they put it.
 </p>
-<pre><code class="language-">  Person A: Saves $10,000/year in a bank account (0.5% interest)
+<ul><li><strong>Person A</strong> keeps it in cash. No bank, no interest. Pure currency, sitting in a</li>
 <p>
-Person B: Invests $10,000/year in the stock market (avg 10% return)
+</ul>  drawer.
+</p>
+<ul><li><strong>Person B</strong> parks it in short-term US Treasury bills, the safest interest-bearing</li>
+<p>
+</ul>  vehicle there is.
+</p>
+<ul><li><strong>Person C</strong> puts it in the S&P 500 with all dividends reinvested.</li>
+<p>
+</ul>
+Same discipline, same dollars, three completely different outcomes:
+</p>
+<figure class="lesson-interactive" data-asset="week01_three_portfolios"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_three_portfolios.html?lang=en" loading="lazy" title="Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M."></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_en.png" alt="Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M."></figure>
+<p>
+After 55 years, each person has deposited the same <strong>$550,000</strong> of their own money.
+But the end balances are not in the same league:
+</p>
+<table><thead><tr><th>Vehicle</th><th>Annualized return (CAGR)</th><th>End value (nominal)</th><th>End value in 1971 dollars</th></tr></thead><tbody><tr><td><strong>Person C — S&P 500</strong></td><td><strong>11.24% / yr</strong></td><td><strong>$42,041,000</strong></td><td><strong>$5,079,000</strong></td></tr><tr><td><strong>Person B — T-bills</strong></td><td>4.38% / yr</td><td>$1,725,000</td><td>$208,000</td></tr><tr><td><strong>Person A — Cash</strong></td><td>0.00% / yr</td><td>$550,000</td><td>$66,000</td></tr></tbody></table>
+<p>
+The "annualized return" column is the <strong>compound annual growth rate (CAGR)</strong> — the
+single constant rate that, compounded over the same 55 years, would produce the
+same growth factor as the actual year-by-year path of the underlying asset. It is
+the right number to quote, because the simple arithmetic average of annual returns
+overstates real compound performance. For reference, US CPI averaged **3.92% per
+year** over the same window — so anything below that line is a real-purchasing-power
+loss before you even talk about taxes.
 </p>
 <p>
-After 30 years:
-+-----------+----------------+----------------+
-|           |   Person A     |   Person B     |
-+-----------+----------------+----------------+
-| Deposited |   $300,000     |   $300,000     |
-| Value     |   $323,705     | $1,809,434     |
-| Growth    |    $23,705     | $1,509,434     |
-+-----------+----------------+----------------+
-</code></pre>
+Person C ends with <strong>24×</strong> the nominal wealth of Person B and <strong>76×</strong> the nominal
+wealth of Person A, despite contributing the identical $10,000 a year. And look
+closer at Person A: the $550,000 cash pile, after 55 years of accumulated US
+inflation, has the <em>real</em> purchasing power of only about <strong>$66,000 in 1971 dollars</strong>.
+Person A did not just fail to grow their wealth — inflation actively shrank it while
+they were dutifully saving.
 </p>
 <p>
-Person B has over five times the wealth, despite contributing the exact same amount.
-The difference is entirely due to the time value of money and compound growth.
-</p>
-<p>
-Every year you delay investing is a year of compounding you can never get back.
-A 25-year-old who invests $5,000 per year until age 65 at 10% average returns
-will have approximately $2.4 million. If that same person waits until age 35 to
-start, they will have roughly $900,000 -- less than half, despite only missing
-10 years of contributions. The math is unforgiving.
+The difference is entirely due to the time value of money and compound growth,
+applied across decades. Compounding rewards capital that earns a return; it
+punishes capital that sits.
 </p>
 <p>
 This week's lesson gives you the conceptual foundation for everything that follows
 in this course. Master these ideas, and every future topic will make more sense.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. Inflation: The Silent Wealth Destroyer</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Inflation: The Silent Wealth Destroyer</h4>
 <p>
 Inflation is the general increase in prices over time. Central banks (like the
 Federal Reserve in the US) target about 2% annual inflation, but actual inflation
 can vary widely.
 </p>
-<pre><code class="language-">  The Inflation Effect on $100 Over Time
 <p>
-(assuming 3% annual inflation)
+Don't trust the textbook example with a smooth assumed rate — let's use real
+US CPI data. Imagine you stuffed a crisp $100 bill under the mattress on
+January 1, 1970, and never touched it. Here is what its purchasing power has
+been at the start of every five years since:
+</p>
+<table><thead><tr><th>Year</th><th>Years elapsed</th><th>Purchasing power</th><th>% of original</th></tr></thead><tbody><tr><td>1970</td><td>0</td><td>$100.00</td><td>100.0%</td></tr><tr><td>1975</td><td>5</td><td>$74.49</td><td>74.5%</td></tr><tr><td>1980</td><td>10</td><td>$50.65</td><td>50.6%</td></tr><tr><td>1985</td><td>15</td><td>$35.39</td><td>35.4%</td></tr><tr><td>1990</td><td>20</td><td>$29.66</td><td>29.7%</td></tr><tr><td>1995</td><td>25</td><td>$24.81</td><td>24.8%</td></tr><tr><td>2000</td><td>30</td><td>$22.06</td><td>22.1%</td></tr><tr><td>2005</td><td>35</td><td>$19.44</td><td>19.4%</td></tr><tr><td>2010</td><td>40</td><td>$17.13</td><td>17.1%</td></tr><tr><td>2015</td><td>45</td><td>$15.51</td><td>15.5%</td></tr><tr><td>2020</td><td>50</td><td>$14.37</td><td>14.4%</td></tr><tr><td>2025</td><td>55</td><td>$11.73</td><td>11.7%</td></tr></tbody></table>
+<p>
+That $100 from 1970 has the purchasing power of just <strong>$11.73 today</strong> —
+inflation has eaten <strong>88.3% of its real value in a single working lifetime</strong>.
+The 1970s stagflation alone cut its value almost in half by 1980 (down to
+$50.65), and even the relatively benign 25 years that followed (1980 to
+2005) shaved off another two-thirds. Even within your own lifetime, the
+last 25 years tell the same story — **$100 from January 2000 is worth only
+$53.16 today, a 46.8% loss of purchasing power in just one generation**.
+And the post-2020 acceleration alone shaved roughly **18% off the dollar in
+five years**.
 </p>
 <p>
-Year 0:   $100.00  |========================|  100% purchasing power
-Year 10:   $74.41  |==================      |   74%
-Year 20:   $55.37  |==============          |   55%
-Year 30:   $41.20  |==========              |   41%
-Year 40:   $30.66  |========                |   31%
-Year 50:   $22.81  |======                  |   23%
-</code></pre>
+This is the "real" value of money — what it can actually buy, as opposed to
+the "nominal" value (the number printed on the bill). Cash is not safe.
+Cash that earns nothing is a steady, almost imperceptible loss. The
+slowness of the loss is exactly what makes it so dangerous: people who
+"protect" their money by leaving it in a checking account are making one
+of the most aggressive bets on the chart above — and losing it.
 </p>
-<p>
-At 3% inflation, your money loses nearly half its purchasing power in just 23 years.
-This is called the "real" value of money -- what it can actually buy, as opposed to
-the "nominal" value (the number printed on the bill).
-</p>
+<figure class="lesson-interactive" data-asset="week01_inflation_purchasing_power"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_inflation_purchasing_power.html?lang=en" loading="lazy" title="Real purchasing power of $100 held as cash from 1975 over 50 years of US inflation, ending at about $16 in 1975 dollars by 2025."></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_en.png" alt="Real purchasing power of $100 held as cash from 1975 over 50 years of US inflation, ending at about $16 in 1975 dollars by 2025."></figure>
 <p>
 <strong>How inflation is measured:</strong>
 </p>
-<ul><li><strong>CPI (Consumer Price Index)</strong> -- tracks the cost of a "basket" of goods and</li>
+<ul><li><strong>CPI (Consumer Price Index)</strong> — tracks the cost of a "basket" of goods</li>
 <p>
-</ul>  services that a typical household purchases (food, housing, transportation, etc.)
+</ul>  and services that a typical household purchases (food, housing,
+transportation, etc.).
 </p>
-<ul><li><strong>PCE (Personal Consumption Expenditures)</strong> -- the Federal Reserve's preferred</li>
+<ul><li><strong>PCE (Personal Consumption Expenditures)</strong> — the Federal Reserve's</li>
 <p>
-</ul>  measure; broader than CPI.
+</ul>  preferred measure; broader than CPI.
 </p>
-<ul><li><strong>Core inflation</strong> -- excludes volatile food and energy prices to show underlying</li>
+<ul><li><strong>Core inflation</strong> — excludes volatile food and energy prices to show</li>
 <p>
-</ul>  trends.
-</p>
-<p>
-<strong>Historical US inflation rates (approximate averages):</strong>
-</p>
-<pre><code class="language-">  +----------------+-------------------+
-<p>
-|    Period       | Avg Annual CPI   |
-+----------------+-------------------+
-| 1930-1940      |     -2.0%        |
-| 1940-1950      |     +5.6%        |
-| 1950-1970      |     +2.3%        |
-| 1970-1980      |     +7.8%        |
-| 1980-2000      |     +3.8%        |
-| 2000-2020      |     +2.1%        |
-| 2020-2025      |     +4.8%        |
-+----------------+-------------------+
-</code></pre>
+</ul>  underlying trends.
 </p>
 <p>
-Notice how inflation spiked in the 1970s (oil crises) and again in the early 2020s
-(pandemic supply shocks). These spikes can devastate purchasing power rapidly.
+<strong>Historical US inflation rates (decade averages):</strong>
 </p>
-<h4>2. Compound Interest: The Eighth Wonder of the World</h4>
+<table><thead><tr><th>Period</th><th>Avg annual CPI</th></tr></thead><tbody><tr><td>1930–1940</td><td>−2.0%</td></tr><tr><td>1940–1950</td><td>+5.6%</td></tr><tr><td>1950–1970</td><td>+2.3%</td></tr><tr><td>1970–1980</td><td>+7.8%</td></tr><tr><td>1980–2000</td><td>+3.8%</td></tr><tr><td>2000–2020</td><td>+2.1%</td></tr><tr><td>2020–2025</td><td>+4.8%</td></tr></tbody></table>
+<p>
+Notice how inflation spiked in the 1970s (oil crises) and again in the early
+2020s (pandemic supply shocks). These spikes can devastate purchasing power
+rapidly.
+</p>
+<h4>2.2 Compound Interest: The Eighth Wonder of the World</h4>
 <p>
 Compound interest means you earn interest on your interest. It is the single most
 powerful force in personal finance.
@@ -1291,31 +1391,21 @@ powerful force in personal finance.
 <p>
 <strong>The compound interest formula:</strong>
 </p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
+<p>
+\[ FV = PV \cdot (1 + r)^n \]
+</p>
 <p>
 Where:
-FV = Future Value (what your money grows to)
-PV = Present Value (what you start with)
-r  = interest rate per period (as a decimal)
-n  = number of periods
-</code></pre>
 </p>
+<ul><li>\(FV\) = Future Value (what your money grows to)</li>
+<li>\(PV\) = Present Value (what you start with)</li>
+<li>\(r\) = interest rate per period (as a decimal)</li>
+<li>\(n\) = number of periods</li>
 <p>
+</ul>
 <strong>Example: $1,000 at 8% annual return</strong>
 </p>
-<pre><code class="language-">  Year  |  Starting  |  Interest  |  Ending
-<p>
-------+------------+------------+----------
-1   |  $1,000.00 |    $80.00  |  $1,080.00
-2   |  $1,080.00 |    $86.40  |  $1,166.40
-3   |  $1,166.40 |    $93.31  |  $1,259.71
-5   |  $1,360.49 |   $108.84  |  $1,469.33
-10   |  $1,999.00 |   $159.92  |  $2,158.92
-20   |  $4,315.70 |   $345.26  |  $4,660.96
-30   |  $9,317.27 |   $745.38  | $10,062.66
-40   | $20,106.85 | $1,608.55  | $21,715.40
-</code></pre>
-</p>
+<table><thead><tr><th>Year</th><th>Starting balance</th><th>Interest earned</th><th>Ending balance</th></tr></thead><tbody><tr><td>1</td><td>$1,000.00</td><td>$80.00</td><td>$1,080.00</td></tr><tr><td>2</td><td>$1,080.00</td><td>$86.40</td><td>$1,166.40</td></tr><tr><td>3</td><td>$1,166.40</td><td>$93.31</td><td>$1,259.71</td></tr><tr><td>5</td><td>$1,360.49</td><td>$108.84</td><td>$1,469.33</td></tr><tr><td>10</td><td>$1,999.00</td><td>$159.92</td><td>$2,158.92</td></tr><tr><td>20</td><td>$4,315.70</td><td>$345.26</td><td>$4,660.96</td></tr><tr><td>30</td><td>$9,317.27</td><td>$745.38</td><td>$10,062.66</td></tr><tr><td>40</td><td>$20,106.85</td><td>$1,608.55</td><td>$21,715.40</td></tr></tbody></table>
 <p>
 Notice how the interest earned in year 40 ($1,608) is more than the original
 investment ($1,000). That is compounding at work.
@@ -1323,115 +1413,66 @@ investment ($1,000). That is compounding at work.
 <p>
 <strong>Visualizing compound vs. simple interest:</strong>
 </p>
-<pre><code class="language-">  Value ($)
-<p>
-|
-|                                              * Compound (8%)
-|                                         *
-|                                     *
-|                                 *
-|                             *
-|                         *
-|                     *
-|                  *
-|               *          ___-----  Simple (8%)
-|            *    ___-----
-|         * ___---
-|       *--
-|     *
-|   *
-|  *
-| *
-|*___________________________________________
-0    5    10    15    20    25    30    Years
-</code></pre>
-</p>
+<figure class="lesson-interactive" data-asset="week01_compound_vs_simple"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_compound_vs_simple.html?lang=en" loading="lazy" title="Compound vs. simple interest on a $1,000 starting balance at 8% annual over 40 years. Simple interest grows linearly to $4,200; compound interest curves up to $21,725 — a $17,525 gap that opens up entirely from re-investing prior interest."></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_en.png" alt="Compound vs. simple interest on a $1,000 starting balance at 8% annual over 40 years. Simple interest grows linearly to $4,200; compound interest curves up to $21,725 — a $17,525 gap that opens up entirely from re-investing prior interest."></figure>
 <p>
 With simple interest, you earn 8% of the original $1,000 every year ($80/year).
 With compound interest, you earn 8% of the <em>current</em> balance, which grows each year.
-Over long periods, the gap becomes enormous.
+Over long periods, the gap becomes enormous — the example above ends with
+<strong>$21,725 (compound) vs. $4,200 (simple)</strong>, a five-fold difference earned
+entirely by leaving the prior interest in the account instead of taking it out.
 </p>
 <p>
-<strong>The compounding frequency matters too:</strong>
+<strong>The compounding frequency matters too.</strong>
+Same $10,000 at the same 12% annual rate for 10 years, only the compounding
+frequency varies:
 </p>
-<pre><code class="language-">  $10,000 at 12% for 10 years, different compounding frequencies:
+<table><thead><tr><th>Compounding</th><th>Final value</th></tr></thead><tbody><tr><td>Annually</td><td>$31,058.48</td></tr><tr><td>Semi-annually</td><td>$32,071.35</td></tr><tr><td>Quarterly</td><td>$32,620.38</td></tr><tr><td>Monthly</td><td>$33,003.87</td></tr><tr><td>Daily</td><td>$33,194.62</td></tr><tr><td>Continuously</td><td>$33,201.17</td></tr></tbody></table>
 <p>
-+----------------+--------------+
-| Compounding    | Final Value  |
-+----------------+--------------+
-| Annually       | $31,058.48   |
-| Semi-annually  | $32,071.35   |
-| Quarterly      | $32,620.38   |
-| Monthly        | $33,003.87   |
-| Daily          | $33,194.62   |
-| Continuously   | $33,201.17   |
-+----------------+--------------+
-</code></pre>
+More frequent compounding produces higher returns, but the marginal benefit
+shrinks fast. The jump from annual to monthly is significant; the jump from
+daily to continuous is essentially zero.
 </p>
-<p>
-More frequent compounding produces higher returns, but the difference diminishes.
-The jump from annual to monthly is significant; from daily to continuous, negligible.
-</p>
-<h4>3. The Rule of 72</h4>
+<h4>2.3 The Rule of 72</h4>
 <p>
 The Rule of 72 is a mental shortcut for estimating how long it takes to double
-your money:
+your money at a given annual rate:
 </p>
-<pre><code class="language-">  Years to double = 72 / annual return rate (%)
 <p>
-Examples:
-+--------+-----------------------+
-| Return |  Years to Double      |
-+--------+-----------------------+
-|   2%   |  72 / 2  = 36 years   |
-|   4%   |  72 / 4  = 18 years   |
-|   6%   |  72 / 6  = 12 years   |
-|   8%   |  72 / 8  =  9 years   |
-|  10%   |  72 / 10 =  7.2 years |
-|  12%   |  72 / 12 =  6 years   |
-+--------+-----------------------+
-</code></pre>
+$$ \text{Years to double} \approx \frac{72}{r} \quad \text{(where } r \text{ is the annual rate in percent)} $$
 </p>
+<table><thead><tr><th>Annual return</th><th>Years to double</th></tr></thead><tbody><tr><td>2%</td><td>\(72 / 2 = 36\) years</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) years</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) years</td></tr><tr><td>8%</td><td>\(72 / 8 = 9\) years</td></tr><tr><td>10%</td><td>\(72 / 10 = 7.2\) years</td></tr><tr><td>12%</td><td>\(72 / 12 = 6\) years</td></tr></tbody></table>
 <p>
 <strong>Why does this work?</strong> It is a mathematical approximation derived from the
-natural logarithm. The exact formula is: t = ln(2) / ln(1 + r), but 72 is close
-enough for mental math and has the advantage of being divisible by many numbers.
+natural logarithm. The exact formula is
 </p>
 <p>
-<strong>You can also use the Rule of 72 in reverse for inflation:</strong>
+$$ t = \frac{\ln 2}{\ln(1 + r)} $$
 </p>
-<pre><code class="language-">  At 3% inflation, purchasing power halves in: 72 / 3 = 24 years
 <p>
-At 6% inflation, purchasing power halves in: 72 / 6 = 12 years
-At 9% inflation, purchasing power halves in: 72 / 9 =  8 years
-</code></pre>
+but 72 is close enough for mental math and has the practical advantage of being
+divisible by 2, 3, 4, 6, 8, 9, and 12 — most of the rates you actually care about.
 </p>
+<p>
+**The Rule of 72 in reverse — inflation halves your purchasing power on the same
+clock.** Replace "annual return" with "annual inflation rate" and "years to
+double" becomes "years until your dollar buys half as much":
+</p>
+<table><thead><tr><th>Inflation rate</th><th>Years until purchasing power halves</th></tr></thead><tbody><tr><td>3%</td><td>\(72 / 3 = 24\) years</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) years</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) years</td></tr><tr><td>9%</td><td>\(72 / 9 \approx 8\) years</td></tr></tbody></table>
 <p>
 This makes inflation tangible. If inflation averages 4%, every 18 years your money
 buys only half as much. This is why "safe" savings accounts that earn 1-2% are
 actually losing you money in real terms.
 </p>
-<h4>4. Opportunity Cost</h4>
+<h4>2.4 Opportunity Cost</h4>
 <p>
 Opportunity cost is the value of the next best alternative you give up when making
 a decision. In investing, it means every dollar has competing uses, and choosing
 one means forgoing another.
 </p>
-<pre><code class="language-">  Decision Tree: What to do with $10,000?
 <p>
-$10,000
-|
-+---------------+---------------+
-|               |               |
-Save in bank    Invest in      Pay off credit
-(0.5% APY)     index fund       card debt
-|          (avg 10%)        (20% APR)
-|               |               |
-After 10 yrs    After 10 yrs   Saved in 10 yrs
-= $10,511       = $25,937       = $31,875
-(interest avoided)
-</code></pre>
+<strong>Decision tree — what to do with $10,000:</strong>
 </p>
+<div class="mermaid-block" data-view="diagram"><button type="button" class="mermaid-toggle" onclick="toggleMermaid(this)" aria-label="Toggle diagram source">Show source</button><pre class="mermaid">flowchart TD&#10;    Start(["$10,000&lt;br/&gt;to allocate"])&#10;    Bank["Save in bank&lt;br/&gt;0.5% APY"]&#10;    Index["Invest in&lt;br/&gt;index fund&lt;br/&gt;~10% avg"]&#10;    Debt["Pay off credit&lt;br/&gt;card debt&lt;br/&gt;20% APR"]&#10;    BankEnd["After 10 yrs&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["After 10 yrs&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["Interest avoided&lt;br/&gt;over 10 yrs&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</pre><pre class="mermaid-source"><code>flowchart TD&#10;    Start(["$10,000&lt;br/&gt;to allocate"])&#10;    Bank["Save in bank&lt;br/&gt;0.5% APY"]&#10;    Index["Invest in&lt;br/&gt;index fund&lt;br/&gt;~10% avg"]&#10;    Debt["Pay off credit&lt;br/&gt;card debt&lt;br/&gt;20% APR"]&#10;    BankEnd["After 10 yrs&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["After 10 yrs&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["Interest avoided&lt;br/&gt;over 10 yrs&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</code></pre></div>
 <p>
 In this example, paying off high-interest credit card debt has the highest
 "return" because you are eliminating a 20% annual cost. This is why financial
@@ -1442,85 +1483,90 @@ advisors often recommend paying off high-interest debt before investing.
 delay investing has a measurable cost, because you lose that year of compounding
 forever.
 </p>
-<pre><code class="language-">  The Cost of Waiting: $5,000/year at 10% return
 <p>
-Start Age  |  End Age 65  |  Total Invested  |  Final Value
------------+--------------+------------------+---------------
-20     |   45 years   |    $225,000      |  $3,616,635
-25     |   40 years   |    $200,000      |  $2,212,963
-30     |   35 years   |    $175,000      |  $1,355,122
-35     |   30 years   |    $150,000      |    $822,470
-40     |   25 years   |    $125,000      |    $491,735
-45     |   20 years   |    $100,000      |    $286,375
-</code></pre>
+<strong>The cost of waiting — $5,000/year at a 10% average return, ending at age 65:</strong>
 </p>
+<table><thead><tr><th>Start age</th><th>Years invested</th><th>Total contributed</th><th>Final value at 65</th></tr></thead><tbody><tr><td>20</td><td>45</td><td>$225,000</td><td>$3,616,635</td></tr><tr><td>25</td><td>40</td><td>$200,000</td><td>$2,212,963</td></tr><tr><td>30</td><td>35</td><td>$175,000</td><td>$1,355,122</td></tr><tr><td>35</td><td>30</td><td>$150,000</td><td>$822,470</td></tr><tr><td>40</td><td>25</td><td>$125,000</td><td>$491,735</td></tr><tr><td>45</td><td>20</td><td>$100,000</td><td>$286,375</td></tr></tbody></table>
 <p>
 Starting at 20 instead of 30 means investing only $50,000 more, but ending up
 with $2.26 million more. The early years of compounding are disproportionately
 valuable.
 </p>
-<h4>5. Real vs. Nominal Returns</h4>
+<h4>2.5 Real vs. Nominal Returns</h4>
 <p>
 <strong>Nominal return</strong> is the raw percentage gain on an investment, not adjusted for
 inflation. <strong>Real return</strong> is the nominal return minus inflation, representing
 actual purchasing power gained.
 </p>
-<pre><code class="language-">  Real Return (approximate) = Nominal Return - Inflation Rate
 <p>
-More precisely:
-Real Return = ((1 + Nominal) / (1 + Inflation)) - 1
+A quick approximation:
 </p>
 <p>
-Example: 10% nominal return, 3% inflation
-Approximate real return = 10% - 3% = 7%
-Exact real return = (1.10 / 1.03) - 1 = 6.80%
-</code></pre>
+$$ r_{\text{real}} \approx r_{\text{nominal}} - i $$
+</p>
+<p>
+The exact relationship (the <strong>Fisher equation</strong>) is:
+</p>
+<p>
+$$ r_{\text{real}} = \frac{1 + r_{\text{nominal}}}{1 + i} - 1 $$
+</p>
+<p>
+Example — 10% nominal return with 3% inflation:
+</p>
+<p>
+$$ \begin{aligned}
+r_{\text{real, approx}} &= 10\% - 3\% = 7\% \\
+r_{\text{real, exact}}  &= \frac{1.10}{1.03} - 1 = 6.80\%
+\end{aligned} $$
+</p>
+<p>
+The approximation is close enough for mental math at low inflation; at high inflation
+or high return, you want the exact form.
 </p>
 <p>
 <strong>Historical real returns by asset class (US, approximate):</strong>
 </p>
-<pre><code class="language-">  +---------------------+-----------+-----------+-----------+
-<p>
-| Asset Class         | Nominal   | Inflation | Real      |
-+---------------------+-----------+-----------+-----------+
-| US Stocks (S&amp;P 500) |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-| US Bonds (10-yr)    |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-| Gold                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-| Savings Account     |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-| Cash (mattress)     |   0.0%    |   ~3.0%   |  ~-3.0%  |
-+---------------------+-----------+-----------+-----------+
-</code></pre>
-</p>
+<table><thead><tr><th>Asset class</th><th>Nominal</th><th>Inflation</th><th>Real</th></tr></thead><tbody><tr><td>US Stocks (S&P 500)</td><td>~10.0%</td><td>~3.0%</td><td>~7.0%</td></tr><tr><td>US Bonds (10-yr)</td><td>~5.0%</td><td>~3.0%</td><td>~2.0%</td></tr><tr><td>Gold</td><td>~7.0%</td><td>~3.0%</td><td>~4.0%</td></tr><tr><td>Savings Account</td><td>~2.0%</td><td>~3.0%</td><td>~−1.0%</td></tr><tr><td>Cash (mattress)</td><td>0.0%</td><td>~3.0%</td><td>~−3.0%</td></tr></tbody></table>
 <p>
 <strong>Critical takeaway:</strong> A savings account earning 2% in a 3% inflation environment
 is <em>losing</em> 1% of purchasing power per year. Cash under the mattress is losing 3%
 per year. Only assets that earn above the inflation rate grow your real wealth.
 </p>
-<h4>6. Future Value and Present Value</h4>
+<h4>2.6 Future Value and Present Value</h4>
 <p>
 These are the two core TVM calculations.
 </p>
 <p>
 <strong>Future Value (FV):</strong> What a sum of money today will be worth in the future.
 </p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
 <p>
-Example: What will $5,000 be worth in 20 years at 8%?
-FV = $5,000 x (1.08)^20
-FV = $5,000 x 4.6610
-FV = $23,305
-</code></pre>
+\[ FV = PV \cdot (1 + r)^n \]
+</p>
+<p>
+Example — what will $5,000 be worth in 20 years at 8%?
+</p>
+<p>
+\[ \begin{aligned}
+FV &= 5{,}000 \cdot (1.08)^{20} \\
+&= 5{,}000 \cdot 4.6610 \\
+&= \$23{,}305
+\end{aligned} \]
 </p>
 <p>
 <strong>Present Value (PV):</strong> What a future sum of money is worth today.
 </p>
-<pre><code class="language-">  PV = FV / (1 + r)^n
 <p>
-Example: What is $50,000 in 15 years worth today at 7%?
-PV = $50,000 / (1.07)^15
-PV = $50,000 / 2.7590
-PV = $18,126
-</code></pre>
+\[ PV = \frac{FV}{(1 + r)^n} \]
+</p>
+<p>
+Example — what is $50,000 in 15 years worth today at 7%?
+</p>
+<p>
+\[ \begin{aligned}
+PV &= \frac{50{,}000}{(1.07)^{15}} \\
+&= \frac{50{,}000}{2.7590} \\
+&= \$18{,}126
+\end{aligned} \]
 </p>
 <p>
 <strong>This means:</strong> If someone offers you $50,000 in 15 years, and you could earn 7%
@@ -1530,69 +1576,53 @@ you $20,000 right now, the $20,000 today is the better deal.
 <p>
 <strong>Future Value of an Annuity (regular contributions):</strong>
 </p>
-<pre><code class="language-">  FV = PMT x [((1 + r)^n - 1) / r]
 <p>
-Where PMT = regular payment amount
+\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
 </p>
 <p>
-Example: $500/month for 30 years at 8% annual (0.667% monthly)
-FV = $500 x [((1.00667)^360 - 1) / 0.00667]
-FV = $500 x 1,491.57
-FV = $745,785
+where \(PMT\) = regular payment amount.
 </p>
 <p>
-Total contributed: $500 x 360 = $180,000
-Total growth: $745,785 - $180,000 = $565,785
-</code></pre>
+Example — $500/month for 30 years at 8% annual (0.667% monthly):
+</p>
+<p>
+\[ \begin{aligned}
+FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
+&= 500 \cdot 1{,}491.57 \\
+&= \$745{,}785
+\end{aligned} \]
+</p>
+<p>
+Total contributed: \(500 \times 360 = \$180{,}000\). Total growth: \(\$745{,}785 - \$180{,}000 = \$565{,}785\).
 </p>
 <p>
 Your investment growth ($565,785) is more than triple what you actually put in
 ($180,000). That is the power of consistent investing combined with compounding.
 </p>
 <p>
-<strong>Present Value diagram -- discounting future cash flows:</strong>
-</p>
-<pre><code class="language-">  Today     Year 1    Year 2    Year 3    Year 4    Year 5
-<p>
-|         |         |         |         |         |
-|         $100      $100      $100      $100      $100
-|         |         |         |         |         |
-|    $93.46    $87.34    $81.63    $76.29    $71.30
-|&lt;--------|         |         |         |         |
-|&lt;------------------|         |         |         |
-|&lt;----------------------------|         |         |
-|&lt;------------------------------------|         |
-|&lt;-------------------------------------------------|
-|
-PV = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+<strong>Discounting a stream of future cash flows.</strong> Five $100 payments, one at the end
+of each of the next five years, discounted at 7%:
 </p>
 <p>
-(Discount rate = 7%)
-</code></pre>
+$$ PV = \sum_{t=1}^{5} \frac{\$100}{(1.07)^t} $$
 </p>
+<table><thead><tr><th>Year</th><th>Future payment</th><th>Discount factor</th><th>Present value</th></tr></thead><tbody><tr><td>1</td><td>$100</td><td>\(1 / 1.07^{1} = 0.9346\)</td><td>$93.46</td></tr><tr><td>2</td><td>$100</td><td>\(1 / 1.07^{2} = 0.8734\)</td><td>$87.34</td></tr><tr><td>3</td><td>$100</td><td>\(1 / 1.07^{3} = 0.8163\)</td><td>$81.63</td></tr><tr><td>4</td><td>$100</td><td>\(1 / 1.07^{4} = 0.7629\)</td><td>$76.29</td></tr><tr><td>5</td><td>$100</td><td>\(1 / 1.07^{5} = 0.7130\)</td><td>$71.30</td></tr><tr><td><strong>Total PV</strong></td><td><strong>$410.02</strong></td></tr></tbody></table>
 <p>
 Each future $100 is worth less today because of the time value of money. The
-further in the future a payment is, the less it is worth today.
+further in the future a payment is, the less it is worth today — the year-5 $100
+is worth only $71.30 today, while the year-1 $100 is worth $93.46.
 </p>
-<h4>7. Putting It All Together: The Investing Imperative</h4>
-<pre><code class="language-">  The Three Paths Over 30 Years ($10,000 starting, $5,000/yr added)
+<h4>2.7 Putting It All Together: The Investing Imperative</h4>
 <p>
-Do Nothing     Savings Acct    Invest (S&amp;P)
-(0% return)    (1.5% return)   (10% return)
-+--------------------+-------------+--------------+---------------+
-| Total Contributed  |  $160,000   |   $160,000   |   $160,000    |
-| Final Value        |  $160,000   |   $192,760   |   $987,174    |
-| Real Value (3% inf)|  $65,890    |    $79,379   |   $406,392    |
-| Purchasing Power   |   Lost 59%  |    Lost 50%  |   Gained 154% |
-+--------------------+-------------+--------------+---------------+
-</code></pre>
+<strong>Three paths over 30 years</strong> ($10,000 starting, $5,000/year added):
 </p>
+<table><thead><tr><th>Metric</th><th>Do nothing (0%)</th><th>Savings account (1.5%)</th><th>Invest in S&P (10%)</th></tr></thead><tbody><tr><td>Total contributed</td><td>$160,000</td><td>$160,000</td><td>$160,000</td></tr><tr><td>Final nominal value</td><td>$160,000</td><td>$192,760</td><td>$987,174</td></tr><tr><td>Real value (3% infl.)</td><td>$65,890</td><td>$79,379</td><td>$406,392</td></tr><tr><td>Purchasing power</td><td><strong>Lost 59%</strong></td><td><strong>Lost 50%</strong></td><td><strong>Gained 154%</strong></td></tr></tbody></table>
 <p>
 Only the investor actually grows their wealth in real terms. The saver barely
 keeps up. The person who does nothing loses more than half their purchasing power.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
 <p>
 <strong>Misconception 1: "Investing is gambling."</strong>
 </p>
@@ -1658,20 +1688,13 @@ are actually down 1%. Losses hurt more than equivalent gains help, which is why
 managing downside risk matters in investing. A 50% loss requires a 100% gain just
 to break even.
 </p>
-<pre><code class="language-">  Loss/Gain Asymmetry:
 <p>
-+----------+----------------------------+
-| Loss     | Gain Needed to Recover     |
-+----------+----------------------------+
-|   -10%   |         +11.1%             |
-|   -20%   |         +25.0%             |
-|   -30%   |         +42.9%             |
-|   -40%   |         +66.7%             |
-|   -50%   |        +100.0%             |
-|   -75%   |        +300.0%             |
-|   -90%   |        +900.0%             |
-+----------+----------------------------+
-</code></pre>
+<strong>Loss/gain asymmetry — what it takes to get back to even after a drawdown:</strong>
+</p>
+<table><thead><tr><th>Loss</th><th>Gain needed to recover</th></tr></thead><tbody><tr><td>−10%</td><td>+11.1%</td></tr><tr><td>−20%</td><td>+25.0%</td></tr><tr><td>−30%</td><td>+42.9%</td></tr><tr><td>−40%</td><td>+66.7%</td></tr><tr><td>−50%</td><td>+100.0%</td></tr><tr><td>−75%</td><td>+300.0%</td></tr><tr><td>−90%</td><td>+900.0%</td></tr></tbody></table>
+<p>
+Mathematically, after a loss of \(L\), the recovery gain needed is
+\(G = \frac{L}{1 - L}\) — which grows much faster than \(L\) once \(L\) gets large.
 </p>
 <p>
 <strong>Misconception 8: "The Rule of 72 is exact."</strong>
@@ -1684,7 +1707,7 @@ doubling time is 35.0 years (Rule of 72 says 36). For 20%, the actual time is
 use it for precise financial planning.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>4. Q&A</h3>
 <p>
 <strong>Q1: What is the time value of money in simple terms?</strong>
 </p>
@@ -1793,889 +1816,683 @@ unpaid debt.
 </p>
             </div>
             <div id="content-hk" class="lang-content">
-                <h1>第一週：為何要投資？貨幣的時間價值</h1>
-<p>
-動畫參考：<code>animation/week01_compound_growth.py</code>
-</p>
+                <h1>第一週：為何要投資？貨幣時間價值</h1>
 <hr>
-<h2>第一部分：閱讀章節</h2>
-<hr>
-<h3>a) 為何這至關重要</h3>
+<h3>a) 為何這很重要</h3>
 <p>
-閒置的錢就是正在貶值的錢。每一天，通脹都在蠶食現金的購買力——無論是藏在床墊下，還是放在零利率的往來帳戶裡。明白<em>為何</em>需要投資，不只是一項財務技能——在現代經濟中，這更是生存技能。
+閒置的金錢就是不斷貶值的金錢。每一天，通脹都在蠶食塞在床墊底下、或存放在零利息往來戶口的現金購買力。明白<em>為何</em>需要投資，不僅是一項財務技能——在現代經濟體系中，這更是一種生存技能。
 </p>
 <p>
-想想看：1990年，一杯咖啡大約需要0.75美元。到了2025年，同一杯咖啡已要5.00美元甚至更多。咖啡並沒有變好六倍，而是你的一美元變弱了六倍。這就是通脹在發揮作用，而且它從不停歇。
+想想這個例子：1990年，一杯咖啡大約售$0.75。到了2025年，同一杯咖啡要$5.00甚至更貴。咖啡並沒有變得好六倍。是你的美元變得弱了六倍。這就是通脹在運作，而且從未停止。
 </p>
 <p>
-貨幣的時間價值（TVM）是所有金融的基礎原則。它指出：今天的一美元比明天的一美元更有價值。這一點成立，基於三個原因：
+貨幣時間價值（TVM）是所有金融學的基礎原則。它指出，今天的一元比明天的一元更值錢。這有三個原因：
 </p>
-<li><strong>通脹</strong> — 物價隨時間上漲，因此未來的貨幣購買力更弱。</li>
-<li><strong>機會成本</strong> — 現有的錢可以立即投資以賺取回報。</li>
-<li><strong>風險</strong> — 承諾的未來款項可能永遠不會兌現。</li>
+<li><strong>通脹</strong> —— 物價隨時間上升，因此未來的元購買力更低。</li>
+<li><strong>機會成本</strong> —— 現在可用的資金可以用於投資以賺取回報。</li>
+<li><strong>風險</strong> —— 承諾的未來款項可能永遠不會到來。</li>
 <p>
-如果你理解了貨幣的時間價值，你就明白投資並非可選項。這是確保你的財富增速超越經濟侵蝕速度的唯一方法。
-</p>
-<p>
-以下是一個鮮明的對比：
-</p>
-<pre><code class="language-">  甲：每年將10,000美元存入銀行帳戶（利率0.5%）
-<p>
-乙：每年將10,000美元投資於股票市場（平均回報10%）
+若你明白貨幣時間價值，你就明白投資並非可選項目。這是確保你的財富增長速度快過經濟侵蝕速度的唯一途徑。
 </p>
 <p>
-30年後：
-+-----------+----------------+----------------+
-|           |       甲       |       乙       |
-+-----------+----------------+----------------+
-| 存入金額  |   $300,000     |   $300,000     |
-| 最終價值  |   $323,705     | $1,809,434     |
-| 增長      |    $23,705     | $1,509,434     |
-+-----------+----------------+----------------+
-</code></pre>
+回望過去55年，以三位儲蓄者做一個思想實驗。由1971年起，每人每年存入剛好$10,000——相同的名義金額，年年如此，無一例外。唯一的分別在於他們把錢<em>放在哪裡</em>。
 </p>
-<p>
-乙的財富超過甲的五倍，但兩人的存入金額完全相同。這個差異完全來自貨幣的時間價值與複利增長。
-</p>
-<p>
-每一年推遲投資，就是永遠失去一年的複利累積。一個25歲開始、每年投資5,000美元、以平均10%回報投資至65歲的人，最終將擁有約240萬美元。如果同一個人等到35歲才開始，最終大約只有90萬美元——不足前者的一半，儘管只少了10年的供款。這道數學題毫不留情。
-</p>
-<p>
-本週的課程為整個課程奠定概念基礎。掌握這些理念，日後的每個主題都會更容易理解。
-</p>
-<hr>
-<h3>b) 你需要掌握的知識</h3>
-<h4>1. 通脹：無聲的財富殺手</h4>
-<p>
-通脹是物價隨時間普遍上漲的現象。各地央行（如美國的美聯儲）的目標通脹率約為每年2%，但實際通脹率可大幅波動。
-</p>
-<pre><code class="language-">  $100在通脹影響下的購買力變化
-<p>
-（假設年通脹率3%）
-</p>
-<p>
-第0年：  $100.00  |========================|  100%購買力
-第10年：  $74.41  |==================      |   74%
-第20年：  $55.37  |==============          |   55%
-第30年：  $41.20  |==========              |   41%
-第40年：  $30.66  |========                |   31%
-第50年：  $22.81  |======                  |   23%
-</code></pre>
-</p>
-<p>
-在3%通脹率下，你的金錢在短短23年內就失去近一半的購買力。這稱為金錢的「實際」價值——即它實際能購買的東西——有別於「名義」價值（即紙幣上印的數字）。
-</p>
-<p>
-<strong>通脹的衡量方式：</strong>
-</p>
-<ul><li><strong>消費物價指數（CPI）</strong> — 追蹤普通家庭購買的一籃子商品及服務的成本（包括食品、住房、交通等）。</li>
-<li><strong>個人消費支出（PCE）</strong> — 美聯儲偏好的衡量指標，涵蓋範圍比消費物價指數更廣。</li>
-<li><strong>核心通脹</strong> — 排除波動較大的食品及能源價格，以反映潛在趨勢。</li>
+<ul><li><strong>甲</strong> 將錢保留為現金。沒有銀行，沒有利息。純粹的貨幣，放在抽屜裡。</li>
+<li><strong>乙</strong> 把錢存入短期美國國債——最安全的生息工具。</li>
+<li><strong>丙</strong> 把錢投入標普500指數，並將所有股息再投資。</li>
 <p>
 </ul>
-<strong>美國歷史通脹率（約數）：</strong>
+同樣的紀律，同樣的金額，三種截然不同的結果：
 </p>
-<pre><code class="language-">  +----------------+-------------------+
+<figure class="lesson-interactive" data-asset="week01_three_portfolios"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_three_portfolios.html?lang=hk" loading="lazy" title="三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_hk.png" alt="三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。"></figure>
 <p>
-|    時期        |  年均消費物價指數  |
-+----------------+-------------------+
-| 1930-1940年    |     -2.0%         |
-| 1940-1950年    |     +5.6%         |
-| 1950-1970年    |     +2.3%         |
-| 1970-1980年    |     +7.8%         |
-| 1980-2000年    |     +3.8%         |
-| 2000-2020年    |     +2.1%         |
-| 2020-2025年    |     +4.8%         |
-+----------------+-------------------+
-</code></pre>
+經過55年，每人累計存入同樣的<strong>$550,000</strong>。但最終結餘根本不在同一個水平：
+</p>
+<table><thead><tr><th>工具</th><th>年化回報（複合年增長率）</th><th>最終價值（名義）</th><th>最終價值（以1971年計）</th></tr></thead><tbody><tr><td><strong>丙 — 標普500</strong></td><td><strong>11.24% / 年</strong></td><td><strong>$42,041,000</strong></td><td><strong>$5,079,000</strong></td></tr><tr><td><strong>乙 — 國債</strong></td><td>4.38% / 年</td><td>$1,725,000</td><td>$208,000</td></tr><tr><td><strong>甲 — 現金</strong></td><td>0.00% / 年</td><td>$550,000</td><td>$66,000</td></tr></tbody></table>
+<p>
+「年化回報」一欄即<strong>複合年增長率（CAGR）</strong>——這是一個恒定利率，若以相同的55年複利計算，將產生與標的資產實際逐年路徑相同的增長倍數。這是正確的引用數字，因為年度回報的簡單算術平均值會高估實際複利表現。作為參考，同一時段美國消費物價指數（CPI）平均每年<strong>3.92%</strong>——任何低於此水平的投資，在計稅前均屬實際購買力的虧損。
 </p>
 <p>
-留意通脹如何在1970年代（石油危機）及2020年代初（疫情供應衝擊）急劇攀升。這些通脹飆升可迅速摧毀購買力。
+丙的名義財富是乙的<strong>24倍</strong>、甲的<strong>76倍</strong>，儘管三人每年投入的$10,000完全相同。再細看甲：那筆$550,000的現金，歷經55年的美國通脹積累，其<em>實際</em>購買力僅相當於<strong>以1971年計約$66,000</strong>。甲不僅未能令財富增長——在他們盡責儲蓄的同時，通脹主動令其縮水。
+</p>
+<p>
+差異完全源於貨幣時間價值與複利增長在數十年間的作用。複利獎勵能夠賺取回報的資本，懲罰靜止不動的資本。
+</p>
+<p>
+本週課程為本課程的一切後續內容奠定概念基礎。掌握這些概念，未來每個課題都會更容易理解。
+</p>
+<hr>
+<h3>b) 你需要了解的知識</h3>
+<h4>1. 通脹：無聲的財富殺手</h4>
+<p>
+通脹是物價隨時間普遍上升的現象。中央銀行（如美國的美聯儲）以每年約2%的通脹為目標，但實際通脹可以大幅波動。
+</p>
+<p>
+不要輕信教科書中使用平滑假設利率的例子——讓我們使用真實的美國CPI數據。想像你在1970年1月1日把一張嶄新的$100鈔票塞到床墊下，從此不再碰它。以下是從此以後每五年初的購買力：
+</p>
+<table><thead><tr><th>年份</th><th>已過年數</th><th>購買力</th><th>佔原始比例</th></tr></thead><tbody><tr><td>1970</td><td>0</td><td>$100.00</td><td>100.0%</td></tr><tr><td>1975</td><td>5</td><td>$74.49</td><td>74.5%</td></tr><tr><td>1980</td><td>10</td><td>$50.65</td><td>50.6%</td></tr><tr><td>1985</td><td>15</td><td>$35.39</td><td>35.4%</td></tr><tr><td>1990</td><td>20</td><td>$29.66</td><td>29.7%</td></tr><tr><td>1995</td><td>25</td><td>$24.81</td><td>24.8%</td></tr><tr><td>2000</td><td>30</td><td>$22.06</td><td>22.1%</td></tr><tr><td>2005</td><td>35</td><td>$19.44</td><td>19.4%</td></tr><tr><td>2010</td><td>40</td><td>$17.13</td><td>17.1%</td></tr><tr><td>2015</td><td>45</td><td>$15.51</td><td>15.5%</td></tr><tr><td>2020</td><td>50</td><td>$14.37</td><td>14.4%</td></tr><tr><td>2025</td><td>55</td><td>$11.73</td><td>11.7%</td></tr></tbody></table>
+<p>
+1970年的$100如今的購買力只剩<strong>$11.73</strong>——通脹在一個完整工作生涯內已蠶食了<strong>88.3%的實際價值</strong>。光是1970年代的滯脹，到1980年便已將其購買力腰斬至$50.65，而此後相對溫和的25年（1980至2005年）又再削去了三分之二。即使在你的有生之年，過去25年同樣說明了相同的故事——<strong>2000年1月的$100如今只值$53.16，短短一代人間購買力損失了46.8%</strong>。而2020年後的加速更是在五年內單獨削去了美元約<strong>18%的價值</strong>。
+</p>
+<p>
+這就是貨幣的「實際」價值——它實際能買到什麼，與「名義」價值（鈔票上印的數字）相對。現金並不安全。什麼都不賺的現金，是一種穩定的、幾近察覺不到的虧損。虧損的緩慢性正是使它如此危險的原因：那些把錢留在往來戶口來「保護」財富的人，正在上圖中做出最激進的押注之一——而且在輸掉它。
+</p>
+<figure class="lesson-interactive" data-asset="week01_inflation_purchasing_power"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_inflation_purchasing_power.html?lang=hk" loading="lazy" title="以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_hk.png" alt="以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。"></figure>
+<p>
+<strong>如何衡量通脹：</strong>
+</p>
+<ul><li><strong>消費物價指數（CPI）</strong> —— 追蹤典型家庭購買的一籃子商品及服務的成本（食品、住房、交通等）。</li>
+<li><strong>個人消費支出（PCE）</strong> —— 美聯儲的首選指標；比CPI範圍更廣。</li>
+<li><strong>核心通脹</strong> —— 剔除波動性較高的食品及能源價格，以呈現潛在趨勢。</li>
+<p>
+</ul>
+<strong>美國歷史通脹率（以十年計平均值）：</strong>
+</p>
+<table><thead><tr><th>時期</th><th>平均年度CPI</th></tr></thead><tbody><tr><td>1930–1940</td><td>−2.0%</td></tr><tr><td>1940–1950</td><td>+5.6%</td></tr><tr><td>1950–1970</td><td>+2.3%</td></tr><tr><td>1970–1980</td><td>+7.8%</td></tr><tr><td>1980–2000</td><td>+3.8%</td></tr><tr><td>2000–2020</td><td>+2.1%</td></tr><tr><td>2020–2025</td><td>+4.8%</td></tr></tbody></table>
+<p>
+留意通脹如何在1970年代（石油危機）及2020年代初（疫情供應衝擊）急升。這些衝擊可以迅速摧毀購買力。
 </p>
 <h4>2. 複利：世界第八大奇蹟</h4>
 <p>
-複利意味著你能在利息上賺取利息。這是個人理財中最強大的力量。
+複利意味著你在利息上賺取利息。這是個人理財中最強大的單一力量。
 </p>
 <p>
 <strong>複利公式：</strong>
 </p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
+<p>
+\[ FV = PV \cdot (1 + r)^n \]
+</p>
 <p>
 其中：
-FV = 終值（你的錢最終增長至的金額）
-PV = 現值（你的起始本金）
-r  = 每期利率（以小數表示）
-n  = 期數
-</code></pre>
+</p>
+<ul><li>\(FV\) = 終值（你的錢增長到的金額）</li>
+<li>\(PV\) = 現值（你的起始金額）</li>
+<li>\(r\) = 每期利率（以小數表示）</li>
+<li>\(n\) = 期數</li>
+<p>
+</ul>
+<strong>例子：$1,000以8%年回報計算</strong>
+</p>
+<table><thead><tr><th>年份</th><th>期初結餘</th><th>所賺利息</th><th>期末結餘</th></tr></thead><tbody><tr><td>1</td><td>$1,000.00</td><td>$80.00</td><td>$1,080.00</td></tr><tr><td>2</td><td>$1,080.00</td><td>$86.40</td><td>$1,166.40</td></tr><tr><td>3</td><td>$1,166.40</td><td>$93.31</td><td>$1,259.71</td></tr><tr><td>5</td><td>$1,360.49</td><td>$108.84</td><td>$1,469.33</td></tr><tr><td>10</td><td>$1,999.00</td><td>$159.92</td><td>$2,158.92</td></tr><tr><td>20</td><td>$4,315.70</td><td>$345.26</td><td>$4,660.96</td></tr><tr><td>30</td><td>$9,317.27</td><td>$745.38</td><td>$10,062.66</td></tr><tr><td>40</td><td>$20,106.85</td><td>$1,608.55</td><td>$21,715.40</td></tr></tbody></table>
+<p>
+留意第40年所賺的利息（$1,608）已超過原始投資額（$1,000）。這就是複利的威力。
 </p>
 <p>
-<strong>示例：$1,000以8%年回報計算</strong>
+<strong>複利與單利的視覺對比：</strong>
 </p>
-<pre><code class="language-">  年份  |   期初      |   利息     |   期末
+<figure class="lesson-interactive" data-asset="week01_compound_vs_simple"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_compound_vs_simple.html?lang=hk" loading="lazy" title="$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_hk.png" alt="$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。"></figure>
 <p>
-------+------------+------------+----------
-1   |  $1,000.00 |    $80.00  |  $1,080.00
-2   |  $1,080.00 |    $86.40  |  $1,166.40
-3   |  $1,166.40 |    $93.31  |  $1,259.71
-5   |  $1,360.49 |   $108.84  |  $1,469.33
-10   |  $1,999.00 |   $159.92  |  $2,158.92
-20   |  $4,315.70 |   $345.26  |  $4,660.96
-30   |  $9,317.27 |   $745.38  | $10,062.66
-40   | $20,106.85 | $1,608.55  | $21,715.40
-</code></pre>
+以單利計算，你每年賺取原始$1,000的8%（即$80/年）。以複利計算，你賺取的是<em>當前結餘</em>的8%，而結餘每年都在增長。長期而言，差距變得巨大——上述例子最終結果為<strong>$21,725（複利）對$4,200（單利）</strong>，相差五倍，完全是因為將先前的利息留在戶口而非提取所帶來的。
 </p>
 <p>
-留意第40年賺取的利息（$1,608）已超過原始投資金額（$1,000）。這就是複利在發揮作用。
+<strong>複利頻率同樣重要。</strong>
+同樣$10,000，同樣12%年利率，10年期，只改變複利頻率：
 </p>
+<table><thead><tr><th>複利頻率</th><th>最終價值</th></tr></thead><tbody><tr><td>每年</td><td>$31,058.48</td></tr><tr><td>每半年</td><td>$32,071.35</td></tr><tr><td>每季</td><td>$32,620.38</td></tr><tr><td>每月</td><td>$33,003.87</td></tr><tr><td>每日</td><td>$33,194.62</td></tr><tr><td>連續</td><td>$33,201.17</td></tr></tbody></table>
 <p>
-<strong>複利與單利的視覺化比較：</strong>
-</p>
-<pre><code class="language-">  價值（$）
-<p>
-|
-|                                              * 複利（8%）
-|                                         *
-|                                     *
-|                                 *
-|                             *
-|                         *
-|                     *
-|                  *
-|               *          ___-----  單利（8%）
-|            *    ___-----
-|         * ___---
-|       *--
-|     *
-|   *
-|  *
-| *
-|*___________________________________________
-0    5    10    15    20    25    30    年
-</code></pre>
-</p>
-<p>
-以單利計算，每年賺取原始$1,000的8%（即每年$80）。以複利計算，每年賺取<em>當前</em>結餘的8%，而結餘每年都在增加。長期而言，兩者的差距變得極為懸殊。
-</p>
-<p>
-<strong>計息頻率同樣重要：</strong>
-</p>
-<pre><code class="language-">  $10,000以12%計算10年，不同計息頻率的比較：
-<p>
-+----------------+--------------+
-| 計息頻率       |  最終價值    |
-+----------------+--------------+
-| 每年           | $31,058.48   |
-| 每半年         | $32,071.35   |
-| 每季           | $32,620.38   |
-| 每月           | $33,003.87   |
-| 每日           | $33,194.62   |
-| 連續           | $33,201.17   |
-+----------------+--------------+
-</code></pre>
-</p>
-<p>
-計息頻率越高，回報越高，但差距會逐漸縮小。從每年到每月的提升相當顯著；而從每日到連續計息，差別則微乎其微。
+複利頻率越高，回報越高，但邊際收益迅速遞減。從每年到每月的躍升是顯著的；從每日到連續幾乎沒有分別。
 </p>
 <h4>3. 72法則</h4>
 <p>
-72法則是估算資金翻倍所需時間的心算捷徑：
-</p>
-<pre><code class="language-">  翻倍年數 = 72 / 年回報率（%）
-<p>
-示例：
-+--------+-----------------------+
-| 回報率 |  翻倍年數              |
-+--------+-----------------------+
-|   2%   |  72 / 2  = 36年       |
-|   4%   |  72 / 4  = 18年       |
-|   6%   |  72 / 6  = 12年       |
-|   8%   |  72 / 8  =  9年       |
-|  10%   |  72 / 10 =  7.2年     |
-|  12%   |  72 / 12 =  6年       |
-+--------+-----------------------+
-</code></pre>
+72法則是估算在給定年利率下，資金翻倍所需時間的心算捷徑：
 </p>
 <p>
-<strong>為何這個法則有效？</strong> 這是從自然對數推導出的數學近似值。精確公式為：t = ln(2) / ln(1 + r)，但72已足夠接近，可用於心算，且其優點是能被許多數字整除。
+$$ \text{翻倍所需年數} \approx \frac{72}{r} \quad \text{（其中 } r \text{ 為以百分比表示的年利率）} $$
+</p>
+<table><thead><tr><th>年化回報</th><th>翻倍所需年數</th></tr></thead><tbody><tr><td>2%</td><td>\(72 / 2 = 36\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>8%</td><td>\(72 / 8 = 9\) 年</td></tr><tr><td>10%</td><td>\(72 / 10 = 7.2\) 年</td></tr><tr><td>12%</td><td>\(72 / 12 = 6\) 年</td></tr></tbody></table>
+<p>
+<strong>為何有效？</strong> 這是從自然對數推導出的數學近似值。精確公式為
 </p>
 <p>
-<strong>你亦可以反向使用72法則來計算通脹：</strong>
-</p>
-<pre><code class="language-">  在3%通脹率下，購買力減半需要：72 / 3 = 24年
-<p>
-在6%通脹率下，購買力減半需要：72 / 6 = 12年
-在9%通脹率下，購買力減半需要：72 / 9 =  8年
-</code></pre>
+$$ t = \frac{\ln 2}{\ln(1 + r)} $$
 </p>
 <p>
-這讓通脹變得具體可感。如果通脹平均4%，每18年你的金錢購買力就只剩一半。這就是為何賺取1-2%的「安全」儲蓄帳戶，實際上正在讓你的財富縮水。
+但72在心算上已足夠準確，且具有能被2、3、4、6、8、9及12整除的實用優點——正好涵蓋大多數你實際關心的利率。
+</p>
+<p>
+<strong>72法則反向應用——通脹讓你的購買力在同一時間表上腰斬。</strong> 將「年化回報」換成「年通脹率」，「翻倍所需年數」就變成「購買力減半所需年數」：
+</p>
+<table><thead><tr><th>通脹率</th><th>購買力減半所需年數</th></tr></thead><tbody><tr><td>3%</td><td>\(72 / 3 = 24\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>9%</td><td>\(72 / 9 \approx 8\) 年</td></tr></tbody></table>
+<p>
+這讓通脹變得具體可感。若通脹平均4%，每18年你的錢只能買到原來一半的東西。這正是年息1-2%的「安全」儲蓄戶口實際上在令你虧損的原因。
 </p>
 <h4>4. 機會成本</h4>
 <p>
-機會成本是指在做決定時，你放棄的最佳替代選擇的價值。在投資中，這意味著每一分錢都有多種競爭用途，選擇其中一種就意味著放棄其他選擇。
-</p>
-<pre><code class="language-">  決策樹：$10,000該如何運用？
-<p>
-$10,000
-|
-+---------------+---------------+
-|               |               |
-存入銀行          投資指數基金      還清信用卡
-(年利率0.5%)      (平均10%回報)     債務
-|               |            (年利率20%)
-|               |               |
-10年後           10年後          10年節省
-= $10,511        = $25,937       = $31,875
-（節省利息）
-</code></pre>
+機會成本是你在做決定時放棄的次優選擇的價值。在投資中，它意味著每一元都有競爭性用途，選擇其一就意味着放棄其他。
 </p>
 <p>
-在此例子中，還清高息信用卡債務的「回報」最高，因為你實際上消除了每年20%的成本。這就是為何理財顧問通常建議先還清高息債務，再考慮投資。
+<strong>決策樹——如何處置$10,000：</strong>
+</p>
+<div class="mermaid-block" data-view="diagram"><button type="button" class="mermaid-toggle" onclick="toggleMermaid(this)" aria-label="Toggle diagram source">Show source</button><pre class="mermaid">flowchart TD&#10;    Start(["$10,000&lt;br/&gt;待分配"])&#10;    Bank["存入銀行&lt;br/&gt;0.5% 年利率"]&#10;    Index["投資於&lt;br/&gt;指數基金&lt;br/&gt;~10% 平均"]&#10;    Debt["償還信用卡&lt;br/&gt;債務&lt;br/&gt;20% 年利率"]&#10;    BankEnd["10年後&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["10年後&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["10年免付利息&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</pre><pre class="mermaid-source"><code>flowchart TD&#10;    Start(["$10,000&lt;br/&gt;待分配"])&#10;    Bank["存入銀行&lt;br/&gt;0.5% 年利率"]&#10;    Index["投資於&lt;br/&gt;指數基金&lt;br/&gt;~10% 平均"]&#10;    Debt["償還信用卡&lt;br/&gt;債務&lt;br/&gt;20% 年利率"]&#10;    BankEnd["10年後&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["10年後&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["10年免付利息&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</code></pre></div>
+<p>
+在此例子中，償還高息信用卡債務的「回報」最高，因為你正在消除20%的年度成本。這正是財務顧問通常建議先償還高息債務再投資的原因。
 </p>
 <p>
-<strong>重要啟示：</strong> 機會成本同時適用於時間和金錢。每一年推遲投資都有可量化的代價，因為你將永遠失去那一年的複利增長。
-</p>
-<pre><code class="language-">  推遲入市的代價：每年$5,000，回報率10%
-<p>
-開始年齡  |  至65歲    |  總投入金額   |  最終價值
----------+------------+--------------+---------------
-20   |   45年     |    $225,000  |  $3,616,635
-25   |   40年     |    $200,000  |  $2,212,963
-30   |   35年     |    $175,000  |  $1,355,122
-35   |   30年     |    $150,000  |    $822,470
-40   |   25年     |    $125,000  |    $491,735
-45   |   20年     |    $100,000  |    $286,375
-</code></pre>
+<strong>關鍵洞見：</strong> 機會成本同樣適用於時間，而不僅是金錢。每一年延遲投資都有可量化的代價，因為你永遠失去了那一年的複利增長機會。
 </p>
 <p>
-從20歲開始而非30歲，只需多投入$50,000，最終卻多出226萬美元。早年的複利效應具有不成比例的巨大價值。
+<strong>等待的代價——每年$5,000以10%平均回報投資至65歲：</strong>
+</p>
+<table><thead><tr><th>起始年齡</th><th>投資年數</th><th>累計投入</th><th>65歲時的最終價值</th></tr></thead><tbody><tr><td>20</td><td>45</td><td>$225,000</td><td>$3,616,635</td></tr><tr><td>25</td><td>40</td><td>$200,000</td><td>$2,212,963</td></tr><tr><td>30</td><td>35</td><td>$175,000</td><td>$1,355,122</td></tr><tr><td>35</td><td>30</td><td>$150,000</td><td>$822,470</td></tr><tr><td>40</td><td>25</td><td>$125,000</td><td>$491,735</td></tr><tr><td>45</td><td>20</td><td>$100,000</td><td>$286,375</td></tr></tbody></table>
+<p>
+從20歲而非30歲開始，只多投入$50,000，最終卻多出$226萬。早年的複利效果具有不成比例的巨大價值。
 </p>
 <h4>5. 實際回報與名義回報</h4>
 <p>
-<strong>名義回報</strong>是投資的原始百分比增益，未經通脹調整。<strong>實際回報</strong>是名義回報減去通脹率，代表實際購買力的增長。
-</p>
-<pre><code class="language-">  實際回報（近似值）= 名義回報 - 通脹率
-<p>
-更精確的計算：
-實際回報 = ((1 + 名義回報) / (1 + 通脹率)) - 1
+<strong>名義回報</strong>是投資的原始升幅百分比，未經通脹調整。<strong>實際回報</strong>是名義回報減去通脹，代表實際購買力的增長。
 </p>
 <p>
-示例：名義回報10%，通脹率3%
-近似實際回報 = 10% - 3% = 7%
-精確實際回報 = (1.10 / 1.03) - 1 = 6.80%
-</code></pre>
+快速近似公式：
 </p>
 <p>
-<strong>各資產類別的歷史實際回報（美國，近似值）：</strong>
-</p>
-<pre><code class="language-">  +---------------------+-----------+-----------+-----------+
-<p>
-| 資產類別            | 名義回報  | 通脹率    | 實際回報  |
-+---------------------+-----------+-----------+-----------+
-| 美國股票（標普500） |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-| 美國債券（10年期）  |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-| 黃金                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-| 儲蓄帳戶            |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-| 現金（藏於家中）    |   0.0%    |   ~3.0%   |  ~-3.0%  |
-+---------------------+-----------+-----------+-----------+
-</code></pre>
+$$ r_{\text{實際}} \approx r_{\text{名義}} - i $$
 </p>
 <p>
-<strong>關鍵結論：</strong> 在3%通脹環境下，儲蓄帳戶賺取2%利息，實際上每年<em>損失</em>1%的購買力。藏在家中的現金每年損失3%。只有回報率高於通脹率的資產，才能真正增加你的實際財富。
+精確關係（<strong>費雪方程式</strong>）為：
+</p>
+<p>
+$$ r_{\text{實際}} = \frac{1 + r_{\text{名義}}}{1 + i} - 1 $$
+</p>
+<p>
+例子——名義回報10%，通脹3%：
+</p>
+<p>
+$$ \begin{aligned}
+r_{\text{實際，近似}} &= 10\% - 3\% = 7\% \\
+r_{\text{實際，精確}}  &= \frac{1.10}{1.03} - 1 = 6.80\%
+\end{aligned} $$
+</p>
+<p>
+在低通脹情況下，近似值已足夠作心算；在高通脹或高回報時，應使用精確公式。
+</p>
+<p>
+<strong>各資產類別的歷史實際回報（美國，約計）：</strong>
+</p>
+<table><thead><tr><th>資產類別</th><th>名義回報</th><th>通脹</th><th>實際回報</th></tr></thead><tbody><tr><td>美國股票（標普500）</td><td>~10.0%</td><td>~3.0%</td><td>~7.0%</td></tr><tr><td>美國債券（10年期）</td><td>~5.0%</td><td>~3.0%</td><td>~2.0%</td></tr><tr><td>黃金</td><td>~7.0%</td><td>~3.0%</td><td>~4.0%</td></tr><tr><td>儲蓄戶口</td><td>~2.0%</td><td>~3.0%</td><td>~−1.0%</td></tr><tr><td>現金（床墊）</td><td>0.0%</td><td>~3.0%</td><td>~−3.0%</td></tr></tbody></table>
+<p>
+<strong>關鍵結論：</strong> 在3%通脹環境下賺取2%的儲蓄戶口，每年正在<em>損失</em>1%的購買力。床墊下的現金每年損失3%。只有回報高於通脹率的資產，才能真正增長你的實際財富。
 </p>
 <h4>6. 終值與現值</h4>
 <p>
-這是兩個核心的貨幣時間價值計算。
+這是貨幣時間價值的兩個核心計算。
 </p>
 <p>
-<strong>終值（FV）：</strong> 今天的一筆金錢在未來將價值多少。
-</p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
-<p>
-示例：$5,000在8%回報率下20年後值多少？
-FV = $5,000 x (1.08)^20
-FV = $5,000 x 4.6610
-FV = $23,305
-</code></pre>
+<strong>終值（FV）：</strong> 今日某筆金額在未來的價值。
 </p>
 <p>
-<strong>現值（PV）：</strong> 未來的一筆金錢在今天值多少。
-</p>
-<pre><code class="language-">  PV = FV / (1 + r)^n
-<p>
-示例：15年後的$50,000在7%折現率下今天值多少？
-PV = $50,000 / (1.07)^15
-PV = $50,000 / 2.7590
-PV = $18,126
-</code></pre>
+\[ FV = PV \cdot (1 + r)^n \]
 </p>
 <p>
-<strong>這意味著：</strong> 如果有人承諾在15年後給你$50,000，而你的投資能賺取7%回報，那麼這個承諾今天對你而言只值$18,126。如果他們同時提供$20,000的即時現金，今天的$20,000才是更划算的選擇。
+例子——$5,000在8%回報下20年後的價值？
+</p>
+<p>
+\[ \begin{aligned}
+FV &= 5{,}000 \cdot (1.08)^{20} \\
+&= 5{,}000 \cdot 4.6610 \\
+&= \$23{,}305
+\end{aligned} \]
+</p>
+<p>
+<strong>現值（PV）：</strong> 未來某筆金額在今日的價值。
+</p>
+<p>
+\[ PV = \frac{FV}{(1 + r)^n} \]
+</p>
+<p>
+例子——15年後的$50,000在7%折現率下今日的價值？
+</p>
+<p>
+\[ \begin{aligned}
+PV &= \frac{50{,}000}{(1.07)^{15}} \\
+&= \frac{50{,}000}{2.7590} \\
+&= \$18{,}126
+\end{aligned} \]
+</p>
+<p>
+<strong>這意味著：</strong> 若有人向你承諾15年後給你$50,000，而你的資金可賺取7%回報，這個承諾對你今日而言只值$18,126。若他們同時提供你現在立刻$20,000，現在的$20,000才是更划算的選擇。
 </p>
 <p>
 <strong>年金終值（定期供款）：</strong>
 </p>
-<pre><code class="language-">  FV = PMT x [((1 + r)^n - 1) / r]
 <p>
-其中 PMT = 定期供款金額
+\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
 </p>
 <p>
-示例：每月$500，持續30年，年回報8%（月利率0.667%）
-FV = $500 x [((1.00667)^360 - 1) / 0.00667]
-FV = $500 x 1,491.57
-FV = $745,785
+其中 \(PMT\) = 定期供款金額。
 </p>
 <p>
-總供款額：$500 x 360 = $180,000
-總增長：$745,785 - $180,000 = $565,785
-</code></pre>
+例子——每月$500，供30年，年利率8%（月利率0.667%）：
 </p>
 <p>
-你的投資增長（$565,785）超過實際投入金額（$180,000）的三倍。這就是持續投資結合複利的力量。
+\[ \begin{aligned}
+FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
+&= 500 \cdot 1{,}491.57 \\
+&= \$745{,}785
+\end{aligned} \]
 </p>
 <p>
-<strong>現值圖示 — 對未來現金流進行折現：</strong>
-</p>
-<pre><code class="language-">  今天      第1年     第2年     第3年     第4年     第5年
-<p>
-|         |         |         |         |         |
-|         $100      $100      $100      $100      $100
-|         |         |         |         |         |
-|    $93.46    $87.34    $81.63    $76.29    $71.30
-|&lt;--------|         |         |         |         |
-|&lt;------------------|         |         |         |
-|&lt;----------------------------|         |         |
-|&lt;------------------------------------|         |
-|&lt;-------------------------------------------------|
-|
-現值 = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+累計供款：\(500 \times 360 = \$180{,}000\)。總增長：\(\$745{,}785 - \$180{,}000 = \$565{,}785\)。
 </p>
 <p>
-（折現率 = 7%）
-</code></pre>
+你的投資增長（$565,785）是實際投入金額（$180,000）的三倍以上。這就是持續投資結合複利的威力。
 </p>
 <p>
-每一筆未來的$100在今天價值較低，因為貨幣存在時間價值。未來的款項距今越遠，在今天的價值就越低。
-</p>
-<h4>7. 綜合所有概念：投資的必要性</h4>
-<pre><code class="language-">  三條路徑的30年比較（起始$10,000，每年追加$5,000）
-<p>
-甚麼都不做   儲蓄帳戶     投資（標普500）
-（0%回報）  （1.5%回報）  （10%回報）
-+--------------------+-------------+--------------+---------------+
-| 總存入金額         |  $160,000   |   $160,000   |   $160,000    |
-| 最終價值           |  $160,000   |   $192,760   |   $987,174    |
-| 實際價值（3%通脹） |  $65,890    |    $79,379   |   $406,392    |
-| 購買力             |   損失59%   |    損失50%   |   增加154%    |
-+--------------------+-------------+--------------+---------------+
-</code></pre>
+<strong>對未來現金流串流進行折現。</strong> 五筆$100款項，在未來五年每年末各收取一筆，以7%折現：
 </p>
 <p>
-只有投資者的財富在實際意義上真正增長。儲蓄者勉強能保持現狀。甚麼都不做的人，則損失超過一半的購買力。
+$$ PV = \sum_{t=1}^{5} \frac{\$100}{(1.07)^t} $$
+</p>
+<table><thead><tr><th>年份</th><th>未來款項</th><th>折現因子</th><th>現值</th></tr></thead><tbody><tr><td>1</td><td>$100</td><td>\(1 / 1.07^{1} = 0.9346\)</td><td>$93.46</td></tr><tr><td>2</td><td>$100</td><td>\(1 / 1.07^{2} = 0.8734\)</td><td>$87.34</td></tr><tr><td>3</td><td>$100</td><td>\(1 / 1.07^{3} = 0.8163\)</td><td>$81.63</td></tr><tr><td>4</td><td>$100</td><td>\(1 / 1.07^{4} = 0.7629\)</td><td>$76.29</td></tr><tr><td>5</td><td>$100</td><td>\(1 / 1.07^{5} = 0.7130\)</td><td>$71.30</td></tr><tr><td><strong>現值合計</strong></td><td><strong>$410.02</strong></td></tr></tbody></table>
+<p>
+每筆未來的$100在今日都價值較低，正是因為貨幣時間價值的存在。未來款項距今越遠，今日的價值就越低——第5年的$100今日只值$71.30，而第1年的$100今日值$93.46。
+</p>
+<h4>7. 融會貫通：投資的必要性</h4>
+<p>
+<strong>30年三條路</strong> （起始$10,000，每年追加$5,000）：
+</p>
+<table><thead><tr><th>指標</th><th>無所作為（0%）</th><th>儲蓄戶口（1.5%）</th><th>投資標普500（10%）</th></tr></thead><tbody><tr><td>累計投入</td><td>$160,000</td><td>$160,000</td><td>$160,000</td></tr><tr><td>最終名義價值</td><td>$160,000</td><td>$192,760</td><td>$987,174</td></tr><tr><td>實際價值（3%通脹）</td><td>$65,890</td><td>$79,379</td><td>$406,392</td></tr><tr><td>購買力</td><td><strong>損失59%</strong></td><td><strong>損失50%</strong></td><td><strong>增長154%</strong></td></tr></tbody></table>
+<p>
+只有投資者的財富在實際意義上真正增長。儲蓄者勉強保本。無所作為者損失了逾半的購買力。
 </p>
 <hr>
 <h3>c) 常見誤解</h3>
 <p>
-<strong>誤解一：「投資就是賭博。」</strong>
+<strong>誤解一：「投資等同賭博。」</strong>
 </p>
 <p>
-賭博的預期回報為負（莊家永遠佔優）。投資多元化資產的歷史預期回報為正。標普500在過去一個世紀的年均回報約為10%，期間經歷了大蕭條、第二次世界大戰、2008年金融危機和新冠疫情。短線炒賣個別股票可能類似賭博，但有紀律地長期投資多元化基金，在本質上截然不同。
+賭博的預期回報為負（莊家常贏）。投資於多元化資產在歷史上具有正預期回報。標普500在過去一個世紀的年化回報約為10%，期間歷經大蕭條、二次世界大戰、2008年金融危機及新冠疫情。對個別股票的短線投機或許與賭博相近，但紀律嚴明地長期投資於多元化基金，性質根本不同。
 </p>
 <p>
-<strong>誤解二：「我需要很多錢才能開始投資。」</strong>
+<strong>誤解二：「我需要大量資金才能開始投資。」</strong>
 </p>
 <p>
-現在許多券商提供零最低入場金額和碎股交易。你可以只用$10購買標普500指數基金。最重要的因素不是起始金額，而是開始的時間和供款的一致性。即使每月投入$50，從22歲開始，在10%平均回報下，到65歲時將增長至逾35萬美元。
+許多經紀現已提供零門檻及碎股買賣。你可以用$10購買標普500指數基金。最重要的因素不是起始金額，而是何時開始及供款是否持續。即使每月$50，從22歲開始，以10%平均回報計算，到65歲也能增長至逾$350,000。
 </p>
 <p>
-<strong>誤解三：「儲蓄等同於投資。」</strong>
+<strong>誤解三：「儲蓄與投資是一回事。」</strong>
 </p>
 <p>
-儲蓄是把錢留起來，投資是讓錢為你工作。在3%通脹環境下，儲蓄帳戶僅賺取0.5%，意味著你每年損失2.5%的購買力。儲蓄對於緊急備用金和短期目標固然重要，但要長期積累財富，投資不可或缺。
+儲蓄是把錢存起來。投資是讓錢為你工作。在3%通脹環境下，年息0.5%的儲蓄戶口意味著每年損失2.5%的購買力。儲蓄對於緊急備用金及短期目標固然重要，但要建立長期財富，投資不可或缺。
 </p>
 <p>
-<strong>誤解四：「我應該等到『合適時機』才投資。」</strong>
+<strong>誤解四：「我應該等待『適當時機』再投資。」</strong>
 </p>
 <p>
-擇時入市極為困難。研究一再顯示，「在市場中持有的時間」勝過「擇時入市」。嘉信理財的一項研究發現，即使每年都在最糟糕的時機（市場高位）入市，其表現仍遠優於把錢放在現金中等待更好入市點的人。
+擇時入市極為困難。研究一再顯示，「在市場中持守」勝過「擇時入市」。嘉信理財的研究發現，即使每年在最糟糕的時機（市場頂部）投資的人，仍顯著跑贏把資金留在現金等待更佳入市點的人。
 </p>
 <p>
-<strong>誤解五：「複利只對大額資金才有意義。」</strong>
+<strong>誤解五：「複利只對大額資金有意義。」</strong>
 </p>
 <p>
-百分比的運作方式對任何金額都相同。$100以10%回報增長40年，將變成$4,526。這個乘數（45倍）無論是從$100還是$100,000開始，都完全相同。關鍵在於增長率和時間跨度。
+百分比的效果與金額無關。$100以10%增長40年變為$4,526。倍數（45倍）無論你起始$100還是$100,000都完全一樣。關鍵在於增長率和時間跨度。
 </p>
 <p>
-<strong>誤解六：「通脹率通常在2-3%左右。」</strong>
+<strong>誤解六：「通脹始終維持在2-3%左右。」</strong>
 </p>
 <p>
-雖然央行以2%為目標，但實際通脹可能高得多。美國在1980年曾出現13.5%的通脹。阿根廷近年通脹率更超過100%。即使在穩定經濟體中，供應衝擊、貨幣政策變化或地緣政治事件都可能引發通脹飆升。你的投資策略需要考慮不同通脹情景。
+雖然中央銀行以2%為目標，但實際通脹可以高得多。美國在1980年曾出現13.5%的通脹。阿根廷近年見過逾100%的通脹。即使在穩定的經濟體中，通脹也可能因供應衝擊、貨幣政策改變或地緣政治事件而急升。你的投資策略需要考慮通脹可變的情景。
 </p>
 <p>
-<strong>誤解七：「上升10%後下跌10%，就能回到原點。」</strong>
+<strong>誤解七：「上升10%再下跌10%就能回到原點。」</strong>
 </p>
 <p>
-這在數學上是錯誤的。$100上升10% = $110。然後$110下跌10% = $99。你實際上損失了1%。虧損的傷害遠大於同等幅度升幅帶來的好處，這就是為何控制下行風險在投資中至關重要。下跌50%需要上升100%才能回本。
+數學上這是錯誤的。$100 + 10% = $110。然後$110 - 10% = $99。你實際上虧損了1%。虧損的傷害大於等幅盈利的得益，這正是在投資中管理下跌風險的重要原因。下跌50%需要上升100%才能回到原點。
 </p>
-<pre><code class="language-">  虧損與盈利的不對稱性：
 <p>
-+----------+----------------------------+
-| 虧損     | 回本所需回報               |
-+----------+----------------------------+
-|   -10%   |         +11.1%             |
-|   -20%   |         +25.0%             |
-|   -30%   |         +42.9%             |
-|   -40%   |         +66.7%             |
-|   -50%   |        +100.0%             |
-|   -75%   |        +300.0%             |
-|   -90%   |        +900.0%             |
-+----------+----------------------------+
-</code></pre>
+<strong>虧損/盈利的不對稱性——從回撤中恢復所需的升幅：</strong>
+</p>
+<table><thead><tr><th>虧損</th><th>恢復所需升幅</th></tr></thead><tbody><tr><td>−10%</td><td>+11.1%</td></tr><tr><td>−20%</td><td>+25.0%</td></tr><tr><td>−30%</td><td>+42.9%</td></tr><tr><td>−40%</td><td>+66.7%</td></tr><tr><td>−50%</td><td>+100.0%</td></tr><tr><td>−75%</td><td>+300.0%</td></tr><tr><td>−90%</td><td>+900.0%</td></tr></tbody></table>
+<p>
+從數學角度，虧損 \(L\) 後，所需恢復升幅為
+\(G = \frac{L}{1 - L}\)——當 \(L\) 增大時，增速遠快於 \(L\) 本身。
 </p>
 <p>
 <strong>誤解八：「72法則是精確的。」</strong>
 </p>
 <p>
-這只是近似值。它在6%至10%的利率範圍內最為準確。利率過低或過高時，精確度會下降。對於2%，實際翻倍時間為35.0年（72法則的答案是36年）。對於20%，實際時間為3.8年（72法則的答案是3.6年）。作為快速心算足夠準確，但不應用於精確的財務規劃。
+這只是近似值。它在6%至10%的利率範圍內效果最佳。在極低或極高利率時，準確度會下降。以2%計，實際翻倍時間為35.0年（72法則估計36年）。以20%計，實際時間為3.8年（72法則估計3.6年）。對於快速心算已足夠，但不應用於精確財務規劃。
 </p>
 <hr>
 <h3>d) 問答環節</h3>
 <p>
-<strong>問題一：用簡單的話說，貨幣的時間價值是什麼？</strong>
+<strong>問1：用簡單語言解釋貨幣時間價值是什麼？</strong>
 </p>
 <p>
-答：今天的一美元比未來的一美元更有價值，原因有三：（1）通脹削減了未來那一美元的購買力；（2）今天的一美元可以投資並賺取回報；（3）承諾的未來款項始終存在無法兌現的風險。這就是為何借款人收取利息、投資者要求回報——他們是在為現在放棄資金使用權而獲得補償。
+答：今天的一元比未來的一元更值錢，原因有三：（1）通脹降低了未來那一元的購買力，（2）今天的一元可以拿去投資賺取回報，（3）承諾的未來款項始終存在無法兌現的風險。這正是為什麼貸款方收取利息、投資者要求回報——他們在為放棄現在使用資金的機會索取補償。
 </p>
 <p>
-<strong>問題二：複利與單利有何分別？</strong>
+<strong>問2：複利與單利有何分別？</strong>
 </p>
 <p>
-答：單利只按原始本金計算。如果你以5%單利投資$1,000，無論累積了多少，每年都固定賺取$50。複利則以本金加上所有已累積利息來計算。因此在第二年，你的利息是基於$1,050而非$1,000計算。長期而言，這個分別極為顯著。30年後，$1,000以5%單利計算變成$2,500；以5%複利計算，則變成$4,322。
+答：單利只按原始本金計算。若你以5%單利投資$1,000，每年賺取$50，無論已累積多少均如此。複利則按本金加所有已累積利息計算。因此在第2年，你是按$1,050而非$1,000計算利息。長期而言，這個差別變得相當顯著。30年後，$1,000以5%單利變成$2,500，而以5%複利則變成$4,322。
 </p>
 <p>
-<strong>問題三：為何72法則有效？</strong>
+<strong>問3：72法則為何有效？</strong>
 </p>
 <p>
-答：它源自數學關係 ln(2) / ln(1 + r)，其中 ln 是自然對數，r 是利率。在利率接近8%時，72/r 與這個公式非常吻合。選擇數字72，是因為它能被2、3、4、6、8、9和12整除，方便心算。有些人對較低利率使用「70法則」，或對連續複利使用「69.3法則」，但72是日常使用中最實用的。
+答：它源於 ln(2) / ln(1 + r) 的數學關係，其中 ln 是自然對數，r 是利率。對於接近8%的利率，72/r 與此公式非常接近。之所以選用72，是因為它能被2、3、4、6、8、9及12整除，令心算更方便。有些人在低利率時使用「70法則」，或在連續複利時使用「69.3法則」，但72在日常使用中最為實用。
 </p>
 <p>
-<strong>問題四：名義回報與實際回報有何分別？</strong>
+<strong>問4：名義回報與實際回報有何分別？</strong>
 </p>
 <p>
-答：名義回報是表面數字——「今年股票市場回報10%」。實際回報則調整通脹後，反映你的購買力實際增長幅度。如果市場回報10%但通脹為4%，你的實際回報約為6%。在評估長期投資表現時，應始終以實際回報為準，因為在高通脹環境下，名義回報可能產生誤導。
+答：名義回報是標題數字——「股市今年回報10%」。實際回報調整通脹後，顯示你購買力的實際增幅。若股市回報10%但通脹為4%，你的實際回報約為6%。在評估長期投資表現時，應始終以實際回報思考，因為在高通脹環境中，名義回報可能產生誤導。
 </p>
 <p>
-<strong>問題五：如何計算未來款項的現值？</strong>
+<strong>問5：如何計算未來款項的現值？</strong>
 </p>
 <p>
-答：使用公式 PV = FV / (1 + r)^n。選擇適當的折現率（r）——通常是你在其他投資中能賺取的回報率。例如，如果有人承諾10年後給你$10,000，而你其他地方能賺取7%：PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那筆未來的$10,000，今天對你而言只值約$5,083。
+答：使用公式 PV = FV / (1 + r)^n。選擇適當的折現率（r）——通常是你在其他投資中能夠賺取的回報。例如，若有人承諾10年後給你$10,000，而你在其他地方能賺取7%：PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那筆未來的$10,000對你今日而言只值約$5,083。
 </p>
 <p>
-<strong>問題六：投資的合理預期年回報是多少？</strong>
+<strong>問6：投資可以預期什麼樣的年化回報？</strong>
 </p>
 <p>
-答：美國股票市場（標普500）歷史上的名義年回報約為10%，扣除通脹後約為7%。然而，每年的回報波動極大。在任何給定年份，市場可能上升30%，也可能下跌30%。10%的平均水平只在長時間跨度（20年以上）才會顯現。債券的歷史名義回報約為5%（實際約2%）。均衡的投資組合可以以7-8%的名義回報為目標。切勿假設任何特定回報是有保證的。
+答：美國股市（標普500）歷史上名義年化回報約10%，扣除通脹後約7%。然而，每年的回報差異極大。在任何一年，市場可能回報+30%或-30%。10%的平均值只在長期（20年以上）才會浮現。債券歷史名義回報約5%（實際約2%）。平衡的投資組合或許以7-8%名義回報為目標。切勿假設任何特定回報是有保證的。
 </p>
 <p>
-<strong>問題七：我應該先還清債務還是先投資？</strong>
+<strong>問7：應該先還債還是先投資？</strong>
 </p>
 <p>
-答：比較你的債務利率與預期投資回報率。如果你的債務利率為20%（信用卡），還清債務等同於賺取有保障的20%回報——比任何投資都優勝。如果你的債務利率為4%（房貸），而你預期投資回報為10%，投資可能更有利，但還債是「有保障的回報」，而投資回報則不然。常見策略：還清所有利率超過6-7%的債務，再將餘款用於投資。
+答：比較你的債務利率與投資預期回報。若債務利率為20%（信用卡），還清債務等同賺取有保證的20%回報——勝過任何投資。若債務利率為4%（按揭），而你預期投資可得10%，投資或許更划算，但還債的「回報」是有保證的，投資回報則不然。常見策略：先還清所有6-7%以上的債務，再將其餘資金投資。
 </p>
 <p>
-<strong>問題八：通脹對所有商品的影響是否一樣？</strong>
+<strong>問8：通脹對所有商品的影響一樣嗎？</strong>
 </p>
 <p>
-答：不。不同類別的通脹速度各異。過去20年在美國，醫療保健和教育成本的上漲遠超整體消費物價指數，而科技和服裝價格往往有所下降。消費物價指數是一籃子商品的平均值，因此你個人的通脹率取決於實際支出項目。例如，退休人士因醫療保健佔支出比重較大，通常面臨較高的實際通脹率。
+答：不一樣。不同類別的通脹率各有不同。過去20年在美國，醫療及教育費用的升幅遠高於整體CPI，而科技產品及服裝價格則往往有所下降。CPI是一籃子商品的平均值，因此你個人的實際通脹率取決於你實際的消費模式。例如，退休人士往往面對較高的有效通脹率，因為醫療在他們的開支中佔比更大。
 </p>
 <p>
-<strong>問題九：一次性投入與定期月供，哪種方式更好？</strong>
+<strong>問9：一次性投資與每月定期供款有何分別？</strong>
 </p>
 <p>
-答：統計上，一次性投資在約三分之二的情況下優於平均成本法（定期供款），因為市場長期呈上升趨勢。然而，平均成本法降低了在市場高位全倉投入的風險，而且對大多數有定期薪水的人來說更為切實可行。最佳策略通常是：每收到一份薪水就立即投資，不要持有現金等待「更好的時機」。
+答：從統計學角度，一次性投資約有三分之二的時間跑贏平均成本法（定期供款），因為市場整體趨勢向上。然而，平均成本法降低了在市場高位一次性買入的風險，而且對大多數定期領薪的人而言更為實際。最佳策略通常是：在每次收到薪金時立即投資，不要持有現金等待「更好的時機」。
 </p>
 <p>
-<strong>問題十：複利會對我不利嗎？</strong>
+<strong>問10：複利會對我產生不利影響嗎？</strong>
 </p>
 <p>
-答：絕對會。債務上的複利是投資複利的鏡像。$5,000的信用卡結餘，若年利率為24%且未償還，5年後將增長至$14,615。這就是為何高息債務是財務緊急情況。驅動投資積累財富的數學力量，同樣能通過未償還的債務摧毀財富。
+答：絕對會。債務上的複利正是投資複利的鏡像。$5,000信用卡結餘以24%年利率計算，若不還款，5年內便增長至$14,615。這正是高息債務是財務緊急情況的原因。同樣的數學力量，在投資中建立財富，在未償還的債務中則摧毀財富。
 </p>
             </div>
             <div id="content-tw" class="lang-content">
-                <h1>第一週：為什麼要投資？貨幣時間價值</h1>
-<p>
-Animation reference: <code>animation/week01_compound_growth.py</code>
-</p>
+                <h1>第一週：為何要投資？貨幣時間價值</h1>
 <hr>
-<h2>第一部分：閱讀單元</h2>
-<hr>
-<h3>a) 為什麼這很重要</h3>
+<h3>a) 為何這很重要</h3>
 <p>
-閒置的錢就是在貶值的錢。每一天，通膨都在侵蝕那些塞在床墊底下、或存在零利率活期帳戶裡的現金購買力。了解<em>為什麼</em>你需要投資，不只是一種理財技能——它是現代社會的生存技能。
+閒置的錢就是正在貶值的錢。每一天，通膨都在侵蝕塞在床墊底下、或存放在零利率活期帳戶中的現金購買力。理解<em>為何</em>你需要投資，不只是一種理財技能——在現代經濟中，這是一種生存技能。
 </p>
 <p>
-想想看：1990年，一杯咖啡大約只要0.75美元。到了2025年，同一杯咖啡要價5美元以上。咖啡並沒有變好六倍，是你手上的美元縮水了六倍。這就是通膨在作怪，而且它從不停歇。
+想想看：1990年，一杯咖啡大約要0.75美元。到了2025年，同一杯咖啡要價5美元以上。咖啡並沒有變好六倍，而是你的每一塊錢變弱了六倍。這就是通膨的作用，而且它從未停歇。
 </p>
 <p>
-貨幣時間價值（TVM）是所有金融學的基礎原則，它說明今天的一塊錢比明天的一塊錢更有價值。這個道理成立有三個原因：
+貨幣時間價值（TVM）是所有金融學的基礎原理。它說明：今天的一塊錢比明天的一塊錢更有價值。這基於三個原因：
 </p>
-<li><strong>通膨</strong> — 物價隨時間上漲，未來的錢能買到的東西更少。</li>
-<li><strong>機會成本</strong> — 現在手上的錢可以拿去投資賺取報酬。</li>
-<li><strong>風險</strong> — 未來承諾的款項，不一定真的會兌現。</li>
+<li><strong>通膨</strong> — 物價隨時間上漲，因此未來的錢能買到的東西更少。</li>
+<li><strong>機會成本</strong> — 現在擁有的錢可以用來投資以賺取報酬。</li>
+<li><strong>風險</strong> — 承諾中的未來款項可能永遠不會到來。</li>
 <p>
-如果你搞懂了貨幣時間價值，你就明白為什麼投資不是選項，而是必要。這是確保你的財富增長速度超越通膨侵蝕速度的唯一方式。
-</p>
-<p>
-來看一個鮮明的對比：
-</p>
-<pre><code class="language-">  甲：每年將10,000美元存入銀行帳戶（0.5%利率）
-<p>
-乙：每年將10,000美元投入股市（平均10%報酬）
+如果你理解貨幣時間價值，你就明白為何投資不是選項，而是必要之舉。這是確保你的財富成長速度超越經濟侵蝕速度的唯一方法。
 </p>
 <p>
-三十年後：
-+-----------+----------------+----------------+
-|           |      甲        |      乙        |
-+-----------+----------------+----------------+
-| 存入金額  |   $300,000     |   $300,000     |
-| 最終價值  |   $323,705     | $1,809,434     |
-| 成長金額  |    $23,705     | $1,509,434     |
-+-----------+----------------+----------------+
-</code></pre>
+回顧過去55年，來做一個思想實驗，設想三位儲蓄者。從1971年開始，每人每年存入恰好10,000美元——相同的名目金額，每年如此，毫無例外。唯一的差異在於<em>他們把錢放在哪裡</em>。
+</p>
+<ul><li><strong>甲君</strong> 以現金保存。沒有銀行，沒有利息。純粹的鈔票，放在抽屜裡。</li>
+<li><strong>乙君</strong> 存入短期美國國庫券，也就是現存最安全的生息工具。</li>
+<li><strong>丙君</strong> 投入標普500指數，並將所有股利再投入。</li>
+<p>
+</ul>
+相同的紀律，相同的本金，三種截然不同的結果：
+</p>
+<figure class="lesson-interactive" data-asset="week01_three_portfolios"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_three_portfolios.html?lang=tw" loading="lazy" title="三個投資組合從1971年至2025年每年各累積投入10,000美元：甲君的現金維持在55萬美元的名目金額（同時也是累計存款基準線），乙君的國庫券複利成長至173萬美元，丙君的標普500達到4,200萬美元。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_tw.png" alt="三個投資組合從1971年至2025年每年各累積投入10,000美元：甲君的現金維持在55萬美元的名目金額（同時也是累計存款基準線），乙君的國庫券複利成長至173萬美元，丙君的標普500達到4,200萬美元。"></figure>
+<p>
+55年後，每人存入的本金都是相同的<strong>55萬美元</strong>。但最終餘額根本不在同一個量級：
+</p>
+<table><thead><tr><th>投資工具</th><th>年化報酬率（複合年均成長率）</th><th>最終名目價值</th><th>換算為1971年幣值</th></tr></thead><tbody><tr><td><strong>丙君 — 標普500</strong></td><td><strong>11.24% / 年</strong></td><td><strong>$42,041,000</strong></td><td><strong>$5,079,000</strong></td></tr><tr><td><strong>乙君 — 國庫券</strong></td><td>4.38% / 年</td><td>$1,725,000</td><td>$208,000</td></tr><tr><td><strong>甲君 — 現金</strong></td><td>0.00% / 年</td><td>$550,000</td><td>$66,000</td></tr></tbody></table>
+<p>
+「年化報酬率」欄位即為<strong>複合年均成長率（CAGR）</strong>——指在同樣55年中，以單一固定利率複利計算，能產生與實際逐年資產走勢相同成長倍數的那個利率。引用這個數字才是正確的，因為年報酬率的簡單算術平均值會高估實際的複利績效。供參考，同期美國消費者物價指數（CPI）平均每年上漲<strong>3.92%</strong>——任何低於這條線的報酬，在談稅負之前，實際購買力就已是虧損。
 </p>
 <p>
-乙的財富是甲的五倍以上，儘管兩人投入的金額完全相同。差別完全來自貨幣時間價值與複利成長。
+丙君的名目財富是乙君的<strong>24倍</strong>，是甲君的<strong>76倍</strong>，儘管三人每年都存入同樣的10,000美元。再仔細看甲君：那55萬美元的現金，在歷經55年美國通膨累積後，其<em>實質</em>購買力僅相當於1971年的<strong>約66,000美元</strong>。甲君不只是財富未能增長——在他勤勤懇懇儲蓄的同時，通膨正在主動侵蝕他的財富。
 </p>
 <p>
-每延誤一年投資，就是永遠失去一年的複利。一個25歲開始、每年投資5,000美元、以平均10%報酬率投資至65歲的人，最終大約能累積240萬美元。如果同一個人等到35歲才開始，最終只有大約90萬美元——還不到前者的一半，僅僅是少了10年的投入而已。數字非常無情。
+這一切的差異，完全源於貨幣時間價值與複利成長，在數十年間的積累效應。複利獎勵能帶來報酬的資本，懲罰停滯不動的資本。
 </p>
 <p>
-本週課程為你奠定整個課程的概念基礎。掌握這些觀念，未來每一個主題都會更容易理解。
+本週的課程為本課程後續所有主題提供概念基礎。掌握這些觀念，未來每個主題都會更容易理解。
 </p>
 <hr>
 <h3>b) 你需要知道的事</h3>
-<h4>1. 通膨：沉默的財富殺手</h4>
+<h4>1. 通膨：無聲的財富摧毀者</h4>
 <p>
-通膨是物價水準隨時間普遍上漲的現象。各國央行（例如美國的聯準會）的目標大約是年通膨率2%，但實際通膨率可能差異很大。
-</p>
-<pre><code class="language-">  100美元的通膨效應（假設年通膨率3%）
-<p>
-第 0 年： $100.00  |========================|  100%購買力
-第10年：  $74.41  |==================      |   74%
-第20年：  $55.37  |==============          |   55%
-第30年：  $41.20  |==========              |   41%
-第40年：  $30.66  |========                |   31%
-第50年：  $22.81  |======                  |   23%
-</code></pre>
+通膨是指物價水準隨時間普遍上漲。各國中央銀行（如美國的聯準會）以每年約2%的通膨為目標，但實際通膨可能大幅波動。
 </p>
 <p>
-在3%的通膨率下，你的錢在短短23年內就會損失將近一半的購買力。這就是所謂的「實質」價值——你的錢實際上能買到什麼——相對於「名目」價值（也就是紙鈔上印的數字）。
+不要相信教科書中那種以平滑假設利率計算的例子——讓我們用真實的美國消費者物價指數（CPI）數據來說明。想像你在1970年1月1日，把一張嶄新的100美元鈔票塞到床墊下，從此再也不碰它。以下是此後每隔五年，這張鈔票的購買力變化：
 </p>
+<table><thead><tr><th>年份</th><th>經過年數</th><th>購買力</th><th>佔原始金額比例</th></tr></thead><tbody><tr><td>1970</td><td>0</td><td>$100.00</td><td>100.0%</td></tr><tr><td>1975</td><td>5</td><td>$74.49</td><td>74.5%</td></tr><tr><td>1980</td><td>10</td><td>$50.65</td><td>50.6%</td></tr><tr><td>1985</td><td>15</td><td>$35.39</td><td>35.4%</td></tr><tr><td>1990</td><td>20</td><td>$29.66</td><td>29.7%</td></tr><tr><td>1995</td><td>25</td><td>$24.81</td><td>24.8%</td></tr><tr><td>2000</td><td>30</td><td>$22.06</td><td>22.1%</td></tr><tr><td>2005</td><td>35</td><td>$19.44</td><td>19.4%</td></tr><tr><td>2010</td><td>40</td><td>$17.13</td><td>17.1%</td></tr><tr><td>2015</td><td>45</td><td>$15.51</td><td>15.5%</td></tr><tr><td>2020</td><td>50</td><td>$14.37</td><td>14.4%</td></tr><tr><td>2025</td><td>55</td><td>$11.73</td><td>11.7%</td></tr></tbody></table>
+<p>
+1970年的那100美元，今天的購買力僅剩<strong>11.73美元</strong>——在一個完整的工作生涯中，通膨吞噬了其<strong>88.3%的實質價值</strong>。光是1970年代的停滯性通膨，就在1980年前將其價值幾乎砍半（降至50.65美元），而此後相對溫和的25年（1980至2005年）又再削去了三分之二。即便在你自己的有生之年，過去25年也說明了同樣的故事——<strong>2000年1月的100美元，今天只值53.16美元，短短一個世代就喪失了46.8%的購買力</strong>。而2020年後的加速通膨，光在五年內就讓美元的購買力蒸發了約<strong>18%</strong>。
+</p>
+<p>
+這就是金錢的「實質」價值——它實際上能買到什麼，而非「名目」價值（鈔票上印的數字）。現金並不安全。分文不賺的現金是一種持續、幾乎難以察覺的虧損。這種虧損的緩慢性，正是它如此危險的原因：那些把錢存在活期帳戶以「保護」財富的人，其實是在上面那張圖裡下了最積極進取的賭注——然後輸掉它。
+</p>
+<figure class="lesson-interactive" data-asset="week01_inflation_purchasing_power"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_inflation_purchasing_power.html?lang=tw" loading="lazy" title="以1975年幣值計算，持有現金100美元在50年美國通膨下的實質購買力，至2025年約僅剩16美元。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_tw.png" alt="以1975年幣值計算，持有現金100美元在50年美國通膨下的實質購買力，至2025年約僅剩16美元。"></figure>
 <p>
 <strong>通膨的衡量方式：</strong>
 </p>
-<ul><li><strong>CPI（消費者物價指數）</strong> — 追蹤一般家庭消費的「一籃子」商品與服務的費用（包括食品、住房、交通等）。</li>
-<li><strong>PCE（個人消費支出）</strong> — 聯準會偏好使用的衡量指標，涵蓋範圍比CPI更廣。</li>
-<li><strong>核心通膨</strong> — 排除波動較大的食品和能源價格，呈現潛在趨勢。</li>
+<ul><li><strong>消費者物價指數（CPI）</strong> — 追蹤一般家庭所購買的一籃子商品與服務（食品、住房、交通等）的費用。</li>
+<li><strong>個人消費支出（PCE）</strong> — 聯準會偏好使用的衡量指標；涵蓋範圍比消費者物價指數更廣。</li>
+<li><strong>核心通膨</strong> — 剔除波動性較大的食品與能源價格，以顯示潛在趨勢。</li>
 <p>
 </ul>
-<strong>美國歷史通膨率（約略平均值）：</strong>
+<strong>美國歷史通膨率（各年代平均值）：</strong>
 </p>
-<pre><code class="language-">  +----------------+-------------------+
+<table><thead><tr><th>時期</th><th>平均年度CPI</th></tr></thead><tbody><tr><td>1930–1940</td><td>−2.0%</td></tr><tr><td>1940–1950</td><td>+5.6%</td></tr><tr><td>1950–1970</td><td>+2.3%</td></tr><tr><td>1970–1980</td><td>+7.8%</td></tr><tr><td>1980–2000</td><td>+3.8%</td></tr><tr><td>2000–2020</td><td>+2.1%</td></tr><tr><td>2020–2025</td><td>+4.8%</td></tr></tbody></table>
 <p>
-|    期間         | 年均CPI           |
-+----------------+-------------------+
-| 1930-1940      |     -2.0%        |
-| 1940-1950      |     +5.6%        |
-| 1950-1970      |     +2.3%        |
-| 1970-1980      |     +7.8%        |
-| 1980-2000      |     +3.8%        |
-| 2000-2020      |     +2.1%        |
-| 2020-2025      |     +4.8%        |
-+----------------+-------------------+
-</code></pre>
-</p>
-<p>
-注意通膨如何在1970年代（石油危機）以及2020年代初期（疫情供應鏈衝擊）急速飆升。這種通膨飆漲能夠在短時間內嚴重摧毀購買力。
+請注意通膨在1970年代（石油危機）以及2020年代初期（疫情供應衝擊）的飆升。這些飆升能迅速摧毀購買力。
 </p>
 <h4>2. 複利：世界第八大奇蹟</h4>
 <p>
-複利的意思是你的利息也會產生利息，是個人理財中最強大的力量。
+複利意味著你在既有利息上繼續賺取利息。這是個人理財中最強大的力量。
 </p>
 <p>
 <strong>複利公式：</strong>
 </p>
-<pre><code class="language-">  終值 = 現值 × (1 + r)^n
+<p>
+\[ FV = PV \cdot (1 + r)^n \]
+</p>
 <p>
 其中：
-終值 = 你的錢最終成長到的金額
-現值 = 你的起始金額
-r    = 每期利率（以小數表示）
-n    = 期數
-</code></pre>
+</p>
+<ul><li>\(FV\) = 終值（你的錢最終成長為多少）</li>
+<li>\(PV\) = 現值（你的起始金額）</li>
+<li>\(r\) = 每期利率（以小數表示）</li>
+<li>\(n\) = 期數</li>
+<p>
+</ul>
+<strong>範例：1,000美元，年報酬率8%</strong>
+</p>
+<table><thead><tr><th>年份</th><th>期初餘額</th><th>賺取利息</th><th>期末餘額</th></tr></thead><tbody><tr><td>1</td><td>$1,000.00</td><td>$80.00</td><td>$1,080.00</td></tr><tr><td>2</td><td>$1,080.00</td><td>$86.40</td><td>$1,166.40</td></tr><tr><td>3</td><td>$1,166.40</td><td>$93.31</td><td>$1,259.71</td></tr><tr><td>5</td><td>$1,360.49</td><td>$108.84</td><td>$1,469.33</td></tr><tr><td>10</td><td>$1,999.00</td><td>$159.92</td><td>$2,158.92</td></tr><tr><td>20</td><td>$4,315.70</td><td>$345.26</td><td>$4,660.96</td></tr><tr><td>30</td><td>$9,317.27</td><td>$745.38</td><td>$10,062.66</td></tr><tr><td>40</td><td>$20,106.85</td><td>$1,608.55</td><td>$21,715.40</td></tr></tbody></table>
+<p>
+請注意第40年賺取的利息（1,608美元）已超過原始本金（1,000美元）。這就是複利的作用。
 </p>
 <p>
-<strong>範例：1,000美元以8%年報酬率計算</strong>
+<strong>複利與單利的視覺化比較：</strong>
 </p>
-<pre><code class="language-">  年度  |  期初金額    |   利息       |  期末金額
+<figure class="lesson-interactive" data-asset="week01_compound_vs_simple"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">靜態</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互動</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_compound_vs_simple.html?lang=tw" loading="lazy" title="1,000美元本金以8%年利率計算，40年間複利與單利的比較。單利呈線性成長至4,200美元；複利呈曲線向上至21,725美元——17,525美元的差距，完全來自於將先前所得利息再投入所產生的效果。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_tw.png" alt="1,000美元本金以8%年利率計算，40年間複利與單利的比較。單利呈線性成長至4,200美元；複利呈曲線向上至21,725美元——17,525美元的差距，完全來自於將先前所得利息再投入所產生的效果。"></figure>
 <p>
-------+------------+------------+----------
-1   |  $1,000.00 |    $80.00  |  $1,080.00
-2   |  $1,080.00 |    $86.40  |  $1,166.40
-3   |  $1,166.40 |    $93.31  |  $1,259.71
-5   |  $1,360.49 |   $108.84  |  $1,469.33
-10   |  $1,999.00 |   $159.92  |  $2,158.92
-20   |  $4,315.70 |   $345.26  |  $4,660.96
-30   |  $9,317.27 |   $745.38  | $10,062.66
-40   | $20,106.85 | $1,608.55  | $21,715.40
-</code></pre>
+以單利計算，你每年賺取原始本金1,000美元的8%（每年80美元）。以複利計算，你賺取的是<em>當前餘額</em>的8%，而餘額每年都在增加。長期下來，差距變得極為巨大——上述範例最終結果為<strong>21,725美元（複利）對比4,200美元（單利）</strong>，差了五倍，而這五倍的差距完全來自於將先前利息留在帳戶而非提出的選擇。
 </p>
 <p>
-注意第40年所賺到的利息（1,608美元）已經超過最初的本金（1,000美元）。這就是複利的威力。
+<strong>複利頻率同樣重要。</strong>
+相同的10,000美元，相同的12%年利率，相同的10年期限，僅複利頻率不同：
+</p>
+<table><thead><tr><th>複利方式</th><th>最終價值</th></tr></thead><tbody><tr><td>每年</td><td>$31,058.48</td></tr><tr><td>每半年</td><td>$32,071.35</td></tr><tr><td>每季</td><td>$32,620.38</td></tr><tr><td>每月</td><td>$33,003.87</td></tr><tr><td>每日</td><td>$33,194.62</td></tr><tr><td>連續</td><td>$33,201.17</td></tr></tbody></table>
+<p>
+複利頻率越高，報酬越高，但邊際效益遞減得很快。從每年到每月的跳躍相當顯著；從每日到連續的跳躍則幾乎為零。
+</p>
+<h4>3. 七十二法則</h4>
+<p>
+七十二法則是一種心算捷徑，用於估算在特定年報酬率下，資金翻倍所需的時間：
 </p>
 <p>
-<strong>複利與單利的視覺化對比：</strong>
+$$ \text{翻倍所需年數} \approx \frac{72}{r} \quad \text{（其中 } r \text{ 為年利率，以百分比表示）} $$
 </p>
-<pre><code class="language-">  價值（美元）
+<table><thead><tr><th>年報酬率</th><th>翻倍所需年數</th></tr></thead><tbody><tr><td>2%</td><td>\(72 / 2 = 36\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>8%</td><td>\(72 / 8 = 9\) 年</td></tr><tr><td>10%</td><td>\(72 / 10 = 7.2\) 年</td></tr><tr><td>12%</td><td>\(72 / 12 = 6\) 年</td></tr></tbody></table>
 <p>
-|
-|                                              * 複利 (8%)
-|                                         *
-|                                     *
-|                                 *
-|                             *
-|                         *
-|                     *
-|                  *
-|               *          ___-----  單利 (8%)
-|            *    ___-----
-|         * ___---
-|       *--
-|     *
-|   *
-|  *
-| *
-|*___________________________________________
-0    5    10    15    20    25    30    年
-</code></pre>
+<strong>為何這個法則有效？</strong> 這是一個源自自然對數的數學近似公式。精確公式為
 </p>
 <p>
-以單利計算，每年賺取原始本金1,000美元的8%（每年80美元）。以複利計算，每年賺取<em>當前餘額</em>的8%，而餘額每年都在增加。長期下來，兩者的差距會變得十分驚人。
+$$ t = \frac{\ln 2}{\ln(1 + r)} $$
 </p>
 <p>
-<strong>複利的計息頻率也很重要：</strong>
-</p>
-<pre><code class="language-">  10,000美元、12%利率、期限10年，不同複利頻率的比較：
-<p>
-+----------------+--------------+
-| 複利頻率        | 最終金額     |
-+----------------+--------------+
-| 每年            | $31,058.48   |
-| 每半年          | $32,071.35   |
-| 每季            | $32,620.38   |
-| 每月            | $33,003.87   |
-| 每日            | $33,194.62   |
-| 連續複利        | $33,201.17   |
-+----------------+--------------+
-</code></pre>
+但72已足夠接近用於心算，且具有一個實際優點——它可以被2、3、4、6、8、9和12整除，涵蓋了你真正關心的大多數利率。
 </p>
 <p>
-複利頻率越高，報酬越高，但差距會逐漸縮小。從每年計息改為每月計息，差距相當顯著；從每日計息改為連續複利，差距則微乎其微。
+<strong>七十二法則反向應用——通膨也依相同時鐘讓你的購買力減半。</strong> 將「年報酬率」替換為「年通膨率」，「翻倍所需年數」就變成「你的一塊錢購買力減半所需年數」：
 </p>
-<h4>3. 72法則</h4>
+<table><thead><tr><th>通膨率</th><th>購買力減半所需年數</th></tr></thead><tbody><tr><td>3%</td><td>\(72 / 3 = 24\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>9%</td><td>\(72 / 9 \approx 8\) 年</td></tr></tbody></table>
 <p>
-72法則是估算資金翻倍時間的心算捷徑：
-</p>
-<pre><code class="language-">  翻倍所需年數 = 72 / 年報酬率（%）
-<p>
-範例：
-+--------+-----------------------+
-| 報酬率 |  翻倍所需年數          |
-+--------+-----------------------+
-|   2%   |  72 / 2  = 36年      |
-|   4%   |  72 / 4  = 18年      |
-|   6%   |  72 / 6  = 12年      |
-|   8%   |  72 / 8  =  9年      |
-|  10%   |  72 / 10 =  7.2年    |
-|  12%   |  72 / 12 =  6年      |
-+--------+-----------------------+
-</code></pre>
-</p>
-<p>
-<strong>這為什麼有效？</strong> 這是由自然對數推導出的數學近似值。精確公式為：t = ln(2) / ln(1 + r)，但72在心算上已經夠精準，而且可以被許多數字整除，計算起來非常方便。
-</p>
-<p>
-<strong>你也可以反過來用72法則計算通膨的影響：</strong>
-</p>
-<pre><code class="language-">  通膨率3%時，購買力每隔：72 / 3 = 24年 減半一次
-<p>
-通膨率6%時，購買力每隔：72 / 6 = 12年 減半一次
-通膨率9%時，購買力每隔：72 / 9 =  8年 減半一次
-</code></pre>
-</p>
-<p>
-這讓通膨變得更直觀。若平均通膨率為4%，每18年你的錢只剩一半的購買力。這就是為什麼那些利率只有1到2%的「安全」儲蓄帳戶，實際上是在讓你虧損。
+這讓通膨變得具體可感。如果通膨平均為4%，每隔18年你的錢就只能買到一半的東西。這就是為什麼那些只賺1至2%的「安全」儲蓄帳戶，實質上正在讓你虧錢。
 </p>
 <h4>4. 機會成本</h4>
 <p>
-機會成本是指你做出某個決策時，所放棄的次佳選擇的價值。在投資上，這意味著每一塊錢都有多種用途，選擇其中一種就意味著放棄其他選項。
-</p>
-<pre><code class="language-">  決策樹：10,000美元該怎麼用？
-<p>
-$10,000
-|
-+---------------+---------------+
-|               |               |
-存入銀行          投資指數基金      還清信用卡債
-(0.5% 年利率)    (平均10%報酬)     (20% 年化利率)
-|               |               |
-10年後            10年後          10年省下的利息
-= $10,511       = $25,937         = $31,875
-</code></pre>
+機會成本是指在做決策時，你所放棄的次優選擇的價值。在投資上，它意味著每一塊錢都有相互競爭的用途，選擇其一就意味著放棄其他。
 </p>
 <p>
-在這個例子中，還清高利率信用卡債的「報酬」最高，因為你消除了一個年化成本高達20%的負擔。這就是為什麼理財顧問通常建議先還清高利率債務，再開始投資。
+<strong>決策樹——10,000美元該如何運用：</strong>
+</p>
+<div class="mermaid-block" data-view="diagram"><button type="button" class="mermaid-toggle" onclick="toggleMermaid(this)" aria-label="Toggle diagram source">Show source</button><pre class="mermaid">flowchart TD&#10;    Start(["$10,000&lt;br/&gt;待分配"])&#10;    Bank["存入銀行&lt;br/&gt;0.5% 年利率"]&#10;    Index["投資&lt;br/&gt;指數基金&lt;br/&gt;平均約10%"]&#10;    Debt["償還信用卡&lt;br/&gt;債務&lt;br/&gt;年利率20%"]&#10;    BankEnd["10年後&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["10年後&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["10年內節省&lt;br/&gt;的利息支出&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</pre><pre class="mermaid-source"><code>flowchart TD&#10;    Start(["$10,000&lt;br/&gt;待分配"])&#10;    Bank["存入銀行&lt;br/&gt;0.5% 年利率"]&#10;    Index["投資&lt;br/&gt;指數基金&lt;br/&gt;平均約10%"]&#10;    Debt["償還信用卡&lt;br/&gt;債務&lt;br/&gt;年利率20%"]&#10;    BankEnd["10年後&lt;br/&gt;&lt;b&gt;$10,511&lt;/b&gt;"]&#10;    IndexEnd["10年後&lt;br/&gt;&lt;b&gt;$25,937&lt;/b&gt;"]&#10;    DebtEnd["10年內節省&lt;br/&gt;的利息支出&lt;br/&gt;&lt;b&gt;$31,875&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</code></pre></div>
+<p>
+在這個例子中，償還高利率信用卡債務的「報酬」最高，因為你正在消除每年20%的成本。這就是為什麼理財顧問通常建議先還清高利率債務，再考慮投資。
 </p>
 <p>
-<strong>關鍵洞察：</strong> 機會成本不只適用於金錢，也適用於時間。每延誤一年投資，都有可以量化的代價——因為你永遠失去了那一年的複利。
-</p>
-<pre><code class="language-">  等待的代價：每年投資5,000美元，年報酬率10%
-<p>
-起始年齡  | 至65歲年數  | 累計投入金額  | 最終價值
----------+-----------+--------------+---------------
-20   |   45年     |   $225,000   |  $3,616,635
-25   |   40年     |   $200,000   |  $2,212,963
-30   |   35年     |   $175,000   |  $1,355,122
-35   |   30年     |   $150,000   |    $822,470
-40   |   25年     |   $125,000   |    $491,735
-45   |   20年     |   $100,000   |    $286,375
-</code></pre>
+<strong>關鍵洞察：</strong> 機會成本同樣適用於時間，不僅限於金錢。每延誤一年投資，都有可量化的代價，因為你永遠失去了那一年的複利機會。
 </p>
 <p>
-從20歲開始投資，比從30歲開始多投入50,000美元，最終卻多了226萬美元。投資初期的幾年，複利效果最為關鍵。
+<strong>等待的代價——每年投入5,000美元，平均年報酬率10%，至65歲時的終值：</strong>
 </p>
-<h4>5. 實質報酬與名目報酬</h4>
+<table><thead><tr><th>開始年齡</th><th>投資年數</th><th>總投入金額</th><th>65歲時終值</th></tr></thead><tbody><tr><td>20</td><td>45</td><td>$225,000</td><td>$3,616,635</td></tr><tr><td>25</td><td>40</td><td>$200,000</td><td>$2,212,963</td></tr><tr><td>30</td><td>35</td><td>$175,000</td><td>$1,355,122</td></tr><tr><td>35</td><td>30</td><td>$150,000</td><td>$822,470</td></tr><tr><td>40</td><td>25</td><td>$125,000</td><td>$491,735</td></tr><tr><td>45</td><td>20</td><td>$100,000</td><td>$286,375</td></tr></tbody></table>
 <p>
-<strong>名目報酬</strong>是投資的原始報酬百分比，未經通膨調整。<strong>實質報酬</strong>是名目報酬扣除通膨率後，代表實際購買力的增加幅度。
+從20歲而非30歲開始，僅多投入50,000美元，卻能多得226萬美元。複利的早期年份具有不成比例的巨大價值。
 </p>
-<pre><code class="language-">  實質報酬（近似值）= 名目報酬 - 通膨率
+<h4>5. 實質報酬 vs. 名目報酬</h4>
 <p>
-更精確的計算方式：
-實質報酬 = ((1 + 名目報酬) / (1 + 通膨率)) - 1
-</p>
-<p>
-範例：名目報酬10%，通膨率3%
-近似實質報酬 = 10% - 3% = 7%
-精確實質報酬 = (1.10 / 1.03) - 1 = 6.80%
-</code></pre>
+<strong>名目報酬</strong>是投資的原始報酬百分比，未經通膨調整。<strong>實質報酬</strong>是名目報酬減去通膨，代表購買力的實際增加幅度。
 </p>
 <p>
-<strong>各類資產的歷史實質報酬（美國，約略值）：</strong>
-</p>
-<pre><code class="language-">  +---------------------+-----------+-----------+-----------+
-<p>
-| 資產類別             | 名目報酬   | 通膨率    | 實質報酬   |
-+---------------------+-----------+-----------+-----------+
-| 美國股票 (S&amp;P 500)  |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-| 美國債券 (10年期)    |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-| 黃金                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-| 儲蓄帳戶            |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-| 現金（放床墊底下）   |   0.0%    |   ~3.0%   |  ~-3.0%  |
-+---------------------+-----------+-----------+-----------+
-</code></pre>
+一個快速近似公式：
 </p>
 <p>
-<strong>關鍵結論：</strong> 儲蓄帳戶在通膨3%的環境下賺取2%的利息，實際上是每年<em>損失</em>1%的購買力。放在床墊底下的現金每年損失3%。只有報酬率高於通膨率的資產，才能真正增長你的實質財富。
+$$ r_{\text{實質}} \approx r_{\text{名目}} - i $$
+</p>
+<p>
+精確關係式（<strong>費雪方程式</strong>）為：
+</p>
+<p>
+$$ r_{\text{實質}} = \frac{1 + r_{\text{名目}}}{1 + i} - 1 $$
+</p>
+<p>
+範例——名目報酬10%，通膨3%：
+</p>
+<p>
+$$ \begin{aligned}
+r_{\text{實質（近似）}} &= 10\% - 3\% = 7\% \\
+r_{\text{實質（精確）}}  &= \frac{1.10}{1.03} - 1 = 6.80\%
+\end{aligned} $$
+</p>
+<p>
+在低通膨情況下，近似公式已足夠用於心算；在高通膨或高報酬率時，建議使用精確公式。
+</p>
+<p>
+<strong>美國各資產類別歷史實質報酬（近似值）：</strong>
+</p>
+<table><thead><tr><th>資產類別</th><th>名目報酬</th><th>通膨率</th><th>實質報酬</th></tr></thead><tbody><tr><td>美股（標普500）</td><td>~10.0%</td><td>~3.0%</td><td>~7.0%</td></tr><tr><td>美國債券（10年期）</td><td>~5.0%</td><td>~3.0%</td><td>~2.0%</td></tr><tr><td>黃金</td><td>~7.0%</td><td>~3.0%</td><td>~4.0%</td></tr><tr><td>儲蓄帳戶</td><td>~2.0%</td><td>~3.0%</td><td>~−1.0%</td></tr><tr><td>現金（床墊）</td><td>0.0%</td><td>~3.0%</td><td>~−3.0%</td></tr></tbody></table>
+<p>
+<strong>核心結論：</strong> 在3%通膨環境下，年利率2%的儲蓄帳戶，每年實質上正在<em>虧損</em>1%的購買力。床墊下的現金每年虧損3%。只有報酬超過通膨率的資產，才能真正增加你的實質財富。
 </p>
 <h4>6. 終值與現值</h4>
 <p>
-這是貨幣時間價值最核心的兩種計算方式。
+這是貨幣時間價值計算中最核心的兩個概念。
 </p>
 <p>
-<strong>終值（FV）：</strong> 你現在持有的一筆錢，在未來某個時間點的價值。
-</p>
-<pre><code class="language-">  終值 = 現值 × (1 + r)^n
-<p>
-範例：5,000美元以8%的年報酬率投資20年後的終值？
-終值 = $5,000 × (1.08)^20
-終值 = $5,000 × 4.6610
-終值 = $23,305
-</code></pre>
+<strong>終值（FV）：</strong> 今天的一筆錢在未來會變成多少。
 </p>
 <p>
-<strong>現值（PV）：</strong> 未來某一筆錢，在今天的價值。
-</p>
-<pre><code class="language-">  現值 = 終值 / (1 + r)^n
-<p>
-範例：以7%的折現率計算，15年後的50,000美元，今天值多少？
-現值 = $50,000 / (1.07)^15
-現值 = $50,000 / 2.7590
-現值 = $18,126
-</code></pre>
+\[ FV = PV \cdot (1 + r)^n \]
 </p>
 <p>
-<strong>這意味著：</strong> 如果有人給你一個選擇——15年後的5萬美元，而你自己投資可以賺到7%——那筆承諾對你來說今天只值18,126美元。如果他們同時提供你現在馬上拿2萬美元，現在的2萬才是更划算的選擇。
+範例——5,000美元在8%報酬率下，20年後的終值？
 </p>
 <p>
-<strong>年金終值（定期定額投入）：</strong>
-</p>
-<pre><code class="language-">  終值 = 每期投入金額 × [((1 + r)^n - 1) / r]
-<p>
-其中「每期投入金額」為每次定期投入的數額
-</p>
-<p>
-範例：每月500美元，持續30年，年報酬率8%（月利率0.667%）
-終值 = $500 × [((1.00667)^360 - 1) / 0.00667]
-終值 = $500 × 1,491.57
-終值 = $745,785
+\[ \begin{aligned}
+FV &= 5{,}000 \cdot (1.08)^{20} \\
+&= 5{,}000 \cdot 4.6610 \\
+&= \$23{,}305
+\end{aligned} \]
 </p>
 <p>
-累計投入金額：$500 × 360 = $180,000
-複利成長金額：$745,785 - $180,000 = $565,785
-</code></pre>
+<strong>現值（PV）：</strong> 未來的一筆錢，在今天值多少。
 </p>
 <p>
-你的投資成長金額（565,785美元）超過你實際投入金額（180,000美元）的三倍。這就是持續投資結合複利的威力。
+\[ PV = \frac{FV}{(1 + r)^n} \]
 </p>
 <p>
-<strong>現值示意圖 — 未來現金流的折現：</strong>
-</p>
-<pre><code class="language-">  今天      第1年     第2年     第3年     第4年     第5年
-<p>
-|         |         |         |         |         |
-|         $100      $100      $100      $100      $100
-|         |         |         |         |         |
-|    $93.46    $87.34    $81.63    $76.29    $71.30
-|&lt;--------|         |         |         |         |
-|&lt;------------------|         |         |         |
-|&lt;----------------------------|         |         |
-|&lt;------------------------------------|         |
-|&lt;-------------------------------------------------|
-|
-現值 = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+範例——15年後的50,000美元，在折現率7%下，今天值多少？
 </p>
 <p>
-（折現率 = 7%）
-</code></pre>
+\[ \begin{aligned}
+PV &= \frac{50{,}000}{(1.07)^{15}} \\
+&= \frac{50{,}000}{2.7590} \\
+&= \$18{,}126
+\end{aligned} \]
 </p>
 <p>
-每一筆未來的100美元，因為貨幣時間價值，在今天都值得少一些。一筆款項距離現在越遠，它的現值就越低。
+<strong>這意味著：</strong> 如果有人提出15年後給你50,000美元，而你自己投資能賺得7%，那麼這個承諾對你今天來說只值18,126美元。如果他們同時提供你現在就給20,000美元，那麼今天拿20,000美元才是更划算的選擇。
+</p>
+<p>
+<strong>年金終值（定期定額投資）：</strong>
+</p>
+<p>
+\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
+</p>
+<p>
+其中 \(PMT\) = 每期投入金額。
+</p>
+<p>
+範例——每月500美元，投資30年，年利率8%（月利率0.667%）：
+</p>
+<p>
+\[ \begin{aligned}
+FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
+&= 500 \cdot 1{,}491.57 \\
+&= \$745{,}785
+\end{aligned} \]
+</p>
+<p>
+總投入金額：\(500 \times 360 = \$180{,}000\)。總成長金額：\(\$745{,}785 - \$180{,}000 = \$565{,}785\)。
+</p>
+<p>
+你的投資成長金額（565,785美元）是實際投入本金（180,000美元）的三倍以上。這就是持續投資結合複利的力量。
+</p>
+<p>
+<strong>折現未來現金流。</strong> 未來五年，每年年末各領取100美元，以7%折現率折現：
+</p>
+<p>
+$$ PV = \sum_{t=1}^{5} \frac{\$100}{(1.07)^t} $$
+</p>
+<table><thead><tr><th>年份</th><th>未來款項</th><th>折現因子</th><th>現值</th></tr></thead><tbody><tr><td>1</td><td>$100</td><td>\(1 / 1.07^{1} = 0.9346\)</td><td>$93.46</td></tr><tr><td>2</td><td>$100</td><td>\(1 / 1.07^{2} = 0.8734\)</td><td>$87.34</td></tr><tr><td>3</td><td>$100</td><td>\(1 / 1.07^{3} = 0.8163\)</td><td>$81.63</td></tr><tr><td>4</td><td>$100</td><td>\(1 / 1.07^{4} = 0.7629\)</td><td>$76.29</td></tr><tr><td>5</td><td>$100</td><td>\(1 / 1.07^{5} = 0.7130\)</td><td>$71.30</td></tr><tr><td><strong>現值合計</strong></td><td><strong>$410.02</strong></td></tr></tbody></table>
+<p>
+每筆未來的100美元，在今天都價值較低，因為貨幣時間價值的關係。越遠的未來款項，今天的價值越低——第5年的100美元今天只值71.30美元，而第1年的100美元今天值93.46美元。
 </p>
 <h4>7. 融會貫通：投資的必要性</h4>
-<pre><code class="language-">  三十年後的三條路（起始10,000美元，每年再投入5,000美元）
 <p>
-什麼都不做      儲蓄帳戶       投資（S&amp;P 500）
-(0%報酬)      (1.5%報酬)      (10%報酬)
-+--------------------+-------------+--------------+---------------+
-| 累計投入金額        |  $160,000   |   $160,000   |   $160,000    |
-| 最終名目價值        |  $160,000   |   $192,760   |   $987,174    |
-| 實質價值（3%通膨）  |  $65,890    |    $79,379   |   $406,392    |
-| 購買力變化          |   損失59%   |    損失50%   |   增加154%    |
-+--------------------+-------------+--------------+---------------+
-</code></pre>
+<strong>三條路徑，歷時30年</strong>（起始本金10,000美元，每年再投入5,000美元）：
 </p>
+<table><thead><tr><th>指標</th><th>甚麼都不做（0%）</th><th>儲蓄帳戶（1.5%）</th><th>投資標普500（10%）</th></tr></thead><tbody><tr><td>總投入金額</td><td>$160,000</td><td>$160,000</td><td>$160,000</td></tr><tr><td>最終名目價值</td><td>$160,000</td><td>$192,760</td><td>$987,174</td></tr><tr><td>實質價值（3%通膨）</td><td>$65,890</td><td>$79,379</td><td>$406,392</td></tr><tr><td>購買力</td><td><strong>損失59%</strong></td><td><strong>損失50%</strong></td><td><strong>增加154%</strong></td></tr></tbody></table>
 <p>
-只有投資者才能真正增長實質財富。只存錢的人幾乎原地踏步，什麼都不做的人則損失超過一半的購買力。
+只有投資者能以實質方式真正增加財富。儲蓄者勉強維持。甚麼都不做的人，損失超過一半的購買力。
 </p>
 <hr>
 <h3>c) 常見迷思</h3>
@@ -2683,508 +2500,398 @@ $10,000
 <strong>迷思一：「投資就是賭博。」</strong>
 </p>
 <p>
-賭博的預期報酬是負數（莊家永遠贏）。投資多元化的資產，歷史上的預期報酬則是正數。S&P 500在過去一個世紀，包含大蕭條、第二次世界大戰、2008年金融危機和COVID-19疫情，年均報酬率約為10%。短期炒作個股確實可能類似賭博，但對分散投資的基金做紀律性的長期投資，本質上截然不同。
+賭博的預期報酬為負（莊家必贏）。投資於分散的資產，歷史上具有正的預期報酬。標普500在過去一個世紀的年均報酬約10%，期間歷經了大蕭條、二戰、2008年金融危機與新冠肺炎疫情。對個股的短期投機或許類似賭博，但對分散化基金進行有紀律的長期投資，本質上截然不同。
 </p>
 <p>
 <strong>迷思二：「我需要很多錢才能開始投資。」</strong>
 </p>
 <p>
-許多券商現在提供零元最低開戶門檻與零手續費，以及零股交易。你可以只用10美元買進S&P 500指數基金。最重要的因素不是你起步時投入多少，而是你多早開始、多持續地定期投入。即使是每月50美元，從22歲開始投資到65歲，以平均10%的報酬率計算，也能累積超過35萬美元。
+許多券商現在提供零最低投資門檻以及零佣金，並可購買零股。你可以用10美元買入標普500指數基金。最重要的因素不是你起步時有多少錢，而是你多早開始以及多持續地投入。即使是22歲開始每月只投50美元，在10%平均報酬率下，到65歲時也能成長至超過35萬美元。
 </p>
 <p>
-<strong>迷思三：「存錢跟投資是一樣的。」</strong>
+<strong>迷思三：「儲蓄和投資是一樣的。」</strong>
 </p>
 <p>
-存錢是把錢留著。投資是讓錢去工作。一個在3%通膨環境下只賺0.5%利率的儲蓄帳戶，意味著你每年實際上損失2.5%的購買力。存錢對緊急備用金和短期目標很重要，但對於長期累積財富，投資才是關鍵。
+儲蓄是指把錢存起來。投資是指讓錢為你工作。當通膨達3%時，儲蓄帳戶賺取0.5%的利息，意味著你每年損失2.5%的購買力。儲蓄對於緊急備用金和短期目標很重要，但對於長期財富累積，投資不可或缺。
 </p>
 <p>
-<strong>迷思四：「我應該等到『時機成熟』再投資。」</strong>
+<strong>迷思四：「我應該等待『對的時機』再投資。」</strong>
 </p>
 <p>
-擇時進出市場極為困難。研究一再顯示，「待在市場裡的時間」比「選擇進場時機」更重要。嘉信理財（Schwab）的研究發現，即使每年都在最糟的時機（市場高點）進場投資的人，仍然遠比把錢放在現金等待更好時機的人賺得多。
+市場擇時極為困難。研究一再顯示，「待在市場中的時間」勝過「把握市場時機」。一項嘉信理財的研究發現，即使某人每年都在最糟糕的時機（市場高點）投資，其績效仍遠遠超越那些守著現金等待更好進場點的人。
 </p>
 <p>
-<strong>迷思五：「複利只有在大額資金時才有意義。」</strong>
+<strong>迷思五：「複利只對大筆資金才有意義。」</strong>
 </p>
 <p>
-不管金額大小，百分比的效果完全相同。100美元以10%的年報酬率投資40年，會變成4,526美元。這個倍數（45倍）無論你起步是100美元還是100,000美元都一樣。關鍵在於成長率和時間。
+百分比的作用與金額無關。100美元以10%成長40年後變成4,526美元。倍數（45倍）無論你是以100美元還是100,000美元起步都完全相同。關鍵在於成長率和時間長度。
 </p>
 <p>
-<strong>迷思六：「通膨一直都在2到3%左右。」</strong>
+<strong>迷思六：「通膨通常維持在2至3%。」</strong>
 </p>
 <p>
-雖然央行以2%為目標，但實際通膨可能遠高於此。美國1980年曾出現13.5%的通膨率。阿根廷近年來甚至出現超過100%的通膨。即使在穩定的經濟體，供應鏈衝擊、貨幣政策改變或地緣政治事件都可能造成通膨急速攀升。你的投資策略必須考量通膨不固定的情境。
+雖然各國中央銀行以2%為目標，但實際通膨可能遠高於此。美國在1980年曾出現13.5%的通膨。阿根廷近年來更見識過超過100%的通膨。即使在穩定的經濟體中，通膨也可能因供應衝擊、貨幣政策改變或地緣政治事件而急劇上升。你的投資策略需要考量不同的通膨情境。
 </p>
 <p>
-<strong>迷思七：「漲10%再跌10%就回到原點了。」</strong>
+<strong>迷思七：「漲10%之後再跌10%，就回到原點了。」</strong>
 </p>
 <p>
-數學上這是錯的。100美元漲10%變成110美元，再跌10%變成99美元——你其實虧損了1%。虧損的傷害比同等幅度的獲利更大，這就是為什麼控制下行風險在投資中非常重要。虧損50%需要反彈100%才能回到原點。
-</p>
-<pre><code class="language-">  虧損/獲利的不對稱性：
-<p>
-+----------+----------------------------+
-| 虧損幅度  | 回本所需的漲幅             |
-+----------+----------------------------+
-|   -10%   |         +11.1%             |
-|   -20%   |         +25.0%             |
-|   -30%   |         +42.9%             |
-|   -40%   |         +66.7%             |
-|   -50%   |        +100.0%             |
-|   -75%   |        +300.0%             |
-|   -90%   |        +900.0%             |
-+----------+----------------------------+
-</code></pre>
+這在數學上是不正確的。100美元 + 10% = 110美元。然後110美元 − 10% = 99美元。你實際上還少了1%。虧損的傷害大於相同幅度的獲利所帶來的好處，這就是為什麼管理下跌風險在投資中如此重要。跌50%之後，需要漲100%才能回到原點。
 </p>
 <p>
-<strong>迷思八：「72法則是精確的。」</strong>
+<strong>損益不對稱——回撤後回到損益兩平需要的漲幅：</strong>
+</p>
+<table><thead><tr><th>虧損幅度</th><th>恢復所需漲幅</th></tr></thead><tbody><tr><td>−10%</td><td>+11.1%</td></tr><tr><td>−20%</td><td>+25.0%</td></tr><tr><td>−30%</td><td>+42.9%</td></tr><tr><td>−40%</td><td>+66.7%</td></tr><tr><td>−50%</td><td>+100.0%</td></tr><tr><td>−75%</td><td>+300.0%</td></tr><tr><td>−90%</td><td>+900.0%</td></tr></tbody></table>
+<p>
+在數學上，虧損 \(L\) 後，所需的恢復漲幅為 \(G = \frac{L}{1 - L}\)——一旦 \(L\) 變大，這個數字成長的速度遠快於 \(L\) 本身。
 </p>
 <p>
-它只是近似值，在利率6%到10%之間最為準確。利率極低或極高時，準確度會下降。以2%計算，實際翻倍時間是35.0年（72法則估算為36年）；以20%計算，實際時間是3.8年（72法則估算為3.6年）。對於快速心算來說已經夠用，但不要拿來做精確的財務規劃。
+<strong>迷思八：「七十二法則是精確的。」</strong>
+</p>
+<p>
+這只是一個近似值。在利率6%至10%之間時效果最佳。在利率非常低或非常高時，準確度會下降。在2%時，實際翻倍時間為35.0年（七十二法則說36年）。在20%時，實際時間為3.8年（七十二法則說3.6年）。用於快速心算已足夠，但不要用於精確的財務規劃。
 </p>
 <hr>
 <h3>d) 問與答</h3>
 <p>
-<strong>Q1：用最簡單的話說，什麼是貨幣時間價值？</strong>
+<strong>問1：用簡單的話來說，什麼是貨幣時間價值？</strong>
 </p>
 <p>
-A：今天的一塊錢比未來的一塊錢更有價值，原因有三：（1）通膨會降低那筆未來款項的購買力；（2）今天的錢可以拿去投資賺取報酬；（3）未來承諾的款項永遠存在某種程度的不確定性，不一定真的能拿到。這就是為什麼借款人收取利息、投資者要求報酬——他們是在為放棄現在使用這筆錢的機會而獲得補償。
+答：今天的一塊錢比未來的一塊錢更有價值，原因有三：（1）通膨降低了未來那塊錢的購買力，（2）今天的錢可以立即投資以賺取報酬，（3）承諾中的未來款項總存在無法兌現的風險。這就是為什麼放款人收取利息，也是為什麼投資人要求報酬——他們在為放棄現在使用金錢的權利而獲得補償。
 </p>
 <p>
-<strong>Q2：複利跟單利有什麼不同？</strong>
+<strong>問2：複利與單利有何不同？</strong>
 </p>
 <p>
-A：單利只按原始本金計算。如果你以5%的單利投資1,000美元，每年固定賺50美元，不管累積了多少都一樣。複利則是按本金加上所有累積利息來計算。所以第二年，你是在1,050美元上賺取利息，而不只是1,000美元。長期下來，這個差距非常驚人。30年後，1,000美元以5%單利計算變成2,500美元，以5%複利計算則變成4,322美元。
+答：單利只針對原始本金計算。如果你以5%單利投資1,000美元，每年固定賺取50美元，無論累積了多少都一樣。複利則是針對本金加上所有累積利息來計算。因此在第二年，你賺取的是1,050美元的8%，而非僅1,000美元的8%。長期下來，這個差距變得相當驚人。30年後，1,000美元以5%單利變成2,500美元；以5%複利計算，則變成4,322美元。
 </p>
 <p>
-<strong>Q3：72法則為什麼有效？</strong>
+<strong>問3：七十二法則為何有效？</strong>
 </p>
 <p>
-A：它源自數學關係式 ln(2) / ln(1 + r)，其中 ln 是自然對數，r 是利率。在利率接近8%時，72/r 非常接近這個公式的結果。選擇72這個數字，是因為它可以被2、3、4、6、8、9、12整除，方便心算。有些人在利率較低時用「70法則」，或在連續複利時用「69.3法則」，但72是日常使用最實用的版本。
+答：它源自數學關係式 ln(2) / ln(1 + r)，其中 ln 是自然對數，r 是利率。當利率接近8%時，72/r 非常接近這個公式的結果。選擇72這個數字，是因為它可以被2、3、4、6、8、9和12整除，使心算更方便。有些人在利率較低時使用「七十法則」，或在連續複利時使用「69.3法則」，但72在日常使用中最為實用。
 </p>
 <p>
-<strong>Q4：名目報酬和實質報酬有什麼差別？</strong>
+<strong>問4：名目報酬和實質報酬有何差異？</strong>
 </p>
 <p>
-A：名目報酬是你看到的標題數字——「今年股市報酬率10%」。實質報酬則調整了通膨因素，顯示你實際購買力的增加幅度。如果市場報酬10%、通膨4%，你的實質報酬約為6%。在評估長期投資績效時，永遠要以實質報酬思考，因為在高通膨環境下，名目報酬數字可能會誤導判斷。
+答：名目報酬是標題數字——「今年股市報酬10%。」實質報酬經通膨調整，顯示購買力的實際增加幅度。如果股市報酬10%但通膨為4%，你的實質報酬約為6%。在評估長期投資績效時，應始終以實質報酬思考，因為在高通膨環境下，名目報酬可能產生誤導。
 </p>
 <p>
-<strong>Q5：如何計算未來一筆錢的現值？</strong>
+<strong>問5：如何計算未來一筆錢的現值？</strong>
 </p>
 <p>
-A：使用公式：現值 = 終值 / (1 + r)^n。選定一個合適的折現率 r——這通常是你把錢投入其他地方可以獲得的報酬率。例如，有人承諾你10年後給你10,000美元，而你自己投資可以賺7%：現值 = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那筆未來的10,000美元，今天對你來說只值約5,083美元。
+答：使用公式 PV = FV / (1 + r)^n。選擇適當的折現率（r）——通常是你在其他投資上能賺到的報酬率。例如，如果有人承諾10年後給你10,000美元，而你自己可以賺到7%：PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那筆未來的10,000美元，今天對你來說只值約5,083美元。
 </p>
 <p>
-<strong>Q6：投資的合理年報酬期望是多少？</strong>
+<strong>問6：投資可以期望多少年報酬？</strong>
 </p>
 <p>
-A：美國股市（S&P 500）歷史上的年名目報酬率約為10%，扣除通膨後的實質報酬約為7%。但每年的報酬差異極大，某一年可能漲30%，也可能跌30%。這個10%的平均值，只有在長達20年以上的時間維度下才會浮現。債券的歷史名目報酬約為5%（實質報酬約2%）。一個平衡的投資組合可以以7到8%的名目報酬為目標。但任何特定報酬都不應被視為保證。
+答：美國股票市場（標普500）的歷史名目年報酬約10%，或通膨調整後約7%。然而，每年的報酬差異極大。任何特定年份，市場可能漲30%或跌30%。10%的平均值只在長時間（20年以上）後才會浮現。債券的歷史報酬約為5%名目報酬（2%實質報酬）。均衡的投資組合或許以7至8%的名目報酬為目標。切記，沒有任何特定報酬是有保證的。
 </p>
 <p>
-<strong>Q7：我應該先還債還是先投資？</strong>
+<strong>問7：我應該先還債還是先投資？</strong>
 </p>
 <p>
-A：把你的債務利率和預期投資報酬相比。如果你的債務利率是20%（信用卡），還清債務等於是獲得一個保證的20%報酬——比任何投資都好。如果你的債務利率是4%（房貸），而你預期投資能賺10%，那麼投資可能更划算，不過還債的「報酬」是有保障的，而投資報酬則不然。一個常見的策略：先還清所有超過6到7%利率的債務，剩餘資金再拿去投資。
+答：比較你的債務利率和預期投資報酬。如果你的債務利率為20%（信用卡），還清債務就像賺取有保證的20%報酬——比任何投資都好。如果你的債務利率為4%（房貸），而你預期投資能賺10%，那麼投資或許更有利，但還債是有保證的「報酬」，而投資報酬則不然。一個常見策略：先還清所有利率高於6至7%的債務，再將剩餘的錢拿去投資。
 </p>
 <p>
-<strong>Q8：通膨對所有商品的影響一樣嗎？</strong>
+<strong>問8：通膨對所有商品的影響都一樣嗎？</strong>
 </p>
 <p>
-A：不一樣。不同類別的商品通膨速度不同。過去20年，美國的醫療與教育費用上漲幅度遠超整體CPI，而科技產品和服飾往往反而變得更便宜。CPI是一籃子商品的平均值，所以你個人的實際通膨率取決於你實際的消費結構。例如，醫療費用佔退休人士開支比例更大，他們實際面臨的通膨率往往更高。
+答：不。不同類別的通膨率不同。過去20年在美國，醫療和教育費用的漲幅遠超過整體消費者物價指數，而科技產品和服裝往往變得更便宜。消費者物價指數是一籃子商品的平均值，因此你個人的通膨率取決於你實際的消費結構。例如，退休人士通常面臨較高的實際通膨，因為醫療佔其支出的比例較大。
 </p>
 <p>
-<strong>Q9：一次性投入和每月定期定額投資，哪個比較好？</strong>
+<strong>問9：一次性投入大筆資金和每月定期定額，哪個比較好？</strong>
 </p>
 <p>
-A：從統計上看，一次性投入大約有三分之二的機率優於定期定額投資，因為市場長期趨勢向上。不過，定期定額投資能降低在市場高點押注全部資金的風險，而且對大多數有固定薪資的人來說更為實際。最好的策略通常是：每次發薪後立刻投入，不要把現金留著等待所謂「更好的時機」。
+答：從統計上看，一次性投入（單筆投資）約有三分之二的時間勝過定期定額投資，因為市場整體趨勢向上。然而，定期定額投資能降低在市場高點一次性投入的風險，且對於多數靠固定薪資生活的人來說更為可行。最好的策略通常是：每次領薪水就立即投入。不要持有現金等待「更好的時機」。
 </p>
 <p>
-<strong>Q10：複利會對我不利嗎？</strong>
+<strong>問10：複利也會對我不利嗎？</strong>
 </p>
 <p>
-A：絕對會。債務上的複利就是投資複利的鏡像。5,000美元的信用卡餘額，年化利率24%，若不還清，5年後會滾成14,615美元。這就是為什麼高利率債務是財務上的緊急危機。同一個讓投資增值的數學力量，在未還清的債務上同樣威力驚人，只不過是在摧毀你的財富。
+答：絕對會。債務上的複利是投資複利的鏡像。5,000美元的信用卡債務，若年利率24%且未償還，短短5年就會增長至14,615美元。這就是為什麼高利率債務是財務緊急狀況。同樣的數學力量，透過投資能創造財富，透過未償債務則會摧毀財富。
 </p>
             </div>
             <div id="content-cn" class="lang-content">
                 <h1>第一周：为什么要投资？货币的时间价值</h1>
-<p>
-动画参考：<code>animation/week01_compound_growth.py</code>
-</p>
-<hr>
-<h2>第一部分：阅读材料</h2>
 <hr>
 <h3>a) 为什么这很重要</h3>
 <p>
-闲置的钱就是在贬值的钱。每一天，通胀都在悄悄侵蚀着放在床垫下或存在零利率活期账户里的现金购买力。理解<em>为什么</em>你需要投资，不仅仅是一种理财技能——它是现代经济中的生存技能。
+闲置的钱就是在贬值的钱。每一天，通胀都在悄悄侵蚀塞在床垫下、或存在零利率活期账户里的现金购买力。理解<em>为什么</em>你需要投资，不仅仅是一种理财技能——在现代经济中，它更是一种生存技能。
 </p>
 <p>
-想想这个：1990年，一杯咖啡大约要0.75美元。到2025年，同样一杯咖啡要5美元甚至更多。咖啡并没有变好六倍。而是你的美元贬值了六倍。这就是通胀在发挥作用，而且它从不停歇。
+想想看：1990年，一杯咖啡大约要0.75美元。到2025年，同一杯咖啡要5.00美元甚至更多。咖啡并没有变好六倍，是你的美元变弱了六倍。这就是通胀在起作用，而且它从未停止。
 </p>
 <p>
-货币时间价值（TVM）是整个金融学的基础原则。它指出今天的一美元比明天的一美元更值钱。这有三个原因：
+货币的时间价值（TVM）是所有金融学的基础原则。它指出，今天的一美元比明天的一美元更值钱。这有三个原因：
 </p>
-<li><strong>通胀</strong>——物价随时间上涨，未来的美元购买力更低。</li>
-<li><strong>机会成本</strong>——现在拥有的钱可以用于投资并获取收益。</li>
-<li><strong>风险</strong>——承诺的未来支付可能永远不会兑现。</li>
+<li><strong>通胀</strong> —— 物价随时间上涨，因此未来的美元购买力更弱。</li>
+<li><strong>机会成本</strong> —— 现在可用的钱可以用于投资以获取收益。</li>
+<li><strong>风险</strong> —— 承诺的未来付款可能永远不会兑现。</li>
 <p>
-如果你理解了货币时间价值，你就明白了为什么投资不是可选项。它是确保你的财富增长速度超过经济侵蚀速度的唯一途径。
-</p>
-<p>
-以下是一个鲜明的对比：
-</p>
-<pre><code class="language-">  甲：每年将10,000美元存入银行账户（0.5%利率）
-<p>
-乙：每年将10,000美元投资于股票市场（平均10%收益）
+如果你理解了货币的时间价值，你就明白了为什么投资并非可选项。它是确保你的财富增速快于经济侵蚀速度的唯一途径。
 </p>
 <p>
-30年后：
-+-----------+----------------+----------------+
-|           |      甲        |      乙        |
-+-----------+----------------+----------------+
-| 存入金额  |   $300,000     |   $300,000     |
-| 账户价值  |   $323,705     | $1,809,434     |
-| 增长额    |    $23,705     | $1,509,434     |
-+-----------+----------------+----------------+
-</code></pre>
+回顾过去55年，做一个思维实验，假设有三位储蓄者。从1971年开始，每人每年恰好存入1万美元——同样的名义金额，每年如此，毫无例外。唯一的区别在于<em>放在哪里</em>。
+</p>
+<ul><li><strong>A君</strong> 持有现金。没有银行，没有利息。纯粹的货币，放在抽屉里。</li>
+<li><strong>B君</strong> 存入短期美国国债，即最安全的生息工具。</li>
+<li><strong>C君</strong> 投入标普500指数，并将所有股息再投资。</li>
+<p>
+</ul>
+同样的纪律，同样的投入，三种截然不同的结果：
+</p>
+<figure class="lesson-interactive" data-asset="week01_three_portfolios"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">静态</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互动</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_three_portfolios.html?lang=cn" loading="lazy" title="三个投资组合从1971年到2025年每年累积投入1万美元：A君的现金名义上停留在55万美元（即累计存入本金），B君的国债复利增长至173万美元，C君的标普500达到4201万美元。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_cn.png" alt="三个投资组合从1971年到2025年每年累积投入1万美元：A君的现金名义上停留在55万美元（即累计存入本金），B君的国债复利增长至173万美元，C君的标普500达到4201万美元。"></figure>
+<p>
+55年后，每人投入了同样的<strong>55万美元</strong>。但最终余额相差悬殊：
+</p>
+<table><thead><tr><th>投资工具</th><th>年化收益率（CAGR）</th><th>名义终值</th><th>以1971年美元计算的终值</th></tr></thead><tbody><tr><td><strong>C君 — 标普500</strong></td><td><strong>11.24% / 年</strong></td><td><strong>4,204万美元</strong></td><td><strong>507.9万美元</strong></td></tr><tr><td><strong>B君 — 国债</strong></td><td>4.38% / 年</td><td>172.5万美元</td><td>20.8万美元</td></tr><tr><td><strong>A君 — 现金</strong></td><td>0.00% / 年</td><td>55万美元</td><td>6.6万美元</td></tr></tbody></table>
+<p>
+"年化收益率"一列即<strong>复合年均增长率（CAGR）</strong>——它是一个单一的固定利率，经过同样55年的复利计算，能产生与实际逐年资产走势相同的增长倍数。这是最应该引用的数字，因为年度收益率的简单算术平均值会高估真实的复利表现。作为参照，同期美国CPI年均涨幅为<strong>3.92%</strong>——任何低于这条线的收益，在未考虑税收之前就已是实际购买力的损失。
 </p>
 <p>
-乙的财富超过甲的五倍，尽管两人投入的金额完全相同。差异完全源于货币时间价值和复利增长。
+C君最终拥有的名义财富是B君的<strong>24倍</strong>，是A君的<strong>76倍</strong>，尽管每年投入的都是同样的1万美元。再仔细看看A君：经过55年美国通胀的侵蚀，那55万美元现金的<em>实际</em>购买力，仅相当于<strong>1971年的约6.6万美元</strong>。A君不仅没能实现财富增值——在他勤勤恳恳储蓄的同时，通胀正在主动缩水他的财富。
 </p>
 <p>
-每推迟一年投资，就是永远失去一年的复利。一个25岁开始投资的人，每年投入5,000美元直到65岁，按平均10%的收益计算，最终将拥有约240万美元。如果同一个人等到35岁才开始，最终将只有约90万美元——不到前者的一半，尽管只少了10年的投入。这个数学规律毫不留情。
+这种差距完全源于货币的时间价值和复利增长在数十年间的叠加效应。复利奖励能产生回报的资本，惩罚停滞不动的资本。
 </p>
 <p>
-本周课程为你提供整个课程所需的概念基础。掌握这些理念，未来所有主题都将更加清晰易懂。
+本周课程将为本课程后续所有内容奠定概念基础。掌握这些理念，未来每一个话题都会迎刃而解。
 </p>
 <hr>
-<h3>b) 你需要了解的知识</h3>
+<h3>b) 你需要掌握的知识</h3>
 <h4>1. 通胀：无声的财富杀手</h4>
 <p>
-通胀是物价随时间普遍上涨的现象。中央银行（如美国联邦储备委员会）的目标是年通胀率约2%，但实际通胀率可能差异很大。
-</p>
-<pre><code class="language-">  $100在通胀影响下随时间的变化
-<p>
-（假设年通胀率为3%）
+通胀是物价随时间普遍上涨的现象。中央银行（如美国的美联储）的目标通胀率约为每年2%，但实际通胀率可能大幅波动。
 </p>
 <p>
-第0年：  $100.00  |========================|  100%购买力
-第10年：  $74.41  |==================      |   74%
-第20年：  $55.37  |==============          |   55%
-第30年：  $41.20  |==========              |   41%
-第40年：  $30.66  |========                |   31%
-第50年：  $22.81  |======                  |   23%
-</code></pre>
+不要轻信教科书中假设平滑利率的例子——我们直接使用真实的美国CPI数据。想象你在1970年1月1日把一张崭新的100美元钞票塞进床垫下，从此再没动过它。以下是从那以后每五年初它的实际购买力：
+</p>
+<table><thead><tr><th>年份</th><th>已过年数</th><th>购买力</th><th>占原始金额百分比</th></tr></thead><tbody><tr><td>1970</td><td>0</td><td>100.00美元</td><td>100.0%</td></tr><tr><td>1975</td><td>5</td><td>74.49美元</td><td>74.5%</td></tr><tr><td>1980</td><td>10</td><td>50.65美元</td><td>50.6%</td></tr><tr><td>1985</td><td>15</td><td>35.39美元</td><td>35.4%</td></tr><tr><td>1990</td><td>20</td><td>29.66美元</td><td>29.7%</td></tr><tr><td>1995</td><td>25</td><td>24.81美元</td><td>24.8%</td></tr><tr><td>2000</td><td>30</td><td>22.06美元</td><td>22.1%</td></tr><tr><td>2005</td><td>35</td><td>19.44美元</td><td>19.4%</td></tr><tr><td>2010</td><td>40</td><td>17.13美元</td><td>17.1%</td></tr><tr><td>2015</td><td>45</td><td>15.51美元</td><td>15.5%</td></tr><tr><td>2020</td><td>50</td><td>14.37美元</td><td>14.4%</td></tr><tr><td>2025</td><td>55</td><td>11.73美元</td><td>11.7%</td></tr></tbody></table>
+<p>
+1970年的那100美元，如今的购买力仅剩<strong>11.73美元</strong>——通胀在一个工作寿命内已吞噬了其<strong>88.3%的实际价值</strong>。仅1970年代的滞胀，就在1980年之前将其价值几乎腰斩（跌至50.65美元），而随后相对温和的25年（1980年至2005年）又蒸发掉了三分之二。即便在你自己的有生之年，过去25年也在讲述同样的故事——<strong>2000年1月价值100美元的购买力，如今仅剩53.16美元，短短一代人的时间购买力损失了46.8%</strong>。而2020年之后的加速通胀，<strong>五年内就让美元贬值了约18%</strong>。
 </p>
 <p>
-在3%的通胀率下，你的钱在短短23年内就会损失近一半的购买力。这就是货币的"实际"价值——它实际能买到什么，而非"名义"价值（钞票上印的数字）。
+这就是货币的"实际"价值——它实际上能买到什么，与"名义"价值（钞票上印的数字）截然不同。现金并不安全。什么都赚不到的现金，是一种持续、几乎难以察觉的损失。损失的缓慢性恰恰是它最危险之处：那些把钱留在活期账户里以"保护"资产的人，正在对上面图表做出最激进的押注——而且在输。
 </p>
+<figure class="lesson-interactive" data-asset="week01_inflation_purchasing_power"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">静态</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互动</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_inflation_purchasing_power.html?lang=cn" loading="lazy" title="1975年起持有100美元现金的实际购买力经过50年美国通胀后的走势，到2025年约降至以1975年美元计算的16美元。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_cn.png" alt="1975年起持有100美元现金的实际购买力经过50年美国通胀后的走势，到2025年约降至以1975年美元计算的16美元。"></figure>
 <p>
 <strong>通胀的衡量方式：</strong>
 </p>
-<ul><li><strong>CPI（居民消费价格指数）</strong>——追踪典型家庭购买的一篮子商品和服务的成本（食品、住房、交通等）</li>
-<li><strong>PCE（个人消费支出）</strong>——美联储首选的衡量指标，比CPI覆盖范围更广。</li>
-<li><strong>核心通胀</strong>——剔除波动较大的食品和能源价格，以反映潜在趋势。</li>
+<ul><li><strong>CPI（居民消费价格指数）</strong> —— 跟踪典型家庭购买的一篮子商品和服务的成本（食品、住房、交通等）。</li>
+<li><strong>PCE（个人消费支出）</strong> —— 美联储偏好的衡量指标，比CPI覆盖范围更广。</li>
+<li><strong>核心通胀</strong> —— 剔除波动较大的食品和能源价格，以呈现潜在趋势。</li>
 <p>
 </ul>
-<strong>美国历史通胀率（大致平均值）：</strong>
+<strong>美国历史通胀率（十年平均值）：</strong>
 </p>
-<pre><code class="language-">  +----------------+-------------------+
+<table><thead><tr><th>时期</th><th>CPI年均涨幅</th></tr></thead><tbody><tr><td>1930–1940</td><td>−2.0%</td></tr><tr><td>1940–1950</td><td>+5.6%</td></tr><tr><td>1950–1970</td><td>+2.3%</td></tr><tr><td>1970–1980</td><td>+7.8%</td></tr><tr><td>1980–2000</td><td>+3.8%</td></tr><tr><td>2000–2020</td><td>+2.1%</td></tr><tr><td>2020–2025</td><td>+4.8%</td></tr></tbody></table>
 <p>
-|    时期         | 年均CPI           |
-+----------------+-------------------+
-| 1930-1940      |     -2.0%        |
-| 1940-1950      |     +5.6%        |
-| 1950-1970      |     +2.3%        |
-| 1970-1980      |     +7.8%        |
-| 1980-2000      |     +3.8%        |
-| 2000-2020      |     +2.1%        |
-| 2020-2025      |     +4.8%        |
-+----------------+-------------------+
-</code></pre>
-</p>
-<p>
-注意通胀如何在1970年代（石油危机）以及2020年代初（疫情供应冲击）急剧飙升。这些通胀峰值会迅速重创购买力。
+注意通胀在1970年代（石油危机）和2020年代初（疫情供应冲击）如何大幅飙升。这些飙升能迅速摧毁购买力。
 </p>
 <h4>2. 复利：世界第八大奇迹</h4>
 <p>
-复利意味着你在利息上再赚取利息。它是个人理财中最强大的单一力量。
+复利意味着你在利息上再赚取利息。它是个人理财中最强大的力量。
 </p>
 <p>
 <strong>复利公式：</strong>
 </p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
+<p>
+\[ FV = PV \cdot (1 + r)^n \]
+</p>
 <p>
 其中：
-FV = 终值（你的钱最终增长到的金额）
-PV = 现值（你的初始本金）
-r  = 每期利率（以小数表示）
-n  = 期数
-</code></pre>
 </p>
+<ul><li>\(FV\) = 终值（你的钱最终增长到多少）</li>
+<li>\(PV\) = 现值（你的起始金额）</li>
+<li>\(r\) = 每期利率（以小数表示）</li>
+<li>\(n\) = 期数</li>
 <p>
-<strong>例：$1,000按8%年收益率计算</strong>
+</ul>
+<strong>示例：1,000美元以8%年化收益率增长</strong>
 </p>
-<pre><code class="language-">  年份  |  期初金额   |  利息        |  期末金额
+<table><thead><tr><th>年份</th><th>期初余额</th><th>当期利息</th><th>期末余额</th></tr></thead><tbody><tr><td>1</td><td>1,000.00美元</td><td>80.00美元</td><td>1,080.00美元</td></tr><tr><td>2</td><td>1,080.00美元</td><td>86.40美元</td><td>1,166.40美元</td></tr><tr><td>3</td><td>1,166.40美元</td><td>93.31美元</td><td>1,259.71美元</td></tr><tr><td>5</td><td>1,360.49美元</td><td>108.84美元</td><td>1,469.33美元</td></tr><tr><td>10</td><td>1,999.00美元</td><td>159.92美元</td><td>2,158.92美元</td></tr><tr><td>20</td><td>4,315.70美元</td><td>345.26美元</td><td>4,660.96美元</td></tr><tr><td>30</td><td>9,317.27美元</td><td>745.38美元</td><td>10,062.66美元</td></tr><tr><td>40</td><td>20,106.85美元</td><td>1,608.55美元</td><td>21,715.40美元</td></tr></tbody></table>
 <p>
-------+-------------+--------------+----------
-1   |  $1,000.00  |    $80.00    |  $1,080.00
-2   |  $1,080.00  |    $86.40    |  $1,166.40
-3   |  $1,166.40  |    $93.31    |  $1,259.71
-5   |  $1,360.49  |   $108.84    |  $1,469.33
-10   |  $1,999.00  |   $159.92    |  $2,158.92
-20   |  $4,315.70  |   $345.26    |  $4,660.96
-30   |  $9,317.27  |   $745.38    | $10,062.66
-40   | $20,106.85  | $1,608.55    | $21,715.40
-</code></pre>
-</p>
-<p>
-注意第40年赚取的利息（$1,608）已经超过最初的本金（$1,000）。这就是复利的力量。
+注意第40年赚取的利息（1,608美元）已超过最初的投资本金（1,000美元）。这就是复利的效果。
 </p>
 <p>
 <strong>复利与单利的可视化对比：</strong>
 </p>
-<pre><code class="language-">  价值（$）
+<figure class="lesson-interactive" data-asset="week01_compound_vs_simple"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">静态</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">互动</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_compound_vs_simple.html?lang=cn" loading="lazy" title="以8%年化利率，1,000美元起始本金经过40年的复利与单利对比。单利线性增长至4,200美元；复利曲线飙升至21,725美元——两者之间17,525美元的差距完全来自将此前利息再投资。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_cn.png" alt="以8%年化利率，1,000美元起始本金经过40年的复利与单利对比。单利线性增长至4,200美元；复利曲线飙升至21,725美元——两者之间17,525美元的差距完全来自将此前利息再投资。"></figure>
 <p>
-|
-|                                              * 复利（8%）
-|                                         *
-|                                     *
-|                                 *
-|                             *
-|                         *
-|                     *
-|                  *
-|               *          ___-----  单利（8%）
-|            *    ___-----
-|         * ___---
-|       *--
-|     *
-|   *
-|  *
-| *
-|*___________________________________________
-0    5    10    15    20    25    30    年
-</code></pre>
+单利情况下，每年赚取原始1,000美元的8%（每年80美元）。复利情况下，你赚取的是<em>当前余额</em>的8%，而余额每年都在增长。长期来看，差距将变得极为巨大——上面的例子最终结果是<strong>21,725美元（复利）对比4,200美元（单利）</strong>，五倍的差距完全来自于将此前利息留在账户中而非取出。
 </p>
 <p>
-按单利计算，每年在原始$1,000的基础上赚取8%（每年$80）。按复利计算，每年在<em>当前余额</em>的基础上赚取8%，而余额每年都在增长。长期来看，差距将变得巨大。
+<strong>复利频率同样重要。</strong>
+同样的10,000美元，同样的12%年化利率，投资10年，仅复利频率不同：
 </p>
+<table><thead><tr><th>复利频率</th><th>最终价值</th></tr></thead><tbody><tr><td>每年</td><td>31,058.48美元</td></tr><tr><td>每半年</td><td>32,071.35美元</td></tr><tr><td>每季度</td><td>32,620.38美元</td></tr><tr><td>每月</td><td>33,003.87美元</td></tr><tr><td>每日</td><td>33,194.62美元</td></tr><tr><td>连续</td><td>33,201.17美元</td></tr></tbody></table>
 <p>
-<strong>复利频率同样重要：</strong>
-</p>
-<pre><code class="language-">  $10,000按12%年利率投资10年，不同复利频率：
-<p>
-+----------------+--------------+
-| 复利频率       | 最终价值      |
-+----------------+--------------+
-| 按年           | $31,058.48   |
-| 按半年         | $32,071.35   |
-| 按季度         | $32,620.38   |
-| 按月           | $33,003.87   |
-| 按日           | $33,194.62   |
-| 连续复利       | $33,201.17   |
-+----------------+--------------+
-</code></pre>
-</p>
-<p>
-复利频率越高，收益越高，但差异会递减。从按年到按月的跨越差异显著；从按日到连续复利则几乎可以忽略不计。
+复利频率越高，收益越高，但边际收益递减很快。从每年到每月的跨越相当显著；从每日到连续的差异则几乎可以忽略不计。
 </p>
 <h4>3. 72法则</h4>
 <p>
-72法则是估算资金翻倍所需时间的心算捷径：
-</p>
-<pre><code class="language-">  翻倍年数 = 72 / 年收益率（%）
-<p>
-示例：
-+--------+-----------------------+
-| 收益率  |  翻倍所需年数         |
-+--------+-----------------------+
-|   2%   |  72 / 2  = 36年       |
-|   4%   |  72 / 4  = 18年       |
-|   6%   |  72 / 6  = 12年       |
-|   8%   |  72 / 8  =  9年       |
-|  10%   |  72 / 10 =  7.2年     |
-|  12%   |  72 / 12 =  6年       |
-+--------+-----------------------+
-</code></pre>
+72法则是估算在给定年化收益率下资金翻倍所需时间的心算捷径：
 </p>
 <p>
-<strong>为什么这个法则有效？</strong> 它是从自然对数推导出的数学近似值。精确公式为：t = ln(2) / ln(1 + r)，但72已足够接近，可用于心算，且能被许多数字整除。
+$$ \text{翻倍所需年数} \approx \frac{72}{r} \quad \text{（其中 } r \text{ 为年化收益率百分比）} $$
+</p>
+<table><thead><tr><th>年化收益率</th><th>翻倍所需年数</th></tr></thead><tbody><tr><td>2%</td><td>\(72 / 2 = 36\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>8%</td><td>\(72 / 8 = 9\) 年</td></tr><tr><td>10%</td><td>\(72 / 10 = 7.2\) 年</td></tr><tr><td>12%</td><td>\(72 / 12 = 6\) 年</td></tr></tbody></table>
+<p>
+<strong>为什么这个法则有效？</strong> 它是一个基于自然对数推导出的数学近似。精确公式为
 </p>
 <p>
-<strong>你也可以反向使用72法则来衡量通胀：</strong>
-</p>
-<pre><code class="language-">  3%通胀率下，购买力减半所需时间：72 / 3 = 24年
-<p>
-6%通胀率下，购买力减半所需时间：72 / 6 = 12年
-9%通胀率下，购买力减半所需时间：72 / 9 =  8年
-</code></pre>
+$$ t = \frac{\ln 2}{\ln(1 + r)} $$
 </p>
 <p>
-这让通胀变得直观可感。如果通胀平均为4%，每18年你的钱只能买到原来一半的东西。这正是那些年收益率仅为1-2%的"安全"储蓄账户实际上在让你亏损的原因。
+但72对于心算来说足够精确，而且实际上72可以被2、3、4、6、8、9和12整除——几乎涵盖了你实际关心的所有利率。
+</p>
+<p>
+<strong>72法则的反向应用——通胀按同样的时钟侵蚀你的购买力。</strong> 将"年化收益率"替换为"年通胀率"，"翻倍所需年数"就变成了"购买力减半所需年数"：
+</p>
+<table><thead><tr><th>通胀率</th><th>购买力减半所需年数</th></tr></thead><tbody><tr><td>3%</td><td>\(72 / 3 = 24\) 年</td></tr><tr><td>4%</td><td>\(72 / 4 = 18\) 年</td></tr><tr><td>6%</td><td>\(72 / 6 = 12\) 年</td></tr><tr><td>9%</td><td>\(72 / 9 \approx 8\) 年</td></tr></tbody></table>
+<p>
+这让通胀变得触手可及。如果通胀平均为4%，每隔18年你的钱只能买到之前一半的东西。这就是为什么利率仅为1%-2%的"安全"储蓄账户实际上在亏损你的实际资金。
 </p>
 <h4>4. 机会成本</h4>
 <p>
-机会成本是你在做出决策时放弃的最佳替代方案的价值。在投资中，它意味着每一美元都有多种竞争用途，选择一种就意味着放弃另一种。
-</p>
-<pre><code class="language-">  决策树：10,000美元该如何处置？
-<p>
-$10,000
-|
-+---------------+---------------+
-|               |               |
-存入银行          投资于           偿还信用卡
-(0.5%年利率)    指数基金           债务
-|          (平均10%)        (20%年利率)
-|               |               |
-10年后              10年后          10年节省
-= $10,511       = $25,937       = $31,875
-（节省的利息支出）
-</code></pre>
+机会成本是你在做决策时放弃的次优选择的价值。在投资中，它意味着每一块钱都有竞争用途，选择其中一种就意味着放弃另一种。
 </p>
 <p>
-在这个例子中，偿还高息信用卡债务的"收益"最高，因为你消除了一项20%的年度成本。这正是理财顾问通常建议在投资之前先偿还高息债务的原因。
+<strong>决策树——如何处理10,000美元：</strong>
+</p>
+<div class="mermaid-block" data-view="diagram"><button type="button" class="mermaid-toggle" onclick="toggleMermaid(this)" aria-label="Toggle diagram source">Show source</button><pre class="mermaid">flowchart TD&#10;    Start(["10,000美元&lt;br/&gt;待分配"])&#10;    Bank["存入银行&lt;br/&gt;年化0.5%"]&#10;    Index["投资&lt;br/&gt;指数基金&lt;br/&gt;平均~10%"]&#10;    Debt["偿还信用卡&lt;br/&gt;债务&lt;br/&gt;年化20%"]&#10;    BankEnd["10年后&lt;br/&gt;&lt;b&gt;10,511美元&lt;/b&gt;"]&#10;    IndexEnd["10年后&lt;br/&gt;&lt;b&gt;25,937美元&lt;/b&gt;"]&#10;    DebtEnd["10年内&lt;br/&gt;节省利息&lt;br/&gt;&lt;b&gt;31,875美元&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</pre><pre class="mermaid-source"><code>flowchart TD&#10;    Start(["10,000美元&lt;br/&gt;待分配"])&#10;    Bank["存入银行&lt;br/&gt;年化0.5%"]&#10;    Index["投资&lt;br/&gt;指数基金&lt;br/&gt;平均~10%"]&#10;    Debt["偿还信用卡&lt;br/&gt;债务&lt;br/&gt;年化20%"]&#10;    BankEnd["10年后&lt;br/&gt;&lt;b&gt;10,511美元&lt;/b&gt;"]&#10;    IndexEnd["10年后&lt;br/&gt;&lt;b&gt;25,937美元&lt;/b&gt;"]&#10;    DebtEnd["10年内&lt;br/&gt;节省利息&lt;br/&gt;&lt;b&gt;31,875美元&lt;/b&gt;"]&#10;&#10;    Start --&gt; Bank&#10;    Start --&gt; Index&#10;    Start --&gt; Debt&#10;    Bank --&gt; BankEnd&#10;    Index --&gt; IndexEnd&#10;    Debt --&gt; DebtEnd&#10;&#10;    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332&#10;    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332&#10;    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c&#10;    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px&#10;&#10;    class Start start&#10;    class Bank,Index,Debt option&#10;    class BankEnd,IndexEnd result&#10;    class DebtEnd winner&#10;</code></pre></div>
+<p>
+在这个例子中，偿还高息信用卡债务的"收益率"最高，因为你正在消除20%的年成本。这就是为什么理财顾问通常建议在投资之前先还清高息债务。
 </p>
 <p>
-<strong>核心洞见：</strong> 机会成本适用于时间，也适用于金钱。每推迟一年投资，都有可量化的代价，因为你将永远失去那一年的复利。
-</p>
-<pre><code class="language-">  等待的代价：每年$5,000，10%收益率
-<p>
-开始年龄  |  截至65岁  |  累计投入金额  |  最终价值
-----------+-----------+----------------+---------------
-20    |   45年     |    $225,000    |  $3,616,635
-25    |   40年     |    $200,000    |  $2,212,963
-30    |   35年     |    $175,000    |  $1,355,122
-35    |   30年     |    $150,000    |    $822,470
-40    |   25年     |    $125,000    |    $491,735
-45    |   20年     |    $100,000    |    $286,375
-</code></pre>
+<strong>关键洞察：</strong> 机会成本同样适用于时间，而不仅仅是金钱。你每延迟投资一年，就会产生可量化的成本，因为那一年的复利增长将永远失去。
 </p>
 <p>
-从20岁开始而非30岁，意味着只多投入$50,000，但最终多出$2.26百万。早期的复利年份具有不成比例的巨大价值。
+<strong>等待的代价——每年投入5,000美元，平均年化收益率10%，目标65岁退休：</strong>
 </p>
-<h4>5. 实际收益与名义收益</h4>
+<table><thead><tr><th>开始年龄</th><th>投资年数</th><th>累计投入</th><th>65岁时的终值</th></tr></thead><tbody><tr><td>20</td><td>45</td><td>225,000美元</td><td>3,616,635美元</td></tr><tr><td>25</td><td>40</td><td>200,000美元</td><td>2,212,963美元</td></tr><tr><td>30</td><td>35</td><td>175,000美元</td><td>1,355,122美元</td></tr><tr><td>35</td><td>30</td><td>150,000美元</td><td>822,470美元</td></tr><tr><td>40</td><td>25</td><td>125,000美元</td><td>491,735美元</td></tr><tr><td>45</td><td>20</td><td>100,000美元</td><td>286,375美元</td></tr></tbody></table>
 <p>
-<strong>名义收益</strong>是投资的原始百分比增益，未经通胀调整。<strong>实际收益</strong>是名义收益减去通胀率，代表购买力的实际增长。
+从20岁而非30岁开始，仅多投入50,000美元，最终却多了226万美元。复利的早期岁月价值不成比例地高。
 </p>
-<pre><code class="language-">  实际收益（近似）= 名义收益 - 通胀率
+<h4>5. 实际收益率与名义收益率</h4>
 <p>
-更精确的计算：
-实际收益 = ((1 + 名义收益) / (1 + 通胀率)) - 1
-</p>
-<p>
-例：名义收益10%，通胀率3%
-近似实际收益 = 10% - 3% = 7%
-精确实际收益 = (1.10 / 1.03) - 1 = 6.80%
-</code></pre>
+<strong>名义收益率</strong>是投资的原始百分比收益，未经通胀调整。<strong>实际收益率</strong>是名义收益率减去通胀，代表实际获得的购买力增长。
 </p>
 <p>
-<strong>各类资产的历史实际收益（美国，大致数据）：</strong>
-</p>
-<pre><code class="language-">  +---------------------+-----------+-----------+-----------+
-<p>
-| 资产类别             | 名义收益  | 通胀率    | 实际收益  |
-+---------------------+-----------+-----------+-----------+
-| 美股（标普500）      |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-| 美国债券（10年期）   |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-| 黄金                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-| 储蓄账户            |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-| 现金（放在家里）     |   0.0%    |   ~3.0%   |  ~-3.0%  |
-+---------------------+-----------+-----------+-----------+
-</code></pre>
+快速近似公式：
 </p>
 <p>
-<strong>关键结论：</strong> 在3%通胀环境下，年收益率2%的储蓄账户每年<em>损失</em>1%的购买力。放在家里的现金每年损失3%。只有收益率超过通胀率的资产才能真正增加你的实际财富。
+$$ r_{\text{实际}} \approx r_{\text{名义}} - i $$
+</p>
+<p>
+精确关系（<strong>费雪方程</strong>）为：
+</p>
+<p>
+$$ r_{\text{实际}} = \frac{1 + r_{\text{名义}}}{1 + i} - 1 $$
+</p>
+<p>
+示例——名义收益率10%，通胀率3%：
+</p>
+<p>
+$$ \begin{aligned}
+r_{\text{实际（近似）}} &= 10\% - 3\% = 7\% \\
+r_{\text{实际（精确）}} &= \frac{1.10}{1.03} - 1 = 6.80\%
+\end{aligned} $$
+</p>
+<p>
+在低通胀时，近似公式足以应付心算；在高通胀或高收益的情况下，建议使用精确公式。
+</p>
+<p>
+<strong>各资产类别历史实际收益率（美国，近似值）：</strong>
+</p>
+<table><thead><tr><th>资产类别</th><th>名义收益率</th><th>通胀率</th><th>实际收益率</th></tr></thead><tbody><tr><td>美国股票（标普500）</td><td>~10.0%</td><td>~3.0%</td><td>~7.0%</td></tr><tr><td>美国债券（10年期）</td><td>~5.0%</td><td>~3.0%</td><td>~2.0%</td></tr><tr><td>黄金</td><td>~7.0%</td><td>~3.0%</td><td>~4.0%</td></tr><tr><td>储蓄账户</td><td>~2.0%</td><td>~3.0%</td><td>~−1.0%</td></tr><tr><td>现金（床垫）</td><td>0.0%</td><td>~3.0%</td><td>~−3.0%</td></tr></tbody></table>
+<p>
+<strong>关键结论：</strong> 在3%通胀环境下，利率为2%的储蓄账户每年<em>损失</em>1%的购买力。床垫下的现金每年损失3%。只有收益率高于通胀率的资产，才能真正增加你的实际财富。
 </p>
 <h4>6. 终值与现值</h4>
 <p>
-这是货币时间价值的两个核心计算。
+这是货币时间价值的两个核心计算工具。
 </p>
 <p>
-<strong>终值（FV）：</strong> 当前一笔钱在未来将价值多少。
-</p>
-<pre><code class="language-">  FV = PV x (1 + r)^n
-<p>
-例：$5,000在8%收益率下，20年后价值几何？
-FV = $5,000 x (1.08)^20
-FV = $5,000 x 4.6610
-FV = $23,305
-</code></pre>
+<strong>终值（FV）：</strong> 今天的一笔钱在未来将价值几何。
 </p>
 <p>
-<strong>现值（PV）：</strong> 未来一笔钱在今天价值多少。
-</p>
-<pre><code class="language-">  PV = FV / (1 + r)^n
-<p>
-例：15年后的$50,000，在7%折现率下，今天价值几何？
-PV = $50,000 / (1.07)^15
-PV = $50,000 / 2.7590
-PV = $18,126
-</code></pre>
+\[ FV = PV \cdot (1 + r)^n \]
 </p>
 <p>
-<strong>这意味着：</strong> 如果有人给你提供15年后支付$50,000的方案，而你的资金可以赚取7%的收益，那么这个方案对你今天而言只值$18,126。如果他们同时提供立即支付$20,000，今天的$20,000是更好的选择。
+示例——5,000美元以8%收益率增长20年后的终值？
 </p>
 <p>
-<strong>年金终值（定期投入）：</strong>
-</p>
-<pre><code class="language-">  FV = PMT x [((1 + r)^n - 1) / r]
-<p>
-其中PMT = 定期投入金额
-</p>
-<p>
-例：每月$500，投资30年，年收益率8%（月利率0.667%）
-FV = $500 x [((1.00667)^360 - 1) / 0.00667]
-FV = $500 x 1,491.57
-FV = $745,785
+\[ \begin{aligned}
+FV &= 5{,}000 \cdot (1.08)^{20} \\
+&= 5{,}000 \cdot 4.6610 \\
+&= 23{,}305\text{美元}
+\end{aligned} \]
 </p>
 <p>
-累计投入：$500 x 360 = $180,000
-总增长额：$745,785 - $180,000 = $565,785
-</code></pre>
+<strong>现值（PV）：</strong> 未来一笔钱今天的价值是多少。
 </p>
 <p>
-你的投资增长额（$565,785）是实际投入金额（$180,000）的三倍多。这就是持续定投与复利叠加的威力。
+\[ PV = \frac{FV}{(1 + r)^n} \]
 </p>
 <p>
-<strong>现值示意图——未来现金流折现：</strong>
-</p>
-<pre><code class="language-">  今天      第1年     第2年     第3年     第4年     第5年
-<p>
-|         |         |         |         |         |
-|         $100      $100      $100      $100      $100
-|         |         |         |         |         |
-|    $93.46    $87.34    $81.63    $76.29    $71.30
-|&lt;--------|         |         |         |         |
-|&lt;------------------|         |         |         |
-|&lt;----------------------------|         |         |
-|&lt;------------------------------------|         |
-|&lt;-------------------------------------------------|
-|
-PV = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+示例——以7%折现率计算，15年后的50,000美元今天值多少？
 </p>
 <p>
-（折现率 = 7%）
-</code></pre>
+\[ \begin{aligned}
+PV &= \frac{50{,}000}{(1.07)^{15}} \\
+&= \frac{50{,}000}{2.7590} \\
+&= 18{,}126\text{美元}
+\end{aligned} \]
 </p>
 <p>
-每笔未来的$100在今天价值更低，因为货币时间价值的存在。未来的支付时间越晚，今天的价值就越低。
+<strong>这意味着：</strong> 如果有人向你承诺15年后给你50,000美元，而你自己能赚到7%的收益率，那这个承诺今天对你来说只值18,126美元。如果他们同时提出现在给你20,000美元，现在的20,000美元才是更划算的选择。
+</p>
+<p>
+<strong>年金终值（定期定额投入）：</strong>
+</p>
+<p>
+\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
+</p>
+<p>
+其中 \(PMT\) = 定期投入金额。
+</p>
+<p>
+示例——每月投入500美元，持续30年，年化8%（月化0.667%）：
+</p>
+<p>
+\[ \begin{aligned}
+FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
+&= 500 \cdot 1{,}491.57 \\
+&= 745{,}785\text{美元}
+\end{aligned} \]
+</p>
+<p>
+累计投入：\(500 \times 360 = 180{,}000\text{美元}\)。总增长：\(745{,}785 - 180{,}000 = 565{,}785\text{美元}\)。
+</p>
+<p>
+投资增长部分（565,785美元）是实际投入金额（180,000美元）的三倍多。这就是坚持定期投资叠加复利的力量。
+</p>
+<p>
+<strong>对未来现金流序列进行折现。</strong> 未来五年每年末各支付100美元，以7%折现率计算：
+</p>
+<p>
+$$ PV = \sum_{t=1}^{5} \frac{100\text{美元}}{(1.07)^t} $$
+</p>
+<table><thead><tr><th>年份</th><th>未来付款</th><th>折现因子</th><th>现值</th></tr></thead><tbody><tr><td>1</td><td>100美元</td><td>\(1 / 1.07^{1} = 0.9346\)</td><td>93.46美元</td></tr><tr><td>2</td><td>100美元</td><td>\(1 / 1.07^{2} = 0.8734\)</td><td>87.34美元</td></tr><tr><td>3</td><td>100美元</td><td>\(1 / 1.07^{3} = 0.8163\)</td><td>81.63美元</td></tr><tr><td>4</td><td>100美元</td><td>\(1 / 1.07^{4} = 0.7629\)</td><td>76.29美元</td></tr><tr><td>5</td><td>100美元</td><td>\(1 / 1.07^{5} = 0.7130\)</td><td>71.30美元</td></tr><tr><td><strong>现值合计</strong></td><td><strong>410.02美元</strong></td></tr></tbody></table>
+<p>
+每笔未来的100美元，今天的价值都更低，因为货币具有时间价值。未来付款越晚，今天的价值越低——第5年的100美元今天只值71.30美元，而第1年的100美元今天还值93.46美元。
 </p>
 <h4>7. 融会贯通：投资的必要性</h4>
-<pre><code class="language-">  30年后的三条路（初始$10,000，每年追加$5,000）
 <p>
-不作任何操作    储蓄账户       投资（标普500）
-（0%收益）     （1.5%收益）    （10%收益）
-+--------------------+-------------+--------------+---------------+
-| 累计投入金额       |  $160,000   |   $160,000   |   $160,000    |
-| 最终账户价值       |  $160,000   |   $192,760   |   $987,174    |
-| 实际价值（3%通胀） |  $65,890    |    $79,379   |   $406,392    |
-| 购买力变化         |  损失59%    |    损失50%   |   增长154%    |
-+--------------------+-------------+--------------+---------------+
-</code></pre>
+<strong>三条路径对比，30年期间</strong>（起始10,000美元，每年追加5,000美元）：
 </p>
+<table><thead><tr><th>指标</th><th>什么都不做（0%）</th><th>储蓄账户（1.5%）</th><th>投资标普500（10%）</th></tr></thead><tbody><tr><td>累计投入</td><td>160,000美元</td><td>160,000美元</td><td>160,000美元</td></tr><tr><td>名义终值</td><td>160,000美元</td><td>192,760美元</td><td>987,174美元</td></tr><tr><td>实际价值（3%通胀）</td><td>65,890美元</td><td>79,379美元</td><td>406,392美元</td></tr><tr><td>购买力变化</td><td><strong>损失59%</strong></td><td><strong>损失50%</strong></td><td><strong>增加154%</strong></td></tr></tbody></table>
 <p>
-只有投资者才能真正实现实际财富的增长。储蓄者勉强保本。什么都不做的人损失超过一半的购买力。
+只有投资者才能真正实现实际财富的增长。储蓄者勉强持平。什么都不做的人损失了超过一半的购买力。
 </p>
 <hr>
 <h3>c) 常见误区</h3>
@@ -3192,126 +2899,118 @@ PV = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
 <strong>误区一："投资就是赌博。"</strong>
 </p>
 <p>
-赌博的预期收益为负（庄家永远赢）。投资于多元化资产的预期收益在历史上是正的。标普500在过去一个世纪的年均收益率约为10%，期间经历了大萧条、第二次世界大战、2008年金融危机和新冠疫情。对个股的短期投机或许类似赌博，但对多元化基金进行纪律严明的长期投资，在本质上截然不同。
+赌博的预期收益为负（庄家永远赢）。投资于多元化资产的历史预期收益为正。标普500在过去一个世纪的年化收益率约为10%，期间经历了大萧条、第二次世界大战、2008年金融危机和新冠疫情。对个股的短线投机可能类似赌博，但有纪律地长期投资于多元化基金，在本质上截然不同。
 </p>
 <p>
 <strong>误区二："我需要很多钱才能开始投资。"</strong>
 </p>
 <p>
-许多券商现在提供零最低起投额和碎股交易。你可以用$10购买标普500指数基金。最重要的因素不是你起投多少，而是开始得多早以及坚持定投。即使每月仅投入$50，从22岁开始，按10%的平均收益率计算，到65岁时也能增长到$350,000以上。
+许多券商现在提供零门槛、零佣金服务。你可以用10美元买入标普500指数基金。最重要的因素不是起始金额，而是何时开始、是否持续定投。即便每月只投50美元，从22岁开始，以平均10%的收益率，到65岁时也能增长到超过35万美元。
 </p>
 <p>
-<strong>误区三："储蓄与投资是一回事。"</strong>
+<strong>误区三："储蓄和投资是一回事。"</strong>
 </p>
 <p>
-储蓄是将钱存起来。投资是让钱去创造价值。储蓄账户年收益0.5%，而通胀运行在3%，这意味着你每年损失2.5%的购买力。储蓄对于应急资金和短期目标很重要，但对于长期财富积累，投资不可或缺。
+储蓄是把钱留起来。投资是让钱去赚钱。储蓄账户利率0.5%，通胀3%，意味着你每年损失2.5%的购买力。储蓄对于应急资金和短期目标很重要，但对于长期财富积累，投资不可或缺。
 </p>
 <p>
 <strong>误区四："我应该等待'合适时机'再投资。"</strong>
 </p>
 <p>
-择时入市极其困难。研究始终表明"在市场中待的时间"胜过"择时进入市场"。嘉信理财的一项研究发现，即使某人每年都在最糟糕的时机（市场顶点）入市，仍然明显优于将资金放在现金中等待更好入场点的人。
+择时投资极为困难。研究一再表明，"留在市场中的时间"胜过"择时进入市场"。一项嘉信理财的研究发现，即便每年都在最糟糕的时机（市场峰值）入场，其表现仍显著优于持有现金等待更好入场点的人。
 </p>
 <p>
-<strong>误区五："复利只对大额资金有意义。"</strong>
+<strong>误区五："复利只对大额资金才有意义。"</strong>
 </p>
 <p>
-无论金额大小，百分比的作用是相同的。$100以10%的收益率增长40年将变成$4,526。乘数效应（45倍）无论你起始$100还是$100,000都完全相同。关键在于增长率和时间跨度。
+百分比对任何金额的作用都一样。100美元以10%增长40年，变成4,526美元。这个倍数（45倍）无论起始是100美元还是10万美元都完全相同。关键在于增长率和时间跨度。
 </p>
 <p>
-<strong>误区六："通胀总是维持在2-3%左右。"</strong>
+<strong>误区六："通胀通常在2%-3%左右。"</strong>
 </p>
 <p>
-虽然中央银行的目标是2%，但实际通胀可能远高于此。美国在1980年经历了13.5%的通胀。阿根廷近年来通胀率超过100%。即使在经济稳定的国家，通胀也可能因供应冲击、货币政策变化或地缘政治事件而急剧攀升。你的投资策略需要考虑不同通胀情景。
+尽管中央银行的目标是2%，但实际通胀可能高得多。美国1980年曾出现13.5%的通胀。阿根廷近年来通胀率超过100%。即便在稳定经济体中，通胀也可能因供给冲击、货币政策变化或地缘政治事件而急剧飙升。你的投资策略需要考虑通胀变动的各种情景。
 </p>
 <p>
-<strong>误区七："涨10%再跌10%，就回本了。"</strong>
+<strong>误区七："涨10%再跌10%，就回到原点了。"</strong>
 </p>
 <p>
-这在数学上是错误的。$100涨10% = $110。然后$110跌10% = $99。你实际上亏损了1%。损失造成的伤害大于同等幅度收益带来的好处，这就是为什么管理下行风险在投资中至关重要。50%的亏损需要100%的涨幅才能回本。
+这在数学上是错误的。100美元 + 10% = 110美元。然后110美元 - 10% = 99美元。实际上你还亏了1%。损失的伤害大于等幅盈利带来的收益，这就是为什么管理下行风险在投资中至关重要。亏损50%需要盈利100%才能回本。
 </p>
-<pre><code class="language-">  亏损与盈利的不对称性：
 <p>
-+----------+----------------------------+
-| 亏损幅度  | 回本所需涨幅               |
-+----------+----------------------------+
-|   -10%   |         +11.1%             |
-|   -20%   |         +25.0%             |
-|   -30%   |         +42.9%             |
-|   -40%   |         +66.7%             |
-|   -50%   |        +100.0%             |
-|   -75%   |        +300.0%             |
-|   -90%   |        +900.0%             |
-+----------+----------------------------+
-</code></pre>
+<strong>损益不对称——从回撤中恢复所需的涨幅：</strong>
+</p>
+<table><thead><tr><th>亏损幅度</th><th>回本所需涨幅</th></tr></thead><tbody><tr><td>−10%</td><td>+11.1%</td></tr><tr><td>−20%</td><td>+25.0%</td></tr><tr><td>−30%</td><td>+42.9%</td></tr><tr><td>−40%</td><td>+66.7%</td></tr><tr><td>−50%</td><td>+100.0%</td></tr><tr><td>−75%</td><td>+300.0%</td></tr><tr><td>−90%</td><td>+900.0%</td></tr></tbody></table>
+<p>
+从数学上看，亏损 \(L\) 后，回本所需涨幅为 \(G = \frac{L}{1 - L}\)——当 \(L\) 变大时，\(G\) 的增速远超 \(L\)。
 </p>
 <p>
 <strong>误区八："72法则是精确的。"</strong>
 </p>
 <p>
-它只是一个近似值。在6%至10%的利率区间内最为准确。在利率极低或极高时，精确度会下降。2%利率下，实际翻倍时间为35.0年（72法则给出36年）。20%利率下，实际时间为3.8年（72法则给出3.6年）。用于快速心算足够接近，但不要用于精确的财务规划。
+它只是一个近似值。它在利率6%至10%之间最为准确。在极低或极高利率下，精确度会下降。对于2%，实际翻倍时间为35.0年（72法则给出36年）。对于20%，实际时间为3.8年（72法则给出3.6年）。足以用于快速心算，但不要用于精确的财务规划。
 </p>
 <hr>
-<h3>d) 问答环节</h3>
+<h3>d) 问答</h3>
 <p>
-<strong>Q1：用简单的话说，什么是货币时间价值？</strong>
+<strong>Q1：用简单的话来说，货币的时间价值是什么？</strong>
 </p>
 <p>
-A：今天的一美元比未来的一美元更有价值，原因有三：（1）通胀会降低未来那一美元的购买力；（2）今天的美元可以用于投资并赚取收益；（3）承诺的未来支付总存在无法兑现的风险。这就是为什么贷款方收取利息，投资者要求回报——他们是在为放弃现在对资金的使用权而获得补偿。
+A：今天的一美元比未来的一美元更值钱，原因有三：（1）通胀会降低那笔未来资金的购买力；（2）你可以用今天的钱去投资并赚取收益；（3）承诺的未来付款始终存在无法兑现的风险。这就是为什么贷款方收取利息，投资者要求回报——他们在为放弃现在使用资金的权利而得到补偿。
 </p>
 <p>
-<strong>Q2：复利与单利有何区别？</strong>
+<strong>Q2：复利与单利有何不同？</strong>
 </p>
 <p>
-A：单利只在原始本金的基础上计算。如果你以5%单利投资$1,000，每年赚取$50，无论累积了多少都一样。复利在本金加上所有已累积利息的基础上计算。因此在第二年，你在$1,050而非$1,000的基础上赚取利息。长期来看，这种差异极为显著。30年后，$1,000按5%单利增长为$2,500。按5%复利增长为$4,322。
+A：单利只按原始本金计算。如果你以5%单利投资1,000美元，无论累积了多少，每年赚取50美元。复利按本金加所有累积利息计算。所以在第二年，你赚取的是1,050美元的利息，而非仅仅1,000美元。长期来看，这个差距将变得极为显著。30年后，1,000美元以5%单利变成2,500美元；以5%复利则变成4,322美元。
 </p>
 <p>
-<strong>Q3：为什么72法则有效？</strong>
+<strong>Q3：72法则为何有效？</strong>
 </p>
 <p>
-A：它源于数学关系式 ln(2) / ln(1 + r)，其中ln是自然对数，r是利率。在接近8%的利率下，72/r与这个公式非常接近。选择72是因为它可以被2、3、4、6、8、9和12整除，便于心算。有些人对较低利率使用"70法则"，或对连续复利使用"69.3法则"，但72在日常使用中最为实用。
+A：它源自数学关系 ln(2) / ln(1 + r)，其中 ln 为自然对数，r 为利率。对于接近8%的利率，72/r 与这个公式高度吻合。之所以选择72，是因为它可以被2、3、4、6、8、9和12整除，方便心算。有些人对低利率使用"70法则"，对连续复利使用"69.3法则"，但72是日常使用中最实用的。
 </p>
 <p>
-<strong>Q4：名义收益与实际收益有何区别？</strong>
+<strong>Q4：名义收益率与实际收益率有何区别？</strong>
 </p>
 <p>
-A：名义收益是表面数字——"股市今年收益10%"。实际收益经过通胀调整，反映你购买力的实际增长。如果市场收益10%但通胀为4%，你的实际收益约为6%。在评估长期投资表现时，始终以实际收益为准，因为在高通胀环境中，名义收益会产生误导。
+A：名义收益率是标题数字——"股市今年涨了10%。"实际收益率经通胀调整后，反映你购买力的实际增幅。如果股市涨了10%但通胀是4%，你的实际收益率约为6%。在评估长期投资表现时，始终要以实际收益率为准，因为在高通胀环境下，名义收益率可能具有误导性。
 </p>
 <p>
 <strong>Q5：如何计算未来一笔钱的现值？</strong>
 </p>
 <p>
-A：使用公式 PV = FV / (1 + r)^n。选择合适的折现率（r）——通常是你在其他投资中可以获得的收益率。例如，如果有人承诺10年后给你$10,000，而你在其他地方可以赚到7%：PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083。那笔未来的$10,000对你今天而言只值约$5,083。
+A：使用公式 PV = FV / (1 + r)^n。确定合适的折现率（r）——这通常是你在其他投资中能赚到的收益率。例如，如果有人承诺10年后给你10,000美元，而你自己能赚到7%：PV = 10,000 / (1.07)^10 = 10,000 / 1.9672 = 5,083美元。那笔未来的10,000美元今天对你来说只值约5,083美元。
 </p>
 <p>
-<strong>Q6：投资的合理预期年收益率是多少？</strong>
+<strong>Q6：投资的合理预期年化收益率是多少？</strong>
 </p>
 <p>
-A：美国股市（标普500）历史上名义年收益率约为10%，扣除通胀后约为7%。然而，每年的收益差异极大。在任意一年，市场可能上涨30%或下跌30%。10%的平均值只有在长期（20年以上）才会显现。债券的历史名义收益约为5%（实际收益约2%）。均衡的投资组合或许可以目标7-8%的名义收益。永远不要假设任何特定收益率是有保障的。
+A：美国股市（标普500）历史上名义年化收益率约为10%，扣除通胀后约为7%。但逐年收益率差异极大。任何给定年份，市场可能涨30%也可能跌30%。10%的平均值只在长期（20年以上）才会显现。债券的历史名义收益率约为5%（实际约2%）。均衡配置的投资组合可将名义收益率目标设为7%-8%。永远不要假设任何具体收益率是有保障的。
 </p>
 <p>
-<strong>Q7：应该先还债还是先投资？</strong>
+<strong>Q7：应该还债还是投资？</strong>
 </p>
 <p>
-A：比较你的债务利率与预期投资收益率。如果你的债务利率为20%（信用卡），还清债务相当于赚取有保障的20%回报——胜过任何投资。如果你的债务利率为4%（房贷），而预期投资收益为10%，投资可能更有利，尽管还债是"有保障的回报"，而投资收益则不然。一种常见策略：先还清所有利率高于6-7%的债务，然后将剩余资金用于投资。
+A：比较你的债务利率与预期投资收益率。如果你的债务利率是20%（信用卡），还清债务相当于赚取有保障的20%回报——优于任何投资。如果你的债务利率是4%（房贷），而你预期投资能赚10%，投资可能更合算，但还债是"有保障的回报"，而投资收益并不确定。一个常见策略是：还清所有利率高于6%-7%的债务，再用剩余资金投资。
 </p>
 <p>
-<strong>Q8：通胀对所有商品的影响是否相同？</strong>
+<strong>Q8：通胀对所有商品的影响一样吗？</strong>
 </p>
 <p>
-A：不相同。不同类别商品的通胀率各异。过去20年，美国医疗和教育成本的涨幅远高于整体CPI，而科技产品和服装的价格往往更便宜。CPI是一篮子商品的平均值，所以你个人的通胀率取决于你实际的消费结构。例如，退休人员通常面临更高的实际通胀，因为医疗支出占其消费的比例更大。
+A：不一样。不同类别的通胀速度不同。过去20年在美国，医疗和教育成本的涨幅远超整体CPI，而科技产品和服装往往越来越便宜。CPI是一篮子商品的平均值，因此你个人的实际通胀率取决于你实际的消费结构。例如，退休人员通常面临更高的实际通胀，因为医疗保健在其支出中占比更大。
 </p>
 <p>
-<strong>Q9：一次性投入与每月定投有何区别？</strong>
+<strong>Q9：一次性投入与每月定投，哪种更好？</strong>
 </p>
 <p>
-A：从统计上看，一次性投入约在三分之二的时间里优于定投（即分批定期投入），因为市场整体呈上涨趋势。然而，定投降低了在市场顶点全仓进入的风险，且对于大多数领薪水的人来说更为可行。最佳策略通常是：每次发薪时立即投入。不要持有现金等待"更好的时机"。
+A：从统计上看，一次性投入大约有三分之二的时间优于定投，因为市场长期趋势向上。但定投降低了在市场高点全仓买入的风险，而且对大多数靠薪资生活的人来说更加实际。最佳策略通常是：随每份薪资到手即时投入，不要持有现金等待"更好的时机"。
 </p>
 <p>
-<strong>Q10：复利会对我产生负面影响吗？</strong>
+<strong>Q10：复利也会对我不利吗？</strong>
 </p>
 <p>
-A：当然会。债务上的复利是投资复利的镜像。$5,000的信用卡余额按24%年利率计算，如果不还款，仅5年就会增长到$14,615。这正是为什么高息债务是财务紧急情况。同样的数学力量既能通过投资创造财富，也能通过未还债务摧毁财富。
+A：绝对会。债务上的复利正是投资复利的镜像。5,000美元信用卡余额，年化利率24%，若不偿还，仅5年就会滚至14,615美元。这就是为什么高息债务是一场财务紧急状态。同样的数学力量，在投资中积累财富，在未偿债务中则摧毁财富。
 </p>
             </div>
         </div>
@@ -3379,6 +3078,69 @@ function toggleMermaid(btn) {
     block.setAttribute('data-view', showingDiagram ? 'source' : 'diagram');
     btn.textContent = showingDiagram ? 'Show diagram' : 'Show source';
 }
+
+// --- Lesson interactive iframe self-sizing ---
+// Each interactive demo (course/interactive/*.html) calls
+// parent.postMessage({type:'lesson-interactive-resize', height: N}) when
+// its content has finished laying out. We resize the iframe to match so
+// there is neither a white bar below it nor an inner scrollbar.
+window.addEventListener('message', function (e) {
+    if (!e || !e.data || e.data.type !== 'lesson-interactive-resize') return;
+    var h = e.data.height;
+    if (typeof h !== 'number' || h < 100 || h > 5000) return;
+    document.querySelectorAll('iframe.lesson-interactive-frame').forEach(function (iframe) {
+        if (iframe.contentWindow === e.source) {
+            iframe.style.height = h + 'px';
+            var wrap = iframe.parentElement;
+            if (wrap && wrap.classList.contains('lesson-interactive-frame-wrap')) {
+                wrap.style.minHeight = h + 'px';
+            }
+        }
+    });
+});
+
+// --- Lesson interactive component toggle (live demo <-> static image) ---
+function toggleInteractive(btn) {
+    var fig = btn.closest('.lesson-interactive');
+    if (!fig) return;
+    var frameWrap = fig.querySelector('.lesson-interactive-frame-wrap');
+    var img = fig.querySelector('.lesson-interactive-fallback');
+    var leftLabel = fig.querySelector('.lesson-interactive-mslabel[data-side="left"]');
+    var rightLabel = fig.querySelector('.lesson-interactive-mslabel[data-side="right"]');
+    var showingInteractive = btn.getAttribute('data-mode') === 'interactive';
+    if (showingInteractive) {
+        if (frameWrap) frameWrap.hidden = true;
+        if (img) img.hidden = false;
+        btn.setAttribute('data-mode', 'static');
+        btn.setAttribute('aria-checked', 'false');
+        if (leftLabel) leftLabel.setAttribute('data-active', 'true');
+        if (rightLabel) rightLabel.removeAttribute('data-active');
+    } else {
+        if (frameWrap) frameWrap.hidden = false;
+        if (img) img.hidden = true;
+        btn.setAttribute('data-mode', 'interactive');
+        btn.setAttribute('aria-checked', 'true');
+        if (leftLabel) leftLabel.removeAttribute('data-active');
+        if (rightLabel) rightLabel.setAttribute('data-active', 'true');
+    }
+}
+
+// Make the side labels click-to-toggle as well, so users can tap "Static"
+// or "Interactive" directly without needing to find the switch thumb.
+document.addEventListener('click', function (e) {
+    var label = e.target.closest('.lesson-interactive-mslabel');
+    if (!label) return;
+    var fig = label.closest('.lesson-interactive');
+    if (!fig) return;
+    var btn = fig.querySelector('.lesson-interactive-msbutton');
+    if (!btn) return;
+    var side = label.getAttribute('data-side');
+    var currentlyInteractive = btn.getAttribute('data-mode') === 'interactive';
+    if ((side === 'left' && currentlyInteractive) ||
+        (side === 'right' && !currentlyInteractive)) {
+        toggleInteractive(btn);
+    }
+});
 
 // --- Language switching ---
 function switchLang(lang) {

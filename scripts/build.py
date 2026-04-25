@@ -181,7 +181,16 @@ def markdown_to_html(md):
     html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
     html = re.sub(r"\*(.+?)\*", r"<em>\1</em>", html)
 
-    html = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img src="\2" alt="\1">', html)
+    def _img_repl(m):
+        alt = m.group(1)
+        src = m.group(2)
+        # Translated lessons live in course_hk/, course_tw/, course_cn/ and
+        # use `../course/image/X.png` paths so VS Code's markdown preview
+        # resolves to the actual file. Strip that prefix in the published
+        # HTML so the iframe / src works under docs/image/.
+        src = re.sub(r"^\.\./course/(image/)", r"\1", src)
+        return f'<img src="{src}" alt="{alt}">'
+    html = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", _img_repl, html)
     html = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', html)
     html = re.sub(r"^---$", "<hr>", html, flags=re.MULTILINE)
 
@@ -206,7 +215,23 @@ def markdown_to_html(md):
         flags=re.MULTILINE,
     )
 
-    html = re.sub(r"^>\s+(.+)$", r"<blockquote>\1</blockquote>", html, flags=re.MULTILINE)
+    def merge_blockquote(m):
+        # Strip the leading "> " from each line, then join with spaces so that
+        # a multi-line blockquote renders as one continuous paragraph (standard
+        # markdown soft-wrap semantics) inside a single <blockquote>.
+        body = " ".join(
+            re.sub(r"^>\s?", "", line).strip()
+            for line in m.group(0).split("\n")
+            if line.strip()
+        )
+        return f"<blockquote>{body}</blockquote>"
+
+    html = re.sub(
+        r"(?:^>\s.*(?:\n|$))+",
+        merge_blockquote,
+        html,
+        flags=re.MULTILINE,
+    )
 
     html = re.sub(r"^[\s]*[-*]\s+(.+)$", r"<li>\1</li>", html, flags=re.MULTILINE)
     html = re.sub(r"(<li>.*</li>\n?)+", r"<ul>\g<0></ul>", html)
@@ -253,15 +278,31 @@ def markdown_to_html(md):
 # Strip YouTube script section from markdown
 # ---------------------------------------------------------------------------
 def strip_youtube_section(md):
-    """Strip Part 2 (YouTube Script) regardless of locale.
+    """Strip Part 2 (YouTube Script) regardless of locale, AND strip the
+    now-redundant "Part 1: Reading Section" header (since Part 2 is gone,
+    naming Part 1 is meaningless on the website).
 
     English uses `## Part 2: YouTube Script`; Chinese translations use the
     locale-translated equivalent (e.g. `## 第二部分：YouTube 腳本`,
     `## 第二部分：YouTube脚本`). All variants contain "YouTube" in the
     `## ` heading, which we use as the anchor.
+
+    Part 1 header detection: matches any `## ` line whose text mentions
+    "Part 1" (English) or "第一部分" (Chinese), case-insensitive on the
+    English side. The trailing `---\n` separator (if any) is also stripped
+    so we don't leave a dangling rule.
     """
     pattern = r"\n---\s*\n\s*##[^\n]*[Yy]ou[Tt]ube[^\n]*\n.*"
-    return re.sub(pattern, "", md, flags=re.DOTALL)
+    md = re.sub(pattern, "", md, flags=re.DOTALL)
+    # Strip "Part 1" heading + its surrounding rules. Match the heading
+    # itself plus any immediately-following `---` separator line.
+    md = re.sub(
+        r"^##[ \t]+(?:Part[ \t]*1\b|第一部分)[^\n]*\n(?:[ \t]*\n)*(?:---[ \t]*\n)?",
+        "",
+        md,
+        flags=re.MULTILINE,
+    )
+    return md
 
 
 def extract_title(md):
@@ -1155,6 +1196,93 @@ a:hover { color: var(--accent-hover); }
 
 img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
 
+/* --- Lesson interactive component (live demo + static fallback) --- */
+.lesson-interactive {
+    margin: 18px 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+.lesson-interactive-modeswitch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card-bg) 94%, var(--accent) 6%);
+    user-select: none;
+}
+.lesson-interactive-mslabel {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+.lesson-interactive-mslabel[data-active="true"] {
+    color: var(--text);
+}
+.lesson-interactive-msbutton {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+.lesson-interactive-msbutton[aria-checked="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+.lesson-interactive-msthumb {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    transition: left 0.18s ease;
+}
+.lesson-interactive-msbutton[aria-checked="true"] .lesson-interactive-msthumb {
+    left: 19px;
+}
+.lesson-interactive-frame-wrap {
+    width: 100%;
+    /* Sized to actual iframe content height; avoids the white bar and the
+       inner scrollbar at the same time. */
+    min-height: 770px;
+}
+.lesson-interactive-frame {
+    width: 100%;
+    height: 770px;
+    border: 0;
+    display: block;
+    background: var(--card-bg);
+}
+.lesson-interactive-fallback {
+    display: block;
+    margin: 0 auto;
+    border-radius: 0;
+}
+/* The `hidden` HTML attribute MUST win over `display: block` above —
+   without this the static image stays visible alongside the iframe. */
+.lesson-interactive-frame-wrap[hidden],
+.lesson-interactive-fallback[hidden] {
+    display: none !important;
+}
+@media (max-width: 640px) {
+    .lesson-interactive-frame-wrap { min-height: 980px; }
+    .lesson-interactive-frame { height: 980px; }
+}
+
 /* --- Footer Navigation --- */
 .page-footer {
     max-width: 820px;
@@ -1290,6 +1418,69 @@ function toggleMermaid(btn) {
     block.setAttribute('data-view', showingDiagram ? 'source' : 'diagram');
     btn.textContent = showingDiagram ? 'Show diagram' : 'Show source';
 }
+
+// --- Lesson interactive iframe self-sizing ---
+// Each interactive demo (course/interactive/*.html) calls
+// parent.postMessage({type:'lesson-interactive-resize', height: N}) when
+// its content has finished laying out. We resize the iframe to match so
+// there is neither a white bar below it nor an inner scrollbar.
+window.addEventListener('message', function (e) {
+    if (!e || !e.data || e.data.type !== 'lesson-interactive-resize') return;
+    var h = e.data.height;
+    if (typeof h !== 'number' || h < 100 || h > 5000) return;
+    document.querySelectorAll('iframe.lesson-interactive-frame').forEach(function (iframe) {
+        if (iframe.contentWindow === e.source) {
+            iframe.style.height = h + 'px';
+            var wrap = iframe.parentElement;
+            if (wrap && wrap.classList.contains('lesson-interactive-frame-wrap')) {
+                wrap.style.minHeight = h + 'px';
+            }
+        }
+    });
+});
+
+// --- Lesson interactive component toggle (live demo <-> static image) ---
+function toggleInteractive(btn) {
+    var fig = btn.closest('.lesson-interactive');
+    if (!fig) return;
+    var frameWrap = fig.querySelector('.lesson-interactive-frame-wrap');
+    var img = fig.querySelector('.lesson-interactive-fallback');
+    var leftLabel = fig.querySelector('.lesson-interactive-mslabel[data-side="left"]');
+    var rightLabel = fig.querySelector('.lesson-interactive-mslabel[data-side="right"]');
+    var showingInteractive = btn.getAttribute('data-mode') === 'interactive';
+    if (showingInteractive) {
+        if (frameWrap) frameWrap.hidden = true;
+        if (img) img.hidden = false;
+        btn.setAttribute('data-mode', 'static');
+        btn.setAttribute('aria-checked', 'false');
+        if (leftLabel) leftLabel.setAttribute('data-active', 'true');
+        if (rightLabel) rightLabel.removeAttribute('data-active');
+    } else {
+        if (frameWrap) frameWrap.hidden = false;
+        if (img) img.hidden = true;
+        btn.setAttribute('data-mode', 'interactive');
+        btn.setAttribute('aria-checked', 'true');
+        if (leftLabel) leftLabel.removeAttribute('data-active');
+        if (rightLabel) rightLabel.setAttribute('data-active', 'true');
+    }
+}
+
+// Make the side labels click-to-toggle as well, so users can tap "Static"
+// or "Interactive" directly without needing to find the switch thumb.
+document.addEventListener('click', function (e) {
+    var label = e.target.closest('.lesson-interactive-mslabel');
+    if (!label) return;
+    var fig = label.closest('.lesson-interactive');
+    if (!fig) return;
+    var btn = fig.querySelector('.lesson-interactive-msbutton');
+    if (!btn) return;
+    var side = label.getAttribute('data-side');
+    var currentlyInteractive = btn.getAttribute('data-mode') === 'interactive';
+    if ((side === 'left' && currentlyInteractive) ||
+        (side === 'right' && !currentlyInteractive)) {
+        toggleInteractive(btn);
+    }
+});
 
 // --- Language switching ---
 function switchLang(lang) {
@@ -1487,6 +1678,9 @@ def page_template(title, content, lang_contents, menus, breadcrumbs, prev_page, 
     <link rel="stylesheet" href="assets/chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {{delimiters: [{{left: '$$', right: '$$', display: true}}, {{left: '\\\\[', right: '\\\\]', display: true}}, {{left: '\\\\(', right: '\\\\)', display: false}}], ignoredTags: ['script','noscript','style','textarea','pre','code'], throwOnError: false}});"></script>
     <script type="module" src="assets/chatbot.js" defer></script>
 </head>
 <body>
@@ -1574,6 +1768,131 @@ def copy_web_assets(docs_dir):
             shutil.copy2(sp, os.path.join(dst, fn))
 
 
+def copy_lesson_assets(docs_dir):
+    """Copy course/image/*.png and course/interactive/*.html to docs/.
+
+    Static images embedded in lessons live next to their generator scripts
+    under course/image/. Interactive demos live under course/interactive/.
+    Both ship to the published site so the markdown's relative image
+    references resolve and the interactive iframes have their source.
+    """
+    import shutil
+    for sub, exts in (("image", (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")),
+                       ("interactive", (".html",))):
+        src = os.path.join(PROJECT_ROOT, "course", sub)
+        if not os.path.isdir(src):
+            continue
+        dst = os.path.join(docs_dir, sub)
+        os.makedirs(dst, exist_ok=True)
+        for fn in os.listdir(src):
+            if not fn.lower().endswith(exts):
+                continue
+            sp = os.path.join(src, fn)
+            if os.path.isfile(sp):
+                shutil.copy2(sp, os.path.join(dst, fn))
+
+
+def swap_interactive_components(html, lang="en"):
+    """Replace `<img src="image/NAME.png" alt="...">` with an iframe+toggle
+    when `course/interactive/NAME.html` exists.
+
+    Lang-aware: prefers `image/NAME_<lang>.png` for the static fallback
+    when present (else falls back to the locale-agnostic file), and adds
+    `?lang=<lang>` to the iframe src so the interactive can pick its own
+    locale strings via its embedded I18N table.
+
+    The toggle button lets the reader fall back to the static image
+    (useful on browsers where the iframe's WebGPU/Canvas/etc. is
+    unavailable).
+    """
+    interactive_dir = os.path.join(PROJECT_ROOT, "course", "interactive")
+    image_dir = os.path.join(PROJECT_ROOT, "course", "image")
+    if not os.path.isdir(interactive_dir):
+        return html
+    available = {
+        os.path.splitext(fn)[0]
+        for fn in os.listdir(interactive_dir)
+        if fn.lower().endswith(".html")
+    }
+    if not available:
+        return html
+
+    def localised_image_src(name, ext):
+        """Return the published image path for the active locale.
+
+        Prefers `image/NAME_<lang>.<ext>` if a per-locale PNG exists,
+        otherwise falls back to the locale-agnostic `image/NAME.<ext>`.
+        Both paths are written relative to the docs/ root so they work
+        on the published site regardless of source MD location.
+        """
+        if os.path.isdir(image_dir):
+            cand = f"{name}_{lang}.{ext}"
+            if os.path.isfile(os.path.join(image_dir, cand)):
+                return f"image/{cand}"
+        return f"image/{name}.{ext}"
+
+    # Locale-aware labels for the static <-> interactive segmented toggle.
+    toggle_labels = {
+        "en": ("Static", "Interactive"),
+        "hk": ("靜態", "互動"),
+        "tw": ("靜態", "互動"),
+        "cn": ("静态", "互动"),
+    }
+    label_static, label_interactive = toggle_labels.get(lang, toggle_labels["en"])
+
+    def repl(m):
+        src = m.group("src")
+        alt = m.group("alt")
+        # Accept image references whether the markdown uses the bare path
+        # (`image/X.png` — works for the EN source which sits in course/),
+        # or the relative form Chinese translations use so VS Code preview
+        # resolves correctly (`../course/image/X.png`,
+        # `../course/image/X_hk.png`, etc.). Strip the optional locale
+        # suffix to recover the canonical asset name.
+        rel_match = re.match(
+            r"^(?:\.\./course/)?image/([^/]+?)(?:_(?:en|hk|tw|cn))?\.([a-zA-Z0-9]+)$",
+            src,
+        )
+        if not rel_match:
+            return m.group(0)
+        name = rel_match.group(1)
+        ext = rel_match.group(2)
+        if name not in available:
+            return m.group(0)
+        # Always emit the locale-aware fallback path relative to docs/.
+        src = localised_image_src(name, ext)
+        # Build the swap markup: segmented toggle at the top, then iframe by
+        # default with the static image as a hidden fallback.
+        return (
+            f'<figure class="lesson-interactive" data-asset="{name}">'
+            f'<div class="lesson-interactive-modeswitch" role="tablist" '
+            f'aria-label="Chart display mode">'
+            f'<span class="lesson-interactive-mslabel" data-side="left">{label_static}</span>'
+            f'<button type="button" class="lesson-interactive-msbutton" '
+            f'role="switch" aria-checked="true" data-mode="interactive" '
+            f'onclick="toggleInteractive(this)" '
+            f'aria-label="Toggle between static image and interactive demo">'
+            f'<span class="lesson-interactive-msthumb"></span></button>'
+            f'<span class="lesson-interactive-mslabel" data-side="right" '
+            f'data-active="true">{label_interactive}</span>'
+            f'</div>'
+            f'<div class="lesson-interactive-frame-wrap">'
+            f'<iframe class="lesson-interactive-frame" '
+            f'src="interactive/{name}.html?lang={lang}" loading="lazy" '
+            f'title="{alt}"></iframe>'
+            f'</div>'
+            f'<img class="lesson-interactive-fallback" hidden '
+            f'src="{src}" alt="{alt}">'
+            f'</figure>'
+        )
+
+    return re.sub(
+        r'<img\s+src="(?P<src>[^"]+)"\s+alt="(?P<alt>[^"]*)"\s*/?>',
+        repl,
+        html,
+    )
+
+
 def build():
     course_dir = os.path.join(PROJECT_ROOT, "course")
     hk_dir = os.path.join(PROJECT_ROOT, "course_hk")
@@ -1583,6 +1902,7 @@ def build():
 
     os.makedirs(docs_dir, exist_ok=True)
     copy_web_assets(docs_dir)
+    copy_lesson_assets(docs_dir)
 
     try:
         course_files = sorted(f for f in os.listdir(course_dir) if f.endswith(".md"))
@@ -1617,7 +1937,7 @@ def build():
 
             md_content = open(source_path, "r", encoding="utf-8").read()
             article_content = strip_youtube_section(md_content)
-            html_content = markdown_to_html(article_content)
+            html_content = swap_interactive_components(markdown_to_html(article_content), lang="en")
 
             lang_contents = {}
             for lang, lang_dir in [("hk", hk_dir), ("tw", tw_dir), ("cn", cn_dir)]:
@@ -1625,7 +1945,7 @@ def build():
                 if os.path.exists(lang_path):
                     lang_md = open(lang_path, "r", encoding="utf-8").read()
                     lang_article = strip_youtube_section(lang_md)
-                    lang_contents[lang] = markdown_to_html(lang_article)
+                    lang_contents[lang] = swap_interactive_components(markdown_to_html(lang_article), lang=lang)
 
             title = extract_title(article_content)
 

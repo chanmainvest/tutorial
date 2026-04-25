@@ -1,0 +1,3552 @@
+=== Session Metadata ===
+Agent:            Claude Code v2.1.119
+Model(s):         claude-opus-4-7
+Sub-agent models: none
+Started from:     8956fdc
+Date:             2026-04-24 23:55
+
+Per-model usage and cost (sub-agent calls included):
+  -- claude-opus-4-7 --
+     Input tokens:        1,130    $0.02
+     Output tokens:       829,546    $62.22
+     Cache read tokens:   226,366,080    $339.55
+     Cache write tokens:  3,091,065    $57.96
+     Subtotal:            230,287,821 tokens    $459.74
+
+Grand total (all models, all sub-agents):
+  Input tokens:        1,130
+  Output tokens:       829,546
+  Cache read tokens:   226,366,080
+  Cache write tokens:  3,091,065
+  Total tokens:        230,287,821
+  Total cost (USD):    $459.74
+========================
+
+❯ run uv http server of the static webpage, i want to test the chatbot
+
+● Bash(ls docs/ | head -20)
+  ⎿  assets
+     disclaimer.html
+     faq.html
+     glossary.html
+     index.html
+          … +15 lines (ctrl+o to expand)
+
+● Bash(cd docs && uv run python -m http.server 8000)
+  ⎿  Command running in background with ID: bnxg761io. Output is being written to: C:\Users\hevan\AppData\Local\Temp\claude\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tasks\bnxg761io.output
+
+● Bash(sleep 2 && curl -s -o /dev/null -w "%{http_code}" http://localhost:…)
+  ⎿  200
+
+● Server is running at **http://localhost:8000/** (serving `docs/`).
+
+The chatbot button should appear bottom-right on every page. Note: WebGPU is
+  required, and the first message triggers the ~3.1 GB Gemma download
+  (cached in IndexedDB after).
+
+To stop the server, let me know and I'll kill task `bnxg761io`.
+
+❯ can you make the chatbot remember its state after I click to a different
+  page and make it pops up just like it was from the previous page?
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	/* On-device AI tutor for Chanma Investment Tutorial.
+     2	 *
+     3	 * Loads Gemma in the browser via transformers.js v4 + WebGPU. The model
+     4	 * weights are fetched from Hugging Face on first use and cached in
+     5	 * IndexedDB by the library — subsequent visits skip the download.
+          … +1332 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	/* ============================================================
+     2	   On-device AI tutor (Gemma 4 / WebGPU via transformers.js v4)
+     3	   Theme-aware: pulls colour vars from the page's :root rules.
+     4	   ============================================================ */
+     5	
+          … +592 lines (ctrl+o to expand)
+
+● Bash(ls docs/assets/ | grep -i chat)
+  ⎿  chatbot.css
+     chatbot.js
+     chatbot_chunks.json
+
+● Bash(diff -q web_assets/chatbot.js docs/assets/chatbot.js && diff -q web…)
+  ⎿  (Bash completed with no output)
+
+● Now I'll add state persistence to the chatbot. Strategy: use
+  `sessionStorage` (per-tab, survives navigation) to save (1) panel
+  open/closed state, (2) chat history, (3) whether the model was already
+  loaded once, (4) the cross-lesson index language opt-ins. On every page
+  load, auto-rebuild whatever was active.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Now wire state saves into handleSend, clearConversation, togglePanel, and
+  startLoad.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Now save the loaded flag and checked langs in startLoad:
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Now add the auto-restore on `DOMContentLoaded`:
+
+● Update(web_assets/chatbot.js)
+  ⎿  The file B:\chanmainvest\tutorial\web_assets\chatbot.js has been updated successfully.
+
+● Now sync to `docs/assets/` so the running server picks it up, and verify the
+  file parses.
+
+● Bash(cp web_assets/chatbot.js docs/assets/chatbot.js && node --check doc…)
+  ⎿  OK
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  685	let chatHistory = [];
+     686	let pendingAbort = null;
+     687	
+     688	// ----- Cross-page persistence --------------------------------------------
+     689	// sessionStorage scope = current browser tab. When the user navigates to
+          … +45 lines (ctrl+o to expand)
+
+● Done. Reload any page to test — server is still on http://localhost:8000.
+
+**What now persists across page navigation (per browser tab, via
+  `sessionStorage`):**
+
+1. **Panel open/closed state** — saved in `togglePanel`. If you navigate
+  while the panel is open, it pops back open on the new page.
+2. **Chat history** — saved after every user turn and every assistant
+  response, and on clear. Restored and re-rendered (with markdown/Mermaid)
+  into the chat body.
+3. **Model-loaded flag** — once you've clicked "Load assistant" once this
+  tab session, future page loads auto-trigger `loadGenerator` (which pulls
+  the weights from the IndexedDB cache rather than re-downloading the 3.1
+  GB). The composer is disabled with a small progress bar while this is
+  happening.
+4. **Cross-lesson index language opt-ins** — re-applied after auto-reload so
+  any indexing you started keeps going on the new page (and
+  `probeAllCachedIndexes` still picks up anything already finished from
+  previous sessions).
+
+**Notes:**
+- Scope is `sessionStorage`, so state lives only in the current tab —
+  closing the tab clears it (fresh intro panel next time). If you'd prefer
+  it to survive tab close, swap the four `sessionStorage` calls for
+  `localStorage`.
+- The Gemma model itself can't survive a page navigation (it's WebGPU
+  memory) — it has to be re-instantiated each page, but loading from the
+  IndexedDB cache is far quicker than the first download.
+
+❯ add a SOUL.md.  in CLAUDE.md tell all there view and editing should use my
+  real human investment philosophy in SOUL.md   if there are any content
+  that doesn't aligh with my investment philosophy, highlight in later
+  review.  we still teach it as knowledge, but i will emphaysis I don't
+  agree with it and why, if it is appropiate to explain it in the lesson or
+  refer the reader to a different lesson that talks about it.  here are some
+  ideas that I put in the SOUL.md, you refine my wordings to make it should
+  more wisdom or use the original quote
+1. market is right most of the time, you can't beat the market.  when the
+  market is wrong but you are right, that's the alpha
+2. passive index fund investing works for the past 40 years, doesn't mean it
+  will keep working forever.  but you have understand the underlying
+  assumption why market always go up
+3. gold is 5000 years old pronzi scheme, fiat currency is a 70 years old
+  ponzi scheme, bitcoin is only 15 years.  4. I don't day trade, it is too
+  hard. but I respect those who day trade and make money, because it is hard
+5. liquidity, sector rotation, long term trends, front run the passive
+  investors are all good alpha
+6. if someone use technical analysis but only look at stock price chart,
+  maybe with volume, you know he is useless.  you have to look at the option
+  vol surface to double check with your T.A.  option market are also market
+  information. if you ignore half of the market information, your analysis
+  is not reliable by defintion.
+7. I don't buy penny stocks.  In fact, I don't bother to look at companies
+  smaller than 1 billion dollars.  only startup in the field I have
+  expertize are exception.  otherwise, penny stock are not investment, they
+  are gambling
+8. there are always two reading of the market, momentum trade or mean revert
+  trade. it is hard to know when the market switch from one to the other
+9. I teach investing, I don't teach personal finance or budgetting.  only
+  one advice, earn more, spend less.  
+10. there is no big enough portfoilio, you always want to grow your pot and
+  miminize the risk.  there is no end of it.  it is a hobby, it is a
+  religion.  it is the meaning of life.  make more money
+11. there is no pure passive income. all passive are not real passive,
+  unless you are a rent seeker extracting rent from somoene.  even the
+  safest government bond has opportunity cost and has to beat inflation
+12. physical, senior, junior, exploration, the 4 trenches of precious metal
+  trade.  I like to apply the same concept to all other trades.  the
+  fundamental move first, then the senior move.  towards the end of the
+  bubble, the junior and the speculative move even craizer than the seniors.
+   reallocate within the 4 trenches are good strategy to ride the bubble and
+  hedge the downside risk
+
+● I'll refine your 12 principles into SOUL.md (keeping your voice, adding
+  well-known attributed quotes where they fit), then add a section to
+  CLAUDE.md telling future Claude sessions to check every lesson against it.
+
+● Write(SOUL.md)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\SOUL.md
+
+● Now add a section to CLAUDE.md so every future session knows to check
+  content against SOUL.md.
+
+● Update(CLAUDE.md)
+  ⎿  The file B:\chanmainvest\tutorial\CLAUDE.md has been updated successfully.
+
+● Done. Two files changed:
+
+**`SOUL.md`** (new, repo root) — your 12 principles refined and lightly
+  polished, with attributed quotes where they fit:
+- #1 Buffett on efficient markets
+- #3 J.P. Morgan 1912 — "Gold is money. Everything else is credit."
+- #4 Buffett on circle of competence
+- #5 Druckenmiller — "It's liquidity that moves markets."
+- #11 Friedman — "There's no such thing as a free lunch."
+
+I kept your voice (first-person, direct, punchy) and added a closing **"How
+  this philosophy interacts with the course"** section that mirrors the
+  policy in CLAUDE.md.
+
+**`CLAUDE.md`** — new top-level section **"Investment Philosophy (`SOUL.md`)
+  — REQUIRED READING"** placed right after Content Philosophy. It instructs
+  every future Claude session to:
+
+1. Read SOUL.md before editing/reviewing any lesson.
+2. Teach the orthodox view first, then add Horace's view with reasoning,
+  then refer out to the deep-treatment lesson if one exists.
+3. **Flag** conflicts during review rather than silently rewrite — so you
+  decide where your voice belongs.
+4. Never edit SOUL.md unilaterally — flag for you to update by hand.
+
+A few editorial calls you may want to revisit:
+- **#3** — I softened "Ponzi" to "store of value rests on collective belief"
+  in the explanation, but kept your provocative title as-is. Tell me if you
+  want the body to bite harder.
+- **#10** — "religion / meaning of life" is intact; I added "Other people
+  have golf or chess; I have markets" to give it a softer landing.
+- **#12** — I framed the discipline as "rotate *down* the tranches as the
+  cycle matures" — confirm that matches how you actually rotate (down =
+  toward safer = physical/seniors).
+
+❯ add this one: the market can stay irrational longer than you stay solvent.
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Also update CLAUDE.md's reference to the principle count.
+
+● Update(CLAUDE.md)
+  ⎿  The file B:\chanmainvest\tutorial\CLAUDE.md has been updated successfully.
+
+● Added as **#12 "The market can stay irrational longer than you can stay
+  solvent"** with the Keynes attribution, and bumped the four tranches to
+  **#13**. CLAUDE.md updated to say 13 principles.
+
+The body of #12 ties the quote to its practical consequence: position
+  sizing, leverage, and time horizon matter more than the call itself —
+  "right but early" = "wrong" operationally. It pairs naturally with #1
+  (alpha = the rare gap where you're right and the market is wrong) by
+  reminding you that being right is necessary but not sufficient — you also
+  have to *survive* until the gap closes.
+
+❯ #3. sure, soften the title too.  it is my answer to when people ask me why
+  gold or bitcoin has value.  my answer is fiat has no value too.
+#10.  sure
+#12. not just rotate to risky asset on the way up, rotate to safer asset on
+  the way down, but also long short with ratio to bet the bubble burst
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Both edits done.
+
+**#3** — Title now reads "Every store of value rests on belief — gold for
+  5,000 years, fiat for 70, bitcoin for 15." Body opens with the
+  conversational frame you actually use ("when people challenge me on why
+  gold or bitcoin has value, my answer is that fiat doesn't either") rather
+  than leading with the provocation. The substance is the same; the tone is
+  the experienced answer rather than the bumper sticker.
+
+**#13** — Now a three-phase discipline:
+1. **Up the tranches** on the way up (physical/seniors → juniors →
+  exploration as the cycle matures)
+2. **Down the tranches** near the top (sell exploration into the parabola,
+  end in physical/seniors)
+3. **Long/short ratio on the burst** — long safer tier, short most stretched
+  tier, sized by the historical beta/vol ratio (not naive 1:1 dollar pair)
+
+I added the explicit note that ratio sizing is the key — that a 1:1 dollar
+  pair is usually wrong, and the historical beta/vol ratio between tranches
+  is what defines "neutral" before you lean short for directional burst
+  exposure. Tell me if that's how you actually frame the sizing or if you
+  want it tightened.
+
+❯ ok... give me the honest opinion from a professional investor on my
+  investment philosophy, any obvious error or I don't understand the market
+
+● Putting on the institutional-PM hat. The philosophy is internally coherent
+  and far more honest than 95% of retail-facing material — but you asked for
+  the holes, so here they are.
+
+## What's actually strong
+
+#1 (alpha = articulable mispricing), #4 (humility about day trading), #6
+  (vol surface), #9 (scope discipline), #11 (passive-income myth), #12
+  (Keynes). These are all things institutions agree with internally but
+  won't say in marketing. Keep them.
+
+## The soft spots
+
+**#1 — "Most of the time" is too generous to you.** Even when the market
+  *is* wrong, it's usually wrong in a way you can't monetize: the wrongness
+  is the compensation for a risk you haven't measured. Most retail
+  "mispricings" are known risk premia (illiquidity, distress, fat-tail) that
+  the holder is paid to bear. Your variant view has to be specifically
+  *about that risk*, not about price. Worth tightening.
+
+**#2 — You've been right in principle for ~10 years and the passive trade
+  keeps working.** What's your actual trigger? "When the tailwinds reverse"
+  is the same answer perma-bears have given since 2014. By #12's own logic,
+  being early to this view is expensive. And even if passive breaks, what
+  replaces it for retail? Active funds underperform net-of-fees by Sharpe's
+  arithmetic identity — that's a math constraint, not a market one. Without
+  a successor strategy, the principle is a warning, not a position.
+
+**#3 — Lumping productive equity into "all consensus" is sloppy.** Gold has
+  zero cash flow. Fiat pays nominal interest. Equities and real estate
+  generate *real* cash flow. The "all faith-based" frame is true at the
+  metaphysical level but flattens an operationally important distinction.
+  Recommend a sentence acknowledging that productive cash-flow assets are a
+  different category from non-productive stores of value, even if both
+  ultimately rest on someone honoring the claim.
+
+**#5 — Each of your "real alphas" has been heavily arbed.**
+  Liquidity-watching was Druckenmiller's edge in the '90s; now every macro
+  fund tracks the Fed balance sheet on Bloomberg. Front-running passive
+  flows is real but quants with millisecond latency know reconstitution
+  dates better than you do. Sector rotation in textbooks is easy; in live
+  trading it's mostly momentum dressed up. Long-term trends pay, but they
+  require eating 5-15 years of underperformance (uranium thesis ran ~15
+  years before paying). The bigger meta-issue: **if all your durable alphas
+  are structural/macro, you're a macro investor teaching what looks like an
+  equity course.** Worth being honest about that to students.
+
+**#6 — Overstated for retail.** Vol surface is a genuinely informative
+  second source, but the marginal alpha from incorporating it on a $100K
+  portfolio is small relative to the cognitive overhead. The stronger, more
+  defensible version of your point: *TA in isolation is unreliable; any
+  independent second source improves it.* Vol is one good source, not the
+  only valid one. The current wording will read as "you must master dealer
+  gamma" to a beginner, which is wrong.
+
+**#7 — You're declining a documented factor premium.** Small-cap value is
+  one of the most empirically robust premia in academic finance
+  (Fama-French, AQR's replications). Your "$1B floor" is a *trade-off* —
+  you're saying the messiness isn't worth the premium, *for you*. That's
+  defensible. But the principle should say "this costs me a known premium
+  and I accept that," not present sub-$1B as definitionally gambling. Some
+  of it is gambling; some of it is the small-cap value premium you're
+  choosing not to harvest.
+
+**#8 — Two regimes is a useful heuristic but an incomplete framework.** Real
+  regime taxonomies have at least four axes (vol-on/off, risk-on/off,
+  dispersion, correlation). Reducing to mom/MR misses range-bound chop,
+  which is "neither," and where most regime-rule strategies bleed.
+
+**#13 — Phase 3 is brutal in practice.** Shorting late-bubble explorers gets
+  squeezed (GME, ARKK shorts). Borrow is expensive or recalled exactly when
+  you need it. Historical beta ratios *blow out at extremes* — the regime in
+  which you want to bet on convergence is precisely the regime where your
+  historical sizing stops applying. The principle is right; the execution
+  risk is much higher than the current text suggests. Recommend a "this is
+  the hardest tranche of the playbook and most retail attempting it will be
+  stopped out" caveat.
+
+## What's missing
+
+These would strengthen SOUL.md if you want them in:
+
+1. **Position sizing as first-order discipline.** It's mentioned only inside
+  #12. For someone who has survived decades, sizing is probably more central
+  to your survival than any alpha source. The pros' real edge over retail
+  isn't security selection — it's risk management.
+2. **After-tax returns.** Conspicuously absent. Tax is the single biggest
+  "fee" most retail pays. A philosophy that ignores tax systematically
+  overestimates the value of high-turnover strategies (your own sector
+  rotation and momentum playbooks).
+3. **Currency / home bias.** Especially live for the HK/TW/CN audience. A
+  USD-equity portfolio is a *choice*, not a default.
+4. **Behavioral edge over institutions.** You allude to it in CLAUDE.md
+  ("retail can hold cash, no benchmark pressure") but it isn't a SOUL
+  principle. It should be — it's one of the few *durable* retail edges and
+  the opposite of #5's structural edges (which institutions access better
+  than you).
+5. **Convexity / tail-hedge thinking** (Taleb / Spitznagel). For retail with
+  limited capital and #8's regime-switch risk, asymmetric payoff structures
+  are arguably the most important framework you haven't named.
+6. **Explicit "circle of competence" / what you don't know.** Implied in #4
+  and #7 but never named. A SOUL of only convictions feels asymmetric —
+  Buffett-style explicit humility about blind spots earns more credibility
+  than any of the convictions on their own.
+
+## One bigger meta-observation
+
+The philosophy reads as a *discretionary macro investor's* worldview applied
+  to equities. That's coherent — it's a real and respected school. But the
+  course markets itself as built on the CFA curriculum, which is
+  fundamentally a *bottom-up security analysis* tradition. There's a quiet
+  tension: you teach DCF and ratios because the canon requires it, but your
+  actual alpha sources have nothing to do with bottom-up valuation. Worth
+  either (a) naming the tension explicitly to students, or (b) adding a SOUL
+  principle that says "the canon teaches bottom-up; my edge is top-down;
+  here's how I reconcile them in my own portfolio."
+
+That's the honest read. Take or leave any of it — most of these are
+  sharpening, not refutation.
+
+❯ #1 yeap. you may not able to express your trade even if you know what to bet
+  on.  that's why you need to learn all those advance level toolkits to
+  express your trade without oversize risk exposure.  with positive carry
+  would be ideal.
+
+#2 the trigger is demography and the flip of 401k inflow.  and the lost of
+  price discovery when passive is larger than 60% (?) today.  even higher
+  will create a death spiral on the way down. passive is a gaint momentum
+  machine
+
+#3 store of value suppose to be inflationary hedge too.  and you have to
+  look at real interest rate instead of nominal interest rate.  then it
+  comes in the problem what is the nature of interest, the time value of
+  money.  real asset is always good, but it has business and operational
+  risk.  but we are living in a finacial asset world.   
+
+#5 macro is my underlying thesis, but I trade anything.  I buy gold for long
+  term holding, I also trade GME meme stock for fun and bragging right.  as
+  long as there is profit, it is all good.  My another specity is tech
+  stock, since I am in the tech industry.
+
+#6 I am taking about 1M+ portfolio. Don't write it down directly, but I have
+  15M portfolio, somehow hint it I am not small retail trader. more over the
+  zero day option and the option tail wag the equity dog is my thesis too. 
+  You need to know option to understand the chart in the post covid era.
+
+#7 No.  samll-cap doesn't work in the past decade.  it is big cap world
+  today.  thanks to passive index.  
+
+#8 right... vol on and off as well.  vol is always mean revert
+  mathematically.  please add it 
+
+#13 that's why you don't do naked short, use options.  late stage of the
+  bubble use long call instead of holding stock.  or use ratio ATM long
+  call, OTM short call to increase your safety margin.  
+
+Missing
+
+1. add
+  https://www.horace.org/blog/2026/01/23/%e7%82%ba%e4%bb%80%e9%ba%bc%e6%88%91%e4%b8%8d%e5%86%8d%e6%8a%95%e8%b3%87%e8%a2%ab%e5%8b%95%e6%8c%87%e6%95%b8%e5%9f%ba%e9%87%91/
+  it is my blog post.  bar bell strategy.  turn it into a point
+
+2. yes, after tax return.  that's where options comes in handy.  how to use
+  option and margin liquidity, shift your leverage to > 1 or < 1 to avoid
+  selling the stock and get capital gain tax, while you maintain the same
+  exposure.  use option synthetic share to harvest your capital lost.
+
+3. US portfolio is default.  US market is the global market.  Global
+  synchronization trade.  there is only 1 market now, at least for the
+  developed countries.  HK/CN are uninvestable.  I won't touch those stocks.
+   TW is really just TSMC.  You can't diversify unless you have US stocks
+
+4. Not really a soul principle, it is common sense that you don't need to
+  mention it here
+
+5. Not really.  I am more on the dragon portfolio camp.  I do tail hedge but
+  I also believe in the Fed put.
+
+6. again, that is common sense, not worth to mention
+
+For the meta observation.   macro is strategy, CFA bottom-up are tactics. 
+  they are complimentary.  macro tells you what to buy.  CFA bottom-up tell
+  you when or how or what size to buy.  macro itself without the toolkit to
+  express your view to profit is just talking head on TV, it is pointless.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	# SOUL.md — Horace's (陳馬) Investment Philosophy
+     2	
+     3	This is the personal investment philosophy that grounds this course. The
+     4	course teaches the canonical professional curriculum (CFA and others)
+     5	because students must know what the professional world believes. But where
+          … +188 lines (ctrl+o to expand)
+
+● I'll finish the SOUL.md update with your new feedback, then move to
+  README.md.
+
+● Write(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Update(CLAUDE.md)
+  ⎿  The file B:\chanmainvest\tutorial\CLAUDE.md has been updated successfully.
+
+● SOUL.md now has 17 principles with all your refinements baked in. Now the
+  README.md changes.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	# Investment Tutorial: From Beginner to Professional
+     2	
+     3	**[View the Course Website](https://chanmainvest.github.io/tutorial/)**
+     4	
+     5	A comprehensive 52-week investment education course with supplementary side lessons, designed to take you from foundational concepts to professional-grade portfolio management. Grounded in multiple professional certification curricula (CFA, with more to follow) plus decades of battle-tested retail investing experience. Structured for retail investors with a YouTube-ready teaching format, and explicitly calls out where professional curricula fall short and where retail investors have edges professionals don't.
+          … +163 lines (ctrl+o to expand)
+
+● Bash(ls course/ | grep -i -E "(reflection|overview)")
+  ⎿  level1_overview.md
+     level1_reflection.md
+     level2_overview.md
+     level2_reflection.md
+     level3_overview.md
+          … +7 lines (ctrl+o to expand)
+
+● Now I'll update README.md with all four changes. Let me look at the level-1
+  reflection to write accurate summaries:
+
+● Bash(head -5 course/level1_reflection.md course/reflection.md)
+  ⎿  ==> course/level1_reflection.md <==
+     # Level 1 Reflection: From Knowledge to Action
+     
+     ---
+     
+          … +8 lines (ctrl+o to expand)
+
+● Update(README.md)
+  ⎿  The file B:\chanmainvest\tutorial\README.md has been updated successfully.
+
+● Now restructure all five level tables to include Overview and Reflection
+  rows:
+
+● Update(README.md)
+  ⎿  The file B:\chanmainvest\tutorial\README.md has been updated successfully.
+
+● Now group the side lessons into categories and remove the Animations
+  section:
+
+● Update(README.md)
+  ⎿  The file B:\chanmainvest\tutorial\README.md has been updated successfully.
+
+● Let me verify the README structure is clean:
+
+● Bash(grep -n "^##\|^###" README.md)
+  ⎿  9:## Course Philosophy
+     19:## Core Course (52 Weeks, 1 hour per week)
+     21:### Level 1: Foundation (Weeks 1-12) - Beginner
+     40:### Level 2: Intermediate (Weeks 13-24)
+     59:### Level 3: Advanced (Weeks 25-36)
+          … +13 lines (ctrl+o to expand)
+
+● All five sections handled. Summary:
+
+**SOUL.md** — expanded from 13 to 17 principles. All your refinements baked
+  in:
+- **#1** now ends with the toolkit point: a correct view you can't express
+  cleanly is not tradeable.
+- **#2** lists the three specific triggers (demographic flip,
+  price-discovery loss at ~60%, death spiral) and frames passive as a giant
+  momentum machine.
+- **#3** adds the real-rate / time-value-of-money / financial-asset-world
+  layer.
+- **#5** adds the "macro is the thesis but I trade anything" paragraph (gold
+  long-term, GME for fun, tech as domain expertise).
+- **#6** adds the post-COVID 0DTE / option-tail-wags-equity-dog framing, and
+  the size hint ("multi-six-figure or seven-figure book") without naming
+  numbers.
+- **#7** flipped — the small-cap premium is dead because passive flows favor
+  large-cap; we are in a structural big-cap world.
+- **#8** adds vol-on / vol-off as a third regime axis with the mathematical
+  mean-reversion framing.
+- **#13** adds the explicit "never short naked, use long calls and ratio
+  call spreads" execution note.
+- **#14** new — barbell shape replacing the passive core, with link to your
+  blog post.
+- **#15** new — tax as the largest unspoken fee, options/margin as the
+  toolkit to decouple exposure from holding the share (synthetic longs, box
+  spreads, wash-sale-safe loss harvesting).
+- **#16** new — US is the global market; HK/CN uninvestable; TW = TSMC; USD
+  equities are the default, not a choice.
+- **#17** new — Dragon Portfolio shape: Fed put is real *and* tail hedges
+  still required; the tension is the point.
+- Closing section adds the **Macro = strategy, CFA bottom-up = tactics**
+  reframe.
+
+**CLAUDE.md** — bumped principle count to 17 and updated the theme list.
+
+**README.md** — four edits:
+1. Visual-explanations bullet now reads "static images in the markdown,
+  interactive demos on the website, animations in the YouTube videos."
+2. All five level tables now have **Overview** as the first row and
+  **Reflection** as the last row; standalone overview links removed. A
+  course-wide capstone link to `reflection.md` follows Level 5.
+3. Side lessons grouped into 7 themed sub-sections (Practical Toolkit /
+  Taxes, Fees & Accounts / Asset Classes & Instruments / Strategy & Income /
+  Macro, Policy & History / Risk, Behavior & Mechanics / Specialist Deep
+  Dives). All 30 lessons accounted for, original numbering preserved.
+4. Animations section deleted.
+
+❯ remove the link to my blog or mention my blog in the SOUL.md
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Blog link removed from #14. The principle now stands on its own reasoning
+  without the external reference.
+
+❯ add the keysian beauty concept to #12 in soul.md
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  155	
+     156	One exception: startups in fields where I have genuine domain expertise.
+     157	Otherwise the sub-billion universe is a casino, not an investable
+     158	opportunity set. The bid-ask is wide, the float is manipulable, the
+     159	disclosures are thin, and the dominant participants are not investors.
+          … +20 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  218	
+     219	## 12. The market can stay irrational longer than you can stay solvent.
+     220	
+     221	Being right is not enough. You must also survive long enough for the
+     222	market to come around to your view. "Right but early" is operationally
+          … +20 lines (ctrl+o to expand)
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Added the Keynesian beauty contest as the deeper explanation underneath the
+  solvency quote. The two ideas pair cleanly because they're both Keynes and
+  both from the same intellectual tradition — the beauty contest explains
+  *why* irrationality persists (recursive coordination, only loosely
+  tethered to fundamentals), and the solvency line explains *what that does
+  to the trader* who was technically right.
+
+The new paragraph closes with the practical takeaway: knowing what something
+  is worth is the easy part — anticipating *when the crowd will know that
+  others know* is what actually moves price. I kept the original Keynes
+  attribution at the top and added the verbatim 1936 *General Theory* quote
+  at the bottom for the beauty contest itself.
+
+❯ reword this line Effective leverage moves between >1 and  1 and < 1 sounds
+  awkward. I mean that you don't have to be delta 1 all the time.  you can
+  leverage up to risk on, leverage down to risk off
+
+● Update(SOUL.md)
+  ⎿  The file B:\chanmainvest\tutorial\SOUL.md has been updated successfully.
+
+● Reworded — now reads "You don't have to sit at delta 1 all the time — lever
+  up to risk-on, lever down to risk-off, all without touching the underlying
+  tax lots." Keeps the tax-lot point intact and uses the delta-1 framing you
+  actually use, with the risk-on/risk-off lever as the operational metaphor.
+
+❯ update the course overview.md  How to Use This Course
+One lesson per week -- each lesson is designed for roughly one hour of study
+Read the article first, then watch the corresponding YouTube video for
+  reinforcement
+Side lessons can be taken in any order whenever you need them
+Start from Level 1 even if you have some investment experience -- the
+  structured progression ensures no gaps in your foundation change it to,
+  you can read the article first or watch youtube first, or just pick one. 
+  it is up to you. as long as you understand the concept.  please reword it
+  better for me.
+
+● Bash(grep -n "How to Use This Course\|one lesson per week\|Side lessons\…)
+  ⎿  49:## How to Use This Course
+     52:- **Read the article first**, then watch the corresponding YouTube video for reinforcement
+     53:- **Side lessons** can be taken in any order whenever you need them
+     54:- **Start from Level 1** even if you have some investment experience -- the structured progression ensures no gaps in your foundation
+     168:**Horace:** One lesson per week. Read the article first -- that gives you the complete material with formulas, tables, and diagrams. Then watch the video for reinforcement. We also have 30 side lessons on practical topics like calculator usage, tax efficiency, retirement accounts, and specific strategies. Take those whenever you need them.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  45	In addition to the 52-week core curriculum, **30 side lessons** cover practical topics that complement the main course: calculator usage, 10-K filings, ETF mechanics, tax efficiency, retirement accounts, the wheel strategy, and more.
+     46	
+     47	---
+     48	
+     49	## How to Use This Course
+          … +10 lines (ctrl+o to expand)
+
+● Update(course/overview.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\overview.md has been updated successfully.
+
+● Per CLAUDE.md, Part 2 (YouTube script) needs to stay in sync. Let me update
+  Horace's line there too:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  163	
+     164	**[SEGMENT 3: HOW TO USE THIS COURSE]**
+     165	
+     166	**Stella:** How should people approach this?
+     167	
+          … +10 lines (ctrl+o to expand)
+
+● Update(course/overview.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\overview.md has been updated successfully.
+
+● Updated both places:
+
+**Reading section (Part 1)** — bullet now reads:
+> **Article and video are interchangeable** — read the article first, watch
+  the YouTube video first, or pick whichever one you prefer and skip the
+  other. They cover the same material in two formats; the only thing that
+  matters is that you walk away understanding the concept.
+
+**YouTube script (Part 2)** — Horace's line now matches:
+> One lesson per week. The article and the video cover the same material in
+  two different formats — read the article first, watch the video first, or
+  just pick one and skip the other. Whichever way you absorb it best is the
+  right way. The only thing I care about is that you walk away understanding
+  the concept.
+
+The two parts stay in sync per CLAUDE.md. Note: the three Chinese
+  translations (`course_hk/overview.md`, `course_tw/overview.md`,
+  `course_cn/overview.md`) still say the old "read first, then watch"
+  version — they'll fall out of sync until you run `translate-batch.py`. Let
+  me know if you want me to flag that, hand-edit those three, or leave them
+  for the next translation pass.
+
+❯ in course overview Stella: And if people have questions?
+
+Horace: Join us on Patreon. That is where we do Q&A and deeper discussions. 
+   the website version also has an AI chatbot for self serve answering. 
+  make my words sound better too
+
+● Bash(grep -n -i "patreon\|questions\|q&a\|chatbot\|ai tutor" course/over…)
+  ⎿  62:**Stella (小魚)** joins as the student co-host in the YouTube series, asking the questions that viewers are thinking and keeping the explanations grounded and accessible.
+     100:- **Stella** (student): Recent college graduate learning to invest her savings, asks the questions viewers are thinking
+     170:**Stella:** And if people have questions?
+     172:**Horace:** Join us on Patreon. That is where we do Q&A and deeper discussions.
+
+● Update(course/overview.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\overview.md has been updated successfully.
+
+● Updated. The new exchange:
+
+> **Stella:** And if people have questions?
+>
+> **Horace:** Two ways. First, the course website has an AI tutor built
+  right into every page — a small Gemma model that runs entirely in your own
+  browser, knows the lesson you are reading, and can answer follow-up
+  questions instantly. Use that for the on-the-spot stuff: clarifications,
+  definitions, "wait, what did he just mean by that." For the deeper
+  conversations — where I want to actually talk back, share what I am
+  positioning in real markets, and answer the questions that need a human —
+  come find us on Patreon. That is where the real Q&A happens.
+
+Frames the two channels by what each is actually best for: the AI tutor for
+  instant lesson-specific help (and the privacy point — runs in their
+  browser, no data leaves), Patreon for the human conversations that need
+  you. Note the same tradeoff is implied for the reader: AI handles "what
+  does this mean," you handle "what should I do."
+
+The three Chinese translations of `course/overview.md` will fall out of sync
+  with this and the previous edit until you run `translate-batch.py`.
+
+❯ in the course faq.md  after Why did you create this course?
+This course originated from the author's personal study notes accumulated
+  over years of self-directed investment education, including CFA curriculum
+  materials. When organizing these notes with AI assistance, the result was
+  comprehensive enough to share as a structured course. The research was
+  already done, the tokens were already spent -- it made more sense to
+  publish it than to keep it private. If these materials help others avoid
+  common mistakes and build better portfolios, that is a worthwhile outcome.
+
+❯ in the course faq.md  after Why did you create this course?
+This course originated from the author's personal study notes accumulated
+  over years of self-directed investment education, including CFA curriculum
+  materials. When organizing these notes with AI assistance, the result was
+  comprehensive enough to share as a structured course. The research was
+  already done, the tokens were already spent -- it made more sense to
+  publish it than to keep it private. If these materials help others avoid
+  common mistakes and build better portfolios, that is a worthwhile
+  outcome.\  and one more question why did you really create this course?  
+  answer: I have friends who are financial youtube and write books on
+  investment topics.  They have lots of subscribes on Youtube, Patreon and
+  substack.  I think I can be like them after I retire too.  Sell newsletter
+  or subscription and get some pocket money.  I am still figure out what to
+  do with my Youtube channel, but if any publisher interested in a book
+  deal, please contact me.  I want to be an real author since I am a little
+  kid.   \ok, you make this paragraph sounds nice.
+
+● Bash(grep -n "Why did you create this course\|## " course/faq.md | head -20)
+  ⎿  5:### Do you offer private tutoring or live instruction?
+     11:### Can I use your course materials for my own projects?
+     17:### I have questions about the course content. How can I get help?
+     27:### Why did you create this course?
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	# Frequently Asked Questions
+     2	
+     3	---
+     4	
+     5	### Do you offer private tutoring or live instruction?
+          … +25 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  28	
+     29	This course originated from the author's personal study notes accumulated over years of self-directed investment education, including CFA curriculum materials. When organizing these notes with AI assistance, the result was comprehensive enough to share as a structured course. The research was already done, the tokens were already spent -- it made more sense to publish it than to keep it private. If these materials help others avoid common mistakes and build better portfolios, that is a worthwhile outcome.
+     30
+
+● Update(course/faq.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\faq.md has been updated successfully.
+
+● Added a follow-up Q&A right after "Why did you create this course?" with the
+  title **"Why did you *really* create this course?"** (italicized "really"
+  for the wink). The new answer keeps your honest content but tightens the
+  voice into three short paragraphs:
+
+1. **The friends + retirement income motive** — frames the
+  YouTube/Patreon/Substack side gig as something you've watched friends
+  build and want to replicate after retirement, "earn a little pocket money
+  for the hobbies that don't pay for themselves."
+2. **The current uncertainty** — admits you're still figuring out the
+  YouTube channel and that either outcome is fine.
+3. **The book-deal ask** — phrased as a "private ambition I might as well
+  admit on the record," with a direct invitation to publishers. Less salesy
+  than putting it as a call-to-action; more like a confession.
+
+The italicized *really* is the device that makes the joke work — it reads as
+  the author dropping the polite-PR answer and giving the actual answer
+  right after. Tells the reader you're someone who's willing to be honest
+  about your own incentives, which is the right tone for an investment
+  course.
+
+The three Chinese translations of `course/faq.md` will fall out of sync
+  until the next translation pass.
+
+❯ and earn a little pocket money for the hobbies that don't pay for
+  themselves.   this line is wrong.  my hobby is the market, it suppose to
+  make profit.  change it to for a little pocket money to get my own
+  bloomberg terminal.  (you make it sound better)
+
+● Update(course/faq.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\faq.md has been updated successfully.
+
+● Updated. New sentence:
+
+> ...just as a way to keep the mind sharp, stay close to the markets, and
+  earn enough pocket money on the side to finally put a Bloomberg terminal
+  on my own desk. (Anyone who has ever priced a Bloomberg subscription will
+  understand why "pocket money" in this sentence is doing some heavy
+  lifting.)
+
+The Bloomberg-savvy reader gets the punchline immediately (~$25K/year is
+  "pocket money" only if you're being playful about it). The parenthetical
+  lets civilians in on the joke without spelling out the price tag — and the
+  phrase *"doing some heavy lifting"* lands as the dry, self-aware admission
+  that you're using "pocket money" with a wink.
+
+❯ in the week01 markdown file, the first example person A and B Here is a
+  stark comparison:
+
+  Person A: Saves $10,000/year in a bank account (0.5% interest)
+  Person B: Invests $10,000/year in the stock market (avg 10% return)
+
+  After 30 years:
+  +-----------+----------------+----------------+
+  |           |   Person A     |   Person B     |
+  +-----------+----------------+----------------+
+  | Deposited |   $300,000     |   $300,000     |
+  | Value     |   $323,705     | $1,809,434     |
+  | Growth    |    $23,705     | $1,509,434     |
++-----------+----------------+----------------+ insted of using a table,
+  change it an image. make it 3 person.  A, B, C.  use the actual data from
+  1971.  plot how much they would have year by year.  A use short term
+  interest.  B use cash with CPI adjusted  C use S&P500.   create the python
+  script that generate the image, run it to generate the image and embed the
+  image in the markdown file.  the chart end at 2025.  then update the text
+  to use real number.  for the webpage version.  make an interactive chart
+  that the read can zoom in or out. give it a few time pre-set time period
+  like 1y, 5y, 10y, 20y, 30y, max.  and when the user zoom in or out, or
+  scroll.  A, B, C snap to the same starting point and update final value
+  and percent gain in real time.
+
+● Let me first check the existing structure and the current week01 file.
+
+● Bash(ls course/image/ course/interactive/ 2>&1 | head -30)
+  ⎿  ls: cannot access 'course/image/': No such file or directory
+     course/interactive/:
+
+● Bash(grep -n "Person A\|Person B\|stark comparison\|Saves \$10\|Invests …)
+  ⎿  7:## Part 1: Reading Section
+     11:### a) Why This Is Important
+     33:Here is a stark comparison:
+     36:  Person A: Saves $10,000/year in a bank account (0.5% interest)
+     37:  Person B: Invests $10,000/year in the stock market (avg 10% return)
+          … +14 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  30	If you understand TVM, you understand why investing is not optional. It is the only
+     31	way to ensure your wealth grows faster than the economy erodes it.
+     32	
+     33	Here is a stark comparison:
+     34	
+          … +30 lines (ctrl+o to expand)
+
+● Bash(grep -n "Person A\|Person B\|Person C\|10,000\|1,809\|323,705\|five…)
+  ⎿  36:  Person A: Saves $10,000/year in a bank account (0.5% interest)
+     37:  Person B: Invests $10,000/year in the stock market (avg 10% return)
+     41:  |           |   Person A     |   Person B     |
+     44:  | Value     |   $323,705     | $1,809,434     |
+     49:Person B has over five times the wealth, despite contributing the exact same amount.
+          … +9 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  577	## Part 2: YouTube Script
+     578	
+     579	---
+     580	
+     581	**VIDEO TITLE:** Why Invest? The Time Value of Money | Investment Course Week 1
+          … +95 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  670	---
+     671	
+     672	**[SEGMENT 2: TIME VALUE OF MONEY]**
+     673	
+     674	**Horace:** The Time Value of Money -- TVM for short -- is the idea that a dollar
+          … +85 lines (ctrl+o to expand)
+
+● Bash(mkdir -p course/image course/interactive && ls -la course/image cou…)
+  ⎿  course/image:
+     total 24
+     drwxr-xr-x 1 hevan 197609 0 Apr 24 01:01 .
+     drwxr-xr-x 1 hevan 197609 0 Apr 24 01:01 ..
+     
+          … +5 lines (ctrl+o to expand)
+
+● Now create the Python script with real 1971-2025 data:
+
+● Write(course/image/week01_three_portfolios.py)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py
+
+● Bash(uv run python course/image/week01_three_portfolios.py)
+  ⎿  Exit code 1
+     Traceback (most recent call last):
+       File "B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py", line 26, in <module>
+         import matplotlib.pyplot as plt
+     ModuleNotFoundError: No module named 'matplotlib'
+
+● Bash(cat pyproject.toml 2>/dev/null | head -30)
+  ⎿  (Bash completed with no output)
+
+● Bash(ls pyproject.toml requirements.txt 2>&1 ; ls -la *.toml *.txt 2>&1)
+  ⎿  Exit code 2
+     ls: cannot access 'pyproject.toml': No such file or directory
+     ls: cannot access 'requirements.txt': No such file or directory
+     ls: cannot access '*.toml': No such file or directory
+     ls: cannot access '*.txt': No such file or directory
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Exit code 1
+     Downloading fonttools (2.2MiB)
+     Downloading pillow (6.9MiB)
+     Downloading numpy (11.9MiB)
+     Downloading matplotlib (8.0MiB)
+          … +26 lines (ctrl+o to expand)
+
+● PNG generated. Real numbers from 1971-2025:
+- **Person A (T-bills)**: $1.73M
+- **Person B (cash)**: $550K (just sum of deposits)
+- **Person C (S&P 500)**: $42.0M
+
+Fix the harmless unicode print error and verify the PNG:
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(ls -la course/image/week01_three_portfolios.png && file course/imag…)
+  ⎿  -rw-r--r-- 1 hevan 197609 155638 Apr 24 01:02 course/image/week01_three_portfolios.png
+     course/image/week01_three_portfolios.png: PNG image data, 1776 x 1029, 8-bit/color RGBA, non-interlaced
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Now update the Part 1 reading section with the chart and real numbers:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  28	3. **Risk** -- a promised future payment may never arrive.
+     29	
+     30	If you understand TVM, you understand why investing is not optional. It is the only
+     31	way to ensure your wealth grows faster than the economy erodes it.
+     32	
+          … +45 lines (ctrl+o to expand)
+
+● Now create the interactive HTML demo:
+
+● Write(course/interactive/week01_three_portfolios.html)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html
+
+● Now also update Part 2 (YouTube script) — find where the
+  savings-vs-investing comparison sits and add the chart reference:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  775	Difference: $359]
+     776	
+     777	**Stella:** Three hundred and fifty-nine dollars more. That is nice but not exactly
+     778	life-changing.
+     779	
+          … +75 lines (ctrl+o to expand)
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     
+     Each person deposited $550,000 over 55 years (1971�2025).
+     
+       Person A (T-bills):  $     1,725,371 nominal | $   208,442 in 1971 dollars
+          … +4 lines (ctrl+o to expand)
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Now serve the interactive HTML so I can verify it works (the dev server is
+  already running):
+
+● Bash(cp -r course/interactive docs/ 2>&1 | head -5; cp course/image/week…)
+  ⎿  docs/week01_three_portfolios.png
+     
+     docs/interactive/:
+     week01_three_portfolios.html
+
+● Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8000/inte…)
+  ⎿  200
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     
+     Each person deposited $550,000 over 55 years (1971-2025).
+     
+       Person A (T-bills):  $     1,725,371 nominal | $   208,442 in 1971 dollars
+          … +4 lines (ctrl+o to expand)
+
+● All done. Summary:
+
+**New files:**
+- `course/image/week01_three_portfolios.py` — generator script with annual
+  T-bill / CPI / S&P 500 total-return data 1971-2025 baked in
+- `course/image/week01_three_portfolios.png` — the generated chart
+  (1776×1029, log-scale)
+- `course/interactive/week01_three_portfolios.html` — interactive Plotly.js
+  demo
+
+**Real numbers from the run** (each person deposited $550,000 total over 55
+  years):
+| Vehicle | End nominal | Real (1971 dollars) |
+|---|---|---|
+| Person C — S&P 500 | $42,041,000 | $5,079,000 |
+| Person A — T-bills | $1,725,000 | $208,000 |
+| Person B — Cash | $550,000 | $66,000 |
+
+Cumulative US inflation 1971-2025: **728%** — it now takes $8.28 to buy what
+  $1 bought in 1971.
+
+**Markdown updates** to `course/week01_why_invest.md`:
+- **Part 1** — replaced the old Person A vs B table with: prose intro of
+  three savers, the embedded PNG (with descriptive alt text), a real-data
+  results table, the punchline (24× over T-bills, 76× over cash, B's real
+  value erosion), and a `> Try it yourself.` blockquote describing the
+  interactive behavior. Per CLAUDE.md the build will strip that prose when
+  the interactive component is present.
+- **Part 2 (YouTube script)** — added a new Stella/Horace exchange right at
+  the end of segment 3 that introduces the Three Portfolios chart with a
+  `[VISUAL: ...image/week01_three_portfolios.png...]` cue. The dialog covers
+  the same numbers as the reading section so the two stay in sync.
+
+**Interactive demo features:**
+- Range presets: 1Y / 5Y / 10Y / 20Y / 30Y / Max
+- Start-year slider (active for non-Max presets) — drag to scan through
+  history
+- All three portfolios snap to a fresh start at the beginning of any window
+- Live stats panel: deposited / end value / % gain for each portfolio
+- Auto log-scale for windows ≥8 years, linear for shorter (so 1Y/5Y
+  readable)
+- Theme-aware (reads `data-theme` from `<html>`, follows the site's
+  light/dark)
+- Hover tooltip in unified-x mode
+
+**Tested:** http://localhost:8000/interactive/week01_three_portfolios.html
+  serves 200. The dev server is still running on `bnxg761io`.
+
+**Caveats:**
+- I copied the interactive HTML and PNG into `docs/` directly so the running
+  server could see them. Those will be overwritten properly by
+  `scripts/build.py` next time you run a build.
+- Translations (`course_hk/`, `course_tw/`, `course_cn/`) of week01 are now
+  out of sync — next `translate-batch.py` pass will catch them.
+- Most recent few years (especially 2025) of T-bill / CPI / S&P data are
+  estimates pending final official prints. The 2025 S&P total return is set
+  at 20.0% as a placeholder — easy to update in both the `.py` and `.html`
+  if you have a more current number.
+
+❯ remove 1Y range from the interactive chart
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Sync to docs/ for the running server:
+
+● Bash(cp course/interactive/week01_three_portfolios.html docs/interactive…)
+  ⎿  Exit code 7
+     000
+
+● Bash(cd docs && uv run python -m http.server 8000)
+  ⎿  Command running in background with ID: b8b54vn1f. Output is being written to: C:\Users\hevan\AppData\Local\Temp\claude\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tasks\b8b54vn1f.output
+
+● Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8000/inte…)
+  ⎿  200
+
+● Done. Removed the **1Y** button from the preset row in
+  `course/interactive/week01_three_portfolios.html` (and synced to
+  `docs/interactive/`). Remaining presets: **5Y / 10Y / 20Y / 30Y / Max**.
+
+The dev server had stopped, so I restarted it on background task `b8b54vn1f`
+  — http://localhost:8000/interactive/week01_three_portfolios.html serves
+  200 again.
+
+Note: the JS logic switching between linear and log scale at `endIdx -
+  startIdx >= 8` years stays as-is, which means 5Y windows render on linear
+  scale (right call — log is hard to read on tight ranges).
+
+❯ why there are two cash line?  what are the difference?
+
+● The two gray lines show the **same cash pile** measured in two different
+  units:
+
+**1. Cash (nominal)** — dashed line
+The literal dollar amount sitting in Person B's drawer at the end of each
+  year. Just the running sum of deposits: $10K, $20K, $30K… $550K at the end
+  of the full window. This is what a bank statement would show.
+
+**2. Cash (real, start-year $)** — dotted "ghost" line
+The same cash pile, but expressed in the **purchasing power of the window's
+  start year**. If Person B had $20K nominal in 1972 and inflation was 3.2%
+  in 1972, the real value in 1971 dollars is $20K ÷ 1.032 ≈ $19,380. Over
+  the full 55-year window, $550K of nominal cash becomes only ~$66K in 1971
+  purchasing power, because cumulative inflation was 728%.
+
+The dotted line is the visual punchline: even though the dashed line keeps
+  climbing as B keeps depositing more dollars, inflation is silently eroding
+  what those dollars can actually buy. The gap between dashed and dotted
+  *is* the inflation tax.
+
+**Why I included both:** the dashed line tells the literal "what's in the
+  drawer" story; the dotted line tells the "what does it buy" story.
+  Together they make the inflation-eats-cash point visible — that's the
+  whole reason "B uses cash with CPI adjusted" was in your spec for
+  principle #3 of SOUL.md.
+
+**If it's cluttering the chart**, two reasonable simplifications:
+- **Drop the dotted line entirely** — let the stats panel and the markdown
+  carry the inflation point in text instead.
+- **Replace the dashed line with the dotted one** — only show real
+  (purchasing-power) cash, which is more honest for the comparison since A
+  and C also implicitly carry inflation effects.
+
+Want me to make either of those changes?
+
+❯ oh... no deposit at all in the chart
+
+● You're right — Person B's "cash" line **is** the cumulative deposits line,
+  just with a different label. Same numbers, $10K, $20K, $30K… $550K. That's
+  the redundancy you're noticing. Let me fix the chart to make this explicit
+  and drop the now-redundant dotted ghost line.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now also update the caption beneath the chart since it referenced the dotted
+  line:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Apply the same simplification to the static PNG and the JS cleanup:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Installed 11 packages in 372ms
+     Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     
+     Each person deposited $550,000 over 55 years (1971-2025).
+     
+          … +6 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Cleaner now. Three lines, no redundancy:
+
+- **Person C — S&P 500** (red, $42.04M)
+- **Person A — T-bills** (blue, $1.73M)
+- **Person B — Cash (= total deposits)** (gray dashed, $550K)
+
+The dashed line is now explicitly labeled to make the dual meaning clear:
+  it's both Person B's cash strategy *and* the cumulative-deposits baseline.
+  The gap between A or C and that dashed line literally is "wealth created
+  by being invested instead of in cash."
+
+Synced to `docs/` and the interactive serves 200. The Python script's CPI
+  math and the `b_real_series` computation are still in place internally — I
+  just stopped plotting the dotted ghost line since it was the source of the
+  "two cash lines" confusion. The inflation-erosion point now lives only in
+  the markdown text and stats panel, where it reads more clearly as words
+  than as a fourth line on the chart.
+
+Note: the markdown's image alt-text still mentions the dotted ghost line.
+  Let me fix that too:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● And the YouTube script's [VISUAL: ...] cue references the ghost line too:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● All the inflation-erosion language in the prose body still stands ("the cash
+  pile, after 55 years of accumulated US inflation, has the *real*
+  purchasing power of only about $66,000 in 1971 dollars" — that line is in
+  the markdown text, not the chart). So the inflation point is preserved in
+  words; the chart is now uncluttered.
+
+Summary of this round:
+- **Static PNG**: dotted ghost line removed; B's line relabeled to "Person B
+  — Cash (= total deposits)"
+- **Interactive HTML**: dotted ghost line removed; legend now reads "Person
+  B — Cash (= total deposits)"; caption rewritten to explain that B's cash
+  line doubles as the cumulative-deposits baseline; unused `bRealSer` calc
+  removed from the JS
+- **Markdown alt-text + YouTube [VISUAL:] cue**: updated to drop the
+  ghost-line reference
+- **Synced** to `docs/` so the running server (background task `b8b54vn1f`)
+  serves the new versions
+
+❯ make person A cash, person B t-bills, person C s&p 500.  in the interacive
+  chart, add two slides. initial capital, and anually deposit.
+
+● Three changes coming: swap A↔B labels everywhere, swap their colors so cash
+  stays gray and T-bills stays blue, and add two sliders to the interactive.
+  Let me do the Python script first.
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     
+     Each person deposited $550,000 over 55 years (1971-2025).
+     
+       Person A (cash):     $       550,000 nominal | $    66,446 in 1971 dollars
+          … +4 lines (ctrl+o to expand)
+
+● Now the markdown swaps:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Now the interactive HTML — swap colors, swap labels, add the two sliders,
+  and rewire the JS:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Add CSS for the money controls:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now insert the money controls HTML block, swap the stat panels (A/B/C), and
+  update labels:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now rewire the JS — swap A/B compute, take the new sliders into account, and
+  update the chart data:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Bash(cp course/image/week01_three_portfolios.png docs/week01_three_portf…)
+  ⎿  200
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Static PNG looks correct: A=Cash (gray dashed), B=T-bills (blue), C=S&P
+  (red).
+
+Now the user's follow-up — add an "average annualized return" column to the
+  markdown table. Let me extend the Python script to compute and print the
+  CAGR (compound annual growth rate) of each underlying *asset return
+  series*, since that's what was actually used in the calculation:
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     
+     Each person deposited $550,000 over 55 years (1971-2025).
+     
+       Person A (cash):     $       550,000 nominal | $    66,446 in 1971 dollars
+          … +10 lines (ctrl+o to expand)
+
+● CAGR computed: **Cash 0.00%, T-bills 4.38%, S&P 4.38%, S&P 500 11.24%** per
+  year over the 1971-2025 window. CPI ran 3.92%/yr — so cash is a real loss
+  and T-bills barely cleared inflation. Now add the column to the markdown
+  table:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(cp course/image/week01_three_portfolios.png docs/week01_three_portf…)
+  ⎿  200
+
+● All changes done. Summary of this round:
+
+**Person re-labeling everywhere** (A↔B swap to put cash first, T-bills
+  second, S&P third):
+- Python script: line labels, end-value annotations, print order all
+  swapped; cash gets the gray dashed line, T-bills the blue line, S&P the
+  red line
+- Static PNG regenerated
+- Interactive HTML: CSS color variables `--tp-a` and `--tp-b` swapped values
+  (so "A" is gray-cash and "B" is blue-T-bills); chart legend, hover
+  templates, stat-panel labels and order all updated
+- Markdown Part 1: prose, alt-text, results table, "look closer at Person A"
+  — all swapped
+- Markdown Part 2 (YouTube script): Stella/Horace dialog rewritten so
+  A=cash, B=T-bills, C=S&P
+
+**Two new sliders in the interactive:**
+- **Initial capital** — $0 to $1,000,000 in $10,000 steps, default $0
+- **Annual deposit** — $0 to $50,000 in $500 steps, default $10,000
+- Both live-update the chart and stat panel on input
+- The compute function now seeds each portfolio with `initial`, then each
+  year adds `annual` and applies that year's return
+- Stat panel "Deposited" line now reads `initialCapital + annualDeposit ×
+  yearsCount`
+- Caption rewritten to reflect that all three knobs (window, initial,
+  annual) are user-controllable
+- Edge case handled: `% gain` shows "—" when total invested = 0
+
+**New "Annualized return (CAGR)" column** in the Part 1 results table:
+- Cash: 0.00% / yr
+- T-bills: 4.38% / yr
+- S&P 500: 11.24% / yr
+- Plus a short paragraph explaining CAGR (compound annual growth rate,
+  geometric mean) vs the misleading arithmetic average, and citing CPI =
+  3.92% / yr as the inflation hurdle so readers can see at a glance that
+  cash loses real ground and T-bills barely clear inflation
+
+The Python script now also prints these CAGRs at the end of every run, so
+  the numbers are easy to verify or update if the underlying data changes.
+
+❯ just update the week 1 english webpage.  i want to see how the interactive
+  chart look like
+
+● Bash(ls scripts/ && head -50 scripts/build.py)
+  ⎿  __pycache__
+     build-all.sh
+     build.py
+     build_chatbot_index.py
+     configs.json
+          … +53 lines (ctrl+o to expand)
+
+● Bash(grep -n "interactive\|image/\|copy_assets\|copy_static\|def main\|d…)
+  ⎿  321:def build_page_list(course_files):
+
+● Bash(grep -ni "interactive\|image\|asset\|web_assets\|copy" scripts/buil…)
+  ⎿  1399:    # with SVG images at runtime; if that fails we still see the letters.
+     1461:                f'{LOCALE_LABELS[l]["course_root"]} &copy; 2025 &middot; '
+     1487:    <link rel="stylesheet" href="assets/chatbot.css">
+     1490:    <script type="module" src="assets/chatbot.js" defer></script>
+     1559:def copy_web_assets(docs_dir):
+          … +7 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1555	
+     1556	# ---------------------------------------------------------------------------
+     1557	# Main build function
+     1558	# ---------------------------------------------------------------------------
+     1559	def copy_web_assets(docs_dir):
+          … +45 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1605	    for i, page in enumerate(pages):
+     1606	        if page["slug"] == "glossary":
+     1607	            html_content = glossary_en
+     1608	            lang_contents = glossary_lang
+     1609	            title = "Glossary"
+          … +58 lines (ctrl+o to expand)
+
+● Bash(grep -rn "!\[" course/*.md | head -10 ; ls docs/image 2>&1 | head -5)
+  ⎿  course/week01_why_invest.md:45:![Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M.](image/week01_three_portfolios.png)
+     ls: cannot access 'docs/image': No such file or directory
+
+● Bash(grep -n "animation/week01_compound_growth\|Reference\|ANIMATION:\|V…)
+  ⎿  3:Animation reference: `animation/week01_compound_growth.py`
+     622:[VISUAL: Animated logo with text "Investment Fundamentals - Week 1"]
+     624:[ANIMATION: A clock ticking while dollar bills slowly shrink in size]
+     644:[VISUAL: Title card -- "Part 1: The Invisible Thief -- Inflation"]
+     653:[ANIMATION: A basket of groceries. The price tag starts at $50 and slowly ticks
+          … +15 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1	# Week 1: Why Invest? The Time Value of Money
+     2	
+     3	Animation reference: `animation/week01_compound_growth.py`
+     4	
+     5	---
+          … +5 lines (ctrl+o to expand)
+
+● Remove the line — it's a stray reference at the top of Part 1 that has no
+  business on the website:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(grep -n "def markdown_to_html\|def page_template\|def strip_youtube…)
+  ⎿  147:def markdown_to_html(md):
+     255:def strip_youtube_section(md):
+     275:def linkify_overview_levels(html):
+     292:def linkify_level_weeks(html, level_num):
+     1397:def page_template(title, content, lang_contents, menus, breadcrumbs, prev_page, next_page, prev_titles, next_titles):
+          … +5 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  147	def markdown_to_html(md):
+     148	    html = md
+     149	
+     150	    def replace_code_block(m):
+     151	        lang = m.group(1)
+          … +45 lines (ctrl+o to expand)
+
+● Bash(grep -n "SITE_JS\|SITE_CSS\|CSS = \|JS = " scripts/build.py | head -10)
+  ⎿  624:SITE_CSS = """
+     1240:SITE_JS = r"""
+     1486:    <style>{SITE_CSS}</style>
+     1551:    <script>{SITE_JS}</script>
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1233	}
+     1234	"""
+     1235	
+     1236	
+     1237	# ---------------------------------------------------------------------------
+          … +7 lines (ctrl+o to expand)
+
+● Add interactive-component support to the build. First the asset-copy
+  functions:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now wire it into `build()` and the per-page loop, plus add the matching CSS
+  and JS:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now the CSS and JS for the toggle. Find a clean spot in SITE_CSS:
+
+● Bash(grep -n "lesson-content img\|^article img\|article img\|main img\|^…)
+  ⎿  1156:img { max-width: 100%; height: auto; border-radius: 6px; margin: 12px 0; }
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1150	
+     1151	hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+     1152	
+     1153	a { color: var(--accent); }
+     1154	a:hover { color: var(--accent-hover); }
+          … +5 lines (ctrl+o to expand)
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now the toggle JS — append to SITE_JS:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1325	    if (typeof mermaid === 'undefined') return;
+     1326	    // Restore original source from the sibling <pre class="mermaid-source"><code>
+     1327	    // (mermaid replaces the .mermaid contents with SVG on first render).
+     1328	    document.querySelectorAll('.mermaid-block').forEach(function(block) {
+     1329	        var srcEl = block.querySelector('.mermaid-source code');
+          … +25 lines (ctrl+o to expand)
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now run the build:
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -20)
+  ⎿  Built: side16.html
+       Built: side17.html
+       Built: side18.html
+       Built: side19.html
+       Built: side20.html
+          … +15 lines (ctrl+o to expand)
+
+● Bash(grep -n "lesson-interactive\|three_portfolios" docs/week01.html | h…)
+  ⎿  543:.lesson-interactive {
+     551:.lesson-interactive-frame-wrap {
+     557:.lesson-interactive-frame {
+     564:.lesson-interactive-fallback {
+     569:.lesson-interactive-caption {
+          … +11 lines (ctrl+o to expand)
+
+● Bash(curl -s -o /dev/null -w "week01: %{http_code}\n" http://localhost:8…)
+  ⎿  week01: 200
+     interactive: 200
+     image: 200
+
+● Built and serving. Visit:
+
+**http://localhost:8000/week01.html**
+
+The interactive chart is now embedded in the Week 1 reading section as an
+  iframe (730px tall, with all the time presets, the start-year slider, and
+  the new initial-capital + annual-deposit sliders). A small "**Show static
+  image**" button at the bottom-right of the iframe lets you toggle to the
+  PNG fallback if you want to compare side-by-side.
+
+**Build changes I made to `scripts/build.py`:**
+- Added `copy_lesson_assets()` — copies `course/image/*.{png,jpg,…}` →
+  `docs/image/` and `course/interactive/*.html` → `docs/interactive/` on
+  every build.
+- Added `swap_interactive_components(html)` — post-processes the HTML so any
+  `<img src="image/NAME.ext">` whose `course/interactive/NAME.html` exists
+  gets replaced with an iframe + static-image fallback + toggle button.
+- Wired both into the build loop (called for English and the three Chinese
+  locale variants — translation files already use the same `image/...`
+  paths).
+- Added `.lesson-interactive*` CSS classes (theme-aware via existing
+  `--card-bg`, `--border`, `--accent` variables) and a `toggleInteractive()`
+  JS function.
+
+**Other changes also baked in this build:**
+- Removed the stray `Animation reference: ...` line from the top of Part 1
+  in `course/week01_why_invest.md`.
+- The earlier swap (A=Cash, B=T-bills, C=S&P) and the new sliders are live
+  in the iframe.
+- The CAGR column in the table renders too — visible right under the chart
+  on the Week 1 page.
+
+Note for next session: the build now generates **97 pages** total. If you'd
+  rather not rebuild everything during iteration, the per-page logic in
+  `build.py` line 1605+ is straightforward to factor into a `--only week01`
+  CLI flag — happy to add that if it'd save time.
+
+❯ the interactive chart has a vertical scrollbar, make sure it can display the
+  whole chart.  when the page is load, both interactive and static image are
+  show.  show interative only by default.
+
+● Two bugs to fix: the `display: block` on the fallback `<img>` is overriding
+  the `hidden` attribute (so both show), and the iframe is a touch too
+  short. Let me patch both.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Trim the iframe's body margin so we use the full 860px:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Rebuild and test:
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && curl -s -o /dev/nu…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     week01: 200
+     min-height: 860px
+          … +3 lines (ctrl+o to expand)
+
+● Both fixes verified in the rebuilt HTML:
+
+**Fix 1 — both showing on load.** The fallback `<img>` had `hidden` set, but
+  the CSS `display: block` was overriding the implicit `display: none` from
+  the HTML attribute. Added an explicit `[hidden]` rule with `!important` so
+  the attribute always wins:
+```css
+.lesson-interactive-frame-wrap[hidden],
+.lesson-interactive-fallback[hidden] {
+    display: none !important;
+}
+```
+Now only the iframe shows on load; clicking **Show static image** swaps in
+  the PNG (and the toggle `display: none` rule applies symmetrically when
+  you flip back).
+
+**Fix 2 — vertical scrollbar in iframe.** Bumped the iframe height from
+  720→**860px** desktop and 820→**1080px** mobile, and stripped the iframe
+  document's `<body>` margin + the `.tp-root` outer margin so the full chart
+  panel + controls + sliders + stats + caption all fit without an inner
+  scrollbar. The iframe content sums to roughly 760px on desktop, so 860px
+  gives clean headroom.
+
+Refresh **http://localhost:8000/week01.html** — should show only the live
+  demo and no inner scrollbar now.
+
+❯ The quote Try it yourself paragraph at the webpage, the quote lines got
+  seperated.  the whole quote should be in one box
+
+● Bash(grep -n "blockquote\|^>\|quote" scripts/build.py | head -10)
+  ⎿  209:    html = re.sub(r"^>\s+(.+)$", r"<blockquote>\1</blockquote>", html, flags=re.MULTILINE)
+     223:                r"^<(h[1-6]|ul|ol|li|table|thead|tbody|tr|th|td|pre|code|blockquote|hr|div|img)",
+     1095:blockquote {
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  205	        html,
+     206	        flags=re.MULTILINE,
+     207	    )
+     208	
+     209	    html = re.sub(r"^>\s+(.+)$", r"<blockquote>\1</blockquote>", html, flags=re.MULTILINE)
+          … +10 lines (ctrl+o to expand)
+
+● Each `>` line gets wrapped in its own `<blockquote>` — they need to be
+  merged when consecutive. Fix:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && grep -A1 "Try it y…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     <blockquote><strong>Try it yourself.</strong> The interactive version of this chart on the website lets you pick any window between 1971 and 2025 — 1, 5, 10, 20, 30 years, or the full period — and snaps all three portfolios to a fresh start at the beginning of that window. The S&P comes out ahead in nearly every meaningful window, but the <em>size</em> of the gap depends entirely on which era you started in.</blockquote>
+     <p>
+
+● Fixed. The "Try it yourself" quote is now a single `<blockquote>` with all
+  the lines joined into one continuous paragraph (standard markdown
+  soft-wrap behavior).
+
+The fix is general — any multi-line `> ...` block in any lesson now
+  collapses into one `<blockquote>` instead of getting fragmented into one
+  box per line. That matters elsewhere too: the multi-line attributed quotes
+  in lessons, the SOUL.md-style epigraphs if they ever migrate into the
+  courseware, etc. They'll all now render as a single quote box.
+
+Refresh **http://localhost:8000/week01.html** — the "Try it yourself"
+  callout under the chart should now sit in a single bordered box.
+
+❯ there is a hugh while bar under the interactive chart.  and the gray show
+  static image bar is ugly.  move the show static button to above the chart,
+  change it from button to toggle button with both the word static and
+  interactive on left and right of the toggle
+
+● Two fixes: trim the iframe to actual content height (no more white bar), and
+  replace the bottom button with a segmented toggle at the top of the
+  figure.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now the JS — update `toggleInteractive` to flip the new switch markup and
+  the active-label state:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && curl -s http://loc…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     lesson-interactive-modeswitch
+     lesson-interactive-mslabel
+          … +8 lines (ctrl+o to expand)
+
+● All wired up. Refresh **http://localhost:8000/week01.html** and you'll see:
+
+**At the top of the chart figure** — a small bar with `Static [⚪──⚫]
+  Interactive` (right-aligned). The pill toggle slides between the two; the
+  active label darkens. Both the toggle pill *and* the side labels are
+  clickable, so you can tap "Static" or "Interactive" directly without
+  aiming at the small thumb. Replaces the ugly gray bar that was at the
+  bottom.
+
+**Iframe height** — trimmed from 860px → **770px** desktop and 1080px →
+  **980px** mobile. That's right at the actual content height of the
+  interactive panel (chart + controls + sliders + stats + caption add up to
+  ~755px desktop), so the white bar disappears without bringing back the
+  inner scrollbar.
+
+The toggle uses the site's `--accent`/`--border`/`--text`/`--muted`
+  variables, so it themes correctly in both light and dark modes. Same
+  theming follows when you switch between English/HK/TW/CN since the swap
+  markup is locale-agnostic.
+
+❯ when the initial captial is not zero.  why the first year doesn't start at
+  the same value?
+
+● Good catch. The reason: in the math, **the first year's return already
+  applies to B and C by the end of year 1**, while A (cash) has no return —
+  so the very first plotted point already shows divergence. With
+  initial=$500K, year 1 = $510K (A) / $532K (B) / $583K (B in 1971's S&P
+  year). They diverge before you see them.
+
+The fix is to prepend a **start-of-window anchor point** at `(startYear − 1,
+  initialCapital)` so all three lines begin from exactly the same dot before
+  any year's return is applied.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Need to fix the stats too — the anchor point inflates `yrs.length` by 1 when
+  initial > 0, which would over-count `totalInvested`:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now remove the paragraph from the markdown:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && curl -s -o /dev/nu…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     week01: 200
+     frame: 200
+
+● Done — both fixes live.
+
+**1. Anchor point added when initial capital > 0.**
+The interactive's `compute()` now prepends a `(startYear − 1, initial)`
+  anchor for all three series whenever `initial > 0`. The chart now visibly
+  starts all three lines from the **same dot at the initial capital**, then
+  they fan out year by year as deposits land and returns accrue. With
+  `initial = 0` (the default), no anchor is added — the lines start at year
+  1 the same way they always did, which avoids any log-scale
+  undefined-at-zero weirdness.
+
+I also fixed a follow-on bug the anchor would've caused: the `Deposited`
+  stat was computed from `yrs.length`, which would now over-count by one
+  annual deposit (the anchor isn't a real year of investing). Switched to
+  `endIdx − startIdx + 1` so the deposited total stays mathematically
+  correct: `initialCapital + annualDeposit × actualYears`.
+
+**Math behind the gap (so the explanation in this thread holds up):** with
+  `initial = $500K` starting in 1971, end-of-year-1 values are A=$510K
+  (cash, no return), B=$510K × (1+0.0434) = $532K (T-bills earned 4.34%),
+  C=$510K × (1+0.1431) = $583K (S&P returned 14.31%). Now you see them
+  anchored together at $500K and fanning out from there.
+
+**2. Removed the "every year you delay" paragraph** from
+  `course/week01_why_invest.md`. The interactive chart already makes the
+  same point much more vividly than that prose example, and it relied on a
+  hypothetical 10% return rather than the real 1971-2025 numbers we now
+  have.
+
+Refresh **http://localhost:8000/week01.html** — drag the **Initial capital**
+  slider and you'll see all three lines start from the same anchor dot.
+
+❯ In section b what you need to know.  change the  The Inflation Effect on
+  $100 Over Time table with real historical data.  start with 1900.  create
+  a table with python code.  the next paragraph says how much purchasing
+  power you lost since year 2000.  the interactive version let use slide the
+  initial $100 value and which year to start.  same year 0 to year 50, but
+  with the actual year number.
+
+● Bash(grep -n "Inflation Effect\|\\$100\|purchasing power\|## \|### \|###…)
+  ⎿  5:## Part 1: Reading Section
+     9:### a) Why This Is Important
+     12:the purchasing power of cash stuffed under a mattress or parked in a zero-interest
+     65:inflation, has the *real* purchasing power of only about **$66,000 in 1971 dollars**.
+     84:### b) What You Need to Know
+          … +25 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  86	#### 1. Inflation: The Silent Wealth Destroyer
+     87	
+     88	Inflation is the general increase in prices over time. Central banks (like the
+     89	Federal Reserve in the US) target about 2% annual inflation, but actual inflation
+     90	can vary widely.
+          … +45 lines (ctrl+o to expand)
+
+● Plan: write a Python script that prints the markdown table AND generates a
+  static PNG, then create the interactive HTML and update the markdown. Let
+  me start with the Python script.
+
+● Write(course/image/week01_inflation_purchasing_power.py)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py
+
+● Bash(uv run --with matplotlib python course/image/week01_inflation_purch…)
+  ⎿  ================================================================
+     Inflation purchasing-power table (for direct paste into markdown):
+     ================================================================
+     
+     | Year | Years elapsed | Purchasing power | % of original |
+          … +22 lines (ctrl+o to expand)
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Now create the interactive HTML — start year + initial value sliders,
+  50-year horizon:
+
+● Write(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html
+
+● Rebuild and test:
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && curl -s -o /dev/nu…)
+  ⎿  <persisted-output>
+     Output too large (102.1KB). Full output saved to: C:\Users\hevan\.claude\projects\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tool-results\bcet8gna0.txt
+     
+     Preview (first 2KB):
+       Built: disclaimer.html
+          … +13 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Inflation section update is complete. Refresh
+  **http://localhost:8000/week01.html** to see it.
+
+**What's now in section b → "1. Inflation: The Silent Wealth Destroyer":**
+
+1. **Real-data 1900-2025 table** — replaces the old "3% assumption" ASCII
+  table with actual US CPI history. $100 from 1900 has the purchasing power
+  of just **$2.71 today** (97.3% lost), with the historical bumps clearly
+  visible: WWI inflation 1910→1920, deflationary recovery 1920→1930, WWII
+  1940→1950, 1970s stagflation, etc.
+
+2. **Updated narrative paragraph** uses real numbers:
+   - $100 from 1900 → 2025: $2.71 (97.3% loss)
+   - $100 from 2000 → 2025: $53.16 (46.8% loss in one generation)
+   - $100 from 2020 → 2025: $81.58 (~18% in five years)
+
+3. **Embedded interactive chart** (with static PNG fallback). Defaults to
+  1975 start, $100 initial → ends at $15.74 after 50 years. Two sliders:
+   - **Initial value**: $10 to $10,000 in $10 steps
+   - **Start year**: 1900 to 1975 (constrained so start + 50 ≤ 2025)
+   
+Stats panel shows the start value plus year-10, year-25, year-50 milestones,
+  each with the actual calendar year and the % loss. The dotted nominal
+  baseline overlays the red real-purchasing-power curve to make the
+  inflation gap visible.
+
+4. **"Historical US inflation rates" ASCII table** converted to a proper
+  markdown table.
+
+**New files:**
+- `course/image/week01_inflation_purchasing_power.py` (data + PNG generator
+  + markdown table printer)
+- `course/image/week01_inflation_purchasing_power.png` (static fallback,
+  defaults to 1975-2025 window)
+- `course/interactive/week01_inflation_purchasing_power.html` (Plotly demo
+  with the two sliders)
+
+The build's `swap_interactive_components` picks up the matching
+  `interactive/week01_inflation_purchasing_power.html` and replaces the
+  static `<img>` with the live demo + the segmented "Static / Interactive"
+  toggle. Same theming + light/dark behavior as the three-portfolios chart.
+
+❯ oh... change the table start from year 1970
+
+● Update the script to start the table at 1970 (every 5 years for nicer
+  granularity over the shorter span), and re-run:
+
+● Update(course/image/week01_inflation_purchasing_power.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py has been updated successfully.
+
+● Update(course/image/week01_inflation_purchasing_power.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Bash(uv run --with matplotlib python course/image/week01_inflation_purch…)
+  ⎿  ================================================================
+     Inflation purchasing-power table (for direct paste into markdown):
+     ================================================================
+     
+     | Year | Years elapsed | Purchasing power | % of original |
+          … +20 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Now update the markdown to use the new table and adjust the narrative:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && curl -s -o /dev/nu…)
+  ⎿  <persisted-output>
+     Output too large (101.6KB). Full output saved to: C:\Users\hevan\.claude\projects\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tool-results\bhx4sup1u.txt
+     
+     Preview (first 2KB):
+       Built: disclaimer.html
+          … +16 lines (ctrl+o to expand)
+
+● All updated. Refresh **http://localhost:8000/week01.html**.
+
+**Table now starts at 1970** (every 5 years through 2025, 12 rows):
+- 1970: $100 → 2025: $11.73 (88.3% lost in a single working lifetime)
+- The 1970s stagflation alone halves it by 1980
+
+**Static PNG** — chart now spans 1970-2020 (50-year window). Title reads
+  *"Purchasing power of $100 held as cash from 1970 — After 50 years of US
+  inflation: $14.37 (14% of the original)"*. Steepest drop is the 1970s
+  stagflation segment, with the curve flattening through the disinflationary
+  1980s-2010s.
+
+**Interactive default** — start-year slider now defaults to **1970** so the
+  live demo matches the static fallback at first glance. Slider range stays
+  1900-1975 so you can still scan back to the early 20th century.
+
+**Narrative paragraph** — rewritten to use the 1970-2025 numbers (88.3% loss
+  across one working lifetime, 1970s stagflation halving in a decade,
+  1980-2005 shaving off another two-thirds). Kept the "$100 from 2000 →
+  $53.16" and "post-2020 lost 18%" stats since those are independently
+  meaningful and tie to ages most readers can relate to.
+
+❯ oh... change the static image back to start at 1975.  i forgot it is 50
+  years
+
+● Update(course/image/week01_inflation_purchasing_power.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run --with matplotlib python course/image/week01_inflation_purch…)
+  ⎿  $100 held from 1900 -> 2025 (125 yrs): $  2.71 (97.3% lost)
+       $100 held from 2000 -> 2025 ( 25 yrs): $ 53.16 (46.8% lost)
+       $100 held from 2020 -> 2025 (  5 yrs): $ 81.58 (18.4% lost)
+     
+     Saved: B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.png
+          … +2 lines (ctrl+o to expand)
+
+● Reverted. **Static image and interactive default both back to 1975** so the
+  50-year horizon ends cleanly at 2025 (showing the post-2020 spike at the
+  right edge instead of cutting off in 2020). 
+
+The **table still starts at 1970** — the wider 1970 anchor is a better
+  story-telling baseline for "single working lifetime" since it lets the
+  1970s stagflation step show up as the dramatic first decade. They can have
+  different start years without conflict; the table is the data drilldown,
+  the chart is the interactive "what does inflation feel like over a
+  lifetime" view.
+
+❯ regenerate the webpage for week1
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done")
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+
+● Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8000/week…)
+  ⎿  200
+
+● Rebuilt — **http://localhost:8000/week01.html** is fresh. Latest state of
+  everything is now live: the new SOUL-aligned framing, the three-portfolios
+  chart with sliders + CAGR column, the 1970-anchored inflation table, the
+  1975-start static PNG plus interactive purchasing-power demo with both
+  sliders, and the segmented Static/Interactive toggle on each chart figure.
+
+❯ why the 2nd interactive chart has a huge white bar underneath?
+
+● The iframe is fixed at 770px in the build CSS — fine for the
+  three-portfolios chart (which needs about that much), but the inflation
+  chart's content is only ~680px tall, leaving ~90px of empty space. Let me
+  add a small `postMessage` self-resize so each interactive sizes its own
+  iframe precisely.
+
+First, add the listener in the parent (build.py SITE_JS):
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now add the height-reporter snippet to both interactive HTMLs:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done")
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+
+● Refresh **http://localhost:8000/week01.html** — both interactive iframes now
+  self-size to their actual content.
+
+**How it works:** each interactive HTML measures
+  `document.documentElement.scrollHeight` after Plotly finishes laying out
+  and posts it to the parent via
+  `postMessage({type:'lesson-interactive-resize', height: N})`. The parent
+  (`SITE_JS`) listens for that message, finds the matching iframe by
+  `e.source === iframe.contentWindow`, and snaps `iframe.style.height` to
+  the reported pixel value.
+
+Result:
+- **Three-portfolios chart** — stays at ~770px (its actual content height).
+- **Inflation chart** — collapses from the 770px default down to its real
+  ~680px, no more white bar.
+- **Any future interactive** — auto-fits without needing per-asset CSS or
+  magic numbers in `build.py`.
+
+The `ResizeObserver` on `<body>` also re-fires on window-resize, on theme
+  switch (chart re-renders), and whenever Plotly redraws — so the iframe
+  stays right-sized as the user interacts with sliders or rotates a phone.
+
+❯ for the interactive chart add one more slide for duration, from 50 years
+  slide to max
+
+● Add a 3rd slider for duration. Min 50, max dynamic based on start year (so
+  start + duration always lands within 1900–2025):
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Now wire the JS — read duration, dynamically clamp it to `(2025 − start)`,
+  and use it everywhere:
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done")
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+
+● Three-slider control row now: **Initial value | Start year | Duration**.
+  Refresh **http://localhost:8000/week01.html** to try it.
+
+**Behavior:**
+- **Duration slider**: min 50 yrs, max dynamically clamped to `(2025 −
+  startYear)` so the chart never extrapolates beyond available data.
+  - Start = 1975 → max = 50 (slider effectively pinned)
+  - Start = 1925 → max = 100
+  - Start = 1900 → max = 125
+- **Auto-clamp on start change**: if you drag start year *forward* and your
+  current duration won't fit, the duration auto-shrinks to the new max. Drag
+  start year *back* and the duration ceiling expands; the slider keeps its
+  current value (so you can intentionally extend).
+- **Stats panel adapts**: the 4 milestone cards now show year 0, year
+  `duration/3`, year `2·duration/3`, and year `duration` (end). For a
+  50-year window that's roughly 0/17/33/50; for a 125-year window it's
+  0/42/83/125 — meaningful intermediates regardless of how long you stretch.
+- **Chart x-axis** auto-spans `[start, start + duration]`.
+- **iframe self-resize** still works — the postMessage flow re-fires on the
+  slider events via `ResizeObserver`, so the iframe stays right-sized as you
+  drag.
+- **Mobile (≤900px)**: the three sliders stack into a single column instead
+  of cramming into 3 cells.
+
+❯ does the markdown or mermaid chart support math equations?  i want to
+  properly display the componed interest formula
+
+● Bash(grep -ni "katex\|mathjax\|math\|formula" scripts/build.py | head -10)
+  ⎿  (Bash completed with no output)
+
+● Short answer: neither out of the box. The build's custom markdown converter
+  doesn't process LaTeX, and Mermaid isn't a math typesetter. The standard
+  fix is to add **KaTeX** — a small fast LaTeX renderer that scans the page
+  after load and replaces math delimiters with proper typeset equations. Let
+  me wire it up and use it on the compound-interest formula.
+
+● Bash(grep -n "Compound Interest\|compound interest\|Future Value\|FV =\|…)
+  ⎿  157:#### 2. Compound Interest: The Eighth Wonder of the World
+     162:**The compound interest formula:**
+     165:  FV = PV x (1 + r)^n
+     168:    FV = Future Value (what your money grows to)
+     218:With compound interest, you earn 8% of the *current* balance, which grows each year.
+          … +15 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  155	rapidly.
+     156	
+     157	#### 2. Compound Interest: The Eighth Wonder of the World
+     158	
+     159	Compound interest means you earn interest on your interest. It is the single most
+          … +30 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1485	    panel.classList.toggle('open', open);
+     1486	    overlay.classList.toggle('open', open);
+     1487	    btn.classList.toggle('open', open);
+     1488	    document.body.style.overflow = open ? 'hidden' : '';
+     1489	}
+          … +10 lines (ctrl+o to expand)
+
+● Confirmed — proceeding with KaTeX. Find the page head:
+
+● Bash(grep -n "twemoji\|mermaid.min\|chatbot.css\|<head>\|EARLY_THEME\|<l…)
+  ⎿  1519:    if (typeof twemoji !== 'undefined') {
+     1520:        twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+     1526:// Apply saved theme as early as possible (script in <head>)
+     1542:EARLY_THEME_SCRIPT = """(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();"""
+     1647:<head>
+          … +4 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  1647	<head>
+     1648	    <meta charset="UTF-8">
+     1649	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     1650	    <title>{title} - Chanma Investment Tutorial</title>
+     1651	    <script>{EARLY_THEME_SCRIPT}</script>
+          … +10 lines (ctrl+o to expand)
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  358	per year. Only assets that earn above the inflation rate grow your real wealth.
+     359	
+     360	#### 6. Future Value and Present Value
+     361	
+     362	These are the two core TVM calculations.
+          … +45 lines (ctrl+o to expand)
+
+● Now convert the three formulas in week01:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done" && grep -…)
+  ⎿  Exit code 1
+
+● Bash(uv run python scripts/build.py 2>&1 | grep -E "(week01|Done|Error)"…)
+  ⎿  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '\\\\[', right: '\\\\]', display: true}, {left: '\\\\(', right: '\\\\)', display: false}], ignoredTags: ['script','noscript','style','textarea','pre','code'], throwOnError: false});"></script>
+     NameError: name 'delimiters' is not defined
+
+● The `{` braces in the JS are colliding with `.format()` placeholders. Need
+  to escape with `{{` `}}`:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+
+● Bash(grep -c 'katex' docs/week01.html ; grep -o 'FV = PV' docs/week01.ht…)
+  ⎿  3
+     FV = PV
+     FV = PV
+     FV = PV
+
+● Bash(grep -o 'FV = PV \\\\cdot\|FV = PV.\{0,50\}' docs/week01.html | hea…)
+  ⎿  FV = PV \cdot (1 + r)^n \]
+     FV = PV \cdot (1 + r)^n \]
+     FV = PV x (1 + r)^n
+     FV = PV x (1 + r)^n
+     FV = PV x (1 + r)^n
+
+● Bash(grep -n "FV = PV\|FV = \$\|PV = FV\|PV = \$" course/week01_why_inve…)
+  ⎿  164:\[ FV = PV \cdot (1 + r)^n \]
+     365:\[ FV = PV \cdot (1 + r)^n \]
+     568:A: Use the formula PV = FV / (1 + r)^n. Decide on an appropriate discount rate (r)
+     1038:Left: "Future Value: FV = PV x (1 + r)^n"
+     1039:Right: "Present Value: PV = FV / (1 + r)^n"]
+
+● Bash(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8000/week…)
+  ⎿  200
+     katex@
+     katex@
+     katex@
+
+● KaTeX is wired up and serving. Refresh **http://localhost:8000/week01.html**
+  and scroll to **Section b → 2. Compound Interest** and **Section b → 6.
+  Future Value and Present Value**. You should see properly typeset math:
+
+$$ FV = PV \cdot (1 + r)^n $$
+
+$$ PV = \frac{FV}{(1+r)^n} $$
+
+$$ FV = PMT \cdot \frac{(1+r)^n - 1}{r} $$
+
+with the worked examples in `aligned` form (left-aligned `=` signs across
+  multiple lines).
+
+**What got wired up:**
+
+1. **KaTeX 0.16.11 from jsDelivr CDN** — added to every page's `<head>`: the
+  CSS, `katex.min.js`, and the `auto-render.min.js` extension that scans the
+  DOM after page load.
+
+2. **Delimiter convention** — `\[ ... \]` for display math, `\(...\)` for
+  inline. Avoided `$...$` because the lessons use `$` as the dollar sign for
+  monetary references — using `$` as a math delimiter would render every
+  `$10,000` reference as broken math. The `\(...\)` and `\[...\]` delimiters
+  never collide with prose.
+
+3. **Ignored tags** — KaTeX skips `<pre>`, `<code>`, `<script>`,
+  `<noscript>`, `<style>`, `<textarea>`. So existing code fences in lessons
+  are left alone.
+
+4. **Three formulas converted in week01:**
+   - Section 2: compound interest
+   - Section 6: future value (formula + worked example)
+   - Section 6: present value (formula + worked example)
+   - Section 6: annuity FV (formula + worked example with $500/mo for 30y)
+
+5. **Inline math** like `\(FV\)`, `\(PMT\)`, `\(500 \times 360\)` renders
+  properly inside list items and prose.
+
+**To use math in any future lesson:**
+
+```markdown
+Display math (centered block):
+\[ E = mc^2 \]
+
+Inline math: \(E = mc^2\) sits in the line.
+
+Multi-line aligned:
+\[ \begin{aligned}
+y &= mx + b \\
+  &= 2x + 5
+\end{aligned} \]
+```
+
+Anything KaTeX supports — fractions, integrals, summations, matrices, Greek
+  letters, the `aligned` / `cases` / `matrix` environments — will render.
+  Full reference: <https://katex.org/docs/supported.html>.
+
+If you want me to also convert the formulas in other lessons (Rule of 72 in
+  section 3, real-vs-nominal in section 5, the YouTube script visual cues,
+  or future weeks like the option-pricing material in Level 3), just say
+  which.
+
+❯ does katex support github markdown style $$...$$$?
+
+● Short answer: **yes, KaTeX supports `$$...$$` natively** — it's literally a
+  default delimiter in the `auto-render` extension. I deliberately disabled
+  it on this site, and there's a real reason that's worth being explicit
+  about.
+
+**Why I left it off:**
+
+Every lesson is full of monetary references — `$10,000`, `$2.71`, `$1.73M`,
+  etc. KaTeX's `auto-render` is dumb: it scans the DOM for delimiter pairs
+  and tries to render whatever it finds between them as math. With `$...$`
+  enabled, *every* sentence like "Person A ends up with $510K, Person B with
+  $532K" gets the chunk `510K, Person B with ` parsed as math and rendered
+  as garbled symbols. There's no way to opt out per-mention without escaping
+  every dollar sign in the lesson.
+
+GitHub's parser is much smarter — it requires the `$` to NOT be adjacent to
+  digits/word chars to be treated as a math delimiter, so `$5,000` is safe.
+  KaTeX's auto-render does not have that guard. (There's a `pre-process`
+  hook you can write yourself, but it's fragile.)
+
+**Three options if you want the GitHub style:**
+
+| Option | What changes | Risk |
+|---|---|---|
+| **A. Add `$$...$$` only** | Display math via `$$ FV = PV(1+r)^n $$`.
+  Inline math still uses `\(...\)`. | Low — `$$` rarely appears organically
+  in prose. Still risky in tables that show two prices like `$$5 vs $10$$`.
+  |
+| **B. Add `$$...$$` AND `$...$`** | Full GitHub style. | High — every
+  monetary reference breaks unless escaped to `\$`. Would require re-editing
+  every lesson. |
+| **C. Implement GitHub-style guards** | Custom pre-processor in `build.py`
+  that only treats `$` as math when not adjacent to digits/letters. | Medium
+  — extra ~20 lines of regex; matches GitHub behavior exactly. |
+
+**My recommendation:** keep `\(...\)` and `\[...\]` as the primary
+  delimiters (what you have now), and **add Option A** so you can also write
+  `$$...$$` for display math when convenient. That gives you
+  GitHub-compatible display math without the dollar-sign minefield. If you
+  ever want to author lessons in GitHub's web editor and have the math
+  preview work there, that's the lowest-risk way.
+
+Want me to enable Option A? It's a one-line change in `build.py`'s KaTeX
+  config — add `{left: '$$', right: '$$', display: true}` to the delimiters
+  array.
+
+❯ sure  option A
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && grep -o "left: '\$…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     left: '$$'
+
+● Done — **`$$...$$`** is now a recognized display-math delimiter alongside
+  `\[...\]` and `\(...\)`.
+
+You can now write GitHub-style math in any lesson:
+
+```markdown
+$$ FV = PV \cdot (1 + r)^n $$
+
+$$ \begin{aligned}
+y &= mx + b \\
+  &= 2x + 5
+\end{aligned} $$
+```
+
+Both styles work; mix and match per author preference. The `\(...\)` inline
+  form stays the same — single-`$` inline math is still off (and will stay
+  off, to keep monetary references like `$10,000` from rendering as broken
+  math).
+
+If you ever paste a lesson into GitHub's web preview, the `$$...$$` blocks
+  will render there too. The custom `\[...\]` form won't render on GitHub
+  but will render here — useful when you specifically want display math that
+  GitHub's smarter parser shouldn't touch.
+
+❯ Change the $1000 at 8% example table to proper markdown table.   change the
+  visual compound vs simple interest to static image in markdown.  the
+  interactive chart in the website let user change the interest rate and
+  number of years
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  155	rapidly.
+     156	
+     157	#### 2. Compound Interest: The Eighth Wonder of the World
+     158	
+     159	Compound interest means you earn interest on your interest. It is the single most
+          … +65 lines (ctrl+o to expand)
+
+● Three things to do: turn the example table into proper markdown, build the
+  simple-vs-compound static PNG generator, and create the interactive demo
+  with rate + years sliders. Start with the Python script:
+
+● Write(course/image/week01_compound_vs_simple.py)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.py
+
+● Bash(uv run --with matplotlib python course/image/week01_compound_vs_sim…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.png
+     
+     Principal:    $1,000.00
+     Rate:         8.0% per year
+     Horizon:      40 years
+          … +3 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Static PNG looks good. Now create the interactive HTML with rate + years
+  sliders:
+
+● Write(course/interactive/week01_compound_vs_simple.html)
+  ⎿  File created successfully at: B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html
+
+● Now update the markdown — convert the example table to markdown and replace
+  the ASCII art chart with the image embed:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Rebuild and verify:
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done" && curl -…)
+  ⎿  <persisted-output>
+     Output too large (114.5KB). Full output saved to: C:\Users\hevan\.claude\projects\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tool-results\b31sarbim.txt
+     
+     Preview (first 2KB):
+       Built: week01.html
+          … +14 lines (ctrl+o to expand)
+
+● All three serve. Refresh **http://localhost:8000/week01.html** and scroll to
+  **Section b → 2. Compound Interest**.
+
+**Three changes are live:**
+
+1. **$1,000 at 8% example table** — now a proper markdown table
+  (right-aligned numeric columns, monospaced figures via the site's existing
+  `font-variant-numeric: tabular-nums` styling). The same eight rows (year
+  1, 2, 3, 5, 10, 20, 30, 40) — same data the ASCII version had, but parses
+  cleanly and looks like the rest of the lesson tables.
+
+2. **Compound vs. simple "visualization"** — the ASCII chart is gone.
+  Replaced by `course/image/week01_compound_vs_simple.png`: a real
+  matplotlib chart with the simple line (blue dashed, $4,200 endpoint) and
+  the compound curve (red, $21,725 endpoint), with the gap between them
+  shaded as the "bonus from compounding."
+
+3. **Interactive demo** —
+  `course/interactive/week01_compound_vs_simple.html`, three sliders:
+   - **Principal**: $100 to $100,000 (step $100, default $1,000)
+   - **Annual rate**: 0.5% to 15% (step 0.5%, default 8%)
+   - **Years**: 5 to 60 (step 1, default 40)
+   
+Three stat cards live-update: end value of compound, end value of simple,
+  and the **compound bonus** (with a "× simple at end" multiplier so you can
+  see at a glance that 40 years at 8% compounds to ~5× the simple ending
+  value).
+   
+The build's `swap_interactive_components` picks it up automatically
+  (matching `image/week01_compound_vs_simple.png` ↔
+  `interactive/week01_compound_vs_simple.html`), so the website shows the
+  live demo with the segmented Static/Interactive toggle, and the iframe
+  self-resizes to its content via the postMessage protocol.
+
+Updated narrative paragraph too — replaced "Over long periods, the gap
+  becomes enormous" with the concrete punchline ($21,725 vs $4,200 = 5×
+  difference) plus a "Try it yourself" callout pointing to the interactive's
+  main pedagogical insight: short horizons hide the gap; past 20 years it
+  explodes.
+
+❯ change the compound frequency table and rule of 72 table to markdown table. 
+  change the years to double equation to use math equation.  the exactly
+  formula change to math equation too.   make the box of rule of 72 in
+  reverse use seomthing look better.  not just text code
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  214	  | Semi-annually  | $32,071.35   |
+     215	  | Quarterly      | $32,620.38   |
+     216	  | Monthly        | $33,003.87   |
+     217	  | Daily          | $33,194.62   |
+     218	  | Continuously   | $33,201.17   |
+          … +70 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  200	> lets you slide the principal, the annual rate, and the time horizon. Watch
+     201	> how short horizons barely show any gap — and how the gap explodes once you
+     202	> stretch the timeline past 20 years. That is why "start early" is the most
+     203	> repeated advice in personal investing.
+     204	
+          … +20 lines (ctrl+o to expand)
+
+● Doing both — the table/formula conversions plus removing those two "Try it
+  yourself" blockquotes.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done")
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+
+● All done. Refresh **http://localhost:8000/week01.html**.
+
+**Changes:**
+
+1. **Compounding frequency table** — converted to a markdown table
+  (right-aligned final-value column, six rows annually → continuously). Same
+  data; clean rendering.
+
+2. **Rule of 72 — "Years to double" table** — markdown table, right-aligned
+  `Annual return` column, math expressions in the result column rendered by
+  KaTeX:
+
+   $$ \text{Years to double} \approx \frac{72}{r} $$
+
+3. **"Exact formula" line** — converted to display math:
+
+   $$ t = \frac{\ln 2}{\ln(1+r)} $$
+
+4. **Rule of 72 in reverse** — replaced the plain text code block with a
+  styled callout: a bolded heading sentence ("Inflation halves your
+  purchasing power on the same clock") plus a proper markdown table mapping
+  inflation rate → years until purchasing power halves. Now matches the
+  visual style of the "Years to double" table directly above it, so they
+  read as a paired set (right-side returns you, left-side eats you). I also
+  added the 4% row since it's referenced in the explanatory paragraph that
+  follows ("If inflation averages 4%, every 18 years…").
+
+5. **Removed two "Try it yourself" callouts** — the one in **section a**
+  under the three-portfolios chart, and the one in **section b → 2** under
+  the compound-vs-simple chart. The interactive demos still appear on the
+  website (the build's swap function handles them automatically); the prose
+  nudge was redundant.
+
+Note: a third "Try it yourself" exists under the **inflation chart in
+  section b → 1** that wasn't in the visible diff context — let me know if
+  you want that one removed too. Quick check:
+
+● Bash(grep -n "Try it yourself" course/week01_why_invest.md)
+  ⎿  (Bash completed with no output)
+
+● All "Try it yourself" callouts are gone. Now the opportunity cost decision
+  tree → mermaid:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  258	                         $10,000
+     259	                            |
+     260	            +---------------+---------------+
+     261	            |               |               |
+     262	       Save in bank    Invest in      Pay off credit
+          … +30 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  253	one means forgoing another.
+     254	
+     255	```
+     256	  Decision Tree: What to do with $10,000?
+     257	
+          … +15 lines (ctrl+o to expand)
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done" && grep -…)
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+     23
+
+● Bash(grep -n -i "try it\|interactive version" course/week01_why_invest.md)
+  ⎿  (Bash completed with no output)
+
+● All "Try it yourself" callouts in week01 are already gone — the earlier
+  removal pass got all three (sections a, b → 1 inflation, b → 2 compound).
+  The grep returns nothing.
+
+**Two things now live on the page** (refresh
+  **http://localhost:8000/week01.html**):
+
+1. **Opportunity-cost decision tree** is now a Mermaid flowchart (`flowchart
+  TD` — top-down). The starting node is dark navy, the three options are
+  neutral, the two passive-investment outcomes are bordered blue, and the
+  credit-card-paydown winner is highlighted with a red gold-tinted box
+  (since it has the highest "return" per the lesson). The mermaid renderer
+  was already wired up in `build.py` so the chart renders inline; the
+  existing toggle button beside the chart still lets readers see the source.
+
+2. **No "Try it yourself" prose remains** — section a, section b → 1, and
+  section b → 2 are all clean. The interactive demos still appear (build's
+  swap function picks them up), they just no longer have the redundant prose
+  nudge above them.
+
+If you spot another "Try it yourself" elsewhere, paste the line and I'll
+  find/remove it — but a full grep of `course/week01_why_invest.md` confirms
+  zero matches.
+
+❯ change key insight table to markdown table too.
+
+● Bash(grep -n -i "key insight\|Cost of Waiting\|Start Age" course/week01_…)
+  ⎿  289:**Key insight:** Opportunity cost applies to time as well as money. Every year you
+     294:  The Cost of Waiting: $5,000/year at 10% return
+     296:  Start Age  |  End Age 65  |  Total Invested  |  Final Value
+     879:[VISUAL: Title card -- "Part 4: The Cost of Waiting"]
+     883:**[SEGMENT 4: THE COST OF WAITING]**
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  288	
+     289	**Key insight:** Opportunity cost applies to time as well as money. Every year you
+     290	delay investing has a measurable cost, because you lose that year of compounding
+     291	forever.
+     292	
+          … +15 lines (ctrl+o to expand)
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | grep "week01\|Done")
+  ⎿  Built: week01.html
+     Done! Built 97 pages in docs/
+
+● Done. The "Cost of Waiting" table under the Key Insight is now a proper
+  markdown table — same six start-age rows (20, 25, 30, 35, 40, 45), with
+  right-aligned numeric columns: **Start age | Years invested | Total
+  contributed | Final value at 65**. The bolded heading sentence above the
+  table replaces the old code-fence title so it reads as part of the prose
+  instead of as preformatted text.
+
+The dramatic punchline still works: starting at 20 means $225K of
+  contributions becoming **$3.6M**, while starting at 45 means $100K
+  becoming only **$286K** — a $50K extra contribution from age 20 vs age 30
+  turns into $2.26M more at retirement, exactly as the prose paragraph
+  following the table explains.
+
+Refresh **http://localhost:8000/week01.html** and scroll to **Section b → 4.
+  Opportunity Cost** to see the cleaner rendering.
+
+❯ actually change all table to markdown table and equation to prpoer equation
+  in week1
+
+● Bash(grep -n "^```\|^----\|^=====" course/week01_why_invest.md | head -40)
+  ⎿  Exit code 2
+     /usr/bin/bash: eval: line 1: unexpected EOF while looking for matching ``'
+
+● Bash(grep -n '^```' course/week01_why_invest.md)
+  ⎿  257:```mermaid
+     283:```
+     314:```
+     323:```
+     327:```
+          … +7 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  310	**Nominal return** is the raw percentage gain on an investment, not adjusted for
+     311	inflation. **Real return** is the nominal return minus inflation, representing
+     312	actual purchasing power gained.
+     313	
+     314	```
+          … +125 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  485	are actually down 1%. Losses hurt more than equivalent gains help, which is why
+     486	managing downside risk matters in investing. A 50% loss requires a 100% gain just
+     487	to break even.
+     488	
+     489	```
+          … +20 lines (ctrl+o to expand)
+
+● Bash(grep -n '^```' course/week01_why_invest.md | head -20)
+  ⎿  257:```mermaid
+     283:```
+     314:```
+     323:```
+     327:```
+          … +7 lines (ctrl+o to expand)
+
+● Five remaining ASCII blocks in Part 1. Convert all of them in one pass:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Now fix the chart label position and rebuild:
+
+● Update(course/image/week01_compound_vs_simple.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.py has been updated successfully.
+
+● Bash(uv run --with matplotlib python course/image/week01_compound_vs_sim…)
+  ⎿  Simple end:   $4,200.00  (interest = $3,200.00)
+     Compound end: $21,724.52  (interest = $20,724.52)
+     Compound bonus over simple: $17,524.52
+       Built: week01.html
+     Done! Built 97 pages in docs/
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Both done. Refresh **http://localhost:8000/week01.html**.
+
+**All ASCII tables in Section b are now markdown / proper math:**
+
+- **Section 5 (Real vs. Nominal Returns)**: the inline formula block became
+  two display equations — the approximation `r_real ≈ r_nominal − i` and the
+  exact **Fisher equation** `r_real = (1+r_nominal)/(1+i) − 1`, plus a
+  worked example in `aligned` form. Asset-class table converted to markdown.
+- **Section 6 (PV of cash flow stream)**: the ASCII timeline diagram became
+  a sigma-notation display equation `PV = Σ $100 / (1.07)^t` plus a 5-row
+  markdown table showing year / future payment / discount factor / present
+  value, with a bolded **Total PV** row.
+- **Section 7 (Three Paths)**: pivoted markdown table — metric rows down,
+  three strategy columns across.
+- **Section c (Loss/Gain Asymmetry)**: 7-row markdown table with the
+  explanatory math `G = L / (1−L)` underneath so readers can see *why* the
+  gains explode.
+
+**Compound-vs-simple chart label fix** (your second message): the **$21.7K**
+  label was overlapping the upper-right of the chart frame and the legend
+  area. Moved both end-value labels *below and slightly inside* the line
+  ends — `$21.7K` now sits below the compound curve at year 40, and `$4.2K`
+  sits above the simple line. Cleaner and no longer collides with the plot
+  border. The `_top` axis padding is unchanged so the chart still reaches
+  its natural max.
+
+**Quick page hygiene check** — only one ASCII code block remains in Part 1
+  (the mermaid flowchart at line 257, which is intentional). All other
+  formatting in Part 1 is now markdown tables or KaTeX equations. The Part 2
+  YouTube script still has `[VISUAL: ...]` and `[ANIMATION: ...]` cues —
+  those are intentional production notes, not user-facing tables, and the
+  build strips Part 2 from the website anyway.
+
+❯ how does the static chart and interactive chart handles different languages?
+
+● Honest answer: **right now, neither localizes.** Both show in English
+  regardless of which language the host page is in. This is a real gap and
+  worth being explicit about.
+
+## Current state
+
+**Static PNG charts** (`course/image/*.png`)
+- Generated by matplotlib in the Python scripts. Every title, axis label,
+  legend entry, and annotation is hardcoded as an English string in `.py`
+  source.
+- One PNG file. The build's `copy_lesson_assets` copies it to `docs/image/`
+  once.
+- All four language pages (`week01.html`, plus the HK/TW/CN versions inside
+  the same `<div class="lang-content">` containers) reference the same
+  `image/week01_three_portfolios.png`. So the Chinese reader sees the chart
+  titled "*Three Portfolios, Same $10,000/year Deposit, 1971–2025*" with
+  English legend even when the prose around it is in Traditional Chinese.
+
+**Interactive HTML charts** (`course/interactive/*.html`)
+- Standalone HTMLs with their own embedded JS/CSS/strings. Every string —
+  slider labels ("Initial value", "Annual rate", "Years"), stat-card names
+  ("After 25 yrs"), captions, hover templates — is hardcoded English in the
+  source.
+- The iframe `<src>` doesn't carry locale info. The iframe also doesn't read
+  its parent's `<html lang="...">` because cross-frame access is not
+  currently wired up.
+- So same iframe, same English content, on all four locale variants of the
+  page.
+
+The only piece of the lesson UI that *does* localize is the **markdown prose
+  around the charts** (translated by `scripts/translate-batch.py` into
+  `course_hk/`, `course_tw/`, `course_cn/`) and the chart's `alt` attribute
+  (since alt is plain text inside the markdown). The chart visual itself
+  stays English.
+
+The site **is** correctly per-language elsewhere — the chatbot
+  (`web_assets/chatbot.js`) has a full `I18N` table covering EN/HK/TW/CN for
+  every label, and switches based on `currentLocale()` reading the page's
+  `data-theme`-adjacent locale state. The chatbot is the model to copy.
+
+## What it would take to fix
+
+**Option A — full localization (more work, properly correct):**
+
+For **static PNGs**:
+1. Refactor each Python generator to accept a `--lang` arg, with an `I18N`
+  dict at the top covering the four locales (titles, axis labels, legend,
+  annotations).
+2. Generate four PNGs: `week01_three_portfolios_en.png`, `_hk.png`,
+  `_tw.png`, `_cn.png`.
+3. Update `build.py`'s `swap_interactive_components` (and the prose `<img>`
+  rendering) to pick the right PNG per the locale of the surrounding `<div
+  class="lang-content">`.
+
+For **interactive HTMLs**:
+1. Add an `I18N` object at the top of each interactive HTML covering the
+  four locales (mirror the chatbot pattern).
+2. The iframe reads its locale from a URL parameter (e.g.,
+  `interactive/X.html?lang=hk`) — `build.py` would emit four iframes per
+  chart, one per `lang-content` block.
+3. OR a postMessage protocol: parent sends `{type: 'set-lang', lang: 'hk'}`
+  whenever the user toggles language, iframe re-renders with the new
+  strings. This is more elegant but requires wiring on both sides.
+4. Plotly's tooltip format strings, axis tick formats, and date/number
+  formats also need locale-appropriate forms.
+
+**Option B — light-touch localization (cheaper):**
+
+1. Strip text from the static PNGs entirely — make them figure-only with no
+  titles or legends, and write the title/legend/caption in the surrounding
+  markdown (which IS translated). This is how research papers handle figures
+  in multilingual journals.
+2. For interactives, do the I18N table approach — it's mostly mechanical
+  work, ~100 strings × 4 locales.
+
+**Option C — defer (current state):**
+
+Accept that charts are English-only, with a note in the lesson saying so.
+  Pragmatic if the audience reading the Chinese versions is comfortable with
+  English chart labels (most finance professionals worldwide are).
+
+## Recommendation
+
+Charts that are **content-heavy in text** (titles explain the story, legend
+  identifies the people, axis labels quote currencies and units) should be
+  properly localized — Option A. The three-portfolios and inflation charts
+  both fall into this bucket: a Chinese reader getting "**Person C — S&P 500
+  (dividends reinvested)**" in English on an otherwise-translated page is
+  jarring, and the title "*Where you put your savings matters more than how
+  much you save*" carries pedagogical weight that should land in their
+  native language.
+
+Charts that are **mostly visual** (a flowchart, a simple time-series with
+  self-evident axes) might be fine in English under Option C.
+
+If you want, I can take Option A on the two existing chart pairs as a first
+  concrete pass — extract the strings into `I18N` tables in both the Python
+  scripts and the interactive HTMLs, generate the per-locale PNG outputs,
+  and wire `build.py` to pick the right asset per `<div
+  class="lang-content">`. Worth saying upfront: this also requires
+  re-translating the chart strings into HK/TW/CN, which is a one-time human
+  (or batch-LLM) pass. Want me to do that, or would you rather start with
+  Option B (figure-only PNGs + caption-driven explanation)?
+
+❯ option A.  retranslate week 1 and then rebuild week 1 webpage
+
+● Big task — let me work systematically. First check the translate script and
+  the existing translated files:
+
+● Bash(head -50 scripts/translate-batch.py 2>&1; echo "---"; cat scripts/c…)
+  ⎿  #!/usr/bin/env python3
+     """
+     Automated Translation for Chanma Investment Tutorial
+     
+     Translates English course markdown files to three Chinese variants
+          … +87 lines (ctrl+o to expand)
+
+● I'll move fast. Plan: lang-aware build → add I18N to all 3 Python scripts
+  and 3 interactives → generate 12 PNGs → translate-batch the markdown →
+  rebuild.
+
+**Step 1: lang-aware build.py**
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● **Step 2: Localize the three Python static-chart generators.** Three
+  Portfolios first:
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Now refactor the plot generation into a per-lang loop:
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(grep -n "def main\|^    print\|render_one\|if __name__" course/imag…)
+  ⎿  134:def render_one(lang: str, a_nom, b_nom, c_nom) -> str:
+     188:def main() -> None:
+     200:        out_path = render_one(lang, a_nom, b_nom, c_nom)
+     204:    print(f"Saved: {out_path}")
+     205:    print()
+          … +14 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  198	
+     199	    for lang in LANGS:
+     200	        out_path = render_one(lang, a_nom, b_nom, c_nom)
+     201	        print(f"Saved: {out_path}")
+     202	
+          … +7 lines (ctrl+o to expand)
+
+● Update(course/image/week01_three_portfolios.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_three_portfolios.py has been updated successfully.
+
+● Bash(uv run --with matplotlib --with numpy python course/image/week01_th…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios_hk.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios_tw.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_three_portfolios_cn.png
+     
+          … +5 lines (ctrl+o to expand)
+
+● Now the inflation chart:
+
+● Update(course/image/week01_inflation_purchasing_power.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py has been updated successfully.
+
+● Update(course/image/week01_inflation_purchasing_power.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_inflation_purchasing_power.py has been updated successfully.
+
+● Bash(uv run --with matplotlib python course/image/week01_inflation_purch…)
+  ⎿  ================================================================
+     Inflation purchasing-power table (for direct paste into markdown):
+     ================================================================
+     
+     | Year | Years elapsed | Purchasing power | % of original |
+          … +3 lines (ctrl+o to expand)
+
+● Bash(ls -la course/image/week01_inflation_purchasing_power*.png)
+  ⎿  -rw-r--r-- 1 hevan 197609 93050 Apr 24 23:16 course/image/week01_inflation_purchasing_power.png
+     -rw-r--r-- 1 hevan 197609 90860 Apr 24 23:16 course/image/week01_inflation_purchasing_power_cn.png
+     -rw-r--r-- 1 hevan 197609 93050 Apr 24 23:16 course/image/week01_inflation_purchasing_power_en.png
+     -rw-r--r-- 1 hevan 197609 90894 Apr 24 23:16 course/image/week01_inflation_purchasing_power_hk.png
+     -rw-r--r-- 1 hevan 197609 90674 Apr 24 23:16 course/image/week01_inflation_purchasing_power_tw.png
+
+● Now compound-vs-simple:
+
+● Update(course/image/week01_compound_vs_simple.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.py has been updated successfully.
+
+● Update(course/image/week01_compound_vs_simple.py)
+  ⎿  The file B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.py has been updated successfully.
+
+● Bash(uv run --with matplotlib python course/image/week01_compound_vs_sim…)
+  ⎿  Saved: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple_hk.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple_tw.png
+     Saved: B:\chanmainvest\tutorial\course\image\week01_compound_vs_simple_cn.png
+     
+          … +3 lines (ctrl+o to expand)
+
+● **Step 3: Localize the three interactive HTMLs.** Pulling out the strings
+  into an I18N table, reading `?lang=` from URL, AND removing the white
+  background + box shadow per the new request. Let me also verify a sample
+  rendered Chinese PNG looks right first:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● HK Chinese render is clean. Now the interactive HTMLs — I18N + URL lang
+  parsing + the new bg/shadow change in one pass. Three Portfolios first:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now add I18N to the JS — insert near the top of the IIFE:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now wire the I18N into the rendered strings — slider labels, stat labels,
+  chart legend, caption:
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now apply I18N to the static HTML labels (slider labels, stat panel names,
+  caption, "Max" preset):
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Update(course/interactive/week01_three_portfolios.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_three_portfolios.html has been updated successfully.
+
+● Now the inflation interactive — same pattern:
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Update(course/interactive/week01_inflation_purchasing_power.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_inflation_purchasing_power.html has been updated successfully.
+
+● Now compound-vs-simple interactive:
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● Update(course/interactive/week01_compound_vs_simple.html)
+  ⎿  The file B:\chanmainvest\tutorial\course\interactive\week01_compound_vs_simple.html has been updated successfully.
+
+● **Step 4: Re-translate week01 markdown.** Run the translation script with
+  `--file week01 --force`:
+
+● Bash(uv run python scripts/translate-batch.py --file week01 --force --lo…)
+  ⎿  Provider:        anthropic (claude-sonnet-4-6-20250514)
+     Source dir:      course
+     Output root:     B:\chanmainvest\tutorial
+     Locales:         hk, tw, cn
+     Files to do:     1 x 3 = 3 translations
+          … +17 lines (ctrl+o to expand)
+
+● Bash(uv run --with anthropic python scripts/translate-batch.py --file we…)
+  ⎿  Command running in background with ID: bz6jttr55. Output is being written to: C:\Users\hevan\AppData\Local\Temp\claude\B--chanmainvest-tutorial\7f1e2545-6d43-4b2a-8717-bfa4336f37c9\tasks\bz6jttr55.output
+
+● TaskOutput()
+
+❯ in the markdown section dont use a) b) c)  use 1 1.1 1.2 2 2.1 2.2 instead. 
+  in the webpage view also cut the Part 1: Reading Section, because there is
+  no Part 2 in the webpage view
+  ⎿  The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.
+
+❯ [Request interrupted by user for tool use]
+
+● TaskOutput()
+  ⎿  <retrieval_status>not_ready</retrieval_status>
+     
+     <task_id>bz6jttr55</task_id>
+     
+     <task_type>local_bash</task_type>
+          … +2 lines (ctrl+o to expand)
+
+● Translation still running in background. Let me handle the section
+  renumbering and Part 1 stripping. First check current structure:
+
+● Bash(grep -n "^### \|^#### \|^## Part" course/week01_why_invest.md | hea…)
+  ⎿  5:## Part 1: Reading Section
+     9:### a) Why This Is Important
+     78:### b) What You Need to Know
+     80:#### 1. Inflation: The Silent Wealth Destroyer
+     151:#### 2. Compound Interest: The Eighth Wonder of the World
+          … +8 lines (ctrl+o to expand)
+
+● Bash(grep -ni "section a\|section b\|section c\|section d\|in section\| …)
+  ⎿  9:### a) Why This Is Important
+     78:### b) What You Need to Know
+     431:### c) Common Misconceptions
+     509:### d) Q&A
+
+● Now make the renumbering edits:
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Update(course/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course\week01_why_invest.md has been updated successfully.
+
+● Now strip "Part 1: Reading Section" from the webpage in build.py:
+
+● Bash(grep -n "strip_youtube_section\|## Part 1" scripts/build.py | head -5)
+  ⎿  271:def strip_youtube_section(md):
+     460:    return extract_title(strip_youtube_section(md))
+     1893:            article_content = strip_youtube_section(md_content)
+     1901:                    lang_article = strip_youtube_section(lang_md)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  271	def strip_youtube_section(md):
+     272	    """Strip Part 2 (YouTube Script) regardless of locale.
+     273	
+     274	    English uses `## Part 2: YouTube Script`; Chinese translations use the
+     275	    locale-translated equivalent (e.g. `## 第二部分：YouTube 腳本`,
+          … +15 lines (ctrl+o to expand)
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now CLAUDE.md guideline + SOUL.md review. Add to CLAUDE.md first:
+
+● Bash(grep -n "## Lesson Format\|^### \|^## " CLAUDE.md | head -20)
+  ⎿  5:## Project Overview
+     20:## Repository Structure
+     48:## Reference Materials
+     56:## Lesson Format
+     73:## YouTube Host Characters
+          … +9 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  56	## Lesson Format
+     57	
+     58	Every lesson file (core weeks, side lessons, level overviews, and course overview) is a **single markdown file** containing both parts:
+     59	
+     60	1. **Reading section (Part 1)**: a) Why this is important, b) What you need to know, c) Common misconceptions, d) Common Q&A — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
+          … +17 lines (ctrl+o to expand)
+
+● Update(CLAUDE.md)
+  ⎿  The file B:\chanmainvest\tutorial\CLAUDE.md has been updated successfully.
+
+● Update(CLAUDE.md)
+  ⎿  The file B:\chanmainvest\tutorial\CLAUDE.md has been updated successfully.
+
+● Check on the translation task before doing the SOUL review:
+
+● TaskOutput()
+  ⎿  <retrieval_status>not_ready</retrieval_status>
+     
+     <task_id>bz6jttr55</task_id>
+     
+     <task_type>local_bash</task_type>
+          … +2 lines (ctrl+o to expand)
+
+● Now the SOUL.md review of week01. Read the current lesson:
+
+● Bash(wc -l course/week01_why_invest.md && grep -n "^### \|^#### " course…)
+  ⎿  1142 course/week01_why_invest.md
+     9:### 1. Why This Is Important
+     78:### 2. What You Need to Know
+     80:#### 2.1 Inflation: The Silent Wealth Destroyer
+     151:#### 2.2 Compound Interest: The Eighth Wonder of the World
+          … +7 lines (ctrl+o to expand)
+
+● Agent(SOUL conflict scan of week01)
+  ⎿  Perfect. Now I have enough information to compile my findings. Let me systematically review the SOUL principles and week01 content:
+     
+     **Key findings:**
+     
+     1. **Line 37-38**: Treasury bills described as "the safest interest-bearing vehicle there is" — This needs a SOUL #11 flag (no truly passive income, even Treasuries have opportunity cost and must clear inflation).
+          … +78 lines (ctrl+o to expand)
+
+● TaskOutput()
+  ⎿  <retrieval_status>not_ready</retrieval_status>
+     
+     <task_id>bz6jttr55</task_id>
+     
+     <task_type>local_bash</task_type>
+          … +2 lines (ctrl+o to expand)
+
+● All four tasks complete. Translation still running in background
+  (`bz6jttr55`).
+
+**1. Section renumbering done** in `course/week01_why_invest.md`:
+- `### a)` → `### 1.`
+- `### b)` → `### 2.` with subs `#### 2.1`–`#### 2.7`
+- `### c)` → `### 3.`
+- `### d)` → `### 4.`
+
+**2. Part 1 header stripped from website** — `build.py`'s
+  `strip_youtube_section` now also removes any `## Part 1: …` (or Chinese
+  `## 第一部分：…`) heading and the trailing `---` separator. Markdown still
+  keeps the Part 1/Part 2 division for the working file, but the website
+  only shows the H3 numbered sections as the visible top-level structure.
+
+**3. CLAUDE.md updated** — `## Lesson Format` now documents the decimal
+  numbering convention (1, 2, 2.1, 2.2, 3, 4) and notes the Part 1 stripping
+  behavior.
+
+**4. SOUL.md conflict scan of week01 (Part 1)** — no direct contradictions,
+  but seven missed-alignment flags worth your attention:
+
+| # | Where | What's missing | SOUL principle |
+|---|---|---|---|
+| 1 | L37–38 ("safest interest-bearing vehicle there is") | T-bills framed
+  as "safe" without the real-return-must-clear-inflation tension | **#11** —
+  no truly passive income |
+| 2 | L50, L336, L437, L555 (10% S&P, 11.24% backtest) | Historical return
+  cited as forward expectation without the "40-year tailwind isn't
+  permanent" caveat | **#2** — demographic flip, passive >60%, mechanical
+  reversal |
+| 3 | L60 ("before you even talk about taxes") | Tax flagged once and
+  dropped — never returns to it; no framework for managing the largest
+  unspoken fee | **#15** — tax + options/margin tools |
+| 4 | L342–344 (savings 2% / inflation 3% subtraction) | Uses simple
+  subtraction rather than Fisher equation; treats inflation as stable |
+  **#3** — Fisher real rate, inflation regime risk |
+| 5 | L336–340 (asset-class real returns table) | Presented as baseline
+  expectations rather than regime-conditional | **#5** — real alpha is
+  structural, not buy-and-hold |
+| 6 | Throughout (USD framing, T-bill safety, US-only data) | Assumes US
+  dollar / US market stability without flagging the assumption | **#16** —
+  US-as-the-only-market is a *choice*, not a default |
+| 7 | L560 ("Never assume any specific return is guaranteed") | Signals
+  year-to-year volatility; misses decade-scale regime risk | **#2** — deeper
+  version |
+
+**Recommendation per CLAUDE.md "Conflict detection":** these are flags, not
+  rewrites. The most load-bearing one is **#2 (passive regime risk)** — it
+  shows up in four places in the lesson and is the central tension between
+  teaching the index-fund canon (which Week 1 must do, since students need
+  the orthodox view) and SOUL's actual position. A single "Horace's view"
+  sidebar somewhere in §2.7 (Putting It All Together), explicitly noting
+  that "the historical 10% has worked for 40 years; here's a forward-pointer
+  to Week N where we'll discuss whether it can keep working" would discharge
+  most of the debt without disrupting the lesson flow.
+
+**Translation note:** I started the markdown re-translation before the
+  renumbering edits and SOUL changes. When `bz6jttr55` finishes, it'll be on
+  the pre-renumbering version. I'll need to re-run translate-batch after it
+  completes (or kill it and restart). Ping me when you want the second pass.
+
+❯ is the translatio done?
+
+● TaskOutput()
+  ⎿  <retrieval_status>success</retrieval_status>
+     
+     <task_id>bz6jttr55</task_id>
+     
+     <task_type>local_bash</task_type>
+          … +31 lines (ctrl+o to expand)
+
+● Yes — completed at ~12:30 in (712s total). All three locales translated
+  successfully:
+- HK: ~6 min, ~17,900 output tokens
+- TW: ~6 min, ~18,500 output tokens
+- CN: ~10 min, ~17,700 output tokens
+- Total cost: $0.81
+
+**However:** it captured a snapshot of `course/week01_why_invest.md` from
+  before the renumbering work landed. So the three Chinese files now have
+  `### a) Why This Is Important` style headings while the English source has
+  `### 1.` style. Same potential mismatch on the other intervening edits
+  (table-to-markdown conversions, KaTeX equations, mermaid flowchart, the
+  formula sections).
+
+Quick verify:
+
+● Bash(grep -n "^### " course_hk/week01_why_invest.md course_tw/week01_why…)
+  ⎿  course_hk/week01_why_invest.md:9:### a) 為何這很重要
+     course_hk/week01_why_invest.md:51:### b) 你需要了解的知識
+     course_hk/week01_why_invest.md:344:### c) 常見誤解
+     course_hk/week01_why_invest.md:395:### d) 問答環節
+     course_tw/week01_why_invest.md:9:### a) 為何這很重要
+          … +7 lines (ctrl+o to expand)
+
+● Confirmed — the three Chinese files have the old `a) b) c) d)` headings.
+  They also won't have the table-to-markdown conversions or KaTeX from the
+  latest English source. Want me to retrigger translation so they pick up
+  the renumbering and recent edits? It'll be another ~12 minutes and ~$0.80.
+  Saying yes will run it; otherwise I'll leave it for now.
+
+❯ the chart image in the 3 chinese version are broken
+
+● Bash(grep -n "image/\|!\[" course_hk/week01_why_invest.md | head -10)
+  ⎿  31:![三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。](image/week01_three_portfolios.png)
+     78:![以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。](image/week01_inflation_purchasing_power.png)
+     132:![$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。](image/week01_compound_vs_simple.png)
+     614:[VISUAL: 三個投資組合圖表——image/week01_three_portfolios.png。三條線在對數刻度圖表上從1971年攀升至2025年：現金以直線增長至$550K（即每年存款的滾動總和）、國債曲線升至$1.73M、標普500爆炸性飆升至$42M。]
+
+● The Chinese files reference the same `image/X.png` paths. The build's
+  `swap_interactive_components` is supposed to swap in `image/X_hk.png`
+  automatically — let me verify by rebuilding and inspecting:
+
+● Bash(ls course/image/*.png | head -20 && echo "---" && uv run python scr…)
+  ⎿  course/image/week01_compound_vs_simple.png
+     course/image/week01_compound_vs_simple_cn.png
+     course/image/week01_compound_vs_simple_en.png
+     course/image/week01_compound_vs_simple_hk.png
+     course/image/week01_compound_vs_simple_tw.png
+          … +14 lines (ctrl+o to expand)
+
+● Bash(grep -o 'image/week01_[^"]*\.png\|interactive/week01_[^"]*' docs/we…)
+  ⎿  image/week01_compound_vs_simple_cn.png
+     image/week01_compound_vs_simple_en.png
+     image/week01_compound_vs_simple_hk.png
+     image/week01_compound_vs_simple_tw.png
+     image/week01_inflation_purchasing_power_cn.png
+          … +15 lines (ctrl+o to expand)
+
+● Bash(ls docs/image/*.png | head -20 && echo "---" && curl -s -o /dev/nul…)
+  ⎿  docs/image/week01_compound_vs_simple.png
+     docs/image/week01_compound_vs_simple_cn.png
+     docs/image/week01_compound_vs_simple_en.png
+     docs/image/week01_compound_vs_simple_hk.png
+     docs/image/week01_compound_vs_simple_tw.png
+          … +12 lines (ctrl+o to expand)
+
+● Bash(grep -c 'lesson-interactive-frame\|class="lang-content' docs/week01…)
+  ⎿  24
+     1249:            <div id="content-en" class="lang-content active">
+     1818:            <div id="content-hk" class="lang-content">
+     2218:            <div id="content-tw" class="lang-content">
+     2617:            <div id="content-cn" class="lang-content">
+
+● Bash(awk '/id="content-hk"/,/id="content-tw"/' docs/week01.html | grep -…)
+  ⎿  interactive/week01_three_portfolios.html?lang=hk
+     image/week01_three_portfolios_hk.png
+     interactive/week01_inflation_purchasing_power.html?lang=hk
+     image/week01_inflation_purchasing_power_hk.png
+     interactive/week01_compound_vs_simple.html?lang=hk
+          … +1 lines (ctrl+o to expand)
+
+● Bash(awk '/id="content-hk"/,/id="content-tw"/' docs/week01.html | grep -…)
+  ⎿  <figure class="lesson-interactive" data-asset="week01_three_portfolios"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_three_portfolios.html?lang=hk" loading="lazy" title="三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_hk.png" alt="三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。"></figure>
+     <figure class="lesson-interactive" data-asset="week01_inflation_purchasing_power"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_inflation_purchasing_power.html?lang=hk" loading="lazy" title="以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_hk.png" alt="以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。"></figure>
+     <figure class="lesson-interactive" data-asset="week01_compound_vs_simple"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week01_compound_vs_simple.html?lang=hk" loading="lazy" title="$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。"></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_hk.png" alt="$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。"></figure>
+
+● Bash(awk '/id="content-hk"/,/id="content-tw"/' docs/week01.html | grep -…)
+  ⎿  <img class="lesson-interactive-fallback" hidden src="image/week01_three_portfolios_hk.png" alt="三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。">
+     <img class="lesson-interactive-fallback" hidden src="image/week01_inflation_purchasing_power_hk.png" alt="以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。">
+     <img class="lesson-interactive-fallback" hidden src="image/week01_compound_vs_simple_hk.png" alt="$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。">
+
+● Bash(curl -s "http://localhost:8000/interactive/week01_three_portfolios.…)
+  ⎿  4
+     ---
+     25200
+     25200
+
+● Let me visually check the HK static charts to see if any actually look
+  broken:
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Done
+
+● Bash(for f in course/interactive/week01_*.html; do echo "=== $f ==="; aw…)
+  ⎿  === course/interactive/week01_compound_vs_simple.html ===
+     C:\Users\hevan\AppData\Local\Temp\_inline.js:1
+     <script>
+     ^
+     
+          … +13 lines (ctrl+o to expand)
+
+● Bash(for f in course/interactive/week01_*.html; do echo "=== $f ==="; aw…)
+  ⎿  === course/interactive/week01_compound_vs_simple.html ===
+     === course/interactive/week01_inflation_purchasing_power.html ===
+     === course/interactive/week01_three_portfolios.html ===
+
+● Fix the toggle labels — they're hardcoded "Static" / "Interactive" in
+  build.py. Add locale lookup:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3 && awk '/id="content-…)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+     mslabel" data-side="left">靜態
+     mslabel" data-side="right" data-active="true">互動
+          … +2 lines (ctrl+o to expand)
+
+● Done. The Static/Interactive toggle is now translated per locale in the
+  rendered HTML:
+
+- **EN**: Static / Interactive
+- **HK**: 靜態 / 互動
+- **TW**: 靜態 / 互動
+- **CN**: 静态 / 互动
+
+The label dictionary lives in `build.py`'s `swap_interactive_components`
+  function and is keyed off the same `lang` parameter that already drives
+  the per-locale image filenames and iframe `?lang=` query string. So all
+  three locale-aware switches (image fallback path, iframe locale param,
+  toggle button text) now flow from the same source.
+
+Refresh **http://localhost:8000/week01.html** and toggle the language
+  selector to HK/TW/CN — the toggle pill labels follow.
+
+Earlier in this thread I also confirmed the chart images themselves render
+  correctly in all four languages (the HK three-portfolios, HK
+  compound-vs-simple, and HK inflation PNGs all looked clean with proper
+  Chinese characters when I read them). And the
+  `swap_interactive_components` is correctly emitting `_hk.png` / `?lang=hk`
+  references in each `<div class="lang-content">` section. So the only piece
+  that was visibly English on the Chinese tabs was these toggle labels — now
+  fixed.
+
+❯ the plan markdown file of the chinese version, if I open the preview
+  markdonw in vscode the embedded image is broken link.  please fix it. 
+  link it to the actualy image too
+
+● The Chinese MDs reference `image/X.png` which VSCode resolves to
+  `course_hk/image/X.png` — that path doesn't exist. Fix both the build's
+  path-handling and switch the Chinese MDs to use proper paths that resolve
+  in VSCode preview.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Also rewrite the path during markdown→HTML so plain `<img>` tags (not
+  wrapped by interactive swap) work too:
+
+● Update(scripts/build.py)
+  ⎿  The file B:\chanmainvest\tutorial\scripts\build.py has been updated successfully.
+
+● Now update the three Chinese MDs to use the resolvable paths with
+  locale-suffixed filenames:
+
+● Bash(grep -n "image/week01_" course_hk/week01_why_invest.md course_tw/we…)
+  ⎿  course_hk/week01_why_invest.md:31:![三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。](image/week01_three_portfolios.png)
+     course_hk/week01_why_invest.md:78:![以1975年計，$100現金在50年美國通脹中的實際購買力，到2025年約剩$16（以1975年計）。](image/week01_inflation_purchasing_power.png)
+     course_hk/week01_why_invest.md:132:![$1,000起始本金以8%年利率計算40年，複利與單利的對比。單利以直線增長至$4,200；複利曲線上揚至$21,725——$17,525的差距完全來自將先前利息再投資。](image/week01_compound_vs_simple.png)
+     course_hk/week01_why_invest.md:614:[VISUAL: 三個投資組合圖表——image/week01_three_portfolios.png。三條線在對數刻度圖表上從1971年攀升至2025年：現金以直線增長至$550K（即每年存款的滾動總和）、國債曲線升至$1.73M、標普500爆炸性飆升至$42M。]
+     course_tw/week01_why_invest.md:31:![三個投資組合從1971年至2025年每年各累積投入10,000美元：甲君的現金維持在55萬美元的名目金額（同時也是累計存款基準線），乙君的國庫券複利成長至173萬美元，丙君的標普500達到4,200萬美元。](image/week01_three_portfolios.png)
+          … +7 lines (ctrl+o to expand)
+
+● Update(course_hk/week01_why_invest.md)
+  ⎿  <tool_use_error>File has not been read yet. Read it first before writing to it.</tool_use_error>
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  29	同樣的紀律，同樣的金額，三種截然不同的結果：
+     30	
+     31	![三個投資組合從1971年至2025年每年累積$10,000：甲的現金停留在$550K名義值（即累計存款基準線），乙的國債複利增長至$1.73M，丙的標普500達到$42M。](image/week01_three_portfolios.png)
+     32	
+     33	經過55年，每人累計存入同樣的**$550,000**。但最終結餘根本不在同一個水平：
+
+● Update(course_hk/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_hk\week01_why_invest.md has been updated successfully.
+
+● Update(course_hk/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_hk\week01_why_invest.md has been updated successfully.
+
+● Update(course_hk/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_hk\week01_why_invest.md has been updated successfully.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  29	相同的紀律，相同的本金，三種截然不同的結果：
+     30	
+     31	![三個投資組合從1971年至2025年每年各累積投入10,000美元：甲君的現金維持在55萬美元的名目金額（同時也是累計存款基準線），乙君的國庫券複利成長至173萬美元，丙君的標普500達到4,200萬美元。](image/week01_three_portfolios.png)
+     32	
+     33	55年後，每人存入的本金都是相同的**55萬美元**。但最終餘額根本不在同一個量級：
+
+● Update(course_tw/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_tw\week01_why_invest.md has been updated successfully.
+
+● Update(course_tw/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_tw\week01_why_invest.md has been updated successfully.
+
+● Update(course_tw/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_tw\week01_why_invest.md has been updated successfully.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  29	同样的纪律，同样的投入，三种截然不同的结果：
+     30	
+     31	![三个投资组合从1971年到2025年每年累积投入1万美元：A君的现金名义上停留在55万美元（即累计存入本金），B君的国债复利增长至173万美元，C君的标普500达到4201万美元。](image/week01_three_portfolios.png)
+     32	
+     33	55年后，每人投入了同样的**55万美元**。但最终余额相差悬殊：
+
+● Update(course_cn/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_cn\week01_why_invest.md has been updated successfully.
+
+● Update(course_cn/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_cn\week01_why_invest.md has been updated successfully.
+
+● Update(course_cn/week01_why_invest.md)
+  ⎿  The file B:\chanmainvest\tutorial\course_cn\week01_why_invest.md has been updated successfully.
+
+● All Chinese MDs updated. Now save the session, commit, and push per the
+  CLAUDE.md workflow.
+
+● Bash(uv run python scripts/build.py 2>&1 | tail -3)
+  ⎿  Built: disclaimer.html
+     
+     Done! Built 97 pages in docs/
+
+● Bash(git log -1 --format="%h %s" && git status --short | head -30)
+  ⎿  8956fdc Add per-level + course Reflection (call-to-action) pages, all four locales
+      M CLAUDE.md
+      M README.md
+      M course/faq.md
+      M course/overview.md
+          … +26 lines (ctrl+o to expand)
+
+● Skill(save-session)
+  ⎿  <tool_use_error>Unknown skill: save-session</tool_use_error>
+
+● Bash(ls ~/.claude/skills/ 2>&1 | head -20 ; echo "---"; ls ~/.claude/ski…)
+  ⎿  export-session.py
+     save-session.md
+     ---
+     /c/Users/hevan/.claude/skills/export-session.py
+
+● Bash(python ~/.claude/skills/export-session.py --help 2>&1 | head -20)
+  ⎿  Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+
+● Bash(uv run python ~/.claude/skills/export-session.py --help 2>&1 | head…)

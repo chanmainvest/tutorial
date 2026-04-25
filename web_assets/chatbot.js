@@ -685,6 +685,50 @@ let generator = null;
 let chatHistory = [];
 let pendingAbort = null;
 
+// ----- Cross-page persistence --------------------------------------------
+// sessionStorage scope = current browser tab. When the user navigates to
+// another lesson, the panel re-pops in the same state (open/closed,
+// previous conversation, model already-loaded → auto-reload from cache).
+const STATE_KEYS = {
+    open: "chanma-chat-open",
+    history: "chanma-chat-history",
+    loaded: "chanma-chat-loaded",
+    indexLangs: "chanma-chat-index-langs",
+};
+
+function readState(key) {
+    try { return sessionStorage.getItem(key); } catch (err) { return null; }
+}
+function writeState(key, value) {
+    try { sessionStorage.setItem(key, value); } catch (err) { /* quota / disabled */ }
+}
+function saveOpenState(open) { writeState(STATE_KEYS.open, open ? "1" : "0"); }
+function saveHistoryState() {
+    try { writeState(STATE_KEYS.history, JSON.stringify(chatHistory)); } catch (err) {}
+}
+function markLoadedState() { writeState(STATE_KEYS.loaded, "1"); }
+function saveCheckedLangsState(langs) {
+    try { writeState(STATE_KEYS.indexLangs, JSON.stringify(langs)); } catch (err) {}
+}
+function loadHistoryState() {
+    const raw = readState(STATE_KEYS.history);
+    if (!raw) return;
+    try {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) chatHistory = parsed;
+    } catch (err) { /* ignore corrupt entry */ }
+}
+function wasLoadedBefore() { return readState(STATE_KEYS.loaded) === "1"; }
+function getStoredCheckedLangs() {
+    const raw = readState(STATE_KEYS.indexLangs);
+    if (!raw) return null;
+    try {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) return parsed;
+    } catch (err) {}
+    return null;
+}
+
 // ----- RAG state ----------------------------------------------------------
 let embedderPromise = null;
 let embedder = null;
@@ -1034,6 +1078,7 @@ async function startLoad(panel, body, loadBtn, intro) {
     const checkedLangs = Array.from(intro.querySelectorAll(".chat-index-checkbox input:checked"))
         .map((cb) => cb.dataset.lang)
         .filter((lang) => SUPPORTED_LANGS.includes(lang));
+    saveCheckedLangsState(checkedLangs);
 
     try {
         // RAG warmup: fetch chunks JSON + embedder model in parallel with
@@ -1061,6 +1106,7 @@ async function startLoad(panel, body, loadBtn, intro) {
         })();
 
         await loadGenerator(intro);
+        markLoadedState();
         showChatUI(panel, body);
         refreshIndexChip();
         // indexingPromise keeps running in the background; chip updates
@@ -1075,35 +1121,62 @@ async function startLoad(panel, body, loadBtn, intro) {
 }
 
 // ----- Chat UI ------------------------------------------------------------
+function ensureComposer(panel) {
+    let composer = panel.querySelector(".chat-composer");
+    if (composer) return composer;
+    composer = el("div", { class: "chat-composer" });
+    const ta = el("textarea", { placeholder: t("placeholder"), rows: "1" });
+    ta.addEventListener("input", () => {
+        ta.style.height = "auto";
+        ta.style.height = Math.min(120, ta.scrollHeight) + "px";
+    });
+    ta.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSend(panel, ta);
+        }
+    });
+    const sendBtn = el(
+        "button",
+        { title: t("send"), onclick: () => handleSend(panel, ta) },
+        "↑",
+    );
+    composer.appendChild(ta);
+    composer.appendChild(sendBtn);
+    panel.appendChild(composer);
+    return composer;
+}
+
+function setComposerEnabled(panel, enabled) {
+    const composer = panel.querySelector(".chat-composer");
+    if (!composer) return;
+    const ta = composer.querySelector("textarea");
+    const btn = composer.querySelector("button");
+    if (ta) ta.disabled = !enabled;
+    if (btn) btn.disabled = !enabled;
+}
+
+function renderHistoryIntoBody(body) {
+    for (const msg of chatHistory) {
+        if (msg.role === "user") {
+            appendMsg(body, "user", msg.content);
+        } else if (msg.role === "assistant") {
+            const node = appendMsg(body, "bot", "");
+            renderBotMessage(node, msg.content);
+        }
+    }
+}
+
 function showChatUI(panel, body) {
     body.innerHTML = "";
     body.classList.add("chat-body");
-    const sys = el("div", { class: "chat-msg system" }, t("ready"));
-    body.appendChild(sys);
-
-    let composer = panel.querySelector(".chat-composer");
-    if (!composer) {
-        composer = el("div", { class: "chat-composer" });
-        const ta = el("textarea", { placeholder: t("placeholder"), rows: "1" });
-        ta.addEventListener("input", () => {
-            ta.style.height = "auto";
-            ta.style.height = Math.min(120, ta.scrollHeight) + "px";
-        });
-        ta.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleSend(panel, ta);
-            }
-        });
-        const sendBtn = el(
-            "button",
-            { title: t("send"), onclick: () => handleSend(panel, ta) },
-            "↑",
-        );
-        composer.appendChild(ta);
-        composer.appendChild(sendBtn);
-        panel.appendChild(composer);
+    if (chatHistory.length) {
+        renderHistoryIntoBody(body);
+    } else {
+        body.appendChild(el("div", { class: "chat-msg system" }, t("ready")));
     }
+    ensureComposer(panel);
+    body.scrollTop = body.scrollHeight;
 }
 
 function appendMsg(body, role, text) {
@@ -1128,6 +1201,7 @@ async function handleSend(panel, textarea) {
     if (chatHistory.length > MAX_HISTORY_TURNS * 2) {
         chatHistory = chatHistory.slice(-MAX_HISTORY_TURNS * 2);
     }
+    saveHistoryState();
 
     const systemPrompt = await buildSystemPrompt(userText);
     const messages = [
@@ -1182,6 +1256,7 @@ async function handleSend(panel, textarea) {
         }
         renderBotMessage(botNode, acc);
         chatHistory.push({ role: "assistant", content: acc });
+        saveHistoryState();
     } catch (err) {
         botNode.classList.add("error");
         botNode.textContent = t("gen_failed") + (err && err.message || String(err));
@@ -1282,6 +1357,7 @@ function updateChatI18n() {
 
 function clearConversation(panel) {
     chatHistory = [];
+    saveHistoryState();
     const body = panel.querySelector(".chat-body");
     if (!body) return;
     if (generator) {
@@ -1297,6 +1373,7 @@ function togglePanel(force) {
     const open = typeof force === "boolean" ? force : !panel.classList.contains("open");
     panel.classList.toggle("open", open);
     document.body.classList.toggle("chat-open", open);
+    saveOpenState(open);
 }
 
 function buildFab() {
@@ -1309,8 +1386,57 @@ function buildFab() {
     document.body.appendChild(fab);
 }
 
+// If the panel was open on the previous page (sessionStorage), pop it back
+// up immediately. If the model had already been loaded once this session,
+// auto-trigger the load (it's cached in IndexedDB → fast) and restore the
+// previous conversation. The composer is disabled until the model is ready.
+async function autoRestorePanel() {
+    if (readState(STATE_KEYS.open) !== "1") return;
+    loadHistoryState();
+    const panel = document.getElementById("chat-panel") || buildPanel();
+    panel.classList.add("open");
+    document.body.classList.add("chat-open");
+
+    if (!wasLoadedBefore()) return; // intro panel already shown by buildPanel
+
+    const body = panel.querySelector(".chat-body");
+    body.innerHTML = "";
+    body.classList.add("chat-body");
+
+    const progressHost = el("div", { class: "chat-intro chat-restore-host" });
+    body.appendChild(progressHost);
+    if (chatHistory.length) renderHistoryIntoBody(body);
+
+    ensureComposer(panel);
+    setComposerEnabled(panel, false);
+
+    const checkedLangs = getStoredCheckedLangs() || [currentLocale()];
+
+    try {
+        loadEmbedder().catch((err) => console.warn("embedder load failed", err));
+        loadChunks().catch((err) => console.warn("chunks load failed", err));
+        const indexingPromise = (async () => {
+            await probeAllCachedIndexes();
+            for (const lang of checkedLangs) {
+                if (getLangIndexState(lang) === "ready") continue;
+                try { await buildIndexFor(lang); } catch (err) { /* chip shows error */ }
+            }
+        })();
+
+        await loadGenerator(progressHost);
+        progressHost.remove();
+        setComposerEnabled(panel, true);
+        refreshIndexChip();
+        indexingPromise.catch((err) => console.warn("indexing failed", err));
+    } catch (err) {
+        progressHost.appendChild(el("p", { class: "chat-msg error" },
+            t("load_failed") + (err && err.message || String(err))));
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     buildFab();
+    autoRestorePanel().catch((err) => console.warn("autoRestorePanel failed", err));
     // Keep i18n in sync if the user switches language while the panel is open.
     const observer = new MutationObserver(() => {
         const fab = document.getElementById("chat-fab");

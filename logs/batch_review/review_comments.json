@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": "28f726fc-9777-4c7a-81fa-a792d2ded434",
+    "file_path": "README.md",
+    "line_start": 11,
+    "line_end": 15,
+    "reference": "@README.md:L11-15",
+    "text": "interactive demo on website version\nanimation in the Youtube video",
+    "highlighted_text": "Visual explanations via animations (Python/JS/emoji-art)",
+    "region_x1": null,
+    "region_y1": null,
+    "region_x2": null,
+    "region_y2": null,
+    "pdf_page": null,
+    "created_at": "2026-04-24T05:54:52.342146+00:00",
+    "outdated": false
+  },
+  {
+    "id": "7a6f130d-a477-48f0-a88f-fa26239d3d7d",
+    "file_path": "README.md",
+    "line_start": 19,
+    "line_end": 23,
+    "reference": "@README.md:L19-23",
+    "text": "put the overview in the table, add the reflection link to the table too.  for all 5 levels.",
+    "highlighted_text": "Core Course (52 Weeks, 1 hour per week)\nLevel 1: Foundation (Weeks 1-12) - Beginner\nLevel 1 Overview",
+    "region_x1": null,
+    "region_y1": null,
+    "region_x2": null,
+    "region_y2": null,
+    "pdf_page": null,
+    "created_at": "2026-04-24T05:56:25.939899+00:00",
+    "outdated": false
+  },
+  {
+    "id": "521fa21e-ec1b-4935-92e1-d1fa192c76db",
+    "file_path": "README.md",
+    "line_start": 110,
+    "line_end": 110,
+    "reference": "@README.md:L110",
+    "text": "group the side lesson into categories.  ",
+    "highlighted_text": "Side Lessons (15-30 minutes each)",
+    "region_x1": null,
+    "region_y1": null,
+    "region_x2": null,
+    "region_y2": null,
+    "pdf_page": null,
+    "created_at": "2026-04-24T05:59:28.799577+00:00",
+    "outdated": false
+  },
+  {
+    "id": "a61d2523-5158-4494-bafe-b20252e47bed",
+    "file_path": "README.md",
+    "line_start": 147,
+    "line_end": 149,
+    "reference": "@README.md:L147-149",
+    "text": "remove this section from README.md  ",
+    "highlighted_text": "Animations\nVisual animations are stored in course/animation/ and referenced from lesson files. Each animation is a self-contained Python or JavaScript file that generates visual explanations of key concepts.",
+    "region_x1": null,
+    "region_y1": null,
+    "region_x2": null,
+    "region_y2": null,
+    "pdf_page": null,
+    "created_at": "2026-04-24T06:16:14.682349+00:00",
+    "outdated": false
+  }
+]

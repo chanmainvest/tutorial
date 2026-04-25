@@ -49,8 +49,8 @@ In addition to the 52-week core curriculum, **30 side lessons** cover practical 
 ## How to Use This Course
 
 - **One lesson per week** -- each lesson is designed for roughly one hour of study
-- **Read the article first**, then watch the corresponding YouTube video for reinforcement
-- **Side lessons** can be taken in any order whenever you need them
+- **Article and video are interchangeable** -- read the article first, watch the YouTube video first, or pick whichever one you prefer and skip the other. They cover the same material in two formats; the only thing that matters is that you walk away understanding the concept
+- **Side lessons** can be taken in any order, whenever you need them
 - **Start from Level 1** even if you have some investment experience -- the structured progression ensures no gaps in your foundation
 
 ---
@@ -165,11 +165,11 @@ All course materials are available in four languages:
 
 **Stella:** How should people approach this?
 
-**Horace:** One lesson per week. Read the article first -- that gives you the complete material with formulas, tables, and diagrams. Then watch the video for reinforcement. We also have 30 side lessons on practical topics like calculator usage, tax efficiency, retirement accounts, and specific strategies. Take those whenever you need them.
+**Horace:** One lesson per week. The article and the video cover the same material in two different formats -- read the article first, watch the video first, or just pick one and skip the other. Whichever way you absorb it best is the right way. The only thing I care about is that you walk away understanding the concept. We also have 30 side lessons on practical topics like calculator usage, tax efficiency, retirement accounts, and specific strategies. Take those whenever you need them.
 
 **Stella:** And if people have questions?
 
-**Horace:** Join us on Patreon. That is where we do Q&A and deeper discussions.
+**Horace:** Two ways. First, the course website has an AI tutor built right into every page -- a small Gemma model that runs entirely in your own browser, knows the lesson you are reading, and can answer follow-up questions instantly. Use that for the on-the-spot stuff: clarifications, definitions, "wait, what did he just mean by that." For the deeper conversations -- where I want to actually talk back, share what I am positioning in real markets, and answer the questions that need a human -- come find us on Patreon. That is where the real Q&A happens.
 
 **Stella:** I am excited to get started. Let us jump into Week 1.
 

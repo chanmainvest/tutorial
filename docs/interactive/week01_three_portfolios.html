@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Three Portfolios — Interactive (Week 1)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--tp-bg); }
+:root {
+    --tp-bg: #fdfbf5;
+    --tp-text: #1a2332;
+    --tp-muted: #6b7280;
+    --tp-border: #d6d3c4;
+    --tp-card: #fdfbf5;
+    --tp-c: #b71c1c;
+    --tp-b: #0d47a1;
+    --tp-a: #5a5a5a;
+    --tp-accent: #b8860b;
+}
+html[data-theme="dark"] .tp-root,
+.tp-root[data-theme="dark"] {
+    --tp-bg: #0f1724;
+    --tp-text: #e6e6e6;
+    --tp-muted: #9aa3b2;
+    --tp-border: #2a3441;
+    --tp-card: #0f1724;
+    --tp-c: #ef5350;
+    --tp-b: #5a8dee;
+    --tp-a: #b0b0b0;
+}
+.tp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--tp-bg);
+    color: var(--tp-text);
+    padding: 12px;
+    margin: 0;
+}
+.tp-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.tp-presets {
+    display: inline-flex;
+    border: 1px solid var(--tp-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--tp-card);
+}
+.tp-presets button {
+    border: none;
+    background: transparent;
+    color: var(--tp-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.tp-presets button:hover { color: var(--tp-text); }
+.tp-presets button.active {
+    background: var(--tp-accent);
+    color: #fff;
+}
+.tp-slider-wrap {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--tp-muted);
+}
+.tp-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--tp-accent);
+}
+.tp-slider-wrap .tp-window-label {
+    white-space: nowrap;
+    color: var(--tp-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.tp-money-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--tp-card);
+    border: 1px solid var(--tp-border);
+    border-radius: 8px;
+}
+.tp-money-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--tp-muted);
+}
+.tp-money-row label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    color: var(--tp-text);
+    font-weight: 600;
+}
+.tp-money-row input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    accent-color: var(--tp-accent);
+}
+.tp-money-row .tp-money-value {
+    flex: 0 0 auto;
+    min-width: 78px;
+    text-align: right;
+    color: var(--tp-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.tp-chart {
+    width: 100%;
+    height: 420px;
+    background: var(--tp-card);
+    border-radius: 8px;
+    border: 1px solid var(--tp-border);
+}
+.tp-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.tp-stat {
+    background: var(--tp-card);
+    border: 1px solid var(--tp-border);
+    border-left: 4px solid var(--tp-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.tp-stat.tp-stat-c { border-left-color: var(--tp-c); }
+.tp-stat.tp-stat-a { border-left-color: var(--tp-a); }
+.tp-stat.tp-stat-b { border-left-color: var(--tp-b); }
+.tp-stat .tp-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--tp-muted);
+}
+.tp-stat .tp-stat-end {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.tp-stat .tp-stat-detail {
+    font-size: 0.78rem;
+    color: var(--tp-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.tp-stat .tp-stat-gain.pos { color: #1b5e20; }
+.tp-stat .tp-stat-gain.neg { color: #b71c1c; }
+html[data-theme="dark"] .tp-stat .tp-stat-gain.pos { color: #81c784; }
+.tp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--tp-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .tp-stats { grid-template-columns: 1fr; }
+    .tp-chart { height: 340px; }
+    .tp-presets button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="tp-root" id="tp-root">
+    <div class="tp-controls">
+        <div class="tp-presets" id="tp-presets" role="tablist" aria-label="Time window">
+            <button type="button" data-years="5">5Y</button>
+            <button type="button" data-years="10">10Y</button>
+            <button type="button" data-years="20">20Y</button>
+            <button type="button" data-years="30">30Y</button>
+            <button type="button" data-years="max" id="tp-preset-max" class="active">Max</button>
+        </div>
+        <div class="tp-slider-wrap">
+            <span id="tp-start-label">Start year</span>
+            <input type="range" id="tp-start-slider" min="1971" max="2025" value="1971" step="1" disabled>
+            <span class="tp-window-label" id="tp-window-label">1971 – 2025</span>
+        </div>
+    </div>
+    <div class="tp-money-controls">
+        <div class="tp-money-row">
+            <label for="tp-initial-slider" id="tp-initial-label">Initial capital</label>
+            <input type="range" id="tp-initial-slider" min="0" max="1000000" step="10000" value="0">
+            <span class="tp-money-value" id="tp-initial-value">$0</span>
+        </div>
+        <div class="tp-money-row">
+            <label for="tp-annual-slider" id="tp-annual-label">Annual deposit</label>
+            <input type="range" id="tp-annual-slider" min="0" max="50000" step="500" value="10000">
+            <span class="tp-money-value" id="tp-annual-value">$10,000</span>
+        </div>
+    </div>
+    <div id="tp-chart" class="tp-chart"></div>
+    <div class="tp-stats">
+        <div class="tp-stat tp-stat-c">
+            <div class="tp-stat-name" id="tp-name-c">Person C — S&amp;P 500</div>
+            <div class="tp-stat-end" id="tp-end-c">—</div>
+            <div class="tp-stat-detail">
+                <span class="tp-dep-label">Deposited</span> <span id="tp-dep-c">—</span>
+                · <span class="tp-stat-gain" id="tp-gain-c">—</span>
+            </div>
+        </div>
+        <div class="tp-stat tp-stat-b">
+            <div class="tp-stat-name" id="tp-name-b">Person B — T-bills</div>
+            <div class="tp-stat-end" id="tp-end-b">—</div>
+            <div class="tp-stat-detail">
+                <span class="tp-dep-label">Deposited</span> <span id="tp-dep-b">—</span>
+                · <span class="tp-stat-gain" id="tp-gain-b">—</span>
+            </div>
+        </div>
+        <div class="tp-stat tp-stat-a">
+            <div class="tp-stat-name" id="tp-name-a">Person A — Cash</div>
+            <div class="tp-stat-end" id="tp-end-a">—</div>
+            <div class="tp-stat-detail">
+                <span class="tp-dep-label">Deposited</span> <span id="tp-dep-a">—</span>
+                · <span class="tp-stat-gain" id="tp-gain-a">—</span>
+            </div>
+        </div>
+    </div>
+    <p class="tp-caption" id="tp-caption">
+        Pick a window, an opening lump sum, and an annual deposit — all three
+        savers start with the same money and add the same amount each year inside
+        the window.
+    </p>
+</div>
+
+<script>
+(function () {
+    // ------- Locale handling -------
+    const I18N = {
+        en: {
+            initial_label: "Initial capital",
+            annual_label:  "Annual deposit",
+            start_year:    "Start year",
+            preset_max:    "Max",
+            stat_c:        "Person C — S&P 500",
+            stat_b:        "Person B — T-bills",
+            stat_a:        "Person A — Cash",
+            deposited:     "Deposited",
+            caption:       "Pick a window, an opening lump sum, and an annual deposit — all three savers start with the same money and add the same amount each year inside the window. Drag the start-year slider to scan through history. Person A's pure-cash line doubles as the cumulative-deposits baseline (cash earns nothing, so its value at any year is just initial capital plus the running sum of yearly deposits). The gap between B or C and that baseline is the wealth created by being invested instead of in cash.",
+            hover_c:       "S&P 500",
+            hover_b:       "T-bills",
+            hover_a:       "Cash / deposits",
+        },
+        hk: {
+            initial_label: "初始資本",
+            annual_label:  "每年存入",
+            start_year:    "起始年份",
+            preset_max:    "全部",
+            stat_c:        "C — S&P 500",
+            stat_b:        "B — 短期美國國庫券",
+            stat_a:        "A — 現金",
+            deposited:     "累計存入",
+            caption:       "選擇時間窗、初始一次性投入和每年存入金額 — 三位儲蓄者都用同樣的本金、每年存入同樣的金額。拖動起始年份滑桿可以掃描歷史不同時期。A 的純現金線同時就是累計存款基線(現金沒有利息,所以任何一年的價值都等於初始資本加上每年存款的累計)。B 或 C 與這條基線之間的差距,就是「投資而不是放現金」所創造的財富。",
+            hover_c:       "S&P 500",
+            hover_b:       "國庫券",
+            hover_a:       "現金 / 存款",
+        },
+        tw: {
+            initial_label: "初始資金",
+            annual_label:  "每年存入",
+            start_year:    "起始年份",
+            preset_max:    "全部",
+            stat_c:        "C — 標普 500",
+            stat_b:        "B — 短期美國國庫券",
+            stat_a:        "A — 現金",
+            deposited:     "累計存入",
+            caption:       "選擇時間窗、初始一次性投入和每年存入金額 — 三位儲蓄者都用同樣的本金、每年存入同樣的金額。拖動起始年份滑桿可以掃描歷史不同時期。A 的純現金線同時就是累計存款基線(現金沒有利息,所以任何一年的價值都等於初始資金加上每年存款的累計)。B 或 C 與這條基線之間的差距,就是「投資而非持有現金」所創造的財富。",
+            hover_c:       "標普 500",
+            hover_b:       "國庫券",
+            hover_a:       "現金 / 存款",
+        },
+        cn: {
+            initial_label: "初始资金",
+            annual_label:  "每年存入",
+            start_year:    "起始年份",
+            preset_max:    "全部",
+            stat_c:        "C — 标普 500",
+            stat_b:        "B — 短期美国国债",
+            stat_a:        "A — 现金",
+            deposited:     "累计存入",
+            caption:       "选择时间窗口、初始一次性投入和每年存入金额 — 三位储蓄者都用同样的本金、每年存入同样的金额。拖动起始年份滑杆可以扫描历史不同时期。A 的纯现金线同时就是累计存款基线(现金没有利息,所以任何一年的价值都等于初始资金加上每年存款的累计)。B 或 C 与这条基线之间的差距,就是「投资而不是持有现金」所创造的财富。",
+            hover_c:       "标普 500",
+            hover_b:       "国债",
+            hover_a:       "现金 / 存款",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const YEARS = [];
+    for (let y = 1971; y <= 2025; y++) YEARS.push(y);
+
+    // Annual data, 1971..2025 (decimal). See course/image/week01_three_portfolios.py for sources.
+    const TBILL = [
+        0.0434,0.0407,0.0704,0.0789,0.0584,0.0499,0.0527,0.0722,0.1004,0.1151,
+        0.1403,0.1069,0.0863,0.0958,0.0749,0.0597,0.0583,0.0667,0.0811,0.0751,
+        0.0542,0.0345,0.0302,0.0429,0.0551,0.0502,0.0507,0.0481,0.0466,0.0585,
+        0.0345,0.0162,0.0102,0.0138,0.0316,0.0473,0.0436,0.0137,0.0015,0.0014,
+        0.0005,0.0009,0.0006,0.0003,0.0005,0.0032,0.0093,0.0194,0.0206,0.0036,
+        0.0004,0.0202,0.0511,0.0495,0.0430
+    ];
+    const CPI = [
+        0.044,0.032,0.062,0.110,0.091,0.057,0.065,0.076,0.113,0.135,
+        0.103,0.062,0.032,0.043,0.035,0.019,0.037,0.041,0.048,0.054,
+        0.042,0.030,0.030,0.026,0.028,0.030,0.023,0.016,0.022,0.034,
+        0.028,0.016,0.023,0.027,0.034,0.032,0.029,0.038,-0.004,0.016,
+        0.032,0.021,0.015,0.016,0.001,0.013,0.021,0.024,0.018,0.012,
+        0.047,0.080,0.041,0.029,0.026
+    ];
+    const SPX = [
+        0.1431,0.1898,-0.1466,-0.2647,0.3720,0.2384,-0.0718,0.0656,0.1844,0.3242,
+       -0.0491,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,0.1661,0.3169,-0.0310,
+        0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,0.2858,0.2104,-0.0910,
+       -0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,-0.3700,0.2646,0.1506,
+        0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,-0.0438,0.3149,0.1840,
+        0.2871,-0.1811,0.2629,0.2502,0.2000
+    ];
+
+    const ROOT = document.getElementById("tp-root");
+    const CHART = document.getElementById("tp-chart");
+    const PRESETS = document.getElementById("tp-presets");
+    const SLIDER = document.getElementById("tp-start-slider");
+    const WINDOW_LABEL = document.getElementById("tp-window-label");
+    const INITIAL_SLIDER = document.getElementById("tp-initial-slider");
+    const ANNUAL_SLIDER = document.getElementById("tp-annual-slider");
+    const INITIAL_VALUE = document.getElementById("tp-initial-value");
+    const ANNUAL_VALUE = document.getElementById("tp-annual-value");
+
+    // Window state. Default: full history.
+    let preset = "max";              // "max" or a number-as-string of years
+    let startYear = YEARS[0];        // start year used when preset is not "max"
+    let initialCapital = parseFloat(INITIAL_SLIDER.value);
+    let annualDeposit = parseFloat(ANNUAL_SLIDER.value);
+
+    // Person A is cash (no return), B is T-bills, C is S&P 500.
+    // Each year we add the annual deposit at the start of the year, then
+    // apply that year's return. The initial capital sits in the account
+    // at the very start of the window and earns the first year's return.
+    //
+    // When initial capital > 0 we also prepend a "year 0" anchor point at
+    // exactly the initial value, so all three lines start visibly together
+    // at the same dot. Without this anchor the very first plotted point is
+    // already end-of-year-1 (B and C have earned a year of return; A has
+    // not), which is mathematically right but reads as the lines starting
+    // at three different values.
+    function compute(startIdx, endIdx, initial, annual) {
+        let a = initial, b = initial, c = initial;
+        const aSer = [], bSer = [], cSer = [];
+        const yrs = [];
+        if (initial > 0) {
+            aSer.push(initial);
+            bSer.push(initial);
+            cSer.push(initial);
+            yrs.push(YEARS[startIdx] - 1);
+        }
+        for (let i = startIdx; i <= endIdx; i++) {
+            a = a + annual;                          // cash, no growth
+            b = (b + annual) * (1 + TBILL[i]);       // short-term T-bills
+            c = (c + annual) * (1 + SPX[i]);         // S&P 500 total return
+            aSer.push(a);
+            bSer.push(b);
+            cSer.push(c);
+            yrs.push(YEARS[i]);
+        }
+        return { yrs, aSer, bSer, cSer };
+    }
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        if (Math.abs(v) >= 1e9) return "$" + (v / 1e9).toFixed(2) + "B";
+        if (Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e3) return "$" + (v / 1e3).toFixed(0) + "K";
+        return "$" + Math.round(v).toLocaleString();
+    }
+    function fmtPct(v) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + v.toFixed(0) + "%";
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        // Resolve window
+        const totalYears = YEARS.length;
+        let startIdx, endIdx;
+        if (preset === "max") {
+            startIdx = 0;
+            endIdx = totalYears - 1;
+        } else {
+            const yearsCount = parseInt(preset, 10);
+            // Clamp startYear so the window fits in [1971..2025]
+            const maxStart = YEARS[totalYears - yearsCount];
+            const safeStart = Math.min(Math.max(startYear, YEARS[0]), maxStart);
+            startIdx = safeStart - YEARS[0];
+            endIdx = startIdx + yearsCount - 1;
+            startYear = safeStart;
+            SLIDER.min = String(YEARS[0]);
+            SLIDER.max = String(maxStart);
+            SLIDER.value = String(safeStart);
+        }
+        const { yrs, aSer, bSer, cSer } = compute(startIdx, endIdx, initialCapital, annualDeposit);
+
+        WINDOW_LABEL.textContent = `${yrs[0]} – ${yrs[yrs.length - 1]}`;
+
+        const colorC = getCssVar("--tp-c");
+        const colorB = getCssVar("--tp-b");
+        const colorA = getCssVar("--tp-a");
+        const colorText = getCssVar("--tp-text");
+        const colorMuted = getCssVar("--tp-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--tp-card");
+
+        const data = [
+            {
+                x: yrs, y: cSer, name: T.stat_c,
+                type: "scatter", mode: "lines",
+                line: { color: colorC, width: 2.8 },
+                hovertemplate: "%{x}<br><b>" + T.hover_c + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: yrs, y: bSer, name: T.stat_b,
+                type: "scatter", mode: "lines",
+                line: { color: colorB, width: 2.4 },
+                hovertemplate: "%{x}<br><b>" + T.hover_b + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: yrs, y: aSer, name: T.stat_a,
+                type: "scatter", mode: "lines",
+                line: { color: colorA, width: 2.0, dash: "dash" },
+                hovertemplate: "%{x}<br><b>" + T.hover_a + ": %{y:$,.0f}</b><extra></extra>",
+            },
+        ];
+
+        // Use linear scale for short windows (1–5y) where log compresses too much,
+        // log for longer windows where the magnitude gap matters.
+        const useLog = (endIdx - startIdx) >= 8;
+
+        const layout = {
+            margin: { l: 60, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: "Year", font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorGrid,
+                color: colorText,
+                tickformat: "d",
+            },
+            yaxis: {
+                title: { text: useLog ? "Portfolio value (USD, log)" : "Portfolio value (USD)",
+                         font: { color: colorMuted, size: 11 } },
+                type: useLog ? "log" : "linear",
+                gridcolor: colorGrid,
+                zerolinecolor: colorGrid,
+                color: colorText,
+                tickformat: "$,.0s",
+            },
+            legend: {
+                orientation: "h",
+                x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 },
+                bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART, data, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+
+        // Stats. Total invested = initial capital + (annual deposit × years).
+        // Use endIdx-startIdx (not yrs.length) because yrs may include a
+        // synthetic anchor point that isn't a real "year of investing".
+        const yearsCount = endIdx - startIdx + 1;
+        const totalInvested = initialCapital + (annualDeposit * yearsCount);
+        const endC = cSer[cSer.length - 1];
+        const endB = bSer[bSer.length - 1];
+        const endA = aSer[aSer.length - 1];
+
+        document.getElementById("tp-end-c").textContent = fmtMoney(endC);
+        document.getElementById("tp-end-b").textContent = fmtMoney(endB);
+        document.getElementById("tp-end-a").textContent = fmtMoney(endA);
+        document.getElementById("tp-dep-c").textContent = fmtMoney(totalInvested);
+        document.getElementById("tp-dep-b").textContent = fmtMoney(totalInvested);
+        document.getElementById("tp-dep-a").textContent = fmtMoney(totalInvested);
+
+        function setGain(elId, end, dep) {
+            const el = document.getElementById(elId);
+            if (dep <= 0) {
+                el.textContent = "—";
+                el.classList.remove("pos", "neg");
+                return;
+            }
+            const pct = ((end - dep) / dep) * 100;
+            el.textContent = fmtPct(pct);
+            el.classList.toggle("pos", pct >= 0);
+            el.classList.toggle("neg", pct < 0);
+        }
+        setGain("tp-gain-c", endC, totalInvested);
+        setGain("tp-gain-b", endB, totalInvested);
+        setGain("tp-gain-a", endA, totalInvested);
+    }
+
+    // Preset button wiring
+    PRESETS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PRESETS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            preset = btn.dataset.years;
+            if (preset === "max") {
+                SLIDER.disabled = true;
+            } else {
+                SLIDER.disabled = false;
+                // When switching to a window, default the start year to the latest
+                // possible start so the window ends at 2025 — that's usually the
+                // most useful view.
+                const yearsCount = parseInt(preset, 10);
+                startYear = YEARS[YEARS.length - yearsCount];
+            }
+            render();
+        });
+    });
+
+    SLIDER.addEventListener("input", () => {
+        startYear = parseInt(SLIDER.value, 10);
+        render();
+    });
+
+    function fmtMoneyShort(v) {
+        if (v >= 1e6) return "$" + (v / 1e6).toFixed(v % 1e6 === 0 ? 1 : 2).replace(/\.0$/, "") + "M";
+        if (v >= 1e3) return "$" + (v / 1e3).toFixed(0) + "K";
+        return "$" + v.toLocaleString();
+    }
+
+    INITIAL_SLIDER.addEventListener("input", () => {
+        initialCapital = parseFloat(INITIAL_SLIDER.value);
+        INITIAL_VALUE.textContent = fmtMoneyShort(initialCapital);
+        render();
+    });
+    ANNUAL_SLIDER.addEventListener("input", () => {
+        annualDeposit = parseFloat(ANNUAL_SLIDER.value);
+        ANNUAL_VALUE.textContent = fmtMoneyShort(annualDeposit);
+        render();
+    });
+    INITIAL_VALUE.textContent = fmtMoneyShort(initialCapital);
+    ANNUAL_VALUE.textContent = fmtMoneyShort(annualDeposit);
+
+    // Apply locale-aware static labels (slider/stat names, caption).
+    function applyI18n() {
+        document.getElementById("tp-initial-label").textContent = T.initial_label;
+        document.getElementById("tp-annual-label").textContent = T.annual_label;
+        document.getElementById("tp-start-label").textContent = T.start_year;
+        document.getElementById("tp-preset-max").textContent = T.preset_max;
+        document.getElementById("tp-name-c").textContent = T.stat_c;
+        document.getElementById("tp-name-b").textContent = T.stat_b;
+        document.getElementById("tp-name-a").textContent = T.stat_a;
+        document.getElementById("tp-caption").textContent = T.caption;
+        document.querySelectorAll(".tp-dep-label").forEach(function (e) {
+            e.textContent = T.deposited;
+        });
+    }
+    applyI18n();
+
+    // Tell the parent how tall this content is so the embedding iframe can
+    // size itself exactly — no white bar below, no inner scrollbar.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed or top-level — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);   // catch async Plotly layout
+
+    // React to host theme changes (light/dark) so chart colours follow.
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

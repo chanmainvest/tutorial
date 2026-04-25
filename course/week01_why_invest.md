@@ -1,14 +1,12 @@
 # Week 1: Why Invest? The Time Value of Money
 
-Animation reference: `animation/week01_compound_growth.py`
-
 ---
 
 ## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
 Money sitting idle is money losing value. Every single day, inflation chips away at
 the purchasing power of cash stuffed under a mattress or parked in a zero-interest
@@ -30,229 +28,258 @@ reasons:
 If you understand TVM, you understand why investing is not optional. It is the only
 way to ensure your wealth grows faster than the economy erodes it.
 
-Here is a stark comparison:
+Take the last 55 years and run a thought experiment with three savers. Starting in
+1971, each one deposits exactly $10,000 a year — the same nominal amount, every
+year, no exception. The only thing that differs is *where* they put it.
 
-```
-  Person A: Saves $10,000/year in a bank account (0.5% interest)
-  Person B: Invests $10,000/year in the stock market (avg 10% return)
+- **Person A** keeps it in cash. No bank, no interest. Pure currency, sitting in a
+  drawer.
+- **Person B** parks it in short-term US Treasury bills, the safest interest-bearing
+  vehicle there is.
+- **Person C** puts it in the S&P 500 with all dividends reinvested.
 
-  After 30 years:
-  +-----------+----------------+----------------+
-  |           |   Person A     |   Person B     |
-  +-----------+----------------+----------------+
-  | Deposited |   $300,000     |   $300,000     |
-  | Value     |   $323,705     | $1,809,434     |
-  | Growth    |    $23,705     | $1,509,434     |
-  +-----------+----------------+----------------+
-```
+Same discipline, same dollars, three completely different outcomes:
 
-Person B has over five times the wealth, despite contributing the exact same amount.
-The difference is entirely due to the time value of money and compound growth.
+![Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M.](image/week01_three_portfolios.png)
 
-Every year you delay investing is a year of compounding you can never get back.
-A 25-year-old who invests $5,000 per year until age 65 at 10% average returns
-will have approximately $2.4 million. If that same person waits until age 35 to
-start, they will have roughly $900,000 -- less than half, despite only missing
-10 years of contributions. The math is unforgiving.
+After 55 years, each person has deposited the same **$550,000** of their own money.
+But the end balances are not in the same league:
+
+| Vehicle | Annualized return (CAGR) | End value (nominal) | End value in 1971 dollars |
+|---|---|---|---|
+| **Person C — S&P 500** | **11.24% / yr** | **$42,041,000** | **$5,079,000** |
+| **Person B — T-bills** | 4.38% / yr | $1,725,000 | $208,000 |
+| **Person A — Cash** | 0.00% / yr | $550,000 | $66,000 |
+
+The "annualized return" column is the **compound annual growth rate (CAGR)** — the
+single constant rate that, compounded over the same 55 years, would produce the
+same growth factor as the actual year-by-year path of the underlying asset. It is
+the right number to quote, because the simple arithmetic average of annual returns
+overstates real compound performance. For reference, US CPI averaged **3.92% per
+year** over the same window — so anything below that line is a real-purchasing-power
+loss before you even talk about taxes.
+
+Person C ends with **24×** the nominal wealth of Person B and **76×** the nominal
+wealth of Person A, despite contributing the identical $10,000 a year. And look
+closer at Person A: the $550,000 cash pile, after 55 years of accumulated US
+inflation, has the *real* purchasing power of only about **$66,000 in 1971 dollars**.
+Person A did not just fail to grow their wealth — inflation actively shrank it while
+they were dutifully saving.
+
+The difference is entirely due to the time value of money and compound growth,
+applied across decades. Compounding rewards capital that earns a return; it
+punishes capital that sits.
 
 This week's lesson gives you the conceptual foundation for everything that follows
 in this course. Master these ideas, and every future topic will make more sense.
 
 ---
 
-### b) What You Need to Know
+### 2. What You Need to Know
 
-#### 1. Inflation: The Silent Wealth Destroyer
+#### 2.1 Inflation: The Silent Wealth Destroyer
 
 Inflation is the general increase in prices over time. Central banks (like the
 Federal Reserve in the US) target about 2% annual inflation, but actual inflation
 can vary widely.
 
-```
-  The Inflation Effect on $100 Over Time
-  (assuming 3% annual inflation)
+Don't trust the textbook example with a smooth assumed rate — let's use real
+US CPI data. Imagine you stuffed a crisp $100 bill under the mattress on
+January 1, 1970, and never touched it. Here is what its purchasing power has
+been at the start of every five years since:
 
-  Year 0:   $100.00  |========================|  100% purchasing power
-  Year 10:   $74.41  |==================      |   74%
-  Year 20:   $55.37  |==============          |   55%
-  Year 30:   $41.20  |==========              |   41%
-  Year 40:   $30.66  |========                |   31%
-  Year 50:   $22.81  |======                  |   23%
-```
+| Year | Years elapsed | Purchasing power | % of original |
+|------|--------------:|-----------------:|--------------:|
+| 1970 | 0 | $100.00 | 100.0% |
+| 1975 | 5 | $74.49 | 74.5% |
+| 1980 | 10 | $50.65 | 50.6% |
+| 1985 | 15 | $35.39 | 35.4% |
+| 1990 | 20 | $29.66 | 29.7% |
+| 1995 | 25 | $24.81 | 24.8% |
+| 2000 | 30 | $22.06 | 22.1% |
+| 2005 | 35 | $19.44 | 19.4% |
+| 2010 | 40 | $17.13 | 17.1% |
+| 2015 | 45 | $15.51 | 15.5% |
+| 2020 | 50 | $14.37 | 14.4% |
+| 2025 | 55 | $11.73 | 11.7% |
 
-At 3% inflation, your money loses nearly half its purchasing power in just 23 years.
-This is called the "real" value of money -- what it can actually buy, as opposed to
-the "nominal" value (the number printed on the bill).
+That $100 from 1970 has the purchasing power of just **$11.73 today** —
+inflation has eaten **88.3% of its real value in a single working lifetime**.
+The 1970s stagflation alone cut its value almost in half by 1980 (down to
+$50.65), and even the relatively benign 25 years that followed (1980 to
+2005) shaved off another two-thirds. Even within your own lifetime, the
+last 25 years tell the same story — **$100 from January 2000 is worth only
+$53.16 today, a 46.8% loss of purchasing power in just one generation**.
+And the post-2020 acceleration alone shaved roughly **18% off the dollar in
+five years**.
+
+This is the "real" value of money — what it can actually buy, as opposed to
+the "nominal" value (the number printed on the bill). Cash is not safe.
+Cash that earns nothing is a steady, almost imperceptible loss. The
+slowness of the loss is exactly what makes it so dangerous: people who
+"protect" their money by leaving it in a checking account are making one
+of the most aggressive bets on the chart above — and losing it.
+
+![Real purchasing power of $100 held as cash from 1975 over 50 years of US inflation, ending at about $16 in 1975 dollars by 2025.](image/week01_inflation_purchasing_power.png)
 
 **How inflation is measured:**
 
-- **CPI (Consumer Price Index)** -- tracks the cost of a "basket" of goods and
-  services that a typical household purchases (food, housing, transportation, etc.)
-- **PCE (Personal Consumption Expenditures)** -- the Federal Reserve's preferred
-  measure; broader than CPI.
-- **Core inflation** -- excludes volatile food and energy prices to show underlying
-  trends.
+- **CPI (Consumer Price Index)** — tracks the cost of a "basket" of goods
+  and services that a typical household purchases (food, housing,
+  transportation, etc.).
+- **PCE (Personal Consumption Expenditures)** — the Federal Reserve's
+  preferred measure; broader than CPI.
+- **Core inflation** — excludes volatile food and energy prices to show
+  underlying trends.
 
-**Historical US inflation rates (approximate averages):**
+**Historical US inflation rates (decade averages):**
 
-```
-  +----------------+-------------------+
-  |    Period       | Avg Annual CPI   |
-  +----------------+-------------------+
-  | 1930-1940      |     -2.0%        |
-  | 1940-1950      |     +5.6%        |
-  | 1950-1970      |     +2.3%        |
-  | 1970-1980      |     +7.8%        |
-  | 1980-2000      |     +3.8%        |
-  | 2000-2020      |     +2.1%        |
-  | 2020-2025      |     +4.8%        |
-  +----------------+-------------------+
-```
+| Period | Avg annual CPI |
+|---|---:|
+| 1930–1940 | −2.0% |
+| 1940–1950 | +5.6% |
+| 1950–1970 | +2.3% |
+| 1970–1980 | +7.8% |
+| 1980–2000 | +3.8% |
+| 2000–2020 | +2.1% |
+| 2020–2025 | +4.8% |
 
-Notice how inflation spiked in the 1970s (oil crises) and again in the early 2020s
-(pandemic supply shocks). These spikes can devastate purchasing power rapidly.
+Notice how inflation spiked in the 1970s (oil crises) and again in the early
+2020s (pandemic supply shocks). These spikes can devastate purchasing power
+rapidly.
 
-#### 2. Compound Interest: The Eighth Wonder of the World
+#### 2.2 Compound Interest: The Eighth Wonder of the World
 
 Compound interest means you earn interest on your interest. It is the single most
 powerful force in personal finance.
 
 **The compound interest formula:**
 
-```
-  FV = PV x (1 + r)^n
+\[ FV = PV \cdot (1 + r)^n \]
 
-  Where:
-    FV = Future Value (what your money grows to)
-    PV = Present Value (what you start with)
-    r  = interest rate per period (as a decimal)
-    n  = number of periods
-```
+Where:
+
+- \(FV\) = Future Value (what your money grows to)
+- \(PV\) = Present Value (what you start with)
+- \(r\) = interest rate per period (as a decimal)
+- \(n\) = number of periods
 
 **Example: $1,000 at 8% annual return**
 
-```
-  Year  |  Starting  |  Interest  |  Ending
-  ------+------------+------------+----------
-    1   |  $1,000.00 |    $80.00  |  $1,080.00
-    2   |  $1,080.00 |    $86.40  |  $1,166.40
-    3   |  $1,166.40 |    $93.31  |  $1,259.71
-    5   |  $1,360.49 |   $108.84  |  $1,469.33
-   10   |  $1,999.00 |   $159.92  |  $2,158.92
-   20   |  $4,315.70 |   $345.26  |  $4,660.96
-   30   |  $9,317.27 |   $745.38  | $10,062.66
-   40   | $20,106.85 | $1,608.55  | $21,715.40
-```
+| Year | Starting balance | Interest earned | Ending balance |
+|---:|---:|---:|---:|
+| 1 | $1,000.00 | $80.00 | $1,080.00 |
+| 2 | $1,080.00 | $86.40 | $1,166.40 |
+| 3 | $1,166.40 | $93.31 | $1,259.71 |
+| 5 | $1,360.49 | $108.84 | $1,469.33 |
+| 10 | $1,999.00 | $159.92 | $2,158.92 |
+| 20 | $4,315.70 | $345.26 | $4,660.96 |
+| 30 | $9,317.27 | $745.38 | $10,062.66 |
+| 40 | $20,106.85 | $1,608.55 | $21,715.40 |
 
 Notice how the interest earned in year 40 ($1,608) is more than the original
 investment ($1,000). That is compounding at work.
 
 **Visualizing compound vs. simple interest:**
 
-```
-  Value ($)
-  |
-  |                                              * Compound (8%)
-  |                                         *
-  |                                     *
-  |                                 *
-  |                             *
-  |                         *
-  |                     *
-  |                  *
-  |               *          ___-----  Simple (8%)
-  |            *    ___-----
-  |         * ___---
-  |       *--
-  |     *
-  |   *
-  |  *
-  | *
-  |*___________________________________________
-  0    5    10    15    20    25    30    Years
-```
+![Compound vs. simple interest on a $1,000 starting balance at 8% annual over 40 years. Simple interest grows linearly to $4,200; compound interest curves up to $21,725 — a $17,525 gap that opens up entirely from re-investing prior interest.](image/week01_compound_vs_simple.png)
 
 With simple interest, you earn 8% of the original $1,000 every year ($80/year).
 With compound interest, you earn 8% of the *current* balance, which grows each year.
-Over long periods, the gap becomes enormous.
+Over long periods, the gap becomes enormous — the example above ends with
+**$21,725 (compound) vs. $4,200 (simple)**, a five-fold difference earned
+entirely by leaving the prior interest in the account instead of taking it out.
 
-**The compounding frequency matters too:**
+**The compounding frequency matters too.**
+Same $10,000 at the same 12% annual rate for 10 years, only the compounding
+frequency varies:
 
-```
-  $10,000 at 12% for 10 years, different compounding frequencies:
+| Compounding | Final value |
+|---|---:|
+| Annually | $31,058.48 |
+| Semi-annually | $32,071.35 |
+| Quarterly | $32,620.38 |
+| Monthly | $33,003.87 |
+| Daily | $33,194.62 |
+| Continuously | $33,201.17 |
 
-  +----------------+--------------+
-  | Compounding    | Final Value  |
-  +----------------+--------------+
-  | Annually       | $31,058.48   |
-  | Semi-annually  | $32,071.35   |
-  | Quarterly      | $32,620.38   |
-  | Monthly        | $33,003.87   |
-  | Daily          | $33,194.62   |
-  | Continuously   | $33,201.17   |
-  +----------------+--------------+
-```
+More frequent compounding produces higher returns, but the marginal benefit
+shrinks fast. The jump from annual to monthly is significant; the jump from
+daily to continuous is essentially zero.
 
-More frequent compounding produces higher returns, but the difference diminishes.
-The jump from annual to monthly is significant; from daily to continuous, negligible.
-
-#### 3. The Rule of 72
+#### 2.3 The Rule of 72
 
 The Rule of 72 is a mental shortcut for estimating how long it takes to double
-your money:
+your money at a given annual rate:
 
-```
-  Years to double = 72 / annual return rate (%)
+$$ \text{Years to double} \approx \frac{72}{r} \quad \text{(where } r \text{ is the annual rate in percent)} $$
 
-  Examples:
-  +--------+-----------------------+
-  | Return |  Years to Double      |
-  +--------+-----------------------+
-  |   2%   |  72 / 2  = 36 years   |
-  |   4%   |  72 / 4  = 18 years   |
-  |   6%   |  72 / 6  = 12 years   |
-  |   8%   |  72 / 8  =  9 years   |
-  |  10%   |  72 / 10 =  7.2 years |
-  |  12%   |  72 / 12 =  6 years   |
-  +--------+-----------------------+
-```
+| Annual return | Years to double |
+|---:|---|
+| 2% | \(72 / 2 = 36\) years |
+| 4% | \(72 / 4 = 18\) years |
+| 6% | \(72 / 6 = 12\) years |
+| 8% | \(72 / 8 = 9\) years |
+| 10% | \(72 / 10 = 7.2\) years |
+| 12% | \(72 / 12 = 6\) years |
 
 **Why does this work?** It is a mathematical approximation derived from the
-natural logarithm. The exact formula is: t = ln(2) / ln(1 + r), but 72 is close
-enough for mental math and has the advantage of being divisible by many numbers.
+natural logarithm. The exact formula is
 
-**You can also use the Rule of 72 in reverse for inflation:**
+$$ t = \frac{\ln 2}{\ln(1 + r)} $$
 
-```
-  At 3% inflation, purchasing power halves in: 72 / 3 = 24 years
-  At 6% inflation, purchasing power halves in: 72 / 6 = 12 years
-  At 9% inflation, purchasing power halves in: 72 / 9 =  8 years
-```
+but 72 is close enough for mental math and has the practical advantage of being
+divisible by 2, 3, 4, 6, 8, 9, and 12 — most of the rates you actually care about.
+
+**The Rule of 72 in reverse — inflation halves your purchasing power on the same
+clock.** Replace "annual return" with "annual inflation rate" and "years to
+double" becomes "years until your dollar buys half as much":
+
+| Inflation rate | Years until purchasing power halves |
+|---:|---|
+| 3% | \(72 / 3 = 24\) years |
+| 4% | \(72 / 4 = 18\) years |
+| 6% | \(72 / 6 = 12\) years |
+| 9% | \(72 / 9 \approx 8\) years |
 
 This makes inflation tangible. If inflation averages 4%, every 18 years your money
 buys only half as much. This is why "safe" savings accounts that earn 1-2% are
 actually losing you money in real terms.
 
-#### 4. Opportunity Cost
+#### 2.4 Opportunity Cost
 
 Opportunity cost is the value of the next best alternative you give up when making
 a decision. In investing, it means every dollar has competing uses, and choosing
 one means forgoing another.
 
-```
-  Decision Tree: What to do with $10,000?
+**Decision tree — what to do with $10,000:**
 
-                         $10,000
-                            |
-            +---------------+---------------+
-            |               |               |
-       Save in bank    Invest in      Pay off credit
-       (0.5% APY)     index fund       card debt
-            |          (avg 10%)        (20% APR)
-            |               |               |
-       After 10 yrs    After 10 yrs   Saved in 10 yrs
-       = $10,511       = $25,937       = $31,875
-                                       (interest avoided)
+```mermaid
+flowchart TD
+    Start(["$10,000<br/>to allocate"])
+    Bank["Save in bank<br/>0.5% APY"]
+    Index["Invest in<br/>index fund<br/>~10% avg"]
+    Debt["Pay off credit<br/>card debt<br/>20% APR"]
+    BankEnd["After 10 yrs<br/><b>$10,511</b>"]
+    IndexEnd["After 10 yrs<br/><b>$25,937</b>"]
+    DebtEnd["Interest avoided<br/>over 10 yrs<br/><b>$31,875</b>"]
+
+    Start --> Bank
+    Start --> Index
+    Start --> Debt
+    Bank --> BankEnd
+    Index --> IndexEnd
+    Debt --> DebtEnd
+
+    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332
+    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332
+    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c
+    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px
+
+    class Start start
+    class Bank,Index,Debt option
+    class BankEnd,IndexEnd result
+    class DebtEnd winner
 ```
 
 In this example, paying off high-interest credit card debt has the highest
@@ -263,83 +290,86 @@ advisors often recommend paying off high-interest debt before investing.
 delay investing has a measurable cost, because you lose that year of compounding
 forever.
 
-```
-  The Cost of Waiting: $5,000/year at 10% return
+**The cost of waiting — $5,000/year at a 10% average return, ending at age 65:**
 
-  Start Age  |  End Age 65  |  Total Invested  |  Final Value
-  -----------+--------------+------------------+---------------
-      20     |   45 years   |    $225,000      |  $3,616,635
-      25     |   40 years   |    $200,000      |  $2,212,963
-      30     |   35 years   |    $175,000      |  $1,355,122
-      35     |   30 years   |    $150,000      |    $822,470
-      40     |   25 years   |    $125,000      |    $491,735
-      45     |   20 years   |    $100,000      |    $286,375
-```
+| Start age | Years invested | Total contributed | Final value at 65 |
+|---:|---:|---:|---:|
+| 20 | 45 | $225,000 | $3,616,635 |
+| 25 | 40 | $200,000 | $2,212,963 |
+| 30 | 35 | $175,000 | $1,355,122 |
+| 35 | 30 | $150,000 | $822,470 |
+| 40 | 25 | $125,000 | $491,735 |
+| 45 | 20 | $100,000 | $286,375 |
 
 Starting at 20 instead of 30 means investing only $50,000 more, but ending up
 with $2.26 million more. The early years of compounding are disproportionately
 valuable.
 
-#### 5. Real vs. Nominal Returns
+#### 2.5 Real vs. Nominal Returns
 
 **Nominal return** is the raw percentage gain on an investment, not adjusted for
 inflation. **Real return** is the nominal return minus inflation, representing
 actual purchasing power gained.
 
-```
-  Real Return (approximate) = Nominal Return - Inflation Rate
+A quick approximation:
 
-  More precisely:
-  Real Return = ((1 + Nominal) / (1 + Inflation)) - 1
+$$ r_{\text{real}} \approx r_{\text{nominal}} - i $$
 
-  Example: 10% nominal return, 3% inflation
-  Approximate real return = 10% - 3% = 7%
-  Exact real return = (1.10 / 1.03) - 1 = 6.80%
-```
+The exact relationship (the **Fisher equation**) is:
+
+$$ r_{\text{real}} = \frac{1 + r_{\text{nominal}}}{1 + i} - 1 $$
+
+Example — 10% nominal return with 3% inflation:
+
+$$ \begin{aligned}
+r_{\text{real, approx}} &= 10\% - 3\% = 7\% \\
+r_{\text{real, exact}}  &= \frac{1.10}{1.03} - 1 = 6.80\%
+\end{aligned} $$
+
+The approximation is close enough for mental math at low inflation; at high inflation
+or high return, you want the exact form.
 
 **Historical real returns by asset class (US, approximate):**
 
-```
-  +---------------------+-----------+-----------+-----------+
-  | Asset Class         | Nominal   | Inflation | Real      |
-  +---------------------+-----------+-----------+-----------+
-  | US Stocks (S&P 500) |  ~10.0%   |   ~3.0%   |  ~7.0%   |
-  | US Bonds (10-yr)    |   ~5.0%   |   ~3.0%   |  ~2.0%   |
-  | Gold                |   ~7.0%   |   ~3.0%   |  ~4.0%   |
-  | Savings Account     |   ~2.0%   |   ~3.0%   |  ~-1.0%  |
-  | Cash (mattress)     |   0.0%    |   ~3.0%   |  ~-3.0%  |
-  +---------------------+-----------+-----------+-----------+
-```
+| Asset class | Nominal | Inflation | Real |
+|---|---:|---:|---:|
+| US Stocks (S&P 500) | ~10.0% | ~3.0% | ~7.0% |
+| US Bonds (10-yr) | ~5.0% | ~3.0% | ~2.0% |
+| Gold | ~7.0% | ~3.0% | ~4.0% |
+| Savings Account | ~2.0% | ~3.0% | ~−1.0% |
+| Cash (mattress) | 0.0% | ~3.0% | ~−3.0% |
 
 **Critical takeaway:** A savings account earning 2% in a 3% inflation environment
 is *losing* 1% of purchasing power per year. Cash under the mattress is losing 3%
 per year. Only assets that earn above the inflation rate grow your real wealth.
 
-#### 6. Future Value and Present Value
+#### 2.6 Future Value and Present Value
 
 These are the two core TVM calculations.
 
 **Future Value (FV):** What a sum of money today will be worth in the future.
 
-```
-  FV = PV x (1 + r)^n
+\[ FV = PV \cdot (1 + r)^n \]
 
-  Example: What will $5,000 be worth in 20 years at 8%?
-  FV = $5,000 x (1.08)^20
-  FV = $5,000 x 4.6610
-  FV = $23,305
-```
+Example — what will $5,000 be worth in 20 years at 8%?
+
+\[ \begin{aligned}
+FV &= 5{,}000 \cdot (1.08)^{20} \\
+   &= 5{,}000 \cdot 4.6610 \\
+   &= \$23{,}305
+\end{aligned} \]
 
 **Present Value (PV):** What a future sum of money is worth today.
 
-```
-  PV = FV / (1 + r)^n
+\[ PV = \frac{FV}{(1 + r)^n} \]
 
-  Example: What is $50,000 in 15 years worth today at 7%?
-  PV = $50,000 / (1.07)^15
-  PV = $50,000 / 2.7590
-  PV = $18,126
-```
+Example — what is $50,000 in 15 years worth today at 7%?
+
+\[ \begin{aligned}
+PV &= \frac{50{,}000}{(1.07)^{15}} \\
+   &= \frac{50{,}000}{2.7590} \\
+   &= \$18{,}126
+\end{aligned} \]
 
 **This means:** If someone offers you $50,000 in 15 years, and you could earn 7%
 on your money, that offer is only worth $18,126 to you today. If they also offer
@@ -347,66 +377,58 @@ you $20,000 right now, the $20,000 today is the better deal.
 
 **Future Value of an Annuity (regular contributions):**
 
-```
-  FV = PMT x [((1 + r)^n - 1) / r]
+\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
 
-  Where PMT = regular payment amount
+where \(PMT\) = regular payment amount.
 
-  Example: $500/month for 30 years at 8% annual (0.667% monthly)
-  FV = $500 x [((1.00667)^360 - 1) / 0.00667]
-  FV = $500 x 1,491.57
-  FV = $745,785
+Example — $500/month for 30 years at 8% annual (0.667% monthly):
 
-  Total contributed: $500 x 360 = $180,000
-  Total growth: $745,785 - $180,000 = $565,785
-```
+\[ \begin{aligned}
+FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
+   &= 500 \cdot 1{,}491.57 \\
+   &= \$745{,}785
+\end{aligned} \]
+
+Total contributed: \(500 \times 360 = \$180{,}000\). Total growth: \(\$745{,}785 - \$180{,}000 = \$565{,}785\).
 
 Your investment growth ($565,785) is more than triple what you actually put in
 ($180,000). That is the power of consistent investing combined with compounding.
 
-**Present Value diagram -- discounting future cash flows:**
+**Discounting a stream of future cash flows.** Five $100 payments, one at the end
+of each of the next five years, discounted at 7%:
 
-```
-  Today     Year 1    Year 2    Year 3    Year 4    Year 5
-    |         |         |         |         |         |
-    |         $100      $100      $100      $100      $100
-    |         |         |         |         |         |
-    |    $93.46    $87.34    $81.63    $76.29    $71.30
-    |<--------|         |         |         |         |
-    |<------------------|         |         |         |
-    |<----------------------------|         |         |
-    |<------------------------------------|         |
-    |<-------------------------------------------------|
-    |
-    PV = $93.46 + $87.34 + $81.63 + $76.29 + $71.30 = $410.02
+$$ PV = \sum_{t=1}^{5} \frac{\$100}{(1.07)^t} $$
 
-    (Discount rate = 7%)
-```
+| Year | Future payment | Discount factor | Present value |
+|---:|---:|---:|---:|
+| 1 | $100 | \(1 / 1.07^{1} = 0.9346\) | $93.46 |
+| 2 | $100 | \(1 / 1.07^{2} = 0.8734\) | $87.34 |
+| 3 | $100 | \(1 / 1.07^{3} = 0.8163\) | $81.63 |
+| 4 | $100 | \(1 / 1.07^{4} = 0.7629\) | $76.29 |
+| 5 | $100 | \(1 / 1.07^{5} = 0.7130\) | $71.30 |
+| | | **Total PV** | **$410.02** |
 
 Each future $100 is worth less today because of the time value of money. The
-further in the future a payment is, the less it is worth today.
+further in the future a payment is, the less it is worth today — the year-5 $100
+is worth only $71.30 today, while the year-1 $100 is worth $93.46.
 
-#### 7. Putting It All Together: The Investing Imperative
+#### 2.7 Putting It All Together: The Investing Imperative
 
-```
-  The Three Paths Over 30 Years ($10,000 starting, $5,000/yr added)
+**Three paths over 30 years** ($10,000 starting, $5,000/year added):
 
-                        Do Nothing     Savings Acct    Invest (S&P)
-                        (0% return)    (1.5% return)   (10% return)
-  +--------------------+-------------+--------------+---------------+
-  | Total Contributed  |  $160,000   |   $160,000   |   $160,000    |
-  | Final Value        |  $160,000   |   $192,760   |   $987,174    |
-  | Real Value (3% inf)|  $65,890    |    $79,379   |   $406,392    |
-  | Purchasing Power   |   Lost 59%  |    Lost 50%  |   Gained 154% |
-  +--------------------+-------------+--------------+---------------+
-```
+| Metric | Do nothing (0%) | Savings account (1.5%) | Invest in S&P (10%) |
+|---|---:|---:|---:|
+| Total contributed | $160,000 | $160,000 | $160,000 |
+| Final nominal value | $160,000 | $192,760 | $987,174 |
+| Real value (3% infl.) | $65,890 | $79,379 | $406,392 |
+| Purchasing power | **Lost 59%** | **Lost 50%** | **Gained 154%** |
 
 Only the investor actually grows their wealth in real terms. The saver barely
 keeps up. The person who does nothing loses more than half their purchasing power.
 
 ---
 
-### c) Common Misconceptions
+### 3. Common Misconceptions
 
 **Misconception 1: "Investing is gambling."**
 
@@ -459,20 +481,20 @@ are actually down 1%. Losses hurt more than equivalent gains help, which is why
 managing downside risk matters in investing. A 50% loss requires a 100% gain just
 to break even.
 
-```
-  Loss/Gain Asymmetry:
-  +----------+----------------------------+
-  | Loss     | Gain Needed to Recover     |
-  +----------+----------------------------+
-  |   -10%   |         +11.1%             |
-  |   -20%   |         +25.0%             |
-  |   -30%   |         +42.9%             |
-  |   -40%   |         +66.7%             |
-  |   -50%   |        +100.0%             |
-  |   -75%   |        +300.0%             |
-  |   -90%   |        +900.0%             |
-  +----------+----------------------------+
-```
+**Loss/gain asymmetry — what it takes to get back to even after a drawdown:**
+
+| Loss | Gain needed to recover |
+|---:|---:|
+| −10% | +11.1% |
+| −20% | +25.0% |
+| −30% | +42.9% |
+| −40% | +66.7% |
+| −50% | +100.0% |
+| −75% | +300.0% |
+| −90% | +900.0% |
+
+Mathematically, after a loss of \(L\), the recovery gain needed is
+\(G = \frac{L}{1 - L}\) — which grows much faster than \(L\) once \(L\) gets large.
 
 **Misconception 8: "The Rule of 72 is exact."**
 
@@ -484,7 +506,7 @@ use it for precise financial planning.
 
 ---
 
-### d) Q&A
+### 4. Q&A
 
 **Q1: What is the time value of money in simple terms?**
 
@@ -808,6 +830,44 @@ unbelievable.
 
 **Horace:** That is the power of time plus compounding. And this is exactly why
 starting early matters so much.
+
+**Stella:** That is the math. But does it actually work like that in the real world?
+
+**Horace:** Funny you should ask. Let me show you the same idea using real US
+market history -- not a theoretical ten percent, but the actual returns from
+1971 to 2025.
+
+[VISUAL: Three Portfolios chart -- image/week01_three_portfolios.png. Three
+lines climbing on a log-scale chart from 1971 to 2025: cash growing
+linearly to $550K (which is just the running sum of deposits), T-bills
+curving up to $1.73M, S&P 500 exploding to $42M.]
+
+**Horace:** Three savers. Each one puts ten thousand dollars away every single
+year for fifty-five years. The only thing that differs is where they put it.
+Person A keeps it in cash, no interest, just sitting in a drawer. Person B
+goes into short-term Treasury bills -- the safest interest-bearing vehicle
+there is. Person C puts it in the S&P 500 with dividends reinvested.
+
+**Stella:** Same money going in. So same money coming out, right?
+
+**Horace:** Person A, the cash saver, ends up with exactly five hundred fifty
+thousand dollars -- the sum of fifty-five deposits, no growth. Person B, the
+T-bill saver, ends up with about one point seven three million. Person C, the
+stock market investor, ends up with forty-two million.
+
+**Stella:** Forty-two MILLION? From the same ten thousand a year?
+
+**Horace:** From the same ten thousand a year. Person C ends up with twenty-four
+times the wealth of the T-bill saver, and seventy-six times the wealth of the
+cash saver. Same discipline, same dollars in, totally different outcomes. And
+it gets worse for Person A -- once you adjust for fifty-five years of US
+inflation, that five hundred fifty thousand of cash has the purchasing power of
+only about sixty-six thousand dollars in 1971 money.
+
+**Stella:** So the cash saver actively lost ground?
+
+**Horace:** Saving without investing is not safe. It is just a slower way to
+lose. That is the whole reason this course exists.
 
 [VISUAL: Title card -- "Part 4: The Cost of Waiting"]
 

@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compound vs Simple Interest — Interactive (Week 1)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--tp-bg); }
+:root {
+    --tp-bg: #fdfbf5;
+    --tp-text: #1a2332;
+    --tp-muted: #6b7280;
+    --tp-border: #d6d3c4;
+    --tp-card: #fdfbf5;
+    --tp-compound: #b71c1c;
+    --tp-simple: #0d47a1;
+    --tp-accent: #b8860b;
+}
+html[data-theme="dark"] .tp-root,
+.tp-root[data-theme="dark"] {
+    --tp-bg: #0f1724;
+    --tp-text: #e6e6e6;
+    --tp-muted: #9aa3b2;
+    --tp-border: #2a3441;
+    --tp-card: #0f1724;
+    --tp-compound: #ef5350;
+    --tp-simple: #5a8dee;
+}
+.tp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--tp-bg);
+    color: var(--tp-text);
+    padding: 12px;
+    margin: 0;
+}
+.tp-money-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--tp-card);
+    border: 1px solid var(--tp-border);
+    border-radius: 8px;
+}
+@media (max-width: 900px) {
+    .tp-money-controls { grid-template-columns: 1fr; }
+}
+.tp-money-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--tp-muted);
+}
+.tp-money-row label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    color: var(--tp-text);
+    font-weight: 600;
+}
+.tp-money-row input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    accent-color: var(--tp-accent);
+}
+.tp-money-row .tp-money-value {
+    flex: 0 0 auto;
+    min-width: 78px;
+    text-align: right;
+    color: var(--tp-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.tp-chart {
+    width: 100%;
+    height: 420px;
+    background: var(--tp-card);
+    border-radius: 8px;
+    border: 1px solid var(--tp-border);
+}
+.tp-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.tp-stat {
+    background: var(--tp-card);
+    border: 1px solid var(--tp-border);
+    border-left: 4px solid var(--tp-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.tp-stat.tp-stat-compound { border-left-color: var(--tp-compound); }
+.tp-stat.tp-stat-simple { border-left-color: var(--tp-simple); }
+.tp-stat.tp-stat-bonus { border-left-color: var(--tp-accent); }
+.tp-stat .tp-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--tp-muted);
+}
+.tp-stat .tp-stat-end {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.tp-stat .tp-stat-detail {
+    font-size: 0.78rem;
+    color: var(--tp-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.tp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--tp-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .tp-stats { grid-template-columns: 1fr; }
+    .tp-chart { height: 340px; }
+}
+</style>
+</head>
+<body>
+
+<div class="tp-root" id="tp-root">
+    <div class="tp-money-controls">
+        <div class="tp-money-row">
+            <label for="tp-principal" id="tp-principal-label">Principal</label>
+            <input type="range" id="tp-principal" min="100" max="100000" step="100" value="1000">
+            <span class="tp-money-value" id="tp-principal-value">$1,000</span>
+        </div>
+        <div class="tp-money-row">
+            <label for="tp-rate" id="tp-rate-label">Annual rate</label>
+            <input type="range" id="tp-rate" min="0.5" max="15" step="0.5" value="8">
+            <span class="tp-money-value" id="tp-rate-value">8.0%</span>
+        </div>
+        <div class="tp-money-row">
+            <label for="tp-years" id="tp-years-label">Years</label>
+            <input type="range" id="tp-years" min="5" max="60" step="1" value="40">
+            <span class="tp-money-value" id="tp-years-value">40 yrs</span>
+        </div>
+    </div>
+    <div id="tp-chart" class="tp-chart"></div>
+    <div class="tp-stats">
+        <div class="tp-stat tp-stat-compound">
+            <div class="tp-stat-name" id="tp-name-compound">Compound interest</div>
+            <div class="tp-stat-end" id="tp-end-compound">—</div>
+            <div class="tp-stat-detail"><span class="tp-int-label">Interest earned</span>: <span id="tp-int-compound">—</span></div>
+        </div>
+        <div class="tp-stat tp-stat-simple">
+            <div class="tp-stat-name" id="tp-name-simple">Simple interest</div>
+            <div class="tp-stat-end" id="tp-end-simple">—</div>
+            <div class="tp-stat-detail"><span class="tp-int-label">Interest earned</span>: <span id="tp-int-simple">—</span></div>
+        </div>
+        <div class="tp-stat tp-stat-bonus">
+            <div class="tp-stat-name" id="tp-name-bonus">Compound bonus</div>
+            <div class="tp-stat-end" id="tp-end-bonus">—</div>
+            <div class="tp-stat-detail" id="tp-bonus-detail">—</div>
+        </div>
+    </div>
+    <p class="tp-caption" id="tp-caption">
+        Same principal, same nominal rate.
+    </p>
+</div>
+
+<script>
+(function () {
+    // ------- Locale handling -------
+    const I18N = {
+        en: {
+            principal:    "Principal",
+            rate:         "Annual rate",
+            years:        "Years",
+            year_unit:    "yrs",
+            stat_compound: "Compound interest",
+            stat_simple:   "Simple interest",
+            stat_bonus:    "Compound bonus",
+            interest_earned: "Interest earned",
+            bonus_detail:  "{x}× simple at end",
+            bonus_dash:    "— vs. simple at end",
+            yaxis:        "Account value (USD)",
+            xaxis:        "Years",
+            legend_compound: "Compound interest",
+            legend_simple:   "Simple interest",
+            hover_year:   "Year",
+            caption:      "Same principal, same nominal rate. Simple interest earns the rate only on the original principal each year — a straight line. Compound interest earns the rate on the running balance, including all prior interest — an accelerating curve. The shaded gap between them is the bonus that compounding pays you for not touching the money.",
+        },
+        hk: {
+            principal:    "本金",
+            rate:         "年利率",
+            years:        "年期",
+            year_unit:    "年",
+            stat_compound: "複利",
+            stat_simple:   "單利",
+            stat_bonus:    "複利紅利",
+            interest_earned: "已賺利息",
+            bonus_detail:  "終值是單利的 {x} 倍",
+            bonus_dash:    "— 對比單利",
+            yaxis:        "帳戶價值(美元)",
+            xaxis:        "年數",
+            legend_compound: "複利",
+            legend_simple:   "單利",
+            hover_year:   "第",
+            caption:      "同樣的本金、同樣的名義利率。單利每年只在原始本金上計息 — 形成一條直線。複利則在當前餘額(包括之前所有利息)上計息 — 形成一條加速向上的曲線。中間陰影區域,就是「不去動本金」所換來的複利紅利。",
+        },
+        tw: {
+            principal:    "本金",
+            rate:         "年利率",
+            years:        "年期",
+            year_unit:    "年",
+            stat_compound: "複利",
+            stat_simple:   "單利",
+            stat_bonus:    "複利紅利",
+            interest_earned: "已賺利息",
+            bonus_detail:  "終值是單利的 {x} 倍",
+            bonus_dash:    "— 對比單利",
+            yaxis:        "帳戶價值(美元)",
+            xaxis:        "年數",
+            legend_compound: "複利",
+            legend_simple:   "單利",
+            hover_year:   "第",
+            caption:      "同樣的本金、同樣的名目利率。單利每年只在原始本金上計息 — 形成一條直線。複利則在當前餘額(包含之前所有利息)上計息 — 形成一條加速向上的曲線。中間陰影區域,就是「不動本金」所換來的複利紅利。",
+        },
+        cn: {
+            principal:    "本金",
+            rate:         "年利率",
+            years:        "年期",
+            year_unit:    "年",
+            stat_compound: "复利",
+            stat_simple:   "单利",
+            stat_bonus:    "复利红利",
+            interest_earned: "已赚利息",
+            bonus_detail:  "终值是单利的 {x} 倍",
+            bonus_dash:    "— 对比单利",
+            yaxis:        "账户价值(美元)",
+            xaxis:        "年数",
+            legend_compound: "复利",
+            legend_simple:   "单利",
+            hover_year:   "第",
+            caption:      "同样的本金、同样的名义利率。单利每年只在原始本金上计息 — 形成一条直线。复利则在当前余额(包括之前所有利息)上计息 — 形成一条加速向上的曲线。中间阴影区域,就是「不动本金」所换来的复利红利。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+    function fmt(s, vars) {
+        return s.replace(/\{(\w+)\}/g, function (_, k) {
+            return vars && vars[k] != null ? vars[k] : "";
+        });
+    }
+
+    const ROOT = document.getElementById("tp-root");
+    const CHART = document.getElementById("tp-chart");
+    const PRINCIPAL_SLIDER = document.getElementById("tp-principal");
+    const RATE_SLIDER = document.getElementById("tp-rate");
+    const YEARS_SLIDER = document.getElementById("tp-years");
+    const PRINCIPAL_VALUE = document.getElementById("tp-principal-value");
+    const RATE_VALUE = document.getElementById("tp-rate-value");
+    const YEARS_VALUE = document.getElementById("tp-years-value");
+
+    function simpleSeries(p, r, n) {
+        const out = [];
+        for (let t = 0; t <= n; t++) out.push(p * (1 + r * t));
+        return out;
+    }
+    function compoundSeries(p, r, n) {
+        const out = [];
+        for (let t = 0; t <= n; t++) out.push(p * Math.pow(1 + r, t));
+        return out;
+    }
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        if (Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e3) return "$" + (v / 1e3).toFixed(1) + "K";
+        return "$" + Math.round(v).toLocaleString();
+    }
+    function fmtMoneyShort(v) {
+        if (v >= 1e6) return "$" + (v / 1e6).toFixed(1) + "M";
+        if (v >= 1e3) return "$" + (v / 1e3).toFixed(1) + "K";
+        return "$" + v.toLocaleString();
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        const p = parseFloat(PRINCIPAL_SLIDER.value);
+        const r = parseFloat(RATE_SLIDER.value) / 100;
+        const n = parseInt(YEARS_SLIDER.value, 10);
+
+        const xs = [];
+        for (let t = 0; t <= n; t++) xs.push(t);
+        const simple = simpleSeries(p, r, n);
+        const compound = compoundSeries(p, r, n);
+
+        const colorCompound = getCssVar("--tp-compound");
+        const colorSimple = getCssVar("--tp-simple");
+        const colorText = getCssVar("--tp-text");
+        const colorMuted = getCssVar("--tp-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--tp-card");
+
+        const data = [
+            {
+                x: xs, y: compound,
+                name: T.legend_compound,
+                type: "scatter", mode: "lines",
+                line: { color: colorCompound, width: 2.8 },
+                hovertemplate: T.hover_year + " %{x}<br><b>" + T.legend_compound + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: xs, y: simple,
+                name: T.legend_simple,
+                type: "scatter", mode: "lines",
+                line: { color: colorSimple, width: 2.4, dash: "dash" },
+                hovertemplate: T.hover_year + " %{x}<br><b>" + T.legend_simple + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: xs.concat(xs.slice().reverse()),
+                y: compound.concat(simple.slice().reverse()),
+                fill: "toself",
+                fillcolor: darkMode() ? "rgba(239, 83, 80, 0.10)" : "rgba(183, 28, 28, 0.08)",
+                line: { width: 0 },
+                hoverinfo: "skip",
+                showlegend: false,
+            },
+        ];
+        const layout = {
+            margin: { l: 60, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                tickformat: "d",
+                range: [0, n],
+            },
+            yaxis: {
+                title: { text: T.yaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                tickformat: "$,.0f",
+                rangemode: "tozero",
+            },
+            legend: {
+                orientation: "h",
+                x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 },
+                bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, data, layout, { displayModeBar: false, responsive: true });
+
+        // Slider labels
+        PRINCIPAL_VALUE.textContent = fmtMoneyShort(p);
+        RATE_VALUE.textContent = r * 100 + (Number.isInteger(r * 100) ? ".0%" : "%");
+        YEARS_VALUE.textContent = n + " " + T.year_unit;
+
+        // Stats
+        const endCompound = compound[n];
+        const endSimple = simple[n];
+        const intCompound = endCompound - p;
+        const intSimple = endSimple - p;
+        const bonus = endCompound - endSimple;
+        const bonusMult = endSimple > 0 ? endCompound / endSimple : 0;
+
+        document.getElementById("tp-end-compound").textContent = fmtMoney(endCompound);
+        document.getElementById("tp-end-simple").textContent = fmtMoney(endSimple);
+        document.getElementById("tp-end-bonus").textContent = fmtMoney(bonus);
+        document.getElementById("tp-int-compound").textContent = fmtMoney(intCompound);
+        document.getElementById("tp-int-simple").textContent = fmtMoney(intSimple);
+        document.getElementById("tp-bonus-detail").textContent =
+            (bonusMult >= 1.01 ? fmt(T.bonus_detail, {x: bonusMult.toFixed(1)}) : T.bonus_dash);
+    }
+
+    // Apply locale-aware static labels.
+    function applyI18n() {
+        document.getElementById("tp-principal-label").textContent = T.principal;
+        document.getElementById("tp-rate-label").textContent = T.rate;
+        document.getElementById("tp-years-label").textContent = T.years;
+        document.getElementById("tp-name-compound").textContent = T.stat_compound;
+        document.getElementById("tp-name-simple").textContent = T.stat_simple;
+        document.getElementById("tp-name-bonus").textContent = T.stat_bonus;
+        document.getElementById("tp-caption").textContent = T.caption;
+        document.querySelectorAll(".tp-int-label").forEach(function (e) {
+            e.textContent = T.interest_earned;
+        });
+    }
+    applyI18n();
+
+    PRINCIPAL_SLIDER.addEventListener("input", render);
+    RATE_SLIDER.addEventListener("input", render);
+    YEARS_SLIDER.addEventListener("input", render);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+
+    // Tell the parent how tall this content is so the embedding iframe can
+    // size itself exactly — no white bar below, no inner scrollbar.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed or top-level — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+})();
+</script>
+
+</body>
+</html>

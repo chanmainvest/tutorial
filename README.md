@@ -11,7 +11,7 @@ A comprehensive 52-week investment education course with supplementary side less
 - **Macro context -> Strategy concept -> Tactical execution**
 - Progressive skill-building with forward/backward references
 - Each lesson includes reading material AND a two-host YouTube script
-- Visual explanations via animations (Python/JS/emoji-art)
+- Visual explanations rendered three ways: static images embedded in the markdown, interactive demos on the website, and animations in the YouTube videos
 - Available in English, Hong Kong Chinese, Taiwan Chinese, and Mainland Chinese
 
 ---
@@ -20,10 +20,9 @@ A comprehensive 52-week investment education course with supplementary side less
 
 ### Level 1: Foundation (Weeks 1-12) - Beginner
 
-[Level 1 Overview](course/level1_overview.md)
-
 | Week | Title | Summary |
 |------|-------|---------|
+| Overview | [Level 1 Overview](course/level1_overview.md) | Map of the level — what you will learn, in what order, and why these topics come first |
 | 1 | [Why Invest? The Time Value of Money](course/week01_why_invest.md) | Understanding why $1 today is worth more than $1 tomorrow, and why investing is not optional |
 | 2 | [Index Funds and ETFs](course/week02_index_funds_etfs.md) | The simplest, most effective way to start investing - buying the whole market |
 | 3 | [Understanding Risk and Return](course/week03_risk_and_return.md) | The fundamental tradeoff: why higher returns always come with higher risk |
@@ -36,13 +35,13 @@ A comprehensive 52-week investment education course with supplementary side less
 | 10 | [Economic Cycles and Your Portfolio](course/week10_economic_cycles.md) | How expansion, peak, contraction, and trough affect different asset classes |
 | 11 | [Behavioral Biases - Your Brain vs Your Money](course/week11_behavioral_biases.md) | The psychological traps that cause investors to buy high and sell low |
 | 12 | [Building Your First Portfolio](course/week12_first_portfolio.md) | Putting it all together: choosing assets, setting allocation, and getting started |
+| Reflection | [Level 1 Reflection](course/level1_reflection.md) | Pause, consolidate what you have learned, and decide whether to move on to Level 2 |
 
 ### Level 2: Intermediate (Weeks 13-24)
 
-[Level 2 Overview](course/level2_overview.md)
-
 | Week | Title | Summary |
 |------|-------|---------|
+| Overview | [Level 2 Overview](course/level2_overview.md) | Map of the level — bridging from buy-and-hold into long/short, multi-asset, and valuation |
 | 13 | [Long and Short Trading](course/week13_long_short.md) | Making money when prices fall - the concept of shorting and its role in hedging |
 | 14 | [Pair Trading Fundamentals](course/week14_pair_trading.md) | Exploiting relative value by going long one stock and short another in the same sector |
 | 15 | [Multi-Asset Allocation](course/week15_multi_asset.md) | Moving beyond stocks and bonds to include REITs, commodities, and international exposure |
@@ -55,13 +54,13 @@ A comprehensive 52-week investment education course with supplementary side less
 | 22 | [Currency and International Diversification](course/week22_currency_international.md) | Why global exposure matters and how FX risk affects your returns |
 | 23 | [Factor Investing Introduction](course/week23_factor_investing.md) | Value, momentum, quality, size - the systematic drivers of returns |
 | 24 | [Building a Multi-Strategy Portfolio](course/week24_multi_strategy.md) | Combining strategies that work in different market environments |
+| Reflection | [Level 2 Reflection](course/level2_reflection.md) | Pause, consolidate what you have learned, and decide whether to move on to Level 3 |
 
 ### Level 3: Advanced (Weeks 25-36)
 
-[Level 3 Overview](course/level3_overview.md)
-
 | Week | Title | Summary |
 |------|-------|---------|
+| Overview | [Level 3 Overview](course/level3_overview.md) | Map of the level — adding options and fixed-income depth to the toolkit |
 | 25 | [Introduction to Options](course/week25_intro_options.md) | Calls, puts, and why options are the most versatile tool in finance |
 | 26 | [Options as Conditional Orders](course/week26_options_as_orders.md) | Using puts as limit buys and calls as limit sells - getting paid to wait |
 | 27 | [Covered Calls for Income](course/week27_covered_calls.md) | Generating yield from stocks you already own by selling upside |
@@ -74,13 +73,13 @@ A comprehensive 52-week investment education course with supplementary side less
 | 34 | [Interest Rate Sensitivity Across Assets](course/week34_rate_sensitivity.md) | How rate changes ripple through equities, bonds, real estate, and commodities |
 | 35 | [Advanced Financial Statement Analysis](course/week35_advanced_fsa.md) | Stock compensation, off-balance-sheet items, and earnings quality detection |
 | 36 | [Building an Income-Generating Portfolio](course/week36_income_portfolio.md) | Combining dividends, bonds, covered calls, and REITs for steady cash flow |
+| Reflection | [Level 3 Reflection](course/level3_reflection.md) | Pause, consolidate what you have learned, and decide whether to move on to Level 4 |
 
 ### Level 4: Sophisticated (Weeks 37-46)
 
-[Level 4 Overview](course/level4_overview.md)
-
 | Week | Title | Summary |
 |------|-------|---------|
+| Overview | [Level 4 Overview](course/level4_overview.md) | Map of the level — leverage, vol, risk models, and the discipline that makes them safe |
 | 37 | [Options Leverage Strategies](course/week37_options_leverage.md) | Using options for magnified returns with defined risk |
 | 38 | [LEAPS and Long-Term Options](course/week38_leaps.md) | Leveraged long-term bets with time on your side |
 | 39 | [Futures Markets Introduction](course/week39_futures.md) | How futures work, margin mechanics, and accessing macro exposures |
@@ -91,62 +90,109 @@ A comprehensive 52-week investment education course with supplementary side less
 | 44 | [Market Microstructure and Execution](course/week44_microstructure.md) | How orders flow, spreads form, and execution costs eat your returns |
 | 45 | [Quantitative Methods for Investors](course/week45_quant_methods.md) | Regression, time series, and statistical tools for better decisions |
 | 46 | [Backtesting and Strategy Validation](course/week46_backtesting.md) | How to test ideas honestly without fooling yourself |
+| Reflection | [Level 4 Reflection](course/level4_reflection.md) | Pause, consolidate what you have learned, and decide whether to move on to Level 5 |
 
 ### Level 5: Expert (Weeks 47-52)
 
-[Level 5 Overview](course/level5_overview.md)
-
 | Week | Title | Summary |
 |------|-------|---------|
+| Overview | [Level 5 Overview](course/level5_overview.md) | Map of the level — tail hedges, vol arb, factor tilts, and assembling a true all-weather book |
 | 47 | [Tail Risk Hedging](course/week47_tail_risk.md) | Protecting against black swans - portfolio insurance that pays when everything else breaks |
 | 48 | [Structured Products and Defined Outcomes](course/week48_structured_products.md) | Buffered ETFs, structured notes - pre-packaged option strategies for retail |
 | 49 | [Volatility Arbitrage and Term Structure](course/week49_vol_arbitrage.md) | Exploiting the VIX curve and variance risk premium |
 | 50 | [Factor Tilts and Alternative Risk Premia](course/week50_factor_tilts.md) | Building a portfolio that harvests multiple systematic return sources |
 | 51 | [Managed Futures and Trend Following](course/week51_managed_futures.md) | Crisis alpha - strategies that profit when traditional assets crash |
 | 52 | [Portfolio Integration - Putting It All Together](course/week52_integration.md) | Combining everything into a professional-grade, all-weather portfolio |
+| Reflection | [Level 5 Reflection](course/level5_reflection.md) | Pause, consolidate what you have learned, and look across the full course |
+
+> Course-wide capstone: [**Course Reflection: Now What?**](course/reflection.md) — after Level 5, the final reflection on whether you will actually take control of your own financial future.
 
 ---
 
 ## Side Lessons (15-30 minutes each)
 
+Supplementary lessons that don't fit the weekly progression, grouped by theme. Read in any order — each is self-contained.
+
+### Practical Toolkit
+
+Tools and workflows you will actually use to research, monitor, and plan.
+
 | # | Title | Summary |
 |---|-------|---------|
 | 1 | [TI BA II Plus Calculator Guide](course/side01_calculator.md) | Master the CFA calculator - TVM, NPV, IRR, bonds, and amortization |
 | 2 | [How to Read a 10-K Filing](course/side02_10k_filing.md) | Navigating SEC filings to find what actually matters |
-| 3 | [Understanding ETF Mechanics](course/side03_etf_mechanics.md) | Creation/redemption, tracking error, and why ETF structure matters |
+| 24 | [Portfolio Monitoring and Rebalancing Tools](course/side24_monitoring_tools.md) | Software and spreadsheets for tracking your portfolio |
+| 27 | [Building a Watchlist and Screening Stocks](course/side27_watchlist_screening.md) | Systematic approaches to finding investment candidates |
+| 28 | [Monte Carlo Simulation for Retirement](course/side28_monte_carlo.md) | Using probability to plan your financial future |
+
+### Taxes, Fees & Accounts
+
+Where the silent costs (and the silent edges) actually live.
+
+| # | Title | Summary |
+|---|-------|---------|
 | 4 | [Tax-Efficient Investing](course/side04_tax_efficiency.md) | Tax-loss harvesting, asset location, and keeping more of what you earn |
-| 5 | [Dollar Cost Averaging vs Lump Sum](course/side05_dca_vs_lump.md) | The math and psychology behind two common investment approaches |
-| 6 | [Inflation and Real Returns](course/side06_inflation.md) | Why nominal returns lie and how to think in real terms |
-| 7 | [REITs and Real Estate Investing](course/side07_reits.md) | Accessing real estate returns without buying property |
 | 8 | [Understanding Mutual Fund Fees](course/side08_fund_fees.md) | Expense ratios, loads, 12b-1 fees - the silent return killers |
-| 9 | [Crypto and Digital Assets Overview](course/side09_crypto.md) | Bitcoin, Ethereum, and digital assets in portfolio context |
-| 10 | [Dividend Investing Strategy](course/side10_dividends.md) | Building a portfolio around cash-flowing stocks |
 | 11 | [Retirement Accounts - 401k, IRA, Roth](course/side11_retirement_accounts.md) | Tax-advantaged accounts and how to use each one optimally |
+
+### Asset Classes & Instruments
+
+What is actually investable beyond the index.
+
+| # | Title | Summary |
+|---|-------|---------|
+| 3 | [Understanding ETF Mechanics](course/side03_etf_mechanics.md) | Creation/redemption, tracking error, and why ETF structure matters |
+| 7 | [REITs and Real Estate Investing](course/side07_reits.md) | Accessing real estate returns without buying property |
+| 9 | [Crypto and Digital Assets Overview](course/side09_crypto.md) | Bitcoin, Ethereum, and digital assets in portfolio context |
 | 12 | [ESG and Sustainable Investing](course/side12_esg.md) | What ESG means for returns and risk - separating hype from substance |
 | 13 | [IPOs and Special Situations](course/side13_ipos.md) | New listings, spin-offs, and event-driven opportunities |
 | 14 | [Private Markets for Retail Investors](course/side14_private_markets.md) | Accessing private equity and debt through public market vehicles |
-| 15 | [The Psychology of Trading](course/side15_trading_psychology.md) | Managing emotions, building discipline, and developing a process |
+| 22 | [Commodities Trading Basics](course/side22_commodities.md) | Oil, natural gas, agricultural - understanding physical markets |
+
+### Strategy & Income
+
+Repeatable playbooks for cash flow and accumulation.
+
+| # | Title | Summary |
+|---|-------|---------|
+| 5 | [Dollar Cost Averaging vs Lump Sum](course/side05_dca_vs_lump.md) | The math and psychology behind two common investment approaches |
+| 10 | [Dividend Investing Strategy](course/side10_dividends.md) | Building a portfolio around cash-flowing stocks |
+| 25 | [Hedge Fund Strategies Explained](course/side25_hedge_funds.md) | Long/short equity, global macro, event-driven - what hedge funds actually do |
+| 30 | [The Wheel Strategy - Options Income Machine](course/side30_wheel_strategy.md) | Systematically selling puts and covered calls in a repeating cycle |
+
+### Macro, Policy & History
+
+The big-picture context that shapes every other decision.
+
+| # | Title | Summary |
+|---|-------|---------|
+| 6 | [Inflation and Real Returns](course/side06_inflation.md) | Why nominal returns lie and how to think in real terms |
 | 16 | [Market History - Crashes and Recoveries](course/side16_market_history.md) | What past crises teach us about surviving the next one |
 | 17 | [Understanding Fed Policy](course/side17_fed_policy.md) | How the Federal Reserve moves markets and what to watch for |
 | 18 | [Global Markets - Developed vs Emerging](course/side18_global_markets.md) | Opportunities and risks beyond US borders |
-| 19 | [Correlation and Diversification Math](course/side19_correlation_math.md) | The math behind why diversification works (and when it fails) |
-| 20 | [The Option Greeks Deep Dive](course/side20_greeks_deep_dive.md) | Gamma, rho, charm, and second-order Greeks for serious traders |
-| 21 | [Understanding Margin and Leverage](course/side21_margin_leverage.md) | How borrowing amplifies returns and risk - mechanics and dangers |
-| 22 | [Commodities Trading Basics](course/side22_commodities.md) | Oil, natural gas, agricultural - understanding physical markets |
-| 23 | [Technical Analysis Basics](course/side23_technical_analysis.md) | Chart patterns, moving averages, and support/resistance |
-| 24 | [Portfolio Monitoring and Rebalancing Tools](course/side24_monitoring_tools.md) | Software and spreadsheets for tracking your portfolio |
-| 25 | [Hedge Fund Strategies Explained](course/side25_hedge_funds.md) | Long/short equity, global macro, event-driven - what hedge funds actually do |
 | 26 | [Understanding Market Liquidity](course/side26_market_liquidity.md) | Why liquidity matters more than you think - QE, QT, and funding stress |
-| 27 | [Building a Watchlist and Screening Stocks](course/side27_watchlist_screening.md) | Systematic approaches to finding investment candidates |
-| 28 | [Monte Carlo Simulation for Retirement](course/side28_monte_carlo.md) | Using probability to plan your financial future |
+
+### Risk, Behavior & Mechanics
+
+Keeping yourself out of trouble — psychologically and mathematically.
+
+| # | Title | Summary |
+|---|-------|---------|
+| 15 | [The Psychology of Trading](course/side15_trading_psychology.md) | Managing emotions, building discipline, and developing a process |
+| 19 | [Correlation and Diversification Math](course/side19_correlation_math.md) | The math behind why diversification works (and when it fails) |
+| 21 | [Understanding Margin and Leverage](course/side21_margin_leverage.md) | How borrowing amplifies returns and risk - mechanics and dangers |
 | 29 | [Currency Hedging for Global Portfolios](course/side29_currency_hedging.md) | When and how to hedge foreign currency exposure |
-| 30 | [The Wheel Strategy - Options Income Machine](course/side30_wheel_strategy.md) | Systematically selling puts and covered calls in a repeating cycle |
+
+### Specialist Deep Dives
+
+Topics that reward going further than the core sequence.
+
+| # | Title | Summary |
+|---|-------|---------|
+| 20 | [The Option Greeks Deep Dive](course/side20_greeks_deep_dive.md) | Gamma, rho, charm, and second-order Greeks for serious traders |
+| 23 | [Technical Analysis Basics](course/side23_technical_analysis.md) | Chart patterns, moving averages, and support/resistance |
 
 ---
-
-## Animations
-
-Visual animations are stored in `course/animation/` and referenced from lesson files. Each animation is a self-contained Python or JavaScript file that generates visual explanations of key concepts.
 
 ## Translations
 
