@@ -114,35 +114,10 @@ must be written and reviewed.
 content** (core week, side lesson, level overview, course overview,
 glossary entry, FAQ, disclaimer — in any language).
 
-### How to apply SOUL.md to lessons
-
-The course still teaches the canonical professional curriculum (CFA and
-others) as **knowledge** — students must know what the professional
-world believes. But where the canon conflicts with a SOUL.md principle:
-
-1. **Teach the orthodox view first**, accurately and without strawmanning.
-2. **Then add Horace's view**, with the reasoning from SOUL.md. Use first-person voice ("I don't day trade because…", "In my experience…"). In the YouTube script, this is naturally Horace's line.
-3. **Refer the reader** to the lesson where the disagreement is covered in depth, if there is one. Don't litigate the same disagreement five times across the course — pick the right home for the deep treatment and link to it from the others.
-4. **Never present canon as personal conviction** when it isn't, and never hide a disagreement just to keep the lesson tidy.
-
-### Conflict detection during review
-
-When reviewing or editing a lesson, scan it against every SOUL.md
-principle. If the lesson:
-
-- Contradicts a SOUL.md principle without acknowledging it → **flag it** (don't silently rewrite). Surface the conflict in the review summary so Horace can decide whether to add a "my view" sidebar, refer out to another lesson, or leave it (sometimes a lesson legitimately stays neutral and defers the philosophy elsewhere).
-- Aligns with a SOUL.md principle but doesn't make the connection explicit → suggest tightening the link so the philosophy stays load-bearing across the course rather than scattered.
-- Repeats a "my view" sidebar that already exists in another lesson → suggest replacing it with a one-line back-reference, to keep the philosophy DRY.
-
-The point of the flag is **not** to censor the orthodox material — the
-canon stays in the lesson. The flag is so Horace can decide where his
-voice belongs.
-
-### When SOUL.md itself needs updating
-
-If a lesson surfaces a conviction that isn't already in SOUL.md (or
-contradicts it), don't change SOUL.md unilaterally. Flag it for Horace
-to update by hand — SOUL.md is the source of truth, not derived content.
+**Application workflow & conflict-detection rules** (how to weave SOUL.md
+into a lesson, how to flag contradictions during review, when *not* to
+edit SOUL.md yourself): see `.claude/docs/soul-application.md`. Read it
+before any lesson edit/review pass.
 
 ## Build & Development
 
@@ -159,39 +134,20 @@ All scripts are Python. **Always run them via `uv`** as the package manager (e.g
 
 ## Session History (before commit)
 
-**Before every `git commit`, export the current chat session to `session_history/`.** Run the `/save-session` skill (which calls `~/.claude/skills/export-session.py`) and then stage the resulting log alongside your other changes. The intent is to preserve a readable, Claude-Code-`/export`-style transcript of the work that produced each commit so the project history doubles as a research log.
+**Before every `git commit`, export the current chat session to
+`session_history/`.** Run the `/save-session` skill (which calls
+`.claude/skills/export-session.py`) and stage the resulting log alongside
+your other changes — one self-contained commit per session. The project
+history doubles as a research log.
 
-Output filename pattern: `session_history/<YYYY-MM-DD>_from_<starting-git-hash>.log` (e.g. `session_history/2026-04-16_from_afbc120.log`). The `<starting-git-hash>` is the short hash of `HEAD` at the moment the chat session began, **not** the commit being created right now — the file documents the work that happened on top of that baseline.
+Output filename pattern:
+`session_history/<YYYY-MM-DD>_from_<starting-git-hash>.log`. The hash is
+`HEAD` at the moment the chat session **began**, not the commit being
+created now.
 
-**Required header** (prepended to the log by the export script — keep this in sync if you change the script). Match Claude Code's `/export` formatting as closely as possible, then add this metadata block at the very top before the conversation transcript:
-
-```
-=== Session Metadata ===
-Agent:           <CLI name + version, e.g. "Claude Code v2.1.104">
-Model:           <main model id, e.g. "claude-opus-4-7[1m]">
-Sub-agent models: <list of distinct models used by spawned sub-agents, or "none">
-Started from:    <git short hash that HEAD pointed to when the session began>
-Date:            <YYYY-MM-DD HH:MM local>
-
-Token usage (this session, including all sub-agent calls):
-  Input tokens:        <count>
-  Output tokens:       <count>
-  Cache read tokens:   <count>
-  Cache write tokens:  <count>
-  Total tokens:        <count>
-
-Cost (USD, this session, including all sub-agent calls):
-  Input:        $<x.xx>
-  Output:       $<x.xx>
-  Cache read:   $<x.xx>
-  Cache write:  $<x.xx>
-  Total:        $<x.xx>
-========================
-```
-
-Pull the token + cost numbers from the same source `/cost` uses (the JSONL transcript's `usage` records, summed across the main thread and every sub-agent invocation). If a number truly cannot be determined, write `unknown` rather than zero so it's obvious the value was missing rather than free.
-
-Commit the log file in the **same commit** as the code/content changes it produced (one self-contained commit per session). Never push session logs to a public remote without first scrubbing any secrets the conversation may have included.
+Format spec (header template, token/cost field semantics, secret-scrub
+policy): `.claude/docs/session-history-format.md`. Read it only if
+you're editing `export-session.py` or troubleshooting the header.
 
 ## Website
 
@@ -205,7 +161,14 @@ Commit the log file in the **same commit** as the code/content changes it produc
 - Prev/next buttons in page footer
 - FAQ, Disclaimer, and Glossary linked in site footer
 - Professional trust-building theme (serif body font, dark navy navigation, gold accents)
-- **On-device AI tutor** (floating bottom-right button on every page) — runs Gemma 4 E2B (~3.1 GB q4f16 on first load, then cached in IndexedDB) directly in the browser via WebGPU + transformers.js v4 (`Gemma4ForConditionalGeneration` + `AutoProcessor` + `TextStreamer`). **Cross-lesson RAG (opt-in)**: a small multilingual embedding model (`Xenova/paraphrase-multilingual-MiniLM-L12-v2`, ~50 MB q8) and a static chunk index (`docs/assets/chatbot_chunks.json`, ~7 MB) let the assistant pull in relevant excerpts from the **whole course** in addition to the current page. The chunk index is generated by `scripts/build_chatbot_index.py` (pure stdlib — strips Part 2, normalises markdown, splits into ~600-char overlapping chunks) and must be regenerated whenever lesson content changes. **Indexing is opt-in per language**: the intro panel renders four checkboxes (EN/HK/TW/CN, current page's language pre-checked) and indexing for any checked language runs in **parallel** with the Gemma download, so the user never waits at first message. A status chip in the chat header shows whether the current language is indexed (`✓ Cross-lesson search on` / `⏳ Indexing X%` / `○ Index this language` / `⚠ Index failed`); clicking the chip starts indexing on demand for any language at any time. If a language is not indexed, the assistant answers using the **current page only** — no auto-trigger from queries. Per-language embeddings are cached in IndexedDB (`chanma-chatbot-rag` DB) and probed on every panel open so previously-indexed languages are recognised across browser sessions. At query time the system prompt prepends the current page text as the priority section, then the top-5 retrieved excerpts from other lessons (when available), with instructions to cite the source lesson title in brackets. No data leaves the user's browser. Source assets live in `web_assets/chatbot.js` and `web_assets/chatbot.css`; `scripts/build.py` copies them to `docs/assets/` on every build. Browsers without WebGPU (older Safari, in-app browsers) see a graceful "not supported" message instead of a broken UI.
+- **On-device AI tutor** — floating bottom-right button on every page.
+  Runs Gemma 4 E2B locally in the browser via WebGPU + transformers.js,
+  with opt-in cross-lesson RAG over a static chunk index. No data leaves
+  the device. Source: `web_assets/chatbot.{js,css}`; chunk index:
+  `scripts/build_chatbot_index.py` → `docs/assets/chatbot_chunks.json`
+  (regenerate whenever lesson content changes). Full architecture
+  (model loading, RAG pipeline, IndexedDB caching, status chip states,
+  prompt assembly, browser-support fallback): `.claude/docs/chatbot-architecture.md`.
 
 ## Language & Terminology Notes
 

@@ -209,8 +209,12 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Claude Code session state
-.claude/
+# Claude Code session state — local settings only.
+# Skills and on-demand docs ARE checked in (referenced from CLAUDE.md
+# and shared with anyone cloning the repo).
+.claude/*
+!.claude/docs/
+!.claude/skills/
 
 # Per-commit session transcripts (see CLAUDE.md > Session History) — these
 # files are intentionally checked in despite the global *.log rule above.
