@@ -1,11 +1,14 @@
 # SOUL.md — Horace's (陳馬) Investment Philosophy
 
-This is the personal investment philosophy that grounds this course. The
-course teaches the canonical professional curriculum (CFA and others)
-because students must know what the professional world believes. But where
-the canon conflicts with the convictions below, the lesson must say so
-explicitly. These are not academic positions — they are beliefs earned
-with real money over decades of retail investing.
+This is the personal investment philosophy that grounds this course.
+The course teaches the canonical professional curriculum (CFA and
+others) because students must know what the professional world
+believes. But these are the convictions that shape what gets taught,
+*how* it gets taught, and where the course breaks from canon —
+sometimes a flat disagreement, sometimes a temperament or a scope
+choice that defines the lesson rather than contradicts the textbook.
+They are not academic positions; they are beliefs earned with real
+money over decades of retail investing.
 
 ---
 
@@ -43,23 +46,32 @@ consensus becomes the most crowded trade in history.
 
 The specific triggers I watch for:
 
-- **Demographic flip.** The 401(k) and pension systems were built on
-  decades of net inflows from a working population larger than the
-  retired population. As boomers move from accumulation into
-  decumulation, that flow reverses. Mechanical buyers become
-  mechanical sellers, and the bid that has supported every dip since
-  1982 starts to soften.
-- **Loss of price discovery.** Once passive owns more than roughly 60%
-  of the float, active price-setters are no longer numerous enough to
-  absorb dislocations. Price stops being information and becomes the
-  output of fund flows.
-- **Death spiral on the down leg.** Passive flows are *mechanical* in
-  both directions. On the way up they bid blindly; on the way down
-  they sell blindly. Once outflows start, the selling begets more
-  outflows, which beget more selling. The same machinery that
-  manufactured the 40-year tailwind reverses with the same indifference
-  to price. Passive is, structurally, a giant momentum machine — and
-  momentum machines work both ways.
+- **Demographic flip → death spiral on the down leg.** Passive funds
+  are not autonomous buyers; they react to the end-investor's
+  payroll-deduction in and redemption out. The 40-year tailwind held
+  even through 2008 and 2020 because the contributions kept coming via
+  401(k) and pension auto-pilot — a working population larger than the
+  retired population, mechanically buying every month regardless of
+  price. As boomers move from accumulation into decumulation, the
+  arithmetic reverses. Once net redemptions take over, the same
+  mechanical pipe runs backwards: selling begets outflows, outflows
+  beget more selling, with the same indifference to price that
+  produced the melt-up. Passive is, structurally, a giant momentum
+  machine — and momentum machines work both ways. The demographic flip
+  is what *arms* the spiral; without it, "mechanical selling" is just
+  a thought experiment.
+- **Loss of price discovery.** Once price-insensitive flow dominates
+  the *marginal* trade — not just the average holding — active
+  price-setters are no longer numerous enough to absorb
+  dislocations.[^pricediscovery] Price stops being information and
+  becomes the output of fund flows.
+
+[^pricediscovery]: This is essentially the thesis Mike Green (Simplify
+    Asset Management) and Vincent Deluard have argued for years: the
+    *marginal* trade, not the average ownership share, is what sets
+    price, and once price-insensitive vehicles dominate the marginal
+    trade the price-discovery function of the market degrades — even
+    if their share of total ownership still looks modest on paper.
 
 ## 3. Every store of value rests on belief — gold for 5,000 years, fiat for 70, bitcoin for 15.
 
@@ -73,18 +85,11 @@ younger than the iPhone. Pick your store of value by the durability of
 its consensus, not by pretending one of them is somehow "real" while the
 others are a scam. They are all consensus — and consensus is mortal.
 
-A store of value is also supposed to be an inflation hedge, which means
-the right yardstick is the **real interest rate**, not the nominal one.
-That drags you back to the deeper question: what *is* interest? It is
-the price of time — the time value of money, the opportunity cost of
-holding wealth in any one form rather than another. Real assets (land,
-commodities, real productive businesses) anchor purchasing power because
-they generate real cash flow, but they carry business and operational
-risk that pure stores of value do not. We live in a financial-asset
-world; for most people most of the time, the real-asset choice is
-mediated through financial wrappers, with all the consensus risk that
-implies. There is no escape from belief — only choices about which
-belief to hold.
+And because every store of value is also priced as an inflation hedge,
+the honest yardstick is the **real** interest rate, not the nominal
+one — each of these consensuses is judged against the same monetary
+tide. There is no escape from belief, only choices about which belief
+to hold.
 
 > "Gold is money. Everything else is credit." — J.P. Morgan, 1912
 
@@ -98,7 +103,7 @@ in my own lane.
 
 > "Risk comes from not knowing what you're doing." — Warren Buffett
 
-## 5. Real alpha sources: liquidity, sector rotation, long-term trends, front-running the passive bid.
+## 5. Real alpha sources: liquidity, sector rotation, long-term trends, buying what passive flows have abandoned.
 
 Forget stock-picking miracles. The durable alphas I have found come from
 structural mispricings, not from being a better fundamental analyst than
@@ -110,9 +115,20 @@ the buy-side:
   macro and rate shifts. Ride the rotation; don't fight it.
 - **Long-term trends.** Demographics, energy transitions, geopolitical
   realignments — these unfold over decades. Position early and sit.
-- **Front-running passive flows.** Passive funds *must* buy what is in
-  the index, mechanically, regardless of price. Knowing what they have
-  to buy and when is a cleaner edge than guessing earnings.
+- **Buying what passive flows have abandoned.** The mirror image of
+  the passive bid is passive *neglect*. When a name gets kicked out
+  of an index, or a sector falls out of favour with the model
+  portfolios, the resulting forced selling routinely overshoots fair
+  value — and the academic literature on index deletions documents the
+  reversion taking anywhere from a few quarters to a few years to play
+  out. The trade is *not* "front-run the index addition" — that alpha
+  has been mostly arbed away in large-cap US equities by 2026, as
+  every prop desk and quant fund now anticipates the same
+  reconstitution. The trade is the contrarian one: buy the hated, the
+  deleted, the unloved sector. Uranium when nobody wanted it. Energy
+  when ESG mandates were dumping it. The names the passive machinery
+  has *finished* selling are the cleanest mispricings the machinery
+  itself creates.
 
 Macro is my underlying thesis, but I trade anything that pays. I hold
 gold for the long-term inflation-hedge thesis. I have happily traded
@@ -126,30 +142,37 @@ regardless of which playbook delivered it.
 
 > "It's liquidity that moves markets." — Stan Druckenmiller
 
-## 6. Technical analysis without the options vol surface is half-blind.
+## 6. In the post-COVID options market, the option tail wags the equity dog.
 
-If your technical analysis is just price and volume, you are working
-from half of the market's information. The options market is the other
-half — implied volatility, skew, term structure, and the dealer gamma
-profile tell you what the smart money is paying to hedge. Anyone who
-refuses to look at the vol surface is, by definition, analysing
-incomplete data. The conclusion may not be wrong because the chart is
-wrong — it is unreliable because it is *partial*.
+Classical technical analysis — candlesticks, moving averages, support
+and resistance drawn on price-and-volume alone — was developed for a
+market where the options book was a small derivative *of* the cash
+equity. That market no longer exists. Zero-days-to-expiry (0DTE)
+options now dominate intraday flow on the major US indices, and much
+of what looks like "price action" on the chart is really dealer
+hedging of options exposure pushing the underlying around. **The
+option tail wags the equity dog.** Reading a chart in the post-COVID
+regime without the corresponding option flow is reading the surface
+effect without the cause — and the older the technical pattern in
+your toolkit, the weaker its signal is in the new regime.
 
-Two structural changes since 2020 have made this *more* important, not
-less. Zero-days-to-expiry (0DTE) options now dominate intraday flow on
-major US indices, which means much of what looks like "price action" on
-the chart is really dealer hedging of options exposure — the option
-tail wagging the equity dog. Reading a chart in the post-COVID regime
-without the corresponding option flow is reading the surface effect
-without the cause. The cost-benefit calculation is also size-dependent:
-at the portfolio scale this course is aimed at — where individual
-position outcomes meaningfully change the year, not just the month —
-the cognitive overhead of vol-surface analysis becomes cheap relative
-to the alpha it unlocks. For a beginner with their first portfolio, the
-overhead is real; for a serious retail investor with a multi-six-figure
-or seven-figure book, ignoring the vol surface stops being a small
-handicap and becomes a structural blind spot.
+The implication is uncomfortable for chartists: **implied volatility
+is now more informative than the delta of the price itself.** Options
+are the lens that lets you see where the underlying is mispriced —
+not because the options market has "smart money" in it (much of 0DTE
+flow is the dumbest money on the screen), but because the
+*positioning* — implied volatility, skew, term structure, the dealer
+gamma profile — tells you who has to do what at which level,
+regardless of conviction. The chart shows you the dog wagging. The
+vol surface shows you why.
+
+The cost-benefit is size-dependent. For a beginner with their first
+portfolio, the cognitive overhead of vol-surface analysis is real and
+not yet earning its keep — start with the chart. For a serious retail
+investor with a multi-six-figure or seven-figure book, where individual
+position outcomes meaningfully change the year and not just the month,
+ignoring the vol surface stops being a small handicap and becomes a
+structural blind spot.
 
 ## 7. I don't buy penny stocks. I don't look at companies under $1 billion market cap.
 
@@ -162,15 +185,21 @@ If you want to gamble, gamble — just call it gambling.
 The textbook will tell you about a "small-cap premium" — the academic
 finding that small caps outperformed large caps from the 1970s through
 the early 2000s. That premium has not worked in the last decade, and
-the reason is the same one in #2: passive index flows mechanically
-favour the largest names. The bigger the index weight, the more
-mechanical bid you receive. In a world where a majority of the float
-in major indices is held by market-cap-weighted passive vehicles, the
-small-cap edge has been arbed away by the very mechanism that created
-the large-cap melt-up. We are in a big-cap world for the foreseeable
-future, and that is a structural condition of the current monetary and
-flow regime, not a cyclical anomaly waiting to mean-revert. Until
-passive flows reverse (see #2), the centre of gravity stays where it is.
+several drivers stack on top of each other. Passive flows favouring
+the largest index weights are *one* mechanical driver, alongside the
+cheap-capital era favouring scalable big-tech and a deteriorating
+quality mix in the small-cap universe (a rising share of money-losing
+constituents). On top of those structural drivers, the sub-billion
+universe is also riddled with pump-and-dump schemes, insider trading,
+and outright fraud — the kind of behaviour that gets prosecuted in
+large caps is the day-to-day texture of penny-stock land. And even
+among the legitimate names, the survival rate over a 10-year horizon
+is ugly: most small caps simply don't make it. None of these
+conditions is suitable for long-term investing. We are in a big-cap
+world for the foreseeable future, and that is a structural condition
+of the current monetary, flow, and disclosure regime — not a cyclical
+anomaly waiting to mean-revert. Until passive flows reverse (see #2),
+the centre of gravity stays where it is.
 
 ## 8. Every market has two readings: momentum or mean reversion. The same applies to volatility itself.
 
@@ -251,7 +280,7 @@ Until then, your "correct" thesis is just a forecast about a coordination
 event that has not happened yet — and the longer the coordination takes,
 the more your sizing, leverage, and patience are tested. The beauty
 contest is why irrationality persists; the solvency constraint is why
-that persistence eats traders who were technically right.
+that persistence eats investors who were technically right.
 
 > "It is not a case of choosing those [faces] that, to the best of one's
 > judgment, are really the prettiest, nor even those that average opinion
@@ -289,30 +318,59 @@ The full discipline has three phases, not one:
    tells you what neutral actually looks like, and how far to lean
    short of neutral if you want directional burst exposure.
 
-**Execution note for phase 3:** Never short the late-bubble explorer
+**Execution note for phase 3.** Never short the late-bubble explorer
 tier *naked*. Borrow disappears at the worst moment, squeeze risk is
 asymmetric, and your loss is theoretically unbounded — exactly the
 wrong payoff structure for the trade you are trying to express. Use
-options. In late bubble, replace your long stock in the speculative
-tier with **long calls** — same upside, capped downside, and you have
-already paid your maximum loss as the premium. To bet on the burst
-itself, use **ratio call spreads** (long ATM call financed by short
-OTM calls) on the most stretched tier; the OTM short calls leave
-enough right-tail open to survive a final melt-up squeeze, while the
-ATM long call gives you the positive convexity you need through the
-eventual reversal. Principle #1 applies recursively here: even if you
-have correctly identified the bubble top, the wrong execution will blow
-you up before the convergence pays you.
+options instead. There are two distinct trades in this phase, and
+they have to be kept separate:
+
+- **Stay long the speculative tier with capped downside.** Replace
+  your remaining long stock in the speculative tier with **long
+  calls** — same upside if the bubble keeps inflating for one more
+  leg, but downside capped at the premium paid. You have already paid
+  your maximum loss the day you opened the position.
+- **Bet on the burst itself.** Use a **front ratio call spread** —
+  long 1 ATM call, short 2 (or more) OTM calls on the same expiry.
+  Net premium is small or zero, often a small credit. Below the long
+  strike the structure expires worthless. *Above* the short strike,
+  losses become unbounded — once the short calls go ITM you are net
+  short calls, and at expiry you are effectively naked short the
+  underlying. **That unbounded upside risk is the feature, not the
+  bug.** This is fundamentally a short position, but a short position
+  with two cushions the naked short doesn't have: a wide window of
+  *price* (the gap from spot to the short strikes) and a wide window
+  of *time* (the days until expiry) where you can be early without
+  being stopped out. It is a more forgiving way to express the same
+  bearish view.
+
+  This trade only works in one specific regime: **price stretched to
+  a parabolic extreme *and* implied volatility stretched to ridiculous
+  levels at the same time.** The rich IV is what makes the short OTM
+  calls fat enough to fund the structure for a small net debit or a
+  credit; without the IV bubble, the cushion shrinks to nothing.
+  Late-bubble IV is also why the symmetric *put*-side structures
+  (bear put spreads, put ratio backspreads) don't work here — by the
+  time the bubble is genuinely ripe, puts have re-priced so high on
+  the same vol expansion that the asymmetry has been priced out. The
+  front ratio call spread flips the expensive vol from headwind to
+  tailwind: you are *selling* the rich vol on the OTM strikes to
+  finance the convexity you actually want.
+
+Principle #1 applies recursively here: even if you have correctly
+identified the bubble top, the wrong execution will blow you up
+before the convergence pays you.
 
 ## 14. Barbell, not core-and-satellite.
 
 I no longer hold passive index funds as the core of my portfolio. The
 shape I run today is a **barbell**: one end is high-conviction safety
-(cash, short-duration Treasuries, gold, deep-ITM long-dated calls on
-names I genuinely want to own); the other end is asymmetric speculation
-(specific structural-alpha trades, late-cycle option positions, single
-names where I have real edge). The middle — the broad market-cap
-weighted "diversified core" — is what I have removed.
+(cash, short-duration Treasuries, gold, plus deep-ITM long-dated calls
+on names I genuinely want to own — see the note on those below); the
+other end is asymmetric speculation (specific structural-alpha trades,
+late-cycle option positions, single names where I have real edge). The
+middle — the broad market-cap weighted "diversified core" — is what I
+have removed.
 
 The reasoning, in short: the passive "diversified core" has, by virtue
 of its own success (#2 and #7), become its own concentration risk. A
@@ -322,15 +380,45 @@ flow of passive money into them. The barbell — actual safety on one
 side, actual edge on the other — ends up *more* diversified than the
 "diversified" core it replaces.
 
+**This is an advanced shape, not a beginner default.** SPY (or the
+equivalent broad-US-equity index ETF) is the right default for a
+reader building their first portfolio: simple, cheap, tax-efficient
+by virtue of low turnover, and it works well as long as the 40-year
+passive consensus keeps working. The barbell is what you migrate to
+*once you have internalised the regime-change thesis (#2)* and built
+the structural-alpha and options toolkit that the speculative end of
+the barbell requires. Without the regime conviction, dropping the
+index core is just unforced tracking error; without the toolkit, the
+speculative end has nothing to put on it. Don't skip the apprenticeship
+to copy the shape.
+
+**On the "deep-ITM long-dated calls" sitting on the safety end.** A
+reasonable objection: a deep-ITM LEAP is leveraged equity exposure,
+not a cash-equivalent — how is that *safety*? Answer: the safety is
+in the **bounded principal at risk**. A typical structure here is
+roughly 3x delta on about one-third of the capital you would
+otherwise put into the underlying shares. The capital efficiency is
+the point. Instead of risking 100% of principal to hold the position,
+you risk one-third (the LEAP premium) and keep most of the upside —
+that is what makes it defensive *relative to outright stock*. It still
+loses when the name does; it is just bounded, and the freed-up
+two-thirds of capital sits in the actual cash/Treasury sleeve. Read
+this leg as "capital-efficient long equity with a known maximum
+loss," not as "cash-equivalent."
+
 ## 15. The largest unspoken fee is tax. Use options and margin to manage it.
 
 For a successful long-only retail investor, the largest "fee" on the
-portfolio is not management fees, not commissions, not bid-ask — it is
-**capital gains tax**. A philosophy that ignores after-tax returns
+portfolio is not management fees, not commissions, not bid-ask — it
+is **capital gains tax**. A philosophy that ignores after-tax returns
 systematically overestimates the value of high-turnover strategies
-(sector rotation, momentum rebalancing) and underestimates the value of
-position-management techniques that adjust *exposure* without
-crystallising the gain.
+(sector rotation, momentum rebalancing) and underestimates the value
+of position-management techniques that adjust *exposure* without
+crystallising the gain. This is also why the sector rotation listed
+as an alpha source in #5 should be expressed *tax-efficiently* —
+exposure-shifted via futures overlays, sector-pair option spreads, or
+paired calls and puts — rather than literally selling and rebuying
+the underlying lots every cycle. Rotate the exposure, not the tax lot.
 
 Options and margin are the practical tools that decouple "exposure"
 from "literally holding the share." Tax follows the share, not the
@@ -347,11 +435,24 @@ exposure:
 - **Free liquidity without selling.** Box spreads and portfolio margin
   let you raise cash against the existing book. The position keeps
   compounding pre-tax; the cash funds the next opportunity.
-- **Harvest losses with synthetic equivalents.** Sell the losing
-  position to crystallise the loss, immediately re-establish the same
-  economic exposure with a synthetic long structured to avoid the
-  wash-sale rule (jurisdiction-permitting). The loss banks against
-  realised gains; the position stays on.
+- **Harvest losses without losing the exposure.** Sell the losing
+  position to crystallise the loss, then re-establish a *substantially
+  similar but not substantially identical* exposure: a different
+  strike or expiry on the options chain, a slightly different delta
+  and skew, a small gap in moneyness — anything that introduces a few
+  percent of option friction or a sliver of skew/gap risk relative to
+  the original position. You are deliberately giving up a little of
+  pure replication so the new position is, on paper, a different
+  security. On paper the wash-sale rule is respected; in spirit you
+  are walking right up to the line of a frankly clumsy law and
+  stepping just over it. Jurisdictions vary — for any reader subject
+  to US tax (which includes anyone holding US-listed securities under
+  US rules), the IRS has *not* given a bright-line exemption for
+  options on the same underlying, and a "long call + short put at the
+  same strike" synthetic looks textbook substantially identical. Get a
+  tax professional to bless the specific structure before relying on
+  it. The loss banks against realised gains; the position stays on,
+  slightly redesigned.
 
 This is one of the durable retail edges over institutional accounts —
 mandates, custody constraints, and reporting cycles often force
@@ -370,22 +471,44 @@ cycle, and every other equity market dances to it.
 The honest geographic carve-out for a retail investor based in HK / TW
 / CN reading this course:
 
-- **Hong Kong listings and mainland Chinese stocks are uninvestable for
-  me.** Capital controls, opaque accounting, regulatory whim, and the
-  absence of meaningful minority-shareholder protection have produced
-  a discount that, in my view, is not a discount at all but a fair
-  reflection of the actual risk. I do not touch them. Many of the
-  brand-name Chinese tech and consumer names will remain headlines for
-  a long time — but headlines are not investments.
-- **Taiwan is essentially TSMC.** The TWSE has one company that
-  matters to a global portfolio. If you want exposure, hold TSMC (or
-  its US-listed ADR) directly; the rest of the index is local-cycle
-  noise.
+- **Hong Kong listings and mainland Chinese stocks are uninvestable
+  for me — this is a personal conviction, not a contrarian price
+  call.** Capital controls, opaque accounting, regulatory whim, and
+  the absence of meaningful minority-shareholder protection have
+  produced a discount that, in my view, is not a discount at all but
+  a fair reflection of the actual risk. The deeper reason underneath
+  all of those is simpler: **you cannot trust a communist government
+  not to take your win away when it suits the state.** The Party does
+  not honour private ownership as a first principle — it tolerates
+  private ownership when it serves the state's purpose and overrides
+  it when it doesn't. CN and HK equities are uninvestable as long as
+  they sit under that political system. This is not a contrarian price
+  call to be revisited every quarter; it is a categorical rule that
+  holds until the political system itself changes. Many of the
+  brand-name Chinese tech and consumer names will remain headlines
+  for a long time — but headlines are not investments.
+- **Taiwan is TSMC plus a handful of world-class tech names.** TSMC
+  alone dominates the index to the point that any other holding is a
+  rounding error to a global book; a small set of other names (the
+  semi-supply-chain ecosystem — MediaTek, Hon Hai, ASE, etc.) are
+  genuinely world-class and worth owning *individually* if you have
+  edge there. Everything else in the TWSE is local-cycle noise,
+  irrelevant to a global portfolio. If you want the exposure, hold
+  the specific names (or TSMC's US-listed ADR) directly — don't bother
+  with the broad index.
 - **The conclusion is uncomfortable but unavoidable.** You cannot
   meaningfully diversify a developed-market equity book without
-  holding US stocks. The default base currency for a serious investor
-  using this course should be **USD-denominated equity exposure**,
-  with the local-currency book relegated to the cash-and-bills tranche.
+  holding **US-listed companies** — and to be precise, the point is
+  the *companies*, not "the US market" as a passive index abstraction.
+  The world's best-in-class businesses across the most important
+  sectors (tech, semis, biotech, payments, defence, energy majors)
+  are disproportionately US-listed; you cannot own a global best-in-
+  class portfolio while excluding them. The default base currency
+  for a serious investor using this course should be **USD-denominated
+  equity exposure**, with the local-currency book relegated to the
+  cash-and-bills tranche. Whether you express that exposure via SPY
+  (the entry-level default — see #14) or a barbell of specific
+  US-listed names (the advanced shape) is a separate decision.
 
 This is a description of the world as it is, not a political statement.
 If the world changes — if China opens its capital account, if the
@@ -393,13 +516,36 @@ dollar reserve system fractures, if regional capital pools start
 setting their own prices — the calculus changes with it. Until then:
 USD equities are the default, not a choice.
 
-## 17. Dragon-portfolio shape: the Fed put is real, but cheap tail hedges are still required.
+## 17. Dragon-inspired shape: more asset classes than equity-and-bonds, but weighted by regime.
 
-I run something close to the **Dragon Portfolio** framing — a mix of
-long equity, gold, trend, and a small but persistent long-volatility
-tail hedge — designed to perform across multiple macro regimes rather
-than be optimised for any single one. Two beliefs sit underneath it,
-and they are partly in tension. That tension *is* the point.
+I run something **inspired by Chris Cole's Dragon Portfolio**, but
+modified — and the modification is important enough that I won't claim
+the name. Cole's original Dragon (Artemis Capital) is built to survive
+the full hundred-year sweep of macro regimes — long equity, long gold,
+long trend-following (CTA), long commodities, and a meaningful
+long-volatility sleeve, all held at relatively static weights so the
+portfolio has *something* working in every regime the twentieth
+century actually produced (inflationary, deflationary, secular bull,
+stagflation). The insight I take from Cole is the **broader asset-
+class palette** — in particular, the recognition that **volatility
+itself is an asset class**, not just a hedging instrument, and
+deserves a permanent allocation alongside equity, gold, and trend.
+
+What I do *differently* from the canonical Dragon is the weighting:
+**I tilt the allocation across the same palette by current regime,
+rather than holding the static all-weather mix.** When passive flows
+and the Fed put are in force (the post-2008 regime through today),
+the long-equity sleeve runs heavy and the long-vol/tail-hedge sleeve
+is small — a low single-digit percentage of the portfolio, structured
+to expire worthless in normal markets and to pay multiples of itself
+when needed. When regime indicators shift toward the kind of
+conditions that argue for the static Dragon (inflation regime change,
+demographic flip, vol regime turn — see #2 and #8), the weights move
+toward Cole's prescription. **The palette is permanent; the weights
+are dynamic.**
+
+Two beliefs sit underneath the current weighting, and they are partly
+in tension. That tension *is* the point.
 
 1. **The Fed put is real.** Since the late 1990s, the Federal Reserve
    has demonstrated, repeatedly and across multiple chairs, that it
@@ -409,22 +555,21 @@ and they are partly in tension. That tension *is* the point.
    bounds the depth (though not the duration) of equity drawdowns and
    biases the long-equity sleeve toward "stay invested most of the
    time."
-2. **Tail hedges are still required.** The Fed put is *conditional*.
-   It can be late, it can be insufficient, it can be politically
-   constrained, or the regime can change (see #2). Cheap convexity —
-   small positions in long-dated OTM puts, long volatility, or option
-   structures with positive convexity to vol — is the insurance that
-   keeps you in the game when the Fed put fails or is slow. The
-   tail-hedge sleeve is small (typically a low single-digit percentage
-   of the portfolio at any time), structured to expire worthless in
-   normal markets, and structured to pay multiples of itself when
-   needed.
+2. **Tail hedges are still required, even when the Fed put is in
+   force.** The Fed put is *conditional*. It can be late, it can be
+   insufficient, it can be politically constrained, or the regime can
+   change (see #2). Cheap convexity — small positions in long-dated
+   OTM puts, long volatility, or option structures with positive
+   convexity to vol — is the insurance that keeps you in the game
+   when the Fed put fails or is slow.
 
 A portfolio built only on "the Fed will save us" has no defence the
 day it doesn't. A portfolio built only on tail hedges bleeds in the
-years when the Fed put works as advertised. The Dragon shape — long
-the regime, small short tail-hedge against the regime ending — is how
-you sit with both convictions at the same time.
+years when the Fed put works as advertised. The Dragon-inspired shape
+lets you sit with both convictions at the same time — long the regime
+that's been paying you, with a small but persistent long-vol sleeve
+hedging the day the regime stops paying — and the regime weighting is
+what re-prices that hedge upward when the conditions actually shift.
 
 ---
 
@@ -442,26 +587,43 @@ the principles above, the lesson must say so explicitly:
 - Never present canon as personal conviction when it isn't, and never
   hide a disagreement to keep the lesson tidy.
 
-### Macro and bottom-up are complementary, not competing
+### Vision, strategy, tactics — borrowed from the military
 
 A natural question reading the principles above: if my real edge is
 macro / structural / flow-based, why does this course teach the
-CFA-style bottom-up curriculum at all? Because the two are
-**complementary, not substitutes**:
+CFA-style bottom-up curriculum at all? Because investing has the
+same three command layers a military operation does, and you need
+all three:
 
-- **Macro is strategy.** It tells you *what* to buy and *what regime*
-  you are in. It tells you whether you should be long equities at all,
-  which sector deserves the overweight, whether duration is your friend
-  or your enemy, whether to hedge the dollar.
-- **CFA-style bottom-up is tactics.** It tells you *when*, *how*, and
-  *what size* to actually express the macro view in a specific
-  instrument. DCF tells you whether the price you are paying for the
-  chosen name is sane given the cash flows. Ratios tell you whether
-  you are buying near a cyclical extreme. Valuation discipline tells
-  you when to scale in and when to take profit.
+- **Vision (this document).** What regime are we in, what regime is
+  coming, what *kind* of market is this? Vision sits a level above
+  strategy — it tells you which strategies are even on the table.
+  SOUL.md is the vision layer of this course: regime conviction,
+  store-of-value beliefs, the role of the Fed put, where alpha
+  actually comes from. Without a vision layer you have no basis for
+  choosing one strategy over another — every strategy looks equally
+  reasonable.
+- **Strategy (macro positioning).** Given the vision, what do you
+  actually buy? Long equities or not? Which sector overweight?
+  Duration friend or enemy? Hedge the dollar? Strategy is the
+  multi-quarter to multi-year positioning that expresses the vision
+  in actual asset-class bets.
+- **Tactics (security selection and execution).** Given the strategy,
+  *which name* and *how* do you express it? DCF, ratios, and
+  valuation discipline (the CFA bottom-up toolkit) tell you which
+  specific name is the cleanest expression at a sane price. Position
+  sizing, options structure, leverage, regime-aware entry and exit
+  (the toolkit running through #1, #6, #8, #12, #13, #15) tell you
+  *how* to put the trade on without blowing up before the thesis pays.
 
-Macro without the tactical toolkit to express the view profitably is
-just a talking head on TV — entertaining, useless. CFA-style tactics
-without a macro strategy is stock-picking in a vacuum — diligent,
-unprofitable. A real retail investor needs both, and that is why the
-course is built the way it is.
+The CFA curriculum covers the *security-selection* half of tactics
+extremely well, the strategy layer poorly, and the vision layer
+almost not at all. The execution half of tactics — sizing, options,
+regime awareness, tax-efficient exposure shifting — sits even further
+outside the canonical curriculum. That gap, across both vision and
+execution, is what this course is built to fill on top of the canon.
+
+Vision without strategy is a talking head on TV — entertaining,
+useless. Strategy without tactics is a forecast nobody traded.
+Tactics without vision and strategy is stock-picking in a vacuum —
+diligent, unprofitable. A real retail investor needs all three.
