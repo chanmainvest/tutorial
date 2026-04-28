@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expense Ratio Drag — Interactive (Week 2)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--xd-bg); }
+:root {
+    --xd-bg: #fdfbf5;
+    --xd-text: #1a2332;
+    --xd-muted: #6b7280;
+    --xd-border: #d6d3c4;
+    --xd-card: #fdfbf5;
+    --xd-accent: #b8860b;
+    --xd-c-index: #1f5e2d;   /* index ETF baseline — green = good */
+    --xd-c-fund:  #c62828;   /* "your fund" — red */
+    --xd-c-gap:   #5a5a5a;   /* the lost-to-fees fill */
+}
+html[data-theme="dark"] .xd-root,
+.xd-root[data-theme="dark"] {
+    --xd-bg: #0f1724;
+    --xd-text: #e6e6e6;
+    --xd-muted: #9aa3b2;
+    --xd-border: #2a3441;
+    --xd-card: #0f1724;
+    --xd-c-index: #66bb6a;
+    --xd-c-fund:  #ef5350;
+    --xd-c-gap:   #9aa3b2;
+}
+.xd-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--xd-bg); color: var(--xd-text);
+    padding: 12px; margin: 0;
+}
+.xd-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--xd-card); border: 1px solid var(--xd-border);
+    border-radius: 8px;
+}
+.xd-slider-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: var(--xd-muted);
+}
+.xd-slider-row .xd-slider-label {
+    min-width: 110px;
+    color: var(--xd-muted); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.4px;
+    font-size: 0.72rem;
+}
+.xd-slider-row input[type="range"] {
+    flex: 1; min-width: 80px;
+    accent-color: var(--xd-accent);
+}
+.xd-slider-row .xd-slider-value {
+    min-width: 80px; text-align: right;
+    color: var(--xd-text); font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.9rem;
+}
+.xd-chart {
+    width: 100%; height: 460px;
+    background: var(--xd-card);
+    border-radius: 8px; border: 1px solid var(--xd-border);
+}
+.xd-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.xd-stat {
+    background: var(--xd-card);
+    border: 1px solid var(--xd-border);
+    border-left: 4px solid var(--xd-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.xd-stat .xd-stat-name {
+    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--xd-muted);
+}
+.xd-stat .xd-stat-val {
+    font-size: 1.2rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.xd-stat .xd-stat-detail {
+    font-size: 0.74rem; color: var(--xd-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.xd-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--xd-muted); line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .xd-controls { grid-template-columns: 1fr; }
+    .xd-stats { grid-template-columns: 1fr 1fr; }
+    .xd-chart { height: 380px; }
+    .xd-slider-row .xd-slider-label { min-width: 96px; }
+}
+</style>
+</head>
+<body>
+
+<div class="xd-root" id="xd-root">
+    <div class="xd-controls">
+        <div class="xd-slider-row">
+            <span class="xd-slider-label" id="xd-lbl-principal">Principal</span>
+            <input type="range" id="xd-principal" min="0" max="1000" step="1" value="667">
+            <span class="xd-slider-value" id="xd-principal-val">$100,000</span>
+        </div>
+        <div class="xd-slider-row">
+            <span class="xd-slider-label" id="xd-lbl-years">Years</span>
+            <input type="range" id="xd-years" min="1" max="50" step="1" value="30">
+            <span class="xd-slider-value" id="xd-years-val">30</span>
+        </div>
+        <div class="xd-slider-row">
+            <span class="xd-slider-label" id="xd-lbl-gross">Gross return</span>
+            <input type="range" id="xd-gross" min="1" max="15" step="0.1" value="10">
+            <span class="xd-slider-value" id="xd-gross-val">10.0%</span>
+        </div>
+        <div class="xd-slider-row">
+            <span class="xd-slider-label" id="xd-lbl-fee">Your fund fee</span>
+            <input type="range" id="xd-fee" min="0" max="3" step="0.05" value="1.0">
+            <span class="xd-slider-value" id="xd-fee-val">1.00%</span>
+        </div>
+    </div>
+    <div id="xd-chart" class="xd-chart"></div>
+    <div class="xd-stats" id="xd-stats">
+        <!-- inserted by JS -->
+    </div>
+    <p class="xd-caption" id="xd-caption">
+        Two wealth trajectories from the same starting principal and the same gross return:
+        an index ETF at a fixed 0.03% expense ratio, and "your fund" at the fee you set.
+        The shaded gap between the lines is wealth lost to fees, compounded year-by-year.
+        Move the sliders to see how principal, horizon, gross return, and fee combine —
+        the fee compounds against you in every regime.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_principal: "Principal", lbl_years: "Years",
+            lbl_gross: "Gross return", lbl_fee: "Your fund fee",
+            xaxis: "Year", yaxis: "Portfolio value (USD)",
+            ser_index: "Index ETF (0.03%)",
+            ser_fund:  "Your fund",
+            ser_index_short: "Index ETF",
+            ser_fund_short:  "Your fund",
+            stat_index: "Index ETF (end value)",
+            stat_fund:  "Your fund (end value)",
+            stat_gap:   "Lost to fees",
+            stat_pct:   "% of terminal wealth lost",
+            caption: "Two wealth trajectories from the same starting principal and the same gross return: an index ETF at a fixed 0.03% expense ratio, and \"your fund\" at the fee you set. The shaded gap between the lines is wealth lost to fees, compounded year-by-year. Move the sliders to see how principal, horizon, gross return, and fee combine — the fee compounds against you in every regime.",
+        },
+        hk: {
+            lbl_principal: "本金", lbl_years: "年期",
+            lbl_gross: "毛回報", lbl_fee: "你嘅基金費用",
+            xaxis: "年份", yaxis: "組合價值(美元)",
+            ser_index: "指數 ETF(0.03%)",
+            ser_fund:  "你嘅基金",
+            ser_index_short: "指數 ETF",
+            ser_fund_short:  "你嘅基金",
+            stat_index: "指數 ETF(期末)",
+            stat_fund:  "你嘅基金(期末)",
+            stat_gap:   "蝕咗去費用",
+            stat_pct:   "蝕咗去費用 %",
+            caption: "兩條財富走勢:相同本金、相同毛回報。一條係指數 ETF,費用率固定 0.03%;另一條係「你嘅基金」,費用率由你拉條 slider 設定。兩條線之間嘅陰影區域,就係每年蝕咗去費用、累加複利之後嘅金額。移動四條 slider 睇下:本金、年期、毛回報、費用率係點樣互相影響——任何環境下,費用都係喺度同你食複利。",
+        },
+        tw: {
+            lbl_principal: "本金", lbl_years: "年期",
+            lbl_gross: "毛報酬", lbl_fee: "你的基金費用",
+            xaxis: "年份", yaxis: "投組價值(美元)",
+            ser_index: "指數 ETF(0.03%)",
+            ser_fund:  "你的基金",
+            ser_index_short: "指數 ETF",
+            ser_fund_short:  "你的基金",
+            stat_index: "指數 ETF(期末)",
+            stat_fund:  "你的基金(期末)",
+            stat_gap:   "被費用吃掉",
+            stat_pct:   "被費用吃掉 %",
+            caption: "兩條財富走勢:相同本金、相同毛報酬。一條是指數 ETF,費用率固定 0.03%;另一條是「你的基金」,費用率由你用 slider 設定。兩條線之間的陰影區域,就是每年被費用吃掉、累積複利之後的金額。拖動四條 slider 看看:本金、年期、毛報酬、費用率彼此如何影響——任何環境下,費用都在跟你複利。",
+        },
+        cn: {
+            lbl_principal: "本金", lbl_years: "年期",
+            lbl_gross: "毛回报", lbl_fee: "你的基金费用",
+            xaxis: "年份", yaxis: "组合价值(美元)",
+            ser_index: "指数 ETF(0.03%)",
+            ser_fund:  "你的基金",
+            ser_index_short: "指数 ETF",
+            ser_fund_short:  "你的基金",
+            stat_index: "指数 ETF(期末)",
+            stat_fund:  "你的基金(期末)",
+            stat_gap:   "被费用吃掉",
+            stat_pct:   "被费用吃掉 %",
+            caption: "两条财富走势:相同本金、相同毛回报。一条是指数 ETF,费用率固定 0.03%;另一条是\"你的基金\",费用率由你用 slider 设定。两条线之间的阴影区域,就是每年被费用吃掉、累积复利之后的金额。拖动四条 slider 看看:本金、年期、毛回报、费用率彼此如何影响——任何环境下,费用都在跟你复利。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- DOM refs ----
+    const ROOT = document.getElementById("xd-root");
+    const CHART = document.getElementById("xd-chart");
+    const STATS_HOST = document.getElementById("xd-stats");
+
+    const SL_PRINCIPAL = document.getElementById("xd-principal");
+    const SL_YEARS     = document.getElementById("xd-years");
+    const SL_GROSS     = document.getElementById("xd-gross");
+    const SL_FEE       = document.getElementById("xd-fee");
+
+    const VAL_PRINCIPAL = document.getElementById("xd-principal-val");
+    const VAL_YEARS     = document.getElementById("xd-years-val");
+    const VAL_GROSS     = document.getElementById("xd-gross-val");
+    const VAL_FEE       = document.getElementById("xd-fee-val");
+
+    // Index baseline expense ratio (fixed) — VOO/IVV at 0.03%.
+    const INDEX_FEE = 0.0003;
+
+    // ---- Helpers ----
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Map slider position 0-1000 → log-scale principal $1K-$1M.
+    function principalFromSlider(s) {
+        const t = s / 1000;
+        const lo = Math.log10(1_000);
+        const hi = Math.log10(1_000_000);
+        return Math.pow(10, lo + t * (hi - lo));
+    }
+    function roundNicePrincipal(v) {
+        // Snap to a "nice" magnitude for the readout — 1/2/5 × 10^k.
+        const k = Math.floor(Math.log10(v));
+        const base = Math.pow(10, k);
+        const m = v / base;
+        let pick;
+        if (m < 1.5) pick = 1;
+        else if (m < 3.5) pick = 2;
+        else if (m < 7.5) pick = 5;
+        else { pick = 1; }
+        if (m >= 7.5) return pick * base * 10;
+        return pick * base;
+    }
+
+    function fmtUSD(v) {
+        if (!isFinite(v)) return "—";
+        if (v >= 1_000_000) return "$" + (v / 1_000_000).toFixed(2) + "M";
+        if (v >= 100_000)   return "$" + (v / 1_000).toFixed(0) + "K";
+        if (v >= 1_000)     return "$" + (v / 1_000).toFixed(1) + "K";
+        return "$" + v.toFixed(0);
+    }
+    function fmtUSDFull(v) {
+        if (!isFinite(v)) return "—";
+        return "$" + Math.round(v).toLocaleString("en-US");
+    }
+
+    function trajectory(p0, gross, fee, years) {
+        const net = gross - fee;
+        const out = new Array(years + 1);
+        for (let y = 0; y <= years; y++) out[y] = p0 * Math.pow(1 + net, y);
+        return out;
+    }
+
+    // ---- Render ----
+    function render() {
+        const principalRaw = principalFromSlider(parseFloat(SL_PRINCIPAL.value));
+        const principal = roundNicePrincipal(principalRaw);
+        const years = parseInt(SL_YEARS.value, 10);
+        const grossPct = parseFloat(SL_GROSS.value);
+        const feePct = parseFloat(SL_FEE.value);
+        const gross = grossPct / 100;
+        const fee = feePct / 100;
+
+        VAL_PRINCIPAL.textContent = fmtUSDFull(principal);
+        VAL_YEARS.textContent = String(years);
+        VAL_GROSS.textContent = grossPct.toFixed(1) + "%";
+        VAL_FEE.textContent = feePct.toFixed(2) + "%";
+
+        const xs = [];
+        for (let y = 0; y <= years; y++) xs.push(y);
+
+        const yIndex = trajectory(principal, gross, INDEX_FEE, years);
+        const yFund  = trajectory(principal, gross, fee, years);
+
+        const colorText  = getCssVar("--xd-text");
+        const colorMuted = getCssVar("--xd-muted");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg    = getCssVar("--xd-card");
+        const cIndex     = getCssVar("--xd-c-index");
+        const cFund      = getCssVar("--xd-c-fund");
+        const cGap       = getCssVar("--xd-c-gap");
+
+        // Decide the visual order so the "lost-to-fees" shading reads correctly:
+        // index line on top of the fund line when fee > 0.03%, vice versa otherwise.
+        const indexHigher = INDEX_FEE <= fee;
+        // Fill between the two lines: draw the lower one first (no fill), then
+        // the higher one with fill: tonexty.
+        const lowerY  = indexHigher ? yFund  : yIndex;
+        const higherY = indexHigher ? yIndex : yFund;
+        const lowerName  = indexHigher ? T.ser_fund_short  : T.ser_index_short;
+        const higherName = indexHigher ? T.ser_index_short : T.ser_fund_short;
+        const lowerColor  = indexHigher ? cFund  : cIndex;
+        const higherColor = indexHigher ? cIndex : cFund;
+
+        // Convert hex/rgb to a translucent rgba for the fill.
+        function toRgba(c, a) {
+            const m = /^#([0-9a-f]{6})$/i.exec(c);
+            if (m) {
+                const v = m[1];
+                const r = parseInt(v.slice(0, 2), 16);
+                const g = parseInt(v.slice(2, 4), 16);
+                const b = parseInt(v.slice(4, 6), 16);
+                return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+            }
+            return c;
+        }
+        const fillRgba = toRgba(cGap, darkMode() ? 0.18 : 0.14);
+
+        const traces = [
+            {
+                x: xs, y: lowerY,
+                type: "scatter", mode: "lines",
+                name: lowerName,
+                line: { color: lowerColor, width: 2.6 },
+                hovertemplate: "<b>" + lowerName + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: xs, y: higherY,
+                type: "scatter", mode: "lines",
+                name: higherName,
+                line: { color: higherColor, width: 2.6 },
+                fill: "tonexty", fillcolor: fillRgba,
+                hovertemplate: "<b>" + higherName + ": %{y:$,.0f}</b><extra></extra>",
+            },
+        ];
+
+        const yMax = Math.max(yIndex[yIndex.length - 1], yFund[yFund.length - 1]);
+
+        const layout = {
+            margin: { l: 72, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "d",
+                showspikes: true, spikemode: "across", spikedash: "dot",
+                spikecolor: colorMuted, spikethickness: 1,
+                range: [0, years],
+            },
+            yaxis: {
+                title: { text: T.yaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "$,.0f",
+                rangemode: "tozero",
+                range: [0, yMax * 1.08],
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // ---- Stats cards ----
+        const endIndex = yIndex[yIndex.length - 1];
+        const endFund  = yFund[yFund.length - 1];
+        const gap = endIndex - endFund;
+        const pctLost = endIndex > 0 ? (gap / endIndex) * 100 : 0;
+
+        STATS_HOST.innerHTML = "";
+        const cards = [
+            { name: T.stat_index, val: fmtUSDFull(endIndex), color: cIndex, detail: "0.03%" },
+            { name: T.stat_fund,  val: fmtUSDFull(endFund),  color: cFund,  detail: feePct.toFixed(2) + "%" },
+            {
+                name: T.stat_gap,
+                val: (gap >= 0 ? "-" : "+") + fmtUSDFull(Math.abs(gap)),
+                color: cGap,
+                detail: years + "y · " + grossPct.toFixed(1) + "%",
+            },
+            {
+                name: T.stat_pct,
+                val: (pctLost >= 0 ? "-" : "+") + Math.abs(pctLost).toFixed(1) + "%",
+                color: cGap,
+                detail: fmtUSDFull(principal) + " → " + fmtUSDFull(endIndex),
+            },
+        ];
+        cards.forEach(c => {
+            const div = document.createElement("div");
+            div.className = "xd-stat";
+            div.style.borderLeftColor = c.color;
+            div.innerHTML =
+                '<div class="xd-stat-name"></div>' +
+                '<div class="xd-stat-val"></div>' +
+                '<div class="xd-stat-detail"></div>';
+            div.children[0].textContent = c.name;
+            div.children[1].textContent = c.val;
+            div.children[2].textContent = c.detail;
+            STATS_HOST.appendChild(div);
+        });
+    }
+
+    // ---- Wire up sliders ----
+    [SL_PRINCIPAL, SL_YEARS, SL_GROSS, SL_FEE].forEach(s => {
+        s.addEventListener("input", render);
+    });
+
+    // ---- i18n ----
+    function applyI18n() {
+        document.getElementById("xd-lbl-principal").textContent = T.lbl_principal;
+        document.getElementById("xd-lbl-years").textContent = T.lbl_years;
+        document.getElementById("xd-lbl-gross").textContent = T.lbl_gross;
+        document.getElementById("xd-lbl-fee").textContent = T.lbl_fee;
+        document.getElementById("xd-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    // ---- iframe height sync ----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---- Theme reactivity ----
+    const themeObserver = new MutationObserver(() => { render(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buy Term and Invest the Difference — Interactive (Week 2)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bt-bg); }
+:root {
+    --bt-bg: #fdfbf5;
+    --bt-text: #1a2332;
+    --bt-muted: #6b7280;
+    --bt-border: #d6d3c4;
+    --bt-card: #fdfbf5;
+    --bt-accent: #b8860b;
+    --bt-c-whole: #c62828;   /* whole life — red, the bad option */
+    --bt-c-term:  #1f5e2d;   /* term + invest — green, the good option */
+    --bt-c-gap:   #5a5a5a;
+}
+html[data-theme="dark"] .bt-root,
+.bt-root[data-theme="dark"] {
+    --bt-bg: #0f1724;
+    --bt-text: #e6e6e6;
+    --bt-muted: #9aa3b2;
+    --bt-border: #2a3441;
+    --bt-card: #0f1724;
+    --bt-c-whole: #ef5350;
+    --bt-c-term:  #66bb6a;
+    --bt-c-gap:   #9aa3b2;
+}
+.bt-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bt-bg); color: var(--bt-text);
+    padding: 12px; margin: 0;
+}
+.bt-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--bt-card); border: 1px solid var(--bt-border);
+    border-radius: 8px;
+}
+.bt-slider-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: var(--bt-muted);
+}
+.bt-slider-row .bt-slider-label {
+    min-width: 130px;
+    color: var(--bt-muted); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.4px;
+    font-size: 0.72rem;
+}
+.bt-slider-row input[type="range"] {
+    flex: 1; min-width: 80px;
+    accent-color: var(--bt-accent);
+}
+.bt-slider-row .bt-slider-value {
+    min-width: 90px; text-align: right;
+    color: var(--bt-text); font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.9rem;
+}
+.bt-chart {
+    width: 100%; height: 460px;
+    background: var(--bt-card);
+    border-radius: 8px; border: 1px solid var(--bt-border);
+}
+.bt-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.bt-stat {
+    background: var(--bt-card);
+    border: 1px solid var(--bt-border);
+    border-left: 4px solid var(--bt-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.bt-stat .bt-stat-name {
+    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--bt-muted);
+}
+.bt-stat .bt-stat-val {
+    font-size: 1.2rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.bt-stat .bt-stat-detail {
+    font-size: 0.74rem; color: var(--bt-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.bt-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--bt-muted); line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .bt-controls { grid-template-columns: 1fr; }
+    .bt-stats { grid-template-columns: 1fr 1fr; }
+    .bt-chart { height: 380px; }
+    .bt-slider-row .bt-slider-label { min-width: 110px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bt-root" id="bt-root">
+    <div class="bt-controls">
+        <div class="bt-slider-row">
+            <span class="bt-slider-label" id="bt-lbl-whole-prem">Whole-life premium</span>
+            <input type="range" id="bt-whole-prem" min="2000" max="30000" step="100" value="8000">
+            <span class="bt-slider-value" id="bt-whole-prem-val">$8,000</span>
+        </div>
+        <div class="bt-slider-row">
+            <span class="bt-slider-label" id="bt-lbl-term-prem">Term premium</span>
+            <input type="range" id="bt-term-prem" min="200" max="3000" step="50" value="500">
+            <span class="bt-slider-value" id="bt-term-prem-val">$500</span>
+        </div>
+        <div class="bt-slider-row">
+            <span class="bt-slider-label" id="bt-lbl-years">Years held</span>
+            <input type="range" id="bt-years" min="5" max="40" step="1" value="20">
+            <span class="bt-slider-value" id="bt-years-val">20</span>
+        </div>
+        <div class="bt-slider-row">
+            <span class="bt-slider-label" id="bt-lbl-etf">ETF return</span>
+            <input type="range" id="bt-etf" min="4" max="12" step="0.1" value="8">
+            <span class="bt-slider-value" id="bt-etf-val">8.0%</span>
+        </div>
+        <div class="bt-slider-row">
+            <span class="bt-slider-label" id="bt-lbl-whole-grow">Whole-life growth</span>
+            <input type="range" id="bt-whole-grow" min="0" max="6" step="0.1" value="3">
+            <span class="bt-slider-value" id="bt-whole-grow-val">3.0%</span>
+        </div>
+    </div>
+    <div id="bt-chart" class="bt-chart"></div>
+    <div class="bt-stats" id="bt-stats">
+        <!-- inserted by JS -->
+    </div>
+    <p class="bt-caption" id="bt-caption">
+        Two strategies for the same $1M death benefit. The whole-life policy uses your entire premium
+        for the policy itself; cash value grows at the rate you set (typically 3% net after agent
+        commission and surrender drag). The term-and-invest strategy buys a cheap level-term policy
+        for the same coverage, and invests the premium difference into an index ETF compounding at
+        the ETF return you set. The chart shows account value, not death benefit — death benefit is
+        identical during the term window. Move the sliders to plug in your own quotes.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_whole_prem: "Whole-life premium",
+            lbl_term_prem: "Term premium",
+            lbl_years: "Years held",
+            lbl_etf: "ETF return",
+            lbl_whole_grow: "Whole-life growth",
+            xaxis: "Year", yaxis: "Account value (USD)",
+            ser_whole: "Whole-life cash value",
+            ser_term:  "Term + ETF investment",
+            ser_whole_short: "Whole-life",
+            ser_term_short:  "Term + ETF",
+            stat_whole: "Whole-life (end value)",
+            stat_term:  "Term + ETF (end value)",
+            stat_gap:   "Gap",
+            stat_ratio: "Ratio",
+            caption: "Two strategies for the same $1M death benefit. The whole-life policy uses your entire premium for the policy itself; cash value grows at the rate you set (typically 3% net after agent commission and surrender drag). The term-and-invest strategy buys a cheap level-term policy for the same coverage, and invests the premium difference into an index ETF compounding at the ETF return you set. The chart shows account value, not death benefit — death benefit is identical during the term window. Move the sliders to plug in your own quotes.",
+        },
+        hk: {
+            lbl_whole_prem: "終身保費",
+            lbl_term_prem: "定期保費",
+            lbl_years: "持有年期",
+            lbl_etf: "ETF 回報",
+            lbl_whole_grow: "終身保險增長",
+            xaxis: "年份", yaxis: "戶口價值(美元)",
+            ser_whole: "終身保險現金價值",
+            ser_term:  "定期保險 + ETF 投資",
+            ser_whole_short: "終身保險",
+            ser_term_short:  "定期 + ETF",
+            stat_whole: "終身保險(期末)",
+            stat_term:  "定期 + ETF(期末)",
+            stat_gap:   "差距",
+            stat_ratio: "倍數",
+            caption: "同樣係 100 萬美元身故賠償,兩種做法。終身保險將你嘅整筆保費用喺保單上,現金價值按你設定嘅速度增長(通常扣除代理佣金同退保損失之後,淨值大概 3%)。定期保險 + 投資嘅做法,係用平嘅水平定期保險買同樣保額,然後將兩者保費差額投入指數 ETF,按你設定嘅 ETF 回報複利增長。圖表顯示嘅係戶口價值,唔係身故賠償——喺定期年期內,兩者身故賠償一樣。拉動 slider,代入你自己嘅報價。",
+        },
+        tw: {
+            lbl_whole_prem: "終身保費",
+            lbl_term_prem: "定期保費",
+            lbl_years: "持有年期",
+            lbl_etf: "ETF 報酬",
+            lbl_whole_grow: "終身保險成長",
+            xaxis: "年份", yaxis: "帳戶價值(美元)",
+            ser_whole: "終身保險現金價值",
+            ser_term:  "定期保險 + ETF 投資",
+            ser_whole_short: "終身保險",
+            ser_term_short:  "定期 + ETF",
+            stat_whole: "終身保險(期末)",
+            stat_term:  "定期 + ETF(期末)",
+            stat_gap:   "差距",
+            stat_ratio: "倍數",
+            caption: "同樣是 100 萬美元身故給付,兩種做法。終身保險把你的整筆保費用在保單上,現金價值按你設定的速度成長(通常扣除業務員佣金與解約損失之後,淨值約 3%)。定期保險 + 投資的做法,是用便宜的平準型定期保險買同樣的保額,然後把兩者保費差額投入指數 ETF,按你設定的 ETF 報酬複利成長。圖表顯示的是帳戶價值,不是身故給付——在定期年期內,兩者身故給付相同。拖動 slider,代入你自己的報價。",
+        },
+        cn: {
+            lbl_whole_prem: "终身保费",
+            lbl_term_prem: "定期保费",
+            lbl_years: "持有年期",
+            lbl_etf: "ETF 回报",
+            lbl_whole_grow: "终身保险增长",
+            xaxis: "年份", yaxis: "账户价值(美元)",
+            ser_whole: "终身保险现金价值",
+            ser_term:  "定期保险 + ETF 投资",
+            ser_whole_short: "终身保险",
+            ser_term_short:  "定期 + ETF",
+            stat_whole: "终身保险(期末)",
+            stat_term:  "定期 + ETF(期末)",
+            stat_gap:   "差距",
+            stat_ratio: "倍数",
+            caption: "同样是 100 万美元身故赔付,两种做法。终身保险把你的整笔保费用在保单上,现金价值按你设定的速度增长(通常扣除业务员佣金与退保损失之后,净值约 3%)。定期保险 + 投资的做法,是用便宜的平准型定期保险买同样的保额,然后把两者保费差额投入指数 ETF,按你设定的 ETF 回报复利增长。图表显示的是账户价值,不是身故赔付——在定期年期内,两者身故赔付相同。拖动 slider,代入你自己的报价。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- DOM refs ----
+    const ROOT = document.getElementById("bt-root");
+    const CHART = document.getElementById("bt-chart");
+    const STATS_HOST = document.getElementById("bt-stats");
+
+    const SL_WHOLE_PREM = document.getElementById("bt-whole-prem");
+    const SL_TERM_PREM  = document.getElementById("bt-term-prem");
+    const SL_YEARS      = document.getElementById("bt-years");
+    const SL_ETF        = document.getElementById("bt-etf");
+    const SL_WHOLE_GROW = document.getElementById("bt-whole-grow");
+
+    const VAL_WHOLE_PREM = document.getElementById("bt-whole-prem-val");
+    const VAL_TERM_PREM  = document.getElementById("bt-term-prem-val");
+    const VAL_YEARS      = document.getElementById("bt-years-val");
+    const VAL_ETF        = document.getElementById("bt-etf-val");
+    const VAL_WHOLE_GROW = document.getElementById("bt-whole-grow-val");
+
+    // ---- Helpers ----
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtUSDFull(v) {
+        if (!isFinite(v)) return "—";
+        return "$" + Math.round(v).toLocaleString("en-US");
+    }
+    function fmtUSDShort(v) {
+        if (!isFinite(v)) return "—";
+        if (Math.abs(v) >= 1_000_000) return "$" + (v / 1_000_000).toFixed(2) + "M";
+        if (Math.abs(v) >= 1_000) return "$" + Math.round(v / 1_000) + "K";
+        return "$" + Math.round(v);
+    }
+
+    // Year-by-year value: deposit at start of year, then grow at rate r.
+    function compoundDeposit(annualDeposit, r, years) {
+        const out = [0];
+        let v = 0;
+        for (let y = 1; y <= years; y++) {
+            v = (v + annualDeposit) * (1 + r);
+            out.push(v);
+        }
+        return out;
+    }
+
+    // ---- Render ----
+    function render() {
+        const wholePremium = parseFloat(SL_WHOLE_PREM.value);
+        const termPremium  = parseFloat(SL_TERM_PREM.value);
+        const years        = parseInt(SL_YEARS.value, 10);
+        const etfPct       = parseFloat(SL_ETF.value);
+        const wholePct     = parseFloat(SL_WHOLE_GROW.value);
+
+        // Term cannot exceed whole — clamp the difference at 0.
+        const investAmount = Math.max(0, wholePremium - termPremium);
+
+        VAL_WHOLE_PREM.textContent = fmtUSDFull(wholePremium);
+        VAL_TERM_PREM.textContent  = fmtUSDFull(termPremium);
+        VAL_YEARS.textContent      = String(years);
+        VAL_ETF.textContent        = etfPct.toFixed(1) + "%";
+        VAL_WHOLE_GROW.textContent = wholePct.toFixed(1) + "%";
+
+        const xs = [];
+        for (let y = 0; y <= years; y++) xs.push(y);
+
+        const whole = compoundDeposit(wholePremium, wholePct / 100, years);
+        const term  = compoundDeposit(investAmount, etfPct / 100, years);
+
+        const colorText  = getCssVar("--bt-text");
+        const colorMuted = getCssVar("--bt-muted");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg    = getCssVar("--bt-card");
+        const cWhole     = getCssVar("--bt-c-whole");
+        const cTerm      = getCssVar("--bt-c-term");
+        const cGap       = getCssVar("--bt-c-gap");
+
+        function toRgba(c, a) {
+            const m = /^#([0-9a-f]{6})$/i.exec(c);
+            if (m) {
+                const v = m[1];
+                const r = parseInt(v.slice(0, 2), 16);
+                const g = parseInt(v.slice(2, 4), 16);
+                const b = parseInt(v.slice(4, 6), 16);
+                return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+            }
+            return c;
+        }
+        const fillRgba = toRgba(cGap, darkMode() ? 0.16 : 0.12);
+
+        // Decide which line is on top so we can draw the gap shading correctly:
+        // term+ETF is usually higher under realistic inputs, but at low ETF returns
+        // or extreme premium parity the whole-life line can briefly dominate.
+        const termHigher = term[term.length - 1] >= whole[whole.length - 1];
+        const lowerY  = termHigher ? whole : term;
+        const higherY = termHigher ? term  : whole;
+        const lowerName  = termHigher ? T.ser_whole_short : T.ser_term_short;
+        const higherName = termHigher ? T.ser_term_short  : T.ser_whole_short;
+        const lowerColor  = termHigher ? cWhole : cTerm;
+        const higherColor = termHigher ? cTerm  : cWhole;
+
+        const traces = [
+            {
+                x: xs, y: lowerY,
+                type: "scatter", mode: "lines",
+                name: lowerName,
+                line: { color: lowerColor, width: 2.6 },
+                hovertemplate: "<b>" + lowerName + ": %{y:$,.0f}</b><extra></extra>",
+            },
+            {
+                x: xs, y: higherY,
+                type: "scatter", mode: "lines",
+                name: higherName,
+                line: { color: higherColor, width: 2.6 },
+                fill: "tonexty", fillcolor: fillRgba,
+                hovertemplate: "<b>" + higherName + ": %{y:$,.0f}</b><extra></extra>",
+            },
+        ];
+
+        const yMax = Math.max(whole[whole.length - 1], term[term.length - 1]);
+
+        const layout = {
+            margin: { l: 78, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "d",
+                showspikes: true, spikemode: "across", spikedash: "dot",
+                spikecolor: colorMuted, spikethickness: 1,
+                range: [0, years],
+            },
+            yaxis: {
+                title: { text: T.yaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "$,.0f",
+                rangemode: "tozero",
+                range: [0, yMax * 1.08],
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // ---- Stats cards ----
+        const endWhole = whole[whole.length - 1];
+        const endTerm  = term[term.length - 1];
+        const gap = endTerm - endWhole;
+        const ratio = endWhole > 0 ? endTerm / endWhole : Infinity;
+
+        STATS_HOST.innerHTML = "";
+        const cards = [
+            { name: T.stat_whole, val: fmtUSDShort(endWhole), color: cWhole, detail: wholePct.toFixed(1) + "% net" },
+            { name: T.stat_term,  val: fmtUSDShort(endTerm),  color: cTerm,  detail: etfPct.toFixed(1) + "% net" },
+            { name: T.stat_gap,
+              val: (gap >= 0 ? "+" : "-") + fmtUSDShort(Math.abs(gap)),
+              color: cGap,
+              detail: years + "y · $" + Math.round(investAmount).toLocaleString("en-US") + "/y invested",
+            },
+            { name: T.stat_ratio, val: isFinite(ratio) ? ratio.toFixed(2) + "x" : "—",
+              color: cGap,
+              detail: fmtUSDShort(wholePremium) + " → " + fmtUSDShort(termPremium),
+            },
+        ];
+        cards.forEach(c => {
+            const div = document.createElement("div");
+            div.className = "bt-stat";
+            div.style.borderLeftColor = c.color;
+            div.innerHTML =
+                '<div class="bt-stat-name"></div>' +
+                '<div class="bt-stat-val"></div>' +
+                '<div class="bt-stat-detail"></div>';
+            div.children[0].textContent = c.name;
+            div.children[1].textContent = c.val;
+            div.children[2].textContent = c.detail;
+            STATS_HOST.appendChild(div);
+        });
+    }
+
+    // ---- Wire up sliders ----
+    [SL_WHOLE_PREM, SL_TERM_PREM, SL_YEARS, SL_ETF, SL_WHOLE_GROW].forEach(s => {
+        s.addEventListener("input", render);
+    });
+
+    // ---- i18n ----
+    function applyI18n() {
+        document.getElementById("bt-lbl-whole-prem").textContent = T.lbl_whole_prem;
+        document.getElementById("bt-lbl-term-prem").textContent = T.lbl_term_prem;
+        document.getElementById("bt-lbl-years").textContent = T.lbl_years;
+        document.getElementById("bt-lbl-etf").textContent = T.lbl_etf;
+        document.getElementById("bt-lbl-whole-grow").textContent = T.lbl_whole_grow;
+        document.getElementById("bt-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    // ---- iframe height sync ----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---- Theme reactivity ----
+    const themeObserver = new MutationObserver(() => { render(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>

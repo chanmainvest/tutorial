@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Official CPI vs ShadowStats — Interactive (Week 1)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sc-bg); }
+:root {
+    --sc-bg: #fdfbf5;
+    --sc-text: #1a2332;
+    --sc-muted: #6b7280;
+    --sc-border: #d6d3c4;
+    --sc-card: #fdfbf5;
+    --sc-official: #0d47a1;
+    --sc-shadow: #b71c1c;
+    --sc-eu: #00897b;
+    --sc-jp: #6a1b9a;
+    --sc-cn: #ef6c00;
+    --sc-tw: #2e7d32;
+    --sc-hk: #8d6e63;
+    --sc-cumul: #5a5a5a;
+    --sc-accent: #b8860b;
+}
+html[data-theme="dark"] .sc-root,
+.sc-root[data-theme="dark"] {
+    --sc-bg: #0f1724;
+    --sc-text: #e6e6e6;
+    --sc-muted: #9aa3b2;
+    --sc-border: #2a3441;
+    --sc-card: #0f1724;
+    --sc-official: #5a8dee;
+    --sc-shadow: #ef5350;
+    --sc-eu: #4db6ac;
+    --sc-jp: #ba68c8;
+    --sc-cn: #ffb74d;
+    --sc-tw: #81c784;
+    --sc-hk: #bcaaa4;
+    --sc-cumul: #b0b0b0;
+}
+.sc-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sc-bg);
+    color: var(--sc-text);
+    padding: 12px;
+    margin: 0;
+}
+.sc-controls {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+}
+.sc-presets {
+    display: inline-flex;
+    border: 1px solid var(--sc-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--sc-card);
+}
+.sc-presets button {
+    border: none; background: transparent; color: var(--sc-muted);
+    padding: 6px 14px; font: inherit; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.sc-presets button:hover { color: var(--sc-text); }
+.sc-presets button.active { background: var(--sc-accent); color: #fff; }
+.sc-slider-wrap {
+    flex: 1; min-width: 220px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: var(--sc-muted);
+}
+.sc-slider-wrap input[type="range"] {
+    flex: 1; accent-color: var(--sc-accent);
+}
+.sc-slider-wrap .sc-window-label {
+    white-space: nowrap; color: var(--sc-text); font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.sc-mode-controls {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 14px; padding: 10px 12px;
+    background: var(--sc-card); border: 1px solid var(--sc-border); border-radius: 8px;
+}
+.sc-mode-controls label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; color: var(--sc-text); font-weight: 600;
+    cursor: pointer; padding: 4px 8px; border-radius: 6px;
+    border: 1px solid transparent;
+}
+.sc-mode-controls label:hover { border-color: var(--sc-border); }
+.sc-mode-controls input[type="radio"] { accent-color: var(--sc-accent); }
+.sc-tg-controls {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 14px; padding: 10px 12px;
+    background: var(--sc-card); border: 1px solid var(--sc-border); border-radius: 8px;
+}
+.sc-tg-controls .sc-tg-label {
+    width: 100%;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--sc-muted);
+    margin-bottom: 4px;
+}
+.sc-tg {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; color: var(--sc-text); font-weight: 600;
+    cursor: pointer; padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--sc-border);
+    background: var(--sc-card); user-select: none;
+}
+.sc-tg input[type="checkbox"] { display: none; }
+.sc-tg .sc-tg-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--sc-muted); transition: background 0.15s;
+}
+.sc-tg.active { border-color: var(--cur-color, var(--sc-accent)); }
+.sc-tg.active .sc-tg-dot { background: var(--cur-color, var(--sc-accent)); }
+.sc-tg.disabled { opacity: 0.5; cursor: not-allowed; }
+.sc-chart {
+    width: 100%; height: 460px;
+    background: var(--sc-card);
+    border-radius: 8px; border: 1px solid var(--sc-border);
+}
+.sc-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.sc-stat {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-border);
+    border-left: 4px solid var(--sc-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.sc-stat.sc-stat-official { border-left-color: var(--sc-official); }
+.sc-stat.sc-stat-shadow { border-left-color: var(--sc-shadow); }
+.sc-stat.sc-stat-gap { border-left-color: var(--sc-accent); }
+.sc-stat .sc-stat-name {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--sc-muted);
+}
+.sc-stat .sc-stat-val {
+    font-size: 1.4rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.sc-stat .sc-stat-detail {
+    font-size: 0.78rem; color: var(--sc-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.sc-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--sc-muted); line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .sc-stats { grid-template-columns: 1fr; }
+    .sc-chart { height: 380px; }
+    .sc-presets button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="sc-root" id="sc-root">
+    <div class="sc-controls">
+        <div class="sc-presets" id="sc-presets" role="tablist" aria-label="Time window">
+            <button type="button" data-years="10">10Y</button>
+            <button type="button" data-years="25">25Y</button>
+            <button type="button" data-years="45">45Y</button>
+            <button type="button" data-years="max" id="sc-preset-max" class="active">Max</button>
+        </div>
+        <div class="sc-slider-wrap">
+            <span id="sc-start-label">Start year</span>
+            <input type="range" id="sc-start-slider" min="1913" max="2025" value="1913" step="1" disabled>
+            <span class="sc-window-label" id="sc-window-label">1913 – 2025</span>
+        </div>
+    </div>
+    <div class="sc-mode-controls">
+        <label><input type="radio" name="sc-mode" value="yoy" checked> <span id="sc-mode-yoy">YoY % change</span></label>
+        <label><input type="radio" name="sc-mode" value="cumul"> <span id="sc-mode-cumul">Cumulative price level (indexed = 100 at start)</span></label>
+    </div>
+    <div class="sc-tg-controls" id="sc-tg">
+        <div class="sc-tg-label" id="sc-tg-heading">Series</div>
+        <!-- toggles inserted by JS -->
+    </div>
+    <div id="sc-chart" class="sc-chart"></div>
+    <div class="sc-stats">
+        <div class="sc-stat sc-stat-official">
+            <div class="sc-stat-name" id="sc-name-official">Official BLS CPI-U</div>
+            <div class="sc-stat-val" id="sc-val-official">—</div>
+            <div class="sc-stat-detail" id="sc-det-official">—</div>
+        </div>
+        <div class="sc-stat sc-stat-shadow">
+            <div class="sc-stat-name" id="sc-name-shadow">ShadowStats 1980-based</div>
+            <div class="sc-stat-val" id="sc-val-shadow">—</div>
+            <div class="sc-stat-detail" id="sc-det-shadow">—</div>
+        </div>
+        <div class="sc-stat sc-stat-gap">
+            <div class="sc-stat-name" id="sc-name-gap">Average gap (window)</div>
+            <div class="sc-stat-val" id="sc-val-gap">—</div>
+            <div class="sc-stat-detail" id="sc-det-gap">—</div>
+        </div>
+    </div>
+    <p class="sc-caption" id="sc-caption">
+        Two ways to see the same gap. "YoY" shows each year's reported inflation rate side by side.
+        "Cumulative" indexes each series to 100 at its own start year and compounds forward, so each
+        country's price level is shown relative to its own first available year (the series start
+        years differ — see below). Toggle additional countries on/off using the pills above the chart.
+        Hover the chart for a year-by-year crosshair. ShadowStats only exists from 1980 onward (the
+        year the methodology is anchored to). Official CPI goes back to 1913 (BLS series start).
+        Eurozone HICP starts 1996; Japan CPI 1960; China CPI 1987; Taiwan CPI 1981;
+        Hong Kong Composite CPI 1981.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            preset_max: "Max", start_year: "Start year",
+            mode_yoy: "YoY % change",
+            mode_cumul: "Cumulative price level (indexed = 100 at start)",
+            tg_heading: "Series",
+            stat_official: "Official BLS CPI-U",
+            stat_shadow:   "ShadowStats 1980-based",
+            stat_gap:      "Average gap (window)",
+            yaxis_yoy:     "Annual inflation rate (%)",
+            yaxis_cumul:   "Price level (indexed = 100 at series start)",
+            xaxis:         "Year",
+            name_official: "Official CPI",
+            name_shadow:   "ShadowStats",
+            name_eu:       "Eurozone",
+            name_jp:       "Japan",
+            name_cn:       "China",
+            name_tw:       "Taiwan",
+            name_hk:       "Hong Kong",
+            caption: 'Two ways to see the same gap. "YoY" shows each year\'s reported inflation rate side by side. "Cumulative" indexes each series to 100 at its own start year and compounds forward — each country\'s price level is shown relative to its own first available year (the series start years differ). Toggle additional countries on/off using the pills above the chart. Hover the chart for a year-by-year crosshair. ShadowStats only exists from 1980 onward (the year the methodology is anchored to). Official CPI goes back to 1913 (BLS series start). Eurozone HICP starts 1996; Japan CPI 1960; China CPI 1987; Taiwan CPI 1981; Hong Kong Composite CPI 1981.',
+        },
+        hk: {
+            preset_max: "全部", start_year: "起始年份",
+            mode_yoy: "按年變化率",
+            mode_cumul: "累計物價指數(起始年 = 100)",
+            tg_heading: "系列",
+            stat_official: "官方 BLS CPI-U",
+            stat_shadow:   "ShadowStats 1980 方法論",
+            stat_gap:      "平均差距(窗口內)",
+            yaxis_yoy:     "年通脹率(%)",
+            yaxis_cumul:   "物價指數(各序列起始年 = 100)",
+            xaxis:         "年份",
+            name_official: "官方 CPI",
+            name_shadow:   "ShadowStats",
+            name_eu:       "歐元區",
+            name_jp:       "日本",
+            name_cn:       "中國",
+            name_tw:       "台灣",
+            name_hk:       "香港",
+            caption: '兩種方式看同一個差距。「按年變化率」並排展示每年的官方通脹數字。「累計物價指數」將每條序列在其自身起始年設為 100,然後按複利向前推算 — 即每個國家/地區的物價水平相對於其自身首個可用年份(各序列起始年不同)。可用圖表上方的按鈕開關各國/地區序列。把游標移到圖上會出現逐年十字線。ShadowStats 只從 1980 年起(其方法論的錨定年份);官方 CPI 可以追溯到 1913 年(BLS 系列的起點);歐元區 HICP 由 1996 年起;日本 CPI 由 1960 年起;中國 CPI 由 1987 年起;台灣 CPI 由 1981 年起;香港綜合 CPI 由 1981 年起。',
+        },
+        tw: {
+            preset_max: "全部", start_year: "起始年份",
+            mode_yoy: "按年變化率",
+            mode_cumul: "累計物價指數(起始年 = 100)",
+            tg_heading: "系列",
+            stat_official: "官方 BLS CPI-U",
+            stat_shadow:   "ShadowStats 1980 方法論",
+            stat_gap:      "平均差距(窗口內)",
+            yaxis_yoy:     "年通膨率(%)",
+            yaxis_cumul:   "物價指數(各序列起始年 = 100)",
+            xaxis:         "年份",
+            name_official: "官方 CPI",
+            name_shadow:   "ShadowStats",
+            name_eu:       "歐元區",
+            name_jp:       "日本",
+            name_cn:       "中國",
+            name_tw:       "台灣",
+            name_hk:       "香港",
+            caption: '兩種方式看同一個差距。「按年變化率」並排展示每年的官方通膨數字。「累計物價指數」將每條序列在其自身起始年設為 100,再按複利向前推算 — 即各國家/地區的物價水準相對於其自身首個可用年份(各序列起始年不同)。可用圖表上方的按鈕開關各國/地區序列。將游標移到圖上會出現逐年十字線。ShadowStats 只從 1980 年起(其方法論的錨定年份);官方 CPI 可以追溯到 1913 年(BLS 系列的起點);歐元區 HICP 由 1996 年起;日本 CPI 由 1960 年起;中國 CPI 由 1987 年起;台灣 CPI 由 1981 年起;香港綜合 CPI 由 1981 年起。',
+        },
+        cn: {
+            preset_max: "全部", start_year: "起始年份",
+            mode_yoy: "按年变化率",
+            mode_cumul: "累计物价指数(起始年 = 100)",
+            tg_heading: "系列",
+            stat_official: "官方 BLS CPI-U",
+            stat_shadow:   "ShadowStats 1980 方法论",
+            stat_gap:      "平均差距(窗口内)",
+            yaxis_yoy:     "年通胀率(%)",
+            yaxis_cumul:   "物价指数(各序列起始年 = 100)",
+            xaxis:         "年份",
+            name_official: "官方 CPI",
+            name_shadow:   "ShadowStats",
+            name_eu:       "欧元区",
+            name_jp:       "日本",
+            name_cn:       "中国",
+            name_tw:       "台湾",
+            name_hk:       "香港",
+            caption: '两种方式看同一个差距。"按年变化率"并排展示每年的官方通胀数字。"累计物价指数"将每条序列在其自身起始年设为 100,再按复利向前推算 — 即各国家/地区的物价水平相对于其自身首个可用年份(各序列起始年不同)。可用图表上方的按钮开关各国/地区序列。把光标移到图上会出现逐年十字线。ShadowStats 只从 1980 年起(其方法论的锚定年份);官方 CPI 可以追溯到 1913 年(BLS 系列的起点);欧元区 HICP 自 1996 年起;日本 CPI 自 1960 年起;中国 CPI 自 1987 年起;台湾 CPI 自 1981 年起;香港综合 CPI 自 1981 年起。',
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // -------- Data --------
+    // Official US CPI YoY % (decimal), 1913-2025.
+    // Source: BLS CPI-U annual averages.
+    const CPI_START = 1913;
+    const OFFICIAL = [
+        // 1913–1919
+        0.011, 0.010, 0.010, 0.076, 0.178, 0.180, 0.146,
+        // 1920s
+        0.156,-0.105,-0.061, 0.018, 0.000, 0.024, 0.000,-0.012,-0.012, 0.000,
+        // 1930s
+       -0.023,-0.089,-0.103,-0.052, 0.035, 0.026, 0.010, 0.037,-0.020,-0.013,
+        // 1940s
+        0.007, 0.050, 0.109, 0.060, 0.016, 0.023, 0.085, 0.144, 0.081,-0.012,
+        // 1950s
+        0.013, 0.079, 0.019, 0.008, 0.007,-0.004, 0.015, 0.033, 0.027, 0.009,
+        // 1960s
+        0.015, 0.011, 0.012, 0.012, 0.013, 0.016, 0.029, 0.031, 0.042, 0.055,
+        // 1970s
+        0.057, 0.044, 0.032, 0.062, 0.110, 0.091, 0.057, 0.065, 0.076, 0.113,
+        // 1980s
+        0.135, 0.103, 0.062, 0.032, 0.043, 0.035, 0.019, 0.037, 0.041, 0.048,
+        // 1990s
+        0.054, 0.042, 0.030, 0.030, 0.026, 0.028, 0.030, 0.023, 0.016, 0.022,
+        // 2000s
+        0.034, 0.028, 0.016, 0.023, 0.027, 0.034, 0.032, 0.029, 0.038,-0.004,
+        // 2010s
+        0.016, 0.032, 0.021, 0.015, 0.016, 0.001, 0.013, 0.021, 0.024, 0.018,
+        // 2020-2025
+        0.012, 0.047, 0.080, 0.041, 0.029, 0.026,
+    ];
+    // ShadowStats 1980-based CPI alternate, 1980-2025.
+    // Approximation from public summaries of John Williams' series; numbers
+    // here are within ~1 pp of published values. See course/image/week01_shadow_cpi.py
+    // for the methodology caveat (ShadowStats critique included).
+    const SHADOW_START = 1980;
+    const SHADOW = [
+        // 1980s
+        0.140, 0.110, 0.075, 0.045, 0.055, 0.045, 0.030, 0.050, 0.055, 0.065,
+        // 1990s
+        0.070, 0.060, 0.050, 0.050, 0.050, 0.055, 0.060, 0.055, 0.050, 0.055,
+        // 2000s
+        0.070, 0.065, 0.055, 0.060, 0.070, 0.080, 0.080, 0.080, 0.095, 0.060,
+        // 2010s
+        0.075, 0.090, 0.085, 0.080, 0.080, 0.070, 0.080, 0.090, 0.095, 0.090,
+        // 2020-2025
+        0.085, 0.120, 0.150, 0.110, 0.100, 0.095,
+    ];
+
+    // -------- International CPI series (annual YoY, decimal) --------
+    // All series end in 2025. Sources: OECD / Eurostat / IMF / national
+    // statistics agencies; ±0.3 pp accuracy is acceptable for this educational
+    // chart. Where authoritative figures are not yet available for 2025, the
+    // last value is a reasonable forecast based on H1-2025 prints.
+
+    // Eurozone HICP, 1996-2025 (Eurostat aggregate).
+    const EU_START = 1996;
+    const EU_HICP = [
+        // 1996-1999
+        0.022, 0.016, 0.011, 0.011,
+        // 2000s
+        0.022, 0.024, 0.022, 0.021, 0.022, 0.022, 0.022, 0.021, 0.033, 0.003,
+        // 2010s
+        0.016, 0.027, 0.025, 0.013, 0.004, 0.000, 0.002, 0.015, 0.018, 0.012,
+        // 2020-2025
+        0.003, 0.026, 0.084, 0.054, 0.024, 0.021,
+    ];
+
+    // Japan CPI, 1960-2025 (Statistics Bureau / OECD).
+    // 1960s-70s reflect the high-growth and oil-shock era (1974 spike ~23%).
+    const JP_START = 1960;
+    const JP_CPI = [
+        // 1960s
+        0.036, 0.054, 0.067, 0.076, 0.039, 0.066, 0.051, 0.040, 0.054, 0.052,
+        // 1970s
+        0.077, 0.063, 0.048, 0.117, 0.231, 0.117, 0.094, 0.081, 0.038, 0.037,
+        // 1980s
+        0.078, 0.049, 0.027, 0.019, 0.022, 0.020, 0.006, 0.001, 0.007, 0.023,
+        // 1990s
+        0.031, 0.033, 0.017, 0.013, 0.007,-0.001, 0.001, 0.018, 0.007,-0.003,
+        // 2000s
+       -0.007,-0.007,-0.009,-0.003, 0.000,-0.003, 0.003, 0.001, 0.014,-0.014,
+        // 2010s
+       -0.007,-0.003, 0.000, 0.003, 0.027, 0.008,-0.001, 0.005, 0.010, 0.005,
+        // 2020-2025
+        0.000,-0.002, 0.025, 0.032, 0.027, 0.030,
+    ];
+
+    // China CPI, 1987-2025 (NBS / OECD).
+    // 1988-89 (~18-25%) and 1994 (~24%) spikes are real (overheating + price reform).
+    const CN_START = 1987;
+    const CN_CPI = [
+        // 1987-1989
+        0.072, 0.185, 0.178,
+        // 1990s
+        0.031, 0.034, 0.064, 0.144, 0.241, 0.170, 0.083, 0.028,-0.008,-0.014,
+        // 2000s
+        0.004, 0.007,-0.008, 0.012, 0.039, 0.018, 0.015, 0.048, 0.059,-0.007,
+        // 2010s
+        0.033, 0.054, 0.026, 0.026, 0.020, 0.014, 0.020, 0.016, 0.021, 0.029,
+        // 2020-2025
+        0.025, 0.009, 0.020, 0.002,-0.003, 0.005,
+    ];
+
+    // Taiwan CPI, 1981-2025 (DGBAS).
+    const TW_START = 1981;
+    const TW_CPI = [
+        // 1981-1989
+        0.160, 0.030, 0.014, 0.000,-0.002, 0.007, 0.005, 0.013, 0.044,
+        // 1990s
+        0.041, 0.036, 0.045, 0.029, 0.041, 0.037, 0.030, 0.009, 0.017, 0.002,
+        // 2000s
+        0.013, 0.000,-0.002,-0.003, 0.016, 0.023, 0.006, 0.018, 0.036,-0.009,
+        // 2010s
+        0.010, 0.014, 0.019, 0.008, 0.012,-0.003, 0.014, 0.006, 0.014, 0.005,
+        // 2020-2025
+       -0.002, 0.020, 0.030, 0.025, 0.022, 0.020,
+    ];
+
+    // Hong Kong Composite CPI, 1981-2025 (C&SD).
+    // 1997-2003 deflation period after the Asian crisis is real.
+    const HK_START = 1981;
+    const HK_CPI = [
+        // 1981-1989
+        0.151, 0.106, 0.099, 0.082, 0.032, 0.029, 0.054, 0.075, 0.102,
+        // 1990s
+        0.099, 0.121, 0.094, 0.085, 0.081, 0.090, 0.063, 0.058,-0.029,-0.040,
+        // 2000s
+       -0.038,-0.016,-0.030,-0.026,-0.004, 0.009, 0.020, 0.020, 0.043, 0.005,
+        // 2010s
+        0.024, 0.053, 0.041, 0.043, 0.044, 0.030, 0.024, 0.015, 0.024, 0.029,
+        // 2020-2025
+        0.003, 0.016, 0.019, 0.021, 0.019, 0.020,
+    ];
+
+    const YEARS = [];
+    for (let y = CPI_START; y <= CPI_START + OFFICIAL.length - 1; y++) YEARS.push(y);
+
+    // Build aligned series with nulls before each series' start year so each
+    // line breaks cleanly at its first available year.
+    function alignSeries(values, startYear) {
+        const out = new Array(YEARS.length).fill(null);
+        for (let i = 0; i < values.length; i++) {
+            const yr = startYear + i;
+            const idx = yr - CPI_START;
+            if (idx >= 0 && idx < out.length) out[idx] = values[i];
+        }
+        return out;
+    }
+    const SHADOW_ALIGNED   = alignSeries(SHADOW,  SHADOW_START);
+    const EU_ALIGNED       = alignSeries(EU_HICP, EU_START);
+    const JP_ALIGNED       = alignSeries(JP_CPI,  JP_START);
+    const CN_ALIGNED       = alignSeries(CN_CPI,  CN_START);
+    const TW_ALIGNED       = alignSeries(TW_CPI,  TW_START);
+    const HK_ALIGNED       = alignSeries(HK_CPI,  HK_START);
+
+    // -------- Series config (key, color var, default visibility) --------
+    // Default ON: US Official + US ShadowStats (the two anchor series the
+    // lesson is arguing about). Default OFF: the international comparators
+    // (Eurozone, Japan, China, Taiwan, Hong Kong) — useful supplements that
+    // would otherwise crowd the chart on first paint.
+    const SERIES = [
+        { key: "official", color: "--sc-official", default: true,  width: 2.6 },
+        { key: "shadow",   color: "--sc-shadow",   default: true,  width: 2.6 },
+        { key: "eu",       color: "--sc-eu",       default: false, width: 2.2 },
+        { key: "jp",       color: "--sc-jp",       default: false, width: 2.2 },
+        { key: "cn",       color: "--sc-cn",       default: false, width: 2.2 },
+        { key: "tw",       color: "--sc-tw",       default: false, width: 2.2 },
+        { key: "hk",       color: "--sc-hk",       default: false, width: 2.2 },
+    ];
+
+    // -------- DOM refs --------
+    const ROOT = document.getElementById("sc-root");
+    const CHART = document.getElementById("sc-chart");
+    const PRESETS = document.getElementById("sc-presets");
+    const SLIDER = document.getElementById("sc-start-slider");
+    const WINDOW_LABEL = document.getElementById("sc-window-label");
+    const MODE_RADIOS = document.querySelectorAll('input[name="sc-mode"]');
+    const TG_HOST = document.getElementById("sc-tg");
+
+    let preset = "max";
+    let startYear = YEARS[0];
+    let mode = "yoy";  // "yoy" or "cumul"
+    const enabled = {};
+    SERIES.forEach(s => { enabled[s.key] = s.default; });
+
+    // Build the toggle pill row above the chart. Rebuild on theme change so
+    // the per-series colour vars resolve against the current theme.
+    function buildToggles() {
+        const heading = TG_HOST.querySelector(".sc-tg-label");
+        TG_HOST.innerHTML = "";
+        if (heading) TG_HOST.appendChild(heading);
+        SERIES.forEach(s => {
+            const colorVar = getCssVar(s.color);
+            const lbl = document.createElement("label");
+            lbl.className = "sc-tg" + (enabled[s.key] ? " active" : "");
+            lbl.style.setProperty("--cur-color", colorVar);
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = enabled[s.key];
+            cb.addEventListener("change", () => {
+                enabled[s.key] = cb.checked;
+                lbl.classList.toggle("active", enabled[s.key]);
+                render();
+            });
+            const dot = document.createElement("span");
+            dot.className = "sc-tg-dot";
+            const txt = document.createElement("span");
+            txt.textContent = T["name_" + s.key];
+            lbl.appendChild(cb);
+            lbl.appendChild(dot);
+            lbl.appendChild(txt);
+            TG_HOST.appendChild(lbl);
+        });
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function fmtPct(v, decimals) {
+        if (v === null || !isFinite(v)) return "—";
+        const d = decimals === undefined ? 1 : decimals;
+        const sign = v >= 0 ? "+" : "";
+        return sign + v.toFixed(d) + "%";
+    }
+    function fmtMoney(v) {
+        if (v === null || !isFinite(v)) return "—";
+        if (Math.abs(v) >= 1) return "$" + v.toFixed(2);
+        return "$" + v.toFixed(3);
+    }
+
+    // Convert a window-slice of YoY decimals to a price-level index series
+    // anchored at 100 on the series' own first non-null observation in the
+    // window. Years before the first observation stay null. The first
+    // observation itself is set to 100, then each subsequent year is
+    // multiplied by (1 + r). Nulls inside the window are skipped (carry
+    // forward / produce null on that point).
+    function toPriceIndex(yoyArr) {
+        const out = new Array(yoyArr.length).fill(null);
+        let level = null;
+        for (let i = 0; i < yoyArr.length; i++) {
+            const r = yoyArr[i];
+            if (r === null || !isFinite(r)) {
+                out[i] = null;
+                continue;
+            }
+            if (level === null) {
+                level = 100;
+                out[i] = level;
+            } else {
+                level = level * (1 + r);
+                out[i] = level;
+            }
+        }
+        return out;
+    }
+
+    function render() {
+        // Resolve window
+        const totalYears = YEARS.length;
+        let startIdx, endIdx;
+        if (preset === "max") {
+            startIdx = 0; endIdx = totalYears - 1;
+        } else {
+            const yearsCount = parseInt(preset, 10);
+            const maxStart = YEARS[totalYears - yearsCount];
+            const safeStart = Math.min(Math.max(startYear, YEARS[0]), maxStart);
+            startIdx = safeStart - YEARS[0];
+            endIdx = startIdx + yearsCount - 1;
+            startYear = safeStart;
+            SLIDER.min = String(YEARS[0]);
+            SLIDER.max = String(maxStart);
+            SLIDER.value = String(safeStart);
+        }
+        const yrs = YEARS.slice(startIdx, endIdx + 1);
+        const off = OFFICIAL.slice(startIdx, endIdx + 1);
+        const sha = SHADOW_ALIGNED.slice(startIdx, endIdx + 1);
+        const eu  = EU_ALIGNED.slice(startIdx, endIdx + 1);
+        const jp  = JP_ALIGNED.slice(startIdx, endIdx + 1);
+        const cn  = CN_ALIGNED.slice(startIdx, endIdx + 1);
+        const tw  = TW_ALIGNED.slice(startIdx, endIdx + 1);
+        const hk  = HK_ALIGNED.slice(startIdx, endIdx + 1);
+
+        WINDOW_LABEL.textContent = `${yrs[0]} – ${yrs[yrs.length - 1]}`;
+
+        // Build the y-series depending on mode
+        let offY, shaY, euY, jpY, cnY, twY, hkY, yLabel, hoverFmt, ytickfmt;
+        if (mode === "yoy") {
+            const toPct = a => a.map(v => v === null ? null : v * 100);
+            offY = toPct(off);
+            shaY = toPct(sha);
+            euY  = toPct(eu);
+            jpY  = toPct(jp);
+            cnY  = toPct(cn);
+            twY  = toPct(tw);
+            hkY  = toPct(hk);
+            yLabel = T.yaxis_yoy;
+            hoverFmt = ":.2f";
+            ytickfmt = ".1f";
+        } else {
+            // Cumulative price level: each series indexed to 100 at its own
+            // first non-null point inside the window, then compounded forward.
+            offY = toPriceIndex(off);
+            shaY = toPriceIndex(sha);
+            euY  = toPriceIndex(eu);
+            jpY  = toPriceIndex(jp);
+            cnY  = toPriceIndex(cn);
+            twY  = toPriceIndex(tw);
+            hkY  = toPriceIndex(hk);
+            yLabel = T.yaxis_cumul;
+            hoverFmt = ":,.1f";
+            ytickfmt = ",.0f";
+        }
+
+        const colorOff = getCssVar("--sc-official");
+        const colorSha = getCssVar("--sc-shadow");
+        const colorEu  = getCssVar("--sc-eu");
+        const colorJp  = getCssVar("--sc-jp");
+        const colorCn  = getCssVar("--sc-cn");
+        const colorTw  = getCssVar("--sc-tw");
+        const colorHk  = getCssVar("--sc-hk");
+        const colorText = getCssVar("--sc-text");
+        const colorMuted = getCssVar("--sc-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--sc-card");
+
+        // Map series keys to (yArr, color) for trace assembly below.
+        const SERIES_DATA = {
+            official: { y: offY, color: colorOff },
+            shadow:   { y: shaY, color: colorSha },
+            eu:       { y: euY,  color: colorEu  },
+            jp:       { y: jpY,  color: colorJp  },
+            cn:       { y: cnY,  color: colorCn  },
+            tw:       { y: twY,  color: colorTw  },
+            hk:       { y: hkY,  color: colorHk  },
+        };
+
+        // Build only the traces for series that the toggle row says are
+        // enabled. Use the short name for both the legend entry and the
+        // unified-hover row so neither overflows in CJK locales.
+        const data = [];
+        SERIES.forEach(s => {
+            if (!enabled[s.key]) return;
+            const sd = SERIES_DATA[s.key];
+            const shortName = T["name_" + s.key];
+            data.push({
+                x: yrs, y: sd.y, name: shortName,
+                type: "scatter", mode: "lines",
+                line: { color: sd.color, width: s.width },
+                connectgaps: false,
+                hovertemplate: "<b>" + shortName + ": %{y" + hoverFmt + "}</b><extra></extra>",
+            });
+        });
+
+        const layout = {
+            margin: { l: 64, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "d",
+                showspikes: true,
+                spikemode: "across",
+                spikedash: "dot",
+                spikecolor: colorMuted,
+                spikethickness: 1,
+            },
+            yaxis: {
+                title: { text: yLabel, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: ytickfmt,
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+                // Legend is a passive colour reference — interaction is via the
+                // toggle pills above the chart, so we disable click-toggle so
+                // there's only one mechanism users have to learn.
+                itemclick: false,
+                itemdoubleclick: false,
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+        };
+
+        Plotly.react(CHART, data, layout, { displayModeBar: false, responsive: true });
+
+        // Stats: latest values + average gap across the window (US Official vs ShadowStats)
+        const latestOff = off[off.length - 1];
+        const latestSha = sha[sha.length - 1];
+
+        let gapValues = [];
+        for (let i = 0; i < off.length; i++) {
+            if (off[i] !== null && sha[i] !== null) {
+                gapValues.push((sha[i] - off[i]) * 100);
+            }
+        }
+        const avgGap = gapValues.length
+            ? gapValues.reduce((a, b) => a + b, 0) / gapValues.length
+            : null;
+
+        // Cumulative loss across the window (for the detail line)
+        let cumOffPP = 100, cumShaPP = 100;
+        for (const r of off) cumOffPP /= (1 + (r || 0));
+        for (const r of sha) if (r !== null) cumShaPP /= (1 + r);
+
+        document.getElementById("sc-val-official").textContent = fmtPct(latestOff * 100);
+        document.getElementById("sc-val-shadow").textContent = latestSha === null ? "—" : fmtPct(latestSha * 100);
+        document.getElementById("sc-val-gap").textContent = fmtPct(avgGap, 1);
+
+        document.getElementById("sc-det-official").textContent =
+            "$100 → " + fmtMoney(cumOffPP) + " over window";
+        document.getElementById("sc-det-shadow").textContent =
+            sha.some(v => v !== null)
+                ? "$100 → " + fmtMoney(cumShaPP) + " (post-1980 portion)"
+                : "no data in window";
+        document.getElementById("sc-det-gap").textContent =
+            gapValues.length + " overlapping years";
+    }
+
+    // Wiring
+    PRESETS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PRESETS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            preset = btn.dataset.years;
+            if (preset === "max") {
+                SLIDER.disabled = true;
+            } else {
+                SLIDER.disabled = false;
+                const yearsCount = parseInt(preset, 10);
+                startYear = YEARS[YEARS.length - yearsCount];
+            }
+            render();
+        });
+    });
+    SLIDER.addEventListener("input", () => {
+        startYear = parseInt(SLIDER.value, 10);
+        render();
+    });
+    MODE_RADIOS.forEach(r => r.addEventListener("change", () => {
+        if (r.checked) { mode = r.value; render(); }
+    }));
+
+    function applyI18n() {
+        document.getElementById("sc-start-label").textContent = T.start_year;
+        document.getElementById("sc-preset-max").textContent = T.preset_max;
+        document.getElementById("sc-mode-yoy").textContent = T.mode_yoy;
+        document.getElementById("sc-mode-cumul").textContent = T.mode_cumul;
+        document.getElementById("sc-tg-heading").textContent = T.tg_heading;
+        document.getElementById("sc-name-official").textContent = T.stat_official;
+        document.getElementById("sc-name-shadow").textContent = T.stat_shadow;
+        document.getElementById("sc-name-gap").textContent = T.stat_gap;
+        document.getElementById("sc-caption").textContent = T.caption;
+    }
+    applyI18n();
+    buildToggles();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(() => { buildToggles(); render(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>

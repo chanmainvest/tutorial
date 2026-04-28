@@ -686,13 +686,22 @@ let chatHistory = [];
 let pendingAbort = null;
 
 // ----- Cross-page persistence --------------------------------------------
-// sessionStorage scope = current browser tab. When the user navigates to
-// another lesson, the panel re-pops in the same state (open/closed,
-// previous conversation, model already-loaded → auto-reload from cache).
+// Two scopes:
+//   sessionStorage = current browser tab. Holds the panel's open/closed
+//     state, the current conversation, and the user's per-tab language
+//     index choice. These are tab-scoped concepts and shouldn't leak
+//     across tabs.
+//   localStorage = browser-wide, survives tab close. Holds only the
+//     "model has been loaded once on this device" flag, which lets
+//     `buildPanel` skip the intro/load-button and auto-load from cache
+//     on any future visit (any tab, any page). The flag tracks consent
+//     to the 3.1 GB download — once given, we don't ask again. If the
+//     IndexedDB cache is later evicted, auto-load will silently
+//     re-download from Hugging Face (the cache layer handles this).
 const STATE_KEYS = {
     open: "chanma-chat-open",
     history: "chanma-chat-history",
-    loaded: "chanma-chat-loaded",
+    loaded: "chanma-chat-loaded",          // localStorage (persistent)
     indexLangs: "chanma-chat-index-langs",
 };
 
@@ -702,11 +711,17 @@ function readState(key) {
 function writeState(key, value) {
     try { sessionStorage.setItem(key, value); } catch (err) { /* quota / disabled */ }
 }
+function readPersistent(key) {
+    try { return localStorage.getItem(key); } catch (err) { return null; }
+}
+function writePersistent(key, value) {
+    try { localStorage.setItem(key, value); } catch (err) { /* quota / disabled */ }
+}
 function saveOpenState(open) { writeState(STATE_KEYS.open, open ? "1" : "0"); }
 function saveHistoryState() {
     try { writeState(STATE_KEYS.history, JSON.stringify(chatHistory)); } catch (err) {}
 }
-function markLoadedState() { writeState(STATE_KEYS.loaded, "1"); }
+function markLoadedState() { writePersistent(STATE_KEYS.loaded, "1"); }
 function saveCheckedLangsState(langs) {
     try { writeState(STATE_KEYS.indexLangs, JSON.stringify(langs)); } catch (err) {}
 }
@@ -718,7 +733,7 @@ function loadHistoryState() {
         if (Array.isArray(parsed)) chatHistory = parsed;
     } catch (err) { /* ignore corrupt entry */ }
 }
-function wasLoadedBefore() { return readState(STATE_KEYS.loaded) === "1"; }
+function wasLoadedBefore() { return readPersistent(STATE_KEYS.loaded) === "1"; }
 function getStoredCheckedLangs() {
     const raw = readState(STATE_KEYS.indexLangs);
     if (!raw) return null;
@@ -1286,11 +1301,59 @@ function buildPanel() {
     const body = el("div", { class: "chat-body" });
     panel.appendChild(body);
     document.body.appendChild(panel);
-    buildIntroPanel(panel, body);
+    if (wasLoadedBefore()) {
+        // Model was already loaded earlier in this tab session — the weights
+        // are cached, so skip the intro/load-button entirely and auto-load
+        // from cache. Restores conversation history if any.
+        loadHistoryState();
+        restoreLoadedSession(panel, body).catch((err) =>
+            console.warn("auto-load on panel build failed", err));
+    } else {
+        buildIntroPanel(panel, body);
+    }
     // Probe IndexedDB for any cached indexes from previous sessions, then
     // render the chip with the correct state for the current language.
     probeAllCachedIndexes().then(refreshIndexChip).catch(() => refreshIndexChip());
     return panel;
+}
+
+// Re-create the chat UI for a session where the Gemma weights are already
+// in the browser cache (from an earlier load this tab). Used both when
+// auto-restoring a panel that was open on the previous page and when the
+// user re-opens a closed panel via the FAB on a new page.
+async function restoreLoadedSession(panel, body) {
+    body.innerHTML = "";
+    body.classList.add("chat-body");
+
+    const progressHost = el("div", { class: "chat-intro chat-restore-host" });
+    body.appendChild(progressHost);
+    if (chatHistory.length) renderHistoryIntoBody(body);
+
+    ensureComposer(panel);
+    setComposerEnabled(panel, false);
+
+    const checkedLangs = getStoredCheckedLangs() || [currentLocale()];
+
+    try {
+        loadEmbedder().catch((err) => console.warn("embedder load failed", err));
+        loadChunks().catch((err) => console.warn("chunks load failed", err));
+        const indexingPromise = (async () => {
+            await probeAllCachedIndexes();
+            for (const lang of checkedLangs) {
+                if (getLangIndexState(lang) === "ready") continue;
+                try { await buildIndexFor(lang); } catch (err) { /* chip shows error */ }
+            }
+        })();
+
+        await loadGenerator(progressHost);
+        progressHost.remove();
+        setComposerEnabled(panel, true);
+        refreshIndexChip();
+        indexingPromise.catch((err) => console.warn("indexing failed", err));
+    } catch (err) {
+        progressHost.appendChild(el("p", { class: "chat-msg error" },
+            t("load_failed") + (err && err.message || String(err))));
+    }
 }
 
 function refreshIndexChip() {
@@ -1388,50 +1451,15 @@ function buildFab() {
 
 // If the panel was open on the previous page (sessionStorage), pop it back
 // up immediately. If the model had already been loaded once this session,
-// auto-trigger the load (it's cached in IndexedDB → fast) and restore the
-// previous conversation. The composer is disabled until the model is ready.
+// `buildPanel` (called below) auto-triggers the load from cache and
+// restores the previous conversation. The composer is disabled until the
+// model is ready.
 async function autoRestorePanel() {
     if (readState(STATE_KEYS.open) !== "1") return;
     loadHistoryState();
     const panel = document.getElementById("chat-panel") || buildPanel();
     panel.classList.add("open");
     document.body.classList.add("chat-open");
-
-    if (!wasLoadedBefore()) return; // intro panel already shown by buildPanel
-
-    const body = panel.querySelector(".chat-body");
-    body.innerHTML = "";
-    body.classList.add("chat-body");
-
-    const progressHost = el("div", { class: "chat-intro chat-restore-host" });
-    body.appendChild(progressHost);
-    if (chatHistory.length) renderHistoryIntoBody(body);
-
-    ensureComposer(panel);
-    setComposerEnabled(panel, false);
-
-    const checkedLangs = getStoredCheckedLangs() || [currentLocale()];
-
-    try {
-        loadEmbedder().catch((err) => console.warn("embedder load failed", err));
-        loadChunks().catch((err) => console.warn("chunks load failed", err));
-        const indexingPromise = (async () => {
-            await probeAllCachedIndexes();
-            for (const lang of checkedLangs) {
-                if (getLangIndexState(lang) === "ready") continue;
-                try { await buildIndexFor(lang); } catch (err) { /* chip shows error */ }
-            }
-        })();
-
-        await loadGenerator(progressHost);
-        progressHost.remove();
-        setComposerEnabled(panel, true);
-        refreshIndexChip();
-        indexingPromise.catch((err) => console.warn("indexing failed", err));
-    } catch (err) {
-        progressHost.appendChild(el("p", { class: "chat-msg error" },
-            t("load_failed") + (err && err.message || String(err))));
-    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

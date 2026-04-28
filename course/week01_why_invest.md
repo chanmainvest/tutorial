@@ -1,4 +1,4 @@
-# Week 1: Why Invest? The Time Value of Money
+# Week 1: Why Invest? Beating Inflation Is the Whole Game
 
 ---
 
@@ -8,308 +8,245 @@
 
 ### 1. Why This Is Important
 
-Money sitting idle is money losing value. Every single day, inflation chips away at
-the purchasing power of cash stuffed under a mattress or parked in a zero-interest
-checking account. Understanding *why* you need to invest is not just a financial
-skill -- it is a survival skill in a modern economy.
+Open any introductory finance textbook and you will see the same chart: a
+smooth curve labelled "$10,000 invested at 8% per year." After thirty years,
+you are a millionaire. After forty, you are wealthy. Compounding does the
+work.
 
-Consider this: in 1990, a cup of coffee cost about $0.75. By 2025, that same cup
-costs $5.00 or more. The coffee did not become six times better. Your dollar became
-six times weaker. That is inflation at work, and it never stops.
+**That chart is a fairy tale.** Where, in 2026, do you find a steady,
+risk-free 8% per year? You don't. Treasury bills paid roughly half a percent
+for most of the post-2008 decade. Investment-grade bonds got crushed in
+2022. Even the S&P 500, which *averages* about 10% per year, does it through
+30%-up years and 40%-down years and dead-flat decades — never as a smooth
+line. The textbook chart, drawn straight, exists to sell investing as a
+math problem with a guaranteed answer. It isn't. There is no risk-free 8%.
+There never was.
 
-The time value of money (TVM) is the foundational principle of all finance. It states
-that a dollar today is worth more than a dollar tomorrow. This is true for three
-reasons:
+The same goes for the **Rule of 72** — "your money doubles every nine years
+at 8%." Useless. Steady 8% doesn't exist, and the moment you replace the
+constant with the actual year-by-year sequence of returns, the rule breaks.
+The "rule" is a parlour trick that works only on the imaginary growth path
+the textbook already drew for you.
 
-1. **Inflation** -- prices rise over time, so future dollars buy less.
-2. **Opportunity cost** -- money available now can be invested to earn returns.
-3. **Risk** -- a promised future payment may never arrive.
+So why bother investing at all? Because the alternative is worse. **You are
+already in a bet you didn't choose** — the bet that the cash in your bank
+account will hold its purchasing power. It will not. Inflation is the
+gravitational force every investor has to fight just to stand still. The
+question is never "should I take risk?" — you are already taking the
+inflation risk, whether you act or not. The question is: **which risk pays
+you to bear it?**
 
-If you understand TVM, you understand why investing is not optional. It is the only
-way to ensure your wealth grows faster than the economy erodes it.
+This course exists to answer that question honestly. The short version,
+which the rest of this lesson builds out:
 
-Take the last 55 years and run a thought experiment with three savers. Starting in
-1971, each one deposits exactly $10,000 a year — the same nominal amount, every
-year, no exception. The only thing that differs is *where* they put it.
+- **You have to beat inflation, or you get poorer in real terms even while
+  the number in your account grows.**
+- **Stocks (and a few real assets like gold and productive real estate) are
+  the only things that have reliably done it.**
+- **Bonds *used to* beat inflation, in the disinflationary regime from 1982
+  through roughly 2020. They no longer do** — a story of money printing and
+  governments suppressing interest rates to keep their own debt manageable.
+  We will come back to this in §2.3.
 
-- **Person A** keeps it in cash. No bank, no interest. Pure currency, sitting in a
-  drawer.
-- **Person B** parks it in short-term US Treasury bills, the safest interest-bearing
-  vehicle there is.
+To make this concrete, take the last 55 years and run a thought experiment
+with three savers. Starting in 1971, each one deposits exactly $10,000 a
+year — same nominal amount, every year, no exception. The only thing that
+differs is *where* they put it.
+
+- **Person A** keeps it in cash. No bank, no interest. Pure currency,
+  sitting in a drawer.
+- **Person B** parks it in short-term US Treasury bills, the safest
+  interest-bearing vehicle there is.
 - **Person C** puts it in the S&P 500 with all dividends reinvested.
 
 Same discipline, same dollars, three completely different outcomes:
 
 ![Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M.](image/week01_three_portfolios.png)
 
-After 55 years, each person has deposited the same **$550,000** of their own money.
-But the end balances are not in the same league:
+After 55 years, each person has deposited the same **$550,000** of their
+own money. But the end balances are not in the same league:
 
-| Vehicle | Annualized return (CAGR) | End value (nominal) | End value in 1971 dollars |
-|---|---|---|---|
-| **Person C — S&P 500** | **11.24% / yr** | **$42,041,000** | **$5,079,000** |
-| **Person B — T-bills** | 4.38% / yr | $1,725,000 | $208,000 |
-| **Person A — Cash** | 0.00% / yr | $550,000 | $66,000 |
+- **Person C — S&P 500**: $42,041,000 nominal, **$5,079,000 in 1971
+  dollars** — actual purchasing power gained.
+- **Person B — T-bills**: $1,725,000 nominal, **$208,000 in 1971 dollars** —
+  barely positive after inflation. And that includes the 1980s, when
+  T-bills paid double-digit yields. Strip those years out and the picture
+  is much worse, which is the regime we live in now.
+- **Person A — Cash**: $550,000 nominal, **$66,000 in 1971 dollars** —
+  saving diligently for 55 years and ending up with the real purchasing
+  power of about six and a half years of deposits. Cash didn't fail to
+  grow; inflation actively shrank it while Person A was being responsible.
 
-The "annualized return" column is the **compound annual growth rate (CAGR)** — the
-single constant rate that, compounded over the same 55 years, would produce the
-same growth factor as the actual year-by-year path of the underlying asset. It is
-the right number to quote, because the simple arithmetic average of annual returns
-overstates real compound performance. For reference, US CPI averaged **3.92% per
-year** over the same window — so anything below that line is a real-purchasing-power
-loss before you even talk about taxes.
-
-Person C ends with **24×** the nominal wealth of Person B and **76×** the nominal
-wealth of Person A, despite contributing the identical $10,000 a year. And look
-closer at Person A: the $550,000 cash pile, after 55 years of accumulated US
-inflation, has the *real* purchasing power of only about **$66,000 in 1971 dollars**.
-Person A did not just fail to grow their wealth — inflation actively shrank it while
-they were dutifully saving.
-
-The difference is entirely due to the time value of money and compound growth,
-applied across decades. Compounding rewards capital that earns a return; it
-punishes capital that sits.
-
-This week's lesson gives you the conceptual foundation for everything that follows
-in this course. Master these ideas, and every future topic will make more sense.
+This is the picture you should keep in your head for the rest of the
+course. Person C wins not because the S&P 500 paid a magical, smooth 10% —
+it didn't, that path included the 1973-74 bear, the 1987 crash, the
+2000-02 dot-com bust, the 2008 GFC, and the 2020 COVID crash — but because
+**stocks were the only one of the three that stayed reliably ahead of the
+currency debasement they were all running against**. The race is not
+against zero. It is against inflation. Win that, and compounding takes over
+the rest. Lose it, and no amount of "discipline" or "saving" will save you.
 
 ---
 
 ### 2. What You Need to Know
 
-#### 2.1 Inflation: The Silent Wealth Destroyer
+#### 2.1 Inflation: The Number They Show You Is Not the Number You Pay
 
-Inflation is the general increase in prices over time. Central banks (like the
-Federal Reserve in the US) target about 2% annual inflation, but actual inflation
-can vary widely.
+The headline number you see on TV — "CPI came in at 2.6% this month" — is
+the **Consumer Price Index** (CPI) published by the US Bureau of Labor
+Statistics. The Federal Reserve targets about 2% per year for it. Pension
+cost-of-living adjustments, Social Security increases, tax-bracket
+adjustments, and inflation-linked bonds (TIPS) are all indexed to it.
 
-Don't trust the textbook example with a smooth assumed rate — let's use real
-US CPI data. Imagine you stuffed a crisp $100 bill under the mattress on
-January 1, 1970, and never touched it. Here is what its purchasing power has
-been at the start of every five years since:
+Here is the problem. **The methodology behind CPI has been changed,
+repeatedly, in ways that consistently lower the printed number.** Three
+specific games are worth knowing about.
 
-| Year | Years elapsed | Purchasing power | % of original |
-|------|--------------:|-----------------:|--------------:|
-| 1970 | 0 | $100.00 | 100.0% |
-| 1975 | 5 | $74.49 | 74.5% |
-| 1980 | 10 | $50.65 | 50.6% |
-| 1985 | 15 | $35.39 | 35.4% |
-| 1990 | 20 | $29.66 | 29.7% |
-| 1995 | 25 | $24.81 | 24.8% |
-| 2000 | 30 | $22.06 | 22.1% |
-| 2005 | 35 | $19.44 | 19.4% |
-| 2010 | 40 | $17.13 | 17.1% |
-| 2015 | 45 | $15.51 | 15.5% |
-| 2020 | 50 | $14.37 | 14.4% |
-| 2025 | 55 | $11.73 | 11.7% |
+**Game 1: Hedonic adjustment ("the new iPhone has more features").** The
+BLS reasons that if a new iPhone costs the same as last year's but has a
+better camera, that is *deflationary* — you got more product for the same
+price. Same for cars (more safety features), refrigerators (more capacity),
+laptops (faster CPU). The BLS adjusts the price downward in CPI to reflect
+the "extra value." This is called **hedonic adjustment**, and it has been
+applied since the late 1990s.
 
-That $100 from 1970 has the purchasing power of just **$11.73 today** —
-inflation has eaten **88.3% of its real value in a single working lifetime**.
-The 1970s stagflation alone cut its value almost in half by 1980 (down to
-$50.65), and even the relatively benign 25 years that followed (1980 to
-2005) shaved off another two-thirds. Even within your own lifetime, the
-last 25 years tell the same story — **$100 from January 2000 is worth only
-$53.16 today, a 46.8% loss of purchasing power in just one generation**.
-And the post-2020 acceleration alone shaved roughly **18% off the dollar in
-five years**.
+The trouble is that **consumers don't buy iPhone features. They buy an
+iPhone.** A car is one car, whether or not it has lane-keep assist. A new
+laptop is one laptop, whether or not the chip is 30% faster. You still
+need one of the things, and the price you actually hand over is the price
+tag on the shelf — not some imaginary "feature-adjusted" lower number. By
+treating quality improvements as price decreases, hedonic adjustment
+systematically makes reported CPI lower than the prices you actually
+experience at the register. The Boskin Commission's own 1996 estimate was
+that hedonic and substitution adjustments together reduce reported CPI by
+**0.5 to 1.0 percentage points per year** — every year, compounding.
 
-This is the "real" value of money — what it can actually buy, as opposed to
-the "nominal" value (the number printed on the bill). Cash is not safe.
-Cash that earns nothing is a steady, almost imperceptible loss. The
-slowness of the loss is exactly what makes it so dangerous: people who
-"protect" their money by leaving it in a checking account are making one
-of the most aggressive bets on the chart above — and losing it.
+There is no widely-published US CPI series that strips out hedonic
+adjustment alone. The closest popular alternative is John Williams'
+**ShadowStats** "1980-based CPI alternate" — an attempt to reconstruct CPI
+using the pre-1980 BLS methodology, which bundled hedonics together with
+several other later changes. ShadowStats typically reads 5 to 7 percentage
+points higher than the official number. Mainstream economists criticize the
+series for essentially adding a near-constant offset rather than fully
+recomputing the basket from raw data, and that critique has merit. But
+even taking the conservative read — that ShadowStats overstates by a few
+points — the directional message holds: **the number you see on the news
+is meaningfully lower than the inflation a household actually experiences**,
+and the BLS has known this for 30 years.
 
-![Real purchasing power of $100 held as cash from 1975 over 50 years of US inflation, ending at about $16 in 1975 dollars by 2025.](image/week01_inflation_purchasing_power.png)
+![Official US CPI vs ShadowStats 1980-based CPI alternate, 1980 to 2025. The two series tracked closely until the early 1990s methodology changes; after that, ShadowStats consistently reads several percentage points higher — a gap that compounds into a very different cumulative inflation story over 30+ years.](image/week01_shadow_cpi.png)
 
-**How inflation is measured:**
+**Game 2: Core inflation ("ignore food and energy").** The Fed's preferred
+inflation measure is **Core PCE** — Personal Consumption Expenditures,
+*with food and energy stripped out* on the grounds that those categories
+are "volatile." Setting aside that food and energy are arguably the *most
+important* prices a household pays, the structural effect of stripping
+them is the same as the hedonic game: the printed number is lower than
+what people actually experience. PCE itself runs about 0.3 percentage
+points below CPI on average because of basket weighting differences. Core
+PCE adds another layer on top of that. The Fed sets monetary policy off
+this measure.
 
-- **CPI (Consumer Price Index)** — tracks the cost of a "basket" of goods
-  and services that a typical household purchases (food, housing,
-  transportation, etc.).
-- **PCE (Personal Consumption Expenditures)** — the Federal Reserve's
-  preferred measure; broader than CPI.
-- **Core inflation** — excludes volatile food and energy prices to show
-  underlying trends.
+**Game 3: Substitution ("if beef gets expensive, you'll buy chicken").**
+When a basket item gets relatively more expensive, modern CPI assumes
+households substitute toward cheaper alternatives — and reduces the weight
+of the expensive item in the basket. Mathematically: the things you can
+afford less of count *less* in the inflation measure precisely because
+they got expensive. This is called **geometric weighting**, and it was
+introduced in the late 1990s. The pre-1980 methodology used arithmetic
+weights that didn't punish you this way for being priced out.
 
-**Historical US inflation rates (decade averages):**
+**Why this matters to you, in real money:**
 
-| Period | Avg annual CPI |
-|---|---:|
-| 1930–1940 | −2.0% |
-| 1940–1950 | +5.6% |
-| 1950–1970 | +2.3% |
-| 1970–1980 | +7.8% |
-| 1980–2000 | +3.8% |
-| 2000–2020 | +2.1% |
-| 2020–2025 | +4.8% |
+- Your **pension** cost-of-living increase, your **Social Security** raise,
+  your **tax bracket** adjustment — all indexed to the artificially low
+  official CPI. If the government undercounts inflation by 2% per year for
+  20 years, that is a *cumulative 49% real cut* to anyone whose income is
+  CPI-indexed.
+- **Inflation-protected bonds (TIPS)** pay a yield linked to the same
+  understated CPI. The "real return" they advertise is real *only if you
+  trust the deflator*.
+- **Wage negotiations** anchor on official CPI. Over a working career, the
+  gap between reported CPI and actually-experienced inflation compounds
+  into a very large invisible pay cut.
+- **The Fed's interest rate decisions** are based on Core PCE. When the
+  Fed says "inflation is at target," they mean *the manipulated measure*
+  is at target. The savings account paying you 0.5% in a 6% real-inflation
+  world is a feature of that measurement gap, not a bug.
 
-Notice how inflation spiked in the 1970s (oil crises) and again in the early
-2020s (pandemic supply shocks). These spikes can devastate purchasing power
-rapidly.
+For your purposes as an investor, the practical implication is simple: **do
+not anchor your hurdle rate to the official CPI**. Whatever you think you
+need to earn to "beat inflation," add a couple of points for honesty. If
+official CPI is 2.5%, plan to need at least 4.5–5% real to actually
+preserve purchasing power. The chart at the start of this lesson showed
+what *cash* does over a working lifetime even at official CPI — the real
+picture is worse.
 
-#### 2.2 Compound Interest: The Eighth Wonder of the World
+#### 2.2 Where Inflation Comes From: Money Printing
 
-Compound interest means you earn interest on your interest. It is the single most
-powerful force in personal finance.
+The textbook explanation of inflation — "too much money chasing too few
+goods" — is technically correct but tells you nothing about *why* there is
+too much money. The honest answer is: **central banks created it, and
+governments spent it.** Modern inflation is, first and last, a monetary
+phenomenon.
 
-**The compound interest formula:**
+Look at the broad money supply (M2) of the major currencies over the last
+quarter-century, indexed so they all start at 100 in the year 2000:
 
-\[ FV = PV \cdot (1 + r)^n \]
+![Broad money supply (M2) of major currencies — USD, EUR, JPY, CNY, TWD — indexed to 100 at year 2000, on a log scale. Every major currency has been debased materially over the period; CNY M2 is up roughly 25× over the same window driven by China's credit expansion, USD M2 has roughly quadrupled, and the post-2020 vertical move is visible across all currencies.](image/week01_money_supply.png)
 
-Where:
+Every major currency has been debased over the period. The **post-2020
+vertical move** is unmistakable on every line — the COVID-era response was
+a synchronised global expansion of money, the largest in modern history
+outside of wartime. Note the chart uses **M2** (currency in circulation +
+checkable deposits + savings deposits + small time deposits + retail money
+market funds), not M1. M1 understates the picture; M2 is the closer proxy
+for "money that is actually doing things in the economy."
 
-- \(FV\) = Future Value (what your money grows to)
-- \(PV\) = Present Value (what you start with)
-- \(r\) = interest rate per period (as a decimal)
-- \(n\) = number of periods
+The other half of the story is **government debt**. When a government runs
+a deficit (spends more than it takes in tax revenue), it issues bonds.
+When the central bank buys those bonds with newly-created reserves —
+which is exactly what quantitative easing has been since 2008 — that is
+**monetised debt**: spending today, paid for with printed money tomorrow.
+US national debt and US M2 have grown together, almost in lockstep,
+because they are two sides of the same monetary act:
 
-**Example: $1,000 at 8% annual return**
+![US M2 money supply and US Treasury debt outstanding, 1990–2025, both in trillions of dollars on the same axis. The two lines climb together with the same inflection points: the 2008 GFC response, the 2020 COVID response. Debt is now around $36 trillion, M2 around $22 trillion. The parallel growth tells the story — fiscal deficits financed by money creation are not separate phenomena.](image/week01_us_debt_m2.png)
 
-| Year | Starting balance | Interest earned | Ending balance |
-|---:|---:|---:|---:|
-| 1 | $1,000.00 | $80.00 | $1,080.00 |
-| 2 | $1,080.00 | $86.40 | $1,166.40 |
-| 3 | $1,166.40 | $93.31 | $1,259.71 |
-| 5 | $1,360.49 | $108.84 | $1,469.33 |
-| 10 | $1,999.00 | $159.92 | $2,158.92 |
-| 20 | $4,315.70 | $345.26 | $4,660.96 |
-| 30 | $9,317.27 | $745.38 | $10,062.66 |
-| 40 | $20,106.85 | $1,608.55 | $21,715.40 |
+This is the regime, and it has direct consequences for what you can invest
+in:
 
-Notice how the interest earned in year 40 ($1,608) is more than the original
-investment ($1,000). That is compounding at work.
+1. **Governments cannot allow real interest rates to rise meaningfully**,
+   because their own debt-service costs would explode. With $36 trillion of
+   federal debt outstanding, every 1% rise in average yield is roughly
+   $360 billion of additional annual interest expense — about 60% of the
+   entire US defence budget. The political incentive to keep rates
+   artificially *low*, including via central-bank bond buying, is enormous.
+2. **Bonds therefore stop being a reliable inflation hedge.** When the
+   government has both the means (a captive central bank) and the motive
+   (debt-service arithmetic) to keep nominal rates below the true
+   inflation rate, the *real* yield on bonds becomes systematically
+   negative. This is called **financial repression**, and it is what makes
+   the entire "60/40 stocks-and-bonds" portfolio that worked from 1982
+   through 2020 structurally suspect going forward.
+3. **Real assets — productive equity, gold, real estate, commodities —
+   become the residual stores of value**, because they are denominated in
+   *things* rather than in the currency the government is debasing. We
+   will spend much of this course on how to own them and at what price.
 
-**Visualizing compound vs. simple interest:**
+Compounding, the actual mathematical concept, is real and important —
+interest on interest does grow exponentially, and the algebra is correct.
+What is *not* real is the textbook portrait of a smooth, risk-free 8%
+line. The currency the line is denominated in is being created at 7–15%
+per year. There is no risk-free real return at the levels every textbook
+quotes. The real question is: which assets keep up with the printer, and
+at what price are they worth holding?
 
-![Compound vs. simple interest on a $1,000 starting balance at 8% annual over 40 years. Simple interest grows linearly to $4,200; compound interest curves up to $21,725 — a $17,525 gap that opens up entirely from re-investing prior interest.](image/week01_compound_vs_simple.png)
+#### 2.3 Real vs. Nominal Returns: The Only Honest Yardstick
 
-With simple interest, you earn 8% of the original $1,000 every year ($80/year).
-With compound interest, you earn 8% of the *current* balance, which grows each year.
-Over long periods, the gap becomes enormous — the example above ends with
-**$21,725 (compound) vs. $4,200 (simple)**, a five-fold difference earned
-entirely by leaving the prior interest in the account instead of taking it out.
-
-**The compounding frequency matters too.**
-Same $10,000 at the same 12% annual rate for 10 years, only the compounding
-frequency varies:
-
-| Compounding | Final value |
-|---|---:|
-| Annually | $31,058.48 |
-| Semi-annually | $32,071.35 |
-| Quarterly | $32,620.38 |
-| Monthly | $33,003.87 |
-| Daily | $33,194.62 |
-| Continuously | $33,201.17 |
-
-More frequent compounding produces higher returns, but the marginal benefit
-shrinks fast. The jump from annual to monthly is significant; the jump from
-daily to continuous is essentially zero.
-
-#### 2.3 The Rule of 72
-
-The Rule of 72 is a mental shortcut for estimating how long it takes to double
-your money at a given annual rate:
-
-$$ \text{Years to double} \approx \frac{72}{r} \quad \text{(where } r \text{ is the annual rate in percent)} $$
-
-| Annual return | Years to double |
-|---:|---|
-| 2% | \(72 / 2 = 36\) years |
-| 4% | \(72 / 4 = 18\) years |
-| 6% | \(72 / 6 = 12\) years |
-| 8% | \(72 / 8 = 9\) years |
-| 10% | \(72 / 10 = 7.2\) years |
-| 12% | \(72 / 12 = 6\) years |
-
-**Why does this work?** It is a mathematical approximation derived from the
-natural logarithm. The exact formula is
-
-$$ t = \frac{\ln 2}{\ln(1 + r)} $$
-
-but 72 is close enough for mental math and has the practical advantage of being
-divisible by 2, 3, 4, 6, 8, 9, and 12 — most of the rates you actually care about.
-
-**The Rule of 72 in reverse — inflation halves your purchasing power on the same
-clock.** Replace "annual return" with "annual inflation rate" and "years to
-double" becomes "years until your dollar buys half as much":
-
-| Inflation rate | Years until purchasing power halves |
-|---:|---|
-| 3% | \(72 / 3 = 24\) years |
-| 4% | \(72 / 4 = 18\) years |
-| 6% | \(72 / 6 = 12\) years |
-| 9% | \(72 / 9 \approx 8\) years |
-
-This makes inflation tangible. If inflation averages 4%, every 18 years your money
-buys only half as much. This is why "safe" savings accounts that earn 1-2% are
-actually losing you money in real terms.
-
-#### 2.4 Opportunity Cost
-
-Opportunity cost is the value of the next best alternative you give up when making
-a decision. In investing, it means every dollar has competing uses, and choosing
-one means forgoing another.
-
-**Decision tree — what to do with $10,000:**
-
-```mermaid
-flowchart TD
-    Start(["$10,000<br/>to allocate"])
-    Bank["Save in bank<br/>0.5% APY"]
-    Index["Invest in<br/>index fund<br/>~10% avg"]
-    Debt["Pay off credit<br/>card debt<br/>20% APR"]
-    BankEnd["After 10 yrs<br/><b>$10,511</b>"]
-    IndexEnd["After 10 yrs<br/><b>$25,937</b>"]
-    DebtEnd["Interest avoided<br/>over 10 yrs<br/><b>$31,875</b>"]
-
-    Start --> Bank
-    Start --> Index
-    Start --> Debt
-    Bank --> BankEnd
-    Index --> IndexEnd
-    Debt --> DebtEnd
-
-    classDef option fill:#fdfbf5,stroke:#5a5a5a,stroke-width:1.5px,color:#1a2332
-    classDef result fill:#fff,stroke:#0d47a1,stroke-width:1.5px,color:#1a2332
-    classDef winner fill:#fff5e6,stroke:#b71c1c,stroke-width:2px,color:#b71c1c
-    classDef start fill:#0d47a1,stroke:#0d47a1,color:#fff,stroke-width:1.5px
-
-    class Start start
-    class Bank,Index,Debt option
-    class BankEnd,IndexEnd result
-    class DebtEnd winner
-```
-
-In this example, paying off high-interest credit card debt has the highest
-"return" because you are eliminating a 20% annual cost. This is why financial
-advisors often recommend paying off high-interest debt before investing.
-
-**Key insight:** Opportunity cost applies to time as well as money. Every year you
-delay investing has a measurable cost, because you lose that year of compounding
-forever.
-
-**The cost of waiting — $5,000/year at a 10% average return, ending at age 65:**
-
-| Start age | Years invested | Total contributed | Final value at 65 |
-|---:|---:|---:|---:|
-| 20 | 45 | $225,000 | $3,616,635 |
-| 25 | 40 | $200,000 | $2,212,963 |
-| 30 | 35 | $175,000 | $1,355,122 |
-| 35 | 30 | $150,000 | $822,470 |
-| 40 | 25 | $125,000 | $491,735 |
-| 45 | 20 | $100,000 | $286,375 |
-
-Starting at 20 instead of 30 means investing only $50,000 more, but ending up
-with $2.26 million more. The early years of compounding are disproportionately
-valuable.
-
-#### 2.5 Real vs. Nominal Returns
-
-**Nominal return** is the raw percentage gain on an investment, not adjusted for
-inflation. **Real return** is the nominal return minus inflation, representing
-actual purchasing power gained.
+**Nominal return** is the headline number — "the S&P returned 26% last
+year." **Real return** is the nominal return minus inflation — what you
+actually gained in purchasing power.
 
 A quick approximation:
 
@@ -319,280 +256,312 @@ The exact relationship (the **Fisher equation**) is:
 
 $$ r_{\text{real}} = \frac{1 + r_{\text{nominal}}}{1 + i} - 1 $$
 
-Example — 10% nominal return with 3% inflation:
+The approximation is close enough for mental math at low inflation; at
+high inflation or high return, the exact form matters. At 26% nominal and
+7% inflation, the approximation gives 19%; the exact answer is 17.8%. At
+normal inflation levels the gap is small, but the gap grows with both.
 
-$$ \begin{aligned}
-r_{\text{real, approx}} &= 10\% - 3\% = 7\% \\
-r_{\text{real, exact}}  &= \frac{1.10}{1.03} - 1 = 6.80\%
-\end{aligned} $$
+**The honest table — historical real returns by asset class, US, after
+inflation:**
 
-The approximation is close enough for mental math at low inflation; at high inflation
-or high return, you want the exact form.
+| Asset class | Nominal (long-run avg) | Real (after inflation) | Beats inflation? |
+|---|---:|---:|---|
+| US Stocks (S&P 500, dividends reinvested) | ~10% | ~7% | **Yes, reliably** |
+| Gold | ~7% | ~3–4% | Yes, on long horizons (post-1971) |
+| Real estate (broad, with rent) | ~9% | ~3–4% | Yes, on long horizons |
+| US Bonds (10-yr Treasury, long-run avg) | ~5% | ~1–2% | Marginally — and **not in the 2010s or 2020s** |
+| US Treasury bills (cash equivalent) | ~3.5% | ~0% | **No, post-2008** |
+| Savings account | ~1–2% | ~−2 to −5% | **No** |
+| Cash (mattress) | 0% | ~−3 to −7% | **No** |
 
-**Historical real returns by asset class (US, approximate):**
+The header says "long-run average," and the long run is doing a lot of
+work in that table. Bonds *averaged* a positive real return over the full
+history, but the average is dragged up by the 1982–2020 disinflationary
+bull market in bonds — a 40-year period of falling interest rates that
+turned bonds into a total-return engine. **In the 2020s, the 10-year
+Treasury has delivered deeply negative real returns; the bond bull market
+is over, and the regime that produced it (see §2.2) has reversed.**
 
-| Asset class | Nominal | Inflation | Real |
-|---|---:|---:|---:|
-| US Stocks (S&P 500) | ~10.0% | ~3.0% | ~7.0% |
-| US Bonds (10-yr) | ~5.0% | ~3.0% | ~2.0% |
-| Gold | ~7.0% | ~3.0% | ~4.0% |
-| Savings Account | ~2.0% | ~3.0% | ~−1.0% |
-| Cash (mattress) | 0.0% | ~3.0% | ~−3.0% |
+So the table, read honestly for *today's* regime, collapses to a much
+shorter list of things that reliably beat inflation:
 
-**Critical takeaway:** A savings account earning 2% in a 3% inflation environment
-is *losing* 1% of purchasing power per year. Cash under the mattress is losing 3%
-per year. Only assets that earn above the inflation rate grow your real wealth.
+- **Equities** (broadly, including productive businesses you own through
+  index funds or directly)
+- **Gold and other monetary metals**
+- **Productive real estate** (with cash flow, not raw land)
+- **Selected commodities** (in the right part of the cycle)
 
-#### 2.6 Future Value and Present Value
+**Everything else is, in real terms, a losing bet.** A "high-yield" savings
+account paying 4% in a 6% real-inflation environment is still losing 2%
+per year. T-bills at 5% in the same environment are losing 1%. The fact
+that the account number goes up is irrelevant to your purchasing power.
+The only question that matters is: **am I beating the printer?**
 
-These are the two core TVM calculations.
-
-**Future Value (FV):** What a sum of money today will be worth in the future.
-
-\[ FV = PV \cdot (1 + r)^n \]
-
-Example — what will $5,000 be worth in 20 years at 8%?
-
-\[ \begin{aligned}
-FV &= 5{,}000 \cdot (1.08)^{20} \\
-   &= 5{,}000 \cdot 4.6610 \\
-   &= \$23{,}305
-\end{aligned} \]
-
-**Present Value (PV):** What a future sum of money is worth today.
-
-\[ PV = \frac{FV}{(1 + r)^n} \]
-
-Example — what is $50,000 in 15 years worth today at 7%?
-
-\[ \begin{aligned}
-PV &= \frac{50{,}000}{(1.07)^{15}} \\
-   &= \frac{50{,}000}{2.7590} \\
-   &= \$18{,}126
-\end{aligned} \]
-
-**This means:** If someone offers you $50,000 in 15 years, and you could earn 7%
-on your money, that offer is only worth $18,126 to you today. If they also offer
-you $20,000 right now, the $20,000 today is the better deal.
-
-**Future Value of an Annuity (regular contributions):**
-
-\[ FV = PMT \cdot \frac{(1 + r)^n - 1}{r} \]
-
-where \(PMT\) = regular payment amount.
-
-Example — $500/month for 30 years at 8% annual (0.667% monthly):
-
-\[ \begin{aligned}
-FV &= 500 \cdot \frac{(1.00667)^{360} - 1}{0.00667} \\
-   &= 500 \cdot 1{,}491.57 \\
-   &= \$745{,}785
-\end{aligned} \]
-
-Total contributed: \(500 \times 360 = \$180{,}000\). Total growth: \(\$745{,}785 - \$180{,}000 = \$565{,}785\).
-
-Your investment growth ($565,785) is more than triple what you actually put in
-($180,000). That is the power of consistent investing combined with compounding.
-
-**Discounting a stream of future cash flows.** Five $100 payments, one at the end
-of each of the next five years, discounted at 7%:
-
-$$ PV = \sum_{t=1}^{5} \frac{\$100}{(1.07)^t} $$
-
-| Year | Future payment | Discount factor | Present value |
-|---:|---:|---:|---:|
-| 1 | $100 | \(1 / 1.07^{1} = 0.9346\) | $93.46 |
-| 2 | $100 | \(1 / 1.07^{2} = 0.8734\) | $87.34 |
-| 3 | $100 | \(1 / 1.07^{3} = 0.8163\) | $81.63 |
-| 4 | $100 | \(1 / 1.07^{4} = 0.7629\) | $76.29 |
-| 5 | $100 | \(1 / 1.07^{5} = 0.7130\) | $71.30 |
-| | | **Total PV** | **$410.02** |
-
-Each future $100 is worth less today because of the time value of money. The
-further in the future a payment is, the less it is worth today — the year-5 $100
-is worth only $71.30 today, while the year-1 $100 is worth $93.46.
-
-#### 2.7 Putting It All Together: The Investing Imperative
-
-**Three paths over 30 years** ($10,000 starting, $5,000/year added):
-
-| Metric | Do nothing (0%) | Savings account (1.5%) | Invest in S&P (10%) |
-|---|---:|---:|---:|
-| Total contributed | $160,000 | $160,000 | $160,000 |
-| Final nominal value | $160,000 | $192,760 | $987,174 |
-| Real value (3% infl.) | $65,890 | $79,379 | $406,392 |
-| Purchasing power | **Lost 59%** | **Lost 50%** | **Gained 154%** |
-
-Only the investor actually grows their wealth in real terms. The saver barely
-keeps up. The person who does nothing loses more than half their purchasing power.
+This is the foundational discipline of the rest of the course. Every asset
+we examine, every strategy we teach, will be evaluated against this single
+test. Nominal returns are theatre. Real returns are the only thing that
+pays your future grocery bill.
 
 ---
 
 ### 3. Common Misconceptions
 
-**Misconception 1: "Investing is gambling."**
+**Misconception 1: "I should keep my money in a savings account where it's
+safe."**
 
-Gambling has a negative expected return (the house always wins). Investing in
-diversified assets has a historically positive expected return. The S&P 500 has
-returned roughly 10% annually over the past century, including the Great Depression,
-World War II, the 2008 financial crisis, and COVID-19. Short-term speculation on
-individual stocks can resemble gambling, but disciplined long-term investing in
-diversified funds is fundamentally different.
+A savings account paying 1–2% in a 5%+ real-inflation environment is one
+of the most aggressive negative-real-return positions you can hold. It
+feels safe because the *nominal* number doesn't go down. It is not safe —
+it is a slow, almost imperceptible bleed. The slowness is exactly what
+makes it dangerous: people who "play it safe" lose decades of purchasing
+power before they realise the game was rigged.
 
-**Misconception 2: "I need a lot of money to start investing."**
+**Misconception 2: "The textbook 8% compounding chart shows what happens
+if I invest."**
 
-Many brokerages now offer $0 minimums and fractional shares. You can buy $10 worth
-of an S&P 500 index fund. The most important factor is not how much you start with,
-but how early you start and how consistently you contribute. Even $50 per month
-invested from age 22 grows to over $350,000 by age 65 at 10% average returns.
+It shows what would happen if 8% real, risk-free returns existed. They
+don't. Treasury bills paid roughly 0% real for most of the post-2008
+decade. The S&P 500 *averages* about 10% nominal, but as a path of 30%-up
+years and 40%-down years and dead-flat decades — never as a smooth line.
+The textbook chart was drawn straight to make compounding look like math;
+in reality it is a noisy, drawdown-filled climb that requires the
+*psychological* ability to keep buying through the drawdowns. That is the
+actual hard part, and the textbook chart hides it.
 
-**Misconception 3: "Saving is the same as investing."**
+**Misconception 3: "Bonds are the safe part of my portfolio that hedges
+inflation."**
 
-Saving means putting money aside. Investing means putting money to work. A savings
-account earning 0.5% while inflation runs at 3% means you are losing 2.5% of
-purchasing power annually. Saving is important for emergency funds and short-term
-goals, but for long-term wealth building, investing is essential.
+Bonds *were* an inflation hedge for the 1982–2020 disinflationary regime —
+the longest bond bull market in history. That regime is over. With
+central banks captive to government debt-service arithmetic (§2.2), real
+yields on high-grade bonds have been negative for most of the 2010s and
+2020s. The "bonds for safety" rule is recency bias from a regime that no
+longer applies. Bonds today are a duration bet, not an inflation hedge.
 
-**Misconception 4: "I should wait for the 'right time' to invest."**
+**Misconception 4: "The CPI number on the news is what inflation actually
+is."**
 
-Market timing is extraordinarily difficult. Studies consistently show that "time in
-the market" beats "timing the market." A Schwab study found that even someone who
-invested at the worst possible time each year (the market peak) still significantly
-outperformed someone who kept their money in cash waiting for a better entry point.
+CPI is a measurement choice, not a fact. It uses hedonic adjustment (a
+new iPhone with better features is treated as a price *decrease*),
+substitution weighting (the things you can afford less of count for less
+in the basket because you've been priced out of them), and excludes food
+and energy in the Fed's preferred Core PCE variant. Three different
+methodology choices that all push the printed number lower than the
+inflation households actually experience. Anchor your investment hurdle
+rate to the *experienced* inflation rate, not the political one.
 
-**Misconception 5: "Compound interest only matters for large sums."**
+**Misconception 5: "The Rule of 72 tells me how long it takes my money to
+double."**
 
-The percentage works the same regardless of the amount. $100 growing at 10% for
-40 years becomes $4,526. The multiplier (45x) is identical whether you start with
-$100 or $100,000. The key is the growth rate and the time horizon.
+It tells you how long it takes a *constant* rate of return to double
+money. Constant rates of return don't exist outside textbook chapter
+examples. Real returns are sequences with volatility, drawdowns, and
+regime changes; the rule's "9 years to double at 8%" estimate has nothing
+to say about a 2008 in the middle of the sequence. The rule is a cute
+piece of mental arithmetic that works only on the imaginary world the
+textbook already drew for you.
 
-**Misconception 6: "Inflation is always around 2-3%."**
+**Misconception 6: "A 10% gain followed by a 10% loss gets me back to
+even."**
 
-While central banks target 2%, actual inflation can be much higher. The US
-experienced 13.5% inflation in 1980. Argentina has seen 100%+ inflation in recent
-years. Even in stable economies, inflation can spike due to supply shocks, monetary
-policy changes, or geopolitical events. Your investment strategy needs to account
-for variable inflation scenarios.
-
-**Misconception 7: "A 10% gain followed by a 10% loss gets you back to even."**
-
-This is mathematically incorrect. $100 + 10% = $110. Then $110 - 10% = $99. You
-are actually down 1%. Losses hurt more than equivalent gains help, which is why
-managing downside risk matters in investing. A 50% loss requires a 100% gain just
-to break even.
-
-**Loss/gain asymmetry — what it takes to get back to even after a drawdown:**
+This is mathematically incorrect. $100 + 10% = $110. Then $110 − 10% =
+$99. You are down 1%. Losses hurt more than equivalent gains help,
+because the gain percentage applies to a smaller base after a loss. A 50%
+loss requires a 100% gain just to break even. A 90% loss requires a 900%
+gain.
 
 | Loss | Gain needed to recover |
 |---:|---:|
 | −10% | +11.1% |
 | −20% | +25.0% |
 | −30% | +42.9% |
-| −40% | +66.7% |
 | −50% | +100.0% |
 | −75% | +300.0% |
 | −90% | +900.0% |
 
-Mathematically, after a loss of \(L\), the recovery gain needed is
-\(G = \frac{L}{1 - L}\) — which grows much faster than \(L\) once \(L\) gets large.
+Mathematically, after a loss of size \(L\), the recovery gain needed is
 
-**Misconception 8: "The Rule of 72 is exact."**
+$$ G = \frac{L}{1 - L} $$
 
-It is an approximation. It works best for interest rates between 6% and 10%.
-At very low or very high rates, it becomes less accurate. For 2%, the actual
-doubling time is 35.0 years (Rule of 72 says 36). For 20%, the actual time is
-3.8 years (Rule of 72 says 3.6). Close enough for quick mental math, but do not
-use it for precise financial planning.
+which grows much faster than \(L\) itself once \(L\) gets large. This is
+why managing downside risk matters more than maximising upside returns,
+and why the "safe" T-bill path that never has a 50% drawdown is not
+strictly worse than the equity path in psychological terms — even if the
+equity path wins on long-run real return.
+
+**Misconception 7: "Investing is gambling."**
+
+Gambling has a *negative* expected return — the house always wins, and
+the mathematical expectation is for you to lose. Investing in productive
+assets (equities representing claims on real cash flows from real
+businesses) has a historically *positive* expected return — you are
+getting paid for capital provision and risk-bearing. Short-term
+speculation on individual stocks can resemble gambling. Long-term
+diversified ownership of productive equity is fundamentally different,
+and the math reflects that.
+
+**Misconception 8: "I need a lot of money to start investing."**
+
+You don't. Most brokerages offer $0 minimums and fractional shares. The
+binding constraint is rarely the size of the first deposit; it is the
+**discipline to keep depositing through the inevitable drawdowns**.
+Someone who puts $100 a month into a broad index fund from age 25 onward
+— and keeps doing it through every 30% bear market the next forty years
+bring — will end up far ahead of someone who puts $50,000 in at age 25,
+panics out at the first drawdown, and never re-enters. Behaviour beats
+balance.
 
 ---
 
 ### 4. Q&A
 
-**Q1: What is the time value of money in simple terms?**
+**Q1: If the textbook 8% chart is a fairy tale, what return should I
+actually expect?**
 
-A: A dollar today is worth more than a dollar in the future because (1) inflation
-reduces what that future dollar can buy, (2) you could invest today's dollar and
-earn a return, and (3) there is always some risk that a promised future payment will
-not materialize. This is why lenders charge interest and why investors demand returns
--- they are being compensated for giving up the use of their money now.
+A: Two honest answers, both useful:
 
-**Q2: How does compound interest differ from simple interest?**
+- **For broad US equities (S&P 500, dividends reinvested), the long-run
+  nominal average is about 10%, and the long-run real average (after
+  official CPI) is about 7%.** Adjust the real number down by 1–2% if you
+  trust the shadow-CPI critique, leaving you around 5–6% real.
+- **The path is not smooth.** In any given year the market might return
+  +30% or −30%. The 10% average only emerges over long horizons (20+
+  years), and even those long horizons have included multi-year flat or
+  negative stretches (the 2000s "lost decade" finished below where it
+  started in real terms). Plan for the average; size for the variance.
 
-A: Simple interest is calculated only on the original principal. If you invest $1,000
-at 5% simple interest, you earn $50 every year, regardless of how much has
-accumulated. Compound interest is calculated on the principal plus all accumulated
-interest. So in year 2, you earn interest on $1,050, not just $1,000. Over long
-periods, this difference becomes dramatic. After 30 years, $1,000 at 5% simple
-interest becomes $2,500. At 5% compound interest, it becomes $4,322.
+For bonds, T-bills, and savings accounts: assume zero or negative real
+return in the current regime. Anything better is a bonus.
 
-**Q3: Why does the Rule of 72 work?**
+**Q2: Why do you say the Rule of 72 is useless? It's mathematically
+correct.**
 
-A: It is derived from the mathematical relationship ln(2) / ln(1 + r), where ln is
-the natural logarithm and r is the interest rate. For rates near 8%, 72/r closely
-approximates this formula. The number 72 was chosen because it is easily divisible
-by 2, 3, 4, 6, 8, 9, and 12, making mental math convenient. Some people use the
-"Rule of 70" for lower rates or the "Rule of 69.3" for continuous compounding,
-but 72 is the most practical for everyday use.
+A: The math is correct *for a constant rate of return*. The problem is
+that constant rates of return don't exist — they are a textbook
+abstraction. In the real world, returns are sequences with order,
+volatility, and regime changes, and the *order* matters: a −40% year
+early in the sequence does much more damage than a −40% year late,
+because there is more capital to lose early on. The Rule of 72 has
+nothing to say about sequence risk, which is the actual risk you are
+bearing. As a sanity check on a quoted average rate, the rule is fine.
+As a planning tool, it is misleading.
 
-**Q4: What is the difference between nominal and real returns?**
+**Q3: Why specifically can't I trust the official CPI?**
 
-A: Nominal return is the headline number -- "the stock market returned 10% this
-year." Real return adjusts for inflation to show your actual increase in purchasing
-power. If the market returned 10% but inflation was 4%, your real return was
-approximately 6%. Always think in real terms when evaluating long-term investment
-performance, because nominal returns can be misleading in high-inflation environments.
+A: Three methodology choices, all introduced gradually and all pushing
+the printed number lower:
 
-**Q5: How do I calculate the present value of a future sum?**
+- **Hedonic adjustment** (a new product with more features is treated as
+  a price decrease, even though you still pay the full sticker price);
+- **Substitution / geometric weighting** (the items you can afford less
+  of count for less in the basket, on the theory that you'll buy less of
+  them);
+- **Core inflation** (food and energy excluded from the Fed's preferred
+  PCE measure — i.e., the prices that hit households hardest are removed
+  from the policy-relevant number).
 
-A: Use the formula PV = FV / (1 + r)^n. Decide on an appropriate discount rate (r)
--- this is typically the return you could earn on alternative investments. For example,
-if someone promises you $10,000 in 10 years and you could earn 7% elsewhere:
-PV = $10,000 / (1.07)^10 = $10,000 / 1.9672 = $5,083. That future $10,000 is only
-worth about $5,083 to you today.
+The Boskin Commission (1996) estimated these together reduce reported CPI
+by about 0.5–1.0 percentage points per year. ShadowStats' 1980-based CPI
+series estimates the gap is larger — typically 5–7 percentage points. The
+truth is likely in between, but the direction is unambiguous: real-life
+inflation runs materially higher than the headline number, and the gap
+compounds.
 
-**Q6: What is a good annual return to expect from investing?**
+**Q4: If bonds no longer beat inflation, why do brokers still recommend
+them?**
 
-A: The US stock market (S&P 500) has historically returned about 10% per year
-nominally, or about 7% after inflation. However, returns vary enormously year to
-year. In any given year, the market might return +30% or -30%. The 10% average only
-emerges over long time horizons (20+ years). Bond returns have historically been
-about 5% nominal (2% real). A balanced portfolio might target 7-8% nominal. Never
-assume any specific return is guaranteed.
+A: Two reasons. First, the recommendation is downstream of the 1982–2020
+regime in which bonds *did* beat inflation handsomely — broker training,
+financial-planning models, and the entire 60/40-portfolio orthodoxy were
+built in that regime and haven't fully updated. Second, bonds still do
+one thing well: they reduce *short-term volatility* in a portfolio. They
+are a volatility hedge, not an inflation hedge. If your psychological
+tolerance for drawdowns is the binding constraint on your investment
+behaviour, bonds may still earn their place — just don't mistake them for
+an inflation hedge in the current regime.
 
-**Q7: Should I pay off debt or invest?**
+**Q5: What's the difference between "money printing" and government
+deficit spending?**
 
-A: Compare the interest rate on your debt to the expected return on your investments.
-If your debt charges 20% interest (credit cards), paying it off is like earning a
-guaranteed 20% return -- better than any investment. If your debt is at 4% (mortgage),
-and you expect 10% from investments, investing may be more profitable, though debt
-payoff is a guaranteed "return" while investment returns are not. A common strategy:
-pay off all debt above 6-7% interest, then invest the rest.
+A: They are now nearly the same thing. When a government runs a deficit,
+it issues bonds. Historically, those bonds were sold to private investors
+— pension funds, foreign central banks, savers — who funded the spending
+with existing money. That is *not* money printing. Since 2008, however,
+central banks (the Fed, ECB, BoJ) have routinely bought large blocks of
+newly-issued government bonds with newly-created reserves. That **is**
+money printing — the deficit is being financed by new money rather than
+by existing savings. The distinction matters: bond-funded deficits don't
+directly debase the currency; central-bank-funded deficits do. Modern
+deficits are overwhelmingly the latter.
 
-**Q8: Does inflation affect all goods equally?**
+**Q6: Does inflation hit everyone equally?**
 
-A: No. Different categories inflate at different rates. Over the past 20 years in the
-US, healthcare and education costs have risen much faster than the overall CPI, while
-technology and clothing have often gotten cheaper. The CPI is an average across a
-basket of goods, so your personal inflation rate depends on what you actually spend
-money on. Retirees, for instance, often face higher effective inflation because
-healthcare is a larger share of their spending.
+A: No. The official CPI is a national average across a representative
+basket; your *personal* inflation rate depends on what you actually spend
+money on. Three groups feel inflation more than the official number
+suggests:
 
-**Q9: What happens if I invest a lump sum vs. regular monthly contributions?**
+- **Renters** (housing inflation runs above CPI in most cycles);
+- **Retirees and the chronically ill** (healthcare and prescription-drug
+  inflation run far above CPI);
+- **Families with children in private school or US college** (education
+  inflation has run roughly double CPI for two decades).
 
-A: Statistically, lump-sum investing beats dollar-cost averaging (regular
-contributions) about two-thirds of the time, because markets tend to go up. However,
-dollar-cost averaging reduces the risk of investing everything at a market peak, and
-it is more practical for most people who earn a regular paycheck. The best strategy
-is usually: invest each paycheck as you receive it. Do not hold cash waiting for a
-"better time."
+Conversely, electronics and clothing have often *deflated* in nominal
+terms, which helps lower-income households who spend a higher share of
+income on those categories — and which is also where hedonic adjustment
+has the biggest impact on lowering reported CPI. Your portfolio should be
+calibrated to *your* basket, not the national average.
 
-**Q10: Can compound interest work against me?**
+**Q7: Should I pay off debt before investing?**
 
-A: Absolutely. Compound interest on debt is the mirror image of compound interest on
-investments. A $5,000 credit card balance at 24% APR, if unpaid, grows to $14,615 in
-just 5 years. This is why high-interest debt is a financial emergency. The same
-mathematical force that builds wealth through investing destroys wealth through
-unpaid debt.
+A: Compare the after-tax interest rate on the debt to the expected real
+return on your investments. Credit-card debt at 20%+ APR is a financial
+emergency — paying it off is a guaranteed 20% return, better than any
+equity investment. Mortgage debt at 4–5% in a 6% real-inflation
+environment is *negative real interest* — the inflation is paying down
+the debt for you, and aggressive payoff is suboptimal. The common rule:
+pay off everything above ~7% interest first, then invest. (And check
+whether the debt is deductible — mortgage interest in some jurisdictions
+is, which lowers the effective rate further.)
+
+**Q8: Can compound interest work against me?**
+
+A: Yes, and it is the most underappreciated reason to stay out of
+high-rate debt. A $5,000 credit-card balance at 24% APR, if unpaid,
+grows to $14,615 in five years. Compounding does not care which direction
+it runs; the mathematical force that builds wealth through long-run
+equity ownership destroys wealth through unpaid debt. Eliminating
+high-interest debt is the highest-return "investment" available to most
+people, and it is risk-free.
+
+**Q9: If only stocks reliably beat inflation, why bother holding anything
+else?**
+
+A: Because the *path* matters as much as the destination. A pure
+100%-equity portfolio will, in some decade or another, hand you a 50%+
+drawdown. If you sell at the bottom — which most people do, because they
+can't sleep at night — you have lost the long-run real-return advantage
+that justified holding equities in the first place. Some allocation to
+gold, cash, and (for some investors, in some regimes) bonds is
+*behavioural insurance*: it reduces the size of the drawdowns you have
+to live through, which keeps you in the equity sleeve when it matters
+most. Asset allocation is what we will spend weeks on later in this
+course. For now, the headline is: **equities are the return engine;
+everything else is the smoothing function**.
+
+**Q10: Gold doesn't pay any yield. How can it beat inflation?**
+
+A: Gold doesn't beat inflation through *yield* — it has none. Gold beats
+inflation through **price appreciation in the currency being debased**.
+Since the US went off the gold standard in 1971, gold has appreciated
+from about $35/oz to $2,500+/oz today — roughly 70× in nominal terms, or
+roughly 4–5× in real (inflation-adjusted) terms over 55 years. Gold is,
+in effect, a long position on currency debasement: every dollar of new
+money the Fed creates is, eventually, a dollar that has to find a home,
+and a historically meaningful share of it ends up in monetary metals. We
+will return to gold and store-of-value assets several times in this
+course.
 
 ---
 
@@ -600,543 +569,273 @@ unpaid debt.
 
 ---
 
-**VIDEO TITLE:** Why Invest? The Time Value of Money | Investment Course Week 1
+**VIDEO TITLE:** Why Invest? The Textbook Chart Is a Lie | Investment Course Week 1
 
 **RUNTIME TARGET:** ~25 minutes
 
 **HOSTS:**
-- **Horace** (teacher): Experienced retail trader, explains concepts from years of market experience
+- **Horace** (teacher): Experienced retail investor, explains concepts from years of market experience
 - **Stella** (student): Recent college graduate learning to invest her savings, asks the questions viewers are thinking
 
 ---
 
 **[INTRO SEQUENCE]**
 
-[VISUAL: Animated logo with text "Investment Fundamentals - Week 1"]
+[VISUAL: Animated logo with text "Investment Fundamentals -- Week 1"]
 
-[ANIMATION: A clock ticking while dollar bills slowly shrink in size]
+[ANIMATION: A textbook opens. A perfectly smooth exponential curve labelled "$10,000 at 8% per year" draws itself across the page. The line then cracks like glass and shatters into a jagged real-world price chart underneath.]
 
-**Horace:** Welcome to Week 1 of our investment fundamentals course. I am Horace, and
-this is the lesson that changes how you think about money forever.
+**Horace:** Welcome to Week 1. I am Horace, and this is the lesson where I take a hammer to the chart that every personal-finance book starts with.
 
-**Stella:** And I am Stella. I will be asking all the beginner questions, so do not worry
-if you are brand new to this. I am right there with you.
+**Stella:** And I am Stella. I just graduated, I have some savings sitting in a bank account, and I want to know what to actually do with them. So I am going to ask the questions you are probably asking too.
 
-**Horace:** Today we are answering one of the most important financial questions you
-will ever face: Why should you invest at all?
+**Horace:** Today we answer the most basic question in finance: why invest at all? And the way I want to answer it is by first burning down the answer the textbooks give you. Because that answer is wrong, and it has been wrong for my entire investing career.
 
-**Stella:** Right, because honestly, investing feels risky. Why not just save money in
-a bank account where it is safe?
+**Stella:** Strong opening.
 
-**Horace:** That is exactly where we are going to start. Because the surprising truth
-is that keeping your money "safe" in a bank account is one of the riskiest things
-you can do with it.
+**Horace:** Let us go.
 
-**Stella:** Wait, how is that possible?
-
-[VISUAL: Title card -- "Part 1: The Invisible Thief -- Inflation"]
+[VISUAL: Title card -- "Segment 1: The Textbook Chart Is a Lie"]
 
 ---
 
-**[SEGMENT 1: INFLATION]**
+**[SEGMENT 1: THE TEXTBOOK CHART IS A LIE]**
 
-**Horace:** Let me tell you about the invisible thief that is robbing you right now.
-It is called inflation.
+**Stella:** Okay so before we even started recording, you told me to pull up the chart that every investing book opens with. I have it right here. Ten thousand dollars, eight percent a year, thirty years, you end up a millionaire. The line is beautiful. It just curves up forever.
 
-[ANIMATION: A basket of groceries. The price tag starts at $50 and slowly ticks
-up to $75, then $100, while the basket stays the same size. Reference:
-animation/week01_compound_growth.py -- inflation_scene()]
+[ANIMATION: The smooth $10,000-at-8%-for-30-years textbook chart draws itself on screen, with the satisfying "you are a millionaire" caption.]
 
-**Stella:** Inflation. I have heard the word, but what does it actually mean for my
-wallet?
+**Horace:** That chart is a fairy tale. I want you to find me, in 2026, where you can get a steady, risk-free eight percent a year.
 
-**Horace:** Inflation means prices go up over time. Not because products get better,
-but because the currency loses value. In 1995, a movie ticket cost about four
-dollars. Today, it costs fifteen. Same movie experience. But your dollar buys
-less.
+**Stella:** Uh. T-bills?
 
-**Stella:** So my money is getting weaker even if I do not spend it?
+**Horace:** T-bills paid roughly half a percent for most of the post-2008 decade. Investment-grade bonds got crushed in 2022 -- the worst bond year in modern history. The S&P 500 averages around ten percent, sure -- but it does that through thirty-percent-up years, forty-percent-down years, and entire dead-flat decades. Never as a smooth line.
 
-**Horace:** Exactly. And here is what makes it dangerous.
+**Stella:** So the chart is not wrong, it is just... not real?
 
-[VISUAL: Split screen showing two jars. Left jar labeled "$10,000 in 2005."
-Right jar labeled "$10,000 in 2025." The right jar shows items being removed
-one by one to represent lost purchasing power.]
+**Horace:** It was drawn straight to make investing look like a math problem with a guaranteed answer. It is not. There is no risk-free eight percent. There never was. And the moment you think there is, you are going to make every wrong decision -- you are going to underestimate risk, you are going to panic at the first drawdown, and you are going to think the textbook lied to you. The textbook did lie to you. Just not in the way you think.
 
-**Horace:** If you had put ten thousand dollars under your mattress in 2005 and
-pulled it out in 2025, you would still have ten thousand dollars. But that ten
-thousand dollars would only buy what about six thousand dollars bought in 2005.
-You lost roughly forty percent of your purchasing power by doing absolutely
-nothing.
+**Stella:** Okay, so does the Rule of 72 also go in the trash?
 
-**Stella:** Forty percent? That is huge. But banks pay interest, right? Does that
-help?
+**Horace:** Straight to the trash. The Rule of 72 says your money doubles every nine years at eight percent. Mathematically correct -- for a constant rate of return. The problem is constant rates of return do not exist. They are a textbook abstraction. The moment you replace the constant with the actual sequence of real returns -- with a 2008 in the middle, a 2022 in the middle -- the rule breaks. The order of returns matters, and the rule has nothing to say about it. It is a parlour trick that works only on the imaginary growth path the textbook already drew for you.
 
-**Horace:** Let me show you the math.
+**Stella:** Then why is it in literally every finance book?
 
-[ANIMATION: Bar chart comparing "Savings Account Rate: 0.5%" vs
-"Inflation Rate: 3%" with a gap labeled "Real Loss: -2.5% per year"]
+**Horace:** Because it makes the textbook author's job easy and it makes the reader feel smart. Neither of those things help you when the market is down forty percent.
 
-**Horace:** The average savings account in the US has paid about half a percent
-interest in recent years. Meanwhile, inflation has averaged around three percent.
-That means every year, your savings account loses about two and a half percent
-in real purchasing power.
-
-**Stella:** So I am actually losing money by saving it?
-
-**Horace:** In real terms, yes. And that brings us to the most important concept in
-all of finance.
-
-[VISUAL: Title card -- "Part 2: The Time Value of Money"]
+[VISUAL: Title card -- "Segment 2: The Race You're Already Running"]
 
 ---
 
-**[SEGMENT 2: TIME VALUE OF MONEY]**
+**[SEGMENT 2: THE RACE YOU'RE ALREADY RUNNING]**
 
-**Horace:** The Time Value of Money -- TVM for short -- is the idea that a dollar
-today is worth more than a dollar tomorrow.
+**Stella:** Okay, so if the chart is a lie and the Rule of 72 is useless, then why bother investing at all? Like, genuinely. Why not just keep my savings in the bank and call it a day?
 
-**Stella:** Why? A dollar is a dollar, right?
+**Horace:** Because the alternative is worse. Here is the part nobody tells you when you graduate and open your first checking account: you are already in a bet. You did not choose it. The bet is that the cash sitting in your bank account is going to hold its purchasing power.
 
-**Horace:** Think of it this way. If I offer you a thousand dollars right now or a
-thousand dollars one year from now, which would you take?
+**Stella:** And it does not.
 
-**Stella:** Right now, obviously.
+**Horace:** It does not. Inflation is the gravitational force every investor has to fight just to stand still. The race is not against zero. It is not "did my account number go up?" The race is against inflation. So the question is never "should I take risk?" -- because you are already taking risk. You are taking inflation risk whether you act or not. The real question is which risk pays you to bear it.
 
-**Horace:** Why?
+[ANIMATION: A runner on a treadmill labelled "INFLATION." The treadmill is moving backward at 3-5% per year. The runner labelled "CASH" stands still and is being carried backward off-screen. The runner labelled "BONDS" jogs at the same pace as the belt and stays roughly in place. The runner labelled "STOCKS" outruns the belt and moves forward.]
 
-**Stella:** Because... I could use it now? And who knows what happens in a year?
+**Stella:** So inflation is the opponent. Not the market.
 
-**Horace:** You just named two of the three reasons.
+**Horace:** Inflation is the only opponent that matters. Everything else in this course -- every asset class, every strategy, every position size -- gets evaluated against one question: does this beat inflation, after tax, after fees, on a horizon I can actually hold it? If yes, it earns a place in the portfolio. If no, it does not. And the rest of this lesson is about *which* things actually beat inflation. Because the answer is shorter than you think.
 
-[VISUAL: Three pillars graphic:
-Pillar 1 -- "Opportunity: Invest it now, earn returns"
-Pillar 2 -- "Inflation: Future dollars buy less"
-Pillar 3 -- "Risk: Future payment might not come"]
-
-**Horace:** First, opportunity. If you have the money now, you can invest it and
-earn a return. Second, inflation. That future dollar will buy less than today's
-dollar. Third, risk. The person promising you money in the future might not
-follow through.
-
-**Stella:** So time literally makes money less valuable?
-
-**Horace:** Unless you put it to work. And that is where investing comes in. Investing
-is how you fight the time value of money. Instead of letting time erode your
-wealth, you harness time to grow it.
-
-**Stella:** How?
-
-**Horace:** Two words: compound interest.
-
-[VISUAL: Title card -- "Part 3: Compound Interest -- The Eighth Wonder"]
+[VISUAL: Title card -- "Segment 3: The CPI You See Is Not the Inflation You Pay"]
 
 ---
 
-**[SEGMENT 3: COMPOUND INTEREST]**
+**[SEGMENT 3: THE CPI YOU SEE IS NOT THE INFLATION YOU PAY]**
 
-[ANIMATION: Reference animation/week01_compound_growth.py -- compound_scene().
-Starting with a single coin, it duplicates. Then each duplicate duplicates.
-The pile grows slowly at first, then explosively.]
+**Stella:** Okay so before we get to what beats inflation -- can we just back up? When the news says "inflation came in at two point six percent" -- what is that number?
 
-**Horace:** Albert Einstein reportedly called compound interest the eighth wonder
-of the world. Whether he actually said it or not, the math backs it up.
+**Horace:** That is the Consumer Price Index. CPI. Published by the Bureau of Labor Statistics. The Fed targets about two percent of it per year. Your pension cost-of-living adjustment, your Social Security raise, your tax brackets, inflation-protected bonds -- all of it indexed to CPI.
 
-**Stella:** What makes compound interest different from regular interest?
+**Stella:** Got it. So that number is the truth?
 
-**Horace:** Great question. Simple interest means you earn a fixed percentage on your
-original amount every year. Compound interest means you earn interest on your
-interest.
+**Horace:** That number is a measurement choice. And the choice has been changed, repeatedly, in ways that consistently push the printed number lower. There are three specific games you need to know about.
 
-[ANIMATION: Side-by-side comparison.
-Left side: "Simple Interest" -- $1,000 grows by exactly $80 each year, shown
-as equal-sized blocks stacking up.
-Right side: "Compound Interest" -- $1,000 grows by increasing amounts each
-year, blocks get larger as they stack.]
+**Stella:** Three games. Let us hear them.
 
-**Horace:** Let us say you invest one thousand dollars at eight percent. With simple
-interest, you earn eighty dollars every year. After ten years, you have one
-thousand eight hundred dollars.
+**Horace:** Game one. Hedonic adjustment. The new iPhone has a better camera, more storage, a faster chip. Costs the same as last year. The BLS says: well, you got more product for the same price -- that is *deflationary*. So they adjust the iPhone's price *down* in CPI to reflect the "extra value."
 
-**Stella:** That seems fine.
+**Stella:** Wait. The price on the shelf is the same, but in the inflation number, it counts as a price decrease?
 
-**Horace:** Now with compound interest, in year one you still earn eighty dollars.
-But in year two, you earn eight percent of one thousand eighty dollars, which
-is eighty-six dollars and forty cents. In year three, you earn eight percent of
-one thousand one hundred sixty-six dollars and forty cents.
+**Horace:** Correct. Same with cars -- new safety features means the car is "cheaper" in CPI even if the sticker is higher. Same with laptops, refrigerators, washing machines. The trouble is, you do not buy iPhone features. You buy an iPhone. You hand over the full sticker price. Hedonic adjustment treats quality improvements as price decreases, and it has been applied since the late nineties. The Boskin Commission's own 1996 estimate was that hedonic and substitution adjustments together knock about half a point to a full point off CPI. Every year. Compounding.
 
-**Stella:** So each year the interest payment gets bigger?
+**Stella:** So how much off the official number do you think it actually is?
 
-**Horace:** Exactly. And after ten years, instead of one thousand eight hundred
-dollars, you have two thousand one hundred fifty-nine dollars.
+**Horace:** There is a service called ShadowStats that publishes a CPI reconstructed using the pre-1980 methodology. It typically reads five to seven percentage points higher than the official number. Now, mainstream economists criticise ShadowStats for basically adding a near-constant offset rather than fully recomputing the basket. And that critique has merit -- I do not think actual experienced inflation is six points above CPI. But the directional message is right: inflation in your real life runs meaningfully higher than the headline.
 
-[VISUAL: Table on screen:
-Simple: $1,000 -> $1,800 after 10 years
-Compound: $1,000 -> $2,159 after 10 years
-Difference: $359]
+[VISUAL: Shadow CPI overlay chart -- image/week01_shadow_cpi.png. Two lines from 1980 to 2025: official CPI tracking around 2-4%, ShadowStats running 5-7 points higher, with the gap opening up in the early 1990s after methodology changes.]
 
-**Stella:** Three hundred and fifty-nine dollars more. That is nice but not exactly
-life-changing.
+**Stella:** Okay, game two.
 
-**Horace:** You are right. After ten years, it is a nice bonus. But here is where
-it gets wild. Let us extend the timeline.
+**Horace:** Core inflation. The Fed does not actually target headline CPI. The Fed targets *Core PCE*. PCE is Personal Consumption Expenditures, which is a slightly different basket -- it already runs about 0.3 points lower than CPI. And then "core" means: strip out food and energy, on the grounds that they are "volatile."
 
-[ANIMATION: Graph showing both curves extending to 40 years. The compound curve
-begins to separate dramatically from the simple interest line around year 20,
-and by year 40, it is far above.]
+**Stella:** Strip out food and energy. The two things every household actually buys every week.
 
-**Horace:** After twenty years, the compound interest total is four thousand six
-hundred sixty-one dollars versus two thousand six hundred dollars for simple.
-After thirty years, it is ten thousand sixty-three versus three thousand four
-hundred. And after forty years...
+**Horace:** The two things every household pays for first. The argument is they bounce around month to month. The structural effect is the same as hedonic: the printed number is lower than what people experience, and that is the number the Fed sets interest rates off.
 
-**Stella:** Let me guess -- it gets crazy?
+**Stella:** And game three?
 
-**Horace:** Twenty-one thousand seven hundred fifteen dollars. Compared to four
-thousand two hundred for simple interest. Your money has grown to over twenty-one
-times what you started with.
+**Horace:** Substitution. If the price of beef goes up, the BLS assumes you will buy chicken instead. So they reduce the *weight* of beef in the basket. Mathematically: the things you can afford less of count for less in the inflation measure, precisely because they got expensive. It is called geometric weighting. Introduced in the late nineties. The pre-1980 method used arithmetic weights and did not punish you that way for being priced out.
 
-**Stella:** From just one thousand dollars?
+**Stella:** That is incredible. The things that are getting most expensive are the things that count least.
 
-**Horace:** From just one thousand dollars. And that is without adding a single extra
-penny. Just letting compound interest do its thing for forty years.
+**Horace:** Right. So now ask yourself who pays the price for that understatement. Your pension cost-of-living adjustment is indexed to the artificially low CPI. Your Social Security raise is indexed to it. Your tax brackets are indexed to it. The yield on TIPS, the inflation-protected bonds, is linked to the same understated CPI. Your wage negotiations anchor on it. The Fed sets interest rates off it. If they undercount inflation by two points a year for twenty years, that compounds into roughly a forty-nine percent real cut to anyone whose income is CPI-indexed.
 
-[VISUAL: Final comparison graphic:
-$1,000 at 8% for 40 years:
-Simple Interest: $4,200
-Compound Interest: $21,715]
+**Stella:** So when you set your investing hurdle rate -- the return you need to actually preserve purchasing power -- you should not anchor it to official CPI.
 
-**Stella:** Okay, that is genuinely impressive. But who has forty years?
+**Horace:** Take the official number, add at least a couple of points for honesty. If they are saying CPI is two point five, plan to need at least four and a half to five percent real, just to stay even. That is the hurdle. Anything below that, you are going backward and the chart on your bank statement is lying to you.
 
-**Horace:** Anyone who starts in their twenties and retires in their sixties. And most
-people are not investing just a one-time lump sum. They are adding money regularly.
-Let me show you what happens when you combine regular contributions with compound
-interest.
-
-[ANIMATION: A piggy bank receiving coins monthly. A growth meter next to it
-accelerates upward. Numbers tick from $0 to $500,000 to $1,000,000.]
-
-**Horace:** If you invest five hundred dollars a month starting at age twenty-five,
-at an average return of ten percent per year, by age sixty-five you will have
-approximately two million six hundred thousand dollars.
-
-**Stella:** Two point six million? From five hundred a month?
-
-**Horace:** Your total contributions would be two hundred forty thousand dollars. The
-remaining two point three six million is pure compound growth.
-
-**Stella:** That is ninety percent growth and only ten percent contributions. That is
-unbelievable.
-
-**Horace:** That is the power of time plus compounding. And this is exactly why
-starting early matters so much.
-
-**Stella:** That is the math. But does it actually work like that in the real world?
-
-**Horace:** Funny you should ask. Let me show you the same idea using real US
-market history -- not a theoretical ten percent, but the actual returns from
-1971 to 2025.
-
-[VISUAL: Three Portfolios chart -- image/week01_three_portfolios.png. Three
-lines climbing on a log-scale chart from 1971 to 2025: cash growing
-linearly to $550K (which is just the running sum of deposits), T-bills
-curving up to $1.73M, S&P 500 exploding to $42M.]
-
-**Horace:** Three savers. Each one puts ten thousand dollars away every single
-year for fifty-five years. The only thing that differs is where they put it.
-Person A keeps it in cash, no interest, just sitting in a drawer. Person B
-goes into short-term Treasury bills -- the safest interest-bearing vehicle
-there is. Person C puts it in the S&P 500 with dividends reinvested.
-
-**Stella:** Same money going in. So same money coming out, right?
-
-**Horace:** Person A, the cash saver, ends up with exactly five hundred fifty
-thousand dollars -- the sum of fifty-five deposits, no growth. Person B, the
-T-bill saver, ends up with about one point seven three million. Person C, the
-stock market investor, ends up with forty-two million.
-
-**Stella:** Forty-two MILLION? From the same ten thousand a year?
-
-**Horace:** From the same ten thousand a year. Person C ends up with twenty-four
-times the wealth of the T-bill saver, and seventy-six times the wealth of the
-cash saver. Same discipline, same dollars in, totally different outcomes. And
-it gets worse for Person A -- once you adjust for fifty-five years of US
-inflation, that five hundred fifty thousand of cash has the purchasing power of
-only about sixty-six thousand dollars in 1971 money.
-
-**Stella:** So the cash saver actively lost ground?
-
-**Horace:** Saving without investing is not safe. It is just a slower way to
-lose. That is the whole reason this course exists.
-
-[VISUAL: Title card -- "Part 4: The Cost of Waiting"]
+[VISUAL: Title card -- "Segment 4: Where Inflation Comes From -- Money Printing"]
 
 ---
 
-**[SEGMENT 4: THE COST OF WAITING]**
+**[SEGMENT 4: WHERE INFLATION COMES FROM]**
 
-[ANIMATION: Two characters walking side by side. "Early Emma" starts at age 25.
-"Waiting Will" starts at age 35. Both walk toward age 65. Emma's wealth bar
-grows much taller than Will's.]
+**Stella:** Okay so we know the official inflation number understates reality. But where does the inflation itself come from? Like, what is the source?
 
-**Horace:** Let me introduce you to two hypothetical investors. Early Emma starts
-investing five thousand dollars per year at age twenty-five. Waiting Will starts
-the same amount at age thirty-five. Both invest until age sixty-five, both earn
-ten percent per year on average.
+**Horace:** The textbook answer is "too much money chasing too few goods." Which is technically correct and tells you nothing. The honest answer is: central banks created the money, and governments spent it. Modern inflation is, first and last, a monetary phenomenon. They printed.
 
-**Stella:** So Emma invests for forty years and Will for thirty years?
+**Stella:** "They printed." Show me.
 
-**Horace:** Right. Emma invests a total of two hundred thousand dollars. Will invests
-a total of one hundred fifty thousand dollars. So Emma puts in fifty thousand
-more. But look at the results.
+**Horace:** Look at the broad money supply -- this is M2, currency plus checking plus savings deposits plus retail money market funds -- of every major currency over the last twenty-five years, indexed to a hundred at the year 2000.
 
-[VISUAL: Comparison bars:
-Emma (starts at 25): Invested $200,000 -> Final value $2,212,963
-Will (starts at 35): Invested $150,000 -> Final value $822,470]
+[VISUAL: Global M2 chart -- image/week01_money_supply.png. Five lines on a log scale from 2000 to 2025: USD, EUR, JPY, CNY, TWD. Every line climbs. CNY climbs fastest. Every line has a visible vertical jump in 2020.]
 
-**Stella:** Emma has almost three times as much money? From only fifty thousand dollars
-more in contributions?
+**Stella:** They are all going up.
 
-**Horace:** One point four million dollars more in final value from fifty thousand
-more in contributions. That is a twenty-eight to one ratio. Every dollar Emma
-invested in those first ten years multiplied enormously over the next thirty years.
+**Horace:** Every single major currency. The post-2020 vertical move on every line -- that is the COVID-era response. Synchronised global money creation, the largest peacetime expansion in modern history.
 
-**Stella:** So the early years are the most valuable?
+**Stella:** Hold on. Even the Hong Kong dollar? The Taiwan dollar?
 
-**Horace:** By far. The first dollars you invest have the longest time to compound.
-A dollar invested at age twenty-five has forty years to grow. A dollar invested
-at age fifty-five only has ten years. The twenty-five-year-old dollar could grow
-to forty-five dollars. The fifty-five-year-old dollar only grows to about two
-dollars and sixty cents.
+**Horace:** Even the Hong Kong dollar. Hong Kong's currency is pegged to the US dollar, so when the US prints, Hong Kong essentially imports the printing. Taiwan, same dynamic but slightly more independent. The Yen, the Euro, the Renminbi -- everyone printed. There is no "honest" major currency to escape into. That is the regime.
 
-[VISUAL: Title card -- "Part 5: The Rule of 72"]
+**Stella:** So if every currency is being debased at the same time, what does that even mean for prices?
 
----
+**Horace:** It means the things being measured *in* those currencies -- assets, real goods, gold -- look like they are going up. They are not really going up. The yardstick is shrinking. And here is the second half of the story.
 
-**[SEGMENT 5: RULE OF 72]**
+[VISUAL: US M2 + US Treasury debt chart -- image/week01_us_debt_m2.png. Two lines climbing together from 1990 to 2025, in trillions of dollars. Both inflect sharply at 2008 and again at 2020. Debt at around $36 trillion now, M2 around $22 trillion.]
 
-**Stella:** This is all great, but doing compound interest math in my head sounds
-impossible.
+**Horace:** US Treasury debt and US M2, plotted together, both in trillions, same axis. They climb together. Same inflection points -- 2008 GFC, 2020 COVID. They are two sides of the same act. When the government runs a deficit, it issues bonds. When the central bank buys those bonds with newly-created reserves -- which is exactly what quantitative easing is -- that is monetised debt. Spending today, paid for with printed money tomorrow.
 
-**Horace:** It would be, except there is a beautiful shortcut called the Rule of 72.
+**Stella:** And the debt is now thirty-six trillion?
 
-[VISUAL: Large "72" on screen with a division sign]
+**Horace:** Thirty-six trillion. And here is the kicker, because this is the part that determines what you can and cannot invest in for the next decade. Every one percent rise in the average yield on that debt is roughly three hundred sixty billion of additional annual interest expense. About sixty percent of the entire US defence budget. So the political incentive to keep nominal interest rates artificially *low* -- including via the central bank buying its own government's bonds -- is enormous.
 
-**Horace:** To estimate how many years it takes to double your money, just divide
-seventy-two by the annual return rate.
+**Stella:** They cannot let rates rise.
 
-**Stella:** That is it?
+**Horace:** They cannot let *real* rates rise meaningfully. Which means -- and this is the punch line -- bonds stop being a reliable inflation hedge. When the government has both the means, a captive central bank, and the motive, the debt-service arithmetic, to keep nominal rates below the true inflation rate, the real yield on bonds becomes systematically negative. There is a name for this. It is called *financial repression*. And it is the reason the entire 60/40 stocks-and-bonds portfolio that worked from 1982 through 2020 is structurally suspect going forward.
 
-**Horace:** That is it. At six percent, your money doubles in twelve years. At eight
-percent, nine years. At twelve percent, just six years.
+**Stella:** Wait. Bonds *used* to beat inflation, right? My parents' generation owned bonds and did fine.
 
-[ANIMATION: A $1 bill doubling into $2, then $4, then $8, then $16, with
-timestamps showing the years at 8% return: 0, 9, 18, 27, 36 years]
+**Horace:** Your parents' generation lived through the longest bond bull market in history. From 1982 to roughly 2020, interest rates fell from fifteen percent down to near zero. Falling rates means rising bond prices, on top of the coupons. It was a forty-year tailwind. That regime is over. Rates are not going materially negative from here. The disinflationary tailwind that made bonds an inflation hedge has reversed. So when your broker, who was trained in the eighties and nineties, tells you "bonds for safety" -- they are reciting a rule from a regime that no longer applies.
 
-**Stella:** So at eight percent, one dollar becomes two in nine years, four in
-eighteen years, eight in twenty-seven years, and sixteen in thirty-six years?
-
-**Horace:** Exactly. Four doublings in thirty-six years. And here is a great use of
-this rule in reverse. You can estimate how fast inflation destroys your money.
-
-**Stella:** How?
-
-**Horace:** At three percent inflation, seventy-two divided by three is twenty-four.
-Your money loses half its value every twenty-four years.
-
-**Stella:** So if I am thirty years old and retirement is thirty-five years away, my
-money could lose more than half its value if I just hold cash?
-
-**Horace:** More than half. At three percent inflation over thirty-five years, a
-dollar is worth about thirty-five cents. You would lose about sixty-five percent
-of your purchasing power.
-
-[VISUAL: Dollar bill with 65% of it shaded out/faded, labeled "Lost to Inflation
-Over 35 Years (3% annual)"]
-
-**Stella:** That is terrifying.
-
-**Horace:** It should be motivating. Because once you understand this, you understand
-that not investing is the real risk.
-
-[VISUAL: Title card -- "Part 6: Real vs. Nominal Returns"]
+[VISUAL: Title card -- "Segment 5: The Three Savers -- What Actually Beats Inflation"]
 
 ---
 
-**[SEGMENT 6: REAL VS. NOMINAL RETURNS]**
+**[SEGMENT 5: THE THREE SAVERS]**
 
-**Horace:** Before we wrap up, I want to clarify something that trips up a lot of
-people. When you hear that the stock market returns ten percent per year, that
-is the nominal return.
+**Stella:** Okay. So we have the lie of the textbook chart, we have inflation as the real opponent, we have CPI being understated, and we have central banks printing. Now please tell me what *does* actually beat inflation. Because I am getting nervous.
 
-**Stella:** Nominal meaning the headline number?
+**Horace:** Good. Hold onto that, because it is the right reaction. Let me make it concrete by running the same fifty-five years of actual market history three different ways. Three savers. They start in 1971 -- the year the US went off the gold standard, which is a meaningful date and we will come back to it in a later week.
 
-**Horace:** Right. The actual number before adjusting for inflation. But what matters
-for your purchasing power is the real return -- the nominal return minus inflation.
+**Stella:** Three savers, same plan?
 
-[ANIMATION: A thermometer-style graphic. "Nominal Return" shows 10%.
-"Inflation" shows 3% being subtracted. "Real Return" shows 7%.]
+**Horace:** Same plan. Each one deposits exactly ten thousand dollars a year. Same nominal amount, every single year, for fifty-five years. No timing the market, no clever moves, just disciplined saving. The only thing that differs is *where* they put it.
 
-**Horace:** If the stock market returns ten percent and inflation is three percent,
-your real return is about seven percent. That seven percent represents your
-actual increase in purchasing power -- the additional goods and services you can
-now afford.
+**Stella:** Okay. Person A?
 
-**Stella:** So I should always think about returns after inflation?
+**Horace:** Person A keeps it in cash. No bank, no interest. Pure currency, sitting in a drawer. Person B parks it in short-term US Treasury bills -- the safest interest-bearing vehicle on the planet. Person C puts it in the S&P 500 with all dividends reinvested.
 
-**Horace:** For long-term planning, absolutely. And here is why it matters. Look at
-this comparison.
+[VISUAL: Three Portfolios chart -- image/week01_three_portfolios.png. Log-scale chart from 1971 to 2025. Cash line is flat-linear, climbing diagonally to $550K. T-bills line curves up to $1.73M. S&P 500 line explodes upward to $42M.]
 
-[VISUAL: Table on screen:
-Asset           | Nominal Return | After 3% Inflation | Real Return
-Stocks          |     10%        |                     |    7%
-Bonds           |      5%        |                     |    2%
-Savings Account |      2%        |                     |   -1%
-Cash            |      0%        |                     |   -3%]
+**Stella:** Same dollars in. Same fifty-five years.
 
-**Horace:** A savings account with a two percent return seems like it is growing your
-money. But after three percent inflation, you are actually losing one percent per
-year. Cash under the mattress is losing three percent per year.
+**Horace:** Each person has put in exactly five hundred fifty thousand dollars of their own money. Now look at where they end up. Person A, the cash saver, ends up with exactly five hundred fifty thousand dollars -- just the running sum of deposits, no growth. Person B, the T-bill saver, ends up with about one point seven three million. Person C, in the S&P 500, ends up with forty-two million.
 
-**Stella:** So stocks are really the only option that significantly grows your wealth?
+**Stella:** Forty-two million. From the same ten thousand a year.
 
-**Horace:** Over long periods, stocks have been the strongest wealth-building tool
-available to ordinary investors. Bonds play an important role too, and we will
-cover asset allocation later in the course. But yes, for long-term growth, equities
-are the primary engine.
+**Horace:** From the exact same ten thousand a year. But here is where the lesson lands, because nominal numbers lie. Let me restate all three in 1971 purchasing power -- in real money.
 
-[VISUAL: Title card -- "Part 7: Future Value and Present Value"]
+**Stella:** Okay.
 
----
+**Horace:** Person C, the S&P investor: forty-two million nominal becomes about *five million* in 1971 dollars. Real purchasing power gained: enormous. Person B, the T-bill saver: one point seven three million nominal becomes about *two hundred eight thousand* in 1971 dollars. Barely positive after inflation. And remember, that includes the 1980s, when T-bills were paying double-digit yields. Strip those years out and the picture is much worse -- which is the regime we live in now.
 
-**[SEGMENT 7: FV AND PV]**
+**Stella:** And Person A?
 
-**Horace:** Let me give you two formulas that will come up again and again.
+**Horace:** Person A, the cash saver, deposited five hundred fifty thousand of their own money. After fifty-five years of inflation, that has the real purchasing power of about *sixty-six thousand* in 1971 dollars. Saving diligently for fifty-five years, ending up with the real purchasing power of about six and a half years of deposits. Cash did not fail to grow. Inflation actively *shrank* it while Person A was being responsible.
 
-[VISUAL: Two formula cards side by side:
-Left: "Future Value: FV = PV x (1 + r)^n"
-Right: "Present Value: PV = FV / (1 + r)^n"]
+**Stella:** That is brutal. The cash saver was punished for doing what feels like the safe thing.
 
-**Horace:** Future value answers the question: "If I invest this money now, how much
-will I have later?" Present value answers the reverse: "What is a future payment
-worth to me today?"
+**Horace:** The "safe" thing is the most dangerous thing. It is a slow, almost imperceptible bleed. The slowness is exactly what makes it dangerous -- people who play it safe lose decades of purchasing power before they realise the game was rigged.
 
-**Stella:** Can you give me a real example?
+**Stella:** And Person C did not get there because the S&P paid a magical smooth ten percent.
 
-**Horace:** Sure. Say you have ten thousand dollars and you can earn eight percent per
-year for twenty-five years. The future value is ten thousand times one point oh
-eight to the power of twenty-five. That equals sixty-eight thousand four hundred
-eighty-five dollars.
+**Horace:** Person C lived through the 1973-74 bear market, the 1987 crash, the 2000-2002 dot-com bust, the 2008 financial crisis, and the 2020 COVID crash -- and just kept depositing and kept holding. Stocks won not because the path was easy but because they were the only one of the three that stayed reliably ahead of the currency debasement they were all running against.
 
-[ANIMATION: $10,000 growing in a bar chart over 25 years, reaching $68,485.
-Key milestones highlighted: $21,589 at year 10, $46,610 at year 20.]
+**Stella:** So if I am taking one slide away from this video, it is this chart.
 
-**Stella:** Almost seven times the original amount. Nice.
+**Horace:** This is the picture you keep in your head for the rest of the course. The race is against inflation. Win that race, and compounding does the work for you. Lose it, and no amount of discipline saves you.
 
-**Horace:** Now the reverse. Your company offers you a bonus of one hundred thousand
-dollars payable in twenty years. What is that worth today, assuming you could earn
-eight percent investing on your own?
+**Stella:** And reading the chart honestly: only stocks reliably beat inflation in this regime.
 
-**Stella:** Let me think. One hundred thousand divided by one point oh eight to the
-twentieth power...
+**Horace:** Stocks. Plus a few real assets we will spend later weeks on -- gold, productive real estate, certain commodities. They beat inflation because they are denominated in *things* rather than in the currency the government is debasing. Bonds *used to* be on this list, in the disinflationary regime from 1982 through about 2020. They are not on it today. That is the entire short list.
 
-**Horace:** Which equals...
+[VISUAL: A shrinking list animated on screen.
+ Things that reliably beat inflation today:
+ - Equities (broad ownership of productive businesses)
+ - Gold and monetary metals
+ - Productive real estate (cash-flowing, not raw land)
+ - Selected commodities (in the right part of the cycle)
+ Greyed out, with a strikethrough: "Bonds (used to, 1982-2020)"
+ Greyed out: "Cash"
+ Greyed out: "Savings accounts"]
 
-**Stella:** I have no idea how to calculate that in my head.
+**Horace:** Everything else is, in real terms, a losing bet. A "high-yield" savings account paying four percent in a six-percent real-inflation environment is still losing two percent a year. T-bills at five percent in the same environment are losing one percent. The fact that the account number goes up is irrelevant. The only question is: am I beating the printer?
 
-**Horace:** It is twenty-one thousand four hundred fifty-five dollars. That future
-hundred thousand is only worth about twenty-one thousand today.
-
-[VISUAL: $100,000 shrinking backward through time to $21,455]
-
-**Stella:** So if someone offered me twenty-five thousand dollars right now instead, I
-should take the cash?
-
-**Horace:** From a pure time-value-of-money perspective, yes. Twenty-five thousand
-now is worth more than one hundred thousand in twenty years, if you can earn eight
-percent.
-
-**Stella:** This completely changes how I think about money.
-
-**Horace:** And that is exactly the point of this lesson.
-
-[VISUAL: Title card -- "Key Takeaways"]
+[VISUAL: Title card -- "Segment 6: Three Things to Take Away"]
 
 ---
 
-**[SEGMENT 8: RECAP AND TAKEAWAYS]**
+**[SEGMENT 6: WRAP-UP]**
 
-[ANIMATION: Summary slide building point by point]
+**Horace:** So let us land this. Three things you take away from Week 1.
 
-**Horace:** Let us recap what we learned today.
+[VISUAL: Three numbered cards animating in.]
 
-[VISUAL: Bullet points appearing one by one]
+**Horace:** Number one. The textbook chart is a fairy tale. There is no risk-free eight percent. Anyone who shows you a smooth exponential curve as a forecast is selling you something.
 
-**Horace:** Number one: Inflation silently destroys your purchasing power. At three
-percent inflation, money loses half its value in about twenty-four years.
+**Stella:** Throw the smooth chart away.
 
-**Stella:** The invisible thief.
+**Horace:** Number two. You are already in a bet -- the bet that cash holds its value. It does not. Inflation is the opponent. The race is not against zero. It is against the central bank's printer. And the official inflation number understates the race by a couple of points, every year.
 
-**Horace:** Number two: Compound interest is the most powerful force in building
-wealth. You earn interest on your interest, and over decades, this creates
-exponential growth.
+**Stella:** So my real hurdle rate is higher than the news number.
 
-**Stella:** The eighth wonder.
+**Horace:** Right. Plan to need at least four to five percent real return just to stand still. Number three. Looking at the last fifty-five years of actual data, only equities -- plus a few real assets we will get to later -- have reliably won that race. Bonds used to. They no longer do. Cash never has. The job of the rest of this course is to teach you how to own the things that beat the printer, and at what price they are worth holding.
 
-**Horace:** Number three: The Rule of 72. Divide seventy-two by your return rate to
-estimate doubling time. Quick, easy, and surprisingly accurate.
+**Stella:** And what about the chart with the three savers? Person A with sixty-six thousand of real money after fifty-five years, Person B at two hundred eight thousand, Person C at five million. That is the one I am keeping.
 
-**Stella:** Seventy-two divided by the rate. Got it.
+**Horace:** That is the centrepiece. If you take a screenshot of one thing from this video, take that one. Tape it to your monitor. Every time you are tempted to keep "just a little more" in cash because it feels safer, look at it.
 
-**Horace:** Number four: Starting early is more important than investing large amounts.
-The first dollars you invest have the most time to compound and create the most
-wealth.
+**Stella:** Okay. So next week?
 
-**Stella:** Early Emma beat Waiting Will by a mile.
+**Horace:** Next week we start answering the *how*. The cheapest, simplest, most-proven way for an ordinary investor to own broad equity ownership of productive businesses is index funds and ETFs. Why most professional fund managers cannot beat them. How they actually work. What to buy and what to avoid. That is Week 2.
 
-**Horace:** Number five: Always think in real returns, not nominal. What matters is
-your purchasing power after inflation, not the raw number in your account.
+**Stella:** Got it. See you next week.
 
-**Stella:** Ten percent minus three percent inflation equals seven percent real growth.
+**Horace:** Thanks for watching. If this is the kind of investing course you wish someone had given you when you graduated, subscribe so you do not miss Week 2. See you then.
 
-**Horace:** And number six: Future value and present value are the foundational tools
-for evaluating any financial decision. Every investment, every loan, every financial
-offer can be evaluated using these concepts.
-
-[VISUAL: Animated graphic showing a timeline from "Today" to "Future" with arrows
-showing FV going forward and PV coming back]
-
-**Stella:** So what should someone do right now, today, after watching this video?
-
-**Horace:** Three things. First, check what your savings account is paying. If it is
-less than inflation, understand that you are losing money. Second, open an
-investment account if you do not have one. Many brokerages have zero minimums and
-zero commissions. Third, start investing, even if it is just fifty dollars a month.
-The amount matters less than the habit.
-
-**Stella:** Because time is the most important ingredient.
-
-**Horace:** Exactly. Every day you wait is a day of compounding you will never get
-back.
-
-[VISUAL: End card with course logo]
-
-**Horace:** Next week, we are going to talk about the easiest, most proven way for
-beginners to invest: index funds and ETFs. You will learn why most professional
-fund managers cannot beat a simple index fund, and how you can get started with
-one for practically nothing.
-
-**Stella:** That sounds great. See you all next week.
-
-**Horace:** Thanks for watching. If you found this helpful, subscribe and hit the
-notification bell so you do not miss Week 2. See you then.
-
-[ANIMATION: Outro animation with subscribe button graphic and "Next Week:
-Index Funds and ETFs" preview card]
+[ANIMATION: Outro card. The smashed textbook from the intro reassembles, but this time the curve on the page is jagged and realistic, not smooth. Subscribe button graphic. "Next Week: Index Funds and ETFs" preview card.]
 
 **[END]**
 
 ---
 
-*Animation reference for this episode: `animation/week01_compound_growth.py`*
+*Animation references for this episode: opening textbook-shatter, inflation treadmill, expanding M2 globe, debt-and-M2 parallel climb, three-savers race. Charts referenced: `image/week01_three_portfolios.png`, `image/week01_shadow_cpi.png`, `image/week01_money_supply.png`, `image/week01_us_debt_m2.png`.*
 *Next lesson: `course/week02_index_funds_etfs.md`*

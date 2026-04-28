@@ -111,7 +111,13 @@ RULES:
 # ---------------------------------------------------------------------------
 def call_anthropic(provider_cfg, system, user):
     import anthropic
-    client = anthropic.Anthropic()
+    import httpx
+    # Long timeout for big lessons that produce 30K+ output tokens.
+    # The default SDK timeout (600s) trips on long-form translations; use
+    # a generous read budget but keep connect-time short.
+    client = anthropic.Anthropic(
+        timeout=httpx.Timeout(7200.0, connect=30.0),
+    )
     kwargs = {
         "model": provider_cfg["model"],
         "max_tokens": provider_cfg.get("max_tokens", 65536),

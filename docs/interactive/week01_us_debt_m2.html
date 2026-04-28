@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US Debt, M2, M1 &amp; Private Debt — Interactive (Week 1)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ud-bg); }
+:root {
+    --ud-bg: #fdfbf5;
+    --ud-text: #1a2332;
+    --ud-muted: #6b7280;
+    --ud-border: #d6d3c4;
+    --ud-card: #fdfbf5;
+    --ud-accent: #b8860b;
+    --ud-c-debt: #b71c1c;
+    --ud-c-m2:   #0d47a1;
+    --ud-c-m1:   #2e7d32;
+    --ud-c-priv: #6a1b9a;
+}
+html[data-theme="dark"] .ud-root,
+.ud-root[data-theme="dark"] {
+    --ud-bg: #0f1724;
+    --ud-text: #e6e6e6;
+    --ud-muted: #9aa3b2;
+    --ud-border: #2a3441;
+    --ud-card: #0f1724;
+    --ud-c-debt: #ef5350;
+    --ud-c-m2:   #5a8dee;
+    --ud-c-m1:   #66bb6a;
+    --ud-c-priv: #ba68c8;
+}
+.ud-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ud-bg); color: var(--ud-text);
+    padding: 12px; margin: 0;
+}
+.ud-controls {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+}
+.ud-presets {
+    display: inline-flex;
+    border: 1px solid var(--ud-border);
+    border-radius: 999px; overflow: hidden;
+    background: var(--ud-card);
+}
+.ud-presets button {
+    border: none; background: transparent; color: var(--ud-muted);
+    padding: 6px 14px; font: inherit; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.ud-presets button:hover { color: var(--ud-text); }
+.ud-presets button.active { background: var(--ud-accent); color: #fff; }
+.ud-slider-wrap {
+    flex: 1; min-width: 220px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: var(--ud-muted);
+}
+.ud-slider-wrap input[type="range"] {
+    flex: 1; accent-color: var(--ud-accent);
+}
+.ud-slider-wrap .ud-window-label {
+    white-space: nowrap; color: var(--ud-text); font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.ud-toggles {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 14px; padding: 10px 12px;
+    background: var(--ud-card); border: 1px solid var(--ud-border); border-radius: 8px;
+}
+.ud-toggles .ud-tg-label {
+    width: 100%;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--ud-muted);
+    margin-bottom: 4px;
+}
+.ud-tg {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; color: var(--ud-text); font-weight: 600;
+    cursor: pointer; padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--ud-border);
+    background: var(--ud-card); user-select: none;
+}
+.ud-tg input[type="checkbox"] { display: none; }
+.ud-tg .ud-tg-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--ud-muted); transition: background 0.15s;
+}
+.ud-tg.active { border-color: var(--cur-color, var(--ud-accent)); }
+.ud-tg.active .ud-tg-dot { background: var(--cur-color, var(--ud-accent)); }
+.ud-axis-toggle {
+    margin-left: auto;
+    display: inline-flex; gap: 6px; align-items: center;
+    font-size: 0.85rem; color: var(--ud-text); font-weight: 600;
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--ud-border);
+    background: var(--ud-card);
+    cursor: pointer; user-select: none;
+}
+.ud-axis-toggle input[type="checkbox"] {
+    accent-color: var(--ud-accent);
+}
+.ud-chart {
+    width: 100%; height: 460px;
+    background: var(--ud-card);
+    border-radius: 8px; border: 1px solid var(--ud-border);
+}
+.ud-stats {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.ud-stat {
+    background: var(--ud-card);
+    border: 1px solid var(--ud-border);
+    border-left: 4px solid var(--ud-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.ud-stat .ud-stat-name {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--ud-muted);
+}
+.ud-stat .ud-stat-val {
+    font-size: 1.25rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ud-stat .ud-stat-detail {
+    font-size: 0.78rem; color: var(--ud-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ud-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--ud-muted); line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .ud-stats { grid-template-columns: 1fr; }
+    .ud-chart { height: 380px; }
+    .ud-presets button { padding: 5px 10px; font-size: 0.8rem; }
+    .ud-axis-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="ud-root" id="ud-root">
+    <div class="ud-controls">
+        <div class="ud-presets" id="ud-presets" role="tablist">
+            <button type="button" data-years="10">10Y</button>
+            <button type="button" data-years="25">25Y</button>
+            <button type="button" data-years="45">45Y</button>
+            <button type="button" data-years="max" id="ud-preset-max" class="active">Max</button>
+        </div>
+        <div class="ud-slider-wrap">
+            <span id="ud-start-label">Start year</span>
+            <input type="range" id="ud-start-slider" min="1960" max="2025" value="1960" step="1" disabled>
+            <span class="ud-window-label" id="ud-window-label">1960 – 2025</span>
+        </div>
+    </div>
+    <div class="ud-toggles" id="ud-toggles">
+        <div class="ud-tg-label" id="ud-tg-heading">Series</div>
+        <!-- toggles inserted by JS -->
+        <label class="ud-axis-toggle">
+            <input type="checkbox" id="ud-log">
+            <span id="ud-log-label">Log scale</span>
+        </label>
+    </div>
+    <div id="ud-chart" class="ud-chart"></div>
+    <div class="ud-stats" id="ud-stats">
+        <!-- inserted by JS -->
+    </div>
+    <p class="ud-caption" id="ud-caption">
+        Four US balance-sheet series in trillions of USD on the same axis. Toggle each
+        on or off and switch between linear and log scale. Hover for a year-by-year
+        crosshair showing every visible series at that year.
+        <br><br>
+        <strong>Note on M1.</strong> The Fed redefined M1 in May 2020 to include savings
+        deposits, which produces the visible step-up in the M1 line that year. The
+        jump is a definition change, not a real-world money-creation event of that size.
+        <strong>Note on private debt.</strong> "US private debt" here is household
+        debt + non-financial business credit-market debt from the Fed's Z.1 release.
+        Financial-sector debt is excluded.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            preset_max: "Max", start_year: "Start year",
+            tg_heading: "Series", log_label: "Log scale",
+            xaxis: "Year", yaxis: "Trillions USD", yaxis_log: "Trillions USD (log)",
+            ser_debt: "US Treasury debt outstanding",
+            ser_m2:   "US M2 money supply",
+            ser_m1:   "US M1 money supply",
+            ser_priv: "US private debt (HH + non-fin business)",
+            ser_debt_short: "Treasury debt",
+            ser_m2_short:   "M2",
+            ser_m1_short:   "M1",
+            ser_priv_short: "Private debt",
+            stat_debt: "Treasury debt (latest)",
+            stat_m2:   "M2 (latest)",
+            stat_m1:   "M1 (latest)",
+            stat_priv: "Private debt (latest)",
+            growth_label: "× window start",
+            caption_pre: "Four US balance-sheet series in trillions of USD on the same axis. Toggle each on or off and switch between linear and log scale. Hover for a year-by-year crosshair showing every visible series at that year.",
+            caption_m1: "Note on M1. The Fed redefined M1 in May 2020 to include savings deposits, which produces the visible step-up in the M1 line that year. The jump is a definition change, not a real-world money-creation event of that size.",
+            caption_priv: "Note on private debt. \"US private debt\" here is household debt + non-financial business credit-market debt from the Fed's Z.1 release. Financial-sector debt is excluded.",
+        },
+        hk: {
+            preset_max: "全部", start_year: "起始年份",
+            tg_heading: "系列", log_label: "對數軸",
+            xaxis: "年份", yaxis: "萬億美元", yaxis_log: "萬億美元(對數)",
+            ser_debt: "美國國債未償餘額",
+            ser_m2:   "美國 M2 貨幣供應",
+            ser_m1:   "美國 M1 貨幣供應",
+            ser_priv: "美國私人債務(家庭 + 非金融企業)",
+            ser_debt_short: "國債",
+            ser_m2_short:   "M2",
+            ser_m1_short:   "M1",
+            ser_priv_short: "私人債務",
+            stat_debt: "國債(最新)",
+            stat_m2:   "M2(最新)",
+            stat_m1:   "M1(最新)",
+            stat_priv: "私人債務(最新)",
+            growth_label: "× 窗口起始",
+            caption_pre: "四條美國資產負債表系列,皆以萬億美元為單位、同一軸顯示。可分別開關,並可在線性與對數軸之間切換。把游標移到圖上會出現逐年十字線,顯示當年每條顯示中系列的數值。",
+            caption_m1: "M1 注釋。聯儲於 2020 年 5 月將儲蓄存款重新分類進 M1,因此圖中該年 M1 線出現明顯階梯式上跳。這是定義變更,不是當年真有那麼大規模的貨幣創造。",
+            caption_priv: "私人債務注釋。此處的「美國私人債務」是聯儲 Z.1 報告的家庭債務 + 非金融企業信貸市場債務之和,不包括金融機構自身的債務。",
+        },
+        tw: {
+            preset_max: "全部", start_year: "起始年份",
+            tg_heading: "系列", log_label: "對數軸",
+            xaxis: "年份", yaxis: "兆美元", yaxis_log: "兆美元(對數)",
+            ser_debt: "美國國債未償餘額",
+            ser_m2:   "美國 M2 貨幣供給",
+            ser_m1:   "美國 M1 貨幣供給",
+            ser_priv: "美國私人債務(家庭 + 非金融企業)",
+            ser_debt_short: "國債",
+            ser_m2_short:   "M2",
+            ser_m1_short:   "M1",
+            ser_priv_short: "私人債務",
+            stat_debt: "國債(最新)",
+            stat_m2:   "M2(最新)",
+            stat_m1:   "M1(最新)",
+            stat_priv: "私人債務(最新)",
+            growth_label: "× 窗口起始",
+            caption_pre: "四條美國資產負債表系列,皆以兆美元為單位、同一軸顯示。可分別開關,並可在線性與對數軸之間切換。將游標移到圖上會出現逐年十字線,顯示當年每條顯示中系列的數值。",
+            caption_m1: "M1 註釋。聯準會於 2020 年 5 月將儲蓄存款重新分類進 M1,因此圖中該年 M1 線出現明顯階梯式上跳。這是定義變更,不是當年真有那麼大規模的貨幣創造。",
+            caption_priv: "私人債務註釋。此處的「美國私人債務」是聯準會 Z.1 報告的家庭債務 + 非金融企業信貸市場債務之和,不包括金融機構自身的債務。",
+        },
+        cn: {
+            preset_max: "全部", start_year: "起始年份",
+            tg_heading: "系列", log_label: "对数轴",
+            xaxis: "年份", yaxis: "万亿美元", yaxis_log: "万亿美元(对数)",
+            ser_debt: "美国国债未偿余额",
+            ser_m2:   "美国 M2 货币供应",
+            ser_m1:   "美国 M1 货币供应",
+            ser_priv: "美国私人债务(家庭 + 非金融企业)",
+            ser_debt_short: "国债",
+            ser_m2_short:   "M2",
+            ser_m1_short:   "M1",
+            ser_priv_short: "私人债务",
+            stat_debt: "国债(最新)",
+            stat_m2:   "M2(最新)",
+            stat_m1:   "M1(最新)",
+            stat_priv: "私人债务(最新)",
+            growth_label: "× 窗口起始",
+            caption_pre: "四条美国资产负债表系列,皆以万亿美元为单位、同一轴显示。可分别开关,并可在线性与对数轴之间切换。把光标移到图上会出现逐年十字线,显示当年每条显示中系列的数值。",
+            caption_m1: "M1 注释。联储于 2020 年 5 月将储蓄存款重新分类进 M1,因此图中该年 M1 线出现明显阶梯式上跳。这是定义变更,不是当年真有那么大规模的货币创造。",
+            caption_priv: "私人债务注释。此处的\"美国私人债务\"是联储 Z.1 报告的家庭债务 + 非金融企业信贷市场债务之和,不包括金融机构自身的债务。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // -------- Data, $T, year-end, 1960-2025 (66 entries each) --------
+    // Sources: FRED (M2SL, M1SL), Treasury Direct, Fed Z.1.
+    const YEAR_START = 1960;
+    const YEARS = []; for (let y = YEAR_START; y <= 2025; y++) YEARS.push(y);
+
+    const TREASURY_DEBT = [
+        // 1960s
+        0.286, 0.289, 0.298, 0.306, 0.312, 0.317, 0.320, 0.326, 0.348, 0.354,
+        // 1970s
+        0.371, 0.398, 0.427, 0.458, 0.475, 0.533, 0.620, 0.699, 0.772, 0.827,
+        // 1980s
+        0.908, 0.998, 1.142, 1.377, 1.572, 1.823, 2.125, 2.350, 2.602, 2.857,
+        // 1990s
+        3.233, 3.665, 4.065, 4.411, 4.693, 4.974, 5.225, 5.413, 5.526, 5.656,
+        // 2000s
+        5.674, 5.807, 6.228, 6.783, 7.379, 7.933, 8.507, 9.008, 10.025, 12.311,
+        // 2010s
+        14.025, 15.222, 16.433, 17.352, 18.141, 18.922, 19.976, 20.493, 21.974, 23.201,
+        // 2020-2025
+        27.748, 29.617, 31.420, 34.001, 35.500, 36.400,
+    ];
+    const M2 = [
+        // 1960s
+        0.31, 0.34, 0.36, 0.39, 0.42, 0.46, 0.49, 0.53, 0.58, 0.62,
+        // 1970s
+        0.63, 0.71, 0.79, 0.86, 0.91, 1.02, 1.16, 1.30, 1.41, 1.48,
+        // 1980s
+        1.55, 1.79, 1.95, 2.20, 2.36, 2.54, 2.81, 2.91, 3.07, 3.22,
+        // 1990s
+        3.30, 3.43, 3.51, 3.50, 3.50, 3.65, 3.85, 4.04, 4.40, 4.62,
+        // 2000s
+        4.93, 5.43, 5.77, 6.05, 6.40, 6.66, 7.07, 7.46, 8.15, 8.49,
+        // 2010s
+        8.78, 9.66, 10.49, 11.06, 11.69, 12.34, 13.21, 13.85, 14.36, 15.32,
+        // 2020-2025
+        19.09, 21.49, 21.46, 20.83, 21.45, 22.20,
+    ];
+    // M1 has a definitional discontinuity in 2020 (savings deposits added to M1).
+    // Pre-2020 values are the old definition, post-2020 are the new definition.
+    const M1 = [
+        // 1960s
+        0.14, 0.14, 0.15, 0.15, 0.16, 0.17, 0.18, 0.19, 0.20, 0.21,
+        // 1970s
+        0.21, 0.23, 0.25, 0.27, 0.28, 0.29, 0.31, 0.34, 0.37, 0.39,
+        // 1980s
+        0.42, 0.44, 0.48, 0.52, 0.55, 0.62, 0.72, 0.75, 0.79, 0.79,
+        // 1990s
+        0.83, 0.90, 1.02, 1.12, 1.15, 1.13, 1.08, 1.07, 1.10, 1.13,
+        // 2000s
+        1.10, 1.18, 1.22, 1.30, 1.37, 1.37, 1.37, 1.37, 1.59, 1.69,
+        // 2010s
+        1.83, 2.16, 2.44, 2.66, 2.93, 3.10, 3.34, 3.63, 3.74, 3.99,
+        // 2020-2025 — definitional jump in May 2020
+        17.93, 20.27, 19.95, 18.06, 18.15, 18.30,
+    ];
+    // US private debt: household + non-financial business credit-market liabilities (Z.1)
+    const PRIVATE_DEBT = [
+        // 1960s
+        0.40, 0.43, 0.46, 0.50, 0.54, 0.60, 0.66, 0.72, 0.78, 0.85,
+        // 1970s
+        0.92, 1.02, 1.15, 1.30, 1.40, 1.50, 1.65, 1.85, 2.05, 2.25,
+        // 1980s
+        2.45, 2.75, 3.00, 3.30, 3.70, 4.15, 4.60, 5.05, 5.50, 5.90,
+        // 1990s
+        6.20, 6.40, 6.60, 6.90, 7.30, 7.85, 8.45, 9.10, 9.95, 10.95,
+        // 2000s
+        12.10, 13.10, 13.85, 14.80, 16.05, 17.75, 19.55, 21.85, 22.65, 22.05,
+        // 2010s
+        22.20, 22.85, 23.65, 24.55, 25.85, 27.20, 28.55, 30.20, 31.85, 33.40,
+        // 2020-2025
+        35.10, 37.45, 39.80, 41.20, 42.80, 43.50,
+    ];
+
+    const SERIES = [
+        { key: "debt", data: TREASURY_DEBT, color: "--ud-c-debt", default: true,  width: 2.6 },
+        { key: "m2",   data: M2,            color: "--ud-c-m2",   default: true,  width: 2.6 },
+        { key: "m1",   data: M1,            color: "--ud-c-m1",   default: true,  width: 2.0 },
+        { key: "priv", data: PRIVATE_DEBT,  color: "--ud-c-priv", default: true,  width: 2.0 },
+    ];
+
+    const ROOT = document.getElementById("ud-root");
+    const CHART = document.getElementById("ud-chart");
+    const PRESETS = document.getElementById("ud-presets");
+    const SLIDER = document.getElementById("ud-start-slider");
+    const WINDOW_LABEL = document.getElementById("ud-window-label");
+    const TG_HOST = document.getElementById("ud-toggles");
+    const STATS_HOST = document.getElementById("ud-stats");
+    const LOG_CHK = document.getElementById("ud-log");
+
+    let preset = "max";
+    let startYear = YEARS[0];
+    let useLog = false;
+    const enabled = {};
+    SERIES.forEach(s => { enabled[s.key] = s.default; });
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function buildToggles() {
+        const heading = TG_HOST.querySelector(".ud-tg-label");
+        const axisTg = TG_HOST.querySelector(".ud-axis-toggle");
+        TG_HOST.innerHTML = "";
+        if (heading) TG_HOST.appendChild(heading);
+        SERIES.forEach(s => {
+            const colorVar = getCssVar(s.color);
+            const lbl = document.createElement("label");
+            lbl.className = "ud-tg" + (enabled[s.key] ? " active" : "");
+            lbl.style.setProperty("--cur-color", colorVar);
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = enabled[s.key];
+            cb.addEventListener("change", () => {
+                enabled[s.key] = cb.checked;
+                lbl.classList.toggle("active", enabled[s.key]);
+                render();
+            });
+            const dot = document.createElement("span");
+            dot.className = "ud-tg-dot";
+            const txt = document.createElement("span");
+            txt.textContent = T["ser_" + s.key + "_short"];
+            lbl.appendChild(cb);
+            lbl.appendChild(dot);
+            lbl.appendChild(txt);
+            TG_HOST.appendChild(lbl);
+        });
+        if (axisTg) TG_HOST.appendChild(axisTg);
+    }
+
+    function fmtT(v) {
+        if (!isFinite(v)) return "—";
+        if (v >= 10) return "$" + v.toFixed(1) + "T";
+        return "$" + v.toFixed(2) + "T";
+    }
+
+    function render() {
+        const totalYears = YEARS.length;
+        let startIdx, endIdx;
+        if (preset === "max") {
+            startIdx = 0; endIdx = totalYears - 1;
+        } else {
+            const yearsCount = parseInt(preset, 10);
+            const maxStart = YEARS[totalYears - yearsCount];
+            const safeStart = Math.min(Math.max(startYear, YEARS[0]), maxStart);
+            startIdx = safeStart - YEARS[0];
+            endIdx = startIdx + yearsCount - 1;
+            startYear = safeStart;
+            SLIDER.min = String(YEARS[0]);
+            SLIDER.max = String(maxStart);
+            SLIDER.value = String(safeStart);
+        }
+        const yrs = YEARS.slice(startIdx, endIdx + 1);
+        WINDOW_LABEL.textContent = `${yrs[0]} – ${yrs[yrs.length - 1]}`;
+
+        const colorText = getCssVar("--ud-text");
+        const colorMuted = getCssVar("--ud-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ud-card");
+
+        const traces = [];
+        SERIES.forEach(s => {
+            if (!enabled[s.key]) return;
+            const yvals = s.data.slice(startIdx, endIdx + 1);
+            traces.push({
+                x: yrs, y: yvals,
+                // Short form in the legend too — the long form ("美國私人債務(家庭 + 非金融企業)"
+                // etc.) overflows the horizontal centred legend in CJK locales. Toggle pills above
+                // already show the same short label so no information is lost.
+                name: T["ser_" + s.key + "_short"],
+                type: "scatter", mode: "lines",
+                line: { color: getCssVar(s.color), width: s.width },
+                hovertemplate: "<b>" + T["ser_" + s.key + "_short"] + ": $%{y:.2f}T</b><extra></extra>",
+            });
+        });
+
+        const layout = {
+            margin: { l: 64, r: 32, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "d",
+                showspikes: true, spikemode: "across", spikedash: "dot",
+                spikecolor: colorMuted, spikethickness: 1,
+            },
+            yaxis: {
+                title: { text: useLog ? T.yaxis_log : T.yaxis, font: { color: colorMuted, size: 11 } },
+                type: useLog ? "log" : "linear",
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: useLog ? "$,.1f" : "$,.0f",
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stats — latest value + window growth multiple for each enabled series.
+        STATS_HOST.innerHTML = "";
+        SERIES.forEach(s => {
+            if (!enabled[s.key]) return;
+            const yvals = s.data.slice(startIdx, endIdx + 1);
+            const startVal = yvals[0];
+            const endVal = yvals[yvals.length - 1];
+            const mult = (startVal && isFinite(startVal) && startVal !== 0)
+                ? (endVal / startVal)
+                : null;
+            const div = document.createElement("div");
+            div.className = "ud-stat";
+            div.style.borderLeftColor = getCssVar(s.color);
+            div.innerHTML =
+                '<div class="ud-stat-name">' + T["stat_" + s.key] + '</div>' +
+                '<div class="ud-stat-val">' + fmtT(endVal) + '</div>' +
+                '<div class="ud-stat-detail">' +
+                    (mult !== null ? mult.toFixed(mult >= 10 ? 1 : 2) + "× " + T.growth_label : "—") +
+                '</div>';
+            STATS_HOST.appendChild(div);
+        });
+    }
+
+    PRESETS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PRESETS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            preset = btn.dataset.years;
+            if (preset === "max") {
+                SLIDER.disabled = true;
+            } else {
+                SLIDER.disabled = false;
+                const yearsCount = parseInt(preset, 10);
+                startYear = YEARS[YEARS.length - yearsCount];
+            }
+            render();
+        });
+    });
+    SLIDER.addEventListener("input", () => {
+        startYear = parseInt(SLIDER.value, 10);
+        render();
+    });
+    LOG_CHK.addEventListener("change", () => {
+        useLog = LOG_CHK.checked;
+        render();
+    });
+
+    function applyI18n() {
+        document.getElementById("ud-start-label").textContent = T.start_year;
+        document.getElementById("ud-preset-max").textContent = T.preset_max;
+        document.getElementById("ud-tg-heading").textContent = T.tg_heading;
+        document.getElementById("ud-log-label").textContent = T.log_label;
+        document.getElementById("ud-caption").innerHTML =
+            T.caption_pre + "<br><br><strong>" + T.caption_m1.split(".")[0] + ".</strong>"
+            + T.caption_m1.substring(T.caption_m1.indexOf(".") + 1)
+            + " <strong>" + T.caption_priv.split(".")[0] + ".</strong>"
+            + T.caption_priv.substring(T.caption_priv.indexOf(".") + 1);
+    }
+    applyI18n();
+    buildToggles();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(() => { buildToggles(); render(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>

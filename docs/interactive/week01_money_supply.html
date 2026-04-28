@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Money Supply (M2) — Interactive (Week 1)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ms-bg); }
+:root {
+    --ms-bg: #fdfbf5;
+    --ms-text: #1a2332;
+    --ms-muted: #6b7280;
+    --ms-border: #d6d3c4;
+    --ms-card: #fdfbf5;
+    --ms-accent: #b8860b;
+    --ms-c-us: #0d47a1;
+    --ms-c-eu: #5d4037;
+    --ms-c-jp: #b71c1c;
+    --ms-c-cn: #c62828;
+    --ms-c-tw: #2e7d32;
+    --ms-c-hk: #6a1b9a;
+}
+html[data-theme="dark"] .ms-root,
+.ms-root[data-theme="dark"] {
+    --ms-bg: #0f1724;
+    --ms-text: #e6e6e6;
+    --ms-muted: #9aa3b2;
+    --ms-border: #2a3441;
+    --ms-card: #0f1724;
+    --ms-c-us: #5a8dee;
+    --ms-c-eu: #a1887f;
+    --ms-c-jp: #ef5350;
+    --ms-c-cn: #e57373;
+    --ms-c-tw: #66bb6a;
+    --ms-c-hk: #ba68c8;
+}
+.ms-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ms-bg); color: var(--ms-text);
+    padding: 12px; margin: 0;
+}
+.ms-controls {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+}
+.ms-presets {
+    display: inline-flex;
+    border: 1px solid var(--ms-border);
+    border-radius: 999px; overflow: hidden;
+    background: var(--ms-card);
+}
+.ms-presets button {
+    border: none; background: transparent; color: var(--ms-muted);
+    padding: 6px 14px; font: inherit; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.ms-presets button:hover { color: var(--ms-text); }
+.ms-presets button.active { background: var(--ms-accent); color: #fff; }
+.ms-slider-wrap {
+    flex: 1; min-width: 220px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.85rem; color: var(--ms-muted);
+}
+.ms-slider-wrap input[type="range"] {
+    flex: 1; accent-color: var(--ms-accent);
+}
+.ms-slider-wrap .ms-window-label {
+    white-space: nowrap; color: var(--ms-text); font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+.ms-currency-controls {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 14px; padding: 10px 12px;
+    background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: 8px;
+}
+.ms-currency-controls .ms-cc-label {
+    width: 100%;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--ms-muted);
+    margin-bottom: 4px;
+}
+.ms-cc-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; color: var(--ms-text); font-weight: 600;
+    cursor: pointer; padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--ms-border);
+    background: var(--ms-card);
+    user-select: none;
+}
+.ms-cc-toggle input[type="checkbox"] { display: none; }
+.ms-cc-toggle .ms-cc-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--ms-muted); transition: background 0.15s;
+}
+.ms-cc-toggle.active { border-color: var(--cur-color, var(--ms-accent)); }
+.ms-cc-toggle.active .ms-cc-dot { background: var(--cur-color, var(--ms-accent)); }
+.ms-cc-toggle.disabled { opacity: 0.5; cursor: not-allowed; }
+.ms-chart {
+    width: 100%; height: 460px;
+    background: var(--ms-card);
+    border-radius: 8px; border: 1px solid var(--ms-border);
+}
+.ms-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.ms-stat {
+    background: var(--ms-card);
+    border: 1px solid var(--ms-border);
+    border-left: 4px solid var(--ms-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.ms-stat .ms-stat-name {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--ms-muted);
+}
+.ms-stat .ms-stat-val {
+    font-size: 1.25rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ms-stat .ms-stat-detail {
+    font-size: 0.78rem; color: var(--ms-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ms-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--ms-muted); line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .ms-stats { grid-template-columns: 1fr; }
+    .ms-chart { height: 380px; }
+    .ms-presets button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="ms-root" id="ms-root">
+    <div class="ms-controls">
+        <div class="ms-presets" id="ms-presets" role="tablist">
+            <button type="button" data-years="10">10Y</button>
+            <button type="button" data-years="25">25Y</button>
+            <button type="button" data-years="35">35Y</button>
+            <button type="button" data-years="max" id="ms-preset-max" class="active">Max</button>
+        </div>
+        <div class="ms-slider-wrap">
+            <span id="ms-start-label">Start year</span>
+            <input type="range" id="ms-start-slider" min="1980" max="2025" value="1980" step="1" disabled>
+            <span class="ms-window-label" id="ms-window-label">1980 – 2025</span>
+        </div>
+    </div>
+    <div class="ms-currency-controls" id="ms-cc">
+        <div class="ms-cc-label" id="ms-cc-heading">Currencies (USD always on)</div>
+        <!-- toggles inserted by JS -->
+    </div>
+    <div id="ms-chart" class="ms-chart"></div>
+    <div class="ms-stats" id="ms-stats">
+        <!-- inserted by JS -->
+    </div>
+    <p class="ms-caption" id="ms-caption">
+        Each line is a currency's broad money supply (M2 / M3), indexed to 100 at the
+        first year of the selected window so they're directly comparable. Log scale.
+        Toggle currencies on or off — USD is always on as the baseline. Hover the chart
+        for a year-by-year crosshair showing the index value of every visible currency
+        at that year. Each line begins when published data begins for that currency
+        (HKD: 1990, CNY: 1985, TWD: 1981, EUR/JPY/USD: 1980).
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            preset_max: "Max", start_year: "Start year",
+            cc_heading: "Currencies (USD always on)",
+            xaxis: "Year",
+            yaxis_log: "M2 indexed (window start = 100, log scale)",
+            yaxis_lin: "M2 indexed (window start = 100)",
+            cur_us: "USD M2 (Federal Reserve)",
+            cur_eu: "EUR M3 (ECB — broad money)",
+            cur_jp: "JPY M2 (Bank of Japan)",
+            cur_cn: "CNY M2 (People's Bank of China)",
+            cur_tw: "TWD M2 (CBC Taiwan)",
+            cur_hk: "HKD M2 (HKMA Hong Kong)",
+            cur_us_short: "USD",
+            cur_eu_short: "EUR",
+            cur_jp_short: "JPY",
+            cur_cn_short: "CNY",
+            cur_tw_short: "TWD",
+            cur_hk_short: "HKD",
+            stat_strongest: "Strongest debaser (window)",
+            stat_weakest:   "Weakest debaser (window)",
+            stat_usd:       "USD growth (window)",
+            growth_label:   "× vs. start",
+            caption: "Each line is a currency's broad money supply (M2 / M3), indexed to 100 at the first year of the selected window so they're directly comparable. Log scale. Toggle currencies on or off — USD is always on as the baseline. Hover the chart for a year-by-year crosshair showing the index value of every visible currency at that year. Each line begins when published data begins for that currency (HKD: 1990, CNY: 1985, TWD: 1981, EUR/JPY/USD: 1980).",
+        },
+        hk: {
+            preset_max: "全部", start_year: "起始年份",
+            cc_heading: "貨幣(美元固定顯示)",
+            xaxis: "年份",
+            yaxis_log: "M2 指數(窗口起始 = 100,對數軸)",
+            yaxis_lin: "M2 指數(窗口起始 = 100)",
+            cur_us: "美元 M2(美聯儲)",
+            cur_eu: "歐元 M3(歐洲央行)",
+            cur_jp: "日圓 M2(日本央行)",
+            cur_cn: "人民幣 M2(中國人民銀行)",
+            cur_tw: "新台幣 M2(台灣中央銀行)",
+            cur_hk: "港幣 M2(香港金管局)",
+            cur_us_short: "美元", cur_eu_short: "歐元", cur_jp_short: "日圓",
+            cur_cn_short: "人民幣", cur_tw_short: "新台幣", cur_hk_short: "港幣",
+            stat_strongest: "貶值最快(窗口內)",
+            stat_weakest:   "貶值最慢(窗口內)",
+            stat_usd:       "美元增長(窗口內)",
+            growth_label:   "× 起始值",
+            caption: "每條線都是該貨幣的廣義貨幣供應(M2 / M3),以所選窗口的起始年份為 100 作指數化以方便直接比較,對數軸顯示。可以打開或關閉個別貨幣 — 美元作為基準固定顯示。把游標移到圖上會出現逐年十字線,顯示當年每種顯示中貨幣的指數值。每條線從該貨幣有公開數據的最早年份起(港幣:1990;人民幣:1985;新台幣:1981;歐元/日圓/美元:1980)。",
+        },
+        tw: {
+            preset_max: "全部", start_year: "起始年份",
+            cc_heading: "貨幣(美元固定顯示)",
+            xaxis: "年份",
+            yaxis_log: "M2 指數(窗口起始 = 100,對數軸)",
+            yaxis_lin: "M2 指數(窗口起始 = 100)",
+            cur_us: "美元 M2(美聯儲)",
+            cur_eu: "歐元 M3(歐洲央行)",
+            cur_jp: "日圓 M2(日本央行)",
+            cur_cn: "人民幣 M2(中國人民銀行)",
+            cur_tw: "新台幣 M2(中央銀行)",
+            cur_hk: "港幣 M2(香港金管局)",
+            cur_us_short: "美元", cur_eu_short: "歐元", cur_jp_short: "日圓",
+            cur_cn_short: "人民幣", cur_tw_short: "新台幣", cur_hk_short: "港幣",
+            stat_strongest: "貶值最快(窗口內)",
+            stat_weakest:   "貶值最慢(窗口內)",
+            stat_usd:       "美元增長(窗口內)",
+            growth_label:   "× 起始值",
+            caption: "每條線都是該貨幣的廣義貨幣供給(M2 / M3),以所選窗口的起始年份為 100 作指數化以方便直接比較,對數軸顯示。可以打開或關閉個別貨幣 — 美元作為基準固定顯示。將游標移到圖上會出現逐年十字線,顯示當年每種顯示中貨幣的指數值。每條線從該貨幣有公開數據的最早年份起(港幣:1990;人民幣:1985;新台幣:1981;歐元/日圓/美元:1980)。",
+        },
+        cn: {
+            preset_max: "全部", start_year: "起始年份",
+            cc_heading: "货币(美元固定显示)",
+            xaxis: "年份",
+            yaxis_log: "M2 指数(窗口起始 = 100,对数轴)",
+            yaxis_lin: "M2 指数(窗口起始 = 100)",
+            cur_us: "美元 M2(美联储)",
+            cur_eu: "欧元 M3(欧洲央行)",
+            cur_jp: "日元 M2(日本央行)",
+            cur_cn: "人民币 M2(中国人民银行)",
+            cur_tw: "新台币 M2(台湾央行)",
+            cur_hk: "港币 M2(香港金管局)",
+            cur_us_short: "美元", cur_eu_short: "欧元", cur_jp_short: "日元",
+            cur_cn_short: "人民币", cur_tw_short: "新台币", cur_hk_short: "港币",
+            stat_strongest: "贬值最快(窗口内)",
+            stat_weakest:   "贬值最慢(窗口内)",
+            stat_usd:       "美元增长(窗口内)",
+            growth_label:   "× 起始值",
+            caption: "每条线都是该货币的广义货币供应(M2 / M3),以所选窗口的起始年份为 100 作指数化以方便直接比较,对数轴显示。可以打开或关闭个别货币 — 美元作为基准固定显示。把光标移到图上会出现逐年十字线,显示当年每种显示中货币的指数值。每条线从该货币有公开数据的最早年份起(港币:1990;人民币:1985;新台币:1981;欧元/日元/美元:1980)。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // -------- Data: year-end M2 (or M3 for EU) in local-currency trillions --------
+    // 1980-2025, 46 entries each. null where data not yet available for that currency.
+    // Approximations from FRED / ECB / BoJ / PBoC / CBC / HKMA published series.
+    const YEAR_START = 1980;
+    const YEARS = []; for (let y = YEAR_START; y <= 2025; y++) YEARS.push(y);
+
+    // US M2 ($T) - FRED M2SL year-end
+    const US_M2 = [
+        1.55, 1.79, 1.95, 2.20, 2.36, 2.54, 2.81, 2.91, 3.07, 3.22,        // 1980s
+        3.30, 3.43, 3.51, 3.50, 3.50, 3.65, 3.85, 4.04, 4.40, 4.62,        // 1990s
+        4.93, 5.43, 5.77, 6.05, 6.40, 6.66, 7.07, 7.46, 8.15, 8.49,        // 2000s
+        8.78, 9.66, 10.49, 11.06, 11.69, 12.34, 13.21, 13.85, 14.36, 15.32,// 2010s
+        19.09, 21.49, 21.46, 20.83, 21.45, 22.20,                           // 2020-2025
+    ];
+    // EU M3 (€T) - ECB; pre-1999 are reconstructed eurozone aggregate
+    const EU_M3 = [
+        1.40, 1.55, 1.70, 1.85, 2.00, 2.20, 2.45, 2.70, 3.00, 3.25,        // 1980s
+        3.50, 3.70, 3.85, 4.00, 4.10, 4.20, 4.40, 4.55, 4.70, 4.85,        // 1990s
+        4.99, 5.41, 5.81, 6.27, 6.85, 7.46, 8.20, 9.05, 9.60, 9.36,        // 2000s
+        9.45, 9.62, 9.83, 9.85, 10.35, 10.85, 11.40, 11.93, 12.39, 13.04,  // 2010s
+        14.20, 15.20, 16.04, 16.50, 16.85, 17.20,                           // 2020-2025
+    ];
+    // Japan M2 (¥T) - BoJ
+    const JP_M2 = [
+        200, 215, 230, 245, 265, 290, 320, 350, 380, 425,                   // 1980s
+        480, 500, 510, 515, 525, 540, 545, 580, 605, 615,                   // 1990s
+        620, 650, 680, 700, 715, 730, 740, 745, 740, 770,                   // 2000s
+        800, 820, 840, 870, 905, 935, 970, 1010, 1040, 1075,                // 2010s
+        1170, 1230, 1240, 1235, 1240, 1255,                                  // 2020-2025
+    ];
+    // China M2 (¥T) - PBoC; pre-1985 not published consistently
+    const CN_M2 = [
+        null, null, null, null, null, 0.52, 0.67, 0.83, 1.05, 1.20,         // 1980s
+        1.53, 1.93, 2.54, 3.49, 4.69, 6.07, 7.61, 9.10, 10.45, 11.99,       // 1990s
+        13.5, 16.0, 18.5, 22.0, 25.5, 30.0, 34.5, 40.0, 47.5, 60.0,         // 2000s
+        72.5, 85.0, 97.5, 110.0, 122.5, 139.2, 155.0, 167.7, 182.7, 198.7,  // 2010s
+        218.7, 238.0, 266.4, 292.3, 313.5, 322.0,                            // 2020-2025
+    ];
+    // Taiwan M2 (NT$T) - CBC; pre-1981 not in published series
+    const TW_M2 = [
+        null, 1.0, 1.15, 1.30, 1.45, 1.65, 1.95, 2.30, 2.85, 3.40,          // 1980s
+        4.0, 4.6, 5.4, 6.2, 7.0, 8.0, 9.0, 10.0, 11.5, 13.0,                // 1990s
+        20.5, 21.5, 22.5, 23.7, 24.9, 26.0, 27.0, 28.5, 30.5, 32.5,         // 2000s
+        34.0, 35.7, 37.4, 39.5, 41.7, 43.5, 45.0, 46.6, 48.0, 49.5,         // 2010s
+        52.7, 55.7, 57.6, 58.5, 59.5, 60.5,                                  // 2020-2025
+    ];
+    // Hong Kong M2 (HK$T) - HKMA monthly stats; pre-1990 not published consistently
+    const HK_M2 = [
+        null, null, null, null, null, null, null, null, null, null,         // 1980s — none
+        0.60, 0.70, 0.85, 0.95, 1.10, 1.40, 1.65, 1.90, 2.10, 2.35,         // 1990s
+        2.60, 2.75, 2.95, 3.20, 3.40, 3.80, 4.20, 4.85, 5.50, 6.15,         // 2000s
+        6.70, 7.50, 8.40, 9.30, 10.10, 11.60, 12.50, 13.40, 14.00, 14.80,   // 2010s
+        15.50, 16.50, 16.10, 16.40, 17.10, 17.50,                            // 2020-2025
+    ];
+
+    const CURRENCIES = [
+        { key: "us", series: US_M2, color: "--ms-c-us", default: true,  required: true },
+        { key: "eu", series: EU_M3, color: "--ms-c-eu", default: true,  required: false },
+        { key: "jp", series: JP_M2, color: "--ms-c-jp", default: true,  required: false },
+        { key: "cn", series: CN_M2, color: "--ms-c-cn", default: true,  required: false },
+        { key: "tw", series: TW_M2, color: "--ms-c-tw", default: false, required: false },
+        { key: "hk", series: HK_M2, color: "--ms-c-hk", default: false, required: false },
+    ];
+
+    // -------- DOM refs --------
+    const ROOT = document.getElementById("ms-root");
+    const CHART = document.getElementById("ms-chart");
+    const PRESETS = document.getElementById("ms-presets");
+    const SLIDER = document.getElementById("ms-start-slider");
+    const WINDOW_LABEL = document.getElementById("ms-window-label");
+    const CC_HOST = document.getElementById("ms-cc");
+    const STATS_HOST = document.getElementById("ms-stats");
+
+    let preset = "max";
+    let startYear = YEARS[0];
+    const enabled = {};
+    CURRENCIES.forEach(c => { enabled[c.key] = c.default; });
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Build currency toggles
+    function buildToggles() {
+        // remove old toggles (preserve heading)
+        const heading = CC_HOST.querySelector(".ms-cc-label");
+        CC_HOST.innerHTML = "";
+        if (heading) CC_HOST.appendChild(heading);
+        CURRENCIES.forEach(c => {
+            const colorVar = getCssVar(c.color);
+            const lbl = document.createElement("label");
+            lbl.className = "ms-cc-toggle" + (enabled[c.key] ? " active" : "")
+                + (c.required ? " disabled" : "");
+            lbl.style.setProperty("--cur-color", colorVar);
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = enabled[c.key];
+            cb.disabled = c.required;
+            cb.addEventListener("change", () => {
+                enabled[c.key] = cb.checked || c.required;
+                lbl.classList.toggle("active", enabled[c.key]);
+                render();
+            });
+            const dot = document.createElement("span");
+            dot.className = "ms-cc-dot";
+            const txt = document.createElement("span");
+            txt.textContent = T["cur_" + c.key + "_short"];
+            lbl.appendChild(cb);
+            lbl.appendChild(dot);
+            lbl.appendChild(txt);
+            CC_HOST.appendChild(lbl);
+        });
+    }
+
+    function indexSeries(series, startIdx, endIdx) {
+        // Find first non-null value within [startIdx..endIdx]
+        let baseIdx = -1;
+        for (let i = startIdx; i <= endIdx; i++) {
+            if (series[i] !== null) { baseIdx = i; break; }
+        }
+        if (baseIdx === -1) return null;
+        const base = series[baseIdx];
+        const out = new Array(endIdx - startIdx + 1).fill(null);
+        for (let i = startIdx; i <= endIdx; i++) {
+            if (series[i] !== null) out[i - startIdx] = (series[i] / base) * 100;
+        }
+        return { values: out, baseYear: YEARS[baseIdx] };
+    }
+
+    function fmtMult(end, base) {
+        if (!isFinite(end) || !isFinite(base) || base === 0) return "—";
+        const m = end / base;
+        return m.toFixed(m >= 10 ? 1 : 2) + "×";
+    }
+
+    function render() {
+        // Resolve window
+        const totalYears = YEARS.length;
+        let startIdx, endIdx;
+        if (preset === "max") {
+            startIdx = 0; endIdx = totalYears - 1;
+        } else {
+            const yearsCount = parseInt(preset, 10);
+            const maxStart = YEARS[totalYears - yearsCount];
+            const safeStart = Math.min(Math.max(startYear, YEARS[0]), maxStart);
+            startIdx = safeStart - YEARS[0];
+            endIdx = startIdx + yearsCount - 1;
+            startYear = safeStart;
+            SLIDER.min = String(YEARS[0]);
+            SLIDER.max = String(maxStart);
+            SLIDER.value = String(safeStart);
+        }
+        const yrs = YEARS.slice(startIdx, endIdx + 1);
+        WINDOW_LABEL.textContent = `${yrs[0]} – ${yrs[yrs.length - 1]}`;
+
+        const colorText = getCssVar("--ms-text");
+        const colorMuted = getCssVar("--ms-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ms-card");
+
+        const traces = [];
+        const indexed = {};
+        CURRENCIES.forEach(c => {
+            if (!enabled[c.key]) return;
+            const ix = indexSeries(c.series, startIdx, endIdx);
+            if (!ix) return;
+            indexed[c.key] = ix;
+            traces.push({
+                x: yrs, y: ix.values,
+                // Short form in the legend too — the long form ("人民幣 M2(中國人民銀行)" etc.)
+                // overflows the horizontal centred legend in CJK locales. Toggle pills above
+                // already show the same short label so no information is lost.
+                name: T["cur_" + c.key + "_short"],
+                type: "scatter", mode: "lines",
+                line: { color: getCssVar(c.color), width: 2.4 },
+                connectgaps: false,
+                hovertemplate: "<b>" + T["cur_" + c.key + "_short"] + ": %{y:.0f}</b><extra></extra>",
+            });
+        });
+
+        // Decide log vs linear: log only when window spans >= 10 years AND at
+        // least one line has reached 5x the base (otherwise log compresses too much).
+        let useLog = false;
+        if (yrs.length >= 10) {
+            for (const k in indexed) {
+                const last = indexed[k].values[indexed[k].values.length - 1];
+                if (last && last >= 500) { useLog = true; break; }
+            }
+        }
+
+        const layout = {
+            margin: { l: 64, r: 28, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                tickformat: "d",
+                showspikes: true, spikemode: "across", spikedash: "dot",
+                spikecolor: colorMuted, spikethickness: 1,
+            },
+            yaxis: {
+                title: { text: useLog ? T.yaxis_log : T.yaxis_lin, font: { color: colorMuted, size: 11 } },
+                type: useLog ? "log" : "linear",
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stats: strongest debaser, weakest debaser, USD growth multiple
+        let strongest = null, weakest = null;
+        for (const k in indexed) {
+            const last = indexed[k].values[indexed[k].values.length - 1];
+            if (last === null) continue;
+            if (!strongest || last > strongest.value) strongest = { key: k, value: last };
+            if (!weakest || last < weakest.value) weakest = { key: k, value: last };
+        }
+        const usGrowth = indexed["us"]
+            ? indexed["us"].values[indexed["us"].values.length - 1] / 100
+            : null;
+
+        STATS_HOST.innerHTML = "";
+        function statBox(name, val, detail, colorKey) {
+            const div = document.createElement("div");
+            div.className = "ms-stat";
+            div.style.borderLeftColor = colorKey ? getCssVar(colorKey) : getCssVar("--ms-accent");
+            div.innerHTML =
+                '<div class="ms-stat-name">' + name + '</div>' +
+                '<div class="ms-stat-val">' + val + '</div>' +
+                '<div class="ms-stat-detail">' + detail + '</div>';
+            return div;
+        }
+        if (strongest) {
+            const c = CURRENCIES.find(x => x.key === strongest.key);
+            STATS_HOST.appendChild(statBox(
+                T.stat_strongest,
+                T["cur_" + strongest.key + "_short"] + ": " + (strongest.value / 100).toFixed(1) + "×",
+                "from " + indexed[strongest.key].baseYear,
+                c.color
+            ));
+        }
+        if (weakest && (!strongest || weakest.key !== strongest.key)) {
+            const c = CURRENCIES.find(x => x.key === weakest.key);
+            STATS_HOST.appendChild(statBox(
+                T.stat_weakest,
+                T["cur_" + weakest.key + "_short"] + ": " + (weakest.value / 100).toFixed(2) + "×",
+                "from " + indexed[weakest.key].baseYear,
+                c.color
+            ));
+        }
+        if (usGrowth) {
+            STATS_HOST.appendChild(statBox(
+                T.stat_usd,
+                usGrowth.toFixed(2) + "×",
+                "from " + indexed["us"].baseYear,
+                "--ms-c-us"
+            ));
+        }
+    }
+
+    // Wiring
+    PRESETS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PRESETS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            preset = btn.dataset.years;
+            if (preset === "max") {
+                SLIDER.disabled = true;
+            } else {
+                SLIDER.disabled = false;
+                const yearsCount = parseInt(preset, 10);
+                startYear = YEARS[YEARS.length - yearsCount];
+            }
+            render();
+        });
+    });
+    SLIDER.addEventListener("input", () => {
+        startYear = parseInt(SLIDER.value, 10);
+        render();
+    });
+
+    function applyI18n() {
+        document.getElementById("ms-start-label").textContent = T.start_year;
+        document.getElementById("ms-preset-max").textContent = T.preset_max;
+        document.getElementById("ms-cc-heading").textContent = T.cc_heading;
+        document.getElementById("ms-caption").textContent = T.caption;
+    }
+    applyI18n();
+    buildToggles();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(() => { buildToggles(); render(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>

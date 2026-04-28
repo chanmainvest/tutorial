@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPIVA: Active Fund Underperformance — Interactive (Week 2)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sp-bg); }
+:root {
+    --sp-bg: #fdfbf5;
+    --sp-text: #1a2332;
+    --sp-muted: #6b7280;
+    --sp-border: #d6d3c4;
+    --sp-card: #fdfbf5;
+    --sp-accent: #b8860b;
+    --sp-c-h5:  #f4a261;
+    --sp-c-h10: #e63946;
+    --sp-c-h20: #7f0000;
+    --sp-c-cat-lc: #b71c1c;
+    --sp-c-cat-mc: #c2185b;
+    --sp-c-cat-sc: #6a1b9a;
+    --sp-c-cat-in: #0d47a1;
+    --sp-c-cat-em: #00695c;
+    --sp-c-cat-bd: #5d4037;
+}
+html[data-theme="dark"] .sp-root,
+.sp-root[data-theme="dark"] {
+    --sp-bg: #0f1724;
+    --sp-text: #e6e6e6;
+    --sp-muted: #9aa3b2;
+    --sp-border: #2a3441;
+    --sp-card: #0f1724;
+    --sp-c-h5:  #ffb74d;
+    --sp-c-h10: #ef5350;
+    --sp-c-h20: #b71c1c;
+    --sp-c-cat-lc: #ef5350;
+    --sp-c-cat-mc: #ec407a;
+    --sp-c-cat-sc: #ba68c8;
+    --sp-c-cat-in: #5a8dee;
+    --sp-c-cat-em: #4db6ac;
+    --sp-c-cat-bd: #a1887f;
+}
+.sp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sp-bg); color: var(--sp-text);
+    padding: 12px; margin: 0;
+}
+.sp-mode-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+}
+.sp-mode {
+    display: inline-flex;
+    border: 1px solid var(--sp-border);
+    border-radius: 999px; overflow: hidden;
+    background: var(--sp-card);
+}
+.sp-mode button {
+    border: none; background: transparent; color: var(--sp-muted);
+    padding: 6px 14px; font: inherit; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.sp-mode button:hover { color: var(--sp-text); }
+.sp-mode button.active { background: var(--sp-accent); color: #fff; }
+.sp-toggles {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 12px; padding: 10px 12px;
+    background: var(--sp-card); border: 1px solid var(--sp-border); border-radius: 8px;
+}
+.sp-toggles .sp-tg-label {
+    width: 100%;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--sp-muted);
+    margin-bottom: 4px;
+}
+.sp-tg {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; color: var(--sp-text); font-weight: 600;
+    cursor: pointer; padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--sp-border);
+    background: var(--sp-card); user-select: none;
+    white-space: nowrap;
+}
+.sp-tg input[type="checkbox"] { display: none; }
+.sp-tg .sp-tg-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--sp-muted); transition: background 0.15s;
+}
+.sp-tg.active { border-color: var(--cur-color, var(--sp-accent)); }
+.sp-tg.active .sp-tg-dot { background: var(--cur-color, var(--sp-accent)); }
+.sp-chart {
+    width: 100%; height: 460px;
+    background: var(--sp-card);
+    border-radius: 8px; border: 1px solid var(--sp-border);
+}
+.sp-headline {
+    margin-top: 14px; padding: 14px 16px;
+    background: var(--sp-card);
+    border: 1px solid var(--sp-border);
+    border-left: 4px solid var(--sp-c-h20);
+    border-radius: 8px;
+    font-size: 0.95rem; line-height: 1.5;
+}
+.sp-headline strong {
+    color: var(--sp-c-h20); font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+}
+.sp-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.sp-stat {
+    background: var(--sp-card);
+    border: 1px solid var(--sp-border);
+    border-left: 4px solid var(--sp-muted);
+    border-radius: 8px; padding: 10px 12px;
+}
+.sp-stat .sp-stat-name {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--sp-muted);
+}
+.sp-stat .sp-stat-val {
+    font-size: 1.25rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.sp-stat .sp-stat-detail {
+    font-size: 0.78rem; color: var(--sp-muted); margin-top: 2px;
+}
+.sp-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--sp-muted); line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .sp-stats { grid-template-columns: 1fr; }
+    .sp-chart { height: 380px; }
+    .sp-mode button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="sp-root" id="sp-root">
+    <div class="sp-mode-row">
+        <div class="sp-mode" id="sp-mode" role="tablist">
+            <button type="button" data-mode="under" class="active" id="sp-mode-under">Underperformance %</button>
+            <button type="button" data-mode="over" id="sp-mode-over">Outperformance %</button>
+        </div>
+    </div>
+    <div class="sp-toggles" id="sp-cat-toggles">
+        <div class="sp-tg-label" id="sp-cat-heading">Fund category</div>
+    </div>
+    <div class="sp-toggles" id="sp-hor-toggles">
+        <div class="sp-tg-label" id="sp-hor-heading">Time horizon</div>
+    </div>
+    <div id="sp-chart" class="sp-chart"></div>
+    <div class="sp-headline" id="sp-headline">
+        <span id="sp-headline-text"></span>
+    </div>
+    <div class="sp-stats" id="sp-stats"></div>
+    <p class="sp-caption" id="sp-caption">
+        SPIVA scorecard from S&amp;P Dow Jones Indices. Toggle fund categories and
+        time horizons to compare. Switch between "% underperforming" and "% beating
+        the index" — both views tell the same story.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            mode_under: "Underperformance %",
+            mode_over:  "Outperformance %",
+            cat_heading: "Fund category",
+            hor_heading: "Time horizon",
+            yaxis_under: "% of active funds underperforming",
+            yaxis_over:  "% of active funds beating the index",
+            xaxis: "Fund category",
+            cat_lc: "US Large-Cap", cat_lc_short: "US Large",
+            cat_mc: "US Mid-Cap",   cat_mc_short: "US Mid",
+            cat_sc: "US Small-Cap", cat_sc_short: "US Small",
+            cat_in: "International", cat_in_short: "Intl",
+            cat_em: "Emerging Markets", cat_em_short: "EM",
+            cat_bd: "US Investment-Grade Bond", cat_bd_short: "US IG Bond",
+            hor_5:  "5-year",  hor_5_short:  "5Y",
+            hor_10: "10-year", hor_10_short: "10Y",
+            hor_20: "20-year", hor_20_short: "20Y",
+            head_under: "{val}% of {cat} active funds underperformed the index over the {hor} window.",
+            head_over:  "Only {val}% of {cat} active funds beat the index over the {hor} window.",
+            head_multi_under: "Average across {n} categories: {val}% of active funds underperformed over the {hor} window.",
+            head_multi_over:  "Average across {n} categories: only {val}% of active funds beat the index over the {hor} window.",
+            head_empty: "Toggle at least one category and horizon to see the headline.",
+            stat_worst: "Worst category",
+            stat_best: "Best category",
+            stat_avg: "Average",
+            avg_label: "across visible",
+            caption: "SPIVA scorecard from S&P Dow Jones Indices. Approximate figures from recent reports — the exact numbers wobble year to year, the qualitative pattern (longer window = worse for active) does not. Toggle fund categories and time horizons to compare. Switch between \"% underperforming\" and \"% beating the index\" — both views tell the same story.",
+        },
+        hk: {
+            mode_under: "跑輸 %",
+            mode_over:  "跑贏 %",
+            cat_heading: "基金類別",
+            hor_heading: "時間窗口",
+            yaxis_under: "跑輸指數的主動型基金 %",
+            yaxis_over:  "跑贏指數的主動型基金 %",
+            xaxis: "基金類別",
+            cat_lc: "美國大型股", cat_lc_short: "美大型",
+            cat_mc: "美國中型股", cat_mc_short: "美中型",
+            cat_sc: "美國小型股", cat_sc_short: "美小型",
+            cat_in: "國際股票",   cat_in_short: "國際",
+            cat_em: "新興市場",   cat_em_short: "新興",
+            cat_bd: "美國投資級債券", cat_bd_short: "美投資級債",
+            hor_5:  "5 年",  hor_5_short:  "5 年",
+            hor_10: "10 年", hor_10_short: "10 年",
+            hor_20: "20 年", hor_20_short: "20 年",
+            head_under: "在 {hor}窗口內,{cat}主動型基金中有 {val}% 跑輸指數。",
+            head_over:  "在 {hor}窗口內,{cat}主動型基金中只有 {val}% 跑贏指數。",
+            head_multi_under: "{n} 個類別的平均:在 {hor}窗口內,有 {val}% 的主動型基金跑輸指數。",
+            head_multi_over:  "{n} 個類別的平均:在 {hor}窗口內,只有 {val}% 的主動型基金跑贏指數。",
+            head_empty: "請至少選擇一個類別和一個時間窗口以查看摘要。",
+            stat_worst: "最差類別",
+            stat_best: "最佳類別",
+            stat_avg: "平均",
+            avg_label: "(已顯示類別)",
+            caption: "資料來自標準普爾道瓊指數 SPIVA 計分卡。為近期報告的近似數值 — 個別年份會略有波動,但「窗口越長、主動越糟」這個定性結論並不會改變。可切換類別和時間窗口進行比較,亦可在「跑輸 %」與「跑贏 %」之間切換 — 兩種視角講的是同一個故事。",
+        },
+        tw: {
+            mode_under: "落後 %",
+            mode_over:  "勝出 %",
+            cat_heading: "基金類別",
+            hor_heading: "時間窗口",
+            yaxis_under: "落後指數的主動型基金 %",
+            yaxis_over:  "勝出指數的主動型基金 %",
+            xaxis: "基金類別",
+            cat_lc: "美國大型股", cat_lc_short: "美大型",
+            cat_mc: "美國中型股", cat_mc_short: "美中型",
+            cat_sc: "美國小型股", cat_sc_short: "美小型",
+            cat_in: "國際股票",   cat_in_short: "國際",
+            cat_em: "新興市場",   cat_em_short: "新興",
+            cat_bd: "美國投資級債券", cat_bd_short: "美投資級債",
+            hor_5:  "5 年",  hor_5_short:  "5 年",
+            hor_10: "10 年", hor_10_short: "10 年",
+            hor_20: "20 年", hor_20_short: "20 年",
+            head_under: "在 {hor}窗口內,{cat}主動型基金中有 {val}% 落後指數。",
+            head_over:  "在 {hor}窗口內,{cat}主動型基金中只有 {val}% 勝出指數。",
+            head_multi_under: "{n} 個類別的平均:在 {hor}窗口內,有 {val}% 的主動型基金落後指數。",
+            head_multi_over:  "{n} 個類別的平均:在 {hor}窗口內,只有 {val}% 的主動型基金勝出指數。",
+            head_empty: "請至少選擇一個類別和一個時間窗口以查看摘要。",
+            stat_worst: "最差類別",
+            stat_best: "最佳類別",
+            stat_avg: "平均",
+            avg_label: "(已顯示類別)",
+            caption: "資料來自標普道瓊指數 SPIVA 計分卡。為近期報告的近似數字 — 個別年份會略有波動,但「窗口越長、主動越慘」這個定性結論並不會改變。可切換類別和時間窗口進行比較,亦可在「落後 %」與「勝出 %」之間切換 — 兩種視角說的是同一個故事。",
+        },
+        cn: {
+            mode_under: "跑输 %",
+            mode_over:  "跑赢 %",
+            cat_heading: "基金类别",
+            hor_heading: "时间窗口",
+            yaxis_under: "跑输指数的主动型基金 %",
+            yaxis_over:  "跑赢指数的主动型基金 %",
+            xaxis: "基金类别",
+            cat_lc: "美国大型股", cat_lc_short: "美大型",
+            cat_mc: "美国中型股", cat_mc_short: "美中型",
+            cat_sc: "美国小型股", cat_sc_short: "美小型",
+            cat_in: "国际股票",   cat_in_short: "国际",
+            cat_em: "新兴市场",   cat_em_short: "新兴",
+            cat_bd: "美国投资级债券", cat_bd_short: "美投资级债",
+            hor_5:  "5 年",  hor_5_short:  "5 年",
+            hor_10: "10 年", hor_10_short: "10 年",
+            hor_20: "20 年", hor_20_short: "20 年",
+            head_under: "在 {hor}窗口内,{cat}主动型基金中有 {val}% 跑输指数。",
+            head_over:  "在 {hor}窗口内,{cat}主动型基金中只有 {val}% 跑赢指数。",
+            head_multi_under: "{n} 个类别的平均:在 {hor}窗口内,有 {val}% 的主动型基金跑输指数。",
+            head_multi_over:  "{n} 个类别的平均:在 {hor}窗口内,只有 {val}% 的主动型基金跑赢指数。",
+            head_empty: "请至少选择一个类别和一个时间窗口以查看摘要。",
+            stat_worst: "最差类别",
+            stat_best: "最佳类别",
+            stat_avg: "平均",
+            avg_label: "(已显示类别)",
+            caption: "资料来自标普道琼斯指数 SPIVA 计分卡。为近期报告的近似数字 — 个别年份会略有波动,但\"窗口越长、主动越糟\"这一定性结论并不会改变。可切换类别和时间窗口进行比较,亦可在\"跑输 %\"与\"跑赢 %\"之间切换 — 两种视角讲的是同一个故事。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // SPIVA underperformance % — see week02_index_funds_etfs.md §2.4
+    // Indexed by category key.
+    const CATEGORIES = [
+        { key: "lc", color: "--sp-c-cat-lc", default: true,  data: { h5: 78, h10: 85, h20: 90 } },
+        { key: "mc", color: "--sp-c-cat-mc", default: false, data: { h5: 74, h10: 83, h20: 89 } },
+        { key: "sc", color: "--sp-c-cat-sc", default: false, data: { h5: 68, h10: 79, h20: 88 } },
+        { key: "in", color: "--sp-c-cat-in", default: false, data: { h5: 71, h10: 82, h20: 87 } },
+        { key: "em", color: "--sp-c-cat-em", default: false, data: { h5: 69, h10: 80, h20: 85 } },
+        { key: "bd", color: "--sp-c-cat-bd", default: false, data: { h5: 72, h10: 81, h20: 86 } },
+    ];
+    const HORIZONS = [
+        { key: "h5",  short_key: "hor_5_short",  long_key: "hor_5",  color: "--sp-c-h5"  },
+        { key: "h10", short_key: "hor_10_short", long_key: "hor_10", color: "--sp-c-h10" },
+        { key: "h20", short_key: "hor_20_short", long_key: "hor_20", color: "--sp-c-h20" },
+    ];
+
+    const ROOT = document.getElementById("sp-root");
+    const CHART = document.getElementById("sp-chart");
+    const MODE_HOST = document.getElementById("sp-mode");
+    const CAT_HOST = document.getElementById("sp-cat-toggles");
+    const HOR_HOST = document.getElementById("sp-hor-toggles");
+    const HEADLINE = document.getElementById("sp-headline-text");
+    const STATS_HOST = document.getElementById("sp-stats");
+
+    let mode = "under";  // "under" or "over"
+    const catEnabled = {};
+    CATEGORIES.forEach(c => { catEnabled[c.key] = c.default; });
+    const horEnabled = { h5: true, h10: true, h20: true };
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function buildCatToggles() {
+        const heading = CAT_HOST.querySelector(".sp-tg-label");
+        CAT_HOST.innerHTML = "";
+        if (heading) CAT_HOST.appendChild(heading);
+        CATEGORIES.forEach(c => {
+            const colorVar = getCssVar(c.color);
+            const lbl = document.createElement("label");
+            lbl.className = "sp-tg" + (catEnabled[c.key] ? " active" : "");
+            lbl.style.setProperty("--cur-color", colorVar);
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = catEnabled[c.key];
+            cb.addEventListener("change", () => {
+                catEnabled[c.key] = cb.checked;
+                lbl.classList.toggle("active", catEnabled[c.key]);
+                render();
+            });
+            const dot = document.createElement("span");
+            dot.className = "sp-tg-dot";
+            const txt = document.createElement("span");
+            txt.textContent = T["cat_" + c.key + "_short"];
+            lbl.appendChild(cb); lbl.appendChild(dot); lbl.appendChild(txt);
+            CAT_HOST.appendChild(lbl);
+        });
+    }
+
+    function buildHorToggles() {
+        const heading = HOR_HOST.querySelector(".sp-tg-label");
+        HOR_HOST.innerHTML = "";
+        if (heading) HOR_HOST.appendChild(heading);
+        HORIZONS.forEach(h => {
+            const colorVar = getCssVar(h.color);
+            const lbl = document.createElement("label");
+            lbl.className = "sp-tg" + (horEnabled[h.key] ? " active" : "");
+            lbl.style.setProperty("--cur-color", colorVar);
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = horEnabled[h.key];
+            cb.addEventListener("change", () => {
+                horEnabled[h.key] = cb.checked;
+                lbl.classList.toggle("active", horEnabled[h.key]);
+                render();
+            });
+            const dot = document.createElement("span");
+            dot.className = "sp-tg-dot";
+            const txt = document.createElement("span");
+            txt.textContent = T[h.short_key];
+            lbl.appendChild(cb); lbl.appendChild(dot); lbl.appendChild(txt);
+            HOR_HOST.appendChild(lbl);
+        });
+    }
+
+    function valueFor(c, h) {
+        const raw = c.data[h.key];
+        return mode === "under" ? raw : (100 - raw);
+    }
+
+    function render() {
+        const colorText = getCssVar("--sp-text");
+        const colorMuted = getCssVar("--sp-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--sp-card");
+
+        const visibleCats = CATEGORIES.filter(c => catEnabled[c.key]);
+        const visibleHors = HORIZONS.filter(h => horEnabled[h.key]);
+
+        const xLabels = visibleCats.map(c => T["cat_" + c.key + "_short"]);
+        const traces = visibleHors.map(h => ({
+            x: xLabels,
+            y: visibleCats.map(c => valueFor(c, h)),
+            name: T[h.long_key],
+            type: "bar",
+            marker: { color: getCssVar(h.color), line: { width: 0.6, color: colorBg } },
+            text: visibleCats.map(c => valueFor(c, h) + "%"),
+            textposition: "outside",
+            textfont: { size: 10, color: colorText },
+            cliponaxis: false,
+            hovertemplate: "<b>" + T[h.long_key] + ": %{y}%</b><extra></extra>",
+        }));
+
+        const layout = {
+            margin: { l: 64, r: 28, t: 12, b: 60 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            barmode: "group",
+            bargap: 0.25,
+            bargroupgap: 0.08,
+            xaxis: {
+                title: { text: T.xaxis, font: { color: colorMuted, size: 11 } },
+                gridcolor: "rgba(0,0,0,0)", zerolinecolor: colorGrid, color: colorText,
+                showspikes: true, spikemode: "across", spikedash: "dot",
+                spikecolor: colorMuted, spikethickness: 1,
+            },
+            yaxis: {
+                title: { text: mode === "under" ? T.yaxis_under : T.yaxis_over,
+                         font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+                range: [0, 105],
+                ticksuffix: "%",
+            },
+            legend: {
+                orientation: "h", x: 0.5, xanchor: "center",
+                y: 1.06, yanchor: "bottom",
+                font: { size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+            hoverlabel: { bgcolor: colorBg, bordercolor: colorMuted, font: { color: colorText } },
+            shapes: mode === "under" ? [{
+                type: "line", xref: "paper", yref: "y",
+                x0: 0, x1: 1, y0: 50, y1: 50,
+                line: { color: colorMuted, width: 0.8, dash: "dot" },
+            }] : [],
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Headline card
+        if (visibleCats.length === 0 || visibleHors.length === 0) {
+            HEADLINE.textContent = T.head_empty;
+        } else if (visibleCats.length === 1 && visibleHors.length === 1) {
+            const c = visibleCats[0];
+            const h = visibleHors[0];
+            const v = valueFor(c, h);
+            const tpl = mode === "under" ? T.head_under : T.head_over;
+            const txt = tpl
+                .replace("{val}", "STRONG_OPEN" + v + "%STRONG_CLOSE")
+                .replace("{cat}", T["cat_" + c.key])
+                .replace("{hor}", T[h.long_key]);
+            HEADLINE.innerHTML = txt
+                .replace("STRONG_OPEN", "<strong>")
+                .replace("STRONG_CLOSE", "</strong>");
+        } else {
+            // Multi-selection: show longest-horizon average (or any single horizon if only one)
+            const h = visibleHors[visibleHors.length - 1];  // longest
+            const vals = visibleCats.map(c => valueFor(c, h));
+            const avg = Math.round(vals.reduce((a, b) => a + b, 0) / vals.length);
+            const tpl = mode === "under" ? T.head_multi_under : T.head_multi_over;
+            const txt = tpl
+                .replace("{n}", visibleCats.length)
+                .replace("{val}", "STRONG_OPEN" + avg + "%STRONG_CLOSE")
+                .replace("{hor}", T[h.long_key]);
+            HEADLINE.innerHTML = txt
+                .replace("STRONG_OPEN", "<strong>")
+                .replace("STRONG_CLOSE", "</strong>");
+        }
+
+        // Stats cards: worst, best, average across visible (cat × hor) cells.
+        STATS_HOST.innerHTML = "";
+        if (visibleCats.length > 0 && visibleHors.length > 0) {
+            // Build flat list of (cat, hor, val)
+            const cells = [];
+            visibleCats.forEach(c => visibleHors.forEach(h => {
+                cells.push({ c, h, v: valueFor(c, h) });
+            }));
+            // For "under" mode, "worst" = highest underperformance %.
+            // For "over" mode, "worst" = lowest "beat the index" %.
+            const worstCell = mode === "under"
+                ? cells.reduce((a, b) => b.v > a.v ? b : a)
+                : cells.reduce((a, b) => b.v < a.v ? b : a);
+            const bestCell = mode === "under"
+                ? cells.reduce((a, b) => b.v < a.v ? b : a)
+                : cells.reduce((a, b) => b.v > a.v ? b : a);
+            const avg = Math.round(cells.reduce((s, x) => s + x.v, 0) / cells.length);
+
+            const accentColor = mode === "under"
+                ? getCssVar("--sp-c-h20") : getCssVar("--sp-c-h5");
+
+            function addCard(name, val, detail, leftColor) {
+                const div = document.createElement("div");
+                div.className = "sp-stat";
+                div.style.borderLeftColor = leftColor;
+                div.innerHTML =
+                    '<div class="sp-stat-name">' + name + '</div>' +
+                    '<div class="sp-stat-val">' + val + '%</div>' +
+                    '<div class="sp-stat-detail">' + detail + '</div>';
+                STATS_HOST.appendChild(div);
+            }
+            addCard(T.stat_worst, worstCell.v,
+                    T["cat_" + worstCell.c.key] + " · " + T[worstCell.h.long_key],
+                    getCssVar(worstCell.c.color));
+            addCard(T.stat_best, bestCell.v,
+                    T["cat_" + bestCell.c.key] + " · " + T[bestCell.h.long_key],
+                    getCssVar(bestCell.c.color));
+            addCard(T.stat_avg, avg, T.avg_label, accentColor);
+        }
+    }
+
+    MODE_HOST.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            MODE_HOST.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            mode = btn.dataset.mode;
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("sp-mode-under").textContent = T.mode_under;
+        document.getElementById("sp-mode-over").textContent = T.mode_over;
+        document.getElementById("sp-cat-heading").textContent = T.cat_heading;
+        document.getElementById("sp-hor-heading").textContent = T.hor_heading;
+        document.getElementById("sp-caption").textContent = T.caption;
+    }
+    applyI18n();
+    buildCatToggles();
+    buildHorToggles();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* sandboxed — ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(() => {
+        buildCatToggles();
+        buildHorToggles();
+        render();
+    });
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+</body>
+</html>
